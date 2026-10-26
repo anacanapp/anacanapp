@@ -60,18 +60,14 @@ CREATE INDEX IF NOT EXISTS products_store_idx ON public.products (store, is_acti
 ALTER TABLE public.orders
   ADD COLUMN IF NOT EXISTS store text,
   ADD COLUMN IF NOT EXISTS delivery_slot text,
-  ADD COLUMN IF NOT EXISTS payment_method text,
+  ADD COLUMN IF NOT EXISTS payment_method text,  -- exists live; kept for older schemas
   ADD COLUMN IF NOT EXISTS phone text,
   ADD COLUMN IF NOT EXISTS subtotal numeric(10,2),
   ADD COLUMN IF NOT EXISTS discount_amount numeric(10,2) NOT NULL DEFAULT 0,
   ADD COLUMN IF NOT EXISTS shipping_fee numeric(10,2) NOT NULL DEFAULT 0,
   ADD COLUMN IF NOT EXISTS coupon_code text;
-DO $$
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'orders_payment_method_check') THEN
-    ALTER TABLE public.orders ADD CONSTRAINT orders_payment_method_check CHECK (payment_method IS NULL OR payment_method IN ('cash','card_on_delivery'));
-  END IF;
-END $$;
+-- payment_method already exists live (Epoint / cake / album values such as 'card', 'c2c_transfer');
+-- no CHECK here so those flows keep working. place_aptek_order() validates its own two values.
 CREATE INDEX IF NOT EXISTS orders_store_created_idx ON public.orders (store, created_at DESC) WHERE store IS NOT NULL;
 
 -- ── Seed: aloe.az baby-feeding catalogue (prices refresh, admin activation is kept) ──

@@ -49,7 +49,24 @@ same placeholders. Hashed seed files and `verify-bundles` pins are untouched.
 
 ## Operator steps
 
-### 1. Database (requires operator, ~1 min)
+### 1. Database — **applied on Google 2026-10-26**
+Status: installed on `anacan-gcp-candidate` (phase `active`).
+- **Backup:** verified backup `base_0000000100000093000000FA` was taken first.
+- **Dry-run:** `/home/anacan-runner/39-aptek-store.dryrun.sql` (ends in ROLLBACK) passed.
+- **Apply:** `39-aptek-store.sql` was applied with `run-sql.py`
+  (sha256 `2d8f22e2…7d4d`, identical to the committed migration file).
+- **Reload:** `39b-aptek-store-reload.sql` reloaded the PostgREST schema cache (12:13:37 UTC).
+- **Verified:**
+  - 52 `store='aptek'` products, one of them tagged `infant_formula`;
+  - config `enabled=false` with 4 sets; coupon `ANACAN10` (`aptek`);
+  - both functions are SECURITY DEFINER and owned by `pgadmin`;
+  - `anon` can read the config and products but cannot run `place_aptek_order`;
+  - a normal user's order returns `APTEK_DISABLED` while the store is off;
+  - 3 CDC/guard triggers are still on `products`.
+- **Live-schema note:** `orders.payment_method` already exists live (Epoint/cake/album values), so
+  the migration adds **no** CHECK constraint on it.
+
+Original procedure, kept for re-runs:
 Migration: `supabase/migrations/20261027090000_aptek_store.sql` (+ `.cdc.json`).
 
 - Adds nullable columns to `products` / `orders`. No new table, no cron, no timer.
