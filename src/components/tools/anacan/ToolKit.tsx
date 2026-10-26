@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
+import { rd } from '@/lib/redesign-i18n';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 /**
@@ -44,19 +44,15 @@ interface ToolHeaderProps {
 }
 
 export const ToolHeader = ({ title, eyebrow, onBack, actions }: ToolHeaderProps) => (
-  <header className="a-topbar">
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-      {onBack && (
-        <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label="Back">
-          <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
-        </motion.button>
-      )}
-      <div style={{ minWidth: 0 }}>
-        {eyebrow && <p className="a-eyebrow">{eyebrow}</p>}
-        <p className="a-wordmark" style={{ fontSize: 16 }}>
-          {title}
-        </p>
-      </div>
+  <header className="a3-topbar a3-tool-head">
+    {onBack && (
+      <button type="button" onClick={onBack} className="a3-icon-btn" aria-label={rd('back')}>
+        <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+      </button>
+    )}
+    <div className="a3-grow" style={{ minWidth: 0 }}>
+      {eyebrow && <p className="a3-eyebrow" style={{ margin: 0 }}>{eyebrow}</p>}
+      <h1 className="a3-tool-title">{title}</h1>
     </div>
     {actions && <div className="a-topbar-actions">{actions}</div>}
   </header>

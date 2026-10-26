@@ -212,10 +212,10 @@ const CreatePostScreen = ({ onBack, groupId, groups, initialBlog }: CreatePostSc
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_geri", "Geri")}>
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_geri", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
             </motion.button>
-            <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("createpostscreen_yeni_paylasim_4f5b15", "Yeni Paylaşım")}</p>
+            <p className="a3-tool-title">{tr("createpostscreen_yeni_paylasim_4f5b15", "Yeni Paylaşım")}</p>
           </div>
           <div className="a-topbar-actions">
             <motion.button

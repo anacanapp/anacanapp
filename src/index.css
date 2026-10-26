@@ -9,17 +9,17 @@
 @layer base {
   :root {
     /* Anacan Color Palette - Warm Coral & Beige Theme */
-    --background: 35 35% 97%;
-    --foreground: 20 30% 15%;
+    --background: 18 100% 98%; /* #fff8f5 = --a-bg */
+    --foreground: 6 14% 15%; /* #2a2120 = --a-ink */
 
     --card: 0 0% 100%;
-    --card-foreground: 20 30% 15%;
+    --card-foreground: 6 14% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 30% 15%;
+    --popover-foreground: 6 14% 15%;
 
-    /* Primary - Coral #FF5A5F */
-    --primary: 358 100% 68%;
+    /* Primary - coral-strong #D93A40: white text passes AA (was #FF5A5F, ~2.9:1) */
+    --primary: 358 68% 54%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary - Warm Beige */
@@ -28,10 +28,10 @@
 
     /* Muted - Soft Beige */
     --muted: 35 30% 93%;
-    --muted-foreground: 20 20% 45%;
+    --muted-foreground: 11 11% 38%; /* #6b5a56 = --a-ink-soft */
 
     /* Accent - Deep Coral */
-    --accent: 357 85% 60%;
+    --accent: 357 72% 46%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 55%;
@@ -39,7 +39,7 @@
 
     --border: 35 25% 88%;
     --input: 35 30% 91%;
-    --ring: 358 100% 68%;
+    --ring: 358 68% 54%;
 
     --radius: 1rem;
 
@@ -97,17 +97,17 @@
   .dark {
     /* Dark sxem: fon #161922, boxlar #3b3c41, mətnlər ağ
        (anacan-design.css .dark ilə sinxron) */
-    --background: 225 21% 11%;
+    --background: 231 14% 10%; /* #15161c = .dark --a-bg */
     --foreground: 0 0% 100%;
 
-    --card: 230 5% 24%;
+    --card: 231 11% 14%; /* #1f2027 = .dark --a-surface */
     --card-foreground: 0 0% 100%;
 
-    --popover: 230 5% 24%;
+    --popover: 231 11% 14%;
     --popover-foreground: 0 0% 100%;
 
-    /* Coral (#FF5A5F) aksenti */
-    --primary: 358 100% 68%;
+    /* coral-strong, light ilə eyni */
+    --primary: 358 68% 54%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 230 5% 28%;
@@ -124,7 +124,7 @@
 
     --border: 230 5% 32%;
     --input: 230 5% 28%;
-    --ring: 358 100% 68%;
+    --ring: 358 68% 54%;
 
     /* Life stage colors for dark mode - brighter for visibility */
     --flow: 350 75% 65%;

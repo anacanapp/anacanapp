@@ -61,12 +61,12 @@ const AppearanceScreen = ({ onBack }: AppearanceScreenProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{tr("appearancescreen_tema_ve_reng_secimleri_f46e36", "Tema və rəng seçimləri")}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("appearancescreen_gorunus_165fe3", "Görünüş")}</p>
+              <p className="a3-tool-title">{tr("appearancescreen_gorunus_165fe3", "Görünüş")}</p>
             </div>
           </div>
         </header>

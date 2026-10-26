@@ -158,12 +158,12 @@ const NameVotingScreen: React.FC<NameVotingScreenProps> = ({ onBack }) => {
         {/* Top bar */}
         <header className="a-topbar" style={{ paddingTop: 'max(env(safe-area-inset-top), 14px)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
             </motion.button>
             <div style={{ minWidth: 0 }}>
               <p className="a-eyebrow">{tr("namevotingscreen_her_ikiniz_beyendikde_match_olur_28c3f5", "Hər ikiniz bəyəndikdə match olur")}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("namevotingscreen_ad_secimi_465d2a", "Ad Seçimi")}</p>
+              <p className="a3-tool-title">{tr("namevotingscreen_ad_secimi_465d2a", "Ad Seçimi")}</p>
             </div>
           </div>
           {matches.length > 0 &&

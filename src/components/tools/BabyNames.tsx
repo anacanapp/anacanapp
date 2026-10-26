@@ -119,12 +119,12 @@ const BabyNames = forwardRef<HTMLDivElement, BabyNamesProps>(({ onBack }, ref) =
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }}>
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }}>
+              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow" data-name-country>{followupText('names_country', language, { country: localizedCountryName(country, language) })} · {names.length}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("babynames_korpe_adlari_357880", "Körpə Adları")}</p>
+              <p className="a3-tool-title">{tr("babynames_korpe_adlari_357880", "Körpə Adları")}</p>
             </div>
           </div>
           <div className="a-topbar-actions">

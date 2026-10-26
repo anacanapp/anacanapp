@@ -1347,6 +1347,7 @@
 }
 
 .a-inline-bar-fill {
+  width: 0; /* start empty: motion/inline width animates up, never down from 100% */
   height: 100%;
   border-radius: 999px;
   background: var(--a-grad-peach);
@@ -2910,3 +2911,10 @@ html.a-lite .a3-hero::before, html.a-lite .a3-art img, html.a-lite .a3-mascot.bo
 .ap-tstep.on i { background: var(--a-coral-strong); }
 .ap-note { padding: 12px 14px; border-radius: 14px; background: var(--a-surface-soft); font-size: 13px; line-height: 1.45; color: var(--a-ink-soft); }
 .dark .ap-img, .dark .ap-gallery-wrap, .dark .ap-thumb { background: #fdfaf8; }
+
+/* Tool screens: shared header (ToolKit.ToolHeader) */
+.a3-tool-head { gap: 8px; }
+.a3-tool-title { margin: 0; overflow: hidden; font-size: 22px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; color: var(--a-ink); text-overflow: ellipsis; white-space: nowrap; }
+.a-topbar > div { min-width: 0; }
+.a-topbar > div > div { min-width: 0; }
+.a-topbar .a3-icon-btn { margin-inline-start: -8px; }

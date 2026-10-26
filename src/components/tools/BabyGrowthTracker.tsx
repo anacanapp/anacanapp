@@ -364,12 +364,12 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }}>
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }}>
+              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{selectedChild?.name || tr("common_qeyd", "qeyd")}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("babygrowthtracker_i_nkisaf_izleyicisi_71039e", "\u0130nki\u015Faf izl\u0259yicisi")}</p>
+              <p className="a3-tool-title">{tr("babygrowthtracker_i_nkisaf_izleyicisi_71039e", "\u0130nki\u015Faf izl\u0259yicisi")}</p>
             </div>
           </div>
           <div className="a-topbar-actions">

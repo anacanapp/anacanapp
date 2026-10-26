@@ -56,8 +56,8 @@ export default function UserProfileScreen({ userId, onBack, onUserClick, onSendM
     <div className="a-shell">
       <header className="a-topbar">
         <div className="flex min-w-0 items-center gap-3">
-          <button onClick={onBack} className="a-icon-btn" aria-label={tr('common_geri', 'Geri')}><ArrowLeft size={18} className="rtl:rotate-180" /></button>
-          <h1 className="a-wordmark" style={{ fontSize: 18 }}>{isCurrentUser ? tr('community_my_profile', 'Cəmiyyət profilim') : tr('untranslated_profil_v8b0sk', 'Profil')}</h1>
+          <button onClick={onBack} className="a3-icon-btn" aria-label={tr('common_geri', 'Geri')}><ArrowLeft size={20} className="rtl:rotate-180" /></button>
+          <h1 className="a3-tool-title">{isCurrentUser ? tr('community_my_profile', 'Cəmiyyət profilim') : tr('untranslated_profil_v8b0sk', 'Profil')}</h1>
         </div>
         {isCurrentUser && onEditProfile && <button onClick={onEditProfile} className="a-icon-btn" aria-label={tr('community_edit_profile', 'Profili redaktə et')}><Pencil size={18} /></button>}
       </header>

@@ -115,12 +115,12 @@ const PartnerAppointmentsScreen = ({ onBack }: Props) => {
       <div className="a-shell">
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr('common_geri', 'Geri')}>
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr('common_geri', 'Geri')}>
+              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{tr('partnerv2_onun_vizitleri', 'Onun vizitləri')}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr('partnerv2_randevular', 'Randevular')}</p>
+              <p className="a3-tool-title">{tr('partnerv2_randevular', 'Randevular')}</p>
             </div>
           </div>
         </header>

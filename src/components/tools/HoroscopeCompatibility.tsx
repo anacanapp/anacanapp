@@ -349,12 +349,12 @@ ${tr("horoscope_share_footer", "Anacan tətbiqi ilə yaradılıb 💜")}`;
         {/* Result Header */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-            <motion.button onClick={() => setAnalysisResult(null)} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label="Back">
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+            <motion.button onClick={() => setAnalysisResult(null)} className="a3-icon-btn" whileTap={{ scale: 0.9 }} aria-label="Back">
+              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
             </motion.button>
             <div style={{ minWidth: 0 }}>
               <p className="a-eyebrow">{tr("horoscopecompatibility_ulduz_fali_344189", "Ulduz Fal\u0131")}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("horoscopecompatibility_neticeniz_d14591", "Nəticəniz")}</p>
+              <p className="a3-tool-title">{tr("horoscopecompatibility_neticeniz_d14591", "Nəticəniz")}</p>
             </div>
           </div>
         </header>

@@ -269,12 +269,12 @@ const HelpScreen = ({ onBack }: HelpScreenProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{tr("helpscreen_suallariniza_cavab_tapin_764218", "Suallarınıza cavab tapın")}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("helpscreen_yardim_merkezi_0987ed", "Yardım Mərkəzi")}</p>
+              <p className="a3-tool-title">{tr("helpscreen_yardim_merkezi_0987ed", "Yardım Mərkəzi")}</p>
             </div>
           </div>
         </header>

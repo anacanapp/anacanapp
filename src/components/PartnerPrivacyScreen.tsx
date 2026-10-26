@@ -140,12 +140,12 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{tr("partnerprivacyscreen_partner_melumatlarinizi_idare_edin_7c5e99", "Partner məlumatlarınızı idarə edin")}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("partnerprivacyscreen_gizlilik_tehlukesizlik_67bec6", "Gizlilik & Təhlükəsizlik")}</p>
+              <p className="a3-tool-title">{tr("partnerprivacyscreen_gizlilik_tehlukesizlik_67bec6", "Gizlilik & Təhlükəsizlik")}</p>
             </div>
           </div>
         </header>

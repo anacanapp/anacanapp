@@ -236,12 +236,12 @@ const DoctorsHospitals = ({ onBack }: DoctorsHospitalsProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }}>
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }}>
+              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{tr("doctorshospitals_klinika_3c7a2d", "Klinika")} · {tr("doctorshospitals_hekim_c127f7", 'Həkim')}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("doctorshospitals_hekimler_ve_xestexanalar_b29ffa", "H\u0259kiml\u0259r v\u0259 X\u0259st\u0259xanalar")}</p>
+              <p className="a3-tool-title">{tr("doctorshospitals_hekimler_ve_xestexanalar_b29ffa", "H\u0259kiml\u0259r v\u0259 X\u0259st\u0259xanalar")}</p>
             </div>
           </div>
         </header>
