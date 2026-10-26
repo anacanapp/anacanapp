@@ -21,9 +21,12 @@ interface TrackerTileProps {
 /** Compact "today" tile: icon, big value, label. Increments pop with a floating +1. */
 export function TrackerTile({ icon: Icon, tone, value, label, onClick, plus, count, live, ariaLabel }: TrackerTileProps) {
   const previous = useRef(count);
+  const tappedAt = useRef(0);
   const [bump, setBump] = useState(0);
   useEffect(() => {
-    if (count !== undefined && previous.current !== undefined && count > previous.current) setBump((n) => n + 1);
+    // Only celebrate increases the user just caused, not data arriving from the server.
+    const fresh = Date.now() - tappedAt.current < 5000;
+    if (fresh && count !== undefined && previous.current !== undefined && count > previous.current) setBump((n) => n + 1);
     previous.current = count;
   }, [count]);
 
@@ -32,7 +35,7 @@ export function TrackerTile({ icon: Icon, tone, value, label, onClick, plus, cou
       type="button"
       className={`a3-tk${live ? ' live' : ''}${bump ? ' bump' : ''}`}
       key={bump}
-      onClick={() => { void hapticFeedback.light(); onClick(); }}
+      onClick={() => { tappedAt.current = Date.now(); void hapticFeedback.light(); onClick(); }}
       aria-label={ariaLabel || label}
     >
       <span className={`ico ${tone}`}><Icon size={16} strokeWidth={2} /></span>

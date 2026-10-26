@@ -16,16 +16,21 @@ export function agoLabel(iso?: string | null): string | null {
   return mins < 60 ? rd('m_minutes_ago', { n: mins }) : rd('m_hours_ago', { n: Math.floor(mins / 60) });
 }
 
+/** Compact "1:30" duration for small tiles. */
+export function clockDuration(totalMinutes: number): string {
+  return `${Math.floor(totalMinutes / 60)}:${String(totalMinutes % 60).padStart(2, '0')}`;
+}
+
 export function hoursMinutes(totalMinutes: number): string {
   return rd('m_hm', { h: Math.floor(totalMinutes / 60), m: totalMinutes % 60 });
 }
 
 /** Mommy hero: age ring (first year, then up to 3 years), companion art and today's feed/sleep stats. */
 export function MommyHero({
-  greeting, babyName, ageInDays, months, remainingDays, dayNumber, correctedText, lastFeedIso, sleepMinutes, art, onOpenDay,
+  greeting, babyName, ageInDays, months, remainingDays, dayNumber, correctedText, lastFeedIso, sleepMinutes, onOpenDay,
 }: {
   greeting: string; babyName: string; ageInDays: number; months: number; remainingDays: number; dayNumber: number;
-  correctedText?: string | null; lastFeedIso?: string | null; sleepMinutes: number; art?: string | null; onOpenDay?: () => void;
+  correctedText?: string | null; lastFeedIso?: string | null; sleepMinutes: number; onOpenDay?: () => void;
 }) {
   const ringValue = months < 12 ? (ageInDays / 365) * 100 : (ageInDays / 1095) * 100;
   return (
@@ -42,9 +47,7 @@ export function MommyHero({
           </Ring>
         </button>
         <button type="button" className="a3-art" onClick={onOpenDay} aria-label={babyName}>
-          {art
-            ? <img src={art} alt="" width={120} height={120} style={{ position: 'relative', width: 120, height: 120, objectFit: 'contain' }} />
-            : <Mascot stage="mommy" pose="mode" width={120} bob />}
+          <Mascot stage="mommy" pose="mode" width={120} bob />
         </button>
         <div className="a3-hero-txt">
           <p className="a3-hero-line"><em>{babyName}</em></p>

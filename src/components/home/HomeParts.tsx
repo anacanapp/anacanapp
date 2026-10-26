@@ -29,9 +29,9 @@ export function HomeTopbar({ name, avatarUrl, onSearch, onChat, chatUnread = 0, 
   const initial = (name || 'A').trim().charAt(0).toUpperCase();
   return (
     <header className="a3-topbar">
-      <p className="a3-wordmark a3-grow">anacan.</p>
+      <p className="a3-wordmark a3-grow"><bdi dir="ltr">anacan.</bdi></p>
       {onSearch && <button type="button" className="a3-icon-btn" onClick={onSearch} aria-label={rd('search')}><Search size={22} /></button>}
-      {extra}
+      {extra && <span className="a3-topbar-extra">{extra}</span>}
       {onChat && (
         <button type="button" className="a3-icon-btn" onClick={onChat} aria-label={rd('messages')}>
           <MessageCircle size={22} />

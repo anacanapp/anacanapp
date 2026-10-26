@@ -27,6 +27,7 @@ const priorityConfig = {
   3: { label: tr("hospitalbag_i_steye_bagli_43582b", 'İstəyə bağlı'), bg: 'var(--a-green-1)', ink: 'var(--a-green-ink)', dot: '🟢' },
 };
 
+import { AptekHomeCard } from '@/components/aptek/AptekEntry';
 const HospitalBag = forwardRef<HTMLDivElement, HospitalBagProps>(({ onBack }, ref) => {
   useScrollToTop();
   useScreenAnalytics('HospitalBag', 'Tools');
@@ -293,6 +294,7 @@ const HospitalBag = forwardRef<HTMLDivElement, HospitalBagProps>(({ onBack }, re
             <p className="mt-1 text-sm" style={{ margin: '4px 0 0', color: 'var(--a-green-ink)', opacity: 0.85 }}>{tr("hospitalbag_cantaniz_hazirdir_xosbext_dogus_279a30", "Çantanız hazırdır. Xoşbəxt doğuş!")}</p>
           </motion.div>
         )}
+        <div className="a-scope" style={{ marginTop: 4 }}><AptekHomeCard stage="bump" context="bag" /></div>
         <div className="a-card mt-4"><ModuleArticles module="hospitalBag" /></div>
       </ToolPage>
     </div>

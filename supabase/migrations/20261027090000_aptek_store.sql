@@ -173,7 +173,7 @@ RETURNS jsonb
 LANGUAGE sql
 STABLE
 SECURITY DEFINER
-SET search_path = public, pg_temp
+SET search_path = pg_catalog, public, pg_temp
 AS $$
   -- The admin settings hook may store values JSON-encoded as a string; unwrap those.
   SELECT CASE WHEN jsonb_typeof(value) = 'string' THEN (value #>> '{}')::jsonb ELSE value END
@@ -195,7 +195,7 @@ CREATE OR REPLACE FUNCTION public.place_aptek_order(
 ) RETURNS jsonb
 LANGUAGE plpgsql
 SECURITY DEFINER
-SET search_path = public, pg_temp
+SET search_path = pg_catalog, public, pg_temp
 AS $$
 DECLARE
   v_uid uuid := auth.uid();

@@ -2591,6 +2591,9 @@ html.a-lite .a-nav { background: var(--a-nav-solid); }
 /* ---------- Top bar ---------- */
 .a3-topbar { display: flex; align-items: center; gap: 2px; padding: 12px 0 6px; min-height: 60px; }
 .a3-topbar .a3-grow { flex: 1; min-width: 0; }
+.a3-topbar .a3-wordmark { min-width: max-content; }
+.a3-topbar-extra { display: flex; align-items: center; gap: 2px; min-width: 0; overflow: hidden; }
+.a3-topbar-extra > * { min-width: 0; }
 .a3-wordmark { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.045em; color: var(--a-coral); }
 .a3-title { margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -0.035em; color: var(--a-ink); }
 .a3-icon-btn { position: relative; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: var(--a-ink); background: transparent; border: 0; cursor: pointer; transition: transform 160ms var(--a-ease), background 160ms; flex-shrink: 0; }
@@ -2632,7 +2635,7 @@ html.a-lite .a-nav { background: var(--a-nav-solid); }
 .a3-rail > * { flex-shrink: 0; scroll-snap-align: start; }
 .a3-num { font-variant-numeric: tabular-nums; }
 .a3-ask { display: flex; align-items: center; gap: 8px; height: 52px; padding: 4px 4px 4px 18px; border-radius: 999px; background: var(--a-surface); box-shadow: var(--a-card-shadow); border: 0; width: 100%; cursor: text; text-align: start; }
-.a3-ask span { flex: 1; color: var(--a-ink-soft); font-size: 16px; }
+.a3-ask > span:not(.a3-go) { flex: 1; color: var(--a-ink-soft); font-size: 16px; }
 .a3-go { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--a-coral-strong); color: var(--a-on-coral); box-shadow: var(--a-coral-shadow); flex-shrink: 0; }
 
 /* ---------- Hero with progress ring ---------- */
@@ -2683,11 +2686,11 @@ html.a-lite .a-nav { background: var(--a-nav-solid); }
 
 /* ---------- Today trackers ---------- */
 .a3-today { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
-.a3-tk { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; min-height: 96px; padding: 12px 10px 10px; border: 0; border-radius: 18px; background: var(--a-surface); box-shadow: var(--a-card-shadow); color: var(--a-ink); text-align: start; cursor: pointer; transition: transform 160ms var(--a-ease); min-width: 0; }
+.a3-tk { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; min-height: 96px; padding: 12px 8px 10px; border: 0; border-radius: 18px; background: var(--a-surface); box-shadow: var(--a-card-shadow); color: var(--a-ink); text-align: start; cursor: pointer; transition: transform 160ms var(--a-ease); min-width: 0; }
 .a3-tk:active { transform: scale(0.96); }
 .a3-tk .ico { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 11px; }
 .a3-tk b { display: block; font-size: 19px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.a3-tk .lbl { display: block; font-size: 12.5px; font-weight: 500; color: var(--a-ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.a3-tk .lbl { display: block; font-size: 12px; font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; color: var(--a-ink-soft); overflow-wrap: break-word; }
 .a3-tk .plus { position: absolute; top: 10px; inset-inline-end: 10px; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--a-coral-soft); color: var(--a-accent-ink); }
 .a3-tk.live { background: var(--a-deep); color: var(--a-on-deep); }
 .a3-tk.live .lbl { color: inherit; opacity: 0.7; }

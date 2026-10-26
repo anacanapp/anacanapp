@@ -227,7 +227,7 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
         <div className="a3-hero" aria-label={rd('f_cycle')}>
           <div className="a3-hero-top">
             <span className="a3-chip ac">{PHASE_INFO[currentPhase].emoji} {PHASE_INFO[currentPhase].labelAz}</span>
-            <span className="a3-chip a3-num">{rd('f_days_of', { n: cycleLength })}</span>
+            <span className="a3-chip a3-num">{rd('f_cycle_days', { n: cycleLength })}</span>
           </div>
           <div className="a3-hero-main">
             <Ring value={Math.min(100, currentDay / (cycleLength || 28) * 100)}>

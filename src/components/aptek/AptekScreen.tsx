@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Search, ShoppingBag, Package, ChevronRight, Truck, Banknote, CreditCard, Info } from 'lucide-react';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';
@@ -55,7 +55,12 @@ export default function AptekScreen({ onBack, initialScreen }: { onBack: () => v
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => pushBackHandler(() => { pop(); return true; }), [stack.length]);
-  useEffect(() => { document.querySelector('[data-scroll-container]')?.scrollTo({ top: 0 }); }, [stack.length, view.name]);
+  const root = useRef<HTMLDivElement>(null);
+  // In the app this screen is its own scroller inside .a-subscreen; fall back to the tab scroller.
+  useEffect(() => {
+    root.current?.scrollTo({ top: 0 });
+    document.querySelector('[data-scroll-container]')?.scrollTo({ top: 0 });
+  }, [stack.length, view.name]);
 
   const { isAdmin } = useAuth();
   const { available, config } = useAptekAvailable();
@@ -84,7 +89,7 @@ export default function AptekScreen({ onBack, initialScreen }: { onBack: () => v
 
   if (!available) {
     return (
-      <Shell title={ap('title')} onBack={onBack}>
+      <Shell title={ap('title')} onBack={onBack} rootRef={root}>
         <div className="a3-empty" style={{ paddingTop: 48 }}>
           <Mascot stage="mommy" pose="mode" width={110} />
           <p style={{ fontWeight: 700, margin: 0 }}>{ap('err_disabled')}</p>
@@ -106,6 +111,7 @@ export default function AptekScreen({ onBack, initialScreen }: { onBack: () => v
       title={view.name === 'cart' ? ap('cart_title') : view.name === 'checkout' ? ap('checkout') : view.name === 'orders' ? ap('my_orders') : ap('title')}
       onBack={pop}
       actions={view.name === 'cart' || view.name === 'checkout' || view.name === 'success' ? undefined : cartButton}
+      rootRef={root}
     >
       {isAdmin && !config?.enabled && <p className="ap-note" style={{ marginBottom: 12 }}><Info size={14} style={{ display: 'inline', verticalAlign: '-2px' }} /> {ap('admin_preview')}</p>}
       {isLoading && <div className="ap-grid" aria-busy="true">{[0, 1, 2, 3].map((i) => <div key={i} className="ap-card" style={{ height: 250, opacity: 0.5 }} />)}</div>}
@@ -120,11 +126,11 @@ export default function AptekScreen({ onBack, initialScreen }: { onBack: () => v
   );
 }
 
-function Shell({ title, onBack, actions, children }: {
-  title: string; onBack: () => void; actions?: React.ReactNode; children: React.ReactNode;
+function Shell({ title, onBack, actions, children, rootRef }: {
+  title: string; onBack: () => void; actions?: React.ReactNode; children: React.ReactNode; rootRef?: React.Ref<HTMLDivElement>;
 }) {
   return (
-    <div className="a-scope a3-enter" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
+    <div ref={rootRef} className="a-scope a3-enter" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
       <div className="a-shell" style={{ paddingBottom: 24 }}>
         <header className="a3-topbar">
           <button type="button" className="a3-icon-btn" onClick={onBack} aria-label={rd('back')}>
@@ -309,7 +315,7 @@ function ProductPage(c: Common & { id: string }) {
         {p.images.length > 1 && <div className="ap-dots" aria-hidden="true">{p.images.map((s, i) => <i key={s} className={i === slide ? 'on' : undefined} />)}</div>}
       </div>
       <section className="a3-sec" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {p.brand && <p className="a3-eyebrow" style={{ margin: 0 }}>{p.brand}</p>}
+        {p.brand && <p className="a3-eyebrow" style={{ margin: 0, textTransform: 'none' }}>{p.brand}</p>}
         <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em' }}>{p.name}</h2>
         <p className="ap-pd-price a3-num"><b>{formatAzn(p.price)}</b>{off > 0 && p.original_price && <s>{formatAzn(p.original_price)}</s>}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>

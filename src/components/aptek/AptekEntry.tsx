@@ -5,6 +5,11 @@ import { homeOfferContext, offerProducts, type OfferContext } from '@/lib/aptek-
 import { ap, formatAzn, type AptekKey } from '@/lib/aptek-i18n';
 import { Mascot } from '@/components/anacan/Mascot';
 import { OfferCard } from './AptekParts';
+import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
+
+/** Opens an Aptek screen from places that have no navigation prop (tool screens). */
+export const openAptekScreen = (screen: string) =>
+  window.dispatchEvent(new CustomEvent<PushNavIntent>(PUSH_NAV_EVENT, { detail: { screen } }));
 
 const fold = (v: string) => v.toLocaleLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 
@@ -31,12 +36,13 @@ export function AptekHomeCard({ stage, babyMonths, babyName, context, onOpen }: 
   babyName?: string;
   /** Overrides the age-based context (e.g. 'bag' from the hospital bag). */
   context?: OfferContext;
-  onOpen: (screen: string) => void;
+  onOpen?: (screen: string) => void;
 }) {
   const { available, config } = useAptekAvailable();
   const { data: products = [] } = useAptekProducts(available);
   const cart = useAptekCart();
   if (!available || !products.length || stage === 'flow') return null;
+  const open = onOpen || openAptekScreen;
 
   const ctx = context || homeOfferContext(stage, babyMonths ?? null);
   const list = ctx && config?.placements.home !== false ? offerProducts(ctx, products, config, babyMonths ?? null) : [];
@@ -54,14 +60,14 @@ export function AptekHomeCard({ stage, babyMonths, babyName, context, onOpen }: 
         products={list}
         qtyOf={cart.quantityOf}
         onQty={setQty}
-        onOpenProduct={(p) => onOpen(`aptek/p:${p.id}`)}
-        onOpenStore={() => onOpen('aptek')} />
+        onOpenProduct={(p) => open(`aptek/p:${p.id}`)}
+        onOpenStore={() => open('aptek')} />
     );
   }
 
   return (
     <section className="a3-sec">
-      <button type="button" className="ap-banner" onClick={() => onOpen('aptek')}>
+      <button type="button" className="ap-banner" onClick={() => open('aptek')}>
         <span className="ap-banner-txt">
           <span className="a3-eyebrow">{ap('title')} · {ap('with_partner')}</span>
           <b>{ap('hero_title')}</b>

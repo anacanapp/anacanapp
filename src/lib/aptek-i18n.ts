@@ -16,5 +16,6 @@ export function formatAzn(amount: number, language: string = readAppLanguage()):
   const n = new Intl.NumberFormat(appLanguageLocale(normalizeAppLanguage(language)), {
     minimumFractionDigits: Number.isInteger(amount) ? 0 : 2, maximumFractionDigits: 2,
   }).format(amount);
-  return `${n} ₼`;
+  // Non-breaking space keeps the sign on the number's line in narrow cards.
+  return `${n}\u00a0₼`;
 }

@@ -74,7 +74,7 @@ import { TrackerTile } from '@/components/anacan/TrackerTile';
 import { Section, InfoTabs } from '@/components/anacan/Section';
 import { Mascot } from '@/components/anacan/Mascot';
 import { AskBar, DayPlan, Upcoming, QuickTools, HomeTopbar, greetingKey } from '@/components/home/HomeParts';
-import { MommyHero, useVaccineEvents, hoursMinutes } from '@/components/home/MommyHome';
+import { MommyHero, useVaccineEvents, clockDuration } from '@/components/home/MommyHome';
 import { AptekHomeCard } from '@/components/aptek/AptekEntry';
 import { BumpHero, MonthGallery, WeekSheet, pregnancyMilestones, fetusMonthOf } from '@/components/home/BumpHome';
 import { useDisabledTools } from '@/hooks/useDisabledTools';
@@ -717,12 +717,11 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
         correctedText={childAge?.correctionApplied ? `${tr('preemie_corrected_label', 'Korreksiya olunmuş yaş')}: ${childAge.correctedDisplayText}` : null}
         lastFeedIso={lastFeedIso}
         sleepMinutes={aiInsightStats.sleepMinutes}
-        art={babyIllustration}
         onOpenDay={() => scrollToModule('feeding')} />
 
       <div className="a3-today" aria-label={rd('today')}>
         <TrackerTile icon={Baby} tone="c-peach" value={todayStats.feedingCount} label={rd('tk_feed')} live={!!(leftFeedTimer || rightFeedTimer)} onClick={() => scrollToModule('feeding')} />
-        <TrackerTile icon={Moon} tone="c-lav" value={sleepTimer ? <ElapsedTime id={sleepTimer.id} /> : hoursMinutes(aiInsightStats.sleepMinutes)} label={rd('tk_sleep')} live={!!sleepTimer} onClick={() => scrollToModule('sleep')} />
+        <TrackerTile icon={Moon} tone="c-lav" value={sleepTimer ? <ElapsedTime id={sleepTimer.id} /> : clockDuration(aiInsightStats.sleepMinutes)} label={rd('tk_sleep')} live={!!sleepTimer} onClick={() => scrollToModule('sleep')} />
         <TrackerTile icon={Droplet} tone="c-yellow" value={todayStats.diaperCount} label={rd('tk_diaper')} onClick={() => scrollToModule('diaper')} />
         <TrackerTile icon={Droplets} tone="c-blue" value={`${mommyWater}/${waterTarget('mommy')}`} label={rd('tk_water_mom')} plus count={mommyWater} ariaLabel={rd('add_water')} onClick={() => { void addMommyWater(1); }} />
       </div>

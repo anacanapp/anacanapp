@@ -1,5 +1,7 @@
 import copy from '../../scripts/i18n/redesign-copy.json';
-import { appLanguageLocale, normalizeAppLanguage, readAppLanguage } from './app-languages';
+import { format } from 'date-fns';
+import { normalizeAppLanguage, readAppLanguage } from './app-languages';
+import { getCurrentDateLocale } from './date-utils';
 
 export type RedesignKey = keyof typeof copy.languages.en;
 
@@ -11,12 +13,13 @@ export function rd(key: RedesignKey, vars?: Record<string, string | number>, lan
   return text;
 }
 
-/** Short month name for the active language (timeline date tiles). */
-export function shortMonth(date: Date, language: string = readAppLanguage()): string {
-  return new Intl.DateTimeFormat(appLanguageLocale(normalizeAppLanguage(language)), { month: 'short' }).format(date).replace('.', '');
+/** Short month name for the active language (timeline date tiles). date-fns locales, since
+ * some Android WebViews ship without full ICU and Intl then prints "M10". */
+export function shortMonth(date: Date): string {
+  return format(date, 'LLL', { locale: getCurrentDateLocale() }).replace('.', '');
 }
 
 /** Day + month, e.g. "13 fevral", localized. */
-export function dayMonth(date: Date | number, language: string = readAppLanguage()): string {
-  return new Intl.DateTimeFormat(appLanguageLocale(normalizeAppLanguage(language)), { day: 'numeric', month: 'long' }).format(new Date(date));
+export function dayMonth(date: Date | number): string {
+  return format(new Date(date), 'd MMMM', { locale: getCurrentDateLocale() });
 }
