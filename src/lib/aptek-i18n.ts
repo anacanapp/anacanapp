@@ -1,14 +1,11 @@
-import copy from '../../scripts/i18n/aptek-copy.json';
+import { copyText, type CopyFile } from './ui-copy';
 import { appLanguageLocale, normalizeAppLanguage, readAppLanguage } from './app-languages';
 
-export type AptekKey = keyof typeof copy.languages.en;
+export type AptekKey = keyof CopyFile['aptek'];
 
-/** Anacan Aptek copy: all 21 languages live in scripts/i18n/aptek-copy.json; English is the safety net. */
+/** Copy for this area in all 21 languages (see ui-copy.ts); English is the safety net. */
 export function ap(key: AptekKey, vars?: Record<string, string | number>, language: string = readAppLanguage()): string {
-  const languages = copy.languages as Record<string, Record<string, string>>;
-  let text = languages[normalizeAppLanguage(language)]?.[key] || copy.languages.en[key] || key;
-  if (vars) for (const [name, value] of Object.entries(vars)) text = text.split(`{${name}}`).join(String(value));
-  return text;
+  return copyText('aptek', key, language, vars);
 }
 
 /** "12,50 ₼" in the active language's number format. */

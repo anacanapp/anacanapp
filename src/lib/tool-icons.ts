@@ -25,6 +25,7 @@ const TONES: Record<string, ToolTone> = {
   'fetal-growth': 'c-green', 'blood-sugar': 'c-yellow', shopping: 'c-blue', 'maternity-calculator': 'c-green',
   'pregnancy-album': 'c-peach', 'baby-album': 'c-peach', photoshoot: 'c-pink', 'fairy-tale': 'c-lav', 'noise-meter': 'c-blue',
   'preemie-hub': 'c-green', blog: 'c-peach', 'mini-games': 'c-green', cakes: 'c-pink', 'first-aid': 'c-peach',
+  'baby-tracker': 'c-peach', 'sleep-training': 'c-lav',
 };
 export const toolTone = (id: string): ToolTone => TONES[id] || 'c-blue';
 
@@ -33,7 +34,7 @@ export const TOOL_CATEGORIES: ToolCategory[] = ['track', 'health', 'baby', 'more
 // tool_configs has no category column, so grouping lives here keyed by tool id.
 const CATEGORY: Record<string, ToolCategory> = Object.fromEntries([
   ...['kick', 'contraction', 'weight', 'blood-pressure', 'blood-sugar', 'vitamin-tracker', 'mood', 'mental-health',
-    'baby-growth', 'fetal-growth', 'teething'].map((id) => [id, 'track']),
+    'baby-growth', 'fetal-growth', 'teething', 'baby-tracker', 'sleep-training'].map((id) => [id, 'track']),
   ...['doctors', 'danger-signs', 'vaccine-calendar', 'safety', 'first-aid', 'preemie-hub', 'nutrition', 'exercise',
     'recipes', 'poop-scanner'].map((id) => [id, 'health']),
   ...['names', 'hospital', 'shopping', 'baby-album', 'pregnancy-album', 'photoshoot', 'whitenoise', 'weather-clothing',

@@ -1,14 +1,20 @@
 import { describe, expect, it } from 'vitest';
-import redesign from '../../scripts/i18n/redesign-copy.json';
-import aptek from '../../scripts/i18n/aptek-copy.json';
+import { readFileSync } from 'node:fs';
 import { APP_LANGUAGE_CODES } from './app-languages';
 
-const placeholders = (text: string) => [...text.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort();
+type Sections = Record<'redesign' | 'aptek' | 'babycare', Record<string, string>>;
+const files: Record<string, Sections> = Object.fromEntries(APP_LANGUAGE_CODES.map((code) => {
+  try { return [code, JSON.parse(readFileSync(`scripts/i18n/copy/${code}.json`, 'utf8'))]; } catch { return [code, undefined]; }
+}));
+const section = (name: keyof Sections) => Object.fromEntries(Object.entries(files).map(([code, f]) => [code, f?.[name]])) as Record<string, Record<string, string>>;
+
+const placeholders = (text: string) => [...new Set([...text.matchAll(/\{(\w+)\}/g)].map((m) => m[1]))].sort();
 const BRANDS = ['Anacan', 'ANACAN10'];
 
 describe.each([
-  ['redesign-copy.json', redesign.languages as Record<string, Record<string, string>>],
-  ['aptek-copy.json', aptek.languages as Record<string, Record<string, string>>],
+  ['redesign', section('redesign')],
+  ['aptek', section('aptek')],
+  ['babycare', section('babycare')],
 ])('%s', (_file, languages) => {
   const reference = languages.en;
 

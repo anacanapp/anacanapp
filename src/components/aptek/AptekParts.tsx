@@ -1,3 +1,4 @@
+import '@/styles/aptek.css';
 import { Minus, Plus, ShoppingBag, ChevronRight, Check } from 'lucide-react';
 import { hapticFeedback } from '@/lib/native';
 import { ap, formatAzn, type AptekKey } from '@/lib/aptek-i18n';

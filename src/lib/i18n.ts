@@ -1,5 +1,6 @@
 import { supabase } from '@/integrations/supabase/client';
 import azStatic from '@/locales/az.json';
+import { ensureCopyLanguage } from './ui-copy';
 import { writeStorageCache } from './local-storage';
 import { APP_LANGUAGE_CODES, appLanguageLocale, normalizeAppLanguage, readAppLanguage, resolveAppLanguages, type AppLanguage } from './app-languages';
 import { ensureContentLanguageReady } from './content-i18n';
@@ -117,10 +118,12 @@ async function loadLocalSeed(lang: string): Promise<void> {
  */
 export async function ensureLanguageReady(lang: string): Promise<void> {
   lang = normalizeAppLanguage(lang);
-  if (!SEED_LANGS.has(lang)) return;
+  // Redesign / Aptek / baby-care copy is one small chunk per language (ui-copy.ts).
+  const copyReady = ensureCopyLanguage(lang);
+  if (!SEED_LANGS.has(lang)) { await copyReady; return; }
   // A previous release's cache can be large but still miss newly added screens.
   // Merge this release's local seed once before the first translated render.
-  await Promise.all([loadLocalSeed(lang), ensureContentLanguageReady(lang)]);
+  await Promise.all([loadLocalSeed(lang), ensureContentLanguageReady(lang), copyReady]);
   persistSoon(lang); // növbəti açılış sinxron olsun
 }
 

@@ -79,8 +79,10 @@ const NameVotingScreen = lazy(() => import('@/components/partner/NameVotingScree
 const PartnerHospitalBagScreen = lazy(() => import('@/components/partner/PartnerHospitalBagScreen'));
 const DailySummaryScreen = lazy(() => import('@/components/partner/DailySummaryScreen'));
 // ── Partner Module 2.0 ──
-import { GlobalSearch } from '@/components/home/GlobalSearch';
-import { AptekSearchResults, AptekCartButton } from '@/components/aptek/AptekEntry';
+// Loaded on demand: the search sheet (and its drawer library) and the Aptek top-bar pieces.
+const GlobalSearch = lazy(() => import('@/components/home/GlobalSearch').then((m) => ({ default: m.GlobalSearch })));
+const AptekSearchResults = lazy(() => import('@/components/aptek/AptekEntry').then((m) => ({ default: m.AptekSearchResults })));
+const AptekCartButton = lazy(() => import('@/components/aptek/AptekEntry').then((m) => ({ default: m.AptekCartButton })));
 const PartnerHomeScreen = lazy(() => import('@/components/partner/v2/PartnerHomeScreen'));
 const PartnerTogetherScreen = lazy(() => import('@/components/partner/v2/PartnerTogetherScreen'));
 const PartnerShoppingScreen = lazy(() => import('@/components/partner/v2/PartnerShoppingScreen'));
@@ -561,7 +563,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         return (
           <motion.div key="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <AdSurface id="home_banner" />
-            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={setActiveScreen} onOpenAI={() => handleTabChange('ai')} onOpenProfile={() => handleTabChange('profile')} onSearch={() => setShowSearch(true)} topbarExtra={<AptekCartButton onOpen={setActiveScreen} />} />
+            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={setActiveScreen} onOpenAI={() => handleTabChange('ai')} onOpenProfile={() => handleTabChange('profile')} onSearch={() => setShowSearch(true)} topbarExtra={<Suspense fallback={null}><AptekCartButton onOpen={setActiveScreen} /></Suspense>} />
           </motion.div>
         );
       case 'tools':
@@ -816,8 +818,10 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       data-main-dashboard={activeTab === 'home' && !blogOverlayOpen ? 'true' : undefined}
       style={isAnacanRedesignHome ? { background: 'var(--a-bg)' } : undefined}
     >
-      <GlobalSearch open={showSearch} onClose={() => setShowSearch(false)} onOpenTool={handleNavigateToTool} onAskAI={() => handleTabChange('ai')}
-        extra={(q, close) => <AptekSearchResults query={q} close={close} onOpen={setActiveScreen} />} />
+      {showSearch && <Suspense fallback={null}>
+        <GlobalSearch open onClose={() => setShowSearch(false)} onOpenTool={handleNavigateToTool} onAskAI={() => handleTabChange('ai')}
+          extra={(q, close) => <Suspense fallback={null}><AptekSearchResults query={q} close={close} onOpen={setActiveScreen} /></Suspense>} />
+      </Suspense>}
 
       {/* App Rating Prompt */}
       <AppRatingPrompt />

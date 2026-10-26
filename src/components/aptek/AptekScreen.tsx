@@ -1,3 +1,4 @@
+import '@/styles/aptek.css';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Search, ShoppingBag, Package, ChevronRight, Truck, Banknote, CreditCard, Info } from 'lucide-react';
 import { toast } from 'sonner';

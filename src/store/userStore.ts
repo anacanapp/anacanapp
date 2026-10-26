@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
+import { ensureCopyLanguage } from '@/lib/ui-copy';
 import { quotaManagedStorage } from '@/lib/local-storage';
 import { normalizeAppLanguage, setCachedAppLanguage } from '@/lib/app-languages';
 import type { LifeStage, UserRole, DailyLog, CycleData, PregnancyData, BabyData, DeliveryType, PostpartumData } from '@/types/anacan';
@@ -354,5 +355,9 @@ export const useUserStore = create<UserState>()(
 // hydration, logout) so it never has to re-read the persisted store.
 if (useUserStore.persist.hasHydrated()) setCachedAppLanguage(useUserStore.getState().language);
 useUserStore.subscribe((state, previous) => {
-  if (state.language !== previous.language) setCachedAppLanguage(state.language);
+  if (state.language !== previous.language) {
+    setCachedAppLanguage(state.language);
+    // Language set without ensureLanguageReady (e.g. server preference after login): fetch its copy chunk.
+    void ensureCopyLanguage(state.language);
+  }
 });

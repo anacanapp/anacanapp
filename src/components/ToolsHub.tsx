@@ -2,6 +2,9 @@ import { useState, useEffect, useMemo, useRef, lazy, Suspense } from 'react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { TOOL_ICONS, TOOL_CATEGORIES, toolCategory, toolTone, type ToolCategory } from '@/lib/tool-icons';
 import { rd } from '@/lib/redesign-i18n';
+import { bc } from '@/lib/babycare-i18n';
+import { sleepTrainingEligible } from '@/lib/sleep-training';
+import { useChildren } from '@/hooks/useChildren';
 import { saveScroll, restoreScroll } from '@/lib/scrollMemory';
 import { pushBackHandler } from '@/lib/backButton';
 import { isToolFree, isCakesAvailable } from '@/lib/freemium';
@@ -59,6 +62,8 @@ const VaccineCalendar = lazy(() => import('./tools/VaccineCalendar'));
 const BabyMonthlyAlbum = lazy(() => import('./baby/BabyMonthlyAlbum'));
 const CakesScreen = lazy(() => import('./CakesScreen'));
 const MiniGamesHub = lazy(() => import('./games/MiniGamesHub'));
+const BabyTracker = lazy(() => import('./tools/BabyTracker'));
+const SleepTraining = lazy(() => import('./tools/SleepTraining'));
 import { PremiumModal } from './PremiumModal';
 import PremiumToolBoundary from './premium/PremiumToolBoundary';
 
@@ -86,7 +91,7 @@ interface Tool {
 const iconMap = TOOL_ICONS;
 
 // Import Calculator icon
-import { Calculator } from 'lucide-react';
+import { Calculator, MoonStar } from 'lucide-react';
 import { tr } from "@/lib/tr";
 import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { followupText } from '@/lib/followup-i18n';
@@ -165,6 +170,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   // Build tools from DB configs
   const isNonAz = language !== 'az';
   const { disabledTools, isToolDisabled } = useDisabledTools();
+  const childrenInfo = useChildren();
+  const childBirthDate = (childrenInfo.selectedChild ?? childrenInfo.children[0])?.birth_date ?? null;
   const tools: Tool[] = useMemo(() => {
     if (toolConfigs.length === 0) {
       return [];
@@ -173,7 +180,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     // Filter out tools disabled for the current language
     const activeConfigs = toolConfigs.filter((config) => !disabledTools.includes(config.tool_id));
 
-    return activeConfigs.map((config) => {
+    const fromDb: Tool[] = activeConfigs.map((config) => {
       const name = hasPartner && config.requires_partner && config.partner_name ?
       config.partner_name :
       (config as any).display_name || config.name;
@@ -200,7 +207,23 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
         isLocked: getLockedStatus(config)
       };
     });
-  }, [toolConfigs, hasPartner, lifeStage, language, isNonAz, disabledTools, profile?.country_code, storeCountry]);
+
+    // Baby tracker and Sleep training are app-defined tools (no tool_configs row needed);
+    // a DB row with the same id wins, and both respect disabled tools.
+    const virtual = (id: string, name: string, description: string, icon: typeof Wrench): Tool => ({
+      id, name, description, icon, color: '', bgColor: '', stages: ['mommy'],
+      isPremium: !isToolFree(id), premiumType: 'none', premiumLimit: 0, isLocked: false,
+    });
+    const extra: Tool[] = [];
+    if (!fromDb.some((t) => t.id === 'baby-tracker') && !disabledTools.includes('baby-tracker')) {
+      extra.push(virtual('baby-tracker', bc('babytracker_tool_name'), bc('babytracker_tool_desc'), Baby));
+    }
+    if (!fromDb.some((t) => t.id === 'sleep-training') && !disabledTools.includes('sleep-training')
+      && sleepTrainingEligible({ lifeStage, birthDate: childBirthDate ? new Date(childBirthDate) : null, now: new Date() })) {
+      extra.push(virtual('sleep-training', bc('sleeptraining_title'), bc('sleeptraining_tool_desc'), MoonStar));
+    }
+    return [...fromDb, ...extra];
+  }, [toolConfigs, hasPartner, lifeStage, language, isNonAz, disabledTools, profile?.country_code, storeCountry, childBirthDate]);
 
   // Set initial tool from props on mount (Dashboard qısayolları / banner deeplink-ləri)
   // Freemium: free olmayan alət premium-suz açılmır — paywall göstərilir.
@@ -362,6 +385,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       case 'vitamin-tracker':case 'vitamins':return <VitaminTracker onBack={handleBack} />;
       case 'cakes':return <CakesScreen onBack={handleBack} />;
       case 'mini-games':return <MiniGamesHub onBack={handleBack} />;
+      case 'baby-tracker':return <BabyTracker onBack={handleBack} />;
+      case 'sleep-training':return <SleepTraining onBack={handleBack} />;
       default:return null;
     }
   })();

@@ -1,3 +1,4 @@
+import '@/styles/aptek.css';
 import { ShoppingBag, ChevronRight } from 'lucide-react';
 import { toast } from 'sonner';
 import { useAptekAvailable, useAptekCart, useAptekProducts, type AptekProduct } from '@/hooks/useAptek';
