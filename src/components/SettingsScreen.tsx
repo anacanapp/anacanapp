@@ -35,7 +35,7 @@ interface SettingsScreenProps {
   onNavigate?: (screen: string) => void;
 }
 
-// Switch vurÄŸu rÉ™ngi (dizayn sistemi)
+// Switch vurğu rəngi (dizayn sistemi)
 const SWITCH_CLS = "data-[state=checked]:bg-[var(--a-peach-2)]";
 
 const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
@@ -66,7 +66,7 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
     initializeReminders();
   }, []);
 
-  // â”€â”€ Data Export â”€â”€
+  // ── Data Export ──
   const handleDataExport = async () => {
     if (!user) return;
     setIsExporting(true);
@@ -74,15 +74,15 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
     try {
       const tables = [
       { name: 'profiles', label: tr("untranslated_profil_v8b0sk", 'Profil') },
-      { name: 'daily_logs', label: tr("settingsscreen_gundelik_qeydler_285ea0", 'GÃ¼ndÉ™lik qeydlÉ™r') },
+      { name: 'daily_logs', label: tr("settingsscreen_gundelik_qeydler_285ea0", 'Gündəlik qeydlər') },
       { name: 'appointments', label: tr("settingsscreen_randevular_a452fc", 'Randevular') },
-      { name: 'baby_growth', label: tr("settingsscreen_korpe_inkisafi_8816ce", 'KÃ¶rpÉ™ inkiÅŸafÄ±') },
-      { name: 'baby_logs', label: tr("settingsscreen_korpe_qeydleri_8d99a2", 'KÃ¶rpÉ™ qeydlÉ™ri') },
-      { name: 'weight_entries', label: tr("settingsscreen_ceki_qeydleri_43f237", 'Ã‡É™ki qeydlÉ™ri') },
+      { name: 'baby_growth', label: tr("settingsscreen_korpe_inkisafi_8816ce", 'Körpə inkişafı') },
+      { name: 'baby_logs', label: tr("settingsscreen_korpe_qeydleri_8d99a2", 'Körpə qeydləri') },
+      { name: 'weight_entries', label: tr("settingsscreen_ceki_qeydleri_43f237", 'Çəki qeydləri') },
       { name: 'cycle_history', label: tr("settingsscreen_tsikl_tarixi_f723ad", 'Tsikl tarixi') },
-      { name: 'kick_sessions', label: tr("settingsscreen_tepik_sessiyalari_87edad", 'TÉ™pik sessiyalarÄ±') },
-      { name: 'contractions', label: tr("settingsscreen_buzusmeler_1ec368", 'BÃ¼zÃ¼ÅŸmÉ™lÉ™r') },
-      { name: 'blood_sugar_logs', label: tr("settingsscreen_qan_sekeri_c922e6", 'Qan ÅŸÉ™kÉ™ri') }];
+      { name: 'kick_sessions', label: tr("settingsscreen_tepik_sessiyalari_87edad", 'Təpik sessiyaları') },
+      { name: 'contractions', label: tr("settingsscreen_buzusmeler_1ec368", 'Büzüşmələr') },
+      { name: 'blood_sugar_logs', label: tr("settingsscreen_qan_sekeri_c922e6", 'Qan şəkəri') }];
 
 
       const exportData: Record<string, any> = {
@@ -124,9 +124,9 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
     }
   };
 
-  // â”€â”€ Delete Account â”€â”€
+  // ── Delete Account ──
   const handleDeleteAccount = async () => {
-    if (deleteConfirmText !== tr("settingsscreen_delete_confirm_keyword", "SÄ°L")) return;
+    if (deleteConfirmText !== tr("settingsscreen_delete_confirm_keyword", "SİL")) return;
     setIsDeleting(true);
 
     try {
@@ -212,7 +212,7 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
             <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
               <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
-            <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("settingsscreen_tenzimlemeler_085659", "TÉ™nzimlÉ™mÉ™lÉ™r")}</p>
+            <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("settingsscreen_tenzimlemeler_085659", "Tənzimləmələr")}</p>
           </div>
         </header>
 
@@ -234,28 +234,28 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
 
               <Smartphone size={18} style={{ color: 'var(--a-warn-ink)' }} className="shrink-0" />
               <div>
-                <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--a-warn-ink)' }}>{tr("settingsscreen_web_rejiminde_calisirsiniz_157028", "Web rejimindÉ™ Ã§alÄ±ÅŸÄ±rsÄ±nÄ±z")}</p>
-                <p style={{ fontSize: 11, color: 'var(--a-warn-ink)', opacity: 0.8 }}>{tr("settingsscreen_bildirisler_yalniz_mobil_tetbiqde_isleyi_64cd56", "BildiriÅŸlÉ™r yalnÄ±z mobil tÉ™tbiqdÉ™ iÅŸlÉ™yir")}</p>
+                <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--a-warn-ink)' }}>{tr("settingsscreen_web_rejiminde_calisirsiniz_157028", "Web rejimində çalışırsınız")}</p>
+                <p style={{ fontSize: 11, color: 'var(--a-warn-ink)', opacity: 0.8 }}>{tr("settingsscreen_bildirisler_yalniz_mobil_tetbiqde_isleyi_64cd56", "Bildirişlər yalnız mobil tətbiqdə işləyir")}</p>
               </div>
             </motion.div>
           }
 
           {/* Notifications */}
-          <SectionCard title={tr("settingsscreen_bildirisler_54eb88", "BildiriÅŸlÉ™r")}>
-            <SettingRow icon={Bell} label={tr("settingsscreen_bildirisler_54eb88", "BildiriÅŸlÉ™r")} description={tr("settingsscreen_butun_bildirisleri_aktivlesdirin_beb91d", "BÃ¼tÃ¼n bildiriÅŸlÉ™ri aktivlÉ™ÅŸdirin")}
+          <SectionCard title={tr("settingsscreen_bildirisler_54eb88", "Bildirişlər")}>
+            <SettingRow icon={Bell} label={tr("settingsscreen_bildirisler_54eb88", "Bildirişlər")} description={tr("settingsscreen_butun_bildirisleri_aktivlesdirin_beb91d", "Bütün bildirişləri aktivləşdirin")}
             tintBg="var(--a-peach-1)" tintInk="var(--a-accent-ink)">
               <Switch className={SWITCH_CLS}
               checked={settings.notifications_enabled}
               onCheckedChange={(checked) => updateSetting('notifications_enabled', checked)} />
             </SettingRow>
-            <SettingRow icon={Volume2} label={tr("settingsscreen_ses_9b06b5", "SÉ™s")} description={tr("settingsscreen_bildiris_sesleri_fc9269", "BildiriÅŸ sÉ™slÉ™ri")}
+            <SettingRow icon={Volume2} label={tr("settingsscreen_ses_9b06b5", "Səs")} description={tr("settingsscreen_bildiris_sesleri_fc9269", "Bildiriş səsləri")}
             tintBg="var(--a-blue-1)" tintInk="var(--a-blue-ink)">
               <Switch className={SWITCH_CLS}
               checked={settings.sound_enabled}
               onCheckedChange={(checked) => updateSetting('sound_enabled', checked)}
               disabled={!settings.notifications_enabled} />
             </SettingRow>
-            <SettingRow icon={Vibrate} label={tr("settingsscreen_titreme_6c5b87", "TitrÉ™mÉ™")} description={tr("settingsscreen_titreme_bildirisleri_bdf642", "TitrÉ™mÉ™ bildiriÅŸlÉ™ri")}
+            <SettingRow icon={Vibrate} label={tr("settingsscreen_titreme_6c5b87", "Titrəmə")} description={tr("settingsscreen_titreme_bildirisleri_bdf642", "Titrəmə bildirişləri")}
             tintBg="var(--a-lav-1)" tintInk="var(--a-lav-ink)">
               <Switch className={SWITCH_CLS}
               checked={settings.vibration_enabled}
@@ -270,14 +270,14 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
             <SettingRow
               icon={BellOff}
               label={tr("settingsscreen_sakit_rejim_8a42bd", "Sakit rejim")}
-              description={silentSettings.enabled ? `${silentSettings.startTime} - ${silentSettings.endTime} ${tr("settingsscreen_silent_hours_desc", "arasÄ± bildiriÅŸ yoxdur")}` : tr("settingsscreen_gece_saatlarinda_bildirisleri__45007d", "GecÉ™ saatlarÄ±nda bildiriÅŸlÉ™ri sÃ¶ndÃ¼r")}
+              description={silentSettings.enabled ? `${silentSettings.startTime} - ${silentSettings.endTime} ${tr("settingsscreen_silent_hours_desc", "arası bildiriş yoxdur")}` : tr("settingsscreen_gece_saatlarinda_bildirisleri__45007d", "Gecə saatlarında bildirişləri söndür")}
               tintBg="var(--a-lav-1)" tintInk="var(--a-lav-ink)">
 
               <Switch className={SWITCH_CLS}
               checked={silentSettings.enabled}
               onCheckedChange={(checked) => {
                 updateSilentSettings({ enabled: checked });
-                toast.success(checked ? tr("settingsscreen_sakit_saatlar_aktivlesdirildi_2ab4f3", "Sakit saatlar aktivlÉ™ÅŸdirildi") : tr("settingsscreen_sakit_saatlar_deaktiv_edildi_f723bc", "Sakit saatlar deaktiv edildi"));
+                toast.success(checked ? tr("settingsscreen_sakit_saatlar_aktivlesdirildi_2ab4f3", "Sakit saatlar aktivləşdirildi") : tr("settingsscreen_sakit_saatlar_deaktiv_edildi_f723bc", "Sakit saatlar deaktiv edildi"));
               }}
               disabled={!settings.notifications_enabled} />
             </SettingRow>
@@ -285,8 +285,8 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
             <>
                 <SettingRow
                 icon={Moon}
-                label={tr("settingsscreen_baslama_vaxti_b3791d", "BaÅŸlama vaxtÄ±")}
-                description={tr("settingsscreen_bildirisler_susacaq_c5cd6d", "BildiriÅŸlÉ™r susacaq")}
+                label={tr("settingsscreen_baslama_vaxti_b3791d", "Başlama vaxtı")}
+                description={tr("settingsscreen_bildirisler_susacaq_c5cd6d", "Bildirişlər susacaq")}
                 onClick={() => setShowTimeEdit(true)}
                 tintBg="var(--a-blue-1)" tintInk="var(--a-blue-ink)">
 
@@ -303,8 +303,8 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
                 </SettingRow>
                 <SettingRow
                 icon={Sun}
-                label={tr("settingsscreen_bitme_vaxti_624d01", "BitmÉ™ vaxtÄ±")}
-                description={tr("settingsscreen_bildirisler_yeniden_baslayacaq_37c49d", "BildiriÅŸlÉ™r yenidÉ™n baÅŸlayacaq")}
+                label={tr("settingsscreen_bitme_vaxti_624d01", "Bitmə vaxtı")}
+                description={tr("settingsscreen_bildirisler_yeniden_baslayacaq_37c49d", "Bildirişlər yenidən başlayacaq")}
                 tintBg="var(--a-yellow-1)" tintInk="var(--a-yellow-ink)">
 
                   <div className="flex items-center gap-2">
@@ -323,22 +323,22 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
           </SectionCard>
 
           {/* Reminders */}
-          <SectionCard title={tr("settingsscreen_xatirlatmalar_ddd8e7", "XatÄ±rlatmalar")}>
-            <SettingRow icon={Droplets} label={tr("settingsscreen_su_xatirlatmasi_ca127e", "Su xatÄ±rlatmasÄ±")} description={tr("settingsscreen_her_2_saatda_bir_08_00_20_00_bc7ea9", "HÉ™r 2 saatda bir (08:00-20:00)")}
+          <SectionCard title={tr("settingsscreen_xatirlatmalar_ddd8e7", "Xatırlatmalar")}>
+            <SettingRow icon={Droplets} label={tr("settingsscreen_su_xatirlatmasi_ca127e", "Su xatırlatması")} description={tr("settingsscreen_her_2_saatda_bir_08_00_20_00_bc7ea9", "Hər 2 saatda bir (08:00-20:00)")}
             tintBg="var(--a-blue-1)" tintInk="var(--a-blue-ink)">
               <Switch className={SWITCH_CLS}
               checked={settings.water_reminder}
               onCheckedChange={(checked) => updateSetting('water_reminder', checked)}
               disabled={!settings.notifications_enabled} />
             </SettingRow>
-            <SettingRow icon={Pill} label={tr("settingsscreen_vitamin_xatirlatmasi_531a3d", "Vitamin xatÄ±rlatmasÄ±")} description={`${tr("settingsscreen_every_day_at", "HÉ™r gÃ¼n saat")} ${settings.vitamin_time}`}
+            <SettingRow icon={Pill} label={tr("settingsscreen_vitamin_xatirlatmasi_531a3d", "Vitamin xatırlatması")} description={`${tr("settingsscreen_every_day_at", "Hər gün saat")} ${settings.vitamin_time}`}
             tintBg="var(--a-green-1)" tintInk="var(--a-green-ink)">
               <Switch className={SWITCH_CLS}
               checked={settings.vitamin_reminder}
               onCheckedChange={(checked) => updateSetting('vitamin_reminder', checked)}
               disabled={!settings.notifications_enabled} />
             </SettingRow>
-            <SettingRow icon={Dumbbell} label={tr("settingsscreen_mesq_xatirlatmasi_399c4f", "MÉ™ÅŸq xatÄ±rlatmasÄ±")} description={tr("settingsscreen_b_e_c_c_gunleri_saat_10_00_40d25b", "B.e., Ã‡., C. gÃ¼nlÉ™ri saat 10:00")}
+            <SettingRow icon={Dumbbell} label={tr("settingsscreen_mesq_xatirlatmasi_399c4f", "Məşq xatırlatması")} description={tr("settingsscreen_b_e_c_c_gunleri_saat_10_00_40d25b", "B.e., Ç., C. günləri saat 10:00")}
             tintBg="var(--a-peach-1)" tintInk="var(--a-accent-ink)">
               <Switch className={SWITCH_CLS}
               checked={settings.exercise_reminder}
@@ -348,8 +348,8 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
           </SectionCard>
 
           {/* Push Notification Settings */}
-          <SectionCard title={tr("settingsscreen_push_bildirisleri_c44832", "Push BildiriÅŸlÉ™ri")}>
-            <SettingRow icon={Bell} label={tr("settingsscreen_push_bildirisler_e7cb34", "Push bildiriÅŸlÉ™r")} description={tr("settingsscreen_tetbiq_bagli_olsa_bele_bildiris_alin_01f6eb", "TÉ™tbiq baÄŸlÄ± olsa belÉ™ bildiriÅŸ alÄ±n")}
+          <SectionCard title={tr("settingsscreen_push_bildirisleri_c44832", "Push Bildirişləri")}>
+            <SettingRow icon={Bell} label={tr("settingsscreen_push_bildirisler_e7cb34", "Push bildirişlər")} description={tr("settingsscreen_tetbiq_bagli_olsa_bele_bildiris_alin_01f6eb", "Tətbiq bağlı olsa belə bildiriş alın")}
             tintBg="var(--a-peach-1)" tintInk="var(--a-accent-ink)">
               <Switch className={SWITCH_CLS}
               checked={pushSettings.push_enabled}
@@ -358,28 +358,28 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
                 toast.success(checked ? tr("settingsscreen_push_bildirisler_aktivlesdiril_9147d9", "Push bildiri\u015Fl\u0259r aktivl\u0259\u015Fdirildi") : tr("settingsscreen_push_bildirisler_deaktiv_edild_e3832a", "Push bildiri\u015Fl\u0259r deaktiv edildi"));
               }} />
             </SettingRow>
-            <SettingRow icon={MessageCircle} label={tr("settingsscreen_mesaj_bildirisleri_c8fd7b", "Mesaj bildiriÅŸlÉ™ri")} description={tr("settingsscreen_yeni_mesajlar_ucun_bildiris_e7e1c9", "Yeni mesajlar Ã¼Ã§Ã¼n bildiriÅŸ")}
+            <SettingRow icon={MessageCircle} label={tr("settingsscreen_mesaj_bildirisleri_c8fd7b", "Mesaj bildirişləri")} description={tr("settingsscreen_yeni_mesajlar_ucun_bildiris_e7e1c9", "Yeni mesajlar üçün bildiriş")}
             tintBg="var(--a-blue-1)" tintInk="var(--a-blue-ink)">
               <Switch className={SWITCH_CLS}
               checked={pushSettings.push_messages}
               onCheckedChange={(checked) => updatePushSetting('push_messages', checked)}
               disabled={!pushSettings.push_enabled} />
             </SettingRow>
-            <SettingRow icon={Heart} label={tr("settingsscreen_beyenme_bildirisleri_a6b18f", "BÉ™yÉ™nmÉ™ bildiriÅŸlÉ™ri")} description={tr("settingsscreen_paylasimlariniza_beyenme_734537", "PaylaÅŸÄ±mlarÄ±nÄ±za bÉ™yÉ™nmÉ™")}
+            <SettingRow icon={Heart} label={tr("settingsscreen_beyenme_bildirisleri_a6b18f", "Bəyənmə bildirişləri")} description={tr("settingsscreen_paylasimlariniza_beyenme_734537", "Paylaşımlarınıza bəyənmə")}
             tintBg="var(--a-pink-1)" tintInk="var(--a-pink-ink)">
               <Switch className={SWITCH_CLS}
               checked={pushSettings.push_likes}
               onCheckedChange={(checked) => updatePushSetting('push_likes', checked)}
               disabled={!pushSettings.push_enabled} />
             </SettingRow>
-            <SettingRow icon={MessageCircle} label={tr("settingsscreen_serh_bildirisleri_6588b5", "ÅžÉ™rh bildiriÅŸlÉ™ri")} description={tr("settingsscreen_paylasimlariniza_serhler_ad5c16", "PaylaÅŸÄ±mlarÄ±nÄ±za ÅŸÉ™rhlÉ™r")}
+            <SettingRow icon={MessageCircle} label={tr("settingsscreen_serh_bildirisleri_6588b5", "Şərh bildirişləri")} description={tr("settingsscreen_paylasimlariniza_serhler_ad5c16", "Paylaşımlarınıza şərhlər")}
             tintBg="var(--a-green-1)" tintInk="var(--a-green-ink)">
               <Switch className={SWITCH_CLS}
               checked={pushSettings.push_comments}
               onCheckedChange={(checked) => updatePushSetting('push_comments', checked)}
               disabled={!pushSettings.push_enabled} />
             </SettingRow>
-            <SettingRow icon={Users} label={tr("settingsscreen_cemiyyet_bildirisleri_fa4a16", "CÉ™miyyÉ™t bildiriÅŸlÉ™ri")} description={tr("settingsscreen_qrup_fealiyyetleri_4d13e7", "Qrup fÉ™aliyyÉ™tlÉ™ri")}
+            <SettingRow icon={Users} label={tr("settingsscreen_cemiyyet_bildirisleri_fa4a16", "Cəmiyyət bildirişləri")} description={tr("settingsscreen_qrup_fealiyyetleri_4d13e7", "Qrup fəaliyyətləri")}
             tintBg="var(--a-lav-1)" tintInk="var(--a-lav-ink)">
               <Switch className={SWITCH_CLS}
               checked={pushSettings.push_community}
@@ -389,9 +389,9 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
           </SectionCard>
 
           {/* Privacy & Data */}
-          <SectionCard title={tr("settingsscreen_mexfilik_ve_melumat_f15bb1", "MÉ™xfilik vÉ™ MÉ™lumat")}>
-            <SettingRow icon={Lock} label={tr("settingsscreen_sifre_ile_qoruma_152a0e", "ÅžifrÉ™ ilÉ™ qoruma")}
-            description={lockActive ? tr("applock_status_on", "Aktiv â€” PIN ilÉ™ qorunur") : tr("applock_status_off", "PIN vÉ™ ya biometrika ilÉ™ qoruyun")}
+          <SectionCard title={tr("settingsscreen_mexfilik_ve_melumat_f15bb1", "Məxfilik və Məlumat")}>
+            <SettingRow icon={Lock} label={tr("settingsscreen_sifre_ile_qoruma_152a0e", "Şifrə ilə qoruma")}
+            description={lockActive ? tr("applock_status_on", "Aktiv — PIN ilə qorunur") : tr("applock_status_off", "PIN və ya biometrika ilə qoruyun")}
             onClick={() => setShowLockSheet(true)}
             tintBg="var(--a-blue-1)" tintInk="var(--a-blue-ink)">
               <span className="flex items-center gap-1.5">
@@ -405,10 +405,10 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
             </SettingRow>
             <SettingRow
               icon={HeartPulse}
-              label={tr("settingsscreen_health_sync", "SaÄŸlamlÄ±q inteqrasiyasÄ±")}
+              label={tr("settingsscreen_health_sync", "Sağlamlıq inteqrasiyası")}
               description={Capacitor.getPlatform() === 'android' ?
                 tr('health_android_cycle_only', 'Health Connect: yalnız period qeydlərinin yazılması') :
-                tr("settingsscreen_health_sync_desc", "Apple Health / Health Connect â€” addÄ±m vÉ™ aktivlik")}
+                tr("settingsscreen_health_sync_desc", "Apple Health / Health Connect — addım və aktivlik")}
               onClick={() => onNavigate?.('health-sync')}
               tintBg="var(--a-pink-1)" tintInk="var(--a-pink-ink)">
 
@@ -416,8 +416,8 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
             </SettingRow>
             <SettingRow
               icon={Download}
-              label={tr("settingsscreen_melumat_ixraci_988684", "MÉ™lumat ixracÄ±")}
-              description={tr("settingsscreen_butun_melumatlarinizi_json_formatinda_yu_0c02e5", "BÃ¼tÃ¼n mÉ™lumatlarÄ±nÄ±zÄ± JSON formatÄ±nda yÃ¼klÉ™yin")}
+              label={tr("settingsscreen_melumat_ixraci_988684", "Məlumat ixracı")}
+              description={tr("settingsscreen_butun_melumatlarinizi_json_formatinda_yu_0c02e5", "Bütün məlumatlarınızı JSON formatında yükləyin")}
               onClick={isExporting ? undefined : handleDataExport}
               tintBg="var(--a-green-1)" tintInk="var(--a-green-ink)">
 
@@ -429,8 +429,8 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
             </SettingRow>
             <SettingRow
               icon={Trash2}
-              label={tr("settingsscreen_hesabi_sil_95d759", "HesabÄ± sil")}
-              description={tr("settingsscreen_butun_melumatlari_geri_donmez_sekilde_si_35b4d6", "BÃ¼tÃ¼n mÉ™lumatlarÄ± geri dÃ¶nmÉ™z ÅŸÉ™kildÉ™ silin")}
+              label={tr("settingsscreen_hesabi_sil_95d759", "Hesabı sil")}
+              description={tr("settingsscreen_butun_melumatlari_geri_donmez_sekilde_si_35b4d6", "Bütün məlumatları geri dönməz şəkildə silin")}
               onClick={() => setShowDeleteDialog(true)}
               danger>
 
@@ -440,7 +440,7 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
         </div>
       </div>
 
-      {/* TÉ™hlÃ¼kÉ™sizlik kilidi quraÅŸdÄ±rma/idarÉ™etmÉ™ */}
+      {/* Təhlükəsizlik kilidi quraşdırma/idarəetmə */}
       <AppLockSetupSheet
         open={showLockSheet}
         onClose={() => setShowLockSheet(false)}
@@ -454,29 +454,29 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
               <div className="w-12 h-12 flex items-center justify-center" style={{ borderRadius: 16, background: 'var(--a-alert-bg)' }}>
                 <AlertTriangle className="w-6 h-6" style={{ color: 'var(--a-alert-ink)' }} />
               </div>
-              <AlertDialogTitle className="text-lg" style={{ color: 'var(--a-ink)' }}>{tr("settingsscreen_hesabi_sil_95d759", "HesabÄ± sil")}</AlertDialogTitle>
+              <AlertDialogTitle className="text-lg" style={{ color: 'var(--a-ink)' }}>{tr("settingsscreen_hesabi_sil_95d759", "Hesabı sil")}</AlertDialogTitle>
             </div>
             <AlertDialogDescription className="text-sm space-y-3">
               <p>
-                {tr("settingsscreen_bu_emeliyyat_61940b", "Bu \u0259m\u0259liyyat")} <strong style={{ color: 'var(--a-alert-ink)' }}>{tr("settingsscreen_geri_qaytarila_bilmez_700864", "geri qaytarÄ±la bilmÉ™z")}</strong>{tr("settingsscreen_hesabiniz_ve_butun_melumatlari_99630e", ". \n                Hesab\u0131n\u0131z v\u0259 b\xFCt\xFCn m\u0259lumatlar\u0131n\u0131z h\u0259mi\u015F\u0259lik silin\u0259c\u0259k:")}
+                {tr("settingsscreen_bu_emeliyyat_61940b", "Bu \u0259m\u0259liyyat")} <strong style={{ color: 'var(--a-alert-ink)' }}>{tr("settingsscreen_geri_qaytarila_bilmez_700864", "geri qaytarıla bilməz")}</strong>{tr("settingsscreen_hesabiniz_ve_butun_melumatlari_99630e", ". \n                Hesab\u0131n\u0131z v\u0259 b\xFCt\xFCn m\u0259lumatlar\u0131n\u0131z h\u0259mi\u015F\u0259lik silin\u0259c\u0259k:")}
 
               </p>
               <ul className="list-disc list-inside space-y-1 text-xs" style={{ color: 'var(--a-ink-soft)' }}>
-                <li>{tr("settingsscreen_profil_melumatlari_82c76c", "Profil mÉ™lumatlarÄ±")}</li>
-                <li>{tr("settingsscreen_butun_qeydler_ve_izleme_tarixcesi_5544e4", "BÃ¼tÃ¼n qeydlÉ™r vÉ™ izlÉ™mÉ™ tarixÃ§É™si")}</li>
-                <li>{tr("settingsscreen_cemiyyet_paylasimlari_ve_serhler_655338", "CÉ™miyyÉ™t paylaÅŸÄ±mlarÄ± vÉ™ ÅŸÉ™rhlÉ™r")}</li>
-                <li>{tr("settingsscreen_ai_sohbet_tarixcesi_9acf70", "AI sÃ¶hbÉ™t tarixÃ§É™si")}</li>
-                <li>{tr("settingsscreen_premium_abunelik_eger_varsa_ce1645", "Premium abunÉ™lik (É™gÉ™r varsa)")}</li>
+                <li>{tr("settingsscreen_profil_melumatlari_82c76c", "Profil məlumatları")}</li>
+                <li>{tr("settingsscreen_butun_qeydler_ve_izleme_tarixcesi_5544e4", "Bütün qeydlər və izləmə tarixçəsi")}</li>
+                <li>{tr("settingsscreen_cemiyyet_paylasimlari_ve_serhler_655338", "Cəmiyyət paylaşımları və şərhlər")}</li>
+                <li>{tr("settingsscreen_ai_sohbet_tarixcesi_9acf70", "AI söhbət tarixçəsi")}</li>
+                <li>{tr("settingsscreen_premium_abunelik_eger_varsa_ce1645", "Premium abunəlik (əgər varsa)")}</li>
               </ul>
               <div className="pt-2">
                 <p className="text-xs font-medium mb-2" style={{ color: 'var(--a-ink)' }}>
-                  {tr("settingsscreen_tesdiqlemek_ucun_fd471c", "T\u0259sdiql\u0259m\u0259k \xFC\xE7\xFCn")} <strong>{tr("settingsscreen_sil_27792d", "\"SÄ°L\"")}</strong> {tr("settingsscreen_yazin_e343c0", "yaz\u0131n:")}
+                  {tr("settingsscreen_tesdiqlemek_ucun_fd471c", "T\u0259sdiql\u0259m\u0259k \xFC\xE7\xFCn")} <strong>{tr("settingsscreen_sil_27792d", "\"SİL\"")}</strong> {tr("settingsscreen_yazin_e343c0", "yaz\u0131n:")}
                 </p>
                 <input
                   type="text"
                   value={deleteConfirmText}
                   onChange={(e) => setDeleteConfirmText(e.target.value)}
-                  placeholder={tr("settingsscreen_si_l_903c4d", "SÄ°L")}
+                  placeholder={tr("settingsscreen_si_l_903c4d", "SİL")}
                   className="a-input w-full text-center font-mono tracking-widest" />
 
               </div>
@@ -491,7 +491,7 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
             </AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDeleteAccount}
-              disabled={deleteConfirmText !== tr("settingsscreen_delete_confirm_keyword", "SÄ°L") || isDeleting}
+              disabled={deleteConfirmText !== tr("settingsscreen_delete_confirm_keyword", "SİL") || isDeleting}
               className="bg-destructive hover:bg-destructive/90 rounded-full">
 
               {isDeleting ?

@@ -24,10 +24,10 @@ interface CalendarScreenProps {
 interface DayEventType {
   type: 'period' | 'fertile' | 'ovulation' | 'appointment' | 'mood';
   label: string;
-  color: string; // dot rÉ™ngi (palitra)
+  color: string; // dot rəngi (palitra)
 }
 
-// Palitra dot rÉ™nglÉ™ri
+// Palitra dot rəngləri
 const DOT = {
   period: '#ff8aa4', // pink-2
   fertile: '#63bd8b', // green-2
@@ -93,7 +93,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
     // Check for mood logs
     const dayLog = logs.find((l) => l.log_date === dateStr);
     if (dayLog?.mood) {
-      events.push({ type: 'mood', label: tr("calendarscreen_ehval_qeyd_aa4f19", 'Æhval qeyd'), color: DOT.mood });
+      events.push({ type: 'mood', label: tr("calendarscreen_ehval_qeyd_aa4f19", 'Əhval qeyd'), color: DOT.mood });
     }
 
     // Cycle-based events for flow stage
@@ -109,7 +109,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
       if (phaseInfo.isOvulationDay) {
         events.push({ type: 'ovulation', label: 'Ovulyasiya', color: DOT.ovulation });
       } else if (phaseInfo.isFertileDay && !phaseInfo.isPeriodDay) {
-        events.push({ type: 'fertile', label: tr("calendarscreen_fertil_gun_653ae1", 'Fertil gÃ¼n'), color: DOT.fertile });
+        events.push({ type: 'fertile', label: tr("calendarscreen_fertil_gun_653ae1", 'Fertil gün'), color: DOT.fertile });
       }
     }
 
@@ -117,14 +117,14 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
     if (lifeStage === 'bump' && pregData?.dueDate) {
       const dueDate = new Date(pregData.dueDate);
       if (isSameDay(day, dueDate)) {
-        events.push({ type: 'appointment', label: tr("calendarscreen_dogus_tarixi_e2caea", 'DoÄŸuÅŸ tarixi'), color: DOT.appointment });
+        events.push({ type: 'appointment', label: tr("calendarscreen_dogus_tarixi_e2caea", 'Doğuş tarixi'), color: DOT.appointment });
       }
     }
 
     return events;
   };
 
-  // Get day styling based on cycle phase â€” tint fon + sabit ink
+  // Get day styling based on cycle phase — tint fon + sabit ink
   const getDayStyle = (day: Date): {bg?: string;ink?: string;} => {
     if (lifeStage !== 'flow' || !cycleData) return {};
 
@@ -166,14 +166,14 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
   null;
 
   const cycleStats = [
-  { icon: Droplets, value: periodLength, label: tr("calendarscreen_gun_period_957849", "gÃ¼n period"), bg: 'var(--a-pink-1)', ink: 'var(--a-pink-ink)' },
-  { icon: CalendarIcon, value: cycleLength, label: tr("calendarscreen_gun_tsikl_bb0ab6", "gÃ¼n tsikl"), bg: 'var(--a-peach-1)', ink: 'var(--a-accent-ink)' },
-  { icon: Sparkles, value: cycleLength - 14, label: tr("calendarscreen_ovulyasiya_gunu_e20a0b", "ovulyasiya gÃ¼nÃ¼"), bg: 'var(--a-yellow-1)', ink: 'var(--a-yellow-ink)' }];
+  { icon: Droplets, value: periodLength, label: tr("calendarscreen_gun_period_957849", "gün period"), bg: 'var(--a-pink-1)', ink: 'var(--a-pink-ink)' },
+  { icon: CalendarIcon, value: cycleLength, label: tr("calendarscreen_gun_tsikl_bb0ab6", "gün tsikl"), bg: 'var(--a-peach-1)', ink: 'var(--a-accent-ink)' },
+  { icon: Sparkles, value: cycleLength - 14, label: tr("calendarscreen_ovulyasiya_gunu_e20a0b", "ovulyasiya günü"), bg: 'var(--a-yellow-1)', ink: 'var(--a-yellow-ink)' }];
 
 
   const legendItems = [
   { color: DOT.period, label: tr("untranslated_menstruasiya_6pect0", "Menstruasiya") },
-  { color: DOT.fertile, label: tr("calendarscreen_fertil_gunler_65de2c", "Fertil gÃ¼nlÉ™r") },
+  { color: DOT.fertile, label: tr("calendarscreen_fertil_gunler_65de2c", "Fertil günlər") },
   { color: DOT.ovulation, label: tr("untranslated_ovulyasiya_h9aw8t", "Ovulyasiya") },
   { color: DOT.appointment, label: tr("untranslated_randevu_xc37do", "Randevu") }];
 
@@ -191,7 +191,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
               {lifeStage === 'flow' && currentCycleDay &&
               <p className="a-eyebrow">{tr("calendarscreen_tsikl_gunu_51cdf3", "Tsikl g\xFCn\xFC:")} {currentCycleDay} / {cycleLength}</p>
               }
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("calendarscreen_teqvim_584bdd", "TÉ™qvim")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("calendarscreen_teqvim_584bdd", "Təqvim")}</p>
             </div>
           </div>
           {selectedDate &&
@@ -233,7 +233,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
               onClick={() => navigateMonth('prev')}
               className="a-icon-btn"
               whileTap={{ scale: 0.95 }}
-              aria-label={tr("calendarscreen_evvelki_ay", "ÆvvÉ™lki ay")}>
+              aria-label={tr("calendarscreen_evvelki_ay", "Əvvəlki ay")}>
               <ChevronLeft className="rtl:rotate-180" size={16} />
             </motion.button>
             <h2 className="capitalize" style={{ fontSize: 16, fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--a-ink)' }}>
@@ -243,7 +243,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
               onClick={() => navigateMonth('next')}
               className="a-icon-btn"
               whileTap={{ scale: 0.95 }}
-              aria-label={tr("calendarscreen_novbeti_ay", "NÃ¶vbÉ™ti ay")}>
+              aria-label={tr("calendarscreen_novbeti_ay", "Növbəti ay")}>
               <ChevronRight className="rtl:rotate-180" size={16} />
             </motion.button>
           </div>
@@ -315,7 +315,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1 }}>
 
-          <h3 className="a-card-title" style={{ marginBottom: 12 }}>{tr("calendarscreen_isareler_c13095", "Ä°ÅŸarÉ™lÉ™r")}</h3>
+          <h3 className="a-card-title" style={{ marginBottom: 12 }}>{tr("calendarscreen_isareler_c13095", "İşarələr")}</h3>
           <div className="grid grid-cols-2 gap-2">
             {legendItems.map((item) =>
             <div key={item.label} className="flex items-center gap-2" style={{ background: 'var(--a-surface-soft)', borderRadius: 12, padding: '8px 10px' }}>
@@ -381,7 +381,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
 
             <div className="text-center py-6">
                   <CalendarIcon size={36} className="mx-auto mb-2" style={{ color: 'var(--a-ink-faint)' }} />
-                  <p style={{ fontSize: 13, color: 'var(--a-ink-soft)' }}>{tr("calendarscreen_bu_gun_ucun_hadise_yoxdur_a394c8", "Bu gÃ¼n Ã¼Ã§Ã¼n hadisÉ™ yoxdur")}</p>
+                  <p style={{ fontSize: 13, color: 'var(--a-ink-soft)' }}>{tr("calendarscreen_bu_gun_ucun_hadise_yoxdur_a394c8", "Bu gün üçün hadisə yoxdur")}</p>
                 </div>
             }
             </motion.div>
@@ -418,7 +418,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
                 className="a-icon-btn"
                 style={{ width: 32, height: 32, borderRadius: 999 }}
                 whileTap={{ scale: 0.95 }}
-                aria-label={tr("premiummodal_bagla_84bdc9", "BaÄŸla")}>
+                aria-label={tr("premiummodal_bagla_84bdc9", "Bağla")}>
                   <X size={14} />
                 </motion.button>
               </div>
@@ -428,9 +428,9 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
               </p>
 
               <div className="mb-4">
-                <label className="block mb-2" style={{ fontSize: 13, fontWeight: 600, color: 'var(--a-ink)' }}>{tr("calendarscreen_basliq_e1f6c5", "BaÅŸlÄ±q")}</label>
+                <label className="block mb-2" style={{ fontSize: 13, fontWeight: 600, color: 'var(--a-ink)' }}>{tr("calendarscreen_basliq_e1f6c5", "Başlıq")}</label>
                 <input
-                placeholder={tr("calendarscreen_hekim_muayinesi_78c373", "HÉ™kim mÃ¼ayinÉ™si")}
+                placeholder={tr("calendarscreen_hekim_muayinesi_78c373", "Həkim müayinəsi")}
                 value={newEventTitle}
                 onChange={(e) => setNewEventTitle(e.target.value)}
                 className="a-input w-full"
@@ -439,12 +439,12 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
               </div>
 
               <div className="mb-6">
-                <label className="block mb-2" style={{ fontSize: 13, fontWeight: 600, color: 'var(--a-ink)' }}>{tr("calendarscreen_nov_98ad7c", "NÃ¶v")}</label>
+                <label className="block mb-2" style={{ fontSize: 13, fontWeight: 600, color: 'var(--a-ink)' }}>{tr("calendarscreen_nov_98ad7c", "Növ")}</label>
                 <div className="flex gap-2">
                   {[
-                { id: 'appointment', label: 'Randevu', icon: 'ðŸ“…' },
-                { id: 'pill', label: tr("calendarscreen_derman_8b4b27", 'DÉ™rman'), icon: 'ðŸ’Š' },
-                { id: 'reminder', label: tr("calendarscreen_xatirlatma_3f3c48", 'XatÄ±rlatma'), icon: 'ðŸ””' }].
+                { id: 'appointment', label: 'Randevu', icon: '📅' },
+                { id: 'pill', label: tr("calendarscreen_derman_8b4b27", 'Dərman'), icon: '💊' },
+                { id: 'reminder', label: tr("calendarscreen_xatirlatma_3f3c48", 'Xatırlatma'), icon: '🔔' }].
                 map((type) =>
                 <button
                   key={type.id}

@@ -1,4 +1,6 @@
 import { takeAiDraft } from '@/lib/ai-draft';
+import { Mascot } from '@/components/anacan/Mascot';
+import { rd } from '@/lib/redesign-i18n';
 import { useState, useRef, useEffect, forwardRef, memo, useCallback } from 'react';
 import { getLocaleTag } from '@/lib/i18n';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -100,7 +102,7 @@ const ChatMessageRow = memo(({ message, copied, onCopy }: {
     <span className={`a-chat-avatar${message.role === 'user' ? ' user' : ''}`}>
       {message.role === 'user' ?
       <User size={13} strokeWidth={2.2} /> :
-      <Bot size={13} strokeWidth={2.2} />}
+      <AssistantFace />}
     </span>
     <div className="a-chat-bubble-wrap">
       <div className={`a-chat-bubble ${message.role === 'user' ? 'user' : 'ai'}`}>
@@ -148,6 +150,14 @@ const ChatMessageRow = memo(({ message, copied, onCopy }: {
   </motion.div>
 ));
 ChatMessageRow.displayName = 'ChatMessageRow';
+
+const companionStage = (stage?: string | null) => (stage === 'bump' || stage === 'mommy' ? stage : 'flow') as 'bump' | 'mommy' | 'flow';
+
+/** Assistant avatar in bubbles: the stage companion's face. */
+function AssistantFace() {
+  const stage = useUserStore((s) => s.lifeStage);
+  return <Mascot stage={companionStage(stage)} pose="mode" width={26} />;
+}
 
 const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
   useScrollToTop();
@@ -726,8 +736,8 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
       {/* Chat header (anacan-demo) */}
       <div className="safe-area-top" style={{ paddingInlineStart: 20, paddingInlineEnd: 20, flexShrink: 0 }}>
         <div className="a-chat-header">
-          <span className="a-chat-header-avatar">
-            <Sparkles size={19} strokeWidth={2} />
+          <span className="a-chat-header-avatar a3-ai-face">
+            <Mascot stage={companionStage(lifeStage)} pose="mode" width={40} />
           </span>
           <div style={{ flex: 1, minWidth: 0 }}>
             <h1 className="a-chat-header-name a-heading">{tr("bottomnav_anacan_ai", 'Anacan.AI')}</h1>
@@ -813,6 +823,11 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
           transition={{ delay: 0.3 }}
           className="pb-4">
           
+            <div className="a3-ai-intro">
+              <Mascot stage={companionStage(lifeStage)} pose="welcome" width={96} bob />
+              <p className="a3-ai-intro-title">{rd('ai_intro_title')}</p>
+              <p className="a3-meta">{rd('ai_intro_text')}</p>
+            </div>
             <p className="a-chat-suggest-label">{tr("aichatscreen_meslehet_ucun_sual_secin_3c0236", "Məsləhət üçün sual seçin:")}</p>
             <div className="a-chat-suggest-row">
               {suggestedQuestions.map((question, index) =>

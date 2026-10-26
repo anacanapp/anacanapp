@@ -31,16 +31,16 @@ const AppearanceScreen = ({ onBack }: AppearanceScreenProps) => {
   const themeOptions = [
   {
     id: 'light',
-    label: tr("appearancescreen_aciq_rejim_800daa", 'AÃ§Ä±q rejim'),
-    description: tr("appearancescreen_klassik_aciq_rengler_7c8359", 'Klassik aÃ§Ä±q rÉ™nglÉ™r'),
+    label: tr("appearancescreen_aciq_rejim_800daa", 'Açıq rejim'),
+    description: tr("appearancescreen_klassik_aciq_rengler_7c8359", 'Klassik açıq rənglər'),
     icon: Sun,
     preview: 'linear-gradient(135deg, #ffe7e1, #ffe4c4)',
     previewInk: 'var(--a-accent-ink)'
   },
   {
     id: 'dark',
-    label: tr("appearancescreen_qaranliq_rejim_ef2f9f", 'QaranlÄ±q rejim'),
-    description: tr("appearancescreen_gozlere_rahat_qaranliq_tema_4d59d5", 'GÃ¶zlÉ™rÉ™ rahat qaranlÄ±q tema'),
+    label: tr("appearancescreen_qaranliq_rejim_ef2f9f", 'Qaranlıq rejim'),
+    description: tr("appearancescreen_gozlere_rahat_qaranliq_tema_4d59d5", 'Gözlərə rahat qaranlıq tema'),
     icon: Moon,
     preview: 'linear-gradient(135deg, #201512, #34241d)',
     previewInk: '#ffc79e'
@@ -48,7 +48,7 @@ const AppearanceScreen = ({ onBack }: AppearanceScreenProps) => {
   {
     id: 'system',
     label: tr("appearancescreen_sistem_label", "Sistem"),
-    description: tr("appearancescreen_cihazinizin_ayarina_uygun_9b4fa7", 'CihazÄ±nÄ±zÄ±n ayarÄ±na uyÄŸun'),
+    description: tr("appearancescreen_cihazinizin_ayarina_uygun_9b4fa7", 'Cihazınızın ayarına uyğun'),
     icon: Monitor,
     preview: 'linear-gradient(90deg, #ffe7e1 0%, #ffe4c4 50%, #201512 50%, #34241d 100%)',
     previewInk: 'var(--a-accent-ink)'
@@ -65,8 +65,8 @@ const AppearanceScreen = ({ onBack }: AppearanceScreenProps) => {
               <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
-              <p className="a-eyebrow">{tr("appearancescreen_tema_ve_reng_secimleri_f46e36", "Tema vÉ™ rÉ™ng seÃ§imlÉ™ri")}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("appearancescreen_gorunus_165fe3", "GÃ¶rÃ¼nÃ¼ÅŸ")}</p>
+              <p className="a-eyebrow">{tr("appearancescreen_tema_ve_reng_secimleri_f46e36", "Tema və rəng seçimləri")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("appearancescreen_gorunus_165fe3", "Görünüş")}</p>
             </div>
           </div>
         </header>
@@ -135,7 +135,7 @@ const AppearanceScreen = ({ onBack }: AppearanceScreenProps) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}>
 
-            <h3 className="a-card-title" style={{ marginBottom: 14 }}>{tr("appearancescreen_cari_gorunus_aeba05", "Cari GÃ¶rÃ¼nÃ¼ÅŸ")}</h3>
+            <h3 className="a-card-title" style={{ marginBottom: 14 }}>{tr("appearancescreen_cari_gorunus_aeba05", "Cari Görünüş")}</h3>
 
             <div className="space-y-3">
               {/* Color samples */}
@@ -144,10 +144,10 @@ const AppearanceScreen = ({ onBack }: AppearanceScreenProps) => {
                   <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--a-on-bg-soft)' }}>{tr("appearancescreen_fon", "Fon")}</span>
                 </div>
                 <div className="flex-1 h-12 flex items-center justify-center" style={{ borderRadius: 14, background: 'var(--a-surface-soft)' }}>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--a-ink-soft)' }}>{tr("appearancescreen_seth", "SÉ™th")}</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--a-ink-soft)' }}>{tr("appearancescreen_seth", "Səth")}</span>
                 </div>
                 <div className="flex-1 h-12 flex items-center justify-center" style={{ borderRadius: 14, background: 'var(--a-peach-2)' }}>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: '#ffffff' }}>{tr("appearancescreen_vurgu", "VurÄŸu")}</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: '#ffffff' }}>{tr("appearancescreen_vurgu", "Vurğu")}</span>
                 </div>
               </div>
 
@@ -158,8 +158,8 @@ const AppearanceScreen = ({ onBack }: AppearanceScreenProps) => {
                     <Sun size={18} style={{ color: 'var(--a-accent-ink)' }} />
                   </div>
                   <div>
-                    <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-ink)' }}>{tr("appearancescreen_numune_kart_1dac7f", "NÃ¼munÉ™ kart")}</p>
-                    <p style={{ fontSize: 11, color: 'var(--a-ink-soft)' }}>{tr("appearancescreen_bu_cari_temanizin_gorunusudur_2e30a3", "Bu cari temanÄ±zÄ±n gÃ¶rÃ¼nÃ¼ÅŸÃ¼dÃ¼r")}</p>
+                    <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-ink)' }}>{tr("appearancescreen_numune_kart_1dac7f", "Nümunə kart")}</p>
+                    <p style={{ fontSize: 11, color: 'var(--a-ink-soft)' }}>{tr("appearancescreen_bu_cari_temanizin_gorunusudur_2e30a3", "Bu cari temanızın görünüşüdür")}</p>
                   </div>
                 </div>
               </div>
@@ -175,8 +175,8 @@ const AppearanceScreen = ({ onBack }: AppearanceScreenProps) => {
 
             <p className="text-center" style={{ fontSize: 12.5, color: 'var(--a-disclaimer-ink)' }}>
               {theme === 'system' ?
-              tr("appearancescreen_system_theme_in_use", "Hal-hazÄ±rda sistem temasÄ± ({theme}) istifadÉ™ olunur.").replace("{theme}", currentTheme === 'dark' ? tr("appearancescreen_qaranliq_affa8e", "qaranlÄ±q") : tr("appearancescreen_aciq_79bf9c", "aÃ§Ä±q")) :
-              tr("appearancescreen_theme_activated", "{theme} rejim aktiv edilib.").replace("{theme}", theme === 'dark' ? tr("appearancescreen_qaranliq_34c5e3", "QaranlÄ±q") : tr("appearancescreen_aciq_306cc4", "AÃ§Ä±q"))
+              tr("appearancescreen_system_theme_in_use", "Hal-hazırda sistem teması ({theme}) istifadə olunur.").replace("{theme}", currentTheme === 'dark' ? tr("appearancescreen_qaranliq_affa8e", "qaranlıq") : tr("appearancescreen_aciq_79bf9c", "açıq")) :
+              tr("appearancescreen_theme_activated", "{theme} rejim aktiv edilib.").replace("{theme}", theme === 'dark' ? tr("appearancescreen_qaranliq_34c5e3", "Qaranlıq") : tr("appearancescreen_aciq_306cc4", "Açıq"))
               }
             </p>
           </motion.div>

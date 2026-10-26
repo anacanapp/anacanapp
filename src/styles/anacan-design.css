@@ -2803,3 +2803,22 @@ html.a-lite .a3-hero::before, html.a-lite .a3-art img, html.a-lite .a3-mascot.bo
 .a3-search { display: flex; align-items: center; gap: 10px; height: 50px; padding: 0 16px; margin-bottom: 14px; border-radius: 999px; background: var(--a-surface); box-shadow: var(--a-card-shadow); color: var(--a-ink-soft); }
 .a3-search input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: transparent; color: var(--a-ink); font-size: 16px; }
 .a3-search:focus-within { box-shadow: 0 0 0 2px var(--a-coral-strong); }
+
+/* Page titles and filter chips (tools, community, aptek) */
+.a3-page-title { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em; color: var(--a-ink); }
+.a3-chips { display: flex; gap: 8px; overflow-x: auto; margin: 12px calc(-1 * var(--a-gutter, 16px)) 0; padding: 2px var(--a-gutter, 16px); scroll-snap-type: x proximity; }
+.a3-chip-btn { flex-shrink: 0; height: 36px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--a-line); background: var(--a-surface); color: var(--a-ink-soft); font-size: 14px; font-weight: 600; cursor: pointer; scroll-snap-align: start; transition: background 200ms var(--a-ease), color 200ms var(--a-ease); }
+.a3-chip-btn.on { background: var(--a-ink); border-color: var(--a-ink); color: var(--a-bg); }
+.a3-chip-btn:active { transform: scale(0.96); }
+
+/* AI chat: companion avatars and intro */
+.a-chat-header-avatar.a3-ai-face, .a-chat-avatar:not(.user) { overflow: hidden; background: var(--a-coral-soft); }
+.a-chat-avatar:not(.user) .a3-mascot { width: 26px; height: 26px; object-fit: cover; object-position: top; }
+.a3-ai-face .a3-mascot { width: 40px; height: 40px; object-fit: cover; object-position: top; }
+.a3-ai-intro { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 8px 12px 18px; text-align: center; }
+.a3-ai-intro-title { margin: 6px 0 0; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--a-ink); }
+
+/* Profile card companion peeking from the corner */
+.a3-profile-card { position: relative; overflow: hidden; }
+.a3-profile-card .a3-profile-mascot { position: absolute; inset-inline-end: -12px; bottom: -18px; opacity: 0.9; pointer-events: none; }
+.a3-profile-card .a-icon-btn { position: relative; z-index: 2; }

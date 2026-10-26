@@ -291,7 +291,7 @@ const CommunityScreen = forwardRef<HTMLDivElement, CommunityScreenProps>(({ onBa
             }
             <div className="min-w-0">
               <p className="a-eyebrow truncate">{headerText}</p>
-              <p className="a-wordmark" style={{ fontSize: 18 }}>{tr("communityscreen_cemiyyet_2dc44d", "Cəmiyyət")}</p>
+              <h1 className="a3-page-title">{tr("communityscreen_cemiyyet_2dc44d", "Cəmiyyət")}</h1>
             </div>
           </div>
           <div className="a-topbar-actions">
@@ -323,9 +323,9 @@ const CommunityScreen = forwardRef<HTMLDivElement, CommunityScreenProps>(({ onBa
           </div>
         </header>
 
-        <div className="flex gap-2 mb-3 rounded-2xl bg-muted/40 p-1" role="tablist" aria-label={tr('communityscreen_cemiyyet_2dc44d', 'Cəmiyyət')}>
+        <div className="a3-seg mb-3" role="tablist" aria-label={tr('communityscreen_cemiyyet_2dc44d', 'Cəmiyyət')}>
           {tabs.map(tab => <button key={tab.id} type="button" role="tab" aria-selected={activeTab === tab.id}
-            onClick={() => setActiveTab(tab.id)} className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-xs font-bold ${activeTab === tab.id ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground'}`}><tab.icon size={15} />{tab.label}</button>)}
+            onClick={() => setActiveTab(tab.id)} className="inline-flex items-center justify-center gap-1.5"><tab.icon size={15} />{tab.label}</button>)}
         </div>
 
         {/* Search */}

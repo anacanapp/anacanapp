@@ -18,7 +18,7 @@ interface PartnerPrivacyScreenProps {
   onBack: () => void;
 }
 
-// Partnyor bÃ¶lmÉ™si â€” mavi vurÄŸu
+// Partnyor bölməsi — mavi vurğu
 const SWITCH_CLS = "data-[state=checked]:bg-[var(--a-blue-2)]";
 
 const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
@@ -36,30 +36,30 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
     try {
       const { error } = await (supabase.rpc as any)('unlink_partners');
       if (error) throw error;
-      toast({ title: tr('partnerv2_baglanti_kesildi', 'BaÄŸlantÄ± kÉ™sildi') });
+      toast({ title: tr('partnerv2_baglanti_kesildi', 'Bağlantı kəsildi') });
       setTimeout(() => window.location.reload(), 800);
     } catch (e) {
       console.error(e);
-      toast({ title: tr('partnerprivacyscreen_xeta_3cdbb6', 'XÉ™ta'), variant: 'destructive' });
+      toast({ title: tr('partnerprivacyscreen_xeta_3cdbb6', 'Xəta'), variant: 'destructive' });
       setUnlinking(false);
       setShowUnlinkDialog(false);
     }
   };
 
-  // DB-persist privacy ayarlarÄ± (É™vvÉ™llÉ™r yalnÄ±z local state idi)
+  // DB-persist privacy ayarları (əvvəllər yalnız local state idi)
   const { prefs, updatePref, loading: prefsLoading } = usePrivacyPreferences();
 
   const handleToggle = async (key: keyof PrivacyPrefs, value: boolean) => {
     const ok = await updatePref(key, value);
     toast(ok ?
-    { title: tr("partnerprivacyscreen_ayar_yenilendi_f0f876", 'Ayar yenilÉ™ndi') } :
-    { title: tr("partnerprivacyscreen_xeta_3cdbb6", 'XÉ™ta'), description: tr('privacy_save_failed', 'Yadda saxlanÄ±lmadÄ± â€” yenidÉ™n cÉ™hd edin.'), variant: 'destructive' });
+    { title: tr("partnerprivacyscreen_ayar_yenilendi_f0f876", 'Ayar yeniləndi') } :
+    { title: tr("partnerprivacyscreen_xeta_3cdbb6", 'Xəta'), description: tr('privacy_save_failed', 'Yadda saxlanılmadı — yenidən cəhd edin.'), variant: 'destructive' });
   };
 
   const handleExportData = async () => {
     if (!user) return;
 
-    toast({ title: tr("partnerprivacyscreen_melumatlar_hazirlanir_482381", 'MÉ™lumatlar hazÄ±rlanÄ±r...'), description: tr("partnerprivacyscreen_bu_bir_nece_saniye_ceke_biler_49b373", 'Bu bir neÃ§É™ saniyÉ™ Ã§É™kÉ™ bilÉ™r.') });
+    toast({ title: tr("partnerprivacyscreen_melumatlar_hazirlanir_482381", 'Məlumatlar hazırlanır...'), description: tr("partnerprivacyscreen_bu_bir_nece_saniye_ceke_biler_49b373", 'Bu bir neçə saniyə çəkə bilər.') });
 
     try {
       const { data: profile } = await supabase.from('profiles').select('*').eq('user_id', user.id).single();
@@ -83,9 +83,9 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
       a.click();
       URL.revokeObjectURL(url);
 
-      toast({ title: tr("partnerprivacyscreen_melumatlar_yuklendi_f04800", 'MÉ™lumatlar yÃ¼klÉ™ndi!') });
+      toast({ title: tr("partnerprivacyscreen_melumatlar_yuklendi_f04800", 'Məlumatlar yükləndi!') });
     } catch (error: any) {
-      toast({ title: tr("partnerprivacyscreen_xeta_3cdbb6", 'XÉ™ta'), description: error.message, variant: 'destructive' });
+      toast({ title: tr("partnerprivacyscreen_xeta_3cdbb6", 'Xəta'), description: error.message, variant: 'destructive' });
     }
   };
 
@@ -101,9 +101,9 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
 
       await signOut();
 
-      toast({ title: 'Hesab silindi', description: tr("partnerprivacyscreen_melumatlariniz_birdefelik_silindi_8f69e7", 'MÉ™lumatlarÄ±nÄ±z birdÉ™fÉ™lik silindi.') });
+      toast({ title: 'Hesab silindi', description: tr("partnerprivacyscreen_melumatlariniz_birdefelik_silindi_8f69e7", 'Məlumatlarınız birdəfəlik silindi.') });
     } catch (error: any) {
-      toast({ title: tr("partnerprivacyscreen_xeta_3cdbb6", 'XÉ™ta'), description: error.message, variant: 'destructive' });
+      toast({ title: tr("partnerprivacyscreen_xeta_3cdbb6", 'Xəta'), description: error.message, variant: 'destructive' });
     } finally {
       setDeleting(false);
       setShowDeleteDialog(false);
@@ -113,22 +113,22 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
   const privacyOptions = [
   {
     icon: Shield,
-    title: tr("partnerprivacyscreen_analitik_melumat_paylas_7971ff", 'Analitik mÉ™lumat paylaÅŸ'),
-    description: tr("partnerprivacyscreen_anonim_istifade_melumatlarini_paylasin_835e3a", 'Anonim istifadÉ™ mÉ™lumatlarÄ±nÄ± paylaÅŸÄ±n'),
+    title: tr("partnerprivacyscreen_analitik_melumat_paylas_7971ff", 'Analitik məlumat paylaş'),
+    description: tr("partnerprivacyscreen_anonim_istifade_melumatlarini_paylasin_835e3a", 'Anonim istifadə məlumatlarını paylaşın'),
     key: 'privacy_share_analytics' as const,
     bg: 'var(--a-green-1)', ink: 'var(--a-green-ink)'
   },
   {
     icon: Lock,
-    title: tr("partnerprivacyscreen_mekan_paylasimi_bf6566", 'MÉ™kan paylaÅŸÄ±mÄ±'),
-    description: tr("partnerprivacyscreen_heyat_yoldasiniz_mekaninizi_gore_biler_0fb295", 'HÉ™yat yoldaÅŸÄ±nÄ±z mÉ™kanÄ±nÄ±zÄ± gÃ¶rÉ™ bilÉ™r'),
+    title: tr("partnerprivacyscreen_mekan_paylasimi_bf6566", 'Məkan paylaşımı'),
+    description: tr("partnerprivacyscreen_heyat_yoldasiniz_mekaninizi_gore_biler_0fb295", 'Həyat yoldaşınız məkanınızı görə bilər'),
     key: 'privacy_location_sharing' as const,
     bg: 'var(--a-blue-1)', ink: 'var(--a-blue-ink)'
   },
   {
     icon: Shield,
-    title: tr("partnerprivacyscreen_bildiris_sesleri_fc9269", 'BildiriÅŸ sÉ™slÉ™ri'),
-    description: tr("partnerprivacyscreen_bildiris_geldikde_ses_cixsin_a3a866", 'BildiriÅŸ gÉ™ldikdÉ™ sÉ™s Ã§Ä±xsÄ±n'),
+    title: tr("partnerprivacyscreen_bildiris_sesleri_fc9269", 'Bildiriş səsləri'),
+    description: tr("partnerprivacyscreen_bildiris_geldikde_ses_cixsin_a3a866", 'Bildiriş gəldikdə səs çıxsın'),
     key: 'privacy_notification_sounds' as const,
     bg: 'var(--a-lav-1)', ink: 'var(--a-lav-ink)'
   }];
@@ -144,8 +144,8 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
               <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
-              <p className="a-eyebrow">{tr("partnerprivacyscreen_partner_melumatlarinizi_idare_edin_7c5e99", "Partner mÉ™lumatlarÄ±nÄ±zÄ± idarÉ™ edin")}</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("partnerprivacyscreen_gizlilik_tehlukesizlik_67bec6", "Gizlilik & TÉ™hlÃ¼kÉ™sizlik")}</p>
+              <p className="a-eyebrow">{tr("partnerprivacyscreen_partner_melumatlarinizi_idare_edin_7c5e99", "Partner məlumatlarınızı idarə edin")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("partnerprivacyscreen_gizlilik_tehlukesizlik_67bec6", "Gizlilik & Təhlükəsizlik")}</p>
             </div>
           </div>
         </header>
@@ -211,8 +211,8 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
                   <Download size={17} style={{ color: 'var(--a-green-ink)' }} />
                 </div>
                 <div className="flex-1">
-                  <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-ink)' }}>{tr("partnerprivacyscreen_melumatlari_yukle_5cee89", "MÉ™lumatlarÄ± YÃ¼klÉ™")}</p>
-                  <p style={{ fontSize: 11, color: 'var(--a-ink-soft)' }}>{tr("partnerprivacyscreen_butun_melumatlarinizi_json_formatinda_yu_0c02e5", "BÃ¼tÃ¼n mÉ™lumatlarÄ±nÄ±zÄ± JSON formatÄ±nda yÃ¼klÉ™yin")}</p>
+                  <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-ink)' }}>{tr("partnerprivacyscreen_melumatlari_yukle_5cee89", "Məlumatları Yüklə")}</p>
+                  <p style={{ fontSize: 11, color: 'var(--a-ink-soft)' }}>{tr("partnerprivacyscreen_butun_melumatlarinizi_json_formatinda_yu_0c02e5", "Bütün məlumatlarınızı JSON formatında yükləyin")}</p>
                 </div>
               </motion.button>
 
@@ -226,8 +226,8 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
                   <Unlink size={17} style={{ color: 'var(--a-blue-ink)' }} />
                 </div>
                 <div className="flex-1">
-                  <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-ink)' }}>{tr("partnerv2_baglantini_kes", "BaÄŸlantÄ±nÄ± kÉ™s")}</p>
-                  <p style={{ fontSize: 11, color: 'var(--a-ink-soft)' }}>{tr("partnerv2_unlink_partner_side_sub", "HÉ™yat yoldaÅŸÄ±nÄ±zÄ±n mÉ™lumatlarÄ±na giriÅŸi dayandÄ±rÄ±n")}</p>
+                  <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-ink)' }}>{tr("partnerv2_baglantini_kes", "Bağlantını kəs")}</p>
+                  <p style={{ fontSize: 11, color: 'var(--a-ink-soft)' }}>{tr("partnerv2_unlink_partner_side_sub", "Həyat yoldaşınızın məlumatlarına girişi dayandırın")}</p>
                 </div>
               </motion.button>
 
@@ -241,8 +241,8 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
                   <Trash2 size={17} style={{ color: 'var(--a-alert-ink)' }} />
                 </div>
                 <div className="flex-1">
-                  <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-alert-ink)' }}>{tr("partnerprivacyscreen_hesabi_sil_6abf24", "HesabÄ± Sil")}</p>
-                  <p style={{ fontSize: 11, color: 'var(--a-alert-soft)' }}>{tr("partnerprivacyscreen_butun_melumatlarinizi_birdefelik_silin_41a068", "BÃ¼tÃ¼n mÉ™lumatlarÄ±nÄ±zÄ± birdÉ™fÉ™lik silin")}</p>
+                  <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-alert-ink)' }}>{tr("partnerprivacyscreen_hesabi_sil_6abf24", "Hesabı Sil")}</p>
+                  <p style={{ fontSize: 11, color: 'var(--a-alert-soft)' }}>{tr("partnerprivacyscreen_butun_melumatlarinizi_birdefelik_silin_41a068", "Bütün məlumatlarınızı birdəfəlik silin")}</p>
                 </div>
               </motion.button>
             </div>
@@ -257,7 +257,7 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
 
             <p className="text-center" style={{ fontSize: 12.5, color: 'var(--a-disclaimer-ink)' }}>
               {tr("partnerprivacyscreen_gizlilik_siyasetimiz_ve_istifa_8c585b", "Gizlilik siyas\u0259timiz v\u0259 istifad\u0259 \u015F\u0259rtl\u0259rimiz haqq\u0131nda \u0259trafl\u0131 m\u0259lumat \xFC\xE7\xFCn")}{' '}
-              <a href="#" style={{ color: 'var(--a-disclaimer-strong)', fontWeight: 700 }}>{tr("partnerprivacyscreen_buraya_klikleyin_c20d44", "buraya kliklÉ™yin")}</a>.
+              <a href="#" style={{ color: 'var(--a-disclaimer-strong)', fontWeight: 700 }}>{tr("partnerprivacyscreen_buraya_klikleyin_c20d44", "buraya klikləyin")}</a>.
             </p>
           </motion.div>
         </div>
@@ -267,9 +267,9 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
       <Dialog open={showUnlinkDialog} onOpenChange={setShowUnlinkDialog}>
         <DialogContent className="a-scope rounded-[22px]">
           <DialogHeader>
-            <DialogTitle style={{ color: 'var(--a-ink)' }}>{tr("partnerv2_baglantini_kes", "BaÄŸlantÄ±nÄ± kÉ™s")}?</DialogTitle>
+            <DialogTitle style={{ color: 'var(--a-ink)' }}>{tr("partnerv2_baglantini_kes", "Bağlantını kəs")}?</DialogTitle>
             <DialogDescription>
-              {tr("partnerv2_unlink_partner_tesdiq", "Partnyor paneli baÄŸlanacaq vÉ™ hÉ™yat yoldaÅŸÄ±nÄ±zÄ±n mÉ™lumatlarÄ±na giriÅŸ dayandÄ±rÄ±lacaq. YenidÉ™n baÄŸlanmaq Ã¼Ã§Ã¼n kod lazÄ±m olacaq.")}
+              {tr("partnerv2_unlink_partner_tesdiq", "Partnyor paneli bağlanacaq və həyat yoldaşınızın məlumatlarına giriş dayandırılacaq. Yenidən bağlanmaq üçün kod lazım olacaq.")}
             </DialogDescription>
           </DialogHeader>
           <div className="flex gap-3 mt-4">
@@ -277,7 +277,7 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
               {tr("partnerprivacyscreen_legv_et_b5e49c", "L\u0259\u011Fv et")}
             </Button>
             <Button variant="destructive" onClick={handleUnlink} disabled={unlinking} className="flex-1 rounded-full">
-              {unlinking ? <Loader2 className="w-4 h-4 animate-spin" /> : tr("partnerv2_beli_kes", "BÉ™li, kÉ™s")}
+              {unlinking ? <Loader2 className="w-4 h-4 animate-spin" /> : tr("partnerv2_beli_kes", "Bəli, kəs")}
             </Button>
           </div>
         </DialogContent>
@@ -294,10 +294,10 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
             <DialogDescription className="text-start">
               {tr("partnerprivacyscreen_bu_emeliyyat_geri_qaytarila_bi_fdaca8", "Bu \u0259m\u0259liyyat geri qaytar\u0131la bilm\u0259z. B\xFCt\xFCn m\u0259lumatlar\u0131n\u0131z, o c\xFCml\u0259d\u0259n:")}
               <ul className="list-disc list-inside mt-2 space-y-1">
-                <li>{tr("partnerprivacyscreen_profil_melumatlari_82c76c", "Profil mÉ™lumatlarÄ±")}</li>
+                <li>{tr("partnerprivacyscreen_profil_melumatlari_82c76c", "Profil məlumatları")}</li>
                 <li>{tr("untranslated_mesajlar_ak8wzw", "Mesajlar")}</li>
-                <li>{tr("partnerprivacyscreen_tapsiriqlar_f5dbad", "TapÅŸÄ±rÄ±qlar")}</li>
-                <li>{tr("partnerprivacyscreen_bildirisler_54eb88", "BildiriÅŸlÉ™r")}</li>
+                <li>{tr("partnerprivacyscreen_tapsiriqlar_f5dbad", "Tapşırıqlar")}</li>
+                <li>{tr("partnerprivacyscreen_bildirisler_54eb88", "Bildirişlər")}</li>
               </ul>
               {tr("partnerprivacyscreen_birdefelik_silinecek_d977cc", "bird\u0259f\u0259lik silin\u0259c\u0259k.")}
             </DialogDescription>

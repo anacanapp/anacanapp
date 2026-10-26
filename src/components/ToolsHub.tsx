@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef, lazy, Suspense } from 'react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { TOOL_ICONS } from '@/lib/tool-icons';
+import { TOOL_ICONS, TOOL_CATEGORIES, toolCategory, toolTone, type ToolCategory } from '@/lib/tool-icons';
+import { rd } from '@/lib/redesign-i18n';
 import { saveScroll, restoreScroll } from '@/lib/scrollMemory';
 import { pushBackHandler } from '@/lib/backButton';
 import { isToolFree, isCakesAvailable } from '@/lib/freemium';
@@ -99,6 +100,7 @@ interface ToolsHubProps {
 
 const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [category, setCategory] = useState<ToolCategory | 'all'>('all');
   const [activeTool, setActiveTool] = useState<string | null>(initialTool);
   const [showPremiumModal, setShowPremiumModal] = useState(false);
 
@@ -292,7 +294,9 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const showCakes = !isToolDisabled('cakes') && cakesMarketOk && (lifeStage === 'bump' || lifeStage === 'mommy' || isAdmin) && (
   cakesVirtual.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
   cakesVirtual.description.toLowerCase().includes(searchQuery.toLowerCase()));
-  const displayedTools: Tool[] = showCakes ? [cakesVirtual, ...filteredTools] : filteredTools;
+  const allDisplayedTools: Tool[] = showCakes ? [cakesVirtual, ...filteredTools] : filteredTools;
+  const presentCategories = TOOL_CATEGORIES.filter((c) => allDisplayedTools.some((t) => toolCategory(t.id) === c));
+  const displayedTools: Tool[] = category === 'all' || searchQuery ? allDisplayedTools : allDisplayedTools.filter((t) => toolCategory(t.id) === category);
 
   const handleBack = () => {
     if (activeTool) {
@@ -382,9 +386,6 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
 
   const stageInfo = getLifeStageInfo();
 
-  // anacan-demo tool tile gradient cycle
-  const TILE_GRADIENTS = ['var(--a-grad-peach)', 'var(--a-grad-pink)', 'var(--a-grad-lav)', 'var(--a-grad-blue)', 'var(--a-grad-green)', 'var(--a-grad-yellow)'];
-  const TILE_INKS = ['var(--a-accent-ink)', 'var(--a-berry-ink)', 'var(--a-lav-ink)', 'var(--a-blue-ink)', 'var(--a-green-ink)', 'var(--a-warn-ink)'];
   // Featured (hero) banner backgrounds cycle
   const HERO_BGS = ['var(--a-grad-lav)', 'var(--a-grad-peach)', 'var(--a-grad-green)', 'var(--a-grad-blue)'];
   // Dark mode düzəlişi: 3 hardcoded hex (#3c2e5c/#14532d/#153e57) dark modda
@@ -396,8 +397,11 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     <div className="a-scope pb-8 overflow-x-hidden" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
       <AdSurface id="tools_banner" />
       <div className="a-shell">
+        <header className="a3-topbar">
+          <h1 className="a3-page-title">{rd('tools_title')}</h1>
+        </header>
         {/* Search header */}
-        <div style={{ paddingTop: 14 }}>
+        <div>
           <div className="a-search">
             <span style={{ fontSize: 15 }}>{stageInfo.emoji}</span>
             <input
@@ -410,6 +414,16 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
             {!searchQuery && <Search size={15} strokeWidth={2} color="var(--a-ink-faint)" />}
           </div>
         </div>
+
+        {!searchQuery && presentCategories.length > 1 &&
+        <div className="a3-chips hide-scrollbar" role="tablist" aria-label={rd('tools_title')}>
+            {(['all', ...presentCategories] as const).map((c) =>
+          <button key={c} type="button" role="tab" aria-selected={category === c} className={`a3-chip-btn${category === c ? ' on' : ''}`} onClick={() => setCategory(c)}>
+                {rd(`cat_${c}`)}
+              </button>
+          )}
+          </div>
+        }
 
         {/* Top Banner */}
         <BannerSlot placement="tools_top" onNavigate={() => {}} onToolOpen={gatedOpenTool} className="mt-3" />
@@ -531,7 +545,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
                     }
                     
                     {/* Icon */}
-                    <span className="a-tool-icon" style={{ background: TILE_GRADIENTS[index % TILE_GRADIENTS.length], color: TILE_INKS[index % TILE_INKS.length] }}>
+                    <span className={`a-tool-icon a3-ico-sq ${toolTone(tool.id)}`}>
                       <Icon size={17} strokeWidth={2} />
                     </span>
                     

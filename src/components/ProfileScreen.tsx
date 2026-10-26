@@ -1,3 +1,4 @@
+import { Mascot } from '@/components/anacan/Mascot';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -52,6 +53,8 @@ const dueDateFromGestWeeks = (birthDate: string, weeks: number): string => {
 
 type ChildForm = {name: string;birth_date: string;gender: 'boy' | 'girl';gest_weeks: number | null;};
 const emptyChildForm: ChildForm = { name: '', birth_date: '', gender: 'boy', gest_weeks: null };
+
+const MENU_TONES = ['c-peach', 'c-lav', 'c-blue', 'c-green', 'c-yellow', 'c-pink'];
 
 const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   useScrollToTop();
@@ -236,7 +239,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         
         <div>
           <p className="a-eyebrow">{stageInfo.name}</p>
-          <p className="a-wordmark" style={{ fontSize: 18 }}>{tr("untranslated_profil_v8b0sk", "Profil")}</p>
+          <h1 className="a3-page-title">{tr("untranslated_profil_v8b0sk", "Profil")}</h1>
         </div>
         <div className="a-topbar-actions">
           <motion.button
@@ -254,13 +257,13 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
 
       {/* Profile Card (anacan-demo CTA hero) */}
       <motion.div
-        className="a-cta a-fade-in"
-        style={{ background: 'var(--a-grad-peach)' }}
+        className="a-cta a-fade-in a3-profile-card"
+        style={{ background: 'var(--a-coral-soft)' }}
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.1 }}>
         
-        <span className="a-cta-shape" style={{ width: 140, height: 140, top: -50, insetInlineEnd: -40, background: 'rgba(255,255,255,0.35)' }} />
+        <Mascot stage={(lifeStage === 'bump' || lifeStage === 'mommy' ? lifeStage : 'flow')} pose="mode" width={92} className="a3-profile-mascot" />
         <div className="relative z-10 flex items-center gap-3">
           <div
             className="w-14 h-14 flex items-center justify-center text-3xl overflow-hidden flex-shrink-0"
@@ -704,7 +707,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
               className="a-list-row w-full"
               style={{ width: '100%', textAlign: 'start', background: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: 'none', cursor: 'pointer' }}>
               
-              <span className="a-list-icon" style={{ background: 'var(--a-surface-soft)', color: 'var(--a-ink-soft)' }}>
+              <span className={`a-list-icon a3-ico-sq sm ${MENU_TONES[menuItems.indexOf(item) % MENU_TONES.length]}`}>
                 <Icon size={17} strokeWidth={2} />
               </span>
               <p className="a-list-title" style={{ flex: 1 }}>{item.label}</p>
