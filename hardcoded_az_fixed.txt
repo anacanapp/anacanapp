@@ -1,0 +1,14 @@
+src\components\tools\WeightTracker.tsx:71: content: `Çəki analizi: ${currentWeek}-ci həftə, başlanğıc: ${startWeight}kg, indi: ${currentWeight}kg, artım: ${totalGain}kg (tövsiyə: ${recommended.min}-${recommended.max}kg). Status: ${status.text}. QAYDALAR: 1) Salamlama yoxdur, birbaşa məsələyə keç. 2) Maksimum 1-2 cümlə. 3) Disclaimer/xəbərdarlıq yoxdur. 4) Yalnız praktik qısa məsləhət.`
+src\hooks\useBlog.ts:331: return { error: new Error(`Bu kateqoriya ${postsUsingCategory.length} məqalədə istifadə olunur. Əvvəlcə məqalələrdən çıxarın.`) };
+src\hooks\useCommunity.ts:319: body: `${likerName} paylaşımınızı bəyəndi`,
+src\hooks\useDailySummary.ts:209: body: `Əhval: ${moodText} | Su: ${dailyLog?.water_intake || 0}ml | Təpiklər: ${totalKicks}`,
+src\hooks\useFairyTales.ts:142: toast.error(`Nağıl yaradıla bilmədi: ${error.message}`);
+src\hooks\useHealthReport.ts:140: value: `${avgWater.toFixed(1)} stəkan/gün`,
+src\hooks\useHealthReport.ts:177: value: `${exercisePerWeek.toFixed(1)} dəfə/həftə`,
+src\hooks\usePartnerConfig.ts:93: { achievement_key: 'first_love', name_az: 'İlk Sevgi', emoji: '💕', unlock_condition: 'always_unlocked', unlock_threshold: 0 },
+src\hooks\usePaywallConfig.ts:96: yearly_label: 'İllik',
+src\hooks\usePaywallConfig.ts:124: premium_yearly_name: 'Premium İllik',
+src\hooks\usePushNotifications.ts:134: body: `${likerName} paylaşımınızı bəyəndi`,
+src\hooks\useShoppingItems.ts:107: body: `${adderName} "${itemName}" əlavə etdi. Siyahını yoxla!`,
+src\hooks\useSkillCategories.ts:36: { skill_key: 'cognitive', label_az: 'İdrak', emoji: '🧠', color: 'bg-amber-500' },
+src\hooks\useSurprises.ts:151: const monthNames = ['Yan', 'Fev', 'Mar', 'Apr', 'May', 'İyn', 'İyl', 'Avq', 'Sen', 'Okt', 'Noy', 'Dek'];

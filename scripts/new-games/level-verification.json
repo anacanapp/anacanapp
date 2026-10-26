@@ -1,0 +1,26 @@
+{
+  "schema": "anacan-new-games-level-acceptance-v1",
+  "at": "2026-10-09T07:09:23.404Z",
+  "passed": true,
+  "parking": {
+    "levels": 40,
+    "lockedExitLevels": 16,
+    "buses": 85,
+    "shortestSolutions": true,
+    "catalogSha256": "926ccdf5006e864a5e09a4d5ed2243f34ed75c35e9d901a6daabb2a48f19f1a6",
+    "parRange": [
+      2,
+      15
+    ]
+  },
+  "flight": {
+    "levels": 30,
+    "safeControlSolutions": 30,
+    "secretRoutes": 24,
+    "minimumHearts": 3,
+    "durationRange": [
+      28,
+      35
+    ]
+  }
+}

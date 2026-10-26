@@ -1,0 +1,1 @@
+UPDATE public.tool_configs SET is_premium = false, premium_type = 'none', mommy_order = 1, bump_order = 1, flow_order = 1 WHERE tool_id = 'baby-growth';

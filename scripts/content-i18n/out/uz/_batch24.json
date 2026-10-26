@@ -1,0 +1,44 @@
+{
+ "baby_milestones_db": {
+  "b018c429-c030-447a-b40b-dbb21a76df5d": {
+   "label": "Birinchi tabassum",
+   "description": "Chaqaloq ilk bor tabassum qildi"
+  },
+  "bede9344-42da-47b2-bb53-a66737439810": {
+   "label": "Birinchi so‘zlar",
+   "description": "Chaqaloq ilk so‘zlarini aytdi"
+  },
+  "e2454a6c-7b9f-49c3-9c10-ae078acca010": {
+   "label": "O‘tiradi",
+   "description": "Chaqaloq yordamsiz o‘tiradi"
+  },
+  "f9933a4f-9254-4130-914e-e72c6547120f": {
+   "label": "Kuladi",
+   "description": "Chaqaloq ovoz chiqarib kula boshladi"
+  },
+  "20279fac-cff7-4705-81fb-ab94c4019e82": {
+   "label": "Emaklaydi",
+   "description": "Chaqaloq emaklay boshladi"
+  },
+  "4fb89347-d59c-462a-b6de-6febaaa3794a": {
+   "label": "Oyoqqa turadi",
+   "description": "Chaqaloq oyoqqa turadi"
+  },
+  "55034eea-b3e3-4e5e-93e4-88df17d88f2f": {
+   "label": "Boshini tutadi",
+   "description": "Chaqaloq boshini tutishni boshladi"
+  },
+  "5c054df0-8bce-421f-9954-5a33392a1056": {
+   "label": "Ilk qadamlar",
+   "description": "Chaqaloq ilk qadamlarini tashladi"
+  },
+  "6f62e4bd-1746-4709-928f-dd9f482882be": {
+   "label": "Ag‘dariladi",
+   "description": "Chaqaloq ag‘darila oladi"
+  },
+  "98912b0c-6f44-485c-816d-ac6bf19441a6": {
+   "label": "Qo‘l uzatadi",
+   "description": "Chaqaloq buyumlarga qo‘l uzatadi"
+  }
+ }
+}

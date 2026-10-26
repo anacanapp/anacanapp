@@ -1,0 +1,1 @@
+ALTER TABLE public.baby_logs ADD COLUMN amount_ml integer DEFAULT NULL;

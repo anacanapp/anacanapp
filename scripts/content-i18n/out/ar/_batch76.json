@@ -1,0 +1,68 @@
+{
+ "premium_features": {
+  "7bbb1acd-2ddf-4d77-9f50-464d97cb3648": {
+   "title": "أصوات مهدئة",
+   "description": "مجانًا ٢٠ دقيقة يوميًا / بلا حدود"
+  },
+  "906f372d-fff0-44ca-aea1-7b5764fa872e": {
+   "title": "تحليل البكاء",
+   "description": "مجانًا ٣ مرات يوميًا / بلا حدود"
+  },
+  "99e32a46-e48e-405c-ae40-08bd38408c0d": {
+   "title": "إنشاء قصة",
+   "description": "مجانًا ٣ مرات يوميًا / بلا حدود"
+  },
+  "9a9a69cf-18fd-4172-8638-7a4950b3c603": {
+   "title": "جلسة تصوير للرضيع",
+   "description": "٣ صور مجانًا / بلا حدود"
+  },
+  "a81ba240-cdd1-4695-a758-cd2c21ca8442": {
+   "title": "دعم ذو أولوية",
+   "description": "دعم فني سريع"
+  },
+  "bb94201a-dd66-416c-abea-f584f484d0a7": {
+   "title": "دردشة مع طبيب بالذكاء الاصطناعي",
+   "description": "١٠ رسائل يوميًا"
+  },
+  "0591890c-70df-4ab3-a153-a0af339f386c": {
+   "title": "سكر الدم",
+   "description": "Premium فقط"
+  },
+  "2ad5c743-505e-447d-9de0-ec0a586d1def": {
+   "title": "ألبوم الحمل",
+   "description": "Premium فقط"
+  },
+  "36bf3502-3a4c-464d-8444-a4dee86bda90": {
+   "title": "برامج التمارين",
+   "description": "Premium فقط"
+  },
+  "6b173bac-e788-4360-8dc5-8b0728368b1f": {
+   "title": "السلامة",
+   "description": "Premium فقط"
+  },
+  "6b762385-283d-46c0-b5b0-c48d447c758b": {
+   "title": "الوصفات",
+   "description": "3 وصفات مجانية في كل فئة / غير محدود"
+  },
+  "7ab2da65-61c5-4d5d-8bd2-f92f7ed2bc04": {
+   "title": "خريطة صديقة للأمهات",
+   "description": "Premium فقط"
+  },
+  "d029f7f6-0a00-4339-8fd2-79a37194b794": {
+   "title": "تجربة بلا إعلانات",
+   "description": "من دون أي إعلانات"
+  },
+  "d2602145-8693-4aeb-96d9-ac5247e58c5c": {
+   "title": "ماسح الحفاضات",
+   "description": "3 مرات يوميًا مجانًا / غير محدود"
+  },
+  "eb33f430-0170-4d55-b0f5-6b5899aaf622": {
+   "title": "تتبّع التغذية",
+   "description": "Premium فقط"
+  },
+  "f07ae91a-a320-4d7f-8c5b-beaed0166f0a": {
+   "title": "الأبراج",
+   "description": "Premium فقط"
+  }
+ }
+}

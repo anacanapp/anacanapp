@@ -1,0 +1,76 @@
+{
+ "faqs": {
+  "39ee01ac-35b3-4b7c-8e94-c38d04914101": {
+   "question": "Wer ist Dr. Anacan?",
+   "answer": "Dr. Anacan ist ein KI-basierter virtueller medizinischer Assistent."
+  },
+  "6e6fd1d5-e8a1-4342-988a-6d33d2e16ef3": {
+   "question": "Kann ich den Ratschlägen des KI-Arztes vertrauen?",
+   "answer": "Dr. Anacan bietet allgemeine Informationen und ersetzt keinen echten Arzt."
+  },
+  "4afb8ef8-3847-4b0c-ae69-d1f1392bf148": {
+   "question": "Wird der Chatverlauf gespeichert?",
+   "answer": "Ja, alle deine Unterhaltungen werden in deinem Konto gespeichert."
+  },
+  "3954f6a5-cc07-4ceb-b58d-6860a8818296": {
+   "question": "Wie kann ich der Community beitreten?",
+   "answer": "Nach der Registrierung trittst du automatisch bei."
+  },
+  "00ea0146-c70b-4f41-a1a1-6dbc6972d1e5": {
+   "question": "Kann ich Beiträge anonym veröffentlichen?",
+   "answer": "Ja, du kannst den anonymen Modus auswählen."
+  },
+  "8bfd2f91-c65a-4183-99d6-33b219dada37": {
+   "question": "Was soll ich tun, wenn ich unangemessene Inhalte sehe?",
+   "answer": "Nutze die Schaltfläche „Melden“."
+  },
+  "438da049-addd-4cca-bcac-f37630aeda58": {
+   "question": "Was ist Anacan?",
+   "answer": "Anacan ist eine mobile App, die dich während der Schwangerschaft, der Geburt und der Zeit als Mutter unterstützt."
+  },
+  "a2f59e84-bacd-44b6-a0c7-59dd61f2dcbf": {
+   "question": "Für welche Plattformen ist die App verfügbar?",
+   "answer": "Anacan kann für iOS und Android heruntergeladen werden."
+  },
+  "44ba92c4-4cce-4e6e-a953-36953f4c2894": {
+   "question": "Ist die App auf Aserbaidschanisch verfügbar?",
+   "answer": "Ja! Anacan ist sowohl auf Aserbaidschanisch als auch auf Englisch verfügbar."
+  },
+  "842ac77d-8cc3-4bc6-af3d-a767c6881cbb": {
+   "question": "Ist die App kostenlos?",
+   "answer": "Die grundlegenden Funktionen sind kostenlos. Für zusätzliche Funktionen ist Premium verfügbar."
+  },
+  "caa7fc25-0cfc-4524-881e-93f5150d0d2a": {
+   "question": "Welche Vorteile bietet ein Premium-Abonnement?",
+   "answer": "Mit Premium erhältst du unbegrenzten Zugang zum KI-Chat und zu exklusiven Inhalten."
+  },
+  "79ee2017-343f-41c5-a4d3-b0ddb22a6013": {
+   "question": "Wie kann ich mein Abonnement kündigen?",
+   "answer": "Du kannst es jederzeit unter Profil > Abonnement kündigen."
+  },
+  "4b092958-cdb1-4970-8946-552d3cf3dc5f": {
+   "question": "Sind meine Daten sicher?",
+   "answer": "Deine Daten werden verschlüsselt und sicher gespeichert."
+  },
+  "cea56026-85a8-4a67-9af0-616e55876d7c": {
+   "question": "Kann ich meine Daten löschen?",
+   "answer": "Ja, du kannst dein Konto jederzeit löschen."
+  },
+  "2aadc8d5-4aef-4443-8133-365ae93fe4f9": {
+   "question": "Werden meine Daten an Dritte weitergegeben?",
+   "answer": "Nein, deine Daten werden nicht verkauft."
+  },
+  "89fa6361-f22e-4303-9db4-d37b763e913d": {
+   "question": "Wie funktioniert die Schreianalyse?",
+   "answer": "Sie analysiert die Laute deines Babys mithilfe von KI-Technologie."
+  },
+  "2f0a86b1-0a16-49f5-a204-9efe85786d05": {
+   "question": "Ist die Schlafaufzeichnung genau?",
+   "answer": "Sie basiert auf den Daten, die du manuell eingibst."
+  },
+  "014afe49-2799-44e5-b3ab-23f9cb4efbf7": {
+   "question": "Wie funktioniert der Märchengenerator?",
+   "answer": "Mithilfe von KI werden personalisierte Märchen erstellt."
+  }
+ }
+}

@@ -1,0 +1,20 @@
+:root { --admob-banner-space: 0px; --admob-viewport-bottom: 0px; --admob-viewport-top: 0px; }
+.admob-position-bottom [data-scroll-container] { margin-bottom: var(--admob-viewport-bottom); padding-bottom: 16px; }
+.admob-position-top [data-scroll-container] { margin-top: var(--admob-viewport-top); }
+.admob-banner-visible:not(.admob-position-middle) [data-ad-standalone="true"] { margin-top: var(--admob-viewport-top); height: calc(100dvh - var(--admob-viewport-bottom) - var(--admob-viewport-top)); max-height: calc(100dvh - var(--admob-viewport-bottom) - var(--admob-viewport-top)); min-height: 0 !important; overflow-y: auto; }
+[data-ad-screen]::after { content: ''; display: block; height: var(--admob-banner-space); pointer-events: none; flex-shrink: 0; }
+.admob-position-middle [data-ad-screen]::after { height: 0; }
+.admob-banner-dock { position: fixed; z-index: 65; inset-inline: 0; margin-inline: auto; width: min(728px, calc(100% - 16px)); pointer-events: none; }
+.admob-demo-banner { display: flex; align-items: center; gap: 10px; width: 100%; height: 100%; padding: 8px 12px; border: 1px solid #ecd9cf; border-radius: 14px; color: #43322c; background: linear-gradient(110deg, #fffaf5, #fff2eb 65%, #f2ecff); box-shadow: 0 4px 20px #4b2b1610; pointer-events: auto; }
+.admob-demo-icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: #fff; color: #c17856; flex-shrink: 0; }
+.admob-demo-label { font-size: 8px; font-weight: 800; letter-spacing: .12em; color: #907667; }
+.admob-demo-cta { padding: 7px 10px; border-radius: 9px; font-size: 10px; font-weight: 700; background: #f6dbc9; flex-shrink: 0; }
+.admob-position-middle .admob-demo-banner { padding: 4px 8px; gap: 7px; border-radius: 9px; }
+.admob-position-middle .admob-demo-icon { width: 32px; height: 32px; border-radius: 8px; }
+.admob-position-middle .admob-demo-banner strong { font-size: 11px; line-height: 13px; }
+.admob-position-middle .admob-demo-banner .admob-demo-label { font-size: 7px; }
+.admob-preview-toolbar { position: fixed; top: calc(env(safe-area-inset-top) + 4px); inset-inline-end: 8px; z-index: 160; display: flex; align-items: center; gap: 7px; padding: 7px 10px; background: #402e60ed; color: #fff; font-size: 10px; border-radius: 12px; box-shadow: 0 4px 20px #0002; }
+.admob-preview-toolbar button { display: grid; place-items: center; padding: 4px; border-radius: 6px; background: #ffffff18; }
+.admob-phone { width: min(100%, 330px); height: 590px; border: 8px solid #28232e; border-radius: 38px; overflow: hidden; position: relative; margin-inline: auto; background: #fff9f3; color: #463b35; box-shadow: 0 20px 50px #50362915; }
+.admob-phone::before { content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 92px; height: 18px; border-radius: 20px; background: #28232e; z-index: 10; }
+@media (prefers-reduced-motion: reduce) { .admob-banner-dock { transition: none; } }

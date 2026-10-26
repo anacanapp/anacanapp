@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "health_hc_install",
+  "az": "Play Store-dan quraşdır",
+  "en": "Install from Play Store"
+ },
+ {
+  "key": "health_hc_missing",
+  "az": "Health Connect quraşdırılmayıb",
+  "en": "Health Connect is not installed"
+ },
+ {
+  "key": "health_hc_missing_desc",
+  "az": "Addım və aktivlik məlumatları üçün Google Health Connect lazımdır.",
+  "en": "Google Health Connect is required for steps and activity data."
+ },
+ {
+  "key": "health_min",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "health_open_settings",
+  "az": "İcazə ayarları",
+  "en": "Permission settings"
+ },
+ {
+  "key": "health_open_settings_desc",
+  "az": "icazələrini idarə edin",
+  "en": "manage permissions"
+ },
+ {
+  "key": "health_privacy_note",
+  "az": "Sağlamlıq məlumatlarınız yalnız cihazınızda oxunur — serverlərimizə göndərilmir.",
+  "en": "Your health data is read on-device only — never sent to our servers."
+ },
+ {
+  "key": "health_steps_7d",
+  "az": "Son 7 gün — addımlar",
+  "en": "Last 7 days — steps"
+ },
+ {
+  "key": "health_steps_today",
+  "az": "Addım (bu gün)",
+  "en": "Steps (today)"
+ },
+ {
+  "key": "health_web_desc",
+  "az": "Sağlamlıq inteqrasiyası iOS və Android tətbiqlərində işləyir.",
+  "en": "Health integration works in the iOS and Android apps."
+ },
+ {
+  "key": "health_web_title",
+  "az": "Yalnız mobil tətbiqdə",
+  "en": "Mobile app only"
+ },
+ {
+  "key": "health_workouts_week",
+  "az": "Məşq (7 gün)",
+  "en": "Workouts (7d)"
+ },
+ {
+  "key": "health_wt_cycling",
+  "az": "Velosiped",
+  "en": "Cycling"
+ },
+ {
+  "key": "health_wt_running",
+  "az": "Qaçış",
+  "en": "Running"
+ },
+ {
+  "key": "health_wt_swimming",
+  "az": "Üzgüçülük",
+  "en": "Swimming"
+ },
+ {
+  "key": "health_wt_walking",
+  "az": "Gəzinti",
+  "en": "Walking"
+ },
+ {
+  "key": "health_wt_workout",
+  "az": "Məşq",
+  "en": "Workout"
+ },
+ {
+  "key": "helpscreen_2025_anacan_butun_huquqlar_qorunur_c35c11",
+  "az": "© 2025 Anacan. Bütün hüquqlar qorunur.",
+  "en": "© 2025 Anajan. All rights reserved."
+ },
+ {
+  "key": "helpscreen_aciq_306cc4",
+  "az": "Açıq",
+  "en": "Open"
+ },
+ {
+  "key": "helpscreen_bagli_713069",
+  "az": "Bağlı",
+  "en": "Closed"
+ },
+ {
+  "key": "helpscreen_bazar_ertesi_cume_09_00_18_00_bb0b17",
+  "az": "Bazar ertəsi - Cümə: 09:00 - 18:00",
+  "en": "Monday - Friday: 09:00 - 18:00"
+ },
+ {
+  "key": "helpscreen_bizimle_elaqe_ebc559",
+  "az": "Bizimlə Əlaqə",
+  "en": "Contact us"
+ },
+ {
+  "key": "helpscreen_bu_muraciet_baglanib_yeni_mura_a27374",
+  "az": "Bu müraciət bağlanıb. Yeni müraciət göndərə bilərsiniz.",
+  "en": "This request is closed. You can send a new application."
+ },
+ {
+  "key": "helpscreen_destek_73b142",
+  "az": "Dəstək",
+  "en": "Support"
+ },
+ {
+  "key": "helpscreen_e_poct_f5c193",
+  "az": "E-poçt",
+  "en": "Email"
+ },
+ {
+  "key": "helpscreen_elaqe_07e6a8",
+  "az": "Əlaqə",
+  "en": "Contact"
+ },
+ {
+  "key": "helpscreen_gonder_3f11bd",
+  "az": "Göndər",
+  "en": "Send"
+ },
+ {
+  "key": "helpscreen_hele_muraciet_yoxdur_6f37de",
+  "az": "Hələ müraciət yoxdur",
+  "en": "No requests yet"
+ },
+ {
+  "key": "helpscreen_hell_edildi_beceb9",
+  "az": "Həll edildi",
+  "en": "Solved"
+ },
+ {
+  "key": "helpscreen_i_slenir_65a15d",
+  "az": "İşlənir",
+  "en": "It is being processed"
+ },
+ {
+  "key": "helpscreen_is_saatlari_cfa6fe",
+  "az": "İş saatları",
+  "en": "Working hours"
+ },
+ {
+  "key": "helpscreen_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "helpscreen_mesaj_gonderile_bilmedi_0cd095",
+  "az": "Mesaj göndərilə bilmədi",
+  "en": "Message could not be sent"
+ },
+ {
+  "key": "helpscreen_mesajinizi_yazin_21d48f",
+  "az": "Mesajınızı yazın...",
+  "en": "Write your message..."
+ },
+ {
+  "key": "helpscreen_movzu_5ac952",
+  "az": "Mövzu",
+  "en": "Subject"
+ },
+ {
+  "key": "helpscreen_movzu_ve_mesaj_daxil_edin_b27c43",
+  "az": "Mövzu və mesaj daxil edin",
+  "en": "Enter a subject and message"
+ },
+ {
+  "key": "helpscreen_muraciet_gonderile_bilmedi_2fc6c2",
+  "az": "Müraciət göndərilə bilmədi",
+  "en": "Request could not be sent"
+ },
+ {
+  "key": "helpscreen_muracietiniz_gonderildi_2337db",
+  "az": "Müraciətiniz göndərildi",
+  "en": "Your request has been sent"
+ },
+ {
+  "key": "helpscreen_muracietinizin_movzusu_d111c4",
+  "az": "Müraciətinizin mövzusu",
+  "en": "Subject of your request"
+ },
+ {
+  "key": "helpscreen_muracietler_215f40",
+  "az": "Müraciətlər",
+  "en": "Requests"
+ },
+ {
+  "key": "helpscreen_muracietleriniz_45af5e",
+  "az": "Müraciətləriniz",
+  "en": "Your Requests"
+ },
+ {
+  "key": "helpscreen_probleminizi_etrafli_tesvir_edin_2c4a86",
+  "az": "Probleminizi ətraflı təsvir edin...",
+  "en": "Describe your problem in detail..."
+ },
+ {
+  "key": "helpscreen_suallariniza_cavab_tapin_764218",
+  "az": "Suallarınıza cavab tapın",
+  "en": "Find answers to your questions"
+ },
+ {
+  "key": "helpscreen_suretli_cavab_ucun_muracietler_630f46",
+  "az": "💡 Sürətli cavab üçün \\",
+  "en": "💡 Submit a ticket from the \"Requests\" section for a quick response"
+ },
+ {
+  "key": "helpscreen_tez_tez_sorusulan_suallar_cf692e",
+  "az": "Tez-tez Soruşulan Suallar",
+  "en": "Frequently Asked Questions"
+ },
+ {
+  "key": "helpscreen_ugurlu_5c0191",
+  "az": "Uğurlu!",
+  "en": "Success!"
+ },
+ {
+  "key": "helpscreen_umumi_sual_e1c5ee",
+  "az": "Ümumi sual",
+  "en": "General question"
+ },
+ {
+  "key": "helpscreen_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "helpscreen_yardim_merkezi_0987ed",
+  "az": "Yardım Mərkəzi",
+  "en": "Help Center"
+ },
+ {
+  "key": "helpscreen_yeni_muraciet_f62908",
+  "az": "Yeni Müraciət",
+  "en": "New Request"
+ },
+ {
+  "key": "helpscreen_yeni_muraciet_gonder_45ce1f",
+  "az": "Yeni müraciət göndər",
+  "en": "Submit a new application"
+ },
+ {
+  "key": "legalscreen_huquqi_senedler_ca8c60",
+  "az": "Hüquqi Sənədlər",
+  "en": "Legal Documents"
+ },
+ {
+  "key": "legalscreen_son_yenilenme_8a61f0",
+  "az": "| Son yenilənmə:",
+  "en": "| Last update:"
+ },
+ {
+  "key": "month_apr_short",
+  "az": "Apr",
+  "en": "Apr"
+ },
+ {
+  "key": "month_april",
+  "az": "Aprel",
+  "en": "April"
+ },
+ {
+  "key": "month_aug_short",
+  "az": "Avq",
+  "en": "Aug"
+ },
+ {
+  "key": "month_august",
+  "az": "Avqust",
+  "en": "August"
+ },
+ {
+  "key": "month_dec_short",
+  "az": "Dek",
+  "en": "Dec"
+ },
+ {
+  "key": "month_december",
+  "az": "Dekabr",
+  "en": "December"
+ },
+ {
+  "key": "month_feb_short",
+  "az": "Fev",
+  "en": "Feb"
+ },
+ {
+  "key": "month_february",
+  "az": "Fevral",
+  "en": "February"
+ },
+ {
+  "key": "month_jan_short",
+  "az": "Yan",
+  "en": "Jan"
+ },
+ {
+  "key": "month_january",
+  "az": "Yanvar",
+  "en": "January"
+ },
+ {
+  "key": "month_jul_short",
+  "az": "İyl",
+  "en": "Jul"
+ },
+ {
+  "key": "month_july",
+  "az": "İyul",
+  "en": "July"
+ },
+ {
+  "key": "month_jun_short",
+  "az": "İyn",
+  "en": "Jun"
+ },
+ {
+  "key": "month_june",
+  "az": "İyun",
+  "en": "June"
+ },
+ {
+  "key": "month_mar_short",
+  "az": "Mar",
+  "en": "Mar"
+ },
+ {
+  "key": "month_march",
+  "az": "Mart",
+  "en": "March"
+ },
+ {
+  "key": "month_may",
+  "az": "May",
+  "en": "May"
+ },
+ {
+  "key": "month_may_short",
+  "az": "May",
+  "en": "May"
+ },
+ {
+  "key": "month_nov_short",
+  "az": "Noy",
+  "en": "Nov"
+ },
+ {
+  "key": "month_november",
+  "az": "Noyabr",
+  "en": "November"
+ },
+ {
+  "key": "month_oct_short",
+  "az": "Okt",
+  "en": "Oct"
+ },
+ {
+  "key": "month_october",
+  "az": "Oktyabr",
+  "en": "October"
+ },
+ {
+  "key": "month_sep_short",
+  "az": "Sen",
+  "en": "Sep"
+ },
+ {
+  "key": "month_september",
+  "az": "Sentyabr",
+  "en": "September"
+ },
+ {
+  "key": "motherchatscreen_bu_gun_786fd4",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "motherchatscreen_dunen_52b701",
+  "az": "Dünən",
+  "en": "Yesterday"
+ },
+ {
+  "key": "motherchatscreen_eve_gel_f66a96",
+  "az": "Evə gəl 🏠",
+  "en": "Come home 🏠"
+ },
+ {
+  "key": "motherchatscreen_geri_qayit_ff66c2",
+  "az": "Geri qayıt",
+  "en": "Go back"
+ },
+ {
+  "key": "motherchatscreen_hele_mesaj_yoxdur_cf0b5e",
+  "az": "Hələ mesaj yoxdur",
+  "en": "No messages yet"
+ },
+ {
+  "key": "motherchatscreen_i_lk_mesaji_siz_gonderin_a2529e",
+  "az": "İlk mesajı siz göndərin!",
+  "en": "You send the first message!"
+ },
+ {
+  "key": "motherchatscreen_mesaj_gonderile_bilmedi_0cd095",
+  "az": "Mesaj göndərilə bilmədi",
+  "en": "Message could not be sent"
+ },
+ {
+  "key": "motherchatscreen_mesaj_yazin_e69f84",
+  "az": "Mesaj yazın...",
+  "en": "Write a message..."
+ },
+ {
+  "key": "motherchatscreen_necesen_2df00b",
+  "az": "Necəsən?",
+  "en": "how are you"
+ },
+ {
+  "key": "motherchatscreen_partnyorunuz_hele_qosulmayib_8c68b2",
+  "az": "Partnyorunuz hələ qoşulmayıb",
+  "en": "Your partner has not yet joined"
+ },
+ {
+  "key": "motherchatscreen_seni_sevirem_aed14c",
+  "az": "Səni sevirəm! ❤️",
+  "en": "I love you! ❤️"
+ },
+ {
+  "key": "motherchatscreen_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "motherchatscreen_yaxsiyam_6e56a7",
+  "az": "Yaxşıyam 💪",
+  "en": "I'm fine 💪"
+ },
+ {
+  "key": "motherchatscreen_zeng_et_eb550f",
+  "az": "Zəng et 📞",
+  "en": "Call 📞"
+ },
+ {
+  "key": "notificationopscard_baku_saatlari_de5041",
+  "az": "Baku saatları",
+  "en": "Baku time"
+ },
+ {
+  "key": "notificationopscard_bildiris_emeliyyatlari_b18578",
+  "az": "Bildiriş əməliyyatları",
+  "en": "Notification operations"
+ },
+ {
+  "key": "notificationopscard_bu_gun_cron_icralari_baku_e3b082",
+  "az": "Bu gün cron icraları (Baku)",
+  "en": "Today's cron executions (Baku)"
+ },
+ {
+  "key": "notificationopscard_bu_gun_cron_icrasi_yoxdur_f33b6f",
+  "az": "Bu gün cron icrası yoxdur",
+  "en": "No cron execution today"
+ },
+ {
+  "key": "notificationopscard_bu_gun_gonderme_hesabati_tip_status_sebe_158578",
+  "az": "Bu gün göndərmə hesabatı (tip × status × səbəb)",
+  "en": "Today's sending report (type × status × reason)"
+ },
+ {
+  "key": "notificationopscard_bu_gun_gonderme_qeydi_yoxdur_653c4a",
+  "az": "Bu gün göndərmə qeydi yoxdur",
+  "en": "No sending record today"
+ },
+ {
+  "key": "notificationopscard_cron_isi_tapilmadi_7af00b",
+  "az": "Cron işi tapılmadı",
+  "en": "Cron job not found"
+ },
+ {
+  "key": "notificationopscard_cron_isleri_vaxt_zonasi_ce0ec5",
+  "az": "Cron işləri & vaxt zonası",
+  "en": "Cron jobs & time zone"
+ },
+ {
+  "key": "notificationopscard_cron_statusu_vaxt_zonasi_uygun_0fbd21",
+  "az": "Cron statusu, vaxt zonası uyğunluğu, günlük hesabat və test push düymələri.",
+  "en": "Cron status, time zone compatibility, log report and test push buttons."
+ },
+ {
+  "key": "notificationopscard_giris_etmelisiniz_6c2220",
+  "az": "Giriş etməlisiniz",
+  "en": "You must login"
+ },
+ {
+  "key": "notificationopscard_gonderilen_686392",
+  "az": "Göndərilən",
+  "en": "St"
+ },
+ {
+  "key": "notificationopscard_hec_vaxt_1c2a46",
+  "az": "heç vaxt",
+  "en": "never"
+ },
+ {
+  "key": "notificationopscard_her_saat_126990",
+  "az": "hər saat",
+  "en": "every hour"
+ },
+ {
+  "key": "notificationopscard_icralar_5cb87f",
+  "az": "İcralar",
+  "en": "Executions"
+ },
+ {
+  "key": "notificationopscard_kecilen_271294",
+  "az": "Keçilən",
+  "en": "Skipped"
+ },
+ {
+  "key": "notificationopscard_namelum_974fd5",
+  "az": "naməlum",
+  "en": "unknown"
+ },
+ {
+  "key": "notificationopscard_sebeb_7b51f1",
+  "az": "Səbəb",
+  "en": "Reason"
+ },
+ {
+  "key": "notificationopscard_son_bitme_8a369d",
+  "az": "Son bitmə",
+  "en": "Last completion"
+ },
+ {
+  "key": "notificationopscard_sondurulub_0ea98c",
+  "az": "söndürülüb",
+  "en": "disabled"
+ },
+ {
+  "key": "notificationopscard_status_alinmadi_e7e7ec",
+  "az": "Status alınmadı: ",
+  "en": "Status not received:"
+ },
+ {
+  "key": "notificationopscard_teleb_tanimlanmayib_e57484",
+  "az": "tələb tanımlanmayıb",
+  "en": "requirement not defined"
+ },
+ {
+  "key": "notificationopscard_test_xetasi_7b3ea9",
+  "az": "Test xətası: ",
+  "en": "Test error:"
+ },
+ {
+  "key": "notificationopscard_ugurlu_7fe64c",
+  "az": "Uğurlu",
+  "en": "Successful"
+ },
+ {
+  "key": "notificationopscard_ugursuz_541932",
+  "az": "Uğursuz",
+  "en": "Failed"
+ },
+ {
+  "key": "notificationopscard_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "notificationopscard_yenile_570ce2",
+  "az": "Yenilə",
+  "en": "Refresh"
+ },
+ {
+  "key": "notifications_water_daily_body",
+  "az": "Gündə ən azı 8 stəkan su içməyi unutmayın.",
+  "en": "Don’t forget to drink at least 8 glasses of water a day."
+ },
+ {
+  "key": "notifications_water_daily_title",
+  "az": "Su vaxtı! 💧",
+  "en": "Water time! 💧"
+ },
+ {
+  "key": "notificationsscreen_bildiris_yoxdur_6ccf4d",
+  "az": "Bildiriş yoxdur",
+  "en": "No notifications"
+ },
+ {
+  "key": "notificationsscreen_bildirisler_54eb88",
+  "az": "Bildirişlər",
+  "en": "Notifications"
+ },
+ {
+  "key": "notificationsscreen_cemiyyet_2dc44d",
+  "az": "Cəmiyyət",
+  "en": "Community"
+ },
+ {
+  "key": "notificationsscreen_delete",
+  "az": "Sil",
+  "en": "Delete"
+ },
+ {
+  "key": "notificationsscreen_dunen_52b701",
+  "az": "Dünən",
+  "en": "Yesterday"
+ },
+ {
+  "key": "notificationsscreen_filter_system",
+  "az": "Sistem",
+  "en": "System"
+ },
+ {
+  "key": "notificationsscreen_gormek_ucun_toxun_04883f",
+  "az": "Görmək üçün toxun →",
+  "en": "Tap to view →"
+ },
+ {
+  "key": "notificationsscreen_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All"
+ },
+ {
+  "key": "notificationsscreen_hamisini_oxu_29ceea",
+  "az": "Hamısını oxu",
+  "en": "Read all"
+ },
+ {
+  "key": "notificationsscreen_hours",
+  "az": "saat",
+  "en": "hours"
+ },
+ {
+  "key": "notificationsscreen_i_ndice_3c9745",
+  "az": "İndicə",
+  "en": "Just now"
+ },
+ {
+  "key": "notificationsscreen_mins",
+  "az": "dəq",
+  "en": "mins"
+ },
+ {
+  "key": "notificationsscreen_oxunmamis_8bfc41",
+  "az": "oxunmamış",
+  "en": "unread"
+ },
+ {
+  "key": "notificationsscreen_read",
+  "az": "Oxundu",
+  "en": "Read"
+ },
+ {
+  "key": "notificationsscreen_yeni_bildirisler_burada_gorunecek_a0484a",
+  "az": "Yeni bildirişlər burada görünəcək",
+  "en": "New notifications will appear here"
+ },
+ {
+  "key": "pdf_downloaded_toast",
+  "az": "PDF yükləndi ✓",
+  "en": "PDF downloaded ✓"
+ },
+ {
+  "key": "pdf_error_desc",
+  "az": "Yenidən cəhd edin.",
+  "en": "Please try again."
+ },
+ {
+  "key": "pdf_error_toast",
+  "az": "PDF yaradıla bilmədi",
+  "en": "Could not create PDF"
+ },
+ {
+  "key": "pdf_footer",
+  "az": "Anacan tətbiqi ilə yaradılıb · Bu hesabat tibbi sənəd deyil, məlumat xarakterlidir.",
+  "en": "Generated with the Anacan app · This report is informational, not a medical document."
+ },
+ {
+  "key": "pdf_report_subtitle",
+  "az": "Həkim Hesabatı",
+  "en": "Doctor Report"
+ },
+ {
+  "key": "pdf_section_basics",
+  "az": "Əsas Məlumatlar",
+  "en": "Key Information"
+ },
+ {
+  "key": "pdf_section_bp",
+  "az": "Qan Təzyiqi (son ölçmələr)",
+  "en": "Blood Pressure (recent readings)"
+ },
+ {
+  "key": "pdf_section_notes",
+  "az": "Həkim üçün Qeydlər",
+  "en": "Notes for the Doctor"
+ },
+ {
+  "key": "pdf_section_trends",
+  "az": "Sağlamlıq Trendləri",
+  "en": "Health Trends"
+ },
+ {
+  "key": "pdf_shared_toast",
+  "az": "Hesabat paylaşıldı 📤",
+  "en": "Report shared 📤"
+ },
+ {
+  "key": "pdf_stage_bump",
+  "az": "Hamiləlik dövrü",
+  "en": "Pregnancy"
+ },
+ {
+  "key": "pdf_stage_flow",
+  "az": "Tsikl izləmə",
+  "en": "Cycle tracking"
+ },
+ {
+  "key": "pdf_stage_mommy",
+  "az": "Analıq dövrü",
+  "en": "Motherhood"
+ },
+ {
+  "key": "postcard_anacan_paylasim_9618d9",
+  "az": "Anacan - Paylaşım",
+  "en": "Anajan - Post"
+ },
+ {
+  "key": "postcard_anonim_olaraq_yaz_abc123",
+  "az": "Anonim olaraq yaz",
+  "en": "Write anonymously"
+ },
+ {
+  "key": "postcard_anonim_serh_yaz_9af1ca",
+  "az": "Anonim şərh yaz...",
+  "en": "Leave an anonymous comment..."
+ },
+ {
+  "key": "postcard_bu_postu_silmek_isteyirsiniz_2fbc75",
+  "az": "Bu postu silmək istəyirsiniz?",
+  "en": "Do you want to delete this post?"
+ },
+ {
+  "key": "postcard_bu_postun_niye_uygunsuz_oldugunu_bildiri_b86b7c",
+  "az": "Bu postun niyə uyğunsuz olduğunu bildirin",
+  "en": "Report why this post is inappropriate"
+ },
+ {
+  "key": "postcard_giris_etmelisiniz_6c2220",
+  "az": "Giriş etməlisiniz",
+  "en": "You must log in"
+ },
+ {
+  "key": "postcard_gonder_3f11bd",
+  "az": "Göndər",
+  "en": "Send"
+ },
+ {
+  "key": "postcard_hele_serh_yoxdur_89ce09",
+  "az": "Hələ şərh yoxdur 💭",
+  "en": "No comments yet 💭"
+ },
+ {
+  "key": "postcard_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "postcard_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel"
+ },
+ {
+  "key": "postcard_postu_sikayet_et_fd45d9",
+  "az": "Postu Şikayət Et",
+  "en": "Report Post"
+ },
+ {
+  "key": "postcard_redakte_et_66cf3b",
+  "az": "Redaktə et",
+  "en": "Edit"
+ },
+ {
+  "key": "postcard_serh_yaz_54a89a",
+  "az": "Şərh yaz...",
+  "en": "Write a comment..."
+ },
+ {
+  "key": "postcard_sikayet_et_e8b63a",
+  "az": "Şikayət et",
+  "en": "Complain"
+ },
+ {
+  "key": "postcard_sikayet_gonderildi_b7b528",
+  "az": "Şikayət göndərildi",
+  "en": "Report has been sent"
+ },
+ {
+  "key": "postcard_sikayet_sebebi_a49b6b",
+  "az": "Şikayət səbəbi...",
+  "en": "Reason for report..."
+ },
+ {
+  "key": "postcard_sikayet_sebebini_qeyd_edin_9d11b9",
+  "az": "Şikayət səbəbini qeyd edin",
+  "en": "Please note the reason for your report"
+ },
+ {
+  "key": "postcard_sikayetiniz_yoxlanilacaq_ad512c",
+  "az": "Şikayətiniz yoxlanılacaq",
+  "en": "Your report will be reviewed"
+ },
+ {
+  "key": "postcard_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "privacy_save_failed",
+  "az": "Yadda saxlanılmadı — yenidən cəhd edin.",
+  "en": "Could not save — please try again."
+ },
+ {
+  "key": "privacyscreen_analitik_melumat_paylas_7971ff",
+  "az": "Analitik məlumat paylaş",
+  "en": "Share analytical data"
+ },
+ {
+  "key": "privacyscreen_anonim_istifade_melumatlarini_paylasin_835e3a",
+  "az": "Anonim istifadə məlumatlarını paylaşın",
+  "en": "Share anonymous usage data"
+ },
+ {
+  "key": "privacyscreen_ayar_yenilendi_f0f876",
+  "az": "Ayar yeniləndi",
+  "en": "Settings updated"
+ },
+ {
+  "key": "privacyscreen_beli_sil_fd44c5",
+  "az": "Bəli, Sil",
+  "en": "Yes, Delete"
+ },
+ {
+  "key": "privacyscreen_bildirisler_54eb88",
+  "az": "Bildirişlər",
+  "en": "Notifications"
+ },
+ {
+  "key": "privacyscreen_birdefelik_silinecek_d977cc",
+  "az": "birdəfəlik silinəcək.",
+  "en": "will be deleted once and for all."
+ },
+ {
+  "key": "privacyscreen_bu_bir_nece_saniye_ceke_biler_49b373",
+  "az": "Bu bir neçə saniyə çəkə bilər.",
+  "en": "This may take a few seconds."
+ },
+ {
+  "key": "privacyscreen_bu_emeliyyat_geri_qaytarila_bi_fdaca8",
+  "az": "Bu əməliyyat geri qaytarıla bilməz. Bütün məlumatlarınız, o cümlədən:",
+  "en": "This transaction is non-refundable. All your information, including:"
+ },
+ {
+  "key": "privacyscreen_buraya_klikleyin_c20d44",
+  "az": "buraya klikləyin",
+  "en": "click here"
+ },
+ {
+  "key": "privacyscreen_butun_melumatlarinizi_birdefelik_silin_41a068",
+  "az": "Bütün məlumatlarınızı birdəfəlik silin",
+  "en": "Permanently delete all your data"
+ },
+ {
+  "key": "privacyscreen_butun_melumatlarinizi_json_formatinda_yu_0c02e5",
+  "az": "Bütün məlumatlarınızı JSON formatında yükləyin",
+  "en": "Download all your data in JSON format"
+ },
+ {
+  "key": "privacyscreen_cemiyyetde_goster_3e9674",
+  "az": "Cəmiyyətdə göstər",
+  "en": "Show in community"
+ },
+ {
+  "key": "privacyscreen_diger_istifadeciler_profilinizi_gore_bil_f3544c",
+  "az": "Digər istifadəçilər profilinizi görə bilər",
+  "en": "Other users can see your profile"
+ },
+ {
+  "key": "privacyscreen_diger_istifadeciler_size_mesaj_gondere_b_c1b1fc",
+  "az": "Digər istifadəçilər sizə mesaj göndərə bilər",
+  "en": "Other users can send you messages"
+ },
+ {
+  "key": "privacyscreen_gizlilik_ayarlari_4055d3",
+  "az": "Gizlilik Ayarları",
+  "en": "Privacy Settings"
+ },
+ {
+  "key": "privacyscreen_gizlilik_siyasetimiz_ve_istifa_8c585b",
+  "az": "Gizlilik siyasətimiz və istifadə şərtlərimiz haqqında ətraflı məlumat üçün",
+  "en": "For more information on our privacy policy and terms of use"
+ },
+ {
+  "key": "privacyscreen_gizlilik_tehlukesizlik_67bec6",
+  "az": "Gizlilik & Təhlükəsizlik",
+  "en": "Privacy & Security"
+ },
+ {
+  "key": "privacyscreen_gorusler_a729f1",
+  "az": "Görüşlər",
+  "en": "Appointments"
+ },
+ {
+  "key": "privacyscreen_gundelik_qeydler_285ea0",
+  "az": "Gündəlik qeyd",
+  "en": "Daily Note"
+ },
+ {
+  "key": "privacyscreen_hesabi_sil_6abf24",
+  "az": "Hesabı Sil",
+  "en": "Delete Account"
+ },
+ {
+  "key": "privacyscreen_hesabi_silmek_6d444c",
+  "az": "Hesabı Silmək",
+  "en": "Delete Account"
+ },
+ {
+  "key": "privacyscreen_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "privacyscreen_melumat_i_dareetmesi_19f40f",
+  "az": "Məlumat İdarəetməsi",
+  "en": "Data Management"
+ },
+ {
+  "key": "privacyscreen_melumatlar_hazirlanir_482381",
+  "az": "Məlumatlar hazırlanır...",
+  "en": "Preparing data..."
+ },
+ {
+  "key": "privacyscreen_melumatlar_yuklendi_f04800",
+  "az": "Məlumatlar yükləndi!",
+  "en": "Data loaded!"
+ },
+ {
+  "key": "privacyscreen_melumatlari_yukle_5cee89",
+  "az": "Məlumatları Yüklə",
+  "en": "Download Data"
+ },
+ {
+  "key": "privacyscreen_melumatlariniz_birdefelik_silindi_8f69e7",
+  "az": "Məlumatlarınız birdəfəlik silindi.",
+  "en": "Your data has been permanently deleted."
+ },
+ {
+  "key": "privacyscreen_melumatlarinizi_idare_edin_efbcdb",
+  "az": "Məlumatlarınızı idarə edin",
+  "en": "Manage your data"
+ },
+ {
+  "key": "privacyscreen_mesajlara_icaze_ver_99d96f",
+  "az": "Mesajlara icazə ver",
+  "en": "Allow messages"
+ },
+ {
+  "key": "privacyscreen_post_ve_story_leriniz_digerlerine_gorunu_cf12e6",
+  "az": "Post və story-ləriniz digərlərinə görünür",
+  "en": "Your posts and stories are visible to others"
+ },
+ {
+  "key": "privacyscreen_profil_gorunurluyu_deeea5",
+  "az": "Profil görünürlüyü",
+  "en": "Profile visibility"
+ },
+ {
+  "key": "privacyscreen_profil_melumatlari_82c76c",
+  "az": "Profil məlumatları",
+  "en": "Profile information"
+ },
+ {
+  "key": "privacyscreen_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ }
+]

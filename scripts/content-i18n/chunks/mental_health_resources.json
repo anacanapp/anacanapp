@@ -1,0 +1,52 @@
+[
+ {
+  "id": "cc65349d-e172-48dc-9b4d-9ead800be207",
+  "name": "Psixoloji Yardım Xətti",
+  "description": "24 saat psixoloji dəstək xidməti"
+ },
+ {
+  "id": "4f4f4469-2043-4919-a6b3-1cb80317a55e",
+  "name": "Təcili Tibbi Yardım",
+  "description": "Təcili tibbi yardım xidməti"
+ },
+ {
+  "id": "d3081952-ac1a-414f-a6d1-55bbaff886f3",
+  "name": "Ailə və Uşaq Mərkəzi",
+  "description": "Ailə psixoloji məsləhət mərkəzi"
+ },
+ {
+  "id": "191c5946-7cb5-4c7f-a933-68cca7350e58",
+  "name": "Ana Dəstək Qrupu",
+  "description": "Digər analarla təcrübə paylaşımı"
+ },
+ {
+  "id": "b060bf8e-2f05-4173-af0a-7e5c9ebeb3c2",
+  "name": "Emergency Mental Health Hotline",
+  "description": "National mental health crisis line"
+ },
+ {
+  "id": "38c6b6f3-bbaf-4903-aa2a-3f8b796679d9",
+  "name": "ASAN Women Support Line",
+  "description": "Support for women in difficult situations"
+ },
+ {
+  "id": "92af5772-67b9-4a45-be7c-45cc1690976e",
+  "name": "Child Protection Hotline",
+  "description": "For child protection and support"
+ },
+ {
+  "id": "e14d07a2-ca8f-49c0-8aa3-5d37ba64147a",
+  "name": "Psychological Support Center",
+  "description": "Professional psychological counseling"
+ },
+ {
+  "id": "b6894134-c879-4225-a308-9f6d198e9b5c",
+  "name": "Family Support Center",
+  "description": "Support for families and mothers"
+ },
+ {
+  "id": "fd731ae9-7437-499d-9a66-3c99983eb91d",
+  "name": "Postpartum Support Group",
+  "description": "Online support group for new mothers"
+ }
+]

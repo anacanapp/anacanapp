@@ -1,0 +1,194 @@
+{
+  "protocol": "anacan-brand-lead-copy-v1",
+  "languages": {
+    "az": {
+      "sponsored": "Sponsorlu", "offer_code": "Kod", "field_name": "Ad və soyad", "field_phone": "Telefon nömrəsi", "field_email": "E-poçt", "optional": "istəyə bağlı",
+      "consent_check": "Yuxarıdakı məlumatları {brand} ilə paylaşmağa razıyam.", "privacy_policy": "Məxfilik siyasəti",
+      "privacy_note": "Bu məlumatları yalnız {brand} alır. Hamiləlik və uşaq məlumatlarınız heç vaxt paylaşılmır. Ən çox {days} gün saxlanılır.",
+      "submit": "Göndər", "sending": "Göndərilir…", "success": "Təşəkkür edirik! {brand} sizinlə əlaqə saxlayacaq.", "duplicate": "Məlumatlarınızı artıq {brand} brendinə göndərmisiniz.",
+      "error_required": "Bu sahə mütləqdir.", "error_email": "Düzgün e-poçt ünvanı daxil edin.", "error_phone": "Düzgün telefon nömrəsi daxil edin.",
+      "error_consent": "Davam etmək üçün razılığınızı təsdiqləyin.", "error_generic": "Göndərmək mümkün olmadı. Yenidən cəhd edin.", "error_rate": "Çox sayda sorğu. Bir az sonra yenidən cəhd edin.",
+      "unavailable": "Bu forma artıq mövcud deyil.", "loading": "Yüklənir…", "close": "Bağla", "done": "Hazırdır"
+    },
+    "en": {
+      "sponsored": "Sponsored", "offer_code": "Code", "field_name": "Full name", "field_phone": "Phone number", "field_email": "Email", "optional": "optional",
+      "consent_check": "I agree to share the details above with {brand}.", "privacy_policy": "Privacy policy",
+      "privacy_note": "Only {brand} receives these details. Your pregnancy and child information is never shared. Kept for up to {days} days.",
+      "submit": "Send", "sending": "Sending…", "success": "Thank you! {brand} will contact you.", "duplicate": "You have already sent your details to {brand}.",
+      "error_required": "This field is required.", "error_email": "Enter a valid email address.", "error_phone": "Enter a valid phone number.",
+      "error_consent": "Please confirm your consent to continue.", "error_generic": "Could not send. Please try again.", "error_rate": "Too many requests. Please try again later.",
+      "unavailable": "This form is no longer available.", "loading": "Loading…", "close": "Close", "done": "Done"
+    },
+    "tr": {
+      "sponsored": "Sponsorlu", "offer_code": "Kod", "field_name": "Ad soyad", "field_phone": "Telefon numarası", "field_email": "E-posta", "optional": "isteğe bağlı",
+      "consent_check": "Yukarıdaki bilgileri {brand} ile paylaşmayı kabul ediyorum.", "privacy_policy": "Gizlilik politikası",
+      "privacy_note": "Bu bilgileri yalnızca {brand} alır. Hamilelik ve çocuk bilgileriniz asla paylaşılmaz. En fazla {days} gün saklanır.",
+      "submit": "Gönder", "sending": "Gönderiliyor…", "success": "Teşekkürler! {brand} sizinle iletişime geçecek.", "duplicate": "Bilgilerinizi zaten {brand} markasına gönderdiniz.",
+      "error_required": "Bu alan zorunludur.", "error_email": "Geçerli bir e-posta adresi girin.", "error_phone": "Geçerli bir telefon numarası girin.",
+      "error_consent": "Devam etmek için onayınızı verin.", "error_generic": "Gönderilemedi. Lütfen tekrar deneyin.", "error_rate": "Çok fazla istek. Lütfen daha sonra tekrar deneyin.",
+      "unavailable": "Bu form artık kullanılamıyor.", "loading": "Yükleniyor…", "close": "Kapat", "done": "Tamam"
+    },
+    "ru": {
+      "sponsored": "Реклама", "offer_code": "Код", "field_name": "Имя и фамилия", "field_phone": "Номер телефона", "field_email": "Эл. почта", "optional": "необязательно",
+      "consent_check": "Я согласна передать указанные данные компании {brand}.", "privacy_policy": "Политика конфиденциальности",
+      "privacy_note": "Эти данные получает только {brand}. Сведения о беременности и ребёнке никогда не передаются. Хранятся не более {days} дней.",
+      "submit": "Отправить", "sending": "Отправка…", "success": "Спасибо! {brand} свяжется с вами.", "duplicate": "Вы уже отправили свои данные компании {brand}.",
+      "error_required": "Обязательное поле.", "error_email": "Введите корректный адрес эл. почты.", "error_phone": "Введите корректный номер телефона.",
+      "error_consent": "Подтвердите согласие, чтобы продолжить.", "error_generic": "Не удалось отправить. Попробуйте ещё раз.", "error_rate": "Слишком много запросов. Попробуйте позже.",
+      "unavailable": "Эта форма больше недоступна.", "loading": "Загрузка…", "close": "Закрыть", "done": "Готово"
+    },
+    "de": {
+      "sponsored": "Gesponsert", "offer_code": "Code", "field_name": "Vollständiger Name", "field_phone": "Telefonnummer", "field_email": "E-Mail", "optional": "optional",
+      "consent_check": "Ich bin einverstanden, die obigen Angaben mit {brand} zu teilen.", "privacy_policy": "Datenschutzerklärung",
+      "privacy_note": "Nur {brand} erhält diese Angaben. Informationen zu Schwangerschaft und Kind werden nie geteilt. Speicherung höchstens {days} Tage.",
+      "submit": "Senden", "sending": "Wird gesendet…", "success": "Danke! {brand} wird sich bei dir melden.", "duplicate": "Du hast deine Angaben bereits an {brand} gesendet.",
+      "error_required": "Dieses Feld ist erforderlich.", "error_email": "Gib eine gültige E-Mail-Adresse ein.", "error_phone": "Gib eine gültige Telefonnummer ein.",
+      "error_consent": "Bitte bestätige deine Einwilligung, um fortzufahren.", "error_generic": "Senden fehlgeschlagen. Bitte versuche es erneut.", "error_rate": "Zu viele Anfragen. Bitte versuche es später erneut.",
+      "unavailable": "Dieses Formular ist nicht mehr verfügbar.", "loading": "Wird geladen…", "close": "Schließen", "done": "Fertig"
+    },
+    "ar": {
+      "sponsored": "إعلان ممول", "offer_code": "الرمز", "field_name": "الاسم الكامل", "field_phone": "رقم الهاتف", "field_email": "البريد الإلكتروني", "optional": "اختياري",
+      "consent_check": "أوافق على مشاركة البيانات أعلاه مع {brand}.", "privacy_policy": "سياسة الخصوصية",
+      "privacy_note": "تتلقى {brand} هذه البيانات فقط. لا تتم مشاركة معلومات الحمل والطفل أبدًا. تُحفظ لمدة أقصاها {days} يومًا.",
+      "submit": "إرسال", "sending": "جارٍ الإرسال…", "success": "شكرًا لك! ستتواصل معك {brand}.", "duplicate": "لقد أرسلتِ بياناتك إلى {brand} بالفعل.",
+      "error_required": "هذا الحقل مطلوب.", "error_email": "أدخلي عنوان بريد إلكتروني صالحًا.", "error_phone": "أدخلي رقم هاتف صالحًا.",
+      "error_consent": "يرجى تأكيد موافقتك للمتابعة.", "error_generic": "تعذر الإرسال. حاولي مرة أخرى.", "error_rate": "طلبات كثيرة جدًا. حاولي لاحقًا.",
+      "unavailable": "هذا النموذج لم يعد متاحًا.", "loading": "جارٍ التحميل…", "close": "إغلاق", "done": "تم"
+    },
+    "ka": {
+      "sponsored": "სპონსორირებული", "offer_code": "კოდი", "field_name": "სახელი და გვარი", "field_phone": "ტელეფონის ნომერი", "field_email": "ელფოსტა", "optional": "არასავალდებულო",
+      "consent_check": "ვეთანხმები ზემოთ მოცემული მონაცემების გაზიარებას {brand}-თან.", "privacy_policy": "კონფიდენციალურობის პოლიტიკა",
+      "privacy_note": "ამ მონაცემებს მხოლოდ {brand} იღებს. ორსულობისა და ბავშვის ინფორმაცია არასოდეს ზიარდება. ინახება მაქსიმუმ {days} დღე.",
+      "submit": "გაგზავნა", "sending": "იგზავნება…", "success": "გმადლობთ! {brand} დაგიკავშირდებათ.", "duplicate": "თქვენ უკვე გაუგზავნეთ მონაცემები {brand}-ს.",
+      "error_required": "ეს ველი სავალდებულოა.", "error_email": "შეიყვანეთ სწორი ელფოსტის მისამართი.", "error_phone": "შეიყვანეთ სწორი ტელეფონის ნომერი.",
+      "error_consent": "გასაგრძელებლად დაადასტურეთ თანხმობა.", "error_generic": "გაგზავნა ვერ მოხერხდა. სცადეთ ხელახლა.", "error_rate": "ძალიან ბევრი მოთხოვნა. სცადეთ მოგვიანებით.",
+      "unavailable": "ეს ფორმა აღარ არის ხელმისაწვდომი.", "loading": "იტვირთება…", "close": "დახურვა", "done": "მზადაა"
+    },
+    "kk": {
+      "sponsored": "Демеушілік", "offer_code": "Код", "field_name": "Аты-жөні", "field_phone": "Телефон нөмірі", "field_email": "Электрондық пошта", "optional": "міндетті емес",
+      "consent_check": "Жоғарыдағы деректерді {brand} компаниясымен бөлісуге келісемін.", "privacy_policy": "Құпиялылық саясаты",
+      "privacy_note": "Бұл деректерді тек {brand} алады. Жүктілік пен бала туралы ақпарат ешқашан бөлісілмейді. Ең көбі {days} күн сақталады.",
+      "submit": "Жіберу", "sending": "Жіберілуде…", "success": "Рақмет! {brand} сізбен байланысады.", "duplicate": "Сіз деректеріңізді {brand} компаниясына бұрын жібергенсіз.",
+      "error_required": "Бұл өріс міндетті.", "error_email": "Дұрыс электрондық пошта мекенжайын енгізіңіз.", "error_phone": "Дұрыс телефон нөмірін енгізіңіз.",
+      "error_consent": "Жалғастыру үшін келісіміңізді растаңыз.", "error_generic": "Жіберу мүмкін болмады. Қайталап көріңіз.", "error_rate": "Сұраулар тым көп. Кейінірек қайталап көріңіз.",
+      "unavailable": "Бұл форма енді қолжетімді емес.", "loading": "Жүктелуде…", "close": "Жабу", "done": "Дайын"
+    },
+    "uz": {
+      "sponsored": "Homiylik", "offer_code": "Kod", "field_name": "Ism va familiya", "field_phone": "Telefon raqami", "field_email": "Elektron pochta", "optional": "ixtiyoriy",
+      "consent_check": "Yuqoridagi ma’lumotlarni {brand} bilan ulashishga roziman.", "privacy_policy": "Maxfiylik siyosati",
+      "privacy_note": "Bu ma’lumotlarni faqat {brand} oladi. Homiladorlik va bola haqidagi ma’lumotlar hech qachon ulashilmaydi. Ko‘pi bilan {days} kun saqlanadi.",
+      "submit": "Yuborish", "sending": "Yuborilmoqda…", "success": "Rahmat! {brand} siz bilan bog‘lanadi.", "duplicate": "Siz ma’lumotlaringizni {brand} ga allaqachon yuborgansiz.",
+      "error_required": "Bu maydon majburiy.", "error_email": "To‘g‘ri elektron pochta manzilini kiriting.", "error_phone": "To‘g‘ri telefon raqamini kiriting.",
+      "error_consent": "Davom etish uchun roziligingizni tasdiqlang.", "error_generic": "Yuborib bo‘lmadi. Qayta urinib ko‘ring.", "error_rate": "So‘rovlar juda ko‘p. Keyinroq urinib ko‘ring.",
+      "unavailable": "Bu shakl endi mavjud emas.", "loading": "Yuklanmoqda…", "close": "Yopish", "done": "Tayyor"
+    },
+    "zh": {
+      "sponsored": "赞助", "offer_code": "优惠码", "field_name": "姓名", "field_phone": "电话号码", "field_email": "电子邮箱", "optional": "选填",
+      "consent_check": "我同意与 {brand} 分享以上信息。", "privacy_policy": "隐私政策",
+      "privacy_note": "只有 {brand} 会收到这些信息。您的孕期和孩子信息绝不会被分享。最多保存 {days} 天。",
+      "submit": "提交", "sending": "正在提交…", "success": "谢谢！{brand} 会与您联系。", "duplicate": "您已经向 {brand} 提交过信息。",
+      "error_required": "此项为必填。", "error_email": "请输入有效的电子邮箱地址。", "error_phone": "请输入有效的电话号码。",
+      "error_consent": "请确认同意后继续。", "error_generic": "提交失败，请重试。", "error_rate": "请求过多，请稍后再试。",
+      "unavailable": "此表单已不可用。", "loading": "加载中…", "close": "关闭", "done": "完成"
+    },
+    "id": {
+      "sponsored": "Bersponsor", "offer_code": "Kode", "field_name": "Nama lengkap", "field_phone": "Nomor telepon", "field_email": "Email", "optional": "opsional",
+      "consent_check": "Saya setuju membagikan data di atas kepada {brand}.", "privacy_policy": "Kebijakan privasi",
+      "privacy_note": "Hanya {brand} yang menerima data ini. Informasi kehamilan dan anak Anda tidak pernah dibagikan. Disimpan paling lama {days} hari.",
+      "submit": "Kirim", "sending": "Mengirim…", "success": "Terima kasih! {brand} akan menghubungi Anda.", "duplicate": "Anda sudah mengirim data Anda ke {brand}.",
+      "error_required": "Kolom ini wajib diisi.", "error_email": "Masukkan alamat email yang valid.", "error_phone": "Masukkan nomor telepon yang valid.",
+      "error_consent": "Konfirmasikan persetujuan Anda untuk melanjutkan.", "error_generic": "Gagal mengirim. Silakan coba lagi.", "error_rate": "Terlalu banyak permintaan. Coba lagi nanti.",
+      "unavailable": "Formulir ini sudah tidak tersedia.", "loading": "Memuat…", "close": "Tutup", "done": "Selesai"
+    },
+    "fr": {
+      "sponsored": "Sponsorisé", "offer_code": "Code", "field_name": "Nom complet", "field_phone": "Numéro de téléphone", "field_email": "E-mail", "optional": "facultatif",
+      "consent_check": "J’accepte de partager les informations ci-dessus avec {brand}.", "privacy_policy": "Politique de confidentialité",
+      "privacy_note": "Seule {brand} reçoit ces informations. Vos données de grossesse et d’enfant ne sont jamais partagées. Conservées {days} jours au maximum.",
+      "submit": "Envoyer", "sending": "Envoi…", "success": "Merci ! {brand} vous contactera.", "duplicate": "Vous avez déjà envoyé vos informations à {brand}.",
+      "error_required": "Ce champ est obligatoire.", "error_email": "Saisissez une adresse e-mail valide.", "error_phone": "Saisissez un numéro de téléphone valide.",
+      "error_consent": "Veuillez confirmer votre consentement pour continuer.", "error_generic": "Envoi impossible. Veuillez réessayer.", "error_rate": "Trop de demandes. Réessayez plus tard.",
+      "unavailable": "Ce formulaire n’est plus disponible.", "loading": "Chargement…", "close": "Fermer", "done": "Terminé"
+    },
+    "es": {
+      "sponsored": "Patrocinado", "offer_code": "Código", "field_name": "Nombre completo", "field_phone": "Número de teléfono", "field_email": "Correo electrónico", "optional": "opcional",
+      "consent_check": "Acepto compartir los datos anteriores con {brand}.", "privacy_policy": "Política de privacidad",
+      "privacy_note": "Solo {brand} recibe estos datos. La información de tu embarazo y de tu hijo nunca se comparte. Se conservan como máximo {days} días.",
+      "submit": "Enviar", "sending": "Enviando…", "success": "¡Gracias! {brand} se pondrá en contacto contigo.", "duplicate": "Ya enviaste tus datos a {brand}.",
+      "error_required": "Este campo es obligatorio.", "error_email": "Introduce un correo electrónico válido.", "error_phone": "Introduce un número de teléfono válido.",
+      "error_consent": "Confirma tu consentimiento para continuar.", "error_generic": "No se pudo enviar. Inténtalo de nuevo.", "error_rate": "Demasiadas solicitudes. Inténtalo más tarde.",
+      "unavailable": "Este formulario ya no está disponible.", "loading": "Cargando…", "close": "Cerrar", "done": "Listo"
+    },
+    "pt": {
+      "sponsored": "Patrocinado", "offer_code": "Código", "field_name": "Nome completo", "field_phone": "Número de telefone", "field_email": "E-mail", "optional": "opcional",
+      "consent_check": "Concordo em partilhar os dados acima com {brand}.", "privacy_policy": "Política de privacidade",
+      "privacy_note": "Apenas {brand} recebe estes dados. As informações da gravidez e da criança nunca são partilhadas. Guardados no máximo {days} dias.",
+      "submit": "Enviar", "sending": "A enviar…", "success": "Obrigado! {brand} vai entrar em contacto consigo.", "duplicate": "Já enviou os seus dados para {brand}.",
+      "error_required": "Este campo é obrigatório.", "error_email": "Introduza um endereço de e-mail válido.", "error_phone": "Introduza um número de telefone válido.",
+      "error_consent": "Confirme o seu consentimento para continuar.", "error_generic": "Não foi possível enviar. Tente novamente.", "error_rate": "Demasiados pedidos. Tente mais tarde.",
+      "unavailable": "Este formulário já não está disponível.", "loading": "A carregar…", "close": "Fechar", "done": "Concluído"
+    },
+    "vi": {
+      "sponsored": "Được tài trợ", "offer_code": "Mã", "field_name": "Họ và tên", "field_phone": "Số điện thoại", "field_email": "Email", "optional": "không bắt buộc",
+      "consent_check": "Tôi đồng ý chia sẻ thông tin trên với {brand}.", "privacy_policy": "Chính sách quyền riêng tư",
+      "privacy_note": "Chỉ {brand} nhận được thông tin này. Thông tin thai kỳ và con của bạn không bao giờ được chia sẻ. Lưu tối đa {days} ngày.",
+      "submit": "Gửi", "sending": "Đang gửi…", "success": "Cảm ơn bạn! {brand} sẽ liên hệ với bạn.", "duplicate": "Bạn đã gửi thông tin cho {brand}.",
+      "error_required": "Trường này là bắt buộc.", "error_email": "Nhập địa chỉ email hợp lệ.", "error_phone": "Nhập số điện thoại hợp lệ.",
+      "error_consent": "Vui lòng xác nhận đồng ý để tiếp tục.", "error_generic": "Không gửi được. Vui lòng thử lại.", "error_rate": "Quá nhiều yêu cầu. Vui lòng thử lại sau.",
+      "unavailable": "Biểu mẫu này không còn khả dụng.", "loading": "Đang tải…", "close": "Đóng", "done": "Xong"
+    },
+    "hi": {
+      "sponsored": "प्रायोजित", "offer_code": "कोड", "field_name": "पूरा नाम", "field_phone": "फ़ोन नंबर", "field_email": "ईमेल", "optional": "वैकल्पिक",
+      "consent_check": "मैं ऊपर दी गई जानकारी {brand} के साथ साझा करने के लिए सहमत हूँ।", "privacy_policy": "गोपनीयता नीति",
+      "privacy_note": "यह जानकारी केवल {brand} को मिलती है। आपकी गर्भावस्था और बच्चे की जानकारी कभी साझा नहीं की जाती। अधिकतम {days} दिन तक रखी जाती है।",
+      "submit": "भेजें", "sending": "भेजा जा रहा है…", "success": "धन्यवाद! {brand} आपसे संपर्क करेगा।", "duplicate": "आप पहले ही {brand} को अपनी जानकारी भेज चुकी हैं।",
+      "error_required": "यह फ़ील्ड आवश्यक है।", "error_email": "मान्य ईमेल पता दर्ज करें।", "error_phone": "मान्य फ़ोन नंबर दर्ज करें।",
+      "error_consent": "आगे बढ़ने के लिए अपनी सहमति की पुष्टि करें।", "error_generic": "भेजा नहीं जा सका। फिर से प्रयास करें।", "error_rate": "बहुत अधिक अनुरोध। बाद में प्रयास करें।",
+      "unavailable": "यह फ़ॉर्म अब उपलब्ध नहीं है।", "loading": "लोड हो रहा है…", "close": "बंद करें", "done": "हो गया"
+    },
+    "ja": {
+      "sponsored": "スポンサー", "offer_code": "コード", "field_name": "氏名", "field_phone": "電話番号", "field_email": "メールアドレス", "optional": "任意",
+      "consent_check": "上記の情報を {brand} と共有することに同意します。", "privacy_policy": "プライバシーポリシー",
+      "privacy_note": "この情報を受け取るのは {brand} のみです。妊娠やお子さまの情報が共有されることはありません。保存期間は最長 {days} 日です。",
+      "submit": "送信", "sending": "送信中…", "success": "ありがとうございます！{brand} からご連絡します。", "duplicate": "すでに {brand} に情報を送信済みです。",
+      "error_required": "この項目は必須です。", "error_email": "有効なメールアドレスを入力してください。", "error_phone": "有効な電話番号を入力してください。",
+      "error_consent": "続行するには同意を確認してください。", "error_generic": "送信できませんでした。もう一度お試しください。", "error_rate": "リクエストが多すぎます。しばらくしてからお試しください。",
+      "unavailable": "このフォームは現在利用できません。", "loading": "読み込み中…", "close": "閉じる", "done": "完了"
+    },
+    "ko": {
+      "sponsored": "스폰서", "offer_code": "코드", "field_name": "이름", "field_phone": "전화번호", "field_email": "이메일", "optional": "선택",
+      "consent_check": "위 정보를 {brand}에 공유하는 데 동의합니다.", "privacy_policy": "개인정보 처리방침",
+      "privacy_note": "이 정보는 {brand}만 받습니다. 임신 및 자녀 정보는 절대 공유되지 않습니다. 최대 {days}일 동안 보관됩니다.",
+      "submit": "보내기", "sending": "보내는 중…", "success": "감사합니다! {brand}에서 연락드릴 예정입니다.", "duplicate": "이미 {brand}에 정보를 보냈습니다.",
+      "error_required": "필수 항목입니다.", "error_email": "올바른 이메일 주소를 입력하세요.", "error_phone": "올바른 전화번호를 입력하세요.",
+      "error_consent": "계속하려면 동의를 확인해 주세요.", "error_generic": "보내지 못했습니다. 다시 시도해 주세요.", "error_rate": "요청이 너무 많습니다. 나중에 다시 시도해 주세요.",
+      "unavailable": "이 양식은 더 이상 사용할 수 없습니다.", "loading": "불러오는 중…", "close": "닫기", "done": "완료"
+    },
+    "pl": {
+      "sponsored": "Sponsorowane", "offer_code": "Kod", "field_name": "Imię i nazwisko", "field_phone": "Numer telefonu", "field_email": "E-mail", "optional": "opcjonalnie",
+      "consent_check": "Zgadzam się na udostępnienie powyższych danych firmie {brand}.", "privacy_policy": "Polityka prywatności",
+      "privacy_note": "Te dane otrzymuje tylko {brand}. Informacje o ciąży i dziecku nigdy nie są udostępniane. Przechowywane maksymalnie {days} dni.",
+      "submit": "Wyślij", "sending": "Wysyłanie…", "success": "Dziękujemy! {brand} skontaktuje się z Tobą.", "duplicate": "Twoje dane zostały już wysłane do {brand}.",
+      "error_required": "To pole jest wymagane.", "error_email": "Wpisz poprawny adres e-mail.", "error_phone": "Wpisz poprawny numer telefonu.",
+      "error_consent": "Potwierdź zgodę, aby kontynuować.", "error_generic": "Nie udało się wysłać. Spróbuj ponownie.", "error_rate": "Zbyt wiele żądań. Spróbuj później.",
+      "unavailable": "Ten formularz nie jest już dostępny.", "loading": "Ładowanie…", "close": "Zamknij", "done": "Gotowe"
+    },
+    "nl": {
+      "sponsored": "Gesponsord", "offer_code": "Code", "field_name": "Volledige naam", "field_phone": "Telefoonnummer", "field_email": "E-mail", "optional": "optioneel",
+      "consent_check": "Ik ga akkoord met het delen van bovenstaande gegevens met {brand}.", "privacy_policy": "Privacybeleid",
+      "privacy_note": "Alleen {brand} ontvangt deze gegevens. Informatie over je zwangerschap en kind wordt nooit gedeeld. Maximaal {days} dagen bewaard.",
+      "submit": "Versturen", "sending": "Versturen…", "success": "Bedankt! {brand} neemt contact met je op.", "duplicate": "Je hebt je gegevens al naar {brand} gestuurd.",
+      "error_required": "Dit veld is verplicht.", "error_email": "Voer een geldig e-mailadres in.", "error_phone": "Voer een geldig telefoonnummer in.",
+      "error_consent": "Bevestig je toestemming om door te gaan.", "error_generic": "Versturen mislukt. Probeer het opnieuw.", "error_rate": "Te veel verzoeken. Probeer het later opnieuw.",
+      "unavailable": "Dit formulier is niet meer beschikbaar.", "loading": "Laden…", "close": "Sluiten", "done": "Klaar"
+    },
+    "sv": {
+      "sponsored": "Sponsrad", "offer_code": "Kod", "field_name": "Fullständigt namn", "field_phone": "Telefonnummer", "field_email": "E-post", "optional": "valfritt",
+      "consent_check": "Jag godkänner att uppgifterna ovan delas med {brand}.", "privacy_policy": "Integritetspolicy",
+      "privacy_note": "Endast {brand} får dessa uppgifter. Information om graviditet och barn delas aldrig. Sparas i högst {days} dagar.",
+      "submit": "Skicka", "sending": "Skickar…", "success": "Tack! {brand} kontaktar dig.", "duplicate": "Du har redan skickat dina uppgifter till {brand}.",
+      "error_required": "Fältet är obligatoriskt.", "error_email": "Ange en giltig e-postadress.", "error_phone": "Ange ett giltigt telefonnummer.",
+      "error_consent": "Bekräfta ditt samtycke för att fortsätta.", "error_generic": "Det gick inte att skicka. Försök igen.", "error_rate": "För många förfrågningar. Försök igen senare.",
+      "unavailable": "Formuläret är inte längre tillgängligt.", "loading": "Laddar…", "close": "Stäng", "done": "Klart"
+    }
+  }
+}

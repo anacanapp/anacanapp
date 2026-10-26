@@ -1,0 +1,8 @@
+{
+  "az": ["cox", "yox", "nece", "bilmirem", "isteyirem", "edirem", "edirsiniz", "etmisem", "olmusam", "hamileyem", "qizlar", "qizim", "usaq", "usagim", "qarnim", "xanimlar", "mene", "yaxsi", "nese", "hekim", "hekime"],
+  "tr": ["merhaba", "nasil", "degil", "cunku", "kizlar", "bebegim", "bebek", "anne", "hamileyim", "istiyorum", "diyorum", "evet", "hayir", "icin", "cok", "ben", "yok", "tesekkur"],
+  "uz": ["salom", "qanday", "uchun", "bilan", "emas", "yaxshi", "hozir", "qachon", "necha", "menga", "shifokor", "homilador", "homiladorman", "farzandim", "nima", "mening", "qilyapti"],
+  "kkCyrillic": ["салем", "кыздар", "менин", "балам", "жаксы", "кандай", "сурак", "калай", "жок", "осы", "жатыр", "апталык", "жасаймын", "болады", "керек", "ким", "биледи", "енди", "ишим", "бугин"],
+  "uzCyrillic": ["салом", "учун", "билан", "яхши", "эмас", "нима", "менинг", "хомиладор", "хомиладорман", "хозир", "кизлар", "шундай", "нега", "рахмат", "буладими"],
+  "ru": ["привет", "девочки", "мой", "моя", "ребенок", "ребёнок", "как", "что", "почему", "хорошо", "подскажите", "пожалуйста", "беременна", "недели", "месяцев", "спит"]
+}

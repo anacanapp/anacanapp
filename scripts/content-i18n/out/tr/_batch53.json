@@ -1,0 +1,19 @@
+{
+ "mood_options": {
+  "153679fd-e275-4121-b49b-119bfb84477a": {
+   "label": "Çok kötü"
+  },
+  "2aeb03a6-2d61-4935-8af8-baeca0ead0aa": {
+   "label": "İyi"
+  },
+  "471e0158-fdc4-4791-a18b-432395c6a80e": {
+   "label": "Normal"
+  },
+  "55fb948a-73d0-4514-9ccf-8002b994990a": {
+   "label": "Harika"
+  },
+  "817200d4-4f5c-43fe-a129-bcb8f3e5a078": {
+   "label": "Kötü"
+  }
+ }
+}

@@ -1,0 +1,303 @@
+src\App.tsx:42: if (language !== 'az') {
+src\components\AIChatScreen.tsx:107: const lang = useUserStore.getState().language || 'az';
+src\components\AIChatScreen.tsx:112: return `Hello${userName}. I'm Anacan.AI. I'm ready to professionally answer your questions about menstrual cycles, symptoms, and general health.`;
+src\components\AIChatScreen.tsx:114: return `Hello${userName}. I'm Anacan.AI. ${pregnancyData ? `You're currently in week ${pregnancyData.currentWeek} of pregnancy; your baby is about the size of a ${dynamicFruit || pregnancyData.babySize.fruit}. ` : ''}You can ask any questions about your pregnancy.`;
+src\components\AIChatScreen.tsx:116: return `Hello${userName}. I'm Anacan.AI. I'm here to support you with questions about baby care, breastfeeding, sleep routines and postpartum recovery.`;
+src\components\AIChatScreen.tsx:118: return `Hello${userName}. I'm Anacan.AI. How can I help you?`;
+src\components\AIChatScreen.tsx:192: const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/dr-anacan-chat`, {
+src\components\AIChatScreen.tsx:205: language: useUserStore.getState().language || 'az',
+src\components\AIChatScreen.tsx:426: 'bg-card border border-border shadow-sm rounded-bl-md'}`
+src\components\AIChatScreen.tsx:444: {message.timestamp.toLocaleTimeString('az-AZ', { hour: '2-digit', minute: '2-digit' })}
+src\components\AuthScreen.tsx:123: if (!partnerCode.startsWith('ANACAN-') || partnerCode.length < 10) {
+src\components\AuthScreen.tsx:164: title: 'Partnyor modu Premium-dur',
+src\components\AuthScreen.tsx:578: placeholder="ANACAN-XXXX"
+src\components\baby\FeedingHistoryPanel.tsx:268: {item.feedType === 'formula' && item.notes && item.notes.includes('ml') && (
+src\components\BillingScreen.tsx:142: const planPeriod = !hasPremiumSub && !isPremium ? '' : isPremiumPlus ? '/il' : '/ay';
+src\components\blog\BlogPostDetail.tsx:180: size="sm"
+src\components\blog\BlogPostDetail.tsx:188: size="sm"
+src\components\BottomNav.tsx:24: { id: 'ai', label: 'Anacan.AI', icon: MessageCircle },
+src\components\bump\PregnancyDayNavigator.tsx:92: "text-sm font-bold px-3 py-1 rounded-full",
+src\components\cakes\CakeDetailScreen.tsx:157: {cake.month_number}-ci ay
+src\components\CakesScreen.tsx:28: label: `${i + 1}-${getOrdinalSuffix(i + 1)} ay`,
+src\components\chat\ChatMessageBubble.tsx:23: return date.toLocaleTimeString('az-AZ', { hour: '2-digit', minute: '2-digit' });
+src\components\community\CommentReply.tsx:145: {replies.length} cavab
+src\components\community\CreatePostScreen.tsx:173: size="sm"
+src\components\community\DirectMessageScreen.tsx:123: const formatMsgTime = (d: string) => new Date(d).toLocaleTimeString('az-AZ', { hour: '2-digit', minute: '2-digit' });
+src\components\community\UserProfileScreen.tsx:140: case 'mommy':return { label: 'Ana', color: 'bg-purple-100 text-purple-700' };
+src\components\Dashboard.tsx:381: {/* Main Text - "Anacan hazırda meyvə boydayam" */}
+src\components\Dashboard.tsx:394: {weekData.lengthCm} sm
+src\components\Dashboard.tsx:934: if (type === 'formula' && amountMl) notes = `${amountMl} ml`;
+src\components\Dashboard.tsx:961: addFeeding('formula', ml > 0 ? ml : undefined);
+src\components\Dashboard.tsx:1042: {/* Bu günün məlumatları */}
+src\components\Dashboard.tsx:1314: {/* Formula ML Input Modal */}
+src\components\Dashboard.tsx:1328: {formulaMLPresets.map((ml) =>
+src\components\Dashboard.tsx:1330: key={ml}
+src\components\Dashboard.tsx:1331: onClick={() => addFeeding('formula', ml)}
+src\components\Dashboard.tsx:1335: {ml} ml
+src\components\Dashboard.tsx:1502: {new Date(log.start_time).toLocaleTimeString('az-AZ', { hour: '2-digit', minute: '2-digit' })}
+src\components\Dashboard.tsx:1552: if (m === 0) return `${h} saat`;
+src\components\Dashboard.tsx:1591: {start.toLocaleTimeString('az-AZ', { hour: '2-digit', minute: '2-digit' })}
+src\components\Dashboard.tsx:1592: {end && ` – ${end.toLocaleTimeString('az-AZ', { hour: '2-digit', minute: '2-digit' })}`}
+src\components\Dashboard.tsx:1741: {/* Development Tips - Dynamic based on age */}
+src\components\DoctorReportScreen.tsx:43: { id: '1month', label: '1 Ay' },
+src\components\DoctorReportScreen.tsx:44: { id: '3months', label: '3 Ay' },
+src\components\DoctorReportScreen.tsx:123: Hesabat tarixi: {new Date().toLocaleDateString('az-AZ')}
+src\components\FloatingTimerWidget.tsx:9: sleep: { icon: Moon, color: 'text-indigo-500', label: 'Yuxu' },
+src\components\flow\FlowDailyLogger.tsx:26: { value: 2, emoji: '😔', label: 'Pis', color: 'bg-orange-100 border-orange-300 text-orange-700' },
+src\components\flow\FlowDailyLogger.tsx:50: { value: 2, label: 'Pis', emoji: '😴' },
+src\components\flow\FlowDashboard.tsx:577: {currentPhase === 'luteal' ? '8-9 saat' : '7-8 saat'}
+src\components\flow\FlowDashboard.tsx:617: locale={az}
+src\components\flow\FlowDashboard.tsx:631: {markingPeriod ? 'Qeyd edilir...' : 'Qeyd et'}
+src\components\flow\FlowDashboard.tsx:655: locale={az}
+src\components\flow\FlowDashboard.tsx:672: {markingPeriod ? 'Qeyd edilir...' : 'Qeyd et'}
+src\components\flow\FlowMoodChart.tsx:75: Yuxu: {data.sleep}/5
+src\components\flow\FlowPeriodCalendar.tsx:69: if (isAfter(date, new Date())) return; // Can't log future
+src\components\flow\PillReminderCard.tsx:46: schedule: { at, repeats: true, every: 'day' }
+src\components\ForceUpdateScreen.tsx:34: alt="Anacan"
+src\components\funnel\funnelData.ts:251: { week: 'Ay 1', label: 'Rutin qur, rahatla' },
+src\components\funnel\steps\CustomPlanStep.tsx:52: <span>3 ay sonra 😌</span>
+src\components\HelpScreen.tsx:359: href="mailto:info@anacan.az"
+src\components\LanguageSelector.tsx:30: if (!isOn && language !== 'az') {
+src\components\LanguageSelector.tsx:31: setLanguage('az');
+src\components\LanguageSelector.tsx:41: if (code !== 'az') await loadTranslations(code);
+src\components\mommy\ChildSelector.tsx:174: 'px-4 py-2 rounded-2xl bg-card border shadow-sm'}`
+src\components\MotherChatScreen.tsx:229: return date.toLocaleDateString('az-AZ', { day: 'numeric', month: 'long' });
+src\components\NotificationsScreen.tsx:57: return date.toLocaleDateString('az-AZ', { day: 'numeric', month: 'short' });
+src\components\partner\DailySummaryScreen.tsx:35: if (!mood) return 'Qeyd yox';
+src\components\partner\DailySummaryScreen.tsx:37: return labels[mood - 1] || 'Qeyd yox';
+src\components\partner\DailySummaryScreen.tsx:168: {summary.water_intake}ml
+src\components\partner\NotificationsTab.tsx:172: return date.toLocaleDateString('az-AZ', { day: 'numeric', month: 'short' });
+src\components\partner\PartnerChatScreen.tsx:220: return date.toLocaleDateString('az-AZ', { day: 'numeric', month: 'long' });
+src\components\partner\PartnerHeroCard.tsx:66: if (babyMonths >= 1) return `${baby}: ${babyMonths} ay ${babyAgeDays % 30} gün`;
+src\components\partner\PartnerHeroCard.tsx:143: <StatTile icon={Droplets} value={waterIntake} label="ml su" delay={0.2} />
+src\components\partner\PartnerHeroCard.tsx:156: <StatTile icon={Droplets} value={waterIntake} label="ml su" delay={0.2} />
+src\components\partner\SendDailySummaryWidget.tsx:76: size="sm"
+src\components\partner\SyncedFeaturesGrid.tsx:97: {/* Gradient background on hover */}
+src\components\PartnerDashboard.tsx:201: </ol>
+src\components\PhotoGalleryViewer.tsx:100: const fileName = `anacan-baby-photo-${Date.now()}.jpg`;
+src\components\PhotoGalleryViewer.tsx:354: {isDeleting ? 'Silinir...' : 'Sil'}
+src\components\PremiumModal.tsx:327: `${parseIsoTrialDays(yearlyProduct.product.defaultOptionTrialPeriod) ?? paywallConfig.free_trial_days} gün pulsuz, sonra ${currencySymbol}${yearlyPrice}${paywallConfig.yearly_total_suffix}` :
+src\components\PremiumModal.tsx:354: `${parseIsoTrialDays(monthlyProduct.product.defaultOptionTrialPeriod) ?? paywallConfig.free_trial_days} gün pulsuz, sonra ${currencySymbol}${monthlyPrice}${paywallConfig.monthly_suffix}` :
+src\components\ProfileEditScreen.tsx:84: return date.toLocaleDateString('az-AZ', { day: 'numeric', month: 'long', year: 'numeric' });
+src\components\ProfileEditScreen.tsx:372: {/* Date Input based on mode */}
+src\components\ProfileEditScreen.tsx:413: 📅 Son menstruasiya tarixi: <strong>{formatDate(calculatedDates.calculatedLMP)}</strong>
+src\components\ProfileScreen.tsx:303: !isPremium ? 'blur-sm select-none' : ''}`
+src\components\ProfileScreen.tsx:392: {/* What partner can see */}
+src\components\ProfileScreen.tsx:412: {/* What partner can do */}
+src\components\ShopScreen.tsx:276: 'gradient-primary text-white shadow-sm' :
+src\components\SplashScreen.tsx:92: alt="Anacan"
+src\components\tools\affiliate\AffiliateProductDetail.tsx:73: carouselApi.on('select', onSelect);
+src\components\tools\AffiliateProducts.tsx:119: size="sm"
+src\components\tools\BabyPhotoshoot.tsx:896: {/* Gallery always visible at bottom */}
+src\components\tools\BloodSugarTracker.tsx:174: size="sm"
+src\components\tools\ContractionTimer.tsx:231: {new Date(contraction.start_time).toLocaleDateString('az-AZ', { day: 'numeric', month: 'long' })}, {new Date(contraction.start_time).toLocaleTimeString('az-AZ', { hour: '2-digit', minute: '2-digit' })}
+src\components\tools\CryTranslator.tsx:587: {new Date(item.created_at).toLocaleDateString('az-AZ')}
+src\components\tools\doctors\ProviderReviews.tsx:50: size="sm"
+src\components\tools\doctors\ProviderReviews.tsx:109: size="sm"
+src\components\tools\doctors\ProviderReviews.tsx:121: size="sm"
+src\components\tools\doctors\ProviderReviews.tsx:129: size="sm"
+src\components\tools\DoctorsHospitals.tsx:79: sunday: 'Bazar'
+src\components\tools\DoctorsHospitals.tsx:109: name: language === 'az' ? (s.name_az ?? s.name) : (s[`name_${language}`] ?? s.name_az ?? s.name)
+src\components\tools\FairyTaleGenerator.tsx:50: { emoji: '🐶', label: 'Bala it' },
+src\components\tools\FairyTaleGenerator.tsx:99: language: 'az',
+src\components\tools\FairyTaleGenerator.tsx:151: setFormData({ child_name: '', theme: '', hero: '', moral_lesson: '', language: 'az', age_range: '3-5', story_style: '' });
+src\components\tools\FairyTaleGenerator.tsx:164: setFormData({ child_name: '', theme: '', hero: '', moral_lesson: '', language: 'az', age_range: '3-5', story_style: '' });
+src\components\tools\FirstAidGuide.tsx:246: size="sm"
+src\components\tools\FirstAidGuide.tsx:255: size="sm"
+src\components\tools\FirstAidGuide.tsx:270: size="sm"
+src\components\tools\HoroscopeCompatibility.tsx:99: { id: 1, title: 'Ana', icon: User, emoji: '👩' },
+src\components\tools\HoroscopeCompatibility.tsx:100: { id: 2, title: 'Ata', icon: User, emoji: '👨' },
+src\components\tools\HoroscopeCompatibility.tsx:382: <BirthChartCard chart={analysisResult.charts.dad} label="Ata" emoji="👨" />
+src\components\tools\HoroscopeCompatibility.tsx:397: title="Ana Analizi"
+src\components\tools\HoroscopeCompatibility.tsx:406: title="Ata Analizi"
+src\components\tools\HospitalBag.tsx:38: { id: 'mom', label: 'Ana', emoji: '👩' },
+src\components\tools\HospitalBag.tsx:109: ? 'bg-primary shadow-sm'
+src\components\tools\KickCounter.tsx:216: return date.toLocaleDateString('az-AZ', { day: 'numeric', month: 'long' });
+src\components\tools\KickCounter.tsx:245: {new Date(session.created_at).toLocaleTimeString('az-AZ', { hour: '2-digit', minute: '2-digit' })}
+src\components\tools\MaternityCalculator.tsx:223: {result.totalBenefit.toLocaleString('az-AZ')} ₼
+src\components\tools\MentalHealthTracker.tsx:315: size="sm"
+src\components\tools\MentalHealthTracker.tsx:683: Sual {currentQuestion + 1} / {EPDS_QUESTIONS.length}
+src\components\tools\MomFriendlyMap.tsx:261: size="sm"
+src\components\tools\MomFriendlyMap.tsx:566: size="sm"
+src\components\tools\MomFriendlyMap.tsx:636: {new Date(review.created_at).toLocaleDateString('az-AZ')}
+src\components\tools\MoodDiary.tsx:39: { value: 2, emoji: '😔', label: 'Pis', color: 'bg-orange-100 border-orange-300' },
+src\components\tools\MoodDiary.tsx:303: {new Date(entry.log_date).toLocaleDateString('az-AZ', { weekday: 'long', day: 'numeric', month: 'short' })}
+src\components\tools\NoiseMeter.tsx:316: size="sm"
+src\components\tools\NoiseMeter.tsx:324: size="sm"
+src\components\tools\NoiseMeter.tsx:391: {item.time.toLocaleTimeString('az-AZ', { hour: '2-digit', minute: '2-digit' })}
+src\components\tools\Nutrition.tsx:390: { id: 'water', label: 'Su' }].
+src\components\tools\PoopScanner.tsx:349: 'Analiz et'
+src\components\tools\PoopScanner.tsx:492: {new Date(item.created_at).toLocaleDateString('az-AZ')}
+src\components\tools\PregnancyAlbum.tsx:38: { month: 1, weeks: '1-4', label: '1-ci ay', emoji: '🌱' },
+src\components\tools\PregnancyAlbum.tsx:39: { month: 2, weeks: '5-8', label: '2-ci ay', emoji: '🌿' },
+src\components\tools\PregnancyAlbum.tsx:42: { month: 5, weeks: '18-21', label: '5-ci ay', emoji: '🥭' },
+src\components\tools\PregnancyAlbum.tsx:44: { month: 7, weeks: '27-30', label: '7-ci ay', emoji: '🍉' },
+src\components\tools\PregnancyAlbum.tsx:45: { month: 8, weeks: '31-35', label: '8-ci ay', emoji: '🎃' },
+src\components\tools\PregnancyAlbum.tsx:46: { month: 9, weeks: '36-40', label: '9-cu ay', emoji: '👶' }];
+src\components\tools\Recipes.tsx:384: 'bg-card text-muted-foreground shadow-sm hover:shadow-md'}`
+src\components\tools\SecondHandMarket.tsx:53: { id: 'new', label: 'Yeni', color: 'bg-emerald-500', textColor: 'text-emerald-600' },
+src\components\tools\SecondHandMarket.tsx:54: { id: 'like_new', label: 'Yeni kimi', color: 'bg-green-500', textColor: 'text-green-600' },
+src\components\tools\SecondHandMarket.tsx:915: 'bg-primary text-primary-foreground rounded-br-sm' :
+src\components\tools\SecondHandMarket.tsx:916: 'bg-muted rounded-bl-sm'}`
+src\components\tools\SmartPlayBox.tsx:167: home: '🏠 Ev',
+src\components\tools\SmartPlayBox.tsx:244: size="sm"
+src\components\tools\TeethingTracker.tsx:88: case 'after':return 'Sonra';
+src\components\tools\TeethingTracker.tsx:164: {/* Tooth label on hover - using tooltip behavior */}
+src\components\tools\TeethingTracker.tsx:389: {selectedTooth.typical_emergence_months_min}-{selectedTooth.typical_emergence_months_max} ay
+src\components\tools\VaccineCalendar.tsx:51: return d.toLocaleDateString('az-AZ', { day: '2-digit', month: 'long', year: 'numeric' });
+src\components\tools\VaccineCalendar.tsx:79: const childCountry = (selectedChild as any)?.country_code || 'AZ';
+src\components\tools\VaccineCalendar.tsx:383: size="sm"
+src\components\tools\VaccineCalendar.tsx:390: size="sm"
+src\components\tools\VaccineCalendar.tsx:401: size="sm"
+src\components\tools\WhiteNoise.tsx:229: { value: 60, label: '1 saat', icon: '60' }] :
+src\components\tools\WhiteNoise.tsx:505: 'bg-card border border-border/50 shadow-sm hover:shadow-lg hover:border-primary/30'}`
+src\components\ToolsHub.tsx:148: const isNonAz = language !== 'az';
+src\components\ui\alert-dialog.tsx:37: "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
+src\components\ui\breadcrumb.tsx:15: const BreadcrumbList = React.forwardRef<HTMLOListElement, React.ComponentPropsWithoutRef<"ol">>(
+src\components\ui\breadcrumb.tsx:20: "flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5",
+src\components\ui\button.tsx:8: "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+src\components\ui\button.tsx:21: sm: "h-9 rounded-md px-3",
+src\components\ui\calendar.tsx:16: months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
+src\components\ui\calendar.tsx:19: caption_label: "text-sm font-medium",
+src\components\ui\calendar.tsx:31: cell: "h-9 w-9 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+src\components\ui\carousel.tsx:97: api.on("reInit", onSelect);
+src\components\ui\carousel.tsx:98: api.on("select", onSelect);
+src\components\ui\checkbox.tsx:14: "peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+src\components\ui\command.tsx:47: "flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+src\components\ui\command.tsx:108: "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected='true']:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50",
+src\components\ui\context-menu.tsx:28: "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[state=open]:bg-accent data-[state=open]:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+src\components\ui\context-menu.tsx:81: "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-accent focus:text-accent-foreground",
+src\components\ui\context-menu.tsx:97: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-accent focus:text-accent-foreground",
+src\components\ui\context-menu.tsx:120: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-accent focus:text-accent-foreground",
+src\components\ui\date-picker-wheel.tsx:214: "w-full aspect-square rounded-full text-sm font-medium transition-all",
+src\components\ui\date-picker-wheel.tsx:274: "py-3 rounded-xl text-sm font-medium transition-all",
+src\components\ui\date-picker-wheel.tsx:313: "py-4 rounded-xl text-sm font-medium transition-all",
+src\components\ui\dialog.tsx:39: "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
+src\components\ui\dropdown-menu.tsx:28: "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[state=open]:bg-accent focus:bg-accent",
+src\components\ui\dropdown-menu.tsx:82: "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-accent focus:text-accent-foreground",
+src\components\ui\dropdown-menu.tsx:98: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-accent focus:text-accent-foreground",
+src\components\ui\dropdown-menu.tsx:121: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-accent focus:text-accent-foreground",
+src\components\ui\HtmlContent.tsx:28: 'prose prose-sm dark:prose-invert max-w-none',
+src\components\ui\HtmlContent.tsx:36: '[&_li]:text-sm [&_li]:leading-relaxed',
+src\components\ui\HtmlContent.tsx:44: '[&_table]:w-full [&_table]:text-sm [&_table]:border-collapse',
+src\components\ui\input-otp.tsx:35: "relative flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md",
+src\components\ui\input.tsx:11: "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+src\components\ui\label.tsx:7: const labelVariants = cva("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70");
+src\components\ui\menubar.tsx:36: "flex cursor-default select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none data-[state=open]:bg-accent data-[state=open]:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+src\components\ui\menubar.tsx:53: "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[state=open]:bg-accent data-[state=open]:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+src\components\ui\menubar.tsx:109: "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-accent focus:text-accent-foreground",
+src\components\ui\menubar.tsx:125: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-accent focus:text-accent-foreground",
+src\components\ui\menubar.tsx:148: "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-accent focus:text-accent-foreground",
+src\components\ui\navigation-menu.tsx:38: "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
+src\components\ui\RichTextEditor.tsx:262: <MenuButton onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()} title="Geri al">
+src\components\ui\RichTextEditor.tsx:296: '[&_.ProseMirror_pre]:font-mono [&_.ProseMirror_pre]:text-sm [&_.ProseMirror_pre]:my-3',
+src\components\ui\RichTextEditor.tsx:299: '[&_.ProseMirror_code]:py-0.5 [&_.ProseMirror_code]:font-mono [&_.ProseMirror_code]:text-sm',
+src\components\ui\select.tsx:20: "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+src\components\ui\select.tsx:108: "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-accent focus:text-accent-foreground",
+src\components\ui\sheet.tsx:39: left: "inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm",
+src\components\ui\sheet.tsx:41: "inset-y-0 right-0 h-full w-3/4  border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
+src\components\ui\sidebar.tsx:182: {/* This is what handles the sidebar gap on desktop */}
+src\components\ui\sidebar.tsx:257: "absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] group-data-[side=left]:-right-4 group-data-[side=right]:left-0 hover:after:bg-sidebar-border sm:flex",
+src\components\ui\sidebar.tsx:278: "peer-data-[variant=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[variant=inset]:m-2 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow",
+src\components\ui\sidebar.tsx:415: "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-none ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+src\components\ui\sidebar.tsx:424: default: "h-8 text-sm",
+src\components\ui\sidebar.tsx:425: sm: "h-7 text-xs",
+src\components\ui\sidebar.tsx:426: lg: "h-12 text-sm group-data-[collapsible=icon]:!p-0",
+src\components\ui\sidebar.tsx:494: "peer-data-[size=sm]/menu-button:top-1",
+src\components\ui\sidebar.tsx:516: "peer-data-[size=sm]/menu-button:top-1",
+src\components\ui\sidebar.tsx:586: size?: "sm" | "md";
+src\components\ui\sidebar.tsx:601: size === "sm" && "text-xs",
+src\components\ui\sidebar.tsx:602: size === "md" && "text-sm",
+src\components\ui\tabs.tsx:30: "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+src\components\ui\textarea.tsx:11: "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+src\components\ui\toast.tsx:17: "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+src\components\ui\toast.tsx:26: "group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
+src\components\ui\toast.tsx:55: "inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium ring-offset-background transition-colors group-[.destructive]:border-muted/40 hover:bg-secondary group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 group-[.destructive]:focus:ring-destructive disabled:pointer-events-none disabled:opacity-50",
+src\components\ui\toggle.tsx:8: "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground",
+src\components\ui\toggle.tsx:17: sm: "h-9 px-2.5",
+src\components\ui\tooltip.tsx:20: "z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+src\hooks\useAppointments.ts:70: title: 'Sabah randevunuz var! 📅',
+src\hooks\useAppointments.ts:72: schedule: { at: reminderTime }
+src\hooks\useAppointments.ts:84: title: '2 saat sonra randevunuz var! ⏰',
+src\hooks\useAppointments.ts:86: schedule: { at: twoHoursBefore }
+src\hooks\useAppRating.ts:131: window.open('https://play.google.com/store/apps/details?id=com.atlasoon.anacan', '_blank');
+src\hooks\useBabyDailyInfo.ts:34: if (language !== 'az') {
+src\hooks\useCakeCart.ts:23: (set, get) => ({
+src\hooks\useDailySummary.ts:145: if (!user || profile?.life_stage === 'partner') return { error: 'Only woman can send summary' };
+src\hooks\useDailySummary.ts:229: .on('postgres_changes', { event: '*', schema: 'public', table: 'daily_summaries' }, () => {
+src\hooks\useDailySummary.ts:232: .on('postgres_changes', { event: '*', schema: 'public', table: 'daily_logs', filter: user ? `user_id=eq.${user.id}` : undefined }, () => {
+src\hooks\useDailySummary.ts:235: .on('postgres_changes', { event: '*', schema: 'public', table: 'kick_sessions', filter: user ? `user_id=eq.${user.id}` : undefined }, () => {
+src\hooks\useDailySummary.ts:238: .on('postgres_changes', { event: '*', schema: 'public', table: 'contractions', filter: user ? `user_id=eq.${user.id}` : undefined }, () => {
+src\hooks\useDirectMessages.ts:149: title: 'Yeni mesaj 💬',
+src\hooks\useDirectMessages.ts:154: 'Yeni mesaj',
+src\hooks\useDirectMessages.ts:200: on('postgres_changes', {
+src\hooks\useDirectMessages.ts:209: on('postgres_changes', {
+src\hooks\useFairyTales.ts:107: language: params.language || 'az',
+src\hooks\useGroupPresence.ts:50: on('presence', { event: 'sync' }, () => {
+src\hooks\useGroupPresence.ts:78: on('presence', { event: 'join' }, ({ key, newPresences }) => {
+src\hooks\useGroupPresence.ts:81: }).on('presence', { event: 'leave' }, ({ key, leftPresences }) => {
+src\hooks\useHealthReport.ts:113: value: `${latestWeight.toFixed(1)} kq`,
+src\hooks\useHealthReport.ts:114: trend: weightChange >= 0 ? `+${weightChange.toFixed(1)} kq` : `${weightChange.toFixed(1)} kq`,
+src\hooks\useLanguage.ts:28: if (language !== 'az') {
+src\hooks\useMentalHealth.ts:70: { value: 1, label: 'Tez-tez deyil' },
+src\hooks\useMentalHealth.ts:110: { value: 1, label: 'Tez-tez deyil' },
+src\hooks\useMentalHealth.ts:120: { value: 1, label: 'Tez-tez deyil' },
+src\hooks\useMentalHealthData.ts:69: text: language === 'az' ? (o.text_az ?? o.text) : (o[`text_${language}`] ?? o.text_az ?? o.text),
+src\hooks\useMommyDailyMessages.ts:29: if (language !== 'az') {
+src\hooks\useNotificationSettings.ts:96: schedule: { at: reminderTime }
+src\hooks\useNotificationSettings.ts:128: schedule: { at: reminderTime }
+src\hooks\useNotificationSettings.ts:159: schedule: { at: reminderTime }
+src\hooks\useNotificationSettings.ts:194: title: 'Sabah randevunuz var! 📅',
+src\hooks\useNotificationSettings.ts:196: schedule: { at: reminderTime }
+src\hooks\useOrders.ts:285: order_number: `ANA-${Date.now()}`,
+src\hooks\usePartnerFavoriteNames.ts:50: .on('postgres_changes', { event: '*', schema: 'public', table: 'favorite_names' }, () => fetch())
+src\hooks\usePaywallConfig.ts:86: title: 'Anacan Premium',
+src\hooks\usePaywallConfig.ts:99: yearly_suffix: '/ay',
+src\hooks\usePaywallConfig.ts:100: monthly_suffix: '/ay',
+src\hooks\usePaywallConfig.ts:101: yearly_total_suffix: '/il',
+src\hooks\usePaywallConfig.ts:146: support_email: 'info@anacan.az',
+src\hooks\usePregnancyContent.ts:18: if (!row || lang === 'az') return row;
+src\hooks\useTranslation.ts:14: if (language === 'az') return defaultValue;
+src\hooks\useUnreadCommunityPosts.ts:49: const useUnreadCommunityStore = create<UnreadCommunityState>((set, get) => ({
+src\hooks\useUnreadCommunityPosts.ts:234: .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'community_posts' }, (payload) => {
+src\lib\chat-notifications.ts:65: schedule: { at: new Date(Date.now() + 250) },
+src\lib\date-utils.ts:7: return lang === 'en' ? enUS : az;
+src\lib\deeplink.ts:67: if (url.startsWith('anacan://')) {
+src\lib\deeplink.ts:69: path = '/' + url.replace('anacan://', '');
+src\lib\deeplink.ts:70: } else if (url.includes('app.anacan.az')) {
+src\lib\deeplink.ts:147: return 'anacan:/' + path;
+src\lib\deeplink.ts:150: return 'https://app.anacan.az' + path;
+src\lib\i18n.ts:11: translationCache['az'] = { ...(azStatic as Record<string, string>) };
+src\lib\i18n.ts:61: translationCache['az'] = { ...(azStatic as Record<string, string>) };
+src\lib\iap.ts:9: PREMIUM_MONTHLY: 'com.atlasoon.anacan.premium.monthly',
+src\lib\iap.ts:10: PREMIUM_YEARLY: 'com.atlasoon.anacan.premium.yearly',
+src\lib\iap.ts:19: APP_ID: 'com.atlasoon.anacan',
+src\lib\iap.ts:20: APP_NAME: 'Anacan',
+src\lib\mixpanel.ts:45: app_name: 'Anacan',
+src\lib\native.ts:174: schedule?: {at: Date;};
+src\lib\native.ts:213: schedule: { at: reminderTime }
+src\lib\native.ts:229: schedule: { at: time }
+src\lib\native.ts:241: title: 'Sabah randevunuz var! 📅',
+src\lib\native.ts:243: schedule: { at: reminderTime }
+src\lib\native.ts:293: const finalFileName = fileName || `anacan-photo-${Date.now()}.jpg`;
+src\lib\polyfills.ts:23: if (typeof (Array.prototype as any).at !== 'function') {
+src\lib\polyfills.ts:25: Object.defineProperty(Array.prototype, 'at', {
+src\lib\polyfills.ts:37: if (typeof (String.prototype as any).at !== 'function') {
+src\lib\polyfills.ts:39: Object.defineProperty(String.prototype, 'at', {
+src\lib\revenuecat.ts:25: ENTITLEMENT_ID: 'Anacan LLC Pro',
+src\lib\revenuecat.ts:199: return { success: false, error: 'RevenueCat is disabled or not on native platform' };
+src\lib\session-persistence.ts:18: const STORAGE_KEY = 'anacan.auth.session.v1';
+src\lib\tr.ts:4: if (typeof window === 'undefined') return 'az';
+src\lib\tr.ts:7: const raw = window.localStorage.getItem('anacan-user-store');
+src\lib\tr.ts:8: if (!raw) return 'az';
+src\lib\tr.ts:12: return typeof language === 'string' && language.length > 0 ? language : 'az';
+src\lib\tr.ts:14: return 'az';
+src\lib\tr.ts:46: if (language === 'az') {
+src\store\timerStore.ts:28: (set, get) => ({
+src\store\timerStore.ts:90: name: 'anacan-timers',
+src\store\userStore.ts:67: let code = 'ANACAN-';
+src\store\userStore.ts:76: (set, get) => ({
+src\store\userStore.ts:97: language: 'az',
+src\store\userStore.ts:165: language: 'az',
+src\store\userStore.ts:262: name: 'anacan-user-store',
+src\types\anacan.ts:109: { value: 2, label: 'Pis', emoji: '😔' },

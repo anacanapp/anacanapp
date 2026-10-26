@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    
+    <title>Anacan - Hamiləlik və Analıq Tətbiqi</title>
+    <meta name="description" content="Hamiləlik, doğuş və analıq dövrünüzü izləyin. AI dəstəyi, icma, alətlər və daha çoxu." />
+    <meta name="author" content="Anacan" />
+    <meta name="theme-color" content="#F97316" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Anacan" />
+    
+    <!-- Android Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Anacan - Hamiləlik və Analıq Tətbiqi" />
+    <meta property="og:description" content="Hamiləlik, doğuş və analıq dövrünüzü izləyin. AI dəstəyi, icma, alətlər və daha çoxu." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/icon-512.png" />
+    <meta property="og:url" content="https://anacan.az" />
+    <meta property="og:site_name" content="Anacan" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Anacan" />
+    <meta name="twitter:description" content="Hamiləlik və analıq tətbiqi" />
+    <meta name="twitter:image" content="/icon-512.png" />
+    
+    <!-- Qaranlıq rejimdə klaviatura/ölçü dəyişəndə body krem rəngdə görünməsin -->
+    <style>body{background-color:#faf7f4}html.dark body{background-color:#161922}</style>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Hide Lovable badge on every page -->
+    <style>
+      #lovable-badge,
+      aside#lovable-badge,
+      .lovable-badge,
+      [data-lovable-badge] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 0;">
+    <div id="root" style="height: 100%;">
+      <div class="anacan-startup" role="status" aria-label="Anacan" aria-busy="true" data-startup-screen>
+        <div class="anacan-startup-brand">
+          <img class="anacan-startup-mark" src="/brand-mark.png" width="96" height="96" alt="" fetchpriority="high" />
+          <p class="anacan-startup-name">Anacan</p>
+          <span class="anacan-startup-progress" aria-hidden="true"><span></span></span>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,455 @@
+{
+  "meta": {
+    "version": "0.3-draft",
+    "description": "Körpə ilə Məşğələlər — yaş bandlarına görə orijinal AZ kontent. Mənbə bazası: CDC 'Learn the Signs. Act Early.' (public domain, ABŞ federal materialı) + WHO motor inkişaf pəncərələri (faktlar) + universal pediatrik praktikalar. Mətnlər Anacan üçün sıfırdan yazılıb — heç bir üçüncü tərəf tətbiqin mətni kopyalanmayıb.",
+    "disclaimer_az": "Bu məşğələlər maarifləndirmə məqsədlidir və pediatr müayinəsini əvəz etmir. Hər hansı narahatlığınız varsa, həkiminizə müraciət edin.",
+    "tone": "isti, dəstəkləyici, 'sən' müraciəti — Anacan gündəlik kontent üslubu",
+    "image_style_guide": "MASTER STYLE (hər prompta əlavə olunur): Soft watercolor children's book illustration, gentle hand-painted texture, plain white background, cute chubby baby with warm skin tone, simple minimal face (thin curved closed eyes, tiny smile, small ear), soft peach (#FFDCDD) diaper or light cream bodysuit, adult shown ONLY as hands/forearms when demonstrating (no adult face or full figure), soft coral (#FF5A5F) instructional arrows showing movement direction, warm peach and coral accent palette (Anacan brand), centered composition with generous white space, square 1:1, PNG, no watermark, no outline strokes — soft edges only. IMPORTANT: do NOT add any handwritten number or text unless the SCENE description below explicitly gives an exact number to write (e.g. specifies \"handwritten 'X-Y' number\") — if the SCENE does not mention a number, the image must contain ZERO text or digits anywhere.",
+    "image_note": "Bu, uşaq kitabı akvarel janrıdır (janr qorunmur) — amma Sprouty fayllarının özü İSTİFADƏ OLUNMUR, hamısı yenidən generasiya edilir. Personaj sabitliyi üçün bütün generasiyalarda eyni referans/seed istifadə edin.",
+    "video_note": "video_url sahəsi gələcük üçün nullable saxlanılır — MVP PNG illüstrasiya ilə çıxır"
+  },
+  "age_bands": [
+    {
+      "id": "band_0_2m",
+      "label_az": "0–2 ay",
+      "week_range": [
+        0,
+        9
+      ],
+      "status": "complete",
+      "summary_az": "Körpən yeni dünyaya uyğunlaşır. Bu dövrdə ən vacib olan: təmas, təhlükəsizlik hissi və qısa, yumşaq məşğələlərdir.",
+      "milestones": {
+        "social_az": [
+          "Danışanda və ya qucağa götürüləndə sakitləşir",
+          "Üzünə baxır",
+          "Yaxınlaşanda sevindiyini büruzə verir",
+          "Sən danışanda və ya gülümsəyəndə gülümsəyir"
+        ],
+        "language_az": [
+          "Ağlamaqdan başqa səslər də çıxarır",
+          "Uca səslərə reaksiya verir"
+        ],
+        "cognitive_az": [
+          "Hərəkət etdikcə səni gözü ilə izləyir",
+          "Oyuncağa bir neçə saniyə baxır"
+        ],
+        "motor_az": [
+          "Qarınüstə uzananda başını qaldırır",
+          "Hər iki qolunu və hər iki ayağını hərəkət etdirir",
+          "Əllərini qısa müddətə açır"
+        ]
+      },
+      "activities": [
+        {
+          "id": "act_0_2m_01",
+          "title_az": "Qarınüstə vaxt (tummy time)",
+          "descr_az": "Körpən oyaq olanda onu düz, təhlükəsiz səthdə qarnı üstə uzandır. Oyuncaqları göz səviyyəsində qarşısına düz — başını qaldırmağa çalışacaq. İlk vaxtlar 1-2 dəqiqə kifayətdir, gündə 2-3 dəfə təkrarla.\n\nBu məşq boyun və kürək əzələlərini gücləndirir, başın düz formada qalmasına kömək edir.",
+          "category": "motor",
+          "duration_az": "1-2 dəqiqə",
+          "safety_az": "Körpəni qarınüstə vəziyyətdə heç vaxt tək qoyma. Yuxulu görünürsə, arxası üstə təhlükəsiz yatağına keçir.",
+          "image_prompt": "Watercolor baby lying on tummy, propped low, lifting head slightly up, small watercolor soft toy placed in front of face, soft coral arrow curving upward from head showing lift direction, handwritten '2-3' number top right"
+        },
+        {
+          "id": "act_0_2m_02",
+          "title_az": "Səs axtarışı — çınqıraq oyunu",
+          "descr_az": "Çınqırağı körpənin başının bir tərəfində yumşaq silkələ. Gözü və ya başı ilə səsi axtarmasını izlə. Sonra o biri tərəfdə təkrarla.\n\nBu oyun eşitmə diqqətini və səs mənbəyini tapma bacarığını inkişaf etdirir.",
+          "category": "cognitive",
+          "duration_az": "2-3 dəqiqə",
+          "image_prompt": "Watercolor baby lying on back, head turned to one side, adult hand holding small watercolor rattle beside baby's head, three soft curved sound lines near rattle, no other elements, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_0_2m_03",
+          "title_az": "Səs \"söhbəti\"",
+          "descr_az": "Körpən səs çıxaranda həvəslə cavab ver: gülümsə, danış, onun səslərini təqlid et. Sonra gözlə — yenidən \"cavab\" verəcək.\n\nBu növbələşmə körpənin ünsiyyətin əsasını — dinləmə və cavab vermə ritmini öyrənməsinə kömək edir.",
+          "category": "language",
+          "duration_az": "istənilən vaxt",
+          "image_prompt": "Watercolor baby lying on back with mouth open in a tiny 'o' cooing, two small soft watercolor speech bubbles above baby (one peach one coral) exchanging, joyful raised arms, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_0_2m_04",
+          "title_az": "Yumşaq sığal masajı",
+          "descr_az": "Körpən sakit və oyaq olanda qollarını çiyindən biləyə doğru, ayaqlarını buddan pəncəyə doğru yumşaq hərəkətlərlə sığalla. Hər tərəfə 5-6 dəfə təkrarla.\n\nYumşaq təmas qan dövranını dəstəkləyir, əzələ gərginliyini azaldır və aranızdakı bağı gücləndirir.",
+          "category": "care",
+          "duration_az": "3-5 dəqiqə",
+          "safety_az": "Masajı yeməkdən dərhal sonra etmə — ən yaxşı vaxt vanna sonrası və ya yuxudan ayılandan bir az sonradır.",
+          "image_prompt": "Watercolor baby lying on back relaxed with closed happy eyes, adult hand gently stroking along baby's arm from shoulder to wrist, soft coral arrow along the arm showing stroke direction, handwritten '5-6' number top right"
+        },
+        {
+          "id": "act_0_2m_05",
+          "title_az": "\"Sütun\" tutuşu",
+          "descr_az": "Hər yemədən sonra körpəni şaquli vəziyyətdə, başı çiynində olmaqla 7-10 dəqiqə tut. Başını və boynunu əlinlə dəstəklə.\n\nBu vəziyyət yemə zamanı udulan havanın çıxmasına kömək edir və qaytarmanın qarşısını alır.",
+          "category": "care",
+          "duration_az": "7-10 dəqiqə",
+          "image_prompt": "Watercolor baby held upright vertically against an adult shoulder (only soft neutral shoulder shape and supporting hands visible, no adult face), baby's head resting on shoulder with calm closed eyes, one adult hand supporting head, handwritten '7-10' number top corner"
+        },
+        {
+          "id": "act_0_2m_06",
+          "title_az": "Üz-üzə vaxt",
+          "descr_az": "Körpəni qucağına al və üzünü öz üzünə 20-30 sm məsafədə tut — bu, onun ən aydın gördüyü məsafədir. Yavaş danış, gülümsə, müxtəlif mimikalar göstər.\n\nKörpələr insan üzünə baxmağı hər şeydən çox sevir — bu, sosial inkişafın təməlidir.",
+          "category": "social",
+          "duration_az": "3-5 dəqiqə",
+          "image_prompt": "Watercolor baby lying on adult forearms facing up, gazing with bright open dot eyes, small peach heart floating above, only adult hands and forearms visible cradling baby, plain white background, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_0_2m_07",
+          "title_az": "Oxu və layla",
+          "descr_az": "Hər gün körpənə danış, oxu və layla de. Səsinin tonu və ritmi ona təhlükəsizlik hissi verir və dil inkişafının əsasını qoyur.\n\nNə oxuduğun önəmli deyil — vacib olan səsinin ahəngidir.",
+          "category": "language",
+          "duration_az": "istənilən vaxt",
+          "image_prompt": "Watercolor baby swaddled in soft peach blanket held in adult forearms (hands only visible), sleeping peaceful face, three small coral watercolor music notes floating above, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_0_2m_08",
+          "title_az": "Dəri-dəriyə təmas",
+          "descr_az": "Körpəni yalnız bezi ilə sinənə uzandır, üstünü yüngül ədyalla ört. Ürək döyüntün və istiliyin onu sakitləşdirir.\n\nDəri-dəriyə təmas körpənin temperatur tənzimləməsinə, yuxusuna və bağlanmaya kömək edir — həm ana, həm ata üçün faydalıdır.",
+          "category": "care",
+          "duration_az": "15-30 dəqiqə",
+          "image_prompt": "Watercolor baby in peach diaper lying on a soft neutral adult chest shape (no adult face, just torso silhouette in very light wash), light blanket over baby's back, tiny peach heart above, peaceful closed eyes, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_0_2m_09",
+          "title_az": "Hava vannası",
+          "descr_az": "Bez dəyişəndə və ya vanna sonrası körpəni bir neçə dəqiqə paltar­sız saxla (otaq 22-24°C olmalıdır).\n\nHava vannası dərinin nəfəs almasına imkan verir və yüngül möhkəmləndirici təsir göstərir.",
+          "category": "care",
+          "duration_az": "2-5 dəqiqə",
+          "safety_az": "Otağın isti olduğundan və hava cərəyanı olmadığından əmin ol.",
+          "image_prompt": "Watercolor happy baby in only peach diaper lying on back on white, kicking legs up in air joyfully, arms raised, tiny watercolor sun in top corner, handwritten '2-5' number"
+        },
+        {
+          "id": "act_0_2m_10",
+          "title_az": "Kontrast kartlara baxış",
+          "descr_az": "Ağ-qara və ya parlaq rəngli sadə şəkilləri körpənin görmə məsafəsində (20-30 sm) tut. Bir şəklə 10-15 saniyə baxmasına imkan ver, sonra yavaşca dəyişdir.\n\nİlk aylarda kontrastlı görüntülər görmə qabiliyyətini stimullaşdırır.",
+          "category": "cognitive",
+          "duration_az": "2-3 dəqiqə",
+          "image_prompt": "Watercolor baby lying on back gazing up, adult hand holding a simple black-and-white striped card above baby's face at short distance, baby's eyes as focused open dots looking at card, no number, no text, no digits anywhere in the image"
+        }
+      ]
+    },
+    {
+      "id": "band_4m",
+      "label_az": "2–4 ay",
+      "week_range": [
+        10,
+        18
+      ],
+      "status": "complete",
+      "summary_az": "Gülüş, qığıltı və ilk 'söhbətlər' dövrü. Körpən ətrafı fəal izləyir və bədənini tanımağa başlayır.",
+      "milestones": {
+        "social_az": [
+          "Diqqət cəlb etmək üçün öz-özünə gülümsəyir",
+          "Güldürəndə qığıldayır",
+          "Baxışınla diqqətini cəlb edəndə sənə baxır, hərəkət edir və ya səs çıxarır"
+        ],
+        "language_az": [
+          "Qığıltı səsləri çıxarır ('aqu', 'qu')",
+          "Sən danışanda səsinlə 'cavablaşır'",
+          "Səsini eşidəndə sənə tərəf dönür"
+        ],
+        "cognitive_az": [
+          "Ac olanda əmzik/döş görəndə ağzını açır",
+          "Əllərinə maraqla baxır"
+        ],
+        "motor_az": [
+          "Qarınüstə olanda dirsəklərinə söykənərək başını sabit tutur",
+          "Oyuncağı əlində tutur",
+          "Əşyalara doğru qollarını yelləyir",
+          "Əllərini ağzına aparır"
+        ]
+      },
+      "activities": [
+        {
+          "id": "act_4m_01",
+          "title_az": "Güzgü tanışlığı",
+          "descr_az": "Körpə üçün təhlükəsiz güzgünü qarşısında tut və ya qarınüstə vaxtda önünə qoy. Özünə baxmasını, mimikalara reaksiyasını izlə.\n\nGüzgü özünüdərkin ilk addımlarını dəstəkləyir və qarınüstə vaxtı daha maraqlı edir.",
+          "category": "social",
+          "duration_az": "3-5 dəqiqə",
+          "image_prompt": "Watercolor baby on tummy propped on forearms looking into a round baby mirror with soft peach frame standing in front, baby's happy reflection visible in mirror, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_4m_02",
+          "title_az": "Uzanıb-tutma məşqi",
+          "descr_az": "Parlaq oyuncağı körpənin bir az yuxarısında və ya yanında tut — uzanıb tutmağa çalışsın. Tutanda təriflə və sevincini bölüş.\n\nBu, göz-əl koordinasiyasını və məqsədyönlü hərəkəti inkişaf etdirir.",
+          "category": "motor",
+          "duration_az": "3-5 dəqiqə",
+          "image_prompt": "Watercolor baby lying on back reaching both arms up toward a soft ring toy held above by adult fingers, soft coral arrow from baby hand up to toy, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_4m_03",
+          "title_az": "Qığıltı təqlidi",
+          "descr_az": "Körpənin çıxardığı hər səsi təqlid et və bir az da genişləndir: o 'aa' deyəndə sən 'aaa-qu' de. Aranızdakı bu 'söhbət' nə qədər uzun çəksə, o qədər yaxşıdır.\n\nSəs təqlidi dil mərkəzlərini fəallaşdırır və ünsiyyət sevgisi aşılayır.",
+          "category": "language",
+          "duration_az": "istənilən vaxt",
+          "image_prompt": "Watercolor baby sitting slightly reclined with mouth open cooing happily, two watercolor speech bubbles above — small peach bubble from baby and bigger coral bubble answering, arms waving, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_4m_04",
+          "title_az": "Yan çevrilmə dəstəyi",
+          "descr_az": "Körpə arxası üstə uzananda maraqlı oyuncağı yanında, bir az kənarda göstər — ona tərəf çevrilməyə həvəsləndir. Çətinlik çəkirsə, budundan yüngülcə dəstək ver.\n\nÇevrilmə ilk böyük hərəkət bacarığıdır və kürək-qarın əzələlərini gücləndirir.",
+          "category": "motor",
+          "duration_az": "3-5 dəqiqə",
+          "safety_az": "Bu dövrdə körpəni açıq yerdə (divan, dəyişdirmə masası) heç vaxt nəzarətsiz qoyma — artıq çevrilə bilər!",
+          "image_prompt": "Watercolor baby mid-roll turned on side reaching toward small watercolor toy placed beside, adult hand gently supporting baby's hip from behind, curved coral arrow showing roll direction, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_4m_05",
+          "title_az": "Şəkilli kitab vaxtı",
+          "descr_az": "Parlaq, iri şəkilli kitaba birlikdə baxın. Şəkilləri göstər və adlandır: 'Bax, bu pişikdir. Miyau!'\n\nErkən 'oxu' vərdişi diqqəti, dinləməni və gələcək söz ehtiyatını qidalandırır.",
+          "category": "language",
+          "duration_az": "5 dəqiqə",
+          "image_prompt": "Watercolor baby sitting on white, adult hands holding an open picture book in front showing simple watercolor cat illustration, baby reaching one hand toward the page, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_4m_06",
+          "title_az": "Ayaq velosipedi",
+          "descr_az": "Körpə arxası üstə uzananda ayaqlarını yumşaq tutub növbə ilə velosiped sürmə hərəkəti etdir. Mahnı və ya sayma ilə müşayiət et.\n\nBu məşq qarın əzələlərini dəstəkləyir və qaz sancılarını yüngülləşdirə bilər.",
+          "category": "motor",
+          "duration_az": "2-3 dəqiqə",
+          "image_prompt": "Watercolor baby on back, two adult hands holding baby's shins moving legs in cycling motion, two soft coral circular arrows near legs showing pedaling circles, baby laughing, handwritten '6-8' number top right"
+        },
+        {
+          "id": "act_4m_07",
+          "title_az": "Müxtəlif fakturalara toxunuş",
+          "descr_az": "Yumşaq, hamar, büküşlü — müxtəlif fakturalı təhlükəsiz parçaları körpənin əlinə ver və ya əlini onlara toxundur. Hər birini adlandır: 'yumşaqdır', 'hamardır'.\n\nToxunma duyğusu beyin inkişafının güclü stimulyatorudur.",
+          "category": "cognitive",
+          "duration_az": "3-5 dəqiqə",
+          "safety_az": "Kiçik hissəli və ya qopa bilən parçalardan istifadə etmə.",
+          "image_prompt": "Watercolor baby lying on back, adult hand guiding baby's small hand to touch three fabric squares laid beside (fluffy peach, smooth cream, knitted light gray), soft textures painted in watercolor, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_4m_08",
+          "title_az": "Dirsək dayağı ilə qarınüstə vaxt",
+          "descr_az": "Qarınüstə vaxtı davam etdir — indi körpən dirsəklərinə söykənib başını daha uzun tuta bilir. Qarşısına güzgü və ya oyuncaq qoy, müddəti tədricən 5-10 dəqiqəyə çatdır.\n\nBu, oturma və iməkləmə üçün lazım olan əzələləri hazırlayır.",
+          "category": "motor",
+          "duration_az": "5-10 dəqiqə",
+          "safety_az": "Həmişə nəzarət altında, düz və möhkəm səthdə.",
+          "image_prompt": "Watercolor baby on tummy propped up on forearms with head held high and proud smile, two small watercolor toys in front, soft coral arrow showing upward chest lift, handwritten '5-10' number"
+        },
+        {
+          "id": "act_4m_09",
+          "title_az": "Musiqi və ritm",
+          "descr_az": "Sakit mahnı aç və ya özün oxu, körpəni qucağında yumşaq ritmlə yellə. Müxtəlif templərdə sına — hansına daha çox reaksiya verdiyini izlə.\n\nRitm hissi dil inkişafı ilə birbaşa bağlıdır.",
+          "category": "social",
+          "duration_az": "5 dəqiqə",
+          "image_prompt": "Watercolor baby cradled in adult forearms being gently rocked side to side (only arms visible), baby smiling with closed eyes, watercolor music notes floating around, soft motion curve under the arms, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_4m_10",
+          "title_az": "Əl açma oyunu",
+          "descr_az": "Körpənin yumruğunu yumşaq masajla aç, ovcuna barmağını qoy — tutacaq. Sonra ovcuna yüngül dairəvi masaj et.\n\nƏl açılması tutma refleksindən şüurlu tutmaya keçidin başlanğıcıdır.",
+          "category": "motor",
+          "duration_az": "2-3 dəqiqə",
+          "image_prompt": "Watercolor close-up composition of baby's open palm with adult index finger placed in it, baby fingers wrapping around, small coral circular arrow on palm showing massage circle, rest of baby soft in background, no number, no text, no digits anywhere in the image"
+        }
+      ]
+    },
+    {
+      "id": "band_6m",
+      "label_az": "4–6 ay",
+      "week_range": [
+        19,
+        27
+      ],
+      "status": "complete",
+      "summary_az": "Çevrilmə, oturmağa hazırlıq və 'hər şey ağıza' dövrü. Körpən dünyanı əlləri və ağzı ilə kəşf edir.",
+      "milestones": {
+        "social_az": [
+          "Tanış insanları tanıyır",
+          "Güzgüdə özünə baxmağı sevir",
+          "Gülür"
+        ],
+        "language_az": [
+          "Səninlə növbə ilə səs çıxarır",
+          "Dilini çıxarıb 'pırıltı' edir",
+          "Ciyiltili səslər çıxarır"
+        ],
+        "cognitive_az": [
+          "Əşyaları kəşf etmək üçün ağzına aparır",
+          "İstədiyi oyuncağa uzanıb götürür",
+          "Doyduğunu dodaqlarını yumaraq bildirir"
+        ],
+        "motor_az": [
+          "Qarnından belinə çevrilir",
+          "Qarınüstə olanda düz qollarla dartınıb qalxır",
+          "Oturarkən əllərinə söykənir"
+        ]
+      },
+      "activities": [
+        {
+          "id": "act_6m_01",
+          "title_az": "Çevrilmə oyunu",
+          "descr_az": "Oyuncağı körpənin çata bilməyəcəyi məsafədə yanına qoy — ona doğru çevrilməyə həvəsləndir. Hər iki tərəfə məşq etdirin.\n\nHər iki istiqamətdə çevrilmə simmetrik əzələ inkişafının göstəricisidir.",
+          "category": "motor",
+          "duration_az": "5 dəqiqə",
+          "safety_az": "Yalnız döşəmədə və ya geniş, təhlükəsiz səthdə.",
+          "image_prompt": "Watercolor baby captured mid-roll from tummy to back, one arm crossing over, small watercolor toy placed to the side, big soft coral curved arrow over baby showing roll direction, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_6m_02",
+          "title_az": "Dəstəkli oturma",
+          "descr_az": "Körpəni qucağında və ya yastıqlarla dəstəklənmiş halda otuzdur, ətrafa baxmağa və oyuncaqlarla oynamağa imkan ver. Balansını tapmağı öyrənir.\n\nDəstəkli oturma kürək əzələlərini müstəqil oturmağa hazırlayır.",
+          "category": "motor",
+          "duration_az": "5-10 dəqiqə",
+          "safety_az": "Yıxılma ehtimalına qarşı ətrafını yumşaq materialla əhatə et, yalnız nəzarət altında.",
+          "image_prompt": "Watercolor baby sitting upright leaning slightly on own hands, two soft peach pillows behind and beside, holding small toy, two adult hands hovering protectively near baby's sides, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_6m_03",
+          "title_az": "'Hanı? Budu!' (gizlənpaç)",
+          "descr_az": "Üzünü əllərinlə və ya yüngül parça ilə ört, sonra aç: 'Hanı ana? Budu!' Körpənin gülüşünü izlə və təkrarla.\n\nBu oyun 'görünməyən şey mövcuddur' anlayışının (obyekt sabitliyi) təməlini qoyur.",
+          "category": "cognitive",
+          "duration_az": "3-5 dəqiqə",
+          "image_prompt": "Watercolor baby sitting and laughing with wide open mouth, adult hands holding a light muslin cloth half-lifted revealing, playful moment, small peach sparkles around baby, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_6m_04",
+          "title_az": "Səs mənbəyini tap",
+          "descr_az": "Fərqli səslər çıxar: pıçıltı, əl çalma, dil şıqqıltısı, kağız xışıltısı. Körpənin səsə tərəf dönməsini və marağını izlə — hansı səsi daha çox sevir?\n\nSəs fərqləndirmə eşitmə diqqətini itiləşdirir.",
+          "category": "cognitive",
+          "duration_az": "3-5 dəqiqə",
+          "image_prompt": "Watercolor baby sitting, head turned toward two adult hands clapping at the side, soft curved watercolor sound lines between hands and baby's ear, curious open dot eyes, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_6m_05",
+          "title_az": "Ayaq üstə 'dayanma' oyunu",
+          "descr_az": "Körpəni qoltuqlarının altından möhkəm tut və ayaqlarını dizlərinin üstünə və ya döşəməyə toxundur — 'dayanmağa' imkan ver. Gördüklərinizi adlandır.\n\nBu, ayaq əzələlərinə yük verir və şaquli vəziyyəti tanıdır.",
+          "category": "motor",
+          "duration_az": "2-3 dəqiqə",
+          "safety_az": "Bütün çəkisini ayaqlarına vermə — əsas dəstək sənin əllərindədir.",
+          "image_prompt": "Watercolor baby held upright in standing pose by two adult hands under armpits, baby's feet touching white ground, excited bouncing expression, small coral up-down arrows beside legs, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_6m_06",
+          "title_az": "Sal-götür oyunu",
+          "descr_az": "Körpən oyuncağı yerə salanda qaldır və geri ver. Bir neçə dəfə təkrarlanacaq — bu, qəsdən edilir!\n\n'Mən saldım — sən qaldırdın' körpənin ilk səbəb-nəticə təcrübələrindəndir.",
+          "category": "cognitive",
+          "duration_az": "5 dəqiqə",
+          "image_prompt": "Watercolor baby sitting dropping a small ring toy, dotted coral line showing fall path down, adult hand below reaching to catch it, baby watching with interest, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_6m_07",
+          "title_az": "'Oxu' və göstər",
+          "descr_az": "Hər gün şəkilli kitaba bax və danış. Körpən səs çıxaranda cavab ver: 'Bəli, bu itdir!' Gəzintidə də gördüklərini göstər və adlandır.\n\nAdlandırma passiv söz ehtiyatının təməlini qoyur — danışmazdan xeyli əvvəl başlayır.",
+          "category": "language",
+          "duration_az": "5-10 dəqiqə",
+          "image_prompt": "Watercolor baby sitting, adult finger pointing at simple watercolor dog picture in open book, baby's hand also reaching toward the same picture, both hands meeting at page, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_6m_08",
+          "title_az": "Döşəmə kəşfiyyatı",
+          "descr_az": "Hər gün döşəmədə/oyun xalçasında sərbəst oyun vaxtı ver. Müxtəlif təhlükəsiz əşyaları ətrafına düz — sürünməyə, uzanmağa, çevrilməyə şərait yarat.\n\nSərbəst döşəmə oyunu bütün hərəkət bacarıqlarının məşq meydançasıdır.",
+          "category": "motor",
+          "duration_az": "10-15 dəqiqə",
+          "safety_az": "Ərazini əvvəlcədən yoxla: kiçik əşyalar, kabellər, iti kənarlar olmasın.",
+          "image_prompt": "Watercolor baby on tummy reaching forward toward three small watercolor toys arranged in arc ahead (ball, ring, soft cube), pre-crawling pose with one knee bent, plain white floor, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_6m_09",
+          "title_az": "Növbə ilə 'pırıltı'",
+          "descr_az": "Dilini çıxarıb 'pırıltı' et və gözlə — körpən təqlid etməyə çalışacaq. Onun pırıltısına sən də cavab ver.\n\nDodaq-dil oyunları danışıq üçün lazım olan ağız əzələlərini məşq etdirir.",
+          "category": "language",
+          "duration_az": "2-3 dəqiqə",
+          "image_prompt": "Watercolor baby with tongue sticking out blowing raspberry, tiny watercolor droplets and sparkle dots near mouth, cheerful squinted eyes, arms up in joy, no number, no text, no digits anywhere in the image"
+        },
+        {
+          "id": "act_6m_10",
+          "title_az": "Əldən-ələ ötürmə",
+          "descr_az": "Körpəyə tutması rahat olan oyuncaq ver və bir əlindən o biri əlinə keçirməsini izlə. Bacarmırsa, ikinci oyuncaq təklif et — birincini o biri ələ keçirəcək.\n\nƏldən-ələ ötürmə beyin yarımkürələrinin əməkdaşlığını göstərir.",
+          "category": "motor",
+          "duration_az": "3-5 dəqiqə",
+          "safety_az": "Oyuncaq udula bilməyəcək ölçüdə olmalıdır — hər şey ağıza gedir!",
+          "image_prompt": "Watercolor baby sitting holding small ring toy between both hands at chest, small coral arrow curving from one hand to the other showing transfer, concentrated cute face, no number, no text, no digits anywhere in the image"
+        }
+      ]
+    },
+    {
+      "id": "band_9m",
+      "label_az": "6–9 ay",
+      "week_range": [
+        28,
+        40
+      ],
+      "status": "pending",
+      "summary_az": "Oturma, iməkləmə başlanğıcı və barmaq qidaları dövrü."
+    },
+    {
+      "id": "band_12m",
+      "label_az": "9–12 ay",
+      "week_range": [
+        41,
+        53
+      ],
+      "status": "pending",
+      "summary_az": "Dayanma, ilk addımlar və ilk sözlərə hazırlıq."
+    },
+    {
+      "id": "band_15m",
+      "label_az": "12–15 ay",
+      "week_range": [
+        54,
+        66
+      ],
+      "status": "pending",
+      "summary_az": "Müstəqil yerimə və ilk sözlər."
+    },
+    {
+      "id": "band_18m",
+      "label_az": "15–18 ay",
+      "week_range": [
+        67,
+        79
+      ],
+      "status": "pending",
+      "summary_az": "Söz partlayışına hazırlıq, sadə tapşırıqlar."
+    },
+    {
+      "id": "band_24m",
+      "label_az": "18–24 ay",
+      "week_range": [
+        80,
+        105
+      ],
+      "status": "pending",
+      "summary_az": "İki sözlü cümlələr, qaçış, müstəqillik."
+    },
+    {
+      "id": "band_30m",
+      "label_az": "24–30 ay",
+      "week_range": [
+        106,
+        131
+      ],
+      "status": "pending",
+      "summary_az": "Rol oyunları, rəng-forma tanıma."
+    },
+    {
+      "id": "band_36m",
+      "label_az": "30–36 ay",
+      "week_range": [
+        132,
+        157
+      ],
+      "status": "pending",
+      "summary_az": "Sadə dialoqlar, qayçı-karandaş bacarıqları."
+    },
+    {
+      "id": "band_48m",
+      "label_az": "3–4 yaş",
+      "week_range": [
+        158,
+        209
+      ],
+      "status": "pending",
+      "summary_az": "Sual dövrü, birgə oyunlar, hekayə dinləmə."
+    },
+    {
+      "id": "band_60m",
+      "label_az": "4–5 yaş",
+      "week_range": [
+        210,
+        261
+      ],
+      "status": "pending",
+      "summary_az": "Məktəbəqədər bacarıqlar: saymaq, danışmaq, dostluq."
+    }
+  ]
+}

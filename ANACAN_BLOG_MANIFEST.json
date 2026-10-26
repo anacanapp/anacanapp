@@ -1,0 +1,593 @@
+{
+  "schema": "anacan-blog-code-delta-v1",
+  "at": "2026-10-06T07:54:34.159Z",
+  "projectId": "e07ee1f9-3d58-48fe-a7a0-068ecf028173",
+  "baseCommit": "38a3e4675c23bcddb63956bcea6891aa21ebf235",
+  "exportScope": "git-unignored-reviewed-application-source",
+  "files": [
+    {
+      "path": "src/main.tsx",
+      "bytes": 3818,
+      "sha256": "56235ec9b3384e2637fd8154c85fdf69e7244f3b51f8d9c48fef8a8505a5a170",
+      "beforeSha256": "70feef3e8ac5a7e963d34083619470c8ba36c0c5abd79baa6f52cee18faec99d"
+    },
+    {
+      "path": "src/App.tsx",
+      "bytes": 8837,
+      "sha256": "70a73d4ba07cccbe13720ddbe9cc405eef98d55213b81e0aaf4c32871a219dc5",
+      "beforeSha256": "b0dc5e805895265c98606c16574c563e12817e368d0dc59f13fd58c479656ee0"
+    },
+    {
+      "path": "src/pages/BlogLink.tsx",
+      "bytes": 692,
+      "sha256": "7da1e01eec2348babace4b0d4b5a5d75ef71c85b191aceaaf9ac9546bc30d31a",
+      "beforeSha256": "59c19abfa3bdf25a7ee84171480120a368cf0d062200407144e7f9381c21735c"
+    },
+    {
+      "path": "src/pages/Index.tsx",
+      "bytes": 44408,
+      "sha256": "f1746a394ebba3c5e99a5b00431c4faa46bd619d7de6cb1612110aa7d4561a2b",
+      "beforeSha256": "1671445ee4e36ceabc149e9318f8aaf52a7b133a4f449fb8ca2a891ec6a25e3e"
+    },
+    {
+      "path": "src/lib/blog-links.ts",
+      "bytes": 3678,
+      "sha256": "57667e43efdebe5849be6301f02e7f3bd3bea31b7bd4619c4426de3ab2ba12af",
+      "beforeSha256": "55f0e81753f037c36d187ceb60c814503c29d2b93efbdbe22e8194fc7e04e06f"
+    },
+    {
+      "path": "src/lib/blog-editorial.ts",
+      "bytes": 3793,
+      "sha256": "41aaa3b725d45249dcd71c61bdab44f64ae458b6fe63308926edb9ae7fff4666",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/lib/blog-i18n.ts",
+      "bytes": 430,
+      "sha256": "fa4db9edfa0fbc7a229ed3c43d97c4aebda46e50a9ca2b6df4f39fb3ba9da0f7",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/lib/blog-module-navigation.ts",
+      "bytes": 1106,
+      "sha256": "73aafdd60cb78a8a5702ed9310bf6425ba7adda9f47ca05b103a904d7c3158f6",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/lib/blog-editorial.test.ts",
+      "bytes": 1335,
+      "sha256": "cc71cd61647d860f8c9c6cf4a7d0c0cd9a4baf1cf60deabad6e3e00dda0957c2",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/hooks/useBlog.ts",
+      "bytes": 14970,
+      "sha256": "11c589982f2a0a1ade3bf6a83eb148aed548d877ef131a7556487a852f964332",
+      "beforeSha256": "1ec9d090e83d04d8aea21691be7657e5080b8e8f16c24e06af08e0edce984ae0"
+    },
+    {
+      "path": "src/integrations/supabase/database-types.ts",
+      "bytes": 1124,
+      "sha256": "bd476375a726a1560a71d4e07d3c4de81e7a3e5c0b1f1b2a2d3a9ffebcc2ab9d",
+      "beforeSha256": "c11228669a8ea36f35996166f373d79d76570359a9cbed689847ea588160a5dd"
+    },
+    {
+      "path": "src/components/BlogScreen.tsx",
+      "bytes": 16098,
+      "sha256": "b913db1ae3494b6c7a7bdd980bee7a91c418c343569b6b8bdc6e9969c34b6824",
+      "beforeSha256": "c2314ec35a2ee5d4a8c50ca1949984249cdaa8aefc6867622ffd2c6c90983ade"
+    },
+    {
+      "path": "src/components/Dashboard.tsx",
+      "bytes": 90681,
+      "sha256": "53b83010d2e361fff288114373d4e4063a52baa555b7dbed3007b5202da315fc",
+      "beforeSha256": "166f2a7a6e142468570da3faea7a80dc6e6f494ccdacca1e0789f006f0d04753"
+    },
+    {
+      "path": "src/components/dashboard/RecentBlogPosts.tsx",
+      "bytes": 7822,
+      "sha256": "86e5e2779e98fe418ff70bbd264d621b98dbd96ba700a1f0e2e0a9f9bc62c8a9",
+      "beforeSha256": "1ba6a37bfb8d41cd0c3d7fed3db4455668e5c1cd7e7d640785288d5c680504ef"
+    },
+    {
+      "path": "src/components/tools/HospitalBag.tsx",
+      "bytes": 13585,
+      "sha256": "fc31a371b9b1941e02f72cf58dfee604374c8a7a0baab4e57266662f4239431c",
+      "beforeSha256": "67be51aa0fa7dab888d5190eaddb43ef70381b65986ddfdd93bed15c00283ee9"
+    },
+    {
+      "path": "src/components/admin/AdminBlog.tsx",
+      "bytes": 46058,
+      "sha256": "aa9d79809e9b13be8e46032d78389690b35625575f7b5a6c5dad8fee937a56e9",
+      "beforeSha256": "6a15ec3570c2326ab8e1ea67fec9bdea66808b6fbfd1efccc2a99b70c19b0b7c"
+    },
+    {
+      "path": "src/components/admin/BlogSeoFields.tsx",
+      "bytes": 4748,
+      "sha256": "4968ffaf1dfa62eca09a2355d13bdab06f544458331dee83460318f8ec6f2525",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/components/blog/BlogSeo.tsx",
+      "bytes": 2381,
+      "sha256": "e9d375163f31e5f3e841c3774a6faa8f78c8828127055fd533909fb8e2c43f40",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/components/blog/BlogEditorialSections.tsx",
+      "bytes": 3103,
+      "sha256": "d982fb5c3d8788b990d90255bdc3d9537132d7dc4a798f374eae9fbedb8a0d38",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/components/blog/ModuleArticles.tsx",
+      "bytes": 1174,
+      "sha256": "80f4d9ac41fe79cd629f5994d283e223cf012bf325d7d92ed9f3386c307a2b05",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/components/blog/BlogLinkHost.tsx",
+      "bytes": 4244,
+      "sha256": "b6174646362ce5a734c7efd026e8b0bdcb60f78ded2ae06b65d9631415b1e5b9",
+      "beforeSha256": "5ab8cc8997b14cc2ab5537de710f9d5e5fbba13f18be04e1a55bdc45ffd1b495"
+    },
+    {
+      "path": "src/components/blog/BlogShareDialog.tsx",
+      "bytes": 3170,
+      "sha256": "febe61ed63d81303d2c5f9607b1c510277295082be2516e507a63707120325e6",
+      "beforeSha256": "0841f2cfcd3680b07224a4a2573007fa58c5c5b5d5f779dfceb1acec86450930"
+    },
+    {
+      "path": "src/components/blog/BlogPostDetail.tsx",
+      "bytes": 20115,
+      "sha256": "4578544c4a410b537a2e59b7cbaba9467504ef661c1c4f6b54341f2534ed8219",
+      "beforeSha256": "ec00c3fddec3067e901ff8a383a7efcbb1b414fd5dc949bc240719a31fd83dd9"
+    },
+    {
+      "path": "src/components/blog/RelatedPosts.tsx",
+      "bytes": 4064,
+      "sha256": "456dabb73746238f7719300b29dc87fb25e34ad6b2e11807f97d8dda9ffc2268",
+      "beforeSha256": "d1482fd519e954a26f9bf444992de9d05473f1a528fa24d0f9f0cbdf355cc89b"
+    },
+    {
+      "path": "src/styles/public-blog.css",
+      "bytes": 7417,
+      "sha256": "be6ba7efe33602e08df067101f933715770c32a4e8340eb7a420a8983bf23766",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/i18n/inline-localization.mjs",
+      "bytes": 8711,
+      "sha256": "4274e557d45d7acc2c4a24293e6571f758a5a83e8e4595ab3ae0425dcf6aed95",
+      "beforeSha256": "f4487e980c549821c4a15fa46d4a7990d4c9613bc1efc7ed28dfe4af0f2ff19b"
+    },
+    {
+      "path": "scripts/i18n/blog-editorial-copy.json",
+      "bytes": 77610,
+      "sha256": "cf7a34ecf6198b2b8cc1d001ccb99795700e9f3fbe4dd0d382827c7643b190cd",
+      "beforeSha256": null
+    },
+    {
+      "path": "vite.config.ts",
+      "bytes": 1249,
+      "sha256": "05df5f051f3f4e28c043fa8899a59d0d5391d3958ded1eb3a99e8156133c722a",
+      "beforeSha256": "4ecfa25f80ba0c4bed18378365645d17f9c5f66bce914a3c83d62a1a3a6d30c9"
+    },
+    {
+      "path": "supabase/migrations/20261005180000_blog_editorial_metadata.sql",
+      "bytes": 410,
+      "sha256": "89717ef4afe10c9b6533a1ff27508df2e2df30a80b239cf49123494055736a0f",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/public-blog/BlogPage.tsx",
+      "bytes": 12092,
+      "sha256": "9156a64e10519c00ba7ba859bf460f5b03bb287a89df28de3804ac24c99fd250",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/public-blog/api.ts",
+      "bytes": 3747,
+      "sha256": "2436bd4b17b34e9313ba5397d04181f9b66839a7203a4cb116fb552db389c9d8",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/public-blog/bootstrap.tsx",
+      "bytes": 872,
+      "sha256": "559aab6eeacb55fa9245fca24cac8159f4acc2a1b8e0e7c03b9c78b742f7aec0",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/public-blog/model.ts",
+      "bytes": 1014,
+      "sha256": "77c30a94d62c891c24cab92888c9ac8cc28553e77db633ae903769da18a1b1c2",
+      "beforeSha256": null
+    },
+    {
+      "path": "src/public-blog/seo.ts",
+      "bytes": 4548,
+      "sha256": "5772e1f53baf8de1fa3c8dcf6db0215f7c32f3ef6f040bcd4856460e6f1208e7",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/ar.json",
+      "bytes": 302866,
+      "sha256": "8ac978e71f177c0b3cb7dca3ca26fb58d933ba9d1ae2027241cc4502f393b7c8",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/az.json",
+      "bytes": 247802,
+      "sha256": "d81cc6d4b9540b58d24672eeabc3e657bacc32ef4aa6eef155d2af5db9781fc1",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/de.json",
+      "bytes": 245572,
+      "sha256": "1086162e993bfe068bcdf8bd7baa3f208e543cc5fa409fc8992b5b1bceb4fa6a",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/en.json",
+      "bytes": 217694,
+      "sha256": "c1d2ab16df2ef2a470e4334d0290ffb15dcede9e5c1b10e5a82a79ce9ec28c09",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/es.json",
+      "bytes": 242982,
+      "sha256": "cc67c6bff2934e4ddff3b188a0c7fb453ee4c4084a563b847a4bf0f0917ea6e8",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/fr.json",
+      "bytes": 254221,
+      "sha256": "63dc762f305687cf345fa3d6363c2dd9929c0949ebbc1be25219b919a63069dd",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/hi.json",
+      "bytes": 476584,
+      "sha256": "68a41d1b0150b93477db894030cc28c3d20f288bc16986d8c39cbfaa0086c534",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/id.json",
+      "bytes": 227923,
+      "sha256": "28967054aab17af07fa3d73b45468af0f4fd4f4acd1b80f75d64af57be47d655",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/ja.json",
+      "bytes": 268159,
+      "sha256": "085e0aaf2b0c35605cf8bf713392d66bd9d21eeb64e9c8f159db6d2cf4199c92",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/ka.json",
+      "bytes": 511865,
+      "sha256": "e58f41e0ae09fbf37f5ef2e15f3ec82273492506e55e56467b9cc6a175a1f957",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/kk.json",
+      "bytes": 364787,
+      "sha256": "95b0574852233eb13e23f0255e3d1ce496a316416e20cd8dab5ae8e28a33cf9a",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/ko.json",
+      "bytes": 247259,
+      "sha256": "c4c428cef6896a8a1badf9c9bbb2c63cfa2a4c24132e5b95c89694182462d12e",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/nl.json",
+      "bytes": 233036,
+      "sha256": "1285bf9dba20f97683f8e8ebd1908b8d08f93b2263ec672f65924281b36747c7",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/pl.json",
+      "bytes": 237361,
+      "sha256": "68d1176f09390146f68550a9843f526f35f20f5cfdd7fac138cf086caa403eec",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/pt.json",
+      "bytes": 236422,
+      "sha256": "e53a55914e8af30f990a587ff9764ea52987a54fb0e3125c746f5be21762e171",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/ru.json",
+      "bytes": 372286,
+      "sha256": "da4455e49a57c34078e482650109ae87f045727437dfe6492dd9bbbcafad68ac",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/sv.json",
+      "bytes": 223714,
+      "sha256": "6ec51d383c6a7f364a1ec62df6541c11239dc5e9a3c9cb9849cfc99b0ad024c3",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/tr.json",
+      "bytes": 229932,
+      "sha256": "59021d6728e42ebccec14f883103efe38600eea9c14c91a6e346b8afc840be2b",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/uz.json",
+      "bytes": 240517,
+      "sha256": "d78c7a1db06d02e7e53bd739a0616f68f1e135ba98ff44800012a74d6bada45c",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/vi.json",
+      "bytes": 264847,
+      "sha256": "97c7db6ca8b2fab1c78e0fe76a3f177049bc5cd8e55309ec7ec54dd4e7e08f87",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/catalog/zh.json",
+      "bytes": 191669,
+      "sha256": "1b49fdfaa0e0c2bfb14c4a5b27aeff0fde21ca6c91e858da36cf9d420a334f34",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/prerender.d.mts",
+      "bytes": 115,
+      "sha256": "e8b4c3e57486811d98cfa0f72857ac95d503b1903bb0003c9c535efd4d08ec7d",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/prerender.mjs",
+      "bytes": 12939,
+      "sha256": "12bfdf6b2f46639ac7d135f5bd4c50cbb10d50e02752d77bb1c52b53d3213846",
+      "beforeSha256": null
+    },
+    {
+      "path": "scripts/blog/prerender.test.mjs",
+      "bytes": 2878,
+      "sha256": "e72d5edecf5dfdd69961526f28e5914dcb8358f640afba96cbdf9a9eed6925a8",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/ana-sudu-kolostrum-kecid-yetkin-sud-88b8241c890d.webp",
+      "bytes": 34720,
+      "sha256": "88b8241c890dcf9c3c1a18301960ebd14341b5bbfa1213f598d1efc93f5f688a",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/ana-sudu-kolostrum-kecid-yetkin-sud.webp",
+      "bytes": 7202,
+      "sha256": "0c6b51dc350aecd3e106aa94c7dbddb0d2a7449dc8ab65f76f5708f3974f370c",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/dogum-evinden-cixis-hazirliq-c5e52e75c9a2.webp",
+      "bytes": 50724,
+      "sha256": "c5e52e75c9a29af865c76a7487389b69f859eebbfd34c475cd521a2d7dfd1d49",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/dogum-evinden-cixis-hazirliq.webp",
+      "bytes": 6340,
+      "sha256": "4b8a4d630a9b1fddc691527a4a7435f58b2a69334576781c357b2932fc9d3e38",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/emizdirme-dosun-duzgun-tutulmasi-4f6075b0e1bb.webp",
+      "bytes": 37718,
+      "sha256": "4f6075b0e1bbd7764b13f5800e46a6b4179d8076070646010d435b36646cbbda",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/emizdirme-dosun-duzgun-tutulmasi.webp",
+      "bytes": 6326,
+      "sha256": "15fa24dff01f5ac3e2ff43b9d402ac81fd99a19f446545585921640c7166074c",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpe-besiyi-tehlukesiz-yuxu-2e4aa44b1608.webp",
+      "bytes": 38822,
+      "sha256": "2e4aa44b1608d95c846e56bf96a3a0ed301f46a8bbf0c1ba976ac4ebacf10f7d",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpe-besiyi-tehlukesiz-yuxu.webp",
+      "bytes": 5494,
+      "sha256": "8563257b16780ef6dd7fb497adeb23ede739822673ba4dd41fd0c0c13f638ca9",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpe-derisine-qulluq-vasiteleri-345ee86f009c.webp",
+      "bytes": 44218,
+      "sha256": "345ee86f009c2b0b8cae38ce539f5cd44f271fe8891e16a498f003283d74bf51",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpe-derisine-qulluq-vasiteleri.webp",
+      "bytes": 8432,
+      "sha256": "8b5790f163f7f97aa691b29b2caa53b0b1931e1bf5cdd3c23dc97ab9c4f4967d",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpeni-belemek-tehlukesiz-qundaq-02f18de91c4a.webp",
+      "bytes": 25048,
+      "sha256": "02f18de91c4a18c5d2ff1731f99a2657a8ae24c09a86fc7c7ced95aa41df9709",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpeni-belemek-tehlukesiz-qundaq-311e7d99a5fc.webp",
+      "bytes": 21582,
+      "sha256": "311e7d99a5fcc7c8447bd2e53c8284700f974cd232d76cc6586dad106bc7f52a",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpeni-belemek-tehlukesiz-qundaq-833042f6471e.webp",
+      "bytes": 28462,
+      "sha256": "833042f6471e6420a6f5163a7c466d9740fc5b684407e6694016dc6458376bdf",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpeni-belemek-tehlukesiz-qundaq.webp",
+      "bytes": 5296,
+      "sha256": "f8cbbfc68891af329c3ac659d92545be3af85a03f484e5067dd0d16ee44e22c8",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpeni-tehlukesiz-cimdirmek-203c4a64be18.webp",
+      "bytes": 33392,
+      "sha256": "203c4a64be1889de86d3680ef436750252e52bc325b9444c6eeb4ac2104eb6f4",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpeni-tehlukesiz-cimdirmek.webp",
+      "bytes": 8054,
+      "sha256": "00e24fb7d41aebd1788802d6dd50da1df437e1271e7b32d8551cdbe5a78b4dd6",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpeni-yirgalayaraq-uyutmaq-3230f5fcf180.webp",
+      "bytes": 35864,
+      "sha256": "3230f5fcf1808a981bd1e8027de2139e81f8276ae41122b2e6851573db35ebc5",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpeni-yirgalayaraq-uyutmaq.webp",
+      "bytes": 5296,
+      "sha256": "f8cbbfc68891af329c3ac659d92545be3af85a03f484e5067dd0d16ee44e22c8",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpenin-bas-boyun-desteyi-87e9de377c79.webp",
+      "bytes": 26770,
+      "sha256": "87e9de377c79a59f8f78f9ac449acc550e608f71bc4221d775c3216683d7c01f",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/korpenin-bas-boyun-desteyi.webp",
+      "bytes": 8432,
+      "sha256": "8b5790f163f7f97aa691b29b2caa53b0b1931e1bf5cdd3c23dc97ab9c4f4967d",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/qarisiq-qidalanma-ana-sudu-formula-3b97a9872232.webp",
+      "bytes": 33502,
+      "sha256": "3b97a987223233f8c6e67deab8edb160435cec0714ceb81dc1527e830f74635d",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/qarisiq-qidalanma-ana-sudu-formula.webp",
+      "bytes": 6426,
+      "sha256": "4d785616162efb72bae4a95a6b1dc8edfc57f1990b44b0d8544ae7065c490ca0",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/qidalanmadan-sonra-korpeni-dik-tutmaq-e15df7d74373.webp",
+      "bytes": 35820,
+      "sha256": "e15df7d7437386c3fbf669241daae71b2264cc7aced8280fbf971a1687cf4253",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/qidalanmadan-sonra-korpeni-dik-tutmaq.webp",
+      "bytes": 8796,
+      "sha256": "183cf4ea7c173533a6bd6f31fa4ff33e94536ebf03e3194eb26a79404694b29d",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/sudsagan-aparat-sagim-saxlama-ecbe925509a2.webp",
+      "bytes": 32236,
+      "sha256": "ecbe925509a204fdc4d4dc6e55f54ef4cd256536fcd91a23ce8b3ac7b9bccc13",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/sudsagan-aparat-sagim-saxlama.webp",
+      "bytes": 6306,
+      "sha256": "e575ded4afafbcc270229b6b37fa8d45f7f21e798494b515070849e6d32ecc52",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/tehlukesiz-korpe-otagi-6864bd187a36.webp",
+      "bytes": 25236,
+      "sha256": "6864bd187a368b11b847efd1f96624389e17de772996f5e74b1e5812ef8e61a7",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/tehlukesiz-korpe-otagi.webp",
+      "bytes": 6498,
+      "sha256": "26ef6c3b7a9ecfab6300af8a357968572418b1f7308f70b0d39edc3f45d029b2",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/tez-tez-bez-deyismek-bismece-1b9eca18abfa.webp",
+      "bytes": 36382,
+      "sha256": "1b9eca18abfab872741fbf2a3b437dd606d97a415970ac0954d26cc884c25728",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/tez-tez-bez-deyismek-bismece.webp",
+      "bytes": 8370,
+      "sha256": "f83513fa978dddfa73c1ac7fedfe8ea0481cf2e10da3d1c94f05b357fb4ce867",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/usaq-bezi-secimi-olcu-qulluq-4b39d6a86a62.webp",
+      "bytes": 29888,
+      "sha256": "4b39d6a86a62b21469a5a980f3249ef64348cb9e899a1c74735bb2bb0877204b",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/usaq-bezi-secimi-olcu-qulluq.webp",
+      "bytes": 8370,
+      "sha256": "324da51806b515abf27eb6564c3b12ed2a323f6e89ae2c55f5f9a64b102ef2e5",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/yenidogulmus-gobek-ciyesi-baximi-3d1294620bfa.webp",
+      "bytes": 28106,
+      "sha256": "3d1294620bfaa531f88496845f8ef1d98b8a2352a5f82cbe858981b2083aa92b",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/yenidogulmus-gobek-ciyesi-baximi.webp",
+      "bytes": 8410,
+      "sha256": "c90911aa8fe0481ff36750294e8e6a6ba9b4bf0189fc03e0f4c018ba1a08d634",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/yenidogulmus-sariliq-bilirubin-59444f6e8cf4.webp",
+      "bytes": 35564,
+      "sha256": "59444f6e8cf44eafee7132054ece23bd040805cfedccae8c0e027081a54eb6b7",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/yenidogulmus-sariliq-bilirubin-f0fbcabe6332.webp",
+      "bytes": 25092,
+      "sha256": "f0fbcabe63325a812ae1b0b5b0d1b9d2a976cb28807857a532a67615aac1b414",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/yenidogulmus-sariliq-bilirubin.webp",
+      "bytes": 8572,
+      "sha256": "666d607330f3743cb167db258db281872dec9eaeaa734a9b2e1b131d83db1f9a",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/yenidogulmus-sidik-urat-kristallari-86932844c12a.webp",
+      "bytes": 36106,
+      "sha256": "86932844c12a9191c1be004f8557fb2a084534d9f216e2645f8e727bdd42a718",
+      "beforeSha256": null
+    },
+    {
+      "path": "public/blog-covers/yenidogulmus-sidik-urat-kristallari.webp",
+      "bytes": 8796,
+      "sha256": "183cf4ea7c173533a6bd6f31fa4ff33e94536ebf03e3194eb26a79404694b29d",
+      "beforeSha256": null
+    }
+  ],
+  "articles": 18,
+  "languages": 21
+}

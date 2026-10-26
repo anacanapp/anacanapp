@@ -1,0 +1,128 @@
+{
+ "hospital_bag_templates": {
+  "9ae34916-953e-4a84-8cef-ce87673bd74b": {
+   "item_name": "Bauchbandage",
+   "notes": "Wenn der Arzt es erlaubt (speziell für die Zeit nach einem Kaiserschnitt)"
+  },
+  "9c533cec-fa26-4495-8cda-57c2907baac0": {
+   "item_name": "Outfit für die Entlassung",
+   "notes": "Eines deiner bequemen Kleidungsstücke aus der Schwangerschaft"
+  },
+  "be873769-2daf-40b0-804f-fb4f1c30499f": {
+   "item_name": "Neugeborenenwindeln (Größe 1)",
+   "notes": "1 Packung (kleine Packung)"
+  },
+  "03b53c02-16c9-4b1a-a4a2-346558187c59": {
+   "item_name": "Feuchttücher",
+   "notes": "Sensitiv, für Neugeborene geeignet"
+  },
+  "832eb697-bc40-4dc3-a9a0-c14ced7db8fb": {
+   "item_name": "Wundschutzcreme",
+   "notes": "Zinkhaltig"
+  },
+  "55ae2d11-2db4-465a-9ab8-409fd1e2cb62": {
+   "item_name": "Bodys",
+   "notes": "3-4 Stück (kurz- und langärmlig)"
+  },
+  "3d077e78-fe10-4670-ac8d-ca8f4c9a79fa": {
+   "item_name": "Brustwarzencreme",
+   "notes": "Bei wunden und rissigen Brustwarzen (muss nicht abgewaschen werden)"
+  },
+  "756b9914-fcb7-40c7-8449-e5540706a1cd": {
+   "item_name": "Hausschuhe",
+   "notes": "Waschbare Gummischuhe (für die Dusche und das Krankenhauszimmer)"
+  },
+  "b4842a7f-c398-4e99-8c66-17698432e066": {
+   "item_name": "Socken",
+   "notes": "Nach der Geburt können deine Füße kalt werden"
+  },
+  "e76e32f4-7afd-42f3-9f0a-91523464e5cc": {
+   "item_name": "Körperpflegeartikel",
+   "notes": "Zahnbürste, Zahnpasta, Seife, Shampoo, Kamm, Handtuch"
+  },
+  "f58578ac-9ad4-4731-922c-6553738d0889": {
+   "item_name": "Handy und Ladegerät",
+   "notes": "Damit du erreichbar bleibst (ein langes Ladekabel ist empfehlenswert)"
+  },
+  "cdaccfe5-756f-4fd0-be50-b1067fb76286": {
+   "item_name": "Wasser und Snacks",
+   "notes": "Trockenfrüchte, Cracker (für nach der Geburt)"
+  },
+  "8fa8f19f-5ccc-4ae5-bff0-22a6ba79c981": {
+   "item_name": "Ausweisdokumente",
+   "notes": "Originale und Kopien"
+  },
+  "b3f46e84-5d3e-49a0-8207-79b6b4e30f05": {
+   "item_name": "Heiratsurkunde",
+   "notes": "Original und Kopie (für die Anmeldung des Kindes)"
+  },
+  "ba791016-d5ce-4a70-b740-640ddce3fc24": {
+   "item_name": "Mutterpass",
+   "notes": "Das von der Frauenarztpraxis ausgestellte Dokument"
+  },
+  "59da3790-8717-450f-b718-50c1a158aaf9": {
+   "item_name": "Untersuchungsergebnisse und Ultraschallbefunde",
+   "notes": "Die neuesten Befunde"
+  },
+  "741464ab-8e34-4164-94ad-cc0bad1c96a9": {
+   "item_name": "Versicherungsunterlagen",
+   "notes": "Falls eine private Versicherung besteht"
+  },
+  "5cfbea87-732a-4546-85ab-53473b53b703": {
+   "item_name": "Nachthemd (vorne zu öffnen)",
+   "notes": "Es sollte zum Stillen bequem sein (2-3 Stück)"
+  },
+  "62126e25-45f2-4e64-a616-31acb29ef192": {
+   "item_name": "Bademantel",
+   "notes": "Zum Überziehen, wenn du auf den Flur gehst"
+  },
+  "93e4d006-ec0d-45c7-ba66-18bf468832d9": {
+   "item_name": "Bequeme Kleidung für drinnen",
+   "notes": "Damit du dich im Krankenzimmer bequem bewegen kannst"
+  },
+  "34ce683c-778f-4b22-9ef1-dbb2f66d0acd": {
+   "item_name": "Still-BH",
+   "notes": "2 Stück (eine Größe größer als vor der Schwangerschaft)"
+  },
+  "03c54f34-5c1d-4ed0-96c3-6e5aa2b4db3f": {
+   "item_name": "Unterwäsche",
+   "notes": "5-6 Stück (bei einem Kaiserschnitt mit hohem Bund, damit nichts an der Naht reibt)"
+  },
+  "793ca219-9c8e-4c62-8789-1353b45dbd77": {
+   "item_name": "Wochenbettbinden",
+   "notes": "Spezielle Inkontinenzeinlagen oder große Damenbinden"
+  },
+  "324e3615-8193-4876-8a61-7ca43c856301": {
+   "item_name": "Stilleinlagen",
+   "notes": "Zum Auffangen auslaufender Muttermilch"
+  },
+  "e9c967ac-c689-4149-a334-d0fbea60143b": {
+   "item_name": "Babyschale",
+   "notes": "Für die sichere Heimfahrt mit dem Auto aus dem Krankenhaus unverzichtbar"
+  },
+  "7d5d6cc0-9c1a-4333-9e4c-374fe99829ea": {
+   "item_name": "Strampler",
+   "notes": "3-4 Stück (mit Füßen)"
+  },
+  "a9c8ee4e-7912-4ba8-833f-eeb4f87afe88": {
+   "item_name": "Mütze und Fäustlinge",
+   "notes": "2 Sets (aus dünner Baumwolle)"
+  },
+  "241c40f5-e23c-42e8-97f6-04dc95df567f": {
+   "item_name": "Babysocken",
+   "notes": "2-3 Paar"
+  },
+  "76759226-f668-4041-a572-e37effaa3ccf": {
+   "item_name": "Decken",
+   "notes": "Der Jahreszeit entsprechend"
+  },
+  "8c70962a-065f-40c3-9342-53559a796787": {
+   "item_name": "Mulltücher",
+   "notes": "Zum Auffangen von Erbrochenem oder zum Pucken (3-4 Stück)"
+  },
+  "769b8b7f-9fec-46a9-8b13-a568cae41af6": {
+   "item_name": "Entlassungsset",
+   "notes": "Festliches Outfit für die Heimfahrt, passend zur Jahreszeit"
+  }
+ }
+}

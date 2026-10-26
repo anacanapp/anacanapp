@@ -1,0 +1,337 @@
+[
+ {
+  "key": "settingsscreen_paylasimlariniza_beyenme_734537",
+  "az": "Paylaşımlarınıza bəyənmə",
+  "en": "Likes on your posts"
+ },
+ {
+  "key": "settingsscreen_paylasimlariniza_serhler_ad5c16",
+  "az": "Paylaşımlarınıza şərhlər",
+  "en": "Comments on your posts"
+ },
+ {
+  "key": "settingsscreen_premium_abunelik_eger_varsa_ce1645",
+  "az": "Premium abunəlik (əgər varsa)",
+  "en": "Premium subscription (if any)"
+ },
+ {
+  "key": "settingsscreen_profil_melumatlari_82c76c",
+  "az": "Profil məlumatları",
+  "en": "Profile information"
+ },
+ {
+  "key": "settingsscreen_push_bildirisler_aktivlesdiril_9147d9",
+  "az": "Push bildirişlər aktivləşdirildi",
+  "en": "Push notifications are enabled"
+ },
+ {
+  "key": "settingsscreen_push_bildirisler_deaktiv_edild_e3832a",
+  "az": "Push bildirişlər deaktiv edildi",
+  "en": "Push notifications are disabled"
+ },
+ {
+  "key": "settingsscreen_push_bildirisler_e7cb34",
+  "az": "Push bildirişlər",
+  "en": "Push notifications"
+ },
+ {
+  "key": "settingsscreen_push_bildirisleri_c44832",
+  "az": "Push Bildirişləri",
+  "en": "Push Notifications"
+ },
+ {
+  "key": "settingsscreen_qan_sekeri_c922e6",
+  "az": "Qan şəkəri",
+  "en": "Blood sugar"
+ },
+ {
+  "key": "settingsscreen_qrup_fealiyyetleri_4d13e7",
+  "az": "Qrup fəaliyyətləri",
+  "en": "Group activities"
+ },
+ {
+  "key": "settingsscreen_randevular_a452fc",
+  "az": "Randevular",
+  "en": "Appointments"
+ },
+ {
+  "key": "settingsscreen_sakit_rejim_8a42bd",
+  "az": "Sakit rejim",
+  "en": "Silent mode"
+ },
+ {
+  "key": "settingsscreen_sakit_saatlar_aktivlesdirildi_2ab4f3",
+  "az": "Sakit saatlar aktivləşdirildi",
+  "en": "Quiet hours have been activated"
+ },
+ {
+  "key": "settingsscreen_sakit_saatlar_deaktiv_edildi_f723bc",
+  "az": "Sakit saatlar deaktiv edildi",
+  "en": "Silent hours deactivated"
+ },
+ {
+  "key": "settingsscreen_serh_bildirisleri_6588b5",
+  "az": "Şərh bildirişləri",
+  "en": "Comment notifications"
+ },
+ {
+  "key": "settingsscreen_ses_9b06b5",
+  "az": "Səs",
+  "en": "Sound"
+ },
+ {
+  "key": "settingsscreen_sessiya_tapilmadi_2d6594",
+  "az": "Sessiya tapılmadı",
+  "en": "Session not found"
+ },
+ {
+  "key": "settingsscreen_si_l_903c4d",
+  "az": "SİL",
+  "en": "DELETE"
+ },
+ {
+  "key": "settingsscreen_sifre_ile_qoruma_152a0e",
+  "az": "Şifrə ilə qoruma",
+  "en": "Password protection"
+ },
+ {
+  "key": "settingsscreen_sil_27792d",
+  "az": "\\",
+  "en": "\"DELETE\""
+ },
+ {
+  "key": "settingsscreen_silent_hours_desc",
+  "az": "arası bildiriş yoxdur",
+  "en": "no notifications between"
+ },
+ {
+  "key": "settingsscreen_su_xatirlatmasi_ca127e",
+  "az": "Su xatırlatması",
+  "en": "Water reminder"
+ },
+ {
+  "key": "settingsscreen_tenzimlemeler_085659",
+  "az": "Tənzimləmələr",
+  "en": "Settings"
+ },
+ {
+  "key": "settingsscreen_tepik_sessiyalari_87edad",
+  "az": "Təpik sessiyaları",
+  "en": "Kick sessions"
+ },
+ {
+  "key": "settingsscreen_tesdiqlemek_ucun_fd471c",
+  "az": "Təsdiqləmək üçün",
+  "en": "To confirm"
+ },
+ {
+  "key": "settingsscreen_tetbiq_bagli_olsa_bele_bildiris_alin_01f6eb",
+  "az": "Tətbiq bağlı olsa belə bildiriş alın",
+  "en": "Receive notifications even if the app is closed"
+ },
+ {
+  "key": "settingsscreen_titreme_6c5b87",
+  "az": "Titrəmə",
+  "en": "Vibration"
+ },
+ {
+  "key": "settingsscreen_titreme_bildirisleri_bdf642",
+  "az": "Titrəmə bildirişləri",
+  "en": "Vibration notifications"
+ },
+ {
+  "key": "settingsscreen_tsikl_tarixi_f723ad",
+  "az": "Tsikl tarixi",
+  "en": "Cycle history"
+ },
+ {
+  "key": "settingsscreen_vitamin_xatirlatmasi_531a3d",
+  "az": "Vitamin xatırlatması",
+  "en": "Vitamin reminder"
+ },
+ {
+  "key": "settingsscreen_web_rejiminde_calisirsiniz_157028",
+  "az": "Web rejimində çalışırsınız",
+  "en": "You are running in web mode"
+ },
+ {
+  "key": "settingsscreen_xatirlatmalar_ddd8e7",
+  "az": "Xatırlatmalar",
+  "en": "Reminders"
+ },
+ {
+  "key": "settingsscreen_yazin_e343c0",
+  "az": "yazın:",
+  "en": "write:"
+ },
+ {
+  "key": "settingsscreen_yeni_mesajlar_ucun_bildiris_e7e1c9",
+  "az": "Yeni mesajlar üçün bildiriş",
+  "en": "Notification for new messages"
+ },
+ {
+  "key": "stories_story_silindi",
+  "az": "Story silindi",
+  "en": "Story deleted"
+ },
+ {
+  "key": "storiesbar_elave_et_6e1b9b",
+  "az": "Əlavə et",
+  "en": "Add"
+ },
+ {
+  "key": "storiesbar_kamera_tezlikle_elave_olunacaq_0a3aad",
+  "az": "Kamera tezliklə əlavə olunacaq",
+  "en": "Camera will be added soon"
+ },
+ {
+  "key": "storiesbar_sizin",
+  "az": "Sizin",
+  "en": "Your story"
+ },
+ {
+  "key": "storiesbar_story_elave_et_21f0b9",
+  "az": "Story Əlavə Et",
+  "en": "Add Story"
+ },
+ {
+  "key": "storiesbar_story_yuklenir_a92632",
+  "az": "Story yüklənir...",
+  "en": "Story loading..."
+ },
+ {
+  "key": "storiesbar_yukleme_xetasi_eebca5",
+  "az": "Yükləmə xətası",
+  "en": "Loading error"
+ },
+ {
+  "key": "storyviewer_baxis_d4da3e",
+  "az": "baxış",
+  "en": "view"
+ },
+ {
+  "key": "storyviewer_baxislar_e938f5",
+  "az": "Baxışlar",
+  "en": "Views"
+ },
+ {
+  "key": "storyviewer_bu_story_hemiselik_silinecek_b_577f00",
+  "az": "Bu story həmişəlik silinəcək. Bu əməliyyat geri alına bilməz.",
+  "en": "This story will be deleted forever. This transaction cannot be reversed."
+ },
+ {
+  "key": "storyviewer_hele_hec_kim_baxmayib_30427f",
+  "az": "Hələ heç kim baxmayıb",
+  "en": "No one has viewed yet"
+ },
+ {
+  "key": "storyviewer_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel"
+ },
+ {
+  "key": "storyviewer_nefer_dbca98",
+  "az": "nəfər",
+  "en": "person"
+ },
+ {
+  "key": "userprofilescreen_beyenme_488df4",
+  "az": "Bəyənmə",
+  "en": "Like"
+ },
+ {
+  "key": "userprofilescreen_hamile_0080af",
+  "az": "Hamilə",
+  "en": "Pregnant"
+ },
+ {
+  "key": "userprofilescreen_hele_post_yoxdur_a26a62",
+  "az": "Hələ post yoxdur",
+  "en": "No posts yet"
+ },
+ {
+  "key": "userprofilescreen_hele_story_yoxdur_d7ad34",
+  "az": "Hələ story yoxdur",
+  "en": "No stories yet"
+ },
+ {
+  "key": "userprofilescreen_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "userprofilescreen_istifadeci_tapilmadi_4e2156",
+  "az": "İstifadəçi tapılmadı",
+  "en": "User not found"
+ },
+ {
+  "key": "userprofilescreen_mesaj_gonder_ad33c9",
+  "az": "Mesaj göndər",
+  "en": "Send Message"
+ },
+ {
+  "key": "userprofilescreen_postlar",
+  "az": "Postlar",
+  "en": "Posts"
+ },
+ {
+  "key": "userprofilescreen_qosuldu_78ba1a",
+  "az": "qoşuldu",
+  "en": "Joined"
+ },
+ {
+  "key": "userprofilescreen_story_ler_670373",
+  "az": "Story-lər",
+  "en": "Stories"
+ },
+ {
+  "key": "who_alert",
+  "az": "həkimlə danışın",
+  "en": "talk to your doctor"
+ },
+ {
+  "key": "who_child",
+  "az": "Körpəniz",
+  "en": "Your baby"
+ },
+ {
+  "key": "who_curves_title",
+  "az": "WHO inkişaf əyriləri",
+  "en": "WHO growth curves"
+ },
+ {
+  "key": "who_explainer",
+  "az": "Yaşıl xətt — WHO medianı (P50). P15-P85 arası tam normaldır; P3-dən aşağı və ya P97-dən yuxarıdırsa pediatrla məsləhətləşin.",
+  "en": "Green line — WHO median (P50). P15-P85 is fully normal; below P3 or above P97 — consult your pediatrician."
+ },
+ {
+  "key": "who_height",
+  "az": "Boy (sm)",
+  "en": "Height (cm)"
+ },
+ {
+  "key": "who_median",
+  "az": "P50 (median)",
+  "en": "P50 (median)"
+ },
+ {
+  "key": "who_month_short",
+  "az": "ay",
+  "en": "mo"
+ },
+ {
+  "key": "who_normal",
+  "az": "normal",
+  "en": "normal"
+ },
+ {
+  "key": "who_watch",
+  "az": "izləyin",
+  "en": "monitor"
+ },
+ {
+  "key": "who_weight",
+  "az": "Çəki (kq)",
+  "en": "Weight (kg)"
+ }
+]

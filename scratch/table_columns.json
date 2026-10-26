@@ -1,0 +1,135 @@
+{
+  "baby_milestones_db": {
+    "columns": [
+      "id",
+      "milestone_key",
+      "week_number",
+      "label",
+      "label_az",
+      "emoji",
+      "description",
+      "description_az",
+      "is_active",
+      "sort_order",
+      "created_at",
+      "description_en",
+      "label_en"
+    ]
+  },
+  "exercises": {
+    "columns": [
+      "id",
+      "name",
+      "name_az",
+      "duration_minutes",
+      "calories",
+      "level",
+      "trimester",
+      "icon",
+      "description",
+      "steps",
+      "is_active",
+      "sort_order",
+      "created_at",
+      "updated_at",
+      "name_en"
+    ]
+  },
+  "white_noise_sounds": {
+    "columns": [
+      "id",
+      "name",
+      "name_az",
+      "emoji",
+      "color_gradient",
+      "audio_url",
+      "is_active",
+      "sort_order",
+      "created_at",
+      "noise_type",
+      "description",
+      "description_az",
+      "description_en",
+      "name_en"
+    ]
+  },
+  "photoshoot_themes": {
+    "columns": [],
+    "note": "No rows found in table"
+  },
+  "surprise_ideas": {
+    "columns": [
+      "id",
+      "title",
+      "description",
+      "emoji",
+      "icon",
+      "category",
+      "difficulty",
+      "points",
+      "is_active",
+      "sort_order",
+      "created_at",
+      "surprise_key",
+      "title_az",
+      "description_az",
+      "description_en",
+      "title_en"
+    ]
+  },
+  "symptoms": {
+    "columns": [
+      "id",
+      "symptom_key",
+      "label",
+      "label_az",
+      "icon",
+      "life_stages",
+      "is_active",
+      "sort_order",
+      "created_at",
+      "label_en"
+    ]
+  },
+  "mood_options": {
+    "columns": [
+      "id",
+      "value",
+      "label",
+      "label_az",
+      "emoji",
+      "color_class",
+      "is_active",
+      "created_at",
+      "label_en"
+    ]
+  },
+  "common_foods": {
+    "columns": [
+      "id",
+      "name",
+      "name_az",
+      "calories",
+      "emoji",
+      "category",
+      "is_active",
+      "sort_order",
+      "created_at",
+      "meal_types",
+      "name_en"
+    ]
+  },
+  "shop_categories": {
+    "columns": [
+      "id",
+      "category_key",
+      "name",
+      "name_az",
+      "emoji",
+      "is_active",
+      "sort_order",
+      "created_at",
+      "name_en"
+    ]
+  }
+}

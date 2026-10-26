@@ -1,0 +1,96 @@
+diff --git a/node_modules/@capacitor/geolocation/android/src/main/kotlin/com/capacitorjs/plugins/geolocation/GeolocationPlugin.kt b/node_modules/@capacitor/geolocation/android/src/main/kotlin/com/capacitorjs/plugins/geolocation/GeolocationPlugin.kt
+index 4a0b2ad..ab589eb
+--- a/node_modules/@capacitor/geolocation/android/src/main/kotlin/com/capacitorjs/plugins/geolocation/GeolocationPlugin.kt
++++ b/node_modules/@capacitor/geolocation/android/src/main/kotlin/com/capacitorjs/plugins/geolocation/GeolocationPlugin.kt
+@@ -17,7 +17,9 @@ import io.ionic.libs.iongeolocationlib.model.IONGLOCException
+ import io.ionic.libs.iongeolocationlib.model.IONGLOCLocationOptions
+ import io.ionic.libs.iongeolocationlib.model.IONGLOCLocationResult
+ import kotlinx.coroutines.CoroutineScope
++import kotlinx.coroutines.CancellationException
+ import kotlinx.coroutines.Dispatchers
++import kotlinx.coroutines.SupervisorJob
+ import kotlinx.coroutines.cancel
+ import kotlinx.coroutines.launch
+ 
+@@ -45,12 +47,14 @@ class GeolocationPlugin : Plugin() {
+     override fun load() {
+         super.load()
+ 
+-        coroutineScope = CoroutineScope(Dispatchers.Main)
++        coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+         val activityLauncher = activity.registerForActivityResult(
+             ActivityResultContracts.StartIntentSenderForResult()
+         ) { result ->
+-            CoroutineScope(Dispatchers.Main).launch {
+-                controller.onResolvableExceptionResult(result.resultCode)
++            coroutineScope.launch {
++                try { controller.onResolvableExceptionResult(result.resultCode) }
++                catch (error: CancellationException) { throw error }
++                catch (_: Exception) { /* The pending controller request will report its bounded failure. */ }
+             }
+         }
+ 
+@@ -59,7 +63,9 @@ class GeolocationPlugin : Plugin() {
+ 
+     override fun handleOnDestroy() {
+         super.handleOnDestroy()
+-        coroutineScope.cancel()
++        if (::coroutineScope.isInitialized) coroutineScope.cancel()
++        watchingCalls.values.forEach { it.release(bridge) }
++        watchingCalls.clear()
+     }
+ 
+     @PluginMethod
+@@ -78,11 +84,10 @@ class GeolocationPlugin : Plugin() {
+      * @param onLocationEnabled lambda function to use in case location services are enabled
+      */
+     private fun checkLocationState(call: PluginCall, onLocationEnabled: () -> Unit) {
+-        if (controller.areLocationServicesEnabled()) {
+-            onLocationEnabled()
+-        } else {
+-            call.sendError(GeolocationErrors.LOCATION_DISABLED)
+-        }
++        try {
++            if (controller.areLocationServicesEnabled()) onLocationEnabled()
++            else call.sendError(GeolocationErrors.LOCATION_DISABLED)
++        } catch (_: Exception) { call.sendError(GeolocationErrors.POSITION_UNAVAILABLE) }
+     }
+ 
+     /**
+@@ -199,6 +204,7 @@ class GeolocationPlugin : Plugin() {
+      */
+     private fun getPosition(call: PluginCall) {
+         coroutineScope.launch {
++            try {
+             val locationOptions = createOptions(call)
+ 
+             // call getCurrentPosition method from controller
+@@ -211,6 +217,8 @@ class GeolocationPlugin : Plugin() {
+                 .onFailure { exception ->
+                     onLocationError(exception, call)
+                 }
++            } catch (error: CancellationException) { throw error }
++            catch (error: Exception) { onLocationError(error, call) }
+         }
+     }
+ 
+@@ -220,6 +228,7 @@ class GeolocationPlugin : Plugin() {
+      */
+     private fun startWatch(call: PluginCall) {
+         coroutineScope.launch {
++            try {
+             val watchId = call.callbackId
+ 
+             val locationOptions = createOptions(call)
+@@ -237,6 +246,11 @@ class GeolocationPlugin : Plugin() {
+                     onLocationError(exception, call)
+                 }
+             }
++            } catch (error: CancellationException) { throw error }
++            catch (error: Exception) {
++                watchingCalls.remove(call.callbackId)
++                onLocationError(error, call)
++            }
+         }
+         watchingCalls[call.callbackId] = call
+     }

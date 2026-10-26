@@ -1,0 +1,56 @@
+{
+  "version": "1.5.0",
+  "build": 6,
+  "bundleId": "com.atlasoon.startupio",
+  "developer": "Atlasoon",
+  "copyright": "2026 Atlasoon",
+  "primaryLanguage": "en-US",
+  "supportEmail": "jamil@anacan.az",
+  "urls": {
+    "privacy": "https://startup-io-store-info-ltnibovl3a-ew.a.run.app/privacy.html",
+    "terms": "https://startup-io-store-info-ltnibovl3a-ew.a.run.app/terms.html",
+    "support": "https://startup-io-store-info-ltnibovl3a-ew.a.run.app/support.html",
+    "marketing": "https://startup-io-store-info-ltnibovl3a-ew.a.run.app/index.html"
+  },
+  "appStore": {
+    "name": "startup.io",
+    "subtitle": "Build in an endless city",
+    "keywords": "startup,arcade,offline,city,venture,funding,founder,growth,company,isometric,strategy",
+    "promotionalText": "Start small. Collect funding, secure venture rounds and outgrow 48 bot rivals in an endless city. Choose your sector and build a startup with your own style.",
+    "description": "Start small. Grow without limits.\n\nstartup.io is an offline arcade game set in an endless isometric city. Drag anywhere to steer your company, collect investments and grow from a small startup into a market giant. Acquire smaller bot companies and escape larger rivals.\n\nMAKE YOUR MOVE\nChoose AI, Fintech or Cloud. Each sector brings its own advantage: stronger hardware value, bigger funding gains or more efficient BOOST.\n\nSECURE YOUR NEXT ROUND\nFind four fictional venture funds and earn temporary powers. Attract funding with a talent team, accelerate with Cloud credits, protect your startup with a firewall and increase asset value with a patent. Use PIVOT for a brief escape shield.\n\nADAPT TO THE MARKET\nAI booms, funding winters, GPU shortages and product launches change the pace of play. Complete five founder missions to earn extra game credits.\n\nYOUR COMPANY, YOUR LOOK\nCustomize your name, color, logo and initials, or select an image stored only on your device. Earn cosmetic logos, trails and frames with game credits. No real-money purchases.\n\nKEEP YOUR STORY GOING\nNo map boundary, countdown or growth cap. Progress saves automatically. Save & leave, then Continue to resume the same company.\n\nPlay offline against 48 computer-controlled rivals. No account, advertising, analytics or real-player chat. English and Azerbaijani interfaces; portrait and landscape controls.\n\nAll valuations, funds and credits are fictional game values with no cash value.",
+    "whatsNew": "Meet 48 original fictional startups and four original venture funds. A visible takeover warning gives you time to escape with PIVOT or BOOST. Enjoy clearer company sizes, fewer overlapping labels, a live founder mission card, steadier touch controls and a refined city palette. Existing progress and cosmetics carry over.",
+    "category": "Games",
+    "subcategory": "Arcade",
+    "secondarySubcategory": "Strategy"
+  },
+  "playStore": {
+    "name": "startup.io",
+    "shortDescription": "Grow your startup in an endless city. Collect funding and outgrow 48 bot rivals.",
+    "fullDescriptionSource": "appStore.description",
+    "category": "GAME_ARCADE",
+    "releaseNotes": "48 original fictional startups, original venture funds, visible takeover warnings, refined city graphics, readable rival sizes and labels, live founder missions and steadier PIVOT/touch controls. Your progress and cosmetics carry over."
+  },
+  "azerbaijaniCopy": {
+    "name": "startup.io",
+    "subtitle": "Sərhədsiz şəhərdə startup qur",
+    "shortDescription": "Yatırım topla, Venture fondlarını götür və sərhədsiz şəhərdə 48 bot rəqibini keç.",
+    "description": "Kiçik başla. Sərhədsiz böyü.\n\nstartup.io sərhədsiz izometrik şəhərdə oynanan oflayn arcade oyunudur. İstənilən yerə toxun və sürüklə, yatırım topla, kiçik bot şirkətlərini satın al və böyük rəqiblərdən qaç.\n\nAI, Fintech və ya Cloud sahəsini seç. GPU/server dəyərini, yatırım gəlirini və ya BOOST enerji səmərəliliyini gücləndir.\n\nDörd uydurma Venture fondu şirkətinə dəyər və müvəqqəti üstünlük verir: istedad komandası, Cloud kreditləri, Firewall və patent. PIVOT qısa qaçış sipəri yaradır.\n\nAI bumu, yatırım qışı, GPU qıtlığı və məhsul buraxılışı bazarın ritmini dəyişir. Beş founder missiyasını tamamlayıb əlavə oyun xalları qazan.\n\nAd, rəng, logo və monoqramını seç. Öz şəkil logon yalnız cihazında saxlanır. Marketplace logoları, izləri və çərçivələri oyun xalları ilə əldə edilir.\n\nXəritə sərhədi, vaxt limiti və böyümə həddi yoxdur. Gedişat avtomatik saxlanır; Saxla və çıx-dan sonra Davam et ilə eyni şirkəti bərpa et.\n\n48 kompüter tərəfindən idarə olunan rəqib. Reklam, analitika, hesab qeydiyyatı, real pulla alış və real oyunçu çatı yoxdur. AZ/EN interfeys, portret və üfüqi idarəetmə. Şirkət dəyərləri, fondlar və xallar yalnız uydurma oyun göstəriciləridir."
+  },
+  "reviewNotes": {
+    "signInRequired": false,
+    "instructions": "The initial UI is Azerbaijani. Tap the settings icon at the upper right, choose EN, then Close. Tap Enter the arena and Let’s go. Drag anywhere to move; hold BOOST for speed. PIVOT activates after movement begins and has a 24-second cooldown. Pause → Save & leave keeps the company resumable. Settings provides local privacy, terms, support and Delete all progress. Cosmetic purchases use earned game credits only. All 48 opponents and arena activity are local computer-controlled bots. No backend or login is required."
+  },
+  "disclosures": {
+    "price": "free",
+    "ads": false,
+    "inAppPurchases": false,
+    "tracking": false,
+    "developerCollectedAppData": false,
+    "accountRequired": false,
+    "onlineMultiplayer": false,
+    "realMoneyGambling": false,
+    "localImagePickerOnly": true,
+    "ageRatingQuestionnaire": "Operator completes the store questionnaire; no assigned rating is claimed."
+  },
+  "submissionStatus": "prepared locally; console listing, upload and submission are pending"
+}

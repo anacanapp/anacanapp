@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "funneldata_korpe_izlemeye_basla_bd8634",
+  "az": "Körpə izləməyə başla",
+  "en": "Start baby tracking"
+ },
+ {
+  "key": "funneldata_korpe_saglamligi_narahatligi_841d88",
+  "az": "Körpə sağlamlığı narahatlığı",
+  "en": "Baby health concerns"
+ },
+ {
+  "key": "funneldata_korpemin_yuxu_cedvelini_izlemek_heyatimi_1ec80e",
+  "az": "Körpəmin yuxu cədvəlini izləmək həyatımı dəyişdi. Artıq nə vaxt oyanacağını bilirəm.",
+  "en": "Tracking my baby's sleep schedule changed my life. Now I know when they'll wake up."
+ },
+ {
+  "key": "funneldata_korpenin_qidalanmasi_a1d9db",
+  "az": "Körpənin qidalanması",
+  "en": "Baby feeding"
+ },
+ {
+  "key": "funneldata_korpenin_saglamligi_c767da",
+  "az": "Körpənin sağlamlığı",
+  "en": "Baby's health"
+ },
+ {
+  "key": "funneldata_korpenizin_inkisafi_haqqinda_narahatliql_be54e9",
+  "az": "Körpənizin inkişafı haqqında narahatlıqlarınız var?",
+  "en": "Do you have concerns about your baby's development?"
+ },
+ {
+  "key": "funneldata_korpenizin_professional_fotolarini_suni__ec1b0b",
+  "az": "Körpənizin professional fotolarını süni intellekt ilə yaradın",
+  "en": "Create professional photos of your baby with artificial intelligence"
+ },
+ {
+  "key": "funneldata_lamiye_fbb845",
+  "az": "Lamiyə",
+  "en": "Lamia"
+ },
+ {
+  "key": "funneldata_leman_566115",
+  "az": "Ləman",
+  "en": "Laman"
+ },
+ {
+  "key": "funneldata_maddi_meseleler_f6a8d9",
+  "az": "Maddi məsələlər",
+  "en": "Financial matters"
+ },
+ {
+  "key": "funneldata_maddi_planlasdirma_18435a",
+  "az": "Maddi planlaşdırma",
+  "en": "Financial planning"
+ },
+ {
+  "key": "funneldata_melumat_catismazligi_afccc5",
+  "az": "Məlumat çatışmazlığı",
+  "en": "Lack of information"
+ },
+ {
+  "key": "funneldata_menstruasiya_dovrunde_en_cox_ne_sizi_nar_7e0928",
+  "az": "Menstruasiya dövründə ən çox nə sizi narahat edir?",
+  "en": "What bothers you most during your menstrual period?"
+ },
+ {
+  "key": "funneldata_nefes_mesqleri_meditasiya_225210",
+  "az": "Nəfəs Məşqləri & Meditasiya",
+  "en": "Breathing Exercises & Meditation"
+ },
+ {
+  "key": "funneldata_o_qeder_de_yox_e54ae3",
+  "az": "O qədər də yox",
+  "en": "Not very"
+ },
+ {
+  "key": "funneldata_ovulyasiya_gunlerini_deqiq_bilirem_planl_bf94ea",
+  "az": "Ovulyasiya günlərini dəqiq bilirəm. Planlaşdırma çox asanlaşdı!",
+  "en": "I know my ovulation days precisely. Planning became much easier!"
+ },
+ {
+  "key": "funneldata_oz_vaxtimin_olmamasi_a3f3e9",
+  "az": "Öz vaxtımın olmaması",
+  "en": "Lack of personal time"
+ },
+ {
+  "key": "funneldata_partnyor_hesabi_ba746f",
+  "az": "Partnyor Hesabı",
+  "en": "Partner Account"
+ },
+ {
+  "key": "funneldata_partnyor_hesabi_ile_heyat_yoldasim_da_he_0b0bd4",
+  "az": "Partnyor hesabı ilə həyat yoldaşım da hər şeyi izləyir. Əla fikir!",
+  "en": "With the Partner Account, my husband also tracks everything. Great idea!"
+ },
+ {
+  "key": "funneldata_period_teqvimi_analitika_209bf3",
+  "az": "Period Təqvimi & Analitika",
+  "en": "Period Calendar & Analytics"
+ },
+ {
+  "key": "funneldata_postpartum_cetinlik_79dfea",
+  "az": "Postpartum çətinlik",
+  "en": "Postpartum distress"
+ },
+ {
+  "key": "funneldata_premium_istifadeci_125a87",
+  "az": "Premium istifadəçi",
+  "en": "Premium user"
+ },
+ {
+  "key": "funneldata_qadinlarin_65_i_menstruasiya_z_08edb4",
+  "az": "Qadınların 65%-i menstruasiya zamanı fiziki ağrılarla mübarizə aparır.",
+  "en": "65% of women struggle with physical pain during menstruation."
+ },
+ {
+  "key": "funneldata_qeyri_muntezem_tsikl_84f14c",
+  "az": "Qeyri-müntəzəm tsikl",
+  "en": "Irregular cycle"
+ },
+ {
+  "key": "funneldata_qeyri_muntezemlik_9e36dc",
+  "az": "Qeyri-müntəzəmlik",
+  "en": "Irregularity"
+ },
+ {
+  "key": "funneldata_qidalanma_cetinliyi_3b7f06",
+  "az": "Qidalanma çətinliyi",
+  "en": "Feeding difficulty"
+ },
+ {
+  "key": "funneldata_qismen_825ca6",
+  "az": "Qismən",
+  "en": "Partially"
+ },
+ {
+  "key": "funneldata_rahat_yatiram_0a68b9",
+  "az": "Rahat yatıram",
+  "en": "I sleep comfortably"
+ },
+ {
+  "key": "funneldata_reproduktiv_saglamliginizla_bagli_meluma_287540",
+  "az": "Reproduktiv sağlamlığınızla bağlı məlumatlılıq səviyyəniz?",
+  "en": "How aware are you of your reproductive health?"
+ },
+ {
+  "key": "funneldata_reproduktiv_saglamliq_haqqinda_e1d680",
+  "az": "Reproduktiv sağlamlıq haqqında məlumat — sağlam gələcəyin təməlidir.",
+  "en": "Reproductive health information is the foundation of a healthy future."
+ },
+ {
+  "key": "funneldata_rutin_qur_rahatla_label",
+  "az": "Rutin qur, rahatla",
+  "en": "Set routine, relax"
+ },
+ {
+  "key": "funneldata_saglamligini_idare_et_1680af",
+  "az": "Sağlamlığını idarə et",
+  "en": "Manage your health"
+ },
+ {
+  "key": "funneldata_sebine_310bef",
+  "az": "Səbinə",
+  "en": "Sabina"
+ },
+ {
+  "key": "funneldata_simptom_i_zleyicisi_nefes_mesq_7d13ee",
+  "az": "Simptom İzləyicisi & Nəfəs Məşqləri",
+  "en": "Symptom Tracker & Breathing Exercises"
+ },
+ {
+  "key": "funneldata_sizin_ucun_ferdi_destek_plani__cb5933",
+  "az": "Sizin üçün fərdi dəstək planı hazırdır. 🌸",
+  "en": "A personalized support plan is ready for you. 🌸"
+ },
+ {
+  "key": "funneldata_stres_seviyyeniz_yuksekdir_bu__b3ef51",
+  "az": "Stres səviyyəniz yüksəkdir — bu, həm sizin, həm də körpənizin sağlamlığına təsir edə bilər.",
+  "en": "Your stress level is high — this can affect both your health and your baby's health."
+ },
+ {
+  "key": "funneldata_stres_seviyyesini_azalt_6bf5de",
+  "az": "Stres səviyyəsini azalt",
+  "en": "Reduce stress level"
+ },
+ {
+  "key": "funneldata_tam_nezaretde_ol_2630cf",
+  "az": "Tam nəzarətdə ol",
+  "en": "Be in full control"
+ },
+ {
+  "key": "funneldata_tenhaliq_hissi_d0e57e",
+  "az": "Tənhalıq hissi",
+  "en": "A feeling of loneliness"
+ },
+ {
+  "key": "funneldata_tez_tez_oyaniram_0f221b",
+  "az": "Tez-tez oyanıram",
+  "en": "I wake up frequently"
+ },
+ {
+  "key": "funneldata_tsikl_izleme_ehtiyaci_3c538c",
+  "az": "Tsikl izləmə ehtiyacı",
+  "en": "The need for cycle tracking"
+ },
+ {
+  "key": "funneldata_tsikl_izlemeye_basla_3faf9b",
+  "az": "Tsikl izləməyə başla",
+  "en": "Start cycle tracking"
+ },
+ {
+  "key": "funneldata_tsiklimi_izlemeye_baslayandan_beri_beden_6ddd52",
+  "az": "Tsiklimi izləməyə başlayandan bəri bədənimi daha yaxşı tanıyıram.",
+  "en": "Since I started tracking my cycle, I know my body better."
+ },
+ {
+  "key": "funneldata_tsiklinizi_duzgun_izlemek_sizin_ucun_ne__46b605",
+  "az": "Tsiklinizi düzgün izləmək sizin üçün nə qədər vacibdir?",
+  "en": "How important is it for you to track your cycle correctly?"
+ },
+ {
+  "key": "funneldata_vaxt_catismazligi_259e8d",
+  "az": "Vaxt çatışmazlığı",
+  "en": "Lack of time"
+ },
+ {
+  "key": "funneldata_vitamin_izleyicisi_ve_qidalanma_meslehet_a8ec35",
+  "az": "Vitamin izləyicisi və qidalanma məsləhətləri əvəzsizdir.",
+  "en": "The vitamin tracker and nutrition tips are invaluable."
+ },
+ {
+  "key": "funneldata_xestexana_cantasi_dogusa_hazir_a2f062",
+  "az": "Xəstəxana Çantası & Doğuşa Hazırlıq",
+  "en": "Hospital Bag & Birth Preparation"
+ },
+ {
+  "key": "funneldata_xeyr_her_sey_yaxsidir_72925d",
+  "az": "Xeyr, hər şey yaxşıdır",
+  "en": "No, everything is fine"
+ },
+ {
+  "key": "funneldata_yuksek_492584",
+  "az": "Yüksək",
+  "en": "High"
+ },
+ {
+  "key": "funneldata_yuksek_stres_a96d92",
+  "az": "Yüksək stres",
+  "en": "High stress"
+ },
+ {
+  "key": "funneldata_yuxu_i_zleyicisi_ag_kuy_39d4f4",
+  "az": "Yuxu İzləyicisi & Ağ Küy",
+  "en": "Sleep Tracker & White Noise"
+ },
+ {
+  "key": "funneldata_yuxu_problemleri_3_cu_trimestr_32906e",
+  "az": "Yuxu problemləri 3-cü trimestrdə çox yayılmış haldır — siz tək deyilsiniz.",
+  "en": "Sleep problems are common in the 3rd trimester — you're not alone."
+ },
+ {
+  "key": "funneldata_yuxu_problemleri_627bba",
+  "az": "Yuxu problemləri",
+  "en": "Sleep problems"
+ },
+ {
+  "key": "funneldata_yuxu_sesleri_ag_kuy_5e05f1",
+  "az": "Yuxu Səsləri & Ağ Küy",
+  "en": "Sleep Sounds & White Noise"
+ },
+ {
+  "key": "funneldata_yuxu_sesleri_meditasiya_fb635f",
+  "az": "Yuxu Səsləri & Meditasiya",
+  "en": "Sleep Sounds & Meditation"
+ },
+ {
+  "key": "funneldata_yuxusuzluq_label",
+  "az": "Yuxusuzluq",
+  "en": "Sleeplessness"
+ },
+ {
+  "key": "funneldata_yuxusuzluq_yeni_analarin_en_bo_dc4168",
+  "az": "Yuxusuzluq — yeni anaların ən böyük problemidir.",
+  "en": "Insomnia is the biggest problem of new mothers."
+ },
+ {
+  "key": "howapphelpsstep_anacan_nece_komek_edir_a6ab1a",
+  "az": "Anacan Necə Kömək Edir?",
+  "en": "How Does Anacan Help?"
+ },
+ {
+  "key": "howapphelpsstep_her_probleme_ferdi_hell_97e2f5",
+  "az": "Hər problemə fərdi həll",
+  "en": "Personalized solution for every problem"
+ },
+ {
+  "key": "onboardingscreen_araliq_10_50_gun_normal_21_35__e2832f",
+  "az": "Aralıq: 10-50 gün (normal: 21-35 gün)",
+  "en": "Range: 10-50 days (normal: 21-35 days)"
+ },
+ {
+  "key": "onboardingscreen_basla_4820bc",
+  "az": "Başla",
+  "en": "Get started"
+ },
+ {
+  "key": "onboardingscreen_bir_xeta_bas_verdi_3a783a",
+  "az": "Bir xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "onboardingscreen_davam_et_7bc3d8",
+  "az": "Davam et",
+  "en": "Continue"
+ },
+ {
+  "key": "onboardingscreen_dogum_tarixi_d96907",
+  "az": "Doğum tarixi",
+  "en": "Date of birth"
+ },
+ {
+  "key": "onboardingscreen_eli_veli_e76548",
+  "az": "Əli, Vəli",
+  "en": "Ali, Vali"
+ },
+ {
+  "key": "onboardingscreen_gun_54e78d",
+  "az": "gün",
+  "en": "uncle"
+ },
+ {
+  "key": "onboardingscreen_hamilelik_melumatlari_12e64d",
+  "az": "Hamiləlik məlumatları",
+  "en": "Pregnancy information"
+ },
+ {
+  "key": "onboardingscreen_hamilelik_melumatlarinizi_daxi_c132dd",
+  "az": "Hamiləlik məlumatlarınızı daxil edin",
+  "en": "Enter your pregnancy information"
+ },
+ {
+  "key": "onboardingscreen_hansi_merheledesiniz_4bc6be",
+  "az": "Hansı mərhələdəsiniz?",
+  "en": "What stage are you at?"
+ },
+ {
+  "key": "onboardingscreen_korpelerinizin_adlari_vergulle_96665e",
+  "az": "Körpələrinizin adları (vergüllə ayırın)",
+  "en": "Names of your babies (separate with commas)"
+ },
+ {
+  "key": "onboardingscreen_korpeniz_haqqinda_dc65a9",
+  "az": "Körpəniz haqqında",
+  "en": "About your baby"
+ },
+ {
+  "key": "onboardingscreen_korpenizin_adi_10b2c3",
+  "az": "Körpənizin adı",
+  "en": "Your baby's name"
+ },
+ {
+  "key": "onboardingscreen_korpenizin_melumatlarini_daxil_6e20d3",
+  "az": "Körpənizin məlumatlarını daxil edin",
+  "en": "Enter your baby's information"
+ },
+ {
+  "key": "onboardingscreen_melumatlar_saxlanila_bilmedi_a65916",
+  "az": "Məlumatlar saxlanıla bilmədi",
+  "en": "Data could not be saved"
+ },
+ {
+  "key": "onboardingscreen_normal_araliq_3_7_gun_167ed7",
+  "az": "Normal aralıq: 3-7 gün",
+  "en": "Normal interval: 3-7 days"
+ },
+ {
+  "key": "onboardingscreen_oglan_e9715e",
+  "az": "Oğlan",
+  "en": "Height"
+ },
+ {
+  "key": "onboardingscreen_period_uzunlugu_gun_a77b92",
+  "az": "Period uzunluğu (gün)",
+  "en": "Period length (days)"
+ },
+ {
+  "key": "onboardingscreen_profiliniz_hazirdir_7fc314",
+  "az": "Profiliniz hazırdır",
+  "en": "Your profile is ready"
+ },
+ {
+  "key": "onboardingscreen_qiz_79bf6b",
+  "az": "Qız",
+  "en": "Girl"
+ },
+ {
+  "key": "onboardingscreen_son_dovr_tarixi_4dc91e",
+  "az": "Son dövr tarixi",
+  "en": "Recent history"
+ },
+ {
+  "key": "onboardingscreen_son_dovrunuz_ne_vaxt_basladi_9bc1c3",
+  "az": "Son dövrünüz nə vaxt başladı?",
+  "en": "When did your last period start?"
+ },
+ {
+  "key": "onboardingscreen_son_menstruasiya_tarixi_9f3b8a",
+  "az": "Son menstruasiya tarixi",
+  "en": "Last period date"
+ },
+ {
+  "key": "onboardingscreen_tsikl_uzunlugu_gun_642d20",
+  "az": "Tsikl uzunluğu (gün)",
+  "en": "Cycle length (days)"
+ },
+ {
+  "key": "onboardingscreen_ugurla_saxlanildi_27f111",
+  "az": "Uğurla saxlanıldı! 🎉",
+  "en": "Successfully saved! 🎉"
+ },
+ {
+  "key": "onboardingscreen_usaq_sayi_04c015",
+  "az": "Uşaq sayı",
+  "en": "Number of children"
+ },
+ {
+  "key": "onboardingscreen_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "onboardingscreen_xos_geldiniz_078b52",
+  "az": "Xoş gəldiniz!",
+  "en": "Welcome!"
+ },
+ {
+  "key": "paywall_aktiv",
+  "az": "Aktiv",
+  "en": "Active"
+ },
+ {
+  "key": "paywall_emal_edilir",
+  "az": "Emal edilir...",
+  "en": "Processing..."
+ },
+ {
+  "key": "paywall_premium_bitir",
+  "az": "Premium bitir",
+  "en": "Premium ends"
+ },
+ {
+  "key": "paywall_pulsuz_plan",
+  "az": "Pulsuz Plan",
+  "en": "Free Plan"
+ },
+ {
+  "key": "paywalldesignertab_alt_basliq_eca856",
+  "az": "Alt Başlıq",
+  "en": "Subtitle"
+ },
+ {
+  "key": "paywalldesignertab_alt_hisse_ve_huquqi_681225",
+  "az": "Alt Hissə və Hüquqi",
+  "en": "Footer and Legal"
+ },
+ {
+  "key": "paywalldesignertab_app_store_bildirisi_native_olmayan_3b7186",
+  "az": "App Store bildirişi (native olmayan)",
+  "en": "App Store notice (non-native)"
+ },
+ {
+  "key": "paywalldesignertab_ayliq_etiket_23a3b4",
+  "az": "Aylıq etiket",
+  "en": "Monthly label"
+ },
+ {
+  "key": "paywalldesignertab_ayliq_suffix_0f89ec",
+  "az": "Aylıq suffix",
+  "en": "Monthly suffix"
+ },
+ {
+  "key": "paywalldesignertab_baslangic_e9d2d5",
+  "az": "Başlanğıc",
+  "en": "Start"
+ },
+ {
+  "key": "paywalldesignertab_basliq_ve_alt_basliq_238cd6",
+  "az": "Başlıq və Alt Başlıq",
+  "en": "Title and Subtitle"
+ },
+ {
+  "key": "paywalldesignertab_berpa_duymesi_1eaf2c",
+  "az": "Bərpa düyməsi",
+  "en": "Restore button"
+ },
+ {
+  "key": "paywalldesignertab_duyme_metnleri_147868",
+  "az": "Düymə Mətnləri",
+  "en": "Button Texts"
+ },
+ {
+  "key": "paywalldesignertab_emal_edilir_metni_dac759",
+  "az": "Emal edilir mətni",
+  "en": "Processing text"
+ },
+ {
+  "key": "paywalldesignertab_etiket_elave_et_4a65ae",
+  "az": "Etiket əlavə et",
+  "en": "Add a label"
+ },
+ {
+  "key": "paywalldesignertab_feature_ucun_premium_lazimdir_4800ff",
+  "az": "{feature} üçün Premium lazımdır",
+  "en": "{feature} requires Premium"
+ },
+ {
+  "key": "paywalldesignertab_funksiya_adi_ile_evez_olunur_70a502",
+  "az": "— funksiya adı ilə əvəz olunur",
+  "en": "— is replaced by the function name"
+ },
+ {
+  "key": "paywalldesignertab_funksiya_kilidi_metni_15f89a",
+  "az": "Funksiya kilidi mətni",
+  "en": "Feature lock text"
+ },
+ {
+  "key": "paywalldesignertab_gradient_rengleri_735bb0",
+  "az": "Gradient Rəngləri",
+  "en": "Gradient Colors"
+ },
+ {
+  "key": "paywalldesignertab_icon_adi_4732b6",
+  "az": "Icon adı",
+  "en": "Icon name"
+ },
+ {
+  "key": "paywalldesignertab_ikon_adlari_zap_shield_sparkles_star_cro_7c0843",
+  "az": "İkon adları: Zap, Shield, Sparkles, Star, Crown, Heart və s. (Lucide icon adları)",
+  "en": "Icon names: Zap, Shield, Sparkles, Star, Crown, Heart, etc. (Lucide icon names)"
+ },
+ {
+  "key": "paywalldesignertab_illik_cem_suffix_194e93",
+  "az": "İllik cəm suffix",
+  "en": "Annual total suffix"
+ },
+ {
+  "key": "paywalldesignertab_illik_etiket_03f813",
+  "az": "İllik etiket",
+  "en": "Annual label"
+ },
+ {
+  "key": "paywalldesignertab_illik_plana_kecid_cta_012ee6",
+  "az": "İllik plana keçid CTA",
+  "en": "Switch to annual plan CTA"
+ },
+ {
+  "key": "paywalldesignertab_illik_suffix_1f7db0",
+  "az": "İllik suffix",
+  "en": "Annual suffix"
+ },
+ {
+  "key": "paywalldesignertab_legv_bildirisi_274b32",
+  "az": "Ləğv bildirişi",
+  "en": "Cancellation notice"
+ },
+ {
+  "key": "paywalldesignertab_metn_6e9f0f",
+  "az": "Mətn",
+  "en": "Text"
+ },
+ {
+  "key": "paywalldesignertab_mexfilik_etiketi_f9ae36",
+  "az": "Məxfilik etiketi",
+  "en": "Privacy label"
+ },
+ {
+  "key": "paywalldesignertab_paywall_konfiqurasiyasi_saxlanildi_50b3be",
+  "az": "Paywall konfiqurasiyası saxlanıldı ✓",
+  "en": "Paywall configuration saved ✓"
+ },
+ {
+  "key": "paywalldesignertab_percent_qenaet_a627e2",
+  "az": "{percent}% QƏNAƏT",
+  "en": "{percent}% SAVINGS"
+ },
+ {
+  "key": "paywalldesignertab_plan_etiketleri_c2eff6",
+  "az": "Plan Etiketləri",
+  "en": "Plan Labels"
+ },
+ {
+  "key": "paywalldesignertab_premium_paywall_sehifesindeki__bf1e9e",
+  "az": "Premium Paywall səhifəsindəki bütün mətnləri, rəngləri və elementləri buradan idarə edin.",
+  "en": "Manage all text, colors and elements on your Premium Paywall page from here."
+ },
+ {
+  "key": "paywalldesignertab_qenaet_badge_6dd374",
+  "az": "Qənaət badge",
+  "en": "Savings badge"
+ },
+ {
+  "key": "paywalldesignertab_saxlanilir_ee05ad",
+  "az": "Saxlanılır...",
+  "en": "Saving..."
+ },
+ {
+  "key": "paywalldesignertab_sehife_basligi_1ebf3e",
+  "az": "Səhifə Başlığı",
+  "en": "Page Title"
+ },
+ {
+  "key": "paywalldesignertab_sertler_etiketi_dd82f1",
+  "az": "Şərtlər etiketi",
+  "en": "Terms label"
+ },
+ {
+  "key": "paywalldesignertab_tam_tecrube_sinirsiz_imkanlar_ce3376",
+  "az": "Tam təcrübə · Sınırsız imkanlar",
+  "en": "Full experience · Unlimited possibilities"
+ },
+ {
+  "key": "paywalldesignertab_ustunluk_etiketleri_c7e5cd",
+  "az": "Üstünlük Etiketləri",
+  "en": "Benefit Labels"
+ },
+ {
+  "key": "paywalldesignertab_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "paywalldesignertab_yeni_istifadeci_ucun_cta_57e7ac",
+  "az": "Yeni istifadəçi üçün CTA",
+  "en": "CTA for new users"
+ },
+ {
+  "key": "paywalldesignertab_yukseltme_cta_cb2fe8",
+  "az": "Yüksəltmə CTA",
+  "en": "Upgrade CTA"
+ },
+ {
+  "key": "pgate_cycle_stats",
+  "az": "Tsikl tarixçəniz və dəqiqlik göstəriciləri",
+  "en": "Your cycle history & accuracy insights"
+ },
+ {
+  "key": "pgate_cycle_stats_title",
+  "az": "Tsikl statistikası",
+  "en": "Cycle statistics"
+ },
+ {
+  "key": "pgate_default_desc",
+  "az": "Premium ilə açılır — 3 gün pulsuz sınayın",
+  "en": "Unlocks with Premium — try 3 days free"
+ },
+ {
+  "key": "pgate_flow_logger",
+  "az": "Əhval, simptom, qanaxma və fertillik qeydləri — proqnozlar bunlarla dəqiqləşir",
+  "en": "Mood, symptom, flow & fertility logs — they sharpen your predictions"
+ },
+ {
+  "key": "pgate_mood_chart",
+  "az": "30 günlük əhval, enerji və ağrı analizi",
+  "en": "30-day mood, energy & pain analysis"
+ },
+ {
+  "key": "pgate_mood_chart_title",
+  "az": "Əhval qrafiki",
+  "en": "Mood chart"
+ },
+ {
+  "key": "pgate_reminders",
+  "az": "Period, PMS, dərman və su xatırladıcıları",
+  "en": "Period, PMS, pill & water reminders"
+ },
+ {
+  "key": "pgate_reminders_title",
+  "az": "Xatırladıcılar",
+  "en": "Reminders"
+ },
+ {
+  "key": "pgate_symptom",
+  "az": "Fazalara görə simptom nümunələriniz",
+  "en": "Your symptom patterns by cycle phase"
+ },
+ {
+  "key": "pgate_symptom_title",
+  "az": "Simptom analizi",
+  "en": "Symptom analysis"
+ },
+ {
+  "key": "pgate_trend",
+  "az": "Son tsikllərin müqayisəli trend qrafiki",
+  "en": "Comparative trend of your recent cycles"
+ },
+ {
+  "key": "pgate_trend_title",
+  "az": "Tsikl trendi",
+  "en": "Cycle trend"
+ },
+ {
+  "key": "pgate_unlock",
+  "az": "Aç",
+  "en": "Unlock"
+ },
+ {
+  "key": "ponb_bump_due",
+  "az": "Doğuş tarixi (USM)",
+  "en": "Due date (ultrasound)"
+ },
+ {
+  "key": "ponb_bump_due_label",
+  "az": "Gözlənilən doğuş tarixi",
+  "en": "Expected due date"
+ },
+ {
+  "key": "ponb_bump_lmp",
+  "az": "Son menstruasiya",
+  "en": "Last period"
+ },
+ {
+  "key": "ponb_bump_lmp_label",
+  "az": "Son menstruasiyanın ilk günü",
+  "en": "First day of your last period"
+ },
+ {
+  "key": "ponb_bump_sub",
+  "az": "Bir tarix kifayətdir — qalanını biz hesablayırıq",
+  "en": "One date is enough — we calculate the rest"
+ },
+ {
+  "key": "ponb_bump_title",
+  "az": "Tarixi qeyd edək",
+  "en": "Let’s set the date"
+ },
+ {
+  "key": "ponb_change_later",
+  "az": "Bütün məlumatları sonra parametrlərdən dəyişə bilərsiniz",
+  "en": "You can change everything later in settings"
+ },
+ {
+  "key": "ponb_continue",
+  "az": "Davam et",
+  "en": "Continue"
+ },
+ {
+  "key": "ponb_error",
+  "az": "Xəta baş verdi",
+  "en": "Something went wrong"
+ },
+ {
+  "key": "ponb_error_desc",
+  "az": "Məlumatlar saxlanıla bilmədi — yenidən cəhd edin",
+  "en": "Could not save — please try again"
+ },
+ {
+  "key": "ponb_flow_cycle",
+  "az": "Tsikl uzunluğu",
+  "en": "Cycle length"
+ },
+ {
+  "key": "ponb_flow_days",
+  "az": "{n} gün",
+  "en": "{n} days"
+ },
+ {
+  "key": "ponb_flow_lmp",
+  "az": "Son periodun ilk günü",
+  "en": "First day of your last period"
+ },
+ {
+  "key": "ponb_flow_period",
+  "az": "Period uzunluğu",
+  "en": "Period length"
+ },
+ {
+  "key": "ponb_flow_sub",
+  "az": "Proqnozlar istifadə etdikcə avtomatik dəqiqləşir",
+  "en": "Predictions get smarter automatically as you log"
+ },
+ {
+  "key": "ponb_flow_title",
+  "az": "Tsiklinizi quraq",
+  "en": "Let’s set up your cycle"
+ },
+ {
+  "key": "ponb_gender_boy",
+  "az": "Oğlan",
+  "en": "Boy"
+ },
+ {
+  "key": "ponb_gender_girl",
+  "az": "Qız",
+  "en": "Girl"
+ },
+ {
+  "key": "ponb_mommy_birth",
+  "az": "Doğum tarixi",
+  "en": "Birth date"
+ },
+ {
+  "key": "ponb_mommy_gender",
+  "az": "Cinsi",
+  "en": "Gender"
+ },
+ {
+  "key": "ponb_mommy_name",
+  "az": "Körpənin adı",
+  "en": "Baby’s name"
+ },
+ {
+  "key": "ponb_mommy_name_ph",
+  "az": "məs. Aylin",
+  "en": "e.g. Aylin"
+ },
+ {
+  "key": "ponb_mommy_sub",
+  "az": "İnkişaf bələdçisi yaşa görə fərdiləşir",
+  "en": "The development guide is personalized by age"
+ },
+ {
+  "key": "ponb_mommy_title",
+  "az": "Körpənizi tanıyaq",
+  "en": "Tell us about your baby"
+ },
+ {
+  "key": "ponb_saving",
+  "az": "Saxlanılır...",
+  "en": "Saving..."
+ },
+ {
+  "key": "ponb_stage_bump",
+  "az": "Hamiləyəm",
+  "en": "I’m pregnant"
+ },
+ {
+  "key": "ponb_stage_bump_sub",
+  "az": "Həftə-həftə körpənizin inkişafını izləyin",
+  "en": "Follow your baby’s development week by week"
+ },
+ {
+  "key": "ponb_stage_flow",
+  "az": "Tsiklimi izləyirəm",
+  "en": "I’m tracking my cycle"
+ },
+ {
+  "key": "ponb_stage_flow_sub",
+  "az": "Ağıllı period və ovulyasiya proqnozları",
+  "en": "Smart period and ovulation predictions"
+ },
+ {
+  "key": "ponb_stage_mommy",
+  "az": "Anayam",
+  "en": "I’m a mom"
+ },
+ {
+  "key": "ponb_stage_mommy_sub",
+  "az": "Körpənizin qulluq və inkişaf bələdçisi",
+  "en": "Care and development guide for your baby"
+ },
+ {
+  "key": "ponb_subtitle",
+  "az": "Hansı mərhələdəsiniz? Hər şey buna görə fərdiləşəcək.",
+  "en": "Which stage are you in? Everything gets personalized around it."
+ },
+ {
+  "key": "ponb_title",
+  "az": "Sizi tanıyaq",
+  "en": "Let’s get to know you"
+ },
+ {
+  "key": "premiummodal_bagla_84bdc9",
+  "az": "Bağla",
+  "en": "Close"
+ },
+ {
+  "key": "profilescreen_referral",
+  "az": "Dostunu dəvət et",
+  "en": "Invite a friend"
+ },
+ {
+  "key": "profilescreen_referral_badge",
+  "az": "+7 gün",
+  "en": "+7 days"
+ },
+ {
+  "key": "pw_billed_yearly",
+  "az": "ildə bir dəfə ödənilir",
+  "en": "billed once a year"
+ },
+ {
+  "key": "pw_close",
+  "az": "Bağla",
+  "en": "Close"
+ },
+ {
+  "key": "pw_cta_trial",
+  "az": "{days} gün pulsuz başla",
+  "en": "Start {days} days free"
+ },
+ {
+  "key": "pw_feat_ai",
+  "az": "Limitsiz Dr. Anacan AI",
+  "en": "Unlimited Dr. Anacan AI"
+ },
+ {
+  "key": "pw_feat_household",
+  "az": "Partnyorla ortaq Premium",
+  "en": "Shared Premium with partner"
+ },
+ {
+  "key": "pw_feat_noads",
+  "az": "Tam reklamsız təcrübə",
+  "en": "Completely ad-free experience"
+ },
+ {
+  "key": "pw_feat_reports",
+  "az": "Həkim üçün PDF hesabatlar",
+  "en": "PDF reports for your doctor"
+ },
+ {
+  "key": "pw_feat_sounds",
+  "az": "Yuxu səsləri və meditasiya",
+  "en": "Sleep sounds & meditation"
+ },
+ {
+  "key": "pw_feat_tools",
+  "az": "Bütün alətlərə tam giriş",
+  "en": "Full access to all tools"
+ },
+ {
+  "key": "pw_flexible",
+  "az": "Çevik — istənilən ay dayandır",
+  "en": "Flexible — stop any month"
+ },
+ {
+  "key": "pw_funnel_subtitle",
+  "az": "Fərdi planınız hazırdır — tam imkanlarla başlayın",
+  "en": "Your personal plan is ready — start with full access"
+ },
+ {
+  "key": "pw_lifetime",
+  "az": "Ömürlük",
+  "en": "Lifetime"
+ },
+ {
+  "key": "pw_lifetime_sub",
+  "az": "Bir dəfə ödə — həmişəlik sənin",
+  "en": "Pay once — yours forever"
+ },
+ {
+  "key": "pw_loading_prices",
+  "az": "Qiymətlər yüklənir...",
+  "en": "Loading prices..."
+ },
+ {
+  "key": "pw_no_product",
+  "az": "Məhsul tapılmadı",
+  "en": "Product not found"
+ },
+ {
+  "key": "pw_no_product_desc",
+  "az": "Bir az sonra yenidən cəhd edin",
+  "en": "Please try again in a moment"
+ },
+ {
+  "key": "pw_restore_none",
+  "az": "Alış tapılmadı",
+  "en": "No purchase found"
+ },
+ {
+  "key": "pw_restore_none_desc",
+  "az": "Bu hesabla bağlı əvvəlki abunəlik yoxdur",
+  "en": "No previous subscription linked to this account"
+ },
+ {
+  "key": "pw_restored",
+  "az": "Alışlar bərpa edildi ✓",
+  "en": "Purchases restored ✓"
+ },
+ {
+  "key": "pw_restored_desc",
+  "az": "Premium abunəliyiniz aktivdir",
+  "en": "Your Premium subscription is active"
+ },
+ {
+  "key": "pw_social_proof",
+  "az": "10,000+ Azərbaycanlı ana bizi seçib",
+  "en": "10,000+ moms already chose us"
+ },
+ {
+  "key": "pw_success_desc",
+  "az": "Bütün imkanlar açıldı — xoş istifadələr!",
+  "en": "Everything is unlocked — enjoy!"
+ },
+ {
+  "key": "pw_success_title",
+  "az": "Premium aktivləşdirildi! 🎉",
+  "en": "Premium activated! 🎉"
+ }
+]

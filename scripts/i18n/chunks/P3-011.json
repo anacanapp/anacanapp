@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "smartplaybox_evinizde_olan_esyalari_secin_s_ec7864",
+  "az": "Evinizdə olan əşyaları seçin, sizə uyğun oyunlar tövsiyə edək.",
+  "en": "Select items in your home and we'll recommend suitable games for you."
+ },
+ {
+  "key": "smartplaybox_korpeniz_da99de",
+  "az": "Körpəniz",
+  "en": "Your baby"
+ },
+ {
+  "key": "smartplaybox_lazim_olan_esyalar_8e1429",
+  "az": "📦 Lazım olan əşyalar",
+  "en": "📦 Items needed"
+ },
+ {
+  "key": "smartplaybox_lazim_olan_esyalar_b33d1b",
+  "az": "Lazım olan əşyalar:",
+  "en": "Items needed:"
+ },
+ {
+  "key": "smartplaybox_medium",
+  "az": "Orta",
+  "en": "Medium"
+ },
+ {
+  "key": "smartplaybox_metbex_4f67cc",
+  "az": "🍳 Mətbəx",
+  "en": "🍳 Kitchen"
+ },
+ {
+  "key": "smartplaybox_motor",
+  "az": "Motor",
+  "en": "Motor"
+ },
+ {
+  "key": "smartplaybox_nece_oynamali_6cadac",
+  "az": "📝 Necə oynamalı",
+  "en": "📝 How to play"
+ },
+ {
+  "key": "smartplaybox_oyun_nece_kecdi_c5f5f4",
+  "az": "Oyun necə keçdi?",
+  "en": "How was the game?"
+ },
+ {
+  "key": "smartplaybox_oyuna_basla_fe4574",
+  "az": "Oyuna Başla",
+  "en": "Start the game"
+ },
+ {
+  "key": "smartplaybox_oyunlar_yuklenir_d1edd2",
+  "az": "Oyunlar yüklənir...",
+  "en": "Games are loading..."
+ },
+ {
+  "key": "smartplaybox_oyunu_tamamladim_51cdab",
+  "az": "Oyunu Tamamladım!",
+  "en": "Completed the game!"
+ },
+ {
+  "key": "smartplaybox_profilde_korpenin_dogum_tarixini_elave_e_696d85",
+  "az": "Profildə körpənin doğum tarixini əlavə edin",
+  "en": "Add baby's date of birth in profile"
+ },
+ {
+  "key": "smartplaybox_sosial",
+  "az": "Sosial",
+  "en": "Social"
+ },
+ {
+  "key": "smartplaybox_tehsil_ce8208",
+  "az": "📚 Təhsil",
+  "en": "📚 Education"
+ },
+ {
+  "key": "smartplaybox_tekrar_istifade_4effdb",
+  "az": "♻️ Təkrar istifadə",
+  "en": "♻️ Reuse"
+ },
+ {
+  "key": "smartplaybox_umumi_980283",
+  "az": "📦 Ümumi",
+  "en": "📦 General"
+ },
+ {
+  "key": "sosbutton_anladim_fd05e3",
+  "az": "Anladım",
+  "en": "I understood"
+ },
+ {
+  "key": "sosbutton_basib_saxla_2_san_27183d",
+  "az": "Basıb saxla (2 san)",
+  "en": "Press and hold (2 sec)"
+ },
+ {
+  "key": "sosbutton_gonderilir_1d548c",
+  "az": "Göndərilir...",
+  "en": "Sending..."
+ },
+ {
+  "key": "sosbutton_partnyorunuz_tecili_komek_iste_b7a70c",
+  "az": "Partnyorunuz təcili kömək istəyir!",
+  "en": "Your partner needs urgent help!"
+ },
+ {
+  "key": "sosbutton_partnyorunuz_xeberdar_edildi_4497d5",
+  "az": "Partnyorunuz xəbərdar edildi",
+  "en": "Your partner has been notified"
+ },
+ {
+  "key": "sosbutton_sos_gonderildi_fa1202",
+  "az": "SOS Göndərildi!",
+  "en": "SOS Cent! 🎉"
+ },
+ {
+  "key": "sosbutton_tecili_veziyyetde_partnyorunuz_902e41",
+  "az": "Təcili vəziyyətdə partnyorunuza bildiriş və lokasiya göndərilir",
+  "en": "In an emergency, a notification and location is sent to your partner"
+ },
+ {
+  "key": "sosbutton_tecili_xeberdarliq_0bc7b9",
+  "az": "TƏCİLİ XƏBƏRDARLIQ!",
+  "en": "URGENT ALERT!"
+ },
+ {
+  "key": "storycropeditor_sekli_nizamla_aee92d",
+  "az": "Şəkli nizamla",
+  "en": "Adjust image"
+ },
+ {
+  "key": "surprisetab_cetin_4bf032",
+  "az": "Çətin",
+  "en": "Difficult"
+ },
+ {
+  "key": "surprisetab_difficulty_easy",
+  "az": "Asan",
+  "en": "Easy"
+ },
+ {
+  "key": "surprisetab_difficulty_orta",
+  "az": "Orta",
+  "en": "Medium"
+ },
+ {
+  "key": "surprisetab_eylence_43d0e0",
+  "az": "Əyləncə",
+  "en": "Entertainment"
+ },
+ {
+  "key": "surprisetab_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All"
+ },
+ {
+  "key": "surprisetab_hediyye_8578f3",
+  "az": "Hədiyyə",
+  "en": "Gift"
+ },
+ {
+  "key": "surprisetab_heyat_yoldasin_fc543b",
+  "az": "Həyat yoldaşın",
+  "en": "Partner"
+ },
+ {
+  "key": "surprisetab_ipucu_a842e4",
+  "az": "İpucu",
+  "en": "Indian"
+ },
+ {
+  "key": "surprisetab_kicik_ve_sade_jestler_cox_vaxt_53a074",
+  "az": "Kiçik və sadə jestlər çox vaxt ən yadda qalanlar olur. Gözlənilməz anlarda edilən sürprizlər daha xüsusidir! 💕",
+  "en": "Small and simple gestures are often the most memorable. Surprises at unexpected moments are more special! 💕"
+ },
+ {
+  "key": "surprisetab_macera_bc3bdc",
+  "az": "Macəra",
+  "en": "Adventure"
+ },
+ {
+  "key": "surprisetab_onu_xosbext_etmek_ucun_7ecff1",
+  "az": "Onu xoşbəxt etmək üçün",
+  "en": "To make her happy"
+ },
+ {
+  "key": "surprisetab_partner_completed_msg_f123bc",
+  "az": "{partnerName} sənin üçün \"{title}\" sürprizini tamamladı! {emoji}",
+  "en": "{partnerName} completed the surprise \"{title}\" for you! {emoji}"
+ },
+ {
+  "key": "surprisetab_planla",
+  "az": "Planla",
+  "en": "Plan"
+ },
+ {
+  "key": "surprisetab_planlandi_3fb737",
+  "az": "Planlandı",
+  "en": "Scheduled"
+ },
+ {
+  "key": "surprisetab_planlanmis_surprizler_3cd66a",
+  "az": "Planlanmış Sürprizlər (",
+  "en": "Planned surprises ("
+ },
+ {
+  "key": "surprisetab_qaygi_868e7d",
+  "az": "Qayğı",
+  "en": "Care"
+ },
+ {
+  "key": "surprisetab_qeyd_isteye_bagli_96c689",
+  "az": "Qeyd (istəyə bağlı)",
+  "en": "Notes (optional)"
+ },
+ {
+  "key": "surprisetab_romantic",
+  "az": "Romantik",
+  "en": "Romantic"
+ },
+ {
+  "key": "surprisetab_surpriz_planla_d495ce",
+  "az": "Sürpriz Planla",
+  "en": "Plan a Surprise"
+ },
+ {
+  "key": "surprisetab_surpriz_planlandi_0e685c",
+  "az": "Sürpriz planlandı! 🎉",
+  "en": "Surprise planned! 🎉"
+ },
+ {
+  "key": "surprisetab_surpriz_silindi_095181",
+  "az": "Sürpriz silindi",
+  "en": "Surprise deleted"
+ },
+ {
+  "key": "surprisetab_surpriz_tamamlandi_ff52dd",
+  "az": "Sürpriz Tamamlandı! 🎁",
+  "en": "Surprise Completed! 🎁"
+ },
+ {
+  "key": "surprisetab_surpriz_tamamlanib_e7514f",
+  "az": "sürpriz tamamlanıb",
+  "en": "surprise completed"
+ },
+ {
+  "key": "surprisetab_surpriz_tarixcesi_46a7ab",
+  "az": "Sürpriz Tarixçəsi",
+  "en": "Surprise History"
+ },
+ {
+  "key": "surprisetab_surprizi_planla_f95b6f",
+  "az": "Sürprizi Planla",
+  "en": "Plan a Surprise"
+ },
+ {
+  "key": "surprisetab_tamamlandi_5e0188",
+  "az": "Tamamlandı",
+  "en": "Completed"
+ },
+ {
+  "key": "surprisetab_tarix_sec_937037",
+  "az": "Tarix seç",
+  "en": "Select date"
+ },
+ {
+  "key": "surprisetab_xususi_qeydler_6c6d1f",
+  "az": "Xüsusi qeydlər...",
+  "en": "Special notes..."
+ },
+ {
+  "key": "surprisetab_yaradici_28b2b1",
+  "az": "Yaradıcı",
+  "en": "Creative"
+ },
+ {
+  "key": "symptompatternreport_defe_05c318",
+  "az": "dəfə •",
+  "en": "times •"
+ },
+ {
+  "key": "symptompatternreport_follikular_f123bc",
+  "az": "Follikular",
+  "en": "Follicular"
+ },
+ {
+  "key": "symptompatternreport_hele_kifayet_qeder_data_yoxdur_8ad930",
+  "az": "Hələ kifayət qədər data yoxdur. Gündəlik simptomlarınızı qeyd edin və 1-2 tsikldən sonra burada paylanma görəcəksiniz.",
+  "en": "Not enough data yet. Record your daily symptoms and after 1-2 cycles you will see a distribution here."
+ },
+ {
+  "key": "symptompatternreport_lutein_f123bc",
+  "az": "Lutein",
+  "en": "Luteal"
+ },
+ {
+  "key": "symptompatternreport_menstruasiya_1c9b68",
+  "az": "Menstruasiya",
+  "en": "Menstruation"
+ },
+ {
+  "key": "symptompatternreport_ovulyasiya_f123bc",
+  "az": "Ovulyasiya",
+  "en": "Ovulation"
+ },
+ {
+  "key": "symptompatternreport_premium_a_kec_9dadb6",
+  "az": "Premium-a keç",
+  "en": "Go Premium"
+ },
+ {
+  "key": "symptompatternreport_simptomlarinizin_tsikl_merhele_e8cc92",
+  "az": "Simptomlarınızın tsikl mərhələləri üzrə paylanmasını görün. Hansı simptomun hansı fazada baş verdiyini AI ilə kəşf edin.",
+  "en": "See the distribution of your symptoms by cycle phase. Discover which symptom occurs in which phase with AI."
+ },
+ {
+  "key": "symptompatternreport_son_90_gun_uzre_top_5_simptom__c1b6a8",
+  "az": "Son 90 gün üzrə top 5 simptom və dominant faza:",
+  "en": "Top 5 symptoms and dominant phase for the last 90 days:"
+ },
+ {
+  "key": "symptompatternreport_title_e8cbea",
+  "az": "Simptom Analizi",
+  "en": "Symptom Pattern Analysis"
+ },
+ {
+  "key": "syncedfeaturesgrid_ad_secimi_465d2a",
+  "az": "Ad Seçimi",
+  "en": "Name Selection"
+ },
+ {
+  "key": "syncedfeaturesgrid_bugun_gonderildi_1fb520",
+  "az": "Bugün göndərildi",
+  "en": "Sent today"
+ },
+ {
+  "key": "syncedfeaturesgrid_ehval_aktivlik_a0a105",
+  "az": "Əhval & aktivlik",
+  "en": "Mood & activity"
+ },
+ {
+  "key": "syncedfeaturesgrid_gozleyir_7c7f65",
+  "az": "Gözləyir...",
+  "en": "Waiting..."
+ },
+ {
+  "key": "syncedfeaturesgrid_gundelik_xulase_3d07a5",
+  "az": "Gündəlik Xülasə",
+  "en": "Daily Summary"
+ },
+ {
+  "key": "syncedfeaturesgrid_heftelik_statistika_292953",
+  "az": "Həftəlik Statistika",
+  "en": "Weekly Statistics"
+ },
+ {
+  "key": "syncedfeaturesgrid_planlasdir_933684",
+  "az": "Planlaşdır",
+  "en": "Plan it"
+ },
+ {
+  "key": "syncedfeaturesgrid_surpriz_planla_d495ce",
+  "az": "Sürpriz Planla",
+  "en": "Plan a Surprise"
+ },
+ {
+  "key": "syncedfeaturesgrid_xestexana_cantasi_045078",
+  "az": "Xəstəxana Çantası",
+  "en": "Hospital Bag"
+ },
+ {
+  "key": "teethingtracker_agri_kesici_9c92cd",
+  "az": "Ağrı Kəsici",
+  "en": "Pain Relief"
+ },
+ {
+  "key": "teethingtracker_asagi_cene_78719d",
+  "az": "Aşağı Çənə",
+  "en": "Lower Jaw"
+ },
+ {
+  "key": "teethingtracker_azi_disi_fcdef9",
+  "az": "Azı dişi",
+  "en": "Molar"
+ },
+ {
+  "key": "teethingtracker_bu_dis_cixib_543f0e",
+  "az": "Bu diş çıxıb",
+  "en": "This tooth is out"
+ },
+ {
+  "key": "teethingtracker_bu_dis_hele_cixmayib_df0465",
+  "az": "Bu diş hələ çıxmayıb",
+  "en": "This tooth has not erupted yet"
+ },
+ {
+  "key": "teethingtracker_cixan_disler_ab71e7",
+  "az": "Çıxan Dişlər",
+  "en": "Erupted teeth"
+ },
+ {
+  "key": "teethingtracker_cixib_f2099b",
+  "az": "Çıxıb",
+  "en": "Erupted"
+ },
+ {
+  "key": "teethingtracker_cixib_isaresini_sil_abec15",
+  "az": "Çıxıb işarəsini sil",
+  "en": "Mark as not erupted"
+ },
+ {
+  "key": "teethingtracker_cixib_olaraq_isarele_678f2e",
+  "az": "Çıxıb olaraq işarələ",
+  "en": "Mark as erupted"
+ },
+ {
+  "key": "teethingtracker_cixma_tarixi_3c7ae9",
+  "az": "Çıxma tarixi",
+  "en": "Eruption date"
+ },
+ {
+  "key": "teethingtracker_cixmayib_d90dc0",
+  "az": "Çıxmayıb",
+  "en": "Not erupted"
+ },
+ {
+  "key": "teethingtracker_dis_cixarma_izleyicisi_109c3d",
+  "az": "Diş Çıxarma İzləyicisi",
+  "en": "Teething Tracker"
+ },
+ {
+  "key": "teethingtracker_dis_diaqrami_a219c2",
+  "az": "Diş Diaqramı",
+  "en": "Tooth Diagram"
+ },
+ {
+  "key": "teethingtracker_dis_eti_xetti_22266e",
+  "az": "Diş əti xətti",
+  "en": "Gum line"
+ },
+ {
+  "key": "teethingtracker_dis_novu_07a451",
+  "az": "Diş növü",
+  "en": "Tooth type"
+ },
+ {
+  "key": "teethingtracker_dise_toxunaraq_qeyd_edin_65aadb",
+  "az": "Dişə toxunaraq qeyd edin",
+  "en": "Mark by tapping the tooth"
+ },
+ {
+  "key": "teethingtracker_evvel_b41251",
+  "az": "Əvvəl",
+  "en": "First"
+ },
+ {
+  "key": "teethingtracker_her_hansi_qeyd_elave_edin_9c35e2",
+  "az": "Hər hansı qeyd əlavə edin...",
+  "en": "Add any note..."
+ },
+ {
+  "key": "teethingtracker_kesici_569ec2",
+  "az": "Kəsici",
+  "en": "Incisor"
+ },
+ {
+  "key": "teethingtracker_kopek_disi_a7a461",
+  "az": "Köpək dişi",
+  "en": "Canine"
+ },
+ {
+  "key": "teethingtracker_korpenizin_383c3e",
+  "az": "Körpənizin",
+  "en": "Your baby"
+ },
+ {
+  "key": "teethingtracker_qeydler_isteye_bagli_958966",
+  "az": "Qeydlər (istəyə bağlı)",
+  "en": "Notes (optional)"
+ },
+ {
+  "key": "teethingtracker_qulluq_meslehetleri_1be08c",
+  "az": "Qulluq Məsləhətləri",
+  "en": "Care Tips"
+ },
+ {
+  "key": "teethingtracker_severity_ciddi",
+  "az": "Ciddi",
+  "en": "Severe"
+ },
+ {
+  "key": "teethingtracker_severity_orta",
+  "az": "Orta",
+  "en": "Medium"
+ },
+ {
+  "key": "teethingtracker_tamamlandi_d6728f",
+  "az": "tamamlandı",
+  "en": "completed"
+ },
+ {
+  "key": "teethingtracker_tipik_cixma_yasi_1c2740",
+  "az": "Tipik çıxma yaşı",
+  "en": "Typical eruption age"
+ },
+ {
+  "key": "teethingtracker_umumi_1b5521",
+  "az": "Ümumi",
+  "en": "General"
+ },
+ {
+  "key": "teethingtracker_yungul_2a8010",
+  "az": "Yüngül",
+  "en": "Light"
+ },
+ {
+  "key": "teethingtracker_yuxari_cene_589483",
+  "az": "Yuxarı Çənə",
+  "en": "Upper Jaw"
+ },
+ {
+  "key": "teethingtracker_zamani_de9ddc",
+  "az": "Zamanı",
+  "en": "Time"
+ },
+ {
+  "key": "teethingwidget_alt_merkezi_kesiciler_63d8b0",
+  "az": "Alt mərkəzi kəsicilər",
+  "en": "Lower central incisors"
+ },
+ {
+  "key": "teethingwidget_birinci_azi_disler_eccbbc",
+  "az": "Birinci azı dişlər",
+  "en": "First molars"
+ },
+ {
+  "key": "teethingwidget_cixan_disler_a9eadd",
+  "az": "Çıxan dişlər",
+  "en": "Erupted teeth"
+ },
+ {
+  "key": "teethingwidget_diqqet_764567",
+  "az": "Diqqət",
+  "en": "Attention"
+ },
+ {
+  "key": "teethingwidget_dis_cixarma_ca53f7",
+  "az": "Diş Çıxarma",
+  "en": "Teething"
+ },
+ {
+  "key": "teethingwidget_expected_teeth",
+  "az": "{n} aylıq üçün ~{t} diş gözlənilir",
+  "en": "For {n} months — {t} teeth expected"
+ },
+ {
+  "key": "teethingwidget_ikinci_azi_disler_861654",
+  "az": "İkinci azı dişlər",
+  "en": "Second molars"
+ },
+ {
+  "key": "teethingwidget_kopek_disleri_a86ac1",
+  "az": "Köpək dişləri",
+  "en": "Canines"
+ },
+ {
+  "key": "teethingwidget_normal_development",
+  "az": "Normal inkişaf",
+  "en": "Normal development"
+ },
+ {
+  "key": "teethingwidget_novbeti_0fff9a",
+  "az": "Növbəti:",
+  "en": "Next:"
+ },
+ {
+  "key": "teethingwidget_son_sud_disleri_c43b8c",
+  "az": "Son süd dişləri",
+  "en": "Last primary teeth"
+ },
+ {
+  "key": "teethingwidget_timeframe_13_19",
+  "az": "13-19 ay",
+  "en": "13-19 mo"
+ },
+ {
+  "key": "teethingwidget_timeframe_16_23",
+  "az": "16-23 ay",
+  "en": "16-23 mo"
+ },
+ {
+  "key": "teethingwidget_timeframe_23_33",
+  "az": "23-33 ay",
+  "en": "23-33 mo"
+ },
+ {
+  "key": "teethingwidget_timeframe_6_10",
+  "az": "6-10 ay",
+  "en": "6-10 mo"
+ },
+ {
+  "key": "teethingwidget_timeframe_8_12",
+  "az": "8-12 ay",
+  "en": "8-12 mo"
+ },
+ {
+  "key": "teethingwidget_timeframe_9_16",
+  "az": "9-16 ay",
+  "en": "9-16 mo"
+ },
+ {
+  "key": "teethingwidget_timeframe_soon",
+  "az": "Tezliklə",
+  "en": "Soon"
+ },
+ {
+  "key": "teethingwidget_yan_kesiciler_c75ada",
+  "az": "Yan kəsicilər",
+  "en": "Lateral incisors"
+ },
+ {
+  "key": "teethingwidget_yuxari_merkezi_kesiciler_456b8c",
+  "az": "Yuxarı mərkəzi kəsicilər",
+  "en": "Upper central incisors"
+ },
+ {
+  "key": "time_day",
+  "az": "gün",
+  "en": "day"
+ },
+ {
+  "key": "time_days",
+  "az": "gün",
+  "en": "days"
+ },
+ {
+  "key": "time_days_old",
+  "az": "günlük",
+  "en": "days old"
+ },
+ {
+  "key": "time_month",
+  "az": "ay",
+  "en": "month"
+ },
+ {
+  "key": "time_months",
+  "az": "ay",
+  "en": "months"
+ },
+ {
+  "key": "time_months_old",
+  "az": "aylıq",
+  "en": "months old"
+ },
+ {
+  "key": "time_years_old",
+  "az": "yaş",
+  "en": "years old"
+ },
+ {
+  "key": "timernotifications_bez_deyisdirme_cfec83",
+  "az": "🧷 Bez dəyişdirmə",
+  "en": "🧷 Diaper changing"
+ },
+ {
+  "key": "timernotifications_emizdirme_af3cc9",
+  "az": "🍼 Əmizdirmə",
+  "en": "🍼 Breastfeeding"
+ },
+ {
+  "key": "timernotifications_kuy_sesi_1de6fc",
+  "az": "🔊 Küy Səsi",
+  "en": "🔊 Noise"
+ },
+ {
+  "key": "timernotifications_sag_edbe12",
+  "az": "Sağ",
+  "en": "Right"
+ },
+ {
+  "key": "timernotifications_sol",
+  "az": "Sol",
+  "en": "Left"
+ },
+ {
+  "key": "timernotifications_timer_aktiv_geri_donmek_ucun_t_f7638a",
+  "az": "Timer aktiv — geri dönmək üçün toxunun",
+  "en": "Timer on — tap to go back"
+ },
+ {
+  "key": "timernotifications_yuxu_eb2b53",
+  "az": "😴 Yuxu",
+  "en": "😴 Sleep"
+ },
+ {
+  "key": "toolshub_activate_after_week_prefix",
+  "az": "Bu alət",
+  "en": "This tool will activate after"
+ },
+ {
+  "key": "toolshub_activate_after_week_suffix",
+  "az": ". həftədən sonra aktivləşəcək",
+  "en": " weeks"
+ },
+ {
+  "key": "toolshub_alet_9a099a",
+  "az": "alət",
+  "en": "instrument"
+ },
+ {
+  "key": "toolshub_alet_axtarin_fad58b",
+  "az": "Alət axtarın...",
+  "en": "Search for a tool..."
+ },
+ {
+  "key": "toolshub_alet_tapilmadi_f358cb",
+  "az": "Alət tapılmadı",
+  "en": "Tool not found"
+ },
+ {
+  "key": "toolshub_aletler_4778b4",
+  "az": "Alətlər",
+  "en": "Tools"
+ },
+ {
+  "key": "toolshub_analiq_9e762d",
+  "az": "Analıq",
+  "en": "Motherhood"
+ },
+ {
+  "key": "toolshub_bu_kateqoriyada_alet_yoxdur_6c04fc",
+  "az": "Bu kateqoriyada alət yoxdur",
+  "en": "There are no tools in this category"
+ },
+ {
+  "key": "toolshub_butun_aletler_88b643",
+  "az": "Bütün Alətlər",
+  "en": "All Tools"
+ },
+ {
+  "key": "toolshub_dovriyye_f65b93",
+  "az": "Dövriyyə",
+  "en": "Cycle"
+ },
+ {
+  "key": "toolshub_featured_title",
+  "az": "Seçilmişlər",
+  "en": null
+ },
+ {
+  "key": "toolshub_hamilelik_e86feb",
+  "az": "Hamiləlik",
+  "en": "Pregnancy"
+ },
+ {
+  "key": "toolshub_hamisini_goster_b13d82",
+  "az": "Hamısını göstər",
+  "en": "Show all"
+ },
+ {
+  "key": "toolshub_minigames_title",
+  "az": "Mini Oyunlar",
+  "en": null
+ },
+ {
+  "key": "toolshub_netice",
+  "az": "nəticə",
+  "en": "results"
+ },
+ {
+  "key": "toolshub_no_matching_tools",
+  "az": "ilə uyğun alət yoxdur",
+  "en": "No matching tools for"
+ },
+ {
+  "key": "toolshub_not_active_yet",
+  "az": "hələ aktiv deyil",
+  "en": "not active yet"
+ },
+ {
+  "key": "toolshub_not_available",
+  "az": "mövcud deyil",
+  "en": "not available"
+ },
+ {
+  "key": "toolshub_only_maternity_use",
+  "az": "Bu alət yalnız hamiləlik dövründə istifadə oluna bilər",
+  "en": "This tool can only be used during pregnancy"
+ },
+ {
+  "key": "toolshub_xususi_gunler_ucun_tortlar_8a2248",
+  "az": "Xüsusi günlər üçün tortlar",
+  "en": "Cakes for special occasions"
+ },
+ {
+  "key": "total_payment",
+  "az": "Yekun Ödəniş",
+  "en": "Total Payment"
+ },
+ {
+  "key": "unit_cm",
+  "az": "sm",
+  "en": "cm"
+ },
+ {
+  "key": "unit_hr",
+  "az": "saat",
+  "en": "hr"
+ },
+ {
+  "key": "unit_kg",
+  "az": "kq",
+  "en": "kg"
+ },
+ {
+  "key": "unit_min",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "unit_sec",
+  "az": "san",
+  "en": "Sec"
+ },
+ {
+  "key": "unsavedchangesdialog_deyisiklikleri_at_9475e4",
+  "az": "Dəyişiklikləri at",
+  "en": "Discard the changes"
+ },
+ {
+  "key": "unsavedchangesdialog_edilen_deyisiklikler_yadda_sax_d7b24f",
+  "az": "Edilən dəyişikliklər yadda saxlanılmayıb. Çıxmaq istəyirsiniz?",
+  "en": "Changes made are not saved. Do you want to go out?"
+ },
+ {
+  "key": "unsavedchangesdialog_qayit_43a09f",
+  "az": "Qayıt",
+  "en": "Come back"
+ },
+ {
+  "key": "unsavedchangesdialog_yadda_saxlanilmamis_deyisiklik_45ae2f",
+  "az": "Yadda saxlanılmamış dəyişikliklər",
+  "en": "Unsaved changes"
+ },
+ {
+  "key": "untranslated_ad_i34vkg",
+  "az": "Ad",
+  "en": "Name"
+ },
+ {
+  "key": "untranslated_ad_soyad_by9a9b",
+  "az": "AD SOYAD",
+  "en": "FULL NAME"
+ },
+ {
+  "key": "untranslated_ad_soyad_lm5srh",
+  "az": "Ad, Soyad *",
+  "en": "Name, Surname *"
+ },
+ {
+  "key": "untranslated_ad_w3td2c",
+  "az": "Ad:",
+  "en": "Name:"
+ },
+ {
+  "key": "untranslated_anacan_endirimi_eg7euj",
+  "az": "Anacan Endirimi",
+  "en": "Anacan Discount"
+ },
+ {
+  "key": "untranslated_anacan_partnyor_endirim_sistem_qfwnst",
+  "az": "Anacan Partnyor Endirim Sistemi",
+  "en": "Anacan Partner Discount System"
+ },
+ {
+  "key": "untranslated_anacan_partnyor_sistemi_xadwvm",
+  "az": "Anacan Partnyor Sistemi",
+  "en": "Anacan Partner System"
+ },
+ {
+  "key": "untranslated_analiz_edilir_hf0m1t",
+  "az": "Analiz edilir...",
+  "en": null
+ },
+ {
+  "key": "untranslated_anonim_89j5l6",
+  "az": "Anonim",
+  "en": "Anonymous"
+ },
+ {
+  "key": "untranslated_axtar_92w4nn",
+  "az": "Axtar...",
+  "en": "Search..."
+ },
+ {
+  "key": "untranslated_ay_m6wwbp",
+  "az": "Ay",
+  "en": "Month"
+ },
+ {
+  "key": "untranslated_bank_cclvmv",
+  "az": "Bank:",
+  "en": "Bank:"
+ },
+ {
+  "key": "untranslated_bax_1yplss",
+  "az": "Bax",
+  "en": "View"
+ },
+ {
+  "key": "untranslated_bilinmir_iqd3o8",
+  "az": "Bilinmir",
+  "en": "Unknown"
+ },
+ {
+  "key": "untranslated_cins_f3ymi9",
+  "az": "Cins",
+  "en": "Gender"
+ },
+ {
+  "key": "untranslated_cinsi_az7fty",
+  "az": "Cinsi",
+  "en": "Gender"
+ },
+ {
+  "key": "untranslated_davam_et_rchhd5",
+  "az": "Davam et",
+  "en": "Continue"
+ },
+ {
+  "key": "untranslated_diapazon_dgfplg",
+  "az": "Diapazon",
+  "en": "Range"
+ },
+ {
+  "key": "untranslated_dil_g90qr5",
+  "az": "Dil",
+  "en": "Language"
+ },
+ {
+  "key": "untranslated_dil_language_7oaxzb",
+  "az": "Dil / Language",
+  "en": "Language / Dil"
+ },
+ {
+  "key": "untranslated_dil_rfnolb",
+  "az": "Dil:",
+  "en": "Language:"
+ },
+ {
+  "key": "untranslated_elan_voiz8p",
+  "az": "Elan",
+  "en": "Listing"
+ },
+ {
+  "key": "untranslated_endirimi_al_qr_yarat_6yd90i",
+  "az": "Endirimi al — QR yarat",
+  "en": "Get discount — Create QR"
+ },
+ {
+  "key": "untranslated_enerji_q6zcss",
+  "az": "Enerji",
+  "en": "Energy"
+ },
+ {
+  "key": "untranslated_fiziki_albom_3i3l4j",
+  "az": "Fiziki Albom",
+  "en": "Physical Album"
+ },
+ {
+  "key": "untranslated_fokus_qida_lyi3h2",
+  "az": "Fokus Qida",
+  "en": "Focus Food"
+ },
+ {
+  "key": "untranslated_geyim_hftttf",
+  "az": "Geyim",
+  "en": "Clothing"
+ },
+ {
+  "key": "untranslated_hesablanacaq_w6pf63",
+  "az": "Hesablanacaq ↗",
+  "en": "To be calculated ↗"
+ },
+ {
+  "key": "untranslated_kalori_y6oaf2",
+  "az": "Kalori",
+  "en": "Calories"
+ },
+ {
+  "key": "untranslated_kamera_qucuxi",
+  "az": "Kamera",
+  "en": "Camera"
+ },
+ {
+  "key": "untranslated_kart_sahibi_hixmbt",
+  "az": "Kart sahibi",
+  "en": "Cardholder"
+ }
+]

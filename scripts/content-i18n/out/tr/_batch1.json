@@ -1,0 +1,91 @@
+{
+ "weekly_tips": {
+  "ffdc21c9-936a-4c7f-a1f3-035fd6fd79b0": { "title": "Hamileliğin 8. haftası", "content": "Bebeğinizin tüm temel organları oluşmaya başladı. Bu dönemde yorgunluk hissedebilirsiniz." },
+  "52589565-9c78-4f10-82b4-df49a6b0a3cb": { "title": "Hamileliğin 12. haftası", "content": "İlk trimester sona eriyor! Bebeğiniz artık 5-6 cm uzunluğunda. Kalp atışlarını duyabilirsiniz." },
+  "2073794a-46ce-4676-83f7-e8e618e0cdd5": { "title": "Hamileliğin 20. haftası", "content": "Yolun yarısındasınız! Bebeğinizin hareketlerini hissetmeye başlayabilirsiniz." },
+  "6059b973-412e-4c16-b709-c641f2df7092": { "title": "Hamileliğin 30. haftası", "content": "Bebeğiniz hızla büyüyor. Hastane çantanızı hazırlamaya başlayın." },
+  "4894235e-9682-404f-8851-ae713c8f879b": { "title": "Hamileliğin 6. haftası", "content": "Bu hafta embriyo implante oluyor. Folik asit almaya başlayın ve doktorunuzla görüşün." },
+  "ca85a4a4-fad9-4c78-bbb5-39209ff9d8a1": { "title": "Hamileliğin 7. haftası", "content": "Tebrikler, son haftadasınız! Doğum belirtilerini izleyin ve hazır olun." }
+ },
+ "nutrition_tips": {
+  "a551c688-076a-470a-9862-b199c56afee1": { "title": "Yumurta", "content": "Yüksek kaliteli protein ve beyin gelişimi için önemli olan kolin açısından zengindir. Bebeğin sinir sisteminin oluşumuna yardımcı olur." },
+  "3cd9d02f-2306-400b-bf13-48f59e00d6e0": { "title": "Folat açısından zengin besinler", "content": "Hamileliğin ilk trimesterinde folat çok önemlidir. Koyu yeşil yapraklı sebzeler, narenciye ve baklagiller iyi kaynaklardır." },
+  "c72c92e6-079c-4154-b75a-f4bc2185c69d": { "title": "Demir alımı", "content": "Hamilelikte demir ihtiyacı artar. Kırmızı et, ıspanak ve mercimek iyi kaynaklardır." },
+  "a6924eca-1ccc-46fd-aec6-27df0057d25d": { "title": "Kalsiyumun önemi", "content": "Bebeğin kemik gelişimi için kalsiyum önemlidir. Süt ürünleri, brokoli ve badem iyi kaynaklardır." }
+ },
+ "trimester_tips": {
+  "e09569e8-0865-4a73-b1d7-e03d43ac98f1": { "tip_text": "Her gün folik asit (400-800 mg) alın" },
+  "b2aa651b-2644-4dfb-8ff8-a9de6a20026b": { "tip_text": "Bulantıya karşı zencefil çayı için" },
+  "419eee79-7758-4ede-8ba0-ffb4b525f4fb": { "tip_text": "Bol bol dinlenin, vücudunuz hızla değişiyor" },
+  "621c1f92-74d8-45c4-83ec-ebd35437abd5": { "tip_text": "Küçük porsiyonlarla sık sık beslenin" },
+  "df1b4444-1053-46a2-806a-5b259587cae5": { "tip_text": "Günde 8-10 bardak su için" },
+  "648bb53d-76c9-4c73-8f58-b9d3c2c68c6e": { "tip_text": "Hafif egzersizler yapın (yoga, yüzme)" },
+  "2fb69458-cffa-4382-9902-c19916a4fa3a": { "tip_text": "Demir ve kalsiyum açısından zengin besinler yiyin" },
+  "f2424d8a-ef60-4a67-bf14-0b3f5f570042": { "tip_text": "Bebeğin hareketlerini izlemeye başlayın" },
+  "3abba478-0729-4cea-8073-184f9a8b212a": { "tip_text": "Bebek odasını planlamaya başlayın" },
+  "13d2d6ee-0594-4688-a09e-a48f02c75bc9": { "tip_text": "Doğuma hazırlık kurslarına göz atın" },
+  "cf2ca79d-4a0a-4edf-8dd4-50ff2259c4e8": { "tip_text": "Hastane çantanızı hazırlayın" },
+  "34dea00f-dd6f-485c-8151-fdd3bdb4a7f9": { "tip_text": "Uyku pozisyonlarınızı rahatlatın" },
+  "05f03930-e09b-459e-95e6-33cfecae647d": { "tip_text": "Doğum planınızı yazın" },
+  "7dc4c101-8f96-4a18-80a5-8adfc849d8dd": { "tip_text": "Tekmeleri sayın - günde 10+ olmalı" },
+  "40e72092-46e7-4012-b453-a0deab66263b": { "tip_text": "Nefes ve gevşeme tekniklerini öğrenin" }
+ },
+ "blog_categories": {
+  "cd8fecf1-2a81-4d20-9961-16b538d24361": { "name": "Hamilelik", "description": "Hamilelik dönemiyle ilgili makaleler" },
+  "dc6a7812-41f8-43b3-84fd-8422f9f44766": { "name": "Sağlık", "description": "Sağlık ve beslenme önerileri" },
+  "73f5c07d-cf28-449f-8b93-33a6a04113e1": { "name": "Bebek Bakımı", "description": "Yenidoğan bebek bakımı" },
+  "d929d31e-c6a3-4b59-8d79-377f1cb5de53": { "name": "Psikoloji", "description": "Duygusal sağlık ve psikolojik destek" },
+  "8b94b61d-a89f-48aa-baa3-3bb0866ff9fe": { "name": "Beslenme", "description": "Sağlıklı beslenme önerileri" },
+  "409dd278-b8c0-44ac-b837-d313b27a962f": { "name": "Egzersizler", "description": "Hamilelik ve doğum sonrası egzersizler" },
+  "1b70871b-163f-4076-afed-b3240b66bbaa": { "name": "Diğer", "description": "Diğer bilgiler" },
+  "c07532a0-9e66-4110-a605-91899979e4cb": { "name": "Regl Sağlığı", "description": "Regl Sağlığı" },
+  "d32ef20a-63f4-4b06-af4f-b1d47efedae2": { "name": "Motivasyon" }
+ },
+ "development_tips": {
+  "3c502828-56e6-4d19-9627-7287c1200bc5": { "title": "Göz Teması", "content": "Bebeğinizle 20-30 cm mesafeden göz teması kurun" },
+  "b506043b-32ca-4cfd-a19b-2c59d92f5225": { "title": "Ses Oyunları", "content": "Yumuşak sesler çıkarın, bebek sesleri tanımayı öğreniyor" },
+  "d2a23550-f259-43c7-afb6-1322bdb2ff2b": { "title": "Yüzüstü Zamanı", "content": "Bebeği her gün 3-5 dakika yüzüstü yatırın" },
+  "96f53660-84ab-4db8-8c26-e75b46dde6a4": { "title": "Nesneleri Kavrama", "content": "Renkli oyuncaklarla kavrama becerisini geliştirin" },
+  "94bdbe13-17a1-4494-9700-c0b62f4dcd85": { "title": "Kitap Okuma", "content": "Resimli kitaplar gösterin, dil gelişimine yardımcı olur" },
+  "089c3665-61b4-4199-85f2-eee653cbdcfe": { "title": "Müzik", "content": "Çocuk şarkıları söyleyin, ritim duygusunu geliştirir" },
+  "bb1e7d84-da17-49a4-a733-1f86891fc269": { "title": "Ek Gıdalar", "content": "Yeni tatları yavaş yavaş tanıtın" },
+  "f8ee3fd6-eb18-4949-95d7-cc33d28f8f83": { "title": "Hareket", "content": "Emekleme ve oturma egzersizlerini destekleyin" },
+  "f6006c3b-c7ba-4e72-a8c2-e430b25656ac": { "title": "Konuşma", "content": "Basit kelimeleri tekrarlayın, dil gelişimini hızlandırır" }
+ },
+ "partner_daily_tips": {
+  "00f91c0b-87a7-48e3-8b92-4b07d8fb016e": { "tip_text": "Bugün onu sevdiği atıştırmalıkla şaşırtın" },
+  "27d2ea0e-3ad7-4b20-83d8-211f2b6f2039": { "tip_text": "Ona ayak masajı yapmayı teklif edin" },
+  "8fc4326b-65c3-4cd4-b14f-df04b473371f": { "tip_text": "Ona bugün ne kadar güzel göründüğünü söyleyin" },
+  "b63d646e-fd44-466e-a70e-1a5bbc228869": { "tip_text": "İstenmeden ev işlerine yardım edin" },
+  "e9625601-a64a-4ef7-81ff-8b353ebcedbd": { "tip_text": "Birlikte rahatlatıcı bir akşam planlayın" },
+  "65d6f26b-5c4f-481d-ab7c-261c8111aab5": { "tip_text": "Yeni anne için kahvaltı hazırlayın" },
+  "07ce68cc-1a7c-4aa9-aa64-b25c0b741cae": { "tip_text": "O dinlenebilsin diye bebeği gezmeye çıkarın" },
+  "4a671fe7-b6fe-4aba-8e4f-d339b1a26586": { "tip_text": "Ona harika bir iş çıkardığını hatırlatın" }
+ },
+ "onboarding_stages": {
+  "96b17cf8-2b22-47a9-ab9e-53457ca78dac": { "title": "Hamileyim", "subtitle": "Hamilelik takibi", "description": "Bebeğinizin gelişimini hafta hafta takip edin" },
+  "9c5c1bb0-bcac-4d2a-b3dc-fe6eaa999de3": { "title": "Bebeğim var", "subtitle": "Annelik yardımcısı", "description": "Bebeğinizin beslenme, uyku ve gelişimini takip edin" },
+  "bace572d-c514-4cb9-b9f9-ae6f279efab8": { "title": "Döngümü takip et", "subtitle": "Regl takvimi", "description": "Döngünüzü takip edin, ovülasyonu tahmin edin" }
+ },
+ "breathing_exercises": {
+  "018f12ea-f90e-4beb-8933-b27da7a1551c": { "name": "4-7-8 Nefesi", "description": "Sakinliğe ve uykuya yardımcı olan gevşeme tekniği" },
+  "5fe9d325-2ba8-40e3-b631-3eb13c6c766b": { "name": "Kutu Nefesi", "description": "Navy SEALs'in stres kontrolü için kullandığı teknik" },
+  "fbf2988e-7f25-4752-954c-8707fbbbaa81": { "name": "Rahatlatıcı Nefes", "description": "Hızlı gevşeme için basit derin nefes" },
+  "e90074fc-95b0-44d1-8a10-94f6564afb9d": { "name": "Enerji Veren Nefes", "description": "Enerji seviyesini yükseltmek için hızlı nefes" }
+ },
+ "exercises": {
+  "d64a9d01-c6f1-4f18-a93c-c781920c14f9": { "description": "Kegel egzersizleri pelvik taban kaslarını güçlendirmenin en etkili yoludur. Bu egzersizler hamilelik, doğum sonrası toparlanma, idrar kaçırma sorunları ve cinsel sağlık için çok faydalıdır." },
+  "22ebc0af-bddb-4234-a525-709bf9af630b": { "description": "Kalp-damar sağlığı için" },
+  "da9c9ebf-19ec-409f-bf83-37679d679447": { "description": "Rahatlama ve esneklik" },
+  "4cc80a24-3b16-46a1-bc30-9e0d6283d28d": { "description": "Bacak kaslarını güçlendirmek" },
+  "e32f03c4-350a-455b-b70d-ff659812a45e": { "description": "Doğuma hazırlık" },
+  "dda0e0da-1048-498d-a3a1-4358713e2e96": { "description": "Tüm vücut egzersizi" }
+ },
+ "intro_slides": {
+  "35a9f0a4-0118-40c0-9e51-078f0856e0c9": { "title": "Anacan'a Hoş Geldiniz", "subtitle": "Sağlığınız için en iyi yol arkadaşı", "description": "Regl, hamilelik ve annelik dönemlerinde sizinle birlikte olacak kişisel yardımcınız." },
+  "9871703d-7e40-4411-bd44-57877bad2f64": { "title": "Anacan.AI", "subtitle": "7/24 kişisel danışman", "description": "Sorularınızı sorun, sağlık hakkında bilgi alın. Yapay zeka desteği her an yanınızda." },
+  "303deb87-d8fa-45f7-8613-f33d349e3777": { "title": "Topluluk", "subtitle": "Yalnız değilsiniz", "description": "Diğer annelerle bağlantı kurun, deneyimlerinizi paylaşın ve destek alın. Birlikte daha güçlüyüz." },
+  "2dbd0834-d294-45f1-872c-1a1ac0fed006": { "title": "Hamilelik Yolculuğu", "subtitle": "Hafta hafta rehber", "description": "Bebeğinizin büyümesini izleyin, haftalık öneriler alın ve doğuma hazırlanın." },
+  "a7d292cf-0e76-4d85-a243-707817566ae7": { "title": "Regl Döneminizi İzleyin", "subtitle": "Akıllı regl takibi", "description": "Regl döngünüzü, ovülasyonu ve doğurgan günlerinizi takip edin. Takviminiz her zaman yanınızda." }
+ }
+}

@@ -1,0 +1,364 @@
+{
+  "ai_suggested_questions": {
+    "text": [
+      "question"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "baby_milestones_db": {
+    "text": [
+      "label",
+      "description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "baby_month_illustrations": {
+    "text": [
+      "title",
+      "description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "common_foods": {
+    "text": [
+      "name"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "default_shopping_items": {
+    "text": [
+      "name"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "flow_symptoms_db": {
+    "text": [
+      "label"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "maternity_guidelines": {
+    "text": [
+      "title",
+      "content"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "meal_types": {
+    "text": [
+      "name"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "mood_options": {
+    "text": [
+      "label"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "nutrition_targets": {
+    "text": [
+      "description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "photoshoot_image_styles": {
+    "text": [
+      "style_name"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "premium_plans": {
+    "text": [
+      "description",
+      "name",
+      "badge_text"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "recipe_categories": {
+    "text": [
+      "name"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "safety_categories": {
+    "text": [
+      "name"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "safety_items": {
+    "text": [
+      "name",
+      "description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "shop_categories": {
+    "text": [
+      "name"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "support_categories": {
+    "text": [
+      "name"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "surprise_ideas": {
+    "text": [
+      "title",
+      "description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "symptoms": {
+    "text": [
+      "label"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "tool_configs": {
+    "text": [
+      "name",
+      "description",
+      "partner_name",
+      "partner_description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "weight_recommendations": {
+    "text": [
+      "description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "white_noise_sounds": {
+    "text": [
+      "name",
+      "description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "photoshoot_backgrounds": {
+    "text": [
+      "category_name",
+      "theme_name"
+    ]
+  },
+  "photoshoot_outfits": {
+    "text": [
+      "outfit_name"
+    ]
+  },
+  "photoshoot_eye_colors": {
+    "text": [
+      "color_name"
+    ]
+  },
+  "photoshoot_hair_colors": {
+    "text": [
+      "color_name"
+    ]
+  },
+  "photoshoot_hair_styles": {
+    "text": [
+      "style_name"
+    ]
+  },
+  "zodiac_signs": {
+    "text": [
+      "name",
+      "characteristics"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "place_categories": {
+    "text": [
+      "label"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "place_amenities": {
+    "text": [
+      "label"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "fairy_tale_themes": {
+    "text": [
+      "name",
+      "description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "healthcare_providers": {
+    "text": [
+      "name",
+      "specialty",
+      "description",
+      "address"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "mood_levels": {
+    "text": [
+      "label"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "noise_thresholds": {
+    "text": [
+      "label",
+      "description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "mom_friendly_places": {
+    "text": [
+      "name",
+      "description",
+      "address"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "play_inventory_items": {
+    "text": [
+      "name"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "baby_teeth_db": {
+    "text": [
+      "name",
+      "description"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "teething_care_tips": {
+    "text": [
+      "title",
+      "content"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "teething_symptoms": {
+    "text": [
+      "name",
+      "description",
+      "relief_tips"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "vaccine_countries": {
+    "text": [
+      "name"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "vaccines": {
+    "text": [
+      "name",
+      "short_description",
+      "full_description",
+      "disease",
+      "route",
+      "side_effects",
+      "contraindications"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "vaccine_schedules": {
+    "text": [
+      "dose_label",
+      "age_label",
+      "notes"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "pregnancy_day_notifications": {
+    "text": [
+      "title",
+      "body"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "mommy_day_notifications": {
+    "text": [
+      "title",
+      "body"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "legal_documents": {
+    "text": [
+      "title",
+      "content"
+    ],
+    "arr": [],
+    "json": []
+  },
+  "premium_features": {
+    "text": [
+      "title",
+      "description"
+    ]
+  },
+  "partner_venue_categories": {
+    "text": [
+      "label"
+    ]
+  },
+  "multiples_options": {
+    "text": [
+      "label"
+    ]
+  },
+  "scheduled_notifications": {
+    "text": [
+      "title",
+      "body"
+    ]
+  }
+}

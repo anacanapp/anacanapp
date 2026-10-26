@@ -1,0 +1,1 @@
+UPDATE app_settings SET value = jsonb_set(value::jsonb, '{enabled}', 'false') WHERE key = 'force_update';

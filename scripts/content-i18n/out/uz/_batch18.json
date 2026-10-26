@@ -1,0 +1,44 @@
+{
+ "mental_health_resources": {
+  "92af5772-67b9-4a45-be7c-45cc1690976e": {
+   "name": "Bolalarni himoya qilish ishonch telefoni",
+   "description": "Bolalarni himoya qilish va qo‘llab-quvvatlash uchun"
+  },
+  "e14d07a2-ca8f-49c0-8aa3-5d37ba64147a": {
+   "name": "Psixologik yordam markazi",
+   "description": "Professional psixologik maslahat"
+  },
+  "b6894134-c879-4225-a308-9f6d198e9b5c": {
+   "name": "Oilani qo‘llab-quvvatlash markazi",
+   "description": "Oilalar va onalarni qo‘llab-quvvatlash"
+  },
+  "fd731ae9-7437-499d-9a66-3c99983eb91d": {
+   "name": "Tug‘ruqdan keyingi qo‘llab-quvvatlash guruhi",
+   "description": "Yangi onalar uchun onlayn qo‘llab-quvvatlash guruhi"
+  },
+  "cc65349d-e172-48dc-9b4d-9ead800be207": {
+   "name": "Psixologik yordam liniyasi",
+   "description": "24 soatlik psixologik yordam xizmati"
+  },
+  "4f4f4469-2043-4919-a6b3-1cb80317a55e": {
+   "name": "Shoshilinch tibbiy yordam",
+   "description": "Shoshilinch tibbiy yordam xizmati"
+  },
+  "d3081952-ac1a-414f-a6d1-55bbaff886f3": {
+   "name": "Oila va bolalar markazi",
+   "description": "Oilaviy psixologik maslahat markazi"
+  },
+  "191c5946-7cb5-4c7f-a933-68cca7350e58": {
+   "name": "Onalarni qo‘llab-quvvatlash guruhi",
+   "description": "Boshqa onalar bilan tajriba almashish"
+  },
+  "b060bf8e-2f05-4173-af0a-7e5c9ebeb3c2": {
+   "name": "Shoshilinch psixologik yordam liniyasi",
+   "description": "Ruhiy inqiroz holatlari bo‘yicha milliy yordam liniyasi"
+  },
+  "38c6b6f3-bbaf-4903-aa2a-3f8b796679d9": {
+   "name": "ASAN ayollarni qo‘llab-quvvatlash liniyasi",
+   "description": "Og‘ir vaziyatga tushib qolgan ayollar uchun yordam"
+  }
+ }
+}

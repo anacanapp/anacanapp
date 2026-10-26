@@ -1,0 +1,46 @@
+[
+ {
+  "id": "cd8fecf1-2a81-4d20-9961-16b538d24361",
+  "name": "Hamiləlik",
+  "description": "Hamiləlik dövrü ilə bağlı məqalələr"
+ },
+ {
+  "id": "dc6a7812-41f8-43b3-84fd-8422f9f44766",
+  "name": "Sağlamlıq",
+  "description": "Sağlamlıq və qidalanma məsləhətləri"
+ },
+ {
+  "id": "73f5c07d-cf28-449f-8b93-33a6a04113e1",
+  "name": "Körpə Baxımı",
+  "description": "Yeni doğulmuş körpə baxımı"
+ },
+ {
+  "id": "d929d31e-c6a3-4b59-8d79-377f1cb5de53",
+  "name": "Psixologiya",
+  "description": "Emosional sağlamlıq və psixoloji dəstək"
+ },
+ {
+  "id": "8b94b61d-a89f-48aa-baa3-3bb0866ff9fe",
+  "name": "Qidalanma",
+  "description": "Sağlam qidalanma tövsiyələri"
+ },
+ {
+  "id": "409dd278-b8c0-44ac-b837-d313b27a962f",
+  "name": "Məşqlər",
+  "description": "Hamiləlik və doğuş sonrası məşqlər"
+ },
+ {
+  "id": "1b70871b-163f-4076-afed-b3240b66bbaa",
+  "name": "Digər",
+  "description": "Digər məlumatlar"
+ },
+ {
+  "id": "c07532a0-9e66-4110-a605-91899979e4cb",
+  "name": "Menstrual Sağlamlıq",
+  "description": "Menstrual Sağlamlıq"
+ },
+ {
+  "id": "d32ef20a-63f4-4b06-af4f-b1d47efedae2",
+  "name": "Motivasiya"
+ }
+]

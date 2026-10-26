@@ -1,0 +1,67 @@
+[
+ {
+  "id": "153679fd-e275-4121-b49b-119bfb84477a",
+  "value": 1,
+  "label": "Very Bad",
+  "label_az": "Çox pis",
+  "emoji": "😢",
+  "color_class": "bg-red-100 border-red-300",
+  "is_active": true,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "label_en": "Very bad",
+  "label_ru": null,
+  "label_tr": null
+ },
+ {
+  "id": "2aeb03a6-2d61-4935-8af8-baeca0ead0aa",
+  "value": 4,
+  "label": "Good",
+  "label_az": "Yaxşı",
+  "emoji": "🙂",
+  "color_class": "bg-lime-100 border-lime-300",
+  "is_active": true,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "label_en": "Good",
+  "label_ru": null,
+  "label_tr": null
+ },
+ {
+  "id": "471e0158-fdc4-4791-a18b-432395c6a80e",
+  "value": 3,
+  "label": "Normal",
+  "label_az": "Normal",
+  "emoji": "😐",
+  "color_class": "bg-yellow-100 border-yellow-300",
+  "is_active": true,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "label_en": "Normal",
+  "label_ru": null,
+  "label_tr": null
+ },
+ {
+  "id": "55fb948a-73d0-4514-9ccf-8002b994990a",
+  "value": 5,
+  "label": "Excellent",
+  "label_az": "Əla",
+  "emoji": "😊",
+  "color_class": "bg-green-100 border-green-300",
+  "is_active": true,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "label_en": "Excellent",
+  "label_ru": null,
+  "label_tr": null
+ },
+ {
+  "id": "817200d4-4f5c-43fe-a129-bcb8f3e5a078",
+  "value": 2,
+  "label": "Bad",
+  "label_az": "Pis",
+  "emoji": "😔",
+  "color_class": "bg-orange-100 border-orange-300",
+  "is_active": true,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "label_en": "Bad",
+  "label_ru": null,
+  "label_tr": null
+ }
+]

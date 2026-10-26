@@ -1,0 +1,55 @@
+/* anacan-brand-ads-v3 native templates. Theme tokens come from index.css (light and
+   .dark); the fallbacks keep the brand portal preview legible without them. Logical
+   properties only (RTL). No backdrop blur and no infinite animation (low-end devices). */
+.nad{--nad-surface:hsl(var(--card,0 0% 100%));--nad-ink:hsl(var(--card-foreground,222 47% 11%));--nad-muted:hsl(var(--muted-foreground,215 16% 40%));--nad-line:hsl(var(--border,214 32% 91%));
+  display:block;width:100%;border-radius:16px;text-align:start;overflow:hidden;background:var(--nad-surface);color:var(--nad-ink);border:1px solid var(--nad-line);
+  font:inherit;cursor:pointer;transition:transform .12s ease-out;-webkit-tap-highlight-color:transparent}
+.nad:active{transform:scale(.985)}
+.nad:focus-visible{outline:2px solid var(--nad-accent);outline-offset:2px}
+.nad-body{display:flex;flex-direction:column;gap:6px;padding:14px 16px;min-width:0}
+.nad-row{display:flex;align-items:center;gap:12px;min-width:0}
+.nad-grow{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.nad-sponsor{font-size:10px;line-height:1.3;letter-spacing:.02em;color:var(--nad-muted);overflow-wrap:anywhere}
+.nad-title{font-weight:650;font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+.nad-text{font-size:13px;line-height:1.45;color:var(--nad-muted);overflow-wrap:anywhere}
+.nad-clamp-1,.nad-clamp-2,.nad-clamp-3{display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+.nad-clamp-1{-webkit-line-clamp:1}.nad-clamp-2{-webkit-line-clamp:2}.nad-clamp-3{-webkit-line-clamp:3}
+.nad-cta{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-block-start:4px;padding:7px 12px;border-radius:999px;background:var(--nad-accent);color:var(--nad-on-accent);font-size:13px;font-weight:600;line-height:1.2}
+.nad-arrow{width:18px;height:18px;flex-shrink:0}
+.nad-cta .nad-arrow{width:15px;height:15px}
+[dir=rtl] .nad-arrow:not(.lucide-external-link){transform:scaleX(-1)}
+.nad-arrow-only{color:var(--nad-accent);align-self:flex-end}
+/* classic: the original gradient card */
+.nad-classic{border:0;box-shadow:0 6px 16px -8px rgb(0 0 0 / .35)}
+.nad-classic-row{padding:16px}
+.nad-classic .nad-sponsor,.nad-classic .nad-text{color:inherit;opacity:.88}
+.nad-classic-icon{width:48px;height:48px;border-radius:12px;background:rgb(255 255 255 / .2);display:grid;place-items:center;flex-shrink:0;overflow:hidden}
+.nad-classic-icon svg{width:24px;height:24px}.nad-classic-icon img{width:100%;height:100%;object-fit:cover}
+.nad-classic-cta{font-size:13px;font-weight:600;display:none}
+@media(min-width:640px){.nad-classic-cta{display:block}}
+/* spotlight: wide image above the copy */
+.nad-spotlight-media{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--nad-line)}
+/* split: square image on the inline-start side */
+.nad-split{display:flex;align-items:stretch}
+.nad-split-media{width:104px;min-height:104px;object-fit:cover;flex-shrink:0;background:var(--nad-line)}
+.nad-split .nad-body{flex:1}
+/* minimal: accent rail on the inline-start edge */
+.nad-minimal{border-inline-start:4px solid var(--nad-accent)}
+.nad-minimal .nad-arrow{color:var(--nad-accent)}
+/* offer: coupon card */
+.nad-offer{border:1.5px dashed var(--nad-accent)}
+.nad-offer-icon{width:22px;height:22px;color:var(--nad-accent);flex-shrink:0}
+.nad-offer-foot{justify-content:space-between;flex-wrap:wrap;gap:8px}
+.nad-code{display:inline-flex;align-items:baseline;gap:6px;padding:6px 10px;border-radius:8px;border:1px solid var(--nad-line);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:.06em}
+.nad-code-label{font-family:inherit;font-size:10px;font-weight:500;letter-spacing:0;color:var(--nad-muted)}
+.nad-offer .nad-cta{align-self:auto;margin:0}
+/* expert: quote with attribution */
+.nad-quote{width:22px;height:22px;color:var(--nad-accent)}
+[dir=rtl] .nad-quote{transform:scaleX(-1)}
+.nad-expert{margin-block-start:4px}
+.nad-expert .nad-cta{align-self:auto;margin:0}
+.nad-expert-photo{width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--nad-line)}
+.nad-expert-fallback{display:block;background:var(--nad-accent);opacity:.25}
+.nad-expert-name{font-size:13px;font-weight:600}
+@media(prefers-reduced-motion:reduce){.nad{transition:none}.nad:active{transform:none}}
+html.a-lite .nad{transition:none}

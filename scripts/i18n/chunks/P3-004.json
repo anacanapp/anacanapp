@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "dailysummaryscreen_en_son_473654",
+  "az": "Ən son",
+  "en": "The latest"
+ },
+ {
+  "key": "dailysummaryscreen_gundelik_xulase_3d07a5",
+  "az": "Gündəlik Xülasə",
+  "en": "Daily Summary"
+ },
+ {
+  "key": "dailysummaryscreen_helelik_xulase_yoxdur_f1d180",
+  "az": "Hələlik xülasə yoxdur",
+  "en": "No summary yet"
+ },
+ {
+  "key": "dailysummaryscreen_partnyorunuz_gundelik_melumatl_0be3a8",
+  "az": "Partnyorunuz gündəlik məlumatlarını qeyd etdikdə burada xülasə görəcəksiniz",
+  "en": "You'll see a summary here when your partner logs their daily information"
+ },
+ {
+  "key": "dailysummaryscreen_qeydler_a7a98b",
+  "az": "Qeydlər",
+  "en": "Notes"
+ },
+ {
+  "key": "dailysummaryscreen_sanci_350c2d",
+  "az": "Sancı",
+  "en": "Colic"
+ },
+ {
+  "key": "dailysummaryscreen_tepik_9a873a",
+  "az": "Təpik",
+  "en": "Kick"
+ },
+ {
+  "key": "dailysummaryscreen_yaxsi_9d8595",
+  "az": "Yaxşı",
+  "en": "Good"
+ },
+ {
+  "key": "date-picker-wheel_dogum_tarixi_d96907",
+  "az": "Doğum tarixi",
+  "en": "Date of birth"
+ },
+ {
+  "key": "date-picker-wheel_tarix_secin_3377b4",
+  "az": "Tarix seçin",
+  "en": "Select date"
+ },
+ {
+  "key": "datepickerwheel_bu_gun_786fd4",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "datepickerwheel_c_ax_6cdba6",
+  "az": "Ç.ax.",
+  "en": "Tue"
+ },
+ {
+  "key": "datepickerwheel_cer_879279",
+  "az": "Çər.",
+  "en": "Wed."
+ },
+ {
+  "key": "datepickerwheel_cum_a58b1a",
+  "az": "Cüm.",
+  "en": "Fri."
+ },
+ {
+  "key": "datepickerwheel_i_l_secin_5fe2b5",
+  "az": "İl seçin",
+  "en": "Select a year"
+ },
+ {
+  "key": "datepickerwheel_mon",
+  "az": "Baz.e.",
+  "en": "Mon."
+ },
+ {
+  "key": "datepickerwheel_sen_60edd8",
+  "az": "Şnb.",
+  "en": "Sat"
+ },
+ {
+  "key": "datepickerwheel_sun",
+  "az": "Baz.",
+  "en": "Sun."
+ },
+ {
+  "key": "datepickerwheel_tarix_secin_3377b4",
+  "az": "Tarix seçin",
+  "en": "Select a date"
+ },
+ {
+  "key": "datepickerwheel_temizle_1c3651",
+  "az": "Təmizlə",
+  "en": "Clean up"
+ },
+ {
+  "key": "datepickerwheel_thu",
+  "az": "C.ax.",
+  "en": "Thu."
+ },
+ {
+  "key": "dateutils_basagrisi_9e17a3",
+  "az": "Başağrısı",
+  "en": "Headache"
+ },
+ {
+  "key": "dateutils_basgicellenme_9e0b89",
+  "az": "Başgicəllənmə",
+  "en": "Dizziness"
+ },
+ {
+  "key": "dateutils_bel_agrisi_9e824e",
+  "az": "Bel ağrısı",
+  "en": "Back pain"
+ },
+ {
+  "key": "dateutils_dos_hessasligi_326b6d",
+  "az": "Döş həssaslığı",
+  "en": "Breast tenderness"
+ },
+ {
+  "key": "dateutils_ehval_deyisikliyi_9fa36f",
+  "az": "Əhval dəyişikliyi",
+  "en": "Mood swings"
+ },
+ {
+  "key": "dateutils_i_stah_artimi_2b1e0b",
+  "az": "İştah artımı",
+  "en": "Increased appetite"
+ },
+ {
+  "key": "dateutils_i_stah_deyisikliyi_fea8a7",
+  "az": "İştah dəyişikliyi",
+  "en": "Change in appetite"
+ },
+ {
+  "key": "dateutils_i_stilikler_9c6091",
+  "az": "İstiliklər",
+  "en": "Heats"
+ },
+ {
+  "key": "dateutils_kopukleme_2d7a33",
+  "az": "Köpükləmə",
+  "en": "Foaming"
+ },
+ {
+  "key": "dateutils_narahatliq_33f05c",
+  "az": "Narahatlıq",
+  "en": "Anxiety"
+ },
+ {
+  "key": "dateutils_qebizlik_aef088",
+  "az": "Qəbizlik",
+  "en": "Constipation"
+ },
+ {
+  "key": "dateutils_sanci_350c2d",
+  "az": "Sancı",
+  "en": "Painful"
+ },
+ {
+  "key": "dateutils_siskinlik_7c7923",
+  "az": "Şişkinlik",
+  "en": "Swelling"
+ },
+ {
+  "key": "dateutils_sislik_cd02e0",
+  "az": "Şişlik",
+  "en": "Swelling"
+ },
+ {
+  "key": "dateutils_sizanaq_0b0664",
+  "az": "Sızanaq",
+  "en": "Acne"
+ },
+ {
+  "key": "dateutils_stress",
+  "az": "Stress",
+  "en": null
+ },
+ {
+  "key": "dateutils_tez_tez_sidike_getme_bfc357",
+  "az": "Tez-tez sidikə getmə",
+  "en": "Do not urinate often"
+ },
+ {
+  "key": "dateutils_today",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "dateutils_urekbulanma_a42830",
+  "az": "Ürəkbulanma",
+  "en": "Nausea"
+ },
+ {
+  "key": "dateutils_yesterday",
+  "az": "Dünən",
+  "en": "Yesterday"
+ },
+ {
+  "key": "dateutils_yorgunluq_c68d62",
+  "az": "Yorğunluq",
+  "en": "Fatigue"
+ },
+ {
+  "key": "dateutils_yuxusuzluq_68d6ab",
+  "az": "Yuxusuzluq",
+  "en": "Insomnia"
+ },
+ {
+  "key": "day_fri_short",
+  "az": "C",
+  "en": "F"
+ },
+ {
+  "key": "day_mon_short",
+  "az": "BE",
+  "en": "M"
+ },
+ {
+  "key": "day_sat_short",
+  "az": "Ş",
+  "en": "S"
+ },
+ {
+  "key": "day_sun_short",
+  "az": "B",
+  "en": "S"
+ },
+ {
+  "key": "day_thu_short",
+  "az": "CA",
+  "en": "T"
+ },
+ {
+  "key": "day_tue_short",
+  "az": "ÇA",
+  "en": "T"
+ },
+ {
+  "key": "day_wed_short",
+  "az": "Ç",
+  "en": "W"
+ },
+ {
+  "key": "days_after",
+  "az": "gün sonra",
+  "en": "days after"
+ },
+ {
+  "key": "days_before",
+  "az": "gün əvvəl",
+  "en": "days before"
+ },
+ {
+  "key": "deeplink_ai_sohbet_b8298c",
+  "az": "AI Söhbət",
+  "en": "AI Chat"
+ },
+ {
+  "key": "deeplink_ai_sohbeti_acir_7e3442",
+  "az": "AI söhbəti açır",
+  "en": "AI opens the conversation"
+ },
+ {
+  "key": "deeplink_aletler_4778b4",
+  "az": "Alətlər",
+  "en": "Tools"
+ },
+ {
+  "key": "deeplink_aletler_hubunu_acir_45ec0e",
+  "az": "Alətlər hubunu açır",
+  "en": "Opens the tool hub"
+ },
+ {
+  "key": "deeplink_ana_sehife_39721f",
+  "az": "Ana səhifə",
+  "en": "Main page"
+ },
+ {
+  "key": "deeplink_ana_sehifeni_acir_3d8ab0",
+  "az": "Ana səhifəni açır",
+  "en": "Opens the home page"
+ },
+ {
+  "key": "deeplink_bildirisler_54eb88",
+  "az": "Bildirişlər",
+  "en": "Notices"
+ },
+ {
+  "key": "deeplink_bildirisleri_acir_81bd18",
+  "az": "Bildirişləri açır",
+  "en": "Opens notifications"
+ },
+ {
+  "key": "deeplink_bloq_bolmesini_acir_5071e9",
+  "az": "Bloq bölməsini açır",
+  "en": "Opens the blog section"
+ },
+ {
+  "key": "deeplink_bloq_yazisi_062ec4",
+  "az": "Bloq Yazısı",
+  "en": "Blog Post"
+ },
+ {
+  "key": "deeplink_diger_293b3a",
+  "az": "Digər",
+  "en": "Other"
+ },
+ {
+  "key": "deeplink_esas_6d87f7",
+  "az": "Əsas",
+  "en": "Main"
+ },
+ {
+  "key": "deeplink_gorunus_165fe3",
+  "az": "Görünüş",
+  "en": "Appearance"
+ },
+ {
+  "key": "deeplink_gorunus_tenzimlemelerini_acir_0fb0db",
+  "az": "Görünüş tənzimləmələrini açır",
+  "en": "Opens the display settings"
+ },
+ {
+  "key": "deeplink_huquqi_ceb5d3",
+  "az": "Hüquqi",
+  "en": "Legal"
+ },
+ {
+  "key": "deeplink_huquqi_senedi_acir_bc1b2e",
+  "az": "Hüquqi sənədi açır",
+  "en": "Opens the legal document"
+ },
+ {
+  "key": "deeplink_i_cma_bolmesini_acir_7abff0",
+  "az": "İcma bölməsini açır",
+  "en": "Opens the Community section"
+ },
+ {
+  "key": "deeplink_i_cma_paylasimi_0b84e6",
+  "az": "İcma Paylaşımı",
+  "en": "Community Sharing"
+ },
+ {
+  "key": "deeplink_i_stifadeci_ile_sohbet_43af6f",
+  "az": "İstifadəçi ilə Söhbət",
+  "en": "Chat with the user"
+ },
+ {
+  "key": "deeplink_i_stifadeci_profili_69e0a9",
+  "az": "İstifadəçi Profili",
+  "en": "User Profile"
+ },
+ {
+  "key": "deeplink_i_stifadeci_profilini_acir_d3ae0f",
+  "az": "İstifadəçi profilini açır",
+  "en": "Opens the user profile"
+ },
+ {
+  "key": "deeplink_komek_2bdf68",
+  "az": "Kömək",
+  "en": "Help"
+ },
+ {
+  "key": "deeplink_komek_bolmesini_acir_c2a6fc",
+  "az": "Kömək bölməsini açır",
+  "en": "Opens the Help section"
+ },
+ {
+  "key": "deeplink_mesajlar_siyahisini_acir_d55b87",
+  "az": "Mesajlar siyahısını açır",
+  "en": "Opens the message list"
+ },
+ {
+  "key": "deeplink_mezmun_f1d51d",
+  "az": "Məzmun",
+  "en": "Content"
+ },
+ {
+  "key": "deeplink_mueyyen_bir_aleti_acir_c91de9",
+  "az": "Müəyyən bir aləti açır",
+  "en": "Opens a specific tool"
+ },
+ {
+  "key": "deeplink_mueyyen_bir_bloq_yazisini_acir_15e9fc",
+  "az": "Müəyyən bir bloq yazısını açır",
+  "en": "Opens a specific blog post"
+ },
+ {
+  "key": "deeplink_mueyyen_bir_icma_paylasimini_a_07c886",
+  "az": "Müəyyən bir icma paylaşımını açır",
+  "en": "Opens a specific community share"
+ },
+ {
+  "key": "deeplink_mueyyen_bir_istifadeci_ile_soh_619b0a",
+  "az": "Müəyyən bir istifadəçi ilə söhbəti açır",
+  "en": "Opens a conversation with a specific user"
+ },
+ {
+  "key": "deeplink_premium_paywall_u_acir_a7d504",
+  "az": "Premium paywall-u açır",
+  "en": "Opens the premium paywall"
+ },
+ {
+  "key": "deeplink_profil_bolmesini_acir_d98cb4",
+  "az": "Profil bölməsini açır",
+  "en": "Opens the profile section"
+ },
+ {
+  "key": "deeplink_profil_redakte_aac872",
+  "az": "Profil Redaktə",
+  "en": "Edit Profile"
+ },
+ {
+  "key": "deeplink_profil_redakte_sehifesini_acir_08b41e",
+  "az": "Profil redaktə səhifəsini açır",
+  "en": "Opens the edit profile page"
+ },
+ {
+  "key": "deeplink_spesifik_alet_3c4b49",
+  "az": "Spesifik Alət",
+  "en": "Specific Tool"
+ },
+ {
+  "key": "deeplink_tenzimlemeler_085659",
+  "az": "Tənzimləmələr",
+  "en": "Adjustments"
+ },
+ {
+  "key": "deeplink_tenzimlemeleri_acir_f49067",
+  "az": "Tənzimləmələri açır",
+  "en": "Opens the settings"
+ },
+ {
+  "key": "deeplink_teqvim_584bdd",
+  "az": "Təqvim",
+  "en": "Calendar"
+ },
+ {
+  "key": "deeplink_teqvimi_acir_4bb0e4",
+  "az": "Təqvimi açır",
+  "en": "Opens the calendar"
+ },
+ {
+  "key": "deeplink_tortlar_bolmesini_acir_fdf182",
+  "az": "Tortlar bölməsini açır",
+  "en": "Opens the Cakes section"
+ },
+ {
+  "key": "developmenttipswidget_0_3_mo",
+  "az": "0-3 ay",
+  "en": "0-3 mo"
+ },
+ {
+  "key": "developmenttipswidget_12_plus_mo",
+  "az": "12+ ay",
+  "en": "12+ mo"
+ },
+ {
+  "key": "developmenttipswidget_3_6_mo",
+  "az": "3-6 ay",
+  "en": "3-6 mo"
+ },
+ {
+  "key": "developmenttipswidget_6_9_mo",
+  "az": "6-9 ay",
+  "en": "6-9 mo"
+ },
+ {
+  "key": "developmenttipswidget_9_12_mo",
+  "az": "9-12 ay",
+  "en": "9-12 mo"
+ },
+ {
+  "key": "developmenttipswidget_bu_yas_qrupu_ucun_tovsiye_yoxdur_3e49db",
+  "az": "Bu yaş qrupu üçün tövsiyə yoxdur",
+  "en": "No recommendations for this age group"
+ },
+ {
+  "key": "developmenttipswidget_inkisaf_tovsiyeleri_9f473e",
+  "az": "İnkişaf Tövsiyələri",
+  "en": "Development Tips"
+ },
+ {
+  "key": "developmenttipswidget_newborn",
+  "az": "Yenidoğan",
+  "en": "Newborn"
+ },
+ {
+  "key": "doctorreport_1_ay",
+  "az": "1 Ay",
+  "en": "1 Month"
+ },
+ {
+  "key": "doctorreport_3_ay",
+  "az": "3 Ay",
+  "en": "3 Months"
+ },
+ {
+  "key": "doctorreport_hesabat_tarixi",
+  "az": "Hesabat tarixi:",
+  "en": "Report date:"
+ },
+ {
+  "key": "doctorreportscreen_1_hefte_6d1cb4",
+  "az": "1 Həftə",
+  "en": "1 Week"
+ },
+ {
+  "key": "doctorreportscreen_cari_faza_b4862a",
+  "az": "Cari faza",
+  "en": "Current phase"
+ },
+ {
+  "key": "doctorreportscreen_cinsiyyet_1526fb",
+  "az": "Cinsiyyət",
+  "en": "Gender"
+ },
+ {
+  "key": "doctorreportscreen_dogum_tarixi_d96907",
+  "az": "Doğum tarixi",
+  "en": "Date of birth"
+ },
+ {
+  "key": "doctorreportscreen_dovre_uzunlugu_c81215",
+  "az": "Dövrə uzunluğu",
+  "en": "Cycle length"
+ },
+ {
+  "key": "doctorreportscreen_dovrenin_gunu_7549f2",
+  "az": "Dövrənin günü",
+  "en": "Day of the cycle"
+ },
+ {
+  "key": "doctorreportscreen_esas_melumatlar_56bfed",
+  "az": "Əsas Məlumatlar",
+  "en": "Key Information"
+ },
+ {
+  "key": "doctorreportscreen_hamilelik_heftesi_c9e362",
+  "az": "Hamiləlik həftəsi",
+  "en": "Pregnancy week"
+ },
+ {
+  "key": "doctorreportscreen_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All"
+ },
+ {
+  "key": "doctorreportscreen_hekim_hesabati_0525fc",
+  "az": "Həkim Hesabatı",
+  "en": "Doctor's Report"
+ },
+ {
+  "key": "doctorreportscreen_hekim_ucun_qeydler_052b91",
+  "az": "Həkim üçün Qeydlər",
+  "en": "Notes for the Doctor"
+ },
+ {
+  "key": "doctorreportscreen_hesabat_hazirlanir_37c97d",
+  "az": "Hesabat hazırlanır...",
+  "en": "Report is being prepared..."
+ },
+ {
+  "key": "doctorreportscreen_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "doctorreportscreen_korpe_olcusu_cccfc2",
+  "az": "Körpə ölçüsü",
+  "en": "Baby size"
+ },
+ {
+  "key": "doctorreportscreen_korpenin_adi_8a4e9e",
+  "az": "Körpənin adı",
+  "en": "Baby's name"
+ },
+ {
+  "key": "doctorreportscreen_menstruasiya_1c9b68",
+  "az": "Menstruasiya",
+  "en": "Menstruation"
+ },
+ {
+  "key": "doctorreportscreen_oglan_e9715e",
+  "az": "Oğlan",
+  "en": "Boy"
+ },
+ {
+  "key": "doctorreportscreen_paylas_b4be3b",
+  "az": "Paylaş",
+  "en": "Share"
+ },
+ {
+  "key": "doctorreportscreen_pdf_fayli_bir_nece_saniyeye_hazir_olacaq_0304da",
+  "az": "PDF faylı bir neçə saniyəyə hazır olacaq.",
+  "en": "The PDF file will be ready in a few seconds."
+ },
+ {
+  "key": "doctorreportscreen_qiz_79bf6b",
+  "az": "Qız",
+  "en": "Girl"
+ },
+ {
+  "key": "doctorreportscreen_saglamliq_melumatlariniz_fc569c",
+  "az": "Sağlamlıq məlumatlarınız",
+  "en": "Your health data"
+ },
+ {
+  "key": "doctorreportscreen_saglamliq_trendleri_5c9dd9",
+  "az": "Sağlamlıq Trendləri",
+  "en": "Health Trends"
+ },
+ {
+  "key": "doctorreportscreen_tam_hesabati_yukle_pdf_108b98",
+  "az": "Tam Hesabatı Yüklə (PDF)",
+  "en": "Download Full Report (PDF)"
+ },
+ {
+  "key": "doctorreportscreen_texmini_dogus_98eb77",
+  "az": "Təxmini doğuş",
+  "en": "Estimated birth"
+ },
+ {
+  "key": "doctorreportscreen_trimester_4dc81e",
+  "az": "Trimester",
+  "en": "Trimester"
+ },
+ {
+  "key": "doctorreportscreen_trimester_value_8dc81e",
+  "az": "{trimester}-cü",
+  "en": "{trimester}"
+ },
+ {
+  "key": "doctorreportscreen_yas_95595b",
+  "az": "Yaş",
+  "en": "Aye"
+ },
+ {
+  "key": "doctorreportscreen_yukle_2b8e67",
+  "az": "Yüklə",
+  "en": "Download"
+ },
+ {
+  "key": "doctorshospitals_bazar_ertesi_4c733b",
+  "az": "Bazar ertəsi",
+  "en": "Monday"
+ },
+ {
+  "key": "doctorshospitals_cersenbe_50bb90",
+  "az": "Çərşənbə",
+  "en": "Wednesday"
+ },
+ {
+  "key": "doctorshospitals_cersenbe_axsami_01435c",
+  "az": "Çərşənbə axşamı",
+  "en": "Tuesday"
+ },
+ {
+  "key": "doctorshospitals_cume_axsami_8a8cf4",
+  "az": "Cümə axşamı",
+  "en": "Thursday"
+ },
+ {
+  "key": "doctorshospitals_cume_faba24",
+  "az": "Cümə",
+  "en": "Friday"
+ },
+ {
+  "key": "doctorshospitals_e_poct_f5c193",
+  "az": "E-poçt",
+  "en": "Email"
+ },
+ {
+  "key": "doctorshospitals_elaqe_melumatlari_ddd442",
+  "az": "Əlaqə məlumatları",
+  "en": "Contact information"
+ },
+ {
+  "key": "doctorshospitals_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All"
+ },
+ {
+  "key": "doctorshospitals_hec_bir_netice_tapilmadi_5745d9",
+  "az": "Heç bir nəticə tapılmadı",
+  "en": "No results found"
+ },
+ {
+  "key": "doctorshospitals_hekim_c127f7",
+  "az": "Həkim",
+  "en": "Doctor"
+ },
+ {
+  "key": "doctorshospitals_hekim_xestexana_axtar_be2094",
+  "az": "Həkim, xəstəxana axtar...",
+  "en": "Search for doctor, hospital..."
+ },
+ {
+  "key": "doctorshospitals_hekimler_ve_xestexanalar_b29ffa",
+  "az": "Həkimlər və Xəstəxanalar",
+  "en": "Doctors and Hospitals"
+ },
+ {
+  "key": "doctorshospitals_is_saatlari_cfa6fe",
+  "az": "İş saatları",
+  "en": "Working hours"
+ },
+ {
+  "key": "doctorshospitals_klinika_3c7a2d",
+  "az": "Klinika",
+  "en": "Clinic"
+ },
+ {
+  "key": "doctorshospitals_maraq_saheleri",
+  "az": "Maraq sahələri",
+  "en": null
+ },
+ {
+  "key": "doctorshospitals_rey_f2285f",
+  "az": "rəy)",
+  "en": "opinion)"
+ },
+ {
+  "key": "doctorshospitals_rezervasiya_et_tezlikle_225276",
+  "az": "Rezervasiya et (Tezliklə)",
+  "en": "Book Now (Coming Soon)"
+ },
+ {
+  "key": "doctorshospitals_senbe_02045c",
+  "az": "Şənbə",
+  "en": "Saturday"
+ },
+ {
+  "key": "doctorshospitals_tovsiyye_olunan_626cbb",
+  "az": "⭐ Tövsiyyə olunan",
+  "en": "⭐ Recommended"
+ },
+ {
+  "key": "doctorshospitals_unvan_b8651a",
+  "az": "Ünvan",
+  "en": "Address"
+ },
+ {
+  "key": "doctorshospitals_usaq_36b348",
+  "az": "uşaq",
+  "en": "child"
+ },
+ {
+  "key": "doctorshospitals_xestexana_04539b",
+  "az": "Xəstəxana",
+  "en": "Hospital"
+ },
+ {
+  "key": "doctorshospitals_xidmetler",
+  "az": "Xidmətlər",
+  "en": null
+ },
+ {
+  "key": "doctorshospitals_xidmetler_ve_qiymetler_8e63a7",
+  "az": "Xidmətlər və qiymətlər",
+  "en": "Services and prices"
+ },
+ {
+  "key": "dynamicconfig_kateqoriya_silindi",
+  "az": "Kateqoriya silindi",
+  "en": "Category deleted"
+ },
+ {
+  "key": "dynamicconfig_simptom_silindi",
+  "az": "Simptom silindi",
+  "en": "Symptom deleted"
+ },
+ {
+  "key": "empty-state_basqa_axtaris_sozleri_sinayin_fd5484",
+  "az": "Başqa axtarış sözləri sınayın.",
+  "en": "Try other search terms."
+ },
+ {
+  "key": "empty-state_bildiris_yoxdur_6ccf4d",
+  "az": "Bildiriş yoxdur",
+  "en": "No notifications"
+ },
+ {
+  "key": "empty-state_bu_paylasim_ucun_ilk_serhi_siz_yazin_da02d2",
+  "az": "Bu paylaşım üçün ilk şərhi siz yazın.",
+  "en": "Be the first to comment on this post."
+ },
+ {
+  "key": "empty-state_hele_ki_hec_kim_story_paylasmayib_81525f",
+  "az": "Hələ ki, heç kim story paylaşmayıb.",
+  "en": "No one has shared a story yet."
+ },
+ {
+  "key": "empty-state_hele_paylasim_yoxdur_a0a7fa",
+  "az": "Hələ paylaşım yoxdur",
+  "en": "No posts yet"
+ },
+ {
+  "key": "empty-state_hele_serh_yoxdur_1dfc90",
+  "az": "Hələ şərh yoxdur",
+  "en": "No comments yet"
+ },
+ {
+  "key": "empty-state_ilk_paylasimi_siz_edin_ve_diger_analarla_420445",
+  "az": "İlk paylaşımı siz edin və digər analarla əlaqə qurun!",
+  "en": "Be the first to share and connect with other mothers!"
+ },
+ {
+  "key": "empty-state_netice_tapilmadi_4b1b52",
+  "az": "Nəticə tapılmadı",
+  "en": "No results found"
+ },
+ {
+  "key": "empty-state_paylasim_yarat_69bdcd",
+  "az": "Paylaşım yarat",
+  "en": "Create post"
+ },
+ {
+  "key": "empty-state_qrup_yoxdur",
+  "az": "Qrup yoxdur",
+  "en": "No groups yet"
+ },
+ {
+  "key": "empty-state_size_uygun_qruplar_tezlikle_elave_olunac_a9d784",
+  "az": "Sizə uyğun qruplar tezliklə əlavə olunacaq.",
+  "en": "Groups suitable for you will be added soon."
+ },
+ {
+  "key": "empty-state_story_yoxdur",
+  "az": "Story yoxdur",
+  "en": "No stories yet"
+ },
+ {
+  "key": "empty-state_yeni_bildirisleriniz_burada_gorunecek_4bba6f",
+  "az": "Yeni bildirişləriniz burada görünəcək.",
+  "en": "Your new notifications will appear here."
+ },
+ {
+  "key": "errorboundary_namelum_xeta_aa30e7",
+  "az": "Naməlum xəta",
+  "en": "Unknown error"
+ },
+ {
+  "key": "errorboundary_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "errorboundary_yeniden_cehd_et_d273ac",
+  "az": "Yenidən cəhd et",
+  "en": "Try again"
+ },
+ {
+  "key": "exercises_20_deq_gezinti_kegel_mesqleri_797636",
+  "az": "20 dəq gəzinti + Kegel məşqləri",
+  "en": "20 min walk + Kegel exercises"
+ },
+ {
+  "key": "exercises_addimlar_7d0a29",
+  "az": "Addımlar",
+  "en": "Steps"
+ },
+ {
+  "key": "exercises_admin_panelden_mesq_elave_edin_acce7f",
+  "az": "Admin paneldən məşq əlavə edin",
+  "en": "Add exercise from admin panel"
+ },
+ {
+  "key": "exercises_bitirdim",
+  "az": "Bitirdim",
+  "en": "I Finished"
+ },
+ {
+  "key": "exercises_bu_gun_786fd4",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "exercises_cetin_4bf032",
+  "az": "Çətin",
+  "en": "Difficult"
+ },
+ {
+  "key": "exercises_deq_780a5c",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "exercises_deqiqe_94641a",
+  "az": "dəqiqə",
+  "en": "minutes"
+ },
+ {
+  "key": "exercises_gun_ardicil_42e659",
+  "az": "Gün ardıcıl",
+  "en": "Days in a row"
+ },
+ {
+  "key": "exercises_gunun_tovsiyesi_f10d9b",
+  "az": "Günün tövsiyəsi",
+  "en": "Tip of the day"
+ },
+ {
+  "key": "exercises_hamile_mesqleri_139b99",
+  "az": "Hamilə Məşqləri",
+  "en": "Pregnancy Exercises"
+ },
+ {
+  "key": "exercises_level_easy",
+  "az": "Asan",
+  "en": "Easy"
+ },
+ {
+  "key": "exercises_level_medium",
+  "az": "Orta",
+  "en": "Medium"
+ },
+ {
+  "key": "exercises_mesq_tapilmadi_088b54",
+  "az": "Məşq tapılmadı",
+  "en": "Exercise not found"
+ },
+ {
+  "key": "exercises_seviyye_f242cf",
+  "az": "səviyyə",
+  "en": "level"
+ },
+ {
+  "key": "exercises_sizin_ucun_mesqler_d614cc",
+  "az": "Sizin üçün məşqlər",
+  "en": "Exercises for you"
+ },
+ {
+  "key": "exercises_tovsiye_712d0f",
+  "az": "Tövsiyə",
+  "en": "Recommendation"
+ },
+ {
+  "key": "exercises_trimester_ucun_a94dca",
+  "az": ". trimester üçün",
+  "en": ". for the trimester"
+ },
+ {
+  "key": "fairytalegenerator_0_2_yas_0fca24",
+  "az": "0-2 yaş",
+  "en": "0-2 years"
+ },
+ {
+  "key": "fairytalegenerator_10_12_yas_c393ca",
+  "az": "10-12 yaş",
+  "en": "10-12 years"
+ },
+ {
+  "key": "fairytalegenerator_3_5_yas_023631",
+  "az": "3-5 yaş",
+  "en": "3-5 years"
+ },
+ {
+  "key": "fairytalegenerator_6_9_yas_345fa4",
+  "az": "6-9 yaş",
+  "en": "6-9 years"
+ },
+ {
+  "key": "fairytalegenerator_addim_9346cd",
+  "az": "Addım",
+  "en": "Step"
+ },
+ {
+  "key": "fairytalegenerator_agilli_nagillar_3f1901",
+  "az": "Sehrli Nağıllar",
+  "en": "Magic Tales"
+ },
+ {
+  "key": "fairytalegenerator_ari_b3e5dd",
+  "az": "Arı",
+  "en": "Bee"
+ },
+ {
+  "key": "fairytalegenerator_ayi_balasi_f0fdaa",
+  "az": "Ayı Balası",
+  "en": "Bear Cub"
+ },
+ {
+  "key": "fairytalegenerator_azerbaycan_733e93",
+  "az": "Azərbaycan",
+  "en": "Azerbaijan"
+ },
+ {
+  "key": "fairytalegenerator_bagla_84bdc9",
+  "az": "Bağla",
+  "en": "Close it"
+ }
+]

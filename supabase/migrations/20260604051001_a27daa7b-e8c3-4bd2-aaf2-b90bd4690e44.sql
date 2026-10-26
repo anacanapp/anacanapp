@@ -1,0 +1,1 @@
+UPDATE public.quick_actions SET label_az = 'Ağıllı Nağıllar' WHERE label_az IN ('Nağıl','Nağıllar'); UPDATE public.quick_actions SET label_az = 'Ağ Səslər' WHERE label_az = 'Ağ Səs';

@@ -1,0 +1,76 @@
+{
+ "teething_symptoms": {
+  "da469ca3-dfb2-401a-bc96-10c1f9768175": {
+   "name": "Vermehrter Speichelfluss",
+   "description": "Starker Speichelfluss kommt beim Zahnen sehr häufig vor",
+   "relief_tips": [
+    "Zieh deinem Baby ein Lätzchen an",
+    "Wisch den Speichel regelmäßig ab",
+    "Trag eine Schutzcreme auf"
+   ]
+  },
+  "f66a15e2-5772-4cf2-9dd9-2fdc2fe21480": {
+   "name": "Leicht erhöhte Temperatur",
+   "description": "Ein leichter Temperaturanstieg (unter 38°C) kann auftreten",
+   "relief_tips": [
+    "Behalte die Temperatur im Blick",
+    "Achte darauf, dass dein Baby ausreichend Flüssigkeit bekommt",
+    "Ist die Temperatur höher, wende dich an einen Arzt"
+   ]
+  },
+  "11f5b7df-f534-4677-9297-aff12652de0c": {
+   "name": "Geschwollenes Zahnfleisch",
+   "description": "Gerötetes, geschwollenes Zahnfleisch an den Stellen, an denen die Zähne durchbrechen",
+   "relief_tips": [
+    "Kalter Beißring",
+    "Sanfte Massage",
+    "Gekühltes Tuch"
+   ]
+  },
+  "5d314a9d-29c4-4925-a850-549a104c10cc": {
+   "name": "Schlafprobleme",
+   "description": "Zahnungsschmerzen können den Schlafrhythmus stören",
+   "relief_tips": [
+    "Behalte den gewohnten Rhythmus bei",
+    "Schmerzmittel vor dem Schlafengehen",
+    "Beruhigendes Stillen"
+   ]
+  },
+  "6dca2abe-b145-4328-aa53-3621d7294068": {
+   "name": "Reizbarkeit",
+   "description": "Aufgrund der Beschwerden kann dein Baby gereizter sein als sonst",
+   "relief_tips": [
+    "Zusätzliche Kuscheleinheiten",
+    "Ablenkung mit Spielzeug",
+    "Beruhigende Geräusche"
+   ]
+  },
+  "781c41ff-4633-4c1a-ba59-4e165b56d073": {
+   "name": "Kauen auf Gegenständen",
+   "description": "Dein Baby nimmt alles in den Mund, um seine Beschwerden zu lindern",
+   "relief_tips": [
+    "Biete sichere Beißringe an",
+    "Beaufsichtige dein Baby beim Spielen",
+    "Reinige das Spielzeug regelmäßig"
+   ]
+  },
+  "8b318d48-e0c5-4e54-9b08-fd79f2a8d46e": {
+   "name": "Appetitlosigkeit",
+   "description": "Aufgrund des schmerzenden Zahnfleischs kann dein Baby das Essen verweigern",
+   "relief_tips": [
+    "Biete kalte Speisen an",
+    "Probiere verschiedene Konsistenzen aus",
+    "Hab Geduld"
+   ]
+  },
+  "bb23e53f-eb8b-42a3-8aea-5b43f97b45ef": {
+   "name": "Ziehen an den Ohren",
+   "description": "Dein Baby kann an seinen Ohren ziehen, weil die Schmerzen vom Zahnfleisch dorthin ausstrahlen",
+   "relief_tips": [
+    "Lass eine Ohrenentzündung ausschließen",
+    "Zahnfleischmassage",
+    "Ablenkung"
+   ]
+  }
+ }
+}

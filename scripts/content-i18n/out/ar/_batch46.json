@@ -1,0 +1,28 @@
+{
+ "noise_thresholds": {
+  "7b13016a-9cb4-4e37-9053-f82d8b60a3c0": {
+   "label": "خطير",
+   "description": "خطر تضرر السمع"
+  },
+  "878c77d3-3045-422a-96a6-34a1160c4f95": {
+   "label": "هادئ",
+   "description": "بيئة مريحة وهادئة"
+  },
+  "a15117a5-d0bd-4c50-abbc-33a7b4e1a1ca": {
+   "label": "صاخب جدًا",
+   "description": "قد يكون ضارًا بطفلكِ"
+  },
+  "af7ec1bb-029d-40e7-9ce8-5d2f32488c71": {
+   "label": "صامت",
+   "description": "بيئة نوم مثالية لطفلكِ"
+  },
+  "cd85ef7e-dfe6-489e-953b-ce8c74fe8507": {
+   "label": "صاخب",
+   "description": "قد يزعج طفلكِ"
+  },
+  "d7d4b109-70ec-4e02-a465-156553e80e3c": {
+   "label": "متوسط",
+   "description": "مستوى المحادثة العادية"
+  }
+ }
+}

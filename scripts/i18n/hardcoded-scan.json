@@ -1,0 +1,3073 @@
+{
+ "findings": [
+  {
+   "file": "src/components/admin/AdminAffiliateProducts.tsx",
+   "line": 28,
+   "kind": "literal",
+   "text": "Rahat|Möhkəm"
+  },
+  {
+   "file": "src/components/admin/AdminAffiliateProducts.tsx",
+   "line": 28,
+   "kind": "literal",
+   "text": "Çəki"
+  },
+  {
+   "file": "src/components/admin/AdminAffiliateProducts.tsx",
+   "line": 28,
+   "kind": "literal",
+   "text": "Rəng"
+  },
+  {
+   "file": "src/components/admin/AdminAffiliateProducts.tsx",
+   "line": 192,
+   "kind": "literal",
+   "text": "Sətir atlandı: name və ya affiliate_url yoxdur"
+  },
+  {
+   "file": "src/components/admin/AdminAffiliateProducts.tsx",
+   "line": 241,
+   "kind": "literal",
+   "text": "${successCount} məhsul əlavə edildi"
+  },
+  {
+   "file": "src/components/admin/AdminAffiliateProducts.tsx",
+   "line": 242,
+   "kind": "literal",
+   "text": "${errors.length} xəta: ${errors.slice(0, 3).join(', ')}${errors.length > 3 ? '...' : ''}"
+  },
+  {
+   "file": "src/components/admin/AdminAffiliateProducts.tsx",
+   "line": 246,
+   "kind": "literal",
+   "text": "${successCount} məhsul uğurla əlavə edildi"
+  },
+  {
+   "file": "src/components/admin/AdminAffiliateProducts.tsx",
+   "line": 413,
+   "kind": "literal",
+   "text": "${items.length} məhsul ixrac edildi"
+  },
+  {
+   "file": "src/components/admin/AdminAffiliateProducts.tsx",
+   "line": 491,
+   "kind": "literal",
+   "text": "Təsvir"
+  },
+  {
+   "file": "src/components/admin/AdminAffiliateProducts.tsx",
+   "line": 536,
+   "kind": "literal",
+   "text": "Rəy xülasəsi"
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 305,
+   "kind": "literal",
+   "text": "Naməlum"
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 308,
+   "kind": "literal",
+   "text": "Naməlum"
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 683,
+   "kind": "jsx",
+   "text": "MRR (Aylıq Gəlir)"
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 692,
+   "kind": "jsx",
+   "text": "Məhsul Stickiness (DAU/MAU)"
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 710,
+   "kind": "jsx",
+   "text": "LTV (Həyat Dəyəri)"
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 722,
+   "kind": "jsx",
+   "text": "Aylıq təkrarlanan stabil gəlir. Hər ay avtomatik yenilənən abunəliklərdən gələn təxmini gə"
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 725,
+   "kind": "jsx",
+   "text": "Stickiness (DAU/MAU nisbəti)"
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 726,
+   "kind": "jsx",
+   "text": "İstifadəçilərin məhsula bağlılıq dərəcəsi. 20% yaxşı, 30% çox yaxşı hesab olunur. Bu rəqəm"
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 730,
+   "kind": "jsx",
+   "text": "Bir müştərinin tətbiqdə qaldığı müddət ərzində qazandırdığı ortalama məbləğ. Gələcəkdə rek"
+  },
+  {
+   "file": "src/components/admin/AdminBabyCrisisCalendar.tsx",
+   "line": 268,
+   "kind": "literal",
+   "text": "Həftə ${period.week_start}"
+  },
+  {
+   "file": "src/components/admin/AdminBabyCrisisCalendar.tsx",
+   "line": 269,
+   "kind": "literal",
+   "text": "Həftə ${period.week_start}-${period.week_end}"
+  },
+  {
+   "file": "src/components/admin/AdminBabyCrisisCalendar.tsx",
+   "line": 442,
+   "kind": "literal",
+   "text": "Daha çox ağlama&#10;Yuxu problemləri"
+  },
+  {
+   "file": "src/components/admin/AdminBabyCrisisCalendar.tsx",
+   "line": 460,
+   "kind": "literal",
+   "text": "Əlavə qucaqlaşma&#10;Səbir"
+  },
+  {
+   "file": "src/components/admin/AdminBabyDailyInfo.tsx",
+   "line": 127,
+   "kind": "literal",
+   "text": "${result.success} məlumat idxal edildi${result.failed > 0 ? "
+  },
+  {
+   "file": "src/components/admin/AdminBabyDailyInfo.tsx",
+   "line": 168,
+   "kind": "literal",
+   "text": "${data.length} məlumat ixrac edildi"
+  },
+  {
+   "file": "src/components/admin/AdminBabyIllustrations.tsx",
+   "line": 262,
+   "kind": "literal",
+   "text": "${selectedMonth} aylıq körpə"
+  },
+  {
+   "file": "src/components/admin/AdminBabyIllustrations.tsx",
+   "line": 267,
+   "kind": "literal",
+   "text": "Bu yaşda körpənin xüsusiyyətləri..."
+  },
+  {
+   "file": "src/components/admin/AdminBanners.tsx",
+   "line": 345,
+   "kind": "literal",
+   "text": "Təsvir"
+  },
+  {
+   "file": "src/components/admin/AdminBlog.tsx",
+   "line": 314,
+   "kind": "literal",
+   "text": "Məqalə ${post.is_published ? tr(\"adminblog_gizledildi_2b23fb\", \"gizl\\u0259dildi\") : tr(\"ad"
+  },
+  {
+   "file": "src/components/admin/AdminBlog.tsx",
+   "line": 355,
+   "kind": "literal",
+   "text": "Bu kateqoriya ${usageCount} məqalədə istifadə olunur. Əvvəlcə məqalələrdən çıxarın."
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 198,
+   "kind": "literal",
+   "text": "Mənşə"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 199,
+   "kind": "literal",
+   "text": "Məna"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 200,
+   "kind": "literal",
+   "text": "Məna (AZ)"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 292,
+   "kind": "literal",
+   "text": "${newNames.length} yeni ad əlavə edildi${duplicateCount > 0 ? "
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 326,
+   "kind": "literal",
+   "text": "Təsvir"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 328,
+   "kind": "literal",
+   "text": "Hazırlıq (dəq)"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 329,
+   "kind": "literal",
+   "text": "Bişirmə (dəq)"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 331,
+   "kind": "literal",
+   "text": "İnqredientlər"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 333,
+   "kind": "literal",
+   "text": "Şəkil URL"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 394,
+   "kind": "literal",
+   "text": "${recipesImportData.length} resept əlavə edildi"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 412,
+   "kind": "literal",
+   "text": "Limonlu Zəncəfil Çayı"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 412,
+   "kind": "literal",
+   "text": "Hamiləlik dövründə ürəkbulanmaya qarşı ideal içki"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 412,
+   "kind": "literal",
+   "text": "Su - 500ml; Təzə zəncəfil - 2sm; Limon - yarım; Bal - 1 çay qaşığı"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 412,
+   "kind": "literal",
+   "text": "Zəncəfili doğrayın; Suyu qaynadın; Zəncəfili əlavə edib 5 dəq dəmləyin; Limon və bal əlavə"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 413,
+   "kind": "literal",
+   "text": "Folat və sağlam yağlarla zəngin səhər yeməyi"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 413,
+   "kind": "literal",
+   "text": "Çörək - 2 dilim; Avokado - 1 ədəd; Yumurta - 1 ədəd; Duz, istiot"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 413,
+   "kind": "literal",
+   "text": "Çörəyi qızardın; Avokadonu əzin; Yumurtanı bişirin; Hamısını birləşdirin"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 414,
+   "kind": "literal",
+   "text": "Enerji verən və qəbizliyə qarşı içki"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 414,
+   "kind": "literal",
+   "text": "Banan - 1 ədəd; Süd - 200ml; Bal - 1 çay qaşığı; Yulaf - 2 xörək qaşığı"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 414,
+   "kind": "literal",
+   "text": "Bütün inqredientləri blenderə qoyun; 1 dəq qarışdırın; Soyuq serviz edin"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 425,
+   "kind": "literal",
+   "text": "Ayın ətrafındakı işıq, nur"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 426,
+   "kind": "literal",
+   "text": "Əli"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 426,
+   "kind": "literal",
+   "text": "Ərəb"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 426,
+   "kind": "literal",
+   "text": "Yüksək, əzəmətli"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 426,
+   "kind": "literal",
+   "text": "Uca, şərəfli"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 427,
+   "kind": "literal",
+   "text": "Bəlli, açıq"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 1003,
+   "kind": "literal",
+   "text": "${namesImportData.length} Ad Əlavə Et"
+  },
+  {
+   "file": "src/components/admin/AdminContentManager.tsx",
+   "line": 1067,
+   "kind": "literal",
+   "text": "${recipesImportData.length} Resept Əlavə Et"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 11,
+   "kind": "literal",
+   "text": "Hamiləlik günlük kontenti (280 gün)"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 12,
+   "kind": "literal",
+   "text": "Həftəlik tövsiyələr (bump/mommy)"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 13,
+   "kind": "literal",
+   "text": "Körpə günlük məlumatı (1460 gün)"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 15,
+   "kind": "literal",
+   "text": "Reseptlər"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 16,
+   "kind": "literal",
+   "text": "Qidalanma tövsiyələri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 17,
+   "kind": "literal",
+   "text": "Trimester tövsiyələri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 18,
+   "kind": "literal",
+   "text": "Bloq məqalələri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 21,
+   "kind": "literal",
+   "text": "İnkişaf tövsiyələri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 22,
+   "kind": "literal",
+   "text": "Partnyor günlük tövsiyələri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 24,
+   "kind": "literal",
+   "text": "Flow faza tövsiyələri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 26,
+   "kind": "literal",
+   "text": "Xəstəxana çantası şablonları"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 27,
+   "kind": "literal",
+   "text": "Onboarding mərhələləri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 28,
+   "kind": "literal",
+   "text": "İlk yardım ssenariləri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 30,
+   "kind": "literal",
+   "text": "Oyun fəaliyyətləri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 31,
+   "kind": "literal",
+   "text": "Kriz dövrləri (wonder weeks)"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 33,
+   "kind": "literal",
+   "text": "Nəfəs məşqləri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 34,
+   "kind": "literal",
+   "text": "Vitaminlər"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 35,
+   "kind": "literal",
+   "text": "Məşqlər"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 37,
+   "kind": "literal",
+   "text": "Mağaza məhsulları"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 39,
+   "kind": "literal",
+   "text": "Körpə adları (mənşə/məna)"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 40,
+   "kind": "literal",
+   "text": "Statik push bildirişləri"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 41,
+   "kind": "literal",
+   "text": "Hamiləlik günlük pushları (1-280)"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 86,
+   "kind": "literal",
+   "text": "batch: +${res.updated} tərcümə, qalır: ${res.remaining}${res.provider ? "
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 88,
+   "kind": "literal",
+   "text": "✅ ${table} → ${lang} tamamlandı (cəmi ${totalUpdated})"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 88,
+   "kind": "literal",
+   "text": "Tərcümə tamamlandı"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 90,
+   "kind": "literal",
+   "text": "⚠ İrəliləyiş yoxdur — dayandırıldı (failures-a bax)"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 93,
+   "kind": "literal",
+   "text": "❌ Xəta: ${(e as Error).message}"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 94,
+   "kind": "literal",
+   "text": "Tərcümə xətası"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 107,
+   "kind": "literal",
+   "text": "ℹ ${table} → ${lang}: qalır ${data?.remaining ?? '?'} sətir"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 130,
+   "kind": "literal",
+   "text": "Cədvəl"
+  },
+  {
+   "file": "src/components/admin/AdminContentTranslations.tsx",
+   "line": 170,
+   "kind": "jsx",
+   "text": "Qalan sətir:"
+  },
+  {
+   "file": "src/components/admin/AdminCoupons.tsx",
+   "line": 276,
+   "kind": "literal",
+   "text": " · ${c.used_count || 0}/${c.max_uses} istifadə"
+  },
+  {
+   "file": "src/components/admin/AdminCoupons.tsx",
+   "line": 276,
+   "kind": "literal",
+   "text": " · ${c.used_count || 0} istifadə"
+  },
+  {
+   "file": "src/components/admin/AdminData.tsx",
+   "line": 83,
+   "kind": "literal",
+   "text": "${table} cədvəlindəki 30 gündən köhnə məlumatları silmək istəyirsiniz?"
+  },
+  {
+   "file": "src/components/admin/AdminDeeplinks.tsx",
+   "line": 77,
+   "kind": "literal",
+   "text": "Əsas"
+  },
+  {
+   "file": "src/components/admin/AdminDeeplinks.tsx",
+   "line": 78,
+   "kind": "literal",
+   "text": "Alətlər"
+  },
+  {
+   "file": "src/components/admin/AdminDeeplinks.tsx",
+   "line": 80,
+   "kind": "literal",
+   "text": "Məzmun"
+  },
+  {
+   "file": "src/components/admin/AdminDeeplinks.tsx",
+   "line": 83,
+   "kind": "literal",
+   "text": "Digər"
+  },
+  {
+   "file": "src/components/admin/AdminDefaultShoppingItems.tsx",
+   "line": 238,
+   "kind": "literal",
+   "text": "Körpə bezləri"
+  },
+  {
+   "file": "src/components/admin/AdminDevelopmentTips.tsx",
+   "line": 136,
+   "kind": "literal",
+   "text": "Mətn"
+  },
+  {
+   "file": "src/components/admin/AdminDynamicContent.tsx",
+   "line": 217,
+   "kind": "literal",
+   "text": "Təsvir"
+  },
+  {
+   "file": "src/components/admin/AdminDynamicContent.tsx",
+   "line": 283,
+   "kind": "literal",
+   "text": "Təsvir"
+  },
+  {
+   "file": "src/components/admin/AdminFairyTales.tsx",
+   "line": 268,
+   "kind": "literal",
+   "text": "Meşə Macərası"
+  },
+  {
+   "file": "src/components/admin/AdminFirstAid.tsx",
+   "line": 296,
+   "kind": "literal",
+   "text": "Təsvir *"
+  },
+  {
+   "file": "src/components/admin/AdminFlowContent.tsx",
+   "line": 478,
+   "kind": "literal",
+   "text": "Məzmun"
+  },
+  {
+   "file": "src/components/admin/AdminFlowContent.tsx",
+   "line": 524,
+   "kind": "literal",
+   "text": "Məzmun"
+  },
+  {
+   "file": "src/components/admin/AdminFruitImages.tsx",
+   "line": 127,
+   "kind": "literal",
+   "text": "Həftə ${weekNumber} üçün şəkil yükləndi"
+  },
+  {
+   "file": "src/components/admin/AdminLanguages.tsx",
+   "line": 257,
+   "kind": "literal",
+   "text": "\"${lang.native_name}\" dilini silmək istəyirsiniz?"
+  },
+  {
+   "file": "src/components/admin/AdminLayout.tsx",
+   "line": 162,
+   "kind": "literal",
+   "text": "Kontent Tərcüməsi (AI)"
+  },
+  {
+   "file": "src/components/admin/AdminOnboarding.tsx",
+   "line": 334,
+   "kind": "literal",
+   "text": "Təsvir"
+  },
+  {
+   "file": "src/components/admin/AdminPartnerTips.tsx",
+   "line": 216,
+   "kind": "literal",
+   "text": "Mətn"
+  },
+  {
+   "file": "src/components/admin/AdminPhaseTips.tsx",
+   "line": 330,
+   "kind": "literal",
+   "text": "Azərbaycan dilində başlıq"
+  },
+  {
+   "file": "src/components/admin/AdminPhaseTips.tsx",
+   "line": 348,
+   "kind": "literal",
+   "text": "Azərbaycan dilində məzmun"
+  },
+  {
+   "file": "src/components/admin/AdminPhotoshoot.tsx",
+   "line": 467,
+   "kind": "literal",
+   "text": "Azərbaycan adı"
+  },
+  {
+   "file": "src/components/admin/AdminPhotoshoot.tsx",
+   "line": 563,
+   "kind": "literal",
+   "text": "Azərbaycan adı"
+  },
+  {
+   "file": "src/components/admin/AdminPhotoshoot.tsx",
+   "line": 674,
+   "kind": "literal",
+   "text": "Azərbaycan adı"
+  },
+  {
+   "file": "src/components/admin/AdminPhotoshoot.tsx",
+   "line": 772,
+   "kind": "literal",
+   "text": "Azərbaycan adı"
+  },
+  {
+   "file": "src/components/admin/AdminPhotoshoot.tsx",
+   "line": 855,
+   "kind": "literal",
+   "text": "Azərbaycan adı"
+  },
+  {
+   "file": "src/components/admin/AdminPhotoshoot.tsx",
+   "line": 938,
+   "kind": "literal",
+   "text": "Azərbaycan adı"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 141,
+   "kind": "literal",
+   "text": "${selectedItems.length} məlumatı silmək istədiyinizə əminsiniz?"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 145,
+   "kind": "literal",
+   "text": "${selectedItems.length} məlumat silindi!"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 225,
+   "kind": "literal",
+   "text": "Doğuma neçə gün qaldı"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 226,
+   "kind": "literal",
+   "text": "Təxmini çəki"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 227,
+   "kind": "literal",
+   "text": "Təxmini boy"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 228,
+   "kind": "literal",
+   "text": "Təxmini ölçüsündə olduğu meyvə / obyekt"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 229,
+   "kind": "literal",
+   "text": "Təxmini ölçüsündəolduğu meyvə / obyekt"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 230,
+   "kind": "literal",
+   "text": "Təxmini ölçüsündə olduğu meyvə"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 231,
+   "kind": "literal",
+   "text": "Körpənizdən sizə mesaj var..."
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 232,
+   "kind": "literal",
+   "text": "Körpənizdən sizə mesaj var"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 233,
+   "kind": "literal",
+   "text": "Bədəninizdə nələr baş verir..."
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 234,
+   "kind": "literal",
+   "text": "Bədəninizdə nələr baş verir"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 235,
+   "kind": "literal",
+   "text": "Körpənin inkişafında nələr baş verir..."
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 236,
+   "kind": "literal",
+   "text": "Körpənin inkişafında nələr baş verir"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 237,
+   "kind": "literal",
+   "text": "Günün Məsləhəti"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 238,
+   "kind": "literal",
+   "text": "Günün məsləhəti"
+  },
+  {
+   "file": "src/components/admin/AdminPregnancyContent.tsx",
+   "line": 326,
+   "kind": "literal",
+   "text": "${data.length} sətir tapıldı. Bazaya yazılır..."
+  },
+  {
+   "file": "src/components/admin/AdminPremiumConfig.tsx",
+   "line": 663,
+   "kind": "literal",
+   "text": "Məs: Ən sərfəli"
+  },
+  {
+   "file": "src/components/admin/AdminPushNotifications.tsx",
+   "line": 360,
+   "kind": "literal",
+   "text": "Hamiləliyin ${dayNumber}-ci günü 🌟"
+  },
+  {
+   "file": "src/components/admin/AdminPushNotifications.tsx",
+   "line": 946,
+   "kind": "literal",
+   "text": "${data.sent || 0} flow xatırlatması göndərildi!"
+  },
+  {
+   "file": "src/components/admin/AdminPushNotifications.tsx",
+   "line": 1184,
+   "kind": "literal",
+   "text": "${result.sent} cihaza göndərildi!"
+  },
+  {
+   "file": "src/components/admin/AdminPushNotifications.tsx",
+   "line": 1355,
+   "kind": "literal",
+   "text": "${currentTargetStats.tokens} cihaza göndəriləcək"
+  },
+  {
+   "file": "src/components/admin/AdminPushNotifications.tsx",
+   "line": 1685,
+   "kind": "literal",
+   "text": "Körpənizin ${dayNumber}-ci günü 🌟"
+  },
+  {
+   "file": "src/components/admin/AdminQuickActions.tsx",
+   "line": 114,
+   "kind": "literal",
+   "text": "Azərbaycanca"
+  },
+  {
+   "file": "src/components/admin/AdminRecipes.tsx",
+   "line": 255,
+   "kind": "literal",
+   "text": "Təsvir"
+  },
+  {
+   "file": "src/components/admin/AdminRecipes.tsx",
+   "line": 257,
+   "kind": "literal",
+   "text": "Hazırlıq (dəq)"
+  },
+  {
+   "file": "src/components/admin/AdminRecipes.tsx",
+   "line": 258,
+   "kind": "literal",
+   "text": "Bişirmə (dəq)"
+  },
+  {
+   "file": "src/components/admin/AdminRecipes.tsx",
+   "line": 261,
+   "kind": "literal",
+   "text": "İnqredientlər"
+  },
+  {
+   "file": "src/components/admin/AdminRecipes.tsx",
+   "line": 263,
+   "kind": "literal",
+   "text": "Şəkil URL"
+  },
+  {
+   "file": "src/components/admin/AdminRecipes.tsx",
+   "line": 324,
+   "kind": "literal",
+   "text": "${importData.length} resept əlavə edildi"
+  },
+  {
+   "file": "src/components/admin/AdminRecipes.tsx",
+   "line": 534,
+   "kind": "literal",
+   "text": "Səhər yeməyi"
+  },
+  {
+   "file": "src/components/admin/AdminSubscriptions.tsx",
+   "line": 98,
+   "kind": "literal",
+   "text": "${selectedUser.name} üçün Premium aktivləşdirildi"
+  },
+  {
+   "file": "src/components/admin/AdminSubscriptions.tsx",
+   "line": 106,
+   "kind": "literal",
+   "text": "${user.name} üçün Premium-u ləğv etmək istəyirsiniz?"
+  },
+  {
+   "file": "src/components/admin/AdminSubscriptions.tsx",
+   "line": 120,
+   "kind": "literal",
+   "text": "${user.name} üçün Premium ləğv edildi"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 53,
+   "kind": "literal",
+   "text": "translations (UI tərcümələri)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 54,
+   "kind": "literal",
+   "text": "mommy_daily_messages (Anaya gündəlik mesaj)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 55,
+   "kind": "literal",
+   "text": "baby_daily_info (Körpə üçün günlük məlumatlar)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 56,
+   "kind": "literal",
+   "text": "pregnancy_daily_content (Hamiləlik günlük kontenti)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 57,
+   "kind": "literal",
+   "text": "weekly_tips (Həftəlik məsləhətlər)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 58,
+   "kind": "literal",
+   "text": "admin_recipes (Reseptlər)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 60,
+   "kind": "literal",
+   "text": "banners (Bannerlər)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 62,
+   "kind": "literal",
+   "text": "exercises (Məşqlər)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 63,
+   "kind": "literal",
+   "text": "vitamins (Vitaminlər)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 64,
+   "kind": "literal",
+   "text": "vaccines (Peyvəndlər)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 65,
+   "kind": "literal",
+   "text": "baby_crisis_periods (Kriz dövrləri)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 66,
+   "kind": "literal",
+   "text": "teething_care_tips (Diş çıxarma tövsiyələri)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 67,
+   "kind": "literal",
+   "text": "white_noise_sounds (Ağ küy səsləri)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 68,
+   "kind": "literal",
+   "text": "affiliate_products (Tərəfdaş məhsulları)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 369,
+   "kind": "literal",
+   "text": "Faylda heç bir məlumat tapılmadı."
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 377,
+   "kind": "literal",
+   "text": "Fayl oxundu: ${rows.length} sətir tapıldı."
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 379,
+   "kind": "literal",
+   "text": "Fayl oxunarkən xəta: ${err.message}"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 385,
+   "kind": "literal",
+   "text": "Zəhmət olmasa əvvəlcə CSV faylı yükləyin"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 429,
+   "kind": "literal",
+   "text": "Zəhmət olmasa hədəf cədvəl adını daxil edin"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 434,
+   "kind": "literal",
+   "text": "Zəhmət olmasa ID sütununu seçin"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 439,
+   "kind": "literal",
+   "text": "Zəhmət olmasa yenilənəcək sütunları seçin"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 479,
+   "kind": "literal",
+   "text": "Məlumat bazasından oxuma xətası: ${pageErr.message}"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 503,
+   "kind": "literal",
+   "text": "ID dəyəri boş olan sətir keçildi"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 513,
+   "kind": "literal",
+   "text": "ID dəyəri rəqəm deyil (${dbIdColumn}: \"${idVal}\") – sətir keçildi"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 608,
+   "kind": "literal",
+   "text": "Insert xətası: ${insErr.message}"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 644,
+   "kind": "literal",
+   "text": "Update xətası (${dbIdColumn}: ${idVal}): ${updErr.message}"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 662,
+   "kind": "literal",
+   "text": "Yükləmə tamamlandı!"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 665,
+   "kind": "literal",
+   "text": "Xəta baş verdi: ${err.message}"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 758,
+   "kind": "literal",
+   "text": "${saved} tərcümə yadda saxlanıldı"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 832,
+   "kind": "literal",
+   "text": "${imported} tərcümə idxal edildi"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1014,
+   "kind": "literal",
+   "text": "Eyni olanlara dəyməsin"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1014,
+   "kind": "jsx",
+   "text": "Mühüm Xəbərdarlıq (\"Eyni olanlara dəyməsin\")"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1016,
+   "kind": "jsx",
+   "text": "və ya"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1023,
+   "kind": "jsx",
+   "text": "Hədəf Cədvəl"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1025,
+   "kind": "literal",
+   "text": "Cədvəl seçin"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1032,
+   "kind": "jsx",
+   "text": "-- Digər (Cədvəl adını əllə yazın) --"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1039,
+   "kind": "jsx",
+   "text": "Cədvəl Adı (Database Table Name)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1041,
+   "kind": "literal",
+   "text": "Məs: affiliate_products"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1049,
+   "kind": "jsx",
+   "text": "Hədəf Dil"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1076,
+   "kind": "jsx",
+   "text": "Tapılan sətirlər:"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1094,
+   "kind": "jsx",
+   "text": "Sətirləri verilənlər bazasındakı uyğun qeydlərlə eşləşdirmək üçün istifadə olunur."
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1098,
+   "kind": "jsx",
+   "text": "Yüklənəcək / Yenilənəcək Sütunlar"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1130,
+   "kind": "jsx",
+   "text": "Seçilmiş sütunlardakı mətnlər verilənlər bazasına yüklənəcək."
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1138,
+   "kind": "jsx",
+   "text": "Yüklənir..."
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1150,
+   "kind": "jsx",
+   "text": "Cəmi"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1158,
+   "kind": "jsx",
+   "text": "Yenilənən sütun"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1162,
+   "kind": "jsx",
+   "text": "Dəyişməyən (Keçilən)"
+  },
+  {
+   "file": "src/components/admin/AdminTranslations.tsx",
+   "line": 1174,
+   "kind": "jsx",
+   "text": "Xətalar (Maks 10):"
+  },
+  {
+   "file": "src/components/admin/AdminUsers.tsx",
+   "line": 165,
+   "kind": "literal",
+   "text": "${selectedUser.name} üçün ${getRoleLabel(selectedRole)} rolu təyin edildi"
+  },
+  {
+   "file": "src/components/admin/AdminUsers.tsx",
+   "line": 197,
+   "kind": "literal",
+   "text": "${selectedUser.name} üçün şifrə yeniləndi"
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 204,
+   "kind": "literal",
+   "text": "${n} peyvənd köçürüldü."
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 266,
+   "kind": "literal",
+   "text": "${c.name_az} silinsin? Bütün peyvəndlər də silinəcək."
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 295,
+   "kind": "literal",
+   "text": "${v.name_az} silinsin? Bütün dozalar da silinəcək."
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 367,
+   "kind": "literal",
+   "text": "Qısa təsvir (EN)"
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 369,
+   "kind": "literal",
+   "text": "Tam təsvir (EN)"
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 401,
+   "kind": "literal",
+   "text": "Peyvənd"
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 413,
+   "kind": "literal",
+   "text": "Doza adı (məs. 1-ci doza)"
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 414,
+   "kind": "literal",
+   "text": "Yaş etiketi (məs. 2 aylıq)"
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 415,
+   "kind": "literal",
+   "text": "Tövsiyə olunan yaş (günlə)"
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 417,
+   "kind": "literal",
+   "text": "Min yaş (günlə)"
+  },
+  {
+   "file": "src/components/admin/AdminVaccines.tsx",
+   "line": 418,
+   "kind": "literal",
+   "text": "Max yaş (günlə)"
+  },
+  {
+   "file": "src/components/admin/BulkTimeManager.tsx",
+   "line": 107,
+   "kind": "literal",
+   "text": "${selected.size} sətrin saatı \"${newTime}\" olaraq dəyişdiriləcək. Davam edək?"
+  },
+  {
+   "file": "src/components/admin/BulkTipsImport.tsx",
+   "line": 38,
+   "kind": "literal",
+   "text": "Hamiləliyin 1-ci həftəsi"
+  },
+  {
+   "file": "src/components/admin/BulkTipsImport.tsx",
+   "line": 39,
+   "kind": "literal",
+   "text": "Bu həftə körpəniz hələ kiçik bir hüceyrədir. Folik turşusu qəbul etməyi unutmayın!"
+  },
+  {
+   "file": "src/components/admin/BulkTipsImport.tsx",
+   "line": 43,
+   "kind": "literal",
+   "text": "Hamiləliyin 2-ci həftəsi"
+  },
+  {
+   "file": "src/components/admin/BulkTipsImport.tsx",
+   "line": 54,
+   "kind": "literal",
+   "text": "Hamiləliyin ${week}-ci həftəsi"
+  },
+  {
+   "file": "src/components/admin/BulkTipsImport.tsx",
+   "line": 55,
+   "kind": "literal",
+   "text": "${week}-ci həftə üçün tövsiyə məzmunu buraya yazılacaq."
+  },
+  {
+   "file": "src/components/admin/NotificationOpsCard.tsx",
+   "line": 74,
+   "kind": "literal",
+   "text": "gözlənilən: ${expected.join(',')} — alındı: ${baku}"
+  },
+  {
+   "file": "src/components/admin/NotificationOpsCard.tsx",
+   "line": 114,
+   "kind": "literal",
+   "text": "${fn}: ${sent} push göndərildi"
+  },
+  {
+   "file": "src/components/admin/NotificationOpsCard.tsx",
+   "line": 115,
+   "kind": "literal",
+   "text": "${fn}: 0 push (səbəbə bax)"
+  },
+  {
+   "file": "src/components/admin/PushDiagnosticsCard.tsx",
+   "line": 37,
+   "kind": "literal",
+   "text": "${sent} dinamik push göndərildi (sənin cihazına)"
+  },
+  {
+   "file": "src/components/AIChatScreen.tsx",
+   "line": 272,
+   "kind": "literal",
+   "text": "${tr(\"aichat_welcome_flow_1\", \"Salam\")}${userName}. ${tr(\"aichat_welcome_flow_2\", \"Mən Ana"
+  },
+  {
+   "file": "src/components/AIChatScreen.tsx",
+   "line": 274,
+   "kind": "literal",
+   "text": "${tr(\"aichat_welcome_bump_1\", \"Salam\")}${userName}. ${tr(\"aichat_welcome_bump_2\", \"Mən Ana"
+  },
+  {
+   "file": "src/components/AIChatScreen.tsx",
+   "line": 276,
+   "kind": "literal",
+   "text": "${tr(\"aichat_welcome_mommy_1\", \"Salam\")}${userName}. ${tr(\"aichat_welcome_mommy_2\", \"Mən A"
+  },
+  {
+   "file": "src/components/AIChatScreen.tsx",
+   "line": 278,
+   "kind": "literal",
+   "text": "${tr(\"aichat_welcome_default_1\", \"Salam\")}${userName}. ${tr(\"aichat_welcome_default_2\", \"M"
+  },
+  {
+   "file": "src/components/AuthScreen.tsx",
+   "line": 236,
+   "kind": "literal",
+   "text": "${partnerProfile.name} ${tr(\"auth_linked_with\", \"ilə əlaqələndirildiniz.\")}"
+  },
+  {
+   "file": "src/components/baby/FeedingHistoryPanel.tsx",
+   "line": 16,
+   "kind": "literal",
+   "text": "${hours} ${tr('unit_hr','saat')} ${mins} ${tr('unit_min','dəq')}"
+  },
+  {
+   "file": "src/components/baby/FeedingHistoryPanel.tsx",
+   "line": 17,
+   "kind": "literal",
+   "text": "${mins} ${tr('unit_min','dəq')} ${secs} ${tr('unit_sec','san')}"
+  },
+  {
+   "file": "src/components/baby/SleepHistoryPanel.tsx",
+   "line": 14,
+   "kind": "literal",
+   "text": "${hours} ${tr('unit_hr','saat')} ${mins} ${tr('unit_min','dəq')}"
+  },
+  {
+   "file": "src/components/baby/SleepHistoryPanel.tsx",
+   "line": 15,
+   "kind": "literal",
+   "text": "${mins} ${tr('unit_min','dəq')}"
+  },
+  {
+   "file": "src/components/baby/SleepHistoryPanel.tsx",
+   "line": 134,
+   "kind": "literal",
+   "text": "🌙 ${todaySleepStats.count} ${tr('sleephistorypanel_times','dəfə')} · ${formatDuration(tod"
+  },
+  {
+   "file": "src/components/baby/TrackerAIInsight.tsx",
+   "line": 143,
+   "kind": "literal",
+   "text": "Diqqət"
+  },
+  {
+   "file": "src/components/BirthOnboardingModal.tsx",
+   "line": 106,
+   "kind": "literal",
+   "text": "${babyName} ${tr(\"birth_welcome_world\", \"dünyaya xoş gəldi! Analıq səyahətinizə başlayırıq"
+  },
+  {
+   "file": "src/components/cakes/CakeOrderForm.tsx",
+   "line": 169,
+   "kind": "literal",
+   "text": "${formData.notes || ''} [${paymentLabel} ${tr(\"cake_payment\", \"ödəniş\")} ]"
+  },
+  {
+   "file": "src/components/community/CommunityScreen.tsx",
+   "line": 182,
+   "kind": "literal",
+   "text": "Tərcüməni gör"
+  },
+  {
+   "file": "src/components/community/CreatePostModal.tsx",
+   "line": 148,
+   "kind": "literal",
+   "text": "${tr(\"community_file_upload_failed\", \"Fayl yüklənə bilmədi:\")} ${error.message}"
+  },
+  {
+   "file": "src/components/community/CreatePostScreen.tsx",
+   "line": 151,
+   "kind": "literal",
+   "text": "${tr(\"community_file_upload_failed\", \"Fayl yüklənə bilmədi:\")} ${error.message}"
+  },
+  {
+   "file": "src/components/community/GroupPresenceBar.tsx",
+   "line": 48,
+   "kind": "literal",
+   "text": "${typingUsers.length} ${tr(\"community_people_are_typing\", \"nəfər yazır...\")}"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 312,
+   "kind": "literal",
+   "text": "${tr(\"dashboard_today\", \"Bu gün\")} ${kickCount + 1} ${tr(\"dashboard_kick\", \"təpik\")}"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 321,
+   "kind": "literal",
+   "text": "${waterCount + 1}/8 ${tr(\"dashboard_glasses\", \"stəkan\")}"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 346,
+   "kind": "literal",
+   "text": "${selectedWeek} ${tr(\"dashboard_week_baby\", \"həftəlik körpə\")}"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 968,
+   "kind": "literal",
+   "text": "${tr(\"dashboard_duration\", \"Müddət:\")} ${formatDuration(result.durationSeconds)}"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 1001,
+   "kind": "literal",
+   "text": "${tr(\"dashboard_sud_evezedicisi\", \"Süd əvəzedicisi\")} ${amountMl} ml 🍼"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 1029,
+   "kind": "literal",
+   "text": "${tr(\"dashboard_diaper_change\", \"Bez dəyişmə:\")} ${typeEmojis[type]}"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 1196,
+   "kind": "literal",
+   "text": "${rm} ${tr(\"common_minutes_short\", \"dəq\")}"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 1566,
+   "kind": "literal",
+   "text": "${m} ${tr(\"dashboard_min\", \"dəq\")}"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 1568,
+   "kind": "literal",
+   "text": "${h} ${tr(\"dashboard_hour\", \"saat\")} ${m} ${tr(\"dashboard_min\", \"dəq\")}"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 1598,
+   "kind": "literal",
+   "text": "${dM} ${tr(\"dashboard_min\", \"dəq\")} ${dS} ${tr(\"dashboard_sec\", \"san\")}"
+  },
+  {
+   "file": "src/components/DoctorReportScreen.tsx",
+   "line": 141,
+   "kind": "literal",
+   "text": "${babyCare.feedsPerDay} ${tr('dashboard_times_unit', 'dəfə')}"
+  },
+  {
+   "file": "src/components/DoctorReportScreen.tsx",
+   "line": 227,
+   "kind": "literal",
+   "text": "${pregData.currentWeek} ${tr(\"common_hefte_suffix\", \"həftə\")}"
+  },
+  {
+   "file": "src/components/flow/FlowDashboard.tsx",
+   "line": 223,
+   "kind": "literal",
+   "text": "Növbəti Period"
+  },
+  {
+   "file": "src/components/flow/PeriodDelayBanner.tsx",
+   "line": 44,
+   "kind": "literal",
+   "text": "${tr(\"flow_period_delay_1\", \"Periodunuz təxmini tarixdən\")} ${delayDays} ${tr(\"flow_period"
+  },
+  {
+   "file": "src/components/flow/PillReminderCard.tsx",
+   "line": 22,
+   "kind": "literal",
+   "text": "Həbinizi qəbul edin"
+  },
+  {
+   "file": "src/components/funnel/funnelData.ts",
+   "line": 176,
+   "kind": "literal",
+   "text": "${name}, ${week}${tr(\"funnel_week_stats\", \"-ci həftədə olan hamilə qadınların 78%-i müəyyə"
+  },
+  {
+   "file": "src/components/funnel/funnelData.ts",
+   "line": 191,
+   "kind": "literal",
+   "text": "${name}, ${ageMonths} ${tr(\"funnel_month_stats\", \"aylıq körpəsi olan anaların 82%-i oxşar "
+  },
+  {
+   "file": "src/components/funnel/funnelData.ts",
+   "line": 203,
+   "kind": "literal",
+   "text": "${name}, ${cycleLen} ${tr(\"funnel_cycle_stats\", \"günlük tsiklinizə əsasən fərdi təhlil haz"
+  },
+  {
+   "file": "src/components/funnel/steps/AnalysisStep.tsx",
+   "line": 7,
+   "kind": "literal",
+   "text": "24-cü həftə, 2-ci trimester"
+  },
+  {
+   "file": "src/components/games/birlesdir/BirlesdirGame.tsx",
+   "line": 481,
+   "kind": "literal",
+   "text": "3 və ya daha çox eyni əşyanı yan-yana gətir, \"Sakitlik Anı\" və \"Super Ana\" bonuslarını aç!"
+  },
+  {
+   "file": "src/components/games/birlesdir/levelConfig.ts",
+   "line": 40,
+   "kind": "literal",
+   "text": "Çətin"
+  },
+  {
+   "file": "src/components/games/birlesdir/tileDefs.ts",
+   "line": 12,
+   "kind": "literal",
+   "text": "Qəhvə fincanı"
+  },
+  {
+   "file": "src/components/games/birlesdir/tileDefs.ts",
+   "line": 14,
+   "kind": "literal",
+   "text": "Əmzik"
+  },
+  {
+   "file": "src/components/games/birlesdir/tileDefs.ts",
+   "line": 16,
+   "kind": "literal",
+   "text": "İstirahət anı"
+  },
+  {
+   "file": "src/components/games/birlesdir/tileDefs.ts",
+   "line": 17,
+   "kind": "literal",
+   "text": "Sakitlik çiçəyi"
+  },
+  {
+   "file": "src/components/games/MiniGamesHub.tsx",
+   "line": 31,
+   "kind": "literal",
+   "text": "Sağlam Səbət"
+  },
+  {
+   "file": "src/components/games/MiniGamesHub.tsx",
+   "line": 33,
+   "kind": "literal",
+   "text": "Sağlam qidaları tut, zərərlilərdən qaç"
+  },
+  {
+   "file": "src/components/games/MiniGamesHub.tsx",
+   "line": 41,
+   "kind": "literal",
+   "text": "Birləşdir"
+  },
+  {
+   "file": "src/components/games/MiniGamesHub.tsx",
+   "line": 43,
+   "kind": "literal",
+   "text": "3 və ya daha çoxunu birləşdir, bonusları aç"
+  },
+  {
+   "file": "src/components/games/saglam-sebet/levelConfig.ts",
+   "line": 34,
+   "kind": "literal",
+   "text": "Şəkərli konfet"
+  },
+  {
+   "file": "src/components/games/saglam-sebet/levelConfig.ts",
+   "line": 104,
+   "kind": "literal",
+   "text": "Çətin"
+  },
+  {
+   "file": "src/components/games/saglam-sebet/SaglamSebetGame.tsx",
+   "line": 490,
+   "kind": "literal",
+   "text": "Sağlam qidaları səbətə tut, zərərli qidalardan və stress buludlarından qaç!"
+  },
+  {
+   "file": "src/components/games/tierLabels.ts",
+   "line": 9,
+   "kind": "literal",
+   "text": "Çətin"
+  },
+  {
+   "file": "src/components/HealthSyncScreen.tsx",
+   "line": 91,
+   "kind": "literal",
+   "text": "${platformName} ${tr('health_connected_desc', 'məlumatları oxunur')}"
+  },
+  {
+   "file": "src/components/HealthSyncScreen.tsx",
+   "line": 172,
+   "kind": "literal",
+   "text": "${platformName} ${tr('health_connect_title', 'ilə qoşulun')}"
+  },
+  {
+   "file": "src/components/HealthSyncScreen.tsx",
+   "line": 286,
+   "kind": "literal",
+   "text": "${platformName} ${tr('health_open_settings_desc', 'icazələrini idarə edin')}"
+  },
+  {
+   "file": "src/components/InitialLanguageScreen.tsx",
+   "line": 16,
+   "kind": "literal",
+   "text": "Azərbaycan"
+  },
+  {
+   "file": "src/components/InitialLanguageScreen.tsx",
+   "line": 17,
+   "kind": "literal",
+   "text": "Azərbaycan"
+  },
+  {
+   "file": "src/components/InitialLanguageScreen.tsx",
+   "line": 98,
+   "kind": "literal",
+   "text": "Ölkə seçin"
+  },
+  {
+   "file": "src/components/InitialLanguageScreen.tsx",
+   "line": 101,
+   "kind": "literal",
+   "text": "Ölkə tapılmadı"
+  },
+  {
+   "file": "src/components/InitialLanguageScreen.tsx",
+   "line": 219,
+   "kind": "literal",
+   "text": "Dili sonradan tənzimləmələrdən dəyişə bilərsiniz"
+  },
+  {
+   "file": "src/components/mommy/ChildSelector.tsx",
+   "line": 49,
+   "kind": "literal",
+   "text": "${formData.name} ${tr(\"childselector_added\", \"əlavə edildi\")}"
+  },
+  {
+   "file": "src/components/mommy/hero/MommyHeroBento.tsx",
+   "line": 61,
+   "kind": "literal",
+   "text": "+ ${remainingDays} ${remainingDays > 1 ? tr(\"time_days\", \"gün\") : tr(\"time_day\", \"gün\")} $"
+  },
+  {
+   "file": "src/components/partner/SurpriseTab.tsx",
+   "line": 188,
+   "kind": "literal",
+   "text": "${emoji} ${tr(\"partner_surprise_completed_1\", \"Həyat yoldaşın\")} \"${title}\" ${tr(\"partner_"
+  },
+  {
+   "file": "src/components/partner/v2/PartnerActivityFeed.tsx",
+   "line": 35,
+   "kind": "literal",
+   "text": "${mins} ${tr('partnerv2_deq', 'dəq')}"
+  },
+  {
+   "file": "src/components/partner/v2/PartnerHomeScreen.tsx",
+   "line": 395,
+   "kind": "literal",
+   "text": "${currentWeek}. ${tr('partnerv2_hefte_beledci', 'həftə — partnyor bələdçisi')}"
+  },
+  {
+   "file": "src/components/partner/v2/PartnerTogetherScreen.tsx",
+   "line": 55,
+   "kind": "literal",
+   "text": "${uncheckedShopping} ${tr('partnerv2_gozleyen_mehsul', 'gözləyən məhsul')}"
+  },
+  {
+   "file": "src/components/paywall/PaywallCore.tsx",
+   "line": 284,
+   "kind": "literal",
+   "text": "${yearlyStr}${cfg.yearly_total_suffix} · ${tr('pw_billed_yearly', 'ildə bir dəfə ödənilir'"
+  },
+  {
+   "file": "src/components/ProfileScreen.tsx",
+   "line": 67,
+   "kind": "literal",
+   "text": "${childForm.name} ${tr(\"profile_child_added\", \"əlavə edildi\")}"
+  },
+  {
+   "file": "src/components/ProfileScreen.tsx",
+   "line": 124,
+   "kind": "literal",
+   "text": "${tr(\"profile_share_partner_text\", \"Anacan tətbiqinə qoşul və hamiləlik səyahətimizdə mənə"
+  },
+  {
+   "file": "src/components/tools/BloodPressureTracker.tsx",
+   "line": 272,
+   "kind": "literal",
+   "text": " — ${tr('bp_th_preeclampsia', 'hamiləlikdə preeklampsiya riski, həkimə bildirin')}"
+  },
+  {
+   "file": "src/components/tools/DangerSignsScreen.tsx",
+   "line": 44,
+   "kind": "literal",
+   "text": "${sign.emoji} ${sign.title} — ${tr('rf_partner_msg_suffix', 'dərhal əlaqə saxla!')}"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 103,
+   "kind": "literal",
+   "text": "Təcrübə:"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 103,
+   "kind": "literal",
+   "text": "Təcrübə:"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 104,
+   "kind": "literal",
+   "text": "Dillər:"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 104,
+   "kind": "literal",
+   "text": "Dillər:"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 105,
+   "kind": "literal",
+   "text": "Təhsil:"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 105,
+   "kind": "literal",
+   "text": "Təhsil:"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 107,
+   "kind": "literal",
+   "text": "Maraq sahələri:"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 107,
+   "kind": "literal",
+   "text": "Maraq sahələri:"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 108,
+   "kind": "literal",
+   "text": "Xidmətlər:"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 108,
+   "kind": "literal",
+   "text": "Xidmətlər:"
+  },
+  {
+   "file": "src/components/tools/HoroscopeCompatibility.tsx",
+   "line": 223,
+   "kind": "literal",
+   "text": "👶 ${charts.baby.isExpected ? tr(\"horoscopecompatibility_gozlenilen_4885bf\", \"G\\xF6zl\\u025"
+  },
+  {
+   "file": "src/components/tools/Nutrition.tsx",
+   "line": 118,
+   "kind": "literal",
+   "text": "Əmizdirmə"
+  },
+  {
+   "file": "src/components/tools/Nutrition.tsx",
+   "line": 119,
+   "kind": "literal",
+   "text": "İstənilən vaxt"
+  },
+  {
+   "file": "src/components/tools/Nutrition.tsx",
+   "line": 121,
+   "kind": "literal",
+   "text": "Əlavə qida"
+  },
+  {
+   "file": "src/components/tools/Nutrition.tsx",
+   "line": 121,
+   "kind": "literal",
+   "text": "Qəlyanaltı"
+  },
+  {
+   "file": "src/components/tools/Nutrition.tsx",
+   "line": 122,
+   "kind": "literal",
+   "text": "Səhər yeməyi"
+  },
+  {
+   "file": "src/components/tools/Nutrition.tsx",
+   "line": 124,
+   "kind": "literal",
+   "text": "Şam yeməyi"
+  },
+  {
+   "file": "src/components/tools/Nutrition.tsx",
+   "line": 126,
+   "kind": "literal",
+   "text": "İstənilən vaxt"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 72,
+   "kind": "literal",
+   "text": "səhər yeməyi"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 76,
+   "kind": "literal",
+   "text": "şam yeməyi"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 79,
+   "kind": "literal",
+   "text": "desertlər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 82,
+   "kind": "literal",
+   "text": "qəlyanaltılar"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 85,
+   "kind": "literal",
+   "text": "qəlyanaltı"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 86,
+   "kind": "literal",
+   "text": "sulu yeməklər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 89,
+   "kind": "literal",
+   "text": "körpə qidası"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 120,
+   "kind": "literal",
+   "text": "Səhər Yeməyi"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 121,
+   "kind": "literal",
+   "text": "səhər yeməyi"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 121,
+   "kind": "literal",
+   "text": "Səhər Yeməyi"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 122,
+   "kind": "literal",
+   "text": "Səhər Yeməyi"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 126,
+   "kind": "literal",
+   "text": "Şam Yeməyi"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 127,
+   "kind": "literal",
+   "text": "şam yeməyi"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 127,
+   "kind": "literal",
+   "text": "Şam Yeməyi"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 128,
+   "kind": "literal",
+   "text": "Şam Yeməyi"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 133,
+   "kind": "literal",
+   "text": "pürelər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 133,
+   "kind": "literal",
+   "text": "Pürelər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 134,
+   "kind": "literal",
+   "text": "Pürelər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 136,
+   "kind": "literal",
+   "text": "əsas yeməklər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 136,
+   "kind": "literal",
+   "text": "Əsas yeməklər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 137,
+   "kind": "literal",
+   "text": "Əsas yeməklər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 139,
+   "kind": "literal",
+   "text": "Desertlər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 140,
+   "kind": "literal",
+   "text": "desertlər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 140,
+   "kind": "literal",
+   "text": "Desertlər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 143,
+   "kind": "literal",
+   "text": "Sağlam içkilər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 144,
+   "kind": "literal",
+   "text": "sağlam içkilər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 144,
+   "kind": "literal",
+   "text": "Sağlam içkilər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 146,
+   "kind": "literal",
+   "text": "Əlavə qida"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 147,
+   "kind": "literal",
+   "text": "əlavə qida"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 147,
+   "kind": "literal",
+   "text": "Əlavə qida"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 149,
+   "kind": "literal",
+   "text": "Qəlyanaltılar"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 150,
+   "kind": "literal",
+   "text": "qəlyanaltılar"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 150,
+   "kind": "literal",
+   "text": "Qəlyanaltılar"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 151,
+   "kind": "literal",
+   "text": "Qəlyanaltı"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 152,
+   "kind": "literal",
+   "text": "qəlyanaltı"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 152,
+   "kind": "literal",
+   "text": "Qəlyanaltı"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 154,
+   "kind": "literal",
+   "text": "Sulu Yeməklər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 155,
+   "kind": "literal",
+   "text": "sulu yeməklər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 155,
+   "kind": "literal",
+   "text": "Sulu Yeməklər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 156,
+   "kind": "literal",
+   "text": "Sulu Yeməklər"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 158,
+   "kind": "literal",
+   "text": "Körpə Qidası"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 159,
+   "kind": "literal",
+   "text": "körpə qidası"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 159,
+   "kind": "literal",
+   "text": "Körpə Qidası"
+  },
+  {
+   "file": "src/components/tools/Recipes.tsx",
+   "line": 160,
+   "kind": "literal",
+   "text": "Körpə Qidası"
+  },
+  {
+   "file": "src/components/tools/SafetyLookup.tsx",
+   "line": 88,
+   "kind": "literal",
+   "text": "${data.item.name} ${tr(\"safety_added_to_database\", \"bazaya əlavə edildi\")}"
+  },
+  {
+   "file": "src/components/tools/ShoppingList.tsx",
+   "line": 184,
+   "kind": "literal",
+   "text": "${item.name} ${tr(\"shopping_item_added\", \"əlavə edildi!\")}"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 78,
+   "kind": "literal",
+   "text": "Bustər"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 79,
+   "kind": "literal",
+   "text": "Bustər (revaksinasiya)"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 80,
+   "kind": "literal",
+   "text": "İkinci bustər"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 85,
+   "kind": "literal",
+   "text": "Vərəm (BCG)"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 88,
+   "kind": "literal",
+   "text": "GDT (Göyöskürək, difteriya, tetanoz)"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 91,
+   "kind": "literal",
+   "text": "QPM (Qızılca, parotit, məxmərək)"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 92,
+   "kind": "literal",
+   "text": "Difteriya və tetanoz (DT)"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 93,
+   "kind": "literal",
+   "text": "Vərəm"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 95,
+   "kind": "literal",
+   "text": "Göyöskürək, difteriya, tetanoz"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 98,
+   "kind": "literal",
+   "text": "Qızılca, parotit, məxmərək"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 99,
+   "kind": "literal",
+   "text": "Əzələdaxili"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 101,
+   "kind": "literal",
+   "text": "Dərialtı"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 102,
+   "kind": "literal",
+   "text": "Dəridaxili"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 416,
+   "kind": "literal",
+   "text": "Səhiyyə Nazirliyi"
+  },
+  {
+   "file": "src/components/tools/VitaminTracker.tsx",
+   "line": 82,
+   "kind": "literal",
+   "text": "dəmir"
+  },
+  {
+   "file": "src/components/tools/VitaminTracker.tsx",
+   "line": 135,
+   "kind": "literal",
+   "text": "${getTranslatedVitaminName(schedule.vitamin_name)} ${tr(\"vitamintracker_taken_status\", \"qə"
+  },
+  {
+   "file": "src/components/tools/WeightTracker.tsx",
+   "line": 117,
+   "kind": "literal",
+   "text": "${tr(\"weighttracker_ai_prompt_prefix\", \"Çəki analizi:\")} ${currentWeek} ${tr(\"weighttracke"
+  },
+  {
+   "file": "src/components/tools/WeightTracker.tsx",
+   "line": 309,
+   "kind": "literal",
+   "text": "${w}. ${tr(\"weighttracker_ai_prompt_week\", \"həftə\")}"
+  },
+  {
+   "file": "src/components/ToolsHub.tsx",
+   "line": 265,
+   "kind": "literal",
+   "text": "${tool.name} ${tr(\"toolshub_not_active_yet\", \"hələ aktiv deyil\")}"
+  },
+  {
+   "file": "src/components/ToolsHub.tsx",
+   "line": 266,
+   "kind": "literal",
+   "text": "${tr(\"toolshub_activate_after_week_prefix\", \"Bu alət\")} ${tool.minWeek}${tr(\"toolshub_acti"
+  },
+  {
+   "file": "src/components/ToolsHub.tsx",
+   "line": 514,
+   "kind": "literal",
+   "text": "${displayedTools.length} ${tr(\"toolshub_netice\", \"nəticə\")}"
+  },
+  {
+   "file": "src/components/ToolsHub.tsx",
+   "line": 584,
+   "kind": "literal",
+   "text": "\"${searchQuery}\" ${tr(\"toolshub_no_matching_tools\", \"ilə uyğun alət yoxdur\")}"
+  },
+  {
+   "file": "src/contexts/AuthContext.tsx",
+   "line": 314,
+   "kind": "literal",
+   "text": "son vəziyyət"
+  },
+  {
+   "file": "src/hooks/useAchievements.ts",
+   "line": 109,
+   "kind": "literal",
+   "text": "${tr(\"useachievements_nailiyyet\", \"🎉 Nailiyyət:\")} ${details.name}"
+  },
+  {
+   "file": "src/hooks/useBlog.ts",
+   "line": 377,
+   "kind": "literal",
+   "text": "${tr(\"useblog_bu_kateqoriya\", \"Bu kateqoriya\")} ${postsUsingCategory.length} ${tr(\"useblog"
+  },
+  {
+   "file": "src/hooks/useCommunity.ts",
+   "line": 396,
+   "kind": "literal",
+   "text": "${likerName} ${tr(\"usecommunity_paylasiminizi_beyendi\", \"paylaşımınızı bəyəndi\")}"
+  },
+  {
+   "file": "src/hooks/useDailySummary.ts",
+   "line": 209,
+   "kind": "literal",
+   "text": "${tr(\"usedailysummary_ehval\", \"Əhval:\")} ${moodText} | ${tr(\"usedailysummary_su\", \"Su:\")} "
+  },
+  {
+   "file": "src/hooks/useFairyTales.ts",
+   "line": 145,
+   "kind": "literal",
+   "text": "${tr(\"usefairytales_nagil_yaradila_bilmedi\", \"Nağıl yaradıla bilmədi:\")} ${error.message}"
+  },
+  {
+   "file": "src/hooks/useHealthReport.ts",
+   "line": 140,
+   "kind": "literal",
+   "text": "${avgWater.toFixed(1)} ${tr(\"usehealthreport_stekan_gun\", \"stəkan/gün\")}"
+  },
+  {
+   "file": "src/hooks/useHealthReport.ts",
+   "line": 177,
+   "kind": "literal",
+   "text": "${exercisePerWeek.toFixed(1)} ${tr(\"usehealthreport_defe_hefte\", \"dəfə/həftə\")}"
+  },
+  {
+   "file": "src/hooks/useKickSessions.ts",
+   "line": 67,
+   "kind": "literal",
+   "text": "${kickCount} ${tr(\"usekicksessions_tepik\", \"təpik\")}, ${Math.floor(durationSeconds / 60)} "
+  },
+  {
+   "file": "src/hooks/usePushNotifications.ts",
+   "line": 134,
+   "kind": "literal",
+   "text": "${likerName} ${tr(\"usepushnotifications_paylasiminizi_beyendi\", \"paylaşımınızı bəyəndi\")}"
+  },
+  {
+   "file": "src/hooks/useShoppingItems.ts",
+   "line": 107,
+   "kind": "literal",
+   "text": "${adderName} \"${itemName}\" ${tr(\"useshoppingitems_elave_etdi_siyahini_yoxla\", \"əlavə etdi."
+  },
+  {
+   "file": "src/lib/date-utils.ts",
+   "line": 87,
+   "kind": "literal",
+   "text": "${tr(\"dateutils_yesterday\", \"Dünən\")}, ${formatTimeAz(d)}"
+  },
+  {
+   "file": "src/lib/i18n.ts",
+   "line": 141,
+   "kind": "literal",
+   "text": "Azərbaycan"
+  },
+  {
+   "file": "src/lib/pregnancy-utils.ts",
+   "line": 217,
+   "kind": "literal",
+   "text": "${week} ${tr('pregnancy_utils_week','həftə')} ${day} ${tr('pregnancy_utils_day','gün')}"
+  },
+  {
+   "file": "src/pages/Index.tsx",
+   "line": 198,
+   "kind": "literal",
+   "text": "yenidən bas"
+  }
+ ],
+ "moduleTrConsts": [
+  {
+   "file": "src/App.tsx",
+   "line": 70,
+   "text": "const App = () => {"
+  },
+  {
+   "file": "src/components/admin/AdminAlbumOrders.tsx",
+   "line": 11,
+   "text": "const ORDER_STATUSES = ["
+  },
+  {
+   "file": "src/components/admin/AdminAlbumOrders.tsx",
+   "line": 19,
+   "text": "const PAYMENT_STATUSES = ["
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 46,
+   "text": "const CATEGORY_LABELS: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/admin/AdminAnalytics.tsx",
+   "line": 60,
+   "text": "const EVENT_LABELS: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/admin/AdminBanners.tsx",
+   "line": 19,
+   "text": "const PLACEMENTS: {value: BannerPlacement;label: string;}[] = ["
+  },
+  {
+   "file": "src/components/admin/AdminBanners.tsx",
+   "line": 30,
+   "text": "const BANNER_TYPES: {value: BannerType;label: string;}[] = ["
+  },
+  {
+   "file": "src/components/admin/AdminBanners.tsx",
+   "line": 35,
+   "text": "const LINK_TYPES: {value: LinkType;label: string;}[] = ["
+  },
+  {
+   "file": "src/components/admin/AdminCakes.tsx",
+   "line": 19,
+   "text": "const MILESTONE_OPTIONS = ["
+  },
+  {
+   "file": "src/components/admin/AdminCakes.tsx",
+   "line": 31,
+   "text": "const ORDER_STATUSES = ["
+  },
+  {
+   "file": "src/components/admin/AdminCakes.tsx",
+   "line": 40,
+   "text": "const PAYMENT_STATUSES = ["
+  },
+  {
+   "file": "src/components/admin/AdminCommunity.tsx",
+   "line": 34,
+   "text": "const GROUP_TYPES = ["
+  },
+  {
+   "file": "src/components/admin/AdminCoupons.tsx",
+   "line": 13,
+   "text": "const ORDER_TYPES = ["
+  },
+  {
+   "file": "src/components/admin/AdminDefaultShoppingItems.tsx",
+   "line": 19,
+   "text": "const categories = ["
+  },
+  {
+   "file": "src/components/admin/AdminDefaultShoppingItems.tsx",
+   "line": 30,
+   "text": "const lifeStages = ["
+  },
+  {
+   "file": "src/components/admin/AdminDefaultShoppingItems.tsx",
+   "line": 37,
+   "text": "const priorities = ["
+  },
+  {
+   "file": "src/components/admin/AdminDevelopmentTips.tsx",
+   "line": 16,
+   "text": "const AGE_GROUPS = ["
+  },
+  {
+   "file": "src/components/admin/AdminEpoint.tsx",
+   "line": 18,
+   "text": "const statusConfig: Record<string, {label: string;color: string;icon: any;}> = {"
+  },
+  {
+   "file": "src/components/admin/AdminEpoint.tsx",
+   "line": 27,
+   "text": "const orderTypeLabels: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/admin/AdminFAQ.tsx",
+   "line": 20,
+   "text": "const categories = ["
+  },
+  {
+   "file": "src/components/admin/AdminForceUpdate.tsx",
+   "line": 23,
+   "text": "const defaultConfig: ForceUpdateConfig = {"
+  },
+  {
+   "file": "src/components/admin/AdminIntroSlides.tsx",
+   "line": 25,
+   "text": "const ICON_OPTIONS = ["
+  },
+  {
+   "file": "src/components/admin/AdminIntroSlides.tsx",
+   "line": 31,
+   "text": "const GRADIENT_OPTIONS = ["
+  },
+  {
+   "file": "src/components/admin/AdminLayout.tsx",
+   "line": 39,
+   "text": "const menuGroups: MenuGroup[] = ["
+  },
+  {
+   "file": "src/components/admin/AdminLegal.tsx",
+   "line": 21,
+   "text": "const documentTypeLabels: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/admin/AdminMarketplace.tsx",
+   "line": 61,
+   "text": "const categories = ["
+  },
+  {
+   "file": "src/components/admin/AdminMarketplace.tsx",
+   "line": 71,
+   "text": "const conditions = ["
+  },
+  {
+   "file": "src/components/admin/AdminMarketplace.tsx",
+   "line": 78,
+   "text": "const ageRanges = ["
+  },
+  {
+   "file": "src/components/admin/AdminMarketplace.tsx",
+   "line": 82,
+   "text": "const statusLabels: Record<string, {label: string;color: string;icon: React.Reac"
+  },
+  {
+   "file": "src/components/admin/AdminOrders.tsx",
+   "line": 18,
+   "text": "const STATUS_CONFIG: Record<string, {label: string;color: string;icon: React.Com"
+  },
+  {
+   "file": "src/components/admin/AdminPartnerConfig.tsx",
+   "line": 289,
+   "text": "const AchievementForm = ({ item, onSave, onCancel, isLoading }: any) => {"
+  },
+  {
+   "file": "src/components/admin/AdminPartnerConfig.tsx",
+   "line": 319,
+   "text": "const MenuItemForm = ({ item, onSave, onCancel, isLoading }: any) => {"
+  },
+  {
+   "file": "src/components/admin/AdminPartnerConfig.tsx",
+   "line": 348,
+   "text": "const SurpriseCategoryForm = ({ item, onSave, onCancel, isLoading }: any) => {"
+  },
+  {
+   "file": "src/components/admin/AdminPartnerTips.tsx",
+   "line": 19,
+   "text": "const lifeStages = ["
+  },
+  {
+   "file": "src/components/admin/AdminPlacesConfig.tsx",
+   "line": 259,
+   "text": "const CategoryForm = ({ category, onSave, onCancel, isLoading }: any) => {"
+  },
+  {
+   "file": "src/components/admin/AdminPlacesConfig.tsx",
+   "line": 293,
+   "text": "const AmenityForm = ({ amenity, onSave, onCancel, isLoading }: any) => {"
+  },
+  {
+   "file": "src/components/admin/AdminProducts.tsx",
+   "line": 47,
+   "text": "const categories = [tr(\"adminproducts_hamilelik_e86feb\", \"Hamil\\u0259lik\"), tr(\""
+  },
+  {
+   "file": "src/components/admin/AdminPushNotifications.tsx",
+   "line": 48,
+   "text": "const audienceLabels: Record<string, {label: string;icon: any;color: string;}> ="
+  },
+  {
+   "file": "src/components/admin/AdminPushNotifications.tsx",
+   "line": 1509,
+   "text": "const EmptyState = ({ onAdd }: {onAdd: () => void;}) =>"
+  },
+  {
+   "file": "src/components/admin/AdminSettings.tsx",
+   "line": 26,
+   "text": "const aiModels = ["
+  },
+  {
+   "file": "src/components/admin/AdminTools.tsx",
+   "line": 60,
+   "text": "const categoryLabels: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/admin/AdminTools.tsx",
+   "line": 66,
+   "text": "const premiumTypeLabels: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/admin/BulkTimeManager.tsx",
+   "line": 16,
+   "text": "const SOURCES: {key: SourceKey;label: string;timeCol: string;labelCol: string;}["
+  },
+  {
+   "file": "src/components/AppIntroduction.tsx",
+   "line": 26,
+   "text": "const getFallbackSlides = () => ["
+  },
+  {
+   "file": "src/components/baby/BabyMonthlyAlbum.tsx",
+   "line": 26,
+   "text": "const getMonthLabels = (language: string) => Array.from({ length: 12 }, (_, i) ="
+  },
+  {
+   "file": "src/components/baby/FeedingHistoryPanel.tsx",
+   "line": 11,
+   "text": "const formatDuration = (seconds: number): string => {"
+  },
+  {
+   "file": "src/components/baby/FeedingHistoryPanel.tsx",
+   "line": 21,
+   "text": "const getFeedTypeLabel = (type: string): string => {"
+  },
+  {
+   "file": "src/components/baby/FeedingHistoryPanel.tsx",
+   "line": 41,
+   "text": "const getDateLabel = (dateStr: string): string => {"
+  },
+  {
+   "file": "src/components/baby/SleepHistoryPanel.tsx",
+   "line": 10,
+   "text": "const formatDuration = (minutes: number): string => {"
+  },
+  {
+   "file": "src/components/baby/SleepHistoryPanel.tsx",
+   "line": 18,
+   "text": "const getDateLabel = (dateStr: string): string => {"
+  },
+  {
+   "file": "src/components/community/CommunityScreen.tsx",
+   "line": 32,
+   "text": "const tabs = ["
+  },
+  {
+   "file": "src/components/community/CreatePostModal.tsx",
+   "line": 30,
+   "text": "const POPULAR_HASHTAGS = ["
+  },
+  {
+   "file": "src/components/community/CreatePostScreen.tsx",
+   "line": 29,
+   "text": "const POPULAR_HASHTAGS = ["
+  },
+  {
+   "file": "src/components/community/GroupsList.tsx",
+   "line": 15,
+   "text": "const GROUP_TYPE_LABELS: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/community/PostSearchFilter.tsx",
+   "line": 11,
+   "text": "const PostSearchFilter = ({ sortBy, onSortChange }: PostSearchFilterProps) => {"
+  },
+  {
+   "file": "src/components/Dashboard.tsx",
+   "line": 776,
+   "text": "const getBabyFunFacts = (): string[] => ["
+  },
+  {
+   "file": "src/components/FloatingTimerWidget.tsx",
+   "line": 13,
+   "text": "const timerConfig: Record<TimerType, {icon: typeof Moon;color: string;label: str"
+  },
+  {
+   "file": "src/components/flow/FlowDailyLogger.tsx",
+   "line": 25,
+   "text": "const MOOD_OPTIONS = ["
+  },
+  {
+   "file": "src/components/flow/FlowDailyLogger.tsx",
+   "line": 33,
+   "text": "const ENERGY_OPTIONS = ["
+  },
+  {
+   "file": "src/components/flow/FlowDailyLogger.tsx",
+   "line": 41,
+   "text": "const FLOW_OPTIONS = ["
+  },
+  {
+   "file": "src/components/flow/FlowDailyLogger.tsx",
+   "line": 49,
+   "text": "const SLEEP_QUALITY = ["
+  },
+  {
+   "file": "src/components/flow/FlowDailyLogger.tsx",
+   "line": 58,
+   "text": "const MUCUS_OPTIONS = ["
+  },
+  {
+   "file": "src/components/flow/FlowDailyLogger.tsx",
+   "line": 67,
+   "text": "const SEX_OPTIONS = ["
+  },
+  {
+   "file": "src/components/flow/FlowDailyLogger.tsx",
+   "line": 74,
+   "text": "const LIBIDO_OPTIONS = ["
+  },
+  {
+   "file": "src/components/flow/FlowDailyLogger.tsx",
+   "line": 81,
+   "text": "const OPK_OPTIONS = ["
+  },
+  {
+   "file": "src/components/flow/FlowPeriodCalendar.tsx",
+   "line": 12,
+   "text": "const FLOW_OPTIONS = ["
+  },
+  {
+   "file": "src/components/flow/PartnerFlowStatusCard.tsx",
+   "line": 5,
+   "text": "const PHASE_INFO: Record<string, {label: string;emoji: string;tip: string;color:"
+  },
+  {
+   "file": "src/components/flow/SymptomPatternReport.tsx",
+   "line": 15,
+   "text": "const PHASE_LABEL: Record<string, {label: string;emoji: string;}> = {"
+  },
+  {
+   "file": "src/components/funnel/steps/AnalysisStep.tsx",
+   "line": 11,
+   "text": "const STAGES = ["
+  },
+  {
+   "file": "src/components/games/birlesdir/BirlesdirLevels.tsx",
+   "line": 14,
+   "text": "const BirlesdirLevels = ({ progress, isLevelUnlocked, onSelectLevel, onBack }: B"
+  },
+  {
+   "file": "src/components/games/saglam-sebet/SaglamSebetLevels.tsx",
+   "line": 14,
+   "text": "const SaglamSebetLevels = ({ progress, isLevelUnlocked, onSelectLevel, onBack }:"
+  },
+  {
+   "file": "src/components/LanguageSelector.tsx",
+   "line": 10,
+   "text": "const FALLBACK_LANGS = ["
+  },
+  {
+   "file": "src/components/MedicalDisclaimer.tsx",
+   "line": 13,
+   "text": "const MedicalDisclaimer = ({ variant = 'banner', className = '' }: MedicalDiscla"
+  },
+  {
+   "file": "src/components/mommy/BabyCrisisWidget.tsx",
+   "line": 13,
+   "text": "const severityConfig = {"
+  },
+  {
+   "file": "src/components/mommy/ChildSelector.tsx",
+   "line": 15,
+   "text": "const genderOptions = ["
+  },
+  {
+   "file": "src/components/mommy/hero/MommyHeroAurora.tsx",
+   "line": 10,
+   "text": "const MommyHeroAurora = ({ babyData, exactMonths, remainingDays, babyIllustratio"
+  },
+  {
+   "file": "src/components/mommy/hero/MommyHeroMesh.tsx",
+   "line": 9,
+   "text": "const MommyHeroMesh = ({ babyData, exactMonths, remainingDays, babyIllustration "
+  },
+  {
+   "file": "src/components/mommy/hero/MommyHeroMinimalCard.tsx",
+   "line": 10,
+   "text": "const MommyHeroMinimalCard = ({ babyData, exactMonths, remainingDays, babyIllust"
+  },
+  {
+   "file": "src/components/mommy/hero/MommyHeroPolaroid.tsx",
+   "line": 9,
+   "text": "const MommyHeroPolaroid = ({ babyData, exactMonths, remainingDays, babyIllustrat"
+  },
+  {
+   "file": "src/components/mommy/hero/MommyHeroStory.tsx",
+   "line": 9,
+   "text": "const MommyHeroStory = ({ babyData, exactMonths, remainingDays, babyIllustration"
+  },
+  {
+   "file": "src/components/onboarding/PremiumOnboarding.tsx",
+   "line": 101,
+   "text": "const STAGES: { id: LifeStage; emoji: string; title: string; subtitle: string; b"
+  },
+  {
+   "file": "src/components/onboarding/PremiumOnboarding.tsx",
+   "line": 108,
+   "text": "const SINGLE_QUESTIONS: Partial<Record<StepId, { emoji: string; title: string; s"
+  },
+  {
+   "file": "src/components/onboarding/PremiumOnboarding.tsx",
+   "line": 168,
+   "text": "const MULTI_QUESTIONS: Partial<Record<StepId, { emoji: string; title: string; su"
+  },
+  {
+   "file": "src/components/partner/NameVotingScreen.tsx",
+   "line": 13,
+   "text": "const genderLabels: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/partner/v2/DailyMissionsCard.tsx",
+   "line": 17,
+   "text": "const DIFF_TINT = (): Record<string, {bg: string;ink: string;label: string;}> =>"
+  },
+  {
+   "file": "src/components/partner/v2/PartnerActivityFeed.tsx",
+   "line": 19,
+   "text": "const EVENT_META: Record<string, {icon: any;bg: string;ink: string;fallbackTitle"
+  },
+  {
+   "file": "src/components/partner/v2/PartnerActivityFeed.tsx",
+   "line": 31,
+   "text": "const timeAgo = (dateStr: string): string => {"
+  },
+  {
+   "file": "src/components/partner/v2/PartnerBabyCrisisCard.tsx",
+   "line": 19,
+   "text": "const SEVERITY_META = (): Record<string, {bg: string;ink: string;label: string;}"
+  },
+  {
+   "file": "src/components/partner/v2/PartnerSurprisesScreen.tsx",
+   "line": 8,
+   "text": "const PartnerSurprisesScreen = ({ onBack }: {onBack: () => void;}) => {"
+  },
+  {
+   "file": "src/components/partner/v2/PartnerWeeklyStatsScreen.tsx",
+   "line": 8,
+   "text": "const PartnerWeeklyStatsScreen = ({ onBack }: {onBack: () => void;}) => {"
+  },
+  {
+   "file": "src/components/ReferralScreen.tsx",
+   "line": 20,
+   "text": "const StatusChip = ({ r }: {r: ReferredUser;}) => {"
+  },
+  {
+   "file": "src/components/shop/AlbumOrderScreen.tsx",
+   "line": 22,
+   "text": "const albumInfo = {"
+  },
+  {
+   "file": "src/components/tools/affiliate/AffiliateProductDetail.tsx",
+   "line": 35,
+   "text": "const platformLabels: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/tools/AffiliateProducts.tsx",
+   "line": 20,
+   "text": "const categoryLabels: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/tools/BabyPhotoshoot.tsx",
+   "line": 51,
+   "text": "const fallbackEyeColors = ["
+  },
+  {
+   "file": "src/components/tools/BabyPhotoshoot.tsx",
+   "line": 58,
+   "text": "const fallbackHairColors = ["
+  },
+  {
+   "file": "src/components/tools/BabyPhotoshoot.tsx",
+   "line": 65,
+   "text": "const fallbackHairStyles = ["
+  },
+  {
+   "file": "src/components/tools/BloodSugarTracker.tsx",
+   "line": 31,
+   "text": "const readingTypes = ["
+  },
+  {
+   "file": "src/components/tools/BloodSugarTracker.tsx",
+   "line": 39,
+   "text": "const mealContexts = ["
+  },
+  {
+   "file": "src/components/tools/BloodSugarTracker.tsx",
+   "line": 47,
+   "text": "const getReadingStatus = (value: number, type: string) => {"
+  },
+  {
+   "file": "src/components/tools/CryTranslator.tsx",
+   "line": 32,
+   "text": "const cryTypeLabels: Record<string, {label: string;emoji: string;grad: string;in"
+  },
+  {
+   "file": "src/components/tools/CryTranslator.tsx",
+   "line": 45,
+   "text": "const stageMessages: Record<AnalysisStage, string> = {"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 58,
+   "text": "const providerTypeLabels: Record<string, {label: string;icon: typeof Stethoscope"
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 64,
+   "text": "const specialtyCategories = ["
+  },
+  {
+   "file": "src/components/tools/DoctorsHospitals.tsx",
+   "line": 73,
+   "text": "const dayLabels: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/tools/FairyTaleGenerator.tsx",
+   "line": 21,
+   "text": "const MORAL_LESSONS = ["
+  },
+  {
+   "file": "src/components/tools/FairyTaleGenerator.tsx",
+   "line": 40,
+   "text": "const HERO_SUGGESTIONS = ["
+  },
+  {
+   "file": "src/components/tools/FairyTaleGenerator.tsx",
+   "line": 59,
+   "text": "const AGE_RANGES = ["
+  },
+  {
+   "file": "src/components/tools/FairyTaleGenerator.tsx",
+   "line": 66,
+   "text": "const STORY_STYLES = ["
+  },
+  {
+   "file": "src/components/tools/FairyTaleGenerator.tsx",
+   "line": 74,
+   "text": "const LANGUAGES = ["
+  },
+  {
+   "file": "src/components/tools/HoroscopeCompatibility.tsx",
+   "line": 69,
+   "text": "const ELEMENT_NAMES: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/tools/HoroscopeCompatibility.tsx",
+   "line": 76,
+   "text": "const LOADING_STEPS = ["
+  },
+  {
+   "file": "src/components/tools/HoroscopeCompatibility.tsx",
+   "line": 85,
+   "text": "const TIME_OPTIONS = Array.from({ length: 24 }, (_, h) =>"
+  },
+  {
+   "file": "src/components/tools/HoroscopeCompatibility.tsx",
+   "line": 89,
+   "text": "const STEPS = ["
+  },
+  {
+   "file": "src/components/tools/HospitalBag.tsx",
+   "line": 15,
+   "text": "const categoryConfig = {"
+  },
+  {
+   "file": "src/components/tools/HospitalBag.tsx",
+   "line": 22,
+   "text": "const priorityConfig = {"
+  },
+  {
+   "file": "src/components/tools/Nutrition.tsx",
+   "line": 25,
+   "text": "const fallbackMealTypes = ["
+  },
+  {
+   "file": "src/components/tools/Nutrition.tsx",
+   "line": 33,
+   "text": "const fallbackTargets = {"
+  },
+  {
+   "file": "src/components/tools/Nutrition.tsx",
+   "line": 40,
+   "text": "const fallbackFoods = ["
+  },
+  {
+   "file": "src/components/tools/PoopScanner.tsx",
+   "line": 31,
+   "text": "const colorLabels: Record<string, {label: string;emoji: string;}> = {"
+  },
+  {
+   "file": "src/components/tools/PregnancyAlbum.tsx",
+   "line": 36,
+   "text": "const monthLabels = ["
+  },
+  {
+   "file": "src/components/tools/SecondHandMarket.tsx",
+   "line": 39,
+   "text": "const categories = ["
+  },
+  {
+   "file": "src/components/tools/SecondHandMarket.tsx",
+   "line": 50,
+   "text": "const conditions = ["
+  },
+  {
+   "file": "src/components/tools/SecondHandMarket.tsx",
+   "line": 57,
+   "text": "const ageRanges = ["
+  },
+  {
+   "file": "src/components/tools/ShoppingList.tsx",
+   "line": 28,
+   "text": "const priorityLabels = {"
+  },
+  {
+   "file": "src/components/tools/SmartPlayBox.tsx",
+   "line": 25,
+   "text": "const SKILL_LABELS: Record<string, string> = {"
+  },
+  {
+   "file": "src/components/tools/SmartPlayBox.tsx",
+   "line": 41,
+   "text": "const DIFFICULTY_LABELS: Record<string, {label: string;bg: string;ink: string;}>"
+  },
+  {
+   "file": "src/components/tools/VaccineCalendar.tsx",
+   "line": 33,
+   "text": "const STATUS = {"
+  },
+  {
+   "file": "src/components/tools/VitaminTracker.tsx",
+   "line": 19,
+   "text": "const VITAMIN_PRESETS = ["
+  },
+  {
+   "file": "src/components/tools/WhiteNoise.tsx",
+   "line": 25,
+   "text": "const noiseTypes = ["
+  },
+  {
+   "file": "src/components/ui/empty-state.tsx",
+   "line": 113,
+   "text": "const NoPostsEmptyState = ({ onCreatePost }: { onCreatePost?: () => void }) => ("
+  },
+  {
+   "file": "src/components/ui/empty-state.tsx",
+   "line": 129,
+   "text": "const NoCommentsEmptyState = () => ("
+  },
+  {
+   "file": "src/components/ui/empty-state.tsx",
+   "line": 138,
+   "text": "const NoSearchResultsEmptyState = () => ("
+  },
+  {
+   "file": "src/components/ui/empty-state.tsx",
+   "line": 147,
+   "text": "const NoStoriesEmptyState = () => ("
+  },
+  {
+   "file": "src/components/ui/empty-state.tsx",
+   "line": 156,
+   "text": "const NoGroupsEmptyState = () => ("
+  },
+  {
+   "file": "src/components/ui/empty-state.tsx",
+   "line": 165,
+   "text": "const NoNotificationsEmptyState = () => ("
+  },
+  {
+   "file": "src/components/ui/RichTextEditor.tsx",
+   "line": 91,
+   "text": "const RichTextEditor = ({ content, onChange, placeholder = tr(\"richtexteditor_me"
+  },
+  {
+   "file": "src/hooks/useCommunity.ts",
+   "line": 150,
+   "text": "const enrichPosts = async (posts: any[], userId?: string | null): Promise<Commun"
+  },
+  {
+   "file": "src/hooks/usePartnerMissions.ts",
+   "line": 19,
+   "text": "const MISSION_POOL: Omit<Mission, 'isCompleted'>[] = ["
+  },
+  {
+   "file": "src/hooks/usePartnerNotifications.ts",
+   "line": 20,
+   "text": "const getNotificationMessages = (): Record<NotificationType, {title: string;getB"
+  },
+  {
+   "file": "src/lib/i18n.ts",
+   "line": 6,
+   "text": "const translationCache: Record<string, Record<string, string>> = {};"
+  },
+  {
+   "file": "src/lib/live-timer.ts",
+   "line": 12,
+   "text": "const TYPE_LABELS = (): Record<TimerType, string> => ({"
+  },
+  {
+   "file": "src/utils/timerNotifications.ts",
+   "line": 5,
+   "text": "const getTimerLabels = (): Record<TimerType, string> => ({"
+  }
+ ]
+}

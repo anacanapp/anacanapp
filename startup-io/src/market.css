@@ -1,0 +1,59 @@
+.sector-selector { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; margin-top: 11px; }
+.sector-selector button { display: flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid #395166; background: #172b3b; min-height: 33px; border-radius: 8px; color: #819fb0; font-size: 9px; }
+.sector-selector button.selected { border-color: #a8c88183; color: #c1dba9; background: #a8cf770b; }
+.sector-benefit { font-size: 7px; color: #688f94; text-align: center; margin: 7px 0 -1px; }
+.pivot-action { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; width: 50px; height: 47px; border: 1px solid #92bac26b; border-radius: 12px; color: #a5d3db; background: #21414dcc; margin-bottom: 9px; touch-action: none; }
+.pivot-action b { font: 500 6px "Space Grotesk",sans-serif; letter-spacing: .8px; }
+.pivot-action.cooldown { color: #627e91; border-color: #536f8347; background: #182d3bcc; }
+.market-phase-chip { position: absolute; z-index: 6; top: calc(max(13px,env(safe-area-inset-top)) + 95px); left: max(20px,env(safe-area-inset-left)); display: flex; align-items: center; gap: 6px; padding: 7px 9px; border: 1px solid #bcd59144; border-radius: 7px; background: #263e31e6; color: #bad59d; font-size: 7px; pointer-events: none; }
+.market-phase-chip span { color: #91ac84; font: 500 7px "Space Grotesk",sans-serif; margin-left: 5px; }
+.phase-funding-winter { background: #313345ed; border-color: #999cb84d; color: #b8b9d4; }
+.phase-gpu-shortage { background: #45362ded; border-color: #c5a2754d; color: #d1b28c; }
+.active-powers { position: absolute; z-index: 5; top: calc(max(13px,env(safe-area-inset-top)) + 132px); left: max(20px,env(safe-area-inset-left)); display: flex; gap: 5px; pointer-events: none; }
+.active-powers > span { display: flex; align-items: center; gap: 4px; padding: 6px; background: #1b3548d9; color: #98c8d6; border: 1px solid #72adc541; border-radius: 6px; }
+.active-powers b { font: 500 7px "Space Grotesk",sans-serif; }
+.active-powers .power-patent { color: #c2abdd; border-color: #b6a5d043; }
+.active-powers .power-magnet { color: #b6d596; border-color: #b6c78a43; }
+.venture-beacon { position: absolute; z-index: 5; right: max(19px,env(safe-area-inset-right)); bottom: calc(max(24px,env(safe-area-inset-bottom)) + 162px); display: flex; align-items: center; gap: 7px; border: 1px solid #bca26655; border-radius: 10px; background: #3b3724d9; color: #d5c89d; padding: 8px 10px; pointer-events: none; }
+.venture-beacon > span { font-size: 6px; color: #b9ad88; }
+.venture-beacon b { display: block; font: 500 10px "Space Grotesk",sans-serif; color: #efe0b0; margin-top: 4px; }
+.mission-detail { border-top: 1px solid #536d663f; padding-top: 11px; flex-direction: column; align-items: flex-start!important; gap: 8px!important; }
+.settings-links { display: grid; margin-top: 19px; }
+.settings-links button { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; min-height: 36px; border-bottom: 1px solid #395162; font-size: 10px; color: #8aaaba; }
+.settings-links .delete-progress-link { color: #c49b9e; font-size: 9px; margin-top: 5px; }
+.legal-panel h3 { font: 600 15px "Space Grotesk",sans-serif; color: #bdd3dc; margin: 21px 0 8px; }
+.legal-panel p { font-size: 11px; color: #819ead; line-height: 1.9; margin: 0; }
+.legal-panel a { display: inline-block; color: #bed992; font-size: 12px; margin-top: 24px; }
+.mechanics-guide { margin-top: 16px; border: 1px solid #405b65; border-radius: 10px; padding: 10px 12px; background: #183140; }
+.mechanics-guide summary { font-size: 10px; color: #abc5c8; cursor: pointer; }
+.mechanics-guide p { font-size: 10px; line-height: 1.9; color: #80a2b1; margin: 12px 0 0; }
+/* The hero's minimum includes its children, keeping profile and launch cards separate. */
+@media(orientation:portrait) and (max-width:759px) {
+  .venture-ui.tab-arena .arena-menu-hero { min-height: min-content; }
+  .venture-ui.tab-arena .venture-preview { min-height: 72px; margin: 12px 0 10px; }
+  .venture-ui .endless-mode-card { padding: 12px 13px; }
+  .venture-ui .quiet-rivals { display: none; }
+  .venture-ui .launch-meta button { min-height: 24px; }
+}
+@media(orientation:portrait) and (max-height:720px) {
+  .venture-ui .sector-selector { margin-top: 8px; }
+  .sector-selector button { min-height: 27px; font-size: 8px; }
+  .sector-benefit { font-size: 6px; margin-top: 5px; }
+  .venture-ui .endless-mode-card { padding: 11px 12px; }
+  .venture-ui .endless-records { display: none; }
+  .venture-ui.tab-arena .arena-menu-hero { min-height: min-content; }
+  .venture-ui.tab-arena .venture-preview { display: none; }
+  .venture-ui.tab-arena .arena-intro h1 { font-size: 26px; margin: 8px 0; }
+  .venture-ui.tab-arena .arena-intro p { display: none; }
+  .venture-ui.tab-arena .founder-profile { margin-top: 12px; padding: 7px 12px; }
+}
+@media(orientation:landscape) and (max-height:620px) {
+  .sector-selector { margin-top: 8px; }
+  .sector-selector button { min-height: 28px; font-size: 8px; }
+  .sector-benefit { font-size: 6px; }
+  .venture-ui .quiet-rivals { display: none; }
+  .pivot-action { height: 39px; width: 42px; margin-bottom: 4px; }
+  .venture-beacon { right: calc(max(23px,env(safe-area-inset-right)) + 97px); bottom: max(20px,env(safe-area-inset-bottom)); padding: 7px 9px; }
+  .active-powers { top: calc(max(11px,env(safe-area-inset-top)) + 115px); }
+  .market-phase-chip { top: calc(max(11px,env(safe-area-inset-top)) + 84px); }
+}

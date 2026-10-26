@@ -1,0 +1,236 @@
+{
+  "protocol": "anacan-regional-copy-v1",
+  "languages": {
+    "az": {
+      "conditional": "Xüsusi peyvənd təqvimi",
+      "seasonal": "Mövsümi peyvənd təqvimi",
+      "routine": "Planlı peyvənd təqvimi",
+      "interval": "Əvvəlki dozanın tarixi tələb olunur",
+      "source": "Mənbə",
+      "countrySaveFailed": "Ölkəni yadda saxlamaq mümkün olmadı. Lütfən, yenidən cəhd edin.",
+      "scheduleError": "Peyvənd təqvimini yükləmək mümkün olmadı. Lütfən, yenidən cəhd edin.",
+      "retry": "Yenidən cəhd edin",
+      "referenceNote": "Keçiddəki proqram vaksin məhsulu, risk qrupu və buraxılmış dozaların tamamlanması ilə bağlı istisnaları müəyyən edir."
+    },
+    "en": {
+      "conditional": "Special schedule",
+      "seasonal": "Seasonal schedule",
+      "routine": "Routine schedule",
+      "interval": "Previous dose date needed",
+      "source": "Source",
+      "countrySaveFailed": "The country could not be saved. Please try again.",
+      "scheduleError": "The vaccination schedule could not be loaded. Please try again.",
+      "retry": "Try again",
+      "referenceNote": "The linked programme defines product, risk-group and catch-up exceptions."
+    },
+    "tr": {
+      "conditional": "Özel takvim",
+      "seasonal": "Mevsimsel takvim",
+      "routine": "Rutin takvim",
+      "interval": "Önceki doz tarihi gerekli",
+      "source": "Kaynak",
+      "countrySaveFailed": "Ülke kaydedilemedi. Lütfen tekrar deneyin.",
+      "scheduleError": "Aşı takvimi yüklenemedi. Lütfen tekrar deneyin.",
+      "retry": "Tekrar deneyin",
+      "referenceNote": "Bağlantılı program; ürün, risk grubu ve telafi aşılaması istisnalarını tanımlar."
+    },
+    "ru": {
+      "conditional": "Особый календарь",
+      "seasonal": "Сезонный календарь",
+      "routine": "Плановый календарь",
+      "interval": "Необходима дата предыдущей дозы",
+      "source": "Источник",
+      "countrySaveFailed": "Не удалось сохранить страну. Повторите попытку.",
+      "scheduleError": "Не удалось загрузить календарь вакцинации. Повторите попытку.",
+      "retry": "Повторить",
+      "referenceNote": "В программе по ссылке указаны исключения, связанные с препаратом, группой риска и догоняющей вакцинацией."
+    },
+    "de": {
+      "conditional": "Sonderimpfplan",
+      "seasonal": "Saisonaler Impfplan",
+      "routine": "Standardimpfplan",
+      "interval": "Datum der vorherigen Dosis erforderlich",
+      "source": "Quelle",
+      "countrySaveFailed": "Das Land konnte nicht gespeichert werden. Bitte versuche es erneut.",
+      "scheduleError": "Der Impfplan konnte nicht geladen werden. Bitte versuche es erneut.",
+      "retry": "Erneut versuchen",
+      "referenceNote": "Das verlinkte Programm legt Ausnahmen für Impfstoffe, Risikogruppen und Nachholimpfungen fest."
+    },
+    "ar": {
+      "conditional": "جدول خاص",
+      "seasonal": "جدول موسمي",
+      "routine": "جدول روتيني",
+      "interval": "تاريخ الجرعة السابقة مطلوب",
+      "source": "المصدر",
+      "countrySaveFailed": "تعذّر حفظ البلد. يُرجى المحاولة مرة أخرى.",
+      "scheduleError": "تعذّر تحميل جدول التطعيم. يُرجى المحاولة مرة أخرى.",
+      "retry": "حاول مرة أخرى",
+      "referenceNote": "يحدّد البرنامج المرتبط الاستثناءات المتعلقة بالمنتج ومجموعات الخطر والجرعات الاستدراكية."
+    },
+    "ka": {
+      "conditional": "სპეციალური სქემა",
+      "seasonal": "სეზონური სქემა",
+      "routine": "გეგმური სქემა",
+      "interval": "საჭიროა წინა დოზის თარიღი",
+      "source": "წყარო",
+      "countrySaveFailed": "ქვეყნის შენახვა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.",
+      "scheduleError": "ვაქცინაციის სქემის ჩატვირთვა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.",
+      "retry": "სცადეთ ხელახლა",
+      "referenceNote": "ბმულზე მოცემული პროგრამა განსაზღვრავს ვაქცინის პროდუქტთან, რისკ-ჯგუფთან და დაგვიანებული ვაქცინაციის შევსებასთან დაკავშირებულ გამონაკლისებს."
+    },
+    "kk": {
+      "conditional": "Арнайы күнтізбе",
+      "seasonal": "Маусымдық күнтізбе",
+      "routine": "Жоспарлы күнтізбе",
+      "interval": "Алдыңғы дозаның күні қажет",
+      "source": "Дереккөз",
+      "countrySaveFailed": "Елді сақтау мүмкін болмады. Қайталап көріңіз.",
+      "scheduleError": "Вакцинация күнтізбесін жүктеу мүмкін болмады. Қайталап көріңіз.",
+      "retry": "Қайталап көру",
+      "referenceNote": "Сілтеме берілген бағдарламада вакцина препаратына, қауіп тобына және қалып қойған екпелерді толықтыруға қатысты ерекшеліктер көрсетілген."
+    },
+    "uz": {
+      "conditional": "Maxsus jadval",
+      "seasonal": "Mavsumiy jadval",
+      "routine": "Rejali jadval",
+      "interval": "Oldingi doza sanasi kerak",
+      "source": "Manba",
+      "countrySaveFailed": "Mamlakatni saqlab bo‘lmadi. Qayta urinib ko‘ring.",
+      "scheduleError": "Emlash jadvalini yuklab bo‘lmadi. Qayta urinib ko‘ring.",
+      "retry": "Qayta urinish",
+      "referenceNote": "Havola qilingan dastur vaksina preparati, xavf guruhi va kechikkan emlash bo‘yicha istisnolarni belgilaydi."
+    },
+    "zh": {
+      "conditional": "特殊接种程序",
+      "seasonal": "季节性接种程序",
+      "routine": "常规接种程序",
+      "interval": "需要上次接种日期",
+      "source": "来源",
+      "countrySaveFailed": "无法保存国家。请重试。",
+      "scheduleError": "无法加载疫苗接种程序。请重试。",
+      "retry": "重试",
+      "referenceNote": "链接的接种计划规定了疫苗产品、风险人群和补种方面的例外情况。"
+    },
+    "id": {
+      "conditional": "Jadwal khusus",
+      "seasonal": "Jadwal musiman",
+      "routine": "Jadwal rutin",
+      "interval": "Tanggal dosis sebelumnya diperlukan",
+      "source": "Sumber",
+      "countrySaveFailed": "Negara tidak dapat disimpan. Silakan coba lagi.",
+      "scheduleError": "Jadwal vaksinasi tidak dapat dimuat. Silakan coba lagi.",
+      "retry": "Coba lagi",
+      "referenceNote": "Program tertaut menetapkan pengecualian untuk produk, kelompok risiko, dan vaksinasi kejar."
+    },
+    "fr": {
+      "conditional": "Calendrier spécial",
+      "seasonal": "Calendrier saisonnier",
+      "routine": "Calendrier de routine",
+      "interval": "Date de la dose précédente requise",
+      "source": "Source",
+      "countrySaveFailed": "Le pays n’a pas pu être enregistré. Veuillez réessayer.",
+      "scheduleError": "Le calendrier vaccinal n’a pas pu être chargé. Veuillez réessayer.",
+      "retry": "Réessayer",
+      "referenceNote": "Le programme associé définit les exceptions liées au produit, aux groupes à risque et au rattrapage."
+    },
+    "es": {
+      "conditional": "Pauta especial",
+      "seasonal": "Pauta estacional",
+      "routine": "Pauta sistemática",
+      "interval": "Se necesita la fecha de la dosis anterior",
+      "source": "Fuente",
+      "countrySaveFailed": "No se ha podido guardar el país. Inténtalo de nuevo.",
+      "scheduleError": "No se ha podido cargar el calendario de vacunación. Inténtalo de nuevo.",
+      "retry": "Intentar de nuevo",
+      "referenceNote": "El programa enlazado define excepciones relativas al producto, los grupos de riesgo y la vacunación de rescate."
+    },
+    "pt": {
+      "conditional": "Calendário especial",
+      "seasonal": "Calendário sazonal",
+      "routine": "Calendário de rotina",
+      "interval": "É necessária a data da dose anterior",
+      "source": "Fonte",
+      "countrySaveFailed": "Não foi possível guardar o país. Tente novamente.",
+      "scheduleError": "Não foi possível carregar o calendário de vacinação. Tente novamente.",
+      "retry": "Tentar novamente",
+      "referenceNote": "O programa associado define exceções relativas ao produto, aos grupos de risco e à vacinação de recuperação."
+    },
+    "vi": {
+      "conditional": "Lịch tiêm chủng đặc biệt",
+      "seasonal": "Lịch tiêm chủng theo mùa",
+      "routine": "Lịch tiêm chủng thường quy",
+      "interval": "Cần ngày tiêm liều trước",
+      "source": "Nguồn",
+      "countrySaveFailed": "Không thể lưu quốc gia. Vui lòng thử lại.",
+      "scheduleError": "Không thể tải lịch tiêm chủng. Vui lòng thử lại.",
+      "retry": "Thử lại",
+      "referenceNote": "Chương trình được liên kết quy định các ngoại lệ về sản phẩm, nhóm nguy cơ và tiêm bù."
+    },
+    "hi": {
+      "conditional": "विशेष टीकाकरण अनुसूची",
+      "seasonal": "मौसमी टीकाकरण अनुसूची",
+      "routine": "नियमित टीकाकरण अनुसूची",
+      "interval": "पिछली खुराक की तारीख आवश्यक है",
+      "source": "स्रोत",
+      "countrySaveFailed": "देश को सहेजा नहीं जा सका। कृपया फिर से कोशिश करें।",
+      "scheduleError": "टीकाकरण अनुसूची लोड नहीं की जा सकी। कृपया फिर से कोशिश करें।",
+      "retry": "फिर से कोशिश करें",
+      "referenceNote": "लिंक किया गया कार्यक्रम उत्पाद, जोखिम-समूह और कैच-अप संबंधी अपवाद निर्धारित करता है।"
+    },
+    "ja": {
+      "conditional": "特別接種スケジュール",
+      "seasonal": "季節性接種スケジュール",
+      "routine": "定期接種スケジュール",
+      "interval": "前回の接種日が必要です",
+      "source": "出典",
+      "countrySaveFailed": "国を保存できませんでした。もう一度お試しください。",
+      "scheduleError": "予防接種スケジュールを読み込めませんでした。もう一度お試しください。",
+      "retry": "もう一度試す",
+      "referenceNote": "リンク先のプログラムでは、ワクチン製品、リスクグループ、キャッチアップ接種に関する例外が定められています。"
+    },
+    "ko": {
+      "conditional": "특별 접종 일정",
+      "seasonal": "계절성 접종 일정",
+      "routine": "정기 접종 일정",
+      "interval": "이전 접종일 필요",
+      "source": "출처",
+      "countrySaveFailed": "국가를 저장하지 못했습니다. 다시 시도해 주세요.",
+      "scheduleError": "예방접종 일정을 불러오지 못했습니다. 다시 시도해 주세요.",
+      "retry": "다시 시도",
+      "referenceNote": "연결된 프로그램에는 백신 제품, 위험군 및 따라잡기 접종에 관한 예외가 규정되어 있습니다."
+    },
+    "pl": {
+      "conditional": "Harmonogram specjalny",
+      "seasonal": "Harmonogram sezonowy",
+      "routine": "Harmonogram rutynowy",
+      "interval": "Potrzebna data poprzedniej dawki",
+      "source": "Źródło",
+      "countrySaveFailed": "Nie udało się zapisać kraju. Spróbuj ponownie.",
+      "scheduleError": "Nie udało się wczytać harmonogramu szczepień. Spróbuj ponownie.",
+      "retry": "Spróbuj ponownie",
+      "referenceNote": "Powiązany program określa wyjątki dotyczące produktów, grup ryzyka i szczepień uzupełniających."
+    },
+    "nl": {
+      "conditional": "Speciaal schema",
+      "seasonal": "Seizoensschema",
+      "routine": "Regulier schema",
+      "interval": "Datum van vorige dosis vereist",
+      "source": "Bron",
+      "countrySaveFailed": "Het land kon niet worden opgeslagen. Probeer het opnieuw.",
+      "scheduleError": "Het vaccinatieschema kon niet worden geladen. Probeer het opnieuw.",
+      "retry": "Opnieuw proberen",
+      "referenceNote": "Het gekoppelde programma bevat uitzonderingen voor producten, risicogroepen en inhaalvaccinaties."
+    },
+    "sv": {
+      "conditional": "Särskilt schema",
+      "seasonal": "Säsongsschema",
+      "routine": "Ordinarie schema",
+      "interval": "Datum för föregående dos krävs",
+      "source": "Källa",
+      "countrySaveFailed": "Landet kunde inte sparas. Försök igen.",
+      "scheduleError": "Vaccinationsschemat kunde inte läsas in. Försök igen.",
+      "retry": "Försök igen",
+      "referenceNote": "Det länkade programmet anger undantag för vaccinprodukt, riskgrupp och kompletterande vaccination."
+    }
+  }
+}

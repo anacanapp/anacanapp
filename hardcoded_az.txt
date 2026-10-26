@@ -1,0 +1,791 @@
+src\components\tools\affiliate\AffiliateProductCard.tsx:6: import { AffiliateProduct, useIsProductSaved, useSaveProduct, useUnsaveProduct } from '@/hooks/useAffiliateProducts';
+src\components\tools\affiliate\AffiliateProductDetail.tsx:10: import { AffiliateProduct, useIsProductSaved, useSaveProduct, useUnsaveProduct } from '@/hooks/useAffiliateProducts';
+src\components\tools\affiliate\AffiliateProductDetail.tsx:103: const scrollToImage = (index: number) => {
+src\components\tools\affiliate\AffiliateProductDetail.tsx:133: {allImages.length > 1 ?
+src\components\tools\affiliate\AffiliateProductDetail.tsx:140: {allImages.map((img, idx) =>
+src\components\tools\affiliate\AffiliateProductDetail.tsx:141: <CarouselItem key={idx} className="pl-0">
+src\components\tools\affiliate\AffiliateProductDetail.tsx:149: </CarouselItem>
+src\components\tools\affiliate\AffiliateProductDetail.tsx:156: src={allImages[0] || '/placeholder.svg'}
+src\components\tools\affiliate\AffiliateProductDetail.tsx:194: {allImages.length > 1 &&
+src\components\tools\affiliate\AffiliateProductDetail.tsx:197: {allImages.map((img, idx) =>
+src\components\tools\affiliate\AffiliateProductDetail.tsx:200: onClick={() => scrollToImage(idx)}
+src\components\tools\affiliate\AffiliateProductDetail.tsx:312: <Info className="w-3.5 h-3.5 text-primary" />
+src\components\tools\BabyGrowthTracker.tsx:8: import { Input } from '@/components/ui/input';
+src\components\tools\BabyGrowthTracker.tsx:52: entry_date: new Date().toISOString().split('T')[0]
+src\components\tools\BabyGrowthTracker.tsx:172: entry_date: new Date().toISOString().split('T')[0]
+src\components\tools\BabyPhotoshoot.tsx:12: import { Haptics, ImpactStyle } from '@capacitor/haptics';
+src\components\tools\BabyPhotoshoot.tsx:90: const [sourceImage, setSourceImage] = useState<string | null>(null);
+src\components\tools\BabyPhotoshoot.tsx:91: const [sourceImagePreview, setSourceImagePreview] = useState<string | null>(null);
+src\components\tools\BabyPhotoshoot.tsx:95: const fileInputRef = useRef<HTMLInputElement>(null);
+src\components\tools\BabyPhotoshoot.tsx:206: if (dbImageStyles.length > 0) {
+src\components\tools\BabyPhotoshoot.tsx:207: return dbImageStyles.map((s) => ({
+src\components\tools\BabyPhotoshoot.tsx:260: const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+src\components\tools\BabyPhotoshoot.tsx:291: const handleRemoveImage = () => {
+src\components\tools\BabyPhotoshoot.tsx:295: fileInputRef.current.value = '';
+src\components\tools\BabyPhotoshoot.tsx:299: const handleSelectBackground = (bgId: string, isPremiumBg: boolean) => {
+src\components\tools\BabyPhotoshoot.tsx:305: setCustomization((prev) => ({ ...prev, background: bgId }));
+src\components\tools\BabyPhotoshoot.tsx:308: const handleSelectOutfit = (outfitId: string, isPremiumOutfit: boolean) => {
+src\components\tools\BabyPhotoshoot.tsx:314: setCustomization((prev) => ({ ...prev, outfit: outfitId }));
+src\components\tools\BabyPhotoshoot.tsx:399: const handleDeletePhoto = async (photoId: string) => {
+src\components\tools\BabyPhotoshoot.tsx:404: eq('id', photoId);
+src\components\tools\BabyPhotoshoot.tsx:408: setPhotos((prev) => prev.filter((p) => p.id !== photoId));
+src\components\tools\BabyPhotoshoot.tsx:530: onClick={() => fileInputRef.current?.click()}
+src\components\tools\BabyPhotoshoot.tsx:796: <ImageIcon className="w-5 h-5 text-muted-foreground" />
+src\components\tools\BabyPhotoshoot.tsx:951: onDelete={async (photoId) => {
+src\components\tools\BloodSugarTracker.tsx:267: const typeInfo = readingTypes.find((t) => t.id === log.reading_type);
+src\components\tools\BloodSugarTracker.tsx:268: const mealInfo = mealContexts.find((m) => m.id === log.meal_context);
+src\components\tools\BloodSugarTracker.tsx:281: <span className="text-lg">{typeInfo?.emoji || '📊'}</span>
+src\components\tools\BloodSugarTracker.tsx:292: <span>{typeInfo?.label}</span>
+src\components\tools\BloodSugarTracker.tsx:296: <span>{mealInfo.emoji} {mealInfo.label}</span>
+src\components\tools\ContractionTimer.tsx:27: intervalRef.current = setInterval(() => {
+src\components\tools\ContractionTimer.tsx:137: transition={{ duration: 1, repeat: isActive ? Infinity : 0 }}>
+src\components\tools\ContractionTimer.tsx:161: transition={{ duration: 0.5, repeat: Infinity }}>
+src\components\tools\ContractionTimer.tsx:189: <p className="text-xl font-black text-foreground">{formatTime(stats.avgInterval)}</p>
+src\components\tools\CryTranslator.tsx:3: import { ArrowLeft, Mic, Square, AlertCircle, CheckCircle, Clock, Loader2, History, Info, AlertTriangle, XCircle } from 'lucide-react';
+src\components\tools\CryTranslator.tsx:149: timerRef.current = setInterval(() => {
+src\components\tools\CryTranslator.tsx:340: <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+src\components\tools\CryTranslator.tsx:359: transition={{ repeat: isRecording ? Infinity : 0, duration: 1 }}>
+src\components\tools\CryTranslator.tsx:504: {stage === 'complete' && analysis && cryInfo && analysis.isCryDetected !== false &&
+src\components\tools\CryTranslator.tsx:511: <div className={`h-2 bg-gradient-to-r ${cryInfo.color}`} />
+src\components\tools\CryTranslator.tsx:515: <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${cryInfo.color} flex items-center justify-center text-3xl`}>
+src\components\tools\CryTranslator.tsx:519: <h3 className="text-xl font-bold">{cryInfo.label}</h3>
+src\components\tools\doctors\ProviderReviews.tsx:15: const ProviderReviews = ({ providerId, providerName }: ProviderReviewsProps) => {
+src\components\tools\doctors\ProviderReviews.tsx:51: onClick={() => setIsExpanded(true)}
+src\components\tools\DoctorsHospitals.tsx:66: { id: 'ivf', label: 'IVF', emoji: '🔬' },
+src\components\tools\DoctorsHospitals.tsx:262: return <TypeIcon className="w-3 h-3" />;
+src\components\tools\DoctorsHospitals.tsx:388: <TypeIcon className="w-4 h-4" />
+src\components\tools\DoctorsHospitals.tsx:508: <ProviderReviews providerId={provider.id} providerName={provider.name_az || provider.name} />
+src\components\tools\Exercises.tsx:23: const [selectedExerciseId, setSelectedExerciseId] = useState<string | null>(null);
+src\components\tools\Exercises.tsx:48: const selectedExercise = exercises.find((e) => e.id === selectedExerciseId) || null;
+src\components\tools\Exercises.tsx:80: onClick={selectedExercise ? () => {setSelectedExerciseId(null);setCurrentStep(0);} : onBack}
+src\components\tools\Exercises.tsx:190: onClick={() => setSelectedExerciseId(exercise.id)}
+src\components\tools\Exercises.tsx:253: transition={{ duration: 2, repeat: Infinity }}>
+src\components\tools\FairyTaleGenerator.tsx:5: import { Input } from '@/components/ui/input';
+src\components\tools\FairyTaleGenerator.tsx:11: import { useFairyTales, useFairyTaleThemes, useGenerateFairyTale, useToggleFavorite, useDeleteFairyTale, useIncrementPlayCount, FairyTale } from '@/hooks/useFairyTales';
+src\components\tools\FairyTaleGenerator.tsx:212: transition={{ duration: 2 + i * 0.3, repeat: Infinity, delay: i * 0.2 }}>
+src\components\tools\FairyTaleGenerator.tsx:222: transition={{ duration: 4, repeat: Infinity }}>
+src\components\tools\FairyTaleGenerator.tsx:655: {HERO_SUGGESTIONS.map((hero) =>
+src\components\tools\HoroscopeCompatibility.tsx:2: import { ArrowLeft, ArrowRight, Star, Share2, Sparkles, Users, Moon, Sun, Compass, Flame, Droplets, Wind, Mountain, Clock, Calendar as CalendarIcon, Loader2, Heart, Zap, Shield, Book, Palette, Hash, Check, Baby, User } from 'lucide-react';
+src\components\tools\HoroscopeCompatibility.tsx:7: import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+src\components\tools\HoroscopeCompatibility.tsx:64: const ELEMENT_ICONS: Record<string, any> = {
+src\components\tools\HoroscopeCompatibility.tsx:94: const TIME_OPTIONS = Array.from({ length: 24 }, (_, h) =>
+src\components\tools\HoroscopeCompatibility.tsx:130: const [analysisResult, setAnalysisResult] = useState<AIAnalysisResult | null>(null);
+src\components\tools\HoroscopeCompatibility.tsx:155: const stepInterval = setInterval(() => {
+src\components\tools\HoroscopeCompatibility.tsx:156: setLoadingStep((prev) => prev < LOADING_STEPS.length - 1 ? prev + 1 : prev);
+src\components\tools\HoroscopeCompatibility.tsx:293: <Switch checked={isBabyExpected} onCheckedChange={setIsBabyExpected} />
+src\components\tools\HoroscopeCompatibility.tsx:299: <CalendarIcon className="h-4 w-4" />
+src\components\tools\HoroscopeCompatibility.tsx:491: <CalendarIcon className="h-6 w-6 mx-auto text-blue-500 mb-2" />
+src\components\tools\HoroscopeCompatibility.tsx:680: transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+src\components\tools\HoroscopeCompatibility.tsx:688: transition={{ duration: 2, repeat: Infinity }}>
+src\components\tools\HoroscopeCompatibility.tsx:695: className={LOADING_STEPS[loadingStep].color}>
+src\components\tools\HoroscopeCompatibility.tsx:699: return <Icon className="h-10 w-10" />;
+src\components\tools\HoroscopeCompatibility.tsx:712: <p className="text-xl font-semibold">{LOADING_STEPS[loadingStep]?.text}</p>
+src\components\tools\HoroscopeCompatibility.tsx:717: {LOADING_STEPS.map((_, i) =>
+src\components\tools\HoroscopeCompatibility.tsx:725: transition={{ duration: 0.5, repeat: Infinity }} />
+src\components\tools\HoroscopeCompatibility.tsx:783: <CalendarIcon className="h-3 w-3" />
+src\components\tools\HoroscopeCompatibility.tsx:825: {TIME_OPTIONS.map((time) =>
+src\components\tools\HoroscopeCompatibility.tsx:826: <SelectItem key={time} value={time}>{time}</SelectItem>
+src\components\tools\HoroscopeCompatibility.tsx:854: return <Icon className="h-3 w-3" />;
+src\components\tools\HospitalBag.tsx:3: import { ArrowLeft, Check, Info, AlertTriangle, Star, ChevronDown, Package, Baby, FileText } from 'lucide-react';
+src\components\tools\HospitalBag.tsx:32: const [expandedItem, setExpandedItem] = useState<string | null>(null);
+src\components\tools\HospitalBag.tsx:41: const filteredItems = activeCategory === 'all'
+src\components\tools\HospitalBag.tsx:45: const sortedItems = [...filteredItems].sort((a, b) => (a.priority || 2) - (b.priority || 2));
+src\components\tools\HospitalBag.tsx:50: const groupedItems = useMemo(() => {
+src\components\tools\HospitalBag.tsx:68: const renderItem = (item: typeof items[0], index: number) => {
+src\components\tools\HospitalBag.tsx:153: <Info className="w-3.5 h-3.5 text-primary mt-0.5 flex-shrink-0" />
+src\components\tools\HospitalBag.tsx:166: const renderCategorySection = (catKey: string, catItems: typeof items) => {
+src\components\tools\HospitalBag.tsx:169: const checkedInCat = catItems.filter(i => i.is_checked).length;
+src\components\tools\HospitalBag.tsx:181: {catItems.map((item, i) => renderItem(item, i))}
+src\components\tools\HospitalBag.tsx:256: {activeCategory === 'all' && groupedItems ? (
+src\components\tools\HospitalBag.tsx:262: {sortedItems.map((item, i) => renderItem(item, i))}
+src\components\tools\KickCounter.tsx:27: intervalRef.current = setInterval(() => {
+src\components\tools\KickCounter.tsx:126: transition={{ duration: 0.5, repeat: Infinity }} />
+src\components\tools\KickCounter.tsx:152: onClick={() => setIsActive(true)}
+src\components\tools\KickCounter.tsx:211: const today = new Date().toISOString().split('T')[0];
+src\components\tools\KickCounter.tsx:212: const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+src\components\tools\MaternityCalculator.tsx:8: import { Input } from '@/components/ui/input';
+src\components\tools\MaternityCalculator.tsx:10: import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+src\components\tools\MaternityCalculator.tsx:180: <RadioGroupItem value={type.value} id={type.value} />
+src\components\tools\MaternityCalculator.tsx:234: <Info className="w-4 h-4 text-primary" />
+src\components\tools\MentalHealthTracker.tsx:51: const EPDS_QUESTIONS = useMemo(() => {
+src\components\tools\MentalHealthTracker.tsx:91: const BREATHING_EXERCISES = useMemo(() => {
+src\components\tools\MentalHealthTracker.tsx:102: return FALLBACK_BREATHING_EXERCISES.map((e) => ({
+src\components\tools\MentalHealthTracker.tsx:124: if (BREATHING_EXERCISES.length > 0 && !selectedExercise) {
+src\components\tools\MentalHealthTracker.tsx:144: const handleEPDSAnswer = (questionId: number, value: number) => {
+src\components\tools\MentalHealthTracker.tsx:146: setEpdsAnswers((prev) => ({ ...prev, [questionId]: value }));
+src\components\tools\MentalHealthTracker.tsx:348: transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}>
+src\components\tools\MentalHealthTracker.tsx:599: {BREATHING_EXERCISES.map((ex, i) =>
+src\components\tools\MentalHealthTracker.tsx:673: {EPDS_QUESTIONS.map((_, i) =>
+src\components\tools\MentalHealthTracker.tsx:694: <p className="font-bold mb-4 text-lg text-foreground">{EPDS_QUESTIONS[currentQuestion].question}</p>
+src\components\tools\MentalHealthTracker.tsx:696: {EPDS_QUESTIONS[currentQuestion].options.map((option) => {
+src\components\tools\MentalHealthTracker.tsx:707: onClick={() => handleEPDSAnswer(EPDS_QUESTIONS[currentQuestion].id, option.value)}
+src\components\tools\MentalHealthTracker.tsx:739: disabled={epdsAnswers[EPDS_QUESTIONS[currentQuestion].id] === undefined}>
+src\components\tools\MentalHealthTracker.tsx:748: disabled={submitEPDS.isPending || Object.keys(epdsAnswers).length < EPDS_QUESTIONS.length}>
+src\components\tools\MomFriendlyMap.tsx:10: import { Input } from '@/components/ui/input';
+src\components\tools\MomFriendlyMap.tsx:13: import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+src\components\tools\MomFriendlyMap.tsx:18: import { usePlaceCategories, usePlaceAmenities, FALLBACK_CATEGORIES, FALLBACK_AMENITIES } from '@/hooks/usePlacesConfig';
+src\components\tools\MomFriendlyMap.tsx:29: const ICON_MAP: Record<string, any> = {
+src\components\tools\MomFriendlyMap.tsx:42: const CATEGORIES = useMemo(() => {
+src\components\tools\MomFriendlyMap.tsx:51: return FALLBACK_CATEGORIES.map((c) => ({
+src\components\tools\MomFriendlyMap.tsx:59: const AMENITIES = useMemo(() => {
+src\components\tools\MomFriendlyMap.tsx:67: return FALLBACK_AMENITIES.map((a) => ({
+src\components\tools\MomFriendlyMap.tsx:146: const getCategoryInfo = (category: string) => {
+src\components\tools\MomFriendlyMap.tsx:147: return CATEGORIES.find((c) => c.value === category) || CATEGORIES[0];
+src\components\tools\MomFriendlyMap.tsx:151: return AMENITIES.filter((a) => (place as any)[a.key]);
+src\components\tools\MomFriendlyMap.tsx:226: {CATEGORIES.map((cat, index) =>
+src\components\tools\MomFriendlyMap.tsx:270: {AMENITIES.map((amenity) =>
+src\components\tools\MomFriendlyMap.tsx:343: <catInfo.icon className="w-6 h-6 text-white" />
+src\components\tools\MomFriendlyMap.tsx:437: {CATEGORIES.filter((c) => c.value !== 'all').map((cat) =>
+src\components\tools\MomFriendlyMap.tsx:438: <SelectItem key={cat.value} value={cat.value}>
+src\components\tools\MomFriendlyMap.tsx:443: </SelectItem>
+src\components\tools\MomFriendlyMap.tsx:451: {AMENITIES.map((amenity) =>
+src\components\tools\MomFriendlyMap.tsx:485: <div className={`relative h-32 bg-gradient-to-br ${getCategoryInfo(selectedPlace.category).color}`}>
+src\components\tools\MomFriendlyMap.tsx:489: return <CatIcon className="w-16 h-16 text-white/30" />;
+src\components\tools\MoodDiary.tsx:77: const toggleSymptom = async (symptomId: string) => {
+src\components\tools\MoodDiary.tsx:81: prev.filter((s) => s !== symptomId) :
+src\components\tools\MoodDiary.tsx:91: log_date: new Date().toISOString().split('T')[0],
+src\components\tools\MoodDiary.tsx:183: <Icon className="w-4 h-4" />
+src\components\tools\NoiseMeter.tsx:34: const NOISE_THRESHOLDS = useMemo(() => {
+src\components\tools\NoiseMeter.tsx:69: const isTooLoud = db > NOISE_THRESHOLDS.acceptable;
+src\components\tools\NoiseMeter.tsx:131: if (db > NOISE_THRESHOLDS.warning && !showWhiteNoisePrompt) {
+src\components\tools\Nutrition.tsx:15: import { Input } from '@/components/ui/input';
+src\components\tools\Nutrition.tsx:48: const mealIcons: Record<string, any> = {
+src\components\tools\Nutrition.tsx:81: const getFilteredFoods = (mealId: string) => {
+src\components\tools\Nutrition.tsx:174: const mealInfo = mealTypes.find((m) => m.id === selectedMeal);
+src\components\tools\Nutrition.tsx:190: <h1 className="text-lg font-bold text-white">{mealInfo?.name}</h1>
+src\components\tools\Nutrition.tsx:191: <p className="text-white/80 text-xs">{mealInfo?.time}</p>
+src\components\tools\Nutrition.tsx:193: <div className="text-3xl">{mealInfo?.emoji}</div>
+src\components\tools\PoopScanner.tsx:3: import { ArrowLeft, Camera, Upload, AlertTriangle, CheckCircle, AlertCircle, Loader2, History, Info, Phone, ShieldAlert } from 'lucide-react';
+src\components\tools\PoopScanner.tsx:42: const [selectedImage, setSelectedImage] = useState<string | null>(null);
+src\components\tools\PoopScanner.tsx:48: const fileInputRef = useRef<HTMLInputElement>(null);
+src\components\tools\PoopScanner.tsx:49: const cameraInputRef = useRef<HTMLInputElement>(null);
+src\components\tools\PoopScanner.tsx:69: const handleImageSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+src\components\tools\PoopScanner.tsx:145: const analyzeImage = async () => {
+src\components\tools\PoopScanner.tsx:151: const base64Image = selectedImage.split(',')[1];
+src\components\tools\PoopScanner.tsx:260: <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+src\components\tools\PoopScanner.tsx:299: onChange={handleImageSelect} />
+src\components\tools\PoopScanner.tsx:306: onChange={handleImageSelect} />
+src\components\tools\PoopScanner.tsx:372: <div className="text-4xl">{colorInfo.emoji}</div>
+src\components\tools\PoopScanner.tsx:375: <h3 className="text-xl font-bold">{colorInfo.label}</h3>
+src\components\tools\PregnancyAlbum.tsx:69: const fileInputRef = useRef<HTMLInputElement>(null);
+src\components\tools\PregnancyAlbum.tsx:78: const [replacingPhotoId, setReplacingPhotoId] = useState<string | null>(null);
+src\components\tools\PregnancyAlbum.tsx:109: await supabase.storage.from('pregnancy-album').remove([decodeURIComponent(oldPath)]);
+src\components\tools\PregnancyAlbum.tsx:128: const weekNumber = parseInt(weekForMonth?.weeks.split('-')[0] || '1');
+src\components\tools\PregnancyAlbum.tsx:164: await supabase.storage.from('pregnancy-album').remove([decodeURIComponent(path)]);
+src\components\tools\PregnancyAlbum.tsx:195: const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+src\components\tools\PregnancyAlbum.tsx:206: photos.find((p) => p.id === replacingPhotoId) || null :
+src\components\tools\PregnancyAlbum.tsx:345: <ImagePlus className="w-5 h-5 text-primary mb-1" />
+src\components\tools\PregnancyAlbum.tsx:350: <ImagePlus className="w-4 h-4 text-muted-foreground mb-1" />
+src\components\tools\PregnancyAlbum.tsx:363: transition={{ duration: 2, repeat: Infinity }} />
+src\components\tools\Recipes.tsx:16: import { Input } from '@/components/ui/input';
+src\components\tools\Recipes.tsx:57: const toggleFavorite = (recipeId: string, e: React.MouseEvent) => {
+src\components\tools\Recipes.tsx:60: prev.includes(recipeId) ? prev.filter((id) => id !== recipeId) : [...prev, recipeId]
+src\components\tools\Recipes.tsx:72: const freeRecipeIds = useMemo(() => {
+src\components\tools\Recipes.tsx:85: const isRecipeFree = (recipe: Recipe) => freeRecipeIds.has(recipe.id);
+src\components\tools\SafetyLookup.tsx:4: import { useSafetyItems } from '@/hooks/useDynamicContent';
+src\components\tools\SafetyLookup.tsx:26: const [selectedItem, setSelectedItem] = useState<any | null>(null);
+src\components\tools\SafetyLookup.tsx:41: const filteredItems = safetyItems.filter((item) => {
+src\components\tools\SafetyLookup.tsx:48: safe: filteredItems.filter((i) => i.safety_level === 'safe').length,
+src\components\tools\SafetyLookup.tsx:49: warning: filteredItems.filter((i) => i.safety_level === 'warning').length,
+src\components\tools\SafetyLookup.tsx:50: danger: filteredItems.filter((i) => i.safety_level === 'danger').length
+src\components\tools\SafetyLookup.tsx:62: const handleAISearch = async () => {
+src\components\tools\SafetyLookup.tsx:178: {filteredItems.map((item) => {
+src\components\tools\SafetyLookup.tsx:184: onClick={() => setSelectedItem(item)}
+src\components\tools\SafetyLookup.tsx:188: <Icon className="w-4 h-4 text-white" />
+src\components\tools\SafetyLookup.tsx:202: {filteredItems.length === 0 && searchQuery.trim().length >= 2 &&
+src\components\tools\SafetyLookup.tsx:228: {selectedItem && (() => {
+src\components\tools\SafetyLookup.tsx:237: onClick={() => setSelectedItem(null)}>
+src\components\tools\SafetyLookup.tsx:251: <Icon className="w-5 h-5 text-white" />
+src\components\tools\SafetyLookup.tsx:254: <h2 className="text-base font-bold text-white truncate">{selectedItem.name_az || selectedItem.name}</h2>
+src\components\tools\SafetyLookup.tsx:273: {selectedItem.safety_level === 'safe' &&
+src\components\tools\SafetyLookup.tsx:285: {selectedItem.safety_level === 'warning' &&
+src\components\tools\SafetyLookup.tsx:297: {selectedItem.safety_level === 'danger' &&
+src\components\tools\SafetyLookup.tsx:319: onClick={() => setSelectedItem(null)}
+src\components\tools\SecondHandMarket.tsx:10: import { Input } from '@/components/ui/input';
+src\components\tools\SecondHandMarket.tsx:83: const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+src\components\tools\SecondHandMarket.tsx:84: const fileInputRef = useRef<HTMLInputElement>(null);
+src\components\tools\SecondHandMarket.tsx:137: const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+src\components\tools\SecondHandMarket.tsx:163: setUploadedImages((prev) => [...prev, ...newImages]);
+src\components\tools\SecondHandMarket.tsx:166: console.error('Image upload error:', error);
+src\components\tools\SecondHandMarket.tsx:175: fileInputRef.current.value = '';
+src\components\tools\SecondHandMarket.tsx:180: const removeImage = (index: number) => {
+src\components\tools\SecondHandMarket.tsx:181: setUploadedImages((prev) => prev.filter((_, i) => i !== index));
+src\components\tools\SecondHandMarket.tsx:300: const getCategoryInfo = (catId: string) => {
+src\components\tools\SecondHandMarket.tsx:301: return categories.find((c) => c.id === catId) || categories[6];
+src\components\tools\SecondHandMarket.tsx:304: const getConditionInfo = (condId: string) => {
+src\components\tools\SecondHandMarket.tsx:305: return conditions.find((c) => c.id === condId) || conditions[2];
+src\components\tools\SecondHandMarket.tsx:502: <div className={`w-full h-full bg-gradient-to-br ${catInfo.color} flex items-center justify-center`}>
+src\components\tools\SecondHandMarket.tsx:503: <span className="text-5xl">{catInfo.emoji}</span>
+src\components\tools\SecondHandMarket.tsx:523: <ImageIcon className="w-3 h-3" />
+src\components\tools\SecondHandMarket.tsx:533: <span className={`w-2 h-2 rounded-full ${condInfo.color}`} />
+src\components\tools\SecondHandMarket.tsx:534: <span className="text-xs text-muted-foreground">{condInfo.label}</span>
+src\components\tools\SecondHandMarket.tsx:575: {uploadedImages.map((img, index) =>
+src\components\tools\SecondHandMarket.tsx:579: onClick={() => removeImage(index)}
+src\components\tools\SecondHandMarket.tsx:590: onClick={() => fileInputRef.current?.click()}
+src\components\tools\SecondHandMarket.tsx:599: <ImagePlus className="w-5 h-5 text-muted-foreground" />
+src\components\tools\SecondHandMarket.tsx:782: <div className={`aspect-video bg-gradient-to-br ${getCategoryInfo(selectedListing.category).color} flex items-center justify-center`}>
+src\components\tools\SecondHandMarket.tsx:783: <span className="text-7xl">{getCategoryInfo(selectedListing.category).emoji}</span>
+src\components\tools\SecondHandMarket.tsx:811: <Badge className={`${getConditionInfo(selectedListing.condition).color} text-white border-0`}>
+src\components\tools\SecondHandMarket.tsx:892: <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${getCategoryInfo(contactListing.category).color} flex items-center justify-center`}>
+src\components\tools\SecondHandMarket.tsx:893: <span className="text-xl">{getCategoryInfo(contactListing.category).emoji}</span>
+src\components\tools\ShoppingList.tsx:7: import { useShoppingItems } from '@/hooks/useShoppingItems';
+src\components\tools\ShoppingList.tsx:11: import { useDefaultShoppingItems } from '@/hooks/useDefaultShoppingItems';
+src\components\tools\ShoppingList.tsx:12: import { Input } from '@/components/ui/input';
+src\components\tools\ShoppingList.tsx:44: const [newItemName, setNewItemName] = useState('');
+src\components\tools\ShoppingList.tsx:45: const [newItemPriority, setNewItemPriority] = useState<'low' | 'medium' | 'high'>('medium');
+src\components\tools\ShoppingList.tsx:54: const existingItemNames = items.map((i) => i.name.toLowerCase());
+src\components\tools\ShoppingList.tsx:56: (d) => !existingItemNames.includes((d.name_az || d.name).toLowerCase())
+src\components\tools\ShoppingList.tsx:59: const handleAddItem = async () => {
+src\components\tools\ShoppingList.tsx:76: setNewItemName('');
+src\components\tools\ShoppingList.tsx:81: const uncheckedItems = items.filter((item) => !item.is_checked);
+src\components\tools\ShoppingList.tsx:82: const checkedItems = items.filter((item) => item.is_checked);
+src\components\tools\ShoppingList.tsx:146: onChange={(e) => setNewItemName(e.target.value)}
+src\components\tools\ShoppingList.tsx:148: onKeyPress={(e) => e.key === 'Enter' && handleAddItem()}
+src\components\tools\ShoppingList.tsx:165: onClick={() => setNewItemPriority(priority)}
+src\components\tools\ShoppingList.tsx:228: {uncheckedItems.map((item) =>
+src\components\tools\ShoppingList.tsx:237: onClick={() => toggleItem(item.id)}
+src\components\tools\ShoppingList.tsx:254: onClick={() => deleteItem(item.id)}
+src\components\tools\ShoppingList.tsx:272: {checkedItems.length > 0 &&
+src\components\tools\ShoppingList.tsx:291: {checkedItems.map((item) =>
+src\components\tools\ShoppingList.tsx:297: onClick={() => toggleItem(item.id)}
+src\components\tools\ShoppingList.tsx:304: onClick={() => deleteItem(item.id)}
+src\components\tools\SmartPlayBox.tsx:9: import { usePlayActivities, usePlayInventoryItems, useUserPlayInventory, useToggleInventoryItem, useLogPlayActivity, PlayActivity } from '@/hooks/usePlayActivities';
+src\components\tools\SmartPlayBox.tsx:11: import { differenceInDays, differenceInMonths } from 'date-fns';
+src\components\tools\SmartPlayBox.tsx:21: const SKILL_COLORS: Record<string, string> = {
+src\components\tools\SmartPlayBox.tsx:29: const SKILL_LABELS: Record<string, string> = {
+src\components\tools\SmartPlayBox.tsx:37: const SKILL_ICONS: Record<string, string> = {
+src\components\tools\SmartPlayBox.tsx:45: const DIFFICULTY_LABELS: Record<string, {label: string;color: string;}> = {
+src\components\tools\SmartPlayBox.tsx:60: const babyInfo = useMemo(() => {
+src\components\tools\SmartPlayBox.tsx:87: const userInventoryNames = userInventory.map((i) => i.item_name.toLowerCase().replace(/\s+/g, '_'));
+src\components\tools\SmartPlayBox.tsx:98: babyInfo.days! >= a.min_age_days && babyInfo.days! <= a.max_age_days
+src\components\tools\SmartPlayBox.tsx:105: if (userInventoryNames.length > 0) {
+src\components\tools\SmartPlayBox.tsx:109: userInventoryNames.includes(item.toLowerCase().replace(/\s+/g, '_'))
+src\components\tools\SmartPlayBox.tsx:116: userInventoryNames.includes(item.toLowerCase().replace(/\s+/g, '_'))
+src\components\tools\SmartPlayBox.tsx:119: userInventoryNames.includes(item.toLowerCase().replace(/\s+/g, '_'))
+src\components\tools\SmartPlayBox.tsx:144: const isItemSelected = (itemName: string) => {
+src\components\tools\SmartPlayBox.tsx:145: return userInventoryNames.includes(itemName.toLowerCase().replace(/\s+/g, '_'));
+src\components\tools\SmartPlayBox.tsx:148: const handleToggleItem = async (item: {name: string;name_az: string;}) => {
+src\components\tools\SmartPlayBox.tsx:156: const groupedInventory = useMemo(() => {
+src\components\tools\SmartPlayBox.tsx:157: const groups: Record<string, typeof inventoryItems> = {};
+src\components\tools\SmartPlayBox.tsx:158: inventoryItems.forEach((item) => {
+src\components\tools\SmartPlayBox.tsx:211: onClick={() => setShowInventory(true)}>
+src\components\tools\SmartPlayBox.tsx:214: {userInventory.length > 0 &&
+src\components\tools\SmartPlayBox.tsx:246: onClick={() => setShowInventory(true)}>
+src\components\tools\SmartPlayBox.tsx:273: transition={{ duration: 2, repeat: Infinity }}>
+src\components\tools\SmartPlayBox.tsx:290: <Badge className={DIFFICULTY_LABELS[todaysActivity.difficulty_level].color}>
+src\components\tools\SmartPlayBox.tsx:296: <span key={skill} className="text-lg" title={SKILL_LABELS[skill]}>
+src\components\tools\SmartPlayBox.tsx:308: const invItem = inventoryItems.find((i) =>
+src\components\tools\SmartPlayBox.tsx:321: {hasItem && <Check className="h-3 w-3" />}
+src\components\tools\SmartPlayBox.tsx:349: {Object.entries(SKILL_ICONS).map(([skill, icon]) => {
+src\components\tools\SmartPlayBox.tsx:416: <span key={skill} className="text-sm" title={SKILL_LABELS[skill]}>
+src\components\tools\SmartPlayBox.tsx:463: <Badge key={skill} className={SKILL_COLORS[skill]}>
+src\components\tools\SmartPlayBox.tsx:468: <Badge className={DIFFICULTY_LABELS[selectedActivity.difficulty_level].color}>
+src\components\tools\SmartPlayBox.tsx:480: const invItem = inventoryItems.find((i) =>
+src\components\tools\SmartPlayBox.tsx:493: {hasItem && <Check className="h-3 w-3" />}
+src\components\tools\SmartPlayBox.tsx:564: <Dialog open={showInventory} onOpenChange={setShowInventory}>
+src\components\tools\SmartPlayBox.tsx:576: {userInventory.length > 0 &&
+src\components\tools\SmartPlayBox.tsx:585: {Object.entries(groupedInventory).map(([category, items]) =>
+src\components\tools\SmartPlayBox.tsx:594: onClick={() => handleToggleItem(item)}
+src\components\tools\SmartPlayBox.tsx:604: {isItemSelected(item.name) && <Check className="h-3 w-3" />}
+src\components\tools\TeethingTracker.tsx:3: import { ArrowLeft, Check, Calendar, Sparkles, AlertCircle, Heart, Info, X, Users } from 'lucide-react';
+src\components\tools\TeethingTracker.tsx:9: import { Input } from '@/components/ui/input';
+src\components\tools\TeethingTracker.tsx:56: setEmergedDate(new Date().toISOString().split('T')[0]);
+src\components\tools\TeethingTracker.tsx:436: max={new Date().toISOString().split('T')[0]} />
+src\components\tools\TeethingTracker.tsx:443: <Info className="w-4 h-4" />
+src\components\tools\VaccineCalendar.tsx:16: import { Input } from '@/components/ui/input';
+src\components\tools\VaccineCalendar.tsx:137: <Icon className="w-3 h-3" />
+src\components\tools\VaccineCalendar.tsx:215: <DropdownMenuItem key={c.id} onClick={() => setSelectedChild(c)}>
+src\components\tools\VaccineCalendar.tsx:217: </DropdownMenuItem>
+src\components\tools\VaccineCalendar.tsx:238: <DropdownMenuItem key={c.code} onClick={() => handleChangeCountry(c.code)}>
+src\components\tools\VaccineCalendar.tsx:240: </DropdownMenuItem>
+src\components\tools\VaccineCalendar.tsx:328: <Info className="w-3 h-3" />
+src\components\tools\VaccineCalendar.tsx:508: <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} max={today} />
+src\components\tools\VaccineCalendar.tsx:516: <Input value={batch} onChange={(e) => setBatch(e.target.value)} />
+src\components\tools\VitaminsTab.tsx:3: import { Pill, AlertCircle, Leaf, Info } from 'lucide-react';
+src\components\tools\VitaminsTab.tsx:118: <Info className="w-4 h-4 text-primary flex-shrink-0" />
+src\components\tools\VitaminTracker.tsx:295: {VITAMIN_PRESETS.map((preset) =>
+src\components\tools\WeatherClothing.tsx:14: import { differenceInMonths, differenceInDays } from 'date-fns';
+src\components\tools\WeatherClothing.tsx:156: const getWeatherIcon = (temp: number) => {
+src\components\tools\WeatherClothing.tsx:228: transition={{ duration: 2, repeat: Infinity, ease: "linear" }}>
+src\components\tools\WeatherClothing.tsx:277: <div className="text-6xl">{getWeatherIcon(advice.temperature)}</div>
+src\components\tools\WeatherClothing.tsx:303: <p className="font-bold text-sm">{advice.uvIndex}</p>
+src\components\tools\WeatherClothing.tsx:321: {advice.clothingItems.map((item, idx) =>
+src\components\tools\WeatherClothing.tsx:363: {advice.indoorClothingItems && advice.indoorClothingItems.length > 0 &&
+src\components\tools\WeatherClothing.tsx:365: {advice.indoorClothingItems.map((item, idx) =>
+src\components\tools\WeightTracker.tsx:4: import { Input } from '@/components/ui/input';
+src\components\tools\WeightTracker.tsx:6: import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+src\components\tools\WeightTracker.tsx:62: const fetchAIAdvice = async () => {
+src\components\tools\WeightTracker.tsx:71: content: `Çəki analizi: ${currentWeek}-ci həftə, başlanğıc: ${startWeight}kg, indi: ${currentWeight}kg, artım: ${totalGain}kg (tövsiyə: ${recommended.min}-${recommended.max}kg). Status: ${status.text}. QAYDALAR: 1) Salamlama yoxdur, birbaşa məsələyə keç. 2) Maksimum 1-2 cümlə. 3) Disclaimer/xəbərdarlıq yoxdur. 4) Yalnız praktik qısa məsləhət.`
+src\components\tools\WeightTracker.tsx:81: console.error('AI advice error:', e);
+src\components\tools\WeightTracker.tsx:299: </DropdownMenuItem>
+src\components\tools\WhiteNoise.tsx:98: const trackingIntervalRef = useRef<NodeJS.Timeout | null>(null);
+src\components\tools\WhiteNoise.tsx:101: const usageInfo = useMemo(() => canUseWhiteNoise(), [canUseWhiteNoise]);
+src\components\tools\WhiteNoise.tsx:136: interval = setInterval(() => {
+src\components\tools\WhiteNoise.tsx:148: return () => {if (interval) clearInterval(interval);};
+src\components\tools\WhiteNoise.tsx:154: trackingIntervalRef.current = setInterval(() => {
+src\components\tools\WhiteNoise.tsx:173: const handleSoundToggle = async (soundId: string) => {
+src\components\tools\WhiteNoise.tsx:185: const sound = sounds.find((s) => s.id === soundId);
+src\components\tools\WhiteNoise.tsx:282: usageInfo.remainingSeconds < 300 ? 'bg-destructive/20' : 'bg-primary/20'}`
+src\components\tools\WhiteNoise.tsx:291: <p className={`text-sm font-bold ${usageInfo.remainingSeconds < 300 ? 'text-destructive' : 'text-foreground'}`}>
+src\components\tools\WhiteNoise.tsx:329: transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+src\components\tools\WhiteNoise.tsx:352: transition={{ duration: 0.4 + Math.random() * 0.4, repeat: Infinity, delay: i * 0.03 }} />
+src\components\tools\WhiteNoise.tsx:418: onChange={(e) => handleVolumeChange(parseInt(e.target.value))}
+src\components\tools\WhiteNoise.tsx:463: {noiseTypes.map((nt, ntIdx) => {
+src\components\tools\WhiteNoise.tsx:515: transition={{ duration: 2, repeat: Infinity }} />
+src\components\tools\WhiteNoise.tsx:520: transition={{ duration: 1, repeat: Infinity }} />
+src\components\tools\WhiteNoise.tsx:545: transition={{ duration: 0.4, repeat: Infinity, delay: i * 0.1 }} />
+src\components\baby\BabyMonthlyAlbum.tsx:36: const fileInputRef = useRef<HTMLInputElement>(null);
+src\components\baby\BabyMonthlyAlbum.tsx:65: const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+src\components\baby\BabyMonthlyAlbum.tsx:235: <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleUpload} />
+src\components\baby\FeedingHistoryPanel.tsx:4: import { useBabyLogs, FeedingHistoryItem } from '@/hooks/useBabyLogs';
+src\components\baby\FeedingHistoryPanel.tsx:59: const [editingId, setEditingId] = useState<string | null>(null);
+src\components\baby\FeedingHistoryPanel.tsx:62: const [deletingId, setDeletingId] = useState<string | null>(null);
+src\components\baby\FeedingHistoryPanel.tsx:65: const handleToggle = onToggle || (() => setInternalExpanded(!internalExpanded));
+src\components\baby\FeedingHistoryPanel.tsx:94: const handleEdit = (item: FeedingHistoryItem) => {
+src\components\baby\FeedingHistoryPanel.tsx:100: const handleSaveEdit = async (item: FeedingHistoryItem) => {
+src\components\baby\FeedingHistoryPanel.tsx:226: <button onClick={() => setDeletingId(null)} className="p-1.5 rounded-full bg-muted text-muted-foreground">
+src\components\baby\FeedingHistoryPanel.tsx:256: <button onClick={() => setEditingId(null)} className="p-1.5 rounded-full bg-muted text-muted-foreground">
+src\components\baby\FeedingHistoryPanel.tsx:287: <button onClick={() => setDeletingId(item.id)} className="p-1 rounded text-muted-foreground hover:text-destructive">
+src\components\baby\SleepHistoryPanel.tsx:35: const [editingId, setEditingId] = useState<string | null>(null);
+src\components\baby\SleepHistoryPanel.tsx:38: const [deletingId, setDeletingId] = useState<string | null>(null);
+src\components\baby\SleepHistoryPanel.tsx:41: const handleToggle = onToggle || (() => setInternalExpanded(!internalExpanded));
+src\components\baby\SleepHistoryPanel.tsx:65: const dateStr = date.toISOString().split('T')[0];
+src\components\baby\SleepHistoryPanel.tsx:186: <button onClick={() => setDeletingId(null)} className="p-1.5 rounded-full bg-muted text-muted-foreground">
+src\components\baby\SleepHistoryPanel.tsx:216: <button onClick={() => setEditingId(null)} className="p-1.5 rounded-full bg-muted text-muted-foreground">
+src\components\baby\SleepHistoryPanel.tsx:242: <button onClick={() => setDeletingId(log.id)} className="p-1 rounded text-muted-foreground hover:text-destructive">
+src\hooks\use-mobile.tsx:6: const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined);
+src\hooks\use-mobile.tsx:9: const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+src\hooks\use-toast.ts:18: DISMISS_TOAST: "DISMISS_TOAST",
+src\hooks\use-toast.ts:41: type: ActionType["DISMISS_TOAST"];
+src\hooks\use-toast.ts:42: toastId?: ToasterToast["id"];
+src\hooks\use-toast.ts:46: toastId?: ToasterToast["id"];
+src\hooks\use-toast.ts:55: const addToRemoveQueue = (toastId: string) => {
+src\hooks\use-toast.ts:85: case "DISMISS_TOAST": {
+src\hooks\use-toast.ts:119: toasts: state.toasts.filter((t) => t.id !== action.toastId),
+src\hooks\use-toast.ts:145: const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id });
+src\hooks\use-toast.ts:182: dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
+src\hooks\useAchievements.ts:94: event: 'INSERT',
+src\hooks\useAchievements.ts:123: const unlockAchievement = useCallback(async (achievementId: string, achievementType: string) => {
+src\hooks\useAchievements.ts:127: const existing = achievements.find(a => a.achievement_id === achievementId);
+src\hooks\useAchievements.ts:151: .eq('achievement_id', achievementId);
+src\hooks\useAchievements.ts:160: const hasAchievement = useCallback((achievementId: string) => {
+src\hooks\useAchievements.ts:161: return achievements.some(a => a.achievement_id === achievementId);
+src\hooks\useAdvancedNotifications.ts:35: const tokenUserIds = new Set(tokens?.map(t => t.user_id) || []);
+src\hooks\useAdvancedNotifications.ts:231: mutationFn: async (notificationId: string) => {
+src\hooks\useAffiliateProducts.ts:65: export const useAffiliateProduct = (productId: string | null) => {
+src\hooks\useAffiliateProducts.ts:67: queryKey: ['affiliate-product', productId],
+src\hooks\useAffiliateProducts.ts:74: eq('id', productId).
+src\hooks\useAffiliateProducts.ts:113: export const useIsProductSaved = (productId: string) => {
+src\hooks\useAffiliateProducts.ts:117: queryKey: ['is-product-saved', productId, user?.id],
+src\hooks\useAffiliateProducts.ts:125: eq('product_id', productId).
+src\hooks\useAffiliateProducts.ts:141: mutationFn: async (productId: string) => {
+src\hooks\useAffiliateProducts.ts:150: onSuccess: (_, productId) => {
+src\hooks\useAffiliateProducts.ts:152: queryClient.invalidateQueries({ queryKey: ['is-product-saved', productId] });
+src\hooks\useAffiliateProducts.ts:167: mutationFn: async (productId: string) => {
+src\hooks\useAffiliateProducts.ts:174: eq('product_id', productId);
+src\hooks\useAffiliateProducts.ts:178: onSuccess: (_, productId) => {
+src\hooks\useAffiliateProducts.ts:180: queryClient.invalidateQueries({ queryKey: ['is-product-saved', productId] });
+src\hooks\useAIChatHistory.ts:12: export const useAIChatHistory = (chatType: 'woman' | 'partner') => {
+src\hooks\useAIChatHistory.ts:40: console.error('Error fetching AI chat history:', err);
+src\hooks\useAIChatHistory.ts:74: console.error('Error adding AI chat message:', err);
+src\hooks\useAIChatHistory.ts:91: console.error('Error clearing AI chat history:', err);
+src\hooks\useAppointments.ts:196: const dateStr = date.toISOString().split('T')[0];
+src\hooks\useAppRating.ts:13: const RATING_DONE_KEY = 'anacan_rating_done';
+src\hooks\useAppRating.ts:41: const currentCount = parseInt(localStorage.getItem(USAGE_COUNT_KEY) || '0', 10) + 1;
+src\hooks\useAppRating.ts:56: localStorage.setItem(RATING_DONE_KEY, 'true');
+src\hooks\useAppRating.ts:109: localStorage.setItem(RATING_DONE_KEY, 'true');
+src\hooks\useBabyCrisisPeriods.ts:54: export const useIsBabyInCrisis = (babyAgeWeeks: number) => {
+src\hooks\useBabyDailyInfo.ts:13: export const useBabyDailyInfoByDay = (dayNumber: number | null) => {
+src\hooks\useBabyDailyInfo.ts:37: export const useBabyDailyInfoAdmin = () => {
+src\hooks\useBabyDailyInfo.ts:83: mutationFn: async ({ id, ...updates }: Partial<BabyDailyInfo> & { id: string }) => {
+src\hooks\useBabyDailyInfo.ts:148: results.errors.push(`Insert batch: ${error.message}`);
+src\hooks\useBabyLogs.ts:51: .gte('start_time', sevenDaysAgo.toISOString())
+src\hooks\useBabyLogs.ts:154: const getFeedingHistory = useCallback((days: number = 3): Map<string, FeedingHistoryItem[]> => {
+src\hooks\useBabyLogs.ts:156: const historyMap = new Map<string, FeedingHistoryItem[]>();
+src\hooks\useBabyLogs.ts:163: dates.push(date.toISOString().split('T')[0]);
+src\hooks\useBabyMilestones.ts:28: const MILESTONES = useMemo(() => {
+src\hooks\useBabyMilestones.ts:94: const toggleMilestone = useCallback(async (milestoneId: string, notes?: string) => {
+src\hooks\useBabyMilestones.ts:97: const existing = milestones.find((m) => m.milestone_id === milestoneId);
+src\hooks\useBabyMilestones.ts:131: const milestoneDetails = MILESTONES.find((m) => m.id === milestoneId);
+src\hooks\useBabyMilestones.ts:148: const isMilestoneAchieved = useCallback((milestoneId: string) => {
+src\hooks\useBabyMilestones.ts:149: return milestones.some((m) => m.milestone_id === milestoneId);
+src\hooks\useBabyMilestones.ts:152: const getMilestoneDate = useCallback((milestoneId: string) => {
+src\hooks\useBabyMilestones.ts:153: const milestone = milestones.find((m) => m.milestone_id === milestoneId);
+src\hooks\useBabyMonthIllustrations.ts:6: export const DEFAULT_BABY_ILLUSTRATION = '/placeholder.svg';
+src\hooks\useBabyMonthIllustrations.ts:22: export const useBabyMonthIllustrations = () => {
+src\hooks\useBabyMonthIllustrations.ts:39: export const useBabyIllustrationByMonth = (monthNumber: number) => {
+src\hooks\useBabyMonthIllustrations.ts:56: export const useAllBabyMonthIllustrations = () => {
+src\hooks\useBabyMonthIllustrations.ts:71: export const useUpsertBabyMonthIllustration = () => {
+src\hooks\useBabyMonthIllustrations.ts:75: mutationFn: async (data: Partial<BabyMonthIllustration> & { month_number: number; image_url: string }) => {
+src\hooks\useBabyMonthIllustrations.ts:102: export const useDeleteBabyMonthIllustration = () => {
+src\hooks\useBanners.ts:139: export const useIncrementBannerClick = () => {
+src\hooks\useBlog.ts:191: const getPostCategoryIds = useCallback((postId: string): string[] => {
+src\hooks\useBlog.ts:193: .filter(pc => pc.post_id === postId)
+src\hooks\useBlog.ts:198: const setPostCategoriesForPost = async (postId: string, categoryIds: string[]) => {
+src\hooks\useBlog.ts:204: .eq('post_id', postId);
+src\hooks\useBlog.ts:207: if (categoryIds.length > 0) {
+src\hooks\useBlog.ts:208: const inserts = categoryIds.map(categoryId => ({
+src\hooks\useBlog.ts:228: const createPost = async (post: Partial<Omit<BlogPost, 'id' | 'created_at' | 'updated_at' | 'view_count'>> & { title: string; content: string; slug: string }, categoryIds?: string[]) => {
+src\hooks\useBlog.ts:239: if (data && categoryIds && categoryIds.length > 0) {
+src\hooks\useBlog.ts:251: const updatePost = async (id: string, updates: Partial<BlogPost>, categoryIds?: string[]) => {
+src\hooks\useBlog.ts:331: return { error: new Error(`Bu kateqoriya ${postsUsingCategory.length} məqalədə istifadə olunur. Əvvəlcə məqalələrdən çıxarın.`) };
+src\hooks\useBlogInteractions.ts:23: export const useBlogInteractions = (postId?: string) => {
+src\hooks\useBlogInteractions.ts:33: const fetchInteractions = useCallback(async () => {
+src\hooks\useBlogInteractions.ts:41: eq('id', postId).
+src\hooks\useBlogInteractions.ts:55: eq('post_id', postId).
+src\hooks\useBlogInteractions.ts:61: eq('post_id', postId).
+src\hooks\useBlogInteractions.ts:83: eq('post_id', postId).
+src\hooks\useBlogInteractions.ts:90: const userIds = [...new Set((commentsData || []).map((c) => c.user_id))];
+src\hooks\useBlogInteractions.ts:95: in('user_id', userIds);
+src\hooks\useBlogInteractions.ts:110: likedCommentIds = (likes || []).map((l) => l.comment_id);
+src\hooks\useBlogInteractions.ts:152: eq('post_id', postId).
+src\hooks\useBlogInteractions.ts:177: eq('post_id', postId).
+src\hooks\useBlogInteractions.ts:192: const addComment = async (content: string, parentCommentId?: string) => {
+src\hooks\useBlogInteractions.ts:193: if (!user || !postId || !content.trim()) return { error: 'Invalid input' };
+src\hooks\useBlogInteractions.ts:219: const toggleCommentLike = async (commentId: string) => {
+src\hooks\useBlogInteractions.ts:223: const comment = comments.find((c) => c.id === commentId) ||
+src\hooks\useBlogInteractions.ts:224: comments.flatMap((c) => c.replies || []).find((r) => r.id === commentId);
+src\hooks\useBlogInteractions.ts:232: eq('comment_id', commentId).
+src\hooks\useBlogInteractions.ts:247: const deleteComment = async (commentId: string) => {
+src\hooks\useBlogInteractions.ts:254: eq('id', commentId).
+src\hooks\useCakeCart.ts:14: removeItem: (index: number) => void;
+src\hooks\useCakeCart.ts:32: totalItems: items.reduce((sum, i) => sum + i.quantity, 0),
+src\hooks\useCakeCart.ts:37: removeItem: (index) => {
+src\hooks\useCakeCart.ts:41: totalItems: items.reduce((sum, i) => sum + i.quantity, 0),
+src\hooks\useCakeCart.ts:52: totalItems: items.reduce((sum, i) => sum + i.quantity, 0),
+src\hooks\useCakeCart.ts:57: clearCart: () => set({ items: [], totalItems: 0, totalPrice: 0 }),
+src\hooks\useCakes.ts:120: const updateOrderStatus = async (orderId: string, status: string) => {
+src\hooks\useCakes.ts:125: .eq('id', orderId);
+src\hooks\useChildren.ts:30: const selectedChild = children.find(c => c.id === selectedChildId) || children[0] || null;
+src\hooks\useChildren.ts:108: const currentlySelectedExists = rows.some(c => c.id === selectedChildId);
+src\hooks\useChildren.ts:162: const updateChild = useCallback(async (childId: string, updates: Partial<Child>) => {
+src\hooks\useChildren.ts:169: .eq('id', childId)
+src\hooks\useChildren.ts:182: const deleteChild = useCallback(async (childId: string) => {
+src\hooks\useChildren.ts:189: .eq('id', childId)
+src\hooks\useCommunity.ts:98: mutationFn: async (groupId: string) => {
+src\hooks\useCommunity.ts:124: mutationFn: async (groupId: string) => {
+src\hooks\useCommunity.ts:131: eq('group_id', groupId).
+src\hooks\useCommunity.ts:144: export const useGroupPosts = (groupId: string | null) => {
+src\hooks\useCommunity.ts:146: queryKey: ['group-posts', groupId],
+src\hooks\useCommunity.ts:158: query = query.eq('group_id', groupId);
+src\hooks\useCommunity.ts:210: mutationFn: async ({ groupId, content, mediaUrls, isAnonymous }: {groupId: string | null;content: string;mediaUrls?: string[];isAnonymous?: boolean;}) => {
+src\hooks\useCommunity.ts:227: queryClient.invalidateQueries({ queryKey: ['group-posts', variables.groupId] });
+src\hooks\useCommunity.ts:241: mutationFn: async ({ postId, content }: {postId: string;content: string;}) => {
+src\hooks\useCommunity.ts:248: eq('id', postId).
+src\hooks\useCommunity.ts:268: mutationFn: async (postId: string) => {
+src\hooks\useCommunity.ts:275: eq('id', postId).
+src\hooks\useCommunity.ts:294: mutationFn: async ({ postId, isLiked, groupId }: {postId: string;isLiked: boolean;groupId: string | null;}) => {
+src\hooks\useCommunity.ts:302: eq('post_id', postId).
+src\hooks\useCommunity.ts:311: const { data: post } = await supabase.from('community_posts').select('user_id').eq('id', postId).single();
+src\hooks\useCommunity.ts:319: body: `${likerName} paylaşımınızı bəyəndi`,
+src\hooks\useCommunity.ts:320: data: { type: 'community_like', postId, groupId }
+src\hooks\useCommunity.ts:328: queryClient.invalidateQueries({ queryKey: ['group-posts', variables.groupId] });
+src\hooks\useCommunity.ts:333: export const usePostComments = (postId: string) => {
+src\hooks\useCommunity.ts:335: queryKey: ['post-comments', postId],
+src\hooks\useCommunity.ts:342: eq('post_id', postId).
+src\hooks\useCommunity.ts:402: }: {postId: string;content: string;parentCommentId?: string | null;postAuthorId?: string;commenterName?: string;isAnonymous?: boolean;}) => {
+src\hooks\useCommunity.ts:429: data: { type: parentCommentId ? 'community_reply' : 'community_comment', postId }
+src\hooks\useCommunity.ts:436: queryClient.invalidateQueries({ queryKey: ['post-comments', variables.postId] });
+src\hooks\useCommunity.ts:470: const memberGroupIds = new Set(memberships?.map((m) => m.group_id) || []);
+src\hooks\useContractions.ts:85: const withInterval = recent.filter(c => c.interval_seconds != null);
+src\hooks\useContractions.ts:86: const avgInterval = withInterval.length > 0
+src\hooks\useContractions.ts:87: ? Math.round(withInterval.reduce((sum, c) => sum + (c.interval_seconds || 0), 0) / withInterval.length)
+src\hooks\useContractions.ts:91: const is511 = avgInterval > 0 && avgInterval <= 300 && avgDuration >= 60 && recent.length >= 3;
+src\hooks\useCoupons.ts:117: const recordUsage = async (orderId?: string) => {
+src\hooks\useDailyLogs.ts:42: const today = new Date().toISOString().split('T')[0];
+src\hooks\useDailyLogs.ts:61: log_date: log.log_date || new Date().toISOString().split('T')[0]
+src\hooks\useDailyLogs.ts:78: const updateWaterIntake = async (amount: number) => {
+src\hooks\useDailyLogs.ts:79: const today = new Date().toISOString().split('T')[0];
+src\hooks\useDailyLogs.ts:94: if (newIntake >= 2000 && currentIntake < 2000) {
+src\hooks\useDailyLogs.ts:102: const today = new Date().toISOString().split('T')[0];
+src\hooks\useDailyLogs.ts:123: const today = new Date().toISOString().split('T')[0];
+src\hooks\useDailySummary.ts:29: const getPartnerUserId = useCallback(async (): Promise<string | null> => {
+src\hooks\useDailySummary.ts:69: const today = new Date().toISOString().split('T')[0];
+src\hooks\useDailySummary.ts:87: const today = new Date().toISOString().split('T')[0];
+src\hooks\useDailySummary.ts:149: if (!partnerUserId) return { error: 'No partner linked' };
+src\hooks\useDailySummary.ts:151: const today = new Date().toISOString().split('T')[0];
+src\hooks\useDailySummary.ts:209: body: `Əhval: ${moodText} | Su: ${dailyLog?.water_intake || 0}ml | Təpiklər: ${totalKicks}`,
+src\hooks\useDefaultShoppingItems.ts:18: export const useDefaultShoppingItems = () => {
+src\hooks\useDefaultShoppingItems.ts:20: const [items, setItems] = useState<DefaultShoppingItem[]>([]);
+src\hooks\useDefaultShoppingItems.ts:23: const fetchItems = async () => {
+src\hooks\useDefaultShoppingItems.ts:61: export const useAdminDefaultShoppingItems = () => {
+src\hooks\useDefaultShoppingItems.ts:62: const [items, setItems] = useState<DefaultShoppingItem[]>([]);
+src\hooks\useDefaultShoppingItems.ts:65: const fetchItems = async () => {
+src\hooks\useDefaultShoppingItems.ts:81: const createItem = async (item: Omit<DefaultShoppingItem, 'id' | 'created_at' | 'updated_at'>) => {
+src\hooks\useDefaultShoppingItems.ts:96: const updateItem = async (id: string, updates: Partial<DefaultShoppingItem>) => {
+src\hooks\useDefaultShoppingItems.ts:112: const deleteItem = async (id: string) => {
+src\hooks\useDeviceToken.ts:4: import { isNative, isIOS, isAndroid } from '@/lib/native';
+src\hooks\useDeviceToken.ts:14: const registeredUserId = useRef<string | null>(null);
+src\hooks\useDeviceToken.ts:17: const saveTokenToDatabase = useCallback(async (deviceToken: string, userId: string) => {
+src\hooks\useDeviceToken.ts:55: eq('user_id', userId).
+src\hooks\useDirectMessages.ts:28: export const useDirectMessages = (otherUserId?: string) => {
+src\hooks\useDirectMessages.ts:69: in('user_id', partnerIds);
+src\hooks\useDirectMessages.ts:73: const convList: Conversation[] = partnerIds.map((pid) => {
+src\hooks\useDirectMessages.ts:104: `and(sender_id.eq.${user.id},receiver_id.eq.${otherUserId}),and(sender_id.eq.${otherUserId},receiver_id.eq.${user.id})`
+src\hooks\useDirectMessages.ts:201: event: 'INSERT',
+src\hooks\useDirectMessages.ts:210: event: 'INSERT',
+src\hooks\useDynamicConfig.ts:127: export const useSurpriseIdeas = () => {
+src\hooks\useDynamicConfig.ts:409: export const useSurpriseIdeasAdmin = () => {
+src\hooks\useDynamicConfig.ts:426: mutationFn: async (item: Partial<SurpriseIdea>) => {
+src\hooks\useDynamicConfig.ts:438: mutationFn: async ({ id, ...item }: Partial<SurpriseIdea> & { id: string }) => {
+src\hooks\useDynamicContent.ts:106: export const useSafetyItems = () => {
+src\hooks\useDynamicTools.ts:23: export const useSafetyItems = (categoryId?: string) => {
+src\hooks\useDynamicTools.ts:25: queryKey: ['safety-items', categoryId],
+src\hooks\useDynamicTools.ts:33: if (categoryId && categoryId !== 'all') {
+src\hooks\useDynamicTools.ts:34: query = query.eq('category', categoryId);
+src\hooks\useDynamicTools.ts:325: export const useAISuggestedQuestions = (lifeStage: string, userType: 'mother' | 'partner') => {
+src\hooks\useDynamicTools.ts:442: export const usePhotoshootImageStyles = () => {
+src\hooks\useEpointPayment.ts:37: const baseUrl = `https://${projectId}.supabase.co/functions/v1`;
+src\hooks\useEpointPayment.ts:47: 'apikey': import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
+src\hooks\useExerciseLogs.ts:25: const today = new Date().toISOString().split('T')[0];
+src\hooks\useExerciseLogs.ts:51: const addLog = async (exerciseId: string, exerciseName: string, durationMinutes: number, caloriesBurned: number) => {
+src\hooks\useExerciseLogs.ts:78: const isCompletedToday = (exerciseId: string) => {
+src\hooks\useExerciseLogs.ts:79: return todayLogs.some(log => log.exercise_id === exerciseId);
+src\hooks\useFairyTales.ts:92: `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-fairy-tale`,
+src\hooks\useFairyTales.ts:142: toast.error(`Nağıl yaradıla bilmədi: ${error.message}`);
+src\hooks\useFairyTales.ts:165: export const useIncrementPlayCount = () => {
+src\hooks\useFirstAid.ts:48: export const useFirstAidSteps = (scenarioId: string) => {
+src\hooks\useFirstAid.ts:50: queryKey: ['first-aid-steps', scenarioId],
+src\hooks\useFirstAid.ts:55: .eq('scenario_id', scenarioId)
+src\hooks\useFlowData.ts:82: export const useFlowInsights = (phase?: string | null) => {
+src\hooks\useFlowReminders.ts:21: export const REMINDER_TYPE_INFO: Record<ReminderType, {label: string;labelAz: string;emoji: string;description: string;}> = {
+src\hooks\useFlowReminders.ts:122: export const useInitializeFlowReminders = () => {
+src\hooks\useFruitData.ts:3: import { FRUIT_SIZES } from '@/types/anacan';
+src\hooks\useFruitData.ts:24: export const useFruitImages = () => {
+src\hooks\useFruitData.ts:58: const dbImageData = fruitImages.find((f) => f.week_number === week);
+src\hooks\useFruitData.ts:78: emoji: dbImageData?.emoji || staticData?.emoji || '🍎',
+src\hooks\useFruitData.ts:89: const dbData = fruitImages.find((f) => f.week_number === week);
+src\hooks\useFruitData.ts:111: const dbImageData = fruitImages.find((f) => f.week_number === week);
+src\hooks\useFruitData.ts:116: emoji: dbImageData?.emoji || staticData?.emoji || '🍎',
+src\hooks\useGroupPresence.ts:19: export const useGroupPresence = (groupId: string | null) => {
+src\hooks\useGroupPresence.ts:42: const channelName = `group_presence:${groupId}`;
+src\hooks\useGroupPresence.ts:55: Object.entries(state).forEach(([userId, presences]) => {
+src\hooks\useGroupPresence.ts:86: if (status === 'SUBSCRIBED') {
+src\hooks\useHealthReport.ts:58: gte('recorded_at', startDate.toISOString()).
+src\hooks\useHealthReport.ts:59: lte('recorded_at', endDate.toISOString()).
+src\hooks\useHealthReport.ts:94: gte('completed_at', startDate.toISOString()).
+src\hooks\useHealthReport.ts:95: lte('completed_at', endDate.toISOString());
+src\hooks\useHealthReport.ts:130: const firstHalfAvg = halfIndex > 0 ?
+src\hooks\useHealthReport.ts:131: dailyLogs.slice(0, halfIndex).reduce((sum, log) => sum + (log.water_intake || 0), 0) / halfIndex :
+src\hooks\useHealthReport.ts:133: const secondHalfAvg = halfIndex > 0 ?
+src\hooks\useHealthReport.ts:134: dailyLogs.slice(halfIndex).reduce((sum, log) => sum + (log.water_intake || 0), 0) / (dailyLogs.length - halfIndex) :
+src\hooks\useHealthReport.ts:140: value: `${avgWater.toFixed(1)} stəkan/gün`,
+src\hooks\useHealthReport.ts:177: value: `${exercisePerWeek.toFixed(1)} dəfə/həftə`,
+src\hooks\useHospitalBag.ts:21: const [items, setItems] = useState<HospitalBagItem[]>([]);
+src\hooks\useHospitalBag.ts:25: const fetchItems = async () => {
+src\hooks\useHospitalBag.ts:54: const itemsToInsert = templates.map((template, index) => ({
+src\hooks\useHospitalBag.ts:76: const toggleItem = async (itemId: string) => {
+src\hooks\useHospitalBag.ts:79: const item = items.find(i => i.item_id === itemId);
+src\hooks\useHospitalBag.ts:87: .eq('item_id', itemId);
+src\hooks\useHospitalBag.ts:91: setItems(prev => prev.map(i =>
+src\hooks\useInAppPurchase.ts:52: purchaseByIdentifier: (identifier: string) => Promise<boolean>;
+src\hooks\useInAppPurchase.ts:72: ((isPro: boolean, productId?: string, expiresAtOverride?: string | null) => Promise<void>) | null>(
+src\hooks\useInAppPurchase.ts:154: const syncWithDatabase = useCallback(async (isPro: boolean, productId?: string, expiresAtOverride?: string | null) => {
+src\hooks\useInAppPurchase.ts:157: const planType = productId?.includes('yearly') || productId?.includes('lifetime') ?
+src\hooks\useInAppPurchase.ts:164: if (productId?.includes('lifetime')) {
+src\hooks\useInAppPurchase.ts:166: } else if (productId?.includes('yearly')) {
+src\hooks\useInAppPurchase.ts:236: const purchaseByIdentifier = useCallback(async (identifier: string): Promise<boolean> => {
+src\hooks\useInAppPurchase.ts:248: const purchaseMonthly = useCallback(() => purchaseByIdentifier(RC_PRODUCTS.MONTHLY), [purchaseByIdentifier]);
+src\hooks\useInAppPurchase.ts:249: const purchaseYearly = useCallback(() => purchaseByIdentifier(RC_PRODUCTS.YEARLY), [purchaseByIdentifier]);
+src\hooks\useInAppPurchase.ts:250: const purchaseLifetime = useCallback(() => purchaseByIdentifier(RC_PRODUCTS.LIFETIME), [purchaseByIdentifier]);
+src\hooks\useKickSessions.ts:40: const today = new Date().toISOString().split('T')[0];
+src\hooks\useKickSessions.ts:71: const today = new Date().toISOString().split('T')[0];
+src\hooks\useMaternityBenefits.ts:150: const [configItems, setConfigItems] = useState<MaternityConfigItem[]>([]);
+src\hooks\useMomFriendlyPlaces.ts:85: export const usePlaceReviews = (placeId: string) => {
+src\hooks\useMomFriendlyPlaces.ts:87: queryKey: ['place-reviews', placeId],
+src\hooks\useMomFriendlyPlaces.ts:92: eq('place_id', placeId).
+src\hooks\useMommyDailyMessages.ts:128: if (error) { results.failed += batch.length; results.errors.push(`Insert: ${error.message}`); }
+src\hooks\useMommyDailyMessages.ts:135: const { error } = await (supabase as any).from('mommy_daily_messages').update({ ...data, updated_at: new Date().toISOString() }).eq('id', id);
+src\hooks\useNameVoting.ts:33: const getPartnerUserId = useCallback(async (): Promise<string | null> => {
+src\hooks\useNameVoting.ts:70: .eq('user_id', partnerUserId)
+src\hooks\useOrders.ts:122: const updateOrderStatus = async (orderId: string, status: Order['status']) => {
+src\hooks\useOrders.ts:127: .eq('id', orderId);
+src\hooks\useOrders.ts:148: const [items, setItems] = useState<CartItem[]>([]);
+src\hooks\useOrders.ts:186: const addToCart = async (productId: string, quantity: number = 1) => {
+src\hooks\useOrders.ts:194: const existingItem = items.find(i => i.product_id === productId);
+src\hooks\useOrders.ts:200: .eq('id', existingItem.id);
+src\hooks\useOrders.ts:222: const updateQuantity = async (itemId: string, quantity: number) => {
+src\hooks\useOrders.ts:232: .eq('id', itemId);
+src\hooks\useOrders.ts:241: const removeFromCart = async (itemId: string) => {
+src\hooks\useOrders.ts:246: .eq('id', itemId);
+src\hooks\useOrders.ts:297: const orderItems = items.map(item => ({
+src\hooks\useOrders.ts:327: const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+src\hooks\usePartnerConfig.ts:57: export const usePartnerMenuItems = () => {
+src\hooks\usePartnerConversation.ts:10: export const usePartnerConversation = (partnerId?: string | null) => {
+src\hooks\usePartnerData.ts:5: import { getPhaseInfoForDate, type CyclePhaseInfo } from '@/lib/cycle-utils';
+src\hooks\usePartnerData.ts:60: const today = new Date().toISOString().split('T')[0];
+src\hooks\usePartnerData.ts:136: const getCyclePhaseInfo = (): CyclePhaseInfo | null => {
+src\hooks\usePartnerHospitalBag.ts:19: const [items, setItems] = useState<PartnerHospitalBagItem[]>([]);
+src\hooks\usePartnerHospitalBag.ts:22: const getPartnerUserId = useCallback(async (): Promise<string | null> => {
+src\hooks\usePartnerHospitalBag.ts:39: const fetchItems = async () => {
+src\hooks\usePartnerHospitalBag.ts:53: .eq('user_id', partnerUserId)
+src\hooks\usePartnerHospitalBag.ts:65: const toggleItem = async (itemId: string) => {
+src\hooks\usePartnerHospitalBag.ts:66: const item = items.find(i => i.item_id === itemId);
+src\hooks\usePartnerHospitalBag.ts:76: .eq('user_id', partnerUserId)
+src\hooks\usePartnerHospitalBag.ts:77: .eq('item_id', itemId);
+src\hooks\usePartnerHospitalBag.ts:81: setItems(prev => prev.map(i =>
+src\hooks\usePartnerHospitalBag.ts:89: const addItem = async (itemName: string, category: 'mom' | 'baby' | 'documents') => {
+src\hooks\usePartnerHospitalBag.ts:94: if (!partnerUserId) return { error: 'No partner linked' };
+src\hooks\usePartnerHospitalBag.ts:96: const newItemId = `partner-${Date.now()}`;
+src\hooks\usePartnerMessages.ts:6: import { notifyIncomingChatMessage } from '@/lib/chat-notifications';
+src\hooks\usePartnerMessages.ts:44: const sendMessage = async (receiverId: string, messageType: string, content?: string) => {
+src\hooks\usePartnerMessages.ts:147: event: 'INSERT',
+src\hooks\usePartnerMissions.ts:19: const MISSION_POOL: Omit<Mission, 'isCompleted'>[] = [
+src\hooks\usePartnerMissions.ts:98: const [completedMissionIds, setCompletedMissionIds] = useState<Set<string>>(new Set());
+src\hooks\usePartnerMissions.ts:145: const toggleMission = async (missionId: string, missionPoints?: number): Promise<{ pointsEarned: number; completed: boolean } | null> => {
+src\hooks\usePartnerMissions.ts:150: const points = missionPoints || dailyMissions.find(m => m.id === missionId)?.points || 10;
+src\hooks\usePartnerMissions.ts:154: setCompletedMissionIds(prev => {
+src\hooks\usePartnerMissions.ts:189: setCompletedMissionIds(prev => {
+src\hooks\usePartnerNotifications.ts:39: const getPartnerUserId = useCallback(async (): Promise<string | null> => {
+src\hooks\usePartnerStats.ts:95: { event: 'INSERT', schema: 'public', table: 'partner_messages', filter: `sender_id=eq.${user.id}` },
+src\hooks\usePartnerVenues.ts:99: export async function createRedemption(venueId: string): Promise<RedemptionResponse> {
+src\hooks\usePartnerWeeklyStats.ts:58: const startDate = weekAgo.toISOString().split('T')[0];
+src\hooks\usePartnerWeeklyStats.ts:59: const endDate = today.toISOString().split('T')[0];
+src\hooks\usePartnerWeeklyStats.ts:65: .eq('user_id', partnerId)
+src\hooks\usePartnerWeeklyStats.ts:74: .eq('user_id', partnerId)
+src\hooks\usePartnerWeeklyStats.ts:83: const dateStr = date.toISOString().split('T')[0];
+src\hooks\usePartnerWeeklyStats.ts:109: const dateStr = date.toISOString().split('T')[0];
+src\hooks\usePaywallConfig.ts:133: { icon: 'Zap', text: 'Limitsiz AI' },
+src\hooks\usePeriodDayLogs.ts:5: import { differenceInDays } from 'date-fns';
+src\hooks\usePeriodDayLogs.ts:35: .gte('log_date', start.toISOString().split('T')[0])
+src\hooks\usePeriodDayLogs.ts:36: .lte('log_date', end.toISOString().split('T')[0]);
+src\hooks\usePeriodDayLogs.ts:52: mutationFn: async ({ date, flowIntensity = 'medium' }: { date: Date; flowIntensity?: string }) => {
+src\hooks\usePeriodDayLogs.ts:55: const dateStr = date.toISOString().split('T')[0];
+src\hooks\usePeriodDayLogs.ts:104: .eq('user_id', userId)
+src\hooks\usePeriodDayLogs.ts:143: .eq('user_id', userId);
+src\hooks\usePeriodDayLogs.ts:147: const currentLPD = store.lastPeriodDate ? new Date(store.lastPeriodDate).toISOString().split('T')[0] : null;
+src\hooks\usePeriodDayLogs.ts:157: .eq('user_id', userId)
+src\hooks\usePeriodDayLogs.ts:167: .eq('user_id', userId)
+src\hooks\usePeriodDayLogs.ts:177: .eq('user_id', userId)
+src\hooks\usePhaseTips.ts:22: export const PHASE_INFO: Record<MenstrualPhase, {label: string;labelAz: string;emoji: string;color: string;days: string;}> = {
+src\hooks\usePhaseTips.ts:29: export const CATEGORY_INFO: Record<TipCategory, {label: string;labelAz: string;emoji: string;}> = {
+src\hooks\usePlayActivities.ts:32: export const usePlayActivities = (babyAgeDays?: number, availableItems?: string[]) => {
+src\hooks\usePlayActivities.ts:34: queryKey: ['play-activities', babyAgeDays, availableItems],
+src\hooks\usePlayActivities.ts:58: availableItems.includes(item.toLowerCase().replace(/\s+/g, '_'))
+src\hooks\usePlayActivities.ts:69: export const usePlayInventoryItems = () => {
+src\hooks\usePlayActivities.ts:86: export const useUserPlayInventory = () => {
+src\hooks\usePlayActivities.ts:106: export const useToggleInventoryItem = () => {
+src\hooks\usePlayActivities.ts:158: }: {activityId: string;rating?: number;notes?: string;}) => {
+src\hooks\usePregnancyContent.ts:237: results.errors.push(`Insert batch ${i / insertBatchSize + 1}: ${error.message}`);
+src\hooks\usePregnancyDayNavigation.ts:2: import { getPregnancyDay, getPregnancyWeek, getDayInWeek, getTrimester, getDaysUntilDue } from '@/lib/pregnancy-utils';
+src\hooks\useProviderReviews.ts:19: export const useProviderReviews = (providerId: string) => {
+src\hooks\useProviderReviews.ts:24: queryKey: ['provider-reviews', providerId],
+src\hooks\useProviderReviews.ts:29: eq('provider_id', providerId).
+src\hooks\useProviderReviews.ts:36: const userIds = [...new Set((data || []).map((r) => r.user_id))];
+src\hooks\useProviderReviews.ts:40: in('user_id', userIds);
+src\hooks\useProviderReviews.ts:54: queryKey: ['user-review', providerId, user?.id],
+src\hooks\useProviderReviews.ts:61: eq('provider_id', providerId).
+src\hooks\useProviderReviews.ts:90: queryClient.invalidateQueries({ queryKey: ['provider-reviews', providerId] });
+src\hooks\useProviderReviews.ts:91: queryClient.invalidateQueries({ queryKey: ['user-review', providerId] });
+src\hooks\useProviderReviews.ts:107: eq('provider_id', providerId).
+src\hooks\useProviderReviews.ts:113: queryClient.invalidateQueries({ queryKey: ['provider-reviews', providerId] });
+src\hooks\useProviderReviews.ts:114: queryClient.invalidateQueries({ queryKey: ['user-review', providerId] });
+src\hooks\usePushNotifications.ts:126: const notifyNewLike = useCallback(async (postAuthorId: string, likerName: string) => {
+src\hooks\usePushNotifications.ts:134: body: `${likerName} paylaşımınızı bəyəndi`,
+src\hooks\useScrollToTop.ts:11: const rafId = requestAnimationFrame(() => {
+src\hooks\useScrollToTop.ts:15: const timeoutId = window.setTimeout(() => {
+src\hooks\useShoppingItems.ts:18: export const useShoppingItems = () => {
+src\hooks\useShoppingItems.ts:20: const [items, setItems] = useState<ShoppingItem[]>([]);
+src\hooks\useShoppingItems.ts:23: const fetchItems = async () => {
+src\hooks\useShoppingItems.ts:91: const notifyPartnerAboutShopping = async (partnerUserId: string, itemName: string) => {
+src\hooks\useShoppingItems.ts:94: const today = new Date().toISOString().split('T')[0];
+src\hooks\useShoppingItems.ts:107: body: `${adderName} "${itemName}" əlavə etdi. Siyahını yoxla!`,
+src\hooks\useShoppingItems.ts:112: localStorage.setItem(storageKey, '1');
+src\hooks\useShoppingItems.ts:118: const toggleItem = async (id: string) => {
+src\hooks\useShoppingItems.ts:136: const deleteItem = async (id: string) => {
+src\hooks\useSilentHours.ts:102: localStorage.setItem(`silent_hours_${user.id}`, JSON.stringify(newSettings));
+src\hooks\useSilentHours.ts:107: const isInSilentHours = useCallback((): boolean => {
+src\hooks\useSOSAlert.ts:6: import { Haptics, ImpactStyle } from '@capacitor/haptics';
+src\hooks\useSOSAlert.ts:28: const getPartnerUserId = useCallback(async (): Promise<string | null> => {
+src\hooks\useSOSAlert.ts:161: const acknowledgeAlert = async (alertId: string) => {
+src\hooks\useSOSAlert.ts:171: eq('id', alertId).
+src\hooks\useSOSAlert.ts:199: payload.eventType === 'INSERT' &&
+src\hooks\useStories.ts:35: export const useStories = (groupId?: string | null) => {
+src\hooks\useStories.ts:41: queryKey: ['stories', groupId],
+src\hooks\useStories.ts:46: gt('expires_at', new Date().toISOString()).
+src\hooks\useStories.ts:50: query = query.eq('group_id', groupId);
+src\hooks\useStories.ts:131: }: {mediaUrl: string;mediaType: 'image' | 'video';textOverlay?: string;backgroundColor?: string;groupId?: string;}) => {
+src\hooks\useStories.ts:156: const markAsViewed = useCallback(async (storyId: string) => {
+src\hooks\useStories.ts:176: mutationFn: async (storyId: string) => {
+src\hooks\useStories.ts:182: eq('id', storyId).
+src\hooks\useStoryViewers.ts:12: export const useStoryViewers = (storyId: string | null) => {
+src\hooks\useStoryViewers.ts:14: queryKey: ['story-viewers', storyId],
+src\hooks\useStoryViewers.ts:21: eq('story_id', storyId).
+src\hooks\useStoryViewers.ts:27: const userIds = data.map((v) => v.user_id);
+src\hooks\useSubscription.ts:83: const today = new Date().toISOString().split('T')[0];
+src\hooks\useSubscription.ts:163: const today = new Date().toISOString().split('T')[0];
+src\hooks\useSupportTicketReplies.ts:14: export const useSupportTicketReplies = (ticketId: string | null) => {
+src\hooks\useSupportTicketReplies.ts:30: .eq('ticket_id', ticketId)
+src\hooks\useSupportTicketReplies.ts:44: return { error: 'Invalid request' };
+src\hooks\useSupportTicketReplies.ts:77: .channel(`ticket-replies-${ticketId}`)
+src\hooks\useSupportTicketReplies.ts:81: event: 'INSERT',
+src\hooks\useSupportTicketReplies.ts:84: filter: `ticket_id=eq.${ticketId}`
+src\hooks\useSupportTicketsAdmin.ts:35: const userIds = [...new Set((data || []).map((t) => t.user_id))];
+src\hooks\useSupportTicketsAdmin.ts:40: in('user_id', userIds);
+src\hooks\useSupportTicketsAdmin.ts:63: const respondToTicket = async (ticketId: string, response: string, newStatus: AdminSupportTicket['status'] = 'resolved') => {
+src\hooks\useSupportTicketsAdmin.ts:72: eq('id', ticketId);
+src\hooks\useSupportTicketsAdmin.ts:83: const updateStatus = async (ticketId: string, status: AdminSupportTicket['status']) => {
+src\hooks\useSupportTicketsAdmin.ts:88: eq('id', ticketId);
+src\hooks\useSupportTicketsAdmin.ts:99: const updatePriority = async (ticketId: string, priority: AdminSupportTicket['priority']) => {
+src\hooks\useSupportTicketsAdmin.ts:104: eq('id', ticketId);
+src\hooks\useSurprises.ts:98: ? { ...s, status: 'completed' as const, completed_date: new Date().toISOString() }
+src\hooks\useTeething.ts:133: const toggleTooth = useCallback(async (toothId: string, emerged: boolean, date?: string) => {
+src\hooks\useTeething.ts:143: emerged_date: date || new Date().toISOString().split('T')[0],
+src\hooks\useTeething.ts:154: .eq('tooth_id', toothId);
+src\hooks\useTeething.ts:168: const updateToothNote = useCallback(async (toothId: string, notes: string) => {
+src\hooks\useTeething.ts:175: .eq('tooth_id', toothId);
+src\hooks\useTeething.ts:188: const isToothEmerged = useCallback((toothId: string) => {
+src\hooks\useTeething.ts:189: return logs.some(log => log.tooth_id === toothId);
+src\hooks\useTeething.ts:192: const getToothLog = useCallback((toothId: string) => {
+src\hooks\useTeething.ts:193: return logs.find(log => log.tooth_id === toothId);
+src\hooks\useTrimesterInfo.ts:14: export const useTrimesterInfo = () => {
+src\hooks\useUnreadCommunityPosts.ts:16: hydrateForUser: (userId: string) => Promise<void>;
+src\hooks\useUnreadCommunityPosts.ts:17: markPostSeen: (params: { userId: string; postId: string; createdAt: string; postUserId?: string }) => Promise<void>;
+src\hooks\useUnreadCommunityPosts.ts:18: markCommunitySeen: (userId: string) => Promise<void>;
+src\hooks\useUnreadCommunityPosts.ts:19: registerNewPost: (params: { userId: string; postId: string; createdAt: string; postUserId?: string }) => void;
+src\hooks\useUnreadCommunityPosts.ts:20: isPostUnread: (params: { userId: string; postId: string; createdAt: string; postUserId?: string }) => boolean;
+src\hooks\useUnreadCommunityPosts.ts:24: const readSeenPostIds = (userId: string) => {
+src\hooks\useUnreadCommunityPosts.ts:27: const raw = window.localStorage.getItem(`community_seen_posts:${userId}`);
+src\hooks\useUnreadCommunityPosts.ts:36: const writeSeenPostIds = (userId: string, seenPostIds: SeenPostMap) => {
+src\hooks\useUnreadCommunityPosts.ts:39: window.localStorage.setItem(`community_seen_posts:${userId}`, JSON.stringify(Object.keys(seenPostIds)));
+src\hooks\useUnreadCommunityPosts.ts:57: hydrateForUser: async (userId: string) => {
+src\hooks\useUnreadCommunityPosts.ts:63: .eq('user_id', userId)
+src\hooks\useUnreadCommunityPosts.ts:71: .eq('user_id', userId);
+src\hooks\useUnreadCommunityPosts.ts:86: .neq('user_id', userId)
+src\hooks\useUnreadCommunityPosts.ts:105: markPostSeen: async ({ userId, postId, createdAt, postUserId }) => {
+src\hooks\useUnreadCommunityPosts.ts:123: .upsert({ user_id: userId, post_id: postId, seen_at: new Date().toISOString() } as any, { onConflict: 'user_id,post_id' });
+src\hooks\useUnreadCommunityPosts.ts:134: markCommunitySeen: async (userId: string) => {
+src\hooks\useUnreadCommunityPosts.ts:140: .neq('user_id', userId)
+src\hooks\useUnreadCommunityPosts.ts:154: ((posts || []) as any[]).map((post) => ({ user_id: userId, post_id: post.id, seen_at: new Date().toISOString() })) as any,
+src\hooks\useUnreadCommunityPosts.ts:161: .upsert({ user_id: userId, community_last_seen_at: latestPostAt } as any, { onConflict: 'user_id' });
+src\hooks\useUnreadCommunityPosts.ts:164: registerNewPost: ({ userId, postId, createdAt, postUserId }) => {
+src\hooks\useUnreadCommunityPosts.ts:175: isPostUnread: ({ userId, postId, createdAt, postUserId }) => {
+src\hooks\useUnreadCommunityPosts.ts:234: .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'community_posts' }, (payload) => {
+src\hooks\useUnreadCommunityPosts.ts:248: const markPostSeen = useCallback(async (postId: string, createdAt: string, postUserId?: string) => {
+src\hooks\useUnreadCommunityPosts.ts:258: const isUnreadPost = useCallback((postId: string, createdAt: string, postUserId?: string) => {
+src\hooks\useUnsavedChanges.ts:29: const savedDraft = localStorage.getItem(`admin_draft_${draftKey}`);
+src\hooks\useUnsavedChanges.ts:55: localStorage.setItem(`admin_draft_${draftKey}`, JSON.stringify(newData));
+src\hooks\useUnsavedChanges.ts:66: const resetForm = useCallback((newInitialData?: T) => {
+src\hooks\useUnsavedChanges.ts:74: localStorage.removeItem(`admin_draft_${draftKey}`);
+src\hooks\useUnsavedChanges.ts:90: localStorage.removeItem(`admin_draft_${draftKey}`);
+src\hooks\useUnsavedChanges.ts:100: localStorage.removeItem(`admin_draft_${draftKey}`);
+src\hooks\useUnsavedChanges.ts:108: return !!localStorage.getItem(`admin_draft_${draftKey}`);
+src\hooks\useUserBadge.ts:11: const [badge, setBadge] = useState<UserBadgeInfo | null>(null);
+src\hooks\useUserBadge.ts:25: .eq('user_id', userId)
+src\hooks\useUserBadge.ts:32: .eq('user_id', userId);
+src\hooks\useUserPreferences.ts:93: const updateLastWhiteNoiseSound = async (soundId: string | null) => {
+src\hooks\useVaccines.ts:114: export const useChildVaccinations = (childId: string | null) => {
+src\hooks\useVaccines.ts:117: queryKey: ['child-vaccinations', childId],
+src\hooks\useVaccines.ts:123: .eq('child_id', childId!);
+src\hooks\useVitaminSchedules.ts:52: const today = new Date().toISOString().split('T')[0];
+src\hooks\useVitaminSchedules.ts:124: log_date: new Date().toISOString().split('T')[0],
+src\hooks\useVitaminSchedules.ts:137: mutationFn: async (logId: string) => {
+src\hooks\useVitaminSchedules.ts:141: .eq('id', logId);
+src\hooks\useVitaminSchedules.ts:149: const isVitaminTakenToday = (scheduleId: string) => {
+src\hooks\useVitaminSchedules.ts:150: return todayLogsQuery.data?.some(log => log.schedule_id === scheduleId) ?? false;
+src\hooks\useVitaminSchedules.ts:153: const getIntakeLog = (scheduleId: string) => {
+src\hooks\useVitaminSchedules.ts:154: return todayLogsQuery.data?.find(log => log.schedule_id === scheduleId);
+src\hooks\useWeightEntries.ts:122: const deleteEntry = async (entryId: string) => {
+src\hooks\useWeightEntries.ts:129: .eq('id', entryId)
+src\hooks\useWeightEntries.ts:134: setEntries(prev => prev.filter(e => e.id !== entryId));
+src\utils\timerNotifications.ts:47: smallIcon: 'ic_stat_icon'

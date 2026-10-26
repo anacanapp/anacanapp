@@ -1,0 +1,36 @@
+{
+ "teething_care_tips": {
+  "30255b45-90fc-46ab-8b8c-9ce75952377f": {
+   "title": "Güvenli Diş Kaşıyıcıları",
+   "content": "BPA içermeyen, toksik olmayan diş kaşıyıcıları seçin. Boğulma riski oluşturabilecek küçük parçaları olan ürünlerden kaçının."
+  },
+  "3fbd0995-1618-49b3-aa8c-f8ff75c52bc6": {
+   "title": "İlk Diş Bakımı",
+   "content": "İlk diş çıkar çıkmaz, yalnızca su ve yumuşak bir bebek diş fırçası kullanarak fırçalamaya başlayın."
+  },
+  "5c0c2cd7-bbc3-4acf-aa29-a75ff9325110": {
+   "title": "Şekerden Kaçının",
+   "content": "Erken çocukluk çağı diş çürüklerini önlemek için özellikle yatmadan önce şekerli yiyecek ve içeceklerden kaçının."
+  },
+  "5d8e7654-1e68-474f-b792-610a380b7688": {
+   "title": "Düzenli Diş Hekimi Kontrolleri",
+   "content": "Bebeğinizin ilk diş hekimi kontrolünü ilk doğum gününden önce veya ilk dişi çıktığında planlayın."
+  },
+  "6e21f5d7-f642-4d33-9bfc-bd32e68b561c": {
+   "title": "Soğuk Diş Kaşıma Halkaları",
+   "content": "Diş kaşıma halkalarını buzdolabında soğutun. Bebeğinizin diş etleri için aşırı soğuk olabileceğinden bunları asla dondurmayın."
+  },
+  "9dc209b1-6f09-4b82-b44f-3bc06493d519": {
+   "title": "Salya Pişiğini Önleme",
+   "content": "Bebeğinizin çenesini ve boynunu kuru tutun. Salya pişiğini önlemek için nazik bir bariyer krem uygulayın."
+  },
+  "e268d30e-59e5-4d1a-8104-c57c0ead8912": {
+   "title": "Temiz ve Islak Bez",
+   "content": "Temiz ve ıslak bir bezi buzdolabında soğutun ve bebeğinizin çiğnemesine izin verin."
+  },
+  "e90cc935-e345-454f-84f3-c300a7e97793": {
+   "title": "Nazik Diş Eti Masajı",
+   "content": "Temiz parmağınızla bebeğinizin diş etlerine dairesel hareketlerle nazikçe masaj yapın."
+  }
+ }
+}

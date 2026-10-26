@@ -1,0 +1,22 @@
+[
+ {
+  "id": "018f12ea-f90e-4beb-8933-b27da7a1551c",
+  "name": "4-7-8 Breathing",
+  "description": "A relaxation technique that promotes calm and sleep"
+ },
+ {
+  "id": "5fe9d325-2ba8-40e3-b631-3eb13c6c766b",
+  "name": "Box Breathing",
+  "description": "A technique used by Navy SEALs for stress control"
+ },
+ {
+  "id": "fbf2988e-7f25-4752-954c-8707fbbbaa81",
+  "name": "Relaxing Breath",
+  "description": "Simple deep breathing for quick relaxation"
+ },
+ {
+  "id": "e90074fc-95b0-44d1-8a10-94f6564afb9d",
+  "name": "Energizing Breath",
+  "description": "Quick breathing to boost energy levels"
+ }
+]

@@ -1,0 +1,1381 @@
+{
+ "mommy_daily_messages": {
+  "64ca65c7-1a28-48d4-beca-77b3f217471c": {
+   "message": "Konuşmada \"Yer zarfları\". Çocuk \"yanında\", \"arkasında\", \"altında\", \"üstünde\" kavramlarını artık tam olarak anlar ve kullanır. \"Top kanepenin altında\" diyorsa, mekânsal yönelim becerisi tamamen gelişmiş demektir. Onunla \"Sakla-bul\" oynayarak bu kavramları daha da pekiştirin."
+  },
+  "d29729c2-dd1d-4552-9d6e-3a6745ad9680": {
+   "message": "Duygusal dayanıklılık: \"Sabır testi\". Çocuk artık istediği bir şey için birkaç dakika beklemesi gerektiğini anlar ve hemen ağlamaya başlamaz. Böyle anlarda ona \"Beklediğin için çok teşekkür ederim, bu büyüdüğünün bir göstergesi\" deyin. Siz harika bir yol arkadaşısınız!"
+  },
+  "6e9a3917-235a-4638-821e-7544b6f6fd44": {
+   "message": "Çocuk artık renkleri ve şekilleri birleştirerek dünyayı tanımlar. \"Bana şu sarı kare bloğu ver\" diyorsa, bu, beyninin aynı anda birden fazla özelliği işlediğini gösterir. Bu becerisini günlük hayatta küçük görevlerle (örneğin, \"mavi çoraplarını bul\") destekleyin."
+  },
+  "bf8d8f80-94a0-4e9e-beaa-a9027d0e8ae4": {
+   "message": "Fiziksel gelişimde \"Dinamik denge\". Çocuk artık tek ayağının üzerinde 5 saniyeye kadar durabilir. Bu, vestibüler sistemin (denge merkezi) ve bacak kaslarının güçlendiğini gösterir. Onunla \"Leylek\" oyunu oynayarak kimin daha uzun süre ayakta kalabildiğini görün."
+  },
+  "b1f57847-eeec-4119-b2fc-2905b91fb26b": {
+   "message": "Konuşmada \"Neden-sonuç ilişkileri\". Çocuk artık \"Eğer... o zaman...\" türündeki cümleleri anlamaya başlar. \"Eğer oyuncaklarını toplarsan çizgi film izleyebiliriz\" dediğinizde koşulu anlar. Bu, hem mantıksal düşünmenin hem de öz disiplinin (self-discipline) gelişmesi için önemli bir adımdır."
+  },
+  "bc3bff7e-368e-485f-8abd-ee144e6a6477": {
+   "message": "İnce motor becerilerinde \"Makasla ilk deneyimler\". Çocuk artık kâğıdı (güvenli çocuk makasıyla) düz bir çizgi boyunca kesmeye ilgi gösterir. Bu hareket hem el-göz koordinasyonunu hem de parmakların ince motor becerilerini en üst düzeye taşır. Onu gözetimsiz bırakmayın, ancak özgürce denemesine de engel olmayın."
+  },
+  "9f4b387f-964e-4bb9-856d-1ac035b357f4": {
+   "message": "Sosyal davranışta \"Hayalî oyun arkadaşları\". Çocuk artık tek başına oynarken de yüksek sesle konuşur ve oyuncaklarına roller verir. Bu, \"Benmerkezci konuşma\"dır ve çocuğun kendi davranışlarını sözcüklerle düzenlemesine yardımcı olur. Bu \"monologlarını\" dinleyerek iç dünyasında neler olup bittiğini anlayabilirsiniz."
+  },
+  "7022c99f-3026-41d3-8d24-5d2da8ff257d": {
+   "message": "\"Bağımsız seçim: Karar verme\". Çocuk artık ne yemek istediğini veya hangi oyunu oynayacağını kesin olarak bilir. Ona her gün iki alternatif sunun: \"Elma mı istersin, yoksa muz mu?\". Bu, ona kendi hayatı üzerinde kontrol sahibi olduğu hissini verir ve öz güvenini artırır."
+  },
+  "458401f2-485d-418a-8b89-143f552eb250": {
+   "message": "1000 günlük büyük maratonun ardından ilk günümüz! Çocuğunuz artık 4. yaşına adım atıyor. Bu dönemde \"Neden?\" soruları yeni bir boyut kazanır. Çocuğunuz yalnızca bilgi edinmekle kalmaz, olaylar arasındaki mantıksal bağlantıyı da anlamaya çalışır. Sabırla yanıt verin; çünkü bu sorular onun zihinsel gelişiminin temelini oluşturur."
+  },
+  "1242feeb-5e2f-4d55-aa93-952aedfbe568": {
+   "message": "Fiziksel gelişimde \"Dinamik manevralar\". Çocuğunuz artık koşarken keskin dönüşler yapabilir veya engellerin çevresinden hızla geçebilir. Bu, beden kontrolünün ileri düzeyde olduğunun bir göstergesidir. Onun için bahçede küçük engel yarışları düzenleyin."
+  },
+  "5e199122-f8a1-4104-82fd-2c91af60c12f": {
+   "message": "Konuşmada \"Karmaşık zamanlar\". Çocuğunuz artık \"yapmıştım\", \"yapacağım\" gibi karmaşık zaman yapılarını konuşmasına dahil eder. Onunla geçmişte yaşanan olaylar hakkında konuşun: \"Dün anneanneye gittiğimizde ne oldu?\". Bu, hem hafızasını hem de konuşmasındaki dil bilgisi doğruluğunu güçlendirir."
+  },
+  "9dfe80c5-1c6a-4ec4-852c-1433440d5b52": {
+   "message": "İnce motor becerilerinde \"Simetri denemeleri\". Çocuğunuz kâğıdı tam ortadan katlamaya veya çizdiği resimdeki ayrıntıları (örneğin insanın iki gözü ve iki kolu) daha doğru yerleştirmeye çalışır. \"Bak, iki kolunu da çizmişsin!\" diyerek onun bu görsel dikkatini vurgulayın."
+  },
+  "5760ce33-81a1-4f8c-a7a0-f30c320a688a": {
+   "message": "Sosyal davranışta \"Kuralların içselleştirilmesi\". Çocuğunuz artık siz söylemeden bazı kuralları hatırlar: \"Yemekten önce ellerimi yıkayayım mı?\". Bu, dış disiplinin öz disipline dönüşmeye başlamasıdır. Bu bağımsız sorumluluk davranışını mutlaka takdir edin; karakter gelişimi açısından büyük bir adımdır."
+  },
+  "e6c24a0b-d760-47b5-90b8-f6d05b42625b": {
+   "message": "\"Ben ve arkadaşım\". Çocuğunuz artık diğer çocuklarla yalnızca yan yana değil, ortak bir senaryo üzerinden oynamaya başlar (örneğin, \"Sen anne ol, ben çocuk olayım\"). Bunlar, sosyal iş birliği ve rol paylaşımına ilişkin ilk ciddi deneyimlerdir."
+  },
+  "083c5f31-3fe0-44d9-b65b-c4b92bb36ae4": {
+   "message": "Bilişsel gelişimde \"Sınıflandırma becerisi\". Çocuğunuz nesneleri aynı anda iki özelliğe göre gruplandırabilir: \"hem kırmızı hem de küçük olanlar\". Ona karışık oyuncaklar verin ve \"Bütün küçük arabaları buraya topla\" deyin. Bu, beynindeki mantıksal filtreleme sistemini geliştirir."
+  },
+  "e81ab935-f108-46cd-a88f-e53e09ed924f": {
+   "message": "Fiziksel koordinasyon: \"Üç tekerlekli bisiklette bağımsızlık\". Çocuğunuz artık gidonu kontrol ederken aynı anda pedalları da ritmik biçimde çevirebilir. Bu, alt ve üst beden koordinasyonunun kusursuz uyumudur. Park gezilerini daha hareketli hâle getirmenin zamanı geldi."
+  },
+  "a89f9de3-ed84-4cfa-95a8-cf4c5d345de7": {
+   "message": "Konuşmada \"Zıt anlamlı kelimelerin çeşitlenmesi\". Çocuğunuz artık \"hızlı-yavaş\", \"karanlık-aydınlık\", \"boş-dolu\" gibi soyut karşıtlıkları anlıyor. Ona boş ve dolu birer bardak gösterip aralarındaki farkı sorun. Bu, çevresindeki dünyayı karşılaştırmalı olarak analiz etme becerisini güçlendirir."
+  },
+  "81c4bfcb-e5df-4929-b621-91e622f18ac6": {
+   "message": "İnce motor becerilerinde \"Yapboz ustalığı\". Çocuğunuz artık 10-12 parçalı karmaşık yapbozları, resmin kenar ve orta kısımlarını ayırt ederek tamamlayabiliyor. Bu, hem görsel hafızasını hem de parmaklarının hassas hareket kabiliyetini geliştirir. Yapamadığında ona sakin bir ses tonuyla ipuçları verin."
+  },
+  "9ef3f34d-a63f-4f49-9005-c854d4303909": {
+   "message": "\"Bağımsız temizlik ve yardım\". Çocuğunuz artık sofrayı toplarken kendi tabağını götürmek ve kırıntıları silmek gibi işleri büyük bir hevesle yapıyor. Ona boyuna uygun temizlik malzemeleri verin. Bu, aile içinde sorumluluk ve aidiyet duygusunu güçlendirir. Kendi emeğinin sonucunu görmek onu çok mutlu eder."
+  },
+  "c4d24c3e-4601-4235-8cdc-f39b3aa35149": {
+   "message": "Sosyal davranışta \"Kurallar ve Sınırlar\". Çocuğunuz artık \"hayır\" sözünün ardındaki mantığı biraz daha iyi anlıyor, ancak yine de sınırları test etmeyi seviyor. Sabırlı ve tutarlı olmanız ona güven duygusu verir. Kuralları her zaman aynı şekilde uygulamaya çalışın."
+  },
+  "b0d3eed0-e639-4528-9c81-8601b70e54bd": {
+   "message": "Bilişsel gelişimde \"Sıra sayıları\". Çocuğunuz artık \"birinci\", \"ikinci\", \"sonuncu\" kavramlarını anlıyor. Arabaları arka arkaya dizip \"Hangi araba birinci?\" diye sorun. Bu, sıralama becerisini ve matematiksel düşünme yeteneğini geliştirir. Yarışlarda \"Birinci sen geldin!\" demeniz onun için büyük bir motivasyon kaynağıdır."
+  },
+  "da0e2216-17ef-49f2-83ad-1599f6a6e332": {
+   "message": "Fiziksel koordinasyon: \"Geriye ve yana doğru yürüme\". Çocuğunuz artık farklı yönlerde çevik bir şekilde hareket edebiliyor. Onunla \"Ayna oyunu\" oynayın: Siz yana doğru bir adım atın, o da sizi taklit etsin. Bu hem eğlencelidir hem de vücut koordinasyonunu yeni bir düzeye taşır."
+  },
+  "1f153d5c-5da7-4c69-b731-2dc34e06cb4f": {
+   "message": "Konuşmada \"Soyut soruların derinleşmesi\". Çocuğunuz \"Bulutlar nereye gidiyor?\", \"Yıldızlar neden geceleri çıkıyor?\" gibi sorularla sizi şaşırtabilir. Cevap verirken onun hayal gücünü de harekete geçirin: \"Sence yıldızlar şimdi ne yapıyor?\". Bu, yaratıcı düşünme becerisini besler."
+  },
+  "3c9e08eb-1969-4283-90ec-97d2de26fd19": {
+   "message": "Duygusal Dayanıklılık: \"Paylaşmanın sevinci\". Çocuğunuz artık oyuncağını veya şekerlemesini gönüllü olarak paylaştığında sizin sevincinizi görüyor ve bunu tekrarlamak istiyor. Onun bu cömertliğini \"Arkadaşını mutlu ettiğin için çok teşekkür ederim\" diyerek özellikle vurgulayın. 1040 günü başarıyla tamamladık – siz harika bir annesiniz!"
+  },
+  "9893a146-5d99-48e6-ae6a-1f46520795f5": {
+   "message": "\"Bağımsız giyinme: Fermuar ve Düğme\". Çocuğunuz artık büyük düğmeleri açmakta ve fermuarı (başlattıktan sonra) yukarı çekmekte ustalaştı. Ona \"Haydi, kendin dene\" diyerek sabırla bekleyin. Kendi başına giyinebilmesi, çocuğunuzun \"Ben yapabilirim\" hissini ve özgüvenini inanılmaz ölçüde artırır."
+  },
+  "71a96327-cfe2-4ab5-bb79-d332a1ff5de4": {
+   "message": "Sosyal davranışta \"Paylaşmanın mantığı\". Çocuğunuz artık başka bir çocuğun elindeki oyuncağı hemen almak yerine \"ver\" diyerek beklemeye çalışır. Bu, öz düzenleme (self-regulation) becerisinin güçlendiğini gösterir. Bu sabırlı davranışını gördüğünüzde onu mutlaka \"Sıranı beklediğin için çok teşekkür ederim\" diyerek övün."
+  },
+  "f440da85-66a5-444d-9191-5dceb0b51d20": {
+   "message": "Bilişsel gelişimde \"Genel ve Özel\". Çocuğunuz artık elma, armut ve muzun hepsinin \"meyve\" olduğunu anlar. Ona farklı nesneler gösterin ve \"Bunların hepsine birlikte ne diyoruz?\" diye sorun. Kategorilerle düşünmek, beynindeki bilgi depolama sisteminin daha düzenli hâle gelmesini sağlar."
+  },
+  "5a9ea9e5-b06c-4aa9-b965-a6664f7442e8": {
+   "message": "Fiziksel koordinasyon: \"Topu omuz üzerinden atma\". Çocuğunuz artık topu yalnızca yere bırakmakla kalmaz, omzunun üzerinden ileriye, belirli bir hedefe doğru atabilir. Bu, tüm vücudun koordinasyonunu gerektirir. Onunla parkta \"hedefe atma\" oyunları oynayın."
+  },
+  "6ef1e101-45d4-451a-8710-b32b9878cd2e": {
+   "message": "Konuşmada \"Konum ve Yön\". Çocuğunuz \"sağ\" ve \"sol\" kavramlarını henüz tam olarak ayırt edemese de \"ileri\", \"geri\", \"yukarı\" ve \"aşağı\" komutlarını doğru şekilde yerine getirir. Onunla \"Robot oyunu\" oynayın: \"İki adım ileri, bir adım geri!\". Bu oyun hem eğlencelidir hem de mekânsal yönelim becerisini güçlendirir."
+  },
+  "1293c75f-beda-4513-88cc-b7951ec10777": {
+   "message": "Duygusal Dayanıklılık: \"Başarısızlıkla başa çıkma\". Çocuğunuz artık yaptığı küpler devrildiğinde hemen ağlamaz, \"Yeniden yapacağım\" diyebilir. Bu mücadeleci ruhunu destekleyin. 1030 günü geride bıraktık – çocuğunuz artık küçük bir kahraman!"
+  },
+  "fa3d103a-9bc8-44ef-b8d5-cab5337e7b60": {
+   "message": "Çocuğunuz artık nesneleri aynı anda iki özelliğe göre (örneğin hem rengine hem de şekline göre) ayırabilir. Ona \"Bana bütün küçük kırmızı arabaları ver\" dediğinizde bunu yapabiliyorsa, bu bilişsel gelişiminde yeni bir aşamaya ulaştığını gösterir. Günlük ev işlerinde ona buna benzer küçük \"seçme\" görevleri verin."
+  },
+  "4bbc0ebb-e4d4-4fb1-9a60-923e8fae76b3": {
+   "message": "Fiziksel hareketlilikte \"Hedefe atlama\". Çocuğunuz artık yere çizilmiş bir dairenin veya renkli bir hedefin ortasına atlamaya çalışır. Bu, hem denge hem de mekânsal mesafeyi hesaplama becerisini geliştirir. Parkta onunla \"taştan taşa atlama\" oyunu oynayın."
+  },
+  "63894550-7c88-4d80-827d-abe697cce597": {
+   "message": "Bilişsel gelişimde \"Hacim ve miktarın korunumu\". Çocuk henüz uzun ve dar kaptaki suyun geniş kaptaki sudan daha fazla olduğunu düşünebilir. Bu, \"Piaget\" evresine uygun, normal bir durumdur. Onunla su oyunları oynayarak suyu farklı kaplara boşaltın. Bu, mantığı deneyim yoluyla kavramasını hızlandırır."
+  },
+  "cab49b1b-46a8-46fe-9575-6cef46f13add": {
+   "message": "Fiziksel koordinasyon: \"İki ayakla ileri sıçrama\". Çocuk artık engellerin (örneğin, yerdeki bir ipin) üzerinden iki ayağıyla aynı anda atlayabilir. Bu hareket, tüm vücudun koordinasyonunu ve patlayıcı gücü gerektirir. Onun için güvenli alanlarda küçük engur parkurları oluşturun."
+  },
+  "50a38f0a-e830-42a7-9b23-0d529496ee7f": {
+   "message": "Dil gelişiminde \"Soyut zaman kavramı\". Çocuk artık \"Sabah\", \"Öğle\" ve \"Akşam\" arasındaki farkları rutinler aracılığıyla kavrar. \"Akşam baban geldiğinde...\" dediğinizde, günün o zaman dilimini zihninde canlandırır. Günlük rutininize bağlı kalmanız, bu zaman algısını güven duygusuyla ilişkilendirmesine yardımcı olur."
+  },
+  "f7b6ee04-7015-4382-abaa-03462e452408": {
+   "message": "Duygusal olgunluk: \"Özür dilerim\" sözünün anlamı. Çocuk artık bilerek veya istemeden birini incittiğinde \"Özür dilerim\" demenin sosyal önemini anlar. Ona her zaman örnek olun; hata yaptığınızda ondan özür dileyin ki o da bu davranışı bir zayıflık değil, güç göstergesi olarak görsün."
+  },
+  "5b5539ed-db72-44da-bf5f-8b147bfb9b43": {
+   "message": "Çocuk artık resimlere bakarak basit hikâyeler uydurur. \"Ayı ormana gitti, acıktı ve bal yedi\" gibi birbiriyle bağlantılı cümleler kurması, mantıksal sıralamayı kavradığını gösterir. Ona ilgi çekici resimler içeren kitaplar verin ve \"Sence bundan sonra ne olacak?\" diye sorun. Bu, yaratıcı hayal gücünü en üst düzeye çıkarır."
+  },
+  "e1ab27cc-4713-481c-b52f-32935f62d3d2": {
+   "message": "Fiziksel hareketlilikte \"Merdiven bağımsızlığı\". Çocuk artık merdivenleri her basamağa sırayla bir ayağını koyarak ve yalnızca bir elinizden tutarak (ya da hiç tutunmadan) güvenle inebilir. Bu, kaba motor becerilerinin iyice olgunlaştığını gösterir. Siz yalnızca yanında bulunarak ona manevi destek verin."
+  },
+  "7d186d1a-0812-440c-b07e-ee9ed0da127d": {
+   "message": "Dil gelişiminde \"Soru-cevap zinciri\". Çocuk artık sorularınıza yalnızca \"evet/hayır\" diye değil, tam cümlelerle yanıt verir. \"Bugün parkta kiminle oynadın?\" sorusuna ayrıntılı cevap verebilir. Onunla konuşurken \"O ne renkti?\", \"Neler yaptınız?\" gibi devam soruları sorarak dil gelişimini destekleyin."
+  },
+  "a7b0a891-2fdb-4521-b60b-98a992dcf545": {
+   "message": "İnce motor becerilerinde \"Daha hassas boyama\". Çocuk artık küçük şekillerin sınırlarını da fark eder ve boyarken çizgilerin dışına fazla çıkmamaya çalışır. Bu, el kaslarını kontrol etme becerisinde büyük bir ilerlemedir. Ona farklı kalınlıklarda boya kalemleri vererek denemeler yapmasına olanak tanıyın."
+  },
+  "fdfb7732-94cf-4e6c-8519-4e6877b4ad89": {
+   "message": "Konuşmada \"Soyut soruların zirvesi\". Çocuğunuz artık \"Rüzgâr neden esiyor?\", \"Güneş uyumaya nereye gidiyor?\" gibi varoluş ve doğa olayları hakkında sorular soruyor. Yanıt verirken hayal gücünüzü de kullanın: \"Güneş yoruldu, yarın bizi yeniden uyandırmak için dinlenmeye gidiyor\". Bu, onun dünyaya bakışını ve öğrenme isteğini besler."
+  },
+  "9721a15c-607b-4236-9999-231bdd0b4e99": {
+   "message": "Duygusal Olgunluk: \"Başkasının duygularını kabul etmek\". Çocuğunuz artık sizin yorgun olduğunuzu veya başka bir çocuğun incindiğini fark ettiğinde \"Ne oldu?\" diye soruyor ve teselli etmeye çalışıyor. Bu, onun şefkatli bir birey olarak geliştiğini gösterir. Siz harika bir annesiniz!"
+  },
+  "2add65f7-d33c-4b48-a1e7-f388a5549421": {
+   "message": "Çocuğunuz artık \"önce\" ve \"sonra\" sıralamasını daha iyi kavrıyor. \"Kıyafetlerini giy, sonra dışarı çıkalım\" dediğinizde, ikinci eylemin bir ödül olduğunu anlıyor. Bunlar, çocukta sabır ve planlama becerisinin ilk tohumlarıdır. Günlük rutinler sırasında bu sıralamaları ona sık sık hatırlatın."
+  },
+  "25d5eedf-59a2-4e4e-8131-39a811d36fe6": {
+   "message": "Fiziksel gelişimde \"Tırmanma ustalığı\". Çocuğunuz artık parktaki merdivenlere veya evdeki güvenli yüksekliklere daha özgüvenli bir şekilde tırmanıyor. Bu, hem kol hem de bacak kaslarının eş zamanlı çalışmasını sağlar. Her zaman yakınında olun, ancak kendi gücünü sınamasına da fırsat verin."
+  },
+  "90469c76-8fc0-41db-a7e9-3862f12f4d6b": {
+   "message": "Konuşmada \"Mantıksal bağlantılar\". Çocuğunuz artık iki durumu tek bir cümlede birleştiriyor: \"Hava soğuk, ceketini giy\". Bu, onun yalnızca taklit etmediğini, aynı zamanda düşündüğünü de gösterir. Bu mantıklı çıkarımlarını \"Evet, haklısın\" diyerek onaylayın ki kendi düşüncelerini ifade etmeye daha fazla heveslensin."
+  },
+  "8f149cc4-a06e-4928-a8cb-2b953480c3af": {
+   "message": "İnce motor becerilerinde \"Kâğıdı şekillendirme\". Çocuğunuz artık kâğıt katlamaya veya basit şekillerde kesmeye (çocuklara uygun büyük makaslarla ve gözetim altında) ilgi gösterebilir. Bu hareketler, parmak kaslarının kontrolünü yeni bir seviyeye taşır. Renkli kâğıtlarla çalışabilmesi için ona uygun bir ortam hazırlayın."
+  },
+  "c9bd395e-c3c2-46e2-abf3-1f924d619000": {
+   "message": "Sosyal davranışta \"Rol oyunlarının karmaşıklaşması\". Çocuğunuz artık \"doktor\", \"aşçı\" veya \"şoför\" rolüne giriyor. Bu oyunlar sayesinde çevresindeki insanların görevlerini öğreniyor ve empati kuruyor. Oyunlarına katılın ve size verdiği \"role\" uygun davranın."
+  },
+  "dd1b7d3a-2552-45df-81c5-cf8e1914b882": {
+   "message": "\"Bağımsız temizlik\" alışkanlığı. Çocuğunuz artık ellerini yıkarken sabunlama ve durulama işlemlerini neredeyse tek başına yapabiliyor. Hijyen alışkanlıklarının bu yaşta pekişmesi çok önemlidir. Bu süreçten keyif alabilmesi için ona boyuna uygun basamaklı bir tabure (step stool) sağlayın."
+  },
+  "b4ed41fc-fc60-439e-82df-81e0242123d3": {
+   "message": "35. aya adım atıyoruz! Çocuğunuz artık \"iki aşamalı\" düşünceden \"üç aşamalı\" görevlere geçiyor. \"Oyuncağı al, kutuya koy ve kapağını kapat\" dediğinizde sıralamayı bozmadan yapabiliyorsa bu, çalışma belleği (working memory) açısından büyük bir başarıdır. Gün içinde ona küçük ve mantıklı, birbirini takip eden görevler vererek bu becerisini geliştirin."
+  },
+  "140764ec-2a00-4bc6-b514-5e093357430f": {
+   "message": "Fiziksel hareketlilikte \"Hızlı koşma ve manevra\". Çocuğunuz artık koşarken önündeki engeli gördüğünde hızını azaltmadan etrafından dolaşabiliyor. Bu, beden farkındalığının (proprioception) tam olarak geliştiğini gösterir. Parkta \"engelli koşu\" yarışları düzenleyerek enerjisini faydalı bir yöne kanalize edin."
+  },
+  "5868f762-ea68-431f-855d-54c5a04efe50": {
+   "message": "Konuşmada \"Karşılaştırma dereceleri\". Çocuğunuz artık \"daha büyük\", \"en küçük\", \"çok lezzetli\" gibi ifadeleri doğru yerlerde kullanıyor. Nesneleri karşılaştırarak onunla sohbet edin: \"Bu elma mı daha tatlı, yoksa diğeri mi?\". Sıfatların karşılaştırma derecelerini öğrenmesi, betimleyici dilini zenginleştirir ve düşüncelerini daha net ifade etmesini sağlar."
+  },
+  "060a9ae6-7e66-446f-800a-a74eb2d502d9": {
+   "message": "İnce motor becerilerinde \"Heykel yapma\". Çocuğunuz artık oyun hamuru veya kinetik kumla oynarken bunları yalnızca sıkmakla kalmıyor, \"top\", \"yılan\" veya \"ekmek\" gibi tanınabilir şekiller yapıyor. Bu, hem yaratıcı düşünme becerisini geliştirmek hem de parmak uçlarındaki küçük kasları güçlendirmek için harika bir egzersizdir."
+  },
+  "a1a89564-b6bb-483a-bd10-bb44b24484a4": {
+   "message": "\"Bağımsız giyinme: Ters-yüz ayrımı\". Çocuğunuz artık gömlek veya pantolonun tersini ve yüzünü, ayakkabıların sağını ve solunu (bazen hata yapsa da) ayırt etmeye çalışıyor. Ona küçük ipuçları verin: \"Bak, resimli taraf öne geliyor\". Bu, ayrıntılara odaklanmasını ve öz bakım becerilerini geliştirmesini sağlar."
+  },
+  "999ddf88-03eb-4dd0-856d-79ce3e7385df": {
+   "message": "Sosyal davranışta \"Takım ruhu\". Çocuğunuz artık diğer çocuklarla ortak bir hedef için (örneğin büyük bir kale yapmak için) birlikte oynayabiliyor. Bu, \"Paralel oyun\"dan \"İş birliğine dayalı oyun\"a geçiştir. Diğer çocuklarla nasıl iletişim kurduğunu gözlemleyin ve zorlandığı anlarda sosyal bir \"köprü\" kurmasına yardımcı olun."
+  },
+  "8193ed91-5f04-4955-a4b1-522d5a941870": {
+   "message": "Bilişsel gelişimde \"Sayı ve miktar eşleştirmesi\". Çocuğunuz 1'den 5'e kadar sayabiliyor ve artık \"3\" rakamını gördüğünde 3 tane oyuncağı ayırıp koyabiliyor. Bu, matematiksel düşünmenin en önemli aşamalarından biridir. Günlük hayatta \"Bana 2 tane kaşık ver\" gibi görevlerle bu bağlantıyı güçlendirin."
+  },
+  "575cf871-23de-446e-8398-4dd4c0ff6773": {
+   "message": "Fiziksel koordinasyon: \"Yukarıdan atılan topu yakalama\". Çocuğunuz artık kendisine doğru yavaşça atılan büyük bir topu iki eliyle yakalamaya çalışıyor. Bu hareket hem el-göz koordinasyonu hem de tepki hızı gerektirir. Onunla yakın mesafeden \"topu yakala\" oyunu oynayın."
+  },
+  "f8163db2-8f81-44fa-bc05-1057d8b42f15": {
+   "message": "Bilişsel gelişimde \"Farklı olanı bulma\". Çocuk artık bir grup nesnenin içinden farklı olanı (örneğin, arabaların arasındaki elmayı) görsel olarak seçebilir. Bu, analiz becerisini geliştirir. Evde onun için basit \"Hangisi farklı?\" oyunları hazırlayın. Bu oyunlar, gelecekteki matematik ve mantık çalışmalarına harika bir hazırlıktır."
+  },
+  "0dbea1ae-3808-4d99-b129-68ed1447a173": {
+   "message": "Fiziksel koordinasyon: \"Tek ayak üzerinde durma denemeleri\". Çocuk artık birkaç saniyeliğine de olsa bir ayağını yerden kaldırıp dengesini korumaya çalışır. Bu, vücudunun ağırlık merkezini tanıması açısından önemlidir. Onunla \"Leylek oyunu\" oynayın ve kimin daha uzun süre ayakta kalabildiğine bakın."
+  },
+  "384f5938-24c1-4dc2-8691-403780565471": {
+   "message": "Konuşmada \"Duygu ifadeleri\". Çocuk artık üzgün, neşeli veya korkmuş olduğunu kelimelerle ifade edebilir: \"Ben korktum\" veya \"Ben neşeliyim\". Duyguları adlandırmak, çocuklarda duygusal zekânın temelini oluşturur. Duygusunu dile getirdiğinde onu dinleyin ve \"Evet, seni anlıyorum\" diyerek hislerini kabul edip doğrulayın."
+  },
+  "94697180-1105-4fe0-9d68-ffdaab53705e": {
+   "message": "Hayal gücünün etkisi: \"Sembolik düşünme\". Çocuk bir sopayı \"at\" olarak hayal edip dörtnala koşuyormuş gibi gezebilir. Bu, bir nesnenin başka bir şeyi temsil edebileceğini anlama becerisidir. Bu beceri, gelecekte okuma ve matematik (sembolleri anlama) açısından çok önemlidir. Siz harika bir rehbersiniz!"
+  },
+  "38010093-f42b-4818-a3db-81219f590eee": {
+   "message": "Çocuk artık \"ben\", \"sen\" ve \"biz\" zamirlerini doğru şekilde kullanır. \"Biz şimdi yemek mi yiyoruz?\" diyerek kendini ailenin aktif bir üyesi gibi hisseder. Onunla konuşurken onu da planlarınıza dahil edin: \"Hadi, sofrayı birlikte kuralım\". Bu, aidiyet ve sorumluluk duygusunu güçlendirir."
+  },
+  "8503d4e9-2c78-4879-9d8c-ef7c6d2a467c": {
+   "message": "Fiziksel hareketlilikte \"Merdiven bağımsızlığı\". Çocuk artık merdivenleri, her basamağa sırayla bir ayağını koyarak ve yalnızca bir elinden tutulduğunda güvenle çıkar. Bu, kaba motor becerilerinin büyük ölçüde olgunlaştığını gösterir. Sizin yalnızca yanında bulunmanız bile ona manevi destek verir."
+  },
+  "ebe63eb5-d3b9-410d-8ddc-267b97751075": {
+   "message": "Konuşmada \"Hikâye oluşturma\". Çocuk artık resimlere bakarak basit hikâyeler uydurur. \"Kedi geldi, süt içti, uyudu\" gibi birbiriyle bağlantılı cümleler, hafızasıyla hayal gücünün birleştiğini gösterir. Ona ilgi çekici resimleri olan kitaplar verin ve \"Burada neler oluyor?\" diye sorun. Bu, yaratıcı düşünme becerisini harekete geçirir."
+  },
+  "9acc3fd3-37ec-4b80-9709-ac31444a2801": {
+   "message": "İnce motor becerilerinde \"Hassas yerleştirme\". Çocuk artık küçük oyuncak figürlerini yerleştirmeyi veya boncukları ipe dizmeyi daha az hata yaparak başarır. Bu dönemde parmak uçlarının hassasiyeti artar. Ona farklı dokulara sahip küçük nesnelerle gözetiminiz altında oynayabileceği oyunlar sunun."
+  },
+  "48d41fa6-6f48-4a84-a2b6-f82cae4ce209": {
+   "message": "\"Bağımsız giyinme\" ısrarı. Çocuğunuz artık düğmesiz tişörtlerini veya pantolonunu kendi başına giymekte ısrar ediyor. \"Ben kendim!\" dediği anlarda ona zaman tanıyın. Bu bağımsızlık çabaları, gelecekteki özgüveninin ve kişisel sorumluluk duygusunun en güçlü temelidir. Küçük başarılarını \"Bak, tek başına başardın!\" diyerek kutlayın."
+  },
+  "fe3ec85d-8b47-408d-a0ad-870b3b58db94": {
+   "message": "Sosyal davranışlarda \"Nezaket kuralları\". Çocuğunuz artık \"Lütfen\", \"Teşekkür ederim\", \"Rica ederim\" gibi sözleri yalnızca tekrarlamıyor, bilinçli olarak kullanıyor. Sizin nazik davranışlarınız onun için en güçlü örnektir. Bu davranışlarını överek iletişim becerilerini pekiştirin."
+  },
+  "df8b2f32-9f00-4805-8e4c-c754c399be31": {
+   "message": "Bilişsel gelişimde \"Zaman zarfları\". Çocuğunuz \"sonra\", \"birazdan\", \"şimdi\" sözcüklerini doğru yerlerde kullanmaya başlıyor. \"Birazdan geleceğim\" dediğinizde zamanın geçeceğini anlıyor. Bu, çocuğun bekleme ve kendini düzenleme becerisini geliştirir. Günlük rutinlerinizde bu sözcükleri sık sık kullanın."
+  },
+  "852439ac-fd00-4ba1-aa13-d519b9407d5f": {
+   "message": "Fiziksel koordinasyon: \"Topa vurma ve hedef\". Çocuğunuz artık topa yalnızca vurmuyor, onu belirli bir yöne, örneğin iki oyuncağın arasından geçirmeye çalışıyor. Bu, el-göz ve ayak-göz koordinasyonunun eş zamanlı çalışmasıdır. Onunla evde bir \"mini futbol\" turnuvası düzenleyin."
+  },
+  "fe4cb6a5-1e61-4aaa-9066-7165c1ab72dd": {
+   "message": "Konuşmada \"Soyut sorular\". Çocuğunuz \"Bulut nereden geliyor?\", \"Ay nereye gitti?\" gibi sorular sorabilir. Yanıt verirken hayal gücüyle gerçek bilgileri dengeleyin: \"Bulutlar uzaklardan gelip bize yağmur getiriyor\". Bu tür sohbetler onun dünyaya bakışını ve öğrenme isteğini inanılmaz ölçüde geliştirir."
+  },
+  "39f0d5e2-0187-4785-9bb9-453ef9250d3e": {
+   "message": "Duygusal dayanıklılık: Çocuğunuz artık başarısızlıklara karşı daha dirençli. Blokları devrildiğinde hemen ağlamıyor, \"Yeniden yapacağım\" diyebiliyor. Bu mücadeleci ruhunu destekleyin. 1070 günü geride bıraktık, 3 yaşını doldurmasına çok az kaldı! Siz bu yolculukta hem öğretmeni hem de en yakın dostusunuz!"
+  },
+  "b9b4b281-d07d-4b24-8be3-a13d61d2de12": {
+   "message": "Çocuğunuz artık kendini diğer çocuklarla karşılaştırmaya başlıyor: \"Ben ondan daha hızlı koşuyorum\". Bu, rekabet duygusundan çok kendi yeteneklerinin farkına varmasının bir göstergesidir. Ona herkesin farklı becerileri olduğunu basit bir dille anlatın. Bu yaklaşım, hem öz saygı geliştirmesine hem de başkalarına karşı hoşgörülü olmasına yardımcı olur."
+  },
+  "36d86d2b-43c1-4460-afbb-45a783701a53": {
+   "message": "Fiziksel hareketlilikte \"Hızlı durma\". Çocuğunuz koşarken sizin \"Dur!\" komutunuzla hemen durabilir. Bu, hem kaslarını fiziksel olarak kontrol edebildiğini hem de beynindeki dürtü kontrolünün (inhibitory control) geliştiğini gösterir. Parkta \"Kırmızı ışık, yeşil ışık\" oyununu oynamak için harika bir zaman."
+  },
+  "62cbc2dc-4d91-48c4-8b87-f71ac5555a0a": {
+   "message": "Konuşmada \"Karmaşık diyaloglar\". Çocuğunuz artık size bir olayı sırasıyla anlatabilir. \"Önce parka gittik, sonra dondurma yedik, sonra bir kedi gördük\". Hikâye oluşturma becerisi, hafızası ile konuşma becerisinin birlikte geliştiğini gösterir. Ona \"Peki, sonra ne oldu?\" diye sorarak hikâyeyi genişletmeye teşvik edin."
+  },
+  "c219d541-0794-4388-b19c-1b3296bc6f1a": {
+   "message": "İnce motor becerilerinde \"Geometrik şekilleri kopyalama\". Çocuğunuz artık sizin çizdiğiniz daireyi veya çarpı işaretini taklit edebilir. Bu, gözüyle gördüğü şekli eliyle yeniden oluşturma (görsel-motor entegrasyon) becerisinin geliştiğini gösterir. Ona farklı renklerde kalemlerle şekiller çizmeyi öğretin."
+  },
+  "064446a8-f711-4f01-89fb-101964123929": {
+   "message": "\"Bağımsız kararlar\". Çocuğunuz artık hangi oyuncakla oynayacağını veya hangi kitabı okuyacağını kararlı bir şekilde seçiyor. Bu seçimleri yapmasına izin verin. Kendi seçimine saygı duyulduğunu görmek, çocuğun özgüvenini artırır ve iç dünyasının zenginleşmesine yardımcı olur."
+  },
+  "9280edaf-2356-4dce-a273-2cd4a5d6fd57": {
+   "message": "Sosyal davranışta \"Sıra bekleme\". Çocuğunuz artık herkesin aynı anda salıncağa binemeyeceğini anlıyor. \"Şimdi o sallanıyor, sonra ben\" diyebilmesi, sosyal zekâ gelişiminde büyük bir adımdır. Bu davranışın alışkanlığa dönüşmesi için gösterdiği sabrı mutlaka övün."
+  },
+  "55b33de4-6e1b-4815-985d-641594c12f05": {
+   "message": "Bilişsel gelişimde \"Sıralama ve kategorilere ayırma\". Çocuğunuz artık nesneleri yalnızca renklerine göre değil, kullanım amaçlarına göre de gruplandırıyor: \"Bunlar yiyecek, bunlar ise oyuncak\". Ona karışık nesneler verin ve \"Mutfağa ait olanları bul\" deyin. Bu, zihnindeki bilgileri düzenlemesine yardımcı olur."
+  },
+  "eb04363a-ab4d-4a94-888d-e7e2e5211e9c": {
+   "message": "Fiziksel koordinasyon: \"Topu omuz üzerinden atma\". Çocuğunuz artık topu yalnızca aşağıdan değil, omuz hizasından ileriye doğru da atabilir. Bu, kol ve omuz kaslarının güçlendiğini ve hareketin yönünü planlayabildiğini gösterir. Onunla parkta küçük \"hedefe atış\" oyunları oynayın."
+  },
+  "4705908e-12af-4329-ab11-ab69b76d1be9": {
+   "message": "Konuşmada \"Zamirleri doğru kullanma\". Çocuğunuz artık \"ben\", \"sen\", \"o\", \"biz\" zamirlerini neredeyse hiç karıştırmıyor. Bu, sosyal çevredeki yerini ve başkalarıyla ilişkisini tam olarak kavradığı anlamına gelir. Onunla konuşurken karmaşık cümleler kullanmaktan çekinmeyin."
+  },
+  "cb464c9f-f6c4-48c0-ab1a-62c435d01c32": {
+   "message": "Duygusal dayanıklılık: \"Hatalardan öğrenme\". Çocuğunuz bir şeyi başaramadığında hemen ağlamak yerine size bakıp \"Olmadı, yeniden deneyeyim mi?\" diye sorabilir. Bu, duygusal dayanıklılığının arttığını gösterir. Ona \"Herkes hata yapabilir, önemli olan yeniden denemek\" diyerek cesaret verin. Siz harika bir rehbersiniz!"
+  },
+  "24b05457-5c55-4e7e-93bd-e8e2e24e7b8c": {
+   "message": "Çocuk artık kendisini yalnızca \"ben\" olarak değil, \"bir beceri sahibi\" olarak görüyor. \"Ben hızlı koşarım\" veya \"Ben resim yaparım\" gibi tanımlamalar kullanıyor. Bu olumlu benlik algısını destekleyin. Kendisini nasıl tanımladığına dikkat edin; bu, gelecekteki öz güveninin sesidir."
+  },
+  "a48cb007-600a-438e-b8fd-ac64a32480ba": {
+   "message": "Fiziksel cesarette \"Yükseklik korkusunu yenmek\". Çocuk artık parkta daha yüksek kaydırakları veya merdivenleri denemek istiyor. Fiziksel becerileri, zihnindeki \"Ben yapabilirim\" düşüncesiyle artık tamamen örtüşüyor. Siz yalnızca \"görünmez bir güvence\" olarak yanında durun."
+  },
+  "a7f2070c-4631-4744-b176-d7bba5b19ea6": {
+   "message": "Konuşmada \"Neden?\" sorusunun felsefesi. Artık yalnızca yanıt almak için değil, sizinle sohbeti sürdürmek için de \"neden\" diyor. Yanıtınız bittiğinde yine \"neden?\" derse sözü ona bırakın: \"Peki, sen ne düşünüyorsun?\" Hayal gücüne dayalı açıklamaları sizi hem güldürecek hem de şaşırtacak."
+  },
+  "8291f627-bff8-4ae0-9fda-966d1f2e80ac": {
+   "message": "İnce motor becerilerinde \"Sembollerin doğuşu\". Çocuk artık kâğıda \"kapalı şekiller\" çiziyor. Çizdiği bir daire hem güneş, hem top hem de anne olabilir. Bu, soyut düşüncenin zirvesidir: Tek bir sembol her şeyi ifade edebilir. Bu ilk \"sanat eserlerini\" mutlaka tarihlerini yazarak saklayın."
+  },
+  "a9bf7bd3-b390-48c2-b220-67d40659de03": {
+   "message": "\"Sınırları Sınayan Çocuk\". Çocuk, yapmamasını söylediğiniz bir şeyi bilerek yapıp tepkinizi izleyebilir. Bu, onun \"kötü\" olduğu anlamına gelmez; duygusal sınırlarınızı ve kuralların değişmezliğini test eder. Sakin ve kararlı kalmanız, ona en güçlü güven mesajını verir: \"Dünya hâlâ istikrarlı ve güvenli\"."
+  },
+  "6de77e4c-02d9-4646-a638-e1f9881237a4": {
+   "message": "Sosyal zekâda \"Oyunun kuralları\". Çocuk artık oyunun devam edebilmesi için kurallara uymak gerektiğini anlıyor. Örneğin, saklambaç oynarken gözlerini kapatmanın önemli olduğunu biliyor. Bunlar, toplum içindeki ilk \"sosyal sözleşmeleridir\". Onunla basit kuralları olan masa oyunları oynamaya başlayın."
+  },
+  "3677e8d8-da75-4da9-b002-0343f54de7f8": {
+   "message": "Bilişsel gelişimde \"Zaman ritüelleri\". Çocuk \"dün\", \"bugün\" ve \"yarın\" kavramlarını henüz tam olarak ayırt edemese de ritüelleri biliyor. \"Yemekten sonra park\" veya \"Uyumadan önce masal\". Bu sıralamalar, zihninde zaman çizgisini oluşturuyor. Olayları sırasıyla anlatarak ona yardımcı olun."
+  },
+  "24b745fb-d8d2-4191-b523-51bef737292f": {
+   "message": "Fiziksel koordinasyonda \"Hassas manevralar\". Çocuk artık sıvı dolu bir bardağı fazla dökmeden taşıyabiliyor veya dar bir yolda yürüyebiliyor. Bu, görsel-motor koordinasyonunun ne kadar geliştiğini gösteriyor. Ona evde \"küçük garson\" rolleri verin."
+  },
+  "e9c2314b-a8e3-4e87-93f6-fa6cd95e6e36": {
+   "message": "Konuşmada \"Duygu Sözlüğü\". Çocuk artık yalnızca \"kötüyüm\" veya \"iyiyim\" demiyor. \"Sinirlendim\", \"özledim\", \"mutluyum\" gibi sözcükleri yerinde kullanıyor. Onun duygularını doğrulayın: \"Özlediğin için ağlaman normal\". Bu, onun duygusal sağlığının en büyük güvencesidir."
+  },
+  "6d3a16a2-1643-4f5c-be11-40251b29e16d": {
+   "message": "3 yaşın (1095 gün) eşiğinde. Çocuk artık \"bebeklik\" kıyısından uzaklaşıp \"çocukluk\" okyanusuna açılıyor. Artık yalnızca hareketlerinizi değil, duygusal durumunuzu da taklit ediyor. Siz onun için en büyük aynasınız. Kendinizle gurur duyun; 1090 gündür harika bir insan yetiştiriyorsunuz!"
+  },
+  "1dacdad0-c90b-4399-810b-283d367d437c": {
+   "message": "3 yaşını doldurmasına (1095 gün) yalnızca 5 gün kaldı! Çocuk artık \"Ben\" kavramını tamamen benimsedi ve kendi sınırlarını ısrarla koruyor. Bu günlerde karşılaştığınız \"hayır\"lar size karşı olduğu anlamına gelmez; kendi kişiliğini ortaya koyma biçimidir. Ona seçenekler sunarak bu geçişi kolaylaştırın."
+  },
+  "0788e284-3cae-46fe-a730-5b0adb5d2052": {
+   "message": "Fiziksel gelişimde \"Tam Bağımsızlık\". Çocuk artık iki ayağıyla aynı anda yukarı zıplayabilir, merdivenleri destek almadan inip çıkabilir ve üç tekerlekli bisiklet kullanabilir. Fiziksel enerjisi artık koordineli hareketlere dönüşmüştür."
+  },
+  "f3f07ee7-1804-4733-8e04-f58c824d1ef9": {
+   "message": "Konuşmada \"Soyut Düşünme\". Çocuk artık o anda orada bulunmayan nesneler veya geçmişte yaşanan olaylar hakkında uzun uzun konuşabilir. \"Hatırlıyor musun, biz oraya gitmiştik?\" gibi cümleler, uzun süreli belleği ile konuşma becerisinin mükemmel uyumunu gösterir. Onunla geçmiş anılarınızı sık sık paylaşın."
+  },
+  "1e35d34e-147e-430a-a51b-7c615ecdd852": {
+   "message": "İnce motor gelişiminde \"Yazma Öncesi Beceriler\". Çocuk artık kalemi avucuyla değil, parmaklarıyla tutuyor; kapalı daireler, artı işaretleri ve hatta bazı harflere benzeyen çizgiler çiziyor. Bu, gelecekteki yazma becerileri açısından en kritik fiziksel aşamadır."
+  },
+  "94af9664-3a01-40cf-b485-6d92b46dd312": {
+   "message": "DOĞUM GÜNÜ KUTLU OLSUN! Tam 3 yıl, yani 1095 gün! Çocuk artık resmen \"bebeklik\" kıyısından ayrıldı. O artık konuşan, düşünen, şaka yapan ve kendine ait bir dünyası olan küçük bir insan. Bu 1095 gün boyunca onun zihninde sarsılmaz bir güven ve sevgi temeli oluşturdunuz. Aferin size, Anne!"
+  },
+  "8a58846e-740c-494e-b055-cca0e1dee700": {
+   "message": "4. yaşın ilk günü! Çocukta \"Sorumluluk\" duygusu uyanıyor. Artık oyuncaklarını toplamanın da oyunun bir parçası olduğunu anlayabilir. Ona küçük ev işleri verin (örneğin, masaya peçete koymak). Bu, ailenin faydalı bir üyesi olduğu hissini güçlendirir."
+  },
+  "3be5dfbf-e6fa-4586-9735-23266743fb18": {
+   "message": "Sosyal davranışta \"Empati Gelişimi\". Çocuk artık yalnızca kendi duygularını değil, başkalarının da üzülebileceğini anlıyor. \"O çocuk neden ağlıyor?\" sorusu, dünyayı başkalarının gözünden görmeye başladığının bir göstergesidir."
+  },
+  "cce49adb-3f97-4be9-9435-40b81895ee05": {
+   "message": "Bilişsel gelişimde \"Mantıksal Sıralama\". Çocuk artık 3-4 aşamalı olayları doğru sıraya koyabiliyor: \"Önce ellerimi yıkadım, sonra ekmek yedim, sonra oynadım\". Ona gününüzü birlikte planlamayı teklif edin. Bu, zihnindeki \"kaosu\" düzenli bir \"zaman çizelgesine\" dönüştürür."
+  },
+  "63c35556-85c7-4de4-956c-b06072fe14e8": {
+   "message": "Hayal gücünde \"Karmaşık Rol Oyunları\". Artık oyunları daha ayrıntılıdır. Yalnızca \"doktor\" olmakla kalmaz, size \"reçete yazar\" ve \"iğne yapar\". Bu oyunlar, çocuğun stresle başa çıkma ve toplumu anlama yöntemidir. Onun oyun dünyasına saygıyla katılın."
+  },
+  "b3b1d154-d59c-44d1-8bf7-a6ef75357962": {
+   "message": "1100 günlük yolculuğun son durağı. Çocuk artık kendini \"büyük\" hissediyor. Bireyselliği, zevkleri ve karakteri artık tamamen şekillendi. Siz bu yolu sabırla, bilimle ve en önemlisi sonsuz sevgiyle katettiniz. \"Anacan\" uygulaması her zaman sizin ve küçük kahramanınızın yanında!"
+  },
+  "a79f70f3-f350-4b22-984a-7f58dfd4b7fb": {
+   "message": "3 yaşın ilk on gününe hoş geldiniz! Bu dönemde çocuğun kelime dağarcığı yaklaşık 1000 kelimeden oluşur. Artık yalnızca ihtiyaçlarını değil, hayallerini de paylaşır. Onunla konuşurken sık sık \"Sizce neden?\" diye sorarak mantık yürütmesini teşvik edin."
+  },
+  "05ceca15-09f0-41f4-a54b-99db2b828cc8": {
+   "message": "Fiziksel gelişimde \"Hedefli Sıçrama\". Çocuk artık bulunduğu yerden hem yukarıya hem de belirli bir hedefe doğru (örneğin yerdeki renkli halının üzerine) zıplayabiliyor. Bu, hem denge hem de mekânsal mesafeyi hesaplama becerisini gösterir. Parkta oynayacağınız \"taştan taşa atlama\" oyunu onun için harika bir egzersizdir."
+  },
+  "03d396dd-e487-41b7-9885-73235271ea53": {
+   "message": "Konuşmada \"Zamir ve Cinsiyet Kategorileri\". Çocuk artık \"ben\", \"sen\" ve \"o\" zamirlerini doğru biçimde kullanır. Hâlâ bazen kendisinden üçüncü şahıs olarak söz ediyorsa (örneğin, \"Ali su istiyor\"), onu nazikçe düzeltin: \"Evet, SEN su istiyorsun\"."
+  },
+  "ca591a5d-4734-459d-be9b-3eaadeddb81b": {
+   "message": "İnce motor gelişiminde \"Yapboz ve Yapı Kurma\". Çocuk artık 8-12 parçalı yapbozları kendi başına tamamlayabilir ve küplerden karmaşık kuleler, köprüler yapabilir. Bu, hem görsel analiz becerisini hem de parmakların ince hareket kabiliyetini geliştirir. Yapamadığında ona hazır çözümü vermeyin, yalnızca ipucu verin."
+  },
+  "9a464aa6-3d95-421a-948d-be4bbc442bbe": {
+   "message": "\"Bağımsız giyinme: Fermuar ve Düğme\". Çocuğunuz artık büyük düğmeleri açmaya veya fermuarı (siz başlattıktan sonra) yukarı çekmeye büyük ilgi gösterir. Ona \"Haydi, kendin dene\" diyerek sabırla bekleyin. Kendi kendine giyinebilmesi, çocuğunuzun \"Ben yapabilirim\" duygusunu ve özgüvenini inanılmaz ölçüde artırır."
+  },
+  "7f75fc5d-eb6e-4e7a-abdd-f9659116f406": {
+   "message": "Sosyal davranışta \"Paylaşmayı anlama\". Çocuğunuz artık oyuncağını arkadaşına vermenin onu tamamen kaybetmek değil, yalnızca \"sırayla oynamak\" olduğunu anlar. Bunlar empatinin ilk tohumlarıdır. Bu davranışını mutlaka \"Arkadaşınla paylaştığın için teşekkür ederim\" diyerek pekiştirin."
+  },
+  "6bc8719d-b139-4ea0-af7e-596754bfb254": {
+   "message": "Bilişsel gelişimde \"Sayı-Miktar ilişkisi\". Çocuğunuz 1'den 10'a kadar ezbere saymanın yanı sıra nesneleri parmağıyla göstererek \"bir, iki, üç\" diye gerçek miktarları saymaya başlar. Ona \"Sofraya 3 tane kaşık koyalım\" gibi görevler verin. Bu, soyut sayıların gerçek dünyayla ilk kez güçlü bir bağ kurduğu aşamadır."
+  },
+  "2fce926c-604e-40c3-aff1-959bf3574903": {
+   "message": "Fiziksel koordinasyon: \"Geri geri yürüme\". Çocuğunuz artık arkasına bakmadan güvenle birkaç adım geri gidebilir. Bu hareket, beden farkındalığını (propriosepsiyon) ve mekânsal yönelim becerisini güçlendirir. Onunla \"Yengeç yarışı\" oynayarak hem eğlenin hem de kaslarını çalıştırın."
+  },
+  "5eb5c186-69a6-483f-9ba1-b6f471501a76": {
+   "message": "Konuşmada \"Soyut sorular\". Çocuğunuz artık \"Neden?\", \"Nasıl?\" sorularıyla dünyayı keşfeder. \"Bulut nereye gidiyor?\", \"Karınca nereye koşuyor?\" gibi sorular hem merakını hem de çevresiyle kurduğu mantıksal bağları gösterir. Yanıtlarınızın basit ve onun anlayabileceği bir dilde olması önemlidir."
+  },
+  "6751f01f-eb8d-4bf5-bdeb-fec3d11483e8": {
+   "message": "Duygusal Dayanıklılık: \"Sabır testi\". Çocuğunuz artık istediği bir şey için birkaç dakika beklemesi gerektiğini anlar. \"Şimdi değil, birazdan\" dediğinizde hemen ağlamıyorsa bu, duygularını düzenleme becerisinin geliştiğini gösterir. Sabrettiğini gördüğünüzde onu \"Beklediğin için teşekkür ederim\" diyerek teşvik edin."
+  },
+  "d8ae8173-4cc7-42b0-8737-2bedce267dcb": {
+   "message": "Çocuğunuz artık renkleri ve şekilleri bir araya getirerek dünyayı tarif eder. \"Bana şu sarı kare bloğu ver\" diyorsa bu, beyninin aynı anda birden fazla özelliği işlediğini gösterir. Bu becerisini günlük yaşamda küçük görevlerle (örneğin, \"mavi çoraplarını bul\") destekleyin."
+  },
+  "071b03c5-b7b5-42d1-a970-a44e8e806595": {
+   "message": "Fiziksel gelişimde \"Dinamik denge\". Çocuğunuz artık tek ayağının üzerinde 5 saniyeye kadar durabilir. Bu, vestibüler sistemin ve bacak kaslarının güçlendiğini gösterir. Onunla \"Leylek\" oyunu oynayarak kimin daha uzun süre durabildiğini görün."
+  },
+  "a7ceb34f-04f4-4303-a5f6-fca236e067db": {
+   "message": "Konuşmada \"Neden-sonuç ilişkileri\". Çocuk artık \"Eğer... o zaman...\" türündeki cümleleri anlamaya başlar. \"Eğer oyuncaklarını toplarsan çizgi film izleyebiliriz\" dediğinizde koşulu anlar. Bu, hem mantıksal düşünmenin hem de öz disiplinin gelişmesi için önemli bir adımdır."
+  },
+  "42cc6ea9-d4af-4873-a31f-be87ca7ae22d": {
+   "message": "İnce motor becerilerinde \"Makasla ilk deneyimler\". Çocuk artık kağıdı (güvenli çocuk makasıyla) düz bir çizgi boyunca kesmeye ilgi gösterir. Bu hareket hem el-göz koordinasyonunu hem de parmakların ince motor becerilerini geliştirir. Onu gözetimsiz bırakmayın, ancak özgürce denemesine de engel olmayın."
+  },
+  "b9a0516e-a5fd-46ab-abb8-4e16e305575b": {
+   "message": "Sosyal davranışlarda \"Hayali oyun arkadaşları\". Çocuk artık tek başına oynarken de yüksek sesle konuşur ve oyuncaklarına roller verir. Bu, çocuğun kendi davranışlarını sözcüklerle düzenlemesine yardımcı olur. Bu \"monologlarını\" dinleyerek iç dünyasında neler olup bittiğini anlayabilirsiniz."
+  },
+  "d2594413-54bc-4a0b-857c-1959a2b007b2": {
+   "message": "\"Bağımsız seçim: Karar verme\". Çocuk artık ne yemek istediğini veya hangi oyunu oynayacağını kesin olarak bilir. Ona her gün iki seçenek sunun: \"Elma mı istersin, yoksa muz mu?\". Bu, kendi hayatı üzerinde kontrol sahibi olduğunu hissetmesini sağlar ve öz güvenini artırır."
+  },
+  "c2c7f4f2-7e4e-4f22-9785-bdddbd705503": {
+   "message": "Bilişsel gelişimde \"Hacim ve miktarın korunumu\". Çocuk, küçük ve uzun bir kaptaki suyun geniş bir kaptaki sudan daha fazla olduğunu düşünebilir. Bu, bu yaş için normaldir. Onunla su oyunları oynayarak suyu farklı kaplara boşaltın. Bu, deneyim yoluyla mantıksal kavrayışının gelişimini hızlandırır."
+  },
+  "3c4e0869-e516-493c-90a9-df3b2f2e738b": {
+   "message": "Fiziksel koordinasyon: \"İki ayakla ileri sıçrama\". Çocuk artık engellerin (örneğin yerdeki bir ipin) üzerinden iki ayağıyla aynı anda atlayabilir. Bu, tüm vücudun koordinasyonunu gerektirir. Onun için güvenli alanlarda küçük engel parkurları oluşturun."
+  },
+  "d719015d-011e-40f6-8ffa-5cdcb4302e71": {
+   "message": "Konuşmada \"Soyut zaman kavramı\". Çocuk artık \"Sabah\", \"Öğle\" ve \"Akşam\" arasındaki farkları rutinler aracılığıyla kavrar. \"Akşam baban geldiğinde...\" dediğinizde günün o zaman dilimini zihninde canlandırır. Günlük rutininize bağlı kalmanız, bu zaman kavramını güven duygusuyla ilişkilendirmesine yardımcı olur."
+  },
+  "c8c25e23-7ba2-4ee9-a363-3be20d076417": {
+   "message": "Duygusal Olgunluk: \"Özür dilerim\" sözünün anlamı. Çocuk artık bilerek veya bilmeyerek birini incittiğinde \"Özür dilerim\" demenin sosyal önemini anlar. Ona her zaman örnek olun; siz hata yaptığınızda ondan özür dileyin ki o da bu davranışı güçlü bir karakter özelliği olarak benimsesin."
+  },
+  "d67be23e-c203-4809-a7a3-cbfd66266b55": {
+   "message": "Çocuğunuz artık resimlere bakarak basit hikâyeler uydurabiliyor. \"Ayı ormana gitti, acıktı ve bal yedi\" gibi birbiriyle bağlantılı cümleler kurması, olayların mantıksal sırasını kavradığını gösterir. Ona ilgi çekici resimleri olan kitaplar verin ve \"Sence bundan sonra ne olacak?\" diye sorun. Bu, onun yaratıcı hayal gücünü en üst düzeye çıkarır."
+  },
+  "7b344d73-ef09-40bc-8962-14de04d0a9d1": {
+   "message": "Fiziksel hareketlilikte \"Merdiven bağımsızlığı\". Çocuğunuz artık basamakları ayak değiştirerek, yalnızca bir elinden tutulduğunda (ya da hiç destek almadan) güvenle inebiliyor. Bu, kaba motor becerilerinin iyice geliştiğini gösterir. Sizin yalnızca yanında bulunarak ona manevi destek vermeniz yeterlidir."
+  },
+  "728c62de-e9bd-4825-a015-839c4ef09ac4": {
+   "message": "Konuşmada \"Soru-Cevap zinciri\". Çocuğunuz artık sorularınıza yalnızca \"evet/hayır\" şeklinde değil, tam cümlelerle yanıt veriyor. \"Bugün parkta kiminle oynadın?\" sorusuna ayrıntılı cevap verebilir. Onunla konuşurken \"O ne renkti?\", \"Neler yaptınız?\" gibi devam soruları sorarak konuşma gelişimini destekleyin."
+  },
+  "1e2db868-b348-4ed1-a7d7-4e1b235065d6": {
+   "message": "İnce motor becerilerinde \"Daha özenli boyama\". Çocuğunuz artık küçük şekillerin sınırlarını da fark ediyor ve boyama yaparken çizgilerin dışına fazla çıkmamaya çalışıyor. Bu, el kaslarının kontrolünde önemli bir ilerlemedir. Ona farklı kalınlıklarda boya kalemleri vererek denemeler yapmasına fırsat tanıyın."
+  },
+  "d0289832-2e1f-4c80-bf6f-025f04fde8c3": {
+   "message": "\"Bağımsız giyinme: Fermuar ve Düğme\". Çocuğunuz artık büyük düğmeleri açabiliyor ve fermuarın ucu yerleştirildikten sonra fermuarı yukarı çekebiliyor. Ona \"Haydi, kendin dene\" deyip sabırla bekleyin. Kendi başına giyinebilmesi, çocukta \"Ben yapabilirim\" duygusunu ve özgüveni büyük ölçüde artırır."
+  },
+  "8b0e05af-2727-418a-b763-3601d197e7d0": {
+   "message": "Sosyal davranışta \"Paylaşmanın mantığı\". Çocuğunuz artık başka bir çocuğun elindeki oyuncağı hemen almak yerine \"ver\" diyerek beklemeye çalışıyor. Bu, öz düzenleme (self-regulation) becerisinin güçlendiğini gösterir. Bu sabırlı davranışını gördüğünüzde onu mutlaka \"Sıranı beklediğin için çok teşekkür ederim\" diyerek takdir edin."
+  },
+  "cfa7be75-1286-4575-9a59-47547f98434d": {
+   "message": "Bilişsel gelişimde \"Genel ve Özel\". Çocuğunuz artık elma, armut ve muzun hepsinin \"meyve\" olduğunu anlıyor. Ona farklı nesneler gösterin ve \"Bunların hepsine birden ne diyoruz?\" diye sorun. Kategoriler hâlinde düşünmek, beynindeki bilgi depolama sisteminin daha düzenli olmasını sağlar."
+  },
+  "7ccd147e-b878-45ff-a8c8-f2d12fac2b06": {
+   "message": "Fiziksel koordinasyon: \"Topu omuz üzerinden atma\". Çocuğunuz artık topu yalnızca yere bırakmıyor; omzunun üzerinden ileriye, belirli bir hedefe doğru atabiliyor. Bu hareket tüm vücut koordinasyonunu gerektirir. Onunla parkta \"hedefe atma\" oyunları oynayın."
+  },
+  "d6a03598-2471-4b13-a839-fb2c51010318": {
+   "message": "Konuşmada \"Mekân ve Yön\". Çocuğunuz \"sağ\" ve \"sol\" kavramlarını henüz tam olarak ayırt edemese de \"ileri\", \"geri\", \"yukarı\" ve \"aşağı\" komutlarını eksiksiz yerine getirir. Onunla \"Robot oyunu\" oynayın: \"İki adım ileri, bir adım geri!\". Bu oyun hem eğlencelidir hem de mekânsal yön bulma becerisini güçlendirir."
+  },
+  "b7ab015d-a4e4-4c1d-a9a5-7f26c5798a69": {
+   "message": "Duygusal Dayanıklılık: \"Başarısızlıkla başa çıkma\". Çocuğunuz artık küpleri devrildiğinde hemen ağlamıyor, \"Yeniden yapacağım\" diyebiliyor. Bu mücadeleci ruhunu destekleyin. 1130 günü geride bıraktık – çocuğunuz artık küçük bir kahraman!"
+  },
+  "ff1dcdb3-fd81-4345-80ce-058e6b7a0d6b": {
+   "message": "Çocuğunuz artık nesneleri aynı anda iki özelliğe göre (örneğin hem renklerine hem de şekillerine göre) ayırabilir. Ona \"Bana bütün küçük kırmızı arabaları ver\" dediğinizde bunu yapabiliyorsa, bu bilişsel gelişiminde yeni bir seviyeye ulaştığını gösterir. Günlük ev işlerinde ona bu tür küçük \"seçme\" görevleri verin."
+  },
+  "5d8b4009-8971-48b6-aa55-75a96a823d2d": {
+   "message": "Fiziksel hareketlilikte \"Hedefe atlama\". Çocuğunuz artık yere çizilmiş bir dairenin veya renkli bir hedefin ortasına atlamaya çalışır. Bu, hem denge hem de mekânsal mesafeyi hesaplama becerisini geliştirir. Parkta onunla \"taştan taşa atlama\" oyunu oynayın."
+  },
+  "18232b0a-482a-40e1-90c7-8a04a56dc3b9": {
+   "message": "Konuşmada \"Zıt anlamlı kelimelerin çeşitlenmesi\". Çocuğunuz artık \"erken-geç\", \"karanlık-aydınlık\", \"boş-dolu\" gibi soyut karşıtlıkları anlar. Ona boş ve dolu birer bardak gösterip aralarındaki farkı sorun. Bu, çevresindeki dünyayı karşılaştırmalı olarak analiz etme becerisini güçlendirir."
+  },
+  "3045e148-b927-4872-8354-b9edb5116d18": {
+   "message": "İnce motor becerilerinde \"Puzzle ustalığı\". Çocuğunuz artık 10-12 parçalı karmaşık puzzle'ları (resmin kenar ve orta kısımlarını ayırt ederek) tamamlayabilir. Bu, hem görsel hafızayı hem de parmakların ince hareket becerisini geliştirir. Yapamadığında ona sakin bir ses tonuyla ipuçları verin."
+  },
+  "5fed215f-7140-471a-887f-855f666792ab": {
+   "message": "\"Bağımsız temizlik ve yardım\". Çocuğunuz artık sofrayı toplarken kendi tabağını götürmek ve kırıntıları silmek gibi işleri büyük bir hevesle yapar. Ona boyuna uygun temizlik malzemeleri verin. Bu, aile içinde sorumluluk ve aidiyet duygusunu güçlendirir. Kendi emeğinin sonucunu görmek onu çok mutlu eder."
+  },
+  "ad322e7c-2c29-48c7-ba0d-376889e0bc86": {
+   "message": "Sosyal davranışta \"Kurallar ve Sınırlar\". Çocuğunuz artık \"hayır\" kelimesinin arkasındaki mantığı biraz daha iyi anlıyor, ancak yine de sınırları zorlamayı seviyor. Sizin sabırlı ve tutarlı olmanız ona güven duygusu verir. Kuralları her zaman aynı şekilde uygulamaya çalışın."
+  },
+  "ccdeb036-ba4e-49c8-960c-f4271e0fc740": {
+   "message": "Bilişsel gelişimde \"Sıra sayıları\". Çocuk artık \"birinci\", \"ikinci\", \"sonuncu\" kavramlarını anlıyor. Arabaları arka arkaya dizip \"Hangi araba birinci?\" diye sorun. Bu, sıralama becerisini ve matematiksel mantığını geliştirir. Yarışlarda \"Birinci siz geldiniz!\" demeniz onun için büyük bir motivasyon kaynağıdır."
+  },
+  "53f08fbe-8240-4c06-91f5-3a6645fa77af": {
+   "message": "Fiziksel koordinasyon: \"Geri geri ve yan yana yürüme\". Çocuk artık farklı yönlerde çevik bir şekilde hareket edebiliyor. Onunla \"Ayna oyunu\" oynayın: Siz yana doğru bir adım atın, o da sizi taklit etsin. Bu hem eğlencelidir hem de vücut koordinasyonunu yeni bir seviyeye taşır."
+  },
+  "ca368c4f-966b-4846-b9ca-ff68822b1eca": {
+   "message": "Dil gelişiminde \"Soyut soruların derinleşmesi\". Çocuk, \"Bulutlar nereye gidiyor?\", \"Yıldızlar neden gece çıkıyor?\" gibi sorularla sizi şaşırtabilir. Yanıt verirken onun hayal gücünü de harekete geçirin: \"Sence yıldızlar şimdi ne yapıyor?\". Bu, onun yaratıcı düşünme becerisini besler."
+  },
+  "706c863b-0328-4280-9ae2-b61f0dddff18": {
+   "message": "Duygusal Dayanıklılık: \"Paylaşmanın sevinci\". Çocuk artık oyuncağını veya şekerlemesini gönüllü olarak paylaştığında sizin sevincinizi görür ve bunu yeniden yapmak ister. \"Arkadaşını sevindirdiğin için çok teşekkür ederim\" diyerek onun bu cömertliğini özellikle vurgulayın. 1140 günü başarıyla tamamladık – siz harika bir annesiniz!"
+  },
+  "0f30e0b2-fa18-4fe2-8164-072ae2911569": {
+   "message": "39. aya adım atıyoruz! Çocuk artık \"iki aşamalı\" düşünmeden \"üç aşamalı\" yönergeleri uygulamaya geçiyor. \"Oyuncağı al, kutuya koy ve kapağını kapat\" dediğinizde sıralamayı bozmadan yapabiliyorsa bu, çalışma belleği (working memory) açısından büyük bir başarıdır. Gün boyunca ona küçük ve mantıklı, birbirini takip eden görevler vererek bu becerisini geliştirin."
+  },
+  "c69b10fa-3ecf-43fd-9d25-d70589994cb8": {
+   "message": "Fiziksel hareketlilikte \"Hızlı koşma ve manevra\". Çocuk artık koşarken önündeki engeli gördüğünde hızını azaltmadan etrafından dolaşabiliyor. Bu, beden farkındalığının (proprioception) tamamen geliştiğini gösterir. Parkta \"engelli koşu\" yarışları düzenleyerek enerjisini faydalı bir yöne yönlendirin."
+  },
+  "10874a8b-618a-44ed-9a23-9c2c3bcf6530": {
+   "message": "Dil gelişiminde \"Karşılaştırma dereceleri\". Çocuk artık \"daha büyük\", \"en küçük\", \"çok lezzetli\" gibi ifadeleri doğru yerlerde kullanıyor. Nesneleri karşılaştırarak onunla sohbet edin: \"Bu elma mı daha tatlı, yoksa diğeri mi?\". Sıfatların bu derecelerini öğrenmesi, betimleyici anlatımını zenginleştirir ve düşüncelerini daha net ifade etmesini sağlar."
+  },
+  "8ef81138-3a54-4c5e-ab33-5ab135be888d": {
+   "message": "İnce motor becerilerinde \"Heykel yapımı\". Çocuk artık oyun hamuru veya kinetik kumla oynarken bunları yalnızca sıkmakla kalmıyor, \"top\", \"yılan\" veya \"ekmek\" gibi tanınabilir şekiller de yapıyor. Bu, hem yaratıcı düşünme becerisi hem de parmak uçlarındaki küçük kasların güçlenmesi için harika bir egzersizdir."
+  },
+  "0d252040-b7cf-42d1-8e5c-b4a1ea436608": {
+   "message": "\"Bağımsız giyinme: Giysilerin önünü arkasını ayırt etme\". Çocuğunuz artık tişörtün veya pantolonun önünü arkasını, ayakkabıların sağını solunu (bazen hata yapsa da) ayırt etmeye çalışır. Ona küçük ipuçları verin: \"Bak, resimli taraf öne geliyor\". Bu, ayrıntılara odaklanma ve öz bakım becerilerini geliştirir."
+  },
+  "b59f81d2-048d-48f5-8c51-231cd1498118": {
+   "message": "Sosyal davranışta \"Takım ruhu\". Çocuğunuz artık diğer çocuklarla ortak bir hedef doğrultusunda (örneğin büyük bir kale yapmak için) birlikte oynayabilir. Bu, \"Paralel oyun\"dan \"İş birlikçi oyun\"a geçiştir. Diğer çocuklarla nasıl iletişim kurduğunu gözlemleyin ve zorlandığı anlarda sosyal bir \"köprü\" kurmasına yardımcı olun."
+  },
+  "5b8b658c-3ba9-46dd-b7e1-a329bde32c59": {
+   "message": "Bilişsel gelişimde \"Rakam ve miktar eşleştirmesi\". Çocuğunuz 1'den 5'e kadar saymayı biliyor; artık \"3\" rakamını gördüğünde 3 oyuncağı ayırıp bir yere koyabilir. Bu, matematiksel düşünmenin en önemli aşamalarından biridir. Günlük yaşamda \"Bana 2 kaşık ver\" gibi görevlerle bu bağlantıyı güçlendirin."
+  },
+  "9cbfafe8-e2d3-4b4c-a7dd-a7d50a0d73a4": {
+   "message": "Fiziksel koordinasyon: \"Yukarıdan atılan topu yakalama\". Çocuğunuz artık kendisine doğru yavaşça atılan büyük bir topu iki eliyle yakalamaya çalışır. Bu hareket hem el-göz koordinasyonu hem de tepki hızı gerektirir. Onunla yakın mesafeden \"at-tut\" oyunu oynayın."
+  },
+  "be40f099-56c3-42b3-90d0-8aec32c8e2ca": {
+   "message": "Konuşmada \"Soyut soruların zirvesi\". Çocuğunuz artık \"Rüzgâr neden esiyor?\", \"Güneş uyumaya nereye gidiyor?\" gibi yaşam ve doğa olaylarıyla ilgili sorular sorar. Yanıt verirken hayal gücünü de işin içine katın: \"Güneş yoruldu, yarın bizi yeniden uyandırmak için dinlenmeye gidiyor\". Bu, onun dünya görüşünü ve öğrenme isteğini besler."
+  },
+  "28850826-f8da-4cde-a0f3-c10d2981e7f4": {
+   "message": "Duygusal olgunluk: \"Başkasının duygularını kabul etme\". Çocuğunuz artık sizin yorgun olduğunuzu veya başka bir çocuğun canının yandığını gördüğünde \"Ne oldu?\" diye sorar ve teselli etmeye çalışır. Bu, onun şefkatli bir birey olarak geliştiğini gösterir. Siz harika bir annesiniz!"
+  },
+  "3d0a961f-8311-4c15-82e4-3b93885267b5": {
+   "message": "Çocuğunuz artık \"ben\" ve \"benim\" kavramlarını sosyal ortamda sınamaya başlar. Oyuncağını paylaşmak istememesi, bencillikten çok kendi sınırlarını belirleme çabasıdır. Ona \"Bu senin oyuncağın, hazır olduğunda arkadaşına verebilirsin\" diyerek sahiplik duygusuna saygı duyduğunuzu gösterin. Bu, gelecekte başkalarının sınırlarına da saygı gösterme becerisi kazanmasına yardımcı olur."
+  },
+  "0680b361-8e77-46ad-a0ea-0e96e9759bdc": {
+   "message": "Fiziksel hareketlilikte \"Yüksekten atlama\". Çocuğunuz artık alçak bir basamaktan veya bir yükseltinin üzerinden iki ayağıyla aynı anda yere atlamayı sever. Bu hareket, vestibüler sisteminin gelişimi için önemlidir. Yere yumuşak bir minder koyarak bu cesaretini güvenli bir şekilde destekleyin."
+  },
+  "e7723585-78f9-489b-95f6-9d306c6417b7": {
+   "message": "Konuşmada \"Gelecek zamanın netleşmesi\". Çocuk artık sadece \"gideceğiz\" demekle kalmaz, \"Yarın büyükanneme gidip kediyle oynayacağız\" gibi sıralı planlar kurar. Günün sonunda onunla ertesi günün planlarını konuşun. Bu, olayları önceden zihninde canlandırma ve planlama (yürütücü işlev) becerisini geliştirir."
+  },
+  "23c81011-ddf7-4cf3-aec3-f115d29c3f5e": {
+   "message": "İnce motor becerilerde \"Daha karmaşık şekiller\". Çocuk artık kalemi ustaca (üç parmak tutuşuyla) kavrar ve kağıda üçgen çizmeye veya kesişen çizgiler oluşturmaya çalışır. Bu, el kaslarının yazı yazmaya neredeyse hazır olduğunu gösterir. Ona \"Haydi, noktaları birleştirelim\" oyununu önerin."
+  },
+  "94615e85-6da2-44c7-a201-6901c2a92ddf": {
+   "message": "\"Bağımsız hijyen: Diş fırçalama\". Çocuk artık dişlerini fırçalarken izlemesi gereken adımları bilir. Sonunda hâlâ \"kontrol\" etmeniz gerekse de bu işi kendi başına yapmasına izin verin. Bu alışkanlık, kendi bedenine özen gösterme sorumluluğunu geliştirir."
+  },
+  "d70b5fda-77b6-4fb1-bc69-d894fe21ca89": {
+   "message": "Sosyal davranışta \"Hayali hikayeler ve Yalan\". Çocuk bazen gerçek olmayan şeyler anlatabilir (örneğin, \"Gökyüzünde uçtum\"). Bu, kandırma amacı taşımaz; hayal gücünün konuşmayla bütünleşmesidir. Ona \"Ne ilginç bir hikaye!\" diyerek hayal gücünü takdir edin, ancak gerçek ile hayal arasındaki ince farkı da nazikçe açıklayın."
+  },
+  "164e0d4f-5849-466c-88ec-e6961c6d0680": {
+   "message": "Bilişsel gelişimde \"Kategorilerin ayrıntılanması\". Çocuk artık nesneleri yalnızca \"araba\" olarak değil, \"hızlı araba\", \"kamyon\" gibi alt gruplara ayırır. Ona \"Hangi nesneler suda yüzer, hangileri batar?\" deneyini önerin. Bu, bilimsel gözlem becerisinin temelini oluşturur."
+  },
+  "c019ed6e-efde-47c2-b2ac-37c3fbd433b5": {
+   "message": "Fiziksel koordinasyon: \"Topu ayakla yönlendirme\". Çocuk artık sadece topa vurmaz, ayağıyla biraz ileri iterek onu hareket ettirmeye çalışır. Bu, dinamik denge için harika bir egzersizdir. Onunla parkta küçük bir \"futbol parkuru\" oluşturun."
+  },
+  "0b5835ed-17d3-46e9-b2cd-eb9c92154c53": {
+   "message": "Konuşmada \"Sıfat çeşitliliği\". Çocuk nesneleri tarif ederken \"yumuşak\", \"dikenli\", \"pürüzsüz\", \"parlak\" gibi kelimeler kullanmaya başlar. Onunla \"Dokun ve bul\" oyununu oynayın: Gözlerini kapatıp nesneye dokunduğunda nasıl hissettirdiğini anlatmasını isteyin."
+  },
+  "95ef23e6-3a1e-4eb7-bed7-103fc452a1e2": {
+   "message": "Duygusal dayanıklılık: \"Başkalarına yardım etme\". Çocuk artık bir işi yapmakta zorlandığınızı veya bir şey aradığınızı fark edip yardım önerebilir. Bu, benmerkezci dönemden çıkıp gerçek bir \"sosyal partnere\" dönüştüğünü gösterir. Yardımının önemini \"Sen olmasaydın bunu bulamazdım\" diyerek özellikle vurgulayın."
+  },
+  "602eea29-96df-4d75-b3f3-a89b088efbe3": {
+   "message": "Çocuğunuz artık \"sonuç\" odaklı düşünmeye başlıyor. Örneğin, \"Şeker yersem dişlerim ağrıyabilir\" gibi neden-sonuç ilişkilerini sizin hatırlatmanızla anlamaya çalışıyor. Bu dönemde ona kuralların nedenlerini açıklamak çok önemlidir. Bu, çocuğunuzun körü körüne itaat etmesini değil, içsel mantığa dayanan bir disiplin geliştirmesini sağlar."
+  },
+  "5465b5ac-4749-433f-99e1-222fda8c10bf": {
+   "message": "Fiziksel hareketlilikte \"Dinamik Denge\". Çocuğunuz artık yere çizilmiş düz bir çizgi veya ip üzerinde dengesini kaybetmeden bir \"cambaz\" gibi yürüyebilir. Bu, vestibüler sisteminin tamamen olgunlaştığını gösterir. Parkta kaldırım kenarlarının üzerinde elinden tutarak yürümeniz, bu becerisini daha da geliştirmesine yardımcı olur."
+  },
+  "7607f78f-a199-4155-af72-552bbd09b140": {
+   "message": "Konuşmada \"Olayların ayrıntıları\". Çocuğunuz artık gün içinde yaşadığı bir olayı 4-5 ardışık cümleyle anlatabilir. \"Bugün parka gittik, Elcan'ı gördüm, kumda oynadık\". Onun hikâyelerini dikkatle dinleyin ve \"Sonra ne oldu?\" diyerek diyaloğu genişletin. Bu, sözel hafızasını ve konuşma akıcılığını geliştirir."
+  },
+  "ead2dac9-db7b-47ae-9b92-23aa29cddd39": {
+   "message": "İnce motor becerilerinde \"Dairelerden sembollere\". Çocuğunuz artık kapalı daireler çizebilir ve bunları bir \"insan\" (çöp adam) olarak betimlemek için altlarına çizgiler ekleyebilir. Bu, görsel sembolizmin başlangıcıdır. Ona renkli kalemler verip \"Bugün kimin resmini çiziyorsun?\" diye sorarak hayal gücünü destekleyin."
+  },
+  "24f54158-6d74-423e-b96c-5270e549d121": {
+   "message": "\"Bağımsız giyinme: Düğme ve Fermuar\". Çocuğunuz artık büyük düğmeleri iliklemeye ve fermuarını tek başına kapatmaya heveslidir. Bu, parmaklardaki küçük kasların koordinasyonunu gerektirir. Sabahları giyinirken bu süreci kendi başına tamamlayabilmesi için ona 5 dakika daha verin. Bunu kendi başına başardığında hissettiği gurur paha biçilemez."
+  },
+  "97f18e0c-30d0-42a5-aa90-ac6015233d99": {
+   "message": "Sosyal davranışta \"Sıra bekleme ve Sabır\". Çocuğunuz artık salıncağa binmek için diğer çocuğun inmesini beklemesi gerektiğini anlıyor. \"Sıra sende\" ve \"Sıra bende\" kavramları, sosyal ortamlardaki anlaşmazlıkları azaltır. Gösterdiği sabrı mutlaka \"Sıranı beklediğin için çok teşekkür ederim\" diyerek takdir edin."
+  },
+  "6e61f63b-18f2-4f84-b98e-0d07b524e3e9": {
+   "message": "Bilişsel gelişimde \"Miktar algısı\". Çocuğunuz 1'den 10'a kadar saymanın yanı sıra artık 3 veya 4 nesnenin sayısını saymadan, bir bakışta anlayabilir (subitizing). Ona \"Burada kaç elma var?\" diye sorun ve parmağıyla göstererek saymasını isteyin. Bu, gelecekteki matematiksel düşünme becerisinin temelidir."
+  },
+  "eb5816aa-f53e-4699-abf2-d1ff0b98f5f9": {
+   "message": "Fiziksel koordinasyon: \"Topu iki elle yakalama\". Çocuğunuz artık kendisine doğru yavaşça atılan topu kollarını büküp ellerini göğsünde birleştirerek yakalamaya başlıyor. Bu, tepki hızının ve el-göz koordinasyonunun geliştiğini gösterir. Evde yumuşak bir topla kısa \"at-yakala\" etkinlikleri yapın."
+  },
+  "3281647e-af83-48c8-9e0e-9deebd826a8f": {
+   "message": "Bilişsel gelişimde \"Yükseklik ve Uzunluk karşılaştırması\". Çocuk artık nesneleri yüksekliklerine göre sıralayabilir. Ona 3-4 farklı boyutta oyuncak verin ve \"En uzundan en kısaya doğru sırala\" deyin. Bu, görsel algısını ve mantıksal sıralama becerisini geliştirir."
+  },
+  "533647bf-c77f-434e-8420-bd22239f3086": {
+   "message": "Konuşmada \"Zaman ve Sıralama\". Çocuk artık \"Yarın anneanneme gideceğiz, sonra ben parka gideceğim\" gibi geleceğe yönelik planlar kurar. Bu, zihninde olayları önceden canlandırma (görselleştirme) becerisinin geliştiğini gösterir. Günün sonunda onunla yarının planlarını bir \"masal\" gibi konuşarak uykuya dalın."
+  },
+  "fe96ce06-9654-4a3f-8b50-d93363f0cbca": {
+   "message": "Duygusal dayanıklılık: \"Sabır ve Bekleme\". Çocuk artık birkaç dakika sıra beklemenin \"son\" olmadığını, yalnızca geçici bir durum olduğunu anlar. Bu, öz yönetim (yürütücü işlev) becerisinin geliştiğini gösterir. 1180 gün – çocuğunuz artık dünyayı anlayan ve ona uyum sağlayan küçük bir birey. Siz harika bir yol arkadaşısınız!"
+  },
+  "4f2b9702-c295-43cf-9776-2d9fd4b98c79": {
+   "message": "Çocuk artık kendisini fiziksel özellikleriyle tanımlar: \"Ben hızlı koşarım\" veya \"Ben uzunum\". Bu, öz farkındalık sürecinin yeni bir aşamasıdır. Onun bu olumlu benlik algısını destekleyin. Kendisini nasıl gördüğü hakkında sorular sorun: \"Sence, başka neleri iyi yapıyorsun?\"."
+  },
+  "63d363dc-9356-4fa8-bbd3-57a0c8ed1083": {
+   "message": "Fiziksel hareketlilikte \"Dinamik sıçrama\". Çocuk artık koşarken önüne çıkan küçük bir engelin (örneğin yerdeki bir ipin) üzerinden hızını azaltmadan atlayabilir. Bu, beyinde hareketi önceden planlama (motor planlama) becerisinin geliştiğini gösterir."
+  },
+  "fda8c637-494b-4891-b635-d2a91f4dbd7b": {
+   "message": "Konuşmada \"Amaçlı sorular\". Artık yalnızca \"Bu nedir?\" değil, \"Bu nasıl çalışır?\" diye de sorar. Nesnelerin iç mekanizmalarına ilgi gösterir. Cevap verirken konuyu çok karmaşıklaştırmayın, ancak mantıksal sırayı koruyun. Bu sorular, gelecekteki bilimsel düşüncenin ilk kıvılcımlarıdır."
+  },
+  "c2392a7c-85eb-4d9e-aff3-15371b541a80": {
+   "message": "İnce motor becerilerinde \"Şekil kombinasyonları\". Çocuk artık yalnızca daire çizmekle kalmaz, daireleri birleştirerek \"tırtıl\" veya \"kardan adam\" yapar. Bu, görsel sembolleri birleştirerek yeni anlamlar oluşturma becerisini gösterir."
+  },
+  "6c159ac6-63d6-41de-9c9e-e48fdddeeaef": {
+   "message": "Konuşmada \"Soyut kavramlar: Zaman\". Çocuk henüz \"Saat kaç?\" sorusunu anlamasa da \"yarın\", \"dün\", \"sonra\" gibi sözcükleri doğru yerde kullanmaya çalışır. Ona zamanı rutinlerle açıklayın: \"Uyuyup uyandığında yarın olacak\". Bu, dünyayı daha düzenli ve öngörülebilir görmesine yardımcı olur."
+  },
+  "487ce40e-d1a5-42bb-ab35-fd94c37e1b74": {
+   "message": "Duygusal dayanıklılık: \"Başarısızlıktan korkmama\". Çocuk artık bir şeyi (örneğin küplerden kule yapmayı) başaramadığında hemen ağlamaz; size bakıp \"Yeniden yapayım mı?\" diyebilir. Sonucu değil, çabasını övün: \"Çok uğraştın ve yeniden denedin, aferin!\". Siz harika bir yol arkadaşısınız!"
+  },
+  "72c6a670-175e-4e59-a40a-08a5b3924e43": {
+   "message": "Çocuk artık duygularını daha karmaşık bir şekilde ifade eder: \"Oyuncağım kırıldığı için üzgünüm\". Bu, duygusal zekâ açısından büyük bir sıçramadır. Onun duygularını yalnızca kabul etmekle kalmayın, çözüm önermesine de fırsat verin: \"Sence onu nasıl tamir edebiliriz?\". Bu, çocuğun psikolojik dayanıklılığını (resilience) da geliştirir."
+  },
+  "7ad7a096-5914-4eed-80cb-8089f672c249": {
+   "message": "Fiziksel hareketlilikte \"Yana sıçrama\". Çocuk artık yalnızca ileriye değil, yana doğru da sıçrayabilir. Bu, kalça ve bacak kaslarının farklı yönlerde koordineli çalışmasını gerektirir. Onunla birlikte yere çizilmiş çizgilerin üzerinden \"yana doğru sıçrama\" yarışı yapın."
+  },
+  "2b8c7b62-f908-41ef-8972-07466c4a7bd0": {
+   "message": "Konuşmada \"Zamirlerin tamamen öğrenilmesi\". Çocuk artık \"benim\", \"senin\", \"onun\" kavramlarını hiç karıştırmaz. \"Bu benim oyuncağım, şu da senin\" diyerek sosyal mülkiyet sınırlarını belirler. Bu dönem, ona ortak kullanılan eşyalarla (örneğin aile kitabı) kişisel eşyalar arasındaki farkı açıklamak için harika bir zamandır."
+  },
+  "bd356611-73c3-4619-9883-1f920ac53fa9": {
+   "message": "İnce motor becerilerinde \"Simetri denemeleri\". Çocuk kâğıdı katlamaya veya çizdiği resimdeki ayrıntıları simetrik biçimde yerleştirmeye çalışır. Örneğin çizdiği insanın iki tarafına da kulak veya el ekler. Bu, beynin iki yarım küresinin koordineli gelişiminin bir göstergesidir."
+  },
+  "a07fbd02-0c2f-49de-ba5e-43f31c0bcc20": {
+   "message": "\"Bağımsız sofra alışkanlığı\". Çocuk artık çatalı ustalıkla kullanır ve bıçakla (güvenli bir çocuk bıçağı) yumuşak yiyecekleri (örneğin muz veya omlet) kesmeye çalışır. Ona bu özgürlüğü tanıyın. Kendi ihtiyaçlarını karşılayabilme duygusu, özgüvenini içten güçlendirir."
+  },
+  "e172dbdc-63ea-4b2b-afac-30588be411eb": {
+   "message": "Sosyal davranışta \"Kurallı Oyunlar\". Çocuk artık \"Saklambaç\" veya \"Kovalamaca\" gibi basit kuralları olan oyunları kuralları bozmadan oynamaya ilgi gösterir. Bu, sosyal uyumun önemli bir aşamasıdır. Kurallara uyduğunda onu mutlaka \"Dürüst oynadığın için aferin\" diyerek övün."
+  },
+  "1c3607b2-8132-49bc-b9ba-d3f310a2378b": {
+   "message": "\"Siyasi\" görüşmeler. Çocuğunuz artık sizinle \"pazarlık\" yapıyor: \"Oyuncağımı toplarsam bana bir masal daha okur musun?\". Bu, sosyal etkileme mekanizmalarını öğrenmeye başladığını gösterir. Bu \"görüşmelerde\" adil olun, ancak temel kurallarınızı koruyun."
+  },
+  "74c3e2b6-b59d-47f7-ac39-b3a6571a3f4e": {
+   "message": "Sosyal davranışta \"Hayali senaryolar\". Artık oyunlar daha karmaşık: \"Ben aşçıyım, sen de müşterisin, bana para vermelisin\". Bu oyunlarda çocuk, toplumdaki rolleri ve ekonomik ilişkileri deneyimler. Onun senaryolarına uyum sağlayarak bu yaratıcı süreci destekleyin."
+  },
+  "78693b6d-347d-4486-94dc-37e920221a4d": {
+   "message": "Bilişsel gelişimde \"Nesnelerin işlevi\". Çocuğunuz artık nesneleri yalnızca görünüşlerine göre değil, işlevlerine göre de gruplandırıyor. \"Bunlar kesmeye yarayan araçlar (makas, bıçak)\", \"Bunlar ise yazmaya yarayan araçlar\". Bu, zihnindeki bilgi birikiminin daha sistemli ve işlevsel hâle geldiğini gösterir."
+  },
+  "cc0be0ea-ed32-4ad7-a00e-446a9d717d47": {
+   "message": "Fiziksel koordinasyon: \"Merdivenlerde bağımsızlık\". Çocuğunuz artık basamakları ayak değiştirerek ve neredeyse hiçbir yere tutunmadan güvenle çıkıyor. Bu, hem denge becerisinin hem de bacak kaslarının gücünün en üst düzeye ulaştığını gösterir."
+  },
+  "1172f061-c7e1-4517-8b34-e51a76cdf51e": {
+   "message": "Konuşmada \"Çünkü\" dönemi. Çocuğunuz davranışlarını gerekçelendirmeye çalışıyor: \"Bunu giymiyorum, çünkü bana batıyor\". Onun bu \"çünkü\"lerini dinleyin. Bu, kendi ihtiyaçlarını ve rahatsızlıklarını mantıklı bir şekilde ifade etme becerisini güçlendirir."
+  },
+  "e58983bd-cd78-4d0a-8590-e07b73fa9e05": {
+   "message": "Duygusal dayanıklılık: \"Başkasının başarısına sevinmek\". Çocuğunuz artık sizin veya bir arkadaşının başarısını (örneğin, oyunu kazanmasını) gördüğünde \"Aferin!\" diyebiliyor. Bu, benmerkezciliğin (yalnızca kendini düşünme) azalmasının ve başkalarının sevincini paylaşmanın başlangıcıdır. Siz harika bir birey yetiştiriyorsunuz!"
+  },
+  "8335f345-0d57-482d-b821-779e730295ca": {
+   "message": "Çocuğunuz artık \"Neden?\" sorularını yalnızca cevap almak için değil, neden-sonuç ilişkisini anlamak için soruyor. \"Yapraklar neden yere düşüyor?\" gibi doğa olaylarına ilgisi artıyor. Ona basit ve bilimsel gerçeklere dayanan cevaplar verin. Bu, çevresindeki dünyaya karşı analitik bir bakış geliştirmesini sağlar."
+  },
+  "00cce1f4-ca47-462d-b84a-6205502d4f13": {
+   "message": "Fiziksel hareketlilikte \"Usta Denge\". Çocuğunuz artık dar bir patikada veya yere serilmiş bir ipin üzerinde dengesini koruyarak güvenle yürüyebiliyor. Bu, vestibüler sistem gelişiminin ileri bir aşamasıdır. Evde onunla \"İp Cambazı\" oyunu oynayarak hareketlerinin hassasiyetini artırın."
+  },
+  "be82050e-9ad6-486e-9d98-a2c2c31a243e": {
+   "message": "41. aya hoş geldiniz! Bu dönemde çocuğun \"niyet\" kavramı şekillenir. Artık olayların kazara mı yoksa bilerek mi gerçekleştiğini ayırt etmeye başlar. Örneğin, biri ona dokunduğunda \"Bunu bilerek mi yaptın?\" diye sorabilir. Bu, sosyal ilişkilerde dürüstlüğü ve niyeti anlamak açısından önemli bir aşamadır."
+  },
+  "59f9bda8-ddf4-49be-ad49-7ae815287273": {
+   "message": "Fiziksel hareketlilikte \"Tek ayak üzerinde zıplama\". Çocuk artık tek ayağı üzerinde art arda birkaç kez zıplamayı dener. Bu, hem güç hem de ileri düzeyde denge gerektirir. Parkta onunla \"tek ayak yarışı\" oynayarak bu becerisini destekleyin."
+  },
+  "b5dc9cdd-e5bc-4c21-ba9e-2e9fe7dbdaee": {
+   "message": "Konuşmada \"Mantıksal bağlaçlar\". Çocuk artık \"ama\", \"çünkü\", \"eğer\" bağlaçlarını cümlelerinde ustalıkla kullanır. \"Parka gitmek istiyorum ama hava yağmurlu\". Bu, zihnindeki çelişkili düşünceleri bir araya getirme becerisini gösterir. Onunla konuşurken bu bağlaçları kullanarak diyalogları uzatın."
+  },
+  "93689350-75d1-4dc3-befa-2516fff9cb92": {
+   "message": "İnce motor becerilerinde \"Kâğıt kesme\". Çocuk artık güvenli bir makasla kâğıdın üzerindeki düz çizgiyi takip ederek kesebilir. Bu, el-göz koordinasyonunun üst düzey bir göstergesidir. Kesip yapıştırma (aplikasyon) çalışmaları için ona renkli kâğıtlar ve şablonlar verin."
+  },
+  "cad2a6f6-14d3-4ac8-a455-240edf668e56": {
+   "message": "\"Öz düzenleme (Self-regulation)\". Çocuk artık öfkelendiğinde veya üzüldüğünde sakinleşmek için sizin önerdiğiniz yöntemleri (örneğin, derin nefes almak veya oyuncağına sarılmak) kullanabilir. Bu, duygusal zekânın en önemli yaşam becerilerinden biridir."
+  },
+  "6f7c2344-f4ee-4701-9810-594e0c930fc0": {
+   "message": "Sosyal davranışta \"Kurallı Takım Oyunları\". Çocuk artık grup içinde ortak kurallara göre oynamaya ilgi gösterir. \"Şimdi hepimiz tavşan gibi zıplıyoruz\" dediğinizde gruba uyum sağlar. Bu, okul ortamı için önemli olan \"grup içinde hareket etme\" becerisinin temelidir."
+  },
+  "ecad2493-1c0b-4ab4-b089-7a992488d7c5": {
+   "message": "Bilişsel gelişimde \"Zamanın görselleştirilmesi\". Çocuk artık \"Dün ne yaptık?\" sorusuna olayları sırasıyla anlatarak cevap verir. Ona gün içinde yaşanacakları resimlerle gösteren bir \"günlük plan\" hazırlayın. Bu, zaman kavramını soyutluktan çıkarıp somutlaştırır."
+  },
+  "6f552613-227f-4085-940c-f293c42bd5f1": {
+   "message": "Fiziksel koordinasyon: \"Topu hedefe atma\". Çocuk artık topu yalnızca atmakla kalmaz, belirli bir kutuya veya hedefe isabet ettirmeye çalışır. Bu, mekânda mesafeyi ve kuvveti ayarlama (mekânsal tahmin) becerisini geliştirir."
+  },
+  "10538e9b-c203-4dd2-8b24-d807c72fa3fb": {
+   "message": "Konuşmada \"Geçmiş ve Geleceğin Birliği\". Çocuk, \"Dün parka gittim, yarın ise büyükanneme gideceğim\" gibi zaman farklılıklarını cümle içinde doğru kullanır. Zaman kavramını pekiştirmek için ona günün rutinlerini \"önce, şimdi, sonra\" sıralamasıyla hatırlatmaya devam edin."
+  },
+  "e534e280-1b5b-4f3e-b1db-79a0cf64e3af": {
+   "message": "İnce motor becerilerinde \"Detaylı İnsan Çizimi\". Çocuk artık \"çöp adam\" çizerken parmak, saç veya göz gibi daha fazla ayrıntı ekler. Bu, görsel gözlem becerisinin ve el-beyin koordinasyonunun ne kadar geliştiğini gösterir."
+  },
+  "19704700-4f78-4a2f-8063-e34e01705522": {
+   "message": "\"Sınırların Korunması\". Çocuk artık \"Benim odam\", \"Benim masam\" gibi ifadelerle kişisel alanını tanımlar. Onun bu alan algısına saygı gösterin. \"Odana girebilir miyim?\" diye sorarak ona kişisel sınırlara saygı duymayı ve gelecekte başkalarının sınırlarını da tanımayı öğretirsiniz."
+  },
+  "bb50baca-3306-43e8-84f0-8ecfe4ce2ed7": {
+   "message": "Sosyal davranışta \"Adalet Duygusu\". Çocuk artık oyunlarda kuralların ihlal edilmesine tepki verir: \"O, sırasını beklemedi!\". Bu, sosyal adalet ve kural anlayışının geliştiğini gösterir. Kuralların neden önemli olduğunu (örneğin, oyunun eğlenceli olması için) açıklayarak sosyal etik anlayışının temellerini atın."
+  },
+  "3b180a00-84f2-4ef7-b180-bb007866d4c3": {
+   "message": "Bilişsel gelişimde \"Miktar ve Sayı Sentezi\". Çocuk 10'a kadar sayabilir, ancak artık sayıları miktarlarla ilişkilendirir. \"Buraya 5 tane fındık koydum\" dediğinizde miktarı görsel olarak değerlendirebilir. Günlük işler sırasında ona \"Bana 4 tane kaşık ver\" gibi görevler verin."
+  },
+  "cf35973e-cf99-454b-b4d7-5058e5466945": {
+   "message": "Fiziksel koordinasyon: \"Üç Tekerlekli Bisiklette Hız\". Çocuk artık bisikleti daha hızlı kullanır ve engellerin arasından manevra yaparak geçer. Bu, hem alt vücut gücünün hem de görsel-motor koordinasyonunun ileri düzeyde olduğunu gösterir. Kendi hızını denemesi için parkta güvenli \"sürüş parkurları\" belirleyin."
+  },
+  "7856919f-0f1f-4c55-9554-5d9226e933f6": {
+   "message": "Konuşmada \"Şaka ve Mizah\". Çocuk artık kelimelerle oynamaya ve \"tuhaf\" cümleler kurarak sizi güldürmeye çalışır. Örneğin, \"Köpek miyav dedi\" deyip gülebilir. Bu, dilin kurallarını bildiğini ve mizah yaratmak için bu kuralları bilerek ihlal ettiğini gösterir. Onunla birlikte gülün ve mizah duygusunu geliştirin."
+  },
+  "1104a81e-20a0-469a-b38d-bffb8442b875": {
+   "message": "1200 günlük büyük yolculuk! Çocuk artık 40 ayı geride bıraktı. O artık kendi düşünceleri, şakaları ve hayalleri olan başlı başına bir birey, küçük bir insan. Siz bu 1200 gün boyunca onun dünyasının mimarı oldunuz. Kendine güvenen bakışlarında sizin sevginizin imzası var. Siz muhteşem bir annesiniz!"
+  },
+  "13a54bb2-22dc-4956-ad40-80e7f13eda7c": {
+   "message": "Bilişsel gelişimde \"Miktarın Korunumu Deneyleri\". Aynı miktarda suyu farklı şekillerdeki kaplara döktüğünüzde, çocuk hâlâ uzun olan kapta daha fazla su bulunduğunu düşünebilir. Onunla su veya kum oyunları oynayarak miktarın şekle bağlı olarak değişmediğini deneyimleyerek keşfetmesini sağlayın."
+  },
+  "29ee5396-69c9-428e-9152-0052da7ababd": {
+   "message": "Fiziksel koordinasyon: \"Hızla Durma ve Dönme\". Çocuk artık koşarken sizin \"Dur!\" komutunuzla hemen durabilir veya keskin bir dönüş yapabilir. Bu, hem kasların hem de sinir sisteminin birlikte çalışmasının sonucudur. Onunla parkta \"Kırmızı Işık, Yeşil Işık\" oyununu oynayın; bu oyun, öz denetim (inhibitory control) becerisini geliştirir."
+  },
+  "3eaa8096-e288-4159-9aa2-8223399dd023": {
+   "message": "Konuşmada \"Nezaket ve Nüanslar\". Çocuk artık ses tonunu ve kullandığı sözcükleri konuştuğu kişiye göre ayarlamaya başlar (örneğin, bebekle daha yumuşak, yetişkinlerle daha ciddi konuşur). Bu, toplumdilbilim becerilerinin başlangıcıdır. Sizin konuşma biçiminiz, onun için en temel ve kusursuz modeldir."
+  },
+  "97ef6f09-4fed-4fcd-abbe-7756d8045e1e": {
+   "message": "Duygusal Dayanıklılık: \"Kendini Övme\". Çocuk bir işi başardığında \"Bak, bunu ne kadar güzel yaptım!\" diyerek sizden onay bekler. İçten gelen bu gurur duygusuna \"Evet, çok çaba gösterdin\" diyerek karşılık verin. Sizin desteğiniz, gelecekteki öz güveninin mimarıdır!"
+  },
+  "0d946fb4-d148-46c8-80fc-f0a7b324c07f": {
+   "message": "Çocuk artık nesneleri aynı anda birden fazla özelliğe göre gruplandırabilir: \"hem büyük hem de mavi olan oyuncaklar\". Bu, bilişsel esnekliğin (cognitive flexibility) göstergesidir. Ona \"Haydi, tüm yumuşak ve kırmızı nesneleri bulalım\" gibi eğlenceli arama görevleri verin."
+  },
+  "824aa9f8-040c-4665-a6d8-64a894fd7261": {
+   "message": "Fiziksel hareketlilikte \"Serbestçe Koşma ve Durma\". Çocuk artık tam hızla koşarken sizin \"Dur!\" komutunuzla dengesini kaybetmeden hemen durabilir. Bu, sinir-kas kontrolünün ne kadar geliştiğini gösterir. Parkta oynayacağınız \"Kırmızı Işık, Yeşil Işık\" oyunu hem eğlenceli hem de yararlı bir egzersizdir."
+  },
+  "56f799be-0231-4113-94ee-9fbaa18f177f": {
+   "message": "Konuşmada \"Zıt Anlamlı Sözcükler\". Çocuk artık \"sıcak-soğuk\", \"yüksek-alçak\", \"ağır-hafif\" gibi karşıtlıkları yalnızca anlamakla kalmaz, konuşurken de kullanır. Ona zıtlıklarla ilgili bilmeceler sorun: \"Fil büyüktür, peki ya fare?\". Bu, sözcük dağarcığını zenginleştirir ve karşılaştırmalı düşünme becerisini geliştirir."
+  },
+  "0006f22d-7d35-4a7c-abab-057194f6402c": {
+   "message": "İnce motor gelişiminde \"İnsan Resmindeki Ayrıntılar\". Çocuk artık çizdiği insana kollar, bacaklar ve hatta parmaklar eklemeye çalışır. Bu resimler, kendi bedenini ve çevresindeki insanları nasıl algıladığının bir göstergesidir. Onun her \"eserini\" küçük bir hikâye gibi dinleyin."
+  },
+  "5eb1ed63-47a4-4170-b1fc-b58d4507160b": {
+   "message": "Konuşmada \"Soruların Derinleşmesi\". Çocuk, \"Ölüm nedir?\", \"Biz nereden geldik?\" gibi varoluşla ilgili zor sorular sorabilir. Cevap verirken her zaman dürüst olun, ancak yaşına uygun, basit ve sakinleştirici açıklamalar seçin. Bu sorular, onun dünyayı anlamlandırma çabasıdır."
+  },
+  "48efdb3a-063c-40d5-837a-9373492693c6": {
+   "message": "Duygusal Dayanıklılık: \"Yaratıcılıkla kendini ifade etme\". Çocuk artık keyfi olmadığında resim yaparak veya oyuncaklarıyla \"dertleşerek\" rahatlıyor. Yaptığı resimlere dikkat edin; renkler ve şekiller onun iç dünyasının aynasıdır. Siz onun en güvenli limanısınız; size duyduğu güven, onun en büyük gücüdür."
+  },
+  "4c700caf-0287-4ea7-8bd0-73ca97292800": {
+   "message": "Çocuk artık çevresindeki yazılara ilgi gösteriyor. Mağaza adlarında veya kitap başlıklarında tanıdığı harfleri (örneğin, adının ilk harfini) görünce sevinebilir. Bu, \"erken okuryazarlık\" aşamasıdır. Ona harfleri zorla öğretmeye çalışmayın; yalnızca merakını destekleyin."
+  },
+  "970cfec9-666d-4324-ad8a-2d2689753b64": {
+   "message": "Fiziksel gelişimde \"Dönüşümlü adımlarla inme\". Çocuk artık merdivenlerden inerken her basamağa sırayla bir ayağını koyarak inmeye başlıyor. Bu, merdiven çıkmaktan daha zordur ve iyi bir denge gerektirir. Siz yalnızca yakınında durarak ona güven duygusu verin."
+  },
+  "2fa13e97-2173-4c5c-afa8-90f8eaedaa8a": {
+   "message": "Konuşmada \"Kelime oyunları ve Kafiye\". Çocuk benzer seslere sahip kelimeler bulmaktan keyif alır: \"top-pop\", \"elma-gelme\". Bu, fonetik farkındalığın (sesleri ayırt etme becerisinin) geliştiğini gösterir. Onunla kafiyeli kısa şiirler okuyun veya kelime oyunları oynayın. Bu, gelecekteki okuma becerisi için sağlam bir temel oluşturur."
+  },
+  "5b2e2766-e73a-4ec2-b386-7bdc27e2bf73": {
+   "message": "İnce motor becerilerinde \"Düğüm ve İlmek\". Çocuk artık ayakkabı bağlarına veya iplere ilgi gösteriyor ve bunları birbirine dolamaya çalışıyor. Ona büyük delikli boncuklar veya özel \"bağlama oyuncakları\" verin. Bu, parmaklarındaki küçük kasları yazı yazmaya ve daha karmaşık işlere hazırlar."
+  },
+  "b420b26f-d658-40bc-93d9-fcbe9a159330": {
+   "message": "\"Hayali Korkular\". Bu dönemde çocuğun hayal gücü o kadar güçlüdür ki karanlıktan veya hayali \"canavarlardan\" korkabilir. Korkusuyla alay etmeyin ve \"bu gerçek değil\" demeyin. Bunun yerine, \"Ben buradayım, seni koruyorum\" diyerek ona duygusal bir sığınak olun. Bu, size olan güvenini sarsılmaz hâle getirir."
+  },
+  "4ee1a693-af27-4c8f-b294-06b8239d80b9": {
+   "message": "Sosyal davranışta \"Diplomasi girişimleri\". Çocuk artık anlaşmazlıkları \"Sen bana bunu ver, ben de sana onu vereyim\" gibi önerilerle çözmeye çalışıyor. Bu, sosyal zekânın en belirgin göstergelerinden biridir. Onun bu \"müzakereci\" yönünü takdir edin ve adil çözüm yollarını destekleyin."
+  },
+  "9ce75a82-fd02-47a8-adbb-96eadd2b8653": {
+   "message": "\"Hayali oyun arkadaşı\". Bazı çocuklar bu dönemde hayali arkadaşlar oluşturabilir. Bu, çocuğun yaratıcılığının ve duygusal dünyasının zenginliğini gösterir. Onu yargılamayın veya \"bu bir yalan\" demeyin. Çocuk, bu arkadaşı aracılığıyla kendi korkularını ya da isteklerini keşfeder. Sabırla ve ilgiyle gözlemleyin."
+  },
+  "d0b4ac9e-9bd0-4b78-83ac-e932a23bb3ff": {
+   "message": "Sosyal davranışta \"Liderlik ve Uyum Sağlama\". Çocuk artık oyunlarda bazen kuralları kendisi belirler, bazen de başkasının kurallarına uyum sağlar. Bu, sosyal esnekliğin temelidir. Evde onunla rolleri değiştirerek oynayın: \"Şimdi sen öğretmen ol, ben de öğrenci olayım\"."
+  },
+  "44001e8a-e9dc-4edd-96dc-e3baba2b5ba4": {
+   "message": "Bilişsel gelişimde \"Neden-Sonuç Zinciri\". Çocuk artık \"Eğer yağmur yağarsa parka gidemeyeceğiz\" gibi mantıklı çıkarımlarda bulunur. Onunla olayların sonuçları hakkında konuşun. Bu, çocuğun gelecekte davranışlarının sorumluluğunu kavrama becerisini (mantıksal sonuçları anlama) geliştirir."
+  },
+  "ec14848a-2298-473c-80f2-13859ca28476": {
+   "message": "Fiziksel koordinasyon: \"Üç tekerlekli bisiklette bağımsızlık\". Çocuk artık gidonu kontrol ederken aynı anda pedalları ritmik biçimde çevirebilir ve gerektiğinde freni kullanabilir. Bu, alt ve üst vücut koordinasyonunun eş zamanlı çalışmasıdır. Parkta küçük bir \"bisiklet yolu\" belirleyin."
+  },
+  "c89c5c28-c3bd-46e0-93e1-c16bc60a714b": {
+   "message": "Konuşmada \"Kibarca Rica Etme\". Çocuk artık istediğini elde etmek için \"olur mu?\", \"lütfen\" gibi ifadeleri bilinçli olarak kullanır. Sizin nazik tutumunuz, onun için en iyi örnektir. Kibar davrandığında bunu mutlaka vurgulayın: \"Böyle güzel rica ettiğin için sana yardım etmek beni çok mutlu ediyor\"."
+  },
+  "a0873db2-259d-4791-a8af-c5e115589858": {
+   "message": "Duygusal Dayanıklılık: \"Öz Düzenleme\". Çocuk bir şeyi başaramadığında (örneğin, oyuncağı parçalarına ayrıldığında) hemen ağlamaz; size bakıp yardım ister ya da yeniden dener. Bu, duygusal olgunluk yolunda büyük bir adımdır. Siz onun en güvenilir destekçisisiniz!"
+  },
+  "c4b0066e-1d1d-4a2d-b280-39f147e134fe": {
+   "message": "Çocuk artık nesneleri yalnızca renklerine göre değil, işlevlerine göre de gruplandırır. \"Bunlar yemek içindir\", \"Bunlar giyinmek içindir\". Evde onunla \"Hangisi farklı?\" oyunu oynayın (örneğin, 3 meyve ve 1 oyuncak koyun). Bu, onun mantıksal ayırt etme becerisini geliştirir."
+  },
+  "b1971b1f-63a0-40cf-bb46-3ba6bb8689b2": {
+   "message": "Fiziksel hareketlilikte \"Hızlı Manevra\". Çocuk artık tüm hızıyla koşarken önündeki engeli görüp düşmeden etrafından dolaşabilir. Bu, beyindeki \"motor planlama\" becerisinin üst düzeye ulaştığını gösterir. Parkta onun için küçük bir engel parkuru oluşturun. Bu, hem vücut kontrolünü hem de çevikliğini artırır."
+  },
+  "2b4289d9-5b1f-4994-a054-e4727135705c": {
+   "message": "Çocuk artık nesneleri aynı anda hem renklerine hem de şekillerine göre gruplandırabiliyor. \"Bu hem kırmızı hem de daire\" diyerek ayrıntıları birleştiriyor. Bu, bilişsel esnekliğin önemli bir göstergesidir. Ona farklı geometrik şekillerle dolu oyunlar sunun."
+  },
+  "ae389307-05d6-4296-90e1-0a21e776e282": {
+   "message": "Fiziksel hareketlilikte \"Dinamik sıçrama\". Çocuk artık koşarken karşısına çıkan küçük bir engelin üzerinden hızını azaltmadan atlayabiliyor. Bu, beyinde hareketi önceden planlama (motor planning) becerisinin geliştiğini gösterir. Parkta onun için küçük engeller oluşturabilirsiniz."
+  },
+  "d2e255d4-c4cb-4992-b207-917bc8c7e987": {
+   "message": "Konuşmada \"Amaca yönelik sorular\". Artık yalnızca \"bu nedir?\" diye değil, \"bu nasıl çalışır?\" diye de soruyor. Nesnelerin iç mekanizmalarına, saatlere ve oyuncakların tekerleklerine ilgi gösteriyor. Yanıt verirken mantıksal sırayı koruyun; bu sorular gelecekteki bilimsel düşüncenin ilk kıvılcımlarıdır."
+  },
+  "b4315b1b-9d62-41cc-a063-b3b09c4c589a": {
+   "message": "İnce motor becerilerinde \"Simetri denemeleri\". Çocuk kâğıdı katlamaya veya çizdiği resimdeki ayrıntıları (örneğin insanın iki gözünü, iki kolunu) daha simetrik yerleştirmeye çalışıyor. Bu, görsel-uzamsal farkındalığının (visual-spatial awareness) ne kadar geliştiğini gösterir."
+  },
+  "431cd610-a165-475a-8f4f-464196e237c1": {
+   "message": "\"Diplomatik\" görüşmeler. Çocuk artık sizinle \"pazarlık\" yapıyor: \"Eğer sebze yersem, sonra parkta daha uzun kalabilir miyiz?\". Bu, sosyal etkileme yollarını öğrendiğini gösterir. Bu \"görüşmelerde\" dürüst ve tutarlı olun; sınırları bu şekilde öğrenir."
+  },
+  "81128f46-ecb8-47f0-aa0b-337c398b3230": {
+   "message": "Sosyal davranışta \"Hayali senaryolar\". Artık oyunlar daha karmaşık: \"Ben satıcıyım, sen de gelip benden ekmek al\". Bu oyunlarda toplumdaki rolleri deneyimliyor. Onun senaryolarına uyarak bu yaratıcı süreci destekleyin."
+  },
+  "5cb6d50d-147c-44f7-91b0-1d67f401019b": {
+   "message": "Bilişsel gelişimde \"Zaman ritüelleri\". Çocuk \"dün\", \"bugün\" ve \"yarın\" kavramlarını henüz tam olarak ayırt edemese de ritüelleri biliyor. \"Yemekten sonra park\" veya \"Uyumadan önce masal\". Bu sıralamalar, zihninde zaman çizgisinin oluşmasını sağlar."
+  },
+  "efc83589-a712-4c32-9e12-c9ee0f9cee01": {
+   "message": "Fiziksel koordinasyonda \"Hassas manevralar\". Çocuk artık sıvı dolu bir bardağı fazla dökmeden taşıyabiliyor veya dar bir patikada yürüyebiliyor. Bu, görsel-motor koordinasyonunun ne kadar geliştiğini gösterir. Evde ona \"küçük yardımcı\" rolleri vererek bu dikkat becerisini pekiştirin."
+  },
+  "f5184b0f-58ef-4b72-af3f-546cec7ec971": {
+   "message": "Konuşmada \"Geçmişin Ayrıntıları\". Çocuk artık \"Dün büyükanneme gittiğimizde dondurma yedik\" gibi karmaşık anılarını paylaşır. Onunla geçen gün hakkında konuşmak, epizodik belleğini güçlendirir. \"Başka ne hatırlıyorsun?\" diye sorarak hikâyeyi genişletmesini sağlayın."
+  },
+  "5ee5e247-d8bd-4375-9669-ceda6b1b0a73": {
+   "message": "İnce motor becerilerinde \"Şekil Kopyalama\". Çocuk artık sizin çizdiğiniz artı (+), daire (O) veya bazı harfleri taklit etmeye çalışır. Bu, göz ve elin birlikte çalışmasıdır (görsel-motor entegrasyon). Ona renkli kalemler verin ve farklı geometrik şekiller çizmeye teşvik edin."
+  },
+  "d1358d5f-b48d-4121-a736-887203ecfc67": {
+   "message": "\"Adalet ve Kurallar\". Çocuk artık oyunlarda kuralların çiğnenmesine tepki verir: \"O, sırasını beklemedi!\". Bu, sosyal benliğinin geliştiğini gösterir. Kuralların herkes için aynı olduğunu açıklayarak içsel adalet duygusunu ve sosyal disiplinini güçlendirebilirsiniz."
+  },
+  "d27742a4-8533-4759-aff4-185d7dbf081f": {
+   "message": "Sosyal davranışta \"Liderlik Girişimleri\". Çocuk artık oyunun senaryosunu kendisi oluşturmak ister: \"Ben doktor olacağım, sen de hasta\". Bu rol yapma oyunları aracılığıyla dünyayı anlamlandırır ve karar vermeyi öğrenir. Bazen onun senaryosuna uyun; bu, liderlik ve sorumluluk duygusunu geliştirir."
+  },
+  "0f53eb59-1dad-4d39-84e5-43e97150561c": {
+   "message": "Bilişsel gelişimde \"Miktar ve Rakam Eşleştirme\". Çocuk 5'e kadar saymanın yanı sıra artık \"3\" rakamını gördüğünde 3 oyuncağı ayırıp bir kenara koyabilir. Bu, gelecekteki matematik okuryazarlığının temelidir. Günlük işler sırasında \"Bana 4 elma ver\" gibi görevler verin."
+  },
+  "080c3ee9-a0ea-4062-9f79-5fba44d2d0e4": {
+   "message": "Fiziksel koordinasyon: \"İki Ayakla Sıçrama\". Çocuk artık engellerin üzerinden iki ayağıyla aynı anda rahatça atlayabilir. Bu, hem alt vücut gücü hem de eş zamanlı koordinasyon gerektirir. Evde yere bir ip koyun ve onunla birlikte ipin üzerinden atlayarak \"Nehri Geçme\" oyunu oynayın."
+  },
+  "9fb34927-219f-4b2d-bb9f-dda7da92c634": {
+   "message": "Konuşmada \"Şaka ve Mizah\". Çocuk artık kelimeleri bilerek yanlış söyleyerek veya komik sesler çıkararak sizi güldürmeye çalışır. Bu, dil kurallarını kavramanın bir biçimidir. Şakalarına gülün ve onunla birlikte mizah duygusunu geliştirin."
+  },
+  "c4b6f5da-e09e-4e7a-8e0a-9a60747fa087": {
+   "message": "Duygusal Dayanıklılık: \"Hatasını Kabul Etmek\". Çocuk artık bir şeyi kırdığında veya etrafı dağıttığında hemen gizlemeye çalışmaz ve \"Ben yaptım\" diyebilir. Bu dürüstlük anında onu cezalandırmayın; bunun yerine birlikte temizlemeyi önerin. Siz onun için güvenli bir sığınaksınız!"
+  },
+  "e498f733-de85-4e45-8875-b886111a89f8": {
+   "message": "Konuşmada \"Duygu sözlüğü\". Çocuk artık sadece \"kötüyüm\" ya da \"iyiyim\" demiyor. \"Sinirlendim\", \"özledim\", \"mutluyum\" gibi ifadeleri yerinde kullanıyor. Duygularını kabul edip onaylayın: \"Özlediğin için ağlaman normal\". Bu, onun duygusal sağlığının en büyük güvencesidir."
+  },
+  "a45a87d4-253c-4fea-ac32-9cea3f5b1168": {
+   "message": "3 buçuk yaşın zirvesinde! Çocuk artık bebeklik dönemini tamamen geride bıraktı ve \"erken çocukluk\" döneminin en hareketli evresinde. O artık hem fiziksel hem de duygusal açıdan başlı başına bir birey. Siz bu 1250 günde onun dünyasında sarsılmaz bir güven temeli oluşturdunuz. Kendinizle gurur duyun!"
+  },
+  "0aedbd42-1452-4a3e-aa54-4adb1ad4a556": {
+   "message": "Çocuk artık çevresindeki yazılara ilgi gösteriyor. Mağaza adlarında veya kitap başlıklarında tanıdığı harfleri (örneğin, adının baş harfini) görünce sevinebilir. Bu, \"erken okuryazarlık\" evresidir. Ona harfleri zorla öğretmeyin; yalnızca ilgisini teşvik edin."
+  },
+  "4a1598de-455f-4bae-a8b3-0f5696c065c6": {
+   "message": "Fiziksel gelişimde \"Dönüşümlü adımlarla inme\". Çocuk artık merdivenlerden inerken her basamağa sırayla bir ayağını basarak inmeye başlıyor. Bu, merdiven çıkmaktan daha zordur ve iyi bir denge gerektirir. Siz yalnızca yakınında durarak ona güvende olduğunu hissettirin."
+  },
+  "3f6a6fa9-4e7a-4539-93e7-6da1070ea997": {
+   "message": "Konuşmada \"Kelime oyunları ve Kafiye\". Çocuk benzer seslere sahip kelimeler bulmaktan keyif alır: \"top-pop\", \"alma-salma\". Bu, fonolojik farkındalığın (sesleri ayırt etme becerisinin) geliştiğini gösterir. Onunla kafiyeli kısa şiirler okuyun veya kelime oyunları oynayın. Bu, gelecekteki okuma becerisi için sağlam bir temel oluşturur."
+  },
+  "cf6a8a3d-c742-40b0-a3c1-38fd2db89aec": {
+   "message": "İnce motor gelişiminde \"Düğüm ve İlmek\". Çocuk artık ayakkabı bağlarına veya iplere ilgi gösteriyor ve onları birbirine dolamaya çalışıyor. Ona büyük delikli boncuklar veya özel \"bağlama oyuncakları\" verin. Bu, parmaklardaki küçük kasları yazı yazmaya ve daha karmaşık işlere hazırlar."
+  },
+  "09cee55c-899d-468c-bef9-66eb86e868c6": {
+   "message": "\"Hayali Korkular\". Bu dönemde çocuğun hayal gücü o kadar kuvvetlidir ki karanlıktan veya hayali \"canavarlardan\" korkabilir. Korkusuna gülmeyin, \"bu gerçek değil\" demeyin. Bunun yerine, \"Ben buradayım, seni koruyorum\" diyerek ona duygusal bir sığınak olun. Bu, size duyduğu güveni sarsılmaz hâle getirir."
+  },
+  "1f6c2927-0b20-482c-b17f-a447f8fef25d": {
+   "message": "Sosyal davranışta \"Diplomasi girişimleri\". Çocuk artık anlaşmazlıkları \"Sen bana bunu ver, ben de sana şunu vereyim\" gibi önerilerle çözmeye çalışıyor. Bu, sosyal zekânın en belirgin göstergelerinden biridir. Onun bu \"müzakereci\" yönünü takdir edin ve adil çözüm yollarını destekleyin."
+  },
+  "9f384019-50a1-4540-baab-8643e931568a": {
+   "message": "\"Sınırlar ve Paylaşmak\". Çocuk artık bazı eşyaların herkesin kullanımına açık olduğunu (örneğin parktaki salıncak), bazılarının ise yalnızca kendisine ait olduğunu anlar. Ona \"Bu senin oyuncağın, paylaşmak senin seçimin\" diyerek sahiplik duygusuna saygı gösterin. Kendi eşyalarına saygı gösterilen çocuk, başkalarının eşyalarına da daha kolay saygı duyar."
+  },
+  "9206ce15-0a76-4431-b07b-049bdcbed6b0": {
+   "message": "Sosyal davranışta \"Karmaşık rol oyunları\". Artık oyunların bir olay örgüsü vardır: \"Sen hastasın, ben doktorum, sana iğne yapacağım\". Bu oyunlar sayesinde gerçek hayattaki korkularını (örneğin doktor korkusunu) işler. Onun senaryosuna aktif olarak katılın."
+  },
+  "eaf2d09d-f792-4b9d-ab37-65dbbde32f39": {
+   "message": "Bilişsel gelişimde \"Miktar ve sayı eşleştirmesi\". Çocuk artık 5'e kadar sayabilir ve \"3\" dendiğinde 3 nesneyi görsel olarak ayırabilir. Ona \"Bana 4 tane kaşık ver\" gibi görevler verin. Bu, soyut sayıların gerçek dünyayla ilk kez ciddi biçimde ilişkilendirildiği aşamadır."
+  },
+  "9a61025f-abc9-4c98-bf07-819847137992": {
+   "message": "Fiziksel koordinasyon: \"İki ayakla sıçrama\". Çocuk artık engellerin (örneğin yerdeki ipin) üzerinden iki ayağıyla aynı anda rahatça atlayabilir. Bu, hem alt vücut gücü hem de eş zamanlı koordinasyon gerektirir. Evde onunla \"Nehri geçme\" oyunu oynayarak hareketliliğini artırın."
+  },
+  "b25c4c56-1f97-4223-b20b-689b5e94d1d3": {
+   "message": "Konuşmada \"Şaka ve Mizah\". Çocuk, kelimeleri bilerek yanlış söyleyerek veya komik sesler çıkararak sizi güldürmeye çalışır. Bu, dilin kurallarını bildiğini ve mizah yaratmak için bu kuralları bilinçli olarak bozduğunu gösterir. Şakalarına gülmeniz, özgüvenini ve sosyal zekâsını destekler."
+  },
+  "f9148bba-3642-4b13-ad48-62db8da7ed80": {
+   "message": "Duygusal dayanıklılık: \"Başarısızlıkla başa çıkma\". Çocuk artık bir şeyi (örneğin küplerden kule yapmayı) başaramadığında hemen ağlamaz; size bakıp \"Yeniden yapayım mı?\" diyebilir. Sonucu değil, çabasını övün: \"Çok uğraştın, aferin!\". Siz onun en büyük motivasyon kaynağısınız!"
+  },
+  "80e00e5a-2a93-4c1b-a710-db553822e4ae": {
+   "message": "Çocuk artık nesneleri yalnızca görünüşlerine göre değil, yapıldıkları malzemeye göre de ayırt eder: \"Bu plastik, bu ise demir\". Ona farklı dokulara sahip nesneler verin ve aralarındaki farkları sorun. Bu, çevresindeki dünyayı daha ayrıntılı analiz etmesine ve fiziksel dünya hakkındaki bilgilerini düzenlemesine yardımcı olur."
+  },
+  "18ab2c20-2470-41d2-b5e5-3121b8d7e0c1": {
+   "message": "Fiziksel hareketlilikte \"Tek ayak üzerinde denge\". Çocuk artık tek ayağının üzerinde 5 saniyeden uzun süre durabilir. Bu, beyincik ve kas koordinasyonunun olgunlaştığını gösterir. Onunla \"leylek oyunu\" oynayarak kimin daha uzun süre durabildiğine bakın."
+  },
+  "73557d3a-6c9c-4c6a-a67f-c5d4bc801f0d": {
+   "message": "Bilişsel gelişimde \"Miktarın Korunumu Deneyleri\". Aynı miktarda suyu farklı şekillerdeki kaplara döktüğünüzde çocuk hâlâ uzun kapta daha fazla su olduğunu düşünebilir. Onunla su veya kum oyunları oynayarak miktarın şekle bağlı olarak değişmediğini deneyimleyerek keşfetmesine fırsat verin."
+  },
+  "2c94b5e7-3f3c-4f5a-97ae-e15891e8c592": {
+   "message": "Fiziksel koordinasyon: \"Hızlı Durma ve Dönme\". Çocuk artık koşarken sizin \"Dur!\" komutunuzla hemen durabilir veya keskin bir dönüş yapabilir. Bu, kas ve sinir sisteminin birlikte çalışmasının sonucudur. Onunla parkta \"Kırmızı Işık, Yeşil Işık\" oyununu oynayın; bu oyun, öz denetim becerisini geliştirir."
+  },
+  "708f00c5-3974-4a48-b57b-7ac187203dd5": {
+   "message": "Konuşmada \"Nezaket ve Nüanslar\". Çocuk artık ses tonunu ve kullandığı kelimeleri konuştuğu kişiye göre ayarlamaya başlar (örneğin, bebekle daha yumuşak, yetişkinlerle daha ciddi konuşur). Bu, toplumdilbilimsel farkındalığın başlangıcıdır. Sizin konuşma biçiminiz, onun için en temel ve kusursuz örnektir."
+  },
+  "1eae35d0-6f20-4979-87f2-c88eacf3b104": {
+   "message": "Duygusal Dayanıklılık: \"Kendini Övme\". Çocuk bir işi başardığında \"Bak, bunu ne güzel yaptım!\" diyerek sizden onay bekler. Onun bu içsel gurur duygusuna \"Evet, çok çaba gösterdin\" diyerek karşılık verin. Sizin desteğiniz, onun gelecekteki özgüveninin mimarıdır!"
+  },
+  "c4e864cd-f8ff-486c-994b-11d240e723ca": {
+   "message": "Çocuk artık \"önce, şimdi, sonra\" sıralamasını karmaşık olaylara uygulayabilir. \"Önce ellerimi yıkayacağım, sonra yemek yiyeceğim, en son da oyun oynayacağım\". Bu, beynindeki planlama becerisinin (yürütücü işlev) geliştiğini gösterir. Ondan gün içinde küçük planlar yapmasını isteyin. Bu, düzen ve disiplin duygusunu güçlendirir."
+  },
+  "63226ba2-0699-459a-be66-a4c9af97d876": {
+   "message": "Fiziksel hareketlilikte \"Üç Tekerlekli Bisikletle Manevra\". Çocuk artık bisiklet sürerken önüne çıkan engelleri görüp gidonu zamanında çevirebilir. Bu, hem pedalları çevirme (fiziksel) hem de yolu takip etme (görsel) becerilerinin kusursuz bir birleşimidir."
+  },
+  "aba02008-e74d-4081-9df9-4e23bad078b6": {
+   "message": "Konuşmada \"Neden-Sonuç Diyalogları\". Çocuk artık verdiğiniz kararları sorgular: \"Neden uyumalıyım?\". Yanıt verirken mantıklı açıklamalar yapın: \"Çünkü yarın yeniden enerjik bir şekilde oynayabilmen için vücudunun dinlenmesi gerekiyor\". Bu yaklaşım, çocukta körü körüne itaat yerine mantığa dayalı bir disiplin geliştirir."
+  },
+  "d337c2b8-8f8a-4037-8a7a-e030f9920b04": {
+   "message": "İnce motor becerilerinde \"Kâğıt Kesme\". Çocuk artık güvenli bir makasla kâğıdı düz bir çizgi boyunca (veya basit bir daire şeklinde) kesmeye çalışır. Bu, el-göz koordinasyonunun en önemli sınamalarından biridir. Ona renkli kâğıtlar ve kesebileceği şablonlar vererek kaslarını çalıştırmasını sağlayın."
+  },
+  "6a7056fe-a7e8-4d7e-91b2-4d5b5277e537": {
+   "message": "Konuşmada \"Sıfatların zenginliği\". Çocuk artık eşyaları tarif ederken yalnızca renklerini söylemekle kalmaz, \"yumuşak\", \"dikenli\", \"pürüzsüz\" gibi sözcükler de kullanır. Onunla \"Dokun ve bul\" oyunu oynayın: Gözlerini kapatıp eşyanın nasıl hissettirdiğini anlatmasını isteyin."
+  },
+  "b57332a7-c381-44a7-bdb8-aef8d6820036": {
+   "message": "İnce motor becerilerinde \"Sembollerin keşfi\". Çocuk artık bazı harfleri (özellikle adının ilk harfini) veya rakamları kopyalamaya çalışır. Bu, görsel sembollerle ses ve anlam arasındaki bağlantıyı kavradığını gösterir. Kum üzerinde veya renkli kalemlerle \"yazı\" alıştırmaları yapmasını sağlayın."
+  },
+  "7374ce80-a74f-4d7f-bb0f-135ec7c6d431": {
+   "message": "\"Özdenetim ve Sabır\". Çocuk artık istediği bir şey için 5-10 dakika beklemesi gerektiğini (örneğin yemek hazır olana kadar) daha sakin karşılar. Sizin \"biraz bekle\" demenizi ceza olarak değil, zamana bağlı bir gereklilik olarak kabul eder. Bu sabrını gördüğünüzde \"Beklediğin için çok teşekkür ederim\" diyerek onu mutlaka destekleyin."
+  },
+  "62ab0290-ec13-4b50-86f2-b4a69aba6dda": {
+   "message": "Sosyal davranışta \"Empati ve Teselli\". Çocuk artık sizin yorgun olduğunuzu veya bir arkadaşının üzüldüğünü fark ettiğinde ona oyuncağını getirebilir ya da şefkatle dokunabilir. Bu, iç dünyasının ne kadar zenginleştiğini ve \"ben\" odaklı düşünceden çıkıp \"biz\" bilincine yöneldiğini gösterir."
+  },
+  "d68476f5-47bc-4622-82c1-31e6c34eeecd": {
+   "message": "Bilişsel gelişimde \"Hacim algısı\". Artık büyük bir kutunun içine kaç küçük oyuncağın sığacağını tahmin etmeye çalışır. Ona farklı boyutlarda kaplar verin ve \"Sence bu su o kaba sığar mı?\" diye sorun. Bu deneyimler, gelecekteki matematik ve fizik kavramlarının temelini oluşturur."
+  },
+  "ff4d4dbc-967a-48e5-b6f7-ae29e0a5390d": {
+   "message": "Fiziksel koordinasyon: \"Geri geri yürüme\". Çocuk artık geriye doğru kendinden emin biçimde, dengesini kaybetmeden birkaç adım atabilir. Bu hareket, beden farkındalığını (propriyosepsiyon) güçlendirir. Onunla parkta \"yengeç yarışı\" oynayarak hem eğlenin hem de kaslarını çalıştırın."
+  },
+  "3f691af2-a53f-4e9e-bda8-73c25f9784e5": {
+   "message": "Konuşmada \"Nezaket ve İncelikler\". Çocuk artık ses tonunu konuştuğu kişiye göre ayarlamaya başlar (örneğin bebekle daha yumuşak, yetişkinlerle daha ciddi konuşur). Bu, toplumdilbilimin başlangıcıdır. Sizin konuşma biçiminiz, onun için en temel ve en kusursuz örnektir."
+  },
+  "cb9230b0-c04d-4749-92fd-37201aec8ecd": {
+   "message": "1280 günlük büyük gelişim! Çocuk artık \"erken çocukluk\" döneminin en verimli zamanındadır. O artık kendi zevkleri, korkuları ve bitmek bilmeyen sorularıyla başlı başına bir bireydir; küçük bir insan. Siz bu yolda bilim ve sevgiyle ilerlediniz. \"Anacan\" her zaman yanınızda!"
+  },
+  "7f3f7af2-f05b-47b3-bb9a-bf661d551477": {
+   "message": "Çocuk artık nesneleri yalnızca bir değil, iki özelliğine göre gruplandırabilir: \"hem kırmızı hem de küçük olan arabalar\". Bu, bilişsel esnekliğin önemli bir aşamasıdır. Ona farklı oyuncakları karışık olarak verin ve \"Yumuşak ve mavi olanların hepsini bul\" diyerek zihnini çalıştırın."
+  },
+  "b66ed3bb-08b0-48a9-9270-0f8d21791b6b": {
+   "message": "Fiziksel hareketlilikte \"Hedefe Yönelik Sıçrama\". Çocuk artık bulunduğu yerden hem yukarıya hem de belirli bir hedefe doğru (örneğin yerdeki dairenin içine) sıçrayabilir. Bu, hem denge hem de mekânsal mesafeyi hesaplama becerisini gösterir. Parkta \"taştan taşa atlama\" oyunu onun için harika bir egzersizdir."
+  },
+  "4a19271e-0252-465e-a5b6-220dfc833dfa": {
+   "message": "Konuşmada \"Zaman Sıralaması\". Artık \"önce, şimdi, sonra\" kavramlarını daha doğru kullanır: \"Önce ellerimi yıkayacağım, sonra yemek yiyeceğim\". Onunla günün planını konuşmanız, düzen ve güven duygusu geliştirmesine yardımcı olur. \"Şimdi ne yapacağız?\" sorularına her zaman sırasıyla yanıt verin."
+  },
+  "5e0bb7b8-fe4c-40a9-87b2-d5ec3dff9314": {
+   "message": "İnce motor becerilerinde \"Şekil Kopyalama: Üçgen ve Artı\". Çocuk artık düz çizgileri kesiştirerek artı (+) çizebilir ve üçgene benzeyen şekiller oluşturmaya çalışır. Bunlar, yazı yazma becerisinin ilk temelleridir. Ona renkli kalemler ve boş kâğıtlar vererek bu \"geometrik keşiflerini\" destekleyin."
+  },
+  "cab1e84e-d4d4-48e6-a7cb-8122f2485764": {
+   "message": "\"Öz Yönetim ve Duygular\". Çocuk öfkelendiğinde veya üzüldüğünde bazen sakinleşmek için sizin önerdiğiniz yöntemleri (örneğin derin nefes almayı) kullanabilir. Bu, duygusal zekânın kazandırdığı en önemli yaşam becerilerinden biridir. Sakinleştiğinde gösterdiği bu çabayı mutlaka övün."
+  },
+  "35da39d6-0c56-4410-8592-5e1cbd4b1e03": {
+   "message": "Sosyal davranışta \"Takım Oyunları\". Çocuk artık başka bir çocukla ortak bir amaç için (örneğin büyük bir kumdan kale yapmak için) iş birliği yapabilir. Bu, \"paralel oyun\"dan \"sosyal oyun\"a tam geçiştir. Arkadaşlarıyla anlaşma çabalarını gözlemleyin ve destekleyin."
+  },
+  "4397b751-5eff-493f-b5d9-774c99d1ca07": {
+   "message": "Bilişsel gelişimde \"Sayı-Miktar Eşleştirmesi\". Çocuk 10'a kadar sayabilir; artık \"3\" rakamını gördüğünde 3 oyuncağı ayırıp bir kenara koyabilir. Bu, matematiksel düşünmenin en önemli aşamalarından biridir. Günlük yaşamda \"Bana 2 kaşık ver\" gibi görevlerle bu bağlantıyı güçlendirin."
+  },
+  "416872cb-a02b-4d4e-ac74-f040d4ce096b": {
+   "message": "Fiziksel koordinasyon: \"Topu iki elle yakalama\". Çocuk artık kendisine doğru yavaşça atılan büyük bir topu iki eliyle (bazen göğsüne bastırarak) yakalamaya çalışır. Bu hareket hem el-göz koordinasyonu hem de tepki hızı gerektirir. Onunla yakın mesafeden oynayın."
+  },
+  "eb838920-fe5c-415a-a9ba-0dabdeaffb4e": {
+   "message": "Konuşmada \"Nazik Ricalar\". Çocuk artık istediğini elde etmek için \"olur mu?\", \"lütfen\" gibi ifadeleri bilinçli olarak kullanır. Sizin nazik tutumunuz onun en önemli örneğidir. Nazik davrandığında bunu mutlaka vurgulayın: \"Böyle güzel rica ettiğin için sana yardım etmek beni çok mutlu ediyor\"."
+  },
+  "fba8e58a-849a-4502-b3b8-829b5d503078": {
+   "message": "Duygusal Dayanıklılık: \"Hatasını Kabul Etmek\". Çocuk artık bir şeyi kırdığında hemen saklamaya çalışmaz ve \"ben yaptım\" diyebilir. Dürüst davrandığı bu anda onu cezalandırmayın; bunun yerine birlikte temizlemeyi önerin. Bu, onda sorumluluk duygusunun gelişmesini sağlar. 1290 günlük yolculuğun her anı değerlidir!"
+  },
+  "98264d01-8080-47ff-9743-5076f3c1e9fb": {
+   "message": "Çocuk artık \"eğer... o zaman...\" mantığını tamamen kavrar. \"Eğer oyuncağı kırarsam bir daha çalışmaz\". Bu, geleceği öngörme becerisinin başlangıcıdır. Ona davranışlarının sonuçlarını önceden düşünmesini önerin: \"Sence bardağı kenara koyarsak ne olur?\". Bu, sorumluluk duygusunun gelişmesini sağlar."
+  },
+  "e5ea1656-41df-45ea-937c-07b3a21bce4f": {
+   "message": "Fiziksel hareketlilikte \"Statik Denge Zirvesi\". Çocuk artık hiçbir yere dokunmadan tek ayağının üzerinde 5-10 saniye durabilir. Bu, hem iç kulaktaki denge merkezinin hem de bel ve bacak kaslarının güçlendiğini gösterir. Onunla \"donduk\" oyunu oynayarak bu becerisini eğlenceye dönüştürün."
+  },
+  "991395b5-cce5-4484-973b-52ea93850c86": {
+   "message": "Konuşmada \"Karmaşık Hikâye Oluşturma\". Artık resimli bir kitaba baktığında yalnızca nesneleri değil, olaylar arasındaki bağlantıyı da açıklar: \"Tavşan kaçıyor çünkü tilki geliyor\". Hayal gücünü desteklemek için \"Sence tilki ne söyleyecek?\" gibi sorular sorun. Bu, bilişsel esnekliğini artırır."
+  },
+  "7718afa5-181a-4995-b727-92bfdea228d9": {
+   "message": "İnce motor becerilerinde \"Parmakların Bağımsız Hareketi\". Çocuk artık parmaklarını birbirine vurarak veya parmak uçlarıyla küçük boncukları ipe dizerek karmaşık işler yapar. Bu, beynin iki yarım küresi arasında koordinasyon gerektirir. Ona düğme ilikleme veya ilik açma oyunları önerin."
+  },
+  "5da5688a-9254-4a8e-94a4-a6cdb8624f11": {
+   "message": "\"Hayali Korkuları Yönetmek\". Bu yaştaki çocuklar bazen karanlıktan veya \"canavarlardan\" korkabilir. Onun korkusunu inkâr etmeyin; aksine \"canavarı kovan sihirli fener\" gibi oyunlar oluşturun. Duygusal desteğiniz, bu korkuların geçici olduğunu öğrenmesine yardımcı olur."
+  },
+  "12a2b82c-6975-4312-a2f7-fbbdcf5d9909": {
+   "message": "Sosyal davranışta \"Sonuca Yönelik İş Birliği\". Çocuk artık başka bir arkadaşıyla birlikte büyük bir kule yapmak için \"taşları\" paylaşabilir. Bu, artık yalnızca yan yana değil, ortak bir amaç için oynamaktır (iş birlikçi oyun). Onun bu sosyal ve uzlaşmacı yönünü \"Çok güzel bir takım oldunuz!\" diyerek alkışlayın."
+  },
+  "ae824ed0-4f75-4515-b7bf-83483a6c043d": {
+   "message": "Bilişsel gelişimde \"Miktarın Korunumu Testi\". Çocuk hâlâ yassılaştırılmış oyun hamurunun, hamur topundan daha büyük olduğunu düşünebilir. Onunla bu tür deneyler yapın: Hamur topunu yassılaştırın, ardından yeniden top hâline getirin. Bu, fiziksel dünyanın değişmez kurallarını kavramasına yardımcı olur."
+  },
+  "6f891729-8e3d-4c9f-bdb3-588b6de557c3": {
+   "message": "Fiziksel koordinasyonda \"Top Sürme\". Çocuk artık topa yalnızca vurmakla kalmıyor, ayağıyla hafifçe ileri iterek (dribbling) hareket ettirmeye çalışıyor. Bu, dinamik denge ve ayak-göz koordinasyonu gerektirir. Parkta onun için küçük bir \"futbol parkuru\" hazırlayın ve topu hedefe doğru sürmesini isteyin."
+  },
+  "8553307b-a429-4fdd-a8d5-b4776f0fb3d5": {
+   "message": "Konuşmada \"Nezaket ve Görgü\". Çocuk artık \"özür dilerim\", \"lütfen\" gibi ifadeleri yalnızca ezberden değil, amacına uygun şekilde kullanıyor. Sizin başkalarıyla konuşurken kullandığınız ton, onun en önemli rehberidir. Nazik davrandığında, bu davranışın çevresindeki kişiler üzerinde yarattığı olumlu etkiyi fark etmesini sağlayın."
+  },
+  "7883dc4b-dac2-42dc-8a35-51e8d5b489b1": {
+   "message": "1300 günlük muhteşem yolculuk! Çocuk artık bebeklik alışkanlıklarını tamamen geride bırakıp okul öncesi dönemin en aktif aşamasına geçiyor. Artık kendini bir \"ben\" olarak tanıyor ve dünyayı değiştirmeye hazır. Siz bu 1300 gün boyunca onun en güvenilir rehberi oldunuz. Sevginiz ve sabrınız için kendinize teşekkür edin!"
+  },
+  "aad2ad75-5a11-4a2d-9c7c-2bc5d48aa312": {
+   "message": "44. aya hoş geldiniz! Çocuk artık \"ben büyüdüm\" duygusunu derinden yaşıyor. Bu dönemde ona kendi kıyafetini seçmek veya sofrayı kurmak gibi küçük sorumluluklar verin. Bu, bağımsız olma isteğini olumlu yönde destekler ve öz güvenini artırır."
+  },
+  "5ff72db7-e0be-4353-a758-f27d398fc0b7": {
+   "message": "Fiziksel hareketlilikte \"Akıcı Manevra\". Çocuk artık tam hızla koşarken önündeki engeli fark edip düşmeden etrafından dolaşabiliyor. Bu, beyindeki \"motor planlama\" becerisinin en ileri düzeyidir. Parkta onun için küçük bir engel parkuru hazırlayın. Bu, hem beden kontrolünü hem de çevikliğini artırır."
+  },
+  "104d37cc-f454-4cee-bc62-45a7dd638317": {
+   "message": "Konuşmada \"Soruların Niteliği\". Artık yalnızca \"bu nedir?\" diye değil, \"bu neden böyle?\" diye soruyor. Olayların ardındaki mantığı anlamaya çalışıyor. Yanıt verirken hayal gücünü de harekete geçirin: \"Sizce neden yağmur yağıyor?\". Bu, yaratıcı ve bilimsel düşünme becerilerini destekler."
+  },
+  "72c3574b-2a9a-4755-8727-8d01b439e56e": {
+   "message": "İnce motor gelişiminde \"Şekil Kopyalama: Kare ve Üçgen\". Çocuk artık köşeleri olan şekiller çizmeye çalışıyor. Bu, daire çizmekten daha zordur; çünkü kalemi belirli bir noktada durdurup yönünü değiştirmeyi gerektirir. Ona köşeli şekilleri birleştirerek \"ev\" veya \"araba\" çizmeyi gösterin."
+  },
+  "6e14d59c-92a1-4b52-9746-19ec45e3a240": {
+   "message": "\"Adalet ve Kurallar\". Çocuğunuz artık oyunlarda kuralların ihlal edilmesine sert tepki veriyor: \"O, sırasını bozdu!\". Bu, sosyal benlik ve etik anlayışın geliştiğini gösterir. Kuralların herkes için aynı olduğunu açıklayarak içsel adalet duygusunu ve sosyal disiplinini güçlendirebilirsiniz."
+  },
+  "1bc59678-d965-4c53-ad57-e91ac3a6bece": {
+   "message": "Sosyal davranışta \"Diplomasi Girişimleri\". Çocuğunuz anlaşmazlıkları \"Sen bana bunu ver, ben de sana şunu vereyim\" gibi tekliflerle çözmeye çalışıyor. Bu, sosyal zekânın en belirgin göstergelerinden biridir. Onun bu \"müzakereci\" yönünü takdir edin ve adil çözüm yollarını destekleyin."
+  },
+  "9268aa12-9e8f-498d-a13c-fd38e4e68957": {
+   "message": "Bilişsel gelişimde \"Miktarı Anında Tanıma (Subitizing)\". Çocuğunuz artık 3 veya 4 nesneyi saymadan, yalnızca bakarak kaç tane olduğunu anlayabiliyor. Ona farklı sayıda noktalar bulunan kartlar gösterin ve kaç tane olduğunu hemen söylemesini isteyin. Bu, gelecekteki hızlı matematiksel hesaplama becerisinin temelidir."
+  },
+  "dbdc7993-c5ce-4ff8-a2f5-69daf1b98fea": {
+   "message": "Fiziksel koordinasyon: \"Topu Omuz Üstünden Atma\". Çocuğunuz artık topu yalnızca yere bırakmıyor; omuz hizasından uzağa ve belirli bir hedefe doğru atabiliyor. Bu, tüm vücudun koordinasyonunu ve gücünü ayarlamayı gerektirir. Onunla parkta hedefe top atma oyunları oynayın."
+  },
+  "8c83e3c0-4591-49c2-a059-525f584c28d3": {
+   "message": "Konuşmada \"Şaka ve Mizahın Derinleşmesi\". Çocuğunuz artık kelimelerin anlamlarını değiştirerek şakalar yapıyor. Örneğin, size \"Baba\" deyip gülebilir. Bu, dil kurallarını iyi bildiğini ve mizah yaratmak için onları kasıtlı olarak bozduğunu gösterir. Onunla birlikte eğlenin."
+  },
+  "75df2db1-9a5a-4048-99dc-80b484b6d396": {
+   "message": "Duygusal Dayanıklılık: \"Sabır Testi\". Çocuğunuz artık istediği bir şey için birkaç dakika boyunca (örneğin, siz telefonla konuşurken) sessizce bekleyebiliyor. Bu, öz denetim becerisinin güçlendiğini gösterir. Bekledikten sonra ona mutlaka \"Beni beklediğin için çok teşekkür ederim\" diyerek teşekkür edin."
+  },
+  "bb1f5dc6-7300-4f63-9d44-40f2e54dfb71": {
+   "message": "Çocuğunuz artık çevresindeki logoları ve yazıları tanıyabiliyor. Örneğin, sevdiği dondurma markasını veya marketin logosunu gördüğünde adını söylüyor. Bu, sembolik düşüncenin geliştiğini gösterir. Ona farklı trafik işaretlerini veya basit piktogramları göstererek anlamlarını sorun. Bu, gelecekteki okuma becerisinin görsel temelidir."
+  },
+  "2c74b1f3-a8fd-4086-88da-377857855b8c": {
+   "message": "Fiziksel hareketlilikte \"Geriye Doğru Sıçrama\". Çocuğunuz artık geriye doğru küçük sıçramalar yapabiliyor. Bu, hem denge hem de bedenini mekân içinde kontrol etme becerisinde yeni bir seviyedir. Onunla \"Yengeç ve Kurbağa\" yarışı oynayarak hareketliliğini teşvik edin."
+  },
+  "f9bd7f70-01bc-46e8-8391-e80ede82d1cc": {
+   "message": "Konuşmada \"Karşıtlıkları Karşılaştırma\". Çocuk artık \"en büyük\", \"daha küçük\", \"çok ağır\" gibi karşılaştırma ifadelerini cümle içinde doğru yerde kullanıyor. Ona 3 farklı boyutta oyuncak verin ve \"En büyüğü hangisi?\" diye sorun. Bu, kelime dağarcığının hem nicelik hem de nitelik açısından zenginleştiğini gösterir."
+  },
+  "b857a3b6-e216-49cf-a9c0-e7adabf3fdba": {
+   "message": "İnce motor becerilerinde \"İnsan Figüründe Orantı\". Çocuk artık insan resmi çizerken vücut bölümlerini daha mantıklı biçimde yerleştiriyor; gözler yüzün ortasında, kollar ise gövdenin yanlarında oluyor. Bu resimler, kendi bedenine ilişkin farkındalığının (beden algısının) geliştiğini yansıtır."
+  },
+  "9ca9132e-1f05-4086-b977-373ac1739718": {
+   "message": "\"Kendini Tanımlama\". Çocuk artık kendisini tanımlayabiliyor: \"Ben sarışınım\", \"Ben hızlı koşarım\". Bu, bireysel kimliğinin güçlendiğini gösterir. Ona \"Başka neleri seviyorsun?\" gibi sorular sorarak kendisini tanımasına yardımcı olun. Kendisi hakkında olumlu düşünmesi, gelecekteki özgüveninin temelidir."
+  },
+  "68e14866-1913-4e48-a5b0-15a89d136783": {
+   "message": "Sosyal davranışta \"Diplomasi ve Müzakere\". Çocuk artık bir şeyi elde etmek için \"Sen bana bunu verirsen ben de sana bunu veririm\" gibi teklifler sunuyor. Bu, sosyal zekâsının ve problem çözme becerisinin ileri düzeyde geliştiğini gösterir. Onun bu adil \"pazarlık\" girişimlerini destekleyin ve olumlu karşılayın."
+  },
+  "fc45f60c-b22c-4712-b519-43e1ec159d0a": {
+   "message": "Bilişsel gelişimde \"Zamanı Rutinlerle Anlamlandırma\". Çocuk, \"Sabah uyandığımda\", \"Akşam yatarken\" gibi ifadelerle günün farklı zaman dilimlerini birbirinden ayırıyor. Onunla ertesi günün planlarını \"önce, sonra, en son\" sırasıyla konuşun. Bu, onda güven ve düzen duygusu oluşturur."
+  },
+  "27b3b770-0010-4e27-a15b-7e39df48e572": {
+   "message": "Fiziksel koordinasyon: \"Topu Ayakla Kontrol Etme\". Çocuk artık topa yalnızca vurmuyor, ayağıyla biraz ileri iterek topu sürmeye (dribbling) çalışıyor. Bu, dinamik denge ve dikkat gerektirir. Onun için parkta küçük bir \"futbol parkuru\" oluşturun ve topu hedefe doğru sürmesini isteyin."
+  },
+  "eddeff81-68cf-4451-8b49-9db4335c7821": {
+   "message": "Konuşmada \"Nezaket ve Sosyal Görgü\". Çocuk artık \"özür dilerim\", \"izin verir misiniz?\" gibi ifadeleri duruma uygun biçimde kullanıyor. Sizin başkalarıyla kurduğunuz iletişim, onun için en önemli örnektir. Nazik davrandığında, bu davranışının karşı tarafta yarattığı olumlu etkiyi fark etmesini sağlayın: \"Böyle nazik olduğun için herkes sana gülümsüyor\"."
+  },
+  "3c009bb9-dfc9-4682-a20a-9afa3ba74f26": {
+   "message": "Duygusal Dayanıklılık: \"Başarısızlığı Kabullenme\". Çocuk artık bir şeyi başaramadığında (örneğin, yapbozu tamamlayamadığında) hemen öfkelenmiyor; yeniden deniyor veya yardım istiyor. Sonucu değil, gösterdiği çabayı övün: \"Çok çabaladın ve pes etmedin, aferin!\"."
+  },
+  "b98d1c0b-fdd1-4aeb-a1f1-d636c58ba6b7": {
+   "message": "Çocuk artık nesneleri hem rengine hem de malzemesine göre aynı anda gruplandırabiliyor: \"Bu hem mavi hem de yumuşak.\" Bu, bilişsel esnekliğin önemli bir göstergesidir. Ona ahşap, kumaş ve plastik gibi farklı dokulara sahip nesnelerle oynayabileceği oyunlar sunun."
+  },
+  "60d3fdb2-caa2-4bc5-bc84-452616921b80": {
+   "message": "Fiziksel hareketlilikte \"Dinamik sıçrama\". Çocuk artık koşarken karşısına çıkan küçük bir engelin üzerinden hızını azaltmadan atlayabiliyor. Bu, beyinde hareketi önceden planlama (motor planning) becerisinin geliştiğini gösterir. Parkta onun için küçük engeller oluşturabilirsiniz."
+  },
+  "95122e91-e077-4e38-a3b4-27a4e9e756f1": {
+   "message": "Konuşmada \"Zaman ritüelleri\". Çocuk \"dün\", \"bugün\" ve \"yarın\" kavramlarını henüz tam olarak ayırt edemese de rutinleri biliyor. \"Yemekten sonra park\" veya \"Uyumadan önce masal\". Bu sıralamalar, zihninde zaman çizgisinin oluşmasına yardımcı olur."
+  },
+  "27b05f17-57a4-4b79-9091-f702b81309dd": {
+   "message": "İnce motor becerilerde \"Simetri denemeleri\". Çocuk kâğıdı katlamaya veya çizdiği resimdeki ayrıntıları (örneğin bir insanın iki gözünü ve iki kolunu) daha simetrik yerleştirmeye çalışır. Bu, görsel-mekânsal algısının ne kadar geliştiğini gösterir."
+  },
+  "0875811d-7343-4ba3-a29e-c235cba78b04": {
+   "message": "\"Siyasi\" pazarlıklar. Çocuk artık sizinle \"pazarlık\" ediyor: \"Sebzemi yersem sonra parkta daha uzun kalabilir miyiz?\" Bu, sosyal etkileme yollarını öğrendiğini gösterir. Bu \"pazarlıklarda\" dürüst ve tutarlı olun; sınırları bu şekilde öğrenir."
+  },
+  "c35d44af-1b5b-4a3a-b44c-143278463e37": {
+   "message": "Sosyal davranışta \"Hayalî senaryolar\". Artık oyunlar daha karmaşık: \"Ben satıcıyım, sen de gelip benden ekmek al.\" Bu oyunlarda çocuk, toplumdaki rolleri deneyimler. Onun senaryolarına eşlik ederek bu yaratıcı süreci destekleyin."
+  },
+  "52b43fec-3fc9-4135-bc89-1ca56d2c89c9": {
+   "message": "Bilişsel gelişimde \"Nesnelerin işlevi\". Çocuk artık nesneleri yalnızca görünümlerine göre değil, işlevlerine göre de gruplandırıyor. \"Bunlar kesmeye yarayan araçlar\", \"Bunlar ise yazmaya yarayan araçlar.\" Bu, zihnindeki bilgi birikiminin daha sistemli ve işlevsel hâle geldiğini gösterir."
+  },
+  "b2a95188-79e5-4c80-963a-2302704140ca": {
+   "message": "Fiziksel koordinasyonda \"Hassas manevralar\". Çocuk artık sıvı dolu bir bardağı fazla dökmeden taşıyabiliyor veya dar bir patikada yürüyebiliyor. Bu, görsel-motor koordinasyonunun ne kadar geliştiğini gösterir. Evde ona \"küçük yardımcı\" rolleri vererek dikkat becerisini güçlendirin."
+  },
+  "8d118e2f-9e48-4f84-bdd9-4688744f285c": {
+   "message": "Konuşmada \"Duygu sözlüğü\". Çocuğunuz artık yalnızca \"kötüyüm\" veya \"iyiyim\" demiyor. \"Sinirlendim\", \"özledim\", \"mutluyum\" gibi ifadeleri yerinde kullanıyor. Duygularını onaylayın: \"Özlediğin için ağlaman normal\". Bu, onun duygusal sağlığının en büyük güvencesidir."
+  },
+  "ee7d4f4f-acca-4792-810c-9ebdc339da81": {
+   "message": "1330 Günlük Zirve! Çocuğunuz artık resmen \"küçük çocukluk\" döneminin en aktif ve bilinçli evresinde. O artık hem fiziksel hem de duygusal açıdan tam bir birey. Siz bu yolu bilim ve sevgiyle katettiniz. \"Anacan\" her zaman yanınızda!"
+  },
+  "c1854d46-26a3-452c-9eb7-697ec5a92d6c": {
+   "message": "45. aya hoş geldiniz! Çocuğunuz artık çevresindeki yazılarda tanıdığı harfleri aramaya başlıyor. Özellikle adının ilk harfini her yerde tanıyabilir. Bu, okuma becerisinin ilk aşamasıdır. Ona harfleri zorla öğretmeyin; yalnızca gördüğü harflerin adını ve sesini oyun yoluyla söyleyin."
+  },
+  "ee3c0b22-95f2-4059-93bc-287ff0eb00cf": {
+   "message": "Fiziksel hareketlilikte \"Üç tekerlekli bisiklette tam kontrol\". Çocuğunuz artık pedal çevirmeyi bırakmadan gidonu çevirerek dar virajları dönebiliyor. Bu, hem alt vücut gücünün hem de görsel-mekânsal koordinasyonun zirvesidir."
+  },
+  "8651dfdb-b093-4f7c-b25e-9846200e12c4": {
+   "message": "Konuşmada \"Tahmin becerisi\". Masal okurken çocuğunuz artık \"Sence sonra ne olacak?\" sorusuna mantıklı yanıtlar veriyor. Bu, olaylar arasındaki örtük bağlantıları (çıkarım) anlamaya başladığını gösterir. \"Sen olsaydın ne yapardın?\" diye sorarak hayal gücünü destekleyin."
+  },
+  "9727b126-febe-431d-a82a-db6a6416efff": {
+   "message": "İnce motor becerilerinde \"Kâğıt kesme: Şekil çıkarma\". Çocuğunuz artık güvenli bir makasla basit bir daireyi veya kareyi kenarlarından kesip çıkarmaya çalışıyor. Bu, elindeki küçük kasların ileri düzeyde kontrol edilmesini gerektirir."
+  },
+  "a0bdfa22-2c16-417c-bc41-62353716c069": {
+   "message": "\"Adalet ve Kural bekçisi\". Çocuğunuz artık yalnızca kendisi değil, başkaları da kuralları ihlal ettiğinde tepki veriyor: \"Baba, sırayı bozdun!\". Bu, içsel vicdanın ve sosyal adalet duygusunun geliştiğini gösterir. Kuralların neden herkes için eşit olduğunu ona açıklayın."
+  },
+  "1c1d5af4-d669-4eee-8938-97dcf06fd2d8": {
+   "message": "Sosyal davranışta \"Diplomatik çözümler\". Çocuğunuz artık anlaşmazlık sırasında \"Hadi sırayla oynayalım\" gibi öneriler sunabiliyor. Bu, sosyal zekânın en belirgin göstergelerinden biridir. Bu barışçıl yaklaşımını mutlaka \"Çok güzel bir çözüm buldun\" diyerek takdir edin."
+  },
+  "32e16fdb-1a45-43a1-8bb5-fea77db311d2": {
+   "message": "Bilişsel gelişimde \"Miktarın korunumu deneyleri\". Onunla kum veya suyla oynayın. Aynı miktarda suyu farklı kaplara dökün. Hâlâ uzun kapta daha fazla su olduğunu düşünebilir. Bu deneyler, beynini fiziksel gerçekliği kavramaya hazırlar."
+  },
+  "5eff2db7-b37a-4ebb-9335-292fea3a6331": {
+   "message": "Fiziksel koordinasyon: \"Topu omuz üzerinden atma\". Çocuğunuz artık topu hedefe doğru daha güçlü ve isabetli atabilir. Bu, kol ve omuz kaslarının koordineli çalışmasının bir sonucudur. Onunla parkta küçük \"potaya top atma\" oyunları oynayın. Bu hem eğlencelidir hem de beden kontrolünü güçlendirir."
+  },
+  "dcd74d19-3308-4446-89b6-05aecfc53aed": {
+   "message": "Dil gelişiminde \"Soyut kavramlar: Sağ ve Sol\". Çocuğunuz \"sağ el\" ve \"sol ayak\" kavramlarını öğrenmeye ilgi gösterir. Şimdilik bunları karıştırabilir, bu normaldir. Çoraplarını giydirirken \"Şimdi sağ ayağını uzat\" diyerek bu kavramları günlük yaşama dahil edin."
+  },
+  "b36ad394-fd9c-40bc-963f-954848c1c743": {
+   "message": "Duygusal Dayanıklılık: \"Öz Düzenleme (Self-regulation)\". Çocuğunuz artık bir şeyi başaramadığında hemen öfkelenmek yerine size bakıp \"Yeniden deneyeyim mi?\" diyebilir. Bu, duygusal olgunluğun en önemli basamaklarından biridir. Sonucu değil, gösterdiği sabrı ve çabayı övün. Siz harika bir annesiniz!"
+  },
+  "a41e3209-8dbf-44ce-98bb-5a5b64b4268c": {
+   "message": "Çocuğunuz artık \"önce, şimdi, sonra\" sıralamasını karmaşık etkinliklere uygulayabilir. \"Önce oyuncağı toplayacağım, sonra ellerimi yıkayıp yemek yiyeceğim\". Bu, beyindeki stratejik planlama (yürütücü işlev) becerisinin gelişimidir. Günün planını oluştururken ona aktif bir rol verin; bu, iç disiplinini güçlendirir."
+  },
+  "696cb686-c625-440d-93fe-4e04eee0ca77": {
+   "message": "Fiziksel hareketlilikte \"Statik ve Dinamik Denge\". Çocuğunuz artık tek ayağının üzerinde 5-10 saniye durabilir veya dar bir kaldırım kenarında dengesini kaybetmeden yürüyebilir. Bu, vestibüler sistemin tamamen olgunlaştığını gösterir. Onunla \"Cambaz\" oyunu oynamanın tam zamanı."
+  },
+  "1bdc4f44-d5e0-42ee-9d67-dc1beca39c22": {
+   "message": "Dil gelişiminde \"Neden-Sonuç Zinciri\". Artık koyduğunuz yasaklar için mantıklı bir açıklama arar: \"Neden şimdi tatlı yiyemem?\". Yanıt verirken \"Çünkü ben öyle söylüyorum\" demek yerine, \"Çünkü şimdi tatlı yersen karnın doyar ve sağlıklı öğle yemeğini yiyemezsin\" gibi açıklamalar yapın. Bu, onun mantıksal düşünme becerisini geliştirir."
+  },
+  "dd86234a-f54a-432f-bcb2-f0fc25c1a9f2": {
+   "message": "İnce motor gelişiminde \"İnsan çizimindeki ayrıntılar\". Çocuğunuz artık insan çizerken parmaklar, kirpikler, düğmeler veya şapka gibi küçük ayrıntılar ekler. Bu resimler, çevresindeki dünyayı ne kadar dikkatle gözlemlediğinin ve el-göz koordinasyonunun bir sonucudur."
+  },
+  "30d373fa-79f5-41e2-b2ee-ce7f265298c1": {
+   "message": "\"Hayali Korkular ve Cesaret\". Bu yaşta hayal gücü o kadar kuvvetlidir ki karanlıkta \"canavarlar\" görebilir. Korkusunu inkâr etmeyin; birlikte \"korku kovucu\" ritüeller (örneğin sihirli bir yastık veya fener) oluşturun. Bu, onun duygusal güvenlik hissini güçlendirir."
+  },
+  "ec5ff997-3ed4-4645-be9c-2d361314cc2f": {
+   "message": "Sosyal davranışta \"Liderlik ve İş Birliği\". Çocuk artık oyunun senaryosunu kurar ve arkadaşlarına roller dağıtır: \"Sen kedi ol, ben de senin sahibin olayım\". Bu, onun sosyal hiyerarşiyi ve rolleri kavradığını gösterir. Bazen onun senaryosuna uyarak bu yaratıcı liderlik girişimini destekleyin."
+  },
+  "c8eb9b80-1c81-4e02-86f3-e8fdf448ffb9": {
+   "message": "Bilişsel gelişimde \"Miktar ve Sayı Sembolü\". Çocuk artık \"4\" rakamının 4 elmayı, \"1\" rakamının ise tek bir nesneyi ifade ettiğini tamamen kavrar. Ona \"Bana 5 kalem ver\" gibi görevler vererek soyut sayılarla gerçek miktarlar arasındaki bağı güçlendirin."
+  },
+  "e3704303-d02a-47ea-9a47-f1164a3046e0": {
+   "message": "Fiziksel koordinasyon: \"Topu İki Elle Yakalama\". Çocuk artık kendisine doğru yavaşça atılan topu kollarını büküp ellerini göğsünde birleştirerek (bazen de doğrudan elleriyle) yakalamaya başlar. Bu, tepki hızının ve görsel takip becerisinin geliştiğini gösterir. Onunla yakın mesafeden yumuşak bir topla alıştırma yapın."
+  },
+  "58a4bd7b-b429-45cf-92c2-f503f4e7d474": {
+   "message": "Konuşmada \"Zaman Ritüelleri\". Çocuk \"dün\", \"bugün\" ve \"yarın\" kavramlarını artık daha doğru kullanır. \"Yarın anneanneme gideceğim\" dediğinde zaman çizgisini zihninde canlandırır. Günün sonunda yarının planlarını onunla bir \"masal\" gibi konuşarak uykuya dalın. Bu, onun gelecek zaman kavramını da şekillendirir."
+  },
+  "647eb338-5057-4cf4-a29d-e4970189abc1": {
+   "message": "1350 günlük büyük gelişim! Çocuk artık resmen \"bebeklik\" kıyısından uzaklaştı ve \"küçük çocukluk\" okyanusunda özgürce yüzüyor. Onun bireyselliği, mizah anlayışı ve karakteri artık sizin için en büyük merak kaynağı. Siz bu 1350 gün boyunca onun dünyasının en güvenli limanı oldunuz. Aferin size, Anne!"
+  },
+  "56b16411-749d-48ab-a1c9-aec6ee4d3f2b": {
+   "message": "Çocuk artık \"ben\" ve \"biz\" arasındaki farkı sosyal oyunlarda uygular. \"Gel birlikte ev yapalım; sen tuğlaları getir, ben dizeyim\" gibi bir iş bölümü yapıyorsa bu, iş birliği zekâsının zirvesidir. Grup çalışmalarında liderlik veya yardımcı rollerini denemesine fırsat tanıyın. Bu, gelecekteki takım çalışması becerilerini şekillendirir."
+  },
+  "3acf9991-6e18-469c-8243-5255e3b47e73": {
+   "message": "Fiziksel hareketlilikte \"Hızlı Koşma ve Keskin Dönüş\". Çocuk artık koşarken dengesini kaybetmeden keskin dönüşler yapabilir. Bu, beden farkındalığının (propriyosepsiyon) ve kas kontrolünün ne kadar geliştiğini gösterir. Parkta oynayacağınız \"Zikzak koşusu\" oyunu onun için harika bir egzersizdir."
+  },
+  "09e33fb1-46b4-4ad6-a2f6-bb3ee2d41636": {
+   "message": "Konuşmada \"Neden?\" sorularının mantıksal zinciri. Artık sizin cevabınızla yetinmiyor, \"Peki o neden böyle?\" diyerek peş peşe sorular soruyor. Cevap verirken onu da düşünmeye teşvik edin: \"Sence güneş nereye gidiyor?\". Bu, onun hayal gücünü bilimsel merakla birleştirir. Küçük ansiklopedilerle merak dünyasını genişletin."
+  },
+  "b9689a6f-2bcb-421e-acea-f03b1095905f": {
+   "message": "İnce motor becerilerinde \"Kâğıt katlama (Origaminin temelleri)\". Çocuk artık kâğıdı tam ortadan katlamaya ve köşeleri birleştirmeye çalışıyor. Bu hareket hem el kaslarını güçlendirir hem de geometrik simetri kavramını zihnine yerleştirir. Ona renkli kâğıtlarla basit şekiller yapmayı öğretin."
+  },
+  "7a0c1e64-9ecb-47f6-83f4-aa32390210cd": {
+   "message": "\"Öz Yönetim ve Duyguları İfade Etme\". Çocuk öfkelendiğinde yalnızca bağırmak yerine, \"Şu anda çok öfkeliyim!\" diyerek duygusunu sözlerle ifade edebilir. Duygularını kabul edin (onaylayın): \"Seni anlıyorum, öfkelenmen normal\". Bu, onun duygusal olgunluğunu artırır."
+  },
+  "2dd70517-4599-4775-b1e7-2b11f39244da": {
+   "message": "Sosyal davranışta \"Diplomatik Müzakereler\". Çocuk bir şeyi elde etmek için \"Eğer sen bana bu arabayı verirsen, ben de sana çikolata veririm\" gibi bir \"takas\" (pazarlık) yapar. Bu, sosyal etkileme ve diplomasi becerisinin başlangıcıdır. Onunla adil \"pazarlık\" kurallarını oyun yoluyla deneyin."
+  },
+  "eb9fac33-252a-4cde-bb98-95be1aaf831f": {
+   "message": "Bilişsel gelişimde \"Miktarın korunumu (Hacim)\". Onunla mutfakta bir deney yapın: Aynı miktarda suyu biri geniş, diğeri uzun ve dar olan iki kaba dökün. Hâlâ uzun kapta daha fazla su olduğunu söyleyebilir. Bu tür deneyler, görsel algısı ile mantıksal düşünmesi arasındaki çelişkiyi çözme becerisini geliştirir."
+  },
+  "f40621db-c962-42bd-85b1-429800b2b4ef": {
+   "message": "Fiziksel koordinasyon: \"Topu ayakla kontrol etme\". Çocuk artık topa yalnızca vurmakla kalmıyor, ayağıyla biraz öne iterek top sürmeye (dribbling) çalışıyor. Bu, dinamik denge ve dikkat gerektirir. Onunla parkta küçük bir \"futbol parkuru\" kurun ve topu hedefe doğru sürmesini isteyin."
+  },
+  "3804d992-5f37-4fb4-bfb6-18ad143039e9": {
+   "message": "Konuşmada \"Nezaket ve Sosyal Normlar\". Çocuk artık \"özür dilerim\", \"izin verir misiniz?\" gibi ifadeleri yalnızca ezberden değil, duruma uygun biçimde kullanıyor. Sizin başkalarıyla kurduğunuz iletişim, onun için en önemli örnektir. Nazik davrandığında, bu davranışın çevresindekiler üzerinde yarattığı olumlu etkiyi mutlaka fark etmesini sağlayın."
+  },
+  "333176ec-4bc6-4177-b76d-921996ec28d4": {
+   "message": "1360 günlük büyük yolculuk! Çocuk artık 45 ayı geride bıraktı. O artık kendi düşünceleri, şakaları ve hayalleri olan başlı başına bir birey, küçük bir insan. Siz bu 1360 gün boyunca onun dünyasının mimarı oldunuz. Onun özgüvenli bakışlarında sizin sevginizin imzası var. Siz harika bir annesiniz!"
+  },
+  "81b527f9-bc6c-4fa6-a384-bfac0dbe1b99": {
+   "message": "Konuşmada \"Nezaket ve Görgü Kuralları\". Çocuk artık \"özür dilerim\", \"lütfen\" sözlerini yalnızca ezberden değil, amacına uygun şekilde kullanıyor. Sizin başkalarıyla konuşurken kullandığınız üslup, onun en önemli rehberidir. Nazik davrandığında, bu davranışın çevresindekiler üzerinde yarattığı olumlu etkiyi fark etmesini sağlayın."
+  },
+  "7f1e62d7-6f8c-466a-917b-3acd9000a197": {
+   "message": "1370 günlük muhteşem bir yolculuk! Çocuk artık bebeklik alışkanlıklarını tamamen geride bırakarak okul öncesi dönemin en aktif aşamasına geçiyor. Artık kendisini bir \"ben\" olarak tanıyor ve dünyayı değiştirmeye hazır. Siz bu 1370 gün boyunca onun en güvenilir rehberi oldunuz. Sevginiz ve sabrınız için kendinize teşekkür edin!"
+  },
+  "395ee563-1ee4-4a29-8a28-f145933f9a6e": {
+   "message": "Çocuk artık çevresindeki yazılarda tanıdığı harfleri (özellikle adının ilk harfini) aramaya başlıyor. Bu, \"görsel okuma\" aşamasıdır. Ona harfleri zorla öğretmeye çalışmayın; yalnızca gördüğü sembollerin hangi sesi temsil ettiğini ilgi çekici bir keşif gibi sunun."
+  },
+  "cad61f20-8263-4b3a-bfc8-ed14fb447f18": {
+   "message": "Fiziksel hareketlilikte \"Dinamik Manevra\". Çocuk artık koşarken önündeki engelin yanından kolayca geçebiliyor veya aniden yön değiştirebiliyor. Bu, beyindeki motor planlama becerisinin geliştiğini gösterir. Parkta onunla \"Zikzak yarışı\" oynayarak çevikliğini artırın."
+  },
+  "9337ce82-dd36-4b6f-a92e-336053ee8590": {
+   "message": "Konuşmada \"Tahmin ve Mantık\". Ona masal okurken \"Sence sonra ne olacak?\" diye sorun. Çocuk artık olayların akışına uygun, mantıklı tahminlerde bulunabiliyor. Bu, hem hayal gücünü hem de neden-sonuç ilişkilerini anlama becerisini geliştirir."
+  },
+  "90518b08-497d-4de6-998e-df3fea30a1f5": {
+   "message": "İnce motor becerilerinde \"Şekil Kopyalama: Kare\". Daireden farklı olarak kare çizmek, kalemi köşelerde durdurup yönünü değiştirmeyi gerektirir. Bu, yazı yazmaya geçiş için önemli bir fiziksel hazırlıktır. Ona farklı geometrik şekilleri birleştirerek ev veya araba çizmeyi gösterin."
+  },
+  "24183c71-3661-48ff-a107-410bfbd38523": {
+   "message": "\"Öz Denetim ve Sabır\". Çocuk artık sırasını beklemenin veya isteğinin hemen yerine getirilmemesinin bir \"son\" olmadığını anlıyor. Sizin \"5 dakika bekle\" demenizi daha sakin karşılıyor. Bekledikten sonra ona mutlaka \"Sabırlı olduğun için teşekkür ederim\" diyerek bu olumlu davranışını pekiştirin."
+  },
+  "04f3027e-9e30-43e8-bafb-f6c237c97831": {
+   "message": "Sosyal davranışta \"Kurallı Takım Oyunları\". Çocuk artık diğer çocuklarla birlikte kuralları olan oyunlar (örneğin, \"Saklambaç\") oynamaya ilgi gösteriyor. Bu, sosyal uyumun önemli bir basamağıdır. Kurallara uyduğunda onu \"Dürüst oynadığın için aferin\" diyerek övün."
+  },
+  "657efc38-ed5e-4e3a-9572-7dbdb9184154": {
+   "message": "Çocuk artık nesneleri yalnızca görünüşlerine göre değil, yapıldıkları malzemeye göre de ayırt eder: \"Bu plastik, bu ise demir\". Ona farklı dokulara sahip nesneler verin ve aralarındaki farkları sorun. Bu, çevresindeki dünyayı daha ayrıntılı analiz etmesine ve fiziksel dünyaya ilişkin bilgilerini düzenlemesine yardımcı olur."
+  },
+  "2f039b11-24db-4020-90d7-1c5f7a16c171": {
+   "message": "Fiziksel hareketlilikte \"Statik Denge Zirvesi\". Çocuk artık tek ayağının üzerinde hiçbir yere tutunmadan 5-10 saniye durabilir. Bu, hem iç kulaktaki denge merkezinin geliştiğini hem de bel ve bacak kaslarının güçlendiğini gösterir. Onunla \"donduk\" oyunu oynayarak bu becerisini eğlenceli hâle getirin."
+  },
+  "c914eb21-6b42-48f0-8ec0-5b93a47ae392": {
+   "message": "Konuşmada \"Neden-Sonuç Zinciri\". Çocuğunuz artık koyduğunuz yasaklar için mantıklı bir açıklama arar: \"Neden şimdi tatlı yiyemem?\". Yanıt verirken \"Çünkü ben öyle söylüyorum\" demek yerine, \"Çünkü şimdi tatlı yersen karnın doyar ve sağlıklı öğle yemeğini yiyemezsin\" gibi açıklamalar yapın. Bu, onun mantıksal düşünme becerisini geliştirir."
+  },
+  "fdd8b340-0697-4aeb-8d02-8988eb7da642": {
+   "message": "İnce motor becerilerinde \"İnsan Çizimindeki Ayrıntılar\". Çocuk artık insan çizerken parmaklar, kirpikler, düğmeler veya şapka gibi küçük ayrıntılar ekler. Bu resimler, çevresini ne kadar dikkatli gözlemlediğinin ve el-göz koordinasyonunun bir sonucudur."
+  },
+  "d0348641-27c7-4875-b24e-5d2722f25676": {
+   "message": "\"Hayalî Korkuları Yönetme\". Bu yaştaki çocuklar bazen karanlıktan veya \"canavarlardan\" korkabilir. Onun korkusunu yok saymayın; bunun yerine \"canavarı kovan sihirli fener\" gibi oyunlar oluşturun. Duygusal desteğiniz, bu korkuların geçici olduğunu öğrenmesine yardımcı olur."
+  },
+  "bd3e5f00-1925-4d9d-bea8-7fc43abbb171": {
+   "message": "Sosyal davranışta \"Sonuca Yönelik İş Birliği\". Çocuk artık başka bir arkadaşıyla birlikte büyük bir kule yapmak için \"taşları\" paylaşabilir. Bu, artık yalnızca yan yana değil, ortak bir amaç için oynamaktır (cooperative play). \"Harika bir takım oldunuz!\" diyerek onun bu sosyal ve uzlaşmacı yönünü takdir edin."
+  },
+  "34ed2954-3007-40b2-9228-8e5bbced6cd6": {
+   "message": "Bilişsel gelişimde \"Miktarın Korunumu Testi\". Çocuk hâlâ yassılaştırılmış oyun hamurunun top hâlindeki oyun hamurundan daha büyük olduğunu düşünebilir. Onunla bu tür deneyler yapın: Oyun hamurunu yayın, ardından yeniden top hâline getirin. Bu, fiziksel dünyanın değişmez kurallarını anlamasına yardımcı olur."
+  },
+  "f67ac937-be10-4065-8ce0-71169b977a25": {
+   "message": "Fiziksel koordinasyon: \"Topu Ayakla Kontrol Etme\". Çocuk artık topa yalnızca vurmakla kalmaz, ayağıyla biraz ileri iterek (dribbling) hareket ettirmeye çalışır. Bu, dinamik denge ve ayak-göz koordinasyonu gerektirir. Parkta onun için küçük bir \"futbol parkuru\" oluşturun ve topu hedefe doğru sürmesini isteyin."
+  },
+  "494bf11b-00d7-4571-8a96-04e2a73dc57c": {
+   "message": "Bilişsel gelişimde \"Miktarı Tanıma (Subitizing)\". Çocuk artık 4-5 nesnenin kaç tane olduğunu saymadan, yalnızca bakarak anlayabilir. Ona farklı sayıda noktalar bulunan kartlar gösterin ve \"Burada kaç tane var?\" diye sorun. Bu beceri, gelecekte hızlı matematiksel işlemler yapabilmenin temelini oluşturur."
+  },
+  "e519a6cc-28f9-4dbb-80e3-d4aaf6533df1": {
+   "message": "Fiziksel koordinasyonda \"Tek ayak üzerinde zıplama\". Çocuk artık tek ayağı üzerinde art arda birkaç kez zıplamayı deniyor. Bu hareket hem güç hem de ileri düzey denge gerektirir. Onunla evde \"Ayak izlerinde zıplama\" oyunu oynayarak bacak kaslarını ve dengesini güçlendirin."
+  },
+  "22058766-30d2-4299-8138-dbe3e33f7a99": {
+   "message": "Dil gelişiminde \"Zamanı görselleştirme\". Çocuk artık günün bölümlerini ve olayların sırasını iyi biliyor. \"Sabah uyandığımızda güneş doğar, akşam ise ay çıkar\". Onunla ertesi günün planlarını \"önce, sonra, en son\" şeklinde konuşmanız, kendini güvende hissetmesine de yardımcı olur."
+  },
+  "29c7e41f-162a-440d-ad79-c662956e2e8e": {
+   "message": "Duygusal dayanıklılıkta \"Uzlaşma ve çözüm yolları\". Çocuk artık anlaşmazlık yaşadığında yalnızca ağlamak yerine \"Hadi oyuncağı paylaşalım\" veya \"Sen bana bunu ver, ben de sana bunu vereyim\" gibi öneriler sunuyor. Bu, sosyal zekânın en üst düzey göstergelerinden biridir. Onun bu barışçıl yaklaşımını her zaman destekleyin. Harika bir birey yetiştiriyorsunuz!"
+  },
+  "428720ac-8db6-44a9-825f-ab25eee4d54f": {
+   "message": "Çocuk artık nesneleri aynı anda hem renklerine hem de boyutlarına göre gruplandırabilir: \"Bütün küçük ve yeşil küpleri buraya toplayalım\". Bu, bilişsel esnekliğin önemli bir göstergesidir. Ona farklı ölçütler içeren \"Ara-bul\" oyunları sunarak dikkatini geliştirin."
+  },
+  "5a34a884-0d1a-4ecc-8aaf-0538071d5d58": {
+   "message": "Fiziksel gelişimde \"İsabetli Atış\". Çocuk artık topu veya küçük bir torbayı belirli bir hedefe (örneğin sepete) daha isabetli atabilir. Bu, uzamsal mesafe tahmini (spatial estimation) yapma ve uyguladığı gücü ayarlama becerisinin geliştiğini gösterir. Onunla evde \"Hedefi vur\" yarışması düzenleyin; bu oyun el-göz koordinasyonunu da güçlendirir."
+  },
+  "43f973d1-c670-48fb-b082-c963d974b2cb": {
+   "message": "Dil gelişiminde \"Neden\"den \"Nasıl\"a geçiş. Çocuk artık olayların yalnızca nedenini değil, nasıl gerçekleştiğini de soruyor: \"Araba nasıl gidiyor?\", \"Yağmur nasıl yağıyor?\". Yanıt verirken basit fizik kurallarını (örneğin, \"tekerlekler dönüyor\") açıklayarak onun bilime olan merakını destekleyin."
+  },
+  "4fc62a39-6aec-4659-8e0d-de5a572b7f58": {
+   "message": "İnce motor gelişiminde \"Kompozisyon oluşturma\". Çocuk resim yaparken artık birbiriyle ilişkili birkaç nesneyi aynı kâğıt üzerinde bir araya getiriyor: \"Bu bir ev, bu da yanındaki ağaç\". Bu, görsel dünyayı bir bütün ve sistemli bir şekilde algılamaya başladığını gösterir."
+  },
+  "2e78bbc8-d3e0-46e9-b6f4-fd06f0ff0e92": {
+   "message": "\"Öz Düzenleme (Self-regulation)\". Çocuk artık öfkelendiğinde \"Öfkelendim!\" diyerek fiziksel tepkinin (örneğin vurmanın) yerine sözcükleri kullanmaya çalışır. Bu, duygusal zekâ gelişimindeki en büyük sıçramalardan biridir. Duygularını ifade ettiğinde onu dinleyin ve \"Duygularını sözcüklerle ifade ettiğin için seninle gurur duyuyorum\" diyerek destekleyin."
+  },
+  "c878d5a6-c839-4863-9ea6-c1e45caf4ee6": {
+   "message": "Sosyal davranışta \"Rol Oyunlarında Diyalog\". Çocuk artık oyunlarında uzun diyaloglar kurar: \"Sen mağazaya geldin, benden ekmek istiyorsun...\". Bu oyunlar aracılığıyla sosyal kuralları ve iletişim görgüsünü deneyimler. Onun senaryosuna uyarak bu yaratıcı sürece katılın."
+  },
+  "96a1b8b4-4a53-4821-8a70-36e9af7db4b1": {
+   "message": "Bilişsel gelişimde \"Zıt Kavramları Sınıflandırma\". Çocuk artık \"sıcak-soğuk\", \"yüksek-alçak\", \"ağır-hafif\" kavramlarını tamamen ayırt edebilir. Onunla \"Zıddını bul\" oyunu oynayın: Siz \"büyük\" deyin, o da \"küçük\" desin. Bu, hem sözcük dağarcığını hem de soyut ve karşılaştırmalı düşünme becerisini geliştirir."
+  },
+  "e31518b3-755f-43f6-a042-c5c881774776": {
+   "message": "Fiziksel koordinasyon: \"Merdivende Hareket Becerisi\". Çocuk artık merdivenleri güvenle inip çıkar ve bazen elinde oyuncak olsa bile dengesini koruyabilir. Bu, dinamik denge becerisinin ileri düzeyde olduğunu gösterir. Her zaman yakınında olun, ancak özgürce hareket edebilmesi için ona güven verin."
+  },
+  "1285abea-7296-4d22-a83f-6877ea839c11": {
+   "message": "Konuşmada \"Hayal Gücü ve Hikâye\". Çocuk size kendi uydurduğu kısa masalları anlatabilir. Bu masallarda gerçeklikle hayal iç içe geçer. Hikâyelerini \"Gerçekten mi?\" veya \"Sonra ne oldu?\" gibi merak uyandıran sorularla destekleyin. Bu, gelecekte akıcı ve etkileyici konuşmasına yardımcı olur."
+  },
+  "ab47da7b-7dd4-423e-bf69-3500dd83cc2f": {
+   "message": "Duygusal Dayanıklılık: \"Kazanmak ve Kaybetmek\". Çocuk artık oyunlarda kaybetmeyi (her zaman olmasa da) daha sakin karşılar. \"Hadi bir daha oynayalım\" diyerek yeniden denemesi, kararlılığının bir göstergesidir. Bu önemli yaşam becerisini her zaman \"Önemli olan oynamaktır\" diyerek vurgulayın."
+  },
+  "d6bf3a90-b7f5-4d81-9101-4bd23f1bc25d": {
+   "message": "Çocuk artık \"eğer... o zaman...\" mantığını karmaşık sosyal durumlara uygular: \"Eğer ben ona oyuncağımı verirsem, o da bana verecek\". Bu, karşılıklı ilişkilerin temelidir. Onunla \"Sonuç ne olur?\" oyunu oynayın (örneğin, \"Çiçeği sulamazsak ne olur?\"). Bu, ileriyi düşünme becerisini geliştirir."
+  },
+  "2795a26f-4a85-42cd-9860-03afd8411f60": {
+   "message": "Fiziksel hareketlilikte \"Kontrollü Atlama\". Çocuk artık belirli bir yükseklikten (örneğin alçak bir basamaktan) dengesini kaybetmeden iki ayağının üzerine atlayabilir. Bu, diz ve ayak bileği eklemlerinin güçlendiğini gösterir. Ona dizlerini hafifçe bükerek \"yumuşak iniş\" yapmayı öğretin."
+  },
+  "4dbdf376-fb0e-469f-bb2e-b3be32d8d1c8": {
+   "message": "Konuşmada \"Soyut Zaman Kavramları\". Çocuğunuz artık \"hafta sonu\", \"bayramda\", \"doğum gününde\" gibi daha geniş zaman dilimlerini anlıyor. Onunla yaklaşan önemli bir olay (örneğin, bir gezi) hakkında konuşurken \"3 gün sonra\" gibi ifadeler kullanarak zaman algısını geliştirin."
+  },
+  "83f43947-4f06-425b-801a-dd053a64d6b1": {
+   "message": "İnce motor becerilerinde \"Harfleri Kopyalama\". Çocuğunuz artık bazı basit harfleri (örneğin, A, O, T) gördüğü şekilde kopyalamaya çalışıyor. Bu, sembollerin hem görsel hem de motor belleğe aktarılmasıdır. Ona kum tepsisi veya parmak boyasıyla harfleri \"yazmayı\" önerin."
+  },
+  "51891c5d-a6e3-40d4-8ba5-38112ce2f223": {
+   "message": "\"Öz Yönetim: İsteği Erteleme\". Çocuğunuz artık bir ödül için biraz daha beklemesi gerektiğini (örneğin, \"yemekten sonra tatlı\") kabul ediyor. Bu, irade gücünün ve öz denetimin gelişimidir. Gösterdiği bu sabrı mutlaka vurgulayın ve onu övün; bu beceri gelecekteki başarılı akademik yaşamın anahtarıdır."
+  },
+  "9932ed27-e891-4fec-aac9-e64c5a418a49": {
+   "message": "Sosyal davranışta \"Grup Dayanışması\". Çocuğunuz artık bir arkadaşı ağladığında ona sadece bakmıyor, \"Ne oldu?\" diye soruyor veya size haber veriyor. Bu, empatinin aktif aşamasıdır. Onun bu duyarlı yönünü \"Çok iyi kalpli bir arkadaşsın\" diyerek destekleyin."
+  },
+  "5f9e5aa3-02e0-4bd3-85bf-ad954730aed0": {
+   "message": "Bilişsel gelişimde \"Toplamanın Temelleri\". Çocuğunuz artık 2 oyuncağın yanına 1 tane daha koyduğunda toplamda 3 oyuncak olduğunu saymadan (veya hızlıca sayarak) anlayabiliyor. Günlük işler sırasında \"Senin 2 elman vardı, ben de 1 tane verdim, şimdi kaç tane oldu?\" gibi küçük matematik bilmeceleri hazırlayın."
+  },
+  "5d319604-f8fa-4e75-83e3-e78cf306cb47": {
+   "message": "Fiziksel koordinasyon: \"Tek Ayak Üzerinde Zıplama (Hop-stop)\". Çocuğunuz artık tek ayağı üzerinde art arda 2-3 kez zıplayabiliyor. Bu, hem iyi bir denge hem de güçlü bacak kasları gerektirir. Onunla evde \"Ayak İzi\" oyunu oynayarak koordinasyonunu daha da geliştirin."
+  },
+  "5e32473e-0836-4d23-8816-7e98014c394b": {
+   "message": "Konuşmada \"Betimleyici Hikâye\". Çocuğunuz çizdiği bir resmi veya gördüğü bir olayı birbirini takip eden cümlelerle anlatıyor. \"Burada bir köpek vardı, koştu, sonra ağaca çıktı...\". Konuşmasındaki olay sıralamasına dikkat edin. Bu, beyninde olayların mantıksal düzenini nasıl kurduğunun bir göstergesidir."
+  },
+  "af7c9867-8fc8-42cc-b62a-1044c801bdef": {
+   "message": "1400 günlük büyük zafer! Çocuğunuz artık 46 ayını tamamladı. O artık kendisinin farkında olan, başkalarının duygularını paylaşan ve dünyayı mantıkla keşfeden küçük bir \"bilim insanı\". Siz bu 1400 gün boyunca çocuğunuz için en güvenli liman ve en iyi öğretmen oldunuz. Siz harika bir annesiniz!"
+  },
+  "eaf98320-82a4-46ba-81fe-43fd023e6b82": {
+   "message": "Konuşmada \"Karmaşık Cümle Yapısı\". Çocuk artık \"eğer\", \"çünkü\", \"ancak\" gibi bağlaçları kullanarak uzun ve mantıklı cümleler kuruyor. Sözünü kesmeden onu dinleyin ve \"Yani, sen böyle düşünüyorsun...\" diyerek düşüncesini genişletmesine yardımcı olun. Bu, kendini ifade etme becerisini ve kelime dağarcığını aktif biçimde kullanmasını geliştirir."
+  },
+  "c0cb0b02-4a51-4012-b51b-53868aad0bf0": {
+   "message": "Duygusal Dayanıklılık: \"Kendini Teselli Etme\". Çocuk artık küçük bir düşme veya başarısızlık karşısında hemen ağlamayabilir; kendi kendine \"Bir şey olmadı\" deyip ayağa kalkabilir. Bu, duygusal dayanıklılığın önemli bir göstergesidir. Siz de onun bu cesaretini her zaman \"Çok güçlüsün!\" diyerek destekleyin."
+  },
+  "3a58737c-1dc5-47f3-86ee-31c959892712": {
+   "message": "Çocuk artık \"saat\" kavramına ilgi gösteriyor. \"Saat kaç?\" diye sorabilir. Ona zamanı dakikalarla değil, olaylarla açıklayın: \"Yelkovan buraya geldiğinde gezmeye gideceğiz\". Bu, zamanın ölçülebilen bir kavram olduğunu anlamasına yardımcı olur."
+  },
+  "86960e2f-7035-4c14-a9a6-baeb23c3ea3d": {
+   "message": "Fiziksel hareketlilikte \"Çapraz Koordinasyon\". Çocuk artık olduğu yerde adım atarken sağ elini sol dizine (ve tersini) dokundurabiliyor. Bu hareket, beynin her iki yarım küresinin aynı anda çalışmasını gerektirir ve ileride okuma-yazma sürecini kolaylaştırır."
+  },
+  "6caf0def-6055-4b83-9a80-442193cfb9e1": {
+   "message": "Konuşmada \"Geçmişi Ayrıntılarıyla Anlatma\". Çocuk, birkaç gün önce yaşanan bir olayı sırasıyla anlatabiliyor. \"Anneanneme gittiğimizde orada bir kedi görmüştük, ağaca çıkmıştı\". Bu \"epizodik hafızasını\" güçlendirmek için günün sonunda ona \"Bugün en ilginç ne oldu?\" diye sorun."
+  },
+  "64c3b0ce-8c21-4147-b606-f32ae65475bf": {
+   "message": "İnce motor becerilerinde \"Kağıt Kesme: Karmaşık Şekiller\". Çocuk artık makasla yalnızca düz bir çizgiyi değil, dalgalı çizgileri veya büyük bir daireyi de kesip çıkarmaya çalışıyor. Bu, el-göz koordinasyonunun oldukça ileri düzeyde geliştiğini gösterir."
+  },
+  "51c70f08-e08e-4a17-97ca-6373b3c435eb": {
+   "message": "\"Sağ ve Sol Kavramı\". Çocuk artık sağ ve sol elini (henüz tamamen doğru olmasa da) ayırt edebiliyor. Ona \"Kaşığı sağ elinle tut\" veya \"Çorabını sol ayağına giy\" diyerek mekânsal yönelimini güçlendirin. Bu beceri, ileride harflerin yönlerini karıştırmaması açısından önemlidir."
+  },
+  "ed221959-c928-4692-880d-29170d62352e": {
+   "message": "Sosyal davranışta \"Grup İçinde Liderlik\". Çocuk artık oyun sırasında diğer çocuklara \"Sen buraya geç, sen bunu yap\" diyerek roller dağıtıyor. Bu, sosyal hiyerarşiyi ve organizasyon becerisini deneyimleme biçimidir. Liderlik girişimlerini gözlemleyin ve adil davranmasına yardımcı olun."
+  },
+  "13b68bb4-0e80-4802-bd12-f626258d3f54": {
+   "message": "47. aya hoş geldiniz! Çocuğunuz artık \"sorumluluk\" kavramını daha iyi anlıyor. Ona evde küçük \"görevler\" verin (örneğin bitkileri sulamak veya sofraya peçete koymak). Bu, kendisini ailenin önemli ve faydalı bir üyesi olarak hissetmesine yardımcı olur. Gösterdiği çabayı mutlaka fark edin ve ona teşekkür edin."
+  },
+  "8fba68a9-4860-41c9-9d6a-0aabd4a4dc7d": {
+   "message": "Fiziksel hareketlilikte \"Dönüşümlü adımlarla koşma\". Çocuğunuz artık koşarken basamakları veya engelleri ritmik biçimde, her birine tek ayağıyla basarak aşabiliyor. Bu, hem alt vücut gücünün hem de görsel-motor planlama becerisinin ne kadar geliştiğini gösterir."
+  },
+  "4c5fdac9-9874-4896-80d4-6960b6675b1b": {
+   "message": "Konuşmada \"Ses Bilgisi ve Harfler\". Çocuğunuz artık sözcüklerin hangi sesle başladığını ayırt edebiliyor: \"Armut 'A' ile başlar\". Onunla \"Ses avı\" oyunu oynayın; odada belirli bir sesle başlayan eşyaları bulmasını isteyin. Bu, gelecekteki okuma ve yazma becerileri için en önemli temeldir."
+  },
+  "01cf8b7d-9668-4ab1-a360-d6968cb99749": {
+   "message": "İnce motor becerilerde \"Doğru kalem tutuşu (Tripod)\". Çocuğunuz artık kalemi baş, işaret ve orta parmaklarıyla (\"üç noktalı\" tutuş) daha güvenli biçimde tutabiliyor. Bu, daha ayrıntılı resimler çizmesine ve harfleri kopyalamasına olanak tanır. Ona farklı kalınlıklarda kalemler vererek parmak kaslarını çalıştırın."
+  },
+  "d91c45ef-c67b-4312-9a1e-572e86ed0a0e": {
+   "message": "\"Öz Yönetim: Kuralların Mantığı\". Çocuğunuz artık kurallara yalnızca siz söylediğiniz için değil, kuralların mantığını anladığı için uymaya çalışıyor. \"Yolda yürürken elini tutuyorum, çünkü arabalar var\". Kuralların güvenlik ve düzen açısından önemli olduğunu ona anlatmaya devam edin; bu, iç disiplinin temelidir."
+  },
+  "2a9fd489-5479-4444-9ad0-d9ca9e6d37c8": {
+   "message": "Sosyal davranışta \"Adil Paylaşım\". Çocuğunuz artık oyuncakları veya tatlıları arkadaşları arasında eşit biçimde paylaştırmaya ilgi gösteriyor: \"Bir sana, bir bana\". Bu, hem sosyal empatinin hem de temel matematiksel (bölme) kavramların birleşimidir."
+  },
+  "b49a3e45-1e44-429c-b3ab-7432f30a4a37": {
+   "message": "Bilişsel gelişimde \"Nesneleri Sınıflandırma\". Çocuğunuz artık nesneleri hem türlerine hem de kullanıldıkları yere göre gruplandırabiliyor: \"Bunlar mutfak için, bunlar yatak odası için\". Bu, beynindeki bilgi birikiminin ne kadar sistemli ve hiyerarşik biçimde yapılandığını gösterir."
+  },
+  "b2cee277-0949-412e-af09-df96b2fd9cfd": {
+   "message": "Fiziksel koordinasyon: \"Topu Yakalama ve Atma (Bütünleştirme)\". Çocuğunuz artık topu yakaladıktan hemen sonra hedefe atabiliyor. Bu, ardışık hareketler arasında akıcı bir geçiş yapabildiğini gösterir. Parkta onunla \"At-yakala\" oyunu oynayarak tepki hızını ve çevikliğini geliştirin."
+  },
+  "55c3f5e4-d3a4-465e-b035-b83e41b450d4": {
+   "message": "Bilişsel gelişimde \"Miktarın korunması: Sayı\". Aynı sayıdaki taşları bir tarafta birbirine yakın, diğer tarafta ise aralıklı şekilde dizdiğinizde, artık her iki taraftaki taş sayısının aynı olduğunu anlamaya başlar. Bu, görsel yanılsamadan mantıksal çıkarıma geçiş aşamasıdır."
+  },
+  "ddfca79d-8eb7-4cbd-84fd-61e54d7153db": {
+   "message": "Fiziksel koordinasyon: \"Tek ayak üzerinde sıçrama\". Çocuğunuz artık tek ayağı üzerinde birkaç kez ileri doğru sıçrayabilir. Bu, hem denge hem de ani bacak gücü gerektirir. Onunla evde \"Seksek\" oynamak için harika bir zamandır."
+  },
+  "3863c552-322d-4dc8-a917-02d61270f313": {
+   "message": "Konuşmada \"Sözcüklerin içindeki sesler\". Çocuğunuz artık sözcüklerin sonundaki sesleri de ayırt edebilir (örneğin, \"elma\" sözcüğünün 'a' ile bittiğini söyleyebilir). Bu, fonemik işitmenin en ileri aşamasıdır. Onunla \"Son harfle sözcük bulma\" (sözcük zinciri) oyunu oynayarak sözcük dağarcığını ve işitsel dikkatini geliştirin."
+  },
+  "da0d4f8a-08c6-45ad-9022-933f9025eb01": {
+   "message": "Duygusal dayanıklılık: \"Başarısızlık ve Strateji\". Çocuğunuz bir işi başaramadığında hemen ağlamak yerine, \"Başka türlü denesem?\" diye düşünür. Bu, \"gelişim odaklı düşünce yapısının\" (growth mindset) temelidir. Onu sonuç için değil, yeni bir yol aradığı için mutlaka övün."
+  },
+  "ec9b72ac-4600-4d72-8d5e-3a0bc232d29c": {
+   "message": "Çocuğunuz artık nesneleri yalnızca görünüşlerine göre değil, malzemelerine göre de ayırt edebilir: \"Bu plastik, bu ise demir\". Ona farklı dokulara sahip nesneler verin ve aralarındaki farkları sorun. Bu, çevresindeki dünyayı daha ayrıntılı analiz etmesine ve fiziksel dünyaya ilişkin bilgilerini düzenlemesine yardımcı olur."
+  },
+  "f6611b06-b8bc-42ff-84b4-2e17ea2e10d6": {
+   "message": "Fiziksel hareketlilikte \"Hedefe Sıçrama\". Çocuğunuz artık belirli bir hedefe doğru (örneğin, yerdeki bir dairenin içine) sıçrayabilir. Bu, hem denge hem de uzamsal mesafeyi hesaplama becerisini gösterir. Parkta \"taştan taşa atlama\" oyunu onun için harika bir egzersizdir."
+  },
+  "00735398-0d89-4428-a943-f4a27fc19021": {
+   "message": "Konuşmada \"Zıt Kavramları Sınıflandırma\". Çocuğunuz artık \"sıcak-soğuk\", \"yüksek-alçak\", \"ağır-hafif\" kavramlarını tamamen ayırt edebilir. Onunla \"Zıddını bul\" oyunu oynayın: Siz \"büyük\" deyin, o da \"küçük\" desin. Bu, hem sözcük dağarcığını hem de soyut karşılaştırmalı düşünme becerisini geliştirir."
+  },
+  "1b117df4-43a4-4780-a2e3-365c2acc3518": {
+   "message": "İnce motor becerilerinde \"Şekil kopyalama: Üçgen ve Artı\". Çocuğunuz artık düz çizgileri kesiştirerek artı (+) çizebilir ve üçgene benzeyen şekiller oluşturmaya çalışır. Bunlar, yazı yazma becerisinin ilk temelleridir. Ona renkli kalemler ve boş kâğıtlar vererek bu \"geometrik keşiflerini\" destekleyin."
+  },
+  "e258838d-b844-4e68-840e-2eb0ef520682": {
+   "message": "Konuşmada \"Ses Analizi\". Artık kelimelerin yalnızca başındaki değil, sonundaki sesleri de ayırt etmeye başlar: \"Masa, 'A' ile biter\". Bu, fonemik işitmenin geliştiğini gösterir. Onunla \"Son sesle başlayan yeni bir kelime bul\" oyunu oynayarak dil farkındalığını geliştirin."
+  },
+  "619d1623-d881-46f6-a718-4a537172efc7": {
+   "message": "İnce motor becerilerinde \"Kağıt Kesme: Ayrıntılı Şekiller\". Çocuk artık makasla karmaşık şekilleri (örneğin bir yıldız veya küçük bir hayvan siluetini) kenarlarından kesip çıkarmaya çalışır. Bu, el-göz koordinasyonunun ne kadar geliştiğini gösterir. Ona farklı renklerde kağıtlar verin."
+  },
+  "d8f54a1a-d4b0-4c91-b361-1e6376bfa2db": {
+   "message": "\"Öz Yönetim: Duygusal Diplomasi\". Çocuk istediği olmadığında artık bağırmak yerine size gerekçesini açıklayabilir: \"Ama ben bunu çok istiyordum, çünkü...\". Diyalog kurma çabasını takdir edin. Duygularını anladığınızı gösterin (onaylayın), ancak kuralların neden değişmediğini de sabırla açıklayın."
+  },
+  "111e7db0-d36d-44a0-97d8-10b28cd566ca": {
+   "message": "Sosyal davranışta \"Kurallara Bağlılık\". Çocuk artık masa oyunlarında (örneğin domino veya basit sayı oyunları) kuralları çiğnemeden oynamaya özellikle önem verir. Bu, sosyal uyumun önemli bir aşamasıdır. Kurallara uyduğunda \"Çok dürüst ve sabırlı oynadın\" diyerek onu teşvik edin."
+  },
+  "0655a03a-60b9-48e1-b285-1d3c83082836": {
+   "message": "Bilişsel gelişimde \"Miktarın Korunumu: Hacim Deneyi\". Aynı miktardaki oyun hamurunun birini topak, diğerini ise uzun bir \"yılan\" şekline getirirseniz, miktarın aynı kaldığını artık anlamaya başlar. Bu, görsel yanılsamadan mantıksal çıkarıma geçiş aşamasıdır. Bu deneyleri birlikte yapın."
+  },
+  "c5a0358e-6841-4ba2-8c21-cb976413e324": {
+   "message": "Fiziksel koordinasyon: \"Tek Ayak Üzerinde Sıçrama\". Çocuk artık tek ayağı üzerinde birkaç kez ileri doğru sıçrayabilir. Bu, hem denge hem de ani bacak gücü gerektirir. Onunla evde \"Seksek\" oynamak için harika bir zamandır; bu oyun mekânsal yönelim becerisini de geliştirir."
+  },
+  "5fe788e8-9a0a-4448-9455-65cf7a8679b1": {
+   "message": "Konuşmada \"Hayal Gücü ve Mantık Sentezi\". Çocuk size kendi uydurduğu ancak mantıksal bir akışa sahip masallar anlatabilir. \"Bir gün bir robot varmış, pili bittiği için durmuş...\". Hikâyelerini \"Peki sonra ne oldu?\" gibi sorularla destekleyin. Bu, ileride akıcı ve etkileyici konuşmasına yardımcı olur."
+  },
+  "19cb7d19-f480-4e1f-805a-267dba1df2a8": {
+   "message": "Duygusal Dayanıklılık: \"Başarısızlık karşısında yeni strateji\". Çocuk bir işi (örneğin puzzle yapmayı) başaramadığında hemen öfkelenmek yerine \"Belki bunu böyle yerleştirebilirim?\" diyerek yeni yollar arar. Bu, \"gelişim odaklı düşünce yapısının\" (growth mindset) temelidir. Sonucu değil, yeni bir yol bulmak için gösterdiği çabayı mutlaka övün."
+  },
+  "93c7b1b4-9941-4328-bd03-c48ffc7f605f": {
+   "message": "\"Öz Yönetim: İsteği Erteleme\". Çocuk artık bir ödül için biraz daha beklemesi gerektiğini (örneğin, \"yemekten sonra tatlı\") kabul ediyor. Bu, irade gücünün ve öz denetimin (hazzı erteleme) geliştiğini gösterir. Gösterdiği bu sabrı mutlaka takdir edin; bu beceri, gelecekte başarılı bir akademik yaşamın anahtarıdır."
+  },
+  "e9a7f349-2186-4929-ba3f-64f7d951af57": {
+   "message": "Sosyal davranışta \"Grup Dayanışması\". Çocuk artık bir arkadaşı ağladığında yalnızca ona bakmakla kalmıyor, \"Ne oldu?\" diye soruyor veya size haber veriyor. Bu, empatinin aktif aşamasıdır. Onun bu duyarlı yönünü \"Çok iyi kalpli bir arkadaşsın\" diyerek destekleyin."
+  },
+  "6d1eeaa2-0164-4cca-94b4-9c14e8d79d60": {
+   "message": "Bilişsel gelişimde \"Toplamanın Temelleri\". Çocuk artık 2 oyuncağın yanına 1 oyuncak daha koyduğunda, toplamda 3 oyuncak olduğunu saymadan (veya hızla sayarak) anlayabiliyor. Günlük işler sırasında \"Senin 2 elman vardı, ben de 1 tane verdim; şimdi kaç elman oldu?\" gibi küçük matematik bulmacaları hazırlayın."
+  },
+  "28cfd5f7-ecbc-4133-9e9d-cc5c82140054": {
+   "message": "Fiziksel koordinasyon: \"Merdivende Manevra\". Çocuk artık merdivenleri güvenle inip çıkıyor ve bazen elinde oyuncak olsa bile dengesini koruyabiliyor. Bu, dinamik dengenin ileri düzeyde geliştiğini gösterir. Her zaman yakınında olun, ancak özgürce hareket edebilmesi için ona güven verin."
+  },
+  "c414dc79-8944-48c3-a5d5-e50145e600bc": {
+   "message": "Konuşmada \"Hayal Gücü ve Hikâye\". Çocuk size kendi uydurduğu küçük masalları anlatabilir. Bu masallarda gerçekler ve hayaller iç içe geçer. Hikâyelerini \"Gerçekten mi?\" veya \"Sonra ne oldu?\" gibi merak uyandıran sorularla destekleyin. Bu, gelecekte akıcı ve etkileyici konuşmasına yardımcı olur."
+  },
+  "8f2e9299-bb7b-4d28-9fbc-c07c7ba2a262": {
+   "message": "1430 Günlük Zafer! Çocuk artık 47 ayını tamamladı. O artık kendisinin farkında olan, başkalarının duygularını paylaşan ve dünyayı mantık yoluyla keşfeden küçük bir \"bilim insanı\". Siz bu 1430 gün boyunca çocuğunuz için en güvenli liman ve en iyi öğretmen oldunuz. Siz harika bir annesiniz!"
+  },
+  "b940be7d-ee82-4c09-8760-e2ce9294193f": {
+   "message": "48. aya (4 yaşa) geri sayım başladı! Çocuk artık \"ben\" ve \"biz\" arasındaki farkı sosyal oyunlarda tam olarak uyguluyor. \"Haydi birlikte bir gemi yapalım; sen yelkeni tut, ben de dümeni\" gibi bir iş bölümü yapıyorsa bu, iş birliği zekâsının zirvesidir. Onun bu takım ruhunu takdir edin; bu beceri, gelecekteki okul yaşamı için önemlidir."
+  },
+  "ce453995-5119-4943-ace6-1439bc5d5820": {
+   "message": "Fiziksel hareketlilikte \"Hassas Dönüşler\". Çocuk artık tüm hızıyla koşarken aniden durabiliyor veya dengesini kaybetmeden keskin bir dönüş yapabiliyor. Bu, vestibüler sistem ile kas kontrolünün tam bir koordinasyon içinde çalıştığını gösterir. Parkta onun için küçük bir \"engel parkuru\" kurun."
+  },
+  "0ec14802-bab2-45c4-8cbf-788bdfa85e13": {
+   "message": "Çocuk artık nesneleri yalnızca görünüşlerine göre değil, yapıldıkları malzemeye göre de ayırt ediyor: \"Bu plastik, bu ise demir\". Ona farklı dokulara sahip nesneler verin ve aralarındaki farkları sorun. Bu, çevresini daha ayrıntılı analiz etmesine ve fiziksel dünyaya ilişkin bilgilerini düzenlemesine yardımcı olur."
+  },
+  "0ddedeb7-e832-48ca-923d-05838885cdc1": {
+   "message": "Fiziksel hareketlilikte \"Hedefe İsabetli Atlama\". Çocuk artık belirli bir hedefe doğru (örneğin, yerdeki dairenin içine) atlayabiliyor. Bu, hem denge hem de mekânsal mesafeyi hesaplama becerisini gösterir. Parkta \"taştan taşa atlama\" oyunu onun için harika bir egzersizdir."
+  },
+  "3810cfc8-49ab-40fa-b90d-2edf9dc84fae": {
+   "message": "Dil gelişiminde \"Zıt Kavramları Sınıflandırma\". Çocuk artık \"sıcak-soğuk\", \"yüksek-alçak\", \"ağır-hafif\" kavramlarını tamamen ayırt edebiliyor. Onunla \"Zıddını bul\" oyunu oynayın: Siz \"büyük\" deyin, o da \"küçük\" desin. Bu, hem kelime dağarcığını hem de soyut ve karşılaştırmalı düşünme becerisini geliştirir."
+  },
+  "dfeb7b05-cea8-4a6f-b41b-005f3d3c488e": {
+   "message": "İnce motor becerilerinde \"Şekil Kopyalama: Üçgen ve Artı\". Çocuk artık düz çizgileri kesiştirerek artı (+) çizebiliyor ve üçgene benzeyen şekiller oluşturmaya çalışıyor. Bunlar, yazı yazma becerisinin ilk temelleridir. Ona renkli kalemler ve boş kâğıtlar vererek bu \"geometrik keşiflerini\" destekleyin."
+  },
+  "988ae101-5f2f-4a86-a365-28a27e843965": {
+   "message": "\"Öz Denetim: İsteği Erteleme\". Çocuk artık bir ödül için biraz daha beklemesi gerektiğini (örneğin, \"yemekten sonra tatlı\") kabul ediyor. Bu, irade gücünün ve öz denetimin (hazzı erteleme) geliştiğini gösterir. Gösterdiği sabrı mutlaka takdir edin; bu beceri, gelecekte başarılı bir akademik yaşamın anahtarlarından biridir."
+  },
+  "ed4539aa-f1cf-4dd1-97f9-a5cf3f6b499d": {
+   "message": "Sosyal davranışta \"Grup Dayanışması\". Çocuk artık bir arkadaşı ağladığında yalnızca bakmakla kalmıyor, \"Ne oldu?\" diye soruyor veya size haber veriyor. Bu, empatinin etkin aşamasıdır. Onun bu ilgili ve şefkatli yönünü \"Çok iyi kalpli bir arkadaşsın\" diyerek destekleyin."
+  },
+  "321e201a-5cd6-485a-a700-1c1f11885a2b": {
+   "message": "Bilişsel gelişimde \"Toplamanın Temelleri\". Çocuk artık 2 oyuncağın yanına 1 oyuncak daha koyulduğunda toplamda 3 oyuncak olduğunu saymadan (veya hızla sayarak) anlayabiliyor. Günlük işler sırasında \"Senin 2 elman vardı, ben de 1 tane verdim; şimdi kaç elman oldu?\" gibi küçük matematik soruları hazırlayın."
+  },
+  "26b9ae52-0022-4e15-934b-ad179ba90589": {
+   "message": "Fiziksel koordinasyonda \"Merdivende Hareket Becerisi\". Çocuk artık merdivenleri güvenle inip çıkıyor ve bazen elinde oyuncak olsa bile dengesini koruyabiliyor. Bu, dinamik dengenin ileri düzeyde olduğunu gösterir. Her zaman yakınında olun, ancak özgürce hareket edebilmesi için ona güven verin."
+  },
+  "e9a169de-bc44-43dd-b6f0-9adaff7e3796": {
+   "message": "Bilişsel gelişimde \"Zaman Takvimi\". Çocuğunuz artık \"3 gün kaldı\" veya \"Hafta sonu gideceğiz\" gibi ifadeleri anlıyor. Doğum günü yaklaşırken bir \"geri sayım takvimi\" hazırlayın. Geçen her günü işaretlemek, zamanın akışını onun için somutlaştırır."
+  },
+  "1c5a132d-9357-46a5-b5fe-17d6baae9cac": {
+   "message": "Fiziksel koordinasyon: \"Topu Ayakla Hedefe Vurma\". Çocuğunuz artık topa sadece tekme atmakla kalmıyor, onu belirli bir hedefe (örneğin iki taşın arasına) sokmaya çalışıyor. Bu, mesafeyi algılamayı ve bacak kaslarını kontrollü kullanmayı gerektirir."
+  },
+  "24dad4d0-2c9d-4d1c-bb0a-41d9b402e0e7": {
+   "message": "Konuşmada \"Karmaşık Hikâye Oluşturma\". Çocuğunuz artık uydurduğu masallarda \"çünkü\", \"ancak\", \"bu nedenle\" gibi bağlaçları kullanarak bir olay örgüsü oluşturuyor. Hikâyelerini dikkatle dinleyin ve \"Sence kahraman daha sonra ne yaptı?\" gibi sorularla onu yeni ayrıntılar eklemeye teşvik edin."
+  },
+  "d76fe554-fd7b-4db0-9296-a5ba3be690d0": {
+   "message": "4 yaşına yalnızca 20 gün kaldı! Çocuğunuz artık bebeklik alışkanlıklarını tamamen geride bırakarak kendine özgü karakteri olan küçük bir bireye dönüştü. Siz bu 1460 gün boyunca onun gelişim yolundaki en büyük ışık oldunuz. Onun başarıları sizin sevginizin bir sonucudur. Harikasınız!"
+  },
+  "e96b1dc7-ba0c-47d3-b15a-cb6918e2bc9b": {
+   "message": "Konuşmada \"Hayal Gücü ve Hikâye\". Çocuğunuz size kendi uydurduğu küçük masallar anlatabilir. Bu masallarda gerçekler ile hayaller iç içe geçer. Hikâyelerini \"Gerçekten mi?\" veya \"Sonra ne oldu?\" gibi merak uyandıran sorularla destekleyin. Bu, gelecekte akıcı ve etkileyici bir şekilde konuşmasına yardımcı olur."
+  },
+  "34fd4a41-2c8b-49b5-b2b0-6911f5bb04ab": {
+   "message": "4 yaşına yalnızca 30 gün kaldı! Çocuğunuz artık okul öncesi dönemin en verimli zamanında. O artık kendi zevkleri, korkuları ve bitmek bilmeyen soruları olan, başlı başına bir birey; küçük bir insan. Siz bu yolda bilim ve sevgiyle ilerlediniz. \"Anacan\" her zaman yanınızdadır!"
+  },
+  "bacec645-5384-4fc1-94d1-94b2914a27a1": {
+   "message": "Çocuğunuz artık nesneleri yalnızca dış görünüşlerine göre değil, ait oldukları gruba göre de sınıflandırıyor. \"Bunlar deniz hayvanları, bunlar ise orman hayvanları\". Bu, zihnindeki bilgilerin artık bilimsel kategorilere ayrıldığını gösterir. Onunla \"Kim nerede yaşıyor?\" oyunu oynayın."
+  },
+  "ea737131-3977-4085-b4c4-94dd4ae125f1": {
+   "message": "Fiziksel hareketlilikte \"Hızlı Koşma ve Koordineli Durma\". Çocuğunuz artık tam hızla koşarken sizin \"Dur!\" komutunuzla düşmeden veya öne doğru sendelemeden hemen durabiliyor. Bu, hem kas kontrolünün hem de işitsel-motor tepkinin üst düzeye ulaştığını gösterir. Bu oyunu parkta düzenli olarak tekrarlayın."
+  },
+  "0bfff590-18d1-438c-bef2-c5dac59fc7e3": {
+   "message": "Konuşmada \"Nazikçe İkna Etme\". Çocuğunuz artık istediğini elde etmek için \"Lütfen, olur mu?\" demekle kalmıyor, bir neden de sunuyor: \"Çünkü onu çok seviyorum\". Sizin nazik yanıtınız, onun sosyal iletişim dilini şekillendirir. Her nazik isteğini \"Böyle güzel söylediğin için sana cevap vermek çok hoş\" diyerek takdir edin."
+  },
+  "65fb665a-a079-4bde-be1e-8536275e5fd6": {
+   "message": "İnce motor becerilerinde \"Harfleri ve Rakamları Görsel Olarak Kopyalama\". Çocuğunuz artık adındaki harfleri veya \"1, 2, 3\" gibi rakamları kâğıda çizmeye çalışıyor. Bu, hareket ile görsel belleğin birleşimidir. Ona farklı renklerde kalemler verin ve \"yazılarını\" evin görünür bir yerine asın."
+  },
+  "5a2e55ce-3f97-41a9-965d-b857b33a020f": {
+   "message": "\"Öz Yönetim: Duygusal Bağımsızlık\". Çocuğunuz artık küçük bir sorun yaşadığında (örneğin, oyuncağı dağıldığında) hemen size koşmuyor, önce kendi başına düzeltmeye çalışıyor. Bu, \"Ben yapabilirim\" duygusunun güçlendiğini gösterir. Bu bağımsız girişimlerini gözlemleyin ve yalnızca ihtiyaç duyduğunda müdahale edin."
+  },
+  "1e4b1da3-fa3d-4b83-9554-7fdd901b9dfb": {
+   "message": "Sosyal davranışta \"Kuralları Açıklama\". Çocuğunuz artık kendisinden küçük çocuklara veya oyuncaklarına oyunun kurallarını açıklıyor: \"Önce ben, sonra sen\". Bu, iç disiplinin ve liderlik becerisinin bir göstergesidir. Onun bu \"öğretmenlik\" yönünü destekleyin."
+  }
+ }
+}

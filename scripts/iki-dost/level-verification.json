@@ -1,0 +1,12 @@
+{
+  "schema": "anacan-two-friends-level-acceptance-v1",
+  "at": "2026-10-09T04:13:14.413Z",
+  "passed": true,
+  "levels": 40,
+  "keysRequired": 16,
+  "pressureDoorsRequired": 16,
+  "doubleSwitchLevels": 6,
+  "coordinatedLevels": 36,
+  "catalogSha256": "6ffc8074382e6947d81d963662fea8845206af7e4c34b1eea03e4029c31d76f8",
+  "failures": []
+}

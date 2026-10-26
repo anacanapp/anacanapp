@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "items": [
+    { "id": "strength", "name": "Çiyin gücü", "category": "power", "kind": "upgrade", "icon": "power", "cost": 120, "max_rank": 8, "description": "Hər TAP daha güclü. Personajın da bir az iriləşir.", "effect": "+18% TAP gücü / səviyyə", "color": "#ffad74" },
+    { "id": "speed", "name": "Şəhər tempi", "category": "speed", "kind": "upgrade", "icon": "speed", "cost": 140, "max_rank": 8, "description": "Daha çevik addımlar və daha sürətli TAP ritmi.", "effect": "+8% sürət / səviyyə", "color": "#b7f36b" },
+    { "id": "stamina", "name": "İkinci nəfəs", "category": "power", "kind": "upgrade", "icon": "energy", "cost": 160, "max_rank": 6, "description": "Yol aç bacarığını daha tez doldur, daha uzun istifadə et.", "effect": "+12% enerji / səviyyə", "color": "#79dccc" },
+    { "id": "gloves", "name": "TAP əlcəkləri", "category": "clothing", "kind": "gear", "slot": "hands", "icon": "gloves", "cost": 180, "description": "Möhkəm tutuş. İzdihamın içində daha rahat irəlilə.", "effect": "+12% TAP gücü", "power": 0.12, "color": "#e4a578" },
+    { "id": "sneakers", "name": "Sprint ayaqqabısı", "category": "speed", "kind": "gear", "slot": "feet", "icon": "shoe", "cost": 220, "description": "Sürüşkən döşəmədə sabit və yüngül addımlar.", "effect": "+15% sürət · sürüşmə −40%", "speed": 0.15, "grip": 0.4, "color": "#b7f36b" },
+    { "id": "helmet", "name": "Şəhər kaskı", "category": "clothing", "kind": "gear", "slot": "head", "icon": "helmet", "cost": 260, "description": "Maneələrdə ritmini qoru. Kask səhnədə görünür.", "effect": "Maneə ləngiməsi −50%", "guard": 0.5, "color": "#ffc978" },
+    { "id": "watch", "name": "Metro saatı", "category": "accessory", "kind": "gear", "slot": "accessory", "icon": "watch", "cost": 340, "description": "Qapı taymerinə əlavə nəfəs. Hər raundda üstünlük.", "effect": "+1 saniyə başlanğıc vaxtı (maks. 10s)", "time": 1.0, "color": "#87cde4" },
+    { "id": "jacket", "name": "Ekspres gödəkçə", "category": "clothing", "kind": "gear", "slot": "body", "icon": "jacket", "cost": 420, "description": "Bakı küçə stili. Güclü TAP, görünən yeni geyim.", "effect": "+18% güc · +5% sürət", "power": 0.18, "speed": 0.05, "color": "#b6a0ff" },
+    { "id": "headphones", "name": "Ritm qulaqlığı", "category": "accessory", "kind": "gear", "slot": "head", "icon": "headphones", "cost": 380, "description": "Daha bağışlayan kombo ritmi. Kaskla eyni slotdadır.", "effect": "Kombo pəncərəsi +0.15 saniyə", "rhythm": 0.15, "color": "#84d9c2" },
+    { "id": "backpack", "name": "Yüngül bel çantası", "category": "accessory", "kind": "gear", "slot": "back", "icon": "backpack", "cost": 300, "description": "Yüngül çanta ilə enerji topla. Yeni görünüş, yeni temp.", "effect": "+20% enerji yığımı", "energy": 0.2, "color": "#eab18d" }
+  ]
+}

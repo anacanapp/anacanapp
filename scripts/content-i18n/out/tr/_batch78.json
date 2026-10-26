@@ -1,0 +1,31 @@
+{
+ "place_categories": {
+  "02d750d5-f26e-4777-b4ae-78df48df9843": {
+   "label": "Oyun Alanı"
+  },
+  "0edc99bd-9cd7-42b5-8b1a-8a66655d2106": {
+   "label": "Park"
+  },
+  "7d6093b0-ed86-47b4-a8c4-d4d3900dabed": {
+   "label": "AVM"
+  },
+  "a48f3dca-dc8e-4de3-a679-214e7abe2784": {
+   "label": "Eczane"
+  },
+  "bac75c82-8966-4de5-a336-1baa9b593983": {
+   "label": "Tümü"
+  },
+  "c2727fe1-dbbd-458e-8658-f09846f0691c": {
+   "label": "Kafe"
+  },
+  "d5c27e6f-9fc3-43d4-8027-4f5f4bd0c2b4": {
+   "label": "Restoran"
+  },
+  "d5e7534a-b152-4052-906b-b14e7958b7c3": {
+   "label": "Metro"
+  },
+  "dcba62b9-34f3-4384-a50a-82a5aca891b5": {
+   "label": "Hastane"
+  }
+ }
+}

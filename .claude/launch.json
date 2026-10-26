@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "anacan-web", "runtimeExecutable": "npm", "runtimeArgs": ["--prefix", "C:/Users/User/Downloads/anacanapp-main", "run", "dev"], "port": 8080 }
+  ]
+}

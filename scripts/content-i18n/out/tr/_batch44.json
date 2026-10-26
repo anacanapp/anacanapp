@@ -1,0 +1,3887 @@
+{
+ "admin_recipes": {
+  "16d0f02f-4ecd-4fee-a1f5-3b1ea8bae99f": {
+   "title": "Karabuğdaylı Mantar Sote",
+   "description": "Karabuğday, hemoglobin düzeyini artırmak için idealdir",
+   "category": "aksam_yemegi",
+   "ingredients": [
+    "Karabuğday - yarım su bardağı",
+    "Mantar - 5 adet",
+    "Soğan - yarım adet",
+    "Maydanoz"
+   ],
+   "instructions": [
+    "Soğanı ve mantarları kavurun",
+    "Pişmiş karabuğdayı ekleyin",
+    "Üzerine maydanoz serpip servis edin"
+   ]
+  },
+  "d2719771-06cb-4a57-8b8e-23c90a1b22ff": {
+   "title": "Zencefilli Balkabağı Çorbası",
+   "description": "Balkabağı ödemi azaltır, zencefil ise mideyi rahatlatır",
+   "category": "aksam_yemegi",
+   "ingredients": [
+    "Balkabağı - 300 qr",
+    "Patates - 1 adet",
+    "Soğan - 1 adet",
+    "Zencefil - fındık büyüklüğünde",
+    "Süt - yarım su bardağı"
+   ],
+   "instructions": [
+    "Sebzeleri suda pişirin",
+    "Blenderdan geçirin",
+    "Zencefil ve sütü ekleyin",
+    "Bir taşım kaynatın"
+   ]
+  },
+  "87be74c9-8271-47fa-aa1b-7d56d8593513": {
+   "title": "Yoğurtlu Cevizli Kabak Sote",
+   "description": "Düşük kalorili olmasına rağmen doyurucudur; yoğurt, probiyotik olduğu için sindirime yardımcı olur",
+   "category": "aksam_yemegi",
+   "ingredients": [
+    "Kabak - 2 adet",
+    "Sarımsak - 1 diş",
+    "Yoğurt - 1 kase",
+    "Ceviz - 2 yemek kaşığı",
+    "Dereotu",
+    "Zeytinyağı"
+   ],
+   "instructions": [
+    "Kabakları kavurun",
+    "Soğuduktan sonra sarımsaklı yoğurdu ekleyin",
+    "Dereotu ve cevizi ekleyin"
+   ]
+  },
+  "729bbfc5-f4e9-4c62-83da-11343e2b9372": {
+   "title": "Buharda Hindi ve Brokoli",
+   "description": "Hindideki triptofan uyku kalitesini artırır, brokoli ise folik asit deposudur",
+   "category": "aksam_yemegi",
+   "ingredients": [
+    "Hindi fileto - 150 qr",
+    "Brokoli - 150 qr",
+    "Limon suyu",
+    "Zeytinyağı"
+   ],
+   "instructions": [
+    "Eti ve sebzeyi buharda 25 dakika pişirin",
+    "Üzerine limon suyu ve zeytinyağı gezdirin"
+   ]
+  },
+  "84e49361-f94b-4751-af92-a48dc4c25da7": {
+   "title": "Lor Peynirli Lavaş Rulo",
+   "description": "Kalsiyum açısından zengin, mideyi yormayan pratik bir akşam yemeği",
+   "category": "aksam_yemegi",
+   "ingredients": [
+    "Lavaş - 1 adet",
+    "Lor peyniri - 100 qr",
+    "Salatalık - 1 adet",
+    "Dereotu",
+    "Ceviz - 2 adet"
+   ],
+   "instructions": [
+    "Lor peyniri, salatalık, dereotu ve cevizi karıştırın",
+    "Karışımı lavaşın üzerine yayın",
+    "Rulo şeklinde sarıp dilimleyin"
+   ]
+  },
+  "c86a2534-28db-4de0-9667-f24ac3182d89": {
+   "title": "Tropikal Detoks Smoothie",
+   "description": "Ananastaki bromelain şişkinliğin azalmasına yardımcı olur",
+   "category": "saglikli_icecekler",
+   "ingredients": [
+    "Ananas - 2 dilim",
+    "Salatalık - 1 adet",
+    "Maydanoz - 2-3 dal",
+    "Su - yarım su bardağı"
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderda karıştırın",
+    "Sabahları için"
+   ]
+  },
+  "d8f78084-553b-41ea-bd74-432eaf7e9422": {
+   "title": "Ev Yapımı Snickers (Hurma Kayıkları)",
+   "description": "Enerji verir, kansızlığa karşı yardımcı olur",
+   "category": "saglikli_tatlilar",
+   "ingredients": [
+    "Hurma - 6 adet",
+    "Fıstık ezmesi - 4 çay kaşığı",
+    "Yer fıstığı - 6 adet",
+    "Bitter çikolata - 30 qr"
+   ],
+   "instructions": [
+    "Hurmaların çekirdeklerini çıkarın",
+    "İçlerini fıstık ezmesiyle doldurun",
+    "Yer fıstıklarını yerleştirin",
+    "Üzerine eritilmiş çikolata gezdirin",
+    "Buzdolabında dondurun"
+   ]
+  },
+  "a920fc1d-458e-46f5-a2e9-dca7ea79a61f": {
+   "title": "Dondurulmuş Yoğurt Barları",
+   "description": "Kalsiyum ihtiyacını karşılar, mide yanmasını hafifletir",
+   "category": "saglikli_tatlilar",
+   "ingredients": [
+    "Süzme yoğurt - 1.5 su bardağı",
+    "Bal - 1 yemek kaşığı",
+    "Orman meyveleri - 1 avuç",
+    "Antep fıstığı/ceviz parçaları"
+   ],
+   "instructions": [
+    "Yoğurdu balla karıştırın",
+    "Düz bir kaba yayın",
+    "Üzerine meyve ve kuruyemiş serpin",
+    "Dondurucuda 3 saat bekletin",
+    "Parçalara ayırıp tüketin"
+   ]
+  },
+  "b152df27-a257-44b7-b48e-cff4b6baf6d9": {
+   "title": "Lavaşta Tavuklu ve Peynirli Tost",
+   "description": "Doyurucudur; sabah bulantısı yaşayanlar için kuru bir yiyecek olarak idealdir",
+   "category": "kahvalti",
+   "ingredients": [
+    "Lavaş - 1 adet",
+    "Tavuk eti (didiklenmiş) - 100 qr",
+    "Peynir - 30 qr",
+    "Domates - 1 adet",
+    "Marul yaprağı"
+   ],
+   "instructions": [
+    "Lavaşın üzerine tavuk, peynir ve domates koyun",
+    "Dürüm şeklinde sarın",
+    "Tost makinesinde kızartın",
+    "Marul ekleyip servis edin"
+   ]
+  },
+  "29940e49-7e51-47bd-83c9-a23089719fe4": {
+   "title": "Fırında Sebzeli Tavuk Köftesi",
+   "description": "Kızartılmadığı için mide yanmasına neden olmaz",
+   "category": "ogle_yemegi",
+   "ingredients": [
+    "Tavuk kıyması - 200 qr",
+    "Soğan - 1 adet",
+    "Havuç - 1 adet",
+    "Yumurta - 1 adet",
+    "Ekmek kırıntısı"
+   ],
+   "instructions": [
+    "Kıyma ile doğranmış sebzeleri karıştırın",
+    "Yumurtayı ekleyin",
+    "Köftelere şekil verin",
+    "Fırında 180°C'de 25 dakika pişirin"
+   ]
+  },
+  "54602d29-0117-4f19-abc3-7ccf4f15b4ad": {
+   "title": "Kinoalı ve Avokadolu Power Bowl",
+   "description": "Kinoa tam protein kaynağıdır; avokado ise beyin gelişimi için önemli yağlar içerir",
+   "category": "ogle_yemegi",
+   "ingredients": [
+    "Kinoa - yarım su bardağı",
+    "Avokado - yarım adet",
+    "Nohut - 3 yemek kaşığı",
+    "Çeri domates - 6 adet",
+    "Ispanak - 1 avuç",
+    "Limon, zeytinyağı"
+   ],
+   "instructions": [
+    "Kinoayı pişirin",
+    "Kaseye kinoa, nohut, domates ve ıspanağı yerleştirin",
+    "Avokado dilimlerini ekleyin",
+    "Üzerine limonlu zeytinyağı sosu gezdirin"
+   ]
+  },
+  "351ff1d2-31f6-46a8-8bf8-de0cf3483675": {
+   "title": "Kremalı, Ispanaklı ve Somonlu Makarna",
+   "description": "Omega-3 ve demirin mükemmel birleşimi",
+   "category": "gebelik",
+   "ingredients": [
+    "Makarna - 100 qr",
+    "Somon - 100 qr",
+    "Ispanak - 1 avuç",
+    "Krema - yarım su bardağı",
+    "Sarımsak - 1 diş"
+   ],
+   "instructions": [
+    "Makarnayı pişirin",
+    "Balığı soteleyin",
+    "Ispanak ve sarımsağı ekleyin",
+    "Kremayı ekleyip makarnayla karıştırın"
+   ]
+  },
+  "c89b9132-cdfc-4225-91e4-8d2f2e0b2795": {
+   "title": "Yeşil Mercimekli Havuç Yemeği",
+   "description": "Folik asit deposudur ve kabızlığı gidermeye yardımcı olan en iyi seçeneklerden biridir",
+   "category": "ogle_yemegi",
+   "ingredients": [
+    "Yeşil mercimek - 1 su bardağı",
+    "Havuç - 1 adet",
+    "Soğan - 1 adet",
+    "Patates - 1 adet",
+    "Et suyu - 3 su bardağı"
+   ],
+   "instructions": [
+    "Soğanı soteleyip havucu ekleyin",
+    "Mercimek ve patatesi ekleyin",
+    "Suyu ekleyip 30 dakika pişirin",
+    "Yoğurtla servis edin"
+   ]
+  },
+  "0a806e97-179c-4b02-a4d3-c011bf2e080a": {
+   "title": "Taze Fasulyeli Etli Türlü",
+   "description": "Kırmızı et demir, fasulye ise lif kaynağıdır. Geleneksel lezzetleri sevenler için idealdir",
+   "category": "ogle_yemegi",
+   "tags": [
+    "gebelik"
+   ],
+   "ingredients": [
+    "Dana eti - 150 qr",
+    "Taze fasulye - 200 qr",
+    "Domates - 2 adet",
+    "Soğan - 1 adet"
+   ],
+   "instructions": [
+    "Eti suda pişirin",
+    "Soğan ve fasulyeyi ekleyin",
+    "Domatesleri ilave edin",
+    "Kısık ateşte 25 dakika pişmeye bırakın"
+   ]
+  },
+  "09af16f8-cf6b-4d39-b222-ac1839cff39f": {
+   "title": "Ispanaklı ve Lor Peynirli Yeşil Omlet",
+   "description": "Demir ve kalsiyum açısından zengin bir kahvaltı",
+   "category": "kahvalti",
+   "ingredients": [
+    "Ispanak - 1 avuç",
+    "Lor peyniri - 50 qr",
+    "Yumurta - 2 adet",
+    "Zeytinyağı - 1 çay kaşığı",
+    "Tuz, karabiber"
+   ],
+   "instructions": [
+    "Ispanağı yıkayıp doğrayın",
+    "Yumurtaları çırpıp lor peyniri ve ıspanağı ekleyin",
+    "Tavada zeytinyağıyla pişirin"
+   ]
+  },
+  "982adc98-e214-43f5-9309-70a389109d79": {
+   "title": "Hindi Köfteli Sebze Çorbası",
+   "description": "Hindi, alerjiye en az neden olan etlerden biridir; sıvı alımını artırmak için harika bir seçenektir",
+   "category": "ogle_yemegi",
+   "ingredients": [
+    "Hindi kıyması - 150 qr",
+    "Patates, havuç, kereviz - her birinden 1",
+    "Pirinç - 1 yemek kaşığı",
+    "Kuru nane"
+   ],
+   "instructions": [
+    "Kıymadan köfteler hazırlayın",
+    "Kaynayan suya sebzeleri ve pirinci ekleyin",
+    "Köfteleri ekleyin",
+    "Piştikten sonra üzerine nane serpin"
+   ]
+  },
+  "228f023f-d713-4f19-be8e-fefdb4fed98b": {
+   "title": "Tavuklu ve Sebzeli Wok",
+   "description": "Renkli sebzeler A ve C vitaminleri, tavuk ise yüksek kaliteli protein sağlar",
+   "category": "ogle_yemegi",
+   "ingredients": [
+    "Tavuk fileto - 150 qr",
+    "Renkli biber - 1 adet",
+    "Havuç - 1 adet",
+    "Soya sosu - 1 yemek kaşığı",
+    "Susam - 1 çay kaşığı",
+    "Zeytinyağı"
+   ],
+   "instructions": [
+    "Tavuğu yüksek ateşte soteleyin",
+    "Havuç ve biberi ekleyin",
+    "Soya sosunu ilave edin",
+    "Üzerine susam serpip servis edin"
+   ]
+  },
+  "4a2b68f6-c320-464a-a610-abba98c42a7c": {
+   "title": "Hurmalı Kakaolu Enerji Topları",
+   "description": "Çikolata isteğini sağlıklı bir şekilde karşılar",
+   "category": "saglikli_tatlilar",
+   "ingredients": [
+    "Hurma - 10 adet",
+    "Ceviz/badem - yarım su bardağı",
+    "Kakao tozu - 1 yemek kaşığı",
+    "Hindistan cevizi rendesi"
+   ],
+   "instructions": [
+    "Hurma, ceviz ve kakaoyu blenderda çekin",
+    "Küçük toplar hazırlayın",
+    "Hindistan cevizi rendesine bulayın",
+    "Buzdolabında 30 dakika bekletin"
+   ]
+  },
+  "d764c731-4574-4b0a-8c12-4817b002d62a": {
+   "title": "Baby Pancakes - Bebek Pankeki",
+   "description": "Bebeğin kendi elleriyle yiyebileceği parmak gıda (9-10 ay+)",
+   "category": "bebek_mamasi",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Muz - 1 adet",
+    "Yumurta - 1 adet",
+    "Yulaf unu - 2 yemek kaşığı"
+   ],
+   "instructions": [
+    "Muzu ezin",
+    "Yumurta ve unu karıştırın",
+    "Küçük pankekler pişirin"
+   ]
+  },
+  "2b6d3d3f-7da4-49e6-9fec-a7c60b44d391": {
+   "title": "Night Comfort - Pirinç ve Yoğurt",
+   "description": "Rahat bir uykuya yardımcı olan doyurucu akşam yemeği (10 ay+)",
+   "category": "bebek_mamasi",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Pirinç - 2 yemek kaşığı",
+    "Yoğurt - 3 yemek kaşığı",
+    "Kuru nane - çok az"
+   ],
+   "instructions": [
+    "Pirinci lapa kıvamında pişirin",
+    "Yoğurtla karıştırın"
+   ]
+  },
+  "1c5b54f3-be70-41b0-84f4-d70a7077aca9": {
+   "title": "Iron Bowl - Karabuğday ve Et",
+   "description": "Hemoglobin düzeyi düşük bebekler için ideal (8 ay+)",
+   "category": "bebek_mamasi",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Karabuğday - 2 yemek kaşığı",
+    "Dana eti - 30 qr",
+    "Havuç - yarım adet"
+   ],
+   "instructions": [
+    "Eti ve karabuğdayı ayrı ayrı pişirin",
+    "Havucu buharda pişirin",
+    "Hepsini ezin"
+   ]
+  },
+  "703149ba-626c-42b7-97f3-d9c1417bd36f": {
+   "title": "Fırında Lor Peynirli Sırnik",
+   "description": "Kalsiyum açısından zengindir ve kemikleri güçlendirir. Kızartılmadığı için mide ekşimesine neden olmaz",
+   "category": "kahvalti",
+   "ingredients": [
+    "Lor peyniri - 200 qr",
+    "Yumurta - 1 adet",
+    "Pirinç unu - 2 yemek kaşığı",
+    "Vanilya - bir tutam",
+    "Bal - 1 çay kaşığı"
+   ],
+   "instructions": [
+    "Lor peynirini ezin, yumurta ve vanilyayı ekleyin",
+    "Unu ekleyip hamur hazırlayın",
+    "Küçük yuvarlak şekiller verin",
+    "180°C'de 20 dakika pişirin",
+    "Üzerine bal gezdirin"
+   ]
+  },
+  "e42eb779-f6d3-46c7-afa9-6b50228bf9fa": {
+   "title": "Sütlü ve Cevizli Karabuğday",
+   "description": "Demir deposudur, hemoglobin düzeyini yükseltir ve halsizliği giderir",
+   "category": "kahvalti",
+   "ingredients": [
+    "Karabuğday - 4 yemek kaşığı",
+    "Süt - 1.5 su bardağı",
+    "Ceviz - 2 adet",
+    "Bal - 1 çay kaşığı"
+   ],
+   "instructions": [
+    "Karabuğdayı sütte pişirin",
+    "Ceviz ve bal ekleyin",
+    "Sıcak servis edin"
+   ]
+  },
+  "e2a3de56-71ba-425a-9ee4-19af8f674965": {
+   "title": "Balkabaklı Yulaf Lapası",
+   "description": "A vitamini ve lif kaynağıdır, bağışıklığı güçlendirir",
+   "category": "kahvalti",
+   "ingredients": [
+    "Balkabağı - 1 dilim",
+    "Yulaf - 4 yemek kaşığı",
+    "Süt - 1.5 su bardağı",
+    "Tarçın - bir tutam",
+    "Ceviz - 2 adet"
+   ],
+   "instructions": [
+    "Balkabağını pişirip püre haline getirin",
+    "Süt ve yulafı pişirin",
+    "Balkabağı püresini ve baharatı ekleyin",
+    "Üzerine ceviz serpip servis edin"
+   ]
+  },
+  "3b230dc3-81f3-43a5-b56c-24296d3b832b": {
+   "title": "Kayısılı Şekerlemeler",
+   "description": "Demir deposu, kabızlık sorunu yaşayan hamileler için doğal bir destek",
+   "category": "saglikli_tatlilar",
+   "ingredients": [
+    "Kuru kayısı - 1 su bardağı",
+    "Hindistan cevizi rendesi - 2 yemek kaşığı",
+    "Limon kabuğu",
+    "Badem - yarım su bardağı"
+   ],
+   "instructions": [
+    "Kuru kayısıları ıslatın",
+    "Tüm malzemeleri blenderda çekin",
+    "Toplar hazırlayın",
+    "Hindistan cevizi rendesine bulayın"
+   ]
+  },
+  "fc4f12b8-7e49-4b03-9795-79a867c283e5": {
+   "title": "Elma Donutları",
+   "description": "Lifli ve çıtır, pişirmeden hazırlanan bir atıştırmalık",
+   "category": "saglikli_tatlilar",
+   "ingredients": [
+    "Elma - 2 adet",
+    "Fıstık ezmesi",
+    "Damla çikolata",
+    "Ayçekirdeği, ceviz"
+   ],
+   "instructions": [
+    "Elmaların çekirdekli kısımlarını çıkarın",
+    "Halka halka doğrayın",
+    "Üzerlerine fıstık ezmesi sürün",
+    "Kuruyemişlerle süsleyin"
+   ]
+  },
+  "4967c352-4a1e-42bd-be6e-64302b16bec0": {
+   "title": "Bağışıklık Shotu",
+   "description": "Grip ve soğuk algınlığından korunmaya yardımcı güçlü bir antioksidan",
+   "category": "saglikli_icecekler",
+   "ingredients": [
+    "Portakal suyu - yarım su bardağı",
+    "Zerdeçal tozu - yarım çay kaşığı",
+    "Karabiber - bir tutam",
+    "Zeytinyağı"
+   ],
+   "instructions": [
+    "İyice karıştırıp için"
+   ]
+  },
+  "6db2e407-1ec0-4bf4-af10-d55ecb9f0e4f": {
+   "title": "Yakut İksiri",
+   "description": "Hemoglobini artırır, kanı temizler",
+   "category": "saglikli_icecekler",
+   "ingredients": [
+    "Pancar - küçük bir parça",
+    "Havuç - küçük bir parça",
+    "Elma - yarım",
+    "Limon - 1 dilim"
+   ],
+   "instructions": [
+    "Katı meyve sıkacağından geçirin",
+    "Shot bardağına dökün"
+   ]
+  },
+  "24714855-3f91-4f23-8a26-d44837dc668e": {
+   "title": "Kadifemsi Mor Smoothie",
+   "description": "Kuru erik ve keten tohumu bağırsakları yumuşatır",
+   "category": "saglikli_icecekler",
+   "ingredients": [
+    "Kefir - 1 su bardağı",
+    "Kuru erik - 3 adet",
+    "Keten tohumu - 1 çay kaşığı",
+    "Muz - yarım"
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderda karıştırın",
+    "Hemen için"
+   ]
+  },
+  "a0dd2f7f-4bf5-469a-8ac2-80ba7e742c2a": {
+   "title": "Omega Işıltısı Smoothie",
+   "description": "Beyin gelişimi için Omega-3 bakımından zengin",
+   "category": "saglikli_icecekler",
+   "ingredients": [
+    "Avokado - yarım",
+    "Muz - 1 adet",
+    "Ceviz - 2 adet",
+    "Ispanak",
+    "Badem sütü - 1 su bardağı"
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderda karıştırın"
+   ]
+  },
+  "ba869d0c-6059-4e21-8549-a6fc4dbae37c": {
+   "title": "Pembe Bulut Smoothie",
+   "description": "Süt ve susam kemikleri ve dişleri korur",
+   "category": "saglikli_icecekler",
+   "ingredients": [
+    "Süt - 1 su bardağı",
+    "Çilek - 6 adet",
+    "Muz - yarım",
+    "Susam - 1 çay kaşığı"
+   ],
+   "instructions": [
+    "Blenderdan geçirin",
+    "Soğuk için"
+   ]
+  },
+  "db39aaba-46b8-48c5-9ee2-718a433c813d": {
+   "title": "Morning Layers - Yoğurt ve Granola",
+   "description": "Probiyotik bakımından zengin, sindirimi kolaylaştıran bir kahvaltı. Kalsiyum ve enerji kaynağıdır.",
+   "category": "kahvalti",
+   "ingredients": [
+    "Yoğurt: 1 kase",
+    "Yulaf: 3 yemek kaşığı",
+    "Ceviz: 1 avuç (ufalanmış)",
+    "Bal: 1 yemek kaşığı",
+    "Meyve (muz, çilek): isteğe bağlı"
+   ],
+   "instructions": [
+    "Yulafı kuru tavada hafifçe kavurun",
+    "Cevizi ufalayıp yulafa ekleyin",
+    "Bal ekleyip karıştırın - granolanız hazır",
+    "Kaseye yoğurt koyup üzerine granola serpin",
+    "Taze meyve dilimleri ekleyin"
+   ]
+  },
+  "eff41793-674f-452c-86c7-b28f4dd44a0f": {
+   "title": "Ocean Breeze Bagel - Somon Tostu",
+   "description": "Zihin bulanıklığını dağıtan ve cilde ışıltı kazandıran bir Omega-3 deposu.\n\nFaydası: Somon, kadınlarda kalp-damar ve beyin sağlığını destekler, cildin elastikiyetini artırır.",
+   "category": "kahvaltı",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Çavdar ekmeği veya tam buğday simidi (bagel): 1 adet",
+    "Krem peynir (labne): 1 yemek kaşığı",
+    "Porsiyonlanmış somon: 2-3 ince dilim",
+    "Salatalık dilimleri, dereotu."
+   ],
+   "instructions": [
+    "Ekmeğin üzerine krem peynir sürün. Üzerine salatalık ve somon dilimlerini yerleştirin. Taze dereotuyla süsleyip tüketin."
+   ]
+  },
+  "29bb0ce4-9bdc-4fac-b1c7-e5b836d8f1d0": {
+   "title": "Şakşuka",
+   "description": "Sıcak, bol domatesli ve baharatlı bir hafta sonu klasiği.\n\nFaydası: Pişmiş domatesteki likopen, kadın vücudu için kansere karşı koruyucu en güçlü antioksidanlardan biridir.",
+   "category": "kahvaltı",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Yumurta: 2 adet",
+    "Domates: 2 adet (doğranmış)",
+    "Renkli biber: Yarım adet (doğranmış)",
+    "Soğan: Yarım adet",
+    "Zeytinyağı, kimyon tozu, tuz, karabiber."
+   ],
+   "instructions": [
+    "Tavada soğanı ve biberi zeytinyağında kavurun. Domatesleri ve baharatları ekleyip sos kıvamına gelene kadar pişirin. Sosun içinde boşluklar açıp yumurtaları kırın ve kapağını kapatarak istediğiniz kıvamda pişirin."
+   ]
+  },
+  "fe3cad51-3e25-4969-b2ba-dbb221d883b9": {
+   "title": "Ocean's Gift - Somon",
+   "description": "Omega-3 açısından zengin anne sütü için idealdir. Bebeğin beyin gelişimini destekler.",
+   "category": "akşam_yemeği",
+   "tags": [
+    "doğum_sonrası"
+   ],
+   "ingredients": [
+    "Somon: 150 qr",
+    "Kuşkonmaz veya Yeşil fasulye: 100 qr",
+    "Limon: yarım adet",
+    "Dereotu: 1 demet",
+    "Zeytinyağı: 1 yemek kaşığı"
+   ],
+   "instructions": [
+    "Balığı tuzlayıp limon suyuyla marine edin (10 dk)",
+    "Sebzeleri yanına yerleştirin",
+    "Üzerine zeytinyağı sürüp folyoya sarın",
+    "Fırında 180°C'de 20 dakika pişirin",
+    "Üzerine bolca taze dereotu serpin - süt akışını destekler"
+   ]
+  },
+  "7b50a305-3e3e-47ca-8cb4-e9cc2bf8695d": {
+   "title": "Emerald Velvet - Ispanak Çorbası",
+   "description": "Demir ihtiyacını karşılayan, yorgunluğu azaltan yeşil enerji. Folik asit açısından zengindir.",
+   "category": "akşam_yemeği",
+   "ingredients": [
+    "Ispanak: 1 büyük demet",
+    "Patates: 1 adet",
+    "Soğan: 1 adet",
+    "Krema (veya süt): yarım su bardağı",
+    "Tuz, karabiber"
+   ],
+   "instructions": [
+    "Sebzeleri doğrayıp suda haşlayın",
+    "Yumuşadıktan sonra blenderdan geçirerek püre haline getirin",
+    "Son olarak kremayı ekleyip bir taşım kaynatın",
+    "Tuz ve karabiber ekleyin",
+    "Sıcak servis edin - demir ihtiyacı için ideal"
+   ]
+  },
+  "7bcfa70e-7c6a-42b0-84fa-c8b8642dc2e8": {
+   "title": "Yakut Yahnisi - Pancar ve Et",
+   "description": "Kan yapımını ve süt üretimini destekleyen muhteşem ikili. Demir ve protein kaynağı.",
+   "category": "öğle_yemeği",
+   "tags": [
+    "doğum_sonrası"
+   ],
+   "ingredients": [
+    "Dana eti: 200 qr (küp doğranmış)",
+    "Pancar: 1 adet (büyük)",
+    "Havuç: 1 adet",
+    "Et suyu: 2 su bardağı",
+    "Tuz, karabiber"
+   ],
+   "instructions": [
+    "Eti küçük küpler halinde doğrayıp yumuşayana kadar haşlayın",
+    "Pancarı ve havucu soyup doğrayın",
+    "Ete ekleyip kısık ateşte 30-40 dakika pişirin",
+    "Tuz ve karabiber ekleyin",
+    "Sıcak servis edin - kan yapımını ve süt üretimini destekler"
+   ]
+  },
+  "fa71b0aa-2b84-4b46-9f5a-66cd2a1a924c": {
+   "title": "Vanilla Bean Macchiato",
+   "description": "Yapay şurup yerine doğal vanilya tanelerinin kullanıldığı gerçek bir İtalyan lezzeti.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "1 fincan espresso, dörtte bir su bardağı sıcak ve köpürtülmüş süt, doğal vanilya çubuğunun taneleri (veya organik vanilya özütü)."
+   ],
+   "instructions": [
+    "Sütü vanilyayla birlikte ısıtıp iyice köpürtün. Sıcak espressonun üzerine yalnızca vanilyalı köpüğü kaşıkla koyun."
+   ]
+  },
+  "a8e7b2fb-a93b-4062-b10e-3ec92ab8f15b": {
+   "title": "Golden Quinoa Porridge",
+   "description": "Kanıtlanmış bir enerji ve bitkisel demir kaynağı.\n\nFaydası: Kinoa, glüten içermeyen ve tüm temel amino asitleri barındıran mükemmel bir tahıl alternatifidir; kan şekerinin dengelenmesine yardımcı olur.",
+   "category": "kahvaltı",
+   "ingredients": [
+    "Kinoa: Yarım su bardağı (iyice yıkanmış)",
+    "Badem sütü: 1 su bardağı",
+    "Zerdeçal tozu: Yarım çay kaşığı (iltihap karşıtı)",
+    "Badem içi, kuru üzüm veya kuru erik."
+   ],
+   "instructions": [
+    "Kinoayı sütle birlikte tencereye koyun, zerdeçalı ekleyin ve suyunu çekene kadar kısık ateşte pişirin. Ocaktan alıp üzerine badem ve kuru üzüm serpin."
+   ]
+  },
+  "5ea647ef-3b19-4587-8829-05b5dcb6c41c": {
+   "title": "Susam Çıtırlı Pastil",
+   "description": "Geleneksel enerji barı: Yalnızca bal ve susam. Kalsiyumla doludur, tatlı isteğini azaltır.",
+   "category": "sağlıklı_tatlılar",
+   "ingredients": [
+    "Susam: 1 su bardağı",
+    "Bal: yarım su bardağı"
+   ],
+   "instructions": [
+    "Susamı kuru tavada hafifçe kavurun (kızarana kadar)",
+    "Balı ayrı bir tavada köpürene kadar ısıtın",
+    "Kavrulmuş susamı bala ekleyip hızla karıştırın",
+    "Yağlı kağıdın üzerine yayın (1 sm kalınlığında)",
+    "Soğuduktan sonra baklava dilimleri şeklinde kesin"
+   ]
+  },
+  "971c317e-b7ac-4733-b72a-ef93a65eb1b6": {
+   "title": "Super Grain Bowl - Kinoa Salatası",
+   "description": "Protein bombası. Tüm esansiyel amino asitleri içerir, sütün kalitesini artırır.",
+   "category": "ogle_yemegi",
+   "tags": [
+    "postpartum"
+   ],
+   "ingredients": [
+    "Kinoa: yarım su bardağı (pişmiş)",
+    "Siyah fasulye veya nohut: yarım su bardağı",
+    "Avokado: yarım adet",
+    "Maydanoz: 1 demet",
+    "Limon suyu, zeytinyağı"
+   ],
+   "instructions": [
+    "Kinoayı yıkayıp 15 dakika pişirin, süzün",
+    "Pişmiş fasulyeyi/nohudu ekleyin",
+    "Avokadoyu küp şeklinde doğrayın",
+    "Maydanoz, limon suyu ve zeytinyağıyla karıştırın",
+    "Soğuk veya oda sıcaklığında servis edin"
+   ]
+  },
+  "12f0782c-f0f2-4ba6-a173-dbb482071e15": {
+   "title": "The First Green - Kabak Püresi",
+   "description": "Bebeğin sindirim sistemi için en hafif başlangıç (6 ay+)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Kabak - 1 küçük adet",
+    "Zeytinyağı - 1 çay kaşığı",
+    "Anne sütü/formül mama"
+   ],
+   "instructions": [
+    "Kabağı buharda pişirin",
+    "Blenderda ezin",
+    "Anne sütü ve zeytinyağı ekleyin"
+   ]
+  },
+  "ee7e5b2c-3005-40bc-948c-9e7d5600cfdc": {
+   "title": "The Orange Glow - Havuç Salatası",
+   "description": "Havuç ve tahinin kalsiyum dolu birlikteliği. Beta-karoten ve kalsiyum sütün kalitesini artırır.",
+   "category": "aksam_yemegi",
+   "ingredients": [
+    "Havuç: 2 adet (rendelenmiş)",
+    "Ceviz: 1 avuç (ufalanmış)",
+    "Tahin (susam ezmesi): 1 yemek kaşığı",
+    "Limon suyu, zeytinyağı",
+    "Dereotu: birkaç dal"
+   ],
+   "instructions": [
+    "Havucu rendeleyin",
+    "Cevizi ufalayıp ekleyin",
+    "Dereotunu ince ince doğrayın",
+    "Tahin, limon suyu ve zeytinyağıyla sos hazırlayın",
+    "Hepsini karıştırıp servis edin - vitamin dolu"
+   ]
+  },
+  "50c1c324-2182-4a8b-9fa1-e6567601c2d3": {
+   "title": "Hayat Nektarı Kompostosu",
+   "description": "Kurutulmuş meyvelerin şekersiz, doğal suyu. Sütün 80%-i sudur - bu komposto susuzluğu giderir.",
+   "category": "saglikli_icecekler",
+   "ingredients": [
+    "Kayısı (kuru kayısı): 5-6 adet",
+    "Kuru erik: 3-4 adet",
+    "Elma (kurutulmuş veya taze): dilimlenmiş",
+    "Su: 1.5 litre"
+   ],
+   "instructions": [
+    "Kurutulmuş meyveleri yıkayın",
+    "1.5 litre suya ekleyip kaynatın",
+    "Kaynamaya başladıktan sonra kısık ateşte 20 dakika kaynatın",
+    "Şeker eklemeyin - meyvelerin kendi tatlılığı yeterlidir",
+    "Soğuk için - gün boyunca bol bol tüketin"
+   ]
+  },
+  "d3d9ab59-ad73-4c09-ad5f-3b3fedca7488": {
+   "title": "Golden Apple - Pişmiş Elma Püresi",
+   "description": "Pişmiş elma gaz yapmaz ve çok lezzetlidir (6 ay+)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Elma - 1 adet",
+    "Su"
+   ],
+   "instructions": [
+    "Elmayı soyup dilimleyin",
+    "Buharda pişirin",
+    "Blenderdan geçirin"
+   ]
+  },
+  "8c40752c-6db4-4615-b2ca-638a97aa09f6": {
+   "title": "Orange Power - Bal Kabağı ve Havuç Püresi",
+   "description": "Beta-karoten kaynağıdır, tatlı tadı bebeklerin hoşuna gider (6-7 ay)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Bal kabağı - 1 dilim",
+    "Havuç - 1 adet"
+   ],
+   "instructions": [
+    "Sebzeleri buharda pişirin",
+    "Blenderda pürüzsüz bir püre hâline getirin"
+   ]
+  },
+  "07319d7d-c920-4693-bc34-502061f38b1b": {
+   "title": "Ocean’s Pearl- Somon ve Kuşkonmaz",
+   "description": "Cildi içeriden nemlendiren ve ödemi azaltan klasik ikili.\n\nFaydası: Somondaki Omega-3 saçlara ve cilde parlaklık kazandırır, kuşkonmaz ise doğal bir idrar söktürücüdür (vücuttaki fazla suyun ve şişkinliğin atılmasına yardımcı olur).",
+   "category": "öğle yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Somon fileto: 150 qr",
+    "Kuşkonmaz: 6-8 adet",
+    "Limon: Yarım adet",
+    "Zeytinyağı, deniz tuzu, karabiber."
+   ],
+   "instructions": [
+    "Kuşkonmazların sert uçlarını kesin. Balığı ve kuşkonmazları fırın tepsisine dizin. Üzerlerine zeytinyağı, tuz, karabiber ve limon suyu ekleyip 180 derecede 15-20 dakika pişirin."
+   ]
+  },
+  "fff5b4d4-5ba2-4e96-98ea-a65ef476ad64": {
+   "title": "Fırında Falafel",
+   "description": "Kızartmadan uzak duranlar için fırında pişmiş, lifli ve çıtır bir Doğu lezzeti.\n\nFaydası: Nohut, kadın vücudundaki östrojen seviyesini doğal yoldan destekler; lifli yapısı kabızlığın önlenmesine yardımcı olur.",
+   "category": "öğle yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Nohut: 1 su bardağı (bir gece önceden ıslatılmış, çiğ)",
+    "Taze maydanoz ve kişniş: Yarım demet",
+    "Soğan, sarımsak, kimyon (toz)."
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderda püre hâline getirmeden parçalayın. Elinizle küçük köfteler hazırlayıp yağlı kâğıt üzerinde 180 derecede 25 dakika pişirin. Yanında yoğurt veya tahin sosuyla tüketin."
+   ]
+  },
+  "b455efa4-2b34-4269-90be-921a5749ae99": {
+   "title": "Ocean Mild - Beyaz Balık ve Sebze",
+   "description": "Fosfor ve iyot kaynağı (9-10 ay)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Beyaz balık - 40 qr",
+    "Havuç - yarım adet",
+    "Soğan - az miktarda"
+   ],
+   "instructions": [
+    "Balığı sebzelerle birlikte buharda pişirin",
+    "Kılçıklarını dikkatlice kontrol edin",
+    "Çatalla didikleyin"
+   ]
+  },
+  "e3dad099-6f8a-4e3c-8dfa-2922158c70b6": {
+   "title": "Karnabahar Pizzası",
+   "description": "Pizza keyfini vicdan azabı çekmeden, glüten ve hamur olmadan yaşamak için.\n\nFaydası: Karnabahar bitkisel besin öğeleri açısından zengindir ve karaciğerin temizlenmesini destekler. Bu pizza şişkinlik ve mide yanmasına neden olmaz.",
+   "category": "akşam yemeği",
+   "ingredients": [
+    "Karnabahar: Yarım baş (rendelenmiş ve suyu tamamen sıkılmış)",
+    "Yumurta: 1 adet",
+    "Peynir (rendelenmiş): 3 yemek kaşığı (hamur için)",
+    "Üzeri için: Domates salçası, domates dilimleri, peynir, fesleğen."
+   ],
+   "instructions": [
+    "Rendelenmiş karnabaharı yumurta ve peynirle yoğurup fırın tepsisine pizza hamuru gibi yayın. 200 derecede 15 dakika (kızarana kadar) pişirin. Ardından çıkarıp üzerine sosu ve malzemeleri yerleştirin, peynir eriyene kadar 5 dakika daha pişirin."
+   ]
+  },
+  "cc18259a-201a-4dd4-83bd-d60fc14dccba": {
+   "title": "Ilık Mantar ve Ispanak Salatası",
+   "description": "Et yemek istemediğiniz akşamlar için topraksı aromalı, ılık ve doyurucu bir salata.\n\nFaydası: Ispanaktaki magnezyum kasların gevşemesine yardımcı olurken mantar, bağışıklığı destekleyen D vitamini ve B grubu vitaminler açısından zengindir.",
+   "category": "akşam yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kültür mantarı veya İstiridye mantarı: 150 qr (doğranmış)",
+    "Körpe ıspanak: 2-3 avuç (çiğ)",
+    "Ceviz: 1 avuç",
+    "Balzamik sirke, zeytinyağı, sarımsak (az miktarda)."
+   ],
+   "instructions": [
+    "Mantarları bir diş sarımsakla birlikte az yağda kızarana kadar soteleyin. Ispanakları bir kaseye alın. Sıcak mantarları ıspanakların üzerine dökün (ısı, ıspanakları hafifçe yumuşatacaktır). Üzerine ceviz serpip balzamik sirke gezdirin."
+   ]
+  },
+  "a5b41661-394b-4403-8c11-ef8c670867ac": {
+   "title": "Mercimekli Kabak Spagetti",
+   "description": "Spagetti özlemine son veren, bitkisel protein açısından zengin yalancı makarna.\n\nFaydası: Kabak sayesinde neredeyse hiç karbonhidrat almadan hafif bir öğün tüketirsiniz; mercimek ise bitkisel demir ve lif sağlayarak sindirimi destekler.",
+   "category": "akşam yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kabak: 2 adet (spagetti gibi kesilmiş)",
+    "Kırmızı mercimek: Yarım su bardağı (haşlanmış)",
+    "Domates, soğan, sarımsak (sos için)."
+   ],
+   "instructions": [
+    "Soğan ve domatesle \"Bolonez\" tarzı bir sos hazırlayıp içine pişmiş mercimekleri ekleyin. Kabakları tavada 2 dakika soteleyip tabağa alın, üzerine bol mercimekli sos dökün."
+   ]
+  },
+  "0b4a6a47-3a40-4940-a2d5-e0a7260449ef": {
+   "title": "Gökkuşağı Şişleri(3 yaş+)",
+   "description": "Meyve yemeyi eğlenceli bir oyuna dönüştüren, rengârenk ve güvenli şişler.\n\nFaydası: Farklı renklerdeki meyveler, farklı vitaminler (C, K, antioksidanlar) anlamına gelir.",
+   "category": "Ek gıda",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Çilek (kırmızı), Mandalina (turuncu), Muz (sarı), Kivi (yeşil), Yaban mersini (mavi/mor).",
+    "Çocuklar için güvenli, ucu küt plastik veya tahta şişler (çubuklar)."
+   ],
+   "instructions": [
+    "Meyveleri çocuğun yiyebileceği büyüklükte küçük küpler hâlinde doğrayın. Gökkuşağı renkleri sırasına göre şişlere dizin."
+   ]
+  },
+  "71d8c222-1035-4fd0-929b-23c2b485af16": {
+   "title": "Sarımsaklı Karides ve Kabak",
+   "description": "Kafe veya restoran kalitesinde, ancak kalorisi yok denecek kadar az bir deniz ürünü ziyafeti.\n\nFaydası: Karides çinko ve iyot açısından zengindir (saç ve tırnakları güçlendirir). Çok hafif olduğu için akşam saatleri için idealdir.",
+   "category": "akşam yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Karides (ayıklanmış): 150 qr",
+    "Kabak: 2 adet (spagetti gibi doğranmış)",
+    "Tereyağı (az miktarda) ve zeytinyağı karışımı.",
+    "Sarımsak: 2 diş (ezilmiş), pul biber."
+   ],
+   "instructions": [
+    "Tavada yağı ve sarımsağı ısıtın, karidesleri ekleyip pembeleşene kadar (toplam 3-4 dakika) soteleyin. Kabakları ekleyip 2 dakika daha soteleyin. Üzerine limon sıkıp hemen servis edin."
+   ]
+  },
+  "866a9373-a971-4ae1-bcb7-5c987dbcae3a": {
+   "title": "Lavantalı Süt",
+   "description": "Yoğun bir günün ardından stresi hafifleten ve bebek gibi uyumanıza yardımcı olan sihirli bir içecek.\n\nFaydası: Lavantanın kokusu ve tadı sinir sistemini hızla sakinleştirir, uyku kalitesini artırır.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Badem veya yulaf sütü: 1 su bardağı",
+    "Kurutulmuş lavanta (mutfak kullanımı için): 1 çay kaşığı",
+    "Bal veya agave şurubu: 1 çay kaşığı",
+    "Vanilya özütü: Birkaç damla."
+   ],
+   "instructions": [
+    "Sütü tencerede ısıtın (kaynatmayın). İçine lavantayı ekleyip 5-10 dakika demlenmesini bekleyin. Süzgeçten geçirerek bardağa dökün, bal ve vanilya ekleyip ılık olarak için."
+   ]
+  },
+  "d9f4e457-b6da-4ebb-92a8-543b9465b164": {
+   "title": "Yakut Hibiskus Mojitosu",
+   "description": "Gençlik iksiri ve kan basıncını dengeleyen kırmızı lezzet.\n\nFaydası: Hibiskus (Mekke gülü) C vitamini ve antioksidan deposudur, metabolizmayı hızlandırır ve kalp-damar sistemini korur.",
+   "category": "Sağlıklı içecekler",
+   "ingredients": [
+    "Hibiskus çayı (koyu demlenip soğutulmuş): Yarım su bardağı",
+    "Nane yaprakları: 5-6 adet",
+    "Misket limonu: Yarım adet (dilimlenmiş)",
+    "Maden suyu ve buz."
+   ],
+   "instructions": [
+    "Bardağın dibinde nane ve misket limonu dilimlerini tahta bir eziciyle ezin. Üzerine bolca buz ekleyin. Soğuk hibiskus çayını ve maden suyunu ekleyip karıştırın."
+   ]
+  },
+  "0af2c4bf-6712-4fe8-994f-bb2c520b2caf": {
+   "title": "Brokoli (Karnabahar) Grateni",
+   "description": "Kalsiyum ve C vitamini kaynağı; et yemek istemediğiniz günler için alternatif",
+   "category": "akşam_yemeği",
+   "tags": [
+    "hamilelik"
+   ],
+   "ingredients": [
+    "Karnabahar veya Brokoli - 300 qr",
+    "Yumurta - 2 adet",
+    "Yoğurt - 2 yemek kaşığı",
+    "Un - 1 yemek kaşığı",
+    "Peynir - 30 qr"
+   ],
+   "instructions": [
+    "Karnabaharı veya Brokoliyi pişirin",
+    "Yumurta, yoğurt ve unu çırpın",
+    "Karışımı sebzenin üzerine dökün",
+    "Peynir serpip fırında pişirin"
+   ]
+  },
+  "c7535dc2-4407-4715-bc23-3a8242531319": {
+   "title": "Avokadolu Çikolatalı Mus",
+   "description": "Avokado folik asit ve magnezyum açısından zengindir; kakao mutluluk hormonunun salgılanmasını destekler",
+   "category": "sağlıklı_içecekler",
+   "ingredients": [
+    "Avokado - 1 adet",
+    "Kakao - 2 yemek kaşığı",
+    "Bal - 3 yemek kaşığı",
+    "Vanilya",
+    "Badem sütü - 3 kaşık"
+   ],
+   "instructions": [
+    "Tüm malzemeleri blendera koyun",
+    "Krema kıvamına gelene kadar karıştırın",
+    "Buzdolabında 30 dakika bekletin",
+    "Çilekle servis edin"
+   ]
+  },
+  "b8788575-43f0-4748-a08b-a02e6044caa7": {
+   "title": "Yeşil Mucize - Dereotlu Köfte",
+   "description": "Azerbaycan mutfağının süt üretimini artırmak için kullanılan en meşhur sırrı: Bol dereotu! Süt kanallarının açılmasına yardımcı olur.",
+   "category": "öğle_yemeği",
+   "ingredients": [
+    "Kıyma (dana veya tavuk): 300 qr",
+    "Pirinç: yarım bardak",
+    "Dereotu: 2 büyük demet",
+    "Patates: 2 adet",
+    "Soğan: 1 adet",
+    "Tuz, karabiber"
+   ],
+   "instructions": [
+    "Kıyma, yıkanmış pirinç ve ince doğranmış dereotunun yarısını karıştırın",
+    "Tuz ve karabiber ekleyip köfteler hazırlayın",
+    "Kaynayan suya doğranmış patates ve soğanı ekleyin",
+    "5 dəq sonra köfteleri ekleyip kısık ateşte 25-30 dəq pişirin",
+    "Pişmeye yakın kalan dereotunu bolca doğrayıp çorbaya ekleyin"
+   ]
+  },
+  "52d3741b-ea80-45a2-99fd-beda7e7b6c4a": {
+   "title": "Kehribar Akışı - Çemen Otu Çayı",
+   "description": "Dünyada süt üretimini artırmak için kullanılan en güçlü bitkilerden biri: Çemen otu (Fenugreek). Prolaktin hormonunu uyarır.",
+   "category": "sağlıklı_içecekler",
+   "ingredients": [
+    "Çemen otu tohumu (Fenugreek): 1 çay kaşığı",
+    "Su: 2 bardak",
+    "Bal: 1 çay kaşığı (isteğe bağlı)",
+    "Limon: birkaç damla"
+   ],
+   "instructions": [
+    "Çemen otu tohumlarını kuru tavada 1-2 dakika hafifçe kavurun (yanmamasına dikkat edin)",
+    "Kaynar suya ekleyin",
+    "10 dakika demleyip süzün",
+    "İsteğe göre bal ve limon ekleyin",
+    "Günde 2-3 fincan için - süt üretimindeki artış 24-48 saat içinde hissedilir"
+   ]
+  },
+  "8c4792f6-0abc-4597-99d1-ff981dc2a340": {
+   "title": "Matcha Sabah Kasesi",
+   "description": "Kafeinsiz uyanmak isteyenler için antioksidan kaynağı ve metabolizma hızlandırıcı.\n\nFaydası: Matcha çayı metabolizmayı hızlandırır ve cildin arınmasına yardımcı olur. Kahve gibi ani bir enerji verip ardından yorgunluğa neden olmaz; gün boyu dengeli bir zindelik sağlar",
+   "category": "kahvaltı",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Dondurulmuş muz: 1 adet",
+    "Matcha tozu: 1 çay kaşığı",
+    "Ispanak: 1 küçük avuç",
+    "Badem sütü: Yarım bardak",
+    "Üzeri için: Hindistan cevizi rendesi, badem içi, kivi dilimleri."
+   ],
+   "instructions": [
+    "Muz, matcha, ıspanak ve sütü koyu kıvamlı bir smoothie olana kadar blenderdan geçirin. Kaseye döküp üzerini kuruyemiş ve kiviyle süsleyin."
+   ]
+  },
+  "13b7591b-479c-457d-ab27-09785681c532": {
+   "title": "Tatlı Rüyalar Shot'ı",
+   "description": "Kas kramplarını ve gerginliği azaltmak için",
+   "category": "sağlıklı_içecekler",
+   "ingredients": [
+    "Badem - 5 adet (ıslatılmış)",
+    "Muz - dörtte bir",
+    "Kakao - yarım çay kaşığı",
+    "Su - 2 yemek kaşığı"
+   ],
+   "instructions": [
+    "Bademlerin kabuklarını soyun",
+    "Tüm malzemeleri blenderda sıvı kıvama gelene kadar karıştırın"
+   ]
+  },
+  "2b374b35-8810-48b4-a990-d7b6c19bcd99": {
+   "title": "Kremamsı Beyin - Avokado ve Muz",
+   "description": "Beyin gelişimi için Omega-3 deposu; pişirme gerektirmez (7 ay+)",
+   "category": "bebek_maması",
+   "tags": [
+    "bebek_maması",
+    "vitamin_zengini"
+   ],
+   "ingredients": [
+    "Avokado - yarım adet",
+    "Muz - yarım adet"
+   ],
+   "instructions": [
+    "İkisini de çatalla ezin",
+    "Hafif pütürlü bırakın"
+   ]
+  },
+  "f7f4a9f1-a670-4aa2-bc79-2ba16bd08e45": {
+   "title": "Minik Protein - Tavuk ve Sebze",
+   "description": "Bebeğin ilk et deneyimi (7-8 ay)",
+   "category": "bebek_maması",
+   "tags": [
+    "bebek_maması"
+   ],
+   "ingredients": [
+    "Tavuk göğsü - 40 qr",
+    "Brokoli - 3 çiçek",
+    "Zeytinyağı"
+   ],
+   "instructions": [
+    "Eti haşlayın ve ilk suyunu dökün",
+    "Sebzeyi ekleyip pişirin",
+    "Hepsini birlikte blenderdan geçirin"
+   ]
+  },
+  "d407408a-9e13-47c0-b565-ec699f31591e": {
+   "title": "Citrus Spark",
+   "description": "Metabolizmayı harekete geçiren ve yağ yakımına yardımcı olan bir sabah kokteyli.\n\nFaydası: Greyfurt insülin seviyesini dengeler, biberiye ise hafızayı ve konsantrasyonu güçlendirir.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Greyfurt suyu (taze sıkılmış): Yarım su bardağı",
+    "Taze biberiye: 1 dal",
+    "Soda: Yarım su bardağı",
+    "Buz."
+   ],
+   "instructions": [
+    "Biberiye dalını aromasını çıkarmak için elinizle hafifçe ezin ve bardağa koyun. Üzerine buz, greyfurt suyu ve maden suyu ekleyin."
+   ]
+  },
+  "fff46867-aa41-4bc9-8647-1346ba044359": {
+   "title": "Iced Cacao Protein Shake",
+   "description": "Egzersiz sonrası kasların toparlanması ve uzun süre tok hissetmek için idealdir.",
+   "category": "Sağlıklı içecekler",
+   "ingredients": [
+    "1 yemek kaşığı kakao, 1 dondurulmuş muz, 1 yemek kaşığı fıstık ezmesi, 1 su bardağı soğuk süt, buz."
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderda koyu kıvamlı bir shake elde edene kadar karıştırın."
+   ]
+  },
+  "b3153614-fcee-47f5-887f-a9f21df0723d": {
+   "title": "Kinoa ve Çikolata Lokmaları",
+   "description": "PMS (regl öncesi) döneminde ortaya çıkan çikolata krizine verilebilecek en çıtır ve sağlıklı cevap.\n\nFaydası: Bitter çikolata magnezyum açısından zengindir (krampları ve gerginliği azaltır), patlatılmış kinoa ise protein sağlar ve kan şekerini dengede tutar.",
+   "category": "Sağlıklı tatlılar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Bitter çikolata (en az 70% kakao): 100 qr",
+    "Patlatılmış kinoa (veya yulaf): 1 su bardağı",
+    "Deniz tuzu: Çok az miktarda (üzeri için)"
+   ],
+   "instructions": [
+    "Çikolatayı buharda (benmari usulü) eritin. Kinoayı ekleyip iyice karıştırın. Karışımı kaşıkla yağlı kağıdın üzerine küçük kümeler halinde dökün. Üzerine deniz tuzu serpip buzdolabında 20 dakika dondurun."
+   ]
+  },
+  "1b665124-a619-4ee4-9dce-a48ced0f8106": {
+   "title": "Kakaolu Avokadolu Tart",
+   "description": "Çikolatalı tartın tahmin edemeyeceğiniz kadar sağlıklı ve pişirmeden hazırlanan versiyonu.\n\nFaydası: Avokadonun içerdiği sağlıklı yağlar, kadınlık hormonlarının sentezi için vazgeçilmezdir. Kakao ise endorfin (mutluluk hormonu) salgılanmasını artırır.",
+   "category": "Sağlıklı tatlılar",
+   "ingredients": [
+    "Tabanı için: 1 su bardağı ceviz, 10 adet hurma.",
+    "Kreması için: 2 adet olgun avokado, yarım su bardağı şekersiz kakao, 4 yemek kaşığı bal veya pekmez."
+   ],
+   "instructions": [
+    "Ceviz ve hurmayı blenderda çekip tart kalıbının tabanına yayın. Krema için avokado, kakao ve balı tamamen ipeksi bir kıvam alana kadar blenderdan geçirin. Tabanın üzerine yayıp buzdolabında 2 saat bekletin."
+   ]
+  },
+  "23124658-0378-42aa-b696-d264cdef885d": {
+   "title": "Fıstık Ezmeli Hurma",
+   "description": "Gerçek karamelli çikolata yiyormuşsunuz hissi veren, anında enerji sağlayan bir \"atıştırmalık\".\n\nFaydası: Rafine şeker isteğini tamamen bastırır. Fıstık ezmesi, protein ve sağlıklı yağlarla tokluk hissini artırır.",
+   "category": "Sağlıklı tatlılar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Medjool hurması (büyük, yumuşak): 5-6 adet",
+    "Şekersiz fıstık (yer fıstığı) ezmesi: 2 yemek kaşığı",
+    "Bitter çikolata (eritilmiş)."
+   ],
+   "instructions": [
+    "Hurmaları uzunlamasına kesip çekirdeklerini çıkarın. İçlerini fıstık ezmesiyle doldurun. Hurmaları yarısına kadar eritilmiş bitter çikolataya batırın ve donmaları için buzdolabına koyun."
+   ]
+  },
+  "64191934-b404-495f-b229-388b63914389": {
+   "title": "Çilekli Kaju Cheesecake",
+   "description": "Süt ürünleri, un ve şeker kullanılmadan hazırlanan muhteşem bir \"Raw Vegan\" cheesecake.\n\nFaydası: Kaju kan basıncını düzenler, çilek ise yaşlanma karşıtı etki gösteren C vitamini açısından zengindir.",
+   "category": "Sağlıklı tatlılar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Tabanı için: Badem, hurma (blenderda çekilmiş).",
+    "Kreması için: 1.5 su bardağı kaju (geceden ıslatılmış), 1 su bardağı çilek, 3 yemek kaşığı eritilmiş Hindistan cevizi yağı, agave şurubu."
+   ],
+   "instructions": [
+    "Taban karışımını kalıbın dibine bastırarak yayın. Suyunu süzdüğünüz kajuyu çilek, yağ ve şurupla birlikte tamamen pürüzsüz bir krema elde edene kadar blenderdan geçirin. Tabanın üzerine döküp dondurucuda 4 saat bekletin."
+   ]
+  },
+  "27feef17-d812-4444-aa98-c2116d7d5049": {
+   "title": "Tatlı Patates ve Elma Püresi (6 ay+)",
+   "description": "Bebeklerin tatlı lezzetleri sevdiğini düşünürsek bu, en sevilen ilk yiyeceklerden biri olacaktır.\n\nFaydası: Tatlı patates A vitamini ve lif açısından zengindir, elma ise sindirimi kolaylaştırır.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tatlı patates: 1 küçük adet (kabuğu soyulmuş, küp şeklinde doğranmış)",
+    "Tatlı elma: Yarım adet (kabuğu soyulmuş)",
+    "Anne sütü veya formül mama (kıvamını yumuşatmak için)."
+   ],
+   "instructions": [
+    "Tatlı patatesi ve elmayı buharda veya çok az suda tamamen yumuşayana kadar pişirin. Çatalla ezin veya püre haline getirin. Ilıkken içine biraz anne sütü ekleyerek kıvamını ayarlayın."
+   ]
+  },
+  "10778f55-a6f7-4dea-b6b5-e285d45babb5": {
+   "title": "Havuç ve Mercimek Çorbası\n(8 ay+)",
+   "description": "Bebeğin demirle tanışması için en lezzetli, turuncu ve gaz yapmayan çorba.\n\nFaydası: Kırmızı mercimek, bitkisel protein ve demir kaynağıdır. Havuç ise göz gelişimi için önemli olan beta-karoten açısından zengindir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Kırmızı mercimek: 2 yemek kaşığı (iyice yıkanmış)",
+    "Havuç: 1 küçük adet (rendelenmiş)",
+    "Zeytinyağı: 1 çay kaşığı."
+   ],
+   "instructions": [
+    "Havucu ve mercimeği küçük bir tencerede, üzerlerini örtecek kadar suyla tamamen yumuşayana kadar haşlayın. Blenderdan geçirin ve üzerine 1 çay kaşığı sızma zeytinyağı gezdirin."
+   ]
+  },
+  "fb03ef40-89b2-4c37-a867-f84dac70544e": {
+   "title": "Ispanak ve Bezelye Püresi \n(8 ay+)",
+   "description": "Geleceğin güçlü kahramanları için demir ve protein dolu, rengiyle dikkat çeken bir yemek.\n\nFaydası: Ispanaktaki folik asit ve bezelyedeki protein, hızlı büyümeyi destekler.",
+   "category": "Ek gıda",
+   "ingredients": [
+    "Ispanak: 1 avuç (temizlenmiş)",
+    "Taze bezelye: 1 yemek kaşığı",
+    "Patates: Yarım küçük adet",
+    "Tereyağı: Çok küçük bir parça (tuzsuz)."
+   ],
+   "instructions": [
+    "Patatesi ve bezelyeyi suda pişirin. Pişmelerine az kala ıspanağı ekleyin. Suyunu süzün, tereyağını ekleyip püre hâline getirin."
+   ]
+  },
+  "e4dcec61-d668-42ad-9158-cfc7b2b1485d": {
+   "title": "Yaban Mersinli Pankek\n(9 ay+)",
+   "description": "Bebeğin kendi eliyle yiyebileceği (BLW), motor becerilerini geliştiren lezzetli bir tarif.\n\nFaydası: Yaban mersini, beyin fonksiyonlarını destekleyen güçlü bir antioksidandır. Şekersiz, unsuz ve yumuşak bir pankek.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Muz: 1 adet (olgun, ezilmiş)",
+    "Yumurta sarısı: 1 adet (beyazı 1 yaşına kadar verilmez)",
+    "Yaban mersini: 6-7 adet (ikiye bölünmüş)",
+    "Yulaf unu: 1 yemek kaşığı."
+   ],
+   "instructions": [
+    "Muzu ezin, yumurta sarısı ve unla karıştırın. Doğranmış yaban mersinlerini ekleyin. Yağsız tavaya kaşıkla küçük yuvarlaklar hâlinde dökün ve her iki tarafını pişirin."
+   ]
+  },
+  "a3480015-30ca-4f9a-b8de-a642fd9a639c": {
+   "title": "Tarçınlı Yulaflı Flat White",
+   "description": "Kan şekerini (insülini) aniden yükseltmeyen, hafif ve aromatik bir kahve.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general",
+    "milk_boost"
+   ],
+   "ingredients": [
+    "1 fincan (shot) espresso, yarım su bardağı köpürtülmüş yulaf sütü, 1 çay kaşığı toz tarçın."
+   ],
+   "instructions": [
+    "Espressonun üzerine sıcak ve yoğun köpüklü yulaf sütünü ekleyin, bolca tarçın serpin."
+   ]
+  },
+  "e39c8f3d-f865-4de6-8f5d-d3f60a5624c8": {
+   "title": "Avokado ve Yumurtalı Ezme\n(8 ay+)",
+   "description": "Yumurta dışında pişirme gerektirmeyen, sabahları annelerin hayatını kurtaran doğal bir güç ikilisi.\n\nFaydası: İki harika \"süper gıda\" bir arada. Avokadodaki Omega yağları ve yumurta sarısındaki kolin, zekâ ve hafıza gelişimini doğrudan destekler.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Katı pişmiş yumurta sarısı: 1 adet",
+    "Avokado: dörtte bir (çok yumuşak ve olgun)",
+    "Anne sütü veya formül mama."
+   ],
+   "instructions": [
+    "Avokadoyu ve pişmiş yumurta sarısını bir kapta çatalla iyice ezin. Çok koyu olursa birkaç damla anne sütü veya ılık su ekleyerek kıvamını yumuşatın."
+   ]
+  },
+  "dc9362af-ecb7-4bac-9ddf-d84bf1aa2f2d": {
+   "title": "Pembe Panter Makarna(1 yaş+)",
+   "description": "Rengiyle çocukları büyüleyen, peynirli ve pancarlı eğlenceli bir makarna.\n\nFaydası: Pancar kan dolaşımını destekler, peynir ise kemik gelişimi için zengin bir kalsiyum kaynağıdır.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Bebek makarnası (küçük boy): 3-4 yemek kaşığı",
+    "Pancar püresi (haşlanmış ve ezilmiş): 1 yemek kaşığı",
+    "Lor peyniri veya krem peynir: 1 yemek kaşığı"
+   ],
+   "instructions": [
+    "Makarnayı tamamen yumuşayana kadar suda haşlayıp süzün. Sıcak makarnaya pancar püresini ve peyniri ekleyip iyice karıştırın. Makarnalar anında parlak pembe bir renk alacaktır."
+   ]
+  },
+  "732a8d20-182d-45bb-9171-f30bbd4cd142": {
+   "title": "Sağlıklı Nugget(1 yaş+)",
+   "description": "Hazır nuggetlara sağlıklı, fırında pişmiş ve katkısız bir alternatif.\n\nFaydası: Saf tavuk proteini ve yulafın lifli yapısı sayesinde tam bir enerji kaynağıdır.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tavuk göğsü: 100 qr (blenderdan geçirilmiş veya çok ince doğranmış)",
+    "Yulaf unu (veya öğütülmüş yulaf ezmesi): Bulamak için",
+    "Yumurta: 1 adet (çırpılmış)",
+    "Tatlı kırmızı toz biber (paprika - acısız)."
+   ],
+   "instructions": [
+    "Tavuk etine çok az paprika ekleyip yoğurun. Küçük parçalara ayırın; önce yumurtaya, ardından yulaf ununa bulayın. Yağlı kâğıt üzerinde, fırında 180 derecede 20 dakika pişirin."
+   ]
+  },
+  "ec6cb7d9-6570-4500-be81-64329c0e4a07": {
+   "title": "Gökkuşağı Risotto(1 yaş+)",
+   "description": "Çiğneme becerisini geliştiren, rengârenk tanelerle dolu doyurucu bir öğle yemeği.\n\nFaydası: Karbonhidrat, protein ve vitaminlerin tek tencerede buluştuğu, son derece dengeli bir yemektir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yuvarlak pirinç: 2 yemek kaşığı (iyice yıkanmış)",
+    "Havuç, bezelye, mısır: Her birinden 1 yemek kaşığı (çok ince doğranmış)",
+    "Kemik veya tavuk suyu: 1 su bardağı",
+    "Tereyağı: Çok az."
+   ],
+   "instructions": [
+    "Sebzeleri ve pirinci, tamamen yumuşayıp suyunu çekerek lapa (risotto) kıvamına gelene kadar et suyunda kısık ateşte pişirin. Son olarak tereyağını ekleyip karıştırın."
+   ]
+  },
+  "269778e2-5f1d-4cd3-b820-0a1898c7e6ea": {
+   "title": "Coco-Espresso Chill",
+   "description": "Tropikal tatları sevenler için ferahlatıcı, şekersiz bir şaheser.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 fincan (shot) espresso, 1 su bardağı doğal Hindistan cevizi suyu (coconut water), bol buz."
+   ],
+   "instructions": [
+    "Buzları bardağa doldurun, Hindistan cevizi suyunu dökün. İki farklı renk katmanı oluşması için son olarak espressoyu yavaşça ekleyin. Karıştırıp için."
+   ]
+  },
+  "b53735ed-6abe-4b68-b652-4d5d294d5553": {
+   "title": "Kabak Köfteleri(2 yaş+)",
+   "description": "Sebzeleri pankek/köfte şeklinde sunarak çocuğun ilgisini çeken lezzet.\n\nFaydası: Kabak ve yeşillikler lif açısından zengindir, bağırsakların çalışmasını düzenler. Çok yumuşak olduğu için çiğnemesi kolaydır.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Kabak: 1 adet (rendelenmiş ve suyu tamamen sıkılmış)",
+    "Yumurta: 1 adet",
+    "Beyaz peynir veya lor: 1 yemek kaşığı",
+    "Tam buğday unu: 1-2 yemek kaşığı."
+   ],
+   "instructions": [
+    "Suyu sıkılmış kabağı yumurta, peynir ve unla karıştırarak koyu kıvamlı bir hamur elde edin.",
+    "Yağlanmış sıcak tavaya kaşıkla küçük daireler halinde dökün.",
+    "Her iki tarafını altın sarısı renk alana kadar pişirin."
+   ]
+  },
+  "b83ce14e-ac83-4541-a4e8-d4b8fa3d176e": {
+   "title": "Ahududulu Ayıcık Kasesi(2 yaş+)",
+   "description": "Ara öğün veya kahvaltı için dondurma etkisi yaratan eğlenceli smoothie kasesi.\n\nFaydası: Süzme yoğurt probiyotiktir (bağışıklığı destekler), orman meyveleri ise antioksidan deposudur.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Süzme yoğurt: 3 yemek kaşığı",
+    "Dondurulmuş ahududu veya çilek: 1 avuç",
+    "Muz: Yarım adet (yoğurtla karıştırmak için)",
+    "Süslemek için: Muz dilimleri, yaban mersini (ayı yüzü yapmak için)."
+   ],
+   "instructions": [
+    "Yoğurdu, yarım muzu ve dondurulmuş orman meyvelerini blenderda tamamen pürüzsüz ve koyu kıvamlı bir krema elde edene kadar çekin.",
+    "Kaseye dökün.",
+    "İki muz dilimiyle ayının kulaklarını, yaban mersinleriyle de gözlerini ve burnunu yapın."
+   ]
+  },
+  "fdd5be2e-2d65-464b-84d3-084f637ea16e": {
+   "title": "Healthy Dark Mocha",
+   "description": "Kahve ve çikolata keyfini aynı anda yaşamak isteyenler için şurupsuz bir alternatif.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 fincan espresso, 1 çay kaşığı saf kakao, 1 çay kaşığı bal, 1 bardak sıcak badem sütü."
+   ],
+   "instructions": [
+    "Kakao ve balı sıcak espressonun içinde eritin. Üzerine sıcak, köpüklü badem sütünü ekleyin."
+   ]
+  },
+  "b7520537-fae1-481b-9bea-7a9cf32f15f7": {
+   "title": "Gülümseyen Pizzalar(2 yaş+)",
+   "description": "2 yaşındaki çocuğunuzun hazırlanırken size yardım edebileceği eğlenceli ve sağlıklı pizza.\n\nFaydası: Evde hazırlandığı için katkı maddesi içermez. Çocuğun yemekle duygusal bir bağ kurmasına (gülümseyen yüz şekli) yardımcı olur.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Mini tam buğday pita ekmeği (veya küçük lavaş): 1 adet",
+    "Domates püresi (ev yapımı, şekersiz): 1 yemek kaşığı",
+    "Mozzarella peyniri: 2 yemek kaşığı rendelenmiş",
+    "Siyah zeytin halkaları (gözler için) ve kırmızı biber şeridi (ağız için)."
+   ],
+   "instructions": [
+    "Domates püresini pita ekmeğinin üzerine yayın.",
+    "Üzerine bolca peynir serpin.",
+    "Zeytin ve biberle \"gülümseyen yüz\" yapın. Peynir eriyene kadar fırında (yaklaşık 5-7 dakika) pişirin."
+   ]
+  },
+  "7cc7ac25-0798-468f-82c0-6764afc0cd4f": {
+   "title": "Tavşan Kurabiyesi(2 yaş+)",
+   "description": "Şekersiz, bisküvi yerine tüketilebilecek çıtır ve çok faydalı ev yapımı kurabiye.\n\nFaydası: Lif açısından zengin yulaf ve vitaminli havuç, çocuğun sindirimini destekler. Market bisküvilerine en sağlıklı alternatiftir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yulaf ezmesi: 1 bardak",
+    "Havuç: 1 adet (rendelenmiş)",
+    "Elma püresi: Yarım bardak (elmayı pişirip ezin, tatlılık verecektir)",
+    "Kuru üzüm (çok ince doğranmış): 1 yemek kaşığı",
+    "Tereyağı: 1 yemek kaşığı (eritilmiş)."
+   ],
+   "instructions": [
+    "Tüm malzemeleri derin bir kapta iyice yoğurun.",
+    "Elinizle küçük, yassı kurabiyeler yapın (veya hayvan figürlü kalıplarla şekillendirin).",
+    "170 derecelik fırında 15-20 dakika, hafifçe kızarana kadar pişirin."
+   ]
+  },
+  "e6d245f4-3ec1-4650-92fc-b0b877ba16f0": {
+   "title": "Mini Burgerler(3 yaş+)",
+   "description": "Fast food isteğini azaltan, 100% ev yapımı, sağlıklı mini burgerler.\n\nFaydası: Evde çekilmiş temiz et protein ve demir, tam buğday ekmeği ise B vitamini sağlar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tam buğday unundan mini burger ekmekleri: 2 adet",
+    "Yağsız dana kıyma: 100 qr",
+    "Hollanda peyniri: 1-2 ince dilim",
+    "Domates ve marul yaprağı",
+    "Zeytinyağı."
+   ],
+   "instructions": [
+    "Kıymadan ekmek büyüklüğünde ince ve yassı köfteler hazırlayıp tavada az yağla kızartın. Ekmeklerin arasına köfte, peynir, domates ve marul koyarak mini burgerleri hazırlayın."
+   ]
+  },
+  "705fa4d6-de4b-4c10-bc6c-46c0cc463f11": {
+   "title": "Fırında Sebze Çubukları(3 yaş+)",
+   "description": "Klasik patates kızartmasının yerini alan renkli ve çıtır sebze çubukları.\n\nFaydası: Tatlı patates ve havuç A vitamini deposudur. Kızartılmadığı için trans yağ içermez.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tatlı patates (batat): 1 adet",
+    "Havuç: 1 büyük adet",
+    "Zeytinyağı: 1 yemek kaşığı",
+    "Çok az tuz ve tatlı kırmızı toz biber (paprika)."
+   ],
+   "instructions": [
+    "Sebzeleri eşit büyüklükte uzun çubuklar (patates kızartması şeklinde) halinde kesin. Zeytinyağı ve baharatlarla karıştırıp yağlı kağıdın üzerine dizin. 200 derecede 20-25 dakika, kenarları çıtırlaşana kadar pişirin."
+   ]
+  },
+  "36867e84-3459-4059-a668-70f297e35576": {
+   "title": "Teddy Bear Toast (3 yaş+)",
+   "description": "Kahvaltıda yüzünüzü güldürecek, hazırlanması 2 dakika süren bir lezzet.\n\nFaydası: Fıstık ezmesi, beyin için faydalı yağlar ve protein içerir. Muz ise enerji verir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Kare tam buğday ekmeği: 1 dilim (kızartılmış)",
+    "Fıstık (yer fıstığı) ezmesi: 1 yemek kaşığı",
+    "Muz: 3 halka dilim",
+    "Yaban mersini: 3 adet."
+   ],
+   "instructions": [
+    "Fıstık ezmesini kızarmış ekmeğin üzerine yayın. İki muz dilimini kulak şeklinde üst kenarlara, birini ise burun kısmına yerleştirin. Yaban mersinleriyle gözleri ve burnun ucunu yapın."
+   ]
+  },
+  "ecfe7439-ff4e-4167-ab7a-c45d91fa903c": {
+   "title": "Gizli Bahçe Muffinleri (3 yaş+)",
+   "description": "İçinde peynir ve sebze bulunan, parka veya yolculuğa götürmek için oldukça pratik tuzlu kekler.\n\nFaydası: Şeker içermez. Çocuğun elinde tutarak temiz bir şekilde yiyebileceği kadar pratik, ayrıca mineral ve kalsiyum açısından zengindir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yumurta: 2 adet",
+    "Yoğurt: 2 yemek kaşığı",
+    "Havuç (rendelenmiş) ve Brokoli (çok ince doğranmış): Yarım su bardağı",
+    "Beyaz peynir: 2 yemek kaşığı (ezilmiş)",
+    "Tam buğday unu ve kabartma tozu."
+   ],
+   "instructions": [
+    "Sıvı malzemeleri çırpın. Sebzeleri ve peyniri ekleyin. Un ve kabartma tozunu ilave ederek koyu kıvamlı bir kek hamuru hazırlayın. Muffin kalıplarında 180 derecede 20-25 dakika, kabarıp kızarana kadar pişirin."
+   ]
+  },
+  "0a108d2a-2483-496b-8459-a35dba184122": {
+   "title": "UFO Pizzaları (4 yaş+)",
+   "description": "Hamur yerine mantar şapkalarıyla hazırlanan, glütensiz ve eğlenceli mini pizzalar.\n\nFaydası: Portobello veya büyük kültür mantarları D vitamini açısından zengindir. Çocukların mantara alışması için harika bir yöntemdir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Büyük kültür mantarları: 4-5 adet (sapları çıkarılmış)",
+    "Domates salçası: 2 yemek kaşığı",
+    "Mozzarella peyniri: 3 yemek kaşığı (rendelenmiş)",
+    "Mısır veya zeytin."
+   ],
+   "instructions": [
+    "Mantarların içine domates salçası sürün. Üzerlerine peynir ve mısır taneleri koyun. 180 derecelik fırında, peynir eriyip mantarlar yumuşayana kadar (yaklaşık 15 dakika) pişirin."
+   ]
+  },
+  "bb88a8d3-5c23-4d20-8927-32de71e35006": {
+   "title": "Sabah Gökkuşağı(4 yaş+)",
+   "description": "Mini pankeklerle meyveleri bir araya getiren, elle yemek için ideal bir kahvaltı.\n\nFaydası: Farklı meyveler, farklı vitaminler demektir. Şişler çocukların motor becerilerini ve yemeğe olan ilgisini artırır.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Mini pankekler: Madeni para büyüklüğünde pişirilmiş",
+    "Çilek, muz halkaları, kivi dilimleri.",
+    "Küt uçlu tahta çubuklar."
+   ],
+   "instructions": [
+    "Şişlere sırayla mini pankek, çilek, muz, yeniden pankek ve kivi geçirin. Yanına bal veya pekmeze batırmak için küçük bir kap koyun."
+   ]
+  },
+  "94068d6c-ec4c-4f36-a84e-fdd44212d93d": {
+   "title": "Balık Köfteleri(4 yaş+)",
+   "description": "Balık sevmeyen çocukların bile şekline kanarak keyifle yiyeceği bir Omega-3 deposu.\n\nFaydası: Somon, beyin işlevlerini ve hafızayı destekler.",
+   "category": "Ek gıda",
+   "ingredients": [
+    "Somon fileto: 100 qr (haşlanmış, didiklenmiş)",
+    "Patates: 1 adet (pişirilmiş ve ezilmiş)",
+    "Dereotu: Çok az (doğranmış)"
+   ],
+   "instructions": [
+    "Ezilmiş patatesi, balığı ve dereotunu yoğurun. Hamuru yağlı kağıt üzerinde açın ve yıldız şeklindeki kalıpla kesin. Tavada veya fırında hafifçe kızarana kadar pişirin."
+   ]
+  },
+  "f234c77f-4a04-4526-9394-c82a1bc713cf": {
+   "title": "Galaksi Makarnası(5 yaş+)",
+   "description": "Yıldızları ve kelebekleri andıran şekilli makarnalarla hazırlanan, krem peynirli, uzay temalı bir yemek.\n\nFaydası: Farklı renklerdeki sebzeler (bezelye, mısır) vitamin çeşitliliğini artırırken şekersiz yoğurt ve peynirli sos mideyi yormaz.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Glütensiz kelebek makarna (Farfalle) veya renkli makarna: 1 su bardağı",
+    "Yeşil bezelye ve mısır: Her birinden 1 yemek kaşığı",
+    "Çeri domates: 3-4 adet (ikiye bölünmüş)",
+    "Krem peynir (veya süzme yoğurt): 1 yemek kaşığı."
+   ],
+   "instructions": [
+    "Makarnayı tamamen yumuşayana kadar haşlayıp süzün (suyundan biraz ayırın). Sıcak makarnaya krem peyniri, bezelyeyi, mısırı ve domatesi ekleyip karıştırın. Peynir eriyerek kremsi bir sos oluşturacaktır."
+   ]
+  },
+  "fe1e3f3e-8c82-4bdd-8cb3-2212d66df10f": {
+   "title": "Çıtır Balık Lokmaları(5 yaş+)",
+   "description": "Balık yemekten kaçınan 5 yaşındaki çocukları bile cezbedecek, altın renginde ve çıtır balık küpleri.\n\nFaydası: Beyaz etli balık; fosfor, iyot ve kolay sindirilen protein kaynağıdır. Zihinsel gelişim için mükemmeldir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Beyaz etli balık filetosu (örneğin Morina, Levrek): 150 qr (küp şeklinde doğranmış ve kılçıksız)",
+    "Yumurta: 1 adet",
+    "Şekersiz mısır gevreği (kornfleks) veya galeta unu: Bulamak için"
+   ],
+   "instructions": [
+    "Mısır gevreklerini elinizle ufalayın. Balık küplerini önce çırpılmış yumurtaya, ardından mısır gevreği kırıntılarına bulayın. Yağlı kağıt üzerinde, fırında 180 derecede 15-20 dakika pişirin."
+   ]
+  },
+  "2f4202ed-6015-4318-b0d0-ac257ccd10af": {
+   "title": "Çıtır Elma Sandviçleri(5 yaş+)",
+   "description": "Ekmek yerine elma dilimlerinin kullanıldığı, okul veya kreş sonrası için enerji dolu bir atıştırmalık.\n\nFaydası: Elmadaki pektin lifleri ve fıstık ezmesindeki protein uzun süre tok tutar, doğal tatlı ihtiyacını karşılar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Büyük elma: 1 adet (çekirdekli kısmı çıkarılmış, halka şeklinde kesilmiş)",
+    "Fıstık veya badem ezmesi (şekersiz): 2 yemek kaşığı",
+    "Kuru üzüm veya damla çikolata (arasına koymak için)."
+   ],
+   "instructions": [
+    "İki elma halkasının arasına fıstık ezmesi sürün, üzerine kuru üzümleri dizip diğer halkayı sandviç gibi kapatın. Çocuğun rahatça tutabilmesi için ortadan kesebilirsiniz."
+   ]
+  },
+  "75bdd91d-7aed-40d8-9434-8c6ca0198e19": {
+   "title": "Kakuleli Cold Brew",
+   "description": "Mide yanmasına neden olmayan, asit oranı çok düşük ve sindirimi rahatlatan soğuk kahve.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 su bardağı Cold Brew (soğuk demleme kahve), 1-2 adet kakule (ezilmiş), buz, isteğe göre biraz bitkisel süt."
+   ],
+   "instructions": [
+    "Kahveyi demlerken (veya süzerken) içine ezilmiş kakule tanelerini ekleyin. Bol buzla servis edin. Kakule, kahveye çok \"cool\" ve farklı bir aroma katar."
+   ]
+  },
+  "4232cb2b-2881-4a46-bce4-1d4070cda869": {
+   "title": "Sihirli Bahçe Kekleri(4 yaş+)",
+   "description": "Parka, bahçeye veya yolculuğa götürmek için bolca peynir ve sebze içeren tuzlu kekler.\n\nFaydası: Şekersizdir. Kalsiyum (peynir) ve vitaminleri (sebzeler) bir arada sunar, elde kolayca tutulabilir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yumurta: 2 adet",
+    "Yoğurt: 2 yemek kaşığı",
+    "Havuç (rendelenmiş) ve Kabak (suyu sıkılmış): Yarım su bardağı",
+    "Beyaz peynir: 2 yemek kaşığı",
+    "Un ve kabartma tozu."
+   ],
+   "instructions": [
+    "Sıvı malzemeleri ve peyniri çırpın. Sebzeleri ekleyin. Son olarak un ve kabartma tozunu ilave edip muffin kalıplarında 180 derecede 20-25 dakika pişirin."
+   ]
+  },
+  "aa773f2c-e3f1-47eb-9a0d-5723d6301a77": {
+   "title": "Sihirli İksir(5 yaş+)",
+   "description": "Kahvaltı veya tatlı olarak şeffaf bir bardakta kat kat hazırlanan, göz alıcı bir lezzet.\n\nFaydası: Probiyotik yoğurt sindirimi düzenler, orman meyveleri ise bağışıklık sistemini destekler.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yoğurt (ev yoğurdu veya süzme yoğurt): 1 su bardağı",
+    "Ahududu veya çilek püresi: 2 yemek kaşığı",
+    "Şekersiz granola veya yulaf/ceviz karışımı: 2 yemek kaşığı"
+   ],
+   "instructions": [
+    "Çocukların sevdiği şeffaf bir bardağa önce yoğurdu, ardından meyve püresini ve daha sonra granolayı kat kat ekleyin. Üstünü yeniden yoğurtla kapatıp en üste taze meyve koyun."
+   ]
+  },
+  "2e2ead49-bcaf-4338-94ee-467ad791737c": {
+   "title": "Zen Limonatası",
+   "description": "Yaz günlerinde metabolizmayı hızlandıran ve şişkinliği azaltan gazlı matcha.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 çay kaşığı matcha tozu, yarım limonun suyu, 1 çay kaşığı agave şurubu veya bal, 1 su bardağı mineralli (gazlı) su, nane yaprakları, buz."
+   ],
+   "instructions": [
+    "Matchayı az miktarda su, bal ve limonla çırparak çözün. Bardağa buz ve nane koyup üzerine matcha karışımını ve mineralli suyu dökün."
+   ]
+  },
+  "f005b3c3-1f74-4e4e-bab7-c8bc5e03c14a": {
+   "title": "Coconut Matcha Bliss",
+   "description": "Cildi içeriden nemlendiren, yumuşak içimli ve tropikal bir sıcak içecek.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 çay kaşığı matcha tozu, 1 su bardağı Hindistan cevizi sütü, 1 tutam vanilya özütü."
+   ],
+   "instructions": [
+    "Hindistan cevizi sütünü tencerede buhar çıkana kadar ısıtın (kaynatmayın). Vanilya ve matchayı ekleyip özel bir çırpıcıyla (veya süt köpürtücüyle) köpürtün."
+   ]
+  },
+  "e8f085b1-b955-46e7-bd90-9c504005461c": {
+   "title": "Mint Matcha Frappe",
+   "description": "Şekerli \"frappuccino\"lara 100% doğal, serinletici bir alternatif.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 çay kaşığı matcha, 1 dondurulmuş muz, 3-4 taze nane yaprağı, yarım su bardağı yulaf sütü."
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderda dondurma kıvamı (frappe) alana kadar yüksek hızda karıştırın."
+   ]
+  },
+  "692f8fd9-2a1f-4e6e-90a2-3450b555119d": {
+   "title": "Baharatlı Kakao",
+   "description": "Metabolizmayı \"harekete geçiren\" ve kan dolaşımını hızlandıran geleneksel bir tarif.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 yemek kaşığı saf kakao, 1 tutam tarçın, çok az (bıçağın ucuyla) acı kırmızı biber tozu (cayenne), 1 su bardağı sıcak fındık sütü, bal."
+   ],
+   "instructions": [
+    "Sıcak süte kakao ve baharatları ekleyip tamamen çözünene kadar karıştırın. Acı ve tatlı arasındaki denge içinizi ısıtacak."
+   ]
+  },
+  "da26b0d3-2e6e-4084-9b19-693dd01e5caa": {
+   "title": "Maca Cacao Energy",
+   "description": "Hormon dengesini ve fiziksel dayanıklılığı destekleyen, kadınlara özel bir içecek.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 yemek kaşığı kakao, 1 çay kaşığı maca tozu, 1 su bardağı yulaf sütü, 1 adet hurma (püre hâlinde)."
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderda (sıcak veya soğuk sütle) tamamen karışana kadar çekin."
+   ]
+  },
+  "1c2d3ae5-c16d-47ab-acbd-eff8a82af792": {
+   "title": "Sağlıklı Nutella İçeceği",
+   "description": "Tatlı krizlerini bastıran, ancak kesinlikle şeker içermeyen sıcak bir lezzet.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 yemek kaşığı kakao, 1 yemek kaşığı doğal fındık ezmesi (şekersiz), 1 su bardağı sıcak süt."
+   ],
+   "instructions": [
+    "Fındık ezmesini ve kakaoyu sıcak sütte blender veya çırpıcı kullanarak tamamen pürüzsüz olana kadar karıştırın."
+   ]
+  },
+  "1eca4e78-4116-42f3-b2fa-fb5f13684582": {
+   "title": "Nohutlu Dolgulu Tatlı Patates",
+   "description": "Sporcuların ve sağlıklı beslenenlerin klasik, uzun süre tok tutan kompleks karbonhidratlı öğünü.\n\nFaydası: Tatlı patates potasyum, nohut ise bitkisel protein açısından zengindir. Tam bir enerji bombasıdır.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Tatlı patates: 2 adet (orta boy)",
+    "Pişmiş nohut (konserve de olabilir): 1 su bardağı",
+    "Tahin (susam ezmesi): 2 yemek kaşığı",
+    "Limon suyu, zeytinyağı, kimyon."
+   ],
+   "instructions": [
+    "Tatlı patatesleri çatalla birkaç yerinden delin ve fırında (200 derece) tamamen yumuşayana kadar pişirin (yaklaşık 40 dakika). Fırından çıkarıp ortadan kesin ve içlerini hafifçe ezin. Üzerlerini baharatlı nohutla doldurun ve tahin-limon sosunu gezdirin."
+   ]
+  },
+  "836bc22f-3cef-4e15-bfd2-c877bc04f782": {
+   "title": "Karnabahar Pilavı",
+   "description": "Keto ve düşük karbonhidratlı diyetlerin gözdesi. Pirincin yerini 100% alan ve kesinlikle kilo aldırmayan bir tarif.\n\nFaydası: Bir porsiyonu yalnızca 40-50 kaloridir. Klasik pirinç pilavının verdiği ağırlık ve uyku hali hissini yaratmaz.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Karnabahar: Yarım baş",
+    "Havuç ve bezelye: Her birinden 2 yemek kaşığı",
+    "Soğan: 1 küçük baş",
+    "Zeytinyağı ve tereyağı."
+   ],
+   "instructions": [
+    "Karnabaharı rendeleyerek veya blenderdan geçirerek pirinç tanesi büyüklüğünde parçalayın. Tavada soğan, havuç ve bezelyeyi az yağda kavurun. Üzerine karnabahar \"pirincini\" ekleyip karıştırarak 5-6 dakika (fazla yumuşamasına izin vermeden) soteleyin."
+   ]
+  },
+  "c8f59b0c-497f-493b-9f85-c45a2583194f": {
+   "title": "Kremalı Brokoli ve Çedar Çorbası",
+   "description": "Amerika'nın \"Panera Bread\" restoran zinciriyle ünlenen, dünyanın en lezzetli kış çorbalarından biri.\n\nFaydası: Evde hazırlandığında kalsiyum ve lifle dolu, kemikleri güçlendiren gerçek bir çorbaya dönüşür.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Brokoli: 300 gr (çok ince doğranmış)",
+    "Havuç: 1 adet (rendelenmiş)",
+    "Çedar (Cheddar) peyniri: 1 su bardağı (rendelenmiş)",
+    "Tavuk veya sebze suyu: 3 su bardağı",
+    "Krema veya süt: Yarım su bardağı."
+   ],
+   "instructions": [
+    "Havuç ve brokoliyi tavuk veya sebze suyunda yumuşayana kadar pişirin (kısmen blenderdan geçirin, içinde küçük parçalar kalsın). Sütü/kremayı ekleyin. Ocaktan alıp rendelenmiş çedar peynirini sıcak çorbaya ekleyin ve eriyene kadar karıştırın."
+   ]
+  },
+  "a5af4229-e447-48cc-a6f1-6146ae4643a0": {
+   "title": "Meksika Usulü Kinoa Salatası",
+   "description": "Batı dünyasındaki \"Meal Prep\" (önceden yemek hazırlama) kültürünün en popüler temsilcilerinden biri.\n\nFaydası: Rengârenk, doyurucu ve bol miktarda bitkisel protein içerir. Buzdolabında 3 gün tazeliğini korur.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Kinoa (pişmiş): 1 su bardağı",
+    "Siyah fasulye (konserve): Yarım su bardağı",
+    "Mısır: Yarım su bardağı",
+    "Çeri domates ve kırmızı soğan (doğranmış)",
+    "Taze kişniş, misket limonu suyu, zeytinyağı, jalapeno biberi (isteğe bağlı)."
+   ],
+   "instructions": [
+    "Tüm malzemeleri büyük bir kâsede karıştırın. Zeytinyağı, misket limonu suyu ve kişnişten oluşan sosu üzerine gezdirip iyice harmanlayın."
+   ]
+  },
+  "64fd534a-ee42-4741-ad1d-2c83048a4d5e": {
+   "title": "Avokadolu Brownie",
+   "description": "Tereyağı yerine avokado, buğday unu yerine badem unu kullanılan efsanevi \"şekersiz brownie\".\n\nFaydası: Unsuzdur ve rafine şeker içermez. Avokado tatlıya inanılmaz bir nem ve kadifemsi doku verir, ancak tadı kesinlikle hissedilmez.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Avokado: 1 büyük adet (tam olgunlaşmış, püre hâline getirilmiş)",
+    "Badem unu: Yarım su bardağı",
+    "Doğal kakao (şekersiz): Yarım su bardağı",
+    "Yumurta: 2 adet",
+    "Bal veya akçaağaç şurubu: Üçte bir su bardağı."
+   ],
+   "instructions": [
+    "Tüm malzemeleri tamamen pürüzsüz bir çikolatalı krema elde edene kadar blenderdan geçirin. Yağlı kâğıt serilmiş kare kek kalıbına döküp 175 derecede 25-30 dakika pişirin. Ilıkken dilimleyin."
+   ]
+  },
+  "c93f159c-1f03-4766-a5e7-3350ed9505bf": {
+   "title": "Avokadolu Yumurta Kayıkları",
+   "description": "Mayonez kullanılmadan hazırlanan, ketojenik ve protein açısından zengin bir lezzet.\n\nFaydası: Yumurta akındaki protein ve avokadonun Omega yağları zihin bulanıklığını giderir, enerjiyi yeniden kazandırır.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Katı haşlanmış yumurta: 3 adet",
+    "Avokado: Yarım adet (olgunlaşmış)",
+    "Keten tohumu veya chia: Çok az (üzeri için)",
+    "Limon suyu, tuz, karabiber."
+   ],
+   "instructions": [
+    "Yumurtaları uzunlamasına ikiye bölün. Sarılarını çıkarıp avokado, limon suyu ve baharatlarla birlikte tamamen kremsi bir kıvam alana kadar ezin. Bu yeşil kremayı yeniden yumurta aklarının içine doldurun. Üzerine keten tohumu serpin."
+   ]
+  },
+  "0160a14d-2320-433d-b86d-228b4fe1defc": {
+   "title": "Bademli, Keten Tohumlu ve Chialı Toplar",
+   "description": "Pişirmeden hazırlanan, spor öncesi veya kahvenin yanında tüketebileceğiniz çıtır enerji topları.\n\nFaydası: Üç süper gıdanın (badem, keten tohumu, chia) gücünü bir araya getirir. Hızlı enerji sağlar; yüksek lif ve mineral kaynağıdır.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Badem ezmesi (şekersiz): Yarım su bardağı",
+    "Keten tohumu (öğütülmüş): 2 yemek kaşığı",
+    "Chia tohumu: 1 yemek kaşığı",
+    "Yulaf: Yarım su bardağı",
+    "Bal veya agave: 2 yemek kaşığı."
+   ],
+   "instructions": [
+    "Tüm malzemeleri bir kapta yoğurarak yapışkan bir karışım elde edin. Elinizle ceviz büyüklüğünde toplar hazırlayıp buzdolabında soğutun. Cepte veya çantada taşımak için idealdir."
+   ]
+  },
+  "9ef68860-bc8e-4727-a11e-6e5469f057ef": {
+   "title": "Bademli Keto Kek",
+   "description": "Kendini hafif ve bulutların üzerinde hissetmek isteyenler için karbonhidratsız kek.\n\nFaydası: Gluten, buğday unu ve şeker içermez. Özellikle diyet yaparken tatlı özlemini güvenli bir şekilde giderir.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Badem unu: 1.5 su bardağı",
+    "Yumurta: 3 adet",
+    "Badem sütü: Dörtte bir su bardağı",
+    "Rendelenmiş limon kabuğu veya vanilya.",
+    "Stevia veya çok az bal (tatlandırmak için)."
+   ],
+   "instructions": [
+    "Sıvı malzemeleri çırpın, üzerine badem ununu ekleyip karıştırın. Kek (muffin) kalıplarına dökerek 175 derecede 20 dakika, üzerleri kızarana kadar pişirin."
+   ]
+  },
+  "e067e84f-8a22-4eb0-b5fa-1ae3ae37b95f": {
+   "title": "Yunan Souvlakisi ve Tzatziki",
+   "description": "Akdeniz diyetinin gözdesi: Saf protein, probiyotikler ve sağlıklı yağlar.\n\nFaydası: Tzatziki (yoğurt ve salatalık sosu) bağırsak florasını korur. Tavuk eti ise protein sağlar ve metabolizmayı hızlandırır.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Tavuk göğsü: 200 qr (küp şeklinde doğranmış, limon ve kekikle marine edilmiş)",
+    "Süzme yoğurt (Yunan yoğurdu): 4 yemek kaşığı",
+    "Salatalık: 1 adet (rendelenmiş ve suyu tamamen sıkılmış)",
+    "Taze nane, sarımsak, zeytinyağı."
+   ],
+   "instructions": [
+    "Tavukları tahta şişlere geçirip tavada veya ızgarada kızartın. Tzatziki sosu için yoğurt, suyu sıkılmış salatalık, sarımsak, nane ve zeytinyağını karıştırın. Tavuk şişlerini bu serinletici sosa batırarak yiyin."
+   ]
+  },
+  "3a7875bd-9bf1-4570-9e1d-e51c83452192": {
+   "title": "Fransız Ratatouille",
+   "description": "Güney Fransa'nın rengârenk, tamamen vegan ve görsel açıdan kusursuz sebze yemeği.\n\nFaydası: Minimum kalori, maksimum lif ve vitamin. Tüm sebzelerin kendi suyunda yavaş yavaş pişmesi, besin değerlerinin korunmasına yardımcı olur.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kabak, Patlıcan, Domates: Her birinden 2 adet (aynı boyutta, çok ince halkalar hâlinde kesilmiş)",
+    "Domates salçası ve sarımsak (taban sosu için).",
+    "Provence otları (kekik, biberiye), zeytinyağı."
+   ],
+   "instructions": [
+    "Yuvarlak fırın kabının tabanına domates sosunu yayın. Dilimlenmiş sebzeleri renk sırasına göre (patlıcan, domates, kabak), kabın kenarından merkezine doğru spiral biçimde dizin. Üzerine otları serpip zeytinyağı gezdirin ve üzeri kapalı şekilde 190 derecede 45 dakika pişirin."
+   ]
+  },
+  "35ab7142-651b-45ae-b7e5-7c6acf7f3691": {
+   "title": "Japon Miso Çorbası",
+   "description": "Japonların uzun yaşam sırrı olarak bilinen, sabah veya akşam içilen hafif ve fermente bir çorba.\n\nFaydası: Miso ezmesi (fermente soya), bağırsak sağlığı için en güçlü probiyotik kaynaklarından biridir. Sindirimi düzenlemeye yardımcı olur.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Miso ezmesi: 2 yemek kaşığı (Asya marketlerinde bulunur)",
+    "Tofu peyniri: 100 qr (küçük küpler hâlinde doğranmış)",
+    "Taze soğan: 2 dal (doğranmış)",
+    "Ilık su veya sebze suyu: 2 su bardağı."
+   ],
+   "instructions": [
+    "Suyu kaynama noktasına getirip ocaktan alın (miso kaynatılmamalıdır; aksi takdirde probiyotikler ölür). Miso ezmesini suda eritin. İçine tofu küplerini ve taze soğanı ekleyip hemen sıcak olarak için."
+   ]
+  },
+  "34a3ec68-3237-4337-99bf-0423a1d5cd88": {
+   "title": "Somon ve Patates(1 yaş+)",
+   "description": "Balık sevmeyen çocukların bile severek yiyeceği yumuşak balık köfteleri.\n\nFaydası: Somon, beyin ve göz gelişimi için doğrudan Omega-3 yağ asitleri sağlar.",
+   "category": "Ek gıda",
+   "tags": [
+    "general",
+    "baby_food"
+   ],
+   "ingredients": [
+    "Somon fileto: 50 qr (buharda pişirilmiş ve didiklenmiş)",
+    "Patates: 1 adet (haşlanmış ve ezilmiş)",
+    "Taze dereotu: Çok az (doğranmış)",
+    "Zeytinyağı."
+   ],
+   "instructions": [
+    "Ezilmiş patatesi, didiklenmiş kılçıksız balığı ve dereotunu karıştırın. Küçük köfteler hazırlayıp tavada çok az zeytinyağıyla her iki tarafını hafifçe kızartın."
+   ]
+  },
+  "90e2d20f-198b-4417-92bb-ccab337989e6": {
+   "title": "Süzme Yoğurt ve Chia Bowl(1 yaş+)",
+   "description": "Ara öğün veya hafif bir akşam yemeği için probiyotik ve kalsiyum deposu.\n\nFaydası: Yoğurt bağırsak florasını zenginleştirir, chia tohumu ise Omega-3 sağlar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Süzme yoğurt veya Yunan yoğurdu: 2-3 yemek kaşığı",
+    "Chia tohumu: Yarım çay kaşığı (önceden 1 kaşık suda bekletilerek şişirilmiş)",
+    "Ahududu veya çilek: 2-3 adet (ezilerek püre hâline getirilmiş)",
+    "Bal: Çay kaşığının ucuyla (1 yaşından büyük çocuklar için güvenlidir)."
+   ],
+   "instructions": [
+    "Yoğurdu, şişmiş chia tohumunu, ezilmiş meyve püresini ve çok az balı bir kasede karıştırın. Böylece çocuğunuzun rengiyle de ilgisini çekecek lezzetli bir tatlı hazırlamış olursunuz."
+   ]
+  },
+  "78095524-c00e-403c-92d3-bbc3e2809be1": {
+   "title": "Makarna Salatası(2 yaş+)",
+   "description": "Farklı renk ve dokular, 2 yaşındaki bir çocuğun motor becerilerini ve merakını geliştirir.\n\nFaydası: Doyurucu karbonhidratlar ve sebze lifleri bir arada. Sıcak yaz günleri için serinletici, harika bir öğle yemeğidir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Renkli fusilli makarna (sebzeli): 1 su bardağı (haşlanmış)",
+    "Bezelye ve mısır: Her birinden 1 yemek kaşığı (haşlanmış)",
+    "Havuç: Yarım adet (çok küçük küpler hâlinde doğranmış ve pişirilmiş)",
+    "Yoğurt (sos için): 1 yemek kaşığı."
+   ],
+   "instructions": [
+    "Ilık makarnayı, bezelyeyi, mısırı ve havucu bir kasede karıştırın.",
+    "Üzerine yoğurdu ekleyip lezzetleri birleştirin.",
+    "Kendi elleriyle yemesi için önüne koyun."
+   ]
+  },
+  "945b98d6-f61a-4b5b-a323-8398d17756d0": {
+   "title": "Tatlı Patatesli Waffle(2 yaş+)",
+   "description": "Pankekten sıkılan çocuklar için çıtır ve elle kolayca tutulabilen bir waffle.\n\nFaydası: Tatlı patates kan şekerini düzenlemeye yardımcı olur ve çocuğa uzun süreli enerji sağlar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tatlı patates püresi: Yarım su bardağı",
+    "Yumurta: 1 adet",
+    "Un (tam buğday veya yulaf): 2 yemek kaşığı",
+    "Tarçın: Çok az."
+   ],
+   "instructions": [
+    "Tüm malzemeleri bir kapta karıştırarak hamuru hazırlayın.",
+    "Waffle makinesini hafifçe yağlayın ve hamuru içine dökün.",
+    "Altın rengini alıp kenarları çıtırlaşana kadar pişirin. (Waffle makineniz yoksa tavada pankek gibi de pişirebilirsiniz)."
+   ]
+  },
+  "4660742b-6a15-4753-92bd-b4b19340e368": {
+   "title": "Ev Yapımı Nugget(4 yaş+)",
+   "description": "Fast food isteğini azaltan, fırında pişirilmiş ve 100% ev yapımı çıtır nuggetlar.\n\nFaydası: Saf tavuk proteini kasları güçlendirir, yulaf kaplaması ise sindirimi kolaylaştırır ve uzun süre tok tutar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tavuk göğsü: 150 qr (küp şeklinde doğranmış)",
+    "Yulaf unu veya öğütülmüş yulaf: Bulamak için",
+    "Yumurta: 1 adet",
+    "Tatlı kırmızı toz biber (paprika) ve biraz tuz."
+   ],
+   "instructions": [
+    "Tavuk küplerini önce çırpılmış yumurtaya, ardından baharatlı yulaf ununa bulayın. Yağlı kâğıt serilmiş fırın tepsisine dizip 190 derecede 20 dakika, kızarana kadar pişirin."
+   ]
+  },
+  "a8a21b7d-5abe-40d9-9276-a772ffab8e70": {
+   "title": "Elma Donutları(4 yaş+)",
+   "description": "Hamur ve şeker kullanılmadan hazırlanan, yapımı çocuklar için bir oyuna dönüşen donutlar.\n\nFaydası: Elmanın içerdiği lif sindirimi düzenler, fıstık ezmesi ise tok tutan protein sağlar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Büyük elma: 1-2 adet (kırmızı veya yeşil)",
+    "Fıstık ezmesi veya kakaolu fındık ezmesi (şekersiz): 2 yemek kaşığı",
+    "Damla çikolata, Hindistan cevizi rendesi, küçük ceviz parçaları."
+   ],
+   "instructions": [
+    "Elmayı halka şeklinde dilimleyin ve ortasındaki çekirdekli kısmı yuvarlak biçimde kesip çıkarın (donut şekli elde edin). Üzerine fıstık ezmesi sürün. Çocuğunuzun damla çikolata ve Hindistan ceviziyle kendi \"tekerleklerini\" süslemesine izin verin."
+   ]
+  },
+  "cb924e7b-c487-4059-bef0-ff92f0b6b771": {
+   "title": "Ispanaklı Waffle(5 yaş+)",
+   "description": "Yeşil rengiyle çocukların ilgisini çeken, sabahları onlara \"ejderha gücü\" veren waffle'lar.\n\nFaydası: Ispanak demir, yulaf ise lif açısından zengindir. Çocuğu uzun süre tok tutar ve kansızlığın önlenmesine yardımcı olur.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Bebek ıspanak: 1 büyük avuç",
+    "Yumurta: 1 adet",
+    "Yulaf unu (veya tam buğday unu): 3-4 yemek kaşığı",
+    "Süt: Yarım su bardağı",
+    "Zeytinyağı: 1 çay kaşığı."
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderda tamamen pürüzsüz ve parlak yeşil bir hamur elde edene kadar karıştırın. Waffle makinesini (veya tavayı) yağlayıp hamuru dökün ve çıtırlaşana kadar pişirin. Üzerine biraz bal gezdirebilirsiniz."
+   ]
+  },
+  "37d5dece-84c4-4e64-b999-a935190306a7": {
+   "title": "Altın Hazine Kekleri(5 yaş+)",
+   "description": "Yumurta sevmeyen çocukların bile fikrini değiştiren, içinde renkli \"hazineler\" bulunan yumurtalı kekler.\n\nFaydası: Yumurta sarısındaki kolin hafızayı güçlendirir. Unsuz ve glutensiz olduğu için oldukça hafiftir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yumurta: 3 adet",
+    "Renkli dolmalık biberler (kırmızı ve yeşil): 2 yemek kaşığı (çok küçük doğranmış)",
+    "Peynir (rendelenmiş): 2 yemek kaşığı",
+    "Tuz ve biraz süt."
+   ],
+   "instructions": [
+    "Yumurtaları süt ve tuzla çırpın. İçine doğranmış biberleri ve peyniri ekleyin. Kek (muffin) kalıplarını hafifçe yağlayıp karışımı kalıplara paylaştırın. 180 derecelik fırında kabarıp kızarana kadar (15-20 dakika) pişirin."
+   ]
+  },
+  "b1385dc4-14fe-4718-ab79-5558f3683c72": {
+   "title": "Kinoa ile Doldurulmuş Renkli Biber",
+   "description": "Akdeniz mutfağının ünlü yemeğinin, pirinç yerine kinoa kullanılarak hazırlanan proteinli versiyonu.\n\nFaydası: Renkli biberler C vitamini açısından zengindir. Fırında piştiğinde kinoanın dokusuyla mükemmel bir uyum yakalar.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Dolmalık biber (kırmızı, sarı): 3-4 adet (ortadan ikiye bölünmüş, içi temizlenmiş)",
+    "Kinoa (pişmiş): 1.5 su bardağı",
+    "Kıyma veya mantar: 150 gr (kavrulmuş)",
+    "Domates salçası, peynir (üzeri için)."
+   ],
+   "instructions": [
+    "Pişmiş kinoayı kavrulmuş kıyma/mantar ve domates salçasıyla karıştırın. Biberlerin içini karışımla doldurun. Fırın kabına dizip 180 derecede biberler yumuşayana kadar pişirin. Fırından çıkarmadan 5 dakika önce üzerlerine peynir serpin."
+   ]
+  },
+  "14732b3b-b0ea-4f4d-834e-0f74c755ed69": {
+   "title": "Avokado ve Badem Smoothie",
+   "description": "Hem ara öğün hem de lezzetli bir tatlı alternatifi olarak tüketilebilen, son derece kremsi bir smoothie.\n\nFaydası: Avokadonun sağlıklı yağları ve bademin E vitamini hücresel düzeyde yenilenmeyi destekler.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Avokado: Yarım adet (tamamen yumuşamış)",
+    "Badem sütü: 1 su bardağı",
+    "Chia tohumu: 1 çay kaşığı (üzeri için)",
+    "Bal: 1 çay kaşığı",
+    "Buz küpleri."
+   ],
+   "instructions": [
+    "Avokado, badem sütü, buz ve balı blenderda tamamen pürüzsüz, \"ipeksi\" bir kıvam alana kadar karıştırın. Bardağa döküp üzerine chia tohumu serpin."
+   ]
+  },
+  "29f853dc-e269-415a-b733-458329d3f202": {
+   "title": "Protein Cloud- Lor Peynirli Pankek",
+   "description": "Tatlı isteğini sağlıklı bir şekilde karşılayan, unsuz ve protein dolu pankek.\n\nFaydası: Yüksek protein içeriği tok tutar ve kas kütlesinin korunmasına yardımcı olur; un içermediği için kan şekerini aniden yükseltmez.",
+   "category": "kahvaltı",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Lor peyniri (az yağlı): 100 gr",
+    "Yumurta: 1 adet",
+    "Yulaf unu: 2 yemek kaşığı",
+    "Vanilya ve tarçın.",
+    "Servis için: Yoğurt veya bal."
+   ],
+   "instructions": [
+    "Lor peynirini yumurtayla iyice ezin. Üzerine yulaf unu ve baharatları ekleyerek hamur hazırlayın. Yağsız tavada küçük daireler halinde her iki tarafını kızartın."
+   ]
+  },
+  "62b8e0b6-2240-42de-af0b-ccfb0617485b": {
+   "title": "Tatlı Patates Sote",
+   "description": "Lif ve kompleks karbonhidratlar açısından zengin, tok tutan farklı bir lezzet.\n\nFaydası: Tatlı patatesteki lifler ve vitaminler insülin direncinin düzenlenmesine yardımcı olur, tatlı isteğini azaltır.",
+   "category": "kahvaltı",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Tatlı patates: 1 orta boy (küçük küpler halinde doğranmış)",
+    "Kırmızı soğan: Yarım adet",
+    "Ispanak: 1 avuç",
+    "Zeytinyağı, tuz, karabiber."
+   ],
+   "instructions": [
+    "Yağı tavada ısıtın, tatlı patates ve soğanı yumuşayana kadar soteleyin. Tamamen piştikten sonra ıspanağı ekleyip 1 dakika karıştırın. Yanında 1 dilim peynirle harika gider."
+   ]
+  },
+  "94c6eeab-3fdb-44c0-af09-f90065cd1128": {
+   "title": "Brokoli ve Ispanak Çorbası",
+   "description": "Sabah düz ve rahat bir karınla uyanmak için en güzel \"sıvı\" akşam yemeği.\n\nFaydası: Vücudun toksinlerden arınmasını destekleyen, karaciğer ve bağırsaklara iyi gelen yeşil detoks çorbası.",
+   "category": "akşam yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Brokoli: 200 gr",
+    "Ispanak: 1 avuç",
+    "Soğan, sarımsak (biraz).",
+    "Badem sütü veya krema: 2 yemek kaşığı"
+   ],
+   "instructions": [
+    "Brokoli ve soğanı suda yumuşayana kadar pişirin. Ocaktan almadan 1 dakika önce ıspanağı ekleyin. Hepsini blenderdan geçirin, üzerine süt/krema ekleyip kremsi bir kıvam alana kadar karıştırın. Kavrulmuş kabak çekirdeğiyle servis edin."
+   ]
+  },
+  "51c68a19-8648-4032-8605-7b8cccf441b0": {
+   "title": "Limonlu Tavuk ve Kuşkonmaz",
+   "description": "Tek tavada hazırlanan, kulağa basit gelse de oldukça \"zengin\" görünen hafif bir yemek.\n\nFaydası: Tavuk göğsü iyi bir protein kaynağıdır; kuşkonmaz ise lif ve çeşitli vitaminler içererek dengeli beslenmeyi destekler.",
+   "category": "akşam yemeği",
+   "ingredients": [
+    "Tavuk göğsü: 150 qr (ince dövülmüş veya dilimlenmiş)",
+    "Kuşkonmaz (Asparagus): 1 demet",
+    "Limon: 1 adet (yarısının suyu, diğer yarısı dilimlenmiş)",
+    "Zeytinyağı, sarımsak tozu."
+   ],
+   "instructions": [
+    "Geniş bir tavada tavukların her iki tarafını yağda kızartın. Tavukların pişmesine yakın kuşkonmazları ve limon dilimlerini tavaya ekleyip 5-7 dakika birlikte soteleyin. Üzerine limon suyu sıkıp servis edin."
+   ]
+  },
+  "b2be2ad1-ce46-48a9-9075-79f7864e5758": {
+   "title": "Hindi ve Kinoalı Dolma",
+   "description": "Klasik dolmanın karbonhidratı azaltılmış, vitamin açısından zengin ve renkli bir versiyonu.\n\nFaydası: Renkli biberlerden gelen C vitamini ile hindi etinden gelen protein, normal kolajen üretimini destekleyen dengeli bir kombinasyon oluşturur.",
+   "category": "öğle yemeği",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Renkli dolmalık biberler: 2 adet (ortadan ikiye bölünmüş, kayık şeklinde)",
+    "Hindi kıyması (veya yağsız dana kıyma): 150 qr",
+    "Kinoa (pişmiş): 2 yemek kaşığı",
+    "Domates sosu."
+   ],
+   "instructions": [
+    "Kıymayı kinoa ve domates sosuyla tavada yarı pişirin. Karışımı biberlerin içine doldurup biberler yumuşayana kadar fırında pişirin."
+   ]
+  },
+  "cb10f111-6a9d-4baa-9dd6-af7ef8393f1e": {
+   "title": "Matcha Limonatası",
+   "description": "Kafein içeren, antioksidan açısından zengin ve iki renkli ferahlatıcı bir içecek.\n\nFaydası: Matcha, içerdiği kafein sayesinde zindelik sağlayabilir. Kafeine duyarlıysanız veya hamileyseniz tüketim miktarını sınırlamanız önemlidir.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Matcha tozu: 1 çay kaşığı (ılık suda köpürtülmüş)",
+    "Taze sıkılmış limon suyu: Bardağın üçte biri",
+    "Agave veya bal: 1 yemek kaşığı",
+    "Su ve bol buz."
+   ],
+   "instructions": [
+    "Buzları bardağa koyun. Limon suyu, bal ve suyu karıştırıp bardağa dökün. Son olarak köpürtülmüş yeşil matchayı yavaşça ekleyin (böylece bardakta iki renk oluşacak: altta sarı, üstte yeşil)."
+   ]
+  },
+  "ae635663-e33c-479a-970a-94bd85e39010": {
+   "title": "Cevizli ve Muzlu Overnight Oats",
+   "description": "Sabahları mide bulantısı yaşayanlar için ideal, serin ve hafif bir seçenek",
+   "category": "kahvaltı",
+   "ingredients": [
+    "Yulaf - 4 yemek kaşığı",
+    "Süt - 1 bardak",
+    "Muz - yarım adet",
+    "Ceviz - 2 adet",
+    "Bal - 1 çay kaşığı"
+   ],
+   "instructions": [
+    "Yulaf, süt ve balı akşamdan karıştırın",
+    "Buzdolabında bekletin",
+    "Sabah muz ve ceviz ekleyin"
+   ]
+  },
+  "c940ec18-0208-46aa-8361-f2f2f659b141": {
+   "title": "Patlıcanlı Peynir Katları",
+   "description": "Karbonhidratı azaltılmış hafif bir alternatif, yalancı lazanya",
+   "category": "akşam_yemeği",
+   "ingredients": [
+    "Patlıcan - 2 adet",
+    "Domates - 2 adet",
+    "Beyaz peynir - 60 qr",
+    "Fesleğen"
+   ],
+   "instructions": [
+    "Patlıcanları ince dilimleyip fırında hafifçe yumuşatın",
+    "Üzerlerine peynir, domates ve fesleğen yerleştirin",
+    "Peynir eriyene kadar fırında pişirin"
+   ]
+  },
+  "e7b8a04c-a4fa-4769-bbd9-6735976b643a": {
+   "title": "Fırında Tarçınlı Şeftali",
+   "description": "Çok hafif, dondurma hissi veren ve kalorisi oldukça düşük bir tatlı.\n\nFaydası: Şeftali lif içererek sindirimi destekler. Tarçın ise dengeli beslenmenin bir parçası olarak lezzet katar.",
+   "category": "Sağlıklı tatlılar",
+   "ingredients": [
+    "Şeftali: 2 adet (ortadan ikiye bölünmüş, çekirdekleri çıkarılmış)",
+    "Tarçın: 1 çay kaşığı",
+    "Ceviz veya pikan cevizi: kıyılmış",
+    "Süzme yoğurt (servis için)."
+   ],
+   "instructions": [
+    "Şeftali yarımlarını fırın kabına dizin, ortalarına tarçın ve ceviz serpin. 180 derecede 15-20 dakika, yumuşayana kadar pişirin. Ilıkken ortalarına bir kaşık süzme yoğurt koyarak tüketin."
+   ]
+  },
+  "a8859019-9d72-40f8-8956-b03d1cfb1e34": {
+   "title": "Balkabağı ve Hindistan Cevizi Sütü\n(8 ay+)",
+   "description": "Bebeğin farklı, tropikal tatlarla ilk tanışması. İpeksi bir kıvama sahiptir.\n\nFaydası: Balkabağındaki A vitamini göz sağlığını destekler. Hindistan cevizi sütü ise süt ürünü içermeyen bir lezzet ve yağ kaynağıdır; ancak anne sütünün veya formül mamanın yerine geçmez.",
+   "category": "Ek gıda",
+   "tags": [
+    "bebek_maması"
+   ],
+   "ingredients": [
+    "Balkabağı: 1 dilim (kabuğu soyulmuş, küp şeklinde doğranmış)",
+    "Hindistan cevizi sütü (kutuda satılan içeceklerden değil, yoğun kıvamlı yemeklik tür): 2 yemek kaşığı."
+   ],
+   "instructions": [
+    "Balkabağını buharda yumuşayana kadar pişirin. Hindistan cevizi sütünü ekleyip blenderdan geçirin. Oldukça doyurucu ve lezzetli bir çorba olacaktır."
+   ]
+  },
+  "a31f99ac-a31e-4008-9edc-552e80b3f2f2": {
+   "title": "Brokolili ve Peynirli Toplar(1 yaş+)",
+   "description": "Brokoliyi sevdirmenin en çıtır ve eğlenceli yolu.\n\nFaydası: Brokoli, bağışıklık sisteminin normal işleyişini destekleyen C vitamini; peynir ve yumurta ise kaliteli protein sağlar.",
+   "category": "Ek gıda",
+   "tags": [
+    "bebek_maması"
+   ],
+   "ingredients": [
+    "Brokoli: 4-5 çiçek (buharda pişirilmiş ve çok ince doğranmış)",
+    "Yumurta: 1 adet",
+    "Gouda peyniri veya Mozzarella: 2 yemek kaşığı (rendelenmiş)",
+    "Tam buğday unu veya galeta unu: 1 yemek kaşığı"
+   ],
+   "instructions": [
+    "Doğranmış brokoliyi yumurta, peynir ve unla karıştırın. Elinizle küçük silindirler (veya çubuklar) şekillendirin. 180 derecelik fırında 15 dakika, kızarana kadar pişirin."
+   ]
+  },
+  "0d1f8dc7-ed50-4792-a9b8-aaed4334e5c7": {
+   "title": "Sunshine Yolk - Yumurtalı Patates",
+   "description": "Yumurta sarısı, beyin ve göz gelişimi için önemlidir (8 ay+)",
+   "category": "bebek_mamasi",
+   "tags": [
+    "bebek_mamasi"
+   ],
+   "ingredients": [
+    "Yumurta sarısı - 1 adet",
+    "Patates - 1 küçük adet",
+    "Anne sütü/formül mama"
+   ],
+   "instructions": [
+    "Patates püresini hazırlayın",
+    "Pişmiş yumurta sarısını ezerek ekleyin",
+    "Sütle yumuşatın"
+   ]
+  },
+  "f09a3c1e-ec4c-4eb2-b2d1-b699bce46612": {
+   "title": "Milky Way Cookies",
+   "description": "Dünyaca ünlü Lactation Cookies'in sağlıklı versiyonu. Yulaf ve keten tohumu prolaktini artırır.",
+   "category": "saglikli_tatlilar",
+   "ingredients": [
+    "Yulaf: 1.5 bardak",
+    "Tereyağı: 50 qr",
+    "Bal: 3 yemek kaşığı",
+    "Yumurta: 1 adet",
+    "Keten tohumu: 2 yemek kaşığı",
+    "Damla çikolata: isteğe bağlı"
+   ],
+   "instructions": [
+    "Tereyağını eritin, bal ve yumurtayla çırpın",
+    "Yulaf ve keten tohumunu ekleyip karıştırın",
+    "İsteğe göre damla çikolata ekleyin",
+    "Kaşıkla pişirme kağıdının üzerine yuvarlak parçalar yerleştirin",
+    "175°C'de 12-15 dakika pişirin - günde 2-3 adet tüketin"
+   ]
+  },
+  "e130e1c4-d49f-409f-844e-56265cb3eca7": {
+   "title": "Queen's Porridge - Kraliçenin Kahvaltısı",
+   "description": "Hurma ve cevizin enerjisiyle yulafın süt artırıcı gücünün birleşimi. Prolaktin uyarıcısı.",
+   "category": "kahvalti",
+   "ingredients": [
+    "Yulaf: 3 yemek kaşığı",
+    "Süt: 1 bardak",
+    "Hurma: 2-3 adet (çekirdeksiz)",
+    "Ceviz: 1 avuç",
+    "Tarçın: bir tutam"
+   ],
+   "instructions": [
+    "Süt ve yulafı tencerede orta ateşte karıştırarak pişirin",
+    "Koyulaşana kadar (5-7 dk) karıştırmaya devam edin",
+    "Ocaktan alıp doğranmış hurmayı ekleyin",
+    "Üzerine ceviz ve tarçın serpin",
+    "Sıcak tüketin - süt artışı için en güçlü kahvaltı"
+   ]
+  },
+  "b862ae81-6647-4306-8478-b02653620beb": {
+   "title": "Yeşil Detoks İksiri",
+   "description": "Karaciğeri ve cildi arındıran, hücreleri yenileyen süper \"yeşil meyve suyu\".\n\nFaydası: Kereviz sapı sivilceleri azaltır ve sindirimi yeniden düzenler. Aç karnına içildiğinde mükemmel bir detoks etkisi sağlar.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kereviz sapı: 2 adet",
+    "Yeşil elma: 1 adet",
+    "Taze zencefil: Çok küçük bir parça",
+    "Limon suyu: Yarım limon."
+   ],
+   "instructions": [
+    "Kereviz, elma ve zencefili katı meyve sıkacağından geçirin. Üzerine limon sıkın ve vitamin değerini kaybetmeden hemen için."
+   ]
+  },
+  "869b95b1-b2fc-4999-9364-14adff9736c9": {
+   "title": "Armut ve Erik püresi\n(6 ay+)",
+   "description": "Ek gıdaya geçişte sıkça görülen kabızlık sorununa doğal ve lezzetli bir çözüm.\n\nFaydası: Erik ve armut bağırsakları çalıştırır, yulaf ise bebeği uzun süre tok tutar.",
+   "category": "Ek gıda",
+   "tags": [
+    "bebek_mamasi"
+   ],
+   "ingredients": [
+    "Bebekler için yulaf unu (veya blenderda öğütülmüş yulaf): 1-2 yemek kaşığı",
+    "Armut: Yarım adet",
+    "Kuru erik: 2 adet (önceden sıcak suda yumuşatılmış)"
+   ],
+   "instructions": [
+    "Yulafı suda pişirerek lapa kıvamına getirin. Armudu buharda yumuşatın. Erik ve armudu blenderdan geçirip yulaf lapasına ekleyin."
+   ]
+  },
+  "47c56e28-7e74-45f9-b91a-7cf55a196ffc": {
+   "title": "Keten Tohumlu Lavaşta Avokado",
+   "description": "Yalnızca 2 malzemeyle hazırlanan, unsuz ve glütensiz \"vegan lavaş\".\n\nFaydası: Karbonhidrat oranı sıfıra yakındır. Yalnızca lif ve sudan oluşur, bağırsak sağlığı için bir \"süpürge\" görevi görür.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Keten tohumu (öğütülmüş): 1 bardak",
+    "Kaynar su: 1 bardak",
+    "İç harcı için: Avokado dilimleri, ıspanak."
+   ],
+   "instructions": [
+    "Kaynar suyu keten tohumu ununun üzerine döküp hamuru yoğurun (jel kıvamına gelecektir). İki pişirme kağıdı arasında lavaş gibi açın ve kuru tavada her iki tarafını pişirin. İçine avokado ve ıspanak koyup dürüm (wrap) yapın."
+   ]
+  },
+  "ac0ef609-013d-4d24-9387-eb2cabfeb421": {
+   "title": "Muzlu Nice Cream",
+   "description": "Süt ve şeker içermeyen, yalnızca meyveden oluşan en sağlıklı dondurma",
+   "category": "saglikli_tatlilar",
+   "tags": [
+    "bebek_mamasi"
+   ],
+   "ingredients": [
+    "Muz - 2 adet (dondurulmuş)",
+    "Kakao - 1 çay kaşığı",
+    "Çilek - 3 adet"
+   ],
+   "instructions": [
+    "Dondurulmuş muzları blenderda krema kıvamına getirin",
+    "Kakao/çilek ekleyin",
+    "Hemen servis edin"
+   ]
+  },
+  "2554217b-8b4f-4356-a70a-64c6a62b32e2": {
+   "title": "Avokadolu ve Yumurtalı Bruschetta",
+   "description": "Folik asit ve sağlıklı yağlar açısından zengindir, fetüsün beyin gelişimine yardımcı olur",
+   "category": "kahvalti",
+   "ingredients": [
+    "Tam buğday ekmeği - 2 dilim",
+    "Avokado - yarım adet",
+    "Yumurta - 1 adet",
+    "Limon suyu - 1 çay kaşığı",
+    "Susam"
+   ],
+   "instructions": [
+    "Avokadoyu ezin, limon suyu ve tuz ekleyin",
+    "Kızarmış ekmeğin üzerine avokadoyu sürün",
+    "Katı haşlanmış yumurtayı doğrayıp üzerine yerleştirin",
+    "Susam serpin"
+   ]
+  },
+  "1dc5ff7a-9167-45eb-a742-f8830d930c68": {
+   "title": "Muzlu ve Yulaflı Unsuz Pankek",
+   "description": "Lifli yapısı sindirimi destekler, muz ise potasyum kaynağıdır",
+   "category": "kahvalti",
+   "ingredients": [
+    "Yumurta - 2 adet",
+    "Muz - 1 adet",
+    "Yulaf ezmesi - yarım su bardağı",
+    "Tarçın - damak zevkinize göre"
+   ],
+   "instructions": [
+    "Muzu ezin",
+    "Yumurtaları ekleyip çırpın",
+    "Yulaf unu ve tarçını ekleyin",
+    "Tavada her iki tarafını da pişirin"
+   ]
+  },
+  "2f2b9ad9-7480-4118-bad9-8cd23415bda5": {
+   "title": "Fırında Yalancı Dolma",
+   "description": "Kızartılmadığı için mide yanmasına neden olmaz, lifli sebzeler sindirimi kolaylaştırır",
+   "category": "ogle_yemegi",
+   "ingredients": [
+    "Kabak - 2 adet",
+    "Dana kıyma - 150 qr",
+    "Soğan - 1 adet",
+    "Domates - 1 adet",
+    "Peynir - 30 qr"
+   ],
+   "instructions": [
+    "Sebzeleri ikiye bölüp içlerini oyun",
+    "Eti soğan ve domatesle pişirin",
+    "Sebzelerin içini harçla doldurun",
+    "180°C'de 25-30 dakika pişirin",
+    "Üzerine peynir serpin"
+   ]
+  },
+  "67463cf4-ba39-4257-b387-541018594397": {
+   "title": "Fırında Beyaz Etli Balık",
+   "description": "Beyaz etli balıklar az yağlıdır ve mideyi yormaz. Protein kaynağıdır",
+   "category": "aksam_yemegi",
+   "ingredients": [
+    "Beyaz etli balık - 1 fileto",
+    "Limon - 2 dilim",
+    "Defne yaprağı - 1",
+    "Zeytinyağı",
+    "Karabiber"
+   ],
+   "instructions": [
+    "Balığı yağla ovun",
+    "Üzerine limon ve defne yaprağı koyun",
+    "Kağıda sarıp 180°C'de 25 dakika pişirin"
+   ]
+  },
+  "9194dcd7-0593-42ea-be60-36f52bfc96b4": {
+   "title": "Yeşil Mercimekli Ilık Salata",
+   "description": "Folik asit ve lif kaynağı, hafif bir akşam yemeğidir",
+   "category": "aksam_yemegi",
+   "ingredients": [
+    "Yeşil mercimek - yarım su bardağı",
+    "Havuç - 1 adet",
+    "Ispanak - 1 avuç",
+    "Limon suyu",
+    "Zeytinyağı"
+   ],
+   "instructions": [
+    "Mercimeği pişirin",
+    "Havuç ve ıspanağı ekleyin",
+    "Limon ve zeytinyağlı sosla karıştırın"
+   ]
+  },
+  "71de5174-6da5-4ea3-85bb-14cde99315cd": {
+   "title": "Fırında Ayva Tatlısı",
+   "description": "Ayva, mide bulantısını hafifletmeye yardımcı olan en etkili meyvelerden biridir",
+   "category": "saglikli_tatlilar",
+   "ingredients": [
+    "Ayva - 2 adet",
+    "Elma - 1 adet",
+    "Çubuk tarçın - 1",
+    "Karanfil - 3 adet",
+    "Bal, ceviz"
+   ],
+   "instructions": [
+    "Ayvaları ikiye bölüp içlerini rendelenmiş elmayla doldurun",
+    "Tarçın ve karanfil ekleyin",
+    "180°C'de 50 dakika pişirin",
+    "Üzerine bal gezdirin"
+   ]
+  },
+  "a816a450-3561-451f-b7de-9d70662f2972": {
+   "title": "Badem Keyfi Smoothie",
+   "description": "Badem sütünün ve hurmanın doğal tatlılığı. Omega-3 ve kalsiyum açısından zengindir, anne sütünün yağ içeriğini destekler.",
+   "category": "saglikli_icecekler",
+   "ingredients": [
+    "Badem: 1 avuç (akşamdan ıslatılmış, kabukları soyulmuş)",
+    "Süt: 1 su bardağı",
+    "Muz: 1 adet",
+    "Bal: 1 çay kaşığı"
+   ],
+   "instructions": [
+    "Bademleri akşamdan suya koyun, sabah kabuklarını soyun",
+    "Bademleri sütle birlikte blenderda parçalanana kadar çekin",
+    "Muz ve balı ekleyip yeniden blenderdan geçirin",
+    "Soğuk veya oda sıcaklığında için",
+    "Her gün 1 su bardağı tüketmek süt üretimini destekler"
+   ]
+  },
+  "a447ee30-24f2-4732-9007-6f2676858ba8": {
+   "title": "Meyveli Chia Pudingi",
+   "description": "Omega-3 yağ asitleri açısından zengindir. Kabızlık yaşayanlar için idealdir.",
+   "category": "kahvalti",
+   "ingredients": [
+    "Chia tohumu - 2 yemek kaşığı",
+    "Süt - 1 su bardağı",
+    "Bal - 1 çay kaşığı",
+    "Taze meyveler"
+   ],
+   "instructions": [
+    "Chia tohumu, bal ve sütü karıştırın",
+    "Buzdolabında 4 saat bekletin",
+    "Meyveleri ekleyip tüketin"
+   ]
+  },
+  "04df0cb9-27f0-4232-a5c9-a3da1994f4f1": {
+   "title": "Sebzeli Muffin Omletler",
+   "description": "Protein ve vitaminler bir arada. Çalışan kadınlar için pratik bir seçimdir",
+   "category": "kahvalti",
+   "ingredients": [
+    "Yumurta - 3 adet",
+    "Süt - 2 yemek kaşığı",
+    "Kırmızı biber - yarım adet",
+    "Taze soğan - birkaç dal",
+    "Beyaz peynir - 50 qr"
+   ],
+   "instructions": [
+    "Yumurtaları sütle çırpın",
+    "Biber, soğan ve peyniri ekleyin",
+    "Muffin kalıplarına dökün",
+    "180°C'de 15-20 dakika pişirin"
+   ]
+  },
+  "004578f9-a884-48b5-a55a-c91cee0ace44": {
+   "title": "Tavuklu Sebze Çorbası",
+   "description": "Tam bir vitamin bombasıdır, gece susatmaz",
+   "category": "akşam_yemeği",
+   "ingredients": [
+    "Tavuk budu - 1 adet",
+    "Havuç - 1 adet",
+    "Kereviz - 1 adet",
+    "Tel şehriye - 1 yemek kaşığı",
+    "Maydanoz"
+   ],
+   "instructions": [
+    "Tavuğu haşlayıp didikleyin",
+    "Havuç ve kerevizi ekleyin",
+    "Tel şehriyeyi ilave edin",
+    "Maydanoz ve limon ekleyin"
+   ]
+  },
+  "880d9940-72c5-4091-be98-b624aa0ce63b": {
+   "title": "Bulantı Karşıtı Shot",
+   "description": "Sabah bulantılarını hafifletmenin en etkili yollarından biri",
+   "category": "sağlıklı_içecekler",
+   "ingredients": [
+    "Zencefil suyu - 1 çay kaşığı",
+    "Limon suyu - 1 yemek kaşığı",
+    "Elma suyu - 2 yemek kaşığı"
+   ],
+   "instructions": [
+    "Küçük bir bardakta karıştırın",
+    "Sabah aç karnına için"
+   ]
+  },
+  "aef368fe-083d-4b68-9edb-d6de124b4d49": {
+   "title": "Kinoalı ve Sebzeli Bowl",
+   "description": "Rengârenk, doyurucu ve tamamen bitkisel bir güç kaynağı.\n\nFaydası: Kinoa, kan şekerini aniden yükseltmeyen kompleks bir karbonhidrattır; nohut ise bitkisel protein ve fitoöstrojenler (kadınlık hormonlarını düzenlemeye yardımcı olur) bakımından zengindir.",
+   "category": "öğle yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kinoa: Yarım su bardağı (pişmiş)",
+    "Tatlı patates (batat): 1 adet (küp şeklinde doğranmış ve fırında pişirilmiş)",
+    "Kırmızı lahana: 1 avuç (ince doğranmış)",
+    "Nohut: 3 yemek kaşığı (haşlanmış)",
+    "Sos için: 1 yemek kaşığı tahin, limon suyu, zeytinyağı."
+   ],
+   "instructions": [
+    "Tüm malzemeleri derin bir kâsede yan yana, rengârenk olacak şekilde dizin. Üzerine tahin sosunu gezdirip servis edin."
+   ]
+  },
+  "c5e3e953-1def-4129-bf13-05450ac7ffc6": {
+   "title": "Patlıcan Graten",
+   "description": "İtalyanların ünlü \"Parmigiana\" yemeğinin kızartılmadan hazırlanan, diyet versiyonu.\n\nFaydası: Patlıcan kabuğunda bulunan \"nasunin\" adlı antioksidan, beyin hücrelerini korur. Doyurucudur ancak kalorisi düşüktür.",
+   "category": "akşam yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Patlıcan: 2 adet (uzunlamasına ince dilimlenmiş)",
+    "Domates sosu: 1 su bardağı",
+    "Mozzarella ve lor (tuzlu) peyniri: Yarı yarıya karıştırılmış",
+    "Taze fesleğen."
+   ],
+   "instructions": [
+    "Patlıcan dilimlerini fırında yağsız olarak hafifçe pişirin. Fırın kabına sırasıyla sos, patlıcan, peynir ve fesleğeni kat kat dizin (lazanya gibi). En üstteki peynir eriyip kızarana kadar fırında pişirin."
+   ]
+  },
+  "feb3870e-5bf3-4d4e-8622-e75280b05802": {
+   "title": "Çıtır Taco Kaseleri(3 yaş+)",
+   "description": "Lavaştan hazırlanan çıtır kaselerin içinde protein açısından zengin Meksika lezzeti.\n\nFaydası: Fasulyedeki lif sindirimi kolaylaştırır; mısır ve et ise çocuğun büyümesi için gereken enerjiyi sağlar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Lavaş (veya tortilla): 1 adet",
+    "Kırmızı fasulye (pişmiş): 2 yemek kaşığı",
+    "Mısır: 1 yemek kaşığı",
+    "Kıyma veya didiklenmiş tavuk eti: 2 yemek kaşığı",
+    "Rendelenmiş peynir."
+   ],
+   "instructions": [
+    "Lavaşı bir bardağın ağzıyla daire şeklinde kesin. Bu daireleri muffin kalıbının bölmelerine bastırarak \"kase\" şekli verin. İçlerine fasulye, mısır, et ve en üste peynir koyun. Peynir eriyip lavaş çıtırlaşana kadar (10 dakika) fırında pişirin."
+   ]
+  },
+  "290acd87-550a-458c-a7f4-69cb997009e4": {
+   "title": "Mercimekli Bomba Çorba",
+   "description": "Folik asit deposu, hamileler için vazgeçilmez",
+   "category": "öğle_yemeği",
+   "ingredients": [
+    "Kırmızı mercimek - 1 su bardağı",
+    "Havuç - 1 adet",
+    "Patates - 1 adet",
+    "Soğan - 1 adet",
+    "Et suyu - 4 su bardağı",
+    "Nane, limon"
+   ],
+   "instructions": [
+    "Soğanı kavurun, havucu ekleyin",
+    "Mercimek ve patatesi ekleyin",
+    "Et suyunu ilave edip pişirin",
+    "Blenderdan geçirin",
+    "Nane ve limon ekleyin"
+   ]
+  },
+  "497f352b-6f6a-4450-a0eb-ddccc2332776": {
+   "title": "Fırında Limonlu Somon",
+   "description": "Bebeğin beyin gelişimi için Omega-3 kaynağı",
+   "category": "akşam_yemeği",
+   "ingredients": [
+    "Balık filetosu - 200 gr",
+    "Limon - 2 dilim",
+    "Brokoli - 100 gr",
+    "Zeytinyağı, kekik"
+   ],
+   "instructions": [
+    "Balığı baharatlarla ovun",
+    "Folyonun üzerine balığı ve sebzeleri koyun",
+    "Limon dilimlerini yerleştirin",
+    "180°C'de 25 dakika pişirin"
+   ]
+  },
+  "396d0e08-df24-45b2-bbc5-d0eb5bb97a61": {
+   "title": "Fırında Tarçınlı Elma Cipsi",
+   "description": "Şekerleme yerine sağlıklı bir atıştırmalık",
+   "category": "sağlıklı_tatlılar",
+   "ingredients": [
+    "Elma - 2 adet",
+    "Tarçın - 1 çay kaşığı"
+   ],
+   "instructions": [
+    "Elmaları ince dilimleyin",
+    "Üzerine tarçın serpin",
+    "Fırında düşük ısıda kurutun"
+   ]
+  },
+  "e1dfdbd8-e8bb-4c32-930c-c832c8f118d3": {
+   "title": "Havuçlu ve Cevizli Yumuşak Kek",
+   "description": "Havuçtaki A vitamini ve cevizdeki Omega-3, göz ve beyin gelişimi için faydalıdır",
+   "category": "saglikli_tatlilar",
+   "ingredients": [
+    "Yulaf unu - 1 su bardağı",
+    "Havuç - 2 adet",
+    "Yumurta - 2 adet",
+    "Ceviz - yarım su bardağı",
+    "Bal - 3 yemek kaşığı",
+    "Tarçın, kabartma tozu"
+   ],
+   "instructions": [
+    "Yumurtaları balla çırpın",
+    "Havuç, ceviz ve tarçını ekleyin",
+    "Yulaf unu ve kabartma tozunu ilave edin",
+    "170°C'de 25 dakika pişirin"
+   ]
+  },
+  "6f156a10-e92e-4a17-a7af-3e68646cf53d": {
+   "title": "Green Goddess Smoothie",
+   "description": "Ispanaktaki demir ve C vitamini, kansızlığa karşı süper güç sağlar",
+   "category": "saglikli_icecekler",
+   "ingredients": [
+    "Ispanak - 1 avuç",
+    "Kivi - 1 adet",
+    "Yeşil elma - yarım",
+    "Hindistan cevizi suyu - yarım su bardağı",
+    "Limon suyu"
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderdan geçirin",
+    "Hemen için"
+   ]
+  },
+  "b7b9eff5-fed2-499e-b5d9-5c57fb32426f": {
+   "title": "Işıltı Salatası",
+   "description": "Güne sebze yiyerek başlamak isteyenler için detoks etkili bir kahvaltı.\n\nFaydası: Ispanak ve zeytinyağı bağırsakların çalışmasını destekler, vücuttaki toksinlerin atılmasını hızlandırır.",
+   "category": "kahvaltı",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Bebek ıspanak veya marul: 1-2 avuç",
+    "Katı haşlanmış yumurta: 1 adet",
+    "Ceviz: 2-3 adet",
+    "Zeytinyağı ve limon suyu.",
+    "Lor peyniri: 2 yemek kaşığı."
+   ],
+   "instructions": [
+    "Ispanakları bir kaseye alın. Üzerine dilimlenmiş yumurta, peynir ve ceviz ekleyin. Zeytinyağı ve limon sosunu gezdirip tüketin."
+   ]
+  },
+  "dcd85da7-ccb3-4272-a895-942bd99de63b": {
+   "title": "Altın Taneler - Bulgur Pilavı",
+   "description": "Bulgur ve mercimeğin buluşması. B vitaminleri açısından zengindir, meme dokusunu besler.",
+   "category": "ogle_yemegi",
+   "ingredients": [
+    "Bulgur: 1 su bardağı",
+    "Yeşil mercimek: yarım su bardağı (haşlanmış)",
+    "Soğan: 1 adet",
+    "Tereyağı: 1 yemek kaşığı",
+    "Su: 2 su bardağı"
+   ],
+   "instructions": [
+    "Soğanı tereyağında kızarana kadar kavurun",
+    "Yıkanmış bulguru ekleyip 1-2 dakika kavurun",
+    "Önceden pişirilmiş mercimeği ekleyin",
+    "Üzerine 2 su bardağı su döküp kaynatın",
+    "Suyunu çekene kadar kısık ateşte demlenmeye bırakın (15-20 dakika)"
+   ]
+  },
+  "db9dd331-557e-46cd-9d2b-a47d4771ad41": {
+   "title": "Zen Denge Smoothie'si",
+   "description": "Mide yanması yaşayanlar için rahatlatıcı",
+   "category": "saglikli_icecekler",
+   "ingredients": [
+    "Yulaf - 2 yemek kaşığı",
+    "Muz - 1 adet",
+    "Süt - 1 su bardağı",
+    "Bal - 1 çay kaşığı"
+   ],
+   "instructions": [
+    "Yulafı sütte yumuşayana kadar pişirin",
+    "Muz ve balla birlikte blenderda karıştırın"
+   ]
+  },
+  "56b6eb44-1b68-4703-8191-5abf175ce6b4": {
+   "title": "Cumin Comfort - Mercimek Çorbası",
+   "description": "Hem anne hem de bebekte gaz sorununu hafifletmeye yardımcı olan bir çorba. Kimyon sütü artırır, koliği azaltır.",
+   "category": "emzirme",
+   "tags": [
+    "dogum_sonrasi",
+    "sut_artirici"
+   ],
+   "ingredients": [
+    "Kırmızı mercimek: 1 su bardağı",
+    "Soğan: 1 adet",
+    "Patates: 1 adet",
+    "Kimyon: 1 çay kaşığı (bol)",
+    "Tereyağı: 1 yemek kaşığı"
+   ],
+   "instructions": [
+    "Mercimek, soğan ve patatesi doğrayıp suda haşlayın",
+    "Yumuşadıktan sonra blenderdan geçirin",
+    "Ayrı bir tavada kimyonu tereyağında ısıtın - kokusu çıksın",
+    "Isıtılmış kimyonlu yağı çorbanın üzerine gezdirin",
+    "Sıcak için - süt artırıcı ve kolik karşıtı"
+   ]
+  },
+  "06ed0fa8-cbd9-44a6-9ddc-7e7b1fe1e84d": {
+   "title": "Probiyotik Parfe",
+   "description": "Bağırsak sağlığı (ikinci beyin) için kalsiyum ve probiyotik deposu.\n\nFaydası: Sağlıklı bağırsak florası, kadınlarda hem bağışıklık hem de psikolojik iyilik hâliyle doğrudan ilişkilidir.",
+   "category": "kahvaltı",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Süzme yoğurt (veya Yunan yoğurdu): 1 su bardağı",
+    "Şekersiz granola (veya kavrulmuş yulaf/ceviz karışımı): 3 yemek kaşığı",
+    "Taze meyve (kivi, şeftali veya çilek): Doğranmış"
+   ],
+   "instructions": [
+    "Uzun bir bardağa önce yoğurdun yarısını, ardından meyveyi ve sonra granolayı kat kat ekleyin. Üst katı yeniden yoğurtla kapatıp en üste biraz granola serpin."
+   ]
+  },
+  "9448c07e-1f48-40e0-a861-ab4dcd62db5b": {
+   "title": "Golden Cream - Humus",
+   "description": "Nohut ve tahinin süt artırıcı gücünün en lezzetli hâli. Bitkisel protein ve kalsiyum deposu.",
+   "category": "ogle_yemegi",
+   "ingredients": [
+    "Nohut: 1 su bardağı (haşlanmış)",
+    "Tahin (susam ezmesi): 2 yemek kaşığı",
+    "Limon suyu: 1 yemek kaşığı",
+    "Sarımsak: 1 diş",
+    "Zeytinyağı: 2 yemek kaşığı"
+   ],
+   "instructions": [
+    "Nohudu önceden ıslatıp yumuşayana kadar haşlayın",
+    "Blendera nohut, tahin, limon suyu ve sarımsağı koyun",
+    "Pürüzsüz, kremsi bir kıvam alana kadar blenderdan geçirin",
+    "Gerekirse haşlama suyundan ekleyin",
+    "Üzerine zeytinyağı gezdirip ekmekle servis edin"
+   ]
+  },
+  "69335e75-4e74-4b38-bb31-495c4674ceb3": {
+   "title": "Narenciye Aromalı Beyaz Balık",
+   "description": "Mideyi hiç yormayan, aromatik ve hafif bir deniz lezzeti.\n\nFaydası: Beyaz balıklar (levrek, çipura) kolay sindirilen saf protein ve tiroid (guatr) bezini koruyan iyot kaynağıdır. Limon ise demirin emilimine yardımcı olur.",
+   "category": "akşam yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Beyaz balık filetosu: 150-200 gr",
+    "Limon ve portakal: Her birinden 2 dilim",
+    "Taze kekik veya biberiye: 1-2 dal",
+    "Zeytinyağı, tuz, karabiber."
+   ],
+   "instructions": [
+    "Temizlenmiş balığı yağlı kağıdın üzerine koyun. Üzerine tuz, karabiber ve yağ gezdirin. Narenciye dilimlerini ve otları üzerine yerleştirin. Kağıdı paket şeklinde sarıp 180 derecede 20 dakika pişirin. Bol yeşil salata eşliğinde tüketin."
+   ]
+  },
+  "59177852-56ab-4ae0-9965-367e9142cf8e": {
+   "title": "Tropikal Vaha",
+   "description": "Vücudun sıvı ve elektrolit dengesini yeniden sağlayan, ödem atmaya yardımcı en doğal içecek.\n\nFaydası: Hindistan cevizi suyu, potasyum açısından zengin doğal bir sporcu içeceğidir. Salatalık ise cildi ve vücudu içeriden arındırır.",
+   "category": "Sağlıklı içecekler",
+   "ingredients": [
+    "Hindistan cevizi suyu (doğal): 1 su bardağı",
+    "Salatalık: İnce şeritler hâlinde kesilmiş dilimler",
+    "Taze nane ve misket limonu suyu."
+   ],
+   "instructions": [
+    "Tüm malzemeleri bir sürahiye veya büyük bir bardağa koyup lezzetlerin birbirine karışması için buzdolabında 30 dakika bekletin. Soğuk olarak için."
+   ]
+  },
+  "0ad5770d-c00e-4aaf-a326-ab7ca620f797": {
+   "title": "Avokadolu Tavuk Salatası",
+   "description": "Düşük karbonhidratlı, uzun süre tok tutan ve kasları besleyen bir lezzet.\n\nFaydası: Doyurucu protein (tavuk) ile sağlıklı yağların (avokado) birleşimi, tatlı krizlerini önlemeye yardımcı olur.",
+   "category": "öğle yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Tavuk göğsü: 150 gr (ızgarada veya tavada pişirilmiş)",
+    "Avokado: Yarım adet (dilimlenmiş)",
+    "Bebek ıspanak veya marul: 2 avuç",
+    "Çeri domates: 5-6 adet",
+    "Limon suyu, zeytinyağı."
+   ],
+   "instructions": [
+    "Tavuk etini uzunlamasına dilimleyin. Yeşillikleri, domatesi ve avokadoyu büyük bir tabağa alın, üzerine tavuk dilimlerini yerleştirin. Limon suyu ve zeytinyağıyla hazırladığınız sosla tatlandırın."
+   ]
+  },
+  "3d1a500a-b203-4052-b1f2-91a4407a4e3c": {
+   "title": "Yumurtalı Avokado Tostu(1 yaş+)",
+   "description": "Kendi elleriyle yemek yemeyi seven 1 yaşındaki çocukların favorisi.\n\nFaydası: Avokado sağlıklı yağlarla doludur, yumurta ise temel amino asitleri sağlar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tam buğday ekmeği: 1 dilim (kenarları kesilmiş, kızartılmış)",
+    "Avokado: Dörtte bir adet (iyice ezilmiş)",
+    "Yumurta: 1 adet (katı haşlanmış ve rendelenmiş)"
+   ],
+   "instructions": [
+    "Ezilmiş avokadoyu kızarmış ekmeğin üzerine sürün. Üzerine rendelenmiş yumurtayı serpin. Çocuğun elinde tutabileceği uzun şeritler hâlinde kesin."
+   ]
+  },
+  "c842f7bd-4741-487b-b42c-981f40c245be": {
+   "title": "Ispanaklı Makarna(4 yaş+)",
+   "description": "Yeşil rengiyle çocukların ilgisini çeken, peynirli ve demir açısından zengin sihirli bir sos.\n\nFaydası: Ispanak ve ceviz, çocuğun beyin gelişimini ve enerjisini destekler.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Kepekli veya renkli glutensiz makarna: 1 su bardağı",
+    "Ispanak: 1 büyük avuç",
+    "Ceviz içi: 2 adet",
+    "Krem peynir veya zeytinyağı: 1 yemek kaşığı"
+   ],
+   "instructions": [
+    "Makarnayı haşlayın. Ispanak, ceviz ve peyniri (veya yağı) tamamen pürüzsüz, parlak yeşil bir krema kıvamına gelene kadar blenderdan geçirin. Sıcak makarnayı bu sosla karıştırıp servis edin."
+   ]
+  },
+  "ce232b23-613e-4e89-87ba-f0def071b9bc": {
+   "title": "Süper Güç Köfteleri(2 yaş+)",
+   "description": "Et sevmeyen çocukların bile keyifle yiyeceği, içi sürprizli, fırında pişen köfteler.\n\nFaydası: Saf tavuk proteini ile brokolinin demiri bir arada. Kızartılmadığı için mideyi yormaz.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tavuk kıyması: 200 gr",
+    "Brokoli: 3-4 çiçek (blenderda toz gibi çok ince çekilmiş)",
+    "Soğan: Çok küçük bir parça (rendelenmiş)",
+    "Galeta unu: 1 yemek kaşığı",
+    "Zeytinyağı ve çok az tuz."
+   ],
+   "instructions": [
+    "Tüm malzemeleri bir kapta iyice yoğurun.",
+    "Çocuğun eliyle tutup yiyebileceği, cevizden biraz daha küçük köfteler hazırlayın.",
+    "Yağlı kağıt serilmiş fırın tepsisinde 180 derecede 20-25 dakika pişirin."
+   ]
+  },
+  "76ceddd0-3762-4c0e-938c-757205264083": {
+   "title": "Berry Chia Magic",
+   "description": "Antioksidan deposu olan, cildi içeriden nemlendiren serinletici bir atıştırmalık.",
+   "category": "kahvaltı",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Chia tohumu: 3 yemek kaşığı",
+    "Badem sütü (veya Hindistan cevizi sütü): 1 su bardağı",
+    "Taze ahududu veya yaban mersini: 1 avuç",
+    "Bal veya akçaağaç şurubu: 1 çay kaşığı"
+   ],
+   "instructions": [
+    "Chia tohumu, süt ve balı akşamdan bir kapta iyice karıştırın (topaklanmaması için 10 dakika sonra tekrar karıştırın). Sabaha kadar buzdolabında bekletin. Sabah üzerine taze orman meyvelerini yerleştirerek servis edin."
+   ]
+  },
+  "db6223cf-fd40-4b31-9334-3aa607532faa": {
+   "title": "Pancar ve Peynir Salatası",
+   "description": "Kan dolaşımını hızlandıran, rengiyle göz kamaştıran hafif bir öğle yemeği.\n\nFaydası: Pancar, karaciğeri arındırmaya yardımcı en iyi sebzelerden biridir; keçi peyniri veya lor peyniri ise kolay sindirilen bir kalsiyum kaynağıdır.",
+   "category": "öğle yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Pancar: 1 orta boy (fırında pişirilmiş veya haşlanmış, küp şeklinde doğranmış)",
+    "Keçi peyniri (veya lor peyniri): 2 yemek kaşığı",
+    "Ceviz içi: 1 avuç",
+    "Roka yaprakları.",
+    "Balzamik sirke ve zeytinyağı."
+   ],
+   "instructions": [
+    "Roka yapraklarının üzerine doğranmış pancarı, peyniri ve cevizi ekleyin. Üzerine balzamik sirke ve zeytinyağı karışımını gezdirin."
+   ]
+  },
+  "be15d84a-f891-40e8-bcea-25a7ea3f5e77": {
+   "title": "Avokadolu Tost",
+   "description": "Sağlıklı yağlar ile kaliteli proteinin en lezzetli birleşimi.\n\nFaydası: Avokado, kadınlık hormonları için önemli olan sağlıklı yağlar içerirken yumurta kasları koruyan kaliteli bir protein kaynağıdır.",
+   "category": "breakfast",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Tam buğday veya çavdar ekmeği: 1-2 büyük dilim",
+    "Avokado: Yarım adet (olgun)",
+    "Yumurta: 1-2 adet (suda pişmiş - poşe veya rafadan)",
+    "Limon suyu, tuz, kırmızı pul biber."
+   ],
+   "instructions": [
+    "Ekmeği kızartın. Avokadoyu çatalla ezip limon ve tuzla karıştırın, ekmeğin üzerine sürün. Pişmiş yumurtayı üzerine yerleştirin ve pul biber serpin."
+   ]
+  },
+  "e3b32abb-4f90-4796-9370-d8e31b9a5d8e": {
+   "title": "Ispanaklı Pankek(1 yaş+)",
+   "description": "Kahvaltı için farklı renkte, şekersiz, yumuşak ve lezzetli bulutlar.\n\nFaydası: Ispanak ve muzun mükemmel uyumu. Demir ve potasyum açısından zengindir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Bebek ıspanak: 1 avuç",
+    "Muz: 1 adet (olgun)",
+    "Yumurta: 1 adet",
+    "Un (tam buğday veya yulaf): 2 yemek kaşığı"
+   ],
+   "instructions": [
+    "Ispanak, muz ve yumurtayı blenderda tamamen pürüzsüz, yeşil bir karışım elde edene kadar çekin. Unu ekleyip karıştırın. Yağsız tavaya kaşık kaşık dökerek her iki tarafını pişirin."
+   ]
+  },
+  "d55a1489-0c64-4fd1-9c95-61ccad0e27bf": {
+   "title": "Tatlı Patates Kayıkları(4 yaş+)",
+   "description": "Gemi şeklinde sunulan, rengârenk ve vitamin deposu kayıklar.\n\nFaydası: Tatlı patates, içerdiği A vitaminiyle gözleri korur. Mısır ve bezelye ise yemeğe eğlenceli bir doku katar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tatlı patates (batat): 2 adet (ortadan ikiye bölünmüş, fırında pişirilmiş)",
+    "Bezelye ve mısır: Her birinden 1 yemek kaşığı (haşlanmış)",
+    "Didiklenmiş tavuk veya kıyma: 2 yemek kaşığı",
+    "Peynir (yelken için)."
+   ],
+   "instructions": [
+    "Pişmiş patateslerin içini biraz oyun ve püre haline getirin; bezelye, mısır ve etle karıştırıp tekrar içlerine doldurun. Üzerlerine kürdan yardımıyla üçgen şeklinde kesilmiş peynir (yelken) yerleştirin."
+   ]
+  },
+  "c4928087-d44e-49b9-b047-6872459c8c34": {
+   "title": "Portakallı Kakao",
+   "description": "Portakaldaki C vitamini, kakaodaki demirin emilimine yardımcı olur. Cilde ışıltı verir.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 yemek kaşığı kakao, 1 su bardağı badem sütü, 1 yemek kaşığı taze sıkılmış portakal suyu (veya rendelenmiş portakal kabuğu), 1 çay kaşığı pekmez."
+   ],
+   "instructions": [
+    "Kakaoyu sıcak badem sütünde eritin; ocaktan aldıktan sonra portakal suyunu ve pekmezi ekleyin."
+   ]
+  },
+  "f34874ad-c7fb-4bad-9d1d-814135cad038": {
+   "title": "Hindili Kabak",
+   "description": "Hamur ve ekmek içermeyen, bol proteinli ve iştah açıcı \"kayıklar\".\n\nFaydası: Karbonhidrat oranı çok düşüktür. Hindi etindeki \"triptofan\" amino asidi, melatonin (uyku hormonu) salgısını artırarak derin ve rahat bir uykuya geçmeye yardımcı olur.",
+   "category": "akşam yemeği",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kabak: 2 orta boy (uzunlamasına ikiye bölünmüş, içi oyulmuş)",
+    "Hindi kıyması (veya yağsız dana kıyma): 150 gr",
+    "Domates: 1 adet (rendelenmiş)",
+    "Mozzarella veya Hollanda peyniri: 30 gr (rendelenmiş)",
+    "Soğan, sarımsak, kekik."
+   ],
+   "instructions": [
+    "Kıymayı soğan, sarımsak ve domatesle tavada yarı pişirin. Kabak kayıklarının içine doldurup 180 derecelik fırında kabaklar yumuşayana kadar (yaklaşık 25 dakika) pişirin. Fırından almadan 5 dakika önce üzerlerine peynir serpin."
+   ]
+  },
+  "d3ad67eb-6c19-4eee-9f9a-b784483c1a16": {
+   "title": "Somon ve Brokoli\n(9 ay+)",
+   "description": "Beyin hücrelerinin gelişimini destekleyen Omega-3 yağ asitleri açısından zengin ilk deniz ürünü ziyafeti.\n\nFaydası: Somon, beyin ve sinir sisteminin gelişimi için önemlidir. Brokoli ise kalsiyum ve C vitamini sağlar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Somon fileto: 30 gr (tamamen kılçıksız)",
+    "Brokoli: 2-3 çiçek",
+    "Zeytinyağı: Birkaç damla."
+   ],
+   "instructions": [
+    "Balığı ve brokoliyi buharda (veya az suda) iyice pişirin. Balığı çatalla didiklerken kılçık olup olmadığını tekrar kontrol edin. Brokoliyle birlikte ezin ve üzerine zeytinyağı gezdirin."
+   ]
+  },
+  "f04550c5-0fdb-4ab9-8b7b-831a4d2f5e5a": {
+   "title": "Sebzeli Pilav(4 yaş+)",
+   "description": "Bayram havasında, rengârenk sebzelerle dolu pilav.\n\nFaydası: Karbonhidrat, vitamin ve lifin tek tencerede birleştiği en doyurucu öğle yemeklerinden biridir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Basmati veya uzun taneli pirinç: 1 su bardağı",
+    "Havuç, bezelye, tatlı kırmızı biber, mısır: Her birinden 2 yemek kaşığı (küçük küpler halinde doğranmış)",
+    "Tereyağı ve tavuk suyu."
+   ],
+   "instructions": [
+    "Sebzeleri az miktarda tereyağında soteleyin. Yıkanmış pirinci ve tavuk suyunu ekleyip suyunu çekene ve pirinçler tane tane olana kadar pişirin."
+   ]
+  },
+  "dbb5731f-3844-4a55-a0b0-63c083018f90": {
+   "title": "Fırında Karnabahar Bifteği",
+   "description": "Vegan ve sağlıklı beslenme dünyasının en ünlü \"et alternatiflerinden\" biri. Görünümü bifteği andırır.\n\nFaydası: Kalorisi çok düşüktür, lif açısından zengindir ve fırında piştiğinde karnabaharın doğal şekeri karamelize olarak muhteşem bir lezzet oluşturur.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Karnabahar: 1 bütün baş (çok büyük)",
+    "Zeytinyağı: 2 yemek kaşığı",
+    "Sarımsak tozu, tatlı kırmızı toz biber (paprika), deniz tuzu, karabiber."
+   ],
+   "instructions": [
+    "Karnabaharı bütün halde yıkayın ve ortasından 2 santimetre kalınlığında bütün \"biftek\" dilimleri kesin. Fırın tepsisine yerleştirin, her iki yüzüne de zeytinyağı ve baharat karışımını fırçayla sürün. 200 derecede her iki tarafı kızarana kadar (yaklaşık 25-30 dakika) pişirin."
+   ]
+  },
+  "3c637a80-dd91-4c2f-bf85-45f21dbc4610": {
+   "title": "Pembe Flamingo Pankekleri(3 yaş+)",
+   "description": "Gıda boyası içermeyen, doğal pembe rengiyle çocukları büyüleyen bir kahvaltı.\n\nFaydası: Pancar kan dolaşımını güçlendirir ve bağışıklığı destekler. Yulaf ise çocuğu uzun süre tok ve enerjik tutar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Pancar püresi: 1 yemek kaşığı (pişmiş pancardan)",
+    "Yumurta: 1 adet",
+    "Yulaf unu: 3 yemek kaşığı",
+    "Süt: Yarım çay bardağı",
+    "Bal: Çok az (tatlandırmak için)"
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderda tamamen pürüzsüz ve pembe bir hamur elde edene kadar karıştırın. Yağsız tavada küçük daireler hâlinde her iki tarafını da pişirin."
+   ]
+  },
+  "13882a92-abb0-49d4-b8c0-e8f4f9c2ea1b": {
+   "title": "Meteorit Enerji Topları(5 yaş+)",
+   "description": "Kreşe veya parka giderken yanınızda taşıyabileceğiniz, şekersiz \"çikolatalı\" enerji.\n\nFaydası: Hurma ve kakao hızlı enerji verir; ceviz/fındık ise Omega-3 yağlarıyla cildi ve saçları besler.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yumuşak hurma: 8-10 adet (çekirdekleri çıkarılmış)",
+    "Yulaf: Yarım su bardağı",
+    "Kakao (şekersiz): 1 yemek kaşığı",
+    "Fındık veya ayçekirdeği: 2 yemek kaşığı."
+   ],
+   "instructions": [
+    "Tüm malzemeleri blenderda yapışkan bir karışım hâline gelene kadar çekin. Elinizle küçük \"meteoritler\" şekillendirin. Üzerlerine Hindistan cevizi rendesi de serpebilirsiniz. Buzdolabında 30 dakika beklettikten sonra servis edin."
+   ]
+  },
+  "9a57e53c-6cc6-4002-bebc-5ba8dd87a146": {
+   "title": "Keten Tohumlu ve Chialı Puding",
+   "description": "Hazırlaması 2 dakika süren, kahvaltı veya ara öğün için sindirim dostu ve tok tutan bir puding.\n\nFaydası: Chia ve keten tohumu, kendi ağırlıklarının birkaç katı kadar su çekerek şişer, midede tokluk hissi oluşturur ve kan şekerini düzenler.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Chia tohumu: 2 yemek kaşığı",
+    "Keten tohumu (öğütülmüş): 1 yemek kaşığı",
+    "Badem sütü (veya Hindistan cevizi sütü): 1 su bardağı",
+    "Doğal vanilya özütü ve 1 çay kaşığı bal."
+   ],
+   "instructions": [
+    "Tüm malzemeleri bir kavanozda iyice karıştırın. 10 dakika sonra topaklanmaması için tekrar karıştırıp buzdolabına koyun (en az 2 saat veya bir gece boyunca). Üzerini meyvelerle süsleyerek tüketin."
+   ]
+  },
+  "ceb5db8c-58a7-4fde-a771-d2ed012eb9df": {
+   "title": "Matcha ve Antep Fıstıklı Trüf",
+   "description": "Metabolizmayı hızlandıran ve cildi gençleştiren \"premium\" kahve yanı atıştırmalığı.\n\nFaydası: Matcha çayı, hücre yenilenmesini hızlandıran güçlü bir antioksidandır. Kaju ve Antep fıstığı, sağlıklı yağlarla cildin nemlenmesine yardımcı olur.",
+   "category": "Sağlıklı tatlılar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kaju (çiğ, suda bekletilmiş): 1 su bardağı",
+    "Hurma: 5-6 adet",
+    "Matcha tozu: 1 yemek kaşığı (ve bulamak için ilave)",
+    "Antep fıstığı: Yarım su bardağı (ufalanmış)"
+   ],
+   "instructions": [
+    "Tüm malzemeleri (Antep fıstığının yarısı hariç) blenderda yapışkan bir hamur elde edene kadar çekin. Elinizle toplar şekillendirin; yarısını matcha tozuna, diğer yarısını ince çekilmiş Antep fıstığına bulayın."
+   ]
+  },
+  "71967587-de0b-4a79-8b91-69af7cbe3013": {
+   "title": "Fas Usulü Sebzeli Tajin",
+   "description": "Kuzey Afrika'nın özel kaplarda ağır ağır pişirilen, sebze ve meyvelerin tatlı-tuzlu uyumunu buluşturan yemeği.\n\nFaydası: Nohut ve sebzeler, kan şekerini düzenlemeye yardımcı olan kompleks karbonhidratlar sağlar. Şeker eklenmeden kuru meyvelerle doğal olarak tatlandırılır.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Nohut (pişmiş): 1 su bardağı",
+    "Havuç, kabak, tatlı patates (iri doğranmış).",
+    "Kuru kayısı veya kuru üzüm: Yarım su bardağı",
+    "Tarçın, kimyon, toz zencefil, zeytinyağı, sebze suyu."
+   ],
+   "instructions": [
+    "Derin bir tencerede (veya geleneksel Tajin kabında) baharatları yağla ısıtın. Sebzeleri, nohudu ve kuru meyveleri ekleyin. Üzerine sebze suyunu döküp kapağı kapalı şekilde, kısık ateşte sebzeler tamamen yumuşayana kadar (40-45 dakika) pişirin. Kinoa veya kuskusla servis edin."
+   ]
+  },
+  "989c089a-7705-4f4f-aa06-64d202a23310": {
+   "title": "Smoothie Kasesi(4 yaş+)",
+   "description": "Sebze ve meyveleri sıvı hâlde sevdiren, kaşıkla yenen eğlenceli bir tatlı.\n\nFaydası: Bağışıklığı destekleyen bir vitamin deposudur. Çocuğun öğleden sonraki ara öğünü için mükemmeldir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Ispanak: 1 avuç",
+    "Dondurulmuş muz: 1 adet",
+    "Kivi: 1 adet",
+    "Yoğurt veya süt: Yarım su bardağı",
+    "Süslemek için: Kivi dilimlerinden kesilmiş dinozor \"dikenleri\" veya kemikleri."
+   ],
+   "instructions": [
+    "Ispanak, muz, kivi ve sütü blenderda koyu bir krema kıvamına gelene kadar çekin. Kaseye döküp üzerini, dinozor sırtını andıracak şekilde kivi dilimleriyle süsleyin."
+   ]
+  },
+  "9e271ac6-efc7-4123-9cc8-b60e93936503": {
+   "title": "Toskana Güneşi",
+   "description": "İtalya'nın ünlü \"Melanzane alla Parmigiana\" yemeğinin kızartılmadan hazırlanan, hafif ve sağlıklı versiyonu.\n\nFaydası: Patlıcan bir antioksidan deposudur. Geleneksel olarak kızartmak yerine fırında pişirildiği için kalorisi çok daha düşüktür; ancak İtalyan peynirlerinden gelen protein sayesinde doyurucudur.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Patlıcan: 2 büyük adet (uzunlamasına dilimlenmiş)",
+    "Doğal domates sosu: 2 su bardağı (sarımsak ve fesleğenle tatlandırılmış)",
+    "Mozzarella ve Parmesan peyniri: Rendelenmiş",
+    "Taze fesleğen, zeytinyağı."
+   ],
+   "instructions": [
+    "Patlıcan dilimlerine fırçayla zeytinyağı sürüp fırında yumuşayana kadar (15 dakika) ön pişirme yapın. Derin bir fırın kabına lazanya gibi kat kat domates sosu, patlıcan, peynir ve fesleğen yerleştirin. En üstteki peynir kızarana kadar 190 derecede 20 dakika pişirin."
+   ]
+  },
+  "80d2e83c-c415-4e59-854e-3c904d65b0ff": {
+   "title": "Narlı Yoğurt Barı",
+   "description": "Göz kamaştıran bir dondurma alternatifi. Serinletici ve aynı zamanda çıtır.\n\nFaydası: Nar taneleri, kadınlarda östrojen dengesini destekleyen fitoöstrojenler ve antioksidanlar bakımından zengindir. Yoğurt ise probiyotiktir.",
+   "category": "Sağlıklı tatlılar",
+   "ingredients": [
+    "Yoğurt (Yunan yoğurdu veya süzme): 1.5 su bardağı",
+    "Bal: 1 yemek kaşığı",
+    "Nar taneleri: Yarım su bardağı",
+    "Antep fıstığı: 2 yemek kaşığı (ufalanmış)."
+   ],
+   "instructions": [
+    "Yoğurdu balla karıştırıp yağlı kâğıt serilmiş düz bir kaba (0.5 cm kalınlığında) yayın. Üzerine nar ve Antep fıstığı serpip dondurucuda 3 saat bekletin. Donduktan sonra elinizle çikolata gibi parçalara ayırın."
+   ]
+  },
+  "38175de9-042b-4fc9-8a58-cdff56307d6d": {
+   "title": "Kayık Yumurtalar (3 yaş+)",
+   "description": "Yumurta sarısını sevmeyen çocuklar için \"gemi\" şeklinde eğlenceli bir atıştırmalık.\n\nFaydası: Yumurta sarısındaki kolin, 3 yaşındaki bir çocuğun hızla gelişen beyni ve hafızası için en önemli öğelerden biridir.",
+   "category": "Ek gıda",
+   "tags": [
+    "bebek_maması"
+   ],
+   "ingredients": [
+    "Katı haşlanmış yumurta: 2 adet",
+    "Yoğurt: 1 çay kaşığı",
+    "Çok küçük doğranmış renkli biber (\"hazineler\" için)",
+    "Peynir: Üçgen şeklinde ince dilimler (yelken için) ve kürdan."
+   ],
+   "instructions": [
+    "Yumurtaları uzunlamasına ikiye bölün. Sarılarını çıkarıp yoğurtla ezin, renkli biber parçalarını (hazineleri) ekleyin ve karışımı yeniden yumurta beyazlarına doldurun. Üçgen peynir dilimini kürdana geçirip \"yelken\" gibi yumurtaya saplayın (yerken kürdanı çıkarmayı unutmayın!)."
+   ]
+  },
+  "fef93b73-64a7-48d4-94bf-fe08f3ed1adc": {
+   "title": "Doldurulmuş Portobello Mantarı",
+   "description": "Kırmızı et tüketmeden et dokusu ve lezzeti sunan harika \"şapkalar\".\n\nFaydası: Portobello mantarı, cildin yaşlanmaya karşı korunmasına yardımcı olan selenyum minerali bakımından zengindir. Sindirimi oldukça kolaydır ve mideyi yormaz.",
+   "category": "akşam yemeği",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Portobello mantarı: 2 büyük adet (sapları çıkarılmış, içleri temizlenmiş)",
+    "Ispanak: 1 avuç (doğranmış)",
+    "Kinoa (veya bulgur): 2 yemek kaşığı (pişmiş)",
+    "Feta (veya beyaz peynir): 1 yemek kaşığı"
+   ],
+   "instructions": [
+    "Mantarların içini kinoa, ıspanak ve peynir karışımıyla doldurun. Fırın kabına yerleştirip üzerlerine biraz zeytinyağı gezdirin. 180 derecede mantarlar yumuşayana kadar pişirin."
+   ]
+  },
+  "6b9ff319-0e3b-432c-ae21-5efca3c9d50d": {
+   "title": "Yakut Kurabiyeleri",
+   "description": "Çay saati için unsuz, glütensiz ve reçelli \"parmak izi\" kurabiyeleri.\n\nFaydası: Badem unu cildi E vitaminiyle besler, ev yapımı chia \"reçeli\" ise Omega-3 ihtiyacını karşılar.",
+   "category": "Sağlıklı tatlılar",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Badem unu: 1.5 su bardağı",
+    "Bal veya agave şurubu: 3 yemek kaşığı",
+    "Hindistan cevizi yağı: 2 yemek kaşığı (eritilmiş)",
+    "Taze ahududu ve 1 yemek kaşığı chia tohumu (reçel için)."
+   ],
+   "instructions": [
+    "Ahududuları çatalla ezip chia tohumlarıyla karıştırın (koyulaşması için 15 dk. bekletin). Badem unu, yağ ve balı yoğurup küçük toplar hazırlayın. Ortalarına parmağınızla çukur açıp fırında 160 derecede 10 dk. pişirin. Fırından çıkarıp çukurları ahududulu chia reçeliyle doldurun."
+   ]
+  },
+  "55df2691-7b63-4f38-bfb6-d946010b6903": {
+   "title": "Pancar ve Elma Püresi\n(7 ay+)",
+   "description": "Bebeğinizin yanaklarına renk katacak, bağışıklığı güçlendiren tatlı bir püre.\n\nFaydası: Pancar, kansızlığa karşı en güçlü doğal desteklerden biridir. Elma ise pancarın topraksı tadını yumuşatır.",
+   "category": "Ek gıda",
+   "tags": [
+    "bebek_maması"
+   ],
+   "ingredients": [
+    "Pancar: 1 küçük adet",
+    "Elma: Yarım adet"
+   ],
+   "instructions": [
+    "Pancarı vitaminlerini kaybetmemesi için kabuğuyla haşlayın veya fırında pişirin. Ardından kabuğunu soyun ve elmayla birlikte blenderdan geçirerek tamamen püre hâline getirin. Kıyafetlerine dökülmemesine dikkat edin!"
+   ]
+  },
+  "03922c9b-57cd-4e60-9084-3b45e0d48642": {
+   "title": "Tuzlu Gökkuşağı Keki (2 yaş+)",
+   "description": "Tatlı gibi görünen ama aslında sebzeli ve peynirli olan tuzlu bir kek.\n\nFaydası: Yemek seçen bir çocuğa farklı sebzeleri (renkli biber, yeşillik) sevdirmenin pratik bir yoludur. Parka giderken yanınıza almak için de idealdir.",
+   "category": "Ek gıda",
+   "tags": [
+    "bebek_maması"
+   ],
+   "ingredients": [
+    "Yumurta: 2 adet",
+    "Yoğurt: 2 yemek kaşığı",
+    "Zeytinyağı: 1 yemek kaşığı",
+    "Kırmızı biber ve ıspanak: Çok ince doğranmış (1-2 yemek kaşığı)",
+    "Peynir (rendelenmiş): 2 yemek kaşığı",
+    "Un ve kabartma tozu (koyu kıvamlı bir kek hamuru elde edene kadar)."
+   ],
+   "instructions": [
+    "Sıvı malzemeleri (yumurta, yoğurt, yağ) çırpın. Sebzeleri ve peyniri ekleyin.",
+    "Son olarak un ve kabartma tozunu ekleyip karıştırın.",
+    "Muffin (kek) kalıplarına döküp 180 derecede 20 dakika, kabarıp kızarana kadar pişirin."
+   ]
+  },
+  "87d23e0f-a0db-4aa1-b0fb-794cb2b35b28": {
+   "title": "Chialı Avokado Tostu",
+   "description": "Klasik avokado tostunun daha fazla Omega-3 ve çıtırlık içeren, uzun süre tok tutan versiyonu.\n\nFaydası: Chia tohumları ile avokadonun birleşimi, cildi içeriden nemlendiren mükemmel bir sağlıklı yağ kombinasyonudur.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Çavdar veya tam buğday ekmeği: 1 dilim (kızartılmış)",
+    "Avokado: Yarım adet (olgun)",
+    "Chia tohumu: 1 çay kaşığı",
+    "Limon suyu, deniz tuzu, kırmızı pul biber."
+   ],
+   "instructions": [
+    "Avokadoyu çatalla ezip limon ve tuzla karıştırın. Kızarmış ekmeğin üzerine bolca sürün. Son olarak çıtırlık ve ekstra fayda katması için üzerine chia tohumu ve pul biber serpin."
+   ]
+  },
+  "f84c1bc3-0bf2-4206-b695-21d5ec9708da": {
+   "title": "Gül ve Orman Meyveli Spritz",
+   "description": "Cildiniz için sıvı kolajen ve antioksidan desteği. Çok zarif ve ferahlatıcı.\n\nFaydası: Orman meyveleri hücrelerin yaşlanmasını yavaşlatır, gül suyu ise cildi içeriden nemlendirerek doğal bir \"glow\" (ışıltı) kazandırır.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Taze ahududu veya çilek: 1 avuç",
+    "Gül suyu (içilebilir, katkısız): 1 yemek kaşığı",
+    "Soda (maden suyu): 1 su bardağı",
+    "Misket limonu: 1 dilim",
+    "Buz küpleri."
+   ],
+   "instructions": [
+    "Orman meyvelerini bardağın dibinde çatalla ezin. Üzerine buzları, gül suyunu ve misket limonu suyunu ekleyin. Son olarak sodayı ekleyip karıştırın"
+   ]
+  },
+  "792abbe5-dddc-4848-8d97-bdcb84318aee": {
+   "title": "Zerdeçallı Tatlı",
+   "description": "Cilde ışıltı kazandıran, iltihap karşıtı bir İtalyan klasiği.\n\nFaydası: Zerdeçal ve Hindistan cevizi sütü sivilcelerin içeriden iyileşmesine yardımcı olurken jelatin, tırnakları ve saçları güçlendiren doğal bir kolajen kaynağıdır.",
+   "category": "Sağlıklı tatlılar",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Hindistan cevizi sütü (konserve, koyu kıvamlı): 1 su bardağı",
+    "Zerdeçal tozu: 1 çay kaşığı",
+    "Bal: 2 yemek kaşığı",
+    "Yaprak jelatin: 2 adet (veya 1 çay kaşığı agar agar)"
+   ],
+   "instructions": [
+    "Jelatini soğuk suda bekletin. Sütü tencerede ısıtın (kaynatmayın), içine zerdeçal, bal ve yumuşamış jelatini ekleyip karıştırın. Küçük cam kaplara süzüp buzdolabında 3-4 saat donmaya bırakın."
+   ]
+  },
+  "45628e71-5b41-431f-b26f-8283c2b308a2": {
+   "title": "Tavuklu ve Kinoalı Protein Kasesi\n(9 ay+)",
+   "description": "Hareketliliği artan ve emekleyen bebekler için uzun süreli enerji kaynağı.\n\nFaydası: Tavuk kaliteli bir protein kaynağıdır; kinoa ise tahıllar arasında besin değeri en yüksek, glütensiz süper gıdalardan biridir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tavuk göğsü: 30 qr",
+    "Kabak: Yarım adetten az",
+    "Kinoa: 1 yemek kaşığı (önceden ıslatılmış ve yıkanmış)."
+   ],
+   "instructions": [
+    "Tavuğu haşlayın (ilk suyunu süzün). İkinci suyuna kinoayı ve doğranmış kabağı ekleyip hepsi tamamen yumuşayana kadar pişirin. Ardından blenderdan geçirin veya çatalla hafif pütürlü kalacak şekilde ezin."
+   ]
+  },
+  "cf74a166-77b4-4cd9-978f-5f84fbaf4d6d": {
+   "title": "Çıtır Balık Çubukları(2 yaş+)",
+   "description": "Marketlerde satılan dondurulmuş balık çubuklarının kızartılmadan hazırlanan, 100% doğal versiyonu.\n\nFaydası: Balık, bebeğin beyin ve göz gelişimi için gerekli olan Omega-3 yağ asitlerini sağlar.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Beyaz etli balık filetosu (örneğin levrek - kılçıksız): 100 qr (uzun şeritler hâlinde kesilmiş)",
+    "Yumurta: 1 adet (çırpılmış)",
+    "Yulaf unu (bulamak için)",
+    "Zeytinyağı, çok az tuz."
+   ],
+   "instructions": [
+    "Balık dilimlerini önce yumurtaya, ardından yulaf ununa bulayın.",
+    "Yağlı kâğıt serilmiş fırın tepsisine dizip üzerlerine fırçayla çok az zeytinyağı sürün.",
+    "190 derecede 15 dakika, çıtır olana kadar pişirin."
+   ]
+  },
+  "495abf5b-aca7-4840-8cc2-c8a7f267da78": {
+   "title": "Süpermen Kesadilyası(5 yaş+)",
+   "description": "İçinde gizlenmiş sebzelerle dolu, çocukların elleriyle yemeyi sevdiği bir Meksika lezzeti.\n\nFaydası: Siyah fasulye ve tavuk kaliteli protein kaynaklarıdır; peynir ise kemikleri güçlendiren kalsiyum açısından zengindir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tam buğday unundan lavaş (tortilla): 1 adet",
+    "Hollanda peyniri (rendelenmiş): 2 yemek kaşığı",
+    "Siyah fasulye (pişmiş) ve mısır: 1 yemek kaşığı",
+    "Didiklenmiş tavuk: 1 yemek kaşığı",
+    "Ispanak (çok ince doğranmış): Birkaç yaprak."
+   ],
+   "instructions": [
+    "Lavaşın yarısına peynir, tavuk, fasulye, mısır ve ıspanağı yayın. Diğer yarısını üzerine kapatın (yarım ay şeklinde). Sıcak tavada her iki yüzünü, peynir eriyip lavaş çıtırlaşana kadar kızartın. Üçgen dilimlere ayırıp servis edin."
+   ]
+  },
+  "405b0576-a236-4ed8-8698-3423fb1d2ff0": {
+   "title": "Tatlı Patatesli ve Mercimekli Köri",
+   "description": "İltihap karşıtı baharatlarla dolu, vegan ve glütensiz bir Hint mutfağı klasiği.\n\nFaydası: Köri ve zerdeçal bağışıklığı destekler, tatlı patates ise yemeğe doğal ve ipeksi bir tatlılık katar.",
+   "category": "genel",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Tatlı patates: 1 büyük adet (küp şeklinde doğranmış)",
+    "Kırmızı mercimek: 1 su bardağı",
+    "Hindistan cevizi sütü (konserve, yoğun kıvamlı): 1 su bardağı",
+    "Köri tozu: 1 yemek kaşığı",
+    "Ispanak: 1 avuç."
+   ],
+   "instructions": [
+    "Soğanı, sarımsağı ve köri tozunu yağda kavurun. Üzerine tatlı patatesi, mercimeği, Hindistan cevizi sütünü ve 2 su bardağı suyu ekleyin. Sebzeler tamamen pişene kadar kısık ateşte kaynatın. Ocaktan alırken ıspanağı ekleyip karıştırın."
+   ]
+  },
+  "2369413b-697e-4e19-93a2-ff9c61cde8f7": {
+   "title": "Sebzeli Köftecikler(1 yaş+)",
+   "description": "Sebze yemeyi reddeden çocuklar için sebzelerin içinde \"gizlendiği\" yumuşak köfteler.\n\nFaydası: Kırmızı et demir ihtiyacını karşılamaya yardımcı olur, gizli sebzeler ise lif ve vitamin sağlar. Çocuğun kendi eliyle tutup yemesi için idealdir.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yağsız dana kıyma: 150 qr",
+    "Kabak ve havuç: Her birinden dörtte bir adet (çok ince rendelenmiş ve suyu sıkılmış)",
+    "Soğan: Çok küçük bir parça (rendelenmiş)",
+    "Zeytinyağı."
+   ],
+   "instructions": [
+    "Tüm malzemeleri iyice yoğurun. Ceviz büyüklüğünde küçük köfteler hazırlayın. Yağlı kâğıt serilmiş fırında 180 derecede 20-25 dakika, kurutmadan pişirin."
+   ]
+  },
+  "a67b3fb0-1d8c-4568-bbb8-eea9c5b74c3a": {
+   "title": "Sebze Çubukları(5 yaş+)",
+   "description": "Sağlıksız patates kızartmalarına alternatif, fırında pişirilmiş rengârenk ve çıtır sebze çubukları.\n\nFaydası: Havuç ve tatlı patates, A vitamini ve beta-karoten deposudur; göz ve cilt sağlığını korumaya yardımcı olur.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tatlı patates, havuç, kabak: Her birinden yarım adet",
+    "Zeytinyağı: 1 yemek kaşığı",
+    "Kuru nane veya kekik, çok az tuz."
+   ],
+   "instructions": [
+    "Sebzeleri aynı boyda, uzun çubuklar (sihirli değnek) şeklinde kesin. Yağ ve baharatlarla karıştırıp fırın tepsisine yan yana dizin. 200 derecede 20-25 dakika, kenarları kızarana kadar pişirin."
+   ]
+  },
+  "244e5027-cbdf-4e83-8b58-62158b64f304": {
+   "title": "Altın Matcha İksiri",
+   "description": "İltihap karşıtı zerdeçal ile enerji veren matchanın muhteşem ikilisi.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 çay kaşığı matcha, yarım çay kaşığı zerdeçal (kurkuma), bir tutam karabiber, 1 su bardağı sıcak badem sütü, 1 çay kaşığı bal."
+   ],
+   "instructions": [
+    "Tüm malzemeleri sıcak süte ekleyip iyice karıştırın ve köpürtün."
+   ]
+  },
+  "287fe4e5-acde-487e-8549-304293001ae7": {
+   "title": "Buffalo Usulü Karnabahar",
+   "description": "Amerika'nın meşhur \"Buffalo Wings\" (tavuk kanatları) yemeğinin 100% vejetaryen ve sağlıklı alternatifi.\n\nFaydası: Çıtır fast-food isteğini tamamen karşılar; ancak tavuk yerine lifli karnabahar kullanılır ve kızartmak yerine fırında pişirilir.",
+   "category": "genel",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Karnabahar: 1 baş (çiçeklerine ayrılmış)",
+    "Tam buğday unu ve su: Hamur hazırlamak için (krep hamuru kıvamında)",
+    "Acı Buffalo sosu (veya herhangi bir acı sos+tereyağı karışımı)."
+   ],
+   "instructions": [
+    "Karnabahar çiçeklerini unlu ve sulu karışıma batırıp fırın tepsisine dizin. 200 derecede 20 dakika pişirin. Fırından çıkarıp üzerlerine acı sos gezdirin ve kenarları çıtırlaşana kadar yeniden 10 dakika fırında pişirin."
+   ]
+  },
+  "f1edbb7c-89ad-49b8-9c59-42461d445810": {
+   "title": "Hint Mercimek Püresi",
+   "description": "Vejetaryenlerin favorisi, baharatların gücüyle vücudu içeriden ısıtan altın renkli Hint yahnisi.\n\nFaydası: Zerdeçal ve zencefil vücuttaki iltihabın azalmasına yardımcı olur. Mercimek ise bitkisel protein içeriğiyle uzun süre tok tutar.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Kırmızı veya sarı mercimek: 1 su bardağı",
+    "Soğan, sarımsak, taze zencefil.",
+    "Zerdeçal (kurkuma) ve köri tozu: Her birinden 1 çay kaşığı.",
+    "Domates: 1 adet",
+    "Hindistan cevizi sütü: Çok az (üzeri için)."
+   ],
+   "instructions": [
+    "Soğan, sarımsak, zencefil ve baharatları yağda kokuları çıkana kadar kavurun. Doğranmış domatesi ve mercimeği ekleyin. Su ilave edip mercimekler tamamen dağılarak püre kıvamına (yahni gibi) gelene kadar pişirin. Üzerine Hindistan cevizi sütü gezdirip kişniş serpin."
+   ]
+  },
+  "bfa226ee-4fae-4a95-b348-aee056cab96b": {
+   "title": "Alman Patates Salatası",
+   "description": "Ağır, mayonezli salataları geride bırakan; hardallı ve sirkeli, hafif ve nefis bir Alman salatası.\n\nFaydası: Soğumuş patatesteki nişasta, prebiyotik özellikli \"dirençli nişasta\"ya dönüşür (bağırsak dostudur). Mayonez içermediği için kolesterol açısından daha hafif bir seçenektir.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Patates: 3-4 adet (haşlanmış, soğutulmuş, dilimlenmiş)",
+    "Kırmızı soğan: 1 küçük baş (ince doğranmış)",
+    "Taze maydanoz veya dereotu",
+    "Sosu için: 1 yemek kaşığı taneli hardal, 2 yemek kaşığı elma sirkesi, 3 yemek kaşığı zeytinyağı, tuz, karabiber."
+   ],
+   "instructions": [
+    "Ilık veya tamamen soğumuş patates dilimlerinin üzerine soğanı ve yeşillikleri ekleyin. Hardal, sirke ve yağı bir kavanozda çalkalayarak sos hazırlayın ve salatayla karıştırın."
+   ]
+  },
+  "82a7ccbd-e708-435c-afe7-61fd5589966e": {
+   "title": "Shrek's Mac & Cheese (3 yaş+)",
+   "description": "Güzel yeşil rengiyle dikkat çeken, içine ıspanak gizlenmiş peynirli makarna.\n\nFaydası: 3 yaşındaki çocukların çoğu ıspanağı çiğ veya pişmiş olarak yemeyi reddeder. Bu sos sayesinde fark etmeden bol miktarda demir alabilirler.",
+   "category": "Ek gıda",
+   "tags": [
+    "bebek_maması"
+   ],
+   "ingredients": [
+    "Makarna: 1 su bardağı",
+    "Ispanak: 1 büyük avuç",
+    "Süt: Yarım su bardağı",
+    "Mozzarella veya Gouda peyniri: 2 yemek kaşığı (rendelenmiş)."
+   ],
+   "instructions": [
+    "Makarnayı haşlayıp süzün. Ispanak ve sütü blenderda tamamen yeşil, pürüzsüz bir sıvı hâline gelene kadar çekin. Bu yeşil sütü sıcak tavaya dökün, peyniri ekleyip eritin. Son olarak makarnayı ekleyip iyice karıştırın."
+   ]
+  },
+  "9dca9acb-e3bc-495a-9af1-62c75bc63dca": {
+   "title": "Altın Mercimek ve Zencefil Çorbası",
+   "description": "Metabolizmayı harekete geçiren, içinizi ısıtan bir kış öğle yemeği.\n\nFaydası: Zencefil ve zerdeçal vücuttaki iltihabın (şişkinlik, sivilce, eklem ağrıları) azalmasına yardımcı olur; kırmızı mercimek ise tok tutar.",
+   "category": "öğle yemeği",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Kırmızı mercimek: 1 su bardağı",
+    "Taze zencefil: Fındık büyüklüğünde (rendelenmiş)",
+    "Zerdeçal (Kurkuma): Yarım çay kaşığı",
+    "Havuç, soğan.",
+    "Hindistan cevizi sütü: 2 yemek kaşığı (isteğe bağlı, üzeri için)."
+   ],
+   "instructions": [
+    "Tüm sebzeleri ve mercimeği suda yumuşayana kadar haşlayıp blenderdan geçirin. Zerdeçal ve zencefili ekleyip biraz daha kaynatın. Kâseye aldıktan sonra üzerine Hindistan cevizi sütü gezdirin."
+   ]
+  },
+  "0298f702-76b2-4fe4-995b-506dab64f0f1": {
+   "title": "Tatlı Patates ve Fasulye",
+   "description": "PMS (regl öncesi) döneminde tatlı ihtiyacını ve ruh hâli değişimlerini dengelemeye yardımcı olan bir tarif.\n\nFaydası: Tatlı patates ve siyah fasulye magnezyum açısından zengindir; sinir sistemini sakinleştirmeye, krampları azaltmaya yardımcı olur ve tok tutar.",
+   "category": "öğle yemeği",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Tatlı patates (batat): 1 adet (ortadan ikiye bölünmüş ve fırında tamamen pişirilmiş)",
+    "Siyah fasulye (veya kırmızı): 2 yemek kaşığı (haşlanmış)",
+    "Mısır: 1 yemek kaşığı",
+    "Avokado ezmesi (guacamole) ve misket limonu suyu."
+   ],
+   "instructions": [
+    "Pişmiş ve içi yumuşamış tatlı patatesin ortasına siyah fasulye ve mısırı doldurun. Üzerine avokado ezmesi koyup misket limonu suyu sıkın."
+   ]
+  },
+  "a7eb16f8-9a88-4ac0-92d3-fb7d3da355e0": {
+   "title": "Minik Ayı Püresi(1 yaş+)",
+   "description": "Eti çiğnemekte zorlanan çocuklar için ağızda dağılan, sulu bir kış yemeği.\n\nFaydası: Uzun süre pişen etin sindirimi daha kolaydır; et suyuyla hazırlanan yemeği de kemik gelişimi için faydalıdır.",
+   "category": "Ek gıda",
+   "tags": [
+    "bebek_maması"
+   ],
+   "ingredients": [
+    "Dana eti: 50 qr (çok küçük, nohut büyüklüğünde küpler)",
+    "Havuç ve patates: Yarım adet (küp doğranmış)",
+    "Domates: Dörtte bir (rendelenmiş)",
+    "Zeytinyağı ve su."
+   ],
+   "instructions": [
+    "Eti zeytinyağında rengi dönene kadar kavurun, üzerine domates ve su ekleyip yumuşayana kadar pişirin (düdüklü tencerede daha iyi olur). Ardından havuç ve patatesi ekleyip sebzeler ezilecek kadar yumuşayana dek pişirin."
+   ]
+  },
+  "55d6317c-4bcb-4a93-943a-dda17af68226": {
+   "title": "Golden Glow Tonic",
+   "description": "Vücuttaki iltihabı azaltmaya yardımcı olan ve hastalıklara karşı koruma sağlayan bir sabah toniği.\n\nFaydası: Zerdeçal güçlü ve doğal bir iltihap karşıtı desteğidir. Ciltteki kızarıklıkların ve eklem ağrılarının azalmasına yardımcı olur, cildin doğal ışıltısını geri kazandırır.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Ilık su: 1 su bardağı",
+    "Zerdeçal tozu: Yarım çay kaşığı",
+    "Karabiber: Bir tutam (zerdeçalın kana emilmesi için mutlaka gereklidir)",
+    "Limon suyu ve 1 çay kaşığı doğal elma sirkesi"
+   ],
+   "instructions": [
+    "Tüm malzemeleri iyice karıştırıp sabahları ılık hâlde (boğazınızı ve midenizi yakmayacak sıcaklıkta) yudum yudum için."
+   ]
+  },
+  "d945cba8-c55e-4693-91cb-3385f3ce8b99": {
+   "title": "Rengârenk Şişler(5 yaş+)",
+   "description": "Sebzeleri ve eti bir arada, renkli bir oyun gibi sunan şişler.\n\nFaydası: Çocuklara hem protein hem de vitaminleri aynı anda, eğlenceli bir yöntemle yedirmenin en pratik yollarından biridir.",
+   "category": "Ek gıda",
+   "tags": [
+    "bebek_maması"
+   ],
+   "ingredients": [
+    "Tavuk göğsü: 100 qr (kızartılmış veya haşlanmış, küp doğranmış)",
+    "Renkli dolmalık biberler (kırmızı, sarı), çeri domates ve salatalık (kalın doğranmış).",
+    "Küt uçlu tahta çubuklar (şişler)."
+   ],
+   "instructions": [
+    "Çubuklara sırasıyla çeri domates, tavuk küpü, sarı biber, salatalık ve yeniden tavuk geçirin. Renklerin gökkuşağı gibi sıralanmasına dikkat edin."
+   ]
+  },
+  "0732d705-b1b2-4b26-b8dc-748f80e0f06a": {
+   "title": "Andalusian Breeze - İspanyol Gazpaçosu",
+   "description": "İspanya'nın güneyinden gelen, pişirilmeden hazırlanan serinletici, çiğ ve vitamin dolu domates çorbası.\n\nFaydası: Tam bir \"meyve ve sebze\" detoksudur. Likopen (domates) ve C vitamini (biber) sayesinde cildi güneşin zararlı ışınlarına karşı içeriden korur.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Çok olgun, kırmızı domates: 4-5 adet",
+    "Salatalık: 1 adet (soğutulmuş)",
+    "Yeşil dolmalık biber: Yarım adet",
+    "Kırmızı soğan ve sarımsak (çok az)",
+    "Sızma zeytinyağı (2 yemek kaşığı) ve elma sirkesi (1 yemek kaşığı)."
+   ],
+   "instructions": [
+    "Tüm malzemeleri blendera koyun; zeytinyağı, sirke ve biraz tuz ekleyip tamamen sıvı (çorba) kıvamına gelene kadar çekin. Buz gibi soğuyana kadar buzdolabında en az 2 saat bekletin."
+   ]
+  },
+  "6a513f71-83a0-47b7-94eb-0de33be5ff6d": {
+   "title": "Gold Mac & Cheese (2 yaş+)",
+   "description": "Çocukların en sevdiği peynirli makarnanın içine sebzelerin gizlendiği çok sağlıklı bir versiyon.\n\nFaydası: Klasik unlu ve yağlı sos yerine, sosun temelini bal kabağı ve havuç oluşturur. Bol miktarda A vitamini ve kalsiyum kaynağıdır.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tam buğday makarna (dirsek veya burgu şeklinde): 1 su bardağı",
+    "Bal kabağı ve havuç (haşlanmış): Her birinden yarım su bardağı",
+    "Süt: Yarım su bardağı",
+    "Çedar (Cheddar) veya Hollanda peyniri: 3 yemek kaşığı rendelenmiş"
+   ],
+   "instructions": [
+    "Makarnayı suda tamamen pişene kadar haşlayıp süzün.",
+    "Pişmiş bal kabağı, havuç ve sütü blenderda tamamen pürüzsüz, turuncu bir krema (sos) kıvamına gelene kadar çekin.",
+    "Sosu sıcak tavaya dökün, üzerine rendelenmiş peyniri ekleyip eritin. Son olarak makarnaları sosa ekleyip karıştırın."
+   ]
+  },
+  "60680ede-d11d-4b46-a277-695525f7d111": {
+   "title": "Yıldızlı Gece Çorbası(3 yaş+)",
+   "description": "Çorba içmeyi sevmeyen çocuklar için içinde yıldızların yüzdüğü, kemik suyu ile hazırlanan lezzetli bir tarif.\n\nFaydası: Kemik suyu kolajen ve kalsiyum açısından zengindir; çocukların boylarının uzamasına ve kemiklerinin güçlenmesine yardımcı olur.",
+   "category": "Ek gıda",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Sade kemik veya tavuk suyu: 2 su bardağı",
+    "Yıldız şeklinde küçük makarna: 2 yemek kaşığı",
+    "Havuç: Yarım adet (çok küçük yıldızlar şeklinde kesilmiş)",
+    "Maydanoz: Çok az (üzeri için)."
+   ],
+   "instructions": [
+    "Et suyunu kaynatın, içine yıldız makarnaları ve yıldız şeklinde kesilmiş havuçları ekleyin. Makarnalar tamamen yumuşayana kadar (yaklaşık 8-10 dakika) pişirin."
+   ]
+  },
+  "40f5ac74-8479-42d8-bab7-5b56e15de9ae": {
+   "title": "Matcha Strawberry Cloud",
+   "description": "Sosyal medyanın en trend içeceği. Cildi besleyen bir antioksidan bombası.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 çay kaşığı matcha tozu (ılık suda çözülmüş), 4-5 adet taze çilek (ezilerek püre haline getirilmiş), 1 su bardağı badem sütü, buz."
+   ],
+   "instructions": [
+    "Bardağın dibine çilek püresini koyun, üzerine buzları ve sütü ekleyin. Son olarak çözülmüş yeşil matchayı, renkler katmanlar hâlinde (altta pembe, üstte yeşil) kalacak şekilde yavaşça dökün."
+   ]
+  },
+  "0d809ddc-e476-418c-9f34-67e7b608cf9f": {
+   "title": "Bademli Pankek ve Chia Reçeli",
+   "description": "Normal unla hazırlanan pankeklere glutensiz ve şekersiz bir \"sağlıklı yaşam\" alternatifi.\n\nFaydası: Badem unu kan şekerini aniden yükseltmez (düşük glisemik indeks). Chia reçeli ise endüstriyel reçellerdeki şekerden uzak durmanızı sağlar.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Badem unu: 1 su bardağı",
+    "Yumurta: 2 adet",
+    "Badem sütü: Dörtte bir su bardağı",
+    "Reçel için: 1 su bardağı dondurulmuş ahududu ve 2 yemek kaşığı chia tohumu."
+   ],
+   "instructions": [
+    "Ahududuları ısıtıp ezin, içine chia tohumlarını ekleyin ve soğuyarak koyulaşmaya bırakın. Diğer tarafta badem unu, yumurta ve sütü çırpıp tavada küçük pankekler pişirin. Üzerine hazırladığınız şekersiz chia reçelini dökün."
+   ]
+  },
+  "53cbba9d-f39f-4a00-950a-386243d164bd": {
+   "title": "Peru Ceviche'si",
+   "description": "Latin Amerika'ya özgü, balığın ateş kullanılmadan yalnızca narenciye asidiyle \"piştiği\", serinletici ve protein dolu bir tarif.\n\nFaydası: Sıfır ilave yağ, maksimum kaliteli protein. Diyet yapanların en sevdiği lezzetlerden biridir.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Beyaz balık filetosu (çok taze ve kılçıksız): 200 qr (küçük küpler hâlinde kesilmiş)",
+    "Misket limonu suyu: Yarım su bardağı (taze sıkılmış)",
+    "Kırmızı soğan: Yarım adet (ince yarım ay şeklinde doğranmış)",
+    "Taze kişniş, acı jalapeno biberi (isteğe göre), tuz."
+   ],
+   "instructions": [
+    "Çiğ balık küplerini cam bir kaba koyun, üzerine misket limonu suyunu ve biraz tuz dökün. Meyve suyu, balığın rengini beyazlatarak onu \"pişirecek\". Buzdolabında 20-30 dakika bekletin. Servisten hemen önce soğan ve kişnişi ekleyip karıştırın."
+   ]
+  },
+  "dded217d-3179-4368-8e13-255ed13ea4cf": {
+   "title": "İskandinav Smørrebrød",
+   "description": "Danimarka ve Norveç'e özgü, koyu renkli çavdar ekmeği üzerinde hazırlanan açık sandviç sanatı.\n\nFaydası: Çavdar ekmeği kompleks bir karbonhidrattır (kan şekerini aniden yükseltmez). Somon ise İskandinavların uzun yaşam sırrı olan Omega-3 deposudur.",
+   "category": "general",
+   "ingredients": [
+    "Koyu renkli, taneli çavdar ekmeği: 1 büyük dilim",
+    "Krem peynir (labne): 1 yemek kaşığı",
+    "Tütsülenmiş veya tuzlanmış somon: 2-3 dilim",
+    "Kırmızı soğan halkaları, taze dereotu, turp dilimleri."
+   ],
+   "instructions": [
+    "Ekmeğin üzerine krem peynir sürün. Balık dilimlerini dalgalı bir şekilde yerleştirin. Üzerini soğan halkaları, ince dilimlenmiş turp ve bol dereotuyla süsleyip estetik bir şekilde servis edin."
+   ]
+  },
+  "23f9812f-031f-4161-95cf-ce2d96da0985": {
+   "title": "Kinoa Tabbulesi (Lübnan Mutfağı)",
+   "description": "Geleneksel bulgurun yerine glutensiz ve daha fazla protein içeren kinoanın kullanıldığı meşhur Orta Doğu salatası.\n\nFaydası: Hafiftir; lif ve C vitamini (bol maydanoz sayesinde) deposudur. Kan şekerini düzenler.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kinoa (pişirilmiş ve soğutulmuş): 1 su bardağı",
+    "Taze maydanoz (çok ince doğranmış): 2 büyük demet",
+    "Taze nane: 1 küçük demet",
+    "Domates: 2 adet (küçük küpler hâlinde doğranmış)",
+    "Taze soğan: 3-4 dal",
+    "Sızma zeytinyağı ve bol limon suyu, tuz."
+   ],
+   "instructions": [
+    "Derin bir kâsede doğranmış tüm yeşillikleri ve sebzeleri pişmiş kinoayla karıştırın. Üzerine bol miktarda zeytinyağı ve limon suyu gezdirip iyice harmanlayın. Buzdolabında en az 30 dakika dinlendirin."
+   ]
+  },
+  "4562e352-5778-4e1f-951e-cc27bf63469a": {
+   "title": "Pesto Soslu Kabak Spagetti",
+   "description": "Makarna yeme keyfi sunan, ancak kesinlikle kilo aldırmayan mucizevi bir tarif.\n\nFaydası: Kalorisi çok düşüktür. Pesto sosundaki zeytinyağı ve fesleğen güçlü antioksidanlardır, hücrelerin genç kalmasına yardımcı olur.",
+   "category": "öğle yemeği",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Kabak: 2 orta boy (özel bir aletle spagetti şeklinde doğranmış)",
+    "Pesto sosu: 2 yemek kaşığı (taze fesleğen, zeytinyağı, ceviz, ezilmiş sarımsak)",
+    "Çeri domates: 4-5 adet."
+   ],
+   "instructions": [
+    "Kabak spagettileri tavada az miktarda zeytinyağıyla yalnızca 2-3 dakika soteleyin (fazla pişirmeyin, çıtır kalsın). Ocaktan alıp pesto sosu ve ikiye bölünmüş domateslerle karıştırın."
+   ]
+  },
+  "cdafe114-fffe-4d67-b795-0770d33715ea": {
+   "title": "Brokoli ve Dana Eti Sote",
+   "description": "Ünlü Asya (Çin) mutfağının tüm dünyada sevilen en sağlıklı klasiklerinden biri.\n\nFaydası: Demir (etten) ile kalsiyum/vitamin C (brokoliden) arasında mükemmel bir denge sağlar. Hızlı hazırlanır.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Dana eti (bonfile, çok ince dilimlenmiş): 250 qr",
+    "Brokoli: 1 bütün baş (çiçeklerine ayrılmış)",
+    "Soya sosu (az tuzlu): 3 yemek kaşığı",
+    "Taze zencefil ve sarımsak (ezilmiş).",
+    "Susam yağı ve susam tohumu."
+   ],
+   "instructions": [
+    "Eti tavada (wok) yüksek ateşte hızlıca kavurup kenara alın. Aynı tavaya brokoli, sarımsak ve zencefili ekleyip 3-4 dakika soteleyin (brokoli çıtır kalmalıdır). Eti tekrar tavaya alın, soya sosunu ekleyip 1 dakika karıştırın; üzerine susam serpip ocaktan alın."
+   ]
+  },
+  "d73926c7-3c66-41bd-88a6-1a28c3a2f959": {
+   "title": "Keten Tohumlu ve Badem Unlu Kraker",
+   "description": "Marketlerde satılan sağlıksız cipslerin yerine geçebilecek, 100% glütensiz, karbonhidratsız (Keto) ev yapımı krakerler.\n\nFaydası: Badem unu E vitamini açısından zengindir, keten tohumu ise bağırsakların çalışmasını mükemmel şekilde düzenler.",
+   "category": "genel",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Badem unu: 1 su bardağı",
+    "Keten tohumu (öğütülmüş): 3 yemek kaşığı",
+    "Su: 3 yemek kaşığı",
+    "Zeytinyağı: 1 yemek kaşığı",
+    "Tuz ve kuru kekik."
+   ],
+   "instructions": [
+    "Tüm malzemeleri bir kapta yoğurarak hamur elde edin. İki yağlı kâğıt arasında merdaneyle çok ince (cips gibi) açın. Bıçakla karelere kesip 170 derece fırında 15-20 dakika, çıtır olana kadar pişirin."
+   ]
+  },
+  "9af7ce60-d92c-4cdf-bbaf-e2276dc4e407": {
+   "title": "Cacao Maca Magic",
+   "description": "Kadınlık hormonlarını dengeleyen ve mutluluk hormonunu zirveye taşıyan ılık bir lezzet.\n\nFaydası: Peru kökenli \"Maca\" (Maka) kökü tozu, kadınlarda hormonların (PMS ve menopoz döneminde) düzenlenmesine yardımcı olur; enerjiyi ve libidoyu artırır. Kakao ise bir magnezyum kaynağıdır.",
+   "category": "Sağlıklı içecekler",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Şekersiz, saf kakao tozu: 1 yemek kaşığı",
+    "Maca (maka) tozu: 1 çay kaşığı",
+    "Badem veya fındık sütü: 1 su bardağı",
+    "Tarçın ve bal."
+   ],
+   "instructions": [
+    "Tüm malzemeleri küçük bir tencerede ısıtarak iyice (köpürene kadar) çırpın. Sıcak çikolata gibi, akşamüstü keyfi için için."
+   ]
+  },
+  "4b5bc08b-15b1-4187-aa19-05b7b3bb4ae4": {
+   "title": "Nohutlu Blondie",
+   "description": "İçinde nohut olduğuna kimsenin inanmayacağı, karamelli ve unsuz bir kek.\n\nFaydası: Bu tatlı saf protein ve kompleks karbonhidrat kaynağıdır. Glütene bağlı şişkinliğe yol açmaz ve akşam egzersizinden sonra (kasların toparlanması için) çayın yanında harika gider.",
+   "category": "Sağlıklı tatlılar",
+   "tags": [
+    "genel"
+   ],
+   "ingredients": [
+    "Konserve nohut: 1 su bardağı (iyice yıkanmış ve kabukları soyulmuş)",
+    "Fıstık ezmesi: 3 yemek kaşığı",
+    "Bal veya akçaağaç şurubu: 3 yemek kaşığı",
+    "Vanilya, kabartma tozu.",
+    "Damla çikolata (bitter)."
+   ],
+   "instructions": [
+    "Çikolata dışındaki tüm malzemeleri blenderda tamamen pürüzsüz (hamur kıvamında) olana kadar çekin. Damla çikolatayı ekleyip küçük, kare bir kek kalıbına dökün. 175 derecede 20 dk. pişirin. Ilıkken dilimleyin."
+   ]
+  }
+ }
+}

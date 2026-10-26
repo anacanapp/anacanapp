@@ -1,0 +1,100 @@
+{
+ "zodiac_signs": {
+  "e8480426-84cc-414a-a75e-9f7da5e49e78": {
+   "name": "Boğa",
+   "characteristics": [
+    "İstikrarlı",
+    "Sadık",
+    "Sabırlı"
+   ]
+  },
+  "ed8b5914-f3cb-471d-bcd2-35c894a3401c": {
+   "name": "Terazi",
+   "characteristics": [
+    "Uyumlu",
+    "Adil",
+    "Diplomatik"
+   ]
+  },
+  "0295528f-4b9c-437d-bdfc-6fa2b66dd531": {
+   "name": "Balık",
+   "characteristics": [
+    "Yaratıcı",
+    "Empatik",
+    "Romantik"
+   ]
+  },
+  "0b65d9df-ce1c-44df-8724-06251e2725e4": {
+   "name": "Kova",
+   "characteristics": [
+    "Yenilikçi",
+    "Bağımsız",
+    "Hümanist"
+   ]
+  },
+  "2344b1a7-1b1b-4e37-9d66-035040f53a86": {
+   "name": "İkizler",
+   "characteristics": [
+    "İletişimci",
+    "Esnek",
+    "Meraklı"
+   ]
+  },
+  "41c55815-59c1-4b21-9963-466d320e210a": {
+   "name": "Aslan",
+   "characteristics": [
+    "Lider",
+    "Yaratıcı",
+    "Özgüvenli"
+   ]
+  },
+  "4257b2f1-63fc-4f32-9347-b7cc7e13422b": {
+   "name": "Oğlak",
+   "characteristics": [
+    "Hedef odaklı",
+    "Sorumluluk sahibi",
+    "Sabırlı"
+   ]
+  },
+  "54ba68d1-c870-481b-b940-bd62b9431bd8": {
+   "name": "Koç",
+   "characteristics": [
+    "Enerjik",
+    "Cesur",
+    "Rekabetçi"
+   ]
+  },
+  "ad6ddcb0-d044-49c4-a772-1ec06724df96": {
+   "name": "Yay",
+   "characteristics": [
+    "İyimser",
+    "Maceracı",
+    "Özgür"
+   ]
+  },
+  "b2cba153-e410-4c0d-80cb-3c282b1a72ee": {
+   "name": "Yengeç",
+   "characteristics": [
+    "Şefkatli",
+    "Duygusal",
+    "Aileyi seven"
+   ]
+  },
+  "b90235bb-69b9-46fc-8382-1856023d4343": {
+   "name": "Başak",
+   "characteristics": [
+    "Analitik",
+    "Pratik",
+    "Dikkatli"
+   ]
+  },
+  "c15e1f48-c174-43da-925b-5bf91c7581c1": {
+   "name": "Akrep",
+   "characteristics": [
+    "Yoğun",
+    "Güçlü",
+    "Sadık"
+   ]
+  }
+ }
+}

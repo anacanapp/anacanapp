@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "untranslated_kart_sahibi_lpyfn9",
+  "az": "Kart sahibi:",
+  "en": "Cardholder:"
+ },
+ {
+  "key": "untranslated_kateqoriya_d7bf4y",
+  "az": "Kateqoriya",
+  "en": "Category"
+ },
+ {
+  "key": "untranslated_kupon_endirimi_hqg79o",
+  "az": "Kupon endirimi:",
+  "en": "Coupon discount:"
+ },
+ {
+  "key": "untranslated_kupon_endirimi_itwejz",
+  "az": "Kupon endirimi",
+  "en": "Coupon discount"
+ },
+ {
+  "key": "untranslated_kupon_kodu_xiawxh",
+  "az": "Kupon kodu",
+  "en": "Coupon code"
+ },
+ {
+  "key": "untranslated_maks_6z8ju8",
+  "az": "Maks",
+  "en": "Max"
+ },
+ {
+  "key": "untranslated_maksimum_5mb_86tog9",
+  "az": "Maksimum 5MB",
+  "en": "Maximum 5MB"
+ },
+ {
+  "key": "untranslated_menstruasiya_6pect0",
+  "az": "Menstruasiya",
+  "en": "Menstruation"
+ },
+ {
+  "key": "untranslated_mesaj_3c09op",
+  "az": "Mesaj",
+  "en": "Message"
+ },
+ {
+  "key": "untranslated_mesaj_x98xat",
+  "az": "Mesaj:",
+  "en": "Message:"
+ },
+ {
+  "key": "untranslated_mesajlar_ak8wzw",
+  "az": "Mesajlar",
+  "en": "Messages"
+ },
+ {
+  "key": "untranslated_minimum_6_simvol_nifi5y",
+  "az": "Minimum 6 simvol",
+  "en": "Minimum 6 characters"
+ },
+ {
+  "key": "untranslated_onlayn_xfaffi",
+  "az": "Onlayn",
+  "en": "Online"
+ },
+ {
+  "key": "untranslated_orta_enerji_ojxdi0",
+  "az": "Orta Enerji",
+  "en": "Medium Energy"
+ },
+ {
+  "key": "untranslated_orta_period_tvx5me",
+  "az": "Orta period",
+  "en": "Average Period"
+ },
+ {
+  "key": "untranslated_orta_tsikl_vxzcvs",
+  "az": "Orta tsikl",
+  "en": "Average Cycle"
+ },
+ {
+  "key": "untranslated_orta_yslkg0",
+  "az": "Orta",
+  "en": "Medium"
+ },
+ {
+  "key": "untranslated_ortalama_qxgps6",
+  "az": "Ortalama",
+  "en": "Average"
+ },
+ {
+  "key": "untranslated_ovulyasiya_h9aw8t",
+  "az": "Ovulyasiya",
+  "en": "Ovulation"
+ },
+ {
+  "key": "untranslated_oxunub_u7g1tz",
+  "az": "Oxunub",
+  "en": "Read"
+ },
+ {
+  "key": "untranslated_partner_profili_lip00f",
+  "az": "Partner Profili",
+  "en": "Partner Profile"
+ },
+ {
+  "key": "untranslated_profil_v8b0sk",
+  "az": "Profil",
+  "en": "Profile"
+ },
+ {
+  "key": "untranslated_proqnoz_rt0tdx",
+  "az": "Proqnoz",
+  "en": "Forecast"
+ },
+ {
+  "key": "untranslated_pulsuz_27d02z",
+  "az": "Pulsuz",
+  "en": "Free"
+ },
+ {
+  "key": "untranslated_qalereyadan_w37f0m",
+  "az": "Qalereyadan",
+  "en": "From gallery"
+ },
+ {
+  "key": "untranslated_qeyd_edilir_df7cba",
+  "az": "Qeyd edilir...",
+  "en": null
+ },
+ {
+  "key": "untranslated_qeyd_z0999u",
+  "az": "Qeyd",
+  "en": "Note"
+ },
+ {
+  "key": "untranslated_randevu_xc37do",
+  "az": "Randevu",
+  "en": "Appointment"
+ },
+ {
+  "key": "untranslated_resept_axtar_8odzsd",
+  "az": "Resept axtar...",
+  "en": "Search recipe..."
+ },
+ {
+  "key": "untranslated_sakit_saatlar_myw4sq",
+  "az": "Sakit saatlar",
+  "en": "Quiet hours"
+ },
+ {
+  "key": "untranslated_sil_zwa7lz",
+  "az": "Sil",
+  "en": "Delete"
+ },
+ {
+  "key": "untranslated_silindi_u8c6ca",
+  "az": "Silindi!",
+  "en": null
+ },
+ {
+  "key": "untranslated_silinir_u86cva",
+  "az": "Silinir...",
+  "en": null
+ },
+ {
+  "key": "untranslated_simptomlar_xhm7bx",
+  "az": "Simptomlar",
+  "en": "Symptoms"
+ },
+ {
+  "key": "untranslated_son_menstruasiya_tarixi_fgz9t7",
+  "az": "Son menstruasiya tarixi",
+  "en": "Last menstruation date"
+ },
+ {
+  "key": "untranslated_son_sessiyalar_dkgjsl",
+  "az": "Son sessiyalar",
+  "en": "Last sessions"
+ },
+ {
+  "key": "untranslated_sonra_1f3m9s",
+  "az": "Sonra",
+  "en": "Later"
+ },
+ {
+  "key": "untranslated_story_silinsin_yil9td",
+  "az": "Story silinsin?",
+  "en": "Delete story?"
+ },
+ {
+  "key": "untranslated_su_yvcozn",
+  "az": "Su",
+  "en": "Water"
+ },
+ {
+  "key": "untranslated_tarix_15qhck",
+  "az": "Tarix:",
+  "en": "Date:"
+ },
+ {
+  "key": "untranslated_tarix_6hhkyx",
+  "az": "Tarix",
+  "en": "Date"
+ },
+ {
+  "key": "untranslated_taymer_uen6sv",
+  "az": "Taymer",
+  "en": "Timer"
+ },
+ {
+  "key": "untranslated_telefon_vwjgg5",
+  "az": "Telefon",
+  "en": "Phone"
+ },
+ {
+  "key": "untranslated_tip_5d1vhb",
+  "az": "Tip:",
+  "en": "Type:"
+ },
+ {
+  "key": "untranslated_toplam_lheej5",
+  "az": "Toplam",
+  "en": "Total"
+ },
+ {
+  "key": "untranslated_toplam_xal_dy1dwr",
+  "az": "Toplam Xal",
+  "en": "Total Score"
+ },
+ {
+  "key": "untranslated_tortlar_go6yj8",
+  "az": "Tortlar 🎂",
+  "en": "Cakes 🎂"
+ },
+ {
+  "key": "untranslated_variasiya_nbjh0m",
+  "az": "Variasiya",
+  "en": "Variation"
+ },
+ {
+  "key": "untranslated_vaxt_8etncj",
+  "az": "Vaxt",
+  "en": "Time"
+ },
+ {
+  "key": "untranslated_veb_sayt_16w317",
+  "az": "Veb sayt",
+  "en": "Website"
+ },
+ {
+  "key": "untranslated_vebsayt_7bupzh",
+  "az": "Vebsayt",
+  "en": "Website"
+ },
+ {
+  "key": "untranslated_yadda_saxla_bpdu9v",
+  "az": "Yadda saxla",
+  "en": "Save"
+ },
+ {
+  "key": "useachievements_1_ci_trimester_12345",
+  "az": "1-ci trimester",
+  "en": "1st trimester"
+ },
+ {
+  "key": "useachievements_1_ci_trimestri_tamamladiniz_82953e",
+  "az": "1-ci trimestri tamamladınız",
+  "en": "You completed the 1st trimester"
+ },
+ {
+  "key": "useachievements_10_ceki_qeydi_etdiniz_15ea30",
+  "az": "10 çəki qeydi etdiniz",
+  "en": "You made 10 weight records"
+ },
+ {
+  "key": "useachievements_10_mehsul_elave_etdiniz_269710",
+  "az": "10 məhsul əlavə etdiniz",
+  "en": "You added 10 products"
+ },
+ {
+  "key": "useachievements_10_sevgi_gonderdiniz_daf5b1",
+  "az": "10 sevgi göndərdiniz",
+  "en": "You sent 10 loves"
+ },
+ {
+  "key": "useachievements_100_bez_deyisme_qeyd_etdiniz_5fd4f5",
+  "az": "100 bez dəyişmə qeyd etdiniz",
+  "en": "You recorded 100 diaper changes"
+ },
+ {
+  "key": "useachievements_100_qidalanma_qeyd_etdiniz_34567",
+  "az": "100 qidalanma qeyd etdiniz",
+  "en": "Recorded 100 feeds"
+ },
+ {
+  "key": "useachievements_100_tepik_qeyd_etdiniz_7cff23",
+  "az": "100 təpik qeyd etdiniz",
+  "en": "You recorded 100 kicks"
+ },
+ {
+  "key": "useachievements_2_ci_trimester_23456",
+  "az": "2-ci trimester",
+  "en": "2nd trimester"
+ },
+ {
+  "key": "useachievements_2_ci_trimestri_tamamladiniz_bd7d13",
+  "az": "2-ci trimestri tamamladınız",
+  "en": "You completed the 2nd trimester"
+ },
+ {
+  "key": "useachievements_3_ay_dovr_izlediniz_0c7214",
+  "az": "3 ay dövr izlədiniz",
+  "en": "You tracked your cycle for 3 months"
+ },
+ {
+  "key": "useachievements_3_cu_trimester_03fa4b",
+  "az": "3-cü trimester",
+  "en": "3rd trimester"
+ },
+ {
+  "key": "useachievements_3_cu_trimestri_tamamladiniz_7a26a5",
+  "az": "3-cü trimestri tamamladınız",
+  "en": "You completed the 3rd trimester"
+ },
+ {
+  "key": "useachievements_30_gun_simptom_qeyd_etdiniz_4ebd0c",
+  "az": "30 gün simptom qeyd etdiniz",
+  "en": "You recorded symptoms for 30 days"
+ },
+ {
+  "key": "useachievements_5_inkisaf_merhelesini_qeyd_etdiniz_831f29",
+  "az": "5 inkişaf mərhələsini qeyd etdiniz",
+  "en": "You recorded 5 development milestones"
+ },
+ {
+  "key": "useachievements_5_merhele_aaa997",
+  "az": "5 mərhələ",
+  "en": "5 milestones"
+ },
+ {
+  "key": "useachievements_50_yuxu_qeyd_etdiniz_45678",
+  "az": "50 yuxu qeyd etdiniz",
+  "en": "Recorded 50 sleep sessions"
+ },
+ {
+  "key": "useachievements_7_gun_ardicil_8_stekan_su_icdiniz_4a8763",
+  "az": "7 gün ardıcıl 8 stəkan su içdiniz",
+  "en": "You drank 8 glasses of water for 7 consecutive days"
+ },
+ {
+  "key": "useachievements_7_gun_ardicil_tetbiqi_istifade_etdiniz_74a7d5",
+  "az": "7 gün ardıcıl tətbiqi istifadə etdiniz",
+  "en": "You used the app for 7 consecutive days"
+ },
+ {
+  "key": "useachievements_aktiv_partner_56789",
+  "az": "Aktiv partner",
+  "en": "Active partner"
+ },
+ {
+  "key": "useachievements_alis_veris_komekcisi_429aaa",
+  "az": "Alış-veriş köməkçisi",
+  "en": "Shopping assistant"
+ },
+ {
+  "key": "useachievements_bez_qehremani_72c596",
+  "az": "Bez qəhrəmanı",
+  "en": "Diaper hero"
+ },
+ {
+  "key": "useachievements_ceki_izleyicisi_a28936",
+  "az": "Çəki izləyicisi",
+  "en": "Weight tracker"
+ },
+ {
+  "key": "useachievements_destek_ulduzu_843f2b",
+  "az": "Dəstək ulduzu",
+  "en": "Support star"
+ },
+ {
+  "key": "useachievements_dovr_eksperti_a59aef",
+  "az": "Dövr eksperti",
+  "en": "Cycle expert"
+ },
+ {
+  "key": "useachievements_icma_uzvu_7f7890",
+  "az": "İcma üzvü",
+  "en": "Community member"
+ },
+ {
+  "key": "useachievements_ilk_ay_de1d29",
+  "az": "İlk ay",
+  "en": "First month"
+ },
+ {
+  "key": "useachievements_ilk_gundelik_qeydinizi_etdiniz_5668b4",
+  "az": "İlk gündəlik qeydinizi etdiniz",
+  "en": "You made your first daily record"
+ },
+ {
+  "key": "useachievements_ilk_hefte_7228fd",
+  "az": "İlk həftə",
+  "en": "First week"
+ },
+ {
+  "key": "useachievements_ilk_inkisaf_merhelesini_qeyd_etdiniz_50d5c9",
+  "az": "İlk inkişaf mərhələsini qeyd etdiniz",
+  "en": "You recorded the first development milestone"
+ },
+ {
+  "key": "useachievements_ilk_merhele_a06a58",
+  "az": "İlk mərhələ",
+  "en": "First milestone"
+ },
+ {
+  "key": "useachievements_ilk_mesaj_c2af7d",
+  "az": "İlk mesaj",
+  "en": "First message"
+ },
+ {
+  "key": "useachievements_ilk_mesaji_gonderdiniz_cb17f2",
+  "az": "İlk mesajı göndərdiniz",
+  "en": "You sent the first message"
+ },
+ {
+  "key": "useachievements_ilk_paylasiminizi_etdiniz_10b9f8",
+  "az": "İlk paylaşımınızı etdiniz",
+  "en": "You made your first post"
+ },
+ {
+  "key": "useachievements_ilk_qeyd_9ffe17",
+  "az": "İlk qeyd",
+  "en": "First record"
+ },
+ {
+  "key": "useachievements_ilk_qidalanma_d5b330",
+  "az": "İlk qidalanma",
+  "en": "First feeding"
+ },
+ {
+  "key": "useachievements_ilk_qidalanmani_qeyd_etdiniz_d2ba0b",
+  "az": "İlk qidalanmanı qeyd etdiniz",
+  "en": "You recorded the first feeding"
+ },
+ {
+  "key": "useachievements_ilk_tepik_c4991e",
+  "az": "İlk təpik",
+  "en": "First kick"
+ },
+ {
+  "key": "useachievements_ilk_tepiki_qeyd_etdiniz_6cb5de",
+  "az": "İlk təpiki qeyd etdiniz",
+  "en": "You recorded the first kick"
+ },
+ {
+  "key": "useachievements_nailiyyet",
+  "az": "🎉 Nailiyyət:",
+  "en": "🎉 Achievement:"
+ },
+ {
+  "key": "useachievements_profil_tamamlandi_a64e06",
+  "az": "Profil tamamlandı",
+  "en": "Profile completed"
+ },
+ {
+  "key": "useachievements_profilinizi_tamamladiniz_546cdb",
+  "az": "Profilinizi tamamladınız",
+  "en": "You completed your profile"
+ },
+ {
+  "key": "useachievements_qidalanma_ustasi_7ee87c",
+  "az": "Qidalanma ustası",
+  "en": "Feeding master"
+ },
+ {
+  "key": "useachievements_simptom_izleyicisi_f87e97",
+  "az": "Simptom izləyicisi",
+  "en": "Symptom tracker"
+ },
+ {
+  "key": "useachievements_su_cempionu_dbdd89",
+  "az": "Su çempionu",
+  "en": "Water champion"
+ },
+ {
+  "key": "useachievements_tepik_ustasi_8d8ddd",
+  "az": "Təpik ustası",
+  "en": "Kick master"
+ },
+ {
+  "key": "useachievements_tetbiqi_1_ay_istifade_etdiniz_18a5b8",
+  "az": "Tətbiqi 1 ay istifadə etdiniz",
+  "en": "You used the app for 1 month"
+ },
+ {
+  "key": "useachievements_tetbiqi_1_hefte_istifade_etdiniz_5dff17",
+  "az": "Tətbiqi 1 həftə istifadə etdiniz",
+  "en": "You used the app for 1 week"
+ },
+ {
+  "key": "useachievements_xestexana_cantasi_hazir_71cd1a",
+  "az": "Xəstəxana çantası hazır",
+  "en": "Hospital bag ready"
+ },
+ {
+  "key": "useachievements_xestexana_cantasini_tamamladiniz_7825f8",
+  "az": "Xəstəxana çantasını tamamladınız",
+  "en": "You completed the hospital bag"
+ },
+ {
+  "key": "useachievements_yuxu_izleyicisi_1ed3f5",
+  "az": "Yuxu izləyicisi",
+  "en": "Sleep tracker"
+ },
+ {
+  "key": "useadminfaq_sual_elave_edildi_2d000b",
+  "az": "Sual əlavə edildi",
+  "en": "Question added"
+ },
+ {
+  "key": "useadminfaq_sual_yenilendi_786899",
+  "az": "Sual yeniləndi",
+  "en": "Question updated"
+ },
+ {
+  "key": "useadminmentalhealth_ehval_seviyyesi_elave_edildi_b321b6",
+  "az": "Əhval səviyyəsi əlavə edildi",
+  "en": "Mood level added"
+ },
+ {
+  "key": "useadminmentalhealth_ehval_seviyyesi_silindi_802b1e",
+  "az": "Əhval səviyyəsi silindi",
+  "en": "Mood level deleted"
+ },
+ {
+  "key": "useadminmentalhealth_ehval_seviyyesi_yenilendi_26939a",
+  "az": "Əhval səviyyəsi yeniləndi",
+  "en": "Mood level updated"
+ },
+ {
+  "key": "useadminmentalhealth_nefes_mesqi_elave_edildi_0f4266",
+  "az": "Nəfəs məşqi əlavə edildi",
+  "en": "Breathing exercise added"
+ },
+ {
+  "key": "useadminmentalhealth_nefes_mesqi_silindi_4bf0db",
+  "az": "Nəfəs məşqi silindi",
+  "en": "Breathing exercise deleted"
+ },
+ {
+  "key": "useadminmentalhealth_nefes_mesqi_yenilendi_61bfcc",
+  "az": "Nəfəs məşqi yeniləndi",
+  "en": "Breathing exercise updated"
+ },
+ {
+  "key": "useadminmentalhealth_resurs_elave_edildi_5dd590",
+  "az": "Resurs əlavə edildi",
+  "en": "Resource added"
+ },
+ {
+  "key": "useadminmentalhealth_resurs_yenilendi_710694",
+  "az": "Resurs yeniləndi",
+  "en": "Resource updated"
+ },
+ {
+  "key": "useadminmentalhealth_ses_hedd_elave_edildi_b3723a",
+  "az": "Səs hədd əlavə edildi",
+  "en": "Sound threshold added"
+ },
+ {
+  "key": "useadminmentalhealth_ses_hedd_silindi_041844",
+  "az": "Səs hədd silindi",
+  "en": "Sound threshold deleted"
+ },
+ {
+  "key": "useadminmentalhealth_ses_hedd_yenilendi_66ecc6",
+  "az": "Səs hədd yeniləndi",
+  "en": "Sound threshold updated"
+ },
+ {
+  "key": "useadminmentalhealth_sual_elave_edildi_2d000b",
+  "az": "Sual əlavə edildi",
+  "en": "Question added"
+ },
+ {
+  "key": "useadminmentalhealth_sual_yenilendi_786899",
+  "az": "Sual yeniləndi",
+  "en": "Question updated"
+ },
+ {
+  "key": "useadminonboarding_merhele_elave_edildi_5bc49c",
+  "az": "Mərhələ əlavə edildi",
+  "en": "Stage added"
+ },
+ {
+  "key": "useadminonboarding_merhele_silindi_fb7d94",
+  "az": "Mərhələ silindi",
+  "en": "Stage deleted"
+ },
+ {
+  "key": "useadminonboarding_merhele_yenilendi_18f4f3",
+  "az": "Mərhələ yeniləndi",
+  "en": "Stage updated"
+ },
+ {
+  "key": "useadminonboarding_secim_elave_edildi_c68c1c",
+  "az": "Seçim əlavə edildi",
+  "en": "Option added"
+ },
+ {
+  "key": "useadminonboarding_secim_silindi_78ce04",
+  "az": "Seçim silindi",
+  "en": "Option deleted"
+ },
+ {
+  "key": "useadminonboarding_secim_yenilendi_9d5d1b",
+  "az": "Seçim yeniləndi",
+  "en": "Option updated"
+ },
+ {
+  "key": "useadminpartnertips_meslehet_elave_edildi_4a4cbc",
+  "az": "Məsləhət əlavə edildi",
+  "en": "Type added"
+ },
+ {
+  "key": "useadminpartnertips_meslehet_silindi_0a5099",
+  "az": "Məsləhət silindi",
+  "en": "Type deleted"
+ },
+ {
+  "key": "useadminpartnertips_meslehet_yenilendi_289f83",
+  "az": "Məsləhət yeniləndi",
+  "en": "Type updated"
+ },
+ {
+  "key": "useadminrecipes_resept_elave_edildi_fe3c1a",
+  "az": "Resept əlavə edildi",
+  "en": "Recipe added"
+ },
+ {
+  "key": "useadminrecipes_resept_yenilendi_dd7821",
+  "az": "Resept yeniləndi",
+  "en": "Recipe updated"
+ },
+ {
+  "key": "useaffiliateproducts_giris_etmelisiniz_6c2220",
+  "az": "Giriş etməlisiniz",
+  "en": "You must login"
+ },
+ {
+  "key": "useaffiliateproducts_mehsul_favoritlerden_silindi_d9717b",
+  "az": "Məhsul favoritlərdən silindi",
+  "en": "Product removed from favorites"
+ },
+ {
+  "key": "useaffiliateproducts_mehsul_favoritlere_elave_edildi_748bcf",
+  "az": "Məhsul favoritlərə əlavə edildi",
+  "en": "Product added to favorites"
+ },
+ {
+  "key": "useaffiliateproducts_mehsul_saxlanila_bilmedi_b71bb7",
+  "az": "Məhsul saxlanıla bilmədi",
+  "en": "Product could not be saved"
+ },
+ {
+  "key": "useaffiliateproducts_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "useaffiliateproducts_yadda_saxlanildi_cf4f4a",
+  "az": "Yadda saxlanıldı",
+  "en": "Saved"
+ },
+ {
+  "key": "useappointments_randevu_elave_edildi_dc2666",
+  "az": "Randevu əlavə edildi! 📅",
+  "en": "Appointment added! 📅"
+ },
+ {
+  "key": "useappointments_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "usebabymilestones_inkisaf_merhelesi_silindi_6e6a48",
+  "az": "İnkişaf mərhələsi silindi",
+  "en": "Development milestone deleted"
+ },
+ {
+  "key": "usebabymilestones_merhele_0e09aa",
+  "az": "Mərhələ",
+  "en": "Stage"
+ },
+ {
+  "key": "usebabymilestones_merhele_qeyd_edile_bilmedi_b2cb1f",
+  "az": "Mərhələ qeyd edilə bilmədi",
+  "en": "Milestone could not be recorded"
+ },
+ {
+  "key": "usebabymilestones_merhele_silindi_fb7d94",
+  "az": "Mərhələ silindi",
+  "en": "Stage deleted"
+ },
+ {
+  "key": "usebabymilestones_qeyd_edildi_xyz123",
+  "az": "qeyd edildi!",
+  "en": "logged!"
+ },
+ {
+  "key": "usebabymilestones_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "useblog_bu_kateqoriya",
+  "az": "Bu kateqoriya",
+  "en": "This category"
+ },
+ {
+  "key": "useblog_meqalede_istifade_olunur",
+  "az": "məqalədə istifadə olunur. Əvvəlcə məqalələrdən çıxarın.",
+  "en": "is used in articles. Remove it from articles first."
+ },
+ {
+  "key": "usebloginteractions_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "usecommunity_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "usecommunity_istifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "usecommunity_paylasim_elave_edildi_379020",
+  "az": "Paylaşım əlavə edildi! ✨",
+  "en": "Post added! ✨"
+ },
+ {
+  "key": "usecommunity_paylasiminizi_beyendi",
+  "az": "paylaşımınızı bəyəndi",
+  "en": "liked your post"
+ },
+ {
+  "key": "usecommunity_post_redakte_edildi_c4540d",
+  "az": "Post redaktə edildi ✏️",
+  "en": "Post edited ✏️"
+ },
+ {
+  "key": "usecommunity_post_silindi",
+  "az": "Post silindi",
+  "en": "Post deleted"
+ },
+ {
+  "key": "usecommunity_qrupa_qosuldunuz_bea9e3",
+  "az": "Qrupa qoşuldunuz! 🎉",
+  "en": "You joined the group! 🎉"
+ },
+ {
+  "key": "usecommunity_qrupdan_ayrildiniz_2ad166",
+  "az": "Qrupdan ayrıldınız",
+  "en": "You left the group"
+ },
+ {
+  "key": "usecommunity_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "usecommunity_yeni_beyenme_3fd88a",
+  "az": "Yeni bəyənmə ❤️",
+  "en": "New like ❤️"
+ },
+ {
+  "key": "usecommunity_yeni_cavab_3b1b2c",
+  "az": "Yeni cavab 💬",
+  "en": "New reply 💬"
+ },
+ {
+  "key": "usecommunity_yeni_serh_25bb56",
+  "az": "Yeni şərh 💬",
+  "en": "New comment 💬"
+ },
+ {
+  "key": "usecontractions_butun_qeydler_silindi_1f1172",
+  "az": "Bütün qeydlər silindi.",
+  "en": "All records deleted."
+ },
+ {
+  "key": "usecontractions_sancilar_silindi_535de3",
+  "az": "Sancılar silindi",
+  "en": "Contractions deleted"
+ },
+ {
+  "key": "usecontractions_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "usecoupons_artiq_istifade_edilib_709c3e",
+  "az": "Artıq istifadə edilib",
+  "en": "Already used"
+ },
+ {
+  "key": "usecoupons_bu_kupon_bu_nov_sifaris_ucun_kecerli_dey_17536c",
+  "az": "Bu kupon bu növ sifariş üçün keçərli deyil",
+  "en": "This coupon is not valid for this type of order"
+ },
+ {
+  "key": "usecoupons_bu_kupon_kodu_movcud_deyil_6b3eb9",
+  "az": "Bu kupon kodu mövcud deyil",
+  "en": "This coupon code does not exist"
+ },
+ {
+  "key": "usecoupons_bu_kuponu_artiq_istifade_etmisiniz_a8e01e",
+  "az": "Bu kuponu artıq istifadə etmisiniz",
+  "en": "You have already used this coupon"
+ },
+ {
+  "key": "usecoupons_discount_desc",
+  "az": "{amount}₼ endirim",
+  "en": "{amount}₼ discount"
+ },
+ {
+  "key": "usecoupons_kupon_hele_aktiv_deyil_1247d5",
+  "az": "Kupon hələ aktiv deyil",
+  "en": "Coupon is not active yet"
+ },
+ {
+  "key": "usecoupons_kupon_kecersizdir_42186d",
+  "az": "Kupon keçərsizdir",
+  "en": "Coupon is invalid"
+ },
+ {
+  "key": "usecoupons_kupon_muddeti_bitib_242f3f",
+  "az": "Kupon müddəti bitib",
+  "en": "Coupon has expired"
+ },
+ {
+  "key": "usecoupons_kupon_tapilmadi_e41e4e",
+  "az": "Kupon tapılmadı",
+  "en": "Coupon not found"
+ },
+ {
+  "key": "usecoupons_kupon_tetbiq_edildi_e2143c",
+  "az": "Kupon tətbiq edildi! ✅",
+  "en": "Coupon applied! ✅"
+ },
+ {
+  "key": "usecoupons_kupon_yoxlanarken_xeta_bas_verdi_9f76a4",
+  "az": "Kupon yoxlanarkən xəta baş verdi",
+  "en": "An error occurred while checking the coupon"
+ },
+ {
+  "key": "usecoupons_min_order_desc",
+  "az": "Bu kupon minimum {amount}₼ sifariş üçün keçərlidir",
+  "en": "This coupon is valid for a minimum order of {amount}₼"
+ },
+ {
+  "key": "usecoupons_minimum_mebleg_435135",
+  "az": "Minimum məbləğ",
+  "en": "Minimum amount"
+ },
+ {
+  "key": "usecoupons_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "usedailysummary_ehval",
+  "az": "Əhval:",
+  "en": "Mood:"
+ },
+ {
+  "key": "usedailysummary_gundelik_xulase_42932d",
+  "az": "📊 Gündəlik Xülasə",
+  "en": "📊 Daily Summary"
+ },
+ {
+  "key": "usedailysummary_su",
+  "az": "Su:",
+  "en": "Water:"
+ },
+ {
+  "key": "usedailysummary_tepikler",
+  "az": "Təpiklər:",
+  "en": "Kicks:"
+ },
+ {
+  "key": "usedevicetoken_bildiris_izah",
+  "az": "Vacib məlumatları və xatırlatmaları almaq üçün cihaz ayarlarından tətbiqə bildiriş göndərməyə icazə verin.",
+  "en": null
+ },
+ {
+  "key": "usedevicetoken_bildirislere_icaze_verin",
+  "az": "Bildirişlərə icazə verin",
+  "en": null
+ },
+ {
+  "key": "usedevicetoken_fcm_token_alina_bilmedi_10d88a",
+  "az": "FCM token alına bilmədi",
+  "en": "Could not get FCM token"
+ },
+ {
+  "key": "usedevicetoken_token_alindi_amma_saxlanmadi_98a023",
+  "az": "Token alındı amma saxlanmadı",
+  "en": "Token received but not saved"
+ },
+ {
+  "key": "usedevicetoken_yeni_bildiris_c68787",
+  "az": "Yeni bildiriş",
+  "en": "New notification"
+ },
+ {
+  "key": "usedirectmessages_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "usedirectmessages_mesaj_gonderilmedi_7df412",
+  "az": "Mesaj göndərilmədi",
+  "en": "Message not sent"
+ },
+ {
+  "key": "usedirectmessages_sekil_gonderdi_9e8836",
+  "az": "📷 Şəkil göndərdi",
+  "en": "📷 Sent a photo"
+ },
+ {
+  "key": "usedirectmessages_ses_mesaji_gonderdi_5b803e",
+  "az": "🎤 Səs mesajı göndərdi",
+  "en": "🎤 Sent a voice message"
+ },
+ {
+  "key": "usedirectmessages_video_gonderdi_41246c",
+  "az": "🎥 Video göndərdi",
+  "en": "🎥 Video sent"
+ },
+ {
+  "key": "usedynamicconfig_ehval_yenilendi_0675fd",
+  "az": "Əhval yeniləndi",
+  "en": "Mood updated"
+ },
+ {
+  "key": "usedynamicconfig_kateqoriya_elave_edildi_e28f72",
+  "az": "Kateqoriya əlavə edildi",
+  "en": "Category added"
+ },
+ {
+  "key": "usedynamicconfig_kateqoriya_yenilendi_02b12b",
+  "az": "Kateqoriya yeniləndi",
+  "en": "Category updated"
+ },
+ {
+  "key": "usedynamicconfig_merhele_elave_edildi_5bc49c",
+  "az": "Mərhələ əlavə edildi",
+  "en": "Stage added"
+ },
+ {
+  "key": "usedynamicconfig_merhele_silindi_fb7d94",
+  "az": "Mərhələ silindi",
+  "en": "Stage deleted"
+ },
+ {
+  "key": "usedynamicconfig_merhele_yenilendi_18f4f3",
+  "az": "Mərhələ yeniləndi",
+  "en": "Stage updated"
+ },
+ {
+  "key": "usedynamicconfig_mesq_elave_edildi_62071a",
+  "az": "Məşq əlavə edildi",
+  "en": "Workout added"
+ },
+ {
+  "key": "usedynamicconfig_mesq_silindi_5f2cd4",
+  "az": "Məşq silindi",
+  "en": "Workout deleted"
+ },
+ {
+  "key": "usedynamicconfig_mesq_yenilendi_6db253",
+  "az": "Məşq yeniləndi",
+  "en": "Workout updated"
+ },
+ {
+  "key": "usedynamicconfig_movzu_elave_edildi_a6721f",
+  "az": "Mövzu əlavə edildi",
+  "en": "Topic added"
+ },
+ {
+  "key": "usedynamicconfig_movzu_silindi_9e204d",
+  "az": "Mövzu silindi",
+  "en": "Topic deleted"
+ }
+]

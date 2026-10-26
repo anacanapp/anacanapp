@@ -1,0 +1,128 @@
+{
+ "vitamins": {
+  "bd0002d3-d05e-465a-a3eb-36d8e23376e5": {
+   "name": "B6 Vitamini",
+   "description": "Protein metabolizması ve bulantıyı azaltmak için gerekli bir vitamin"
+  },
+  "c46ae88b-a53c-420d-97de-26a3628efa9f": {
+   "name": "A Vitamini (Beta-karoten)",
+   "description": "Bebeğin görme yetisi ve bağışıklığı için önemlidir"
+  },
+  "c488c23b-2153-4459-9a57-f6a72a462cee": {
+   "name": "Omega-3",
+   "description": "Beyin ve göz gelişimi için önemli yağ asitleri"
+  },
+  "c6594f75-f94f-4d2f-8e5a-a63942972281": {
+   "name": "B5 Vitamini",
+   "description": "Hormon üretimi ve stresle başa çıkmak için önemlidir"
+  },
+  "d1c2d4eb-4ff9-4a94-80c4-2e223fc940bc": {
+   "name": "B3 Vitamini",
+   "description": "Sindirim sistemi ve sinir sağlığı için önemlidir"
+  },
+  "d9695343-451a-4029-ac68-320dc06cb6a4": {
+   "name": "İyot",
+   "description": "Bebeğin beyin gelişimi ve annenin tiroid fonksiyonu için önemlidir"
+  },
+  "d9cbb410-e507-4563-b76a-6f87b2baf0eb": {
+   "name": "Fosfor",
+   "description": "Kalsiyumla birlikte kemik sağlığını destekler"
+  },
+  "e37cc688-c44b-4e4f-a10f-3b9f3e76db0f": {
+   "name": "Selenyum",
+   "description": "Tiroid ve bağışıklık sistemi için güçlü bir antioksidandır"
+  },
+  "ee22de42-1691-4f0c-abb8-bfe1c37321c5": {
+   "name": "E Vitamini",
+   "description": "Hücreleri koruyan güçlü bir antioksidandır"
+  },
+  "f021524b-8480-4882-865f-0c84e979b298": {
+   "name": "Manganez",
+   "description": "Kemik ve kıkırdak dokusunun oluşumu için önemlidir"
+  },
+  "61e3a35a-741b-4d91-a920-0d55fe3c7549": {
+   "name": "B12 vitamini",
+   "description": "Sinir sistemi ve kan hücreleri için önemli"
+  },
+  "738af0f6-d9dc-45c0-8852-fae486c9697a": {
+   "name": "Krom",
+   "description": "Gebelik diyabetinin kontrolü için önemli bir mineral"
+  },
+  "7d7e1e5d-ed8a-4ae1-8125-028a7a1674bc": {
+   "name": "K vitamini",
+   "description": "Kanın pıhtılaşması ve kemik sağlığı için"
+  },
+  "90e7799d-d979-41ec-9ff3-11e04a5e9e71": {
+   "name": "Kolin",
+   "description": "Beyin ve omurilik gelişimi için kritik bir besin maddesi"
+  },
+  "9c49f362-c919-4603-b2b7-a85e71c1128e": {
+   "name": "Potasyum",
+   "description": "Sıvı dengesi ve kan basıncının kontrolü için gerekli bir mineral"
+  },
+  "a0311baf-903f-4c12-8c2e-6f135f717cac": {
+   "name": "D vitamini",
+   "description": "Kemik sağlığı ve bağışıklık sistemi için önemli"
+  },
+  "b03d1c16-48a9-40fb-a0d6-8f8f2c9bee7d": {
+   "name": "Bakır",
+   "description": "Kan hücreleri ve kalp gelişimi için gerekli bir mineral"
+  },
+  "ba2e7887-a168-4755-b770-b71e444e22b8": {
+   "name": "Probiyotikler",
+   "description": "Sindirim sistemi ve vajinal flora sağlığı için"
+  },
+  "bbb98e06-d0ff-4b4b-bff6-52b676370466": {
+   "name": "Kalsiyum",
+   "description": "Bebeğin kemik ve dişlerinin gelişimi için"
+  },
+  "bc8e7715-8c24-47ed-84ea-dfd273df6048": {
+   "name": "Lutein",
+   "description": "Bebeğin göz ve beyin gelişimi için önemlidir"
+  },
+  "0282970f-7857-4aef-979e-96b999f6c996": {
+   "name": "B2 Vitamini",
+   "description": "Göz sağlığı ve bebeğin büyümesi için önemlidir"
+  },
+  "063af081-f0c8-4f4e-9337-59193343eb38": {
+   "name": "B kompleks vitamini",
+   "description": "Emzirme döneminde enerji ve süt üretimi için önemlidir"
+  },
+  "0b595094-1ce0-4872-b1e8-71c804f898a1": {
+   "name": "Protein",
+   "description": "Fetüsün fiziksel büyümesi için \"yapı malzemesi\""
+  },
+  "19d00fd7-064f-4d3c-bbc4-379c70e67b32": {
+   "name": "B1 Vitamini",
+   "description": "Annenin ve bebeğin enerji metabolizması için gereklidir"
+  },
+  "1c0af036-697a-4913-963b-65307df05a76": {
+   "name": "Demir",
+   "description": "Kan hacminin artması ve bebeğin gelişimi için önemlidir"
+  },
+  "2d8dc888-7f10-4e7f-b8aa-a8c8b0920524": {
+   "name": "C vitamini",
+   "description": "Bağışıklık ve demir emilimi için antioksidandır"
+  },
+  "34bf6c50-441f-4b51-ad87-07f3f76294e4": {
+   "name": "Çinko",
+   "description": "Bağışıklık sistemi ve hücre bölünmesi için önemlidir"
+  },
+  "5a940cc0-5294-465c-b41e-3f42d2f06333": {
+   "name": "Folik asit",
+   "description": "Bebeğin sinir sisteminin gelişimi için kritik bir vitamindir"
+  },
+  "5d19bca3-0d4d-4b44-b544-ec28ea6b7632": {
+   "name": "B7 Vitamini (Biotin)",
+   "description": "Annenin güzelliği (saç/cilt) ve fetüsün gelişimi için önemlidir"
+  },
+  "5f213ffa-1e07-4220-8e97-c6980416114a": {
+   "name": "Lif (Selüloz)",
+   "description": "Sindirim sistemi sorunlarını gidermeye yardımcı olan temel faktördür"
+  },
+  "fb8b22b1-4d5d-4571-a8eb-14456eaa1785": {
+   "name": "Magnezyum",
+   "description": "Kas krampları ve uyku kalitesi için"
+  }
+ }
+}

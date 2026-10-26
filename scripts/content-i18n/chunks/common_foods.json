@@ -1,0 +1,1307 @@
+[
+ {
+  "id": "02a71db0-d63b-4ce4-9442-a5c7e4a73b84",
+  "name": "Scrambled Eggs",
+  "name_az": "Pomidor-yumurta",
+  "calories": 200,
+  "emoji": "🥘",
+  "category": "Protein",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:09:43.72295+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Scrambled Eggs",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "07d9003b-6c30-48b9-bb52-f32d786e34e9",
+  "name": "White Cheese (Feta)",
+  "name_az": "Ağ pendir (1 dilim)",
+  "calories": 85,
+  "emoji": "🍽️",
+  "category": "Protein & Fat",
+  "is_active": true,
+  "sort_order": 19,
+  "created_at": "2026-02-09T13:27:26.94033+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "White Cheese (Feta)",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "09872cfa-a5b7-4b76-90e9-bebc8996c2f9",
+  "name": "Meatball Soup",
+  "name_az": "Küftə-Bozbaş ",
+  "calories": 350,
+  "emoji": "🥘",
+  "category": "Protein & Fat",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:43:35.558014+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Meatball Soup",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "09dd007a-3db6-41be-b08f-353f5027d3c8",
+  "name": "Almond",
+  "name_az": "Badam 10 əd",
+  "calories": 70,
+  "emoji": "🌰",
+  "category": "Fat (Healthy)",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:08:02.561183+00:00",
+  "meal_types": [
+   "breakfast",
+   "snack"
+  ],
+  "name_en": "Almond",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "0a03154c-e0aa-4f08-b090-e4a2dcaae571",
+  "name": "Shepherd's Salad",
+  "name_az": "Çoban Salatı",
+  "calories": 90,
+  "emoji": "🥗",
+  "category": "Vitamins",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:23:44.255332+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Shepherd's Salad",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "0ce45cb4-4d0c-4faf-abd8-f6a1d1046087",
+  "name": "Bread (1 slice)",
+  "name_az": "Çörək (1 dilim)",
+  "calories": 80,
+  "emoji": "🍞",
+  "category": "carbs",
+  "is_active": true,
+  "sort_order": 2,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "breakfast",
+   "lunch",
+   "dinner",
+   "snack"
+  ],
+  "name_en": "Bread (1 slice)",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "11f90186-061e-41c9-b103-04debdfe3bd8",
+  "name": "Cucumber",
+  "name_az": "Xiyar",
+  "calories": 15,
+  "emoji": "🥒",
+  "category": "Fiber / Vitamins",
+  "is_active": true,
+  "sort_order": 28,
+  "created_at": "2026-02-09T13:58:09.54134+00:00",
+  "meal_types": [
+   "breakfast",
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Cucumber",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "126f2c58-0d21-4bc6-89be-f569089efe0a",
+  "name": "Cottage Cheese",
+  "name_az": "Kəsmik (100 qr)",
+  "calories": 160,
+  "emoji": "🍚",
+  "category": "protein",
+  "is_active": true,
+  "sort_order": 14,
+  "created_at": "2026-02-09T13:15:44.081369+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Cottage Cheese",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "16192be7-c156-4503-a0d7-03da46f8ca62",
+  "name": "Tomato Soup",
+  "name_az": "Qaymaqlı Pomidor Şorbası ",
+  "calories": 90,
+  "emoji": "🍅",
+  "category": "Vitamins (Lycopene)",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:56:08.90983+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Tomato Soup",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "162cc9bf-5da8-4edd-9126-63d36fc2c599",
+  "name": "Fried Egg",
+  "name_az": "Qızardılmış yumurta ",
+  "calories": 110,
+  "emoji": "🍳",
+  "category": "Protein & Fat",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:10:26.181849+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Fried Egg",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "191cdb6d-b15c-4e05-9c3e-925595bbd343",
+  "name": "Omlette",
+  "name_az": "Omlet ",
+  "calories": 150,
+  "emoji": "🍳",
+  "category": "protein",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:11:39.547539+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Omlette",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "2398443e-d342-46cd-9265-badfcc5cbab9",
+  "name": "Salty Curd Cheese",
+  "name_az": "Şor (1 x.q)",
+  "calories": 50,
+  "emoji": "🍚",
+  "category": "protein",
+  "is_active": true,
+  "sort_order": 14,
+  "created_at": "2026-02-09T13:17:36.638855+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Salty Curd Cheese",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "25949d29-bbad-4621-9edc-d9e280b3c71a",
+  "name": "Oatmeal (Water)",
+  "name_az": "Yulaf yarması (Su ilə)",
+  "calories": 150,
+  "emoji": "🥣",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 20,
+  "created_at": "2026-02-09T13:47:25.291896+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Oatmeal (Water)",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "26b1e557-8302-4ab3-b807-92eaa9ff8a79",
+  "name": "Rye Bread",
+  "name_az": "Qara Çörək (1 dilim)",
+  "calories": 80,
+  "emoji": "🍞",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 27,
+  "created_at": "2026-02-09T13:57:24.500189+00:00",
+  "meal_types": [
+   "breakfast",
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Rye Bread",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "3625413c-e5ba-4cb2-8802-b9c7bcd23ff0",
+  "name": "Fish",
+  "name_az": "Balıq",
+  "calories": 180,
+  "emoji": "🐟",
+  "category": "protein",
+  "is_active": true,
+  "sort_order": 12,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Fish",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "36e4b0db-a140-4178-953b-d9da58b6b8c5",
+  "name": "Chicken Breast",
+  "name_az": "Toyuq döşü",
+  "calories": 165,
+  "emoji": "🍗",
+  "category": "protein",
+  "is_active": true,
+  "sort_order": 7,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Chicken Breast",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "3d0dc136-25eb-4ef6-b804-6220d1b62a22",
+  "name": "Vinegret",
+  "name_az": "Vineqret",
+  "calories": 100,
+  "emoji": " 🥗",
+  "category": "Fiber",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:31:03.665647+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Vinegret",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "3d4619c2-33db-43e4-873f-5dbc7bf11246",
+  "name": "Mashed Potatoes",
+  "name_az": "Kartof Püresi",
+  "calories": 200,
+  "emoji": "🥔",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:38:05.92087+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Mashed Potatoes",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "3f027866-a9bd-46c5-a490-6be6ac95331a",
+  "name": "Toast Bread",
+  "name_az": "Tost çörəyi (1 dilim)",
+  "calories": 70,
+  "emoji": "🍞",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 25,
+  "created_at": "2026-02-09T13:55:21.723057+00:00",
+  "meal_types": [
+   "breakfast",
+   "dinner",
+   "lunch"
+  ],
+  "name_en": "Toast Bread",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "40de4764-ee4b-46b8-a6c1-c083025cabae",
+  "name": "Stuffed Eggplant/Pepper",
+  "name_az": "Üç bacı dolması 2 əd",
+  "calories": 280,
+  "emoji": "🍆",
+  "category": "Fiber & Protein",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:25:32.516798+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Stuffed Eggplant/Pepper",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "424ff6a3-fa17-423a-8c15-8367722c3f3e",
+  "name": "Granola",
+  "name_az": "Qranola (1 ovuc)",
+  "calories": 200,
+  "emoji": "🥣",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 24,
+  "created_at": "2026-02-09T13:54:33.073639+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Granola",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "42a17d48-6e19-45b0-85a2-5ad13683d3f2",
+  "name": "Grilled Veggie Salad",
+  "name_az": "Manqal Salatı",
+  "calories": 70,
+  "emoji": "🍆",
+  "category": "Fiber",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:26:11.715328+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Grilled Veggie Salad",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "4f7161b5-4a48-46c2-b2c7-582e6c78479c",
+  "name": "Pickles",
+  "name_az": "Turşu (Xiyar/Kələm)",
+  "calories": 15,
+  "emoji": "🥒",
+  "category": "Sodium (Salt)",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:35:11.53841+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Pickles",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "524fb1a8-8ff8-4de1-ae8f-2aec652501a5",
+  "name": "Adjika",
+  "name_az": "Acika 1.ç.q",
+  "calories": 10,
+  "emoji": "🌶️",
+  "category": "Spice / Flavor",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:37:18.969467+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Adjika",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "54f3412a-7a85-4487-92e4-b95672133e25",
+  "name": "Mixed Greens",
+  "name_az": "Göyərti (1 dəstə)",
+  "calories": 10,
+  "emoji": "🌿",
+  "category": "Fiber / Vitamins",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:05:05.11906+00:00",
+  "meal_types": [
+   "breakfast",
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Mixed Greens",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "573bd55c-a35c-44c4-b666-27bfa2d307f5",
+  "name": "Tandoor Bread",
+  "name_az": "Təndir Çörəyi  1 dilim",
+  "calories": 120,
+  "emoji": "🍞",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:39:04.85714+00:00",
+  "meal_types": [
+   "breakfast",
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Tandoor Bread",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "5800e664-ff10-4a72-8b4f-7eeea63ae344",
+  "name": "Honey",
+  "name_az": "Bal 1 ç.q",
+  "calories": 21,
+  "emoji": "🍯",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:06:37.759108+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Honey",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "5988961f-a856-4cd0-8551-afd7d8b629a4",
+  "name": "Soup",
+  "name_az": "Şorba",
+  "calories": 100,
+  "emoji": "🍲",
+  "category": "meal",
+  "is_active": true,
+  "sort_order": 10,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Soup",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "5a89b580-8361-45d4-97ac-ba7f502e0edd",
+  "name": "Dumpling Soup",
+  "name_az": "Düşbərə",
+  "calories": 250,
+  "emoji": "🥟",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:44:04.340277+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Dumpling Soup",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "5e166e55-c66c-4afe-ae12-b9875c1c3507",
+  "name": "Broccoli Soup",
+  "name_az": "Brokkoli Şorbası ",
+  "calories": 140,
+  "emoji": "🥦",
+  "category": "Fiber & Folic Acid",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:56:40.034868+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Broccoli Soup",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "5feffeae-7341-44e5-aee1-4d10fa6f979a",
+  "name": "Lavash",
+  "name_az": "Lavaş 1 əd",
+  "calories": 180,
+  "emoji": "🍽️",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 26,
+  "created_at": "2026-02-09T13:56:20.988175+00:00",
+  "meal_types": [
+   "breakfast",
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Lavash",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "60c3bf2d-6646-49c1-bdc4-5ea96da411e9",
+  "name": "Salad",
+  "name_az": "Salat",
+  "calories": 20,
+  "emoji": "🥗",
+  "category": "vegetable",
+  "is_active": true,
+  "sort_order": 9,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner",
+   "snack"
+  ],
+  "name_en": "Salad",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "6a0214d0-d70f-402d-8267-011567d89c94",
+  "name": "Cream",
+  "name_az": "Qaymaq (1 x.q)",
+  "calories": 50,
+  "emoji": "🥛",
+  "category": "fat",
+  "is_active": true,
+  "sort_order": 17,
+  "created_at": "2026-02-09T13:22:14.328205+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Cream",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "6bceb8ab-9b6e-4f9a-a55f-07334606cb67",
+  "name": "Chicken Stew",
+  "name_az": "Toyuq Çığırtması 🍳",
+  "calories": 300,
+  "emoji": "🍳",
+  "category": "Protein & Fat",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:32:17.767058+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Chicken Stew",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "6cd5344d-5b8f-44de-884b-8fa485816de7",
+  "name": "Butter",
+  "name_az": "Kərə yağı( 1 ç.q)",
+  "calories": 36,
+  "emoji": "🧈",
+  "category": "fat",
+  "is_active": true,
+  "sort_order": 5,
+  "created_at": "2026-02-09T13:09:47.587844+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Butter",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "6fcef9e7-74c1-4fde-808c-2b99c842af75",
+  "name": "Avocado",
+  "name_az": "Avokado (yarım əd)",
+  "calories": 160,
+  "emoji": "🥑",
+  "category": "Fat",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:03:56.902802+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Avocado",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "7f491192-806d-4f0c-98e3-66d6a953042b",
+  "name": "Olives",
+  "name_az": "Zeytun ( 5 əd)",
+  "calories": 35,
+  "emoji": "🫒",
+  "category": "Fat",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:03:02.503459+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Olives",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "9086c829-7f5a-41c7-b0df-85cacb72dd30",
+  "name": "Cream of Mushroom Soup",
+  "name_az": "Qaymaqlı Göbələk Şorbası ",
+  "calories": 200,
+  "emoji": "🥣",
+  "category": "Fat & Fiber",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:55:27.474881+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Cream of Mushroom Soup",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "9fcaa07b-e7d6-47f9-b872-0919a06ee7d3",
+  "name": "Mushroom Risotto",
+  "name_az": "Göbələkli Rizotto ",
+  "calories": 380,
+  "emoji": "🍄",
+  "category": "Carbohydrate & Fat",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:54:09.93066+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Mushroom Risotto",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "a115db3c-b61b-4923-b6d9-7eb0e5b5026f",
+  "name": "Milk (1 glass)",
+  "name_az": "Süd (1 stəkan)",
+  "calories": 150,
+  "emoji": "🥛",
+  "category": "dairy",
+  "is_active": true,
+  "sort_order": 4,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Milk (1 glass)",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "a540e651-b6bc-4979-b0fd-f00a490793ad",
+  "name": "Tea (Unsweetened)",
+  "name_az": "Çay (Şəkərsiz) ",
+  "calories": 2,
+  "emoji": "☕",
+  "category": "Water / Liquid",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:12:30.034149+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Tea (Unsweetened)",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "a97adc20-e967-4f4e-aade-89ab35b1abd7",
+  "name": "Strained Yogurt",
+  "name_az": "Süzmə Qatıq 2 x.q",
+  "calories": 45,
+  "emoji": "🥣",
+  "category": "Probiotic",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:36:08.459951+00:00",
+  "meal_types": [
+   "dinner",
+   "snack",
+   "breakfast",
+   "lunch"
+  ],
+  "name_en": "Strained Yogurt",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "ab248ca2-090b-414a-a9f8-d4322312c8d1",
+  "name": "Steamed Salmon",
+  "name_az": "Balıq Buğlama",
+  "calories": 280,
+  "emoji": "🐟",
+  "category": "Protein & Omega-3",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:33:01.296107+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Steamed Salmon",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "af254008-0184-4b57-beb5-7f647a520976",
+  "name": "Apple",
+  "name_az": "Alma",
+  "calories": 95,
+  "emoji": "🍎",
+  "category": "fruit",
+  "is_active": true,
+  "sort_order": 5,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "snack"
+  ],
+  "name_en": "Apple",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "b3574511-3e57-4174-96aa-4ce2e7b1b9b0",
+  "name": "Muesli",
+  "name_az": "Müsli (1 ovuc)",
+  "calories": 180,
+  "emoji": "🥣",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 23,
+  "created_at": "2026-02-09T13:53:40.026359+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Muesli",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "b4b4ab06-1330-4a8e-9b09-56922bf68a0e",
+  "name": "Cheese",
+  "name_az": "Pendir",
+  "calories": 113,
+  "emoji": "🧀",
+  "category": "dairy",
+  "is_active": true,
+  "sort_order": 3,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Cheese",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "b7c5a0d9-cbb4-4045-b980-6b490675094d",
+  "name": "Rice (1 portion)",
+  "name_az": "Düyü (1 porsia)",
+  "calories": 206,
+  "emoji": "🍚",
+  "category": "carbs",
+  "is_active": true,
+  "sort_order": 8,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Rice (1 portion)",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "bce21c60-dee3-4b3c-9fe5-679deb10f8f0",
+  "name": "Ayran",
+  "name_az": "Ayran",
+  "calories": 60,
+  "emoji": "🥛",
+  "category": "Probiotic & Liquid",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:18:57.864505+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Ayran",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "c0c9246d-7eae-48c2-bb65-e8053043ef10",
+  "name": "Vegetable Soup",
+  "name_az": "Tərəvəz şorbası",
+  "calories": 90,
+  "emoji": "🥦",
+  "category": "Fiber / Vitamins",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:44:46.280476+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Vegetable Soup",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "c1a7ecdd-cc0d-4134-8dd3-217861acfc19",
+  "name": "Stuffed Cabbage Rolls",
+  "name_az": "Kələm Dolması 3 əd",
+  "calories": 220,
+  "emoji": "🥬",
+  "category": "Fiber & Protein",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:23:19.234493+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Stuffed Cabbage Rolls",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "c3964909-c0de-417f-a37d-21558744165b",
+  "name": "Sour Cream",
+  "name_az": "Xama (20%) (1 x.q)",
+  "calories": 42,
+  "emoji": "🍽️",
+  "category": "fat",
+  "is_active": true,
+  "sort_order": 18,
+  "created_at": "2026-02-09T13:24:38.882463+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Sour Cream",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "c526dbfe-8c7b-46c8-af74-0e102976fd4b",
+  "name": "Roasted Chicken & Potato",
+  "name_az": "Sobada Toyuq və Kartof",
+  "calories": 350,
+  "emoji": "🍗",
+  "category": "Protein",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:26:47.483938+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Roasted Chicken & Potato",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "c71729df-2454-4fa0-bba8-6e0543d9e5a1",
+  "name": "Tomato",
+  "name_az": "Pomidor",
+  "calories": 22,
+  "emoji": "🍅",
+  "category": "Fiber / Vitamins",
+  "is_active": true,
+  "sort_order": 29,
+  "created_at": "2026-02-09T14:02:16.566989+00:00",
+  "meal_types": [
+   "breakfast",
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Tomato",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "caa8ce3e-8a53-432d-b346-5fb0f41936be",
+  "name": "Banana",
+  "name_az": "Banan",
+  "calories": 105,
+  "emoji": "🍌",
+  "category": "fruit",
+  "is_active": true,
+  "sort_order": 6,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "breakfast",
+   "snack"
+  ],
+  "name_en": "Banana",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "cf08c80a-9866-4847-8314-2ccd7c9290d9",
+  "name": "Lentil Soup",
+  "name_az": "Mərci şorbası 🥣",
+  "calories": 120,
+  "emoji": "🥣",
+  "category": "Fiber & Protein",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:40:06.749992+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Lentil Soup",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "d4faa7a4-a46e-4489-882e-aa8d3aa42f91",
+  "name": "Borscht",
+  "name_az": "Borş",
+  "calories": 120,
+  "emoji": "🍲",
+  "category": "Fiber & Iron",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:51:22.314686+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Borscht",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "d7e54e1b-a3a2-4128-989f-c56d35e0973f",
+  "name": "Stuffed Vine Leaves",
+  "name_az": "Yarpaq Dolması 8-10 əd",
+  "calories": 250,
+  "emoji": "🍇",
+  "category": "Protein & Fat",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:11:51.353832+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Stuffed Vine Leaves",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "da035a4e-c2ce-4837-a156-0c8b57536665",
+  "name": "Kebab",
+  "name_az": "Lülə Kabab 1 şiş",
+  "calories": 320,
+  "emoji": "🍢",
+  "category": "Protein & Fat",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:33:53.307713+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Kebab",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "db853521-5d03-41c1-94fe-b1588704255f",
+  "name": "Boiled Egg",
+  "name_az": "Soyutma yumurta",
+  "calories": 75,
+  "emoji": "🥚",
+  "category": "Protein",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:10:59.949694+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Boiled Egg",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "df19960f-4b6e-47b0-a0bb-7bcfce456216",
+  "name": "Walnut",
+  "name_az": "Qoz ləpəsi 2 əd",
+  "calories": 50,
+  "emoji": "🍽️",
+  "category": "Fat (Healthy)",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:07:17.25131+00:00",
+  "meal_types": [
+   "breakfast",
+   "snack"
+  ],
+  "name_en": "Walnut",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "e0f1c18b-c5fe-4218-9ebc-ed8acfab7f40",
+  "name": "Compote",
+  "name_az": "Kompot",
+  "calories": 100,
+  "emoji": "🍒",
+  "category": "Sugar / Liquid",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:20:01.037062+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Compote",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "e105bcb1-80f9-47bb-8a2d-6ef933affa9d",
+  "name": "Pasta",
+  "name_az": "Makaron",
+  "calories": 220,
+  "emoji": "🍝",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:38:36.056903+00:00",
+  "meal_types": [
+   "breakfast",
+   "lunch",
+   "dinner",
+   "snack"
+  ],
+  "name_en": "Pasta",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "e8ac17d0-cead-44ff-bb78-d4139a4f47e8",
+  "name": "Peanut Butter",
+  "name_az": "Fıstıq əzməsi (1 x.q)",
+  "calories": 95,
+  "emoji": "🥜",
+  "category": "Fat & Protein",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:08:54.919529+00:00",
+  "meal_types": [
+   "breakfast",
+   "snack"
+  ],
+  "name_en": "Peanut Butter",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "ea20b8f9-5ac8-4e43-950a-79fb5046f5d4",
+  "name": "Yoghurt Soup with Herbs",
+  "name_az": "Dovğa",
+  "calories": 140,
+  "emoji": "🥛",
+  "category": "Probiotic (Calcium)",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:42:55.09042+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Yoghurt Soup with Herbs",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "ed72356e-e471-43d2-9164-ef3c5926aae6",
+  "name": "Yogurt",
+  "name_az": "Qatıq (1 st)",
+  "calories": 120,
+  "emoji": "🥣",
+  "category": "protein",
+  "is_active": true,
+  "sort_order": 15,
+  "created_at": "2026-02-09T13:18:33.637566+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner",
+   "snack"
+  ],
+  "name_en": "Yogurt",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "eef494b7-da40-4a7e-b75b-af6e892cd3fd",
+  "name": "Orange Juice",
+  "name_az": "Portağal şirəsi ",
+  "calories": 90,
+  "emoji": "🍊",
+  "category": "",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T14:13:04.853126+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Orange Juice",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "efcb9045-8053-4574-88f2-431f71e1065c",
+  "name": "Egg",
+  "name_az": "Yumurta",
+  "calories": 78,
+  "emoji": "🥚",
+  "category": "protein",
+  "is_active": true,
+  "sort_order": 1,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Egg",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "f234c6ba-0903-4059-b315-a71f4b4e60d4",
+  "name": "Pasta",
+  "name_az": "Makaron",
+  "calories": 220,
+  "emoji": "🍝",
+  "category": "carbs",
+  "is_active": true,
+  "sort_order": 11,
+  "created_at": "2026-01-24T18:35:48.862447+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Pasta",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "f3d5aead-782d-4335-be37-30e4628397d9",
+  "name": "Beef Cutlet",
+  "name_az": "Qazan Kotleti",
+  "calories": 260,
+  "emoji": "🥩",
+  "category": "Protein",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:28:14.905618+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Beef Cutlet",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "f498856c-3633-4874-a011-609aa0ee0bca",
+  "name": "Chicken Mushroom Pasta (Creamy)",
+  "name_az": "Göbələkli Toyuqlu Pasta ",
+  "calories": 450,
+  "emoji": "🍝",
+  "category": "Carbohydrate & Protein",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:54:41.219883+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Chicken Mushroom Pasta (Creamy)",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "fd27f984-cfed-4b29-9df1-84c8f5885c42",
+  "name": "Buckwheat",
+  "name_az": "Qarabaşaq (1kasa)",
+  "calories": 150,
+  "emoji": "🥣",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 22,
+  "created_at": "2026-02-09T13:51:43.651347+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Buckwheat",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "fe69ba3e-1055-49f7-8563-ff85d53d654f",
+  "name": "Oatmeal (Milk)",
+  "name_az": "Yulaf yarması (Süd)",
+  "calories": 250,
+  "emoji": "🥣",
+  "category": "Carbohydrate",
+  "is_active": true,
+  "sort_order": 21,
+  "created_at": "2026-02-09T13:50:35.166649+00:00",
+  "meal_types": [
+   "breakfast"
+  ],
+  "name_en": "Oatmeal (Milk)",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "ff9f7b34-9715-495b-9344-9ead498eb808",
+  "name": "Chicken Soup with Rice",
+  "name_az": "Düyülü Toyuq şorbası 🍗",
+  "calories": 150,
+  "emoji": "🍗",
+  "category": "Protein & Liquid",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-09T18:42:10.371294+00:00",
+  "meal_types": [
+   "lunch",
+   "dinner"
+  ],
+  "name_en": "Chicken Soup with Rice",
+  "name_ru": null,
+  "name_tr": null
+ }
+]

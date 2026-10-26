@@ -1,0 +1,9 @@
+[
+  { "namespace": "chatErrors", "file": "supabase/functions/dr-anacan-chat/index.ts", "variable": "ERR_TEXTS", "branch": "en" },
+  { "namespace": "poopValidation", "file": "supabase/functions/analyze-poop/index.ts", "variable": "VALIDATION_MESSAGES", "branch": "en" },
+  { "namespace": "poopFallback", "file": "supabase/functions/analyze-poop/index.ts", "variable": "FALLBACK", "branch": "en" },
+  { "namespace": "babyFallback", "file": "supabase/functions/baby-insight/index.ts", "variable": "FALLBACK", "branch": "en" },
+  { "namespace": "weatherFallback", "file": "supabase/functions/weather-clothing/index.ts", "variable": "FALLBACK_TEXTS", "branch": "en" },
+  { "namespace": "crySounds", "file": "supabase/functions/analyze-cry/index.ts", "variable": "soundTypeMessagesEn" },
+  { "namespace": "cryFallback", "file": "supabase/functions/analyze-cry/index.ts", "variable": "CRY_FALLBACK_COPY" }
+]

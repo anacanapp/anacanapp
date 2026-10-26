@@ -1,0 +1,1148 @@
+{
+ "safety_items": {
+  "0013b139-f71b-48c3-9500-426b95f36fe0": {
+   "name": "Brokkoli",
+   "description": "Foliy kislotasi va kalsiyga boy."
+  },
+  "005015d5-313d-474c-8917-c4368a59ddcd": {
+   "name": "Aspirin",
+   "description": "Shifokor buyurmagan bo‘lsa, uni (kardioaspirinni) og‘riq qoldiruvchi sifatida qabul qilish mumkin emas."
+  },
+  "0296597e-bafb-48ed-895e-4c84438ec22f": {
+   "name": "Mobil telefon / Wi-Fi",
+   "description": "Isbotlangan zarari yo‘q."
+  },
+  "02c1f7c4-6c8b-428b-a335-a14f4392a4d7": {
+   "name": "Dolchin",
+   "description": "Ziravor sifatida xavfsiz. Qondagi qand miqdorini me’yorda saqlashga yordam beradi."
+  },
+  "02de9065-c8d5-420a-9f9f-381f38069906": {
+   "name": "Sabzi",
+   "description": "A vitamini (beta-karotin) xavfsiz shaklda mavjud."
+  },
+  "07b52750-1a09-4c2c-ac44-ad2a941a4731": {
+   "name": "Basma",
+   "description": "Xavfsiz tabiiy bo‘yoq."
+  },
+  "11901ed2-a265-4223-a5b8-e5cbfb8f773e": {
+   "name": "Qo‘ziqorin",
+   "description": "Faqat yetishtirilgan (do‘konda sotiladigan) qo‘ziqorinlarni va to‘liq pishirilgan holda iste’mol qiling. O‘rmon qo‘ziqorinlari xavfli."
+  },
+  "11e23f3d-d80c-4605-a45a-22a7947b2a6b": {
+   "name": "Yalpiz",
+   "description": "Yalpiz choyi ko‘ngil aynishiga yordam beradi. Yalpiz moyini esa ehtiyotkorlik bilan ishlatish kerak."
+  },
+  "13f101f3-04c4-4778-9891-0b68a21fef96": {
+   "name": "Uzum",
+   "description": "Yaxshilab yuvish kerak. Tarkibida resveratrol bor, ammo shakar miqdori yuqori, shuning uchun me’yorida iste’mol qilish lozim."
+  },
+  "13f91873-c1b0-43b8-bc6b-9166281d9d9a": {
+   "name": "Elektron sigaret (Vape)",
+   "description": "Nikotin homilaning miyasiga zarar yetkazadi. Tarkibi to‘liq o‘rganilmagan."
+  },
+  "14172da9-4efa-42a0-8893-7757c2900a61": {
+   "name": "Mineral suv",
+   "description": "Xavfsiz, jig‘ildon qaynashini yengillashtirishga yordam berishi mumkin."
+  },
+  "144c2b0f-3d81-4774-be36-7766e41eb446": {
+   "name": "Do‘lana",
+   "description": "Yurak-qon tomir tizimi uchun foydali."
+  },
+  "089bec31-a38b-4891-852a-00ce9e78068b": {
+   "name": "Progesteron (Dufaston)",
+   "description": "Homila tushish xavfi bo‘lganda shifokor tomonidan buyuriladi. O‘zboshimchalik bilan qabul qilish mumkin emas."
+  },
+  "093501ce-f6a1-4966-ab3f-5fade42e305a": {
+   "name": "Kraker",
+   "description": "Sho‘r krakerlar toksikoz paytida yordam beradi."
+  },
+  "0a4654e9-7c41-473b-a757-76ec9bb1fb2b": {
+   "name": "Ketchup",
+   "description": "Xavfsiz, ammo tarkibidagi shakar va tuz sababli oz miqdorda iste’mol qiling."
+  },
+  "0b5776be-e0b1-4051-a79c-004825eeecfc": {
+   "name": "Gazlangan shirin ichimliklar",
+   "description": "Zararli emas, ammo shakar va gaz qorin dam bo‘lishi hamda vazn ortishiga olib keladi."
+  },
+  "0d5a2005-cbee-4482-bdab-a34909be9607": {
+   "name": "Do‘shob (Bekmez)",
+   "description": "Tut yoki uzum do‘shobi temir manbai bo‘lib, kamqonlikda foydali."
+  },
+  "111e075c-794e-4c81-a617-00bd2ff5db24": {
+   "name": "Narsharab",
+   "description": "Xavfsiz, ishtahani ochadi."
+  },
+  "175f0053-64b2-4e76-b5a5-673b01d8ac1e": {
+   "name": "Xangal (yaproq)",
+   "description": "Bu xamirli taom bo‘lib, xavfsiz hisoblanadi. Qiymasi to‘liq pishgan bo‘lishi kerak."
+  },
+  "19ca769a-11f7-46db-8963-6172b215a50a": {
+   "name": "Kunjut",
+   "description": "Non ustida yoki tahini ko‘rinishida oz miqdorda iste’mol qilish mumkin. Ko‘p miqdori bachadonga ta’sir qilishi mumkin."
+  },
+  "19d422d5-be20-4643-8e69-e66fb97f5167": {
+   "name": "Kiprik uzaytirish",
+   "description": "Agar yelim hidiga reaksiya bo‘lmasa, xavfsiz hisoblanadi."
+  },
+  "19fe3138-0e8f-487a-88e9-ac466b8e7455": {
+   "name": "Deraza artish",
+   "description": "Balandlikdan yiqilish xavfi bor. Ehtiyot bo‘ling."
+  },
+  "1c5a11d7-6647-4d9c-b566-6ed1d207f677": {
+   "name": "Soch bo‘yog‘i",
+   "description": "1-trimestrdan keyin, yaxshi shamollatiladigan xonada va ammiaksiz bo‘yoqlardan foydalanish mumkin."
+  },
+  "1ec8f09a-93f7-4090-a7b3-291ec4bebda6": {
+   "name": "Kabob (go‘sht)",
+   "description": "To‘liq pishgan bo‘lishi (\"qonli\" qolmasligi) kerak. Kuygan qismlarini iste’mol qilish tavsiya etilmaydi."
+  },
+  "14729a17-9a8e-479b-8332-5813c2a6ed6c": {
+   "name": "Quyoshdan himoya kremi (SPF)",
+   "description": "Fizik filtrlar (rux oksidi, titan dioksidi) ma’qulroq. Pigment dog‘laridan himoya qiladi."
+  },
+  "14797472-1740-468f-a25a-a0879705d4d1": {
+   "name": "Midiya (dengiz mollyuskalari)",
+   "description": "Zaharlanish xavfi yuqori. Xom holda iste’mol qilish qat’iyan taqiqlanadi."
+  },
+  "14a47061-074d-4b9c-ba69-91bae5938a58": {
+   "name": "Shakarbura / Paxlava",
+   "description": "Tarkibi xavfsiz, ammo tarkibidagi ko‘p miqdordagi shakar vazn ortishiga olib kelishi mumkin."
+  },
+  "14f882f6-96f1-4174-83ab-3873313265fd": {
+   "name": "Levomitsetin",
+   "description": "Homila uchun zaharli (\"Kulrang chaqaloq\" sindromi)."
+  },
+  "155a10db-1b9e-42ee-9e71-19faf80ca313": {
+   "name": "Gilos / Olcha",
+   "description": "Xavfsiz, melatonin (uyqu) uchun foydali bo‘lishi mumkin."
+  },
+  "15712c68-a377-4501-ab80-a6a7e1d0080f": {
+   "name": "Atseton",
+   "description": "Tirnoq bo‘yog‘ini ketkazish uchun ishlatish mumkin, ammo xonani shamollating."
+  },
+  "15ac1978-1b26-401f-9d90-9abd8877dac3": {
+   "name": "Marmarak (Sage)",
+   "description": "Bachadon qisqarishiga sabab bo‘lishi mumkinligi uchun tavsiya etilmaydi."
+  },
+  "15b4c8fc-e833-437f-bcb0-da0e8f2dd040": {
+   "name": "Qizil mevasi",
+   "description": "C vitamini manbai bo‘lib, qon bosimini me’yorda ushlab turishga yordam beradi."
+  },
+  "15feef97-b285-4534-90a8-6dd8cc6994e2": {
+   "name": "Ich suruvchi vositalar",
+   "description": "Tabiiy vositalar (turshak, olxo‘ri) yaxshiroq. Dori vositalarini faqat shifokor bilan maslahatlashib qabul qiling."
+  },
+  "16141dbb-2ea0-46a1-92bb-a4a9cbc211bd": {
+   "name": "Motal pishlog‘i",
+   "description": "Xom sutdan tayyorlangan bo‘lishi va tarkibida tuz juda ko‘p bo‘lishi mumkin. Ehtiyot bo‘ling."
+  },
+  "16a15229-2aac-4e4f-ae08-5d1a792405ad": {
+   "name": "Qovoq",
+   "description": "Juda foydali, kletchatka va vitaminlarga boy."
+  },
+  "170aa39f-276b-4e8a-a118-072d9205cb2a": {
+   "name": "Sho‘r",
+   "description": "Xavfsiz, agar juda sho‘r bo‘lsa, suvda ivitib qo‘ying."
+  },
+  "2ba4fe11-76b1-4110-8626-0826230bb91c": {
+   "name": "Kungaboqar urug‘i",
+   "description": "Foliy kislotasi va E vitamini manbai."
+  },
+  "2c380853-1d73-4853-a94f-5df5664edb6d": {
+   "name": "D vitamini",
+   "description": "Shifokor belgilagan dozada qabul qilish kerak."
+  },
+  "2cbeb816-e302-4800-95f9-653ae9b96f41": {
+   "name": "Zaytun",
+   "description": "Xavfsiz, ammo tuzli."
+  },
+  "2f141477-bea5-4d25-867b-b67d3e0d3866": {
+   "name": "Chips",
+   "description": "Zararli yog‘lar va tuzni o‘z ichiga oladi. Kamdan-kam hollarda iste’mol qilish mumkin."
+  },
+  "2f3569d2-7904-4608-a2cd-a8d64f63a1b5": {
+   "name": "C vitamini serumi",
+   "description": "Dog‘larga qarshi qo‘llash xavfsiz."
+  },
+  "3053a573-4429-4e68-86c4-0e7aa8a0013d": {
+   "name": "Zarchava (kurkuma)",
+   "description": "Immunitet uchun foydali, taomlarda ishlatish mumkin."
+  },
+  "2841191c-cf23-4b01-bf5f-86a558ecb36a": {
+   "name": "Mikrobleyding",
+   "description": "Infeksiya xavfi va og‘riq sababli tavsiya etilmaydi."
+  },
+  "28775f4a-1fa8-4cb7-8dac-0132827acef9": {
+   "name": "Yod",
+   "description": "Qalqonsimon bez faoliyati va homila miyasining rivojlanishi uchun muhim."
+  },
+  "2a3c43e7-7984-4ed2-b2db-4df9dd48adbd": {
+   "name": "G‘o‘ra suvi",
+   "description": "Xavfsiz (xom uzum sharbati)."
+  },
+  "2ac2b30a-da50-4793-b7a3-857694634a38": {
+   "name": "Makkajo‘xori (pishirilgan)",
+   "description": "Xavfsiz tamaddi hisoblanadi."
+  },
+  "2b2dad7b-3bcb-456f-8c6d-6200781cc993": {
+   "name": "Tishlarni davolash",
+   "description": "Mahalliy anesteziya (lidokain) homiladorlar uchun xavfsiz. Infeksiyani davolash muhim."
+  },
+  "2b3dc439-9ff4-4b53-993b-7cea853548d1": {
+   "name": "Qosh laminatsiyasi",
+   "description": "Kimyoviy moddalar teriga tegishi mumkin. Allergiya testini o‘tkazing."
+  },
+  "30b06132-c93e-44ce-9d7a-1661b85b1e60": {
+   "name": "Pirsing",
+   "description": "Infeksiya xavfi bor. Qorin sohasidagi pirsingni olib tashlash kerak."
+  },
+  "31868710-84f8-405d-97d0-cd526f998a88": {
+   "name": "Botoks / Filler",
+   "description": "Axloqiy sabablarga ko‘ra homiladorlarda sinovdan o‘tkazilmagan, kosmetologlar tavakkal qilmaydi."
+  },
+  "32160fb8-7760-4e41-8ffe-b27506c0e08f": {
+   "name": "Tirnoq bo‘yog‘i (lak)",
+   "description": "Toluol va formaldegid saqlamaydigan (\"3-free\" yoki \"5-free\") laklarni tanlang. Xonani shamollating."
+  },
+  "329e973f-89c7-4150-936a-d3b2b4a30283": {
+   "name": "Avtomobil haydash",
+   "description": "Xavfsizlik kamarini qorin ostidan taqish sharti bilan xavfsizdir."
+  },
+  "33035124-c776-4553-8ff5-b7c8bb0b8d3c": {
+   "name": "Valeriana",
+   "description": "Tinchlantiruvchi vosita sifatida. Shifokor bilan maslahatlashing."
+  },
+  "346d0133-99be-475b-b417-67945f3cc71f": {
+   "name": "Paratsetamol",
+   "description": "Og‘riq va isitma uchun birinchi tanlovdir."
+  },
+  "214a8105-e97d-46f4-bfa3-4285b64abb38": {
+   "name": "Kompyuterda ishlash",
+   "description": "Har soatda o‘rningizdan turib, yurib turing (qon aylanishi uchun)."
+  },
+  "2480a0e0-51da-49e1-9ad2-f6accaaf2639": {
+   "name": "Yashil choy",
+   "description": "Tarkibida kofein bor va foliy kislotasining so‘rilishiga xalaqit berishi mumkin. Kuniga 1 piyola."
+  },
+  "256b8c29-d4c6-497b-96ad-14febc117057": {
+   "name": "Efir moylari",
+   "description": "Dastlabki 3 oyda ulardan saqlaning. Lavanda va choy daraxti moyini keyinchalik oz miqdorda ishlatish mumkin."
+  },
+  "25c7527b-591c-4620-959d-e45daeaea7e8": {
+   "name": "Aloe vera (gel)",
+   "description": "Teriga surtish xavfsiz. Ichga qabul qilish (sharbatini ichish) ich suruvchi ta’siri tufayli mumkin emas."
+  },
+  "26a4dcad-717d-4451-8a11-003e8508571f": {
+   "name": "Lavashak",
+   "description": "Xavfsiz, nordon-shirin ta’mi toksikoz paytida yordam berishi mumkin."
+  },
+  "2816eb9b-6c75-4242-869c-91b793782e84": {
+   "name": "Marafon yugurish",
+   "description": "Homiladorlik davrida marafon yugurish yuqori jismoniy zo‘riqish va ehtimoliy xavflar tufayli odatda tavsiya etilmaydi. Shaxsiy tavsiya olish uchun shifokoringiz bilan maslahatlashing."
+  },
+  "3473200c-9a7d-48b0-928c-8e9da88800b1": {
+   "name": "Spirtsiz pivo",
+   "description": "Tarkibida oz miqdorda (0.5%) alkogol bo‘lishi mumkin. Ehtiyot bo‘ling."
+  },
+  "35464939-dd9e-4116-b32a-0eae5ac720f8": {
+   "name": "Badambura",
+   "description": "Xavfsiz."
+  },
+  "3982c1ae-13f7-4142-8726-4f0481aa7c58": {
+   "name": "Quyoshda bo‘lish",
+   "description": "Me’yorida quyoshda bo‘lish odatda xavfsiz va D vitamini ishlab chiqarilishiga yordam beradi. Biroq quyoshda uzoq vaqt qolish suvsizlanish, issiq urishi va quyoshda kuyishga olib kelishi mumkin, bu esa noqulaylik tug‘dirishi va salomatlikka zarar yetkazishi mumkin. Bevosita quyosh nurlari ostida bo‘lishni, ayniqsa eng issiq paytda (ertalab soat 10 dan kechki 4 gacha) cheklash, himoya kiyimlarini kiyish, quyoshdan himoyalovchi kremdan foydalanish va ko‘proq suyuqlik ichish tavsiya etiladi."
+  },
+  "3c93069d-d293-4b0f-ad5e-34bac1fe54c6": {
+   "name": "Baqlajon",
+   "description": "Xavfsiz va foydali."
+  },
+  "3cea4532-7848-493f-a0d6-e06099618ef1": {
+   "name": "Suzish",
+   "description": "Eng yaxshi sport turlaridan biridir. Suvi toza hovuzda yoki dengizda suzishni afzal ko‘ring."
+  },
+  "3d080cee-a173-4d17-8b0b-c3313c09349e": {
+   "name": "Retinol (A vitamini)",
+   "description": "Krem va tabletkalar shaklida qo‘llash taqiqlanadi. Homilaga teratogen ta’sir ko‘rsatishi mumkin."
+  },
+  "410cde1d-5aea-4d7b-bb9b-fe8f45a749d3": {
+   "name": "Analgin",
+   "description": "Qon hosil bo‘lishiga salbiy ta’sir qilishi mumkin. Parasetamolni tanlang."
+  },
+  "41b1cc04-5909-43be-8ce4-86fb1ead21b8": {
+   "name": "Ayron / Dovg‘a",
+   "description": "Xavfsiz, hazm qilishni yaxshilaydi."
+  },
+  "438a265a-32b5-43b2-a441-d5edbb5699d7": {
+   "name": "Non (butun donli bug‘doy)",
+   "description": "Oq nondan ko‘ra foydaliroq."
+  },
+  "43a45a81-8784-41a1-b75a-fb08a503e946": {
+   "name": "Arslonquyruq (Motherwort)",
+   "description": "Tinchlantiruvchi vosita sifatida qo‘llanadi, ammo shifokor bilan maslahatlashing."
+  },
+  "4409ab79-8040-400f-874e-3014663cbb59": {
+   "name": "Kashnich",
+   "description": "Oziq-ovqat miqdorida (ko‘kat sifatida) iste’mol qilish xavfsiz."
+  },
+  "445ab6ae-6f5b-45dd-948c-e1fb40b68b41": {
+   "name": "Akril / Gel tirnoqlar",
+   "description": "Chang va kimyoviy hidlardan himoyalanish uchun niqob taqing. UV-lampa zararsiz."
+  },
+  "3d4abaa1-3e7a-4a70-ba17-3a98380b262e": {
+   "name": "Solariy",
+   "description": "Haddan tashqari qizib ketish va UV nurlari zararli. Avtozagar (Self-tan) kremlari xavfsizroq."
+  },
+  "3dcd690d-13ac-4649-adb0-5f3754e504df": {
+   "name": "Gulkaram",
+   "description": "Foliy kislotasi manbai."
+  },
+  "3e56c556-b839-4f2c-b232-3ab20776411e": {
+   "name": "Jamoat hammomi",
+   "description": "Infeksiya xavfi va yuqori harorat sababli tavsiya etilmaydi."
+  },
+  "3ee1c3b7-b903-492c-8602-996750c186b8": {
+   "name": "Qutab (ko‘katli/go‘shtli)",
+   "description": "Ko‘katlar yaxshilab yuvilishi, go‘sht esa to‘liq pishirilishi kerak."
+  },
+  "3f136261-51b1-4e72-b8ca-44853eff06b6": {
+   "name": "Na’matak choyi",
+   "description": "C vitaminiga boy, shamollashda foydali."
+  },
+  "3f8bf8fd-9d0c-44e6-bcfe-aba1fd9bdaba": {
+   "name": "Tuzlama (marinad)",
+   "description": "Xavfsiz, ishtahani ochadi. Tuz miqdori tufayli shish paydo qilishi mumkin."
+  },
+  "4bc02c92-bff2-4d26-b42d-9123d3f84aed": {
+   "name": "Ajdar mevasi",
+   "description": "Ajdar mevasini homiladorlik davrida iste'mol qilish odatda xavfsiz. U homilador ayollar uchun foydali bo'lishi mumkin bo'lgan vitaminlar, minerallar va tolaning yaxshi manbaidir."
+  },
+  "4bf58079-aa14-4344-8177-0c7e093fb7fd": {
+   "name": "Kvas",
+   "description": "Tarkibida oz miqdorda spirt bo'lishi mumkin (achish mahsuloti). Ehtiyot bo'ling."
+  },
+  "4d71f90e-d40d-49a3-a894-6e5ac5b95bc2": {
+   "name": "Xina (Henna)",
+   "description": "Tabiiy xina xavfsiz. Kimyoviy qo'shimchalar qo'shilgan \"qora xina\"dan saqlaning."
+  },
+  "4e56afe8-e5aa-4f52-9505-f2461311be94": {
+   "name": "Qovun",
+   "description": "Xavfsiz, ammo yaxshilab yuvish kerak (po'stlog'idagi bakteriyalar tufayli)."
+  },
+  "4e861e2a-5668-4dd0-b2c7-733c3191cebf": {
+   "name": "Dimedrol",
+   "description": "Bachadon qisqarishlariga sabab bo'lishi mumkin, tavsiya etilmaydi."
+  },
+  "4ed749d3-e969-49f1-95f3-cb9354d1022c": {
+   "name": "Burun spreylari",
+   "description": "Tuzli suv (Akvamaris) mutlaqo xavfsiz. Qon tomirlarni toraytiruvchi vositalarni (Ksilometazolin) 3-5 kundan ortiq ishlatmaslik kerak."
+  },
+  "4f691cd1-d199-495e-ad77-36cafbbe20a5": {
+   "name": "Kombucha",
+   "description": "Tarkibida oz miqdorda alkogol va tirik bakteriyalar bo‘lishi mumkin."
+  },
+  "4ff28cff-1e5f-4c00-9bf5-da800caafa84": {
+   "name": "Qizil ikra",
+   "description": "Pasterizatsiya qilingan bo‘lsa, xavfsizdir."
+  },
+  "50fbfc91-971a-4630-9616-e61d1e952266": {
+   "name": "Konsert",
+   "description": "Juda baland ovoz chaqaloqni bezovta qilishi mumkin."
+  },
+  "519f485f-bbfa-43a2-ab16-3cf1e139361b": {
+   "name": "Margarin",
+   "description": "Tarkibida transyog‘lar bor, sariyog‘ni afzal ko‘ring."
+  },
+  "5244c1bd-462f-4e11-80c4-c7698bf4eb81": {
+   "name": "Xom sut",
+   "description": "Qaynatilmagan qishloq suti bakteriyalar manbai hisoblanadi. Uni albatta qaynatish yoki pasterizatsiya qilinganini sotib olish kerak."
+  },
+  "529cbeb0-75e5-405b-980d-b468a119e536": {
+   "name": "Ko‘katli omlet",
+   "description": "Ko‘katlar va tuxum to‘liq pishirilgan bo‘lsa, xavfsizdir."
+  },
+  "56b28fa6-2463-4319-a977-abdfc415b72f": {
+   "name": "Xantal (gorchitsa)",
+   "description": "Sous sifatida oz miqdorda iste’mol qilish xavfsiz."
+  },
+  "580c9e78-3ae2-44f8-a423-d1a876ee79a7": {
+   "name": "Sakrash (Jumping)",
+   "description": "Bo‘g‘imlar bo‘shashgani sababli jarohatlanish xavfi bor. Bachadonga bosim tushiradi."
+  },
+  "583251f4-b8d0-49fb-94d8-09b5b5b8dd82": {
+   "name": "Atirgul suvi",
+   "description": "Xavfsiz, tinchlantiruvchi ta’sirga ega."
+  },
+  "594fcc68-fc42-4bca-900f-141656343888": {
+   "name": "Pomidor",
+   "description": "Xavfsiz, likopen manbai."
+  },
+  "5982e012-62cf-416e-b576-902b951f4204": {
+   "name": "Baqlajon do‘lmasi",
+   "description": "Xavfsiz (yozgi do‘lma)."
+  },
+  "59e013bf-1a25-4372-bb1b-e6c0f3f5d350": {
+   "name": "Passiv chekish",
+   "description": "Tutunli muhitda bo‘lish ham zararli."
+  },
+  "5340f447-5183-44c1-a1e3-6279a989c56c": {
+   "name": "Muzqaymoq",
+   "description": "Pasterizatsiya qilingan sutdan tayyorlangan bo‘lsa, xavfsiz. Ko‘chada sotiladigan \"yumshoq\" muzqaymoqlarda bakteriyalar bo‘lishi xavfi mavjud."
+  },
+  "53bfc9ec-dd79-4134-9377-7aa0dbecaa42": {
+   "name": "Ta’mirlash (bo‘yoq hidi)",
+   "description": "Erituvchilar va bo‘yoq bug‘lari zararli. Xonada qolmang."
+  },
+  "55091d3f-e65c-41cc-91a3-9aee86cea4b1": {
+   "name": "Mayonez",
+   "description": "Uyda xom tuxumdan tayyorlangan mayonezni iste’mol qilish mumkin emas. Do‘kon mayonezi (pasterizatsiya qilingan tuxumdan tayyorlangan) xavfsiz."
+  },
+  "560a1bdf-8d00-4164-87ab-508083cf5275": {
+   "name": "Xom tuxum",
+   "description": "Salmonella xavfi mavjud. \"Gogol-mogol\", xom xamir yoki chala pishgan tuxum iste’mol qilish mumkin emas. Tuxum to‘liq pishirilishi kerak."
+  },
+  "56778e31-ace8-48db-ae70-70dece506207": {
+   "name": "Temir (Iron)",
+   "description": "Kamqonlik (anemiya) bo‘lsa, shifokor tavsiyasiga ko‘ra qabul qilinadi. Ich qotishiga sabab bo‘lishi mumkin."
+  },
+  "56815cf3-8027-47e0-98e6-8d6cdd30d7f7": {
+   "name": "Quritilgan mevalar",
+   "description": "Mayiz, turshak va quritilgan o‘rik xavfsiz (yaxshilab yuvish kerak)."
+  },
+  "59fb3680-4faa-49c9-94f4-50c108fe46e7": {
+   "name": "Kokos yog‘i",
+   "description": "Xavfsiz."
+  },
+  "5a458d09-50b8-41b9-bd96-a563718fc867": {
+   "name": "Uy hayvonlari (it)",
+   "description": "Xavfsiz. Qoriningizga sakrashiga yo‘l qo‘ymang."
+  },
+  "5b79dbab-363f-4c10-88a5-bb4e7d1189f0": {
+   "name": "Krevetka",
+   "description": "To‘liq pishirilgan holda xavfsiz. Xom yoki chala pishirilganini iste’mol qilmang."
+  },
+  "5c1830c9-88e2-4841-8a68-b24e260dc873": {
+   "name": "Pitsa",
+   "description": "Tarkibidagi pishloq (pasterizatsiya qilingan) va kolbasa (pishirilgan) ekanini tekshirish kerak."
+  },
+  "5c68102b-5a44-4efe-b7b4-4f2dd181733f": {
+   "name": "Kinoa (Quinoa)",
+   "description": "Oqsilga boy, ajoyib tanlov."
+  },
+  "5cb8457a-e57a-462e-ab62-e24b3526d8ba": {
+   "name": "Bouling",
+   "description": "Shar juda og‘ir bo‘lmasligi kerak. Ehtiyot bo‘ling (pol sirpanchiq bo‘lishi mumkin)."
+  },
+  "5d083314-2569-43ea-ae23-fc114fbfce9c": {
+   "name": "Tetratsiklin",
+   "description": "Homilaning suyaklari va tishlari rivojlanishini buzadi."
+  },
+  "5f1e0613-8338-4aa2-b8f4-9ceaf2ed0b06": {
+   "name": "Gidroxinon",
+   "description": "Dog‘larni oqartiruvchi modda bo‘lib, homiladorlikda qo‘llash tavsiya etilmaydi."
+  },
+  "5f509ef7-f1c9-4d9c-99c2-3a0e4a01a0f0": {
+   "name": "Baland poshnali oyoq kiyim",
+   "description": "Og‘irlik markazi o‘zgargani sababli bel og‘rig‘i va yiqilish xavfini keltirib chiqarishi mumkin."
+  },
+  "5f82fb09-4272-450a-a938-9061a1796d85": {
+   "name": "Metoklopramid (Cerucal)",
+   "description": "Kuchli qusishda faqat shifokor tavsiyasi bilan qo‘llanadi."
+  },
+  "5f83ff5e-3c19-423e-98db-8ded8ee940d3": {
+   "name": "Holva",
+   "description": "Xavfsiz, ammo tarkibida shakar juda ko‘p va kaloriyasi juda yuqori."
+  },
+  "601714d8-610c-438d-a0d7-5877c0bf636a": {
+   "name": "Keratin (soch uchun)",
+   "description": "Ko‘plab keratin vositalari tarkibida zararli formaldegid mavjud."
+  },
+  "633e6263-8f53-4f9e-bd0f-e7a29527e3a4": {
+   "name": "Probiotiklar",
+   "description": "Ovqat hazm qilish tizimi uchun xavfsiz."
+  },
+  "6388ea48-ae0f-43ce-babf-7cfe4ca86b8a": {
+   "name": "Shaftoli / O‘rik",
+   "description": "Xavfsiz. Quritilgan o‘rik qabziyatda foydalidir."
+  },
+  "66dacaf3-0db6-4d5d-80d2-bd4efdac876e": {
+   "name": "Rayhon",
+   "description": "Xavfsiz."
+  },
+  "67bf765d-e81e-422c-98d9-7f20a6cd4779": {
+   "name": "Salitsil kislotasi",
+   "description": "Yuqori foizli pilinglardan foydalanish mumkin emas. Yuvish vositalarida (2%-gacha) xavfsiz."
+  },
+  "67e60a78-ff25-4e82-a1ee-fcd0e164b46a": {
+   "name": "Selen",
+   "description": "Antioksidant, xavfsiz."
+  },
+  "68436f79-3935-4d42-a531-14e13c04b0a5": {
+   "name": "Selderey (Celery)",
+   "description": "Xavfsiz, shishni kamaytirishga yordam beradi."
+  },
+  "601ddfdf-ce3e-49f3-b265-6d855abe584f": {
+   "name": "Streptotsid",
+   "description": "Homiladorlikda qo‘llash tavsiya etilmaydi."
+  },
+  "602aceb1-5ab8-47bc-98de-4efa57d115a8": {
+   "name": "Benzoil peroksid",
+   "description": "Husnbuzarlar uchun past konsentratsiyali (2.5-5%) kremlar odatda xavfsizdir."
+  },
+  "609cd044-7abe-4055-b0cc-8bd435ceecc8": {
+   "name": "Samolyotda uchish",
+   "description": "Agar homiladorlik normal kechayotgan bo‘lsa, 36-haftagacha ruxsat etiladi. Ko‘p suv iching va tez-tez harakatlaning."
+  },
+  "612ccff1-2754-48e7-95a5-0b34f772498a": {
+   "name": "Kolbasa / Sosiska",
+   "description": "Yaxshilab pishirilishi kerak. Xom dudlangan kolbasalarda (salyami) listeriya xavfi mavjud."
+  },
+  "6214d75f-88ec-40f6-b373-2db80810bbf5": {
+   "name": "Qorin uchun moy (cho‘zilish izlari)",
+   "description": "Terini namlantirish uchun bodom yoki kokos moyidan foydalanish xavfsizdir."
+  },
+  "6301bccb-ed1f-4926-9f49-4d46b17a1eec": {
+   "name": "Asal",
+   "description": "Pasterizatsiya qilingan asal xavfsizdir."
+  },
+  "6d8da89e-2915-4d50-9726-13000b119af8": {
+   "name": "Antiperspirant",
+   "description": "Xavfsiz. Alyuminiyning homilaga zarar yetkazishi isbotlanmagan."
+  },
+  "6d9509e9-99c8-48d9-868f-8c628f8bde63": {
+   "name": "Bodring",
+   "description": "Xavfsiz, tanani salqinlashtiradi."
+  },
+  "6fadb185-4d26-4b03-b90f-2ca2294a8a59": {
+   "name": "Massaj",
+   "description": "Faqat homiladorlar uchun maxsus massaj. Qorin sohasiga tegmaslik kerak."
+  },
+  "7118b69a-1054-4e8c-aa5c-be81da487610": {
+   "name": "Funduk / yong‘oq",
+   "description": "Omega-3 va oqsil manbai. Allergiya bo‘lmasa, tavsiya etiladi."
+  },
+  "716d8b76-bf60-4168-9031-e5be46163dd2": {
+   "name": "Banka qo‘yish",
+   "description": "Qon aylanishini keskin kuchaytiradi, xavfli."
+  },
+  "732bed92-3030-411f-b2ff-283bf6e4bf48": {
+   "name": "Chia urug‘i",
+   "description": "Omega-3 va kletchatka manbai."
+  },
+  "455c2f5c-a585-4549-98c6-f4a465fe10e5": {
+   "name": "Moychechak choyi",
+   "description": "Tinchlantiruvchi ta'sirga ega, ammo ko'p miqdorda bachadonga ta'sir qilishi mumkin. Kuniga 1 piyola bilan cheklaning."
+  },
+  "4736feb8-a7c7-47ab-83f0-c0063f1903f5": {
+   "name": "Qora ikra",
+   "description": "Pasterizatsiya qilingan bo‘lsa, oqsil va Omega-3 manbai hisoblanadi."
+  },
+  "48610fa7-1910-457d-9078-9733a4ac93ef": {
+   "name": "Burger (Fastfud)",
+   "description": "Go‘sht to‘liq pishirilgan bo‘lishi kerak. Salatning tozaligi shubhali bo‘lishi mumkin."
+  },
+  "48e91094-2376-4f8b-9fcb-b8dff5dabdd6": {
+   "name": "Tabiiy sharbatlar",
+   "description": "Pasterizatsiya qilingan sharbatlar xavfsiz. Yangi siqilgan sharbatlarni darhol ichish kerak."
+  },
+  "4afbfd15-403c-4f25-8b02-aa586d685816": {
+   "name": "Piti",
+   "description": "Juda yog‘li (dumba yog‘i), hazm qilishni qiyinlashtirishi mumkin."
+  },
+  "4bb29538-26fa-451d-93c6-87de4551a116": {
+   "name": "Hasharotlarga qarshi vosita",
+   "description": "Zaharli. Uyga ishlov berilayotganda tashqarida bo‘ling."
+  },
+  "6870b771-135d-4435-baf9-06ee70c3447b": {
+   "name": "Anjir",
+   "description": "Qabziyatga qarshi ajoyib vosita (ham yangi, ham quritilgan holda)."
+  },
+  "7413e106-1816-44e7-aeda-e615ff542fb7": {
+   "name": "Tut (meva)",
+   "description": "Xavfsiz, qon ko‘paytiradi."
+  },
+  "7460ea4e-59a9-4491-a80d-ca624d9ea62f": {
+   "name": "Rentgen",
+   "description": "Faqat juda zarur bo‘lsa. Qo‘rg‘oshinli fartuk taqish kerak. Tish rentgeni xavfsiz."
+  },
+  "697c2aaa-a74b-4086-a444-6b7288af80bb": {
+   "name": "Simob miqdori yuqori bo‘lgan baliq",
+   "description": "Akula, qirol skumbriyasi va qilichbaliqni iste’mol qilish taqiqlanadi. Simob asab tizimiga zararli."
+  },
+  "763b5893-6ccb-484f-aab4-527f5c6fece0": {
+   "name": "Bulyon kubiklari",
+   "description": "Tarkibida qo‘shimchalar (MSG) va tuz miqdori yuqori. Tabiiy bulyon yaxshiroq."
+  },
+  "6a7efdd2-06f4-496b-a4e9-bc1dd8c0a77d": {
+   "name": "Ibuprofen",
+   "description": "Ayniqsa, 3-trimestrda qo‘llash taqiqlanadi (yurak qon tomirlariga ta’sir qiladi)."
+  },
+  "77386829-1c50-4449-b632-8771c2292299": {
+   "name": "Qovurma",
+   "description": "Yog‘li va sho‘r bo‘lishi mumkin. Me’yorida iste’mol qilish kerak."
+  },
+  "79481482-cb1b-47e5-8f83-f0c433d30ea9": {
+   "name": "Sumalak holvasi",
+   "description": "Vitaminlarga boy (bug‘doy nihollari), foydali."
+  },
+  "6ab31194-cd7e-4874-8d53-54c5ec49e6f2": {
+   "name": "Zuluk (Leech)",
+   "description": "Qonni suyultiruvchi ta'sirga ega, qon ketishiga olib kelishi mumkin."
+  },
+  "7988917f-4c54-4fc6-9b33-a6b9eff4a3b9": {
+   "name": "Smetana / Qaymoq",
+   "description": "Xavfsiz, ammo yog‘liligi yuqori (vazn ortishiga e’tibor bering)."
+  },
+  "6d7dba93-bfd3-4549-b0ef-6c472ec9ccc2": {
+   "name": "Mevali qoqi",
+   "description": "Tabiiy mevalardan tayyorlangan bo‘lsa, xavfsiz."
+  },
+  "6d819ec6-ea51-4700-8b68-8a4ec5218349": {
+   "name": "Og‘ir yuk ko‘tarish",
+   "description": "Bel va bachadon uchun xavflidir."
+  },
+  "7e0caddf-8e7a-4e66-9398-53595240fb6a": {
+   "name": "Jigar",
+   "description": "Tarkibida A vitamini (retinol) juda ko‘p. Oyiga 1-2 martadan ortiq iste’mol qilish tavsiya etilmaydi."
+  },
+  "7ec91bed-5e3e-4a83-adee-8d1221151cae": {
+   "name": "Suzma",
+   "description": "Xavfsiz."
+  },
+  "7f3b0fe2-64b2-4525-b035-fdbd8da666f0": {
+   "name": "Sigaret",
+   "description": "Homila rivojlanishining ortda qolishiga va muddatidan oldin tug‘ruqqa sabab bo‘ladi."
+  },
+  "815319d2-9b85-4808-b962-fdda0f9d7dd7": {
+   "name": "Finik",
+   "description": "Foydali. Homiladorlikning so‘nggi haftalarida tug‘ruqni yengillashtirishi mumkinligini ko‘rsatadigan tadqiqotlar mavjud."
+  },
+  "817378f0-f52a-42c2-9dc6-d31be38e3eae": {
+   "name": "Yalpizli suv (choy)",
+   "description": "Ko‘ngil aynishi va ovqat hazm qilish uchun foydali."
+  },
+  "81c3085d-96d9-4f6b-a7ba-21872bb64837": {
+   "name": "Zirk",
+   "description": "Palovda oz miqdorda iste’mol qilish mumkin. Yuqori dozada (berberin) bachadon qisqarishlarini rag‘batlantirishi mumkin."
+  },
+  "81f95f01-3b64-44d0-adc2-51f7584fefc4": {
+   "name": "Jinsiy aloqa",
+   "description": "Agar shifokor taqiqlamagan bo‘lsa (yo‘ldosh oldinda joylashmagan va bachadon tonusi bo‘lmasa), xavfsizdir."
+  },
+  "821fb5f2-388e-47ea-9009-cd1b7b556ce2": {
+   "name": "Zaytun moyi",
+   "description": "Eng foydali moylardan biridir."
+  },
+  "82343624-8c0a-4b01-a207-d6aa1be80ee1": {
+   "name": "Popkorn",
+   "description": "Tuz va yog‘i kam bo‘lsa, xavfsiz tamaddi hisoblanadi."
+  },
+  "86120127-596d-4576-9c19-6c32bfbcee8b": {
+   "name": "Tatuirovka",
+   "description": "Infeksiya (gepatit, OIV) xavfi va bo‘yoq tarkibi sababli taqiqlanadi."
+  },
+  "8808c210-3a50-4913-a82e-a41050ba65ec": {
+   "name": "Kompot",
+   "description": "Xavfsiz, ammo tarkibida shakar ko‘p bo‘lsa, iste’molini cheklang."
+  },
+  "89d45bf0-0499-4c49-9ba9-c5a9223b2a57": {
+   "name": "Yasmiq sho‘rvasi",
+   "description": "Temir va oqsil manbaidir."
+  },
+  "89e5fddd-8b38-4b19-b691-fa64f4c6a90f": {
+   "name": "Zig'ir urug'i",
+   "description": "Fitoestrogenlarni o'z ichiga oladi. Kuniga 1 qoshiqdan ko'p iste'mol qilish tavsiya etilmaydi."
+  },
+  "89eeff87-48dd-44b0-b8f9-4070b09a9d0f": {
+   "name": "Azelaik kislota",
+   "description": "Husnbuzar va dog'lar uchun homiladorlik davrida eng xavfsiz kislota hisoblanadi."
+  },
+  "8a010bc8-87c8-49af-9b78-0523759fca38": {
+   "name": "Sirka",
+   "description": "Salatlarga oz miqdorda qo'shib iste'mol qilish xavfsiz."
+  },
+  "8a8f0fa3-c25c-45d1-b6f6-ee989d541e2a": {
+   "name": "Qizilmiya ildizi choyi",
+   "description": "Qon bosimini oshirishi va bolaning kognitiv rivojlanishiga salbiy ta'sir ko'rsatishi mumkin."
+  },
+  "8c790830-3d81-4c6a-86ad-ab99b3b9a793": {
+   "name": "Tarvuz",
+   "description": "Suyuqlikka bo'lgan ehtiyojni qondiradi, ammo tarkibida shakar ko'p (diabetda ehtiyot bo'ling)."
+  },
+  "8d6e0491-4c18-4788-9af6-483ed9d1f574": {
+   "name": "Karam",
+   "description": "Foydali, ammo qorin dam bo'lishiga olib kelishi mumkin."
+  },
+  "8e6f587c-2400-4460-be21-1136fc67cf36": {
+   "name": "Perekis (Vodorod peroksid)",
+   "description": "Yarani tozalash uchun xavfsiz."
+  },
+  "8ed0967f-876b-45cd-9e91-587c8d5d6e0f": {
+   "name": "Zanjabil",
+   "description": "Toksikoz (ko‘ngil aynishi) uchun juda yaxshi. Kunlik miqdordan oshirmaslik sharti bilan."
+  },
+  "8f85cccc-8ea2-4c28-93df-cc5072268473": {
+   "name": "Gialuron zardobi",
+   "description": "Namlagich sifatida mutlaqo xavfsiz."
+  },
+  "8fe52471-8dfb-4d7b-8864-3b1d86d9a2d9": {
+   "name": "Soya",
+   "description": "Oziq-ovqat sifatida (masalan: soya sousi) xavfsiz. Yuqori dozali izoflavon qo‘shimchalari tavsiya etilmaydi."
+  },
+  "90391c7b-3de2-4666-8881-f39dd9405ed2": {
+   "name": "B6 vitamini",
+   "description": "Ko‘ngil aynishini (toksikozni) kamaytirish uchun ishlatiladi."
+  },
+  "90b9aa92-c8f3-4b4e-b97e-e6911cdbfbd6": {
+   "name": "Arpabodiyon (fenxel) choyi",
+   "description": "Hazm qilishga yordam beradi, ammo ko‘p miqdorda bachadon tonusini oshirishi mumkin."
+  },
+  "92962cf9-e5ec-49cb-81b4-c102843ffd96": {
+   "name": "Yugurish (Running)",
+   "description": "Agar homiladorlikdan oldin yugurgan bo‘lsangiz, sur’atni pasaytirib davom ettirishingiz mumkin. Yangidan boshlash mumkin emas."
+  },
+  "92a311a8-2353-49f2-a478-69bbb6e11521": {
+   "name": "Papaverin (shamcha)",
+   "description": "Bachadon tonusi uchun qo‘llanadi. Shifokor tavsiyasi bilan."
+  },
+  "92a61566-5cda-42e3-aa3b-f9e0870a058d": {
+   "name": "No-shpa (Drotaverin)",
+   "description": "Ozarbayjonda bachadon tonusi uchun tez-tez buyuriladi. Faqat shifokor tavsiyasi bilan."
+  },
+  "92d5127f-93c5-475a-8efe-d203d95f8692": {
+   "name": "Zelyonka (Brilliant yashili)",
+   "description": "Tashqi tomondan (yaraga) qo‘llash xavfsiz."
+  },
+  "936379c9-7b34-4707-87a4-0cb406f01a7e": {
+   "name": "Kompression paypoq",
+   "description": "Varikozning oldini oladi, shishni kamaytiradi."
+  },
+  "9465bd4b-eaf1-49d5-b708-d311399b2d80": {
+   "name": "Ananas",
+   "description": "Afsona: Tug‘ruqni boshlashi uchun 7-8 dona butun ananas yeyish kerak. Me’yorida iste’mol qilish xavfsiz."
+  },
+  "94bf5000-5697-4c9b-b884-b1e8c0efbcda": {
+   "name": "Doner",
+   "description": "Gigiyena bilan bog‘liq xavf bo‘lishi mumkin. Faqat ishonchli joydan olingan va to‘liq pishirilgan bo‘lishi kerak."
+  },
+  "94c2c047-2843-4200-936a-3a9fc44240f1": {
+   "name": "Gibiskus (Makka guli)",
+   "description": "Ayrim tadqiqotlarga ko‘ra, u gormonal ta’sir ko‘rsatishi mumkin, shuning uchun undan saqlanish tavsiya etiladi."
+  },
+  "9680b85e-c13d-4194-be28-5232a7f113b1": {
+   "name": "Raqs",
+   "description": "Kayfiyatni ko‘taradi. Keskin harakatlar qilish va sakrash mumkin emas."
+  },
+  "9811160d-50b0-49ee-ad9a-de2887d861ff": {
+   "name": "Sochni fen bilan quritish",
+   "description": "Xavfsiz."
+  },
+  "99c14318-3cfc-4075-b0a9-fe0b308313db": {
+   "name": "Shugaring / Vaks",
+   "description": "Tomirlar kengayishi (varikoz) bo‘lmasa, xavfsiz. Teri odatdagidan sezgirroq bo‘lishi mumkin."
+  },
+  "9a1a747c-7173-43b6-9b93-c2a5d9023c83": {
+   "name": "Malina / Maymunjon",
+   "description": "Yangi uzilgan holda iste’mol qilish xavfsiz. Barglaridan tayyorlangan choy bilan adashtirmang."
+  },
+  "9afd3dbd-2a81-4f82-b4a6-f0c365cace3a": {
+   "name": "Pasterizatsiya qilingan tvorog",
+   "description": "Do‘konda sotiladigan tvorog xavfsiz va kalsiy manbai hisoblanadi. Ochiq holda sotiladigan xom tvorogga issiqlik bilan ishlov berish kerak."
+  },
+  "9ff783a8-6911-4a46-97cd-a4a18396bb13": {
+   "name": "Feyxoa",
+   "description": "Yodga boy, qalqonsimon bez uchun foydali."
+  },
+  "a07b8699-6338-4bca-94a8-92fcb9ae10db": {
+   "name": "Tikuv tikish",
+   "description": "Xavfsiz, ammo uzoq vaqt bir xil holatda o‘tirmang."
+  },
+  "a1f606c2-1658-4e47-bfea-06a80cc7dce7": {
+   "name": "Mushmula",
+   "description": "Xavfsiz."
+  },
+  "a4a9d193-8a0c-48ee-9372-9b37e5b999aa": {
+   "name": "Lazer epilyatsiyasi",
+   "description": "Lazer nuri chuqur kirmaydi, ammo og‘riq bachadon tonusini oshirishi mumkin. Shifokorlar odatda kutishni tavsiya qiladilar."
+  },
+  "a533b46d-afd9-4184-ad2d-ec9d133701ff": {
+   "name": "Tarxun",
+   "description": "Oziq-ovqat miqdorida iste’mol qilish xavfsiz."
+  },
+  "a5dd803c-a1ab-47f5-acc3-d5aefdbeca54": {
+   "name": "Tuz",
+   "description": "Iste’mol qilish mumkin, ammo ko‘p miqdori shish (ödem) paydo bo‘lishiga olib keladi. Cheklash kerak."
+  },
+  "a6497678-b148-4fbc-8e3e-7625769c440c": {
+   "name": "Petrushka",
+   "description": "Taomlarda ziravor sifatida ishlatish xavfsiz. Ko‘p miqdordagi sharbati yoki choyi bachadon qisqarishlarini qo‘zg‘atishi mumkin."
+  },
+  "a7b8c93a-6b20-42cb-a6bb-3c24c2d463dd": {
+   "name": "Yumshoq pishloqlar",
+   "description": "Pasterizatsiya qilinmagan (qishloq) pishloqlari, Bri, Kamamber va Gorgonzola (mog‘orli pishloqlar) listeriya xavfini tug‘diradi."
+  },
+  "a90e3ed7-29b4-4069-9da6-756cd3c34d3b": {
+   "name": "Energetik ichimliklar",
+   "description": "Tarkibida kofein, taurin va kimyoviy qo‘shimchalar ko‘p bo‘lgani sababli taqiqlanadi."
+  },
+  "a92ffa8d-a22e-42a9-b273-e99051d02431": {
+   "name": "Avto-qoraytiruvchi vosita (sprey)",
+   "description": "Teri yuzasida qoladi va qonga o‘tmaydi. Ammo spreyni nafas orqali yutib yubormaslikka harakat qiling."
+  },
+  "a935f993-7f7f-48c5-86da-aa2d5e8367c7": {
+   "name": "Qo‘g‘al",
+   "description": "Ziravorli bo‘lgani uchun jig‘ildon qaynashiga sabab bo‘lishi mumkin."
+  },
+  "799cad69-4882-49ca-82ca-3e1794c7fa44": {
+   "name": "Mushuk qumi",
+   "description": "Toksoplazmoz xavfi bor. Qumni boshqa birov almashtirishi kerak."
+  },
+  "79a91301-c669-4cf2-b0c3-e09fc1ab5f35": {
+   "name": "Niatsinamid",
+   "description": "Teri uchun xavfsiz."
+  },
+  "7b5f16d8-cb51-4a76-8024-7be7141ac630": {
+   "name": "Loviya",
+   "description": "Oqsil manbai, uni yaxshilab pishirish kerak."
+  },
+  "7bef7061-5448-4c35-b005-2997dcec735a": {
+   "name": "Shivit",
+   "description": "Oziq-ovqat miqdorida xavfsiz. Urug‘i (damlama) ehtiyotkorlik bilan."
+  },
+  "a9929822-3bb0-4d7c-a4c2-2a4b33e92a3e": {
+   "name": "Pilates",
+   "description": "Bel mushaklarini mustahkamlaydi. Murabbiy homiladorligingiz haqida bilishi kerak."
+  },
+  "aacd53cb-1bb0-4268-a1d1-9f9c135ab7ce": {
+   "name": "Xash / Kalla-pocha",
+   "description": "Juda yog‘li, xolesterin miqdorini oshirishi mumkin. Sarimsoq oshqozonni bezovta qilishi mumkin."
+  },
+  "ab3fa79f-82f8-4fc2-a110-8c6d47485087": {
+   "name": "Achchiq qalampir",
+   "description": "Xavfsiz, ammo jig‘ildon qaynashini kuchaytirishi mumkin."
+  },
+  "abf9d1a9-234a-433d-9ccb-84b093abd005": {
+   "name": "Antigistamin (allergiyaga qarshi)",
+   "description": "Shifokor bilan maslahatlashing. Loratadin va setirizin odatda xavfsiz hisoblanadi."
+  },
+  "ac0aee5f-a79c-4c84-b5d8-ef03a487b436": {
+   "name": "Issiq vanna / Sauna",
+   "description": "Tana haroratining 39°C dan yuqori ko‘tarilishi homila uchun xavfli. Iliq dush qabul qilish mumkin."
+  },
+  "acb890db-b750-4b72-8f5e-e8344e92d7a5": {
+   "name": "Saj ichi",
+   "description": "Juda yog‘li va qovurilgan bo‘lishi mumkin. Sabzavotli qismi foydaliroq."
+  },
+  "ad945485-a623-4a91-afca-c9d7bba8b9c8": {
+   "name": "Hijoma",
+   "description": "Qon yo‘qotish va infeksiya xavfi mavjud. Qon bosimini tushirishi mumkin."
+  },
+  "ada1521c-d651-4273-b3da-e1874aaf6625": {
+   "name": "Qatiq / Kefir",
+   "description": "Kalsiy va probiotiklar manbai."
+  },
+  "b0855f6d-792e-4d72-a4d4-3509c5e9f5a1": {
+   "name": "Parvoz",
+   "description": "Tijorat aviakompaniyalari reyslarida uchish odatda homiladorlik davrida xavfsiz hisoblanadi. Biroq, ayniqsa uzoq davom etadigan parvozlardan oldin, homiladorlik bilan bog‘liq hech qanday muammo bo‘lmasa ham, shifokoringiz bilan maslahatlashish tavsiya etiladi. Ko‘p suv iching, qon ivib qolishining oldini olish uchun harakatlanib turing va tavsiya etilsa, kompression paypoqlardan foydalaning. Bu tavsiyalar emizikli onalarga ham tegishli, biroq uzoq parvozlarda chaqaloqni oziqlantirish va uning qulayligi uchun qo‘shimcha tayyorgarlik ko‘rish foydali bo‘lishi mumkin."
+  },
+  "b0c7bfda-4110-4f88-8a68-a6303d1447c6": {
+   "name": "Losos (Syomga)",
+   "description": "Omega-3 manbai. Haftasiga 2 martagacha, to‘liq pishirilgan holda iste’mol qilish tavsiya etiladi."
+  },
+  "b1a7ab3d-fa21-4a98-ae31-159ea5e65822": {
+   "name": "Samolyotda uchish",
+   "description": "Tijorat reyslarida uchish odatda homiladorlik davrida xavfsiz hisoblanadi. Ayniqsa uchinchi trimestrda samolyotda uchish haqida shifokoringiz bilan maslahatlashish, qon ivib qolishining oldini olish uchun ko‘p suv ichish va harakatlanib turish tavsiya etiladi. Bu tavsiyalar emizikli onalarga ham tegishli, biroq uzoq parvozlarda chaqaloqni oziqlantirish va uning qulayligi uchun qo‘shimcha tayyorgarlik ko‘rish kerak."
+  },
+  "b4267eb3-6e6a-46f3-93ce-1dab05fea063": {
+   "name": "Sujuk",
+   "description": "Sujukni emizish davrida me’yorida iste’mol qilish odatda xavfsiz, biroq uning tarkibida natriy va yog‘ miqdori yuqori ekanini hisobga olish muhim. Shuningdek, achchiq mahsulotlar ba’zan ona suti orqali chaqaloqqa ta’sir qilib, bezovtalik yoki ovqat hazm qilish muammolariga sabab bo‘lishi mumkin. Chaqalog‘ingizning reaksiyasini kuzating."
+  },
+  "7d48f86d-1b7b-41b5-a5c1-7596a6ad0774": {
+   "name": "Tishlarni oqartirish",
+   "description": "Tish milklari sezgir bo‘lgani uchun bu muolajani kechiktirish tavsiya etiladi."
+  },
+  "b4392c92-b356-4f01-8438-8c0f357714ef": {
+   "name": "Shokolad",
+   "description": "Kofein va shakar miqdorini hisobga olgan holda, oz miqdorda iste'mol qilish mumkin."
+  },
+  "b73d6256-1d85-4003-b933-0538a317f86f": {
+   "name": "Malina bargi choyi",
+   "description": "Faqat 3-trimestr oxirida (36+ hafta) tug‘ruqqa tayyorgarlik ko‘rish uchun ruxsat etiladi."
+  },
+  "b45209df-c697-4659-83df-1930e5ece743": {
+   "name": "Kalsiy",
+   "description": "Suyaklar va tishlar uchun muhim."
+  },
+  "b7a6fc30-872d-4080-ab2a-e4fa0f992f45": {
+   "name": "Jismoniy mashqlar (yengil)",
+   "description": "Piyoda yurish, suzish va homiladorlar yogasi foydalidir."
+  },
+  "b89c53eb-32bc-412b-9682-ea88d2687297": {
+   "name": "Shakar / Shirinliklar",
+   "description": "Agar gestatsion diabet xavfi mavjud bo‘lsa, qat’iy nazorat qilish kerak."
+  },
+  "b48ef54c-3301-4c72-9e1d-015b47bf0be0": {
+   "name": "Olxo‘ri",
+   "description": "Xavfsiz, hazm qilishni tezlashtiradi."
+  },
+  "c3158731-b3af-4f97-ae42-ad2765f8836f": {
+   "name": "Jele",
+   "description": "Jelatin xavfsiz."
+  },
+  "c441fedf-30cd-4df7-aeb7-6c6d4c83ce37": {
+   "name": "Kalyan",
+   "description": "Sigaretga qaraganda ko‘proq is gazi va toksinlarni o‘z ichiga oladi."
+  },
+  "c61ac58a-22c8-4dd1-80b5-b2984f6468bc": {
+   "name": "Chuchvara",
+   "description": "Xavfsiz, qalampiriga e’tibor bering (jig‘ildon qaynashi)."
+  },
+  "c92870c6-4067-413f-bf1f-9c3c54c225ff": {
+   "name": "Avokado",
+   "description": "Foliy kislotasiga boy, juda foydali."
+  },
+  "ca2a1163-b2b3-49fd-96d1-10ea4d670bb2": {
+   "name": "Qora choy",
+   "description": "Tarkibida kofein bor, kuniga 3–4 piyoladan ortiq ichish tavsiya etilmaydi. Temir preparatlari bilan bir vaqtda ichmang."
+  },
+  "cba6bf85-f14b-4324-9d48-90cac59a4bc7": {
+   "name": "Alkogol",
+   "description": "Mutlaqo taqiqlanadi. Homila rivojlanishiga bevosita zarar yetkazadi."
+  },
+  "b5136762-1228-4319-a02d-71a442045140": {
+   "name": "Tunets balig‘i (konserva)",
+   "description": "Haftasiga 140 grammdan oshirmaslik sharti bilan iste’mol qilish mumkin (simob xavfi)."
+  },
+  "c12e6733-ed2c-48df-9554-d169b3d3df30": {
+   "name": "Skuter haydash",
+   "description": "Skuter haydash yiqilish va jarohatlanish xavfini tug‘diradi, bu esa homiladorlik davrida xavfli bo‘lishi mumkin. Bu faoliyatdan voz kechganingiz ma’qul."
+  },
+  "b62f0f82-1af4-4811-910c-583d477987e7": {
+   "name": "Anjir murabbosi",
+   "description": "Hazm qilish uchun foydali."
+  },
+  "c1ad91ac-a9d7-4f8b-be51-bcfc572993be": {
+   "name": "Kipriklarni laminatsiya qilish",
+   "description": "Kimyoviy moddalar ko‘zga tegishi mumkin, allergiya testini o‘tkazish shart."
+  },
+  "cd2424c6-21a8-4752-9ae9-f4742dae93e4": {
+   "name": "Kashtan",
+   "description": "Pishirilgan holda (palovda yoki pechda) iste'mol qilish xavfsiz."
+  },
+  "cd2c71df-2aa2-4603-8a8e-9819c6aaf1aa": {
+   "name": "Guruch / Grechka",
+   "description": "Xavfsiz uglevod manbalaridir. Grechka temir manbai hisoblanadi."
+  },
+  "cd79ac84-2fb6-4341-8c05-e49e124e966a": {
+   "name": "Sariyog'",
+   "description": "Xavfsiz, A va D vitaminlari manbai."
+  },
+  "cdb23929-c1a6-4bcd-8e34-e26f78dde126": {
+   "name": "No'xat",
+   "description": "Oqsil manbai, ammo qorin dam bo'lishiga olib kelishi mumkin."
+  },
+  "ce123d1a-41fc-4af9-8298-bf41eaa43197": {
+   "name": "Akvarel bo'yoq",
+   "description": "Zararsiz, undan hobbi sifatida foydalanishingiz mumkin."
+  },
+  "ce1b1478-cbd0-4b55-a0c0-52e6ae630be4": {
+   "name": "Behi",
+   "description": "Ko'ngil aynishida foydali, hazm qilishni yaxshilaydi."
+  },
+  "b728c753-908a-4c9b-be3a-95f134405968": {
+   "name": "Bulg‘ur",
+   "description": "Guruchga qaraganda ko‘proq kletchatka saqlaydi va foydalidir."
+  },
+  "c2eda676-4afc-47fd-8f07-97d50bd55942": {
+   "name": "Kakao",
+   "description": "Oz miqdorda iste’mol qilish mumkin. Tarkibida kofein bor."
+  },
+  "ce5d270b-9ea1-4416-b1ff-dde38b8ca2f7": {
+   "name": "Bandaj (Kamar)",
+   "description": "Bel og‘rig‘ini kamaytiradi, shifokor tavsiyasi bilan taqing."
+  },
+  "cf62fa05-9fb2-434a-a4ab-259a3cf6c357": {
+   "name": "Yong‘oq murabbosi",
+   "description": "Yodga boy, ammo tarkibida shakar ko‘p."
+  },
+  "d038498a-680b-480c-b90b-e0469a383504": {
+   "name": "Omega-3",
+   "description": "Miya rivojlanishi uchun muhim."
+  },
+  "d0c5b1ff-d7fa-47bd-aa7c-1c513690d586": {
+   "name": "Do‘lma / Palov",
+   "description": "Milliy taomlarimiz xavfsiz. Yog‘liligiga e’tibor bering."
+  },
+  "d0d53807-e3ef-43fa-bbbf-982ca54d561a": {
+   "name": "Uy tozalash (kimyoviy vositalar bilan)",
+   "description": "Xlor va kuchli kimyoviy moddalar bilan ishlaganda qo‘lqop kiying va derazani oching."
+  },
+  "d28be313-b328-4b02-a097-3b36aa9b4e80": {
+   "name": "Jiyda",
+   "description": "Oshqozon-ichak tizimi uchun foydali."
+  },
+  "d8282d11-7bba-461a-a8ca-1eaa2f8b8f8c": {
+   "name": "Suli bo‘tqasi (Oatmeal)",
+   "description": "Nonushta uchun juda mos, qabziyatni kamaytiradi."
+  },
+  "d83727f2-789f-49dc-aa6d-e6fbff9096a4": {
+   "name": "Sholg‘om suvi",
+   "description": "Xavfsiz, ammo sho‘r va achchiq bo‘lgani uchun oshqozon va qon bosimiga e’tibor bering."
+  },
+  "db0ccc2f-9c44-49a3-a91f-95b0501ebf1f": {
+   "name": "Piyoz",
+   "description": "Xavfsiz."
+  },
+  "dc6517a4-e925-4d1b-9f7e-57574d39a9db": {
+   "name": "Dezodorant",
+   "description": "Xavfsiz. Tabiiy tarkibli mahsulotni tanlagan ma’qul."
+  },
+  "dd8a1799-d7e7-4c57-975d-6087e06a28ce": {
+   "name": "O‘simliklar bilan ishlash (Bog‘dorchilik)",
+   "description": "Tuproqda toksoplazmoz qo‘zg‘atuvchisi bo‘lishi mumkin. Albatta qo‘lqop kiying."
+  },
+  "dd983a6e-a9da-4d50-bf3f-11e40f8ee87e": {
+   "name": "Antibiotiklar",
+   "description": "Faqat shifokor tavsiyasi bilan. Ayrimlari (masalan: Amoksitsillin) xavfsiz, boshqalari esa xavfsiz emas."
+  },
+  "d2b2547b-a246-46d2-8237-ba956bc10193": {
+   "name": "Sarimsoq",
+   "description": "Immunitet uchun foydali, ammo jig‘ildon qaynashiga sabab bo‘lishi mumkin."
+  },
+  "d35818e9-239f-4c36-89db-cbe81b4ecb74": {
+   "name": "Mikroto‘lqinli pech",
+   "description": "Radiatsiya sizib chiqarmaydi, unda ovqat isitish xavfsiz."
+  },
+  "d5113a84-f54b-44a1-b1e2-c56c174e915f": {
+   "name": "Dovg‘a",
+   "description": "Juda foydali (ko‘katlar + qatiq)."
+  },
+  "d5486e80-7fee-4805-914d-8ff740f6faf3": {
+   "name": "Gaviscon / Rennie",
+   "description": "Jig‘ildon qaynashida homiladorlar uchun xavfsiz hisoblanadi."
+  },
+  "d560e9b8-f582-402d-86f6-7f29f68bb753": {
+   "name": "Ayran (uyda tayyorlangan)",
+   "description": "Xavfsiz va foydali."
+  },
+  "d73743e4-7872-43bc-9d17-1a2b6c256ae0": {
+   "name": "Syorfing",
+   "description": "Syorfingda yiqilish, to‘qnashish, taxta yoki suv zarbasiga uchrash xavfi yuqori bo‘lib, bu homilador ayollar uchun xavfli bo‘lishi mumkin. Umuman olganda, homiladorlik davrida, ayniqsa homiladorlik muddati oshib, muvozanat o‘zgargani sari syorfing tavsiya etilmaydi."
+  },
+  "e3acc785-40e5-4a92-9bb2-facf384272da": {
+   "name": "Ismaloq",
+   "description": "Temir manbai, pishirilgan holda yaxshiroq o‘zlashtiriladi."
+  },
+  "e3d7d111-d05a-4b2d-8259-4020258da02d": {
+   "name": "Olma / Nok",
+   "description": "Kletchatka manbai, uni po‘sti bilan (yaxshilab yuvib) iste’mol qilish tavsiya etiladi."
+  },
+  "e45b4364-5c8b-4e45-80ff-f195d16c602d": {
+   "name": "Qahva",
+   "description": "Kunlik kofein miqdori 200 mq (1-2 fincan) bilan cheklanishi kerak."
+  },
+  "e82735f7-b021-4a7e-b97d-c632edb2796e": {
+   "name": "Kivi",
+   "description": "C vitaminiga boy, ovqat hazm qilishga yordam beradi."
+  },
+  "e883d250-5c94-4535-90fb-6fa5c2836826": {
+   "name": "Anor",
+   "description": "Temir manbai, kamqonlikda foydali."
+  },
+  "e8d51767-338b-4ed6-a293-ad992553d143": {
+   "name": "Foliy kislotasi",
+   "description": "Dastlabki 12 haftada qabul qilish shart."
+  },
+  "dfbf3657-efd8-4d40-aebd-02c15dc7e574": {
+   "name": "Dazmol qilish",
+   "description": "Uzoq vaqt oyoqda turmang, tanaffus qilib turing."
+  },
+  "e05b24b9-cadb-41e1-b6b3-48f1048188f8": {
+   "name": "Bo'zbosh",
+   "description": "Xavfsiz, oqsil (go'sht/no'xat) manbai hisoblanadi."
+  },
+  "e26a7325-c8d0-4547-a1ac-df7fffc1b998": {
+   "name": "Lavlagi",
+   "description": "Kamqonlikda foydali."
+  },
+  "e36740b3-4dab-40b2-b734-4b1f66249624": {
+   "name": "Sushi (xom baliq)",
+   "description": "Listeriya va parazitlar yuqishi xavfi mavjud. Faqat to'liq pishirilgan rollarni (masalan: sabzavotli, pishirilgan lososli) iste'mol qilish mumkin."
+  },
+  "e38db223-f68f-44d7-bb0a-b2d6dc99f899": {
+   "name": "Atir (parfyum)",
+   "description": "Xavfsiz. Agar hidi ko'ngil aynishiga sabab bo'lsa, ishlatmang."
+  },
+  "e390a057-a91c-44d7-8571-ad77d64de8fa": {
+   "name": "Sikloferon",
+   "description": "Immunitetni rag'batlantiruvchi vosita bo'lib, homiladorlikda qo'llash tavsiya etilmaydi."
+  },
+  "ea5fcb8d-f293-4de1-b03f-867f11696e2f": {
+   "name": "Limon / Mandarin",
+   "description": "C vitamini manbai. Oshqozon kislotaliligiga e’tibor bering."
+  },
+  "eacea764-9a60-4512-9fc1-2c70987d75c9": {
+   "name": "Yoga",
+   "description": "Homiladorlar uchun maxsus yoga foydali. Teskari holatlardan saqlaning."
+  },
+  "ebd56f45-7d64-4b54-b3b5-9531167ca52c": {
+   "name": "Papayya",
+   "description": "To‘liq pishgan holda xavfsiz. Xom (yashil) papayya bachadon qisqarishiga sabab bo‘lishi mumkin."
+  },
+  "ed98f8fa-3592-4ed0-a9f8-3d16571b2d82": {
+   "name": "Metall detektori (aeroport)",
+   "description": "Magnit maydoni kuchsiz, homilaga zarar yetkazmaydi."
+  },
+  "ee7f4fa6-99e7-4619-8a6a-1e1d0b1b9a0e": {
+   "name": "Gilam qoqish",
+   "description": "Bu og‘ir jismoniy ish bo‘lib, chang allergiyaga sabab bo‘lishi mumkin."
+  },
+  "ef0ef853-8c34-4ff4-9adb-779e825cc1db": {
+   "name": "Za’faron",
+   "description": "Palovda oz miqdorda (bir chimdim) zararsiz. Yuqori dozada (davolash maqsadida) taqiqlanadi."
+  },
+  "f0142910-ca1a-444d-82b7-dd12c3cdce1a": {
+   "name": "Qattiq pishloqlar",
+   "description": "Cheddar, Gollandiya pishlog‘i va Parmezan kabi pishloqlar odatda xavfsizdir."
+  },
+  "f06cb3ee-7349-4f72-a537-222dd53ee3c8": {
+   "name": "Soch kestirish",
+   "description": "Mutlaqo xavfsiz. Xalq orasidagi ishonchlar (afsonalar) hech qanday asosga ega emas."
+  },
+  "f08663bc-1154-49bb-a9f7-231ae2fb7bde": {
+   "name": "Magniy",
+   "description": "Mushak tirishishi (kramp) va tonus uchun xavfsizdir."
+  },
+  "f2533a58-22fe-41b5-b1ab-cecccbef8362": {
+   "name": "Banan",
+   "description": "Kaliy manbai bo‘lib, mushak tirishishini (krampni) kamaytiradi."
+  },
+  "f6a6dd27-8d74-412d-b6fb-b1110e2c447c": {
+   "name": "Ot minish / Chang‘i uchish",
+   "description": "Yiqilish va jarohatlanish xavfi yuqori bo‘lgan sport turlari taqiqlanadi."
+  },
+  "f755e320-cdeb-4d03-90a1-96e4dd1032a2": {
+   "name": "Rux (Zinc)",
+   "description": "Me’yorida immunitet uchun foydalidir."
+  },
+  "fbbad452-a7d0-41f7-a1d8-63efe62647b4": {
+   "name": "Kekik (Timyan)",
+   "description": "Choyga xushbo‘y hid berish uchun oz miqdorda qo‘shish mumkin. Quyuq damlab ko‘p ichish bachadon tonusini oshirishi mumkin."
+  },
+  "fc128896-012c-4f81-ac31-549e0a5cc789": {
+   "name": "Velosiped",
+   "description": "Muvozanatni yo‘qotish xavfi bor. Velotrenajyor (statsionar velosiped) xavfsizroq."
+  },
+  "fd716581-39ca-4226-8009-c559ab79d883": {
+   "name": "Chalqancha uxlash",
+   "description": "20-haftadan keyin tavsiya etilmaydi (qon tomirini siqadi). Chap yonboshingizda uxlang."
+  },
+  "fddc641b-003a-46d6-809e-4f9cb114299b": {
+   "name": "Sumak",
+   "description": "Hazm qilishga yordam beradi, xavfsiz."
+  },
+  "ff2f4a10-f7ce-4435-80d7-15496b65de47": {
+   "name": "Faollashtirilgan ko‘mir",
+   "description": "Zaharlanish va qorin dam bo‘lganda sorbent sifatida xavfsiz (qonga so‘rilmaydi)."
+  }
+ }
+}

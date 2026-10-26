@@ -1,0 +1,74 @@
+{
+  "appId": "com.atlasoon.anacan",
+  "appName": "Anacan",
+  "webDir": "dist",
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    },
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "launchAutoHide": true,
+      "backgroundColor": "#FAF7F4",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": false,
+      "splashFullScreen": true,
+      "splashImmersive": true
+    },
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon",
+      "iconColor": "#F97316"
+    },
+    "Camera": {
+      "permissionText": "Tətbiq nəcis skaneri və şəkil yükləmək üçün kameraya ehtiyac duyur"
+    },
+    "Geolocation": {
+      "permissionText": "Hava vəziyyətinə uyğun geyim tövsiyələri vermək və təcili vəziyyətdə (SOS) məkanınızı partnyorunuzla paylaşmaq üçün istifadə olunur"
+    },
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": ["google.com", "apple.com"]
+    },
+    "FirebaseMessaging": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    }
+  },
+  "ios": {
+    "contentInset": "never",
+    "backgroundColor": "#FAF7F4"
+  },
+  "android": {
+    "includePlugins": [
+      "@anacan/customerio-data-in",
+      "@capacitor-community/admob",
+      "@capacitor-firebase/analytics",
+      "@capacitor-firebase/authentication",
+      "@capacitor-firebase/messaging",
+      "@capacitor/app",
+      "@capacitor/camera",
+      "@capacitor/filesystem",
+      "@capacitor/geolocation",
+      "@capacitor/haptics",
+      "@capacitor/local-notifications",
+      "@capacitor/preferences",
+      "@capacitor/push-notifications",
+      "@capacitor/share",
+      "@capacitor/splash-screen",
+      "@capacitor/status-bar",
+      "@revenuecat/purchases-capacitor",
+      "@revenuecat/purchases-capacitor-ui",
+      "capacitor-health"
+    ],
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false,
+    "backgroundColor": "#FAF7F4"
+  },
+  "server": {
+    "hostname": "app.anacan.az",
+    "androidScheme": "https"
+  }
+}

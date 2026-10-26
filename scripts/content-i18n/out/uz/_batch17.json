@@ -1,0 +1,147 @@
+{
+ "baby_crisis_periods": {
+  "00332eb5-3642-4caa-aa0d-06c76e8858be": {
+   "title": "Ketma-ketliklar olami",
+   "description": "Chaqaloq ketma-ketliklarni tushunadi va bir necha bosqichli harakatlarni bajara oladi",
+   "symptoms": [
+    "Hafsalasi pir bo‘lishi",
+    "Talabchanlik",
+    "Sabrsizlik",
+    "Sizdan ajralmaslik"
+   ],
+   "tips": [
+    "Ketma-ketlikka asoslangan o‘yinlar",
+    "O‘yinchoqlarni ustma-ust taxlash",
+    "Hikoya aytish odatlari"
+   ]
+  },
+  "368b778d-29bd-4c6e-a693-d14f3dbde8cb": {
+   "title": "Dasturlar olami",
+   "description": "Kichkintoy murakkab harakatlarni rejalashtirish va bajarishni boshlaydi",
+   "symptoms": [
+    "O‘jarlik",
+    "Kimning gapi o‘tishi uchun kurash",
+    "Mustaqillikka intilish"
+   ],
+   "tips": [
+    "Belgilangan chegaralar doirasida tanlov bering",
+    "Xavfsiz usullar bilan mustaqil bo‘lishiga imkon bering",
+    "Sa’y-harakatlarini maqtang"
+   ]
+  },
+  "68ec3d1f-0c2d-487a-b2b6-226b82a023c8": {
+   "title": "Tamoyillar olami",
+   "description": "Bola axloqiy tushunchalar va tamoyillarni anglay boshlaydi",
+   "symptoms": [
+    "Bo‘ysunmaslik",
+    "Chegaralarni sinab ko‘rish",
+    "Hissiy portlashlar"
+   ],
+   "tips": [
+    "Izchil qoidalar o‘rnating",
+    "Sababini tushuntiring",
+    "Xulq-atvoringiz bilan namuna bo‘ling"
+   ]
+  },
+  "6957aa52-d7bb-49bc-96d0-6c055983318b": {
+   "title": "Tizimlar olami",
+   "description": "Bola tizimlarni va narsalar qanday o‘zaro bog‘liq holda ishlashini tushunadi",
+   "symptoms": [
+    "Har bir narsa haqida savol berish",
+    "Murakkablik sababli hafsalasi pir bo‘lishi"
+   ],
+   "tips": [
+    "Savollariga sabr bilan javob bering",
+    "Birgalikda o‘rganing",
+    "Turli narsalar yasang"
+   ]
+  },
+  "91076f7e-3fa0-4b65-b6c3-202f437732a4": {
+   "title": "O‘zgaruvchan sezgilar olami",
+   "description": "Chaqaloq dunyoni boshqacha his qila boshlaydi, sezgilari yanada o‘tkirlashadi",
+   "symptoms": [
+    "Ko‘proq yig‘lash",
+    "Sizdan ajralishni istamaslik",
+    "Yomon uxlash",
+    "Ishtaha yo‘qolishi"
+   ],
+   "tips": [
+    "Ko‘proq quchoqlash",
+    "Teri bilan teri kontakti",
+    "Sabr-toqat"
+   ]
+  },
+  "6f91418c-7c6d-4189-804a-e00a07db94db": {
+   "title": "Naqshlar olami",
+   "description": "Chaqaloq naqshlarni kashf etadi hamda yuzlar va buyumlarni taniy boshlaydi",
+   "symptoms": [
+    "Injiqlik",
+    "Ko‘proq uyg‘oq qolish",
+    "Ko‘proq e’tibor talab qilish",
+    "Tez-tez och qolish"
+   ],
+   "tips": [
+    "Oq-qora o‘yinchoqlar",
+    "Yuzma-yuz muloqot",
+    "Tinch muhit"
+   ]
+  },
+  "f8fc8a04-d9e6-4b79-b565-8cbc1c9ccb94": {
+   "title": "Ravon o‘tishlar olami",
+   "description": "Chaqaloq ravon harakatlarni va bir harakatdan boshqasiga o‘tishni o‘rganadi",
+   "symptoms": [
+    "Ko‘proq yig‘lash",
+    "Uyqu bilan bog‘liq muammolar",
+    "Doimo qo‘lda bo‘lishni istash"
+   ],
+   "tips": [
+    "Harakatli mashg‘ulotlar",
+    "Ohista tebratish",
+    "Massaj"
+   ]
+  },
+  "4f00fc01-ffca-4cb6-a186-c3cae46fe443": {
+   "title": "Hodisalar olami",
+   "description": "Chaqaloq sabab-oqibat bog‘liqligini va hodisalar ketma-ketligini tushuna boshlaydi",
+   "symptoms": [
+    "Sizdan aslo ajralishni istamaslik",
+    "Kayfiyatning keskin o‘zgarishi",
+    "Ishtahaning pasayishi",
+    "Tunda uyg‘onish"
+   ],
+   "tips": [
+    "«Ku-ku» o‘yini",
+    "Barqaror kun tartibi",
+    "Yanada ko‘proq sabr-toqat"
+   ]
+  },
+  "5c97a8c2-5724-4bd6-97dd-fe1b7f05c200": {
+   "title": "Munosabatlar olami",
+   "description": "Chaqaloq masofani va buyumlar o‘rtasidagi munosabatlarni tushuna boshlaydi",
+   "symptoms": [
+    "Ajralishdan xavotirlanish",
+    "Qo‘rqinchli tushlar",
+    "Begonalardan tortinish"
+   ],
+   "tips": [
+    "Yaqinida bo‘ling",
+    "Tinchlantiruvchi sevimli buyumlar",
+    "Asta-sekin ajralishga o‘rgatish"
+   ]
+  },
+  "f13911eb-137a-4fe7-be01-bccf1325e4e6": {
+   "title": "Toifalar olami",
+   "description": "Chaqaloq buyumlar, odamlar va his-tuyg‘ularni toifalarga ajrata boshlaydi",
+   "symptoms": [
+    "Jazava qilish",
+    "Egalik hissining kuchayishi",
+    "Chegaralarni sinab ko‘rish"
+   ],
+   "tips": [
+    "Narsalarning nomini aytish",
+    "Saralash o‘yinlari",
+    "Aniq chegaralar"
+   ]
+  }
+ }
+}

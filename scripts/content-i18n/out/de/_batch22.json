@@ -1,0 +1,499 @@
+{
+ "vitamins": {
+  "0282970f-7857-4aef-979e-96b999f6c996": {
+   "dosage": "1.4 mq/Tag",
+   "name": "Vitamin B2",
+   "description": "Wichtig für die Augengesundheit und das Wachstum des Babys",
+   "benefits": [
+    "Steigert die Energieproduktion",
+    "Erhält die Sehkraft",
+    "Unterstützt die Hautgesundheit"
+   ],
+   "food_sources": [
+    "Milch und Joghurt",
+    "Eier",
+    "Mandeln",
+    "Pilze"
+   ]
+  },
+  "063af081-f0c8-4f4e-9337-59193343eb38": {
+   "dosage": "B1: 1.4mq, B2: 1.6mq, B6: 2mq/Tag",
+   "name": "B-Vitamin-Komplex",
+   "description": "Für die Energie- und Milchproduktion während der Stillzeit",
+   "benefits": [
+    "Energieproduktion",
+    "Milchqualität",
+    "Unterstützung des Nervensystems"
+   ],
+   "food_sources": [
+    "Vollkornprodukte",
+    "Fleisch",
+    "Eier",
+    "Grünes Gemüse"
+   ]
+  },
+  "0b595094-1ce0-4872-b1e8-71c804f898a1": {
+   "dosage": "75-100 q/Tag",
+   "name": "Eiweiß",
+   "description": "Der „Baustoff“ für das körperliche Wachstum des Fötus",
+   "benefits": [
+    "Fördert das Wachstum von Gebärmutter- und Brustgewebe",
+    "Unterstützt die Bildung der Organe des Babys",
+    "Verbessert die Blutversorgung"
+   ],
+   "food_sources": [
+    "Hühner- und Rindfleisch",
+    "Eier",
+    "Joghurt",
+    "Kichererbsen"
+   ]
+  },
+  "19d00fd7-064f-4d3c-bbc4-379c70e67b32": {
+   "dosage": "1.4 mq/Tag",
+   "name": "Vitamin B1",
+   "description": "Notwendig für den Energiestoffwechsel von Mutter und Baby",
+   "benefits": [
+    "Wandelt Kohlenhydrate in Energie um",
+    "Unterstützt die Gehirnentwicklung des Babys",
+    "Unterstützt die Herzfunktion"
+   ],
+   "food_sources": [
+    "Vollkornbrot",
+    "Hülsenfrüchte",
+    "Sonnenblumenkerne",
+    "Walnüsse"
+   ]
+  },
+  "1c0af036-697a-4913-963b-65307df05a76": {
+   "dosage": "27 mq/Tag",
+   "name": "Eisen",
+   "description": "Wichtig für die Zunahme des Blutvolumens und die Entwicklung des Babys",
+   "benefits": [
+    "Beugt Anämie vor",
+    "Unterstützt den Sauerstofftransport",
+    "Steigert das Energieniveau"
+   ],
+   "food_sources": [
+    "Rotes Fleisch",
+    "Spinat",
+    "Bohnen",
+    "Trockenfrüchte"
+   ]
+  },
+  "2d8dc888-7f10-4e7f-b8aa-a8c8b0920524": {
+   "dosage": "80-85 mq/Tag",
+   "name": "Vitamin C",
+   "description": "Ein Antioxidans zur Unterstützung des Immunsystems und der Eisenaufnahme",
+   "benefits": [
+    "Verbessert die Eisenaufnahme",
+    "Unterstützt die Kollagenproduktion",
+    "Stärkt das Immunsystem"
+   ],
+   "food_sources": [
+    "Orangen",
+    "Rote Paprika",
+    "Kiwi",
+    "Erdbeeren"
+   ]
+  },
+  "7d7e1e5d-ed8a-4ae1-8125-028a7a1674bc": {
+   "dosage": "90 mkq/gün",
+   "name": "Vitamin K",
+   "description": "Für die Blutgerinnung und die Knochengesundheit",
+   "benefits": [
+    "Unterstützt die Blutgerinnung",
+    "Fördert die Knochengesundheit",
+    "Bereitet den Körper auf die Geburt vor"
+   ],
+   "food_sources": [
+    "Grünes Blattgemüse",
+    "Brokkoli",
+    "Kohl",
+    "Rosenkohl"
+   ]
+  },
+  "90e7799d-d979-41ec-9ff3-11e04a5e9e71": {
+   "dosage": "450 mq/gün",
+   "name": "Cholin",
+   "description": "Ein entscheidender Nährstoff für die Entwicklung von Gehirn und Rückenmark",
+   "benefits": [
+    "Unterstützt die Entwicklung der Gehirnstruktur",
+    "Stärkt die Gedächtnisfunktionen",
+    "Beugt Neuralrohrdefekten vor"
+   ],
+   "food_sources": [
+    "Eier",
+    "Hähnchenfleisch",
+    "Brokkoli",
+    "Blumenkohl"
+   ]
+  },
+  "9c49f362-c919-4603-b2b7-a85e71c1128e": {
+   "dosage": "4700 mq/gün",
+   "name": "Kalium",
+   "description": "Ein wichtiger Mineralstoff für den Flüssigkeitshaushalt und die Regulierung des Blutdrucks",
+   "benefits": [
+    "Reguliert den Blutdruck",
+    "Reduziert Wassereinlagerungen (Ödeme)",
+    "Unterstützt die Muskelfunktion"
+   ],
+   "food_sources": [
+    "Bananen",
+    "Kartoffeln",
+    "Getrocknete Aprikosen",
+    "Milch"
+   ]
+  },
+  "a0311baf-903f-4c12-8c2e-6f135f717cac": {
+   "dosage": "600-800 IU/gün",
+   "name": "Vitamin D",
+   "description": "Wichtig für die Knochengesundheit und das Immunsystem",
+   "benefits": [
+    "Unterstützt die Kalziumaufnahme",
+    "Fördert die Knochenentwicklung",
+    "Stärkt das Immunsystem"
+   ],
+   "food_sources": [
+    "Sonnenlicht",
+    "Fettreicher Fisch",
+    "Eigelb",
+    "Angereicherte Milch"
+   ]
+  },
+  "b03d1c16-48a9-40fb-a0d6-8f8f2c9bee7d": {
+   "dosage": "1 mq/gün",
+   "name": "Kupfer",
+   "description": "Ein wichtiger Mineralstoff für die Bildung von Blutzellen und die Entwicklung des Herzens",
+   "benefits": [
+    "Unterstützt die Bildung roter Blutkörperchen",
+    "Fördert die Entwicklung des Herz-Kreislauf-Systems des Babys",
+    "Unterstützt die Knochenentwicklung"
+   ],
+   "food_sources": [
+    "Cashewkerne",
+    "Sonnenblumenkerne",
+    "Linsen",
+    "Zartbitterschokolade"
+   ]
+  },
+  "ba2e7887-a168-4755-b770-b71e444e22b8": {
+   "dosage": "Über die Nahrung",
+   "name": "Probiotika",
+   "description": "Für ein gesundes Verdauungssystem und eine gesunde Vaginalflora",
+   "benefits": [
+    "Stärken das Immunsystem",
+    "Verbessern die Verdauung",
+    "Senken das Allergierisiko beim Baby"
+   ],
+   "food_sources": [
+    "Naturjoghurt",
+    "Kefir",
+    "Sauerkraut (fermentierter Kohl)"
+   ]
+  },
+  "34bf6c50-441f-4b51-ad87-07f3f76294e4": {
+   "dosage": "11 mq/Tag",
+   "name": "Zink",
+   "description": "Für das Immunsystem und die Zellteilung",
+   "benefits": [
+    "Unterstützt das Immunsystem",
+    "Fördert die Wundheilung",
+    "Unterstützt die Proteinsynthese"
+   ],
+   "food_sources": [
+    "Fleisch",
+    "Kürbiskerne",
+    "Kichererbsen",
+    "Haselnüsse"
+   ]
+  },
+  "5a940cc0-5294-465c-b41e-3f42d2f06333": {
+   "dosage": "400-800 mkq/Tag",
+   "name": "Folsäure",
+   "description": "Ein entscheidendes Vitamin für die Entwicklung des Nervensystems des Babys",
+   "benefits": [
+    "Beugt Neuralrohrdefekten vor",
+    "Unterstützt die DNA-Synthese",
+    "Fördert die Zellteilung"
+   ],
+   "food_sources": [
+    "Dunkelgrünes Blattgemüse",
+    "Zitrusfrüchte",
+    "Kichererbsen",
+    "Linsen"
+   ]
+  },
+  "5d19bca3-0d4d-4b44-b544-ec28ea6b7632": {
+   "dosage": "30-35 mkq/Tag",
+   "name": "Vitamin B7 (Biotin)",
+   "description": "Für die Schönheit der Mutter (Haare/Haut) und die Entwicklung des Fötus",
+   "benefits": [
+    "Beugt Haarausfall vor",
+    "Stärkt die Nägel",
+    "Unterstützt das Wachstum des Fötus"
+   ],
+   "food_sources": [
+    "Eigelb",
+    "Mandeln",
+    "Spinat",
+    "Süßkartoffeln"
+   ]
+  },
+  "5f213ffa-1e07-4220-8e97-c6980416114a": {
+   "dosage": "25-30 q/Tag",
+   "name": "Ballaststoffe (Zellulose)",
+   "description": "Ein wichtiger Faktor zur Vorbeugung von Verdauungsproblemen",
+   "benefits": [
+    "Beugt Verstopfung vor",
+    "Senkt das Risiko für Hämorrhoiden",
+    "Reguliert den Blutzuckerspiegel"
+   ],
+   "food_sources": [
+    "Trockenpflaumen",
+    "Birnen",
+    "Haferflocken",
+    "Linsen"
+   ]
+  },
+  "61e3a35a-741b-4d91-a920-0d55fe3c7549": {
+   "dosage": "2.6 mkq/Tag",
+   "name": "Vitamin B12",
+   "description": "Wichtig für das Nervensystem und die Blutzellen",
+   "benefits": [
+    "Schützt das Nervensystem",
+    "Unterstützt die Bildung roter Blutkörperchen",
+    "Fördert die DNA-Synthese"
+   ],
+   "food_sources": [
+    "Fleisch",
+    "Fisch",
+    "Eier",
+    "Milchprodukte"
+   ]
+  },
+  "738af0f6-d9dc-45c0-8852-fae486c9697a": {
+   "dosage": "30 mkq/Tag",
+   "name": "Chrom",
+   "description": "Ein wichtiger Mineralstoff zur Kontrolle von Schwangerschaftsdiabetes",
+   "benefits": [
+    "Reguliert den Blutzuckerspiegel",
+    "Verbessert die Insulinempfindlichkeit",
+    "Unterstützt das Wachstum des Babys"
+   ],
+   "food_sources": [
+    "Traubensaft",
+    "Brokkoli",
+    "Knoblauch",
+    "Vollkornbrot"
+   ]
+  },
+  "bbb98e06-d0ff-4b4b-bff6-52b676370466": {
+   "dosage": "1000 mq/gün",
+   "name": "Kalzium",
+   "description": "Für die Entwicklung der Knochen und Zähne des Babys",
+   "benefits": [
+    "Unterstützt die Entwicklung von Knochen und Zähnen",
+    "Unterstützt die Muskelfunktion",
+    "Fördert die Reizweiterleitung der Nerven"
+   ],
+   "food_sources": [
+    "Milchprodukte",
+    "Brokkoli",
+    "Mandeln",
+    "Sardinen"
+   ]
+  },
+  "bc8e7715-8c24-47ed-84ea-dfd273df6048": {
+   "dosage": "10 mq/gün",
+   "name": "Lutein",
+   "description": "Wichtig für die Entwicklung der Augen und des Gehirns des Babys",
+   "benefits": [
+    "Unterstützt die Entwicklung der Netzhaut",
+    "Fördert die Sehschärfe",
+    "Schützt die Nervenzellen des Gehirns"
+   ],
+   "food_sources": [
+    "Spinat",
+    "Mais",
+    "Eigelb",
+    "Blattgemüse"
+   ]
+  },
+  "bd0002d3-d05e-465a-a3eb-36d8e23376e5": {
+   "dosage": "1.9 mq/gün",
+   "name": "Vitamin B6",
+   "description": "Ein Vitamin, das den Eiweißstoffwechsel unterstützt und Übelkeit lindern kann",
+   "benefits": [
+    "Lindert Übelkeit",
+    "Unterstützt die Gehirnentwicklung",
+    "Fördert die Bildung von Blutzellen"
+   ],
+   "food_sources": [
+    "Kichererbsen",
+    "Bananen",
+    "Hühnerfleisch",
+    "Kartoffeln"
+   ]
+  },
+  "c46ae88b-a53c-420d-97de-26a3628efa9f": {
+   "dosage": "750-770 mkq/gün",
+   "name": "Vitamin A (Beta-Carotin)",
+   "description": "Wichtig für die Sehkraft und das Immunsystem des Babys",
+   "benefits": [
+    "Unterstützt die Entwicklung der Augen",
+    "Schützt Haut und Schleimhäute",
+    "Unterstützt die Knochenentwicklung"
+   ],
+   "food_sources": [
+    "Karotten",
+    "Süßkartoffeln",
+    "Spinat",
+    "Aprikosen"
+   ]
+  },
+  "c488c23b-2153-4459-9a57-f6a72a462cee": {
+   "dosage": "200-300 mq DHA/gün",
+   "name": "Omega-3",
+   "description": "Wichtige Fettsäuren für die Entwicklung von Gehirn und Augen",
+   "benefits": [
+    "Unterstützt die Bildung von Gehirnzellen",
+    "Fördert die Entwicklung des Sehvermögens",
+    "Kann das Risiko für Depressionen senken"
+   ],
+   "food_sources": [
+    "Lachs",
+    "Walnüsse",
+    "Chiasamen",
+    "Leinsamen"
+   ]
+  },
+  "c6594f75-f94f-4d2f-8e5a-a63942972281": {
+   "dosage": "6-7 mq/gün",
+   "name": "Vitamin B5",
+   "description": "Wichtig für die Hormonproduktion und die Stressbewältigung",
+   "benefits": [
+    "Lindert Muskelkrämpfe",
+    "Unterstützt die Hormonregulation",
+    "Hilft gegen Müdigkeit"
+   ],
+   "food_sources": [
+    "Pilze",
+    "Avocado",
+    "Süßkartoffeln",
+    "Sonnenblumenkerne"
+   ]
+  },
+  "d1c2d4eb-4ff9-4a94-80c4-2e223fc940bc": {
+   "dosage": "18 mq/gün",
+   "name": "Vitamin B3",
+   "description": "Wichtig für die Verdauung und die Gesundheit des Nervensystems",
+   "benefits": [
+    "Verbessert die Verdauung",
+    "Lindert manchmal Übelkeit",
+    "Unterstützt die Gehirnentwicklung des Babys"
+   ],
+   "food_sources": [
+    "Hähnchenbrust",
+    "Fisch (Thunfisch)",
+    "Erdnüsse",
+    "Pilze"
+   ]
+  },
+  "d9695343-451a-4029-ac68-320dc06cb6a4": {
+   "dosage": "290 mkq/gün",
+   "name": "Jod",
+   "description": "Wichtig für die Gehirnentwicklung des Babys und die Schilddrüsenfunktion der Mutter",
+   "benefits": [
+    "Unterstützt die Schilddrüsenfunktion",
+    "Fördert die Gehirnentwicklung",
+    "Reguliert den Stoffwechsel"
+   ],
+   "food_sources": [
+    "Meeresfrüchte",
+    "Jodsalz",
+    "Milch",
+    "Eier"
+   ]
+  },
+  "d9cbb410-e507-4563-b76a-6f87b2baf0eb": {
+   "dosage": "700 mq/gün",
+   "name": "Phosphor",
+   "description": "Trägt zusammen mit Kalzium zur Knochengesundheit bei",
+   "benefits": [
+    "Stärkt die Knochen",
+    "Unterstützt die Energiegewinnung",
+    "Fördert die Nierenfunktion"
+   ],
+   "food_sources": [
+    "Milchprodukte",
+    "Hähnchenfleisch",
+    "Fisch",
+    "Kürbiskerne"
+   ]
+  },
+  "e37cc688-c44b-4e4f-a10f-3b9f3e76db0f": {
+   "dosage": "60-70 mkq/gün",
+   "name": "Selen",
+   "description": "Ein starkes Antioxidans für die Schilddrüse und das Immunsystem",
+   "benefits": [
+    "Senkt das Risiko einer Fehlgeburt",
+    "Reguliert die Schilddrüsenfunktion",
+    "Schützt die Zellen vor Schäden"
+   ],
+   "food_sources": [
+    "Eier",
+    "Brauner Reis",
+    "Sardinen",
+    "Paranüsse"
+   ]
+  },
+  "ee22de42-1691-4f0c-abb8-bfe1c37321c5": {
+   "dosage": "15 mq/gün",
+   "name": "Vitamin E",
+   "description": "Ein starkes Antioxidans, das die Zellen schützt",
+   "benefits": [
+    "Schützt die Zellmembranen",
+    "Unterstützt die Bildung roter Blutkörperchen",
+    "Verbessert die Elastizität der Haut"
+   ],
+   "food_sources": [
+    "Sonnenblumenöl",
+    "Haselnüsse",
+    "Mandeln",
+    "Avocado"
+   ]
+  },
+  "f021524b-8480-4882-865f-0c84e979b298": {
+   "dosage": "2 mq/gün",
+   "name": "Mangan",
+   "description": "Wichtig für die Bildung von Knochen- und Knorpelgewebe",
+   "benefits": [
+    "Fördert die Entwicklung des fetalen Skeletts",
+    "Unterstützt die Gehirnfunktion",
+    "Regt den Stoffwechsel an"
+   ],
+   "food_sources": [
+    "Haselnüsse",
+    "Hafer",
+    "Ananas",
+    "Spinat"
+   ]
+  },
+  "fb8b22b1-4d5d-4571-a8eb-14456eaa1785": {
+   "dosage": "350-400 mq/gün",
+   "name": "Magnesium",
+   "description": "Bei Muskelkrämpfen und zur Verbesserung der Schlafqualität",
+   "benefits": [
+    "Muskelentspannung",
+    "Bessere Schlafqualität",
+    "Regulierung des Blutzuckerspiegels"
+   ],
+   "food_sources": [
+    "Mandeln",
+    "Spinat",
+    "Dunkle Schokolade",
+    "Avocado"
+   ]
+  }
+ }
+}

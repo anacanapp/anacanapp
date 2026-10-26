@@ -1,0 +1,499 @@
+{
+ "vitamins": {
+  "7d7e1e5d-ed8a-4ae1-8125-028a7a1674bc": {
+   "dosage": "90 mkq/gün",
+   "name": "K vitamini",
+   "description": "Qon ivishi va suyaklar salomatligi uchun",
+   "benefits": [
+    "Qon ivishi",
+    "Suyaklar salomatligi",
+    "Tug‘ruqqa tayyorgarlik"
+   ],
+   "food_sources": [
+    "Yashil bargli sabzavotlar",
+    "Brokkoli",
+    "Karam",
+    "Bryussel karami"
+   ]
+  },
+  "90e7799d-d979-41ec-9ff3-11e04a5e9e71": {
+   "dosage": "450 mq/gün",
+   "name": "Xolin",
+   "description": "Bosh miya va orqa miya rivojlanishi uchun juda muhim oziq modda",
+   "benefits": [
+    "Miya tuzilishini shakllantiradi",
+    "Xotira faoliyatini yaxshilaydi",
+    "Nerv naychasi nuqsonlarining oldini oladi"
+   ],
+   "food_sources": [
+    "Tuxum",
+    "Tovuq go‘shti",
+    "Brokkoli",
+    "Gulkaram"
+   ]
+  },
+  "9c49f362-c919-4603-b2b7-a85e71c1128e": {
+   "dosage": "4700 mq/gün",
+   "name": "Kaliy",
+   "description": "Suyuqlik muvozanati va qon bosimini nazorat qilish uchun zarur mineral",
+   "benefits": [
+    "Qon bosimini tartibga soladi",
+    "Suyuqlik to‘planishini (shishni) kamaytiradi",
+    "Mushaklar faoliyatini qo‘llab-quvvatlaydi"
+   ],
+   "food_sources": [
+    "Banan",
+    "Kartoshka",
+    "Quritilgan o‘rik",
+    "Sut"
+   ]
+  },
+  "a0311baf-903f-4c12-8c2e-6f135f717cac": {
+   "dosage": "600-800 IU/gün",
+   "name": "D vitamini",
+   "description": "Suyaklar salomatligi va immun tizimi uchun muhim",
+   "benefits": [
+    "Kalsiyning so‘rilishiga yordam beradi",
+    "Suyaklar rivojlanishini qo‘llab-quvvatlaydi",
+    "Immun tizimini mustahkamlaydi"
+   ],
+   "food_sources": [
+    "Quyosh nuri",
+    "Yog‘li baliq",
+    "Tuxum sarig‘i",
+    "Boyitilgan sut"
+   ]
+  },
+  "b03d1c16-48a9-40fb-a0d6-8f8f2c9bee7d": {
+   "dosage": "1 mq/gün",
+   "name": "Mis",
+   "description": "Qon hujayralari va yurak rivojlanishi uchun zarur mineral",
+   "benefits": [
+    "Qizil qon hujayralarini hosil qiladi",
+    "Chaqaloqning yurak-qon tomir tizimini shakllantiradi",
+    "Suyaklar rivojlanishiga yordam beradi"
+   ],
+   "food_sources": [
+    "Keshyu",
+    "Kungaboqar urug‘i",
+    "Yasmiq",
+    "Qora shokolad"
+   ]
+  },
+  "ba2e7887-a168-4755-b770-b71e444e22b8": {
+   "dosage": "Ovqat bilan",
+   "name": "Probiotiklar",
+   "description": "Ovqat hazm qilish tizimi va qin mikroflorasi salomatligi uchun",
+   "benefits": [
+    "Immunitetni mustahkamlaydi",
+    "Ovqat hazm qilishni yaxshilaydi",
+    "Chaqaloqda allergiya xavfini kamaytiradi"
+   ],
+   "food_sources": [
+    "Tabiiy yogurt",
+    "Kefir",
+    "Tuzlangan karam"
+   ]
+  },
+  "0282970f-7857-4aef-979e-96b999f6c996": {
+   "dosage": "1.4 mq/gün",
+   "name": "B2 vitamini",
+   "description": "Ko‘z salomatligi va chaqaloqning o‘sishi uchun muhim",
+   "benefits": [
+    "Energiya ishlab chiqarishni oshiradi",
+    "Ko‘rish qobiliyatini saqlaydi",
+    "Teri salomatligini ta’minlaydi"
+   ],
+   "food_sources": [
+    "Sut va yogurt",
+    "Tuxum",
+    "Bodom",
+    "Qo‘ziqorin"
+   ]
+  },
+  "063af081-f0c8-4f4e-9337-59193343eb38": {
+   "dosage": "B1: 1.4mq, B2: 1.6mq, B6: 2mq/gün",
+   "name": "B vitaminlari kompleksi",
+   "description": "Emizish davrida energiya va sut ishlab chiqarish uchun muhim",
+   "benefits": [
+    "Energiya ishlab chiqarish",
+    "Sut sifatini yaxshilash",
+    "Asab tizimini qo‘llab-quvvatlash"
+   ],
+   "food_sources": [
+    "Butun donli mahsulotlar",
+    "Go‘sht",
+    "Tuxum",
+    "Yashil sabzavotlar"
+   ]
+  },
+  "0b595094-1ce0-4872-b1e8-71c804f898a1": {
+   "dosage": "75-100 q/gün",
+   "name": "Oqsil",
+   "description": "Homilaning jismoniy o‘sishi uchun \"qurilish materiali\"",
+   "benefits": [
+    "Bachadon va ko‘krak to‘qimalarining o‘sishini ta’minlaydi",
+    "Chaqaloq a’zolarining shakllanishiga yordam beradi",
+    "Qon ta’minotini yaxshilaydi"
+   ],
+   "food_sources": [
+    "Tovuq va mol go‘shti",
+    "Tuxum",
+    "Yogurt",
+    "No‘xat"
+   ]
+  },
+  "19d00fd7-064f-4d3c-bbc4-379c70e67b32": {
+   "dosage": "1.4 mq/gün",
+   "name": "B1 vitamini",
+   "description": "Ona va chaqaloqdagi energiya almashinuvi uchun zarur",
+   "benefits": [
+    "Uglevodlarni energiyaga aylantiradi",
+    "Chaqaloq miyasining rivojlanishiga yordam beradi",
+    "Yurak faoliyatini qo‘llab-quvvatlaydi"
+   ],
+   "food_sources": [
+    "Butun donli non",
+    "Dukkaklilar",
+    "Kungaboqar urug‘i",
+    "Yong‘oq"
+   ]
+  },
+  "1c0af036-697a-4913-963b-65307df05a76": {
+   "dosage": "27 mq/gün",
+   "name": "Temir",
+   "description": "Qon hajmining ortishi va chaqaloq rivojlanishi uchun muhim",
+   "benefits": [
+    "Kamqonlikning oldini oladi",
+    "Kislorod tashilishini ta’minlaydi",
+    "Energiya darajasini oshiradi"
+   ],
+   "food_sources": [
+    "Qizil go‘sht",
+    "Ismaloq",
+    "Loviya",
+    "Quritilgan mevalar"
+   ]
+  },
+  "2d8dc888-7f10-4e7f-b8aa-a8c8b0920524": {
+   "dosage": "80-85 mq/gün",
+   "name": "C vitamini",
+   "description": "Immunitet va temirning o‘zlashtirilishi uchun muhim antioksidant",
+   "benefits": [
+    "Temirning so‘rilishini oshiradi",
+    "Kollagen ishlab chiqarishni qo‘llab-quvvatlaydi",
+    "Immunitetni himoya qiladi"
+   ],
+   "food_sources": [
+    "Apelsin",
+    "Qizil qalampir",
+    "Kivi",
+    "Qulupnay"
+   ]
+  },
+  "34bf6c50-441f-4b51-ad87-07f3f76294e4": {
+   "dosage": "11 mq/gün",
+   "name": "Rux",
+   "description": "Immun tizimi va hujayralarning bo‘linishi uchun",
+   "benefits": [
+    "Immunitetni qo‘llab-quvvatlaydi",
+    "Yaralarning bitishiga yordam beradi",
+    "Oqsil sintezini qo‘llab-quvvatlaydi"
+   ],
+   "food_sources": [
+    "Go‘sht",
+    "Qovoq urug‘i",
+    "No‘xat",
+    "Funduk"
+   ]
+  },
+  "5a940cc0-5294-465c-b41e-3f42d2f06333": {
+   "dosage": "400-800 mkq/gün",
+   "name": "Foliy kislota",
+   "description": "Chaqaloq asab tizimining rivojlanishi uchun o‘ta muhim vitamin",
+   "benefits": [
+    "Nerv naychasi nuqsonlarining oldini oladi",
+    "DNK sinteziga yordam beradi",
+    "Hujayralarning bo‘linishini qo‘llab-quvvatlaydi"
+   ],
+   "food_sources": [
+    "To‘q yashil bargli sabzavotlar",
+    "Sitrus mevalar",
+    "No‘xat",
+    "Yasmiq"
+   ]
+  },
+  "5d19bca3-0d4d-4b44-b544-ec28ea6b7632": {
+   "dosage": "30-35 mkq/gün",
+   "name": "B7 vitamini (Biotin)",
+   "description": "Onaning go‘zalligi (soch/teri) va homilaning rivojlanishi uchun",
+   "benefits": [
+    "Soch to‘kilishining oldini oladi",
+    "Tirnoqlarni mustahkamlaydi",
+    "Homilaning o‘sishini qo‘llab-quvvatlaydi"
+   ],
+   "food_sources": [
+    "Tuxum sarig‘i",
+    "Bodom",
+    "Ismaloq",
+    "Batat"
+   ]
+  },
+  "5f213ffa-1e07-4220-8e97-c6980416114a": {
+   "dosage": "25-30 q/gün",
+   "name": "Oziq tolalari (Selluloza)",
+   "description": "Ovqat hazm qilish tizimidagi muammolarni bartaraf etuvchi asosiy omil",
+   "benefits": [
+    "Qabziyatning oldini oladi",
+    "Gemorroy xavfini kamaytiradi",
+    "Qondagi shakar miqdorini tartibga soladi"
+   ],
+   "food_sources": [
+    "Qora olxo‘ri",
+    "Nok",
+    "Suli yormasi",
+    "Yasmiq"
+   ]
+  },
+  "61e3a35a-741b-4d91-a920-0d55fe3c7549": {
+   "dosage": "2.6 mkq/gün",
+   "name": "B12 vitamini",
+   "description": "Asab tizimi va qon hujayralari uchun muhim",
+   "benefits": [
+    "Asab tizimini himoya qiladi",
+    "Qizil qon hujayralarining hosil bo‘lishiga yordam beradi",
+    "DNK sinteziga yordam beradi"
+   ],
+   "food_sources": [
+    "Go‘sht",
+    "Baliq",
+    "Tuxum",
+    "Sut mahsulotlari"
+   ]
+  },
+  "738af0f6-d9dc-45c0-8852-fae486c9697a": {
+   "dosage": "30 mkq/gün",
+   "name": "Xrom",
+   "description": "Homiladorlik diabetini nazorat qilish uchun muhim mineral",
+   "benefits": [
+    "Qondagi shakar darajasini tartibga soladi",
+    "Insulinga sezgirlikni oshiradi",
+    "Chaqaloqning o‘sishini qo‘llab-quvvatlaydi"
+   ],
+   "food_sources": [
+    "Uzum sharbati",
+    "Brokkoli",
+    "Sarimsoq",
+    "To‘liq donli non"
+   ]
+  },
+  "fb8b22b1-4d5d-4571-a8eb-14456eaa1785": {
+   "dosage": "350-400 mq/gün",
+   "name": "Magniy",
+   "description": "Mushak tirishishlari va uyqu sifatini yaxshilash uchun",
+   "benefits": [
+    "Mushaklarni bo‘shashtirish",
+    "Uyqu sifatini yaxshilash",
+    "Qondagi shakar miqdorini tartibga solish"
+   ],
+   "food_sources": [
+    "Bodom",
+    "Ismaloq",
+    "Qora shokolad",
+    "Avokado"
+   ]
+  },
+  "bbb98e06-d0ff-4b4b-bff6-52b676370466": {
+   "dosage": "1000 mq/gün",
+   "name": "Kalsiy",
+   "description": "Chaqaloq suyaklari va tishlarining rivojlanishi uchun",
+   "benefits": [
+    "Suyaklar va tishlarning rivojlanishi",
+    "Mushaklar faoliyati",
+    "Nerv impulslarining uzatilishi"
+   ],
+   "food_sources": [
+    "Sut mahsulotlari",
+    "Brokkoli",
+    "Bodom",
+    "Sardina"
+   ]
+  },
+  "bc8e7715-8c24-47ed-84ea-dfd273df6048": {
+   "dosage": "10 mq/gün",
+   "name": "Lutein",
+   "description": "Chaqaloqning ko‘zlari va miyasi rivojlanishi uchun muhim",
+   "benefits": [
+    "Ko‘z to‘r pardasini rivojlantiradi",
+    "Ko‘rish o‘tkirligini qo‘llab-quvvatlaydi",
+    "Miya neyronlarini himoya qiladi"
+   ],
+   "food_sources": [
+    "Ismaloq",
+    "Makkajo‘xori",
+    "Tuxum sarig‘i",
+    "Ko‘katlar"
+   ]
+  },
+  "bd0002d3-d05e-465a-a3eb-36d8e23376e5": {
+   "dosage": "1.9 mq/gün",
+   "name": "B6 vitamini",
+   "description": "Oqsil almashinuvi va ko‘ngil aynishini kamaytirish uchun zarur vitamin",
+   "benefits": [
+    "Ko‘ngil aynishini yengillashtiradi",
+    "Miya rivojlanishini qo‘llab-quvvatlaydi",
+    "Qon hujayralari hosil bo‘lishiga yordam beradi"
+   ],
+   "food_sources": [
+    "No‘xat",
+    "Banan",
+    "Tovuq go‘shti",
+    "Kartoshka"
+   ]
+  },
+  "c46ae88b-a53c-420d-97de-26a3628efa9f": {
+   "dosage": "750-770 mkq/gün",
+   "name": "A vitamini (Beta-karotin)",
+   "description": "Chaqaloqning ko‘rish qobiliyati va immuniteti uchun muhim",
+   "benefits": [
+    "Ko‘zlarning rivojlanishini qo‘llab-quvvatlaydi",
+    "Teri va shilliq pardalarni himoya qiladi",
+    "Suyaklarning rivojlanishiga yordam beradi"
+   ],
+   "food_sources": [
+    "Sabzi",
+    "Batat",
+    "Ismaloq",
+    "O‘rik"
+   ]
+  },
+  "c488c23b-2153-4459-9a57-f6a72a462cee": {
+   "dosage": "200-300 mq DHA/gün",
+   "name": "Omega-3",
+   "description": "Miya va ko‘zlarning rivojlanishi uchun muhim yog‘ kislotalari",
+   "benefits": [
+    "Miya hujayralari ko‘payishiga yordam beradi",
+    "Ko‘rish qobiliyatini shakllantiradi",
+    "Depressiya xavfini kamaytiradi"
+   ],
+   "food_sources": [
+    "Qizil baliq (Losos)",
+    "Yong‘oq",
+    "Chia urug‘i",
+    "Zig‘ir urug‘i"
+   ]
+  },
+  "c6594f75-f94f-4d2f-8e5a-a63942972281": {
+   "dosage": "6-7 mq/gün",
+   "name": "B5 vitamini",
+   "description": "Gormonlar ishlab chiqarilishi va stressga qarshi kurashish uchun muhim",
+   "benefits": [
+    "Mushak tortishishlarini (kramplarni) kamaytiradi",
+    "Gormonlarni tartibga soladi",
+    "Charchoqni bartaraf etadi"
+   ],
+   "food_sources": [
+    "Qo‘ziqorin",
+    "Avokado",
+    "Batat",
+    "Kungaboqar urug‘i"
+   ]
+  },
+  "d1c2d4eb-4ff9-4a94-80c4-2e223fc940bc": {
+   "dosage": "18 mq/gün",
+   "name": "B3 vitamini",
+   "description": "Ovqat hazm qilish tizimi va asab tizimi salomatligi uchun muhim",
+   "benefits": [
+    "Ovqat hazm qilishni yaxshilaydi",
+    "Ko‘ngil aynishini (ba’zan) kamaytiradi",
+    "Chaqaloq miyasining rivojlanishini qo‘llab-quvvatlaydi"
+   ],
+   "food_sources": [
+    "Tovuq ko‘krak go‘shti",
+    "Baliq (tunets)",
+    "Yeryong‘oq",
+    "Qo‘ziqorin"
+   ]
+  },
+  "d9695343-451a-4029-ac68-320dc06cb6a4": {
+   "dosage": "290 mkq/gün",
+   "name": "Yod",
+   "description": "Chaqaloq miyasining rivojlanishi va onaning qalqonsimon bezi faoliyati uchun muhim",
+   "benefits": [
+    "Qalqonsimon bez faoliyatini qo‘llab-quvvatlaydi",
+    "Miya rivojlanishiga yordam beradi",
+    "Moddalar almashinuvini tartibga soladi"
+   ],
+   "food_sources": [
+    "Dengiz mahsulotlari",
+    "Yodlangan tuz",
+    "Sut",
+    "Tuxum"
+   ]
+  },
+  "d9cbb410-e507-4563-b76a-6f87b2baf0eb": {
+   "dosage": "700 mq/gün",
+   "name": "Fosfor",
+   "description": "Kalsiy bilan birgalikda suyaklar salomatligini ta’minlaydi",
+   "benefits": [
+    "Suyaklarni mustahkamlaydi",
+    "Energiya ishlab chiqarishga yordam beradi",
+    "Buyraklar faoliyatini qo‘llab-quvvatlaydi"
+   ],
+   "food_sources": [
+    "Sut mahsulotlari",
+    "Tovuq go‘shti",
+    "Baliq",
+    "Qovoq urug‘i"
+   ]
+  },
+  "e37cc688-c44b-4e4f-a10f-3b9f3e76db0f": {
+   "dosage": "60-70 mkq/gün",
+   "name": "Selen",
+   "description": "Qalqonsimon bez va immunitet uchun kuchli antioksidant",
+   "benefits": [
+    "Homila tushishi xavfini kamaytiradi",
+    "Qalqonsimon bez faoliyatini tartibga soladi",
+    "Hujayralarni shikastlanishdan himoya qiladi"
+   ],
+   "food_sources": [
+    "Tuxum",
+    "Jigarrang guruch",
+    "Sardina balig‘i",
+    "Braziliya yong‘og‘i"
+   ]
+  },
+  "ee22de42-1691-4f0c-abb8-bfe1c37321c5": {
+   "dosage": "15 mq/gün",
+   "name": "E vitamini",
+   "description": "Hujayralarni himoya qiluvchi kuchli antioksidant",
+   "benefits": [
+    "Hujayra membranasini himoya qiladi",
+    "Qizil qon hujayralarining hosil bo‘lishiga yordam beradi",
+    "Terining elastikligini oshiradi"
+   ],
+   "food_sources": [
+    "Kungaboqar yog‘i",
+    "Funduq",
+    "Bodom",
+    "Avokado"
+   ]
+  },
+  "f021524b-8480-4882-865f-0c84e979b298": {
+   "dosage": "2 mq/gün",
+   "name": "Marganets",
+   "description": "Suyak va tog‘ay to‘qimalarining shakllanishi uchun muhim",
+   "benefits": [
+    "Homila skeletining rivojlanishiga yordam beradi",
+    "Miya faoliyatini qo‘llab-quvvatlaydi",
+    "Moddalar almashinuvini tezlashtiradi"
+   ],
+   "food_sources": [
+    "Funduq",
+    "Suli",
+    "Ananas",
+    "Ismaloq"
+   ]
+  }
+ }
+}

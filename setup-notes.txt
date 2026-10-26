@@ -1,0 +1,4 @@
+Project_id=a3647ee8
+iOS_app_id=appaedb35b823
+Android_app_id=appcbfb47e107
+entitlement_identifier=Anacan LLC Pro

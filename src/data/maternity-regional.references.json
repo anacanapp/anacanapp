@@ -1,0 +1,204 @@
+{
+  "protocol": "anacan-maternity-reference-v1",
+  "at": "2026-09-24T18:33:31.024Z",
+  "verified": true,
+  "countries": 12,
+  "policySha256": "6fd7e67ec2fc8180e4d9be1d273bdb0195ba47fcf5525f0638323448c7e2ded6",
+  "scope": "Ordinary maternity or personal parental-benefit planning; not a determination of personal eligibility. Published national sources; archived official PDFs are explicitly identified.",
+  "agencyAmountCountries": [
+    "CN",
+    "KR",
+    "NL"
+  ],
+  "references": [
+    {
+      "country": "CN",
+      "url": "https://www.gov.cn/zwgk/2012-05/07/content_2131567.htm",
+      "originalUrl": "https://www.gov.cn/zwgk/2012-05/07/content_2131567.htm",
+      "retrievedAt": "2026-09-24T18:33:28.249Z",
+      "sha256": "9e37ed7393b55ad9dee472386236639b99ae6d684e865898330b706f3c607c2e",
+      "bytes": 20729,
+      "pdf": false,
+      "archivedAt": null,
+      "reviewedRules": [
+        "98",
+        "15",
+        "产假"
+      ]
+    },
+    {
+      "country": "ES",
+      "url": "https://www.boe.es/eli/es/rdl/2025/07/29/9",
+      "originalUrl": "https://www.boe.es/eli/es/rdl/2025/07/29/9",
+      "retrievedAt": "2026-09-24T18:33:28.151Z",
+      "sha256": "16565cf06cad4304da491ef76e82ebbd76833a6f9c9b91b8bef4e9639a42052e",
+      "bytes": 94883,
+      "pdf": false,
+      "archivedAt": null,
+      "reviewedRules": [
+        "diecinueve semanas",
+        "treinta y dos semanas",
+        "Seis semanas ininterrumpidas"
+      ]
+    },
+    {
+      "country": "FR",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2265",
+      "originalUrl": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2265",
+      "retrievedAt": "2026-09-24T18:33:28.658Z",
+      "sha256": "887c81836f9e58ed16f85cffd0ec6b777e25085601928293ca099281b2fae48f",
+      "bytes": 223685,
+      "pdf": false,
+      "archivedAt": null,
+      "reviewedRules": [
+        "91,25",
+        "104,02",
+        "4 005"
+      ]
+    },
+    {
+      "country": "ID",
+      "url": "https://web.archive.org/web/20240918095946id_/https://www.peraturan.go.id/files/uu-no-4-tahun-2024.pdf",
+      "originalUrl": "https://www.peraturan.go.id/files/uu-no-4-tahun-2024.pdf",
+      "retrievedAt": "2026-09-24T18:26:29.298Z",
+      "sha256": "6a0cafe8c36fd4e3b6dc91276eaf2bc9f5e78111454bbc5ccd9546cc67b90fef",
+      "bytes": 3526423,
+      "pdf": true,
+      "archivedAt": "2024-09-18",
+      "reviewedRules": [
+        "Pasal 4",
+        "Pasal 5",
+        "75%",
+        "bulan keempat"
+      ]
+    },
+    {
+      "country": "IN",
+      "url": "https://web.archive.org/web/20251214024913id_/https://labour.gov.in/sites/default/files/ss_code_gazette.pdf",
+      "originalUrl": "https://labour.gov.in/sites/default/files/ss_code_gazette.pdf",
+      "retrievedAt": "2026-09-24T18:24:08.961Z",
+      "sha256": "975235e57b8b8c3f4a09f6c9f0dbb2bfc663c15faf3715108ea33113ef565be7",
+      "bytes": 616749,
+      "pdf": true,
+      "archivedAt": "2025-12-14",
+      "reviewedRules": [
+        "CHAPTER VI",
+        "twenty-six weeks",
+        "eighty days",
+        "three calendar months"
+      ]
+    },
+    {
+      "country": "JP",
+      "url": "https://www.kyoukaikenpo.or.jp/benefit/childbirth/001",
+      "originalUrl": "https://www.kyoukaikenpo.or.jp/benefit/childbirth/001",
+      "retrievedAt": "2026-09-24T18:33:29.752Z",
+      "sha256": "9d702bad8811f9d0678172a53ab4f9fc19b39420f08205e90db87a7aad256fda",
+      "bytes": 32627,
+      "pdf": false,
+      "archivedAt": null,
+      "reviewedRules": [
+        "42日",
+        "56日",
+        "32万円",
+        "5,670円",
+        "3,780円"
+      ]
+    },
+    {
+      "country": "KR",
+      "url": "https://elaw.klri.re.kr/eng_service/lawViewContent.do?hseq=68845",
+      "originalUrl": "https://elaw.klri.re.kr/eng_service/lawViewContent.do?hseq=68845",
+      "retrievedAt": "2026-09-24T18:02:25.425Z",
+      "sha256": "7bc9faa549ebd380db9ad60e0e4c49c014ff027431ad812a412c7ae890f1138e",
+      "bytes": 358942,
+      "pdf": false,
+      "archivedAt": null,
+      "reviewedRules": [
+        "100 days",
+        "at least 45 days",
+        "first 60 days"
+      ]
+    },
+    {
+      "country": "NL",
+      "url": "https://www.uwv.nl/en/employers/maternity-and-parental-leave/about-maternity-pay",
+      "originalUrl": "https://www.uwv.nl/en/employers/maternity-and-parental-leave/about-maternity-pay",
+      "retrievedAt": "2026-09-24T18:33:30.405Z",
+      "sha256": "e5b60fae164c9624d08ba28570cbd4bcc9b9913253d6a97ec3e8929b69613798",
+      "bytes": 51413,
+      "pdf": false,
+      "archivedAt": null,
+      "reviewedRules": [
+        "16 weeks",
+        "20 weeks",
+        "highest average daily income"
+      ]
+    },
+    {
+      "country": "PL",
+      "url": "https://www.gov.pl/web/family/maternity-leave",
+      "originalUrl": "https://www.gov.pl/web/family/maternity-leave",
+      "retrievedAt": "2026-09-24T18:33:29.636Z",
+      "sha256": "77030b22ab344b8b57ccb1d307ab7689a482a921873f224b36158fca5165421c",
+      "bytes": 28654,
+      "pdf": false,
+      "archivedAt": null,
+      "reviewedRules": [
+        "20 weeks",
+        "31 weeks",
+        "81.5%",
+        "21 days"
+      ]
+    },
+    {
+      "country": "PT",
+      "url": "https://www.gov.pt/guias/ter-uma-crianca/licenca-parental",
+      "originalUrl": "https://www.gov.pt/guias/ter-uma-crianca/licenca-parental",
+      "retrievedAt": "2026-09-24T17:50:07.841Z",
+      "sha256": "d13cf2c7da8a2c3ee28e1fba74e7f91e41033c60de2ae03a5c51d9d622b13cee",
+      "bytes": 104802,
+      "pdf": false,
+      "archivedAt": null,
+      "reviewedRules": [
+        "120 dias",
+        "83%",
+        "90%",
+        "14,32",
+        "R/180"
+      ]
+    },
+    {
+      "country": "SE",
+      "url": "https://www.forsakringskassan.se/english/parents/when-the-child-is-born/parental-benefit",
+      "originalUrl": "https://www.forsakringskassan.se/english/parents/when-the-child-is-born/parental-benefit",
+      "retrievedAt": "2026-09-24T18:33:31.013Z",
+      "sha256": "ae36c0a2cab4310f169db61081800274023fd2a5066a80965b08fbdbddd2651b",
+      "bytes": 122267,
+      "pdf": false,
+      "archivedAt": null,
+      "reviewedRules": [
+        "480 days",
+        "390 days",
+        "SEK 180",
+        "reserved"
+      ]
+    },
+    {
+      "country": "VN",
+      "url": "https://vss.gov.vn:3535/File_Server_BHXH/documents/Law-41-2024-QH15%20.pdf",
+      "originalUrl": "https://vss.gov.vn:3535/File_Server_BHXH/documents/Law-41-2024-QH15%20.pdf",
+      "retrievedAt": "2026-09-24T17:53:30.612Z",
+      "sha256": "552dd45c2c014dd88b03bb61ebd6f62cd9dfe516e4d1138c9d1f35f38fa31c1a",
+      "bytes": 793794,
+      "pdf": true,
+      "archivedAt": null,
+      "reviewedRules": [
+        "Article 139",
+        "Article 59",
+        "100%",
+        "6 months"
+      ]
+    }
+  ]
+}

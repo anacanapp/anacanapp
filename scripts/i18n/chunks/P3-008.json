@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "partnerprofilescreen_surpriz_67b2b2",
+  "az": "Sürpriz",
+  "en": "Surprise"
+ },
+ {
+  "key": "partnerprofilescreen_surpriz_novleri_592120",
+  "az": "Sürpriz Növləri",
+  "en": "Surprise Types"
+ },
+ {
+  "key": "partnerprofilescreen_surpriz_statistikasi_5eee15",
+  "az": "Sürpriz Statistikası",
+  "en": "Surprise Statistics"
+ },
+ {
+  "key": "partnerprofilescreen_tapsiriq_d827b6",
+  "az": "Tapşırıq",
+  "en": "Task"
+ },
+ {
+  "key": "partnerprofilescreen_xal_qalib_5931e2",
+  "az": "xal qalıb",
+  "en": "points left"
+ },
+ {
+  "key": "partnerquickstats_partner_seviyyesi_9a38f6",
+  "az": "Partner Səviyyəsi",
+  "en": "Partner Level"
+ },
+ {
+  "key": "partnerquickstats_seviyye_8266e7",
+  "az": "Səviyyə",
+  "en": "Level"
+ },
+ {
+  "key": "partnerquickstats_tamamlanmis_e36252",
+  "az": "Tamamlanmış",
+  "en": "Completed"
+ },
+ {
+  "key": "partnerquickstats_umumi_xal_3ce85a",
+  "az": "Ümumi Xal",
+  "en": "Total Score"
+ },
+ {
+  "key": "partnersscreen_bu_kateqoriyada_hele_partnyor__9b10b6",
+  "az": "Bu kateqoriyada hələ partnyor yoxdur.",
+  "en": "There are no partners in this category yet."
+ },
+ {
+  "key": "partnersscreen_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All of them"
+ },
+ {
+  "key": "partnersscreen_mekan_axtar_8b889d",
+  "az": "Məkan axtar...",
+  "en": "Search for a location..."
+ },
+ {
+  "key": "partnersscreen_partnyor_endirimleri_e44036",
+  "az": "Partnyor Endirimləri",
+  "en": "Affiliate Discounts"
+ },
+ {
+  "key": "partnersscreen_premium_ile_endirim_al_634879",
+  "az": "Premium ilə endirim al",
+  "en": "Buy discount with premium"
+ },
+ {
+  "key": "partnersscreen_senin_endirimin_535d41",
+  "az": "Sənin endirimin",
+  "en": "Your discount"
+ },
+ {
+  "key": "partnersscreen_spa_idman_gozellik_ve_daha_cox_24ad1f",
+  "az": "Spa, idman, gözəllik və daha çox",
+  "en": "Spa, sports, beauty and more"
+ },
+ {
+  "key": "partnersscreen_xerite_a1e08d",
+  "az": "Xəritə",
+  "en": "Map"
+ },
+ {
+  "key": "partnersscreen_zeng_4cba42",
+  "az": "Zəng",
+  "en": "Call"
+ },
+ {
+  "key": "partnerv2_511_izah",
+  "az": "Sancılar sıxlaşıb — xəstəxanaya hazırlaş!",
+  "en": "Contractions are intensifying — get ready for the hospital!"
+ },
+ {
+  "key": "partnerv2_511_qaydasi",
+  "az": "5-1-1 Qaydası!",
+  "en": "5-1-1 Rule!"
+ },
+ {
+  "key": "partnerv2_addim_addim",
+  "az": "Addım-addım",
+  "en": "Step by step"
+ },
+ {
+  "key": "partnerv2_aktivlik_lenti",
+  "az": "Aktivlik lenti",
+  "en": "Activity feed"
+ },
+ {
+  "key": "partnerv2_alisveris",
+  "az": "Alışveriş",
+  "en": "Shopping"
+ },
+ {
+  "key": "partnerv2_analiq_dovru",
+  "az": "Analıq dövrü",
+  "en": "Motherhood"
+ },
+ {
+  "key": "partnerv2_asan",
+  "az": "Asan",
+  "en": "Easy"
+ },
+ {
+  "key": "partnerv2_baglanti_kesildi",
+  "az": "Bağlantı kəsildi",
+  "en": "Unlinked"
+ },
+ {
+  "key": "partnerv2_baglanti_kesildi_sub",
+  "az": "Partnyor artıq məlumatlarınızı görmür.",
+  "en": "Your partner can no longer see your data."
+ },
+ {
+  "key": "partnerv2_baglantini_kes",
+  "az": "Bağlantını kəs",
+  "en": "Unlink partner"
+ },
+ {
+  "key": "partnerv2_baglantini_kes_sub",
+  "az": "Partnyor bütün girişini itirəcək",
+  "en": "Your partner will lose all access"
+ },
+ {
+  "key": "partnerv2_beli_kes",
+  "az": "Bəli, kəs",
+  "en": "Yes, unlink"
+ },
+ {
+  "key": "partnerv2_bez",
+  "az": "Bez",
+  "en": "Diapers"
+ },
+ {
+  "key": "partnerv2_bez_deyisme",
+  "az": "Bez dəyişmə",
+  "en": "Diaper change"
+ },
+ {
+  "key": "partnerv2_birlikde",
+  "az": "Birlikdə",
+  "en": "Together"
+ },
+ {
+  "key": "partnerv2_birlikde_eyebrow",
+  "az": "BİRLİKDƏ",
+  "en": "TOGETHER"
+ },
+ {
+  "key": "partnerv2_birlikde_secin",
+  "az": "Birlikdə seçin",
+  "en": "Choose together"
+ },
+ {
+  "key": "partnerv2_boyukluyunde",
+  "az": "böyüklüyündə",
+  "en": ""
+ },
+ {
+  "key": "partnerv2_bu_gun",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "partnerv2_bu_gun_lower",
+  "az": "bu gün",
+  "en": "today"
+ },
+ {
+  "key": "partnerv2_bu_gun_short",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "partnerv2_bugun_nece_komek_edim",
+  "az": "Bu gün necə kömək edim?",
+  "en": "How can I help today?"
+ },
+ {
+  "key": "partnerv2_bugun_qeyd_yoxdur",
+  "az": "Bu gün hələ qeyd yoxdur",
+  "en": "No logs yet today"
+ },
+ {
+  "key": "partnerv2_bugunku_qeydler",
+  "az": "Bugünkü qeydlər",
+  "en": "Today’s logs"
+ },
+ {
+  "key": "partnerv2_butun_tovsiyeler",
+  "az": "Bütün tövsiyələr",
+  "en": "All tips"
+ },
+ {
+  "key": "partnerv2_canli_sancilar",
+  "az": "Canlı sancılar",
+  "en": "Live contractions"
+ },
+ {
+  "key": "partnerv2_cetin",
+  "az": "Çətin",
+  "en": "Hard"
+ },
+ {
+  "key": "partnerv2_d_short",
+  "az": "d",
+  "en": "m"
+ },
+ {
+  "key": "partnerv2_davam_edir",
+  "az": "davam edir",
+  "en": "ongoing"
+ },
+ {
+  "key": "partnerv2_davamini_oxu",
+  "az": "Davamını oxu",
+  "en": "Read more"
+ },
+ {
+  "key": "partnerv2_deq",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "partnerv2_deq_evvel",
+  "az": "dəq əvvəl",
+  "en": "min ago"
+ },
+ {
+  "key": "partnerv2_destek_banner",
+  "az": "Bu gün əhvalı yaxşı deyil — ona xüsusi diqqət göstər 💗",
+  "en": "She’s feeling low today — give her extra care 💗"
+ },
+ {
+  "key": "partnerv2_dogus_basladi_btn",
+  "az": "Doğuş başladı! 👶",
+  "en": "Labor has started! 👶"
+ },
+ {
+  "key": "partnerv2_dogus_basladi_receiver",
+  "az": "DOĞUŞ BAŞLADI!",
+  "en": "LABOR HAS STARTED!"
+ },
+ {
+  "key": "partnerv2_dogus_basladi_sub",
+  "az": "Partnyor xəstəxana rejiminə keçəcək",
+  "en": "Partner will switch to hospital mode"
+ },
+ {
+  "key": "partnerv2_dogus_siqnali",
+  "az": "Doğuş siqnalı!",
+  "en": "Birth alert!"
+ },
+ {
+  "key": "partnerv2_dogus_siqnali_gonderildi",
+  "az": "Doğuş siqnalı göndərildi!",
+  "en": "Birth alert sent!"
+ },
+ {
+  "key": "partnerv2_dogus_vaxti",
+  "az": "Doğuş vaxtı",
+  "en": "It’s time"
+ },
+ {
+  "key": "partnerv2_ehval",
+  "az": "əhval",
+  "en": "mood"
+ },
+ {
+  "key": "partnerv2_ehval_yenilendi",
+  "az": "Əhval yeniləndi",
+  "en": "Mood updated"
+ },
+ {
+  "key": "partnerv2_faza",
+  "az": "faza",
+  "en": "phase"
+ },
+ {
+  "key": "partnerv2_faza_follikulyar",
+  "az": "Follikulyar",
+  "en": "Follicular"
+ },
+ {
+  "key": "partnerv2_faza_luteal",
+  "az": "Luteal",
+  "en": "Luteal"
+ },
+ {
+  "key": "partnerv2_faza_menstrual",
+  "az": "Menstruasiya",
+  "en": "Period"
+ },
+ {
+  "key": "partnerv2_faza_ovulyasiya",
+  "az": "Ovulyasiya",
+  "en": "Ovulation"
+ },
+ {
+  "key": "partnerv2_gordum_btn",
+  "az": "Gördüm",
+  "en": "Got it"
+ },
+ {
+  "key": "partnerv2_gozleyen_mehsul",
+  "az": "gözləyən məhsul",
+  "en": "items pending"
+ },
+ {
+  "key": "partnerv2_gun",
+  "az": "gün",
+  "en": "d"
+ },
+ {
+  "key": "partnerv2_gun_novbetiye",
+  "az": "gün növbətiyə",
+  "en": "days to next"
+ },
+ {
+  "key": "partnerv2_gun_qaldi",
+  "az": "gün qaldı",
+  "en": "days left"
+ },
+ {
+  "key": "partnerv2_gunluk_xulase",
+  "az": "Günlük xülasə",
+  "en": "Daily summary"
+ },
+ {
+  "key": "partnerv2_hamilelik_yolculugu",
+  "az": "Hamiləlik yolçuluğu",
+  "en": "Pregnancy journey"
+ },
+ {
+  "key": "partnerv2_hamisina_bax",
+  "az": "Hamısına bax",
+  "en": "View all"
+ },
+ {
+  "key": "partnerv2_hazir_ol",
+  "az": "hazır ol",
+  "en": "be ready"
+ },
+ {
+  "key": "partnerv2_hefte",
+  "az": "həftə",
+  "en": "weeks"
+ },
+ {
+  "key": "partnerv2_hefte_beledci",
+  "az": "həftə — partnyor bələdçisi",
+  "en": "week — partner guide"
+ },
+ {
+  "key": "partnerv2_hefte_korpeniz",
+  "az": "həftə — körpəniz",
+  "en": "week — your baby"
+ },
+ {
+  "key": "partnerv2_hefte_short",
+  "az": "həftə",
+  "en": "week"
+ },
+ {
+  "key": "partnerv2_hefte_sonra",
+  "az": "həftə sonra",
+  "en": "weeks away"
+ },
+ {
+  "key": "partnerv2_hekim_vizitleri",
+  "az": "Həkim vizitləri",
+  "en": "Doctor visits"
+ },
+ {
+  "key": "partnerv2_hele_aktivlik_yoxdur",
+  "az": "Bu gün hələ aktivlik yoxdur",
+  "en": "No activity yet today"
+ },
+ {
+  "key": "partnerv2_hr_sakit_qeyd",
+  "az": "İlk doğuşlar adətən saatlarla çəkir — tələsik amma təmkinli ol. Sən onun ən böyük dayağısan. 💪",
+  "en": "First labors usually take hours — be quick but calm. You are her biggest support. 💪"
+ },
+ {
+  "key": "partnerv2_hr_step_canta",
+  "az": "Xəstəxana çantasını götür",
+  "en": "Grab the hospital bag"
+ },
+ {
+  "key": "partnerv2_hr_step_hekim",
+  "az": "Həkimə / xəstəxanaya zəng et",
+  "en": "Call the doctor / hospital"
+ },
+ {
+  "key": "partnerv2_hr_step_masin",
+  "az": "Maşını hazırla / taksi çağır",
+  "en": "Get the car ready / call a taxi"
+ },
+ {
+  "key": "partnerv2_hr_step_sakit",
+  "az": "Sakit ol — dərin nəfəs al. Sən hazırsan!",
+  "en": "Stay calm — deep breath. You’re ready!"
+ },
+ {
+  "key": "partnerv2_hr_step_senedler",
+  "az": "Sənədləri yoxla (vəsiqə, analizlər, kart)",
+  "en": "Check documents (ID, tests, card)"
+ },
+ {
+  "key": "partnerv2_indi_yatir",
+  "az": "indi yatır",
+  "en": "sleeping now"
+ },
+ {
+  "key": "partnerv2_indice",
+  "az": "İndicə",
+  "en": "Just now"
+ },
+ {
+  "key": "partnerv2_interval_short",
+  "az": "interval",
+  "en": "interval"
+ },
+ {
+  "key": "partnerv2_interval_ve_muddet",
+  "az": "İnterval və müddəti izlə",
+  "en": "Track interval & duration"
+ },
+ {
+  "key": "partnerv2_kecmis",
+  "az": "Keçmiş",
+  "en": "Past"
+ },
+ {
+  "key": "partnerv2_korpe",
+  "az": "Körpə",
+  "en": "Baby"
+ },
+ {
+  "key": "partnerv2_korpe_gunu",
+  "az": "Körpə Günü",
+  "en": "Baby’s Day"
+ },
+ {
+  "key": "partnerv2_korpe_gunu_ipucu",
+  "az": "Gecə növbəsini öz üzərinə götür — ananın 4 saatlıq fasiləsiz yuxusu qızıl dəyərindədir. 💛",
+  "en": "Take the night shift — 4 hours of uninterrupted sleep is gold for mom. 💛"
+ },
+ {
+  "key": "partnerv2_korpe_paylasimi_bagli_izah",
+  "az": "Həyat yoldaşınız körpə qeydlərinin paylaşımını hazırda bağlayıb.",
+  "en": "Your wife has turned off baby log sharing."
+ },
+ {
+  "key": "partnerv2_korpe_tepik_atdi",
+  "az": "Körpə təpik atdı",
+  "en": "Baby kicked"
+ },
+ {
+  "key": "partnerv2_kriz_dovru",
+  "az": "Kriz dövrü",
+  "en": "Crisis period"
+ },
+ {
+  "key": "partnerv2_kriz_partner_mesaj",
+  "az": "{baby} bu dövrdə daha narahat ola bilər — ana da yorulur. Gecə növbəsi və səbir sənin növbəndir. 💪",
+  "en": "{baby} may be fussier during this period — mom gets tired too. Night shifts and patience are on you. 💪"
+ },
+ {
+  "key": "partnerv2_lokasiyaya_get",
+  "az": "Lokasiyaya get",
+  "en": "Open location"
+ },
+ {
+  "key": "partnerv2_mesaj",
+  "az": "mesaj",
+  "en": "messages"
+ },
+ {
+  "key": "partnerv2_nav_bugun",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "partnerv2_nece_hiss_edirsen",
+  "az": "🤗 Necə hiss edirsən?",
+  "en": "🤗 How are you feeling?"
+ },
+ {
+  "key": "partnerv2_novbeti_kriz",
+  "az": "Növbəti kriz dövrü",
+  "en": "Next crisis period"
+ },
+ {
+  "key": "partnerv2_novbeti_seviyyeye",
+  "az": "Növbəti səviyyəyə",
+  "en": "To next level"
+ },
+ {
+  "key": "partnerv2_onu_aparmagi_unutma",
+  "az": "onu aparmağı unutma",
+  "en": "don’t forget to take her"
+ },
+ {
+  "key": "partnerv2_onu_sevindir",
+  "az": "Onu sevindir",
+  "en": "Make her smile"
+ },
+ {
+  "key": "partnerv2_onun_gunu_canli",
+  "az": "Onun günü — canlı",
+  "en": "Her day — live"
+ },
+ {
+  "key": "partnerv2_onun_vizitleri",
+  "az": "Onun vizitləri",
+  "en": "Her visits"
+ },
+ {
+  "key": "partnerv2_onun_yeri",
+  "az": "Onun yeri",
+  "en": "Her location"
+ },
+ {
+  "key": "partnerv2_orta",
+  "az": "Orta",
+  "en": "Medium"
+ },
+ {
+  "key": "partnerv2_orta_interval",
+  "az": "orta interval",
+  "en": "avg interval"
+ },
+ {
+  "key": "partnerv2_orta_muddet",
+  "az": "orta müddət",
+  "en": "avg duration"
+ },
+ {
+  "key": "partnerv2_partnyor_nleri_gorur",
+  "az": "Partnyor nələri görür?",
+  "en": "What does your partner see?"
+ },
+ {
+  "key": "partnerv2_partnyor_xeberdar_edildi",
+  "az": "Partnyorunuz dərhal xəbərdar edildi. 💙",
+  "en": "Your partner has been notified instantly. 💙"
+ },
+ {
+  "key": "partnerv2_partnyoru_cagir",
+  "az": "Partnyoru çağır",
+  "en": "Call your partner"
+ },
+ {
+  "key": "partnerv2_paylasim_bagli",
+  "az": "Paylaşım bağlıdır",
+  "en": "Sharing is off"
+ },
+ {
+  "key": "partnerv2_planlanib",
+  "az": "planlanıb",
+  "en": "planned"
+ },
+ {
+  "key": "partnerv2_qarsidan_gelen",
+  "az": "Qarşıdan gələn",
+  "en": "Upcoming"
+ },
+ {
+  "key": "partnerv2_qidalanma",
+  "az": "Qidalanma",
+  "en": "Feeding"
+ },
+ {
+  "key": "partnerv2_randevu_paylasimi_bagli_izah",
+  "az": "Həyat yoldaşınız randevu paylaşımını hazırda bağlayıb.",
+  "en": "Your wife has turned off appointment sharing."
+ },
+ {
+  "key": "partnerv2_randevu_yoxdur",
+  "az": "Randevu yoxdur",
+  "en": "No appointments"
+ },
+ {
+  "key": "partnerv2_randevu_yoxdur_izah",
+  "az": "Həyat yoldaşınız randevu əlavə etdikdə burada görünəcək.",
+  "en": "Appointments your wife adds will appear here."
+ },
+ {
+  "key": "partnerv2_randevular",
+  "az": "Randevular",
+  "en": "Appointments"
+ },
+ {
+  "key": "partnerv2_realtime",
+  "az": "Realtime",
+  "en": "Realtime"
+ },
+ {
+  "key": "partnerv2_saat",
+  "az": "saat",
+  "en": "h"
+ },
+ {
+  "key": "partnerv2_sabah",
+  "az": "Sabah",
+  "en": "Tomorrow"
+ },
+ {
+  "key": "partnerv2_salam",
+  "az": "Salam",
+  "en": "Hello"
+ },
+ {
+  "key": "partnerv2_sanci_paylasimi_bagli_izah",
+  "az": "Həyat yoldaşınız sancı paylaşımını hazırda bağlayıb.",
+  "en": "Your wife has turned off contraction sharing."
+ },
+ {
+  "key": "partnerv2_sanci_qeyd_edildi",
+  "az": "Sancı qeyd edildi",
+  "en": "Contraction logged"
+ },
+ {
+  "key": "partnerv2_sanci_yoxdur",
+  "az": "Sancı qeyd olunmayıb — hər şey sakitdir 💚",
+  "en": "No contractions logged — all calm 💚"
+ },
+ {
+  "key": "partnerv2_seviyye",
+  "az": "Səviyyə",
+  "en": "Level"
+ },
+ {
+  "key": "partnerv2_sh_ceki",
+  "az": "Çəki",
+  "en": "Weight"
+ },
+ {
+  "key": "partnerv2_sh_ceki_sub",
+  "az": "Çəki qeydləriniz (standart: bağlı)",
+  "en": "Your weight entries (default: off)"
+ },
+ {
+  "key": "partnerv2_sh_ehval",
+  "az": "Əhval",
+  "en": "Mood"
+ },
+ {
+  "key": "partnerv2_sh_ehval_sub",
+  "az": "Gündəlik əhval-ruhiyyəniz",
+  "en": "Your daily mood"
+ },
+ {
+  "key": "partnerv2_sh_izah",
+  "az": "Şəxsi qeydləriniz, gündəliyiniz və AI söhbətləriniz heç vaxt paylaşılmır. Aşağıdakı kateqoriyaları istənilən vaxt aça/bağlaya bilərsiniz — dərhal qüvvəyə minir.",
+  "en": "Your private notes, diary and AI chats are never shared. Toggle the categories below anytime — changes apply instantly."
+ },
+ {
+  "key": "partnerv2_sh_korpe",
+  "az": "Körpə qeydləri",
+  "en": "Baby logs"
+ },
+ {
+  "key": "partnerv2_sh_korpe_sub",
+  "az": "Yemə, yuxu və bez qeydləri",
+  "en": "Feeding, sleep and diaper logs"
+ },
+ {
+  "key": "partnerv2_sh_migration_yox",
+  "az": "Ayarlar bazası hazır deyil — hazırda standart paylaşım aktivdir.",
+  "en": "Settings storage isn’t ready — default sharing is active for now."
+ },
+ {
+  "key": "partnerv2_sh_randevular",
+  "az": "Randevular",
+  "en": "Appointments"
+ },
+ {
+  "key": "partnerv2_sh_randevular_sub",
+  "az": "Həkim vizitləri və xatırlatmalar",
+  "en": "Doctor visits and reminders"
+ },
+ {
+  "key": "partnerv2_sh_sancilar",
+  "az": "Sancılar",
+  "en": "Contractions"
+ },
+ {
+  "key": "partnerv2_sh_sancilar_sub",
+  "az": "Sancı taymeri və 5-1-1 xəbərdarlığı",
+  "en": "Contraction timer and 5-1-1 alert"
+ },
+ {
+  "key": "partnerv2_sh_simptomlar",
+  "az": "Simptomlar",
+  "en": "Symptoms"
+ },
+ {
+  "key": "partnerv2_sh_simptomlar_sub",
+  "az": "Qeyd etdiyiniz simptomlar",
+  "en": "Symptoms you log"
+ },
+ {
+  "key": "partnerv2_sh_su",
+  "az": "Su qəbulu",
+  "en": "Water intake"
+ },
+ {
+  "key": "partnerv2_sh_su_sub",
+  "az": "Günlük su miqdarı və hədəf",
+  "en": "Daily water amount and goal"
+ },
+ {
+  "key": "partnerv2_sh_tepikler",
+  "az": "Təpiklər",
+  "en": "Kicks"
+ },
+ {
+  "key": "partnerv2_sh_tepikler_sub",
+  "az": "Təpik sayğacı bildirişləri",
+  "en": "Kick counter notifications"
+ },
+ {
+  "key": "partnerv2_sh_tsikl",
+  "az": "Tsikl fazası",
+  "en": "Cycle phase"
+ },
+ {
+  "key": "partnerv2_sh_tsikl_sub",
+  "az": "Faza və növbəti period məlumatı",
+  "en": "Phase and next period info"
+ },
+ {
+  "key": "partnerv2_sh_xeta",
+  "az": "Yadda saxlanılmadı",
+  "en": "Could not save"
+ },
+ {
+  "key": "partnerv2_sh_xeta_sub",
+  "az": "Yenidən cəhd edin.",
+  "en": "Please try again."
+ },
+ {
+  "key": "partnerv2_sinxron_eyebrow",
+  "az": "SİNXRON",
+  "en": "SYNCED"
+ },
+ {
+  "key": "partnerv2_siyahi_hazir",
+  "az": "Siyahı hazırdır",
+  "en": "List is ready"
+ },
+ {
+  "key": "partnerv2_siz_idare_edirsiniz",
+  "az": "Siz idarə edirsiniz",
+  "en": "You are in control"
+ },
+ {
+  "key": "partnerv2_son_1_saat",
+  "az": "son 1 saat",
+  "en": "last hour"
+ },
+ {
+  "key": "partnerv2_son_24_saat",
+  "az": "Son 24 saat",
+  "en": "Last 24 hours"
+ },
+ {
+  "key": "partnerv2_son_7_gun",
+  "az": "Son 7 gün",
+  "en": "Last 7 days"
+ },
+ {
+  "key": "partnerv2_son_sanci",
+  "az": "Son sancı",
+  "en": "Last contraction"
+ },
+ {
+  "key": "partnerv2_sos_gonderildi",
+  "az": "SOS göndərildi!",
+  "en": "SOS sent!"
+ },
+ {
+  "key": "partnerv2_sos_hold_hint",
+  "az": "Göndərmək üçün düyməni 1.5 saniyə basılı tutun. Yeriniz avtomatik paylaşılır.",
+  "en": "Hold the button for 1.5 seconds to send. Your location is shared automatically."
+ },
+ {
+  "key": "partnerv2_sos_receiver",
+  "az": "TƏCİLİ XƏBƏRDARLIQ!",
+  "en": "EMERGENCY ALERT!"
+ },
+ {
+  "key": "partnerv2_su_hedefi",
+  "az": "Su hədəfinə çatdı",
+  "en": "Water goal reached"
+ },
+ {
+  "key": "partnerv2_tamamlandi",
+  "az": "tamamlandı",
+  "en": "done"
+ },
+ {
+  "key": "partnerv2_tecili_sos_btn",
+  "az": "Təcili kömək — SOS 🚨",
+  "en": "Emergency — SOS 🚨"
+ },
+ {
+  "key": "partnerv2_tecili_sos_sub",
+  "az": "Yeriniz və xəbərdarlıq dərhal çatır",
+  "en": "Your location and alert arrive instantly"
+ },
+ {
+  "key": "partnerv2_tepik_su_ehval_burada",
+  "az": "Təpiklər, su və əhval dəyişiklikləri burada görünəcək",
+  "en": "Kicks, water and mood updates will appear here"
+ },
+ {
+  "key": "partnerv2_tesekkur_aldiniz",
+  "az": "Təşəkkür aldınız",
+  "en": "You got a thank-you"
+ },
+ {
+  "key": "partnerv2_tesekkur_et",
+  "az": "Təşəkkür et",
+  "en": "Say thanks"
+ },
+ {
+  "key": "partnerv2_tesekkurler_qaygikesh",
+  "az": "Təşəkkürlər, qayğıkeş partnyor!",
+  "en": "Thank you, caring partner!"
+ },
+ {
+  "key": "partnerv2_texminen",
+  "az": "Təxminən",
+  "en": "About the size of"
+ },
+ {
+  "key": "partnerv2_thank_body",
+  "az": "Xanımınız sizə minnətdardır. Əla iş görürsən!",
+  "en": "Your wife is grateful. You’re doing great!"
+ },
+ {
+  "key": "partnerv2_thank_fallback_text",
+  "az": "🙏 Təşəkkür edirəm! Sən əla partnyorsan!",
+  "en": "🙏 Thank you! You’re an amazing partner!"
+ },
+ {
+  "key": "partnerv2_thank_sent",
+  "az": "Təşəkkür göndərildi! 💙",
+  "en": "Thank-you sent! 💙"
+ },
+ {
+  "key": "partnerv2_thank_title",
+  "az": "🙏 Təşəkkür aldınız!",
+  "en": "🙏 You got a thank-you!"
+ },
+ {
+  "key": "partnerv2_tsikl_izleme",
+  "az": "Tsikl izləmə",
+  "en": "Cycle tracking"
+ },
+ {
+  "key": "partnerv2_unlink_partner_side_sub",
+  "az": "Həyat yoldaşınızın məlumatlarına girişi dayandırın",
+  "en": "Stop access to your wife’s data"
+ },
+ {
+  "key": "partnerv2_unlink_partner_tesdiq",
+  "az": "Partnyor paneli bağlanacaq və həyat yoldaşınızın məlumatlarına giriş dayandırılacaq. Yenidən bağlanmaq üçün kod lazım olacaq.",
+  "en": "The partner panel will close and access to your wife’s data will stop. You’ll need the code to re-link."
+ },
+ {
+  "key": "partnerv2_unlink_tesdiq_izah",
+  "az": "Partnyorunuz artıq heç bir məlumatınızı görməyəcək və partnyor paneli bağlanacaq. Yenidən bağlanmaq üçün kodu təkrar paylaşmalısınız.",
+  "en": "Your partner will no longer see any of your data and their panel will close. Share your code again to re-link."
+ },
+ {
+  "key": "partnerv2_xal",
+  "az": "xal",
+  "en": "pts"
+ },
+ {
+  "key": "partnerv2_xeritede_ac",
+  "az": "Xəritədə aç və yola düş",
+  "en": "Open in maps and go"
+ },
+ {
+  "key": "partnerv2_xestexana_rejimi",
+  "az": "Xəstəxana Rejimi",
+  "en": "Hospital Mode"
+ },
+ {
+  "key": "partnerv2_xestexana_rejimi_btn",
+  "az": "Xəstəxana rejimi — YOLA DÜŞ!",
+  "en": "Hospital mode — GO!"
+ },
+ {
+  "key": "partnerv2_yaninizdadir",
+  "az": "Yanınızdadır 💙",
+  "en": "By your side 💙"
+ },
+ {
+  "key": "partnerv2_yatir",
+  "az": "Yatır",
+  "en": "Asleep"
+ },
+ {
+  "key": "partnerv2_yeme_yuxu_bez",
+  "az": "Yemə · yuxu · bez",
+  "en": "Feeds · sleep · diapers"
+ },
+ {
+  "key": "partnerv2_yigcam_gorunus",
+  "az": "Yığcam görünüş",
+  "en": "Compact view"
+ },
+ {
+  "key": "partnerv2_yoldayam_btn",
+  "az": "Yoldayam — xəbər ver",
+  "en": "On my way — notify her"
+ },
+ {
+  "key": "partnerv2_yoldayam_msg",
+  "az": "Yoldayam! 🚗 Tezliklə çatıram!",
+  "en": "On my way! 🚗 Almost there!"
+ },
+ {
+  "key": "partnerv2_yuxu",
+  "az": "Yuxu",
+  "en": "Sleep"
+ },
+ {
+  "key": "partnerverifypage_bu_qr_artiq_istifade_olunub_3bcb61",
+  "az": "Bu QR artıq istifadə olunub",
+  "en": "This QR has already been used"
+ },
+ {
+  "key": "partnerverifypage_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "partnerverifypage_legv_edilib_24db12",
+  "az": "Ləğv edilib",
+  "en": "Canceled"
+ },
+ {
+  "key": "partnerverifypage_mekan_pin_kodu_138eb6",
+  "az": "Məkan PIN kodu",
+  "en": "Location PIN code"
+ },
+ {
+  "key": "partnerverifypage_mekan_ucun_pin_hele_qurulmayib_f9d65d",
+  "az": "Məkan üçün PIN hələ qurulmayıb",
+  "en": "A PIN has not yet been set for the location"
+ },
+ {
+  "key": "partnerverifypage_muddeti_bitib_68fc0e",
+  "az": "Müddəti bitib",
+  "en": "Expired"
+ },
+ {
+  "key": "partnerverifypage_musteri_f512e9",
+  "az": "Müştəri:",
+  "en": "Customer:"
+ },
+ {
+  "key": "partnerverifypage_musteri_tetbiqinde_yeni_qr_yar_32bfe8",
+  "az": "Müştəri tətbiqində yeni QR yaratmalıdır.",
+  "en": "The customer must create a new QR in their application."
+ },
+ {
+  "key": "partnerverifypage_pin_sehvdir_010e18",
+  "az": "PIN səhvdir",
+  "en": "The PIN is incorrect"
+ }
+]

@@ -1,0 +1,60 @@
+{
+ "first_aid_scenarios": {
+  "3ffb8633-9a4a-4a5d-89c3-eef04f595887": {
+   "title": "Ertrinken",
+   "description": "Lebensrettende Maßnahmen, wenn ein Kind zu ertrinken droht. Jede Sekunde zählt – handle sofort."
+  },
+  "3d10cfcf-ae59-4a79-8466-c059cfacf237": {
+   "title": "Krampfanfall",
+   "description": "Bewahre Ruhe und handle richtig, wenn ein Kind einen Krampfanfall hat (einschließlich Fieberkrampf). Meist klingt er innerhalb von 2-5 Minuten ab."
+  },
+  "53142be3-62de-48c9-8908-13e625cf3959": {
+   "title": "Insektenstich",
+   "description": "Erste Hilfe bei Stichen von Bienen, Wespen oder anderen Insekten. Achte auf Anzeichen einer allergischen Reaktion."
+  },
+  "8c0564ef-fb10-485d-8ef3-0379da0ee782": {
+   "title": "Schnitt- und Schürfwunden",
+   "description": "So stoppst du bei Schnitt-, Schürf- oder tiefen Wunden die Blutung und reinigst die Wunde richtig."
+  },
+  "53ec6dc4-8484-403f-860e-0359596d3f09": {
+   "title": "Sonnenstich",
+   "description": "Erste-Hilfe-Maßnahmen bei Sonnenstich und hitzebedingten Beschwerden nach längerem Aufenthalt in der Hitze."
+  },
+  "6c78bbbc-bfbe-4fbe-8dfd-7d9dba5791a2": {
+   "title": "Stromschlag",
+   "description": "Sichere Erste-Hilfe-Maßnahmen, wenn ein Kind einen Stromschlag erlitten hat. Schütze dabei auch dich selbst!"
+  },
+  "ea0bb6c0-37b9-4343-add3-ba50276fe174": {
+   "title": "Zahnverletzung",
+   "description": "Die richtige Erste Hilfe, wenn der Zahn eines Kindes verletzt oder ausgeschlagen wurde. So erhöhst du die Chance, den Zahn zu retten."
+  },
+  "8439166d-bd26-4831-a151-d3e80eb7508d": {
+   "title": "Ersticken",
+   "description": "Erste-Hilfe-Maßnahmen, wenn ein Baby oder Kind zu ersticken droht. Eine Blockade der Atemwege muss sofort beseitigt werden."
+  },
+  "32fc9ec7-a94d-4b87-b763-5c9b4f5b174f": {
+   "title": "Hohes Fieber",
+   "description": "Wenn die Körpertemperatur deines Babys über 38°C steigt, bleib ruhig und handle richtig. Schritt-für-Schritt-Anleitung zum Senken des Fiebers."
+  },
+  "a179f75b-57c8-42dd-b5ff-79de9d408477": {
+   "title": "Verbrennungen",
+   "description": "Kühle eine Verbrennung sofort mit kühlem, fließendem Wasser. Je nach Schweregrad der Verbrennung sind entsprechende Erste-Hilfe-Maßnahmen erforderlich."
+  },
+  "e08bd13a-ef13-4cbd-9cbf-ae890a86ddd8": {
+   "title": "Sturz",
+   "description": "Wenn dein Baby oder Kind gestürzt ist und sich verletzt hat, bleib ruhig und schätze die Situation ein. Bei einem Stoß gegen den Kopf ist besondere Aufmerksamkeit erforderlich."
+  },
+  "c58927c2-7f46-4fe8-a01b-f61f711d6b89": {
+   "title": "Allergische Reaktion",
+   "description": "Erkenne die Anzeichen einer allergischen Reaktion: Juckreiz, Schwellungen und Atemnot. Rufe bei einer Anaphylaxie sofort den Rettungsdienst."
+  },
+  "c998bd27-265d-49a7-b171-5dae9479eafa": {
+   "title": "Nasenbluten",
+   "description": "So stillst du Nasenbluten richtig. Wichtig ist, dass dein Kind den Kopf nicht nach hinten legt und ruhig bleibt."
+  },
+  "48a1fae9-01a3-47ec-9bea-247b9ce6811b": {
+   "title": "Vergiftung",
+   "description": "Handle sofort, wenn dein Kind eine schädliche Substanz wie ein Medikament, eine Chemikalie oder eine Pflanze verschluckt hat. Erbrechen auszulösen ist nicht immer richtig – es hängt von der Art der Substanz ab."
+  }
+ }
+}

@@ -1,0 +1,9632 @@
+[
+ {
+  "key": "authscreen_olke",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Страна"
+ },
+ {
+  "key": "authscreen_olke_secin",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Выберите страну"
+ },
+ {
+  "key": "billingscreen_annual_premium",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Годовой Premium"
+ },
+ {
+  "key": "billingscreen_auto_renewal",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Автопродление"
+ },
+ {
+  "key": "billingscreen_cancel_appstore",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Для отмены подписки вы будете перенаправлены на страницу управления подписками App Store / Google Play."
+ },
+ {
+  "key": "billingscreen_cancel_confirm",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Вы уверены, что хотите отменить подписку? Premium-доступ сохранится до конца текущего периода."
+ },
+ {
+  "key": "billingscreen_cancel_error",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Не удалось отменить подписку."
+ },
+ {
+  "key": "billingscreen_cancel_success",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Подписка отменена"
+ },
+ {
+  "key": "billingscreen_cancel_success_desc",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Вы можете пользоваться Premium до конца текущего периода."
+ },
+ {
+  "key": "billingscreen_error",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Ошибка"
+ },
+ {
+  "key": "billingscreen_first_purchase",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Первая покупка"
+ },
+ {
+  "key": "billingscreen_monthly_premium",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Месячный Premium"
+ },
+ {
+  "key": "billingscreen_need_help",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Нужна помощь?"
+ },
+ {
+  "key": "billingscreen_next_renewal",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Следующее продление"
+ },
+ {
+  "key": "billingscreen_open_in_store",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Открыть в App Store"
+ },
+ {
+  "key": "billingscreen_premium_features",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Возможности Premium"
+ },
+ {
+  "key": "billingscreen_refresh",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Обновить"
+ },
+ {
+  "key": "billingscreen_restore_error",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Не удалось восстановить подписку."
+ },
+ {
+  "key": "billingscreen_restore_success",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Подписка восстановлена"
+ },
+ {
+  "key": "billingscreen_restore_success_desc",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Ваша Premium-подписка снова активна."
+ },
+ {
+  "key": "billingscreen_scheduled",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Запланировано"
+ },
+ {
+  "key": "billingscreen_status_free",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Текущий статус: Бесплатный"
+ },
+ {
+  "key": "billingscreen_title",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Моя подписка"
+ },
+ {
+  "key": "billingscreen_upgrade",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Улучшить"
+ },
+ {
+  "key": "billingscreen_upgrade_btn",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Перейти на Premium"
+ },
+ {
+  "key": "common_initial_i",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "П"
+ },
+ {
+  "key": "common_parametrler",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Параметры"
+ },
+ {
+  "key": "dashboard_1_trimester",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "1-й триместр"
+ },
+ {
+  "key": "dashboard_2_trimester",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "2-й триместр"
+ },
+ {
+  "key": "dashboard_3_trimester",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "3-й триместр"
+ },
+ {
+  "key": "dashboard_diaper_change",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Смена подгузника:"
+ },
+ {
+  "key": "dashboard_glasses",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "стакан(ов)"
+ },
+ {
+  "key": "dashboard_h",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "ч"
+ },
+ {
+  "key": "dashboard_kick",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "толч."
+ },
+ {
+  "key": "dashboard_m",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "м"
+ },
+ {
+  "key": "dashboard_qr",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "г"
+ },
+ {
+  "key": "dashboard_sec",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "сек"
+ },
+ {
+  "key": "dashboard_sm",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "см"
+ },
+ {
+  "key": "dashboard_today",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Сегодня"
+ },
+ {
+  "key": "dashboard_week_baby",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "недель — малыш"
+ },
+ {
+  "key": "funnel_week_stats",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "-я неделя: 78% беременных на этом сроке испытывают определённый дискомфорт."
+ },
+ {
+  "key": "aichat_welcome_bump_1",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Здравствуйте"
+ },
+ {
+  "key": "aichat_welcome_bump_2",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Я Anacan.AI."
+ },
+ {
+  "key": "aichat_welcome_bump_3",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Сейчас вы на {0}-й неделе беременности; ваш малыш размером примерно с {1}. "
+ },
+ {
+  "key": "aichat_welcome_bump_4",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Вы можете задавать вопросы о периоде беременности."
+ },
+ {
+  "key": "aichat_welcome_default_1",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Здравствуйте"
+ },
+ {
+  "key": "aichat_welcome_default_2",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Я Anacan.AI. Чем могу помочь?"
+ },
+ {
+  "key": "aichat_welcome_flow_1",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Здравствуйте"
+ },
+ {
+  "key": "aichat_welcome_flow_2",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Я Anacan.AI. Готов профессионально ответить на ваши вопросы о менструальном цикле, симптомах и общем здоровье."
+ },
+ {
+  "key": "aichat_welcome_mommy_1",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Здравствуйте"
+ },
+ {
+  "key": "aichat_welcome_mommy_2",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Я Anacan.AI. Готов поддержать вас в вопросах ухода за малышом, грудного вскармливания, режима сна и восстановления после родов."
+ },
+ {
+  "key": "appearancescreen_fon",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Фон"
+ },
+ {
+  "key": "appearancescreen_seth",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Поверхность"
+ },
+ {
+  "key": "appearancescreen_vurgu",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Акцент"
+ },
+ {
+  "key": "calendarscreen_evvelki_ay",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Предыдущий месяц"
+ },
+ {
+  "key": "calendarscreen_novbeti_ay",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Следующий месяц"
+ },
+ {
+  "key": "community_file_upload_failed",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Не удалось загрузить файл:"
+ },
+ {
+  "key": "community_is_typing",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "печатает..."
+ },
+ {
+  "key": "community_people_are_typing",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "чел. печатают..."
+ },
+ {
+  "key": "directmessagescreen_send",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Отправить"
+ },
+ {
+  "key": "directmessagescreen_stop",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Остановить"
+ },
+ {
+  "key": "flow_days_before",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "за {days} дней"
+ },
+ {
+  "key": "flow_period_delay_1",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Ваша менструация задерживается на"
+ },
+ {
+  "key": "flow_period_delay_2",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "дн. от ожидаемой даты. Подумайте о тесте на беременность или спросите у Dr. Anacan."
+ },
+ {
+  "key": "flow_period_delay_prompt_1",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Моя менструация задерживается на"
+ },
+ {
+  "key": "flow_period_delay_prompt_2",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "дн., что мне делать?"
+ },
+ {
+  "key": "profile_child_added",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "добавлен(а)"
+ },
+ {
+  "key": "profile_download_app",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Скачать приложение:"
+ },
+ {
+  "key": "profile_share_partner_text",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Присоединяйся к приложению Anacan и поддержи меня в нашем путешествии беременности! Мой код партнёра:"
+ },
+ {
+  "key": "cake_confirm_order",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Подтвердить заказ"
+ },
+ {
+  "key": "cake_pay_and_order",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Оплатить и заказать"
+ },
+ {
+  "key": "cake_payment",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "оплата"
+ },
+ {
+  "key": "cake_send_order",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Отправить заказ"
+ },
+ {
+  "key": "cycletrendchart_tsikl_count",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "{count} цикл(ов)"
+ },
+ {
+  "key": "cycletrendchart_uzunluq_f427cd",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Длина"
+ },
+ {
+  "key": "dateutils_stress",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Стресс"
+ },
+ {
+  "key": "doctorshospitals_maraq_saheleri",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Сферы интересов"
+ },
+ {
+  "key": "doctorshospitals_xidmetler",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Услуги"
+ },
+ {
+  "key": "horoscopecompatibility_neticeniz_d14591",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Ваш результат"
+ },
+ {
+  "key": "medical_disclaimer_text",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Эта информация носит исключительно просветительский характер и НЕ заменяет медицинскую консультацию, диагностику или лечение. Перед принятием любого медицинского решения обязательно обратитесь к своему врачу или квалифицированному медицинскому работнику. В экстренных случаях звоните 103."
+ },
+ {
+  "key": "postsearchfilter_populyar",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Популярные"
+ },
+ {
+  "key": "rc_bundle_version",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Версия bundle:"
+ },
+ {
+  "key": "toolshub_featured_title",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Избранное"
+ },
+ {
+  "key": "toolshub_minigames_title",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Мини-игры"
+ },
+ {
+  "key": "untranslated_ad_i34vkg",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Имя"
+ },
+ {
+  "key": "untranslated_ad_soyad_by9a9b",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "ИМЯ ФАМИЛИЯ"
+ },
+ {
+  "key": "untranslated_ad_soyad_lm5srh",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Имя, фамилия *"
+ },
+ {
+  "key": "untranslated_ad_w3td2c",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Имя:"
+ },
+ {
+  "key": "untranslated_anacan_endirimi_eg7euj",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Скидка Anacan"
+ },
+ {
+  "key": "untranslated_anacan_partnyor_endirim_sistem_qfwnst",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Партнёрская система скидок Anacan"
+ },
+ {
+  "key": "untranslated_anacan_partnyor_sistemi_xadwvm",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Партнёрская система Anacan"
+ },
+ {
+  "key": "untranslated_analiz_edilir_hf0m1t",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Анализируется..."
+ },
+ {
+  "key": "untranslated_axtar_92w4nn",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Поиск..."
+ },
+ {
+  "key": "untranslated_ay_m6wwbp",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Месяц"
+ },
+ {
+  "key": "untranslated_bank_cclvmv",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Банк:"
+ },
+ {
+  "key": "untranslated_bax_1yplss",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Смотреть"
+ },
+ {
+  "key": "untranslated_bilinmir_iqd3o8",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Неизвестно"
+ },
+ {
+  "key": "untranslated_cins_f3ymi9",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Пол"
+ },
+ {
+  "key": "untranslated_cinsi_az7fty",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Пол"
+ },
+ {
+  "key": "untranslated_dil_g90qr5",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Язык"
+ },
+ {
+  "key": "untranslated_dil_language_7oaxzb",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Язык / Language"
+ },
+ {
+  "key": "untranslated_dil_rfnolb",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Язык:"
+ },
+ {
+  "key": "untranslated_elan_voiz8p",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Объявление"
+ },
+ {
+  "key": "untranslated_endirimi_al_qr_yarat_6yd90i",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Получить скидку — создать QR"
+ },
+ {
+  "key": "untranslated_enerji_q6zcss",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Энергия"
+ },
+ {
+  "key": "untranslated_fiziki_albom_3i3l4j",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Физический альбом"
+ },
+ {
+  "key": "untranslated_fokus_qida_lyi3h2",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Фокус-продукт"
+ },
+ {
+  "key": "untranslated_hesablanacaq_w6pf63",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Будет рассчитано ↗"
+ },
+ {
+  "key": "untranslated_kalori_y6oaf2",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Калории"
+ },
+ {
+  "key": "untranslated_kamera_qucuxi",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Камера"
+ },
+ {
+  "key": "untranslated_kart_sahibi_hixmbt",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Владелец карты"
+ },
+ {
+  "key": "untranslated_kart_sahibi_lpyfn9",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Владелец карты:"
+ },
+ {
+  "key": "untranslated_kateqoriya_d7bf4y",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Категория"
+ },
+ {
+  "key": "untranslated_kupon_endirimi_hqg79o",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Скидка по купону:"
+ },
+ {
+  "key": "untranslated_kupon_endirimi_itwejz",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Скидка по купону"
+ },
+ {
+  "key": "untranslated_kupon_kodu_xiawxh",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Код купона"
+ },
+ {
+  "key": "untranslated_maks_6z8ju8",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Макс"
+ },
+ {
+  "key": "untranslated_menstruasiya_6pect0",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Менструация"
+ },
+ {
+  "key": "untranslated_mesaj_3c09op",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Сообщение"
+ },
+ {
+  "key": "untranslated_mesaj_x98xat",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Сообщение:"
+ },
+ {
+  "key": "untranslated_minimum_6_simvol_nifi5y",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Минимум 6 символов"
+ },
+ {
+  "key": "untranslated_onlayn_xfaffi",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Онлайн"
+ },
+ {
+  "key": "untranslated_orta_enerji_ojxdi0",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Средняя энергия"
+ },
+ {
+  "key": "untranslated_orta_yslkg0",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Средний"
+ },
+ {
+  "key": "untranslated_ortalama_qxgps6",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Среднее"
+ },
+ {
+  "key": "untranslated_ovulyasiya_h9aw8t",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Овуляция"
+ },
+ {
+  "key": "untranslated_oxunub_u7g1tz",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Прочитано"
+ },
+ {
+  "key": "untranslated_partner_profili_lip00f",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Профиль партнёра"
+ },
+ {
+  "key": "untranslated_profil_v8b0sk",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Профиль"
+ },
+ {
+  "key": "untranslated_proqnoz_rt0tdx",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Прогноз"
+ },
+ {
+  "key": "untranslated_pulsuz_27d02z",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Бесплатно"
+ },
+ {
+  "key": "untranslated_qalereyadan_w37f0m",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Из галереи"
+ },
+ {
+  "key": "untranslated_qeyd_edilir_df7cba",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Записывается..."
+ },
+ {
+  "key": "untranslated_randevu_xc37do",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Приём"
+ },
+ {
+  "key": "untranslated_resept_axtar_8odzsd",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Искать рецепт..."
+ },
+ {
+  "key": "untranslated_sakit_saatlar_myw4sq",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Тихие часы"
+ },
+ {
+  "key": "untranslated_silindi_u8c6ca",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Удалено!"
+ },
+ {
+  "key": "untranslated_silinir_u86cva",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Удаляется..."
+ },
+ {
+  "key": "untranslated_simptomlar_xhm7bx",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Симптомы"
+ },
+ {
+  "key": "untranslated_son_menstruasiya_tarixi_fgz9t7",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Дата последней менструации"
+ },
+ {
+  "key": "untranslated_son_sessiyalar_dkgjsl",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Последние сессии"
+ },
+ {
+  "key": "untranslated_sonra_1f3m9s",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Позже"
+ },
+ {
+  "key": "untranslated_story_silinsin_yil9td",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Удалить историю?"
+ },
+ {
+  "key": "untranslated_su_yvcozn",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Вода"
+ },
+ {
+  "key": "untranslated_tarix_15qhck",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Дата:"
+ },
+ {
+  "key": "untranslated_tarix_6hhkyx",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Дата"
+ },
+ {
+  "key": "untranslated_taymer_uen6sv",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Таймер"
+ },
+ {
+  "key": "untranslated_telefon_vwjgg5",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Телефон"
+ },
+ {
+  "key": "untranslated_tip_5d1vhb",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Тип:"
+ },
+ {
+  "key": "untranslated_toplam_lheej5",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Итого"
+ },
+ {
+  "key": "untranslated_toplam_xal_dy1dwr",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Всего очков"
+ },
+ {
+  "key": "untranslated_tortlar_go6yj8",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Торты 🎂"
+ },
+ {
+  "key": "untranslated_vaxt_8etncj",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Время"
+ },
+ {
+  "key": "untranslated_veb_sayt_16w317",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Веб-сайт"
+ },
+ {
+  "key": "untranslated_vebsayt_7bupzh",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Веб-сайт"
+ },
+ {
+  "key": "untranslated_yadda_saxla_bpdu9v",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Сохранить"
+ },
+ {
+  "key": "usedevicetoken_bildiris_izah",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Чтобы получать важную информацию и напоминания, разрешите приложению отправлять уведомления в настройках устройства."
+ },
+ {
+  "key": "usedevicetoken_bildirislere_icaze_verin",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Разрешите уведомления"
+ },
+ {
+  "key": "usementalhealthdata_normal_e041c7",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Нормально"
+ },
+ {
+  "key": "usementalhealthdata_pis_e041c6",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "Плохо"
+ },
+ {
+  "key": "weighttracker_indi_eef",
+  "langs": "ru,tr,en",
+  "srcLang": "ru",
+  "src": "Сейчас:"
+ },
+ {
+  "key": "bp_systolic_hint",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "(верхнее)"
+ },
+ {
+  "key": "bp_diastolic_hint",
+  "langs": "ru,tr",
+  "srcLang": "ru",
+  "src": "(нижнее)"
+ },
+ {
+  "key": "adminproducts_magaza_mehsullarini_idare_edin_d8f10",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Manage store products"
+ },
+ {
+  "key": "authscreen_bu_e_mail_artiq_qeydiyyatdan_kecib_1bdd66",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "This email is already registered."
+ },
+ {
+  "key": "babycrisiswidget_week_unit",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "wk"
+ },
+ {
+  "key": "babymonthlyalbum_legv_et_b5e49c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cancel it"
+ },
+ {
+  "key": "billingscreen_premium_ile_neler_elde_edeceyiniz_gorun_5b1bd7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "See what you will get with Premium"
+ },
+ {
+  "key": "billingscreen_premium_ile_nələr_elde_edeceyinizi_gorun_5b1bd7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "See what you get with Premium"
+ },
+ {
+  "key": "cakesscreen_tort_axtarin_f26a97",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search for cakes..."
+ },
+ {
+  "key": "communityscreen_paylas_b4be3b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Share"
+ },
+ {
+  "key": "contractiontimer_5_1_1_qaydasi_ile_izleyin_31947d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Track with the 5-1-1 rule"
+ },
+ {
+  "key": "dashboard_ayaqlarini_hereket_etdirmeyi_s_f3dbce",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "He likes to move his legs 🦶"
+ },
+ {
+  "key": "dashboard_barmaqlarini_kesf_etmeye_davam_17caad",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "He continues to explore his fingers ✋"
+ },
+ {
+  "key": "dashboard_bu_gun_elleri_agzina_apara_bil_a3b801",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Today he can take his hands to his mouth 🖐️"
+ },
+ {
+  "key": "dashboard_bu_gun_elleri_ile_esyalari_tut_5ce101",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Today he learns to hold things with his hands! 🤲"
+ },
+ {
+  "key": "dashboard_bu_gun_gulusleri_daha_menali_o_0ca2b5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Their smiles will be more meaningful today"
+ },
+ {
+  "key": "dashboard_bu_gun_qiciqlanmaya_reaksiya_a_d65dc4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Reaction to irritation increases today 🤭"
+ },
+ {
+  "key": "dashboard_bu_gun_yeni_dadlar_kesf_ede_bi_6a1832",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Today you can discover new tastes 🍎"
+ },
+ {
+  "key": "dashboard_bu_gun_yeni_sesler_cixara_bile_cf83d8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Today it can produce new sounds 🗣️"
+ },
+ {
+  "key": "dashboard_diaper_logged",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Diaper change"
+ },
+ {
+  "key": "dashboard_diqqet_muddeti_artmaga_davam_e_8ef858",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Attention span continues to increase 👀"
+ },
+ {
+  "key": "dashboard_duration_label",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Duration"
+ },
+ {
+  "key": "dashboard_elaqe_qurma_bacariqlari_guclen_c24991",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Communication skills are strengthened 🤝"
+ },
+ {
+  "key": "dashboard_emosiyalarini_daha_yaxsi_ifade_a98a2f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "He expresses his emotions better 💕"
+ },
+ {
+  "key": "dashboard_etraf_seslere_daha_cox_reaksiy_c929eb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "It reacts more to the surrounding sounds 👂"
+ },
+ {
+  "key": "dashboard_etrafdakilara_diqqet_artir_29f3e2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Attention to the surroundings increases 👁️"
+ },
+ {
+  "key": "dashboard_etrafi_tanimaq_bacarigi_inkisa_183398",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "The ability to recognize the environment develops 🌍"
+ },
+ {
+  "key": "dashboard_gulumsemeleri_daha_tez_tez_olu_22ffaa",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Their smiles are more frequent"
+ },
+ {
+  "key": "dashboard_hereket_koordinasiyasi_inkisaf_56f22b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Movement coordination develops ⚡"
+ },
+ {
+  "key": "dashboard_hereketleri_daha_koordinasiyal_c4d7d4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Their movements become more coordinated 🏃"
+ },
+ {
+  "key": "dashboard_korpenin_yaddasi_her_gun_gucle_3932c3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "The baby's memory is getting stronger every day"
+ },
+ {
+  "key": "dashboard_mimikalar_daha_zengin_olur_71f33d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mimics become richer 😮"
+ },
+ {
+  "key": "dashboard_musiqi_dinlemekden_zovq_alir_bbc189",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Enjoy listening to music 🎶"
+ },
+ {
+  "key": "dashboard_oyun_zamani_daha_aktiv_olur_b55fb7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "It becomes more active during the game 🎮"
+ },
+ {
+  "key": "dashboard_prenatal_vitamininizi_gunluk_qebul_etmey_c8cba3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Don't forget to take your prenatal vitamin daily. Folate, Vitamin D, and iron are important!"
+ },
+ {
+  "key": "dashboard_rengleri_daha_aydin_gormeye_ba_4ee0b0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "He begins to see colors more clearly 🌈"
+ },
+ {
+  "key": "dashboard_sekillere_baxmagi_xoslayir_824e23",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "He likes looking at pictures 🖼️"
+ },
+ {
+  "key": "dashboard_sesleri_tanimaq_qabiliyyeti_ar_c1f670",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "The ability to recognize voices increases 🎵"
+ },
+ {
+  "key": "dashboard_toxunma_hissi_daha_hessas_olur_cb038e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "The sense of touch becomes more sensitive 🤚"
+ },
+ {
+  "key": "dashboard_uzlere_baxmagi_cox_xoslayir_628158",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "He likes to look at faces 👶"
+ },
+ {
+  "key": "dashboard_valideynleri_tanima_guclenir_0de81e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Recognition of parents is strengthened 👨‍👩‍👧"
+ },
+ {
+  "key": "dashboard_vitamin_xatirlatmasi_b8a490",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Vitamin Reminder 💊"
+ },
+ {
+  "key": "dashboard_yatma_qaydalari_daha_muntezem__296d25",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sleeping routines become more regular 😴"
+ },
+ {
+  "key": "dashboard_yeni_nailiyyetlere_dogru_ireli_500201",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Moving towards new achievements 🌟"
+ },
+ {
+  "key": "dashboard_yuxu_zamani_yuxu_gore_biler_4fee2a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "He can dream during sleep 💭"
+ },
+ {
+  "key": "growthtrackerwidget_head_circumference",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Head circ."
+ },
+ {
+  "key": "growthtrackerwidget_last_measurement",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "last measurement"
+ },
+ {
+  "key": "kickcounter_korpe_hereketlerini_izleyin_f7fa7c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Track baby movements"
+ },
+ {
+  "key": "maternitycalculator_muavinet_hesablama_ebc288",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Benefit calculation"
+ },
+ {
+  "key": "mommyheroclassic_gun_54e78d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "day"
+ },
+ {
+  "key": "mommyheromesh_gun_54e78d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "day"
+ },
+ {
+  "key": "mommyherominimalcard_gun_54e78d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "day"
+ },
+ {
+  "key": "partneraichatscreen_dogusa_hazirliq_c83258",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Preparation for birth"
+ },
+ {
+  "key": "partneraichatscreen_emosional_destek_5ffaed",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Emotional support"
+ },
+ {
+  "key": "partneraichatscreen_ev_isleri_b4425e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Housework"
+ },
+ {
+  "key": "partneraichatscreen_hekim_vizitleri_abadf5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Doctor visits"
+ },
+ {
+  "key": "partneraichatscreen_mesaj_gonderile_bilmedi_yeniden_cehd_et_20d76e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Message could not be sent. Try again."
+ },
+ {
+  "key": "partneraichatscreen_sualini_yaz_49c69d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Write your question..."
+ },
+ {
+  "key": "partneraichatscreen_surprizler_422463",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Surprises"
+ },
+ {
+  "key": "partneraichatscreen_xeta_3cdbb6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Error"
+ },
+ {
+  "key": "partnerdashboard_tapsiriq_d827b6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Task"
+ },
+ {
+  "key": "paywallstep_3_gun_pulsuz_sinaq_132a91",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "3 DAYS FREE TRIAL"
+ },
+ {
+  "key": "recentblogposts_reading_time_unit",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "min"
+ },
+ {
+  "key": "unit_day",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "uncle"
+ },
+ {
+  "key": "unit_days",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "days"
+ },
+ {
+  "key": "unit_month",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "month"
+ },
+ {
+  "key": "unit_months",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "months"
+ },
+ {
+  "key": "unit_week",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "week"
+ },
+ {
+  "key": "unit_weeks",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "weeks"
+ },
+ {
+  "key": "unit_year",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "year"
+ },
+ {
+  "key": "unit_years",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "years"
+ },
+ {
+  "key": "untranslated_0_40_db_25m0h6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "0-40 dB"
+ },
+ {
+  "key": "untranslated_0_return_wb2fa7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "0;\n\n  return ("
+ },
+ {
+  "key": "untranslated_0_row_pregnancy_day_w4zouw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "0 && row.pregnancy_day"
+ },
+ {
+  "key": "untranslated_0_stats_shortestcycle_2bgpxe",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "0 && stats.shortestCycle"
+ },
+ {
+  "key": "untranslated_1_ay_0npsgf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "1 Month"
+ },
+ {
+  "key": "untranslated_1_ay_d6yjy4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "1 Month"
+ },
+ {
+  "key": "untranslated_1_ay_rcev58",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "1 Ay"
+ },
+ {
+  "key": "untranslated_1_saat_5fulld",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "1 hour"
+ },
+ {
+  "key": "untranslated_1_saat_i42oul",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "1 saat"
+ },
+ {
+  "key": "untranslated_1_saat_y5dif9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "1 hour"
+ },
+ {
+  "key": "untranslated_20_endirim_jc75q5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "20% endirim"
+ },
+ {
+  "key": "untranslated_20_endirim_sw2d3h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "20% discount"
+ },
+ {
+  "key": "untranslated_20_endirim_waxyxe",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "20% discount"
+ },
+ {
+  "key": "untranslated_3_ay_3d6dom",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "3 Months"
+ },
+ {
+  "key": "untranslated_3_ay_sonra_1p81pp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "3 ay sonra 😌"
+ },
+ {
+  "key": "untranslated_3_ay_sonra_9ya929",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "3 months later 😌"
+ },
+ {
+  "key": "untranslated_3_ay_sonra_q570y1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "3 months later 😌"
+ },
+ {
+  "key": "untranslated_3_ay_vv3swy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "3 Months"
+ },
+ {
+  "key": "untranslated_3_ay_zxp12a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "3 Ay"
+ },
+ {
+  "key": "untranslated_40_50_db_8gld0f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "40-50 dB"
+ },
+ {
+  "key": "untranslated_50_60_db_ec0bby",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "50-60 dB"
+ },
+ {
+  "key": "untranslated_60_70_db_heg84l",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "60-70 dB"
+ },
+ {
+  "key": "untranslated_70_db_9217uh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "70+ dB"
+ },
+ {
+  "key": "untranslated__0_api_returntype_0rraw5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "[0];\r\n  api: ReturnType"
+ },
+ {
+  "key": "untranslated__10s_tq7n6h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "/10s"
+ },
+ {
+  "key": "untranslated__14_daysuntil_yr82pn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "= -14 && daysUntil"
+ },
+ {
+  "key": "untranslated__1_daynum_i3lvzd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "= 1 && dayNum"
+ },
+ {
+  "key": "untranslated__30_bal_46039y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "/ 30 points"
+ },
+ {
+  "key": "untranslated__30_bal_a3mge4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "/ 30 points"
+ },
+ {
+  "key": "untranslated__30_bal_vkl9o6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "/ 30 bal"
+ },
+ {
+  "key": "untranslated__4_bg_green_100_dark_bg_green_au6t1h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "= 4 ?\n          'bg-green-100 dark:bg-green-900/30' :\n          summary.mood && summary.mood"
+ },
+ {
+  "key": "untranslated__994_xx_xxx_xx_xx_bp5p0w",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "+994 XX XXX XX XX"
+ },
+ {
+  "key": "untranslated__activeschedules_length_0_kq5yxs",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        activeSchedules.length === 0 ?"
+ },
+ {
+  "key": "untranslated__activeweeks_length_0_5gt67d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n      activeWeeks.length === 0 ?"
+ },
+ {
+  "key": "untranslated__admin_lh2sjh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "👑 Admin"
+ },
+ {
+  "key": "untranslated__aktiv_92673e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "✓ Active"
+ },
+ {
+  "key": "untranslated__aktiv_ce2lg7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "✓ Active"
+ },
+ {
+  "key": "untranslated__aktiv_x97j2y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "✓ Aktiv"
+ },
+ {
+  "key": "untranslated__allconversations_length_0_f1wbia",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n      allConversations.length === 0 ?"
+ },
+ {
+  "key": "untranslated__alreadysent_eih96a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n            alreadySent ?"
+ },
+ {
+  "key": "untranslated__analitika_1d19rj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "📊 Analytics"
+ },
+ {
+  "key": "untranslated__analitika_8zj0t7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "📊 Analytics"
+ },
+ {
+  "key": "untranslated__analitika_pq0ddr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "📊 Analitika"
+ },
+ {
+  "key": "untranslated__anayam_4dl9uj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "👶 I'm a mother"
+ },
+ {
+  "key": "untranslated__anayam_intbls",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "👶 Anayam"
+ },
+ {
+  "key": "untranslated__anayam_km5jdl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "👶 I'm a mother"
+ },
+ {
+  "key": "untranslated__araba_eiub0o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "🚼 Araba"
+ },
+ {
+  "key": "untranslated__araba_osd7dm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "🚼 Stroller"
+ },
+ {
+  "key": "untranslated__araba_uog0ii",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "🚼 Stroller"
+ },
+ {
+  "key": "untranslated__ay_btgnbx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "/month"
+ },
+ {
+  "key": "untranslated__ay_cugyoj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "/ay"
+ },
+ {
+  "key": "untranslated__ay_uq5abf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "/month"
+ },
+ {
+  "key": "untranslated__blockquote_html_html_replace_enbncg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  // Blockquote\n  html = html.replace(/^> (.+)$/gm, '"
+ },
+ {
+  "key": "untranslated__blog_is_now_accessed_via_tool_ztysor",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\r\n      // Blog is now accessed via Tools, remove from nav tabs\r\n      case 'profile':\r\n        return ("
+ },
+ {
+  "key": "untranslated__bold_italic_html_html_replace_7g7i1b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  // Bold & italic\n  html = html.replace(/\\*\\*\\*(.+?)\\*\\*\\*/g, '"
+ },
+ {
+  "key": "untranslated__case_1_return_1amcqc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n\n      case 1:\n        return ("
+ },
+ {
+  "key": "untranslated__case_2_return_0r87lm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n\n      case 2:\n        return ("
+ },
+ {
+  "key": "untranslated__case_2_return_zhu0xt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\r\n\r\n      case 2:\r\n        return ("
+ },
+ {
+  "key": "untranslated__case_3_return_s6ekfb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\r\n\r\n      case 3:\r\n        return ("
+ },
+ {
+  "key": "untranslated__case_affiliate_case_affiliate_5y3m98",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'affiliate':case 'affiliate-products':return"
+ },
+ {
+  "key": "untranslated__case_affiliate_return_applhz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'affiliate':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_ai_return_r0oqms",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\r\n      case 'ai':\r\n        return ("
+ },
+ {
+  "key": "untranslated__case_ai_return_y0jabd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\r\n        case 'ai':\r\n          return ("
+ },
+ {
+  "key": "untranslated__case_album_orders_return_n4ghkr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'album-orders':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_analytics_return_qedz28",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'analytics':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_analyzing_return_915sg2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n      case 'analyzing':\n        return ("
+ },
+ {
+  "key": "untranslated__case_baby_album_return_8iubqk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'baby-album':return"
+ },
+ {
+  "key": "untranslated__case_baby_daily_info_return_6gi3h1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'baby-daily-info':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_baby_growth_case_growth_x0hcfz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'baby-growth':case 'growth-tracker':return"
+ },
+ {
+  "key": "untranslated__case_baby_growth_return_htzmiu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'baby-growth':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_baby_illustrations_retur_h7zusg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'baby-illustrations':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_banners_return_ol67ei",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'banners':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_bento_return_not4ft",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n    case 'bento':     return"
+ },
+ {
+  "key": "untranslated__case_blog_return_7o6475",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'blog':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_blog_return_ra6tdb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'blog':return"
+ },
+ {
+  "key": "untranslated__case_blood_sugar_return_nwybon",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'blood-sugar':return"
+ },
+ {
+  "key": "untranslated__case_branding_return_jarpao",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'branding':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_c2c_transfer_return_o957qo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'c2c_transfer':return"
+ },
+ {
+  "key": "untranslated__case_cakes_return_8aphd4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\r\n      case 'cakes':\r\n        return ("
+ },
+ {
+  "key": "untranslated__case_cakes_return_aqybr2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'cakes':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_cakes_return_dc46je",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'cakes':return"
+ },
+ {
+  "key": "untranslated__case_card_simulated_return_y7g3xk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'card_simulated':return"
+ },
+ {
+  "key": "untranslated__case_categories_return_hf1i0o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n\n      case 'categories':\n        return ("
+ },
+ {
+  "key": "untranslated__case_chat_return_d5cadb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\r\n        case 'chat':\r\n          return ("
+ },
+ {
+  "key": "untranslated__case_closed_return_grvf6f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'closed':return"
+ },
+ {
+  "key": "untranslated__case_community_return_pmqlj7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\r\n      case 'community':\r\n        return ("
+ },
+ {
+  "key": "untranslated__case_community_return_zopkoz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'community':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_content_return_9mgzwo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'content':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_contraction_return_6za51e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'contraction':return"
+ },
+ {
+  "key": "untranslated__case_coupons_return_d17rcv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'coupons':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_crash_reports_return_ucqstp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'crash-reports':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_crisis_calendar_return_uhkn19",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'crisis-calendar':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_cry_translator_return_77u9j0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'cry-translator':return"
+ },
+ {
+  "key": "untranslated__case_data_return_aztmdw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'data':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_deeplinks_return_7ze6l0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'deeplinks':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_default_shopping_return_fsfbes",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'default-shopping':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_description_case_content_jo8mz8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n      case 'description':\n      case 'content':\n      case 'description_az':\n        return ("
+ },
+ {
+  "key": "untranslated__case_development_tips_return_cxwgu5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'development-tips':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_doctors_return_m88c7g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'doctors':return"
+ },
+ {
+  "key": "untranslated__case_dynamic_content_return_e4g5mf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'dynamic-content':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_epoint_return_4ftsth",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'epoint':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_exercise_case_exercises_8nouyt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'exercise':case 'exercises':return"
+ },
+ {
+  "key": "untranslated__case_fairy_tale_return_r3huja",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'fairy-tale':return"
+ },
+ {
+  "key": "untranslated__case_fairy_tales_return_optauv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'fairy-tales':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_faq_return_47ua1k",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'faq':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_first_aid_return_1t0os7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'first-aid':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_first_aid_return_qiyqz2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'first-aid':return"
+ },
+ {
+  "key": "untranslated__case_flow_content_return_4mt5gp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'flow-content':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_flow_symptoms_return_8yekcs",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'flow-symptoms':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_foods_return_odg6ta",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n\n      case 'foods':\n        return ("
+ },
+ {
+  "key": "untranslated__case_force_update_return_biv30c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'force-update':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_fruit_images_return_2npogm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'fruit-images':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_healthcare_reviews_retur_grk5js",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'healthcare-reviews':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_horoscope_return_qvg51j",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'horoscope':return"
+ },
+ {
+  "key": "untranslated__case_hospital_return_du7nt3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'hospital':return"
+ },
+ {
+  "key": "untranslated__case_in_progress_return_2jxgrl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'in_progress':return"
+ },
+ {
+  "key": "untranslated__case_intro_slides_return_jx9pp2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'intro-slides':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_kick_return_05n9tq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'kick':return"
+ },
+ {
+  "key": "untranslated__case_languages_return_11cngr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'languages':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_legal_return_xe6j7w",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'legal':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_marketplace_return_cccpx0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'marketplace':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_maternity_calculator_cas_8xbvwb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'maternity-calculator':case 'maternity':return"
+ },
+ {
+  "key": "untranslated__case_maternity_return_rqfgrk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'maternity':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_mental_health_return_d525h9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'mental-health':return"
+ },
+ {
+  "key": "untranslated__case_mental_health_return_yqlqay",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'mental-health':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_mesh_return_tmcr9m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n    case 'mesh':      return"
+ },
+ {
+  "key": "untranslated__case_messages_return_jtd61a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'messages':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_milestones_return_54bbzx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n\n      case 'milestones':\n        return ("
+ },
+ {
+  "key": "untranslated__case_minimal_return_vt5g8a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n    case 'minimal':   return"
+ },
+ {
+  "key": "untranslated__case_moderation_return_p6wtcl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'moderation':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_moderator_return_e8rtjn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'moderator':return"
+ },
+ {
+  "key": "untranslated__case_mom_friendly_map_return_3qqn8h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'mom-friendly-map':return"
+ },
+ {
+  "key": "untranslated__case_mommy_daily_messages_ret_l6a5fx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'mommy-daily-messages':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_mood_case_mood_diary_ret_mc2j2z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'mood':case 'mood-diary':return"
+ },
+ {
+  "key": "untranslated__case_moods_return_ze1t2f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n\n      case 'moods':\n        return ("
+ },
+ {
+  "key": "untranslated__case_names_return_klys7g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'names':return"
+ },
+ {
+  "key": "untranslated__case_noise_meter_return_t7zspp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'noise-meter':return"
+ },
+ {
+  "key": "untranslated__case_notes_return_x6hv3s",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n      case 'notes':\n        return ("
+ },
+ {
+  "key": "untranslated__case_nutrition_return_1gyoek",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'nutrition':return"
+ },
+ {
+  "key": "untranslated__case_onboarding_return_n4v671",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'onboarding':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_orders_return_yb3uua",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'orders':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_partner_config_return_pqses5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'partner-config':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_partner_redemptions_retu_k7ydch",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'partner-redemptions':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_partner_tips_return_duwnok",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'partner-tips':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_partner_venues_return_10umnb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'partner-venues':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_phase_tips_return_3en7ma",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'phase-tips':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_photoshoot_return_89cn2q",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'photoshoot':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_places_config_return_e87nqf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'places-config':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_places_return_esribb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'places':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_play_activities_return_5dkex1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'play-activities':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_polaroid_return_jl3vuh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n    case 'polaroid':  return"
+ },
+ {
+  "key": "untranslated__case_poop_scanner_return_z0r5vg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'poop-scanner':return"
+ },
+ {
+  "key": "untranslated__case_pregnancy_album_return_i4ki0q",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'pregnancy-album':return"
+ },
+ {
+  "key": "untranslated__case_pregnancy_return_kdwh74",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'pregnancy':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_premium_config_return_4eltt3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'premium-config':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_premium_plus_return_rpc2cv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'premium_plus':return"
+ },
+ {
+  "key": "untranslated__case_priority_return_zvezxd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n      case 'priority':\n        return ("
+ },
+ {
+  "key": "untranslated__case_products_return_ygm3of",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'products':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_profile_return_6t55us",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\r\n        case 'profile':\r\n          return ("
+ },
+ {
+  "key": "untranslated__case_push_notifications_retur_ufk4k1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'push-notifications':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_quick_actions_return_euqpoe",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'quick-actions':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_recipes_return_15f443",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'recipes':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_recipes_return_70hkcq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'recipes':return"
+ },
+ {
+  "key": "untranslated__case_recording_return_g3dw4d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n      case 'recording':\n        return"
+ },
+ {
+  "key": "untranslated__case_resolved_return_0a5qu8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'resolved':return"
+ },
+ {
+  "key": "untranslated__case_revenuecat_debug_return_dd5lyq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'revenuecat-debug':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_safety_return_lno7mz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'safety':return"
+ },
+ {
+  "key": "untranslated__case_secondhand_market_case_s_qojil6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'secondhand-market':case 'second-hand-market':return"
+ },
+ {
+  "key": "untranslated__case_security_return_01cyuk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'security':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_settings_return_oa5g23",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'settings':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_shopping_return_a2h1u1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'shopping':return"
+ },
+ {
+  "key": "untranslated__case_smart_play_box_return_qvyqpy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'smart-play-box':return"
+ },
+ {
+  "key": "untranslated__case_sounds_return_23yizy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n\n      case 'sounds':\n        return ("
+ },
+ {
+  "key": "untranslated__case_story_return_5ooh07",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n    case 'story':     return"
+ },
+ {
+  "key": "untranslated__case_storybook_return_t5rq1y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n    case 'storybook': return"
+ },
+ {
+  "key": "untranslated__case_subscriptions_return_zgz364",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'subscriptions':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_support_return_ipio0e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'support':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_surprises_return_iv0870",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n\n      case 'surprises':\n        return ("
+ },
+ {
+  "key": "untranslated__case_symptoms_return_kr87tz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n\n      case 'symptoms':\n        return ("
+ },
+ {
+  "key": "untranslated__case_teething_case_teething_t_1smhvu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'teething':case 'teething-tracker':return"
+ },
+ {
+  "key": "untranslated__case_teething_return_o26nes",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'teething':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_themes_return_zz49xz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n\n      case 'themes':\n        return ("
+ },
+ {
+  "key": "untranslated__case_tools_config_return_ioas35",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'tools-config':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_tools_return_nit4oo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\r\n      case 'tools':\r\n        return ("
+ },
+ {
+  "key": "untranslated__case_tools_return_x86n6v",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'tools':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_translations_return_aibi27",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'translations':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_trimester_tips_return_7d39bp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'trimester-tips':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_users_return_4zghpw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'users':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_vaccine_calendar_case_va_8koyu6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'vaccine-calendar':case 'vaccines-calendar':return"
+ },
+ {
+  "key": "untranslated__case_vaccines_return_x1dmtp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'vaccines':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_vitamin_tracker_case_vit_tds5ys",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'vitamin-tracker':case 'vitamins':return"
+ },
+ {
+  "key": "untranslated__case_vitamins_return_hltdgs",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      case 'vitamins':\r\n        return"
+ },
+ {
+  "key": "untranslated__case_weather_clothing_return_v4nz4k",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'weather-clothing':return"
+ },
+ {
+  "key": "untranslated__case_weight_return_xpfma9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'weight':return"
+ },
+ {
+  "key": "untranslated__case_whitenoise_case_white_no_7xggua",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      case 'whitenoise':case 'white-noise':return"
+ },
+ {
+  "key": "untranslated__categorytools_length_0_y6dd0u",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n              categoryTools.length === 0 ?"
+ },
+ {
+  "key": "untranslated__coupons_length_0_xknlci",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n      coupons.length === 0 ?"
+ },
+ {
+  "key": "untranslated__default_return_fkhswh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n      default:\n        return ("
+ },
+ {
+  "key": "untranslated__default_return_ftt02w",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      default:return"
+ },
+ {
+  "key": "untranslated__default_return_twulxs",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n      default:\r\n        return"
+ },
+ {
+  "key": "untranslated__default_return_yq5gob",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n    default:          return"
+ },
+ {
+  "key": "untranslated__default_return_z0vp0u",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n      default:\n        return"
+ },
+ {
+  "key": "untranslated__devices_length_0_oh0ti8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        devices.length === 0 ?"
+ },
+ {
+  "key": "untranslated__editingid_item_id_ptdipw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ") : editingId === item.id ? ("
+ },
+ {
+  "key": "untranslated__editingid_log_id_y7ex6p",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ") : editingId === log.id ? ("
+ },
+ {
+  "key": "untranslated__entries_length_0_wmn0dp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n          entries.length === 0 ?"
+ },
+ {
+  "key": "untranslated__export_type_tables_b8t3vh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "]\r\n\r\nexport type Tables"
+ },
+ {
+  "key": "untranslated__f28155_no3za9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "#f28155"
+ },
+ {
+  "key": "untranslated__fieldpath_wfawxg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "= FieldPath"
+ },
+ {
+  "key": "untranslated__filtered_length_0_yqncit",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n      filtered.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredactivities_length_0_rhvbbm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\r\n          filteredActivities.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredentries_length_0_5v9eaw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n          filteredEntries.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredfaqs_length_0_k7k9le",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n          filteredFaqs.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredlistings_length_0_09ifos",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n          filteredListings.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredlistings_length_0_76ono8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        filteredListings.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredmessages_length_0_70nkhs",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        filteredMessages.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filterednotifications_length_uj1tc8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\r\n        filteredNotifications.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredplaces_length_0_c8psf5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\r\n        filteredPlaces.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredposts_length_0_psd4sw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        filteredPosts.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredproducts_length_0_94n581",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ") :\n        filteredProducts.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredproducts_length_0_dr0tpj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\r\n        filteredProducts.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredproviders_length_0_rv4vdm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ") :\n        filteredProviders.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredrecipes_length_0_13dohc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n          filteredRecipes.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredreviews_length_0_z3x34a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n      filteredReviews.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredtips_length_0_i352y3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n          filteredTips.length === 0 ?"
+ },
+ {
+  "key": "untranslated__filteredusers_length_0_gz3j63",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n              filteredUsers.length === 0 ?"
+ },
+ {
+  "key": "untranslated__hideindicator_sz1hqb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ") : (\r\n                      !hideIndicator && ("
+ },
+ {
+  "key": "untranslated__horizontal_rule_html_html_rep_ee2dn6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  // Horizontal rule\n  html = html.replace(/^---$/gm, '"
+ },
+ {
+  "key": "untranslated__html_html_replace_40e08m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  html = html.replace(/("
+ },
+ {
+  "key": "untranslated__html_html_replace_g_cs3yqm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  html = html.replace(/\\*(.+?)\\*/g, '"
+ },
+ {
+  "key": "untranslated__html_html_replace_g_iok03x",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  html = html.replace(/\\*\\*(.+?)\\*\\*/g, '"
+ },
+ {
+  "key": "untranslated__html_html_replace_gm_dx4h1h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  html = html.replace(/^## (.+)$/gm, '"
+ },
+ {
+  "key": "untranslated__html_html_replace_gm_n2c7qf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  html = html.replace(/^# (.+)$/gm, '"
+ },
+ {
+  "key": "untranslated__i_test_c_return_ishtml_owafft",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "/i.test(c);\n                return isHtml ?"
+ },
+ {
+  "key": "untranslated__i_test_content_sanitize_html_yhot3w",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "/i.test(content);\r\n\r\n  // Sanitize HTML to prevent XSS attacks. Strips"
+ },
+ {
+  "key": "untranslated__i_test_post_content_x44xf5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "/i.test(post.content) ?"
+ },
+ {
+  "key": "untranslated__icon_0z303e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n  Icon ?"
+ },
+ {
+  "key": "untranslated__if_activescreen_appearance_re_1ilv5g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'appearance') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_billing_retur_8t3jz8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'billing') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_calendar_retu_wvadr6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'calendar') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_daily_summary_osh975",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'daily-summary' && role === 'partner') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_edit_profile_do5m0i",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'edit-profile') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_help_return_kv9kkh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'help') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_name_voting_r_q04ko8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'name-voting' && role === 'partner') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_partner_hospi_5gqhwe",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'partner-hospital-bag' && role === 'partner') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_partner_priva_ds143v",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'partner-privacy') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_partners_retu_drupzv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'partners') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_privacy_retur_sp0efc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'privacy') return"
+ },
+ {
+  "key": "untranslated__if_activescreen_settings_retu_m2dbvo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  if (activeScreen === 'settings') return"
+ },
+ {
+  "key": "untranslated__if_https_s_test_word_return_0fj0bn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n                if (/^https?:\\/\\/\\S+/.test(word)) return"
+ },
+ {
+  "key": "untranslated__if_p_ios_return_wpdrpm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n    if (p === 'ios') return"
+ },
+ {
+  "key": "untranslated__if_word_startswith_return_6dhbmn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n                if (word.startsWith('@')) return"
+ },
+ {
+  "key": "untranslated__inline_code_html_html_replace_fagvdb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  // Inline code\n  html = html.replace(/`([^`]+)`/g, '"
+ },
+ {
+  "key": "untranslated__isanonymous_isadmin_wm1872",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n                isAnonymous && isAdmin ?"
+ },
+ {
+  "key": "untranslated__ispast_15m1ja",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n                  isPast ?"
+ },
+ {
+  "key": "untranslated__isrecording_lu6vht",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        isRecording ?"
+ },
+ {
+  "key": "untranslated__items_length_0_wgxvux",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n          items.length === 0 ?"
+ },
+ {
+  "key": "untranslated__length_0_s80p87",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ").length > 0 &&"
+ },
+ {
+  "key": "untranslated__links_html_html_replace_g_ngibx8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  // Links\n  html = html.replace(/\\[([^\\]]+)\\]\\(([^)]+)\\)/g, '"
+ },
+ {
+  "key": "untranslated__logs_length_0_uk8ooo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        logs.length === 0 ?"
+ },
+ {
+  "key": "untranslated__messages_length_0_r6uzt3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        messages.length === 0 ?"
+ },
+ {
+  "key": "untranslated__multiples_data_length_0_0_bkzwgt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n              (multiples.data?.length || 0) === 0 ?"
+ },
+ {
+  "key": "untranslated__nbsp_v6regl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "&nbsp;"
+ },
+ {
+  "key": "untranslated__no_active_crisis_show_calenda_mbjqtz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ") : (\r\n          // No Active Crisis - Show Calendar Preview"
+ },
+ {
+  "key": "untranslated__ordered_list_items_html_html_ne5o8h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "`);\n  // Ordered list items\n  html = html.replace(/^\\d+\\. (.+)$/gm, '"
+ },
+ {
+  "key": "untranslated__paymentmethod_c2c_transfer_452ysb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n              paymentMethod === 'c2c_transfer' ?"
+ },
+ {
+  "key": "untranslated__period_3m2qwl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "• Period:"
+ },
+ {
+  "key": "untranslated__photos_length_0_lyt629",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n    photos.length === 0 ?"
+ },
+ {
+  "key": "untranslated__pick_8tbv7i",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "&\r\n    Pick"
+ },
+ {
+  "key": "untranslated__places_length_0_r2vfah",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n          places.length === 0 ?"
+ },
+ {
+  "key": "untranslated__premium_eansvj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "★ Premium"
+ },
+ {
+  "key": "untranslated__primarytimer_ultq8d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        primaryTimer ?"
+ },
+ {
+  "key": "untranslated__products_length_0_n2z8h9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        products.length === 0 ?"
+ },
+ {
+  "key": "untranslated__react_componentprops_8ee40t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "&\r\n    React.ComponentProps"
+ },
+ {
+  "key": "untranslated__react_componentprops_iiv38o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ", React.ComponentProps"
+ },
+ {
+  "key": "untranslated__react_componentprops_xvln7l",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "&\r\n  React.ComponentProps"
+ },
+ {
+  "key": "untranslated__react_componentpropswithoutre_et2nhu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ", React.ComponentPropsWithoutRef"
+ },
+ {
+  "key": "untranslated__react_componentpropswithoutre_mhhf9c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ",\r\n  React.ComponentPropsWithoutRef"
+ },
+ {
+  "key": "untranslated__reports_length_0_to7ix3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n      reports.length === 0 ?"
+ },
+ {
+  "key": "untranslated__return_08i8e4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n\n  return ("
+ },
+ {
+  "key": "untranslated__return_akt3mr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n    return"
+ },
+ {
+  "key": "untranslated__return_qydbmn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n\n\n  return ("
+ },
+ {
+  "key": "untranslated__return_upinlr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ");\n\n  return ("
+ },
+ {
+  "key": "untranslated__reviews_length_0_d57lz2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n      reviews.length === 0 ?"
+ },
+ {
+  "key": "untranslated__reviews_length_0_qqwf9e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n          reviews.length === 0 ?"
+ },
+ {
+  "key": "untranslated__roles_length_0_7l2cjf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n              roles.length === 0 ?"
+ },
+ {
+  "key": "untranslated__rrggbb_01xfop",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "#RRGGBB"
+ },
+ {
+  "key": "untranslated__s_pending_jglero",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ": s === 'pending' ?"
+ },
+ {
+  "key": "untranslated__s_start_date_monthday_048nh2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "= s.start_date && monthDay"
+ },
+ {
+  "key": "untranslated__savedproducts_length_0_f2occb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n        savedProducts.length === 0 ?"
+ },
+ {
+  "key": "untranslated__searchquery_loading_ng5tu9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n      searchQuery && !loading ?"
+ },
+ {
+  "key": "untranslated__son_menstruasiya_tarixi_81qvhu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "📅 Son menstruasiya tarixi:"
+ },
+ {
+  "key": "untranslated__son_menstruasiya_tarixi_aa10s0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "📅 Last menstruation date:"
+ },
+ {
+  "key": "untranslated__son_menstruasiya_tarixi_f1m9i8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "📅 Last menstruation date:"
+ },
+ {
+  "key": "untranslated__stages_data_length_0_0_nbsbk8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n              (stages.data?.length || 0) === 0 ?"
+ },
+ {
+  "key": "untranslated__suggestion_type_user_0alt2s",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n                    suggestion.type === 'user' ?"
+ },
+ {
+  "key": "untranslated__suggestion_type_user_5fegop",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n                suggestion.type === 'user' ?"
+ },
+ {
+  "key": "untranslated__tales_length_0_728r6z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n            tales.length === 0 ?"
+ },
+ {
+  "key": "untranslated__test_sandbox_w0wosk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "🟡 Test (Sandbox)"
+ },
+ {
+  "key": "untranslated__tickets_length_0_8kdh9j",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n              tickets.length === 0 ?"
+ },
+ {
+  "key": "untranslated__toastdescription_displayname_oqgmio",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "));\r\nToastDescription.displayName = ToastPrimitives.Description.displayName;\r\n\r\ntype ToastProps = React.ComponentPropsWithoutRef"
+ },
+ {
+  "key": "untranslated__toplevelcomments_length_0_yuznsp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n              topLevelComments.length === 0 ?"
+ },
+ {
+  "key": "untranslated__tortlar_29zq6o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "🎂 Tortlar"
+ },
+ {
+  "key": "untranslated__tortlar_6dzft0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "🎂 Cakes"
+ },
+ {
+  "key": "untranslated__tortlar_pvbveq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "🎂 Cakes"
+ },
+ {
+  "key": "untranslated__transactions_length_uhicec",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n                !transactions?.length ?"
+ },
+ {
+  "key": "untranslated__type_toastactionelement_react_8goelm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n\r\ntype ToastActionElement = React.ReactElement"
+ },
+ {
+  "key": "untranslated__typingusers_array_73gz1x",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\r\n  typingUsers: Array"
+ },
+ {
+  "key": "untranslated__unordered_list_items_html_htm_lzmw3c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  // Unordered list items\n  html = html.replace(/^- (.+)$/gm, '"
+ },
+ {
+  "key": "untranslated__updateprofile_updates_partial_rpcpbr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ";\n  updateProfile: (updates: Partial"
+ },
+ {
+  "key": "untranslated__usercontext_pregnancyweek_6rgx1r",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\r\n              userContext.pregnancyWeek ?"
+ },
+ {
+  "key": "untranslated__variantprops_3blzdn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ", VariantProps"
+ },
+ {
+  "key": "untranslated__variantprops_8hsxll",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "& VariantProps"
+ },
+ {
+  "key": "untranslated__variantprops_kxyts8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ",\r\n    VariantProps"
+ },
+ {
+  "key": "untranslated__viewers_length_0_0ht5iz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ":\n              viewers.length === 0 ?"
+ },
+ {
+  "key": "untranslated__wizard_mode_pwe9v1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": ") : (\n\n          /* Wizard Mode */"
+ },
+ {
+  "key": "untranslated__wrap_remaining_plain_lines_in_lmdx1z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "');\n  // Wrap remaining plain lines in"
+ },
+ {
+  "key": "untranslated_a4_4nc09y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "A4"
+ },
+ {
+  "key": "untranslated_ad_09m4xx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name:"
+ },
+ {
+  "key": "untranslated_ad_2s89zx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name"
+ },
+ {
+  "key": "untranslated_ad_5uq04n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name"
+ },
+ {
+  "key": "untranslated_ad_a11dsy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name *"
+ },
+ {
+  "key": "untranslated_ad_az_d8loyh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name (AZ) *"
+ },
+ {
+  "key": "untranslated_ad_az_fgbcnn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ad (AZ)"
+ },
+ {
+  "key": "untranslated_ad_az_h9sto3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name (AZ)"
+ },
+ {
+  "key": "untranslated_ad_az_nep64h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name (AZ)"
+ },
+ {
+  "key": "untranslated_ad_az_sobfzr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ad (AZ) *"
+ },
+ {
+  "key": "untranslated_ad_az_ydch6e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name (AZ) *"
+ },
+ {
+  "key": "untranslated_ad_en_0yjdeb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name (EN)"
+ },
+ {
+  "key": "untranslated_ad_en_4b2hma",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name (EN)"
+ },
+ {
+  "key": "untranslated_ad_en_r74lzc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ad (EN)"
+ },
+ {
+  "key": "untranslated_ad_english_7zt66p",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name (English)"
+ },
+ {
+  "key": "untranslated_ad_english_cmcfjy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ad (English)"
+ },
+ {
+  "key": "untranslated_ad_english_zi1003",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name (English)"
+ },
+ {
+  "key": "untranslated_ad_oxe0q9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name:"
+ },
+ {
+  "key": "untranslated_ad_soyad_638xc2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "FULL NAME"
+ },
+ {
+  "key": "untranslated_ad_soyad_do8x1a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ad Soyad"
+ },
+ {
+  "key": "untranslated_ad_soyad_jh30dl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name, Surname *"
+ },
+ {
+  "key": "untranslated_ad_soyad_rksoov",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name, Surname *"
+ },
+ {
+  "key": "untranslated_ad_soyad_vcdrmy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "FULL NAME"
+ },
+ {
+  "key": "untranslated_ad_soyad_ykum0n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name Surname"
+ },
+ {
+  "key": "untranslated_ad_soyad_ze39r4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name Surname"
+ },
+ {
+  "key": "untranslated_ad_xcvxv4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ad *"
+ },
+ {
+  "key": "untranslated_ad_y8vmys",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name *"
+ },
+ {
+  "key": "untranslated_adlar_5re5mi",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Names"
+ },
+ {
+  "key": "untranslated_adlar_9uorkw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Names"
+ },
+ {
+  "key": "untranslated_adlar_igyans",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Adlar"
+ },
+ {
+  "key": "untranslated_admin_panel_xmcwf1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Admin Panel"
+ },
+ {
+  "key": "untranslated_admin_qeydi_engw83",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Admin note:"
+ },
+ {
+  "key": "untranslated_admin_qeydi_tmtufr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Admin note:"
+ },
+ {
+  "key": "untranslated_admin_zy7av9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Admin"
+ },
+ {
+  "key": "untranslated_affiliate_url_ww5q99",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Affiliate URL *"
+ },
+ {
+  "key": "untranslated_ai_analizi_4adcj5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "AI Analysis"
+ },
+ {
+  "key": "untranslated_ai_model_9gzmcc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "AI Model"
+ },
+ {
+  "key": "untranslated_aksesuar_37hy8f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Aksesuar"
+ },
+ {
+  "key": "untranslated_aksesuar_ndg24e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Accessory"
+ },
+ {
+  "key": "untranslated_aksesuar_t8jk4y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Accessory"
+ },
+ {
+  "key": "untranslated_aktiv_3mrpaz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active"
+ },
+ {
+  "key": "untranslated_aktiv_badge_1h9rbb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Aktiv badge"
+ },
+ {
+  "key": "untranslated_aktiv_badge_i6xmcj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active badge"
+ },
+ {
+  "key": "untranslated_aktiv_badge_k8sek6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active badge"
+ },
+ {
+  "key": "untranslated_aktiv_djg05g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Aktiv:"
+ },
+ {
+  "key": "untranslated_aktiv_f0994f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active:"
+ },
+ {
+  "key": "untranslated_aktiv_f3gm2t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active"
+ },
+ {
+  "key": "untranslated_aktiv_j558vd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Aktiv"
+ },
+ {
+  "key": "untranslated_aktiv_qruplar_3jzvji",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active groups"
+ },
+ {
+  "key": "untranslated_aktiv_qruplar_6uo6s8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active groups"
+ },
+ {
+  "key": "untranslated_aktiv_qruplar_ic8u4n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Aktiv qruplar"
+ },
+ {
+  "key": "untranslated_aktiv_s6ymud",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active:"
+ },
+ {
+  "key": "untranslated_aktiv_temalar_8mf1h2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Aktiv Temalar"
+ },
+ {
+  "key": "untranslated_aktiv_temalar_n1ecc8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active Themes"
+ },
+ {
+  "key": "untranslated_aktiv_temalar_tfsp2p",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active Themes"
+ },
+ {
+  "key": "untranslated_aktiv_variant_7xw2s2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active variant"
+ },
+ {
+  "key": "untranslated_aktiv_variant_c30ujp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Active variant"
+ },
+ {
+  "key": "untranslated_aktiv_variant_rhk4vx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Aktiv variant"
+ },
+ {
+  "key": "untranslated_aliexpress_tzmimg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "AliExpress"
+ },
+ {
+  "key": "untranslated_alma_3zm7n1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Alma"
+ },
+ {
+  "key": "untranslated_alma_h9isl0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Apple"
+ },
+ {
+  "key": "untranslated_alma_p3ov62",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Apple"
+ },
+ {
+  "key": "untranslated_amazon_gu18f2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Amazon"
+ },
+ {
+  "key": "untranslated_ana_6qbruq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mother"
+ },
+ {
+  "key": "untranslated_ana_analizi_ap836n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mother Analysis"
+ },
+ {
+  "key": "untranslated_ana_analizi_uk39ap",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ana Analizi"
+ },
+ {
+  "key": "untranslated_ana_analizi_uvj1ik",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mother Analysis"
+ },
+ {
+  "key": "untranslated_ana_bloqu_f7kx74",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mother Blog"
+ },
+ {
+  "key": "untranslated_ana_bloqu_hs0n0f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ana Bloqu"
+ },
+ {
+  "key": "untranslated_ana_bloqu_shtrkq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mother Blog"
+ },
+ {
+  "key": "untranslated_ana_e2by5a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mother"
+ },
+ {
+  "key": "untranslated_ana_tubxbv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mother"
+ },
+ {
+  "key": "untranslated_anacan20_kodunu_daxil_edin_5vsik7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Enter ANACAN20 code"
+ },
+ {
+  "key": "untranslated_anacan20_kodunu_daxil_edin_gx4eqb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "ANACAN20 kodunu daxil edin"
+ },
+ {
+  "key": "untranslated_anacan20_kodunu_daxil_edin_j0hy0d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Enter ANACAN20 code"
+ },
+ {
+  "key": "untranslated_anacan20_lh7jx6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "ANACAN20"
+ },
+ {
+  "key": "untranslated_anacan_ai_xcltlg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan.AI"
+ },
+ {
+  "key": "untranslated_anacan_endirimi_s6hngj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan Discount"
+ },
+ {
+  "key": "untranslated_anacan_endirimi_st8wsq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan Discount"
+ },
+ {
+  "key": "untranslated_anacan_hab3qu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "anacan://"
+ },
+ {
+  "key": "untranslated_anacan_hehflk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan"
+ },
+ {
+  "key": "untranslated_anacan_partnyor_endirim_sistem_7ol59t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan Partner Discount System"
+ },
+ {
+  "key": "untranslated_anacan_partnyor_endirim_sistem_ovducx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan Partner Discount System"
+ },
+ {
+  "key": "untranslated_anacan_partnyor_sistemi_2ykg0d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan Partner System"
+ },
+ {
+  "key": "untranslated_anacan_partnyor_sistemi_v6bjlq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan Partner System"
+ },
+ {
+  "key": "untranslated_anacan_premium_3ir9p9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan Premium"
+ },
+ {
+  "key": "untranslated_anacan_premium_a54nv6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan Premium ✨"
+ },
+ {
+  "key": "untranslated_anacan_tool_baby_names_mg6g7c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "anacan://tool/baby-names"
+ },
+ {
+  "key": "untranslated_anacan_v1_0_0_m67f8f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anacan v1.0.0"
+ },
+ {
+  "key": "untranslated_anacan_xxxx_w5jyqn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "ANACAN-XXXX"
+ },
+ {
+  "key": "untranslated_analiz_edilir_aho6cg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Analiz edilir..."
+ },
+ {
+  "key": "untranslated_analiz_edilir_lrgyzi",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Analyzing..."
+ },
+ {
+  "key": "untranslated_analiz_edilir_yu8nin",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Analyzing..."
+ },
+ {
+  "key": "untranslated_analiz_nkoinn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Analysis..."
+ },
+ {
+  "key": "untranslated_analiz_ogq0zx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Analysis..."
+ },
+ {
+  "key": "untranslated_analiz_xna4fw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Analiz..."
+ },
+ {
+  "key": "untranslated_anaya_mesaj_67l26s",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anaya mesaj..."
+ },
+ {
+  "key": "untranslated_anaya_mesaj_bhxrdg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Message to mother..."
+ },
+ {
+  "key": "untranslated_anaya_mesaj_yxsqke",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Message to mother..."
+ },
+ {
+  "key": "untranslated_android_play_store_linki_8dmmrs",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Android (Play Store) link"
+ },
+ {
+  "key": "untranslated_android_play_store_linki_ggnx15",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Android (Play Store) link"
+ },
+ {
+  "key": "untranslated_android_play_store_linki_n7sor5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Android (Play Store) linki"
+ },
+ {
+  "key": "untranslated_anonim_dy750q",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anonymous"
+ },
+ {
+  "key": "untranslated_anonim_olaraq_yaz_9b3d2x",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anonim olaraq yaz"
+ },
+ {
+  "key": "untranslated_anonim_olaraq_yaz_9ewyvy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Write anonymously"
+ },
+ {
+  "key": "untranslated_anonim_olaraq_yaz_p3y2m8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Write anonymously"
+ },
+ {
+  "key": "untranslated_anonim_xc48xs",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Anonymous"
+ },
+ {
+  "key": "untranslated_asan_2fetjr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Easy"
+ },
+ {
+  "key": "untranslated_asan_am756v",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Easy"
+ },
+ {
+  "key": "untranslated_asan_uj6wox",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Asan"
+ },
+ {
+  "key": "untranslated_ata_1wxlh9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ata"
+ },
+ {
+  "key": "untranslated_ata_62iec8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Father"
+ },
+ {
+  "key": "untranslated_ata_analizi_5wnj3o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Father Analysis"
+ },
+ {
+  "key": "untranslated_ata_analizi_7tjf5i",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Father Analysis"
+ },
+ {
+  "key": "untranslated_ata_analizi_a4cy3y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ata Analizi"
+ },
+ {
+  "key": "untranslated_ata_yej0mm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Father"
+ },
+ {
+  "key": "untranslated_audio_url_6ku10a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Audio URL"
+ },
+ {
+  "key": "untranslated_axtar_0fv0q2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search"
+ },
+ {
+  "key": "untranslated_axtar_6dhiku",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Axtar"
+ },
+ {
+  "key": "untranslated_axtar_qbnfxl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search..."
+ },
+ {
+  "key": "untranslated_axtar_s6dl2a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search..."
+ },
+ {
+  "key": "untranslated_axtar_xueic1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search"
+ },
+ {
+  "key": "untranslated_ay_2xkbq4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Month"
+ },
+ {
+  "key": "untranslated_ay_cbg87u",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Month"
+ },
+ {
+  "key": "untranslated_azn_i0q8cv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "AZN"
+ },
+ {
+  "key": "untranslated_baku_eoo0ip",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Baku:"
+ },
+ {
+  "key": "untranslated_banner_tipi_145j20",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Banner Type"
+ },
+ {
+  "key": "untranslated_banner_tipi_1ftody",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Banner Type"
+ },
+ {
+  "key": "untranslated_banner_tipi_bf2ltn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Banner Tipi"
+ },
+ {
+  "key": "untranslated_bax_ktyxlq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "View"
+ },
+ {
+  "key": "untranslated_bax_uxmr4l",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "View"
+ },
+ {
+  "key": "untranslated_bayraq_emoji_lu1lld",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Flag emoji"
+ },
+ {
+  "key": "untranslated_bayraq_emoji_vclkmw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bayraq emoji"
+ },
+ {
+  "key": "untranslated_bayraq_emoji_wz2124",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Flag emoji"
+ },
+ {
+  "key": "untranslated_bazar_geqrxw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Market"
+ },
+ {
+  "key": "untranslated_bazar_ky891s",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bazar"
+ },
+ {
+  "key": "untranslated_bazar_statusu_qk4rpw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Market status:"
+ },
+ {
+  "key": "untranslated_bazar_statusu_w3vk6r",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Market status:"
+ },
+ {
+  "key": "untranslated_bazar_statusu_wyotgl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bazar statusu:"
+ },
+ {
+  "key": "untranslated_bazar_uc24gb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Market"
+ },
+ {
+  "key": "untranslated_bento_apple_bento_qrid_foto_st_icsrvw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bento — Apple bento grid (photo + statistics)"
+ },
+ {
+  "key": "untranslated_bento_apple_bento_qrid_foto_st_uzf20y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bento — Apple bento qrid (foto + statistika)"
+ },
+ {
+  "key": "untranslated_bento_apple_bento_qrid_foto_st_xsufdh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bento — Apple bento grid (photo + statistics)"
+ },
+ {
+  "key": "untranslated_bilinmir_2oq0oc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Unknown"
+ },
+ {
+  "key": "untranslated_bilinmir_vl9auz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Unknown"
+ },
+ {
+  "key": "untranslated_bio_dl7qfa",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bio"
+ },
+ {
+  "key": "untranslated_bitirdim_71nibo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Finished"
+ },
+ {
+  "key": "untranslated_bitirdim_7wqwfg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Finished"
+ },
+ {
+  "key": "untranslated_bitirdim_ufy1vm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bitirdim"
+ },
+ {
+  "key": "untranslated_blokla_54iusf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Blokla"
+ },
+ {
+  "key": "untranslated_blokla_72ne93",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Block"
+ },
+ {
+  "key": "untranslated_blokla_h5f50m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Block"
+ },
+ {
+  "key": "untranslated_bloklar_80r3q3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Blocks"
+ },
+ {
+  "key": "untranslated_bloklar_fv05p9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Blocks"
+ },
+ {
+  "key": "untranslated_bloklar_k8vwl9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bloklar"
+ },
+ {
+  "key": "untranslated_boy_sm_3vo9ac",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Height (cm)"
+ },
+ {
+  "key": "untranslated_boy_sm_b4lqb9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Boy (sm)"
+ },
+ {
+  "key": "untranslated_boy_sm_kl0o5i",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Height (cm)"
+ },
+ {
+  "key": "untranslated_boydayam_24fwrc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "boydayam"
+ },
+ {
+  "key": "untranslated_boydayam_33vi8z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "my size"
+ },
+ {
+  "key": "untranslated_boydayam_y2o35n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "my size"
+ },
+ {
+  "key": "untranslated_branding_c370n3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Branding"
+ },
+ {
+  "key": "untranslated_breadcrumb_u84h6g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "breadcrumb"
+ },
+ {
+  "key": "untranslated_bu_ay_4wyb99",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bu ay"
+ },
+ {
+  "key": "untranslated_bu_ay_vljw5q",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "This month"
+ },
+ {
+  "key": "untranslated_bu_ay_w5iunh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "This month"
+ },
+ {
+  "key": "untranslated_bulk_kkhyf0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bulk"
+ },
+ {
+  "key": "untranslated_bump_g4897e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bump"
+ },
+ {
+  "key": "untranslated_cakes_maternity_er8n59",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "cakes,maternity"
+ },
+ {
+  "key": "untranslated_cavab_az_7pjuca",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Answer (AZ)"
+ },
+ {
+  "key": "untranslated_cavab_az_mmz87d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cavab (AZ)"
+ },
+ {
+  "key": "untranslated_cavab_az_t68ion",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Answer (AZ)"
+ },
+ {
+  "key": "untranslated_cavab_en_8ox9gv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Answer (EN)"
+ },
+ {
+  "key": "untranslated_cavab_en_g9q92e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cavab (EN)"
+ },
+ {
+  "key": "untranslated_cavab_en_ryz29y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Answer (EN)"
+ },
+ {
+  "key": "untranslated_ciddi_83s9et",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Serious"
+ },
+ {
+  "key": "untranslated_ciddi_wls56y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Serious"
+ },
+ {
+  "key": "untranslated_ciddi_y77z3n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ciddi"
+ },
+ {
+  "key": "untranslated_cins_3th04k",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gender"
+ },
+ {
+  "key": "untranslated_cins_cq8nd5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cins:"
+ },
+ {
+  "key": "untranslated_cins_ff0iks",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gender"
+ },
+ {
+  "key": "untranslated_cins_uubi6r",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gender:"
+ },
+ {
+  "key": "untranslated_cins_wu3wbx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gender:"
+ },
+ {
+  "key": "untranslated_cinsi_8p7xgd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gender"
+ },
+ {
+  "key": "untranslated_cinsi_vl7vtk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gender"
+ },
+ {
+  "key": "untranslated_color_gradient_mal1jj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Color Gradient"
+ },
+ {
+  "key": "untranslated_color_id_meselen_auburn_0h8bpa",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Color ID (e.g. auburn)"
+ },
+ {
+  "key": "untranslated_color_id_meselen_auburn_2t6onz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Color ID (e.g. auburn)"
+ },
+ {
+  "key": "untranslated_color_id_meselen_auburn_nunchp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Color ID (meselen: auburn)"
+ },
+ {
+  "key": "untranslated_color_id_meselen_hazel_219d76",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Color ID (e.g. hazel)"
+ },
+ {
+  "key": "untranslated_color_id_meselen_hazel_vyhrrd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Color ID (e.g. hazel)"
+ },
+ {
+  "key": "untranslated_color_id_meselen_hazel_x0kt4f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Color ID (meselen: hazel)"
+ },
+ {
+  "key": "untranslated_cooldown_saat_6t7ul4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cooldown (hours)"
+ },
+ {
+  "key": "untranslated_cooldown_saat_j3ue0o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cooldown (saat)"
+ },
+ {
+  "key": "untranslated_cooldown_saat_x4tjte",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cooldown (hours)"
+ },
+ {
+  "key": "untranslated_cover_url_olv2h6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cover URL"
+ },
+ {
+  "key": "untranslated_crash_report_yoxdur_2yf5kz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Crash report yoxdur 🎉"
+ },
+ {
+  "key": "untranslated_crash_report_yoxdur_lpqtv2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No crash reports 🎉"
+ },
+ {
+  "key": "untranslated_crash_report_yoxdur_pq1ov5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No crash reports 🎉"
+ },
+ {
+  "key": "untranslated_crying_more_10_sleep_problems_92q6b3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Crying more&#10;Sleep problems"
+ },
+ {
+  "key": "untranslated_csv_i_dxal_d0cxyn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Import"
+ },
+ {
+  "key": "untranslated_csv_i_dxal_h7srz3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Import"
+ },
+ {
+  "key": "untranslated_csv_i_dxal_j6xub7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Import"
+ },
+ {
+  "key": "untranslated_csv_i_dxal_r64yej",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Import"
+ },
+ {
+  "key": "untranslated_csv_i_mport_0h55uj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Import"
+ },
+ {
+  "key": "untranslated_csv_i_mport_1pfqd8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Import"
+ },
+ {
+  "key": "untranslated_csv_i_mport_kbhw1d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Import"
+ },
+ {
+  "key": "untranslated_csv_i_mport_q3hmcm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Import"
+ },
+ {
+  "key": "untranslated_csv_i_xrac_0wsuo7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Export"
+ },
+ {
+  "key": "untranslated_csv_i_xrac_ivd4z6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Export"
+ },
+ {
+  "key": "untranslated_csv_i_xrac_l4z4du",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Export"
+ },
+ {
+  "key": "untranslated_csv_i_xrac_yu5b45",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CSV Export"
+ },
+ {
+  "key": "untranslated_currentmonth_return_4ymwjh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "currentMonth;\n\n            return ("
+ },
+ {
+  "key": "untranslated_custom_scheme_n0y21k",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Custom Scheme"
+ },
+ {
+  "key": "untranslated_cvv_f9btvg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "CVV"
+ },
+ {
+  "key": "untranslated_d_vitamini_39klen",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "D vitamini"
+ },
+ {
+  "key": "untranslated_d_vitamini_6jmrgm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Vitamin D"
+ },
+ {
+  "key": "untranslated_d_vitamini_8d46xp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Vitamin D"
+ },
+ {
+  "key": "untranslated_daha_sonra_18219k",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Later"
+ },
+ {
+  "key": "untranslated_daha_sonra_4v3lpl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Later"
+ },
+ {
+  "key": "untranslated_daha_sonra_8w00lu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Daha sonra"
+ },
+ {
+  "key": "untranslated_dashboard_cylm1h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Dashboard"
+ },
+ {
+  "key": "untranslated_date_new_date_date_buza9m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "date > new Date() || date"
+ },
+ {
+  "key": "untranslated_date_zr24gc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "date"
+ },
+ {
+  "key": "untranslated_davam_et_golrf0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Continue"
+ },
+ {
+  "key": "untranslated_davam_et_quvswu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Continue"
+ },
+ {
+  "key": "untranslated_db_zvkzkx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "dB"
+ },
+ {
+  "key": "untranslated_deaktiv_4qlmgf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Inactive"
+ },
+ {
+  "key": "untranslated_deaktiv_5x0g7n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Deaktiv"
+ },
+ {
+  "key": "untranslated_deaktiv_9cphcb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "inactive"
+ },
+ {
+  "key": "untranslated_deaktiv_cfd2eg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "deaktiv"
+ },
+ {
+  "key": "untranslated_deaktiv_cz8spd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "inactive"
+ },
+ {
+  "key": "untranslated_deaktiv_h6gct8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Inactive"
+ },
+ {
+  "key": "untranslated_deeplink_axtar_myitlg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Deeplink axtar..."
+ },
+ {
+  "key": "untranslated_deeplink_axtar_si4pn8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search deeplink..."
+ },
+ {
+  "key": "untranslated_deeplink_axtar_tk9eh1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search deeplink..."
+ },
+ {
+  "key": "untranslated_default_3xw7gz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Default"
+ },
+ {
+  "key": "untranslated_default_tbu73y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "default"
+ },
+ {
+  "key": "untranslated_defolt_a_qaytar_dirr3t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Reset to default"
+ },
+ {
+  "key": "untranslated_defolt_a_qaytar_nygzb2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Defolt-a qaytar"
+ },
+ {
+  "key": "untranslated_defolt_a_qaytar_z2cmkl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Reset to default"
+ },
+ {
+  "key": "untranslated_dekret_kalkulyatoru_i99uxi",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Dekret Kalkulyatoru"
+ },
+ {
+  "key": "untranslated_dekret_kalkulyatoru_rqjry2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Maternity Leave Calculator"
+ },
+ {
+  "key": "untranslated_dekret_kalkulyatoru_rsreyb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Maternity Leave Calculator"
+ },
+ {
+  "key": "untranslated_detallar_19x96t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Detallar"
+ },
+ {
+  "key": "untranslated_detallar_mbn3vl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Details"
+ },
+ {
+  "key": "untranslated_detallar_tp006e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Details"
+ },
+ {
+  "key": "untranslated_diapazon_pc2e4r",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Range"
+ },
+ {
+  "key": "untranslated_diapazon_xg8qa2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Range"
+ },
+ {
+  "key": "untranslated_dil_btxap1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Language:"
+ },
+ {
+  "key": "untranslated_dil_eb74sh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Language"
+ },
+ {
+  "key": "untranslated_dil_language_a1gzjr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Language / Dil"
+ },
+ {
+  "key": "untranslated_dil_language_hwkmle",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Language / Dil"
+ },
+ {
+  "key": "untranslated_dil_u15w70",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Language"
+ },
+ {
+  "key": "untranslated_dil_x623v5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Language:"
+ },
+ {
+  "key": "untranslated_doldurulub_82vmx3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Filled"
+ },
+ {
+  "key": "untranslated_doldurulub_e7pial",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Doldurulub"
+ },
+ {
+  "key": "untranslated_doldurulub_ryz8li",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Filled"
+ },
+ {
+  "key": "untranslated_dolu_13yba1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Full"
+ },
+ {
+  "key": "untranslated_dolu_35oo5e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Full"
+ },
+ {
+  "key": "untranslated_dolu_vtvrq6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Dolu"
+ },
+ {
+  "key": "untranslated_doza_26cdwh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Dose №"
+ },
+ {
+  "key": "untranslated_doza_m1hd6g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Doza №"
+ },
+ {
+  "key": "untranslated_doza_s5myxb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Dose №"
+ },
+ {
+  "key": "untranslated_dozaj_gw0cfy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Dosage"
+ },
+ {
+  "key": "untranslated_dozaj_pgkqnt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Dosage"
+ },
+ {
+  "key": "untranslated_dozaj_ycca4w",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Dozaj"
+ },
+ {
+  "key": "untranslated_e_mail_dkfp6n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "E-mail"
+ },
+ {
+  "key": "untranslated_elan_c06c18",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Listing"
+ },
+ {
+  "key": "untranslated_elan_hyymu2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Listing"
+ },
+ {
+  "key": "untranslated_elan_yarat_3c3yl4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Create listing"
+ },
+ {
+  "key": "untranslated_elan_yarat_dip8ub",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Elan yarat"
+ },
+ {
+  "key": "untranslated_elan_yarat_wp2yd3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Create listing"
+ },
+ {
+  "key": "untranslated_emal_edilir_48y9ce",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Processing..."
+ },
+ {
+  "key": "untranslated_emal_edilir_c8ooy1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Processing..."
+ },
+ {
+  "key": "untranslated_emal_edilir_hf0m1t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Processing..."
+ },
+ {
+  "key": "untranslated_emoji_zt2p0q",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Emoji"
+ },
+ {
+  "key": "untranslated_en_7ksh9c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "en"
+ },
+ {
+  "key": "untranslated_endirimi_al_qr_yarat_lodft4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Get discount — Create QR"
+ },
+ {
+  "key": "untranslated_endirimi_al_qr_yarat_wd6vtg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Get discount — Create QR"
+ },
+ {
+  "key": "untranslated_enerji_8vx6th",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Energy"
+ },
+ {
+  "key": "untranslated_enerji_q9btcl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Energy"
+ },
+ {
+  "key": "untranslated_english_0i8xeo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "English"
+ },
+ {
+  "key": "untranslated_entitlement_raw_jte905",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Entitlement (raw)"
+ },
+ {
+  "key": "untranslated_entries_index_1_weight_bg_gree_shmp6x",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "entries[index - 1].weight ?\n                'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300' :\n                entry.weight"
+ },
+ {
+  "key": "untranslated_epds_hw0nj4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "EPDS"
+ },
+ {
+  "key": "untranslated_epds_testi_0761x2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "EPDS Testi"
+ },
+ {
+  "key": "untranslated_epds_testi_26v281",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "EPDS Test"
+ },
+ {
+  "key": "untranslated_epds_testi_gw87qw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "EPDS Test"
+ },
+ {
+  "key": "untranslated_error_url_46ij0u",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Error URL"
+ },
+ {
+  "key": "untranslated_etiket_az_1g71gj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Label (AZ)"
+ },
+ {
+  "key": "untranslated_etiket_az_1ia0ls",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Etiket (AZ)"
+ },
+ {
+  "key": "untranslated_etiket_az_fuf5sk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Label (AZ)"
+ },
+ {
+  "key": "untranslated_etiket_b1gnl4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Label"
+ },
+ {
+  "key": "untranslated_etiket_en_eexcc0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Etiket (EN)"
+ },
+ {
+  "key": "untranslated_etiket_en_eolz9e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Label (EN)"
+ },
+ {
+  "key": "untranslated_etiket_en_twxhqg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Label (EN)"
+ },
+ {
+  "key": "untranslated_etiket_y3i41y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Label"
+ },
+ {
+  "key": "untranslated_etiket_zfy8kx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Etiket"
+ },
+ {
+  "key": "untranslated_eur_rl9qgf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "EUR"
+ },
+ {
+  "key": "untranslated_extra_cuddles_10_patience_ak991s",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Extra cuddles&#10;Patience"
+ },
+ {
+  "key": "untranslated_faiz_3j6ok8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Percentage (%)"
+ },
+ {
+  "key": "untranslated_faiz_i8hquw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Percentage (%)"
+ },
+ {
+  "key": "untranslated_faiz_lnc2g8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Faiz (%)"
+ },
+ {
+  "key": "untranslated_faza_mp59wa",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phase"
+ },
+ {
+  "key": "untranslated_faza_optional_gjv36c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Faza (optional)"
+ },
+ {
+  "key": "untranslated_faza_optional_ibkuri",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phase (optional)"
+ },
+ {
+  "key": "untranslated_faza_optional_vjdacl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phase (optional)"
+ },
+ {
+  "key": "untranslated_faza_vokom3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phase"
+ },
+ {
+  "key": "untranslated_faza_zzl7kw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Faza"
+ },
+ {
+  "key": "untranslated_filter_2s2kwv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Filter"
+ },
+ {
+  "key": "untranslated_filtr_5xmz0m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Filter"
+ },
+ {
+  "key": "untranslated_filtr_ekh2id",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Filtr"
+ },
+ {
+  "key": "untranslated_filtr_pgwdlm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Filter"
+ },
+ {
+  "key": "untranslated_fiziki_albom_bsnxu7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Physical Album"
+ },
+ {
+  "key": "untranslated_fiziki_albom_gbl93a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Physical Album"
+ },
+ {
+  "key": "untranslated_flow_zmbs7g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Flow"
+ },
+ {
+  "key": "untranslated_fokus_qida_ti7rkd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Focus Food"
+ },
+ {
+  "key": "untranslated_fokus_qida_yvvppa",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Focus Food"
+ },
+ {
+  "key": "untranslated_fon_63ektl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Fon:"
+ },
+ {
+  "key": "untranslated_fon_6h9ma5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Background:"
+ },
+ {
+  "key": "untranslated_fon_8qihvn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Background"
+ },
+ {
+  "key": "untranslated_fon_fckghu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Fon"
+ },
+ {
+  "key": "untranslated_fon_mofyie",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Background:"
+ },
+ {
+  "key": "untranslated_fon_pl3t2c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Background"
+ },
+ {
+  "key": "untranslated_fonlar_1acmgh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Backgrounds"
+ },
+ {
+  "key": "untranslated_fonlar_xs5gb6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Backgrounds"
+ },
+ {
+  "key": "untranslated_fonlar_zk0n86",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Fonlar"
+ },
+ {
+  "key": "untranslated_force_update_29c4se",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Force Update"
+ },
+ {
+  "key": "untranslated_force_update_statusu_9281ri",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Force Update Status"
+ },
+ {
+  "key": "untranslated_force_update_statusu_q4p8p1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Force Update Status"
+ },
+ {
+  "key": "untranslated_force_update_statusu_s8vgl7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Force Update Statusu"
+ },
+ {
+  "key": "untranslated_format_mw14jf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Format"
+ },
+ {
+  "key": "untranslated_formula_qrzgva",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Formula:"
+ },
+ {
+  "key": "untranslated_free_q78n3j",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Free"
+ },
+ {
+  "key": "untranslated_funksiya_8co336",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Funksiya"
+ },
+ {
+  "key": "untranslated_funksiya_kecvuu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Feature"
+ },
+ {
+  "key": "untranslated_funksiya_w1bwt6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Feature"
+ },
+ {
+  "key": "untranslated_funksiyalar_bgmac1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Features"
+ },
+ {
+  "key": "untranslated_funksiyalar_d7uqgm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Funksiyalar"
+ },
+ {
+  "key": "untranslated_funksiyalar_w7ylj8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Features"
+ },
+ {
+  "key": "untranslated_geri_811g2o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Back"
+ },
+ {
+  "key": "untranslated_geri_al_wlrsxv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Undo"
+ },
+ {
+  "key": "untranslated_geri_al_y0vox9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Geri al"
+ },
+ {
+  "key": "untranslated_geri_al_zo6b3b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Undo"
+ },
+ {
+  "key": "untranslated_geri_b3jeaj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Geri"
+ },
+ {
+  "key": "untranslated_geri_pig5li",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Back"
+ },
+ {
+  "key": "untranslated_geyim_uxfih7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Clothing"
+ },
+ {
+  "key": "untranslated_geyim_ypdvpe",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Clothing"
+ },
+ {
+  "key": "untranslated_gizli_j471ob",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hidden"
+ },
+ {
+  "key": "untranslated_gizli_p5gviy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gizli"
+ },
+ {
+  "key": "untranslated_gizli_tqhqt7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hidden"
+ },
+ {
+  "key": "untranslated_gizlilik_0tn01c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Privacy:"
+ },
+ {
+  "key": "untranslated_gizlilik_b40dyl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gizlilik:"
+ },
+ {
+  "key": "untranslated_gizlilik_wqflld",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Privacy:"
+ },
+ {
+  "key": "untranslated_go_to_next_page_t75qmz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Go to next page"
+ },
+ {
+  "key": "untranslated_go_to_previous_page_zfvsqc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Go to previous page"
+ },
+ {
+  "key": "untranslated_gradient_1jnh9u",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gradient"
+ },
+ {
+  "key": "untranslated_gradient_from_amber_600_to_amb_kt1u20",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gradient (from-amber-600 to-amber-800)"
+ },
+ {
+  "key": "untranslated_gradient_from_blue_400_to_blue_8fz83m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gradient (from-blue-400 to-blue-600)"
+ },
+ {
+  "key": "untranslated_gradient_from_purple_500_to_pi_oernke",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gradient (from-purple-500 to-pink-600)"
+ },
+ {
+  "key": "untranslated_hava_afxeqb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Weather"
+ },
+ {
+  "key": "untranslated_hava_cp34h6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hava"
+ },
+ {
+  "key": "untranslated_hava_geyim_l4cxx8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Weather & Clothing"
+ },
+ {
+  "key": "untranslated_hava_iaoo41",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Weather"
+ },
+ {
+  "key": "untranslated_headache_z464sl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "headache"
+ },
+ {
+  "key": "untranslated_hero_0xozj7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hero"
+ },
+ {
+  "key": "untranslated_hero_badge_etiket_75svs2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hero Badge (etiket)"
+ },
+ {
+  "key": "untranslated_hero_badge_etiket_80xi8g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hero Badge (label)"
+ },
+ {
+  "key": "untranslated_hero_badge_etiket_9mfez7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hero Badge (label)"
+ },
+ {
+  "key": "untranslated_hero_banner_4umc47",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hero banner"
+ },
+ {
+  "key": "untranslated_hesabla_eq6gu9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hesabla"
+ },
+ {
+  "key": "untranslated_hesabla_jj8e2l",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Calculate"
+ },
+ {
+  "key": "untranslated_hesabla_tqrlgp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Calculate"
+ },
+ {
+  "key": "untranslated_hesablanacaq_24utnq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "To be calculated ↗"
+ },
+ {
+  "key": "untranslated_hesablanacaq_l5r97b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "To be calculated ↗"
+ },
+ {
+  "key": "untranslated_hiss_edirsiniz_31gp9q",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "you feel"
+ },
+ {
+  "key": "untranslated_hiss_edirsiniz_geeuyk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "you feel"
+ },
+ {
+  "key": "untranslated_hiss_edirsiniz_jx3dij",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "hiss edirsiniz"
+ },
+ {
+  "key": "untranslated_hotline_clinic_support_thr4yd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "hotline, clinic, support"
+ },
+ {
+  "key": "untranslated_https_59ribp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "https://..."
+ },
+ {
+  "key": "untranslated_https_app_anacan_az_tool_baby_ab9cap",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "https://app.anacan.az/tool/baby-names"
+ },
+ {
+  "key": "untranslated_https_example_com_banner_jpg_kymzm3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "https://example.com/banner.jpg"
+ },
+ {
+  "key": "untranslated_https_example_com_image_jpg_o20p2k",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "https://example.com/image.jpg"
+ },
+ {
+  "key": "untranslated_https_image1_jpg_10_https_imag_84hmu2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "https://image1.jpg&#10;https://image2.jpg"
+ },
+ {
+  "key": "untranslated_https_video_mp4_mqovg9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "https://video.mp4"
+ },
+ {
+  "key": "untranslated_i_mkanlar_tiydb1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Amenities"
+ },
+ {
+  "key": "untranslated_i_mport_et_78ruag",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Import"
+ },
+ {
+  "key": "untranslated_i_mport_et_psr5bz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Import"
+ },
+ {
+  "key": "untranslated_i_mport_et_sov5mp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Import"
+ },
+ {
+  "key": "untranslated_i_mport_et_y06kss",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Import"
+ },
+ {
+  "key": "untranslated_i_ndi_test_et_30vzgl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Test Now"
+ },
+ {
+  "key": "untranslated_i_ndi_test_et_7p99zu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Test Now"
+ },
+ {
+  "key": "untranslated_i_ndi_test_et_aiwdu3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Test Now"
+ },
+ {
+  "key": "untranslated_i_ndi_test_et_uacvqt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Test Now"
+ },
+ {
+  "key": "untranslated_i_xrac_3ajns2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Export"
+ },
+ {
+  "key": "untranslated_i_xrac_et_bnoxuh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Export"
+ },
+ {
+  "key": "untranslated_i_xrac_et_ey5smr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Export"
+ },
+ {
+  "key": "untranslated_i_xrac_et_t6j3d7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Export"
+ },
+ {
+  "key": "untranslated_i_xrac_et_z215mt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Export"
+ },
+ {
+  "key": "untranslated_i_xrac_m5lrn2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Export"
+ },
+ {
+  "key": "untranslated_i_xrac_s0j84o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Export"
+ },
+ {
+  "key": "untranslated_i_xrac_suy388",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Export"
+ },
+ {
+  "key": "untranslated_icon_name_t2gpit",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Icon Name"
+ },
+ {
+  "key": "untranslated_id_m7cpa9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "ID"
+ },
+ {
+  "key": "untranslated_indi_2j60fa",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "now"
+ },
+ {
+  "key": "untranslated_indi_c2dqv6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "now"
+ },
+ {
+  "key": "untranslated_indi_t45szs",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "indi"
+ },
+ {
+  "key": "untranslated_info_anacan_az_z53jy8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "info@anacan.az"
+ },
+ {
+  "key": "untranslated_instagram_knckna",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Instagram"
+ },
+ {
+  "key": "untranslated_instagram_user_cgq0cl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Instagram (@user)"
+ },
+ {
+  "key": "untranslated_ios_app_store_linki_15t4s0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "iOS (App Store) link"
+ },
+ {
+  "key": "untranslated_ios_app_store_linki_43tq0n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "iOS (App Store) linki"
+ },
+ {
+  "key": "untranslated_ios_app_store_linki_t8q8fi",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "iOS (App Store) link"
+ },
+ {
+  "key": "untranslated_ip_mgc0xh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "IP"
+ },
+ {
+  "key": "untranslated_jwt_authentication_id0k5x",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "JWT Authentication"
+ },
+ {
+  "key": "untranslated_kalori_2wu04e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "calories"
+ },
+ {
+  "key": "untranslated_kalori_8v9lov",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Calories"
+ },
+ {
+  "key": "untranslated_kalori_kcal_0orhvj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kalori (kcal)"
+ },
+ {
+  "key": "untranslated_kalori_kcal_s4xkw8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Calories (kcal)"
+ },
+ {
+  "key": "untranslated_kalori_kcal_xqln87",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Calories (kcal)"
+ },
+ {
+  "key": "untranslated_kalori_uvur7s",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Calories"
+ },
+ {
+  "key": "untranslated_kalori_xga5tj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "kalori"
+ },
+ {
+  "key": "untranslated_kalori_z0i2s1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "calories"
+ },
+ {
+  "key": "untranslated_kamera_abb30t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Camera"
+ },
+ {
+  "key": "untranslated_kamera_jzawig",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Camera"
+ },
+ {
+  "key": "untranslated_kart_aivuhq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Card"
+ },
+ {
+  "key": "untranslated_kart_blhtie",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Card"
+ },
+ {
+  "key": "untranslated_kart_iei3iy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kart"
+ },
+ {
+  "key": "untranslated_kart_sahibi_2eeg1v",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cardholder"
+ },
+ {
+  "key": "untranslated_kart_sahibi_3f6po5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cardholder:"
+ },
+ {
+  "key": "untranslated_kart_sahibi_4gpprx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cardholder"
+ },
+ {
+  "key": "untranslated_kart_sahibi_jdfd4e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cardholder:"
+ },
+ {
+  "key": "untranslated_kartdan_karta_konfiqurasiya_0x6g04",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Card to Card - Configuration"
+ },
+ {
+  "key": "untranslated_kartdan_karta_konfiqurasiya_21fbpl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Card to Card - Configuration"
+ },
+ {
+  "key": "untranslated_kartdan_karta_konfiqurasiya_lmkdfj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kartdan Karta - Konfiqurasiya"
+ },
+ {
+  "key": "untranslated_kateqoriya_00jpcn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Category"
+ },
+ {
+  "key": "untranslated_kateqoriya_az_72is3a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kateqoriya (AZ)"
+ },
+ {
+  "key": "untranslated_kateqoriya_az_mdn3xd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Category (AZ)"
+ },
+ {
+  "key": "untranslated_kateqoriya_az_nnirxl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Category (AZ)"
+ },
+ {
+  "key": "untranslated_kateqoriya_id_slug_3qrm93",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Category ID (slug)"
+ },
+ {
+  "key": "untranslated_kateqoriya_id_slug_nw7kin",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Category ID (slug)"
+ },
+ {
+  "key": "untranslated_kateqoriya_id_slug_tgirb6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kateqoriya ID (slug)"
+ },
+ {
+  "key": "untranslated_kateqoriya_odv40p",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Category"
+ },
+ {
+  "key": "untranslated_kateqoriya_yoxdur_5g4iuf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No category"
+ },
+ {
+  "key": "untranslated_kateqoriya_yoxdur_ql533z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kateqoriya yoxdur"
+ },
+ {
+  "key": "untranslated_kateqoriya_yoxdur_ubgt5w",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No category"
+ },
+ {
+  "key": "untranslated_kateqoriyalar_5183xc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Categories"
+ },
+ {
+  "key": "untranslated_kateqoriyalar_b04ofd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Categories"
+ },
+ {
+  "key": "untranslated_kateqoriyalar_ndrtvr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kateqoriyalar"
+ },
+ {
+  "key": "untranslated_key_has_9ss5dw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Key (has_...)"
+ },
+ {
+  "key": "untranslated_klik_edildi_3r2by6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Clicked"
+ },
+ {
+  "key": "untranslated_klik_edildi_5blsic",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Klik Edildi"
+ },
+ {
+  "key": "untranslated_klik_edildi_mndnq9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Clicked"
+ },
+ {
+  "key": "untranslated_kod_1at1pf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Code"
+ },
+ {
+  "key": "untranslated_kod_8hox2m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Code"
+ },
+ {
+  "key": "untranslated_kod_az_en_tr_7g8p3m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kod (az, en, tr...)"
+ },
+ {
+  "key": "untranslated_kod_az_en_tr_7k68i1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Code (az, en, tr...)"
+ },
+ {
+  "key": "untranslated_kod_az_en_tr_sqmvba",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Code (az, en, tr...)"
+ },
+ {
+  "key": "untranslated_kod_xxodde",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kod"
+ },
+ {
+  "key": "untranslated_konfiqurasiya_2hsytf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Configuration"
+ },
+ {
+  "key": "untranslated_konfiqurasiya_hblqmg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Configuration"
+ },
+ {
+  "key": "untranslated_konfiqurasiya_oc1zni",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Konfiqurasiya"
+ },
+ {
+  "key": "untranslated_kopyala_hczynl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Copy"
+ },
+ {
+  "key": "untranslated_kopyala_kflcpm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kopyala"
+ },
+ {
+  "key": "untranslated_kopyala_t7j80u",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Copy"
+ },
+ {
+  "key": "untranslated_kq_q8is52",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "kg"
+ },
+ {
+  "key": "untranslated_kritik_1v3b2r",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Critical"
+ },
+ {
+  "key": "untranslated_kritik_6zrlva",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Critical"
+ },
+ {
+  "key": "untranslated_kritik_dl7r1b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kritik"
+ },
+ {
+  "key": "untranslated_kupon_endirimi_ru0e72",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Coupon discount:"
+ },
+ {
+  "key": "untranslated_kupon_endirimi_up7r4a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Coupon discount"
+ },
+ {
+  "key": "untranslated_kupon_endirimi_wrbqsk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Coupon discount"
+ },
+ {
+  "key": "untranslated_kupon_endirimi_ywnotm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Coupon discount:"
+ },
+ {
+  "key": "untranslated_kupon_kodu_73y8cy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Coupon code"
+ },
+ {
+  "key": "untranslated_kupon_kodu_84x7l9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Coupon code"
+ },
+ {
+  "key": "untranslated_kupon_kodu_dup2nw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kupon Kodu *"
+ },
+ {
+  "key": "untranslated_kupon_kodu_j1wqsh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Coupon Code"
+ },
+ {
+  "key": "untranslated_kupon_kodu_lk9n1m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kupon Kodu"
+ },
+ {
+  "key": "untranslated_kupon_kodu_wtdp59",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Coupon Code *"
+ },
+ {
+  "key": "untranslated_kupon_kodu_x7u662",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Coupon Code *"
+ },
+ {
+  "key": "untranslated_kupon_kodu_zg0a08",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Coupon Code"
+ },
+ {
+  "key": "untranslated_kursiv_azdkyz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Kursiv"
+ },
+ {
+  "key": "untranslated_kursiv_lro3ec",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Italic"
+ },
+ {
+  "key": "untranslated_kursiv_taditx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Italic"
+ },
+ {
+  "key": "untranslated_label_az_dq49se",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Label (AZ)"
+ },
+ {
+  "key": "untranslated_label_en_xdgdgv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Label (EN)"
+ },
+ {
+  "key": "untranslated_leap_rsc5pa",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Leap #"
+ },
+ {
+  "key": "untranslated_learn_more_st5k9t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Learn More"
+ },
+ {
+  "key": "untranslated_legal_document_content_tb6xem",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Legal document content..."
+ },
+ {
+  "key": "untranslated_life_stages_cwzdy7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Life stages:"
+ },
+ {
+  "key": "untranslated_limitsiz_2m0dau",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Limitsiz"
+ },
+ {
+  "key": "untranslated_limitsiz_7hjdnc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Unlimited"
+ },
+ {
+  "key": "untranslated_limitsiz_cx2zka",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Unlimited"
+ },
+ {
+  "key": "untranslated_limitsiz_taymer_premium_a_aidd_49usj4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Unlimited timer is for Premium"
+ },
+ {
+  "key": "untranslated_limitsiz_taymer_premium_a_aidd_9yt3gy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Limitsiz taymer Premium-a aiddir"
+ },
+ {
+  "key": "untranslated_limitsiz_taymer_premium_a_aidd_plytwi",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Unlimited timer is for Premium"
+ },
+ {
+  "key": "untranslated_link_tipi_o98sd6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Link Type"
+ },
+ {
+  "key": "untranslated_link_tipi_sksdan",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Link Type"
+ },
+ {
+  "key": "untranslated_link_tipi_viddwr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Link Tipi"
+ },
+ {
+  "key": "untranslated_link_x20e1h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Link"
+ },
+ {
+  "key": "untranslated_log_bh6knw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Log"
+ },
+ {
+  "key": "untranslated_logo_url_j9obah",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Logo URL"
+ },
+ {
+  "key": "untranslated_lokasiyaya_get_7hmqt6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Lokasiyaya Get"
+ },
+ {
+  "key": "untranslated_lokasiyaya_get_c31xja",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Go to Location"
+ },
+ {
+  "key": "untranslated_lokasiyaya_get_h37fva",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Go to Location"
+ },
+ {
+  "key": "untranslated_lovable_ai_gateway_lu4yr2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Lovable AI Gateway"
+ },
+ {
+  "key": "untranslated_made_with_in_azerbaijan_ombdj4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Made with ❤️ in Azerbaijan"
+ },
+ {
+  "key": "untranslated_maks_8r36te",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Max"
+ },
+ {
+  "key": "untranslated_maks_u75gd3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Max"
+ },
+ {
+  "key": "untranslated_maksimum_5mb_1w4gok",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Maximum 5MB"
+ },
+ {
+  "key": "untranslated_maksimum_5mb_zmmis5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Maximum 5MB"
+ },
+ {
+  "key": "untranslated_match_vh9nyh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Match"
+ },
+ {
+  "key": "untranslated_max_ay_8ylo0i",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Max Ay"
+ },
+ {
+  "key": "untranslated_max_ay_ci0kyj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Max Month"
+ },
+ {
+  "key": "untranslated_max_ay_kap3mw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Max Month"
+ },
+ {
+  "key": "untranslated_max_db_929l5i",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Max dB"
+ },
+ {
+  "key": "untranslated_media_iewpej",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Media"
+ },
+ {
+  "key": "untranslated_menstruasiya_bowel2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Menstruation"
+ },
+ {
+  "key": "untranslated_menstruasiya_flow_5byey2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Menstruation (flow)"
+ },
+ {
+  "key": "untranslated_menstruasiya_flow_5x79qt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Menstruation (flow)"
+ },
+ {
+  "key": "untranslated_menstruasiya_flow_d95ecj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Menstruasiya (flow)"
+ },
+ {
+  "key": "untranslated_menstruasiya_srmsiv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Menstruation"
+ },
+ {
+  "key": "untranslated_menyu_axtar_875j3f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search menu..."
+ },
+ {
+  "key": "untranslated_menyu_axtar_f1hwy4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Menyu axtar..."
+ },
+ {
+  "key": "untranslated_menyu_axtar_rs9ja5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search menu..."
+ },
+ {
+  "key": "untranslated_meqale_url_slug_3yi76x",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "meqale-url-slug"
+ },
+ {
+  "key": "untranslated_meqale_url_slug_7y8na6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "article-url-slug"
+ },
+ {
+  "key": "untranslated_meqale_url_slug_ep2z48",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "article-url-slug"
+ },
+ {
+  "key": "untranslated_mesaj_4o4v7l",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Message:"
+ },
+ {
+  "key": "untranslated_mesaj_axtar_2e1vik",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search message..."
+ },
+ {
+  "key": "untranslated_mesaj_axtar_kfx7aw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search message..."
+ },
+ {
+  "key": "untranslated_mesaj_axtar_ti4btg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mesaj axtar..."
+ },
+ {
+  "key": "untranslated_mesaj_dohngm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Message"
+ },
+ {
+  "key": "untranslated_mesaj_jg52sa",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Message:"
+ },
+ {
+  "key": "untranslated_mesaj_lmd0oi",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Message"
+ },
+ {
+  "key": "untranslated_mesajlar_jadolu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Messages"
+ },
+ {
+  "key": "untranslated_mesajlar_rja3mr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Messages"
+ },
+ {
+  "key": "untranslated_mg_dl_lcgawj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "mg/dL"
+ },
+ {
+  "key": "untranslated_milestone_etiketi_20kp7l",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Milestone label"
+ },
+ {
+  "key": "untranslated_milestone_etiketi_8sqhl0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Milestone label"
+ },
+ {
+  "key": "untranslated_milestone_etiketi_mbu3md",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Milestone etiketi"
+ },
+ {
+  "key": "untranslated_milestone_tort_63927m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Milestone Tort"
+ },
+ {
+  "key": "untranslated_milestone_tort_ewx2i5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Milestone Cake"
+ },
+ {
+  "key": "untranslated_milestone_tort_qdezgi",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Milestone Cake"
+ },
+ {
+  "key": "untranslated_milli_i_mmunizasiya_qrafiki_82q0yu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "National Immunization Schedule"
+ },
+ {
+  "key": "untranslated_min_ay_q11dec",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Min Ay"
+ },
+ {
+  "key": "untranslated_min_ay_y7dgvc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Min Month"
+ },
+ {
+  "key": "untranslated_min_ay_yvzola",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Min Month"
+ },
+ {
+  "key": "untranslated_min_db_i8d635",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Min dB"
+ },
+ {
+  "key": "untranslated_minimum_6_simvol_4h3uup",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Minimum 6 characters"
+ },
+ {
+  "key": "untranslated_minimum_6_simvol_9o5ztk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Minimum 6 characters"
+ },
+ {
+  "key": "untranslated_minimum_versiya_139yci",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Minimum version"
+ },
+ {
+  "key": "untranslated_minimum_versiya_h7p5dy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Minimum version"
+ },
+ {
+  "key": "untranslated_minimum_versiya_j6n07d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Minimum versiya"
+ },
+ {
+  "key": "untranslated_ml_su_3b48wu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "ml su"
+ },
+ {
+  "key": "untranslated_ml_su_4xfc83",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "ml water"
+ },
+ {
+  "key": "untranslated_ml_su_rcc6oe",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "ml water"
+ },
+ {
+  "key": "untranslated_mm_yy_8mka1l",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "MM/YY"
+ },
+ {
+  "key": "untranslated_moderasiya_2hvg3x",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Moderation"
+ },
+ {
+  "key": "untranslated_moderasiya_pxss3r",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Moderasiya"
+ },
+ {
+  "key": "untranslated_moderasiya_u8cjd8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Moderation"
+ },
+ {
+  "key": "untranslated_moderator_2oxbxu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Moderator"
+ },
+ {
+  "key": "untranslated_mommy_6khps0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mommy"
+ },
+ {
+  "key": "untranslated_mommy_diary_a5fjkx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "mommy.diary"
+ },
+ {
+  "key": "untranslated_mommy_diary_jk3smn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mommy diary"
+ },
+ {
+  "key": "untranslated_more_pages_rlh7b9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "More pages"
+ },
+ {
+  "key": "untranslated_motor_sensory_cognitive_nuv0ua",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "motor, sensory, cognitive"
+ },
+ {
+  "key": "untranslated_muted_5ngc25",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Muted"
+ },
+ {
+  "key": "untranslated_name_az_99j1ly",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name (AZ)"
+ },
+ {
+  "key": "untranslated_name_en_xdz7cv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Name (EN)"
+ },
+ {
+  "key": "untranslated_namespace_u7wptg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Namespace"
+ },
+ {
+  "key": "untranslated_nav_home_fkbwfg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "nav.home"
+ },
+ {
+  "key": "untranslated_next_a38oe7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Next"
+ },
+ {
+  "key": "untranslated_next_slide_dxpnko",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Next slide"
+ },
+ {
+  "key": "untranslated_normal_80sz88",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Normal"
+ },
+ {
+  "key": "untranslated_offerings_raw_ei3ci4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Offerings (raw)"
+ },
+ {
+  "key": "untranslated_onlayn_pspuk0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Online"
+ },
+ {
+  "key": "untranslated_onlayn_u7bsqu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Online"
+ },
+ {
+  "key": "untranslated_online_friajc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Online"
+ },
+ {
+  "key": "untranslated_oops_page_not_found_pnfngc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Oops! Page not found"
+ },
+ {
+  "key": "untranslated_option_id_single_twins_3a7esv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Option ID (single, twins)"
+ },
+ {
+  "key": "untranslated_ort_bez_t4baaq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Avg. diaper"
+ },
+ {
+  "key": "untranslated_ort_boy_dtx1gq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Avg. Height"
+ },
+ {
+  "key": "untranslated_ort_boy_n0frht",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ort. Boy"
+ },
+ {
+  "key": "untranslated_ort_boy_rcsgdf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Avg. Height"
+ },
+ {
+  "key": "untranslated_ort_qidalanma_7ui816",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Avg. feeding"
+ },
+ {
+  "key": "untranslated_ort_yuxu_s_9wyd1q",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Avg. sleep (h)"
+ },
+ {
+  "key": "untranslated_orta_0thm8b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Medium"
+ },
+ {
+  "key": "untranslated_orta_86dqzj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Medium"
+ },
+ {
+  "key": "untranslated_orta_enerji_r2707p",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Medium Energy"
+ },
+ {
+  "key": "untranslated_orta_period_cmfggw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mid Period"
+ },
+ {
+  "key": "untranslated_orta_period_m0zswb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mid Period"
+ },
+ {
+  "key": "untranslated_orta_reytinq_0009v8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "average rating"
+ },
+ {
+  "key": "untranslated_orta_reytinq_2uy6h5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "orta reytinq"
+ },
+ {
+  "key": "untranslated_orta_reytinq_p5auo8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "average rating"
+ },
+ {
+  "key": "untranslated_orta_tsikl_gbme25",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mid Cycle"
+ },
+ {
+  "key": "untranslated_ortalama_e8s35h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Average"
+ },
+ {
+  "key": "untranslated_ortalama_nd3a09",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Average"
+ },
+ {
+  "key": "untranslated_ortaya_43b5yq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ortaya"
+ },
+ {
+  "key": "untranslated_ortaya_ta1lo6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Center"
+ },
+ {
+  "key": "untranslated_ortaya_yg5bzt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Center"
+ },
+ {
+  "key": "untranslated_outfit_id_meselen_princess_dre_09y40n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Outfit ID (e.g. princess_dress)"
+ },
+ {
+  "key": "untranslated_outfit_id_meselen_princess_dre_1g1lyc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Outfit ID (e.g. princess_dress)"
+ },
+ {
+  "key": "untranslated_outfit_id_meselen_princess_dre_dnconp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Outfit ID (meselen: princess_dress)"
+ },
+ {
+  "key": "untranslated_ovulyasiya_v05p1a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ovulation"
+ },
+ {
+  "key": "untranslated_ovulyasiya_vibm8h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ovulation"
+ },
+ {
+  "key": "untranslated_oxunub_aonkeu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Read"
+ },
+ {
+  "key": "untranslated_oxunub_x6l7xz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Read"
+ },
+ {
+  "key": "untranslated_pagination_l90knt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "pagination"
+ },
+ {
+  "key": "untranslated_partner_kodu_7c03jb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partner Code"
+ },
+ {
+  "key": "untranslated_partner_kodu_ig7t8i",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partner Kodu"
+ },
+ {
+  "key": "untranslated_partner_kodu_pv6a8k",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partner Code"
+ },
+ {
+  "key": "untranslated_partner_paneli_2foo8i",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partner Panel"
+ },
+ {
+  "key": "untranslated_partner_paneli_oi5yvn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partner Paneli"
+ },
+ {
+  "key": "untranslated_partner_paneli_vi4qm2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partner Panel"
+ },
+ {
+  "key": "untranslated_partner_profili_5qrcma",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partner Profile"
+ },
+ {
+  "key": "untranslated_partner_profili_bzuu37",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partner Profile"
+ },
+ {
+  "key": "untranslated_partnyor_7it7t5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partner"
+ },
+ {
+  "key": "untranslated_partnyor_fwq8yy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partnyor"
+ },
+ {
+  "key": "untranslated_partnyor_u5eatg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Partner"
+ },
+ {
+  "key": "untranslated_paywall_ww41jc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Paywall"
+ },
+ {
+  "key": "untranslated_plan_tipi_7hyszp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Plan Tipi"
+ },
+ {
+  "key": "untranslated_plan_tipi_bzjghw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Plan Type"
+ },
+ {
+  "key": "untranslated_plan_tipi_vwk55b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Plan Type"
+ },
+ {
+  "key": "untranslated_planla_6im69v",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Plan"
+ },
+ {
+  "key": "untranslated_planla_hb10gr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Planla"
+ },
+ {
+  "key": "untranslated_planla_rkmuzo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Plan"
+ },
+ {
+  "key": "untranslated_planlar_96j9qf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Plans"
+ },
+ {
+  "key": "untranslated_planlar_db3uch",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Planlar"
+ },
+ {
+  "key": "untranslated_planlar_eu0yoj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Plans"
+ },
+ {
+  "key": "untranslated_planlara_daxildir_2vfqh6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Planlara daxildir:"
+ },
+ {
+  "key": "untranslated_planlara_daxildir_cq2k6l",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Included in plans:"
+ },
+ {
+  "key": "untranslated_planlara_daxildir_mj21x3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Included in plans:"
+ },
+ {
+  "key": "untranslated_png_jpg_max_5mb_9got3g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "PNG, JPG (max 5MB)"
+ },
+ {
+  "key": "untranslated_png_jpg_webp_max_5mb_870c2s",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "PNG, JPG, WEBP (max 5MB)"
+ },
+ {
+  "key": "untranslated_populyar_addnhh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Popular"
+ },
+ {
+  "key": "untranslated_populyar_m0canp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Popular"
+ },
+ {
+  "key": "untranslated_populyar_re6bau",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Popular"
+ },
+ {
+  "key": "untranslated_porsiya_1tj7zg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Serving"
+ },
+ {
+  "key": "untranslated_porsiya_6mu5wp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Serving"
+ },
+ {
+  "key": "untranslated_porsiya_d3dp2z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Porsiya"
+ },
+ {
+  "key": "untranslated_postlar_d0kihr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Posts"
+ },
+ {
+  "key": "untranslated_postlar_ttpkab",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Posts"
+ },
+ {
+  "key": "untranslated_postlar_zsl5he",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Postlar"
+ },
+ {
+  "key": "untranslated_premium_8zk2xp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Premium"
+ },
+ {
+  "key": "untranslated_premium_analiz_qr4v0u",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Premium Analysis"
+ },
+ {
+  "key": "untranslated_premium_analiz_qxyvel",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Premium Analiz"
+ },
+ {
+  "key": "untranslated_premium_analiz_zjze0s",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Premium Analysis"
+ },
+ {
+  "key": "untranslated_premium_cfmla6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Premium+"
+ },
+ {
+  "key": "untranslated_premium_lifcpl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "PREMIUM"
+ },
+ {
+  "key": "untranslated_premium_only_vjbeza",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Premium Only"
+ },
+ {
+  "key": "untranslated_premium_ver_2w8vm8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Premium Ver"
+ },
+ {
+  "key": "untranslated_premium_ver_6e2ln0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Give Premium"
+ },
+ {
+  "key": "untranslated_premium_ver_jy1g2f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Give Premium"
+ },
+ {
+  "key": "untranslated_previous_slide_yd02ug",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Previous slide"
+ },
+ {
+  "key": "untranslated_primary_cjqild",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Primary"
+ },
+ {
+  "key": "untranslated_prioritet_1_10_12f4dr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Priority (1-10)"
+ },
+ {
+  "key": "untranslated_prioritet_1_10_cx8mgh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Prioritet (1-10)"
+ },
+ {
+  "key": "untranslated_prioritet_1_10_ss6gqv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Priority (1-10)"
+ },
+ {
+  "key": "untranslated_prioritet_58zug0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Prioritet"
+ },
+ {
+  "key": "untranslated_prioritet_kunqi9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Priority"
+ },
+ {
+  "key": "untranslated_prioritet_q43ciz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Priority"
+ },
+ {
+  "key": "untranslated_privacy_policy_7z2c0y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "privacy_policy"
+ },
+ {
+  "key": "untranslated_private_key_ue2mgz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Private Key"
+ },
+ {
+  "key": "untranslated_profil_fmzm3e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Profile"
+ },
+ {
+  "key": "untranslated_profil_z4k721",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Profile"
+ },
+ {
+  "key": "untranslated_prompt_r5ew2f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Prompt:"
+ },
+ {
+  "key": "untranslated_proqnoz_ndwugx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Forecast"
+ },
+ {
+  "key": "untranslated_proqnoz_vxo54m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Forecast"
+ },
+ {
+  "key": "untranslated_public_key_3b3rol",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Public Key"
+ },
+ {
+  "key": "untranslated_pulsuz_46ny3y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Free"
+ },
+ {
+  "key": "untranslated_pulsuz_lnj61v",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Free"
+ },
+ {
+  "key": "untranslated_pulsuz_plana_daxildir_1zekqn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Pulsuz plana daxildir"
+ },
+ {
+  "key": "untranslated_pulsuz_plana_daxildir_34idq2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Included in free plan"
+ },
+ {
+  "key": "untranslated_pulsuz_plana_daxildir_nq5bwd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Included in free plan"
+ },
+ {
+  "key": "untranslated_push_diaqnostika_61i4sj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Push Diagnostics"
+ },
+ {
+  "key": "untranslated_push_diaqnostika_fjkx9z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Push Diagnostics"
+ },
+ {
+  "key": "untranslated_push_diaqnostika_whrx0y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Push Diaqnostika"
+ },
+ {
+  "key": "untranslated_qa_9ir1eu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "QA"
+ },
+ {
+  "key": "untranslated_qalan_fi5tpe",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Remaining"
+ },
+ {
+  "key": "untranslated_qalereya_244yit",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Qalereya"
+ },
+ {
+  "key": "untranslated_qalereya_2j90dp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gallery"
+ },
+ {
+  "key": "untranslated_qalereya_hbg8cp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Gallery"
+ },
+ {
+  "key": "untranslated_qalereyadan_33wki2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "From gallery"
+ },
+ {
+  "key": "untranslated_qalereyadan_ip87sv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "From gallery"
+ },
+ {
+  "key": "untranslated_qanaxma_9r8juz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bleeding"
+ },
+ {
+  "key": "untranslated_qanaxma_pyn19j",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bleeding"
+ },
+ {
+  "key": "untranslated_qanaxma_u2onro",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Qanaxma"
+ },
+ {
+  "key": "untranslated_qaralama_9wnx65",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Draft"
+ },
+ {
+  "key": "untranslated_qaralama_bu00lg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Qaralama"
+ },
+ {
+  "key": "untranslated_qaralama_xdbos3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Draft"
+ },
+ {
+  "key": "untranslated_qeyd_5zm9qv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Note"
+ },
+ {
+  "key": "untranslated_qeyd_6z1jh4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Note:"
+ },
+ {
+  "key": "untranslated_qeyd_et_2vdush",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Note it down"
+ },
+ {
+  "key": "untranslated_qeyd_et_ym3lxv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Note it down"
+ },
+ {
+  "key": "untranslated_qeyd_v0e8ci",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Note:"
+ },
+ {
+  "key": "untranslated_qeyd_yddac3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Note"
+ },
+ {
+  "key": "untranslated_qeyd_yoxdur_14qn2t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No notes"
+ },
+ {
+  "key": "untranslated_qeyd_yoxdur_8craha",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No notes"
+ },
+ {
+  "key": "untranslated_qidalanma_4y1djm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Nutrition"
+ },
+ {
+  "key": "untranslated_qidalanma_94o4tn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Qidalanma"
+ },
+ {
+  "key": "untranslated_qidalanma_v1vx0n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Nutrition"
+ },
+ {
+  "key": "untranslated_qr_ttl_san_l94pkg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "QR TTL (san)"
+ },
+ {
+  "key": "untranslated_qr_ttl_san_qwb2tc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "QR TTL (sec)"
+ },
+ {
+  "key": "untranslated_qr_ttl_san_rfypi3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "QR TTL (sec)"
+ },
+ {
+  "key": "untranslated_qrafik_2u7vzk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Chart"
+ },
+ {
+  "key": "untranslated_qrafik_377xni",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Chart"
+ },
+ {
+  "key": "untranslated_qrafik_6156cb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Qrafik"
+ },
+ {
+  "key": "untranslated_qrup_axtar_3zlpi6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Qrup axtar..."
+ },
+ {
+  "key": "untranslated_qrup_axtar_nnrq1o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search group..."
+ },
+ {
+  "key": "untranslated_qrup_axtar_xodlll",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search group..."
+ },
+ {
+  "key": "untranslated_qrup_tipi_3ygpu3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Group type"
+ },
+ {
+  "key": "untranslated_qrup_tipi_wapugf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Qrup tipi"
+ },
+ {
+  "key": "untranslated_qrup_tipi_zyx9h9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Group type"
+ },
+ {
+  "key": "untranslated_qrup_yoxdur_kzeyvy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No group"
+ },
+ {
+  "key": "untranslated_qrup_yoxdur_lcg9e8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Qrup yoxdur"
+ },
+ {
+  "key": "untranslated_qrup_yoxdur_vm4yfq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No group"
+ },
+ {
+  "key": "untranslated_randevu_ftit71",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Appointment"
+ },
+ {
+  "key": "untranslated_randevu_pno4cm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Appointment"
+ },
+ {
+  "key": "untranslated_rejim_2ly5pg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Rejim"
+ },
+ {
+  "key": "untranslated_rejim_4hdc35",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mode"
+ },
+ {
+  "key": "untranslated_rejim_w1xb6e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Mode"
+ },
+ {
+  "key": "untranslated_resept_axtar_kvik28",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search recipe..."
+ },
+ {
+  "key": "untranslated_resept_axtar_sttxze",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search recipe..."
+ },
+ {
+  "key": "untranslated_result_url_callback_8iyc9m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Result URL (Callback)"
+ },
+ {
+  "key": "untranslated_resurslar_86rlik",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Resources"
+ },
+ {
+  "key": "untranslated_resurslar_933m6o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Resources"
+ },
+ {
+  "key": "untranslated_resurslar_czooen",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Resurslar"
+ },
+ {
+  "key": "untranslated_return_to_home_msgj24",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Return to Home"
+ },
+ {
+  "key": "untranslated_revenuecat_debug_swicti",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "RevenueCat Debug"
+ },
+ {
+  "key": "untranslated_reytinq_0_5_ev7d9s",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Rating (0-5)"
+ },
+ {
+  "key": "untranslated_reytinq_0_5_u68zz4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Reytinq (0-5)"
+ },
+ {
+  "key": "untranslated_reytinq_0_5_uk9tcm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Rating (0-5)"
+ },
+ {
+  "key": "untranslated_reytinq_95bqib",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Rating"
+ },
+ {
+  "key": "untranslated_reytinq_u3c9tq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Reytinq"
+ },
+ {
+  "key": "untranslated_reytinq_wo98n1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Rating"
+ },
+ {
+  "key": "untranslated_rol_0x14k2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Rol"
+ },
+ {
+  "key": "untranslated_rol_a1cmpa",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Role"
+ },
+ {
+  "key": "untranslated_rol_l7y8cp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Role"
+ },
+ {
+  "key": "untranslated_role_based_access_control_yz0s4d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Role-based Access Control"
+ },
+ {
+  "key": "untranslated_romantik_6yqhvn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Romantik"
+ },
+ {
+  "key": "untranslated_romantik_a2828f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Romantic"
+ },
+ {
+  "key": "untranslated_romantik_nh146m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Romantic"
+ },
+ {
+  "key": "untranslated_route_e9jh24",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Route"
+ },
+ {
+  "key": "untranslated_row_level_security_rls_n4b3m3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Row Level Security (RLS)"
+ },
+ {
+  "key": "untranslated_saat_dj1tvy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Saat"
+ },
+ {
+  "key": "untranslated_saat_g91fqy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Time"
+ },
+ {
+  "key": "untranslated_saat_x4jhci",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Time"
+ },
+ {
+  "key": "untranslated_sakit_rejim_4bluvb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Silent mode"
+ },
+ {
+  "key": "untranslated_sakit_rejim_rhoxlz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sakit rejim"
+ },
+ {
+  "key": "untranslated_sakit_rejim_xi9b5o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Silent mode"
+ },
+ {
+  "key": "untranslated_sakit_saatlar_n1uufe",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Quiet hours"
+ },
+ {
+  "key": "untranslated_sakit_saatlar_st4h4f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Quiet hours"
+ },
+ {
+  "key": "untranslated_salam_ana_4k23qq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hello mother! 💕"
+ },
+ {
+  "key": "untranslated_salam_ana_pxp4d8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Hello mother! 💕"
+ },
+ {
+  "key": "untranslated_salam_ana_q5iqd4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Salam ana! 💕"
+ },
+ {
+  "key": "untranslated_saxla_6rtnmo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Save"
+ },
+ {
+  "key": "untranslated_saxla_eptjnf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Save"
+ },
+ {
+  "key": "untranslated_saxla_gbdjju",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Saxla"
+ },
+ {
+  "key": "untranslated_saxla_s_1sdasn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Saxla (s)"
+ },
+ {
+  "key": "untranslated_saxla_s_8zax9f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Save (s)"
+ },
+ {
+  "key": "untranslated_saxla_s_chrevo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Save (s)"
+ },
+ {
+  "key": "untranslated_say_ffoell",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Count"
+ },
+ {
+  "key": "untranslated_say_x821mf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Count"
+ },
+ {
+  "key": "untranslated_say_y777mt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Say"
+ },
+ {
+  "key": "untranslated_sayt_94si0s",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Website"
+ },
+ {
+  "key": "untranslated_sayt_eqawlo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Website"
+ },
+ {
+  "key": "untranslated_sayt_jmvkm4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sayt"
+ },
+ {
+  "key": "untranslated_schedule_utc_as7g6q",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Schedule (UTC)"
+ },
+ {
+  "key": "untranslated_secondary_596d9b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Secondary"
+ },
+ {
+  "key": "untranslated_seher_yemeyi_2tq7b4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "breakfast"
+ },
+ {
+  "key": "untranslated_seher_yemeyi_4z6dnf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "seher_yemeyi"
+ },
+ {
+  "key": "untranslated_seher_yemeyi_fl07c8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "breakfast"
+ },
+ {
+  "key": "untranslated_server_utc_k5o8do",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Server UTC:"
+ },
+ {
+  "key": "untranslated_sevgi_26bssp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Love"
+ },
+ {
+  "key": "untranslated_sevgi_ajt37v",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Love"
+ },
+ {
+  "key": "untranslated_sevgi_djmoqt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sevgi"
+ },
+ {
+  "key": "untranslated_sevimli_8m8bp1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Favorite"
+ },
+ {
+  "key": "untranslated_sevimli_em7jft",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sevimli"
+ },
+ {
+  "key": "untranslated_sevimli_p2bhfn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Favorite"
+ },
+ {
+  "key": "untranslated_sil_kr99vq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Delete"
+ },
+ {
+  "key": "untranslated_sil_t1gprc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Delete"
+ },
+ {
+  "key": "untranslated_simptom_6v1ol9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Symptom"
+ },
+ {
+  "key": "untranslated_simptom_degasu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Symptom"
+ },
+ {
+  "key": "untranslated_simptom_gn08kn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Simptom"
+ },
+ {
+  "key": "untranslated_simptom_key_bn2jy7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Symptom Key"
+ },
+ {
+  "key": "untranslated_simptom_key_ejybyz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Simptom Key"
+ },
+ {
+  "key": "untranslated_simptom_key_zyab24",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Symptom Key"
+ },
+ {
+  "key": "untranslated_simptom_pattern_analizi_67knvy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Simptom Pattern Analizi"
+ },
+ {
+  "key": "untranslated_simptom_pattern_analizi_i5d2nv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Symptom Pattern Analysis"
+ },
+ {
+  "key": "untranslated_simptomlar_az_6vruic",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Simptomlar (AZ)"
+ },
+ {
+  "key": "untranslated_simptomlar_az_j6tqhn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Symptoms (AZ)"
+ },
+ {
+  "key": "untranslated_simptomlar_az_jp7zvk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Symptoms (AZ)"
+ },
+ {
+  "key": "untranslated_simptomlar_fqo1wm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Symptoms"
+ },
+ {
+  "key": "untranslated_simptomlar_nf5sf0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Symptoms"
+ },
+ {
+  "key": "untranslated_sinxron_funksiyalar_4lr78q",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sinxron Funksiyalar"
+ },
+ {
+  "key": "untranslated_sinxron_funksiyalar_8t5e9k",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Synchronous Features"
+ },
+ {
+  "key": "untranslated_sinxron_funksiyalar_fc5ufm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Synchronous Features"
+ },
+ {
+  "key": "untranslated_sistem_statusu_0ble4a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "System Status"
+ },
+ {
+  "key": "untranslated_sistem_statusu_t2trjs",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sistem Statusu"
+ },
+ {
+  "key": "untranslated_sistem_statusu_xii8d7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "System Status"
+ },
+ {
+  "key": "untranslated_sitat_2do73z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Quote"
+ },
+ {
+  "key": "untranslated_sitat_48n5cf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Quote"
+ },
+ {
+  "key": "untranslated_sitat_qc50qx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sitat"
+ },
+ {
+  "key": "untranslated_sm_6d9xh5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "cm"
+ },
+ {
+  "key": "untranslated_sol_dq3mxd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Left"
+ },
+ {
+  "key": "untranslated_sol_onu1yu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Left"
+ },
+ {
+  "key": "untranslated_sol_st0lan",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sol"
+ },
+ {
+  "key": "untranslated_sola_grb49i",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Left"
+ },
+ {
+  "key": "untranslated_sola_l5r1r1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sola"
+ },
+ {
+  "key": "untranslated_sola_s72d5n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Left"
+ },
+ {
+  "key": "untranslated_son_61336e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last"
+ },
+ {
+  "key": "untranslated_son_7_qeyd_cvdw1z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last 7 notes"
+ },
+ {
+  "key": "untranslated_son_c772v8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last"
+ },
+ {
+  "key": "untranslated_son_icra_n3xp9j",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Son icra"
+ },
+ {
+  "key": "untranslated_son_icra_vit27u",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last execution"
+ },
+ {
+  "key": "untranslated_son_icra_y2t4za",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last execution"
+ },
+ {
+  "key": "untranslated_son_menstruasiya_tarixi_hj3ew3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last menstruation date"
+ },
+ {
+  "key": "untranslated_son_menstruasiya_tarixi_mkbj2z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last menstruation date"
+ },
+ {
+  "key": "untranslated_son_okvjy8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Son"
+ },
+ {
+  "key": "untranslated_son_qeydiyyatlar_2lq2h6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last Registrations"
+ },
+ {
+  "key": "untranslated_son_qeydiyyatlar_itlzf6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last Registrations"
+ },
+ {
+  "key": "untranslated_son_sessiyalar_2sjv6g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last sessions"
+ },
+ {
+  "key": "untranslated_son_sessiyalar_i9aydq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Last sessions"
+ },
+ {
+  "key": "untranslated_sonra_5rfz9z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Next"
+ },
+ {
+  "key": "untranslated_sonra_8zobgx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sonra"
+ },
+ {
+  "key": "untranslated_sonra_jdwp6f",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Next"
+ },
+ {
+  "key": "untranslated_sort_order_2kmkjg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sort Order"
+ },
+ {
+  "key": "untranslated_sos_jsum3u",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "SOS"
+ },
+ {
+  "key": "untranslated_stage_id_flow_bump_mommy_om590a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Stage ID (flow, bump, mommy)"
+ },
+ {
+  "key": "untranslated_statistika_cxh53y",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Statistics"
+ },
+ {
+  "key": "untranslated_statistika_h5y3no",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Statistics"
+ },
+ {
+  "key": "untranslated_statistika_ruhqai",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Statistika"
+ },
+ {
+  "key": "untranslated_status_u6ttaq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Status:"
+ },
+ {
+  "key": "untranslated_step_id_y43wsr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "step.id"
+ },
+ {
+  "key": "untranslated_stil_id_meselen_3d_disney_1x4hty",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Stil ID (meselen: 3d_disney)"
+ },
+ {
+  "key": "untranslated_stil_id_meselen_3d_disney_4fhqwb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Style ID (e.g. 3d_disney)"
+ },
+ {
+  "key": "untranslated_stil_id_meselen_3d_disney_d75e3b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Style ID (e.g. 3d_disney)"
+ },
+ {
+  "key": "untranslated_stok_5t9euc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Stock"
+ },
+ {
+  "key": "untranslated_stok_938hdb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Stock"
+ },
+ {
+  "key": "untranslated_stok_e6a8n8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Stok"
+ },
+ {
+  "key": "untranslated_story_cgnnef",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Story"
+ },
+ {
+  "key": "untranslated_story_yoxdur_82ws9l",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No story"
+ },
+ {
+  "key": "untranslated_story_yoxdur_84c1y5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Story yoxdur"
+ },
+ {
+  "key": "untranslated_story_yoxdur_clmuau",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No story"
+ },
+ {
+  "key": "untranslated_style_id_meselen_ponytail_h187hm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Style ID (meselen: ponytail)"
+ },
+ {
+  "key": "untranslated_style_id_meselen_ponytail_lbi3mf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Style ID (e.g. ponytail)"
+ },
+ {
+  "key": "untranslated_style_id_meselen_ponytail_vybcix",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Style ID (e.g. ponytail)"
+ },
+ {
+  "key": "untranslated_su_0t8rr2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Water"
+ },
+ {
+  "key": "untranslated_su_pj51gz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Water"
+ },
+ {
+  "key": "untranslated_sual_8uyxc8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sual №"
+ },
+ {
+  "key": "untranslated_sual_axtar_6r0b42",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sual axtar..."
+ },
+ {
+  "key": "untranslated_sual_axtar_t7dljk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search question..."
+ },
+ {
+  "key": "untranslated_sual_axtar_yofj2o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Search question..."
+ },
+ {
+  "key": "untranslated_sual_az_f94mdk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Question (AZ)"
+ },
+ {
+  "key": "untranslated_sual_az_frplvl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sual (AZ)"
+ },
+ {
+  "key": "untranslated_sual_az_vdmnrr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Question (AZ)"
+ },
+ {
+  "key": "untranslated_sual_bpg24h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Question №"
+ },
+ {
+  "key": "untranslated_sual_en_3qbt2g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Question (EN)"
+ },
+ {
+  "key": "untranslated_sual_en_fttxzo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sual (EN)"
+ },
+ {
+  "key": "untranslated_sual_en_uzedj6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Question (EN)"
+ },
+ {
+  "key": "untranslated_sual_p8zyfl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Question №"
+ },
+ {
+  "key": "untranslated_success_url_sihwv4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Success URL"
+ },
+ {
+  "key": "untranslated_supabase_qlxv4n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Supabase"
+ },
+ {
+  "key": "untranslated_tamam_a4o44c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "OK"
+ },
+ {
+  "key": "untranslated_tamamla_4k1ynr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Tamamla"
+ },
+ {
+  "key": "untranslated_tamamla_fdxmee",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Complete"
+ },
+ {
+  "key": "untranslated_tamamla_rxcs0n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Complete"
+ },
+ {
+  "key": "untranslated_tamamlanma_6y3raf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Tamamlanma"
+ },
+ {
+  "key": "untranslated_tamamlanma_8cilvr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Completion"
+ },
+ {
+  "key": "untranslated_tamamlanma_mh4fww",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Completion"
+ },
+ {
+  "key": "untranslated_tarix_ayfsz9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Date:"
+ },
+ {
+  "key": "untranslated_tarix_c9jimx",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Date"
+ },
+ {
+  "key": "untranslated_tarix_eqxo0t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Date:"
+ },
+ {
+  "key": "untranslated_tarix_wrdxzv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Date"
+ },
+ {
+  "key": "untranslated_taymer_eu9xnh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Timer"
+ },
+ {
+  "key": "untranslated_taymer_szu9mw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Timer"
+ },
+ {
+  "key": "untranslated_telefon_3c0vlz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phone"
+ },
+ {
+  "key": "untranslated_telefon_994_xx_xxx_xx_xx_d6ojdv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Telefon (+994 XX XXX XX XX)"
+ },
+ {
+  "key": "untranslated_telefon_994_xx_xxx_xx_xx_yhgzoe",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phone (+994 XX XXX XX XX)"
+ },
+ {
+  "key": "untranslated_telefon_994_xx_xxx_xx_xx_zxor7g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phone (+994 XX XXX XX XX)"
+ },
+ {
+  "key": "untranslated_telefon_btmyu2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phone"
+ },
+ {
+  "key": "untranslated_telefon_ffwqh3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phone:"
+ },
+ {
+  "key": "untranslated_telefon_ir7lrd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phone:"
+ },
+ {
+  "key": "untranslated_telefon_nkde8j",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Phone:"
+ },
+ {
+  "key": "untranslated_the_world_of_bsie58",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "The World of..."
+ },
+ {
+  "key": "untranslated_theme_id_meselen_garden_party_hzxklt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Theme ID (meselen: garden_party)"
+ },
+ {
+  "key": "untranslated_theme_id_meselen_garden_party_ry9bpr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Theme ID (e.g. garden_party)"
+ },
+ {
+  "key": "untranslated_theme_id_meselen_garden_party_zoagfe",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Theme ID (e.g. garden_party)"
+ },
+ {
+  "key": "untranslated_threshold_nui3a7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Threshold"
+ },
+ {
+  "key": "untranslated_tip_content_in_english_kqy9sd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Tip content in English"
+ },
+ {
+  "key": "untranslated_tip_csom06",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Type"
+ },
+ {
+  "key": "untranslated_tip_filteri_ec18mg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Tip filteri"
+ },
+ {
+  "key": "untranslated_tip_filteri_gkdus2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Type filter"
+ },
+ {
+  "key": "untranslated_tip_filteri_z0hdox",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Type filter"
+ },
+ {
+  "key": "untranslated_tip_nj66xr",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Type:"
+ },
+ {
+  "key": "untranslated_tip_or4ckv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Type:"
+ },
+ {
+  "key": "untranslated_tip_title_in_english_gskdgy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Tip title in English"
+ },
+ {
+  "key": "untranslated_tip_title_kntkna",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Tip title"
+ },
+ {
+  "key": "untranslated_tip_xodixg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Type"
+ },
+ {
+  "key": "untranslated_tip_xon221",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Tip"
+ },
+ {
+  "key": "untranslated_toggle_sidebar_r5nfog",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Toggle Sidebar"
+ },
+ {
+  "key": "untranslated_tool_key_dhjnnb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Tool key"
+ },
+ {
+  "key": "untranslated_toplam_mae8bb",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Total"
+ },
+ {
+  "key": "untranslated_toplam_va8vo7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Total"
+ },
+ {
+  "key": "untranslated_toplam_xal_lwtmf3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Total Score"
+ },
+ {
+  "key": "untranslated_toplam_xal_swp40r",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Total Score"
+ },
+ {
+  "key": "untranslated_toplu_i_mport_7mvpjj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bulk Import"
+ },
+ {
+  "key": "untranslated_toplu_i_mport_dsdfpc",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bulk Import"
+ },
+ {
+  "key": "untranslated_toplu_i_mport_h5f41t",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bulk Import"
+ },
+ {
+  "key": "untranslated_toplu_i_mport_wi6oco",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Bulk Import"
+ },
+ {
+  "key": "untranslated_tortlar_3r2s98",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cakes 🎂"
+ },
+ {
+  "key": "untranslated_tortlar_kfjgp5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Cakes 🎂"
+ },
+ {
+  "key": "untranslated_trendyol_573gxf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Trendyol"
+ },
+ {
+  "key": "untranslated_trimester_vhkg0g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Trimester"
+ },
+ {
+  "key": "untranslated_try_rpxa0h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "TRY"
+ },
+ {
+  "key": "untranslated_tsikl_tarixi_yoxdur_4ce23k",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No cycle date"
+ },
+ {
+  "key": "untranslated_tsikl_tarixi_yoxdur_90dlky",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No cycle date"
+ },
+ {
+  "key": "untranslated_tsikl_tarixi_yoxdur_bq51l3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Tsikl tarixi yoxdur"
+ },
+ {
+  "key": "untranslated_type_defaultschema_databasewit_b4ti14",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "type DefaultSchema = DatabaseWithoutInternals[Extract"
+ },
+ {
+  "key": "untranslated_universal_links_8jgf36",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Universal Links"
+ },
+ {
+  "key": "untranslated_universal_om9eyq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Universal"
+ },
+ {
+  "key": "untranslated_unlock_condition_0vu3va",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Unlock Condition"
+ },
+ {
+  "key": "untranslated_upper_central_incisor_right_5pd8m3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "upper_central_incisor_right"
+ },
+ {
+  "key": "untranslated_url_hxx6c8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "URL"
+ },
+ {
+  "key": "untranslated_url_sgvlfp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "URL:"
+ },
+ {
+  "key": "untranslated_url_slug_qkubld",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "URL Slug"
+ },
+ {
+  "key": "untranslated_us_gb_au_homw8x",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "US,GB,AU"
+ },
+ {
+  "key": "untranslated_usd_l7ptsf",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "USD"
+ },
+ {
+  "key": "untranslated_uv_w6nkow",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "UV"
+ },
+ {
+  "key": "untranslated_vacib_jjxe4m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Vacib"
+ },
+ {
+  "key": "untranslated_vacib_lknl1m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Important"
+ },
+ {
+  "key": "untranslated_vacib_lmdvyt",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Important"
+ },
+ {
+  "key": "untranslated_validation_m01uia",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Validation"
+ },
+ {
+  "key": "untranslated_valyuta_6kqif9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Currency"
+ },
+ {
+  "key": "untranslated_valyuta_9tj7rw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Currency"
+ },
+ {
+  "key": "untranslated_valyuta_sydv9e",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Valyuta"
+ },
+ {
+  "key": "untranslated_variasiya_k37tjo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Variation"
+ },
+ {
+  "key": "untranslated_variasiya_tjs77m",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Variation"
+ },
+ {
+  "key": "untranslated_vaxt_77h25c",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Time"
+ },
+ {
+  "key": "untranslated_vaxt_h8ioh3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Time"
+ },
+ {
+  "key": "untranslated_veb_sayt_0u7y07",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Website"
+ },
+ {
+  "key": "untranslated_veb_sayt_vxutic",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Website"
+ },
+ {
+  "key": "untranslated_vebsayt_ea7b82",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Website"
+ },
+ {
+  "key": "untranslated_vebsayt_lq9xbi",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Website"
+ },
+ {
+  "key": "untranslated_versiya_ne4ivk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Versiya"
+ },
+ {
+  "key": "untranslated_versiya_u3f7p8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Version"
+ },
+ {
+  "key": "untranslated_versiya_wrkjrj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Version"
+ },
+ {
+  "key": "untranslated_video_g4qydo",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Video"
+ },
+ {
+  "key": "untranslated_video_url_z954f4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Video URL"
+ },
+ {
+  "key": "untranslated_vitamin_d_b5gkax",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Vitamin D"
+ },
+ {
+  "key": "untranslated_vitamin_yxy9ke",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Vitamin"
+ },
+ {
+  "key": "untranslated_vuruldu_2pnutd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Vuruldu"
+ },
+ {
+  "key": "untranslated_vuruldu_68smf0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Administered"
+ },
+ {
+  "key": "untranslated_vuruldu_fajztg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Administered"
+ },
+ {
+  "key": "untranslated_xal_05rq9o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Score"
+ },
+ {
+  "key": "untranslated_xal_8cbblp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Score"
+ },
+ {
+  "key": "untranslated_xal_tbwp08",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Xal"
+ },
+ {
+  "key": "untranslated_xeyr_davam_et_horkah",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No, continue"
+ },
+ {
+  "key": "untranslated_xeyr_davam_et_x70s5n",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Xeyr, davam et"
+ },
+ {
+  "key": "untranslated_xeyr_davam_et_yza8s4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "No, continue"
+ },
+ {
+  "key": "untranslated_yadda_saxla_1vfjdz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Save"
+ },
+ {
+  "key": "untranslated_yadda_saxla_2e39f4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Save"
+ },
+ {
+  "key": "untranslated_yadda_saxla_2t69gn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yadda saxla"
+ },
+ {
+  "key": "untranslated_yadda_saxla_83u89b",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Save"
+ },
+ {
+  "key": "untranslated_yadda_saxla_x9dd7g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Save"
+ },
+ {
+  "key": "untranslated_yarat_44trl1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Create"
+ },
+ {
+  "key": "untranslated_yarat_6envq4",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Create"
+ },
+ {
+  "key": "untranslated_yarat_i97tre",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yarat"
+ },
+ {
+  "key": "untranslated_yeni_6i46o2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New"
+ },
+ {
+  "key": "untranslated_yeni_a03y1g",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New"
+ },
+ {
+  "key": "untranslated_yeni_analiz_03lo74",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New analysis"
+ },
+ {
+  "key": "untranslated_yeni_analiz_t3m042",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New analysis"
+ },
+ {
+  "key": "untranslated_yeni_analiz_t3yigp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni analiz"
+ },
+ {
+  "key": "untranslated_yeni_banner_7xfgdw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Banner"
+ },
+ {
+  "key": "untranslated_yeni_banner_t6wrk2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Banner"
+ },
+ {
+  "key": "untranslated_yeni_banner_x0o7fl",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Banner"
+ },
+ {
+  "key": "untranslated_yeni_dil_g3rku7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Dil"
+ },
+ {
+  "key": "untranslated_yeni_dil_ktt7gv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Language"
+ },
+ {
+  "key": "untranslated_yeni_dil_ljua1z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Language"
+ },
+ {
+  "key": "untranslated_yeni_doza_4jbdel",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni doza"
+ },
+ {
+  "key": "untranslated_yeni_doza_6k2gus",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New dose"
+ },
+ {
+  "key": "untranslated_yeni_doza_shdt34",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New dose"
+ },
+ {
+  "key": "untranslated_yeni_elan_yarat_5tiess",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Create new listing"
+ },
+ {
+  "key": "untranslated_yeni_elan_yarat_dyeqzp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Create new listing"
+ },
+ {
+  "key": "untranslated_yeni_elan_yarat_w4chk7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni elan yarat"
+ },
+ {
+  "key": "untranslated_yeni_etiket_a0sfha",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New label"
+ },
+ {
+  "key": "untranslated_yeni_etiket_gevslv",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New label"
+ },
+ {
+  "key": "untranslated_yeni_etiket_qotoq3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni etiket"
+ },
+ {
+  "key": "untranslated_yeni_fon_1c06a7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Fon"
+ },
+ {
+  "key": "untranslated_yeni_fon_7hxcap",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Background"
+ },
+ {
+  "key": "untranslated_yeni_fon_jiasu7",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Background"
+ },
+ {
+  "key": "untranslated_yeni_funksiya_9vz0e0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Funksiya"
+ },
+ {
+  "key": "untranslated_yeni_funksiya_c60eb3",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Feature"
+ },
+ {
+  "key": "untranslated_yeni_funksiya_hjll7q",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Feature"
+ },
+ {
+  "key": "untranslated_yeni_geyim_cp1d2h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Clothing"
+ },
+ {
+  "key": "untranslated_yeni_geyim_o4a0rq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Clothing"
+ },
+ {
+  "key": "untranslated_yeni_geyim_yr7s24",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Geyim"
+ },
+ {
+  "key": "untranslated_yeni_i_mkan_0bxqgh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Amenity"
+ },
+ {
+  "key": "untranslated_yeni_i_mkan_9rfsbg",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Amenity"
+ },
+ {
+  "key": "untranslated_yeni_i_mkan_k3civu",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Feature"
+ },
+ {
+  "key": "untranslated_yeni_i_mkan_nbsp1d",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Feature"
+ },
+ {
+  "key": "untranslated_yeni_kateqoriya_c4d541",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Kateqoriya"
+ },
+ {
+  "key": "untranslated_yeni_kateqoriya_mk76kd",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Category"
+ },
+ {
+  "key": "untranslated_yeni_kateqoriya_v3axfn",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Category"
+ },
+ {
+  "key": "untranslated_yeni_kupon_bd1fn5",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Coupon"
+ },
+ {
+  "key": "untranslated_yeni_kupon_n6z0l0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Kupon"
+ },
+ {
+  "key": "untranslated_yeni_kupon_peccs1",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Coupon"
+ },
+ {
+  "key": "untranslated_yeni_menyu_1h7ypq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Menyu"
+ },
+ {
+  "key": "untranslated_yeni_menyu_drahaw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Menu"
+ },
+ {
+  "key": "untranslated_yeni_menyu_tczrwq",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Menu"
+ },
+ {
+  "key": "untranslated_yeni_oyun_6om5ym",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Oyun"
+ },
+ {
+  "key": "untranslated_yeni_oyun_f02wmj",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Game"
+ },
+ {
+  "key": "untranslated_yeni_oyun_zetdmp",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Game"
+ },
+ {
+  "key": "untranslated_yeni_qr_yarat_15mnir",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Create new QR"
+ },
+ {
+  "key": "untranslated_yeni_qr_yarat_2vwnby",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Create new QR"
+ },
+ {
+  "key": "untranslated_yeni_qr_yarat_v6jc5h",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni QR yarat"
+ },
+ {
+  "key": "untranslated_yeni_qrup_ow7e5w",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Qrup"
+ },
+ {
+  "key": "untranslated_yeni_qrup_t8yrq2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Group"
+ },
+ {
+  "key": "untranslated_yeni_qrup_z470vk",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Group"
+ },
+ {
+  "key": "untranslated_yeni_resept_eum0w9",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Recipe"
+ },
+ {
+  "key": "untranslated_yeni_resept_iqu4r2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Recipe"
+ },
+ {
+  "key": "untranslated_yeni_resept_x3li0l",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Resept"
+ },
+ {
+  "key": "untranslated_yeni_saat_hh_mm_tsx3cw",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New time (HH:MM)"
+ },
+ {
+  "key": "untranslated_yeni_saat_hh_mm_w6mzvy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New time (HH:MM)"
+ },
+ {
+  "key": "untranslated_yeni_saat_hh_mm_ykl3o8",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni saat (HH:MM)"
+ },
+ {
+  "key": "untranslated_yeni_slayd_9jt7t2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Slayd"
+ },
+ {
+  "key": "untranslated_yeni_slayd_mer74z",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Slide"
+ },
+ {
+  "key": "untranslated_yeni_slayd_wot5n0",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Slide"
+ },
+ {
+  "key": "untranslated_yeni_ssenari_9evdvm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Scenario"
+ },
+ {
+  "key": "untranslated_yeni_ssenari_fjpfvy",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Ssenari"
+ },
+ {
+  "key": "untranslated_yeni_ssenari_sj51ue",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Scenario"
+ },
+ {
+  "key": "untranslated_yeni_stil_e6027a",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Stil"
+ },
+ {
+  "key": "untranslated_yeni_stil_gbs9hz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Style"
+ },
+ {
+  "key": "untranslated_yeni_stil_u33uqm",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Style"
+ },
+ {
+  "key": "untranslated_yeni_sual_1yzmaz",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Question"
+ },
+ {
+  "key": "untranslated_yeni_sual_5awtq2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Question"
+ },
+ {
+  "key": "untranslated_yeni_sual_ats4az",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Sual"
+ },
+ {
+  "key": "untranslated_yeni_t13hh2",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni"
+ },
+ {
+  "key": "untranslated_yeni_tema_8o06os",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yeni Tema"
+ },
+ {
+  "key": "untranslated_yeni_tema_q87wto",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Theme"
+ },
+ {
+  "key": "untranslated_yeni_tema_vz8j0o",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "New Theme"
+ },
+ {
+  "key": "untranslated_yerli_ad_english_1dvse6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yerli Ad (English)"
+ },
+ {
+  "key": "untranslated_yerli_ad_english_m5cm6w",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Native Name (English)"
+ },
+ {
+  "key": "untranslated_yerli_ad_english_tunnoh",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Native Name (English)"
+ },
+ {
+  "key": "untranslated_yuxu_saat_145k6w",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sleep (hours)"
+ },
+ {
+  "key": "untranslated_yuxu_saat_2chnl6",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Sleep (hours)"
+ },
+ {
+  "key": "untranslated_yuxu_saat_l9nt0p",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Yuxu (saat)"
+ },
+ {
+  "key": "useflowreminders_title_fertile_end",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Fertile window ends"
+ },
+ {
+  "key": "useflowreminders_title_fertile_start",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Fertile window begins"
+ },
+ {
+  "key": "useflowreminders_title_ovulation",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Ovulation is approaching"
+ },
+ {
+  "key": "useflowreminders_title_period_end",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Period ending soon"
+ },
+ {
+  "key": "useflowreminders_title_period_start",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Period is approaching"
+ },
+ {
+  "key": "useflowreminders_title_pill",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "Pill reminder"
+ },
+ {
+  "key": "useflowreminders_title_pms",
+  "langs": "en",
+  "srcLang": "en",
+  "src": "PMS approaching"
+ }
+]

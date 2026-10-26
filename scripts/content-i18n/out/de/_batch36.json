@@ -1,0 +1,28 @@
+{
+ "shop_categories": {
+  "cd90bd4d-46d1-497a-8ade-fdaf843e4895": {
+   "name": "Wohlbefinden"
+  },
+  "fac167aa-7547-40aa-97a3-7e55bced50fc": {
+   "name": "Hautpflege"
+  },
+  "10992c60-13d4-483e-98a0-1870da5e03cf": {
+   "name": "Kleidung"
+  },
+  "3245ef54-f169-4428-94c1-06829a3899e4": {
+   "name": "Ernährung"
+  },
+  "83292e39-c650-404d-85f9-2977e71cc907": {
+   "name": "Medikamente"
+  },
+  "a720b946-f823-4475-9f39-72abcbf5b3e0": {
+   "name": "Baby"
+  },
+  "adf0b0da-7fdf-46e5-9428-6964e0d4e3f2": {
+   "name": "Vitamine"
+  },
+  "b3165a83-bdab-4e25-8de2-440b47fb7250": {
+   "name": "Alle"
+  }
+ }
+}

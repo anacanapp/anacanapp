@@ -1,0 +1,177 @@
+src\components\admin\AdminAffiliateProducts.tsx:25: Baby Stroller,Uşaq arabası,https://example.com/product1,baby_gear,trendyol,199.99,249.99,AZN,https://example.com/img.jpg,"https://img1.jpg|https://img2.jpg",,Trendyol,,High quality stroller,Yüksək keyfiyyətli araba,4.5,120,Əla məhsuldur,bump|mommy,true,true,"Rahat|Möhkəm","Ağır",körpə|araba,"{""Çəki"":""8kg"",""Rəng"":""Qara""}"`;
+src\components\admin\AdminAffiliateProducts.tsx:186: errors.push(`Sətir atlandı: name və ya affiliate_url yoxdur`);
+src\components\admin\AdminAffiliateProducts.tsx:235: title: `${successCount} məhsul əlavə edildi`,
+src\components\admin\AdminAffiliateProducts.tsx:236: description: `${errors.length} xəta: ${errors.slice(0, 3).join(', ')}${errors.length > 3 ? '...' : ''}`,
+src\components\admin\AdminAffiliateProducts.tsx:240: toast({ title: `${successCount} məhsul uğurla əlavə edildi` });
+src\components\admin\AdminAffiliateProducts.tsx:396: toast({ title: `${items.length} məhsul ixrac edildi` });
+src\components\admin\AdminAffiliateProducts.tsx:400: <FileDown className="w-4 h-4 mr-2" /> İxrac
+src\components\admin\AdminAnalytics.tsx:53: community: 'İcma',
+src\components\admin\AdminAnalytics.tsx:246: bump: '#f28155', mommy: '#8b5cf6', flow: '#ec4899', partner: '#3b82f6', 'Naməlum': '#9ca3af'
+src\components\admin\AdminBabyCrisisCalendar.tsx:264: `Həftə ${period.week_start}` :
+src\components\admin\AdminBabyCrisisCalendar.tsx:265: `Həftə ${period.week_start}-${period.week_end}`}
+src\components\admin\AdminBabyDailyInfo.tsx:127: toast.success(`${result.success} məlumat idxal edildi${result.failed > 0 ? `, ${result.failed} uğursuz` : ''}`);
+src\components\admin\AdminBabyDailyInfo.tsx:148: <Upload className="w-4 h-4 mr-1" /> CSV İdxal
+src\components\admin\AdminBabyDailyInfo.tsx:168: toast.success(`${data.length} məlumat ixrac edildi`);
+src\components\admin\AdminBabyDailyInfo.tsx:172: <FileDown className="w-4 h-4 mr-1" /> İxrac
+src\components\admin\AdminBabyGrowth.tsx:230: {entry.profiles?.name || 'İsimsiz'}
+src\components\admin\AdminBabyIllustrations.tsx:261: placeholder={`${selectedMonth} aylıq körpə`} />
+src\components\admin\AdminBlog.tsx:120: replace(/ş/g, 's').replace(/ə/g, 'e').replace(/ı/g, 'i').
+src\components\admin\AdminBlog.tsx:121: replace(/ğ/g, 'g').replace(/ö/g, 'o').replace(/ü/g, 'u').
+src\components\admin\AdminBlog.tsx:122: replace(/ç/g, 'c').replace(/İ/gi, 'i').
+src\components\admin\AdminBlog.tsx:341: description: `Bu kateqoriya ${usageCount} məqalədə istifadə olunur. Əvvəlcə məqalələrdən çıxarın.`,
+src\components\admin\AdminContentManager.tsx:194: 'Mənşə': 'origin',
+src\components\admin\AdminContentManager.tsx:195: 'Məna': 'meaning',
+src\components\admin\AdminContentManager.tsx:196: 'Məna (AZ)': 'meaning_az',
+src\components\admin\AdminContentManager.tsx:197: 'Populyarlıq': 'popularity'
+src\components\admin\AdminContentManager.tsx:216: 'Qız': 'girl',
+src\components\admin\AdminContentManager.tsx:217: 'Oğlan': 'boy',
+src\components\admin\AdminContentManager.tsx:273: description: `Bütün ${namesImportData.length} ad artıq mövcuddur`
+src\components\admin\AdminContentManager.tsx:288: description: `${newNames.length} yeni ad əlavə edildi${duplicateCount > 0 ? `, ${duplicateCount} təkrar ad keçildi` : ''}`
+src\components\admin\AdminContentManager.tsx:321: 'Başlıq': 'title',
+src\components\admin\AdminContentManager.tsx:322: 'Təsvir': 'description',
+src\components\admin\AdminContentManager.tsx:324: 'Hazırlıq (dəq)': 'prep_time',
+src\components\admin\AdminContentManager.tsx:325: 'Bişirmə (dəq)': 'cook_time',
+src\components\admin\AdminContentManager.tsx:327: 'İnqredientlər': 'ingredients',
+src\components\admin\AdminContentManager.tsx:328: 'Hazırlanma': 'instructions',
+src\components\admin\AdminContentManager.tsx:329: 'Şəkil URL': 'image_url'
+src\components\admin\AdminContentManager.tsx:390: description: `${recipesImportData.length} resept əlavə edildi`
+src\components\admin\AdminContentManager.tsx:407: const template = `Başlıq,Təsvir,Kateqoriya,Hazırlıq (dəq),Bişirmə (dəq),Porsiya,İnqredientlər,Hazırlanma,Şəkil URL
+src\components\admin\AdminContentManager.tsx:408: "Limonlu Zəncəfil Çayı","Hamiləlik dövründə ürəkbulanmaya qarşı ideal içki","pregnancy",5,0,2,"Su - 500ml; Təzə zəncəfil - 2sm; Limon - yarım; Bal - 1 çay qaşığı","Zəncəfili doğrayın; Suyu qaynadın; Zəncəfili əlavə edib 5 dəq dəmləyin; Limon və bal əlavə edin",""
+src\components\admin\AdminContentManager.tsx:409: "Avokado Tostu","Folat və sağlam yağlarla zəngin səhər yeməyi","pregnancy",10,5,1,"Çörək - 2 dilim; Avokado - 1 ədəd; Yumurta - 1 ədəd; Duz, istiot","Çörəyi qızardın; Avokadonu əzin; Yumurtanı bişirin; Hamısını birləşdirin",""
+src\components\admin\AdminContentManager.tsx:410: "Banan Smoothie","Enerji verən və qəbizliyə qarşı içki","breastfeeding",5,0,1,"Banan - 1 ədəd; Süd - 200ml; Bal - 1 çay qaşığı; Yulaf - 2 xörək qaşığı","Bütün inqredientləri blenderə qoyun; 1 dəq qarışdırın; Soyuq serviz edin",""`;
+src\components\admin\AdminContentManager.tsx:420: const template = `Ad,Cins,Mənşə,Məna,Məna (AZ),Populyarlıq
+src\components\admin\AdminContentManager.tsx:421: "Aylin","Qız","Türk","Ayın parıltısı","Ayın ətrafındakı işıq, nur","98%"
+src\components\admin\AdminContentManager.tsx:422: "Əli","Oğlan","Ərəb","Yüksək, əzəmətli","Uca, şərəfli","99%"
+src\components\admin\AdminContentManager.tsx:423: "Ayan","Unisex","Türk","Bəlli, açıq","Göz qabağında olan, tanınan","90%"`;
+src\components\admin\AdminContentManager.tsx:591: <SelectValue placeholder={`${field} seçin`} />
+src\components\admin\AdminContentManager.tsx:999: `${namesImportData.length} Ad Əlavə Et`
+src\components\admin\AdminContentManager.tsx:1063: `${recipesImportData.length} Resept Əlavə Et`
+src\components\admin\AdminCoupons.tsx:276: {c.max_uses ? ` · ${c.used_count || 0}/${c.max_uses} istifadə` : ` · ${c.used_count || 0} istifadə`}
+src\components\admin\AdminData.tsx:83: const confirmed = window.confirm(`${table} cədvəlindəki 30 gündən köhnə məlumatları silmək istəyirsiniz?`);
+src\components\admin\AdminDeeplinks.tsx:74: 'Əsas': '🏠',
+src\components\admin\AdminDeeplinks.tsx:75: 'Alətlər': '🔧',
+src\components\admin\AdminDeeplinks.tsx:77: 'Məzmun': '📝',
+src\components\admin\AdminDeeplinks.tsx:79: 'İcma': '👥',
+src\components\admin\AdminDeeplinks.tsx:80: 'Digər': '📋'
+src\components\admin\AdminFruitImages.tsx:123: description: `Həftə ${weekNumber} üçün şəkil yükləndi`
+src\components\admin\AdminLanguages.tsx:215: if (confirm(`"${lang.native_name}" dilini silmək istəyirsiniz?`)) {
+src\components\admin\AdminModeration.tsx:413: {report.reporter?.name?.charAt(0) || 'İ'}
+src\components\admin\AdminModeration.tsx:433: {report.postAuthor?.name?.charAt(0) || 'İ'}
+src\components\admin\AdminModeration.tsx:520: <span className="font-bold text-primary">{post.author?.name?.charAt(0) || 'İ'}</span>
+src\components\admin\AdminModeration.tsx:596: {comment.author?.name?.charAt(0) || 'İ'}
+src\components\admin\AdminMommyDailyMessages.tsx:101: toast.success(`${result.success} uğurlu, ${result.failed} uğursuz`);
+src\components\admin\AdminMommyDailyMessages.tsx:161: <FileDown className="w-4 h-4 mr-1" /> İxrac
+src\components\admin\AdminPlacesConfig.tsx:106: toast.success('İmkan silindi');
+src\components\admin\AdminPlacesConfig.tsx:123: <TabsTrigger value="amenities">İmkanlar ({amenities.length})</TabsTrigger>
+src\components\admin\AdminPlacesConfig.tsx:192: <Plus className="w-4 h-4 mr-2" /> Yeni İmkan
+src\components\admin\AdminPregnancyContent.tsx:141: if (!confirm(`${selectedItems.length} məlumatı silmək istədiyinizə əminsiniz?`)) return;
+src\components\admin\AdminPregnancyContent.tsx:145: toast({ title: `${selectedItems.length} məlumat silindi!` });
+src\components\admin\AdminPregnancyContent.tsx:225: 'Doğuma neçə gün qaldı': 'days_until_birth',
+src\components\admin\AdminPregnancyContent.tsx:226: 'Təxmini çəki': 'baby_weight_gram',
+src\components\admin\AdminPregnancyContent.tsx:227: 'Təxmini boy': 'baby_size_cm',
+src\components\admin\AdminPregnancyContent.tsx:228: 'Təxmini ölçüsündə olduğu meyvə / obyekt': 'baby_size_fruit',
+src\components\admin\AdminPregnancyContent.tsx:229: 'Təxmini ölçüsündəolduğu meyvə / obyekt': 'baby_size_fruit',
+src\components\admin\AdminPregnancyContent.tsx:230: 'Təxmini ölçüsündə olduğu meyvə': 'baby_size_fruit',
+src\components\admin\AdminPregnancyContent.tsx:231: 'Körpənizdən sizə mesaj var...': 'baby_message',
+src\components\admin\AdminPregnancyContent.tsx:232: 'Körpənizdən sizə mesaj var': 'baby_message',
+src\components\admin\AdminPregnancyContent.tsx:233: 'Bədəninizdə nələr baş verir...': 'body_changes',
+src\components\admin\AdminPregnancyContent.tsx:234: 'Bədəninizdə nələr baş verir': 'body_changes',
+src\components\admin\AdminPregnancyContent.tsx:235: 'Körpənin inkişafında nələr baş verir...': 'baby_development',
+src\components\admin\AdminPregnancyContent.tsx:236: 'Körpənin inkişafında nələr baş verir': 'baby_development',
+src\components\admin\AdminPregnancyContent.tsx:237: 'Günün Məsləhəti': 'daily_tip',
+src\components\admin\AdminPregnancyContent.tsx:238: 'Günün məsləhəti': 'daily_tip',
+src\components\admin\AdminPregnancyContent.tsx:326: toast({ title: 'CSV oxundu', description: `${data.length} sətir tapıldı. Bazaya yazılır...` });
+src\components\admin\AdminPregnancyContent.tsx:335: description: `${results.success} uğurlu, ${results.failed} uğursuz${results.errors?.length ? ` - İlk xəta: ${results.errors[0]}` : ''}`
+src\components\admin\AdminPushNotifications.tsx:360: title: `Hamiləliyin ${dayNumber}-ci günü 🌟`,
+src\components\admin\AdminPushNotifications.tsx:513: toast.success(`CSV import tamamlandı: ${inserted} yeni${errors > 0 ? `, ${errors} xəta` : ''}${skipped > 0 ? `, ${skipped} keçildi` : ''}`);
+src\components\admin\AdminPushNotifications.tsx:586: toast.success(`${notifications.length} bildiriş ixrac edildi`);
+src\components\admin\AdminPushNotifications.tsx:946: toast.success(`${data.sent || 0} flow xatırlatması göndərildi!`);
+src\components\admin\AdminPushNotifications.tsx:1184: toast.success(`${result.sent} cihaza göndərildi!`);
+src\components\admin\AdminPushNotifications.tsx:1279: <div className="font-medium">{device.profile?.name || 'İsimsiz'}</div>
+src\components\admin\AdminPushNotifications.tsx:1685: title: `Körpənizin ${dayNumber}-ci günü 🌟`,
+src\components\admin\AdminPushNotifications.tsx:1862: toast.success(`CSV import tamamlandı: ${inserted} yeni${errors > 0 ? `, ${errors} xəta` : ''}${skipped > 0 ? `, ${skipped} keçildi` : ''}`);
+src\components\admin\AdminPushNotifications.tsx:1930: toast.success(`${notifications.length} bildiriş ixrac edildi`);
+src\components\admin\AdminRecipes.tsx:250: 'Başlıq': 'title',
+src\components\admin\AdminRecipes.tsx:251: 'Təsvir': 'description',
+src\components\admin\AdminRecipes.tsx:253: 'Hazırlıq (dəq)': 'prep_time',
+src\components\admin\AdminRecipes.tsx:254: 'Bişirmə (dəq)': 'cook_time',
+src\components\admin\AdminRecipes.tsx:257: 'İnqredientlər': 'ingredients',
+src\components\admin\AdminRecipes.tsx:258: 'Hazırlanma': 'instructions',
+src\components\admin\AdminRecipes.tsx:259: 'Şəkil URL': 'image_url'
+src\components\admin\AdminRecipes.tsx:320: description: `${importData.length} resept əlavə edildi`
+src\components\admin\AdminSubscriptions.tsx:106: if (!confirm(`${user.name} üçün Premium-u ləğv etmək istəyirsiniz?`)) return;
+src\components\admin\AdminSubscriptions.tsx:226: {user.name?.charAt(0) || 'İ'}
+src\components\admin\AdminTranslations.tsx:123: toast.success(`${saved} tərcümə yadda saxlanıldı`);
+src\components\admin\AdminTranslations.tsx:197: toast.success(`${imported} tərcümə idxal edildi`);
+src\components\admin\AdminTranslations.tsx:219: <Download className="w-4 h-4 mr-1" /> CSV İxrac
+src\components\admin\AdminUsers.tsx:161: description: `${selectedUser.name} üçün ${getRoleLabel(selectedRole)} rolu təyin edildi`
+src\components\admin\AdminVaccines.tsx:262: if (confirm(`${c.name_az} silinsin? Bütün peyvəndlər də silinəcək.`)) delCountry.mutate(c.id);
+src\components\admin\AdminVaccines.tsx:291: if (confirm(`${v.name_az} silinsin? Bütün dozalar da silinəcək.`)) delVaccine.mutate(v.id);
+src\components\admin\BulkTimeManager.tsx:107: if (!confirm(`${selected.size} sətrin saatı "${newTime}" olaraq dəyişdiriləcək. Davam edək?`)) return;
+src\components\admin\BulkTimeManager.tsx:120: toast.success(`${ids.length} bildirişin saatı ${newTime} oldu`);
+src\components\admin\BulkTipsImport.tsx:38: "title": "Hamiləliyin 1-ci həftəsi",
+src\components\admin\BulkTipsImport.tsx:39: "content": "Bu həftə körpəniz hələ kiçik bir hüceyrədir. Folik turşusu qəbul etməyi unutmayın!"
+src\components\admin\BulkTipsImport.tsx:43: "title": "Hamiləliyin 2-ci həftəsi",
+src\components\admin\BulkTipsImport.tsx:44: "content": "Ovulyasiya dövrü başlayır. Sağlam qidalanma çox vacibdir."
+src\components\admin\BulkTipsImport.tsx:54: title: `Hamiləliyin ${week}-ci həftəsi`,
+src\components\admin\BulkTipsImport.tsx:55: content: `${week}-ci həftə üçün tövsiyə məzmunu buraya yazılacaq.`,
+src\components\admin\BulkTipsImport.tsx:146: description: `${successCount} uğurlu, ${failedCount} uğursuz`
+src\components\admin\BulkTipsImport.tsx:210: <span>İmport edilir... {progress}%</span>
+src\components\admin\BulkTipsImport.tsx:233: {importing ? 'İmport edilir...' : 'İmport et'}
+src\components\admin\NotificationOpsCard.tsx:74: if (allHours) return { ok: false, message: `gözlənilən: ${expected.join(',')} — alındı: ${baku}` };
+src\components\admin\NotificationOpsCard.tsx:77: if (missing.length) return { ok: false, message: `çatışmayan: ${missing.join(',')} (Baku saat)` };
+src\components\admin\NotificationOpsCard.tsx:114: if (sent > 0) toast.success(`${fn}: ${sent} push göndərildi`);else
+src\components\admin\NotificationOpsCard.tsx:115: toast.warning(`${fn}: 0 push (səbəbə bax)`);
+src\components\admin\PushDiagnosticsCard.tsx:37: toast.success(`${sent} dinamik push göndərildi (sənin cihazına)`);
+src\components\admin\PushDiagnosticsCard.tsx:94: toast.success(`${masked.length} aktiv token tapıldı`);
+src\components\AIChatScreen.tsx:124: return `Salam${userName}. Mən Anacan.AI. Menstrual tsikl, simptomlar və ümumi sağlamlıq üzrə suallarınıza peşəkar cavab verməyə hazıram.`;
+src\components\AIChatScreen.tsx:126: return `Salam${userName}. Mən Anacan.AI. ${pregnancyData ? `Hazırda hamiləliyin ${pregnancyData.currentWeek}-ci həftəsindəsiniz; körpəniz təxminən ${dynamicFruit || pregnancyData.babySize.fruit} böyüklüyündədir. ` : ''}Hamiləlik dövrü ilə bağlı suallarınızı verə bilərsiniz.`;
+src\components\AIChatScreen.tsx:128: return `Salam${userName}. Mən Anacan.AI. Körpə baxımı, əmizdirmə, yuxu rejimi və doğuşdan sonrakı bərpa ilə bağlı suallarınıza dəstək olmağa hazıram.`;
+src\components\AIChatScreen.tsx:130: return `Salam${userName}. Mən Anacan.AI. Sizə necə kömək edə bilərəm?`;
+src\components\AuthScreen.tsx:248: description: `${partnerProfile.name} ilə əlaqələndirildiniz.`
+src\components\BirthOnboardingModal.tsx:106: description: `${babyName} dünyaya xoş gəldi! Analıq səyahətinizə başlayırıq.`
+src\components\cakes\CakeOrderForm.tsx:172: notes: `${formData.notes || ''} [${paymentLabel} ödəniş]`.trim(),
+src\components\cakes\CakeOrderForm.tsx:480: {paymentMethod === 'card_simulated' ? `Ödə və sifariş ver` :
+src\components\cakes\CakeOrderForm.tsx:481: paymentMethod === 'c2c_transfer' ? `Sifarişi təsdiqlə` :
+src\components\cakes\CakeOrderForm.tsx:482: `Sifariş göndər`} — {totalPrice.toFixed(2)}₼
+src\components\community\CommentReply.tsx:106: {comment.author?.name?.charAt(0) || 'İ'}
+src\components\community\CreatePostModal.tsx:135: if (error) throw new Error(`Fayl yüklənə bilmədi: ${error.message}`);
+src\components\community\CreatePostScreen.tsx:131: if (error) throw new Error(`Fayl yüklənə bilmədi: ${error.message}`);
+src\components\community\GroupPresenceBar.tsx:47: {typingUsers.length === 1 ? `${typingUsers[0].name} yazır...` : `${typingUsers.length} nəfər yazır...`}
+src\components\community\PostCard.tsx:152: <AvatarFallback className="bg-gradient-to-br from-primary/15 to-accent/10 text-primary font-black text-xs">{post.author?.name?.charAt(0) || 'İ'}</AvatarFallback>
+src\components\community\PostCard.tsx:157: <AvatarFallback className="bg-gradient-to-br from-primary/15 to-accent/10 text-primary font-black text-xs">{post.author?.name?.charAt(0) || 'İ'}</AvatarFallback>
+src\components\community\UserProfileScreen.tsx:201: {profile.name?.charAt(0) || 'İ'}
+src\components\Dashboard.tsx:310: description: `Bu gün ${kickCount + 1} təpik`
+src\components\Dashboard.tsx:319: description: `${waterCount + 1}/8 stəkan`
+src\components\Dashboard.tsx:376: alt={`${selectedWeek} həftəlik körpə`}
+src\components\Dashboard.tsx:381: {/* Main Text - "Anacan hazırda meyvə boydayam" */}
+src\components\Dashboard.tsx:891: toast({ title: "Yuxu bitdi! ☀️", description: `${formatDuration(result.durationSeconds)} yatdı` });
+src\components\Dashboard.tsx:916: description: `Müddət: ${formatDuration(result.durationSeconds)}`
+src\components\Dashboard.tsx:977: toast({ title: `Bez dəyişmə: ${typeEmojis[type]}` });
+src\components\Dashboard.tsx:1551: if (h === 0) return `${m} dəq`;
+src\components\Dashboard.tsx:1553: return `${h} saat ${m} dəq`;
+src\components\Dashboard.tsx:1583: const durText = dH > 0 ? `${dH}s ${dM}d` : dM > 0 ? `${dM} dəq ${dS} san` : `${dS} san`;
+src\components\flow\CycleAnomalyBanner.tsx:17: message: `Ən qısa tsikliniz ${stats.shortestCycle} gündür. 21 gündən az tsikllər həkim müraciəti tələb edə bilər.`
+src\components\flow\CycleAnomalyBanner.tsx:25: message: `Ən uzun tsikliniz ${stats.longestCycle} gündür. 35 gündən uzun tsikllər PCOS və ya hormonal disbalans əlaməti ola bilər.`
+src\components\flow\CycleAnomalyBanner.tsx:33: message: `Tsikllər arasında ${stats.cycleVariation} gün fərq var. Bu stress, çəki dəyişikliyi və ya tireoid problemlərlə bağlı ola bilər.`
+src\components\flow\PeriodDelayBanner.tsx:44: message: `Periodunuz təxmini tarixdən ${delayDays} gün gecikir. Hamiləlik testi etməyi və ya Dr. Anacan-dan soruşmağı düşünün.`,
+src\components\flow\PeriodDelayBanner.tsx:74: onClick={() => navigate(`/ai-chat?prompt=${encodeURIComponent(`Periodum ${delayDays} gün gecikib, nə edə bilərəm?`)}`)}
+src\components\funnel\funnelData.ts:174: lines.push(`${name}, ${week}-ci həftədə olan hamilə qadınların 78%-i müəyyən narahatlıqlar yaşayır.`);
+src\components\funnel\funnelData.ts:189: lines.push(`${name}, ${ageMonths} aylıq körpəsi olan anaların 82%-i oxşar çətinliklərlə üzləşir.`);
+src\components\funnel\funnelData.ts:201: lines.push(`${name}, ${cycleLen} günlük tsiklinizə əsasən fərdi təhlil hazırladıq.`);
+src\components\funnel\steps\AnalysisStep.tsx:7: contextLine: string; // e.g. "24-cü həftə, 2-ci trimester"
+src\components\funnel\steps\PaywallStep.tsx:211: yearlyTrialDays ? `${yearlyTrialDays} gün pulsuz sınayın · Sonra ${yearlyPriceStr}/il · İstənilən vaxt ləğv edin` : `${yearlyPriceStr}/il · İstənilən vaxt ləğv edin` :
+src\components\funnel\steps\PaywallStep.tsx:212: monthlyTrialDays ? `${monthlyTrialDays} gün pulsuz sınayın · Sonra ${monthlyPriceStr}/ay · İstənilən vaxt ləğv edin` : `${monthlyPriceStr}/ay · İstənilən vaxt ləğv edin`}
+src\components\MedicalDisclaimer.tsx:16: 'Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda 103-ə zəng edin.'
+src\components\partner\PartnerHeroCard.tsx:63: if (lifeStage === 'bump' && currentWeek > 0) return `Hamiləlik: ${currentWeek}. həftə`;
+src\components\partner\PartnerMissionsCard.tsx:32: title: `+${result.pointsEarned} xal qazandın! 🎉`,
+src\components\partner\SurpriseTab.tsx:158: content: `🎁 Həyat yoldaşın sənin üçün xüsusi bir sürpriz planladı!`
+src\components\partner\SurpriseTab.tsx:188: content: `${emoji} Həyat yoldaşın "${title}" sürprizini sənin üçün tamamladı! 🎉`
+src\components\partner\SurpriseTab.tsx:204: title: `+${points} xal qazandın! 🏆`,
+src\components\partner\SurpriseTab.tsx:205: description: `${title} tamamlandı!`
+src\components\partner\SyncedFeaturesGrid.tsx:25: subtitle: `${checkedCount}/${totalCount} hazır`,
+src\components\PartnerDashboard.tsx:116: description: `${womanName} bildiriş alacaq`
+src\components\ProfileEditScreen.tsx:261: {formData.name?.charAt(0) || 'İ'}
+src\components\ProfileScreen.tsx:64: toast({ title: `${childForm.name} əlavə edildi` });
+src\components\ProfileScreen.tsx:119: const shareText = `Anacan tətbiqinə qoşul və hamiləlik səyahətimizdə mənə dəstək ol! Partnyor kodum: ${partnerCode}\n\nTətbiqi yüklə: https://anacanapp.lovable.app`;
+src\pages\RevenueCatDebug.tsx:29: append(`Bundle versiyası: ${RC_BUILD_MARKER}`);

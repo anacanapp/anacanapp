@@ -1,0 +1,44 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.13.0'
+        classpath 'com.google.gms:google-services:4.4.4'
+        // HealthCycle plugini (app modulunda Kotlin) üçün — capacitor-health ilə eyni versiya
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+apply from: "variables.gradle"
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    // Fix duplicate Kotlin stdlib classes (jdk7/jdk8 1.6.21 vs stdlib 1.8.22)
+    configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'org.jetbrains.kotlin'
+                && (details.requested.name == 'kotlin-stdlib'
+                    || details.requested.name == 'kotlin-stdlib-jdk7'
+                    || details.requested.name == 'kotlin-stdlib-jdk8'
+                    || details.requested.name == 'kotlin-stdlib-common')) {
+                details.useVersion '1.9.24'
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,1 @@
+UPDATE public.tool_configs SET is_premium = false, premium_type = 'none' WHERE tool_id = 'blog';

@@ -1,0 +1,447 @@
+[
+ {
+  "key": "pw_trial_chip",
+  "az": "{days} GÜN PULSUZ",
+  "en": "{days} DAYS FREE"
+ },
+ {
+  "key": "pw_web_title",
+  "az": "Premium mobil tətbiqdədir",
+  "en": "Premium is in the mobile app"
+ },
+ {
+  "key": "quizstep_davam_et_a832bc",
+  "az": "Davam et",
+  "en": "Continue"
+ },
+ {
+  "key": "quizstep_neticeleri_gor_ddd101",
+  "az": "Nəticələri gör",
+  "en": "See the results"
+ },
+ {
+  "key": "ref_code_sub",
+  "az": "Sənin dəvət kodun — paylaş, ikiniz də qazanın",
+  "en": "Your invite code — share it, you both win"
+ },
+ {
+  "key": "ref_code_unavailable",
+  "az": "Kod hazırlanır — bir azdan yenidən baxın",
+  "en": "Code is being prepared — check back soon"
+ },
+ {
+  "key": "ref_converted_on",
+  "az": "Premium:",
+  "en": "Premium:"
+ },
+ {
+  "key": "ref_copied_full",
+  "az": "Dəvət mətni kopyalandı ✓",
+  "en": "Invite text copied ✓"
+ },
+ {
+  "key": "ref_days_short",
+  "az": "gün",
+  "en": "days"
+ },
+ {
+  "key": "ref_earned_days",
+  "az": "Qazanılan gün",
+  "en": "Days earned"
+ },
+ {
+  "key": "ref_err_already",
+  "az": "Artıq bir dəvət kodu istifadə etmisiniz",
+  "en": "You have already redeemed a code"
+ },
+ {
+  "key": "ref_err_generic",
+  "az": "Xəta baş verdi — yenidən cəhd edin",
+  "en": "Something went wrong — try again"
+ },
+ {
+  "key": "ref_err_invalid",
+  "az": "Kod tapılmadı — yoxlayıb yenidən yazın",
+  "en": "Code not found — check and try again"
+ },
+ {
+  "key": "ref_err_own",
+  "az": "Öz kodunuzu istifadə edə bilməzsiniz",
+  "en": "You can’t use your own code"
+ },
+ {
+  "key": "ref_eyebrow",
+  "az": "Referral proqramı",
+  "en": "Referral program"
+ },
+ {
+  "key": "ref_have_code",
+  "az": "Dəvət kodun var?",
+  "en": "Have an invite code?"
+ },
+ {
+  "key": "ref_invited",
+  "az": "Dəvət edilən",
+  "en": "Invited"
+ },
+ {
+  "key": "ref_list_title",
+  "az": "Dəvətlərin",
+  "en": "Your invites"
+ },
+ {
+  "key": "ref_pending",
+  "az": "gözlənilir",
+  "en": "pending"
+ },
+ {
+  "key": "ref_premium_count",
+  "az": "Premium olan",
+  "en": "Went Premium"
+ },
+ {
+  "key": "ref_redeem_btn",
+  "az": "Tətbiq et",
+  "en": "Redeem"
+ },
+ {
+  "key": "ref_redeem_failed",
+  "az": "Alınmadı",
+  "en": "Failed"
+ },
+ {
+  "key": "ref_redeem_success",
+  "az": "Təbriklər! 🎉",
+  "en": "Congrats! 🎉"
+ },
+ {
+  "key": "ref_redeem_success_desc_v2",
+  "az": "Dəvət kodu tətbiq olundu — dəvət edən dostunuz sizə görə mükafat qazanacaq",
+  "en": "Invite code applied — your friend will earn a reward thanks to you"
+ },
+ {
+  "key": "ref_share_btn",
+  "az": "Kodu paylaş",
+  "en": "Share code"
+ },
+ {
+  "key": "ref_share_text_v3",
+  "az": "Anacan — hamiləlik, analıq və tsikl bələdçisi! Qeydiyyatda dəvət kodumu daxil et: {code} 💛",
+  "en": "Anacan — pregnancy, motherhood & cycle companion! Enter my invite code at signup: {code} 💛"
+ },
+ {
+  "key": "ref_st_premium",
+  "az": "Premium",
+  "en": "Premium"
+ },
+ {
+  "key": "ref_st_registered",
+  "az": "Qeydiyyat",
+  "en": "Registered"
+ },
+ {
+  "key": "ref_st_trial",
+  "az": "Free trial",
+  "en": "Free trial"
+ },
+ {
+  "key": "ref_step1",
+  "az": "Kodunu dostlarına göndər",
+  "en": "Send your code to friends"
+ },
+ {
+  "key": "ref_step2_v3",
+  "az": "Dostun tətbiqi yükləyib kodunu daxil edir",
+  "en": "Your friend installs the app and enters your code"
+ },
+ {
+  "key": "ref_step3_v2",
+  "az": "Dostun Premium olanda (birbaşa və ya trial-dan sonra) SƏN +7 gün qazanırsan",
+  "en": "When your friend goes Premium (directly or after trial) YOU earn +7 days"
+ },
+ {
+  "key": "ref_terms_v2",
+  "az": "Hər hesab yalnız 1 dəvət kodu istifadə edə bilər. Sənin +7 günün dostun real Premium olanda (trial-dan keçid daxil) avtomatik verilir və mövcud müddətin üstünə əlavə olunur.",
+  "en": "Each account can redeem only one code. Your +7 days are granted automatically when your friend becomes a real Premium member (including after trial) and stack on top of your current period."
+ },
+ {
+  "key": "ref_title",
+  "az": "Dostunu dəvət et",
+  "en": "Invite a friend"
+ },
+ {
+  "key": "resultsstep_cavablariniza_esasen_hazirlandi_43354d",
+  "az": "Cavablarınıza əsasən hazırlandı",
+  "en": "Prepared based on your answers"
+ },
+ {
+  "key": "resultsstep_ferdi_analiziniz_404155",
+  "az": "Fərdi Analiziniz",
+  "en": "Your Personal Analysis"
+ },
+ {
+  "key": "resultsstep_hellimi_goster_2fc23c",
+  "az": "Həllimi göstər",
+  "en": "Show the solution"
+ },
+ {
+  "key": "reversetrialfunnel_analiq_9e762d",
+  "az": "Analıq",
+  "en": "Motherhood"
+ },
+ {
+  "key": "reversetrialfunnel_cycle_status",
+  "az": "Tsikl: {length} gün",
+  "en": "Cycle: {length} days"
+ },
+ {
+  "key": "reversetrialfunnel_hamilelik_e86feb",
+  "az": "Hamiləlik",
+  "en": "Pregnancy"
+ },
+ {
+  "key": "reversetrialfunnel_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "reviewsstep_diger_analar_ne_deyir_6be761",
+  "az": "Digər Analar Nə Deyir?",
+  "en": "What Other Mothers Say?"
+ },
+ {
+  "key": "reviewsstep_real_istifadeci_reyleri_c97721",
+  "az": "Real istifadəçi rəyləri",
+  "en": "Real user reviews"
+ },
+ {
+  "key": "splashscreen_en_yaxin_refiqeniz_e87e27",
+  "az": "Ən yaxın rəfiqəniz",
+  "en": "Your closest friend"
+ },
+ {
+  "key": "usepaywallconfig_3_gun_pulsuz_9e6197",
+  "az": "3 GÜN PULSUZ",
+  "en": "3 DAYS FREE"
+ },
+ {
+  "key": "usepaywallconfig_abuneliyi_berpa_et_9e9e21",
+  "az": "Abunəliyi Bərpa Et",
+  "en": "Restore subscription"
+ },
+ {
+  "key": "usepaywallconfig_abuneliyi_legv_et_83e5de",
+  "az": "Abunəliyi Ləğv Et",
+  "en": "Cancel subscription"
+ },
+ {
+  "key": "usepaywallconfig_abuneliyim_f6c8ed",
+  "az": "Abunəliyim",
+  "en": "My subscription"
+ },
+ {
+  "key": "usepaywallconfig_ai_desteyi_934e62",
+  "az": "AI dəstəyi",
+  "en": "AI support"
+ },
+ {
+  "key": "usepaywallconfig_app_store_google_play_den_yukl_1a75c6",
+  "az": "App Store / Google Play-dən yükləyin",
+  "en": "Download from App Store / Google Play"
+ },
+ {
+  "key": "usepaywallconfig_ayliq_6f265e",
+  "az": "Aylıq",
+  "en": "Monthly"
+ },
+ {
+  "key": "usepaywallconfig_baslama_9f32b6",
+  "az": "Başlama",
+  "en": "Start"
+ },
+ {
+  "key": "usepaywallconfig_berpa_et_6c3210",
+  "az": "Bərpa et",
+  "en": "Restore"
+ },
+ {
+  "key": "usepaywallconfig_date_tarixine_qeder_premium_ak_9c0a37",
+  "az": "{date} tarixinə qədər Premium aktiv qalacaq.",
+  "en": "Premium will remain active until {date}."
+ },
+ {
+  "key": "usepaywallconfig_days_gun_pulsuz_sinayin_sonra__fa9bb5",
+  "az": "{days} gün pulsuz sınayın, sonra avtomatik abunəlik başlayır",
+  "en": "Try it free for {days}, then auto-subscribe"
+ },
+ {
+  "key": "usepaywallconfig_feature_ucun_premium_lazimdir_4800ff",
+  "az": "{feature} üçün Premium lazımdır",
+  "en": "{feature} requires Premium"
+ },
+ {
+  "key": "usepaywallconfig_i_llik_plana_kec_bdf27a",
+  "az": "İllik Plana Keç",
+  "en": "Switch to Annual Plan"
+ },
+ {
+  "key": "usepaywallconfig_i_stenilen_vaxt_legv_ede_biler_cc073d",
+  "az": "İstənilən vaxt ləğv edə bilərsiniz • Avtomatik yenilənir",
+  "en": "You can cancel at any time • Automatically renews"
+ },
+ {
+  "key": "usepaywallconfig_illik",
+  "az": "İllik",
+  "en": "Yearly"
+ },
+ {
+  "key": "usepaywallconfig_legv_edilib_24db12",
+  "az": "Ləğv edilib",
+  "en": "Canceled"
+ },
+ {
+  "key": "usepaywallconfig_limitsiz_ai",
+  "az": "Limitsiz AI",
+  "en": "Unlimited AI"
+ },
+ {
+  "key": "usepaywallconfig_mexfilik_b641fc",
+  "az": "Məxfilik",
+  "en": "Privacy"
+ },
+ {
+  "key": "usepaywallconfig_monthly_suffix",
+  "az": "/ay",
+  "en": "/month"
+ },
+ {
+  "key": "usepaywallconfig_odenildi_504c21",
+  "az": "Ödənildi",
+  "en": "Paid"
+ },
+ {
+  "key": "usepaywallconfig_percent_qenaet_5a6e02",
+  "az": "{percent}% qənaət",
+  "en": "{percent}% savings"
+ },
+ {
+  "key": "usepaywallconfig_percent_qenaet_a627e2",
+  "az": "{percent}% QƏNAƏT",
+  "en": "{percent}% SAVINGS"
+ },
+ {
+  "key": "usepaywallconfig_plani_yenile_3ad3f4",
+  "az": "Planı Yenilə",
+  "en": "Renew plan"
+ },
+ {
+  "key": "usepaywallconfig_planiniza_daxildir_4a6141",
+  "az": "Planınıza daxildir",
+  "en": "Included in your plan"
+ },
+ {
+  "key": "usepaywallconfig_premium_a_kec_2e8b0e",
+  "az": "Premium-a Keç",
+  "en": "Go Premium"
+ },
+ {
+  "key": "usepaywallconfig_premium_ayliq_7f604a",
+  "az": "Premium Aylıq",
+  "en": "Premium Monthly"
+ },
+ {
+  "key": "usepaywallconfig_premium_fonlar",
+  "az": "Premium fonlar",
+  "en": "Premium backgrounds"
+ },
+ {
+  "key": "usepaywallconfig_premium_illik",
+  "az": "Premium İllik",
+  "en": "Premium Yearly"
+ },
+ {
+  "key": "usepaywallconfig_prioritet_destek_3f6f91",
+  "az": "Prioritet dəstək",
+  "en": "Priority support"
+ },
+ {
+  "key": "usepaywallconfig_pulsuz_basla_4e3982",
+  "az": "Pulsuz Başla",
+  "en": "Get started for free"
+ },
+ {
+  "key": "usepaywallconfig_reklamsiz_cc4ba5",
+  "az": "Reklamsız",
+  "en": "Ad-free"
+ },
+ {
+  "key": "usepaywallconfig_sertler_d86d4e",
+  "az": "Şərtlər",
+  "en": "Conditions"
+ },
+ {
+  "key": "usepaywallconfig_son_odenis_23031a",
+  "az": "Son ödəniş",
+  "en": "Final payment"
+ },
+ {
+  "key": "usepaywallconfig_suallariniz_ucun_872f23",
+  "az": "Suallarınız üçün:",
+  "en": "For your questions:"
+ },
+ {
+  "key": "usepaywallconfig_tam_tecrube_sinirsiz_imkanlar_ce3376",
+  "az": "Tam təcrübə · Sınırsız imkanlar",
+  "en": "Full experience · Unlimited possibilities"
+ },
+ {
+  "key": "usepaywallconfig_yearly_suffix",
+  "az": "/ay",
+  "en": "/month"
+ },
+ {
+  "key": "usepaywallconfig_yearly_total_suffix",
+  "az": "/il",
+  "en": "/year"
+ },
+ {
+  "key": "usepaywallconfig_yenilenme_8e3032",
+  "az": "Yenilənmə",
+  "en": "Update"
+ },
+ {
+  "key": "winback_banner_cta",
+  "az": "3 gün pulsuz geri qayıdın",
+  "en": "Come back — 3 days free"
+ },
+ {
+  "key": "winback_cancelled_text",
+  "az": "Abunəliyiniz ləğv edilib. Fikrinizi dəyişsəniz, bütün imkanlar bir toxunuş uzağındadır.",
+  "en": "Your subscription is cancelled. If you change your mind, everything is one tap away."
+ },
+ {
+  "key": "winback_cancelled_title",
+  "az": "Sizi itirmək istəmirik 💛",
+  "en": "We don’t want to lose you 💛"
+ },
+ {
+  "key": "winback_cta",
+  "az": "Yenidən qoşul — 3 gün pulsuz",
+  "en": "Rejoin — 3 days free"
+ },
+ {
+  "key": "winback_dismiss",
+  "az": "Bağla",
+  "en": "Dismiss"
+ },
+ {
+  "key": "winback_expired_text",
+  "az": "AI bələdçi, hesabatlar və bütün alətlər sizi gözləyir — 3 gün pulsuz yenidən sınayın.",
+  "en": "AI guide, reports and all tools are waiting — try again free for 3 days."
+ },
+ {
+  "key": "winback_expired_title",
+  "az": "Premium-suz darıxdıq 💛",
+  "en": "We missed you on Premium 💛"
+ }
+]

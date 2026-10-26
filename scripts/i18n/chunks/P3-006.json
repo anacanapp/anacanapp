@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "horoscopecompatibility_yukselen_burc_axtarilir_f2408d",
+  "az": "Yüksələn bürc axtarılır...",
+  "en": "Rising sign is being searched..."
+ },
+ {
+  "key": "horoscopecompatibility_yukselen_burcun_hesablanmasi_u_94af5d",
+  "az": "Yüksələn bürcün hesablanması üçün lazımdır",
+  "en": "It is necessary for the calculation of the rising sign"
+ },
+ {
+  "key": "hospitalbag_36_ci_hefteden_hazir_olmalidir_7990d9",
+  "az": "36-cı həftədən hazır olmalıdır",
+  "en": "Should be ready from the 36th week"
+ },
+ {
+  "key": "hospitalbag_ana_ucun_8f885e",
+  "az": "Ana üçün",
+  "en": "For mother"
+ },
+ {
+  "key": "hospitalbag_cantaniz_hazirdir_xosbext_dogus_279a30",
+  "az": "Çantanız hazırdır. Xoşbəxt doğuş!",
+  "en": "Your bag is ready. Happy birthday!"
+ },
+ {
+  "key": "hospitalbag_cox_vacib_c4e66f",
+  "az": "Çox Vacib",
+  "en": "Very important"
+ },
+ {
+  "key": "hospitalbag_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All"
+ },
+ {
+  "key": "hospitalbag_i_steye_bagli_43582b",
+  "az": "İstəyə bağlı",
+  "en": "Optional"
+ },
+ {
+  "key": "hospitalbag_korpe_fa2b51",
+  "az": "Körpə",
+  "en": "Baby"
+ },
+ {
+  "key": "hospitalbag_korpe_ucun_27c058",
+  "az": "Körpə üçün",
+  "en": "For baby"
+ },
+ {
+  "key": "hospitalbag_priority_orta",
+  "az": "Orta",
+  "en": "Medium"
+ },
+ {
+  "key": "hospitalbag_senedler_d60b5e",
+  "az": "Sənədlər",
+  "en": "Documents"
+ },
+ {
+  "key": "hospitalbag_tebrik_edirik_ba71c0",
+  "az": "Təbrik edirik!",
+  "en": "Congratulations!"
+ },
+ {
+  "key": "hospitalbag_xestexana_cantasi_045078",
+  "az": "Xəstəxana Çantası",
+  "en": "Hospital Bag"
+ },
+ {
+  "key": "kickcounter_10_tepik_c7e77f",
+  "az": "/10 təpik",
+  "en": "/10 kicks"
+ },
+ {
+  "key": "kickcounter_basla_4820bc",
+  "az": "Başla",
+  "en": "Get started"
+ },
+ {
+  "key": "kickcounter_baslamaq_ucun_duymeye_toxunun_38b541",
+  "az": "Başlamaq üçün düyməyə toxunun",
+  "en": "Tap the button to start"
+ },
+ {
+  "key": "kickcounter_bu_gun_786fd4",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "kickcounter_bugunku_umumi_bc878f",
+  "az": "Bugünkü ümumi",
+  "en": "Today's total"
+ },
+ {
+  "key": "kickcounter_davam_edin_izleyirsiniz_815868",
+  "az": "Davam edin, izləyirsiniz! 👶",
+  "en": "Go ahead, watching! 👶"
+ },
+ {
+  "key": "kickcounter_dayandir_b2ea06",
+  "az": "Dayandır",
+  "en": "Stop it"
+ },
+ {
+  "key": "kickcounter_dunen_52b701",
+  "az": "Dünən",
+  "en": "Yesterday"
+ },
+ {
+  "key": "kickcounter_ela_gedir_korpeniz_aktivdir_b54853",
+  "az": "Əla gedir! Körpəniz aktivdir 💪",
+  "en": "It's going great! Your baby is active 💪"
+ },
+ {
+  "key": "kickcounter_hekimler_gunde_en_azi_10_herek_c80f9f",
+  "az": "Həkimlər gündə ən azı 10 hərəkət hiss etməyi tövsiyə edirlər",
+  "en": "Doctors recommend to feel at least 10 movements a day"
+ },
+ {
+  "key": "kickcounter_kecen_vaxt_0258bf",
+  "az": "Keçən vaxt",
+  "en": "Elapsed time"
+ },
+ {
+  "key": "kickcounter_super_10_tepike_catdiniz_22fdc0",
+  "az": "Super! 10 təpikə çatdınız! 🎉",
+  "en": "Great! You hit 10 kicks! 🎉"
+ },
+ {
+  "key": "kickcounter_tepik_6483fe",
+  "az": "təpik",
+  "en": "kick"
+ },
+ {
+  "key": "kickcounter_tepik_c35745",
+  "az": "təpik)",
+  "en": "kick)"
+ },
+ {
+  "key": "kickcounter_tepik_saygaci_85e455",
+  "az": "Təpik Sayğacı",
+  "en": "Kick Counter"
+ },
+ {
+  "key": "languageselector_azerbaycan_733e93",
+  "az": "Azərbaycan",
+  "en": "Azerbaijan"
+ },
+ {
+  "key": "languageselector_dili_deyisdikden_sonra_tetbiq__ad3607",
+  "az": "Dili dəyişdikdən sonra tətbiq yenilənəcək. / The app will reload after changing language.",
+  "en": "After changing the language, the application will be updated. / The app will reload after changing language."
+ },
+ {
+  "key": "levelupcelebration_davam_et_ela_gedirsen_326f52",
+  "az": "Davam et, əla gedirsən! 💪",
+  "en": "Keep it up, you're doing great! 💪"
+ },
+ {
+  "key": "levelupcelebration_seviyye_8266e7",
+  "az": "Səviyyə",
+  "en": "Level"
+ },
+ {
+  "key": "levelupcelebration_tebrik_edirik_283dfe",
+  "az": "Təbrik Edirik! 🎉",
+  "en": "Congratulations! 🎉"
+ },
+ {
+  "key": "levelupcelebration_yeni_seviyyeye_kecdiniz_72af13",
+  "az": "Yeni səviyyəyə keçdiniz!",
+  "en": "You have reached a new level!"
+ },
+ {
+  "key": "maternitycalculator_agir_dogus_3e1a6b",
+  "az": "Ağır doğuş/Mürəkkəb",
+  "en": "Difficult birth/Complicated"
+ },
+ {
+  "key": "maternitycalculator_ana",
+  "az": "Ana",
+  "en": "Mother"
+ },
+ {
+  "key": "maternitycalculator_approximate_note",
+  "az": "Qeyd: Hesablama qanunvericiliyin ümumi şərtlərinə əsaslanır və təxminidir. Real məbləğ stajdan və vergilərdən asılı olaraq dəyişə bilər.",
+  "en": "Note: The calculation is based on general legislation and is approximate. The actual amount may vary depending on experience and taxes."
+ },
+ {
+  "key": "maternitycalculator_ata",
+  "az": "Ata",
+  "en": "Father"
+ },
+ {
+  "key": "maternitycalculator_ayliq_emek_haqqiniz",
+  "az": "Aylıq əmək haqqınız",
+  "en": "Monthly salary"
+ },
+ {
+  "key": "maternitycalculator_azn_esas_goturulecek_5cb1de",
+  "az": "əsas götürüləcək)",
+  "en": "will be taken as basis)"
+ },
+ {
+  "key": "maternitycalculator_beledci_013a52",
+  "az": "Bələdçi",
+  "en": "Guide"
+ },
+ {
+  "key": "maternitycalculator_calculate_3c7a2d",
+  "az": "Hesabla",
+  "en": "Calculate"
+ },
+ {
+  "key": "maternitycalculator_cemi_mezuniyyet_93196a",
+  "az": "Cəmi məzuniyyət",
+  "en": "Total leave"
+ },
+ {
+  "key": "maternitycalculator_coxdollu_hamilelik_e3c1aa",
+  "az": "Çoxdöllü hamiləlik",
+  "en": "Multiple pregnancy"
+ },
+ {
+  "key": "maternitycalculator_dekret_odenisi_af1939",
+  "az": "Dekret ödənişi",
+  "en": "Maternity pay"
+ },
+ {
+  "key": "maternitycalculator_dogum_muavineti_22766f",
+  "az": "Doğum müavinəti",
+  "en": "Birth allowance"
+ },
+ {
+  "key": "maternitycalculator_dsmf_qaynar_xetti_d8e628",
+  "az": "DSMF qaynar xətti:",
+  "en": "DSMF hotline:"
+ },
+ {
+  "key": "maternitycalculator_edd_date",
+  "az": "Təxmini Doğuş Tarixi (EDD)",
+  "en": "Estimated Due Date (EDD)"
+ },
+ {
+  "key": "maternitycalculator_elave_melumat_ucun_9e3dfc",
+  "az": "Əlavə məlumat üçün",
+  "en": "For more information"
+ },
+ {
+  "key": "maternitycalculator_gun_54e78d",
+  "az": "gün",
+  "en": "days"
+ },
+ {
+  "key": "maternitycalculator_hamilelik_novu_ace2e8",
+  "az": "Hamiləlik növü",
+  "en": "Pregnancy type"
+ },
+ {
+  "key": "maternitycalculator_leave_end_date",
+  "az": "Məzuniyyətin Sonu",
+  "en": "Leave end date"
+ },
+ {
+  "key": "maternitycalculator_leave_start_date",
+  "az": "Məzuniyyətin Başlanğıcı",
+  "en": "Leave start date"
+ },
+ {
+  "key": "maternitycalculator_minimum_emek_haqqi_f94050",
+  "az": "Minimum əmək haqqı (",
+  "en": "Minimum salary ("
+ },
+ {
+  "key": "maternitycalculator_normal_hamilelik_fa223b",
+  "az": "Normal hamiləlik",
+  "en": "Normal pregnancy"
+ },
+ {
+  "key": "maternitycalculator_orta_gunluk_emek_haqqi_39d8be",
+  "az": "Orta günlük əmək haqqı",
+  "en": "Average daily salary"
+ },
+ {
+  "key": "maternitycalculator_paternity_start",
+  "az": "Atalıq məzuniyyətinin başlanğıcı",
+  "en": "Paternity leave start"
+ },
+ {
+  "key": "maternitycalculator_return_to_work",
+  "az": "İşə Qayıdış Tarixi",
+  "en": "Return to work date"
+ },
+ {
+  "key": "maternitycalculator_rolunuz",
+  "az": "Rolunuz",
+  "en": "Your Role"
+ },
+ {
+  "key": "maternitycalculator_title_3c7a2d",
+  "az": "Dekret Kalkulyatoru",
+  "en": "Maternity Calculator"
+ },
+ {
+  "key": "maternitycalculator_zaman_xetti_visual",
+  "az": "Zaman Xətti",
+  "en": "Timeline"
+ },
+ {
+  "key": "medical_disclaimer_full",
+  "az": "Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda 103-ə zəng edin.",
+  "en": "This information is for educational purposes only and is NOT a substitute for medical advice, diagnosis, or treatment. Always consult your doctor or a qualified healthcare professional before making any medical decisions. In an emergency, call 103."
+ },
+ {
+  "key": "medical_disclaimer_text",
+  "az": "Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda 103-ə zəng edin.",
+  "en": null
+ },
+ {
+  "key": "mentalhealth_tez_tez_deyil",
+  "az": "Tez-tez deyil",
+  "en": "Not often"
+ },
+ {
+  "key": "mentalhealthtracker_basla_4820bc",
+  "az": "Başla",
+  "en": "Get started"
+ },
+ {
+  "key": "mentalhealthtracker_biraz_cetin_dovr_kecirirsiniz__85fe81",
+  "az": "💝 Biraz çətin dövr keçirirsiniz. Yardım istəməkdən çəkinməyin.",
+  "en": "💝 You are going through a difficult time. Don't hesitate to ask for help."
+ },
+ {
+  "key": "mentalhealthtracker_bu_gun_necesen_26ad26",
+  "az": "Bu gün necəsən?",
+  "en": "how are you today"
+ },
+ {
+  "key": "mentalhealthtracker_bu_gun_ozunuzu_24fed0",
+  "az": "Bu gün özünüzü",
+  "en": "yourself today"
+ },
+ {
+  "key": "mentalhealthtracker_burax_3c7a2d",
+  "az": "Burax",
+  "en": "Exhale"
+ },
+ {
+  "key": "mentalhealthtracker_butun_suallara_cavab_verin_3e999d",
+  "az": "Bütün suallara cavab verin",
+  "en": "Answer all the questions"
+ },
+ {
+  "key": "mentalhealthtracker_dayandir_b2ea06",
+  "az": "Dayandır",
+  "en": "Stop it"
+ },
+ {
+  "key": "mentalhealthtracker_depressiya_riski_qiymetlendirme_2729fe",
+  "az": "Depressiya riski qiymətləndirmə",
+  "en": "Depression risk assessment"
+ },
+ {
+  "key": "mentalhealthtracker_destek_resurslari_345241",
+  "az": "Dəstək Resursları",
+  "en": "Support Resources"
+ },
+ {
+  "key": "mentalhealthtracker_dovre_a52cde",
+  "az": "Dövrə:",
+  "en": "Period:"
+ },
+ {
+  "key": "mentalhealthtracker_ehvaliniz_qeyd_edildi_dd9071",
+  "az": "Əhvalınız qeyd edildi ✨",
+  "en": "Your mood has been noted ✨"
+ },
+ {
+  "key": "mentalhealthtracker_ela_gedir_ozunuze_qaygi_goster_f76926",
+  "az": "🌟 Əla gedir! Özünüzə qayğı göstərməyə davam edin.",
+  "en": "🌟 It's going great! Keep taking care of yourself."
+ },
+ {
+  "key": "mentalhealthtracker_epds_sorgusu_564f52",
+  "az": "EPDS Sorğusu",
+  "en": "EPDS Survey"
+ },
+ {
+  "key": "mentalhealthtracker_epds_testi_3c7a2d",
+  "az": "EPDS Testi",
+  "en": "EPDS Test"
+ },
+ {
+  "key": "mentalhealthtracker_i_steyirsinizse_qisa_qeyd_elave_edin_9043bb",
+  "az": "İstəyirsinizsə, qısa qeyd əlavə edin...",
+  "en": "Add a short note if you wish..."
+ },
+ {
+  "key": "mentalhealthtracker_kecmis_neticeler_072044",
+  "az": "Keçmiş Nəticələr",
+  "en": "Past Results"
+ },
+ {
+  "key": "mentalhealthtracker_mental_saglamliq_68e65e",
+  "az": "Mental Sağlamlıq",
+  "en": "Mental Health"
+ },
+ {
+  "key": "mentalhealthtracker_nefes_al_50ff18",
+  "az": "Nəfəs al",
+  "en": "Take a breath"
+ },
+ {
+  "key": "mentalhealthtracker_nefes_al_56f3c5",
+  "az": "Nəfəs al:",
+  "en": "Breathe:"
+ },
+ {
+  "key": "mentalhealthtracker_nefes_mesqi_8d98bb",
+  "az": "Nəfəs Məşqi",
+  "en": "Breathing Exercise"
+ },
+ {
+  "key": "mentalhealthtracker_neticeni_gor_d2fef0",
+  "az": "Nəticəni Gör",
+  "en": "See the result"
+ },
+ {
+  "key": "mentalhealthtracker_neticeniz_d14591",
+  "az": "Nəticəniz",
+  "en": "Your result"
+ },
+ {
+  "key": "mentalhealthtracker_novbeti_6e8661",
+  "az": "Növbəti",
+  "en": "The next one"
+ },
+ {
+  "key": "mentalhealthtracker_qeyd_etdiyiniz_ucun_tesekkurle_52b458",
+  "az": "✨ Qeyd etdiyiniz üçün təşəkkürlər!",
+  "en": "✨ Thanks for mentioning!"
+ },
+ {
+  "key": "mentalhealthtracker_qisa_sorgu_ile_veziyyeti_qiyme_97ab4c",
+  "az": "Qısa sorğu ilə vəziyyəti qiymətləndirək?",
+  "en": "Let's assess the situation with a short survey?"
+ },
+ {
+  "key": "mentalhealthtracker_rahatlama_ve_stress_azaltma_1a97bc",
+  "az": "Rahatlama və stress azaltma",
+  "en": "Relaxation and stress reduction"
+ },
+ {
+  "key": "mentalhealthtracker_risk_normal",
+  "az": "Normal",
+  "en": "Normal"
+ },
+ {
+  "key": "mentalhealthtracker_risk_orta",
+  "az": "Orta Risk",
+  "en": "Moderate Risk"
+ },
+ {
+  "key": "mentalhealthtracker_saxla_3c7a2d",
+  "az": "Saxla",
+  "en": "Hold"
+ },
+ {
+  "key": "mentalhealthtracker_sayt_3c7a2d",
+  "az": "Sayt",
+  "en": "Website"
+ },
+ {
+  "key": "mentalhealthtracker_sizinle_danisaq_a4ad3a",
+  "az": "Sizinlə danışaq?",
+  "en": "Shall we talk?"
+ },
+ {
+  "key": "mentalhealthtracker_son_7_gun_1d4103",
+  "az": "Son 7 Gün",
+  "en": "Last 7 Days"
+ },
+ {
+  "key": "mentalhealthtracker_sorguya_basla_0563f3",
+  "az": "Sorğuya başla",
+  "en": "Start a survey"
+ },
+ {
+  "key": "mentalhealthtracker_tamamlandi_ozunuzu_nece_hiss_e_9a2212",
+  "az": "Tamamlandı! Özünüzü necə hiss edirsiniz?",
+  "en": "Completed! How are you feeling?"
+ },
+ {
+  "key": "mentalhealthtracker_tecili_yardim_283100",
+  "az": "Təcili Yardım",
+  "en": "Emergency Assistance"
+ },
+ {
+  "key": "mentalhealthtracker_yaxsi_gedir_ozunuze_vaxt_ayiri_a89726",
+  "az": "💪 Yaxşı gedir. Özünüzə vaxt ayırın.",
+  "en": "💪 It's going well. Take time for yourself."
+ },
+ {
+  "key": "mentalhealthtracker_yuksek_risk_29a5a3",
+  "az": "Yüksək Risk",
+  "en": "High Risk"
+ },
+ {
+  "key": "mentalhealthtracker_zehmet_olmasa_mutexessisle_ela_07b456",
+  "az": "🆘 Zəhmət olmasa mütəxəssislə əlaqə saxlayın:",
+  "en": "🆘 Please contact a specialist:"
+ },
+ {
+  "key": "mentalhealthtracker_zeng_et_15094d",
+  "az": "Zəng et",
+  "en": "Call"
+ },
+ {
+  "key": "minigames_badge_new",
+  "az": "Yeni",
+  "en": "New"
+ },
+ {
+  "key": "minigames_hub_subtitle",
+  "az": "Stresi at, oyna, rahatla",
+  "en": "Unwind, play, relax"
+ },
+ {
+  "key": "minigames_hub_title",
+  "az": "Mini Oyunlar",
+  "en": "Mini Games"
+ },
+ {
+  "key": "minigames_leaderboard_empty_desc",
+  "az": "İlk oyunçu siz olun! Oyunu bitirin və xalınız qlobal reytinqə düşsün.",
+  "en": "Be the first! Finish a round and your score will join the global leaderboard."
+ },
+ {
+  "key": "minigames_leaderboard_empty_title",
+  "az": "Reytinq hələ boşdur",
+  "en": "The leaderboard is empty"
+ },
+ {
+  "key": "minigames_levels_short",
+  "az": "səviyyə",
+  "en": "levels"
+ },
+ {
+  "key": "minigames_more_soon_desc",
+  "az": "Mini Oyunlar bölməsinə tezliklə yeni oyunlar əlavə olunacaq",
+  "en": "New games will be added to the Mini Games section soon"
+ },
+ {
+  "key": "minigames_more_soon_title",
+  "az": "Yeni oyunlar tezliklə",
+  "en": "New games coming soon"
+ },
+ {
+  "key": "minigames_points_label",
+  "az": "xal",
+  "en": "pts"
+ },
+ {
+  "key": "minigames_tab_games",
+  "az": "Oyunlar",
+  "en": "Games"
+ },
+ {
+  "key": "minigames_tab_leaderboard",
+  "az": "Reytinq",
+  "en": "Leaderboard"
+ },
+ {
+  "key": "minigames_unlocked_short",
+  "az": "açıq",
+  "en": "unlocked"
+ },
+ {
+  "key": "minigames_you_label",
+  "az": "Siz",
+  "en": "You"
+ },
+ {
+  "key": "minigames_your_best_score",
+  "az": "Sizin ən yaxşı xalınız",
+  "en": "Your best score"
+ },
+ {
+  "key": "momfriendlymap_ana_dostu_mekanlar_4153ec",
+  "az": "Ana Dostu Məkanlar",
+  "en": "Mom-Friendly Places"
+ },
+ {
+  "key": "momfriendlymap_baki_neftciler_prospekti_a5d7c0",
+  "az": "Bakı, Neftçilər prospekti",
+  "en": "Baku, Neftchilar Avenue"
+ },
+ {
+  "key": "momfriendlymap_bu_filtrlere_uygun_mekan_yoxdu_d1f970",
+  "az": "Bu filtrlərə uyğun məkan yoxdur",
+  "en": "No space available for these filters"
+ },
+ {
+  "key": "momfriendlymap_elave_edilir_3c28b4",
+  "az": "Əlavə edilir...",
+  "en": "Adding..."
+ },
+ {
+  "key": "momfriendlymap_gonderilir_1d548c",
+  "az": "Göndərilir...",
+  "en": "Sending..."
+ },
+ {
+  "key": "momfriendlymap_hele_rey_yoxdur_ilk_reyi_siz_yazin_156bd8",
+  "az": "Hələ rəy yoxdur. İlk rəyi siz yazın!",
+  "en": "No reviews yet. Be the first to write a review!"
+ },
+ {
+  "key": "momfriendlymap_i_lk_mekani_elave_et_47627a",
+  "az": "İlk məkanı əlavə et",
+  "en": "Add the first location"
+ },
+ {
+  "key": "momfriendlymap_i_mkanlara_gore_suz_f2f5d6",
+  "az": "İmkanlara görə süz",
+  "en": "Filter by options"
+ },
+ {
+  "key": "momfriendlymap_imkan_gosterilmeyib_1f22f8",
+  "az": "İmkan göstərilməyib",
+  "en": "No facilities shown"
+ },
+ {
+  "key": "momfriendlymap_imkanlar_60eb86",
+  "az": "İmkanlar",
+  "en": "Facilities"
+ },
+ {
+  "key": "momfriendlymap_korpenizle_rahat_yerler_4e48e6",
+  "az": "Körpənizlə rahat yerlər",
+  "en": "Comfortable places with your baby"
+ },
+ {
+  "key": "momfriendlymap_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "momfriendlymap_mekan_adi_ec57ac",
+  "az": "Məkan adı *",
+  "en": "Place name *"
+ },
+ {
+  "key": "momfriendlymap_mekan_adi_teleb_olunur_989a8a",
+  "az": "Məkan adı tələb olunur",
+  "en": "A domain name is required"
+ },
+ {
+  "key": "momfriendlymap_mekan_axtar_8b889d",
+  "az": "Məkan axtar...",
+  "en": "Search for a location..."
+ },
+ {
+  "key": "momfriendlymap_mekan_ea55b2",
+  "az": "məkan",
+  "en": "space"
+ },
+ {
+  "key": "momfriendlymap_mekan_elave_et_dd9c6e",
+  "az": "Məkan Əlavə Et",
+  "en": "Add Location"
+ },
+ {
+  "key": "momfriendlymap_mekan_tapilmadi_ffea6b",
+  "az": "Məkan tapılmadı",
+  "en": "Place not found"
+ },
+ {
+  "key": "momfriendlymap_meselen_port_baku_mall_760801",
+  "az": "Məsələn: Port Baku Mall",
+  "en": "For example: Central Mall"
+ },
+ {
+  "key": "momfriendlymap_orta_reytinq_3c7a2d",
+  "az": "orta reytinq",
+  "en": "average rating"
+ },
+ {
+  "key": "momfriendlymap_qiymetlendirme_1fde6b",
+  "az": "Qiymətləndirmə",
+  "en": "Rating"
+ },
+ {
+  "key": "momfriendlymap_rey_bd4873",
+  "az": "rəy",
+  "en": "feedback"
+ },
+ {
+  "key": "momfriendlymap_rey_gonder_027e80",
+  "az": "Rəy göndər",
+  "en": "Send feedback"
+ },
+ {
+  "key": "momfriendlymap_rey_yaz_7b3aab",
+  "az": "Rəy yaz",
+  "en": "Write a review"
+ },
+ {
+  "key": "momfriendlymap_reyler_8be233",
+  "az": "Rəylər (",
+  "en": "Reviews ("
+ },
+ {
+  "key": "momfriendlymap_serh_isteye_bagli_0acfd0",
+  "az": "Şərh (istəyə bağlı)",
+  "en": "Comment (optional)"
+ },
+ {
+  "key": "momfriendlymap_tecrubenizi_paylasin_aeca62",
+  "az": "Təcrübənizi paylaşın...",
+  "en": "Share your experience..."
+ },
+ {
+  "key": "momfriendlymap_temizle_1c3651",
+  "az": "Təmizlə",
+  "en": "Clean up"
+ },
+ {
+  "key": "momfriendlymap_tesdiqlenib_96c431",
+  "az": "Təsdiqlənib",
+  "en": "Confirmed"
+ },
+ {
+  "key": "momfriendlymap_tesdiqlenmis_b28f33",
+  "az": "təsdiqlənmiş",
+  "en": "approved"
+ },
+ {
+  "key": "momfriendlymap_unvan_b8651a",
+  "az": "Ünvan",
+  "en": "Address"
+ },
+ {
+  "key": "momfriendlymap_unvan_gosterilmeyib_06305d",
+  "az": "Ünvan göstərilməyib",
+  "en": "No address provided"
+ },
+ {
+  "key": "momfriendlymap_yeni_mekan_elave_et_53fb45",
+  "az": "Yeni Məkan Əlavə Et",
+  "en": "Add New Location"
+ },
+ {
+  "key": "mommy_cta_title",
+  "az": "Yalnız sənin üçün kiçik bir qeyd",
+  "en": "A little note, just for you"
+ },
+ {
+  "key": "mommy_daily_goal",
+  "az": "günlük hədəf",
+  "en": "today's goal"
+ },
+ {
+  "key": "mommy_growth_empty",
+  "az": "Qrafik üçün ən azı 2 ölçü lazımdır",
+  "en": "At least 2 measurements are needed for the chart"
+ },
+ {
+  "key": "mommy_growth_no_entries",
+  "az": "Hələ ölçü qeyd edilməyib",
+  "en": "No measurements yet"
+ },
+ {
+  "key": "mommy_hero_day_label",
+  "az": "Gün",
+  "en": "Day"
+ },
+ {
+  "key": "mommy_hero_headline",
+  "az": "{days} gündür {name} böyüyür",
+  "en": "{days} days of watching {name} grow"
+ },
+ {
+  "key": "mommy_log_today_hint",
+  "az": "Toxun və əlavə et",
+  "en": "Tap to add"
+ },
+ {
+  "key": "mommy_log_today_title",
+  "az": "Bu günü qeyd et",
+  "en": "Log today"
+ },
+ {
+  "key": "mommy_meta_days",
+  "az": "gün",
+  "en": "days"
+ },
+ {
+  "key": "mommy_meta_months",
+  "az": "ay",
+  "en": "mo"
+ },
+ {
+  "key": "mommy_this_week",
+  "az": "Bu həftə",
+  "en": "This week"
+ },
+ {
+  "key": "mommyheroaurora_ulduz_korpem_ef4a3d",
+  "az": "Ulduz körpəm ✦",
+  "en": "My star baby ✦"
+ },
+ {
+  "key": "mommyherobento_boyumeye_davam_edir",
+  "az": "böyüməyə davam edir",
+  "en": "keeps growing"
+ },
+ {
+  "key": "mommyherobento_bu_gun_786fd4",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "mommyherobento_gun_b74b92",
+  "az": "GÜN",
+  "en": "DAY"
+ },
+ {
+  "key": "mommyherobento_hefte_3aa886",
+  "az": "Həftə",
+  "en": "Week"
+ },
+ {
+  "key": "mommyherobento_sevgi_ile_boyuyur_6b7588",
+  "az": "Sevgi ilə böyüyür ✨",
+  "en": "It grows with love"
+ },
+ {
+  "key": "mommyherobento_yas_95595b",
+  "az": "Yaş",
+  "en": "Age"
+ },
+ {
+  "key": "mommyheroclassic_alt_age",
+  "az": "{name} — {months} aylıq",
+  "en": "{name} — {months} months old"
+ },
+ {
+  "key": "mommyheroclassic_gun_d96b5d",
+  "az": ". gün",
+  "en": ". day"
+ },
+ {
+  "key": "mommyheromesh_gun_b74b92",
+  "az": "GÜN",
+  "en": "DAY"
+ },
+ {
+  "key": "mommyherominimalcard_gun_d96b5d",
+  "az": ". gün",
+  "en": ". day"
+ },
+ {
+  "key": "mommyherominimalcard_heftelik_seyahet_a5b053",
+  "az": "həftəlik səyahət",
+  "en": "weekly trip"
+ },
+ {
+  "key": "mommyherominimalcard_menim_korpem_1dd673",
+  "az": "Mənim körpəm",
+  "en": "My baby"
+ },
+ {
+  "key": "mommyheropolaroid_bu_hefte_a5f60b",
+  "az": "Bu həftə",
+  "en": "This week"
+ },
+ {
+  "key": "mommyheropolaroid_her_gun_boyuyur_her_gun_yeni_x_9bad33",
+  "az": "Hər gün böyüyür, hər gün yeni xatirə.",
+  "en": "Every day grows, every day a new memory."
+ },
+ {
+  "key": "mommyherostorybook_bir_gun_bir_hekaye_9efe41",
+  "az": "Bir gün, bir hekayə…",
+  "en": "One day, one story..."
+ },
+ {
+  "key": "mooddiary_ai_analizi_070626",
+  "az": "AI Analizi",
+  "en": "AI Analysis"
+ },
+ {
+  "key": "mooddiary_analiz",
+  "az": "Analiz",
+  "en": "Analysis"
+ },
+ {
+  "key": "mooddiary_bas_agrisi_ff6f4c",
+  "az": "Baş ağrısı",
+  "en": "Headache"
+ },
+ {
+  "key": "mooddiary_bu_gun_haqqinda_yazmaq_istedikleriniz_1e2d2d",
+  "az": "Bu gün haqqında yazmaq istədikləriniz...",
+  "en": "Things you want to write about today..."
+ },
+ {
+  "key": "mooddiary_bu_gun_ozunuzu_nece_hiss_edirsiniz_b2d818",
+  "az": "Bu gün özünüzü necə hiss edirsiniz?",
+  "en": "How do you feel today?"
+ },
+ {
+  "key": "mooddiary_bu_hefte_a5f60b",
+  "az": "Bu həftə",
+  "en": "This week"
+ },
+ {
+  "key": "mooddiary_cox_pis_e041c5",
+  "az": "Çox pis",
+  "en": "Very bad"
+ },
+ {
+  "key": "mooddiary_ehval_gundeliyi_831844",
+  "az": "Əhval Gündəliyi",
+  "en": "Mood Diary"
+ },
+ {
+  "key": "mooddiary_ela_720a0e",
+  "az": "Əla",
+  "en": "Excellent"
+ },
+ {
+  "key": "mooddiary_heftelik_ehval_trendi_5796d9",
+  "az": "Həftəlik əhval trendi",
+  "en": "Weekly mood trend"
+ },
+ {
+  "key": "mooddiary_hele_qeyd_yoxdur_a3d826",
+  "az": "Hələ qeyd yoxdur",
+  "en": "No notes yet"
+ },
+ {
+  "key": "mooddiary_meslehet_6a93f2",
+  "az": "Məsləhət:",
+  "en": "Type:"
+ },
+ {
+  "key": "mooddiary_ortalama_ehval_72856f",
+  "az": "Ortalama əhval",
+  "en": "Average mood"
+ },
+ {
+  "key": "mooddiary_pis_3c7a2d",
+  "az": "Pis",
+  "en": "Bad"
+ },
+ {
+  "key": "mooddiary_qeyd",
+  "az": "Qeyd",
+  "en": "Note"
+ },
+ {
+  "key": "mooddiary_qeydler_a7a98b",
+  "az": "Qeydlər",
+  "en": "Notes"
+ },
+ {
+  "key": "mooddiary_son_bir_heftede_ehvaliniz_umum_c383f6",
+  "az": "Son bir həftədə əhvalınız ümumiyyətlə yaxşı olub. Ən çox qeyd etdiyiniz simptomları izləyin.",
+  "en": "Your mood has generally been good over the last week. Track your most noted symptoms."
+ },
+ {
+  "key": "mooddiary_son_qeydler_181e41",
+  "az": "Son qeydlər",
+  "en": "Recent notes"
+ },
+ {
+  "key": "mooddiary_tarixce_b09a14",
+  "az": "Tarixçə",
+  "en": "History"
+ },
+ {
+  "key": "mooddiary_urekbulanma_a42830",
+  "az": "Ürəkbulanma",
+  "en": "Nausea"
+ },
+ {
+  "key": "mooddiary_yaxsi_9d8595",
+  "az": "Yaxşı",
+  "en": "Good"
+ },
+ {
+  "key": "mooddiary_yorgunluq_c68d62",
+  "az": "Yorğunluq",
+  "en": "Fatigue"
+ }
+]

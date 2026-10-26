@@ -1,0 +1,42 @@
+{
+  "zipSha256": "7afd619d52974b58ce4a801f68de7eca3dce173a24ba274b5d18485530626314",
+  "manifestSha256": "fca99e349ad31418d3039a8434651412a9dcaa6e9b6edce4bdf7eaaf82a873ce",
+  "baseCommit": "43a6dc9bde953ab955ccd9bea4784c3223501a0b",
+  "preImportCommit": "72e244b1a430425b173698097747454952a93b97",
+  "expected": 1441,
+  "matched": 1441,
+  "missing": 0,
+  "mismatched": 0,
+  "reviewedRemovals": {
+    "src/components/WinBackCard.tsx": "removed"
+  },
+  "modifiedOutsideManifest": [],
+  "install": "unchanged (existing package-lock.json and dependencies)",
+  "build": "preview build OK (2026-10-01T08:35:51Z); manual production build not run",
+  "notChanged": [
+    ".env",
+    "server secrets",
+    "database/migrations",
+    "cron",
+    "auth-provider settings",
+    "edge function deployments"
+  ],
+  "deltaFiles": [
+    "AGENTS.md",
+    "docs/ONBOARDING_COMPACT.md",
+    "docs/WORKTREE_HISTORY.md",
+    "ANACAN_SYNC_MANIFEST.json"
+  ],
+  "focusedTests": {
+    "passed": 47,
+    "note": "kept as evidence; no UI code changes in this delta"
+  },
+  "verificationNote": "481 missing manifest entries are ignored and absent in this checkout; all 1440 available entries match; no files were added beyond the reviewed delta.",
+  "gitTrackedMatched": 1441,
+  "gitTrackedMissing": 0,
+  "productionBuild": {
+    "passed": true,
+    "mode": "production",
+    "exitCode": 0
+  }
+}

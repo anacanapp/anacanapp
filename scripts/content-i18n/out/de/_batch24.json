@@ -1,0 +1,44 @@
+{
+ "baby_milestones_db": {
+  "b018c429-c030-447a-b40b-dbb21a76df5d": {
+   "label": "Erstes Lächeln",
+   "description": "Das Baby hat zum ersten Mal gelächelt"
+  },
+  "bede9344-42da-47b2-bb53-a66737439810": {
+   "label": "Erste Worte",
+   "description": "Das Baby hat seine ersten Worte gesagt"
+  },
+  "e2454a6c-7b9f-49c3-9c10-ae078acca010": {
+   "label": "Sitzt",
+   "description": "Das Baby sitzt ohne Unterstützung"
+  },
+  "f9933a4f-9254-4130-914e-e72c6547120f": {
+   "label": "Lacht",
+   "description": "Das Baby hat angefangen, laut zu lachen"
+  },
+  "20279fac-cff7-4705-81fb-ab94c4019e82": {
+   "label": "Robbt",
+   "description": "Das Baby hat angefangen zu robben"
+  },
+  "4fb89347-d59c-462a-b6de-6febaaa3794a": {
+   "label": "Steht auf",
+   "description": "Das Baby kann aufstehen"
+  },
+  "55034eea-b3e3-4e5e-93e4-88df17d88f2f": {
+   "label": "Hält den Kopf",
+   "description": "Das Baby hat angefangen, seinen Kopf selbstständig zu halten"
+  },
+  "5c054df0-8bce-421f-9954-5a33392a1056": {
+   "label": "Erste Schritte",
+   "description": "Das Baby hat seine ersten Schritte gemacht"
+  },
+  "6f62e4bd-1746-4709-928f-dd9f482882be": {
+   "label": "Dreht sich um",
+   "description": "Das Baby kann sich umdrehen"
+  },
+  "98912b0c-6f44-485c-816d-ac6bf19441a6": {
+   "label": "Greift nach Dingen",
+   "description": "Das Baby greift nach Gegenständen"
+  }
+ }
+}

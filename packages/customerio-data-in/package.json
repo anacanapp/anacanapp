@@ -1,0 +1,11 @@
+{
+  "name": "@anacan/customerio-data-in",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": ["index.js", "index.d.ts", "Package.swift", "ios/Sources", "android/src", "android/build.gradle"],
+  "peerDependencies": { "@capacitor/core": "^8.0.0" },
+  "capacitor": { "ios": { "src": "ios" }, "android": { "src": "android" } }
+}

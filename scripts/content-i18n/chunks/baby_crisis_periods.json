@@ -1,0 +1,165 @@
+[
+ {
+  "id": "f8fc8a04-d9e6-4b79-b565-8cbc1c9ccb94",
+  "_o": 3,
+  "title": "The World of Smooth Transitions",
+  "description": "Baby learns smooth movements and transitions between actions",
+  "symptoms": [
+   "Crying more",
+   "Sleep problems",
+   "Wants to be held constantly"
+  ],
+  "tips": [
+   "Movement activities",
+   "Gentle rocking",
+   "Massage"
+  ]
+ },
+ {
+  "id": "5c97a8c2-5724-4bd6-97dd-fe1b7f05c200",
+  "_o": 5,
+  "title": "The World of Relationships",
+  "description": "Baby understands distance and relationships between objects",
+  "symptoms": [
+   "Separation anxiety",
+   "Nightmares",
+   "Shyness with strangers"
+  ],
+  "tips": [
+   "Stay close",
+   "Comfort objects",
+   "Gradual separations"
+  ]
+ },
+ {
+  "id": "00332eb5-3642-4caa-aa0d-06c76e8858be",
+  "_o": 7,
+  "title": "The World of Sequences",
+  "description": "Baby understands sequences and can follow multi-step actions",
+  "symptoms": [
+   "Frustration",
+   "Demanding",
+   "Impatience",
+   "Clinginess"
+  ],
+  "tips": [
+   "Sequential play",
+   "Stacking toys",
+   "Story routines"
+  ]
+ },
+ {
+  "id": "368b778d-29bd-4c6e-a693-d14f3dbde8cb",
+  "_o": 8,
+  "title": "The World of Programs",
+  "description": "Toddler starts planning and executing complex actions",
+  "symptoms": [
+   "Willfulness",
+   "Power struggles",
+   "Independence seeking"
+  ],
+  "tips": [
+   "Choices within limits",
+   "Independence in safe ways",
+   "Praise efforts"
+  ]
+ },
+ {
+  "id": "68ec3d1f-0c2d-487a-b2b6-226b82a023c8",
+  "_o": 9,
+  "title": "The World of Principles",
+  "description": "Child develops moral understanding and principles",
+  "symptoms": [
+   "Defiance",
+   "Testing boundaries",
+   "Emotional outbursts"
+  ],
+  "tips": [
+   "Consistent rules",
+   "Explain why",
+   "Model behavior"
+  ]
+ },
+ {
+  "id": "6957aa52-d7bb-49bc-96d0-6c055983318b",
+  "_o": 10,
+  "title": "The World of Systems",
+  "description": "Child understands systems and how things work together",
+  "symptoms": [
+   "Questioning everything",
+   "Frustration with complexity"
+  ],
+  "tips": [
+   "Answer questions patiently",
+   "Explore together",
+   "Build things"
+  ]
+ },
+ {
+  "id": "f13911eb-137a-4fe7-be01-bccf1325e4e6",
+  "_o": 6,
+  "title": "The World of Categories",
+  "description": "Baby starts categorizing objects, people, and emotions",
+  "symptoms": [
+   "Tantrums",
+   "Possessiveness",
+   "Testing limits"
+  ],
+  "tips": [
+   "Naming things",
+   "Sorting games",
+   "Clear boundaries"
+  ]
+ },
+ {
+  "id": "91076f7e-3fa0-4b65-b6c3-202f437732a4",
+  "_o": 1,
+  "title": "The World of Changing Sensations",
+  "description": "Baby starts to experience the world differently, senses become sharper",
+  "symptoms": [
+   "More crying",
+   "Clinginess",
+   "Poor sleep",
+   "Loss of appetite"
+  ],
+  "tips": [
+   "Extra cuddles",
+   "Skin-to-skin contact",
+   "Patience"
+  ]
+ },
+ {
+  "id": "4f00fc01-ffca-4cb6-a186-c3cae46fe443",
+  "_o": 4,
+  "title": "The World of Events",
+  "description": "Baby understands cause and effect, sequences of events",
+  "symptoms": [
+   "Extreme clinginess",
+   "Mood swings",
+   "Poor appetite",
+   "Night waking"
+  ],
+  "tips": [
+   "Peek-a-boo games",
+   "Consistent routine",
+   "Extra patience"
+  ]
+ },
+ {
+  "id": "6f91418c-7c6d-4189-804a-e00a07db94db",
+  "_o": 2,
+  "title": "The World of Patterns",
+  "description": "Baby discovers patterns and starts recognizing faces and objects",
+  "symptoms": [
+   "Fussiness",
+   "More wakeful",
+   "Needs more attention",
+   "Hungry more often"
+  ],
+  "tips": [
+   "Black and white toys",
+   "Face-to-face time",
+   "Calm environment"
+  ]
+ }
+]

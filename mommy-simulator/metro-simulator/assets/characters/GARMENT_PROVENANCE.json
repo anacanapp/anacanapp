@@ -1,0 +1,16 @@
+{
+  "author": "METRO Simulator",
+  "description": "Original continuous, sewn, skinned knit tops and trousers; based on CC0 rig only.",
+  "records": [
+    {
+      "character": "partner",
+      "garmentVertices": 1642,
+      "bufferSHA256": "3e98c4b614a6ad8c09253374e52cf93b8ca1f0b73f104f37a0ee83b21c8c2203"
+    },
+    {
+      "character": "mother",
+      "garmentVertices": 1642,
+      "bufferSHA256": "600be1683803fdf08676b9a2b6e99a0c28fce4377336dfd909c2a4de7eb45ed8"
+    }
+  ]
+}

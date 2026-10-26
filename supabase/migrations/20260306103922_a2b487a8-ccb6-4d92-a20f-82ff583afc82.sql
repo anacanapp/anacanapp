@@ -1,0 +1,1 @@
+UPDATE public.tool_configs SET display_name_az = 'Mental Sağlamlıq', name_az = 'Mental Sağlamlıq' WHERE tool_id = 'mental-health';

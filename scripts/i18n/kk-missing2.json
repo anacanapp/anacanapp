@@ -1,0 +1,52 @@
+[
+ {
+  "key": "adminblog_olke_include",
+  "srcLang": "az",
+  "src": "Yalnız bu ölkələrə göstər (include)"
+ },
+ {
+  "key": "adminblog_olke_include_hint",
+  "srcLang": "az",
+  "src": "ISO kodlar, vergüllə (məs. AZ). Boş = bütün ölkələr."
+ },
+ {
+  "key": "adminblog_olke_exclude",
+  "srcLang": "az",
+  "src": "Bu ölkələrdə gizlət (exclude)"
+ },
+ {
+  "key": "adminblog_olke_exclude_hint",
+  "srcLang": "az",
+  "src": "Bu ölkə seçən istifadəçilərə görünməyəcək."
+ },
+ {
+  "key": "adminlanguages_deaktiv_alet_yoxdur",
+  "srcLang": "az",
+  "src": "Deaktiv alət yoxdur"
+ },
+ {
+  "key": "adminpartnervenues_olkeler_ph",
+  "srcLang": "az",
+  "src": "Ölkələr (ISO, vergüllə — boş = qlobal): AZ, TR"
+ },
+ {
+  "key": "adminpartnervenues_olkeler_hint",
+  "srcLang": "az",
+  "src": "Boş saxlasanız məkan bütün ölkələrdə görünür (qlobal). ISO kod yazsanız yalnız o ölkələrdə."
+ },
+ {
+  "key": "admintranslations_tercume_siyahisi_tab",
+  "srcLang": "az",
+  "src": "Tərcümə Siyahısı"
+ },
+ {
+  "key": "admintranslations_verilenler_bazasi_yukle_tab",
+  "srcLang": "az",
+  "src": "Verilənlər Bazasına Dil Yüklə"
+ },
+ {
+  "key": "tooth_name_",
+  "srcLang": "en",
+  "src": null
+ }
+]

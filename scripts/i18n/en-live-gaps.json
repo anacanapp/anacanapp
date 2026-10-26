@@ -1,0 +1,334 @@
+[
+ {
+  "key": "billingscreen_annual_premium",
+  "az": "Annual Premium"
+ },
+ {
+  "key": "billingscreen_auto_renewal",
+  "az": "Auto Renewal"
+ },
+ {
+  "key": "billingscreen_cancel_appstore",
+  "az": "You will be redirected to the App Store / Google Play subscription management page to cancel your subscription."
+ },
+ {
+  "key": "billingscreen_cancel_confirm",
+  "az": "Are you sure you want to cancel your subscription? You will continue to have Premium access until the end of the current period."
+ },
+ {
+  "key": "billingscreen_cancel_error",
+  "az": "Failed to cancel subscription."
+ },
+ {
+  "key": "billingscreen_cancel_success",
+  "az": "Subscription Cancelled"
+ },
+ {
+  "key": "billingscreen_cancel_success_desc",
+  "az": "You can use Premium until the end of the current period."
+ },
+ {
+  "key": "billingscreen_error",
+  "az": "Error"
+ },
+ {
+  "key": "billingscreen_first_purchase",
+  "az": "First Purchase"
+ },
+ {
+  "key": "billingscreen_monthly_premium",
+  "az": "Monthly Premium"
+ },
+ {
+  "key": "billingscreen_need_help",
+  "az": "Need help?"
+ },
+ {
+  "key": "billingscreen_next_renewal",
+  "az": "Next Renewal"
+ },
+ {
+  "key": "billingscreen_open_in_store",
+  "az": "View in App Store"
+ },
+ {
+  "key": "billingscreen_premium_features",
+  "az": "Premium Features"
+ },
+ {
+  "key": "billingscreen_refresh",
+  "az": "YenilÉ™"
+ },
+ {
+  "key": "billingscreen_restore_error",
+  "az": "Failed to restore subscription."
+ },
+ {
+  "key": "billingscreen_restore_success",
+  "az": "Subscription Restored"
+ },
+ {
+  "key": "billingscreen_restore_success_desc",
+  "az": "Your Premium subscription is active again."
+ },
+ {
+  "key": "billingscreen_scheduled",
+  "az": "Scheduled"
+ },
+ {
+  "key": "billingscreen_status_free",
+  "az": "Current Status: Free"
+ },
+ {
+  "key": "billingscreen_title",
+  "az": "My Subscription"
+ },
+ {
+  "key": "billingscreen_upgrade",
+  "az": "Upgrade"
+ },
+ {
+  "key": "billingscreen_upgrade_btn",
+  "az": "Upgrade to Premium"
+ },
+ {
+  "key": "common_initial_i",
+  "az": "İ"
+ },
+ {
+  "key": "common_parametrler",
+  "az": "ParametrlÉ™r"
+ },
+ {
+  "key": "dashboard_diaper_change",
+  "az": "Bez dəyişmə:"
+ },
+ {
+  "key": "dashboard_h",
+  "az": "s"
+ },
+ {
+  "key": "dashboard_kick",
+  "az": "təpik"
+ },
+ {
+  "key": "dashboard_m",
+  "az": "d"
+ },
+ {
+  "key": "dashboard_sec",
+  "az": "san"
+ },
+ {
+  "key": "dashboard_today",
+  "az": "Bu gün"
+ },
+ {
+  "key": "dashboard_week_baby",
+  "az": "həftəlik körpə"
+ },
+ {
+  "key": "funnel_week_stats",
+  "az": "-ci həftədə olan hamilə qadınların 78%-i müəyyən narahatlıqlar yaşayır."
+ },
+ {
+  "key": "aichat_welcome_bump_1",
+  "az": "Salam"
+ },
+ {
+  "key": "aichat_welcome_bump_2",
+  "az": "Mən Anacan.AI."
+ },
+ {
+  "key": "aichat_welcome_bump_3",
+  "az": "Hazırda hamiləliyin {0}-ci həftəsindəsiniz; körpəniz təxminən {1} böyüklüyündədir. "
+ },
+ {
+  "key": "aichat_welcome_bump_4",
+  "az": "Hamiləlik dövrü ilə bağlı suallarınızı verə bilərsiniz."
+ },
+ {
+  "key": "aichat_welcome_default_1",
+  "az": "Salam"
+ },
+ {
+  "key": "aichat_welcome_default_2",
+  "az": "Mən Anacan.AI. Sizə necə kömək edə bilərəm?"
+ },
+ {
+  "key": "aichat_welcome_flow_1",
+  "az": "Salam"
+ },
+ {
+  "key": "aichat_welcome_flow_2",
+  "az": "Mən Anacan.AI. Menstrual tsikl, simptomlar və ümumi sağlamlıq üzrə suallarınıza peşəkar cavab verməyə hazıram."
+ },
+ {
+  "key": "aichat_welcome_mommy_1",
+  "az": "Salam"
+ },
+ {
+  "key": "aichat_welcome_mommy_2",
+  "az": "Mən Anacan.AI. Körpə baxımı, əmizdirmə, yuxu rejimi və doğuşdan sonrakı bərpa ilə bağlı suallarınıza dəstək olmağa hazıram."
+ },
+ {
+  "key": "appearancescreen_fon",
+  "az": "Fon"
+ },
+ {
+  "key": "appearancescreen_seth",
+  "az": "SÉ™th"
+ },
+ {
+  "key": "appearancescreen_vurgu",
+  "az": "VurÄŸu"
+ },
+ {
+  "key": "calendarscreen_evvelki_ay",
+  "az": "ÆvvÉ™lki ay"
+ },
+ {
+  "key": "calendarscreen_novbeti_ay",
+  "az": "NÃ¶vbÉ™ti ay"
+ },
+ {
+  "key": "community_file_upload_failed",
+  "az": "Fayl yüklənə bilmədi:"
+ },
+ {
+  "key": "community_is_typing",
+  "az": "yazır..."
+ },
+ {
+  "key": "community_people_are_typing",
+  "az": "nəfər yazır..."
+ },
+ {
+  "key": "directmessagescreen_send",
+  "az": "Göndər"
+ },
+ {
+  "key": "directmessagescreen_stop",
+  "az": "Dayandır"
+ },
+ {
+  "key": "flow_period_delay_1",
+  "az": "Periodunuz təxmini tarixdən"
+ },
+ {
+  "key": "flow_period_delay_2",
+  "az": "gün gecikir. Hamiləlik testi etməyi və ya Dr. Anacan-dan soruşmağı düşünün."
+ },
+ {
+  "key": "flow_period_delay_prompt_1",
+  "az": "Periodum"
+ },
+ {
+  "key": "flow_period_delay_prompt_2",
+  "az": "gün gecikib, nə edə bilərəm?"
+ },
+ {
+  "key": "profile_child_added",
+  "az": "əlavə edildi"
+ },
+ {
+  "key": "profile_download_app",
+  "az": "Tətbiqi yüklə:"
+ },
+ {
+  "key": "profile_share_partner_text",
+  "az": "Anacan tətbiqinə qoşul və hamiləlik səyahətimizdə mənə dəstək ol! Partnyor kodum:"
+ },
+ {
+  "key": "cake_confirm_order",
+  "az": "Sifarişi təsdiqlə"
+ },
+ {
+  "key": "cake_pay_and_order",
+  "az": "Ödə və sifariş ver"
+ },
+ {
+  "key": "cake_payment",
+  "az": "ödəniş"
+ },
+ {
+  "key": "cake_send_order",
+  "az": "Sifariş göndər"
+ },
+ {
+  "key": "cycletrendchart_tsikl_count",
+  "az": "{count} tsikl"
+ },
+ {
+  "key": "dateutils_stress",
+  "az": "Stress"
+ },
+ {
+  "key": "doctorshospitals_maraq_saheleri",
+  "az": "Maraq sahələri"
+ },
+ {
+  "key": "doctorshospitals_xidmetler",
+  "az": "Xidmətlər"
+ },
+ {
+  "key": "horoscopecompatibility_neticeniz_d14591",
+  "az": "Nəticəniz"
+ },
+ {
+  "key": "medical_disclaimer_text",
+  "az": "Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda 103-ə zəng edin."
+ },
+ {
+  "key": "rc_bundle_version",
+  "az": "Bundle versiyası:"
+ },
+ {
+  "key": "toolshub_featured_title",
+  "az": "Seçilmişlər"
+ },
+ {
+  "key": "toolshub_minigames_title",
+  "az": "Mini Oyunlar"
+ },
+ {
+  "key": "untranslated_analiz_edilir_hf0m1t",
+  "az": "Analiz edilir..."
+ },
+ {
+  "key": "untranslated_qeyd_edilir_df7cba",
+  "az": "Qeyd edilir..."
+ },
+ {
+  "key": "untranslated_silindi_u8c6ca",
+  "az": "Silindi!"
+ },
+ {
+  "key": "untranslated_silinir_u86cva",
+  "az": "Silinir..."
+ },
+ {
+  "key": "usedevicetoken_bildiris_izah",
+  "az": "Vacib məlumatları və xatırlatmaları almaq üçün cihaz ayarlarından tətbiqə bildiriş göndərməyə icazə verin."
+ },
+ {
+  "key": "usedevicetoken_bildirislere_icaze_verin",
+  "az": "Bildirişlərə icazə verin"
+ },
+ {
+  "key": "usementalhealthdata_normal_e041c7",
+  "az": "Normal"
+ },
+ {
+  "key": "usementalhealthdata_pis_e041c6",
+  "az": "Pis"
+ },
+ {
+  "key": "bp_systolic_hint",
+  "az": "(yuxarı)"
+ },
+ {
+  "key": "bp_diastolic_hint",
+  "az": "(aşağı)"
+ }
+]

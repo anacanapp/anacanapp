@@ -1,0 +1,60 @@
+{
+ "first_aid_scenarios": {
+  "3ffb8633-9a4a-4a5d-89c3-eef04f595887": {
+   "title": "Cho‘kish",
+   "description": "Bola suvda cho‘kish xavfiga duch kelganda hayotini saqlab qoluvchi choralar. Har bir soniya muhim - darhol yordam ko‘rsating."
+  },
+  "3d10cfcf-ae59-4a79-8466-c059cfacf237": {
+   "title": "Tutqanoq",
+   "description": "Bolada tutqanoq (jumladan, isitma tufayli tutqanoq) yuz berganda xotirjamlikni saqlab, to‘g‘ri yordam ko‘rsating. Ko‘pincha 2-5 daqiqada o‘tib ketadi."
+  },
+  "32fc9ec7-a94d-4b87-b763-5c9b4f5b174f": {
+   "title": "Yuqori isitma",
+   "description": "Chaqaloqning tana harorati 38°C dan yuqori bo‘lsa, xotirjamlik bilan to‘g‘ri choralar ko‘ring. Isitmani tushirish bo‘yicha bosqichma-bosqich ko‘rsatma."
+  },
+  "a179f75b-57c8-42dd-b5ff-79de9d408477": {
+   "title": "Kuyishlar",
+   "description": "Kuyganda darhol sovuq suv bilan yordam ko‘rsating. Kuyish darajasiga qarab tegishli birinchi yordam choralarini ko‘ring."
+  },
+  "e08bd13a-ef13-4cbd-9cbf-ae890a86ddd8": {
+   "title": "Yiqilish",
+   "description": "Chaqaloq yoki bola yiqilib, jarohat olganida vaziyatni xotirjamlik bilan baholang. Bosh bilan urilgan hollarda alohida e’tibor talab etiladi."
+  },
+  "c58927c2-7f46-4fe8-a01b-f61f711d6b89": {
+   "title": "Allergik reaksiya",
+   "description": "Allergik reaksiya belgilarini aniqlang: qichishish, shish va nafas qisishi. Anafilaksiya holatida darhol 103 raqamiga qo‘ng‘iroq qiling."
+  },
+  "c998bd27-265d-49a7-b171-5dae9479eafa": {
+   "title": "Burundan qon ketishi",
+   "description": "Burundan qon ketishini to‘xtatish uchun to‘g‘ri usul. Bolaning boshini orqaga tashlamasligi va xotirjam turishi muhim."
+  },
+  "48a1fae9-01a3-47ec-9bea-247b9ce6811b": {
+   "title": "Zaharlanish",
+   "description": "Bola zararli moddani (dori, kimyoviy modda yoki o‘simlikni) yutib yuborsa, darhol chora ko‘ring. Qustirish har doim ham to‘g‘ri emas — bu moddaning turiga bog‘liq."
+  },
+  "53142be3-62de-48c9-8908-13e625cf3959": {
+   "title": "Hasharot chaqishi",
+   "description": "Ari, qovog‘ari yoki boshqa hasharot chaqqanda birinchi yordam. Allergik reaksiya belgilarini kuzating."
+  },
+  "8c0564ef-fb10-485d-8ef3-0379da0ee782": {
+   "title": "Kesilish va jarohat",
+   "description": "Kesilish, shilinish yoki chuqur jarohatlarda qon ketishini to‘xtatish va yarani to‘g‘ri tozalash."
+  },
+  "53ec6dc4-8484-403f-860e-0359596d3f09": {
+   "title": "Quyosh urishi",
+   "description": "Issiqda uzoq vaqt qolish natijasida yuz beradigan quyosh urishi va issiqdan holsizlanish holatlarida yordam ko‘rsatish."
+  },
+  "6c78bbbc-bfbe-4fbe-8dfd-7d9dba5791a2": {
+   "title": "Elektr toki urishi",
+   "description": "Bolani elektr toki urganda xavfsiz yordam ko‘rsatish usullari. O‘zingizni ham ehtiyot qiling!"
+  },
+  "ea0bb6c0-37b9-4343-add3-ba50276fe174": {
+   "title": "Tish jarohati",
+   "description": "Bolaning tishi shikastlanganda yoki tushib qolganda to‘g‘ri birinchi yordam ko‘rsating. Tishni saqlab qolish imkoniyatini oshiring."
+  },
+  "8439166d-bd26-4831-a151-d3e80eb7508d": {
+   "title": "Bo‘g‘ilish",
+   "description": "Chaqaloq yoki bola bo‘g‘ilib qolganda ko‘rsatiladigan birinchi yordam bosqichlari. Nafas yo‘llaridagi to‘siqni bartaraf etish uchun darhol yordam ko‘rsatish zarur."
+  }
+ }
+}

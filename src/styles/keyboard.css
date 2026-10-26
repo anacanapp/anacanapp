@@ -1,0 +1,35 @@
+/* Shared visual-viewport geometry, including Radix portals outside #root. */
+html[data-keyboard-open="true"] [data-app-viewport] {
+  top: var(--app-visual-top, 0px) !important;
+  height: var(--app-visual-height, 100dvh) !important;
+  bottom: auto !important;
+}
+html[data-keyboard-open="true"] .min-h-screen { min-height: var(--app-visual-height, 100dvh); }
+html[data-keyboard-open="true"] .h-screen { height: var(--app-visual-height, 100dvh); }
+html[data-keyboard-open="true"] [data-keyboard-surface="dialog"] {
+  top: calc(var(--app-visual-top, 0px) + var(--app-visual-height, 100dvh) / 2) !important;
+  max-height: calc(var(--app-visual-height, 100dvh) - 24px) !important;
+  overflow-y: auto;
+  scroll-padding-block: 16px;
+}
+html[data-keyboard-open="true"] [data-keyboard-surface="sheet"] {
+  max-height: calc(var(--app-visual-height, 100dvh) - 16px) !important;
+  overflow-y: auto;
+  scroll-padding-block: 16px;
+}
+html[data-keyboard-open="true"] [data-keyboard-surface="sheet"][data-keyboard-side="bottom"] {
+  bottom: var(--app-keyboard-inset, 0px) !important;
+}
+html[data-keyboard-open="true"] [data-keyboard-surface="sheet"]:not([data-keyboard-side="bottom"]) {
+  top: var(--app-visual-top, 0px) !important;
+  height: var(--app-visual-height, 100dvh) !important;
+  bottom: auto !important;
+}
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]), textarea, [contenteditable="true"] { font-size: max(16px, 1em); }
+}
+html[data-keyboard-open="true"] textarea {
+  max-height: max(48px, calc(var(--app-visual-height) - 64px)) !important;
+  overflow-y: auto;
+  scroll-padding-block: 16px;
+}

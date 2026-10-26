@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "analysisstep_ai_analiz_aparir_0a8204",
+  "az": "AI analiz aparır...",
+  "en": "AI is analyzing..."
+ },
+ {
+  "key": "analysisstep_ferdi_profil_yaradilir_608df0",
+  "az": "Fərdi profil yaradılır...",
+  "en": "Creating personal profile..."
+ },
+ {
+  "key": "analysisstep_hazirdir_7750a8",
+  "az": "Hazırdır! ✨",
+  "en": "Ready! ✨"
+ },
+ {
+  "key": "analysisstep_melumatlar_toplanir_20c57a",
+  "az": "Məlumatlar toplanır...",
+  "en": "Collecting data..."
+ },
+ {
+  "key": "appintroduction_24_7_sexsi_meslehetci_c1e4a0",
+  "az": "24/7 şəxsi məsləhətçi",
+  "en": "24/7 personal consultant"
+ },
+ {
+  "key": "appintroduction_agilli_tsikl_izleme_06d779",
+  "az": "Ağıllı tsikl izləmə",
+  "en": "Smart cycle tracking"
+ },
+ {
+  "key": "appintroduction_anacan_a_xos_geldiniz_297592",
+  "az": "Anacan-a Xoş Gəldiniz",
+  "en": "Welcome to Anacan"
+ },
+ {
+  "key": "appintroduction_basla_4820bc",
+  "az": "Başla",
+  "en": "Start"
+ },
+ {
+  "key": "appintroduction_cemiyyet_2dc44d",
+  "az": "Cəmiyyət",
+  "en": "Community"
+ },
+ {
+  "key": "appintroduction_diger_analarla_elaqe_qurun_tecrubelerini_9c1f5a",
+  "az": "Digər analarla əlaqə qurun, təcrübələrinizi paylaşın və dəstək alın.",
+  "en": "Connect with other mothers, share your experiences, and get support."
+ },
+ {
+  "key": "appintroduction_dovrunuzu_i_zleyin_4ad8b9",
+  "az": "Dövrünüzü İzləyin",
+  "en": "Track Your Period"
+ },
+ {
+  "key": "appintroduction_hamilelik_yolculugu_21d366",
+  "az": "Hamiləlik Yolçuluğu",
+  "en": "Pregnancy Journey"
+ },
+ {
+  "key": "appintroduction_hefte_hefte_beledci_01e461",
+  "az": "Həftə-həftə bələdçi",
+  "en": "Week-by-week guide"
+ },
+ {
+  "key": "appintroduction_kec_19bd66",
+  "az": "Keç",
+  "en": "Pass"
+ },
+ {
+  "key": "appintroduction_korpenizin_boyumesini_izleyin_heftelik_m_b5524b",
+  "az": "Körpənizin böyüməsini izləyin, həftəlik məsləhətlər alın və doğuma hazırlaşın.",
+  "en": "Track your baby's growth, get weekly tips, and prepare for birth."
+ },
+ {
+  "key": "appintroduction_menstruasiya_hamilelik_ve_analiq_dovrler_d2bc72",
+  "az": "Menstruasiya, hamiləlik və analıq dövrlərində sizinlə birlikdə olacaq şəxsi köməkçiniz.",
+  "en": "Your personal assistant that will be with you during periods, pregnancy, and motherhood."
+ },
+ {
+  "key": "appintroduction_menstruasiya_tsiklinizi_ovulyasiyani_ve__5d8ab1",
+  "az": "Menstruasiya tsiklinizi, ovulyasiyanı və bərəkətli günlərinizi dəqiq izləyin.",
+  "en": "Accurately track your menstrual cycle, ovulation, and fertile days."
+ },
+ {
+  "key": "appintroduction_saglamliginiz_ucun_en_yaxsi_yoldas_14de09",
+  "az": "Sağlamlığınız üçün ən yaxşı yoldaş",
+  "en": "The best companion for your health"
+ },
+ {
+  "key": "appintroduction_suallarinizi_sorusun_saglamliq_haqqinda__b0b456",
+  "az": "Suallarınızı soruşun, sağlamlıq haqqında məlumat alın.",
+  "en": "Ask your questions, get information about health."
+ },
+ {
+  "key": "appintroduction_tek_deyilsiniz_17196d",
+  "az": "Tək deyilsiniz",
+  "en": "You are not alone"
+ },
+ {
+  "key": "appratingprompt_anacan_i_beyendiniz_34b6fc",
+  "az": "Anacan-ı bəyəndiniz?",
+  "en": "Did you like Anacan?"
+ },
+ {
+  "key": "appratingprompt_bir_daha_gosterme_7beb65",
+  "az": "Bir daha göstərmə",
+  "en": "Do not show again"
+ },
+ {
+  "key": "appratingprompt_daha_sonra",
+  "az": "Daha sonra",
+  "en": "Maybe later"
+ },
+ {
+  "key": "appratingprompt_deyerlendirin_8f0efc",
+  "az": "⭐ Dəyərləndirin",
+  "en": "⭐ Rate it"
+ },
+ {
+  "key": "appratingprompt_gonder_3f11bd",
+  "az": "Göndər",
+  "en": "Send"
+ },
+ {
+  "key": "appratingprompt_tetbiqimizi_deyerlendirerek_di_885a35",
+  "az": "Tətbiqimizi dəyərləndirərək digər analara kömək edə bilərsiniz. \n              Rəyiniz bizim üçün çox dəyərlidir! 💕",
+  "en": "You can help other moms by rating our app. \nYour feedback is very valuable to us! 💕"
+ },
+ {
+  "key": "auth_linked_with",
+  "az": "ilə əlaqələndirildiniz.",
+  "en": "has been linked with your account."
+ },
+ {
+  "key": "authcontext_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "authscreen_adiniz_b3e84a",
+  "az": "Adınız",
+  "en": "Your name"
+ },
+ {
+  "key": "authscreen_anacan_a_xos_geldiniz_f08b39",
+  "az": "Anacan-a xoş gəldiniz!",
+  "en": "Welcome to Anacan!"
+ },
+ {
+  "key": "authscreen_apple_ile_davam_et",
+  "az": "Apple ilə davam et",
+  "en": "Continue with Apple"
+ },
+ {
+  "key": "authscreen_apple_ile_giris_alinmadi_6f9b3a",
+  "az": "Apple ilə giriş alınmadı",
+  "en": "Sign in with Apple failed"
+ },
+ {
+  "key": "authscreen_baglanti_xetasi_e97fbc",
+  "az": "Bağlantı xətası",
+  "en": "Connection error"
+ },
+ {
+  "key": "authscreen_bedeninle_harmoniyada_ol_ac87bc",
+  "az": "Bədəninlə harmoniyada ol",
+  "en": "Be in harmony with your body"
+ },
+ {
+  "key": "authscreen_bu_e_mail_artiq_qeydiyyatdan_k_9e529d",
+  "az": "Bu e-mail artıq qeydiyyatdan keçib. Giriş edin və ya şifrəni unutmusunuzsa bərpa edin.",
+  "en": "This email is already registered. Sign in or reset your password if you've forgotten it."
+ },
+ {
+  "key": "authscreen_bu_kodla_partnyor_tapilmadi_kodu_yoxlayi_a94376",
+  "az": "Bu kodla partnyor tapılmadı. Kodu yoxlayın.",
+  "en": "No partner found with this code. Check the code."
+ },
+ {
+  "key": "authscreen_cox_sayda_cehd_edildi_bir_az_s_782c25",
+  "az": "Çox sayda cəhd edildi. Bir az sonra yenidən cəhd edin.",
+  "en": "Many attempts have been made. Please try again later."
+ },
+ {
+  "key": "authscreen_cox_sayda_cehd_edildi_bir_az_s_ff5fd3",
+  "az": "Çox sayda cəhd edildi. Bir az sonra yenidən yoxlayın.",
+  "en": "Many attempts have been made. Check back in a bit."
+ },
+ {
+  "key": "authscreen_davam_etmekle_7dba26",
+  "az": "Davam etməklə",
+  "en": "By continuing"
+ },
+ {
+  "key": "authscreen_daxil_ol",
+  "az": "Daxil ol",
+  "en": "Login"
+ },
+ {
+  "key": "authscreen_e_mail_teleb_olunur_29dbb5",
+  "az": "E-mail tələb olunur",
+  "en": "Email is required"
+ },
+ {
+  "key": "authscreen_e_mail_tesdiqlenmeyib_50f146",
+  "az": "E-mail təsdiqlənməyib.",
+  "en": "Email not verified."
+ },
+ {
+  "key": "authscreen_e_mail_unvani_duzgun_deyil_ae6d26",
+  "az": "E-mail ünvanı düzgün deyil.",
+  "en": "The e-mail address is incorrect."
+ },
+ {
+  "key": "authscreen_e_mail_unvaniniza_berpa_linki__20b085",
+  "az": "E-mail ünvanınıza bərpa linki göndəriləcək",
+  "en": "A recovery link will be sent to your email address"
+ },
+ {
+  "key": "authscreen_e_mail_unvaniniza_sifre_berpa_linki_gond_f42b2e",
+  "az": "E-mail ünvanınıza şifrə bərpa linki göndərildi.",
+  "en": "A password recovery link has been sent to your email address."
+ },
+ {
+  "key": "authscreen_e_mail_ve_sifre_daxil_edin_07e5e3",
+  "az": "E-mail və şifrə daxil edin.",
+  "en": "Enter email and password."
+ },
+ {
+  "key": "authscreen_e_mail_ve_ya_sifre_yanlisdir_1ef792",
+  "az": "E-mail və ya şifrə yanlışdır.",
+  "en": "The e-mail or password is incorrect."
+ },
+ {
+  "key": "authscreen_giris_1ffbd7",
+  "az": "Giriş",
+  "en": "Login"
+ },
+ {
+  "key": "authscreen_giris_alinmadi_e321fa",
+  "az": "Giriş alınmadı",
+  "en": "Login failed"
+ },
+ {
+  "key": "authscreen_giris_zamani_xeta_bas_verdi_ye_1c654e",
+  "az": "Giriş zamanı xəta baş verdi. Yenidən cəhd edin.",
+  "en": "An error occurred during login. Please try again."
+ },
+ {
+  "key": "authscreen_gizlilik_siyaseti_dc3f28",
+  "az": "Gizlilik Siyasəti",
+  "en": "Privacy Policy"
+ },
+ {
+  "key": "authscreen_google_ile_davam_et",
+  "az": "Google ilə davam et",
+  "en": "Continue with Google"
+ },
+ {
+  "key": "authscreen_google_ile_giris_alinmadi_2d7d46",
+  "az": "Google ilə giriş alınmadı",
+  "en": "Sign in with Google failed"
+ },
+ {
+  "key": "authscreen_ile_razilasirsiniz_547dd9",
+  "az": "ilə razılaşırsınız",
+  "en": "you agree with"
+ },
+ {
+  "key": "authscreen_kod_yanlisdir_64b48f",
+  "az": "Kod yanlışdır",
+  "en": "The code is incorrect"
+ },
+ {
+  "key": "authscreen_link_gonder_d6b028",
+  "az": "Link göndər",
+  "en": "Send a link"
+ },
+ {
+  "key": "authscreen_link_gonderildi_9e4f3d",
+  "az": "Link göndərildi! 📧",
+  "en": "Link cents! 📧"
+ },
+ {
+  "key": "authscreen_melumat_teleb_olunur_a6d6a7",
+  "az": "Məlumat tələb olunur",
+  "en": "Information is required"
+ },
+ {
+  "key": "authscreen_movcud_hesabinizla_partnyor_ki_f43a87",
+  "az": "Mövcud hesabınızla partnyor kimi daxil olun",
+  "en": "Sign in as a partner with your existing account"
+ },
+ {
+  "key": "authscreen_olke",
+  "az": "Ölkə",
+  "en": "Country"
+ },
+ {
+  "key": "authscreen_olke_secin",
+  "az": "Ölkə seçin",
+  "en": "Select Country"
+ },
+ {
+  "key": "authscreen_partnyor_bolmesi_ed393a",
+  "az": "Partnyor Bölməsi",
+  "en": "Partner Section"
+ },
+ {
+  "key": "authscreen_partnyor_ile_baglanti_qurula_bilmedi_d95403",
+  "az": "Partnyor ilə bağlantı qurula bilmədi.",
+  "en": "Could not establish a connection with the partner."
+ },
+ {
+  "key": "authscreen_partnyor_kodu_xaniminizin_prof_101165",
+  "az": "Partnyor kodu xanımınızın profilində tapıla bilər",
+  "en": "The partner code can be found in your lady's profile"
+ },
+ {
+  "key": "authscreen_partnyor_paneline_daxil_oldunuz_0fc533",
+  "az": "Partnyor panelinə daxil oldunuz.",
+  "en": "You have entered the partner panel."
+ },
+ {
+  "key": "authscreen_partnyor_tapilmadi_1239a8",
+  "az": "Partnyor tapılmadı",
+  "en": "Partner not found"
+ },
+ {
+  "key": "authscreen_profil_xetasi_4b403e",
+  "az": "Profil xətası",
+  "en": "Profile error"
+ },
+ {
+  "key": "authscreen_profiliniz_yaradilarken_xeta_bas_verdi_y_2bdc7b",
+  "az": "Profiliniz yaradılarkən xəta baş verdi. Yenidən cəhd edin.",
+  "en": "An error occurred while creating your profile. Please try again."
+ },
+ {
+  "key": "authscreen_qeydiyyat",
+  "az": "Qeydiyyat",
+  "en": "Register"
+ },
+ {
+  "key": "authscreen_qeydiyyat_alinmadi_982f04",
+  "az": "Qeydiyyat alınmadı",
+  "en": "Registration failed"
+ },
+ {
+  "key": "authscreen_qeydiyyat_ugurludur_47a91b",
+  "az": "Qeydiyyat uğurludur! 🎉",
+  "en": "Registration successful! 🎉"
+ },
+ {
+  "key": "authscreen_qeydiyyat_zamani_xeta_bas_verd_100ebf",
+  "az": "Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.",
+  "en": "An error occurred during registration. Please try again."
+ },
+ {
+  "key": "authscreen_qeydiyyatdan_kec_433379",
+  "az": "Qeydiyyatdan keç",
+  "en": "Sign up"
+ },
+ {
+  "key": "authscreen_sertler_d86d4e",
+  "az": "Şərtlər",
+  "en": "Terms"
+ },
+ {
+  "key": "authscreen_servere_baglanti_alinmadi_andr_4a4725",
+  "az": "Serverə bağlantı alınmadı. Android build-də son native dəyişikliklər hələ sync olunmayıbsa, tətbiqi yenidən build edib sync edin və sonra yenidən cəhd edin.",
+  "en": "Failed to connect to server. If the latest native changes in the Android build have not been synced yet, rebuild the app and sync, and then try again."
+ },
+ {
+  "key": "authscreen_sessiya_tapilmadi_yeniden_cehd_edin_651207",
+  "az": "Sessiya tapılmadı. Yenidən cəhd edin.",
+  "en": "Session not found. Please try again."
+ },
+ {
+  "key": "authscreen_sifre_6771ac",
+  "az": "Şifrə",
+  "en": "Password"
+ },
+ {
+  "key": "authscreen_sifre_berpa_linki_gonderile_bilmedi_898ae3",
+  "az": "Şifrə bərpa linki göndərilə bilmədi.",
+  "en": "Password recovery link could not be sent."
+ },
+ {
+  "key": "authscreen_sifre_cox_zeifdir_ve_ya_sizdir_e88929",
+  "az": "Şifrə çox zəifdir və ya sızdırılmış şifrələr siyahısındadır. Daha güclü, unikal bir şifrə seçin (ən azı 8 simvol, böyük/kiçik hərf, rəqəm və simvol).",
+  "en": "The password is too weak or is on the list of leaked passwords. Choose a stronger, unique password (at least 8 characters, upper/lowercase letters, numbers and symbols)."
+ },
+ {
+  "key": "authscreen_sifre_en_azi_6_simvoldan_ibare_8dd3e4",
+  "az": "Şifrə ən azı 6 simvoldan ibarət olmalıdır.",
+  "en": "Password must contain at least 6 characters."
+ },
+ {
+  "key": "authscreen_sifreni_berpa_et_1d1ae1",
+  "az": "Şifrəni Bərpa Et",
+  "en": "Restore Password"
+ },
+ {
+  "key": "authscreen_sifreni_unutdunuz_f70bc9",
+  "az": "Şifrəni unutdunuz?",
+  "en": "Forgot your password?"
+ },
+ {
+  "key": "authscreen_ugurla_baglandiniz_62b079",
+  "az": "Uğurla bağlandınız! 🎉",
+  "en": "Successfully connected! 🎉"
+ },
+ {
+  "key": "authscreen_ve_4e4a26",
+  "az": "və",
+  "en": "and"
+ },
+ {
+  "key": "authscreen_ve_ya_c50561",
+  "az": "və ya",
+  "en": "or"
+ },
+ {
+  "key": "authscreen_xaniminizin_paylasdigi_kodu_da_6384d2",
+  "az": "Xanımınızın paylaşdığı kodu daxil edərək qeydiyyatdan keçin",
+  "en": "Register by entering the code shared by your lady"
+ },
+ {
+  "key": "authscreen_xaniminizla_baglanmaq_ucun_d7b234",
+  "az": "Xanımınızla bağlanmaq üçün",
+  "en": "To connect with your wife"
+ },
+ {
+  "key": "authscreen_xaniminizla_birlikde_bu_seyahete_qosulun_fa14d9",
+  "az": "Xanımınızla birlikdə bu səyahətə qoşulun",
+  "en": "Join this journey with your wife"
+ },
+ {
+  "key": "authscreen_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "authscreen_xos_geldiniz_96d761",
+  "az": "Xoş gəldiniz! 👋",
+  "en": "Welcome! 👋"
+ },
+ {
+  "key": "authscreen_yeniden_cehd_edin_18c03c",
+  "az": "Yenidən cəhd edin.",
+  "en": "Try again."
+ },
+ {
+  "key": "authscreen_zehmet_olmasa_duzgun_partnyor_kodu_daxil_cface0",
+  "az": "Zəhmət olmasa düzgün partnyor kodu daxil edin.",
+  "en": "Please enter a valid partner code."
+ },
+ {
+  "key": "authscreen_zehmet_olmasa_e_mail_unvaninizi_daxil_ed_281019",
+  "az": "Zəhmət olmasa e-mail ünvanınızı daxil edin.",
+  "en": "Please enter your email address."
+ },
+ {
+  "key": "back_press_again",
+  "az": "Çıxmaq üçün yenidən basın",
+  "en": "Press again to exit"
+ },
+ {
+  "key": "billingdesignertab_abunelik_sehifesi_konfiqurasiyasi_saxlan_dfa67c",
+  "az": "Abunəlik səhifəsi konfiqurasiyası saxlanıldı ✓",
+  "en": "Subscription page configuration saved ✓"
+ },
+ {
+  "key": "billingdesignertab_abuneliyim_sehifesindeki_butun_c8757d",
+  "az": "Abunəliyim səhifəsindəki bütün mətnləri, rəngləri və elementləri buradan idarə edin.",
+  "en": "Manage all text, colors and elements on the My Subscription page from here."
+ },
+ {
+  "key": "billingdesignertab_ayliq_plan_adi_74afd4",
+  "az": "Aylıq plan adı",
+  "en": "Monthly plan name"
+ },
+ {
+  "key": "billingdesignertab_baslama_9f32b6",
+  "az": "Başlama",
+  "en": "Start"
+ },
+ {
+  "key": "billingdesignertab_baslangic_e9d2d5",
+  "az": "Başlanğıc",
+  "en": "Start"
+ },
+ {
+  "key": "billingdesignertab_basliq_ve_plan_adlari_fb450b",
+  "az": "Başlıq və Plan Adları",
+  "en": "Title and Plan Names"
+ },
+ {
+  "key": "billingdesignertab_berpa_cta_7a62cb",
+  "az": "Bərpa CTA",
+  "en": "Restore CTA"
+ },
+ {
+  "key": "billingdesignertab_bitme_f6de2a",
+  "az": "Bitmə",
+  "en": "End"
+ },
+ {
+  "key": "billingdesignertab_bolme_basligi_a972ec",
+  "az": "Bölmə başlığı",
+  "en": "Section title"
+ },
+ {
+  "key": "billingdesignertab_destek_email_207ed0",
+  "az": "Dəstək email",
+  "en": "Support email"
+ },
+ {
+  "key": "billingdesignertab_destek_metni_2cc9d9",
+  "az": "Dəstək mətni",
+  "en": "Support text"
+ },
+ {
+  "key": "billingdesignertab_duyme_metnleri_147868",
+  "az": "Düymə Mətnləri",
+  "en": "Button Texts"
+ },
+ {
+  "key": "billingdesignertab_elave_et_6e1b9b",
+  "az": "Əlavə et",
+  "en": "Add"
+ },
+ {
+  "key": "billingdesignertab_header_rengleri_66cc09",
+  "az": "Header Rəngləri",
+  "en": "Header Colors"
+ },
+ {
+  "key": "billingdesignertab_illik_plan_adi_0fae97",
+  "az": "İllik plan adı",
+  "en": "Annual plan name"
+ },
+ {
+  "key": "billingdesignertab_legv_badge_e31165",
+  "az": "Ləğv badge",
+  "en": "Canceled badge"
+ },
+ {
+  "key": "billingdesignertab_legv_bildirisi_274b32",
+  "az": "Ləğv bildirişi",
+  "en": "Cancellation notice"
+ },
+ {
+  "key": "billingdesignertab_legv_cta_d2b58c",
+  "az": "Ləğv CTA",
+  "en": "Cancel CTA"
+ },
+ {
+  "key": "billingdesignertab_metn_6e9f0f",
+  "az": "Mətn",
+  "en": "Text"
+ },
+ {
+  "key": "billingdesignertab_odenildi_metni_b47c40",
+  "az": "Ödənildi mətni",
+  "en": "Paid text"
+ },
+ {
+  "key": "billingdesignertab_odenis_basligi_a9eb1c",
+  "az": "Ödəniş başlığı",
+  "en": "Payment title"
+ },
+ {
+  "key": "billingdesignertab_odenis_ve_destek_9e9d73",
+  "az": "Ödəniş və Dəstək",
+  "en": "Payment and Support"
+ },
+ {
+  "key": "billingdesignertab_premium_a_kec_cta_482f4d",
+  "az": "Premium-a keç CTA",
+  "en": "Go Premium CTA"
+ },
+ {
+  "key": "billingdesignertab_premium_istifadeci_ucun_ac15a0",
+  "az": "Premium istifadəçi üçün",
+  "en": "For premium users"
+ },
+ {
+  "key": "billingdesignertab_pulsuz_istifadeci_ucun_80ea44",
+  "az": "Pulsuz istifadəçi üçün",
+  "en": "For free users"
+ },
+ {
+  "key": "billingdesignertab_pulsuz_plan_adi_00a719",
+  "az": "Pulsuz plan adı",
+  "en": "Free plan name"
+ },
+ {
+  "key": "billingdesignertab_qenaet_metni_17412a",
+  "az": "Qənaət mətni",
+  "en": "Savings text"
+ },
+ {
+  "key": "billingdesignertab_saxlanilir_ee05ad",
+  "az": "Saxlanılır...",
+  "en": "Saving..."
+ },
+ {
+  "key": "billingdesignertab_sehife_basligi_1ebf3e",
+  "az": "Səhifə Başlığı",
+  "en": "Page Title"
+ },
+ {
+  "key": "billingdesignertab_status_etiketleri_8906da",
+  "az": "Status Etiketləri",
+  "en": "Status Labels"
+ },
+ {
+  "key": "billingdesignertab_tarix_etiketleri_ce8135",
+  "az": "Tarix Etiketləri",
+  "en": "Date Labels"
+ },
+ {
+  "key": "billingdesignertab_tarix_ile_evez_olunur_91289b",
+  "az": "— tarix ilə əvəz olunur",
+  "en": "— replaced by date"
+ },
+ {
+  "key": "billingdesignertab_ustunlukler_6e0ad9",
+  "az": "Üstünlüklər",
+  "en": "Benefits"
+ },
+ {
+  "key": "billingdesignertab_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "billingdesignertab_yenilenme_8e3032",
+  "az": "Yenilənmə",
+  "en": "Renewal"
+ },
+ {
+  "key": "billingdesignertab_yukseltme_cta_cb2fe8",
+  "az": "Yüksəltmə CTA",
+  "en": "Upgrade CTA"
+ },
+ {
+  "key": "billingscreen_annual_premium",
+  "az": "Annual Premium",
+  "en": null
+ },
+ {
+  "key": "billingscreen_auto_renewal",
+  "az": "Auto Renewal",
+  "en": null
+ },
+ {
+  "key": "billingscreen_cancel_appstore",
+  "az": "You will be redirected to the App Store / Google Play subscription management page to cancel your subscription.",
+  "en": null
+ },
+ {
+  "key": "billingscreen_cancel_confirm",
+  "az": "Are you sure you want to cancel your subscription? You will continue to have Premium access until the end of the current period.",
+  "en": null
+ },
+ {
+  "key": "billingscreen_cancel_error",
+  "az": "Failed to cancel subscription.",
+  "en": null
+ },
+ {
+  "key": "billingscreen_cancel_success",
+  "az": "Subscription Cancelled",
+  "en": null
+ },
+ {
+  "key": "billingscreen_cancel_success_desc",
+  "az": "You can use Premium until the end of the current period.",
+  "en": null
+ },
+ {
+  "key": "billingscreen_error",
+  "az": "Error",
+  "en": null
+ },
+ {
+  "key": "billingscreen_first_purchase",
+  "az": "First Purchase",
+  "en": null
+ },
+ {
+  "key": "billingscreen_monthly_premium",
+  "az": "Monthly Premium",
+  "en": null
+ },
+ {
+  "key": "billingscreen_need_help",
+  "az": "Need help?",
+  "en": null
+ },
+ {
+  "key": "billingscreen_next_renewal",
+  "az": "Next Renewal",
+  "en": null
+ },
+ {
+  "key": "billingscreen_open_in_store",
+  "az": "View in App Store",
+  "en": null
+ },
+ {
+  "key": "billingscreen_premium_features",
+  "az": "Premium Features",
+  "en": null
+ },
+ {
+  "key": "billingscreen_refresh",
+  "az": "YenilÉ™",
+  "en": null
+ },
+ {
+  "key": "billingscreen_restore_error",
+  "az": "Failed to restore subscription.",
+  "en": null
+ },
+ {
+  "key": "billingscreen_restore_success",
+  "az": "Subscription Restored",
+  "en": null
+ },
+ {
+  "key": "billingscreen_restore_success_desc",
+  "az": "Your Premium subscription is active again.",
+  "en": null
+ },
+ {
+  "key": "billingscreen_scheduled",
+  "az": "Scheduled",
+  "en": null
+ },
+ {
+  "key": "billingscreen_status_free",
+  "az": "Current Status: Free",
+  "en": null
+ },
+ {
+  "key": "billingscreen_title",
+  "az": "My Subscription",
+  "en": null
+ },
+ {
+  "key": "billingscreen_upgrade",
+  "az": "Upgrade",
+  "en": null
+ },
+ {
+  "key": "billingscreen_upgrade_btn",
+  "az": "Upgrade to Premium",
+  "en": null
+ },
+ {
+  "key": "bottomnav_aletler_4778b4",
+  "az": "Alətlər",
+  "en": "Tools"
+ },
+ {
+  "key": "bottomnav_cemiyyet_2dc44d",
+  "az": "Cəmiyyət",
+  "en": "Community"
+ },
+ {
+  "key": "bottomnav_esas_6d87f7",
+  "az": "Əsas",
+  "en": "Home"
+ },
+ {
+  "key": "bottomnav_mesajlar",
+  "az": "Mesajlar",
+  "en": "Messages"
+ },
+ {
+  "key": "bottomnav_meslehet_9a0892",
+  "az": "Məsləhət",
+  "en": "Advice"
+ },
+ {
+  "key": "bottomnav_profil",
+  "az": "Profil",
+  "en": "Profile"
+ },
+ {
+  "key": "common_1_saat",
+  "az": "1 saat",
+  "en": "1 hour"
+ },
+ {
+  "key": "common_ad_placeholder",
+  "az": "Ad",
+  "en": "Name"
+ },
+ {
+  "key": "common_ana",
+  "az": "Ana",
+  "en": "Mother"
+ },
+ {
+  "key": "common_analiz_loading",
+  "az": "Analiz...",
+  "en": "Analyzing..."
+ },
+ {
+  "key": "common_ata",
+  "az": "Ata",
+  "en": "Father"
+ },
+ {
+  "key": "common_ay",
+  "az": "ay",
+  "en": "month"
+ },
+ {
+  "key": "common_back",
+  "az": "Geri",
+  "en": "Back"
+ },
+ {
+  "key": "common_bazar",
+  "az": "Bazar",
+  "en": "Sunday"
+ },
+ {
+  "key": "common_bez",
+  "az": "Bez",
+  "en": "Diaper"
+ },
+ {
+  "key": "common_elektronika_label",
+  "az": "📱 Elektronika",
+  "en": "📱 Electronics"
+ },
+ {
+  "key": "common_enerji_label",
+  "az": "Enerji:",
+  "en": "Energy:"
+ },
+ {
+  "key": "common_ev",
+  "az": "Ev",
+  "en": "Home"
+ },
+ {
+  "key": "common_geri",
+  "az": "Geri",
+  "en": "Back"
+ },
+ {
+  "key": "common_ginekologiya",
+  "az": "Ginekologiya",
+  "en": "Gynecology"
+ },
+ {
+  "key": "common_gun",
+  "az": "gün",
+  "en": "day"
+ },
+ {
+  "key": "common_h_short",
+  "az": "s",
+  "en": "h"
+ },
+ {
+  "key": "common_hefte_suffix",
+  "az": "həftə",
+  "en": "weeks"
+ },
+ {
+  "key": "common_hours",
+  "az": "saat",
+  "en": "hours"
+ },
+ {
+  "key": "common_initial_i",
+  "az": "İ",
+  "en": null
+ },
+ {
+  "key": "common_legv_et",
+  "az": "Ləğv et",
+  "en": null
+ },
+ {
+  "key": "common_limitsiz",
+  "az": "Limitsiz",
+  "en": "Unlimited"
+ },
+ {
+  "key": "common_m_short",
+  "az": "d",
+  "en": "m"
+ },
+ {
+  "key": "common_mamologiya",
+  "az": "Mamologiya",
+  "en": "Mammology"
+ },
+ {
+  "key": "common_minutes_short",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "common_normal",
+  "az": "Normal",
+  "en": "Normal"
+ },
+ {
+  "key": "common_ofis_label",
+  "az": "📎 Ofis",
+  "en": "📎 Office"
+ },
+ {
+  "key": "common_orta",
+  "az": "Orta",
+  "en": "Medium"
+ },
+ {
+  "key": "common_oyuncaq_label",
+  "az": "🧸 Oyuncaq",
+  "en": "🧸 Toy"
+ },
+ {
+  "key": "common_paltar_label",
+  "az": "👕 Paltar",
+  "en": "👕 Clothing"
+ },
+ {
+  "key": "common_parametrler",
+  "az": "ParametrlÉ™r",
+  "en": null
+ },
+ {
+  "key": "common_partnyor",
+  "az": "Partnyor",
+  "en": "Partner"
+ },
+ {
+  "key": "common_pediatriya",
+  "az": "Pediatriya",
+  "en": "Pediatrics"
+ },
+ {
+  "key": "common_per_month",
+  "az": "/ay",
+  "en": "/month"
+ },
+ {
+  "key": "common_per_year",
+  "az": "/il",
+  "en": "/year"
+ },
+ {
+  "key": "common_pis",
+  "az": "Pis",
+  "en": "Bad"
+ },
+ {
+  "key": "common_qeyd",
+  "az": "qeyd",
+  "en": "notes"
+ },
+ {
+  "key": "common_sil",
+  "az": "Sil",
+  "en": "Delete"
+ },
+ {
+  "key": "common_silindi",
+  "az": "Silindi",
+  "en": "Deleted"
+ },
+ {
+  "key": "common_sonra",
+  "az": "Sonra",
+  "en": "After"
+ },
+ {
+  "key": "common_su_water",
+  "az": "Su",
+  "en": "Water"
+ },
+ {
+  "key": "common_tamamla",
+  "az": "Tamamla",
+  "en": "Complete"
+ }
+]

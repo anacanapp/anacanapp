@@ -1,0 +1,324 @@
+{
+ "play_activities": {
+  "ebc79f1e-7d23-4c5a-b28e-dda90e096b3a": {
+   "title": "Schatzkorb",
+   "description": "Fülle einen Korb mit sicheren Haushaltsgegenständen",
+   "instructions": "Sammle 5–10 sichere Gegenstände mit unterschiedlichen Oberflächen und Formen. Lass dein Baby sie frei erkunden und benenne dabei jeden Gegenstand."
+  },
+  "a4aa194b-9d64-4f72-8ba4-90ae6e12f0c5": {
+   "title": "Klatschlied",
+   "description": "Singt und klatscht gemeinsam",
+   "instructions": "Singe einfache Klatschlieder. Hilf deinem Baby, die Hände zusammenzuklatschen. Das fördert Rhythmusgefühl und Koordination."
+  },
+  "b99f62da-0ba0-4a8c-a136-3eae65f486ee": {
+   "title": "Löffel-Fallspiel",
+   "description": "Lasst Löffel in einen Topf fallen",
+   "instructions": "Zeige deinem Baby, wie es Holzlöffel in einen Topf fallen lassen kann. Lass es das Geräusch hören und die Bewegung wiederholen."
+  },
+  "bf6bdf5d-9977-460c-978a-4df325af6d86": {
+   "title": "Wattebällchen umfüllen",
+   "description": "Füllt Wattebällchen von einem Behälter in den anderen",
+   "instructions": "Gib deinem Baby zwei Schüsseln und Wattebällchen. Zeige ihm, wie es die Bällchen greifen und umfüllen kann. Das fördert die Feinmotorik."
+  },
+  "c80230e8-6d2c-459b-9557-6ff0795bbec7": {
+   "title": "Papier zerreißen",
+   "description": "Zerreißt Papier in kleine Stücke",
+   "instructions": "Gib deinem Baby weiches Papier zum Zerreißen. Das Geräusch und das Gefühl fördern die Sinneswahrnehmung und kräftigen die Hände."
+  },
+  "977ee460-5cf3-4eaa-878a-9d316320f9a5": {
+   "title": "Tunnel aus Papprollen",
+   "description": "Rollt einen Ball durch Papprollen",
+   "instructions": "Halte eine Papprolle fest und zeige deinem Baby, wie es einen kleinen Ball hindurchrollen kann. Jagt dem Ball anschließend gemeinsam hinterher."
+  },
+  "58d3e4f3-7256-4eaa-901e-ce192a8aca44": {
+   "title": "Kuckuckspiel mit einem Tuch",
+   "description": "Klassisches Kuckuckspiel",
+   "instructions": "1. Bedecke dein Gesicht mit einem Tuch\n2. Frage: „Wo bin ich?“\n3. Nimm das Tuch weg und sage: „Kuckuck!“\n4. Bedecke sanft das Gesicht deines Babys und wiederhole das Spiel"
+  },
+  "8c2f484b-326a-4dac-b7a4-7eb528aff395": {
+   "title": "Schwarz-Weiß-Mobile",
+   "description": "Hänge kontrastreiche Bilder über deinem Baby auf",
+   "instructions": "Schneide einfache Formen aus Papier aus und hänge sie 20-30cm über deinem Baby auf. Lass dein Baby die Bewegungen mit den Augen verfolgen."
+  },
+  "6145784f-e184-4ae7-8691-ff33671cc7d0": {
+   "title": "Becher stapeln",
+   "description": "Türme aus Bechern bauen",
+   "instructions": "1. Zeige deinem Baby, wie man Becher stapelt\n2. Lass dein Baby den Turm umwerfen\n3. Baue ihn wieder auf und wiederhole das Spiel\n4. Benenne beim Stapeln die Farben"
+  },
+  "68d82e2b-fe11-4b41-af57-aa141f8eb6cc": {
+   "title": "Bilderbuch anschauen",
+   "description": "Gemeinsam interaktiv Bilderbücher anschauen",
+   "instructions": "1. Wähle Bücher mit farbenfrohen Bildern\n2. Zeige auf die Bilder und benenne sie\n3. Lass dein Baby die Seiten umblättern\n4. Ahme Tierlaute nach"
+  },
+  "60e5d3d1-5587-48f5-99df-4e806c62490a": {
+   "title": "Formensortierspiel",
+   "description": "Formen den passenden Öffnungen zuordnen",
+   "instructions": "1. Zeige, wie die Formen in die Öffnungen passen\n2. Führe anfangs die Hand deines Babys\n3. Freue dich mit deinem Baby über jeden Erfolg\n4. Benenne beim Spielen die Formen"
+  },
+  "52245d35-3235-4e80-b73d-af4fe323ed93": {
+   "title": "Tanzparty",
+   "description": "Gemeinsam zur Musik tanzen",
+   "instructions": "1. Spiele fröhliche Musik\n2. Tanze mit deinem Baby im Arm\n3. Setze dein Baby ab und tanzt gemeinsam\n4. Klatscht in die Hände und dreht euch im Kreis"
+  },
+  "ea96ae3c-ed32-4118-b146-ecbb3a3bb763": {
+   "title": "Der Rassel folgen",
+   "description": "Der Rassel mit den Augen und Ohren folgen",
+   "instructions": "1. Schüttle die Rassel, um die Aufmerksamkeit deines Babys zu wecken\\n2. Bewege sie langsam in verschiedene Richtungen\\n3. Lass dein Baby versuchen, danach zu greifen"
+  },
+  "e08ba272-48b6-4a5f-b44b-0ba7da5cb808": {
+   "title": "Telefonieren spielen",
+   "description": "Rollenspiel mit einem Telefon",
+   "instructions": "1. Gib deinem Baby ein Spielzeugtelefon\\n2. Tu so, als würdest du dein Baby anrufen\\n3. Ermutige dein Baby zum „Sprechen“\\n4. Sprecht abwechselnd"
+  },
+  "a3c29297-6e01-48c7-9b34-d7d9d3af361a": {
+   "title": "Sanftes Singen",
+   "description": "Singe deinem Baby leise etwas vor",
+   "instructions": "Halte dein Baby nah bei dir und singe sanfte Schlaflieder oder einfache Lieder. Achte darauf, wie dein Baby auf deine Stimme reagiert."
+  },
+  "e0e77763-f782-46a8-bcfe-1cf276ba2cce": {
+   "title": "Bauchlage mit Spielzeug",
+   "description": "Lege während der Bauchlage buntes Spielzeug vor dein Baby",
+   "instructions": "Lege dein Baby auf den Bauch. Platziere buntes Spielzeug knapp außerhalb seiner Reichweite, damit es danach greift und den Kopf hebt."
+  },
+  "5cea30c3-38d1-4326-b521-b5428eba62a1": {
+   "title": "Planschzeit",
+   "description": "Lass dein Baby mit den Händen im Wasser planschen",
+   "instructions": "Fülle eine flache Schüssel mit warmem Wasser. Lass dein Baby das Wasser berühren und darin planschen. Beaufsichtige es dabei immer aufmerksam."
+  },
+  "eb368346-4c28-48f4-acc2-82c3747e66bf": {
+   "title": "Fliegendes Baby",
+   "description": "Hebe dein Baby sanft in die Luft",
+   "instructions": "Lege dich auf den Rücken, halte dein Baby sicher fest und hebe es sanft hoch, als würde es fliegen. Das stärkt eure Bindung."
+  },
+  "20e1c63e-791f-43a8-bb33-84ebfe166368": {
+   "title": "Bauchlage vor dem Spiegel",
+   "description": "Sich selbst im Spiegel zu sehen, fördert die Entwicklung deines Babys",
+   "instructions": "Lege dein Baby bäuchlings auf ein Kissen. Stelle einen Spiegel vor ihm auf. Zeige ihm sein Spiegelbild."
+  },
+  "5a6d5c7d-3489-4b3d-8210-fbeed43d3536": {
+   "title": "Küchenband",
+   "description": "Mit Töpfen und Pfannen das Rhythmusgefühl fördern",
+   "instructions": "Lege einen Holzlöffel und Töpfe vor dein Baby. Zeige ihm, wie es darauf schlagen kann. Erzeugt gemeinsam einen Rhythmus."
+  },
+  "8266c528-ae95-47fa-b7f4-28400410ebc2": {
+   "title": "Kistentunnel",
+   "description": "Fördert das Krabbeln und die Entdeckungsfreude",
+   "instructions": "Öffne beide Seiten eines großen Kartons. Ermutige dein Baby, von einer Seite hineinzukrabbeln. Rufe es von der anderen Seite."
+  },
+  "fc6ee2c8-0599-4677-994a-dc1385d83024": {
+   "title": "Sockenpuppen",
+   "description": "Fördert Kommunikation und Kreativität",
+   "instructions": "Bastle aus einer alten Socke eine Handpuppe. „Sprich“ mit deinem Baby. Mache verschiedene Geräusche."
+  },
+  "3b19cf38-0d12-4b49-81d4-69a60f7b3cc2": {
+   "title": "Fühlparcours",
+   "description": "Fördert die sensorische Entwicklung durch unterschiedliche Oberflächen",
+   "instructions": "Lege Materialien mit unterschiedlichen Oberflächen (Decke, Schal, Papier) auf dem Boden aus. Lass dein Baby darüberkrabbeln."
+  },
+  "16373dad-486f-490c-bc14-144cfd354f5f": {
+   "title": "Kontrastkarten",
+   "description": "Schwarz-weiße Musterkarten zur Förderung der visuellen Entwicklung",
+   "instructions": "1. Halte die Karte 20-30cm vom Gesicht deines Babys entfernt\\n2. Bewege sie langsam von links nach rechts\\n3. Beobachte, wie die Augen deines Babys der Karte folgen"
+  },
+  "c1e1e351-1af5-4816-8f2c-de374135c16b": {
+   "title": "Bauchlage mit Spiegel",
+   "description": "Bauchlage mit einem Spiegel, um das Baby zum Mitmachen anzuregen",
+   "instructions": "1. Lege dein Baby auf einer weichen Unterlage auf den Bauch\\n2. Stelle einen Spiegel vor dein Baby\\n3. Sprich mit deinem Baby und ermutige es, nach oben zu schauen"
+  },
+  "ea46fd4e-7a05-4463-bf0d-2b9e8add8866": {
+   "title": "Zeit für eine sanfte Massage",
+   "description": "Babymassage zur Stärkung der Bindung und Förderung der Entwicklung",
+   "instructions": "1. Verwende ein für Babys geeignetes Öl\\n2. Massiere sanft Arme, Beine und Bauch\\n3. Singe oder sprich mit deinem Baby, während du es massierst"
+  },
+  "449a2aa8-5640-4e79-b7fa-0c92027bb12c": {
+   "title": "Seifenblasen beobachten",
+   "description": "Seifenblasen beobachten, um die visuelle Wahrnehmung zu fördern",
+   "instructions": "1. Puste Seifenblasen in der Nähe deines Babys\\n2. Zeige auf die Seifenblasen und beschreibe sie\\n3. Lass die Seifenblasen sanft auf der Haut deines Babys zerplatzen"
+  },
+  "e257be70-2380-44c1-91be-9e079d4879b7": {
+   "title": "Verschiedene Oberflächen erkunden",
+   "description": "Unterschiedliche Oberflächen und Materialien entdecken",
+   "instructions": "1. Sammle Gegenstände mit unterschiedlichen Oberflächen\\n2. Lass dein Baby jeden Gegenstand berühren\\n3. Beschreibe die Oberflächen: weich, rau, glatt"
+  },
+  "4d841e68-97b6-4186-be6e-26bef3df65df": {
+   "title": "Spiel mit Behältern",
+   "description": "Gegenstände in Behälter hineinlegen und wieder herausnehmen",
+   "instructions": "1. Verwende einen sicheren Behälter und weiche Spielsachen\\n2. Zeige deinem Baby, wie es die Gegenstände hineinlegen kann\\n3. Ermutige dein Baby, die Gegenstände wieder herauszunehmen\\n4. Klatsche begeistert Beifall"
+  },
+  "073a2084-da2c-4ef3-8a93-22136a2c77a5": {
+   "title": "Ball hin und her rollen",
+   "description": "Einen Ball hin und her rollen",
+   "instructions": "1. Setze dich deinem Baby gegenüber\\n2. Rolle deinem Baby einen weichen Ball zu\\n3. Ermutige dein Baby, den Ball zurückzuschieben\\n4. Juble, wenn dein Baby mitmacht"
+  },
+  "94152e25-5d19-43e0-9c7f-26f0205d234e": {
+   "title": "Wasser umgießen",
+   "description": "Wasser von einem Becher in einen anderen gießen",
+   "instructions": "Gib deinem Baby zwei Becher und Wasser. Zeige ihm, wie man das Wasser von einem Becher in den anderen gießt. Das fördert die Koordination."
+  },
+  "18e16dc8-b896-4c03-8b0c-c7052e294b98": {
+   "title": "Spielzeug-Versteckspiel",
+   "description": "Ein Spielzeug unter Bechern verstecken und wiederfinden",
+   "instructions": "Stelle 2-3 Becher umgedreht auf. Verstecke ein kleines Spielzeug unter einem davon. Bitte dein Baby, es zu finden."
+  },
+  "a9054a6e-ef97-45fa-aea0-e0e0cc640bc3": {
+   "title": "Farben sortieren",
+   "description": "Gegenstände nach Farben in Behälter sortieren",
+   "instructions": "Verwende verschiedenfarbige Gegenstände wie Bauklötze, Bälle oder Deckel. Stelle Behälter bereit und bitte dein Kind, die Gegenstände nach Farben zu sortieren."
+  },
+  "07108cc6-ef41-4d92-ad52-d3d9ab5b5c1a": {
+   "title": "Körperteile-Spiel",
+   "description": "Auf Körperteile zeigen und sie benennen",
+   "instructions": "Berühre deine Nase, Ohren und Augen und benenne sie. Bitte dein Kind, es dir nachzumachen. Singt gemeinsam das Lied „Kopf, Schultern, Knie und Fuß“."
+  },
+  "61ed8f13-2ee8-4bf5-b395-427c971b2b93": {
+   "title": "Mach mir nach",
+   "description": "Gemeinsam Bewegungen nachmachen",
+   "instructions": "Mach einfache Bewegungen vor: springen, klatschen, sich drehen und aufstampfen. Bitte dein Kind, dir zu folgen. Danach darf es selbst vormachen."
+  },
+  "407aee71-093f-47d5-be98-f518ebc93883": {
+   "title": "Puzzlezeit",
+   "description": "Einfache Formenpuzzles",
+   "instructions": "Gib deinem Kind ein einfaches Puzzle mit 3-5 Teilen. Hilf ihm dabei, die passenden Formen zu finden. Freut euch über jedes richtig eingesetzte Teil."
+  },
+  "df24840d-33ce-4c49-b093-3e0206c89ed5": {
+   "title": "Schwämme ausdrücken",
+   "description": "Nasse Schwämme über Schüsseln ausdrücken",
+   "instructions": "Befeuchte die Schwämme und zeige deinem Baby, wie es das Wasser in eine Schüssel ausdrücken kann. Das stärkt die Handmuskulatur."
+  },
+  "efd51de1-efff-48a2-a2e9-f6a4a3d7a2ee": {
+   "title": "Federn pusten",
+   "description": "Federn anpusten und beim Schweben beobachten",
+   "instructions": "Lege Federn auf eine ebene Fläche. Puste sie vorsichtig an und lass dein Baby versuchen, sie zu fangen oder ebenfalls anzupusten."
+  },
+  "53ef4599-988b-4a29-8f82-c3c78d48283b": {
+   "title": "Spielen mit Sand",
+   "description": "Im Sand graben und ihn umfüllen",
+   "instructions": "Fülle ein Tablett mit Sand. Stelle Becher und Löffel bereit. Lass dein Baby graben, den Sand umfüllen und seine Beschaffenheit ertasten."
+  },
+  "9a13c43a-a835-47cf-99fe-bd97a0f1562c": {
+   "title": "Knete formen",
+   "description": "Knete drücken, rollen und formen",
+   "instructions": "Gib deinem Baby Knete. Zeige ihm, wie man sie drückt, rollt und mit den Fingern hineinsticht. Verwendet Ausstechformen, um verschiedene Figuren zu gestalten."
+  },
+  "5c63d4c6-a28a-488e-84cb-86ad690cd854": {
+   "title": "Bauklotzturm",
+   "description": "Bauklötze so hoch wie möglich stapeln",
+   "instructions": "Zeige deinem Baby, wie es Bauklötze stapeln kann. Zählt jeden Bauklotz. Freut euch, wenn der Turm umfällt! Baut ihn anschließend gemeinsam wieder auf."
+  },
+  "00ca6e21-d67f-4f0a-a874-ef5c64e2e91a": {
+   "title": "Tücher herausziehen",
+   "description": "Tücher aus einem Behälter ziehen",
+   "instructions": "Stecke Tücher in eine Schachtel mit einer Öffnung. Lass dein Baby sie einzeln herausziehen. Benenne dabei jede Farbe."
+  },
+  "ab3c62c3-5d7c-4ac6-ad8b-ac7d714a3ea7": {
+   "title": "Sticker-Spiel",
+   "description": "Sticker abziehen und auf Papier kleben",
+   "instructions": "Gib deinem Kind Sticker und Papier. Das Abziehen der Sticker fördert die Feinmotorik. Gestaltet gemeinsam ein Bild."
+  },
+  "62e05487-3056-4592-b1ea-0b4cac9e8f41": {
+   "title": "Spaziergang in der Natur",
+   "description": "Blätter und Steine sammeln",
+   "instructions": "Macht einen kurzen Spaziergang. Sammelt Blätter, Steine und Blumen. Sprecht über Farben, Formen und Oberflächen."
+  },
+  "55dd9c21-79eb-44fa-92b7-7a1329f2835d": {
+   "title": "Trommelrunde",
+   "description": "Mit Töpfen und Löffeln Rhythmen erzeugen",
+   "instructions": "Stellt Töpfe umgedreht als Trommeln auf. Verwendet Kochlöffel als Trommelstöcke. Erzeugt gemeinsam Rhythmen."
+  },
+  "1edc1365-0580-41a0-86fb-6e413cd251cc": {
+   "title": "Fühlkiste mit Reis",
+   "description": "Reis mit den Händen und verschiedenen Hilfsmitteln erkunden",
+   "instructions": "Fülle einen Behälter mit Reis. Gib Becher, Löffel und kleine Spielsachen dazu. Lass dein Kind schöpfen, schütten und suchen."
+  },
+  "8055a758-49ff-45d1-880c-15da141896b2": {
+   "title": "Schaukeln in der Decke",
+   "description": "Das Baby sanft in einer Decke schaukeln",
+   "instructions": "Zwei Erwachsene halten die Ecken der Decke, in der das Baby liegt. Schaukelt es sanft von einer Seite zur anderen und singt dabei."
+  },
+  "23d036b7-20b9-4a05-a223-49a6d472d380": {
+   "title": "Musikinstrumente",
+   "description": "Mit einfachen Instrumenten Musik machen",
+   "instructions": "1. Gib deinem Baby sichere Instrumente wie Rasseln\\n2. Spiele Musik und schüttle die Instrumente im Takt\\n3. Singt gemeinsam Lieder\\n4. Lass dein Baby verschiedene Klänge erkunden"
+  },
+  "c6f840ec-4a7f-4cab-a710-22e0769b14e1": {
+   "title": "Kleine Wäschehilfe",
+   "description": "Socken nach Farben sortieren",
+   "instructions": "Mische verschiedenfarbige Socken. Bitte dein Baby, die farblich passenden Paare zu finden."
+  },
+  "236f386f-6b5f-4108-a856-812efa52e5d0": {
+   "title": "Schattenspiel",
+   "description": "Schattenfiguren an die Wand zaubern",
+   "instructions": "Erzeuge in einem dunklen Raum mit einer Taschenlampe Handschatten an der Wand. Forme Tiere und Gegenstände."
+  },
+  "3bde9afc-8036-426d-ae82-c76b546162fc": {
+   "title": "Spielzeug waschen",
+   "description": "Spielzeug in Seifenwasser waschen",
+   "instructions": "Fülle eine Wanne mit warmem Seifenwasser. Gib deinem Baby einen Schwamm und Spielzeug zum Waschen. Benenne beim Waschen jedes Spielzeug."
+  },
+  "97af70f2-c634-4bfa-bd72-86e31f80ae2a": {
+   "title": "Zählspiel",
+   "description": "Gemeinsam Gegenstände zählen",
+   "instructions": "Sammelt kleine Gegenstände wie Bauklötze. Zählt sie gemeinsam einen nach dem anderen. Bildet Gruppen aus 2, 3 und 4 Gegenständen."
+  },
+  "ff72da83-28a7-4824-919d-7d40add23a69": {
+   "title": "Tiergeräusche",
+   "description": "Gemeinsam Tiergeräusche nachahmen",
+   "instructions": "Zeige auf Tierbilder in einem Buch. Mache das Geräusch des jeweiligen Tieres nach. Ermutige dein Baby, es dir nachzumachen."
+  },
+  "7a752652-ca03-444b-9521-72269d1948b7": {
+   "title": "Kissenberg",
+   "description": "Über Kissenhindernisse klettern",
+   "instructions": "Lege Kissen und Polster zu einem Hindernisparcours aus. Ermutige dein Baby, darüber und hindurchzuklettern."
+  },
+  "75be8860-ac3f-4a9e-87c7-5122de70d0a6": {
+   "title": "Sensorikflasche",
+   "description": "Eine mit bunter Flüssigkeit gefüllte Flasche weckt die Aufmerksamkeit deines Babys",
+   "instructions": "Fülle eine Plastikflasche mit gefärbtem Wasser oder glitzernden Materialien. Verschließe den Deckel fest. Zeige sie deinem Baby und lass es die Flasche rollen."
+  },
+  "f5161cf6-25f1-4eda-b672-91e0dc7075f4": {
+   "title": "Festhalten und Greifen",
+   "description": "Lass dein Baby üben, deine Finger zu greifen",
+   "instructions": "Halte deinem Baby deine Finger hin, damit es danach greifen kann. Ziehe ganz sanft daran, um seine Griffkraft zu stärken."
+  },
+  "d62cf27d-4570-4976-85c1-ea88d0004a93": {
+   "title": "Stoffe ertasten",
+   "description": "Lass dein Baby verschiedene Stoffe berühren",
+   "instructions": "Lege weiche, raue, glatte und flauschige Stoffe bereit. Lass dein Baby jeden Stoff berühren und ertasten, während du die jeweilige Beschaffenheit benennst."
+  },
+  "b0958c0b-1439-4e5e-8443-a1ae673d0845": {
+   "title": "Rassel schütteln",
+   "description": "Dein Baby schüttelt eine Rassel und erzeugt dabei Geräusche",
+   "instructions": "Gib deinem Baby eine Rassel und zeige ihm, wie man sie schüttelt. Freue dich mit ihm, wenn es dich nachahmt. Probiert verschiedene Rhythmen aus."
+  },
+  "2fb728ab-9f62-4c72-8288-051a6eb7e14e": {
+   "title": "Malen mit Eiswürfeln",
+   "description": "Malt mit bunten Eiswürfeln auf Papier",
+   "instructions": "Friere mit Lebensmittelfarbe gefärbtes Wasser ein. Lass dein Baby die Eiswürfel über das Papier schieben und dabei bunte Muster gestalten."
+  },
+  "4b4383db-2e14-4720-b060-17d8ff1704ee": {
+   "title": "Sortieren mit einem Eierkarton",
+   "description": "Sortiert kleine Gegenstände in die Mulden eines Eierkartons",
+   "instructions": "Lege sichere kleine Gegenstände bereit. Zeige deinem Baby, wie es in jede Mulde des Eierkartons einen Gegenstand legt. Zählt dabei gemeinsam mit."
+  },
+  "25a4322e-633e-4a3e-9979-250fedcd62b2": {
+   "title": "Papphaus",
+   "description": "Baut aus einem großen Karton ein Spielhaus",
+   "instructions": "Schneide Fenster und eine Tür in einen großen Karton. Verziert ihn gemeinsam. Lass dein Kind darin spielen."
+  },
+  "ae4fecd1-f9d4-4188-aac6-c77af614920c": {
+   "title": "Krabbeltunnel",
+   "description": "Krabbelt durch einen Tunnel aus Decken",
+   "instructions": "Lege Decken über Stühle, um einen Tunnel zu bauen. Ermutige dein Kind, hindurchzukrabbeln. Lege Spielzeug ans Ende des Tunnels."
+  },
+  "64c0f7f0-7997-4646-84a7-28213e200807": {
+   "title": "Nudelkette",
+   "description": "Fädelt Nudeln auf eine Schnur",
+   "instructions": "Verwende große Röhrennudeln. Zeige deinem Kind, wie es sie auf eine Schnur oder einen Schnürsenkel fädeln kann. Eine tolle Übung für die Feinmotorik."
+  },
+  "48b54a1e-5f01-444e-ac3a-7700916922cc": {
+   "title": "Fingermalen",
+   "description": "Malt mit den Fingern auf Papier",
+   "instructions": "Gib unbedenkliche Farbe auf ein Blatt Papier. Lass dein Kind mit Fingern und Händen ein Kunstwerk gestalten. Sprecht dabei über die Farben."
+  }
+ }
+}

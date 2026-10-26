@@ -1,0 +1,19 @@
+{
+ "onboarding_stages": {
+  "96b17cf8-2b22-47a9-ab9e-53457ca78dac": {
+   "title": "Homiladorligim",
+   "subtitle": "Homiladorlik kuzatuvchisi",
+   "description": "Chaqalog‘ingizning rivojlanishini haftama-hafta kuzatib boring"
+  },
+  "9c5c1bb0-bcac-4d2a-b3dc-fe6eaa999de3": {
+   "title": "Chaqalog‘im bor",
+   "subtitle": "Onalik yordamchisi",
+   "description": "Chaqalog‘ingizning ovqatlanishi, uyqusi va rivojlanishini kuzatib boring"
+  },
+  "bace572d-c514-4cb9-b9f9-ae6f279efab8": {
+   "title": "Hayz siklimni kuzatish",
+   "subtitle": "Hayz taqvimi",
+   "description": "Hayz siklingizni kuzating va ovulyatsiya vaqtini aniqlang"
+  }
+ }
+}

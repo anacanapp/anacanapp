@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<title>Anacan banner (kk)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coral: #FF5A5F;
+    --coral-deep: #e8444a;
+    --peach: #ffdcdd;
+    --cream: #fff5ef;
+    --ink: #2b2b2b;
+    --ink-soft: #6f655d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1600px; height: 900px; }
+  body {
+    position: relative; overflow: hidden;
+    font-family: 'Inter', 'Segoe UI', sans-serif; color: var(--ink);
+    background:
+      radial-gradient(900px 700px at 78% 55%, #ffd2d0 0%, rgba(255,210,208,0) 70%),
+      radial-gradient(600px 500px at 0% 100%, #ffe3d6 0%, rgba(255,227,214,0) 70%),
+      var(--cream);
+  }
+  .blob { position: absolute; border-radius: 50%; filter: blur(2px); }
+  .blob.a { width: 520px; height: 520px; right: -140px; top: -180px; background: rgba(255,90,95,.10); }
+  .blob.b { width: 260px; height: 260px; left: 520px; bottom: -120px; background: rgba(255,90,95,.08); }
+
+  .copy { position: absolute; left: 96px; top: 0; bottom: 0; width: 600px;
+    display: flex; flex-direction: column; justify-content: center; }
+  .brand { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+  .brand img { width: 64px; height: 64px; border-radius: 18px; box-shadow: 0 8px 20px rgba(255,90,95,.25); }
+  .brand span { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: -.5px; }
+  h1 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 64px; line-height: 1.05; letter-spacing: -1.2px; }
+  h1 em { font-style: normal; color: var(--coral); }
+  .sub { margin-top: 24px; font-size: 22px; line-height: 1.5; color: var(--ink-soft); font-weight: 500; max-width: 540px; }
+  .stages { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
+  .stage { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px;
+    background: #fff; border: 1.5px solid var(--peach); font-weight: 700; font-size: 17px; }
+  .stage i { font-style: normal; color: var(--coral); }
+  .cta { display: flex; align-items: center; gap: 14px; margin-top: 48px; }
+  .cta .btn { padding: 16px 28px; border-radius: 16px; background: var(--coral); color: #fff;
+    font-weight: 700; font-size: 19px; box-shadow: 0 10px 24px rgba(255,90,95,.35); }
+  .cta .stores { font-size: 16px; color: var(--ink-soft); font-weight: 600; line-height: 1.4; }
+
+  .phones { position: absolute; right: 70px; top: 50%; transform: translateY(-50%);
+    width: 840px; height: 760px; }
+  .phone { position: absolute; padding: 10px; border-radius: 46px; background: #0f1117;
+    box-shadow: 0 30px 60px rgba(60,20,20,.28), 0 0 0 1.5px rgba(255,255,255,.06) inset; }
+  .phone img { display: block; width: 100%; border-radius: 36px; }
+  .phone .label { position: absolute; left: 50%; transform: translateX(-50%); bottom: -46px;
+    white-space: nowrap; font-weight: 700; font-size: 17px; color: var(--ink); }
+  .phone .label b { color: var(--coral); margin-right: 6px; }
+  .p1 { width: 270px; left: 0; top: 120px; transform: rotate(-5deg); }
+  .p2 { width: 300px; left: 270px; top: 20px; z-index: 2; }
+  .p3 { width: 270px; left: 570px; top: 120px; transform: rotate(5deg); }
+</style>
+</head>
+<body>
+  <div class="blob a"></div><div class="blob b"></div>
+
+  <section class="copy">
+    <div class="brand"><img src="../public/brand-mark.png" alt=""><span>Anacan</span></div>
+    <h1>Етеккірден<br><em>ана болуға</em> дейін<br>бір қолданбада</h1>
+    <p class="sub">Цикл күнтізбесі, жүктілік апталары және баланың күнделікті дамуы. Anacan.AI көмекшісімен, қазақ тілінде.</p>
+    <div class="cta">
+      <span class="btn">Тегін жүктеп алыңыз</span>
+      <span class="stores">App Store<br>Google Play</span>
+    </div>
+  </section>
+
+  <div class="phones">
+    <div class="phone p1"><img src="../screenshots/kk/flow-1.jpg" alt=""><div class="label"><b>1</b>Етеккір күнтізбесі</div></div>
+    <div class="phone p2"><img src="../screenshots/kk/bump-1.jpg" alt=""><div class="label"><b>2</b>Жүктімін</div></div>
+    <div class="phone p3"><img src="../screenshots/kk/mommy-1.jpg" alt=""><div class="label"><b>3</b>Анамын</div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1307 @@
+[
+  {
+    "file": "src\\components\\admin\\AdminAffiliateProducts.tsx",
+    "line": 25,
+    "text": "Baby Stroller,Uşaq arabası,https://example.com/product1,baby_gear,trendyol,199.99,249.99,AZN,https://example.com/img.jpg,\"https://img1.jpg|https://img2.jpg\",,Trendyol,,High quality stroller,Yüksək keyfiyyətli araba,4.5,120,Əla məhsuldur,bump|mommy,true,true,\"Rahat|Möhkəm\",\"Ağır\",körpə|araba,\"{\"\"Çəki\"\":\"\"8kg\"\",\"\"Rəng\"\":\"\"Qara\"\"}\"`;"
+  },
+  {
+    "file": "src\\components\\admin\\AdminAffiliateProducts.tsx",
+    "line": 186,
+    "text": "errors.push(`Sətir atlandı: name və ya affiliate_url yoxdur`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminAffiliateProducts.tsx",
+    "line": 235,
+    "text": "title: `${successCount} məhsul əlavə edildi`,"
+  },
+  {
+    "file": "src\\components\\admin\\AdminAffiliateProducts.tsx",
+    "line": 236,
+    "text": "description: `${errors.length} xəta: ${errors.slice(0, 3).join(', ')}${errors.length > 3 ? '...' : ''}`,"
+  },
+  {
+    "file": "src\\components\\admin\\AdminAffiliateProducts.tsx",
+    "line": 240,
+    "text": "toast({ title: `${successCount} məhsul uğurla əlavə edildi` });"
+  },
+  {
+    "file": "src\\components\\admin\\AdminAffiliateProducts.tsx",
+    "line": 396,
+    "text": "toast({ title: `${items.length} məhsul ixrac edildi` });"
+  },
+  {
+    "file": "src\\components\\admin\\AdminAnalytics.tsx",
+    "line": 243,
+    "text": "bump: tr(\"adminanalytics_hamile_0080af\", \"Hamil\\u0259\"), mommy: 'Ana', flow: 'Flow', partner: 'Partner', 'Naməlum': tr(\"adminanalytics_namelum_134662\", \"Nam\\u0259lum\")"
+  },
+  {
+    "file": "src\\components\\admin\\AdminAnalytics.tsx",
+    "line": 246,
+    "text": "bump: '#f28155', mommy: '#8b5cf6', flow: '#ec4899', partner: '#3b82f6', 'Naməlum': '#9ca3af'"
+  },
+  {
+    "file": "src\\components\\admin\\AdminBabyCrisisCalendar.tsx",
+    "line": 264,
+    "text": "`Həftə ${period.week_start}` :"
+  },
+  {
+    "file": "src\\components\\admin\\AdminBabyCrisisCalendar.tsx",
+    "line": 265,
+    "text": "`Həftə ${period.week_start}-${period.week_end}`}"
+  },
+  {
+    "file": "src\\components\\admin\\AdminBabyCrisisCalendar.tsx",
+    "line": 434,
+    "text": "<label className=\"text-sm font-medium\">{tr(\"adminbabycrisiscalendar_simptomlar_en_her_setirde_bir_b0a595\", \"Simptomlar (EN) - hər sətirdə bir\")}</label>"
+  },
+  {
+    "file": "src\\components\\admin\\AdminBabyDailyInfo.tsx",
+    "line": 127,
+    "text": "toast.success(`${result.success} məlumat idxal edildi${result.failed > 0 ? `, ${result.failed} uğursuz` : ''}`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminBabyDailyInfo.tsx",
+    "line": 168,
+    "text": "toast.success(`${data.length} məlumat ixrac edildi`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminBabyIllustrations.tsx",
+    "line": 261,
+    "text": "placeholder={`${selectedMonth} aylıq körpə`} />"
+  },
+  {
+    "file": "src\\components\\admin\\AdminBlog.tsx",
+    "line": 120,
+    "text": "replace(/ş/g, 's').replace(/ə/g, 'e').replace(/ı/g, 'i')."
+  },
+  {
+    "file": "src\\components\\admin\\AdminBlog.tsx",
+    "line": 121,
+    "text": "replace(/ğ/g, 'g').replace(/ö/g, 'o').replace(/ü/g, 'u')."
+  },
+  {
+    "file": "src\\components\\admin\\AdminBlog.tsx",
+    "line": 122,
+    "text": "replace(/ç/g, 'c').replace(/İ/gi, 'i')."
+  },
+  {
+    "file": "src\\components\\admin\\AdminBlog.tsx",
+    "line": 300,
+    "text": "description: `Məqalə ${post.is_published ? tr(\"adminblog_gizledildi_2b23fb\", \"gizl\\u0259dildi\") : tr(\"adminblog_derc_edildi_f9c4a5\", \"d\\u0259rc edildi\")}`"
+  },
+  {
+    "file": "src\\components\\admin\\AdminBlog.tsx",
+    "line": 341,
+    "text": "description: `Bu kateqoriya ${usageCount} məqalədə istifadə olunur. Əvvəlcə məqalələrdən çıxarın.`,"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 194,
+    "text": "'Mənşə': 'origin',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 195,
+    "text": "'Məna': 'meaning',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 196,
+    "text": "'Məna (AZ)': 'meaning_az',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 197,
+    "text": "'Populyarlıq': 'popularity'"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 216,
+    "text": "'Qız': 'girl',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 217,
+    "text": "'Oğlan': 'boy',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 273,
+    "text": "description: `Bütün ${namesImportData.length} ad artıq mövcuddur`"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 288,
+    "text": "description: `${newNames.length} yeni ad əlavə edildi${duplicateCount > 0 ? `, ${duplicateCount} təkrar ad keçildi` : ''}`"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 321,
+    "text": "'Başlıq': 'title',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 322,
+    "text": "'Təsvir': 'description',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 324,
+    "text": "'Hazırlıq (dəq)': 'prep_time',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 325,
+    "text": "'Bişirmə (dəq)': 'cook_time',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 327,
+    "text": "'İnqredientlər': 'ingredients',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 328,
+    "text": "'Hazırlanma': 'instructions',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 329,
+    "text": "'Şəkil URL': 'image_url'"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 390,
+    "text": "description: `${recipesImportData.length} resept əlavə edildi`"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 407,
+    "text": "const template = `Başlıq,Təsvir,Kateqoriya,Hazırlıq (dəq),Bişirmə (dəq),Porsiya,İnqredientlər,Hazırlanma,Şəkil URL"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 408,
+    "text": "\"Limonlu Zəncəfil Çayı\",\"Hamiləlik dövründə ürəkbulanmaya qarşı ideal içki\",\"pregnancy\",5,0,2,\"Su - 500ml; Təzə zəncəfil - 2sm; Limon - yarım; Bal - 1 çay qaşığı\",\"Zəncəfili doğrayın; Suyu qaynadın; Zəncəfili əlavə edib 5 dəq dəmləyin; Limon və bal əlavə edin\",\"\""
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 409,
+    "text": "\"Avokado Tostu\",\"Folat və sağlam yağlarla zəngin səhər yeməyi\",\"pregnancy\",10,5,1,\"Çörək - 2 dilim; Avokado - 1 ədəd; Yumurta - 1 ədəd; Duz, istiot\",\"Çörəyi qızardın; Avokadonu əzin; Yumurtanı bişirin; Hamısını birləşdirin\",\"\""
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 410,
+    "text": "\"Banan Smoothie\",\"Enerji verən və qəbizliyə qarşı içki\",\"breastfeeding\",5,0,1,\"Banan - 1 ədəd; Süd - 200ml; Bal - 1 çay qaşığı; Yulaf - 2 xörək qaşığı\",\"Bütün inqredientləri blenderə qoyun; 1 dəq qarışdırın; Soyuq serviz edin\",\"\"`;"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 420,
+    "text": "const template = `Ad,Cins,Mənşə,Məna,Məna (AZ),Populyarlıq"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 421,
+    "text": "\"Aylin\",\"Qız\",\"Türk\",\"Ayın parıltısı\",\"Ayın ətrafındakı işıq, nur\",\"98%\""
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 422,
+    "text": "\"Əli\",\"Oğlan\",\"Ərəb\",\"Yüksək, əzəmətli\",\"Uca, şərəfli\",\"99%\""
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 423,
+    "text": "\"Ayan\",\"Unisex\",\"Türk\",\"Bəlli, açıq\",\"Göz qabağında olan, tanınan\",\"90%\"`;"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 591,
+    "text": "<SelectValue placeholder={`${field} seçin`} />"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 999,
+    "text": "`${namesImportData.length} Ad Əlavə Et`"
+  },
+  {
+    "file": "src\\components\\admin\\AdminContentManager.tsx",
+    "line": 1063,
+    "text": "`${recipesImportData.length} Resept Əlavə Et`"
+  },
+  {
+    "file": "src\\components\\admin\\AdminCoupons.tsx",
+    "line": 276,
+    "text": "{c.max_uses ? ` · ${c.used_count || 0}/${c.max_uses} istifadə` : ` · ${c.used_count || 0} istifadə`}"
+  },
+  {
+    "file": "src\\components\\admin\\AdminData.tsx",
+    "line": 83,
+    "text": "const confirmed = window.confirm(`${table} cədvəlindəki 30 gündən köhnə məlumatları silmək istəyirsiniz?`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminDeeplinks.tsx",
+    "line": 74,
+    "text": "'Əsas': '🏠',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminDeeplinks.tsx",
+    "line": 75,
+    "text": "'Alətlər': '🔧',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminDeeplinks.tsx",
+    "line": 77,
+    "text": "'Məzmun': '📝',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminDeeplinks.tsx",
+    "line": 80,
+    "text": "'Digər': '📋'"
+  },
+  {
+    "file": "src\\components\\admin\\AdminFruitImages.tsx",
+    "line": 123,
+    "text": "description: `Həftə ${weekNumber} üçün şəkil yükləndi`"
+  },
+  {
+    "file": "src\\components\\admin\\AdminLanguages.tsx",
+    "line": 215,
+    "text": "if (confirm(`\"${lang.native_name}\" dilini silmək istəyirsiniz?`)) {"
+  },
+  {
+    "file": "src\\components\\admin\\AdminMaternityBenefits.tsx",
+    "line": 307,
+    "text": "<Label>{tr(\"adminmaternitybenefits_mezmun_az_markdown_desteklenir_769038\", \"Məzmun (AZ) - Markdown dəstəklənir\")}</Label>"
+  },
+  {
+    "file": "src\\components\\admin\\AdminMommyDailyMessages.tsx",
+    "line": 101,
+    "text": "toast.success(`${result.success} uğurlu, ${result.failed} uğursuz`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 141,
+    "text": "if (!confirm(`${selectedItems.length} məlumatı silmək istədiyinizə əminsiniz?`)) return;"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 145,
+    "text": "toast({ title: `${selectedItems.length} məlumat silindi!` });"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 225,
+    "text": "'Doğuma neçə gün qaldı': 'days_until_birth',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 226,
+    "text": "'Təxmini çəki': 'baby_weight_gram',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 227,
+    "text": "'Təxmini boy': 'baby_size_cm',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 228,
+    "text": "'Təxmini ölçüsündə olduğu meyvə / obyekt': 'baby_size_fruit',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 229,
+    "text": "'Təxmini ölçüsündəolduğu meyvə / obyekt': 'baby_size_fruit',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 230,
+    "text": "'Təxmini ölçüsündə olduğu meyvə': 'baby_size_fruit',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 231,
+    "text": "'Körpənizdən sizə mesaj var...': 'baby_message',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 232,
+    "text": "'Körpənizdən sizə mesaj var': 'baby_message',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 233,
+    "text": "'Bədəninizdə nələr baş verir...': 'body_changes',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 234,
+    "text": "'Bədəninizdə nələr baş verir': 'body_changes',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 235,
+    "text": "'Körpənin inkişafında nələr baş verir...': 'baby_development',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 236,
+    "text": "'Körpənin inkişafında nələr baş verir': 'baby_development',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 237,
+    "text": "'Günün Məsləhəti': 'daily_tip',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 238,
+    "text": "'Günün məsləhəti': 'daily_tip',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 326,
+    "text": "toast({ title: 'CSV oxundu', description: `${data.length} sətir tapıldı. Bazaya yazılır...` });"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPregnancyContent.tsx",
+    "line": 335,
+    "text": "description: `${results.success} uğurlu, ${results.failed} uğursuz${results.errors?.length ? ` - İlk xəta: ${results.errors[0]}` : ''}`"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPushNotifications.tsx",
+    "line": 360,
+    "text": "title: `Hamiləliyin ${dayNumber}-ci günü 🌟`,"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPushNotifications.tsx",
+    "line": 513,
+    "text": "toast.success(`CSV import tamamlandı: ${inserted} yeni${errors > 0 ? `, ${errors} xəta` : ''}${skipped > 0 ? `, ${skipped} keçildi` : ''}`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPushNotifications.tsx",
+    "line": 586,
+    "text": "toast.success(`${notifications.length} bildiriş ixrac edildi`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPushNotifications.tsx",
+    "line": 946,
+    "text": "toast.success(`${data.sent || 0} flow xatırlatması göndərildi!`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPushNotifications.tsx",
+    "line": 1184,
+    "text": "toast.success(`${result.sent} cihaza göndərildi!`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPushNotifications.tsx",
+    "line": 1355,
+    "text": "`${currentTargetStats.tokens} cihaza göndəriləcək` : tr(\"adminpushnotifications_bu_auditoriyada_qeydiyyatli_ci_31e27d\", \"\\u26A0\\uFE0F Bu auditoriyada qeydiyyatl\\u0131 cihaz yoxdur!\")"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPushNotifications.tsx",
+    "line": 1685,
+    "text": "title: `Körpənizin ${dayNumber}-ci günü 🌟`,"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPushNotifications.tsx",
+    "line": 1862,
+    "text": "toast.success(`CSV import tamamlandı: ${inserted} yeni${errors > 0 ? `, ${errors} xəta` : ''}${skipped > 0 ? `, ${skipped} keçildi` : ''}`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminPushNotifications.tsx",
+    "line": 1930,
+    "text": "toast.success(`${notifications.length} bildiriş ixrac edildi`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminRecipes.tsx",
+    "line": 250,
+    "text": "'Başlıq': 'title',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminRecipes.tsx",
+    "line": 251,
+    "text": "'Təsvir': 'description',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminRecipes.tsx",
+    "line": 253,
+    "text": "'Hazırlıq (dəq)': 'prep_time',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminRecipes.tsx",
+    "line": 254,
+    "text": "'Bişirmə (dəq)': 'cook_time',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminRecipes.tsx",
+    "line": 257,
+    "text": "'İnqredientlər': 'ingredients',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminRecipes.tsx",
+    "line": 258,
+    "text": "'Hazırlanma': 'instructions',"
+  },
+  {
+    "file": "src\\components\\admin\\AdminRecipes.tsx",
+    "line": 259,
+    "text": "'Şəkil URL': 'image_url'"
+  },
+  {
+    "file": "src\\components\\admin\\AdminRecipes.tsx",
+    "line": 320,
+    "text": "description: `${importData.length} resept əlavə edildi`"
+  },
+  {
+    "file": "src\\components\\admin\\AdminSubscriptions.tsx",
+    "line": 98,
+    "text": "toast({ title: tr(\"adminsubscriptions_ugurlu_7fe64c\", \"Uğurlu\"), description: `${selectedUser.name} üçün Premium aktivləşdirildi` });"
+  },
+  {
+    "file": "src\\components\\admin\\AdminSubscriptions.tsx",
+    "line": 106,
+    "text": "if (!confirm(`${user.name} üçün Premium-u ləğv etmək istəyirsiniz?`)) return;"
+  },
+  {
+    "file": "src\\components\\admin\\AdminSubscriptions.tsx",
+    "line": 120,
+    "text": "toast({ title: tr(\"adminsubscriptions_ugurlu_7fe64c\", \"Uğurlu\"), description: `${user.name} üçün Premium ləğv edildi` });"
+  },
+  {
+    "file": "src\\components\\admin\\AdminTranslations.tsx",
+    "line": 123,
+    "text": "toast.success(`${saved} tərcümə yadda saxlanıldı`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminTranslations.tsx",
+    "line": 197,
+    "text": "toast.success(`${imported} tərcümə idxal edildi`);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminUsers.tsx",
+    "line": 161,
+    "text": "description: `${selectedUser.name} üçün ${getRoleLabel(selectedRole)} rolu təyin edildi`"
+  },
+  {
+    "file": "src\\components\\admin\\AdminUsers.tsx",
+    "line": 193,
+    "text": "toast({ title: tr(\"adminusers_ugurlu_7fe64c\", \"Uğurlu\"), description: `${selectedUser.name} üçün şifrə yeniləndi` });"
+  },
+  {
+    "file": "src\\components\\admin\\AdminVaccines.tsx",
+    "line": 200,
+    "text": "toast({ title: tr(\"adminvaccines_kocuruldu_e03fb0\", \"K\\xF6\\xE7\\xFCr\\xFCld\\xFC\"), description: `${n} peyvənd köçürüldü.` });"
+  },
+  {
+    "file": "src\\components\\admin\\AdminVaccines.tsx",
+    "line": 262,
+    "text": "if (confirm(`${c.name_az} silinsin? Bütün peyvəndlər də silinəcək.`)) delCountry.mutate(c.id);"
+  },
+  {
+    "file": "src\\components\\admin\\AdminVaccines.tsx",
+    "line": 291,
+    "text": "if (confirm(`${v.name_az} silinsin? Bütün dozalar da silinəcək.`)) delVaccine.mutate(v.id);"
+  },
+  {
+    "file": "src\\components\\admin\\BulkTimeManager.tsx",
+    "line": 107,
+    "text": "if (!confirm(`${selected.size} sətrin saatı \"${newTime}\" olaraq dəyişdiriləcək. Davam edək?`)) return;"
+  },
+  {
+    "file": "src\\components\\admin\\BulkTimeManager.tsx",
+    "line": 120,
+    "text": "toast.success(`${ids.length} bildirişin saatı ${newTime} oldu`);"
+  },
+  {
+    "file": "src\\components\\admin\\BulkTipsImport.tsx",
+    "line": 38,
+    "text": "\"title\": \"Hamiləliyin 1-ci həftəsi\","
+  },
+  {
+    "file": "src\\components\\admin\\BulkTipsImport.tsx",
+    "line": 39,
+    "text": "\"content\": \"Bu həftə körpəniz hələ kiçik bir hüceyrədir. Folik turşusu qəbul etməyi unutmayın!\""
+  },
+  {
+    "file": "src\\components\\admin\\BulkTipsImport.tsx",
+    "line": 43,
+    "text": "\"title\": \"Hamiləliyin 2-ci həftəsi\","
+  },
+  {
+    "file": "src\\components\\admin\\BulkTipsImport.tsx",
+    "line": 44,
+    "text": "\"content\": \"Ovulyasiya dövrü başlayır. Sağlam qidalanma çox vacibdir.\""
+  },
+  {
+    "file": "src\\components\\admin\\BulkTipsImport.tsx",
+    "line": 54,
+    "text": "title: `Hamiləliyin ${week}-ci həftəsi`,"
+  },
+  {
+    "file": "src\\components\\admin\\BulkTipsImport.tsx",
+    "line": 55,
+    "text": "content: `${week}-ci həftə üçün tövsiyə məzmunu buraya yazılacaq.`,"
+  },
+  {
+    "file": "src\\components\\admin\\BulkTipsImport.tsx",
+    "line": 146,
+    "text": "description: `${successCount} uğurlu, ${failedCount} uğursuz`"
+  },
+  {
+    "file": "src\\components\\admin\\NotificationOpsCard.tsx",
+    "line": 74,
+    "text": "if (allHours) return { ok: false, message: `gözlənilən: ${expected.join(',')} — alındı: ${baku}` };"
+  },
+  {
+    "file": "src\\components\\admin\\NotificationOpsCard.tsx",
+    "line": 77,
+    "text": "if (missing.length) return { ok: false, message: `çatışmayan: ${missing.join(',')} (Baku saat)` };"
+  },
+  {
+    "file": "src\\components\\admin\\NotificationOpsCard.tsx",
+    "line": 114,
+    "text": "if (sent > 0) toast.success(`${fn}: ${sent} push göndərildi`);else"
+  },
+  {
+    "file": "src\\components\\admin\\NotificationOpsCard.tsx",
+    "line": 115,
+    "text": "toast.warning(`${fn}: 0 push (səbəbə bax)`);"
+  },
+  {
+    "file": "src\\components\\admin\\PushDiagnosticsCard.tsx",
+    "line": 37,
+    "text": "toast.success(`${sent} dinamik push göndərildi (sənin cihazına)`);"
+  },
+  {
+    "file": "src\\components\\admin\\PushDiagnosticsCard.tsx",
+    "line": 94,
+    "text": "toast.success(`${masked.length} aktiv token tapıldı`);"
+  },
+  {
+    "file": "src\\components\\AIChatScreen.tsx",
+    "line": 124,
+    "text": "return `Salam${userName}. Mən Anacan.AI. Menstrual tsikl, simptomlar və ümumi sağlamlıq üzrə suallarınıza peşəkar cavab verməyə hazıram.`;"
+  },
+  {
+    "file": "src\\components\\AIChatScreen.tsx",
+    "line": 126,
+    "text": "return `Salam${userName}. Mən Anacan.AI. ${pregnancyData ? `Hazırda hamiləliyin ${pregnancyData.currentWeek}-ci həftəsindəsiniz; körpəniz təxminən ${dynamicFruit || pregnancyData.babySize.fruit} böyüklüyündədir. ` : ''}Hamiləlik dövrü ilə bağlı suallarınızı verə bilərsiniz.`;"
+  },
+  {
+    "file": "src\\components\\AIChatScreen.tsx",
+    "line": 128,
+    "text": "return `Salam${userName}. Mən Anacan.AI. Körpə baxımı, əmizdirmə, yuxu rejimi və doğuşdan sonrakı bərpa ilə bağlı suallarınıza dəstək olmağa hazıram.`;"
+  },
+  {
+    "file": "src\\components\\AIChatScreen.tsx",
+    "line": 130,
+    "text": "return `Salam${userName}. Mən Anacan.AI. Sizə necə kömək edə bilərəm?`;"
+  },
+  {
+    "file": "src\\components\\AppearanceScreen.tsx",
+    "line": 174,
+    "text": "`Hal-hazırda sistem teması (${currentTheme === 'dark' ? tr(\"appearancescreen_qaranliq_affa8e\", \"qaranl\\u0131q\") : tr(\"appearancescreen_aciq_79bf9c\", \"a\\xE7\\u0131q\")}) istifadə olunur.` :"
+  },
+  {
+    "file": "src\\components\\AuthScreen.tsx",
+    "line": 248,
+    "text": "description: `${partnerProfile.name} ilə əlaqələndirildiniz.`"
+  },
+  {
+    "file": "src\\components\\BirthOnboardingModal.tsx",
+    "line": 93,
+    "text": "notes: `Doğum çəkisi: ${birthWeight || '-'} kq, Boy: ${birthHeight || '-'} sm, Doğum tipi: ${deliveryType}`"
+  },
+  {
+    "file": "src\\components\\BirthOnboardingModal.tsx",
+    "line": 106,
+    "text": "description: `${babyName} dünyaya xoş gəldi! Analıq səyahətinizə başlayırıq.`"
+  },
+  {
+    "file": "src\\components\\BlogScreen.tsx",
+    "line": 317,
+    "text": "`\"${searchQuery}\" üçün nəticələr` : tr(\"blogscreen_butun_meqaleler_df9384\", \"B\\xFCt\\xFCn M\\u0259qal\\u0259l\\u0259r\")"
+  },
+  {
+    "file": "src\\components\\bump\\PregnancyDayNavigator.tsx",
+    "line": 61,
+    "text": "if (dayOffset > 0) return `+${dayOffset} gün`;"
+  },
+  {
+    "file": "src\\components\\bump\\PregnancyDayNavigator.tsx",
+    "line": 62,
+    "text": "return `${dayOffset} gün`;"
+  },
+  {
+    "file": "src\\components\\cakes\\CakeOrderForm.tsx",
+    "line": 97,
+    "text": "toast({ title: tr(\"cakeorderform_xeta_3cdbb6\", 'Xəta'), description: tr(\"cakeorderform_yalniz_sekil_jpg_png_ve_ya_pdf_yukleye_b_40df31\", 'Yalnız şəkil (JPG, PNG) və ya PDF yükləyə bilərsiniz'), variant: 'destructive' });"
+  },
+  {
+    "file": "src\\components\\cakes\\CakeOrderForm.tsx",
+    "line": 172,
+    "text": "notes: `${formData.notes || ''} [${paymentLabel} ödəniş]`.trim(),"
+  },
+  {
+    "file": "src\\components\\cakes\\CakeOrderForm.tsx",
+    "line": 480,
+    "text": "{paymentMethod === 'card_simulated' ? `Ödə və sifariş ver` :"
+  },
+  {
+    "file": "src\\components\\cakes\\CakeOrderForm.tsx",
+    "line": 481,
+    "text": "paymentMethod === 'c2c_transfer' ? `Sifarişi təsdiqlə` :"
+  },
+  {
+    "file": "src\\components\\cakes\\CakeOrderForm.tsx",
+    "line": 482,
+    "text": "`Sifariş göndər`} — {totalPrice.toFixed(2)}₼"
+  },
+  {
+    "file": "src\\components\\community\\CreatePostModal.tsx",
+    "line": 135,
+    "text": "if (error) throw new Error(`Fayl yüklənə bilmədi: ${error.message}`);"
+  },
+  {
+    "file": "src\\components\\community\\CreatePostScreen.tsx",
+    "line": 131,
+    "text": "if (error) throw new Error(`Fayl yüklənə bilmədi: ${error.message}`);"
+  },
+  {
+    "file": "src\\components\\community\\GroupPresenceBar.tsx",
+    "line": 47,
+    "text": "{typingUsers.length === 1 ? `${typingUsers[0].name} yazır...` : `${typingUsers.length} nəfər yazır...`}"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 310,
+    "text": "description: `Bu gün ${kickCount + 1} təpik`"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 319,
+    "text": "description: `${waterCount + 1}/8 stəkan`"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 376,
+    "text": "alt={`${selectedWeek} həftəlik körpə`}"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 381,
+    "text": "{/* Main Text - \"Anacan hazırda meyvə boydayam\" */}"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 891,
+    "text": "toast({ title: \"Yuxu bitdi! ☀️\", description: `${formatDuration(result.durationSeconds)} yatdı` });"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 915,
+    "text": "title: `${type === 'left' ? 'Sol' : tr(\"dashboard_sag_edbe12\", \"Sa\\u011F\")} sinə bitti!`,"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 916,
+    "text": "description: `Müddət: ${formatDuration(result.durationSeconds)}`"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 949,
+    "text": "formula: amountMl ? `Süd əvəzedicisi ${amountMl} ml 🍼` : tr(\"dashboard_sud_evezedicisi_057b37\", \"S\\xFCd \\u0259v\\u0259zedicisi \\uD83C\\uDF7C\"),"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 977,
+    "text": "toast({ title: `Bez dəyişmə: ${typeEmojis[type]}` });"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 1042,
+    "text": "{/* Bu günün məlumatları */}"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 1192,
+    "text": "<p className=\"text-xs text-muted-foreground\">{tr('dashboard_today_label', 'Bu gün')}: {(() => {const m = todayStats.sleepMinutes || Math.round(todayStats.sleepHours * 60);const h = Math.floor(m / 60);const rm = m % 60;if (h === 0 && rm === 0) return tr(\"dashboard_0_deq_86d70a\", \"0 d\\u0259q\");if (h === 0) return `${rm} dəq`;if (rm === 0) return `${h} saat`;return `${h}s ${rm}d`;})()}</p>"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 1551,
+    "text": "if (h === 0) return `${m} dəq`;"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 1553,
+    "text": "return `${h} saat ${m} dəq`;"
+  },
+  {
+    "file": "src\\components\\Dashboard.tsx",
+    "line": 1583,
+    "text": "const durText = dH > 0 ? `${dH}s ${dM}d` : dM > 0 ? `${dM} dəq ${dS} san` : `${dS} san`;"
+  },
+  {
+    "file": "src\\components\\DoctorReportScreen.tsx",
+    "line": 65,
+    "text": "{ label: tr(\"doctorreportscreen_dovre_uzunlugu_c81215\", 'Dövrə uzunluğu'), value: `${cycleData.cycleLength} gün`, icon: Calendar },"
+  },
+  {
+    "file": "src\\components\\DoctorReportScreen.tsx",
+    "line": 66,
+    "text": "{ label: 'Menstruasiya', value: `${cycleData.periodLength} gün`, icon: Droplets },"
+  },
+  {
+    "file": "src\\components\\DoctorReportScreen.tsx",
+    "line": 73,
+    "text": "{ label: tr(\"doctorreportscreen_hamilelik_heftesi_c9e362\", 'Hamiləlik həftəsi'), value: `${pregData.currentWeek} həftə`, icon: Calendar },"
+  },
+  {
+    "file": "src\\components\\DoctorReportScreen.tsx",
+    "line": 74,
+    "text": "{ label: 'Trimester', value: `${pregData.trimester}-cü`, icon: Activity },"
+  },
+  {
+    "file": "src\\components\\DoctorReportScreen.tsx",
+    "line": 82,
+    "text": "{ label: tr(\"doctorreportscreen_yas_95595b\", 'Yaş'), value: babyData.ageInMonths > 0 ? `${babyData.ageInMonths} ay` : `${babyData.ageInDays} gün`, icon: Calendar },"
+  },
+  {
+    "file": "src\\components\\flow\\CycleAnomalyBanner.tsx",
+    "line": 17,
+    "text": "message: `Ən qısa tsikliniz ${stats.shortestCycle} gündür. 21 gündən az tsikllər həkim müraciəti tələb edə bilər.`"
+  },
+  {
+    "file": "src\\components\\flow\\CycleAnomalyBanner.tsx",
+    "line": 25,
+    "text": "message: `Ən uzun tsikliniz ${stats.longestCycle} gündür. 35 gündən uzun tsikllər PCOS və ya hormonal disbalans əlaməti ola bilər.`"
+  },
+  {
+    "file": "src\\components\\flow\\CycleAnomalyBanner.tsx",
+    "line": 33,
+    "text": "message: `Tsikllər arasında ${stats.cycleVariation} gün fərq var. Bu stress, çəki dəyişikliyi və ya tireoid problemlərlə bağlı ola bilər.`"
+  },
+  {
+    "file": "src\\components\\flow\\CycleTrendChart.tsx",
+    "line": 59,
+    "text": "formatter={(v: number) => [`${v} gün`, 'Uzunluq']} />"
+  },
+  {
+    "file": "src\\components\\flow\\FlowCycleStats.tsx",
+    "line": 104,
+    "text": "{cycle.cycle_length ? `${cycle.cycle_length} gün tsikl` : 'Davam edir'}"
+  },
+  {
+    "file": "src\\components\\flow\\FlowDashboard.tsx",
+    "line": 170,
+    "text": "description: `Period ${actualPeriodLength} gün davam etdi`"
+  },
+  {
+    "file": "src\\components\\flow\\FlowDashboard.tsx",
+    "line": 473,
+    "text": "{format(nextPeriodDate, 'd MMMM', { locale: getCurrentDateLocale() })} • {daysUntilPeriod > 0 ? `${daysUntilPeriod} gün qaldı` : tr(\"flowdashboard_bu_gun_786fd4\", \"Bu g\\xFCn\")}"
+  },
+  {
+    "file": "src\\components\\flow\\FlowRemindersCard.tsx",
+    "line": 89,
+    "text": "{showAll ? tr(\"flowreminderscard_daha_az_goster_47a81d\", \"Daha az g\\xF6st\\u0259r\") : `Hamısını göstər (${reminders.length})`}"
+  },
+  {
+    "file": "src\\components\\flow\\PeriodDelayBanner.tsx",
+    "line": 44,
+    "text": "message: `Periodunuz təxmini tarixdən ${delayDays} gün gecikir. Hamiləlik testi etməyi və ya Dr. Anacan-dan soruşmağı düşünün.`,"
+  },
+  {
+    "file": "src\\components\\flow\\PeriodDelayBanner.tsx",
+    "line": 74,
+    "text": "onClick={() => navigate(`/ai-chat?prompt=${encodeURIComponent(`Periodum ${delayDays} gün gecikib, nə edə bilərəm?`)}`)}"
+  },
+  {
+    "file": "src\\components\\funnel\\funnelData.ts",
+    "line": 174,
+    "text": "lines.push(`${name}, ${week}-ci həftədə olan hamilə qadınların 78%-i müəyyən narahatlıqlar yaşayır.`);"
+  },
+  {
+    "file": "src\\components\\funnel\\funnelData.ts",
+    "line": 189,
+    "text": "lines.push(`${name}, ${ageMonths} aylıq körpəsi olan anaların 82%-i oxşar çətinliklərlə üzləşir.`);"
+  },
+  {
+    "file": "src\\components\\funnel\\funnelData.ts",
+    "line": 201,
+    "text": "lines.push(`${name}, ${cycleLen} günlük tsiklinizə əsasən fərdi təhlil hazırladıq.`);"
+  },
+  {
+    "file": "src\\components\\funnel\\ReverseTrialFunnel.tsx",
+    "line": 39,
+    "text": "return pd ? `${pd.currentWeek}-ci həftə, ${pd.trimester}-ci trimester` : tr(\"reversetrialfunnel_hamilelik_e86feb\", \"Hamil\\u0259lik\");"
+  },
+  {
+    "file": "src\\components\\funnel\\ReverseTrialFunnel.tsx",
+    "line": 43,
+    "text": "return bd ? `${bd.name} — ${bd.ageInMonths} aylıq` : tr(\"reversetrialfunnel_analiq_9e762d\", \"Anal\\u0131q\");"
+  },
+  {
+    "file": "src\\components\\funnel\\ReverseTrialFunnel.tsx",
+    "line": 45,
+    "text": "return `Tsikl: ${cycleLength} gün`;"
+  },
+  {
+    "file": "src\\components\\funnel\\steps\\AnalysisStep.tsx",
+    "line": 7,
+    "text": "contextLine: string; // e.g. \"24-cü həftə, 2-ci trimester\""
+  },
+  {
+    "file": "src\\components\\funnel\\steps\\PaywallStep.tsx",
+    "line": 144,
+    "text": "<p className=\"text-xs text-muted-foreground\">{yearlyTrialDays ? `${yearlyTrialDays} gün pulsuz, sonra ${yearlyPriceStr}/il` : `${yearlyPriceStr}/il`}</p>"
+  },
+  {
+    "file": "src\\components\\funnel\\steps\\PaywallStep.tsx",
+    "line": 163,
+    "text": "<p className=\"text-xs text-muted-foreground\">{monthlyTrialDays ? `${monthlyTrialDays} gün pulsuz, sonra ${monthlyPriceStr}/ay` : `${monthlyPriceStr}/ay`}</p>"
+  },
+  {
+    "file": "src\\components\\funnel\\steps\\PaywallStep.tsx",
+    "line": 206,
+    "text": "anyTrialDays ? `${anyTrialDays} Gün Pulsuz Başla` : tr(\"paywallstep_premium_a_kec_2e8b0e\", \"Premium-a Ke\\xE7\")"
+  },
+  {
+    "file": "src\\components\\funnel\\steps\\PaywallStep.tsx",
+    "line": 211,
+    "text": "yearlyTrialDays ? `${yearlyTrialDays} gün pulsuz sınayın · Sonra ${yearlyPriceStr}/il · İstənilən vaxt ləğv edin` : `${yearlyPriceStr}/il · İstənilən vaxt ləğv edin` :"
+  },
+  {
+    "file": "src\\components\\funnel\\steps\\PaywallStep.tsx",
+    "line": 212,
+    "text": "monthlyTrialDays ? `${monthlyTrialDays} gün pulsuz sınayın · Sonra ${monthlyPriceStr}/ay · İstənilən vaxt ləğv edin` : `${monthlyPriceStr}/ay · İstənilən vaxt ləğv edin`}"
+  },
+  {
+    "file": "src\\components\\MedicalDisclaimer.tsx",
+    "line": 16,
+    "text": "'Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda 103-ə zəng edin.'"
+  },
+  {
+    "file": "src\\components\\mommy\\ChildSelector.tsx",
+    "line": 49,
+    "text": "toast.success(`${formData.name} əlavə edildi`);"
+  },
+  {
+    "file": "src\\components\\mommy\\hero\\MommyHeroAurora.tsx",
+    "line": 12,
+    "text": "`${exactMonths} ay${remainingDays > 0 ? ` ${remainingDays} gün` : ''}` :"
+  },
+  {
+    "file": "src\\components\\mommy\\hero\\MommyHeroAurora.tsx",
+    "line": 13,
+    "text": "`${babyData.ageInDays} günlük`;"
+  },
+  {
+    "file": "src\\components\\mommy\\hero\\MommyHeroBento.tsx",
+    "line": 61,
+    "text": "`+ ${remainingDays} gün böyüməyə davam edir` : tr(\"mommyherobento_yas_95595b\", \"Ya\\u015F\")"
+  },
+  {
+    "file": "src\\components\\mommy\\hero\\MommyHeroClassic.tsx",
+    "line": 63,
+    "text": "alt={`${babyData.name} — ${babyData.ageInMonths} aylıq`}"
+  },
+  {
+    "file": "src\\components\\mommy\\hero\\MommyHeroPolaroid.tsx",
+    "line": 11,
+    "text": "`${exactMonths} ay${remainingDays > 0 ? ` ${remainingDays} gün` : ''}` :"
+  },
+  {
+    "file": "src\\components\\mommy\\hero\\MommyHeroPolaroid.tsx",
+    "line": 12,
+    "text": "`${babyData.ageInDays} günlük`;"
+  },
+  {
+    "file": "src\\components\\mommy\\hero\\MommyHeroStory.tsx",
+    "line": 11,
+    "text": "? `${exactMonths} ay${remainingDays > 0 ? ` ${remainingDays} gün` : ''}`"
+  },
+  {
+    "file": "src\\components\\mommy\\hero\\MommyHeroStory.tsx",
+    "line": 12,
+    "text": ": `${babyData.ageInDays} günlük`;"
+  },
+  {
+    "file": "src\\components\\mommy\\hero\\MommyHeroStorybook.tsx",
+    "line": 67,
+    "text": "`${exactMonths} ay${remainingDays > 0 ? ` ${remainingDays} gün` : ''}` :"
+  },
+  {
+    "file": "src\\components\\mommy\\hero\\MommyHeroStorybook.tsx",
+    "line": 68,
+    "text": "`${babyData.ageInDays} günlük`}"
+  },
+  {
+    "file": "src\\components\\NotificationsScreen.tsx",
+    "line": 54,
+    "text": "if (diffMins < 60) return `${diffMins} dəq`;"
+  },
+  {
+    "file": "src\\components\\partner\\LiveActivityCard.tsx",
+    "line": 45,
+    "text": "message: `${payload.new.kick_count || 1} təpik qeyd olundu!`,"
+  },
+  {
+    "file": "src\\components\\partner\\LiveActivityCard.tsx",
+    "line": 75,
+    "text": "`Hədəfə çatdı! 🎉 ${newWater}ml içdi!` :"
+  },
+  {
+    "file": "src\\components\\partner\\LiveActivityCard.tsx",
+    "line": 76,
+    "text": "`+${diff}ml su içdi (${newWater}ml)`,"
+  },
+  {
+    "file": "src\\components\\partner\\LiveActivityCard.tsx",
+    "line": 92,
+    "text": "`Əhvalı ${moodTexts[newMood - 1]} - dəstəyə ehtiyacı ola bilər` :"
+  },
+  {
+    "file": "src\\components\\partner\\LiveActivityCard.tsx",
+    "line": 93,
+    "text": "`Əhvalı: ${moodTexts[newMood - 1]}`,"
+  },
+  {
+    "file": "src\\components\\partner\\NotificationsTab.tsx",
+    "line": 169,
+    "text": "if (diffMins < 60) return `${diffMins} dəq əvvəl`;"
+  },
+  {
+    "file": "src\\components\\partner\\NotificationsTab.tsx",
+    "line": 170,
+    "text": "if (diffHours < 24) return `${diffHours} saat əvvəl`;"
+  },
+  {
+    "file": "src\\components\\partner\\PartnerHeroCard.tsx",
+    "line": 63,
+    "text": "if (lifeStage === 'bump' && currentWeek > 0) return `Hamiləlik: ${currentWeek}. həftə`;"
+  },
+  {
+    "file": "src\\components\\partner\\PartnerHeroCard.tsx",
+    "line": 66,
+    "text": "if (babyMonths >= 1) return `${baby}: ${babyMonths} ay ${babyAgeDays % 30} gün`;"
+  },
+  {
+    "file": "src\\components\\partner\\PartnerHeroCard.tsx",
+    "line": 67,
+    "text": "return `${baby}: ${babyAgeDays} günlük`;"
+  },
+  {
+    "file": "src\\components\\partner\\PartnerHeroCard.tsx",
+    "line": 69,
+    "text": "if (lifeStage === 'flow' && cyclePhase) return `${PHASE_LABEL[cyclePhase.phase].label} • ${cyclePhase.dayInCycle}. gün`;"
+  },
+  {
+    "file": "src\\components\\partner\\PartnerMissionsCard.tsx",
+    "line": 32,
+    "text": "title: `+${result.pointsEarned} xal qazandın! 🎉`,"
+  },
+  {
+    "file": "src\\components\\partner\\SurpriseTab.tsx",
+    "line": 158,
+    "text": "content: `🎁 Həyat yoldaşın sənin üçün xüsusi bir sürpriz planladı!`"
+  },
+  {
+    "file": "src\\components\\partner\\SurpriseTab.tsx",
+    "line": 188,
+    "text": "content: `${emoji} Həyat yoldaşın \"${title}\" sürprizini sənin üçün tamamladı! 🎉`"
+  },
+  {
+    "file": "src\\components\\partner\\SurpriseTab.tsx",
+    "line": 196,
+    "text": "message: `${profile.name || tr(\"surprisetab_heyat_yoldasin_fc543b\", \"H\\u0259yat yolda\\u015F\\u0131n\")} sənin üçün \"${title}\" sürprizini tamamladı! ${emoji}`"
+  },
+  {
+    "file": "src\\components\\partner\\SurpriseTab.tsx",
+    "line": 204,
+    "text": "title: `+${points} xal qazandın! 🏆`,"
+  },
+  {
+    "file": "src\\components\\partner\\SurpriseTab.tsx",
+    "line": 205,
+    "text": "description: `${title} tamamlandı!`"
+  },
+  {
+    "file": "src\\components\\partner\\SyncedFeaturesGrid.tsx",
+    "line": 25,
+    "text": "subtitle: `${checkedCount}/${totalCount} hazır`,"
+  },
+  {
+    "file": "src\\components\\partner\\SyncedFeaturesGrid.tsx",
+    "line": 59,
+    "text": "subtitle: plannedSurprises.length > 0 ? `${plannedSurprises.length} planlanıb` : tr(\"syncedfeaturesgrid_planlasdir_933684\", \"Planla\\u015Fd\\u0131r\"),"
+  },
+  {
+    "file": "src\\components\\PartnerDashboard.tsx",
+    "line": 116,
+    "text": "description: `${womanName} bildiriş alacaq`"
+  },
+  {
+    "file": "src\\components\\PartnerDashboard.tsx",
+    "line": 305,
+    "text": "{/* Live Activity — yalnız hamiləlik mərhələsi üçün */}"
+  },
+  {
+    "file": "src\\components\\PremiumModal.tsx",
+    "line": 327,
+    "text": "`${parseIsoTrialDays(yearlyProduct.product.defaultOptionTrialPeriod) ?? paywallConfig.free_trial_days} gün pulsuz, sonra ${currencySymbol}${yearlyPrice}${paywallConfig.yearly_total_suffix}` :"
+  },
+  {
+    "file": "src\\components\\PremiumModal.tsx",
+    "line": 354,
+    "text": "`${parseIsoTrialDays(monthlyProduct.product.defaultOptionTrialPeriod) ?? paywallConfig.free_trial_days} gün pulsuz, sonra ${currencySymbol}${monthlyPrice}${paywallConfig.monthly_suffix}` :"
+  },
+  {
+    "file": "src\\components\\ProfileScreen.tsx",
+    "line": 64,
+    "text": "toast({ title: `${childForm.name} əlavə edildi` });"
+  },
+  {
+    "file": "src\\components\\ProfileScreen.tsx",
+    "line": 119,
+    "text": "const shareText = `Anacan tətbiqinə qoşul və hamiləlik səyahətimizdə mənə dəstək ol! Partnyor kodum: ${partnerCode}\\n\\nTətbiqi yüklə: https://anacanapp.lovable.app`;"
+  },
+  {
+    "file": "src\\components\\ProfileScreen.tsx",
+    "line": 460,
+    "text": "{children.length === 0 ? tr(\"profilescreen_usaq_elave_et_48f1f0\", \"U\\u015Faq \\u0259lav\\u0259 et\") : `${children.length} uşaq`}"
+  },
+  {
+    "file": "src\\components\\SettingsScreen.tsx",
+    "line": 260,
+    "text": "description={silentSettings.enabled ? `${silentSettings.startTime} - ${silentSettings.endTime} arası bildiriş yoxdur` : tr(\"settingsscreen_gece_saatlarinda_bildirisleri__45007d\", \"Gec\\u0259 saatlar\\u0131nda bildiri\\u015Fl\\u0259ri s\\xF6nd\\xFCr\")}>"
+  },
+  {
+    "file": "src\\components\\SettingsScreen.tsx",
+    "line": 322,
+    "text": "<SettingRow icon={Pill} label={tr(\"settingsscreen_vitamin_xatirlatmasi_531a3d\", \"Vitamin xatırlatması\")} description={`Hər gün saat ${settings.vitamin_time}`}>"
+  },
+  {
+    "file": "src\\components\\shop\\CheckoutScreen.tsx",
+    "line": 163,
+    "text": "`Sifariş Ver - ${finalPrice.toFixed(2)} ₼`"
+  },
+  {
+    "file": "src\\components\\tools\\AffiliateProducts.tsx",
+    "line": 189,
+    "text": "{searchQuery ? `Axtarış nəticələri` : tr(\"affiliateproducts_butun_mehsullar_c7373f\", \"B\\xFCt\\xFCn m\\u0259hsullar\")}"
+  },
+  {
+    "file": "src\\components\\tools\\HoroscopeCompatibility.tsx",
+    "line": 208,
+    "text": "const text = `✨ Ailə Doğum Xəritəsi Analizi ✨"
+  },
+  {
+    "file": "src\\components\\tools\\HoroscopeCompatibility.tsx",
+    "line": 212,
+    "text": "${charts.baby ? `👶 ${charts.baby.isExpected ? tr(\"horoscopecompatibility_gozlenilen_4885bf\", \"G\\xF6zl\\u0259nil\\u0259n\") : ''} Körpə: ${charts.baby.sun.symbol} ${charts.baby.sun.signAz}` : ''}"
+  },
+  {
+    "file": "src\\components\\tools\\HoroscopeCompatibility.tsx",
+    "line": 214,
+    "text": "🌟 Ümumi Uyğunluq: ${analysis.overallScore}%"
+  },
+  {
+    "file": "src\\components\\tools\\HoroscopeCompatibility.tsx",
+    "line": 216,
+    "text": "Anacan tətbiqi ilə yaradılıb 💜`;"
+  },
+  {
+    "file": "src\\components\\tools\\HoroscopeCompatibility.tsx",
+    "line": 368,
+    "text": "✨ {tr('horoscope_entertainment_disclaimer', 'Ulduz falı yalnız əyləncə məqsədi daşıyır. Tibbi, psixoloji və ya valideynlik qərarları üçün ixtisaslı mütəxəssisə (həkim/psixoloq) müraciət edin.')}"
+  },
+  {
+    "file": "src\\components\\tools\\HoroscopeCompatibility.tsx",
+    "line": 570,
+    "text": "✨ {tr('horoscope_entertainment_disclaimer', 'Ulduz falı yalnız əyləncə məqsədi daşıyır. Tibbi, psixoloji və ya valideynlik qərarları üçün ixtisaslı mütəxəssisə (həkim/psixoloq) müraciət edin.')}"
+  },
+  {
+    "file": "src\\components\\tools\\SafetyLookup.tsx",
+    "line": 86,
+    "text": "toast({ title: tr(\"safetylookup_ai_ile_tapildi_5c2d49\", 'AI ilə tapıldı! ✨'), description: `${data.item.name_az} bazaya əlavə edildi` });"
+  },
+  {
+    "file": "src\\components\\tools\\ShoppingList.tsx",
+    "line": 208,
+    "text": "toast({ title: `${item.name_az || item.name} əlavə edildi!` });"
+  },
+  {
+    "file": "src\\components\\tools\\SmartPlayBox.tsx",
+    "line": 68,
+    "text": "label = `${days} günlük`;"
+  },
+  {
+    "file": "src\\components\\tools\\SmartPlayBox.tsx",
+    "line": 70,
+    "text": "label = `${months} aylıq`;"
+  },
+  {
+    "file": "src\\components\\tools\\SmartPlayBox.tsx",
+    "line": 74,
+    "text": "label = `${years} yaş${remainingMonths > 0 ? ` ${remainingMonths} ay` : ''}`;"
+  },
+  {
+    "file": "src\\components\\tools\\SmartPlayBox.tsx",
+    "line": 367,
+    "text": "`Sizin üçün (${matchedActivities.length})` :"
+  },
+  {
+    "file": "src\\components\\tools\\SmartPlayBox.tsx",
+    "line": 368,
+    "text": "`Bütün Oyunlar (${filteredActivities.length})`}"
+  },
+  {
+    "file": "src\\components\\tools\\VitaminTracker.tsx",
+    "line": 72,
+    "text": "toast.success(`${schedule.vitamin_name} qəbul edildi ✓`);"
+  },
+  {
+    "file": "src\\components\\tools\\WeatherClothing.tsx",
+    "line": 177,
+    "text": "`${userContext.babyAgeMonths} aylıq körpə üçün` :"
+  },
+  {
+    "file": "src\\components\\tools\\WeatherClothing.tsx",
+    "line": 179,
+    "text": "`Hamiləliyin ${userContext.pregnancyWeek}. həftəsi üçün` : tr(\"weatherclothing_korpeniz_ucun_geyim_mesleheti_f5cbde\", \"K\\xF6rp\\u0259niz \\xFC\\xE7\\xFCn geyim m\\u0259sl\\u0259h\\u0259ti\")"
+  },
+  {
+    "file": "src\\components\\tools\\WeatherClothing.tsx",
+    "line": 315,
+    "text": "`${userContext.babyAgeMonths} aylıq körpə üçün bayır geyimi` : tr(\"weatherclothing_bayirda_geyim_tovsiyesi_650ba0\", \"Bay\\u0131rda Geyim T\\xF6vsiy\\u0259si\")"
+  },
+  {
+    "file": "src\\components\\tools\\WeightTracker.tsx",
+    "line": 71,
+    "text": "content: `Çəki analizi: ${currentWeek}-ci həftə, başlanğıc: ${startWeight}kg, indi: ${currentWeight}kg, artım: ${totalGain}kg (tövsiyə: ${recommended.min}-${recommended.max}kg). Status: ${status.text}. QAYDALAR: 1) Salamlama yoxdur, birbaşa məsələyə keç. 2) Maksimum 1-2 cümlə. 3) Disclaimer/xəbərdarlıq yoxdur. 4) Yalnız praktik qısa məsləhət.`"
+  },
+  {
+    "file": "src\\components\\ToolsHub.tsx",
+    "line": 222,
+    "text": "title: `${tool.name} hələ aktiv deyil`,"
+  },
+  {
+    "file": "src\\components\\ToolsHub.tsx",
+    "line": 223,
+    "text": "description: `Bu alət ${tool.minWeek}. həftədən sonra aktivləşəcək`,"
+  },
+  {
+    "file": "src\\components\\ToolsHub.tsx",
+    "line": 228,
+    "text": "title: `${tool.name} mövcud deyil`,"
+  },
+  {
+    "file": "src\\components\\ToolsHub.tsx",
+    "line": 229,
+    "text": "description: `Bu alət yalnız hamiləlik dövründə istifadə oluna bilər`,"
+  },
+  {
+    "file": "src\\components\\ToolsHub.tsx",
+    "line": 515,
+    "text": "{searchQuery ? `\"${searchQuery}\" ilə uyğun alət yoxdur` : tr(\"toolshub_bu_kateqoriyada_alet_yoxdur_6c04fc\", \"Bu kateqoriyada al\\u0259t yoxdur\")}"
+  },
+  {
+    "file": "src\\hooks\\useAchievements.ts",
+    "line": 109,
+    "text": "title: `🎉 Nailiyyət: ${details.name}`,"
+  },
+  {
+    "file": "src\\hooks\\useBlog.ts",
+    "line": 331,
+    "text": "return { error: new Error(`Bu kateqoriya ${postsUsingCategory.length} məqalədə istifadə olunur. Əvvəlcə məqalələrdən çıxarın.`) };"
+  },
+  {
+    "file": "src\\hooks\\useCommunity.ts",
+    "line": 319,
+    "text": "body: `${likerName} paylaşımınızı bəyəndi`,"
+  },
+  {
+    "file": "src\\hooks\\useCoupons.ts",
+    "line": 79,
+    "text": "toast({ title: tr(\"usecoupons_minimum_mebleg_435135\", \"Minimum məbləğ\"), description: `Bu kupon minimum ${coupon.min_order_amount}₼ sifariş üçün keçərlidir`, variant: 'destructive' });"
+  },
+  {
+    "file": "src\\hooks\\useDailySummary.ts",
+    "line": 209,
+    "text": "body: `Əhval: ${moodText} | Su: ${dailyLog?.water_intake || 0}ml | Təpiklər: ${totalKicks}`,"
+  },
+  {
+    "file": "src\\hooks\\useFairyTales.ts",
+    "line": 142,
+    "text": "toast.error(`Nağıl yaradıla bilmədi: ${error.message}`);"
+  },
+  {
+    "file": "src\\hooks\\useHealthReport.ts",
+    "line": 140,
+    "text": "value: `${avgWater.toFixed(1)} stəkan/gün`,"
+  },
+  {
+    "file": "src\\hooks\\useHealthReport.ts",
+    "line": 177,
+    "text": "value: `${exercisePerWeek.toFixed(1)} dəfə/həftə`,"
+  },
+  {
+    "file": "src\\hooks\\useInAppPurchase.ts",
+    "line": 229,
+    "text": "setError(`Alış zamanı xəta: ${err?.message || tr(\"useinapppurchase_namelum_xeta_aa30e7\", \"Nam\\u0259lum x\\u0259ta\")}`);"
+  },
+  {
+    "file": "src\\hooks\\useKickSessions.ts",
+    "line": 67,
+    "text": "description: `${kickCount} təpik, ${Math.floor(durationSeconds / 60)} dəqiqə`,"
+  },
+  {
+    "file": "src\\hooks\\useOrders.ts",
+    "line": 315,
+    "text": "toast({ title: tr(\"useorders_sifaris_yaradildi_6c3ee9\", \"Sifariş yaradıldı!\"), description: `Sifariş nömrəsi: ${order.order_number}` });"
+  },
+  {
+    "file": "src\\hooks\\usePartnerNotifications.ts",
+    "line": 14,
+    "text": "return mood ? `Partnyorunuz bu gün ${moodEmojis[mood - 1]} hiss edir` : tr(\"usepartnernotifications_partnyorunuz_ehvalini_qeyd_etd_612302\", \"Partnyorunuz \\u0259hval\\u0131n\\u0131 qeyd etdi\");"
+  },
+  {
+    "file": "src\\hooks\\usePartnerNotifications.ts",
+    "line": 27,
+    "text": "getBody: (data) => `Körpə ${data?.kickCount || 0} dəfə təpik atdı!`"
+  },
+  {
+    "file": "src\\hooks\\usePregnancyContent.ts",
+    "line": 262,
+    "text": "results.errors.push(`Gün ${result.pregnancy_day}: ${result.error.message}`);"
+  },
+  {
+    "file": "src\\hooks\\usePushNotifications.ts",
+    "line": 134,
+    "text": "body: `${likerName} paylaşımınızı bəyəndi`,"
+  },
+  {
+    "file": "src\\hooks\\useShoppingItems.ts",
+    "line": 107,
+    "text": "body: `${adderName} \"${itemName}\" əlavə etdi. Siyahını yoxla!`,"
+  },
+  {
+    "file": "src\\lib\\date-utils.ts",
+    "line": 53,
+    "text": "return `Bu gün, ${formatTimeAz(d)}`;"
+  },
+  {
+    "file": "src\\lib\\date-utils.ts",
+    "line": 56,
+    "text": "return `Dünən, ${formatTimeAz(d)}`;"
+  },
+  {
+    "file": "src\\pages\\RevenueCatDebug.tsx",
+    "line": 29,
+    "text": "append(`Bundle versiyası: ${RC_BUILD_MARKER}`);"
+  }
+]

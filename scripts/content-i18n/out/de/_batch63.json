@@ -1,0 +1,85 @@
+{
+ "vaccine_countries": {
+  "eb0c7fcc-5857-4d8a-8a48-0d75e2caf966": {
+   "name": "Türkei"
+  },
+  "ede8ae84-5a34-4b0c-81ec-f47a1de65244": {
+   "name": "Vereinigte Arabische Emirate"
+  },
+  "f38beb18-e592-44c5-b8e6-10b2c2d837a2": {
+   "name": "Kanada"
+  },
+  "84bf5d2a-63b0-44b0-b15c-13f7d72ee9f2": {
+   "name": "Georgien"
+  },
+  "95f8b000-789d-4c2d-a045-561d2734eaab": {
+   "name": "Aserbaidschan"
+  },
+  "97223fbc-e730-422c-a300-caeea63e1e7f": {
+   "name": "Israel"
+  },
+  "99c9342e-42a0-462a-bacf-c9e327a151e4": {
+   "name": "Deutschland"
+  },
+  "9f18d1a8-4bfe-4bd5-a7d8-2a96b223f85e": {
+   "name": "Ukraine"
+  },
+  "a5b158de-2a96-4d5b-809c-7f3730bd6969": {
+   "name": "China"
+  },
+  "ab41b4bb-22a5-4ae2-bbc2-4eb10f92363d": {
+   "name": "Schweiz"
+  },
+  "ac26857e-c4f9-4fd3-b17d-35c03dd18251": {
+   "name": "Kasachstan"
+  },
+  "aec78e4b-a131-40c8-b921-ffcba5fde531": {
+   "name": "Schweden"
+  },
+  "b746cef8-6a92-45c3-aed4-8e3186bbf490": {
+   "name": "Vereinigtes Königreich"
+  },
+  "d8071324-0074-4df1-b39d-8ceedc975bf9": {
+   "name": "Russland"
+  },
+  "d8456e66-551a-49b7-ab2e-a4bec01a2c2a": {
+   "name": "Südafrika"
+  },
+  "12ebcd68-aded-4bd9-b2a8-8048e3964564": {
+   "name": "Usbekistan"
+  },
+  "164849c6-bf37-4678-b9b5-6bb687c0e84f": {
+   "name": "Australien"
+  },
+  "2364bc68-92cc-4e50-9b5c-d4b33b386cf3": {
+   "name": "Brasilien"
+  },
+  "2cdd3707-feca-4559-b684-91ce773812bf": {
+   "name": "Südkorea"
+  },
+  "2f094a5b-b5c6-4e00-a12a-3cc3ad92d9b4": {
+   "name": "Italien"
+  },
+  "33e54a19-5ab8-4ed6-807e-7a14313c77f0": {
+   "name": "USA"
+  },
+  "50900450-6bde-4fcc-b86e-f322a164d810": {
+   "name": "Indien"
+  },
+  "5e53858b-8f33-4846-b45f-bf9410acb9d2": {
+   "name": "Japan"
+  },
+  "7811ddd2-1c91-483a-b8b8-0994b1c26960": {
+   "name": "Spanien"
+  },
+  "783d7b9b-fb77-41d4-a4d3-7de34a82f2af": {
+   "name": "Polen"
+  },
+  "7d8b018c-3861-4d8a-a710-4362df998af9": {
+   "name": "Saudi-Arabien"
+  },
+  "7df40d2c-65f0-4503-b25a-6b10c14fd00d": {
+   "name": "Frankreich"
+  }
+ }
+}

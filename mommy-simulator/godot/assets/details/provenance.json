@@ -1,0 +1,47 @@
+{
+  "name": "Mommy Simulator world details",
+  "files": [
+    {
+      "file": "leaf.png",
+      "bytes": 8584,
+      "sha256": "1927b7582c84f67aca35d4bb2851aff7b3a1c4e154ce790b2611c833120f7eda",
+      "origin": "Original leaf-card artwork with alpha, generated for this game"
+    },
+    {
+      "file": "alpine-print.jpg",
+      "bytes": 37277,
+      "sha256": "841c05bd50be0b121d11f6872fd5ec6434433724f5fc1b53875628a62369566c",
+      "origin": "Existing Mommy Simulator alpine artwork"
+    },
+    {
+      "file": "cotton-normal.png",
+      "bytes": 1784,
+      "sha256": "e3d00148a827ec55f2c0c525b6a41ddbd928bb7bada4cfce22696bb0d3b180a1",
+      "origin": "Original procedural woven-cotton normal map"
+    },
+    {
+      "file": "step.wav",
+      "bytes": 7100,
+      "sha256": "d40e268f8b8b1fe70a1cfb99b55cdfde7515a7660f5b5d2a2033e3ed6dcb2774",
+      "origin": "Original synthesized quiet footstep foley"
+    },
+    {
+      "file": "object-tap.wav",
+      "bytes": 3572,
+      "sha256": "99eee013f679aaf62c89293aa63a44597fd47a518a67e8b0f98e5d6e45a58883",
+      "origin": "Original synthesized ceramic/wood interaction foley"
+    },
+    {
+      "file": "Manrope.ttf",
+      "bytes": 164700,
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "origin": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/Manrope%5Bwght%5D.ttf"
+    },
+    {
+      "file": "FONT_LICENSE.txt",
+      "bytes": 4387,
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "origin": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt"
+    }
+  ]
+}

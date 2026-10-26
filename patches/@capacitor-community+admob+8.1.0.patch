@@ -1,0 +1,551 @@
+diff --git a/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/AdMob.java b/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/AdMob.java
+index de1e3a3..b62a521 100644
+--- a/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/AdMob.java
++++ b/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/AdMob.java
+@@ -69,6 +69,19 @@ public class AdMob extends Plugin {
+     );
+ 
+     private final AppOpenAdPlugin appOpenAdPlugin = new AppOpenAdPlugin();
++    private final NativeStoryExecutor nativeStoryExecutor = new NativeStoryExecutor(this::getActivity, this::getContext, this::notifyListeners);
++
++    @PluginMethod
++    public void setBannerFrame(final PluginCall call) { bannerExecutor.setBannerFrame(call, getBridge().getWebView()); }
++
++    @PluginMethod
++    public void prepareNativeStoryAd(final PluginCall call) { nativeStoryExecutor.prepare(call); }
++
++    @PluginMethod
++    public void showNativeStoryAd(final PluginCall call) { nativeStoryExecutor.show(call); }
++
++    @PluginMethod
++    public void removeNativeStoryAd(final PluginCall call) { nativeStoryExecutor.clear(); call.resolve(); }
+ 
+     @PluginMethod
+     public void loadAppOpen(final PluginCall call) {
+diff --git a/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/NativeStoryExecutor.java b/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/NativeStoryExecutor.java
+new file mode 100644
+index 0000000..18a7c21
+--- /dev/null
++++ b/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/NativeStoryExecutor.java
+@@ -0,0 +1,123 @@
++package com.getcapacitor.community.admob;
++
++import android.app.Activity;
++import android.app.Dialog;
++import android.content.Context;
++import android.graphics.Color;
++import android.os.Handler;
++import android.os.Looper;
++import android.view.Gravity;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.Button;
++import android.widget.FrameLayout;
++import android.widget.LinearLayout;
++import android.widget.TextView;
++import androidx.core.util.Supplier;
++import com.getcapacitor.JSObject;
++import com.getcapacitor.PluginCall;
++import com.getcapacitor.community.admob.helpers.RequestHelper;
++import com.getcapacitor.community.admob.models.AdOptions;
++import com.google.android.gms.ads.AdLoader;
++import com.google.android.gms.ads.AdListener;
++import com.google.android.gms.ads.LoadAdError;
++import com.google.android.gms.ads.VideoOptions;
++import com.google.android.gms.ads.nativead.AdChoicesView;
++import com.google.android.gms.ads.nativead.MediaView;
++import com.google.android.gms.ads.nativead.NativeAd;
++import com.google.android.gms.ads.nativead.NativeAdOptions;
++import com.google.android.gms.ads.nativead.NativeAdView;
++import com.google.android.gms.common.util.BiConsumer;
++
++final class NativeStoryExecutor {
++    private final Supplier<Activity> activity;
++    private final Supplier<Context> context;
++    private final BiConsumer<String, JSObject> notify;
++    private final Handler handler = new Handler(Looper.getMainLooper());
++    private NativeAd ad;
++    private Dialog dialog;
++    private String unit = "";
++    private int generation = 0;
++    private PluginCall pending;
++    NativeStoryExecutor(Supplier<Activity> activity, Supplier<Context> context, BiConsumer<String, JSObject> notify) {
++        this.activity = activity; this.context = context; this.notify = notify;
++    }
++    void prepare(final PluginCall call) {
++        activity.get().runOnUiThread(() -> {
++            if (dialog != null) { call.reject("Native story is busy"); return; }
++            final int own = ++generation;
++            if (pending != null) pending.reject("Native story preparation replaced");
++            pending = call;
++            if (ad != null) { ad.destroy(); ad = null; }
++            final boolean videoOnly = call.getBoolean("videoOnly", false);
++            final String test = videoOnly ? "ca-app-pub-3940256099942544/1044960115" : "ca-app-pub-3940256099942544/2247696110";
++            final AdOptions options = AdOptions.getFactory().createGenericOptions(call, test);
++            unit = options.isTesting ? test : options.adId;
++            new AdLoader.Builder(context.get(), unit).forNativeAd(value -> {
++                if (own != generation) { value.destroy(); return; }
++                pending = null;
++                if (videoOnly && (value.getMediaContent() == null || !value.getMediaContent().hasVideoContent())) {
++                    value.destroy(); call.reject("Native video ad unavailable"); return;
++                }
++                ad = value;
++                JSObject result = new JSObject(); result.put("adUnitId", unit); result.put("hasVideo", value.getMediaContent() != null && value.getMediaContent().hasVideoContent()); call.resolve(result);
++            }).withAdListener(new AdListener() {
++                @Override public void onAdFailedToLoad(LoadAdError error) {
++                    if (own == generation) { pending = null; call.reject("Native story ad unavailable"); }
++                }
++                @Override public void onAdImpression() {
++                    if (own == generation && dialog != null) notify.accept("nativeStoryAdImpression", new JSObject());
++                }
++            }).withNativeAdOptions(new NativeAdOptions.Builder()
++                .setMediaAspectRatio(NativeAdOptions.NATIVE_MEDIA_ASPECT_RATIO_PORTRAIT)
++                .setVideoOptions(new VideoOptions.Builder().setStartMuted(true).build()).build())
++                .build().loadAd(RequestHelper.createRequest(options));
++        });
++    }
++    private int dp(int value) { return Math.round(value * context.get().getResources().getDisplayMetrics().density); }
++    private TextView text(String value, int size, int color) {
++        TextView view = new TextView(context.get()); view.setText(value); view.setTextSize(size); view.setTextColor(color); view.setMaxLines(2); return view;
++    }
++    void show(final PluginCall call) {
++        activity.get().runOnUiThread(() -> {
++            if (ad == null || dialog != null || !unit.equals(call.getString("adId"))) { call.reject("Native story ad not ready"); return; }
++            try {
++                NativeAd current = ad;
++                FrameLayout root = new FrameLayout(activity.get()); root.setBackgroundColor(Color.BLACK);
++                NativeAdView view = new NativeAdView(activity.get()); root.addView(view, new FrameLayout.LayoutParams(-1, -1));
++                MediaView media = new MediaView(activity.get());
++                FrameLayout.LayoutParams mediaParams = new FrameLayout.LayoutParams(-1, -1); mediaParams.topMargin = dp(54); mediaParams.bottomMargin = dp(240);
++                view.addView(media, mediaParams); view.setMediaView(media); media.setMediaContent(current.getMediaContent());
++                LinearLayout footer = new LinearLayout(activity.get()); footer.setOrientation(LinearLayout.VERTICAL); footer.setPadding(dp(20), dp(14), dp(20), dp(14)); footer.setBackgroundColor(0xDD000000);
++                FrameLayout.LayoutParams footerParams = new FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM); footerParams.bottomMargin = dp(54); view.addView(footer, footerParams);
++                footer.addView(text("REKLAM", 11, Color.LTGRAY));
++                TextView advertiser = text(current.getAdvertiser(), 12, Color.LTGRAY); footer.addView(advertiser); view.setAdvertiserView(advertiser);
++                TextView headline = text(current.getHeadline(), 22, Color.WHITE); footer.addView(headline); view.setHeadlineView(headline);
++                TextView body = text(current.getBody(), 14, Color.LTGRAY); footer.addView(body); view.setBodyView(body);
++                Button cta = new Button(activity.get()); cta.setText(current.getCallToAction()); footer.addView(cta, new LinearLayout.LayoutParams(-1, dp(52))); view.setCallToActionView(cta);
++                AdChoicesView choices = new AdChoicesView(activity.get()); FrameLayout.LayoutParams choicesParams = new FrameLayout.LayoutParams(dp(32), dp(32), Gravity.TOP | Gravity.END); choicesParams.topMargin = dp(12); choicesParams.rightMargin = dp(16); view.addView(choices, choicesParams); view.setAdChoicesView(choices);
++                view.setNativeAd(current);
++                Button close = new Button(activity.get()); close.setText("✕"); close.setContentDescription("Reklamı bağla");
++                FrameLayout.LayoutParams closeParams = new FrameLayout.LayoutParams(dp(52), dp(48), Gravity.TOP | Gravity.START); closeParams.topMargin = dp(8); closeParams.leftMargin = dp(8); root.addView(close, closeParams);
++                Button next = new Button(activity.get()); next.setText("Növbəti story ›"); FrameLayout.LayoutParams nextParams = new FrameLayout.LayoutParams(-1, dp(48), Gravity.BOTTOM); nextParams.bottomMargin = dp(4); root.addView(next, nextParams);
++                Dialog page = new Dialog(activity.get(), android.R.style.Theme_Black_NoTitleBar_Fullscreen); page.setContentView(root); dialog = page;
++                page.setOnDismissListener(value -> {
++                    if (dialog != page) return; dialog = null; current.destroy(); if (ad == current) ad = null;
++                    handler.removeCallbacksAndMessages(null); notify.accept("nativeStoryAdDismissed", new JSObject());
++                });
++                close.setOnClickListener(value -> page.dismiss()); next.setOnClickListener(value -> page.dismiss());
++                page.show(); if (page.getWindow() != null) page.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
++                notify.accept("nativeStoryAdShowed", new JSObject()); call.resolve();
++                if (current.getMediaContent() == null || !current.getMediaContent().hasVideoContent()) handler.postDelayed(() -> { if (dialog == page) page.dismiss(); }, 6000);
++            } catch (Exception error) { call.reject("Native story presentation failed"); }
++        });
++    }
++    void clear() {
++        activity.get().runOnUiThread(() -> {
++            generation++; handler.removeCallbacksAndMessages(null);
++            if (pending != null) { pending.reject("Native story cancelled"); pending = null; }
++            if (dialog != null) dialog.dismiss();
++            if (ad != null) { ad.destroy(); ad = null; }
++        });
++    }
++}
+diff --git a/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java b/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java
+index 36b773c..75e515f 100644
+--- a/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java
++++ b/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java
+@@ -13,6 +13,9 @@ import android.widget.RelativeLayout;
+ import androidx.annotation.NonNull;
+ import androidx.coordinatorlayout.widget.CoordinatorLayout;
+ import androidx.core.util.Supplier;
++import androidx.core.graphics.Insets;
++import androidx.core.view.ViewCompat;
++import androidx.core.view.WindowInsetsCompat;
+ import com.getcapacitor.JSObject;
+ import com.getcapacitor.PluginCall;
+ import com.getcapacitor.community.admob.helpers.AdViewIdHelper;
+@@ -132,10 +135,12 @@ public class BannerExecutor extends Executor {
+ 
+             // set Safe Area only for Android 15+
+             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+-                View rootView = activitySupplier.get().getWindow().getDecorView();
+-                rootView.setOnApplyWindowInsetsListener((v, insets) -> {
+-                    int bottomInset = insets.getSystemWindowInsetBottom();
+-                    int topInset = insets.getSystemWindowInsetTop();
++                // Own only the ad container's listener, not the host app's insets.
++                final RelativeLayout adLayout = mAdViewLayout;
++                ViewCompat.setOnApplyWindowInsetsListener(adLayout, (v, insets) -> {
++                    Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
++                    int bottomInset = bars.bottom;
++                    int topInset = bars.top;
+ 
+                     if ("TOP_CENTER".equals(adOptions.position)) {
+                         mAdViewLayoutParams.setMargins(margins[0], margins[1] + topInset, margins[2], margins[3]);
+@@ -143,7 +148,7 @@ public class BannerExecutor extends Executor {
+                         mAdViewLayoutParams.setMargins(margins[0], margins[1], margins[2], margins[3] + bottomInset);
+                     }
+ 
+-                    mAdViewLayout.setLayoutParams(mAdViewLayoutParams);
++                    adLayout.setLayoutParams(mAdViewLayoutParams);
+                     return insets;
+                 });
+             }
+@@ -206,28 +211,54 @@ public class BannerExecutor extends Executor {
+ 
+     public void removeBanner(final PluginCall call) {
+         try {
+-            if (mAdView != null) {
+-                activitySupplier
+-                    .get()
+-                    .runOnUiThread(() -> {
++            activitySupplier.get().runOnUiThread(() -> {
++                try {
+                         if (mAdView != null) {
+                             mViewGroup.removeView(mAdViewLayout);
+                             mAdViewLayout.removeView(mAdView);
++                            mAdView.setAdListener(null);
++                            mAdView.setOnPaidEventListener(null);
+                             mAdView.destroy();
+                             mAdView = null;
++                            mAdViewLayout = null;
+                             Log.d(logTag, "Banner AD Removed");
+                             final BannerAdSizeInfo sizeInfo = new BannerAdSizeInfo(0, 0);
+                             notifyListeners(BannerAdPluginEvents.SizeChanged.getWebEventName(), sizeInfo);
+                         }
+-                    });
+-            }
+-
+-            call.resolve();
++                        // Resolve after removal so a queued placement switch cannot
++                        // accidentally update the old unit or its layout.
++                        call.resolve();
++                } catch (Exception ex) {
++                    call.reject(ex.getLocalizedMessage(), ex);
++                }
++            });
+         } catch (Exception ex) {
+             call.reject(ex.getLocalizedMessage(), ex);
+         }
+     }
+ 
++    public void setBannerFrame(final PluginCall call, final View webView) {
++        final double top = call.getDouble("top", 0.0);
++        final boolean hidden = call.getBoolean("hidden", false);
++        if (!Double.isFinite(top) || top < 0 || top > 10000) { call.reject("Invalid banner frame"); return; }
++        activitySupplier.get().runOnUiThread(() -> {
++            try {
++                if (mAdView == null || mAdViewLayout == null || mViewGroup == null) { call.resolve(); return; }
++                float density = contextSupplier.get().getResources().getDisplayMetrics().density;
++                int[] web = new int[2]; int[] host = new int[2];
++                webView.getLocationInWindow(web); mViewGroup.getLocationInWindow(host);
++                ViewCompat.setOnApplyWindowInsetsListener(mAdViewLayout, null);
++                CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) mAdViewLayout.getLayoutParams();
++                params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
++                params.topMargin = Math.max(0, web[1] - host[1] + (int) (top * density)); params.bottomMargin = 0;
++                mAdViewLayout.setLayoutParams(params);
++                if (hidden && mAdViewLayout.getVisibility() != View.GONE) { mAdViewLayout.setVisibility(View.GONE); mAdView.pause(); }
++                else if (!hidden && mAdViewLayout.getVisibility() != View.VISIBLE) { mAdViewLayout.setVisibility(View.VISIBLE); mAdView.resume(); }
++                call.resolve();
++            } catch (Exception error) { call.reject("Banner frame update failed"); }
++        });
++    }
++
+     private void updateExistingAdView(AdOptions adOptions) {
+         // Bind to the AdView present when this call was made. `mAdView` is a
+         // shared field that another UI-thread task can null before this one
+diff --git a/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/AdMobPlugin.swift b/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/AdMobPlugin.swift
+index 2e450d3..375ca91 100644
+--- a/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/AdMobPlugin.swift
++++ b/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/AdMobPlugin.swift
+@@ -23,6 +23,10 @@ public class AdMobPlugin: CAPPlugin, CAPBridgedPlugin {
+         CAPPluginMethod(name: "resumeBanner", returnType: CAPPluginReturnPromise),
+         CAPPluginMethod(name: "hideBanner", returnType: CAPPluginReturnPromise),
+         CAPPluginMethod(name: "removeBanner", returnType: CAPPluginReturnPromise),
++        CAPPluginMethod(name: "setBannerFrame", returnType: CAPPluginReturnPromise),
++        CAPPluginMethod(name: "prepareNativeStoryAd", returnType: CAPPluginReturnPromise),
++        CAPPluginMethod(name: "showNativeStoryAd", returnType: CAPPluginReturnPromise),
++        CAPPluginMethod(name: "removeNativeStoryAd", returnType: CAPPluginReturnPromise),
+         CAPPluginMethod(name: "prepareInterstitial", returnType: CAPPluginReturnPromise),
+         CAPPluginMethod(name: "showInterstitial", returnType: CAPPluginReturnPromise),
+         CAPPluginMethod(name: "prepareRewardVideoAd", returnType: CAPPluginReturnPromise),
+@@ -64,6 +68,31 @@ public class AdMobPlugin: CAPPlugin, CAPBridgedPlugin {
+     private let adRewardExecutor = AdRewardExecutor()
+     private let adRewardInterstitialExecutor = AdRewardInterstitialExecutor()
+     private let consentExecutor = ConsentExecutor()
++    private let nativeStoryExecutor = NativeStoryExecutor()
++
++    public override func load() {
++        super.load()
++        // Consent forms and cleanup must work before MobileAds.start().
++        self.bannerExecutor.plugin = self
++        self.consentExecutor.plugin = self
++        self.nativeStoryExecutor.plugin = self
++    }
++
++    @objc func setBannerFrame(_ call: CAPPluginCall) {
++        DispatchQueue.main.async { self.bannerExecutor.setBannerFrame(call) }
++    }
++    @objc func prepareNativeStoryAd(_ call: CAPPluginCall) {
++        let videoOnly = call.getBool("videoOnly") ?? false
++        let id = getAdId(call, videoOnly ? "ca-app-pub-3940256099942544/2521693316" : "ca-app-pub-3940256099942544/3986624511")
++        let request = self.GADRequestWithOption(call.getBool("npa") ?? false)
++        DispatchQueue.main.async { self.nativeStoryExecutor.prepare(call, request, id, videoOnly) }
++    }
++    @objc func showNativeStoryAd(_ call: CAPPluginCall) {
++        DispatchQueue.main.async { self.nativeStoryExecutor.show(call) }
++    }
++    @objc func removeNativeStoryAd(_ call: CAPPluginCall) {
++        DispatchQueue.main.async { self.nativeStoryExecutor.clear(); call.resolve() }
++    }
+ 
+     /**
+      * Enable SKAdNetwork to track conversions
+@@ -128,7 +157,7 @@ public class AdMobPlugin: CAPPlugin, CAPBridgedPlugin {
+      *  https://developers.google.com/ad-manager/mobile-ads-sdk/ios/banner?hl=ja
+      */
+     @objc func showBanner(_ call: CAPPluginCall) {
+-        let adUnitID = getAdId(call, "ca-app-pub-3940256099942544/6300978111")
++        let adUnitID = getAdId(call, "ca-app-pub-3940256099942544/2934735716")
+         let request = self.GADRequestWithOption(call.getBool("npa") ?? false)
+ 
+         DispatchQueue.main.async {
+@@ -159,7 +188,7 @@ public class AdMobPlugin: CAPPlugin, CAPBridgedPlugin {
+      *  https://developers.google.com/admob/ios/interstitial?hl=ja
+      */
+     @objc func prepareInterstitial(_ call: CAPPluginCall) {
+-        let adUnitID = getAdId(call, "ca-app-pub-3940256099942544/1033173712")
++        let adUnitID = getAdId(call, "ca-app-pub-3940256099942544/4411468910")
+         let request = self.GADRequestWithOption(call.getBool("npa") ?? false)
+ 
+         DispatchQueue.main.async {
+diff --git a/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Banner/BannerExecutor.swift b/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Banner/BannerExecutor.swift
+index 4ec5ccd..f23df9f 100644
+--- a/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Banner/BannerExecutor.swift
++++ b/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Banner/BannerExecutor.swift
+@@ -7,6 +7,22 @@ class BannerExecutor: NSObject, BannerViewDelegate {
+     var bannerView: BannerView!
+     var adPosition: String = ""
+     var Margin: Int = 0
++    private var positionConstraints: [NSLayoutConstraint] = []
++
++    func setBannerFrame(_ call: CAPPluginCall) {
++        guard let banner = bannerView, let root = plugin?.getRootVC(), let web = plugin?.bridge?.webView else {
++            call.resolve(); return
++        }
++        let top = CGFloat(call.getDouble("top") ?? 0)
++        guard top.isFinite && top >= 0 && top <= web.bounds.height + 200 else { call.reject("Invalid banner frame"); return }
++        banner.isHidden = call.getBool("hidden") ?? false
++        let location = web.convert(CGPoint(x: 0, y: top), to: root.view)
++        NSLayoutConstraint.deactivate(positionConstraints)
++        positionConstraints = [banner.topAnchor.constraint(equalTo: root.view.topAnchor, constant: location.y),
++            banner.centerXAnchor.constraint(equalTo: root.view.centerXAnchor)]
++        NSLayoutConstraint.activate(positionConstraints)
++        call.resolve()
++    }
+ 
+     func showBanner(_ call: CAPPluginCall, _ request: Request, _ adUnitID: String) {
+         if let rootViewController = plugin?.getRootVC() {
+@@ -40,6 +56,7 @@ class BannerExecutor: NSObject, BannerViewDelegate {
+                 bannerSize = currentOrientationAnchoredAdaptiveBanner(width: viewWidth)
+             }
+ 
++            self.removeBannerViewToView()
+             self.bannerView = BannerView(adSize: bannerSize)
+             self.addBannerViewToView(self.bannerView, adPosition, adMargin)
+             self.bannerView.translatesAutoresizingMaskIntoConstraints = false
+@@ -49,12 +66,12 @@ class BannerExecutor: NSObject, BannerViewDelegate {
+             self.bannerView.load(request)
+             self.bannerView.delegate = self
+ 
+-            self.bannerView.paidEventHandler = { [weak self] adValue in
+-                guard let self = self else { return }
+-                let networkName = self.bannerView.responseInfo?.loadedAdNetworkResponseInfo?.adNetworkClassName ?? ""
+-                let impressionId = self.bannerView.responseInfo?.responseIdentifier ?? ""
++            self.bannerView.paidEventHandler = { [weak self, weak banner = self.bannerView] adValue in
++                guard let self = self, let banner = banner, banner === self.bannerView else { return }
++                let networkName = banner.responseInfo?.loadedAdNetworkResponseInfo?.adNetworkClassName ?? ""
++                let impressionId = banner.responseInfo?.responseIdentifier ?? ""
+                 self.plugin?.notifyListeners(BannerAdPluginEvents.AdPaid.rawValue, data: [
+-                    "adUnitId": self.bannerView.adUnitID ?? "",
++                    "adUnitId": banner.adUnitID ?? "",
+                     "valueMicros": adValue.value.int64Value,
+                     "currencyCode": adValue.currencyCode,
+                     "precision": adValue.precision.rawValue,
+@@ -113,7 +130,6 @@ class BannerExecutor: NSObject, BannerViewDelegate {
+     }
+ 
+     private func addBannerViewToView(_ bannerView: BannerView, _ adPosition: String, _ Margin: Int) {
+-        removeBannerViewToView()
+         bannerView.translatesAutoresizingMaskIntoConstraints = false
+         bannerView.tag = 2743243288699 // rand
+         self.Margin = Margin
+@@ -121,9 +137,16 @@ class BannerExecutor: NSObject, BannerViewDelegate {
+     }
+ 
+     private func removeBannerViewToView() {
++        NSLayoutConstraint.deactivate(positionConstraints)
++        positionConstraints = []
++        // Cancel even a still-loading view which has not entered the hierarchy.
++        // Otherwise a late load can reattach an ad after navigation or a kill switch.
++        bannerView?.delegate = nil
++        bannerView?.paidEventHandler = nil
++        bannerView?.removeFromSuperview()
++        bannerView = nil
+         if let rootViewController = plugin?.getRootVC() {
+             if let subView = rootViewController.view.viewWithTag(2743243288699) {
+-                bannerView.delegate = nil
+                 NSLog("AdMob: find subView")
+                 subView.removeFromSuperview()
+             }
+@@ -132,17 +155,17 @@ class BannerExecutor: NSObject, BannerViewDelegate {
+ 
+     /// Tells the delegate an ad request loaded an ad.
+     func bannerViewDidReceiveAd(_ bannerView: BannerView) {
++        guard bannerView === self.bannerView else { return }
+         NSLog("bannerViewDidReceiveAd")
+         if let rootViewController = plugin?.getRootVC() {
+             rootViewController.view.addSubview(bannerView)
+-            rootViewController.view.addConstraints(
+-                [NSLayoutConstraint(item: bannerView,
++            positionConstraints = [NSLayoutConstraint(item: bannerView,
+                                     attribute: self.adPosition == "TOP_CENTER" ? .top : .bottom,
+                                     relatedBy: .equal,
+                                     toItem: rootViewController.view.safeAreaLayoutGuide,
+                                     attribute: self.adPosition == "TOP_CENTER" ? .top : .bottom,
+                                     multiplier: 1,
+-                                    constant: CGFloat(Int(self.Margin) * -1)),
++                                     constant: CGFloat(Int(self.Margin) * (self.adPosition == "TOP_CENTER" ? 1 : -1))),
+                  NSLayoutConstraint(item: bannerView,
+                                     attribute: .centerX,
+                                     relatedBy: .equal,
+@@ -150,7 +173,8 @@ class BannerExecutor: NSObject, BannerViewDelegate {
+                                     attribute: .centerX,
+                                     multiplier: 1,
+                                     constant: 0)
+-                ])
++                ]
++            NSLayoutConstraint.activate(positionConstraints)
+             self.plugin?.notifyListeners(BannerAdPluginEvents.SizeChanged.rawValue, data: [
+                 "width": bannerView.frame.width,
+                 "height": bannerView.frame.height
+@@ -162,7 +186,8 @@ class BannerExecutor: NSObject, BannerViewDelegate {
+ 
+     /// Tells the delegate an ad request failed.
+     func bannerView(_ bannerView: BannerView,
+-                    didFailToReceiveAdWithError error: Error) {
++                     didFailToReceiveAdWithError error: Error) {
++        guard bannerView === self.bannerView else { return }
+         NSLog("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+         self.removeBannerViewToView()
+         self.plugin?.notifyListeners(BannerAdPluginEvents.SizeChanged.rawValue, data: [
+@@ -176,6 +201,7 @@ class BannerExecutor: NSObject, BannerViewDelegate {
+     }
+ 
+     func bannerViewDidRecordImpression(_ bannerView: BannerView) {
++        guard bannerView === self.bannerView else { return }
+         self.plugin?.notifyListeners(BannerAdPluginEvents.AdImpression.rawValue, data: [:])
+     }
+ 
+diff --git a/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/NativeStoryExecutor.swift b/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/NativeStoryExecutor.swift
+new file mode 100644
+index 0000000..9e32b76
+--- /dev/null
++++ b/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/NativeStoryExecutor.swift
+@@ -0,0 +1,96 @@
++import UIKit
++import Capacitor
++import GoogleMobileAds
++
++final class NativeStoryExecutor: NSObject, NativeAdLoaderDelegate, NativeAdDelegate {
++    weak var plugin: AdMobPlugin?
++    private var loader: AdLoader?
++    private var pending: CAPPluginCall?
++    private var ad: NativeAd?
++    private var adId = ""
++    private var videoOnly = false
++    private var controller: NativeStoryController?
++
++    func prepare(_ call: CAPPluginCall, _ request: Request, _ id: String, _ onlyVideo: Bool) {
++        guard controller == nil, let root = plugin?.getRootVC() else { call.reject("Story ad is busy"); return }
++        pending?.reject("Story ad preparation replaced")
++        ad?.delegate = nil; ad = nil; adId = id; videoOnly = onlyVideo; pending = call
++        let media = NativeAdMediaAdLoaderOptions()
++        media.mediaAspectRatio = .portrait
++        let video = VideoOptions()
++        video.shouldStartMuted = true
++        let value = AdLoader(adUnitID: id, rootViewController: root, adTypes: [.native], options: [media, video])
++        loader = value; value.delegate = self; value.load(request)
++    }
++    func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
++        guard adLoader === loader, let call = pending else { return }
++        pending = nil
++        if videoOnly && !nativeAd.mediaContent.hasVideoContent { call.reject("Native video ad unavailable"); return }
++        ad = nativeAd; nativeAd.delegate = self
++        call.resolve(["adUnitId": adId, "hasVideo": nativeAd.mediaContent.hasVideoContent])
++    }
++    func adLoader(_ adLoader: AdLoader, didFailToReceiveAdWithError error: Error) {
++        guard adLoader === loader else { return }
++        pending?.reject("Native story ad unavailable"); pending = nil
++    }
++    func show(_ call: CAPPluginCall) {
++        guard controller == nil, let root = plugin?.getRootVC(), root.presentedViewController == nil,
++              let ad = ad, call.getString("adId") == adId else { call.reject("Native story ad not ready"); return }
++        let page = NativeStoryController(ad: ad)
++        page.modalPresentationStyle = .fullScreen
++        page.closed = { [weak self] in self?.close() }
++        controller = page
++        root.present(page, animated: true) { [weak self] in self?.plugin?.notifyListeners("nativeStoryAdShowed", data: [:]); call.resolve() }
++    }
++    private func close() {
++        guard let page = controller else { return }
++        controller = nil
++        page.dismiss(animated: true) { [weak self] in self?.plugin?.notifyListeners("nativeStoryAdDismissed", data: [:]) }
++        ad?.delegate = nil; ad = nil
++    }
++    func clear() {
++        pending?.reject("Native story ad cancelled"); pending = nil; loader?.delegate = nil; loader = nil
++        close(); ad?.delegate = nil; ad = nil
++    }
++    func nativeAdDidRecordImpression(_ nativeAd: NativeAd) {
++        guard nativeAd === ad else { return }
++        plugin?.notifyListeners("nativeStoryAdImpression", data: [:])
++    }
++}
++
++private final class NativeStoryController: UIViewController {
++    let ad: NativeAd
++    var closed: (() -> Void)?
++    private var timer: Timer?
++    init(ad: NativeAd) { self.ad = ad; super.init(nibName: nil, bundle: nil) }
++    required init?(coder: NSCoder) { fatalError("Unavailable") }
++    override func viewDidLoad() {
++        super.viewDidLoad(); view.backgroundColor = .black
++        let adView = NativeAdView(); adView.translatesAutoresizingMaskIntoConstraints = false
++        view.addSubview(adView)
++        NSLayoutConstraint.activate([adView.leadingAnchor.constraint(equalTo: view.leadingAnchor), adView.trailingAnchor.constraint(equalTo: view.trailingAnchor), adView.topAnchor.constraint(equalTo: view.topAnchor), adView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
++        let media = MediaView(); media.translatesAutoresizingMaskIntoConstraints = false; media.contentMode = .scaleAspectFit
++        adView.addSubview(media); adView.mediaView = media; media.mediaContent = ad.mediaContent
++        let footer = UIStackView(); footer.axis = .vertical; footer.spacing = 10; footer.translatesAutoresizingMaskIntoConstraints = false
++        footer.backgroundColor = UIColor.black.withAlphaComponent(0.75); footer.isLayoutMarginsRelativeArrangement = true
++        footer.layoutMargins = UIEdgeInsets(top: 16, left: 20, bottom: 16, right: 20); adView.addSubview(footer)
++        let disclosure = UILabel(); disclosure.text = "REKLAM"; disclosure.textColor = .lightGray; disclosure.font = .boldSystemFont(ofSize: 11); footer.addArrangedSubview(disclosure)
++        let advertiser = UILabel(); advertiser.text = ad.advertiser; advertiser.textColor = .lightGray; advertiser.font = .systemFont(ofSize: 12); footer.addArrangedSubview(advertiser); adView.advertiserView = advertiser
++        let headline = UILabel(); headline.text = ad.headline; headline.textColor = .white; headline.font = .boldSystemFont(ofSize: 22); headline.numberOfLines = 2; footer.addArrangedSubview(headline); adView.headlineView = headline
++        let body = UILabel(); body.text = ad.body; body.textColor = .lightGray; body.font = .systemFont(ofSize: 14); body.numberOfLines = 2; footer.addArrangedSubview(body); adView.bodyView = body
++        let cta = UIButton(type: .system); cta.setTitle(ad.callToAction ?? "Ətraflı", for: .normal); cta.backgroundColor = .white; cta.setTitleColor(.black, for: .normal); cta.layer.cornerRadius = 12; cta.heightAnchor.constraint(equalToConstant: 48).isActive = true; cta.isUserInteractionEnabled = false; footer.addArrangedSubview(cta); adView.callToActionView = cta
++        let choices = AdChoicesView(); choices.translatesAutoresizingMaskIntoConstraints = false; adView.addSubview(choices); adView.adChoicesView = choices
++        NSLayoutConstraint.activate([
++            footer.leadingAnchor.constraint(equalTo: adView.leadingAnchor, constant: 12), footer.trailingAnchor.constraint(equalTo: adView.trailingAnchor, constant: -12), footer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -58),
++            media.leadingAnchor.constraint(equalTo: adView.leadingAnchor), media.trailingAnchor.constraint(equalTo: adView.trailingAnchor), media.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 52), media.bottomAnchor.constraint(equalTo: footer.topAnchor),
++            choices.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16), choices.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12), choices.widthAnchor.constraint(equalToConstant: 30), choices.heightAnchor.constraint(equalToConstant: 30)
++        ])
++        let close = UIButton(type: .system); close.setTitle("✕", for: .normal); close.setTitleColor(.white, for: .normal); close.accessibilityLabel = "Reklamı bağla"; close.translatesAutoresizingMaskIntoConstraints = false; close.addTarget(self, action: #selector(finish), for: .touchUpInside); view.addSubview(close)
++        let next = UIButton(type: .system); next.setTitle("Növbəti story ›", for: .normal); next.setTitleColor(.white, for: .normal); next.translatesAutoresizingMaskIntoConstraints = false; next.addTarget(self, action: #selector(finish), for: .touchUpInside); view.addSubview(next)
++        NSLayoutConstraint.activate([close.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16), close.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8), close.widthAnchor.constraint(equalToConstant: 44), close.heightAnchor.constraint(equalToConstant: 44), next.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8), next.centerXAnchor.constraint(equalTo: view.centerXAnchor), next.heightAnchor.constraint(equalToConstant: 44)])
++        adView.nativeAd = ad
++        if !ad.mediaContent.hasVideoContent { timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: false) { [weak self] _ in self?.finish() } }
++    }
++    @objc private func finish() { timer?.invalidate(); timer = nil; closed?() }
++    override func viewDidDisappear(_ animated: Bool) { super.viewDidDisappear(animated); timer?.invalidate(); timer = nil }
++}

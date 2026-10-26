@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan profil şəkli, hamiləlik albomu və nəcis skaneri üçün kameraya ehtiyac duyur.";
+"NSPhotoLibraryUsageDescription" = "Anacan profil şəkli və hamiləlik albomu üçün şəkillərinizə daxil olur.";
+"NSPhotoLibraryAddUsageDescription" = "Yaradılmış körpə şəkillərini və albom xatirələrini qalereyaya yadda saxlamaq üçün icazə lazımdır.";
+"NSMicrophoneUsageDescription" = "Körpə ağlama analizi və səs qeydləri üçün mikrofon istifadə olunur.";
+"NSLocationWhenInUseUsageDescription" = "Hava vəziyyətinə uyğun geyim tövsiyələri və yaxınlıqdakı ana-dostu məkanları göstərmək üçün məkanınız lazımdır.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Hava vəziyyətinə uyğun geyim tövsiyələri və yaxınlıqdakı ana-dostu məkanları göstərmək üçün məkanınız lazımdır.";
+"NSFaceIDUsageDescription" = "Tətbiqə təhlükəsiz daxil olmaq üçün Face ID istifadə olunur.";
+"NSContactsUsageDescription" = "Partnyorunuzu dəvət etmək üçün kontaktlara daxil olur.";
+"NSCalendarsUsageDescription" = "Həkim qəbulları və xatırladıcıları təqviminizə əlavə etmək üçün icazə lazımdır.";
+"NSMotionUsageDescription" = "Gündəlik aktivlik və addım sayını izləmək üçün hərəkət sensoru istifadə olunur.";
+"NSBluetoothAlwaysUsageDescription" = "Anacan ağıllı cihazlarla (məs. körpə monitoru) əlaqə üçün Bluetooth istifadə edə bilər.";
+"NSLocalNetworkUsageDescription" = "Tətbiq lokal şəbəkədəki cihazlarla əlaqə qurmaq üçün icazə tələb edir.";
+"NSUserTrackingUsageDescription" = "İcazəniz reklamlarımızın effektivliyini ölçməyə və sizə daha uyğun məzmun göstərməyə kömək edir. Şəxsi məlumatlarınız üçüncü tərəflərlə paylaşılmır.";

@@ -1,0 +1,68 @@
+{
+ "premium_features": {
+  "0591890c-70df-4ab3-a153-a0af339f386c": {
+   "title": "Blutzucker",
+   "description": "Nur Premium"
+  },
+  "2ad5c743-505e-447d-9de0-ec0a586d1def": {
+   "title": "Schwangerschaftsalbum",
+   "description": "Nur Premium"
+  },
+  "36bf3502-3a4c-464d-8444-a4dee86bda90": {
+   "title": "Trainingsprogramme",
+   "description": "Nur Premium"
+  },
+  "6b173bac-e788-4360-8dc5-8b0728368b1f": {
+   "title": "Sicherheit",
+   "description": "Nur Premium"
+  },
+  "6b762385-283d-46c0-b5b0-c48d447c758b": {
+   "title": "Rezepte",
+   "description": "3 kostenlos pro Kategorie / Unbegrenzt"
+  },
+  "7ab2da65-61c5-4d5d-8bd2-f92f7ed2bc04": {
+   "title": "Mama-freundliche Karte",
+   "description": "Nur Premium"
+  },
+  "7bbb1acd-2ddf-4d77-9f50-464d97cb3648": {
+   "title": "Beruhigende Klänge",
+   "description": "Kostenlos 20 Min. pro Tag / Unbegrenzt"
+  },
+  "906f372d-fff0-44ca-aea1-7b5764fa872e": {
+   "title": "Schreianalyse",
+   "description": "Kostenlos 3-mal pro Tag / Unbegrenzt"
+  },
+  "99e32a46-e48e-405c-ae40-08bd38408c0d": {
+   "title": "Märchen erstellen",
+   "description": "Kostenlos 3-mal pro Tag / Unbegrenzt"
+  },
+  "9a9a69cf-18fd-4172-8638-7a4950b3c603": {
+   "title": "Baby-Fotoshooting",
+   "description": "3 kostenlose Fotos / Unbegrenzt"
+  },
+  "a81ba240-cdd1-4695-a758-cd2c21ca8442": {
+   "title": "Bevorzugter Support",
+   "description": "Schneller technischer Support"
+  },
+  "bb94201a-dd66-416c-abea-f584f484d0a7": {
+   "title": "KI-Arzt-Chat",
+   "description": "10 Nachrichten pro Tag"
+  },
+  "d029f7f6-0a00-4339-8fd2-79a37194b794": {
+   "title": "Werbefreie Nutzung",
+   "description": "Keine Werbung"
+  },
+  "d2602145-8693-4aeb-96d9-ac5247e58c5c": {
+   "title": "Windel-Scanner",
+   "description": "Kostenlos 3-mal täglich / Unbegrenzt"
+  },
+  "eb33f430-0170-4d55-b0f5-6b5899aaf622": {
+   "title": "Ernährungstracking",
+   "description": "Nur mit Premium"
+  },
+  "f07ae91a-a320-4d7f-8c5b-beaed0166f0a": {
+   "title": "Horoskop",
+   "description": "Nur mit Premium"
+  }
+ }
+}

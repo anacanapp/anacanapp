@@ -1,0 +1,72 @@
+[
+ {
+  "id": "53142be3-62de-48c9-8908-13e625cf3959",
+  "title": "Insect Sting",
+  "description": "Arı, eşşəkarısı və ya digər böcək sancmalarında ilk yardım. Allergik reaksiya əlamətlərini izləyin."
+ },
+ {
+  "id": "8c0564ef-fb10-485d-8ef3-0379da0ee782",
+  "title": "Cut & Wound",
+  "description": "Kəsik, sıyrıntı və ya dərin yaralar zamanı qanamanı dayandırma və yaranın düzgün təmizlənməsi."
+ },
+ {
+  "id": "53ec6dc4-8484-403f-860e-0359596d3f09",
+  "title": "Sunstroke",
+  "description": "İstidə uzun müddət qalma nəticəsində baş verən günvurma və istidən əziyyət çəkmə hallarında müdaxilə."
+ },
+ {
+  "id": "6c78bbbc-bfbe-4fbe-8dfd-7d9dba5791a2",
+  "title": "Electric Shock",
+  "description": "Uşaq elektrik cərəyanına məruz qaldıqda təhlükəsiz müdaxilə üsulları. Özünüzü də qoruyun!"
+ },
+ {
+  "id": "ea0bb6c0-37b9-4343-add3-ba50276fe174",
+  "title": "Tooth Injury",
+  "description": "Uşağın dişi zədələndikdə və ya düşdükdə düzgün ilk yardım. Dişin saxlanması şansını artırın."
+ },
+ {
+  "id": "8439166d-bd26-4831-a151-d3e80eb7508d",
+  "title": "Choking",
+  "description": "Körpə və ya uşaq boğulduqda ilk yardım addımları. Tənəffüs yollarındakı tıxanmanı aradan qaldırmaq üçün dərhal müdaxilə tələb olunur."
+ },
+ {
+  "id": "32fc9ec7-a94d-4b87-b763-5c9b4f5b174f",
+  "title": "High Fever",
+  "description": "Körpənin hərarəti 38°C-dən yuxarı olduqda sakitcə və düzgün müdaxilə edin. Hərarətin düşürülməsi üçün addım-addım təlimat."
+ },
+ {
+  "id": "a179f75b-57c8-42dd-b5ff-79de9d408477",
+  "title": "Burns",
+  "description": "Yanıq zamanı dərhal soyuq su ilə müdaxilə edin. Yanığın dərəcəsinə görə müvafiq ilk yardım tədbirləri."
+ },
+ {
+  "id": "e08bd13a-ef13-4cbd-9cbf-ae890a86ddd8",
+  "title": "Falling",
+  "description": "Körpə və ya uşaq yıxılıb zədələndikdə sakitcə vəziyyəti qiymətləndirin. Baş zərbəsi halında xüsusi diqqət tələb olunur."
+ },
+ {
+  "id": "c58927c2-7f46-4fe8-a01b-f61f711d6b89",
+  "title": "Allergic Reaction",
+  "description": "Allergik reaksiya əlamətlərini tanıyın: qaşınma, şişkinlik, nəfəs darlığı. Anafilaksi halında dərhal təcili yardım çağırın."
+ },
+ {
+  "id": "c998bd27-265d-49a7-b171-5dae9479eafa",
+  "title": "Nosebleed",
+  "description": "Burun qanamasını dayandırmaq üçün düzgün texnika. Uşağın başını geri atmaması və sakit qalması vacibdir."
+ },
+ {
+  "id": "48a1fae9-01a3-47ec-9bea-247b9ce6811b",
+  "title": "Poisoning",
+  "description": "Uşaq zərərli maddə (dərman, kimyəvi maddə, bitki) udduqda dərhal müdaxilə. Qusdurmaq həmişə düzgün deyil - maddənin növünə bağlıdır."
+ },
+ {
+  "id": "3ffb8633-9a4a-4a5d-89c3-eef04f595887",
+  "title": "Drowning",
+  "description": "Uşaq suda boğulma təhlükəsi ilə üzləşdikdə həyat qurtaran addımlar. Hər saniyə önəmlidir - dərhal müdaxilə edin."
+ },
+ {
+  "id": "3d10cfcf-ae59-4a79-8466-c059cfacf237",
+  "title": "Seizure",
+  "description": "Uşaqda qıcolma (hərarət qıcolması daxil) baş verdikdə sakit və düzgün müdaxilə edin. Çox vaxt 2-5 dəqiqədə keçir."
+ }
+]

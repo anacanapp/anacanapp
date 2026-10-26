@@ -1,0 +1,284 @@
+{
+ "first_aid_steps": {
+  "23233e34-91c6-4a37-80bd-6d114859cf06": {
+   "title": "Ko‘krak qafasini bosish",
+   "instruction": "Chaqaloqni ag‘darib, ko‘krak qafasini 5 marta bosing"
+  },
+  "653eda83-c55f-4c1b-9203-69107d939f57": {
+   "title": "Tibbiy yordamga murojaat qiling",
+   "instruction": "Qachon tibbiy yordamga murojaat qilish kerakligini biling"
+  },
+  "988f6944-18e0-4fe7-b1c0-7af10f315f8f": {
+   "title": "Xotirjam bo‘ling",
+   "instruction": "Xotirjam bo‘ling va vaziyatni baholang"
+  },
+  "26f95e8e-9af5-42b7-bb39-91bb6ca22251": {
+   "title": "Jarohatni tekshiring",
+   "instruction": "Ko‘rinadigan jarohatlar bor-yo‘qligini tekshiring"
+  },
+  "9ee5ae8b-5908-451c-9702-e1efd5024f91": {
+   "title": "Sovuq kompress",
+   "instruction": "Shishgan joylarga sovuq kompress qo‘ying"
+  },
+  "a66d83b2-83fa-4fa6-8ecf-565311a1e46c": {
+   "title": "Favqulodda holat belgilari",
+   "instruction": "Qachon 103 raqamiga qo‘ng‘iroq qilish kerakligini biling"
+  },
+  "b7b425c0-6726-434a-9518-6b517a1c3fd4": {
+   "title": "Takrorlang yoki tez yordam chaqiring",
+   "instruction": "Buyum chiqib ketguncha takrorlang yoki tez yordam chaqiring"
+  },
+  "cbd724e5-b458-4dfe-85fd-eafc99e6d58a": {
+   "title": "Haroratni o‘lchang",
+   "instruction": "Haroratni aniq o‘lchash uchun termometrdan foydalaning"
+  },
+  "bdd2e7c4-7b82-44e4-8d4e-700de7965d6b": {
+   "title": "Ortiqcha kiyimlarni yeching",
+   "instruction": "Tana sovishiga yordam berish uchun ortiqcha kiyimlarni yeching"
+  },
+  "1b1f79eb-f98c-46a5-a987-256c34544c2e": {
+   "title": "Suyuqlik bering",
+   "instruction": "Tez-tez ona suti, sutli aralashma yoki suv bering"
+  },
+  "7343c1a8-f642-4e01-9166-c11e8d2955b4": {
+   "title": "Iliq kompress",
+   "instruction": "Peshonaga iliq (sovuq emas) kompress qo‘ying"
+  },
+  "ba39c150-5d98-4c30-b3ef-f8b46ae9ee47": {
+   "title": "Dori vositasi",
+   "instruction": "Shifokor tavsiya qilgan bo‘lsa, yoshiga mos isitma tushiruvchi dori bering"
+  },
+  "af0c56b7-08ca-4276-bc53-1dd6d0215995": {
+   "title": "Salqin suv",
+   "instruction": "Kuygan joyni salqin oqar suv ostida tuting"
+  },
+  "7556ff0c-b8ca-4ce7-9d14-879ffd290acb": {
+   "title": "Buyumlarni olib tashlang",
+   "instruction": "Kuygan joy yaqinidagi kiyim va taqinchoqlarni yeching"
+  },
+  "0155ef9e-2bf9-4a2e-98d1-c2007b7c558d": {
+   "title": "Kuygan joyni yoping",
+   "instruction": "Kuygan joyni steril doka bilan yoping"
+  },
+  "a1c6475e-173f-4a3d-a227-05997aeaba07": {
+   "title": "Nafas yo‘llarini tekshiring",
+   "instruction": "Chaqaloq yo‘tala, yig‘lay yoki nafas ola olishini tekshiring"
+  },
+  "ff6832b6-5f9d-4393-b6d3-1a86d6950529": {
+   "title": "Chaqaloqni to‘g‘ri joylashtiring",
+   "instruction": "Chaqaloqning boshini ushlab, yuzini pastga qaratgan holda bilagingiz ustiga yotqizing"
+  },
+  "5fd43d8e-354b-4d21-b5ea-5244b0c4065a": {
+   "title": "Orqasiga uring",
+   "instruction": "Kuraklari orasiga 5 marta qat’iy zarba bering"
+  },
+  "c6e9e1ca-fe48-474a-8bc2-6f7a87ab8bb1": {
+   "title": "Suvdan olib chiqing",
+   "instruction": "Bolani darhol suvdan olib chiqing"
+  },
+  "44d2df65-ea71-42cd-bc75-c7d1dca8c151": {
+   "title": "Tez yordam chaqiring",
+   "instruction": "Darhol 103 raqamiga qo‘ng‘iroq qiling"
+  },
+  "a1f7c3ec-bd90-47ad-9151-c695a0a064f5": {
+   "title": "Zarur bo‘lsa, yurak-o‘pka reanimatsiyasini boshlang",
+   "instruction": "Nafas olmayotgan bo‘lsa, yurak-o‘pka reanimatsiyasini boshlang"
+  },
+  "2a9105e6-557c-48c8-81ca-efca7319c5d4": {
+   "title": "Tiklanish holati",
+   "instruction": "Nafas olayotgan bo‘lsa, yonboshlatib, xavfsiz holatga yotqizing"
+  },
+  "add506db-eeca-4d44-ac6f-7f4fa88598f0": {
+   "title": "Shifoxonaga borish shart",
+   "instruction": "Har qanday holatda ham shifoxonaga boring"
+  },
+  "c45d4a4c-6532-4340-91f5-eb71f3e7849d": {
+   "title": "Bolani himoya qiling",
+   "instruction": "Tutqanoq paytida bolani jarohatlanishdan himoya qiling"
+  },
+  "58fa242e-5084-47b6-831f-309a9ced96cb": {
+   "title": "Alomatlarni aniqlang",
+   "instruction": "Allergik reaksiya belgilarini aniqlang"
+  },
+  "0a0d6ada-239c-4443-bbdd-8328972fd28e": {
+   "title": "Qo‘zg‘atuvchini bartaraf eting",
+   "instruction": "Allergen manbasini olib tashlang"
+  },
+  "24799f6b-1497-49ab-868b-a69e3ff98ef6": {
+   "title": "Antigistamin",
+   "instruction": "Agar mavjud bo‘lsa, antigistamin bering"
+  },
+  "9fafb3dd-35ce-413e-a600-29e28c90b0bc": {
+   "title": "Tana holati",
+   "instruction": "Bolani to‘g‘ri holatga keltiring"
+  },
+  "a2c10f33-ebf3-42a6-8bd6-a3cef455d93f": {
+   "title": "Shoshilinch yordam",
+   "instruction": "Og‘ir reaksiya kuzatilsa, 103 ga qo‘ng‘iroq qiling"
+  },
+  "bf9c5674-3e2f-4a8b-8247-9136e7d05f44": {
+   "title": "Tik o‘tqazing",
+   "instruction": "Bolani tik o‘tqazing va oldinga engashtiring"
+  },
+  "fd830f74-88d5-43ee-a94a-fdfea1e0414b": {
+   "title": "Burunni qising",
+   "instruction": "Burunning yumshoq qismini qising"
+  },
+  "23d31f20-3163-4d17-8459-9b3e2c245956": {
+   "title": "Sovuq kompress",
+   "instruction": "Burun qanshariga sovuq kompress qo‘ying"
+  },
+  "af3def79-79b9-46db-85a0-3c43a16733a8": {
+   "title": "Tibbiy yordamga murojaat qiling",
+   "instruction": "Qachon shifokorga murojaat qilish kerak"
+  },
+  "69bde240-8f21-44bf-bf8c-12cee240b6cd": {
+   "title": "Moddani aniqlang",
+   "instruction": "Nima yutilganini aniqlang"
+  },
+  "9549f870-161d-47a0-9f57-91105222c9cc": {
+   "title": "Zaharlanish markaziga qo‘ng‘iroq qiling",
+   "instruction": "Zaharlanish markazi yoki 103 raqamiga qo‘ng‘iroq qiling"
+  },
+  "bd87a444-0f16-47e6-8b1b-dbe04e9ced8d": {
+   "title": "Oldini olish bo‘yicha tavsiyalar",
+   "instruction": "Kelajakda bunday holatlarning oldini oling"
+  },
+  "5858f90e-bc12-47ea-a2dd-9ecaa5d11561": {
+   "title": "Allergiyani kuzating",
+   "instruction": "Allergik reaksiya belgilarini kuzating"
+  },
+  "a905fbaa-2e2c-4567-b1e1-a368cd5c4025": {
+   "title": "Qon ketishini to‘xtating",
+   "instruction": "Qon ketishini to‘xtatish uchun jarohat ustiga bosib turing"
+  },
+  "8bac2809-ffa5-4183-87fa-679393ffe076": {
+   "title": "Antiseptik surting",
+   "instruction": "Antiseptik surting va bog‘lam qo‘ying"
+  },
+  "dffe05b8-fc2b-45a7-b16b-2e5fd5b8dcf5": {
+   "title": "Infeksiya belgilarini kuzating",
+   "instruction": "Infeksiya belgilarini kuzating"
+  },
+  "3bac7512-6058-4d20-b6e6-8ad0da515715": {
+   "title": "Qachon chok qo‘ydirish kerak",
+   "instruction": "Qaysi holatlarda chok qo‘ydirish kerakligini bilib oling"
+  },
+  "fba0fe96-09fe-493e-87fb-d2ec8c25353b": {
+   "title": "Soyaga olib o‘ting",
+   "instruction": "Bolani salqin joyga olib o‘ting"
+  },
+  "c187eaa3-b937-4688-a10c-94e9f9d2fe79": {
+   "title": "Vaqtni o‘lchang",
+   "instruction": "Boshlangan vaqtini va davomiyligini qayd eting"
+  },
+  "6abc357a-cde2-4eea-b124-751d0f5b982b": {
+   "title": "Yonbosh holat",
+   "instruction": "Imkon bo‘lsa, yonboshiga o‘giring"
+  },
+  "7fb97313-d1ba-4bc1-99f3-d69a03914d18": {
+   "title": "Tutqanoqdan keyin",
+   "instruction": "Tutqanoq to‘xtagach, zarur yordamni ko‘rsating"
+  },
+  "782f208a-97d0-4a89-a1a8-4b98f0320b1c": {
+   "title": "Nishni olib tashlang",
+   "instruction": "Agar nish qolgan bo‘lsa, uni olib tashlang"
+  },
+  "f667a519-3f8b-438e-b567-b4bdea7ea310": {
+   "title": "Tozalang va sovuting",
+   "instruction": "Yuvib, sovuq kompress qo‘ying"
+  },
+  "d92d25f1-f474-450d-a6b8-2fc1cdf732fa": {
+   "title": "Dori-darmon",
+   "instruction": "Antigistamin va og‘riq qoldiruvchi dori bering"
+  },
+  "d2066b11-8ab9-4d8b-842c-a3bd2e5f425b": {
+   "title": "Sovuting",
+   "instruction": "Tanani asta-sekin sovuting"
+  },
+  "ad5a9a9c-4b09-4925-a24c-cc3f556f91da": {
+   "title": "Suyuqlik bering",
+   "instruction": "Ichish uchun salqin suv bering"
+  },
+  "5f02abca-87d3-464a-8802-5cc0da3f9d6c": {
+   "title": "Haroratni tekshiring",
+   "instruction": "Tana haroratini kuzatib boring"
+  },
+  "96d98b2f-9720-4e00-a491-42587662acc6": {
+   "title": "Oldini olish",
+   "instruction": "Issiqlik bilan bog‘liq kasalliklarning oldini oling"
+  },
+  "866a4859-7218-41e1-a870-02ac453e0cee": {
+   "title": "Elektr tokini uzing",
+   "instruction": "Elektr manbasini xavfsiz tarzda uzing"
+  },
+  "bc99fba9-1c6d-49b3-9c0a-ee3a3314194e": {
+   "title": "103 ga qo‘ng‘iroq qiling",
+   "instruction": "Darhol tez yordam chaqiring"
+  },
+  "f85ac6a7-ac79-45a2-b126-8a5167110f3d": {
+   "title": "Kuyishni davolang",
+   "instruction": "Elektr toki ta’sirida kuygan joyni davolang"
+  },
+  "1033885b-1429-4f83-abf8-ddcda4f257c0": {
+   "title": "Tishni saqlab qoling",
+   "instruction": "Tishni to‘g‘ri sharoitda saqlang"
+  },
+  "c4128eb2-fc42-4522-a4f8-c8c94e32f773": {
+   "title": "Qon ketishini to‘xtating",
+   "instruction": "Og‘izdan qon ketishini nazorat qiling"
+  },
+  "5c8c1c01-3b37-497d-b01a-e63f030d5452": {
+   "title": "Zudlik bilan stomatologga boring",
+   "instruction": "30 daqiqa ichida stomatologga yetib boring"
+  },
+  "a0bc2a2f-ed1e-4120-944a-289ffb490a1b": {
+   "title": "Keyingi parvarish",
+   "instruction": "Qon ketishi to‘xtagandan keyingi parvarish"
+  },
+  "768dbde5-35a3-4a89-8efe-dbbc86d1bf17": {
+   "title": "Qustirmang",
+   "instruction": "Bolani qustirishga urinmang"
+  },
+  "002c32a2-540f-4fbc-945e-5893364e7416": {
+   "title": "Belgilarni kuzating",
+   "instruction": "Xavfli belgilarni kuzating"
+  },
+  "0fbf556c-906d-4a00-8caf-839936ad0dcd": {
+   "title": "Qachon 103 ga qo‘ng‘iroq qilish kerak",
+   "instruction": "Shoshilinch holat belgilari"
+  },
+  "88e2abb6-a343-49ac-9b1d-daf5cfee9794": {
+   "title": "Oldini olish",
+   "instruction": "Kelgusida chaqishlarning oldini oling"
+  },
+  "247479ab-451a-4ad9-bbc3-85efd3be4c48": {
+   "title": "Yarani tozalang",
+   "instruction": "Yarani to‘g‘ri tozalang"
+  },
+  "88a9ac7a-97ba-4af6-a453-39018b6ed3ae": {
+   "title": "Zarur bo‘lsa, yurak-o‘pka reanimatsiyasi",
+   "instruction": "Nafas olmayotgan bo‘lsa, yurak-o‘pka reanimatsiyasini boshlang"
+  },
+  "1e620506-a7ce-4982-9fc0-36b0449300dd": {
+   "title": "Oldini olish",
+   "instruction": "Elektr toki bilan bog‘liq jarohatlarning oldini oling"
+  },
+  "936aadf9-f8ef-41c4-af4b-b3bf62fc0ac2": {
+   "title": "Tishni toping",
+   "instruction": "Tishni toping va uni to‘g‘ri ushlang"
+  },
+  "89979925-6172-4375-af50-8ae2dc4f2e41": {
+   "title": "Tishni tozalang",
+   "instruction": "Tishni ehtiyotkorlik bilan chaying"
+  },
+  "4cb9abc6-62eb-47b3-8c86-4a0e64f0f36a": {
+   "title": "Og‘riqni yengillashtirish",
+   "instruction": "Yoshiga mos og‘riq qoldiruvchi vosita bering"
+  },
+  "72ba3ef9-68af-48d2-be70-5c8d756e45b3": {
+   "title": "Kuzatib boring",
+   "instruction": "24-48 soat davomida kuzatib boring"
+  }
+ }
+}

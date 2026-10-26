@@ -1,0 +1,94 @@
+{
+  "country_code": "DE",
+  "country_name": "Germany",
+  "providers": [
+    {
+      "name": "Charité – Universitätsmedizin Berlin",
+      "name_en": "Charité – University Medicine Berlin",
+      "provider_type": "hospital",
+      "specialty": "Frauenheilkunde und Geburtshilfe; Kinder- und Jugendmedizin",
+      "specialty_en": "Obstetrics & Gynecology; Pediatrics and Adolescent Medicine",
+      "city": "Berlin",
+      "phone": "+49 30 450-50",
+      "website": "https://www.charite.de/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "LMU Klinikum",
+      "name_en": "LMU University Hospital",
+      "provider_type": "hospital",
+      "specialty": "Frauenheilkunde und Geburtshilfe; Kinder- und Jugendmedizin",
+      "specialty_en": "Obstetrics & Gynecology; Pediatrics and Adolescent Medicine",
+      "city": "München",
+      "phone": "+49 89 4400-0",
+      "website": "https://www.lmu-klinikum.de/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "Universitätsklinikum Heidelberg",
+      "name_en": "Heidelberg University Hospital",
+      "provider_type": "hospital",
+      "specialty": "Frauenheilkunde und Geburtshilfe; Kinder- und Jugendmedizin",
+      "specialty_en": "Obstetrics & Gynecology; Pediatrics and Adolescent Medicine",
+      "city": "Heidelberg",
+      "phone": "+49 6221 56-0",
+      "website": "https://www.klinikum.uni-heidelberg.de/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "Universitätsklinikum Hamburg-Eppendorf (UKE)",
+      "name_en": "University Medical Center Hamburg-Eppendorf",
+      "provider_type": "hospital",
+      "specialty": "Frauenheilkunde und Geburtshilfe; Kinder- und Jugendmedizin",
+      "specialty_en": "Obstetrics & Gynecology; Pediatrics and Adolescent Medicine",
+      "city": "Hamburg",
+      "phone": "+49 40 7410-0",
+      "website": "https://www.uke.de/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "Medizinische Hochschule Hannover (MHH)",
+      "name_en": "Hannover Medical School",
+      "provider_type": "hospital",
+      "specialty": "Frauenheilkunde und Geburtshilfe; Kinder- und Jugendmedizin",
+      "specialty_en": "Obstetrics & Gynecology; Pediatrics and Adolescent Medicine",
+      "city": "Hannover",
+      "phone": "+49 511 532-0",
+      "website": "https://www.mhh.de/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "Uniklinik Köln",
+      "name_en": "University Hospital Cologne",
+      "provider_type": "hospital",
+      "specialty": "Frauenheilkunde und Geburtshilfe; Kinder- und Jugendmedizin",
+      "specialty_en": "Obstetrics & Gynecology; Pediatrics and Adolescent Medicine",
+      "city": "Köln",
+      "phone": "+49 221 478-0",
+      "website": "https://www.uk-koeln.de/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "Universitätsklinikum Freiburg",
+      "name_en": "University Medical Center Freiburg",
+      "provider_type": "hospital",
+      "specialty": "Frauenheilkunde und Geburtshilfe; Kinder- und Jugendmedizin",
+      "specialty_en": "Obstetrics & Gynecology; Pediatrics and Adolescent Medicine",
+      "city": "Freiburg im Breisgau",
+      "phone": "+49 761 270-0",
+      "website": "https://www.uniklinik-freiburg.de/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "Universitätsklinikum Tübingen",
+      "name_en": "University Hospital Tübingen",
+      "provider_type": "hospital",
+      "specialty": "Frauenheilkunde und Geburtshilfe; Kinder- und Jugendmedizin",
+      "specialty_en": "Obstetrics & Gynecology; Pediatrics and Adolescent Medicine",
+      "city": "Tübingen",
+      "phone": "+49 7071 29-0",
+      "website": "https://www.medizin.uni-tuebingen.de/",
+      "is_major_landmark": true
+    }
+  ]
+}

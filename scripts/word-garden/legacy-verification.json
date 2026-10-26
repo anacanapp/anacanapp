@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-08T19:14:50.083Z",
+  "passed": true,
+  "baselineId": "native-20261008t162105-fc36dca2",
+  "revision": "az-202610-v1",
+  "librarySha256": "acdab0987fb4dde5bf009746a69ba55fd465cc5f560cb0fdfb871508bf57d4ac",
+  "compared": 32,
+  "modes": [
+    "calm",
+    "timed"
+  ],
+  "originalDictionaryPreserved": true
+}

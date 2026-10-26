@@ -1,0 +1,72 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Local AI credentials (never commit)
+.env.azure
+.env.google
+scripts/content-i18n/.env.azure
+.env.vertex
+.env.*
+!.env.example
+!.env.*.example
+scripts/content-i18n/baby-activities/.env.vertex
+scripts/content-i18n/baby-activities/images/
+service-account*.json
+**/service-account*.json
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Supabase CLI local cache (created by `supabase functions deploy` etc.)
+supabase/.temp/
+
+# Azure miqrasiya aləti — İÇİNDƏ HARDCODED MIGRATION_SECRET VAR (tam DB dump
+# + istənilən storage faylını yükləmə imkanı verir). GitHub-a DÜŞMƏMƏLİDİR
+# (əvvəlki GitGuardian insidentinin təkrarı olmasın). Miqrasiya bitəndə həm
+# bu alətlər, həm də DB-dəki migration_export_* RPC-ləri silinməlidir.
+azure-migration/
+supabase/functions/migration-download-file/
+
+# uz seed generasiyasının aralıq faylları (yekun nəticə: scripts/i18n/uz.seed.json)
+scripts/i18n/uz.out/
+scripts/i18n/uz-translate.log
+scripts/i18n/ka.out/
+scripts/i18n/ka-translate.log
+
+# Private native signing material and device/account configuration
+*.jks
+*.keystore
+*.p12
+*.p8
+*.mobileprovision
+**/keystore.properties
+**/export_credentials.cfg
+**/ExportOptions.private.plist
+**/.netrc
+
+# Disposable local build and IDE state
+*.tsbuildinfo
+**/.kotlin/
+**/.swiftpm/
+**/xcshareddata/swiftpm/configuration/
+**/test-results/
+**/playwright-report/

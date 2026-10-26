@@ -1,0 +1,34 @@
+{
+ "photoshoot_image_styles": {
+  "69ed5b89-5524-4c74-a06f-bb3da95eadbb": {
+   "style_name": "فن البوب"
+  },
+  "b0c749fe-c55e-4f9e-9d3c-c259530ad6c6": {
+   "style_name": "ألوان مائية"
+  },
+  "cbb29387-413f-4079-a8a8-fa3bc38e2656": {
+   "style_name": "واقعي"
+  },
+  "d39d327f-a459-4aad-9306-e5d81bf3690f": {
+   "style_name": "ثلاثي الأبعاد"
+  },
+  "03427b7c-356e-4812-952d-2b1c428e3966": {
+   "style_name": "2D سيمبسون"
+  },
+  "3352474b-609d-48b3-8e7b-3884ee293a4f": {
+   "style_name": "3D بيكسار"
+  },
+  "38cd3cfe-df8b-4003-a8fb-aa2350993b2f": {
+   "style_name": "رسم زيتي"
+  },
+  "3a9358dc-8786-4142-9c9c-ecd1ab89dce6": {
+   "style_name": "3D ديزني"
+  },
+  "4dd08e35-1b80-4324-8c16-e21e32294f20": {
+   "style_name": "أنمي"
+  },
+  "5d88da31-3796-4ca2-a96c-7b82ab8190d8": {
+   "style_name": "رسم توضيحي"
+  }
+ }
+}

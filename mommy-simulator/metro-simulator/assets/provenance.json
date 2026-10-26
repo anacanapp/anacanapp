@@ -1,0 +1,48 @@
+{
+  "artwork": "Original procedural/vector illustrations in scripts/character.gd, platform.gd, icon.gd and assets/icons/metro.svg.",
+  "audio": "Original synthesized PCM effects in scripts/audio.gd.",
+  "fonts": [
+    {
+      "file": "assets/fonts/Manrope.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/Manrope%5Bwght%5D.ttf",
+      "bytes": 164700,
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "license": "SIL Open Font License 1.1"
+    },
+    {
+      "file": "assets/fonts/Manrope-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt",
+      "bytes": 4387,
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "license": "SIL Open Font License 1.1"
+    },
+    {
+      "file": "assets/fonts/BarlowCondensed-SemiBold.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/BarlowCondensed-SemiBold.ttf",
+      "bytes": 109428,
+      "sha256": "7b619d14bc2327509a9ef32b0890f709626f7ecc9ff61191c2a4314c5499d2d9",
+      "license": "SIL Open Font License 1.1"
+    },
+    {
+      "file": "assets/fonts/BarlowCondensed-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/OFL.txt",
+      "bytes": 4377,
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+      "license": "SIL Open Font License 1.1"
+    },
+    {
+      "file": "assets/fonts/NotoSans.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/NotoSans%5Bwdth,wght%5D.ttf",
+      "bytes": 2049096,
+      "sha256": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
+      "license": "SIL Open Font License 1.1"
+    },
+    {
+      "file": "assets/fonts/NotoSans-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/OFL.txt",
+      "bytes": 4396,
+      "sha256": "cee9892f9f0cc8fe882c9e9537ee6a89621d86ee7ceaf70b02e2b2b1c25c061a",
+      "license": "SIL Open Font License 1.1"
+    }
+  ]
+}

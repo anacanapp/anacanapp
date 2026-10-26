@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)",
+      "Bash(gcloud compute ssh anacan-gcp-candidate *)",
+      "Bash(gcloud compute instances describe anacan-gcp-candidate *)"
+    ]
+  }
+}

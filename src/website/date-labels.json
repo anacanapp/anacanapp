@@ -1,0 +1,527 @@
+{
+  "az": {
+    "months": [
+      "Yanvar",
+      "Fevral",
+      "Mart",
+      "Aprel",
+      "May",
+      "İyun",
+      "İyul",
+      "Avqust",
+      "Sentyabr",
+      "Oktyabr",
+      "Noyabr",
+      "Dekabr"
+    ],
+    "weekdays": [
+      "B.e",
+      "Ç.a",
+      "Ç.",
+      "C.a",
+      "C.",
+      "Ş.",
+      "B."
+    ]
+  },
+  "en": {
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "weekdays": [
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa",
+      "Su"
+    ]
+  },
+  "tr": {
+    "months": [
+      "Ocak",
+      "Şubat",
+      "Mart",
+      "Nisan",
+      "Mayıs",
+      "Haziran",
+      "Temmuz",
+      "Ağustos",
+      "Eylül",
+      "Ekim",
+      "Kasım",
+      "Aralık"
+    ],
+    "weekdays": [
+      "Pt",
+      "Sa",
+      "Ça",
+      "Pe",
+      "Cu",
+      "Ct",
+      "Pz"
+    ]
+  },
+  "ru": {
+    "months": [
+      "января",
+      "февраля",
+      "марта",
+      "апреля",
+      "мая",
+      "июня",
+      "июля",
+      "августа",
+      "сентября",
+      "октября",
+      "ноября",
+      "декабря"
+    ],
+    "weekdays": [
+      "пн",
+      "вт",
+      "ср",
+      "чт",
+      "пт",
+      "сб",
+      "вс"
+    ]
+  },
+  "de": {
+    "months": [
+      "Januar",
+      "Februar",
+      "März",
+      "April",
+      "Mai",
+      "Juni",
+      "Juli",
+      "August",
+      "September",
+      "Oktober",
+      "November",
+      "Dezember"
+    ],
+    "weekdays": [
+      "Mo",
+      "Di",
+      "Mi",
+      "Do",
+      "Fr",
+      "Sa",
+      "So"
+    ]
+  },
+  "ar": {
+    "months": [
+      "يناير",
+      "فبراير",
+      "مارس",
+      "أبريل",
+      "مايو",
+      "يونيو",
+      "يوليو",
+      "أغسطس",
+      "سبتمبر",
+      "أكتوبر",
+      "نوفمبر",
+      "ديسمبر"
+    ],
+    "weekdays": [
+      "اثنين",
+      "ثلاثاء",
+      "أربعاء",
+      "خميس",
+      "جمعة",
+      "سبت",
+      "أحد"
+    ]
+  },
+  "ka": {
+    "months": [
+      "იანვარი",
+      "თებერვალი",
+      "მარტი",
+      "აპრილი",
+      "მაისი",
+      "ივნისი",
+      "ივლისი",
+      "აგვისტო",
+      "სექტემბერი",
+      "ოქტომბერი",
+      "ნოემბერი",
+      "დეკემბერი"
+    ],
+    "weekdays": [
+      "ორშ",
+      "სამ",
+      "ოთხ",
+      "ხუთ",
+      "პარ",
+      "შაბ",
+      "კვი"
+    ]
+  },
+  "kk": {
+    "months": [
+      "қаңтар",
+      "ақпан",
+      "наурыз",
+      "сәуір",
+      "мамыр",
+      "маусым",
+      "шілде",
+      "тамыз",
+      "қыркүйек",
+      "қазан",
+      "қараша",
+      "желтоқсан"
+    ],
+    "weekdays": [
+      "дс",
+      "сс",
+      "ср",
+      "бс",
+      "жм",
+      "сб",
+      "жс"
+    ]
+  },
+  "uz": {
+    "months": [
+      "Yanvar",
+      "Fevral",
+      "Mart",
+      "Aprel",
+      "May",
+      "Iyun",
+      "Iyul",
+      "Avgust",
+      "Sentabr",
+      "Oktabr",
+      "Noyabr",
+      "Dekabr"
+    ],
+    "weekdays": [
+      "Du",
+      "Se",
+      "Cho",
+      "Pa",
+      "Ju",
+      "Sha",
+      "Ya"
+    ]
+  },
+  "zh": {
+    "months": [
+      "一月",
+      "二月",
+      "三月",
+      "四月",
+      "五月",
+      "六月",
+      "七月",
+      "八月",
+      "九月",
+      "十月",
+      "十一月",
+      "十二月"
+    ],
+    "weekdays": [
+      "一",
+      "二",
+      "三",
+      "四",
+      "五",
+      "六",
+      "日"
+    ]
+  },
+  "id": {
+    "months": [
+      "Januari",
+      "Februari",
+      "Maret",
+      "April",
+      "Mei",
+      "Juni",
+      "Juli",
+      "Agustus",
+      "September",
+      "Oktober",
+      "November",
+      "Desember"
+    ],
+    "weekdays": [
+      "Sen",
+      "Sel",
+      "Rab",
+      "Kam",
+      "Jum",
+      "Sab",
+      "Min"
+    ]
+  },
+  "fr": {
+    "months": [
+      "janvier",
+      "février",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "août",
+      "septembre",
+      "octobre",
+      "novembre",
+      "décembre"
+    ],
+    "weekdays": [
+      "lu",
+      "ma",
+      "me",
+      "je",
+      "ve",
+      "sa",
+      "di"
+    ]
+  },
+  "es": {
+    "months": [
+      "enero",
+      "febrero",
+      "marzo",
+      "abril",
+      "mayo",
+      "junio",
+      "julio",
+      "agosto",
+      "septiembre",
+      "octubre",
+      "noviembre",
+      "diciembre"
+    ],
+    "weekdays": [
+      "lu",
+      "ma",
+      "mi",
+      "ju",
+      "vi",
+      "sá",
+      "do"
+    ]
+  },
+  "pt": {
+    "months": [
+      "janeiro",
+      "fevereiro",
+      "março",
+      "abril",
+      "maio",
+      "junho",
+      "julho",
+      "agosto",
+      "setembro",
+      "outubro",
+      "novembro",
+      "dezembro"
+    ],
+    "weekdays": [
+      "seg",
+      "ter",
+      "qua",
+      "qui",
+      "sex",
+      "sáb",
+      "dom"
+    ]
+  },
+  "vi": {
+    "months": [
+      "tháng 01",
+      "tháng 02",
+      "tháng 03",
+      "tháng 04",
+      "tháng 05",
+      "tháng 06",
+      "tháng 07",
+      "tháng 08",
+      "tháng 09",
+      "tháng 10",
+      "tháng 11",
+      "tháng 12"
+    ],
+    "weekdays": [
+      "Th 2",
+      "Th 3",
+      "Th 4",
+      "Th 5",
+      "Th 6",
+      "Th 7",
+      "CN"
+    ]
+  },
+  "hi": {
+    "months": [
+      "जनवरी",
+      "फ़रवरी",
+      "मार्च",
+      "अप्रैल",
+      "मई",
+      "जून",
+      "जुलाई",
+      "अगस्त",
+      "सितंबर",
+      "अक्टूबर",
+      "नवंबर",
+      "दिसंबर"
+    ],
+    "weekdays": [
+      "सो",
+      "मं",
+      "बु",
+      "गु",
+      "शु",
+      "श",
+      "र"
+    ]
+  },
+  "ja": {
+    "months": [
+      "1月",
+      "2月",
+      "3月",
+      "4月",
+      "5月",
+      "6月",
+      "7月",
+      "8月",
+      "9月",
+      "10月",
+      "11月",
+      "12月"
+    ],
+    "weekdays": [
+      "月",
+      "火",
+      "水",
+      "木",
+      "金",
+      "土",
+      "日"
+    ]
+  },
+  "ko": {
+    "months": [
+      "1월",
+      "2월",
+      "3월",
+      "4월",
+      "5월",
+      "6월",
+      "7월",
+      "8월",
+      "9월",
+      "10월",
+      "11월",
+      "12월"
+    ],
+    "weekdays": [
+      "월",
+      "화",
+      "수",
+      "목",
+      "금",
+      "토",
+      "일"
+    ]
+  },
+  "pl": {
+    "months": [
+      "stycznia",
+      "lutego",
+      "marca",
+      "kwietnia",
+      "maja",
+      "czerwca",
+      "lipca",
+      "sierpnia",
+      "września",
+      "października",
+      "listopada",
+      "grudnia"
+    ],
+    "weekdays": [
+      "pon",
+      "wto",
+      "śro",
+      "czw",
+      "pią",
+      "sob",
+      "nie"
+    ]
+  },
+  "nl": {
+    "months": [
+      "januari",
+      "februari",
+      "maart",
+      "april",
+      "mei",
+      "juni",
+      "juli",
+      "augustus",
+      "september",
+      "oktober",
+      "november",
+      "december"
+    ],
+    "weekdays": [
+      "ma",
+      "di",
+      "wo",
+      "do",
+      "vr",
+      "za",
+      "zo"
+    ]
+  },
+  "sv": {
+    "months": [
+      "januari",
+      "februari",
+      "mars",
+      "april",
+      "maj",
+      "juni",
+      "juli",
+      "augusti",
+      "september",
+      "oktober",
+      "november",
+      "december"
+    ],
+    "weekdays": [
+      "må",
+      "ti",
+      "on",
+      "to",
+      "fr",
+      "lö",
+      "sö"
+    ]
+  }
+}

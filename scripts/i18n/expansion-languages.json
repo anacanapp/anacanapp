@@ -1,0 +1,14 @@
+{
+  "zh": { "locale": "zh-CN", "description": "Mandarin Chinese in Simplified characters (zh-CN), natural modern parenting-app Chinese." },
+  "id": { "locale": "id-ID", "description": "Indonesian (id-ID), natural Bahasa Indonesia; warm, respectful Anda form." },
+  "fr": { "locale": "fr-FR", "description": "French (fr-FR), natural professional and supportive French; vous form." },
+  "es": { "locale": "es-ES", "description": "Spanish (es-ES), clear internationally understandable Spanish; warm tú form." },
+  "pt": { "locale": "pt-PT", "description": "European Portuguese (pt-PT), natural supportive Portuguese, including bebé and European spelling." },
+  "vi": { "locale": "vi-VN", "description": "Vietnamese (vi-VN), fluent contemporary Vietnamese with complete accents. Warm professional parenting-app voice; use bạn, avoid gender assumptions where the source is neutral." },
+  "hi": { "locale": "hi-IN", "description": "Hindi (hi-IN), natural Hindi in Devanagari, not romanized Hinglish. Respectful आप form, approachable parenting terminology; preserve numerical quantities and medical meaning exactly." },
+  "ja": { "locale": "ja-JP", "description": "Japanese (ja-JP), fluent Japanese with appropriate kanji and kana. Polite, concise です・ます style for explanations; natural short Japanese UI labels. Do not use Chinese phrasing." },
+  "ko": { "locale": "ko-KR", "description": "Korean (ko-KR), fluent Hangul Korean, warm respectful 해요/하세요 style, concise conventional Korean UI labels and accurate medical terminology." },
+  "pl": { "locale": "pl-PL", "description": "Polish (pl-PL), fluent natural Polish with proper diacritics, grammatical cases and gender/number agreement. Warm professional parenting-app tone; keep variable-count labels grammatical or number-neutral." },
+  "nl": { "locale": "nl-NL", "description": "Dutch (nl-NL), fluent Netherlands Dutch, friendly je/jij form, concise conventional app terminology and accurate parenting/medical language." },
+  "sv": { "locale": "sv-SE", "description": "Swedish (sv-SE), fluent modern Swedish, warm du form, concise natural UI labels and accurate parenting/medical terms." }
+}

@@ -1,0 +1,65 @@
+/* Clear, restrained Venture City game chrome. All touch targets sit away from the arena centre. */
+.polished-game .arena-topbar { height: 58px; border-color: #58738377; background: linear-gradient(110deg, #1b3141f5, #172a39ef); box-shadow: 0 6px 20px #08131e35; }
+.polished-game .valuation-eyebrow { font-size: 7px; letter-spacing: 1px; margin-bottom: 4px; }
+.polished-game .clean-valuation strong { font-size: 23px; }
+.polished-game .arena-topbar > .icon-button { width: 38px; height: 38px; }
+.polished-game .room-id { font-size: 8px; letter-spacing: .9px; }
+.polished-game .room-id b { font-size: 6px; }
+.polished-game .room-founder-count { font-size: 9px; }
+.polished-game .room-founder-count small { font-size: 7px; }
+.polished-game .arena-room-strip { top: calc(max(13px,env(safe-area-inset-top)) + 68px); }
+.polished-game .arena-event-feed { top: calc(max(13px,env(safe-area-inset-top)) + 100px); max-width: 180px; }
+.polished-game .arena-feed-row { padding: 6px 8px; font-size: 7px; background: #18303ad9; border-color: #66849340; }
+.polished-game .arena-feed-row b { font-size: 8px; max-width: 98px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.polished-game .arena-feed-row > span { max-width: 80px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.polished-game .event-joined { display: none; }
+.polished-game .quiet-map .minimap { height: 70px; width: 70px; }
+.polished-game .map-tools > button { height: 32px; width: 32px; border-radius: 9px; }
+.polished-game .district-corner { font-size: 7px; letter-spacing: 1px; bottom: calc(max(24px,env(safe-area-inset-bottom)) + 87px); }
+.polished-game .boost-action { height: 78px; width: 78px; }
+.polished-game .boost-action-core b { font-size: 9px; }
+.polished-game .boost-percent { font-size: 8px; }
+.polished-game .pivot-action { width: 55px; height: 47px; border-radius: 13px; background: #213d4cec; margin-bottom: 5px; }
+.polished-game .pivot-action b { font-size: 8px; }
+.polished-game .pivot-action:disabled { opacity: .65; }
+.polished-game .boost-dock { gap: 5px; }
+.polished-game .steering-hint { bottom: 23%; color: #c3d8ca; background: #1c3641eb; }
+.polished-game .steering-hint span { font-size: 10px; }
+.polished-game .game-toast { top: auto; bottom: 26%; font-size: 10px; max-width: calc(100vw - 48px); padding: 10px 13px; }
+.polished-game .active-powers { top: calc(max(13px,env(safe-area-inset-top)) + 140px); }
+.polished-game .active-powers > span { padding: 6px 8px; }
+.polished-game .active-powers b { font-size: 8px; }
+.polished-game .market-phase-chip { font-size: 8px; }
+.polished-game .venture-beacon { bottom: calc(max(24px,env(safe-area-inset-bottom)) + 164px); background: #3a382bea; }
+.polished-game .venture-beacon > span { font-size: 8px; }
+.polished-game .venture-beacon b { font-size: 11px; }
+.founder-mission-chip { position: absolute; z-index: 5; left: max(20px,env(safe-area-inset-left)); top: calc(max(13px,env(safe-area-inset-top)) + 177px); width: 158px; padding: 9px 10px; border-radius: 10px; border: 1px solid #68857755; background: #1a3440dd; pointer-events: none; }
+.founder-mission-chip > span { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.founder-mission-chip b { font-size: 8px; color: #b6cbd0; font-weight: 600; max-width: 97px; }
+.founder-mission-chip small { display: inline-flex; align-items: center; gap: 3px; font: 500 9px "Space Grotesk",sans-serif; color: #d9cba6; }
+.mission-progress { height: 3px; border-radius: 3px; background: #4f697059; margin-top: 8px; overflow: hidden; }
+.mission-progress i { display: block; height: 100%; border-radius: inherit; background: #bedb99; transition: width .2s; }
+.founder-mission-chip em { display: block; text-align: right; font: 500 7px "Space Grotesk",sans-serif; color: #91a9b2; margin-top: 4px; }
+.takeover-warning { position: absolute; z-index: 8; left: 50%; top: 31%; transform: translateX(-50%); display: flex; align-items: center; gap: 9px; padding: 10px 12px; max-width: calc(100vw - 42px); border: 1px solid #d998a580; border-radius: 11px; background: #4a293bed; color: #f0b8c4; pointer-events: none; box-shadow: 0 5px 22px #120e2340; overflow: hidden; }
+.takeover-warning::after { content: ''; position: absolute; left: 0; bottom: 0; height: 3px; background: #e9a2b2; width: var(--takeover-progress); }
+.takeover-warning b { display: block; font-size: 11px; }
+.takeover-warning small { display: block; font-size: 8px; color: #d0a6b2; margin-top: 4px; white-space: nowrap; }
+@media(orientation:landscape) and (max-height:620px) {
+  .polished-game .arena-topbar { max-width: 355px; width: 45%; height: 55px; }
+  .polished-game .arena-room-strip { top: calc(max(11px,env(safe-area-inset-top)) + 65px); width: 45%; }
+  .polished-game .arena-event-feed { top: max(15px,env(safe-area-inset-top)); }
+  .polished-game .founder-mission-chip { top: calc(max(11px,env(safe-area-inset-top)) + 96px); left: max(20px,env(safe-area-inset-left)); width: 156px; padding: 8px 9px; }
+  .polished-game .active-powers { top: calc(max(11px,env(safe-area-inset-top)) + 160px); }
+  .polished-game .market-phase-chip { top: calc(max(11px,env(safe-area-inset-top)) + 84px); left: calc(max(20px,env(safe-area-inset-left)) + 169px); }
+  .polished-game .boost-action { height: 70px; width: 70px; }
+  .polished-game .pivot-action { width: 47px; height: 42px; margin-bottom: 3px; }
+  .polished-game .venture-beacon { right: calc(max(23px,env(safe-area-inset-right)) + 96px); bottom: max(20px,env(safe-area-inset-bottom)); }
+  .polished-game .game-toast { bottom: 18%; }
+  .polished-game .steering-hint { bottom: 11%; }
+  .takeover-warning { top: 27%; }
+}
+@media(max-width:370px) {
+  .polished-game .clean-valuation strong { font-size: 21px; }
+  .polished-game .arena-event-feed { max-width: 144px; }
+  .polished-game .founder-mission-chip { width: 140px; }
+}

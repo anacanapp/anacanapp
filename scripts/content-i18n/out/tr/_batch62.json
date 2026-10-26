@@ -1,0 +1,64 @@
+{
+ "surprise_ideas": {
+  "76cde32d-ba36-44c4-afe8-51abe685345a": {
+   "title": "Anı Albümü",
+   "description": "Birlikte geçirdiğiniz anları biriktirin"
+  },
+  "9213cc1f-b28f-4ae1-ac24-903556f4a1d1": {
+   "title": "Bebek Eşyaları Alışverişi",
+   "description": "Birlikte bebek mağazasına gidin"
+  },
+  "95ef5022-f18b-4f5a-9bad-d6881c630194": {
+   "title": "En Sevdiği Yemeği Sipariş Etme",
+   "description": "En sevdiği yemeği sipariş edin"
+  },
+  "dedb87f9-af64-4724-960f-32baab328400": {
+   "title": "Romantik Akşam Yemeği",
+   "description": "Evde özel bir akşam yemeği hazırlayın"
+  },
+  "f78bcf1b-3a53-4c36-8ef6-4fcb3d38a686": {
+   "title": "Dans Gecesi",
+   "description": "Evde romantik bir dans gecesi düzenleyin"
+  },
+  "16bf8a1c-59fb-4d11-a064-f8d84cf7d667": {
+   "title": "Gül Buketi",
+   "description": "Sevimli çiçeklerden bir buket alın"
+  },
+  "1ac091dc-608f-45a7-8b64-9113dee667a2": {
+   "title": "Piknik Macerası",
+   "description": "Parkta veya evde romantik bir piknik yapın"
+  },
+  "1ddf4023-a201-4d9e-a82a-0616bdbbce2e": {
+   "title": "Sevgi Mektubu",
+   "description": "İçten bir mektup yazın"
+  },
+  "285fce4a-aa8a-4f9f-a505-9321cd148a4c": {
+   "title": "Film Gecesi",
+   "description": "Sevdiğiniz filmler ve atıştırmalıklarla keyifli bir gece geçirin"
+  },
+  "2861c367-c51e-41fd-b3dd-12cc7914c2d6": {
+   "title": "İltifat Maratonu",
+   "description": "Gün boyunca 10 farklı iltifat edin"
+  },
+  "2b9000dc-59c6-49c2-bfd9-f25f03cd2993": {
+   "title": "Spa Günü",
+   "description": "Evde spa deneyimi yaşatın"
+  },
+  "60cd8bca-e723-495a-b3df-650758710096": {
+   "title": "Ayak Masajı",
+   "description": "15 dakikalık rahatlatıcı bir ayak masajı yapın"
+  },
+  "613fa193-2bc7-492b-9bcd-770f75f0b6e3": {
+   "title": "Gündüz Uykusu Desteği",
+   "description": "Tüm ev işlerini üstlenin"
+  },
+  "6deca0d4-4537-45e1-85af-f8af33667609": {
+   "title": "Yürüyüş",
+   "description": "Parkta veya sahilde uzun bir yürüyüş yapın"
+  },
+  "75362b30-6897-4862-952b-b3e85e845081": {
+   "title": "Kahvaltı Sürprizi",
+   "description": "Yatakta kahvaltı hazırlayın"
+  }
+ }
+}

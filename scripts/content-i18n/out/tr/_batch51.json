@@ -1,0 +1,28 @@
+{
+ "maternity_guidelines": {
+  "0991ca4b-05cc-4d8d-a501-ba4395c57650": {
+   "title": "Gerekli belgeler",
+   "content": "Doğum izni ödeneği için gerekli belgeler:\n\n1. **Doktor raporu** - Sağlık kuruluşundan alınan hamilelik raporu\n2. **Geçici iş göremezlik belgesi** - İstirahat raporu\n3. **Kimlik belgesinin fotokopisi**\n4. **Çalışma karnesinin fotokopisi**\n5. **Dilekçe** - İşverene yazılı başvuru"
+  },
+  "368a0305-9307-43d8-ada3-6c6cb95629e3": {
+   "title": "Önemli notlar",
+   "content": "**Bilmeniz gerekenler:**\n\n⚠️ Serbest çalışanlar veya kayıt dışı çalışanlar doğum izni ödeneği alamazlar, ancak 600 AZN tutarındaki tek seferlik ödeneği alma hakları vardır.\n\n⚠️ Doğum izni süresince iş yeriniz korunur.\n\n⚠️ Çocuğunuz 3 yaşına gelene kadar ücretsiz bakım izni kullanma hakkınız vardır.\n\n⚠️ Doğum izni süresince işten çıkarılamazsınız.\n\n📞 Ayrıntılı bilgi için: DSMF çağrı hattı - 142"
+  },
+  "3e4b256c-52b8-482a-a8cb-0dc60e515146": {
+   "title": "Kimler başvurabilir?",
+   "content": "Doğum izni ödeneği alabilmek için aşağıdaki koşulları karşılamalısınız:\n\n• Çalışan bir kadın olmalısınız (iş sözleşmesi kapsamında)\n• En az 12 aylık sosyal sigorta prim ödemeniz olmalıdır\n• Hamileliğinizi belgeleyen bir sağlık raporunuz olmalıdır\n• İşvereninizin yanında resmî olarak kayıtlı olmalısınız"
+  },
+  "45e9ae48-5d3e-47dc-a41d-0aece955a920": {
+   "title": "Başvuru süreci",
+   "content": "Doğum izni ödeneği almak için izlemeniz gereken adımlar:\n\n**1. Sağlık raporu alın**\nHamileliğin 30-cu haftasında (çoğul gebelikte 28-ci haftada) doktorunuzdan istirahat raporu alın.\n\n**2. İşvereninize başvurun**\nİstirahat raporunu ve dilekçeyi işvereninize teslim edin.\n\n**3. İşveren DSMF'ye gönderir**\nİşveren, belgeleri Devlet Sosyal Güvenlik Fonuna sunar.\n\n**4. Ödemenizi alın**\nÖdenek, 10 iş günü içinde banka kartınıza aktarılır."
+  },
+  "5f8ed8eb-e323-498e-95d7-5c63d9a1ae79": {
+   "title": "Tek seferlik doğum ödeneği",
+   "content": "**600 AZN tutarında tek seferlik doğum ödeneği**\n\nBu ödenek, doğumdan sonra her çocuk için verilir.\n\n**Kimler alabilir:**\n• Tüm Azerbaycan vatandaşları\n• Çalışıp çalışmadığına bakılmaksızın herkes\n\n**Nasıl alınır:**\n1. ASAN hizmet merkezine başvurun\n2. Doğum belgesini sunun\n3. Kimlik belgenizin fotokopisini verin\n4. Banka hesap bilgilerinizi bildirin\n\n**Süre:** Doğumdan sonraki 12 ay içinde başvurulmalıdır."
+  },
+  "d271f9d1-fb1c-4607-ad1e-186f4b2de9e3": {
+   "title": "Hesaplama yöntemi",
+   "content": "Doğum izni ödeneği şu şekilde hesaplanır:\n\n**Formül:**\nÖdeme = Ortalama günlük ücret × İzin günleri\n\n**Ortalama günlük ücret:**\nSon 12 ayın toplam ücreti ÷ 365\n\n**İzin süresi:**\n• Normal hamilelik: 126 gün (70+56)\n• Zor doğum: 140 gün (70+70)\n• Çoğul gebelik: 194 gün (84+110)\n\n**Not:** Ödeme, vergi kesintisi yapılmadan tam tutar üzerinden verilir."
+  }
+ }
+}

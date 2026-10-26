@@ -1,0 +1,82 @@
+project_id = "tntbjulojatnrqmylorp"
+
+[functions.dr-anacan-chat]
+verify_jwt = false
+
+[functions.generate-baby-photo]
+verify_jwt = false
+
+[functions.migration-download-file]
+verify_jwt = false
+
+[functions.send-push-notification]
+verify_jwt = false
+
+[functions.send-daily-notifications]
+verify_jwt = false
+
+[functions.send-bulk-push]
+verify_jwt = false
+
+[functions.safety-ai-lookup]
+verify_jwt = false
+
+[functions.analyze-cry]
+verify_jwt = false
+
+[functions.analyze-poop]
+verify_jwt = false
+
+[functions.weather-clothing]
+verify_jwt = false
+
+[functions.generate-fairy-tale]
+verify_jwt = false
+
+[functions.epoint-payment]
+verify_jwt = false
+
+[functions.send-vitamin-reminders]
+verify_jwt = false
+
+[functions.send-flow-reminders]
+verify_jwt = false
+
+[functions.bulk-import-csv]
+verify_jwt = false
+
+[functions.partner-create-redemption]
+verify_jwt = false
+
+[functions.partner-redemption-status]
+verify_jwt = false
+
+[functions.partner-verify-redemption]
+verify_jwt = false
+
+[functions.expire-partner-links]
+verify_jwt = false
+
+[functions.baby-insight]
+verify_jwt = false
+
+[functions.name-ai-lookup]
+verify_jwt = false
+
+[functions.food-calories]
+verify_jwt = false
+
+[functions.translate-post]
+verify_jwt = false
+
+[functions.admin-notification-dispatch]
+verify_jwt = false
+
+[functions.admin-revenue-metrics]
+verify_jwt = false
+
+[functions.revenuecat-webhook]
+verify_jwt = false
+
+[functions.brand-portal-accounts]
+verify_jwt = false

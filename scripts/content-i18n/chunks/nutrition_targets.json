@@ -1,0 +1,44 @@
+[
+ {
+  "id": "0f7145c3-e9e8-49ec-9aff-cd01a14f11c9",
+  "life_stage": "mommy",
+  "calories": 2500,
+  "water_glasses": 12,
+  "description": "Breastfeeding period",
+  "description_az": "Əmizdirmə dövrü",
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "updated_at": "2026-01-25T09:35:29.464473+00:00",
+  "description_en": null,
+  "description_ru": null,
+  "description_tr": null
+ },
+ {
+  "id": "3be882f9-ab44-4cd3-9c83-4cdade104577",
+  "life_stage": "bump",
+  "calories": 2300,
+  "water_glasses": 10,
+  "description": "Pregnancy period",
+  "description_az": "Hamiləlik dövrü",
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "updated_at": "2026-01-25T09:35:29.464473+00:00",
+  "description_en": null,
+  "description_ru": null,
+  "description_tr": null
+ },
+ {
+  "id": "5fe72988-1d1d-401a-a043-4649c38c0061",
+  "life_stage": "flow",
+  "calories": 2000,
+  "water_glasses": 8,
+  "description": "General health",
+  "description_az": "Ümumi sağlamlıq",
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "updated_at": "2026-01-25T09:35:29.464473+00:00",
+  "description_en": null,
+  "description_ru": null,
+  "description_tr": null
+ }
+]

@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "partnerverifypage_qr_in_muddeti_bitib_fc3d41",
+  "az": "QR-ın müddəti bitib",
+  "en": "QR has expired"
+ },
+ {
+  "key": "partnerverifypage_qr_yanlisdir_ed65eb",
+  "az": "QR yanlışdır",
+  "en": "QR is incorrect"
+ },
+ {
+  "key": "partnerverifypage_tesdi_qlendi_7e7c87",
+  "az": "TƏSDİQLƏNDİ",
+  "en": "CONFIRMED"
+ },
+ {
+  "key": "partnerverifypage_tesdiqle_4ffd4c",
+  "az": "Təsdiqlə",
+  "en": "Confirm"
+ },
+ {
+  "key": "partnerverifypage_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "payment_rules",
+  "az": "Ödəniş Qaydaları",
+  "en": "Payment Rules"
+ },
+ {
+  "key": "paymenterror_ana_sehifeye_qayit_2458e3",
+  "az": "Ana Səhifəyə Qayıt",
+  "en": "Return to Home Page"
+ },
+ {
+  "key": "paymenterror_odenis_ugursuz_585482",
+  "az": "Ödəniş Uğursuz",
+  "en": "Payment Failed"
+ },
+ {
+  "key": "paymenterror_odenisiniz_heyata_kecirile_bil_31b720",
+  "az": "Ödənişiniz həyata keçirilə bilmədi. Zəhmət olmasa yenidən cəhd edin və ya digər ödəniş üsulundan istifadə edin.",
+  "en": "Your payment could not be processed. Please try again or use another payment method."
+ },
+ {
+  "key": "paymenterror_yeniden_cehd_et_d273ac",
+  "az": "Yenidən cəhd et",
+  "en": "Try again"
+ },
+ {
+  "key": "paymentsuccess_ana_sehifeye_qayit_2458e3",
+  "az": "Ana Səhifəyə Qayıt",
+  "en": "Return to Home Page"
+ },
+ {
+  "key": "paymentsuccess_odenis_ugurlu_3d14c3",
+  "az": "Ödəniş Uğurlu! 🎉",
+  "en": "Payment Successful! 🎉"
+ },
+ {
+  "key": "paymentsuccess_odenisiniz_muveffeqiyyetle_hey_b90350",
+  "az": "Ödənişiniz müvəffəqiyyətlə həyata keçirildi. Sifarişiniz emal olunacaq.",
+  "en": "Your payment has been processed successfully. Your order will be processed."
+ },
+ {
+  "key": "perioddelaybanner_avg_cycle_desc",
+  "az": "Orta tsikliniz {days} gündür. Stress, çəki dəyişikliyi, hormonal dalğalanma və ya hamiləlik səbəb ola bilər. Hamiləlik testi etməyi düşünün.",
+  "en": "Your average cycle is {days} days. It can be caused by stress, weight changes, hormonal fluctuations, or pregnancy. Consider taking a pregnancy test."
+ },
+ {
+  "key": "perioddelaybanner_dr_anacan_dan_sorus_1fb5f1",
+  "az": "Dr. Anacan-dan soruş",
+  "en": "Ask Dr. Anacan"
+ },
+ {
+  "key": "perioddelaybanner_period_late",
+  "az": "Periodunuz {days} gün gecikir",
+  "en": "Your period is {days} days late"
+ },
+ {
+  "key": "photogalleryviewer_anacan_ile_yaradilmis_korpe_fotosu_cfa1e7",
+  "az": "Anacan ilə yaradılmış körpə fotosu",
+  "en": "Baby photo created with Anacan"
+ },
+ {
+  "key": "photogalleryviewer_bu_emeliyyat_geri_alina_bilmez_cdab6e",
+  "az": "Bu əməliyyat geri alına bilməz. Şəkil həmişəlik silinəcək.",
+  "en": "This transaction cannot be reversed. The image will be permanently deleted."
+ },
+ {
+  "key": "photogalleryviewer_foto_silinerken_xeta_bas_verdi_6359b2",
+  "az": "Foto silinərkən xəta baş verdi",
+  "en": "An error occurred while deleting the photo"
+ },
+ {
+  "key": "photogalleryviewer_foto_ugurla_silindi_a3226a",
+  "az": "Foto uğurla silindi",
+  "en": "Photo deleted successfully"
+ },
+ {
+  "key": "photogalleryviewer_korpe_fotosu_770c1a",
+  "az": "Körpə Fotosu",
+  "en": "Baby Photo"
+ },
+ {
+  "key": "photogalleryviewer_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "photogalleryviewer_paylas_b4be3b",
+  "az": "Paylaş",
+  "en": "Share it"
+ },
+ {
+  "key": "photogalleryviewer_paylasildi_40c74e",
+  "az": "Paylaşıldı! 🎉",
+  "en": "Shared! 🎉"
+ },
+ {
+  "key": "photogalleryviewer_sekil_endirildi_0b4a05",
+  "az": "Şəkil endirildi! 📸",
+  "en": "Image downloaded! 📸"
+ },
+ {
+  "key": "photogalleryviewer_sekil_yuklenerken_xeta_bas_verdi_16a2d0",
+  "az": "Şəkil yüklənərkən xəta baş verdi",
+  "en": "An error occurred while uploading the image"
+ },
+ {
+  "key": "photogalleryviewer_sekli_silmek_isteyirsiniz_87c14d",
+  "az": "Şəkli silmək istəyirsiniz?",
+  "en": "Do you want to delete the photo?"
+ },
+ {
+  "key": "photogalleryviewer_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "photogalleryviewer_yukle_2b8e67",
+  "az": "Yüklə",
+  "en": "Download"
+ },
+ {
+  "key": "photogalleryviewer_yuklenir_5557de",
+  "az": "Yüklənir...",
+  "en": "Loading..."
+ },
+ {
+  "key": "pillremindercard_basliq_e1f6c5",
+  "az": "Başlıq",
+  "en": "Title"
+ },
+ {
+  "key": "pillremindercard_gundelik_hebinizi_qebul_edin_ea7547",
+  "az": "💊 Gündəlik həbinizi qəbul edin",
+  "en": "💊 Take your daily pill"
+ },
+ {
+  "key": "pillremindercard_gundelik_hebinizi_qebul_etmek__064f3f",
+  "az": "💊 Gündəlik həbinizi qəbul etmək vaxtıdır",
+  "en": "💊 Time to take your daily pill"
+ },
+ {
+  "key": "pillremindercard_gundelik_kontrasepsiya_ve_ya_d_8f8e44",
+  "az": "Gündəlik dərman xatırlatması üçün aktiv edin.",
+  "en": "Activate for a daily contraceptive or medication reminder."
+ },
+ {
+  "key": "pillremindercard_heb_xatirlatmasi_e3e934",
+  "az": "Həb Xatırlatması",
+  "en": "Pill Reminder"
+ },
+ {
+  "key": "pillremindercard_heb_xatirlatmasi_yadda_saxlani_27cacb",
+  "az": "Həb xatırlatması yadda saxlanıldı",
+  "en": "A pill reminder has been saved"
+ },
+ {
+  "key": "pillremindercard_hebinizi_qebul_edin_03c5be",
+  "az": "Həbinizi qəbul edin",
+  "en": "Take your pill"
+ },
+ {
+  "key": "pillremindercard_her_gun_f4fe36",
+  "az": "Hər gün",
+  "en": "Every day"
+ },
+ {
+  "key": "pillremindercard_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "pillremindercard_redakte_d53ba7",
+  "az": "Redaktə",
+  "en": "Editing"
+ },
+ {
+  "key": "playbox_all_games",
+  "az": "Bütün Oyunlar",
+  "en": "All Games"
+ },
+ {
+  "key": "playbox_cognitive",
+  "az": "İdrak",
+  "en": "Cognitive"
+ },
+ {
+  "key": "playbox_for_you",
+  "az": "Sizin üçün",
+  "en": "For You"
+ },
+ {
+  "key": "playbox_log_note",
+  "az": "Qeyd et",
+  "en": "Note"
+ },
+ {
+  "key": "poopscanner_ag_solgun_984851",
+  "az": "Ağ/Solğun",
+  "en": "White/Pale"
+ },
+ {
+  "key": "poopscanner_ai_ile_korpe_necisini_analiz_edin_06fb84",
+  "az": "AI ilə körpə nəcisini analiz edin",
+  "en": "Analyze baby poop with AI"
+ },
+ {
+  "key": "poopscanner_analiz_et",
+  "az": "Analiz et",
+  "en": "Analyze"
+ },
+ {
+  "key": "poopscanner_analiz_xetasi_daba4a",
+  "az": "Analiz xətası",
+  "en": "Analysis error"
+ },
+ {
+  "key": "poopscanner_bu_analiz_yalniz_melumat_meqse_ea8e7e",
+  "az": "Bu analiz yalnız məlumat məqsədi daşıyır və tibbi diaqnoz deyil. \n                      Narahatlıq yaranarsa həkimə müraciət edin.",
+  "en": "This analysis is for informational purposes only and is not a medical diagnosis. \nConsult a doctor if you are concerned."
+ },
+ {
+  "key": "poopscanner_bu_gun_hekimle_meslehetlesin_284d77",
+  "az": "Bu gün həkimlə məsləhətləşin.",
+  "en": "Consult a doctor today."
+ },
+ {
+  "key": "poopscanner_bu_sekil_korpe_bezi_deyil_duzg_674a4f",
+  "az": "Bu şəkil körpə bezi deyil. Düzgün şəkil seçin.",
+  "en": "This picture is not a diaper. Choose the correct picture."
+ },
+ {
+  "key": "poopscanner_bu_simptomlar_ciddi_ola_biler__4229fb",
+  "az": "Bu simptomlar ciddi ola bilər. Dərhal tibbi yardım alın.",
+  "en": "These symptoms can be serious. Get medical attention immediately."
+ },
+ {
+  "key": "poopscanner_diqqet_764567",
+  "az": "Diqqət",
+  "en": "Attention"
+ },
+ {
+  "key": "poopscanner_fayl_cox_boyukdur_f5cf61",
+  "az": "Fayl çox böyükdür",
+  "en": "The file is too large"
+ },
+ {
+  "key": "poopscanner_hekime_muraciet_edin_9504e2",
+  "az": "Həkimə müraciət edin",
+  "en": "Consult a doctor"
+ },
+ {
+  "key": "poopscanner_i_zleyin_54759b",
+  "az": "İzləyin",
+  "en": "Watch it"
+ },
+ {
+  "key": "poopscanner_kamera_icazesi_lazimdir_a300cc",
+  "az": "Kamera icazəsi lazımdır",
+  "en": "Camera permission is required"
+ },
+ {
+  "key": "poopscanner_korpe_fa2b51",
+  "az": "Körpə",
+  "en": "Baby"
+ },
+ {
+  "key": "poopscanner_korpenizin_bezinin_seklini_cek_498c04",
+  "az": "Körpənizin bezinin şəklini çəkin və ya yükləyin. AI rəng və konsistensiyaya əsasən analiz edəcək.",
+  "en": "Take or upload a photo of your baby's diaper. AI will analyze based on color and consistency."
+ },
+ {
+  "key": "poopscanner_maksimum_10mb_sekil_secin_caf529",
+  "az": "Maksimum 10MB şəkil seçin",
+  "en": "Select a photo maximum of 10MB"
+ },
+ {
+  "key": "poopscanner_namelum_134662",
+  "az": "Naməlum",
+  "en": "Unknown"
+ },
+ {
+  "key": "poopscanner_necis_skaneri_dadd90",
+  "az": "Nəcis Skaneri",
+  "en": "Poop Scanner"
+ },
+ {
+  "key": "poopscanner_qara_3c7a2d",
+  "az": "Qara",
+  "en": "Black"
+ },
+ {
+  "key": "poopscanner_qehveyi_b14379",
+  "az": "Qəhvəyi",
+  "en": "Brown"
+ },
+ {
+  "key": "poopscanner_qirmizi_ea111d",
+  "az": "Qırmızı",
+  "en": "Ed"
+ },
+ {
+  "key": "poopscanner_sari_30ba0d",
+  "az": "Sarı",
+  "en": "Yellow"
+ },
+ {
+  "key": "poopscanner_sekil_icazesi_lazimdir_ce5b8c",
+  "az": "Şəkil icazəsi lazımdır",
+  "en": "Photo permission is required"
+ },
+ {
+  "key": "poopscanner_sekil_uygun_deyil_ec1a66",
+  "az": "Şəkil uyğun deyil",
+  "en": "Photo is not suitable"
+ },
+ {
+  "key": "poopscanner_son_analizler_76b144",
+  "az": "Son analizlər",
+  "en": "Recent analyses"
+ },
+ {
+  "key": "poopscanner_teci_li_heki_me_muraci_et_edi__dc0cac",
+  "az": "TƏCİLİ HƏKİMƏ MÜRACİƏT EDİN!",
+  "en": "SEE A DOCTOR EMERGENCY!"
+ },
+ {
+  "key": "poopscanner_tecili_ab784b",
+  "az": "Təcili",
+  "en": "Urgent"
+ },
+ {
+  "key": "poopscanner_tecili_yardim_103_176a98",
+  "az": "Təcili yardım - 103",
+  "en": "Emergency service - 103"
+ },
+ {
+  "key": "poopscanner_tetbiq_parametrlerinden_foto_kitabxanasi_f9ffae",
+  "az": "Tətbiq parametrlərindən foto kitabxanası icazəsini aktivləşdirin",
+  "en": "Enable photo library permission from app settings"
+ },
+ {
+  "key": "poopscanner_tetbiq_parametrlerinden_kamera_icazesini_7a6f09",
+  "az": "Tətbiq parametrlərindən kamera icazəsini aktivləşdirin",
+  "en": "Enable camera permission from app settings"
+ },
+ {
+  "key": "poopscanner_tovsiyeler_17a8f7",
+  "az": "Tövsiyələr",
+  "en": "Recommendations"
+ },
+ {
+  "key": "poopscanner_yasil_b257f4",
+  "az": "Yaşıl",
+  "en": "Green"
+ },
+ {
+  "key": "poopscanner_yaxin_vaxtda_hekime_muraciet_e_cb6380",
+  "az": "Yaxın vaxtda həkimə müraciət edin.",
+  "en": "See a doctor soon."
+ },
+ {
+  "key": "poopscanner_yeniden_cehd_edin_0040c9",
+  "az": "Yenidən cəhd edin",
+  "en": "Try again"
+ },
+ {
+  "key": "poopscanner_yeniden_sec_c56bbc",
+  "az": "Yenidən seç",
+  "en": "Select again"
+ },
+ {
+  "key": "postsearchfilter_en_son_473654",
+  "az": "Ən son",
+  "en": "Latest"
+ },
+ {
+  "key": "postsearchfilter_populyar",
+  "az": "Populyar",
+  "en": "Popular"
+ },
+ {
+  "key": "postseenobserver_oxunmamis_post_42ef5b",
+  "az": "Oxunmamış post",
+  "en": "Unread post"
+ },
+ {
+  "key": "pregnancy_utils_day",
+  "az": "gün",
+  "en": "d"
+ },
+ {
+  "key": "pregnancy_utils_month",
+  "az": "ay",
+  "en": "mo"
+ },
+ {
+  "key": "pregnancy_utils_week",
+  "az": "həftə",
+  "en": "wk"
+ },
+ {
+  "key": "pregnancy_utils_year",
+  "az": "yaş",
+  "en": "yr"
+ },
+ {
+  "key": "pregnancyalbum_3_5_gun_5d513c",
+  "az": "3-5 gün",
+  "en": "3-5 days"
+ },
+ {
+  "key": "pregnancyalbum_3_cu_ay_cd62b6",
+  "az": "3-cü ay",
+  "en": "Month 3"
+ },
+ {
+  "key": "pregnancyalbum_4_cu_ay_e2b0d2",
+  "az": "4-cü ay",
+  "en": "Month 4"
+ },
+ {
+  "key": "pregnancyalbum_6_ci_ay_c17c71",
+  "az": "6-cı ay",
+  "en": "Month 6"
+ },
+ {
+  "key": "pregnancyalbum_6_ci_ayi_tamamladiqdan_sonra_h_8a778c",
+  "az": "6-cı ayı tamamladıqdan sonra hamiləlik albomunuzu fiziki kitab kimi sifariş edə bilərsiniz.",
+  "en": "After you complete the 6th month, you can order your pregnancy album as a physical book."
+ },
+ {
+  "key": "pregnancyalbum_9_ayin_her_anini_fiziki_albom__729db3",
+  "az": "9 ayın hər anını fiziki albom kimi sifariş edin. Premium kağız, hər ay üçün ayrıca səhifə, ömürlük xatirə.",
+  "en": "Order every moment of the 9 months as a physical album. Premium paper, separate page for each month, a lifetime memory."
+ },
+ {
+  "key": "pregnancyalbum_ay_suffix_3c7a2d",
+  "az": "ay",
+  "en": "months"
+ },
+ {
+  "key": "pregnancyalbum_basliq_elave_edin_082901",
+  "az": "Başlıq əlavə edin...",
+  "en": "Add a title..."
+ },
+ {
+  "key": "pregnancyalbum_basliq_elave_et_ac912f",
+  "az": "Başlıq əlavə et",
+  "en": "Add title"
+ },
+ {
+  "key": "pregnancyalbum_bu_sekli_silmek_istediyinize_e_b4ecbc",
+  "az": "Bu şəkli silmək istədiyinizə əminsiniz?",
+  "en": "Are you sure you want to delete this photo?"
+ },
+ {
+  "key": "pregnancyalbum_catdirilma_e955cf",
+  "az": "Çatdırılma",
+  "en": "Delivery"
+ },
+ {
+  "key": "pregnancyalbum_deyisdir_aca175",
+  "az": "Dəyişdir",
+  "en": "Change"
+ },
+ {
+  "key": "pregnancyalbum_elave_et_6e1b9b",
+  "az": "Əlavə et",
+  "en": "Add"
+ },
+ {
+  "key": "pregnancyalbum_fiziki_albom_sifaris_et_26f86e",
+  "az": "Fiziki Albom Sifariş Et",
+  "en": "Order a Physical Album"
+ },
+ {
+  "key": "pregnancyalbum_hal_hazirda_b78349",
+  "az": "Hal-hazırda",
+  "en": "Currently"
+ },
+ {
+  "key": "pregnancyalbum_hamilelik_albomu_6f1559",
+  "az": "Hamiləlik Albomu",
+  "en": "Pregnancy Album"
+ },
+ {
+  "key": "pregnancyalbum_hamilelik_albomuna_sekil_elave_edildi_bf00fa",
+  "az": "Hamiləlik albomuna şəkil əlavə edildi",
+  "en": "Photo added to pregnancy album"
+ },
+ {
+  "key": "pregnancyalbum_hamilelik_xatirelerini_elinizd_76d584",
+  "az": "Hamiləlik xatirələrini əlinizdə tutun",
+  "en": "Keep pregnancy memories close at hand"
+ },
+ {
+  "key": "pregnancyalbum_hefte_459cfe",
+  "az": ". həftə",
+  "en": ". week"
+ },
+ {
+  "key": "pregnancyalbum_her_ay_eyni_bucaqdan_ve_eyni_p_4d07a0",
+  "az": "Hər ay eyni bucaqdan və eyni paltarla şəkil çəkmək daha gözəl albom yaradır. \n                Beləcə hamiləlik boyunca dəyişiklikləri açıq şəkildə görə bilərsiniz.",
+  "en": "Taking photos from the same angle and in the same outfit every month makes for a better album. \nSo you can clearly see the changes throughout the pregnancy."
+ },
+ {
+  "key": "pregnancyalbum_her_ay_xatire_c5bdee",
+  "az": "Hər ay xatirə",
+  "en": "Monthly memory"
+ },
+ {
+  "key": "pregnancyalbum_i_stifadeci_tapilmadi_4e2156",
+  "az": "İstifadəçi tapılmadı",
+  "en": "User not found"
+ },
+ {
+  "key": "pregnancyalbum_label_1",
+  "az": "1-ci ay",
+  "en": "1st month"
+ },
+ {
+  "key": "pregnancyalbum_label_2",
+  "az": "2-ci ay",
+  "en": "2nd month"
+ },
+ {
+  "key": "pregnancyalbum_label_5",
+  "az": "5-ci ay",
+  "en": "5th month"
+ },
+ {
+  "key": "pregnancyalbum_label_7",
+  "az": "7-ci ay",
+  "en": "7th month"
+ },
+ {
+  "key": "pregnancyalbum_label_8",
+  "az": "8-ci ay",
+  "en": "8th month"
+ },
+ {
+  "key": "pregnancyalbum_label_9",
+  "az": "9-cu ay",
+  "en": "9th month"
+ },
+ {
+  "key": "pregnancyalbum_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "pregnancyalbum_meslehet_9a0892",
+  "az": "Məsləhət",
+  "en": "Type"
+ },
+ {
+  "key": "pregnancyalbum_sehife_fd1fa9",
+  "az": "Səhifə",
+  "en": "Page"
+ },
+ {
+  "key": "pregnancyalbum_sekil_albomdan_silindi_0f180a",
+  "az": "Şəkil albomdan silindi",
+  "en": "Photo deleted from album"
+ },
+ {
+  "key": "pregnancyalbum_sekil_elave_edildi_a2085a",
+  "az": "Şəkil əlavə edildi",
+  "en": "Photo added"
+ },
+ {
+  "key": "pregnancyalbum_sekil_yuklene_bilmedi_3c275f",
+  "az": "Şəkil yüklənə bilmədi",
+  "en": "Photo could not be uploaded"
+ },
+ {
+  "key": "pregnancyalbum_sekil_yuklenir_babf92",
+  "az": "Şəkil yüklənir...",
+  "en": "Photo is loading..."
+ },
+ {
+  "key": "pregnancyalbum_xatireleriniz_3e880f",
+  "az": "Xatirələriniz",
+  "en": "Your memories"
+ },
+ {
+  "key": "pregnancyalbum_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "pregnancyalbum_yenilendi_d10a01",
+  "az": "Yeniləndi",
+  "en": "Updated"
+ },
+ {
+  "key": "pregnancydaynavigator_bu_gun_786fd4",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "pregnancydaynavigator_bu_gune_qayit_9c007f",
+  "az": "Bu günə qayıt",
+  "en": "Back to today"
+ },
+ {
+  "key": "pregnancydaynavigator_premium_ile_daha_cox_2aae14",
+  "az": "Premium ilə daha çox",
+  "en": "More with Premium"
+ },
+ {
+  "key": "providerreviews_gonder_3f11bd",
+  "az": "Göndər",
+  "en": "Send"
+ },
+ {
+  "key": "providerreviews_haqqinda_reyinizi_yazin_049e5e",
+  "az": "haqqında rəyinizi yazın",
+  "en": "write your review about"
+ },
+ {
+  "key": "providerreviews_hele_hec_bir_rey_yoxdur_410969",
+  "az": "Hələ heç bir rəy yoxdur",
+  "en": "No reviews yet"
+ },
+ {
+  "key": "providerreviews_ilk_reyi_siz_yazin_cc6119",
+  "az": "İlk rəyi siz yazın!",
+  "en": "Be the first to write a review!"
+ },
+ {
+  "key": "providerreviews_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "providerreviews_qiymetlendirin_df8e66",
+  "az": "Qiymətləndirin",
+  "en": "Rate it"
+ },
+ {
+  "key": "providerreviews_rey_yaz_7b3aab",
+  "az": "Rəy yaz",
+  "en": "Write a review"
+ },
+ {
+  "key": "providerreviews_rey_yazmaq_ucun_hesabiniza_dax_d75d40",
+  "az": "Rəy yazmaq üçün hesabınıza daxil olun",
+  "en": "Log in to your account to write a review"
+ },
+ {
+  "key": "providerreviews_reyi_redakte_et_12797e",
+  "az": "Rəyi redaktə et",
+  "en": "Edit review"
+ },
+ {
+  "key": "providerreviews_reyler_8be233",
+  "az": "Rəylər (",
+  "en": "Reviews ("
+ },
+ {
+  "key": "providerreviews_tecrubenizi_bolusun_isteye_bagli_3f9da1",
+  "az": "Təcrübənizi bölüşün (istəyə bağlı)...",
+  "en": "Share your experience (optional)..."
+ },
+ {
+  "key": "providerreviews_yenile_570ce2",
+  "az": "Yenilə",
+  "en": "Refresh"
+ },
+ {
+  "key": "push_push_gonderilmedi_sent_0_7d1a2a",
+  "az": "Push göndərilmədi (sent: 0)",
+  "en": "Push not sent (cents: 0)"
+ },
+ {
+  "key": "pushdiagnosticscard_flow_reminderlerini_icra_et_f80582",
+  "az": "Flow reminderlərini icra et",
+  "en": "Execute Flow reminders"
+ },
+ {
+  "key": "pushdiagnosticscard_flow_reminders_icra_edildi_det_a7156b",
+  "az": "Flow reminders icra edildi. Detallar aşağıda.",
+  "en": "Flow reminders have been implemented. Details below."
+ },
+ {
+  "key": "pushdiagnosticscard_giris_etmelisiniz_6c2220",
+  "az": "Giriş etməlisiniz",
+  "en": "You must login"
+ },
+ {
+  "key": "pushdiagnosticscard_hec_bir_cihaz_tokeni_yoxdur_mo_d3fe9f",
+  "az": "Heç bir cihaz tokeni yoxdur. Mobil tətbiqi aç və icazə ver.",
+  "en": "There is no device token. Open the mobile app and allow it."
+ },
+ {
+  "key": "pushdiagnosticscard_mene_dinamik_push_gonder_642e6b",
+  "az": "Mənə dinamik push göndər",
+  "en": "Send me a dynamic push"
+ },
+ {
+  "key": "pushdiagnosticscard_namelum_974fd5",
+  "az": "naməlum",
+  "en": "unknown"
+ },
+ {
+  "key": "pushdiagnosticscard_push_hazirlandi_amma_0_gonderi_af80a2",
+  "az": "Push hazırlandı, amma 0 göndərildi. Detalları aşağıda gör.",
+  "en": "Push prepared but 0 sent. See details below."
+ },
+ {
+  "key": "pushdiagnosticscard_tokenlerimi_yoxla_749170",
+  "az": "Tokenlərimi yoxla",
+  "en": "Check my tokens"
+ },
+ {
+  "key": "pushdiagnosticscard_xeta_dbbc36",
+  "az": "Xəta: ",
+  "en": "Error:"
+ },
+ {
+  "key": "pushdiagnosticscard_yalniz_senin_oz_cihazina_test__194710",
+  "az": "Yalnız sənin öz cihazına test push göndərir. Heç kimə kütləvi göndərilmir.",
+  "en": "It only sends a test push to your own device. No mass mailing to anyone."
+ },
+ {
+  "key": "quickactionsbar_for_newborn",
+  "az": "Yenidoğan üçün",
+  "en": "For newborns"
+ },
+ {
+  "key": "quickactionsbar_quick_access",
+  "az": "Sürətli keçid",
+  "en": "Quick access"
+ },
+ {
+  "key": "quickstatswidget_heftelik_baxis_625baf",
+  "az": "Həftəlik Baxış",
+  "en": "Weekly Overview"
+ },
+ {
+  "key": "quickstatswidget_ort_bez",
+  "az": "Ort. bez",
+  "en": "Avg. diaper"
+ },
+ {
+  "key": "quickstatswidget_ort_qidalanma",
+  "az": "Ort. qidalanma",
+  "en": "Avg. feeding"
+ },
+ {
+  "key": "quickstatswidget_ort_yuxu_s",
+  "az": "Ort. yuxu (s)",
+  "en": "Avg. sleep (h)"
+ },
+ {
+  "key": "rc_bundle_version",
+  "az": "Bundle versiyası:",
+  "en": null
+ },
+ {
+  "key": "recentblogposts_deq_780a5c",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "recentblogposts_son_meqaleler_0618a6",
+  "az": "Son Məqalələr",
+  "en": "Recent Articles"
+ },
+ {
+  "key": "recipes_addim_74e240",
+  "az": "addım",
+  "en": "step"
+ },
+ {
+  "key": "recipes_allergiya_xeberdarligi_bal_ciy_7e75e8",
+  "az": "⚠️ Allergiya Xəbərdarlığı: Bal, çiyələk və ya fıstıq kimi qidalara allergiyanız varsa, həkiminizlə məsləhətləşin.",
+  "en": "⚠️ Allergy Warning: Consult your doctor if you are allergic to foods such as honey, strawberries or peanuts."
+ },
+ {
+  "key": "recipes_basqa_kateqoriya_yoxlayin_31917a",
+  "az": "Başqa kateqoriya yoxlayın",
+  "en": "Try another category"
+ },
+ {
+  "key": "recipes_daha_cox_resept_975410",
+  "az": "Daha çox resept?",
+  "en": "More recipes?"
+ },
+ {
+  "key": "recipes_deq_780a5c",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "recipes_hamisi_6dc013",
+  "az": "hamısı",
+  "en": "all"
+ },
+ {
+  "key": "recipes_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All"
+ },
+ {
+  "key": "recipes_hazirlanma_13bf8d",
+  "az": "Hazırlanma",
+  "en": "Preparation"
+ },
+ {
+  "key": "recipes_her_kateqoriyadan_3_resept_pulsuzdur_ham_42a43d",
+  "az": "Hər kateqoriyadan 3 resept pulsuzdur. Hamısını görmək üçün Premium-a keçin",
+  "en": "3 recipes from each category are free. Upgrade to Premium to see all."
+ },
+ {
+  "key": "recipes_i_nqrediyentler_4c0854",
+  "az": "İnqrediyentlər",
+  "en": "Ingredients"
+ },
+ {
+  "key": "recipes_resept_tapildi_1d8733",
+  "az": "resept tapıldı",
+  "en": "recipe found"
+ },
+ {
+  "key": "recipes_resept_tapilmadi_dde89b",
+  "az": "Resept tapılmadı",
+  "en": "Recipe not found"
+ },
+ {
+  "key": "recipes_reseptler_98ed2c",
+  "az": "Reseptlər",
+  "en": "Recipes"
+ },
+ {
+  "key": "recipes_saglam_ve_lezzetli_yemekler_ad49b7",
+  "az": "Sağlam və ləzzətli yeməklər",
+  "en": "Healthy and delicious meals"
+ },
+ {
+  "key": "redemptionqrsheet_bu_funksiya_yalniz_premium_uzv_ee315c",
+  "az": "Bu funksiya yalnız Premium üzvlər üçündür.",
+  "en": "This feature is for Premium members only."
+ },
+ {
+  "key": "redemptionqrsheet_bu_mekan_ucun_endirim_limiti_d_17dc4d",
+  "az": "Bu məkan üçün endirim limiti dolub.",
+  "en": "The discount limit for this location has been reached."
+ },
+ {
+  "key": "redemptionqrsheet_bu_mekanda_hele_endirim_istifa_a25eb8",
+  "az": "Bu məkanda hələ endirim istifadə etmisiniz. Bir az gözləyin.",
+  "en": "You have not yet used a discount at this location. Wait a little."
+ },
+ {
+  "key": "redemptionqrsheet_kassir_telefonun_kamerasi_ile__45af84",
+  "az": "Kassir telefonun kamerası ilə bu QR-ı oxuyacaq və PIN kodunu daxil edərək təsdiqləyəcək.",
+  "en": "The cashier will read this QR with the phone's camera and confirm it by entering the PIN code."
+ },
+ {
+  "key": "redemptionqrsheet_mekan_muveqqeti_olaraq_aktiv_d_e2b19d",
+  "az": "Məkan müvəqqəti olaraq aktiv deyil.",
+  "en": "The location is temporarily inactive."
+ },
+ {
+  "key": "redemptionqrsheet_mekan_tapilmadi_028fb4",
+  "az": "Məkan tapılmadı.",
+  "en": "Location not found."
+ },
+ {
+  "key": "redemptionqrsheet_muddeti_bitdi_463a85",
+  "az": "Müddəti bitdi",
+  "en": "Expired"
+ },
+ {
+  "key": "redemptionqrsheet_qr_yaradilir_a37052",
+  "az": "QR yaradılır...",
+  "en": "QR generating..."
+ },
+ {
+  "key": "redemptionqrsheet_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "redemptionqrsheet_yeni_qr_yarat_f123bc",
+  "az": "Yeni QR yarat",
+  "en": "Create new QR"
+ },
+ {
+  "key": "redemptionqrsheet_yeniden_cehd_et_d273ac",
+  "az": "Yenidən cəhd et",
+  "en": "Try again"
+ },
+ {
+  "key": "relatedposts_baxis_d4da3e",
+  "az": "baxış",
+  "en": "Views"
+ },
+ {
+  "key": "relatedposts_deq_780a5c",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "relatedposts_oxsar_meqaleler_c3c8cf",
+  "az": "📚 Oxşar Məqalələr",
+  "en": "📚 Similar Articles"
+ },
+ {
+  "key": "resetpassword_ana_sehifeye_qayit_723295",
+  "az": "Ana səhifəyə qayıt",
+  "en": "Return to home page"
+ },
+ {
+  "key": "resetpassword_ana_sehifeye_yonlendirilirsiniz_8dbdb0",
+  "az": "Ana səhifəyə yönləndirilirsiniz...",
+  "en": "You are being redirected to the homepage..."
+ },
+ {
+  "key": "resetpassword_her_iki_sifre_eyni_olmalidir_e34cfb",
+  "az": "Hər iki şifrə eyni olmalıdır.",
+  "en": "Both passwords must be the same."
+ },
+ {
+  "key": "resetpassword_sessiya_tapilmadi_2d6594",
+  "az": "Sessiya tapılmadı",
+  "en": "Session not found"
+ },
+ {
+  "key": "resetpassword_sifre_berpa_linki_artiq_etibarsizdir_2b5a53",
+  "az": "Şifrə bərpa linki artıq etibarsızdır.",
+  "en": "The password reset link is no longer valid."
+ },
+ {
+  "key": "resetpassword_sifre_cox_qisadir_3b9bb2",
+  "az": "Şifrə çox qısadır",
+  "en": "Password is too short"
+ },
+ {
+  "key": "resetpassword_sifre_minimum_6_simvol_olmalidir_5fbb99",
+  "az": "Şifrə minimum 6 simvol olmalıdır.",
+  "en": "Password must be at least 6 characters."
+ },
+ {
+  "key": "resetpassword_sifre_teleb_olunur_079295",
+  "az": "Şifrə tələb olunur",
+  "en": "Password is required"
+ },
+ {
+  "key": "resetpassword_sifre_yenilendi_6ce208",
+  "az": "Şifrə yeniləndi! 🎉",
+  "en": "Password updated! 🎉"
+ },
+ {
+  "key": "resetpassword_sifre_yenilendi_f3ee31",
+  "az": "Şifrə Yeniləndi!",
+  "en": "Password Updated!"
+ },
+ {
+  "key": "resetpassword_sifre_yenilene_bilmedi_yeniden_cehd_edin_8eb28e",
+  "az": "Şifrə yenilənə bilmədi. Yenidən cəhd edin.",
+  "en": "Password could not be updated. Please try again."
+ },
+ {
+  "key": "resetpassword_sifreler_uygun_gelmir_af4b84",
+  "az": "Şifrələr uyğun gəlmir",
+  "en": "Passwords do not match"
+ },
+ {
+  "key": "resetpassword_sifreni_tesdiqle_030254",
+  "az": "Şifrəni Təsdiqlə",
+  "en": "Confirm Password"
+ }
+]

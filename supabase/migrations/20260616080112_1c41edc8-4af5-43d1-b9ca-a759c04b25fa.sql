@@ -1,0 +1,2 @@
+UPDATE public.support_categories SET name_az = 'Funksiya tələbi', name = 'Feature Request' WHERE category_key = 'feature';
+UPDATE public.tool_configs SET is_active = false WHERE tool_id IN ('daily_story_cards','pill_reminder','symptom_pattern_report');

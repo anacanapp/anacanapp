@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#091215">
+  <meta name="description" content="Bakı metrosunda hər toxunuş bir addımdır. İzdihamı aş, qapılar bağlanmadan qatara çat.">
+  <title>$GODOT_PROJECT_NAME · Bakı</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; background: #091215; overflow: hidden; overscroll-behavior: none; }
+    body { font-family: system-ui, sans-serif; color: #f0f3e9; }
+    #canvas { position: fixed; inset: 0; display: block; width: 100vw !important; height: 100dvh !important; outline: none; touch-action: none; }
+    #status { position: fixed; inset: 0; display: grid; place-content: center; gap: 20px; text-align: center; background: #091215; padding: 24px; z-index: 10; }
+    .mark { margin: 0 auto; display: grid; place-items: center; width: 76px; height: 76px; border-radius: 20px; background: #b7f36b; color: #152a19; font-size: 42px; font-weight: 900; }
+    h1 { font-size: 38px; letter-spacing: -.06em; margin: 0; }
+    .tag { letter-spacing: .27em; font-size: 10px; color: #90a6a3; }
+    #status-progress { accent-color: #b7f36b; width: 250px; height: 5px; border: 0; border-radius: 8px; margin: 8px auto; }
+    .copy { color: #91a7a3; font-size: 13px; line-height: 1.7; margin: 0; }
+    #status-notice { white-space: pre-wrap; max-width: 500px; color: #ffc978; font-size: 14px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    #accessibility button:focus-visible { position: fixed; clip: auto; width: auto; height: auto; z-index: 30; left: 12px; top: 12px; padding: 12px 20px; background: #b7f36b; color: #102019; border: 2px solid white; border-radius: 10px; }
+    #loading-retry { background: #b7f36b; color: #102019; padding: 12px 18px; border: 0; border-radius: 10px; cursor: pointer; display: none; }
+  </style>
+  $GODOT_HEAD_INCLUDE
+</head>
+<body>
+  <canvas id="canvas" tabindex="0" role="application" aria-label="METRO Simulator — Bakı metro TAP oyunu. Ekran oxuyucu idarəetmələri səhifənin sonunda mövcuddur."></canvas>
+  <div id="status" role="status" aria-live="polite">
+    <div class="mark" aria-hidden="true">M</div>
+    <div><h1>METRO</h1><span class="tag">S I M U L A T O R</span></div>
+    <progress id="status-progress" aria-label="Godot oyun mühərriki yüklənir"></progress>
+    <p class="copy">Bakı artıq yoldadır.<br>Platforma hazırlanır…</p>
+    <div id="status-notice"></div>
+    <button id="loading-retry" onclick="location.reload()">Yenidən yüklə</button>
+  </div>
+  <aside id="accessibility" class="sr-only" aria-label="Oyun idarəetmələri">
+    <p id="game-description" aria-live="polite"></p>
+    <div id="game-controls"></div>
+  </aside>
+  <noscript>METRO Simulator üçün JavaScript aktiv olmalıdır.</noscript>
+  <script src="$GODOT_URL"></script>
+  <script>
+    const config = $GODOT_CONFIG;
+    const engine = new Engine(config);
+    const status = document.getElementById('status');
+    const progress = document.getElementById('status-progress');
+    const notice = document.getElementById('status-notice');
+    function failure(error) {
+      notice.textContent = 'Oyun açıla bilmədi.\n' + (error.message || String(error));
+      document.getElementById('loading-retry').style.display = 'block';
+      console.error(error);
+    }
+    let lastDescription = '';
+    let lastControlSignature = '';
+    window.metroAccessibility = state => {
+      const description = `${state.station}. ${state.view === 'play' ? `Qapı ${state.session.door + 1}. ${state.session.mode}.` : state.view}. ${state.coins} jeton.`;
+      if (description !== lastDescription) {
+        document.getElementById('game-description').textContent = description;
+        lastDescription = description;
+      }
+      const controls = Object.entries(state.buttons);
+      const signature = controls.map(([id, control]) => `${id}:${control.text}:${control.disabled}`).join('|');
+      if (signature === lastControlSignature) return;
+      lastControlSignature = signature;
+      const container = document.getElementById('game-controls');
+      const current = new Map([...container.children].map(button => [button.dataset.action, button]));
+      const valid = new Set();
+      for (const [id, control] of controls) {
+        valid.add(id);
+        let button = current.get(id);
+        if (!button) {
+          button = document.createElement('button');
+          button.dataset.action = id;
+          button.addEventListener('click', () => window.metroAction?.(id));
+          container.append(button);
+        }
+        button.textContent = control.text || id;
+        button.setAttribute('aria-label', control.text || id);
+        button.disabled = control.disabled;
+      }
+      for (const [id, button] of current) if (!valid.has(id)) button.remove();
+    };
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && window.__metroState?.session?.mode === 'playing') window.metroAction?.('pause');
+    });
+    const missing = Engine.getMissingFeatures({ threads: false });
+    if (missing.length) failure(new Error('Brauzerdə WebGL 2 və WebAssembly tələb olunur: ' + missing.join(', ')));
+    else engine.startGame({
+      onProgress: (current, total) => {
+        if (total > 0) { progress.max = total; progress.value = current; }
+        else progress.removeAttribute('value');
+      }
+    }).then(() => status.remove()).catch(failure);
+  </script>
+</body>
+</html>

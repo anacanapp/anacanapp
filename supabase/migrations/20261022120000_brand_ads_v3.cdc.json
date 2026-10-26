@@ -1,0 +1,62 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261022120000_brand_ads_v3.sql",
+  "runtime": "google-brand-ads-v3",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrollment (guarded_relations + anacan_gcp_writer_guard/change/truncate triggers) is inside the same SQL transaction",
+  "preserve": [
+    "source sealed/generation3",
+    "cron0",
+    "accepted/pending lineage",
+    "8 enabled Google timers",
+    "v1/v2 brand RPCs and legacy counters"
+  ],
+  "relations": [
+    {
+      "relation": "public.ad_lead_forms",
+      "change": "new",
+      "cdc": true,
+      "writer_guard": true,
+      "private": true,
+      "pii": false
+    },
+    {
+      "relation": "public.ad_leads",
+      "change": "new",
+      "cdc": true,
+      "writer_guard": true,
+      "private": true,
+      "pii": true,
+      "note": "contains brand lead answers; exclude from analytics exports and logs; actor-deletion cascades"
+    },
+    {
+      "relation": "public.ad_creative_drafts",
+      "change": "new",
+      "cdc": true,
+      "writer_guard": true,
+      "private": true,
+      "pii": false
+    },
+    {
+      "relation": "public.banners",
+      "change": "altered",
+      "cdc": true,
+      "writer_guard": true,
+      "private": false,
+      "pii": false,
+      "note": "new nullable columns, generated requires_v3, restrictive legacy SELECT policy, widened link_type check"
+    },
+    {
+      "relation": "public.ad_delivery_receipts",
+      "change": "altered",
+      "cdc": true,
+      "writer_guard": true,
+      "private": true,
+      "pii": false,
+      "note": "nullable audience jsonb with coarse buckets only"
+    }
+  ],
+  "operator_follow_up": [
+    "brand_banner_eligible_v1 gains a requires_v3 refusal (covers get_banner_inventory_v2, v1 measurement and brand_banner_legacy_audience_v1)"
+  ],
+  "verified_against_live": "2026-10-22 read-only inspection: guard_write/capture_change, guarded_relations(schema_name,table_name,primary_key), impression_kind visible/interaction, owner pgadmin"
+}

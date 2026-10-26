@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-09T06:28:57.250Z",
+  "passed": true,
+  "levels": 40,
+  "revision": "parking-202610-v1",
+  "catalogSha256": "926ccdf5006e864a5e09a4d5ed2243f34ed75c35e9d901a6daabb2a48f19f1a6",
+  "minimumMoves": 2,
+  "maximumMoves": 15
+}

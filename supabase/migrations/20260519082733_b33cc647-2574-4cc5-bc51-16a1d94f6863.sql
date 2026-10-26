@@ -1,0 +1,68 @@
+-- AZURE: pg_net is not available on Azure Database for PostgreSQL Flexible Server,
+-- so cron.schedule()+net.http_post() cannot run here. This scheduling is reimplemented
+-- via Azure Container Apps Jobs (native cron trigger) calling the Azure-hosted
+-- send-daily-notifications / send-flow-reminders / send-vitamin-reminders functions
+-- directly. See azure-migration/README.md.
+--
+-- DO $$
+-- BEGIN
+--   IF EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'send-daily-notifications-3x-daily') THEN
+--     PERFORM cron.unschedule('send-daily-notifications-3x-daily');
+--   END IF;
+--
+--   IF EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'send-daily-notifications-morning') THEN
+--     PERFORM cron.unschedule('send-daily-notifications-morning');
+--   END IF;
+--
+--   IF EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'send-daily-notifications-afternoon') THEN
+--     PERFORM cron.unschedule('send-daily-notifications-afternoon');
+--   END IF;
+--
+--   IF EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'send-daily-notifications-slots') THEN
+--     PERFORM cron.unschedule('send-daily-notifications-slots');
+--   END IF;
+--
+--   IF EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'send-flow-reminders-every-hour') THEN
+--     PERFORM cron.unschedule('send-flow-reminders-every-hour');
+--   END IF;
+--
+--   IF EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'send-vitamin-reminders-every-5min') THEN
+--     PERFORM cron.unschedule('send-vitamin-reminders-every-5min');
+--   END IF;
+-- END $$;
+--
+-- SELECT cron.schedule(
+--   'send-daily-notifications-slots',
+--   '0 5,6,10,11,15 * * *',
+--   $$
+--   SELECT net.http_post(
+--     url:='https://tntbjulojatnrqmylorp.supabase.co/functions/v1/send-daily-notifications',
+--     headers:='{"Content-Type": "application/json", "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRudGJqdWxvamF0bnJxbXlsb3JwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg4MzYyOTksImV4cCI6MjA4NDQxMjI5OX0.uwaOZsWTw8GBUg6s9GqmbA3EluGf44PmGdUI80RhGNU"}'::jsonb,
+--     body:=concat('{"time": "', now(), '"}')::jsonb
+--   ) as request_id;
+--   $$
+-- );
+--
+-- SELECT cron.schedule(
+--   'send-flow-reminders-every-hour',
+--   '0 5,6,7,8,9,10,11,12,13,14,15,16,17 * * *',
+--   $$
+--   SELECT net.http_post(
+--     url:='https://tntbjulojatnrqmylorp.supabase.co/functions/v1/send-flow-reminders',
+--     headers:='{"Content-Type": "application/json", "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRudGJqdWxvamF0bnJxbXlsb3JwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg4MzYyOTksImV4cCI6MjA4NDQxMjI5OX0.uwaOZsWTw8GBUg6s9GqmbA3EluGf44PmGdUI80RhGNU"}'::jsonb,
+--     body:=concat('{"time": "', now(), '"}')::jsonb
+--   ) as request_id;
+--   $$
+-- );
+--
+-- SELECT cron.schedule(
+--   'send-vitamin-reminders-every-5min',
+--   '*/5 * * * *',
+--   $$
+--   SELECT net.http_post(
+--     url:='https://tntbjulojatnrqmylorp.supabase.co/functions/v1/send-vitamin-reminders',
+--     headers:='{"Content-Type": "application/json", "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRudGJqdWxvamF0bnJxbXlsb3JwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg4MzYyOTksImV4cCI6MjA4NDQxMjI5OX0.uwaOZsWTw8GBUg6s9GqmbA3EluGf44PmGdUI80RhGNU"}'::jsonb,
+--     body:=concat('{"time": "', now(), '"}')::jsonb
+--   ) as request_id;
+--   $$
+-- );

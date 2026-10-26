@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-08-11T05:06:06.648Z",
+  "totalUsedKeys": 6403,
+  "afterAdminFilter": 4448,
+  "existingInDb": {
+    "ru": 0,
+    "tr": 0
+  },
+  "toTranslate": 4447,
+  "byPriority": {
+    "P1": 689,
+    "P2": 867,
+    "P3": 2891
+  },
+  "chunks": [
+    {
+      "name": "P1-001.json",
+      "count": 200,
+      "pri": "P1"
+    },
+    {
+      "name": "P1-002.json",
+      "count": 200,
+      "pri": "P1"
+    },
+    {
+      "name": "P1-003.json",
+      "count": 200,
+      "pri": "P1"
+    },
+    {
+      "name": "P1-004.json",
+      "count": 89,
+      "pri": "P1"
+    },
+    {
+      "name": "P2-001.json",
+      "count": 200,
+      "pri": "P2"
+    },
+    {
+      "name": "P2-002.json",
+      "count": 200,
+      "pri": "P2"
+    },
+    {
+      "name": "P2-003.json",
+      "count": 200,
+      "pri": "P2"
+    },
+    {
+      "name": "P2-004.json",
+      "count": 200,
+      "pri": "P2"
+    },
+    {
+      "name": "P2-005.json",
+      "count": 67,
+      "pri": "P2"
+    },
+    {
+      "name": "P3-001.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-002.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-003.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-004.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-005.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-006.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-007.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-008.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-009.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-010.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-011.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-012.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-013.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-014.json",
+      "count": 200,
+      "pri": "P3"
+    },
+    {
+      "name": "P3-015.json",
+      "count": 91,
+      "pri": "P3"
+    }
+  ],
+  "problems": [
+    "partner_surprise_planned"
+  ]
+}

@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan profil rasmlari, homiladorlik albomi va najas skaneri uchun kameraga kirishga muhtoj.";
+"NSPhotoLibraryUsageDescription" = "Anacan profil rasmi va homiladorlik albomi uchun rasmlaringizga kiradi.";
+"NSPhotoLibraryAddUsageDescription" = "Yaratilgan chaqaloq rasmlari va albom xotiralarini galereyaga saqlash uchun ruxsat kerak.";
+"NSMicrophoneUsageDescription" = "Mikrofon chaqaloq yig'isini tahlil qilish va ovozli eslatmalar uchun ishlatiladi.";
+"NSLocationWhenInUseUsageDescription" = "Ob-havoga mos kiyim tavsiyalari va yaqin atrofdagi onalar uchun qulay joylarni ko'rsatish uchun joylashuvingiz kerak.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Ob-havoga mos kiyim tavsiyalari va yaqin atrofdagi onalar uchun qulay joylarni ko'rsatish uchun joylashuvingiz kerak.";
+"NSFaceIDUsageDescription" = "Ilovaga xavfsiz kirish uchun Face ID ishlatiladi.";
+"NSContactsUsageDescription" = "Hamkoringizni taklif qilish uchun kontaktlaringizga kiradi.";
+"NSCalendarsUsageDescription" = "Shifokor qabullari va eslatmalarni taqvimingizga qo'shish uchun ruxsat kerak.";
+"NSMotionUsageDescription" = "Kunlik faollik va qadamlar sonini kuzatish uchun harakat sensori ishlatiladi.";
+"NSBluetoothAlwaysUsageDescription" = "Anacan aqlli qurilmalar (masalan, chaqaloq monitorlari) bilan bog'lanish uchun Bluetooth-dan foydalanishi mumkin.";
+"NSLocalNetworkUsageDescription" = "Ilova lokal tarmoqdagi qurilmalar bilan bog'lanish uchun ruxsat talab qiladi.";
+"NSUserTrackingUsageDescription" = "Ruxsatingiz reklamalarimiz samaradorligini o'lchashga va sizga mos kontent ko'rsatishga yordam beradi. Shaxsiy ma'lumotlaringiz uchinchi tomonlarga berilmaydi.";

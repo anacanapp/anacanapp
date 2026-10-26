@@ -1,0 +1,100 @@
+{
+ "zodiac_signs": {
+  "ad6ddcb0-d044-49c4-a772-1ec06724df96": {
+   "name": "O‘qotar",
+   "characteristics": [
+    "Nekbin",
+    "Sarguzashtsevar",
+    "Erkin"
+   ]
+  },
+  "b2cba153-e410-4c0d-80cb-3c282b1a72ee": {
+   "name": "Qisqichbaqa",
+   "characteristics": [
+    "G‘amxo‘r",
+    "Hissiyotli",
+    "Oilaparvar"
+   ]
+  },
+  "b90235bb-69b9-46fc-8382-1856023d4343": {
+   "name": "Sunbula",
+   "characteristics": [
+    "Tahlilchi",
+    "Amaliy",
+    "E’tiborli"
+   ]
+  },
+  "c15e1f48-c174-43da-925b-5bf91c7581c1": {
+   "name": "Chayon",
+   "characteristics": [
+    "Jo‘shqin",
+    "Kuchli",
+    "Sadoqatli"
+   ]
+  },
+  "e8480426-84cc-414a-a75e-9f7da5e49e78": {
+   "name": "Buzoq",
+   "characteristics": [
+    "Barqaror",
+    "Sadoqatli",
+    "Sabrli"
+   ]
+  },
+  "ed8b5914-f3cb-471d-bcd2-35c894a3401c": {
+   "name": "Tarozi",
+   "characteristics": [
+    "Uyg‘un",
+    "Adolatli",
+    "Diplomatik"
+   ]
+  },
+  "0295528f-4b9c-437d-bdfc-6fa2b66dd531": {
+   "name": "Baliqlar",
+   "characteristics": [
+    "Ijodkor",
+    "Hamdard",
+    "Romantik"
+   ]
+  },
+  "0b65d9df-ce1c-44df-8724-06251e2725e4": {
+   "name": "Qovg‘a",
+   "characteristics": [
+    "Yangilikka intiluvchan",
+    "Mustaqil",
+    "Insonparvar"
+   ]
+  },
+  "2344b1a7-1b1b-4e37-9d66-035040f53a86": {
+   "name": "Egizaklar",
+   "characteristics": [
+    "Kirishimli",
+    "Moslashuvchan",
+    "Qiziquvchan"
+   ]
+  },
+  "41c55815-59c1-4b21-9963-466d320e210a": {
+   "name": "Arslon",
+   "characteristics": [
+    "Yetakchi",
+    "Ijodkor",
+    "O‘ziga ishongan"
+   ]
+  },
+  "4257b2f1-63fc-4f32-9347-b7cc7e13422b": {
+   "name": "Uloq",
+   "characteristics": [
+    "Maqsadga intiluvchan",
+    "Mas’uliyatli",
+    "Sabrli"
+   ]
+  },
+  "54ba68d1-c870-481b-b940-bd62b9431bd8": {
+   "name": "Qo‘y",
+   "characteristics": [
+    "G‘ayratli",
+    "Jasur",
+    "Raqobatbardosh"
+   ]
+  }
+ }
+}

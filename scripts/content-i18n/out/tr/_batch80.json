@@ -1,0 +1,48 @@
+{
+ "fairy_tale_themes": {
+  "ebb443d4-6c90-410f-839d-353787b1caa2": {
+   "name": "Çiftlik",
+   "description": "Çiftlik hayvanlarıyla maceralar"
+  },
+  "00a54c24-8b2f-4c5a-951d-a67d5b7e6515": {
+   "name": "Şato",
+   "description": "Prens ve prenseslerin masalı"
+  },
+  "0ed049ed-5867-46b0-87ea-7fa67af9abdb": {
+   "name": "Uzay",
+   "description": "Yıldızlar ve gezegenler arasında macera"
+  },
+  "27ccc0b1-26fc-4a3c-929e-2ecc90feebc5": {
+   "name": "Sihir",
+   "description": "Sihirli güçler ve büyüler"
+  },
+  "470a79d9-eacb-4bee-afd5-3226aab2085d": {
+   "name": "Deniz",
+   "description": "Deniz altı maceraları"
+  },
+  "84ba84d8-b833-4f1f-a665-ffd94056aae8": {
+   "name": "Bahçe",
+   "description": "Çiçekler ve canlı doğa"
+  },
+  "8866f097-ca1a-4abc-a36c-f1ebd943ebc4": {
+   "name": "Orman",
+   "description": "Sihirli orman ve hayvanlar dünyası"
+  },
+  "9b82831a-f9a1-4175-8730-f3929015e3b6": {
+   "name": "Kış",
+   "description": "Kar, buzlar ve mucizeler"
+  },
+  "a37fbf38-9682-4b1f-9549-a12bcf256014": {
+   "name": "Okyanus",
+   "description": "Deniz altı maceraları"
+  },
+  "a44ca290-d194-42ef-9fba-3c6718d9945c": {
+   "name": "Süper Kahraman",
+   "description": "Süper güçler ve kahramanlık"
+  },
+  "c9842e36-b702-4230-829a-1d6213573091": {
+   "name": "Dinozorlar",
+   "description": "Tarih öncesi dünya maceraları"
+  }
+ }
+}

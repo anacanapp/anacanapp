@@ -1,0 +1,17 @@
+{
+  "schema": "mommy-public-catalogue-v1",
+  "origin": "https://gcp.anacan.az",
+  "project": "ninth-park-492111-m4",
+  "fetchedAt": "2026-10-04T15:05:28.705Z",
+  "sha256": "02c1cd6a6a9230152a4dd380954b466c69e12e9bee01b8528f107361998c930e",
+  "counts": {
+    "pregnancy": 294,
+    "milestones": 10,
+    "recipes": 229,
+    "bag": 31,
+    "names": 338,
+    "weekly": 6
+  },
+  "scope": "active-public-catalogues-only",
+  "transport": "anonymous-read-only"
+}

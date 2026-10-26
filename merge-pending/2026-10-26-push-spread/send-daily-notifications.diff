@@ -1,0 +1,57 @@
+--- /c/Users/User/AppData/Local/Temp/claude/C--Users-User-Downloads-anacanapp-main/5395d1c2-3d3d-4d49-95df-dd7008a18746/scratchpad/notifjobs/original-send-daily-notifications.mjs	2026-10-26 12:57:56.123518400 +0400
++++ /c/Users/User/AppData/Local/Temp/claude/C--Users-User-Downloads-anacanapp-main/5395d1c2-3d3d-4d49-95df-dd7008a18746/scratchpad/notifjobs/src/send-daily-notifications.mjs	2026-10-26 12:58:08.486025600 +0400
+@@ -16,6 +16,27 @@
+ import { getBabyDayNumber, getNotificationDate, indexMommyNotifications, selectMommyNotifications, renderMommyNotificationText } from './shared/mommy-calendar.mjs';
+ import { notificationLanguage, notificationCopy } from './shared/language.mjs';
+ import { pathToFileURL } from 'node:url';
++import { createHash } from 'node:crypto';
++
++// Sending to every user at once made thousands of phones open the app in the same
++// minute (08:00 UTC 504/500 bursts). Users are ordered into stable hash groups and
++// the run is paced across this window; it must stay below run-job.py's 1100 s timeout.
++const DEFAULT_SPREAD_SECONDS = 600;
++const MAX_SPREAD_SECONDS = 900;
++
++export function spreadSeconds(value) {
++  if (value === undefined || value === '') return DEFAULT_SPREAD_SECONDS;
++  const seconds = Number(value);
++  return Number.isInteger(seconds) && seconds >= 0 ? Math.min(seconds, MAX_SPREAD_SECONDS) : DEFAULT_SPREAD_SECONDS;
++}
++
++// The same user lands in the same part of the window every day.
++export function spreadOrder(users) {
++  const key = (user) => createHash('sha256').update(String(user.user_id)).digest('hex');
++  return users.map((user) => ({ user, key: key(user) })).sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0)).map(({ user }) => user);
++}
++
++const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+ 
+ function normalizeTimeLabel(value) {
+   if (!value) return null;
+@@ -64,7 +85,7 @@
+ export async function runDailyNotifications(env = process.env, dependencies = {}) {
+   const { query: database = databaseQuery, closePool: close = databaseClose, getFirebaseAccessToken: getToken = firebaseToken,
+     sendFCMv1: send = firebaseSend, startRunLog: start = runStart, finishRunLog: finish = runFinish,
+-    logFailedSend: failed = sendFailure, now: clock = () => new Date() } = dependencies;
++    logFailedSend: failed = sendFailure, now: clock = () => new Date(), sleep = wait, elapsedMs = () => performance.now() } = dependencies;
+   const query = database, closePool = close, getFirebaseAccessToken = getToken, sendFCMv1 = send;
+   const startRunLog = start, finishRunLog = finish, logFailedSend = failed;
+   const TEST_USER_ID = env.TEST_USER_ID || null, SKIP_DEDUP = env.SKIP_DEDUP === 'true', manual = !!TEST_USER_ID;
+@@ -359,8 +380,15 @@
+     };
+ 
+     const concurrency = 25;
+-    for (let i = 0; i < eligibleUsers.length; i += concurrency) {
+-      const batch = eligibleUsers.slice(i, i + concurrency);
++    const spreadMs = manual ? 0 : spreadSeconds(env.DAILY_PUSH_SPREAD_SECONDS) * 1000;
++    const orderedUsers = spreadMs ? spreadOrder(eligibleUsers) : eligibleUsers;
++    const pacingStart = elapsedMs();
++    console.log(`[send-daily-notifications] spreadSeconds=${spreadMs / 1000}`);
++    for (let i = 0; i < orderedUsers.length; i += concurrency) {
++      // Batch i starts no earlier than its share of the window; a slow run never waits.
++      const due = pacingStart + (spreadMs * i) / orderedUsers.length - elapsedMs();
++      if (due > 0) await sleep(due);
++      const batch = orderedUsers.slice(i, i + concurrency);
+       await Promise.all(batch.map(processUser));
+       console.log(`[send-daily-notifications] Processed ${Math.min(i + concurrency, eligibleUsers.length)}/${eligibleUsers.length}, sent so far: ${sentCount}`);
+     }

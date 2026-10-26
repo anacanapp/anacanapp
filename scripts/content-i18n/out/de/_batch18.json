@@ -1,0 +1,44 @@
+{
+ "mental_health_resources": {
+  "92af5772-67b9-4a45-be7c-45cc1690976e": {
+   "name": "Kinderschutz-Hotline",
+   "description": "Für Kinderschutz und Unterstützung"
+  },
+  "e14d07a2-ca8f-49c0-8aa3-5d37ba64147a": {
+   "name": "Psychologisches Beratungszentrum",
+   "description": "Professionelle psychologische Beratung"
+  },
+  "b6894134-c879-4225-a308-9f6d198e9b5c": {
+   "name": "Familienberatungszentrum",
+   "description": "Unterstützung für Familien und Mütter"
+  },
+  "fd731ae9-7437-499d-9a66-3c99983eb91d": {
+   "name": "Selbsthilfegruppe nach der Geburt",
+   "description": "Online-Selbsthilfegruppe für frischgebackene Mütter"
+  },
+  "cc65349d-e172-48dc-9b4d-9ead800be207": {
+   "name": "Psychologische Notfallhilfe",
+   "description": "Psychologische Unterstützung rund um die Uhr"
+  },
+  "4f4f4469-2043-4919-a6b3-1cb80317a55e": {
+   "name": "Medizinischer Notdienst",
+   "description": "Medizinische Notfallversorgung"
+  },
+  "d3081952-ac1a-414f-a6d1-55bbaff886f3": {
+   "name": "Familien- und Kinderzentrum",
+   "description": "Psychologische Beratungsstelle für Familien"
+  },
+  "191c5946-7cb5-4c7f-a933-68cca7350e58": {
+   "name": "Selbsthilfegruppe für Mütter",
+   "description": "Erfahrungsaustausch mit anderen Müttern"
+  },
+  "b060bf8e-2f05-4173-af0a-7e5c9ebeb3c2": {
+   "name": "Psychologische Krisenhotline",
+   "description": "Nationale Krisenhotline für psychische Gesundheit"
+  },
+  "38c6b6f3-bbaf-4903-aa2a-3f8b796679d9": {
+   "name": "ASAN-Hilfetelefon für Frauen",
+   "description": "Unterstützung für Frauen in schwierigen Lebenssituationen"
+  }
+ }
+}

@@ -1,0 +1,187 @@
+{
+  "schema": "mommy-luzern-art-v1",
+  "project": "ninth-park-492111-m4",
+  "model": "gemini-2.5-flash-image",
+  "assets": [
+    {
+      "id": "nursery",
+      "file": "nursery.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 159324,
+      "sha256": "2287f27eb2e4c85accb14a41333a750be9a9da223774f68a0cf14a3cce9c4cad",
+      "createdAt": "2026-10-04T19:21:45.335Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. Interior nursery at eye level, wide full view. Pale sage green panelled walls, natural oak baby crib left with fine wooden rails, wool knitted blankets, cream upholstered nursing armchair right with a peach knitted cushion, low round oak side table in front, woven toy basket, plush bunny and teddy bear, beautiful botanical and animal wall prints, hanging wooden mobile with moon stars and clouds, soft cream floral rug, indoor monstera and trailing pothos plants, warm oak floor, large rear window with translucent sage linen curtains. NO people. Leave central open floor area. The room is lovingly ready for a baby."
+    },
+    {
+      "id": "living",
+      "file": "living.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 172966,
+      "sha256": "188398714dc7d963ee70642a11fb1bbb9c2d1c5a3877c7eaf69e469a305bef46",
+      "createdAt": "2026-10-04T19:21:45.345Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. Wide elegant living room at eye level, generous deep ivory boucle sofa with textured sage green and terracotta pillows, round solid oak coffee table with tea tray and an open book, cream stone fireplace with softly glowing fire, oak bookshelves, trailing plants, linen floor lamp, personal ceramic objects, tall windows with Lake Lucerne scenery, balcony door, comfortable wool rug and beautiful oak parquet. On side table a few family photographs without visible faces. NO people. A cozy real family living space."
+    },
+    {
+      "id": "kitchen",
+      "file": "kitchen.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 102096,
+      "sha256": "d078bde75a7af4410cd864e02005281172e52235677129afd65d724b65382fd2",
+      "createdAt": "2026-10-04T19:21:45.346Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. Wide eye-level Swiss family kitchen and dining area, sage green shaker cabinetry, creamy honed stone counter, beautiful brass curved faucet, large window over sink, oak dining table with linen placemats, comfortable woven chairs, stoneware cups, fresh apples pears and vegetables in an oak bowl, linen tea towels, potted herbs, a charming espresso machine, breadboard with sliced fresh bread, pendant lamp, refined natural oak parquet. NO people. Gorgeous clean usable kitchen worktop in foreground."
+    },
+    {
+      "id": "bedroom",
+      "file": "bedroom.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 179292,
+      "sha256": "460b4a04e73c58025b70ecefdaee0b702e6383ba3fdeb22e13bc727b4dc49ca7",
+      "createdAt": "2026-10-04T19:21:53.223Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. Wide eye-level adult bedroom with oak double bed, layered ivory and sage linen bedding, textured quilt folded at foot, cream boucle bench, soft warm white bedside lamps, walnut bedside table with open journal and cup, warm oak floor and wool rug, tall windows with view of Swiss lake and mountains, sheer curtains, leafy plant and framed botanical prints. NO people. Realistic calm sanctuary for a mother, warm and refined."
+    },
+    {
+      "id": "bathroom",
+      "file": "bathroom.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 91520,
+      "sha256": "d5fe51c014306ed77ce2c5f4ea96fb49cf5085ddecdf1e43d1d4e0f232ba1022",
+      "createdAt": "2026-10-04T19:22:10.107Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. Wide eye-level luxurious but believable family bathroom, creamy travertine tiles, freestanding white bathtub left with folded linen towel and wooden bath tray, oak vanity right with ceramic basin and brass faucet, softly glowing large round mirror, sage towels on wooden rail, soaps in natural bottles without labels, sunlight through frosted window, leafy indoor plants. NO people. Swiss home continuity, peaceful realistic detail."
+    },
+    {
+      "id": "terrace",
+      "file": "terrace.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 180744,
+      "sha256": "696ca62882a6fac452f51173cc858cb30034a5ecac6aa991b6ab5881626b93ac",
+      "createdAt": "2026-10-04T19:22:30.532Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. Eye-level wide view from a beautiful private terrace overlooking Lake Lucerne. Solid wood outdoor table with morning coffee and small vase of flowers, two wicker chairs with cream linen cushions, terracotta herb planters, climbing green vines and pale roses, small lawn and children's picnic blanket. Distant snow touched Alps and Mount Pilatus, lake sailboats, pastel Lucerne roofs visible. It is a quiet warm autumn morning, believable Swiss neighborhood. NO people."
+    },
+    {
+      "id": "lakeside",
+      "file": "lakeside.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 244672,
+      "sha256": "e10d3bbb756f908090ec0f3b74616b49fe6a56b81091367284da4ef58b9cd195",
+      "createdAt": "2026-10-04T19:23:17.523Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. Cinematic eye-level panoramic Lake Lucerne promenade in central Luzern, Switzerland, the Chapel Bridge wooden covered bridge and water tower, beautiful authentic pastel historic waterfront buildings and distant Mount Pilatus, gentle turquoise lake reflections, leafy trees with hints of gold, wooden bench, planters, quiet path suitable for a family stroll. Beautiful bright realistic game environment, unobtrusive stylized 3D movie quality. NO people. Luxurious composition with open promenade foreground."
+    },
+    {
+      "id": "market",
+      "file": "market.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 168830,
+      "sha256": "4224b4685ce0d7ce2517291c331bfb9c3117d58a50af029df30ab3dba8b9e04a",
+      "createdAt": "2026-10-04T19:23:40.173Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. Interior of a small beautiful local Swiss grocery and bakery in Lucerne. Wooden shelves with fresh vegetables, apples, pears, milk bottles and breads, wicker produce baskets, sage green counter with modest register, woven shopping bag in foreground, soft sun through front store window, beautiful tile floor. Cozy neighborhood shop, realistic produce and detailed packaging without text or brands. NO people."
+    },
+    {
+      "id": "cafe",
+      "file": "cafe.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 132656,
+      "sha256": "c219619962b2cb5da9a48a801e820825c70f919e0350c244c752cf5bc185f0d0",
+      "createdAt": "2026-10-04T19:24:20.796Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. Beautiful quiet Swiss lakeside cafe interior in Lucerne, oak bistro tables and sage upholstered chairs, creamy stone countertop, espresso cups and a plate of pastry, trailing plants, big window view of Lake Lucerne and Chapel Bridge, warm golden light and realistic linen napkins, oak floor, elegant small family-friendly space. NO people."
+    },
+    {
+      "id": "clinic",
+      "file": "clinic.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 117482,
+      "sha256": "aa61f4f43e0bdf0684b2e6a57729bc98d8d5010710173fd571790eb6f30e999f",
+      "createdAt": "2026-10-04T19:25:41.579Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. Beautiful modern private family maternity clinic consultation room in Lucerne, Swiss clinic with pale sage and ivory interior, natural oak desks, cozy upholstered mother consultation chair, professional ultrasound cart and modern monitor with simple grey abstract scan image, cream examination bed with sage bedding, brass reading lamp, softly frosted tall windows, indoor plants and framed botanical art, believable clean professional equipment. NO people. No medical procedures."
+    },
+    {
+      "id": "feeding",
+      "file": "feeding.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 101382,
+      "sha256": "38f24c9f6721c5dbeb93843cfd80d4a7a2ccbbc5f5cc9bc13f59683d6651e152",
+      "createdAt": "2026-10-04T19:25:50.593Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. A beautiful warmly expressive 29-year-old adult mother, medium light warm olive skin, brown eyes, glossy chestnut brown hair in a loose soft bun with a sage botanical ribbon, soft sage green knitted cardigan over an ivory cotton top, natural attractive facial proportions, tender genuine smile, lifelike rounded 3D animation film character with anatomically correct hands, natural posture. Semi-realistic premium 3D animation art, NOT toy figure, NOT low-poly, NOT a flat cartoon. A lovely 6-month-old baby with softly tousled chestnut hair, expressive brown eyes and warm cheeks, wearing an ivory cotton baby sleepsuit with tiny sage botanical patterns, believable baby proportions and beautifully rendered fabric. Medium wide shot of the mother sitting in an ivory boucle nursing armchair in the nursery, gently bottle feeding the smiling baby in her arms with a clear baby milk bottle with sage cap. Warm happy eye contact. Crib left, wooden moon star mobile, linen curtains and leafy plants, changing dresser right with folded botanical blankets, plush bunny, peach crochet cushion, warm sunlight. Visually rich close-up focal characters with lovely soft depth of field. Family life simulator hero scene."
+    },
+    {
+      "id": "pregnancy",
+      "file": "pregnancy.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 112138,
+      "sha256": "1af281ebcb29a8aef508f10396aba36b004799bc66a09281af50b0efeed62acf",
+      "createdAt": "2026-10-04T19:26:22.016Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. A beautiful warmly expressive 29-year-old adult mother, medium light warm olive skin, brown eyes, glossy chestnut brown hair in a loose soft bun with a sage botanical ribbon, soft sage green knitted cardigan over an ivory cotton top, natural attractive facial proportions, tender genuine smile, lifelike rounded 3D animation film character with anatomically correct hands, natural posture. Semi-realistic premium 3D animation art, NOT toy figure, NOT low-poly, NOT a flat cartoon. The mother is 7 months pregnant with a natural rounded baby bump, sitting comfortably on the ivory sofa in the living room, one hand resting gently on her belly, the other holding a pregnancy journal with blank pages, smiling softly toward the window. Whole upper body and natural hands in view, ivory relaxed pants, real knitted cardigan. Warm realistic indoor sunlight, oak coffee table with tea, beautiful soft throw, lake view. Tender everyday pregnancy moment, gorgeous focal character and environment."
+    },
+    {
+      "id": "changing",
+      "file": "changing.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 85782,
+      "sha256": "4f5647bb2b8ffe44e16405f94c03291af3b64ae8792fe9054964e3a46a4bdfe5",
+      "createdAt": "2026-10-04T19:27:10.031Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. A lovely 6-month-old baby with softly tousled chestnut hair, expressive brown eyes and warm cheeks, wearing an ivory cotton baby sleepsuit with tiny sage botanical patterns, believable baby proportions and beautifully rendered fabric. A high-quality gently top-down point-of-view close scene of the happy baby lying on a soft cream changing mat atop oak and ivory dresser in the sage nursery. Baby wearing comfortable ivory and sage botanical sleepsuit, wriggling hands and feet, plush bunny nearby, folded towels, woven storage baskets, the mother's natural adult hands entering subtly from the lower edge holding a clean white diaper with sage tabs. Lovely realistic 3D film quality, correct hands, clean wholesome family caregiving scene, warm soft sun, beautifully detailed fabrics."
+    },
+    {
+      "id": "sleeping",
+      "file": "sleeping.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 75898,
+      "sha256": "2dc1d427436c755297c04ccdd8040d363b600e7787e124d350003975c42e6edb",
+      "createdAt": "2026-10-04T19:28:31.161Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. A lovely 6-month-old baby with softly tousled chestnut hair, expressive brown eyes and warm cheeks, wearing an ivory cotton baby sleepsuit with tiny sage botanical patterns, believable baby proportions and beautifully rendered fabric. Close eye-level scene of a peacefully sleeping baby safely resting on its back on a firm cream mattress in a natural oak crib, no loose items around baby, wearing ivory and sage botanical sleeping suit, delicate wooden star mobile overhead at a distance, warm low evening lamplight, sage panel wall, beautiful cozy nursery and soft plant shadows. Lovely cinematic calm 3D film quality, lifelike detailed fabrics, natural small baby."
+    },
+    {
+      "id": "family",
+      "file": "family.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 95280,
+      "sha256": "e840702967b7383f4f2c83dc98d26f32e73e215366b2c969005453ee29830e26",
+      "createdAt": "2026-10-04T19:29:13.580Z",
+      "prompt": "Premium realistic stylized 3D life simulation game cinematic environment, extremely high quality physically based rendering, realistic wood grain, woven boucle linen upholstery, soft knitted textile microdetail, warm natural morning sunlight, subtle ambient occlusion, beautiful soft shadows, rich but tasteful warm sage green cream oak and peach palette, editorial architectural photography composition, crystal clear sharp details, genuinely inviting lived-in home, contemporary elegant Swiss lakeside townhouse in Lucerne Switzerland, Lake Lucerne and distant Mount Pilatus visible through tall windows. A cohesive modern family home. NO text, NO lettering, NO watermark, NO user interface. Beautiful full frame 16:9 composition. A beautiful warmly expressive 29-year-old adult mother, medium light warm olive skin, brown eyes, glossy chestnut brown hair in a loose soft bun with a sage botanical ribbon, soft sage green knitted cardigan over an ivory cotton top, natural attractive facial proportions, tender genuine smile, lifelike rounded 3D animation film character with anatomically correct hands, natural posture. Semi-realistic premium 3D animation art, NOT toy figure, NOT low-poly, NOT a flat cartoon. A lovely 6-month-old baby with softly tousled chestnut hair, expressive brown eyes and warm cheeks, wearing an ivory cotton baby sleepsuit with tiny sage botanical patterns, believable baby proportions and beautifully rendered fabric. And a handsome adult father with short chestnut hair and light warm olive skin, wearing an oatmeal knitted sweater and dark blue relaxed trousers. A loving three-person family on the ivory living room sofa, mother comfortably holding the baby and father looking toward them with warm smile, cozy sage pillows, round oak coffee table, cream fireplace, window showing Lake Lucerne. Natural warm family portrait, realistic beautiful 3D film rendering with textile texture and flattering light."
+    },
+    {
+      "id": "lakeside-wide",
+      "file": "lakeside-wide.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 250968,
+      "sha256": "53b84bd2a6cc8efffae921fa15ab866a779c225a689737d9dd163383701e421e",
+      "createdAt": "2026-10-04T19:42:42.809Z",
+      "prompt": "Generate ONE single full-bleed 16:9 panoramic frame, NOT a collage, NOT split screen, NOT multiple images. Very beautiful cinematic photorealistic 3D game environment of Lake Lucerne promenade in Lucerne Switzerland on a sunny calm October morning. Famous Kapellbruecke covered wooden bridge and Water Tower clearly recognizable in middle distance, historic colorful Swiss waterfront roofs, distant Mount Pilatus mountains under soft blue sky, sparkling gentle turquoise lake water, maple foliage with a little autumn gold, wooden lakeside bench and pretty flower planters, generous open stone walking path in foreground. Architecture and landscape completely outdoors. NO interior, NO house, NO people, NO lettering, NO watermark. Beautiful unified eye-level view, exquisite realistic materials and natural lighting."
+    },
+    {
+      "id": "cafe-real",
+      "file": "cafe-real.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 159952,
+      "sha256": "f9e8cb7e871b7c8fc0ee3adc377b2b91d5c425fb48719ac318e2a68abca3e16b",
+      "createdAt": "2026-10-04T19:43:00.459Z",
+      "prompt": "Generate ONE single unified 16:9 full-frame photograph-quality 3D architectural game environment. Interior of a small sophisticated coffee shop overlooking Lake Lucerne in Lucerne Switzerland, clear cafe furnishings: small round wooden bistro tables, sage velvet chairs, brass espresso machine on creamy marble bar, ceramic espresso cups, plates with fresh croissants, elegant pastry display case, pendant lighting, indoor plants and soft linen curtains. Large tall street-front windows looking at Swiss lakeside historic houses and mountains. Gorgeous warm morning sunshine and detailed PBR materials. NOT a home living room. NO sofa, NO fireplace. NO people, NO text, NO watermark, NOT a collage, NOT split-screen."
+    },
+    {
+      "id": "alpine-window",
+      "file": "alpine-window.webp",
+      "width": 1344,
+      "height": 768,
+      "bytes": 103808,
+      "sha256": "5348f3ff96933103b4c6a48226f5be91888fd9f3cccc95f9492fcbf5b4111299",
+      "createdAt": "2026-10-04T19:43:43.954Z",
+      "prompt": "ONE seamless 16:9 scenic photograph-quality backdrop image for the view from a Swiss lakeside home window. Lake Lucerne Switzerland, calm pale turquoise water, distant layered Alps and Mount Pilatus, delicate blue haze, small green hillside and a few beautiful Swiss rooftops in lower foreground. Bright soft morning sun, blue sky with gentle wispy clouds. Whole view is the outdoors from eye level, expansive landscape. NO window frames, NO building interior, NO people, NO text, NO watermark, NO collage. Beautiful cinematic natural realism, a cohesive single image."
+    }
+  ]
+}

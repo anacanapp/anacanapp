@@ -1,0 +1,3887 @@
+{
+ "admin_recipes": {
+  "29940e49-7e51-47bd-83c9-a23089719fe4": {
+   "title": "Ofengebackene Hähnchen-Gemüse-Frikadellen",
+   "description": "Da sie nicht angebraten werden, verursachen sie kein Sodbrennen",
+   "category": "Mittagessen",
+   "ingredients": [
+    "Hähnchenhackfleisch - 200 g",
+    "Zwiebel - 1 Stück",
+    "Karotte - 1 Stück",
+    "Ei - 1 Stück",
+    "Semmelbrösel"
+   ],
+   "instructions": [
+    "Vermische das Hackfleisch mit dem klein geschnittenen Gemüse",
+    "Gib das Ei hinzu",
+    "Forme Frikadellen",
+    "Backe sie 25 Minuten bei 180°C im Ofen"
+   ]
+  },
+  "54602d29-0117-4f19-abc3-7ccf4f15b4ad": {
+   "title": "Power-Bowl mit Quinoa und Avocado",
+   "description": "Quinoa ist eine vollwertige Proteinquelle, Avocado enthält wichtige Fette für die Gehirnentwicklung",
+   "category": "Mittagessen",
+   "ingredients": [
+    "Quinoa - eine halbe Tasse",
+    "Avocado - eine halbe",
+    "Kichererbsen - 3 Esslöffel",
+    "Cherrytomaten - 6 Stück",
+    "Spinat - 1 Handvoll",
+    "Zitrone, Olivenöl"
+   ],
+   "instructions": [
+    "Koche die Quinoa",
+    "Gib Quinoa, Kichererbsen, Tomaten und Spinat in eine Schüssel",
+    "Füge die Avocadoscheiben hinzu",
+    "Beträufle alles mit einem Dressing aus Zitrone und Olivenöl"
+   ]
+  },
+  "351ff1d2-31f6-46a8-8bf8-de0cf3483675": {
+   "title": "Cremige Pasta mit Spinat und Lachs",
+   "description": "Eine hervorragende Kombination aus Omega-3-Fettsäuren und Eisen",
+   "category": "Schwangerschaft",
+   "ingredients": [
+    "Pasta - 100 g",
+    "Lachs - 100 g",
+    "Spinat - 1 Handvoll",
+    "Sahne - eine halbe Tasse",
+    "Knoblauch - 1 Zehe"
+   ],
+   "instructions": [
+    "Koche die Pasta",
+    "Brate den Lachs an",
+    "Gib Spinat und Knoblauch hinzu",
+    "Füge die Sahne hinzu und vermische alles mit der Pasta"
+   ]
+  },
+  "e42eb779-f6d3-46c7-afa9-6b50228bf9fa": {
+   "title": "Buchweizen mit Milch und Walnüssen",
+   "description": "Reich an Eisen, unterstützt die Hämoglobinbildung und hilft gegen Müdigkeit",
+   "category": "Frühstück",
+   "ingredients": [
+    "Buchweizen - 4 Esslöffel",
+    "Milch - 1.5 Tassen",
+    "Walnüsse - 2 Stück",
+    "Honig - 1 Teelöffel"
+   ],
+   "instructions": [
+    "Koche den Buchweizen in der Milch",
+    "Gib Walnüsse und Honig hinzu",
+    "Serviere ihn warm"
+   ]
+  },
+  "e2a3de56-71ba-425a-9ee4-19af8f674965": {
+   "title": "Haferbrei mit Kürbis",
+   "description": "Eine Quelle für Vitamin A und Ballaststoffe, stärkt das Immunsystem",
+   "category": "Frühstück",
+   "ingredients": [
+    "Kürbis - 1 Scheibe",
+    "Haferflocken - 4 Esslöffel",
+    "Milch - 1.5 Tassen",
+    "Zimt - 1 Prise",
+    "Walnüsse - 2 Stück"
+   ],
+   "instructions": [
+    "Koche den Kürbis und püriere ihn",
+    "Koche die Milch mit den Haferflocken",
+    "Gib das Kürbispüree und den Zimt hinzu",
+    "Bestreue den Brei mit Walnüssen und serviere ihn"
+   ]
+  },
+  "b152df27-a257-44b7-b48e-cff4b6baf6d9": {
+   "title": "Lavash-Toast mit Hähnchen und Käse",
+   "description": "Sättigend und als trockene Mahlzeit ideal bei morgendlicher Übelkeit",
+   "category": "Frühstück",
+   "ingredients": [
+    "Lavash - 1 Stück",
+    "Hähnchenfleisch (gezupft) - 100 qr",
+    "Käse - 30 qr",
+    "Tomate - 1 Stück",
+    "Salatblatt"
+   ],
+   "instructions": [
+    "Belege das Lavash mit Hähnchen, Käse und Tomate",
+    "Rolle es zusammen",
+    "Röste es im Sandwichmaker",
+    "Gib das Salatblatt hinzu und serviere es"
+   ]
+  },
+  "228f023f-d713-4f19-be8e-fefdb4fed98b": {
+   "title": "Hähnchen-Gemüse-Wok",
+   "description": "Buntes Gemüse liefert Vitamin A und C, Hähnchen hochwertiges Eiweiß",
+   "category": "Mittagessen",
+   "ingredients": [
+    "Hähnchenfilet - 150 qr",
+    "Bunte Paprika - 1 Stück",
+    "Karotte - 1 Stück",
+    "Sojasauce - 1 Esslöffel",
+    "Sesam - 1 Teelöffel",
+    "Olivenöl"
+   ],
+   "instructions": [
+    "Das Hähnchen bei starker Hitze anbraten",
+    "Karotte und Paprika hinzufügen",
+    "Sojasauce dazugeben",
+    "Mit Sesam bestreuen und servieren"
+   ]
+  },
+  "4a2b68f6-c320-464a-a610-abba98c42a7c": {
+   "title": "Kakao-Energiekugeln mit Datteln",
+   "description": "Stillt den Appetit auf Schokolade auf gesunde Weise",
+   "category": "Gesunde Süßigkeiten",
+   "ingredients": [
+    "Datteln - 10 Stück",
+    "Walnüsse/Mandeln - ein halbes Glas",
+    "Kakaopulver - 1 Esslöffel",
+    "Kokosraspeln"
+   ],
+   "instructions": [
+    "Datteln, Nüsse und Kakao im Mixer zerkleinern",
+    "Kleine Kugeln formen",
+    "In Kokosraspeln wälzen",
+    "30 Minuten im Kühlschrank kalt stellen"
+   ]
+  },
+  "d764c731-4574-4b0a-8c12-4817b002d62a": {
+   "title": "Baby-Pancakes – Pfannkuchen fürs Baby",
+   "description": "Fingerfood, das dein Baby selbst mit den Händen essen kann (9-10 Monate+)",
+   "category": "Babynahrung",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Banane - 1 Stück",
+    "Ei - 1 Stück",
+    "Hafermehl - 2 Esslöffel"
+   ],
+   "instructions": [
+    "Die Banane zerdrücken",
+    "Ei und Mehl untermischen",
+    "Kleine Pancakes backen"
+   ]
+  },
+  "c89b9132-cdfc-4225-91e4-8d2f2e0b2795": {
+   "title": "Karottengericht mit grünen Linsen",
+   "description": "Eine hervorragende Folsäurequelle und ideal zur Linderung von Verstopfung",
+   "category": "mittagessen",
+   "ingredients": [
+    "Grüne Linsen - 1 Tasse",
+    "Karotte - 1 Stück",
+    "Zwiebel - 1 Stück",
+    "Kartoffel - 1 Stück",
+    "Brühe - 3 Tassen"
+   ],
+   "instructions": [
+    "Brate die Zwiebel an und gib die Karotte dazu",
+    "Füge die Linsen und die Kartoffel hinzu",
+    "Gib Wasser dazu und koche alles 30 Minuten lang",
+    "Serviere das Gericht mit Joghurt"
+   ]
+  },
+  "0a806e97-179c-4b02-a4d3-c011bf2e080a": {
+   "title": "Gemischter Eintopf mit grünen Bohnen und Fleisch",
+   "description": "Rotes Fleisch liefert Eisen, Bohnen sind reich an Ballaststoffen. Für alle, die traditionelle Aromen lieben",
+   "category": "mittagessen",
+   "tags": [
+    "Schwangerschaft"
+   ],
+   "ingredients": [
+    "Rindfleisch - 150 g",
+    "Grüne Bohnen - 200 g",
+    "Tomaten - 2 Stück",
+    "Zwiebel - 1 Stück"
+   ],
+   "instructions": [
+    "Koche das Fleisch in Wasser",
+    "Gib die Zwiebel und die Bohnen dazu",
+    "Füge die Tomaten hinzu",
+    "Lass alles bei niedriger Hitze 25 Minuten lang schmoren"
+   ]
+  },
+  "09af16f8-cf6b-4d39-b222-ac1839cff39f": {
+   "title": "Grünes Omelett mit Spinat und Hüttenkäse",
+   "description": "Ein eisen- und kalziumreiches Frühstück",
+   "category": "frühstück",
+   "ingredients": [
+    "Spinat - 1 Handvoll",
+    "Hüttenkäse - 50 g",
+    "Eier - 2 Stück",
+    "Olivenöl - 1 Teelöffel",
+    "Salz, Pfeffer"
+   ],
+   "instructions": [
+    "Wasche und schneide den Spinat",
+    "Verquirle die Eier und gib den Hüttenkäse und den Spinat dazu",
+    "Brate das Omelett mit Olivenöl in einer Pfanne"
+   ]
+  },
+  "2b6d3d3f-7da4-49e6-9fec-a7c60b44d391": {
+   "title": "Night Comfort – Reis und Joghurt",
+   "description": "Ein sättigendes Abendessen für einen erholsamen Schlaf (ab 10 Monaten)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Reis – 2 Esslöffel",
+    "Joghurt – 3 Esslöffel",
+    "Getrocknete Minze – sehr wenig"
+   ],
+   "instructions": [
+    "Den Reis zu einem Brei kochen",
+    "Mit dem Joghurt vermischen"
+   ]
+  },
+  "1c5b54f3-be70-41b0-84f4-d70a7077aca9": {
+   "title": "Iron Bowl – Buchweizen und Fleisch",
+   "description": "Ideal für Babys mit niedrigem Hämoglobinwert (ab 8 Monaten)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Buchweizen – 2 Esslöffel",
+    "Rindfleisch – 30 g",
+    "Karotte – eine halbe"
+   ],
+   "instructions": [
+    "Fleisch und Buchweizen getrennt garen",
+    "Die Karotte dämpfen",
+    "Alles pürieren"
+   ]
+  },
+  "703149ba-626c-42b7-97f3-d9c1417bd36f": {
+   "title": "Gebackene Quarkküchlein",
+   "description": "Reich an Kalzium und gut für starke Knochen. Da sie nicht gebraten werden, verursachen sie kein Sodbrennen",
+   "category": "fruehstueck",
+   "ingredients": [
+    "Quark – 200 g",
+    "Ei – 1 Stück",
+    "Reismehl – 2 Esslöffel",
+    "Vanille – 1 Prise",
+    "Honig – 1 Teelöffel"
+   ],
+   "instructions": [
+    "Den Quark zerdrücken, Ei und Vanille hinzufügen",
+    "Das Mehl dazugeben und zu einem Teig vermengen",
+    "Kleine runde Küchlein formen",
+    "Bei 180 °C 20 Minuten backen",
+    "Mit Honig beträufeln"
+   ]
+  },
+  "982adc98-e214-43f5-9309-70a389109d79": {
+   "title": "Gemüsesuppe mit Putenhackbällchen",
+   "description": "Putenfleisch ist besonders allergiearm und die Suppe eignet sich hervorragend, um mehr Flüssigkeit aufzunehmen",
+   "category": "Mittagessen",
+   "ingredients": [
+    "Putenhackfleisch - 150 qr",
+    "Kartoffel, Karotte, Sellerie - je 1",
+    "Reis - 1 Esslöffel",
+    "Getrocknete Minze"
+   ],
+   "instructions": [
+    "Aus dem Hackfleisch kleine Bällchen formen",
+    "Gemüse und Reis in das kochende Wasser geben",
+    "Die Hackbällchen hinzufügen",
+    "Nach dem Garen mit Minze bestreuen"
+   ]
+  },
+  "16d0f02f-4ecd-4fee-a1f5-3b1ea8bae99f": {
+   "title": "Buchweizen-Pilz-Pfanne",
+   "description": "Buchweizen ist ideal, um den Hämoglobinwert zu erhöhen",
+   "category": "Abendessen",
+   "ingredients": [
+    "Buchweizen - ein halbes Glas",
+    "Pilze - 5 Stück",
+    "Zwiebel - eine halbe",
+    "Petersilie"
+   ],
+   "instructions": [
+    "Zwiebel und Pilze anbraten",
+    "Den gekochten Buchweizen hinzufügen",
+    "Mit Petersilie bestreuen und servieren"
+   ]
+  },
+  "d2719771-06cb-4a57-8b8e-23c90a1b22ff": {
+   "title": "Kürbissuppe mit Ingwer",
+   "description": "Kürbis hilft, Wassereinlagerungen zu reduzieren, und Ingwer beruhigt den Magen",
+   "category": "Abendessen",
+   "ingredients": [
+    "Kürbis - 300 qr",
+    "Kartoffel - 1 Stück",
+    "Zwiebel - 1 Stück",
+    "Ingwer - ein haselnussgroßes Stück",
+    "Milch - ein halbes Glas"
+   ],
+   "instructions": [
+    "Das Gemüse in Wasser garen",
+    "Im Mixer pürieren",
+    "Ingwer und Milch hinzufügen",
+    "Einmal kurz aufkochen lassen"
+   ]
+  },
+  "87be74c9-8271-47fa-aa1b-7d56d8593513": {
+   "title": "Zucchini-Pfanne mit Joghurt und Walnüssen",
+   "description": "Kalorienarm, aber sättigend. Der probiotische Joghurt unterstützt die Verdauung.",
+   "category": "Abendessen",
+   "ingredients": [
+    "Zucchini - 2 Stück",
+    "Knoblauch - 1 Zehe",
+    "Joghurt - 1 Schale",
+    "Walnüsse - 2 Esslöffel",
+    "Dill",
+    "Olivenöl"
+   ],
+   "instructions": [
+    "Die Zucchini anbraten",
+    "Nach dem Abkühlen den Knoblauchjoghurt hinzufügen",
+    "Dill und Walnüsse hinzufügen"
+   ]
+  },
+  "729bbfc5-f4e9-4c62-83da-11343e2b9372": {
+   "title": "Gedämpfter Truthahn mit Brokkoli",
+   "description": "Das im Truthahn enthaltene Tryptophan verbessert die Schlafqualität, während Brokkoli reich an Folsäure ist.",
+   "category": "Abendessen",
+   "ingredients": [
+    "Truthahnfilet - 150 qr",
+    "Brokkoli - 150 qr",
+    "Zitronensaft",
+    "Olivenöl"
+   ],
+   "instructions": [
+    "Fleisch und Gemüse 25 Minuten dämpfen",
+    "Mit Zitronensaft und Olivenöl beträufeln"
+   ]
+  },
+  "84e49361-f94b-4751-af92-a48dc4c25da7": {
+   "title": "Lavash-Rolle mit Hüttenkäse",
+   "description": "Ein schnelles, kalziumreiches und leicht verdauliches Abendessen",
+   "category": "Abendessen",
+   "ingredients": [
+    "Lavash - 1 Stück",
+    "Hüttenkäse - 100 qr",
+    "Gurke - 1 Stück",
+    "Dill",
+    "Walnüsse - 2 Stück"
+   ],
+   "instructions": [
+    "Hüttenkäse, Gurke, Dill und Walnüsse vermischen",
+    "Auf dem Lavash verteilen",
+    "Aufrollen und in Scheiben schneiden"
+   ]
+  },
+  "6db2e407-1ec0-4bf4-af10-d55ecb9f0e4f": {
+   "title": "Rubin-Elixier",
+   "description": "Erhöht den Hämoglobinwert und reinigt das Blut",
+   "category": "gesunde_getraenke",
+   "ingredients": [
+    "Rote Bete - ein kleines Stück",
+    "Karotte - ein kleines Stück",
+    "Apfel - eine Hälfte",
+    "Zitrone - 1 Scheibe"
+   ],
+   "instructions": [
+    "Alle Zutaten entsaften",
+    "In ein Shotglas gießen"
+   ]
+  },
+  "24714855-3f91-4f23-8a26-d44837dc668e": {
+   "title": "Samtig-violetter Smoothie",
+   "description": "Trockenpflaumen und Leinsamen unterstützen eine weichere Verdauung",
+   "category": "gesunde_getraenke",
+   "ingredients": [
+    "Kefir - 1 Glas",
+    "Trockenpflaumen - 3 Stück",
+    "Leinsamen - 1 Teelöffel",
+    "Banane - eine Hälfte"
+   ],
+   "instructions": [
+    "Alle Zutaten im Mixer pürieren",
+    "Sofort trinken"
+   ]
+  },
+  "a0dd2f7f-4bf5-469a-8ac2-80ba7e742c2a": {
+   "title": "Omega-Glow-Smoothie",
+   "description": "Reich an Omega-3 zur Unterstützung der Gehirnentwicklung",
+   "category": "gesunde_getraenke",
+   "ingredients": [
+    "Avocado - eine Hälfte",
+    "Banane - 1 Stück",
+    "Walnüsse - 2 Stück",
+    "Spinat",
+    "Mandelmilch - 1 Glas"
+   ],
+   "instructions": [
+    "Alles im Mixer pürieren"
+   ]
+  },
+  "c86a2534-28db-4de0-9667-f24ac3182d89": {
+   "title": "Tropischer Detox-Smoothie",
+   "description": "Das Bromelain in der Ananas hilft, Blähungen zu lindern",
+   "category": "gesunde_getraenke",
+   "ingredients": [
+    "Ananas - 2 Scheiben",
+    "Gurke - 1 Stück",
+    "Petersilie - 2-3 Stängel",
+    "Wasser - ein halbes Glas"
+   ],
+   "instructions": [
+    "Alles im Mixer pürieren",
+    "Morgens trinken"
+   ]
+  },
+  "d8f78084-553b-41ea-bd74-432eaf7e9422": {
+   "title": "Hausgemachte Snickers (Dattel-Schiffchen)",
+   "description": "Spendet Energie und unterstützt bei Blutarmut",
+   "category": "gesunde_suessigkeiten",
+   "ingredients": [
+    "Datteln - 6 Stück",
+    "Erdnussmus - 4 Teelöffel",
+    "Erdnüsse - 6 Stück",
+    "Zartbitterschokolade - 30 g"
+   ],
+   "instructions": [
+    "Die Datteln entsteinen",
+    "Mit Erdnussmus füllen",
+    "Je eine Erdnuss darauflegen",
+    "Mit geschmolzener Schokolade beträufeln",
+    "Im Kühlschrank fest werden lassen"
+   ]
+  },
+  "a920fc1d-458e-46f5-a2e9-dca7ea79a61f": {
+   "title": "Gefrorene Joghurt-Riegel",
+   "description": "Deckt den Kalziumbedarf und lindert Sodbrennen",
+   "category": "gesunde_suessigkeiten",
+   "ingredients": [
+    "Abgetropfter Joghurt - 1.5 Gläser",
+    "Honig - 1 Esslöffel",
+    "Beeren - 1 Handvoll",
+    "Gehackte Pistazien/Walnüsse"
+   ],
+   "instructions": [
+    "Den Joghurt mit dem Honig verrühren",
+    "Auf einer flachen Form verteilen",
+    "Mit Beeren und Nüssen bestreuen",
+    "3 Stunden im Gefrierschrank gefrieren lassen",
+    "In Stücke brechen und genießen"
+   ]
+  },
+  "3b230dc3-81f3-43a5-b56c-24296d3b832b": {
+   "title": "Aprikosenkonfekt",
+   "description": "Eine natürliche Unterstützung für Schwangere mit niedrigen Eisenspeichern und Verstopfung",
+   "category": "gesunde_suessigkeiten",
+   "ingredients": [
+    "Getrocknete Aprikosen - 1 Glas",
+    "Kokosraspeln - 2 Esslöffel",
+    "Zitronenschale",
+    "Mandeln - ein halbes Glas"
+   ],
+   "instructions": [
+    "Weiche die getrockneten Aprikosen ein",
+    "Zerkleinere alle Zutaten im Mixer",
+    "Forme daraus Kugeln",
+    "Wälze sie in Kokosraspeln"
+   ]
+  },
+  "fc4f12b8-7e49-4b03-9795-79a867c283e5": {
+   "title": "Apfel-Donuts",
+   "description": "Ein ballaststoffreicher, knuspriger Snack, der ohne Backen zubereitet wird",
+   "category": "gesunde_suessigkeiten",
+   "ingredients": [
+    "Äpfel - 2 Stück",
+    "Erdnussbutter",
+    "Schokotropfen",
+    "Sonnenblumenkerne, Walnüsse"
+   ],
+   "instructions": [
+    "Entferne das Kerngehäuse der Äpfel",
+    "Schneide die Äpfel in Ringe",
+    "Bestreiche sie mit Erdnussbutter",
+    "Garniere sie mit Kernen und Nüssen"
+   ]
+  },
+  "4967c352-4a1e-42bd-be6e-64302b16bec0": {
+   "title": "Immun-Shot",
+   "description": "Ein starkes Antioxidans zum Schutz vor Grippe und Erkältungen",
+   "category": "gesunde_getraenke",
+   "ingredients": [
+    "Orangensaft - ein halbes Glas",
+    "Kurkumapulver - ein halber Teelöffel",
+    "Schwarzer Pfeffer - eine Prise",
+    "Olivenöl"
+   ],
+   "instructions": [
+    "Gut vermischen und trinken"
+   ]
+  },
+  "ba869d0c-6059-4e21-8549-a6fc4dbae37c": {
+   "title": "Rosa-Wolken-Smoothie",
+   "description": "Milch und Sesam stärken Knochen und Zähne",
+   "category": "gesunde_getraenke",
+   "ingredients": [
+    "Milch - 1 Glas",
+    "Erdbeeren - 6 Stück",
+    "Banane - eine halbe",
+    "Sesam - 1 Teelöffel"
+   ],
+   "instructions": [
+    "Im Mixer pürieren",
+    "Kalt genießen"
+   ]
+  },
+  "db39aaba-46b8-48c5-9ee2-718a433c813d": {
+   "title": "Morning Layers – Joghurt und Granola",
+   "description": "Ein probiotikareiches Frühstück, das die Verdauung unterstützt. Eine Quelle für Kalzium und Energie.",
+   "category": "fruehstueck",
+   "ingredients": [
+    "Joghurt: 1 Schale",
+    "Haferflocken: 3 Esslöffel",
+    "Walnüsse: 1 Handvoll (gehackt)",
+    "Honig: 1 Esslöffel",
+    "Obst (Banane, Erdbeeren): nach Belieben"
+   ],
+   "instructions": [
+    "Die Haferflocken in einer trockenen Pfanne leicht anrösten",
+    "Die Walnüsse hacken und zu den Haferflocken geben",
+    "Honig hinzufügen und vermischen – fertig ist dein Granola",
+    "Joghurt in eine Schale geben und das Granola darüberstreuen",
+    "Frische Obstscheiben hinzufügen"
+   ]
+  },
+  "eff41793-674f-452c-86c7-b28f4dd44a0f": {
+   "title": "Ocean Breeze Bagel – Lachstoast",
+   "description": "Ein Omega-3-Kraftpaket, das Brain Fog vertreibt und die Haut zum Strahlen bringt.\n\nVorteil: Lachs unterstützt bei Frauen die Herz-Kreislauf- und Gehirngesundheit und verbessert die Elastizität der Haut.",
+   "category": "fruehstueck",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Roggenbrot oder Vollkorn-Bagel: 1 Stück",
+    "Frischkäse (Labneh): 1 Esslöffel",
+    "Lachs: 2-3 dünne Scheiben",
+    "Gurkenscheiben, Dill."
+   ],
+   "instructions": [
+    "Den Frischkäse auf das Brot streichen. Mit Gurken- und Lachsscheiben belegen. Mit frischem Dill garnieren und genießen."
+   ]
+  },
+  "29bb0ce4-9bdc-4fac-b1c7-e5b836d8f1d0": {
+   "title": "Schakschuka",
+   "description": "Ein heißer, würziger Wochenendklassiker mit reichlich Tomaten.\n\nVorteil: Das in gekochten Tomaten enthaltene Lycopin gehört zu den stärksten antioxidativen Stoffen mit krebshemmender Wirkung für den weiblichen Körper.",
+   "category": "Frühstück",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Eier: 2 Stück",
+    "Tomaten: 2 Stück (gewürfelt)",
+    "Bunte Paprika: eine halbe (gewürfelt)",
+    "Zwiebel: eine halbe",
+    "Olivenöl, gemahlener Kreuzkümmel (Kumin), Salz, Pfeffer."
+   ],
+   "instructions": [
+    "Brate die Zwiebel und die Paprika in einer Pfanne mit Olivenöl an. Gib die Tomaten und Gewürze hinzu und lasse alles köcheln, bis eine Sauce entsteht. Forme Mulden in der Sauce, schlage die Eier hinein, decke die Pfanne ab und gare die Eier bis zur gewünschten Konsistenz."
+   ]
+  },
+  "fe3cad51-3e25-4969-b2ba-dbb221d883b9": {
+   "title": "Geschenk des Ozeans – Lachs",
+   "description": "Reich an Omega-3 und ideal für die Muttermilch. Unterstützt die Gehirnentwicklung des Babys.",
+   "category": "Abendessen",
+   "tags": [
+    "nach der Geburt"
+   ],
+   "ingredients": [
+    "Lachs: 150 qr",
+    "Spargel oder grüne Bohnen: 100 qr",
+    "Zitrone: eine halbe",
+    "Dill: 1 Bund",
+    "Olivenöl: 1 Esslöffel"
+   ],
+   "instructions": [
+    "Salze den Fisch und mariniere ihn mit Zitronensaft (10 dəq)",
+    "Lege das Gemüse daneben",
+    "Beträufle alles mit Olivenöl und wickle es in Folie ein",
+    "Im Backofen bei 180°C 20 Minuten garen",
+    "Mit reichlich frischem Dill bestreuen – unterstützt den Milchfluss"
+   ]
+  },
+  "7b50a305-3e3e-47ca-8cb4-e9cc2bf8695d": {
+   "title": "Smaragdgrüner Samt – Spinatsuppe",
+   "description": "Grüne Energie, die den Eisenbedarf deckt und Müdigkeit lindert. Reich an Folsäure.",
+   "category": "Abendessen",
+   "ingredients": [
+    "Spinat: 1 großer Bund",
+    "Kartoffel: 1 Stück",
+    "Zwiebel: 1 Stück",
+    "Sahne (oder Milch): ein halbes Glas",
+    "Salz, Pfeffer"
+   ],
+   "instructions": [
+    "Schneide das Gemüse klein und koche es in Wasser",
+    "Sobald es weich ist, mit einem Mixer fein pürieren",
+    "Zum Schluss die Sahne hinzugeben und kurz aufkochen lassen",
+    "Salz und Pfeffer hinzufügen",
+    "Heiß servieren – ideal zur Deckung des Eisenbedarfs"
+   ]
+  },
+  "5ea647ef-3b19-4587-8829-05b5dcb6c41c": {
+   "title": "Knuspriges Sesam-Pasteli",
+   "description": "Ein Energieriegel nach altem Rezept: nur Honig und Sesam. Reich an Kalzium und ideal gegen Heißhunger auf Süßes.",
+   "category": "gesunde_suessigkeiten",
+   "ingredients": [
+    "Sesam: 1 Tasse",
+    "Honig: eine halbe Tasse"
+   ],
+   "instructions": [
+    "Den Sesam in einer trockenen Pfanne leicht rösten, bis er goldbraun ist",
+    "Den Honig in einer separaten Pfanne erhitzen, bis er aufschäumt",
+    "Den gerösteten Sesam zum Honig geben und zügig verrühren",
+    "Die Masse 1 sm dick auf Backpapier verteilen",
+    "Nach dem Abkühlen rautenförmig schneiden"
+   ]
+  },
+  "971c317e-b7ac-4733-b72a-ef93a65eb1b6": {
+   "title": "Super Grain Bowl – Quinoa-Salat",
+   "description": "Eine echte Proteinbombe. Enthält alle essenziellen Aminosäuren und unterstützt die Qualität der Muttermilch.",
+   "category": "mittagessen",
+   "tags": [
+    "postpartum"
+   ],
+   "ingredients": [
+    "Quinoa: eine halbe Tasse (gekocht)",
+    "Schwarze Bohnen oder Kichererbsen: eine halbe Tasse",
+    "Avocado: eine halbe",
+    "Petersilie: 1 Bund",
+    "Zitronensaft, Olivenöl"
+   ],
+   "instructions": [
+    "Die Quinoa waschen, 15 Minuten kochen und abgießen",
+    "Die gekochten Bohnen/Kichererbsen hinzufügen",
+    "Die Avocado würfeln",
+    "Mit Petersilie, Zitronensaft und Olivenöl vermengen",
+    "Kalt oder bei Zimmertemperatur servieren"
+   ]
+  },
+  "12f0782c-f0f2-4ba6-a173-dbb482071e15": {
+   "title": "Das erste Grün – Zucchinipüree",
+   "description": "Der besonders leichte Beikoststart für das Verdauungssystem deines Babys (6 Monate+)",
+   "category": "babynahrung",
+   "tags": [
+    "babynahrung"
+   ],
+   "ingredients": [
+    "Zucchini – 1 kleine",
+    "Olivenöl – 1 Teelöffel",
+    "Muttermilch/Säuglingsnahrung"
+   ],
+   "instructions": [
+    "Die Zucchini dämpfen",
+    "Im Mixer pürieren",
+    "Muttermilch und Olivenöl hinzufügen"
+   ]
+  },
+  "7bcfa70e-7c6a-42b0-84fa-c8b8642dc2e8": {
+   "title": "Rubinroter Eintopf mit Roter Bete und Fleisch",
+   "description": "Ein wunderbares Duo zur Unterstützung der Blutbildung und Milchproduktion. Eine wertvolle Eisen- und Eiweißquelle.",
+   "category": "mittagessen",
+   "tags": [
+    "postpartum"
+   ],
+   "ingredients": [
+    "Rindfleisch: 200 qr (gewürfelt)",
+    "Rote Bete: 1 Stück (groß)",
+    "Karotte: 1 Stück",
+    "Brühe: 2 Tassen",
+    "Salz, Pfeffer"
+   ],
+   "instructions": [
+    "Das Fleisch in kleine Würfel schneiden und kochen, bis es weich ist",
+    "Rote Bete und Karotte schälen und klein schneiden",
+    "Zum Fleisch geben und bei niedriger Hitze 30-40 Minuten garen",
+    "Mit Salz und Pfeffer würzen",
+    "Warm servieren – unterstützt die Blutbildung und Milchproduktion"
+   ]
+  },
+  "fa71b0aa-2b84-4b46-9f5a-66cd2a1a924c": {
+   "title": "Vanilleschoten-Macchiato",
+   "description": "Ein authentischer italienischer Genuss mit natürlicher Vanille statt künstlichem Sirup.",
+   "category": "allgemein",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "1 Tasse Espresso, ein Viertel Glas warme, aufgeschäumte Milch, das Mark einer natürlichen Vanilleschote (oder Bio-Vanilleextrakt)."
+   ],
+   "instructions": [
+    "Die Milch zusammen mit der Vanille erwärmen und gut aufschäumen. Nur den Vanilleschaum mit einem Löffel auf den heißen Espresso geben."
+   ]
+  },
+  "a8e7b2fb-a93b-4062-b10e-3ec92ab8f15b": {
+   "title": "Goldener Quinoa-Porridge",
+   "description": "Eine bewährte Energiequelle und reich an pflanzlichem Eisen.\n\nVorteil: Quinoa ist ein glutenfreies Pseudogetreide, das alle essenziellen Aminosäuren enthält und zur Regulierung des Blutzuckers beiträgt.",
+   "category": "frühstück",
+   "ingredients": [
+    "Quinoa: eine halbe Tasse (gründlich gewaschen)",
+    "Mandelmilch: 1 Tasse",
+    "Kurkuma: ein halber Teelöffel (entzündungshemmend)",
+    "Mandeln, Rosinen oder getrocknete Pflaumen."
+   ],
+   "instructions": [
+    "Quinoa und Milch in einen Topf geben, Kurkuma hinzufügen und bei niedriger Hitze kochen, bis die Flüssigkeit vollständig aufgenommen wurde. Vom Herd nehmen und mit Mandeln und Rosinen bestreuen."
+   ]
+  },
+  "ee7e5b2c-3005-40bc-948c-9e7d5600cfdc": {
+   "title": "Der orangefarbene Genuss - Karottensalat",
+   "description": "Eine kalziumreiche Kombination aus Karotten und Tahin. Beta-Carotin und Kalzium verbessern die Qualität der Muttermilch.",
+   "category": "Abendessen",
+   "ingredients": [
+    "Karotten: 2 Stück (geraspelt)",
+    "Walnüsse: 1 Handvoll (gehackt)",
+    "Tahin (Sesampaste): 1 Esslöffel",
+    "Zitronensaft, Olivenöl",
+    "Dill: einige Zweige"
+   ],
+   "instructions": [
+    "Rasple die Karotten",
+    "Hacke die Walnüsse und gib sie dazu",
+    "Hacke den Dill fein",
+    "Bereite aus Tahin, Zitronensaft und Olivenöl ein Dressing zu",
+    "Vermische alles und serviere den vitaminreichen Salat"
+   ]
+  },
+  "50c1c324-2182-4a8b-9fa1-e6567601c2d3": {
+   "title": "Lebensnektar-Kompott",
+   "description": "Ein natürlicher, zuckerfreier Fruchtaufguss aus Trockenfrüchten. Muttermilch besteht zu 80% aus Wasser – dieses Kompott löscht den Durst.",
+   "category": "Gesunde Getränke",
+   "ingredients": [
+    "Getrocknete Aprikosen: 5-6 Stück",
+    "Trockenpflaumen: 3-4 Stück",
+    "Apfel (getrocknet oder frisch): in Scheiben geschnitten",
+    "Wasser: 1.5 Liter"
+   ],
+   "instructions": [
+    "Wasche die Trockenfrüchte",
+    "Gib sie in 1.5 Liter Wasser und bringe es zum Kochen",
+    "Lass alles nach dem Aufkochen 20 Minuten bei niedriger Hitze köcheln",
+    "Gib keinen Zucker hinzu – die natürliche Süße der Früchte reicht aus",
+    "Trink das Kompott kalt und über den Tag verteilt reichlich davon"
+   ]
+  },
+  "d3d9ab59-ad73-4c09-ad5f-3b3fedca7488": {
+   "title": "Goldener Apfel - Püree aus gedünstetem Apfel",
+   "description": "Gedünsteter Apfel verursacht keine Blähungen und schmeckt köstlich (6 Monate+)",
+   "category": "Babynahrung",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Apfel - 1 Stück",
+    "Wasser"
+   ],
+   "instructions": [
+    "Schäle den Apfel und schneide ihn in Scheiben",
+    "Dünste ihn im Dampfgarer",
+    "Püriere ihn mit dem Mixer"
+   ]
+  },
+  "2b374b35-8810-48b4-a990-d7b6c19bcd99": {
+   "title": "Creamy Brain – Avocado-Banane",
+   "description": "Eine Omega-3-Bombe für die Gehirnentwicklung, ganz ohne Kochen (ab 7 Monaten)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food",
+    "vitamin_rich"
+   ],
+   "ingredients": [
+    "Avocado – eine halbe",
+    "Banane – eine halbe"
+   ],
+   "instructions": [
+    "Beides mit einer Gabel zerdrücken",
+    "Etwas stückig lassen"
+   ]
+  },
+  "f7f4a9f1-a670-4aa2-bc79-2ba16bd08e45": {
+   "title": "Little Protein – Hähnchen und Gemüse",
+   "description": "Das erste Fleischerlebnis deines Babys (7-8 Monate)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Hähnchenbrust – 40 qr",
+    "Brokkoli – 3 Röschen",
+    "Olivenöl"
+   ],
+   "instructions": [
+    "Das Fleisch kochen und das erste Kochwasser wegschütten",
+    "Das Gemüse hinzufügen und mitgaren",
+    "Alles zusammen pürieren"
+   ]
+  },
+  "b455efa4-2b34-4269-90be-921a5749ae99": {
+   "title": "Ocean Mild – Weißfisch und Gemüse",
+   "description": "Eine Quelle für Phosphor und Jod (9-10 Monate)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Weißfisch – 40 qr",
+    "Karotte – eine halbe",
+    "Zwiebel – eine kleine Menge"
+   ],
+   "instructions": [
+    "Den Fisch zusammen mit dem Gemüse dämpfen",
+    "Sorgfältig auf Gräten prüfen",
+    "Mit einer Gabel zerkleinern"
+   ]
+  },
+  "8c40752c-6db4-4615-b2ca-638a97aa09f6": {
+   "title": "Orange Power – Kürbis-Karotten-Püree",
+   "description": "Eine Beta-Carotin-Quelle mit einem süßen Geschmack, den Babys lieben (6-7 Monate)",
+   "category": "Babynahrung",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Kürbis – 1 Scheibe",
+    "Karotte – 1 Stück"
+   ],
+   "instructions": [
+    "Gare das Gemüse im Dampf",
+    "Püriere es im Blender zu einem glatten Püree"
+   ]
+  },
+  "07319d7d-c920-4693-bc34-502061f38b1b": {
+   "title": "Ocean’s Pearl – Lachs mit Spargel",
+   "description": "Ein klassisches Duo, das die Haut von innen mit Feuchtigkeit versorgt und Wassereinlagerungen reduziert.\n\nVorteil: Die Omega-3-Fettsäuren im Lachs bringen Haare und Haut zum Strahlen, während Spargel harntreibend wirkt und dabei hilft, überschüssiges Wasser und Schwellungen im Körper zu reduzieren.",
+   "category": "Mittagessen",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Lachsfilet: 150 qr",
+    "Spargel: 6-8 Stangen",
+    "Zitrone: Eine halbe",
+    "Olivenöl, Meersalz, schwarzer Pfeffer."
+   ],
+   "instructions": [
+    "Schneide die holzigen Enden des Spargels ab. Lege den Fisch und den Spargel auf ein Backblech. Gib Olivenöl, Salz, Pfeffer und Zitronensaft darüber und gare alles bei 180 Grad für 15-20 Minuten."
+   ]
+  },
+  "fff5b4d4-5ba2-4e96-98ea-a65ef476ad64": {
+   "title": "Falafel aus dem Ofen",
+   "description": "Ein ballaststoffreicher, knuspriger orientalischer Genuss aus dem Ofen – ideal für alle, die auf Frittiertes verzichten möchten.\n\nVorteil: Kichererbsen unterstützen den Östrogenspiegel im weiblichen Körper auf natürliche Weise, und ihr hoher Ballaststoffgehalt hilft, Verstopfung vorzubeugen.",
+   "category": "Mittagessen",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Kichererbsen: 1 Glas (über Nacht eingeweicht, roh)",
+    "Frische Petersilie und frischer Koriander: Ein halber Bund",
+    "Zwiebel, Knoblauch, Kreuzkümmel (gemahlen)."
+   ],
+   "instructions": [
+    "Zerkleinere alle Zutaten im Blender, ohne sie zu fein zu pürieren. Forme mit den Händen kleine Bällchen und backe sie auf Backpapier bei 180 Grad für 25 Minuten. Serviere sie mit Joghurt- oder Tahinsoße."
+   ]
+  },
+  "52d3741b-ea80-45a2-99fd-beda7e7b6c4a": {
+   "title": "Bernsteinstrom – Bockshornklee-Tee",
+   "description": "Eine der bekanntesten Pflanzen zur Unterstützung der Milchbildung: Bockshornklee (Fenugreek). Er kann die Ausschüttung des Hormons Prolaktin anregen.",
+   "category": "gesunde_getraenke",
+   "ingredients": [
+    "Bockshornkleesamen (Fenugreek): 1 Teelöffel",
+    "Wasser: 2 Gläser",
+    "Honig: 1 Teelöffel (optional)",
+    "Zitrone: einige Tropfen"
+   ],
+   "instructions": [
+    "Röste die Bockshornkleesamen 1-2 Minuten leicht in einer trockenen Pfanne an (nicht anbrennen lassen)",
+    "Gib sie in kochendes Wasser",
+    "Lass den Tee 10 Minuten ziehen und seihe ihn ab",
+    "Füge nach Belieben Honig und Zitrone hinzu",
+    "Trinke täglich 2-3 Tassen – eine Zunahme der Milchmenge kann nach 24-48 Stunden spürbar sein"
+   ]
+  },
+  "8c4792f6-0abc-4597-99d1-ff981dc2a340": {
+   "title": "Matcha Morning Bowl",
+   "description": "Für alle, die ohne Kaffee wach werden möchten: reich an Antioxidantien und anregend für den Stoffwechsel.\n\nVorteil: Matcha-Tee kann den Stoffwechsel unterstützen und zu einem klaren Hautbild beitragen. Anders als Kaffee sorgt er nicht für einen plötzlichen Energieschub mit anschließendem Tief, sondern unterstützt eine ausgeglichene Wachheit über den Tag hinweg.",
+   "category": "Frühstück",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Gefrorene Banane: 1 Stück",
+    "Matcha-Pulver: 1 Teelöffel",
+    "Spinat: 1 kleine Handvoll",
+    "Mandelmilch: ein halbes Glas",
+    "Als Topping: Kokosraspeln, Mandelkerne, Kiwischeiben."
+   ],
+   "instructions": [
+    "Mixe Banane, Matcha, Spinat und Milch im Mixer zu einem dickflüssigen Smoothie. Fülle ihn in eine Schüssel und garniere ihn mit Nüssen und Kiwi."
+   ]
+  },
+  "13b7591b-479c-457d-ab27-09785681c532": {
+   "title": "Sweet Dreams Shot",
+   "description": "Zur Linderung von Muskelkrämpfen und Verspannungen",
+   "category": "gesunde_getraenke",
+   "ingredients": [
+    "Mandeln – 5 Stück (eingeweicht)",
+    "Banane – ein Viertel",
+    "Kakao – ein halber Teelöffel",
+    "Wasser – 2 Esslöffel"
+   ],
+   "instructions": [
+    "Schäle die Mandeln",
+    "Mixe alle Zutaten im Mixer, bis sie flüssig sind"
+   ]
+  },
+  "0af2c4bf-6712-4fe8-994f-bb2c520b2caf": {
+   "title": "Brokkoli-Blumenkohl-Gratin",
+   "description": "Eine Quelle für Kalzium und Vitamin C und eine gute Alternative für fleischfreie Tage",
+   "category": "Abendessen",
+   "tags": [
+    "Schwangerschaft"
+   ],
+   "ingredients": [
+    "Blumenkohl oder Brokkoli - 300 g",
+    "Eier - 2 Stück",
+    "Joghurt - 2 Esslöffel",
+    "Mehl - 1 Esslöffel",
+    "Käse - 30 g"
+   ],
+   "instructions": [
+    "Blumenkohl oder Brokkoli garen",
+    "Eier, Joghurt und Mehl verquirlen",
+    "Die Mischung über das Gemüse gießen",
+    "Mit Käse bestreuen und im Ofen backen"
+   ]
+  },
+  "c7535dc2-4407-4715-bc23-3a8242531319": {
+   "title": "Schokoladenmousse mit Avocado",
+   "description": "Avocado ist reich an Folsäure und Magnesium, während Kakao die Ausschüttung von Glückshormonen anregt",
+   "category": "Gesunde Getränke",
+   "ingredients": [
+    "Avocado - 1 Stück",
+    "Kakao - 2 Esslöffel",
+    "Honig - 3 Esslöffel",
+    "Vanille",
+    "Mandelmilch - 3 Löffel"
+   ],
+   "instructions": [
+    "Alle Zutaten in den Mixer geben",
+    "Mixen, bis eine cremige Konsistenz entsteht",
+    "30 Minuten im Kühlschrank kalt stellen",
+    "Mit Erdbeeren servieren"
+   ]
+  },
+  "b8788575-43f0-4748-a08b-a02e6044caa7": {
+   "title": "Das grüne Wunder – Fleischbällchen mit Dill",
+   "description": "Das bekannteste Geheimnis der aserbaidschanischen Küche zur Förderung der Milchbildung: reichlich Dill! Er kann den Milchfluss anregen.",
+   "category": "Mittagessen",
+   "ingredients": [
+    "Hackfleisch (Rind oder Hähnchen): 300 g",
+    "Reis: ein halbes Glas",
+    "Dill: 2 große Bund",
+    "Kartoffeln: 2 Stück",
+    "Zwiebel: 1 Stück",
+    "Salz, Pfeffer"
+   ],
+   "instructions": [
+    "Hackfleisch, gewaschenen Reis und die Hälfte des fein gehackten Dills vermischen",
+    "Mit Salz und Pfeffer würzen und daraus Fleischbällchen formen",
+    "Die gewürfelten Kartoffeln und die Zwiebel in kochendes Wasser geben",
+    "Nach 5 Minuten die Fleischbällchen hinzufügen und bei schwacher Hitze 25-30 Minuten garen",
+    "Kurz vor Ende der Garzeit den restlichen Dill großzügig hacken und in die Suppe geben"
+   ]
+  },
+  "d9f4e457-b6da-4ebb-92a8-543b9465b164": {
+   "title": "Rubinroter Hibiskus-Mojito",
+   "description": "Ein roter Genuss, der als Jungbrunnen gilt und zur Regulierung des Blutdrucks beiträgt.\n\nVorteile: Hibiskus ist reich an Vitamin C und Antioxidantien, regt den Stoffwechsel an und unterstützt das Herz-Kreislauf-System.",
+   "category": "Gesunde Getränke",
+   "ingredients": [
+    "Hibiskustee (stark aufgebrüht und abgekühlt): Ein halbes Glas",
+    "Minzblätter: 5-6 Stück",
+    "Limette: Eine halbe (in Scheiben geschnitten)",
+    "Mineralwasser mit Kohlensäure und Eis."
+   ],
+   "instructions": [
+    "Zerdrücke die Minzblätter und Limettenscheiben am Boden des Glases mit einem Holzstößel. Gib reichlich Eis hinzu. Fülle das Glas mit kaltem Hibiskustee und Mineralwasser auf und rühre alles um."
+   ]
+  },
+  "d407408a-9e13-47c0-b565-ec699f31591e": {
+   "title": "Citrus Spark",
+   "description": "Ein morgendlicher Cocktail, der den Stoffwechsel anregt und die Fettverbrennung unterstützt.\n\nVorteile: Grapefruit trägt zu einem ausgeglichenen Insulinspiegel bei, während Rosmarin Gedächtnis und Konzentration fördert.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Grapefruitsaft (frisch gepresst): Ein halbes Glas",
+    "Frischer Rosmarin: 1 Zweig",
+    "Mineralwasser mit Kohlensäure: Ein halbes Glas",
+    "Eis."
+   ],
+   "instructions": [
+    "Drücke den Rosmarinzweig leicht mit der Hand an, damit sich sein Aroma entfaltet, und gib ihn ins Glas. Füge Eis und Grapefruitsaft hinzu und fülle alles mit Mineralwasser auf."
+   ]
+  },
+  "fff46867-aa41-4bc9-8647-1346ba044359": {
+   "title": "Eiskalter Kakao-Proteinshake",
+   "description": "Ideal für die Regeneration der Muskeln nach dem Sport und ein lang anhaltendes Sättigungsgefühl.",
+   "category": "Gesunde Getränke",
+   "ingredients": [
+    "1 Esslöffel Kakao, 1 gefrorene Banane, 1 Esslöffel Erdnussbutter, 1 Glas kalte Milch, Eis."
+   ],
+   "instructions": [
+    "Mixe alle Zutaten im Mixer, bis ein dickflüssiger Shake entsteht."
+   ]
+  },
+  "e3dad099-6f8a-4e3c-8dfa-2922158c70b6": {
+   "title": "Blumenkohlpizza",
+   "description": "Für Pizza-Genuss ohne schlechtes Gewissen, Gluten und Teig.\n\nVorteil: Blumenkohl ist reich an sekundären Pflanzenstoffen und unterstützt die natürliche Leberfunktion. Diese Pizza ist besonders bekömmlich und verursacht keine Blähungen oder Sodbrennen.",
+   "category": "Abendessen",
+   "ingredients": [
+    "Blumenkohl: Ein halber Kopf (gerieben und vollständig ausgedrückt)",
+    "Ei: 1 Stück",
+    "Käse (gerieben): 3 Esslöffel (für den Boden)",
+    "Für den Belag: Tomatenmark, Tomatenscheiben, Käse, Basilikum."
+   ],
+   "instructions": [
+    "Vermische den geriebenen Blumenkohl mit dem Ei und dem Käse und verteile die Masse wie einen Pizzaboden auf einem Backblech. Backe sie bei 200 Grad 15 Minuten lang (bis sie goldbraun ist). Nimm sie anschließend heraus, verteile die Sauce und die Zutaten darauf und backe sie weitere 5 Minuten, bis der Käse geschmolzen ist."
+   ]
+  },
+  "cc18259a-201a-4dd4-83bd-d60fc14dccba": {
+   "title": "Warmer Pilz-Spinat-Salat",
+   "description": "Ein aromatischer, warmer und sättigender Salat für Abende, an denen du kein Fleisch essen möchtest.\n\nVorteil: Das Magnesium im Spinat trägt zur Entspannung der Muskeln bei, während Pilze reich an Vitamin D und B-Vitaminen sind, die das Immunsystem unterstützen.",
+   "category": "Abendessen",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Champignons oder Austernpilze: 150 qr (geschnitten)",
+    "Babyspinat: 2-3 Handvoll (roh)",
+    "Walnüsse: 1 Handvoll",
+    "Balsamico-Essig, Olivenöl, Knoblauch (ein wenig)."
+   ],
+   "instructions": [
+    "Brate die Pilze zusammen mit einer Knoblauchzehe in wenig Öl goldbraun an. Gib den Spinat in eine Schüssel. Verteile die heißen Pilze auf dem Spinat (durch die Wärme fällt der Spinat leicht zusammen). Bestreue den Salat mit Walnüssen und beträufle ihn mit Balsamico-Essig."
+   ]
+  },
+  "a5b41661-394b-4403-8c11-ef8c670867ac": {
+   "title": "Zucchini-Spaghetti mit Linsen",
+   "description": "Eine pflanzliche, proteinreiche Pasta-Alternative, die deine Lust auf Spaghetti stillt.\n\nVorteil: Dank der Zucchini enthält das Gericht nur sehr wenige Kohlenhydrate. Die Linsen liefern pflanzliches Eisen und Ballaststoffe und unterstützen so die Verdauung.",
+   "category": "Abendessen",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Zucchini: 2 Stück (in Spaghettiform geschnitten)",
+    "Rote Linsen: Ein halbes Glas (gekocht)",
+    "Tomate, Zwiebel, Knoblauch (für die Sauce)."
+   ],
+   "instructions": [
+    "Bereite aus Zwiebel und Tomate eine Sauce nach „Bolognese“-Art zu und gib die gekochten Linsen hinzu. Brate die Zucchini 2 Minuten lang in der Pfanne an, richte sie auf einem Teller an und gib reichlich Linsensauce darüber."
+   ]
+  },
+  "0b4a6a47-3a40-4940-a2d5-e0a7260449ef": {
+   "title": "Regenbogenspieße (ab 3 Jahren)",
+   "description": "Bunte und sichere Spieße, die das Obstessen zu einem lustigen Spiel machen.\n\nVorteil: Verschiedenfarbige Früchte liefern unterschiedliche Vitamine und Nährstoffe (Vitamin C, Vitamin K, Antioxidantien).",
+   "category": "Beikost",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Erdbeeren (rot), Mandarinen (orange), Bananen (gelb), Kiwis (grün), Heidelbeeren (blau/violett).",
+    "Kindersichere Kunststoff- oder Holzspieße (Stäbchen) mit stumpfen Enden."
+   ],
+   "instructions": [
+    "Schneide das Obst in kleine, mundgerechte Würfel. Stecke es in der Reihenfolge der Regenbogenfarben auf die Spieße."
+   ]
+  },
+  "71d8c222-1035-4fd0-929b-23c2b485af16": {
+   "title": "Garnelen mit Knoblauch und Zucchini",
+   "description": "Ein Meeresfrüchtegericht wie im Café oder Restaurant, aber mit sehr wenigen Kalorien.\n\nVorteil: Garnelen sind reich an Zink und Jod, die Haare und Nägel stärken. Da dieses Gericht sehr leicht ist, eignet es sich ideal als Abendessen.",
+   "category": "Abendessen",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Garnelen (geschält): 150 qr",
+    "Zucchini: 2 Stück (wie Spaghetti geschnitten)",
+    "Eine Mischung aus etwas Butter und Olivenöl.",
+    "Knoblauch: 2 Zehen (zerdrückt), Chiliflocken."
+   ],
+   "instructions": [
+    "Erhitze das Öl mit dem Knoblauch in einer Pfanne. Gib die Garnelen dazu und brate sie, bis sie rosa sind (insgesamt 3-4 Minuten). Füge die Zucchini hinzu und brate alles weitere 2 Minuten an. Mit Zitronensaft beträufeln und sofort servieren."
+   ]
+  },
+  "866a9373-a971-4ae1-bcb7-5c987dbcae3a": {
+   "title": "Lavendelmilch",
+   "description": "Ein wohltuendes Getränk, das nach einem anstrengenden Tag Stress vertreibt und dich wie ein Baby schlafen lässt.\n\nVorteil: Der Duft und Geschmack von Lavendel beruhigen das Nervensystem und verbessern die Schlafqualität.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Mandel- oder Hafermilch: 1 Glas",
+    "Getrockneter Lavendel (für die Küche geeignet): 1 Teelöffel",
+    "Honig oder Agavendicksaft: 1 Teelöffel",
+    "Vanilleextrakt: Einige Tropfen."
+   ],
+   "instructions": [
+    "Erwärme die Milch in einem Topf, ohne sie zum Kochen zu bringen. Gib den Lavendel hinein und lasse ihn 5-10 Minuten ziehen. Gieße die Milch durch ein Sieb in ein Glas, füge Honig und Vanille hinzu und trinke sie lauwarm."
+   ]
+  },
+  "64191934-b404-495f-b229-388b63914389": {
+   "title": "Erdbeer-Cashew-Käsekuchen",
+   "description": "Ein köstlicher „Raw Vegan“-Käsekuchen ohne Milchprodukte, Mehl und Zucker.\n\nVorteile: Cashewkerne tragen zur Regulierung des Blutdrucks bei, während Erdbeeren reich an Vitamin C sind, das antioxidativ wirkt.",
+   "category": "Gesunde Süßigkeiten",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Für den Boden: Mandeln, Datteln (im Mixer zerkleinert).",
+    "Für die Creme: 1.5 Tassen Cashewkerne (über Nacht eingeweicht), 1 Tasse Erdbeeren, 3 Esslöffel geschmolzenes Kokosöl, Agavendicksaft."
+   ],
+   "instructions": [
+    "Drücke die Mischung für den Boden fest in die Form. Gieße die eingeweichten Cashewkerne ab und mixe sie mit den Erdbeeren, dem Öl und dem Agavendicksaft zu einer vollkommen glatten Creme. Verteile die Creme auf dem Boden und stelle den Kuchen für 4 Stunden ins Gefrierfach."
+   ]
+  },
+  "27feef17-d812-4444-aa98-c2116d7d5049": {
+   "title": "Süßkartoffel-Apfel-Püree (ab 6 Monaten)",
+   "description": "Da Babys süße Aromen lieben, wird dieses Püree sicher zu ihren beliebtesten ersten Mahlzeiten gehören.\n\nVorteile: Süßkartoffeln sind reich an Vitamin A und Ballaststoffen, während Äpfel die Verdauung unterstützen.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Süßkartoffel: 1 kleines Stück (geschält und gewürfelt)",
+    "Süßer Apfel: Eine halbe Frucht (geschält)",
+    "Muttermilch oder Säuglingsnahrung (zum Verdünnen)."
+   ],
+   "instructions": [
+    "Gare die Süßkartoffel und den Apfel im Dampf oder in sehr wenig Wasser, bis beides ganz weich ist. Zerdrücke alles mit einer Gabel oder püriere es. Gib im warmen Zustand etwas Muttermilch hinzu, bis die gewünschte Konsistenz erreicht ist."
+   ]
+  },
+  "10778f55-a6f7-4dea-b6b5-e285d45babb5": {
+   "title": "Karotten-Linsen-Suppe\n(ab 8 Monaten)",
+   "description": "Eine besonders leckere, orangefarbene und gut bekömmliche Suppe, um dein Baby mit Eisen vertraut zu machen.\n\nVorteile: Rote Linsen sind eine pflanzliche Eiweiß- und Eisenquelle. Karotten sind reich an Beta-Carotin, das die Entwicklung der Augen unterstützt.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Rote Linsen: 2 Esslöffel (gründlich gewaschen)",
+    "Karotte: 1 kleines Stück (gerieben)",
+    "Olivenöl: 1 Teelöffel."
+   ],
+   "instructions": [
+    "Gib die Karotte und die Linsen in einen kleinen Topf, bedecke sie knapp mit Wasser und koche sie, bis sie ganz weich sind. Püriere alles im Mixer und träufle 1 Teelöffel natives Olivenöl extra darüber."
+   ]
+  },
+  "b3153614-fcee-47f5-887f-a9f21df0723d": {
+   "title": "Quinoa-Schoko-Häppchen",
+   "description": "Die knusprigste und gesündeste Antwort auf den Schokoladenhunger während des PMS (vor der Periode).\n\nVorteil: Zartbitterschokolade ist reich an Magnesium, das Krämpfe und Anspannung lindert. Gepuffter Quinoa liefert Eiweiß und hält den Blutzuckerspiegel stabil.",
+   "category": "Gesunde Süßigkeiten",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Zartbitterschokolade (mindestens 70% Kakao): 100 qr",
+    "Gepuffter Quinoa (oder Haferflocken): 1 Tasse",
+    "Meersalz: Eine sehr kleine Menge (zum Bestreuen)"
+   ],
+   "instructions": [
+    "Schmelze die Schokolade im Wasserbad. Gib den Quinoa dazu und vermische alles gründlich. Setze mit einem Löffel kleine Häufchen auf Backpapier. Bestreue sie mit Meersalz und stelle sie zum Festwerden für 20 Minuten in den Kühlschrank."
+   ]
+  },
+  "1b665124-a619-4ee4-9dce-a48ced0f8106": {
+   "title": "Kakao-Avocado-Tarte",
+   "description": "Eine überraschend gesunde Variante der Schokoladentarte, die ganz ohne Backen auskommt.\n\nVorteil: Die gesunden Fette der Avocado sind für die Bildung weiblicher Hormone unverzichtbar. Kakao fördert außerdem die Ausschüttung von Endorphinen (Glückshormonen).",
+   "category": "Gesunde Süßigkeiten",
+   "ingredients": [
+    "Für den Boden: 1 Tasse Walnüsse, 10 Datteln.",
+    "Für die Creme: 2 reife Avocados, eine halbe Tasse ungesüßtes Kakaopulver, 4 Esslöffel Honig oder Melasse."
+   ],
+   "instructions": [
+    "Zerkleinere die Walnüsse und Datteln im Mixer und verteile die Masse auf dem Boden einer Tarteform. Mixe für die Creme Avocados, Kakao und Honig, bis eine vollkommen glatte, seidige Masse entsteht. Verteile die Creme auf dem Boden und stelle die Tarte für 2 Stunden in den Kühlschrank."
+   ]
+  },
+  "23124658-0378-42aa-b696-d264cdef885d": {
+   "title": "Datteln mit Erdnussbutter",
+   "description": "Ein energiespendender Snack, der schmeckt, als würdest du echte Karamellschokolade essen.\n\nVorteil: Er stillt das Verlangen nach raffiniertem Zucker vollständig. Erdnussbutter enthält Eiweiß und gesunde Fette, die für ein länger anhaltendes Sättigungsgefühl sorgen.",
+   "category": "Gesunde Süßigkeiten",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Medjool-Datteln (groß und weich): 5-6 Stück",
+    "Ungesüßte Erdnussbutter: 2 Esslöffel",
+    "Zartbitterschokolade (geschmolzen)."
+   ],
+   "instructions": [
+    "Schneide die Datteln der Länge nach auf und entferne die Kerne. Fülle sie mit Erdnussbutter. Tauche die Datteln bis zur Hälfte in die geschmolzene Zartbitterschokolade und stelle sie zum Festwerden in den Kühlschrank."
+   ]
+  },
+  "fb03ef40-89b2-4c37-a867-f84dac70544e": {
+   "title": "Spinat-Erbsen-Püree \n(8 Monate+)",
+   "description": "Eine farbenfrohe Mahlzeit voller Eisen und Eiweiß für die starken Helden von morgen.\n\nVorteil: Die Folsäure im Spinat und das Eiweiß in den grünen Erbsen unterstützen ein schnelles Wachstum.",
+   "category": "Beikost",
+   "ingredients": [
+    "Spinat: 1 Handvoll (geputzt)",
+    "Frische grüne Erbsen: 1 Esslöffel",
+    "Kartoffel: Eine halbe kleine Kartoffel",
+    "Butter: Ein sehr kleines Stück (ungesalzen)."
+   ],
+   "instructions": [
+    "Kartoffel und Erbsen in Wasser garen. Kurz vor Ende der Garzeit den Spinat hinzufügen. Das Wasser abgießen, Butter dazugeben und alles pürieren."
+   ]
+  },
+  "e4dcec61-d668-42ad-9158-cfc7b2b1485d": {
+   "title": "Blaubeer-Pancakes\n(9 Monate+)",
+   "description": "Eine leckere Mahlzeit, die dein Baby selbst mit den Händen essen kann (BLW) und die seine motorischen Fähigkeiten fördert.\n\nVorteil: Blaubeeren sind reich an starken Antioxidantien, die die Gehirnfunktion unterstützen. Weiche Pancakes ohne Zucker und Mehl.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Banane: 1 Stück (reif, zerdrückt)",
+    "Eigelb: 1 Stück (Eiweiß erst ab 1 Jahr)",
+    "Blaubeeren: 6-7 Stück (halbiert)",
+    "Hafermehl: 1 Esslöffel."
+   ],
+   "instructions": [
+    "Die Banane zerdrücken und mit dem Eigelb und dem Mehl vermischen. Die halbierten Blaubeeren hinzufügen. Mit einem Löffel kleine Kreise in eine ungefettete Pfanne geben und von beiden Seiten ausbacken."
+   ]
+  },
+  "a3480015-30ca-4f9a-b8de-a642fd9a639c": {
+   "title": "Zimt-Hafer-Flat-White",
+   "description": "Ein leichter, aromatischer Kaffee, der den Blutzuckerspiegel (Insulin) nicht abrupt ansteigen lässt.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "general",
+    "milk_boost"
+   ],
+   "ingredients": [
+    "1 Tasse (shot) Espresso, ein halbes Glas aufgeschäumte Hafermilch, 1 Teelöffel gemahlener Zimt."
+   ],
+   "instructions": [
+    "Die warme, cremig aufgeschäumte Hafermilch zum Espresso geben und großzügig mit Zimt bestreuen."
+   ]
+  },
+  "e39c8f3d-f865-4de6-8f5d-d3f60a5624c8": {
+   "title": "Avocado-Ei-Brei\n(8 Monate+)",
+   "description": "Eine natürliche Power-Kombination, die – abgesehen vom Ei – ganz ohne Kochen auskommt und Müttern morgens das Leben leichter macht.\n\nVorteile: Zwei großartige „Superfoods“ vereint. Die Omega-Fettsäuren der Avocado und das Cholin im Eigelb unterstützen direkt die Entwicklung von Intelligenz und Gedächtnis.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Hart gekochtes Eigelb: 1 Stück",
+    "Avocado: ein Viertel (sehr weich und reif)",
+    "Muttermilch oder Säuglingsnahrung."
+   ],
+   "instructions": [
+    "Avocado und gekochtes Eigelb in einer Schüssel mit einer Gabel gründlich zerdrücken. Falls die Masse zu fest ist, mit einigen Tropfen Muttermilch oder lauwarmem Wasser cremiger machen."
+   ]
+  },
+  "dc9362af-ecb7-4bac-9ddf-d84bf1aa2f2d": {
+   "title": "Pink-Panther-Pasta(1 Jahr+)",
+   "description": "Eine lustige Pasta mit Käse und Roter Bete, die Kinder mit ihrer Farbe begeistert.\n\nVorteile: Rote Bete unterstützt die Durchblutung, während Käse reichlich Kalzium für die Knochenentwicklung liefert.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Babynudeln (kleine Form): 3-4 Esslöffel",
+    "Rote-Bete-Püree (gekocht und zerdrückt): 1 Esslöffel",
+    "Lor-Käse (Şor) oder Frischkäse: 1 Esslöffel"
+   ],
+   "instructions": [
+    "Die Nudeln in Wasser sehr weich kochen und abgießen. Rote-Bete-Püree und Käse zu den noch heißen Nudeln geben und gründlich vermischen. Die Nudeln nehmen sofort eine leuchtend rosa Farbe an."
+   ]
+  },
+  "732a8d20-182d-45bb-9171-f30bbd4cd142": {
+   "title": "Gesunde Nuggets(1 Jahr+)",
+   "description": "Eine gesunde, im Ofen gebackene Alternative zu Nuggets aus dem Supermarkt – ganz ohne Zusatzstoffe.\n\nVorteile: Dank des hochwertigen Hähnchenproteins und der Ballaststoffe aus den Haferflocken sind sie eine vollwertige Energiequelle.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Hähnchenbrust: 100 qr (im Mixer zerkleinert oder sehr fein gehackt)",
+    "Hafermehl (oder zerkleinerte Haferflocken): zum Panieren",
+    "Ei: 1 Stück (verquirlt)",
+    "Süßes rotes Paprikapulver (mild)."
+   ],
+   "instructions": [
+    "Das Hähnchenfleisch mit sehr wenig Paprikapulver vermengen und gut durchkneten. In kleine Portionen teilen, zuerst in das Ei und anschließend in das Hafermehl tauchen. Auf Backpapier im Ofen bei 180 Grad 20 Minuten backen."
+   ]
+  },
+  "ec6cb7d9-6570-4500-be81-64329c0e4a07": {
+   "title": "Regenbogen-Risotto (ab 1 Jahr)",
+   "description": "Ein sättigendes Mittagessen voller bunter Zutaten, das die Kaufähigkeit fördert.\n\nVorteil: Eine besonders ausgewogene Mahlzeit, die Kohlenhydrate, Eiweiß und Vitamine in einem Topf vereint.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Rundkornreis: 2 Esslöffel (gründlich gewaschen)",
+    "Karotte, grüne Erbsen, Mais: jeweils 1 Esslöffel (sehr fein gehackt)",
+    "Knochen- oder Hühnerbrühe: 1 Glas",
+    "Butter: sehr wenig."
+   ],
+   "instructions": [
+    "Gemüse und Reis bei niedriger Hitze in der Brühe kochen, bis alles vollständig weich ist, die Flüssigkeit aufgenommen wurde und eine breiige Risotto-Konsistenz entsteht. Zum Schluss die Butter hinzufügen und unterrühren."
+   ]
+  },
+  "269778e2-5f1d-4cd3-b820-0a1898c7e6ea": {
+   "title": "Coco-Espresso Chill",
+   "description": "Ein erfrischendes, zuckerfreies Meisterwerk für alle, die tropische Aromen lieben.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 Tasse (Shot) Espresso, 1 Glas natürliches Kokoswasser (Coconut Water), reichlich Eis."
+   ],
+   "instructions": [
+    "Das Glas mit Eis füllen und das Kokoswasser hineingießen. Zum Schluss den Espresso langsam hinzufügen, sodass zwei verschiedenfarbige Schichten entstehen. Umrühren und genießen."
+   ]
+  },
+  "b53735ed-6abe-4b68-b652-4d5d294d5553": {
+   "title": "Zucchini-Puffer (ab 2 Jahren)",
+   "description": "Eine leckere Möglichkeit, Gemüse als Pancakes oder Puffer anzubieten und so das Interesse des Kindes zu wecken.\n\nVorteil: Zucchini und Kräuter sind ballaststoffreich und unterstützen die Darmtätigkeit. Da die Puffer sehr weich sind, lassen sie sich leicht kauen.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Zucchini: 1 Stück (gerieben und vollständig ausgedrückt)",
+    "Ei: 1 Stück",
+    "Weißkäse oder Quark: 1 Esslöffel",
+    "Vollkornweizenmehl: 1-2 Esslöffel."
+   ],
+   "instructions": [
+    "Die ausgedrückte Zucchini mit Ei, Käse und Mehl zu einem dickflüssigen Teig verrühren.",
+    "Mit einem Löffel kleine runde Portionen in eine gefettete, heiße Pfanne geben.",
+    "Von beiden Seiten goldbraun braten."
+   ]
+  },
+  "b83ce14e-ac83-4541-a4e8-d4b8fa3d176e": {
+   "title": "Himbeer-Bären-Bowl (ab 2 Jahren)",
+   "description": "Eine lustige Smoothie-Bowl mit Eiscreme-Feeling – ideal als Zwischenmahlzeit oder zum Frühstück.\n\nVorteile: Abgetropfter Joghurt enthält Probiotika und unterstützt das Immunsystem, während Beeren reich an Antioxidantien sind.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Abgetropfter Joghurt: 3 Esslöffel",
+    "Gefrorene Himbeeren oder Erdbeeren: 1 Handvoll",
+    "Banane: Eine halbe Banane (zum Vermischen mit dem Joghurt)",
+    "Zum Dekorieren: Bananenscheiben, Heidelbeeren (für das Bärengesicht)."
+   ],
+   "instructions": [
+    "Joghurt, eine halbe Banane und die gefrorenen Beeren im Mixer pürieren, bis eine vollkommen glatte, dicke Creme entsteht.",
+    "In eine Schüssel geben.",
+    "Aus zwei Bananenscheiben die Ohren und aus den Heidelbeeren Augen und Nase des Bären formen."
+   ]
+  },
+  "fdd5be2e-2d65-464b-84d3-084f637ea16e": {
+   "title": "Gesunder Dark Mocha",
+   "description": "Eine Alternative ohne Sirup für alle, die Kaffee und Schokolade gleichzeitig genießen möchten.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 Tasse Espresso, 1 Teelöffel reines Kakaopulver, 1 Teelöffel Honig, 1 Glas warme Mandelmilch."
+   ],
+   "instructions": [
+    "Kakaopulver und Honig im heißen Espresso auflösen. Die warme, aufgeschäumte Mandelmilch dazugießen."
+   ]
+  },
+  "b7520537-fae1-481b-9bea-7a9cf32f15f7": {
+   "title": "Lachende Pizzen (ab 2 Jahren)",
+   "description": "Eine lustige und gesunde Pizza, bei deren Zubereitung dir dein 2-jähriges Kind helfen kann.\n\nVorteile: Da sie selbst gemacht wird, enthält sie keine Zusatzstoffe. Das lachende Gesicht hilft deinem Kind, eine positive emotionale Beziehung zum Essen aufzubauen.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Mini-Vollkorn-Pitabrot (oder kleiner Lavash): 1 Stück",
+    "Tomatenpaste (hausgemacht, ohne Zucker): 1 Esslöffel",
+    "Mozzarella: 2 Esslöffel, gerieben",
+    "Schwarze Olivenringe (für die Augen) und ein Streifen rote Paprika (für den Mund)."
+   ],
+   "instructions": [
+    "Die Tomatenpaste auf dem Pitabrot verteilen.",
+    "Großzügig mit Käse bestreuen.",
+    "Aus Oliven und Paprika ein „lachendes Gesicht“ formen. Im Ofen backen, bis der Käse geschmolzen ist (etwa 5-7 Minuten)."
+   ]
+  },
+  "7cc7ac25-0798-468f-82c0-6764afc0cd4f": {
+   "title": "Hasenkekse (ab 2 Jahren)",
+   "description": "Knusprige, zuckerfreie und sehr gesunde selbst gemachte Kekse als Alternative zu herkömmlichem Gebäck.\n\nVorteile: Ballaststoffreiche Haferflocken und vitaminreiche Karotten fördern die Verdauung des Kindes. Eine besonders gesunde Alternative zu gekauften Keksen.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Haferflocken: 1 Tasse",
+    "Karotte: 1 Stück (gerieben)",
+    "Apfelmus: Eine halbe Tasse (Apfel kochen und zerdrücken – das sorgt für natürliche Süße)",
+    "Rosinen (sehr fein gehackt): 1 Esslöffel",
+    "Butter: 1 Esslöffel (geschmolzen)."
+   ],
+   "instructions": [
+    "Alle Zutaten in einer tiefen Schüssel gründlich zu einem Teig verkneten.",
+    "Mit den Händen kleine, flache Kekse formen (oder Ausstechformen mit Tiermotiven verwenden).",
+    "Bei 170 Grad 15-20 Minuten im Ofen backen, bis die Kekse leicht gebräunt sind."
+   ]
+  },
+  "e6d245f4-3ec1-4650-92fc-b0b877ba16f0": {
+   "title": "Mini-Burger (ab 3 Jahren)",
+   "description": "Gesunde, zu 100% selbst gemachte Mini-Burger, die eine leckere Alternative zu Fast Food bieten.\n\nVorteile: Frisch zu Hause zubereitetes Fleisch liefert Eiweiß und Eisen, Vollkornbrötchen enthalten B-Vitamine.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Mini-Burgerbrötchen aus Vollkornmehl: 2 Stück",
+    "Mageres Rinderhackfleisch: 100 g",
+    "Holländischer Käse: 1-2 dünne Scheiben",
+    "Tomate und Salatblatt",
+    "Olivenöl."
+   ],
+   "instructions": [
+    "Aus dem Hackfleisch dünne, flache Pattys in der Größe der Brötchen formen und mit wenig Öl in der Pfanne braten. Die Mini-Burger mit Patty, Käse, Tomate und Salat belegen."
+   ]
+  },
+  "705fa4d6-de4b-4c10-bc6c-46c0cc463f11": {
+   "title": "Gebackene Gemüsesticks (ab 3 Jahren)",
+   "description": "Bunte und knusprige Gemüsesticks als Alternative zu klassischen Pommes frites.\n\nVorteile: Süßkartoffeln und Karotten sind reich an Vitamin A. Da die Sticks nicht frittiert werden, enthalten sie keine Transfette.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Süßkartoffel (Batate): 1 Stück",
+    "Karotte: 1 großes Stück",
+    "Olivenöl: 1 Esslöffel",
+    "Sehr wenig Salz und mildes rotes Paprikapulver."
+   ],
+   "instructions": [
+    "Das Gemüse in gleich große, längliche Sticks wie Pommes schneiden. Mit Olivenöl und Gewürzen vermengen und auf Backpapier verteilen. Bei 200 Grad 20-25 Minuten backen, bis die Ränder knusprig sind."
+   ]
+  },
+  "36867e84-3459-4059-a668-70f297e35576": {
+   "title": "Teddybär-Toast (ab 3 Jahren)",
+   "description": "Ein leckerer Hingucker zum Frühstück, der in nur 2 Minuten zubereitet ist und für gute Laune sorgt.\n\nVorteile: Erdnussmus enthält wertvolle Fette und Eiweiß, die gut für das Gehirn sind. Die Banane liefert Energie.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Quadratische Scheibe Vollkornbrot: 1 Scheibe (getoastet)",
+    "Erdnussmus: 1 Esslöffel",
+    "Banane: 3 runde Scheiben",
+    "Heidelbeeren: 3 Stück."
+   ],
+   "instructions": [
+    "Bestreiche das getoastete Brot mit Erdnussmus. Lege zwei Bananenscheiben als Ohren an den oberen Rand und eine weitere als Schnauze in die Mitte. Forme aus den Heidelbeeren die Augen und die Nasenspitze."
+   ]
+  },
+  "ecfe7439-ff4e-4167-ab7a-c45d91fa903c": {
+   "title": "Secret-Garden-Muffins (ab 3 Jahren)",
+   "description": "Herzhafte Muffins mit Käse und Gemüse, die sich ideal für den Park oder unterwegs eignen.\n\nVorteile: Sie enthalten keinen Zucker. Dein Kind kann sie gut in der Hand halten und sauber essen. Außerdem stecken sie voller Mineralstoffe und Kalzium.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Eier: 2 Stück",
+    "Joghurt: 2 Esslöffel",
+    "Karotte (gerieben) und Brokkoli (sehr fein gehackt): Ein halbes Glas",
+    "Weißkäse: 2 Esslöffel (zerdrückt)",
+    "Vollkornmehl und Backpulver."
+   ],
+   "instructions": [
+    "Verquirle die flüssigen Zutaten. Gib das Gemüse und den Käse hinzu. Füge Mehl und Backpulver hinzu und verrühre alles zu einem dickflüssigen Muffinteig. Verteile den Teig auf Muffinförmchen und backe die Muffins bei 180 Grad 20-25 Minuten, bis sie aufgegangen und goldbraun sind."
+   ]
+  },
+  "0a108d2a-2483-496b-8459-a35dba184122": {
+   "title": "UFO-Pizzen (ab 4 Jahren)",
+   "description": "Glutenfreie, lustige Mini-Pizzen, bei denen Pilzköpfe statt Teig verwendet werden.\n\nVorteile: Portobello-Pilze oder große Champignons sind reich an Vitamin D. Eine tolle Möglichkeit, Kinder an Pilze zu gewöhnen.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Große Champignons: 4-5 Stück (Stiele entfernt)",
+    "Tomatenmark: 2 Esslöffel",
+    "Mozzarella: 3 Esslöffel (gerieben)",
+    "Mais oder Oliven."
+   ],
+   "instructions": [
+    "Bestreiche die Innenseiten der Pilze mit Tomatenmark. Gib Käse und Maiskörner darauf. Backe sie bei 180 Grad im Ofen, bis der Käse geschmolzen und die Pilze weich sind (etwa 15 Minuten)."
+   ]
+  },
+  "fe1e3f3e-8c82-4bdd-8cb3-2212d66df10f": {
+   "title": "Knusprige Fischhäppchen (ab 5 Jahren)",
+   "description": "Goldbraune, knusprige Fischwürfel, die selbst 5-Jährige begeistern, die sonst keinen Fisch mögen.\n\nVorteil: Weißfisch ist reich an Phosphor, Jod und leicht verdaulichem Eiweiß. Er unterstützt optimal die geistige Entwicklung.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Weißfischfilet (z. B. Kabeljau, Wolfsbarsch): 150 qr (gewürfelt und grätenfrei)",
+    "Ei: 1 ədəd",
+    "Ungesüßte Cornflakes oder Paniermehl: Zum Panieren"
+   ],
+   "instructions": [
+    "Zerdrücke die Cornflakes mit den Händen. Tauche die Fischwürfel zuerst in das verquirlte Ei und wälze sie anschließend in den Cornflakesbröseln. Backe sie auf Backpapier bei 180 Grad für 15-20 Minuten im Ofen."
+   ]
+  },
+  "2f4202ed-6015-4318-b0d0-ac257ccd10af": {
+   "title": "Knusprige Apfel-Sandwiches (ab 5 Jahren)",
+   "description": "Ein energiereicher Snack für nach der Schule oder dem Kindergarten, bei dem Apfelscheiben statt Brot verwendet werden.\n\nVorteil: Die Pektin-Ballaststoffe des Apfels und das Eiweiß im Erdnussmus halten lange satt und stillen auf natürliche Weise die Lust auf Süßes.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Großer Apfel: 1 ədəd (entkernt und in Ringe geschnitten)",
+    "Erdnuss- oder Mandelmus (ungesüßt): 2 xörək qaşığı",
+    "Rosinen oder Schokotropfen (für die Füllung)."
+   ],
+   "instructions": [
+    "Bestreiche einen Apfelring mit Erdnussmus, verteile die Rosinen darauf und lege den zweiten Ring wie bei einem Sandwich darüber. Du kannst das Sandwich in der Mitte durchschneiden, damit dein Kind es leichter halten kann."
+   ]
+  },
+  "75bdd91d-7aed-40d8-9434-8c6ca0198e19": {
+   "title": "Kardamom Cold Brew",
+   "description": "Ein erfrischender Kaffee mit sehr wenig Säure, der kein Sodbrennen verursacht und die Verdauung unterstützt.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 stəkan Cold Brew (kalt gebrühter Kaffee), 1-2 ədəd Kardamomkapseln (zerdrückt), Eis, nach Wunsch etwas pflanzliche Milch."
+   ],
+   "instructions": [
+    "Gib beim Aufbrühen (oder Filtern) des Kaffees die zerdrückten Kardamomsamen dazu. Serviere ihn mit reichlich Eis. Kardamom verleiht dem Kaffee ein besonders \"cooles\" und außergewöhnliches Aroma."
+   ]
+  },
+  "bb88a8d3-5c23-4d20-8927-32de71e35006": {
+   "title": "Morgenregenbogen (4 Jahre+)",
+   "description": "Ein ideales Frühstück zum Essen mit den Händen, das Mini-Pancakes und Obst miteinander kombiniert.\n\nVorteil: Verschiedene Obstsorten liefern unterschiedliche Vitamine. Die Spieße fördern die motorischen Fähigkeiten und wecken das Interesse der Kinder am Essen.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Mini-Pancakes: In der Größe einer Münze gebacken",
+    "Erdbeeren, Bananenscheiben, Kiwischeiben.",
+    "Holzspieße mit stumpfer Spitze."
+   ],
+   "instructions": [
+    "Stecke abwechselnd Mini-Pancake, Erdbeere, Banane, erneut einen Pancake und Kiwi auf die Spieße. Stelle dazu eine kleine Schale mit Honig oder Traubensirup zum Dippen bereit."
+   ]
+  },
+  "94068d6c-ec4c-4f36-a84e-fdd44212d93d": {
+   "title": "Fischfrikadellen (4 Jahre+)",
+   "description": "Eine wahre Omega-3-Quelle, die selbst Kinder, die keinen Fisch mögen, dank ihrer ansprechenden Form mit Genuss essen werden.\n\nVorteil: Lachs unterstützt die Gehirnfunktion und das Gedächtnis.",
+   "category": "Beikost",
+   "ingredients": [
+    "Lachsfilet: 100 g (gekocht und zerpflückt)",
+    "Kartoffel: 1 Stück (gekocht und zerdrückt)",
+    "Dill: Sehr wenig (gehackt)"
+   ],
+   "instructions": [
+    "Verknete die zerdrückte Kartoffel mit dem Fisch und dem Dill. Rolle die Masse auf Backpapier aus und stich mit einer sternförmigen Ausstechform Sterne aus. Brate sie in der Pfanne oder backe sie im Ofen, bis sie leicht gebräunt sind."
+   ]
+  },
+  "f234c77f-4a04-4526-9394-c82a1bc713cf": {
+   "title": "Galaxie-Pasta (5 Jahre+)",
+   "description": "Ein kosmisches Gericht mit cremiger Käsesauce und Nudeln in Formen, die an Sterne und Schmetterlinge erinnern.\n\nVorteil: Verschiedenfarbiges Gemüse (Erbsen, Mais) sorgt für mehr Vitamine, während die Sauce aus ungesüßtem Joghurt und Käse leicht bekömmlich ist.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Glutenfreie Schmetterlingsnudeln (Farfalle) oder bunte Nudeln: 1 Tasse",
+    "Grüne Erbsen und Mais: Jeweils 1 Esslöffel",
+    "Cherrytomaten: 3-4 Stück (halbiert)",
+    "Frischkäse (oder abgetropfter Joghurt): 1 Esslöffel."
+   ],
+   "instructions": [
+    "Koche die Nudeln, bis sie ganz weich sind, und gieße sie ab (hebe etwas Nudelwasser auf). Gib Frischkäse, Erbsen, Mais und Tomaten zu den heißen Nudeln und vermische alles. Der Käse schmilzt und ergibt eine cremige Sauce."
+   ]
+  },
+  "f005b3c3-1f74-4e4e-bab7-c8bc5e03c14a": {
+   "title": "Kokos-Matcha-Genuss",
+   "description": "Ein mildes, tropisch-warmes Getränk, das die Haut von innen mit Feuchtigkeit versorgt.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "1 Teelöffel Matcha-Pulver, 1 Tasse Kokosmilch, 1 Prise Vanilleextrakt."
+   ],
+   "instructions": [
+    "Die Kokosmilch in einem Topf erhitzen, bis sie dampft (nicht kochen lassen). Vanille und Matcha hinzugeben und mit einem Matcha-Besen (oder Milchaufschäumer) schaumig schlagen."
+   ]
+  },
+  "e8f085b1-b955-46e7-bd90-9c504005461c": {
+   "title": "Minz-Matcha-Frappé",
+   "description": "Eine 100% natürliche, erfrischende Alternative zu zuckerhaltigen \"Frappuccinos\".",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "1 Teelöffel Matcha, 1 gefrorene Banane, 3-4 frische Minzblätter, eine halbe Tasse Hafermilch."
+   ],
+   "instructions": [
+    "Alle Zutaten im Mixer auf hoher Stufe pürieren, bis eine eiscremeartige Frappé-Konsistenz entsteht."
+   ]
+  },
+  "692f8fd9-2a1f-4e6e-90a2-3450b555119d": {
+   "title": "Gewürzkakao",
+   "description": "Ein altes Rezept mit wärmenden Gewürzen, das den Stoffwechsel und die Durchblutung anregen kann.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "1 Esslöffel reines Kakaopulver, 1 Prise Zimt, eine sehr kleine Menge (eine Messerspitze) scharfes rotes Chilipulver (Cayennepfeffer), 1 Tasse heiße Haselnussmilch, Honig."
+   ],
+   "instructions": [
+    "Kakao und Gewürze in die heiße Milch geben und rühren, bis sich alles vollständig aufgelöst hat. Die ausgewogene Kombination aus Schärfe und Süße wärmt dich von innen."
+   ]
+  },
+  "4232cb2b-2881-4a46-bce4-1d4070cda869": {
+   "title": "Magische Garten-Muffins (ab 4 Jahren)",
+   "description": "Herzhafte Muffins mit reichlich verstecktem Käse und Gemüse – ideal zum Mitnehmen in den Park, in den Kindergarten oder für unterwegs.\n\nVorteil: Sie sind zuckerfrei, vereinen Kalzium (Käse) und Vitamine (Gemüse) und lassen sich leicht mit der Hand halten.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Eier: 2 Stück",
+    "Joghurt: 2 Esslöffel",
+    "Karotte (gerieben) und Zucchini (ausgedrückt): eine halbe Tasse",
+    "Weißkäse: 2 Esslöffel",
+    "Mehl und Backpulver."
+   ],
+   "instructions": [
+    "Verrühre die flüssigen Zutaten mit dem Käse. Gib das Gemüse hinzu. Hebe zum Schluss Mehl und Backpulver unter und backe die Muffins in Muffinförmchen bei 180 Grad für 20-25 Minuten."
+   ]
+  },
+  "aa773f2c-e3f1-47eb-9a0d-5723d6301a77": {
+   "title": "Magischer Zaubertrank (ab 5 Jahren)",
+   "description": "Ein hübscher, schichtweise in einem transparenten Glas angerichteter Genuss zum Frühstück oder als Dessert.\n\nVorteil: Probiotischer Joghurt unterstützt die Verdauung, während Beeren das Immunsystem stärken.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Joghurt (selbst gemacht oder abgetropft): 1 Tasse",
+    "Himbeer- oder Erdbeerpüree: 2 Esslöffel",
+    "Zuckerfreies Granola oder eine Haferflocken-Nuss-Mischung: 2 Esslöffel"
+   ],
+   "instructions": [
+    "Schichte in einem transparenten, kindgerechten Glas zuerst den Joghurt, dann das Fruchtpüree und anschließend das Granola. Schließe mit einer weiteren Schicht Joghurt ab und garniere sie mit frischem Obst."
+   ]
+  },
+  "2e2ead49-bcaf-4338-94ee-467ad791737c": {
+   "title": "Zen-Limonade",
+   "description": "Ein sprudelnder Matcha, der an Sommertagen den Stoffwechsel ankurbelt und Blähungen lindert.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 Teelöffel Matcha-Pulver, Saft einer halben Zitrone, 1 Teelöffel Agavendicksaft oder Honig, 1 Glas Mineralwasser (mit Kohlensäure), Minzblätter, Eis."
+   ],
+   "instructions": [
+    "Verrühre das Matcha-Pulver in etwas Wasser mit Honig und Zitrone, bis es sich aufgelöst hat. Gib Eis und Minze in ein Glas und gieße anschließend die Matcha-Mischung und das Mineralwasser darüber."
+   ]
+  },
+  "da26b0d3-2e6e-4084-9b19-693dd01e5caa": {
+   "title": "Maca-Kakao-Energy",
+   "description": "Ein frauenfreundliches Getränk, das den Hormonhaushalt unterstützt und die körperliche Ausdauer steigert.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "1 Esslöffel Kakao, 1 Teelöffel Maca-Pulver, 1 Glas Hafermilch, 1 Dattel (püriert)."
+   ],
+   "instructions": [
+    "Alle Zutaten mit warmer oder kalter Milch im Mixer vollständig vermischen."
+   ]
+  },
+  "1c2d3ae5-c16d-47ab-acbd-eff8a82af792": {
+   "title": "Gesundes Nutella-Getränk",
+   "description": "Ein warmer Genuss, der den Heißhunger auf Süßes stillt und ganz ohne zugesetzten Zucker auskommt.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "1 Esslöffel Kakao, 1 Esslöffel natürliches Haselnussmus (ungesüßt), 1 Glas warme Milch."
+   ],
+   "instructions": [
+    "Haselnussmus und Kakao mit einem Mixer oder Schneebesen in der warmen Milch verrühren, bis die Mischung vollständig glatt ist."
+   ]
+  },
+  "1eca4e78-4116-42f3-b2fa-fb5f13684582": {
+   "title": "Gefüllte Süßkartoffeln mit Kichererbsen",
+   "description": "Ein klassisches Mittagessen mit komplexen Kohlenhydraten, das bei Sportlerinnen und gesundheitsbewussten Menschen beliebt ist und lange satt hält.\n\nVorteil: Süßkartoffeln sind reich an Kalium, Kichererbsen liefern viel pflanzliches Eiweiß. Eine echte Energiebombe.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Süßkartoffeln: 2 Stück (mittelgroß)",
+    "Gekochte Kichererbsen (auch aus der Dose): 1 Glas",
+    "Tahin (Sesammus): 2 Esslöffel",
+    "Zitronensaft, Olivenöl, Kreuzkümmel."
+   ],
+   "instructions": [
+    "Die Süßkartoffeln an mehreren Stellen mit einer Gabel einstechen und im Backofen bei 200 Grad vollständig weich backen (etwa 40 Minuten). Anschließend herausnehmen, in der Mitte aufschneiden und das Innere leicht zerdrücken. Mit den gewürzten Kichererbsen füllen und die Tahin-Zitronen-Sauce darüberträufeln."
+   ]
+  },
+  "64fd534a-ee42-4741-ad1d-2c83048a4d5e": {
+   "title": "Avocado-Brownies",
+   "description": "Legendäre „zuckerfreie Brownies“, bei denen Avocado statt Butter und Mandelmehl statt Weizenmehl verwendet wird.\n\nVorteil: Sie kommen ohne Weizenmehl und raffinierten Zucker aus. Die Avocado verleiht dem Gebäck eine wunderbar saftige, samtige Konsistenz, ohne dass man sie herausschmeckt.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Avocado: 1 große (vollreif, püriert)",
+    "Mandelmehl: Ein halbes Glas",
+    "Naturkakao (ungesüßt): Ein halbes Glas",
+    "Eier: 2 Stück",
+    "Honig oder Ahornsirup: Ein Drittel Glas."
+   ],
+   "instructions": [
+    "Alle Zutaten im Mixer zu einer vollkommen glatten Schokoladencreme pürieren. In eine quadratische, mit Backpapier ausgelegte Backform geben und bei 175 Grad 25-30 Minuten backen. Noch lauwarm in Stücke schneiden."
+   ]
+  },
+  "c93f159c-1f03-4766-a5e7-3350ed9505bf": {
+   "title": "Avocado-Eier-Boote",
+   "description": "Ein ketogener, proteinreicher Genuss ganz ohne Mayonnaise.\n\nVorteil: Das Eiweiß aus dem Eiklar und die Omega-Fettsäuren der Avocado helfen gegen Konzentrationstiefs und geben neue Energie.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Hart gekochte Eier: 3 Stück",
+    "Avocado: Eine halbe (reif)",
+    "Leinsamen oder Chiasamen: Eine kleine Menge (zum Bestreuen)",
+    "Zitronensaft, Salz, schwarzer Pfeffer."
+   ],
+   "instructions": [
+    "Die Eier der Länge nach halbieren. Das Eigelb herausnehmen und zusammen mit der Avocado, dem Zitronensaft und den Gewürzen zu einer glatten Creme zerdrücken. Die grüne Creme wieder in die Eiklarhälften füllen. Mit Leinsamen bestreuen."
+   ]
+  },
+  "0160a14d-2320-433d-b86d-228b4fe1defc": {
+   "title": "Mandel-Leinsamen-Chia-Kugeln",
+   "description": "Knusprige Energiekugeln ohne Backen – ideal vor dem Sport oder zum Kaffee.\n\nVorteil: Sie vereinen die Kraft dreier Superfoods (Mandeln, Leinsamen und Chiasamen). Sie liefern schnell Energie und sind reich an Ballaststoffen und Mineralstoffen.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Mandelmus (ungesüßt): Ein halbes Glas",
+    "Leinsamen (gemahlen): 2 Esslöffel",
+    "Chiasamen: 1 Esslöffel",
+    "Haferflocken: Ein halbes Glas",
+    "Honig oder Agavendicksaft: 2 Esslöffel."
+   ],
+   "instructions": [
+    "Alle Zutaten in einer Schüssel zu einer klebrigen Masse verkneten. Mit den Händen walnussgroße Kugeln formen und im Kühlschrank fest werden lassen. Ideal zum Mitnehmen in der Jackentasche oder Handtasche."
+   ]
+  },
+  "836bc22f-3cef-4e15-bfd2-c877bc04f782": {
+   "title": "Blumenkohlreis-Pilaw",
+   "description": "Der Star der Keto- und Low-Carb-Ernährung. Ein Rezept, das Reis zu 100% ersetzt und garantiert nicht dick macht.\n\nVorteil: Eine Portion hat nur 40-50 Kalorien. Anders als klassischer Reispilaw verursacht dieses Gericht weder ein Schweregefühl noch Müdigkeit.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Blumenkohl: Ein halber Kopf",
+    "Karotte und grüne Erbsen: Jeweils 2 Esslöffel",
+    "Zwiebel: 1 kleine",
+    "Olivenöl und Butter."
+   ],
+   "instructions": [
+    "Den Blumenkohl mit einer Reibe oder im Mixer auf Reiskorngröße zerkleinern. Zwiebel, Karotte und Erbsen in einer Pfanne mit wenig Öl anbraten. Den Blumenkohl-„Reis“ dazugeben und unter Rühren 5-6 Minuten sautieren, ohne ihn zu weich werden zu lassen."
+   ]
+  },
+  "c8f59b0c-497f-493b-9f85-c45a2583194f": {
+   "title": "Cremige Brokkoli-Cheddar-Suppe",
+   "description": "Eine der köstlichsten Wintersuppen der Welt, bekannt geworden durch die amerikanische Restaurantkette „Panera Bread“.\n\nVorteil: Selbst zubereitet wird sie zu einer echten, calcium- und ballaststoffreichen Suppe, die die Knochen stärkt.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Brokkoli: 300 qr (sehr klein geschnitten)",
+    "Karotte: 1 Stück (gerieben)",
+    "Cheddar-Käse: 1 Tasse (gerieben)",
+    "Hühner- oder Gemüsebrühe: 3 Tassen",
+    "Sahne oder Milch: Eine halbe Tasse."
+   ],
+   "instructions": [
+    "Karotte und Brokkoli in der Brühe weich kochen. Anschließend teilweise pürieren, sodass noch kleine Stückchen übrig bleiben. Milch/Sahne hinzufügen. Vom Herd nehmen, den geriebenen Cheddar in die heiße Suppe geben und rühren, bis er geschmolzen ist."
+   ]
+  },
+  "a5af4229-e447-48cc-a6f1-6146ae4643a0": {
+   "title": "Quinoa-Salat nach mexikanischer Art",
+   "description": "Eines der beliebtesten Gerichte der westlichen „Meal Prep“-Kultur, bei der Mahlzeiten im Voraus zubereitet werden.\n\nVorteil: Farbenfroh, sättigend und reich an pflanzlichem Eiweiß. Im Kühlschrank bleibt der Salat 3 Tage frisch.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Quinoa (gekocht): 1 Tasse",
+    "Schwarze Bohnen (aus der Dose): Eine halbe Tasse",
+    "Mais: Eine halbe Tasse",
+    "Cherrytomaten und rote Zwiebel (geschnitten)",
+    "Frischer Koriander, Limettensaft, Olivenöl und Jalapeño (nach Belieben)."
+   ],
+   "instructions": [
+    "Alle Zutaten in einer großen Schüssel vermengen. Ein Dressing aus Olivenöl, Limettensaft und Koriander darübergeben und alles gründlich durchmischen."
+   ]
+  },
+  "35ab7142-651b-45ae-b7e5-7c6acf7f3691": {
+   "title": "Japanische Misosuppe",
+   "description": "Eine leichte, fermentierte Suppe, die morgens oder abends getrunken wird und als eines der Geheimnisse der Langlebigkeit der Japaner gilt.\n\nVorteil: Misopaste (fermentiertes Soja) zählt zu den stärksten Probiotika für die Darmgesundheit. Sie unterstützt die Verdauung.",
+   "category": "Allgemein",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Misopaste: 2 Esslöffel (in Asia-Märkten erhältlich)",
+    "Tofu: 100 qr (in kleine Würfel geschnitten)",
+    "Frühlingszwiebeln: 2 Stängel (gehackt)",
+    "Warmes Wasser oder Gemüsebrühe: 2 Gläser."
+   ],
+   "instructions": [
+    "Das Wasser zum Kochen bringen und vom Herd nehmen (Miso darf nicht gekocht werden, da sonst die probiotischen Kulturen absterben). Die Misopaste im Wasser auflösen. Tofuwürfel und Frühlingszwiebeln hinzugeben und die Suppe sofort heiß genießen."
+   ]
+  },
+  "34a3ec68-3237-4337-99bf-0423a1d5cd88": {
+   "title": "Lachs und Kartoffeln (ab 1 Jahr)",
+   "description": "Weiche Fischfrikadellen, die selbst Kinder, die keinen Fisch mögen, mit Genuss essen werden.\n\nVorteil: Lachs liefert direkt Omega-3-Fettsäuren, die für die Entwicklung von Gehirn und Augen wichtig sind.",
+   "category": "Beikost",
+   "tags": [
+    "allgemein",
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Lachsfilet: 50 qr (gedämpft und zerpflückt)",
+    "Kartoffel: 1 Stück (gekocht und zerdrückt)",
+    "Frischer Dill: eine sehr kleine Menge (gehackt)",
+    "Olivenöl."
+   ],
+   "instructions": [
+    "Die zerdrückte Kartoffel, den zerpflückten grätenfreien Fisch und den Dill vermischen. Kleine Frikadellen formen und in sehr wenig Olivenöl von beiden Seiten leicht anbraten."
+   ]
+  },
+  "90e2d20f-198b-4417-92bb-ccab337989e6": {
+   "title": "Joghurt-Chia-Bowl (ab 1 Jahr)",
+   "description": "Eine probiotika- und kalziumreiche Zwischenmahlzeit oder ein leichtes Abendessen.\n\nVorteil: Joghurt unterstützt eine vielfältige Darmflora, während Chiasamen Omega-3 liefern.",
+   "category": "Beikost",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Abgetropfter Joghurt oder griechischer Joghurt: 2-3 Esslöffel",
+    "Chiasamen: ein halber Teelöffel (zuvor in 1 Löffel Wasser quellen lassen)",
+    "Himbeeren oder Erdbeeren: 2-3 Stück (zu Püree zerdrückt)",
+    "Honig: eine Messerspitze (für Kinder ab 1 Jahr unbedenklich)."
+   ],
+   "instructions": [
+    "Joghurt, gequollene Chiasamen, Fruchtpüree und sehr wenig Honig in einer Schüssel vermischen. So entsteht ein köstliches Dessert, das dein Kind auch wegen seiner Farbe spannend finden wird."
+   ]
+  },
+  "9ef68860-bc8e-4727-a11e-6e5469f057ef": {
+   "title": "Keto-Mandelmuffins",
+   "description": "Kohlenhydratfreie Muffins für alle, die sich leicht und wie auf Wolken fühlen möchten.\n\nVorteil: Frei von Gluten, Weizenmehl und Zucker. Sie stillen besonders während einer Diät auf unbedenkliche Weise die Lust auf Süßes.",
+   "category": "allgemein",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Mandelmehl: 1.5 Tassen",
+    "Eier: 3 Stück",
+    "Mandelmilch: Eine viertel Tasse",
+    "Abgeriebene Zitronenschale oder Vanille.",
+    "Stevia oder sehr wenig Honig (zum Süßen)."
+   ],
+   "instructions": [
+    "Verrühre die flüssigen Zutaten, gib das Mandelmehl hinzu und vermische alles. Fülle den Teig in Muffinförmchen und backe ihn bei 175 Grad 20 Minuten lang, bis die Muffins goldbraun sind."
+   ]
+  },
+  "e067e84f-8a22-4eb0-b5fa-1ae3ae37b95f": {
+   "title": "Griechisches Souvlaki mit Tzatziki",
+   "description": "Der König der mediterranen Ernährung: hochwertiges Eiweiß, Probiotika und gesunde Fette.\n\nVorteil: Tzatziki aus Joghurt und Gurke unterstützt die Darmflora. Das Hähnchen liefert Eiweiß und regt den Stoffwechsel an.",
+   "category": "allgemein",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Hähnchenbrust: 200 g (gewürfelt und mit Zitrone und Thymian mariniert)",
+    "Abgetropfter Joghurt (griechischer Joghurt): 4 Esslöffel",
+    "Gurke: 1 Stück (gerieben und vollständig ausgedrückt)",
+    "Frische Minze, Knoblauch, Olivenöl."
+   ],
+   "instructions": [
+    "Stecke die Hähnchenstücke auf Holzspieße und brate sie in der Pfanne oder auf dem Grill. Vermische für das Tzatziki den Joghurt mit der ausgedrückten Gurke, dem Knoblauch, der Minze und dem Olivenöl. Genieße die Hähnchenspieße mit dieser kühlen Sauce."
+   ]
+  },
+  "3a7875bd-9bf1-4570-9e1d-e51c83452192": {
+   "title": "Französisches Ratatouille",
+   "description": "Ein farbenfrohes, rein veganes und optisch perfektes Gemüsegericht aus Südfrankreich.\n\nVorteil: Ein Minimum an Kalorien und ein Maximum an Ballaststoffen und Vitaminen. Durch das langsame Garen im eigenen Saft bleiben die Nährstoffe des Gemüses erhalten.",
+   "category": "allgemein",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Zucchini, Auberginen, Tomaten: Jeweils 2 Stück (gleich groß und in sehr dünne Scheiben geschnitten)",
+    "Tomatenmark und Knoblauch (für die Sauce am Boden).",
+    "Kräuter der Provence (Thymian, Rosmarin), Olivenöl."
+   ],
+   "instructions": [
+    "Verteile die Tomatensauce auf dem Boden einer runden Auflaufform. Ordne die Gemüsescheiben nach Farben abwechselnd (Aubergine, Tomate, Zucchini) spiralförmig vom Rand bis zur Mitte der Form an. Beträufle alles mit Öl, streue die Kräuter darüber und gare das Ratatouille abgedeckt bei 190 Grad 45 Minuten lang."
+   ]
+  },
+  "78095524-c00e-403c-92d3-bbc3e2809be1": {
+   "title": "Nudelsalat (ab 2 Jahren)",
+   "description": "Verschiedene Farben und Konsistenzen fördern die motorischen Fähigkeiten und die Neugier von 2-jährigen Kindern.\n\nVorteil: Eine sättigende Kombination aus Kohlenhydraten und Ballaststoffen aus Gemüse. Ein angenehm erfrischendes Mittagessen für heiße Sommertage.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Bunte Fusilli (mit Gemüse): 1 Tasse (gekocht)",
+    "Grüne Erbsen und Mais: Je 1 Esslöffel (gekocht)",
+    "Karotte: Eine halbe (sehr klein gewürfelt und gekocht)",
+    "Joghurt (für die Soße): 1 Esslöffel."
+   ],
+   "instructions": [
+    "Die lauwarmen Nudeln, Erbsen, den Mais und die Karotte in einer Schüssel vermischen.",
+    "Den Joghurt dazugeben und alles gut vermengen.",
+    "Stelle den Salat deinem Kind hin, damit es selbstständig mit den Händen essen kann."
+   ]
+  },
+  "945b98d6-f61a-4b5b-a323-8398d17756d0": {
+   "title": "Süßkartoffelwaffeln (ab 2 Jahren)",
+   "description": "Knusprige Waffeln, die sich gut mit der Hand halten lassen – ideal für Kinder, die genug von Pancakes haben.\n\nVorteil: Süßkartoffeln helfen, den Blutzuckerspiegel stabil zu halten, und versorgen dein Kind lang anhaltend mit Energie.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Süßkartoffelpüree: Eine halbe Tasse",
+    "Ei: 1 Stück",
+    "Mehl (Vollkornweizen- oder Hafermehl): 2 Esslöffel",
+    "Zimt: Sehr wenig."
+   ],
+   "instructions": [
+    "Alle Zutaten in einer Schüssel zu einem Teig verrühren.",
+    "Das Waffeleisen leicht einfetten und den Teig hineingeben.",
+    "Backen, bis die Waffeln goldbraun und an den Rändern knusprig sind. (Wenn du kein Waffeleisen hast, kannst du den Teig auch wie Pancakes in der Pfanne ausbacken)."
+   ]
+  },
+  "4660742b-6a15-4753-92bd-b4b19340e368": {
+   "title": "Hausgemachte Nuggets (ab 4 Jahren)",
+   "description": "Knusprige Nuggets aus dem Ofen, die zu 100% hausgemacht sind und die Lust auf Fast Food stillen.\n\nVorteil: Hochwertiges Eiweiß aus Hähnchen stärkt die Muskeln, während die Haferpanade die Verdauung unterstützt und lange satt hält.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Hähnchenbrustfilet: 150 g (gewürfelt)",
+    "Hafermehl oder zerkleinerte Haferflocken: Zum Panieren",
+    "Ei: 1 Stück",
+    "Edelsüßes Paprikapulver und etwas Salz."
+   ],
+   "instructions": [
+    "Die Hähnchenwürfel zuerst in das verquirlte Ei und anschließend in das gewürzte Hafermehl tauchen. Auf ein mit Backpapier ausgelegtes Backblech legen und bei 190 Grad 20 Minuten backen, bis sie goldbraun sind."
+   ]
+  },
+  "a8a21b7d-5abe-40d9-9276-a772ffab8e70": {
+   "title": "Apfel-Donuts (ab 4 Jahren)",
+   "description": "Donuts ganz ohne Teig und Zucker, deren Zubereitung für Kinder zum Spiel wird.\n\nVorteil: Die Ballaststoffe im Apfel unterstützen die Verdauung, während Erdnussmus sättigendes Eiweiß liefert.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Großer Apfel: 1-2 Stück (rot oder grün)",
+    "Erdnussmus oder Schoko-Haselnussmus (zuckerfrei): 2 Esslöffel",
+    "Schokotropfen, Kokosraspeln, fein gehackte Walnüsse."
+   ],
+   "instructions": [
+    "Schneide den Apfel in Ringe und stich das Kerngehäuse in der Mitte kreisförmig aus, sodass eine Donutform entsteht. Bestreiche die Ringe mit Erdnussmus. Lass dein Kind seine eigenen \"Räder\" mit Schokotropfen und Kokosraspeln verzieren."
+   ]
+  },
+  "cb924e7b-c487-4059-bef0-ff92f0b6b771": {
+   "title": "Spinatwaffeln (ab 5 Jahren)",
+   "description": "Waffeln, die mit ihrer grünen Farbe die Aufmerksamkeit von Kindern wecken und ihnen morgens \"Drachenkraft\" verleihen.\n\nVorteil: Spinat ist reich an Eisen, Hafer an Ballaststoffen. Die Waffeln halten dein Kind lange satt und können einem Eisenmangel vorbeugen.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Babyspinat: 1 große Handvoll",
+    "Ei: 1 Stück",
+    "Hafermehl (oder Vollkornweizenmehl): 3-4 Esslöffel",
+    "Milch: Ein halbes Glas",
+    "Olivenöl: 1 Teelöffel."
+   ],
+   "instructions": [
+    "Alle Zutaten im Mixer pürieren, bis ein vollkommen glatter, leuchtend grüner Teig entsteht. Das Waffeleisen (oder die Pfanne) einfetten, den Teig hineingeben und knusprig backen. Nach Wunsch kannst du etwas Honig darüberträufeln."
+   ]
+  },
+  "37d5dece-84c4-4e64-b999-a935190306a7": {
+   "title": "Goldschatz-Muffins (ab 5 Jahren)",
+   "description": "Eiermuffins mit bunten \"Schätzen\", die selbst Kinder überzeugen, die keine Eier mögen.\n\nVorteil: Das im Eigelb enthaltene Cholin unterstützt das Gedächtnis. Da die Muffins ohne Mehl und glutenfrei sind, sind sie besonders leicht.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Eier: 3 Stück",
+    "Bunte Paprikaschoten (rot und grün): 2 Esslöffel (sehr fein gewürfelt)",
+    "Käse (gerieben): 2 Esslöffel",
+    "Salz und etwas Milch."
+   ],
+   "instructions": [
+    "Verquirle die Eier mit Milch und Salz. Hebe die gewürfelten Paprikaschoten und den Käse unter. Fette die Muffinförmchen leicht ein und verteile die Mischung darauf. Im auf 180 Grad vorgeheizten Backofen backen, bis die Muffins aufgegangen und goldbraun sind (15-20 Minuten)."
+   ]
+  },
+  "b1385dc4-14fe-4718-ab79-5558f3683c72": {
+   "title": "Bunte Paprika mit Quinoa-Füllung",
+   "description": "Eine proteinreiche Variante des beliebten mediterranen Gerichts, bei der Quinoa anstelle von Reis verwendet wird.\n\nVorteil: Bunte Paprika ist reich an Vitamin C. Im Ofen gegart harmoniert sie perfekt mit der Konsistenz von Quinoa.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Paprika (rot, gelb): 3-4 Stück (halbiert und entkernt)",
+    "Quinoa (gekocht): 1.5 Tassen",
+    "Hackfleisch oder Pilze: 150 qr (angebraten)",
+    "Tomatenmark, Käse (zum Bestreuen)."
+   ],
+   "instructions": [
+    "Die gekochte Quinoa mit dem angebratenen Hackfleisch bzw. den Pilzen und dem Tomatenmark vermischen. Die Paprikahälften damit füllen. In eine Auflaufform setzen und bei 180 Grad backen, bis die Paprika weich ist. 5 Minuten vor Ende der Garzeit mit Käse bestreuen."
+   ]
+  },
+  "14732b3b-b0ea-4f4d-834e-0f74c755ed69": {
+   "title": "Avocado-Mandel-Smoothie",
+   "description": "Ein besonders cremiger Smoothie, der sowohl als Zwischenmahlzeit als auch als köstliche Alternative zum Dessert genossen werden kann.\n\nVorteil: Die gesunden Fette der Avocado und das Vitamin E der Mandeln unterstützen den Zellschutz.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Avocado: Eine halbe (sehr weich)",
+    "Mandelmilch: 1 Tasse",
+    "Chiasamen: 1 Teelöffel (zum Bestreuen)",
+    "Honig: 1 Teelöffel",
+    "Eiswürfel."
+   ],
+   "instructions": [
+    "Avocado, Mandelmilch, Eis und Honig im Mixer zu einer vollkommen glatten, „seidig“ cremigen Masse pürieren. In ein Glas gießen und mit Chiasamen bestreuen."
+   ]
+  },
+  "29f853dc-e269-415a-b733-458329d3f202": {
+   "title": "Protein Cloud- Quark-Pancakes",
+   "description": "Ein mehlfreier, proteinreicher Pancake, der die Lust auf Süßes auf gesunde Weise stillt.\n\nVorteil: Der hohe Proteingehalt hält lange satt und trägt zum Erhalt der Muskelmasse bei. Da kein Mehl enthalten ist, steigt der Blutzuckerspiegel nicht plötzlich an.",
+   "category": "breakfast",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Quark (fettarm): 100 qr",
+    "Ei: 1 Stück",
+    "Hafermehl: 2 Esslöffel",
+    "Vanille und Zimt.",
+    "Zum Servieren: Joghurt oder Honig."
+   ],
+   "instructions": [
+    "Den Quark gründlich mit dem Ei verrühren. Hafermehl und Gewürze dazugeben und zu einem Teig vermischen. Kleine runde Pancakes formen und in einer beschichteten Pfanne ohne Öl von beiden Seiten goldbraun braten."
+   ]
+  },
+  "62b8e0b6-2240-42de-af0b-ccfb0617485b": {
+   "title": "Süßkartoffel-Pfanne",
+   "description": "Eine sättigende, besondere Geschmackskombination, reich an Ballaststoffen und komplexen Kohlenhydraten.\n\nVorteil: Die Ballaststoffe und Vitamine in Süßkartoffeln können dabei helfen, die Insulinresistenz zu regulieren und Heißhunger auf Süßes zu reduzieren.",
+   "category": "Frühstück",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Süßkartoffel (Batate): 1 mittelgroße (in kleine Würfel geschnitten)",
+    "Rote Zwiebel: Eine halbe",
+    "Spinat: 1 Handvoll",
+    "Olivenöl, Salz, schwarzer Pfeffer."
+   ],
+   "instructions": [
+    "Erhitze das Öl in einer Pfanne und dünste die Süßkartoffel und die Zwiebel darin an, bis sie weich sind. Gib anschließend den Spinat dazu und rühre alles 1 Minute lang um. Dazu passt hervorragend 1 Scheibe Käse."
+   ]
+  },
+  "94c6eeab-3fdb-44c0-af09-f90065cd1128": {
+   "title": "Brokkoli-Spinat-Suppe",
+   "description": "Das perfekte „flüssige“ Abendessen, um morgens mit einem angenehm leichten Bauch aufzuwachen.\n\nVorteil: Eine grüne Detox-Suppe, die den Körper bei der Ausscheidung von Schadstoffen unterstützt und Leber sowie Darm sanft entlastet.",
+   "category": "Abendessen",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Brokkoli: 200 qr",
+    "Spinat: 1 Handvoll",
+    "Zwiebel, Knoblauch (ein wenig).",
+    "Mandelmilch oder Sahne: 2 Esslöffel"
+   ],
+   "instructions": [
+    "Koche den Brokkoli und die Zwiebel in Wasser, bis sie weich sind. Gib den Spinat 1 Minute vor Ende der Garzeit hinzu. Püriere alles im Mixer, füge Milch/Sahne hinzu und verrühre es, bis die Suppe cremig ist. Mit gerösteten Kürbiskernen servieren."
+   ]
+  },
+  "51c68a19-8648-4032-8605-7b8cccf441b0": {
+   "title": "Zitronenhähnchen mit Spargel",
+   "description": "Ein Diätgericht aus nur einer Pfanne, das einfach klingt, aber besonders raffiniert aussieht.\n\nVorteil: Hähnchenbrust liefert Eiweiß, während Spargel die Nierentätigkeit unterstützt und dazu beitragen kann, überschüssige Flüssigkeit (Ödeme) aus dem Körper auszuscheiden.",
+   "category": "Abendessen",
+   "ingredients": [
+    "Hähnchenbrust: 150 qr (dünn geklopft oder in Scheiben geschnitten)",
+    "Spargel (Asparagus): 1 Bund",
+    "Zitrone: 1 Stück (eine Hälfte für den Saft, die andere in Scheiben)",
+    "Olivenöl, Knoblauchpulver."
+   ],
+   "instructions": [
+    "Brate das Hähnchen in einer großen Pfanne in Öl von beiden Seiten an. Gib kurz vor Ende der Garzeit den Spargel und die Zitronenscheiben in die Pfanne und brate alles 5-7 Minuten gemeinsam. Mit Zitronensaft beträufeln und servieren."
+   ]
+  },
+  "c940ec18-0208-46aa-8361-f2f2f659b141": {
+   "title": "Auberginen-Käse-Auflauf",
+   "description": "Eine leichte, kohlenhydratfreie Alternative – eine Art falsche Lasagne",
+   "category": "Abendessen",
+   "ingredients": [
+    "Auberginen - 2 Stück",
+    "Tomaten - 2 Stück",
+    "Weißkäse - 60 qr",
+    "Basilikum"
+   ],
+   "instructions": [
+    "Die Auberginen in dünne Scheiben schneiden und im Backofen vorgaren",
+    "Mit Käse, Tomaten und Basilikum belegen",
+    "Im Backofen backen, bis der Käse geschmolzen ist"
+   ]
+  },
+  "e7b8a04c-a4fa-4769-bbd9-6735976b643a": {
+   "title": "Ofenpfirsiche mit Zimt",
+   "description": "Ein sehr leichtes Dessert mit einem Hauch von Eiscreme, aber kaum Kalorien.\n\nVorteile: Pfirsiche sind reich an Ballaststoffen und unterstützen die Verdauung. Zimt kann zudem zu einem ausgeglichenen Blutzuckerspiegel beitragen.",
+   "category": "Gesunde Süßspeisen",
+   "ingredients": [
+    "Pfirsiche: 2 Stück (halbiert und entsteint)",
+    "Zimt: 1 Teelöffel",
+    "Walnüsse oder Pekannüsse: gehackt",
+    "Abgetropfter Joghurt (zum Servieren)."
+   ],
+   "instructions": [
+    "Die Pfirsichhälften in eine Auflaufform legen und die Mitte mit Zimt und Nüssen bestreuen. Bei 180 Grad 15-20 Minuten backen, bis sie weich sind. Lauwarm mit einem Löffel abgetropftem Joghurt in der Mitte genießen."
+   ]
+  },
+  "a8859019-9d72-40f8-8956-b03d1cfb1e34": {
+   "title": "Kürbis mit Kokosmilch\n(8 Monate+)",
+   "description": "So lernt dein Baby neue, tropische Aromen kennen. Die Speise hat eine seidig-cremige Konsistenz.\n\nVorteile: Kürbis enthält Vitamin A, das die Augengesundheit unterstützt. Kokosmilch ist eine pflanzliche Alternative zu Kuhmilch und enthält wertvolle Fette.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Kürbis: 1 Scheibe (geschält und gewürfelt)",
+    "Kokosmilch (nicht die trinkfertige aus dem Getränkekarton, sondern die dickflüssige Variante zum Kochen): 2 Esslöffel."
+   ],
+   "instructions": [
+    "Den Kürbis dämpfen, bis er weich ist. Die Kokosmilch dazugeben und alles im Mixer pürieren. So entsteht eine sehr sättigende und leckere Suppe."
+   ]
+  },
+  "b2be2ad1-ce46-48a9-9075-79f7864e5758": {
+   "title": "Gefüllte Paprika mit Pute und Quinoa",
+   "description": "Eine kohlenhydratärmere, vitaminreiche und farbenfrohe Variante klassischer gefüllter Paprika.\n\nVorteil: Vitamin C aus den bunten Paprika unterstützt die Kollagenbildung, während Putenfleisch wertvolles Eiweiß liefert.",
+   "category": "Mittagessen",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Bunte Paprika: 2 Stück (halbiert, wie kleine Boote)",
+    "Putenhackfleisch (oder mageres Rinderhackfleisch): 150 qr",
+    "Quinoa (gekocht): 2 Esslöffel",
+    "Tomatensoße."
+   ],
+   "instructions": [
+    "Brate das Hackfleisch mit der Quinoa und der Tomatensoße in einer Pfanne kurz an, bis es halb gar ist. Fülle die Paprikahälften damit und backe sie im Ofen, bis die Paprika weich sind."
+   ]
+  },
+  "cb10f111-6a9d-4baa-9dd6-af7ef8393f1e": {
+   "title": "Matcha-Limonade",
+   "description": "Ein zweifarbiges, antioxidantienreiches Getränk, das sanfte Energie liefert.\n\nVorteil: Matcha enthält Koffein, sorgt jedoch meist für eine gleichmäßigere Wachheit als Kaffee, ohne dass die Energie so abrupt abfällt.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Matcha-Pulver: 1 Teelöffel (in lauwarmem Wasser schaumig geschlagen)",
+    "Frisch gepresster Zitronensaft: Ein Drittel Glas",
+    "Agavendicksaft oder Honig: 1 Esslöffel",
+    "Wasser und reichlich Eis."
+   ],
+   "instructions": [
+    "Gib die Eiswürfel in ein Glas. Vermische Zitronensaft, Honig und Wasser und gieße die Mischung darüber. Gib zum Schluss langsam den schaumig geschlagenen grünen Matcha hinzu (so entstehen im Glas zwei Farbschichten – unten gelb und oben grün)."
+   ]
+  },
+  "ae635663-e33c-479a-970a-94bd85e39010": {
+   "title": "Overnight Oats mit Walnüssen und Banane",
+   "description": "Eine ideale, kühle und leichte Option bei morgendlicher Übelkeit",
+   "category": "Frühstück",
+   "ingredients": [
+    "Haferflocken - 4 Esslöffel",
+    "Milch - 1 Glas",
+    "Banane - eine halbe",
+    "Walnüsse - 2 Stück",
+    "Honig - 1 Teelöffel"
+   ],
+   "instructions": [
+    "Vermische am Abend die Haferflocken mit der Milch und dem Honig",
+    "Stelle die Mischung über Nacht in den Kühlschrank",
+    "Gib morgens Banane und Walnüsse hinzu"
+   ]
+  },
+  "e130e1c4-d49f-409f-844e-56265cb3eca7": {
+   "title": "Queen's Porridge – Der Morgen der Königin",
+   "description": "Die Energie von Datteln und Walnüssen vereint mit der milchbildungsfördernden Kraft von Hafer. Ein Prolaktin-Stimulator.",
+   "category": "Frühstück",
+   "ingredients": [
+    "Haferflocken: 3 Esslöffel",
+    "Milch: 1 Glas",
+    "Datteln: 2-3 Stück (entsteint)",
+    "Walnüsse: 1 Handvoll",
+    "Zimt: 1 Prise"
+   ],
+   "instructions": [
+    "Milch und Haferflocken in einem Topf bei mittlerer Hitze unter Rühren kochen",
+    "Weiterrühren, bis die Mischung eindickt (5-7 Min.)",
+    "Vom Herd nehmen und die klein geschnittenen Datteln hinzufügen",
+    "Mit Walnüssen und Zimt bestreuen",
+    "Warm genießen – ein besonders wirkungsvolles Frühstück zur Förderung der Milchbildung"
+   ]
+  },
+  "b862ae81-6647-4306-8478-b02653620beb": {
+   "title": "Grünes Detox-Elixier",
+   "description": "Ein belebender „grüner Saft“, der Leber und Haut reinigt und die Zellerneuerung unterstützt.\n\nVorteil: Stangensellerie kann Pickel reduzieren und die Verdauung wieder ins Gleichgewicht bringen. Auf nüchternen Magen getrunken entfaltet der Saft eine besonders gute Detox-Wirkung.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Stangensellerie: 2 Stangen",
+    "Grüner Apfel: 1 Stück",
+    "Frischer Ingwer: Ein sehr kleines Stück",
+    "Zitronensaft: Eine halbe Zitrone."
+   ],
+   "instructions": [
+    "Sellerie, Apfel und Ingwer entsaften. Die Zitrone darüber auspressen und den Saft sofort trinken, bevor die Vitamine verloren gehen."
+   ]
+  },
+  "869b95b1-b2fc-4999-9364-14adff9736c9": {
+   "title": "Birnen-Pflaumen-Püree\n(6 Monate+)",
+   "description": "Eine natürliche und leckere Lösung gegen Verstopfung, die bei der Einführung von Beikost häufig auftritt.\n\nVorteil: Pflaumen und Birnen regen die Darmtätigkeit an, während Hafer das Baby lange satt hält.",
+   "category": "Beikost",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Baby-Hafermehl (oder im Mixer zerkleinerte Haferflocken): 1-2 Esslöffel",
+    "Birne: Eine halbe",
+    "Trockenpflaumen: 2 Stück (vorher in heißem Wasser eingeweicht)"
+   ],
+   "instructions": [
+    "Den Hafer in Wasser zu einem Brei kochen. Die Birne dämpfen, bis sie weich ist. Pflaumen und Birne im Mixer pürieren und unter den Haferbrei mischen."
+   ]
+  },
+  "a31f99ac-a31e-4008-9edc-552e80b3f2f2": {
+   "title": "Brokkoli-Käse-Bällchen (ab 1 Jahr)",
+   "description": "Die knusprigste und unterhaltsamste Art, Brokkoli schmackhaft zu machen.\n\nVorteile: Brokkoli liefert immunstärkendes Vitamin C, während Käse und Ei hochwertiges Eiweiß liefern.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Brokkoli: 4-5 Röschen (gedämpft und sehr fein gehackt)",
+    "Ei: 1 Stück",
+    "Holländischer Käse oder Mozzarella: 2 Esslöffel (gerieben)",
+    "Vollkornmehl oder Paniermehl: 1 Esslöffel"
+   ],
+   "instructions": [
+    "Vermische den gehackten Brokkoli mit Ei, Käse und Mehl. Forme daraus mit den Händen kleine Zylinder oder Stäbchen. Backe sie im Backofen bei 180 Grad 15 Minuten lang, bis sie goldbraun sind."
+   ]
+  },
+  "0d1f8dc7-ed50-4792-a9b8-aaed4334e5c7": {
+   "title": "Sunshine Yolk – Ei mit Kartoffel",
+   "description": "Eigelb ist wichtig für die Entwicklung von Gehirn und Augen (ab 8 Monaten)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Eigelb - 1 Stück",
+    "Kartoffel - 1 kleine",
+    "Muttermilch/Säuglingsnahrung"
+   ],
+   "instructions": [
+    "Bereite das Kartoffelpüree zu",
+    "Zerdrücke das gekochte Eigelb und gib es dazu",
+    "Verdünne die Mischung mit Milch"
+   ]
+  },
+  "f09a3c1e-ec4c-4eb2-b2d1-b699bce46612": {
+   "title": "Milky Way Cookies",
+   "description": "Eine gesunde Variante der weltweit beliebten Lactation Cookies. Hafer und Leinsamen fördern die Prolaktinbildung.",
+   "category": "Gesunde Süßigkeiten",
+   "ingredients": [
+    "Haferflocken: 1.5 Tassen",
+    "Butter: 50 qr",
+    "Honig: 3 Esslöffel",
+    "Ei: 1 Stück",
+    "Leinsamen: 2 Esslöffel",
+    "Schokotropfen: nach Belieben"
+   ],
+   "instructions": [
+    "Schmelze die Butter und verrühre sie mit dem Honig und dem Ei",
+    "Gib die Haferflocken und Leinsamen dazu und vermische alles",
+    "Füge nach Belieben Schokotropfen hinzu",
+    "Setze mit einem Löffel runde Portionen auf das Backpapier",
+    "Backe die Kekse bei 175°C 12-15 Minuten lang – iss täglich 2-3 Stück"
+   ]
+  },
+  "1dc5ff7a-9167-45eb-a742-f8830d930c68": {
+   "title": "Mehlfreie Bananen-Hafer-Pancakes",
+   "description": "Die enthaltenen Ballaststoffe fördern die Verdauung, und die Banane ist eine Kaliumquelle",
+   "category": "Frühstück",
+   "ingredients": [
+    "Eier - 2 Stück",
+    "Banane - 1 Stück",
+    "Haferflocken - ein halbes Glas",
+    "Zimt - nach Geschmack"
+   ],
+   "instructions": [
+    "Die Banane zerdrücken",
+    "Eier dazugeben und verquirlen",
+    "Hafermehl und Zimt hinzufügen",
+    "In der Pfanne von beiden Seiten ausbacken"
+   ]
+  },
+  "2f2b9ad9-7480-4118-bad9-8cd23415bda5": {
+   "title": "Falsche Dolma aus dem Ofen",
+   "description": "Da das Gericht nicht angebraten wird, verursacht es kein Sodbrennen. Das ballaststoffreiche Gemüse unterstützt die Verdauung",
+   "category": "Mittagessen",
+   "ingredients": [
+    "Zucchini - 2 Stück",
+    "Rinderhackfleisch - 150 qr",
+    "Zwiebel - 1 Stück",
+    "Tomate - 1 Stück",
+    "Käse - 30 qr"
+   ],
+   "instructions": [
+    "Das Gemüse halbieren und aushöhlen",
+    "Das Fleisch mit der Zwiebel und der Tomate garen",
+    "Das Gemüse mit der Mischung füllen",
+    "Bei 180°C 25-30 Minuten backen",
+    "Mit Käse bestreuen"
+   ]
+  },
+  "67463cf4-ba39-4257-b387-541018594397": {
+   "title": "Weißfisch aus dem Ofen",
+   "description": "Weißfisch ist fettarm, leicht verdaulich und eine gute Proteinquelle",
+   "category": "Abendessen",
+   "ingredients": [
+    "Weißfisch - 1 Filet",
+    "Zitrone - 2 Scheiben",
+    "Lorbeerblatt - 1",
+    "Olivenöl",
+    "Schwarzer Pfeffer"
+   ],
+   "instructions": [
+    "Den Fisch mit Öl einreiben",
+    "Zitrone und Lorbeerblatt darauflegen",
+    "In Backpapier wickeln und bei 180°C 25 Minuten backen"
+   ]
+  },
+  "47c56e28-7e74-45f9-b91a-7cf55a196ffc": {
+   "title": "Avocado im Leinsamen-Fladenbrot",
+   "description": "Ein mehl- und glutenfreies „veganes Fladenbrot“ aus nur 2 Zutaten.\n\nVorteil: Es enthält nahezu keine Kohlenhydrate. Es besteht lediglich aus Ballaststoffen und Wasser und wirkt wie ein „Besen“ für den Darm.",
+   "category": "allgemein",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Leinsamen (gemahlen): 1 Tasse",
+    "Kochendes Wasser: 1 Tasse",
+    "Für die Füllung: Avocadoscheiben, Spinat."
+   ],
+   "instructions": [
+    "Gieße das kochende Wasser über das Leinsamenmehl und knete es zu einem Teig (er bekommt eine gelartige Konsistenz). Rolle ihn zwischen zwei Bögen Backpapier zu einem dünnen Fladen aus und backe ihn von beiden Seiten in einer trockenen Pfanne. Belege ihn mit Avocado und Spinat und rolle ihn zu einem Wrap auf."
+   ]
+  },
+  "ac0ef609-013d-4d24-9387-eb2cabfeb421": {
+   "title": "Bananen-Nicecream",
+   "description": "Ein besonders gesundes Eis ohne Milch und Zucker, das nur aus Früchten besteht",
+   "category": "gesunde_suessigkeiten",
+   "tags": [
+    "babynahrung"
+   ],
+   "ingredients": [
+    "Bananen - 2 Stück (gefroren)",
+    "Kakao - 1 Teelöffel",
+    "Erdbeeren - 3 Stück"
+   ],
+   "instructions": [
+    "Püriere die gefrorenen Bananen im Mixer, bis sie cremig sind",
+    "Gib Kakao/Erdbeeren hinzu",
+    "Sofort servieren"
+   ]
+  },
+  "2554217b-8b4f-4356-a70a-64c6a62b32e2": {
+   "title": "Bruschetta mit Avocado und Ei",
+   "description": "Reich an Folsäure und gesunden Fetten, unterstützt die Gehirnentwicklung des Babys",
+   "category": "fruehstueck",
+   "ingredients": [
+    "Vollkornbrot - 2 Scheiben",
+    "Avocado - eine halbe",
+    "Ei - 1 Stück",
+    "Zitronensaft - 1 Teelöffel",
+    "Sesam"
+   ],
+   "instructions": [
+    "Zerdrücke die Avocado und gib Zitronensaft und Salz hinzu",
+    "Verteile die Avocadocreme auf dem gerösteten Brot",
+    "Schneide das hart gekochte Ei in Scheiben und lege sie darauf",
+    "Bestreue alles mit Sesam"
+   ]
+  },
+  "9194dcd7-0593-42ea-be60-36f52bfc96b4": {
+   "title": "Lauwarmer Salat mit grünen Linsen",
+   "description": "Eine leichte Abendmahlzeit und eine gute Quelle für Folsäure und Ballaststoffe",
+   "category": "abendessen",
+   "ingredients": [
+    "Grüne Linsen - eine halbe Tasse",
+    "Karotte - 1 Stück",
+    "Spinat - 1 Handvoll",
+    "Zitronensaft",
+    "Olivenöl"
+   ],
+   "instructions": [
+    "Koche die Linsen",
+    "Gib die Karotte und den Spinat hinzu",
+    "Vermische alles mit einem Zitronen-Öl-Dressing"
+   ]
+  },
+  "71de5174-6da5-4ea3-85bb-14cde99315cd": {
+   "title": "Quitten-Dessert aus dem Ofen",
+   "description": "Quitten gehören zu den wirksamsten Früchten gegen Übelkeit",
+   "category": "gesunde_suessigkeiten",
+   "ingredients": [
+    "Quitten - 2 Stück",
+    "Apfel - 1 Stück",
+    "Zimtstange - 1",
+    "Gewürznelken - 3 Stück",
+    "Honig, Walnüsse"
+   ],
+   "instructions": [
+    "Halbiere die Quitten und fülle sie mit geriebenem Apfel",
+    "Gib Zimt und Gewürznelken hinzu",
+    "Backe sie bei 180°C für 50 Minuten",
+    "Beträufle sie mit Honig"
+   ]
+  },
+  "a816a450-3561-451f-b7de-9d70662f2972": {
+   "title": "Mandelgenuss-Smoothie",
+   "description": "Natürlich süß durch Mandelmilch und Datteln. Reich an Omega-3 und Kalzium und unterstützt einen höheren Fettgehalt der Muttermilch.",
+   "category": "gesunde_getraenke",
+   "ingredients": [
+    "Mandeln: 1 Handvoll (über Nacht eingeweicht und geschält)",
+    "Milch: 1 Glas",
+    "Banane: 1 Stück",
+    "Honig: 1 Teelöffel"
+   ],
+   "instructions": [
+    "Weiche die Mandeln über Nacht in Wasser ein und schäle sie am Morgen",
+    "Püriere die Mandeln zusammen mit der Milch im Mixer, bis sie fein zerkleinert sind",
+    "Gib Banane und Honig hinzu und mixe alles erneut",
+    "Trinke den Smoothie kalt oder bei Zimmertemperatur",
+    "1 Glas täglich kann die Milchbildung unterstützen"
+   ]
+  },
+  "396d0e08-df24-45b2-bbc5-d0eb5bb97a61": {
+   "title": "Zimt-Apfelchips aus dem Ofen",
+   "description": "Ein gesunder Snack statt Süßigkeiten",
+   "category": "gesunde_suessigkeiten",
+   "ingredients": [
+    "Äpfel - 2 Stück",
+    "Zimt - 1 Teelöffel"
+   ],
+   "instructions": [
+    "Die Äpfel in dünne Scheiben schneiden",
+    "Mit Zimt bestreuen",
+    "Bei niedriger Temperatur im Ofen trocknen"
+   ]
+  },
+  "e1dfdbd8-e8bb-4c32-930c-c832c8f118d3": {
+   "title": "Saftiger Karotten-Walnuss-Kuchen",
+   "description": "Das Vitamin A aus Karotten und die Omega-3-Fettsäuren aus Walnüssen unterstützen die Entwicklung von Augen und Gehirn",
+   "category": "gesunde_suessigkeiten",
+   "ingredients": [
+    "Hafermehl - 1 Tasse",
+    "Karotten - 2 Stück",
+    "Eier - 2 Stück",
+    "Walnüsse - eine halbe Tasse",
+    "Honig - 3 Esslöffel",
+    "Zimt, Backpulver"
+   ],
+   "instructions": [
+    "Die Eier mit dem Honig verquirlen",
+    "Karotten, Walnüsse und Zimt hinzufügen",
+    "Hafermehl und Backpulver unterrühren",
+    "Bei 170°C 25 Minuten backen"
+   ]
+  },
+  "6f156a10-e92e-4a17-a7af-3e68646cf53d": {
+   "title": "Green-Goddess-Smoothie",
+   "description": "Das Eisen und Vitamin C im Spinat sind eine echte Superkraft gegen Blutarmut",
+   "category": "gesunde_getraenke",
+   "ingredients": [
+    "Spinat - 1 Handvoll",
+    "Kiwi - 1 Stück",
+    "Grüner Apfel - eine Hälfte",
+    "Kokoswasser - eine halbe Tasse",
+    "Zitronensaft"
+   ],
+   "instructions": [
+    "Alle Zutaten im Mixer pürieren",
+    "Sofort trinken"
+   ]
+  },
+  "a447ee30-24f2-4732-9007-6f2676858ba8": {
+   "title": "Chia-Pudding mit Früchten",
+   "description": "Reich an Omega-3-Fettsäuren. Ideal bei Verstopfung.",
+   "category": "Frühstück",
+   "ingredients": [
+    "Chiasamen - 2 Esslöffel",
+    "Milch - 1 Glas",
+    "Honig - 1 Teelöffel",
+    "Frische Früchte"
+   ],
+   "instructions": [
+    "Vermische Chiasamen, Honig und Milch",
+    "Stelle die Mischung 4 Stunden in den Kühlschrank",
+    "Gib die Früchte dazu und genieße den Pudding"
+   ]
+  },
+  "04df0cb9-27f0-4232-a5c9-a3da1994f4f1": {
+   "title": "Muffin-Omelettes mit Gemüse",
+   "description": "Protein und Vitamine in einem. Eine praktische Wahl für berufstätige Frauen",
+   "category": "Frühstück",
+   "ingredients": [
+    "Eier - 3 Stück",
+    "Milch - 2 Esslöffel",
+    "Rote Paprika - eine halbe",
+    "Frühlingszwiebel - einige Halme",
+    "Weißkäse - 50 g"
+   ],
+   "instructions": [
+    "Verquirle die Eier mit der Milch",
+    "Gib Paprika, Frühlingszwiebel und Käse dazu",
+    "Fülle die Mischung in Muffinförmchen",
+    "Backe sie bei 180°C für 15-20 Minuten"
+   ]
+  },
+  "004578f9-a884-48b5-a55a-c91cee0ace44": {
+   "title": "Gemüsesuppe mit Hähnchen",
+   "description": "Eine echte Vitaminbombe, die nachts keinen Durst verursacht",
+   "category": "Abendessen",
+   "ingredients": [
+    "Hähnchenschenkel - 1 Stück",
+    "Karotte - 1 Stück",
+    "Sellerie - 1 Stück",
+    "Suppennudeln - 1 Esslöffel",
+    "Petersilie"
+   ],
+   "instructions": [
+    "Koche das Hähnchen und zupfe das Fleisch in kleine Stücke",
+    "Gib Karotte und Sellerie dazu",
+    "Füge die Suppennudeln hinzu",
+    "Gib Petersilie und Zitrone dazu"
+   ]
+  },
+  "880d9940-72c5-4091-be98-b624aa0ce63b": {
+   "title": "Anti-Übelkeits-Shot",
+   "description": "Eines der wirksamsten Mittel gegen morgendliche Übelkeit",
+   "category": "gesunde Getränke",
+   "ingredients": [
+    "Ingwersaft – 1 Teelöffel",
+    "Zitronensaft – 1 Esslöffel",
+    "Apfelsaft – 2 Esslöffel"
+   ],
+   "instructions": [
+    "In einem kleinen Glas vermischen",
+    "Morgens auf nüchternen Magen trinken"
+   ]
+  },
+  "aef368fe-083d-4b68-9edb-d6de124b4d49": {
+   "title": "Bowl mit Quinoa und Gemüse",
+   "description": "Eine farbenfrohe, sättigende und rein pflanzliche Energiequelle.\n\nVorteil: Quinoa liefert komplexe Kohlenhydrate, die den Blutzucker nicht abrupt ansteigen lassen. Kichererbsen sind reich an pflanzlichem Eiweiß und Phytoöstrogenen, die hormonähnlich wirken.",
+   "category": "Mittagessen",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Quinoa: Eine halbe Tasse (gekocht)",
+    "Süßkartoffel: 1 Stück (gewürfelt und im Ofen gebacken)",
+    "Rotkohl: 1 Handvoll (fein geschnitten)",
+    "Kichererbsen: 3 Esslöffel (gekocht)",
+    "Für das Dressing: 1 Esslöffel Tahin, Zitronensaft, Olivenöl."
+   ],
+   "instructions": [
+    "Alle Zutaten in einer tiefen Schüssel farbenfroh nebeneinander anrichten. Mit dem Tahin-Dressing beträufeln und servieren."
+   ]
+  },
+  "c5e3e953-1def-4129-bf13-05450ac7ffc6": {
+   "title": "Auberginen-Gratin",
+   "description": "Eine fettarme Variante des berühmten italienischen Gerichts „Parmigiana“, ganz ohne Anbraten.\n\nVorteil: Das Antioxidans „Nasunin“ in der Auberginenschale schützt die Gehirnzellen. Das Gericht ist sättigend, aber kalorienarm.",
+   "category": "Abendessen",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Auberginen: 2 Stück (längs in dünne Scheiben geschnitten)",
+    "Tomatensoße: 1 Tasse",
+    "Mozzarella und Lor-Käse (Salzkäse): Zu gleichen Teilen gemischt",
+    "Frisches Basilikum."
+   ],
+   "instructions": [
+    "Die Auberginenscheiben ohne Öl im Ofen vorgaren. In einer Auflaufform nacheinander Soße, Auberginen, Käse und Basilikum wie bei einer Lasagne schichten. Mit einer Käseschicht abschließen und im Ofen backen, bis der Käse goldbraun ist."
+   ]
+  },
+  "feb3870e-5bf3-4d4e-8622-e75280b05802": {
+   "title": "Knusprige Taco-Schälchen (ab 3 Jahren)",
+   "description": "Mexikanischer Genuss mit viel Eiweiß in knusprigen Schälchen aus Lavash-Fladenbrot.\n\nVorteil: Die Ballaststoffe in den Bohnen unterstützen die Verdauung, während Mais und Fleisch die nötige Energie für das Wachstum des Kindes liefern.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Lavash-Fladenbrot (oder Tortilla): 1 Stück",
+    "Rote Bohnen (gekocht): 2 Esslöffel",
+    "Mais: 1 Esslöffel",
+    "Hackfleisch oder gezupftes Hähnchenfleisch: 2 Esslöffel",
+    "Geriebener Käse."
+   ],
+   "instructions": [
+    "Schneide das Lavash-Fladenbrot mithilfe eines Glases in Kreise. Drücke die Kreise in die Mulden einer Muffinform, sodass kleine „Schälchen“ entstehen. Fülle sie mit Bohnen, Mais und Fleisch und gib zum Schluss den Käse darüber. Backe sie im Ofen, bis der Käse geschmolzen und das Lavash-Fladenbrot knusprig ist (10 Minuten)."
+   ]
+  },
+  "290acd87-550a-458c-a7f4-69cb997009e4": {
+   "title": "Linsen-Power-Suppe",
+   "description": "Eine wahre Folsäurequelle und unverzichtbar in der Schwangerschaft",
+   "category": "Mittagessen",
+   "ingredients": [
+    "Rote Linsen - 1 Tasse",
+    "Karotte - 1 Stück",
+    "Kartoffel - 1 Stück",
+    "Zwiebel - 1 Stück",
+    "Brühe - 4 Tassen",
+    "Minze, Zitrone"
+   ],
+   "instructions": [
+    "Brate die Zwiebel an und gib die Karotte dazu",
+    "Gib die Linsen und die Kartoffel dazu",
+    "Gieße die Brühe hinzu und koche alles gar",
+    "Püriere die Suppe mit einem Stabmixer",
+    "Gib Minze und Zitrone dazu"
+   ]
+  },
+  "497f352b-6f6a-4450-a0eb-ddccc2332776": {
+   "title": "Ofenlachs mit Zitrone",
+   "description": "Eine Omega-3-Quelle für die Gehirnentwicklung des Babys",
+   "category": "Abendessen",
+   "ingredients": [
+    "Fischfilet - 200 g",
+    "Zitrone - 2 Scheiben",
+    "Brokkoli - 100 g",
+    "Olivenöl, Thymian"
+   ],
+   "instructions": [
+    "Reibe den Fisch mit den Gewürzen ein",
+    "Lege den Fisch und das Gemüse auf Alufolie",
+    "Lege die Zitronenscheiben darauf",
+    "Backe alles bei 180°C 25 Minuten lang"
+   ]
+  },
+  "b7b9eff5-fed2-499e-b5d9-5c57fb32426f": {
+   "title": "Glow-Salat",
+   "description": "Ein Frühstück mit Detox-Effekt für alle, die schon morgens Gemüse essen möchten.\n\nVorteil: Spinat und Olivenöl regen die Darmtätigkeit an und unterstützen den Körper bei der Ausscheidung von Giftstoffen.",
+   "category": "Frühstück",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Babyspinat oder Blattsalat: 1-2 Handvoll",
+    "Hart gekochtes Ei: 1 Stück",
+    "Walnüsse: 2-3 Stück",
+    "Olivenöl und Zitronensaft.",
+    "Quark: 2 Esslöffel."
+   ],
+   "instructions": [
+    "Gib den Spinat in eine Schüssel. Füge das in Scheiben geschnittene Ei, den Quark und die Walnüsse hinzu. Mit Olivenöl und Zitronensaft beträufeln und genießen."
+   ]
+  },
+  "dcd85da7-ccb3-4272-a895-942bd99de63b": {
+   "title": "Goldene Körner – Bulgur-Pilaw",
+   "description": "Eine Kombination aus Bulgur und Linsen. Reich an B-Vitaminen und unterstützt die Versorgung des Brustdrüsengewebes mit Nährstoffen.",
+   "category": "Mittagessen",
+   "ingredients": [
+    "Bulgur: 1 Glas",
+    "Grüne Linsen: ein halbes Glas (gekocht)",
+    "Zwiebel: 1 Stück",
+    "Butter: 1 Esslöffel",
+    "Wasser: 2 Gläser"
+   ],
+   "instructions": [
+    "Brate die Zwiebel in der Butter goldbraun an",
+    "Gib den gewaschenen Bulgur hinzu und brate ihn 1-2 Minuten mit an",
+    "Füge die vorgekochten Linsen hinzu",
+    "Gieße 2 Gläser Wasser dazu und bringe alles zum Kochen",
+    "Lass den Pilaw bei schwacher Hitze quellen, bis das Wasser vollständig aufgenommen ist (15-20 Min.)"
+   ]
+  },
+  "db9dd331-557e-46cd-9d2b-a47d4771ad41": {
+   "title": "Zen-Balance-Smoothie",
+   "description": "Wohltuend bei Sodbrennen",
+   "category": "Gesunde Getränke",
+   "ingredients": [
+    "Haferflocken - 2 Esslöffel",
+    "Banane - 1 Stück",
+    "Milch - 1 Glas",
+    "Honig - 1 Teelöffel"
+   ],
+   "instructions": [
+    "Weiche die Haferflocken in der Milch ein",
+    "Mixe sie zusammen mit der Banane und dem Honig im Standmixer"
+   ]
+  },
+  "56b6eb44-1b68-4703-8191-5abf175ce6b4": {
+   "title": "Kreuzkümmel-Komfort – Linsensuppe",
+   "description": "Eine Suppe, die Blähungen bei Mutter und Baby lindert. Kreuzkümmel fördert die Milchbildung und lindert Koliken.",
+   "category": "Stillzeit",
+   "tags": [
+    "Wochenbett",
+    "Milchbildung_fördern"
+   ],
+   "ingredients": [
+    "Rote Linsen: 1 Glas",
+    "Zwiebel: 1 Stück",
+    "Kartoffel: 1 Stück",
+    "Kreuzkümmel: 1 Teelöffel (großzügig)",
+    "Butter: 1 Esslöffel"
+   ],
+   "instructions": [
+    "Linsen, Zwiebel und Kartoffel klein schneiden und in Wasser kochen",
+    "Sobald alles weich ist, mit dem Pürierstab pürieren",
+    "Den Kreuzkümmel separat in Butter anrösten, bis er duftet",
+    "Die heiße Kreuzkümmelbutter über die Suppe träufeln",
+    "Warm genießen – fördert die Milchbildung und hilft gegen Koliken"
+   ]
+  },
+  "06ed0fa8-cbd9-44a6-9ddc-7e7b1fe1e84d": {
+   "title": "Probiotisches Parfait",
+   "description": "Eine wertvolle Quelle für Kalzium und Probiotika zur Unterstützung der Darmgesundheit – unseres zweiten Gehirns.\n\nVorteil: Eine gesunde Darmflora trägt bei Frauen unmittelbar zu einem starken Immunsystem und zum psychischen Wohlbefinden bei.",
+   "category": "Frühstück",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Abgetropfter Joghurt (oder griechischer Joghurt): 1 Glas",
+    "Ungesüßtes Granola (oder eine geröstete Haferflocken-Nuss-Mischung): 3 Esslöffel",
+    "Frisches Obst (Kiwi, Pfirsich oder Erdbeeren): Klein geschnitten"
+   ],
+   "instructions": [
+    "Zuerst die Hälfte des Joghurts in ein hohes Glas geben, dann Obst und anschließend Granola darauf schichten. Mit dem restlichen Joghurt abschließen und ganz oben etwas Granola darüberstreuen."
+   ]
+  },
+  "9448c07e-1f48-40e0-a861-ab4dcd62db5b": {
+   "title": "Goldene Creme – Hummus",
+   "description": "Die köstlichste Kombination aus Kichererbsen und Tahin zur Förderung der Milchbildung. Reich an pflanzlichem Eiweiß und Kalzium.",
+   "category": "Mittagessen",
+   "ingredients": [
+    "Kichererbsen: 1 Glas (gekocht)",
+    "Tahin (Sesampaste): 2 Esslöffel",
+    "Zitronensaft: 1 Esslöffel",
+    "Knoblauch: 1 Zehe",
+    "Olivenöl: 2 Esslöffel"
+   ],
+   "instructions": [
+    "Die Kichererbsen vorher einweichen und weich kochen",
+    "Kichererbsen, Tahin, Zitronensaft und Knoblauch in den Mixer geben",
+    "Mixen, bis eine glatte, cremige Konsistenz entsteht",
+    "Bei Bedarf etwas Kochwasser hinzufügen",
+    "Mit Olivenöl beträufeln und mit Brot servieren"
+   ]
+  },
+  "3d1a500a-b203-4052-b1f2-91a4407a4e3c": {
+   "title": "Avocado-Toast mit Ei (ab 1 Jahr)",
+   "description": "Ein Lieblingsgericht für Einjährige, die gerne selbstständig mit den Händen essen.\n\nVorteile: Avocado ist reich an gesunden Fetten, während Ei essenzielle Aminosäuren liefert.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Vollkornbrot: 1 Scheibe (Ränder abgeschnitten, getoastet)",
+    "Avocado: Ein Viertel (gründlich zerdrückt)",
+    "Ei: 1 Stück (hart gekocht und gerieben)"
+   ],
+   "instructions": [
+    "Die zerdrückte Avocado auf dem Toast verteilen. Das geriebene Ei darüberstreuen. In längliche Streifen schneiden, die das Kind gut in der Hand halten kann."
+   ]
+  },
+  "c842f7bd-4741-487b-b42c-981f40c245be": {
+   "title": "Pasta mit Spinat (ab 4 Jahren)",
+   "description": "Eine magische, käsige und eisenreiche Sauce, die Kinder mit ihrer grünen Farbe begeistert.\n\nVorteile: Spinat und Walnüsse unterstützen die Gehirnentwicklung und Energieversorgung des Kindes.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Vollkornnudeln oder bunte glutenfreie Nudeln: 1 Tasse",
+    "Spinat: 1 große Handvoll",
+    "Walnusskerne: 2 Stück",
+    "Frischkäse oder Olivenöl: 1 Esslöffel"
+   ],
+   "instructions": [
+    "Die Nudeln kochen. Spinat, Walnüsse und Frischkäse (oder Öl) im Mixer pürieren, bis eine vollkommen glatte, leuchtend grüne Creme entsteht. Die heißen Nudeln mit dieser Sauce vermischen und servieren."
+   ]
+  },
+  "ce232b23-613e-4e89-87ba-f0def071b9bc": {
+   "title": "Superkraft-Bällchen (ab 2 Jahren)",
+   "description": "Im Ofen gebackene Hackbällchen mit einer Überraschung im Inneren, die selbst Kinder, die kein Fleisch mögen, mit Genuss essen werden.\n\nVorteile: Hochwertiges Hühnereiweiß und das Eisen aus Brokkoli in einem Gericht. Da die Bällchen nicht frittiert werden, sind sie leicht bekömmlich.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Hähnchenhackfleisch: 200 qr",
+    "Brokkoli: 3-4 Röschen (im Mixer sehr fein, fast pulverartig zerkleinert)",
+    "Zwiebel: Ein sehr kleines Stück (gerieben)",
+    "Semmelbrösel: 1 Esslöffel",
+    "Olivenöl und etwas Salz."
+   ],
+   "instructions": [
+    "Alle Zutaten in einer Schüssel gründlich verkneten.",
+    "Bällchen formen, die etwas kleiner als eine Walnuss sind und die das Kind gut mit der Hand greifen und essen kann.",
+    "Auf einem mit Backpapier ausgelegten Blech bei 180 Grad 20-25 Minuten im Ofen backen."
+   ]
+  },
+  "76ceddd0-3762-4c0e-938c-757205264083": {
+   "title": "Beeren-Chia-Zauber",
+   "description": "Ein erfrischender Snack voller Antioxidantien, der die Haut von innen mit Feuchtigkeit versorgt.",
+   "category": "Frühstück",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Chiasamen: 3 Esslöffel",
+    "Mandelmilch (oder Kokosmilch): 1 Glas",
+    "Frische Himbeeren oder Heidelbeeren: 1 Handvoll",
+    "Honig oder Ahornsirup: 1 Teelöffel"
+   ],
+   "instructions": [
+    "Vermische am Vorabend die Chiasamen, die Milch und den Honig gründlich in einer Schüssel (rühre nach 10 Minuten noch einmal um, damit sich keine Klümpchen bilden). Stelle die Mischung über Nacht in den Kühlschrank. Garniere sie morgens mit frischen Beeren und serviere sie."
+   ]
+  },
+  "db6223cf-fd40-4b31-9334-3aa607532faa": {
+   "title": "Rote-Bete-Käse-Salat",
+   "description": "Ein leichtes, farbenfrohes Mittagessen, das die Durchblutung anregt.\n\nVorteil: Rote Bete gehört zu den besten Gemüsesorten zur Unterstützung der Leber, während Ziegenkäse oder Hüttenkäse eine leicht verdauliche Kalziumquelle ist.",
+   "category": "Mittagessen",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Rote Bete: 1 mittelgroße Knolle (im Ofen gegart oder gekocht und gewürfelt)",
+    "Ziegenkäse (oder Salzlake- bzw. Hüttenkäse): 2 Esslöffel",
+    "Walnusskerne: 1 Handvoll",
+    "Rucolablätter.",
+    "Balsamico-Essig und Olivenöl."
+   ],
+   "instructions": [
+    "Gib die gewürfelte Rote Bete, den Käse und die Walnüsse auf die Rucolablätter. Beträufle den Salat mit einer Mischung aus Balsamico-Essig und Olivenöl."
+   ]
+  },
+  "be15d84a-f891-40e8-bcea-25a7ea3f5e77": {
+   "title": "Avocado-Toast",
+   "description": "Die köstlichste Kombination aus gesunden Fetten und hochwertigem Eiweiß.\n\nVorteil: Avocado enthält gesunde Fette, die für den weiblichen Hormonhaushalt wichtig sind, während Eier hochwertiges Eiweiß liefern, das zum Erhalt der Muskulatur beiträgt.",
+   "category": "Frühstück",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Vollkorn- oder Roggenbrot: 1-2 große Scheiben",
+    "Avocado: 1 halbe (reif)",
+    "Eier: 1-2 (pochiert oder weich gekocht)",
+    "Zitronensaft, Salz, rote Chiliflocken."
+   ],
+   "instructions": [
+    "Toaste das Brot. Zerdrücke die Avocado mit einer Gabel, vermische sie mit Zitronensaft und Salz und streiche sie auf das Brot. Lege das gegarte Ei darauf und bestreue es mit Chiliflocken."
+   ]
+  },
+  "e3b32abb-4f90-4796-9370-d8e31b9a5d8e": {
+   "title": "Spinat-Pancakes (ab 1 Jahr)",
+   "description": "Zuckerfreie, weiche und leckere Wölkchen in einer außergewöhnlichen Farbe – perfekt zum Frühstück.\n\nVorteil: Spinat und Banane ergänzen sich hervorragend. Reich an Eisen und Kalium.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Babyspinat: 1 Handvoll",
+    "Banane: 1 Stück (reif)",
+    "Ei: 1 Stück",
+    "Mehl (Vollkornweizen- oder Hafermehl): 2 Esslöffel"
+   ],
+   "instructions": [
+    "Spinat, Banane und Ei im Mixer zu einer vollkommen glatten, grünen Masse pürieren. Das Mehl hinzufügen und verrühren. Den Teig löffelweise in eine beschichtete Pfanne ohne Öl geben und von beiden Seiten ausbacken."
+   ]
+  },
+  "d55a1489-0c64-4fd1-9c95-61ccad0e27bf": {
+   "title": "Süßkartoffel-Schiffchen (ab 4 Jahren)",
+   "description": "Farbenfrohe, vitaminreiche Schiffchen, die in Form kleiner Boote serviert werden.\n\nVorteil: Das Vitamin A in Süßkartoffeln unterstützt die Augengesundheit. Mais und Erbsen verleihen dem Gericht eine abwechslungsreiche Konsistenz.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Süßkartoffeln: 2 Stück (halbiert und im Ofen gebacken)",
+    "Grüne Erbsen und Mais: jeweils 1 Esslöffel (gekocht)",
+    "Zerkleinertes Hähnchenfleisch oder Hackfleisch: 2 Esslöffel",
+    "Käse (für das Segel)."
+   ],
+   "instructions": [
+    "Das Innere der gebackenen Süßkartoffeln vorsichtig etwas aushöhlen und pürieren. Mit Erbsen, Mais und Fleisch vermischen und wieder in die Süßkartoffelhälften füllen. Ein dreieckig zugeschnittenes Stück Käse als Segel auf einen Zahnstocher stecken und auf dem Schiffchen befestigen."
+   ]
+  },
+  "c4928087-d44e-49b9-b047-6872459c8c34": {
+   "title": "Orangenkakao",
+   "description": "Das Vitamin C in der Orange unterstützt die Aufnahme des Eisens aus dem Kakao. Es verleiht der Haut einen schönen Glow.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 Esslöffel Kakao, 1 Glas Mandelmilch, 1 Esslöffel frisch gepresster Orangensaft (oder abgeriebene Orangenschale), 1 Teelöffel Melasse."
+   ],
+   "instructions": [
+    "Den Kakao in der warmen Mandelmilch auflösen. Vom Herd nehmen und anschließend Orangensaft und Melasse hinzufügen."
+   ]
+  },
+  "69335e75-4e74-4b38-bb31-495c4674ceb3": {
+   "title": "Weißfisch mit Zitrusaroma",
+   "description": "Ein aromatischer, zarter Meeresgenuss, der überhaupt nicht schwer im Magen liegt.\n\nVorteile: Weißfische (Wolfsbarsch, Zander) liefern leicht verdauliches, hochwertiges Eiweiß und Jod, das die Schilddrüse schützt. Zitrone unterstützt zudem die Eisenaufnahme.",
+   "category": "Abendessen",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Weißfischfilet: 150-200 qr",
+    "Zitrone und Orange: jeweils 2 Scheiben",
+    "Frischer Thymian oder Rosmarin: 1-2 Zweige",
+    "Olivenöl, Salz, schwarzer Pfeffer."
+   ],
+   "instructions": [
+    "Lege den gesäuberten Fisch auf Backpapier. Würze ihn mit Salz und Pfeffer und beträufle ihn mit Öl. Verteile die Zitrusscheiben und Kräuter darauf. Falte das Papier zu einem Päckchen und gare den Fisch bei 180 Grad 20 Minuten lang. Genieße ihn mit reichlich grünem Salat."
+   ]
+  },
+  "59177852-56ab-4ae0-9965-367e9142cf8e": {
+   "title": "Tropische Oase",
+   "description": "Ein besonders reines Getränk, das den Flüssigkeits- und Elektrolythaushalt des Körpers unterstützt und Wassereinlagerungen entgegenwirkt.\n\nVorteile: Kokoswasser ist ein natürliches Sportgetränk und reich an Kalium. Gurke erfrischt Haut und Körper von innen.",
+   "category": "Gesunde Getränke",
+   "ingredients": [
+    "Kokoswasser (naturbelassen): 1 Glas",
+    "Gurke: in dünne Streifen geschnitten",
+    "Frische Minze und Limettensaft."
+   ],
+   "instructions": [
+    "Gib alle Zutaten in eine Karaffe oder ein großes Glas und lasse sie 30 Minuten im Kühlschrank ziehen, damit sich die Aromen verbinden. Genieße das Getränk gut gekühlt."
+   ]
+  },
+  "0ad5770d-c00e-4aaf-a326-ab7ca620f797": {
+   "title": "Avocado-Hähnchen-Salat",
+   "description": "Ein kohlenhydratarmes Gericht, das lange satt hält, die Muskeln mit Nährstoffen versorgt und köstlich schmeckt.\n\nVorteile: Die Kombination aus sättigendem Eiweiß (Hähnchen) und gesunden Fetten (Avocado) beugt Heißhunger auf Süßes vor.",
+   "category": "Mittagessen",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Hähnchenbrust: 150 qr (gegrillt oder in der Pfanne gebraten)",
+    "Avocado: eine halbe (in Scheiben geschnitten)",
+    "Babyspinat oder Blattsalat: 2 Handvoll",
+    "Cherrytomaten: 5-6 Stück",
+    "Zitronensaft, Olivenöl."
+   ],
+   "instructions": [
+    "Schneide das Hähnchenfleisch in längliche Streifen. Gib Blattgemüse, Tomaten und Avocado auf einen großen Teller und verteile die Hähnchenstreifen darauf. Schmecke den Salat mit einem Dressing aus Zitronensaft und Olivenöl ab."
+   ]
+  },
+  "f34874ad-c7fb-4bad-9d1d-814135cad038": {
+   "title": "Gefüllte Zucchini mit Putenfleisch",
+   "description": "Eiweißreiche, appetitliche „Schiffchen“ ganz ohne Teig oder Brot.\n\nVorteil: Dieses Gericht ist sehr kohlenhydratarm. Die Aminosäure „Tryptophan“ im Putenfleisch unterstützt die Bildung von Melatonin (Schlafhormon) und kann so zu einem tiefen, erholsamen Schlaf beitragen.",
+   "category": "Abendessen",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Zucchini: 2 mittelgroße (längs halbiert und ausgehöhlt)",
+    "Putenhackfleisch (oder mageres Rinderhackfleisch): 150 qr",
+    "Tomate: 1 Stück (gerieben)",
+    "Mozzarella oder holländischer Käse: 30 qr (gerieben)",
+    "Zwiebel, Knoblauch, Thymian."
+   ],
+   "instructions": [
+    "Brate das Hackfleisch mit Zwiebel, Knoblauch und Tomate in einer Pfanne halbgar an. Fülle die Zucchinischiffchen damit und backe sie bei 180 Grad im Ofen, bis die Zucchini weich sind (etwa 25 Minuten). Streue 5 Minuten vor Ende der Backzeit den Käse darüber."
+   ]
+  },
+  "d3ad67eb-6c19-4eee-9f9a-b784483c1a16": {
+   "title": "Lachs und Brokkoli\n(9 Monate+)",
+   "description": "Die erste kleine Meeresmahlzeit – reich an Omega-3-Fettsäuren, die für den Aufbau der Gehirnzellen wichtig sind.\n\nVorteil: Lachs liefert wichtige Nährstoffe für die Entwicklung von Gehirn und Nervensystem. Brokkoli versorgt das Baby zudem mit Kalzium und Vitamin C.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Lachsfilet: 30 qr (vollständig grätenfrei)",
+    "Brokkoli: 2-3 Röschen",
+    "Olivenöl: Einige Tropfen."
+   ],
+   "instructions": [
+    "Gare den Fisch und den Brokkoli gründlich im Dampf (oder in wenig Wasser). Zerteile den Fisch mit einer Gabel und prüfe dabei noch einmal sorgfältig, ob Gräten vorhanden sind. Zerdrücke ihn zusammen mit dem Brokkoli und träufle das Olivenöl darüber."
+   ]
+  },
+  "f04550c5-0fdb-4ab9-8b7b-831a4d2f5e5a": {
+   "title": "Gemüsereis (4 Jahre+)",
+   "description": "Ein festlich-bunter Reis voller farbenfrohem Gemüse.\n\nVorteil: Ein besonders sättigendes Mittagessen, das Kohlenhydrate, Vitamine und Ballaststoffe in einem Topf vereint.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Basmatireis oder Langkornreis: 1 Glas",
+    "Karotte, grüne Erbsen, rote Paprika, Mais: Jeweils 2 Esslöffel (klein gewürfelt)",
+    "Butter und Hühnerbrühe."
+   ],
+   "instructions": [
+    "Dünste das Gemüse kurz in etwas Butter an. Gib den gewaschenen Reis und die Brühe hinzu und gare alles, bis die Flüssigkeit vollständig aufgenommen wurde und der Reis locker und körnig ist."
+   ]
+  },
+  "dbb5731f-3844-4a55-a0b0-63c083018f90": {
+   "title": "Blumenkohlsteak aus dem Ofen",
+   "description": "Der beliebteste „Fleischersatz“ in der veganen und gesunden Küche. Optisch erinnert er an ein Steak.\n\nVorteil: Blumenkohl ist sehr kalorienarm und reich an Ballaststoffen. Beim Backen im Ofen karamellisiert sein natürlicher Zucker und sorgt für einen herrlichen Geschmack.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Blumenkohl: 1 ganzer Kopf (sehr groß)",
+    "Olivenöl: 2 Esslöffel",
+    "Knoblauchpulver, edelsüßes Paprikapulver, Meersalz, schwarzer Pfeffer."
+   ],
+   "instructions": [
+    "Wasche den Blumenkohl im Ganzen und schneide aus der Mitte 2 Zentimeter dicke, zusammenhängende „Steaks“. Lege sie auf ein Backblech und bestreiche beide Seiten mit Olivenöl und der Gewürzmischung. Backe sie bei 200 Grad, bis sie auf beiden Seiten goldbraun sind (etwa 25-30 Minuten)."
+   ]
+  },
+  "38175de9-042b-4fc9-8a58-cdff56307d6d": {
+   "title": "Eier-Schiffchen (ab 3 Jahren)",
+   "description": "Ein lustiger Snack in „Schiffsform“ für Kinder, die kein Eigelb mögen.\n\nVorteil: Das im Eigelb enthaltene Cholin ist einer der wichtigsten Nährstoffe für das sich schnell entwickelnde Gehirn und Gedächtnis eines 3-jährigen Kindes.",
+   "category": "Beikost",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Hart gekochte Eier: 2 Stück",
+    "Joghurt: 1 Teelöffel",
+    "Sehr klein geschnittene bunte Paprika (als „Schätze“)",
+    "Käse: dünne, dreieckige Scheiben (für die Segel) und Zahnstocher."
+   ],
+   "instructions": [
+    "Halbiere die Eier der Länge nach. Nimm das Eigelb heraus, zerdrücke es mit dem Joghurt, mische die bunten Paprikastückchen (die „Schätze“) unter und fülle die Masse wieder in die Eiweißhälften. Stecke ein Käsedreieck auf einen Zahnstocher und befestige es als „Segel“ im Ei (vergiss nicht, den Zahnstocher vor dem Essen zu entfernen!)."
+   ]
+  },
+  "fef93b73-64a7-48d4-94bf-fe08f3ed1adc": {
+   "title": "Gefüllte Portobello-Pilze",
+   "description": "Herrliche Pilzkappen, die auch ohne rotes Fleisch eine fleischähnliche Konsistenz und einen herzhaften Geschmack bieten.\n\nVorteil: Portobello-Pilze sind reich an Selen, einem Mineralstoff, der die Haut vor vorzeitiger Alterung schützt. Sie sind leicht verdaulich und belasten den Magen nicht.",
+   "category": "Abendessen",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Portobello-Pilze: 2 große Stück (Stiele entfernt und innen gesäubert)",
+    "Spinat: 1 Handvoll (gehackt)",
+    "Quinoa (oder Bulgur): 2 Esslöffel (gekocht)",
+    "Feta (oder Weißkäse): 1 Esslöffel"
+   ],
+   "instructions": [
+    "Fülle die Pilze mit einer Mischung aus Quinoa, Spinat und Käse. Lege sie in eine Auflaufform und beträufle sie mit etwas Olivenöl. Backe sie bei 180 Grad, bis die Pilze weich sind."
+   ]
+  },
+  "87d23e0f-a0db-4aa1-b0fb-794cb2b35b28": {
+   "title": "Avocado-Toast mit Chiasamen",
+   "description": "Eine sättigende Variante des klassischen Avocado-Toasts – mit mehr Omega-3-Fettsäuren und extra viel Biss.\n\nVorteil: Die Kombination aus Chiasamen und Avocado liefert wertvolle gesunde Fette, die die Haut von innen mit Feuchtigkeit versorgen.",
+   "category": "Allgemein",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Schwarz- oder Vollkornbrot: 1 Scheibe (getoastet)",
+    "Avocado: Eine halbe (reif)",
+    "Chiasamen: 1 Teelöffel",
+    "Zitronensaft, Meersalz, Chiliflocken."
+   ],
+   "instructions": [
+    "Zerdrücke die Avocado mit einer Gabel und vermische sie mit Zitronensaft und Salz. Verteile die Mischung großzügig auf dem getoasteten Brot. Streue zum Schluss Chiasamen und Chiliflocken darüber – für extra Biss und zusätzliche Nährstoffe."
+   ]
+  },
+  "f84c1bc3-0bf2-4206-b695-21d5ec9708da": {
+   "title": "Rose & Berry Spritz",
+   "description": "Flüssiges Kollagen und antioxidative Unterstützung für deine Haut. Besonders fein und erfrischend.\n\nVorteil: Beeren können die Zellalterung verlangsamen, während Rosenwasser die Haut von innen mit Feuchtigkeit versorgt und ihr einen natürlichen \"Glow\" (Strahlen) verleiht.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Frische Himbeeren oder Erdbeeren: 1 Handvoll",
+    "Rosenwasser (zum Verzehr geeignet, ohne Zusätze): 1 Esslöffel",
+    "Sprudelwasser (Mineralwasser): 1 Glas",
+    "Limette: 1 Scheibe",
+    "Eiswürfel."
+   ],
+   "instructions": [
+    "Zerdrücke die Beeren mit einer Gabel am Boden des Glases. Gib Eiswürfel, Rosenwasser und Limettensaft hinzu. Gieße zum Schluss das Sprudelwasser darüber und rühre alles um."
+   ]
+  },
+  "792abbe5-dddc-4848-8d97-bdcb84318aee": {
+   "title": "Kurkuma-Dessert",
+   "description": "Ein entzündungshemmender italienischer Klassiker, der die Haut zum Strahlen bringt.\n\nVorteil: Kurkuma und Kokosmilch können die Haut bei Akne von innen unterstützen, während Gelatine eine natürliche Kollagenquelle ist, die Nägel und Haare stärkt.",
+   "category": "Gesunde Süßspeisen",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Kokosmilch (aus der Dose, cremig): 1 Glas",
+    "Kurkuma, gemahlen: 1 Teelöffel",
+    "Honig: 2 Esslöffel",
+    "Blattgelatine: 2 Blätter (oder 1 Teelöffel Agar-Agar)"
+   ],
+   "instructions": [
+    "Weiche die Gelatine in kaltem Wasser ein. Erwärme die Kokosmilch in einem Topf, ohne sie aufzukochen. Gib Kurkuma, Honig und die eingeweichte Gelatine hinzu und verrühre alles gründlich. Fülle die Mischung in kleine Gläser und lasse sie 3-4 Stunden im Kühlschrank fest werden."
+   ]
+  },
+  "6b9ff319-0e3b-432c-ae21-5efca3c9d50d": {
+   "title": "Rubin-Plätzchen",
+   "description": "Mehlfreie, glutenfreie „Thumbprint“-Plätzchen mit Marmelade für die Teestunde.\n\nVorteil: Mandelmehl versorgt die Haut mit Vitamin E, während die selbst gemachte Chia-„Marmelade“ zur Versorgung mit Omega-3-Fettsäuren beiträgt.",
+   "category": "Gesunde Süßigkeiten",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Mandelmehl: 1.5 Tassen",
+    "Honig oder Agavendicksaft: 3 Esslöffel",
+    "Kokosöl: 2 Esslöffel (geschmolzen)",
+    "Frische Himbeeren und 1 Esslöffel Chiasamen (für die Marmelade)."
+   ],
+   "instructions": [
+    "Die Himbeeren mit einer Gabel zerdrücken und mit den Chiasamen vermischen (15 Min. stehen lassen, damit die Mischung eindickt). Mandelmehl, Öl und Honig zu einem Teig verkneten und kleine Kugeln formen. Mit dem Finger jeweils eine Mulde hineindrücken und im Backofen bei 160 Grad 10 Min. backen. Herausnehmen und die Mulden mit der Himbeer-Chia-Marmelade füllen."
+   ]
+  },
+  "55df2691-7b63-4f38-bfb6-d946010b6903": {
+   "title": "Rote-Bete-Apfel-Püree\n(ab 7 Monaten)",
+   "description": "Ein süßes, immunstärkendes Püree, das deinem Baby rosige Wangen zaubert.\n\nVorteil: Rote Bete gilt als eines der stärksten natürlichen Lebensmittel zur Unterstützung bei Blutarmut. Der Apfel mildert ihren erdigen Geschmack.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Rote Bete: 1 kleine Knolle",
+    "Apfel: Eine halbe Frucht"
+   ],
+   "instructions": [
+    "Die Rote Bete mit Schale kochen oder im Backofen garen (damit die Vitamine möglichst erhalten bleiben). Anschließend schälen und zusammen mit dem Apfel im Mixer zu einem glatten Püree verarbeiten. Pass auf, dass nichts auf die Kleidung kommt!"
+   ]
+  },
+  "03922c9b-57cd-4e60-9084-3b45e0d48642": {
+   "title": "Herzhafter Regenbogenkuchen (ab 2 Jahren)",
+   "description": "Ein herzhafter Kuchen mit Gemüse und Käse, der wie eine Süßigkeit aussieht.\n\nVorteil: Eine praktische Möglichkeit, wählerische Kinder für verschiedene Gemüsesorten wie bunte Paprika und Blattgemüse zu begeistern. Auch ideal zum Mitnehmen in den Park.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Eier: 2 Stück",
+    "Joghurt: 2 Esslöffel",
+    "Olivenöl: 1 Esslöffel",
+    "Rote Paprika und Spinat: Sehr fein gehackt (1-2 Esslöffel)",
+    "Käse (gerieben): 2 Esslöffel",
+    "Mehl und Backpulver (bis ein fester Kuchenteig entsteht)."
+   ],
+   "instructions": [
+    "Die flüssigen Zutaten (Eier, Joghurt und Öl) verquirlen. Gemüse und Käse hinzugeben.",
+    "Zum Schluss Mehl und Backpulver hinzufügen und alles vermischen.",
+    "In Muffinförmchen füllen und bei 180 Grad 20 Minuten backen, bis die Muffins aufgegangen und goldbraun sind."
+   ]
+  },
+  "ceb5db8c-58a7-4fde-a771-d2ed012eb9df": {
+   "title": "Matcha-Pistazien-Trüffel",
+   "description": "Ein „Premium“-Snack zum Kaffee, der den Stoffwechsel anregt und die Haut verjüngt.\n\nVorteil: Matcha-Tee ist ein starkes Antioxidans, das die Zellerneuerung fördert. Cashewkerne und Pistazien versorgen die Haut mit gesunden Fetten und spenden ihr Feuchtigkeit.",
+   "category": "Gesunde Süßigkeiten",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Cashewkerne (roh, eingeweicht): 1 Tasse",
+    "Datteln: 5-6 Stück",
+    "Matcha-Pulver: 1 Esslöffel (plus etwas mehr zum Wälzen)",
+    "Pistazien: Eine halbe Tasse (gehackt)"
+   ],
+   "instructions": [
+    "Alle Zutaten (bis auf die Hälfte der Pistazien) im Mixer zu einer klebrigen Masse verarbeiten. Mit den Händen Kugeln formen, die eine Hälfte in Matcha-Pulver und die andere Hälfte in den gehackten Pistazien wälzen."
+   ]
+  },
+  "71967587-de0b-4a79-8b91-69af7cbe3013": {
+   "title": "Marokkanische Gemüse-Tajine",
+   "description": "Ein nordafrikanisches Gericht, das langsam in einem speziellen Gefäß gegart wird und Gemüse und Früchte zu einer süß-herzhaften Harmonie vereint.\n\nVorteil: Kichererbsen und Gemüse liefern komplexe Kohlenhydrate, die zur Regulierung des Blutzuckers beitragen. Trockenfrüchte sorgen ganz ohne Zuckerzusatz für eine natürliche Süße.",
+   "category": "allgemein",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Kichererbsen (gekocht): 1 Tasse",
+    "Karotte, Zucchini, Süßkartoffel (grob geschnitten).",
+    "Getrocknete Aprikosen oder Rosinen: Eine halbe Tasse",
+    "Zimt, Kreuzkümmel, Ingwerpulver, Olivenöl, Gemüsebrühe."
+   ],
+   "instructions": [
+    "Die Gewürze in einem tiefen Topf (oder einem traditionellen Tajine-Gefäß) im Öl erwärmen. Gemüse, Kichererbsen und Trockenfrüchte hinzufügen. Mit der Brühe aufgießen und zugedeckt bei niedriger Hitze garen, bis das Gemüse vollständig weich ist (40-45 Minuten). Mit Quinoa oder Couscous servieren."
+   ]
+  },
+  "989c089a-7705-4f4f-aa06-64d202a23310": {
+   "title": "Smoothie-Bowl (4 Jahre+)",
+   "description": "Ein lustiges Dessert zum Löffeln, das Kindern Gemüse und Obst in pürierter Form schmackhaft macht.\n\nVorteil: Eine Vitaminbombe zur Unterstützung des Immunsystems. Perfekt als Nachmittagssnack für dein Kind.",
+   "category": "Beikost",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Spinat: 1 Handvoll",
+    "Gefrorene Banane: 1 Stück",
+    "Kiwi: 1 Stück",
+    "Joghurt oder Milch: Eine halbe Tasse",
+    "Zum Dekorieren: Aus Kiwischeiben geschnittene Dinosaurier-„Stacheln“ oder -Knochen."
+   ],
+   "instructions": [
+    "Spinat, Banane, Kiwi und Milch im Mixer zu einer dickflüssigen Creme pürieren. In eine Schüssel geben und mit den Kiwischeiben so dekorieren, dass die Oberfläche wie der Rücken eines Dinosauriers aussieht."
+   ]
+  },
+  "3c637a80-dd91-4c2f-bf85-45f21dbc4610": {
+   "title": "Rosa Flamingo-Pancakes (ab 3 Jahren)",
+   "description": "Ein Frühstück, das Kinder mit seiner natürlichen rosa Farbe ganz ohne Lebensmittelfarbe begeistert.\n\nVorteil: Rote Bete fördert die Durchblutung und unterstützt das Immunsystem. Hafer hält dein Kind außerdem lange satt und versorgt es mit Energie.",
+   "category": "Beikost",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Rote-Bete-Püree: 1 Esslöffel (aus gekochter Roter Bete)",
+    "Ei: 1 Stück",
+    "Hafermehl: 3 Esslöffel",
+    "Milch: ein halbes Teeglas",
+    "Honig: sehr wenig (zum Süßen)"
+   ],
+   "instructions": [
+    "Püriere alle Zutaten im Mixer, bis ein vollkommen glatter, rosa Teig entsteht. Backe kleine runde Pancakes in einer beschichteten Pfanne ohne Öl von beiden Seiten aus."
+   ]
+  },
+  "13882a92-abb0-49d4-b8c0-e8f4f9c2ea1b": {
+   "title": "Meteoriten-Energiekugeln (ab 5 Jahren)",
+   "description": "Zuckerfreie „Schoko“-Energie zum Mitnehmen in den Kindergarten oder Park.\n\nVorteil: Datteln und Kakao liefern schnell Energie, während Nüsse mit ihren Omega-3-Fettsäuren Haut und Haare unterstützen.",
+   "category": "Beikost",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Weiche Datteln: 8-10 Stück (entsteint)",
+    "Haferflocken: ein halbes Glas",
+    "Kakao (ungesüßt): 1 Esslöffel",
+    "Haselnüsse oder Sonnenblumenkerne: 2 Esslöffel."
+   ],
+   "instructions": [
+    "Zerkleinere alle Zutaten im Mixer, bis eine klebrige Masse entsteht. Forme mit den Händen kleine „Meteoriten“. Du kannst sie zusätzlich mit Kokosraspeln bestreuen. Stelle sie vor dem Servieren 30 Minuten in den Kühlschrank."
+   ]
+  },
+  "9a57e53c-6cc6-4002-bebc-5ba8dd87a146": {
+   "title": "Leinsamen-Chia-Pudding",
+   "description": "Ein sättigender, verdauungsfreundlicher Pudding fürs Frühstück oder als Zwischenmahlzeit, der in nur 2 Minuten zubereitet ist.\n\nVorteil: Chia- und Leinsamen nehmen ein Vielfaches ihres Eigengewichts an Wasser auf und quellen. Dadurch sorgen sie für ein angenehmes Sättigungsgefühl und unterstützen einen ausgeglichenen Blutzuckerspiegel.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Chiasamen: 2 Esslöffel",
+    "Leinsamen (gemahlen): 1 Esslöffel",
+    "Mandelmilch (oder Kokosmilch): 1 Glas",
+    "Natürlicher Vanilleextrakt und 1 Teelöffel Honig."
+   ],
+   "instructions": [
+    "Vermische alle Zutaten gründlich in einem Glas. Rühre nach 10 Minuten erneut um, damit sich keine Klümpchen bilden, und stelle das Glas anschließend in den Kühlschrank (mindestens 2 Stunden oder über Nacht). Garniere den Pudding mit Obst und genieße ihn."
+   ]
+  },
+  "2369413b-697e-4e19-93a2-ff9c61cde8f7": {
+   "title": "Gemüsebällchen (ab 1 Jahr)",
+   "description": "Weiche Fleischbällchen mit „verstecktem“ Gemüse für Kinder, die kein Gemüse essen möchten.\n\nVorteil: Rotes Fleisch deckt den Eisenbedarf, während das versteckte Gemüse Ballaststoffe und Vitamine liefert. Ideal, damit das Kind sie selbst in die Hand nehmen und essen kann.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Mageres Rinderhackfleisch: 150 g",
+    "Zucchini und Karotte: je ein Viertel (sehr fein gerieben und ausgedrückt)",
+    "Zwiebel: ein sehr kleines Stück (gerieben)",
+    "Olivenöl."
+   ],
+   "instructions": [
+    "Alle Zutaten gründlich verkneten. Kleine, walnussgroße Bällchen formen. Auf einem mit Backpapier ausgelegten Backblech bei 180 Grad 20-25 Minuten backen, ohne sie austrocknen zu lassen."
+   ]
+  },
+  "a67b3fb0-1d8c-4568-bbb8-eea9c5b74c3a": {
+   "title": "Gemüse-Pommes (ab 5 Jahren)",
+   "description": "Bunte und knusprige Gemüsesticks aus dem Ofen – die gesunde Alternative zu ungesunden Pommes frites.\n\nVorteil: Karotten und Süßkartoffeln sind reich an Vitamin A und Beta-Carotin und unterstützen die Gesundheit von Augen und Haut.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Süßkartoffel, Karotte, Zucchini: je eine halbe",
+    "Olivenöl: 1 Esslöffel",
+    "Getrocknete Minze oder Thymian, etwas Salz."
+   ],
+   "instructions": [
+    "Das Gemüse in gleich große, längliche Sticks („Zauberstäbe“) schneiden. Mit Öl und Gewürzen vermengen und nebeneinander auf einem Backblech verteilen. Bei 200 Grad 20-25 Minuten backen, bis die Ränder gebräunt sind."
+   ]
+  },
+  "244e5027-cbdf-4e83-8b58-62158b64f304": {
+   "title": "Golden Matcha Elixir",
+   "description": "Ein wunderbares Duo aus entzündungshemmender Kurkuma und energiespendendem Matcha.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 Teelöffel Matcha, ein halber Teelöffel Kurkuma, eine Prise schwarzer Pfeffer, 1 Glas warme Mandelmilch, 1 Teelöffel Honig."
+   ],
+   "instructions": [
+    "Alle Zutaten in die warme Milch geben, gründlich verrühren und aufschäumen."
+   ]
+  },
+  "9e271ac6-efc7-4123-9cc8-b60e93936503": {
+   "title": "Sonne der Toskana",
+   "description": "Eine leichte und gesunde Variante des berühmten italienischen Gerichts „Melanzane alla Parmigiana“ – ganz ohne Anbraten.\n\nVorteil: Auberginen sind reich an Antioxidantien. Da sie statt des traditionellen Anbratens im Ofen gegart werden, ist das Gericht sehr kalorienarm, aber dank des Proteins aus italienischem Käse dennoch sättigend.",
+   "category": "Allgemein",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Auberginen: 2 große Stück (längs in Scheiben geschnitten)",
+    "Natürliche Tomatenpaste: 2 Tassen (mit Knoblauch und Basilikum gewürzt)",
+    "Mozzarella und Parmesan: Gerieben",
+    "Frisches Basilikum, Olivenöl."
+   ],
+   "instructions": [
+    "Bestreiche die Auberginenscheiben mit Olivenöl und gare sie im Ofen, bis sie weich sind (15 Minuten). Schichte anschließend in einer tiefen Auflaufform wie bei einer Lasagne Tomatensoße, Auberginen, Käse und Basilikum abwechselnd übereinander. Backe das Gericht bei 190 Grad 20 Minuten lang, bis die oberste Käseschicht goldbraun ist."
+   ]
+  },
+  "80d2e83c-c415-4e59-854e-3c904d65b0ff": {
+   "title": "Granatapfel-Joghurt-Tafeln",
+   "description": "Eine köstliche Alternative zu Eis, die auch optisch begeistert. Erfrischend und zugleich knackig.\n\nVorteil: Granatapfelkerne sind reich an Phytoöstrogenen, die das Östrogengleichgewicht bei Frauen unterstützen können, sowie an Antioxidantien. Joghurt liefert außerdem probiotische Kulturen.",
+   "category": "Gesunde Süßigkeiten",
+   "ingredients": [
+    "Joghurt (griechischer oder abgetropfter Joghurt): 1.5 Tassen",
+    "Honig: 1 Esslöffel",
+    "Granatapfelkerne: Eine halbe Tasse",
+    "Pistazien: 2 Esslöffel (gehackt)."
+   ],
+   "instructions": [
+    "Vermische den Joghurt mit dem Honig und streiche die Mischung auf einem flachen, mit Backpapier ausgelegten Blech 0.5 cm dick aus. Bestreue sie mit Granatapfelkernen und Pistazien und stelle sie 3 Stunden ins Gefrierfach. Brich die gefrorene Joghurtplatte anschließend wie eine Tafel Schokolade mit den Händen in Stücke."
+   ]
+  },
+  "45628e71-5b41-431f-b26f-8283c2b308a2": {
+   "title": "Protein-Bowl mit Hähnchen und Quinoa\n(ab 9 Monaten)",
+   "description": "Eine lang anhaltende Energiequelle für Babys, die zunehmend aktiver werden und bereits krabbeln.\n\nVorteil: Hähnchenfleisch ist eine hochwertige Proteinquelle. Quinoa ist ein glutenfreies Superfood und zählt zu den nährstoffreichsten Getreidealternativen.",
+   "category": "Beikost",
+   "tags": [
+    "babynahrung"
+   ],
+   "ingredients": [
+    "Hähnchenbrust: 30 g",
+    "Zucchini: Etwas weniger als eine halbe",
+    "Quinoa: 1 Esslöffel (vorher eingeweicht und gewaschen)."
+   ],
+   "instructions": [
+    "Koche das Hähnchen und gieße das erste Kochwasser ab. Gib Quinoa und klein geschnittene Zucchini in frisches Wasser und koche alles, bis es vollständig weich ist. Püriere die Mischung anschließend im Mixer oder zerdrücke sie mit einer Gabel, sodass eine leicht stückige Konsistenz entsteht."
+   ]
+  },
+  "cf74a166-77b4-4cd9-978f-5f84fbaf4d6d": {
+   "title": "Knusprige Fischstäbchen (ab 2 Jahren)",
+   "description": "Die ungebratene, 100% natürliche Variante von tiefgekühlten Fischstäbchen aus dem Supermarkt.\n\nVorteil: Fisch liefert Omega-3-Fettsäuren, die für die Entwicklung von Gehirn und Augen des Babys unverzichtbar sind.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Weißfischfilet (z. B. Wolfsbarsch – grätenfrei): 100 qr (in längliche Stücke geschnitten)",
+    "Ei: 1 Stück (verquirlt)",
+    "Hafermehl (zum Panieren)",
+    "Olivenöl, etwas Salz."
+   ],
+   "instructions": [
+    "Die Fischstücke zuerst im Ei und anschließend im Hafermehl wenden.",
+    "Auf ein mit Backpapier ausgelegtes Backblech legen und mit sehr wenig Olivenöl bestreichen.",
+    "Bei 190 Grad 15 Minuten backen, bis sie knusprig sind."
+   ]
+  },
+  "495abf5b-aca7-4840-8cc2-c8a7f267da78": {
+   "title": "Superman-Quesadilla (ab 5 Jahren)",
+   "description": "Ein mexikanischer Leckerbissen voller verstecktem Gemüse, den Kinder gern mit den Händen essen.\n\nVorteil: Schwarze Bohnen und Hähnchen liefern hochwertiges Eiweiß, während Käse reich an knochenstärkendem Kalzium ist.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Vollkorn-Lawasch (Tortilla): 1 Stück",
+    "Holländischer Käse (gerieben): 2 Esslöffel",
+    "Schwarze Bohnen (gekocht) und Mais: 1 Esslöffel",
+    "Gezupftes Hähnchenfleisch: 1 Esslöffel",
+    "Spinat (sehr fein gehackt): Einige Blätter."
+   ],
+   "instructions": [
+    "Käse, Hähnchenfleisch, Bohnen, Mais und Spinat auf einer Hälfte des Lawasch verteilen. Die andere Hälfte darüberklappen, sodass ein Halbmond entsteht. In einer heißen Pfanne von beiden Seiten braten, bis der Käse geschmolzen und der Lawasch knusprig ist. In Dreiecke schneiden und servieren."
+   ]
+  },
+  "405b0576-a236-4ed8-8698-3423fb1d2ff0": {
+   "title": "Süßkartoffel-Linsen-Curry",
+   "description": "Ein veganer und glutenfreier Klassiker der indischen Küche, vollgepackt mit entzündungshemmenden Gewürzen.\n\nVorteil: Curry und Kurkuma unterstützen das Immunsystem, während die Süßkartoffel dem Gericht eine natürliche, samtige Süße verleiht.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Süßkartoffel: 1 großes Stück (gewürfelt)",
+    "Rote Linsen: 1 Glas",
+    "Kokosmilch (die dickflüssige aus der Dose): 1 Glas",
+    "Currypulver: 1 Esslöffel",
+    "Spinat: 1 Handvoll."
+   ],
+   "instructions": [
+    "Zwiebel, Knoblauch und Currypulver in Öl anbraten. Süßkartoffel, Linsen, Kokosmilch und 2 Gläser Wasser dazugeben. Bei niedriger Hitze köcheln lassen, bis das Gemüse vollständig gar ist. Vom Herd nehmen, den Spinat dazugeben und unterrühren."
+   ]
+  },
+  "60680ede-d11d-4b46-a277-695525f7d111": {
+   "title": "Sternennacht-Suppe (ab 3 Jahren)",
+   "description": "Eine köstliche Knochenbrühe mit darin schwimmenden Sternchen – für Kinder, die sonst keine Suppe mögen.\n\nVorteil: Knochenbrühe ist reich an Kollagen und Kalzium und unterstützt das Wachstum sowie starke Knochen bei Kindern.",
+   "category": "Beikost",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Klare Knochen- oder Hühnerbrühe: 2 Tassen",
+    "Sternchen-Nudeln für Babys: 2 Esslöffel",
+    "Karotte: Eine halbe (in sehr kleine Sternchen geschnitten)",
+    "Petersilie: Sehr wenig (zum Garnieren)."
+   ],
+   "instructions": [
+    "Die Brühe zum Kochen bringen und die Sternchen-Nudeln sowie die sternförmig geschnittenen Karotten dazugeben. Kochen, bis die Nudeln vollständig weich sind (etwa 8-10 Minuten)."
+   ]
+  },
+  "40f5ac74-8479-42d8-bab7-5b56e15de9ae": {
+   "title": "Matcha Strawberry Cloud",
+   "description": "Das Trendgetränk aus den sozialen Netzwerken. Eine echte Antioxidantienbombe, die die Haut mit wertvollen Nährstoffen versorgt.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "1 Teelöffel Matcha-Pulver (in lauwarmem Wasser aufgelöst), 4-5 frische Erdbeeren (zu Püree zerdrückt), 1 Tasse Mandelmilch, Eis."
+   ],
+   "instructions": [
+    "Das Erdbeerpüree auf den Boden des Glases geben, anschließend Eis und Milch hinzufügen. Zum Schluss den aufgelösten grünen Matcha langsam hineingießen, damit die Farbschichten erhalten bleiben (unten rosa, oben grün)."
+   ]
+  },
+  "0d809ddc-e476-418c-9f34-67e7b608cf9f": {
+   "title": "Mandel-Pancakes mit Chia-Konfitüre",
+   "description": "Die gluten- und zuckerfreie „Healthy-Lifestyle“-Alternative zu Pancakes aus herkömmlichem Mehl.\n\nVorteil: Mandelmehl lässt den Blutzuckerspiegel nicht schlagartig ansteigen (niedriger glykämischer Index). Mit Chia-Konfitüre kannst du außerdem auf den Zucker in industriell hergestellten Konfitüren verzichten.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Mandelmehl: 1 Tasse",
+    "Eier: 2 Stück",
+    "Mandelmilch: Eine viertel Tasse",
+    "Für die Konfitüre: 1 Tasse tiefgekühlte Himbeeren und 2 Esslöffel Chiasamen."
+   ],
+   "instructions": [
+    "Die Himbeeren erwärmen und zerdrücken, die Chiasamen unterrühren und die Mischung abkühlen (und eindicken) lassen. Währenddessen Mandelmehl, Eier und Milch verquirlen und in einer Pfanne kleine Pancakes backen. Mit der selbst gemachten zuckerfreien Chia-Konfitüre servieren."
+   ]
+  },
+  "f1edbb7c-89ad-49b8-9c59-42461d445810": {
+   "title": "Indisches Linsenpüree",
+   "description": "Ein Liebling der vegetarischen Küche: ein goldener indischer Eintopf, der den Körper mit der Kraft seiner Gewürze von innen wärmt.\n\nVorteil: Kurkuma und Ingwer wirken entzündungshemmend. Linsen liefern pflanzliches Eiweiß und halten lange satt.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Rote oder gelbe Linsen: 1 Tasse",
+    "Zwiebel, Knoblauch, frischer Ingwer.",
+    "Kurkuma und Currypulver: jeweils 1 Teelöffel.",
+    "Tomate: 1 Stück",
+    "Kokosmilch: sehr wenig (zum Garnieren)."
+   ],
+   "instructions": [
+    "Zwiebel, Knoblauch, Ingwer und Gewürze in Öl anbraten, bis sie duften. Die gewürfelte Tomate und die Linsen dazugeben. Wasser hinzufügen und kochen, bis die Linsen vollständig zerfallen sind und eine püreeartige Konsistenz haben. Mit etwas Kokosmilch und Koriander garnieren."
+   ]
+  },
+  "bfa226ee-4fae-4a95-b348-aee056cab96b": {
+   "title": "Deutscher Kartoffelsalat",
+   "description": "Ein herrlich leichter deutscher Salat mit Senf und Essig, der ganz ohne schwere Mayonnaise auskommt.\n\nVorteil: Beim Abkühlen bildet sich in Kartoffeln präbiotische „resistente Stärke“, die gut für den Darm ist. Da der Salat keine Mayonnaise enthält, ist er zudem cholesterinärmer.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Kartoffeln: 3-4 Stück (gekocht, abgekühlt und in Scheiben geschnitten)",
+    "Rote Zwiebel: 1 kleine (fein gehackt)",
+    "Frische Petersilie oder frischer Dill",
+    "Für das Dressing: 1 Esslöffel körniger Senf, 2 Esslöffel Apfelessig, 3 Esslöffel Olivenöl, Salz, schwarzer Pfeffer."
+   ],
+   "instructions": [
+    "Zwiebel und Kräuter über die lauwarmen oder vollständig abgekühlten Kartoffelscheiben geben. Senf, Essig und Öl in einem Glas gut schütteln, bis ein Dressing entsteht, und dieses unter den Salat mischen."
+   ]
+  },
+  "82a7ccbd-e708-435c-afe7-61fd5589966e": {
+   "title": "Shrek's Mac & Cheese (ab 3 Jahren)",
+   "description": "Käsenudeln in einer auffällig schönen grünen Farbe, in deren Sauce sich Spinat versteckt.\n\nVorteil: Viele 3-jährige Kinder möchten Spinat weder roh noch gekocht essen. Mit dieser Sauce nehmen sie ganz unbemerkt eine gute Portion Eisen zu sich.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Nudeln: 1 Tasse",
+    "Spinat: 1 große Handvoll",
+    "Milch: eine halbe Tasse",
+    "Mozzarella oder Gouda: 2 Esslöffel (gerieben)."
+   ],
+   "instructions": [
+    "Die Nudeln kochen und abgießen. Spinat und Milch im Mixer zu einer vollkommen grünen, glatten Flüssigkeit pürieren. Diese grüne Milch in eine heiße Pfanne geben, den Käse hinzufügen und schmelzen lassen. Zum Schluss die Nudeln dazugeben und alles gründlich vermischen."
+   ]
+  },
+  "53cbba9d-f39f-4a00-950a-386243d164bd": {
+   "title": "Peruanische Ceviche",
+   "description": "Ein erfrischendes, proteinreiches Rezept aus Lateinamerika, bei dem der Fisch ganz ohne Hitze nur durch die Säure von Zitrusfrüchten „gegart“ wird.\n\nVorteil: Kein zusätzliches Fett und ein Maximum an hochwertigem Protein. Ein besonders beliebtes Gericht bei Menschen, die auf ihre Ernährung achten.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Weißfischfilet (sehr frisch und grätenfrei): 200 qr (in kleine Würfel geschnitten)",
+    "Limettensaft: eine halbe Tasse (frisch gepresst)",
+    "Rote Zwiebel: eine halbe (in dünne Halbmonde geschnitten)",
+    "Frischer Koriander, scharfe Jalapeño (nach Belieben), Salz."
+   ],
+   "instructions": [
+    "Die rohen Fischwürfel in eine Glasschüssel geben und mit Limettensaft und etwas Salz übergießen. Der Saft lässt den Fisch weiß werden und „gart“ ihn. 20-30 Minuten im Kühlschrank ziehen lassen. Kurz vor dem Servieren Zwiebel und Koriander hinzufügen und alles vermischen."
+   ]
+  },
+  "dded217d-3179-4368-8e13-255ed13ea4cf": {
+   "title": "Skandinavisches Smørrebrød",
+   "description": "Die aus Dänemark und Norwegen stammende Kunst des offenen Sandwiches auf dunklem Roggenbrot.\n\nVorteil: Roggenbrot liefert komplexe Kohlenhydrate und lässt den Blutzucker nicht sprunghaft ansteigen. Lachs wiederum ist reich an Omega-3-Fettsäuren, die als eines der Geheimnisse der skandinavischen Langlebigkeit gelten.",
+   "category": "Allgemein",
+   "ingredients": [
+    "Dunkles Roggenvollkornbrot: 1 große Scheibe",
+    "Frischkäse (Labneh): 1 Esslöffel",
+    "Geräucherter oder gebeizter Lachs: 2-3 Scheiben",
+    "Rote Zwiebelringe, frischer Dill, Radieschenscheiben."
+   ],
+   "instructions": [
+    "Den Frischkäse auf das Brot streichen. Die Lachsscheiben wellenförmig darauf anrichten. Mit Zwiebelringen, dünn geschnittenen Radieschen und reichlich Dill garnieren und ansprechend servieren."
+   ]
+  },
+  "23f9812f-031f-4161-95cf-ce2d96da0985": {
+   "title": "Quinoa-Taboulé (libanesische Küche)",
+   "description": "Ein beliebter Salat aus dem Nahen Osten, bei dem der traditionelle Bulgur durch glutenfreie und proteinreichere Quinoa ersetzt wird.\n\nVorteil: Leicht, ballaststoffreich und dank der großen Menge Petersilie eine hervorragende Vitamin-C-Quelle. Hilft, den Blutzuckerspiegel zu regulieren.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Quinoa (gekocht und abgekühlt): 1 Tasse",
+    "Frische Petersilie (sehr fein gehackt): 2 große Bund",
+    "Frische Minze: 1 kleiner Bund",
+    "Tomaten: 2 Stück (klein gewürfelt)",
+    "Frühlingszwiebeln: 3-4 Stängel",
+    "Natives Olivenöl extra und reichlich Zitronensaft, Salz."
+   ],
+   "instructions": [
+    "Alle gehackten Kräuter und das Gemüse in einer tiefen Schüssel mit der gekochten Quinoa vermischen. Großzügig mit Olivenöl und Zitronensaft beträufeln und alles gründlich vermengen. Mindestens 30 Minuten im Kühlschrank durchziehen lassen."
+   ]
+  },
+  "287fe4e5-acde-487e-8549-304293001ae7": {
+   "title": "Blumenkohl nach Buffalo-Art",
+   "description": "Eine 100% vegetarische und gesunde Alternative zum berühmten amerikanischen Gericht „Buffalo Wings“ (Hähnchenflügel).\n\nVorteil: Stillt die Lust auf knuspriges Fast Food, verwendet aber ballaststoffreichen Blumenkohl statt Hähnchen und den Backofen statt der Fritteuse.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Blumenkohl: 1 Kopf (in Röschen geteilt)",
+    "Vollkornmehl und Wasser: Für den Teig (mit der Konsistenz von Pfannkuchenteig)",
+    "Scharfe Buffalo-Sauce (oder eine Mischung aus einer beliebigen scharfen Sauce und Butter)."
+   ],
+   "instructions": [
+    "Die Blumenkohlröschen in die Mehl-Wasser-Mischung tauchen und auf einem Backblech verteilen. Bei 200 Grad 20 Minuten backen. Herausnehmen, mit der scharfen Sauce beträufeln und weitere 10 Minuten backen, bis die Ränder knusprig sind."
+   ]
+  },
+  "0732d705-b1b2-4b26-b8dc-748f80e0f06a": {
+   "title": "Andalusian Breeze – Spanische Gazpacho",
+   "description": "Eine erfrischende, rohe und vitaminreiche Tomatensuppe aus Südspanien, die ganz ohne Kochen zubereitet wird.\n\nVorteil: Ein reiner „Blüten- und Gemüse“-Detox. Dank Lycopin (Tomaten) und Vitamin C (Paprika) schützt sie die Haut von innen vor schädlicher Sonnenstrahlung.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Sehr reife, rote Tomaten: 4-5 Stück",
+    "Gurke: 1 Stück (gekühlt)",
+    "Grüne Paprika: Eine halbe",
+    "Rote Zwiebel und Knoblauch (sehr wenig)",
+    "Natives Olivenöl extra (2 Esslöffel) und Apfelessig (1 Esslöffel)."
+   ],
+   "instructions": [
+    "Alle Zutaten in den Mixer geben, Olivenöl, Essig und etwas Salz hinzufügen und mixen, bis eine vollständig flüssige Suppe entsteht. Mindestens 2 Stunden im Kühlschrank aufbewahren, bis sie eiskalt ist."
+   ]
+  },
+  "6a513f71-83a0-47b7-94eb-0de33be5ff6d": {
+   "title": "Gold Mac & Cheese (ab 2 Jahren)",
+   "description": "Eine besonders gesunde Variante der bei Kindern beliebten Käsenudeln, in der sich Gemüse versteckt.\n\nVorteil: Statt einer klassischen Sauce aus Mehl und Fett bilden Kürbis und Karotten die Grundlage. Das Gericht ist reich an Vitamin A und Kalzium.",
+   "category": "Beikost",
+   "tags": [
+    "Babynahrung"
+   ],
+   "ingredients": [
+    "Vollkornnudeln (Hörnchen oder Spiralen): 1 Tasse",
+    "Kürbis und Karotten (gekocht): Je eine halbe Tasse",
+    "Milch: Eine halbe Tasse",
+    "Cheddar oder holländischer Käse: 3 Esslöffel, gerieben"
+   ],
+   "instructions": [
+    "Die Nudeln in Wasser vollständig gar kochen und abgießen.",
+    "Den gekochten Kürbis, die Karotten und die Milch im Mixer zu einer vollkommen glatten, orangefarbenen Creme (Sauce) pürieren.",
+    "Die Sauce in eine heiße Pfanne geben, den geriebenen Käse hinzufügen und schmelzen lassen. Zum Schluss die Nudeln unter die Sauce mischen."
+   ]
+  },
+  "4b5bc08b-15b1-4187-aa19-05b7b3bb4ae4": {
+   "title": "Kichererbsen-Blondie",
+   "description": "Ein karamelliger, mehlfreier Kuchen, bei dem niemand glauben wird, dass er Kichererbsen enthält.\n\nVorteil: Diese Süßigkeit liefert hochwertiges Eiweiß und komplexe Kohlenhydrate. Sie verursacht keine glutenbedingten Blähungen und passt nach dem abendlichen Training – zur Unterstützung der Muskelregeneration – hervorragend zu einer Tasse Tee.",
+   "category": "Gesunde Süßigkeiten",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Kichererbsen aus der Dose: 1 Tasse (gründlich abgespült und gehäutet)",
+    "Erdnussmus: 3 Esslöffel",
+    "Honig oder Ahornsirup: 3 Esslöffel",
+    "Vanille, Backpulver.",
+    "Zartbitter-Schokodrops."
+   ],
+   "instructions": [
+    "Alle Zutaten außer der Schokolade im Mixer zu einem vollkommen glatten Teig pürieren. Die Schokodrops unterheben und den Teig in eine kleine quadratische Backform geben. Bei 175 Grad 20 Min. backen. Noch lauwarm in Stücke schneiden."
+   ]
+  },
+  "9dca9acb-e3bc-495a-9af1-62c75bc63dca": {
+   "title": "Rote-Linsen-Ingwer-Suppe",
+   "description": "Ein wärmendes Wintermittagessen, das den Stoffwechsel in Schwung bringt.\n\nVorteile: Ingwer und Kurkuma können Entzündungsreaktionen im Körper (Schwellungen, Akne, Gelenkschmerzen) lindern, während rote Linsen lange satt halten.",
+   "category": "Mittagessen",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Rote Linsen: 1 Glas",
+    "Frischer Ingwer: haselnussgroß (gerieben)",
+    "Kurkuma: ein halber Teelöffel",
+    "Karotte, Zwiebel.",
+    "Kokosmilch: 2 Esslöffel (optional, als Topping)."
+   ],
+   "instructions": [
+    "Koche das gesamte Gemüse und die Linsen in Wasser weich und püriere alles mit einem Mixer. Gib Kurkuma und Ingwer hinzu und lasse die Suppe noch etwas köcheln. Fülle sie in eine Schüssel und träufle Kokosmilch darüber."
+   ]
+  },
+  "0298f702-76b2-4fe4-995b-506dab64f0f1": {
+   "title": "Süßkartoffel mit Bohnen",
+   "description": "Ein Rezept, das während des PMS (vor der Periode) helfen kann, Heißhunger auf Süßes und Stimmungsschwankungen auszugleichen.\n\nVorteile: Süßkartoffeln und schwarze Bohnen sind reich an Magnesium, unterstützen das Nervensystem, können Krämpfe lindern und halten lange satt.",
+   "category": "Mittagessen",
+   "tags": [
+    "allgemein"
+   ],
+   "ingredients": [
+    "Süßkartoffel: 1 Stück (halbiert und im Ofen vollständig gegart)",
+    "Schwarze Bohnen (oder Kidneybohnen): 2 Esslöffel (gekocht)",
+    "Mais: 1 Esslöffel",
+    "Avocadocreme (Guacamole) und Limettensaft."
+   ],
+   "instructions": [
+    "Fülle die weiche, gegarte Süßkartoffel mit schwarzen Bohnen und Mais. Gib Avocadocreme darauf und beträufle alles mit Limettensaft."
+   ]
+  },
+  "a7eb16f8-9a88-4ac0-92d3-fb7d3da355e0": {
+   "title": "Bärchen-Püree(1 Jahr+)",
+   "description": "Ein saftiges, zartschmelzendes Wintergericht für Kinder, denen das Kauen von Fleisch noch schwerfällt.\n\nVorteile: Lange gegartes Fleisch ist leicht verdaulich, und die nährstoffreiche Brühe unterstützt die Knochenentwicklung.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Rindfleisch: 50 g (sehr kleine, erbsengroße Würfel)",
+    "Karotte und Kartoffel: je eine Hälfte (gewürfelt)",
+    "Tomate: ein Viertel (gerieben)",
+    "Olivenöl und Wasser."
+   ],
+   "instructions": [
+    "Brate das Fleisch in Olivenöl an, bis es seine Farbe verändert. Gib die Tomate und Wasser hinzu und gare alles, bis das Fleisch weich ist (am besten im Schnellkochtopf). Füge anschließend Karotte und Kartoffel hinzu und lasse alles weitergaren, bis auch das Gemüse so weich ist, dass es sich zerdrücken lässt."
+   ]
+  },
+  "55d6317c-4bcb-4a93-943a-dda17af68226": {
+   "title": "Golden Glow Tonic",
+   "description": "Ein morgendliches Tonic, das Entzündungen im Körper lindert und wie ein Schutzschild gegen Krankheiten wirkt.\n\nVorteil: Kurkuma ist ein starkes natürliches entzündungshemmendes Mittel. Es kann Hautrötungen und Gelenkschmerzen lindern und der Haut ihren natürlichen Glow zurückgeben.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Lauwarmes Wasser: 1 Glas",
+    "Kurkumapulver: Ein halber Teelöffel",
+    "Schwarzer Pfeffer: Eine Prise (unerlässlich, damit Kurkuma vom Körper aufgenommen werden kann)",
+    "Zitronensaft und 1 Teelöffel naturbelassener Apfelessig"
+   ],
+   "instructions": [
+    "Alle Zutaten gut vermischen und morgens lauwarm (so, dass Hals und Magen nicht gereizt werden) in kleinen Schlucken trinken."
+   ]
+  },
+  "d945cba8-c55e-4693-91cb-3385f3ce8b99": {
+   "title": "Bunte Spieße (ab 5 Jahren)",
+   "description": "Bunte Spieße, die Gemüse und Fleisch gemeinsam wie ein farbenfrohes Spiel präsentieren.\n\nVorteil: Eine besonders praktische und spielerische Möglichkeit, Kindern gleichzeitig Eiweiß und Vitamine anzubieten.",
+   "category": "Beikost",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Hähnchenbrust: 100 qr (gebraten oder gekocht und in Würfel geschnitten)",
+    "Bunte Paprika (rot, gelb), Cherrytomaten und Gurke (in dicke Stücke geschnitten).",
+    "Holzstäbchen mit stumpfen Enden (Spieße)."
+   ],
+   "instructions": [
+    "Stecke nacheinander eine Cherrytomate, einen Hähnchenwürfel, gelbe Paprika, Gurke und erneut Hähnchen auf die Stäbchen. Achte darauf, die Farben wie einen Regenbogen anzuordnen."
+   ]
+  },
+  "4562e352-5778-4e1f-951e-cc27bf63469a": {
+   "title": "Zucchini-Spaghetti mit Pesto",
+   "description": "Eine wunderbare Pasta-Alternative, die den Genuss eines Nudelgerichts bietet, ohne dick zu machen.\n\nVorteil: Sie ist sehr kalorienarm. Olivenöl und Basilikum im Pesto sind starke Antioxidantien und helfen, die Zellen jung zu halten.",
+   "category": "Mittagessen",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Zucchini: 2 mittelgroße (mit einem Spiralschneider wie Spaghetti geschnitten)",
+    "Pesto: 2 Esslöffel (aus frischem Basilikum, Olivenöl, Walnüssen und zerdrücktem Knoblauch)",
+    "Cherrytomaten: 4-5 Stück."
+   ],
+   "instructions": [
+    "Die Zucchini-Spaghetti mit etwas Olivenöl nur 2-3 Minuten in der Pfanne anbraten (nicht zu lange garen, damit sie knackig bleiben). Vom Herd nehmen und mit dem Pesto und den halbierten Tomaten vermischen."
+   ]
+  },
+  "cdafe114-fffe-4d67-b795-0770d33715ea": {
+   "title": "Brokkoli-Rindfleisch-Pfanne",
+   "description": "Einer der gesündesten Klassiker der beliebten asiatischen (chinesischen) Küche, der weltweit geschätzt wird.\n\nVorteil: Sorgt für eine hervorragende Balance aus Eisen (aus dem Fleisch) sowie Kalzium und Vitamin C (aus dem Brokkoli). Schnell zubereitet.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Rindfleisch (Filet, sehr dünn geschnitten): 250 qr",
+    "Brokkoli: 1 ganzer Kopf (in Röschen geteilt)",
+    "Sojasauce (salzarm): 3 Esslöffel",
+    "Frischer Ingwer und Knoblauch (zerdrückt).",
+    "Sesamöl und Sesamsamen."
+   ],
+   "instructions": [
+    "Brate das Fleisch in einer Pfanne (Wok) bei hoher Hitze kurz und kräftig an und stelle es beiseite. Gib Brokkoli, Knoblauch und Ingwer in dieselbe Pfanne und brate alles 3-4 Minuten unter Rühren an (der Brokkoli sollte knackig bleiben). Gib das Fleisch zurück in die Pfanne, füge die Sojasauce hinzu und rühre alles 1 Minute lang um. Mit Sesam bestreuen und vom Herd nehmen."
+   ]
+  },
+  "d73926c7-3c66-41bd-88a6-1a28c3a2f959": {
+   "title": "Cracker aus Leinsamen und Mandelmehl",
+   "description": "Hausgemachte, 100% glutenfreie und kohlenhydratfreie (Keto-)Cracker als Alternative zu ungesunden Chips aus dem Supermarkt.\n\nVorteil: Mandelmehl ist reich an Vitamin E, während Leinsamen die Darmtätigkeit hervorragend regulieren.",
+   "category": "Allgemein",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Mandelmehl: 1 Tasse",
+    "Leinsamen (gemahlen): 3 Esslöffel",
+    "Wasser: 3 Esslöffel",
+    "Olivenöl: 1 Esslöffel",
+    "Salz und getrockneter Thymian."
+   ],
+   "instructions": [
+    "Verknete alle Zutaten in einer Schüssel zu einem Teig. Rolle ihn zwischen zwei Bögen Backpapier mit einem Nudelholz sehr dünn (wie Chips) aus. Schneide den Teig mit einem Messer in Quadrate und backe die Cracker bei 170 Grad 15-20 Minuten im Ofen, bis sie knusprig sind."
+   ]
+  },
+  "9af7ce60-d92c-4cdf-bbaf-e2276dc4e407": {
+   "title": "Cacao Maca Magic",
+   "description": "Ein warmes Genusserlebnis, das die weiblichen Hormone ins Gleichgewicht bringt und die Glückshormone in die Höhe treibt.\n\nVorteil: Das Pulver der aus Peru stammenden „Maca“-Wurzel soll bei Frauen den Hormonhaushalt (während PMS und der Menopause) regulieren sowie Energie und Libido steigern. Kakao ist zudem eine Magnesiumquelle.",
+   "category": "Gesunde Getränke",
+   "tags": [
+    "Allgemein"
+   ],
+   "ingredients": [
+    "Ungesüßtes, reines Kakaopulver: 1 Esslöffel",
+    "Maca-Pulver: 1 Teelöffel",
+    "Mandel- oder Haselnussmilch: 1 Tasse",
+    "Zimt und Honig."
+   ],
+   "instructions": [
+    "Erwärme alle Zutaten in einem kleinen Topf und schlage sie gründlich auf, bis die Mischung schaumig ist. Genieße das Getränk am späten Nachmittag wie eine heiße Schokolade."
+   ]
+  }
+ }
+}

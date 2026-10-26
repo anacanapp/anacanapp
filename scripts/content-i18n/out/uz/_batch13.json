@@ -1,0 +1,34 @@
+{
+ "epds_questions": {
+  "277c938a-fb4a-486c-b34d-e552dd72625e": {
+   "question_text": "Men kula oldim va voqealarning kulgili tomonini ko‘ra oldim"
+  },
+  "1ef9070f-81ad-4cee-bf09-cb4b156af990": {
+   "question_text": "O‘zimga zarar yetkazish fikri xayolimga keldi"
+  },
+  "4a420fda-2d8d-426c-a5e1-f7df0bf3d4c7": {
+   "question_text": "Men ayrim voqealarni zavq bilan kutdim"
+  },
+  "507845db-fd7f-4a9f-b4cc-6c3ff4bb0535": {
+   "question_text": "Men hech qanday jiddiy sababsiz xavotirlandim yoki tashvishlandim"
+  },
+  "617495b6-4b22-4a30-add7-080988a6d0af": {
+   "question_text": "Ishlar ko‘ngildagidek bo‘lmaganda, o‘zimni behuda aybladim"
+  },
+  "1084fc38-0a22-4825-9661-8e3a8cce0a12": {
+   "question_text": "Hech qanday jiddiy sabab bo‘lmasa ham, qo‘rquv yoki vahima his qildim"
+  },
+  "87b54c96-ffd4-48de-bb2f-98ac41ec65e3": {
+   "question_text": "O‘zimni g‘amgin yoki baxtsiz his qildim"
+  },
+  "d51a6901-6595-4091-afb1-5ec4059046c2": {
+   "question_text": "Muammolar meni bosib ketayotgandek his qildim"
+  },
+  "251f439e-2a72-48b6-aac2-cc3886ff44da": {
+   "question_text": "Shunchalik baxtsiz edimki, uxlashga qiynaldim"
+  },
+  "7bf201c9-c37f-422f-b61b-02b1c6fac4c0": {
+   "question_text": "Shunchalik baxtsiz edimki, yig‘ladim"
+  }
+ }
+}

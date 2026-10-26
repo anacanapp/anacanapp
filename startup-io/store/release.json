@@ -1,0 +1,18 @@
+{
+  "version": "1.5.0",
+  "build": 6,
+  "bundleId": "com.atlasoon.startupio",
+  "appleTeam": "8B6976J8H7",
+  "engine": "Phaser 3.90.0",
+  "mode": "Unlimited",
+  "bots": 48,
+  "acceptance": { "mechanicsTests": 66, "browserTests": 30, "nativeTests": 3 },
+  "primaryLanguage": "en-US",
+  "supportEmail": "jamil@anacan.az",
+  "legalService": "startup-io-store-info",
+  "legalRegion": "europe-west1",
+  "price": "free",
+  "ads": false,
+  "inAppPurchases": false,
+  "dataCollectedByDeveloper": false
+}

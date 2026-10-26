@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "aichat_copied",
+  "az": "Kopyalandı",
+  "en": "Copied"
+ },
+ {
+  "key": "aichat_copy",
+  "az": "Kopyala",
+  "en": "Copy"
+ },
+ {
+  "key": "aichat_copy_failed",
+  "az": "Kopyalanmadı",
+  "en": "Copy failed"
+ },
+ {
+  "key": "aichat_jump_down",
+  "az": "Ən son mesaja keç",
+  "en": "Jump to latest message"
+ },
+ {
+  "key": "aichat_stop",
+  "az": "Dayandır",
+  "en": "Stop"
+ },
+ {
+  "key": "aichat_thinking",
+  "az": "Düşünür...",
+  "en": "Thinking..."
+ },
+ {
+  "key": "aichat_welcome_bump_1",
+  "az": "Salam",
+  "en": null
+ },
+ {
+  "key": "aichat_welcome_bump_2",
+  "az": "Mən Anacan.AI.",
+  "en": null
+ },
+ {
+  "key": "aichat_welcome_bump_3",
+  "az": "Hazırda hamiləliyin {0}-ci həftəsindəsiniz; körpəniz təxminən {1} böyüklüyündədir. ",
+  "en": null
+ },
+ {
+  "key": "aichat_welcome_bump_4",
+  "az": "Hamiləlik dövrü ilə bağlı suallarınızı verə bilərsiniz.",
+  "en": null
+ },
+ {
+  "key": "aichat_welcome_default_1",
+  "az": "Salam",
+  "en": null
+ },
+ {
+  "key": "aichat_welcome_default_2",
+  "az": "Mən Anacan.AI. Sizə necə kömək edə bilərəm?",
+  "en": null
+ },
+ {
+  "key": "aichat_welcome_flow_1",
+  "az": "Salam",
+  "en": null
+ },
+ {
+  "key": "aichat_welcome_flow_2",
+  "az": "Mən Anacan.AI. Menstrual tsikl, simptomlar və ümumi sağlamlıq üzrə suallarınıza peşəkar cavab verməyə hazıram.",
+  "en": null
+ },
+ {
+  "key": "aichat_welcome_mommy_1",
+  "az": "Salam",
+  "en": null
+ },
+ {
+  "key": "aichat_welcome_mommy_2",
+  "az": "Mən Anacan.AI. Körpə baxımı, əmizdirmə, yuxu rejimi və doğuşdan sonrakı bərpa ilə bağlı suallarınıza dəstək olmağa hazıram.",
+  "en": null
+ },
+ {
+  "key": "aichatscreen_api_xetasi_1b7c03",
+  "az": "API xətası",
+  "en": "API error"
+ },
+ {
+  "key": "aichatscreen_bagislayin_cavab_ala_bilmedim_4078bf",
+  "az": "Bağışlayın, cavab ala bilmədim.",
+  "en": "Sorry, I couldn't get a reply."
+ },
+ {
+  "key": "aichatscreen_bagislayin_texniki_xeta_bas_verdi_zehmet_feb7d7",
+  "az": "Bağışlayın, texniki xəta baş verdi. Zəhmət olmasa yenidən cəhd edin. 🙏",
+  "en": "Sorry, a technical error occurred. Please try again. 🙏"
+ },
+ {
+  "key": "aichatscreen_bu_hefte_korpem_nece_inkisaf_e_7ffbca",
+  "az": "Bu həftə körpəm necə inkişaf edir?",
+  "en": "How is my baby doing this week?"
+ },
+ {
+  "key": "aichatscreen_fertil_pencerem_ne_vaxtdir_7a0f65",
+  "az": "Fertil pəncərəm nə vaxtdır?",
+  "en": "When is my fertile window?"
+ },
+ {
+  "key": "aichatscreen_hamilelikde_hansi_qidalar_fayd_cfee1a",
+  "az": "Hamiləlikdə hansı qidalar faydalıdır?",
+  "en": "What foods are useful in pregnancy?"
+ },
+ {
+  "key": "aichatscreen_hekim_mesleheti_evezi_deyil_a1808c",
+  "az": "⚕️ Həkim məsləhəti əvəzi deyil",
+  "en": "⚕️ Not a substitute for medical advice"
+ },
+ {
+  "key": "aichatscreen_korpem_niye_aglayir_b5dc07",
+  "az": "Körpəm niyə ağlayır?",
+  "en": "Why is my baby crying?"
+ },
+ {
+  "key": "aichatscreen_korpemi_nece_duzgun_emizdirmel_05cf51",
+  "az": "Körpəmi necə düzgün əmizdirməliyəm?",
+  "en": "How should I properly breastfeed my baby?"
+ },
+ {
+  "key": "aichatscreen_medical_disclaimer_banner",
+  "az": "Anacan.AI tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Verilən məlumatlar yalnız informasiya xarakterli olub yalnız təhsil məqsədi daşıyır. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda 103-ə zəng edin.",
+  "en": "Anacan.AI is NOT a substitute for medical advice, diagnosis, or treatment. The information provided is for educational purposes only. Always consult your doctor or a qualified healthcare professional before making any medical decisions. In an emergency, call 103."
+ },
+ {
+  "key": "aichatscreen_menstrual_tsiklim_haqqinda_mel_0616ab",
+  "az": "Menstrual tsiklim haqqında məlumat ver",
+  "en": "Tell me about my menstrual cycle"
+ },
+ {
+  "key": "aichatscreen_mesaj_gonderile_bilmedi_yeniden_cehd_edi_aa6662",
+  "az": "Mesaj göndərilə bilmədi. Yenidən cəhd edin.",
+  "en": "Message could not be sent. Please try again."
+ },
+ {
+  "key": "aichatscreen_meslehet_ucun_sual_secin_3c0236",
+  "az": "Məsləhət üçün sual seçin:",
+  "en": "Choose a question for advice:"
+ },
+ {
+  "key": "aichatscreen_pms_simptomlari_ile_nece_mubar_4c2325",
+  "az": "PMS simptomları ilə necə mübarizə aparım?",
+  "en": "How do I deal with PMS symptoms?"
+ },
+ {
+  "key": "aichatscreen_sessiya_tapilmadi_yeniden_daxi_455503",
+  "az": "Sessiya tapılmadı. Yenidən daxil olun.",
+  "en": "Session not found. Sign in again."
+ },
+ {
+  "key": "aichatscreen_urek_bulanmasina_qarsi_ne_ede__39caf3",
+  "az": "Ürək bulanmasına qarşı nə edə bilərəm?",
+  "en": "What can I do about nausea?"
+ },
+ {
+  "key": "aichatscreen_warn_close",
+  "az": "Xəbərdarlığı bağla",
+  "en": "Dismiss warning"
+ },
+ {
+  "key": "aichatscreen_warn_short",
+  "az": "Tibbi məsləhət əvəzi deyil — ətraflı üçün toxunun",
+  "en": "Not a substitute for medical advice — tap for details"
+ },
+ {
+  "key": "aichatscreen_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "aichatscreen_yenidoganin_yuxu_qrafiki_nece__9e1277",
+  "az": "Yenidoğanın yuxu qrafiki necə olmalıdır?",
+  "en": "What should a newborn's sleep schedule be?"
+ },
+ {
+  "key": "appearancescreen_aciq_306cc4",
+  "az": "Açıq",
+  "en": "Open"
+ },
+ {
+  "key": "appearancescreen_aciq_79bf9c",
+  "az": "açıq",
+  "en": "open"
+ },
+ {
+  "key": "appearancescreen_aciq_rejim_800daa",
+  "az": "Açıq rejim",
+  "en": "Light mode"
+ },
+ {
+  "key": "appearancescreen_bu_cari_temanizin_gorunusudur_2e30a3",
+  "az": "Bu cari temanızın görünüşüdür",
+  "en": "This is how your current theme looks"
+ },
+ {
+  "key": "appearancescreen_cari_gorunus_aeba05",
+  "az": "Cari Görünüş",
+  "en": "Current Appearance"
+ },
+ {
+  "key": "appearancescreen_cihazinizin_ayarina_uygun_9b4fa7",
+  "az": "Cihazınızın ayarına uyğun",
+  "en": "Based on your device settings"
+ },
+ {
+  "key": "appearancescreen_fon",
+  "az": "Fon",
+  "en": null
+ },
+ {
+  "key": "appearancescreen_gorunus_165fe3",
+  "az": "Görünüş",
+  "en": "Appearance"
+ },
+ {
+  "key": "appearancescreen_gozlere_rahat_qaranliq_tema_4d59d5",
+  "az": "Gözlərə rahat qaranlıq tema",
+  "en": "Dark theme comfortable for eyes"
+ },
+ {
+  "key": "appearancescreen_klassik_aciq_rengler_7c8359",
+  "az": "Klassik açıq rənglər",
+  "en": "Classic light colors"
+ },
+ {
+  "key": "appearancescreen_numune_kart_1dac7f",
+  "az": "Nümunə kart",
+  "en": "Sample card"
+ },
+ {
+  "key": "appearancescreen_qaranliq_34c5e3",
+  "az": "Qaranlıq",
+  "en": "Darkness"
+ },
+ {
+  "key": "appearancescreen_qaranliq_affa8e",
+  "az": "qaranlıq",
+  "en": "darkness"
+ },
+ {
+  "key": "appearancescreen_qaranliq_rejim_ef2f9f",
+  "az": "Qaranlıq rejim",
+  "en": "Dark mode"
+ },
+ {
+  "key": "appearancescreen_seth",
+  "az": "SÉ™th",
+  "en": null
+ },
+ {
+  "key": "appearancescreen_sistem_label",
+  "az": "Sistem",
+  "en": "System"
+ },
+ {
+  "key": "appearancescreen_system_theme_in_use",
+  "az": "Hal-hazırda sistem teması ({theme}) istifadə olunur.",
+  "en": "Currently the system theme ({theme}) is in use."
+ },
+ {
+  "key": "appearancescreen_tema_secimi_73a672",
+  "az": "Tema Seçimi",
+  "en": "Theme Selection"
+ },
+ {
+  "key": "appearancescreen_tema_ve_reng_secimleri_f46e36",
+  "az": "Tema və rəng seçimləri",
+  "en": "Theme and color options"
+ },
+ {
+  "key": "appearancescreen_theme_activated",
+  "az": "{theme} rejim aktiv edilib.",
+  "en": "{theme} mode is activated."
+ },
+ {
+  "key": "appearancescreen_vurgu",
+  "az": "VurÄŸu",
+  "en": null
+ },
+ {
+  "key": "applock_bio_offer_desc",
+  "az": "PIN əvəzinə Face ID / barmaq izi ilə daha sürətli açın.",
+  "en": "Unlock faster with Face ID / fingerprint instead of your PIN."
+ },
+ {
+  "key": "applock_bio_offer_no",
+  "az": "İndi yox",
+  "en": "Not now"
+ },
+ {
+  "key": "applock_bio_offer_title",
+  "az": "Biometrika ilə açılsın?",
+  "en": "Unlock with biometrics?"
+ },
+ {
+  "key": "applock_bio_offer_yes",
+  "az": "Bəli, aktivləşdir",
+  "en": "Yes, enable"
+ },
+ {
+  "key": "applock_bio_reason",
+  "az": "Tətbiqi açmaq üçün kimliyinizi təsdiqləyin",
+  "en": "Confirm your identity to unlock the app"
+ },
+ {
+  "key": "applock_bio_row",
+  "az": "Biometrika ilə aç",
+  "en": "Unlock with biometrics"
+ },
+ {
+  "key": "applock_bio_row_sub",
+  "az": "Face ID / barmaq izi",
+  "en": "Face ID / fingerprint"
+ },
+ {
+  "key": "applock_bio_title",
+  "az": "Anacan kilidi",
+  "en": "Anacan lock"
+ },
+ {
+  "key": "applock_change_pin",
+  "az": "PIN-i dəyiş",
+  "en": "Change PIN"
+ },
+ {
+  "key": "applock_confirm_title",
+  "az": "PIN-i təkrar daxil edin",
+  "en": "Re-enter your PIN"
+ },
+ {
+  "key": "applock_create_title",
+  "az": "Yeni PIN təyin edin",
+  "en": "Set a new PIN"
+ },
+ {
+  "key": "applock_disable",
+  "az": "Kilidi söndür",
+  "en": "Turn off lock"
+ },
+ {
+  "key": "applock_disabled_toast",
+  "az": "Kilid söndürüldü",
+  "en": "Lock turned off"
+ },
+ {
+  "key": "applock_enabled_toast",
+  "az": "Kilid aktivləşdirildi 🔒",
+  "en": "Lock enabled 🔒"
+ },
+ {
+  "key": "applock_forgot",
+  "az": "PIN-i unutmusunuz?",
+  "en": "Forgot your PIN?"
+ },
+ {
+  "key": "applock_forgot_desc",
+  "az": "Kilid sıfırlanacaq və hesabdan çıxacaqsınız. Yenidən daxil olduqdan sonra PIN təyin edə bilərsiniz.",
+  "en": "The lock will be reset and you’ll be signed out. You can set a new PIN after signing back in."
+ },
+ {
+  "key": "applock_manage_title",
+  "az": "Tətbiq kilidi",
+  "en": "App lock"
+ },
+ {
+  "key": "applock_mismatch",
+  "az": "PIN-lər uyğun gəlmədi — yenidən cəhd edin",
+  "en": "PINs didn’t match — try again"
+ },
+ {
+  "key": "applock_reset",
+  "az": "Kilidi sıfırla",
+  "en": "Reset lock"
+ },
+ {
+  "key": "applock_signout_reset",
+  "az": "Çıxış et və kilidi sıfırla",
+  "en": "Sign out & reset lock"
+ },
+ {
+  "key": "applock_status_off",
+  "az": "PIN və ya biometrika ilə qoruyun",
+  "en": "Protect with PIN or biometrics"
+ },
+ {
+  "key": "applock_status_on",
+  "az": "Aktiv — PIN ilə qorunur",
+  "en": "Active — protected with PIN"
+ },
+ {
+  "key": "applock_subtitle",
+  "az": "Davam etmək üçün PIN daxil edin",
+  "en": "Enter your PIN to continue"
+ },
+ {
+  "key": "applock_title",
+  "az": "Tətbiq kilidlidir",
+  "en": "App is locked"
+ },
+ {
+  "key": "applock_verify_title",
+  "az": "Cari PIN-i daxil edin",
+  "en": "Enter current PIN"
+ },
+ {
+  "key": "bp_bpm",
+  "az": "vur/dəq",
+  "en": "bpm"
+ },
+ {
+  "key": "bp_cat_crisis",
+  "az": "Hipertonik böhran",
+  "en": "Hypertensive crisis"
+ },
+ {
+  "key": "bp_cat_elevated",
+  "az": "Yüksəlmiş",
+  "en": "Elevated"
+ },
+ {
+  "key": "bp_cat_low",
+  "az": "Aşağı",
+  "en": "Low"
+ },
+ {
+  "key": "bp_cat_normal",
+  "az": "Normal",
+  "en": "Normal"
+ },
+ {
+  "key": "bp_cat_stage1",
+  "az": "Hipertenziya I",
+  "en": "Hypertension I"
+ },
+ {
+  "key": "bp_cat_stage2",
+  "az": "Hipertenziya II",
+  "en": "Hypertension II"
+ },
+ {
+  "key": "bp_diastolic",
+  "az": "Diastolik",
+  "en": "Diastolic"
+ },
+ {
+  "key": "bp_disclaimer",
+  "az": "Bu alət həkim müayinəsini əvəz etmir.",
+  "en": "This tool does not replace medical examination."
+ },
+ {
+  "key": "bp_empty_text",
+  "az": "İlk qan təzyiqi ölçmənizi yuxarıda qeyd edin. Hamiləlikdə həftədə 1-2 dəfə ölçmək tövsiyə olunur.",
+  "en": "Log your first blood pressure reading above. During pregnancy, measuring 1-2 times a week is recommended."
+ },
+ {
+  "key": "bp_empty_title",
+  "az": "Hələ ölçmə yoxdur",
+  "en": "No readings yet"
+ },
+ {
+  "key": "bp_eyebrow",
+  "az": "Ürək sağlamlığı",
+  "en": "Heart health"
+ },
+ {
+  "key": "bp_eyebrow_bump",
+  "az": "Preeklampsiya nəzarəti",
+  "en": "Preeclampsia watch"
+ },
+ {
+  "key": "bp_guide_crisis",
+  "az": "DƏRHAL təcili yardıma (103) müraciət edin!",
+  "en": "Seek emergency care IMMEDIATELY!"
+ },
+ {
+  "key": "bp_guide_elevated",
+  "az": "Duz qəbulunu azaldın, istirahət edin və müntəzəm ölçün.",
+  "en": "Reduce salt intake, rest, and measure regularly."
+ },
+ {
+  "key": "bp_guide_low",
+  "az": "Başgicəllənmə hiss edirsinizsə oturun, su için. Təkrarlanırsa həkimə bildirin.",
+  "en": "If dizzy, sit down and drink water. Tell your doctor if it recurs."
+ },
+ {
+  "key": "bp_guide_normal",
+  "az": "Əla! Təzyiqiniz sağlam aralıqdadır.",
+  "en": "Great! Your blood pressure is in the healthy range."
+ },
+ {
+  "key": "bp_guide_stage1",
+  "az": "Bir neçə gün ardıcıl yüksəkdirsə həkiminizlə məsləhətləşin.",
+  "en": "If elevated for several consecutive days, consult your doctor."
+ },
+ {
+  "key": "bp_guide_stage2",
+  "az": "Bu gün həkiminizlə əlaqə saxlayın.",
+  "en": "Contact your doctor today."
+ },
+ {
+  "key": "bp_history",
+  "az": "Tarixçə",
+  "en": "History"
+ },
+ {
+  "key": "bp_invalid",
+  "az": "Düzgün dəyərlər daxil edin (məs. 120/80)",
+  "en": "Enter valid values (e.g. 120/80)"
+ },
+ {
+  "key": "bp_invalid_pulse",
+  "az": "Nəbz 30-220 aralığında olmalıdır",
+  "en": "Pulse must be between 30-220"
+ },
+ {
+  "key": "bp_new_reading",
+  "az": "Yeni ölçmə",
+  "en": "New reading"
+ },
+ {
+  "key": "bp_optional",
+  "az": "istəyə bağlı",
+  "en": "optional"
+ },
+ {
+  "key": "bp_pulse",
+  "az": "Nəbz",
+  "en": "Pulse"
+ },
+ {
+  "key": "bp_save_btn",
+  "az": "Qeyd et",
+  "en": "Log reading"
+ },
+ {
+  "key": "bp_save_error",
+  "az": "Saxlanılmadı — bazanın hazır olduğundan əmin olun",
+  "en": "Could not save — make sure the database is ready"
+ },
+ {
+  "key": "bp_saved",
+  "az": "qeyd edildi",
+  "en": "logged"
+ },
+ {
+  "key": "bp_systolic",
+  "az": "Sistolik",
+  "en": "Systolic"
+ },
+ {
+  "key": "bp_th_crisis",
+  "az": "dərhal 103",
+  "en": "call emergency immediately"
+ },
+ {
+  "key": "bp_th_normal",
+  "az": "Normal",
+  "en": "Normal"
+ },
+ {
+  "key": "bp_th_preeclampsia",
+  "az": "hamiləlikdə preeklampsiya riski, həkimə bildirin",
+  "en": "preeclampsia risk in pregnancy, tell your doctor"
+ },
+ {
+  "key": "bp_thresholds_title",
+  "az": "📋 İstinad hədləri",
+  "en": "📋 Reference ranges"
+ },
+ {
+  "key": "bp_title",
+  "az": "Qan Təzyiqi",
+  "en": "Blood Pressure"
+ },
+ {
+  "key": "bp_urgent_crisis",
+  "az": "Hipertonik böhran!",
+  "en": "Hypertensive crisis!"
+ },
+ {
+  "key": "bp_urgent_eyebrow",
+  "az": "Təcili",
+  "en": "Urgent"
+ },
+ {
+  "key": "bp_urgent_preeclampsia",
+  "az": "Ağır hipertenziya — preeklampsiya riski!",
+  "en": "Severe hypertension — preeclampsia risk!"
+ },
+ {
+  "key": "bp_urgent_text",
+  "az": "Gözləməyin — dərhal həkiminizə və ya təcili yardıma müraciət edin.",
+  "en": "Don’t wait — contact your doctor or emergency services immediately."
+ },
+ {
+  "key": "bp_warning_preeclampsia",
+  "az": "Son ölçmə ≥140/90 — hamiləlikdə bu, preeklampsiya əlaməti ola bilər. Bu gün həkiminizlə əlaqə saxlayın.",
+  "en": "Last reading ≥140/90 — in pregnancy this can signal preeclampsia. Contact your doctor today."
+ },
+ {
+  "key": "bp_warning_stage2",
+  "az": "Son ölçməniz yüksəkdir. Bu gün həkiminizlə əlaqə saxlamağı tövsiyə edirik.",
+  "en": "Your last reading is high. We recommend contacting your doctor today."
+ },
+ {
+  "key": "calendarscreen_basliq_e1f6c5",
+  "az": "Başlıq",
+  "en": "Title"
+ },
+ {
+  "key": "calendarscreen_bu_gun_ucun_hadise_yoxdur_a394c8",
+  "az": "Bu gün üçün hadisə yoxdur",
+  "en": "No events for today"
+ },
+ {
+  "key": "calendarscreen_c_399abb",
+  "az": "Ç.",
+  "en": "Ch."
+ },
+ {
+  "key": "calendarscreen_c_a_5c29b2",
+  "az": "Ç.a.",
+  "en": "Ch.a."
+ },
+ {
+  "key": "calendarscreen_derman_8b4b27",
+  "az": "Dərman",
+  "en": "Medication"
+ },
+ {
+  "key": "calendarscreen_dogus_tarixi_e2caea",
+  "az": "Doğuş tarixi",
+  "en": "Due date"
+ },
+ {
+  "key": "calendarscreen_ehval_qeyd_aa4f19",
+  "az": "Əhval qeyd",
+  "en": "Mood note"
+ },
+ {
+  "key": "calendarscreen_elave_et_6e1b9b",
+  "az": "Əlavə et",
+  "en": "Add"
+ },
+ {
+  "key": "calendarscreen_evvelki_ay",
+  "az": "ÆvvÉ™lki ay",
+  "en": null
+ },
+ {
+  "key": "calendarscreen_fertil_gun_653ae1",
+  "az": "Fertil gün",
+  "en": "Fertile day"
+ },
+ {
+  "key": "calendarscreen_fertil_gunler_65de2c",
+  "az": "Fertil günlər",
+  "en": "Fertile days"
+ },
+ {
+  "key": "calendarscreen_gun_period_957849",
+  "az": "gün period",
+  "en": "day period"
+ },
+ {
+  "key": "calendarscreen_gun_tsikl_bb0ab6",
+  "az": "gün tsikl",
+  "en": "day cycle"
+ },
+ {
+  "key": "calendarscreen_hekim_muayinesi_78c373",
+  "az": "Həkim müayinəsi",
+  "en": "Doctor's appointment"
+ },
+ {
+  "key": "calendarscreen_isareler_c13095",
+  "az": "İşarələr",
+  "en": "Markers"
+ },
+ {
+  "key": "calendarscreen_nov_98ad7c",
+  "az": "Növ",
+  "en": "Type"
+ },
+ {
+  "key": "calendarscreen_novbeti_ay",
+  "az": "NÃ¶vbÉ™ti ay",
+  "en": null
+ },
+ {
+  "key": "calendarscreen_ovulyasiya_gunu_e20a0b",
+  "az": "ovulyasiya günü",
+  "en": "ovulation day"
+ },
+ {
+  "key": "calendarscreen_randevu_elave_et_2cfa5a",
+  "az": "Randevu əlavə et",
+  "en": "Add an appointment"
+ },
+ {
+  "key": "calendarscreen_s_f3ddc2",
+  "az": "Ş.",
+  "en": "Sh."
+ },
+ {
+  "key": "calendarscreen_teqvim_584bdd",
+  "az": "Təqvim",
+  "en": "Calendar"
+ },
+ {
+  "key": "calendarscreen_tsikl_gunu_51cdf3",
+  "az": "Tsikl günü:",
+  "en": "Cycle day:"
+ },
+ {
+  "key": "calendarscreen_xatirlatma_3f3c48",
+  "az": "Xatırlatma",
+  "en": "Reminder"
+ },
+ {
+  "key": "commentreply_action_reply",
+  "az": "Cavab",
+  "en": "Reply"
+ },
+ {
+  "key": "commentreply_bu_serhi_silmek_isteyirsiniz_fc50c9",
+  "az": "Bu şərhi silmək istəyirsiniz?",
+  "en": "Do you want to delete this comment?"
+ },
+ {
+  "key": "commentreply_cavab_yaz_placeholder_123456",
+  "az": "{username} cavab...",
+  "en": "Reply to {username}..."
+ },
+ {
+  "key": "commentreply_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "commentreply_reply_count",
+  "az": "cavab",
+  "en": "replies"
+ },
+ {
+  "key": "commentreply_serh_elave_edile_bilmedi_8925d3",
+  "az": "Şərh əlavə edilə bilmədi",
+  "en": "Could not add comment"
+ },
+ {
+  "key": "commentreply_serh_silindi_59cfe5",
+  "az": "Şərh silindi",
+  "en": "Comment deleted"
+ },
+ {
+  "key": "commentreply_ugurlu_7fe64c",
+  "az": "Uğurlu",
+  "en": "Successful"
+ },
+ {
+  "key": "commentreply_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "community_emoji_axtar_placeholder_f123bc",
+  "az": "Emoji axtar...",
+  "en": "Search emoji..."
+ },
+ {
+  "key": "community_file_upload_failed",
+  "az": "Fayl yüklənə bilmədi:",
+  "en": null
+ },
+ {
+  "key": "community_is_typing",
+  "az": "yazır...",
+  "en": null
+ },
+ {
+  "key": "community_people_are_typing",
+  "az": "nəfər yazır...",
+  "en": null
+ },
+ {
+  "key": "communityscreen_cemiyyet_2dc44d",
+  "az": "Cəmiyyət",
+  "en": "Community"
+ },
+ {
+  "key": "communityscreen_diger_analar_ile_elaqede_olun_4830a3",
+  "az": "Digər analar ilə əlaqədə olun",
+  "en": "Connect with other moms"
+ },
+ {
+  "key": "communityscreen_ne_dusunursunuz_0378b3",
+  "az": "Nə düşünürsünüz?",
+  "en": "What's on your mind?"
+ },
+ {
+  "key": "communityscreen_umumi_1b5521",
+  "az": "Ümumi",
+  "en": "General"
+ },
+ {
+  "key": "conversationlistscreen_hele_mesajiniz_yoxdur_79d3c7",
+  "az": "Hələ mesajınız yoxdur",
+  "en": "You don't have any messages yet"
+ },
+ {
+  "key": "conversationlistscreen_istifadeci_profilinden_mesaj_gondere_bil_777661",
+  "az": "İstifadəçi profilindən mesaj göndərə bilərsiniz",
+  "en": "You can send messages from the user profile"
+ },
+ {
+  "key": "conversationlistscreen_sekil_25710e",
+  "az": "📷 Şəkil",
+  "en": "📷 Photo"
+ },
+ {
+  "key": "conversationlistscreen_ses_mesaji_acd8d9",
+  "az": "🎤 Səs mesajı",
+  "en": "🎤 Voice message"
+ },
+ {
+  "key": "createpostmodal_adiniz_gizledilir_fb1df0",
+  "az": "Adınız gizlədilir",
+  "en": "Your name is hidden"
+ },
+ {
+  "key": "createpostmodal_aile_894dfb",
+  "az": "ailə",
+  "en": "family"
+ },
+ {
+  "key": "createpostmodal_ana_hashtag",
+  "az": "ana",
+  "en": "mom"
+ },
+ {
+  "key": "createpostmodal_analar_hashtag",
+  "az": "analar",
+  "en": "moms"
+ },
+ {
+  "key": "createpostmodal_anonim_paylas_6074c9",
+  "az": "Anonim paylaş",
+  "en": "Share anonymously"
+ },
+ {
+  "key": "createpostmodal_bos_paylasim_47b52d",
+  "az": "Boş paylaşım",
+  "en": "Empty post"
+ },
+ {
+  "key": "createpostmodal_dogus_01c8e6",
+  "az": "doğuş",
+  "en": "birth"
+ },
+ {
+  "key": "createpostmodal_elave_et_81035a",
+  "az": "Əlavə et:",
+  "en": "Name:"
+ },
+ {
+  "key": "createpostmodal_emzirme_1e11e5",
+  "az": "əmzirmə",
+  "en": "breastfeeding"
+ },
+ {
+  "key": "createpostmodal_fayl_cox_boyukdur_f5cf61",
+  "az": "Fayl çox böyükdür",
+  "en": "The file is too large"
+ },
+ {
+  "key": "createpostmodal_hamilelik_64e7fe",
+  "az": "hamiləlik",
+  "en": "pregnancy"
+ },
+ {
+  "key": "createpostmodal_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "createpostmodal_inkisaf_abc234",
+  "az": "inkişaf",
+  "en": "development"
+ },
+ {
+  "key": "createpostmodal_korpe_4abca7",
+  "az": "körpə",
+  "en": "baby"
+ },
+ {
+  "key": "createpostmodal_limit_asildi_30a129",
+  "az": "Limit aşıldı",
+  "en": "Limit exceeded"
+ },
+ {
+  "key": "createpostmodal_metn_yazin_ve_ya_media_elave_edin_18fa25",
+  "az": "Mətn yazın və ya media əlavə edin",
+  "en": "Write text or add media"
+ },
+ {
+  "key": "createpostmodal_ne_dusunursunuz_474859",
+  "az": "Nə düşünürsünüz? ✨",
+  "en": "What's on your mind? ✨"
+ },
+ {
+  "key": "createpostmodal_oyun_hashtag",
+  "az": "oyun",
+  "en": "play"
+ },
+ {
+  "key": "createpostmodal_paylas_b4be3b",
+  "az": "Paylaş",
+  "en": "Share"
+ },
+ {
+  "key": "createpostmodal_paylasim_yaradila_bilmedi_6354b1",
+  "az": "Paylaşım yaradıla bilmədi",
+  "en": "Post could not be created"
+ },
+ {
+  "key": "createpostmodal_qidalanma_hashtag",
+  "az": "qidalanma",
+  "en": "nutrition"
+ },
+ {
+  "key": "createpostmodal_saglamliq_d183d2",
+  "az": "sağlamlıq",
+  "en": "health"
+ },
+ {
+  "key": "createpostmodal_sevgi_hashtag",
+  "az": "sevgi",
+  "en": "love"
+ },
+ {
+  "key": "createpostmodal_usaq_36b348",
+  "az": "uşaq",
+  "en": "child"
+ },
+ {
+  "key": "createpostmodal_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "createpostmodal_xosbextlik_55f22a",
+  "az": "xoşbəxtlik",
+  "en": "happiness"
+ },
+ {
+  "key": "createpostmodal_yeni_paylasim_4f5b15",
+  "az": "Yeni Paylaşım",
+  "en": "New Post"
+ },
+ {
+  "key": "createpostmodal_yuklenir_5557de",
+  "az": "Yüklənir...",
+  "en": "Loading..."
+ },
+ {
+  "key": "createpostmodal_yuxu_hashtag",
+  "az": "yuxu",
+  "en": "sleep"
+ },
+ {
+  "key": "createpostscreen_adiniz_ve_sekliniz_gizledilir_6fc767",
+  "az": "Adınız və şəkliniz gizlədilir",
+  "en": "Your name and photo are hidden"
+ },
+ {
+  "key": "createpostscreen_aile_894dfb",
+  "az": "ailə",
+  "en": "family"
+ },
+ {
+  "key": "createpostscreen_ana_hashtag",
+  "az": "ana",
+  "en": "mom"
+ },
+ {
+  "key": "createpostscreen_analar_hashtag",
+  "az": "analar",
+  "en": "moms"
+ },
+ {
+  "key": "createpostscreen_anonim_paylas_6074c9",
+  "az": "Anonim paylaş",
+  "en": "Share anonymously"
+ }
+]

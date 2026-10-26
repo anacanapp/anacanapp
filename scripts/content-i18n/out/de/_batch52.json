@@ -1,0 +1,504 @@
+{
+ "photoshoot_backgrounds": {
+  "1ad48661-4b62-4e9a-9444-a4a712f7dfa6": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Papiersterne"
+  },
+  "1af89b9d-e2e2-4ded-91e3-5e4be16b42d0": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Französisches Fenster"
+  },
+  "1e18a6d6-ef51-4ef9-b6e8-6f6449fed2ff": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Astronaut"
+  },
+  "1f16591c-4783-4f12-bfbc-fc96f640d0c9": {
+   "category_name": "Fantasie",
+   "theme_name": "Einhorn-Regenbogen"
+  },
+  "20aa16d6-3ff4-4a79-93bd-70a66a625965": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Schachbrettboden"
+  },
+  "22dabdd5-1d22-4e0c-aa79-c78395191154": {
+   "category_name": "Saisonal",
+   "theme_name": "Neujahrsgeschenke"
+  },
+  "23a737b6-54b5-48e0-b6e5-2a1dc6edee45": {
+   "category_name": "Saisonal",
+   "theme_name": "Verschneite Berge"
+  },
+  "25127aad-a824-439d-baa4-c02237960ea8": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Koch"
+  },
+  "26fe22df-d64c-42ae-9c62-180ef8f62773": {
+   "category_name": "Saisonal",
+   "theme_name": "Limonadenstand"
+  },
+  "2ae95e20-cfbf-4725-81f6-0d228fbcdc8e": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Rattanwiege"
+  },
+  "2f3325dd-e25d-45e2-9bd0-552d8fd18ab9": {
+   "category_name": "Kreativ",
+   "theme_name": "Tüll und LED-Lichter"
+  },
+  "2f48cf9d-4069-4405-9add-b6800e25c215": {
+   "category_name": "Festlich",
+   "theme_name": "Regenbogen"
+  },
+  "003d5b2f-019d-4fe1-aecd-3b0dc6c7a2a1": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Musik"
+  },
+  "02205e83-7ae8-452d-98c8-1c3651ed5871": {
+   "category_name": "Saisonal",
+   "theme_name": "Wassermelone"
+  },
+  "02a6ceb0-e487-491b-8c61-680698f20f3a": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Viktorianisch"
+  },
+  "056e5ee0-fce2-48fa-93c4-e97a75b98057": {
+   "category_name": "Kreativ",
+   "theme_name": "Lego-Welt"
+  },
+  "0654669a-66ea-490a-8500-8f239effa3ab": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Fischer"
+  },
+  "082fe1b0-ee47-46b5-8b65-5e27d78c60b1": {
+   "category_name": "Saisonal",
+   "theme_name": "Tannenzapfen"
+  },
+  "0bd2e9b3-9256-4bb0-8e75-b2a126edf4b9": {
+   "category_name": "Fantasie",
+   "theme_name": "Meerjungfrau"
+  },
+  "0f98b91b-fdbf-4a9e-a343-6648d15dbdf5": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Waldfee"
+  },
+  "14e84e8c-f51c-4ca5-a110-19ff0b30d83d": {
+   "category_name": "Kreativ",
+   "theme_name": "Ombré-Wand"
+  },
+  "16c704f9-5ca2-4d4d-98a1-91ee1391384b": {
+   "category_name": "Ästhetisch",
+   "theme_name": "Vintage-Spitze"
+  },
+  "19f46922-7fcf-49d1-b015-fc69d9cd6c2d": {
+   "category_name": "Kreativ",
+   "theme_name": "Graffiti-Wand"
+  },
+  "1a873d86-456a-4f96-a589-2045f88dc2a1": {
+   "category_name": "Saisonal",
+   "theme_name": "Ostern"
+  },
+  "30a8aa1f-a116-46cb-8f05-98409119c952": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Holzscheite"
+  },
+  "32306b2b-700f-4b21-a4b3-c9302091e8c6": {
+   "category_name": "Ästhetisch",
+   "theme_name": "Neutrales Boho"
+  },
+  "32e032f3-af66-4e1a-b0a0-a1c991fc3195": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Silberner Luxus"
+  },
+  "351958b3-b6d0-45fc-bd51-a97505deb0fb": {
+   "category_name": "Ästhetisch",
+   "theme_name": "Minimalistisches Creme-Design"
+  },
+  "3a00af31-331b-4533-bf4c-7a64d0ac6324": {
+   "category_name": "Kreativ",
+   "theme_name": "Konfettiregen"
+  },
+  "3a9cf521-7aa1-47db-80ad-190143414033": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Leinenschichten"
+  },
+  "4e057694-3c66-4d2e-836b-4d6f355c77e9": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Terrakotta"
+  },
+  "503f4793-39b4-40ae-a987-241fb970c740": {
+   "category_name": "Feiertage",
+   "theme_name": "Geburtstag"
+  },
+  "52b733b2-4631-475b-9472-a6b50c3fc54e": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Fellstruktur"
+  },
+  "5599917d-b6da-4a3a-8584-d075d3c550a0": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Schaukelpferd"
+  },
+  "5d5b0851-0915-4679-9cf1-d42f4526c42d": {
+   "category_name": "Feiertage",
+   "theme_name": "Novruz"
+  },
+  "6196ee81-9e69-4e9a-befa-deb4ddcb92b8": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Makramee-Wandbehang"
+  },
+  "42fcd6b9-8c0b-41f4-a5e4-719993cf8325": {
+   "category_name": "Saisonal",
+   "theme_name": "Winterschnee"
+  },
+  "4357a483-bd8e-44ad-a322-ac3954968e97": {
+   "category_name": "Saisonal",
+   "theme_name": "Lavendelfeld"
+  },
+  "43ab8459-093f-476c-94be-e2aa2e43036c": {
+   "category_name": "Realistisch",
+   "theme_name": "Rosa Kinderzimmer"
+  },
+  "49dfa5b8-abdc-4c2c-84f9-df01ce5137a1": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Seefahrer"
+  },
+  "4bec600b-1dbb-4362-bb24-0da135496770": {
+   "category_name": "Kreativ",
+   "theme_name": "Goldene Dekoration"
+  },
+  "4df5d31c-0026-48f7-ba50-ec000d0096c9": {
+   "category_name": "Fantasie",
+   "theme_name": "Astronaut"
+  },
+  "3c93f104-2558-4a04-b0dc-f1c917385ded": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Reisender"
+  },
+  "3ceb5d59-ede7-424b-b9c8-b39fbcd5e8f6": {
+   "category_name": "Saisonal",
+   "theme_name": "Strand"
+  },
+  "3d66a8b1-55c4-4449-b4b6-b51f52bbad64": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Heißluftballon"
+  },
+  "3de1713d-9b9c-4187-a5f2-dc13ace3c645": {
+   "category_name": "Fantasie",
+   "theme_name": "Piratenabenteuer"
+  },
+  "3f1c05af-e3ae-4cfe-b9e5-f2fd318c5801": {
+   "category_name": "Kreativ",
+   "theme_name": "Seifenblasen"
+  },
+  "420d69c0-d656-46a3-94f5-c4703ccce9eb": {
+   "category_name": "Realistisch",
+   "theme_name": "Naturgarten"
+  },
+  "6617e9c8-17e0-4986-9066-a8ba64357378": {
+   "category_name": "Kreativ",
+   "theme_name": "Bänderwand"
+  },
+  "6693dac7-9610-4578-a800-7d5b9a5c8919": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Beige monochrom"
+  },
+  "68aa6e64-3042-4830-8a78-92652276bd3d": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Prinzessinnenschloss"
+  },
+  "6b9b1b24-8669-4a81-9d0b-2da3fbcef646": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Teddybären"
+  },
+  "6d5c61d6-2f86-4b0d-a54a-fc34602588ad": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Häkelspielzeug"
+  },
+  "6dfabbd0-c09e-4e82-8c43-545a695ee260": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Vintage-Kinderwagen"
+  },
+  "6f18b49a-65f9-4cb4-91c9-f42cd15b9e69": {
+   "category_name": "Saisonal",
+   "theme_name": "Tulpen"
+  },
+  "7ff8eb48-3d9e-414f-b711-9a611a5552a1": {
+   "category_name": "Kreativ",
+   "theme_name": "Instagram-Rahmen"
+  },
+  "8215351c-6334-499a-93e7-d90cdf922c88": {
+   "category_name": "Kreativ",
+   "theme_name": "Ballonbogen"
+  },
+  "826d4a56-245c-49bf-8a1d-540b266708ff": {
+   "category_name": "Fantasie",
+   "theme_name": "Prinzessinnenschloss"
+  },
+  "838b8a83-718f-44eb-a892-708a70a1012b": {
+   "category_name": "Saisonal",
+   "theme_name": "Sommerstrand"
+  },
+  "842167a6-79bb-4b41-8651-09afc0bafea3": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Olivenzweige"
+  },
+  "ae31519a-1757-478c-93c3-69ac7b895639": {
+   "category_name": "Feier",
+   "theme_name": "Luftballons"
+  },
+  "aea76dbc-0316-43ff-a1ae-58a2a5220255": {
+   "category_name": "Fantasie",
+   "theme_name": "Superheld"
+  },
+  "b04ff415-d80b-4358-b777-e558cb731ef3": {
+   "category_name": "Kreativ",
+   "theme_name": "Disco"
+  },
+  "b395ac31-d159-443e-8693-cfc077374c0f": {
+   "category_name": "Klassisch & Vintage",
+   "theme_name": "Retro-Auto"
+  },
+  "b994b971-7519-46ad-a52f-2cff8ea09927": {
+   "category_name": "Klassisch & Vintage",
+   "theme_name": "Zeitungswand"
+  },
+  "b9d75cd1-26c6-4d42-bfbb-930b9b37345b": {
+   "category_name": "Fantasie",
+   "theme_name": "Feengarten"
+  },
+  "9bc7fa8e-5f8c-4898-811b-f3f8cbfb2f39": {
+   "category_name": "Saisonal",
+   "theme_name": "Tropischer Regenwald"
+  },
+  "9e151be5-3f27-4fca-a44f-e2b7a043d396": {
+   "category_name": "Realistisch",
+   "theme_name": "Weißes Studio"
+  },
+  "a1de5862-9069-4cbb-8a77-84e757bed64b": {
+   "category_name": "Saisonal",
+   "theme_name": "Herbstblätter"
+  },
+  "a4aadb93-fe74-4d15-90ec-e6a06db3f6b6": {
+   "category_name": "Kreativ",
+   "theme_name": "Abstrakt"
+  },
+  "a9c6bace-7cb1-43c1-bea3-a2f82c3071df": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Samtsofa"
+  },
+  "abe7aeca-0f9a-4c54-a8b2-23541e33a02b": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Kleiner Künstler"
+  },
+  "915db1a1-8b66-4070-b9ee-36f1321555b1": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Perlen und Schachteln"
+  },
+  "91ec83bb-7891-453c-a1d9-2de9f0e05f78": {
+   "category_name": "Saisonal",
+   "theme_name": "Erntedankfest"
+  },
+  "9216b89e-0a26-4bd6-88f6-abe650137525": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Perlen und Seide"
+  },
+  "9321fc1e-4dc6-4e51-b4c0-85a6b8477787": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Altes Telefon"
+  },
+  "98d78992-aa37-4baf-ab30-5ea60fcc5006": {
+   "category_name": "Saisonal",
+   "theme_name": "Herbstblätter"
+  },
+  "98d85ebc-70ac-451d-8d62-b86f07da486b": {
+   "category_name": "Kreativ",
+   "theme_name": "Geometrisch"
+  },
+  "86094a22-00e0-4df1-acef-bb42c1a8a9ff": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Baumwollzweige"
+  },
+  "873e2d1a-b1ca-453e-b298-5e95affb73de": {
+   "category_name": "Ästhetisch",
+   "theme_name": "Rosafarbener Traum"
+  },
+  "880ae041-fa53-49a0-af1a-4f929d41ff87": {
+   "category_name": "Festlich",
+   "theme_name": "Weihnachten"
+  },
+  "89add762-7117-4ec6-ae9b-caad9548b893": {
+   "category_name": "Saisonal",
+   "theme_name": "Frühlingsblumen"
+  },
+  "8a2cce77-54e3-4b76-90fc-02a65f4079a1": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Teeservice"
+  },
+  "8d3eaabf-4cf6-43f5-abbc-060814236f8e": {
+   "category_name": "Kreativ",
+   "theme_name": "Spiegelzimmer"
+  },
+  "c3d5a566-6197-4e94-986b-89657bde0b14": {
+   "category_name": "Saisonal",
+   "theme_name": "Regentag"
+  },
+  "c57791c2-4a5d-441f-8532-2c3a0f9e3c9b": {
+   "category_name": "Realistisch",
+   "theme_name": "Gemütliches Wohnzimmer"
+  },
+  "c79ab67d-5e55-41bb-90f6-ef6c56c02853": {
+   "category_name": "Saisonal",
+   "theme_name": "Schmetterlinge"
+  },
+  "cd9febf4-cb58-4564-911e-2cff479ee687": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Pampasgras und Vasen"
+  },
+  "d088923b-bff1-4795-8274-c9f42a3456a9": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Auf dem Mond"
+  },
+  "d366b17c-ef8b-407f-b506-73eb797cbd98": {
+   "category_name": "Saisonal",
+   "theme_name": "Kirschblüte"
+  },
+  "dc051528-097b-45c0-b52c-9a84777e65ae": {
+   "category_name": "Klassisch & Vintage",
+   "theme_name": "Aristokratische Ecke"
+  },
+  "dca011c1-e449-4fd7-b96c-ba92d5ffd3ab": {
+   "category_name": "Klassisch & Vintage",
+   "theme_name": "Klassische Bibliothek"
+  },
+  "dec8b07f-6953-47e1-9731-429723f97229": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Zirkuszelt"
+  },
+  "e0759757-a75f-4f48-8ad0-a3f091cb5b8f": {
+   "category_name": "Kreativ",
+   "theme_name": "Papierblumen"
+  },
+  "e0c07e36-c374-4852-8e61-fabea7c6c9a9": {
+   "category_name": "Klassisch & Vintage",
+   "theme_name": "Theatervorhang"
+  },
+  "e1937be2-9ede-461f-a4c4-19f2dcd2f067": {
+   "category_name": "Saisonal",
+   "theme_name": "Erdbeergarten"
+  },
+  "d445229f-b831-40a7-a670-77449509a32d": {
+   "category_name": "Realistisch",
+   "theme_name": "Blaues Kinderzimmer"
+  },
+  "d4597ff5-0510-4c10-a585-0d2a618d782a": {
+   "category_name": "Ästhetisch",
+   "theme_name": "Goldene Uhr"
+  },
+  "d529746e-f5ad-4eb0-ab51-049c03be28ef": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Kerzenständer"
+  },
+  "d6b045de-11c6-437b-8229-0fc3b55308f3": {
+   "category_name": "Saisonal",
+   "theme_name": "Schneemann"
+  },
+  "d6c0a4fc-0c69-4837-86b6-c881c5b31197": {
+   "category_name": "Kreativ",
+   "theme_name": "Origami-Vögel"
+  },
+  "d9c986cd-a3c0-48ff-9c9c-c42ce8371acb": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Altes Radio"
+  },
+  "e92908da-8ac2-412a-9849-fd596abbff8d": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Superheld"
+  },
+  "e95fe17f-4b98-405a-b4e0-1504020e443b": {
+   "category_name": "Kreativ",
+   "theme_name": "Fächer"
+  },
+  "ea780c57-8da7-492e-8e58-ec2d8a449cb7": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Bücherfreund"
+  },
+  "eaa28b79-dd78-4630-b265-5f9f09ec8d75": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Zauberwald"
+  },
+  "eb7bcef1-cab4-4b78-9894-2ca1c14590b0": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Gipswand"
+  },
+  "ed1aecbd-6e7c-430e-8bdc-54375fcd98dd": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Altes Ägypten"
+  },
+  "e21d1304-2785-4e26-bd0c-74497856f614": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Milchbad"
+  },
+  "e24acc4e-4c42-474e-a30f-96e261c4af19": {
+   "category_name": "Saisonal",
+   "theme_name": "Herbstpicknick"
+  },
+  "e3f0721f-9de0-4bd5-899c-f8b9e8fe2982": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Bambus-Zen"
+  },
+  "e4b82143-2cf3-4856-a99b-f8da7be8b3a7": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Kleiner Gärtner"
+  },
+  "e610672b-7f4e-4037-bc7b-c6aba193f51d": {
+   "category_name": "Märchenhaft",
+   "theme_name": "Filmregisseur"
+  },
+  "e7ba4a6e-a617-4c1b-b168-3d84439fdfe8": {
+   "category_name": "Ästhetisch",
+   "theme_name": "Boho-Blumen"
+  },
+  "efc80e2e-c6d8-47b6-b512-6408ae0a1fed": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Fliege und Hut"
+  },
+  "f1d553e8-3e26-4e06-940a-6cb41899fd04": {
+   "category_name": "Saisonal",
+   "theme_name": "Sonnenblumenfeld"
+  },
+  "f4927864-fc77-43bc-ba20-013eb3a608e2": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Steinmauer"
+  },
+  "f505ed39-e2eb-4f0b-a133-8bbadda3f9b7": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Helles Fenster"
+  },
+  "f8587212-d55f-4016-bd7e-98d3ddeceb73": {
+   "category_name": "Kreativ",
+   "theme_name": "Neon-Schriftzüge"
+  },
+  "f8660023-df98-4728-90fd-3e57356a252c": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Wollkorb"
+  },
+  "f8a041e9-0f5f-41c2-9fce-d65194771a00": {
+   "category_name": "Fantasie",
+   "theme_name": "Drachenkönigreich"
+  },
+  "fab78fea-749c-46b9-a82b-59d75da588c6": {
+   "category_name": "Saisonal",
+   "theme_name": "Kürbisfeld"
+  },
+  "fd5e9057-9c89-4d23-a45c-f85feb461470": {
+   "category_name": "Klassisch und Vintage",
+   "theme_name": "Retro-Fahrrad"
+  },
+  "fe77566d-2c9f-4a16-8813-ce6eed50cca9": {
+   "category_name": "Saisonal",
+   "theme_name": "Erdbeerblüte"
+  },
+  "fffef0d7-9388-4c6f-a036-ac132e3e66d8": {
+   "category_name": "Minimalistisch und natürlich",
+   "theme_name": "Vintage-Sessel"
+  }
+ }
+}

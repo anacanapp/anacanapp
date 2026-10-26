@@ -1,0 +1,157 @@
+[
+ {
+  "id": "8fa8f19f-5ccc-4ae5-bff0-22a6ba79c981",
+  "item_name": "ID documents",
+  "notes": "Əsli və kserokopiyası"
+ },
+ {
+  "id": "b3f46e84-5d3e-49a0-8207-79b6b4e30f05",
+  "item_name": "Marriage certificate",
+  "notes": "Əsli və kserokopiyası (uşağın qeydiyyatı üçün)"
+ },
+ {
+  "id": "ba791016-d5ce-4a70-b740-640ddce3fc24",
+  "item_name": "Exchange card",
+  "notes": "Qadın məsləhətxanasından verilən sənəd"
+ },
+ {
+  "id": "59da3790-8717-450f-b718-50c1a158aaf9",
+  "item_name": "Test results and ultrasound",
+  "notes": "Son müayinələr"
+ },
+ {
+  "id": "741464ab-8e34-4164-94ad-cc0bad1c96a9",
+  "item_name": "Insurance documents",
+  "notes": "Əgər özəl sığorta varsa"
+ },
+ {
+  "id": "5cfbea87-732a-4546-85ab-53473b53b703",
+  "item_name": "Nightgown (front-opening)",
+  "notes": "Əmizdirmək üçün rahat olmalıdır (2-3 ədəd)"
+ },
+ {
+  "id": "62126e25-45f2-4e64-a616-31acb29ef192",
+  "item_name": "Robe",
+  "notes": "Dəhlizə çıxarkən geyinmək üçün"
+ },
+ {
+  "id": "93e4d006-ec0d-45c7-ba66-18bf468832d9",
+  "item_name": "Comfortable home clothes",
+  "notes": "Palatada rahat gəzmək üçün"
+ },
+ {
+  "id": "34ce683c-778f-4b22-9ef1-dbb2f66d0acd",
+  "item_name": "Nursing bra",
+  "notes": "2 ədəd (ölçüsü hamiləlikdən 1 ölçü böyük)"
+ },
+ {
+  "id": "03c54f34-5c1d-4ed0-96c3-6e5aa2b4db3f",
+  "item_name": "Underwear",
+  "notes": "5-6 ədəd (Keysəriyyə olacaqsa, tikişə dəyməyən hündür bel)"
+ },
+ {
+  "id": "793ca219-9c8e-4c62-8789-1353b45dbd77",
+  "item_name": "Postpartum pads",
+  "notes": "Xüsusi uroloji bezlər və ya böyük ölçülü gigiyenik pedlər"
+ },
+ {
+  "id": "324e3615-8193-4876-8a61-7ca43c856301",
+  "item_name": "Breast pads",
+  "notes": "Süd sızmasının qarşısını almaq üçün"
+ },
+ {
+  "id": "3d077e78-fe10-4670-ac8d-ca8f4c9a79fa",
+  "item_name": "Nipple cream",
+  "notes": "Yara və çatlaqlar üçün (Yumağa ehtiyac olmayan)"
+ },
+ {
+  "id": "756b9914-fcb7-40c7-8449-e5540706a1cd",
+  "item_name": "Slippers",
+  "notes": "Yuyula bilən rezin tərlik (duş və palata üçün)"
+ },
+ {
+  "id": "b4842a7f-c398-4e99-8c66-17698432e066",
+  "item_name": "Socks",
+  "notes": "Doğumdan sonra ayaqlar üşüyə bilər"
+ },
+ {
+  "id": "e76e32f4-7afd-42f3-9f0a-91523464e5cc",
+  "item_name": "Personal hygiene items",
+  "notes": "Diş fırçası, məcun, sabun, şampun, daraq, dəsmal"
+ },
+ {
+  "id": "f58578ac-9ad4-4731-922c-6553738d0889",
+  "item_name": "Phone and charger",
+  "notes": "Əlaqə üçün (uzun şunur məsləhətdir)"
+ },
+ {
+  "id": "cdaccfe5-756f-4fd0-be50-b1067fb76286",
+  "item_name": "Water and snacks",
+  "notes": "Quru meyvə, kreker (doğum sonrası üçün)"
+ },
+ {
+  "id": "9ae34916-953e-4a84-8cef-ce87673bd74b",
+  "item_name": "Bandage",
+  "notes": "Həkim icazə verərsə (Keysəriyyə sonrası üçün xüsusi)"
+ },
+ {
+  "id": "9c533cec-fa26-4495-8cda-57c2907baac0",
+  "item_name": "Discharge outfit",
+  "notes": "Hamiləlikdə geyindiyiniz rahat paltarlardan biri"
+ },
+ {
+  "id": "be873769-2daf-40b0-804f-fb4f1c30499f",
+  "item_name": "Newborn diapers (Size 1)",
+  "notes": "1 paket (kiçik qutu)"
+ },
+ {
+  "id": "03b53c02-16c9-4b1a-a4a2-346558187c59",
+  "item_name": "Wet wipes",
+  "notes": "Yeni doğulanlar üçün həssas"
+ },
+ {
+  "id": "832eb697-bc40-4dc3-a9a0-c14ced7db8fb",
+  "item_name": "Diaper cream",
+  "notes": "Sink tərkibli"
+ },
+ {
+  "id": "55ae2d11-2db4-465a-9ab8-409fd1e2cb62",
+  "item_name": "Bodysuits",
+  "notes": "3-4 ədəd (qısa və uzun qol)"
+ },
+ {
+  "id": "7d5d6cc0-9c1a-4333-9e4c-374fe99829ea",
+  "item_name": "Sleepsuit",
+  "notes": "3-4 ədəd (ayaqlı)"
+ },
+ {
+  "id": "a9c8ee4e-7912-4ba8-833f-eeb4f87afe88",
+  "item_name": "Hat and mittens",
+  "notes": "2 dəst (Nazik pambıq)"
+ },
+ {
+  "id": "241c40f5-e23c-42e8-97f6-04dc95df567f",
+  "item_name": "Baby socks",
+  "notes": "2-3 cüt"
+ },
+ {
+  "id": "76759226-f668-4041-a572-e37effaa3ccf",
+  "item_name": "Blankets",
+  "notes": "Mövsümə uyğun"
+ },
+ {
+  "id": "8c70962a-065f-40c3-9342-53559a796787",
+  "item_name": "Muslin cloths",
+  "notes": "Qusma və ya bələmək üçün (3-4 ədəd)"
+ },
+ {
+  "id": "769b8b7f-9fec-46a9-8b13-a568cae41af6",
+  "item_name": "Discharge set",
+  "notes": "Mövsümə uyğun bəzəkli çıxış geyimi"
+ },
+ {
+  "id": "e9c967ac-c689-4149-a334-d0fbea60143b",
+  "item_name": "Car seat",
+  "notes": "Xəstəxanadan maşınla çıxmaq üçün təhlükəsizlik şərtdir"
+ }
+]

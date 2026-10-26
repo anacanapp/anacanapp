@@ -1,0 +1,518 @@
+{
+  "schema": "anacan-onboarding-assets-v1",
+  "files": [
+    {
+      "file": "cycle-welcome.webp",
+      "source": "generated/1789120948745-b3ce2027/C01-cutout.png",
+      "sourceSha256": "ee3946da43161787e5b7cbaefab032c9093e3fe566704c6a8262acb3d60db72f",
+      "sha256": "170391606da63525afc6638db2db8422712dafe584a50eb2d40121d2eefc9ebd",
+      "bytes": 18508,
+      "width": 391,
+      "height": 512
+    },
+    {
+      "file": "cycle-mode.webp",
+      "source": "generated/onboarding-poses/cycle-mode.png",
+      "sourceSha256": "1a9bc11fb4c7d55494f74f02a7065425203036cf82bedd00649a98f8fe237982",
+      "sha256": "fffd96c7284e0d92cb62ce9be351bc5fdaa85348e4713928f9ed6dee33194d9d",
+      "bytes": 17538,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-name.webp",
+      "source": "generated/onboarding-poses/cycle-name.png",
+      "sourceSha256": "c9671a4b0da20f06d9cb0b4fde0fd86f03b05d08186f4fce927b65aa06bdf32d",
+      "sha256": "85feac014b6b8cb55584953c29bf70004ae16dde0f1558e011866ba41385d4d1",
+      "bytes": 17272,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-data.webp",
+      "source": "generated/onboarding-poses/cycle-data.png",
+      "sourceSha256": "b5f5d9754fa585c0480eaa2f58290696aad36de65f04328bb51b238370de14cd",
+      "sha256": "b3053e875d1f5a887175aa47104b06f3d6053a408abd07283962e9687b129a98",
+      "bytes": 18026,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-q1.webp",
+      "source": "generated/onboarding-poses/cycle-q1.png",
+      "sourceSha256": "7cb3b0f83baa60c82bd6797a72dc090936ea769709268f82507b01cd9f416408",
+      "sha256": "5f8e7cd427bdf465d8cd0393945fbd3909c4c5a9bdca43a02949a22eba46e137",
+      "bytes": 17702,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-q2.webp",
+      "source": "generated/onboarding-poses/cycle-q2.png",
+      "sourceSha256": "29ccc840a216f77dd5b01a78e7af5a4a647966d72daf61d17b0eefe292b72136",
+      "sha256": "e7a6d6151643bf9c2dff074b94395909d41486f5bed6e5b7df9791cdf79bddde",
+      "bytes": 17864,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-q3.webp",
+      "source": "generated/onboarding-poses/cycle-q3.png",
+      "sourceSha256": "dfcf6ac855289a5b1f811db9da6e03102c69ddfcdd5df18c0a43b08d620e53cc",
+      "sha256": "c346f3aff75e8e19c1d9be0d04634c1318da33acf2ea3aea2323d4c9b9271834",
+      "bytes": 19206,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-q4.webp",
+      "source": "generated/onboarding-poses/cycle-q4.png",
+      "sourceSha256": "6270a8aa68e4e56b5945808b4b6e890258cf1b1f774bab91b309540982df58fb",
+      "sha256": "42a24ba747f2df6a4300b3be68824a1dfaf8a2e285a256ab3a8c0aa40862484b",
+      "bytes": 17360,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-q5.webp",
+      "source": "generated/onboarding-poses/cycle-q5.png",
+      "sourceSha256": "6c5a2a16d69e4c75080b08194769dee7778bb8cde01f985928674e0a31d2b8ce",
+      "sha256": "2e8fe028300076e7b4afa5b44784b2a39576e4c0aeab5e9edefbd6e0409ec4e6",
+      "bytes": 20938,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-sproof.webp",
+      "source": "generated/onboarding-poses/cycle-sproof.png",
+      "sourceSha256": "1c379d25e89c34a2eb44fc83bcb96ddada8afb9006c61f0a6a29caa8df5ddb94",
+      "sha256": "daddbafe7e086fcd78412311a0c2ad0d959a200c6c7c70eb74929982ad76e991",
+      "bytes": 18328,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-privacy.webp",
+      "source": "generated/onboarding-poses/cycle-privacy.png",
+      "sourceSha256": "49f2c91dd5efa6f76774b48819fd4831c5c36713ee49a8e987b38c00fb37085c",
+      "sha256": "cf57319c0f7391c5a47615a282a0b24bfbcb44df6f09358f81df1a68ac5ba226",
+      "bytes": 18762,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-value.webp",
+      "source": "generated/onboarding-poses/cycle-value.png",
+      "sourceSha256": "9b85f6ebec7f031a19249ec28918869e37bd38b296e48e281ed7431c7a18b827",
+      "sha256": "47e4e93651e097690c1bad4cda3774edfc839cc5a5f43a2fefdc2d9743294114",
+      "bytes": 18960,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-analysis.webp",
+      "source": "generated/onboarding-poses/cycle-analysis.png",
+      "sourceSha256": "6f878d5a938a12b74f663b9906ed7c4ae0f48bbce5937846089e4cca8f6a3961",
+      "sha256": "bae7da90ad5eea4983e587dde25dcc664a36b7bfed1e4c8526c7135bff65391f",
+      "bytes": 18102,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-results.webp",
+      "source": "generated/onboarding-poses/cycle-results.png",
+      "sourceSha256": "3208d5947f07f419e6262fb288939c9a4e9d7b3db2e1e217b0fa51cce4dd5574",
+      "sha256": "e57f055e467730df6f30c4ef06467532940ec469954413e9de867d7a2cbd6269",
+      "bytes": 20990,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-proof.webp",
+      "source": "generated/onboarding-poses/cycle-proof.png",
+      "sourceSha256": "492b6e6323213972c27512e2b29a401dae686a0e4f1af658bc952e221280cf6b",
+      "sha256": "a4b3cddf3fc1c9ed4ca4481d39050c87cd0724d32fc2fcfab3e7dad87754187e",
+      "bytes": 21174,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-paywall.webp",
+      "source": "generated/onboarding-poses/cycle-paywall.png",
+      "sourceSha256": "c891b7c74a6d6b0c6064c04ffcf569552b2b9500345e96d6a8166b9be16df366",
+      "sha256": "bfd7232ff83c072d7b1df678073e847120a825507d83701ce786eaa356c53632",
+      "bytes": 18906,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-exit.webp",
+      "source": "generated/onboarding-poses/cycle-exit.png",
+      "sourceSha256": "d0025c5ced43dc002754a383075e28d27a3acde0a87a260c79d44d6d5d9bea04",
+      "sha256": "c48ee8f23a6c6630f8437dc9a5a5ea1bd5fc2acac9c8fb6b23d24f0fb39d1a25",
+      "bytes": 19782,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-freemode.webp",
+      "source": "generated/onboarding-poses/cycle-freemode.png",
+      "sourceSha256": "60610692600a462e9c0b260a7877b26bdbd8e8a46d2a55d4fca19010ba53987a",
+      "sha256": "d6a5938412570ddf4f7d286ff06f58edb1846b352fbe5724faf49b308b1660d3",
+      "bytes": 19544,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "cycle-success.webp",
+      "source": "generated/onboarding-poses/cycle-success.png",
+      "sourceSha256": "36f5783e5b60fb62d8b0a09740f0ca5bbf2e35a6f59e1e87628ed6a646061f85",
+      "sha256": "2bcdcbd77a4e0a39a8131645fca596f4527b9c7249ccfefaebf0c85bd189efe1",
+      "bytes": 20648,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-welcome.webp",
+      "source": "generated/1789120948745-b3ce2027/C02-cutout.png",
+      "sourceSha256": "e2d1185534daec882847fc6d578ccc0e207e728e95abcd2e6d750b458532a9ce",
+      "sha256": "63540246c8e6896659f7a9f1354d18de85a2a7749a03d93a9e53de9c13ac1c64",
+      "bytes": 17882,
+      "width": 332,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-mode.webp",
+      "source": "generated/onboarding-poses/pregnancy-mode.png",
+      "sourceSha256": "7f2dab25bf0b86453f6c9007c86aa13bbde6b419727bebbf1b20c9b1eef3014a",
+      "sha256": "ac4f9313b3101114d55d434e02dba95781cf719f297ae675191c9b6517523223",
+      "bytes": 18046,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-name.webp",
+      "source": "generated/onboarding-poses/pregnancy-name.png",
+      "sourceSha256": "1447d17045bde4ffa73427da06fd1b4ea785dc25bbe45f8bd309f4ef6e2fb3b9",
+      "sha256": "6b91eeb5f0e63460a38e96d39af2ff892ff7b3910f6b41ed036b2927e86c6e29",
+      "bytes": 18958,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-data.webp",
+      "source": "generated/onboarding-poses/pregnancy-data.png",
+      "sourceSha256": "036c331a5cb0ebf4af052295b91367d5f50bfe7b08bf40787cb262c51017b717",
+      "sha256": "9aec4ba4e8598f81e64ebf224f54e2157a8705c9be639d55e34dd15cae2f6293",
+      "bytes": 19838,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-q1.webp",
+      "source": "generated/onboarding-poses/pregnancy-q1.png",
+      "sourceSha256": "98ba94df2afa956daf574d9f326c05670a8995d00bb677a25e5da3d8a4e0d042",
+      "sha256": "759cfdff4ea56896266640ad43792f0f09a9a48ca6909f1dc530d068529978df",
+      "bytes": 20350,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-q2.webp",
+      "source": "generated/onboarding-poses/pregnancy-q2.png",
+      "sourceSha256": "60bfcbf7842d48cfd280f2e1949719a5b5c5e745945cd84bf55b6f3078803c8a",
+      "sha256": "80265ace35e3b37ba11e86d8e995648d63c1710de9684d84e5af97d7d75a05c1",
+      "bytes": 20190,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-q3.webp",
+      "source": "generated/onboarding-poses/pregnancy-q3.png",
+      "sourceSha256": "e6dddb0e4651de84bff62811b840b320f9cec129f6337c74b81843f011abb9d7",
+      "sha256": "aa6f3f32e28ff54a06de0e89d94ec573247a8b6a171706cf320c984a81bd30b7",
+      "bytes": 21828,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-q4.webp",
+      "source": "generated/onboarding-poses/pregnancy-q4.png",
+      "sourceSha256": "bb07fed0ab3d4fcb4c9fce56acac2e11407c033766023d3f819c40302d2c6eaa",
+      "sha256": "1f09042040222cf3a620e4d6dcfc6b2d1bde3ff3068a76ac1d304182601af499",
+      "bytes": 21882,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-q5.webp",
+      "source": "generated/onboarding-poses/pregnancy-q5.png",
+      "sourceSha256": "e92f160ca9a06322cd54fd0530a62f916a779060c56e5ec0fc5a7203215fcad0",
+      "sha256": "32e6c93968c77ca2ce87c6834772a4936d743b30eef39e4d300e2698c035bfe1",
+      "bytes": 22018,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-sproof.webp",
+      "source": "generated/onboarding-poses/pregnancy-sproof.png",
+      "sourceSha256": "b491ae36a06f1324a38473e144d736f3ccff83bbefd94f4e034776c8d9039af3",
+      "sha256": "da25c25ee828ea9213e6f0e03e6a4594e5482626a690a6f3947a579e99869a37",
+      "bytes": 20214,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-privacy.webp",
+      "source": "generated/onboarding-poses/pregnancy-privacy.png",
+      "sourceSha256": "5820669a24db15b10995d683533e8c332ce0e5a3e2e45ced6b583e4ed0c142db",
+      "sha256": "88d7b115c04726a2c0dea881ee01aee36b7fcfb670dcc99175b0d238aa8de63e",
+      "bytes": 20126,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-value.webp",
+      "source": "generated/onboarding-poses/pregnancy-value.png",
+      "sourceSha256": "59e9a7b8d7f25d4e1f60e0e0098701813c9d892aa97f70a47b366e4fa0c6ee51",
+      "sha256": "5dd395872ca40a19f118ffad06283cbcc09cf64016c8411bd7fa2ed229470b01",
+      "bytes": 20270,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-analysis.webp",
+      "source": "generated/onboarding-poses/pregnancy-analysis.png",
+      "sourceSha256": "a8f493fe8d1b608425c6910b5205e65b690ae7509fffab05c3399951a0d51061",
+      "sha256": "a8a875bb9dfac3b2acf9b3f9ad96c9cbdb902b53b6e70e824f8c5b5113a57f7f",
+      "bytes": 19756,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-results.webp",
+      "source": "generated/onboarding-poses/pregnancy-results.png",
+      "sourceSha256": "f3b521210d12732ebc759a8970dbd1f9164f708ec8dd576be80d17b3304404bf",
+      "sha256": "e145b3b7f66c627ecdc8f5029df1373cab5994fb9642a3a0f19c7ff00e5b5edf",
+      "bytes": 21468,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-proof.webp",
+      "source": "generated/onboarding-poses/pregnancy-proof.png",
+      "sourceSha256": "3b9ca2dd908efbc238fb7c0f11f972808071f6172fa250cfc80942f7532fc9b3",
+      "sha256": "b5320dc3df99ad7412f759a211e0a8de501094b5b94ca95e6f2064aa36552a93",
+      "bytes": 22060,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-paywall.webp",
+      "source": "generated/onboarding-poses/pregnancy-paywall.png",
+      "sourceSha256": "9912a0adefda759d25cadab67c0a41d56ef3e5171365d9115c3317f724d92365",
+      "sha256": "e1c08e2a7f4c89247165d323008900dfe4f4df7d597ce36437b2a4c3503a2e27",
+      "bytes": 20074,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-exit.webp",
+      "source": "generated/onboarding-poses/pregnancy-exit.png",
+      "sourceSha256": "56915e076e4c231cbf9aed3fb82e39ab366f760625cc241a4a7b6e11b97a79ef",
+      "sha256": "ca420a594d4107f47059453073b196b2c15700f8f3d825bcab91da2a394e867c",
+      "bytes": 21286,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-freemode.webp",
+      "source": "generated/onboarding-poses/pregnancy-freemode.png",
+      "sourceSha256": "98be83ae970d22d4476b881887bab56c0a5f8117691201ed3d331e630cf45c1d",
+      "sha256": "c6dc8c1c8e305e359c0199acfe090ab25878733a7415013ffc9820d461471a1f",
+      "bytes": 20024,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "pregnancy-success.webp",
+      "source": "generated/onboarding-poses/pregnancy-success.png",
+      "sourceSha256": "694e76893cf55d6207838998c80242e93b30509e5e1847685d7f45bb9735e22b",
+      "sha256": "8ee5e441b08c9a24fb13c270f64257526e00a59ce20dc4e07478d557d784c505",
+      "bytes": 22950,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-welcome.webp",
+      "source": "generated/1789120948745-b3ce2027/C03-cutout.png",
+      "sourceSha256": "4d35d869e0dcc8b84aae81ccbf7b57ca173edf85d953c85af50ad89befd08de7",
+      "sha256": "697631777f756f8c2cc37e8788e24bf13fef404d5a52dc509b7b14500799c32b",
+      "bytes": 22524,
+      "width": 333,
+      "height": 512
+    },
+    {
+      "file": "mother-mode.webp",
+      "source": "generated/onboarding-poses/mother-mode.png",
+      "sourceSha256": "1d5dbf7fc19b6381c8eaeb728364fa68abf6fe6c8e58185f00791b8a8c534f64",
+      "sha256": "75914641f6044bcf9f9a3325df616aaa75e0c70748aa3b16457bd1ee13d590f6",
+      "bytes": 19804,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-name.webp",
+      "source": "generated/onboarding-poses/mother-name.png",
+      "sourceSha256": "3f7a53369d2cd6f4295ea207472406bf9b934bb2083dc93d05dd2a2d2abd07bf",
+      "sha256": "5af44582ff3bad71755d5ef439bd25101cb0ab35c49795fa670bcb46b7e376e1",
+      "bytes": 19810,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-data.webp",
+      "source": "generated/onboarding-poses/mother-data.png",
+      "sourceSha256": "097f96a83e572d902a9771ae4b59e419e10b40ca2974d02300d6c3a718283309",
+      "sha256": "b08fb946455cd7a4a4d7001ede5a96394a7ae310484f1bf2ecb3038064ba70aa",
+      "bytes": 20200,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-q1.webp",
+      "source": "generated/onboarding-poses/mother-q1.png",
+      "sourceSha256": "92b673bdf94be9284b7c740a13173aa44bee8a4385a451061df9e0242e1b6aa6",
+      "sha256": "7971e52042b19eb6d2cdb3a0d3b3acabff15ee41eff5a0cc05d38421967b3f02",
+      "bytes": 20970,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-q2.webp",
+      "source": "generated/onboarding-poses/mother-q2.png",
+      "sourceSha256": "03cb5b2c64abf654cc1c89c3e6d53f7bf4f671a1ff04db9310341602f2143539",
+      "sha256": "65e8a62956334ba31392620c42839436b67318b533ee2776e3c8ba5436e64755",
+      "bytes": 21226,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-q3.webp",
+      "source": "generated/onboarding-poses/mother-q3.png",
+      "sourceSha256": "18507cab1e41d4e1eef12440218702e7541f2c4f41b03f3b3325438d8f0f0396",
+      "sha256": "e8e91d375014a8ae9d5425c2864c9cbe4701952c95ae2f0132cfbee33e2f3cc8",
+      "bytes": 22704,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-q4.webp",
+      "source": "generated/onboarding-poses/mother-q4.png",
+      "sourceSha256": "68fb678f4ec9fb24a2342b16694f11cea56c622fe846e2d94dfa774b35a76998",
+      "sha256": "80f14180653c1a915c824f4bbacf3d4b76582bfdaf41191326462e2ee0e0f13c",
+      "bytes": 19882,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-q5.webp",
+      "source": "generated/onboarding-poses/mother-q5.png",
+      "sourceSha256": "278a2bb5272b754cbda2ecfcd55eee8bb2b59ed6cf63fe35597b403abdae84e9",
+      "sha256": "52df08a0ccf1406771c0524145d19aa4991cc82aee4db8706d35d3b70ea05f44",
+      "bytes": 23932,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-sproof.webp",
+      "source": "generated/onboarding-poses/mother-sproof.png",
+      "sourceSha256": "91919482b7695fac9d406b55f2514c363769e8172fc92c55c227be2444f4beb0",
+      "sha256": "2ad698cde828e8a638663631f4a389fc83abc32dce6954fcfd67dbbd6673246b",
+      "bytes": 21078,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-privacy.webp",
+      "source": "generated/onboarding-poses/mother-privacy.png",
+      "sourceSha256": "267ff74fccae287646b3b380e366b3cd8d55bf24ada3271343e6bf61b048a021",
+      "sha256": "415d7d3ea436e82770b65a453d6b8ab61fd43ce0a5111d8ab940b63a61d89d75",
+      "bytes": 20208,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-value.webp",
+      "source": "generated/onboarding-poses/mother-value.png",
+      "sourceSha256": "d209bcd041d59b20be67b87212166cf35b1068e8058eee247ac95c1fe20ebc98",
+      "sha256": "c2c20cc0fb33f116b6a1acca900906a3274cf756bc31b62c784f646c2db8b3ed",
+      "bytes": 22266,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-analysis.webp",
+      "source": "generated/onboarding-poses/mother-analysis.png",
+      "sourceSha256": "5117381f59c682b95d2b671b207f297120b6a00439a7b4a6c819e6f58b861623",
+      "sha256": "ae349d280b1d09d279c471256bedae17bd73054a60c1d900cab5d5ee0a090db2",
+      "bytes": 20134,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-results.webp",
+      "source": "generated/onboarding-poses/mother-results.png",
+      "sourceSha256": "bfae07d592ea02cbc674c056527879ce64698b5a623f6deedea0d495676ed187",
+      "sha256": "b6dcf539a6847930294894421149579d828b8b5d4e34accd74b0a626016e275d",
+      "bytes": 20814,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-proof.webp",
+      "source": "generated/onboarding-poses/mother-proof.png",
+      "sourceSha256": "acb2d6b97f6f178a9d2ac4ebb94681eb35e3aca4472955154a25067db74fc815",
+      "sha256": "a8ee2dac384b596f8ac57a4a6b31ab8ac79f0d446d602bdad9cb9377d45ab3dd",
+      "bytes": 22942,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-paywall.webp",
+      "source": "generated/onboarding-poses/mother-paywall.png",
+      "sourceSha256": "60a047173c2ffc79e830a744be8c93fdc1ad4d6cf2dd87fadabe8757c4ff507a",
+      "sha256": "e4b711bb018258d9e1f14a47a1c2bf35fc6d580515fe9ead3b0b6b9b8bae570b",
+      "bytes": 20798,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-exit.webp",
+      "source": "generated/onboarding-poses/mother-exit.png",
+      "sourceSha256": "d5967b1a6936bb1783836b72fc43cab43c5262a977eaee3cb9b40f03985de039",
+      "sha256": "37a6864ed005af03d048956cdeb9690b79c617bc9f6799ad2c2c309def052caa",
+      "bytes": 22336,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-freemode.webp",
+      "source": "generated/onboarding-poses/mother-freemode.png",
+      "sourceSha256": "b9fa6b863f7d72f660302846b8b63206f209d123bfd7ac7859d6e138bfe7f595",
+      "sha256": "e59c5d2585313256436d2b30345c5266f0bd0dbf7250fa7e3196e5efd09a6797",
+      "bytes": 20902,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mother-success.webp",
+      "source": "generated/onboarding-poses/mother-success.png",
+      "sourceSha256": "e3f22bd5e1c3e5e7dc183d246f922cf2c4a03e5f5495a303c8c2592a7703508d",
+      "sha256": "83c03b79943a3f33ebdfbb7b7d36bcc200e044fd83b308e50b7f135eb75f9035",
+      "bytes": 24100,
+      "width": 512,
+      "height": 512
+    }
+  ]
+}

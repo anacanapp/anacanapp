@@ -1,0 +1,2440 @@
+{
+ "vaccine_schedules": {
+  "0a323233-48ad-42d6-9b4e-44a71f4d1575": {
+   "dose_label": "2. Dosis",
+   "age_label": "1 Monat"
+  },
+  "0a32fb93-fc55-4f54-ba46-acddabb0e375": {
+   "dose_label": "4. Dosis",
+   "age_label": "16–18 Monate"
+  },
+  "0a537dd6-806c-4b3b-8eeb-2ac56eacb46c": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "0aeee9a6-7cd6-423e-8347-7f2f3cb7d113": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "0b9cb023-4d32-419c-9fc8-6e529ff654c6": {
+   "dose_label": "2. Dosis",
+   "age_label": "10 Wochen"
+  },
+  "0bdefc69-c4bb-411c-a835-dd87d79b85ea": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "050d350d-fb3a-4661-a46f-96cf66eface2": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "064d4767-c02e-4cb5-bafa-be407a3aaf65": {
+   "dose_label": "4. Dosis",
+   "age_label": "Mit 18 Monaten"
+  },
+  "071c323f-a6d7-40ab-8018-330dc3520ba7": {
+   "dose_label": "1. Dosis",
+   "age_label": "Mit 6 Wochen"
+  },
+  "08dc4e43-e16a-4b08-9b25-291781e19e56": {
+   "dose_label": "2. Dosis",
+   "age_label": "Mit 24 Monaten"
+  },
+  "094acabe-5f0f-4c8a-b303-874975f64b03": {
+   "dose_label": "2. Dosis",
+   "age_label": "Mit 14 Wochen"
+  },
+  "09b2b12d-1827-4c5f-b33d-09a13091a77e": {
+   "dose_label": "1. Dosis",
+   "age_label": "Mit 2 Monaten"
+  },
+  "0c31fe21-838b-4b89-8ee0-5dbe07c60004": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "0dc7c208-749c-4667-b99a-813137b0fb39": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Jahre"
+  },
+  "0ea7f2af-d2d3-44ed-bdb6-890c45f94a1f": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "0f40fbf0-eb8b-4acf-bca1-d51795361bb3": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "1002afab-c12a-4b44-9722-a2c73b95fcfd": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "10f62a09-c548-42a4-b14b-7b80856566a6": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "00217f1e-a9d6-40f1-a8e8-f230306a25ef": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Jahre"
+  },
+  "0060b4f4-6564-4463-b52a-d967c2ee9b85": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "0088031c-66e3-4f20-b499-07b5729541f6": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "00a67fd4-300a-4ea7-a372-6debd20fc949": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "00f238f9-acfe-4e87-92f4-d3122b13dc28": {
+   "dose_label": "1. Dosis",
+   "age_label": "3–7 Tage"
+  },
+  "011788c9-dd76-4678-b042-d67a3ebcdb30": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "022faa4c-aa15-4920-811b-843f4687d6fb": {
+   "dose_label": "4. Dosis",
+   "age_label": "Mit 18 Monaten"
+  },
+  "023293a9-ca78-400b-89f9-bdf287f4eabf": {
+   "dose_label": "4. Dosis",
+   "age_label": "Mit 18 Monaten"
+  },
+  "023c5790-fb1c-4666-b3e0-aa36402f8967": {
+   "dose_label": "4. Dosis",
+   "age_label": "Mit 12 Monaten"
+  },
+  "025509a6-b344-4ae2-af2b-252f1b83c3e4": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "0337beb2-dc1c-4964-82d6-2d9ba868b58f": {
+   "dose_label": "2. Dosis",
+   "age_label": "Mit 5 Monaten"
+  },
+  "035707ce-d990-4b4c-84e8-ae7a8ab82f83": {
+   "dose_label": "1. Dosis",
+   "age_label": "Mit 9–12 Monaten"
+  },
+  "17a5f3e8-80e5-4921-9605-f4f6508904ff": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "17c05657-2872-4904-9bd6-ac2418413be3": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "184c97d9-3eb3-42a4-ab50-fa1b1626daf9": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Monate"
+  },
+  "191d2104-121a-4e33-b17c-591060d5cd5b": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "19afa167-7fa8-480f-8112-fb818b7b28ea": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "19c773cb-6909-4e24-9489-b3085a30e7b2": {
+   "dose_label": "4. Dosis",
+   "age_label": "16–18 Monate"
+  },
+  "19d77ef9-7cb5-4bca-97bd-68bee77780c6": {
+   "dose_label": "2. Dosis",
+   "age_label": "10 Wochen"
+  },
+  "1a39a3ad-de92-4f2f-8bd3-0ec005dad3c4": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "1af80eab-27c4-4889-8eaf-ce12af1dc000": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Jahre"
+  },
+  "1b1a58aa-eb10-4439-a4e2-408a4a4c123c": {
+   "dose_label": "4. Dosis",
+   "age_label": "16–24 Monate"
+  },
+  "1ce6eff1-7bb2-4819-b898-c260e75b17c7": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "1d8b9483-d4c8-4cfe-a278-2194a96eb10c": {
+   "dose_label": "2. Dosis",
+   "age_label": "4,5 Monate"
+  },
+  "142ba19d-6ed6-49d9-af1c-c5a6b090dd84": {
+   "dose_label": "1. Dosis",
+   "age_label": "1–4 Tage"
+  },
+  "14e6e763-9aca-4626-a80f-88c008c8e9c6": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "15bfee16-1caf-4e78-b873-21ed26a1469d": {
+   "dose_label": "1. Dosis",
+   "age_label": "1 Jahr"
+  },
+  "16244fd8-9a69-450d-b28b-ad0aee3aff28": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "166b313b-9d25-415d-8d4a-6dfed0a19adf": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "17969c9a-4be3-46e4-ac3d-e0d0b43c7418": {
+   "dose_label": "1. Dosis",
+   "age_label": "11 Monate"
+  },
+  "12be45f0-b47f-4409-bf6b-f27601ef3884": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "12d9f67a-8f27-4da1-b918-55e0d5d1f76f": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "12f4ff47-e622-4bf2-9dfa-a81e9ad5f04c": {
+   "dose_label": "4. Dosis",
+   "age_label": "12 Monate"
+  },
+  "1347c0ac-00bd-4f65-854f-a9ea9f052b8f": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "14184dfb-1a0b-4547-b1a6-ecefb7780e7a": {
+   "dose_label": "3. Dosis",
+   "age_label": "2 Jahre"
+  },
+  "14219585-eb99-456b-bc90-8bb21f21e039": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "11c0ffd3-fa30-4f28-bc92-79b2e3151d3f": {
+   "dose_label": "1. Dosis",
+   "age_label": "18 Monate"
+  },
+  "11e9e752-ef03-4120-906b-3166ecae236e": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "11fb8397-ae33-4b1f-a17b-069c6c4c7e04": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "120af370-462e-47ac-bccd-75360890a8a4": {
+   "dose_label": "2. Dosis",
+   "age_label": "18 Monate"
+  },
+  "129e33f8-4d2d-41c1-85b5-bb96379c2990": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "12a240d4-c516-490d-b92b-9fd6c6ada323": {
+   "dose_label": "1. Dosis",
+   "age_label": "9 Monate"
+  },
+  "1d9fbcaf-ff1d-41d5-bd83-cdc584a9a910": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "1dbdc246-570e-4e2d-acbd-7c735676f778": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "1e2ff679-b59d-4a3e-91c3-06e3a52dc0da": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "1e6d8140-b7bc-49f7-8c44-3cfa70ca8c8e": {
+   "dose_label": "3. Dosis",
+   "age_label": "3 Monate"
+  },
+  "1f418ce6-d3fb-4b45-b2b8-3a64ce05cd9d": {
+   "dose_label": "2. Dosis",
+   "age_label": "18 Monate"
+  },
+  "1f76acb2-5435-41ad-b688-4c85d1eab5c0": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "24e8eb5f-68bb-4248-a13b-32c0e0df5469": {
+   "dose_label": "Auffrischimpfung",
+   "age_label": "18 Monate"
+  },
+  "25149d68-0714-4ddc-aba9-7966a4855dd0": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "25f10cbe-00cf-4f2b-a345-238df7994190": {
+   "dose_label": "3. Dosis",
+   "age_label": "5 Monate"
+  },
+  "269b1531-4425-447a-a9da-e90ca4df1e2e": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "2770053b-a4d6-41dd-b6cc-37983535e134": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "27af8a41-f134-4c14-b26b-d91783a84445": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate"
+  },
+  "2208d2c6-ef08-4d9d-9b18-08565be2043f": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "223a60b4-5829-416c-9243-78b99ba8cc15": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "227ea78d-9dea-45a5-a5ea-237915bdac31": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "22f32e7d-04ca-4816-b96d-5ef17acff267": {
+   "dose_label": "2. Dosis",
+   "age_label": "5–6 Jahre"
+  },
+  "2315bad9-8bdc-4b15-9d1f-4802b9e87fea": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "24223e56-adb3-4f54-8169-33b2bb00566a": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "2811504e-c40d-4ce8-a5e2-152ee285c49c": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Monate"
+  },
+  "28360547-107b-4d74-8c46-cf0e2394fe4e": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "283d556e-b31a-4a89-a853-3dd4ea344605": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "28968624-e8f3-4e2d-864a-b9302dd021a1": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "28ee84b0-66e9-47ef-8731-68e62419784e": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "29ae8d44-9417-4f15-b48b-6a860880d83d": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "202e1264-781d-451e-89ff-bd97885ac0bf": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "2057400c-f67d-4631-8df8-54340783a6ce": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "20599f1a-c987-47f3-abfa-8de442b805e5": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "206aab8f-3175-4de0-ade2-931fa851427f": {
+   "dose_label": "1. Dosis",
+   "age_label": "1 Jahr"
+  },
+  "2147f101-4326-47a2-8785-b81d5af0217f": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "216f395e-7026-4627-908a-b5a2ca331131": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "2b305069-9144-4908-a6c5-889df76b5e46": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "2b718471-38d3-41d4-a5ab-8836159d9f60": {
+   "dose_label": "2. Dosis",
+   "age_label": "Mit 4 Monaten"
+  },
+  "2c431bf9-5804-475d-a3d1-a19ea9834521": {
+   "dose_label": "3. Dosis",
+   "age_label": "Mit 6 Monaten"
+  },
+  "2c7f9a96-4f97-4a2a-9712-587a0d924526": {
+   "dose_label": "4. Dosis",
+   "age_label": "Mit 5 Jahren"
+  },
+  "2cbe36ff-d180-4026-a2c4-627fddf12f5c": {
+   "dose_label": "3. Dosis",
+   "age_label": "Mit 6 Monaten"
+  },
+  "2d1be7d6-9a21-4dba-934c-f0f85127198c": {
+   "dose_label": "1. Dosis",
+   "age_label": "Mit 2 Monaten"
+  },
+  "30b00f8b-31dd-4d87-b6eb-8801ae9e0641": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "3112d56c-4f49-4252-a6b1-054a399d750e": {
+   "dose_label": "3. Dosis",
+   "age_label": "7 Monate"
+  },
+  "317595ee-5701-4e3c-8b27-85490395710d": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "318aabd6-ea1b-40de-ac07-0087ed7ca3fb": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "31b0391a-55f9-4be3-8dd3-e490dfa2ea8f": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Monate"
+  },
+  "31b253a9-3e12-4972-a458-0456cf6f70fd": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "29eae9a6-6bd5-44bd-a290-a35f315acce3": {
+   "dose_label": "4. Dosis",
+   "age_label": "6 Monate"
+  },
+  "29f92f27-ec49-4b5f-83ca-8036362d8438": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "2a12f41f-0ae9-4eb1-b232-b7488e34a6ac": {
+   "dose_label": "2. Dosis",
+   "age_label": "4–6 Jahre"
+  },
+  "2a13c233-5c8f-4e82-8977-3701a2343255": {
+   "dose_label": "4. Dosis",
+   "age_label": "1 Jahr"
+  },
+  "2a477305-d77b-4306-bc41-2b92205abe0c": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "2aa48f89-97f8-4b94-b172-13b8b57ee93f": {
+   "dose_label": "2. Dosis",
+   "age_label": "3–4 Jahre"
+  },
+  "2d49998d-406a-4f20-92dd-18092bf42cf3": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "2d811fd9-7094-4eca-8557-b5b1dd81ad6e": {
+   "dose_label": "2. Dosis",
+   "age_label": "5–6 Jahre"
+  },
+  "2e2339d2-3ca7-4e39-b873-e3262cbbb974": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "2e32384c-c094-4ff9-8b21-566c7fac6d3c": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "2effb9df-1aff-4cc6-9203-255088860ccb": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "2f1ae197-199b-4930-9ff2-bc2e201ae827": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "2f34522a-dbf2-4978-a2c5-ec757c706592": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "2f3fc82d-7875-4b69-975d-a5fab244751d": {
+   "dose_label": "1. Dosis",
+   "age_label": "12–23 Monate"
+  },
+  "2f82a202-3eda-42ee-bc94-e3012f8dbf45": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "2fda4fe6-117c-427b-992d-d337274fa0c5": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "3064d66c-cbfd-42f3-9895-1794ba649fc1": {
+   "dose_label": "2. Dosis",
+   "age_label": "12 Monate"
+  },
+  "3082c59e-b954-4d3f-9a07-cd5ecdac5736": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "340ada2d-0162-4e09-b35d-57e5196c1ad3": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "3599263b-e979-4f5a-bd55-cb23b764f9b0": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Monate"
+  },
+  "3616cd5b-6a72-467f-82a4-a591a016566e": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "36684bb5-9356-4090-a1ed-2efe1bff3a90": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Monate"
+  },
+  "36e9029c-c12e-4938-9598-8e40900d6364": {
+   "dose_label": "1. Dosis",
+   "age_label": "12–15 Monate"
+  },
+  "36fc5e00-2fb5-4ad0-a3f1-8c60406a29fd": {
+   "dose_label": "1. Dosis",
+   "age_label": "5 Monate"
+  },
+  "3225948a-da8e-40ef-9729-aa169f689cd2": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "3256711e-1af4-4f52-a3a6-8186756ce2ef": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "329af1e1-b0cc-414e-852b-74be8c4ceda1": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "32c9511d-3ae6-4083-ba31-9d681730a665": {
+   "dose_label": "4. Dosis",
+   "age_label": "4–6 Jahre"
+  },
+  "32cb8f6a-0691-4401-9a85-739f9be672e5": {
+   "dose_label": "Auffrischimpfung",
+   "age_label": "18 Monate"
+  },
+  "3317e599-7e0d-4a46-ae6a-6313731f7c6e": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate"
+  },
+  "383fda56-d94d-4381-9dda-d18386aa3334": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Monate"
+  },
+  "396b45c8-9125-4b69-b75d-13880cf4f576": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "39efd70e-85e6-4177-a48d-1a4a67e6f79d": {
+   "dose_label": "3. Dosis",
+   "age_label": "10 Wochen"
+  },
+  "39f57016-4329-4e67-a2f7-643237184dc8": {
+   "dose_label": "2. Dosis",
+   "age_label": "12 Wochen"
+  },
+  "3a6e44a5-f749-41ba-9e13-55884bdb1cb3": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "3b1bc5a5-d075-40bd-88f5-fd6d9815000c": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "3b245738-1bde-49f0-ade7-d8dc65b8a84c": {
+   "dose_label": "2. Dosis",
+   "age_label": "24 Monate"
+  },
+  "3d1a62df-e751-4c44-8bc7-447f99aaaa80": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "3d1bdd6a-d3ea-441f-946a-039e9cba8de0": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "3dd9a2c2-d111-42fe-8c52-b554e131a671": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "3dfcbf23-634f-40f3-aae6-233af94b595d": {
+   "dose_label": "2. Dosis",
+   "age_label": "16–24 Monate"
+  },
+  "3e06942a-fab7-4bbe-b387-ad8c9644f677": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "3f56423d-684f-4a82-9a37-bc296403e42e": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Monate"
+  },
+  "3f7abc8b-7b28-4a91-a249-39666d246dd0": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "403f13bb-97fa-4ee7-8d01-297a9085c102": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "40dfbce2-1383-4957-a32c-cf9b241a7ee8": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "4167a00a-f766-4a6c-9470-999c4f08dc9d": {
+   "dose_label": "2. Dosis",
+   "age_label": "12 Wochen"
+  },
+  "42944fe1-9763-4433-b500-fe9519401d9c": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "433f1df0-41de-4f16-95fa-0221f068c380": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "43796db7-d998-4513-a0c1-af024d0eff06": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "4443f0b9-25ec-4021-bc23-99b2c2e068b7": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "44db314e-80c2-428f-920f-3c7fb869599b": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "452254e6-9453-47d6-b64e-4422ca206012": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "45551c21-f063-4717-9bdf-344675fc89b5": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Monate"
+  },
+  "4564c1b7-127f-48b4-9e78-39c0414d9eff": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "45d94e6a-aa77-4a67-9298-33e150afc909": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "46059e47-8dd8-4f89-8ce1-30932d3034d5": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "467f9fd0-3915-434c-972f-8427568330c5": {
+   "dose_label": "1. Dosis",
+   "age_label": "13 Monate"
+  },
+  "46dc9e25-7cca-474b-b028-1390aaffd0ba": {
+   "dose_label": "1. Dosis",
+   "age_label": "15 Monate"
+  },
+  "46faeebe-8496-472e-b82e-cba3a28c21ee": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "49297be1-c76c-4900-ac2f-7b514e9235eb": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "49e27b74-f066-4252-bfca-70cc2c33dc8f": {
+   "dose_label": "Zweite Auffrischimpfung",
+   "age_label": "6 Jahre"
+  },
+  "4b55a715-4164-4b3e-9412-27f5431746a9": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "4be6a2ab-11c3-4717-b3d9-e2a1b5a50b97": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "4be9a87e-13c8-4209-9ec6-cf1fe001d04d": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "4c10b66d-f473-48fd-9a24-f96214430d56": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "4c3a886b-bb8a-4118-9a03-a0b484576ad5": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "4c6f1bc8-0d3c-42cc-92c4-2dbc7e9811be": {
+   "dose_label": "2. Dosis",
+   "age_label": "1 Monat"
+  },
+  "4c9eae1c-55df-4805-8518-567266678785": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "4cc8f825-de57-4a91-9fbe-385812f943d5": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "4d9f1836-f00c-4be7-9856-e0a298ac5772": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "4da3cbe3-b982-46da-8ae7-5cf8cb0efbd9": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "472738ee-c059-482b-bae1-fb2e07093bd9": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "4770c048-530b-4b97-b134-e47a22acba5f": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "479c87e4-0c49-4d9b-9d18-f4109e112904": {
+   "dose_label": "4. Dosis",
+   "age_label": "6 Monate"
+  },
+  "48313ba8-7a8d-4ee1-b662-8553e039e24a": {
+   "dose_label": "3. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "48510077-a599-4149-811c-cb1df5cf88f5": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "48aa62ab-0c05-459f-a2a4-2f90b40574d4": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "4ddc559c-54d0-411d-ab88-6187d7f9f4d9": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "4e94cba6-0712-468e-9fc0-9fb644f49cbe": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "4ee043cc-9ed1-4216-8546-b599845a9b92": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "4f0575b3-19e5-4961-9446-1bfc7f991e6a": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "4ffa9f05-c95a-4055-9648-7aa39ac7658c": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "4fff5145-858f-4bcc-8b2e-08603e4b9e6c": {
+   "dose_label": "4. Dosis",
+   "age_label": "12 Monate"
+  },
+  "512ceb52-b041-456a-a92d-954524c06bfe": {
+   "dose_label": "2. Dosis",
+   "age_label": "4–6 Jahre"
+  },
+  "517d139c-3a3c-4611-bb82-63dacfa24fb7": {
+   "dose_label": "1. Dosis",
+   "age_label": "18 Monate"
+  },
+  "51cc4f89-f016-45c5-9d07-ee5b4003fccb": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate"
+  },
+  "52143f21-8066-4550-a238-0105694c2333": {
+   "dose_label": "3. Dosis",
+   "age_label": "16 Wochen"
+  },
+  "521b5e32-dd67-41fa-8de1-f48339a61788": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "52248d94-07ce-4d14-be86-320828c1fd0f": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "528b6de5-1a22-43b4-888c-8ef631a22080": {
+   "dose_label": "1. Dosis",
+   "age_label": "8 Wochen"
+  },
+  "52c44295-3469-4fc4-be33-9e8c5c4c3d63": {
+   "dose_label": "2. Dosis",
+   "age_label": "12 Wochen"
+  },
+  "538dde67-2a32-45ec-9db7-ee7094aba78e": {
+   "dose_label": "1. Dosis",
+   "age_label": "4 Monate"
+  },
+  "54cd5276-b660-4f01-a2f8-29fe4b4a97fd": {
+   "dose_label": "4. Dosis",
+   "age_label": "12 Monate"
+  },
+  "551c9f10-71ff-4e1f-947a-3ca2b2185d0d": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "5567c567-2255-4825-a796-30b253833736": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "56196bb2-5734-46b0-a5e9-baafb4f30b60": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "56466279-d95f-4029-a934-9cd6d6bdcd52": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "56cd5273-6dd7-4dd5-841f-4ccdafe82cb9": {
+   "dose_label": "2. Dosis",
+   "age_label": "4,5 Monate"
+  },
+  "57d498dc-1ed1-403a-987c-71532bb077b1": {
+   "dose_label": "2. Dosis",
+   "age_label": "3–4 Monate"
+  },
+  "581a3e5c-dc19-4881-a6b0-9087543f78a3": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "588b4592-f8d7-4bf2-b899-44951049662b": {
+   "dose_label": "3. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "5971ff37-ed9f-49c6-9c47-89dcfa2793cc": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "59b156f8-8de5-48d2-b619-210523c2f6de": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "59f393f2-d324-4ced-b2e7-f43207cad9a3": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "5a8fc943-0c03-4a68-b970-7e0a023ace3c": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "5afc7794-7554-4592-bd32-ddb1c6862f57": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "5b09461c-bf6c-4fa5-9a1d-aebe8fa9d845": {
+   "dose_label": "3. Dosis",
+   "age_label": "7–8 Monate"
+  },
+  "5b148c56-3fba-45fc-aa58-2fb3b1eede4d": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "5b8cdb59-2905-4db5-a597-eefbe1a8db88": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "5b8f7cd6-aefd-4171-a0ad-7504eca08c95": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "5beb50a3-f536-4ae7-9844-8fd210914bbc": {
+   "dose_label": "Auffrischungsimpfung",
+   "age_label": "18 Monate"
+  },
+  "5ce9604b-2f8e-40ca-a73a-a5b0568c1200": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "5d32833a-038d-42d8-a8bb-3c88dc18b1ee": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "5d4060b1-6755-4500-8b0c-3f12083ca626": {
+   "dose_label": "3. Dosis",
+   "age_label": "15 Monate"
+  },
+  "5d6db424-4eb0-4fc8-9f30-8f2e5c561d34": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "5dd8bb15-2fa1-4cdb-8022-48185ecbbecf": {
+   "dose_label": "2. Dosis",
+   "age_label": "13–24 Monate"
+  },
+  "5e370be4-4f19-475b-9001-f383db8a9adb": {
+   "dose_label": "4. Dosis",
+   "age_label": "12 Monate"
+  },
+  "5e673ae0-53d9-40fd-895a-0e2f576a358d": {
+   "dose_label": "2. Dosis",
+   "age_label": "24 Monate"
+  },
+  "5ed17307-dfa9-4abc-8c8e-b6a52b25da0f": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "5f34eaaf-3dd4-4a22-80c8-3304407404ab": {
+   "dose_label": "2. Dosis",
+   "age_label": "12 Monate"
+  },
+  "5faf34ef-d942-4a56-a516-359dbba67914": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "5fca7bfe-c36f-4d92-b62d-da631755916b": {
+   "dose_label": "1. Dosis",
+   "age_label": "8 Wochen"
+  },
+  "6010e1b3-3d3f-4187-afc4-59311cf9d660": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "60302886-2387-42ff-bf95-2c1a66208a8b": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "604958f7-2763-4b90-a35b-102606bcf05b": {
+   "dose_label": "3. Dosis",
+   "age_label": "13 Monate"
+  },
+  "6130907d-be1a-445c-b3bf-ef82ba5b3bbe": {
+   "dose_label": "3. Dosis",
+   "age_label": "Mit 6 Monaten"
+  },
+  "616bdb7b-7591-4816-a5cf-1da9f964b2a8": {
+   "dose_label": "1. Dosis",
+   "age_label": "Mit 6 Wochen"
+  },
+  "61fe96dc-903e-40ca-a7fb-688c3dd90fbf": {
+   "dose_label": "4. Dosis",
+   "age_label": "Mit 6 Monaten"
+  },
+  "6235fd05-ba22-498c-8f9f-77c1447f3cf5": {
+   "dose_label": "1. Dosis",
+   "age_label": "Mit 2 Monaten"
+  },
+  "6286222a-0885-4472-a648-601801ede5f1": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "630fad9a-ab02-45d0-b3ce-ec04dd08ab9d": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "63b43bc2-b380-43f4-8cb3-eeaedfec911d": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "63c92155-c754-491e-849a-b08fdcb4da3f": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "64006715-ffec-495f-b0c8-30dc7cdcb0f5": {
+   "dose_label": "4. Dosis",
+   "age_label": "12 Monate"
+  },
+  "6413f94c-55ea-4816-a668-2ef83582db83": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "64855034-683c-4164-9fc8-1a9fa3db1452": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Monate"
+  },
+  "650fbd83-1ef0-4b77-bd22-1358c1681dbf": {
+   "dose_label": "1. Dosis",
+   "age_label": "8 Wochen"
+  },
+  "6532b9d3-ffe1-45e2-8a49-882817211944": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "659d157e-1f4b-4905-add6-046d12f24a63": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "67b8fc8a-2f55-447f-ae55-2eff6889e8f9": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "68549bcb-8c1f-4ce6-b34b-62feebc2a164": {
+   "dose_label": "4. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "68d96dbb-1fdc-43c5-a084-e366e81c8db9": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "6905926f-9b79-4f87-bc31-3e5e1d1df259": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "69391aa4-449a-473c-a9a7-b704ef104593": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "69abea0b-1c60-40b1-aed5-dcda9b763e6d": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "69ec8a23-f947-4932-a3fc-56a058cacf1d": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "6a185c59-63fa-4d57-abcc-b67533048d78": {
+   "dose_label": "1. Dosis",
+   "age_label": "18 Monate"
+  },
+  "6b2dfffb-a32d-4229-ae80-9ed8d69922fa": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "6b67b0eb-1bfc-40cb-af61-e9c78ee55aeb": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "6b7decc7-9364-46a0-8b9b-d3e18a138a05": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "6b83a2d6-fb00-454c-bb99-b1abf106cf05": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "6b8e7ab1-dade-4827-b91c-95b3978babc5": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Jahre"
+  },
+  "6bb22c8b-b311-47a8-90ee-f404d144c486": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "6bb3c026-51f6-4cdd-a624-0e8ff725003f": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "6c0b429d-5b46-4f86-b886-37d331c61ede": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "6c24849c-a86f-486f-8b12-26981648d719": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "6c2c2ce4-e988-4813-8c0a-7206e3828859": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "6c409fe7-6464-4ed5-b7e2-35f0c83665a9": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "6c7ca354-39af-4634-b8b2-587f42199d80": {
+   "dose_label": "3. Dosis",
+   "age_label": "3 Jahre"
+  },
+  "6dd6d82e-049c-494e-a367-174ebae4356b": {
+   "dose_label": "1. Dosis",
+   "age_label": "3–4 Monate"
+  },
+  "6ea06f87-eb58-426f-9b46-12ce6f9e4606": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "6ebf281c-eeaf-4d9f-89a3-de5bfc5c00f0": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "6fbcdcb7-f2a8-45f3-87de-664a147adf51": {
+   "dose_label": "3. Dosis",
+   "age_label": "5–6 Monate"
+  },
+  "70b897e0-97d0-4590-8195-9d93f36fb9c7": {
+   "dose_label": "2. Dosis",
+   "age_label": "1 Jahr"
+  },
+  "70e9160f-d49f-425e-a6fa-ace9e7082412": {
+   "dose_label": "3. Dosis",
+   "age_label": "16–18 Monate"
+  },
+  "710a49fe-8125-44a5-a870-02bdc0d745c5": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "71786adf-0187-4406-8a9e-c175e51497e5": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Monate"
+  },
+  "768d96f1-100c-4f09-9a52-25195f9f1ecf": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "76f33d84-931b-420e-b136-5973ae333a55": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "77c23dcf-adb3-4192-9c6b-1712d13795b8": {
+   "dose_label": "2. Dosis",
+   "age_label": "24 Monate"
+  },
+  "783ba7f4-8947-4a0c-8eec-1ce7d5b8a901": {
+   "dose_label": "2. Dosis",
+   "age_label": "10 Wochen"
+  },
+  "78764214-78c7-4aa9-8357-0e451fbfa8e9": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "79350697-17e9-4b0a-8a61-e688d97c3d26": {
+   "dose_label": "3. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "7198a63a-ee06-4596-811c-a0f06b527920": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "71bae1d4-c7fa-44c4-99c9-2bd4ccf9e25a": {
+   "dose_label": "2. Dosis",
+   "age_label": "12 Monate"
+  },
+  "7222d8ae-77f6-4774-bf50-a595d49da246": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "7422ca93-3a31-4edb-90db-8950153d1484": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "74339804-3835-4c93-bc18-549685ac141d": {
+   "dose_label": "2. Dosis",
+   "age_label": "16 Monate"
+  },
+  "74d38c4e-8c6d-4a14-b764-e13dd130b175": {
+   "dose_label": "2. Dosis",
+   "age_label": "4–6 Jahre"
+  },
+  "7943e49c-28a4-421d-9ea3-c3b22642f22c": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "794d4263-f625-4e5c-89db-4ba910d24845": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "79692867-f216-47a9-b713-3f4cfd024691": {
+   "dose_label": "3. Dosis",
+   "age_label": "9 Monate"
+  },
+  "79f86b7c-07af-4bea-b018-88fb237946af": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "7a1de840-7a65-41f5-8e72-3e97e2ee3bf4": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "7a67aa97-1554-4e44-9253-8f5e79017bd7": {
+   "dose_label": "1. Dosis",
+   "age_label": "1 Jahr"
+  },
+  "7a68bd61-2a5f-4a91-b232-8ebc0b9f78b3": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "7b504535-001e-4fa6-89ce-6500d002b293": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "7b6dba7f-297c-45fe-a914-fc88b5b8c389": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Jahre"
+  },
+  "7c2cd388-e809-49c1-a271-fb0d3581728e": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "7ca6887b-fc30-4abd-b77b-8d9cc04de66b": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "7d7731f0-f196-4389-84ed-d3de4506b069": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Monate"
+  },
+  "7f92c19c-c066-48a4-acd7-08ef693628fa": {
+   "dose_label": "2. Dosis",
+   "age_label": "10 Wochen"
+  },
+  "80236a53-8045-4ff2-b04e-3077da729f1c": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "80b36303-4220-4bb6-933d-9faefc3000c4": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "80f517de-5be0-4f81-9c8f-579972483987": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "8131f3b9-fd1a-4994-9586-e066930dfcce": {
+   "dose_label": "Auffrischungsimpfung",
+   "age_label": "12 Monate"
+  },
+  "81e3d102-7d6c-4df1-b7ff-3bcbaaec7a44": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "820064c1-337e-494b-a5f7-879557258ed7": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "8292a304-8f25-4cb7-83c1-438b04847871": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "846b8061-b989-4978-b1f9-3d3a6b916361": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "84e7a2fa-c8d4-4f5e-b8dc-aa7ac3488453": {
+   "dose_label": "2. Dosis",
+   "age_label": "5–6 Jahre"
+  },
+  "854e1fd2-3820-4348-b1c7-b7762b7ee8d6": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "85afaff4-38b8-414a-9249-00f7d4db81a6": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "85b3ac91-6395-4412-af3f-f89a23825e81": {
+   "dose_label": "1. Dosis",
+   "age_label": "9–12 Monate"
+  },
+  "869f18be-5cb6-427e-80fd-34343886c7fb": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "86cbc34c-2fc6-44b3-a2ad-22f401b35224": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "876be280-baff-4338-a41c-447540cd63b6": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "878b7f75-6208-4caf-91c1-84dba514edd5": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "87a7f9cb-54cb-44fd-be86-0c394ab942d6": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "87d2fba9-4cbd-4d5a-8e68-7093ae6886c4": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "87fd372e-452b-4ab3-a864-ef18e0fdfe5e": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "881f3200-1a19-4f4b-8ab2-b75b2a95480b": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "88fc22f6-a7f5-47a2-8a3f-522af9b9ad36": {
+   "dose_label": "2. Dosis",
+   "age_label": "5–6 Jahre"
+  },
+  "892bc8f5-f24e-4b9d-ab82-8d2ea769af10": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "8a1aa470-13b7-4aeb-a245-52cf4a72557b": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "8af386bd-9bad-4594-b8fd-4d4df86b22f6": {
+   "dose_label": "2. Dosis",
+   "age_label": "12 Monate"
+  },
+  "8b76be8c-44e2-4066-812b-bcbaf4d89ba7": {
+   "dose_label": "1. Dosis",
+   "age_label": "15 Monate"
+  },
+  "8c9fe0f1-9c91-46a4-9f83-724352effb37": {
+   "dose_label": "2. Dosis",
+   "age_label": "4,5 Monate"
+  },
+  "8d6dc835-b2fc-47a4-bd66-ae8fdf131579": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "8e192245-520e-40a4-af61-994b8ca7f3d7": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "8f37959f-31bb-46ad-9e9d-d38f49fe821d": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "908ffe46-65ca-42a3-a48f-ff1530d2f7a3": {
+   "dose_label": "3. Dosis",
+   "age_label": "Mit 6 Monaten"
+  },
+  "90fab832-6b9c-4efb-9157-ade07eadc715": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "913b366f-76f2-4689-b465-c5ebd33d1586": {
+   "dose_label": "1. Dosis",
+   "age_label": "Mit 3 Monaten"
+  },
+  "92b50817-6294-471a-b25c-c78c5c0b2e3d": {
+   "dose_label": "1. Dosis",
+   "age_label": "Mit 2 Monaten"
+  },
+  "93caf7c6-7f4b-4a1e-b47f-a2dd72fc7378": {
+   "dose_label": "2. Dosis",
+   "age_label": "Mit 4 Monaten"
+  },
+  "947567b2-7e79-45ae-a2cf-42b9536df0f5": {
+   "dose_label": "2. Dosis",
+   "age_label": "Mit 1 Monat"
+  },
+  "9610a0b3-61cb-443a-ba45-4872b1b2ddec": {
+   "dose_label": "1. Dosis",
+   "age_label": "5 Monate"
+  },
+  "961ee3ef-359f-4a2e-b040-7e27888f23c4": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "964fed97-5219-4a56-81d1-178fa91d1dcc": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "96c69da2-06d5-4e84-bafe-3474394432de": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "96fa9857-bd08-44ea-bed0-55e46411994c": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "973dba96-1fde-415e-9c8e-9476ef9861db": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "97a79920-8495-42f8-841a-9f8cbfc95e88": {
+   "dose_label": "1. Dosis",
+   "age_label": "18 Monate"
+  },
+  "97e453f0-d649-4bf6-80a2-e1f9e8a81771": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "97fffe02-a9fb-4f7a-863c-c00509de2a17": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "98a8de3c-ec2d-4446-b5d4-41511e34c822": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "98f172c8-b908-46a5-98b8-bd6d8d48ba19": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "98f54c96-2493-456d-8ed0-8abd09837aab": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "94b2d031-8f31-4396-9dc4-63762bc504e5": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "94d8d279-b598-4986-8fbc-c5ac72ba1cfe": {
+   "dose_label": "2. Dosis",
+   "age_label": "Mit 4 Monaten"
+  },
+  "952a5aff-51ce-4b7a-a39f-39dd0861b783": {
+   "dose_label": "3. Dosis",
+   "age_label": "Mit 12 Monaten"
+  },
+  "9582ad06-4f02-4296-b75f-32e6e524e2be": {
+   "dose_label": "1. Dosis",
+   "age_label": "Mit 2 Monaten"
+  },
+  "958fb877-44a1-4cfc-99b4-d46c9b085a01": {
+   "dose_label": "3. Dosis",
+   "age_label": "Mit 16 Wochen"
+  },
+  "95c1a91b-c8f9-46c3-a9b7-21fab09ac6cc": {
+   "dose_label": "2. Dosis",
+   "age_label": "Mit 3–4 Monaten"
+  },
+  "99a2167f-15b2-4a53-bdd5-91cbcaa7f5aa": {
+   "dose_label": "3. Dosis",
+   "age_label": "9 Monate"
+  },
+  "99b77c97-9349-42c2-8fcd-8bb93cfd9f47": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "9a4fbe26-68f3-4f97-be1d-dd56f0fd6b10": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "9a6c832c-2747-402e-b2a1-2e581a7f2095": {
+   "dose_label": "2. Dosis",
+   "age_label": "10 Wochen"
+  },
+  "9ad82a2b-1aad-42f2-9336-f571417151d1": {
+   "dose_label": "2. Dosis",
+   "age_label": "10 Wochen"
+  },
+  "9b31e4c7-95b1-4e75-8809-07dd10d3ec90": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "9ba58aa3-ef2a-4c64-a338-42dee95aae2d": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt (0–4 Wochen)"
+  },
+  "9c02a56a-3935-4696-b480-93cec3f8c192": {
+   "dose_label": "4. Dosis",
+   "age_label": "Mit 18 Monaten"
+  },
+  "9c66fe33-36d2-4095-866a-ea517711fb42": {
+   "dose_label": "4. Dosis",
+   "age_label": "Mit 3 Jahren und 4 Monaten"
+  },
+  "9c6c09c1-57d5-4a84-a2cf-0b2549c48b3c": {
+   "dose_label": "2. Dosis",
+   "age_label": "Mit 6–8 Jahren"
+  },
+  "9ca9faea-32ea-4cbc-8ab0-cf8f26690b61": {
+   "dose_label": "2. Dosis",
+   "age_label": "Mit 4,5 Monaten"
+  },
+  "9cf0645f-8add-439c-89d6-83cf893fdc70": {
+   "dose_label": "3. Dosis",
+   "age_label": "Mit 6 Monaten"
+  },
+  "9d3bf55d-1769-4d80-a8ba-1a6e418d6181": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "9ea915f2-bb33-446c-ab6f-134a9b85a1ab": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "9efd047b-f49b-4f94-9d52-b8e3000c07ee": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "9f33cf01-666b-4c0a-a09c-dfa1d9044e01": {
+   "dose_label": "2. Dosis",
+   "age_label": "12 Wochen"
+  },
+  "9f6554c7-f6ea-4a8c-a7cf-03bb72eb71e0": {
+   "dose_label": "1. Dosis",
+   "age_label": "15 Monate"
+  },
+  "9fae71e5-1c7f-4b9d-b7f3-bdff3e923397": {
+   "dose_label": "2. Dosis",
+   "age_label": "48 Monate"
+  },
+  "a1d13ca6-ec0b-4e03-b8cd-7f066c1fe9b2": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "a1fec204-95f1-405e-87a0-c615d3c9166e": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "a36b5c8d-608e-4336-87a4-137b776ce19e": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "a3700e39-9e02-4918-9b43-2e82e29a1829": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "a39cada5-994a-4a04-8b69-434fe0503f11": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate"
+  },
+  "a3af34e4-fe44-407f-bcb0-082df848de4d": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "9fcde89c-cc54-4029-a4aa-590039f657a1": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "a05d6277-e3ab-4402-8d3b-e4cee39d3e93": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "a1686b06-6dbf-441e-945e-b50f47d4a43e": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Jahre"
+  },
+  "a170631f-dee7-4f8d-b023-3955a937351f": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "a18269f7-050e-41c6-90cb-f55baf8e54ce": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "a1a0d2b4-b065-4d73-a844-7c66d14915c2": {
+   "dose_label": "2. Dosis",
+   "age_label": "18 Monate"
+  },
+  "a3b2985f-2254-462a-aa9e-4875f48ac3f8": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "a5cd3330-3678-40d9-903b-7302c0355fff": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "a5dcf2a2-3693-446c-bbb2-a84fad30743e": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "a608ede4-1df1-48ae-80af-5d0832c51eee": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "a627bcbb-3ebd-417e-9bf4-1d063b874e3c": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate"
+  },
+  "a656e00b-c6b8-47ff-97f5-5942f725ded0": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "a68565be-72da-4ab3-bb8f-02985cbfb06a": {
+   "dose_label": "1. Dosis",
+   "age_label": "9 Monate"
+  },
+  "a6cb3371-9a61-4127-859f-8e4479c39da2": {
+   "dose_label": "2. Dosis",
+   "age_label": "9 Monate"
+  },
+  "a7e55fba-142e-4494-a686-e4ef459a0f9e": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "a827d883-7223-42e6-91f2-5fc508afe79c": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "a8d53844-87e4-4df9-966a-53d7e9d587fd": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "a91ba3c1-f1db-405f-95ef-6fb72dec0219": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "ac5f8f5d-fa3e-4ba0-b777-b5348f13797d": {
+   "dose_label": "4. Dosis",
+   "age_label": "12–15 Monate"
+  },
+  "aca442df-103c-4ab0-9b06-c27d60910ff1": {
+   "dose_label": "4. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "acd68969-4319-4a26-868e-1be767e8afe3": {
+   "dose_label": "2. Dosis",
+   "age_label": "12 Wochen"
+  },
+  "ad0ad24c-325d-4272-a6b3-8e2525f20d57": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "ad2ffab3-58e7-4d3c-9c18-41735c239faa": {
+   "dose_label": "2. Dosis",
+   "age_label": "5–6 Monate"
+  },
+  "ad68afcc-6f1c-4678-9888-3252a9682443": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate"
+  },
+  "aa0c0227-a214-4b17-893f-a5d784b66aa8": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Jahre"
+  },
+  "aa261f3c-af60-405f-bc27-c93114b34590": {
+   "dose_label": "1. Dosis",
+   "age_label": "12–15 Monate"
+  },
+  "aa297fe7-fd43-4bcc-a470-17db2796b717": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "aa7f73a5-c4a7-4bb9-8fc9-e845362da518": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "ab2f5634-5b6b-4b38-8019-330d77bf7e58": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "abe31849-31c4-4a1e-b0a7-a0d8acc6fccf": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "ae03e309-b13d-477a-ae74-597443a53867": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "ae0f4f85-23b6-4d06-95f5-8f313550aced": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "ae2dd176-87f3-4189-ba29-0fb9671f6c55": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "ae656f39-c56d-4793-9517-a48077edcca1": {
+   "dose_label": "4. Dosis",
+   "age_label": "12–15 Monate"
+  },
+  "ae916a1e-9c65-4dca-a25d-aa534b10cbc8": {
+   "dose_label": "1. Dosis",
+   "age_label": "13–15 Monate"
+  },
+  "afd9efa8-dae5-4e1f-95c8-c33692e272d5": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "b00c4e61-4206-4ca1-a604-592498ce39ee": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "b148aeb3-acec-45f7-903b-824ddfbbdfc9": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "b17cf8b4-2d85-43be-9cd6-0efecc9ec9bf": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "b2113938-8441-4d44-a351-bad286db31ff": {
+   "dose_label": "4. Dosis",
+   "age_label": "9 Jahre"
+  },
+  "b23c54b5-b61d-4328-86ac-a7833dbcd761": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "b29a6474-5076-4548-980f-f8715b76c028": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "b342b852-72f6-4c52-ba44-39b45f413206": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "b3576905-4879-46d0-b598-b394588e3f72": {
+   "dose_label": "2. Dosis",
+   "age_label": "18 Monate"
+  },
+  "b37acba5-a9f6-49b1-a0e6-be5f88660e40": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "b3aa11ee-b570-484f-b920-7b7fbe48f634": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "b4128033-0f60-4b7f-b054-dcf2fd8efa56": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Monate"
+  },
+  "b51d181d-5414-46a4-9e60-3509ea1efa7b": {
+   "dose_label": "4. Dosis",
+   "age_label": "15–18 Monate"
+  },
+  "b8dea1f1-ee1a-4038-be5e-0f004db7d7e1": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Wochen"
+  },
+  "b9627885-f124-4236-bd27-f6ae0227102c": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "b9889d65-9aff-4bf0-9a77-07ed73b3b7cd": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "bab31eb9-c25d-48ff-b346-d55117d5e96c": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "bbdeb79e-aea0-42e2-96d3-ef67a0af75b6": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "bc210c11-16ad-4766-8ffd-2d8311384c20": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "b6c5bf58-43e5-49c8-baee-e106ec6c01e4": {
+   "dose_label": "1. Dosis",
+   "age_label": "0–5 Tage"
+  },
+  "b7036394-dfd6-4b47-be01-e79d0798d1ea": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "b719cf4d-5619-484a-8b83-d45a3e8521d4": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "b779f5b1-af62-44e3-a4f6-6a9845cfa2b8": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Jahre"
+  },
+  "b818a67a-836d-445a-aa57-53dc26fbbbe8": {
+   "dose_label": "2. Dosis",
+   "age_label": "1 Monat"
+  },
+  "b82cc128-2ecf-4bfe-9700-2471073c4e75": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "bfeec2bf-56fa-4513-b4ce-872ae11d8c6e": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "c04819d8-a5ab-4eca-9556-e6c6b40350d0": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "c0491c99-952c-4f38-a96d-34f3c35be3a1": {
+   "dose_label": "1. Dosis",
+   "age_label": "8 Monate"
+  },
+  "c06285b7-c3ac-43a1-a27b-a84eafd70442": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "c0f0115d-fdc3-4810-aa94-4ae66d302a1e": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "c10f1d0e-175a-430d-84b7-de85e8c7349e": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "bd025e7c-6fc2-49dd-ad96-e6a06406033f": {
+   "dose_label": "4. Dosis",
+   "age_label": "6 Jahre"
+  },
+  "bd29169f-8223-41bf-a8b5-bcba71ac0c9f": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "bd96b1cc-ab9f-4a51-a603-a4dca97c2e70": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "bec032c3-81b2-492a-92f0-20e85760526f": {
+   "dose_label": "4. Dosis",
+   "age_label": "15 Monate"
+  },
+  "bfa8dcb5-88a4-4c43-a8eb-bd71ecc323a6": {
+   "dose_label": "3. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "bfee8a45-8813-4bce-a31b-23134eccaa56": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Jahre"
+  },
+  "c10f5102-ca71-4b37-9e59-445a16778568": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "c1524914-93a4-4714-97fd-0936ec8650f0": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "c18209fc-b1a9-42d4-8ef1-9faef6b5f118": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "c1aaa324-8087-414f-887e-0b1078ffe066": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate"
+  },
+  "c2578bfd-8503-4d3f-80dc-21915475f8fa": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "c29cd00c-cbbd-4704-865e-46cfc0796f20": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "c60a07a0-16e3-4b59-91cf-6dd283451625": {
+   "dose_label": "1. Dosis",
+   "age_label": "4 Monate"
+  },
+  "c68340b8-43d8-435f-9632-8ecac48ccd9e": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Monate"
+  },
+  "c792d719-8d82-43eb-83b0-a61d0a080b2e": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "c7b6b1e9-e1d2-4380-bc17-fe6c57947f77": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "c8038f72-d050-434e-8f92-e4f1c70b8f33": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "c8a626d7-9c85-497f-8e59-adf502b8baac": {
+   "dose_label": "1. Dosis (bei der Geburt)",
+   "age_label": "Bei der Geburt"
+  },
+  "c36b12ad-cd7d-4c88-8595-549cb2d9954e": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "c3caf5db-c374-4924-b569-f166ddd8946f": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "c3d18b3a-e600-479f-b20f-9838359d5fc4": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "c457b809-1896-41a9-bb8f-d110c176bb25": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "c560508a-3ca5-4f54-a84b-362ca241b32f": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Jahre und 4 Monate"
+  },
+  "c5e0f60c-5d47-4fea-a0d2-29cd895842b5": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "c8c328ee-0523-47a7-b882-5ade85e633eb": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "c8cc8fb2-94a3-4695-9861-e2eabd64d38d": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "c8f1bc16-6e35-46fd-a792-9334d7be61dc": {
+   "dose_label": "2. Dosis",
+   "age_label": "15 Monate"
+  },
+  "c9a9b664-2ddf-4a8c-b002-7cdaef07c400": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "c9e82f4a-cd4d-4916-9da5-ced3c181ec78": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "ca059055-db9d-42c2-9726-a28997ccc356": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "cb16a160-9ff4-4132-9268-feeaa25fed66": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Jahre"
+  },
+  "cbbdf906-1fbe-4160-89ee-00c082a70c72": {
+   "dose_label": "3. Dosis",
+   "age_label": "5 Monate"
+  },
+  "cbc3cc43-1899-403c-a98e-da2d8fc6953b": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "cbd18f8c-9b54-4258-bc8c-68b19107d1f3": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Jahre"
+  },
+  "cc065afe-062c-4c6c-a4b6-e558b99aa89e": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "cc3cc78f-e9b2-4b75-b316-3de1430cd388": {
+   "dose_label": "2. Dosis",
+   "age_label": "10 Wochen"
+  },
+  "ccbfa439-7721-4a50-816a-9606469cd2ad": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate"
+  },
+  "ccf88634-37c5-48d7-9fad-f2ace0be67b3": {
+   "dose_label": "1. Dosis",
+   "age_label": "8 Wochen"
+  },
+  "ce226521-2f24-45c5-9254-ffe77f72bd43": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "ce626ba9-7103-4e4c-a0ba-56e1d3e2487e": {
+   "dose_label": "2. Dosis",
+   "age_label": "16–24 Monate"
+  },
+  "cf78b811-47a5-4fdb-850d-e9ea3f8dabc6": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Jahre"
+  },
+  "cfc6e10a-a299-42c5-ad7e-26f6c2076b5a": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "d04eae32-e595-4d17-9870-e3c543de6848": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "d04f1785-bff7-40ce-a4de-bf83c8149e0d": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "d05a2e4c-713d-48f2-bd37-f3441d25b4ea": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "d0e3e896-e195-45b3-9bc1-59d357b14340": {
+   "dose_label": "3. Dosis",
+   "age_label": "16 Wochen"
+  },
+  "d33163c5-0227-4aa3-aaa4-69598e050187": {
+   "dose_label": "4. Dosis",
+   "age_label": "6 Monate"
+  },
+  "d3b86966-cdf0-4eea-9e6b-30ec02cddb71": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "d3bc046b-b541-4304-b9c6-f99314fca101": {
+   "dose_label": "1. Dosis",
+   "age_label": "18 Monate"
+  },
+  "d4296dca-ad8c-4da8-9f6e-6db0966bf3c0": {
+   "dose_label": "3. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "d532b9c0-6aab-4a7b-bddc-2a03357d41cc": {
+   "dose_label": "2. Dosis",
+   "age_label": "24 Monate"
+  },
+  "d54bfb0c-4326-4749-bd48-2bff99297675": {
+   "dose_label": "2. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "d5a16fb4-fa4b-430f-b846-4009ef2c00f6": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "d67cec42-f25f-4f6d-bfa2-6501d5b13df9": {
+   "dose_label": "4. Dosis",
+   "age_label": "5 Jahre"
+  },
+  "d68e9105-001e-46bb-b2f2-ea7260bc1140": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "d691f418-c022-4d98-864e-31b34ef117ef": {
+   "dose_label": "4. Dosis",
+   "age_label": "16 Monate"
+  },
+  "d69a0d32-4845-459c-86da-c6e3e9580291": {
+   "dose_label": "1. Dosis",
+   "age_label": "3–5 Tage"
+  },
+  "d6ba404e-9a44-4ee5-9bbd-748a0a523420": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "d76a84fd-8e04-4959-a5a3-a44e781bc96c": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "d828eaef-5936-4bc1-a4f4-0d4410d8623e": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "d8303a23-c61e-4eaa-b5b3-1aa1b3bf0206": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "d8487022-bea1-4e2d-9bc6-c26efc45832c": {
+   "dose_label": "2. Dosis",
+   "age_label": "3–4 Jahre"
+  },
+  "d91870d2-0fbf-41c1-858c-5a35d5739034": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "d98a2b10-dd1e-411c-a6cf-8598cc783b1d": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "d9b7b7d6-bdd4-400a-a25a-336d95c743d9": {
+   "dose_label": "2. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "d9bb42cf-3d8e-4e4b-b9c8-4b68ba257330": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "da3bef09-1556-485b-a87a-4baeeb996455": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Jahre"
+  },
+  "da3edf6e-a2eb-4ec3-95c3-3ebd107114cf": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "db35fe09-adb9-40a5-9468-8e2600f3aa42": {
+   "dose_label": "3. Dosis",
+   "age_label": "5 Monate"
+  },
+  "db834a0d-0b67-4e04-988a-2426792d7767": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "dbddf17b-8374-442a-9569-2db1271cf33a": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "dc16b2e3-f1ab-4b9d-b0c2-cc48367dae47": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate"
+  },
+  "dc7402be-21f2-4e98-8380-fd20a7c1788a": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "dc9ebed0-cd1c-461b-82b2-7c25aa3a598e": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "dcd1fcb5-8a41-4990-9575-46891d9842b5": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "dd6d1720-b2d0-4994-be11-9317e26d9e5f": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "de6a8469-4113-40ca-809b-1cc4d7fd3f43": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "de98d217-f72c-4747-b588-a92d39f03c2d": {
+   "dose_label": "Zweite Auffrischimpfung",
+   "age_label": "6 Jahre"
+  },
+  "ded5b3e7-20b0-418a-9ba9-557ee4d22260": {
+   "dose_label": "3. Dosis",
+   "age_label": "16 Wochen"
+  },
+  "dee7e511-b2ba-420c-b759-e6592047a75d": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "df3fe9dc-5392-4ef5-b24b-93a22c55bad6": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "df57fcda-0242-488a-9651-d770d2afcdcb": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "dfa76874-076f-4497-9e2e-3fc0ee1c54d8": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "dfbd0828-de19-45fc-9783-a1d126c573d4": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "dfe2d397-17e9-42e2-9639-907a75c136b3": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "e0576177-f96d-4200-9cd3-c33ed0a12880": {
+   "dose_label": "3. Dosis",
+   "age_label": "10 Wochen"
+  },
+  "e057efc3-5e21-4273-b058-5e20937510a4": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "e0cf28f6-f99a-4e99-8cd6-f4d04fba3c6b": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "e189d1a0-db40-4eb2-a595-05e38a678706": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "e2cec683-ccd1-466f-8458-89ec8586dcf3": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "e3c2049a-c72e-4d44-9260-c7ba9ba469bc": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "e40ec782-7cb2-45d5-9881-cd7d784fad29": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "e4e6426e-d81d-44fc-8559-dbb1dba21c09": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "e50f27a5-1a3a-4add-9f6c-062cd39b0914": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Jahre"
+  },
+  "e53344fb-312f-4e71-86af-8e521ac3d027": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "e5b895f4-7358-49e6-afb0-7a7b6a810d9e": {
+   "dose_label": "2. Dosis",
+   "age_label": "12 Monate"
+  },
+  "e5f578fe-a23b-41bf-a27c-dc71721088a7": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "e5ffbfc4-3f3e-4100-8867-637ac796ac2b": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "e6712d6c-b368-4bdb-8cae-e0e11fd985d3": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "e787bdc4-4d27-43fd-83ea-976ee6fa45dc": {
+   "dose_label": "4. Dosis",
+   "age_label": "12 Monate"
+  },
+  "e7a859d2-fbae-40fc-a04c-1f2d7f8156ed": {
+   "dose_label": "3. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "e7bb7ad4-6e13-4920-b241-c70d07108f3a": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate"
+  },
+  "e907fd82-b017-4d45-a2df-6186a364e11c": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "e9300a6a-db41-4bf6-8bfb-6336fba1224f": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "e932c470-3e8a-43ff-b4c4-f9f205fcd793": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "e98607a0-a577-4579-aca9-86642a2aaeac": {
+   "dose_label": "2. Dosis",
+   "age_label": "15 Monate"
+  },
+  "e9f51b55-bc55-4d17-9b38-9cd75054251d": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "ea0ec8cc-22e9-4b2d-bcb2-220588d7f432": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "ebc050a9-7f61-4a81-a7c2-6bb6556c167f": {
+   "dose_label": "2. Dosis",
+   "age_label": "6 Jahre"
+  },
+  "ebcc1022-e438-4827-83d0-5aebc57396b6": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "ec17cea4-fecf-4f82-afa0-5581d12fd323": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "ec7dd5c5-d24b-4871-b467-9c57c320a074": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate"
+  },
+  "ec8d2972-c250-4adf-9419-d34bf0903fb5": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "ed1e03fb-ae62-4a83-b7c2-14e0211f4ab8": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "ea3bf367-2c9a-404d-89f2-ca6dbfa08250": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate alt"
+  },
+  "ea4cc98a-3667-4328-ac3e-eb8d50c4481a": {
+   "dose_label": "4. Dosis",
+   "age_label": "18 Monate alt"
+  },
+  "ea5d24f2-ddb0-4bac-8076-03a6d48b48dc": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate alt"
+  },
+  "eafb6b18-a32e-40f9-a647-3e4e70e8cf56": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate alt"
+  },
+  "eb118e3f-d97f-488e-b66d-f6b12032decb": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate alt"
+  },
+  "eb8721ec-4850-4367-8ef4-270dfd5090b6": {
+   "dose_label": "3. Dosis",
+   "age_label": "5–6 Monate alt"
+  },
+  "ed895840-655b-43a0-bd61-c96dca88157e": {
+   "dose_label": "3. Dosis",
+   "age_label": "5–6 Monate"
+  },
+  "edafbcd8-39d6-4db4-98d2-4fd05685eaee": {
+   "dose_label": "2. Dosis",
+   "age_label": "15 Monate"
+  },
+  "ee28b70f-ab6f-417c-a197-a76d4ebf408c": {
+   "dose_label": "2. Dosis",
+   "age_label": "3–4 Monate"
+  },
+  "ee844271-9cf7-489d-bacb-20a082f37d7a": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "ee96764e-fc0f-4435-80ab-acc711f85d7c": {
+   "dose_label": "3. Dosis",
+   "age_label": "12 Monate"
+  },
+  "ef5f261b-6e6d-42fd-8bf4-c64d5b2bd92d": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "efbbd519-c837-4903-88ed-c8dff006cd9a": {
+   "dose_label": "1. Dosis",
+   "age_label": "11 Monate"
+  },
+  "efc4ac52-aba6-49ca-b1a5-5fdaaaba1062": {
+   "dose_label": "1. Dosis",
+   "age_label": "Bei der Geburt"
+  },
+  "f01561f8-8391-4506-b4e8-6bd85e32ad36": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "f066ec5f-73fa-408b-9d37-97ad101ba4e2": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "f0727ca8-e09b-457f-817e-436f60eaed8a": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "f10b7e90-caeb-4ae0-920f-8fa75efab5b9": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Monate"
+  },
+  "f11a19b0-fcc4-48da-8f62-d413dc94298f": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate alt"
+  },
+  "f11f707d-eaa5-4959-8a27-7f742320636a": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate alt"
+  },
+  "f187d1ad-16fb-40c9-a112-32c8e613269f": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate alt"
+  },
+  "f19648a7-05b6-4015-b53e-f71e0f2c30fd": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate alt"
+  },
+  "f1aee1fb-95f5-4291-98bc-86ba7656fad2": {
+   "dose_label": "2. Dosis",
+   "age_label": "1 Monat alt"
+  },
+  "f1e326fd-dc99-4017-b731-f6ca2b1c66a7": {
+   "dose_label": "3. Dosis",
+   "age_label": "6 Monate alt"
+  },
+  "f1e5f64c-e725-4e8c-bc95-0c79033f73e6": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "f276ce72-752d-4a85-8cbc-0b42c5988cbf": {
+   "dose_label": "4. Dosis",
+   "age_label": "15 Monate"
+  },
+  "f291e1b6-7ff0-4ad8-9523-ef34f850c6a1": {
+   "dose_label": "2. Dosis",
+   "age_label": "5 Monate"
+  },
+  "f2abda2a-f858-4acf-83f3-2e1c22a1b14e": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "f2b94eb4-2d68-405d-a5a1-0c7fc3752231": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "f2c112c1-e831-40bf-8794-b831167a71d3": {
+   "dose_label": "1. Dosis",
+   "age_label": "8 Monate"
+  },
+  "f2cd1d07-5024-468e-a149-386d19b069db": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "f331fc2d-f2ab-4af9-9ce9-4b1878748b78": {
+   "dose_label": "1. Dosis",
+   "age_label": "2 Monate"
+  },
+  "f356abfa-b0bf-4470-96a6-6237218b29ab": {
+   "dose_label": "2. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "f3af3bff-6649-4916-bc62-dd493339e9fa": {
+   "dose_label": "1. Dosis",
+   "age_label": "6 Wochen"
+  },
+  "f40151d9-cbcf-40e5-98ad-a87d81e938cd": {
+   "dose_label": "1. Dosis",
+   "age_label": "1–4 Tage"
+  },
+  "f46579ff-a243-4d85-8ea1-ba0def164f10": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "f4c3cb25-00a4-4956-a9f3-f2e2c5b47e94": {
+   "dose_label": "4. Dosis",
+   "age_label": "4 Monate"
+  },
+  "f563b4a2-ed1f-4d60-8a61-7ce34b8cf717": {
+   "dose_label": "4. Dosis",
+   "age_label": "3 Jahre 4 Monate"
+  },
+  "f5ee43dc-3b40-453f-b4d5-76366f8a8aab": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "f69cd8cf-f34b-4948-84c7-a9e3a84a0495": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "f8606a8e-e3e7-4036-a150-685b54f6897e": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "f867dd11-d034-4068-bf38-1d5289a47281": {
+   "dose_label": "1. Dosis",
+   "age_label": "3 Monate"
+  },
+  "fc6a4ab1-f338-420a-84a2-c0f6dba7fd85": {
+   "dose_label": "1. Dosis",
+   "age_label": "9 Monate"
+  },
+  "fc9ab2aa-23ca-4ebf-a751-77205ba34dcf": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "fca085af-1a65-4069-851d-338573be5cd3": {
+   "dose_label": "1. Dosis",
+   "age_label": "18 Monate"
+  },
+  "fce8703a-10cf-4cff-a51a-7d0729cb1385": {
+   "dose_label": "2. Dosis",
+   "age_label": "5–6 Jahre"
+  },
+  "fd1eb13e-2cd1-4e7f-a28e-7261b1b4a3f5": {
+   "dose_label": "2. Dosis",
+   "age_label": "3 Monate"
+  },
+  "fd5cd56f-ccb4-4ea2-a789-25b8ffa5c7c8": {
+   "dose_label": "3. Dosis",
+   "age_label": "11 Monate"
+  },
+  "fe21cba0-f39a-483b-95d5-2e46e1683302": {
+   "dose_label": "1. Dosis",
+   "age_label": "2–5 Tage"
+  },
+  "fef45a7a-7548-46eb-8736-89a5a8d235ed": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  },
+  "ffd88807-3c24-4fdd-a40b-24e117bcaef8": {
+   "dose_label": "3. Dosis",
+   "age_label": "4 Jahre"
+  },
+  "f8a72c43-ee54-482e-b3b4-3beeebe9407f": {
+   "dose_label": "3. Dosis",
+   "age_label": "14 Wochen"
+  },
+  "fabe116f-142c-453a-a46b-cbbc55aa3807": {
+   "dose_label": "1. Dosis",
+   "age_label": "13 Monate"
+  },
+  "fb10efc7-8fe4-4cf3-b615-a799a5c349e3": {
+   "dose_label": "2. Dosis",
+   "age_label": "4 Monate"
+  },
+  "fb713bc8-e428-42ea-ab28-c790a6b8b340": {
+   "dose_label": "2. Dosis",
+   "age_label": "2 Jahre"
+  },
+  "fbb98951-cf9d-4ce8-aaaf-496475765009": {
+   "dose_label": "1. Dosis",
+   "age_label": "8 Wochen"
+  },
+  "fc592c02-1437-4b2c-8976-f84994ed1078": {
+   "dose_label": "1. Dosis",
+   "age_label": "12 Monate"
+  }
+ }
+}

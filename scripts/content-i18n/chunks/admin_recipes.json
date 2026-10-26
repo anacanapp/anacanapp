@@ -1,0 +1,4114 @@
+[
+ {
+  "id": "228f023f-d713-4f19-be8e-fefdb4fed98b",
+  "title": "Toyuq və Tərəvəzli Wok",
+  "description": "Rəngli tərəvəzlər vitamin A, C, toyuq yüksək keyfiyyətli zülal",
+  "category": "nahar_yemeyi",
+  "ingredients": [
+   "Toyuq filesi - 150 qr",
+   "Rəngli bibər - 1 ədəd",
+   "Kök - 1 ədəd",
+   "Soya sousu - 1 xörək qaşığı",
+   "Küncüt - 1 çay qaşığı",
+   "Zeytun yağı"
+  ],
+  "instructions": [
+   "Toyuğu yüksək odda qovurun",
+   "Kök və bibər əlavə edin",
+   "Soya sousu qatın",
+   "Küncüt səpib servis edin"
+  ]
+ },
+ {
+  "id": "4a2b68f6-c320-464a-a610-abba98c42a7c",
+  "title": "Xurmalı Kakaolu Enerji Topları",
+  "description": "Şokolad istəyini sağlam şəkildə qarşılayır",
+  "category": "saglam_sirniyyatlar",
+  "ingredients": [
+   "Xurma - 10 ədəd",
+   "Qoz/badam - yarım stəkan",
+   "Kakao tozu - 1 xörək qaşığı",
+   "Kokos yonqarı"
+  ],
+  "instructions": [
+   "Xurma, qoz və kakaonu blenderdə xırdalayın",
+   "Kiçik toplar düzəldin",
+   "Kokos yonqarına batırın",
+   "Soyuducuda 30 dəqiqə saxlayın"
+  ]
+ },
+ {
+  "id": "d764c731-4574-4b0a-8c12-4817b002d62a",
+  "title": "Baby Pancakes - Körpə Pankeyi",
+  "description": "Körpənin öz əli ilə yeyəcəyi finger food (9-10 ay+)",
+  "category": "baby_food",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Banan - 1 ədəd",
+   "Yumurta - 1 ədəd",
+   "Yulaf unu - 2 xörək qaşığı"
+  ],
+  "instructions": [
+   "Bananı əzin",
+   "Yumurta və unu qarışdırın",
+   "Kiçik pankeyklər bişirin"
+  ]
+ },
+ {
+  "id": "2b6d3d3f-7da4-49e6-9fec-a7c60b44d391",
+  "title": "Night Comfort - Düyü və Qatıq",
+  "description": "Rahat yuxu gətirən doyumlu şam yeməyi (10 ay+)",
+  "category": "baby_food",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Düyü - 2 xörək qaşığı",
+   "Qatıq - 3 xörək qaşığı",
+   "Nanə qurusu - çox az"
+  ],
+  "instructions": [
+   "Düyünü lapa kimi bişirin",
+   "Qatıqla qarışdırın"
+  ]
+ },
+ {
+  "id": "1c5b54f3-be70-41b0-84f4-d70a7077aca9",
+  "title": "Iron Bowl - Qarabaşaq və Ət",
+  "description": "Hemoqlobini aşağı olan körpələr üçün ideal (8 ay+)",
+  "category": "baby_food",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Qarabaşaq - 2 xörək qaşığı",
+   "Mal əti - 30 qr",
+   "Kök - yarım ədəd"
+  ],
+  "instructions": [
+   "Əti və qarabaşağı ayrı-ayrı bişirin",
+   "Kökü buxarda hazırlayın",
+   "Hamısını əzin"
+  ]
+ },
+ {
+  "id": "703149ba-626c-42b7-97f3-d9c1417bd36f",
+  "title": "Sobada Kəsmikli Sırnik",
+  "description": "Kalsiumla zəngin, sümükləri gücləndirir. Qızardılmadığı üçün mədə qıcqırması yaratmır",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Kəsmik - 200 qr",
+   "Yumurta - 1 ədəd",
+   "Düyü unu - 2 xörək qaşığı",
+   "Vanil - bir çimdik",
+   "Bal - 1 çay qaşığı"
+  ],
+  "instructions": [
+   "Kəsmiyi əzin, yumurta və vanil əlavə edin",
+   "Unu əlavə edib xəmir hazırlayın",
+   "Kiçik dairəvi formalar verin",
+   "180°C-də 20 dəqiqə bişirin",
+   "Bal gəzdirin"
+  ]
+ },
+ {
+  "id": "e42eb779-f6d3-46c7-afa9-6b50228bf9fa",
+  "title": "Südlü və Qozlu Qarabaşaq",
+  "description": "Dəmir deposudur, hemoqlobini qaldırır və halsızlığı aradan qaldırır",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Qarabaşaq - 4 xörək qaşığı",
+   "Süd - 1.5 stəkan",
+   "Qoz - 2 ədəd",
+   "Bal - 1 çay qaşığı"
+  ],
+  "instructions": [
+   "Qarabaşağı süddə bişirin",
+   "Qoz və bal əlavə edin",
+   "İsti servis edin"
+  ]
+ },
+ {
+  "id": "e2a3de56-71ba-425a-9ee4-19af8f674965",
+  "title": "Balqabaqlı Yulaf Kaşası",
+  "description": "A vitamini və lif qaynağı, immuniteti gücləndirir",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Balqabaq - 1 dilim",
+   "Yulaf - 4 xörək qaşığı",
+   "Süd - 1.5 stəkan",
+   "Darçın - bir çimdik",
+   "Qoz - 2 ədəd"
+  ],
+  "instructions": [
+   "Balqabağı bişirib püre edin",
+   "Süd və yulafı bişirin",
+   "Balqabaq püresi və ədviyyat əlavə edin",
+   "Qoz səpib servis edin"
+  ]
+ },
+ {
+  "id": "b152df27-a257-44b7-b48e-cff4b6baf6d9",
+  "title": "Lavaşda Toyuqlu və Pendirli Tost",
+  "description": "Doyurucudur, səhər ürəkbulanması olanlar üçün quru qida kimi ideal",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Lavaş - 1 ədəd",
+   "Toyuq əti (didilmiş) - 100 qr",
+   "Pendir - 30 qr",
+   "Pomidor - 1 ədəd",
+   "Kahı yarpağı"
+  ],
+  "instructions": [
+   "Lavaşa toyuq, pendir və pomidor qoyun",
+   "Bükün",
+   "Tost maşınında qızardın",
+   "Kahı əlavə edib servis edin"
+  ]
+ },
+ {
+  "id": "29940e49-7e51-47bd-83c9-a23089719fe4",
+  "title": "Sobada Tərəvəzli Toyuq Kotletləri",
+  "description": "Qızartma olmadığı üçün mədə qıcqırması yaratmır",
+  "category": "nahar_yemeyi",
+  "ingredients": [
+   "Toyuq qiyməsi - 200 qr",
+   "Soğan - 1 ədəd",
+   "Kök - 1 ədəd",
+   "Yumurta - 1 ədəd",
+   "Çörək qırıntısı"
+  ],
+  "instructions": [
+   "Qiymə ilə doğranmış tərəvəzləri qarışdırın",
+   "Yumurta əlavə edin",
+   "Kotlet formalaşdırın",
+   "Sobada 180°C-də 25 dəqiqə bişirin"
+  ]
+ },
+ {
+  "id": "54602d29-0117-4f19-abc3-7ccf4f15b4ad",
+  "title": "Kinoalı və Avokadolu Power Bowl",
+  "description": "Kinoa tam zülal qaynağı, avokado beyin inkişafı üçün vacib yağlar ehtiva edir",
+  "category": "nahar_yemeyi",
+  "ingredients": [
+   "Kinoa - yarım stəkan",
+   "Avokado - yarım ədəd",
+   "Noxud - 3 xörək qaşığı",
+   "Cherry pomidor - 6 ədəd",
+   "İspanaq - 1 ovuc",
+   "Limon, zeytun yağı"
+  ],
+  "instructions": [
+   "Kinoanı bişirin",
+   "Kasaya kinoa, noxud, pomidor, ispanaq düzün",
+   "Avokado dilimlərini əlavə edin",
+   "Limon-zeytun yağı sous gəzdirin"
+  ]
+ },
+ {
+  "id": "351ff1d2-31f6-46a8-8bf8-de0cf3483675",
+  "title": "Qaymaqlı İspanaqlı Qızılbalıq Pasta",
+  "description": "Omeqa-3 və dəmirin mükəmməl birləşməsi",
+  "category": "pregnancy",
+  "ingredients": [
+   "Makaron - 100 qr",
+   "Qızılbalıq - 100 qr",
+   "İspanaq - 1 ovuc",
+   "Krem qaymaq - yarım stəkan",
+   "Sarımsaq - 1 diş"
+  ],
+  "instructions": [
+   "Makaronu bişirin",
+   "Balığı qovurun",
+   "İspanaq və sarımsaq əlavə edin",
+   "Qaymaq qatıb makaronla qarışdırın"
+  ]
+ },
+ {
+  "id": "c89b9132-cdfc-4225-91e4-8d2f2e0b2795",
+  "title": "Yaşıl Mərciməkli Kök Yeməyi",
+  "description": "Fol turşusu anbarı, qəbizliyi aradan qaldırmaq üçün ən yaxşı vasitə",
+  "category": "nahar_yemeyi",
+  "ingredients": [
+   "Yaşıl mərcimək - 1 stəkan",
+   "Kök - 1 ədəd",
+   "Soğan - 1 ədəd",
+   "Kartof - 1 ədəd",
+   "Bulyon - 3 stəkan"
+  ],
+  "instructions": [
+   "Soğanı qovurun, kök əlavə edin",
+   "Mərcimək və kartofu tökün",
+   "Su əlavə edib 30 dəqiqə bişirin",
+   "Qatıqla servis edin"
+  ]
+ },
+ {
+  "id": "0a806e97-179c-4b02-a4d3-c011bf2e080a",
+  "title": "Lobyalı və Ətli Türlü",
+  "description": "Qırmızı ət dəmir, lobya lif mənbəyi. Ənənəvi dadları sevənlər üçün",
+  "category": "nahar_yemeyi",
+  "tags": [
+   "pregnancy"
+  ],
+  "ingredients": [
+   "Mal əti - 150 qr",
+   "Yaşıl lobya - 200 qr",
+   "Pomidor - 2 ədəd",
+   "Soğan - 1 ədəd"
+  ],
+  "instructions": [
+   "Əti suda bişirin",
+   "Soğan və lobya əlavə edin",
+   "Pomidorları qatın",
+   "Vam odda 25 dəqiqə dəmə qoyun"
+  ]
+ },
+ {
+  "id": "09af16f8-cf6b-4d39-b222-ac1839cff39f",
+  "title": "İspanaqlı və Kəsmikli Yaşıl Omlet",
+  "description": "Dəmirlə və kalsiumla zəngin səhər yeməyi",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "İspanaq - 1 ovuc",
+   "Kəsmik - 50 qr",
+   "Yumurta - 2 ədəd",
+   "Zeytun yağı - 1 çay qaşığı",
+   "Duz, istiot"
+  ],
+  "instructions": [
+   "İspanağı yuyub doğrayın",
+   "Yumurtaları çırpıb kəsmik və ispanaq əlavə edin",
+   "Tavada zeytun yağı ilə bişirin"
+  ]
+ },
+ {
+  "id": "982adc98-e214-43f5-9309-70a389109d79",
+  "title": "Hinduşka Küftəli Tərəvəz Şorbası",
+  "description": "Hinduşka ən az alergiya verən ətdir, bol maye qəbulu üçün əla",
+  "category": "nahar_yemeyi",
+  "ingredients": [
+   "Hinduşka qiyməsi - 150 qr",
+   "Kartof, kök, kərəviz - hərəsindən 1",
+   "Düyü - 1 xörək qaşığı",
+   "Quru nanə"
+  ],
+  "instructions": [
+   "Qiymədən küftələr düzəldin",
+   "Qaynayan suya tərəvəz və düyü tökün",
+   "Küftələri əlavə edin",
+   "Bişdikdən sonra nanə səpin"
+  ]
+ },
+ {
+  "id": "16d0f02f-4ecd-4fee-a1f5-3b1ea8bae99f",
+  "title": "Qarabaşaq və Göbələk Sote",
+  "description": "Qarabaşaq hemoqlobini artırmaq üçün ideal",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Qarabaşaq - yarım stəkan",
+   "Göbələk - 5 ədəd",
+   "Soğan - yarım ədəd",
+   "Cəfəri"
+  ],
+  "instructions": [
+   "Soğan və göbələyi qovurun",
+   "Bişmiş qarabaşağı əlavə edin",
+   "Cəfəri səpib servis edin"
+  ]
+ },
+ {
+  "id": "d2719771-06cb-4a57-8b8e-23c90a1b22ff",
+  "title": "Zəncəfilli Balqabaq Şorbası",
+  "description": "Balqabaq ödemi azaldır, zəncəfil mədəni sakitləşdirir",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Balqabaq - 300 qr",
+   "Kartof - 1 ədəd",
+   "Soğan - 1 ədəd",
+   "Zəncəfil - fındıq boyda",
+   "Süd - yarım stəkan"
+  ],
+  "instructions": [
+   "Tərəvəzləri suda bişirin",
+   "Blenderdən keçirin",
+   "Zəncəfil və süd əlavə edin",
+   "Bir daşım qaynadın"
+  ]
+ },
+ {
+  "id": "87be74c9-8271-47fa-aa1b-7d56d8593513",
+  "title": "Qatıqlı Qozlu Kabaçki Sote",
+  "description": "Aşağı kalorili amma doyurucu, qatıq probiotik olduğu üçün həzmə kömək edir",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Kabaçki - 2 ədəd",
+   "Sarımsaq - 1 diş",
+   "Qatıq - 1 kasa",
+   "Qoz - 2 xörək qaşığı",
+   "Şüyüd",
+   "Zeytun yağı"
+  ],
+  "instructions": [
+   "Kabaçkiləri qovurun",
+   "Soyuduqdan sonra sarımsaqlı qatıq əlavə edin",
+   "Şüyüd və qoz əlavə edin"
+  ]
+ },
+ {
+  "id": "729bbfc5-f4e9-4c62-83da-11343e2b9372",
+  "title": "Buxarda Hinduşka və Brokkoli",
+  "description": "Hinduşkadakı triptofan yuxu keyfiyyətini artırır, brokkoli fol turşusu anbarı",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Hinduşka filesi - 150 qr",
+   "Brokkoli - 150 qr",
+   "Limon suyu",
+   "Zeytun yağı"
+  ],
+  "instructions": [
+   "Əti və tərəvəzi buxarda 25 dəqiqə bişirin",
+   "Limon suyu və zeytun yağı gəzdirin"
+  ]
+ },
+ {
+  "id": "84e49361-f94b-4751-af92-a48dc4c25da7",
+  "title": "Kəsmikli Lavaş Ruleti",
+  "description": "Kalsiumla zəngin, mədəni yormayan sürətli şam yeməyi",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Lavaş - 1 ədəd",
+   "Kəsmik - 100 qr",
+   "Xiyar - 1 ədəd",
+   "Şüyüd",
+   "Qoz - 2 ədəd"
+  ],
+  "instructions": [
+   "Kəsmik, xiyar, şüyüd və qozu qarışdırın",
+   "Lavaşa yayın",
+   "Rulet bükün, dilimləyin"
+  ]
+ },
+ {
+  "id": "c86a2534-28db-4de0-9667-f24ac3182d89",
+  "title": "Tropik Detoks Smuzi",
+  "description": "Ananasdakı bromelain şişkinliyi atmağa kömək edir",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Ananas - 2 dilim",
+   "Xiyar - 1 ədəd",
+   "Cəfəri - 2-3 tel",
+   "Su - yarım stəkan"
+  ],
+  "instructions": [
+   "Hamısını blenderdə qarışdırın",
+   "Səhərlər için"
+  ]
+ },
+ {
+  "id": "d8f78084-553b-41ea-bd74-432eaf7e9422",
+  "title": "Ev Sayağı Snickers (Xurma Qayıqları)",
+  "description": "Enerji verir, qan azlığına kömək edir",
+  "category": "saglam_sirniyyatlar",
+  "ingredients": [
+   "Xurma - 6 ədəd",
+   "Fıstıq əzməsi - 4 çay qaşığı",
+   "Yer fıstığı - 6 ədəd",
+   "Tünd şokolad - 30 qr"
+  ],
+  "instructions": [
+   "Xurmanın çəyirdəyini çıxarın",
+   "Fıstıq əzməsi doldurun",
+   "Fıstıq qoyun",
+   "Ərimiş şokolad gəzdirin",
+   "Soyuducuda dondurun"
+  ]
+ },
+ {
+  "id": "a920fc1d-458e-46f5-a2e9-dca7ea79a61f",
+  "title": "Dondurulmuş Qatıq Barları",
+  "description": "Kalsium ehtiyacını ödəyir, mədə yanmasını sakitləşdirir",
+  "category": "saglam_sirniyyatlar",
+  "ingredients": [
+   "Süzmə qatıq - 1.5 stəkan",
+   "Bal - 1 xörək qaşığı",
+   "Giləmeyvələr - 1 ovuc",
+   "Püstə/qoz qırıntıları"
+  ],
+  "instructions": [
+   "Qatığı balla qarışdırın",
+   "Düz qaba yayın",
+   "Meyvə və çərəz səpin",
+   "Dondurucuda 3 saat saxlayın",
+   "Qırıb yeyin"
+  ]
+ },
+ {
+  "id": "3b230dc3-81f3-43a5-b56c-24296d3b832b",
+  "title": "Qaysılı Konfetlər",
+  "description": "Dəmir deposu, qəbizlik problemi olan hamilələr üçün təbii dərman",
+  "category": "saglam_sirniyyatlar",
+  "ingredients": [
+   "Ərik qurusu - 1 stəkan",
+   "Kokos yonqarı - 2 xörək qaşığı",
+   "Limon qabığı",
+   "Badam - yarım stəkan"
+  ],
+  "instructions": [
+   "Ərik qurusunu isladın",
+   "Bütün ərzaqları blenderdə xırdalayın",
+   "Toplar düzəldin",
+   "Kokos yonqarına batırın"
+  ]
+ },
+ {
+  "id": "fc4f12b8-7e49-4b03-9795-79a867c283e5",
+  "title": "Alma Donatları",
+  "description": "Lifli və xırtıldayan qəlyanaltı, bişirilmədən hazırlanır",
+  "category": "saglam_sirniyyatlar",
+  "ingredients": [
+   "Alma - 2 ədəd",
+   "Fıstıq əzməsi",
+   "Damla şokolad",
+   "Günəbaxan tumu, qoz"
+  ],
+  "instructions": [
+   "Almanın ortasını çıxarın",
+   "Halqa-halqa doğrayın",
+   "Fıstıq əzməsi çəkin",
+   "Çərəzlərlə bəzəyin"
+  ]
+ },
+ {
+  "id": "4967c352-4a1e-42bd-be6e-64302b16bec0",
+  "title": "İmmunitet Şotu",
+  "description": "Qrip və soyuqdəymədən qorunmaq üçün güclü antioksidant",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Portağal suyu - yarım stəkan",
+   "Sarıkök tozu - yarım çay qaşığı",
+   "Qara istiot - bir çimdik",
+   "Zeytun yağı"
+  ],
+  "instructions": [
+   "Yaxşıca qarışdırıb için"
+  ]
+ },
+ {
+  "id": "6db2e407-1ec0-4bf4-af10-d55ecb9f0e4f",
+  "title": "Yaqut Eliksiri",
+  "description": "Hemoqlobini artırır, qanı təmizləyir",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Çuğundur - kiçik parça",
+   "Kök - kiçik parça",
+   "Alma - yarım",
+   "Limon - 1 dilim"
+  ],
+  "instructions": [
+   "Şirəçəkəndən keçirin",
+   "Şot stəkanına tökün"
+  ]
+ },
+ {
+  "id": "24714855-3f91-4f23-8a26-d44837dc668e",
+  "title": "Məxməri Bənövşəyi Smuzi",
+  "description": "Gavalı qurusu və kətan toxumu bağırsaqları yumşaldır",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Kefir - 1 stəkan",
+   "Gavalı qurusu - 3 ədəd",
+   "Kətan toxumu - 1 çay qaşığı",
+   "Banan - yarım"
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderdə qarışdırın",
+   "Dərhal için"
+  ]
+ },
+ {
+  "id": "a0dd2f7f-4bf5-469a-8ac2-80ba7e742c2a",
+  "title": "Omeqa Parıltısı Smuzisi",
+  "description": "Beyin inkişafı üçün Omeqa-3 ilə zəngin",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Avokado - yarım",
+   "Banan - 1 ədəd",
+   "Qoz - 2 ədəd",
+   "İspanaq",
+   "Badam südü - 1 stəkan"
+  ],
+  "instructions": [
+   "Hamısını blenderdə qarışdırın"
+  ]
+ },
+ {
+  "id": "ba869d0c-6059-4e21-8549-a6fc4dbae37c",
+  "title": "Çəhrayı Bulud Smuzisi",
+  "description": "Süd və küncüt sümükləri, dişləri qoruyur",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Süd - 1 stəkan",
+   "Çiyələk - 6 ədəd",
+   "Banan - yarım",
+   "Küncüt - 1 çay qaşığı"
+  ],
+  "instructions": [
+   "Blenderdən keçirin",
+   "Soyuq için"
+  ]
+ },
+ {
+  "id": "db39aaba-46b8-48c5-9ee2-718a433c813d",
+  "title": "Morning Layers - Qatıq və Qranola",
+  "description": "Probiyotiklə zəngin, həzmi asanlaşdıran səhər yeməyi. Kalsium və enerji mənbəyi.",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Qatıq: 1 kasa",
+   "Yulaf: 3 xörək qaşığı",
+   "Qoz: 1 ovuc (xırdalanmış)",
+   "Bal: 1 xörək qaşığı",
+   "Meyvə (banan, çiyələk): ixtiyari"
+  ],
+  "instructions": [
+   "Yulafı quru tavada yüngülcə qovurun",
+   "Qozu xırdalayıb yulafa əlavə edin",
+   "Bal əlavə edib qarışdırın - bu sizin qranolanızdır",
+   "Kasaya qatıq qoyun, üzərinə qranola səpin",
+   "Təzə meyvə dilimləri əlavə edin"
+  ]
+ },
+ {
+  "id": "eff41793-674f-452c-86c7-b28f4dd44a0f",
+  "title": "Ocean Breeze Bagel - Qızılbalıq Tostu",
+  "description": "Beyin dumanını dağıdan və dərini parıldadan Omeqa-3 deposu.\n\nFaydası: Qızılbalıq qadınlarda ürək-damar və beyin sağlamlığını dəstəkləyir, dərinin elastikliyini artırır.",
+  "category": "breakfast",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Çovdar çörəyi və ya tam buğda simiti (bagel): 1 ədəd",
+   "Krem pendir (labne): 1 xörək qaşığı",
+   "Hissə verilmiş qızılbalıq (Somon): 2-3 nazik dilim",
+   "Xiyar dilimləri, şüyüd."
+  ],
+  "instructions": [
+   "Çörəyin üzərinə krem pendir çəkin. Üzərinə xiyar və qızılbalıq dilimlərini yerləşdirin. Təzə şüyüdlə bəzəyib yeyin."
+  ]
+ },
+ {
+  "id": "29bb0ce4-9bdc-4fac-b1c7-e5b836d8f1d0",
+  "title": "Şakşuka",
+  "description": "İsti, bol pomidorlu və ədviyyatlı həftəsonu klassikası.\n\nFaydası: Bişmiş pomidordakı likopen qadın orqanizmi üçün ən güclü xərçəngəleyhinə antioksidantlardan biridir.",
+  "category": "breakfast",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Yumurta: 2 ədəd",
+   "Pomidor: 2 ədəd (doğranmış)",
+   "Rəngli bibər: Yarım ədəd (doğranmış)",
+   "Soğan: Yarım ədəd",
+   "Zeytun yağı, zirə tozu (kumin), duz, istiot."
+  ],
+  "instructions": [
+   "Tavada soğanı və bibəri zeytun yağında qovurun. Pomidor və ədviyyatları əlavə edib sous halına gələnə qədər bişirin. Sousun içində boşluqlar açıb yumurtaları qırın və qapağı örtərək istədiyiniz qatılıqda bişirin."
+  ]
+ },
+ {
+  "id": "fe3cad51-3e25-4969-b2ba-dbb221d883b9",
+  "title": "Ocean's Gift - Qızılbalıq",
+  "description": "Omeqa-3 ilə zəngin ana südü üçün ideal. Körpənin beyin inkişafını dəstəkləyir.",
+  "category": "sam_yemeyi",
+  "tags": [
+   "postpartum"
+  ],
+  "ingredients": [
+   "Qızılbalıq (Somon): 150 qr",
+   "Qulançar və ya Yaşıl lobya: 100 qr",
+   "Limon: yarım ədəd",
+   "Şüyüd: 1 dəstə",
+   "Zeytun yağı: 1 xörək qaşığı"
+  ],
+  "instructions": [
+   "Balığı duzlayıb limon suyu ilə marine edin (10 dəq)",
+   "Tərəvəzləri yanında düzün",
+   "Zeytun yağı çəkin, folqa ilə bükün",
+   "Sobada 180°C-də 20 dəqiqə bişirin",
+   "Üzərinə bol təzə şüyüd səpin - süd kanallarını açır"
+  ]
+ },
+ {
+  "id": "7b50a305-3e3e-47ca-8cb4-e9cc2bf8695d",
+  "title": "Emerald Velvet - İspanaq Şorbası",
+  "description": "Dəmir ehtiyacını ödəyən, yorğunluğu alan yaşıl enerji. Fol turşusu ilə zəngin.",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "İspanaq: 1 böyük dəstə",
+   "Kartof: 1 ədəd",
+   "Soğan: 1 ədəd",
+   "Qaymaq (və ya süd): yarım stəkan",
+   "Duz, istiot"
+  ],
+  "instructions": [
+   "Tərəvəzləri doğrayıb suda qaynadın",
+   "Yumşalandan sonra blenderdən keçirib püre halına salın",
+   "Sonda qaymağı əlavə edib bir daşım qaynadın",
+   "Duz və istiot əlavə edin",
+   "İsti verin - dəmir ehtiyacı üçün ideal"
+  ]
+ },
+ {
+  "id": "7bcfa70e-7c6a-42b0-84fa-c8b8642dc2e8",
+  "title": "Yaqut Yahnisi - Çuğundur və Ət",
+  "description": "Qan artıran və süd gətirən möhtəşəm duet. Dəmir və zülal qaynağı.",
+  "category": "nahar_yemeyi",
+  "tags": [
+   "postpartum"
+  ],
+  "ingredients": [
+   "Mal əti: 200 qr (kub doğranmış)",
+   "Çuğundur: 1 ədəd (böyük)",
+   "Kök: 1 ədəd",
+   "Bulyon: 2 stəkan",
+   "Duz, istiot"
+  ],
+  "instructions": [
+   "Əti kiçik kublar halında doğrayıb yumşalana qədər qaynadın",
+   "Çuğundur və kökü soyub doğrayın",
+   "Ətə əlavə edib vam odda 30-40 dəqiqə bişirin",
+   "Duz və istiot əlavə edin",
+   "İsti verin - qan yaradıcı və süd artırıcı"
+  ]
+ },
+ {
+  "id": "fa71b0aa-2b84-4b46-9f5a-66cd2a1a924c",
+  "title": "Vanilla Bean Macchiato",
+  "description": "Süni sirop yerinə təbii vanil dənələrinin istifadə edildiyi əsl İtalyan ləzzəti.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 fincan espresso, dörddə bir stəkan isti və köpüklü süd, təbii vanil çubuğunun dənələri (və ya orqanik vanil ekstraktı)."
+  ],
+  "instructions": [
+   "Südü vanillə birlikdə isidib yaxşıca köpükləndirin. İsti espressonun üzərinə yalnız vanilli köpüyü qaşıqla qoyun."
+  ]
+ },
+ {
+  "id": "a8e7b2fb-a93b-4062-b10e-3ec92ab8f15b",
+  "title": "Golden Quinoa Porridge",
+  "description": "Sübut olunmuş enerji və bitki mənşəli dəmir mənbəyi.\n\nFaydası: Kinoa qlüten ehtiva etməyən və bütün əvəzolunmaz amin turşularına sahib mükəmməl taxıldır, qan şəkərini nizamlayır.",
+  "category": "breakfast",
+  "ingredients": [
+   "Kinoa: Yarım stəkan (yaxşıca yuyulmuş)",
+   "Badam südü: 1 stəkan",
+   "Sarıkök tozu: Yarım çay qaşığı (iltihab əleyhinə)",
+   "Badam ləpəsi, kişmiş və ya qara gavalı qurusu."
+  ],
+  "instructions": [
+   "Kinoanı südlə birlikdə qazana qoyun, sarıkök əlavə edin və suyu çəkilənə qədər vam odda bişirin. Ocaqdan alıb üzərinə badam və kişmiş səpin."
+  ]
+ },
+ {
+  "id": "5ea647ef-3b19-4587-8829-05b5dcb6c41c",
+  "title": "Küncüt Xırtıltısı Pasteli",
+  "description": "Qədim enerji barı: Sadəcə bal və küncüt. Kalsiumla dolu, şəkər istəyini kəsir.",
+  "category": "saglam_sirniyyatlar",
+  "ingredients": [
+   "Küncüt: 1 stəkan",
+   "Bal: yarım stəkan"
+  ],
+  "instructions": [
+   "Küncütü quru tavada yüngülcə qovurun (qızarana qədər)",
+   "Balı ayrıca tavada qızdırın - köpüklənsin",
+   "Qovrulmuş küncütü bala əlavə edib sürətlə qarışdırın",
+   "Yağlı kağız üzərinə yayın (1 sm qalınlığında)",
+   "Soyuduqdan sonra romb şəklində dilimləyin"
+  ]
+ },
+ {
+  "id": "971c317e-b7ac-4733-b72a-ef93a65eb1b6",
+  "title": "Super Grain Bowl - Kinoa Salatı",
+  "description": "Zülal bombası. Bütün əvəzolunmaz amin turşularını ehtiva edir, südün keyfiyyətini artırır.",
+  "category": "nahar_yemeyi",
+  "tags": [
+   "postpartum"
+  ],
+  "ingredients": [
+   "Kinoa: yarım stəkan (bişmiş)",
+   "Qara lobya və ya noxud: yarım stəkan",
+   "Avokado: yarım ədəd",
+   "Cəfəri: 1 dəstə",
+   "Limon suyu, zeytun yağı"
+  ],
+  "instructions": [
+   "Kinoanu yuyub 15 dəqiqə bişirin, süzün",
+   "Bişmiş lobya/noxudu əlavə edin",
+   "Avokadonu kub şəklində doğrayın",
+   "Cəfəri, limon suyu və zeytun yağı ilə qarışdırın",
+   "Soyuq və ya otaq temperaturunda verin"
+  ]
+ },
+ {
+  "id": "12f0782c-f0f2-4ba6-a173-dbb482071e15",
+  "title": "The First Green - Kabaçki Püresi",
+  "description": "Körpənin həzm sistemi üçün ən yüngül başlanğıc (6 ay+)",
+  "category": "baby_food",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Kabaçki - 1 kiçik ədəd",
+   "Zeytun yağı - 1 çay qaşığı",
+   "Ana südü/formala"
+  ],
+  "instructions": [
+   "Kabaçkini buxarda bişirin",
+   "Blenderdə əzin",
+   "Ana südü və zeytun yağı əlavə edin"
+  ]
+ },
+ {
+  "id": "ee7e5b2c-3005-40bc-948c-9e7d5600cfdc",
+  "title": "The Orange Glow - Kök Salatı",
+  "description": "Kök və tahinin kalsium dolu ittifaqı. Beta-karotin və kalsium südün keyfiyyətini artırır.",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Kök: 2 ədəd (rəndələnmiş)",
+   "Qoz: 1 ovuc (xırdalanmış)",
+   "Tahin (küncüt əzməsi): 1 xörək qaşığı",
+   "Limon suyu, zeytun yağı",
+   "Şüyüd: bir neçə tel"
+  ],
+  "instructions": [
+   "Kökü rəndələyin",
+   "Qozu xırdalayıb əlavə edin",
+   "Şüyüdü xırda doğrayın",
+   "Tahin, limon suyu və zeytun yağından sos hazırlayın",
+   "Hamısını qarışdırıb verin - vitaminlə dolu"
+  ]
+ },
+ {
+  "id": "50c1c324-2182-4a8b-9fa1-e6567601c2d3",
+  "title": "Həyat Nektarı Kompotu",
+  "description": "Qurudulmuş meyvələrin şəkərsiz, təbii şirəsi. Südün 80%-i sudur - bu kompot susuzluğu yatırır.",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Qaysı (ərik qurusu): 5-6 ədəd",
+   "Qara gavalı qurusu: 3-4 ədəd",
+   "Alma (qurusu və ya təzə): dilimlənmiş",
+   "Su: 1.5 litr"
+  ],
+  "instructions": [
+   "Qurudulmuş meyvələri yuyun",
+   "1.5 litr suya atın və qaynara gətirin",
+   "Qaynara düşdükdən sonra vam odda 20 dəqiqə qaynadın",
+   "Şəkər əlavə etməyin - meyvənin öz şirinliyi kifayətdir",
+   "Soyuq için - gün ərzində bol-bol"
+  ]
+ },
+ {
+  "id": "d3d9ab59-ad73-4c09-ad5f-3b3fedca7488",
+  "title": "Golden Apple - Bişmiş Alma Püresi",
+  "description": "Bişmiş alma qaz yaratmır və çox dadlıdır (6 ay+)",
+  "category": "baby_food",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Alma - 1 ədəd",
+   "Su"
+  ],
+  "instructions": [
+   "Almanı soyub dilimləyin",
+   "Buxarda bişirin",
+   "Blenderdən keçirin"
+  ]
+ },
+ {
+  "id": "8c40752c-6db4-4615-b2ca-638a97aa09f6",
+  "title": "Orange Power - Balqabaq və Kök Püresi",
+  "description": "Beta-karotin qaynağı, şirin dadı körpələrin xoşuna gəlir (6-7 ay)",
+  "category": "baby_food",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Balqabaq - 1 dilim",
+   "Kök - 1 ədəd"
+  ],
+  "instructions": [
+   "Tərəvəzləri buxarda bişirin",
+   "Blenderdə hamar püre edin"
+  ]
+ },
+ {
+  "id": "07319d7d-c920-4693-bc34-502061f38b1b",
+  "title": "Ocean’s Pearl- Somon və Qulançar",
+  "description": "Dərini içəridən nəmləndirən və ödəmi atan klassik ikili.\n\nFaydası: Qızılbalıqdakı Omeqa-3 saçları və dərini parıldadır, qulançar isə təbii diuretikdir (bədəndəki artıq suyu və şişkinliyi atır).",
+  "category": "nahar yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Qızılbalıq (Somon) filesi: 150 qr",
+   "Qulançar (Asparaqus): 6-8 ədəd",
+   "Limon: Yarım ədəd",
+   "Zeytun yağı, dəniz duzu, qara istiot."
+  ],
+  "instructions": [
+   "Qulançarların sərt uclarını kəsin. Soba listinə balığı və qulançarları düzün. Üzərinə zeytun yağı, duz, istiot və limon suyu əlavə edib 180 dərəcədə 15-20 dəqiqə bişirin."
+  ]
+ },
+ {
+  "id": "fff5b4d4-5ba2-4e96-98ea-a65ef476ad64",
+  "title": "Sobada Falafel",
+  "description": "Qızartmadan uzaq duranlar üçün sobada bişmiş, lifli və xırtıldayan şərq ləzzəti.\n\nFaydası: Noxud qadın orqanizmində estrogen səviyyəsini təbii yolla dəstəkləyir, lifli quruluşu qəbizliyin qarşısını alır.",
+  "category": "nahar yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Noxud: 1 stəkan (axşamdan isladılmış, çiy)",
+   "Təzə cəfəri və keşniş: Yarım dəstə",
+   "Soğan, sarımsaq, kimyon (cirə tozu)."
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderdə çox əzmədən xırdalayın. Əlinizlə kiçik küftələr düzəldib yağlı kağız üzərində 180 dərəcədə 25 dəqiqə bişirin. Yanında qatıq və ya tahin sousu ilə yeyin."
+  ]
+ },
+ {
+  "id": "0af2c4bf-6712-4fe8-994f-bb2c520b2caf",
+  "title": "Brokkoli (Gül Kələmi)Qrateni",
+  "description": "Kalsium və C vitamini qaynağı, ət istəməyən günlər üçün alternativ",
+  "category": "sam_yemeyi",
+  "tags": [
+   "pregnancy"
+  ],
+  "ingredients": [
+   "Gül kələmi və ya Brokkoli - 300 qr",
+   "Yumurta - 2 ədəd",
+   "Qatıq - 2 xörək qaşığı",
+   "Un - 1 xörək qaşığı",
+   "Pendir - 30 qr"
+  ],
+  "instructions": [
+   "Gül kələmi və ya Brokkolini bişirin",
+   "Yumurta, qatıq və unu çırpın",
+   "Tərəvəzin üzərinə tökün",
+   "Pendir səpib sobada bişirin"
+  ]
+ },
+ {
+  "id": "c7535dc2-4407-4715-bc23-3a8242531319",
+  "title": "Avokadolu Şokoladlı Muss",
+  "description": "Avokado fol turşusu və maqneziumla zəngin, kakao xoşbəxtlik hormonu ifraz edir",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Avokado - 1 ədəd",
+   "Kakao - 2 xörək qaşığı",
+   "Bal - 3 xörək qaşığı",
+   "Vanil",
+   "Badam südü - 3 qaşıq"
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderə tökün",
+   "Krem halına gələnə qədər qarışdırın",
+   "Soyuducuda 30 dəqiqə saxlayın",
+   "Çiyələk ilə servis edin"
+  ]
+ },
+ {
+  "id": "b8788575-43f0-4748-a08b-a02e6044caa7",
+  "title": "The Green Miracle - Şüyüdlü Küftə",
+  "description": "Azərbaycan mətbəxinin süd artıran ən məşhur sirri: Bol şüyüd! Süd kanallarını açır.",
+  "category": "nahar_yemeyi",
+  "ingredients": [
+   "Qiymə (mal və ya toyuq): 300 qr",
+   "Düyü: yarım stəkan",
+   "Şüyüd: 2 böyük dəstə",
+   "Kartof: 2 ədəd",
+   "Soğan: 1 ədəd",
+   "Duz, istiot"
+  ],
+  "instructions": [
+   "Qiymə, yuyulmuş düyü və xırda doğranmış şüyüdün yarısını qarışdırın",
+   "Duz, istiot əlavə edib küftələr düzəldin",
+   "Qaynayan suya doğranmış kartof və soğan atın",
+   "5 dəq sonra küftələri əlavə edin, vam odda 25-30 dəq bişirin",
+   "Bişməyə yaxın qalan şüyüdü bol doğrayıb şorbaya tökün"
+  ]
+ },
+ {
+  "id": "52d3741b-ea80-45a2-99fd-beda7e7b6c4a",
+  "title": "Kəhrəba Axını - Hülbə Çayı",
+  "description": "Dünyada ən güclü süd artıran bitki: Hülbə (Fenugreek). Prolaktin hormonunu stimullaşdırır.",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Hülbə toxumu (Fenugreek): 1 çay qaşığı",
+   "Su: 2 stəkan",
+   "Bal: 1 çay qaşığı (ixtiyari)",
+   "Limon: bir neçə damcı"
+  ],
+  "instructions": [
+   "Hülbə toxumlarını quru tavada 1-2 dəqiqə yüngülcə qovurun (yanmasın)",
+   "Qaynar suya əlavə edin",
+   "10 dəqiqə dəmləyin, süzün",
+   "İstəyə görə bal və limon əlavə edin",
+   "Gündə 2-3 fincan için - süd artımı 24-48 saata hiss olunur"
+  ]
+ },
+ {
+  "id": "8c4792f6-0abc-4597-99d1-ff981dc2a340",
+  "title": "Matcha Morning Bowl",
+  "description": "Kofeinsiz oyanmaq istəyənlər üçün antioksidant və maddələr mübadiləsi sürətləndirici.\n\nFaydası: Matça çayı metobalizmi sürətləndirir və dərini təmizləyir. Kofe kimi anidən enerji verib yormur, gün boyu balanslı gümrahlıq yaradır",
+  "category": "breakfast",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Dondurulmuş banan: 1 ədəd",
+   "Matça tozu: 1 çay qaşığı",
+   "İspanaq: 1 kiçik ovuc",
+   "Badam südü: Yarım stəkan",
+   "Üzəri üçün: Kokos yonqarı, badam ləpəsi, kivi dilimləri."
+  ],
+  "instructions": [
+   "Banan, matça, ispanaq və südü qatı bir smuzi olana qədər blenderdən keçirin. Kasaya töküb üzərini çərəz və kivi ilə bəzəyin."
+  ]
+ },
+ {
+  "id": "13b7591b-479c-457d-ab27-09785681c532",
+  "title": "Sweet Dreams Şot",
+  "description": "Əzələ qıcolmaları və gərginliyi azaltmaq üçün",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Badam - 5 ədəd (isladılmış)",
+   "Banan - dörddə bir",
+   "Kakao - yarım çay qaşığı",
+   "Su - 2 xörək qaşığı"
+  ],
+  "instructions": [
+   "Badamları təmizləyin",
+   "Hamısını blenderdə maye halına gətirin"
+  ]
+ },
+ {
+  "id": "2b374b35-8810-48b4-a990-d7b6c19bcd99",
+  "title": "Creamy Brain - Avokado Banan",
+  "description": "Beyin inkişafı üçün Omeqa-3 bombası, bişirmə tələb etmir (7 ay+)",
+  "category": "baby_food",
+  "tags": [
+   "baby_food",
+   "vitamin_rich"
+  ],
+  "ingredients": [
+   "Avokado - yarım ədəd",
+   "Banan - yarım ədəd"
+  ],
+  "instructions": [
+   "Hər ikisini çəngəllə əzin",
+   "Pütürlü saxlayın"
+  ]
+ },
+ {
+  "id": "f7f4a9f1-a670-4aa2-bc79-2ba16bd08e45",
+  "title": "Little Protein - Toyuq və Tərəvəz",
+  "description": "Körpənin ilk ət təcrübəsi (7-8 ay)",
+  "category": "baby_food",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Toyuq döş əti - 40 qr",
+   "Brokkoli - 3 çiçək",
+   "Zeytun yağı"
+  ],
+  "instructions": [
+   "Əti qaynadın, ilk suyunu atın",
+   "Tərəvəz əlavə edib bişirin",
+   "Birlikdə blenderdən keçirin"
+  ]
+ },
+ {
+  "id": "b455efa4-2b34-4269-90be-921a5749ae99",
+  "title": "Ocean Mild - Ağ Balıq və Tərəvəz",
+  "description": "Fosfor və yod qaynağı (9-10 ay)",
+  "category": "baby_food",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Ağ balıq - 40 qr",
+   "Kök - yarım ədəd",
+   "Soğan - az"
+  ],
+  "instructions": [
+   "Balığı tərəvəzlərlə buxarda bişirin",
+   "Sümükləri diqqətlə yoxlayın",
+   "Çəngəllə didin"
+  ]
+ },
+ {
+  "id": "e3dad099-6f8a-4e3c-8dfa-2922158c70b6",
+  "title": "Gül Kələmi Pizzası",
+  "description": "Pizza həzzini vicdan əzabı çəkmədən, qlüten və xəmir olmadan yaşamaq üçün.\n\nFaydası: Kələm fito-qidalara zəngindir, qaraciyəri təmizləyir. Bu pizza qətiyyən köp və qıcqırma yaratmır.",
+  "category": "şam yeməyi",
+  "ingredients": [
+   "Gül kələmi: Yarım baş (rəndələnmiş və suyu tam sıxılmış)",
+   "Yumurta: 1 ədəd",
+   "Pendir (rəndələnmiş): 3 xörək qaşığı (xəmir üçün)",
+   "Üzəri üçün: Tomat pastası, pomidor dilimləri, pendir, fesləyən."
+  ],
+  "instructions": [
+   "Rəndələnmiş gül kələmini yumurta və pendirlə yoğurub soba listində pizza xəmiri kimi yayın. 200 dərəcədə 15 dəqiqə (qızarana qədər) bişirin. Sonra çıxarıb üzərinə sous və inqrediyentləri düzün, pendir əriyənə qədər 5 dəqiqə daha bişirin."
+  ]
+ },
+ {
+  "id": "cc18259a-201a-4dd4-83bd-d60fc14dccba",
+  "title": "İlıq Göbələk və İspanaq Salatı",
+  "description": "Ət yemək istəmədiyiniz axşamlar üçün torpaq ətirli, ilıq və doyurucu salat.\n\nFaydası: İspanaqdakı maqnezium əzələləri rahatladır, göbələk isə immuniteti gücləndirən D vitamini və B qrupu vitaminləri ilə doludur.",
+  "category": "şam yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Şampinyon və ya İstiridyə göbələyi: 150 qr (doğranmış)",
+   "Körpə ispanaq: 2-3 ovuc (çiy)",
+   "Qoz: 1 ovuc",
+   "Balzam sirkəsi, zeytun yağı, sarımsaq (azca)."
+  ],
+  "instructions": [
+   "Göbələkləri bir diş sarımsaqla birlikdə az yağda qızarana qədər qovurun. İspanaqları kasaya yığın. İsti göbələkləri ispanağın üzərinə tökün (istilik ispanağı yüngülcə yumşaldacaq). Qoz səpib balzam sirkəsi gəzdirin."
+  ]
+ },
+ {
+  "id": "a5b41661-394b-4403-8c11-ef8c670867ac",
+  "title": "Mərciməkli - Kabaçki Spagettisi",
+  "description": "Spagetti həsrətinə son qoyan, bitki mənşəli zülalla zəngin yalançı pasta.\n\nFaydası: Kabaçki sayəsində sıfır karbohidrat qəbul edirsiniz, mərcimək isə bitki mənşəli dəmir və lif verərək həzmi asanlaşdırır.",
+  "category": "şam yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kabaçki: 2 ədəd (spagetti kimi kəsilmiş)",
+   "Qırmızı mərcimək: Yarım stəkan (qaynadılmış)",
+   "Pomidor, soğan, sarımsaq (sous üçün)."
+  ],
+  "instructions": [
+   "Soğan və pomidorla \"Bolonez\" tərzi sous hazırlayıb içinə bişmiş mərciməkləri qatın. Kabaçkiləri tavada 2 dəqiqə sote edib boşqaba alın, üzərinə bol mərciməkli sous tökün."
+  ]
+ },
+ {
+  "id": "0b4a6a47-3a40-4940-a2d5-e0a7260449ef",
+  "title": "Göyqurşağı Şişləri(3 yaş+)",
+  "description": "Meyvə yeməyi əyləncəli bir oyuna çevirən, rəngarəng və təhlükəsiz şişlər.\n\nFaydası: Fərqli rəngdəki meyvələr fərqli vitaminlər (C, K, antioksidantlar) deməkdir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Çiyələk (qırmızı), Mandalin (narıncı), Banan (sarı), Kivi (yaşıl), Qaragilə (mavi/bənövşəyi).",
+   "Uşaqlar üçün təhlükəsiz, küt uclu plastik və ya taxta şişlər (çöplər)."
+  ],
+  "instructions": [
+   "Meyvələri uşağın yeyə biləcəyi kiçik kublar şəklində doğrayın. Göyqurşağı rəngləri sırası ilə şişlərə düzün."
+  ]
+ },
+ {
+  "id": "71d8c222-1035-4fd0-929b-23c2b485af16",
+  "title": "Sarımsaqlı Krevetka və Kabaçki",
+  "description": "Kofe və ya restoran keyfiyyətində, lakin kalorisi yox deyiləcək qədər az olan dəniz məhsulu ziyafəti.\n\nFaydası: Krevetka (karides) sink və yodla zəngindir (saç və dırnaqları gücləndirir). Çox yüngül olduğu üçün axşam saatları üçün idealdır.",
+  "category": "şam yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Krevetka (təmizlənmiş): 150 qr",
+   "Kabaçki: 2 ədəd (spagetti kimi doğranmış)",
+   "Kərə yağı (az) və zeytun yağı qarışığı.",
+   "Sarımsaq: 2 diş (əzilmiş), pul bibər."
+  ],
+  "instructions": [
+   "Tavada yağ və sarımsağı isidin, krevetkaları atıb çəhrayı rəng alana qədər (cəmi 3-4 dəqiqə) qovurun. Kabaçkiləri əlavə edib 2 dəqiqə daha sote edin. Limon sıxıb dərhal servis edin."
+  ]
+ },
+ {
+  "id": "866a9373-a971-4ae1-bcb7-5c987dbcae3a",
+  "title": "Lavanda Südü",
+  "description": "Gərgin bir günün ardından stressi silib atan və körpə kimi yatıran sehrli içki.\n\nFaydası: Lavandanın qoxusu və dadı sinir sistemini dərhal sakitləşdirir, yuxu keyfiyyətini artırır.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Badam və ya yulaf südü: 1 stəkan",
+   "Qurudulmuş lavanda (kulinariya üçün): 1 çay qaşığı",
+   "Bal və ya aqava şərbəti: 1 çay qaşığı",
+   "Vanil ekstraktı: Bir neçə damcı."
+  ],
+  "instructions": [
+   "Südü qazanda isidin (qaynatmayın). İçinə lavandanı atıb 5-10 dəqiqə dəmlənməsini gözləyin. Süzgəcdən keçirib stəkana süzün, bal və vanil əlavə edib ilıq için."
+  ]
+ },
+ {
+  "id": "d9f4e457-b6da-4ebb-92a8-543b9465b164",
+  "title": "Yaqut Hibiskus Moxitosu",
+  "description": "Gənclik iksiri və qan təzyiqini tənzimləyən qırmızı ləzzət.\n\nFaydası: Hibiskus (Məkkə gülü) C vitamini və antioksidant anbarıdır, metobalizmi sürətləndirir və ürək-damar sistemini qoruyur.",
+  "category": "Sağlam içkilər",
+  "ingredients": [
+   "Hibiskus çayı (tünd dəmlənib soyudulmuş): Yarım stəkan",
+   "Nanə yarpaqları: 5-6 ədəd",
+   "Laym: Yarım ədəd (dilimlənmiş)",
+   "Qazlı su (mineral su) və buz."
+  ],
+  "instructions": [
+   "Stəkanın dibində nanə və laym dilimlərini taxta toqmaqla əzin. Üzərinə bol buz tökün. Soyuq hibiskus çayını və mineral suyu əlavə edib qarışdırın."
+  ]
+ },
+ {
+  "id": "d407408a-9e13-47c0-b565-ec699f31591e",
+  "title": "Citrus Spark",
+  "description": "Maddələr mübadiləsini oyadan, yağ yandırmağa kömək edən səhər kokteyli.\n\nFaydası: Qreypfrut insulin səviyyəsini tarazlayır, rozmarin isə yaddaşı və konsentrasiyanı gücləndirir.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Qreypfrut şirəsi (təzə sıxılmış): Yarım stəkan",
+   "Təzə rozmarin: 1 budaq",
+   "Qazlı su: Yarım stəkan",
+   "Buz."
+  ],
+  "instructions": [
+   "Rozmarin budağını əlinizlə yüngülcə əzin (ətiri çıxsın deyə) və stəkana qoyun. Üzərinə buz, qreypfrut şirəsi və mineral su tökün."
+  ]
+ },
+ {
+  "id": "fff46867-aa41-4bc9-8647-1346ba044359",
+  "title": "Iced Cacao Protein Shake",
+  "description": "İdman sonrası əzələ bərpası və toxluq hissi üçün idealdır.",
+  "category": "Sağlam içkilər",
+  "ingredients": [
+   "1 xörək qaşığı kakao, 1 dondurulmuş banan, 1 xörək qaşığı fıstıq əzməsi, 1 stəkan soyuq süd, buz."
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderdə qatı bir şeyk olana qədər çəkin."
+  ]
+ },
+ {
+  "id": "b3153614-fcee-47f5-887f-a9f21df0723d",
+  "title": "Kinoa və Şokolad Loxmaları",
+  "description": "PMS (aybaşı öncəsi) dövründə yaranan şokolad krizinə ən xırtıldayan və sağlam cavab.\n\nFaydası: Tünd şokolad maqneziumla doludur (krampları və gərginliyi azaldır), partladılmış kinoa isə zülal verir və qan şəkərini sabit saxlayır.",
+  "category": "Sağlam şirniyyatlar",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Tünd şokolad (ən az 70% kakao): 100 qr",
+   "Partladılmış kinoa (və ya yulaf): 1 stəkan",
+   "Dəniz duzu: Çox az miqdarda (üzəri üçün)"
+  ],
+  "instructions": [
+   "Şokoladı buxarda (bain-marie üsulu) əridin. İçinə kinoanı qatıb yaxşıca qarışdırın. Qaşıqla yağlı kağızın üzərinə kiçik topalar şəklində tökün. Üzərinə dəniz duzu səpib soyuducuda 20 dəqiqə dondurun."
+  ]
+ },
+ {
+  "id": "1b665124-a619-4ee4-9dce-a48ced0f8106",
+  "title": "Kakao - Avokadolu Tart",
+  "description": "Şokoladlı tartın heç vaxt təxmin edilməyəcək qədər sağlam, bişirilməyən versiyası.\n\nFaydası: Avokadonun sağlam yağları qadın hormonlarının sintezi üçün mütləqdir. Kakao isə endorfin (xoşbəxtlik) ifrazını artırır.",
+  "category": "Sağlam şirniyyatlar",
+  "ingredients": [
+   "Baza üçün: 1 stəkan qoz, 10 ədəd xurma.",
+   "Krem üçün: 2 ədəd yetişmiş avokado, yarım stəkan şəkərsiz kakao, 4 xörək qaşığı bal və ya bəhməz."
+  ],
+  "instructions": [
+   "Qoz və xurmanı blenderdə çəkib tart qabının dibinə yayın. Krem üçün avokado, kakao və balı tam ipək kimi olana qədər blenderdən keçirin. Baza üzərinə yayıb soyuducuda 2 saat saxlayın."
+  ]
+ },
+ {
+  "id": "23124658-0378-42aa-b696-d264cdef885d",
+  "title": "Fıstıq Əzməli Xurma",
+  "description": "Əsl karamelli şokolad yeyirmişsiniz hissi verən, anında enerji toplayan \"snack\".\n\nFaydası: Rafinə şəkər krizini tamamilə kəsir. Fıstıq əzməsi zülal və sağlam yağlarla doyuruculuğu artırır.",
+  "category": "Sağlam şirniyyatlar",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Medjool xurması (böyük, yumşaq): 5-6 ədəd",
+   "Şəkərsiz fıstıq (yer fındığı) əzməsi: 2 xörək qaşığı",
+   "Tünd şokolad (əridilmiş)."
+  ],
+  "instructions": [
+   "Xurmaları uzununa kəsib çəyirdəyini çıxarın. İçini fıstıq əzməsi ilə doldurun. Xurmaları yarısına qədər əridilmiş tünd şokolada batırın və donması üçün soyuducuya qoyun."
+  ]
+ },
+ {
+  "id": "64191934-b404-495f-b229-388b63914389",
+  "title": "Çiyələkli Kaju Çizkeyki",
+  "description": "Süd məhsulları, un və şəkər olmadan hazırlanan möhtəşəm \"Raw Vegan\" çizkeyk.\n\nFaydası: Kaju qan təzyiqini tənzimləyir, çiyələk isə yaşlanma əleyhinə təsir göstərən C vitamini ilə doludur.",
+  "category": "Sağlam şirniyyatlar",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Baza üçün: Badam, xurma (blenderdə çəkilmiş).",
+   "Krem üçün: 1.5 stəkan kaju (gecədən isladılmış), 1 stəkan çiyələk, 3 xörək qaşığı əridilmiş kokos yağı, aqava şərbəti."
+  ],
+  "instructions": [
+   "Baza qarışımını qəlibin dibinə basın. Suyunu süzdüyünüz kajunu çiyələk, yağ və şərbətlə blenderdə tam hamar krem olana qədər çəkin. Bazanın üzərinə töküb dondurucuda 4 saat saxlayın."
+  ]
+ },
+ {
+  "id": "27feef17-d812-4444-aa98-c2116d7d5049",
+  "title": "Şirin Kartof və Alma püresi(6 ay+)",
+  "description": "Körpələrin şirin ləzzətləri sevdiyini nəzərə alsaq, bu, ən sevimli ilk yeməklərdən biri olacaq.\n\nFaydası: Şirin kartof (batat) A vitamini və liflə zəngindir, alma isə həzmi asanlaşdırır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Şirin kartof: 1 kiçik ədəd (qabığı soyulmuş, kub doğranmış)",
+   "Şirin alma: Yarım ədəd (qabığı soyulmuş)",
+   "Ana südü və ya formala (yumşaltmaq üçün)."
+  ],
+  "instructions": [
+   "Şirin kartof və almanı buxarda və ya çox az suda tam yumşalana qədər bişirin. Çəngəllə əzin və ya püre halına gətirin. İsti halda içinə bir az ana südü əlavə edib qatılığını tənzimləyin."
+  ]
+ },
+ {
+  "id": "10778f55-a6f7-4dea-b6b5-e285d45babb5",
+  "title": "Kök və Mərcimək şorbası\n(8 ay+)",
+  "description": "Körpənin dəmirlə tanışlığı üçün ən dadlı, narıncı və qazsız şorba.\n\nFaydası: Qırmızı mərcimək bitki mənşəli zülal və dəmir mənbəyidir. Kök isə göz inkişafı üçün betakarotinlə doludur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Qırmızı mərcimək: 2 xörək qaşığı (yaxşıca yuyulmuş)",
+   "Kök: 1 kiçik ədəd (rəndələnmiş)",
+   "Zeytun yağı: 1 çay qaşığı."
+  ],
+  "instructions": [
+   "Kök və mərciməyi kiçik bir qazanda üzərinə çıxacaq qədər su ilə tam yumşalana qədər qaynadın. Blenderdən keçirin və üzərinə 1 çay qaşığı sızma zeytun yağı gəzdirin."
+  ]
+ },
+ {
+  "id": "fb03ef40-89b2-4c37-a867-f84dac70544e",
+  "title": "İspanaq və Noxud püresi \n(8 ay+)",
+  "description": "Gələcəyin güclü qəhrəmanları üçün dəmir və zülal dolu, rəngi ilə diqqət çəkən yemək.\n\nFaydası: İspanaqdakı fol turşusu və yaşıl noxuddakı zülal sürətli böyüməni dəstəkləyir.",
+  "category": "Əlavə qida",
+  "ingredients": [
+   "İspanaq: 1 ovuc (təmizlənmiş)",
+   "Təzə yaşıl noxud: 1 xörək qaşığı",
+   "Kartof: Yarım kiçik ədəd",
+   "Kərə yağı: Çox kiçik bir parça (duzsuz)."
+  ],
+  "instructions": [
+   "Kartofu və noxudu suda bişirin. Götürməyə az qalmış ispanağı əlavə edin. Suyunu süzün, kərə yağı qatıb püre halına gətirin."
+  ]
+ },
+ {
+  "id": "e4dcec61-d668-42ad-9158-cfc7b2b1485d",
+  "title": "Blueberry Pankeyki\n(9 ay+)",
+  "description": "Körpənin öz əli ilə yeyə biləcəyi (BLW), motorikanı inkişaf etdirən ləzzət.\n\nFaydası: Qaragilə beyin fəaliyyətini stimullaşdıran güclü antioksidantdır. Şəkərsiz, unsuz, yumşaq pankeyk.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Banan: 1 ədəd (yetişmiş, əzilmiş)",
+   "Yumurta sarısı: 1 ədəd (ağı 1 yaşına qədər olmaz)",
+   "Qaragilə: 6-7 ədəd (ortadan bölünmüş)",
+   "Yulaf unu: 1 xörək qaşığı."
+  ],
+  "instructions": [
+   "Bananı əzin, yumurta sarısı və unla qarışdırın. Doğranmış qaragilələri əlavə edin. Yağsız tavada qaşıqla kiçik dairələr qoyub hər iki üzünü bişirin."
+  ]
+ },
+ {
+  "id": "a3480015-30ca-4f9a-b8de-a642fd9a639c",
+  "title": "Cinnamon Oat Flat White",
+  "description": "Qan şəkərini (insulin) anidən qaldırmayan, yüngül və ətirli kofe.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general",
+   "milk_boost"
+  ],
+  "ingredients": [
+   "1 fincan (shot) espresso, yarım stəkan köpükləndirilmiş yulaf südü, 1 çay qaşığı darçın tozu."
+  ],
+  "instructions": [
+   "Espressonun üzərinə isti və qatı köpüklü yulaf südünü əlavə edin, bol darçın səpin."
+  ]
+ },
+ {
+  "id": "e39c8f3d-f865-4de6-8f5d-d3f60a5624c8",
+  "title": "Avokado və Yumurtalı əzmə\n(8 ay+)",
+  "description": "Bişirmə prosesi tələb etməyən (yumurtadan başqa), səhərlər anaların həyatını xilas edən təbii güc kombosu.\n\nFaydası: İki möhtəşəm \"superfood\" bir arada. Avokadonun Omeqa yağları və yumurta sarısındakı xolin maddəsi birbaşa zəka və yaddaş inkişafına təsir edir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Bərk bişmiş yumurta sarısı: 1 ədəd",
+   "Avokado: dörddə bir (çox yumşaq yetişmiş)",
+   "Ana südü və ya formala."
+  ],
+  "instructions": [
+   "Avokadonu və bişmiş yumurta sarısını bir qabda çəngəllə yaxşıca əzin. Çox qatı olarsa, bir neçə damcı ana südü və ya ilıq su ilə kütləni yumşaldın."
+  ]
+ },
+ {
+  "id": "dc9362af-ecb7-4bac-9ddf-d84bf1aa2f2d",
+  "title": "Pink Panther Pasta(1 yaş+)",
+  "description": "Rəngi ilə uşaqları ovsunlayan, pendirli və çuğundurlu əyləncəli pasta.\n\nFaydası: Çuğundur qan dövranını dəstəkləyir, pendir isə sümük inkişafı üçün kalsium anbarıdır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Körpə makaronu (kiçik ölçülü): 3-4 xörək qaşığı",
+   "Çuğundur püresi (qaynadılmış və əzilmiş): 1 xörək qaşığı",
+   "Lor pendiri (şor) və ya krem pendir: 1 xörək qaşığı"
+  ],
+  "instructions": [
+   "Makaronu tam yumşalana qədər suda qaynadıb süzün. İsti makaronun üzərinə çuğundur püresi və pendiri əlavə edib yaxşıca qarışdırın. Makaronlar anında parlaq çəhrayı rəng alacaq."
+  ]
+ },
+ {
+  "id": "732a8d20-182d-45bb-9171-f30bbd4cd142",
+  "title": "Sağlam Naqets(1 yaş+)",
+  "description": "Mağaza naqetslərinə sağlam, sobada bişmiş və qatıqsız alternativ.\n\nFaydası: Təmiz toyuq zülalı və yulafın lifli qabığı sayəsində tam bir enerji mənbəyidir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Toyuq döş əti: 100 qr (blenderdə çəkilmiş və ya çox xırda doğranmış)",
+   "Yulaf unu (və ya xırdalanmış yulaf lopası): Batırmaq üçün",
+   "Yumurta: 1 ədəd (çırpılmış)",
+   "Şirin qırmızı toz bibər (paprika - acısız)."
+  ],
+  "instructions": [
+   "Toyuq ətinə çox az paprika vurub yoğurun. Kiçik hissələrə ayırıb əvvəlcə yumurtaya, sonra yulaf ununa batırın. Yağlı kağızda, sobada 180 dərəcədə 20 dəqiqə bişirin."
+  ]
+ },
+ {
+  "id": "ec6cb7d9-6570-4500-be81-64329c0e4a07",
+  "title": "Rainbow Risotto(1 yaş+)",
+  "description": "Çeynəmə bacarığını inkişaf etdirən, rəngarəng dənələrlə dolu doyumlu nahar.\n\nFaydası: Karbohidrat, zülal və vitaminlərin tək qazanda birləşdiyi ən balanslı yeməkdir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Yumru düyü: 2 xörək qaşığı (yaxşıca yuyulmuş)",
+   "Kök, yaşıl noxud, qarğıdalı: Hərəsindən 1 xörək qaşığı (çox xırda doğranmış)",
+   "Sümük və ya toyuq bulyonu: 1 stəkan",
+   "Kərə yağı: Çox az."
+  ],
+  "instructions": [
+   "Tərəvəzləri və düyünü bulyonda tam yumşalana və suyunu çəkənə qədər, lapa (rizotto) halına gələnə kimi vam odda bişirin. Sonda kərə yağı əlavə edib qarışdırın."
+  ]
+ },
+ {
+  "id": "269778e2-5f1d-4cd3-b820-0a1898c7e6ea",
+  "title": "Coco-Espresso Chill",
+  "description": "Tropik dadları sevənlər üçün sərinlədici, şəkərsiz şah əsər.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 fincan (shot) espresso, 1 stəkan təbii kokos suyu (coconut water), bol buz."
+  ],
+  "instructions": [
+   "Stəkana buzları yığın, kokos suyunu tökün. Ən sonda espressonu yavaşca əlavə edin ki, iki fərqli rəng qatı yaransın. Qarışdırıb için."
+  ]
+ },
+ {
+  "id": "b53735ed-6abe-4b68-b652-4d5d294d5553",
+  "title": "Kabaçki Kotletləri(2 yaş+)",
+  "description": "Tərəvəzləri pankeyk/kotlet kimi təqdim edərək uşağın diqqətini çəkən ləzzət.\n\nFaydası: Kabaçki (qabaq) və göyərti liflidir, bağırsaq fəaliyyətini tənzimləyir. Çox yumşaq olduğu üçün çeynəmək asandır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Kabaçki: 1 ədəd (rəndələnmiş və suyu tamamilə sıxılmış)",
+   "Yumurta: 1 ədəd",
+   "Ağ pendir və ya şor: 1 xörək qaşığı",
+   "Tam buğda unu: 1-2 xörək qaşığı."
+  ],
+  "instructions": [
+   "Suyu sıxılmış kabaçkini yumurta, pendir və unla qarışdırıb qatı bir xəmir əldə edin.",
+   "Yağlanmış isti tavada qaşıqla kiçik dairələr qoyun.",
+   "Hər iki üzünü qızılı-yaşıl rəng alana qədər bişirin."
+  ]
+ },
+ {
+  "id": "b83ce14e-ac83-4541-a4e8-d4b8fa3d176e",
+  "title": "Moruqlu Ayı Kasası(2 yaş+)",
+  "description": "Ara öğün və ya səhər yeməyi üçün dondurma effekti verən, əyləncəli smuzi kasası.\n\nFaydası: Süzmə qatıq probiyotikdir (immuniteti gücləndirir), giləmeyvələr isə antioksidant deposudur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Süzmə qatıq: 3 xörək qaşığı",
+   "Dondurulmuş moruq və ya çiyələk: 1 ovuc",
+   "Banan: Yarım ədəd (qatıqla qarışdırmaq üçün)",
+   "Bəzək üçün: Banan dilimləri, qaragilə (ayı üzü düzəltmək üçün)."
+  ],
+  "instructions": [
+   "Qatıq, yarım banan və dondurulmuş giləmeyvələri blenderdə tam hamar və qatı krem olana qədər çəkin.",
+   "Kasaya tökün.",
+   "İki banan dilimi ilə ayının qulaqlarını, qaragilələrlə isə gözünü və burnunu düzəldin."
+  ]
+ },
+ {
+  "id": "fdd5be2e-2d65-464b-84d3-084f637ea16e",
+  "title": "Healthy Dark Mocha",
+  "description": "Kofe və şokolad həzzini eyni anda yaşamaq istəyənlər üçün sirop-suz alternativ.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 fincan espresso, 1 çay qaşığı xalis kakao, 1 çay qaşığı bal, 1 stəkan isti badam südü."
+  ],
+  "instructions": [
+   "İsti espressonun içində kakao və balı əridin. Üzərinə isti, köpüklü badam südünü əlavə edin."
+  ]
+ },
+ {
+  "id": "b7520537-fae1-481b-9bea-7a9cf32f15f7",
+  "title": "Gülən Pizzalar(2 yaş+)",
+  "description": "2 yaşlı uşağın hazırlanmasında sizə kömək edə biləcəyi, əyləncəli və sağlam pizza.\n\nFaydası: Evdə hazırlandığı üçün qatqısızdır. Uşağın yeməklə emosional bağ qurmasına (gülən üz forması) kömək edir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Mini tam buğda pita çörəyi (və ya kiçik lavaş): 1 ədəd",
+   "Tomat pastası (ev yapımı, şəkərsiz): 1 xörək qaşığı",
+   "Mozzarella pendiri: 2 xörək qaşığı rəndələnmiş",
+   "Qara zeytun halqaları (gözlər üçün) və qırmızı bibər zolağı (ağız üçün)."
+  ],
+  "instructions": [
+   "Pita çörəyinin üzərinə tomat pastasını yayın.",
+   "Üzərinə pendiri bolca səpin.",
+   "Zeytun və bibərdən \"gülən üz\" düzəldin. Pendir əriyənə qədər sobada (təxminən 5-7 dəqiqə) bişirin."
+  ]
+ },
+ {
+  "id": "7cc7ac25-0798-468f-82c0-6764afc0cd4f",
+  "title": "Dovşan Qurabiyəsi(2 yaş+)",
+  "description": "Şəkərsiz, biskvit əvəzi xırtıldayan və çox faydalı ev yapımı qurabiyə.\n\nFaydası: Liflə zəngin yulaf və vitaminli kök uşağın həzmini yaxşılaşdırır. Market biskvitlərinə ən sağlam alternativdir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Yulaf lopası: 1 stəkan",
+   "Kök: 1 ədəd (rəndələnmiş)",
+   "Alma püresi: Yarım stəkan (almanı bişirib əzin, bu şirinlik verəcək)",
+   "Kişmiş (çox xırda doğranmış): 1 xörək qaşığı",
+   "Kərə yağı: 1 xörək qaşığı (əridilmiş)."
+  ],
+  "instructions": [
+   "Bütün ərzaqları dərin bir qabda yaxşıca yoğurun.",
+   "Əlinizlə kiçik yastı qurabiyə (və ya heyvan fiqurlu qəliblərlə) formaları verin.",
+   "170 dərəcəlik sobada 15-20 dəqiqə yüngülcə qızarana qədər bişirin."
+  ]
+ },
+ {
+  "id": "e6d245f4-3ec1-4650-92fc-b0b877ba16f0",
+  "title": "Mini Burqerlər(3 yaş+)",
+  "description": "Fast-food həvəsinin qarşısını alan, 100% ev yapımı, sağlam mini burqerlər.\n\nFaydası: Evdə çəkilmiş təmiz ət zülal və dəmir, tam buğda çörəyi isə B vitamini verir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Tam buğda unundan mini burqer çörəkləri: 2 ədəd",
+   "Yağsız mal əti qiyməsi: 100 qr",
+   "Holland pendiri: 1-2 nazik dilim",
+   "Pomidor və kahı yarpağı",
+   "Zeytun yağı."
+  ],
+  "instructions": [
+   "Qiymədən çörək böyüklüyündə nazik və yastı kotletlər hazırlayıb tavada az yağda qızardın. Çörəklərin arasına kotlet, pendir, pomidor və kahı qoyaraq mini burqerləri yığın."
+  ]
+ },
+ {
+  "id": "705fa4d6-de4b-4c10-bc6c-46c0cc463f11",
+  "title": "Sobada Tərəvəz Çubuqları(3 yaş+)",
+  "description": "Klassik kartof frisini əvəz edən, rəngarəng və xırtıldayan tərəvəz çubuqları.\n\nFaydası: Şirin kartof və kök A vitamini anbarıdır. Qızartma olmadığı üçün trans yağlar yoxdur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Şirin kartof (batat): 1 ədəd",
+   "Kök: 1 böyük ədəd",
+   "Zeytun yağı: 1 xörək qaşığı",
+   "Çox az duz və şirin qırmızı toz bibər (paprika)."
+  ],
+  "instructions": [
+   "Tərəvəzləri eyni ölçüdə uzunsov çubuqlar (fri) şəklində kəsin. Zeytun yağı və ədviyyatla qarışdırıb yağlı kağızın üzərinə düzün. 200 dərəcədə 20-25 dəqiqə, kənarları xırtıldayana qədər bişirin."
+  ]
+ },
+ {
+  "id": "36867e84-3459-4059-a668-70f297e35576",
+  "title": "Teddy Bear Toast (3 yaş+)",
+  "description": "Səhər yeməyində üzünüzü güldürəcək, hazırlanması 2 dəqiqə çəkən ləzzət.\n\nFaydası: Fıstıq əzməsi beyin üçün faydalı yağlar və zülal ehtiva edir. Banan isə enerji verir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Kvadrat tam buğda çörəyi: 1 dilim (qızardılmış)",
+   "Fıstıq (yer fındığı) əzməsi: 1 xörək qaşığı",
+   "Banan: 3 halqa dilim",
+   "Qaragilə: 3 ədəd."
+  ],
+  "instructions": [
+   "Qızarmış çörəyin üzərinə fıstıq əzməsini yayın. İki banan dilimini qulaq kimi yuxarı kənarlara, birini isə burun hissəsinə qoyun. Qaragilələrdən gözlər və burun ucu düzəldin."
+  ]
+ },
+ {
+  "id": "ecfe7439-ff4e-4167-ab7a-c45d91fa903c",
+  "title": "Secret Garden Muffins (3 yaş+)",
+  "description": "İçində pendir və tərəvəz olan, parka və ya səfərə aparmaq üçün çox rahat duzlu kekslər.\n\nFaydası: Şəkərsizdir. Uşağın əlində tutub təmiz şəkildə yeyə biləcəyi dərəcədə praktik, tərkibi isə mineral və kalsiumla doludur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Yumurta: 2 ədəd",
+   "Qatıq: 2 xörək qaşığı",
+   "Kök (rəndələnmiş) və Brokkoli (çox xırda doğranmış): Yarım stəkan",
+   "Ağ pendir: 2 xörək qaşığı (əzilmiş)",
+   "Tam buğda unu və qabartma tozu."
+  ],
+  "instructions": [
+   "Duru ərzaqları çırpın. Tərəvəzləri və pendiri əlavə edin. Un və qabartma tozunu qatıb qatı keks xəmiri hazırlayın. Muffin qablarında 180 dərəcədə 20-25 dəqiqə qabarıb qızarana qədər bişirin."
+  ]
+ },
+ {
+  "id": "0a108d2a-2483-496b-8459-a35dba184122",
+  "title": "UFO Pizzas (4 yaş+)",
+  "description": "Xəmir əvəzinə göbələk papaqlarından hazırlanan, qlüten-siz və əyləncəli mini pizzalar.\n\nFaydası: Portobello və ya böyük şampinyon göbələkləri D vitamini ilə zəngindir. Uşaqların göbələyə öyrəşməsi üçün əla üsuldur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Böyük şampinyon göbələkləri: 4-5 ədəd (sapları çıxarılmış)",
+   "Tomat pastası: 2 xörək qaşığı",
+   "Mozzarella pendiri: 3 xörək qaşığı (rəndələnmiş)",
+   "Qarğıdalı və ya zeytun."
+  ],
+  "instructions": [
+   "Göbələklərin içinə tomat pastası çəkin. Üzərinə pendir və qarğıdalı dənələri qoyun. 180 dərəcəlik sobada pendir əriyib göbələklər yumşalana qədər (təxminən 15 dəqiqə) bişirin."
+  ]
+ },
+ {
+  "id": "bb88a8d3-5c23-4d20-8927-32de71e35006",
+  "title": "Morning Rainbow(4 yaş+)",
+  "description": "Mini pankeyk və meyvələri bir araya gətirən, əllə yemək üçün ideal səhər yeməyi.\n\nFaydası: Fərqli meyvələr fərqli vitaminlər deməkdir. Şişlər uşaqların motorikasını və yeməyə marağını artırır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Mini pankeyklər: Dəmir pul böyüklüyündə bişirilmiş",
+   "Çiyələk, banan halqaları, kivi dilimləri.",
+   "Küt uclu taxta çöplər."
+  ],
+  "instructions": [
+   "Şişlərə sırayla: mini pankeyk, çiyələk, banan, yenidən pankeyk və kivi keçirin. Yanında bala və ya bəhməzə batırmaq üçün kiçik qab qoyun."
+  ]
+ },
+ {
+  "id": "94068d6c-ec4c-4f36-a84e-fdd44212d93d",
+  "title": "Balıq Kotletləri(4 yaş+)",
+  "description": "Balıq sevməyən uşaqların formasına aldanaraq ləzzətlə yeyəcəyi Omeqa-3 anbarı.\n\nFaydası: Qızılbalıq beyin fəaliyyətini və yaddaşı gücləndirir.",
+  "category": "Əlavə qida",
+  "ingredients": [
+   "Qızılbalıq (Somon) filesi: 100 qr (qaynadılmış, didilmiş)",
+   "Kartof: 1 ədəd (bişmiş və əzilmiş)",
+   "Şüyüd: Çox az (doğranmış)"
+  ],
+  "instructions": [
+   "Əzilmiş kartof, balıq və şüyüdü yoğurun. Xəmiri yağlı kağız üzərində yayın və ulduz formalı qəliblə kəsin. Tavada və ya sobada yüngülcə qızarana qədər bişirin."
+  ]
+ },
+ {
+  "id": "f234c77f-4a04-4526-9394-c82a1bc713cf",
+  "title": "Galaxy Pasta(5 yaş+)",
+  "description": "Ulduzları və kəpənəkləri xatırladan formalı makaronlarla dolu, krem-pendirli kosmik yemək.\n\nFaydası: Fərqli rənglərdəki tərəvəzlər (noxud, qarğıdalı) vitaminləri artırır, şəkərsiz qatıq və pendir sousu isə mədəni yormur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Qlütensiz Kəpənək makaron (Farfalle) və ya rəngli makaron: 1 stəkan",
+   "Yaşıl noxud və qarğıdalı: Hərəsindən 1 xörək qaşığı",
+   "Çerri pomidor: 3-4 ədəd (ikiyə bölünmüş)",
+   "Krem pendir (və ya süzmə qatıq): 1 xörək qaşığı."
+  ],
+  "instructions": [
+   "Makaronu tam yumşalana qədər qaynadıb süzün (azca suyunu saxlayın). İsti makaronun üzərinə krem pendiri, noxudu, qarğıdalını və pomidoru əlavə edib qarışdırın. Pendir əriyib kremsi bir sous yaradacaq."
+  ]
+ },
+ {
+  "id": "fe1e3f3e-8c82-4bdd-8cb3-2212d66df10f",
+  "title": "Xırtıldayan Balıq Loxmaları(5 yaş+)",
+  "description": "Balıq yeməkdən qaçan 5 yaşlıları belə ovsunlayacaq, qızıl rəngli və xırtıldayan balıq kubları.\n\nFaydası: Ağ balıq fosfor, yod və asan mənimsənilən zülal mənbəyidir. Zəka inkişafı üçün mükəmməldir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Ağ balıq filesi (məsələn, Treska, Levrek): 150 qr (kub doğranmış və sümüksüz)",
+   "Yumurta: 1 ədəd",
+   "Şəkərsiz qarğıdalı ləpəsi (kornfleks) və ya suxari tozu: Batırmaq üçün"
+  ],
+  "instructions": [
+   "Qarğıdalı ləpələrini əlinizlə xırdalayın. Balıq kublarını əvvəlcə çırpılmış yumurtaya, sonra qarğıdalı qırıntılarına batırın. Yağlı kağız üzərində sobada 180 dərəcədə 15-20 dəqiqə bişirin."
+  ]
+ },
+ {
+  "id": "2f4202ed-6015-4318-b0d0-ac257ccd10af",
+  "title": "Xırtıldayan Alma Sendviçləri(5 yaş+)",
+  "description": "Çörək əvəzinə alma dilimlərindən istifadə edilən, məktəb və ya bağça sonrası üçün enerji dolu qəlyanaltı.\n\nFaydası: Almanın pektin lifləri və fıstıq əzməsinin zülalı tox tutur, təbii şəkər ehtiyacını ödəyir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Böyük alma: 1 ədəd (ortası oyulmuş, halqa kəsilmiş)",
+   "Fıstıq və ya badam əzməsi (şəkərsiz): 2 xörək qaşığı",
+   "Kişmiş və ya damla şokolad (arasına qoymaq üçün)."
+  ],
+  "instructions": [
+   "İki alma halqasının arasına fıstıq əzməsini çəkin, üzərinə kişmişləri düzüb digər halqanı sendviç kimi üzərinə qapadın. Uşağın rahat tutması üçün ortadan kəsə bilərsiniz."
+  ]
+ },
+ {
+  "id": "75bdd91d-7aed-40d8-9434-8c6ca0198e19",
+  "title": "Cardamom Cold Brew",
+  "description": "Mədə yanması yaratmayan, turşuluğu çox aşağı olan və həzmi rahatladan sərin qəhvə.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 stəkan Cold Brew (soyuq dəmləmə kofe), 1-2 ədəd hil (əzilmiş), buz, istəyə görə bir az bitki mənşəli süd."
+  ],
+  "instructions": [
+   "Kofeni dəmləyərkən (və ya süzərkən) içinə əzilmiş hil dənələrini atın. Bol buzla servis edin. Hil kofeyə çox \"cool\" və fərqli ətir qatır."
+  ]
+ },
+ {
+  "id": "4232cb2b-2881-4a46-bce4-1d4070cda869",
+  "title": "Sehrli Bağça Keksləri(4 yaş+)",
+  "description": "Parka, bağçaya və ya yola götürmək üçün içində bol pendir və tərəvəz gizlənmiş duzlu kekslər.\n\nFaydası: Şəkərsizdir. Kalsium (pendir) və vitaminlər (tərəvəzlər) bir arada, əldə asan tutulur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Yumurta: 2 ədəd",
+   "Qatıq: 2 xörək qaşığı",
+   "Kök (rəndələnmiş) və Kabaçki (suyu sıxılmış): Yarım stəkan",
+   "Ağ pendir: 2 xörək qaşığı",
+   "Un və qabartma tozu."
+  ],
+  "instructions": [
+   "Duru ərzaqları və pendiri çırpın. Tərəvəzləri əlavə edin. Sonda un və qabartma tozunu qatıb muffin qablarında 180 dərəcədə 20-25 dəqiqə bişirin."
+  ]
+ },
+ {
+  "id": "aa773f2c-e3f1-47eb-9a0d-5723d6301a77",
+  "title": "Sehrli İksir(5 yaş+)",
+  "description": "Səhər yeməyi və ya desert üçün şəffaf stəkanda lay-lay hazırlanan, göz oxşayan ləzzət.\n\nFaydası: Probiyotik qatıq həzmi tənzimləyir, giləmeyvələr isə immunitet sistemini gücləndirir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Qatıq (ev qatığı və ya süzmə): 1 stəkan",
+   "Moruq və ya çiyələk püresi: 2 xörək qaşığı",
+   "Şəkərsiz qranola və ya yulaf/qoz qarışığı: 2 xörək qaşığı"
+  ],
+  "instructions": [
+   "Şəffaf, uşaqların sevdiyi bir stəkana əvvəlcə qatıq, sonra meyvə püresi, daha sonra qranolanı lay-lay əlavə edin. Üst qatı yenidən qatıqla bağlayıb, ən üstdə təzə meyvə qoyun."
+  ]
+ },
+ {
+  "id": "2e2ead49-bcaf-4338-94ee-467ad791737c",
+  "title": "Zen Limonadı",
+  "description": "Yay günlərində metabolizmi sürətləndirən və şişkinliyi atan qazlı matça.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 çay qaşığı matça tozu, yarım limonun şirəsi, 1 çay qaşığı aqava şərbəti və ya bal, 1 stəkan mineral (qazlı) su, nanə yarpaqları, buz."
+  ],
+  "instructions": [
+   "Matçanı azca suda bal və limonla çırpıb həll edin. Stəkana buz və nanə qoyub, üzərinə matça qarışımını və mineral suyu tökün."
+  ]
+ },
+ {
+  "id": "f005b3c3-1f74-4e4e-bab7-c8bc5e03c14a",
+  "title": "Coconut Matcha Bliss",
+  "description": "Dərini daxildən nəmləndirən, yumşaq və tropik isti içki.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 çay qaşığı matça tozu, 1 stəkan kokos südü, 1 çimdik vanil ekstraktı."
+  ],
+  "instructions": [
+   "Kokos südünü qazanda buxarlananadək isidin (qaynatmayın). İçinə vanil və matçanı əlavə edib xüsusi çırpıcı (və ya kapuçinator) ilə köpükləndirin."
+  ]
+ },
+ {
+  "id": "e8f085b1-b955-46e7-bd90-9c504005461c",
+  "title": "Mint Matcha Frappe",
+  "description": "Şəkərli \"frappuccino\"ların 100% təbii, kofeinsiz, sərinlədici alternativi.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 çay qaşığı matça, 1 dondurulmuş banan, 3-4 təzə nanə yarpağı, yarım stəkan yulaf südü."
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderdə dondurma teksturası (frappe) alana qədər güclü şəkildə çəkin."
+  ]
+ },
+ {
+  "id": "692f8fd9-2a1f-4e6e-90a2-3450b555119d",
+  "title": "Ədviyyatlı Kakao",
+  "description": "Maddələr mübadiləsini \"yandıran\", qan dövranını sürətləndirən qədim resept.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 xörək qaşığı xalis kakao, 1 çimdik darçın, çox az (bıçaq ucu ilə) acı qırmızı bibər tozu (kayen), 1 stəkan isti fındıq südü, bal."
+  ],
+  "instructions": [
+   "İsti südə kakao və ədviyyatları qatıb tam həll olana qədər qarışdırın. Acı və şirinin balansı sizi isidəcək."
+  ]
+ },
+ {
+  "id": "da26b0d3-2e6e-4084-9b19-693dd01e5caa",
+  "title": "Maca Cacao Energy",
+  "description": "Hormonları balanslaşdıran və fiziki dözümlülüyü artıran qadın dostu içki.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 xörək qaşığı kakao, 1 çay qaşığı maka (maca) tozu, 1 stəkan yulaf südü, 1 ədəd xurma (püre halında)."
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderdə (isti və ya soyuq südlə) tam qarışdırın."
+  ]
+ },
+ {
+  "id": "1c2d3ae5-c16d-47ab-acbd-eff8a82af792",
+  "title": "Sağlam Nutella İçkisi",
+  "description": "Şirniyyat krizlərini kəsən, lakin qətiyyən şəkər ehtiva etməyən isti ləzzət.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 xörək qaşığı kakao, 1 xörək qaşığı təbii fındıq əzməsi (şəkərsiz), 1 stəkan isti süd."
+  ],
+  "instructions": [
+   "Fındıq əzməsini və kakaonu isti süddə blenderlə və ya çırpıcı ilə tam hamar olana qədər əridin."
+  ]
+ },
+ {
+  "id": "1eca4e78-4116-42f3-b2fa-fb5f13684582",
+  "title": "Noxudlu Doldurulmuş Batat",
+  "description": "İdmançıların və sağlam qidalananların klassik, uzun müddət tox tutan mürəkkəb karbohidrat naharı.\n\nFaydası: Batat kaliumla, noxud isə bitki mənşəli zülalla doludur. Tam bir enerji bombasıdır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Şirin kartof (batat): 2 ədəd (orta boy)",
+   "Bişmiş noxud (konserv də olar): 1 stəkan",
+   "Tahin (küncüt əzməsi): 2 xörək qaşığı",
+   "Limon şirəsi, zeytun yağı, kimyon (cirə)."
+  ],
+  "instructions": [
+   "Batatları çəngəllə bir neçə yerdən deşib sobada (200 dərəcə) tam yumşalana qədər bişirin (təxminən 40 dəqiqə). Çıxarıb ortadan kəsin, içini azca əzin. Üzərinə ədviyyatlı noxudları doldurun və tahin-limon sousunu gəzdirin."
+  ]
+ },
+ {
+  "id": "836bc22f-3cef-4e15-bfd2-c877bc04f782",
+  "title": "Gül Kələmi Plovu",
+  "description": "Keto və az karbohidratlı diyetlərin şahı. Düyünü 100% əvəz edən və qətiyyən kökəltməyən resept.\n\nFaydası: Porsiyasında cəmi 40-50 kalori var. Klassik düyü plovunun verdiyi ağırlıq və uyqu gətirmə hissini yaratmır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Gül kələmi: Yarım baş",
+   "Kök və yaşıl noxud: Hərəsindən 2 xörək qaşığı",
+   "Soğan: 1 kiçik baş",
+   "Zeytun yağı və kərə yağı."
+  ],
+  "instructions": [
+   "Gül kələmini sürtgəcdən və ya blenderdən keçirərək düyü dənələri boyda xırdalayın. Tavada soğan, kök və noxudu az yağda qovurun. Üzərinə kələm \"düyüsünü\" əlavə edib qarışdıraraq 5-6 dəqiqə (çox yumşalmasına imkan vermədən) sote edin."
+  ]
+ },
+ {
+  "id": "c8f59b0c-497f-493b-9f85-c45a2583194f",
+  "title": "Qaymaqlı Brokkoli və Çedar Şorbası",
+  "description": "Amerikanın \"Panera Bread\" restoranlar şəbəkəsi ilə məşhurlaşan, dünyanın ən ləzzətli qış şorbalarından biri.\n\nFaydası: Ev şəraitində hazırlandıqda kalsium və liflə dolu əsl sümük gücləndirici şorbaya çevrilir.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Brokkoli: 300 qr (çox xırda doğranmış)",
+   "Kök: 1 ədəd (rəndələnmiş)",
+   "Çedar (Cheddar) pendiri: 1 stəkan (rəndələnmiş)",
+   "Toyuq və ya tərəvəz bulyonu: 3 stəkan",
+   "Qaymaq və ya süd: Yarım stəkan."
+  ],
+  "instructions": [
+   "Kök və brokkolini bulyonda yumşalana qədər bişirin (blenderdən qismən keçirin, içində pütürlər qalsın). Südü/qaymağı əlavə edin. Ocaqdan götürüb isti şorbaya rəndələnmiş çedar pendirini qatın və əriyənə qədər qarışdırın."
+  ]
+ },
+ {
+  "id": "a5af4229-e447-48cc-a6f1-6146ae4643a0",
+  "title": "Meksika Sayağı Kinoa Salatı",
+  "description": "Qərb dünyasında \"Meal Prep\" (əvvəlcədən hazırlanmış qida) mədəniyyətinin ən populyar təmsilçisi.\n\nFaydası: Rəngarəng, doyurucu və çox miqdarda bitki zülalı ilə doludur. Soyuducuda 3 gün təzə qalır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kinoa (bişmiş): 1 stəkan",
+   "Qara lobya (konserv): Yarım stəkan",
+   "Qarğıdalı: Yarım stəkan",
+   "Çerri pomidor və qırmızı soğan (doğranmış)",
+   "Təzə keşniş, laym şirəsi, zeytun yağı, jalapeno bibəri (istəyə görə)."
+  ],
+  "instructions": [
+   "Bütün ərzaqları böyük bir kasada qarışdırın. Zeytun yağı, laym şirəsi və keşnişdən ibarət sousu üzərinə gəzdirib yaxşıca xarmanlayın."
+  ]
+ },
+ {
+  "id": "64fd534a-ee42-4741-ad1d-2c83048a4d5e",
+  "title": "Avokadolu Brauni",
+  "description": "Kərə yağı əvəzinə avokado, buğda unu əvəzinə badam unu istifadə edilən əfsanəvi \"şəkərsiz brauni\".\n\nFaydası: Unsuz və rafinə şəkərsizdir. Avokado şirniyyata inanılmaz nəm və məxməri tekstura verir, amma dadı qətiyyən hiss olunmur.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Avokado: 1 böyük ədəd (tam yetişmiş, püre edilmiş)",
+   "Badam unu: Yarım stəkan",
+   "Təbii kakao (şəkərsiz): Yarım stəkan",
+   "Yumurta: 2 ədəd",
+   "Bal və ya ağcaqayın şərbəti: Üçdə bir stəkan."
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderdə tam hamar bir şokolad kremi alınana qədər çəkin. Kvadrat keks qabına (yağlı kağızla) töküb 175 dərəcədə 25-30 dəqiqə bişirin. İlıq halda dilimləyin."
+  ]
+ },
+ {
+  "id": "c93f159c-1f03-4766-a5e7-3350ed9505bf",
+  "title": "Avokadolu Yumurta Qayıqları",
+  "description": "Mayonez istifadə edilməyən, ketogenik və bol zülallı ləzzət.\n\nFaydası: Yumurta ağının zülalı və avokadonun Omeqa yağları beyin dumanını dağıdır, enerjini bərpa edir.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Bərk bişmiş yumurta: 3 ədəd",
+   "Avokado: Yarım ədəd (yetişmiş)",
+   "Kətan toxumu və ya çia: Çox az (üzəri üçün)",
+   "Limon şirəsi, duz, qara istiot."
+  ],
+  "instructions": [
+   "Yumurtaları uzununa ikiyə bölün. Sarısını çıxarıb avokado, limon suyu və ədviyyatlarla birlikdə tam krem halına gələnə qədər əzin. Bu yaşıl kremi yenidən yumurta ağlarının içinə doldurun. Üzərinə kətan toxumu səpin."
+  ]
+ },
+ {
+  "id": "0160a14d-2320-433d-b86d-228b4fe1defc",
+  "title": "Badam, Kətan və Çialı toplar",
+  "description": "Bişirilmədən hazırlanan, idman öncəsi və ya kofe yanı üçün xırtıldayan enerji topları.\n\nFaydası: Üç super-qidanın (badam, kətan, çia) gücünü özündə birləşdirir. Ani enerji, yüksək lif və mineral anbarıdır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Badam əzməsi (şəkərsiz): Yarım stəkan",
+   "Kətan toxumu (üyüdülmüş): 2 xörək qaşığı",
+   "Çia toxumu: 1 xörək qaşığı",
+   "Yulaf: Yarım stəkan",
+   "Bal və ya aqava: 2 xörək qaşığı."
+  ],
+  "instructions": [
+   "Bütün ərzaqları bir qabda yoğurub yapışqan kütlə əldə edin. Əlinizlə qoz böyüklüyündə toplar hazırlayıb soyuducuda dondurun. Cibdə və ya çantada daşımaq üçün idealdır."
+  ]
+ },
+ {
+  "id": "9ef68860-bc8e-4727-a11e-6e5469f057ef",
+  "title": "Badamlı Keto Keks",
+  "description": "Özünü yüngül və buludların üzərində hiss etmək istəyənlər üçün karbohidratsız keks.\n\nFaydası: Qlüten, buğda unu və şəkər yoxdur. Xüsusilə diyet saxlayarkən şirniyyat həsrətini təhlükəsiz yolla söndürür.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Badam unu: 1.5 stəkan",
+   "Yumurta: 3 ədəd",
+   "Badam südü: Dörddə bir stəkan",
+   "Limon qabığı rəndəsi və ya vanil.",
+   "Steviya və ya çox az bal (dadlandırmaq üçün)."
+  ],
+  "instructions": [
+   "Duru ərzaqları çırpın, üzərinə badam ununu əlavə edib qarışdırın. Keks (muffin) qablarına tökərək 175 dərəcədə 20 dəqiqə qızarana qədər bişirin."
+  ]
+ },
+ {
+  "id": "e067e84f-8a22-4eb0-b5fa-1ae3ae37b95f",
+  "title": "Yunan Suvlakisi və Tzatziki",
+  "description": "Aralıq dənizi pəhrizinin şahı: Təmiz zülal, probiyotik və sağlam yağlar.\n\nFaydası: Tzatziki (qatıq və xiyar sousu) bağırsaq florasını qoruyur. Toyuq əti isə zülal verir və maddələr mübadiləsini sürətləndirir.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Toyuq döş əti: 200 qr (kub doğranmış, limon və kəklikotu ilə marinovka edilmiş)",
+   "Süzmə qatıq (Yunan qatığı): 4 xörək qaşığı",
+   "Xiyar: 1 ədəd (rəndələnmiş və suyu tam sıxılmış)",
+   "Təzə nanə, sarımsaq, zeytun yağı."
+  ],
+  "instructions": [
+   "Toyuqları taxta şişlərə keçirib tavada və yaqrildə qızardın. Tzatziki sousu üçün qatıq, suyu sıxılmış xiyar, sarımsaq, nanə və zeytun yağını qarışdırın. Toyuq şişlərini bu səsrin sousa batıraraq yeyin."
+  ]
+ },
+ {
+  "id": "3a7875bd-9bf1-4570-9e1d-e51c83452192",
+  "title": "Fransız Ratatuyu",
+  "description": "Cənubi Fransanın rəngarəng, tamamilə vegan və vizual olaraq qüsursuz tərəvəz yeməyi.\n\nFaydası: Minimum kalori, maksimum lif və vitamin. Bütün tərəvəzlərin öz suyu ilə, yavaş-yavaş bişməsi onların qida dəyərini qoruyur.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kabaçki, Badımcan, Pomidor: Hərəsindən 2 ədəd (eyni ölçüdə, çox nazik halqa kəsilmiş)",
+   "Tomat pastası və sarımsaq (alt sous üçün).",
+   "Provans otları (kəklikotu, rozmarin), zeytun yağı."
+  ],
+  "instructions": [
+   "Dairəvi soba qabının dibinə pomidor sousunu yayın. Dilimlənmiş tərəvəzləri rəng sırası ilə (badımcan, pomidor, kabaçki) spiral şəklində qabın kənarından mərkəzə doğru dizin. Üzərinə otlar və yağ gəzdirib, üzəri bağlı şəkildə 190 dərəcədə 45 dəqiqə bişirin."
+  ]
+ },
+ {
+  "id": "35ab7142-651b-45ae-b7e5-7c6acf7f3691",
+  "title": "Yapon Miso Şorbası",
+  "description": "Yaponların uzunömürlülük sirri olan, səhər və ya axşam içilən yüngül, fermentləşdirilmiş şorba.\n\nFaydası: Miso pastası (fermentə olunmuş soya) bağırsaq sağlamlığı üçün ən güclü probiyotiklərdən biridir. Həzmi sıfırlayır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Miso pastası: 2 xörək qaşığı (Asiya marketlərində tapılır)",
+   "Tofu pendiri: 100 qr (kiçik kub doğranmış)",
+   "Yaşıl soğan: 2 tel (doğranmış)",
+   "İlıq su və ya tərəvəz bulyonu: 2 stəkan."
+  ],
+  "instructions": [
+   "Suyu qaynara çatdırıb ocaqdan alın (miso qaynadılmamalıdır, əks halda probiyotiklər ölür). Miso pastasını suda əridin. İçinə tofu kublarını və yaşıl soğanı atıb dərhal isti-isti için."
+  ]
+ },
+ {
+  "id": "34a3ec68-3237-4337-99bf-0423a1d5cd88",
+  "title": "Qızılbalıq və Kartof(1 yaş+)",
+  "description": "Balıq sevməyən uşaqların belə ləzzətlə yeyəcəyi yumşaq balıq kotletləri.\n\nFaydası: Qızılbalıq beyin və göz inkişafı üçün birbaşa Omeqa-3 yağ turşuları ilə təmin edir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "general",
+   "baby_food"
+  ],
+  "ingredients": [
+   "Qızılbalıq (Somon) filesi: 50 qr (buxarda bişmiş və didilmiş)",
+   "Kartof: 1 ədəd (qaynadılmış və əzilmiş)",
+   "Təzə şüyüd: Çox az (doğranmış)",
+   "Zeytun yağı."
+  ],
+  "instructions": [
+   "Əzilmiş kartof, didilmiş sümüksüz balıq və şüyüdü qarışdırın. Kiçik kotletlər düzəldib tavada çox az zeytun yağında hər iki üzünü yüngülcə qızardın."
+  ]
+ },
+ {
+  "id": "90e2d20f-198b-4417-92bb-ccab337989e6",
+  "title": "Süzmə Qatıq və Çia boul(1 yaş+)",
+  "description": "Ara öğün (qəlyanaltı) və ya yüngül axşam yeməyi üçün probiyotik və kalsium anbarı.\n\nFaydası: Qatıq bağırsaq florasını zənginləşdirir, çia toxumu isə Omeqa-3 verir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Süzmə qatıq və ya yunan qatığı: 2-3 xörək qaşığı",
+   "Çia toxumu: Yarım çay qaşığı (əvvəlcədən 1 qaşıq suda şişirdilmiş)",
+   "Moruq və ya çiyələk: 2-3 ədəd (əzilmiş püre halında)",
+   "Bal: Çay qaşığının ucu ilə (1 yaşdan yuxarı uşaqlar üçün təhlükəsizdir)."
+  ],
+  "instructions": [
+   "Qatığı, şişmiş çia toxumunu, əzilmiş meyvə püresini və çox az balı bir kasada qarışdırın. Uşağınıza rəngi ilə maraqlı gələcək ləzzətli bir desert yaranacaq."
+  ]
+ },
+ {
+  "id": "78095524-c00e-403c-92d3-bbc3e2809be1",
+  "title": "Makaron Salatı(2 yaş+)",
+  "description": "Müxtəlif rənglər və teksturalar 2 yaşlı uşağın motorikasını və marağını inkişaf etdirir.\n\nFaydası: Doyurucu karbohidrat və tərəvəz lifləri bir arada. İsti yay günləri üçün əla sərinlədici nahardır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Rəngli fusilli makaron (tərəvəzli): 1 stəkan (qaynadılmış)",
+   "Yaşıl noxud və qarğıdalı: Hərəsindən 1 xörək qaşığı (qaynadılmış)",
+   "Kök: Yarım ədəd (çox kiçik kub doğranmış və bişmiş)",
+   "Qatıq (sous üçün): 1 xörək qaşığı."
+  ],
+  "instructions": [
+   "İlıq makaronları, noxud, qarğıdalı və kökü bir kasada qarışdırın.",
+   "Üzərinə qatığı əlavə edib ləzzətləri birləşdirin.",
+   "Öz əliylə yeməsi üçün qarşısına qoyun."
+  ]
+ },
+ {
+  "id": "945b98d6-f61a-4b5b-a323-8398d17756d0",
+  "title": "Şirin Kartof Vafli(2 yaş+)",
+  "description": "Pankeykdən sıxılan uşaqlar üçün xırtıldayan və əllə rahat tutulan vafli.\n\nFaydası: Şirin kartof qan şəkərini nizamlayır və uşağa uzunmüddətli enerji verir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Şirin kartof püresi: Yarım stəkan",
+   "Yumurta: 1 ədəd",
+   "Un (tam buğda və ya yulaf): 2 xörək qaşığı",
+   "Darçın: Çox az."
+  ],
+  "instructions": [
+   "Bütün ərzaqları bir qabda qarışdıraraq xəmir hazırlayın.",
+   "Vafli aparatını azca yağlayın və xəmiri içinə tökün.",
+   "Qızılı rəng alıb kənarları xırtıldayana qədər bişirin. (Vafli aparatı yoxdursa, tavada pankeyk kimi də bişirə bilərsiniz)."
+  ]
+ },
+ {
+  "id": "4660742b-6a15-4753-92bd-b4b19340e368",
+  "title": "Ev üsulu Naqetslər(4 yaş+)",
+  "description": "Fast-food həvəsinin qarşısını alan, sobada bişmiş və 100% ev üsulu xırtıldayan naqetslər.\n\nFaydası: Təmiz toyuq zülalı əzələləri gücləndirir, yulaf qabığı isə həzmi asanlaşdırır və tox tutur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Toyuq döş əti: 150 qr (küb doğranmış)",
+   "Yulaf unu və ya xırdalanmış yulaf: Batırmaq üçün",
+   "Yumurta: 1 ədəd",
+   "Şirin qırmızı toz bibər (paprika) və azca duz."
+  ],
+  "instructions": [
+   "Toyuq kublarını əvvəlcə çırpılmış yumurtaya, sonra ədviyyatlı yulaf ununa batırın. Yağlı kağız sərilmiş soba listinə düzüb 190 dərəcədə 20 dəqiqə qızarana qədər bişirin."
+  ]
+ },
+ {
+  "id": "a8a21b7d-5abe-40d9-9276-a772ffab8e70",
+  "title": "Alma Donatları(4 yaş+)",
+  "description": "Xəmir və şəkər olmadan hazırlanan, hazırlaması uşaqlar üçün bir oyuna çevrilən donatlar.\n\nFaydası: Almanın lifi həzmi tənzimləyir, fıstıq əzməsi isə doyumlu zülal verir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Böyük alma: 1-2 ədəd (qırmızı və ya yaşıl)",
+   "Fıstıq əzməsi və ya şokoladlı fındıq əzməsi (şəkərsiz): 2 xörək qaşığı",
+   "Damla şokolad, kokos yonqarı, xırda qoz."
+  ],
+  "instructions": [
+   "Almanı halqa şəklində doğrayıb ortasındakı çəyirdəkli hissəni dairəvi kəsib çıxarın (donat forması alınsın). Üzərinə fıstıq əzməsi çəkin. Uşağınıza damla şokolad və kokosla öz \"təkərlərini\" bəzəməyə icazə verin."
+  ]
+ },
+ {
+  "id": "cb924e7b-c487-4059-bef0-ff92f0b6b771",
+  "title": "İspanaq Vafliləri(5 yaş+)",
+  "description": "Yaşıl rəngi ilə uşaqların diqqətini çəkən, səhərlər onlara \"əjdaha gücü\" verən vaflilər.\n\nFaydası: İspanaq dəmir, yulaf isə liflə zəngindir. Uşağı uzun müddət tox tutur və qan azlığının qarşısını alır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Körpə ispanaq: 1 böyük ovuc",
+   "Yumurta: 1 ədəd",
+   "Yulaf unu (və ya tam buğda unu): 3-4 xörək qaşığı",
+   "Süd: Yarım stəkan",
+   "Zeytun yağı: 1 çay qaşığı."
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderdə tam hamar və parlaq yaşıl xəmir olana qədər çəkin. Vafli aparatını (və ya tavanı) yağlayıb xəmiri tökün və xırtıldayana qədər bişirin. Üzərinə azca bal gəzdirə bilərsiniz."
+  ]
+ },
+ {
+  "id": "37d5dece-84c4-4e64-b999-a935190306a7",
+  "title": "Qızıl Dəfinə Keksləri(5 yaş+)",
+  "description": "Yumurta sevməyən uşaqların inadını qıran, içində rəngli \"dəfinələr\" olan yumurta keksləri.\n\nFaydası: Yumurta sarısındakı xolin maddəsi yaddaşı gücləndirir. Unsuz və qlütensiz olduğu üçün çox yüngüldür.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Yumurta: 3 ədəd",
+   "Rəngli bolqar bibərləri (qırmızı və yaşıl): 2 xörək qaşığı (çox xırda doğranmış)",
+   "Pendir (rəndələnmiş): 2 xörək qaşığı",
+   "Duz və azca süd."
+  ],
+  "instructions": [
+   "Yumurtaları süd və duzla çırpın. İçinə doğranmış bibərləri və pendiri qatın. Keks (muffin) qablarını yüngülcə yağlayıb qarışımı onlara paylayın. 180 dərəcəlik sobada qabarıb qızarana qədər (15-20 dəqiqə) bişirin."
+  ]
+ },
+ {
+  "id": "b1385dc4-14fe-4718-ab79-5558f3683c72",
+  "title": "Kinoa ilə Doldurulmuş Rəngli Bibər",
+  "description": "Aralıq dənizi mətbəxinin məşhur yeməyinin, düyü əvəzinə kinoa istifadə edilən proteinli versiyası.\n\nFaydası: Rəngli bibərlər C vitamini ilə zəngindir. Sobada bişdikdə kinoanın teksturası ilə mükəmməl uyğunlaşır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Bolqar bibəri (qırmızı, sarı): 3-4 ədəd (ortadan bölünmüş, içi təmizlənmiş)",
+   "Kinoa (bişmiş): 1.5 stəkan",
+   "Qiymə və ya göbələk: 150 qr (qovrulmuş)",
+   "Tomat pastası, pendir (üzəri üçün)."
+  ],
+  "instructions": [
+   "Bişmiş kinoanı qovrulmuş qiymə/göbələk və tomatla qarışdırın. Bibərlərin içinə doldurun. Soba qabına yığıb 180 dərəcədə bibərlər yumşalana qədər bişirin. Götürməyə 5 dəqiqə qalmış pendir səpin."
+  ]
+ },
+ {
+  "id": "14732b3b-b0ea-4f4d-834e-0f74c755ed69",
+  "title": "Avokado və Badam Smuzisi",
+  "description": "Həm qəlyanaltı, həm də ləzzətli bir desert əvəzi kimi içilə bilən, həddindən artıq kremsi smuzi.\n\nFaydası: Avokadonun yağı və badamın E vitamini hüceyrə səviyyəsində gəncləşdirici təsirə malikdir.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Avokado: Yarım ədəd (tam yumşaq)",
+   "Badam südü: 1 stəkan",
+   "Çia toxumu: 1 çay qaşığı (üzəri üçün)",
+   "Bal: 1 çay qaşığı",
+   "Buz kubları."
+  ],
+  "instructions": [
+   "Avokado, badam südü, buz və balı blenderdə tam hamar \"ipək\" kimi kütlə halına gələnə qədər çəkin. Stəkana süzüb üzərinə çia toxumu səpin."
+  ]
+ },
+ {
+  "id": "29f853dc-e269-415a-b733-458329d3f202",
+  "title": "Protein Cloud- Kəsmikli Pankeyk",
+  "description": "Şirniyyat istəyini sağlam şəkildə qarşılayan, unsuz və zülal dolu keks.\n\nFaydası: Yüksək protein tox tutur və əzələ kütləsini qoruyur, un olmadığı üçün qanda şəkəri anidən qaldırmır.",
+  "category": "breakfast",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kəsmik (az yağlı): 100 qr",
+   "Yumurta: 1 ədəd",
+   "Yulaf unu: 2 xörək qaşığı",
+   "Vanil və darçın.",
+   "Servis üçün: Qatıq və ya bal."
+  ],
+  "instructions": [
+   "Kəsmiyi yumurta ilə yaxşıca əzin. Üzərinə yulaf unu və ədviyyatları qatıb xəmir hazırlayın. Yağsız tavada kiçik dairələr şəklində hər iki üzünü qızardın."
+  ]
+ },
+ {
+  "id": "62b8e0b6-2240-42de-af0b-ccfb0617485b",
+  "title": "Şirin Kartof Sotesi",
+  "description": "Lif və mürəkkəb karbohidratlarla zəngin, tox tutan fərqli dad.\n\nFaydası: Şirin kartofda olan liflər və vitaminlər insulin dirəncini tənzimləməyə kömək edir, şirinlik istəyini azaldır.",
+  "category": "breakfast",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Şirin kartof (batat): 1 orta boy (xırda kub doğranmış)",
+   "Qırmızı soğan: Yarım ədəd",
+   "İspanaq: 1 ovuc",
+   "Zeytun yağı, duz, qara istiot."
+  ],
+  "instructions": [
+   "Tavada yağı qızdırın, şirin kartof və soğanı yumşalana qədər sote edin (pörtlədin). Tam bişdikdən sonra ispanağı əlavə edib 1 dəqiqə qarışdırın. Yanında 1 dilim pendirlə əla gedir."
+  ]
+ },
+ {
+  "id": "94c6eeab-3fdb-44c0-af09-f90065cd1128",
+  "title": "Brokkoli və İspanaq Şorbası",
+  "description": "Səhər dümdüz və rahat bir qarınla oyanmaq üçün ən gözəl \"maye\" şam yeməyi.\n\nFaydası: Bədəndən toksinləri atan, qaraciyəri və bağırsaqları yudum-yudum təmizləyən yaşıl detoks şorbası.",
+  "category": "şam yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Brokkoli: 200 qr",
+   "İspanaq: 1 ovuc",
+   "Soğan, sarımsaq (azca).",
+   "Badam südü və ya qaymaq: 2 xörək qaşığı"
+  ],
+  "instructions": [
+   "Brokkoli və soğanı suda yumşalana qədər bişirin. Götürməyə 1 dəqiqə qalmış ispanağı atın. Hamısını blenderdən keçirin, üzərinə süd/qaymaq əlavə edib kremsi hal alınca qarışdırın. Qovrulmuş balqabaq tumu ilə servis edin."
+  ]
+ },
+ {
+  "id": "51c68a19-8648-4032-8605-7b8cccf441b0",
+  "title": "Limonlu Toyuq və Qulançar",
+  "description": "Tək tavada hazırlanan, qulağa sadə gələn amma çox \"zəngin\" görünən pəhriz yeməyi.\n\nFaydası: Toyuq döş əti zülal, qulançar isə böyrəkləri işlədərək bədəndəki artıq mayeni (ödəmi) atan super-qidadır.",
+  "category": "şam yeməyi",
+  "ingredients": [
+   "Toyuq döş əti: 150 qr (nazik döyülmüş və ya dilimlənmiş)",
+   "Qulançar (Asparaqus): 1 dəstə",
+   "Limon: 1 ədəd (yarı suyu, yarı dilimləri)",
+   "Zeytun yağı, sarımsaq tozu."
+  ],
+  "instructions": [
+   "Geniş bir tavada toyuqları yağda hər iki tərəfdən qızardın. Toyuqlar bişməyə yaxın qulançarları və limon dilimlərini tavaya əlavə edib 5-7 dəqiqə birlikdə qovurun. Üzərinə limon suyu sıxıb süfrəyə verin."
+  ]
+ },
+ {
+  "id": "b2be2ad1-ce46-48a9-9075-79f7864e5758",
+  "title": "Hinduşka və Kinoa dolması",
+  "description": "Adi dolmanın karbohidratsız, bol vitaminli, rəngli versiyası.\n\nFaydası: C vitamini (rəngli bibərlər) və zülalın (hinduşka əti) balansı dərinin kollagen istehsalını artırır.",
+  "category": "nahar yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Rəngli bolqar bibərləri: 2 ədəd (ortadan bölünmüş, qayıq kimi)",
+   "Hinduşka qiyməsi (və ya yağsız mal əti): 150 qr",
+   "Kinoa (bişmiş): 2 xörək qaşığı",
+   "Pomidor sousu."
+  ],
+  "instructions": [
+   "Qiyməni kinoa və pomidor sousu ilə tavada yarımçıq bişirin. Bibər qayıqlarının içinə doldurub sobada bibərlər yumşalana qədər bişirin."
+  ]
+ },
+ {
+  "id": "cb10f111-6a9d-4baa-9dd6-af7ef8393f1e",
+  "title": "Matça Limonad",
+  "description": "Kofeinsiz, çarpıntı yaratmadan təmiz enerji verən və antioksidantla dolu iki rəngli içki.\n\nFaydası: Matça çayı kofe kimi anidən enerji verib sonra yormur, gün boyu balanslı gümrahlıq yaradır.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Matça tozu: 1 çay qaşığı (ilıq suda köpükləndirilmiş)",
+   "Təzə sıxılmış limon şirəsi: Üçdə bir stəkan",
+   "Aqava və ya bal: 1 xörək qaşığı",
+   "Su və bol buz."
+  ],
+  "instructions": [
+   "Stəkana buzları tökün. Üzərinə limon şirəsi, bal və suyu qarışdırıb süzün. Ən sonda köpükləndirilmiş yaşıl matçanı yavaşca əlavə edin (beləcə stəkanda iki rəng – altda sarı, üstdə yaşıl olacaq)."
+  ]
+ },
+ {
+  "id": "ae635663-e33c-479a-970a-94bd85e39010",
+  "title": "Qozlu və Bananlı Overnight Oats",
+  "description": "Səhərlər ürəkbulanması olanlar üçün ideal, sərin və yüngül seçim",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Yulaf - 4 xörək qaşığı",
+   "Süd - 1 stəkan",
+   "Banan - yarım ədəd",
+   "Qoz - 2 ədəd",
+   "Bal - 1 çay qaşığı"
+  ],
+  "instructions": [
+   "Axşamdan yulaf, süd və balı qarışdırın",
+   "Soyuducuda saxlayın",
+   "Səhər banan və qoz əlavə edin"
+  ]
+ },
+ {
+  "id": "c940ec18-0208-46aa-8361-f2f2f659b141",
+  "title": "Badımcan Pendir Qatlaması",
+  "description": "Karbohidratsız və yüngül alternativ, yalançı lazanya",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Badımcan - 2 ədəd",
+   "Pomidor - 2 ədəd",
+   "Ağ pendir - 60 qr",
+   "Fesləyən"
+  ],
+  "instructions": [
+   "Badımcanları nazik dilimləyib sobada pörtlədin",
+   "Pendir, pomidor, reyhan qoyun",
+   "Sobada pendir əriyənə qədər bişirin"
+  ]
+ },
+ {
+  "id": "e7b8a04c-a4fa-4769-bbd9-6735976b643a",
+  "title": "Sobada Darçınlı Şaftalı",
+  "description": "Çox yüngül, dondurma effekti verən, lakin kalorisi yox deyiləcək qədər az desert.\n\nFaydası: Şaftalı liflə zəngindir (həzmi sürətləndirir), darçın isə qanda şəkərin səviyyəsini dərhal balanslaşdırır.",
+  "category": "Sağlam şirniyyatlar",
+  "ingredients": [
+   "Şaftalı: 2 ədəd (ortadan bölünmüş, çəyirdəyi çıxarılmış)",
+   "Darçın: 1 çay qaşığı",
+   "Qoz və ya peqan qozu: xırdalanmış",
+   "Süzmə qatıq (servis üçün)."
+  ],
+  "instructions": [
+   "Şaftalı yarımlarını soba qabına düzün, ortalarına darçın və qoz səpin. 180 dərəcədə 15-20 dəqiqə yumşalana qədər bişirin. İlıq halda ortasına bir qaşıq süzmə qatıq qoyaraq yeyin."
+  ]
+ },
+ {
+  "id": "a8859019-9d72-40f8-8956-b03d1cfb1e34",
+  "title": "Balqabaq və Kokos Südü\n(8 ay+)",
+  "description": "Körpənin fərqli, tropik dadlarla ilk tanışlığı. İpək kimi teksturası var.\n\nFaydası: Balqabaq A vitamini ilə gözləri qoruyur. Kokos südü isə inək südünə əla, allergiyasız alternativdir və ana südünə bənzər sağlam yağlar ehtiva edir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Balqabaq: 1 dilim (qabığı soyulmuş, kub doğranmış)",
+   "Kokos südü (qutuda içməli olanlardan deyil, qatı kulinariya növü): 2 xörək qaşığı."
+  ],
+  "instructions": [
+   "Balqabağı buxarda yumşalana qədər bişirin. Üzərinə kokos südünü əlavə edib blenderdən keçirin. Çox doyumlu və ləzzətli şorba olacaq."
+  ]
+ },
+ {
+  "id": "a31f99ac-a31e-4008-9edc-552e80b3f2f2",
+  "title": "Brokkoli və Pendirli Toplar(1 yaş+)",
+  "description": "Brokkolini sevdirməyin ən xırtıldayan və əyləncəli yolu.\n\nFaydası: Brokkoli immuniteti gücləndirən C vitamini, pendir və yumurta isə keyfiyyətli zülal verir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Brokkoli: 4-5 çiçək (buxarda bişmiş və çox xırda doğranmış)",
+   "Yumurta: 1 ədəd",
+   "Holland pendiri və ya Mozzarella: 2 xörək qaşığı (rəndələnmiş)",
+   "Tam buğda unu və ya suxari tozu: 1 xörək qaşığı"
+  ],
+  "instructions": [
+   "Doğranmış brokkolini yumurta, pendir və unla qarışdırın. Əlinizlə kiçik silindr (və ya ağac) forması verin. 180 dərəcəlik sobada 15 dəqiqə qızarana qədər bişirin."
+  ]
+ },
+ {
+  "id": "0d1f8dc7-ed50-4792-a9b8-aaed4334e5c7",
+  "title": "Sunshine Yolk - Yumurta Kartof",
+  "description": "Yumurta sarısı beyin və göz inkişafı üçün vacib (8 ay+)",
+  "category": "baby_food",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Yumurta sarısı - 1 ədəd",
+   "Kartof - 1 kiçik ədəd",
+   "Ana südü/formala"
+  ],
+  "instructions": [
+   "Kartof püresini hazırlayın",
+   "Bişmiş yumurta sarısını əzib əlavə edin",
+   "Südlə yumşaldın"
+  ]
+ },
+ {
+  "id": "f09a3c1e-ec4c-4eb2-b2d1-b699bce46612",
+  "title": "Milky Way Cookies",
+  "description": "Dünyada məşhur Lactation Cookies-in sağlam versiyası. Yulaf və kətan toxumu prolaktin artırır.",
+  "category": "saglam_sirniyyatlar",
+  "ingredients": [
+   "Yulaf: 1.5 stəkan",
+   "Kərə yağı: 50 qr",
+   "Bal: 3 xörək qaşığı",
+   "Yumurta: 1 ədəd",
+   "Kətan toxumu: 2 xörək qaşığı",
+   "Şokolad damcıları: ixtiyari"
+  ],
+  "instructions": [
+   "Kərə yağını əridin, bal və yumurta ilə çırpın",
+   "Yulaf və kətan toxumunu əlavə edib qarışdırın",
+   "İstəyə görə şokolad damcıları əlavə edin",
+   "Qaşıqla kağız üzərinə dairələr düzün",
+   "175°C-də 12-15 dəqiqə bişirin - gündə 2-3 ədəd yeyin"
+  ]
+ },
+ {
+  "id": "e130e1c4-d49f-409f-844e-56265cb3eca7",
+  "title": "Queen's Porridge - Kraliçanın Səhəri",
+  "description": "Xurma və qozun enerjisi ilə yulafın süd artırıcı gücünün birləşməsi. Prolaktin stimulyatoru.",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Yulaf: 3 xörək qaşığı",
+   "Süd: 1 stəkan",
+   "Xurma: 2-3 ədəd (çəyirdəksiz)",
+   "Qoz: 1 ovuc",
+   "Darçın: bir çimdik"
+  ],
+  "instructions": [
+   "Süd və yulafı qazanda orta odda qarışdıraraq bişirin",
+   "Qatılaşana qədər (5-7 dəq) qarışdırmağa davam edin",
+   "Oddan götürüb doğranmış xurma əlavə edin",
+   "Qoz və darçın səpin",
+   "İsti yeyin - süd artımı üçün ən güclü səhər yeməyi"
+  ]
+ },
+ {
+  "id": "b862ae81-6647-4306-8478-b02653620beb",
+  "title": "Yaşıl Detoks Eliksiri",
+  "description": "Qaraciyəri və dərini təmizləyən, hüceyrələri yeniləyən super \"yaşıl şirə\".\n\nFaydası: Kərəviz sapı sızanaqları azaldır və həzmi sıfırlayır. Boş mədəyə içildikdə mükəmməl detoks təsiri verir.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kərəviz sapı: 2 ədəd",
+   "Yaşıl alma: 1 ədəd",
+   "Təzə zəncəfil: Çox kiçik bir parça",
+   "Limon şirəsi: Yarım limon."
+  ],
+  "instructions": [
+   "Kərəviz, alma və zəncəfili şirəçəkəndən keçirin. Üzərinə limon sıxıb dərhal, vitamini ölmədən için."
+  ]
+ },
+ {
+  "id": "869b95b1-b2fc-4999-9364-14adff9736c9",
+  "title": "Armud və Gavalı püresi\n(6 ay+)",
+  "description": "Əlavə qidaya keçiddə tez-tez yaranan qəbizlik probleminə təbii və dadlı həll.\n\nFaydası: Gavalı və armud bağırsaqları işlədir, yulaf isə körpəni uzun müddət tox tutur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Körpə yulaf unu (və ya blenderdə xırdalanmış yulaf): 1-2 xörək qaşığı",
+   "Armud: Yarım ədəd",
+   "Qara gavalı qurusu: 2 ədəd (əvvəlcədən isti suda yumşaldılmış)"
+  ],
+  "instructions": [
+   "Yulafı suda bişirib sıyıq halına gətirin. Armudu buxarda yumşaldın. Gavalı və armudu blenderdən keçirib yulaf sıyığına qatın."
+  ]
+ },
+ {
+  "id": "47c56e28-7e74-45f9-b91a-7cf55a196ffc",
+  "title": "Kətan Lavaşında Avokado",
+  "description": "Cəmi 2 ərzaqdan hazırlanan, unsuz və qlütensiz \"vegan lavaş\".\n\nFaydası: Karbohidratı sıfıra yaxındır. Tərkibi sadəcə lif və sudan ibarətdir, bağırsaq sağlamlığı üçün \"süpürgə\" rolunu oynayır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kətan toxumu (üyüdülmüş): 1 stəkan",
+   "Qaynar su: 1 stəkan",
+   "İçlik üçün: Avokado dilimləri, ispanaq."
+  ],
+  "instructions": [
+   "Qaynar suyu kətan toxumu ununun üzərinə töküb xəmir yoğurun (jelatinləşəcək). İki kağız arasında lavaş kimi yayın və quru tavada hər iki üzünü bişirin. İçinə avokado və ispanaq qoyub dürüm (wrap) edin."
+  ]
+ },
+ {
+  "id": "ac0ef609-013d-4d24-9387-eb2cabfeb421",
+  "title": "Bananlı Nice Cream",
+  "description": "Süd və şəkər olmayan, yalnız meyvədən ibarət ən sağlam dondurma",
+  "category": "saglam_sirniyyatlar",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Banan - 2 ədəd (dondurulmuş)",
+   "Kakao - 1 çay qaşığı",
+   "Çiyələk - 3 ədəd"
+  ],
+  "instructions": [
+   "Donmuş bananları blenderdə krem halına gətirin",
+   "Kakao/çiyələk əlavə edin",
+   "Dərhal servis edin"
+  ]
+ },
+ {
+  "id": "2554217b-8b4f-4356-a70a-64c6a62b32e2",
+  "title": "Avokado və Yumurtalı Brusketta",
+  "description": "Fol turşusu və sağlam yağlarla zəngin, dölün beyin inkişafına kömək edir",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Tam buğda çörəyi - 2 dilim",
+   "Avokado - yarım ədəd",
+   "Yumurta - 1 ədəd",
+   "Limon suyu - 1 çay qaşığı",
+   "Küncüt"
+  ],
+  "instructions": [
+   "Avokadonu əzin, limon suyu və duz əlavə edin",
+   "Qızardılmış çörəyə avokado yayın",
+   "Bərk bişmiş yumurtanı doğrayıb üzərinə düzün",
+   "Küncüt səpin"
+  ]
+ },
+ {
+  "id": "1dc5ff7a-9167-45eb-a742-f8830d930c68",
+  "title": "Bananlı və Yulaflı Unsuz Pankeyk",
+  "description": "Lifli quruluşu həzmi yaxşılaşdırır, banan kalium qaynağıdır",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Yumurta - 2 ədəd",
+   "Banan - 1 ədəd",
+   "Yulaf yarması - yarım stəkan",
+   "Darçın - zövqə görə"
+  ],
+  "instructions": [
+   "Bananı əzin",
+   "Yumurta əlavə edib çırpın",
+   "Yulaf unu və darçın qatın",
+   "Tavada hər iki üzünü bişirin"
+  ]
+ },
+ {
+  "id": "2f2b9ad9-7480-4118-bad9-8cd23415bda5",
+  "title": "Sobada Yalançı Dolma",
+  "description": "Qızartma olmadığı üçün mədə yanması vermir, lifli tərəvəzlər həzmi asanlaşdırır",
+  "category": "nahar_yemeyi",
+  "ingredients": [
+   "Kabaçki - 2 ədəd",
+   "Mal əti qiyməsi - 150 qr",
+   "Soğan - 1 ədəd",
+   "Pomidor - 1 ədəd",
+   "Pendir - 30 qr"
+  ],
+  "instructions": [
+   "Tərəvəzləri yarıb içini oyun",
+   "Əti soğan və pomidorla bişirin",
+   "Tərəvəzlərə doldurun",
+   "180°C-də 25-30 dəqiqə bişirin",
+   "Pendir səpin"
+  ]
+ },
+ {
+  "id": "67463cf4-ba39-4257-b387-541018594397",
+  "title": "Sobada Ağ Balıq",
+  "description": "Ağ balıqlar az yağlıdır, mədəyə ağırlıq etmir. Zülal qaynağı",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Ağ balıq - 1 file",
+   "Limon - 2 dilim",
+   "Dəfnə yarpağı - 1",
+   "Zeytun yağı",
+   "Qara istiot"
+  ],
+  "instructions": [
+   "Balığı yağla ovun",
+   "Limon və dəfnə yarpağı qoyun",
+   "Kağıza büküb 180°C-də 25 dəqiqə bişirin"
+  ]
+ },
+ {
+  "id": "9194dcd7-0593-42ea-be60-36f52bfc96b4",
+  "title": "Yaşıl Mərciməkli İlıq Salat",
+  "description": "Fol turşusu və lif qaynağı, yüngül şam yeməyi",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Yaşıl mərcimək - yarım stəkan",
+   "Kök - 1 ədəd",
+   "İspanaq - 1 ovuc",
+   "Limon suyu",
+   "Zeytun yağı"
+  ],
+  "instructions": [
+   "Mərciməyi bişirin",
+   "Kök və ispanaq əlavə edin",
+   "Limon-yağ sousu ilə qarışdırın"
+  ]
+ },
+ {
+  "id": "71de5174-6da5-4ea3-85bb-14cde99315cd",
+  "title": "Sobada Heyva Tatlısı",
+  "description": "Heyva ürəkbulanmanı aradan qaldıran ən güclü meyvədir",
+  "category": "saglam_sirniyyatlar",
+  "ingredients": [
+   "Heyva - 2 ədəd",
+   "Alma - 1 ədəd",
+   "Darçın çubuğu - 1",
+   "Mixək - 3 ədəd",
+   "Bal, qoz"
+  ],
+  "instructions": [
+   "Heyvaları bölüb rəndələnmiş alma doldurun",
+   "Darçın və mixək əlavə edin",
+   "180°C-də 50 dəqiqə bişirin",
+   "Bal gəzdirin"
+  ]
+ },
+ {
+  "id": "a816a450-3561-451f-b7de-9d70662f2972",
+  "title": "Badam Həzzi Smuzisi",
+  "description": "Badam südünün və xurmanın təbii şirinliyi. Omeqa-3 və kalsiumla zəngin, südü yağlı edir.",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Badam: 1 ovuc (axşamdan isladılmış, qabığı soyulmuş)",
+   "Süd: 1 stəkan",
+   "Banan: 1 ədəd",
+   "Bal: 1 çay qaşığı"
+  ],
+  "instructions": [
+   "Badamları axşamdan suya qoyun, səhər qabıqlarını soyun",
+   "Badamları südlə birlikdə blenderdə xırdalanana qədər çırpın",
+   "Banan və bal əlavə edib yenidən blenderdən keçirin",
+   "Soyuq və ya otaq temperaturunda için",
+   "Hər gün 1 stəkan süd artırıcı təsir göstərir"
+  ]
+ },
+ {
+  "id": "a447ee30-24f2-4732-9007-6f2676858ba8",
+  "title": "Meyvəli Çia Pudinqi",
+  "description": "Omeqa-3 yağ turşuları ilə zəngin. Qəbizlik problemi yaşayanlar üçün idealdır.",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Çia toxumu - 2 xörək qaşığı",
+   "Süd - 1 stəkan",
+   "Bal - 1 çay qaşığı",
+   "Təzə meyvələr"
+  ],
+  "instructions": [
+   "Çia, bal və südü qarışdırın",
+   "Soyuducuda 4 saat saxlayın",
+   "Meyvələr əlavə edib yeyin"
+  ]
+ },
+ {
+  "id": "04df0cb9-27f0-4232-a5c9-a3da1994f4f1",
+  "title": "Tərəvəzli Muffin Omletlər",
+  "description": "Zülal və vitaminlər bir arada. İşləyən qadınlar üçün praktik seçim",
+  "category": "seher_yemeyi",
+  "ingredients": [
+   "Yumurta - 3 ədəd",
+   "Süd - 2 xörək qaşığı",
+   "Qırmızı bibər - yarım ədəd",
+   "Göy soğan - bir neçə tel",
+   "Ağ pendir - 50 qr"
+  ],
+  "instructions": [
+   "Yumurtaları südlə çırpın",
+   "Bibər, soğan və pendiri əlavə edin",
+   "Muffin qablarına tökün",
+   "180°C-də 15-20 dəqiqə bişirin"
+  ]
+ },
+ {
+  "id": "004578f9-a884-48b5-a55a-c91cee0ace44",
+  "title": "Toyuqlu Tərəvəz Şorbası",
+  "description": "Tam vitamin bombası, gecə susuzluq yaratmır",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Toyuq budu - 1 ədəd",
+   "Kök - 1 ədəd",
+   "Kərəviz - 1 ədəd",
+   "Vermişel - 1 xörək qaşığı",
+   "Cəfəri"
+  ],
+  "instructions": [
+   "Toyuğu qaynadıb didin",
+   "Kök və kərəviz əlavə edin",
+   "Vermişel qatın",
+   "Cəfəri və limon əlavə edin"
+  ]
+ },
+ {
+  "id": "880d9940-72c5-4091-be98-b624aa0ce63b",
+  "title": "Anti-Bulantı Şotu",
+  "description": "Səhər ürəkbulanmalarını kəsmək üçün ən təsirli vasitə",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Zəncəfil suyu - 1 çay qaşığı",
+   "Limon suyu - 1 xörək qaşığı",
+   "Alma suyu - 2 xörək qaşığı"
+  ],
+  "instructions": [
+   "Kiçik stəkanda qarışdırın",
+   "Səhər acqarına için"
+  ]
+ },
+ {
+  "id": "aef368fe-083d-4b68-9edb-d6de124b4d49",
+  "title": "Kinoa və Tərəvəzli boul",
+  "description": "Rəngarəng, doyurucu və tam bitki mənşəli güc mənbəyi.\n\nFaydası: Kinoa qan şəkərini anidən qaldırmayan mürəkkəb karbohidratdır, noxud isə bitki mənşəli zülal və fitoestrogenlərlə (qadın hormonlarını tənzimləyir) zəngindir.",
+  "category": "nahar yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kinoa: Yarım stəkan (bişmiş)",
+   "Şirin kartof (batat): 1 ədəd (kub doğranmış və sobada bişmiş)",
+   "Qırmızı kələm: 1 ovuc (nazik doğranmış)",
+   "Noxud: 3 xörək qaşığı (qaynadılmış)",
+   "Sous üçün: 1 xörək qaşığı tahin, limon suyu, zeytun yağı."
+  ],
+  "instructions": [
+   "Bütün inqrediyentləri dərin bir kasada yan-yana, rəngarəng şəkildə düzün. Üzərinə tahin sousunu gəzdirib servis edin."
+  ]
+ },
+ {
+  "id": "c5e3e953-1def-4129-bf13-05450ac7ffc6",
+  "title": "Badımcan Qrateni",
+  "description": "İtalyanların məşhur \"Parmigiana\" yeməyinin qızartmasız, pəhriz versiyası.\n\nFaydası: Badımcanın qabığındakı \"nasunin\" adlı antioksidant beyin hüceyrələrini qoruyur. Doyurucu, amma kalorisi aşağıdır.",
+  "category": "şam yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Badımcan: 2 ədəd (uzununa nazik dilimlənmiş)",
+   "Pomidor sousu: 1 stəkan",
+   "Mozzarella və lor (şor) pendiri: Yarı-yarıya qarışıq",
+   "Təzə reyhan."
+  ],
+  "instructions": [
+   "Badımcan dilimlərini sobada yağsız pörtlədin. Soba qabına sırayla: sous, badımcan, pendir, fesləyən şəklində lay-lay yığın (lazanya kimi). Ən üstdə pendir qalıb qızarana qədər sobada bişirin."
+  ]
+ },
+ {
+  "id": "feb3870e-5bf3-4d4e-8622-e75280b05802",
+  "title": "Xırtıldayan Tako Kasaları(3 yaş+)",
+  "description": "Lavaşdan hazırlanmış xırtıldayan kasaların içində bol zülallı Meksika ləzzəti.\n\nFaydası: Lobyadakı lif həzmi rahatladır, qarğıdalı və ət isə uşağın böyüməsi üçün lazımi enerjini verir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Lavaş (və ya tortilya): 1 ədəd",
+   "Qırmızı lobya (bişmiş): 2 xörək qaşığı",
+   "Qarğıdalı: 1 xörək qaşığı",
+   "Qiymə və ya didilmiş toyuq əti: 2 xörək qaşığı",
+   "Rəndələnmiş pendir."
+  ],
+  "instructions": [
+   "Lavaşı stəkan ağzı ilə dairəvi kəsin. Bu dairələri keks (muffin) qabının içlərinə basdıraraq \"kasa\" forması verin. İçlərinə lobya, qarğıdalı, ət və ən üstdə pendir qoyun. Pendir əriyib lavaş xırtıldayana qədər (10 dəqiqə) sobada bişirin."
+  ]
+ },
+ {
+  "id": "290acd87-550a-458c-a7f4-69cb997009e4",
+  "title": "Mərciməkli Bomba Şorbası",
+  "description": "Fol turşusu anbarı, hamilələr üçün əvəzolunmaz",
+  "category": "nahar_yemeyi",
+  "ingredients": [
+   "Qırmızı mərcimək - 1 stəkan",
+   "Kök - 1 ədəd",
+   "Kartof - 1 ədəd",
+   "Soğan - 1 ədəd",
+   "Bulyon - 4 stəkan",
+   "Nanə, limon"
+  ],
+  "instructions": [
+   "Soğanı qovurun, kök əlavə edin",
+   "Mərcimək və kartofu əlavə edin",
+   "Bulyon töküb bişirin",
+   "Blenderdən keçirin",
+   "Nanə və limon əlavə edin"
+  ]
+ },
+ {
+  "id": "497f352b-6f6a-4450-a0eb-ddccc2332776",
+  "title": "Sobada Limonlu Qızılbalıq",
+  "description": "Körpənin beyin inkişafı üçün Omeqa-3 qaynağı",
+  "category": "sam_yemeyi",
+  "ingredients": [
+   "Balıq filesi - 200 qr",
+   "Limon - 2 dilim",
+   "Brokkoli - 100 qr",
+   "Zeytun yağı, kəklikotu"
+  ],
+  "instructions": [
+   "Balığı ədviyyatla ovun",
+   "Folqaya balıq və tərəvəz qoyun",
+   "Limon dilimlərini yerləşdirin",
+   "180°C-də 25 dəqiqə bişirin"
+  ]
+ },
+ {
+  "id": "396d0e08-df24-45b2-bbc5-d0eb5bb97a61",
+  "title": "Sobada Darçınlı Alma Çipsi",
+  "description": "Konfet əvəzinə sağlam qəlyanaltı",
+  "category": "saglam_sirniyyatlar",
+  "ingredients": [
+   "Alma - 2 ədəd",
+   "Darçın - 1 çay qaşığı"
+  ],
+  "instructions": [
+   "Almanı nazik dilimləyin",
+   "Darçın səpin",
+   "Sobada aşağı istiliklə qurudun"
+  ]
+ },
+ {
+  "id": "e1dfdbd8-e8bb-4c32-930c-c832c8f118d3",
+  "title": "Kök və Qozlu Yumşaq Keks",
+  "description": "Kökdəki A vitamini və qozdakı Omeqa-3 göz və beyin inkişafı üçün faydalı",
+  "category": "saglam_sirniyyatlar",
+  "ingredients": [
+   "Yulaf unu - 1 stəkan",
+   "Kök - 2 ədəd",
+   "Yumurta - 2 ədəd",
+   "Qoz - yarım stəkan",
+   "Bal - 3 xörək qaşığı",
+   "Darçın, qabartma tozu"
+  ],
+  "instructions": [
+   "Yumurtanı balla çırpın",
+   "Kök, qoz, darçın əlavə edin",
+   "Yulaf unu və qabartma tozu qatın",
+   "170°C-də 25 dəqiqə bişirin"
+  ]
+ },
+ {
+  "id": "6f156a10-e92e-4a17-a7af-3e68646cf53d",
+  "title": "Green Goddess Smuzi",
+  "description": "İspanaqdakı dəmir və C vitamini qan azlığına qarşı super güc",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "İspanaq - 1 ovuc",
+   "Kivi - 1 ədəd",
+   "Yaşıl alma - yarım",
+   "Kokos suyu - yarım stəkan",
+   "Limon suyu"
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderdən keçirin",
+   "Dərhal için"
+  ]
+ },
+ {
+  "id": "b7b9eff5-fed2-499e-b5d9-5c57fb32426f",
+  "title": "Glow Salad",
+  "description": "Tərəvəz yeməyə səhərdən başlamaq istəyənlər üçün detoks təsirli səhər yeməyi.\n\nFaydası: İspanaq və zeytun yağı bağırsaq fəaliyyətini aktivləşdirir, bədəndəki toksinlərin atılmasını sürətləndirir.",
+  "category": "breakfast",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Körpə ispanaq və ya kahı: 1-2 ovuc",
+   "Bərk bişmiş yumurta: 1 ədəd",
+   "Qoz: 2-3 ədəd",
+   "Zeytun yağı və limon suyu.",
+   "Lor pendiri: 2 xörək qaşığı."
+  ],
+  "instructions": [
+   "İspanaqları kasaya yığın. Üzərinə dilimlənmiş yumurta, pendir və qoz əlavə edin. Zeytun yağı və limon sousu gəzdirib yeyin."
+  ]
+ },
+ {
+  "id": "dcd85da7-ccb3-4272-a895-942bd99de63b",
+  "title": "Qızılı Dənələr - Bulqur Plovu",
+  "description": "Bulqur və mərciməyin birləşməsi. B vitaminləri ilə zəngin, süd vəzi toxumalarını qidalandırır.",
+  "category": "nahar_yemeyi",
+  "ingredients": [
+   "Bulqur: 1 stəkan",
+   "Yaşıl mərcimək: yarım stəkan (qaynadılmış)",
+   "Soğan: 1 ədəd",
+   "Kərə yağı: 1 xörək qaşığı",
+   "Su: 2 stəkan"
+  ],
+  "instructions": [
+   "Soğanı kərə yağında qızarana qədər qovurun",
+   "Yuyulmuş bulquru əlavə edib 1-2 dəqiqə qovurun",
+   "Əvvəlcədən bişirilmiş mərciməyi əlavə edin",
+   "Üzərinə 2 stəkan su töküb qaynara gətirin",
+   "Suyu çəkilənə qədər vam odda dəmə qoyun (15-20 dəq)"
+  ]
+ },
+ {
+  "id": "db9dd331-557e-46cd-9d2b-a47d4771ad41",
+  "title": "Zen Balans Smuzisi",
+  "description": "Mədə yanması olanlar üçün sakitləşdirici",
+  "category": "saglam_ickiler",
+  "ingredients": [
+   "Yulaf - 2 xörək qaşığı",
+   "Banan - 1 ədəd",
+   "Süd - 1 stəkan",
+   "Bal - 1 çay qaşığı"
+  ],
+  "instructions": [
+   "Yulafı süddə pörtlədin",
+   "Banan və balla blenderdə qarışdırın"
+  ]
+ },
+ {
+  "id": "56b6eb44-1b68-4703-8191-5abf175ce6b4",
+  "title": "Cumin Comfort - Mərcimək Şorbası",
+  "description": "Həm ana, həm körpə üçün qaz problemini həll edən şorba. Cirə süd artırır, kolik azaldır.",
+  "category": "breastfeeding",
+  "tags": [
+   "postpartum",
+   "milk_boost"
+  ],
+  "ingredients": [
+   "Qırmızı mərcimək: 1 stəkan",
+   "Soğan: 1 ədəd",
+   "Kartof: 1 ədəd",
+   "Cirə (Kimyon): 1 çay qaşığı (bol)",
+   "Kərə yağı: 1 xörək qaşığı"
+  ],
+  "instructions": [
+   "Mərcimək, soğan və kartofu doğrayıb suda qaynadın",
+   "Yumşalandan sonra blenderdən keçirin",
+   "Ayrıca kərə yağında cirəni (kimyonu) qızdırın - ətir gəlsin",
+   "Şorbanın üzərinə qızdırılmış cirəli yağı gəzdirin",
+   "İsti için - süd artırıcı və anti-kolik"
+  ]
+ },
+ {
+  "id": "06ed0fa8-cbd9-44a6-9ddc-7e7b1fe1e84d",
+  "title": "Probiotic Parfait",
+  "description": "Bağırsaq sağlamlığı (ikinci beyin) üçün kalsium və probiyotik deposu.\n\nFaydası: Sağlam bağırsaq florası qadınlarda həm immunitet, həm də psixoloji rifah üçün birbaşa cavabdehdir.",
+  "category": "breakfast",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Süzmə qatıq (və ya yunan qatığı): 1 stəkan",
+   "Şəkərsiz qranola (və ya qovrulmuş yulaf/qoz qarışığı): 3 xörək qaşığı",
+   "Təzə meyvə (kivi, şaftalı və ya çiyələk): Doğranmış"
+  ],
+  "instructions": [
+   "Hündür bir stəkana əvvəlcə qatığın yarısını, sonra meyvəni, daha sonra qranolanı lay-lay əlavə edin. Üst qatı yenidən qatıqla bağlayıb, ən üstdə bir az qranola səpin."
+  ]
+ },
+ {
+  "id": "9448c07e-1f48-40e0-a861-ab4dcd62db5b",
+  "title": "Golden Cream - Hummus",
+  "description": "Noxud və tahinin süd artırıcı gücünün ən ləzzətli halı. Bitki mənşəli zülal və kalsium anbarı.",
+  "category": "nahar_yemeyi",
+  "ingredients": [
+   "Noxud: 1 stəkan (qaynadılmış)",
+   "Tahin (küncüt əzməsi): 2 xörək qaşığı",
+   "Limon suyu: 1 xörək qaşığı",
+   "Sarımsaq: 1 diş",
+   "Zeytun yağı: 2 xörək qaşığı"
+  ],
+  "instructions": [
+   "Noxudu əvvəlcədən isladıb yumşaq qaynadın",
+   "Blenderə noxud, tahin, limon suyu, sarımsaq qoyun",
+   "Hamar krem halına gələnə qədər blenderdən keçirin",
+   "Lazım gələrsə bişirmə suyu əlavə edin",
+   "Üzərinə zeytun yağı gəzdirin, çörəklə verin"
+  ]
+ },
+ {
+  "id": "69335e75-4e74-4b38-bb31-495c4674ceb3",
+  "title": "Sitrus Ətirli Ağ Balıq",
+  "description": "Mədəyə zərrə qədər də ağırlıq etməyən, ətirli və zərif dəniz ləzzəti.\n\nFaydası: Ağ balıqlar (Levrek, Sıf) asan həzm olunan saf zülal və tiroid (zob) vəzini qoruyan yod mənbəyidir. Limon isə dəmiri mənimsəməyə kömək edir.",
+  "category": "şam yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Ağ balıq filesi: 150-200 qr",
+   "Limon və portağal: Hərəsindən 2 dilim",
+   "Təzə kəklikotu (timyan) və ya rozmarin: 1-2 budaq",
+   "Zeytun yağı, duz, qara istiot."
+  ],
+  "instructions": [
+   "Yağlı kağızın üzərinə təmizlənmiş balığı qoyun. Duz, istiot və yağ gəzdirin. Üzərinə sitrus dilimlərini və otları yerləşdirin. Kağızı paket kimi büküb 180 dərəcədə 20 dəqiqə bişirin. Yanında bol yaşıl salatla yeyin."
+  ]
+ },
+ {
+  "id": "59177852-56ab-4ae0-9965-367e9142cf8e",
+  "title": "Tropikal Oaziz",
+  "description": "Bədənin su balansını bərpa edən (elektrolit) və ödəmi qovan ən təmiz içki.\n\nFaydası: Kokos suyu təbii idmançı içkisidir (kaliumla zəngindir). Xiyar isə dərini və orqanizmi daxildən təmizləyir.",
+  "category": "Sağlam içkilər",
+  "ingredients": [
+   "Kokos suyu (təbii): 1 stəkan",
+   "Xiyar: Nazik lent şəklində kəsilmiş dilimlər",
+   "Təzə nanə və laym şirəsi."
+  ],
+  "instructions": [
+   "Bütün ərzaqları bir qrafinə və ya böyük stəkana töküb soyuducuda 30 dəqiqə ləzzətlərin qarışmasını gözləyin. Sərin-sərin için."
+  ]
+ },
+ {
+  "id": "0ad5770d-c00e-4aaf-a326-ab7ca620f797",
+  "title": "Avokado və Toyuq Salatı",
+  "description": "Aşağı karbohidratlı, uzun müddət tox tutan və əzələləri qidalandıran ləzzət.\n\nFaydası: Doyurucu zülal (toyuq) və sağlam yağların (avokado) birləşməsi şirinlik krizlərinin qarşısını alır.",
+  "category": "nahar yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Toyuq döş əti: 150 qr (qrildə və ya tavada qızardılmış)",
+   "Avokado: Yarım ədəd (dilimlənmiş)",
+   "Körpə ispanaq və ya kahı: 2 ovuc",
+   "Çerri pomidor: 5-6 ədəd",
+   "Limon suyu, zeytun yağı."
+  ],
+  "instructions": [
+   "Toyuq ətini uzunsov dilimləyin. Göyərti, pomidor və avokadonu böyük bir boşqaba yığın, üzərinə toyuq dilimlərini yerləşdirin. Limonlu və yağlı sousla dadlandırın."
+  ]
+ },
+ {
+  "id": "3d1a500a-b203-4052-b1f2-91a4407a4e3c",
+  "title": "Yumurtalı Avokado Tostu(1 yaş+)",
+  "description": "Öz əlləri ilə yemək yeməyi sevən 1 yaşlıların favoriti.\n\nFaydası: Avokado sağlam yağlarla doludur, yumurta isə əvəzolunmaz amin turşularını təmin edir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Tam buğda çörəyi: 1 dilim (kənarları kəsilmiş, qızardılmış)",
+   "Avokado: Dörddə bir (yaxşıca əzilmiş)",
+   "Yumurta: 1 ədəd (bərk bişmiş və rəndələnmiş)"
+  ],
+  "instructions": [
+   "Qızarmış çörəyin üzərinə əzilmiş avokadonu çəkin. Üzərinə rəndələnmiş yumurtanı səpin. Uşağın əlində tuta biləcəyi kimi uzunsov zolaqlar şəklində kəsin."
+  ]
+ },
+ {
+  "id": "c842f7bd-4741-487b-b42c-981f40c245be",
+  "title": "İspanaqlı Makaron(4 yaş+)",
+  "description": "Yaşıl rəngi ilə uşaqları cəlb edən, pendirli və bol dəmirlə zəngin sehrli sous.\n\nFaydası: İspanaq və qoz uşağın beyin inkişafını və enerjisini dəstəkləyir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Kəpəkli və ya rəngli qlütensiz makaron: 1 stəkan",
+   "İspanaq: 1 böyük ovuc",
+   "Qoz ləpəsi: 2 ədəd",
+   "Krem pendir və ya zeytun yağı: 1 xörək qaşığı"
+  ],
+  "instructions": [
+   "Makaronu qaynadın. İspanaq, qoz və pendiri (və ya yağı) blenderdə tam hamar, parlaq yaşıl krem olana qədər çəkin. İsti makaronu bu sousla qarışdırıb süfrəyə verin."
+  ]
+ },
+ {
+  "id": "ce232b23-613e-4e89-87ba-f0def071b9bc",
+  "title": "Super-Güc Küftələri(2 yaş+)",
+  "description": "Ət sevməyən uşaqların belə ləzzətlə yeyəcəyi, içi sürprizli, sobada bişən küftələr.\n\nFaydası: Təmiz toyuq zülalı və brokkoli dəmiri bir arada. Qızartma olmadığı üçün mədəni yormur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Toyuq qiyməsi: 200 qr",
+   "Brokkoli: 3-4 çiçək (blenderdə çox xırda çəkilmiş, toz kimi)",
+   "Soğan: Çox kiçik bir parça (rəndələnmiş)",
+   "Suxari tozu: 1 xörək qaşığı",
+   "Zeytun yağı və azca duz."
+  ],
+  "instructions": [
+   "Bütün ərzaqları bir qabda yaxşıca yoğurun.",
+   "Uşağın əli ilə tutub yeyə biləcəyi qozdan bir az kiçik ölçüdə küftələr düzəldin.",
+   "Yağlı kağız sərilmiş sobada 180 dərəcədə 20-25 dəqiqə bişirin."
+  ]
+ },
+ {
+  "id": "76ceddd0-3762-4c0e-938c-757205264083",
+  "title": "Berry Chia Magic",
+  "description": "Antioksidant bombası olan, dərini içəridən nəmləndirən sərin qəlyanaltı.",
+  "category": "breakfast",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Çia toxumu: 3 xörək qaşığı",
+   "Badam südü (və ya kokos südü): 1 stəkan",
+   "Təzə moruq və ya qaragilə: 1 ovuc",
+   "Bal və ya ağcaqayın şərbəti: 1 çay qaşığı"
+  ],
+  "instructions": [
+   "Axşamdan çia toxumu, süd və balı bir qabda yaxşıca qarışdırın (10 dəqiqə sonra yenidən qarışdırın ki, topaqlaşmasın). Soyuducuda səhərə qədər saxlayın. Səhər üzərinə təzə giləmeyvələr düzərək servis edin."
+  ]
+ },
+ {
+  "id": "db6223cf-fd40-4b31-9334-3aa607532faa",
+  "title": "Çuğundur və Pendir Salatı",
+  "description": "Qan dövranını sürətləndirən, rəngi ilə göz oxşayan yüngül nahar.\n\nFaydası: Çuğundur qaraciyəri təmizləyən ən yaxşı tərəvəzlərdəndir, keçi və ya lor pendiri isə asan həzm olunan kalsium mənbəyidir.",
+  "category": "nahar yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Çuğundur: 1 orta boy (sobada bişmiş və ya qaynadılmış, kub doğranmış)",
+   "Keçi pendiri (və ya şor/lor pendiri): 2 xörək qaşığı",
+   "Qoz ləpəsi: 1 ovuc",
+   "Rukkola (Arugula) yarpaqları.",
+   "Balzamik sirkəsi və zeytun yağı."
+  ],
+  "instructions": [
+   "Rukkola yarpaqlarının üzərinə doğranmış çuğunduru, pendiri və qozu əlavə edin. Üzərinə balzam sirkəsi və zeytun yağı qarışımını gəzdirin."
+  ]
+ },
+ {
+  "id": "be15d84a-f891-40e8-bcea-25a7ea3f5e77",
+  "title": "Avokadolu Tost",
+  "description": "Sağlam yağlar və keyfiyyətli zülalın ən ləzzətli kombinasiyası.\n\nFaydası: Avokado qadın hormonları üçün vacib olan sağlam yağlar ehtiva edir, yumurta isə əzələləri qoruyan təmiz zülaldır.",
+  "category": "breakfast",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Tam buğda və ya çovdar çörəyi: 1-2 böyük dilim",
+   "Avokado: Yarım ədəd (yetişmiş)",
+   "Yumurta: 1-2 ədəd (suda bişmiş - poached və ya pörtlədilmiş)",
+   "Limon suyu, duz, qırmızı pul bibər."
+  ],
+  "instructions": [
+   "Çörəyi qızardın. Avokadonu çəngəllə əzib limon və duzla qarışdırın, çörəyin üzərinə çəkin. Üzərinə bişmiş yumurtanı yerləşdirin və pul bibər səpin."
+  ]
+ },
+ {
+  "id": "e3b32abb-4f90-4796-9370-d8e31b9a5d8e",
+  "title": "İspanaqlı Pankeyk(1 yaş+)",
+  "description": "Səhər yeməyi üçün fərqli rəngdə, şəkərsiz, yumşaq və dadlı buludlar.\n\nFaydası: İspanaq və bananın mükəmməl uyğunluğu. Dəmir və kaliumla zəngindir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Körpə ispanaq: 1 ovuc",
+   "Banan: 1 ədəd (yetişmiş)",
+   "Yumurta: 1 ədəd",
+   "Un (tam buğda və ya yulaf): 2 xörək qaşığı"
+  ],
+  "instructions": [
+   "İspanaq, banan və yumurtanı blenderdə tam hamar və yaşıl bir kütlə olana qədər çəkin. Üzərinə unu əlavə edib qarışdırın. Yağsız tavada qaşıq-qaşıq tökərək hər iki üzünü bişirin."
+  ]
+ },
+ {
+  "id": "d55a1489-0c64-4fd1-9c95-61ccad0e27bf",
+  "title": "Şirin Kartof Qayıqları(4 yaş+)",
+  "description": "Gəmi formasında təqdim edilən, rəngarəng və vitamin deposu olan qayıqlar.\n\nFaydası: Şirin kartof A vitamini ilə gözləri qoruyur. Qarğıdalı və noxud isə yeməyə əyləncəli tekstura qatır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Şirin kartof (batat): 2 ədəd (ortadan bölünmüş, sobada bişmiş)",
+   "Yaşıl noxud və qarğıdalı: Hərəsindən 1 xörək qaşığı (qaynadılmış)",
+   "Toyuq didintisi və ya qiymə: 2 xörək qaşığı",
+   "Pendir (yelkən üçün)."
+  ],
+  "instructions": [
+   "Bişmiş kartofların içini azca oyub püre edin, noxud, qarğıdalı və ətlə qarışdırıb yenidən içinə doldurun. Üzərinə diş çöpü ilə üçbucaq kəsilmiş pendir (yelkən) sancın."
+  ]
+ },
+ {
+  "id": "c4928087-d44e-49b9-b047-6872459c8c34",
+  "title": "Portağallı Kakao",
+  "description": "Portağaldakı C vitamini kakaodakı dəmiri mənimsəməyə kömək edir. Dəriyə parıltı verir.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 xörək qaşığı kakao, 1 stəkan badam südü, 1 xörək qaşığı təzə sıxılmış portağal şirəsi (və ya rəndələnmiş portağal qabığı), 1 çay qaşığı bəhməz."
+  ],
+  "instructions": [
+   "İsti badam südündə kakaonu həll edib, ocaqdan götürdükdən sonra portağal şirəsini və bəhməzi əlavə edin."
+  ]
+ },
+ {
+  "id": "f34874ad-c7fb-4bad-9d1d-814135cad038",
+  "title": "Hinduşqalı Kabaçki",
+  "description": "Xəmir və çörək olmadan, bol zülallı və iştahaaçan \"qayıqlar\".\n\nFaydası: Çox aşağı karbohidratlıdır. Hinduşka ətindəki \"triptofan\" aminturşusu melatonin (yuxu hormonu) ifrazını artıraraq dərin və rahat yuxuya getməyə kömək edir.",
+  "category": "şam yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kabaçki (qabaq): 2 orta boy (uzununa bölünmüş, içi oyulmuş)",
+   "Hinduşka qiyməsi (və ya yağsız mal əti): 150 qr",
+   "Pomidor: 1 ədəd (rəndələnmiş)",
+   "Mozzarella və ya holland pendiri: 30 qr (rəndələnmiş)",
+   "Soğan, sarımsaq, kəklikotu."
+  ],
+  "instructions": [
+   "Qiyməni soğan, sarımsaq və pomidorla tavada yarımçıq bişirin. Kabaçki qayıqlarının içinə doldurub 180 dərəcəlik sobada kabaçkilər yumşalana qədər (təxminən 25 dəqiqə) bişirin. Götürməyə 5 dəqiqə qalmış üzərinə pendir səpin."
+  ]
+ },
+ {
+  "id": "d3ad67eb-6c19-4eee-9f9a-b784483c1a16",
+  "title": "Somon və Brokkoli\n(9 ay+)",
+  "description": "Beyin hüceyrələrini inşa edən Omeqa-3 yağ turşuları ilə zəngin ilk dəniz ziyafəti.\n\nFaydası: Qızılbalıq beyin və sinir sistemi inkişafı üçün mütləqdir. Brokkoli isə kalsium və C vitamini verir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Qızılbalıq (Somon filesi): 30 qr (tam sümüksüz)",
+   "Brokkoli: 2-3 çiçək",
+   "Zeytun yağı: Bir neçə damcı."
+  ],
+  "instructions": [
+   "Balığı və brokkolini buxarda (və ya az suda) yaxşıca bişirin. Balığı çəngəllə didərkən sümük olub-olmadığını təkrar yoxlayın. Brokkoli ilə birlikdə əzin və zeytun yağı gəzdirin."
+  ]
+ },
+ {
+  "id": "f04550c5-0fdb-4ab9-8b7b-831a4d2f5e5a",
+  "title": "Tərəvəzli Düyü(4 yaş+)",
+  "description": "Bayram əhval-ruhiyyəli, rəngli tərəvəzlərlə dolu düyü.\n\nFaydası: Karbohidrat, vitamin və lifin tək qazanda birləşdiyi ən doyurucu nahar.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Basmati və ya uzun düyü: 1 stəkan",
+   "Kök, yaşıl noxud, şirin qırmızı bibər, qarğıdalı: Hərəsindən 2 xörək qaşığı (xırda kub doğranmış)",
+   "Kərə yağı və toyuq bulyonu."
+  ],
+  "instructions": [
+   "Tərəvəzləri azca kərə yağında sote edin. Yuyulmuş düyünü və bulyonu əlavə edib, suyu çəkilənə qədər, düyülər dən-dən olana kimi bişirin."
+  ]
+ },
+ {
+  "id": "dbb5731f-3844-4a55-a0b0-63c083018f90",
+  "title": "Sobada Gül Kələmi Steyki",
+  "description": "Vegan və sağlam qidalanma dünyasının ən məşhur \"ət əvəzedicisi\". Görünüşü steyki xatırladır.\n\nFaydası: Çox aşağı kalorilidir, liflə zəngindir və sobada bişdikdə kələmin təbii şəkəri karamelləşərək möhtəşəm dad yaradır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Gül kələmi: 1 bütöv baş (çox böyük)",
+   "Zeytun yağı: 2 xörək qaşığı",
+   "Sarımsaq tozu, qırmızı şirin toz bibər (paprika), dəniz duzu, qara istiot."
+  ],
+  "instructions": [
+   "Gül kələmini bütöv halda yuyun və ortasından 2 santimetr qalınlığında bütöv \"steyk\" dilimləri kəsin. Soba listinə qoyun, hər iki üzünə zeytun yağı və ədviyyat qarışımını fırça ilə çəkin. 200 dərəcədə hər iki üzü qızarana qədər (təxminən 25-30 dəqiqə) bişirin."
+  ]
+ },
+ {
+  "id": "38175de9-042b-4fc9-8a58-cdff56307d6d",
+  "title": "Qayıq Yumurtalar(3 yaş+)",
+  "description": "Yumurta sarısını sevməyən uşaqlar üçün \"gəmi\" formasında əyləncəli qəlyanaltı.\n\nFaydası: Yumurta sarısındakı xolin maddəsi 3 yaşlı uşağın sürətlə inkişaf edən beyni və yaddaşı üçün ən vacib elementdir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Bərk bişmiş yumurta: 2 ədəd",
+   "Qatıq: 1 çay qaşığı",
+   "Çox kiçik doğranmış rəngli bibər (\"dəfinələr\" üçün)",
+   "Pendir: Üçbucaqlı nazik dilimlər (yelkən üçün) və diş çöpü."
+  ],
+  "instructions": [
+   "Yumurtaları uzununa ikiyə bölün. Sarısını çıxarıb qatıqla əzin, içinə rəngli bibər qırıntılarını (dəfinələri) qatın və yenidən ağına doldurun. Diş çöpünə pendir üçbucağını keçirib \"yelkən\" kimi yumurtaya sancın (yeyəndə çöpü çıxarmağı unutmayın!)."
+  ]
+ },
+ {
+  "id": "fef93b73-64a7-48d4-94bf-fe08f3ed1adc",
+  "title": "Doldurulmuş Portobello Göbələyi",
+  "description": "Qırmızı ət yemədən ət toxumluğu və dadı verən möhtəşəm \"papaqlar\".\n\nFaydası: Portobello göbələyi dərini qocalmadan qoruyan selenyum mineralı ilə doludur. Həzmi çox asandır və mədəni yormur.",
+  "category": "şam yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Portobello göbələyi: 2 böyük ədəd (sapları qoparılmış, içi təmizlənmiş)",
+   "İspanaq: 1 ovuc (doğranmış)",
+   "Kinoa (və ya bulqur): 2 xörək qaşığı (bişmiş)",
+   "Feta (və ya ağ pendir): 1 xörək qaşığı"
+  ],
+  "instructions": [
+   "Göbələklərin içini kinoa, ispanaq və pendir qarışımı ilə doldurun. Soba qabına qoyub üzərinə azca zeytun yağı gəzdirin. 180 dərəcədə göbələklər yumşalana qədər bişirin."
+  ]
+ },
+ {
+  "id": "6b9ff319-0e3b-432c-ae21-5efca3c9d50d",
+  "title": "Yaqut Qurabiyələri",
+  "description": "Çay saatı üçün unsuz, qlüten-siz, cemli \"thumbprint\" qurabiyələri.\n\nFaydası: Badam unu dərini E vitamini ilə qidalandırır, ev yapımı çia \"cemi\" isə Omeqa-3 ehtiyacını ödəyir.",
+  "category": "Sağlam şirniyyatlar",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Badam unu: 1.5 stəkan",
+   "Bal və ya aqava şərbəti: 3 xörək qaşığı",
+   "Kokos yağı: 2 xörək qaşığı (əridilmiş)",
+   "Təzə moruq və 1 xörək qaşığı çia toxumu (cem üçün)."
+  ],
+  "instructions": [
+   "Moruqları çəngəllə əzib çia ilə qarışdırın (15 dəq. kənarda saxlayın ki, qatılaşsın). Badam unu, yağ və balı yoğurub kiçik toplar düzəldin. Ortalarını barmağınızla çuxur edib sobada 160 dərəcədə 10 dəq. bişirin. Çıxarıb çuxurlara moruqlu çia mürəbbəsini doldurun."
+  ]
+ },
+ {
+  "id": "55df2691-7b63-4f38-bfb6-d946010b6903",
+  "title": "Çuğundur və Alma püresi\n(7 ay+)",
+  "description": "Körpənizin yanaqlarına rəng qatacaq, immunitet gücləndirən şirin püre.\n\nFaydası: Çuğundur qan azlığına qarşı ən güclü təbii vasitələrdəndir. Alma isə çuğundurun torpaq dadını yumşaldır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Çuğundur: 1 kiçik ədəd",
+   "Alma: Yarım ədəd"
+  ],
+  "instructions": [
+   "Çuğunduru qabığı ilə qaynadın və ya sobada bişirin (vitamini getməsin). Sonra soyun, alma ilə birlikdə blenderdə tam püre halına gətirin. Paltarına tökülməməsinə diqqət edin!"
+  ]
+ },
+ {
+  "id": "03922c9b-57cd-4e60-9084-3b45e0d48642",
+  "title": "Duzlu Göyqurşağı Keksi(2 yaş+)",
+  "description": "Şirniyyat kimi görünən, amma əslində tərəvəzli və pendirli duzlu keks.\n\nFaydası: Yemək seçən uşağa fərqli tərəvəzləri (rəngli bibər, göyərti) sevdirməyin praktik yolu. Parka çıxarkən özünüzlə aparmaq üçün də idealdır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Yumurta: 2 ədəd",
+   "Qatıq: 2 xörək qaşığı",
+   "Zeytun yağı: 1 xörək qaşığı",
+   "Qırmızı bibər və ispanaq: Çox xırda doğranmış (1-2 xörək qaşığı)",
+   "Pendir (rəndələnmiş): 2 xörək qaşığı",
+   "Un və qabartma tozu (qatı keks xəmiri alınana qədər)."
+  ],
+  "instructions": [
+   "Duru ərzaqları (yumurta, qatıq, yağ) çırpın. Tərəvəzləri və pendiri əlavə edin.",
+   "Sonda un və qabartma tozunu qatıb qarışdırın.",
+   "Muffin (keks) qablarına töküb 180 dərəcədə 20 dəqiqə qabarıb qızarana qədər bişirin."
+  ]
+ },
+ {
+  "id": "87d23e0f-a0db-4aa1-b0fb-794cb2b35b28",
+  "title": "Çialı Avokado Tostu",
+  "description": "Klassik avokado tostunun daha çox Omeqa-3 və xırtıltı ehtiva edən, tox tutan versiyası.\n\nFaydası: Çia toxumları və avokadonun birləşməsi dərini içəridən nəmləndirən mükəmməl sağlam yağ kombinasiyasıdır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Qara və ya tam buğda çörəyi: 1 dilim (qızardılmış)",
+   "Avokado: Yarım ədəd (yetişmiş)",
+   "Çia toxumu: 1 çay qaşığı",
+   "Limon şirəsi, dəniz duzu, qırmızı pul bibər."
+  ],
+  "instructions": [
+   "Avokadonu çəngəllə əzib limon və duzla qarışdırın. Qızarmış çörəyin üzərinə bolca çəkin. Ən üstdə xırtıltı və əlavə fayda verməsi üçün çia toxumu və pul bibər səpin."
+  ]
+ },
+ {
+  "id": "f84c1bc3-0bf2-4206-b695-21d5ec9708da",
+  "title": "Rose & Berry Spritz",
+  "description": "Dəriniz üçün maye kollagen və antioksidant dəstəyi. Çox zərif və təravətləndirici.\n\nFaydası: Giləmeyvələr hüceyrə yaşlanmasını ləngidir, qızılgül suyu isə dərini daxildən nəmləndirərək təbii bir \"glow\" (parıltı) bəxş edir.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Təzə moruq və ya çiyələk: 1 ovuc",
+   "Qızılgül suyu (içməli, qatqısız): 1 xörək qaşığı",
+   "Qazlı su (mineral su): 1 stəkan",
+   "Laym: 1 dilim",
+   "Buz kubları."
+  ],
+  "instructions": [
+   "Stəkanın dibində giləmeyvələri çəngəllə əzin. Üzərinə buzları, qızılgül suyunu və laym şirəsini əlavə edin. Sonda qazlı suyu töküb qarışdırın"
+  ]
+ },
+ {
+  "id": "792abbe5-dddc-4848-8d97-bdcb84318aee",
+  "title": "Sarıköklü Desert",
+  "description": "Dəriyə parıltı verən, iltihab əleyhinə İtalyan klassikası.\n\nFaydası: Sarıkök və kokos südü sızanaqları daxildən sağaldır, jelatin isə dırnaq və saçları gücləndirən təbii kollagen mənbəyidir.",
+  "category": "Sağlam şirniyyatlar",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kokos südü (qutuda, qatı): 1 stəkan",
+   "Sarıkök tozu: 1 çay qaşığı",
+   "Bal: 2 xörək qaşığı",
+   "Vərəq jelatin: 2 ədəd (və ya 1 çay qaşığı aqar-aqar)"
+  ],
+  "instructions": [
+   "Jelatini soyuq suda isladın. Südü qazanda isidin (qaynatmayın), içinə sarıkök, bal və yumşalmış jelatini əlavə edib qarışdırın. Kiçik şüşə qablara süzüb soyuducuda 3-4 saat dondurun."
+  ]
+ },
+ {
+  "id": "3c637a80-dd91-4c2f-bf85-45f21dbc4610",
+  "title": "Çəhrayı Flaminqo Pankeykləri(3 yaş+)",
+  "description": "Qida boyası olmadan, təbii çəhrayı rəngi ilə uşaqları ovsunlayan səhər yeməyi.\n\nFaydası: Çuğundur qan dövranını gücləndirir və immuniteti dəstəkləyir. Yulaf isə uşağı uzun müddət tox və enerjili tutur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Çuğundur püresi: 1 xörək qaşığı (bişmiş çuğundurdan)",
+   "Yumurta: 1 ədəd",
+   "Yulaf unu: 3 xörək qaşığı",
+   "Süd: Yarım çay stəkanı",
+   "Bal: Çox az (şirinlik üçün)"
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderdə tam hamar və çəhrayı bir xəmir olana qədər çəkin. Yağsız tavada kiçik dairələr şəklində hər iki üzünü bişirin."
+  ]
+ },
+ {
+  "id": "13882a92-abb0-49d4-b8c0-e8f4f9c2ea1b",
+  "title": "Meteorit Enerji Topları(5 yaş+)",
+  "description": "Bağçaya və ya parka gedərkən cibdə gəzdirməlik, şəkərsiz \"şokoladlı\" enerji.\n\nFaydası: Xurma və kakao ani enerji verir, qoz/fındıq isə Omeqa-3 yağları ilə dərini və saçları qidalandırır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Yumşaq xurma: 8-10 ədəd (çəyirdəyi çıxarılmış)",
+   "Yulaf: Yarım stəkan",
+   "Kakao (şəkərsiz): 1 xörək qaşığı",
+   "Fındıq və ya günəbaxan tumu: 2 xörək qaşığı."
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderdə yapışqan bir kütlə halına gələnə qədər çəkin. Əlinizlə kiçik \"meteoritlər\" düzəldin. Üzərinə kokos yonqarı da səpə bilərsiniz. Soyuducuda 30 dəqiqə saxlayıb verin."
+  ]
+ },
+ {
+  "id": "9a57e53c-6cc6-4002-bebc-5ba8dd87a146",
+  "title": "Kətan və Çia Pudingi",
+  "description": "Hazırlanması 2 dəqiqə çəkən, səhər və ya ara öğün üçün həzm dostu, tox tutan puding.\n\nFaydası: Çia və kətan toxumu öz çəkilərindən dəfələrlə çox su çəkərək şişir, mədədə toxluq hissi yaradır və qan şəkərini nizamlayır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Çia toxumu: 2 xörək qaşığı",
+   "Kətan toxumu (üyüdülmüş): 1 xörək qaşığı",
+   "Badam südü (və ya kokos südü): 1 stəkan",
+   "Təbii vanil ekstraktı və 1 çay qaşığı bal."
+  ],
+  "instructions": [
+   "Bütün ərzaqları bir bankada yaxşıca qarışdırın. 10 dəqiqə sonra topaqlaşmaması üçün yenidən qarışdırıb soyuducuya qoyun (ən az 2 saat və ya gecədən səhərə qədər). Üzərini meyvələrlə bəzəyib yeyin."
+  ]
+ },
+ {
+  "id": "ceb5db8c-58a7-4fde-a771-d2ed012eb9df",
+  "title": "Matça və Püstə trüfeli",
+  "description": "Metobalizmi sürətləndirən və dərini gəncləşdirən \"premium\" kofe yanı.\n\nFaydası: Matça çayı hüceyrə yenilənməsini sürətləndirən güclü antioksidantdır. Kaju və püstə sağlam yağlarla dərini nəmləndirir.",
+  "category": "Sağlam şirniyyatlar",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kaju (xam, isladılmış): 1 stəkan",
+   "Xurma: 5-6 ədəd",
+   "Matça tozu: 1 xörək qaşığı (və batırmaq üçün əlavə)",
+   "Püstə: Yarım stəkan (xırdalanmış)"
+  ],
+  "instructions": [
+   "Bütün ərzaqları (püstənin yarısı xaric) blenderdə yapışqan xəmir olana qədər çəkin. Əlinizlə toplar düzəldin, yarısını matça tozuna, yarısını xırda püstəyə batırın."
+  ]
+ },
+ {
+  "id": "71967587-de0b-4a79-8b91-69af7cbe3013",
+  "title": "Mərakeş Tərəvəz Tajini",
+  "description": "Şimali Afrikanın xüsusi qablarda yavaş-yavaş bişən, tərəvəz və meyvənin şirin-duzlu harmoniyası.\n\nFaydası: Noxud və tərəvəzlər qan şəkərini nizamlayan kompleks karbohidratlar verir. Şəkər vurulmadan quru meyvələrlə təbii şirinləşdirilir.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Noxud (bişmiş): 1 stəkan",
+   "Kök, kabaçki, şirin kartof (iri doğranmış).",
+   "Quru ərik və ya kişmiş: Yarım stəkan",
+   "Darçın, cirə (kimyon), zəncəfil tozu, zeytun yağı, tərəvəz bulyonu."
+  ],
+  "instructions": [
+   "Dərin bir qazanda (və ya ənənəvi Tajin qabında) ədviyyatları yağla isidin. Tərəvəzləri, noxudu və quru meyvələri əlavə edin. Üzərinə bulyon töküb qapağı bağlı şəkildə, vam odda tərəvəzlər tam yumşalana qədər (40-45 dəqiqə) bişirin. Kinoa və ya kuskusla servis edin."
+  ]
+ },
+ {
+  "id": "989c089a-7705-4f4f-aa06-64d202a23310",
+  "title": "Smuzi Kasası(4 yaş+)",
+  "description": "Tərəvəz və meyvəni maye halında sevdirən, qaşıqla yeyilən əyləncəli desert.\n\nFaydası: İmmuniteti qaldıran vitamin bombasıdır. Uşağın günorta qəlyanaltısı üçün mükəmməldir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "İspanaq: 1 ovuc",
+   "Dondurulmuş banan: 1 ədəd",
+   "Kivi: 1 ədəd",
+   "Qatıq və ya süd: Yarım stəkan",
+   "Bəzək üçün: Kivi dilimlərindən kəsilmiş dinozavr \"tikanları\" və ya sümükləri."
+  ],
+  "instructions": [
+   "İspanaq, banan, kivi və südü blenderdə qatı bir krem olana qədər çəkin. Kasaya töküb üzərini kivi dilimləri ilə dinozavr belinə bənzədəcək şəkildə bəzəyin."
+  ]
+ },
+ {
+  "id": "9e271ac6-efc7-4123-9cc8-b60e93936503",
+  "title": "Toskana Günəşi",
+  "description": "İtaliyanın məşhur \"Melanzane alla Parmigiana\" yeməyinin qızardılmamış, yüngül və sağlam versiyası.\n\nFaydası: Badımcan antioksidant deposudur. Ənənəvi qızartma əvəzinə sobada bişirildiyi üçün kalorisi çox aşağıdır, lakin İtalyan pendirlərinin zülalı ilə doyurucudur.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Badımcan: 2 böyük ədəd (uzununa dilimlənmiş)",
+   "Təbii tomat (pomidor) pastası: 2 stəkan (sarımsaq və fesləyənlə dadlandırılmış)",
+   "Mozzarella və Parmezan pendiri: Rəndələnmiş",
+   "Təzə fesləyən (reyhan), zeytun yağı."
+  ],
+  "instructions": [
+   "Badımcan dilimlərini zeytun yağı ilə fırçalayıb sobada yumşalana qədər (15 dəqiqə) pörtlədin. Dərin soba qabına lazanya kimi lay-lay: pomidor sousu, badımcan, pendir və fesləyən yığın. Ən üstdə pendir qalıb qızarana qədər 190 dərəcədə 20 dəqiqə bişirin."
+  ]
+ },
+ {
+  "id": "80d2e83c-c415-4e59-854e-3c904d65b0ff",
+  "title": "Narlı Qatıq Plitkası",
+  "description": "Göz qamaşdıran dondurma alternatifi. Sərin və eyni zamanda xırtıldayan.\n\nFaydası: Nar dənələri qadınlarda estrogen balansına kömək edən fitoestrogenlər və antioksidantlarla zəngindir. Qatıq isə probiyotikdir.",
+  "category": "Sağlam şirniyyatlar",
+  "ingredients": [
+   "Qatıq (yunan və ya süzmə): 1.5 stəkan",
+   "Bal: 1 xörək qaşığı",
+   "Nar dənələri: Yarım stəkan",
+   "Püstə: 2 xörək qaşığı (xırdalanmış)."
+  ],
+  "instructions": [
+   "Qatığı balla qarışdırıb yağlı kağız sərilmiş düz bir qaba (0.5 sm qalınlığında) yayın. Üzərinə nar və püstə səpib dondurucuda 3 saat saxlayın. Donduqdan sonra əllə şokolad kimi qırın."
+  ]
+ },
+ {
+  "id": "45628e71-5b41-431f-b26f-8283c2b308a2",
+  "title": "Toyuq və Kinoalı zülal kasası\n(9 ay+)",
+  "description": "Hərəkətliliyi artan və iməkləyən körpələr üçün uzunmüddətli enerji mənbəyi.\n\nFaydası: Toyuq təmiz zülaldır, kinoa isə taxıllar arasında ən yüksək qida dəyərinə malik, qlütensiz super-qidadır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Toyuq döş əti: 30 qr",
+   "Kabaçki (qabaq): Yarımdan az",
+   "Kinoa: 1 xörək qaşığı (əvvəlcədən isladılmış və yuyulmuş)."
+  ],
+  "instructions": [
+   "Toyuğu qaynadın (ilk suyunu süzün). İkinci suya kinoa və doğranmış kabaçkini əlavə edib hamısı tam yumşalana qədər bişirin. Daha sonra blenderləyin və ya çəngəllə pütürlü əzin."
+  ]
+ },
+ {
+  "id": "cf74a166-77b4-4cd9-978f-5f84fbaf4d6d",
+  "title": "Xırtıldayan Balıq Çubuqları(2 yaş+)",
+  "description": "Mağazada satılan dondurulmuş balıq çubuqlarının qızardılmamış, 100% təbii versiyası.\n\nFaydası: Balıq körpənin beyin və göz inkişafı üçün mütləq olan Omeqa-3 yağ turşularını təmin edir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Ağ balıq filesi (məsələn, Levrek - sümüksüz): 100 qr (uzunsov kəsilmiş)",
+   "Yumurta: 1 ədəd (çırpılmış)",
+   "Yulaf unu (batırmaq üçün)",
+   "Zeytun yağı, azca duz."
+  ],
+  "instructions": [
+   "Balıq dilimlərini əvvəlcə yumurtaya, sonra yulaf ununa bulayın.",
+   "Yağlı kağız sərilmiş soba listinə düzüb üzərinə çox az zeytun yağı fırçalayın.",
+   "190 dərəcədə 15 dəqiqə, xırtıldayan olana qədər bişirin."
+  ]
+ },
+ {
+  "id": "495abf5b-aca7-4840-8cc2-c8a7f267da78",
+  "title": "Supermen Kessadiyası(5 yaş+)",
+  "description": "İçində gizlənmiş tərəvəzlərlə dolu, uşaqların əllə yeməyi sevdiyi Meksika ləzzəti.\n\nFaydası: Qara lobya və toyuq təmiz zülaldır, pendir sümükləri gücləndirən kalsiumla doludur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Tam buğda unundan lavaş (tortilya): 1 ədəd",
+   "Holland pendiri (rəndələnmiş): 2 xörək qaşığı",
+   "Qara lobya (bişmiş) və qarğıdalı: 1 xörək qaşığı",
+   "Toyuq didintisi: 1 xörək qaşığı",
+   "İspanaq (çox xırda doğranmış): Bir neçə yarpaq."
+  ],
+  "instructions": [
+   "Lavaşın yarısına pendir, toyuq, lobya, qarğıdalı və ispanağı yayın. Digər yarısını üzərinə qatlayın (yarımay formasında). İsti tavada hər iki üzünü pendir əriyib lavaş xırtıldayana qədər qızardın. Üçbucaqlara bölüb servis edin."
+  ]
+ },
+ {
+  "id": "405b0576-a236-4ed8-8698-3423fb1d2ff0",
+  "title": "Batat və Mərcimək Karrisi",
+  "description": "İltihab əleyhinə ədviyyatlarla dolu, vegan və qlütensiz Hindistan mətbəxi klassikası.\n\nFaydası: Karri və sarıkök immuniteti gücləndirir, batat isə yeməyə təbii, ipək kimi şirinlik qatır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Batat (şirin kartof): 1 böyük ədəd (kub doğranmış)",
+   "Qırmızı mərcimək: 1 stəkan",
+   "Kokos südü (qutuda qatı olan): 1 stəkan",
+   "Karri tozu: 1 xörək qaşığı",
+   "İspanaq: 1 ovuc."
+  ],
+  "instructions": [
+   "Soğan, sarımsaq və karri tozunu yağda qovurun. Üzərinə batat, mərcimək, kokos südü və 2 stəkan su əlavə edin. Tərəvəzlər tam bişənə qədər vam odda qaynadın. Ocaqdan alarkən içinə ispanağı atıb qarışdırın."
+  ]
+ },
+ {
+  "id": "2369413b-697e-4e19-93a2-ff9c61cde8f7",
+  "title": "Tərəvəzli Küftəciklər(1 yaş+)",
+  "description": "Tərəvəz yeməkdən imtina edən uşaqlar üçün içində tərəvəzlərin \"gizləndiyi\" yumşaq küftələr.\n\nFaydası: Qırmızı ət dəmir ehtiyacını ödəyir, gizli tərəvəzlər isə lif və vitamin verir. Uşağın öz əli ilə tutub yeməsi üçün idealdır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Yağsız dana qiyməsi: 150 qr",
+   "Kabaçki və kök: Hərəsindən dörddə bir (çox incə rəndələnmiş və suyu sıxılmış)",
+   "Soğan: Çox kiçik bir parça (rəndələnmiş)",
+   "Zeytun yağı."
+  ],
+  "instructions": [
+   "Bütün ərzaqları yaxşıca yoğurun. Qoz böyüklüyündə kiçik küftələr düzəldin. Yağlı kağız sərilmiş sobada 180 dərəcədə 20-25 dəqiqə (qurutmadan) bişirin."
+  ]
+ },
+ {
+  "id": "a67b3fb0-1d8c-4568-bbb8-eea9c5b74c3a",
+  "title": "Tərəvəz Friləri(5 yaş+)",
+  "description": "Zərərli kartof frilərinə son qoyan, sobada bişmiş rəngarəng və xırtıldayan tərəvəz çubuqları.\n\nFaydası: Kök və şirin kartof A vitamini və beta-karotin anbarıdır, gözlərin və dərinin sağlamlığını qoruyur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Şirin kartof, kök, kabaçki: Hərəsindən yarım ədəd",
+   "Zeytun yağı: 1 xörək qaşığı",
+   "Quru nanə və ya kəklikotu, azca duz."
+  ],
+  "instructions": [
+   "Tərəvəzləri eyni ölçüdə, uzunsov çubuqlar (sehrli çubuq) formasında kəsin. Yağ və ədviyyatla qarışdırıb soba listinə yan-yana düzün. 200 dərəcədə 20-25 dəqiqə, kənarları qızarana qədər bişirin."
+  ]
+ },
+ {
+  "id": "244e5027-cbdf-4e83-8b58-62158b64f304",
+  "title": "Golden Matcha Elixir",
+  "description": "İltihab əleyhinə sarıkök və enerji verən matçanın möhtəşəm dueti.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 çay qaşığı matça, yarım çay qaşığı sarıkök (kurkuma), bir çimdik qara istiot, 1 stəkan isti badam südü, 1 çay qaşığı bal."
+  ],
+  "instructions": [
+   "İsti südün içinə bütün ərzaqları qatıb yaxşıca qarışdırın və köpükləndirin."
+  ]
+ },
+ {
+  "id": "287fe4e5-acde-487e-8549-304293001ae7",
+  "title": "Buffalo Üslubunda Gül Kələmi",
+  "description": "Amerikanın məşhur \"Buffalo Wings\" (toyuq qanadları) yeməyinin 100% vegetarian və sağlam alternativi.\n\nFaydası: Xırtıldayan fast-food istəyini tam təmin edir, lakin toyuq əvəzinə lifli kələm və qızartma əvəzinə soba istifadə olunur.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Gül kələmi: 1 baş (çiçəklərə ayrılmış)",
+   "Tam buğda unu və su: Xəmir hazırlamaq üçün (blinçik xəmiri qatılığında)",
+   "Acı Buffalo sousu (və ya hər hansı acı sous+kərə yağı qarışığı)."
+  ],
+  "instructions": [
+   "Gül kələmi çiçəklərini unlu-sulu qarışıma batırıb soba listinə düzün. 200 dərəcədə 20 dəqiqə bişirin. Çıxarıb üzərinə acı sousu gəzdirin və yenidən 10 dəqiqə kənarları xırtıldayana qədər sobaya qoyun."
+  ]
+ },
+ {
+  "id": "0732d705-b1b2-4b26-b8dc-748f80e0f06a",
+  "title": "Andalusian Breeze - İspan Qazpaçosu",
+  "description": "İspaniyanın cənubundan gələn, bişirilmədən hazırlanan sərin, çiy və vitamin dolu pomidor şorbası.\n\nFaydası: Təmiz \"çiçək və tərəvəz\" detoksudur. Likopen (pomidor) və C vitamini (bibər) sayəsində dərini günəşin zərərli şüalarından daxildən qoruyur.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Çox yetişmiş, qırmızı pomidor: 4-5 ədəd",
+   "Xiyar: 1 ədəd (soyumuş)",
+   "Yaşıl bolqar bibəri: Yarım ədəd",
+   "Qırmızı soğan və sarımsaq (çox az)",
+   "Sızma zeytun yağı (2 xörək qaşığı) və alma sirkəsi (1 xörək qaşığı)."
+  ],
+  "instructions": [
+   "Bütün ərzaqları blenderə atın, üzərinə zeytun yağı, sirkə və azca duz əlavə edib tam maye (şorba) halına gələnə qədər çəkin. Soyuducuda ən az 2 saat buz kimi olana qədər saxlayın."
+  ]
+ },
+ {
+  "id": "6a513f71-83a0-47b7-94eb-0de33be5ff6d",
+  "title": "Gold Mac & Cheese (2 yaş+)",
+  "description": "Uşaqların ən sevdiyi pendirli makaronun içində tərəvəz gizlədilmiş, çox sağlam versiyası.\n\nFaydası: Klassik unlu və yağlı sous əvəzinə, sousun bazasını balqabaq və kök təşkil edir. Bol A vitamini və kalsium mənbəyidir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Tam buğda makaron (buynuz və ya fırfıra formalı): 1 stəkan",
+   "Balqabaq və kök (qaynadılmış): Hərəsindən yarım stəkan",
+   "Süd: Yarım stəkan",
+   "Çedar (Cheddar) və ya Holland pendiri: 3 xörək qaşığı rəndələnmiş"
+  ],
+  "instructions": [
+   "Makaronu suda tam bişənə qədər qaynadıb süzün.",
+   "Bişmiş balqabaq, kök və südü blenderdə tam hamar, narıncı bir krem (sous) olana qədər çəkin.",
+   "Sousu isti tavaya tökün, üzərinə rəndələnmiş pendiri əlavə edib əridin. Sonda makaronları sousa qatıb qarışdırın."
+  ]
+ },
+ {
+  "id": "60680ede-d11d-4b46-a277-695525f7d111",
+  "title": "Ulduzlu Gecə Şorbası(3 yaş+)",
+  "description": "Şorba içməyi sevməyən uşaqlar üçün içində ulduzlar üzən sümük bulyonlu ləzzət.\n\nFaydası: Sümük bulyonu kollagen və kalsiumla doludur, uşaqların boy atmasına və sümüklərinin möhkəmlənməsinə kömək edir.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Təmiz sümük və ya toyuq bulyonu: 2 stəkan",
+   "Ulduz formalı körpə makaronu: 2 xörək qaşığı",
+   "Kök: Yarım ədəd (çox xırda ulduz formalarında kəsilmiş)",
+   "Cəfəri: Çox az (üzəri üçün)."
+  ],
+  "instructions": [
+   "Bulyonu qaynara salın, içinə ulduz makaronları və ulduz formasında kəsilmiş kökləri əlavə edin. Makaronlar tam yumşalana qədər (təxminən 8-10 dəqiqə) bişirin."
+  ]
+ },
+ {
+  "id": "40f5ac74-8479-42d8-bab7-5b56e15de9ae",
+  "title": "Matcha Strawberry Cloud",
+  "description": "Sosial şəbəkələrin ən trend içkisi. Dərini qidalandıran antioksidant bombası.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "1 çay qaşığı matça tozu (ilıq suda əridilmiş), 4-5 ədəd təzə çiyələk (əzilmiş püre halında), 1 stəkan badam südü, buz."
+  ],
+  "instructions": [
+   "Stəkanın dibinə çiyələk püresini qoyun, üzərinə buzları və südü əlavə edin. Ən sonda əridilmiş yaşıl matçanı yavaşca süzün ki, rənglər qat-qat (aşağıda çəhrayı, üstdə yaşıl) qalsın."
+  ]
+ },
+ {
+  "id": "0d809ddc-e476-418c-9f34-67e7b608cf9f",
+  "title": "Badam Pankeyki və Çia Cemi",
+  "description": "Adi unla hazırlanan pankeyklərin qlütensiz, şəkərsiz \"sağlam həyat\" alternativi.\n\nFaydası: Badam unu qan şəkərini anidən qaldırmır (aşağı qlikemik indeks). Çia cemi isə sənaye mürəbbələrindəki şəkərdən xilas edir.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Badam unu: 1 stəkan",
+   "Yumurta: 2 ədəd",
+   "Badam südü: Dörddə bir stəkan",
+   "Cem üçün: 1 stəkan dondurulmuş moruq və 2 xörək qaşığı çia toxumu."
+  ],
+  "instructions": [
+   "Moruqları qızdırıb əzin, içinə çia toxumu qatıp soyumağa (qatılaşmağa) buraxın. Digər tərəfdə badam unu, yumurta və südü çırpıb tavada kiçik pankeyklər bişirin. Üzərinə öz hazırladığınız şəkərsiz çia cemini tökün."
+  ]
+ },
+ {
+  "id": "53cbba9d-f39f-4a00-950a-386243d164bd",
+  "title": "Peru Seviçesi",
+  "description": "Latın Amerikasının, balığın atəşsiz, yalnız sitrus turşusu ilə \"bişdiyi\" sərinlədici və zülal dolu resepti.\n\nFaydası: Sıfır əlavə yağ, maksimum təmiz zülal. Diyet saxlayanların ən çox sevdiyi ləzzətlərdəndir.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Ağ balıq filesi (çox təzə və sümüksüz): 200 qr (kiçik kub kəsilmiş)",
+   "Laym şirəsi: Yarım stəkan (təzə sıxılmış)",
+   "Qırmızı soğan: Yarım ədəd (nazik aypara doğranmış)",
+   "Təzə keşniş, acı jalapeno bibəri (istəyə görə), duz."
+  ],
+  "instructions": [
+   "Çiy balıq kublarını şüşə qaba qoyun, üzərinə laym şirəsini və bir az duzu tökün. Şirə balığın rəngini ağardaraq onu \"bişirəcək\". Soyuducuda 20-30 dəqiqə saxlayın. Yeməyə yaxın soğan və keşnişi qatıb qarışdırın."
+  ]
+ },
+ {
+  "id": "dded217d-3179-4368-8e13-255ed13ea4cf",
+  "title": "Skandinaviya Smørrebrød",
+  "description": "Danimarka və Norveçdən gələn, tünd çovdar çörəyi üzərində açıq sendviç sənəti.\n\nFaydası: Çovdar çörəyi kompleks karbohidratdır (qan şəkərini sıçratmır). Qızılbalıq isə skandinavların uzunömürlülük sirri olan Omeqa-3 anbarıdır.",
+  "category": "general",
+  "ingredients": [
+   "Tünd, dənəli çovdar çörəyi: 1 böyük dilim",
+   "Krem pendir (labne): 1 xörək qaşığı",
+   "Hissə verilmiş və ya duza qoyulmuş qızılbalıq (Somon): 2-3 dilim",
+   "Qırmızı soğan halqaları, təzə şüyüd, turp dilimləri."
+  ],
+  "instructions": [
+   "Çörəyin üzərinə krem pendir çəkin. Balıq dilimlərini dalğalı şəkildə yerləşdirin. Üzərini soğan halqaları, nazik kəsilmiş turp və bol şüyüdlə bəzəyib estetik bir şəkildə təqdim edin."
+  ]
+ },
+ {
+  "id": "23f9812f-031f-4161-95cf-ce2d96da0985",
+  "title": "Kinoa Tabbulesi (Livan Mətbəxi)",
+  "description": "Ənənəvi bulqurun qlütensiz və daha çox zülal ehtiva edən kinoa ilə əvəzləndiyi məşhur Yaxın Şərq salatı.\n\nFaydası: Yüngüldür, lif və C vitamini (bol cəfəri sayəsində) anbarıdır. Qan şəkərini nizamlayır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kinoa (bişmiş və soyudulmuş): 1 stəkan",
+   "Təzə cəfəri (çox incə doğranmış): 2 böyük dəstə",
+   "Təzə nanə: 1 kiçik dəstə",
+   "Pomidor: 2 ədəd (xırda kub doğranmış)",
+   "Yaşıl soğan: 3-4 tel",
+   "Sızma zeytun yağı və bol limon şirəsi, duz."
+  ],
+  "instructions": [
+   "Dərin bir kasada bütün doğranmış göyərti və tərəvəzləri bişmiş kinoa ilə qarışdırın. Üzərinə bol zeytun yağı və limon şirəsi gəzdirib yaxşıca xarmanlayın. Ən az 30 dəqiqə soyuducuda dinləndirin."
+  ]
+ },
+ {
+  "id": "f1edbb7c-89ad-49b8-9c59-42461d445810",
+  "title": "Hindistan Mərcimək püresi",
+  "description": "Vegetarianların sevimlisi, ədviyyatların gücü ilə bədəni daxildən isidən qızılı Hindistan yahnisi.\n\nFaydası: Sarıkök və zəncəfil bədəndəki iltihabı təmizləyir. Mərcimək isə bitki zülalı ilə uzoq müddət tox tutur.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Qırmızı və ya sarı mərcimək: 1 stəkan",
+   "Soğan, sarımsaq, təzə zəncəfil.",
+   "Sarıkök (kurkuma) və karri tozu: Hərəsindən 1 çay qaşığı.",
+   "Pomidor: 1 ədəd",
+   "Kokos südü: Çox az (üzəri üçün)."
+  ],
+  "instructions": [
+   "Soğan, sarımsaq, zəncəfil və ədviyyatları yağda ətirlənənə qədər qovurun. Doğranmış pomidoru və mərciməyi qatın. Su əlavə edib mərciməklər tamamilə əriyib püre kimi (yahni) olana qədər bişirin. Üzərinə kokos südü və keşniş gəzdirin."
+  ]
+ },
+ {
+  "id": "bfa226ee-4fae-4a95-b348-aee056cab96b",
+  "title": "Alman Kartof Salatı",
+  "description": "Ağır mayonezli salatları geridə qoyan, yüngül, xardal və sirkəli möhtəşəm Alman salatı.\n\nFaydası: Soyumuş kartof prebiyotik olan \"dirənçli nişasta\"ya çevrilir (bağırsaq dostudur). Mayonez olmadığı üçün xolesterin problemi yaratmır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kartof: 3-4 ədəd (qaynadılmış, soyudulmuş, dilimlənmiş)",
+   "Qırmızı soğan: 1 kiçik baş (xırda doğranmış)",
+   "Təzə cəfəri və ya şüyüd",
+   "Sous üçün: 1 xörək qaşığı dənəli xardal, 2 xörək qaşığı alma sirkəsi, 3 xörək qaşığı zeytun yağı, duz, qara istiot."
+  ],
+  "instructions": [
+   "İlıq və ya tam soyumuş kartof dilimlərinin üzərinə soğanı və göyərtini tökün. Xardal, sirkə və yağı bir bankada çalxalayıb sous hazırlayın və salata qarışdırın."
+  ]
+ },
+ {
+  "id": "82a7ccbd-e708-435c-afe7-61fd5589966e",
+  "title": "Shrek's Mac & Cheese (3 yaş+)",
+  "description": "Gözəl yaşıl rəngi ilə diqqət çəkən, içində ispanaq gizlənmiş pendirli makaron.\n\nFaydası: 3 yaşlı uşaqların çoxu ispanağı çiy və ya bişmiş halda yeməkdən imtina edir. Bu sous sayəsində fərqinə varmadan bol dəmir qəbul edəcəklər.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Makaron: 1 stəkan",
+   "İspanaq: 1 böyük ovuc",
+   "Süd: Yarım stəkan",
+   "Mozzarella və ya Qauda pendiri: 2 xörək qaşığı (rəndələnmiş)."
+  ],
+  "instructions": [
+   "Makaronu qaynadıb süzün. Blenderdə ispanağı və südü tam yaşıl, pütürsüz bir maye olana qədər çəkin. Bu yaşıl südü isti tavaya tökün, pendiri əlavə edib əridin. Sonda makaronları qatıb yaxşıca qarışdırın."
+  ]
+ },
+ {
+  "id": "9dca9acb-e3bc-495a-9af1-62c75bc63dca",
+  "title": "Qızılı Mərcimək və Zəncəfil Şorbası",
+  "description": "Maddələr mübadiləsini işə salan, daxildən isidən qış naharı.\n\nFaydası: Zəncəfil və sarıkök bədəndəki iltihablanmanı (şişkinlik, sızanaq, oynaq ağrıları) azaldır, qırmızı mərcimək isə tox tutur.",
+  "category": "nahar yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Qırmızı mərcimək: 1 stəkan",
+   "Təzə zəncəfil: Fındıq boyda (rəndələnmiş)",
+   "Sarıkök (Kurkuma): Yarım çay qaşığı",
+   "Kök, soğan.",
+   "Kokos südü: 2 xörək qaşığı (istəyə bağlı, üzəri üçün)."
+  ],
+  "instructions": [
+   "Bütün tərəvəzləri və mərciməyi suda yumşalana qədər qaynadıb blenderdən keçirin. Sarıkök və zəncəfili əlavə edib bir az da qaynadın. Kasaya çəkəndə üzərinə kokos südü gəzdirin."
+  ]
+ },
+ {
+  "id": "0298f702-76b2-4fe4-995b-506dab64f0f1",
+  "title": "Şirin Kartof və Lobya",
+  "description": "PMS (aybaşı öncəsi) dövründə şirinlik ehtiyacını və əhval dəyişikliyini tənzimləyən resept.\n\nFaydası: Şirin kartof və qara lobya maqneziumla doludur, sinir sistemini sakitləşdirir, krampları azaldır və tox tutur.",
+  "category": "nahar yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Şirin kartof (batat): 1 ədəd (ortadan bölünmüş və sobada tam bişmiş)",
+   "Qara lobya (və ya qırmızı): 2 xörək qaşığı (qaynadılmış)",
+   "Qarğıdalı: 1 xörək qaşığı",
+   "Avokado əzməsi (quakamole) və laym şirəsi."
+  ],
+  "instructions": [
+   "Bişmiş və içi yumşalmış şirin kartofun ortasına qara lobya və qarğıdalını doldurun. Üzərinə avokado əzməsi qoyub laym şirəsi sıxın."
+  ]
+ },
+ {
+  "id": "a7eb16f8-9a88-4ac0-92d3-fb7d3da355e0",
+  "title": "Balaca Ayı Püresi(1 yaş+)",
+  "description": "Əti çeynəməkdə çətinlik çəkən uşaqlar üçün ağızda əriyən, şirəli qış yeməyi.\n\nFaydası: Uzun müddət bişən ət həm həzmə rahatdır, həm də bulyonlu suyu sümük inkişafına faydalıdır.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Mal əti: 50 qr (çox xırda, noxud böyüklüyündə kublar)",
+   "Kök və kartof: Yarım ədəd (kub doğranmış)",
+   "Pomidor: Dörddə bir (sürtgəcdən keçirilmiş)",
+   "Zeytun yağı və su."
+  ],
+  "instructions": [
+   "Əti zeytun yağında rəngi dönənə qədər qovurun, üzərinə pomidor və su əlavə edib yumşalana qədər bişirin (təzyiqli qazanda daha yaxşıdır). Daha sonra kök və kartofu əlavə edib tərəvəzlər də əziləcək dərəcəyə gələnə qədər bişirin."
+  ]
+ },
+ {
+  "id": "55d6317c-4bcb-4a93-943a-dda17af68226",
+  "title": "Golden Glow Tonic",
+  "description": "Bədəndəki iltihabı söndürən, xəstəliklərə qarşı qalxan olan səhər toniki.\n\nFaydası: Sarıkök güclü təbii iltihab əleyhinə vasitədir. Dəri qızartılarını, oynaq ağrılarını azaldır və dərinin təbii parıltısını geri qaytarır.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "İlıq su: 1 stəkan",
+   "Sarıkök tozu: Yarım çay qaşığı",
+   "Qara istiot: Bir çimdik (sarıkökün qana sorulması üçün mütləqdir)",
+   "Limon şirəsi və 1 çay qaşığı təbii alma sirkəsi"
+  ],
+  "instructions": [
+   "Bütün inqrediyentləri yaxşıca qarışdırıb səhərlər ilıq halda (boğazı və mədəni yandırmayacaq dərəcədə) yudum-yudum için."
+  ]
+ },
+ {
+  "id": "d945cba8-c55e-4693-91cb-3385f3ce8b99",
+  "title": "Rəngarəng Şişlər(5 yaş+)",
+  "description": "Tərəvəz və əti bir yerdə, rəngli bir oyun kimi təqdim edən şişlər.\n\nFaydası: Uşaqlara eyni anda həm zülal, həm də vitaminləri əyləncəli bir üsulla yedizdirməyin ən praktik yoludur.",
+  "category": "Əlavə qida",
+  "tags": [
+   "baby_food"
+  ],
+  "ingredients": [
+   "Toyuq döş əti: 100 qr (qızardılmış və ya qaynadılmış, kub kəsilmiş)",
+   "Rəngli bolqar bibərləri (qırmızı, sarı), çerri pomidor və xiyar (qalın kəsilmiş).",
+   "Küt uclu taxta çöplər (şişlər)."
+  ],
+  "instructions": [
+   "Çöplərə sırayla: çerri pomidor, toyuq kubu, sarı bibər, xiyar və yenidən toyuq keçirin. Rənglərin göyqurşağı kimi düzülməsinə diqqət edin."
+  ]
+ },
+ {
+  "id": "4562e352-5778-4e1f-951e-cc27bf63469a",
+  "title": "Pesto souslu Kabaçki Spagettisi",
+  "description": "Xəmir yeməyi həzzini verən, lakin qətiyyən kökəltməyən möcüzəvi pasta.\n\nFaydası: Çox aşağı kalorilidir. Pesto sousundakı zeytun yağı və fesləyən güclü antioksidantdır, hüceyrələri gənc saxlayır.",
+  "category": "nahar yeməyi",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Kabaçki: 2 orta boy (xüsusi alətlə spagetti kimi doğranmış)",
+   "Pesto sousu: 2 xörək qaşığı (təzə fesləyən, zeytun yağı, qoz, sarımsaq əzməsi)",
+   "Çerri pomidor: 4-5 ədəd."
+  ],
+  "instructions": [
+   "Kabaçki spagettilərini tavada azca zeytun yağında cəmi 2-3 dəqiqə sote edin (çox bişirməyin, xırtıldayan qalsın). Ocaqdan alıb pesto sousu və yarıya bölünmüş pomidorlarla qarışdırın."
+  ]
+ },
+ {
+  "id": "cdafe114-fffe-4d67-b795-0770d33715ea",
+  "title": "Brokkoli və Mal Əti Sotesi",
+  "description": "Məşhur Asiya (Çin) mətbəxinin bütün dünyada sevilən, ən sağlam klassiklərindən biri.\n\nFaydası: Dəmir (ətdən) və kalsium/vitamin C (brokkolidən) mükəmməl balans yaradır. Sürətli hazırlanır.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Mal əti (can əti, çox nazik dilimlənmiş): 250 qr",
+   "Brokkoli: 1 bütöv baş (çiçəklərə ayrılmış)",
+   "Soya sousu (az duzlu): 3 xörək qaşığı",
+   "Təzə zəncəfil və sarımsaq (əzilmiş).",
+   "Küncüt yağı və küncüt toxumu."
+  ],
+  "instructions": [
+   "Tavada (wok) əti yüksək odda sürətlə qovurun, kənara alın. Eyni tavaya brokkoli, sarımsaq və zəncəfili atıb 3-4 dəqiqə sote edin (brokkoli xırtıldayan qalmalıdır). Əti geri qaytarın, soya sousunu əlavə edib 1 dəqiqə qarışdırın və küncüt səpib götürün."
+  ]
+ },
+ {
+  "id": "d73926c7-3c66-41bd-88a6-1a28c3a2f959",
+  "title": "Kətan və Badam Unu Krekeri",
+  "description": "Mağazada satılan zərərli çipsləri əvəz edən, 100% qlütensiz, karbohidratsız (Keto) ev krekerləri.\n\nFaydası: Badam unu E vitamini ilə zəngindir, kətan toxumu isə bağırsaq fəaliyyətini mükəmməl tənzimləyir.",
+  "category": "general",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Badam unu: 1 stəkan",
+   "Kətan toxumu (üyüdülmüş): 3 xörək qaşığı",
+   "Su: 3 xörək qaşığı",
+   "Zeytun yağı: 1 xörək qaşığı",
+   "Duz və quru kəklikotu."
+  ],
+  "instructions": [
+   "Bütün ərzaqları bir qabda yoğurub xəmir əldə edin. İki yağlı kağız arasında oxlovla çox nazik (çips kimi) yayın. Bıçaqla kvadratlara kəsib, 170 dərəcə sobada 15-20 dəqiqə xırtıldayana qədər bişirin."
+  ]
+ },
+ {
+  "id": "9af7ce60-d92c-4cdf-bbaf-e2276dc4e407",
+  "title": "Cacao Maca Magic",
+  "description": "Qadın hormonlarını balanslaşdıran və xoşbəxtlik hormonunu tavan edən ilıq ləzzət.\n\nFaydası: Peru mənşəli \"Maca\" (Maka) kökü tozu qadınlarda hormonları (PMS və menopauza dövrü) nizamlayır, enerjini və libidonu artırır. Kakao isə maqnezium mənbəyidir.",
+  "category": "Sağlam içkilər",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Şəkərsiz, xalis kakao tozu: 1 xörək qaşığı",
+   "Maca (maka) tozu: 1 çay qaşığı",
+   "Badam və ya fındıq südü: 1 stəkan",
+   "Darçın və bal."
+  ],
+  "instructions": [
+   "Bütün ərzaqları kiçik bir qazanda isidərək yaxşıca (köpüklənənə qədər) çırpın. İsti şokolad kimi, axşamüstü keyfi üçün için."
+  ]
+ },
+ {
+  "id": "4b5bc08b-15b1-4187-aa19-05b7b3bb4ae4",
+  "title": "Noxudlu Blondi",
+  "description": "Tərkibində noxud olduğuna heç kimin inanmayacağı karamelli, unsuz keks.\n\nFaydası: Bu şirniyyat saf zülal və mürəkkəb karbohidratdır. Qlüten şişkinliyi yaratmır, axşam idmanından sonra (əzələ bərpası üçün) çayla əla gedir.",
+  "category": "Sağlam şirniyyatlar",
+  "tags": [
+   "general"
+  ],
+  "ingredients": [
+   "Konservləşdirilmiş noxud: 1 stəkan (yaxşıca yuyulmuş və qabığı soyulmuş)",
+   "Fıstıq əzməsi: 3 xörək qaşığı",
+   "Bal və ya ağcaqayın şərbəti: 3 xörək qaşığı",
+   "Vanil, qabartma tozu.",
+   "Damla şokolad (tünd)."
+  ],
+  "instructions": [
+   "Şokolad xaric bütün ərzaqları blenderdə tam hamar (xəmir) olana qədər çəkin. İçinə damla şokolad qatıb kiçik kvadrat keks qabına tökün. 175 dərəcədə 20 dəq. bişirin. İlıq olanda dilimləyin."
+  ]
+ }
+]

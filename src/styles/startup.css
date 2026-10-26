@@ -1,0 +1,49 @@
+.anacan-startup {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #faf7f4;
+  color: #594138;
+  padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
+  z-index: 30;
+  box-sizing: border-box;
+}
+/* Tətbiq daxilində lazy ekran fallback-i kimi də işlənir — qaranlıq rejimdə krem "flash" olmasın */
+html.dark .anacan-startup { background: #161922; color: #f2e9e4; }
+.anacan-startup-brand { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.anacan-startup-mark { width: 96px; height: 96px; object-fit: contain; filter: drop-shadow(0 12px 18px #9c503219); }
+.anacan-startup-name { margin: 0; font: 800 28px/1.2 system-ui, sans-serif; letter-spacing: -.04em; }
+.anacan-startup-progress { width: 48px; height: 3px; overflow: hidden; border-radius: 3px; background: #d9795825; }
+.anacan-startup-progress > span { display: block; width: 24px; height: 100%; border-radius: inherit; background: #d97958; animation: startup-progress 1.4s ease-in-out infinite alternate; }
+@keyframes startup-progress { to { transform: translateX(24px); } }
+@media (prefers-reduced-motion: reduce) { .anacan-startup-progress > span { animation: none; width: 100%; opacity: .65; } }
+
+/* Full-screen nested routes have no main dashboard safe-area spacer. */
+.a-subscreen {
+  --screen-safe-top: var(--app-safe-top, env(safe-area-inset-top, 0px));
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: var(--screen-safe-top);
+  padding-inline: env(safe-area-inset-left, 0px) env(safe-area-inset-right, 0px);
+  box-sizing: border-box;
+  background: var(--a-bg, #faf7f4);
+}
+.a-subscreen > * { flex: 1 1 auto; min-height: 0 !important; overflow-y: auto; }
+.a-subscreen > .safe-top { padding-top: 0; }
+.a-subscreen .sticky.top-0 { top: 0; }
+.a-subscreen .sticky.top-0 > .a-icon-btn { min-width: 44px; min-height: 44px; flex-shrink: 0; }
+html[data-keyboard-open="true"] .a-subscreen {
+  position: fixed;
+  inset-inline: 0;
+  top: var(--app-visual-top, 0px);
+  height: var(--app-visual-height, 100dvh);
+}
+.a-topbar { gap: 12px; min-height: 64px; padding-block: 12px; }
+.a-topbar > div:first-child { min-width: 0; }
+.a-topbar .a-wordmark { overflow-wrap: anywhere; line-height: 1.35; }
+.a-topbar .a-icon-btn, .a-topbar-actions { flex-shrink: 0; }
+.a-topbar .a-icon-btn { min-width: 44px; min-height: 44px; }
+.a-topbar > .a-wordmark { flex: 1; min-width: 0; }

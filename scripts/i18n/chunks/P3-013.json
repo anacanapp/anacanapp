@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "usedynamicconfig_movzu_yenilendi_b5e847",
+  "az": "Mövzu yeniləndi",
+  "en": "Topic updated"
+ },
+ {
+  "key": "usedynamicconfig_qida_elave_edildi_3e2d93",
+  "az": "Qida əlavə edildi",
+  "en": "Food added"
+ },
+ {
+  "key": "usedynamicconfig_qida_yenilendi_63fdde",
+  "az": "Qida yeniləndi",
+  "en": "Food updated"
+ },
+ {
+  "key": "usedynamicconfig_ses_elave_edildi_be6380",
+  "az": "Səs əlavə edildi",
+  "en": "Voice added"
+ },
+ {
+  "key": "usedynamicconfig_ses_silindi_f1ba7a",
+  "az": "Səs silindi",
+  "en": "Voice deleted"
+ },
+ {
+  "key": "usedynamicconfig_ses_yenilendi_0d354c",
+  "az": "Səs yeniləndi",
+  "en": "Voice updated"
+ },
+ {
+  "key": "usedynamicconfig_simptom_elave_edildi_bd969e",
+  "az": "Simptom əlavə edildi",
+  "en": "Symptom added"
+ },
+ {
+  "key": "usedynamicconfig_simptom_yenilendi_556a95",
+  "az": "Simptom yeniləndi",
+  "en": "Symptom updated"
+ },
+ {
+  "key": "usedynamicconfig_surpriz_elave_edildi_8f99e6",
+  "az": "Sürpriz əlavə edildi",
+  "en": "Surprise added"
+ },
+ {
+  "key": "usedynamicconfig_surpriz_silindi_095181",
+  "az": "Sürpriz silindi",
+  "en": "Surprise deleted"
+ },
+ {
+  "key": "usedynamicconfig_surpriz_yenilendi_7fd527",
+  "az": "Sürpriz yeniləndi",
+  "en": "Surprise updated"
+ },
+ {
+  "key": "usedynamiconboarding_analiq_yardimcisi_acf2af",
+  "az": "Analıq yardımçısı",
+  "en": "Maternity assistant"
+ },
+ {
+  "key": "usedynamiconboarding_dorduz_88f390",
+  "az": "Dördüz",
+  "en": "Four"
+ },
+ {
+  "key": "usedynamiconboarding_dovrumu_izlemek_742fa2",
+  "az": "Dövrümü izləmək",
+  "en": "Tracking my period"
+ },
+ {
+  "key": "usedynamiconboarding_dovrunuzu_izleyin_ovulyasiyani_370b05",
+  "az": "Dövrünüzü izləyin, ovulyasiyanı proqnozlaşdırın",
+  "en": "Track your period, predict ovulation"
+ },
+ {
+  "key": "usedynamiconboarding_ekiz_680a49",
+  "az": "Əkiz",
+  "en": "Twin"
+ },
+ {
+  "key": "usedynamiconboarding_hamilelik_izleyicisi_2a251f",
+  "az": "Hamiləlik izləyicisi",
+  "en": "Pregnancy tracker"
+ },
+ {
+  "key": "usedynamiconboarding_hamileliyim_c88922",
+  "az": "Hamiləliyim",
+  "en": "My pregnancy"
+ },
+ {
+  "key": "usedynamiconboarding_korpem_var_58e0cd",
+  "az": "Körpəm var",
+  "en": "I have a baby"
+ },
+ {
+  "key": "usedynamiconboarding_korpenizin_inkisafini_hefte_he_c2597f",
+  "az": "Körpənizin inkişafını həftə-həftə izləyin",
+  "en": "Track your baby's progress week by week"
+ },
+ {
+  "key": "usedynamiconboarding_korpenizin_qidalanma_yuxu_ve_i_06b9ec",
+  "az": "Körpənizin qidalanma, yuxu və inkişafını izləyin",
+  "en": "Track your baby's feeding, sleep and development"
+ },
+ {
+  "key": "usedynamiconboarding_menstruasiya_teqvimi_0e3b14",
+  "az": "Menstruasiya təqvimi",
+  "en": "Menstrual calendar"
+ },
+ {
+  "key": "usedynamiconboarding_tek_usaq_9b99b4",
+  "az": "Tək uşaq",
+  "en": "An only child"
+ },
+ {
+  "key": "usedynamiconboarding_ucuz_45679e",
+  "az": "Üçüz",
+  "en": "Three hundred"
+ },
+ {
+  "key": "useepointpayment_odenis_baslatila_bilmedi_8e916c",
+  "az": "Ödəniş başlatıla bilmədi",
+  "en": "Payment could not be initiated"
+ },
+ {
+  "key": "useepointpayment_odenis_ucun_daxil_olmalisiniz_6709e1",
+  "az": "Ödəniş üçün daxil olmalısınız",
+  "en": "You must be logged in to pay"
+ },
+ {
+  "key": "useepointpayment_odenis_xetasi_bas_verdi_93f63a",
+  "az": "Ödəniş xətası baş verdi",
+  "en": "A payment error has occurred"
+ },
+ {
+  "key": "usefairytales_nagil_silindi_a2f24c",
+  "az": "Nağıl silindi",
+  "en": "The story was deleted"
+ },
+ {
+  "key": "usefairytales_nagil_yaradila_bilmedi",
+  "az": "Nağıl yaradıla bilmədi:",
+  "en": "Fairy tale could not be created:"
+ },
+ {
+  "key": "usefairytales_nagil_yaradildi_45e374",
+  "az": "Nağıl yaradıldı! ✨",
+  "en": "A fairy tale is created! ✨"
+ },
+ {
+  "key": "usefairytales_sessiya_tapilmadi_2d6594",
+  "az": "Sessiya tapılmadı",
+  "en": "Session not found"
+ },
+ {
+  "key": "useflowreminders_gundelik_heb_xatirlatmasi_149aba",
+  "az": "Gündəlik həb xatırlatması",
+  "en": "Daily pill reminder"
+ },
+ {
+  "key": "useflowreminders_heb_xatirlatmasi_e3e934",
+  "az": "Həb Xatırlatması",
+  "en": "Pill Reminder"
+ },
+ {
+  "key": "useflowreminders_mehsuldar_gunler_16513f",
+  "az": "Məhsuldar Günlər",
+  "en": "Productive Days"
+ },
+ {
+  "key": "useflowreminders_mehsuldar_gunler_b8c031",
+  "az": "Məhsuldar günlər",
+  "en": "Fertile days"
+ },
+ {
+  "key": "useflowreminders_mehsuldar_gunler_baslayanda_xeberdar_ol_a14656",
+  "az": "Məhsuldar günlər başlayanda xəbərdar ol",
+  "en": "Be notified when fertile days begin"
+ },
+ {
+  "key": "useflowreminders_mehsuldar_gunler_bitende_xeberdar_ol_1356c7",
+  "az": "Məhsuldar günlər bitəndə xəbərdar ol",
+  "en": "Be notified when fertile days end"
+ },
+ {
+  "key": "useflowreminders_mehsuldar_gunler_sonu_856dec",
+  "az": "Məhsuldar Günlər Sonu",
+  "en": "End of Productive Days"
+ },
+ {
+  "key": "useflowreminders_ovulyasiya_gunu_751dc6",
+  "az": "Ovulyasiya günü",
+  "en": "Ovulation day"
+ },
+ {
+  "key": "useflowreminders_ovulyasiya_gununden_evvel_xeberdar_ol_0c1c95",
+  "az": "Ovulyasiya günündən əvvəl xəbərdar ol",
+  "en": "Be notified before ovulation day"
+ },
+ {
+  "key": "useflowreminders_period_baslamadan_evvel_xeberdar_ol_b8867d",
+  "az": "Period başlamadan əvvəl xəbərdar ol",
+  "en": "Be notified before your period starts"
+ },
+ {
+  "key": "useflowreminders_period_baslangici_9350e0",
+  "az": "Period Başlanğıcı",
+  "en": "Period Start"
+ },
+ {
+  "key": "useflowreminders_period_bitende_xeberdar_ol_2d8f7f",
+  "az": "Period bitəndə xəbərdar ol",
+  "en": "Be notified when your period ends"
+ },
+ {
+  "key": "useflowreminders_period_yaxinlasir_06bbcf",
+  "az": "Period yaxınlaşır",
+  "en": "Period is approaching"
+ },
+ {
+  "key": "useflowreminders_perioda_2_gun_qaldi_hazir_ol_0c170f",
+  "az": "Perioda 2 gün qaldı, hazır ol!",
+  "en": "2 days left until your period, get ready!"
+ },
+ {
+  "key": "useflowreminders_pms_dovru_16f417",
+  "az": "PMS Dövrü",
+  "en": "PMS Period"
+ },
+ {
+  "key": "useflowreminders_pms_dovru_baslayanda_xeberdar_ol_d31932",
+  "az": "PMS dövrü başlayanda xəbərdar ol",
+  "en": "Be notified when PMS period begins"
+ },
+ {
+  "key": "useflowreminders_pms_yaxinlasir_ozune_bax",
+  "az": "PMS dövrü yaxınlaşır — özünə qayğı göstər! ⚡",
+  "en": "PMS is approaching — take care of yourself! ⚡"
+ },
+ {
+  "key": "useflowreminders_sabah_ovulyasiya_gunudur_c8c5d7",
+  "az": "Sabah ovulyasiya günüdür!",
+  "en": "Tomorrow is ovulation day!"
+ },
+ {
+  "key": "useflowreminders_sabahdan_mehsuldar_gunler_baslayir_fba6cc",
+  "az": "Sabahdan məhsuldar günlər başlayır!",
+  "en": "Fertile days start tomorrow!"
+ },
+ {
+  "key": "useflowreminders_xususi_1055b8",
+  "az": "Xüsusi",
+  "en": "Special"
+ },
+ {
+  "key": "useflowreminders_xususi_xatirlatma_dd5178",
+  "az": "Xüsusi xatırlatma",
+  "en": "Custom reminder"
+ },
+ {
+  "key": "usefruitdata_meyve_50ca17",
+  "az": "Meyvə",
+  "en": "Fruit"
+ },
+ {
+  "key": "usegrouppresence_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "usehealthreport_artirin_c4ea43",
+  "az": "Artırın",
+  "en": "Increase"
+ },
+ {
+  "key": "usehealthreport_cox_pis_e041c5",
+  "az": "Çox pis",
+  "en": "Too bad"
+ },
+ {
+  "key": "usehealthreport_defe_hefte",
+  "az": "dəfə/həftə",
+  "en": "times/week"
+ },
+ {
+  "key": "usehealthreport_ela_720a0e",
+  "az": "Əla",
+  "en": "Excellent"
+ },
+ {
+  "key": "usehealthreport_ela_e6330a",
+  "az": "Əla!",
+  "en": "Excellent!"
+ },
+ {
+  "key": "usehealthreport_melumat_yoxdur_a3e271",
+  "az": "Məlumat yoxdur",
+  "en": "There is no information"
+ },
+ {
+  "key": "usehealthreport_mesqler_603be9",
+  "az": "Məşqlər",
+  "en": "Workouts"
+ },
+ {
+  "key": "usehealthreport_normal",
+  "az": "Normal",
+  "en": "Normal"
+ },
+ {
+  "key": "usehealthreport_orta_ceki_9c02ad",
+  "az": "Orta çəki",
+  "en": "Average weight"
+ },
+ {
+  "key": "usehealthreport_orta_ehval_1f8ef9",
+  "az": "Orta əhval",
+  "en": "Average mood"
+ },
+ {
+  "key": "usehealthreport_pis",
+  "az": "Pis",
+  "en": "Bad"
+ },
+ {
+  "key": "usehealthreport_stekan_gun",
+  "az": "stəkan/gün",
+  "en": "glasses/day"
+ },
+ {
+  "key": "usehealthreport_su_qebulu_db1f3e",
+  "az": "Su qəbulu",
+  "en": "Water intake"
+ },
+ {
+  "key": "usehealthreport_yaxsi_9d8595",
+  "az": "Yaxşı",
+  "en": "Good"
+ },
+ {
+  "key": "usehoroscope_bezen_cetin_olsa_da_derin_emos_8f19ff",
+  "az": "Bəzən çətin olsa da, dərin emosional bağ qura bilərsiniz.",
+  "en": "Although sometimes difficult, you can form a deep emotional bond."
+ },
+ {
+  "key": "usehoroscope_cox_enerjili_ve_dinamik_bir_el_dfec07",
+  "az": "Çox enerjili və dinamik bir əlaqə! Birlikdə hər şeyi bacararsınız.",
+  "en": "A very energetic and dynamic relationship! You can do anything together."
+ },
+ {
+  "key": "usehoroscope_cox_sabit_ve_etibarli_elaqe_bi_e3baaf",
+  "az": "Çox sabit və etibarlı əlaqə! Birlikdə dağları yerindən tərpədərsiniz.",
+  "en": "Very stable and reliable connection! Together you can move mountains."
+ },
+ {
+  "key": "usehoroscope_cox_unsiyyetcil_ve_yaradici_el_3ae25c",
+  "az": "Çox ünsiyyətcil və yaradıcı əlaqə!",
+  "en": "Very communicative and creative communication!"
+ },
+ {
+  "key": "usehoroscope_derin_emosional_bag_bir_birini_dc3f52",
+  "az": "Dərin emosional bağ! Bir-birinizi mükəmməl anlayırsınız.",
+  "en": "A deep emotional bond! You understand each other perfectly."
+ },
+ {
+  "key": "usehoroscope_emosional_derinlik_ve_intellek_065e73",
+  "az": "Emosional dərinlik və intellektual ünsiyyətin birləşməsi.",
+  "en": "A combination of emotional depth and intellectual communication."
+ },
+ {
+  "key": "usehoroscope_ferqli_yanasmalar_amma_bir_bir_ba25d5",
+  "az": "Fərqli yanaşmalar, amma bir-birinizi tamamlaya bilərsiniz.",
+  "en": "Different approaches, but you can complement each other."
+ },
+ {
+  "key": "usehoroscope_gozel_harmoniya_su_torpagi_can_abb534",
+  "az": "Gözəl harmoniya! Su torpağı canlandırır.",
+  "en": "Beautiful harmony! Water revives the soil."
+ },
+ {
+  "key": "usehoroscope_mukemmel_harmoniya_hava_odu_da_75f2b0",
+  "az": "Mükəmməl harmoniya! Hava odu daha da alovlandırır.",
+  "en": "Perfect harmony! The air makes the fire even hotter."
+ },
+ {
+  "key": "usehoroscope_praktik_ve_nezeri_dusuncenin_m_99c118",
+  "az": "Praktik və nəzəri düşüncənin maraqlı birləşməsi.",
+  "en": "An interesting combination of practical and theoretical thinking."
+ },
+ {
+  "key": "usehoroscope_unikal_ve_maraqli_elaqe_48843d",
+  "az": "Unikal və maraqlı əlaqə!",
+  "en": "A unique and interesting connection!"
+ },
+ {
+  "key": "useinapppurchase_alis_tamamlana_bilmedi_yeniden_8c3980",
+  "az": "Alış tamamlana bilmədi. Yenidən cəhd edin.",
+  "en": "The purchase could not be completed. Please try again."
+ },
+ {
+  "key": "useinapppurchase_alislar_berpa_edile_bilmedi_33b266",
+  "az": "Alışlar bərpa edilə bilmədi",
+  "en": "Purchases could not be recovered"
+ },
+ {
+  "key": "useinapppurchase_mehsul_tapilmadi_ff5957",
+  "az": "Məhsul tapılmadı",
+  "en": "Product not found"
+ },
+ {
+  "key": "useinapppurchase_namelum_xeta_aa30e7",
+  "az": "Naməlum xəta",
+  "en": "Unknown error"
+ },
+ {
+  "key": "useinapppurchase_odenis_sistemi_yuklene_bilmedi_90af92",
+  "az": "Ödəniş sistemi yüklənə bilmədi",
+  "en": "The payment system could not be loaded"
+ },
+ {
+  "key": "useinapppurchase_purchase_error",
+  "az": "Alış zamanı xəta: {error}",
+  "en": "Purchase error: {error}"
+ },
+ {
+  "key": "usekicksessions_deqiqe",
+  "az": "dəqiqə",
+  "en": "minutes"
+ },
+ {
+  "key": "usekicksessions_sessiya_yadda_saxlandi_241831",
+  "az": "Sessiya yadda saxlandı! 👶",
+  "en": "Session saved! 👶"
+ },
+ {
+  "key": "usekicksessions_tepik",
+  "az": "təpik",
+  "en": "kicks"
+ },
+ {
+  "key": "usekicksessions_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "usementalhealth_beli_bezen_3972c9",
+  "az": "Bəli, bəzən",
+  "en": "Yes, sometimes"
+ },
+ {
+  "key": "usementalhealth_beli_bezen_evvelki_kimi_bacarmirdim_b5945c",
+  "az": "Bəli, bəzən əvvəlki kimi bacarmırdım",
+  "en": "Yes, sometimes I couldn't cope as before"
+ },
+ {
+  "key": "usementalhealth_beli_cox_tez_tez_39ed8b",
+  "az": "Bəli, çox tez-tez",
+  "en": "Yes, very often"
+ },
+ {
+  "key": "usementalhealth_beli_cox_vaxt_b3c387",
+  "az": "Bəli, çox vaxt",
+  "en": "Yes, often"
+ },
+ {
+  "key": "usementalhealth_beli_cox_vaxt_bacarmirdim_fe6629",
+  "az": "Bəli, çox vaxt bacarmırdım",
+  "en": "Yes, most of the time I couldn't cope"
+ },
+ {
+  "key": "usementalhealth_beli_kifayet_qeder_cox_b2f3c8",
+  "az": "Bəli, kifayət qədər çox",
+  "en": "Yes, quite often"
+ },
+ {
+  "key": "usementalhealth_beli_kifayet_qeder_tez_tez_784be6",
+  "az": "Bəli, kifayət qədər tez-tez",
+  "en": "Yes, quite often"
+ },
+ {
+  "key": "usementalhealth_bezen_6f3d8f",
+  "az": "Bəzən",
+  "en": "Sometimes"
+ },
+ {
+  "key": "usementalhealth_demek_olar_ki_hec_7d8e43",
+  "az": "Demək olar ki, heç",
+  "en": "Almost none"
+ },
+ {
+  "key": "usementalhealth_evvelki_kimi_deyil_e73285",
+  "az": "Əvvəlki kimi deyil",
+  "en": "Not like before"
+ },
+ {
+  "key": "usementalhealth_evvelkinden_bir_az_az_aa492a",
+  "az": "Əvvəlkindən bir az az",
+  "en": "A little less than before"
+ },
+ {
+  "key": "usementalhealth_evvelkinden_xeyli_az_b06dd4",
+  "az": "Əvvəlkindən xeyli az",
+  "en": "Significantly less than before"
+ },
+ {
+  "key": "usementalhealth_hec_vaxt_7a641b",
+  "az": "Heç vaxt",
+  "en": "Never"
+ },
+ {
+  "key": "usementalhealth_hemiseki_kimi_e708ee",
+  "az": "Həmişəki kimi",
+  "en": "As usual"
+ },
+ {
+  "key": "usementalhealth_hemiseki_qeder_be9ff8",
+  "az": "Həmişəki qədər",
+  "en": "As much as usual"
+ },
+ {
+  "key": "usementalhealth_indi_o_qeder_de_yox_91ad4a",
+  "az": "İndi o qədər də yox",
+  "en": "Not so much now"
+ },
+ {
+  "key": "usementalhealth_neticeleriniz_normal_seviyyede_cc8dde",
+  "az": "Nəticələriniz normal səviyyədədir. Özünüzə qayğı göstərməyə davam edin.",
+  "en": "Your results are normal. Keep taking care of yourself."
+ },
+ {
+  "key": "usementalhealth_neticeleriniz_orta_seviyyede_r_c3cd4c",
+  "az": "Nəticələriniz orta səviyyədə risk göstərir. Həkiminizlə danışmağı tövsiyə edirik.",
+  "en": "Your results indicate moderate risk. We recommend talking to your doctor."
+ },
+ {
+  "key": "usementalhealth_neticeleriniz_yuksek_risk_gost_55d3a7",
+  "az": "Nəticələriniz yüksək risk göstərir. Zəhmət olmasa mütəxəssislə əlaqə saxlayın.",
+  "en": "Your results indicate a high risk. Please contact an expert."
+ },
+ {
+  "key": "usementalhealth_son_7_gun_erzinde_geleceye_hevesle_baxdi_191d48",
+  "az": "Son 7 gün ərzində gələcəyə həvəslə baxdım:",
+  "en": "In the last 7 days, I looked forward to the future with enthusiasm:"
+ },
+ {
+  "key": "usementalhealth_son_7_gun_erzinde_gulmek_ve_gulmeli_tere_69e031",
+  "az": "Son 7 gün ərzində gülmək və gülməli tərəfləri görmək mümkün oldu:",
+  "en": "In the last 7 days, I was able to laugh and see the funny side:"
+ },
+ {
+  "key": "usementalhealth_son_7_gun_erzinde_hec_bir_sebeb_olmadan__ae94a6",
+  "az": "Son 7 gün ərzində heç bir səbəb olmadan qorxdum və ya panikaya düşdüm:",
+  "en": "In the last 7 days, I felt scared or panicked without any reason:"
+ },
+ {
+  "key": "usementalhealth_son_7_gun_erzinde_hec_bir_sebeb_olmadan__d8ad78",
+  "az": "Son 7 gün ərzində heç bir səbəb olmadan narahat və həyəcanlı oldum:",
+  "en": "In the last 7 days, I felt anxious and worried without any reason:"
+ },
+ {
+  "key": "usementalhealth_son_7_gun_erzinde_isler_meni_cox_yukledi_ee4b49",
+  "az": "Son 7 gün ərzində işlər məni çox yüklədi:",
+  "en": "In the last 7 days, things overwhelmed me a lot:"
+ },
+ {
+  "key": "usementalhealth_son_7_gun_erzinde_nese_sehv_getdikde_ozu_7020d6",
+  "az": "Son 7 gün ərzində nəsə səhv getdikdə özümü əsassız yerə günahlandırdım:",
+  "en": "In the last 7 days, when something went wrong, I blamed myself unfairly:"
+ },
+ {
+  "key": "usementalhealth_son_7_gun_erzinde_o_qeder_bedbext_idim_k_1f093c",
+  "az": "Son 7 gün ərzində o qədər bədbəxt idim ki, yuxuya getməkdə çətinlik çəkirdim:",
+  "en": "In the last 7 days, I was so unhappy that I had difficulty falling asleep:"
+ },
+ {
+  "key": "usementalhealth_son_7_gun_erzinde_o_qeder_bedbext_idim_k_4a4ad7",
+  "az": "Son 7 gün ərzində o qədər bədbəxt idim ki, ağlayırdım:",
+  "en": "In the last 7 days, I was so unhappy that I cried:"
+ },
+ {
+  "key": "usementalhealth_son_7_gun_erzinde_ozume_zerer_vermek_fik_fabedb",
+  "az": "Son 7 gün ərzində özümə zərər vermək fikri ağlıma gəldi:",
+  "en": "In the last 7 days, the thought of harming myself came to my mind:"
+ },
+ {
+  "key": "usementalhealth_son_7_gun_erzinde_ozumu_kederli_ve_ya_be_e00f93",
+  "az": "Son 7 gün ərzində özümü kədərli və ya bədbəxt hiss etdim:",
+  "en": "In the last 7 days, I felt sad or unhappy:"
+ },
+ {
+  "key": "usementalhealth_umumiyyetle_yox_6e0c1c",
+  "az": "Ümumiyyətlə yox",
+  "en": "Not at all"
+ },
+ {
+  "key": "usementalhealth_xeyr_cox_deyil_eb8671",
+  "az": "Xeyr, çox deyil",
+  "en": "No, not often"
+ },
+ {
+  "key": "usementalhealth_xeyr_ekser_vaxt_yaxsi_idare_edirdim_e2b859",
+  "az": "Xeyr, əksər vaxt yaxşı idarə edirdim",
+  "en": "No, most of the time I managed well"
+ },
+ {
+  "key": "usementalhealth_xeyr_hec_vaxt_b57661",
+  "az": "Xeyr, heç vaxt",
+  "en": "No, never"
+ },
+ {
+  "key": "usementalhealth_xeyr_hemiseki_kimi_idare_edirdim_02a4c9",
+  "az": "Xeyr, həmişəki kimi idarə edirdim",
+  "en": "No, I managed as usual"
+ },
+ {
+  "key": "usementalhealth_xeyr_umumiyyetle_yox_e2352c",
+  "az": "Xeyr, ümumiyyətlə yox",
+  "en": "No, not at all"
+ },
+ {
+  "key": "usementalhealth_yalniz_bezen_5e5a2a",
+  "az": "Yalnız bəzən",
+  "en": "Only sometimes"
+ },
+ {
+  "key": "usementalhealthdata_4_7_8_nefes_3ae243",
+  "az": "4-7-8 Nəfəs",
+  "en": "4-7-8 Breathing"
+ },
+ {
+  "key": "usementalhealthdata_cox_pis_e041c5",
+  "az": "Çox pis",
+  "en": "Too bad"
+ },
+ {
+  "key": "usementalhealthdata_diqqeti_artirir_6ef41b",
+  "az": "Diqqəti artırır",
+  "en": "Increases focus"
+ },
+ {
+  "key": "usementalhealthdata_ela_720a0e",
+  "az": "Əla",
+  "en": "Excellent"
+ },
+ {
+  "key": "usementalhealthdata_narahatligi_azaldir_9bb2df",
+  "az": "Narahatlığı azaldır",
+  "en": "Reduces anxiety"
+ },
+ {
+  "key": "usementalhealthdata_normal_e041c7",
+  "az": "Normal",
+  "en": null
+ },
+ {
+  "key": "usementalhealthdata_pis_e041c6",
+  "az": "Pis",
+  "en": null
+ },
+ {
+  "key": "usementalhealthdata_qutu_nefesi_7667cf",
+  "az": "Qutu Nəfəsi",
+  "en": "Box Breath"
+ },
+ {
+  "key": "usementalhealthdata_sakitlik_ve_yuxuya_komek_eden__f1b25c",
+  "az": "Sakitlik və yuxuya kömək edən relaksasiya texnikası",
+  "en": "A relaxation technique that promotes calmness and sleep"
+ },
+ {
+  "key": "usementalhealthdata_stress_nezareti_ucun_texnika_83964c",
+  "az": "Stress nəzarəti üçün texnika",
+  "en": "Techniques for stress control"
+ },
+ {
+  "key": "usementalhealthdata_stressi_azaldir_80384b",
+  "az": "Stressi azaldır",
+  "en": "It reduces stress"
+ },
+ {
+  "key": "usementalhealthdata_yaxsi_9d8595",
+  "az": "Yaxşı",
+  "en": "Good"
+ },
+ {
+  "key": "usementalhealthdata_yuxuya_komek_edir_bc795a",
+  "az": "Yuxuya kömək edir",
+  "en": "Helps sleep"
+ },
+ {
+  "key": "usemomfriendlyplaces_mekan_elave_edildi_admin_tesdi_0c46f2",
+  "az": "Məkan əlavə edildi! Admin təsdiqindən sonra görünəcək.",
+  "en": "Location added! It will appear after admin approval."
+ },
+ {
+  "key": "usemomfriendlyplaces_mekan_elave_edile_bilmedi_9a9c5b",
+  "az": "Məkan əlavə edilə bilmədi",
+  "en": "Could not add location"
+ },
+ {
+  "key": "usemomfriendlyplaces_rey_elave_edile_bilmedi_81a081",
+  "az": "Rəy əlavə edilə bilmədi",
+  "en": "Comment could not be added"
+ },
+ {
+  "key": "usemomfriendlyplaces_reyiniz_gonderildi_admin_tesdi_abb220",
+  "az": "Rəyiniz göndərildi! Admin təsdiqindən sonra görünəcək.",
+  "en": "Your review has been sent! It will appear after admin approval."
+ },
+ {
+  "key": "usemomfriendlyplaces_tesdiqiniz_ucun_tesekkurler_71a13f",
+  "az": "Təsdiqiniz üçün təşəkkürlər!",
+  "en": "Thanks for your approval!"
+ },
+ {
+  "key": "usenotificationsettings_bildiris_icazesi_verilmedi_a6583b",
+  "az": "Bildiriş icazəsi verilmədi",
+  "en": "Notification permission denied"
+ },
+ {
+  "key": "usenotificationsettings_butun_bildirisler_deaktiv_edil_085777",
+  "az": "Bütün bildirişlər deaktiv edildi",
+  "en": "All notifications are disabled"
+ },
+ {
+  "key": "usenotificationsettings_gundelik_vitaminlerinizi_qebul_6a3811",
+  "az": "Gündəlik vitaminlərinizi qəbul etməyi unutmayın.",
+  "en": "Don’t forget to take your daily vitamins."
+ },
+ {
+  "key": "usenotificationsettings_hamilelik_ucun_saglam_mesqler__015e22",
+  "az": "Hamiləlik üçün sağlam məşqlər edərək günə enerji ilə başlayın.",
+  "en": "Start your day with energy by doing healthy exercises for pregnancy."
+ },
+ {
+  "key": "usenotificationsettings_mesq_vaxti_4a1396",
+  "az": "Məşq vaxtı! 🧘‍♀️",
+  "en": "Workout time! 🧘‍♀️"
+ },
+ {
+  "key": "usenotificationsettings_mesq_xatirlatmalari_aktivlesdi_ea41d4",
+  "az": "Məşq xatırlatmaları aktivləşdirildi",
+  "en": "Exercise reminders enabled"
+ },
+ {
+  "key": "usenotificationsettings_randevu_xatirlatmasi_teyin_edi_48cc3e",
+  "az": "Randevu xatırlatması təyin edildi",
+  "en": "An appointment reminder has been set"
+ },
+ {
+  "key": "usenotificationsettings_su_xatirlatmalari_aktivlesdiri_dd0c67",
+  "az": "Su xatırlatmaları aktivləşdirildi",
+  "en": "Water reminders have been activated"
+ },
+ {
+  "key": "usenotificationsettings_su_xatirlatmalari_deaktiv_edil_153c1c",
+  "az": "Su xatırlatmaları deaktiv edildi",
+  "en": "Water reminders have been disabled"
+ },
+ {
+  "key": "usenotificationsettings_vitamin_vaxti_9bfc40",
+  "az": "Vitamin vaxtı! 💊",
+  "en": "Time for vitamins! 💊"
+ },
+ {
+  "key": "usenotificationsettings_vitamin_xatirlatmasi_aktivlesd_866e4a",
+  "az": "Vitamin xatırlatması aktivləşdirildi",
+  "en": "Vitamin reminder activated"
+ },
+ {
+  "key": "useorders_giris_edin_3be3d2",
+  "az": "Giriş edin",
+  "en": "Login"
+ },
+ {
+  "key": "useorders_order_number_desc",
+  "az": "Sifariş nömrəsi: {number}",
+  "en": "Order number: {number}"
+ },
+ {
+  "key": "useorders_sebete_elave_edildi_633b0b",
+  "az": "Səbətə əlavə edildi!",
+  "en": "Added to cart!"
+ },
+ {
+  "key": "useorders_sebete_elave_etmek_ucun_daxil_olun_db21c6",
+  "az": "Səbətə əlavə etmək üçün daxil olun",
+  "en": "Log in to add to cart"
+ },
+ {
+  "key": "useorders_sifaris_yaradildi_6c3ee9",
+  "az": "Sifariş yaradıldı!",
+  "en": "Order created!"
+ },
+ {
+  "key": "useorders_status_yenilendi_890662",
+  "az": "Status yeniləndi",
+  "en": "Status updated"
+ },
+ {
+  "key": "useorders_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "usepartnerconfig_aile_qehremani_62b00e",
+  "az": "Ailə Qəhrəmanı",
+  "en": "Family Hero"
+ },
+ {
+  "key": "usepartnerconfig_bildirisler_54eb88",
+  "az": "Bildirişlər",
+  "en": "Notices"
+ },
+ {
+  "key": "usepartnerconfig_destekci_829677",
+  "az": "Dəstəkçi",
+  "en": "Supporter"
+ },
+ {
+  "key": "usepartnerconfig_gizlilik",
+  "az": "Gizlilik",
+  "en": "Privacy"
+ },
+ {
+  "key": "usepartnerconfig_hediyye_8578f3",
+  "az": "Hədiyyə",
+  "en": "Gift"
+ },
+ {
+  "key": "usepartnerconfig_ilk_sevgi",
+  "az": "İlk Sevgi",
+  "en": "First Love"
+ },
+ {
+  "key": "usepartnerconfig_macera_bc3bdc",
+  "az": "Macəra",
+  "en": "Adventure"
+ },
+ {
+  "key": "usepartnerconfig_qaygi_868e7d",
+  "az": "Qayğı",
+  "en": "Care"
+ },
+ {
+  "key": "usepartnerconfig_qaygikes_c791ee",
+  "az": "Qayğıkeş",
+  "en": "Careful"
+ },
+ {
+  "key": "usepartnerconfig_romantik",
+  "az": "Romantik",
+  "en": "Romantic"
+ },
+ {
+  "key": "usepartnerconfig_yardim_da857a",
+  "az": "Yardım",
+  "en": "Help"
+ },
+ {
+  "key": "usepartnerdailytips_ayaq_masaji_etmeyi_teklif_edin_02109b",
+  "az": "Ayaq masajı etməyi təklif edin",
+  "en": "Offer a foot massage"
+ },
+ {
+  "key": "usepartnerdailytips_ev_islerine_komek_edin_4f7415",
+  "az": "Ev işlərinə kömək edin",
+  "en": "Help with household chores"
+ },
+ {
+  "key": "usepartnerdailytips_heyat_yoldasiniza_bu_gun_gozel_b30548",
+  "az": "Həyat yoldaşınıza bu gün gözəl bir jest edin!",
+  "en": "Give your spouse a nice gesture today!"
+ },
+ {
+  "key": "usepartnerdailytips_ona_bu_gun_ne_qeder_gozel_goru_f8391d",
+  "az": "Ona bu gün nə qədər gözəl göründüyünü söyləyin",
+  "en": "Tell her how beautiful she looks today"
+ },
+ {
+  "key": "usepartnerdailytips_ona_sevdiyi_qelyanalti_alin_c76822",
+  "az": "Ona sevdiyi qəlyanaltı alın",
+  "en": "Buy him a snack he likes"
+ },
+ {
+  "key": "usepartnerdata_partner_melumatlari_yuklene_bi_430423",
+  "az": "Partner məlumatları yüklənə bilmədi",
+  "en": "Failed to load partner data"
+ },
+ {
+  "key": "usepartnerdata_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "usepartnermessages_5_1_1_qaydasi_976061",
+  "az": "⚠️ 5-1-1 Qaydası!",
+  "en": "⚠️ 5-1-1 Rule!"
+ },
+ {
+  "key": "usepartnermessages_ehval_yenilendi_967cd7",
+  "az": "Əhval yeniləndi 💭",
+  "en": "Mood updated 💭"
+ },
+ {
+  "key": "usepartnermessages_evvelce_partnyorla_elaqelenin_2378fa",
+  "az": "Əvvəlcə partnyorla əlaqələnin",
+  "en": "First, connect with a partner"
+ },
+ {
+  "key": "usepartnermessages_korpe_tepik_atdi_628b12",
+  "az": "Körpə təpik atdı! 👶",
+  "en": "The baby kicked! 👶"
+ },
+ {
+  "key": "usepartnermessages_mesaj_geldi_9e478b",
+  "az": "Mesaj gəldi",
+  "en": "A message has arrived"
+ },
+ {
+  "key": "usepartnermessages_mesaj_gonderildi_353ca0",
+  "az": "Mesaj göndərildi! 💬",
+  "en": "Message sent! 💬"
+ },
+ {
+  "key": "usepartnermessages_partnyor_tapilmadi_1239a8",
+  "az": "Partnyor tapılmadı",
+  "en": "Partner not found"
+ },
+ {
+  "key": "usepartnermessages_partnyorunuz_bildiris_alacaq_62f7d7",
+  "az": "Partnyorunuz bildiriş alacaq",
+  "en": "Your partner will receive a notification"
+ },
+ {
+  "key": "usepartnermessages_partnyorunuz_ehvalini_qeyd_etd_612302",
+  "az": "Partnyorunuz əhvalını qeyd etdi",
+  "en": "Your partner has noted his mood"
+ },
+ {
+  "key": "usepartnermessages_partnyorunuz_gundelik_su_hedefine_catdi_f06510",
+  "az": "Partnyorunuz gündəlik su hədəfinə çatdı!",
+  "en": "Your partner reached their daily water goal!"
+ },
+ {
+  "key": "usepartnermessages_partnyorunuz_sanci_qeyd_etdi_ac77ff",
+  "az": "Partnyorunuz sancı qeyd etdi",
+  "en": "Your partner noted contractions"
+ },
+ {
+  "key": "usepartnermessages_partnyorunuz_size_sevgi_gonder_765fb4",
+  "az": "Partnyorunuz sizə sevgi göndərdi",
+  "en": "Your partner sent you love"
+ },
+ {
+  "key": "usepartnermessages_partnyorunuz_size_sevgi_gonderdi_765fb4",
+  "az": "Partnyorunuz sizə sevgi göndərdi",
+  "en": "Your partner sent you love"
+ },
+ {
+  "key": "usepartnermessages_sanci_basladi_c51f20",
+  "az": "Sancı başladı! ⏱️",
+  "en": "The contractions have begun! ⏱️"
+ },
+ {
+  "key": "usepartnermessages_sevgi_aldiniz_346423",
+  "az": "Sevgi aldınız! ❤️",
+  "en": "You got love! ❤️"
+ },
+ {
+  "key": "usepartnermessages_sevgi_gonderildi_14b554",
+  "az": "Sevgi göndərildi! ❤️",
+  "en": "Love sent! ❤️"
+ },
+ {
+  "key": "usepartnermessages_su_hedefine_catdi_55f2fb",
+  "az": "Su hədəfinə çatdı! 💧",
+  "en": "Water has reached its goal! 💧"
+ },
+ {
+  "key": "usepartnermessages_xestexanaya_getme_vaxti_ola_biler_b244c0",
+  "az": "Xəstəxanaya getmə vaxtı ola bilər!",
+  "en": "It might be time to go to the hospital!"
+ },
+ {
+  "key": "usepartnermessages_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "usepartnermessages_yeni_mesaj_title",
+  "az": "Yeni mesaj 💬",
+  "en": "New message 💬"
+ },
+ {
+  "key": "usepartnermissions_alis_veris_komeyi_59264f",
+  "az": "Alış-veriş köməyi",
+  "en": "Shopping assistance"
+ }
+]

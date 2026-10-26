@@ -1,0 +1,76 @@
+{
+ "teething_symptoms": {
+  "da469ca3-dfb2-401a-bc96-10c1f9768175": {
+   "name": "So‘lak oqishi",
+   "description": "Tish chiqishi paytida so‘lakning ko‘p oqishi juda keng tarqalgan",
+   "relief_tips": [
+    "Chaqaloqqa ko‘krakpech taqing",
+    "So‘lakni tez-tez artib turing",
+    "Himoya kremini surting"
+   ]
+  },
+  "f66a15e2-5772-4cf2-9dd9-2fdc2fe21480": {
+   "name": "Biroz isitma",
+   "description": "Tana harorati biroz ko‘tarilishi (38°C dan past) mumkin",
+   "relief_tips": [
+    "Haroratni kuzatib boring",
+    "Chaqaloqqa yetarli miqdorda suyuqlik bering",
+    "Harorat yuqori bo‘lsa, shifokorga murojaat qiling"
+   ]
+  },
+  "11f5b7df-f534-4677-9297-aff12652de0c": {
+   "name": "Milk shishishi",
+   "description": "Tishlar chiqayotgan joydagi milklar qizarib, shishadi",
+   "relief_tips": [
+    "Sovuq tishlash halqasi",
+    "Yengil uqalash",
+    "Sovitilgan mato"
+   ]
+  },
+  "5d314a9d-29c4-4925-a850-549a104c10cc": {
+   "name": "Uyqu bilan bog‘liq muammolar",
+   "description": "Tish og‘rig‘i uyqu rejimini buzishi mumkin",
+   "relief_tips": [
+    "Uyqu rejimini saqlang",
+    "Uxlashdan oldin og‘riq qoldiruvchi vosita bering",
+    "Tinchlantirish uchun emizing"
+   ]
+  },
+  "6dca2abe-b145-4328-aa53-3621d7294068": {
+   "name": "Asabiylik",
+   "description": "Noqulaylik tufayli chaqaloq odatdagidan ko‘ra asabiyroq bo‘lishi mumkin",
+   "relief_tips": [
+    "Ko‘proq bag‘ringizga bosing",
+    "O‘yinchoqlar bilan chalg‘iting",
+    "Tinchlantiruvchi tovushlarni qo‘ying"
+   ]
+  },
+  "781c41ff-4633-4c1a-ba59-4e165b56d073": {
+   "name": "Buyumlarni chaynash",
+   "description": "Chaqaloq yengillik his qilish uchun hamma narsani og‘ziga soladi",
+   "relief_tips": [
+    "Xavfsiz tishlagichlar bering",
+    "O‘yin paytida kuzatib turing",
+    "O‘yinchoqlarni muntazam tozalang"
+   ]
+  },
+  "8b318d48-e0c5-4e54-9b08-fd79f2a8d46e": {
+   "name": "Ishtahasizlik",
+   "description": "Chaqaloq milklari og‘rigani sababli ovqatlanishdan bosh tortishi mumkin",
+   "relief_tips": [
+    "Sovuq taomlar taklif qiling",
+    "Turli tuzilishdagi taomlarni sinab ko‘ring",
+    "Sabrli bo‘ling"
+   ]
+  },
+  "bb23e53f-eb8b-42a3-8aea-5b43f97b45ef": {
+   "name": "Quloqni tortish",
+   "description": "Chaqaloq milklaridan tarqaladigan og‘riq tufayli quloqlarini tortishi mumkin",
+   "relief_tips": [
+    "Quloq infeksiyasi bor-yo‘qligini tekshirtiring",
+    "Milklarni uqalang",
+    "Diqqatini chalg‘iting"
+   ]
+  }
+ }
+}

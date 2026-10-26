@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "common_yoxdur",
+  "az": "Yoxdur",
+  "en": "None"
+ },
+ {
+  "key": "common_yuxu",
+  "az": "Yuxu",
+  "en": "Sleep"
+ },
+ {
+  "key": "customplanstep_ferdi_yol_xeriteniz_bb96ed",
+  "az": "Fərdi yol xəritəniz",
+  "en": "Your personalized roadmap"
+ },
+ {
+  "key": "customplanstep_indi_a5d6f3",
+  "az": "İndi 😟",
+  "en": "Now 😟"
+ },
+ {
+  "key": "customplanstep_planimi_elde_et_8f1086",
+  "az": "Planımı Əldə Et",
+  "en": "Get My Plan"
+ },
+ {
+  "key": "customplanstep_sizin_ucun_hazirladigimiz_plan_bb2316",
+  "az": ", sizin üçün hazırladığımız plan",
+  "en": ", the plan we prepared for you"
+ },
+ {
+  "key": "dashboard_0_deq_86d70a",
+  "az": "0 dəq",
+  "en": "0 min"
+ },
+ {
+  "key": "dashboard_1_ci_trimester_tovsiyeleri_0a4c84",
+  "az": "1-ci Trimester Tövsiyələri",
+  "en": "1st Trimester Tips"
+ },
+ {
+  "key": "dashboard_1_trimester",
+  "az": "1-ci Trimester",
+  "en": "1st Trimester"
+ },
+ {
+  "key": "dashboard_1_yas_a1b2c3",
+  "az": "1 yaş",
+  "en": "1 year"
+ },
+ {
+  "key": "dashboard_2_ci_trimester_tovsiyeleri_16e100",
+  "az": "2-ci Trimester Tövsiyələri",
+  "en": "2nd Trimester Tips"
+ },
+ {
+  "key": "dashboard_2_trimester",
+  "az": "2-ci Trimester",
+  "en": "2nd Trimester"
+ },
+ {
+  "key": "dashboard_3_cu_trimester_tovsiyeleri_93f711",
+  "az": "3-cü Trimester Tövsiyələri",
+  "en": "3rd Trimester Tips"
+ },
+ {
+  "key": "dashboard_3_trimester",
+  "az": "3-cü Trimester",
+  "en": "3rd Trimester"
+ },
+ {
+  "key": "dashboard_anacan_hazirda_cfaa50",
+  "az": "Anacan, hazırda",
+  "en": "Mommy, right now I am the size of a"
+ },
+ {
+  "key": "dashboard_analiq_seyahetinize_baslayin_b03582",
+  "az": "Analıq səyahətinizə başlayın",
+  "en": "Start your motherhood journey"
+ },
+ {
+  "key": "dashboard_barmaq_18bc",
+  "az": "Barmaq",
+  "en": "Finger"
+ },
+ {
+  "key": "dashboard_baslangic_e9d2d5",
+  "az": "Başlanğıc",
+  "en": "Start"
+ },
+ {
+  "key": "dashboard_bedendeki_deyisiklikler_7a5c81",
+  "az": "Bədəndəki Dəyişikliklər",
+  "en": "Body Changes"
+ },
+ {
+  "key": "dashboard_bez_deyisme_647cbc",
+  "az": "Bez dəyişmə",
+  "en": "Diaper change"
+ },
+ {
+  "key": "dashboard_bez_deyisme_ba242a",
+  "az": "Bez Dəyişmə",
+  "en": "Diaper Change"
+ },
+ {
+  "key": "dashboard_bitir_btn",
+  "az": "Bitir",
+  "en": "End"
+ },
+ {
+  "key": "dashboard_bitirmek_ucun_yeniden_basin_37b592",
+  "az": "Bitirmək üçün yenidən basın",
+  "en": "Press again to finish"
+ },
+ {
+  "key": "dashboard_bu_gun_7d7f30",
+  "az": "bu gün",
+  "en": "today"
+ },
+ {
+  "key": "dashboard_bu_gun_yuxu_qeyde_alinmayib_8a3535",
+  "az": "Bu gün yuxu qeydə alınmayıb",
+  "en": "No sleep recorded today"
+ },
+ {
+  "key": "dashboard_bugunku_xulase_e1e1b3",
+  "az": "Bugünkü xülasə",
+  "en": "Today's Summary"
+ },
+ {
+  "key": "dashboard_daily_badge",
+  "az": "Gündəlik",
+  "en": "Daily"
+ },
+ {
+  "key": "dashboard_davam_edir_88d3a2",
+  "az": "Davam edir...",
+  "en": "In progress..."
+ },
+ {
+  "key": "dashboard_defe_420246",
+  "az": "dəfə",
+  "en": "times"
+ },
+ {
+  "key": "dashboard_diaper_change",
+  "az": "Bez dəyişmə:",
+  "en": null
+ },
+ {
+  "key": "dashboard_dogum_etdim_e3eca9",
+  "az": "Doğum etdim! 🎉",
+  "en": "I gave birth! 🎉"
+ },
+ {
+  "key": "dashboard_dogus_6b7bfd",
+  "az": "Doğuş",
+  "en": "Birth"
+ },
+ {
+  "key": "dashboard_duration",
+  "az": "Müddət:",
+  "en": "Duration:"
+ },
+ {
+  "key": "dashboard_ehval_0457f9",
+  "az": "Əhval",
+  "en": "Mood"
+ },
+ {
+  "key": "dashboard_elave_et_a5fb21",
+  "az": "+ Əlavə et",
+  "en": "+ Add"
+ },
+ {
+  "key": "dashboard_elave_qida_0e11a2",
+  "az": "Əlavə qida 🥣",
+  "en": "Additional food 🥣"
+ },
+ {
+  "key": "dashboard_elave_qida_676032",
+  "az": "Əlavə Qida",
+  "en": "Solid Food"
+ },
+ {
+  "key": "dashboard_gelecek_8dc8dc",
+  "az": "⏭️ Gələcək",
+  "en": "⏭️ Future"
+ },
+ {
+  "key": "dashboard_glasses",
+  "az": "stəkan",
+  "en": "glass(es)"
+ },
+ {
+  "key": "dashboard_good_afternoon_xeyir",
+  "az": "Günortanız xeyir",
+  "en": "Good afternoon"
+ },
+ {
+  "key": "dashboard_good_evening_xeyir",
+  "az": "Axşamınız xeyir",
+  "en": "Good evening"
+ },
+ {
+  "key": "dashboard_good_morning_xeyir",
+  "az": "Sabahınız xeyir",
+  "en": "Good morning"
+ },
+ {
+  "key": "dashboard_goz_fbc05e",
+  "az": "Göz",
+  "en": "Eye"
+ },
+ {
+  "key": "dashboard_gun_18b2f4",
+  "az": "Gün",
+  "en": "Day"
+ },
+ {
+  "key": "dashboard_gun_a4ba4e",
+  "az": ". gün •",
+  "en": ". day •"
+ },
+ {
+  "key": "dashboard_gun_d96b5d",
+  "az": ". gün",
+  "en": ". day"
+ },
+ {
+  "key": "dashboard_gun_qaldi_993281",
+  "az": "gün qaldı",
+  "en": "day left"
+ },
+ {
+  "key": "dashboard_gune_baxirsiniz_165efc",
+  "az": "günə baxırsınız",
+  "en": "you look at the day"
+ },
+ {
+  "key": "dashboard_gunun_tovsiyesi_b3a563",
+  "az": "Günün Tövsiyəsi",
+  "en": "Tip of the Day"
+ },
+ {
+  "key": "dashboard_h",
+  "az": "s",
+  "en": null
+ },
+ {
+  "key": "dashboard_hefte_3aa886",
+  "az": "Həftə",
+  "en": "Week"
+ },
+ {
+  "key": "dashboard_hefte_5af01f",
+  "az": ". həftə,",
+  "en": ". week,"
+ },
+ {
+  "key": "dashboard_hour",
+  "az": "saat",
+  "en": "hours"
+ },
+ {
+  "key": "dashboard_inkisaf_merheleleri_d6d887",
+  "az": "İnkişaf mərhələləri",
+  "en": "Developmental Stages"
+ },
+ {
+  "key": "dashboard_kecmis_a3b2bf",
+  "az": "⏮️ Keçmiş",
+  "en": "⏮️ Past"
+ },
+ {
+  "key": "dashboard_kick",
+  "az": "təpik",
+  "en": null
+ },
+ {
+  "key": "dashboard_korpeden_mesaj_89353a",
+  "az": "Körpədən Mesaj",
+  "en": "Message from Baby"
+ },
+ {
+  "key": "dashboard_korpenin_inkisafi_269d83",
+  "az": "Körpənin inkişafı",
+  "en": "Baby's Development"
+ },
+ {
+  "key": "dashboard_korpenin_inkisafi_485a30",
+  "az": "Körpənin İnkişafı",
+  "en": "Baby's Development"
+ },
+ {
+  "key": "dashboard_korpeniz_ucun_milestone_tortla_3bcbc1",
+  "az": "Körpəniz üçün milestone tortları",
+  "en": "Milestone cakes for your baby"
+ },
+ {
+  "key": "dashboard_kq_ceki_b42b8d",
+  "az": "kq çəki",
+  "en": "kg weight"
+ },
+ {
+  "key": "dashboard_left_breast",
+  "az": "Sol sinə",
+  "en": "Left breast"
+ },
+ {
+  "key": "dashboard_left_breast_done",
+  "az": "Sol sinə bitti!",
+  "en": "Left breast done!"
+ },
+ {
+  "key": "dashboard_legv_f7100a",
+  "az": "Ləğv",
+  "en": "Cancellation"
+ },
+ {
+  "key": "dashboard_m",
+  "az": "d",
+  "en": null
+ },
+ {
+  "key": "dashboard_mesq_046a80",
+  "az": "Məşq",
+  "en": "Workout"
+ },
+ {
+  "key": "dashboard_message_for_mom",
+  "az": "Anaya Mesaj",
+  "en": "Message for mom"
+ },
+ {
+  "key": "dashboard_min",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "dashboard_nece_ml_c9f7a6",
+  "az": "Neçə ml?",
+  "en": "How many ml?"
+ },
+ {
+  "key": "dashboard_order_monthly_cake",
+  "az": "{n}-ci aylıq tortunu sifariş ver!",
+  "en": "Order your {n}th month cake!"
+ },
+ {
+  "key": "dashboard_qeyd_edildi",
+  "az": "qeyd edildi!",
+  "en": "logged!"
+ },
+ {
+  "key": "dashboard_qeyd_et_f12345",
+  "az": "Qeyd et",
+  "en": "Save"
+ },
+ {
+  "key": "dashboard_qidalanmaya_nezaret_1b60b4",
+  "az": "Qidalanmaya nəzarət",
+  "en": "Nutrition Control"
+ },
+ {
+  "key": "dashboard_qr",
+  "az": "qr",
+  "en": "gr"
+ },
+ {
+  "key": "dashboard_qulaq_93ab",
+  "az": "Qulaq",
+  "en": "Ear"
+ },
+ {
+  "key": "dashboard_right_breast",
+  "az": "Sağ sinə",
+  "en": "Right breast"
+ },
+ {
+  "key": "dashboard_right_breast_done",
+  "az": "Sağ sinə bitti!",
+  "en": "Right breast done!"
+ },
+ {
+  "key": "dashboard_sac_a09eaa",
+  "az": "Saç",
+  "en": "Hair"
+ },
+ {
+  "key": "dashboard_sag_sine_590332",
+  "az": "Sağ Sinə",
+  "en": "Right Chest"
+ },
+ {
+  "key": "dashboard_salam_ana_bu_gun_cox_boyudum_4e9d53",
+  "az": "Salam ana! Bu gün çox böyüdüm. 💕",
+  "en": "Hello mom! I grew up a lot today. 💕"
+ },
+ {
+  "key": "dashboard_sec",
+  "az": "san",
+  "en": null
+ },
+ {
+  "key": "dashboard_sleep_ended",
+  "az": "Yuxu bitdi! ☀️",
+  "en": "Sleep ended! ☀️"
+ },
+ {
+  "key": "dashboard_sleep_ongoing",
+  "az": "Yuxu davam edir",
+  "en": "Sleep ongoing"
+ },
+ {
+  "key": "dashboard_sleep_recorded",
+  "az": "yuxu qeydə alınıb",
+  "en": "sleep sessions recorded"
+ },
+ {
+  "key": "dashboard_slept",
+  "az": "yatdı",
+  "en": "slept"
+ },
+ {
+  "key": "dashboard_slept_btn",
+  "az": "Yatdı",
+  "en": "Slept"
+ },
+ {
+  "key": "dashboard_sm",
+  "az": "sm",
+  "en": "cm"
+ },
+ {
+  "key": "dashboard_sol",
+  "az": "Sol",
+  "en": "Left"
+ },
+ {
+  "key": "dashboard_sol_sine_92503e",
+  "az": "Sol Sinə",
+  "en": "Left Chest"
+ },
+ {
+  "key": "dashboard_su_elave_edildi_7b894d",
+  "az": "Su əlavə edildi! 💧",
+  "en": "Water added! 💧"
+ },
+ {
+  "key": "dashboard_sud_evezedicisi",
+  "az": "Süd əvəzedicisi",
+  "en": "Formula"
+ },
+ {
+  "key": "dashboard_sud_evezedicisi_057b37",
+  "az": "Süd əvəzedicisi 🍼",
+  "en": "Milk substitute 🍼"
+ },
+ {
+  "key": "dashboard_sud_evezedicisi_4ba2dd",
+  "az": "Süd Əvəzedicisi",
+  "en": "Formula Milk"
+ },
+ {
+  "key": "dashboard_tepik_6483fe",
+  "az": "təpik",
+  "en": "kick"
+ },
+ {
+  "key": "dashboard_tepik_9a873a",
+  "az": "Təpik",
+  "en": "Kick"
+ },
+ {
+  "key": "dashboard_tepik_qeyd_edildi_284f06",
+  "az": "Təpik qeyd edildi! 👶",
+  "en": "Kick recorded! 👶"
+ },
+ {
+  "key": "dashboard_times_unit",
+  "az": "dəfə",
+  "en": "times"
+ },
+ {
+  "key": "dashboard_today",
+  "az": "Bu gün",
+  "en": null
+ },
+ {
+  "key": "dashboard_today_label",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "dashboard_todays_info",
+  "az": "Bu günün məlumatları",
+  "en": "Today's info"
+ },
+ {
+  "key": "dashboard_tovsiyesi_6412b4",
+  "az": "Tövsiyəsi",
+  "en": "Recommendation"
+ },
+ {
+  "key": "dashboard_week_baby",
+  "az": "həftəlik körpə",
+  "en": null
+ },
+ {
+  "key": "dashboard_xanim_39ff6a",
+  "az": "Xanım",
+  "en": "Mrs"
+ },
+ {
+  "key": "dashboard_xususi_tortlar_ba1400",
+  "az": "Xüsusi Tortlar",
+  "en": "Special Cakes"
+ },
+ {
+  "key": "dashboard_yuklenir_5557de",
+  "az": "Yüklənir...",
+  "en": "Loading..."
+ },
+ {
+  "key": "dashboard_yuxu_basladi_b503f7",
+  "az": "Yuxu başladı! 😴",
+  "en": "Sleep started! 😴"
+ },
+ {
+  "key": "dashboard_yuxu_izleme_adaa4f",
+  "az": "Yuxu İzləmə",
+  "en": "Sleep Tracking"
+ },
+ {
+  "key": "dashboard_yuxu_xulasesi_b2dc87",
+  "az": "Yuxu xülasəsi",
+  "en": "Sleep Summary"
+ },
+ {
+  "key": "dps_cancel_anytime",
+  "az": "İstənilən vaxt ləğv edin — sual verilmir",
+  "en": "Cancel anytime — no questions asked"
+ },
+ {
+  "key": "dps_free_premium",
+  "az": "{days} Gün Pulsuz Premium",
+  "en": "{days} Days Free Premium"
+ },
+ {
+  "key": "dps_full_access",
+  "az": "Bütün funksiyalara tam giriş. Bəyənməsəniz, heç bir ödəniş tutulmur.",
+  "en": "Full access to everything. If you don’t love it, you pay nothing."
+ },
+ {
+  "key": "dps_no_thanks",
+  "az": "Xeyr, pulsuz davam edirəm",
+  "en": "No, continue with free"
+ },
+ {
+  "key": "dps_once_only",
+  "az": "BU TƏKLİF YALNIZ 1 DƏFƏ GÖSTƏRİLİR",
+  "en": "THIS OFFER IS SHOWN ONLY ONCE"
+ },
+ {
+  "key": "dps_purchase_failed",
+  "az": "Alış uğursuz",
+  "en": "Purchase failed"
+ },
+ {
+  "key": "dps_special_offer",
+  "az": "Xüsusi təklif — yalnız sizin üçün",
+  "en": "A special offer — just for you"
+ },
+ {
+  "key": "dps_start_free",
+  "az": "Pulsuz Başla",
+  "en": "Start Free"
+ },
+ {
+  "key": "dps_then_price",
+  "az": "Sonra {price}/il.",
+  "en": "Then {price}/year."
+ },
+ {
+  "key": "dps_trial_started",
+  "az": "{days} günlük pulsuz dövrünüz başladı",
+  "en": "Your {days}-day free trial has started"
+ },
+ {
+  "key": "dps_try_free",
+  "az": "Premium-u {days} gün tamamilə pulsuz sınayın",
+  "en": "Try Premium completely free for {days} days"
+ },
+ {
+  "key": "dps_wait",
+  "az": "Bir dəqiqə! 🎀",
+  "en": "Wait! 🎀"
+ },
+ {
+  "key": "featuresstep_anacan_in_unikal_imkanlari_a6a089",
+  "az": "Anacan-ın unikal imkanları",
+  "en": "Anacan's unique capabilities"
+ },
+ {
+  "key": "featuresstep_xususi_funksiyalar_674d09",
+  "az": "Xüsusi Funksiyalar",
+  "en": "Special Features"
+ },
+ {
+  "key": "forceupdatescreen_tetbiqi_yenile_18f4f3",
+  "az": "Tətbiqi yenilə",
+  "en": "Update the app"
+ },
+ {
+  "key": "funnel_ay_sonra",
+  "az": "ay sonra",
+  "en": "months later"
+ },
+ {
+  "key": "funnel_cycle_stats",
+  "az": "günlük tsiklinizə əsasən fərdi təhlil hazırladıq.",
+  "en": null
+ },
+ {
+  "key": "funnel_month_stats",
+  "az": "aylıq körpəsi olan anaların 82%-i oxşar çətinliklərlə üzləşir.",
+  "en": null
+ },
+ {
+  "key": "funnel_week_stats",
+  "az": "-ci həftədə olan hamilə qadınların 78%-i müəyyən narahatlıqlar yaşayır.",
+  "en": null
+ },
+ {
+  "key": "funneldata_2_ayliq_ana_2022a1",
+  "az": "2 aylıq ana",
+  "en": "Mother of 2 months"
+ },
+ {
+  "key": "funneldata_24_7_ai_asistan_cemiyyet_811e00",
+  "az": "24/7 AI Asistan & Cəmiyyət",
+  "en": "24/7 AI Assistant & Community"
+ },
+ {
+  "key": "funneldata_28_hefte_904b85",
+  "az": "28 həftə",
+  "en": "28 weeks"
+ },
+ {
+  "key": "funneldata_32_hefte_262acf",
+  "az": "32 həftə",
+  "en": "32 weeks"
+ },
+ {
+  "key": "funneldata_36_hefte_b86bcd",
+  "az": "36 həftə",
+  "en": "36 weeks"
+ },
+ {
+  "key": "funneldata_4_ayliq_ana_ca3cbc",
+  "az": "4 aylıq ana",
+  "en": "4 month old mom"
+ },
+ {
+  "key": "funneldata_6_aydir_istifade_edir_853466",
+  "az": "6 aydır istifadə edir",
+  "en": "He has been using it for 6 months"
+ },
+ {
+  "key": "funneldata_7_ayliq_ana_beede1",
+  "az": "7 aylıq ana",
+  "en": "Mother of 7 months"
+ },
+ {
+  "key": "funneldata_ai_asistan_gece_3_de_bele_suallarima_cav_7eac40",
+  "az": "AI Asistan gecə 3-də belə suallarıma cavab verir. Həqiqi dost kimi!",
+  "en": "AI Assistant answers my questions even at 3 AM. Like a true friend!"
+ },
+ {
+  "key": "funneldata_ai_asistan_hekim_hesabati_c33072",
+  "az": "AI Asistan & Həkim Hesabatı",
+  "en": "AI Assistant & Doctor Report"
+ },
+ {
+  "key": "funneldata_ai_asistan_nefes_mesqleri_f00217",
+  "az": "AI Asistan & Nəfəs Məşqləri",
+  "en": "AI Assistant & Breathing Exercises"
+ },
+ {
+  "key": "funneldata_ai_asistan_title",
+  "az": "24/7 AI Asistan",
+  "en": "24/7 AI Assistant"
+ },
+ {
+  "key": "funneldata_ai_fotosessiya_title",
+  "az": "AI Fotosessiya",
+  "en": "AI Photoshoot"
+ },
+ {
+  "key": "funneldata_aktiv_istifadeci_98044e",
+  "az": "Aktiv istifadəçi",
+  "en": "Active user"
+ },
+ {
+  "key": "funneldata_alis_veris_siyahisi_magaza_b3e1f8",
+  "az": "Alış-veriş Siyahısı & Mağaza",
+  "en": "Shopping List & Store"
+ },
+ {
+  "key": "funneldata_ana_cemiyyeti_ffc4bd",
+  "az": "Ana Cəmiyyəti",
+  "en": "Mother Society"
+ },
+ {
+  "key": "funneldata_ana_cemiyyeti_partnyor_baglant_f72b92",
+  "az": "Ana Cəmiyyəti & Partnyor Bağlantısı",
+  "en": "Parent Company & Affiliate Link"
+ },
+ {
+  "key": "funneldata_anacan_sayesinde_hamileliyimi_stressiz_k_f5652f",
+  "az": "Anacan sayəsində hamiləliyimi stressiz keçirdim. Həftəlik hesabatlar çox faydalıdır!",
+  "en": "Thanks to Anacan, I had a stress-free pregnancy. Weekly reports are very useful!"
+ },
+ {
+  "key": "funneldata_anacan_sizin_ucun_ferdi_hell_p_15bc53",
+  "az": "Anacan sizin üçün fərdi həll planı hazırladı. 💕",
+  "en": "Anacan prepared an individual solution plan for you. 💕"
+ },
+ {
+  "key": "funneldata_anacan_tsiklinizi_anlayir_ve_s_8e4fb1",
+  "az": "Anacan tsiklinizi anlayır və sizə kömək etməyə hazırdır. ✨",
+  "en": "Anajan understands your cycle and is ready to help you. ✨"
+ },
+ {
+  "key": "funneldata_analiqda_en_cox_hansi_movzu_sizi_yorur_c719dc",
+  "az": "Analıqda ən çox hansı mövzu sizi yorur?",
+  "en": "What topic bothers you most in motherhood?"
+ },
+ {
+  "key": "funneldata_asagi_1c27f1",
+  "az": "Aşağı",
+  "en": "Low"
+ },
+ {
+  "key": "funneldata_ayten_cb2a8e",
+  "az": "Aytən",
+  "en": "Aytan"
+ },
+ {
+  "key": "funneldata_az_bilirem_0f191a",
+  "az": "Az bilirəm",
+  "en": "I know little"
+ },
+ {
+  "key": "funneldata_beden_deyisiklikleri_33b640",
+  "az": "Bədən dəyişiklikləri",
+  "en": "Body changes"
+ },
+ {
+  "key": "funneldata_bedenini_tani_dca5a1",
+  "az": "Bədənini tanı",
+  "en": "Know your body"
+ },
+ {
+  "key": "funneldata_beli_cox_96d658",
+  "az": "Bəli, çox",
+  "en": "Yes, a lot"
+ },
+ {
+  "key": "funneldata_bezen_cetin_f90a21",
+  "az": "Bəzən çətin",
+  "en": "Sometimes difficult"
+ },
+ {
+  "key": "funneldata_bezi_suallarim_var_479fd7",
+  "az": "Bəzi suallarım var",
+  "en": "I have some questions"
+ },
+ {
+  "key": "funneldata_ceki_i_zleyicisi_qidalanma_477cd4",
+  "az": "Çəki İzləyicisi & Qidalanma",
+  "en": "Weight Tracker & Nutrition"
+ },
+ {
+  "key": "funneldata_ciddi_narahatliqlar_18a34d",
+  "az": "Ciddi narahatlıqlar",
+  "en": "Serious concerns"
+ },
+ {
+  "key": "funneldata_ciddi_narahatliqlarim_var_a287d8",
+  "az": "Ciddi narahatlıqlarım var",
+  "en": "I have serious concerns"
+ },
+ {
+  "key": "funneldata_cox_bilirem_b798d9",
+  "az": "Çox bilirəm",
+  "en": "I know a lot"
+ },
+ {
+  "key": "funneldata_cox_cetin_gunlerim_olur_63086f",
+  "az": "Çox çətin günlərim olur",
+  "en": "I have very difficult days"
+ },
+ {
+  "key": "funneldata_cox_vacib_24d1a3",
+  "az": "Çox vacib",
+  "en": "Very important"
+ },
+ {
+  "key": "funneldata_cox_yuksek_c4d475",
+  "az": "Çox yüksək",
+  "en": "Very high"
+ },
+ {
+  "key": "funneldata_cox_yuksek_stres_26e2b3",
+  "az": "Çox yüksək stres",
+  "en": "Very high stress"
+ },
+ {
+  "key": "funneldata_demek_olar_hec_3133dc",
+  "az": "Demək olar heç",
+  "en": "Almost none"
+ },
+ {
+  "key": "funneldata_demek_olar_yata_bilmirem_10aaf6",
+  "az": "Demək olar yata bilmirəm",
+  "en": "I can barely sleep"
+ },
+ {
+  "key": "funneldata_destek_catismazligi_e5147a",
+  "az": "Dəstək çatışmazlığı",
+  "en": "Lack of support"
+ },
+ {
+  "key": "funneldata_destek_ehtiyaci_7b31a6",
+  "az": "Dəstək ehtiyacı",
+  "en": "Need support"
+ },
+ {
+  "key": "funneldata_destek_sebekesi_zeifdir_amma_b_1f2af0",
+  "az": "Dəstək şəbəkəsi zəifdir — amma biz buradayıq.",
+  "en": "The support network is weak — but we're here."
+ },
+ {
+  "key": "funneldata_dogus_qorxusu_172b00",
+  "az": "Doğuş qorxusu",
+  "en": "Fear of childbirth"
+ },
+ {
+  "key": "funneldata_dogusa_tam_hazir_ol_58a0df",
+  "az": "Doğuşa tam hazır ol",
+  "en": "Be fully prepared for childbirth"
+ },
+ {
+  "key": "funneldata_dogusdan_sonra_cox_cetin_idi_amma_ai_asi_49ef0d",
+  "az": "Doğuşdan sonra çox çətin idi, amma AI Asistan və cəmiyyət mənə güc verdi.",
+  "en": "It was very difficult after childbirth, but AI Assistant and the community gave me strength."
+ },
+ {
+  "key": "funneldata_dogusdan_sonra_ozunuzu_emosional_olaraq__9508b7",
+  "az": "Doğuşdan sonra özünüzü emosional olaraq necə hiss edirsiniz?",
+  "en": "How do you feel emotionally after childbirth?"
+ },
+ {
+  "key": "funneldata_dogusdan_sonraki_emosional_cet_a584c9",
+  "az": "Doğuşdan sonrakı emosional çətinliklər tamamilə normaldır — kömək almaq gücdür.",
+  "en": "Postpartum emotional struggles are completely normal—getting help is empowering."
+ },
+ {
+  "key": "funneldata_ehval_deyisiklikleri_67202f",
+  "az": "Əhval dəyişiklikləri",
+  "en": "Mood swings"
+ },
+ {
+  "key": "funneldata_ehval_gundeliyi_831844",
+  "az": "Əhval Gündəliyi",
+  "en": "Mood Diary"
+ },
+ {
+  "key": "funneldata_ehval_gundeliyi_ai_destek_d0d78c",
+  "az": "Əhval Gündəliyi & AI Dəstək",
+  "en": "Mood Diary & AI Support"
+ },
+ {
+  "key": "funneldata_emizdirme_i_zleyicisi_b0137e",
+  "az": "Əmizdirmə İzləyicisi",
+  "en": "Breastfeeding Tracker"
+ },
+ {
+  "key": "funneldata_emosional_cetinlikler_1d2e9f",
+  "az": "Emosional çətinliklər",
+  "en": "Emotional difficulties"
+ },
+ {
+  "key": "funneldata_etrafinizdan_kifayet_qeder_destek_alirsi_a6308d",
+  "az": "Ətrafınızdan kifayət qədər dəstək alırsınız?",
+  "en": "Do you receive enough support from your surroundings?"
+ },
+ {
+  "key": "funneldata_etrafli_tsikl_analitikasi_d746a2",
+  "az": "Ətraflı Tsikl Analitikası",
+  "en": "Advanced Cycle Analytics"
+ },
+ {
+  "key": "funneldata_fiziki_agrilar_fa1134",
+  "az": "Fiziki ağrılar",
+  "en": "Physical pain"
+ },
+ {
+  "key": "funneldata_geceler_yuxunuz_necedir_b33006",
+  "az": "Gecələr yuxunuz necədir?",
+  "en": "How is your sleep at night?"
+ },
+ {
+  "key": "funneldata_guclu_ve_xosbext_b21c78",
+  "az": "Güclü və xoşbəxt",
+  "en": "Strong and happy"
+ },
+ {
+  "key": "funneldata_gunay_38e69c",
+  "az": "Günay",
+  "en": "Gunay"
+ },
+ {
+  "key": "funneldata_gundelik_planlasdirma_a6d707",
+  "az": "Gündəlik Planlaşdırma",
+  "en": "Daily Planning"
+ },
+ {
+  "key": "funneldata_gundelik_stres_seviyyeniz_necedir_88a723",
+  "az": "Gündəlik stres səviyyəniz necədir?",
+  "en": "What is your daily stress level?"
+ },
+ {
+  "key": "funneldata_gunel_ad877a",
+  "az": "Günel",
+  "en": "Gunel"
+ },
+ {
+  "key": "funneldata_hamilelik_izlemeye_basla_5c2941",
+  "az": "Hamiləlik izləməyə başla",
+  "en": "Start pregnancy tracking"
+ },
+ {
+  "key": "funneldata_hamileliyin_ve_ya_korpenin_heftelik_inki_ad5912",
+  "az": "Hamiləliyin və ya körpənin həftəlik inkişaf hesabatı",
+  "en": "Weekly development report for pregnancy or baby"
+ },
+ {
+  "key": "funneldata_hamileliyiniz_haqqinda_en_cox_ne_narahat_2b74c9",
+  "az": "Hamiləliyiniz haqqında ən çox nə narahat edir?",
+  "en": "What worries you most about your pregnancy?"
+ },
+ {
+  "key": "funneldata_hec_biri_dd2cee",
+  "az": "Heç biri",
+  "en": "None"
+ },
+ {
+  "key": "funneldata_hefte_1_1efd81",
+  "az": "Həftə 1",
+  "en": "Week 1"
+ },
+ {
+  "key": "funneldata_heftelik_hesabat_283d76",
+  "az": "Həftəlik Hesabat",
+  "en": "Weekly Report"
+ },
+ {
+  "key": "funneldata_heftelik_i_nkisaf_hesabati_d701fa",
+  "az": "Həftəlik İnkişaf Hesabatı",
+  "en": "Weekly Development Report"
+ },
+ {
+  "key": "funneldata_heyat_yoldasinizi_baglayin_birlikde_izle_762187",
+  "az": "Həyat yoldaşınızı bağlayın, birlikdə izləyin",
+  "en": "Connect your spouse, track together"
+ },
+ {
+  "key": "funneldata_i_nkisaf_i_zleyicisi_milestone_0101fa",
+  "az": "İnkişaf İzləyicisi & Milestones",
+  "en": "Progress Tracker & Milestones"
+ },
+ {
+  "key": "funneldata_i_nkisaf_suallari_68c826",
+  "az": "İnkişaf sualları",
+  "en": "Development questions"
+ },
+ {
+  "key": "funneldata_inkisaf_izleyicisi_sayesinde_korpemin_he_148227",
+  "az": "İnkişaf izləyicisi sayəsində körpəmin hər addımını qeyd edirəm.",
+  "en": "Thanks to the Development Tracker, I record every step of my baby's journey."
+ },
+ {
+  "key": "funneldata_istenilen_sualiniza_derhal_cavab_alin_8938d5",
+  "az": "İstənilən sualınıza dərhal cavab alın",
+  "en": "Get instant answers to any of your questions"
+ }
+]

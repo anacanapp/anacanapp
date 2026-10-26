@@ -1,0 +1,114 @@
+[
+ {
+  "id": "0591890c-70df-4ab3-a153-a0af339f386c",
+  "title": "Blood Sugar Tracker",
+  "title_az": "Qan Şəkəri",
+  "description": "Premium only",
+  "description_az": "Yalnız Premium"
+ },
+ {
+  "id": "2ad5c743-505e-447d-9de0-ec0a586d1def",
+  "title": "Pregnancy Album",
+  "title_az": "Hamiləlik Albomu",
+  "description": "Premium only",
+  "description_az": "Yalnız Premium"
+ },
+ {
+  "id": "36bf3502-3a4c-464d-8444-a4dee86bda90",
+  "title": "Exercise Programs",
+  "title_az": "Məşq Proqramları",
+  "description": "Premium only",
+  "description_az": "Yalnız Premium"
+ },
+ {
+  "id": "6b173bac-e788-4360-8dc5-8b0728368b1f",
+  "title": "Safety Lookup",
+  "title_az": "Təhlükəsizlik",
+  "description": "Premium only",
+  "description_az": "Yalnız Premium"
+ },
+ {
+  "id": "6b762385-283d-46c0-b5b0-c48d447c758b",
+  "title": "Recipes",
+  "title_az": "Reseptlər",
+  "description": "Limited free",
+  "description_az": "Kateqoriyada 3 pulsuz / Limitsiz"
+ },
+ {
+  "id": "7ab2da65-61c5-4d5d-8bd2-f92f7ed2bc04",
+  "title": "Mom-Friendly Map",
+  "title_az": "Ana-Dostu Xəritə",
+  "description": "Premium only",
+  "description_az": "Yalnız Premium"
+ },
+ {
+  "id": "7bbb1acd-2ddf-4d77-9f50-464d97cb3648",
+  "title": "White Noise",
+  "title_az": "Sakitləşdirici Səslər",
+  "description": "20 min/day free",
+  "description_az": "Pulsuz gündə 20 dəq / Limitsiz"
+ },
+ {
+  "id": "906f372d-fff0-44ca-aea1-7b5764fa872e",
+  "title": "Cry Translator",
+  "title_az": "Ağlama Analizi",
+  "description": "3/day free",
+  "description_az": "Pulsuz gündə 3 / Limitsiz"
+ },
+ {
+  "id": "99e32a46-e48e-405c-ae40-08bd38408c0d",
+  "title": "Fairy Tales",
+  "title_az": "Nağıl Yarat",
+  "description": "3/day free",
+  "description_az": "Pulsuz gündə 3 / Limitsiz"
+ },
+ {
+  "id": "9a9a69cf-18fd-4172-8638-7a4950b3c603",
+  "title": "Baby Photoshoot",
+  "title_az": "Körpə Fotosessiya",
+  "description": "3 photos free",
+  "description_az": "Pulsuz 3 foto / Limitsiz"
+ },
+ {
+  "id": "a81ba240-cdd1-4695-a758-cd2c21ca8442",
+  "title": "Priority Support",
+  "title_az": "Prioritet Dəstək",
+  "description": "Fast support",
+  "description_az": "Sürətli texniki dəstək"
+ },
+ {
+  "id": "bb94201a-dd66-416c-abea-f584f484d0a7",
+  "title": "AI Doctor Chat",
+  "title_az": "AI Həkim Çatı",
+  "description": "10 messages/day",
+  "description_az": "Gündə 10 mesaj"
+ },
+ {
+  "id": "d029f7f6-0a00-4339-8fd2-79a37194b794",
+  "title": "Ad-Free Experience",
+  "title_az": "Reklamsız Təcrübə",
+  "description": "No ads",
+  "description_az": "Heç bir reklam"
+ },
+ {
+  "id": "d2602145-8693-4aeb-96d9-ac5247e58c5c",
+  "title": "Poop Scanner",
+  "title_az": "Bez Skaneri",
+  "description": "3/day free",
+  "description_az": "Pulsuz gündə 3 / Limitsiz"
+ },
+ {
+  "id": "eb33f430-0170-4d55-b0f5-6b5899aaf622",
+  "title": "Nutrition Tracking",
+  "title_az": "Qida İzləmə",
+  "description": "Premium only",
+  "description_az": "Yalnız Premium"
+ },
+ {
+  "id": "f07ae91a-a320-4d7f-8c5b-beaed0166f0a",
+  "title": "Horoscope",
+  "title_az": "Ulduz Falı",
+  "description": "Premium only",
+  "description_az": "Yalnız Premium"
+ }
+]

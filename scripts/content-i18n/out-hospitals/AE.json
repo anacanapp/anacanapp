@@ -1,0 +1,94 @@
+{
+  "country_code": "AE",
+  "country_name": "United Arab Emirates",
+  "providers": [
+    {
+      "name": "مستشفى الكورنيش",
+      "name_en": "Corniche Hospital",
+      "provider_type": "hospital",
+      "specialty": "أمراض النساء والتوليد ورعاية حديثي الولادة",
+      "specialty_en": "Obstetrics, Gynecology & Neonatal Care",
+      "city": "Abu Dhabi",
+      "phone": null,
+      "website": "https://www.cornichehospital.ae/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى لطيفة للنساء والأطفال",
+      "name_en": "Latifa Hospital for Women and Children",
+      "provider_type": "hospital",
+      "specialty": "أمراض النساء والتوليد وطب الأطفال",
+      "specialty_en": "Obstetrics, Gynecology & Pediatrics",
+      "city": "Dubai",
+      "phone": null,
+      "website": "https://www.dha.gov.ae/en/facilities/hospitals/latifa-hospital",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى دانة الإمارات للنساء والأطفال",
+      "name_en": "Danat Al Emarat Hospital for Women & Children",
+      "provider_type": "hospital",
+      "specialty": "صحة المرأة والولادة وطب الأطفال",
+      "specialty_en": "Women's Health, Maternity & Pediatrics",
+      "city": "Abu Dhabi",
+      "phone": null,
+      "website": "https://danatalemarat.ae/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى توام",
+      "name_en": "Tawam Hospital",
+      "provider_type": "hospital",
+      "specialty": "مستشفى تخصصي وتعليمي؛ أمراض النساء والتوليد",
+      "specialty_en": "Specialist Teaching Hospital; Obstetrics & Gynecology",
+      "city": "Al Ain",
+      "phone": "800 50",
+      "website": "https://tawam.seha.ae/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى الجليلة للأطفال",
+      "name_en": "Al Jalila Children's Hospital",
+      "provider_type": "hospital",
+      "specialty": "طب الأطفال التخصصي",
+      "specialty_en": "Specialist Pediatric Care",
+      "city": "Dubai",
+      "phone": null,
+      "website": "https://aljalilachildrens.ae/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى كند",
+      "name_en": "Kanad Hospital",
+      "provider_type": "hospital",
+      "specialty": "أمراض النساء والتوليد وطب الأطفال",
+      "specialty_en": "Obstetrics, Gynecology & Pediatrics",
+      "city": "Al Ain",
+      "phone": "+971 3 713 1111",
+      "website": "https://kanadhospital.org/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "المستشفى الجامعي بالشارقة",
+      "name_en": "University Hospital Sharjah",
+      "provider_type": "hospital",
+      "specialty": "مستشفى جامعي؛ أمراض النساء والتوليد وطب الأطفال",
+      "specialty_en": "University Hospital; Obstetrics, Gynecology & Pediatrics",
+      "city": "Sharjah",
+      "phone": "+971 6 505 8555",
+      "website": "https://www.uhs.ae/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى ميدكلينك سيتي",
+      "name_en": "Mediclinic City Hospital",
+      "provider_type": "hospital",
+      "specialty": "مستشفى متعدد التخصصات؛ أمراض النساء والتوليد",
+      "specialty_en": "Multispecialty Hospital; Obstetrics & Gynecology",
+      "city": "Dubai",
+      "phone": "+971 4 4359900",
+      "website": "https://www.mediclinic.ae/en/city-hospital/home.html",
+      "is_major_landmark": true
+    }
+  ]
+}

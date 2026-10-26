@@ -1,0 +1,45 @@
+import { spawn } from 'node:child_process';
+import { access, mkdir, open, readFile, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import { webManifest, verifyWeb } from './release-evidence.mjs';
+
+const root = fileURLToPath(new URL('../', import.meta.url));
+process.umask(0o077);
+const release = JSON.parse(await readFile(path.join(root, 'store/release.json'), 'utf8'));
+const mode = process.argv[2] ?? 'simulator';
+const isTest = mode === 'test' || mode === 'test-device';
+const device = mode === 'device' || mode === 'test-device';
+const destination = device ? (mode === 'device' && !process.env.STARTUP_IOS_DEVICE ? 'generic/platform=iOS' : `id=${process.env.STARTUP_IOS_DEVICE ?? '00008110-000E41D01190401E'}`) : `platform=iOS Simulator,id=${process.env.STARTUP_IOS_SIMULATOR ?? 'C8183B35-C70D-4ACC-A456-4252F52DB2E7'}`;
+if (!['simulator', 'device', 'test', 'test-device'].includes(mode)) throw new Error('Use simulator, device, test, or test-device.');
+await access(path.join(root, 'ios/App/App.xcodeproj'));
+const artifacts = path.join(root, 'artifacts');
+await mkdir(artifacts, { recursive: true });
+const log = path.join(artifacts, `ios-${mode}.log`);
+const resultPath = path.join(artifacts, `ios-${mode}-${Date.now()}.xcresult`);
+const derivedData = path.join(artifacts, device ? 'ios-device' : 'ios-simulator');
+const receiptPath = path.join(artifacts, `ios-${mode}-receipt.json`);
+const web = await webManifest();
+const receipt = { startedAt: new Date().toISOString(), version: release.version, build: release.build, mode, result: 'pending', exitCode: null, log: path.relative(root, log), resultBundle: path.relative(root, resultPath), derivedData: path.relative(root, derivedData), webManifestSha256: web.sha256, assets: web.files, errors: [], warnings: [] };
+await writeFile(receiptPath, JSON.stringify(receipt, null, 2) + '\n');
+const args = ['-project', 'ios/App/App.xcodeproj', '-scheme', 'App', '-configuration', 'Debug', '-destination', destination,
+  '-derivedDataPath', derivedData, '-resultBundlePath', resultPath, '-parallel-testing-enabled', 'NO', '-jobs', '2'];
+if (isTest) args.push('-collect-test-diagnostics', 'never');
+if (isTest) args.push('-only-testing:StartupIOUITests/StartupIOUITests');
+if (device) args.push('-allowProvisioningUpdates');
+else args.push('CODE_SIGNING_ALLOWED=NO');
+args.push(isTest ? 'test' : 'build');
+const logFile = await open(log, 'w', 0o600);
+const processResult = await new Promise((resolve, reject) => {
+  const child = spawn('xcodebuild', args, { cwd: root, env: process.env, stdio: ['ignore', logFile.fd, logFile.fd] });
+  child.on('error', reject);
+  child.on('close', code => resolve({ code }));
+});
+await logFile.close();
+const output = await readFile(log, 'utf8');
+const errors = output.split('\n').filter(line => /error:|Testing failed:|failed \(/.test(line));
+const warnings = output.split('\n').filter(line => /warning:/.test(line));
+if (processResult.code === 0) await verifyWeb(path.join(derivedData, `Build/Products/Debug-${device ? 'iphoneos' : 'iphonesimulator'}/App.app/public`), web);
+await writeFile(receiptPath, JSON.stringify({ ...receipt, at: new Date().toISOString(), result: processResult.code === 0 ? 'passed' : 'failed', exitCode: processResult.code, errors, warnings }, null, 2) + '\n');
+console.log(JSON.stringify({ mode, result: processResult.code === 0 ? 'passed' : 'failed', errors, warnings, log: path.relative(root, log), resultBundle: path.relative(root, resultPath) }, null, 2));
+process.exitCode = processResult.code || 0;

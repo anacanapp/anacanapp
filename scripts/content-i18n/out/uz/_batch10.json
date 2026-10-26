@@ -1,0 +1,39 @@
+{
+ "blog_categories": {
+  "1b70871b-163f-4076-afed-b3240b66bbaa": {
+   "name": "Boshqa",
+   "description": "Boshqa ma'lumotlar"
+  },
+  "c07532a0-9e66-4110-a605-91899979e4cb": {
+   "name": "Hayz salomatligi",
+   "description": "Hayz salomatligi"
+  },
+  "d32ef20a-63f4-4b06-af4f-b1d47efedae2": {
+   "name": "Motivatsiya"
+  },
+  "cd8fecf1-2a81-4d20-9961-16b538d24361": {
+   "name": "Homiladorlik",
+   "description": "Homiladorlik davriga oid maqolalar"
+  },
+  "dc6a7812-41f8-43b3-84fd-8422f9f44766": {
+   "name": "Salomatlik",
+   "description": "Salomatlik va ovqatlanish bo‘yicha maslahatlar"
+  },
+  "73f5c07d-cf28-449f-8b93-33a6a04113e1": {
+   "name": "Chaqaloq parvarishi",
+   "description": "Yangi tug‘ilgan chaqaloq parvarishi"
+  },
+  "d929d31e-c6a3-4b59-8d79-377f1cb5de53": {
+   "name": "Psixologiya",
+   "description": "Hissiy salomatlik va psixologik yordam"
+  },
+  "8b94b61d-a89f-48aa-baa3-3bb0866ff9fe": {
+   "name": "Ovqatlanish",
+   "description": "Sog‘lom ovqatlanish bo‘yicha tavsiyalar"
+  },
+  "409dd278-b8c0-44ac-b837-d313b27a962f": {
+   "name": "Mashqlar",
+   "description": "Homiladorlik va tug‘ruqdan keyingi mashqlar"
+  }
+ }
+}

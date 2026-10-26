@@ -1,0 +1,28 @@
+{
+ "photoshoot_eye_colors": {
+  "1cc1b6f9-a4df-4882-8f71-a702b9a27ca9": {
+   "color_name": "Зелёный"
+  },
+  "4044991f-c432-49b5-8957-b8bc9e51bde7": {
+   "color_name": "Синий"
+  },
+  "45e1e5bb-eb0a-4e43-a971-f56941c2665c": {
+   "color_name": "Янтарный"
+  },
+  "500dd641-e16f-4d3c-8c4d-17da7d5fe867": {
+   "color_name": "Как есть"
+  },
+  "8f32413f-5ccf-488a-bd02-fedc9bc556ad": {
+   "color_name": "Коричневый"
+  },
+  "ac0acb43-922c-4072-81ca-7b2169024ed6": {
+   "color_name": "Фиолетовый"
+  },
+  "c2058489-3fed-4def-8fe8-900a81738436": {
+   "color_name": "Ореховый"
+  },
+  "ddc1c790-ac18-4d6a-948a-f12c31411536": {
+   "color_name": "Серый"
+  }
+ }
+}

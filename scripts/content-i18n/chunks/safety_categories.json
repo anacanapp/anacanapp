@@ -1,0 +1,80 @@
+[
+ {
+  "id": "2a7d70a9-1991-4948-8f7e-7937373ea5ef",
+  "category_id": "beauty",
+  "name": "Beauty",
+  "name_az": "Gözəllik",
+  "emoji": "💄",
+  "sort_order": 4,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "Beauty",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "556d764c-e0be-4a93-96a6-0264a3a30008",
+  "category_id": "activity",
+  "name": "Activity",
+  "name_az": "Fəaliyyət",
+  "emoji": "🏃‍♀️",
+  "sort_order": 3,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "Activity",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "841f1344-5460-4763-b0c1-f8d327953fb5",
+  "category_id": "food",
+  "name": "Food",
+  "name_az": "Qida",
+  "emoji": "🍽️",
+  "sort_order": 1,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "Food",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "9abf8382-7bfb-47f6-acee-df5eaf36bcc4",
+  "category_id": "medicine",
+  "name": "Medicine",
+  "name_az": "Dərman",
+  "emoji": "💊",
+  "sort_order": 5,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "Medicine",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "be5b27be-0d26-4ded-9495-61dc567204a4",
+  "category_id": "drink",
+  "name": "Drink",
+  "name_az": "İçki",
+  "emoji": "🥤",
+  "sort_order": 2,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "Drink",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "f84f7d96-9244-4a35-a213-96490710c804",
+  "category_id": "all",
+  "name": "All",
+  "name_az": "Hamısı",
+  "emoji": "✨",
+  "sort_order": 0,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "All",
+  "name_ru": null,
+  "name_tr": null
+ }
+]

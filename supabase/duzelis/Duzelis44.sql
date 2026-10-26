@@ -1,0 +1,23 @@
+-- Duzelis44: expire-partner-links üçün pg_cron planı əlavə edilir
+--
+-- KOK SƏBƏB: `supabase/functions/expire-partner-links/index.ts` tam yazılıb
+-- (premium müddəti bitmiş qadın+partnyor cütlüklərini ayırır, hər iki tərəfə
+-- bildiriş göndərir) və artıq `requireCronSecret()` ilə düzgün qorunur.
+--
+-- AZURE: pg_net is not available on Azure Database for PostgreSQL Flexible Server,
+-- so cron.schedule()+net.http_post() cannot run here at all. This scheduling is
+-- reimplemented via an Azure Container Apps Job (native cron trigger) calling the
+-- Azure-hosted expire-partner-links function directly with the real secret from
+-- Key Vault. See azure-migration/README.md. Original content preserved below.
+--
+-- SELECT cron.schedule(
+--   'expire-partner-links-daily-secure',
+--   '0 5 * * *',
+--   $$
+--   SELECT net.http_post(
+--     url:='https://tntbjulojatnrqmylorp.supabase.co/functions/v1/expire-partner-links',
+--     headers:='{"Content-Type": "application/json", "x-cron-secret": "__CRON_SECRET__"}'::jsonb,
+--     body:=concat('{"time": "', now(), '"}')::jsonb
+--   ) as request_id;
+--   $$
+-- );

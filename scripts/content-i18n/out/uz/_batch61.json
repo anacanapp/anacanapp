@@ -1,0 +1,118 @@
+{
+ "tool_configs": {
+  "12218709-3948-4729-b028-b10b9041d51a": {
+   "name": "Kayfiyat kundaligi",
+   "description": "Kayfiyatingizni kuzatib boring"
+  },
+  "16164ad3-77f7-4233-9c23-0845a6d8008a": {
+   "name": "Dekret kalkulyatori",
+   "description": "O‘zbekiston qonunchiligiga muvofiq dekret nafaqasini hisoblang"
+  },
+  "1668babd-7398-471e-9580-ffb8436535d6": {
+   "name": "Xaridlar ro‘yxati",
+   "description": "Xaridlar ro‘yxatini yarating",
+   "partner_name": "Umumiy xaridlar",
+   "partner_description": "Hamkoringiz bilan umumiy ro‘yxat"
+  },
+  "3af6ab55-a9d3-4f69-809b-8a32e4f20258": {
+   "name": "Shovqin o‘lchagich",
+   "description": "Uyqu muhitidagi shovqin darajasini o‘lchang"
+  },
+  "50212289-fe30-4cb0-b904-cc1986482da3": {
+   "name": "Retseptlar",
+   "description": "Sog‘lom retseptlar"
+  },
+  "5f67d98f-c367-4d83-8064-60fc8be681e9": {
+   "name": "Shifokorlar va klinikalar",
+   "description": "Tibbiyot muassasalarini toping"
+  },
+  "670181b7-ef90-4d13-a57f-7847d6f8214b": {
+   "name": "Homiladorlik albomi",
+   "description": "Homiladorlik davringizni hujjatlashtiring"
+  },
+  "6e80b137-68e9-41a6-9312-1bd7fbc5622d": {
+   "name": "Xavfsizlik",
+   "description": "Oziq-ovqat va faoliyatlar xavfsizligini tekshiring"
+  },
+  "722298c7-aedd-4e84-a6e9-64ca94d0e78a": {
+   "name": "Bloglar",
+   "description": "Foydali maqolalarni o‘qing"
+  },
+  "746743cd-2120-42d9-a0f3-d05a3e0850a4": {
+   "name": "Xavfli alomatlar",
+   "description": "Shoshilinch murojaat qilishni talab etadigan alomatlar"
+  },
+  "7476c8c9-a947-41dd-a859-7e03f5aaa415": {
+   "name": "Emlash taqvimi",
+   "description": "Farzandingizning emlash jadvalini kuzatib boring"
+  },
+  "7c23c316-94ef-4866-8bf7-8de6c248e9eb": {
+   "name": "Ob-havo va kiyim",
+   "description": "Ob-havoga mos kiyinish bo‘yicha tavsiyalar"
+  },
+  "84eb6f9c-3eae-42b8-adf7-6b028b8d0d68": {
+   "name": "Tug‘ruqxona sumkasi",
+   "description": "Tug‘ruqqa tayyorgarlik ro‘yxati"
+  },
+  "89863044-9a52-4100-8c43-bd144e09c22a": {
+   "name": "Rivojlanish kuzatuvchisi",
+   "description": "Chaqaloqning vazni, bo‘yi va bosh o‘lchamlarini kuzatib boring"
+  },
+  "89f1d62f-5e33-4a3f-8c2c-fe7c6d64af9f": {
+   "name": "Qondagi qand miqdori",
+   "description": "Qondagi qand miqdorini kuzatish"
+  },
+  "9d5b2f7b-f451-4bcf-9d1a-f07764cfc200": {
+   "name": "Fotosessiya",
+   "description": "AI yordamida chaqaloqning noyob suratlarini yarating"
+  },
+  "a35bd9b4-13cb-483a-9952-293011658d9e": {
+   "name": "Oq shovqinlar",
+   "description": "Chaqaloqni tinchlantiring"
+  },
+  "a5ee3131-14ad-4b5c-b61a-dfe1f3658772": {
+   "name": "Tish chiqishini kuzatish",
+   "description": "Chaqalog‘ingizning tishlari chiqishini kuzatib boring"
+  },
+  "da51e574-9772-4b6f-96fc-ec15d42f03d3": {
+   "name": "Sehrli ertakchi",
+   "description": "AI yordamida shaxsiy ertaklar yarating"
+  },
+  "ecc1d7d7-b377-4d46-8d03-d62fbf145af5": {
+   "name": "To‘lg‘oq o‘lchagich",
+   "description": "5-1-1 qoidasi asosida kuzating"
+  },
+  "f163d521-789b-44c8-9db4-513ad9df88ed": {
+   "name": "Yig‘ini tahlil qilish",
+   "description": "Yig‘lash sababini aniqlang"
+  },
+  "f61bfa6c-4bfc-4645-a4ea-6cc4da38f6b6": {
+   "name": "Vitaminlar kuzatuvchisi",
+   "description": "Kundalik vitamin qabulini kuzating va eslatmalar oling"
+  },
+  "a787e393-daf4-4e63-96b3-50481f73483d": {
+   "name": "Chaqaloq albomi",
+   "description": "Har oy bir xotira — chaqalog‘ingizning ulg‘ayishini kuzating"
+  },
+  "aa0737c2-08af-419c-a906-65fd6ba9810e": {
+   "name": "Qon bosimi",
+   "description": "Qon bosimingizni kuzating — preeklampsiya nazorati"
+  },
+  "af7e7f98-c2c4-4a6d-aa8b-8969c23eed65": {
+   "name": "Tepishlar hisoblagichi",
+   "description": "Chaqaloq harakatlarini kuzating"
+  },
+  "bfc7d177-9c9e-4723-9567-3b536c909062": {
+   "name": "Chaqaloq ismlari",
+   "description": "Ozarbayjoncha ismlarni tanlang"
+  },
+  "d3ee45c6-1901-461f-bb80-a8767185d68a": {
+   "name": "Ovqatlanish",
+   "description": "Sog‘lom ovqatlanish rejasi"
+  },
+  "da1102eb-6cb3-403f-ba36-c1548a12bf4a": {
+   "name": "Vazn kuzatuvchisi",
+   "description": "AI tahlilli vazn kuzatuvi"
+  }
+ }
+}

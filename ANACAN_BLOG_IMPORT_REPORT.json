@@ -1,0 +1,42 @@
+{
+  "expected": 97,
+  "matched": 97,
+  "missing": 0,
+  "mismatched": 0,
+  "gitTrackedMatched": 97,
+  "gitTrackedMissing": 0,
+  "manifestSha256": "358f6f342cd8c3dd0d68b47f3ec2deab0ab52bf5c86f6e5cff00c2f3eb79befa",
+  "zipSha256": "4b3c4a20eec2c5ce553baf7c04c0462448fbaeadd74f1d177ae1c5187219a7bd",
+  "productionBuild": {
+    "passed": true,
+    "mode": "production",
+    "exitCode": 0,
+    "blogHtmlPages": 399,
+    "sitemapBlogUrls": 399,
+    "note": "verified on the imported bytes in the prior turn"
+  },
+  "nodeTests": {
+    "passed": 10,
+    "failed": 0
+  },
+  "vitest": {
+    "files": 7,
+    "passed": 42,
+    "failed": 1,
+    "isolatedRerun": {
+      "passed": 21,
+      "failed": 1
+    },
+    "failure": "src/pages/Index.pushNav.test.tsx \"replaces all nested screens with an actual DM target for woman\": afterEach expect(fetch).not.toHaveBeenCalled() at line 112 - one unexpected fetch call; reproducible, not a flake"
+  },
+  "notChanged": [
+    ".env",
+    "secrets",
+    "functions",
+    "auth",
+    "cron",
+    "database (migration file only copied, not applied)",
+    "native artifacts"
+  ],
+  "verifiedCommit": "2b6ebb7cdc289ee8db706fe2b3cdd8c5ad94af35"
+}

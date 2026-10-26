@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "bulktimemanager_yukleme_xetasi_7738cd",
+  "az": "Yükləmə xətası: ",
+  "en": "Download error:"
+ },
+ {
+  "key": "bulktipsimport_1_40_hefte_ucun_sablon_yukle_94a1f6",
+  "az": "1-40 həftə üçün şablon yüklə",
+  "en": "Download template for 1-40 weeks"
+ },
+ {
+  "key": "bulktipsimport_analiq_mommy_3e684f",
+  "az": "Analıq (mommy)",
+  "en": "Motherhood (mommy)"
+ },
+ {
+  "key": "bulktipsimport_hamilelik_bump_b450c6",
+  "az": "Hamiləlik (bump)",
+  "en": "Pregnancy (bump)"
+ },
+ {
+  "key": "bulktipsimport_heftelik_tovsiyeleri_toplu_i_m_e2fbf0",
+  "az": "Həftəlik Tövsiyələri Toplu İmport",
+  "en": "Bulk Import of Weekly Recommendations"
+ },
+ {
+  "key": "bulktipsimport_her_hefte_ucun_week_number_tit_512607",
+  "az": "Hər həftə üçün week_number, title və content sahələri lazımdır",
+  "en": "We need week_number, title and content fields for each week"
+ },
+ {
+  "key": "bulktipsimport_heyat_merhelesi_c3ab6b",
+  "az": "Həyat Mərhələsi",
+  "en": "Life Stage"
+ },
+ {
+  "key": "bulktipsimport_import_tamamlandi_c650ca",
+  "az": "İmport tamamlandı",
+  "en": "Import completed"
+ },
+ {
+  "key": "bulktipsimport_json_array_olmalidir_078d8c",
+  "az": "JSON array olmalıdır",
+  "en": "Must be a JSON array"
+ },
+ {
+  "key": "bulktipsimport_json_melumati_69cf29",
+  "az": "JSON Məlumatı",
+  "en": "JSON Data"
+ },
+ {
+  "key": "bulktipsimport_json_melumati_daxil_edin_419a3c",
+  "az": "JSON məlumatı daxil edin",
+  "en": "Enter JSON data"
+ },
+ {
+  "key": "bulktipsimport_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "bulktipsimport_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "bulktipsimport_yanlis_json_formati_a42037",
+  "az": "Yanlış JSON formatı",
+  "en": "Wrong JSON format"
+ },
+ {
+  "key": "cake_confirm_order",
+  "az": "Sifarişi təsdiqlə",
+  "en": null
+ },
+ {
+  "key": "cake_pay_and_order",
+  "az": "Ödə və sifariş ver",
+  "en": null
+ },
+ {
+  "key": "cake_payment",
+  "az": "ödəniş",
+  "en": null
+ },
+ {
+  "key": "cake_send_order",
+  "az": "Sifariş göndər",
+  "en": null
+ },
+ {
+  "key": "cakecartdrawer_cemi_fbbec6",
+  "az": "Cəmi:",
+  "en": "Total:"
+ },
+ {
+  "key": "cakecartdrawer_sebet_7b0121",
+  "az": "Səbət (",
+  "en": "Cart ("
+ },
+ {
+  "key": "cakecartdrawer_sebet_bosdur_ff5b34",
+  "az": "Səbət boşdur",
+  "en": "Cart is empty"
+ },
+ {
+  "key": "cakecartdrawer_sifaris_ver_f2be54",
+  "az": "Sifariş ver",
+  "en": "Place an order"
+ },
+ {
+  "key": "cakedetailscreen_ferdilesdirme_cc39bc",
+  "az": "✨ Fərdiləşdirmə",
+  "en": "✨ Customization"
+ },
+ {
+  "key": "cakedetailscreen_say_secin_431dab",
+  "az": "Say seçin",
+  "en": "Select quantity"
+ },
+ {
+  "key": "cakedetailscreen_sebete_elave_edildi_e0f576",
+  "az": "Səbətə əlavə edildi! 🎂",
+  "en": "Added to cart! 🎂"
+ },
+ {
+  "key": "cakedetailscreen_sebete_elave_et_074411",
+  "az": "Səbətə əlavə et —",
+  "en": "Add to Cart —"
+ },
+ {
+  "key": "cakeorderform_adinizi_daxil_edin_bd2b57",
+  "az": "Adınızı daxil edin",
+  "en": "Enter your name"
+ },
+ {
+  "key": "cakeorderform_catdirilma_tarixi_716cbd",
+  "az": "Çatdırılma tarixi",
+  "en": "Delivery date"
+ },
+ {
+  "key": "cakeorderform_catdirilma_unvani_5cec99",
+  "az": "Çatdırılma ünvanı",
+  "en": "Delivery address"
+ },
+ {
+  "key": "cakeorderform_catdirilmada_ode_fe4277",
+  "az": "Çatdırılmada ödə",
+  "en": "Pay on delivery"
+ },
+ {
+  "key": "cakeorderform_cemi_fbbec6",
+  "az": "Cəmi:",
+  "en": "Total:"
+ },
+ {
+  "key": "cakeorderform_cvv_duzgun_deyil_90757f",
+  "az": "CVV düzgün deyil",
+  "en": "CVV is incorrect"
+ },
+ {
+  "key": "cakeorderform_elaqe_nomresi_feb8b9",
+  "az": "Əlaqə nömrəsi *",
+  "en": "Contact number *"
+ },
+ {
+  "key": "cakeorderform_elaqe_nomresi_teleb_olunur_1c55b7",
+  "az": "Əlaqə nömrəsi tələb olunur",
+  "en": "Contact number is required"
+ },
+ {
+  "key": "cakeorderform_elave_qeydler_c98a42",
+  "az": "Əlavə qeydlər",
+  "en": "Additional notes"
+ },
+ {
+  "key": "cakeorderform_fayl_max_10mb_ola_biler_145df4",
+  "az": "Fayl max 10MB ola bilər",
+  "en": "File can be max 10MB"
+ },
+ {
+  "key": "cakeorderform_fayl_yuklendi_e6d838",
+  "az": "Fayl yükləndi ✓",
+  "en": "File uploaded ✓"
+ },
+ {
+  "key": "cakeorderform_kart_de91aa",
+  "az": "Kart",
+  "en": "Card"
+ },
+ {
+  "key": "cakeorderform_kart_nomresi_16_reqem_olmalidir_b9c9c8",
+  "az": "Kart nömrəsi 16 rəqəm olmalıdır",
+  "en": "Card number must be 16 digits"
+ },
+ {
+  "key": "cakeorderform_kart_nomresi_3a8392",
+  "az": "Kart nömrəsi:",
+  "en": "Card number:"
+ },
+ {
+  "key": "cakeorderform_kart_nomresi_ace5c5",
+  "az": "Kart nömrəsi",
+  "en": "Card number"
+ },
+ {
+  "key": "cakeorderform_kart_sahibinin_adi_teleb_olunur_e035f1",
+  "az": "Kart sahibinin adı tələb olunur",
+  "en": "Cardholder name is required"
+ },
+ {
+  "key": "cakeorderform_kocurme_0a57a0",
+  "az": "Köçürmə",
+  "en": "Transfer"
+ },
+ {
+  "key": "cakeorderform_kocurme_melumatlari_1800d6",
+  "az": "💳 Köçürmə məlumatları",
+  "en": "💳 Transfer details"
+ },
+ {
+  "key": "cakeorderform_kocurme_tesdiqi_yukleyin_3bd84d",
+  "az": "Köçürmə təsdiqi yükləyin *",
+  "en": "Upload transfer confirmation *"
+ },
+ {
+  "key": "cakeorderform_kocurmenin_screenshotunu_ve_ya_pdf_ini_y_ff7238",
+  "az": "Köçürmənin screenshotunu və ya PDF-ini yükləyin",
+  "en": "Upload screenshot or PDF of the transfer"
+ },
+ {
+  "key": "cakeorderform_korpenin_adi_8a4e9e",
+  "az": "Körpənin adı",
+  "en": "Baby's name"
+ },
+ {
+  "key": "cakeorderform_mebleg_f038e4",
+  "az": "Məbləğ:",
+  "en": "Amount:"
+ },
+ {
+  "key": "cakeorderform_musteri_adi_e9554d",
+  "az": "Müştəri adı *",
+  "en": "Customer name *"
+ },
+ {
+  "key": "cakeorderform_musteri_adi_teleb_olunur_fc1733",
+  "az": "Müştəri adı tələb olunur",
+  "en": "Customer name is required"
+ },
+ {
+  "key": "cakeorderform_nagd_fdeb10",
+  "az": "Nağd",
+  "en": "Cash"
+ },
+ {
+  "key": "cakeorderform_odenis_emal_olunur_7b4caf",
+  "az": "Ödəniş emal olunur...",
+  "en": "Payment is being processed..."
+ },
+ {
+  "key": "cakeorderform_odenis_usulu_b9d87a",
+  "az": "Ödəniş üsulu",
+  "en": "Payment method"
+ },
+ {
+  "key": "cakeorderform_onlayn_odenis_fabfc1",
+  "az": "Onlayn ödəniş",
+  "en": "Online payment"
+ },
+ {
+  "key": "cakeorderform_sebet_bosdur_ff5b34",
+  "az": "Səbət boşdur",
+  "en": "Cart is empty"
+ },
+ {
+  "key": "cakeorderform_sekil_ve_ya_pdf_b7f3aa",
+  "az": "Şəkil və ya PDF",
+  "en": "Image or PDF"
+ },
+ {
+  "key": "cakeorderform_sifaris_gonderildi_712bb6",
+  "az": "Sifariş göndərildi! 🎂",
+  "en": "Order cents! 🎂"
+ },
+ {
+  "key": "cakeorderform_sifaris_gonderile_bilmedi_52b41e",
+  "az": "Sifariş göndərilə bilmədi",
+  "en": "Order could not be sent"
+ },
+ {
+  "key": "cakeorderform_sifaris_ver_f2be54",
+  "az": "Sifariş ver",
+  "en": "Place order"
+ },
+ {
+  "key": "cakeorderform_son_istifade_9d3239",
+  "az": "Son istifadə",
+  "en": "Expiration date"
+ },
+ {
+  "key": "cakeorderform_son_istifade_tarixi_duzgun_deyil_2e2746",
+  "az": "Son istifadə tarixi düzgün deyil",
+  "en": "The expiration date is incorrect"
+ },
+ {
+  "key": "cakeorderform_tehlukesiz_odenis_4211a5",
+  "az": "Təhlükəsiz ödəniş",
+  "en": "Secure payment"
+ },
+ {
+  "key": "cakeorderform_unvani_daxil_edin_b8da41",
+  "az": "Ünvanı daxil edin",
+  "en": "Enter the address"
+ },
+ {
+  "key": "cakeorderform_usagin_adi_80632b",
+  "az": "Uşağın adı",
+  "en": "Child's name"
+ },
+ {
+  "key": "cakeorderform_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "cakeorderform_xususi_istekler_allergiya_ve_s_49d429",
+  "az": "Xüsusi istəklər, allergiya və s.",
+  "en": "Special requests, allergies, etc."
+ },
+ {
+  "key": "cakeorderform_yalniz_sekil_jpg_png_ve_ya_pdf_yukleye_b_40df31",
+  "az": "Yalnız şəkil (JPG, PNG) və ya PDF yükləyə bilərsiniz",
+  "en": "You can only upload images (JPG, PNG) or PDF"
+ },
+ {
+  "key": "cakeorderform_yukleme_xetasi_eebca5",
+  "az": "Yükləmə xətası",
+  "en": "Upload error"
+ },
+ {
+  "key": "cakeorderform_zehmet_olmasa_gozleyin_219fe5",
+  "az": "Zəhmət olmasa gözləyin",
+  "en": "Please wait"
+ },
+ {
+  "key": "cakeorderform_zehmet_olmasa_kocurme_tesdiqini_yukleyin_526cd2",
+  "az": "Zəhmət olmasa köçürmə təsdiqini yükləyin",
+  "en": "Please upload the transfer confirmation"
+ },
+ {
+  "key": "cakesscreen_ayliq_milestone_tortlari_81907e",
+  "az": "Aylıq & Milestone tortları",
+  "en": "Monthly & Milestone cakes"
+ },
+ {
+  "key": "cakesscreen_bu_kateqoriyada_tort_tapilmadi_330a9b",
+  "az": "Bu kateqoriyada tort tapılmadı",
+  "en": "No cakes found in this category"
+ },
+ {
+  "key": "cakesscreen_hamisi_a6c712",
+  "az": "✨ Hamısı",
+  "en": "✨ All of them"
+ },
+ {
+  "key": "cakesscreen_her_ay_ve_milestone_ucun_unikal_dizaynla_39bdf9",
+  "az": "Hər ay və milestone üçün unikal dizaynlar",
+  "en": "Unique designs for every month and milestone"
+ },
+ {
+  "key": "cakesscreen_korpenizin_xususi_gunu_ucun_c2d99a",
+  "az": "Körpənizin xüsusi günü üçün!",
+  "en": "For your baby's special day!"
+ },
+ {
+  "key": "cakesscreen_sifarisiniz_qebul_edildi_ae5b9e",
+  "az": "Sifarişiniz qəbul edildi!",
+  "en": "Your order has been accepted!"
+ },
+ {
+  "key": "cakesscreen_tezlikle_sizinle_elaqe_saxlanilacaq_806311",
+  "az": "Tezliklə sizinlə əlaqə saxlanılacaq",
+  "en": "You will be contacted soon"
+ },
+ {
+  "key": "cakesscreen_tortlara_qayit_c533c2",
+  "az": "Tortlara qayıt",
+  "en": "Back to the cakes"
+ },
+ {
+  "key": "cakesscreen_xususi_tortlar_ba1400",
+  "az": "Xüsusi Tortlar",
+  "en": "Special Cakes"
+ },
+ {
+  "key": "cartdrawer_ara_cem_dc0699",
+  "az": "Ara cəm:",
+  "en": "Subtotal:"
+ },
+ {
+  "key": "cartdrawer_cemi_fbbec6",
+  "az": "Cəmi:",
+  "en": "Total:"
+ },
+ {
+  "key": "cartdrawer_mehsul_aa9ea7",
+  "az": "Məhsul",
+  "en": "Product"
+ },
+ {
+  "key": "cartdrawer_mehsullari_sebete_elave_edin_639c4a",
+  "az": "Məhsulları səbətə əlavə edin",
+  "en": "Add products to cart"
+ },
+ {
+  "key": "cartdrawer_sebet_9a08cf",
+  "az": "Səbət",
+  "en": "Cart"
+ },
+ {
+  "key": "cartdrawer_sebet_bosdur_ff5b34",
+  "az": "Səbət boşdur",
+  "en": "Cart is empty"
+ },
+ {
+  "key": "cartdrawer_sifarisi_tamamla_a8b546",
+  "az": "Sifarişi Tamamla",
+  "en": "Complete the order"
+ },
+ {
+  "key": "checkout_coupon_code_label",
+  "az": "Kupon Kodu",
+  "en": "Coupon Code"
+ },
+ {
+  "key": "checkout_full_name",
+  "az": "Ad Soyad",
+  "en": "Full Name"
+ },
+ {
+  "key": "checkout_phone_placeholder",
+  "az": "Telefon (+994 XX XXX XX XX)",
+  "en": "Phone (+994 XX XXX XX XX)"
+ },
+ {
+  "key": "checkout_place_order",
+  "az": "Sifariş Ver",
+  "en": "Place Order"
+ },
+ {
+  "key": "checkoutscreen_baki_998629",
+  "az": "Bakı",
+  "en": "Baku"
+ },
+ {
+  "key": "checkoutscreen_catdirilma_unvani_10ea11",
+  "az": "Çatdırılma Ünvanı",
+  "en": "Delivery Address"
+ },
+ {
+  "key": "checkoutscreen_cemi_fbbec6",
+  "az": "Cəmi:",
+  "en": "Total:"
+ },
+ {
+  "key": "checkoutscreen_elaqe_melumatlari_8a7aae",
+  "az": "Əlaqə Məlumatları",
+  "en": "Contact Information"
+ },
+ {
+  "key": "checkoutscreen_elave_qeydler_49e1f1",
+  "az": "Əlavə Qeydlər",
+  "en": "Additional Notes"
+ },
+ {
+  "key": "checkoutscreen_gozleyin_9c465b",
+  "az": "Gözləyin...",
+  "en": "Please wait..."
+ },
+ {
+  "key": "checkoutscreen_kuryere_mesaj_isteye_bagli_56df8d",
+  "az": "Kuryerə mesaj (istəyə bağlı)",
+  "en": "Message to courier (optional)"
+ },
+ {
+  "key": "checkoutscreen_nagd_ve_ya_kartla_c4ddd7",
+  "az": "Nağd və ya kartla",
+  "en": "Cash or card"
+ },
+ {
+  "key": "checkoutscreen_qapida_odenis_312926",
+  "az": "Qapıda Ödəniş",
+  "en": "Payment at the door"
+ },
+ {
+  "key": "checkoutscreen_seher_5f373c",
+  "az": "Şəhər",
+  "en": "City"
+ },
+ {
+  "key": "checkoutscreen_sifaris_xulasesi_14a242",
+  "az": "Sifariş Xülasəsi",
+  "en": "Order Summary"
+ },
+ {
+  "key": "checkoutscreen_sifaris_yaradilmadi_025f3b",
+  "az": "Sifariş yaradılmadı",
+  "en": "Order could not be created"
+ },
+ {
+  "key": "checkoutscreen_sifarisi_tamamla_a8b546",
+  "az": "Sifarişi Tamamla",
+  "en": "Complete Order"
+ },
+ {
+  "key": "checkoutscreen_unvan_kuce_bina_menzil_ad3ef6",
+  "az": "Ünvan (küçə, bina, mənzil)",
+  "en": "Address (street, building, apartment)"
+ },
+ {
+  "key": "checkoutscreen_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "checkoutscreen_zehmet_olmasa_butun_melumatlari_doldurun_9a9a4a",
+  "az": "Zəhmət olmasa bütün məlumatları doldurun",
+  "en": "Please fill in all information"
+ },
+ {
+  "key": "childselector_ad_ve_dogum_tarixi_teleb_olunu_bdab04",
+  "az": "Ad və doğum tarixi tələb olunur",
+  "en": "Name and date of birth required"
+ },
+ {
+  "key": "childselector_added",
+  "az": "əlavə edildi",
+  "en": "added successfully"
+ },
+ {
+  "key": "childselector_delete_confirm",
+  "az": "silinsin?",
+  "en": "will be deleted?"
+ },
+ {
+  "key": "childselector_deleted",
+  "az": "Silindi",
+  "en": "Deleted successfully"
+ },
+ {
+  "key": "childselector_dogum_tarixi_d96907",
+  "az": "Doğum tarixi",
+  "en": "Date of birth"
+ },
+ {
+  "key": "childselector_elave_et_6e1b9b",
+  "az": "Əlavə et",
+  "en": "Add"
+ },
+ {
+  "key": "childselector_korpenin_adi_8a4e9e",
+  "az": "Körpənin adı",
+  "en": "Baby's name"
+ },
+ {
+  "key": "childselector_label_gender",
+  "az": "Cins",
+  "en": "Gender"
+ },
+ {
+  "key": "childselector_label_name",
+  "az": "Ad",
+  "en": "Name"
+ },
+ {
+  "key": "childselector_oglan_e9715e",
+  "az": "Oğlan",
+  "en": "Height"
+ },
+ {
+  "key": "childselector_qiz_79bf6b",
+  "az": "Qız",
+  "en": "Girl"
+ },
+ {
+  "key": "childselector_save",
+  "az": "Yadda saxla",
+  "en": "Save"
+ },
+ {
+  "key": "childselector_usaq_elave_et_48f1f0",
+  "az": "Uşaq əlavə et",
+  "en": "Add child"
+ },
+ {
+  "key": "childselector_usaq_elave_et_d57c06",
+  "az": "Uşaq Əlavə Et",
+  "en": "Add Child"
+ },
+ {
+  "key": "childselector_usaq_redakte_et_53eb46",
+  "az": "Uşaq Redaktə Et",
+  "en": "Edith Child"
+ },
+ {
+  "key": "childselector_usaq_sec_bbe44f",
+  "az": "Uşaq seç",
+  "en": "Choose a child"
+ },
+ {
+  "key": "childselector_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "childselector_yeni_usaq_elave_et_bb2a07",
+  "az": "Yeni uşaq əlavə et",
+  "en": "Add new child"
+ },
+ {
+  "key": "childselector_yenilendi_d10a01",
+  "az": "Yeniləndi",
+  "en": "Updated"
+ },
+ {
+  "key": "contractiontimer_1_deqiqe_a187ac",
+  "az": "1 dəqiqə",
+  "en": "1 minute"
+ },
+ {
+  "key": "contractiontimer_1_saat_hardcoded",
+  "az": "1 saat",
+  "en": "1 hour"
+ },
+ {
+  "key": "contractiontimer_5_1_1_qaydasi_a3c5d3",
+  "az": "5-1-1 Qaydası",
+  "en": "The 5-1-1 Rule"
+ },
+ {
+  "key": "contractiontimer_5_1_1_qaydasi_sancilar_5_deqiqeden_bir_1_c1c5ce",
+  "az": "5-1-1 qaydası: Sancılar 5 dəqiqədən bir, 1 dəqiqə davam edir",
+  "en": "5-1-1 rule: Contractions every 5 minutes, lasting 1 minute"
+ },
+ {
+  "key": "contractiontimer_5_deqiqe_ad05bb",
+  "az": "5 dəqiqə",
+  "en": "5 minutes"
+ },
+ {
+  "key": "contractiontimer_araliginda_24710a",
+  "az": "aralığında,",
+  "en": "apartment,"
+ },
+ {
+  "key": "contractiontimer_araliq_05bea1",
+  "az": "aralıq",
+  "en": "interval"
+ },
+ {
+  "key": "contractiontimer_boyunca_davam_ederse_xestexana_2b067a",
+  "az": "boyunca davam edərsə, xəstəxanaya getmə vaxtıdır.",
+  "en": "if it continues throughout, it's time to go to the hospital."
+ },
+ {
+  "key": "contractiontimer_davam_ederse_ve_bu_7029f5",
+  "az": "davam edərsə və bu",
+  "en": "if it continues and this"
+ },
+ {
+  "key": "contractiontimer_hazir_3ae38e",
+  "az": "Hazır",
+  "en": "Ready"
+ },
+ {
+  "key": "contractiontimer_hedef_1_deq_6ce02e",
+  "az": "Hədəf: ~1 dəq",
+  "en": "Target: ~1 min"
+ },
+ {
+  "key": "contractiontimer_hedef_5_deq_b2dc81",
+  "az": "Hədəf: ~5 dəq",
+  "en": "Target: ~5 min"
+ },
+ {
+  "key": "contractiontimer_muddet_a5b45d",
+  "az": "müddət",
+  "en": "duration"
+ },
+ {
+  "key": "contractiontimer_ort_araliq_711af3",
+  "az": "Ort. Aralıq",
+  "en": "Avg. Interval"
+ },
+ {
+  "key": "contractiontimer_ort_muddet_b77c4e",
+  "az": "Ort. Müddət",
+  "en": "Avg. Duration"
+ },
+ {
+  "key": "contractiontimer_sanci_basladi_d99102",
+  "az": "Sancı başladı",
+  "en": "The contractions started"
+ },
+ {
+  "key": "contractiontimer_sanci_bitdi_c1b3e1",
+  "az": "Sancı bitdi",
+  "en": "The pain is over"
+ },
+ {
+  "key": "contractiontimer_sanci_muddeti_0d04f4",
+  "az": "Sancı müddəti",
+  "en": "Duration of contractions"
+ },
+ {
+  "key": "contractiontimer_sanci_olcen_67d681",
+  "az": "Sancı Ölçən",
+  "en": "Contraction Timer"
+ },
+ {
+  "key": "contractiontimer_sancilar_6f1b69",
+  "az": "Sancılar (",
+  "en": "Cramps ("
+ },
+ {
+  "key": "contractiontimer_sancilar_9b16c7",
+  "az": "Sancılar",
+  "en": "Contractions"
+ },
+ {
+  "key": "contractiontimer_xestexanaya_getme_vaxti_780dba",
+  "az": "Xəstəxanaya getmə vaxtı!",
+  "en": "Time to go to the hospital!"
+ },
+ {
+  "key": "country",
+  "az": "Ölkə",
+  "en": "Country"
+ },
+ {
+  "key": "couponinput_tetbiq_et_e5077b",
+  "az": "Tətbiq et",
+  "en": "Apply"
+ },
+ {
+  "key": "crytranslator_ac_baba8d",
+  "az": "Ac",
+  "en": "Hungry"
+ },
+ {
+  "key": "crytranslator_aglama_askarlanmadi_15a23e",
+  "az": "Ağlama aşkarlanmadı",
+  "en": "No crying detected"
+ },
+ {
+  "key": "crytranslator_agri_76d612",
+  "az": "Ağrı",
+  "en": "Pain"
+ },
+ {
+  "key": "crytranslator_ai_analiz_edir_daba4c",
+  "az": "AI analiz edir...",
+  "en": "AI is analyzing..."
+ },
+ {
+  "key": "crytranslator_ai_ile_korpe_aglamasini_analiz_edin_e2e23c",
+  "az": "AI ilə körpə ağlamasını analiz edin",
+  "en": "Analyze baby's cry with AI"
+ },
+ {
+  "key": "crytranslator_analiz_tamamlandi_7dd77f",
+  "az": "Analiz tamamlandı",
+  "en": "The analysis is complete"
+ },
+ {
+  "key": "crytranslator_analiz_xetasi_daba4a",
+  "az": "Analiz xətası",
+  "en": "Analysis error"
+ },
+ {
+  "key": "crytranslator_bu_ses_heqiqi_korpe_aglamasi_d_ea2e8c",
+  "az": "Bu səs həqiqi körpə ağlaması deyil",
+  "en": "This sound is not a real baby cry"
+ },
+ {
+  "key": "crytranslator_cox_qisa_12bf93",
+  "az": "Çox qısa",
+  "en": "Too short"
+ },
+ {
+  "key": "crytranslator_diqqet_bu_simptomlar_ciddi_ola_805dc6",
+  "az": "Diqqət! Bu simptomlar ciddi ola bilər. Həkimə müraciət etməyi düşünün.",
+  "en": "Attention! These symptoms can be serious. Consider seeing a doctor."
+ },
+ {
+  "key": "crytranslator_diqqet_isteyir_d50473",
+  "az": "Diqqət istəyir",
+  "en": "Wants attention"
+ },
+ {
+  "key": "crytranslator_eminlik_5cf4fa",
+  "az": "% əminlik",
+  "en": "% certainty"
+ },
+ {
+  "key": "crytranslator_hedden_artiq_yorulub_7849bb",
+  "az": "Həddən artıq yorulub",
+  "en": "Over-tired"
+ },
+ {
+  "key": "crytranslator_kolik_29d81f",
+  "az": "Kolik",
+  "en": "Colic"
+ },
+ {
+  "key": "crytranslator_korpe_fa2b51",
+  "az": "Körpə",
+  "en": "Baby"
+ },
+ {
+  "key": "crytranslator_korpeniz_agladigi_zaman_yenide_e6c4db",
+  "az": "Körpəniz ağladığı zaman yenidən cəhd edin. Mümkün qədər yaxından və aydın səs yazın.",
+  "en": "Try again when your baby cries. Record as close and clear as possible."
+ },
+ {
+  "key": "crytranslator_korpeniz_aglayanda_3_10_saniye_1b26e1",
+  "az": "Körpəniz ağlayanda 3-10 saniyə səs yazın. AI ağlamanın səbəbini analiz edəcək.",
+  "en": "Record your baby crying for 3-10 seconds. AI will analyze the reason for crying."
+ },
+ {
+  "key": "crytranslator_mikrofon_icazesi_lazimdir_711293",
+  "az": "Mikrofon icazəsi lazımdır",
+  "en": "Microphone permission required"
+ },
+ {
+  "key": "crytranslator_mikrofon_xetasi_5f83b3",
+  "az": "Mikrofon xətası",
+  "en": "Microphone error"
+ },
+ {
+  "key": "crytranslator_mikrofona_giris_icazesi_verin_9b0425",
+  "az": "Mikrofona giriş icazəsi verin",
+  "en": "Grant access to microphone"
+ },
+ {
+  "key": "crytranslator_minimum_3_saniye_ses_yazin_1b5970",
+  "az": "Minimum 3 saniyə səs yazın",
+  "en": "Record at least 3 seconds of sound"
+ },
+ {
+  "key": "crytranslator_narahatliq_33f05c",
+  "az": "Narahatlıq",
+  "en": "Discomfort"
+ },
+ {
+  "key": "crytranslator_ortamda_korpe_aglamasi_esidilm_6b36d5",
+  "az": "Ortamda körpə ağlaması eşidilmədi",
+  "en": "No baby crying was heard"
+ },
+ {
+  "key": "crytranslator_parametrlerden_mikrofon_icazesini_aktivl_f7008f",
+  "az": "Parametrlərdən mikrofon icazəsini aktivləşdirin",
+  "en": "Enable microphone permission in settings"
+ },
+ {
+  "key": "crytranslator_saxta_ses_3db067",
+  "az": "Saxta səs",
+  "en": "Artificial sound"
+ },
+ {
+  "key": "crytranslator_saxta_ses_askarlandi_d6f6bf",
+  "az": "Saxta səs aşkarlandı",
+  "en": "Spurious voice detected"
+ },
+ {
+  "key": "crytranslator_ses_emal_edilir_918818",
+  "az": "Səs emal edilir...",
+  "en": "Processing audio..."
+ },
+ {
+  "key": "crytranslator_ses_yazilir_c555e8",
+  "az": "Səs yazılır...",
+  "en": "Audio recording..."
+ },
+ {
+  "key": "crytranslator_son_analizler_76b144",
+  "az": "Son analizlər",
+  "en": "Recent analyses"
+ },
+ {
+  "key": "crytranslator_tovsiyeler_17a8f7",
+  "az": "Tövsiyələr",
+  "en": "Recommendations"
+ },
+ {
+  "key": "crytranslator_tv_telefon_ve_ya_imitasiya_ses_1867b6",
+  "az": "TV, telefon və ya imitasiya səsləri aşkarlandı. Həqiqi körpə ağlaması ilə yenidən cəhd edin.",
+  "en": "TV, telephone or simulated sounds detected. Try again with a real baby cry."
+ },
+ {
+  "key": "crytranslator_xestelik_7c06be",
+  "az": "Xəstəlik",
+  "en": "Illness"
+ },
+ {
+  "key": "crytranslator_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "crytranslator_yazmaga_baslayin_55a5eb",
+  "az": "Yazmağa başlayın",
+  "en": "Start typing"
+ },
+ {
+  "key": "crytranslator_yeni_analiz_3c7a2d",
+  "az": "Yeni analiz",
+  "en": "New analysis"
+ },
+ {
+  "key": "crytranslator_yeniden_cehd_edin_0040c9",
+  "az": "Yenidən cəhd edin",
+  "en": "Try again"
+ },
+ {
+  "key": "crytranslator_yeniden_cehd_et_d273ac",
+  "az": "Yenidən cəhd et",
+  "en": "Try again"
+ },
+ {
+  "key": "crytranslator_yuxulu_90ba1f",
+  "az": "Yuxulu",
+  "en": "Tired"
+ },
+ {
+  "key": "cycleanomalybanner_duzensiz_tsikl_7b2693",
+  "az": "Düzənsiz tsikl",
+  "en": "Irregular cycle"
+ },
+ {
+  "key": "cycleanomalybanner_qisa_tsikl_askar_edildi_b0e734",
+  "az": "Qısa tsikl aşkar edildi",
+  "en": "Short cycle detected"
+ },
+ {
+  "key": "cycleanomalybanner_uzun_tsikl_askar_edildi_14479e",
+  "az": "Uzun tsikl aşkar edildi",
+  "en": "Long cycle detected"
+ },
+ {
+  "key": "cycletrendchart_normal_diapazon_21_35_gun_acog_48b2bf",
+  "az": "Normal diapazon: 21–35 gün (ACOG)",
+  "en": "Normal range: 21-35 days (ACOG)"
+ },
+ {
+  "key": "cycletrendchart_tsikl_count",
+  "az": "{count} tsikl",
+  "en": null
+ },
+ {
+  "key": "cycletrendchart_tsikl_uzunlugu_trendi_13a67d",
+  "az": "Tsikl uzunluğu trendi",
+  "en": "Cycle Length Trend"
+ },
+ {
+  "key": "cycletrendchart_uzunluq_f427cd",
+  "az": "Uzunluq",
+  "en": "Length"
+ },
+ {
+  "key": "dailystorycards_bu_gun_ucun_def36c",
+  "az": "Bu Gün Üçün",
+  "en": "For Today"
+ },
+ {
+  "key": "dailysummaryscreen_bu_gun_786fd4",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "dailysummaryscreen_cox_pis_e041c5",
+  "az": "Çox pis",
+  "en": "Too bad"
+ },
+ {
+  "key": "dailysummaryscreen_dunen_52b701",
+  "az": "Dünən",
+  "en": "Yesterday"
+ },
+ {
+  "key": "dailysummaryscreen_ehval_0457f9",
+  "az": "Əhval",
+  "en": "Mood"
+ },
+ {
+  "key": "dailysummaryscreen_ela_720a0e",
+  "az": "Əla",
+  "en": "Excellent"
+ }
+]

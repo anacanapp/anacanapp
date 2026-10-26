@@ -1,0 +1,472 @@
+[
+ {
+  "key": "weatherclothing_ideal_otaq_temperaturu_6bf977",
+  "az": "İdeal otaq temperaturu",
+  "en": "Ideal room temperature"
+ },
+ {
+  "key": "weatherclothing_korpenin_yasi_1dfff9",
+  "az": "Körpənin yaşı",
+  "en": "Baby's age"
+ },
+ {
+  "key": "weatherclothing_korpeniz_ucun_geyim_mesleheti_f5cbde",
+  "az": "Körpəniz üçün geyim məsləhəti",
+  "en": "Clothing recommendation for your baby"
+ },
+ {
+  "key": "weatherclothing_kulek_cc8bf6",
+  "az": "Külək",
+  "en": "Wind"
+ },
+ {
+  "key": "weatherclothing_mekan_icazesi_redd_edildi_para_27f7d3",
+  "az": "Məkan icazəsi rədd edildi. Parametrlərdən icazə verin.",
+  "en": "Location permission denied. Please allow from settings."
+ },
+ {
+  "key": "weatherclothing_mekan_teyin_edilir_526792",
+  "az": "Məkan təyin edilir...",
+  "en": "Determining location..."
+ },
+ {
+  "key": "weatherclothing_mekan_xetasi_bd9e1d",
+  "az": "Məkan xətası",
+  "en": "Location error"
+ },
+ {
+  "key": "weatherclothing_polen_xeberdarligi_1ae540",
+  "az": "Polen Xəbərdarlığı",
+  "en": "Pollen Warning"
+ },
+ {
+  "key": "weatherclothing_pregnancy_week_for",
+  "az": "Hamiləliyin {week}. həftəsi üçün",
+  "en": "Pregnancy week {week}"
+ },
+ {
+  "key": "weatherclothing_rutubet_3d8e74",
+  "az": "Rütubət",
+  "en": "Humidity"
+ },
+ {
+  "key": "weatherclothing_title",
+  "az": "Hava & Geyim",
+  "en": "Weather & Clothing"
+ },
+ {
+  "key": "weatherclothing_uv_xeberdarligi_327432",
+  "az": "UV Xəbərdarlığı",
+  "en": "UV Warning"
+ },
+ {
+  "key": "weatherclothing_xeberdarliqlar_5542c4",
+  "az": "Xəbərdarlıqlar",
+  "en": "Warnings"
+ },
+ {
+  "key": "weatherclothing_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "weatherclothing_yeniden_cehd_et_d273ac",
+  "az": "Yenidən cəhd et",
+  "en": "Retry"
+ },
+ {
+  "key": "weeklystatstab_c_a_28099e",
+  "az": "Ç.a",
+  "en": "Thu"
+ },
+ {
+  "key": "weeklystatstab_c_b70344",
+  "az": "Ç",
+  "en": "Wed"
+ },
+ {
+  "key": "weeklystatstab_ehval_deyisiklikleri_7de49c",
+  "az": "Əhval Dəyişiklikləri",
+  "en": "Mood Changes"
+ },
+ {
+  "key": "weeklystatstab_hedef_alti_2de340",
+  "az": "Hədəf altı",
+  "en": "Below target"
+ },
+ {
+  "key": "weeklystatstab_hedefe_catdi_2l_23ea87",
+  "az": "Hədəfə çatdı (2L+)",
+  "en": "Target reached (2L+)"
+ },
+ {
+  "key": "weeklystatstab_heftelik_statistika_292953",
+  "az": "Həftəlik Statistika",
+  "en": "Weekly Statistics"
+ },
+ {
+  "key": "weeklystatstab_mesq_sayi_fabe6b",
+  "az": "Məşq sayı",
+  "en": "Workout count"
+ },
+ {
+  "key": "weeklystatstab_mesqler_603be9",
+  "az": "Məşqlər",
+  "en": "Workouts"
+ },
+ {
+  "key": "weeklystatstab_orta_ehval_1f8ef9",
+  "az": "Orta əhval",
+  "en": "Average mood"
+ },
+ {
+  "key": "weeklystatstab_s_b97106",
+  "az": "Ş",
+  "en": "Sat"
+ },
+ {
+  "key": "weeklystatstab_statistika_yuklene_bilmedi_96ee1b",
+  "az": "Statistika yüklənə bilmədi",
+  "en": "Statistics could not be loaded"
+ },
+ {
+  "key": "weeklystatstab_su_icme_ml_1d5ae9",
+  "az": "Su İçmə (ml)",
+  "en": "Water Intake (ml)"
+ },
+ {
+  "key": "weeklystatstab_umumi_su_88c3c9",
+  "az": "Ümumi su",
+  "en": "Total water"
+ },
+ {
+  "key": "weighttracker_ai_analiz_41639d",
+  "az": "AI Analiz",
+  "en": "AI Analysis"
+ },
+ {
+  "key": "weighttracker_ai_prompt_gain",
+  "az": "artım:",
+  "en": "gain:"
+ },
+ {
+  "key": "weighttracker_ai_prompt_now",
+  "az": "indi:",
+  "en": "indi:"
+ },
+ {
+  "key": "weighttracker_ai_prompt_prefix",
+  "az": "Çəki analizi:",
+  "en": "Weight analysis:"
+ },
+ {
+  "key": "weighttracker_ai_prompt_rec",
+  "az": "tövsiyə:",
+  "en": "recommendation:"
+ },
+ {
+  "key": "weighttracker_ai_prompt_rules",
+  "az": "QAYDALAR: 1) Salamlama yoxdur, birbaşa məsələyə keç. 2) Maksimum 1-2 cümlə. 3) Disclaimer/xəbərdarlıq yoxdur. 4) Yalnız praktik qısa məsləhət.",
+  "en": "RULES: 1) No greetings, get straight to the point. 2) Maximum 1-2 sentences. 3) No disclaimers/warnings. 4) Only practical short advice."
+ },
+ {
+  "key": "weighttracker_ai_prompt_start",
+  "az": "başlanğıc:",
+  "en": "start:"
+ },
+ {
+  "key": "weighttracker_ai_prompt_status",
+  "az": "Status:",
+  "en": "Status:"
+ },
+ {
+  "key": "weighttracker_ai_prompt_week",
+  "az": "həftə",
+  "en": "week"
+ },
+ {
+  "key": "weighttracker_analiz_edilir_e11d27",
+  "az": "Analiz edilir...",
+  "en": "Analyzing..."
+ },
+ {
+  "key": "weighttracker_baslangic_cekiden_ferq_8a58c5",
+  "az": "Başlanğıc çəkidən fərq",
+  "en": "Difference from starting weight"
+ },
+ {
+  "key": "weighttracker_baslangic_ef1964",
+  "az": "Başlanğıc:",
+  "en": "Starting:"
+ },
+ {
+  "key": "weighttracker_bu_qeydi_silmek_isteyirsiniz_c4a2fa",
+  "az": "Bu qeydi silmək istəyirsiniz?",
+  "en": "Are you sure you want to delete this record?"
+ },
+ {
+  "key": "weighttracker_bugunku_cekinizi_daxil_edin_24f734",
+  "az": "Bugünkü çəkinizi daxil edin",
+  "en": "Enter today's weight"
+ },
+ {
+  "key": "weighttracker_butun_ceki_qeydleri_silinecek__3a01e1",
+  "az": "Bütün çəki qeydləri silinəcək. Bu əməliyyat geri qaytarıla bilməz.",
+  "en": "All weight records will be deleted. This operation cannot be undone."
+ },
+ {
+  "key": "weighttracker_ceki_elave_et_252a47",
+  "az": "Çəki əlavə et",
+  "en": "Add weight"
+ },
+ {
+  "key": "weighttracker_ceki_i_zleyici_9dfe43",
+  "az": "Çəki İzləyici",
+  "en": "Weight Tracker"
+ },
+ {
+  "key": "weighttracker_ceki_statusu_d932ab",
+  "az": "Çəki statusu",
+  "en": "Weight status"
+ },
+ {
+  "key": "weighttracker_cekiniz",
+  "az": "Çəkiniz",
+  "en": "Your weight"
+ },
+ {
+  "key": "weighttracker_cox_72c890",
+  "az": "Çox",
+  "en": "High"
+ },
+ {
+  "key": "weighttracker_ferq_kg_8bd06d",
+  "az": "Fərq (kg)",
+  "en": "Difference (kg)"
+ },
+ {
+  "key": "weighttracker_hamilelik_qrafiki",
+  "az": "Hamiləlik qrafiki",
+  "en": "Pregnancy chart"
+ },
+ {
+  "key": "weighttracker_hazirki_kg_426054",
+  "az": "Hazırkı (kg)",
+  "en": "Current (kg)"
+ },
+ {
+  "key": "weighttracker_indi_eef",
+  "az": "Cari:",
+  "en": "Current:"
+ },
+ {
+  "key": "weighttracker_indi_ref",
+  "az": "indi",
+  "en": "now"
+ },
+ {
+  "key": "weighttracker_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel"
+ },
+ {
+  "key": "weighttracker_melumat_yuklenir_355722",
+  "az": "Məlumat yüklənir...",
+  "en": "Loading data..."
+ },
+ {
+  "key": "weighttracker_qrafik_izah",
+  "az": "Xətt — çəki qeydləriniz, yaşıl zolaq — həftəyə görə tövsiyə olunan artım aralığı (başlanğıc çəkiyə əsasən).",
+  "en": "Line — your weight entries, green band — recommended gain range by week (based on starting weight)."
+ },
+ {
+  "key": "weighttracker_sil",
+  "az": "Sil",
+  "en": "Delete"
+ },
+ {
+  "key": "weighttracker_son_7_qeyd",
+  "az": "Son 7 qeyd",
+  "en": "Last 7 records"
+ },
+ {
+  "key": "weighttracker_status_low",
+  "az": "Az",
+  "en": "Low"
+ },
+ {
+  "key": "weighttracker_status_normal",
+  "az": "Normal",
+  "en": "Normal"
+ },
+ {
+  "key": "weighttracker_tarixce_b09a14",
+  "az": "Tarixçə",
+  "en": "History"
+ },
+ {
+  "key": "weighttracker_tarixceni_sifirla_577dd6",
+  "az": "Tarixçəni sıfırla",
+  "en": "Reset history"
+ },
+ {
+  "key": "weighttracker_tovsiye_araligi",
+  "az": "Tövsiyə aralığı",
+  "en": "Recommended range"
+ },
+ {
+  "key": "weighttracker_tovsiye_kg_6a77a1",
+  "az": "Tövsiyə (kg)",
+  "en": "Recommended (kg)"
+ },
+ {
+  "key": "weighttracker_tovsiye_olunan_araliq_4810a8",
+  "az": "Tövsiyə olunan aralıq",
+  "en": "Recommended range"
+ },
+ {
+  "key": "weighttracker_tovsiye_zolagi",
+  "az": "yaşıl = tövsiyə aralığı",
+  "en": "green = recommended range"
+ },
+ {
+  "key": "weighttracker_yadda_saxla",
+  "az": "Yadda saxla",
+  "en": "Save"
+ },
+ {
+  "key": "whitenoise_10_deq_b4f9fd",
+  "az": "10 dəq",
+  "en": "10 min"
+ },
+ {
+  "key": "whitenoise_15_deq_3ce4c1",
+  "az": "15 dəq",
+  "en": "15 min"
+ },
+ {
+  "key": "whitenoise_20_deq_fb3505",
+  "az": "20 dəq",
+  "en": "20 min"
+ },
+ {
+  "key": "whitenoise_30_deq_15eb1f",
+  "az": "30 dəq",
+  "en": "30 min"
+ },
+ {
+  "key": "whitenoise_ana_betnindeki_sese_benzer_monoton_fon_8d1144",
+  "az": "Ana bətnindəki səsə bənzər monoton fon",
+  "en": "Monotonic background similar to the sound in the womb"
+ },
+ {
+  "key": "whitenoise_asagidaki_kuy_novlerinden_birini_secerek_ece91d",
+  "az": "Aşağıdakı küy növlərindən birini seçərək başlayın",
+  "en": "Start by choosing one of the noise types below"
+ },
+ {
+  "key": "whitenoise_beyaz_kuy_3acf2d",
+  "az": "Bəyaz Küy",
+  "en": "White Noise"
+ },
+ {
+  "key": "whitenoise_cehrayi_kuy_68573d",
+  "az": "Çəhrayı Küy",
+  "en": "Pink Noise"
+ },
+ {
+  "key": "whitenoise_deqiqe_94641a",
+  "az": "dəqiqə",
+  "en": "minutes"
+ },
+ {
+  "key": "whitenoise_deqiqe_qalib_da6009",
+  "az": "dəqiqə qalıb",
+  "en": "minutes left"
+ },
+ {
+  "key": "whitenoise_derin_ve_boguq_sesler_selale_goy_gurultu_47382e",
+  "az": "Dərin və boğuq səslər — şəlalə, göy gurultusu",
+  "en": "Deep and muffled sounds — waterfall, thunder"
+ },
+ {
+  "key": "whitenoise_derin_yuxu_b4d583",
+  "az": "Dərin yuxu",
+  "en": "Deep sleep"
+ },
+ {
+  "key": "whitenoise_hansi_ses_korpenize_daha_xos_gelir_488ff5",
+  "az": "Hansı səs körpənizə daha xoş gəlir?",
+  "en": "Which sound does your baby prefer?"
+ },
+ {
+  "key": "whitenoise_kec_19bd66",
+  "az": "Keç",
+  "en": "Skip"
+ },
+ {
+  "key": "whitenoise_kuy_rengleri_ile_derin_yuxu_c4a0f7",
+  "az": "Küy rəngləri ilə dərin yuxu",
+  "en": "Deep sleep with colored noise"
+ },
+ {
+  "key": "whitenoise_limitsiz_dinleme_ucun_premium_0f0575",
+  "az": "Limitsiz dinləmə üçün Premium",
+  "en": "Premium for unlimited listening"
+ },
+ {
+  "key": "whitenoise_limitsiz_taymer_premium_info",
+  "az": "Limitsiz taymer Premium-a aiddir",
+  "en": "Unlimited timer is for Premium"
+ },
+ {
+  "key": "whitenoise_limitsiz_yuxu_sesleri_b0b439",
+  "az": "Limitsiz yuxu səsləri",
+  "en": "Unlimited sleep sounds"
+ },
+ {
+  "key": "whitenoise_qehveyi_kuy_f8e3c6",
+  "az": "Qəhvəyi Küy",
+  "en": "Brown Noise"
+ },
+ {
+  "key": "whitenoise_sakitlesdirici_d99d9d",
+  "az": "Sakitləşdirici",
+  "en": "Calming"
+ },
+ {
+  "key": "whitenoise_ses_seviyyesi_7296d5",
+  "az": "Səs səviyyəsi",
+  "en": "Volume level"
+ },
+ {
+  "key": "whitenoise_tebiet_effekti_45e038",
+  "az": "Təbiət effekti",
+  "en": "Nature sounds"
+ },
+ {
+  "key": "whitenoise_yungul_yagis_ve_yarpaq_xisiltisi_kimi_d5aea8",
+  "az": "Yüngül yağış və yarpaq xışıltısı kimi",
+  "en": "Like light rain and leaves rustling"
+ },
+ {
+  "key": "whitenoise_yuxu_sesleri_4b518b",
+  "az": "Yuxu Səsləri",
+  "en": "Sleep Sounds"
+ },
+ {
+  "key": "partner_surprise_planned",
+  "az": "🎁 Həyat yoldaşın sənin üçün xüsusi bir sürpriz planladı!",
+  "en": null
+ },
+ {
+  "key": "bp_systolic_hint",
+  "az": "(yuxarı)",
+  "en": null
+ },
+ {
+  "key": "bp_diastolic_hint",
+  "az": "(aşağı)",
+  "en": null
+ }
+]

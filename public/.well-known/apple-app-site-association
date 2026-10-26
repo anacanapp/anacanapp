@@ -1,0 +1,32 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAM_ID.com.atlasoon.anacan",
+        "paths": [
+          "/tool/*",
+          "/tools",
+          "/ai",
+          "/community",
+          "/community/post/*",
+          "/profile",
+          "/cakes",
+          "/premium",
+          "/settings",
+          "/notifications",
+          "/calendar",
+          "/help",
+          "/edit-profile",
+          "/appearance",
+          "/blog",
+          "/blog/*",
+          "/messages",
+          "/messages/*",
+          "/user/*",
+          "/legal/*"
+        ]
+      }
+    ]
+  }
+}

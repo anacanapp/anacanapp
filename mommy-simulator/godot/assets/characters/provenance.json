@@ -1,0 +1,198 @@
+{
+  "provider": "Quaternius / Tomás Laulhé",
+  "license": "CC0-1.0",
+  "source": "https://quaternius.com/packs/universalbasecharacters.html",
+  "modifications": "Mobile 1K textures; separately skinned relaxed jersey and trouser shell geometry, clothing masks; only required models and animations extracted",
+  "files": [
+    {
+      "file": "mother.bin",
+      "bytes": 1321416,
+      "sha256": "a0be9a3986469150e46b4ddd7c78371e2f29ce82536fd963a912b24c3aa1b7b3"
+    },
+    {
+      "file": "T_Hair_2_Normal.png",
+      "bytes": 2018434,
+      "sha256": "48c05ac22ae8362cff9cc22e77a5c1e0ec8604c304789b21fee983fb3f5d2348"
+    },
+    {
+      "file": "T_Hair_2_BaseColor.png",
+      "bytes": 1040996,
+      "sha256": "86b7c07d457df6c818f8632f8557359d0756131a5b7a7015c486269f5fe59973"
+    },
+    {
+      "file": "T_Eye_Normal_png.png",
+      "bytes": 19420,
+      "sha256": "6006f6577a3392463b89d17d495d65424e12f91e4711aa2663d37e2f794d831f"
+    },
+    {
+      "file": "T_Eye_Brown.png",
+      "bytes": 40893,
+      "sha256": "d81c98cf83f18a05ac7e4d8516a2f863aa1209d2a9ccda4ea09b190aa40a945b"
+    },
+    {
+      "file": "T_Superhero_Female_Normal.png",
+      "bytes": 1435254,
+      "sha256": "8b208c8a1abebcfd7773acdf41ad7cf9f8a9be6ed84c8eae29853863a7095cd4"
+    },
+    {
+      "file": "T_Superhero_Female_Dark_BaseColor.png",
+      "bytes": 617720,
+      "sha256": "8732e98057482343a07c6d31129f7d7e3b3c6238d0b46a300b579edab0a07579"
+    },
+    {
+      "file": "T_Superhero_Female_Roughness.png",
+      "bytes": 726633,
+      "sha256": "5f5635451f49209422679b76e8d41b3ee7194dda6cfde4f1a0c200da177d3a1f"
+    },
+    {
+      "file": "mother.gltf",
+      "bytes": 24105,
+      "sha256": "cbcca6a1462d8160dc7cb1a34e2816f3f773e10358ec5f060c7b0c90804f8f52"
+    },
+    {
+      "file": "partner.bin",
+      "bytes": 1041232,
+      "sha256": "db5a6651289d198f4e9dc3434b3cb385f03afe38b861265b50f7a5b154115482"
+    },
+    {
+      "file": "T_Hair_1_Normal_png.png",
+      "bytes": 1739774,
+      "sha256": "a76cb16e3ab2a6a1bd11d45b0362652a99dade10c0e6de6ba9f5e63c2622d7e1"
+    },
+    {
+      "file": "T_Hair_1_BaseColor.png",
+      "bytes": 897788,
+      "sha256": "2e3f9adf7c433d0c8686a8462eb75ba54ac85d0a63ffaaaccc60d44c3b9d4328"
+    },
+    {
+      "file": "T_Eye_Normal_png.png",
+      "bytes": 19420,
+      "sha256": "6006f6577a3392463b89d17d495d65424e12f91e4711aa2663d37e2f794d831f"
+    },
+    {
+      "file": "T_Eye_Brown.png",
+      "bytes": 40893,
+      "sha256": "d81c98cf83f18a05ac7e4d8516a2f863aa1209d2a9ccda4ea09b190aa40a945b"
+    },
+    {
+      "file": "T_Superhero_Male_Normal.png",
+      "bytes": 1806644,
+      "sha256": "2bdfd76410923c0121813232ff3c7fdaf20423cfbe66b8b8aa55252caa04037b"
+    },
+    {
+      "file": "T_Superhero_Male_Dark.png",
+      "bytes": 682439,
+      "sha256": "879a6b16241375d6df7cb81171443a2e4c08782582be69e223c7282a3f4da9af"
+    },
+    {
+      "file": "T_Superhero_Male_Roughness.png",
+      "bytes": 695044,
+      "sha256": "1e9dccbdcad7584bf4679e62a27b23590b75f2e115486b02f18618359d7dca3a"
+    },
+    {
+      "file": "partner.gltf",
+      "bytes": 23452,
+      "sha256": "2e7b548211fba599b8c8453203f1ca9c80bb63170955a0e011e4623b08351421"
+    },
+    {
+      "file": "Hair_Buns.bin",
+      "bytes": 131768,
+      "sha256": "4f6d4c010201278483da8d6d46ec40e3beb8d9e679ec2139bed216c561bccd38"
+    },
+    {
+      "file": "T_Hair_2_Normal.png",
+      "bytes": 2018434,
+      "sha256": "48c05ac22ae8362cff9cc22e77a5c1e0ec8604c304789b21fee983fb3f5d2348"
+    },
+    {
+      "file": "T_Hair_2_BaseColor.png",
+      "bytes": 1040996,
+      "sha256": "86b7c07d457df6c818f8632f8557359d0756131a5b7a7015c486269f5fe59973"
+    },
+    {
+      "file": "Hair_Buns.gltf",
+      "bytes": 1653,
+      "sha256": "662a30a8049cc2ee27af20de7f8e1696693b97d2c9691c326021f680972c2092"
+    },
+    {
+      "file": "Hair_SimpleParted.bin",
+      "bytes": 32032,
+      "sha256": "57c6359703a37e346ee38a9c7ba55c8dee761c0a02da99847d06f5a91728f3cc"
+    },
+    {
+      "file": "T_Hair_1_Normal.png",
+      "bytes": 1739774,
+      "sha256": "a76cb16e3ab2a6a1bd11d45b0362652a99dade10c0e6de6ba9f5e63c2622d7e1"
+    },
+    {
+      "file": "T_Hair_1_BaseColor.png",
+      "bytes": 897788,
+      "sha256": "2e3f9adf7c433d0c8686a8462eb75ba54ac85d0a63ffaaaccc60d44c3b9d4328"
+    },
+    {
+      "file": "Hair_SimpleParted.gltf",
+      "bytes": 1476,
+      "sha256": "6ddf81ac868dededdef31c40d4723efb2d346d7e3b54aa27106f1b00da0e793b"
+    },
+    {
+      "file": "Eyebrows_Female.bin",
+      "bytes": 67248,
+      "sha256": "f2efdf2b9d44137630ff4df01cfd9068fe3c3f8c2896c009860404ea17989dbf"
+    },
+    {
+      "file": "T_Hair_2_Normal.png",
+      "bytes": 2018434,
+      "sha256": "48c05ac22ae8362cff9cc22e77a5c1e0ec8604c304789b21fee983fb3f5d2348"
+    },
+    {
+      "file": "T_Hair_2_BaseColor.png",
+      "bytes": 1040996,
+      "sha256": "86b7c07d457df6c818f8632f8557359d0756131a5b7a7015c486269f5fe59973"
+    },
+    {
+      "file": "Eyebrows_Female.gltf",
+      "bytes": 2108,
+      "sha256": "67b4c97625bc5063389e6f583f54d76c79d65efbf3b508fb94fe4e5074875924"
+    },
+    {
+      "file": "Eyebrows_Regular.bin",
+      "bytes": 26576,
+      "sha256": "434c62e704037b5d2a12a0c7237513617806fc6cf53d67608f120b0908dd3396"
+    },
+    {
+      "file": "T_Hair_1_Normal.png",
+      "bytes": 1739774,
+      "sha256": "a76cb16e3ab2a6a1bd11d45b0362652a99dade10c0e6de6ba9f5e63c2622d7e1"
+    },
+    {
+      "file": "T_Hair_1_BaseColor.png",
+      "bytes": 897788,
+      "sha256": "2e3f9adf7c433d0c8686a8462eb75ba54ac85d0a63ffaaaccc60d44c3b9d4328"
+    },
+    {
+      "file": "Eyebrows_Regular.gltf",
+      "bytes": 1484,
+      "sha256": "370c6531404f629d4c0b8174d4c3fd7b2da0cf20ef1c2169ca552e076d41d0e7"
+    },
+    {
+      "file": "animations.glb",
+      "bytes": 7618436,
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997"
+    },
+    {
+      "file": "LICENSE.txt",
+      "bytes": 806,
+      "sha256": "0f4beaf0fe360a7732e58bbe3dbf60a2422367fbea60cb9ea4add968f383268e"
+    },
+    {
+      "file": "ANIMATION_LICENSE.txt",
+      "bytes": 332,
+      "sha256": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061"
+    },
+    {
+      "file": "ANIMATION_README.txt",
+      "bytes": 702,
+      "sha256": "ccd02718886b5a57f10f0a8911a38cfe10c36880e1d6dfa3445923fba32d2a72"
+    }
+  ]
+}

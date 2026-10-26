@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-08-11T08:56:18.728Z",
+  "langs": {
+    "ru": {
+      "translated": 4450,
+      "sourceTotal": 4450,
+      "coveragePct": 100,
+      "issues": {
+        "missing": 0,
+        "empty": 0,
+        "azIdentical": 4,
+        "placeholderMismatch": 0,
+        "unknownKeys": 0
+      },
+      "detail": {
+        "missingSample": [],
+        "empty": [],
+        "azIdentical": [
+          "ref_converted_on",
+          "ref_st_premium",
+          "partnerv2_realtime",
+          "saglamsebet_life_lost_text"
+        ],
+        "placeholderMismatch": [],
+        "unknownKeys": []
+      }
+    },
+    "tr": {
+      "translated": 4450,
+      "sourceTotal": 4450,
+      "coveragePct": 100,
+      "issues": {
+        "missing": 0,
+        "empty": 0,
+        "azIdentical": 308,
+        "placeholderMismatch": 0,
+        "unknownKeys": 0
+      },
+      "detail": {
+        "missingSample": [],
+        "empty": [],
+        "azIdentical": [
+          "appintroduction_basla_4820bc",
+          "appratingprompt_daha_sonra",
+          "authscreen_adiniz_b3e84a",
+          "authscreen_giris_1ffbd7",
+          "bottomnav_mesajlar",
+          "bottomnav_profil",
+          "common_1_saat",
+          "common_analiz_loading",
+          "common_back",
+          "common_enerji_label",
+          "common_geri",
+          "common_hours",
+          "common_normal",
+          "common_ofis_label",
+          "common_orta",
+          "common_silindi",
+          "common_sonra",
+          "common_tamamla",
+          "dashboard_1_yas_a1b2c3",
+          "dashboard_bitir_btn",
+          "dashboard_gun_a4ba4e",
+          "dashboard_gun_d96b5d",
+          "dashboard_hour",
+          "funnel_ay_sonra",
+          "funneldata_gunay_38e69c",
+          "funneldata_gunel_ad877a",
+          "onboardingscreen_basla_4820bc",
+          "ponb_flow_days",
+          "profilescreen_referral_badge",
+          "ref_converted_on"
+        ],
+        "placeholderMismatch": [],
+        "unknownKeys": []
+      }
+    }
+  }
+}

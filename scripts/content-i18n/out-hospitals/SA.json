@@ -1,0 +1,116 @@
+{
+  "country_code": "SA",
+  "country_name": "Saudi Arabia",
+  "providers": [
+    {
+      "name": "مستشفى النساء التخصصي بمدينة الملك فهد الطبية",
+      "name_en": "Women's Specialized Hospital, King Fahad Medical City",
+      "provider_type": "hospital",
+      "specialty": "أمراض النساء والولادة وطب الأم والجنين",
+      "specialty_en": "Obstetrics, Gynecology & Maternal-Fetal Medicine",
+      "city": "Riyadh",
+      "phone": null,
+      "website": "https://www.kfmc.med.sa/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى الملك خالد الجامعي",
+      "name_en": "King Khalid University Hospital",
+      "provider_type": "hospital",
+      "specialty": "مستشفى جامعي عام وأمراض النساء والولادة",
+      "specialty_en": "University Hospital, Obstetrics & Gynecology",
+      "city": "Riyadh",
+      "phone": null,
+      "website": "https://medicalcity.ksu.edu.sa/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مدينة الملك عبدالعزيز الطبية بالرياض",
+      "name_en": "King Abdulaziz Medical City, Riyadh",
+      "provider_type": "hospital",
+      "specialty": "رعاية تخصصية وأمراض النساء والولادة وطب الأطفال",
+      "specialty_en": "Specialist Care, Obstetrics, Gynecology & Pediatrics",
+      "city": "Riyadh",
+      "phone": null,
+      "website": "https://ngha.med.sa/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى الملك عبدالله التخصصي للأطفال",
+      "name_en": "King Abdullah Specialized Children's Hospital",
+      "provider_type": "hospital",
+      "specialty": "طب الأطفال التخصصي",
+      "specialty_en": "Specialist Pediatric Care",
+      "city": "Riyadh",
+      "phone": null,
+      "website": "https://ngha.med.sa/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى الملك فيصل التخصصي ومركز الأبحاث",
+      "name_en": "King Faisal Specialist Hospital and Research Centre",
+      "provider_type": "hospital",
+      "specialty": "الرعاية التخصصية للنساء والأطفال",
+      "specialty_en": "Specialist Women's and Children's Care",
+      "city": "Riyadh",
+      "phone": null,
+      "website": "https://www.kfshrc.edu.sa/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مدينة الملك سعود الطبية",
+      "name_en": "King Saud Medical City",
+      "provider_type": "hospital",
+      "specialty": "الرعاية العامة وأمراض النساء والولادة وطب الأطفال",
+      "specialty_en": "General Care, Obstetrics, Gynecology & Pediatrics",
+      "city": "Riyadh",
+      "phone": null,
+      "website": "https://www.ksmc.med.sa/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى الولادة والأطفال بجدة",
+      "name_en": "Maternity and Children's Hospital, Jeddah",
+      "provider_type": "hospital",
+      "specialty": "النساء والولادة وطب الأطفال",
+      "specialty_en": "Obstetrics, Gynecology & Pediatrics",
+      "city": "Jeddah",
+      "phone": null,
+      "website": null,
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى الولادة والأطفال بالدمام",
+      "name_en": "Maternity and Children's Hospital, Dammam",
+      "provider_type": "hospital",
+      "specialty": "النساء والولادة وطب الأطفال",
+      "specialty_en": "Obstetrics, Gynecology & Pediatrics",
+      "city": "Dammam",
+      "phone": null,
+      "website": null,
+      "is_major_landmark": true
+    },
+    {
+      "name": "مستشفى الدكتور سليمان فقيه",
+      "name_en": "Dr. Soliman Fakeeh Hospital",
+      "provider_type": "hospital",
+      "specialty": "الرعاية العامة وأمراض النساء والولادة وطب الأطفال",
+      "specialty_en": "General Care, Obstetrics, Gynecology & Pediatrics",
+      "city": "Jeddah",
+      "phone": null,
+      "website": "https://www.fakeeh.care/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "المركز الطبي الدولي",
+      "name_en": "International Medical Center",
+      "provider_type": "hospital",
+      "specialty": "الرعاية العامة وأمراض النساء والولادة وطب الأطفال",
+      "specialty_en": "General Care, Obstetrics, Gynecology & Pediatrics",
+      "city": "Jeddah",
+      "phone": null,
+      "website": "https://www.imc.med.sa/",
+      "is_major_landmark": true
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "version": "anacan-maternity-regional-v1",
+  "reviewedAt": "2026-09-24",
+  "countries": {
+    "CN": {
+      "currency": "CNY", "input": "agency",
+      "duration": "The national maternity-leave floor is 98 calendar days, including up to 15 days before birth. A difficult birth adds 15 days; each additional baby in a multiple birth adds 15 days. Provincial additional leave is separate from this national floor.",
+      "eligibility": "The national protection applies to female employees of covered employers. Maternity-insurance eligibility and provincial implementation determine who pays the benefit and any local supplements.",
+      "payment": "For an insured employee, the maternity fund uses the employer's previous-year average monthly employee wage. Without maternity insurance, the employer pays according to the employee's pre-leave wage. Your own monthly salary alone cannot determine the insured benefit.",
+      "exceptions": "Choose the province and confirm its additional maternity leave and payment rules with the employer or insurance agency. Miscarriage, parental and partner leave have separate rules; the displayed dates cover only the national childbirth floor.",
+      "inputLabel": "The local maternity-insurance agency calculates the payment",
+      "sources": [{"title":"State Council Order 619, Articles 7–8","url":"https://www.gov.cn/zwgk/2012-05/07/content_2131567.htm"}]
+    },
+    "ID": {
+      "currency": "IDR", "input": "monthly",
+      "duration": "A working mother has at least 3 months of childbirth leave. A further period of up to 3 months is available for the legally specified special conditions supported by a doctor's certificate; 6 months is not automatic for every birth.",
+      "eligibility": "The additional period requires a qualifying condition affecting the mother or child and medical certification under Law 4/2024. Arrange the prenatal and postnatal allocation with the employer under the applicable employment rules.",
+      "payment": "The first 3 months are paid in full. If the medically justified additional leave is used, the fourth month is also paid in full and the fifth and sixth months are paid at 75% of wages. The estimate uses the entered regular monthly wage.",
+      "exceptions": "Select only the number of additional months supported by the certificate. Multiple birth alone does not automatically grant the maximum extension. More favourable employment agreements and separate miscarriage or partner-leave rights may apply.",
+      "inputLabel": "Regular monthly wage",
+      "sources": [{"title":"Law 4/2024, Articles 4–5 (official PDF, archived 18 September 2024)","url":"https://web.archive.org/web/20240918095946id_/https://www.peraturan.go.id/files/uu-no-4-tahun-2024.pdf","originalUrl":"https://www.peraturan.go.id/files/uu-no-4-tahun-2024.pdf","archivedAt":"2024-09-18"}]
+    },
+    "FR": {
+      "currency": "EUR", "input": "three-months",
+      "duration": "For a first or second child: 6 weeks before and 10 weeks after birth. With at least 2 dependent children: 8 weeks before and 18 weeks after. Twins: 12 weeks before and 22 weeks after. Three or more babies: 24 weeks before and 22 weeks after.",
+      "eligibility": "This model covers the ordinary private-sector employee scheme. Health-insurance affiliation and work or contribution conditions must be met, and work must stop for at least 8 weeks, including 6 after birth. Seasonal work, unemployment and self-employment require their own assessment.",
+      "payment": "CPAM uses the 3 preceding gross salaries, subject to the applicable social-security salary ceiling, divides by 91.25 and applies a 21% flat deduction. Published 2026 daily limits are EUR 11.12 and EUR 104.02; the monthly ceiling is EUR 4005 (EUR 3925 in 2025). Employer supplements are separate.",
+      "exceptions": "Medical prenatal postponement, late or very premature birth, hospitalisation and pathological leave can change dates or payment. Postnatal pathological leave is not automatically paid under the ordinary maternity formula. The estimate does not add those periods or employer supplements.",
+      "inputLabel": "Gross salary for each of the 3 months before leave",
+      "sources": [{"title":"Service Public — private-sector maternity leave, updated 1 June 2026","url":"https://www.service-public.gouv.fr/particuliers/vosdroits/F2265"}]
+    },
+    "ES": {
+      "currency": "EUR", "input": "daily",
+      "duration": "For births covered by the reform effective 31 July 2025, each parent has 19 weeks: 6 compulsory immediately after birth, 11 flexible within the first year and 2 usable until age 8. A sole parent has 32 weeks: 6, 22 and 4 respectively.",
+      "eligibility": "The claimant must be registered or in an equivalent Social Security situation at the start of each period and satisfy the age-dependent contribution test. Rights are individual and non-transferable. Earlier births and the retroactive flexible weeks need a separate assessment.",
+      "payment": "The benefit is 100% of the statutory daily regulatory base. Enter the assessed daily base, already reflecting the applicable contribution rules and ceiling, rather than dividing take-home salary by an average month. The estimate pays only the weeks selected for this period.",
+      "exceptions": "Multiple births add 1 week per additional child for each parent, or the full 2-week extension for a sole parent. Hospitalisation, disability, adoption and part-time or interrupted periods have additional rules. The default dates exclude the 2 flexible later weeks (4 for a sole parent).",
+      "inputLabel": "Statutory daily regulatory base",
+      "sources": [{"title":"Real Decreto-ley 9/2025","url":"https://www.boe.es/eli/es/rdl/2025/07/29/9"}]
+    },
+    "PT": {
+      "currency": "EUR", "input": "monthly",
+      "duration": "Initial parental leave is 120 or 150 calendar days. Qualifying sharing adds 30 days. The mother must take 42 days after birth and may use up to 30 days before birth within the total. Sharing requires each parent to take at least 30 days alone, or two separate 15-day periods, after the mother's compulsory period.",
+      "eligibility": "At least 6 months of registered earnings are normally required. Self-employed and voluntary-insurance contributors must have their contribution position regularised. Payments are individual: one parent's wage must not be used to value both parents' leave.",
+      "payment": "120 days pays 100%; 150 unshared days pays 80%; 150 shared days pays 100%; 180 shared days pays 83%, or 90% if the father takes 60 days alone, or two 30-day periods, beyond his exclusive leave. The daily reference is eligible earnings in the first 6 of the previous 8 months divided by 180. The published 2026 minimum is EUR 14.32 per day.",
+      "exceptions": "The father's exclusive 28 compulsory plus 7 optional days are paid at 100% and overlap the mother's early leave; do not add them to her payment. Twins, prematurity or hospitalisation may extend the programme and need an agency calculation. The model covers the selected ordinary initial programme and only your own days.",
+      "inputLabel": "Average eligible monthly earnings in the reference 6 months, excluding holiday and Christmas bonuses",
+      "sources": [{"title":"gov.pt — parental leave and benefit, updated 4 September 2026","url":"https://www.gov.pt/guias/ter-uma-crianca/licenca-parental"}]
+    },
+    "VN": {
+      "currency": "VND", "input": "monthly",
+      "duration": "The ordinary childbirth leave is 6 calendar months. Each additional baby from the second adds 1 calendar month. Up to 2 months may be taken before birth within the total. Calendar months are not replaced with a fixed 30-day approximation.",
+      "eligibility": "Under Law 41/2024, ordinarily at least 6 months of compulsory contributions within the 12 months before birth are required. Certified pregnancy care after at least 12 months of contributions may use a 3-of-12-month test; qualifying infertility treatment has a 6-of-24-month rule.",
+      "payment": "The monthly allowance is 100% of the average insured salaries of the last 6 months before leave. A separate childbirth lump sum is 2 times the official reference level per child; it is not included in this salary-based estimate. Odd maternity days use the monthly allowance divided by 30, while prenatal-check and partner working-day allowances use 24.",
+      "exceptions": "The 2024 Social Insurance Law took effect on 1 July 2025. Surrogacy, adoption, pregnancy loss, early return to work and post-leave recovery have separate conditions. The ordinary month-based estimate does not include partner leave or the childbirth lump sum.",
+      "inputLabel": "Average monthly salary used for compulsory insurance in the last 6 months",
+      "sources": [{"title":"Social Insurance Law 41/2024/QH15, Articles 50, 53, 58–59","url":"https://vss.gov.vn/english/legal/Pages/default.aspx?ItemID=3571"},{"title":"Viet Nam Social Security — maternity guidance","url":"https://vss.gov.vn/english/question/Pages/default.aspx?ItemID=1835"}]
+    },
+    "IN": {
+      "currency": "INR", "input": "daily",
+      "duration": "The ordinary maternity-benefit period is up to 26 weeks, with at most 8 weeks before the expected birth. A woman with 2 or more surviving children has up to 12 weeks, with at most 6 before birth. Multiple birth does not by itself increase the ordinary 26-week period.",
+      "eligibility": "The maternity-protection route for covered employment normally requires at least 80 qualifying working days in the 12 months before the expected birth. Employees covered by the Employees' State Insurance maternity route have their own contribution conditions. Check which statutory route covers the employment.",
+      "payment": "Payment is based on the statutory average daily wage for the period of absence. Enter the applicable assessed daily wage, based on the statutory earnings and minimum-wage rules, not a monthly take-home wage divided by 30. The estimate assumes eligibility for the selected ordinary childbirth period.",
+      "exceptions": "Adoption and commissioning mothers, pregnancy loss and medically certified illness have separate periods. The number of surviving children, the covered establishment and the insurance route matter. More favourable employer benefits are separate.",
+      "inputLabel": "Statutory average daily wage",
+      "sources": [{"title":"Code on Social Security 2020, Chapter VI, Sections 59–60 (official Gazette, archived 14 December 2025)","url":"https://web.archive.org/web/20251214024913id_/https://labour.gov.in/sites/default/files/ss_code_gazette.pdf","originalUrl":"https://labour.gov.in/sites/default/files/ss_code_gazette.pdf","archivedAt":"2025-12-14"}]
+    },
+    "JP": {
+      "currency": "JPY", "input": "monthly",
+      "duration": "The childbirth-allowance window starts 42 days before birth (98 for a multiple pregnancy), including the birth day, and runs through the 56th day after birth. If birth is later than expected, the delay is also covered.",
+      "eligibility": "The insured employee must be absent from work for childbirth. This is the employee health-insurance childbirth allowance, not the separate childbirth lump sum or childcare-leave benefit. Continued payment after leaving employment has additional insurance conditions.",
+      "payment": "Use the average standard monthly remuneration over the preceding 12 months. Divide by 30, round to the nearest JPY 10, multiply by 2/3 and round to the nearest JPY 1. Employer wages paid during leave reduce the allowance to the difference. With fewer than 12 insured months, use the lower of the individual's average and JPY 320000 for starts on or after 1 April 2025 (JPY 300000 before then).",
+      "exceptions": "A late actual birth changes the payable window. The standard monthly remuneration is an insurance assessment, not necessarily current gross salary. Childcare leave, its insurance benefit, and the childbirth lump sum are separate and are not added to this estimate.",
+      "inputLabel": "Average standard monthly remuneration for the preceding 12 insured months",
+      "sources": [{"title":"Japan Health Insurance Association — childbirth allowance","url":"https://www.kyoukaikenpo.or.jp/benefit/childbirth/001"}]
+    },
+    "KR": {
+      "currency": "KRW", "input": "agency",
+      "duration": "Maternity leave is 90 calendar days, 100 for a premature birth meeting the statutory criteria, or 120 for a multiple birth. At least 45 days must remain after birth, or 60 for a multiple birth.",
+      "eligibility": "Employment-law leave and Employment Insurance payment are separate rights. Employment Insurance normally requires its qualifying insurance period; the employer and employment centre determine payment responsibilities for the establishment.",
+      "payment": "The first 60 days, or 75 for a multiple birth, are employer-paid at ordinary wages, with insurance support and offsets where applicable. Insurance coverage, establishment size and the current benefit ceiling determine the rest. A single salary percentage for all 90, 100 or 120 days would be misleading.",
+      "exceptions": "The premature-birth extension has statutory medical criteria and is not an automatic extension for any complicated birth. Insurance ceilings, employer top-ups and separate partner or childcare leave must be checked with the employment centre. The displayed dates are a planning example respecting the postnatal minimum.",
+      "inputLabel": "The employer and Employment Insurance determine the payment",
+      "sources": [{"title":"Labor Standards Act, Article 74, 2024 amendment","url":"https://elaw.klri.re.kr/eng_service/lawViewContent.do?hseq=68845"}]
+    },
+    "PL": {
+      "currency": "PLN", "input": "daily",
+      "duration": "Maternity leave is 20 weeks for one baby; 31 for twins; 33 for three; 35 for four; and 37 for five or more. Up to 6 weeks can be used before the expected birth. The mother normally takes at least 14 weeks after birth before an eligible transfer of the remainder.",
+      "eligibility": "Employees are entitled to childbirth leave regardless of employment-contract type. The insurance benefit assessment is separate. The combined maternity-and-parental payment option requires the relevant application no later than 21 days after birth.",
+      "payment": "Ordinary maternity allowance is 100% of the benefit assessment base. An eligible timely combined application uses 81.5% for maternity and parental periods, subject to the separate rules for reserved parental leave. Enter the statutory daily assessment base after applicable insurance adjustments. This estimate covers maternity leave only.",
+      "exceptions": "Additional leave for prematurity or newborn hospitalisation and parental leave are separate from the ordinary maternity period. Transfers, minimum-benefit adjustments and other special cases require ZUS or employer assessment; they are not silently added to the estimate.",
+      "inputLabel": "Statutory daily benefit assessment base",
+      "sources": [{"title":"Ministry of Family, Labour and Social Policy — maternity leave","url":"https://www.gov.pl/web/family/maternity-leave"}]
+    },
+    "NL": {
+      "currency": "EUR", "input": "agency",
+      "duration": "Pregnancy and maternity leave total at least 16 weeks, or 20 for a multiple pregnancy. Start 4–6 weeks before the due date, or 8–10 for multiples, counting back from the day after the due date. At least 10 weeks remain from the day after birth.",
+      "eligibility": "This is the employee WAZO maternity-pay scheme. Self-employed professionals use the separate ZEZ scheme. The employer normally applies to UWV and continues paying the employee while receiving the benefit.",
+      "payment": "UWV maternity pay is 100% of the assessed dagloon, including holiday pay, up to the current maximumdagloon. The assessment and payment-day rules are not the same as dividing monthly salary by calendar days. Use the official UWV calculation for the personal monetary amount.",
+      "exceptions": "Late birth can extend the total period without reducing the postnatal minimum. Hospitalisation, pregnancy-related sickness, the flexible prenatal period and spreading later postnatal weeks can change dates. Partner and parental leave are separate schemes.",
+      "inputLabel": "UWV calculates the capped maternity payment",
+      "sources": [{"title":"UWV — maternity pay for employees","url":"https://www.uwv.nl/en/employers/maternity-and-parental-leave/about-maternity-pay"}]
+    },
+    "SE": {
+      "currency": "SEK", "input": "awarded-daily",
+      "duration": "For one child the family has 480 parental-benefit days: 390 at sickness-benefit level and 90 at SEK 180 per day. With two parents the initial allocation is 240 days each; 90 sickness-level days per parent are reserved. Twins have 660 family days, three children 840 and four 1020.",
+      "eligibility": "The claimant must normally be insured in Sweden and care for the child instead of working, studying or seeking work. Cross-border cases and the income-level qualification test require agency assessment. A sole custodian can receive the full family allocation.",
+      "payment": "Income-level payment depends on SGI, the applicable ceiling and qualifying insurance history. Enter the daily sickness-level amount awarded by Försäkringskassan, not an uncapped percentage of salary. The estimate adds that rate for your selected income-level days and SEK 180 for your selected minimum-level days.",
+      "exceptions": "The first 180 benefit days taken for the child must be sickness-level days. Reserved days cannot be transferred. These are benefit days, not 480 days of maternity leave for each parent; the displayed continuous period uses only your selected days. Later-age limits, double days and SGI protection must also be respected.",
+      "inputLabel": "Your agency-awarded daily amount at sickness-benefit level",
+      "sources": [{"title":"Försäkringskassan — parental benefit, updated 24 August 2026","url":"https://www.forsakringskassan.se/english/parents/when-the-child-is-born/parental-benefit"}]
+    }
+  }
+}

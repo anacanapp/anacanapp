@@ -1,0 +1,7 @@
+.godot/
+artifacts/
+test-results/
+playwright-report/
+export_credentials.cfg
+*.log
+.DS_Store

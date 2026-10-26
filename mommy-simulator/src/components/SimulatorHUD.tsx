@@ -1,0 +1,29 @@
+import { activityById, isBaby, levelProgress } from '../game/engine';
+import { CHAPTERS } from '../game/content';
+import { currentMission, currentStep, missionProgress, simulationWeek } from '../game/progression';
+import { copy as c } from '../game/copy';
+import { t, text } from '../game/i18n';
+import type { Activity, GameState, Panel } from '../game/types';
+import { Icon } from './Icon';
+import { AvatarPortrait } from './AvatarPortrait';
+import { Needs } from './Needs';
+
+export function SimulatorHUD({ state, moving, onPanel, onMission, onPhoto, onSpeed, onPause, onHome, onCancel, storyTitle, onStory }: {
+  state: GameState; moving: Activity | null; onPanel(panel: Panel): void; onMission(): void; onPhoto(): void;
+  onSpeed(): void; onPause(): void; onHome(): void; onCancel(): void;
+  storyTitle?: string; onStory(): void;
+}) {
+  const l = state.language, chapter = CHAPTERS[state.chapter], next = currentStep(state), progress = missionProgress(state), level = levelProgress(state.xp), active = state.activity ? activityById(state.activity.id) : moving;
+  return <div className="simulator-hud"><header className="sim-topbar"><div className="sim-brand"><img src="/assets/mark.svg" alt="" /><div><strong>MOMMY<span>SIMULATOR</span></strong><small>{t('pregnancySubtitle', l)}</small></div></div><div className="sim-wallet"><span><Icon name="coins" size={18} />{state.coins}</span><span><Icon name="star" size={16} />{state.stars}</span><button onClick={() => onPanel('settings')} aria-label={t('settings', l)}><Icon name="settings" size={20} /></button></div></header>
+    <section className="sim-chapter-bar"><div className="chapter-numeral">{String(state.chapter + 1).padStart(2, '0')}<i>/14</i></div><div><span>{t('chapter', l).toUpperCase()} · {isBaby(state) ? text(chapter.period, l) : `${t('week', l)} ${simulationWeek(state)}`}</span><h1>{text(chapter.title, l)}</h1></div><button onClick={() => onPanel('journey')} aria-label={t('journey', l)}><Icon name="bookheart" size={21} /></button></section>
+    <div className="sim-location-strip"><button onClick={() => onPanel('map')} data-testid="open-map"><Icon name="map" size={15} /><strong>{state.location === 'home' ? 'WILLOW HOUSE' : 'ANACAN FAMILY CLINIC'}</strong><Icon name="down" size={12} /></button><span><Icon name={state.time < 18 * 60 ? 'sun' : 'moon'} size={14} />{Math.floor(state.time / 60).toString().padStart(2, '0')}:{Math.floor(state.time % 60).toString().padStart(2, '0')}<small>{t('day', l)} {state.day}</small></span></div>
+    <div className="sim-side-controls"><button onClick={onPhoto} aria-label={t('camera', l)} data-testid="photo-mode"><Icon name="camera" size={21} /></button><button onClick={() => onPanel('family')} aria-label={t('family', l)}><Icon name="users" size={21} /></button><button onClick={() => onPanel('library')} aria-label={t('library', l)}><Icon name="book" size={20} /></button><button onClick={onHome} aria-label={t('world', l)}><Icon name="maximize" size={19} /></button></div>
+    <div className="sim-world-caption"><i /><span>{state.location === 'home' ? 'HOME, SWEET HOME' : 'CARE, TOGETHER'}</span></div>
+    {storyTitle && !active && <button className="sim-story-invitation" onClick={onStory}><Icon name="heart" size={16} /><span>{storyTitle}</span><Icon name="right" size={14} /></button>}
+    <div className="sim-bottom-dock"><div className="sim-character-needs"><button className="sim-portrait" onClick={() => onPanel('family')} aria-label={t('family', l)}><AvatarPortrait avatar={state.avatar} small /><b>{level.level}</b></button><div className="sim-character-stats"><div><strong>{state.avatar.name}</strong><span>{t(state.avatar.personality, l)}<Icon name="sparkles" size={10} /></span></div><Needs state={state} compact />{isBaby(state) && <div className="sim-baby-needs"><Icon name="baby" size={11} /><span>{state.avatar.babyName}</span><Needs state={state} baby compact /></div>}</div><div className="sim-time-controls"><button onClick={onPause} aria-label={t(state.settings.speed === 0 ? 'resume' : 'pause', l)}><Icon name={state.settings.speed === 0 ? 'play' : 'pause'} size={17} /></button><button onClick={onSpeed} aria-label={t('speed', l)}>{state.settings.speed === 2 ? '2×' : '1×'}</button></div></div>
+      <button className={`sim-mission-widget ${active ? 'busy' : ''}`} onClick={() => !active && onMission()} disabled={Boolean(active)} data-testid="mission-widget"><span className="mission-widget-icon"><Icon name={active?.icon ?? (next ? activityById(next.action).icon : 'trophy')} size={25} /></span><div><small>{t(active ? 'gameplay' : next ? 'nextStep' : 'missionComplete', l)} <i>{progress.completed}/{progress.total}</i></small><strong>{active ? text(active.title, l) : next ? text(next.title, l) : text(currentMission(state).title, l)}</strong><div className="mission-widget-track"><i style={{ width: active ? moving ? '13%' : `${(state.activity?.elapsed ?? 0) / active.seconds * 100}%` : `${progress.percent}%` }} /></div><span>{active ? t(moving ? 'moving' : 'relaxing', l) : next?.interactive ? t('playScene', l) : next?.travelTo ? t('travel', l) : t('doIt', l)}</span></div><Icon name={active ? 'loading' : 'arrow'} size={19} className={active && !moving ? 'spin' : ''} /></button>
+      {active && <button className="sim-cancel" onClick={onCancel} aria-label={t('cancel', l)}><Icon name="close" size={15} /></button>}
+      <nav className="sim-nav" aria-label="Simulator navigation"><button className="active" onClick={onHome}><Icon name="home" size={21} /><span>{t('world', l)}</span></button>{(['tasks', 'journey', 'decorate', 'album'] as Panel[]).map((panel, i) => <button key={panel} onClick={() => onPanel(panel)} data-testid={`nav-${panel}`}><Icon name={['clipboard', 'bookheart', 'palette', 'camera'][i]} size={21} /><span>{t(panel === 'tasks' ? 'missions' : panel, l)}</span>{panel === 'tasks' && !next && <b />}</button>)}</nav>
+    </div>
+  </div>;
+}

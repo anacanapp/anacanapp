@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "resetpassword_sifreni_yeniden_daxil_edin_7e89fb",
+  "az": "Şifrəni yenidən daxil edin",
+  "en": "Re-enter password"
+ },
+ {
+  "key": "resetpassword_sifreni_yenile_b1ff44",
+  "az": "Şifrəni Yenilə",
+  "en": "Reset Password"
+ },
+ {
+  "key": "resetpassword_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "resetpassword_yeni_sifre_56fd00",
+  "az": "Yeni Şifrə",
+  "en": "New Password"
+ },
+ {
+  "key": "resetpassword_yeni_sifrenizi_teyin_edin_96ef69",
+  "az": "Yeni şifrənizi təyin edin",
+  "en": "Set your new password"
+ },
+ {
+  "key": "resetpassword_yeni_sifrenizle_daxil_ola_bilersiniz_87d13a",
+  "az": "Yeni şifrənizlə daxil ola bilərsiniz.",
+  "en": "You can log in with your new password."
+ },
+ {
+  "key": "resetpassword_yeniden_cehd_edin_18c03c",
+  "az": "Yenidən cəhd edin.",
+  "en": "Try again."
+ },
+ {
+  "key": "resetpassword_zehmet_olmasa_yeni_sifrenizi_daxil_edin_6e8886",
+  "az": "Zəhmət olmasa yeni şifrənizi daxil edin.",
+  "en": "Please enter your new password."
+ },
+ {
+  "key": "revenuecatdebug_android_de_hemise_false_olmali_601719",
+  "az": "(Android-də həmişə FALSE olmalıdır)",
+  "en": "(Always FALSE on Android)"
+ },
+ {
+  "key": "revenuecatdebug_npx_cap_sync_lazimdir_817885",
+  "az": "❌ (npx cap sync lazımdır)",
+  "en": "❌ (need npx cap sync)"
+ },
+ {
+  "key": "revenuecatdebug_web_preview_revenuecat_yalniz__2ff9ad",
+  "az": "⚠️ Web preview: RevenueCat yalnız native cihazda işləyir. APK/IPA quraşdırın.",
+  "en": "⚠️ Web preview: RevenueCat only works on native devices. Install APK/IPA."
+ },
+ {
+  "key": "revenuecatdebug_yeniden_yoxla_284ffb",
+  "az": "Yenidən yoxla",
+  "en": "Check again"
+ },
+ {
+  "key": "richtexteditor_altixetli_c40fd6",
+  "az": "Altıxətli",
+  "en": "Underline"
+ },
+ {
+  "key": "richtexteditor_basliq_1_4e0712",
+  "az": "Başlıq 1",
+  "en": "Heading 1"
+ },
+ {
+  "key": "richtexteditor_basliq_2_2e5cb2",
+  "az": "Başlıq 2",
+  "en": "Heading 2"
+ },
+ {
+  "key": "richtexteditor_basliq_3_36375a",
+  "az": "Başlıq 3",
+  "en": "Heading 3"
+ },
+ {
+  "key": "richtexteditor_geri_al",
+  "az": "Geri al",
+  "en": "Undo"
+ },
+ {
+  "key": "richtexteditor_i_reli_3bc432",
+  "az": "İrəli",
+  "en": "Forward"
+ },
+ {
+  "key": "richtexteditor_kod",
+  "az": "Kod",
+  "en": "Code"
+ },
+ {
+  "key": "richtexteditor_kursiv",
+  "az": "Kursiv",
+  "en": "Italic"
+ },
+ {
+  "key": "richtexteditor_mezmun_yazin_bdbcfa",
+  "az": "Məzmun yazın...",
+  "en": "Write content..."
+ },
+ {
+  "key": "richtexteditor_nomreli_siyahi_0adbc6",
+  "az": "Nömrəli siyahı",
+  "en": "Numbered list"
+ },
+ {
+  "key": "richtexteditor_ortaya",
+  "az": "Ortaya",
+  "en": "To Center"
+ },
+ {
+  "key": "richtexteditor_qalin_c4d6bc",
+  "az": "Qalın",
+  "en": "Bold"
+ },
+ {
+  "key": "richtexteditor_saga_804f56",
+  "az": "Sağa",
+  "en": "Right"
+ },
+ {
+  "key": "richtexteditor_sekil_5mb_dan_boyuk_ola_bilmez_3e4e99",
+  "az": "Şəkil 5MB-dan böyük ola bilməz",
+  "en": "Image cannot be larger than 5MB"
+ },
+ {
+  "key": "richtexteditor_sekil_yukle_0577d2",
+  "az": "Şəkil yüklə",
+  "en": "Upload image"
+ },
+ {
+  "key": "richtexteditor_sekil_yuklendi_474bd5",
+  "az": "Şəkil yükləndi",
+  "en": "Image uploaded"
+ },
+ {
+  "key": "richtexteditor_sekil_yuklenerken_xeta_bas_ver_16a2d0",
+  "az": "Şəkil yüklənərkən xəta baş verdi",
+  "en": "An error occurred while loading the image"
+ },
+ {
+  "key": "richtexteditor_sitat",
+  "az": "Sitat",
+  "en": "Quote"
+ },
+ {
+  "key": "richtexteditor_siyahi_f04aac",
+  "az": "Siyahı",
+  "en": "List"
+ },
+ {
+  "key": "richtexteditor_sola",
+  "az": "Sola",
+  "en": "To Left"
+ },
+ {
+  "key": "richtexteditor_ustuxetli_f3d1e5",
+  "az": "Üstüxətli",
+  "en": "Strikethrough"
+ },
+ {
+  "key": "richtexteditor_xett_c1e83c",
+  "az": "Xətt",
+  "en": "Line"
+ },
+ {
+  "key": "richtexteditor_yalniz_sekil_fayllari_yukleye__ed2541",
+  "az": "Yalnız şəkil faylları yükləyə bilərsiniz",
+  "en": "You can only upload image files"
+ },
+ {
+  "key": "safety_added_to_database",
+  "az": "bazaya əlavə edildi",
+  "en": "added to database"
+ },
+ {
+  "key": "safetylookup_ai_ile_axtar_01b8df",
+  "az": "AI ilə axtar",
+  "en": "Search with AI"
+ },
+ {
+  "key": "safetylookup_ai_ile_axtaris_edin_780816",
+  "az": "\\",
+  "en": "\" — search with AI"
+ },
+ {
+  "key": "safetylookup_ai_ile_tapildi_5c2d49",
+  "az": "AI ilə tapıldı! ✨",
+  "en": "Found with AI! ✨"
+ },
+ {
+  "key": "safetylookup_alternativ_axtarin_7735a0",
+  "az": "Alternativ axtarın",
+  "en": "Search Alternative"
+ },
+ {
+  "key": "safetylookup_axtarilir_f0f94f",
+  "az": "Axtarılır...",
+  "en": "Searching..."
+ },
+ {
+  "key": "safetylookup_axtaris_etmeye_baslayin_5447ec",
+  "az": "Axtarış etməyə başlayın",
+  "en": "Start searching"
+ },
+ {
+  "key": "safetylookup_bagla_84bdc9",
+  "az": "Bağla",
+  "en": "Close"
+ },
+ {
+  "key": "safetylookup_bazada_tapilmadi_1e2889",
+  "az": "Bazada tapılmadı",
+  "en": "Not found in database"
+ },
+ {
+  "key": "safetylookup_ehtiyatli_ba7ebe",
+  "az": "Ehtiyatlı",
+  "en": "Caution"
+ },
+ {
+  "key": "safetylookup_en_azi_2_simvol_yazin_f08b6d",
+  "az": "Ən azı 2 simvol yazın",
+  "en": "Type at least 2 characters"
+ },
+ {
+  "key": "safetylookup_hamilelik_dovrunde_istifade_ed_b320b9",
+  "az": "Hamiləlik dövründə istifadə edə bilərsiniz",
+  "en": "You can use it during pregnancy"
+ },
+ {
+  "key": "safetylookup_hamilelik_dovrunde_istifade_et_7bc436",
+  "az": "Hamiləlik dövründə istifadə etməyin",
+  "en": "Do not use during pregnancy"
+ },
+ {
+  "key": "safetylookup_hamisi_6dc013",
+  "az": "hamısı",
+  "en": "all"
+ },
+ {
+  "key": "safetylookup_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All"
+ },
+ {
+  "key": "safetylookup_hec_ne_tapilmadi_6a4eca",
+  "az": "Heç nə tapılmadı",
+  "en": "Nothing found"
+ },
+ {
+  "key": "safetylookup_hekiminizle_meslehetlesin_1366f8",
+  "az": "Həkiminizlə məsləhətləşin",
+  "en": "Consult your doctor"
+ },
+ {
+  "key": "safetylookup_miqdari_mehdudlasdirin_9faa97",
+  "az": "Miqdarı məhdudlaşdırın",
+  "en": "Limit the amount"
+ },
+ {
+  "key": "safetylookup_miqdari_normal_saxlayin_f90941",
+  "az": "Miqdarı normal saxlayın",
+  "en": "Keep the amount normal"
+ },
+ {
+  "key": "safetylookup_namelum_134662",
+  "az": "Naməlum",
+  "en": "Unknown"
+ },
+ {
+  "key": "safetylookup_ne_yoxlamaq_isteyirsiniz_33ce31",
+  "az": "Nə yoxlamaq istəyirsiniz?",
+  "en": "What would you like to check?"
+ },
+ {
+  "key": "safetylookup_tehlukeli_056934",
+  "az": "Təhlükəli",
+  "en": "Dangerous"
+ },
+ {
+  "key": "safetylookup_tehlukesiz_1f31cb",
+  "az": "Təhlükəsiz",
+  "en": "Safe"
+ },
+ {
+  "key": "safetylookup_tehlukesizlik_sorgusu_bd80c3",
+  "az": "Təhlükəsizlik Sorğusu",
+  "en": "Safety Lookup"
+ },
+ {
+  "key": "safetylookup_tovsiyeler_17a8f7",
+  "az": "Tövsiyələr",
+  "en": "Suggestions"
+ },
+ {
+  "key": "safetylookup_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "saglamsebet_best_score_label",
+  "az": "Ən yaxşı xalınız",
+  "en": "Best score"
+ },
+ {
+  "key": "saglamsebet_choose_level",
+  "az": "Səviyyə seçin",
+  "en": "Choose a level"
+ },
+ {
+  "key": "saglamsebet_go_text",
+  "az": "Başla!",
+  "en": "Go!"
+ },
+ {
+  "key": "saglamsebet_intro_desc",
+  "az": "Sağlam qidaları səbətə tut, zərərli qidalardan və stress buludlarından qaç!",
+  "en": "Catch the healthy foods in your basket — dodge junk food and stress clouds!"
+ },
+ {
+  "key": "saglamsebet_level_complete_title",
+  "az": "Səviyyə tamamlandı!",
+  "en": "Level complete!"
+ },
+ {
+  "key": "saglamsebet_level_label",
+  "az": "Səviyyə",
+  "en": "Level"
+ },
+ {
+  "key": "saglamsebet_levels_unlocked_prefix",
+  "az": "Açılmış səviyyələr",
+  "en": "Levels unlocked"
+ },
+ {
+  "key": "saglamsebet_life_lost_text",
+  "az": "-1 ❤️",
+  "en": "-1 ❤️"
+ },
+ {
+  "key": "saglamsebet_menu_button",
+  "az": "Menyu",
+  "en": "Menu"
+ },
+ {
+  "key": "saglamsebet_next_level_button",
+  "az": "Növbəti səviyyə",
+  "en": "Next level"
+ },
+ {
+  "key": "saglamsebet_out_of_lives_title",
+  "az": "Canlar bitdi!",
+  "en": "Out of lives!"
+ },
+ {
+  "key": "saglamsebet_paused_title",
+  "az": "Fasilə",
+  "en": "Paused"
+ },
+ {
+  "key": "saglamsebet_points_short",
+  "az": "xal",
+  "en": "pts"
+ },
+ {
+  "key": "saglamsebet_replay_button",
+  "az": "Təkrar oyna",
+  "en": "Play again"
+ },
+ {
+  "key": "saglamsebet_restart_button",
+  "az": "Yenidən başla",
+  "en": "Restart"
+ },
+ {
+  "key": "saglamsebet_resume_button",
+  "az": "Davam et",
+  "en": "Resume"
+ },
+ {
+  "key": "saglamsebet_retry_button",
+  "az": "Yenidən cəhd et",
+  "en": "Try again"
+ },
+ {
+  "key": "saglamsebet_start_button",
+  "az": "Başla",
+  "en": "Start"
+ },
+ {
+  "key": "saglamsebet_target_prefix",
+  "az": "Hədəf",
+  "en": "Target"
+ },
+ {
+  "key": "saglamsebet_target_reached",
+  "az": "Hədəf keçildi!",
+  "en": "Target reached!"
+ },
+ {
+  "key": "saglamsebet_time_up_title",
+  "az": "Vaxt bitdi!",
+  "en": "Time's up!"
+ },
+ {
+  "key": "saglamsebet_title",
+  "az": "Sağlam Səbət",
+  "en": "Healthy Basket"
+ },
+ {
+  "key": "saglamsebet_your_score_prefix",
+  "az": "Xalınız",
+  "en": "Your score"
+ },
+ {
+  "key": "savedproductslist_beyendiyiniz_mehsullari_ile_sa_7ecb02",
+  "az": "Bəyəndiyiniz məhsulları ❤️ ilə saxlayın, sonra buradan asanlıqla tapın",
+  "en": "Save the products you like with ❤️, then easily find them here"
+ },
+ {
+  "key": "savedproductslist_hele_hec_ne_saxlanmayib_70769c",
+  "az": "Hələ heç nə saxlanmayıb",
+  "en": "Nothing saved yet"
+ },
+ {
+  "key": "savedproductslist_mehsul_2d6a33",
+  "az": "məhsul",
+  "en": "product"
+ },
+ {
+  "key": "savedproductslist_saxlanilmis_mehsullar_28bd17",
+  "az": "Saxlanılmış məhsullar",
+  "en": "Saved products"
+ },
+ {
+  "key": "secondhandmarket_0_3_ay_3c7a2d",
+  "az": "0-3 ay",
+  "en": "0-3 months"
+ },
+ {
+  "key": "secondhandmarket_1_2_yas_aa6324",
+  "az": "1-2 yaş",
+  "en": "1-2 ibid"
+ },
+ {
+  "key": "secondhandmarket_2_3_yas_d49317",
+  "az": "2-3 yaş",
+  "en": "2-3 ibid"
+ },
+ {
+  "key": "secondhandmarket_3_6_ay_3c7a2d",
+  "az": "3-6 ay",
+  "en": "3-6 months"
+ },
+ {
+  "key": "secondhandmarket_3_yas_dec51d",
+  "az": "3+ yaş",
+  "en": "3+ Ibid"
+ },
+ {
+  "key": "secondhandmarket_6_12_ay_3c7a2d",
+  "az": "6-12 ay",
+  "en": "6-12 months"
+ },
+ {
+  "key": "secondhandmarket_araba_3c7a2d",
+  "az": "Araba",
+  "en": "Stroller"
+ },
+ {
+  "key": "secondhandmarket_basliq_3dfed8",
+  "az": "Başlıq *",
+  "en": "Title *"
+ },
+ {
+  "key": "secondhandmarket_basliq_daxil_edin_edf2fd",
+  "az": "Başlıq daxil edin",
+  "en": "Enter a title"
+ },
+ {
+  "key": "secondhandmarket_butun_elanlar_033e6a",
+  "az": "Bütün elanlar",
+  "en": "All ads"
+ },
+ {
+  "key": "secondhandmarket_diger_293b3a",
+  "az": "Digər",
+  "en": "Other"
+ },
+ {
+  "key": "secondhandmarket_elan_yaradila_bilmedi_9b2414",
+  "az": "Elan yaradıla bilmədi",
+  "en": "Could not create advertisement"
+ },
+ {
+  "key": "secondhandmarket_elan_yaradildi_ve_tesdiq_ucun_gonderildi_2869bb",
+  "az": "Elan yaradıldı və təsdiq üçün göndərildi",
+  "en": "Advertisement created and sent for approval"
+ },
+ {
+  "key": "secondhandmarket_elan_yaratmaq_ucun_daxil_olun_264bf1",
+  "az": "Elan yaratmaq üçün daxil olun",
+  "en": "Log in to create an advertisement"
+ },
+ {
+  "key": "secondhandmarket_elanlar_yuklene_bilmedi_3af806",
+  "az": "Elanlar yüklənə bilmədi",
+  "en": "Advertisements could not be loaded"
+ },
+ {
+  "key": "secondhandmarket_elave_et_6e1b9b",
+  "az": "Əlavə et",
+  "en": "Add"
+ },
+ {
+  "key": "secondhandmarket_esya_haqqinda_melumat_9e2aa1",
+  "az": "Əşya haqqında məlumat...",
+  "en": "Information about the item..."
+ },
+ {
+  "key": "secondhandmarket_gigiyena_3c7a2d",
+  "az": "Gigiyena",
+  "en": "Hygiene"
+ },
+ {
+  "key": "secondhandmarket_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All"
+ },
+ {
+  "key": "secondhandmarket_hele_elan_yoxdur_89fb8c",
+  "az": "Hələ elan yoxdur",
+  "en": "No listings yet"
+ },
+ {
+  "key": "secondhandmarket_hele_mesaj_yoxdur_cf0b5e",
+  "az": "Hələ mesaj yoxdur",
+  "en": "No messages yet"
+ },
+ {
+  "key": "secondhandmarket_i_kinci_el_bazari_ad9f9f",
+  "az": "İkinci Əl Bazarı",
+  "en": "Second Hand Market"
+ },
+ {
+  "key": "secondhandmarket_i_lk_elani_siz_yerlesdirin_02683c",
+  "az": "İlk elanı siz yerləşdirin!",
+  "en": "Be the first to post a name!"
+ },
+ {
+  "key": "secondhandmarket_i_lk_elani_yarat_a4e8b2",
+  "az": "İlk elanı yarat",
+  "en": "Create first name"
+ },
+ {
+  "key": "secondhandmarket_mebel_3c7a2d",
+  "az": "Mebel",
+  "en": "Furniture"
+ },
+ {
+  "key": "secondhandmarket_menim_elanlarim_cec2c2",
+  "az": "Mənim elanlarım",
+  "en": "My ads"
+ },
+ {
+  "key": "secondhandmarket_mesaj_gonderile_bilmedi_0cd095",
+  "az": "Mesaj göndərilə bilmədi",
+  "en": "Message could not be sent"
+ },
+ {
+  "key": "secondhandmarket_mesajinizi_yazin_21d48f",
+  "az": "Mesajınızı yazın...",
+  "en": "Write your message..."
+ },
+ {
+  "key": "secondhandmarket_meselen_0_3_ay_oglan_geyimleri_55b327",
+  "az": "Məsələn: 0-3 ay oğlan geyimləri",
+  "en": "Example: 0-3 months boy clothing"
+ },
+ {
+  "key": "secondhandmarket_meselen_baki_425cda",
+  "az": "Məsələn: Bakı",
+  "en": "Example: New York"
+ },
+ {
+  "key": "secondhandmarket_oz_elaninizdir_4cfb3d",
+  "az": "Öz elanınızdır",
+  "en": "This is your name"
+ },
+ {
+  "key": "secondhandmarket_pullu_3c7a2d",
+  "az": "Pullu",
+  "en": "Paid"
+ },
+ {
+  "key": "secondhandmarket_pulsuz",
+  "az": "Pulsuz",
+  "en": "Free"
+ },
+ {
+  "key": "secondhandmarket_qidalanma_3c7a2d",
+  "az": "Qidalanma",
+  "en": "Feeding"
+ },
+ {
+  "key": "secondhandmarket_qiymet_54c4f3",
+  "az": "Qiymət",
+  "en": "Price"
+ },
+ {
+  "key": "secondhandmarket_satici_ile_elaqe_a7f3e8",
+  "az": "Satıcı ilə əlaqə",
+  "en": "Contact seller"
+ },
+ {
+  "key": "secondhandmarket_saticiya_mesaj_gonderin_ad78e2",
+  "az": "Satıcıya mesaj göndərin",
+  "en": "Send message to seller"
+ },
+ {
+  "key": "secondhandmarket_seher_5f373c",
+  "az": "Şəhər",
+  "en": "City"
+ },
+ {
+  "key": "secondhandmarket_sekil_yuklene_bilmedi_3c275f",
+  "az": "Şəkil yüklənə bilmədi",
+  "en": "Image could not be uploaded"
+ },
+ {
+  "key": "secondhandmarket_sekiller_maks_5_4281f8",
+  "az": "Şəkillər (maks. 5)",
+  "en": "Photos (max. 5)"
+ },
+ {
+  "key": "secondhandmarket_sekiller_yuklendi_5f1633",
+  "az": "Şəkillər yükləndi!",
+  "en": "Images uploaded!"
+ },
+ {
+  "key": "secondhandmarket_tesvir_f85651",
+  "az": "Təsvir",
+  "en": "Description"
+ },
+ {
+  "key": "secondhandmarket_ugurlu_5c0191",
+  "az": "Uğurlu!",
+  "en": "Success!"
+ },
+ {
+  "key": "secondhandmarket_veziyyet_f0e993",
+  "az": "Vəziyyət",
+  "en": "Condition"
+ },
+ {
+  "key": "secondhandmarket_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "secondhandmarket_yaradilir_9bb5ed",
+  "az": "Yaradılır...",
+  "en": "Creating..."
+ },
+ {
+  "key": "secondhandmarket_yas_araligi_2e277e",
+  "az": "Yaş aralığı",
+  "en": "Age range"
+ },
+ {
+  "key": "secondhandmarket_yaxsi_9d8595",
+  "az": "Yaxşı",
+  "en": "Okay"
+ },
+ {
+  "key": "secondhandmarket_yeni",
+  "az": "Yeni",
+  "en": "New"
+ },
+ {
+  "key": "secondhandmarket_yeni_elan_yarat_3c7a2d",
+  "az": "Yeni elan yarat",
+  "en": "Create New Listing"
+ },
+ {
+  "key": "secondhandmarket_yeni_kimi",
+  "az": "Yeni kimi",
+  "en": "Like new"
+ },
+ {
+  "key": "select_country",
+  "az": "Ölkə seçin",
+  "en": "Select Country"
+ },
+ {
+  "key": "shopping_item_added",
+  "az": "əlavə edildi!",
+  "en": "added!"
+ },
+ {
+  "key": "shoppinglist_alinacaq_c49c64",
+  "az": "alınacaq",
+  "en": "to buy"
+ },
+ {
+  "key": "shoppinglist_alindi_63cabc",
+  "az": "alındı",
+  "en": "bought"
+ },
+ {
+  "key": "shoppinglist_alinmis_mehsullar_957a1f",
+  "az": "Alınmış məhsullar (",
+  "en": "Purchased products ("
+ },
+ {
+  "key": "shoppinglist_alisveris_siyahisi_5fe638",
+  "az": "Alışveriş Siyahısı",
+  "en": "Shopping List"
+ },
+ {
+  "key": "shoppinglist_asagi_1c27f1",
+  "az": "Aşağı",
+  "en": "Down"
+ },
+ {
+  "key": "shoppinglist_bu_siyahiya_elave_etdiyiniz_me_0ba1c1",
+  "az": "Bu siyahıya əlavə etdiyiniz məhsullar partnyorunuz tərəfindən də görünür və real vaxtda sinxronlaşır.",
+  "en": "The products you add to this list are also visible to your partner and sync in real time."
+ },
+ {
+  "key": "shoppinglist_mehsul_adi_a5d2df",
+  "az": "Məhsul adı...",
+  "en": "Product name..."
+ },
+ {
+  "key": "shoppinglist_mehsul_elave_edildi_db41ff",
+  "az": "Məhsul əlavə edildi!",
+  "en": "Product added!"
+ },
+ {
+  "key": "shoppinglist_mehsul_elave_edile_bilmedi_47a41c",
+  "az": "Məhsul əlavə edilə bilmədi",
+  "en": "Could not add product"
+ },
+ {
+  "key": "shoppinglist_ortaq_alisveris_828573",
+  "az": "Ortaq Alışveriş",
+  "en": "Shared Shopping"
+ },
+ {
+  "key": "shoppinglist_ortaq_siyahi_e10fff",
+  "az": "Ortaq siyahı",
+  "en": "Shared list"
+ },
+ {
+  "key": "shoppinglist_partnyor_ile_ortaq_bbdb50",
+  "az": "Partnyor ilə ortaq",
+  "en": "Shared with partner"
+ },
+ {
+  "key": "shoppinglist_platformanin_tovsiyeleri_2e687e",
+  "az": "Platformanın tövsiyələri (",
+  "en": "Platform Recommendations ("
+ },
+ {
+  "key": "shoppinglist_priority_orta",
+  "az": "Orta",
+  "en": "Medium"
+ },
+ {
+  "key": "shoppinglist_sexsi_siyahi_93858e",
+  "az": "Şəxsi siyahı",
+  "en": "Personal list"
+ },
+ {
+  "key": "shoppinglist_siyahi_bosdur_c420ab",
+  "az": "Siyahı boşdur",
+  "en": "List is empty"
+ },
+ {
+  "key": "shoppinglist_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "shoppinglist_yuksek_492584",
+  "az": "Yüksək",
+  "en": "High"
+ },
+ {
+  "key": "shopscreen_ana_ve_korpe_ucun_8dd4f2",
+  "az": "Ana və körpə üçün",
+  "en": "For mother and baby"
+ },
+ {
+  "key": "shopscreen_anacan20_kodunu_daxil_edin",
+  "az": "ANACAN20 kodunu daxil edin",
+  "en": "Enter code ANACAN20"
+ },
+ {
+  "key": "shopscreen_geri_qayit_ff66c2",
+  "az": "Geri qayıt",
+  "en": "Go back"
+ },
+ {
+  "key": "shopscreen_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All"
+ },
+ {
+  "key": "shopscreen_hec_bir_mehsul_tapilmadi_7ded0c",
+  "az": "Heç bir məhsul tapılmadı",
+  "en": "No products found"
+ },
+ {
+  "key": "shopscreen_ilk_sifarise_20_endirim_444b7e",
+  "az": "İlk sifarişə 20% endirim!",
+  "en": "20% discount on first order!"
+ },
+ {
+  "key": "shopscreen_magaza_bolmesi_tezlikle_aktiv__46cb1c",
+  "az": "Mağaza bölməsi tezliklə aktiv olacaq.",
+  "en": "Shop section will be active soon."
+ },
+ {
+  "key": "shopscreen_magaza_defaa2",
+  "az": "Mağaza",
+  "en": "Shop"
+ },
+ {
+  "key": "shopscreen_magaza_hazirlanir_5c87ce",
+  "az": "Mağaza Hazırlanır",
+  "en": "Shop is being prepared"
+ },
+ {
+  "key": "shopscreen_mehsul_axtarin_7356a7",
+  "az": "Məhsul axtarın...",
+  "en": "Search products..."
+ },
+ {
+  "key": "shopscreen_rey_f2285f",
+  "az": "rəy)",
+  "en": "opinion)"
+ },
+ {
+  "key": "shopscreen_sebete_elave_et_e0d6d4",
+  "az": "Səbətə əlavə et",
+  "en": "Add to cart"
+ },
+ {
+  "key": "shopscreen_xususi_teklif_d781d9",
+  "az": "Xüsusi Təklif",
+  "en": "Special Offer"
+ },
+ {
+  "key": "sleephistorypanel_bu_gun_7d7f30",
+  "az": "bu gün",
+  "en": "today"
+ },
+ {
+  "key": "sleephistorypanel_no_records",
+  "az": "Qeyd yoxdur",
+  "en": "No records"
+ },
+ {
+  "key": "sleephistorypanel_record_deleted",
+  "az": "Yuxu qeydi silindi",
+  "en": "Sleep record deleted"
+ },
+ {
+  "key": "sleephistorypanel_silmek_isteyirsiniz_77af6b",
+  "az": "Silmək istəyirsiniz?",
+  "en": "Do you want to delete?"
+ },
+ {
+  "key": "sleephistorypanel_sleep_label",
+  "az": "Yuxu",
+  "en": "Sleep"
+ },
+ {
+  "key": "sleephistorypanel_sleep_sessions",
+  "az": "yuxu",
+  "en": "sessions"
+ },
+ {
+  "key": "sleephistorypanel_times",
+  "az": "dəfə",
+  "en": "times"
+ },
+ {
+  "key": "sleephistorypanel_today",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "sleephistorypanel_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "sleephistorypanel_yesterday",
+  "az": "Dünən",
+  "en": "Yesterday"
+ },
+ {
+  "key": "sleephistorypanel_yuxu_qeydi_yenilendi_26a02f",
+  "az": "Yuxu qeydi yeniləndi",
+  "en": "Sleep record updated"
+ },
+ {
+  "key": "sleephistorypanel_yuxu_xulasesi_b2dc87",
+  "az": "Yuxu xülasəsi",
+  "en": "Sleep summary"
+ },
+ {
+  "key": "smartplaybox_agilli_oyun_qutusu_db6ef9",
+  "az": "Ağıllı Oyun Qutusu",
+  "en": "Smart Play Box"
+ },
+ {
+  "key": "smartplaybox_bacariq_saheleri_d5133c",
+  "az": "Bacarıq Sahələri",
+  "en": "Skill Areas"
+ },
+ {
+  "key": "smartplaybox_bu_yasa_uygun_oyun_tapilmadi_72e443",
+  "az": "Bu yaşa uyğun oyun tapılmadı",
+  "en": "No game found for this age"
+ },
+ {
+  "key": "smartplaybox_bugunku_tovsiye_ec6c3a",
+  "az": "Bugünkü Tövsiyə",
+  "en": "Today's Recommendation"
+ },
+ {
+  "key": "smartplaybox_cetin_4bf032",
+  "az": "Çətin",
+  "en": "Difficult"
+ },
+ {
+  "key": "smartplaybox_daha_deqiq_oyun_teklifleri_ucu_c0c456",
+  "az": "Daha dəqiq oyun təklifləri üçün evinizdəki əşyaları qeyd edin.",
+  "en": "Mark items in your home for more accurate game suggestions."
+ },
+ {
+  "key": "smartplaybox_deq_780a5c",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "smartplaybox_deqiqe_94641a",
+  "az": "dəqiqə",
+  "en": "minutes"
+ },
+ {
+  "key": "smartplaybox_dil",
+  "az": "Dil",
+  "en": "Language"
+ },
+ {
+  "key": "smartplaybox_duygu_a3bf01",
+  "az": "✋ Duyğu",
+  "en": "✋ Emotion"
+ },
+ {
+  "key": "smartplaybox_easy",
+  "az": "Asan",
+  "en": "Easy"
+ },
+ {
+  "key": "smartplaybox_ela_548a34",
+  "az": "🎉 Əla!",
+  "en": "🎉 Great!"
+ },
+ {
+  "key": "smartplaybox_esya_secilib_cfd789",
+  "az": "əşya seçilib",
+  "en": "item is selected"
+ },
+ {
+  "key": "smartplaybox_esyalari_sec_67bfb1",
+  "az": "Əşyaları seç",
+  "en": "Select items"
+ },
+ {
+  "key": "smartplaybox_evde_olan_esyalar_382e9a",
+  "az": "Evdə Olan Əşyalar",
+  "en": "Items in the House"
+ },
+ {
+  "key": "smartplaybox_evdeki_esyalari_secin_3b81dd",
+  "az": "Evdəki əşyaları seçin",
+  "en": "Select the items in the house"
+ }
+]

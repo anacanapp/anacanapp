@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "mooddiary_yorgunluq_hiss_etdiyiniz_gunle_478815",
+  "az": "Yorğunluq hiss etdiyiniz günlərdə istirahət etməyi unutmayın. Hamiləlik zamanı bədəninizin ehtiyaclarına qulaq asmaq vacibdir.",
+  "en": "Do not forget to rest on days when you feel tired. It is important to listen to your body's needs during pregnancy."
+ },
+ {
+  "key": "namevotingscreen_ad_secimi_465d2a",
+  "az": "Ad Seçimi",
+  "en": "Name Voting"
+ },
+ {
+  "key": "namevotingscreen_ad_tapilmadi_cf4c7a",
+  "az": "Ad tapılmadı",
+  "en": "Name not found"
+ },
+ {
+  "key": "namevotingscreen_ad_ve_ya_mena_axtarin_30a88e",
+  "az": "Ad və ya məna axtarın...",
+  "en": "Search name or meaning..."
+ },
+ {
+  "key": "namevotingscreen_adlari_beyen_67dae3",
+  "az": "Adları Bəyən",
+  "en": "Like Names"
+ },
+ {
+  "key": "namevotingscreen_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All of them"
+ },
+ {
+  "key": "namevotingscreen_hele_ad_secmemisiniz_7c1388",
+  "az": "Hələ ad seçməmisiniz",
+  "en": "You haven't chosen a name yet"
+ },
+ {
+  "key": "namevotingscreen_hele_match_yoxdur_ad5fb8",
+  "az": "Hələ match yoxdur",
+  "en": "No matches yet"
+ },
+ {
+  "key": "namevotingscreen_her_ikiniz_beyendikde_match_olur_28c3f5",
+  "az": "Hər ikiniz bəyəndikdə match olur",
+  "en": "It's a match when both of you like it"
+ },
+ {
+  "key": "namevotingscreen_her_ikiniz_eyni_adi_beyendikde_f8a0e8",
+  "az": "Hər ikiniz eyni adı bəyəndikdə burada görünəcək",
+  "en": "When you both like the same name, it will appear here"
+ },
+ {
+  "key": "namevotingscreen_oglan_e9715e",
+  "az": "Oğlan",
+  "en": "Boy"
+ },
+ {
+  "key": "namevotingscreen_partnyor_label",
+  "az": "Partnyor",
+  "en": null
+ },
+ {
+  "key": "namevotingscreen_qiz_79bf6b",
+  "az": "Qız",
+  "en": "Girl"
+ },
+ {
+  "key": "namevotingscreen_sevimlilerim_c5c6a9",
+  "az": "Sevimlilərim (",
+  "en": "My Favorites ("
+ },
+ {
+  "key": "namevotingscreen_uniseks_label",
+  "az": "Uniseks",
+  "en": "Unisex"
+ },
+ {
+  "key": "native_aktiv_etmek_ucun_vite_android__e20df2",
+  "az": "Aktiv etmək üçün: VITE_ANDROID_PUSH_AUTO_REGISTER=true",
+  "en": "To enable: VITE_ANDROID_PUSH_AUTO_REGISTER=true"
+ },
+ {
+  "key": "native_android_push_auto_register_dea_fcc9e3",
+  "az": "Android push auto-register deaktivdir (Firebase qurulmayıb ola bilər). ",
+  "en": "Android push auto-register is disabled (Firebase may not be installed)."
+ },
+ {
+  "key": "native_gundelik_vitaminlerinizi_qebul_6a3811",
+  "az": "Gündəlik vitaminlərinizi qəbul etməyi unutmayın.",
+  "en": "Don't forget to take your daily vitamins."
+ },
+ {
+  "key": "native_sekli_yadda_saxla_dfbccd",
+  "az": "Şəkli yadda saxla",
+  "en": "Save picture"
+ },
+ {
+  "key": "native_vitamin_vaxti_9bfc40",
+  "az": "Vitamin vaxtı! 💊",
+  "en": "Vitamin time! 💊"
+ },
+ {
+  "key": "noisemeter_ag_ses_ac_06be65",
+  "az": "Ağ səs aç",
+  "en": "Open white noise"
+ },
+ {
+  "key": "noisemeter_baslamaq_ucun_toxunun_ee2514",
+  "az": "Başlamaq üçün toxunun",
+  "en": "Tap to start"
+ },
+ {
+  "key": "noisemeter_bu_seviyye_derin_yuxu_ucun_cox_b27a60",
+  "az": "Bu səviyyə dərin yuxu üçün çox yüksəkdir. Ağ səs açım?",
+  "en": "This level is too high for deep sleep. Turn on white noise?"
+ },
+ {
+  "key": "noisemeter_cox_yuksek_86dadc",
+  "az": "Çox yüksək!",
+  "en": "Very high!"
+ },
+ {
+  "key": "noisemeter_cox_yuksek_c4d475",
+  "az": "Çox yüksək",
+  "en": "Very high"
+ },
+ {
+  "key": "noisemeter_dayandirmaq_ucun_toxunun_d02de1",
+  "az": "Dayandırmaq üçün toxunun",
+  "en": "Tap to stop"
+ },
+ {
+  "key": "noisemeter_korpe_yuxusu_ucun_ideal_muhit_4a6c06",
+  "az": "Körpə yuxusu üçün ideal mühit",
+  "en": "Ideal environment for baby sleep"
+ },
+ {
+  "key": "noisemeter_korpe_yuxusu_ucun_ses_seviyyel_d8f4f9",
+  "az": "Körpə yuxusu üçün səs səviyyələri",
+  "en": "Sound levels for baby sleep"
+ },
+ {
+  "key": "noisemeter_mikrofon_xetasi_5f83b3",
+  "az": "Mikrofon xətası",
+  "en": "Microphone error"
+ },
+ {
+  "key": "noisemeter_mikrofona_giris_icazesi_verin_9b0425",
+  "az": "Mikrofona giriş icazəsi verin",
+  "en": "Allow access to the microphone"
+ },
+ {
+  "key": "noisemeter_mukemmel_ae2244",
+  "az": "Mükəmməl",
+  "en": "Excellent"
+ },
+ {
+  "key": "noisemeter_olcum_basladilmayib_46107a",
+  "az": "Ölçüm başladılmayıb",
+  "en": "Measurement not started"
+ },
+ {
+  "key": "noisemeter_qebulolunandir_0cab62",
+  "az": "Qəbulolunandır",
+  "en": "Acceptable"
+ },
+ {
+  "key": "noisemeter_ses_kuy_olcer_68f0b6",
+  "az": "Səs-Küy Ölçər",
+  "en": "Noise Meter"
+ },
+ {
+  "key": "noisemeter_ses_seviyyesi_yuksekdir_f91956",
+  "az": "Səs səviyyəsi yüksəkdir",
+  "en": "Noise level is high"
+ },
+ {
+  "key": "noisemeter_son_olcmeler_b024cf",
+  "az": "Son ölçmələr",
+  "en": "Recent measurements"
+ },
+ {
+  "key": "noisemeter_yaxsi_9d8595",
+  "az": "Yaxşı",
+  "en": "Good"
+ },
+ {
+  "key": "noisemeter_yuksek_492584",
+  "az": "Yüksək",
+  "en": "High"
+ },
+ {
+  "key": "nutrition_bu_yemek_be47dc",
+  "az": "Bu yemək",
+  "en": "This meal"
+ },
+ {
+  "key": "nutrition_bugunku_kalori_33554f",
+  "az": "Bugünkü kalori",
+  "en": "Today's calories"
+ },
+ {
+  "key": "nutrition_bugunku_yemekler_25c273",
+  "az": "Bugünkü yeməklər",
+  "en": "Today's meals"
+ },
+ {
+  "key": "nutrition_corek_1_dilim_6ad54a",
+  "az": "Çörək (1 dilim)",
+  "en": "Bread (1 slice)"
+ },
+ {
+  "key": "nutrition_elave_edilen_qidalar_c604e8",
+  "az": "Əlavə edilən qidalar",
+  "en": "Added foods"
+ },
+ {
+  "key": "nutrition_elave_et_6e1b9b",
+  "az": "Əlavə et",
+  "en": "Add"
+ },
+ {
+  "key": "nutrition_emizdirme_dovru_6f45f4",
+  "az": "Əmizdirmə dövrü",
+  "en": "Breastfeeding period"
+ },
+ {
+  "key": "nutrition_emizdirme_dovrunde_faydali_qid_38d382",
+  "az": "Əmizdirmə dövründə faydalı qidalar",
+  "en": "Useful foods during breastfeeding"
+ },
+ {
+  "key": "nutrition_emizdirme_dovrunde_gunde_12_st_a765d7",
+  "az": "Əmizdirmə dövründə gündə 12 stəkan su içmək tövsiyə olunur. Bu süd istehsalına kömək edir.",
+  "en": "It is recommended to drink 12 glasses of water a day during breastfeeding. It helps in milk production."
+ },
+ {
+  "key": "nutrition_gunde_en_azi_8_stekan_su_icmek_c12741",
+  "az": "Gündə ən azı 8 stəkan su içmək bədəni sağlam saxlayır.",
+  "en": "Drinking at least 8 glasses of water a day keeps the body healthy."
+ },
+ {
+  "key": "nutrition_hamilelik_dovru_57af7a",
+  "az": "Hamiləlik dövrü",
+  "en": "Pregnancy period"
+ },
+ {
+  "key": "nutrition_hamilelik_dovrunde_faydali_qid_4fb245",
+  "az": "Hamiləlik dövründə faydalı qidalar",
+  "en": "Useful foods during pregnancy"
+ },
+ {
+  "key": "nutrition_hamilelik_zamani_gunde_en_azi__d70ce9",
+  "az": "Hamiləlik zamanı gündə ən azı 10 stəkan su içmək tövsiyə olunur. Yetərli su içmək körpənin inkişafına kömək edir.",
+  "en": "It is recommended to drink at least 10 glasses of water a day during pregnancy. Drinking enough water helps the baby's development."
+ },
+ {
+  "key": "nutrition_i_stenilen_vaxt_ec15be",
+  "az": "İstənilən vaxt",
+  "en": "Anytime"
+ },
+ {
+  "key": "nutrition_meslehet_f594cf",
+  "az": "💡 Məsləhət",
+  "en": "💡 Type"
+ },
+ {
+  "key": "nutrition_nahar_lunch",
+  "az": "Nahar",
+  "en": "Lunch"
+ },
+ {
+  "key": "nutrition_pendir_cheese",
+  "az": "Pendir",
+  "en": "Cheese"
+ },
+ {
+  "key": "nutrition_qelyanalti_42fb71",
+  "az": "Qəlyanaltı",
+  "en": "Snack"
+ },
+ {
+  "key": "nutrition_qida_adi_d6a129",
+  "az": "Qida adı",
+  "en": "Food name"
+ },
+ {
+  "key": "nutrition_qidalanma_title",
+  "az": "Qidalanma",
+  "en": "Nutrition"
+ },
+ {
+  "key": "nutrition_saglam_qidalanma_ucun_tovsiyel_7cb135",
+  "az": "Sağlam qidalanma üçün tövsiyələr",
+  "en": "Recommendations for healthy eating"
+ },
+ {
+  "key": "nutrition_sam_yemeyi_6002e9",
+  "az": "Şam yeməyi",
+  "en": "Dinner"
+ },
+ {
+  "key": "nutrition_seher_yemeyi_b82929",
+  "az": "Səhər yeməyi",
+  "en": "Breakfast"
+ },
+ {
+  "key": "nutrition_stekan_su_icdiniz_a26973",
+  "az": "stəkan su içdiniz",
+  "en": "glasses of water you drank"
+ },
+ {
+  "key": "nutrition_su_elave_et_6ae5c0",
+  "az": "Su əlavə et",
+  "en": "Add water"
+ },
+ {
+  "key": "nutrition_sud_1_stekan_45357d",
+  "az": "Süd (1 stəkan)",
+  "en": "Milk (1 glass)"
+ },
+ {
+  "key": "nutrition_tez_elave_et_5c2127",
+  "az": "Tez əlavə et",
+  "en": "Quick add"
+ },
+ {
+  "key": "nutrition_tovsiye_olunan_qidalar_5d52f5",
+  "az": "Tövsiyə olunan qidalar",
+  "en": "Recommended foods"
+ },
+ {
+  "key": "nutrition_tovsiye_tapilmadi_facebb",
+  "az": "Tövsiyə tapılmadı",
+  "en": "Recommendation not found"
+ },
+ {
+  "key": "nutrition_umumi_saglamliq_6c20a8",
+  "az": "Ümumi sağlamlıq",
+  "en": "General health"
+ },
+ {
+  "key": "nutrition_vitaminler_e49129",
+  "az": "Vitaminlər",
+  "en": "Vitamins"
+ },
+ {
+  "key": "nutrition_xususi_qida_elave_et_2a3838",
+  "az": "Xüsusi qida əlavə et",
+  "en": "Add custom food"
+ },
+ {
+  "key": "nutrition_yemek_b1fd56",
+  "az": "Yemək",
+  "en": "Food"
+ },
+ {
+  "key": "nutrition_yemek_qeyd_edildi_1d4996",
+  "az": "yemək qeyd edildi",
+  "en": "food was noted"
+ },
+ {
+  "key": "nutrition_yumurta_egg",
+  "az": "Yumurta",
+  "en": "Egg"
+ },
+ {
+  "key": "ordersuccessscreen_1_3_is_gunu_6b7ab5",
+  "az": "1-3 iş günü",
+  "en": "1-3 business days"
+ },
+ {
+  "key": "ordersuccessscreen_alis_verise_davam_et_8cd3a3",
+  "az": "Alış-verişə Davam Et",
+  "en": "Continue Shopping"
+ },
+ {
+  "key": "ordersuccessscreen_catdirilma_muddeti_07869a",
+  "az": "Çatdırılma Müddəti",
+  "en": "Delivery Time"
+ },
+ {
+  "key": "ordersuccessscreen_sifarisiniz_qebul_edildi_3ef5d9",
+  "az": "Sifarişiniz Qəbul Edildi! 🎉",
+  "en": "Your order has been accepted! 🎉"
+ },
+ {
+  "key": "ordersuccessscreen_sifarisiniz_ugurla_yaradildi_t_608073",
+  "az": "Sifarişiniz uğurla yaradıldı. Tezliklə sizinlə əlaqə saxlanılacaq.",
+  "en": "Your order has been successfully created. You will be contacted shortly."
+ },
+ {
+  "key": "partner_points_earned_2",
+  "az": "xal qazandın! 🏆",
+  "en": null
+ },
+ {
+  "key": "partner_qeyd_yox",
+  "az": "Qeyd yox",
+  "en": "No log"
+ },
+ {
+  "key": "partner_ready",
+  "az": "hazÄ±r",
+  "en": null
+ },
+ {
+  "key": "partner_surprise_completed_1",
+  "az": "Həyat yoldaşın",
+  "en": null
+ },
+ {
+  "key": "partner_surprise_completed_2",
+  "az": "sürprizini sənin üçün tamamladı! 🎉",
+  "en": null
+ },
+ {
+  "key": "partner_surprise_done",
+  "az": "tamamlandı!",
+  "en": null
+ },
+ {
+  "key": "partner_will_receive_notification",
+  "az": "bildiriş alacaq",
+  "en": null
+ },
+ {
+  "key": "partneraipremiumgate_aboneliyi_heyat_yoldasiniz_da__8eb9a1",
+  "az": "Aboneliyi həyat yoldaşınız da əldə edə bilər — ikiniz üçün də açılacaq.",
+  "en": "Your spouse can also get a subscription — it will open for both of you."
+ },
+ {
+  "key": "partneraipremiumgate_anacan_ai_ile_limitsiz_sohbet_431177",
+  "az": "Anacan.AI ilə limitsiz söhbət",
+  "en": "Unlimited chat with Anacan.AI"
+ },
+ {
+  "key": "partneraipremiumgate_anacan_ai_komekcisi_ve_partnyo_b352ea",
+  "az": "Anacan.AI köməkçisi və partnyor funksiyaları yalnız Premium istifadəçilər üçündür.\n            Həyat yoldaşınızın və ya öz hesabınızın Premium aboneliyi aktiv olduqda burada\n            ekspert məsləhətləri ala bilərsiniz.",
+  "en": "Anacan.AI assistant and partner functions are only for Premium users. \nHere if your spouse's or your own account's Premium subscription is active \nyou can get expert advice."
+ },
+ {
+  "key": "partneraipremiumgate_anacan_ai_premium_ucundur_37ae9a",
+  "az": "Anacan.AI Premium üçündür",
+  "en": "Anacan.AI is for Premium"
+ },
+ {
+  "key": "partneraipremiumgate_butun_premium_aletler_b6b57d",
+  "az": "Bütün premium alətlər",
+  "en": "All premium tools"
+ },
+ {
+  "key": "partneraipremiumgate_hamilelik_ve_korpe_bilgileri_9b3dc5",
+  "az": "Hamiləlik və körpə bilgiləri",
+  "en": "Pregnancy and baby information"
+ },
+ {
+  "key": "partneraipremiumgate_partnyor_mod_ve_sinxronizasiya_1e764c",
+  "az": "Partnyor mod və sinxronizasiya",
+  "en": "Partner mod and sync"
+ },
+ {
+  "key": "partneraipremiumgate_premium_a_kec_9dadb6",
+  "az": "Premium-a keç",
+  "en": "Go Premium"
+ },
+ {
+  "key": "partneraipremiumgate_premium_da_ne_var_d28116",
+  "az": "Premium-da nə var?",
+  "en": "What's in Premium?"
+ },
+ {
+  "key": "partnerchatscreen_bu_gun_786fd4",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "partnerchatscreen_dunen_52b701",
+  "az": "Dünən",
+  "en": "Yesterday"
+ },
+ {
+  "key": "partnerchatscreen_eve_gelirem_afaae4",
+  "az": "Evə gəlirəm 🏠",
+  "en": "I'm coming home 🏠"
+ },
+ {
+  "key": "partnerchatscreen_hele_mesaj_yoxdur_cf0b5e",
+  "az": "Hələ mesaj yoxdur",
+  "en": "No messages yet"
+ },
+ {
+  "key": "partnerchatscreen_i_lk_mesaji_siz_gonderin_a2529e",
+  "az": "İlk mesajı siz göndərin!",
+  "en": "You send the first message!"
+ },
+ {
+  "key": "partnerchatscreen_mesaj_gonderile_bilmedi_0cd095",
+  "az": "Mesaj göndərilə bilmədi",
+  "en": "Message could not be sent"
+ },
+ {
+  "key": "partnerchatscreen_mesaj_yazin_e69f84",
+  "az": "Mesaj yazın...",
+  "en": "Write a message..."
+ },
+ {
+  "key": "partnerchatscreen_necesen_2df00b",
+  "az": "Necəsən?",
+  "en": "how are you"
+ },
+ {
+  "key": "partnerchatscreen_seni_sevirem_aed14c",
+  "az": "Səni sevirəm! ❤️",
+  "en": "I love you! ❤️"
+ },
+ {
+  "key": "partnerchatscreen_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "partnerchatscreen_yaxsiyam_narahat_olma_b915b4",
+  "az": "Yaxşıyam, narahat olma 💪",
+  "en": "I'm fine, don't worry"
+ },
+ {
+  "key": "partnerchatscreen_zeng_et_eb550f",
+  "az": "Zəng et 📞",
+  "en": "Call 📞"
+ },
+ {
+  "key": "partnerdashboard_alis_veris_siyahisi_a2d4a8",
+  "az": "Alış-veriş Siyahısı",
+  "en": "Shopping List"
+ },
+ {
+  "key": "partnerdashboard_bir_nece_saniye_icinde_baglanti_yaranaca_99fbd5",
+  "az": "Bir neçə saniyə içində bağlantı yaranacaq",
+  "en": "A connection will be established in a few seconds"
+ },
+ {
+  "key": "partnerdashboard_gozelsen_1124fe",
+  "az": "🌹 Gözəlsən!",
+  "en": "🌹 You are beautiful!"
+ },
+ {
+  "key": "partnerdashboard_guclusen_673231",
+  "az": "💪 Güclüsən!",
+  "en": "💪 You are strong!"
+ },
+ {
+  "key": "partnerdashboard_gunun_tovsiyesi_b3a563",
+  "az": "Günün Tövsiyəsi",
+  "en": "Daily Recommendation"
+ },
+ {
+  "key": "partnerdashboard_hele_baglanmamisiniz_bc4f93",
+  "az": "Hələ bağlanmamısınız",
+  "en": "You are not connected yet"
+ },
+ {
+  "key": "partnerdashboard_heyat_yoldasin_fc543b",
+  "az": "Həyat yoldaşın",
+  "en": "Your wife"
+ },
+ {
+  "key": "partnerdashboard_heyat_yoldasinizdan_onun_profilindeki_pa_c8a86f",
+  "az": "Həyat yoldaşınızdan onun profilindəki partnyor kodunu istəyin",
+  "en": "Ask your spouse for their partner code in their profile"
+ },
+ {
+  "key": "partnerdashboard_heyat_yoldasinizin_anacan_tetb_9b4f56",
+  "az": "Həyat yoldaşınızın Anacan tətbiqindəki partnyor kodunu daxil edib bağlanın — bütün məlumatlar real vaxtda sinxronlaşacaq.",
+  "en": "Enter your spouse's partner code in the Anacan app and connect — all data will be synchronized in real time."
+ },
+ {
+  "key": "partnerdashboard_mehsul_elave_edildi_4c8d9f",
+  "az": "Məhsul əlavə edildi! 🛒",
+  "en": "Product added! 🛒"
+ },
+ {
+  "key": "partnerdashboard_mesaj_gonderildi_dca65e",
+  "az": "💌 Mesaj göndərildi!",
+  "en": "💌 Message sent!"
+ },
+ {
+  "key": "partnerdashboard_nece_baglanmali_8234cb",
+  "az": "📲 Necə bağlanmalı?",
+  "en": "📲 How to connect?"
+ },
+ {
+  "key": "partnerdashboard_o_elave_etdi_9aa051",
+  "az": "O əlavə etdi",
+  "en": "He added"
+ },
+ {
+  "key": "partnerdashboard_oxunmamis_mesaj_4cf5d8",
+  "az": "oxunmamış mesaj",
+  "en": "unread message"
+ },
+ {
+  "key": "partnerdashboard_profil_bolmesine_kecerek_kodu_daxil_edin_2d8a3e",
+  "az": "Profil bölməsinə keçərək kodu daxil edin",
+  "en": "Go to the profile section and enter the code"
+ },
+ {
+  "key": "partnerdashboard_sen_elave_etdin_0008cb",
+  "az": "Sən əlavə etdin",
+  "en": "You added"
+ },
+ {
+  "key": "partnerdashboard_seni_sevirem_d85d3c",
+  "az": "❤️ Səni sevirəm!",
+  "en": "❤️ I love you!"
+ },
+ {
+  "key": "partnerdashboard_sevgi_gonderildi_4284b1",
+  "az": "💕 Sevgi göndərildi!",
+  "en": "💕 Love sent!"
+ },
+ {
+  "key": "partnerdashboard_sevgi_mesaji_yaz_54b43a",
+  "az": "Sevgi mesajı yaz...",
+  "en": "Write a love message..."
+ },
+ {
+  "key": "partnerdashboard_sinxronlasdirilmis_siyahi_08835b",
+  "az": "Sinxronlaşdırılmış siyahı",
+  "en": "Synchronized list"
+ },
+ {
+  "key": "partnerdashboard_siyahi_bosdur_c420ab",
+  "az": "Siyahı boşdur",
+  "en": "List is empty"
+ },
+ {
+  "key": "partnerdashboard_yeni_mehsul_elave_et_3d6c73",
+  "az": "Yeni məhsul əlavə et...",
+  "en": "Add new product..."
+ },
+ {
+  "key": "partnerdashboard_yeni_mesajiniz_var_0ef93a",
+  "az": "Yeni mesajınız var!",
+  "en": "You have a new message!"
+ },
+ {
+  "key": "partnerdashboard_yuxaridaki_formadan_mehsul_elave_edin_32989e",
+  "az": "Yuxarıdakı formadan məhsul əlavə edin",
+  "en": "Add product from the form above"
+ },
+ {
+  "key": "partnerflowstatuscard_enerjisi_yuksekdir_birlikde_ak_59c2fd",
+  "az": "Enerjisi yüksəkdir — birlikdə aktiv vaxt keçirin.",
+  "en": "High energy — spend active time together."
+ },
+ {
+  "key": "partnerflowstatuscard_fertil_dovrdur_yaxinliga_diqqe_610fc2",
+  "az": "Fertil dövrdür. Yaxınlığa diqqət göstər.",
+  "en": "It is a fertile period. Pay attention to proximity."
+ },
+ {
+  "key": "partnerflowstatuscard_fertil_f123bc",
+  "az": "Fertil",
+  "en": "Fertile"
+ },
+ {
+  "key": "partnerflowstatuscard_follikular_f123bc",
+  "az": "Follikular",
+  "en": "Follicular"
+ },
+ {
+  "key": "partnerflowstatuscard_gun_54e78d",
+  "az": "gün",
+  "en": "day"
+ },
+ {
+  "key": "partnerflowstatuscard_lutein_f123bc",
+  "az": "Lutein (PMS)",
+  "en": "Luteal (PMS)"
+ },
+ {
+  "key": "partnerflowstatuscard_menstruasiya_1c9b68",
+  "az": "Menstruasiya",
+  "en": "Menstruation"
+ },
+ {
+  "key": "partnerflowstatuscard_novbeti_perioda_94038c",
+  "az": "növbəti perioda",
+  "en": "next period"
+ },
+ {
+  "key": "partnerflowstatuscard_ovulyasiya_f123bc",
+  "az": "Ovulyasiya",
+  "en": "Ovulation"
+ },
+ {
+  "key": "partnerflowstatuscard_pms_dovru_yaxinlasir_elave_des_4d2e8e",
+  "az": "PMS dövrü yaxınlaşır — əlavə dəstək lazım ola bilər 💕",
+  "en": "PMS is approaching — extra support may be needed 💕"
+ },
+ {
+  "key": "partnerflowstatuscard_reproduktiv_dovr_15efae",
+  "az": "reproduktiv dövr",
+  "en": "reproductive period"
+ },
+ {
+  "key": "partnerflowstatuscard_sebirli_ol_menfi_reaksiyalari__ed5047",
+  "az": "Səbirli ol, mənfi reaksiyaları şəxsi qəbul etmə.",
+  "en": "Be patient, don't take negative reactions personally."
+ },
+ {
+  "key": "partnerflowstatuscard_tsikl_gunu_b9e250",
+  "az": "Tsikl günü",
+  "en": "Cycle day"
+ },
+ {
+  "key": "partnerflowstatuscard_yumsaq_ol_isti_cay_teklif_et_e_bb3d00",
+  "az": "Yumşaq ol, isti çay təklif et, ev işlərində kömək et.",
+  "en": "Be gentle, offer hot tea, help with housework."
+ },
+ {
+  "key": "partnerhospitalbagscreen_ana_ucun_8f885e",
+  "az": "Ana üçün",
+  "en": "For mom"
+ },
+ {
+  "key": "partnerhospitalbagscreen_bu_kateqoriyada_esya_yoxdur_f91aa7",
+  "az": "Bu kateqoriyada əşya yoxdur",
+  "en": "There are no items in this category"
+ },
+ {
+  "key": "partnerhospitalbagscreen_elave_et_6e1b9b",
+  "az": "Əlavə et",
+  "en": "Add"
+ },
+ {
+  "key": "partnerhospitalbagscreen_esya_adi_176586",
+  "az": "Əşya adı",
+  "en": "Item name"
+ },
+ {
+  "key": "partnerhospitalbagscreen_esya_elave_et_79e28e",
+  "az": "Əşya əlavə et",
+  "en": "Add item"
+ },
+ {
+  "key": "partnerhospitalbagscreen_hazirliq_23905c",
+  "az": "Hazırlıq",
+  "en": "Preparation"
+ },
+ {
+  "key": "partnerhospitalbagscreen_korpe_ucun_27c058",
+  "az": "Körpə üçün",
+  "en": "For the baby"
+ },
+ {
+  "key": "partnerhospitalbagscreen_partnyorunuz_hele_canta_hazirl_1f9cce",
+  "az": "Partnyorunuz hələ çanta hazırlamayıb",
+  "en": "Your partner hasn't made a bag yet"
+ },
+ {
+  "key": "partnerhospitalbagscreen_partnyorunuz_xestexana_cantasi_f29448",
+  "az": "Partnyorunuz xəstəxana çantası siyahısı yaratdıqda burada görəcəksiniz",
+  "en": "This is where you'll see when your partner creates a hospital bag list"
+ },
+ {
+  "key": "partnerhospitalbagscreen_sen_0580e7",
+  "az": "Sən",
+  "en": "You"
+ },
+ {
+  "key": "partnerhospitalbagscreen_senedler_d60b5e",
+  "az": "Sənədlər",
+  "en": "Documents"
+ },
+ {
+  "key": "partnerhospitalbagscreen_tamamlandi_357fc9",
+  "az": "% tamamlandı",
+  "en": "% complete"
+ },
+ {
+  "key": "partnerhospitalbagscreen_xestexana_cantasi_045078",
+  "az": "Xəstəxana Çantası",
+  "en": "Hospital Bag"
+ },
+ {
+  "key": "partnerprivacyscreen_analitik_melumat_paylas_7971ff",
+  "az": "Analitik məlumat paylaş",
+  "en": "Share analytical information"
+ },
+ {
+  "key": "partnerprivacyscreen_anonim_istifade_melumatlarini_paylasin_835e3a",
+  "az": "Anonim istifadə məlumatlarını paylaşın",
+  "en": "Share anonymous usage data"
+ },
+ {
+  "key": "partnerprivacyscreen_ayar_yenilendi_f0f876",
+  "az": "Ayar yeniləndi",
+  "en": "Settings updated"
+ },
+ {
+  "key": "partnerprivacyscreen_beli_sil_fd44c5",
+  "az": "Bəli, Sil",
+  "en": "Yes, Delete"
+ },
+ {
+  "key": "partnerprivacyscreen_bildiris_geldikde_ses_cixsin_a3a866",
+  "az": "Bildiriş gəldikdə səs çıxsın",
+  "en": "Play sound for notifications"
+ },
+ {
+  "key": "partnerprivacyscreen_bildiris_sesleri_fc9269",
+  "az": "Bildiriş səsləri",
+  "en": "Notification sounds"
+ },
+ {
+  "key": "partnerprivacyscreen_bildirisler_54eb88",
+  "az": "Bildirişlər",
+  "en": "Notifications"
+ },
+ {
+  "key": "partnerprivacyscreen_birdefelik_silinecek_d977cc",
+  "az": "birdəfəlik silinəcək.",
+  "en": "will be deleted once and for all."
+ },
+ {
+  "key": "partnerprivacyscreen_bu_bir_nece_saniye_ceke_biler_49b373",
+  "az": "Bu bir neçə saniyə çəkə bilər.",
+  "en": "This may take a few seconds."
+ },
+ {
+  "key": "partnerprivacyscreen_bu_emeliyyat_geri_qaytarila_bi_fdaca8",
+  "az": "Bu əməliyyat geri qaytarıla bilməz. Bütün məlumatlarınız, o cümlədən:",
+  "en": "This transaction is non-refundable. All your information, including:"
+ },
+ {
+  "key": "partnerprivacyscreen_buraya_klikleyin_c20d44",
+  "az": "buraya klikləyin",
+  "en": "click here"
+ },
+ {
+  "key": "partnerprivacyscreen_butun_melumatlarinizi_birdefelik_silin_41a068",
+  "az": "Bütün məlumatlarınızı birdəfəlik silin",
+  "en": "Permanently delete all your data"
+ },
+ {
+  "key": "partnerprivacyscreen_butun_melumatlarinizi_json_formatinda_yu_0c02e5",
+  "az": "Bütün məlumatlarınızı JSON formatında yükləyin",
+  "en": "Download all your data in JSON format"
+ },
+ {
+  "key": "partnerprivacyscreen_gizlilik_ayarlari_4055d3",
+  "az": "Gizlilik Ayarları",
+  "en": "Privacy Settings"
+ },
+ {
+  "key": "partnerprivacyscreen_gizlilik_siyasetimiz_ve_istifa_8c585b",
+  "az": "Gizlilik siyasətimiz və istifadə şərtlərimiz haqqında ətraflı məlumat üçün",
+  "en": "For more information on our privacy policy and terms of use"
+ },
+ {
+  "key": "partnerprivacyscreen_gizlilik_tehlukesizlik_67bec6",
+  "az": "Gizlilik & Təhlükəsizlik",
+  "en": "Privacy & Security"
+ },
+ {
+  "key": "partnerprivacyscreen_hesabi_sil_6abf24",
+  "az": "Hesabı Sil",
+  "en": "Delete Account"
+ },
+ {
+  "key": "partnerprivacyscreen_hesabi_silmek_6d444c",
+  "az": "Hesabı Silmək",
+  "en": "Delete Account"
+ },
+ {
+  "key": "partnerprivacyscreen_heyat_yoldasiniz_mekaninizi_gore_biler_0fb295",
+  "az": "Həyat yoldaşınız məkanınızı görə bilər",
+  "en": "Your spouse can see your location"
+ },
+ {
+  "key": "partnerprivacyscreen_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "partnerprivacyscreen_mekan_paylasimi_bf6566",
+  "az": "Məkan paylaşımı",
+  "en": "Location sharing"
+ },
+ {
+  "key": "partnerprivacyscreen_melumat_i_dareetmesi_19f40f",
+  "az": "Məlumat İdarəetməsi",
+  "en": "Data Management"
+ },
+ {
+  "key": "partnerprivacyscreen_melumatlar_hazirlanir_482381",
+  "az": "Məlumatlar hazırlanır...",
+  "en": "Data is being prepared..."
+ },
+ {
+  "key": "partnerprivacyscreen_melumatlar_yuklendi_f04800",
+  "az": "Məlumatlar yükləndi!",
+  "en": "Data loaded!"
+ },
+ {
+  "key": "partnerprivacyscreen_melumatlari_yukle_5cee89",
+  "az": "Məlumatları Yüklə",
+  "en": "Download Data"
+ },
+ {
+  "key": "partnerprivacyscreen_melumatlariniz_birdefelik_silindi_8f69e7",
+  "az": "Məlumatlarınız birdəfəlik silindi.",
+  "en": "Your data has been permanently deleted."
+ },
+ {
+  "key": "partnerprivacyscreen_partner_melumatlarinizi_idare_edin_7c5e99",
+  "az": "Partner məlumatlarınızı idarə edin",
+  "en": "Manage your partner data"
+ },
+ {
+  "key": "partnerprivacyscreen_profil_melumatlari_82c76c",
+  "az": "Profil məlumatları",
+  "en": "Profile information"
+ },
+ {
+  "key": "partnerprivacyscreen_tapsiriqlar_f5dbad",
+  "az": "Tapşırıqlar",
+  "en": "Tasks"
+ },
+ {
+  "key": "partnerprivacyscreen_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "partnerprofilescreen_anacan_partner_v1_0_0_azerbayc_23984e",
+  "az": "Anacan Partner v1.0.0 • Azərbaycan 🇦🇿",
+  "en": "Anacan Partner v1.0.0 • Azerbaijan 🇦🇿"
+ },
+ {
+  "key": "partnerprofilescreen_analiq_dovru_b1c7dd",
+  "az": "Analıq dövrü",
+  "en": "Maternity period"
+ },
+ {
+  "key": "partnerprofilescreen_ayliq_xal_qrafiki_dca77f",
+  "az": "Aylıq Xal Qrafiki",
+  "en": "Monthly Score Graph"
+ },
+ {
+  "key": "partnerprofilescreen_cixis_c2de5c",
+  "az": "Çıxış",
+  "en": "Exit"
+ },
+ {
+  "key": "partnerprofilescreen_defe_cf1e5e",
+  "az": "dəfə)",
+  "en": "times)"
+ },
+ {
+  "key": "partnerprofilescreen_en_cox_edilen_f000e8",
+  "az": "Ən çox edilən",
+  "en": "Most frequent"
+ },
+ {
+  "key": "partnerprofilescreen_hamilelik_dovru_57af7a",
+  "az": "Hamiləlik dövrü",
+  "en": "Pregnancy period"
+ },
+ {
+  "key": "partnerprofilescreen_heyat_yoldasi_ad6f31",
+  "az": "Həyat Yoldaşı",
+  "en": "Spouse"
+ },
+ {
+  "key": "partnerprofilescreen_ile_elaqeli_b0595d",
+  "az": "ilə əlaqəli",
+  "en": "related to"
+ },
+ {
+  "key": "partnerprofilescreen_menstruasiya_dovru_a5852d",
+  "az": "Menstruasiya dövrü",
+  "en": "Menstrual cycle"
+ },
+ {
+  "key": "partnerprofilescreen_nailiyyetler_92db73",
+  "az": "Nailiyyətlər",
+  "en": "Achievements"
+ },
+ {
+  "key": "partnerprofilescreen_novbeti_seviyyeye_d52c78",
+  "az": "Növbəti səviyyəyə",
+  "en": "To the next level"
+ },
+ {
+  "key": "partnerprofilescreen_seviyye_8266e7",
+  "az": "Səviyyə",
+  "en": "Level"
+ }
+]

@@ -1,0 +1,1152 @@
+{
+ "safety_items": {
+  "11901ed2-a265-4223-a5b8-e5cbfb8f773e": {
+   "name": "Pilze",
+   "description": "Nur Zuchtpilze (aus dem Handel) und vollständig durchgegart verzehren. Wildpilze sind riskant."
+  },
+  "11e23f3d-d80c-4605-a45a-22a7947b2a6b": {
+   "name": "Minze",
+   "description": "Pfefferminztee kann bei Übelkeit helfen. Pfefferminzöl sollte dagegen nur mit Vorsicht verwendet werden."
+  },
+  "13f101f3-04c4-4778-9891-0b68a21fef96": {
+   "name": "Weintrauben",
+   "description": "Sie sollten gründlich gewaschen werden. Sie enthalten Resveratrol, haben aber einen hohen Zuckergehalt und sollten daher in Maßen gegessen werden."
+  },
+  "13f91873-c1b0-43b8-bc6b-9166281d9d9a": {
+   "name": "E-Zigarette (Vape)",
+   "description": "Nikotin schädigt das Gehirn des ungeborenen Kindes. Die Inhaltsstoffe sind noch nicht vollständig erforscht."
+  },
+  "14172da9-4efa-42a0-8893-7757c2900a61": {
+   "name": "Mineralwasser",
+   "description": "Es ist unbedenklich und kann bei Sodbrennen helfen."
+  },
+  "144c2b0f-3d81-4774-be36-7766e41eb446": {
+   "name": "Weißdorn",
+   "description": "Er kann das Herz-Kreislauf-System unterstützen."
+  },
+  "14729a17-9a8e-479b-8332-5813c2a6ed6c": {
+   "name": "Sonnencreme (SPF)",
+   "description": "Physikalische Filter (Zinkoxid, Titandioxid) sind empfehlenswerter. Sie schützen vor Pigmentflecken."
+  },
+  "14797472-1740-468f-a25a-a0879705d4d1": {
+   "name": "Miesmuscheln (Mussels)",
+   "description": "Das Risiko einer Lebensmittelvergiftung ist hoch. Roh sind sie streng verboten."
+  },
+  "14a47061-074d-4b9c-ba69-91bae5938a58": {
+   "name": "Şəkərbura / Baklava",
+   "description": "Die Zutaten sind unbedenklich, der hohe Zuckergehalt kann jedoch zu einer Gewichtszunahme führen."
+  },
+  "14f882f6-96f1-4174-83ab-3873313265fd": {
+   "name": "Levomycetin",
+   "description": "Es ist für den Fötus toxisch (\"Gray-Baby-Syndrom\")."
+  },
+  "155a10db-1b9e-42ee-9e71-19faf80ca313": {
+   "name": "Süßkirschen / Sauerkirschen",
+   "description": "Sie sind unbedenklich und können aufgrund ihres Melatoningehalts den Schlaf unterstützen."
+  },
+  "15712c68-a377-4501-ab80-a6a7e1d0080f": {
+   "name": "Aceton",
+   "description": "Du kannst es zum Entfernen von Nagellack verwenden, solltest den Raum dabei aber gut lüften."
+  },
+  "15ac1978-1b26-401f-9d90-9abd8877dac3": {
+   "name": "Salbei (Sage)",
+   "description": "Wird nicht empfohlen, da er Gebärmutterkontraktionen auslösen kann."
+  },
+  "15b4c8fc-e833-437f-bcb0-da0e8f2dd040": {
+   "name": "Kornelkirsche",
+   "description": "Sie ist eine Vitamin-C-Quelle und kann helfen, den Blutdruck zu regulieren."
+  },
+  "15feef97-b285-4534-90a8-6dd8cc6994e2": {
+   "name": "Laxantien (Abführmittel)",
+   "description": "Natürliche Mittel wie Aprikosen und Pflaumen sind besser. Medikamente nur nach Rücksprache mit deinem Arzt."
+  },
+  "16141dbb-2ea0-46a1-92bb-a4a9cbc211bd": {
+   "name": "Motal-Käse",
+   "description": "Er kann aus Rohmilch hergestellt sein und enthält sehr viel Salz. Sei vorsichtig."
+  },
+  "16a15229-2aac-4e4f-ae08-5d1a792405ad": {
+   "name": "Kürbis",
+   "description": "Er ist sehr gesund und reich an Ballaststoffen und Vitaminen."
+  },
+  "170aa39f-276b-4e8a-a118-072d9205cb2a": {
+   "name": "Quark",
+   "description": "Er ist unbedenklich. Wenn er sehr salzig ist, weiche ihn in Wasser ein."
+  },
+  "089bec31-a38b-4891-852a-00ce9e78068b": {
+   "name": "Progesteron (Dufaston)",
+   "description": "Wird bei drohender Fehlgeburt ärztlich verordnet. Nicht ohne ärztliche Anweisung einnehmen."
+  },
+  "093501ce-f6a1-4966-ab3f-5fade42e305a": {
+   "name": "Cracker",
+   "description": "Salzige Cracker helfen bei Schwangerschaftsübelkeit."
+  },
+  "0a4654e9-7c41-473b-a757-76ec9bb1fb2b": {
+   "name": "Ketchup",
+   "description": "Ist unbedenklich, sollte wegen des Zucker- und Salzgehalts aber nur in kleinen Mengen verzehrt werden."
+  },
+  "0b5776be-e0b1-4051-a79c-004825eeecfc": {
+   "name": "Süße kohlensäurehaltige Getränke",
+   "description": "Sie sind nicht grundsätzlich schädlich, können aufgrund von Zucker und Kohlensäure aber Blähungen und Gewichtszunahme begünstigen."
+  },
+  "0d5a2005-cbee-4482-bdab-a34909be9607": {
+   "name": "Doşab (Pekmez)",
+   "description": "Maulbeer- oder Traubenmelasse ist eine Eisenquelle und kann bei Blutarmut hilfreich sein."
+  },
+  "111e075c-794e-4c81-a617-00bd2ff5db24": {
+   "name": "Narşərab",
+   "description": "Ist unbedenklich und regt den Appetit an."
+  },
+  "0013b139-f71b-48c3-9500-426b95f36fe0": {
+   "name": "Brokkoli",
+   "description": "Reich an Folsäure und Kalzium."
+  },
+  "005015d5-313d-474c-8917-c4368a59ddcd": {
+   "name": "Aspirin",
+   "description": "Wenn es nicht ärztlich verordnet wurde (Cardioaspirin), darf es nicht als Schmerzmittel eingenommen werden."
+  },
+  "0296597e-bafb-48ed-895e-4c84438ec22f": {
+   "name": "Mobiltelefon / WLAN",
+   "description": "Es sind keine schädlichen Auswirkungen nachgewiesen."
+  },
+  "02c1f7c4-6c8b-428b-a335-a14f4392a4d7": {
+   "name": "Zimt",
+   "description": "Als Gewürz ist er unbedenklich. Er hilft, den Blutzuckerspiegel zu regulieren."
+  },
+  "02de9065-c8d5-420a-9f9f-381f38069906": {
+   "name": "Karotte",
+   "description": "Enthält Vitamin A in seiner unbedenklichen Form als Beta-Carotin."
+  },
+  "07b52750-1a09-4c2c-ac44-ad2a941a4731": {
+   "name": "Basma",
+   "description": "Ein unbedenkliches natürliches Färbemittel."
+  },
+  "2ba4fe11-76b1-4110-8626-0826230bb91c": {
+   "name": "Sonnenblumenkerne",
+   "description": "Sie sind eine Quelle für Folsäure und Vitamin E."
+  },
+  "2c380853-1d73-4853-a94f-5df5664edb6d": {
+   "name": "Vitamin D",
+   "description": "Es sollte in der vom Arzt verordneten Dosis eingenommen werden."
+  },
+  "2cbeb816-e302-4800-95f9-653ae9b96f41": {
+   "name": "Oliven",
+   "description": "Sie sind unbedenklich, enthalten aber viel Salz."
+  },
+  "2f141477-bea5-4d25-867b-b67d3e0d3866": {
+   "name": "Chips",
+   "description": "Sie enthalten ungesunde Fette und viel Salz. Gelegentlich können sie gegessen werden."
+  },
+  "2f3569d2-7904-4608-a2cd-a8d64f63a1b5": {
+   "name": "Vitamin-C-Serum",
+   "description": "Es kann unbedenklich gegen Pigmentflecken angewendet werden."
+  },
+  "3053a573-4429-4e68-86c4-0e7aa8a0013d": {
+   "name": "Kurkuma",
+   "description": "Es unterstützt das Immunsystem und kann in Speisen verwendet werden."
+  },
+  "30b06132-c93e-44ce-9d7a-1661b85b1e60": {
+   "name": "Piercing",
+   "description": "Es besteht ein Infektionsrisiko. Ein Piercing im Bauchbereich sollte entfernt werden."
+  },
+  "31868710-84f8-405d-97d0-cd526f998a88": {
+   "name": "Botox / Filler",
+   "description": "Aus ethischen Gründen wurden sie nicht an Schwangeren getestet, daher gehen Kosmetiker kein Risiko ein."
+  },
+  "32160fb8-7760-4e41-8ffe-b27506c0e08f": {
+   "name": "Nagellack",
+   "description": "Wähle Nagellacke ohne Toluol und Formaldehyd (\"3-free\" oder \"5-free\"). Lüfte den Raum gut."
+  },
+  "329e973f-89c7-4150-936a-d3b2b4a30283": {
+   "name": "Autofahren",
+   "description": "Es ist sicher, solange du den Sicherheitsgurt unterhalb des Bauches anlegst."
+  },
+  "33035124-c776-4553-8ff5-b7c8bb0b8d3c": {
+   "name": "Baldrian",
+   "description": "Kann als Beruhigungsmittel verwendet werden. Sprich vorher mit deinem Arzt."
+  },
+  "346d0133-99be-475b-b417-67945f3cc71f": {
+   "name": "Paracetamol",
+   "description": "Es ist die erste Wahl bei Schmerzen und Fieber."
+  },
+  "214a8105-e97d-46f4-bfa3-4285b64abb38": {
+   "name": "Arbeiten am Computer",
+   "description": "Steh jede Stunde auf und geh ein wenig umher (um die Durchblutung anzuregen)."
+  },
+  "2480a0e0-51da-49e1-9ad2-f6accaaf2639": {
+   "name": "Grüner Tee",
+   "description": "Enthält Koffein und kann die Aufnahme von Folsäure beeinträchtigen. Maximal 1 Tasse täglich."
+  },
+  "256b8c29-d4c6-497b-96ad-14febc117057": {
+   "name": "Ätherische Öle",
+   "description": "Vermeide sie in den ersten 3 Monaten. Lavendel- und Teebaumöl können danach in kleinen Mengen verwendet werden."
+  },
+  "25c7527b-591c-4620-959d-e45daeaea7e8": {
+   "name": "Aloe vera (Gel)",
+   "description": "Das Auftragen auf die Haut ist unbedenklich. Wegen der abführenden Wirkung solltest du Aloe vera nicht einnehmen oder als Saft trinken."
+  },
+  "26a4dcad-717d-4451-8a11-003e8508571f": {
+   "name": "Fruchtleder",
+   "description": "Es ist unbedenklich und sein säuerlicher Geschmack kann bei Schwangerschaftsübelkeit helfen."
+  },
+  "2816eb9b-6c75-4242-869c-91b793782e84": {
+   "name": "Marathon laufen",
+   "description": "Wegen der hohen körperlichen Belastung und möglicher Risiken wird das Laufen eines Marathons während der Schwangerschaft generell nicht empfohlen. Lass dich für eine individuelle Einschätzung von deiner Ärztin oder deinem Arzt beraten."
+  },
+  "175f0053-64b2-4e76-b5a5-673b01d8ac1e": {
+   "name": "Xəngəl (Teigblätter)",
+   "description": "Dieses Teiggericht ist unbedenklich. Das Hackfleisch muss vollständig durchgegart sein."
+  },
+  "19ca769a-11f7-46db-8963-6172b215a50a": {
+   "name": "Sesam",
+   "description": "In kleinen Mengen, etwa auf Brot oder als Tahini, ist Sesam erlaubt. Große Mengen können die Gebärmutter beeinflussen."
+  },
+  "19d422d5-be20-4643-8e69-e66fb97f5167": {
+   "name": "Wimpernverlängerung",
+   "description": "Wenn du nicht empfindlich auf den Geruch des Klebstoffs reagierst, ist sie unbedenklich."
+  },
+  "19fe3138-0e8f-487a-88e9-ac466b8e7455": {
+   "name": "Fenster putzen",
+   "description": "Es besteht die Gefahr, aus der Höhe zu stürzen. Sei vorsichtig."
+  },
+  "1c5a11d7-6647-4d9c-b566-6ed1d207f677": {
+   "name": "Haare färben",
+   "description": "Nach dem 1. Trimester ist es in einem gut belüfteten Raum und mit ammoniakfreien Haarfarben möglich."
+  },
+  "1ec8f09a-93f7-4090-a7b3-291ec4bebda6": {
+   "name": "Fleischkebab",
+   "description": "Das Fleisch muss vollständig durchgegart sein (es darf nicht \"blutig\" bleiben). Vom Verzehr angebrannter Stellen wird abgeraten."
+  },
+  "3d4abaa1-3e7a-4a70-ba17-3a98380b262e": {
+   "name": "Solarium",
+   "description": "Übermäßige Hitze und UV-Strahlung sind schädlich. Selbstbräunungscremes sind eine sicherere Alternative."
+  },
+  "3dcd690d-13ac-4649-adb0-5f3754e504df": {
+   "name": "Blumenkohl",
+   "description": "Eine gute Folsäurequelle."
+  },
+  "3e56c556-b839-4f2c-b232-3ab20776411e": {
+   "name": "Öffentliches Bad",
+   "description": "Aufgrund des Infektionsrisikos und der Hitze nicht empfehlenswert."
+  },
+  "3ee1c3b7-b903-492c-8602-996750c186b8": {
+   "name": "Qutab (mit Kräutern/Fleisch)",
+   "description": "Die Kräuter müssen gründlich gewaschen und das Fleisch vollständig durchgegart werden."
+  },
+  "3f136261-51b1-4e72-b8ca-44853eff06b6": {
+   "name": "Hagebuttentee",
+   "description": "Reich an Vitamin C und wohltuend bei Erkältungen."
+  },
+  "3f8bf8fd-9d0c-44e6-bcfe-aba1fd9bdaba": {
+   "name": "Eingelegtes Gemüse (Marinade)",
+   "description": "Es ist unbedenklich und regt den Appetit an. Aufgrund des Salzgehalts kann es jedoch Wassereinlagerungen verursachen."
+  },
+  "3473200c-9a7d-48b0-928c-8e9da88800b1": {
+   "name": "Alkoholfreies Bier",
+   "description": "Kann eine geringe Menge (0.5%) Alkohol enthalten. Sei vorsichtig."
+  },
+  "35464939-dd9e-4116-b32a-0eae5ac720f8": {
+   "name": "Badambura",
+   "description": "Ist unbedenklich."
+  },
+  "3982c1ae-13f7-4142-8726-4f0481aa7c58": {
+   "name": "Sonneneinstrahlung",
+   "description": "Mäßige Sonneneinstrahlung ist im Allgemeinen unbedenklich und unterstützt die Bildung von Vitamin D. Ein längerer Aufenthalt in der Sonne kann jedoch zu Flüssigkeitsmangel, Hitzschlag und Sonnenbrand führen, was unangenehm und potenziell schädlich sein kann. Es wird empfohlen, direkte Sonneneinstrahlung zu begrenzen, insbesondere während der intensivsten Sonnenstunden (von 10 Uhr morgens bis 4 Uhr nachmittags), schützende Kleidung zu tragen, Sonnencreme zu verwenden und ausreichend zu trinken."
+  },
+  "3c93069d-d293-4b0f-ad5e-34bac1fe54c6": {
+   "name": "Aubergine",
+   "description": "Ist unbedenklich und gesund."
+  },
+  "3cea4532-7848-493f-a0d6-e06099618ef1": {
+   "name": "Schwimmen",
+   "description": "Ist eine der besten Sportarten. Bevorzuge einen Pool mit sauberem Wasser oder das Meer."
+  },
+  "3d080cee-a173-4d17-8b0b-c3313c09349e": {
+   "name": "Retinol (Vitamin A)",
+   "description": "In Cremes und Tabletten ist es verboten. Es kann beim Fötus Fehlbildungen verursachen."
+  },
+  "455c2f5c-a585-4549-98c6-f4a465fe10e5": {
+   "name": "Kamillentee",
+   "description": "Wirkt beruhigend, kann aber in großen Mengen die Gebärmutter beeinflussen. Beschränke dich auf 1 Tasse täglich."
+  },
+  "4736feb8-a7c7-47ab-83f0-c0063f1903f5": {
+   "name": "Schwarzer Kaviar",
+   "description": "Wenn er pasteurisiert ist, liefert er Eiweiß und Omega-3-Fettsäuren."
+  },
+  "48610fa7-1910-457d-9078-9733a4ac93ef": {
+   "name": "Burger (Fast Food)",
+   "description": "Das Fleisch muss vollständig durchgegart sein. Bei der Sauberkeit des Salats ist Vorsicht geboten."
+  },
+  "48e91094-2376-4f8b-9fcb-b8dff5dabdd6": {
+   "name": "Natürliche Säfte",
+   "description": "Pasteurisierte Säfte sind unbedenklich. Frisch gepresste Säfte sollten sofort getrunken werden."
+  },
+  "4afbfd15-403c-4f25-8b02-aa586d685816": {
+   "name": "Piti",
+   "description": "Ist sehr fettreich (Schwanzfett) und kann die Verdauung belasten."
+  },
+  "4bb29538-26fa-451d-93c6-87de4551a116": {
+   "name": "Insektizid",
+   "description": "Ist giftig. Halte dich während der Schädlingsbekämpfung außerhalb des Hauses auf."
+  },
+  "410cde1d-5aea-4d7b-bb9b-fe8f45a749d3": {
+   "name": "Analgin",
+   "description": "Kann die Blutbildung beeinträchtigen. Wähle stattdessen Paracetamol."
+  },
+  "41b1cc04-5909-43be-8ce4-86fb1ead21b8": {
+   "name": "Ayran / Dovğa",
+   "description": "Ist unbedenklich und unterstützt die Verdauung."
+  },
+  "438a265a-32b5-43b2-a441-d5edbb5699d7": {
+   "name": "Vollkornbrot",
+   "description": "Ist gesünder als Weißbrot."
+  },
+  "43a45a81-8784-41a1-b75a-fb08a503e946": {
+   "name": "Herzgespann (Motherwort)",
+   "description": "Wird als Beruhigungsmittel verwendet. Sprich jedoch vorher mit deinem Arzt oder deiner Ärztin."
+  },
+  "4409ab79-8040-400f-874e-3014663cbb59": {
+   "name": "Koriander",
+   "description": "In üblichen Lebensmittelmengen, etwa als Küchenkraut, ist er unbedenklich."
+  },
+  "445ab6ae-6f5b-45dd-948c-e1fb40b68b41": {
+   "name": "Acryl- / Gelnägel",
+   "description": "Trage eine Maske, um dich vor Staub und chemischen Dämpfen zu schützen. Die UV-Lampe ist unbedenklich."
+  },
+  "4f691cd1-d199-495e-ad77-36cafbbe20a5": {
+   "name": "Kombucha",
+   "description": "Kann geringe Mengen Alkohol und lebende Bakterien enthalten."
+  },
+  "4ff28cff-1e5f-4c00-9bf5-da800caafa84": {
+   "name": "Roter Kaviar",
+   "description": "Ist unbedenklich, wenn er pasteurisiert wurde."
+  },
+  "50fbfc91-971a-4630-9616-e61d1e952266": {
+   "name": "Konzert",
+   "description": "Sehr laute Musik kann das Baby beeinträchtigen."
+  },
+  "519f485f-bbfa-43a2-ab16-3cf1e139361b": {
+   "name": "Margarine",
+   "description": "Enthält Transfette; bevorzuge Butter."
+  },
+  "5244c1bd-462f-4e11-80c4-c7698bf4eb81": {
+   "name": "Rohmilch",
+   "description": "Ungekochte Milch direkt vom Bauernhof kann eine Bakterienquelle sein. Sie muss unbedingt abgekocht werden; alternativ solltest du pasteurisierte Milch kaufen."
+  },
+  "529cbeb0-75e5-405b-980d-b468a119e536": {
+   "name": "Kükü",
+   "description": "Ist unbedenklich, wenn die Kräuter und Eier vollständig durchgegart sind."
+  },
+  "4bc02c92-bff2-4d26-b42d-9123d3f84aed": {
+   "name": "Drachenfrucht",
+   "description": "Drachenfrucht kann während der Schwangerschaft im Allgemeinen bedenkenlos verzehrt werden. Sie ist eine gute Quelle für Vitamine, Mineralstoffe und Ballaststoffe, die für Schwangere von Vorteil sein können."
+  },
+  "4bf58079-aa14-4344-8177-0c7e093fb7fd": {
+   "name": "Kwas",
+   "description": "Kann geringe Mengen Alkohol enthalten (durch Gärung). Sei vorsichtig."
+  },
+  "4d71f90e-d40d-49a3-a894-6e5ac5b95bc2": {
+   "name": "Henna",
+   "description": "Natürliches Henna ist unbedenklich. Vermeide „schwarzes Henna“ mit chemischen Zusätzen."
+  },
+  "4e56afe8-e5aa-4f52-9505-f2461311be94": {
+   "name": "Melone (Zuckermelone)",
+   "description": "Sie ist unbedenklich, sollte aber gründlich gewaschen werden, da sich auf der Schale Bakterien befinden können."
+  },
+  "4e861e2a-5668-4dd0-b2c7-733c3191cebf": {
+   "name": "Dimedrol",
+   "description": "Kann Gebärmutterkontraktionen auslösen und wird daher nicht empfohlen."
+  },
+  "4ed749d3-e969-49f1-95f3-cb9354d1022c": {
+   "name": "Nasensprays",
+   "description": "Kochsalzlösung (Akvamaris) ist vollkommen unbedenklich. Abschwellende Nasensprays (Xylometazolin) sollten nicht länger als 3-5 Tage angewendet werden."
+  },
+  "56b28fa6-2463-4319-a977-abdfc415b72f": {
+   "name": "Senf (Mostrich)",
+   "description": "In kleinen Mengen als Soße unbedenklich."
+  },
+  "580c9e78-3ae2-44f8-a423-d1a876ee79a7": {
+   "name": "Springen (Jumping)",
+   "description": "Da die Gelenke lockerer sind, besteht Verletzungsgefahr. Außerdem wird Druck auf die Gebärmutter ausgeübt."
+  },
+  "583251f4-b8d0-49fb-94d8-09b5b5b8dd82": {
+   "name": "Rosenwasser",
+   "description": "Unbedenklich und beruhigend."
+  },
+  "594fcc68-fc42-4bca-900f-141656343888": {
+   "name": "Tomate",
+   "description": "Unbedenklich und eine gute Lycopinquelle."
+  },
+  "5982e012-62cf-416e-b576-902b951f4204": {
+   "name": "Gefüllte Aubergine",
+   "description": "Unbedenklich (Sommer-Dolma)."
+  },
+  "59e013bf-1a25-4372-bb1b-e6c0f3f5d350": {
+   "name": "Passivrauchen",
+   "description": "Auch der Aufenthalt in einer verrauchten Umgebung ist schädlich."
+  },
+  "59fb3680-4faa-49c9-94f4-50c108fe46e7": {
+   "name": "Kokosöl",
+   "description": "Ist unbedenklich."
+  },
+  "5a458d09-50b8-41b9-bd96-a563718fc867": {
+   "name": "Haustiere (Hund)",
+   "description": "Ist unbedenklich. Lass den Hund nicht auf deinen Bauch springen."
+  },
+  "5b79dbab-363f-4c10-88a5-bb4e7d1189f0": {
+   "name": "Garnelen (Shrimps)",
+   "description": "Vollständig durchgegart sind sie unbedenklich. Roh oder nicht ganz durchgegart solltest du sie nicht essen."
+  },
+  "5c1830c9-88e2-4841-8a68-b24e260dc873": {
+   "name": "Pizza",
+   "description": "Achte darauf, dass der Käse pasteurisiert und die Wurst vollständig durchgegart ist."
+  },
+  "5c68102b-5a44-4efe-b7b4-4f2dd181733f": {
+   "name": "Quinoa",
+   "description": "Reich an Eiweiß und eine ausgezeichnete Wahl."
+  },
+  "5cb8457a-e57a-462e-ab62-e24b3526d8ba": {
+   "name": "Bowling",
+   "description": "Die Kugel sollte nicht zu schwer sein. Sei vorsichtig, da der Boden rutschig sein kann."
+  },
+  "5340f447-5183-44c1-a1e3-6279a989c56c": {
+   "name": "Eiscreme",
+   "description": "Wenn sie aus pasteurisierter Milch hergestellt wurde, ist sie unbedenklich. Bei Softeis von Straßenständen kann ein erhöhtes Bakterienrisiko bestehen."
+  },
+  "53bfc9ec-dd79-4134-9377-7aa0dbecaa42": {
+   "name": "Renovierungsarbeiten (Farbgeruch)",
+   "description": "Lösungsmittel- und Farbdämpfe sind gesundheitsschädlich. Halte dich nicht im Raum auf."
+  },
+  "55091d3f-e65c-41cc-91a3-9aee86cea4b1": {
+   "name": "Mayonnaise",
+   "description": "Selbst gemachte Mayonnaise mit rohen Eiern solltest du nicht essen. Mayonnaise aus dem Handel (mit pasteurisierten Eiern) ist unbedenklich."
+  },
+  "560a1bdf-8d00-4164-87ab-508083cf5275": {
+   "name": "Rohe Eier",
+   "description": "Es besteht Salmonellengefahr. Speisen mit rohen Eiern, roher Teig oder nicht vollständig gegarte Eier sind tabu. Eier müssen vollständig durchgegart sein."
+  },
+  "56778e31-ace8-48db-ae70-70dece506207": {
+   "name": "Eisen (Iron)",
+   "description": "Bei Blutarmut (Anämie) nur nach ärztlicher Verordnung einnehmen. Kann Verstopfung verursachen."
+  },
+  "56815cf3-8027-47e0-98e6-8d6cdd30d7f7": {
+   "name": "Trockenfrüchte",
+   "description": "Rosinen und getrocknete Aprikosen sind unbedenklich (sie sollten gründlich gewaschen werden)."
+  },
+  "5d083314-2569-43ea-ae23-fc114fbfce9c": {
+   "name": "Tetracyclin",
+   "description": "Beeinträchtigt die Entwicklung der Knochen und Zähne des Fötus."
+  },
+  "5f1e0613-8338-4aa2-b8f4-9ceaf2ed0b06": {
+   "name": "Hydrochinon",
+   "description": "Ein Wirkstoff zur Aufhellung von Pigmentflecken, dessen Anwendung in der Schwangerschaft nicht empfohlen wird."
+  },
+  "5f509ef7-f1c9-4d9c-99c2-3a0e4a01a0f0": {
+   "name": "Schuhe mit hohen Absätzen",
+   "description": "Da sich der Körperschwerpunkt verlagert, können sie Rückenschmerzen verursachen und das Sturzrisiko erhöhen."
+  },
+  "5f82fb09-4272-450a-a938-9061a1796d85": {
+   "name": "Metoclopramid (Cerucal)",
+   "description": "Darf bei starkem Erbrechen nur nach ärztlicher Verordnung angewendet werden."
+  },
+  "5f83ff5e-3c19-423e-98db-8ded8ee940d3": {
+   "name": "Halva",
+   "description": "Ist unbedenklich, enthält jedoch sehr viel Zucker und viele Kalorien."
+  },
+  "601714d8-610c-438d-a0d7-5877c0bf636a": {
+   "name": "Keratin (Haare)",
+   "description": "Viele Keratinprodukte enthalten Formaldehyd und sind gesundheitsschädlich."
+  },
+  "633e6263-8f53-4f9e-bd0f-e7a29527e3a4": {
+   "name": "Probiotika",
+   "description": "Sie sind sicher für das Verdauungssystem."
+  },
+  "6388ea48-ae0f-43ce-babf-7cfe4ca86b8a": {
+   "name": "Pfirsich / Aprikose",
+   "description": "Ist unbedenklich. Getrocknete Aprikosen helfen bei Verstopfung."
+  },
+  "66dacaf3-0db6-4d5d-80d2-bd4efdac876e": {
+   "name": "Basilikum",
+   "description": "Ist unbedenklich."
+  },
+  "67bf765d-e81e-422c-98d9-7f20a6cd4779": {
+   "name": "Salicylsäure",
+   "description": "Hochprozentige Peelings sollten vermieden werden. In Reinigungsprodukten (bis zu 2 %) ist sie unbedenklich."
+  },
+  "67e60a78-ff25-4e82-a1ee-fcd0e164b46a": {
+   "name": "Selen",
+   "description": "Wirkt antioxidativ und ist unbedenklich."
+  },
+  "68436f79-3935-4d42-a531-14e13c04b0a5": {
+   "name": "Sellerie (Celery)",
+   "description": "Ist unbedenklich und hilft, Wassereinlagerungen zu reduzieren."
+  },
+  "601ddfdf-ce3e-49f3-b265-6d855abe584f": {
+   "name": "Streptozid",
+   "description": "Die Anwendung während der Schwangerschaft wird nicht empfohlen."
+  },
+  "602aceb1-5ab8-47bc-98de-4efa57d115a8": {
+   "name": "Benzoylperoxid",
+   "description": "Niedrig dosierte Cremes (2.5-5%) gegen Akne gelten in der Regel als sicher."
+  },
+  "609cd044-7abe-4055-b0cc-8bd435ceecc8": {
+   "name": "Flugreisen",
+   "description": "Bei einem normalen Schwangerschaftsverlauf sind Flugreisen bis zur 36. Schwangerschaftswoche erlaubt. Trinke viel Wasser und bewege dich regelmäßig."
+  },
+  "612ccff1-2754-48e7-95a5-0b34f772498a": {
+   "name": "Wurst / Würstchen",
+   "description": "Sie müssen gut durchgegart sein. Bei rohen, geräucherten Wurstwaren (Salami) besteht ein Listerienrisiko."
+  },
+  "6214d75f-88ec-40f6-b373-2db80810bbf5": {
+   "name": "Bauchöl (Dehnungsstreifen)",
+   "description": "Mandel- oder Kokosöl kann bedenkenlos zur Hautpflege verwendet werden."
+  },
+  "6301bccb-ed1f-4926-9f49-4d46b17a1eec": {
+   "name": "Honig",
+   "description": "Pasteurisierter Honig ist unbedenklich."
+  },
+  "6870b771-135d-4435-baf9-06ee70c3447b": {
+   "name": "Feige",
+   "description": "Ein ausgezeichnetes Mittel gegen Verstopfung (sowohl frisch als auch getrocknet)."
+  },
+  "697c2aaa-a74b-4086-a444-6b7288af80bb": {
+   "name": "Fisch mit hohem Quecksilbergehalt",
+   "description": "Hai, Königsmakrele und Schwertfisch sind verboten. Quecksilber schädigt das Nervensystem."
+  },
+  "6a7efdd2-06f4-496b-a4e9-bc1dd8c0a77d": {
+   "name": "Ibuprofen",
+   "description": "Insbesondere im 3. Trimester verboten (beeinträchtigt die Herzgefäße)."
+  },
+  "6ab31194-cd7e-4874-8d53-54c5ec49e6f2": {
+   "name": "Blutegel",
+   "description": "Wirkt blutverdünnend und kann Blutungen verursachen."
+  },
+  "6d7dba93-bfd3-4549-b0ef-6c472ec9ccc2": {
+   "name": "Fruchtleder",
+   "description": "Wenn es aus natürlichen Früchten hergestellt wurde, ist es unbedenklich."
+  },
+  "6d819ec6-ea51-4700-8b68-8a4ec5218349": {
+   "name": "Schweres Heben",
+   "description": "Ist riskant für den Rücken und die Gebärmutter."
+  },
+  "2841191c-cf23-4b01-bf5f-86a558ecb36a": {
+   "name": "Microblading",
+   "description": "Wird aufgrund des Infektionsrisikos und möglicher Schmerzen nicht empfohlen."
+  },
+  "28775f4a-1fa8-4cb7-8dac-0132827acef9": {
+   "name": "Jod",
+   "description": "Ist wichtig für die Schilddrüse und die Gehirnentwicklung des Fötus."
+  },
+  "2a3c43e7-7984-4ed2-b2db-4df9dd48adbd": {
+   "name": "Verjus",
+   "description": "Ist unbedenklich (Saft aus unreifen Trauben)."
+  },
+  "2ac2b30a-da50-4793-b7a3-857694634a38": {
+   "name": "Mais (gekocht)",
+   "description": "Ist ein unbedenklicher Snack."
+  },
+  "2b2dad7b-3bcb-456f-8c6d-6200781cc993": {
+   "name": "Zahnbehandlung",
+   "description": "Eine lokale Betäubung mit Lidocain ist während der Schwangerschaft unbedenklich. Es ist wichtig, Infektionen behandeln zu lassen."
+  },
+  "2b3dc439-9ff4-4b53-993b-7cea853548d1": {
+   "name": "Augenbrauenlaminierung",
+   "description": "Die Chemikalien können mit der Haut in Kontakt kommen. Führe vorher einen Allergietest durch."
+  },
+  "6d8da89e-2915-4d50-9726-13000b119af8": {
+   "name": "Antitranspirant",
+   "description": "Ist unbedenklich. Eine Schädigung des ungeborenen Kindes durch Aluminium ist nicht nachgewiesen."
+  },
+  "6d9509e9-99c8-48d9-868f-8c628f8bde63": {
+   "name": "Gurke",
+   "description": "Ist unbedenklich und erfrischt den Körper."
+  },
+  "6fadb185-4d26-4b03-b90f-2ca2294a8a59": {
+   "name": "Massage",
+   "description": "Nur eine speziell auf Schwangere abgestimmte Massage. Der Bauchbereich darf nicht massiert werden."
+  },
+  "7118b69a-1054-4e8c-aa5c-be81da487610": {
+   "name": "Haselnüsse / Walnüsse",
+   "description": "Sie sind reich an Omega-3-Fettsäuren und Eiweiß. Wenn keine Allergie besteht, sind sie empfehlenswert."
+  },
+  "716d8b76-bf60-4168-9031-e5be46163dd2": {
+   "name": "Schröpfen",
+   "description": "Regt die Durchblutung stark an und ist daher riskant."
+  },
+  "732bed92-3030-411f-b2ff-283bf6e4bf48": {
+   "name": "Chiasamen",
+   "description": "Sie sind reich an Omega-3-Fettsäuren und Ballaststoffen."
+  },
+  "799cad69-4882-49ca-82ca-3e1794c7fa44": {
+   "name": "Katzenstreu",
+   "description": "Es besteht ein Toxoplasmose-Risiko. Jemand anderes sollte das Katzenstreu wechseln."
+  },
+  "79a91301-c669-4cf2-b0c3-e09fc1ab5f35": {
+   "name": "Niacinamid",
+   "description": "Es ist unbedenklich für die Haut."
+  },
+  "7b5f16d8-cb51-4a76-8024-7be7141ac630": {
+   "name": "Bohnen",
+   "description": "Sie sind eine gute Proteinquelle und sollten gut durchgegart werden."
+  },
+  "7bef7061-5448-4c35-b005-2997dcec735a": {
+   "name": "Dill",
+   "description": "In üblichen Lebensmittelmengen ist er unbedenklich. Dillsamen, etwa als Aufguss, sollten nur mit Vorsicht verwendet werden."
+  },
+  "7cb1c932-960e-4993-9740-e2c27e3d25a5": {
+   "name": "Marmelade aus weißen Kirschen",
+   "description": "Sie ist unbedenklich."
+  },
+  "7d48f86d-1b7b-41b5-a5c1-7596a6ad0774": {
+   "name": "Zahnaufhellung",
+   "description": "Da das Zahnfleisch empfindlich ist, wird empfohlen, sie zu verschieben."
+  },
+  "7413e106-1816-44e7-aeda-e615ff542fb7": {
+   "name": "Maulbeere (Obst)",
+   "description": "Sie ist unbedenklich und unterstützt die Blutbildung."
+  },
+  "7460ea4e-59a9-4491-a80d-ca624d9ea62f": {
+   "name": "Röntgen",
+   "description": "Nur wenn unbedingt erforderlich. Es sollte eine Bleischürze getragen werden. Zahnröntgen ist unbedenklich."
+  },
+  "763b5893-6ccb-484f-aab4-527f5c6fece0": {
+   "name": "Brühwürfel",
+   "description": "Sie enthalten viele Zusatzstoffe (MSG) und viel Salz. Natürliche Brühe ist besser."
+  },
+  "77386829-1c50-4449-b632-8771c2292299": {
+   "name": "Qovurma",
+   "description": "Kann fett- und salzreich sein. Sollte in Maßen gegessen werden."
+  },
+  "79481482-cb1b-47e5-8f83-f0c433d30ea9": {
+   "name": "Səməni-Halva",
+   "description": "Sie ist reich an Vitaminen aus Keimlingen und gesund."
+  },
+  "7988917f-4c54-4fc6-9b33-a6b9eff4a3b9": {
+   "name": "Schmand / Sahne",
+   "description": "Unbedenklich, aber fettreich (achte auf die Gewichtszunahme)."
+  },
+  "89e5fddd-8b38-4b19-b691-fa64f4c6a90f": {
+   "name": "Leinsamen",
+   "description": "Enthält Phytoöstrogene. Mehr als 1 Esslöffel täglich wird nicht empfohlen."
+  },
+  "89eeff87-48dd-44b0-b8f9-4070b09a9d0f": {
+   "name": "Azelainsäure",
+   "description": "Sie gilt in der Schwangerschaft als die sicherste Säure gegen Akne und Pigmentflecken."
+  },
+  "8a010bc8-87c8-49af-9b78-0523759fca38": {
+   "name": "Essig",
+   "description": "In kleinen Mengen in Salaten unbedenklich."
+  },
+  "8a8f0fa3-c25c-45d1-b6f6-ee989d541e2a": {
+   "name": "Süßholzwurzeltee",
+   "description": "Kann den Blutdruck erhöhen und die kognitive Entwicklung des Kindes beeinträchtigen."
+  },
+  "8c790830-3d81-4c6a-86ad-ab99b3b9a793": {
+   "name": "Wassermelone",
+   "description": "Hilft, den Flüssigkeitsbedarf zu decken, enthält jedoch viel Zucker (Vorsicht bei Diabetes)."
+  },
+  "8d6e0491-4c18-4788-9af6-483ed9d1f574": {
+   "name": "Kohl",
+   "description": "Ist gesund, kann aber Blähungen verursachen."
+  },
+  "81f95f01-3b64-44d0-adc2-51f7584fefc4": {
+   "name": "Geschlechtsverkehr",
+   "description": "Wenn dein Arzt nichts dagegen einzuwenden hat (keine Placenta praevia und kein erhöhter Gebärmuttertonus vorliegen), ist Geschlechtsverkehr unbedenklich."
+  },
+  "821fb5f2-388e-47ea-9009-cd1b7b556ce2": {
+   "name": "Olivenöl",
+   "description": "Es gehört zu den gesündesten Ölen."
+  },
+  "82343624-8c0a-4b01-a207-d6aa1be80ee1": {
+   "name": "Popcorn",
+   "description": "Es ist ein unbedenklicher Snack, wenn es wenig Salz und Fett enthält."
+  },
+  "86120127-596d-4576-9c19-6c32bfbcee8b": {
+   "name": "Tattoo (Tätowierung)",
+   "description": "Aufgrund des Infektionsrisikos (Hepatitis, HIV) und der Inhaltsstoffe der Tätowierfarbe wird davon abgeraten."
+  },
+  "8808c210-3a50-4913-a82e-a41050ba65ec": {
+   "name": "Kompott",
+   "description": "Es ist unbedenklich, aber bei hohem Zuckergehalt solltest du nur wenig davon trinken."
+  },
+  "89d45bf0-0499-4c49-9ba9-c5a9223b2a57": {
+   "name": "Linsensuppe",
+   "description": "Sie ist eine gute Eisen- und Eiweißquelle."
+  },
+  "7e0caddf-8e7a-4e66-9398-53595240fb6a": {
+   "name": "Leber",
+   "description": "Sie enthält sehr viel Vitamin A (Retinol). Mehr als 1–2 Mal pro Monat wird nicht empfohlen."
+  },
+  "7ec91bed-5e3e-4a83-adee-8d1221151cae": {
+   "name": "Abgetropfter Joghurt",
+   "description": "Ist unbedenklich."
+  },
+  "7f3b0fe2-64b2-4525-b035-fdbd8da666f0": {
+   "name": "Zigaretten",
+   "description": "Sie können zu Wachstumsverzögerungen beim Baby und zu einer Frühgeburt führen."
+  },
+  "815319d2-9b85-4808-b962-fdda0f9d7dd7": {
+   "name": "Datteln",
+   "description": "Sie sind gesund. Studien deuten darauf hin, dass sie in den letzten Schwangerschaftswochen die Geburt erleichtern können."
+  },
+  "817378f0-f52a-42c2-9dc6-d31be38e3eae": {
+   "name": "Minzwasser (Minztee)",
+   "description": "Hilft bei Übelkeit und unterstützt die Verdauung."
+  },
+  "81c3085d-96d9-4f6b-a7ba-21872bb64837": {
+   "name": "Berberitzen",
+   "description": "In kleinen Mengen im Pilaw sind sie unbedenklich. In hoher Dosierung kann Berberin die Gebärmutter stimulieren."
+  },
+  "8e6f587c-2400-4460-be21-1136fc67cf36": {
+   "name": "Wasserstoffperoxid",
+   "description": "Zur Reinigung von Wunden unbedenklich."
+  },
+  "8ed0967f-876b-45cd-9e91-587c8d5d6e0f": {
+   "name": "Ingwer",
+   "description": "Sehr gut gegen Schwangerschaftsübelkeit geeignet, solange die empfohlene Tagesmenge nicht überschritten wird."
+  },
+  "8f85cccc-8ea2-4c28-93df-cc5072268473": {
+   "name": "Hyaluronserum",
+   "description": "Als Feuchtigkeitspflege völlig unbedenklich."
+  },
+  "8fe52471-8dfb-4d7b-8864-3b1d86d9a2d9": {
+   "name": "Soja",
+   "description": "Als Lebensmittel (z. B. Sojasauce) unbedenklich. Hoch dosierte Isoflavonpräparate werden nicht empfohlen."
+  },
+  "90391c7b-3de2-4666-8881-f39dd9405ed2": {
+   "name": "Vitamin B6",
+   "description": "Wird zur Linderung von Schwangerschaftsübelkeit eingesetzt."
+  },
+  "90b9aa92-c8f3-4b4e-b97e-e6911cdbfbd6": {
+   "name": "Fencheltee",
+   "description": "Unterstützt die Verdauung, kann aber in großen Mengen Gebärmutterkontraktionen auslösen."
+  },
+  "94bf5000-5697-4c9b-b884-b1e8c0efbcda": {
+   "name": "Döner",
+   "description": "Es kann ein Hygienerisiko bestehen. Deshalb nur aus einer vertrauenswürdigen Quelle und vollständig durchgegart verzehren."
+  },
+  "94c2c047-2843-4200-936a-3a9fc44240f1": {
+   "name": "Hibiskus",
+   "description": "Einige Studien deuten auf mögliche hormonelle Wirkungen hin. Daher wird empfohlen, darauf zu verzichten."
+  },
+  "9680b85e-c13d-4194-be28-5232a7f113b1": {
+   "name": "Tanzen",
+   "description": "Hebt die Stimmung. Vermeide ruckartige Bewegungen und Sprünge."
+  },
+  "9811160d-50b0-49ee-ad9a-de2887d861ff": {
+   "name": "Haare föhnen",
+   "description": "Ist unbedenklich."
+  },
+  "99c14318-3cfc-4075-b0a9-fe0b308313db": {
+   "name": "Sugaring / Waxing",
+   "description": "Ist unbedenklich, sofern keine erweiterten Venen (Krampfadern) vorliegen. Die Haut kann empfindlicher sein."
+  },
+  "9a1a747c-7173-43b6-9b93-c2a5d9023c83": {
+   "name": "Himbeeren / Brombeeren",
+   "description": "Frisch sind sie unbedenklich. Nicht mit Tee aus Himbeer- oder Brombeerblättern verwechseln."
+  },
+  "a5dd803c-a1ab-47f5-acc3-d5aefdbeca54": {
+   "name": "Salz",
+   "description": "Du kannst es essen, aber zu viel davon kann Ödeme (Wassereinlagerungen) verursachen. Daher solltest du den Verzehr einschränken."
+  },
+  "a6497678-b148-4fbc-8e3e-7625769c440c": {
+   "name": "Petersilie",
+   "description": "Als Gewürz in Speisen ist sie unbedenklich. Größere Mengen als Saft oder Tee können jedoch die Gebärmutter stimulieren."
+  },
+  "a7b8c93a-6b20-42cb-a6bb-3c24c2d463dd": {
+   "name": "Weichkäse",
+   "description": "Nicht pasteurisierte Käsesorten, Brie, Camembert und Gorgonzola (Schimmelkäse) bergen ein Listerienrisiko."
+  },
+  "a90e3ed7-29b4-4069-9da6-756cd3c34d3b": {
+   "name": "Energydrinks",
+   "description": "Aufgrund ihres hohen Gehalts an Koffein, Taurin und chemischen Zusatzstoffen sind sie nicht erlaubt."
+  },
+  "a92ffa8d-a22e-42a9-b273-e99051d02431": {
+   "name": "Selbstbräunungsspray",
+   "description": "Es bleibt auf der Hautoberfläche und gelangt nicht ins Blut. Achte aber darauf, den Sprühnebel nicht einzuatmen."
+  },
+  "a935f993-7f7f-48c5-86da-aa2d5e8367c7": {
+   "name": "Qoğal",
+   "description": "Da es stark gewürzt ist, kann es Sodbrennen verursachen."
+  },
+  "9afd3dbd-2a81-4f82-b4a6-f0c365cace3a": {
+   "name": "Quark (pasteurisiert)",
+   "description": "Quark aus dem Supermarkt ist unbedenklich und eine gute Kalziumquelle. Lose verkaufter Rohmilchquark muss vollständig erhitzt werden."
+  },
+  "9ff783a8-6911-4a46-97cd-a4a18396bb13": {
+   "name": "Feijoa",
+   "description": "Sie ist reich an Jod und unterstützt die Schilddrüse."
+  },
+  "a07b8699-6338-4bca-94a8-92fcb9ae10db": {
+   "name": "Nähen",
+   "description": "Es ist unbedenklich, aber du solltest nicht lange in derselben Position sitzen."
+  },
+  "a1f606c2-1658-4e47-bfea-06a80cc7dce7": {
+   "name": "Mispel",
+   "description": "Sie ist unbedenklich."
+  },
+  "a4a9d193-8a0c-48ee-9372-9b37e5b999aa": {
+   "name": "Laser-Haarentfernung",
+   "description": "Die Strahlung dringt nicht tief ein, Schmerzen können jedoch Gebärmutterkontraktionen auslösen. Ärztinnen und Ärzte empfehlen in der Regel, bis nach der Schwangerschaft zu warten."
+  },
+  "a533b46d-afd9-4184-ad2d-ec9d133701ff": {
+   "name": "Estragon",
+   "description": "In üblichen Lebensmittelmengen ist er unbedenklich."
+  },
+  "a9929822-3bb0-4d7c-a4c2-2a4b33e92a3e": {
+   "name": "Pilates",
+   "description": "Stärkt die Rückenmuskulatur. Die Trainerin oder der Trainer sollte über die Schwangerschaft informiert sein."
+  },
+  "aacd53cb-1bb0-4268-a1d1-9f9c135ab7ce": {
+   "name": "Khash / Kelle Paça",
+   "description": "Ist sehr fettreich und kann den Cholesterinspiegel erhöhen. Knoblauch kann den Magen reizen."
+  },
+  "ab3fa79f-82f8-4fc2-a110-8c6d47485087": {
+   "name": "Scharfe Paprika",
+   "description": "Ist unbedenklich, kann jedoch Sodbrennen verstärken."
+  },
+  "abf9d1a9-234a-433d-9ccb-84b093abd005": {
+   "name": "Antihistaminikum (Allergie)",
+   "description": "Sprich mit deiner Ärztin oder deinem Arzt. Loratadin und Cetirizin gelten in der Regel als unbedenklich."
+  },
+  "ac0aee5f-a79c-4c84-b5d8-ef03a487b436": {
+   "name": "Heißes Bad / Sauna",
+   "description": "Ein Anstieg der Körpertemperatur auf über 39°C ist für den Fötus gefährlich. Eine lauwarme Dusche ist in Ordnung."
+  },
+  "acb890db-b750-4b72-8f5e-e8344e92d7a5": {
+   "name": "Sac İçi",
+   "description": "Kann sehr fettig und stark angebraten sein. Der Gemüseanteil ist gesünder."
+  },
+  "b4392c92-b356-4f01-8438-8c0f357714ef": {
+   "name": "Schokolade",
+   "description": "Kann in kleinen Mengen gegessen werden. Achte dabei auf den Koffein- und Zuckergehalt."
+  },
+  "b45209df-c697-4659-83df-1930e5ece743": {
+   "name": "Kalzium",
+   "description": "Wichtig für Knochen und Zähne."
+  },
+  "b48ef54c-3301-4c72-9e1d-015b47bf0be0": {
+   "name": "Pflaume",
+   "description": "Ist unbedenklich und fördert die Verdauung."
+  },
+  "b5136762-1228-4319-a02d-71a442045140": {
+   "name": "Thunfisch (Konserve)",
+   "description": "Bis zu 140 Gramm pro Woche sind erlaubt (Quecksilberrisiko)."
+  },
+  "b62f0f82-1af4-4811-910c-583d477987e7": {
+   "name": "Feigenkonfitüre",
+   "description": "Fördert die Verdauung."
+  },
+  "b728c753-908a-4c9b-be3a-95f134405968": {
+   "name": "Bulgur",
+   "description": "Enthält mehr Ballaststoffe als Reis und ist gesund."
+  },
+  "b73d6256-1d85-4003-b933-0538a317f86f": {
+   "name": "Himbeerblättertee",
+   "description": "Nur gegen Ende des 3. Trimesters (ab der 36. Woche) zur Geburtsvorbereitung erlaubt."
+  },
+  "b7a6fc30-872d-4080-ab2a-e4fa0f992f45": {
+   "name": "Sport (leicht)",
+   "description": "Spazierengehen, Schwimmen und Schwangerschaftsyoga sind empfehlenswert."
+  },
+  "b89c53eb-32bc-412b-9682-ea88d2687297": {
+   "name": "Zucker / Süßigkeiten",
+   "description": "Bei einem erhöhten Risiko für Schwangerschaftsdiabetes ist eine strenge Kontrolle erforderlich."
+  },
+  "c12e6733-ed2c-48df-9554-d169b3d3df30": {
+   "name": "Roller fahren",
+   "description": "Beim Rollerfahren besteht Sturz- und Verletzungsgefahr, was während der Schwangerschaft gefährlich sein kann. Verzichte am besten darauf."
+  },
+  "c1ad91ac-a9d7-4f8b-be51-bcfc572993be": {
+   "name": "Wimpernlifting",
+   "description": "Die chemischen Substanzen können ins Auge gelangen. Ein Allergietest ist unbedingt erforderlich."
+  },
+  "c2eda676-4afc-47fd-8f07-97d50bd55942": {
+   "name": "Kakao",
+   "description": "In kleinen Mengen erlaubt. Enthält Koffein."
+  },
+  "ad945485-a623-4a91-afca-c9d7bba8b9c8": {
+   "name": "Hijama (blutiges Schröpfen)",
+   "description": "Es besteht die Gefahr von Blutverlust und Infektionen. Außerdem kann der Blutdruck abfallen."
+  },
+  "ada1521c-d651-4273-b3da-e1874aaf6625": {
+   "name": "Joghurt / Kefir",
+   "description": "Eine gute Quelle für Kalzium und Probiotika."
+  },
+  "b0855f6d-792e-4d72-a4d4-3509c5e9f5a1": {
+   "name": "Flugreisen",
+   "description": "Flüge mit kommerziellen Fluggesellschaften gelten während der Schwangerschaft im Allgemeinen als sicher. Dennoch solltest du dich insbesondere vor Langstreckenflügen ärztlich beraten lassen, auch wenn keine Schwangerschaftskomplikationen vorliegen. Trinke ausreichend Wasser, bewege dich regelmäßig, um Blutgerinnseln vorzubeugen, und trage Kompressionsstrümpfe, falls diese empfohlen werden. Diese Empfehlungen gelten auch für stillende Mütter. Bei langen Flügen kann es jedoch hilfreich sein, zusätzliche Vorkehrungen für das Füttern und Wohlbefinden des Babys zu treffen."
+  },
+  "b0c7bfda-4110-4f88-8a68-a6303d1447c6": {
+   "name": "Lachs",
+   "description": "Eine gute Quelle für Omega-3-Fettsäuren. Bis zu zweimal pro Woche wird vollständig durchgegarter Lachs empfohlen."
+  },
+  "b1a7ab3d-fa21-4a98-ae31-159ea5e65822": {
+   "name": "Fliegen",
+   "description": "Kommerzielle Flüge gelten während der Schwangerschaft im Allgemeinen als sicher. Es wird empfohlen, dich insbesondere im dritten Trimester ärztlich zum Fliegen beraten zu lassen. Trinke ausreichend Wasser und bewege dich regelmäßig, um Blutgerinnseln vorzubeugen. Diese Empfehlungen gelten auch für stillende Mütter. Bei langen Flügen solltest du jedoch zusätzliche Vorkehrungen für das Füttern und Wohlbefinden des Babys treffen."
+  },
+  "b4267eb3-6e6a-46f3-93ce-1dab05fea063": {
+   "name": "Sucuk",
+   "description": "Sucuk ist während der Stillzeit in Maßen im Allgemeinen unbedenklich. Allerdings solltest du den hohen Salz- und Fettgehalt berücksichtigen. Scharf gewürzte Lebensmittel können sich zudem manchmal über die Muttermilch auf das Baby auswirken und Unwohlsein oder Verdauungsprobleme verursachen. Beobachte, wie dein Baby darauf reagiert."
+  },
+  "92962cf9-e5ec-49cb-81b4-c102843ffd96": {
+   "name": "Laufen (Running)",
+   "description": "Wenn du schon vor der Schwangerschaft gelaufen bist, kannst du damit weitermachen – allerdings in geringerem Tempo. Während der Schwangerschaft solltest du nicht neu damit beginnen."
+  },
+  "92a311a8-2353-49f2-a478-69bbb6e11521": {
+   "name": "Papaverin (Zäpfchen)",
+   "description": "Wird bei erhöhtem Gebärmuttertonus angewendet. Nur nach ärztlicher Verordnung."
+  },
+  "92a61566-5cda-42e3-aa3b-f9e0870a058d": {
+   "name": "No-şpa (Drotaverin)",
+   "description": "Wird in Aserbaidschan häufig bei erhöhtem Gebärmuttertonus verschrieben. Nur nach ärztlicher Rücksprache anwenden."
+  },
+  "92d5127f-93c5-475a-8efe-d203d95f8692": {
+   "name": "Zelyonka (Brillantgrün)",
+   "description": "Die äußerliche Anwendung, zum Beispiel auf einer Wunde, ist unbedenklich."
+  },
+  "936379c9-7b34-4707-87a4-0cb406f01a7e": {
+   "name": "Kompressionsstrümpfe",
+   "description": "Beugen Krampfadern vor und lindern Schwellungen."
+  },
+  "9465bd4b-eaf1-49d5-b708-d311399b2d80": {
+   "name": "Ananas",
+   "description": "Mythos: Um Wehen auszulösen, müsste man 7-8 ganze Ananas essen. In normalen Mengen ist Ananas unbedenklich."
+  },
+  "c3158731-b3af-4f97-ae42-ad2765f8836f": {
+   "name": "Gelee",
+   "description": "Gelatine ist unbedenklich."
+  },
+  "c441fedf-30cd-4df7-aeb7-6c6d4c83ce37": {
+   "name": "Wasserpfeife",
+   "description": "Enthält mehr Kohlenmonoxid und Giftstoffe als Zigaretten."
+  },
+  "c61ac58a-22c8-4dd1-80b5-b2984f6468bc": {
+   "name": "Düşbərə",
+   "description": "Ist unbedenklich, aber achte wegen möglichem Sodbrennen auf die Menge an Pfeffer."
+  },
+  "c92870c6-4067-413f-bf1f-9c3c54c225ff": {
+   "name": "Avocado",
+   "description": "Ist reich an Folsäure und sehr gesund."
+  },
+  "ca2a1163-b2b3-49fd-96d1-10ea4d670bb2": {
+   "name": "Schwarzer Tee",
+   "description": "Enthält Koffein; mehr als 3-4 Tassen täglich werden nicht empfohlen. Trinke ihn nicht gleichzeitig mit Eisenpräparaten."
+  },
+  "cba6bf85-f14b-4324-9d48-90cac59a4bc7": {
+   "name": "Alkohol",
+   "description": "Ist vollständig verboten. Schädigt die Entwicklung des Fötus unmittelbar."
+  },
+  "cd2424c6-21a8-4752-9ae9-f4742dae93e4": {
+   "name": "Kastanien",
+   "description": "Gegart (im Reisgericht oder im Ofen) sind sie unbedenklich."
+  },
+  "cd2c71df-2aa2-4603-8a8e-9819c6aaf1aa": {
+   "name": "Reis / Buchweizen",
+   "description": "Sie sind unbedenkliche Kohlenhydratquellen. Buchweizen ist eine Eisenquelle."
+  },
+  "cd79ac84-2fb6-4341-8c05-e49e124e966a": {
+   "name": "Butter",
+   "description": "Sie ist unbedenklich und eine Quelle für die Vitamine A und D."
+  },
+  "cdb23929-c1a6-4bcd-8e34-e26f78dde126": {
+   "name": "Kichererbsen",
+   "description": "Sie sind eine Proteinquelle, können aber Blähungen verursachen."
+  },
+  "ce123d1a-41fc-4af9-8298-bf41eaa43197": {
+   "name": "Aquarellfarben",
+   "description": "Sie sind unbedenklich und können für kreative Hobbys verwendet werden."
+  },
+  "ce1b1478-cbd0-4b55-a0c0-52e6ae630be4": {
+   "name": "Quitte",
+   "description": "Sie kann bei Übelkeit helfen und die Verdauung fördern."
+  },
+  "ce5d270b-9ea1-4416-b1ff-dde38b8ca2f7": {
+   "name": "Bandage (Stützgürtel)",
+   "description": "Lindert Rückenschmerzen. Trage sie nur nach ärztlicher Rücksprache."
+  },
+  "cf62fa05-9fb2-434a-a4ab-259a3cf6c357": {
+   "name": "Walnusskonfitüre",
+   "description": "Sie ist reich an Jod, enthält aber viel Zucker."
+  },
+  "d038498a-680b-480c-b90b-e0469a383504": {
+   "name": "Omega-3",
+   "description": "Wichtig für die Entwicklung des Gehirns."
+  },
+  "d0c5b1ff-d7fa-47bd-aa7c-1c513690d586": {
+   "name": "Dolma / Pilaw",
+   "description": "Unsere traditionellen Gerichte sind unbedenklich. Achte jedoch auf den Fettgehalt."
+  },
+  "d0d53807-e3ef-43fa-bbbf-982ca54d561a": {
+   "name": "Putzen mit chemischen Reinigungsmitteln",
+   "description": "Trage Handschuhe und öffne das Fenster, wenn du mit Chlor und starken Chemikalien arbeitest."
+  },
+  "d28be313-b328-4b02-a097-3b36aa9b4e80": {
+   "name": "Ölweidenfrucht",
+   "description": "Sie ist gut für Magen und Darm."
+  },
+  "d2b2547b-a246-46d2-8237-ba956bc10193": {
+   "name": "Knoblauch",
+   "description": "Gut für das Immunsystem, kann aber Sodbrennen verursachen."
+  },
+  "d35818e9-239f-4c36-89db-cbe81b4ecb74": {
+   "name": "Mikrowelle",
+   "description": "Es tritt keine Strahlung aus, und das Erwärmen von Speisen ist sicher."
+  },
+  "d5113a84-f54b-44a1-b1e2-c56c174e915f": {
+   "name": "Dovğa",
+   "description": "Sehr gesund (Kräuter + Joghurt)."
+  },
+  "d5486e80-7fee-4805-914d-8ff740f6faf3": {
+   "name": "Gaviscon / Rennie",
+   "description": "Gilt bei Sodbrennen während der Schwangerschaft als sicher."
+  },
+  "d560e9b8-f582-402d-86f6-7f29f68bb753": {
+   "name": "Ayran (hausgemacht)",
+   "description": "Ist sicher und gesund."
+  },
+  "d73743e4-7872-43bc-9d17-1a2b6c256ae0": {
+   "name": "Surfen",
+   "description": "Beim Surfen besteht ein hohes Risiko für Stürze, Zusammenstöße und Verletzungen durch das Surfbrett oder den Aufprall auf das Wasser. Dies kann für Schwangere gefährlich sein. Daher wird Surfen während der Schwangerschaft grundsätzlich nicht empfohlen, insbesondere im weiteren Verlauf, wenn sich der Gleichgewichtssinn verändert."
+  },
+  "d8282d11-7bba-461a-a8ca-1eaa2f8b8f8c": {
+   "name": "Haferbrei (Oatmeal)",
+   "description": "Ideal zum Frühstück und hilft bei Verstopfung."
+  },
+  "d83727f2-789f-49dc-aa6d-e6fbff9096a4": {
+   "name": "Şalgam-Saft",
+   "description": "Er ist unbedenklich. Da er jedoch salzig und scharf ist, solltest du auf deinen Magen und Blutdruck achten."
+  },
+  "db0ccc2f-9c44-49a3-a91f-95b0501ebf1f": {
+   "name": "Zwiebel",
+   "description": "Unbedenklich."
+  },
+  "dc6517a4-e925-4d1b-9f7e-57574d39a9db": {
+   "name": "Deodorant",
+   "description": "Unbedenklich. Am besten wählst du ein Produkt mit natürlichen Inhaltsstoffen."
+  },
+  "dd8a1799-d7e7-4c57-975d-6087e06a28ce": {
+   "name": "Gartenarbeit",
+   "description": "In der Erde können Toxoplasmose-Erreger vorkommen. Trage unbedingt Handschuhe."
+  },
+  "dd983a6e-a9da-4d50-bf3f-11e40f8ee87e": {
+   "name": "Antibiotika",
+   "description": "Nur nach ärztlicher Verordnung. Einige (z. B. Amoxicillin) sind unbedenklich, andere nicht."
+  },
+  "dfbf3657-efd8-4d40-aebd-02c15dc7e574": {
+   "name": "Bügeln",
+   "description": "Steh nicht zu lange und lege zwischendurch Pausen ein."
+  },
+  "e05b24b9-cadb-41e1-b6b3-48f1048188f8": {
+   "name": "Bozbaş",
+   "description": "Unbedenklich und eine gute Eiweißquelle (Fleisch/Kichererbsen)."
+  },
+  "e26a7325-c8d0-4547-a1ac-df7fffc1b998": {
+   "name": "Rote Bete",
+   "description": "Kann bei Blutarmut hilfreich sein."
+  },
+  "e36740b3-4dab-40b2-b734-4b1f66249624": {
+   "name": "Sushi (roher Fisch)",
+   "description": "Es besteht ein Risiko für Listerien und Parasiten. Geeignet sind nur vollständig gegarte Rollen (z. B. mit Gemüse oder gegartem Lachs)."
+  },
+  "e38db223-f68f-44d7-bb0a-b2d6dc99f899": {
+   "name": "Parfüm",
+   "description": "Unbedenklich. Verwende es nicht, wenn der Geruch Übelkeit auslöst."
+  },
+  "e390a057-a91c-44d7-8571-ad77d64de8fa": {
+   "name": "Cycloferon",
+   "description": "Es ist ein Immunstimulans und wird während der Schwangerschaft nicht empfohlen."
+  },
+  "e3acc785-40e5-4a92-9bb2-facf384272da": {
+   "name": "Spinat",
+   "description": "Eine Eisenquelle; gekocht kann das Eisen besser aufgenommen werden."
+  },
+  "e3d7d111-d05a-4b2d-8259-4020258da02d": {
+   "name": "Apfel / Birne",
+   "description": "Eine Ballaststoffquelle; am besten gut gewaschen und mit Schale essen."
+  },
+  "e45b4364-5c8b-4e45-80ff-f195d16c602d": {
+   "name": "Kaffee",
+   "description": "Die tägliche Koffeinmenge sollte auf 200 mq (1-2 Tassen) begrenzt werden."
+  },
+  "e82735f7-b021-4a7e-b97d-c632edb2796e": {
+   "name": "Kiwi",
+   "description": "Reich an Vitamin C und unterstützt die Verdauung."
+  },
+  "e883d250-5c94-4535-90fb-6fa5c2836826": {
+   "name": "Granatapfel",
+   "description": "Eine Eisenquelle und hilfreich bei Blutarmut."
+  },
+  "e8d51767-338b-4ed6-a293-ad992553d143": {
+   "name": "Folsäure",
+   "description": "In den ersten 12 Wochen unverzichtbar."
+  },
+  "f0142910-ca1a-444d-82b7-dd12c3cdce1a": {
+   "name": "Hartkäse",
+   "description": "Käsesorten wie Cheddar, holländischer Käse und Parmesan sind in der Regel unbedenklich."
+  },
+  "f06cb3ee-7349-4f72-a537-222dd53ee3c8": {
+   "name": "Haare schneiden lassen",
+   "description": "Das ist völlig unbedenklich. Für entsprechende Volksweisheiten und Mythen gibt es keine wissenschaftliche Grundlage."
+  },
+  "f08663bc-1154-49bb-a9f7-231ae2fb7bde": {
+   "name": "Magnesium",
+   "description": "Bei Muskelkrämpfen und erhöhtem Muskeltonus ist es unbedenklich."
+  },
+  "f2533a58-22fe-41b5-b1ab-cecccbef8362": {
+   "name": "Banane",
+   "description": "Sie ist eine Kaliumquelle und kann Muskelkrämpfe lindern."
+  },
+  "f6a6dd27-8d74-412d-b6fb-b1110e2c447c": {
+   "name": "Reiten / Skifahren",
+   "description": "Sportarten mit hohem Sturz- und Verletzungsrisiko sind nicht erlaubt."
+  },
+  "f755e320-cdeb-4d03-90a1-96e4dd1032a2": {
+   "name": "Zink",
+   "description": "In der empfohlenen Menge unterstützt es das Immunsystem."
+  },
+  "ea5fcb8d-f293-4de1-b03f-867f11696e2f": {
+   "name": "Zitrone / Mandarine",
+   "description": "Sie sind reich an Vitamin C. Achte auf eine mögliche Übersäuerung des Magens."
+  },
+  "eacea764-9a60-4512-9fc1-2c70987d75c9": {
+   "name": "Yoga",
+   "description": "Spezielles Schwangerschaftsyoga ist wohltuend. Vermeide Umkehrhaltungen."
+  },
+  "ebd56f45-7d64-4b54-b3b5-9531167ca52c": {
+   "name": "Papaya",
+   "description": "Vollreif ist sie unbedenklich. Unreife (grüne) Papaya kann Gebärmutterkontraktionen auslösen."
+  },
+  "ed98f8fa-3592-4ed0-a9f8-3d16571b2d82": {
+   "name": "Metalldetektor (Flughafen)",
+   "description": "Das Magnetfeld ist schwach und schadet dem ungeborenen Baby nicht."
+  },
+  "ee7f4fa6-99e7-4619-8a6a-1e1d0b1b9a0e": {
+   "name": "Teppiche ausklopfen",
+   "description": "Das ist körperlich anstrengend, und der Staub kann Allergien auslösen."
+  },
+  "ef0ef853-8c34-4ff4-9adb-779e825cc1db": {
+   "name": "Safran",
+   "description": "In kleinen Mengen im Reisgericht (eine Prise) ist er unbedenklich. In hohen Dosen (zu therapeutischen Zwecken) ist er verboten."
+  },
+  "fbbad452-a7d0-41f7-a1d8-63efe62647b4": {
+   "name": "Thymian",
+   "description": "In kleinen Mengen zum Aromatisieren von Tee geeignet. Große Mengen eines starken Aufgusses können die Gebärmutteraktivität erhöhen."
+  },
+  "fc128896-012c-4f81-ac31-549e0a5cc789": {
+   "name": "Fahrradfahren",
+   "description": "Es besteht die Gefahr, das Gleichgewicht zu verlieren. Ein stationäres Fahrrad (Ergometer) ist sicherer."
+  },
+  "fd716581-39ca-4226-8009-c559ab79d883": {
+   "name": "Auf dem Rücken schlafen",
+   "description": "Nach der 20. Woche ist es nicht erlaubt, da dabei ein Blutgefäß abgedrückt werden kann. Schlafe auf der linken Seite."
+  },
+  "fddc641b-003a-46d6-809e-4f9cb114299b": {
+   "name": "Sumach",
+   "description": "Unterstützt die Verdauung und ist unbedenklich."
+  },
+  "ff2f4a10-f7ce-4435-80d7-15496b65de47": {
+   "name": "Aktivkohle",
+   "description": "Bei Vergiftungen und Blähungen ist sie als Adsorptionsmittel unbedenklich, da sie nicht ins Blut gelangt."
+  }
+ }
+}

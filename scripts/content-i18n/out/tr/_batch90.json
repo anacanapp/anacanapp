@@ -1,0 +1,1153 @@
+{
+ "vaccines": {
+  "00da0be1-c283-4066-907a-91723016d5c2": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "00f12124-5c60-4ea2-b5c3-0231c6a28c97": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "036ab6c3-7aaf-401a-8746-e3f3ab2ae3cf": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "046e7f92-3433-4f36-b820-a5f75dbce88d": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "0881d156-9231-4a8c-a459-1bfe13c0fb7e": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "09eace1e-1909-4467-a5f4-b54a036d65c1": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "0add9a53-9185-48dc-9203-3b513f1d46f1": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "0addedc3-803e-400d-a2de-9aeb306a18ad": {
+   "name": "Verem (BCG)",
+   "disease": "Verem",
+   "route": "Deri içi"
+  },
+  "06e8956b-060a-4361-a400-bb94e32f723a": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "0722d061-7e2d-4248-96a0-67fa2128cddb": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "0791e3cf-a2fe-471f-bb76-f7816e75e510": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "083b63f6-512d-428f-8b55-be18593d4851": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "0c024d0a-4fa8-4095-a40c-4728d295aef1": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "0c050188-e1e4-426e-9219-a02a922f9fa8": {
+   "name": "Suçiçeği",
+   "disease": "Suçiçeği",
+   "route": "Deri altı"
+  },
+  "0e6617dc-e309-4e09-9265-cdecef7e844a": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "0ec07929-833b-4ccf-ae82-c2dfc9d5a349": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "1217ed97-8ad7-4e28-ac7d-40f14e5469f3": {
+   "name": "Poliomiyelit (OPV)",
+   "disease": "Poliomiyelit",
+   "route": "Ağızdan (damla)"
+  },
+  "12bdc8a8-0cf6-41f5-81fb-4a323481be47": {
+   "name": "Tüberküloz (BCG)",
+   "disease": "Tüberküloz",
+   "route": "Deri içine"
+  },
+  "12c9341a-4287-41ef-9547-f6ac47b5c987": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içine"
+  },
+  "13c60df2-4b70-4e49-9413-8e7a4b2ce82b": {
+   "name": "Poliomiyelit (Oral – OPV)",
+   "short_description": "Çocuk felcine karşı (damla)",
+   "full_description": "Oral poliomiyelit aşısı ağızdan damla şeklinde verilir ve bağırsaklarda güçlü bağışıklık oluşturur. Azerbaycan'da IPV ile birlikte uygulanır.",
+   "disease": "Poliomiyelit (çocuk felci)",
+   "route": "Ağızdan (oral)",
+   "side_effects": "Çok nadir durumlarda hafif huzursuzluk.",
+   "contraindications": "Ağır bağışıklık yetmezliği, ailede bağışıklık yetmezliği olan bir kişinin bulunması."
+  },
+  "0ed6c919-4523-4565-b400-704736e2d9fd": {
+   "name": "Suçiçeği (Varicella)",
+   "short_description": "Suçiçeğine karşı",
+   "full_description": "Suçiçeği aşısı, bulaşıcı ve kaşıntılı döküntülerin eşlik ettiği suçiçeği hastalığına karşı koruma sağlar.",
+   "disease": "Suçiçeği (Varicella)",
+   "route": "Deri altı",
+   "side_effects": "Bölgesel kızarıklık, hafif döküntü.",
+   "contraindications": "Gebelik, bağışıklık yetmezliği."
+  },
+  "0fa2300b-74f5-49d3-bf08-ab0acffbab21": {
+   "name": "Çocuk felci (IPV)",
+   "disease": "Çocuk felci",
+   "route": "Kas içi"
+  },
+  "10b64ece-19e6-4957-92fd-fa6f11b80de4": {
+   "name": "Verem (BCG)",
+   "disease": "Verem",
+   "route": "Deri içi"
+  },
+  "11439bf5-9fef-4781-8755-771d2ed0459d": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "140ba274-d4e1-475f-90fa-55836317ecd1": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "14546daa-b45b-4749-939b-71f4139b0182": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "148510fd-a8d1-4e2c-a656-558e8bac576d": {
+   "name": "Verem (BCG)",
+   "disease": "Verem",
+   "route": "Deri içi"
+  },
+  "15d31e20-cf8e-428b-8e71-b58aaad1b78f": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "17422090-86ea-418e-ac12-71bf66f0eddd": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "183f9c5b-2312-4ba2-a252-06f296648997": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "18717d94-0823-444e-95da-03448dcb2da3": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "18ed2f26-679e-4b94-9928-ff5bd390ef1d": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "1e8fd829-14c0-4c39-ad3c-dc7c935f1ad2": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "1ec35dd8-8693-46f3-bf70-5cbcc3592cb0": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, pnömoni",
+   "route": "Kas içi"
+  },
+  "1f369be1-34cc-47f6-a76f-c8b865913eda": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "218cf644-e85e-4f08-858e-0b270d713466": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "21c8cede-551f-4546-b9d3-fc91121b4278": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "256e5cdc-b071-4f97-968e-c6cc095c3f02": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "260d9604-e6fb-417f-abb7-11cdb30fbd2b": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "26784fdc-031a-45f5-a28d-2fbb59087a72": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "26dcff52-a15e-4a8b-98e1-2c165921971a": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "26f86164-96f1-4deb-bae6-2addf51720bc": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "28744395-0689-49ef-a0cc-6987671eb91d": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "28fae744-deb8-47b5-a0ae-dabe271a9909": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "2a24b21f-7d5c-4048-b3ce-f7e04b7b4bb9": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "2f14ed20-1151-42d0-99e2-0fceb5da492a": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "30d2c729-84ed-48b4-9c98-c4ede9a8437e": {
+   "name": "Verem (BCG)",
+   "disease": "Verem",
+   "route": "Deri içi"
+  },
+  "317fa97e-0739-4b9e-8708-2dcc4508cc86": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "356c0a3e-8aaa-4860-be0c-1526d777ce1a": {
+   "name": "Hepatit A",
+   "disease": "Hepatit A virüsü",
+   "route": "Kas içine"
+  },
+  "3653aa7e-1b94-445d-b7ec-c7d8f50f22a4": {
+   "name": "Poliomiyelit (OPV)",
+   "disease": "Poliomiyelit",
+   "route": "Ağızdan (damla)"
+  },
+  "37ded723-77e1-44b6-8101-17856a7dbf5c": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içine"
+  },
+  "38054324-392f-4189-87d4-b38bda494f4c": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içine"
+  },
+  "31bc15fe-cd99-4a49-aacd-09d7544ddf5d": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "328d9764-15bb-4111-8b27-2b66d950bf5c": {
+   "name": "Pnömokok (PCV)",
+   "short_description": "Pnömokok enfeksiyonlarına karşı",
+   "full_description": "Pnömokok konjuge aşısı; zatürre, menenjit ve orta kulak iltihabına neden olan pnömokok bakterisine karşı koruma sağlar.",
+   "disease": "Zatürre, menenjit, orta kulak iltihabı",
+   "route": "Kas içi",
+   "side_effects": "Kızarıklık, hafif ateş, huzursuzluk.",
+   "contraindications": "Aşı bileşenlerine karşı alerji."
+  },
+  "33ce9bb3-fb28-4c61-b8cd-4d78988c3412": {
+   "name": "Boğmaca, difteri, tetanos",
+   "disease": "Boğmaca, difteri, tetanos",
+   "route": "Kas içi"
+  },
+  "3564cd6f-3103-4326-a9dc-b418f2896efc": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "387f1e3b-6eca-4ee2-9815-3429fb30b034": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "390f4b33-5c7d-42a8-9798-239ab2ea055b": {
+   "name": "Suçiçeği",
+   "disease": "Suçiçeği",
+   "route": "Deri altı"
+  },
+  "39c04c26-d8fd-4139-bcc0-8afc58cddad2": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "3a3ca51d-6b38-417e-8b10-8c3c658056c7": {
+   "name": "Tüberküloz (BCG)",
+   "disease": "Tüberküloz",
+   "route": "Deri içi"
+  },
+  "3c1383c5-a2b1-4d8c-8c48-15e57208d0de": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içine"
+  },
+  "3c8cb78f-e99c-45f1-a25a-63e1a76ed37d": {
+   "name": "Poliomiyelit (OPV)",
+   "disease": "Poliomiyelit",
+   "route": "Ağızdan (damla)"
+  },
+  "3daba33c-4956-4af9-b6ae-4dfc4c1d5801": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içine"
+  },
+  "3eed1e5c-5c20-41f2-931f-09a9161bb081": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içine"
+  },
+  "3fdf1d52-8319-46b0-9f3b-3a2a08159968": {
+   "name": "Meningokok",
+   "disease": "Meningokok hastalığı",
+   "route": "Kas içi"
+  },
+  "422d9aec-beb4-4941-8654-d03180e1f59b": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, pnömoni",
+   "route": "Kas içi"
+  },
+  "43fe7d25-9e24-417b-91b5-09d6c754c6e0": {
+   "name": "Pnömokok",
+   "disease": "Pnömoni, menenjit",
+   "route": "Kas içi"
+  },
+  "45aa0e5f-7f83-486c-b90f-875897be6e79": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, pnömoni",
+   "route": "Kas içi"
+  },
+  "466f1381-76c8-44b9-838f-ff9c37716aa2": {
+   "name": "Japon ensefaliti",
+   "disease": "Japon ensefaliti",
+   "route": "Deri altı"
+  },
+  "49fa962a-15e7-435c-b626-c71e982cc5b8": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "4bdb2bcf-01ec-4923-bc60-c91fc0827b53": {
+   "name": "MMR (Kızamık, Kızamıkçık, Kabakulak)",
+   "short_description": "Üç viral hastalığa karşı",
+   "full_description": "MMR aşısı kızamık, kızamıkçık (rubella) ve kabakulak (kulak altı tükürük bezlerinin iltihabı) hastalıklarına karşı koruma sağlar. Tam bağışıklık için her iki doz da önemlidir.",
+   "disease": "Kızamık, Kızamıkçık, Kabakulak",
+   "route": "Deri altı",
+   "side_effects": "Hafif ateş, döküntü, kulak altı tükürük bezlerinde şişme (5–12 gün sonra).",
+   "contraindications": "Hamilelik, ağır bağışıklık yetmezliği, yumurta proteinine karşı şiddetli alerji."
+  },
+  "4d098728-868a-4a8d-b35a-6853b7dae46b": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "523c6777-79dd-4dfd-ab2e-34a8fb4ba540": {
+   "name": "Verem (BCG)",
+   "disease": "Verem",
+   "route": "Deri içi"
+  },
+  "5319311c-5551-470f-8352-bc8a1abee122": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "5807df6d-2ba0-4cff-9239-9ff30f30aa21": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "5c092568-5e18-47b6-8868-82951713e423": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "4e32a9bc-b90e-429f-9107-47ce751bb36f": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içine"
+  },
+  "4ec755cf-f653-41b2-be0b-cabf8f0c52ec": {
+   "name": "HiB (Haemophilus influenzae tip B)",
+   "short_description": "HiB bakterisine karşı",
+   "full_description": "HiB aşısı, bebeği menenjit, zatürre ve epiglottit gibi ağır hastalıklara neden olan Haemophilus influenzae tip B bakterisine karşı korur. Genellikle pentavalan aşının içeriğinde uygulanır.",
+   "disease": "Menenjit, zatürre, epiglottit",
+   "route": "Kas içine",
+   "side_effects": "Uygulama yerinde kızarıklık, hafif ateş.",
+   "contraindications": "Aşının bileşenlerinden herhangi birine karşı alerji."
+  },
+  "4ee8a9f3-5e52-438c-a8aa-c24f82ec0e29": {
+   "name": "Verem (BCG)",
+   "disease": "Verem",
+   "route": "Deri içine"
+  },
+  "51a64d52-235d-4d4c-80e8-0afb8f7c6ba2": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içine"
+  },
+  "5f2e4b42-09f3-41e8-bad1-a7c08a424dc0": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içine"
+  },
+  "5f53ad7c-c735-47db-99cb-571cfb6ffe97": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içine"
+  },
+  "60aa00ef-5416-46a9-970c-622de42681b0": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "60ae2707-9c06-4158-a9dd-be37777448ae": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içine"
+  },
+  "6116d357-eeb9-4329-8aea-87a5cf457633": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "61c477ae-ff3a-406b-b963-4558c853b579": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "6260794a-ea77-4fee-98a0-09a01ae70a5b": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "6a219c95-938b-430b-bc4f-8532667bc312": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "6b36e782-6f12-4c9e-a4eb-9cef3947107e": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "6b6960da-9753-4992-94c3-9a546231d602": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "6d9e8357-fce5-4ab0-8313-e972ce91b396": {
+   "name": "Pnömokok",
+   "disease": "Pnömoni, menenjit",
+   "route": "Kas içi"
+  },
+  "6dc07e7c-28c2-44e4-a643-45e168e27010": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "6e21f89c-72f7-47dd-ba50-78df6062741d": {
+   "name": "Meningokok",
+   "disease": "Meningokok hastalığı",
+   "route": "Kas içine"
+  },
+  "704eb388-ed23-475b-827e-91b8028a5e18": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içine"
+  },
+  "72c3956d-d8a7-4b7e-81a7-0775676c83d6": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içine"
+  },
+  "72d55980-5b8e-48ed-ab89-0e36c32c9fb7": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içine"
+  },
+  "74411cc9-2a8a-4852-b73b-4c7aed09a76b": {
+   "name": "Çocuk felci (IPV)",
+   "disease": "Çocuk felci",
+   "route": "Kas içi"
+  },
+  "75472968-1107-4e26-a5f8-f5ceaeb187f2": {
+   "name": "Hepatit A",
+   "disease": "Hepatit A virüsü",
+   "route": "Kas içi"
+  },
+  "75d3b019-536e-4d0f-b391-fc8682693368": {
+   "name": "Boğmaca, difteri, tetanos",
+   "disease": "Boğmaca, difteri, tetanos",
+   "route": "Kas içi"
+  },
+  "76af3255-1ef7-4465-bff1-0846c0921b4e": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "777b0d85-29b8-400a-8070-968846e93c95": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "7d649b7f-18a7-4454-8d9a-7e71eeddf061": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "7e95373d-a798-4454-8bbc-f65e3d05d480": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "80cb939c-44fe-4885-b89d-c50044824238": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "8147db43-1ef8-4c25-beb3-4274daa3aae1": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "83d23e2a-a066-4f91-9cca-4022250a1d9c": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "855258f8-05d1-4295-b4d7-61e172ae3703": {
+   "name": "Meningokok",
+   "disease": "Meningokok hastalığı",
+   "route": "Kas içi"
+  },
+  "86ea8143-961a-410b-8543-0a5b5495d041": {
+   "name": "Suçiçeği",
+   "disease": "Suçiçeği",
+   "route": "Deri altı"
+  },
+  "91fab9ae-9b5f-425a-b141-2e0cd6135482": {
+   "name": "Suçiçeği",
+   "disease": "Suçiçeği",
+   "route": "Deri altı"
+  },
+  "929a3901-9be0-4a2f-919e-553c69aff6c0": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "92d98612-a0f3-430e-b0f0-3d1271fba565": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "92fc292e-e200-43c7-b72b-f72efcfb81c1": {
+   "name": "Poliomiyelit (OPV)",
+   "disease": "Poliomiyelit",
+   "route": "Ağızdan (damla)"
+  },
+  "870bd917-5755-4830-b3ae-b8339876213c": {
+   "name": "Pnömokok",
+   "disease": "Pnömoni, menenjit",
+   "route": "Kas içi"
+  },
+  "87d03134-dec7-4f48-85fa-5f9fb9f98843": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "880348b7-f4ad-47d9-a564-9da51aa57715": {
+   "name": "Suçiçeği",
+   "disease": "Suçiçeği",
+   "route": "Deri altı"
+  },
+  "8825fa1c-182a-4616-8229-00a923bb1df6": {
+   "name": "Verem (BCG)",
+   "disease": "Verem",
+   "route": "Deri içi"
+  },
+  "88bfd4c7-d725-4f36-b20e-56a880af220d": {
+   "name": "Tüberküloz (BCG)",
+   "disease": "Tüberküloz",
+   "route": "Deri içi"
+  },
+  "890d7615-cb02-47a0-8d52-68cc0b145b96": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "8e2fb767-6fe7-4d49-931f-06f8ba4d28f1": {
+   "name": "Hepatit A",
+   "disease": "Hepatit A virüsü",
+   "route": "Kas içi"
+  },
+  "8f626b94-5bc3-4654-8f60-1526298ae98a": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "98bd182f-e9d2-41cb-9f89-70faa6ff89e6": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "98da662f-3b2b-485e-be9c-dbb836f4e9d9": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "98f9e826-e447-4828-9b05-0e81fe272c52": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "98fb29e0-0bf8-490c-9e17-deff70d5aa18": {
+   "name": "Meningokok",
+   "disease": "Meningokok hastalığı",
+   "route": "Kas içi"
+  },
+  "93d3d2c5-b2d9-45c3-bbf1-68365bf51ea9": {
+   "name": "Poliomyelit (IPV)",
+   "disease": "Poliomyelit",
+   "route": "Kas içi"
+  },
+  "9579a951-2fef-424a-9a58-5941fe87d78f": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "95e4082d-a12e-42d6-8733-251eb82537e7": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "9893f834-e3c6-4fcb-b1c4-a73490ba173a": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "9a8f5283-43bc-4738-adbf-892d36b812b0": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "9b6734ec-059a-41aa-9331-460f36cb8906": {
+   "name": "Meningokok",
+   "disease": "Meningokok hastalığı",
+   "route": "Kas içi"
+  },
+  "9d529115-a601-485f-891a-9606a720f545": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "9dc8ca4b-d6fb-4241-9e5c-cfaa2ae670ad": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "a5f5b90b-7c58-4acf-b755-db5b80cbd9c1": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içine"
+  },
+  "a60501d3-afe3-4004-9ab3-da1f7a171ca8": {
+   "name": "Tüberküloz (BCG)",
+   "disease": "Tüberküloz",
+   "route": "Deri içine"
+  },
+  "a6b876ec-1d99-4212-89e2-d055db9ea3a2": {
+   "name": "Çocuk felci (IPV)",
+   "disease": "Çocuk felci",
+   "route": "Kas içine"
+  },
+  "a7beffc6-5675-4c6d-9ef9-2806d0829c82": {
+   "name": "Çocuk felci (IPV)",
+   "disease": "Çocuk felci",
+   "route": "Kas içine"
+  },
+  "ae4aab16-b0f9-41eb-bff1-b39768e17e5a": {
+   "name": "Sarı humma",
+   "disease": "Sarı humma",
+   "route": "Deri altı"
+  },
+  "af8efa92-fc3e-4cd7-85e2-2ebcc636a604": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "b0e3dabe-7575-4ef7-bb2e-dc7c7b1fd233": {
+   "name": "Suçiçeği",
+   "disease": "Suçiçeği",
+   "route": "Deri altı"
+  },
+  "b0e59a15-c501-47f7-9129-0e08a60141cf": {
+   "name": "Tüberküloz (BCG)",
+   "disease": "Tüberküloz",
+   "route": "Deri içi"
+  },
+  "ac13d967-9d1e-4d25-9b4d-2d409b5f0539": {
+   "name": "Japon ensefaliti",
+   "disease": "Japon ensefaliti",
+   "route": "Deri altı"
+  },
+  "ac2cd989-f94b-4da6-afd0-7fa2189c77bc": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "acaee717-5a6e-407d-815a-9d341f0c66bc": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "acb13f3b-3ac6-4428-b7c0-97637429fcc4": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "9fa79e24-90d9-4e03-867f-f667313d52e4": {
+   "name": "DTP (Difteri, Tetanoz, Boğmaca)",
+   "short_description": "Üç hastalığa karşı kombine aşı",
+   "full_description": "DTP aşısı üç ciddi hastalığa karşı koruma sağlar: difteri (boğaz iltihabı), tetanoz (çene kilitlenmesi) ve boğmaca. Pentavalan aşı olarak HiB ve Hepatit B ile birlikte uygulanır.",
+   "disease": "Difteri, Tetanoz, Boğmaca",
+   "route": "Kas içi",
+   "side_effects": "Kızarıklık, şişlik, hafif ateş, huzursuzluk.",
+   "contraindications": "Önceki dozdan sonra ciddi nörolojik reaksiyon, kontrol altına alınamayan epilepsi."
+  },
+  "a2cddb32-b445-4f87-b361-cea4bda863a1": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "a3ffeb2e-2216-4dc4-96e8-e324d8a3449c": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "a4be7f62-928e-464e-b0b2-0c8f808af0ca": {
+   "name": "Tüberküloz (BCG)",
+   "disease": "Tüberküloz",
+   "route": "Deri içi"
+  },
+  "b0fd0cf7-23dd-4f76-b75e-38632989cbc4": {
+   "name": "Suçiçeği",
+   "disease": "Suçiçeği",
+   "route": "Deri altı"
+  },
+  "b1180b84-9a65-4391-912f-89dde5133827": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "b141df8d-dd42-486a-afaa-b5dd0603d7ba": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "b14e237f-3eee-4329-bfd4-014dcec20a4c": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "b229aa35-e345-4ef0-b51c-9c944b3b57d2": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "b5260457-fe36-4786-83e7-3e2863b562da": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "b591af5c-3241-47ed-84c3-73f465c2415e": {
+   "name": "Japon ensefaliti",
+   "disease": "Japon ensefaliti",
+   "route": "Deri altı"
+  },
+  "b6fccfd3-dd4d-4918-b8c9-714f2b14c269": {
+   "name": "Suçiçeği",
+   "disease": "Suçiçeği",
+   "route": "Deri altı"
+  },
+  "b799008a-198f-4bf2-8b37-84da0c6d7adc": {
+   "name": "Poliomiyelit (İnaktif – IPV)",
+   "short_description": "Çocuk felcine karşı (iğne)",
+   "full_description": "İnaktif poliomiyelit aşısı, çocuk felcine (poliomiyelit) neden olan üç virüs tipine karşı koruma sağlar. Enjeksiyon yoluyla uygulanır ve oral formu tamamlayıcı niteliktedir.",
+   "disease": "Poliomiyelit (çocuk felci)",
+   "route": "Kas içi",
+   "side_effects": "Uygulama yerinde kızarıklık, nadiren ateş.",
+   "contraindications": "Aşı bileşenlerine (neomisin, streptomisin) karşı alerji."
+  },
+  "b8b4f5a6-8dae-47f6-b88e-760c33b4f01a": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "b8d93044-4ceb-4e04-9916-f50d6c038872": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "bb578062-d550-4893-959a-747c86b34d16": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "bb71132c-4773-45b5-933d-54f2fe1ed49d": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "bc29b37d-edee-427c-9aa7-adcd7abffc82": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "bcdc3de2-dfee-4fde-83cb-8268edd3d9d6": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "bdead4bc-cb1a-4b39-87b2-4fe81cbe8b6b": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "c3db8ee4-0f06-436e-b1c3-716a269dcc54": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "c8f1c12c-65f3-4da6-88a8-d37d8acd77bb": {
+   "name": "Boğmaca, difteri, tetanos",
+   "disease": "Boğmaca, difteri, tetanos",
+   "route": "Kas içi"
+  },
+  "c9790b51-b1ef-4e72-9b20-0741cc01bfe8": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "c9aeee52-f779-4f17-b3c2-967a3df43666": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "ca528915-0fb7-4a58-9abe-c7d034def098": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "caf1148b-cd56-4558-9dd8-87409b2a9943": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içi"
+  },
+  "cb63f40a-7afe-424e-809e-3d04cfcb1e4d": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "cbb2a9db-4057-4264-a8ca-ba0a623080c7": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "c01772af-dbab-42e2-88d7-01456c06a1a5": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "c0417869-cadc-4766-9200-ce1957a365dc": {
+   "name": "Meningokok",
+   "disease": "Meningokok hastalığı",
+   "route": "Kas içi"
+  },
+  "c1a3729c-b43d-4ae8-b323-8fd2ee9d479f": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "c1cc4eac-5d7f-4e63-98d0-e9b8de2cbf46": {
+   "name": "Hepatit B",
+   "short_description": "Hepatit B virüsüne karşı",
+   "full_description": "Hepatit B aşısı, karaciğerde ciddi hasara yol açan ve kronikleşerek karaciğer kanserine dahi neden olabilen virüse karşı koruma sağlar. İlk doz, doğumdan sonraki ilk 24 saat içinde uygulanmalıdır.",
+   "disease": "Hepatit B (karaciğer iltihabı)",
+   "route": "Kas içi (uyluk veya omuz)",
+   "side_effects": "Enjeksiyon yerinde kızarıklık, hafif ateş.",
+   "contraindications": "Aşıya karşı şiddetli alerjik reaksiyon öyküsü."
+  },
+  "cc908ea1-16ba-45a1-9ec6-0c4949bbfd73": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içine"
+  },
+  "d1c81e05-9a95-4f34-8173-db630e9f2c1b": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içine"
+  },
+  "d2eee643-ccb9-48a4-be0f-9dfdeeac110c": {
+   "name": "Tüberküloz (BCG)",
+   "disease": "Tüberküloz",
+   "route": "Deri içine"
+  },
+  "d5a2faad-5491-4387-a6b4-fa809005a48e": {
+   "name": "Japon ensefaliti",
+   "disease": "Japon ensefaliti",
+   "route": "Deri altına"
+  },
+  "d6279556-5801-443b-998d-633a2ae7f108": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "d6faa6e1-d702-48cb-a9ed-6f29e59baa4d": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "d748a41d-bac8-4813-930a-e57e18a99a2a": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "d7a36bb1-1c68-4c21-8b19-a00d4bf27163": {
+   "name": "Su çiçeği",
+   "disease": "Su çiçeği",
+   "route": "Deri altı"
+  },
+  "d8caa1f5-5edf-4301-8c0c-7606f86eeb9b": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "d8d686bc-5b0b-41a6-aadc-62e37d2ef291": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "d9cb0213-f036-4627-96aa-a845f703adc8": {
+   "name": "Boğmaca, difteri, tetanos",
+   "disease": "Boğmaca, difteri, tetanos",
+   "route": "Kas içi"
+  },
+  "da9d7d17-d3b9-48be-86b2-6835e8720587": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "db4ee516-fe09-4456-a538-7cd3f414f580": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "dbb5f1f5-54e7-4e14-b76a-c228c269379b": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "dc293aa8-13fd-4bcd-9bb2-26d11831880c": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "dc7115b2-ae8a-4372-ab35-3600cf0a53df": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "dcff40c9-6d42-4219-bfa0-6f3912089a79": {
+   "name": "Rotavirus",
+   "short_description": "Rotavirus ishalına karşı",
+   "full_description": "Rotavirus aşısı, bebeklerde ağır ishal ve sıvı kaybına neden olan rotavirüse karşı koruma sağlar. Ağızdan damla şeklinde verilir. İlk doza en geç 6 haftalıkken başlanmalıdır.",
+   "disease": "Rotavirus ishali (gastroenterit)",
+   "route": "Ağızdan (oral)",
+   "side_effects": "Hafif ishal, huzursuzluk.",
+   "contraindications": "Bağırsak invajinasyonu öyküsü, ağır bağışıklık yetmezliği."
+  },
+  "de1c29b8-ef0d-4035-9704-98dfbcaf5ff9": {
+   "name": "Rotavirus",
+   "disease": "Rotavirus ishali",
+   "route": "Ağızdan"
+  },
+  "defb5835-2364-4d4b-91c8-51140ad7130a": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içine"
+  },
+  "df582af7-3096-4cab-8a88-cabad49a426c": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içine"
+  },
+  "e670f1a3-4188-46b8-823e-44d86b79531a": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "e6c24797-0bd6-48e7-82fd-fa6a869d09a3": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "e7a08eb1-66c3-424b-a0ca-0b1dabc98377": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "e97fae72-8140-4d15-89ff-cb044e7fb91d": {
+   "name": "Poliomiyelit (IPV)",
+   "disease": "Poliomiyelit",
+   "route": "Kas içi"
+  },
+  "e10e610f-ed2a-4bf9-b1c9-6e0df7f973c5": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içine"
+  },
+  "e2a3a9c1-602b-4dfb-9fe5-2ed02a413c54": {
+   "name": "BCG",
+   "short_description": "Verem hastalığına karşı",
+   "full_description": "BCG aşısı bebeği ağır seyreden veremden (özellikle verem menenjiti ve yaygın veremden) korur. Doğumdan hemen sonra sol omuza uygulanır ve yerinde küçük bir iz kalır — bu normaldir.",
+   "disease": "Verem (tüberküloz)",
+   "route": "Deri içine (intradermal)",
+   "side_effects": "Uygulama yerinde kızarıklık, küçük yara, koltuk altı lenf bezinde şişme.",
+   "contraindications": "Bağışıklık yetmezliği, yüksek ateş, yaygın cilt hastalıkları."
+  },
+  "e3997848-03bc-448f-9378-d692c043e511": {
+   "name": "Hepatit A",
+   "short_description": "Hepatit A virüsüne karşı",
+   "full_description": "Hepatit A aşısı, yiyecek ve su yoluyla bulaşan ve karaciğere zarar veren hepatit A virüsüne karşı koruma sağlar.",
+   "disease": "Hepatit A",
+   "route": "Kas içine",
+   "side_effects": "Uygulama yerinde kızarıklık, yorgunluk.",
+   "contraindications": "Aşıya karşı ciddi alerji."
+  },
+  "e52744da-e24f-4d22-9c8f-9f3c6f0a33a9": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içine"
+  },
+  "e9e1eb91-2296-41d7-9a49-34c1578d895e": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içi"
+  },
+  "ebc8bfa9-304c-40ce-8ff2-a06f0a6cecd6": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "ee112418-7bef-48fd-9b87-61072afc8f55": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "ef5e4012-fe95-4f10-8c67-05dbd87329ea": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "f0256d3a-0b85-445d-b987-aa91ecf90f66": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "f1f717b4-599b-4bd5-861c-dba804603ac2": {
+   "name": "Hib enfeksiyonu",
+   "disease": "Menenjit, zatürre",
+   "route": "Kas içi"
+  },
+  "f22cef95-6ebd-404c-8d8d-2f123c3d404b": {
+   "name": "Çocuk felci (IPV)",
+   "disease": "Çocuk felci",
+   "route": "Kas içi"
+  },
+  "f2469738-bb72-4cce-9a5e-843e6bac10b1": {
+   "name": "Boğmaca, difteri, tetanoz",
+   "disease": "Boğmaca, difteri, tetanoz",
+   "route": "Kas içi"
+  },
+  "fe1df18a-2ceb-4ce0-a6c1-9992f9edcf14": {
+   "name": "Suçiçeği",
+   "disease": "Suçiçeği",
+   "route": "Deri altı"
+  },
+  "fa605188-8c53-4f1a-8179-3f0eca19cadd": {
+   "name": "Hepatit A",
+   "disease": "Hepatit A virüsü",
+   "route": "Kas içine"
+  },
+  "fbea22bd-2452-48d1-8088-f014772b61c1": {
+   "name": "Hepatit B",
+   "disease": "Hepatit B virüsü",
+   "route": "Kas içine"
+  },
+  "fde64254-7f8c-4299-b6e1-bebd72ddffda": {
+   "name": "Rotavirüs",
+   "disease": "Rotavirüs ishali",
+   "route": "Ağızdan"
+  },
+  "fdf12adf-03a5-496d-95bf-332ef8cb7093": {
+   "name": "Pnömokok",
+   "disease": "Zatürre, menenjit",
+   "route": "Kas içine"
+  },
+  "f39c1033-e4f6-4209-95d3-fcb49a7222d1": {
+   "name": "Kızamık, kabakulak, kızamıkçık",
+   "disease": "Kızamık, kabakulak, kızamıkçık",
+   "route": "Deri altı"
+  },
+  "f4ae2435-c46b-4ed3-bfa4-5c04ca99671e": {
+   "name": "Pnömokok",
+   "disease": "Pnömoni, menenjit",
+   "route": "Kas içi"
+  },
+  "f7e8dbfa-1817-46d0-a269-48d191be3fdf": {
+   "name": "Tüberküloz (BCG)",
+   "disease": "Tüberküloz",
+   "route": "Deri içi"
+  },
+  "f93205fe-4fe8-4b9c-9ec7-39a80f0747e7": {
+   "name": "Çocuk felci (IPV)",
+   "disease": "Çocuk felci",
+   "route": "Kas içi"
+  }
+ }
+}

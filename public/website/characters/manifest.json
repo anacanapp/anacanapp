@@ -1,0 +1,80 @@
+{
+  "schema": "anacan-website-characters-v1",
+  "files": [
+    {
+      "file": "ritm-welcome.webp",
+      "sha256": "170391606da63525afc6638db2db8422712dafe584a50eb2d40121d2eefc9ebd",
+      "bytes": 18508
+    },
+    {
+      "file": "ritm-value.webp",
+      "sha256": "47e4e93651e097690c1bad4cda3774edfc839cc5a5f43a2fefdc2d9743294114",
+      "bytes": 18960
+    },
+    {
+      "file": "ritm-data.webp",
+      "sha256": "b3053e875d1f5a887175aa47104b06f3d6053a408abd07283962e9687b129a98",
+      "bytes": 18026
+    },
+    {
+      "file": "ritm-privacy.webp",
+      "sha256": "cf57319c0f7391c5a47615a282a0b24bfbcb44df6f09358f81df1a68ac5ba226",
+      "bytes": 18762
+    },
+    {
+      "file": "ritm-success.webp",
+      "sha256": "2bcdcbd77a4e0a39a8131645fca596f4527b9c7249ccfefaebf0c85bd189efe1",
+      "bytes": 20648
+    },
+    {
+      "file": "tumurcuq-welcome.webp",
+      "sha256": "63540246c8e6896659f7a9f1354d18de85a2a7749a03d93a9e53de9c13ac1c64",
+      "bytes": 17882
+    },
+    {
+      "file": "tumurcuq-value.webp",
+      "sha256": "5dd395872ca40a19f118ffad06283cbcc09cf64016c8411bd7fa2ed229470b01",
+      "bytes": 20270
+    },
+    {
+      "file": "tumurcuq-data.webp",
+      "sha256": "9aec4ba4e8598f81e64ebf224f54e2157a8705c9be639d55e34dd15cae2f6293",
+      "bytes": 19838
+    },
+    {
+      "file": "tumurcuq-privacy.webp",
+      "sha256": "88d7b115c04726a2c0dea881ee01aee36b7fcfb670dcc99175b0d238aa8de63e",
+      "bytes": 20126
+    },
+    {
+      "file": "tumurcuq-success.webp",
+      "sha256": "8ee5e441b08c9a24fb13c270f64257526e00a59ce20dc4e07478d557d784c505",
+      "bytes": 22950
+    },
+    {
+      "file": "qucaq-welcome.webp",
+      "sha256": "697631777f756f8c2cc37e8788e24bf13fef404d5a52dc509b7b14500799c32b",
+      "bytes": 22524
+    },
+    {
+      "file": "qucaq-value.webp",
+      "sha256": "c2c20cc0fb33f116b6a1acca900906a3274cf756bc31b62c784f646c2db8b3ed",
+      "bytes": 22266
+    },
+    {
+      "file": "qucaq-data.webp",
+      "sha256": "b08fb946455cd7a4a4d7001ede5a96394a7ae310484f1bf2ecb3038064ba70aa",
+      "bytes": 20200
+    },
+    {
+      "file": "qucaq-privacy.webp",
+      "sha256": "415d7d3ea436e82770b65a453d6b8ab61fd43ce0a5111d8ab940b63a61d89d75",
+      "bytes": 20208
+    },
+    {
+      "file": "qucaq-success.webp",
+      "sha256": "83c03b79943a3f33ebdfbb7b7d36bcc200e044fd83b308e50b7f135eb75f9035",
+      "bytes": 24100
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+[
+ {
+  "key": "billingscreen_annual_premium",
+  "en": "Annual Premium"
+ },
+ {
+  "key": "billingscreen_auto_renewal",
+  "en": "Auto Renewal"
+ },
+ {
+  "key": "billingscreen_cancel_appstore",
+  "en": "You will be redirected to the App Store / Google Play subscription management page to cancel your subscription."
+ },
+ {
+  "key": "billingscreen_cancel_confirm",
+  "en": "Are you sure you want to cancel your subscription? You will continue to have Premium access until the end of the current period."
+ },
+ {
+  "key": "billingscreen_cancel_error",
+  "en": "Failed to cancel subscription."
+ },
+ {
+  "key": "billingscreen_cancel_success",
+  "en": "Subscription Cancelled"
+ },
+ {
+  "key": "billingscreen_cancel_success_desc",
+  "en": "You can use Premium until the end of the current period."
+ },
+ {
+  "key": "billingscreen_error",
+  "en": "Error"
+ },
+ {
+  "key": "billingscreen_first_purchase",
+  "en": "First Purchase"
+ },
+ {
+  "key": "billingscreen_monthly_premium",
+  "en": "Monthly Premium"
+ },
+ {
+  "key": "billingscreen_need_help",
+  "en": "Need help?"
+ },
+ {
+  "key": "billingscreen_next_renewal",
+  "en": "Next Renewal"
+ },
+ {
+  "key": "billingscreen_open_in_store",
+  "en": "View in App Store"
+ },
+ {
+  "key": "billingscreen_premium_features",
+  "en": "Premium Features"
+ },
+ {
+  "key": "billingscreen_restore_error",
+  "en": "Failed to restore subscription."
+ },
+ {
+  "key": "billingscreen_restore_success",
+  "en": "Subscription Restored"
+ },
+ {
+  "key": "billingscreen_restore_success_desc",
+  "en": "Your Premium subscription is active again."
+ },
+ {
+  "key": "billingscreen_scheduled",
+  "en": "Scheduled"
+ },
+ {
+  "key": "billingscreen_status_free",
+  "en": "Current Status: Free"
+ },
+ {
+  "key": "billingscreen_title",
+  "en": "My Subscription"
+ },
+ {
+  "key": "billingscreen_upgrade",
+  "en": "Upgrade"
+ },
+ {
+  "key": "billingscreen_upgrade_btn",
+  "en": "Upgrade to Premium"
+ },
+ {
+  "key": "dateutils_stress",
+  "en": "Stress"
+ },
+ {
+  "key": "untranslated_bank_cclvmv",
+  "en": "Bank:"
+ },
+ {
+  "key": "usementalhealthdata_normal_e041c7",
+  "en": "Normal"
+ }
+]

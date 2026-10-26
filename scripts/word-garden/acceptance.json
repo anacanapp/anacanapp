@@ -1,0 +1,73 @@
+{
+  "schema": "anacan-word-garden-acceptance-v1",
+  "at": "2026-10-08T19:14:50.564Z",
+  "passed": true,
+  "language": "az",
+  "revision": "az-202610-v2",
+  "words": 6857,
+  "targetWords": 2921,
+  "featureTests": {
+    "passed": 26,
+    "failed": 0,
+    "sha256": "08a5328539902d7ab3bdb4c2528f23fdd5909b742b217ef4feee970b2da2d391"
+  },
+  "generatedLevels": {
+    "count": 4806,
+    "failures": 0,
+    "sampleUpperLevel": 2147483647,
+    "variety": {
+      "calm": {
+        "distinctFirstTwenty": 20,
+        "encounteredTargetWords": 1679,
+        "adjacentRepeatedWords": 0,
+        "adjacentRepeatedRacks": 0,
+        "repeatedPuzzles": 0
+      },
+      "timed": {
+        "distinctFirstTwenty": 20,
+        "encounteredTargetWords": 1666,
+        "adjacentRepeatedWords": 0,
+        "adjacentRepeatedRacks": 0,
+        "repeatedPuzzles": 0
+      }
+    },
+    "timeLimits": {
+      "minimum": 25,
+      "maximum": 98,
+      "firstLevel": 31
+    }
+  },
+  "productionBrowser": {
+    "checks": 13,
+    "screenshots": 14,
+    "realTouchInput": true,
+    "realHubIntegration": true,
+    "timedReadyPauseWin": true,
+    "testedWidths": [
+      320,
+      390,
+      428,
+      768,
+      1440
+    ],
+    "landscape": "844x390"
+  },
+  "dictionarySha256": "4ee1a4ccd2dd8bc7753fe92096905a225605f56a599919d5b21e5e331da1cefb",
+  "productionIndexSha256": "8f1ba43e72cb0281df91c44e21a1be0051dbfee3e89f97a2d5f98853302f4970",
+  "legacyCompatibility": {
+    "comparedPuzzles": 32,
+    "originalDictionaryPreserved": true,
+    "librarySha256": "acdab0987fb4dde5bf009746a69ba55fd465cc5f560cb0fdfb871508bf57d4ac"
+  },
+  "developmentChecks": {
+    "appTypeScript": true,
+    "nodeTypeScript": true,
+    "featureEslint": true,
+    "googleProductionBuild": true
+  },
+  "delivery": {
+    "applicationCodeIntegrated": true,
+    "liveWebDeployed": false,
+    "nativePackageProduced": false
+  }
+}

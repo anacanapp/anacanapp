@@ -1,0 +1,252 @@
+{
+  "schema": "anacan-two-friends-level-build-v1",
+  "at": "2026-10-09T04:05:55.230Z",
+  "passed": true,
+  "revision": "friends-202610-v1",
+  "levels": 40,
+  "catalogSha256": "6ffc8074382e6947d81d963662fea8845206af7e4c34b1eea03e4029c31d76f8",
+  "minimumMoves": 4,
+  "maximumMoves": 18,
+  "chapters": [
+    {
+      "level": 1,
+      "par": 4,
+      "control": "same",
+      "plates": 0
+    },
+    {
+      "level": 2,
+      "par": 4,
+      "control": "same",
+      "plates": 0
+    },
+    {
+      "level": 3,
+      "par": 4,
+      "control": "same",
+      "plates": 0
+    },
+    {
+      "level": 4,
+      "par": 4,
+      "control": "same",
+      "plates": 0
+    },
+    {
+      "level": 5,
+      "par": 8,
+      "control": "same",
+      "plates": 0
+    },
+    {
+      "level": 6,
+      "par": 7,
+      "control": "same",
+      "plates": 0
+    },
+    {
+      "level": 7,
+      "par": 7,
+      "control": "same",
+      "plates": 0
+    },
+    {
+      "level": 8,
+      "par": 7,
+      "control": "same",
+      "plates": 0
+    },
+    {
+      "level": 9,
+      "par": 9,
+      "control": "mirror-y",
+      "plates": 0
+    },
+    {
+      "level": 10,
+      "par": 8,
+      "control": "mirror-x",
+      "plates": 0
+    },
+    {
+      "level": 11,
+      "par": 9,
+      "control": "mirror-x",
+      "plates": 0
+    },
+    {
+      "level": 12,
+      "par": 9,
+      "control": "opposite",
+      "plates": 0
+    },
+    {
+      "level": 13,
+      "par": 8,
+      "control": "mirror-x",
+      "plates": 0
+    },
+    {
+      "level": 14,
+      "par": 8,
+      "control": "mirror-x",
+      "plates": 0
+    },
+    {
+      "level": 15,
+      "par": 8,
+      "control": "mirror-y",
+      "plates": 0
+    },
+    {
+      "level": 16,
+      "par": 8,
+      "control": "opposite",
+      "plates": 0
+    },
+    {
+      "level": 17,
+      "par": 15,
+      "control": "mirror-x",
+      "plates": 0
+    },
+    {
+      "level": 18,
+      "par": 10,
+      "control": "mirror-y",
+      "plates": 0
+    },
+    {
+      "level": 19,
+      "par": 8,
+      "control": "mirror-x",
+      "plates": 0
+    },
+    {
+      "level": 20,
+      "par": 8,
+      "control": "opposite",
+      "plates": 0
+    },
+    {
+      "level": 21,
+      "par": 10,
+      "control": "mirror-y",
+      "plates": 0
+    },
+    {
+      "level": 22,
+      "par": 8,
+      "control": "mirror-x",
+      "plates": 0
+    },
+    {
+      "level": 23,
+      "par": 8,
+      "control": "mirror-x",
+      "plates": 0
+    },
+    {
+      "level": 24,
+      "par": 10,
+      "control": "opposite",
+      "plates": 0
+    },
+    {
+      "level": 25,
+      "par": 10,
+      "control": "same",
+      "plates": 1
+    },
+    {
+      "level": 26,
+      "par": 12,
+      "control": "same",
+      "plates": 1
+    },
+    {
+      "level": 27,
+      "par": 11,
+      "control": "mirror-y",
+      "plates": 1
+    },
+    {
+      "level": 28,
+      "par": 18,
+      "control": "opposite",
+      "plates": 1
+    },
+    {
+      "level": 29,
+      "par": 12,
+      "control": "mirror-x",
+      "plates": 2
+    },
+    {
+      "level": 30,
+      "par": 8,
+      "control": "mirror-y",
+      "plates": 2
+    },
+    {
+      "level": 31,
+      "par": 8,
+      "control": "mirror-x",
+      "plates": 2
+    },
+    {
+      "level": 32,
+      "par": 12,
+      "control": "opposite",
+      "plates": 2
+    },
+    {
+      "level": 33,
+      "par": 14,
+      "control": "mirror-y",
+      "plates": 1
+    },
+    {
+      "level": 34,
+      "par": 15,
+      "control": "mirror-x",
+      "plates": 1
+    },
+    {
+      "level": 35,
+      "par": 14,
+      "control": "mirror-x",
+      "plates": 1
+    },
+    {
+      "level": 36,
+      "par": 14,
+      "control": "opposite",
+      "plates": 1
+    },
+    {
+      "level": 37,
+      "par": 14,
+      "control": "mirror-x",
+      "plates": 1
+    },
+    {
+      "level": 38,
+      "par": 14,
+      "control": "mirror-x",
+      "plates": 1
+    },
+    {
+      "level": 39,
+      "par": 14,
+      "control": "mirror-y",
+      "plates": 2
+    },
+    {
+      "level": 40,
+      "par": 16,
+      "control": "opposite",
+      "plates": 2
+    }
+  ]
+}

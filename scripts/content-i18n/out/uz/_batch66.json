@@ -1,0 +1,1948 @@
+{
+ "baby_names_db": {
+  "07eb0b4a-935a-4133-8ede-b4d747b3c5dd": {
+   "origin": "Forscha",
+   "meaning": "Xushbo‘y yasmin guli"
+  },
+  "084c3f78-ca05-4641-89df-ef491c340dd6": {
+   "origin": "Inglizcha",
+   "meaning": "Funduk daraxti, funduk rangli, yashil-jigarrang"
+  },
+  "08b836f4-fa97-4e7d-878d-11e0a4fa5245": {
+   "origin": "Lotincha",
+   "meaning": "Yorug‘lik taratuvchi, nurli"
+  },
+  "08e151b2-ce64-4801-8d64-b9e77ad493c4": {
+   "origin": "Gavaycha",
+   "meaning": "Sokinlik, okean"
+  },
+  "09b95538-ca19-4e3a-9a19-97a50381b340": {
+   "origin": "Ibroniycha",
+   "meaning": "Lutf, marhamat, ezgulik, sevimli"
+  },
+  "0a2bce8b-ceaf-478b-96ff-760a323c47bd": {
+   "origin": "Lotincha",
+   "meaning": "Tabiat va bahor ma’budasi"
+  },
+  "00472532-b771-47ce-a6cc-31631719239c": {
+   "origin": "Arab",
+   "meaning": "Notiq, chiroyli gapirish qobiliyatiga ega"
+  },
+  "006c03da-785b-456d-9564-5da1f72bb2c8": {
+   "origin": "Nemis",
+   "meaning": "Uyning hukmdori, mulk egasi"
+  },
+  "007f0cdb-c530-4079-a717-0f6fdeae89cc": {
+   "origin": "Xitoy",
+   "meaning": "Buyuk, qudratli"
+  },
+  "00b00619-2609-4a63-bbea-1d734b072561": {
+   "origin": "Yapon",
+   "meaning": "Iste’dodli, chaqqon"
+  },
+  "03169fe5-8a63-4049-9df6-75cc9587c178": {
+   "origin": "Turk",
+   "meaning": "Oy atrofidagi yog‘du, nur"
+  },
+  "0354e275-f22f-440a-be49-098692dfaa1d": {
+   "origin": "Turk",
+   "meaning": "Sel kabi jo‘shqin, hayotga to‘la"
+  },
+  "03bc0cec-b2ab-4e44-9bf1-5720ec2103a4": {
+   "origin": "Ibroniy",
+   "meaning": "Alloh mening hakamimdir"
+  },
+  "048bd246-da6c-4a0f-a56f-2d1d10f6fc3c": {
+   "origin": "Fors",
+   "meaning": "Dunyo hukmdori, fotih"
+  },
+  "06363134-ce5a-484d-a850-3100f3825cda": {
+   "origin": "Rus",
+   "meaning": "Insonlarni himoya qiluvchi"
+  },
+  "069afd46-8c96-437f-a667-5ecc60d75297": {
+   "origin": "Ingliz",
+   "meaning": "Afsonaviy va sehrli kuch"
+  },
+  "06a6074a-457a-4cd3-9214-2b484679d17e": {
+   "origin": "Irland",
+   "meaning": "Sariq sochli qahramon, jasur jangchi"
+  },
+  "073aa609-247b-405d-9dfc-b34e125d9c47": {
+   "origin": "Arab",
+   "meaning": "Ijodga ishtiyoq, qalbdan keluvchi"
+  },
+  "0b3b4313-5c8a-4bfe-81ea-18cf579f20c4": {
+   "origin": "Turkiy",
+   "meaning": "Sher, jasur jangchi"
+  },
+  "0b5de2f1-9bcf-4a6e-87e4-4e05a2e44f31": {
+   "origin": "Ingliz",
+   "meaning": "Jangda jasur, kichik jangchi"
+  },
+  "0b606a67-f64d-4b58-9c74-5d5554ad67f5": {
+   "origin": "Yunon",
+   "meaning": "Hayot, jo‘shqinlik, yorqin energiya"
+  },
+  "0c342178-f0ae-4e38-a77c-f8bf0168a9fd": {
+   "origin": "Ingliz",
+   "meaning": "Olijanob kuch, oliyhimmat qudrat"
+  },
+  "0c72066a-3e41-48a2-a946-07bcc336088e": {
+   "origin": "Turkiy",
+   "meaning": "Zulmatni yenguvchi nur"
+  },
+  "0cd22906-9c03-4963-924b-6f021e227799": {
+   "origin": "Fransuz",
+   "meaning": "Eshkakchi, dengizchi, sayohatchi"
+  },
+  "0d1f9133-2758-4801-9364-80e843beb427": {
+   "origin": "Turk",
+   "meaning": "Kichik suv tomchisi, poklik ramzi"
+  },
+  "0e3be933-d956-4aca-a78d-984a9b5a249a": {
+   "origin": "Yapon",
+   "meaning": "Nazokat, ruh"
+  },
+  "0ed0f2bc-3242-477a-b196-afc23dedad2d": {
+   "origin": "Uels",
+   "meaning": "Dengiz himoyachisi, dengizdan tug‘ilgan"
+  },
+  "0f115198-eeaa-4a60-92a2-cdd03051316b": {
+   "origin": "Irland",
+   "meaning": "Qizil qirol, jo‘shqin yetakchi, otashin"
+  },
+  "0f524d97-1c4b-4ea0-a038-0106bd224cde": {
+   "origin": "Turk",
+   "meaning": "Hukmdor ayol"
+  },
+  "0ff4902c-1393-427e-96ea-c6ec6d0dc61f": {
+   "origin": "Shotland",
+   "meaning": "O‘tloqdagi yashash joyidan, osoyishta"
+  },
+  "107f1098-3fe1-4493-872c-501e2e9a6fc5": {
+   "origin": "Ingliz",
+   "meaning": "Tabiat bilan hamohang"
+  },
+  "109f9b45-ec70-479b-a489-47b3e2d97485": {
+   "origin": "Lotin",
+   "meaning": "G‘alaba, g‘olib, muzaffar"
+  },
+  "1292e936-0461-402b-a863-1d26d521333a": {
+   "origin": "Xitoy",
+   "meaning": "Tong payti, yorishish"
+  },
+  "1306512b-96a7-42d4-a8fe-a5d28b5a7602": {
+   "origin": "Arab",
+   "meaning": "Qasoskor, murosasiz"
+  },
+  "15263621-0334-4936-b806-600b37214ec4": {
+   "origin": "Uels",
+   "meaning": "Ehtirosli, jo‘shqin, otashin, faol"
+  },
+  "16d23729-57c6-46e9-b613-a7ea429e5463": {
+   "origin": "Turk",
+   "meaning": "Mustaqil, erkin, hech kimga qaram bo‘lmagan"
+  },
+  "17662355-8116-4042-98a5-1490a135b456": {
+   "origin": "Arabcha",
+   "meaning": "Quvonch, farovonlik"
+  },
+  "1768d58e-9569-4594-80d3-f626f3d4d650": {
+   "origin": "Arabcha",
+   "meaning": "O'ziga qaragan, nozik, ko'rkam"
+  },
+  "18cd2da9-d022-4b36-bb4c-36542791fcc4": {
+   "origin": "Ibroniycha",
+   "meaning": "Orom topgan, xotirjamlik"
+  },
+  "19d336ce-2c8c-456c-8347-171049594365": {
+   "origin": "Slavyancha",
+   "meaning": "Nozik, aziz, sevimli, mehribon"
+  },
+  "19dbf1f6-2398-4eb2-b028-0f9592f2e739": {
+   "origin": "Forscha",
+   "meaning": "Omadi chopgan, omadli"
+  },
+  "1ac4d18e-214d-40e9-b07b-8870c38caab6": {
+   "origin": "Inglizcha",
+   "meaning": "Eman daraxtlari o'sadigan o'tloq, mustahkam, chidamli"
+  },
+  "1c4fe26d-5a32-4899-be80-8a6fb518ab03": {
+   "origin": "Xitoy",
+   "meaning": "Qimmatbaho javohir"
+  },
+  "1c672634-01bb-4711-a2f8-100006180709": {
+   "origin": "Fors",
+   "meaning": "Oydek go‘zal, nurli"
+  },
+  "1dd34786-bd77-4cf7-b70c-284bd9521d40": {
+   "origin": "Arab",
+   "meaning": "Muddatidan oldin dunyoga kelgan (tarixiy ism)"
+  },
+  "1e092862-2551-4fc4-b4ef-0e229e6fa3b9": {
+   "origin": "Ibroniy",
+   "meaning": "Pastga oqadigan, tarixiy muqaddas daryo"
+  },
+  "1e6d5c7d-3269-4989-a82f-14eb20c31541": {
+   "origin": "Yunon",
+   "meaning": "Insonlar himoyachisi, yordamchi"
+  },
+  "1f11310e-f307-4e1a-adde-1f175c1c2666": {
+   "origin": "Arab",
+   "meaning": "Bug‘doyrang, chiroyli teri tusiga ega"
+  },
+  "1af776d2-350c-4aae-8ecc-523f6ff853ec": {
+   "origin": "Lotin",
+   "meaning": "Askar, xayrixoh, rahmdil"
+  },
+  "1bdcf183-2a7e-48f7-bba3-848daa300a99": {
+   "origin": "Irland",
+   "meaning": "Hushyor, jasur, e'tiborli, qo'riqchi"
+  },
+  "1bf52978-ebac-4983-aeea-7eb44cb94dc6": {
+   "origin": "Ibroniy",
+   "meaning": "Hurmatli xonim, nasl davomchisi"
+  },
+  "1c065a4a-4dd2-4c62-a58b-2ffb7f58fef3": {
+   "origin": "Turk",
+   "meaning": "Umrboqiy, doimo mavjud"
+  },
+  "1c098ced-e5ce-4caf-bd8e-f39b933edd08": {
+   "origin": "Italyan",
+   "meaning": "Meniki, sevimli va orziqib kutilgan bola"
+  },
+  "1c3242b7-2ed8-4258-83f6-e50bbd4dd5f7": {
+   "origin": "Ibroniy",
+   "meaning": "Sadoqatli, jasur, chin dildan bog'langan"
+  },
+  "1f2b76eb-3274-4c06-82e4-91c13c2ea7a6": {
+   "origin": "Fors",
+   "meaning": "Tong shabnami, gul ustidagi tomchi"
+  },
+  "1f49053d-0fd7-4ce8-a6a1-4c1a9a83dc74": {
+   "origin": "Turkiy",
+   "meaning": "O‘rmon o‘rdagi, chiroyli yuradigan xonim"
+  },
+  "1f8eb205-a4da-4bf9-94ed-d7adcf76f871": {
+   "origin": "Arab",
+   "meaning": "Dengiz chig‘anog‘i, yaltiroq, qadrli"
+  },
+  "200f8b37-692f-40f0-adac-b3617cdc7f39": {
+   "origin": "Turkiy",
+   "meaning": "Xalqning nuri, elning go‘zali"
+  },
+  "20cc9258-407e-4e4e-9a83-3e349f919cd0": {
+   "origin": "Turkiy/Arab",
+   "meaning": "Oy nuri, yorqinlik"
+  },
+  "216941d1-fc33-4f9f-88d2-36764a088762": {
+   "origin": "Turkiy",
+   "meaning": "Xalq vakili"
+  },
+  "217a810e-ac13-4622-b341-0404c733a07c": {
+   "origin": "Fransuz",
+   "meaning": "Yorqin, porloq, mashhur, pok"
+  },
+  "21d2369e-73cd-4dd3-a1a2-0070ec45f5dd": {
+   "origin": "Turkiy/Arab",
+   "meaning": "Yorug‘ kelajak, porloq o‘g‘lon"
+  },
+  "229b2bc7-d6a0-42b5-9fec-2991eb81d71e": {
+   "origin": "Arab",
+   "meaning": "Oy yuzli, go‘zal chehrali"
+  },
+  "22cd0dc5-5d26-4498-85fa-c000350e2836": {
+   "origin": "Suaxili",
+   "meaning": "Jozibali, betakror"
+  },
+  "22e58897-006c-4330-9a0d-81237675e8d6": {
+   "origin": "Yunon",
+   "meaning": "Allohning tuhfasi, ilohiy sovg‘a"
+  },
+  "22fe5d02-c7e3-4b69-b07d-9298a9c307c9": {
+   "origin": "Turkiy",
+   "meaning": "Eng qattiq va qimmatbaho tosh"
+  },
+  "23518516-89db-4863-8557-b84bf1dca6d3": {
+   "origin": "Ibroniy",
+   "meaning": "Taxtga chiqqan, ketma-ket keluvchi"
+  },
+  "242ef994-a64a-4192-8671-870832da5abc": {
+   "origin": "Kelt",
+   "meaning": "Jasur jangchi"
+  },
+  "245c58e4-e32e-4e58-aa35-0c543883c76a": {
+   "origin": "Arab",
+   "meaning": "Muhabbat, kuchli sevgi, ehtiros"
+  },
+  "246c65d3-63d3-4d46-abea-91cadd9bf283": {
+   "origin": "Ibroniy",
+   "meaning": "Aziz, hurmatli"
+  },
+  "24d0fe8e-db84-4066-a450-4cc8fb85f315": {
+   "origin": "Arab",
+   "meaning": "Yashovchi, umr kechiruvchi, tirik"
+  },
+  "267723b5-ef0e-44a7-b98e-6cc5b1a56eba": {
+   "origin": "Ingliz",
+   "meaning": "Dengiz bo‘yidagi go‘zal maysazor, quvonchli"
+  },
+  "2a0e991f-a612-49f0-90c8-850c9a382dae": {
+   "origin": "Nemis",
+   "meaning": "Butun, mukammal, pari qiz, go‘zal"
+  },
+  "2a69c4e3-f4e9-43bf-9f09-bdb05c11a86e": {
+   "origin": "Fors",
+   "meaning": "Qalblarni zabt etuvchi, sevimli"
+  },
+  "2b010a26-4ff0-4ba0-900b-72bf26e6c3d5": {
+   "origin": "Arab",
+   "meaning": "Qadrdon, aziz, ota-ona"
+  },
+  "2bb3d746-3c5d-4eed-b22a-b0cd3432e4fb": {
+   "origin": "Turk",
+   "meaning": "Boshida oy bo‘lgan, nurli toj"
+  },
+  "2c225d7b-de73-44fb-a1ce-4d7c6249e47e": {
+   "origin": "Arab",
+   "meaning": "Ko‘p maqtalgan, ma’qullangan"
+  },
+  "2c49ecdd-54d0-4a0e-b2ce-f4c6836cf474": {
+   "origin": "Arab",
+   "meaning": "Mehribon, ko‘ngli yumshoq"
+  },
+  "26f10a2f-7931-411e-a2fc-5e24bb5cb928": {
+   "origin": "Irland",
+   "meaning": "Qizil sochli, chetan daraxti, himoya"
+  },
+  "27065554-7f1a-479b-9405-66ecd8f9602b": {
+   "origin": "Arab",
+   "meaning": "Nigohi go‘zal, maftunkor ko‘zli"
+  },
+  "27dee01c-8ab9-4119-aca4-8434953bdbcd": {
+   "origin": "Fransuz",
+   "meaning": "Ozod ayol, kuchli, nazokatli"
+  },
+  "284689a6-4457-4749-9f5a-34e06933a647": {
+   "origin": "Ibroniy",
+   "meaning": "Sokin, tinch, mo‘l-ko‘l, xotirjamlik"
+  },
+  "29822193-c16f-4066-ad45-df633f2ca0d2": {
+   "origin": "Ibroniy",
+   "meaning": "Baxtli, muborak, saodatli"
+  },
+  "29c46cbb-b46e-4784-aa7a-a07ff25b9ef6": {
+   "origin": "Turk",
+   "meaning": "Allohning bandasi (odatda qo‘shma ismlarda)"
+  },
+  "2c5f2273-b01d-4899-b8fd-cffa7ffdc5d6": {
+   "origin": "Arabcha",
+   "meaning": "Mehmon, sayyoh, ko‘rishishga kelgan"
+  },
+  "2c654d3c-f031-44bc-a5a8-97c5669bae4d": {
+   "origin": "Ibroniycha",
+   "meaning": "U berdi, Xudoning tuhfası"
+  },
+  "2ca67284-aee8-4848-9877-1b00e05669e3": {
+   "origin": "Ibroniycha/Arabcha",
+   "meaning": "Ibodat qiluvchi, sevimli xonim"
+  },
+  "2d127b43-48d0-429b-96d0-b1fda14a799d": {
+   "origin": "Ibroniycha",
+   "meaning": "Ilohiy, go‘zal"
+  },
+  "2e280849-2848-430c-976e-a47e58451cef": {
+   "origin": "Lotincha",
+   "meaning": "Sharaf, yorug‘lik, nur, olijanob"
+  },
+  "309fe291-b93f-4a82-b820-a7a355e98f46": {
+   "origin": "Ibroniycha",
+   "meaning": "Tinchlik tarafdori, osoyishtalik"
+  },
+  "342ea314-2208-464e-9f28-f83132e9a63b": {
+   "origin": "Forscha",
+   "meaning": "Baxt keltiruvchi"
+  },
+  "34452c5a-bfea-4758-aa9c-b0dba9337551": {
+   "origin": "Ibroniycha",
+   "meaning": "Allohning quli, itoatkor"
+  },
+  "348fd636-e77c-4bf7-beaf-7c5aa75ee7d2": {
+   "origin": "Inglizcha",
+   "meaning": "Quyonlar o‘tlog‘i, keng o‘rmon, erkin"
+  },
+  "34d34b88-2e93-4735-9a5c-c27ca7e08e5d": {
+   "origin": "Ibroniycha",
+   "meaning": "Malika, aslzoda xonim, hukmdor"
+  },
+  "34e0b976-7abd-4df0-b7d0-854089918f4b": {
+   "origin": "Yaponcha",
+   "meaning": "Osmon, kenglik"
+  },
+  "351db932-29b0-408b-b20b-aaff02e6938a": {
+   "origin": "Arabcha",
+   "meaning": "Aqlli, rostgo‘y"
+  },
+  "30d277b7-fa10-4c37-ae5e-800633c5c754": {
+   "origin": "Fors",
+   "meaning": "Hulkar yulduzlar to‘dasi, yorqin yulduz"
+  },
+  "32168bfa-baa6-44f1-b34f-a551baab9dc7": {
+   "origin": "Turk",
+   "meaning": "Oy va quyosh kabi porloq"
+  },
+  "32c815e1-1963-441a-a0f8-5581cf855296": {
+   "origin": "Kelt",
+   "meaning": "Rova daryosining quyilish joyidan, daryo bo‘yida yashovchi"
+  },
+  "33785714-fc2f-46d2-8ed9-f1dad0e6295a": {
+   "origin": "Yunon",
+   "meaning": "Gullab-yashnayotgan, yashil nihol, yangi ochilgan gul"
+  },
+  "33b0e006-016f-4fa0-b40d-c97e8ad29ae5": {
+   "origin": "Yunon",
+   "meaning": "Insonlar himoyachisi"
+  },
+  "33c73323-6a2d-4ff4-8ab8-c4deb3305305": {
+   "origin": "Italyan",
+   "meaning": "Alloh rahmlidir, ilohiy marhamat"
+  },
+  "3660e1c2-a310-470e-b060-a2e91dc69ab3": {
+   "origin": "Arabcha",
+   "meaning": "Yuksak martabali, buyuk, oliy"
+  },
+  "36bee4b8-d747-492a-85c5-a86c37d843fe": {
+   "origin": "Ibroniycha",
+   "meaning": "Marhamat, ezgulik"
+  },
+  "37302768-5905-4c1d-8ea7-09c7192abc79": {
+   "origin": "Ibroniycha",
+   "meaning": "Xalqlarning otasi, rahbar"
+  },
+  "3815a0bf-1f99-4b09-86a6-9be40e870d99": {
+   "origin": "Arabcha",
+   "meaning": "Orzusiga yetgan, visolga erishgan"
+  },
+  "38eaf46e-e906-40b0-b6c9-9e5dc131aaa8": {
+   "origin": "Forscha",
+   "meaning": "Po‘latdek bardoshli"
+  },
+  "3996a91a-be31-42cb-afc1-8203940559f8": {
+   "origin": "Lotincha",
+   "meaning": "Raqib, g‘ayratli, tirishqoq"
+  },
+  "3ce04a11-f46b-4b7b-a0da-37708c0a943b": {
+   "origin": "Ingliz",
+   "meaning": "Tikuvchi, mato bichuvchi, aniq"
+  },
+  "3ce632a8-9080-4474-851a-8ce121b1acd3": {
+   "origin": "Amerika",
+   "meaning": "Mustaqil, erkin ruhli, qoidalarga bo‘ysunmaydigan"
+  },
+  "3d0af2cc-9848-4eaa-a696-d328cac1f50d": {
+   "origin": "Fors",
+   "meaning": "Qizil rangli, nafis tog‘ guli"
+  },
+  "3d164d86-7858-41e7-8206-845fbd797693": {
+   "origin": "Arab",
+   "meaning": "Poklik, ravshanlik, xotirjamlik"
+  },
+  "3d4f4651-5bc7-4d51-b043-7550451f5620": {
+   "origin": "Arab",
+   "meaning": "Qo‘rqmas, kelishgan, aqlli"
+  },
+  "3d872096-6ba9-4c63-b7f7-128e89de314b": {
+   "origin": "Fransuz",
+   "meaning": "Erkin inson, nazokatli va aslzoda ayol"
+  },
+  "3998864a-9ab5-4991-9060-b48060fb0e3d": {
+   "origin": "Lotin",
+   "meaning": "Lutf, xayr-duo, nazokat, joziba"
+  },
+  "3a135b57-e7ae-4eb2-a420-e16304ce2f44": {
+   "origin": "Turk",
+   "meaning": "Esayotgan shamol, o‘zgarish olib keluvchi"
+  },
+  "3a4ae7e6-b0dd-4a2e-b3b0-f9f72818617d": {
+   "origin": "Ibroniy",
+   "meaning": "Xudo buyurgan, yaxshi tinglovchi"
+  },
+  "3aeaadbd-7d87-4c69-ac73-f1076fc99d64": {
+   "origin": "Ingliz",
+   "meaning": "Bog‘ qo‘riqchisi, o‘rmon qorovuli"
+  },
+  "3bd0cdc5-45a1-49ef-a109-92b8e7c3cf14": {
+   "origin": "Arab",
+   "meaning": "Alining jangchisi, jasur"
+  },
+  "3cbc9824-236b-45f7-8722-3c1e02737708": {
+   "origin": "Nemis",
+   "meaning": "Yorqin shuhrat, shonli, taniqli"
+  },
+  "3df064b6-fc4e-4b1c-9eab-cd10e59aad3c": {
+   "origin": "Ibroniy",
+   "meaning": "Jasur, ilohiy kuch"
+  },
+  "3fd11095-68bc-4f89-9669-f9ab33abbd8c": {
+   "origin": "Nemis",
+   "meaning": "Erkin inson, kuchli, jasur"
+  },
+  "407b38d0-d8f0-42c0-9ecc-d0b63a39bc4b": {
+   "origin": "Ibroniy",
+   "meaning": "Huzur-halovat maskani, jannat, quvonch makoni"
+  },
+  "408f01db-61d7-4b9c-ba45-c7275cc35924": {
+   "origin": "Fors",
+   "meaning": "Yovvoyi atirgul, nozik gul"
+  },
+  "40c26ee0-0172-491f-9f5a-f367bde451b8": {
+   "origin": "Arab",
+   "meaning": "Qalb, ko‘ngil, ma’naviyat"
+  },
+  "40c37e54-c1f9-4b2a-9522-5e86df9f7df9": {
+   "origin": "Turk",
+   "meaning": "To‘ng‘ich, birinchi tug‘ilgan"
+  },
+  "45e89cfe-72ea-4562-9711-33ae84662f81": {
+   "origin": "Arab/Fors",
+   "meaning": "Yuzi farishtadek beg‘ubor va go‘zal"
+  },
+  "464f2291-5b4e-4293-9fa4-61c5bfbb19af": {
+   "origin": "Arab",
+   "meaning": "Buyuklik, ulug‘vorlik"
+  },
+  "46a81761-b913-4e25-8131-6842dabd7346": {
+   "origin": "Ibroniy",
+   "meaning": "O‘ng qo‘lning o‘g‘li, sevimli o‘g‘il"
+  },
+  "4831fc19-6b98-46f7-8919-dcb59db55cd7": {
+   "origin": "Turkiy",
+   "meaning": "Dengiz tubidan olinadigan qimmatbaho tosh, soflik"
+  },
+  "483a48c3-df67-43e5-8ee9-2eae0ab5a5e5": {
+   "origin": "Lotin",
+   "meaning": "Nilufar guli, poklik va nazokat ramzi"
+  },
+  "48d8f43d-0471-44fa-a887-d7b2dd9f3515": {
+   "origin": "Ibroniy",
+   "meaning": "Allohning arsloni, jasur, ruhi kuchli"
+  },
+  "42015c0b-ebaf-48f3-89fa-3aa13e19d48f": {
+   "origin": "Fors",
+   "meaning": "Olovlar yurti, olov"
+  },
+  "4208043e-085a-4d91-885c-f8d8121d6571": {
+   "origin": "Lotin",
+   "meaning": "Shafaq, tong yulduzi, tong ma’budasi"
+  },
+  "424fdc6c-f6ea-4245-984d-150507508a4b": {
+   "origin": "Ingliz",
+   "meaning": "Alloh rahmlidir"
+  },
+  "436355e7-1552-42d8-9f3e-a008111e30fa": {
+   "origin": "Ispan",
+   "meaning": "Marhamat, qimmatli tuhfa"
+  },
+  "442abafc-ade7-4454-9247-08a51c69c193": {
+   "origin": "Yunon",
+   "meaning": "Sadoqatli va to‘quvchi rafiqa"
+  },
+  "44674ad6-23fe-4edc-8d37-c9fc07e3a523": {
+   "origin": "Fors",
+   "meaning": "Xushchehra, samimiy, g‘amxo‘r"
+  },
+  "4900ae80-3435-4b18-ae87-f84f27e6832f": {
+   "origin": "Fors",
+   "meaning": "Osmon, yuksaklik"
+  },
+  "4a57a0dc-8938-48ef-b8d6-f367869487a3": {
+   "origin": "Lotin",
+   "meaning": "Yoqut, qimmatbaho qizil tosh"
+  },
+  "4ae85074-9752-4285-9f40-e5632fbfb7f7": {
+   "origin": "Nemis",
+   "meaning": "Dono mutafakkir"
+  },
+  "4af52961-46f3-4b40-9aa4-38fca2b0ed71": {
+   "origin": "Turk",
+   "meaning": "Kuchli ovoz, momaqaldiroq ovozi, alanga"
+  },
+  "4b210bc4-3719-4313-8d86-e1029079b788": {
+   "origin": "Arab",
+   "meaning": "Xabar keltiruvchi, payg‘ambar"
+  },
+  "4b4202fd-6833-42ec-9b8b-4b639532db4b": {
+   "origin": "Fors",
+   "meaning": "To‘g‘ri, xotirjam, ruh"
+  },
+  "4ddd482b-7e5a-4fa8-8470-32d3fce3dad8": {
+   "origin": "Nemis",
+   "meaning": "Aslzoda, olijanob, sharafli"
+  },
+  "4e6c5b9a-60b0-494f-a76f-a1388f120b75": {
+   "origin": "Turk",
+   "meaning": "Oy nuri oqimi, sernur"
+  },
+  "4e74acbc-4f14-460b-9914-12851d2799ad": {
+   "origin": "Ingliz",
+   "meaning": "Yorqin shuhrat, quvnoq qush, quvonch keltiruvchi"
+  },
+  "4edfea0c-67d5-4667-b50f-8d782ae0ba66": {
+   "origin": "Arab",
+   "meaning": "Najot topish, murodga yetish"
+  },
+  "4f343862-cac7-4314-9d5e-834d19a55756": {
+   "origin": "Turk",
+   "meaning": "Muhabbat yetakchisi, sevimli bek"
+  },
+  "500e7663-0174-49a4-b58c-83f343ba46a5": {
+   "origin": "Arab",
+   "meaning": "Mehribon, g‘amxo‘r"
+  },
+  "4b6643c7-3583-4b9c-9600-b28cf56f09fb": {
+   "origin": "Ingliz",
+   "meaning": "Ko‘l koloniyasi, ko‘l bo‘yidagi shahar"
+  },
+  "4bb06b6f-5a3b-4c10-9cdf-b12092d990a4": {
+   "origin": "Fors",
+   "meaning": "Nozik, nazokatli fe’l-atvorli, muloyim"
+  },
+  "4c5304a3-ad08-4e52-b130-d163c1afb9d9": {
+   "origin": "Fors",
+   "meaning": "Ziynat, qimmatbaho, boylik"
+  },
+  "4c53777a-493d-49df-a0c1-0434c445ac24": {
+   "origin": "Arab",
+   "meaning": "Betakror, tengi yo‘q"
+  },
+  "4ccda06b-5ccd-4979-8556-7fc54583e9d8": {
+   "origin": "Turk",
+   "meaning": "Abadiy, uzoq umr ko‘ruvchi, omon qolgan"
+  },
+  "4d5b8f98-a2df-4bf5-a0e6-cce3821dbc57": {
+   "origin": "Turk",
+   "meaning": "Qo‘shin boshlig‘i, xon, rahbar"
+  },
+  "50e39564-f9df-4a3d-abe6-9e98ffb968d3": {
+   "origin": "Golland",
+   "meaning": "Olim, himoya qiluvchi boshpana, osmon"
+  },
+  "5100604d-b205-46cd-8406-4b382a6c7db5": {
+   "origin": "Lotin",
+   "meaning": "Dono inson, shifobaxsh o't, tinch"
+  },
+  "518a8424-851c-4c1a-84c9-ea655768ab50": {
+   "origin": "Fors",
+   "meaning": "Ko'zi o'tkir, chaqqon, qudratli"
+  },
+  "51fedc3f-a9b1-4764-90fa-beba29cfe99b": {
+   "origin": "Turk",
+   "meaning": "Qizil yonoqli, sog'lom, go'zal"
+  },
+  "524d5f21-79b8-420a-8544-4eb199632784": {
+   "origin": "Arab",
+   "meaning": "Yorqin, yulduz"
+  },
+  "52812353-13d1-401e-816c-9301be1dac00": {
+   "origin": "Yapon",
+   "meaning": "Yorqin, musaffo kuz"
+  },
+  "5281bd12-17cf-43ed-b727-88d3a88cdc27": {
+   "origin": "Lotin",
+   "meaning": "Tinchliksevar, mehribon"
+  },
+  "53032398-f93e-4814-acbe-4c81e2a01b26": {
+   "origin": "Arab",
+   "meaning": "San’atkor, usta"
+  },
+  "53911d79-32fd-4897-85ee-a8346be809ef": {
+   "origin": "Arab",
+   "meaning": "Nazokatli, xushmuomala ayol"
+  },
+  "539eb357-a61e-48d2-9959-6544c34bfc33": {
+   "origin": "Turk",
+   "meaning": "Yashash joyi, doimiy"
+  },
+  "53a27ba0-a5f2-43f8-b286-98de56fd0837": {
+   "origin": "Shotland",
+   "meaning": "Sariq sochli jangchi, qahramon yetakchi, halol"
+  },
+  "54b66302-fa6c-41eb-bec5-0a3f375e77b4": {
+   "origin": "Arab",
+   "meaning": "Shodlik, baxt"
+  },
+  "54b71681-2ddd-4a6b-829c-2827a1448780": {
+   "origin": "Turkiy",
+   "meaning": "Oy hukmdori, nurli rahbar"
+  },
+  "54cb984d-3d88-450a-9ad9-4f99b382c1cb": {
+   "origin": "Arabcha",
+   "meaning": "Fikr, tasavvur, istak"
+  },
+  "5579bc6a-d431-41ea-9005-8825f3ba533b": {
+   "origin": "Arabcha",
+   "meaning": "Jannatdagi daraxt, poklik"
+  },
+  "55f8bcb2-e31a-4f66-b709-26bb0ebbb7e5": {
+   "origin": "Lotincha",
+   "meaning": "Bilimli, dorivor o‘simlik — mavrak"
+  },
+  "564b7df7-37c5-44e8-b40d-fcd41c6e7ba5": {
+   "origin": "Arabcha",
+   "meaning": "Olamlar, koinot, kenglik"
+  },
+  "5705a352-932b-42ab-bdd7-d3ecb5340245": {
+   "origin": "Ibroniycha",
+   "meaning": "Otaning quvonchi, quvonch manbai"
+  },
+  "5b4bdab6-535f-4d55-9915-251fdd17da06": {
+   "origin": "Arabcha",
+   "meaning": "Ishonchli, qo‘rqmas, sadoqatli"
+  },
+  "5bb56488-0f47-4efa-98dd-7c6e44adce7b": {
+   "origin": "Turkcha",
+   "meaning": "Kuchli, qudratli xon (okean kabi)"
+  },
+  "5bbf2f8d-04eb-4649-a884-9ff7bcb0ab80": {
+   "origin": "Yunoncha",
+   "meaning": "Yordamchi, himoyachi, xaloskor"
+  },
+  "5caa47ae-855b-47ec-81cd-e1bdcfafe5c5": {
+   "origin": "Turkcha",
+   "meaning": "Go‘zalligini oydan olgan, oy parchasi"
+  },
+  "5ea8977a-9547-44e6-8aa4-fcfcb733451b": {
+   "origin": "Ibroniycha",
+   "meaning": "Xudo mening kuchimdir"
+  },
+  "5ee7b7a7-ab62-4ba8-b463-6e9b2dd9c090": {
+   "origin": "Lotincha",
+   "meaning": "Binafsha, nafis gul, kamtarona go‘zallik"
+  },
+  "571aa25e-b2e3-433c-a9b6-e3dae5e8ede9": {
+   "origin": "Turk",
+   "meaning": "Hayqiriq, shovqin-suron, jo‘shqinlik"
+  },
+  "5787f94e-41f2-4899-bc3a-a2a6b00ee406": {
+   "origin": "Suaxili",
+   "meaning": "Iroda, hayot maqsadi"
+  },
+  "57a6950f-5bcc-4e50-8ffc-38968f29b97c": {
+   "origin": "Afrika",
+   "meaning": "Kuchli, abadiy yashovchi"
+  },
+  "57f87ed8-d8c6-4e5b-acb8-54c11a1a483b": {
+   "origin": "Turk",
+   "meaning": "Xalqning quyoshi, elning kuni"
+  },
+  "59102576-18f3-47e3-b067-ed0403257440": {
+   "origin": "Arab",
+   "meaning": "Rahbar, buyruq beruvchi, bek"
+  },
+  "59f08966-955c-4e48-a34b-fc0e877a53ae": {
+   "origin": "Yapon",
+   "meaning": "Poklik ramzi bo‘lgan gul"
+  },
+  "5ee8dc7f-2042-4460-9277-72e7ded4c3d3": {
+   "origin": "Arabcha",
+   "meaning": "Toza, pok (tarixiy va diniy ism)"
+  },
+  "5fc3a1f6-6f28-47a8-a160-66f430dee259": {
+   "origin": "Turkcha",
+   "meaning": "Va'dasida turadigan, ahdiga sodiq"
+  },
+  "606ae9d5-21d2-4721-baf2-437fe4165ee7": {
+   "origin": "Forscha",
+   "meaning": "Shoh, shahar hukmdori, buyuk shoir"
+  },
+  "62eedfec-5103-40d7-beae-d152a8cb71f8": {
+   "origin": "Inglizcha",
+   "meaning": "Erkin inson, samimiy, mehribon"
+  },
+  "634f448e-c9cb-4677-aaed-a1107472e4df": {
+   "origin": "Arabcha",
+   "meaning": "Yorug'lik, nur, shu'la"
+  },
+  "63636782-e37f-47f3-bf53-1d3d552fdb19": {
+   "origin": "Forscha",
+   "meaning": "Kuchli ayol (Rustamning rafiqasi)"
+  },
+  "63e05427-7d5f-40b0-a0d7-fcdf3afdb1e9": {
+   "origin": "Uels",
+   "meaning": "Xayrixoh, mehribon, rahmdil, oliyjanob"
+  },
+  "64072ecb-ff90-43dc-9b0e-f9d0048f2c1d": {
+   "origin": "Yevropa/Turk",
+   "meaning": "Maslahatchi bo‘ri, kuchli jangchi"
+  },
+  "64734190-36fd-450d-9701-df6eb2c3e288": {
+   "origin": "Xitoy",
+   "meaning": "Sog‘lom, chidamli"
+  },
+  "64844ee8-f07b-4b76-8f74-0d53d1379412": {
+   "origin": "Arab/Fors",
+   "meaning": "Shaffof, toza, emal naqshli"
+  },
+  "64ed02d9-d831-43f5-9cc8-1dedd6d123fc": {
+   "origin": "Arab",
+   "meaning": "Osmonlar, yuksaklik, osmonning cheksizligi"
+  },
+  "6538e348-9cae-4be2-9229-5f56edc5425a": {
+   "origin": "Qadimgi ingliz",
+   "meaning": "Jasur jangchi, g‘olib"
+  },
+  "6546a36c-ec9a-4ab8-94d7-da9653d7c964": {
+   "origin": "Ingliz",
+   "meaning": "Erkin, ozod inson"
+  },
+  "659e95a9-3370-4a9f-9145-1f5226d6fb9b": {
+   "origin": "Ingliz",
+   "meaning": "Musiqachi, san’atkor"
+  },
+  "66730df7-c652-4f1d-b986-f2e5450613e0": {
+   "origin": "Ingliz",
+   "meaning": "Qirollik shahri, olijanob mulk, jangchi"
+  },
+  "679f28f9-df41-4d5e-b1cf-40f7b5dd6daa": {
+   "origin": "Yunon",
+   "meaning": "Insonlar himoyachisi, fotih"
+  },
+  "67c703b6-23bb-4d22-a8dd-c2afbb905172": {
+   "origin": "Yunon",
+   "meaning": "Ona tabiat, illyuziya"
+  },
+  "67e765de-6afb-4c5f-986e-f47a69319636": {
+   "origin": "Lotin",
+   "meaning": "Yangi yulduz, boshlanish"
+  },
+  "6abd6b93-15f1-4e35-9723-e6b4f0435503": {
+   "origin": "Yunoncha",
+   "meaning": "Yorqin nur, porloq mash’al, ziyo"
+  },
+  "6d95d33f-f09f-4875-a17d-a725415f4616": {
+   "origin": "Turkiy",
+   "meaning": "Xonlar boshlig‘i, yetakchi"
+  },
+  "68123123-2561-473a-9f22-b568fc717aa8": {
+   "origin": "Arabcha",
+   "meaning": "To‘g‘rilik, aql, yetuklik"
+  },
+  "6872b8a3-3407-4a45-ba55-319fa801e4c0": {
+   "origin": "Lotincha",
+   "meaning": "Oy va ov ma'budasi"
+  },
+  "6e503108-622b-4bfb-9eb9-522fec9d4aae": {
+   "origin": "Italyancha",
+   "meaning": "Havo, qo‘shiq, ohang, sher qizi"
+  },
+  "6af31f4a-6477-4c50-b981-1fc175d5dda8": {
+   "origin": "Ibroniy",
+   "meaning": "Birlashgan, bog‘langan, vafodor"
+  },
+  "70f9f077-2fd0-47a2-b6dd-4f9e8bb15127": {
+   "origin": "Turk/arab",
+   "meaning": "Xalqning nuri, vatanini sevuvchi qiz"
+  },
+  "6c0d48b2-7811-4f8a-a5c1-f4dc455a3f37": {
+   "origin": "Fors",
+   "meaning": "Katta daryo yoki dengiz, chuqurlik"
+  },
+  "691f05e7-b736-4794-9bc1-8f759c96f407": {
+   "origin": "Turkcha",
+   "meaning": "Sochlari go‘zal xonim"
+  },
+  "6c93e2ed-1b3c-4e53-921d-e20ac08c9c13": {
+   "origin": "Arabcha",
+   "meaning": "Idrokli, bilimdon, dono"
+  },
+  "71359bb4-b3dc-45fe-8e02-41ea261a2dbc": {
+   "origin": "Nemischa",
+   "meaning": "Qat’iyatli himoyachi, mustahkam dubulg‘a"
+  },
+  "69a3b726-fdee-45ec-be10-5854624eed78": {
+   "origin": "Turkcha",
+   "meaning": "Cheksizlik, mo‘l-ko‘llik va go‘zallik ramzi"
+  },
+  "6ccafffa-3f1e-46a5-a541-ffcd11fb2f81": {
+   "origin": "Tubjoy amerikaliklar",
+   "meaning": "Do‘st, ittifoqchi, mehribon"
+  },
+  "718e92b2-5431-4319-acc1-bdf660511f07": {
+   "origin": "Arabcha",
+   "meaning": "Tunda suhbatlashadigan do‘st"
+  },
+  "69a441fb-113c-41ac-9c24-c97eb3143a8b": {
+   "origin": "Arabcha",
+   "meaning": "Kechasi ertak aytuvchi, shirinso‘z"
+  },
+  "6d33e8a2-53b7-4af2-8788-a00fca1b619f": {
+   "origin": "Lotincha",
+   "meaning": "Go‘zal, nazokatli xonim (qadimgi qabila nomi)"
+  },
+  "71aedc84-5f59-49b3-ab45-43abf8ccd0cc": {
+   "origin": "Lotincha",
+   "meaning": "Tinchlik ramzi, zaytun daraxti"
+  },
+  "7260c634-6346-4a6c-a95e-c369535d8990": {
+   "origin": "Arabcha",
+   "meaning": "G‘urur, vazminlik, salobat"
+  },
+  "72f60f17-c49c-4037-9829-1aa475cd283c": {
+   "origin": "Lotincha",
+   "meaning": "Oy nuri, tun go‘zalligi"
+  },
+  "735fa507-7783-43e5-8690-d3afaec0225f": {
+   "origin": "Lotincha",
+   "meaning": "G‘ayratli, qalban yosh"
+  },
+  "73a2e788-b780-435f-8989-5c5a8843d630": {
+   "origin": "Turkcha",
+   "meaning": "Baland tog‘, muqaddas cho‘qqi"
+  },
+  "73ac0f5b-6c8c-4cc1-a344-e70262197c8e": {
+   "origin": "Lotincha",
+   "meaning": "Poklik, begunohlik"
+  },
+  "742a5d3f-53b1-486f-8604-e0620a9a8ad0": {
+   "origin": "Turkcha",
+   "meaning": "Xalqning suyukli farzandi"
+  },
+  "6a89d29f-45ed-4374-b2c7-95b1fc998bc7": {
+   "origin": "Fors",
+   "meaning": "Chiroyli, bezakli"
+  },
+  "744170c5-f8bd-4162-9e80-763c97a2c969": {
+   "origin": "Irland",
+   "meaning": "Go‘zal, fasohatli so‘zlovchi"
+  },
+  "75938313-e957-46c6-8e27-e524eef1d7cb": {
+   "origin": "Lotin",
+   "meaning": "Yosh, navqiron, kuchli"
+  },
+  "7639d8ac-d6c4-4258-8171-980a8ad4d86f": {
+   "origin": "Shotland",
+   "meaning": "O‘rinbosar, taxtga chiqqan, sodiq"
+  },
+  "77dd7f14-160c-4d02-ac46-e0bafddde375": {
+   "origin": "Slavyan",
+   "meaning": "Shirin, mehribon"
+  },
+  "780b70c0-a87b-446e-b712-e21126713456": {
+   "origin": "Fors",
+   "meaning": "Yaratilish, ichki olam"
+  },
+  "786914ab-4853-477d-bf65-6c06f3de753b": {
+   "origin": "Arab",
+   "meaning": "Dunyodan yuz o‘girgan, ibodat qiluvchi"
+  },
+  "7d2ac69e-6a54-418f-b59e-f58d9fe16412": {
+   "origin": "Ibroniy",
+   "meaning": "Xudoga bag‘ishlangan"
+  },
+  "7e0bd1d6-c1d6-41bf-ba22-d642a2a51157": {
+   "origin": "Xitoy",
+   "meaning": "Chiroyli nefrit toshi"
+  },
+  "7e215959-6612-4ff2-9502-8baeaf85851c": {
+   "origin": "Turk",
+   "meaning": "Hayot manbai, poklik"
+  },
+  "7e2901e5-9646-4d7c-9aa2-7fe355f8ea83": {
+   "origin": "Arab",
+   "meaning": "Sevgiga yetishgan, visol, uchrashuv"
+  },
+  "7eb34a68-c02d-472f-86dc-42a7681b5f66": {
+   "origin": "Irland",
+   "meaning": "Jasur ayol/erkak, mard"
+  },
+  "7ed18efa-5f54-4536-afa2-8d9cb526be43": {
+   "origin": "Yapon",
+   "meaning": "Go‘zallik suvi, suv oqimi"
+  },
+  "7f1e2597-6797-4464-a0f1-6e5394d7efb0": {
+   "origin": "Ingliz",
+   "meaning": "Boy himoyachi, farovonlik posboni"
+  },
+  "7f3c49f7-9da6-4740-8dd5-14158b5ddc11": {
+   "origin": "Fors",
+   "meaning": "Gullarning malikasi, bosh toji"
+  },
+  "7f53a153-6aad-4d0c-b785-1527a20906fa": {
+   "origin": "Turk",
+   "meaning": "Quyoshdek iliq, Oydek nozik"
+  },
+  "7fbe611d-408f-45c1-9b51-316c09a6042a": {
+   "origin": "Shotland",
+   "meaning": "Keng hudud, maskan"
+  },
+  "8030706f-3a7b-4efb-b62a-e7bcda3d09a6": {
+   "origin": "Ibroniy",
+   "meaning": "Muqaddas Iordan daryosi"
+  },
+  "80453996-8e38-49a2-99ef-737cdd88eb73": {
+   "origin": "Turk",
+   "meaning": "Sevilishga loyiq"
+  },
+  "7878434f-2fbb-459f-9baa-e952a8730f64": {
+   "origin": "Turk/fors",
+   "meaning": "Orzu, istalgan narsa, maqsad"
+  },
+  "789574aa-66c9-499c-a6df-7eedc35def74": {
+   "origin": "Lotin",
+   "meaning": "Oy, porloq, tun ma'budasi"
+  },
+  "79524b07-d971-49c4-8f94-cd81e8e65919": {
+   "origin": "Turk",
+   "meaning": "Tabiatning o'zi, soflik"
+  },
+  "79858810-7c4c-48a7-94bd-d563c8682ed3": {
+   "origin": "Lotin",
+   "meaning": "Tirishqoq, mehnatsevar, g'ayratli"
+  },
+  "79e0812d-17a8-4c57-a8cd-8a94dca47787": {
+   "origin": "Nemis",
+   "meaning": "Butun, universal, mukammal, kuchli"
+  },
+  "7b8c730d-9627-4874-817c-ec4c7ab86bd2": {
+   "origin": "Arab",
+   "meaning": "Qismat, baxt, taqdirdagi ulush"
+  },
+  "80a23f1e-480c-4da0-bd3d-15f7813d2737": {
+   "origin": "Arabcha",
+   "meaning": "Sabrli, bardoshli ayol timsoli"
+  },
+  "81ae9ab0-5db1-4f4e-9a03-3ec801831007": {
+   "origin": "Forscha",
+   "meaning": "Sevimli, nur sochuvchi"
+  },
+  "81ca42a4-0720-4053-84eb-80f1103020c4": {
+   "origin": "Ibroniycha",
+   "meaning": "Aziz, ovozli-shovqinli (Payg‘ambar ismi)"
+  },
+  "82491646-a36f-4682-8802-7ace60b4d9d1": {
+   "origin": "Turkcha",
+   "meaning": "Mustahkam, kuchli, yengilmas"
+  },
+  "8286f236-9913-41a2-8581-c3f2fb29dd53": {
+   "origin": "Yunoncha",
+   "meaning": "Osiyo qit’asi, quyosh chiqadigan tomon"
+  },
+  "832f8ba2-f740-4ffa-bac6-ce9c213b7f58": {
+   "origin": "Turkcha",
+   "meaning": "Quvnoq va yorqin"
+  },
+  "83507fd4-55fb-4180-86a2-38857740f89f": {
+   "origin": "Arab",
+   "meaning": "Maqsad, tilak, istakka erishish"
+  },
+  "83c2adc8-5a1a-4ea6-b4f0-44dc53645939": {
+   "origin": "Arab",
+   "meaning": "Yaxshi, xayrixoh, go‘zal yuzli"
+  },
+  "83d5f32c-76e2-4b0f-b97f-c4b0758885b0": {
+   "origin": "Arab",
+   "meaning": "Qorong‘u tun, sochlari tundek qora"
+  },
+  "840be61d-4b6b-4862-8d3e-8748a4f83184": {
+   "origin": "Arab",
+   "meaning": "Ibodat qiluvchi, maqsadga intiluvchan"
+  },
+  "842ce4e0-d837-4483-be83-25abb3d43691": {
+   "origin": "Lotin",
+   "meaning": "Zaytun daraxti, tinchlik ramzi"
+  },
+  "854a5092-b95d-42e8-8da6-72c25fd53482": {
+   "origin": "Italyan",
+   "meaning": "Go‘zal qo‘shiq"
+  },
+  "8645eb59-949b-4ea4-ad34-27e54a726a80": {
+   "origin": "Lotin",
+   "meaning": "Zaytun daraxti, tinchlik va baraka ramzi"
+  },
+  "866d3061-3d32-4abc-83d1-0e94a630ad8d": {
+   "origin": "Arab",
+   "meaning": "Sadoqatli, ishonchli do‘st"
+  },
+  "86ca05d3-c092-4619-abe3-df04bc97383c": {
+   "origin": "Arab",
+   "meaning": "Nafis, nozik, yuksaluvchi"
+  },
+  "873967e3-07e4-4a41-8764-e3fd67044f81": {
+   "origin": "Uels",
+   "meaning": "G‘ayratli, jo‘shqin"
+  },
+  "873fb67d-9964-49a5-8b4e-d516fc2cb1d2": {
+   "origin": "Turkiy",
+   "meaning": "Baraka, rizq, poklik"
+  },
+  "88ba3726-b879-4082-a13c-2bb503e40e9d": {
+   "origin": "Ingliz",
+   "meaning": "Aravakash, yuk tashuvchi"
+  },
+  "890001eb-55d2-443b-9658-9e6e67c65117": {
+   "origin": "Nemis",
+   "meaning": "Hamma narsani qamrab oluvchi"
+  },
+  "89c5f561-c8bd-4ccc-a6c1-d6acb02499f8": {
+   "origin": "Arab",
+   "meaning": "Baland ovoz, faryod"
+  },
+  "8a352f12-e06c-408b-8b93-5672d9e3ed84": {
+   "origin": "Yunon",
+   "meaning": "Aql, idrok, donolik"
+  },
+  "8a573835-810e-4ea4-ad51-7d6e23aa2b96": {
+   "origin": "Arab",
+   "meaning": "Quyosh, yorug‘lik manbai"
+  },
+  "8a6f72fe-ea5c-44fd-9bc0-42b69a1536ae": {
+   "origin": "Yunon",
+   "meaning": "Suv, illyuziya, sehr, mo‘jiza, ona"
+  },
+  "8a83a5e3-68ab-45bb-928d-41748f7551a3": {
+   "origin": "Ibroniy",
+   "meaning": "Xotirjamlik, tasalli, tinchlik"
+  },
+  "8e96577e-743e-4c8d-9fb1-fccc0f29c668": {
+   "origin": "Arabcha",
+   "meaning": "Sevgi, muhabbat, samimiylik"
+  },
+  "8f2da364-102f-4a5a-a56f-6c54938483f9": {
+   "origin": "Sanskritcha",
+   "meaning": "Quyosh nuri, umid"
+  },
+  "8f5c1597-aad2-46bb-b931-d05db17c2bc5": {
+   "origin": "Arabcha",
+   "meaning": "Yashirin ma'no, aql, donolik"
+  },
+  "8fc1aa6d-b794-434e-baf5-f627d7fd3735": {
+   "origin": "Yunoncha",
+   "meaning": "Masihni ko'tarib yuruvchi"
+  },
+  "908febfe-08b0-410e-b02b-4e7ce822e26a": {
+   "origin": "Arabcha",
+   "meaning": "Eng ko'p maqtalgan (Payg'ambar ismi)"
+  },
+  "90c5bf9b-4a0d-40ca-8865-4d45c04d34c3": {
+   "origin": "Uelscha",
+   "meaning": "Dengiz o'g'li, ulkan to'lqin"
+  },
+  "8b35210e-34e9-4f9b-a5fd-5ee3480471fe": {
+   "origin": "Turkiy",
+   "meaning": "Bronzadek mustahkam va Oydek yorqin"
+  },
+  "8bcf33d1-1f39-40df-a54c-1225280e0b27": {
+   "origin": "Kelt",
+   "meaning": "Shoir, chuqur vodiyda yashovchi, ijodkor"
+  },
+  "8dc1d0da-349c-4045-8d2e-57a31847e5e2": {
+   "origin": "Turkiy",
+   "meaning": "Shodlik, kulgi, baxtiyorlik tuyg‘usi"
+  },
+  "8e4e08e4-c9ce-4afa-8ff5-f9df392686fb": {
+   "origin": "Arab",
+   "meaning": "Xushbo‘y gul, rizq"
+  },
+  "8e7c2095-344b-4f53-a1b4-cae88f9d002d": {
+   "origin": "Kelt",
+   "meaning": "Oq qirg‘iy, jangovar qush"
+  },
+  "8e847695-f61d-44ae-bda3-8f6e2fb93003": {
+   "origin": "Kelt",
+   "meaning": "Ayiqdek kuchli, olijanob qahramon"
+  },
+  "958f4537-8a03-467f-89e2-ced8e14833db": {
+   "origin": "Fors",
+   "meaning": "Erkalanuvchi, sevimli, ardoqli"
+  },
+  "95ff2028-2ada-4bbb-bf25-6825fef6fa9e": {
+   "origin": "Turkiy",
+   "meaning": "Ko‘zga ko‘ringan, taniqli, ravshan"
+  },
+  "966ede01-e035-4bc7-94cd-cda002da748d": {
+   "origin": "Ibroniy",
+   "meaning": "Allohning in’omi, go‘zallik ramzi"
+  },
+  "96a4f4ba-b73e-48b6-bf3e-ebf24ad1d86d": {
+   "origin": "Turkiy",
+   "meaning": "Tong yulduzi, yorqin osmon jismi"
+  },
+  "970f2fdc-41aa-4412-8b80-ffece75e8bc5": {
+   "origin": "Fors",
+   "meaning": "O‘lmas, hamisha yashovchi, abadiy"
+  },
+  "97e51d4c-3224-42a0-9aef-c2530ff3568d": {
+   "origin": "Ingliz",
+   "meaning": "Arfa chaluvchi, musiqachi, ijodkor"
+  },
+  "9105467e-c32b-44b3-a886-0fa8a41fd780": {
+   "origin": "Turkiy",
+   "meaning": "Doimo kulib yuradigan, chehrasi ochiq, optimist"
+  },
+  "911a3369-f510-48ad-9378-7101a4204cc0": {
+   "origin": "Lotin",
+   "meaning": "Hurmatli, ehtiromga loyiq, muqaddas"
+  },
+  "91f2bec1-c2d9-436d-b767-a0d2b0178a88": {
+   "origin": "Ingliz",
+   "meaning": "Elflar hukmdori, dono maslahatchi"
+  },
+  "9253cab7-ce93-4ed3-b6c6-56b977901949": {
+   "origin": "Arab",
+   "meaning": "To‘fon, shuningdek, vazir nomi (tarixiy)"
+  },
+  "9301ae14-3282-4b18-b105-b1a4b78aa786": {
+   "origin": "Yunon",
+   "meaning": "Insonlar himoyachisi, qo‘riqchi"
+  },
+  "936feaf8-ba1c-49f9-b91a-7bef437f67d0": {
+   "origin": "Ibroniy",
+   "meaning": "Bardoshli, kuchli"
+  },
+  "9857bff4-1628-4ab2-8d0f-fb42082e7402": {
+   "origin": "Lotin",
+   "meaning": "Go‘zal, nazokatli, sevimli"
+  },
+  "9903a557-2371-43ec-94ab-b8aaaffac043": {
+   "origin": "Fors",
+   "meaning": "Baxtli, omadli"
+  },
+  "9934c6c2-7e36-437c-a54b-961991cd7d2b": {
+   "origin": "Gavayi",
+   "meaning": "Dengiz, okean, chig‘anoq, erkinlik"
+  },
+  "99b2d5bc-0ca9-4e08-bf23-1f846f765e79": {
+   "origin": "Turk",
+   "meaning": "Jannat guli, bunyod etuvchi, yaratuvchi"
+  },
+  "9aa3a5d5-bfaf-4e92-882c-c89dc05905b5": {
+   "origin": "Yunon",
+   "meaning": "Xalq g‘alabasi, g‘olib xalq"
+  },
+  "9b1f757c-96ff-4382-afcf-9b504ffd399a": {
+   "origin": "Arab",
+   "meaning": "Mehr-shafqat ko‘rsatuvchi"
+  },
+  "9b6c90b7-9da8-4ae4-85d5-16f201b43712": {
+   "origin": "Arab",
+   "meaning": "Ezgu amalli, xayrixoh"
+  },
+  "9bf5ffae-8a41-42c7-b973-6fcdc8983990": {
+   "origin": "Ingliz",
+   "meaning": "To‘silgan dara, o‘tloq, sokin vodiy"
+  },
+  "9c8d4d6f-4548-450e-99aa-92dcff30b943": {
+   "origin": "Fors",
+   "meaning": "Rang-barang bezak, jannat darvozasi"
+  },
+  "9e105032-f444-4123-aa1e-3e3e6aac4f38": {
+   "origin": "Arab",
+   "meaning": "Ilohiy nur, ravshanlik"
+  },
+  "9fe3b1c3-dd7c-4197-884e-164fc847d68f": {
+   "origin": "Ingliz",
+   "meaning": "Ilm o‘rganuvchi, dono inson"
+  },
+  "a032c056-a504-4f12-9e11-aea47026b335": {
+   "origin": "Yapon",
+   "meaning": "Bahor fasli, quyosh nuri"
+  },
+  "a0432b3e-1d08-42d6-beb3-ce7145fb4e10": {
+   "origin": "Turkiy",
+   "meaning": "Turkiy ellardan kelgan go'zal"
+  },
+  "a05b99d3-41f0-4d38-b498-35aaccc927de": {
+   "origin": "Lotin",
+   "meaning": "Sher, jasur va kuchli"
+  },
+  "a0681106-a6be-4c92-8128-8a148180e9df": {
+   "origin": "Irland",
+   "meaning": "Dono, aqlli, yetakchi, maslahatchi"
+  },
+  "a2113d43-077d-4fee-97cb-33c25be03c12": {
+   "origin": "Arab",
+   "meaning": "Tun, qorachadan kelgan go'zal, sirli"
+  },
+  "a292d0ef-4695-4ccb-bcb2-f5be9169ab77": {
+   "origin": "Ingliz",
+   "meaning": "Ozodlik, kichik baxt"
+  },
+  "a2dd20a6-bf69-4d6b-8c61-6e95925bc307": {
+   "origin": "Ispan",
+   "meaning": "Qimmatbaho tosh, go'zal"
+  },
+  "a5dbe933-0c74-4562-9b21-974975f2e3b6": {
+   "origin": "Ingliz",
+   "meaning": "Titroq terak daraxti, tabiat, nozik"
+  },
+  "a5f6bc3b-736f-4f63-a698-a44fe96b26ab": {
+   "origin": "Arab",
+   "meaning": "Har narsani biluvchi, olim"
+  },
+  "a69ff2c2-ff3b-439d-96c7-a28907f1089d": {
+   "origin": "Arab",
+   "meaning": "Yuksak martabali, pok, oliy"
+  },
+  "a6e9faf5-3822-4e36-af34-37e3bb5a110f": {
+   "origin": "Arab",
+   "meaning": "Sodiq, va’dasida turadigan"
+  },
+  "a7b8967b-b18a-4d29-960b-6532111f8709": {
+   "origin": "Arab",
+   "meaning": "Yakka, yagona (Allohning sifati)"
+  },
+  "a7ff0168-1739-49ae-a53f-31d0b570513c": {
+   "origin": "Turk",
+   "meaning": "Tik qoya, ulug‘vor, mag‘rur"
+  },
+  "a80a58ac-9d9d-4564-a31b-239ef128d5ad": {
+   "origin": "Fors",
+   "meaning": "Tungi namlik, tonggi shabnam, soflik"
+  },
+  "a8343a23-9f4f-4497-93c1-ecfaa127ad7f": {
+   "origin": "Arab",
+   "meaning": "Muvaffaqiyat, Allohning yordami"
+  },
+  "a868fb03-e105-4bc7-a77e-c5d414b3dca2": {
+   "origin": "Turk",
+   "meaning": "Vatan, ildiz, serhosillik"
+  },
+  "a8f309df-f3c3-4ab9-8197-6b91bcea56de": {
+   "origin": "Italyan",
+   "meaning": "Menga tegishli, aziz"
+  },
+  "aa1d905b-d999-44eb-9c4f-3a46fc4f0a31": {
+   "origin": "Arab",
+   "meaning": "Oshiq, juda sevuvchi, hayratda qolgan"
+  },
+  "aab70775-17c8-43af-9f36-fc844a25b19d": {
+   "origin": "Ibroniy",
+   "meaning": "Yordam, yordamchi, kuchli tayanch"
+  },
+  "aad11084-b98d-4eb6-8767-547b9ebc58af": {
+   "origin": "Ingliz",
+   "meaning": "Qirol nasliga mansub joy"
+  },
+  "ab8dd7d9-bb47-4e61-868f-64a16587b7b6": {
+   "origin": "Turk/Arab",
+   "meaning": "Xalq rahbari, el boshlig‘i"
+  },
+  "abdf02b5-a2c5-45b0-9d61-699b9a3c8ab7": {
+   "origin": "Turk",
+   "meaning": "Hurmatli, e’zozli, baxtli"
+  },
+  "ac51aac6-eb76-460f-8c59-f41cc822a394": {
+   "origin": "Fransuz",
+   "meaning": "Baland qal’a, hayratlanarli, maftunkor maskan"
+  },
+  "acd6be49-e7d4-4516-b712-5c3456adb87d": {
+   "origin": "Arab",
+   "meaning": "Shirin tush, xayol, orzu"
+  },
+  "add017be-6939-4c2b-8b7a-3c1669107720": {
+   "origin": "Arab",
+   "meaning": "Dono, ma’rifat sohibi, idrokli"
+  },
+  "adee1fbc-532c-452e-9342-7729189d6864": {
+   "origin": "Ibroniy",
+   "meaning": "Yoqimlilik, shirinlik, go‘zallik, latofat"
+  },
+  "ae6966ef-bfed-476f-8dbd-4e37a0d182c8": {
+   "origin": "Arab",
+   "meaning": "Fath etuvchi, g‘alaba qozonuvchi"
+  },
+  "ae90c801-e021-4acf-8f12-17254c209435": {
+   "origin": "Lotin",
+   "meaning": "Erkin, samimiy, rostgo‘y, ozod inson"
+  },
+  "aedb02e4-cb77-4821-9602-388b273a0edd": {
+   "origin": "Turk",
+   "meaning": "Turklarning ona vatani"
+  },
+  "aef16c5d-b6b0-4390-9b17-a2d39cc8566f": {
+   "origin": "Fors",
+   "meaning": "Tinch, bo‘ysundiruvchi, baxtli"
+  },
+  "afff2aa5-821a-4b7c-b5c3-22468727ee8a": {
+   "origin": "Lotin",
+   "meaning": "Yorug‘lik, porloq, tongda tug‘ilgan"
+  },
+  "b040855d-4dec-40e5-a12b-ad9cc5d5f4fa": {
+   "origin": "Irland",
+   "meaning": "Adolatli qahramon"
+  },
+  "b15a9823-aee9-44f2-a1ce-c689879164fe": {
+   "origin": "Ibroniy",
+   "meaning": "Alloh eshitdi, yaxshi tinglovchi"
+  },
+  "b19e3a3f-8b6f-4d3f-9469-4310da1167c8": {
+   "origin": "Arab",
+   "meaning": "Hammadan ajralib turuvchi, oliy, yuksak"
+  },
+  "b1f3bd33-8422-405e-87bb-19ef2a8633d3": {
+   "origin": "Irland",
+   "meaning": "Irodasi kuchli jangchi, himoyachi"
+  },
+  "b24e0237-709c-4bd5-a1cf-428e96b7ffa0": {
+   "origin": "Fors",
+   "meaning": "Kuchli, ulkan, qahramon"
+  },
+  "b25e9f4b-cc08-4479-89ee-f97d85732fd6": {
+   "origin": "Arab",
+   "meaning": "Orzusiga yetgan, muvaffaqiyat qozongan"
+  },
+  "b34b1af9-9346-4873-b59c-ba33a0e8c8e9": {
+   "origin": "Arab",
+   "meaning": "Yuzi nurli, guldek go'zal"
+  },
+  "b39e4110-f3c3-470b-a3f5-08d59fbc8c25": {
+   "origin": "Uels",
+   "meaning": "Dengiz himoyachisi"
+  },
+  "b3fe7f54-9900-489d-a45e-8d806782beb5": {
+   "origin": "Ingliz",
+   "meaning": "Hyu o'g'li, zakovat o'g'li"
+  },
+  "b4465303-8f39-4aac-860b-f552502946c0": {
+   "origin": "Fors",
+   "meaning": "Jozibali, sevimli"
+  },
+  "b465a81e-9070-43cf-bc57-2dd0dced19cb": {
+   "origin": "Fransuz",
+   "meaning": "Toshtarosh, binokor, usta"
+  },
+  "b515788e-b4a5-46fb-a4ea-b9c5bc49857b": {
+   "origin": "Arab",
+   "meaning": "Daromad keltiruvchi, xayrixoh, mehmon"
+  },
+  "b518f82c-a936-4ea4-af0d-37dd7a4b8330": {
+   "origin": "Arab",
+   "meaning": "Sig‘inishga arzigulik darajada go‘zal, sanam"
+  },
+  "b54bc110-a433-404b-aa1a-e054227e0beb": {
+   "origin": "Arab",
+   "meaning": "Qur’ondan parcha, qadrli so‘z"
+  },
+  "b6015af9-ec54-495e-9246-7389adbc7ac5": {
+   "origin": "Turkiy",
+   "meaning": "Baxt, ishlarning yurishib ketishi"
+  },
+  "b661104d-b28f-42aa-a7df-f80c8b03d583": {
+   "origin": "Arab",
+   "meaning": "Qimmatbaho tosh, otasining faxri"
+  },
+  "b68f5a94-78d1-4c28-b6ad-fc6fc3d68107": {
+   "origin": "Yunon",
+   "meaning": "Qizil rangli yoqut, qimmatbaho"
+  },
+  "b77d6182-10e0-4818-aa4a-047f9bccd275": {
+   "origin": "Fors",
+   "meaning": "Gulzor, shodlikka to‘la joy"
+  },
+  "b7d94824-9989-4a57-8513-767efc0f801a": {
+   "origin": "Ingliz",
+   "meaning": "Funduq daraxti, funduq rangi"
+  },
+  "b9348d3f-083f-4e8b-9203-3e53021062fa": {
+   "origin": "Ingliz",
+   "meaning": "Yaratuvchi, shakl beruvchi"
+  },
+  "ba9e044f-7dc6-4a18-a830-89b681e0b6ed": {
+   "origin": "Turk",
+   "meaning": "Guldek tarovatli, Oydek porloq"
+  },
+  "bb074345-7a3c-44f4-afc9-785c59902f8b": {
+   "origin": "Fors",
+   "meaning": "Yorqin, porloq kelajak"
+  },
+  "bb551f51-fb30-4994-af1a-f04d08a494d9": {
+   "origin": "Fors",
+   "meaning": "Orzusiga yetgan, baxtli"
+  },
+  "bba3d7a8-645f-425d-a621-e014b5d1e914": {
+   "origin": "Turk/Arab",
+   "meaning": "Vatanning nuri, xalqning faxri"
+  },
+  "bbd58bce-9f68-4c66-a0cb-febbe7e4ad66": {
+   "origin": "Ingliz",
+   "meaning": "Oqar suv, daryo, abadiy yo‘l, hayot"
+  },
+  "bcc0bb24-1923-4c38-b06f-24fa58975abc": {
+   "origin": "Yunon",
+   "meaning": "Yaratilish, kelib chiqish, boshlanish, tug‘ilish"
+  },
+  "bd4478ca-b2e0-45a9-8d97-19b2ea43eaeb": {
+   "origin": "Turk",
+   "meaning": "Nil daryosidek go‘zal va Oydek porloq"
+  },
+  "bd692977-5a5f-464f-a7b8-eef0d08377b9": {
+   "origin": "Arab",
+   "meaning": "Sahar payti, tong vaqti"
+  },
+  "be20d803-fd2e-4d0e-a418-dc83ea5959a5": {
+   "origin": "Arab",
+   "meaning": "Kotib, bezatuvchi, tartibga soluvchi"
+  },
+  "be6a046b-fb98-498c-88c4-4fce766f8051": {
+   "origin": "Ibroniy",
+   "meaning": "Parvardigor mening Xudoyimdir"
+  },
+  "bf3f05a6-4041-41fb-9f1f-61629713872d": {
+   "origin": "Lotin",
+   "meaning": "Hadriyadan, dengiz bo‘yidan"
+  },
+  "bfab72ba-42a6-41af-a7c1-955e4c30abad": {
+   "origin": "Arab",
+   "meaning": "Jangchi, oshiq (afsonaviy ism)"
+  },
+  "bfb31cb1-c665-45c8-9d31-2cedee259a89": {
+   "origin": "Lotin",
+   "meaning": "Ulug‘, muhtasham"
+  },
+  "c0ef6ba3-64b6-446a-9e07-5c9ed250aa4b": {
+   "origin": "Arab",
+   "meaning": "Yuksak, pok, samoviy"
+  },
+  "c0f95c0d-5d96-49f3-a991-8ee6ee4fe52f": {
+   "origin": "Arab",
+   "meaning": "Jasur, dovyurak, jangovar"
+  },
+  "c105afd4-7495-4400-b868-8fdbd2f3ef19": {
+   "origin": "Turk",
+   "meaning": "Oydek yorqin, suvdek musaffo"
+  },
+  "c11ab366-568c-466e-8305-010a72b09faf": {
+   "origin": "Nemis",
+   "meaning": "Emerining o‘g‘li, tirishqoq hukmdor, kuchli"
+  },
+  "c22919e5-49fc-4b08-9d33-6f831fd7fda8": {
+   "origin": "Ibroniy",
+   "meaning": "Xudoyim mening qasamimdir, barakali"
+  },
+  "c2b7ce3c-47db-450a-b5b0-c23132c4013e": {
+   "origin": "Ingliz",
+   "meaning": "O‘tinchi, arrakash, mehnatkash"
+  },
+  "c34e37c9-9b58-4479-b5bb-fa7b11b13078": {
+   "origin": "Lotin",
+   "meaning": "Yulduz, samoviy nur, dengiz yulduzi"
+  },
+  "c392e1f6-65d3-4b68-932b-54250be3bb6b": {
+   "origin": "Kelt",
+   "meaning": "Himoya qiluvchi daraxt, chetan"
+  },
+  "c3c09a48-fe84-49c7-814e-e1ceb913aad8": {
+   "origin": "Lotin",
+   "meaning": "Olijanob yordamchi, yosh marosim xizmatchisi"
+  },
+  "c5435d21-5eaa-4e8c-8a6e-99bbd03d024b": {
+   "origin": "Ibroniy",
+   "meaning": "Kuchli, mustahkam, uzoq umrli"
+  },
+  "c54e647d-9396-4ae3-a150-9ea453059dbf": {
+   "origin": "Irland",
+   "meaning": "Kichik qirol, shahzoda"
+  },
+  "c6c2fdd2-f0af-4458-ad79-88491c45b033": {
+   "origin": "Turk/Yunon",
+   "meaning": "Yangi o‘sib chiqqan daraxt novdasi, yosh"
+  },
+  "c85fc2a8-fdad-41dc-b58b-1034c4512cdf": {
+   "origin": "Arab",
+   "meaning": "Jozibadorlik, shirinlik"
+  },
+  "c8a8b8c8-aaa5-4191-b5f6-1177461f2677": {
+   "origin": "Ingliz",
+   "meaning": "Quvnoq, quvonch keltiruvchi maskan, shod"
+  },
+  "c8cd710c-78c5-44b3-8b22-c5079b91d7fc": {
+   "origin": "Ingliz",
+   "meaning": "Sariq sochli yoki qora sochli, qarama-qarshi go‘zallik"
+  },
+  "c3d65b8a-a6c6-4f84-9d43-ab02483e7bc2": {
+   "origin": "Arabcha",
+   "meaning": "Madh etuvchi, so‘z san’atkori"
+  },
+  "c45713ce-7f5c-4096-984f-2bf7a45880fa": {
+   "origin": "Ispancha",
+   "meaning": "Xudoning sovg‘asi, tuhfa"
+  },
+  "c47f4c5c-d2df-41fa-93fd-a3c227302469": {
+   "origin": "Arabcha",
+   "meaning": "Omadli, baxtiyor og‘a"
+  },
+  "c4f61667-4414-44b8-8db4-7f3598baea78": {
+   "origin": "Turkcha",
+   "meaning": "Xalqning quvonchi, xushxabar"
+  },
+  "c518759b-bdba-4609-87ca-f5f97cae60b5": {
+   "origin": "Forscha",
+   "meaning": "Butun koinot, olam"
+  },
+  "c522339b-0078-4144-8a9a-39230de510de": {
+   "origin": "Ibroniycha",
+   "meaning": "Xudo eshitdi, Xudoning ismi"
+  },
+  "c9fd3f6a-03c2-4b7b-92d6-5f0af30fd5b5": {
+   "origin": "Yunon",
+   "meaning": "Yorqin, nurli, nur sochuvchi"
+  },
+  "ca3313a5-a439-40d7-a891-553e0edb11e1": {
+   "origin": "Turkiy",
+   "meaning": "Katta suv havzasi, kenglik"
+  },
+  "ca7562c9-3176-4c3d-bb84-1caddebe0473": {
+   "origin": "Arab",
+   "meaning": "Pok, beg‘ubor, tanlangan"
+  },
+  "ca9477fe-3918-4a93-b3ee-9aed5c67beb4": {
+   "origin": "Turkiy",
+   "meaning": "Nur sochuvchi go‘zal gul"
+  },
+  "cb65af89-cb6a-45f3-a49a-73d6baa5c2ef": {
+   "origin": "Irland",
+   "meaning": "Ov itlarini sevuvchi, orzu, istak"
+  },
+  "cc3a3a26-a6b5-48b6-b3e5-0febf2653652": {
+   "origin": "Turkiy",
+   "meaning": "Xalq vakili, sayyoh"
+  },
+  "d049a09d-69a9-4130-9650-48ed3ae2e41b": {
+   "origin": "Yunon",
+   "meaning": "Semurg‘ qushi, qayta tug‘ilgan, o‘lmas"
+  },
+  "d0b8af56-42f1-40d7-bc70-8be092d14a06": {
+   "origin": "Arab",
+   "meaning": "Dardlarga davo, shifo beruvchi"
+  },
+  "d1339404-4a1b-4fec-bcc9-b32485c29137": {
+   "origin": "Italyan",
+   "meaning": "Hayotiylik, jo‘shqinlik, energiya, ko‘tarinki ruh"
+  },
+  "d1363ad5-0e77-4479-b3d1-cc1701e43a23": {
+   "origin": "Turk",
+   "meaning": "Jasur, chaqqon ovchi qush"
+  },
+  "d194be93-6b73-4fc4-a41b-f1138b357a46": {
+   "origin": "Arab",
+   "meaning": "Rasm chizuvchi, ijodkor, tartibga soluvchi"
+  },
+  "d2fe4a11-1353-416c-993d-793475d6d433": {
+   "origin": "Arab",
+   "meaning": "Qaytib keluvchi, foyda keltiruvchi"
+  },
+  "cd66e235-ab56-4cab-b065-00acd3f0972c": {
+   "origin": "Arabcha",
+   "meaning": "Muqaddas shahar, madaniyat o‘chog‘i"
+  },
+  "cdd8f991-56cf-48da-beb8-112cbb0c57f0": {
+   "origin": "Arabcha",
+   "meaning": "Chaqmoqdek chaqnaydigan, porloq"
+  },
+  "ced4d08e-4d9c-4ee0-842b-a864647de835": {
+   "origin": "Shotlandcha",
+   "meaning": "Kichik vodiy, sokin o‘tloq, boshpana"
+  },
+  "cf1e0fa3-4b14-4f06-b5ec-e95112baf846": {
+   "origin": "Arabcha",
+   "meaning": "Daraja, yuksaklik, sharaf"
+  },
+  "cfcf4e8d-a5d7-45a5-ba0d-930168dd896a": {
+   "origin": "Forscha",
+   "meaning": "Tabiatning uyg‘onishi, go‘zallik fasli"
+  },
+  "cfd970f5-7cfc-49b5-8644-e73b7262d7ae": {
+   "origin": "Sanskritcha",
+   "meaning": "Hurmatli, aslzoda"
+  },
+  "d3210132-9dab-4383-918a-509f67809eeb": {
+   "origin": "Fors",
+   "meaning": "Xushbo‘y bahor guli"
+  },
+  "d3b48ed5-bdf0-4379-82c0-7239233248f1": {
+   "origin": "Ibroniy",
+   "meaning": "Xudoga va’da qilingan, sadoqatli, dindor"
+  },
+  "d53bfe30-2698-47c0-99db-cadeec4c584e": {
+   "origin": "Yunon",
+   "meaning": "Aqlli, zukko"
+  },
+  "d596ca9c-25bf-4d52-b97a-f97243003094": {
+   "origin": "Yunon",
+   "meaning": "Yosh, navqiron"
+  },
+  "d8860a9d-2ed3-4787-ad34-479692151846": {
+   "origin": "Uels",
+   "meaning": "Aslzoda yosh jangchi, oliyjanob"
+  },
+  "d8d8e766-83f8-4045-938b-9b5bdf6afcdd": {
+   "origin": "Fors",
+   "meaning": "Go‘zal musiqa, qo‘shiq"
+  },
+  "d9388efc-6b10-4009-805b-725c184eaa86": {
+   "origin": "Lotincha",
+   "meaning": "Yorug‘lik olib keluvchi, nurli"
+  },
+  "dae78b98-255b-4c79-9377-85e923e48e1d": {
+   "origin": "Oromiycha",
+   "meaning": "Egizak"
+  },
+  "db195666-bc70-423a-98c5-5d5eb814dfe7": {
+   "origin": "Lotincha",
+   "meaning": "Rojdestvo kuni tug‘ilgan, muborak tug‘ilish"
+  },
+  "db5ac90c-735b-4b52-9909-b0182ad2261d": {
+   "origin": "Irlandcha",
+   "meaning": "Jasur, mard, qo‘rqmas, o‘tloq"
+  },
+  "db9962b4-b928-4af0-a064-87c49fddd92a": {
+   "origin": "Forscha/arabcha",
+   "meaning": "Yaratilish, fe’l-atvor, fitrat"
+  },
+  "dba03afd-3324-4f35-a878-48fa946f64f3": {
+   "origin": "Slavyancha",
+   "meaning": "Mehribon, sevuvchi, olijanob, sevimli"
+  },
+  "de3d1d41-5491-4d59-9adf-67aa4170ce12": {
+   "origin": "Lotin",
+   "meaning": "Masih izdoshi, nasroniy"
+  },
+  "de57134a-51bc-4bc8-b37e-20de7c514342": {
+   "origin": "Arab",
+   "meaning": "Sher, jasur, yetakchi (Hazrati Alining laqabi)"
+  },
+  "dec92751-5bcf-4c20-8a6a-fed07e32068d": {
+   "origin": "Fors",
+   "meaning": "Afsonaviy go'zal, jinlar podshohining qizi"
+  },
+  "df51698f-2ed7-42f5-bb9d-9a77fe15598a": {
+   "origin": "Arab",
+   "meaning": "Dono, fahmli"
+  },
+  "e04c5867-9478-45a0-b5e8-716d264427f3": {
+   "origin": "Ibroniy",
+   "meaning": "Kuladi, kulgi, quvonch"
+  },
+  "e0845630-2631-4d00-823c-408aab70c364": {
+   "origin": "Yunon",
+   "meaning": "Donolik, teran aql, bilim"
+  },
+  "dc228f7a-d0a7-4788-82aa-ecf9e0e784e8": {
+   "origin": "Turk",
+   "meaning": "Kuchli, irodali ayol hukmdor"
+  },
+  "dc847123-f2ed-4717-9939-7c09f1c7e2dc": {
+   "origin": "Lotin",
+   "meaning": "Raqib, g‘ayratli, ishbilarmon"
+  },
+  "dd30a4d6-b31a-4da1-9941-63814a4912e1": {
+   "origin": "Ingliz",
+   "meaning": "Oqar suv, tabiat"
+  },
+  "dd83b92c-48bc-41e7-b2da-f05ed34bfe85": {
+   "origin": "Yapon",
+   "meaning": "Qadrli, qimmatbaho metall"
+  },
+  "dde4c087-49bd-4eee-bc79-8f9423f69ee7": {
+   "origin": "Arab",
+   "meaning": "Tezkor, chaqqon (tarixiy ildizlarga ega ism)"
+  },
+  "de200a67-40d3-4bed-964d-ab858c4d8b2e": {
+   "origin": "Yunon",
+   "meaning": "To‘quvchi, sadoqatli umr yo‘ldosh"
+  },
+  "e08cf12e-487c-4b70-b215-b85a26175dd0": {
+   "origin": "Yunon",
+   "meaning": "Yorqin nur"
+  },
+  "e0a0ad61-3b21-49a9-a812-76faae6e1a48": {
+   "origin": "Turkiy",
+   "meaning": "Oy nuri, oy atrofidagi halqa"
+  },
+  "e1619188-7921-49b4-b89b-8e3d1a780889": {
+   "origin": "Turkiy",
+   "meaning": "Butun borliq olami, koinot"
+  },
+  "e17f28ad-68e8-41d2-927a-fdd302883c47": {
+   "origin": "Arab",
+   "meaning": "Osmon jismi, begunoh, pok mavjudot"
+  },
+  "e2c3696e-239d-4d39-8be5-3676248da1e0": {
+   "origin": "Yunon",
+   "meaning": "Qimmatbaho tosh, yorqin yashil"
+  },
+  "e418e4f2-a083-45dd-a82b-34554cc69ccd": {
+   "origin": "Fors",
+   "meaning": "Yuksaluvchi, g‘olib, muvaffaqiyatli"
+  },
+  "e49d2163-24d0-46fc-a582-eb51230550d1": {
+   "origin": "Arabcha",
+   "meaning": "Mehribon, xayrixoh"
+  },
+  "e5c4df22-c689-4f7a-9b02-b8ab38131342": {
+   "origin": "Turkcha",
+   "meaning": "Xalqning nuri, yorug‘lik"
+  },
+  "e6c07465-2bb9-4bcf-a4cd-2c65ceae02b3": {
+   "origin": "Turkcha",
+   "meaning": "Yurak, his, tuyg‘ular olami"
+  },
+  "e803616e-487a-460c-82bf-32658950bacd": {
+   "origin": "Turkcha/Forscha",
+   "meaning": "Afsonaviy qush, baxt keltiruvchi"
+  },
+  "e838dd01-7119-4749-a555-8e2ba8f33391": {
+   "origin": "Arabcha",
+   "meaning": "Go‘zalligi bilan mashhur (Yusuf qissasi)"
+  },
+  "e891c3dd-cdc0-43c1-ae1c-1356b10f43bb": {
+   "origin": "Ibroniycha",
+   "meaning": "Kim Xudo kabidir?"
+  },
+  "e9d73af7-247d-49c1-9fab-bb5ab620a0c2": {
+   "origin": "Fors",
+   "meaning": "Go‘zal yuzli, suratdek go‘zal yor"
+  },
+  "ea19a579-0e80-47d9-b427-19b4469913d7": {
+   "origin": "Arab",
+   "meaning": "Yuksak, ulug‘vor tuyg‘ular"
+  },
+  "eb9e0954-e761-4172-8499-da3acfcb8652": {
+   "origin": "Fransuz",
+   "meaning": "Muqaddas orolga mansub"
+  },
+  "ec6a09f4-5a66-4dee-9805-67e7f3b533b8": {
+   "origin": "Ingliz",
+   "meaning": "Quvnoq, shodlik ruhi, bo‘ron, kuch"
+  },
+  "ed882ce5-dbd2-4187-bdac-c2f2d70ef031": {
+   "origin": "Turk",
+   "meaning": "Jo‘shqin oqayotgan suv, salqinlik"
+  },
+  "edf246c8-12d7-46b9-b3a0-b26214d2e718": {
+   "origin": "Lotin",
+   "meaning": "Omadli, muvaffaqiyatli"
+  },
+  "eed43b3b-6b61-48de-bd72-298ac91040ac": {
+   "origin": "Arabcha",
+   "meaning": "Jasur, qo‘rqmas, arslon"
+  },
+  "f16db42f-c9ae-42a1-93f3-e417ecef46ad": {
+   "origin": "Forscha",
+   "meaning": "Kuni xush o‘tadigan, omadli"
+  },
+  "f22f7dcf-caf7-4d91-a88d-911aacccd470": {
+   "origin": "Inglizcha",
+   "meaning": "Qirmizi rangli nafis matolar sotuvchi"
+  },
+  "f2341756-c745-4034-b334-aab3fd37b085": {
+   "origin": "Inglizcha",
+   "meaning": "Orzu qilingan, go‘zal qush, hayot manbai"
+  },
+  "f288a355-ad25-49c8-9fdc-7b5fb4d98f1d": {
+   "origin": "Arabcha",
+   "meaning": "Faxr-iftixor baxsh etuvchi"
+  },
+  "f325b8e8-aff0-4e34-823b-5407a2826cbe": {
+   "origin": "Lotincha",
+   "meaning": "Adolat, halollik, haqiqat"
+  },
+  "f3dbd245-6e63-4742-bb88-83811f42407d": {
+   "origin": "Ibroniy",
+   "meaning": "Baland tog‘, sharafli, ulug‘langan"
+  },
+  "f414db64-ec22-4e14-85a4-3e0bf092954d": {
+   "origin": "Yapon",
+   "meaning": "Qordek oppoq, poklik, baxt"
+  },
+  "f4198c00-6a60-4666-80c1-669fc13124cb": {
+   "origin": "Arab",
+   "meaning": "Yorug‘, porloq, ravshan"
+  },
+  "f425e1e5-6581-4658-955b-a496782c2ea1": {
+   "origin": "Irland",
+   "meaning": "Aqlli, rahbar"
+  },
+  "f48c3095-dabc-413a-9d24-3341df70419b": {
+   "origin": "Yunon",
+   "meaning": "Yordam beruvchi, foydali (adabiy ism)"
+  },
+  "f52bb424-65a5-44c1-8334-8146b358bd63": {
+   "origin": "Sanskrit",
+   "meaning": "Muhabbat, zavq"
+  },
+  "f5e5ef91-8ca3-4b32-9d9c-43696064afe6": {
+   "origin": "Shotland",
+   "meaning": "Jasur urug‘ nomi"
+  },
+  "f787960f-3f47-4ca0-8d12-31600b568515": {
+   "origin": "Ibroniy",
+   "meaning": "Alloh ato etgan, tuhfa"
+  },
+  "f8dbecb3-212b-47fc-99f1-f31aa2552b0a": {
+   "origin": "Ibroniy",
+   "meaning": "Huzur-halovat, lazzat diyori"
+  },
+  "f8e133a2-a940-4235-8cac-be4edf171ce1": {
+   "origin": "Turkiy",
+   "meaning": "Nurini oydan olgan, nurli oy"
+  },
+  "f97fd75d-f4e3-4773-bba7-94f3265bfb48": {
+   "origin": "Lotin",
+   "meaning": "Jasur va kuchli rahbar"
+  },
+  "fa11c7cb-c778-4b0b-bfc1-55bc2e167903": {
+   "origin": "Ibroniy",
+   "meaning": "Tarixiy diyor nomi, savdogar"
+  },
+  "fea0f6ec-b06f-4b79-adc7-69875256ea73": {
+   "origin": "Fors",
+   "meaning": "Sho‘x, quvnoq, hayotga to‘la"
+  },
+  "fed792f9-1057-4174-b221-46086094b269": {
+   "origin": "Fransuz",
+   "meaning": "Ijodkor, bunyodkor"
+  },
+  "ff0a51c6-f69b-4839-9a85-6b4b0063133e": {
+   "origin": "Turk/Fors",
+   "meaning": "Ruhi nurli, qalbi pok"
+  },
+  "ff0c3cbc-a538-491e-9039-f783cba629b5": {
+   "origin": "Fors",
+   "meaning": "Umid, ishonch, tayanch"
+  },
+  "ff28ebe3-4033-4a73-b930-dc91a84d27a5": {
+   "origin": "Ibroniy",
+   "meaning": "Tuproqdan yaralgan, ilk inson"
+  },
+  "ffcd176e-dc43-474c-8075-70da3f58a74b": {
+   "origin": "Fors",
+   "meaning": "Uy bekasi, malika, e’tiborli ayol"
+  },
+  "fa31d9d1-bca2-4d5c-832d-edee92cd7ce2": {
+   "origin": "Ibroniy",
+   "meaning": "Allohning in’omi, boylik, tuhfa"
+  },
+  "fab7d3b4-3505-4c25-a1d8-1dcff6376eec": {
+   "origin": "Fors/Turk",
+   "meaning": "Yodda tutuvchi, tushunuvchi"
+  },
+  "fb172a31-509e-4559-b5f4-8a67e0d77023": {
+   "origin": "Turk/Ibroniy",
+   "meaning": "Jo‘shqin daryo, harakatchan"
+  },
+  "fb2fd21e-b798-4eaf-986b-119a1de2ab8f": {
+   "origin": "Irland",
+   "meaning": "Irodali himoyachi"
+  },
+  "fb93a960-e5bd-4af4-b0e3-dc1ec31e68ca": {
+   "origin": "Lotin",
+   "meaning": "Nafis, zodagon naslidan"
+  },
+  "fe32682d-762f-41fd-921f-4c668854e32d": {
+   "origin": "Ingliz",
+   "meaning": "Mashhur, taniqli"
+  }
+ }
+}

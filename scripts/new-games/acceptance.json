@@ -1,0 +1,102 @@
+{
+  "schema": "anacan-flight-parking-acceptance-v1",
+  "at": "2026-10-09T08:00:00.628Z",
+  "passed": true,
+  "games": {
+    "flight": {
+      "id": "leaf-flight",
+      "revision": "flight-202610-v1",
+      "levels": 30,
+      "safePathsVerified": 30,
+      "secretGapsVerified": 24,
+      "durationSeconds": [
+        28,
+        35
+      ]
+    },
+    "parking": {
+      "id": "clear-the-way",
+      "revision": "parking-202610-v1",
+      "levels": 40,
+      "shortestSolutionsVerified": 40,
+      "lockedExitLevels": 16,
+      "parRange": [
+        2,
+        15
+      ],
+      "catalogSha256": "926ccdf5006e864a5e09a4d5ed2243f34ed75c35e9d901a6daabb2a48f19f1a6"
+    }
+  },
+  "languages": [
+    "az",
+    "en",
+    "tr",
+    "ru",
+    "de",
+    "ar",
+    "ka",
+    "kk",
+    "uz",
+    "zh",
+    "id",
+    "fr",
+    "es",
+    "pt",
+    "vi",
+    "hi",
+    "ja",
+    "ko",
+    "pl",
+    "nl",
+    "sv"
+  ],
+  "tests": {
+    "passed": 58,
+    "failed": 0,
+    "sha256": "4aeefd149be2f7196af1cd87fc1cbe814d6b446bd366b8cae0db739515ed65d9"
+  },
+  "productionBrowser": {
+    "checks": 9,
+    "screenshots": 18,
+    "layoutCases": 8,
+    "realTouchFlight": true,
+    "realTouchCarDrag": true,
+    "keyboardPauseResume": true,
+    "workerHints": true,
+    "localizedHubOpens": 42,
+    "testedWidths": [
+      320,
+      390,
+      428,
+      768,
+      844
+    ],
+    "landscape": "844x390",
+    "sourceSha256": "cdffb10e8b207db772d7f57cb59e4466a13b7b99f97ac362456a0c9b0ee8cfe0"
+  },
+  "developmentChecks": {
+    "appTypeScript": true,
+    "nodeTypeScript": true,
+    "featureEslint": true,
+    "googleProductionBuild": true
+  },
+  "productionIndexSha256": "9677244f547e92afb78de87979009135af1a52712375f70e9dd728a61d38b909",
+  "nativeDelivery": {
+    "runId": "native-20261009t074213-baba0023",
+    "version": "48.3",
+    "assetsVerified": 535,
+    "signed": true,
+    "installed": true,
+    "previousVersion": "48.2",
+    "launchVerification": "user-will-launch",
+    "physicalGameplayVerified": false,
+    "artifact": {
+      "name": "Anacan-48.3-iOS-Development.ipa",
+      "bytes": 51787909,
+      "sha256": "f95409faf9324a7fb3e725ef513ff6f64668da286df2dd7a1cf502a4c6dce675",
+      "path": "azure-migration/releases/48.3/Anacan-48.3-iOS-Development.ipa"
+    },
+    "receipt": "azure-migration/ops/flight-parking-ios-test-48.3.json",
+    "liveWebDeployed": false
+  }
+}

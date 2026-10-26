@@ -1,0 +1,2 @@
+ALTER TABLE public.pregnancy_day_notifications DROP CONSTRAINT pregnancy_day_notifications_day_number_check;
+ALTER TABLE public.pregnancy_day_notifications ADD CONSTRAINT pregnancy_day_notifications_day_number_check CHECK (day_number >= 0 AND day_number <= 294);

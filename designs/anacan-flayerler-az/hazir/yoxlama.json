@@ -1,0 +1,141 @@
+{
+  "generatedAt": "2026-09-20T12:43:22.949Z",
+  "language": "az",
+  "destination": "https://api.anacan.az",
+  "flyers": [
+    {
+      "id": "01-her-merhelede",
+      "name": "Hər mərhələdə səninlə",
+      "png": {
+        "width": 2160,
+        "height": 2700
+      },
+      "social": {
+        "textBlocks": 13,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "QADIN SAĞLAMLIĞI VƏ ANALIQ\nHər mərhələdə\nsəninlə.\nDövr, hamiləlik və analıq —\ngündəlik qayğın bir tətbiqdə.\nSənin yolun. Sənin ritmin.\nDövr\nHamiləlik\nAnalıq\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      },
+      "print": {
+        "textBlocks": 13,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "QADIN SAĞLAMLIĞI VƏ ANALIQ\nHər mərhələdə\nsəninlə.\nDövr, hamiləlik və analıq —\ngündəlik qayğın bir tətbiqdə.\nSənin yolun. Sənin ritmin.\nDövr\nHamiləlik\nAnalıq\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      }
+    },
+    {
+      "id": "02-oz-ritmin",
+      "name": "Həyatın öz ritmi var",
+      "png": {
+        "width": 2160,
+        "height": 2700
+      },
+      "social": {
+        "textBlocks": 14,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "DÖVR TƏQVİMİ\nHəyatın\nöz ritmi var.\nAybaşı günlərini və əhvalını qeyd et.\nÖz ritmini daha yaxından tanı.\nöz\nritmin\nQeyd et.\nİzlə.\nÖzünü\ntanı.\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      },
+      "print": {
+        "textBlocks": 14,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "DÖVR TƏQVİMİ\nHəyatın\nöz ritmi var.\nAybaşı günlərini və əhvalını qeyd et.\nÖz ritmini daha yaxından tanı.\nöz\nritmin\nQeyd et.\nİzlə.\nÖzünü\ntanı.\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      }
+    },
+    {
+      "id": "03-yeni-hekaye",
+      "name": "Yeni bir hekayə başlayır",
+      "png": {
+        "width": 2160,
+        "height": 2700
+      },
+      "social": {
+        "textBlocks": 16,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "HAMİLƏLİK GÜNDƏLİYİ\nYeni bir\nhekayə başlayır.\nHəftələri izlə, qeydlərini topla,\nvacib anları yadda saxla.\nBU HƏFTƏ\nÖzünə vaxt ayır.\nKiçik qeydlər, dəyərli xatirələr.\nHəftəlik məlumatlar\nŞəxsi qeydlər\nVacib xatırlatmalar\nHər həftə\nyanındayıq.\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      },
+      "print": {
+        "textBlocks": 16,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "HAMİLƏLİK GÜNDƏLİYİ\nYeni bir\nhekayə başlayır.\nHəftələri izlə, qeydlərini topla,\nvacib anları yadda saxla.\nBU HƏFTƏ\nÖzünə vaxt ayır.\nKiçik qeydlər, dəyərli xatirələr.\nHəftəlik məlumatlar\nŞəxsi qeydlər\nVacib xatırlatmalar\nHər həftə\nyanındayıq.\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      }
+    },
+    {
+      "id": "04-kicik-anlar",
+      "name": "Böyük sevgi. Kiçik anlar",
+      "png": {
+        "width": 2160,
+        "height": 2700
+      },
+      "social": {
+        "textBlocks": 13,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "KÖRPƏ QULLUĞU VƏ GÜNDƏLİK\nBöyük sevgi.\nKiçik anlar.\nKörpənin yuxusunu, qidalanmasını\nvə inkişafını bir yerdə izlə.\nYuxu\nQidalanma\nİnkişaf\nXatirələr\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      },
+      "print": {
+        "textBlocks": 13,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "KÖRPƏ QULLUĞU VƏ GÜNDƏLİK\nBöyük sevgi.\nKiçik anlar.\nKörpənin yuxusunu, qidalanmasını\nvə inkişafını bir yerdə izlə.\nYuxu\nQidalanma\nİnkişaf\nXatirələr\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      }
+    },
+    {
+      "id": "05-birge-qaygi",
+      "name": "Qayğı paylaşdıqca böyüyür",
+      "png": {
+        "width": 2160,
+        "height": 2700
+      },
+      "social": {
+        "textBlocks": 10,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "BİRGƏ QAYĞI\nQayğı\npaylaşdıqca\nböyüyür.\nXatırlatmalar, planlar və gündəlik qeydlər.\nQayğını sevdiyin insanla bölüş.\nBİRLİKDƏ DAHA YAXIN\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      },
+      "print": {
+        "textBlocks": 10,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "BİRGƏ QAYĞI\nQayğı\npaylaşdıqca\nböyüyür.\nXatırlatmalar, planlar və gündəlik qeydlər.\nQayğını sevdiyin insanla bölüş.\nBİRLİKDƏ DAHA YAXIN\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      }
+    },
+    {
+      "id": "06-sohbet-de-qaygidir",
+      "name": "Danışmaq da qayğıdır",
+      "png": {
+        "width": 2160,
+        "height": 2700
+      },
+      "social": {
+        "textBlocks": 12,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "SƏNİ ANLAYAN BİR CƏMİYYƏT\nDanışmaq da\nqayğıdır.\nSual ver, təcrübəni bölüş,\nsəni anlayan insanlarla bir araya gəl.\nBİR SÖHBƏTƏ YER AÇ\nSəni anlayan\nbir söhbətə qoşul.\nSual ver.\nTəcrübəni bölüş.\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      },
+      "print": {
+        "textBlocks": 12,
+        "noTextOverflow": true,
+        "azerbaijaniGlyphCoverage": true,
+        "illustrationStyle": "abstract-geometry",
+        "text": "SƏNİ ANLAYAN BİR CƏMİYYƏT\nDanışmaq da\nqayğıdır.\nSual ver, təcrübəni bölüş,\nsəni anlayan insanlarla bir araya gəl.\nBİR SÖHBƏTƏ YER AÇ\nSəni anlayan\nbir söhbətə qoşul.\nSual ver.\nTəcrübəni bölüş.\nanacan\nAZƏRBAYCAN DİLİNDƏ\nGÜNDƏLİK QAYĞIN ÜÇÜN\nAnacan ilə başla\nTelefonunda kəşf et.\nKodu oxut"
+      }
+    }
+  ],
+  "passed": true,
+  "pdfPages": 6
+}

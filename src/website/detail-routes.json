@@ -1,0 +1,23 @@
+{
+  "az": {"cycle":"dovr-izleme","pregnancy":"hamilelik","motherhood":"analiq","partner":"partnyor","memories":"albomlar-ve-xatireler","ai":"dr-anacan","community":"anacan-icmasi","health":"saglamliq-qeydleri"},
+  "en": {"cycle":"period-tracking","pregnancy":"pregnancy","motherhood":"motherhood","partner":"partner-mode","memories":"albums-and-memories","ai":"dr-anacan-ai","community":"anacan-community","health":"health-journal"},
+  "tr": {"cycle":"adet-takibi","pregnancy":"hamilelik","motherhood":"annelik","partner":"partner-modu","memories":"albumler-ve-anilar","ai":"dr-anacan-yapay-zeka","community":"anacan-toplulugu","health":"saglik-kayitlari"},
+  "ru": {"cycle":"отслеживание-цикла","pregnancy":"беременность","motherhood":"материнство","partner":"режим-партнёра","memories":"альбомы-и-воспоминания","ai":"ии-доктор-anacan","community":"сообщество-anacan","health":"дневник-здоровья"},
+  "de": {"cycle":"zyklus-tracking","pregnancy":"schwangerschaft","motherhood":"mutterschaft","partner":"partnermodus","memories":"alben-und-erinnerungen","ai":"dr-anacan-ki","community":"anacan-gemeinschaft","health":"gesundheitstagebuch"},
+  "ar": {"cycle":"تتبع-الدورة","pregnancy":"الحمل","motherhood":"الأمومة","partner":"وضع-الشريك","memories":"الألبومات-والذكريات","ai":"مساعد-anacan-الذكي","community":"مجتمع-anacan","health":"السجل-الصحي"},
+  "ka": {"cycle":"ციკლის-თვალყურის-დევნება","pregnancy":"ორსულობა","motherhood":"დედობა","partner":"პარტნიორის-რეჟიმი","memories":"ალბომები-და-მოგონებები","ai":"dr-anacan-ხელოვნური-ინტელექტი","community":"anacan-საზოგადოება","health":"ჯანმრთელობის-დღიური"},
+  "kk": {"cycle":"циклді-бақылау","pregnancy":"жүктілік","motherhood":"ана-болу","partner":"серіктес-режимі","memories":"альбомдар-мен-естеліктер","ai":"dr-anacan-жасанды-интеллект","community":"anacan-қауымдастығы","health":"денсаулық-күнделігі"},
+  "uz": {"cycle":"hayz-siklini-kuzatish","pregnancy":"homiladorlik","motherhood":"onalik","partner":"sherik-rejimi","memories":"albomlar-va-xotiralar","ai":"dr-anacan-suniy-intellekt","community":"anacan-hamjamiyati","health":"salomatlik-kundaligi"},
+  "zh": {"cycle":"经期追踪","pregnancy":"孕期陪伴","motherhood":"育儿陪伴","partner":"伴侣模式","memories":"相册与回忆","ai":"anacan智能助手","community":"anacan社区","health":"健康日记"},
+  "id": {"cycle":"pelacakan-menstruasi","pregnancy":"kehamilan","motherhood":"menjadi-ibu","partner":"mode-pasangan","memories":"album-dan-kenangan","ai":"dr-anacan-asisten-ai","community":"komunitas-anacan","health":"catatan-kesehatan"},
+  "fr": {"cycle":"suivi-du-cycle","pregnancy":"grossesse","motherhood":"maternite","partner":"mode-partenaire","memories":"albums-et-souvenirs","ai":"dr-anacan-assistant-ia","community":"communaute-anacan","health":"journal-de-sante"},
+  "es": {"cycle":"seguimiento-menstrual","pregnancy":"embarazo","motherhood":"maternidad","partner":"modo-pareja","memories":"albumes-y-recuerdos","ai":"dr-anacan-asistente-ia","community":"comunidad-anacan","health":"diario-de-salud"},
+  "pt": {"cycle":"acompanhamento-menstrual","pregnancy":"gravidez","motherhood":"maternidade","partner":"modo-parceiro","memories":"albuns-e-memorias","ai":"dr-anacan-assistente-ia","community":"comunidade-anacan","health":"diario-de-saude"},
+  "vi": {"cycle":"theo-doi-chu-ky","pregnancy":"thai-ky","motherhood":"lam-me","partner":"che-do-ban-doi","memories":"album-va-ky-niem","ai":"tro-ly-ai-anacan","community":"cong-dong-anacan","health":"nhat-ky-suc-khoe"},
+  "hi": {"cycle":"मासिक-चक्र-ट्रैकिंग","pregnancy":"गर्भावस्था","motherhood":"मातृत्व","partner":"साथी-मोड","memories":"एल्बम-और-यादें","ai":"anacan-एआई-सहायक","community":"anacan-समुदाय","health":"स्वास्थ्य-डायरी"},
+  "ja": {"cycle":"月経周期トラッキング","pregnancy":"妊娠サポート","motherhood":"育児サポート","partner":"パートナーモード","memories":"アルバムと思い出","ai":"anacan-aiアシスタント","community":"anacanコミュニティ","health":"健康日記"},
+  "ko": {"cycle":"생리-주기-추적","pregnancy":"임신-지원","motherhood":"육아-지원","partner":"파트너-모드","memories":"앨범과-추억","ai":"anacan-ai-도우미","community":"anacan-커뮤니티","health":"건강-일지"},
+  "pl": {"cycle":"sledzenie-cyklu","pregnancy":"ciaza","motherhood":"macierzynstwo","partner":"tryb-partnera","memories":"albumy-i-wspomnienia","ai":"dr-anacan-asystent-ai","community":"spolecznosc-anacan","health":"dziennik-zdrowia"},
+  "nl": {"cycle":"cyclus-bijhouden","pregnancy":"zwangerschap","motherhood":"moederschap","partner":"partnermodus","memories":"albums-en-herinneringen","ai":"dr-anacan-ai-assistent","community":"anacan-gemeenschap","health":"gezondheidsdagboek"},
+  "sv": {"cycle":"menscykel-sparning","pregnancy":"graviditet","motherhood":"moderskap","partner":"partnerlage","memories":"album-och-minnen","ai":"dr-anacan-ai-assistent","community":"anacan-gemenskap","health":"halsodagbok"}
+}

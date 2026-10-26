@@ -1,0 +1,76 @@
+{
+ "teething_symptoms": {
+  "11f5b7df-f534-4677-9297-aff12652de0c": {
+   "name": "Diş Eti Şişmesi",
+   "description": "Dişlerin çıktığı bölgede kırmızı ve şişmiş diş etleri",
+   "relief_tips": [
+    "Soğuk diş kaşıma halkası",
+    "Nazik masaj",
+    "Soğutulmuş bez"
+   ]
+  },
+  "5d314a9d-29c4-4925-a850-549a104c10cc": {
+   "name": "Uyku Sorunları",
+   "description": "Diş ağrısı uyku düzenini bozabilir",
+   "relief_tips": [
+    "Uyku düzenini koruyun",
+    "Yatmadan önce ağrı kesici",
+    "Rahatlatıcı emzirme"
+   ]
+  },
+  "6dca2abe-b145-4328-aa53-3621d7294068": {
+   "name": "Huysuzluk",
+   "description": "Bebek, rahatsızlık nedeniyle her zamankinden daha huysuz olabilir",
+   "relief_tips": [
+    "Daha fazla kucaklayın",
+    "Oyuncaklarla dikkatini dağıtın",
+    "Sakinleştirici sesler dinletin"
+   ]
+  },
+  "781c41ff-4633-4c1a-ba59-4e165b56d073": {
+   "name": "Eşyaları Çiğneme",
+   "description": "Bebek rahatlamak için her şeyi ağzına götürür",
+   "relief_tips": [
+    "Güvenli diş kaşıyıcılar verin",
+    "Oyun sırasında gözetim altında tutun",
+    "Oyuncakları düzenli olarak temizleyin"
+   ]
+  },
+  "8b318d48-e0c5-4e54-9b08-fd79f2a8d46e": {
+   "name": "İştahsızlık",
+   "description": "Bebek, diş etlerindeki ağrı nedeniyle yemek yemeyi reddedebilir",
+   "relief_tips": [
+    "Soğuk yiyecekler sunun",
+    "Farklı dokular deneyin",
+    "Sabırlı olun"
+   ]
+  },
+  "bb23e53f-eb8b-42a3-8aea-5b43f97b45ef": {
+   "name": "Kulak Çekme",
+   "description": "Bebek, diş etlerinden yayılan ağrı nedeniyle kulaklarını çekebilir",
+   "relief_tips": [
+    "Kulak enfeksiyonu açısından kontrol ettirin",
+    "Diş eti masajı yapın",
+    "Dikkatini dağıtın"
+   ]
+  },
+  "da469ca3-dfb2-401a-bc96-10c1f9768175": {
+   "name": "Salya Artışı",
+   "description": "Diş çıkarma sırasında aşırı salya akması çok yaygındır",
+   "relief_tips": [
+    "Bebeğe önlük takın",
+    "Salyayı sık sık silin",
+    "Bariyer krem sürün"
+   ]
+  },
+  "f66a15e2-5772-4cf2-9dd9-2fdc2fe21480": {
+   "name": "Hafif Ateş",
+   "description": "Vücut sıcaklığında hafif bir artış (38°C'nin altında) görülebilir",
+   "relief_tips": [
+    "Ateşi takip edin",
+    "Bebeğin yeterli sıvı almasını sağlayın",
+    "Yüksekse doktora başvurun"
+   ]
+  }
+ }
+}

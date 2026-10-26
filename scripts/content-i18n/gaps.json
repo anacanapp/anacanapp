@@ -1,0 +1,456 @@
+[
+ {
+  "table": "admin_recipes",
+  "total": 229,
+  "missRu": 229,
+  "missTr": 229,
+  "fieldTypes": {
+   "title": "text",
+   "description": "text",
+   "category": "text",
+   "ingredients": "json",
+   "instructions": "json",
+   "tags": "arr"
+  }
+ },
+ {
+  "table": "ai_suggested_questions",
+  "total": 15,
+  "missRu": 15,
+  "missTr": 15,
+  "fieldTypes": {
+   "question": "text"
+  }
+ },
+ {
+  "table": "baby_crisis_periods",
+  "total": 10,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "title": "text",
+   "description": "text",
+   "symptoms": "text",
+   "tips": "text"
+  }
+ },
+ {
+  "table": "baby_milestones_db",
+  "total": 10,
+  "missRu": 10,
+  "missTr": 10,
+  "fieldTypes": {
+   "label": "text",
+   "description": "text"
+  }
+ },
+ {
+  "table": "baby_month_illustrations",
+  "total": 12,
+  "missRu": 12,
+  "missTr": 12,
+  "fieldTypes": {
+   "title": "text",
+   "description": "text"
+  }
+ },
+ {
+  "table": "baby_names_db",
+  "total": 486,
+  "missRu": 486,
+  "missTr": 486,
+  "fieldTypes": {
+   "meaning": "text",
+   "origin": "text"
+  }
+ },
+ {
+  "table": "banners",
+  "total": 0,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "title": "text",
+   "description": "text",
+   "button_text": "text"
+  }
+ },
+ {
+  "table": "blog_categories",
+  "total": 9,
+  "missRu": 1,
+  "missTr": 1,
+  "fieldTypes": {
+   "name": "text",
+   "description": "text"
+  }
+ },
+ {
+  "table": "blog_posts",
+  "total": 57,
+  "missRu": 57,
+  "missTr": 57,
+  "fieldTypes": {
+   "title": "text",
+   "content": "text",
+   "excerpt": "text"
+  }
+ },
+ {
+  "table": "cakes",
+  "total": 12,
+  "missRu": 12,
+  "missTr": 12,
+  "fieldTypes": {
+   "name": "text",
+   "description": "text",
+   "milestone_label": "text"
+  }
+ },
+ {
+  "table": "common_foods",
+  "total": 73,
+  "missRu": 73,
+  "missTr": 73,
+  "fieldTypes": {
+   "name": "text"
+  }
+ },
+ {
+  "table": "default_shopping_items",
+  "total": 21,
+  "missRu": 21,
+  "missTr": 21,
+  "fieldTypes": {
+   "name": "text"
+  }
+ },
+ {
+  "table": "development_tips",
+  "total": 9,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "title": "text",
+   "content": "text"
+  }
+ },
+ {
+  "table": "exercises",
+  "total": 6,
+  "missRu": 6,
+  "missTr": 6,
+  "fieldTypes": {
+   "name": "text",
+   "description": "text"
+  }
+ },
+ {
+  "table": "faqs",
+  "total": 18,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "question": "text",
+   "answer": "text"
+  }
+ },
+ {
+  "table": "first_aid_scenarios",
+  "total": 14,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "title": "text",
+   "description": "text"
+  }
+ },
+ {
+  "table": "first_aid_steps",
+  "total": 70,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "title": "text",
+   "instruction": "text"
+  }
+ },
+ {
+  "table": "flow_symptoms_db",
+  "total": 20,
+  "missRu": 20,
+  "missTr": 20,
+  "fieldTypes": {
+   "label": "text"
+  }
+ },
+ {
+  "table": "hospital_bag_templates",
+  "total": 31,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "item_name": "text",
+   "notes": "text"
+  }
+ },
+ {
+  "table": "maternity_guidelines",
+  "total": 6,
+  "missRu": 6,
+  "missTr": 6,
+  "fieldTypes": {
+   "title": "text",
+   "content": "text"
+  }
+ },
+ {
+  "table": "meal_types",
+  "total": 5,
+  "missRu": 5,
+  "missTr": 5,
+  "fieldTypes": {
+   "name": "text"
+  }
+ },
+ {
+  "table": "mood_options",
+  "total": 5,
+  "missRu": 5,
+  "missTr": 5,
+  "fieldTypes": {
+   "label": "text"
+  }
+ },
+ {
+  "table": "nutrition_targets",
+  "total": 3,
+  "missRu": 3,
+  "missTr": 3,
+  "fieldTypes": {
+   "description": "text"
+  }
+ },
+ {
+  "table": "nutrition_tips",
+  "total": 4,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "title": "text",
+   "content": "text"
+  }
+ },
+ {
+  "table": "photoshoot_backgrounds",
+  "total": 125,
+  "fields": [
+   "name",
+   "prompt_text"
+  ],
+  "note": "_ru sütunu yoxdur"
+ },
+ {
+  "table": "photoshoot_eye_colors",
+  "total": 8,
+  "fields": [
+   "name"
+  ],
+  "note": "_ru sütunu yoxdur"
+ },
+ {
+  "table": "photoshoot_hair_colors",
+  "total": 9,
+  "fields": [
+   "name"
+  ],
+  "note": "_ru sütunu yoxdur"
+ },
+ {
+  "table": "photoshoot_hair_styles",
+  "total": 20,
+  "fields": [
+   "name"
+  ],
+  "note": "_ru sütunu yoxdur"
+ },
+ {
+  "table": "photoshoot_image_styles",
+  "total": 10,
+  "missRu": 10,
+  "missTr": 10,
+  "fieldTypes": {
+   "style_name": "text"
+  }
+ },
+ {
+  "table": "photoshoot_outfits",
+  "total": 20,
+  "fields": [
+   "name",
+   "prompt_text"
+  ],
+  "note": "_ru sütunu yoxdur"
+ },
+ {
+  "table": "photoshoot_themes",
+  "total": 0,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "name": "text"
+  }
+ },
+ {
+  "table": "premium_plans",
+  "total": 2,
+  "missRu": 2,
+  "missTr": 2,
+  "fieldTypes": {
+   "description": "text",
+   "name": "text",
+   "badge_text": "text"
+  }
+ },
+ {
+  "table": "products",
+  "total": 0,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "name": "text",
+   "description": "text",
+   "category": "text"
+  }
+ },
+ {
+  "table": "recipe_categories",
+  "total": 5,
+  "missRu": 5,
+  "missTr": 5,
+  "fieldTypes": {
+   "name": "text"
+  }
+ },
+ {
+  "table": "safety_categories",
+  "total": 6,
+  "missRu": 6,
+  "missTr": 6,
+  "fieldTypes": {
+   "name": "text"
+  }
+ },
+ {
+  "table": "safety_items",
+  "total": 287,
+  "missRu": 287,
+  "missTr": 287,
+  "fieldTypes": {
+   "name": "text",
+   "description": "text"
+  }
+ },
+ {
+  "table": "shop_categories",
+  "total": 8,
+  "missRu": 8,
+  "missTr": 8,
+  "fieldTypes": {
+   "name": "text"
+  }
+ },
+ {
+  "table": "support_categories",
+  "total": 5,
+  "missRu": 5,
+  "missTr": 5,
+  "fieldTypes": {
+   "name": "text"
+  }
+ },
+ {
+  "table": "surprise_ideas",
+  "total": 15,
+  "missRu": 15,
+  "missTr": 15,
+  "fieldTypes": {
+   "title": "text",
+   "description": "text"
+  }
+ },
+ {
+  "table": "symptoms",
+  "total": 16,
+  "missRu": 16,
+  "missTr": 16,
+  "fieldTypes": {
+   "label": "text"
+  }
+ },
+ {
+  "table": "tool_configs",
+  "total": 28,
+  "missRu": 28,
+  "missTr": 28,
+  "fieldTypes": {
+   "name": "text",
+   "description": "text",
+   "partner_name": "text",
+   "partner_description": "text"
+  }
+ },
+ {
+  "table": "trimester_tips",
+  "total": 15,
+  "missRu": 0,
+  "missTr": 0,
+  "fieldTypes": {
+   "tip_text": "text"
+  }
+ },
+ {
+  "table": "vitamins",
+  "total": 31,
+  "missRu": 31,
+  "missTr": 31,
+  "fieldTypes": {
+   "name": "text",
+   "description": "text",
+   "benefits": "arr",
+   "food_sources": "arr",
+   "dosage": "text",
+   "importance": "text"
+  }
+ },
+ {
+  "table": "weekly_tips",
+  "total": 6,
+  "missRu": 6,
+  "missTr": 6,
+  "fieldTypes": {
+   "title": "text",
+   "content": "text",
+   "tips": "json"
+  }
+ },
+ {
+  "table": "weight_recommendations",
+  "total": 9,
+  "missRu": 9,
+  "missTr": 9,
+  "fieldTypes": {
+   "description": "text"
+  }
+ },
+ {
+  "table": "white_noise_sounds",
+  "total": 12,
+  "missRu": 12,
+  "missTr": 12,
+  "fieldTypes": {
+   "name": "text",
+   "description": "text"
+  }
+ }
+]

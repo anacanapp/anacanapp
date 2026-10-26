@@ -1,0 +1,2382 @@
+[
+ {
+  "id": "0282970f-7857-4aef-979e-96b999f6c996",
+  "name": "Vitamin B2",
+  "name_az": "B2 Vitamini",
+  "description": "Göz sağlamlığı və körpənin böyüməsi üçün vacibdir",
+  "description_az": "Göz sağlamlığı və körpənin böyüməsi üçün vacibdir",
+  "benefits": [
+   "Enerji istehsalını artırır",
+   "Görmə qabiliyyətini qoruyur",
+   "Dəri sağlamlığını təmin edir"
+  ],
+  "food_sources": [
+   "Süd və qatıq",
+   "Yumurta",
+   "Badam",
+   "Göbələk"
+  ],
+  "dosage": "1.4 mq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🍄",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:41:02.482335+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential for eye health and baby's growth",
+  "name_en": "Vitamin B2",
+  "dosage_en": "1.4 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Increases energy production",
+   "Protects vision",
+   "Ensures skin health"
+  ],
+  "food_sources_en": [
+   "Milk and yogurt",
+   "Eggs",
+   "Almonds",
+   "Mushrooms"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "1,4 мг/день",
+  "dosage_tr": "1,4 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Повышает выработку энергии",
+   "Защищает зрение",
+   "Обеспечивает здоровье кожи"
+  ],
+  "benefits_tr": [
+   "Enerji üretimini artırır",
+   "Görme yetisini korur",
+   "Cilt sağlığını destekler"
+  ],
+  "food_sources_ru": [
+   "Молоко и йогурт",
+   "Яйца",
+   "Миндаль",
+   "Грибы"
+  ],
+  "food_sources_tr": [
+   "Süt ve yoğurt",
+   "Yumurta",
+   "Badem",
+   "Mantar"
+  ]
+ },
+ {
+  "id": "063af081-f0c8-4f4e-9337-59193343eb38",
+  "name": "Vitamin B Complex",
+  "name_az": "B kompleks vitamini",
+  "description": null,
+  "description_az": "Əmizdirmə dövründə enerji və süd istehsalı üçün",
+  "benefits": [
+   "Enerji istehsalı",
+   "Süd keyfiyyəti",
+   "Sinir sistemi dəstəyi"
+  ],
+  "food_sources": [
+   "Tam taxıl",
+   "Ət",
+   "Yumurta",
+   "Yaşıl tərəvəzlər"
+  ],
+  "dosage": "B1: 1.4mq, B2: 1.6mq, B6: 2mq/gün",
+  "week_start": null,
+  "week_end": null,
+  "trimester": null,
+  "life_stage": "mommy",
+  "importance": "essential",
+  "icon_emoji": "💊",
+  "is_active": true,
+  "sort_order": 10,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential during lactation for the mother's energy production and milk quality, Vitamin B Complex is an essential nutrient group that supports the nervous system, helps convert food into fuel, and promotes overall postpartum health.",
+  "name_en": "Vitamin B Complex",
+  "dosage_en": "Bir hata oluştu. Tekrar deneyin.",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Energy production",
+   "Milk quality",
+   "Nervous system support"
+  ],
+  "food_sources_en": [
+   "Whole grain",
+   "Meat",
+   "Egg",
+   "Green vegetables"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "B1: 1,4 мг, B2: 1,6 мг, B6: 2 мг/день",
+  "dosage_tr": "B1: 1,4 mg, B2: 1,6 mg, B6: 2 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Производство энергии",
+   "Качество молока",
+   "Поддержка нервной системы"
+  ],
+  "benefits_tr": [
+   "Enerji üretimi",
+   "Süt kalitesi",
+   "Sinir sistemi desteği"
+  ],
+  "food_sources_ru": [
+   "Цельные злаки",
+   "Мясо",
+   "Яйца",
+   "Зелёные овощи"
+  ],
+  "food_sources_tr": [
+   "Tam tahıllar",
+   "Et",
+   "Yumurta",
+   "Yeşil sebzeler"
+  ]
+ },
+ {
+  "id": "0b595094-1ce0-4872-b1e8-71c804f898a1",
+  "name": "Protein",
+  "name_az": "Zülal",
+  "description": "Dölün fiziki böyüməsi üçün \"tikinti materialı\"",
+  "description_az": "Dölün fiziki böyüməsi üçün \"tikinti materialı\"",
+  "benefits": [
+   "Uşaqlıq və döş toxumasını böyüdür",
+   "Körpənin orqanlarını formalaşdırır",
+   "Qan təchizatını artırır"
+  ],
+  "food_sources": [
+   "Toyuq və mal əti",
+   "Yumurta",
+   "Qatıq",
+   "Noxud"
+  ],
+  "dosage": "75-100 q/gün",
+  "week_start": 12,
+  "week_end": 40,
+  "trimester": [
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "essential",
+  "icon_emoji": "🍗",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T08:54:33.435973+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Building material for the physical growth of the fetus",
+  "name_en": "Protein",
+  "dosage_en": "75-100 g/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Enlarges uterus and breast tissue",
+   "Forms baby's organs",
+   "Increases blood supply"
+  ],
+  "food_sources_en": [
+   "Chicken and beef",
+   "Eggs",
+   "Yogurt",
+   "Peas"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "75-100 г/день",
+  "dosage_tr": "75-100 g/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Способствует росту тканей матки и груди",
+   "Формирует органы малыша",
+   "Увеличивает кровоснабжение"
+  ],
+  "benefits_tr": [
+   "Rahim ve göğüs dokusunu büyütür",
+   "Bebeğin organlarını şekillendirir",
+   "Kan dolaşımını artırır"
+  ],
+  "food_sources_ru": [
+   "Курица и говядина",
+   "Яйца",
+   "Йогурт",
+   "Нут"
+  ],
+  "food_sources_tr": [
+   "Tavuk ve dana eti",
+   "Yumurta",
+   "Yoğurt",
+   "Nohut"
+  ]
+ },
+ {
+  "id": "19d00fd7-064f-4d3c-bbc4-379c70e67b32",
+  "name": "Vitamin B1",
+  "name_az": "B1 Vitamini",
+  "description": "Ananın və körpənin enerji mübadiləsi üçün lazımdır",
+  "description_az": "Ananın və körpənin enerji mübadiləsi üçün lazımdır",
+  "benefits": [
+   "Karbohidratları enerjiyə çevirir",
+   "Körpənin beyin inkişafına kömək edir",
+   "Ürək fəaliyyətini dəstəkləyir"
+  ],
+  "food_sources": [
+   "Tam taxıllı çörək",
+   "Paxlalılar",
+   "Günəbaxan tumu",
+   "Qoz"
+  ],
+  "dosage": "1.4 mq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🍞",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:39:13.618812+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Necessary for the energy metabolism of mother and baby",
+  "name_en": "Vitamin B1",
+  "dosage_en": "1.4 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Converts carbohydrates into energy",
+   "Helps baby's brain development",
+   "Supports heart activity"
+  ],
+  "food_sources_en": [
+   "Whole grain bread",
+   "Legumes",
+   "Sunflower seeds",
+   "Walnuts"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "1,4 мг/день",
+  "dosage_tr": "1,4 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Превращает углеводы в энергию",
+   "Помогает развитию мозга малыша",
+   "Поддерживает работу сердца"
+  ],
+  "benefits_tr": [
+   "Karbonhidratları enerjiye çevirir",
+   "Bebeğin beyin gelişimine yardımcı olur",
+   "Kalp fonksiyonunu destekler"
+  ],
+  "food_sources_ru": [
+   "Цельнозерновой хлеб",
+   "Бобовые",
+   "Семечки подсолнуха",
+   "Грецкий орех"
+  ],
+  "food_sources_tr": [
+   "Tam tahıllı ekmek",
+   "Baklagiller",
+   "Ay çekirdeği",
+   "Ceviz"
+  ]
+ },
+ {
+  "id": "1c0af036-697a-4913-963b-65307df05a76",
+  "name": "Iron",
+  "name_az": "Dəmir",
+  "description": null,
+  "description_az": "Qan həcminin artması və körpənin inkişafı üçün vacib",
+  "benefits": [
+   "Anemiyanın qarşısını alır",
+   "Oksigen daşınmasını təmin edir",
+   "Enerji səviyyəsini artırır"
+  ],
+  "food_sources": [
+   "Qırmızı ət",
+   "Ispanaq",
+   "Lobya",
+   "Quru meyvələr"
+  ],
+  "dosage": "27 mq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1
+  ],
+  "life_stage": "bump",
+  "importance": "essential",
+  "icon_emoji": "🥩",
+  "is_active": true,
+  "sort_order": 2,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential for the body's increased blood supply during pregnancy, iron is a critical mineral that prevents anemia, ensures proper oxygen transport to the fetus, and increases maternal energy levels.",
+  "name_en": "Iron",
+  "dosage_en": "27 mg/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Prevents anemia",
+   "Ensures oxygen transport",
+   "Increases energy levels"
+  ],
+  "food_sources_en": [
+   "Red meat",
+   "Spinach",
+   "Beans",
+   "Dried fruits"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "27 мг/день",
+  "dosage_tr": "27 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Предотвращает анемию",
+   "Обеспечивает перенос кислорода",
+   "Повышает уровень энергии"
+  ],
+  "benefits_tr": [
+   "Anemiyi önler",
+   "Oksijen taşınmasını sağlar",
+   "Enerji seviyesini yükseltir"
+  ],
+  "food_sources_ru": [
+   "Красное мясо",
+   "Шпинат",
+   "Фасоль",
+   "Сухофрукты"
+  ],
+  "food_sources_tr": [
+   "Kırmızı et",
+   "Ispanak",
+   "Fasulye",
+   "Kuru meyveler"
+  ]
+ },
+ {
+  "id": "2d8dc888-7f10-4e7f-b8aa-a8c8b0920524",
+  "name": "Vitamin C",
+  "name_az": "C vitamini",
+  "description": "İmmunitet və dəmirin mənimsənilməsi üçün antioksidant",
+  "description_az": "İmmunitet və dəmirin mənimsənilməsi üçün antioksidant",
+  "benefits": [
+   "Dəmirin sovrulmasını artırır",
+   "Kollagen istehsalını dəstəkləyir",
+   "İmmuniteti qoruyur"
+  ],
+  "food_sources": [
+   "Portağal",
+   "Qırmızı bibər",
+   "Kivi",
+   "Çiyələk"
+  ],
+  "dosage": "80-85 mq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "essential",
+  "icon_emoji": "🍊",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:27:42.559351+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Antioxidant for immunity and iron absorption",
+  "name_en": "Vitamin C",
+  "dosage_en": "80-85 mcg/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Increases iron absorption",
+   "Supports collagen production",
+   "Protects immunity"
+  ],
+  "food_sources_en": [
+   "Orange",
+   "Red pepper",
+   "Kiwi",
+   "Strawberry"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "80-85 мг/день",
+  "dosage_tr": "80-85 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Улучшает усвоение железа",
+   "Поддерживает выработку коллагена",
+   "Защищает иммунитет"
+  ],
+  "benefits_tr": [
+   "Demir emilimini artırır",
+   "Kolajen üretimini destekler",
+   "Bağışıklığı korur"
+  ],
+  "food_sources_ru": [
+   "Апельсин",
+   "Красный перец",
+   "Киви",
+   "Клубника"
+  ],
+  "food_sources_tr": [
+   "Portakal",
+   "Kırmızı biber",
+   "Kivi",
+   "Çilek"
+  ]
+ },
+ {
+  "id": "34bf6c50-441f-4b51-ad87-07f3f76294e4",
+  "name": "Zinc",
+  "name_az": "Sink",
+  "description": null,
+  "description_az": "İmmun sistem və hüceyrə bölünməsi üçün",
+  "benefits": [
+   "İmmun dəstəyi",
+   "Yara sağalması",
+   "Protein sintezi"
+  ],
+  "food_sources": [
+   "Ət",
+   "Balqabaq toxumu",
+   "Noxud",
+   "Fındıq"
+  ],
+  "dosage": "11 mq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🎃",
+  "is_active": true,
+  "sort_order": 9,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential for cell growth and DNA synthesis during pregnancy, zinc is an essential mineral that provides immune support, assists in wound healing, and helps with protein synthesis.",
+  "name_en": "Zinc",
+  "dosage_en": "11 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Immune support",
+   "Wound healing",
+   "Protein synthesis"
+  ],
+  "food_sources_en": [
+   "Meat",
+   "Pumpkin seeds",
+   "Chickpeas",
+   "Hazelnuts"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "11 мг/день",
+  "dosage_tr": "11 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Поддержка иммунитета",
+   "Заживление ран",
+   "Синтез белка"
+  ],
+  "benefits_tr": [
+   "Bağışıklık desteği",
+   "Yara iyileşmesi",
+   "Protein sentezi"
+  ],
+  "food_sources_ru": [
+   "Мясо",
+   "Тыквенные семечки",
+   "Нут",
+   "Фундук"
+  ],
+  "food_sources_tr": [
+   "Et",
+   "Kabak çekirdeği",
+   "Nohut",
+   "Fındık"
+  ]
+ },
+ {
+  "id": "5a940cc0-5294-465c-b41e-3f42d2f06333",
+  "name": "Folic Acid",
+  "name_az": "Fol turşusu",
+  "description": "Körpənin sinir sisteminin inkişafı üçün kritik vitamin",
+  "description_az": "Körpənin sinir sisteminin inkişafı üçün kritik vitamin",
+  "benefits": [
+   "Nöral boru qüsurlarının qarşısını alır",
+   "DNT sintezinə kömək edir",
+   "Hüceyrə bölünməsini dəstəkləyir"
+  ],
+  "food_sources": [
+   "Tünd yaşıl yarpaqlı tərəvəzlər",
+   "Sitrus meyvələri",
+   "Noxud",
+   "Mercimək"
+  ],
+  "dosage": "400-800 mkq/gün",
+  "week_start": 1,
+  "week_end": 12,
+  "trimester": [
+   1
+  ],
+  "life_stage": "bump",
+  "importance": "essential",
+  "icon_emoji": "🥬",
+  "is_active": true,
+  "sort_order": 1,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Critical vitamin for the development of the baby's nervous system",
+  "name_en": "Folic Acid",
+  "dosage_en": "400-800 mcg/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Prevents neural tube defects",
+   "Helps with DNA synthesis",
+   "Supports cell division"
+  ],
+  "food_sources_en": [
+   "Dark green leafy vegetables",
+   "Citrus fruits",
+   "Peas",
+   "Lentils"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "400-800 мкг/день",
+  "dosage_tr": "400-800 mcg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Предотвращает дефекты нервной трубки",
+   "Помогает синтезу ДНК",
+   "Поддерживает деление клеток"
+  ],
+  "benefits_tr": [
+   "Nöral tüp kusurlarını önler",
+   "DNA sentezine yardımcı olur",
+   "Hücre bölünmesini destekler"
+  ],
+  "food_sources_ru": [
+   "Тёмно-зелёные листовые овощи",
+   "Цитрусовые",
+   "Нут",
+   "Чечевица"
+  ],
+  "food_sources_tr": [
+   "Koyu yeşil yapraklı sebzeler",
+   "Narenciye",
+   "Nohut",
+   "Mercimek"
+  ]
+ },
+ {
+  "id": "5d19bca3-0d4d-4b44-b544-ec28ea6b7632",
+  "name": "Vitamin B7 (Biotin)",
+  "name_az": "B7 Vitamini (Biotin)",
+  "description": "Ananın gözəlliyi (saç/dəri) və dölün inkişafı üçün",
+  "description_az": "Ananın gözəlliyi (saç/dəri) və dölün inkişafı üçün",
+  "benefits": [
+   "Saç tökülməsinin qarşısını alır",
+   "Dırnaqları möhkəmləndirir",
+   "Dölün böyüməsini dəstəkləyir"
+  ],
+  "food_sources": [
+   "Yumurta sarısı",
+   "Badam",
+   "İspanaq",
+   "Şirin kartof"
+  ],
+  "dosage": "30-35 mkq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "💅",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:48:54.310415+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "For mother's beauty (hair/skin) and fetal development",
+  "name_en": "Vitamin B7 (Biotin)",
+  "dosage_en": "30-35 mcg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Prevents hair loss",
+   "Strengthens nails",
+   "Supports fetal growth"
+  ],
+  "food_sources_en": [
+   "Egg yolk",
+   "Almond",
+   "Spinach",
+   "Sweet potato"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "30-35 мкг/день",
+  "dosage_tr": "30-35 mcg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Предотвращает выпадение волос",
+   "Укрепляет ногти",
+   "Поддерживает рост плода"
+  ],
+  "benefits_tr": [
+   "Saç dökülmesini önler",
+   "Tırnakları güçlendirir",
+   "Bebeğin büyümesini destekler"
+  ],
+  "food_sources_ru": [
+   "Яичный желток",
+   "Миндаль",
+   "Шпинат",
+   "Батат"
+  ],
+  "food_sources_tr": [
+   "Yumurta sarısı",
+   "Badem",
+   "Ispanak",
+   "Tatlı patates"
+  ]
+ },
+ {
+  "id": "5f213ffa-1e07-4220-8e97-c6980416114a",
+  "name": "Fiber",
+  "name_az": "Lif (Sellüloz)",
+  "description": "Həzm sistemi problemlərini həll edən əsas faktor",
+  "description_az": "Həzm sistemi problemlərini həll edən əsas faktor",
+  "benefits": [
+   "Qəbizliyin qarşısını alır",
+   "Hemorroy riskini azaldır",
+   "Qanda şəkəri tənzimləyir"
+  ],
+  "food_sources": [
+   "Qara gavalı",
+   "Armud",
+   "Yulaf yarması",
+   "Mərcimək"
+  ],
+  "dosage": "25-30 q/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "essential",
+  "icon_emoji": "🌾",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:56:32.513719+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "The main factor that solves digestive system problems",
+  "name_en": "Fiber",
+  "dosage_en": "25-30 g/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Prevents constipation",
+   "Reduces the risk of hemorrhoids",
+   "Regulates blood sugar"
+  ],
+  "food_sources_en": [
+   "Prunes",
+   "Pears",
+   "Oatmeal",
+   "Lentils"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "25-30 г/день",
+  "dosage_tr": "25-30 g/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Предотвращает запоры",
+   "Снижает риск геморроя",
+   "Регулирует сахар в крови"
+  ],
+  "benefits_tr": [
+   "Kabızlığı önler",
+   "Hemoroid riskini azaltır",
+   "Kan şekerini düzenler"
+  ],
+  "food_sources_ru": [
+   "Чернослив",
+   "Груша",
+   "Овсяные хлопья",
+   "Чечевица"
+  ],
+  "food_sources_tr": [
+   "Kuru erik",
+   "Armut",
+   "Yulaf ezmesi",
+   "Mercimek"
+  ]
+ },
+ {
+  "id": "61e3a35a-741b-4d91-a920-0d55fe3c7549",
+  "name": "Vitamin B12",
+  "name_az": "B12 vitamini",
+  "description": null,
+  "description_az": "Sinir sistemi və qan hüceyrələri üçün vacib",
+  "benefits": [
+   "Sinir sistemini qoruyur",
+   "Qırmızı qan hüceyrələri istehsal edir",
+   "DNT sintezinə kömək edir"
+  ],
+  "food_sources": [
+   "Ət",
+   "Balıq",
+   "Yumurta",
+   "Süd məhsulları"
+  ],
+  "dosage": "2.6 mkq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🥚",
+  "is_active": true,
+  "sort_order": 4,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Critical for the healthy development of the baby's brain and nervous system, vitamin B12 is an essential nutrient that protects the nervous system, produces red blood cells, and helps with DNA synthesis.",
+  "name_en": "Vitamin B12",
+  "dosage_en": "2.6 mcg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Protects the nervous system",
+   "Produces red blood cells",
+   "Helps DNA synthesis"
+  ],
+  "food_sources_en": [
+   "Meat",
+   "Fish",
+   "Eggs",
+   "Dairy products"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "2,6 мкг/день",
+  "dosage_tr": "2,6 mcg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Защищает нервную систему",
+   "Участвует в производстве эритроцитов",
+   "Помогает синтезу ДНК"
+  ],
+  "benefits_tr": [
+   "Sinir sistemini korur",
+   "Kırmızı kan hücresi üretir",
+   "DNA sentezine yardımcı olur"
+  ],
+  "food_sources_ru": [
+   "Мясо",
+   "Рыба",
+   "Яйца",
+   "Молочные продукты"
+  ],
+  "food_sources_tr": [
+   "Et",
+   "Balık",
+   "Yumurta",
+   "Süt ürünleri"
+  ]
+ },
+ {
+  "id": "738af0f6-d9dc-45c0-8852-fae486c9697a",
+  "name": "Chromium",
+  "name_az": "Xrom",
+  "description": "Hamiləlik diabetinə nəzarət üçün vacib mineral",
+  "description_az": "Hamiləlik diabetinə nəzarət üçün vacib mineral",
+  "benefits": [
+   "Qanda şəkər səviyyəsini tənzimləyir",
+   "İnsulin həssaslığını artırır",
+   "Körpənin böyməsini dəstəkləyir\""
+  ],
+  "food_sources": [
+   "Üzüm şirəsi",
+   "Brokoli",
+   "Sarımsaq",
+   "Tam taxıllı çörək"
+  ],
+  "dosage": "30 mkq/gün",
+  "week_start": 27,
+  "week_end": 40,
+  "trimester": [
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🍇",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T08:52:41.451881+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential mineral for managing gestational diabetes",
+  "name_en": "Chromium",
+  "dosage_en": "30 mcg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Regulates blood sugar levels",
+   "Increases insulin sensitivity",
+   "Supports the baby's growth"
+  ],
+  "food_sources_en": [
+   "Grape juice",
+   "Broccoli",
+   "Garlic",
+   "Whole grain bread"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "30 мкг/день",
+  "dosage_tr": "30 mcg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Регулирует уровень сахара в крови",
+   "Повышает чувствительность к инсулину",
+   "Поддерживает рост малыша"
+  ],
+  "benefits_tr": [
+   "Kan şekeri seviyesini düzenler",
+   "İnsülin duyarlılığını artırır",
+   "Bebeğin büyümesini destekler"
+  ],
+  "food_sources_ru": [
+   "Виноградный сок",
+   "Брокколи",
+   "Чеснок",
+   "Цельнозерновой хлеб"
+  ],
+  "food_sources_tr": [
+   "Üzüm suyu",
+   "Brokoli",
+   "Sarımsak",
+   "Tam tahıllı ekmek"
+  ]
+ },
+ {
+  "id": "7d7e1e5d-ed8a-4ae1-8125-028a7a1674bc",
+  "name": "Vitamin K",
+  "name_az": "K vitamini",
+  "description": "Qan laxtalanması və sümük sağlamlığı üçün",
+  "description_az": "Qan laxtalanması və sümük sağlamlığı üçün",
+  "benefits": [
+   "Qan laxtalanması",
+   "Sümük sağlamlığı",
+   "Doğuşa hazırlıq"
+  ],
+  "food_sources": [
+   "Yaşıl yarpaqlı tərəvəzlər",
+   "Brokoli",
+   "Kələm",
+   "Brüssel kələmi"
+  ],
+  "dosage": "90 mkq/gün",
+  "week_start": 28,
+  "week_end": 40,
+  "trimester": [
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🥦",
+  "is_active": true,
+  "sort_order": 8,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "For blood clotting and bone health",
+  "name_en": "Vitamin K",
+  "dosage_en": "90 mcg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Blood clotting",
+   "Bone health",
+   "Preparation for birth"
+  ],
+  "food_sources_en": [
+   "Green leafy vegetables",
+   "Broccoli",
+   "Cabbage",
+   "Brussels sprouts"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "90 мкг/день",
+  "dosage_tr": "90 mcg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Свёртываемость крови",
+   "Здоровье костей",
+   "Подготовка к родам"
+  ],
+  "benefits_tr": [
+   "Kan pıhtılaşması",
+   "Kemik sağlığı",
+   "Doğuma hazırlık"
+  ],
+  "food_sources_ru": [
+   "Зелёные листовые овощи",
+   "Брокколи",
+   "Капуста",
+   "Брюссельская капуста"
+  ],
+  "food_sources_tr": [
+   "Yeşil yapraklı sebzeler",
+   "Brokoli",
+   "Lahana",
+   "Brüksel lahanası"
+  ]
+ },
+ {
+  "id": "90e7799d-d979-41ec-9ff3-11e04a5e9e71",
+  "name": "Choline",
+  "name_az": "Xolin",
+  "description": "Beyin və onurğa beyni inkişafı üçün kritik qida maddəsi",
+  "description_az": "Beyin və onurğa beyni inkişafı üçün kritik qida maddəsi",
+  "benefits": [
+   "Beyin strukturunu formalaşdırır",
+   "Yaddaş funksiyalarını gücləndirir",
+   "Nöral boru qüsurlarını önləyir"
+  ],
+  "food_sources": [
+   "Yumurta",
+   "Toyuq əti",
+   "Brokoli",
+   "Gül kələm"
+  ],
+  "dosage": "450 mq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "essential",
+  "icon_emoji": "🥚",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:34:15.293073+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Critical nutrient for brain and spinal cord development",
+  "name_en": "Choline",
+  "dosage_en": "450 mcg/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Forms brain structure",
+   "Strengthens memory functions",
+   "Prevents neural tube defects"
+  ],
+  "food_sources_en": [
+   "Egg",
+   "Chicken",
+   "Broccoli",
+   "Cauliflower"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "450 мг/день",
+  "dosage_tr": "450 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Формирует структуру мозга",
+   "Укрепляет функции памяти",
+   "Предотвращает дефекты нервной трубки"
+  ],
+  "benefits_tr": [
+   "Beyin yapısını şekillendirir",
+   "Hafıza fonksiyonlarını güçlendirir",
+   "Nöral tüp kusurlarını önler"
+  ],
+  "food_sources_ru": [
+   "Яйца",
+   "Куриное мясо",
+   "Брокколи",
+   "Цветная капуста"
+  ],
+  "food_sources_tr": [
+   "Yumurta",
+   "Tavuk eti",
+   "Brokoli",
+   "Karnabahar"
+  ]
+ },
+ {
+  "id": "9c49f362-c919-4603-b2b7-a85e71c1128e",
+  "name": "Potassium",
+  "name_az": "Kalium",
+  "description": "Maye balansı və qan təzyiqi nəzarəti üçün mineral",
+  "description_az": "Maye balansı və qan təzyiqi nəzarəti üçün mineral",
+  "benefits": [
+   "Qan təzyiqini tənzimləyi",
+   "Maye tutulmasını (ödemi) azaldır",
+   "Əzələ funksiyalarını dəstəkləyir"
+  ],
+  "food_sources": [
+   "Banan",
+   "Kartof",
+   "Quru ərik",
+   "Süd"
+  ],
+  "dosage": "4700 mq/gün",
+  "week_start": 20,
+  "week_end": 40,
+  "trimester": [
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🍌",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:37:25.705381+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Mineral for fluid balance and blood pressure control",
+  "name_en": "Potassium",
+  "dosage_en": "4700 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Regulates blood pressure",
+   "Reduces fluid retention (edema)",
+   "Supports muscle functions"
+  ],
+  "food_sources_en": [
+   "Banana",
+   "Potato",
+   "Dried apricot",
+   "Milk"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "4700 мг/день",
+  "dosage_tr": "4700 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Регулирует артериальное давление",
+   "Уменьшает задержку жидкости (отёки)",
+   "Поддерживает функции мышц"
+  ],
+  "benefits_tr": [
+   "Tansiyonu düzenler",
+   "Sıvı tutulmasını (ödemi) azaltır",
+   "Kas fonksiyonlarını destekler"
+  ],
+  "food_sources_ru": [
+   "Банан",
+   "Картофель",
+   "Курага",
+   "Молоко"
+  ],
+  "food_sources_tr": [
+   "Muz",
+   "Patates",
+   "Kuru kayısı",
+   "Süt"
+  ]
+ },
+ {
+  "id": "a0311baf-903f-4c12-8c2e-6f135f717cac",
+  "name": "Vitamin D",
+  "name_az": "D vitamini",
+  "description": null,
+  "description_az": "Sümük sağlamlığı və immun sistem üçün vacib",
+  "benefits": [
+   "Kalsium udulmasına kömək edir",
+   "Sümük inkişafını dəstəkləyir",
+   "İmmun sistemini gücləndirir"
+  ],
+  "food_sources": [
+   "Günəş işığı",
+   "Yağlı balıq",
+   "Yumurta sarısı",
+   "Zənginləşdirilmiş süd"
+  ],
+  "dosage": "600-800 IU/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1
+  ],
+  "life_stage": "bump",
+  "importance": "essential",
+  "icon_emoji": "☀️",
+  "is_active": true,
+  "sort_order": 3,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Crucial for fetal bone and teeth development, Vitamin D helps the body absorb calcium, strengthens the maternal immune system, and lowers the risk of pregnancy complications.",
+  "name_en": "Vitamin D",
+  "dosage_en": "600-800 IU/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Helps calcium absorption",
+   "Supports bone development",
+   "Strengthens the immune system"
+  ],
+  "food_sources_en": [
+   "Sunlight",
+   "Fatty fish",
+   "Egg yolk",
+   "Fortified milk"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "600-800 МЕ/день",
+  "dosage_tr": "600-800 IU/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Помогает усвоению кальция",
+   "Поддерживает развитие костей",
+   "Укрепляет иммунную систему"
+  ],
+  "benefits_tr": [
+   "Kalsiyum emilimine yardımcı olur",
+   "Kemik gelişimini destekler",
+   "Bağışıklık sistemini güçlendirir"
+  ],
+  "food_sources_ru": [
+   "Солнечный свет",
+   "Жирная рыба",
+   "Яичный желток",
+   "Обогащённое молоко"
+  ],
+  "food_sources_tr": [
+   "Güneş ışığı",
+   "Yağlı balık",
+   "Yumurta sarısı",
+   "Zenginleştirilmiş süt"
+  ]
+ },
+ {
+  "id": "b03d1c16-48a9-40fb-a0d6-8f8f2c9bee7d",
+  "name": "Copper",
+  "name_az": "Mis",
+  "description": "Qan hüceyrələri və ürək inkişafı üçün mineral",
+  "description_az": "Qan hüceyrələri və ürək inkişafı üçün mineral",
+  "benefits": [
+   "Qırmızı qan hüceyrələrini formalaşdırır",
+   "Körpənin ürək-damar sistemini qurur",
+   "Sümük inkişafına kömək edir"
+  ],
+  "food_sources": [
+   "Keşyu",
+   "Günəbaxan tumu",
+   "Mərcimək",
+   "Qara şokolad"
+  ],
+  "dosage": "1 mq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🍫",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:44:23.472348+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Mineral for blood cells and heart development",
+  "name_en": "Copper",
+  "dosage_en": "1 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Forms red blood cells",
+   "Builds the baby's cardiovascular system",
+   "Helps bone development"
+  ],
+  "food_sources_en": [
+   "Cashew",
+   "Sunflower seed",
+   "Lentil",
+   "Dark chocolate"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "1 мг/день",
+  "dosage_tr": "1 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Формирует эритроциты",
+   "Строит сердечно-сосудистую систему малыша",
+   "Помогает развитию костей"
+  ],
+  "benefits_tr": [
+   "Kırmızı kan hücrelerini oluşturur",
+   "Bebeğin kalp-damar sistemini kurar",
+   "Kemik gelişimine yardımcı olur"
+  ],
+  "food_sources_ru": [
+   "Кешью",
+   "Семечки подсолнуха",
+   "Чечевица",
+   "Тёмный шоколад"
+  ],
+  "food_sources_tr": [
+   "Kaju",
+   "Ay çekirdeği",
+   "Mercimek",
+   "Bitter çikolata"
+  ]
+ },
+ {
+  "id": "ba2e7887-a168-4755-b770-b71e444e22b8",
+  "name": "Probiotics",
+  "name_az": "Probiotiklər",
+  "description": "Həzm sistemi və vaginal flora sağlamlığı üçün",
+  "description_az": "Həzm sistemi və vaginal flora sağlamlığı üçün",
+  "benefits": [
+   "İmmuniteti gücləndirir",
+   "Həzmi yaxşılaşdırır",
+   "Allergiya riskini (körpədə) azaldır"
+  ],
+  "food_sources": [
+   "Təbii qatıq",
+   "Kefir",
+   "Duzlu kələm (turşu)"
+  ],
+  "dosage": "Qida ilə",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🥣",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T09:08:50.452933+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "For digestive system and vaginal flora health",
+  "name_en": "Probiotics",
+  "dosage_en": "With food",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Strengthens immunity",
+   "Improves digestion",
+   "Reduces allergy risk (in the baby)"
+  ],
+  "food_sources_en": [
+   "Natural yogurt",
+   "Kefir",
+   "Sauerkraut (pickled)"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "С пищей",
+  "dosage_tr": "Besinlerle",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Укрепляет иммунитет",
+   "Улучшает пищеварение",
+   "Снижает риск аллергии у малыша"
+  ],
+  "benefits_tr": [
+   "Bağışıklığı güçlendirir",
+   "Sindirimi iyileştirir",
+   "Bebekte alerji riskini azaltır"
+  ],
+  "food_sources_ru": [
+   "Натуральный йогурт",
+   "Кефир",
+   "Квашеная капуста"
+  ],
+  "food_sources_tr": [
+   "Doğal yoğurt",
+   "Kefir",
+   "Lahana turşusu"
+  ]
+ },
+ {
+  "id": "bbb98e06-d0ff-4b4b-bff6-52b676370466",
+  "name": "Calcium",
+  "name_az": "Kalsium",
+  "description": null,
+  "description_az": "Körpənin sümük və dişlərinin inkişafı üçün",
+  "benefits": [
+   "Sümük və diş inkişafı",
+   "Əzələ funksiyası",
+   "Sinir ötürücülüyü"
+  ],
+  "food_sources": [
+   "Süd məhsulları",
+   "Brokoli",
+   "Badam",
+   "Sardina"
+  ],
+  "dosage": "1000 mq/gün",
+  "week_start": 13,
+  "week_end": 40,
+  "trimester": [
+   2
+  ],
+  "life_stage": "bump",
+  "importance": "essential",
+  "icon_emoji": "🥛",
+  "is_active": true,
+  "sort_order": 5,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential for your baby's bone and teeth development, heart function, and muscle growth, calcium is a critical mineral that supports bone and teeth development, muscle function, and nerve conduction during pregnancy.",
+  "name_en": "Calcium",
+  "dosage_en": "1000 mg/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Bone and teeth development",
+   "Muscle function",
+   "Nerve conduction"
+  ],
+  "food_sources_en": [
+   "Dairy products",
+   "Broccoli",
+   "Almonds",
+   "Sardines"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "1000 мг/день",
+  "dosage_tr": "1000 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Развитие костей и зубов",
+   "Функция мышц",
+   "Нервная проводимость"
+  ],
+  "benefits_tr": [
+   "Kemik ve diş gelişimi",
+   "Kas fonksiyonu",
+   "Sinir iletimi"
+  ],
+  "food_sources_ru": [
+   "Молочные продукты",
+   "Брокколи",
+   "Миндаль",
+   "Сардины"
+  ],
+  "food_sources_tr": [
+   "Süt ürünleri",
+   "Brokoli",
+   "Badem",
+   "Sardalya"
+  ]
+ },
+ {
+  "id": "bc8e7715-8c24-47ed-84ea-dfd273df6048",
+  "name": "Lutein",
+  "name_az": "Lutein",
+  "description": "Körpənin göz və beyin inkişafı üçün vacibdir",
+  "description_az": "Körpənin göz və beyin inkişafı üçün vacibdir",
+  "benefits": [
+   "Göz retinasını inkişaf etdirir",
+   "Görmə itiliyini dəstəkləyir",
+   "Beyin neyronlarını qoruyur"
+  ],
+  "food_sources": [
+   "İspanaq",
+   "Qarğıdalı",
+   "Yumurta sarısı",
+   "Göyərti"
+  ],
+  "dosage": "10 mq/gün",
+  "week_start": 20,
+  "week_end": 40,
+  "trimester": [
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🌽",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T09:10:31.161874+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential for baby's eye and brain development",
+  "name_en": "Lutein",
+  "dosage_en": "10 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Develops the eye retina",
+   "Supports visual acuity",
+   "Protects brain neurons"
+  ],
+  "food_sources_en": [
+   "Spinach",
+   "Corn",
+   "Egg yolk",
+   "Greens"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "10 мг/день",
+  "dosage_tr": "10 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Развивает сетчатку глаза",
+   "Поддерживает остроту зрения",
+   "Защищает нейроны мозга"
+  ],
+  "benefits_tr": [
+   "Göz retinasını geliştirir",
+   "Görme keskinliğini destekler",
+   "Beyin nöronlarını korur"
+  ],
+  "food_sources_ru": [
+   "Шпинат",
+   "Кукуруза",
+   "Яичный желток",
+   "Зелень"
+  ],
+  "food_sources_tr": [
+   "Ispanak",
+   "Mısır",
+   "Yumurta sarısı",
+   "Yeşillikler"
+  ]
+ },
+ {
+  "id": "bd0002d3-d05e-465a-a3eb-36d8e23376e5",
+  "name": "Vitamin B6",
+  "name_az": "B6 Vitamini",
+  "description": "Zülal mübadiləsi və ürəkbulanmanı azaltmaq üçün vitamin",
+  "description_az": "Zülal mübadiləsi və ürəkbulanmanı azaltmaq üçün vitamin",
+  "benefits": [
+   "Ürəkbulanmanı yüngülləşdirir",
+   "Beyin inkişafını dəstəkləyir",
+   "Qan hüceyrələri yaradır"
+  ],
+  "food_sources": [
+   "Noxud",
+   "Banan",
+   "Toyuq əti",
+   "Kartof"
+  ],
+  "dosage": "1.9 mq/gün",
+  "week_start": 1,
+  "week_end": 16,
+  "trimester": [
+   1
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🍌",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:29:31.629009+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Vitamin for protein metabolism and reducing nausea",
+  "name_en": "Vitamin B6",
+  "dosage_en": "1.9 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Alleviates nausea",
+   "Supports brain development",
+   "Creates blood cells"
+  ],
+  "food_sources_en": [
+   "Chickpeas",
+   "Banana",
+   "Chicken meat",
+   "Potato"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "1,9 мг/день",
+  "dosage_tr": "1,9 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Облегчает тошноту",
+   "Поддерживает развитие мозга",
+   "Участвует в образовании клеток крови"
+  ],
+  "benefits_tr": [
+   "Bulantıyı hafifletir",
+   "Beyin gelişimini destekler",
+   "Kan hücrelerinin oluşumuna katkıda bulunur"
+  ],
+  "food_sources_ru": [
+   "Нут",
+   "Банан",
+   "Куриное мясо",
+   "Картофель"
+  ],
+  "food_sources_tr": [
+   "Nohut",
+   "Muz",
+   "Tavuk eti",
+   "Patates"
+  ]
+ },
+ {
+  "id": "c46ae88b-a53c-420d-97de-26a3628efa9f",
+  "name": "Vitamin A (Beta-karoten)",
+  "name_az": "A Vitamini (Beta-karoten)",
+  "description": "Körpənin görmə qabiliyyəti və immuniteti üçün vacibdir",
+  "description_az": "Körpənin görmə qabiliyyəti və immuniteti üçün vacibdir",
+  "benefits": [
+   "Gözlərin inkişafını dəstəkləyir",
+   "Dərini və selikli qişaları qoruyur",
+   "Sümük inkişafına kömək edir"
+  ],
+  "food_sources": [
+   "Kök",
+   "Şirin kartof",
+   "İspanaq",
+   "Qaysı"
+  ],
+  "dosage": "750-770 mkq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "essential",
+  "icon_emoji": "🥕",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:32:40.549535+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential for the baby's vision and immunity",
+  "name_en": "Vitamin A (Beta-karoten)",
+  "dosage_en": "750-770 mcg/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Supports the development of eyes",
+   "Protects skin and mucous membranes",
+   "Helps bone development"
+  ],
+  "food_sources_en": [
+   "Carrot",
+   "Sweet potato",
+   "Spinach",
+   "Apricot"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "750-770 мкг/день",
+  "dosage_tr": "750-770 mcg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Поддерживает развитие глаз",
+   "Защищает кожу и слизистые оболочки",
+   "Помогает развитию костей"
+  ],
+  "benefits_tr": [
+   "Göz gelişimini destekler",
+   "Cildi ve mukozaları korur",
+   "Kemik gelişimine yardımcı olur"
+  ],
+  "food_sources_ru": [
+   "Морковь",
+   "Батат",
+   "Шпинат",
+   "Абрикос"
+  ],
+  "food_sources_tr": [
+   "Havuç",
+   "Tatlı patates",
+   "Ispanak",
+   "Kayısı"
+  ]
+ },
+ {
+  "id": "c488c23b-2153-4459-9a57-f6a72a462cee",
+  "name": "Omega-3",
+  "name_az": "Omeqa-3",
+  "description": "Beyin və gözlərin inkişafı üçün vacib yağ turşuları",
+  "description_az": "Beyin və gözlərin inkişafı üçün vacib yağ turşuları",
+  "benefits": [
+   "Beyin hüceyrələrini artırır",
+   "Görməni formalaşdırır",
+   "Depressiyanı azaldır"
+  ],
+  "food_sources": [
+   "Qızılbalıq (Somon)",
+   "Qoz",
+   "Çia toxumu",
+   "Kətan toxumu"
+  ],
+  "dosage": "200-300 mq DHA/gün",
+  "week_start": 12,
+  "week_end": 40,
+  "trimester": [
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "essential",
+  "icon_emoji": "🐟",
+  "is_active": true,
+  "sort_order": 6,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential fatty acids for brain and eye development",
+  "name_en": "Omega-3",
+  "dosage_en": "200-300 mg DHA/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Increases brain cells",
+   "Forms vision",
+   "Reduces depression"
+  ],
+  "food_sources_en": [
+   "Salmon",
+   "Walnut",
+   "Chia seed",
+   "Flaxseed"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "200-300 мг DHA/день",
+  "dosage_tr": "200-300 mg DHA/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Увеличивает количество клеток мозга",
+   "Формирует зрение",
+   "Снижает депрессию"
+  ],
+  "benefits_tr": [
+   "Beyin hücrelerini artırır",
+   "Görmeyi şekillendirir",
+   "Depresyonu azaltır"
+  ],
+  "food_sources_ru": [
+   "Лосось (сёмга)",
+   "Грецкий орех",
+   "Семена чиа",
+   "Семена льна"
+  ],
+  "food_sources_tr": [
+   "Somon",
+   "Ceviz",
+   "Chia tohumu",
+   "Keten tohumu"
+  ]
+ },
+ {
+  "id": "c6594f75-f94f-4d2f-8e5a-a63942972281",
+  "name": "Vitamin B5 ",
+  "name_az": "B5 Vitamini",
+  "description": "Hormon istehsalı və streslə mübarizə üçün vacibdir",
+  "description_az": "Hormon istehsalı və streslə mübarizə üçün vacibdir",
+  "benefits": [
+   "Əzələ qıcolmalarını (kramp) azaldır",
+   "Hormonları tənzimləyir",
+   "Yorğunluğu aradan qaldırır"
+  ],
+  "food_sources": [
+   "Göbələk",
+   "Avokado",
+   "Şirin kartof",
+   "Günəbaxan tumu"
+  ],
+  "dosage": "6-7 mq/gün",
+  "week_start": 20,
+  "week_end": 40,
+  "trimester": [
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🥑",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:47:21.889909+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential for hormone production and combating stress",
+  "name_en": "Vitamin B5",
+  "dosage_en": "6-7 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Reduces muscle cramps",
+   "Regulates hormones",
+   "Eliminates fatigue"
+  ],
+  "food_sources_en": [
+   "Mushroom",
+   "Avocado",
+   "Sweet potato",
+   "Sunflower seed"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "6-7 мг/день",
+  "dosage_tr": "6-7 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Уменьшает мышечные судороги",
+   "Регулирует гормоны",
+   "Снимает усталость"
+  ],
+  "benefits_tr": [
+   "Kas kramplarını azaltır",
+   "Hormonları düzenler",
+   "Yorgunluğu giderir"
+  ],
+  "food_sources_ru": [
+   "Грибы",
+   "Авокадо",
+   "Батат",
+   "Семечки подсолнуха"
+  ],
+  "food_sources_tr": [
+   "Mantar",
+   "Avokado",
+   "Tatlı patates",
+   "Ay çekirdeği"
+  ]
+ },
+ {
+  "id": "d1c2d4eb-4ff9-4a94-80c4-2e223fc940bc",
+  "name": "Vitamin B3",
+  "name_az": "B3 Vitamini",
+  "description": "Həzm sistemi və sinir sağlamlığı üçün vacibdir",
+  "description_az": "Həzm sistemi və sinir sağlamlığı üçün vacibdir",
+  "benefits": [
+   "Həzmi yaxşılaşdırır",
+   "Ürəkbulanmanı (bəzən) azaldır",
+   "Körpənin beyin inkişafını dəstəkləyir"
+  ],
+  "food_sources": [
+   "Toyuq döş əti",
+   "Balıq (Tuna)",
+   "Yerfındığı",
+   "Göbələk"
+  ],
+  "dosage": "18 mq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🥜",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:42:45.474553+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential for the digestive system and nervous health",
+  "name_en": "Vitamin B3",
+  "dosage_en": "18 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Improves digestion",
+   "Reduces nausea (sometimes)",
+   "Supports baby's brain development"
+  ],
+  "food_sources_en": [
+   "Chicken breast",
+   "Fish (Tuna)",
+   "Peanuts",
+   "Mushroom"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "18 мг/день",
+  "dosage_tr": "18 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Улучшает пищеварение",
+   "Иногда уменьшает тошноту",
+   "Поддерживает развитие мозга малыша"
+  ],
+  "benefits_tr": [
+   "Sindirimi iyileştirir",
+   "Bulantıyı (bazen) azaltır",
+   "Bebeğin beyin gelişimini destekler"
+  ],
+  "food_sources_ru": [
+   "Куриная грудка",
+   "Рыба (тунец)",
+   "Арахис",
+   "Грибы"
+  ],
+  "food_sources_tr": [
+   "Tavuk göğsü",
+   "Balık (ton)",
+   "Yer fıstığı",
+   "Mantar"
+  ]
+ },
+ {
+  "id": "d9695343-451a-4029-ac68-320dc06cb6a4",
+  "name": "Iodine",
+  "name_az": "Yod",
+  "description": null,
+  "description_az": "Körpənin beyin inkişafı və ana tireoid funksiyası üçün",
+  "benefits": [
+   "Tireoid funksiyası",
+   "Beyin inkişafı",
+   "Metabolizm tənzimi"
+  ],
+  "food_sources": [
+   "Dəniz məhsulları",
+   "Yodlaşdırılmış duz",
+   "Süd",
+   "Yumurta"
+  ],
+  "dosage": "290 mkq/gün",
+  "week_start": null,
+  "week_end": null,
+  "trimester": null,
+  "life_stage": "mommy",
+  "importance": "essential",
+  "icon_emoji": "🧂",
+  "is_active": true,
+  "sort_order": 11,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential for the production of thyroid hormones that regulate the development of the fetal brain and nervous system, iodine is a critical mineral that supports maternal thyroid function and ensures proper cognitive and neurological development in the baby.",
+  "name_en": "Iodine",
+  "dosage_en": "290 mcg/day",
+  "importance_en": "essential",
+  "benefits_en": [
+   "Thyroid function",
+   "Brain development",
+   "Metabolism regulation"
+  ],
+  "food_sources_en": [
+   "Seafood",
+   "Iodized salt",
+   "Milk",
+   "Eggs"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "290 мкг/день",
+  "dosage_tr": "290 mcg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Функция щитовидной железы",
+   "Развитие мозга",
+   "Регулирование метаболизма"
+  ],
+  "benefits_tr": [
+   "Tiroid fonksiyonu",
+   "Beyin gelişimi",
+   "Metabolizma dengesi"
+  ],
+  "food_sources_ru": [
+   "Морепродукты",
+   "Йодированная соль",
+   "Молоко",
+   "Яйца"
+  ],
+  "food_sources_tr": [
+   "Deniz ürünleri",
+   "İyotlu tuz",
+   "Süt",
+   "Yumurta"
+  ]
+ },
+ {
+  "id": "d9cbb410-e507-4563-b76a-6f87b2baf0eb",
+  "name": "Phosphorus",
+  "name_az": "Fosfor",
+  "description": "Kalsiumla birlikdə sümük sağlamlığını təmin edir",
+  "description_az": "Kalsiumla birlikdə sümük sağlamlığını təmin edir",
+  "benefits": [
+   "Sümükləri bərkidir",
+   "Enerji istehsalına kömək edir",
+   "Böyrək funksiyasını dəstəkləyir"
+  ],
+  "food_sources": [
+   "Süd məhsulları",
+   "Toyuq əti",
+   "Balıq",
+   "Balqabaq tumu"
+  ],
+  "dosage": "700 mq/gün",
+  "week_start": 12,
+  "week_end": 40,
+  "trimester": [
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🥛",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:54:47.610872+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Provides bone health along with calcium",
+  "name_en": "Phosphorus",
+  "dosage_en": "700 mcg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Strengthens bones",
+   "Helms energy production",
+   "Supports kidney function"
+  ],
+  "food_sources_en": [
+   "Dairy products",
+   "Chicken meat",
+   "Fish",
+   "Pumpkin seeds"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "700 мг/день",
+  "dosage_tr": "700 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Укрепляет кости",
+   "Помогает выработке энергии",
+   "Поддерживает функцию почек"
+  ],
+  "benefits_tr": [
+   "Kemikleri güçlendirir",
+   "Enerji üretimine yardımcı olur",
+   "Böbrek fonksiyonunu destekler"
+  ],
+  "food_sources_ru": [
+   "Молочные продукты",
+   "Куриное мясо",
+   "Рыба",
+   "Тыквенные семечки"
+  ],
+  "food_sources_tr": [
+   "Süt ürünleri",
+   "Tavuk eti",
+   "Balık",
+   "Kabak çekirdeği"
+  ]
+ },
+ {
+  "id": "e37cc688-c44b-4e4f-a10f-3b9f3e76db0f",
+  "name": "Selenium",
+  "name_az": "Selen",
+  "description": "Qalxanabənzər vəzi və immunitet üçün güclü antioksidant",
+  "description_az": "Qalxanabənzər vəzi və immunitet üçün güclü antioksidant",
+  "benefits": [
+   "Düşük riskini azaldır",
+   "Tiroid funksiyasını tənzimləyir",
+   "Hüceyrələri zədələrdən qoruyur"
+  ],
+  "food_sources": [
+   "Yumurta",
+   "Qəhvəyi düyü",
+   "Sardina balığı",
+   "Braziliya qozu"
+  ],
+  "dosage": "60-70 mkq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🌰",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:45:50.893192+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Powerful antioxidant for the thyroid gland and immunity",
+  "name_en": "Selenium",
+  "dosage_en": "60-70 mcg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Reduces the risk of miscarriage",
+   "Regulates thyroid function",
+   "Protects cells from damage"
+  ],
+  "food_sources_en": [
+   "Egg",
+   "Brown rice",
+   "Sardines",
+   "Brazil nuts"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "60-70 мкг/день",
+  "dosage_tr": "60-70 mcg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Снижает риск выкидыша",
+   "Регулирует функцию щитовидной железы",
+   "Защищает клетки от повреждений"
+  ],
+  "benefits_tr": [
+   "Düşük riskini azaltır",
+   "Tiroid fonksiyonunu düzenler",
+   "Hücreleri hasardan korur"
+  ],
+  "food_sources_ru": [
+   "Яйца",
+   "Бурый рис",
+   "Сардины",
+   "Бразильский орех"
+  ],
+  "food_sources_tr": [
+   "Yumurta",
+   "Esmer pirinç",
+   "Sardalya",
+   "Brezilya cevizi"
+  ]
+ },
+ {
+  "id": "ee22de42-1691-4f0c-abb8-bfe1c37321c5",
+  "name": "Vitamin E",
+  "name_az": "E Vitamini",
+  "description": "Hüceyrələri qoruyan güclü antioksidant",
+  "description_az": "Hüceyrələri qoruyan güclü antioksidant",
+  "benefits": [
+   "Hüceyrə membranını qoruyur",
+   "Qırmızı qan hüceyrələrini yaradır",
+   "Dərinin elastikliyini artırır"
+  ],
+  "food_sources": [
+   "Günəbaxan yağı",
+   "Fındıq",
+   "Badam",
+   "Avokado"
+  ],
+  "dosage": "15 mq/gün",
+  "week_start": 12,
+  "week_end": 40,
+  "trimester": [
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🥑",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T07:36:00.950917+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Powerful antioxidant that protects cells",
+  "name_en": "Vitamin E",
+  "dosage_en": "15 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Protects cell membrane",
+   "Creates red blood cells",
+   "Increases skin elasticity"
+  ],
+  "food_sources_en": [
+   "Sunflower oil",
+   "Hazelnut",
+   "Almond",
+   "Avocado"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "15 мг/день",
+  "dosage_tr": "15 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Защищает клеточные мембраны",
+   "Участвует в образовании эритроцитов",
+   "Повышает эластичность кожи"
+  ],
+  "benefits_tr": [
+   "Hücre zarını korur",
+   "Kırmızı kan hücrelerinin oluşumunu sağlar",
+   "Cildin esnekliğini artırır"
+  ],
+  "food_sources_ru": [
+   "Подсолнечное масло",
+   "Фундук",
+   "Миндаль",
+   "Авокадо"
+  ],
+  "food_sources_tr": [
+   "Ayçiçek yağı",
+   "Fındık",
+   "Badem",
+   "Avokado"
+  ]
+ },
+ {
+  "id": "f021524b-8480-4882-865f-0c84e979b298",
+  "name": "Manganese",
+  "name_az": "Manqan",
+  "description": "Sümük və qığırdaq toxumasının formalaşması üçün",
+  "description_az": "Sümük və qığırdaq toxumasının formalaşması üçün",
+  "benefits": [
+   "Dölün skeletini inkişaf etdirir",
+   "Beyin funksiyalarını dəstəkləyir",
+   "Maddələr mübadiləsini sürətləndirir"
+  ],
+  "food_sources": [
+   "Fındıq",
+   "Yulaf",
+   "Ananas",
+   "İspanaq"
+  ],
+  "dosage": "2 mq/gün",
+  "week_start": 1,
+  "week_end": 40,
+  "trimester": [
+   1,
+   2,
+   3
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🍍",
+  "is_active": true,
+  "sort_order": 0,
+  "created_at": "2026-02-10T08:42:44.725348+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "For the formation of bone and cartilage tissue",
+  "name_en": "Manganese",
+  "dosage_en": "2 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Develops the fetal skeleton",
+   "Supports brain functions",
+   "Accelerates metabolism"
+  ],
+  "food_sources_en": [
+   "Hazelnuts",
+   "Oats",
+   "Pineapple",
+   "Spinach"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "2 мг/день",
+  "dosage_tr": "2 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Развивает скелет плода",
+   "Поддерживает функции мозга",
+   "Ускоряет обмен веществ"
+  ],
+  "benefits_tr": [
+   "Bebeğin iskeletini geliştirir",
+   "Beyin fonksiyonlarını destekler",
+   "Metabolizmayı hızlandırır"
+  ],
+  "food_sources_ru": [
+   "Фундук",
+   "Овёс",
+   "Ананас",
+   "Шпинат"
+  ],
+  "food_sources_tr": [
+   "Fındık",
+   "Yulaf",
+   "Ananas",
+   "Ispanak"
+  ]
+ },
+ {
+  "id": "fb8b22b1-4d5d-4571-a8eb-14456eaa1785",
+  "name": "Magnesium",
+  "name_az": "Maqnezium",
+  "description": null,
+  "description_az": "Əzələ kramları və yuxu keyfiyyəti üçün",
+  "benefits": [
+   "Əzələ rahatlaması",
+   "Yuxu keyfiyyəti",
+   "Qan şəkəri tənzimi"
+  ],
+  "food_sources": [
+   "Badam",
+   "Ispanaq",
+   "Qara şokolad",
+   "Avokado"
+  ],
+  "dosage": "350-400 mq/gün",
+  "week_start": 13,
+  "week_end": 40,
+  "trimester": [
+   2
+  ],
+  "life_stage": "bump",
+  "importance": "recommended",
+  "icon_emoji": "🥜",
+  "is_active": true,
+  "sort_order": 7,
+  "created_at": "2026-01-24T09:15:02.374651+00:00",
+  "updated_at": "2026-08-11T12:30:55.803065+00:00",
+  "description_en": "Essential for muscle relaxation, sleep quality, and blood sugar regulation, magnesium is a recommended mineral during pregnancy that supports fetal growth and helps alleviate common discomforts like leg cramps.",
+  "name_en": "Magnesium",
+  "dosage_en": "350-400 mg/day",
+  "importance_en": "recommended",
+  "benefits_en": [
+   "Muscle relaxation",
+   "Sleep quality",
+   "Blood sugar regulation"
+  ],
+  "food_sources_en": [
+   "Almond",
+   "Spinach",
+   "Dark chocolate",
+   "Avocado"
+  ],
+  "name_ru": null,
+  "name_tr": null,
+  "description_ru": null,
+  "description_tr": null,
+  "dosage_ru": "350-400 мг/день",
+  "dosage_tr": "350-400 mg/gün",
+  "importance_ru": null,
+  "importance_tr": null,
+  "benefits_ru": [
+   "Расслабление мышц",
+   "Качество сна",
+   "Регулирование сахара в крови"
+  ],
+  "benefits_tr": [
+   "Kas gevşemesi",
+   "Uyku kalitesi",
+   "Kan şekeri dengesi"
+  ],
+  "food_sources_ru": [
+   "Миндаль",
+   "Шпинат",
+   "Тёмный шоколад",
+   "Авокадо"
+  ],
+  "food_sources_tr": [
+   "Badem",
+   "Ispanak",
+   "Bitter çikolata",
+   "Avokado"
+  ]
+ }
+]

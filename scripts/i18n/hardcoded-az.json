@@ -1,0 +1,17 @@
+{
+ "components\\HealthSyncScreen.tsx": [
+  ":\n\n        available === false && !isIos ?\n        // Android: Health Connect quraşdırılma"
+ ],
+ "components\\mommy\\hero\\MommyHeroMesh.tsx": [
+  "1 ? tr(\"time_months\", \"ay\").toUpperCase() : tr(\"time_month\", \"ay\").toUpperCase()) : tr(\"mo"
+ ],
+ "components\\mommy\\hero\\MommyHeroMinimalCard.tsx": [
+  "1 ? tr(\"time_days\", \"gün\") : tr(\"time_day\", \"gün\"));\n\n  return ("
+ ],
+ "components\\tools\\BabyPhotoshoot.tsx": [
+  ";\n\n\n  const stepTitles = [tr(\"babyphotoshoot_sekil_43e2e3\", \"Şəkil\"), tr(\"babyphotoshoot_f"
+ ],
+ "components\\tools\\MaternityCalculator.tsx": [
+  "('normal');\n  // Default ölkə tətbiq dilinə görə (tr→TR, ru→RU, əks halda AZ); istifadəçi "
+ ]
+}

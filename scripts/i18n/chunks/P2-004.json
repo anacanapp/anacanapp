@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "profile_child_added",
+  "az": "əlavə edildi",
+  "en": null
+ },
+ {
+  "key": "profile_download_app",
+  "az": "Tətbiqi yüklə:",
+  "en": null
+ },
+ {
+  "key": "profile_partnyor_kodu",
+  "az": "Partnyor Kodu",
+  "en": "Partner Code"
+ },
+ {
+  "key": "profile_partnyor_kodum",
+  "az": "Partnyor kodum",
+  "en": "My partner code"
+ },
+ {
+  "key": "profile_share_partner_text",
+  "az": "Anacan tətbiqinə qoşul və hamiləlik səyahətimizdə mənə dəstək ol! Partnyor kodum:",
+  "en": null
+ },
+ {
+  "key": "profileeditscreen_adiniz_b3e84a",
+  "az": "Adınız",
+  "en": "Your name"
+ },
+ {
+  "key": "profileeditscreen_anayam_mommy",
+  "az": "👶 Anayam",
+  "en": "👶 I'm a mother"
+ },
+ {
+  "key": "profileeditscreen_dogus_tarixi_e2caea",
+  "az": "Doğuş tarixi",
+  "en": "Date of birth"
+ },
+ {
+  "key": "profileeditscreen_dovrun_uzunlugu_gun_4d99da",
+  "az": "Dövrün uzunluğu (gün)",
+  "en": "Cycle length (days)"
+ },
+ {
+  "key": "profileeditscreen_esas_melumatlar_56bfed",
+  "az": "Əsas Məlumatlar",
+  "en": "Basic Information"
+ },
+ {
+  "key": "profileeditscreen_gun_54e78d",
+  "az": "gün",
+  "en": "day"
+ },
+ {
+  "key": "profileeditscreen_hamileyem_01937d",
+  "az": "🤰 Hamiləyəm",
+  "en": "🤰 I'm pregnant"
+ },
+ {
+  "key": "profileeditscreen_hazirda_33b3c8",
+  "az": "Hazırda:",
+  "en": "Currently:"
+ },
+ {
+  "key": "profileeditscreen_hefte_d4c248",
+  "az": "həftə",
+  "en": "week"
+ },
+ {
+  "key": "profileeditscreen_hesablanmis_melumatlar_b5a420",
+  "az": "Hesablanmış məlumatlar",
+  "en": "Calculated information"
+ },
+ {
+  "key": "profileeditscreen_korpe_fa2b51",
+  "az": "Körpə",
+  "en": "Baby"
+ },
+ {
+  "key": "profileeditscreen_korpenin_adi_8a4e9e",
+  "az": "Körpənin adı",
+  "en": "Baby's name"
+ },
+ {
+  "key": "profileeditscreen_korpenin_adi_isteye_bagli_4e76c8",
+  "az": "Körpənin adı (istəyə bağlı)",
+  "en": "Baby's name (optional)"
+ },
+ {
+  "key": "profileeditscreen_menstruasiya_izleyicisi_b0d2dd",
+  "az": "🌸 Menstruasiya izləyicisi",
+  "en": "🌸 Menstrual tracker"
+ },
+ {
+  "key": "profileeditscreen_merhele_0e09aa",
+  "az": "Mərhələ",
+  "en": "Stage"
+ },
+ {
+  "key": "profileeditscreen_oglan_c41cd8",
+  "az": "👦 Oğlan",
+  "en": "👦 Height"
+ },
+ {
+  "key": "profileeditscreen_ozunuz_haqqinda_qisa_melumat_1a283c",
+  "az": "Özünüz haqqında qısa məlumat...",
+  "en": "Brief info about yourself..."
+ },
+ {
+  "key": "profileeditscreen_profil_seklini_deyis_7dbfc6",
+  "az": "Profil şəklini dəyiş",
+  "en": "Change profile picture"
+ },
+ {
+  "key": "profileeditscreen_profil_yenilendi_ad61ca",
+  "az": "Profil yeniləndi!",
+  "en": "Profile updated!"
+ },
+ {
+  "key": "profileeditscreen_profili_redakte_et_b5368c",
+  "az": "Profili Redaktə Et",
+  "en": "Edit Profile"
+ },
+ {
+  "key": "profileeditscreen_qiz_cc9008",
+  "az": "👧 Qız",
+  "en": "👧 Girl"
+ },
+ {
+  "key": "profileeditscreen_saxla",
+  "az": "Saxla",
+  "en": "Save"
+ },
+ {
+  "key": "profileeditscreen_secin_5c0c8d",
+  "az": "Seçin",
+  "en": "Select"
+ },
+ {
+  "key": "profileeditscreen_sekil_yuklendi_0c2f85",
+  "az": "Şəkil yükləndi!",
+  "en": "Image uploaded!"
+ },
+ {
+  "key": "profileeditscreen_son_menstruasiya_tarixi_7c9f8a",
+  "az": "📅 Son menstruasiya tarixi:",
+  "en": "📅 Last period date:"
+ },
+ {
+  "key": "profileeditscreen_son_menstruasiyan_ilk_gunu_c79f76",
+  "az": "Son menstruasiyanın ilk günü",
+  "en": "First day of last period"
+ },
+ {
+  "key": "profileeditscreen_tarix_novunu_secin_ad6b20",
+  "az": "Tarix növünü seçin",
+  "en": "Select date type"
+ },
+ {
+  "key": "profileeditscreen_texmini_dogus_tarixi_011e51",
+  "az": "🎯 Təxmini doğuş tarixi:",
+  "en": "🎯 Estimated date of birth:"
+ },
+ {
+  "key": "profileeditscreen_texmini_dogus_tarixi_a8b543",
+  "az": "Təxmini doğuş tarixi",
+  "en": "Estimated date of birth"
+ },
+ {
+  "key": "profileeditscreen_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "profilescreen_abuneliyim_f6c8ed",
+  "az": "Abunəliyim",
+  "en": "My subscription"
+ },
+ {
+  "key": "profilescreen_ad_ve_dogum_tarixi_teleb_olunur_bdab04",
+  "az": "Ad və doğum tarixi tələb olunur",
+  "en": "Name and date of birth are required"
+ },
+ {
+  "key": "profilescreen_admin_panel",
+  "az": "Admin Panel",
+  "en": "Admin Panel"
+ },
+ {
+  "key": "profilescreen_anacan_v1_0_0_azerbaycan_68472e",
+  "az": "Anacan v1.0.0 • Azərbaycan 🇦🇿",
+  "en": "Anajan v1.0.0 • Azerbaijan 🇦🇿"
+ },
+ {
+  "key": "profilescreen_analiq_9e762d",
+  "az": "Analıq",
+  "en": "Motherhood"
+ },
+ {
+  "key": "profilescreen_badge_yeni",
+  "az": "Yeni",
+  "en": "New"
+ },
+ {
+  "key": "profilescreen_bildirisler_54eb88",
+  "az": "Bildirişlər",
+  "en": "Notifications"
+ },
+ {
+  "key": "profilescreen_butun_xususiyyetleri_acin_a7583b",
+  "az": "Bütün xüsusiyyətləri açın",
+  "en": "Unlock all features"
+ },
+ {
+  "key": "profilescreen_child_plural_suffix",
+  "az": "uşaq",
+  "en": "children"
+ },
+ {
+  "key": "profilescreen_cixis_c2de5c",
+  "az": "Çıxış",
+  "en": "Exit"
+ },
+ {
+  "key": "profilescreen_cixis_edildi_fb4a43",
+  "az": "Çıxış edildi",
+  "en": "Signed out"
+ },
+ {
+  "key": "profilescreen_dogum_tarixi_d96907",
+  "az": "Doğum tarixi",
+  "en": "Date of birth"
+ },
+ {
+  "key": "profilescreen_elave_et_6e1b9b",
+  "az": "Əlavə et",
+  "en": "Add"
+ },
+ {
+  "key": "profilescreen_geri_qaytarma_siyaseti_767324",
+  "az": "Geri Qaytarma Siyasəti",
+  "en": "Refund Policy"
+ },
+ {
+  "key": "profilescreen_gizlilik",
+  "az": "Gizlilik",
+  "en": "Privacy"
+ },
+ {
+  "key": "profilescreen_gizlilik_siyaseti_dc3f28",
+  "az": "Gizlilik Siyasəti",
+  "en": "Privacy Policy"
+ },
+ {
+  "key": "profilescreen_gorunus_165fe3",
+  "az": "Görünüş",
+  "en": "Appearance"
+ },
+ {
+  "key": "profilescreen_hamilelik_e86feb",
+  "az": "Hamiləlik",
+  "en": "Pregnancy"
+ },
+ {
+  "key": "profilescreen_hekim_gorusleri_ve_vacib_tarixler_a345c4",
+  "az": "Həkim görüşləri və vacib tarixlər",
+  "en": "Doctor's appointments and important dates"
+ },
+ {
+  "key": "profilescreen_heyat_yoldasinizla_paylasin_49ec6d",
+  "az": "Həyat yoldaşınızla paylaşın",
+  "en": "Share with your spouse"
+ },
+ {
+  "key": "profilescreen_huquqi_ceb5d3",
+  "az": "Hüquqi",
+  "en": "Legal"
+ },
+ {
+  "key": "profilescreen_i_stifade_sertleri_fbbe3d",
+  "az": "İstifadə Şərtləri",
+  "en": "Terms of Use"
+ },
+ {
+  "key": "profilescreen_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "profilescreen_ilk_usagi_elave_et_251a77",
+  "az": "İlk uşağı əlavə et",
+  "en": "Add first child"
+ },
+ {
+  "key": "profilescreen_korpenin_adi_8a4e9e",
+  "az": "Körpənin adı",
+  "en": "Baby's name"
+ },
+ {
+  "key": "profilescreen_korpenin_heftelik_inkisafi_ve_olculeri_0474b5",
+  "az": "Körpənin həftəlik inkişafı və ölçüləri",
+  "en": "Baby's weekly development and measurements"
+ },
+ {
+  "key": "profilescreen_magaza_test_72b060",
+  "az": "Mağaza (Test)",
+  "en": "Store (Test)"
+ },
+ {
+  "key": "profilescreen_melumat_i_stifadesi_af1211",
+  "az": "Məlumat İstifadəsi",
+  "en": "Data Usage"
+ },
+ {
+  "key": "profilescreen_mesuliyyetden_i_mtina_beyanati_857abd",
+  "az": "Məsuliyyətdən İmtina Bəyanatı",
+  "en": "Disclaimer"
+ },
+ {
+  "key": "profilescreen_missiyalari_yerine_yetirib_seviyye_qazan_719718",
+  "az": "Missiyaları yerinə yetirib səviyyə qazana bilər",
+  "en": "Can complete missions and gain levels"
+ },
+ {
+  "key": "profilescreen_oglan_e9715e",
+  "az": "Oğlan",
+  "en": "Height"
+ },
+ {
+  "key": "profilescreen_one_child_count",
+  "az": "1 uşaq",
+  "en": "1 child"
+ },
+ {
+  "key": "profilescreen_ortaq_alis_veris_siyahisina_elave_ede_bi_8dd341",
+  "az": "Ortaq alış-veriş siyahısına əlavə edə bilər",
+  "en": "Can add to shared shopping list"
+ },
+ {
+  "key": "profilescreen_partnyor_endirimleri_e44036",
+  "az": "Partnyor Endirimləri",
+  "en": "Affiliate Discounts"
+ },
+ {
+  "key": "profilescreen_partnyor_kodu_ile_heyat_yoldas_2bcf5d",
+  "az": "Partnyor kodu ilə həyat yoldaşınız tətbiqə qoşularaq hamiləlik səyahətinizə dəstək ola bilər.",
+  "en": "With the partner code, your spouse can join the app and support your pregnancy journey."
+ },
+ {
+  "key": "profilescreen_partnyor_kodu_ugurla_paylasildi_d66277",
+  "az": "Partnyor kodu uğurla paylaşıldı.",
+  "en": "Partner code shared successfully."
+ },
+ {
+  "key": "profilescreen_partnyor_neler_ede_biler_44c3d7",
+  "az": "✨ Partnyor nələr edə bilər?",
+  "en": "✨ What can the partner do?"
+ },
+ {
+  "key": "profilescreen_partnyor_neler_gore_ve_ede_biler_3fa7fa",
+  "az": "Partnyor nələr görə və edə bilər?",
+  "en": "What can the partner see and do?"
+ },
+ {
+  "key": "profilescreen_partnyor_neleri_gore_biler_c11f93",
+  "az": "👁️ Partnyor nələri görə bilər?",
+  "en": "👁️ What can the partner see?"
+ },
+ {
+  "key": "profilescreen_partnyor_rejimi_haqqinda_7eeca8",
+  "az": "Partnyor Rejimi Haqqında",
+  "en": "About Partner Mode"
+ },
+ {
+  "key": "profilescreen_partnyor_sizin_sexsi_qeydlerin_3abbaa",
+  "az": "Partnyor sizin şəxsi qeydlərinizi, gündəlik mesajlarınızı və ya AI söhbətlərinizi görə bilməz.",
+  "en": "Partner cannot see your private notes, daily messages or AI chats."
+ },
+ {
+  "key": "profilescreen_paylasildi_c7d9ef",
+  "az": "Paylaşıldı!",
+  "en": "Shared!"
+ },
+ {
+  "key": "profilescreen_premium_abuneliyiniz_aktivdir_9f6e62",
+  "az": "Premium abunəliyiniz aktivdir",
+  "en": "Your Premium subscription is active"
+ },
+ {
+  "key": "profilescreen_premium_ile_ac_7aa6ba",
+  "az": "Premium ilə aç",
+  "en": "Open with Premium"
+ },
+ {
+  "key": "profilescreen_premium_ile_partnyorunuzu_deve_d6917f",
+  "az": "Premium ilə partnyorunuzu dəvət edin",
+  "en": "Invite your partner with Premium"
+ },
+ {
+  "key": "profilescreen_qiz_79bf6b",
+  "az": "Qız",
+  "en": "Girl"
+ },
+ {
+  "key": "profilescreen_secilmeyib_11e27e",
+  "az": "Seçilməyib",
+  "en": "Not selected"
+ },
+ {
+  "key": "profilescreen_silinsin_question",
+  "az": "silinsin?",
+  "en": "be deleted?"
+ },
+ {
+  "key": "profilescreen_size_sevgi_mesajlari_ve_destek_gondere_b_7c91fb",
+  "az": "Sizə sevgi mesajları və dəstək göndərə bilər",
+  "en": "Can send you love messages and support"
+ },
+ {
+  "key": "profilescreen_sizin_gundelik_ehvaliniz_ve_simptomlarin_8fde56",
+  "az": "Sizin gündəlik əhvalınız və simptomlarınız",
+  "en": "Your daily mood and symptoms"
+ },
+ {
+  "key": "profilescreen_surprizler_planlasdirib_xallar_toplaya_b_9fe114",
+  "az": "Sürprizlər planlaşdırıb xallar toplaya bilər",
+  "en": "Can plan surprises and collect points"
+ },
+ {
+  "key": "profilescreen_tepik_saygaci_ve_buzusme_izleyicisi_melu_7f7ba1",
+  "az": "Təpik sayğacı və büzüşmə izləyicisi məlumatları",
+  "en": "Kick counter and contraction tracker data"
+ },
+ {
+  "key": "profilescreen_teqvim_ayarlari_012790",
+  "az": "Təqvim Ayarları",
+  "en": "Calendar Settings"
+ },
+ {
+  "key": "profilescreen_ugurla_cixis_etdiniz_9e8d3c",
+  "az": "Uğurla çıxış etdiniz.",
+  "en": "Logged out successfully."
+ },
+ {
+  "key": "profilescreen_usaq_elave_et_48f1f0",
+  "az": "Uşaq əlavə et",
+  "en": "Add child"
+ },
+ {
+  "key": "profilescreen_usaq_elave_et_d57c06",
+  "az": "Uşaq Əlavə Et",
+  "en": "Add Child"
+ },
+ {
+  "key": "profilescreen_usaq_redakte_et_53eb46",
+  "az": "Uşaq Redaktə Et",
+  "en": "Edit Child"
+ },
+ {
+  "key": "profilescreen_usaqlarim_d988f7",
+  "az": "Uşaqlarım",
+  "en": "My children"
+ },
+ {
+  "key": "profilescreen_yardim_da857a",
+  "az": "Yardım",
+  "en": "Help"
+ },
+ {
+  "key": "profilescreen_yenilendi_d10a01",
+  "az": "Yeniləndi",
+  "en": "Updated"
+ },
+ {
+  "key": "ptour_done",
+  "az": "Başlayaq! 💙",
+  "en": "Let’s go! 💙"
+ },
+ {
+  "key": "ptour_home_text",
+  "az": "Körpənin həftəlik inkişafı, xanımınızın əhvalı və sürətli sevgi mesajları — hamısı ana ekranda.",
+  "en": "Baby’s weekly development, your partner’s mood and quick love messages — all on the home screen."
+ },
+ {
+  "key": "ptour_home_title",
+  "az": "\"Bu gün\" ekranı",
+  "en": "The \"Today\" screen"
+ },
+ {
+  "key": "ptour_next",
+  "az": "Növbəti",
+  "en": "Next"
+ },
+ {
+  "key": "ptour_privacy_text",
+  "az": "Nəyin paylaşılacağını xanımınız özü seçir. Premium isə ailəvidir — biri alsa, hər ikiniz istifadə edirsiniz.",
+  "en": "Your partner decides what is shared. Premium is a household plan — if one of you subscribes, you both get it."
+ },
+ {
+  "key": "ptour_privacy_title",
+  "az": "Məxfilik və Premium",
+  "en": "Privacy & Premium"
+ },
+ {
+  "key": "ptour_skip",
+  "az": "Keç",
+  "en": "Skip"
+ },
+ {
+  "key": "ptour_sos_text",
+  "az": "Xanımınız təcili kömək və ya doğuş siqnalı göndərsə, telefonunuza dərhal bildiriş gələcək. Sancı rejimində canlı izləyə bilərsiniz.",
+  "en": "If your partner sends an emergency or labor alert, you’ll get an instant notification. During contractions you can follow along live."
+ },
+ {
+  "key": "ptour_sos_title",
+  "az": "SOS siqnalları",
+  "en": "SOS alerts"
+ },
+ {
+  "key": "ptour_together_text",
+  "az": "Gündəlik missiyalar, aktivlik lenti, alış-veriş siyahısı və həkim görüşləri — birgə idarə edin, xal qazanın.",
+  "en": "Daily missions, activity feed, shopping list and doctor appointments — manage together, earn points."
+ },
+ {
+  "key": "ptour_together_title",
+  "az": "\"Birlikdə\" bölməsi",
+  "en": "The \"Together\" tab"
+ },
+ {
+  "key": "ptour_welcome_text",
+  "az": "Bu bölmə sizin üçündür — xanımınızın səyahətində ən böyük dəstəkçisi olun. Qısa tura baxaq?",
+  "en": "This space is for you — be the biggest supporter on your partner’s journey. Ready for a quick tour?"
+ },
+ {
+  "key": "ptour_welcome_title",
+  "az": "\"Birlikdə\"yə xoş gəldiniz!",
+  "en": "Welcome to \"Together\"!"
+ },
+ {
+  "key": "rf_103_sub",
+  "az": "Zəng etmək üçün toxunun",
+  "en": "Tap to call"
+ },
+ {
+  "key": "rf_103_title",
+  "az": "Təcili Tibbi Yardım",
+  "en": "Emergency Medical Help"
+ },
+ {
+  "key": "rf_abdominal_desc",
+  "az": "Keçməyən, kəskin və ya birtərəfli qarın ağrısı.",
+  "en": "Persistent, sharp or one-sided abdominal pain."
+ },
+ {
+  "key": "rf_abdominal_title",
+  "az": "Kəskin qarın ağrısı",
+  "en": "Severe abdominal pain"
+ },
+ {
+  "key": "rf_bleeding_desc",
+  "az": "İstənilən həcmdə parlaq qırmızı qanaxma — xüsusilə ağrı ilə birgə.",
+  "en": "Any bright red bleeding — especially with pain."
+ },
+ {
+  "key": "rf_bleeding_title",
+  "az": "Vaginal qanaxma",
+  "en": "Vaginal bleeding"
+ },
+ {
+  "key": "rf_chest_desc",
+  "az": "Qəfil sinə ağrısı və ya nəfəs almaqda çətinlik — dərhal təcili yardım.",
+  "en": "Sudden chest pain or difficulty breathing — emergency care now."
+ },
+ {
+  "key": "rf_chest_title",
+  "az": "Sinə ağrısı / nəfəs darlığı",
+  "en": "Chest pain / shortness of breath"
+ },
+ {
+  "key": "rf_disclaimer",
+  "az": "Bu siyahı məlumat xarakterlidir və həkim qiymətləndirməsini əvəz etmir.",
+  "en": "This list is informational and does not replace medical assessment."
+ },
+ {
+  "key": "rf_dizziness_desc",
+  "az": "Huşun itməsi və ya təkrarlanan güclü başgicəllənmə.",
+  "en": "Loss of consciousness or recurring severe dizziness."
+ },
+ {
+  "key": "rf_dizziness_title",
+  "az": "Bayılma / güclü başgicəllənmə",
+  "en": "Fainting / severe dizziness"
+ },
+ {
+  "key": "rf_eyebrow_bump",
+  "az": "Hamiləlik dövrü",
+  "en": "During pregnancy"
+ },
+ {
+  "key": "rf_eyebrow_pp",
+  "az": "Doğuşdan sonra",
+  "en": "Postpartum"
+ },
+ {
+  "key": "rf_fever_desc",
+  "az": "Yüksək hərarət — infeksiya əlaməti ola bilər.",
+  "en": "High fever — may indicate infection."
+ },
+ {
+  "key": "rf_fever_title",
+  "az": "Hərarət 38°C və üzəri",
+  "en": "Fever 38°C or higher"
+ },
+ {
+  "key": "rf_headache_desc",
+  "az": "Keçməyən güclü başağrı, göz önündə ulduzlar/dumanlı görmə — preeklampsiya əlaməti ola bilər.",
+  "en": "Persistent severe headache, seeing spots/blurry vision — possible preeclampsia sign."
+ },
+ {
+  "key": "rf_headache_title",
+  "az": "Kəskin başağrı + görmə pozğunluğu",
+  "en": "Severe headache + vision changes"
+ },
+ {
+  "key": "rf_incision_desc",
+  "az": "Qızartı, şişkinlik, irin və ya artan ağrı (Qeysəriyyə/epizio).",
+  "en": "Redness, swelling, discharge or increasing pain (C-section/episiotomy)."
+ },
+ {
+  "key": "rf_incision_title",
+  "az": "Tikiş yerində infeksiya əlaməti",
+  "en": "Incision infection signs"
+ },
+ {
+  "key": "rf_intro",
+  "az": "Bu əlamətlərdən hər hansı biri sizdə varsa, gözləmək olmaz. Şübhə halında həmişə həkimə müraciət edin — \"boş yerə narahat etdim\" deyə bir şey yoxdur.",
+  "en": "If you have any of these signs, do not wait. When in doubt, always contact your doctor — there is no such thing as \"bothering them for nothing\"."
+ },
+ {
+  "key": "rf_leg_desc",
+  "az": "Birtərəfli ayaq ağrısı, istilik, qızartı — tromb (DVT) əlaməti ola bilər.",
+  "en": "One-sided leg pain, warmth, redness — possible blood clot (DVT)."
+ },
+ {
+  "key": "rf_leg_title",
+  "az": "Bir ayaqda ağrı və şişkinlik",
+  "en": "Pain and swelling in one leg"
+ },
+ {
+  "key": "rf_mental_desc",
+  "az": "Özünüzə/körpəyə zərər fikirləri gəlirsə — bu sizin günahınız deyil, kömək mövcuddur. Dərhal yaxınınıza deyin və mütəxəssisə müraciət edin.",
+  "en": "Thoughts of harming yourself/your baby — this is not your fault, help exists. Tell someone close immediately and seek professional support."
+ },
+ {
+  "key": "rf_mental_title",
+  "az": "Ağır kədər və ya zərər fikirləri",
+  "en": "Severe sadness or harmful thoughts"
+ },
+ {
+  "key": "rf_movement_desc",
+  "az": "28-ci həftədən sonra körpə adi ritmindən nəzərəçarpacaq az tərpənir (2 saatda <10 hərəkət).",
+  "en": "After week 28, noticeably fewer movements than usual (<10 in 2 hours)."
+ },
+ {
+  "key": "rf_movement_title",
+  "az": "Körpənin hərəkəti azalıb",
+  "en": "Reduced baby movement"
+ },
+ {
+  "key": "rf_notify_partner",
+  "az": "Partnyora bildir",
+  "en": "Notify partner"
+ },
+ {
+  "key": "rf_partner_done",
+  "az": "Xəbərdar edildi ✓",
+  "en": "Notified ✓"
+ },
+ {
+  "key": "rf_partner_msg_suffix",
+  "az": "dərhal əlaqə saxla!",
+  "en": "contact me right away!"
+ },
+ {
+  "key": "rf_partner_notified",
+  "az": "Partnyorunuz xəbərdar edildi 💙",
+  "en": "Your partner has been notified 💙"
+ },
+ {
+  "key": "rf_pp_bleeding_desc",
+  "az": "1 saatda 1 bezdən çox islanır və ya böyük laxtalar gəlir.",
+  "en": "Soaking more than one pad per hour or passing large clots."
+ },
+ {
+  "key": "rf_pp_bleeding_title",
+  "az": "Güclü doğuşdan sonra qanaxma",
+  "en": "Heavy postpartum bleeding"
+ },
+ {
+  "key": "rf_soon_chip",
+  "az": "BU GÜN HƏKİMƏ",
+  "en": "DOCTOR TODAY"
+ },
+ {
+  "key": "rf_soon_guidance",
+  "az": "📞 Bu gün ərzində həkiminizlə əlaqə saxlayın və vəziyyəti izləyin.",
+  "en": "📞 Contact your doctor today and monitor the situation."
+ },
+ {
+  "key": "rf_soon_section",
+  "az": "Bu gün həkimlə əlaqə",
+  "en": "Contact doctor today"
+ },
+ {
+  "key": "rf_swelling_desc",
+  "az": "Qəfil yaranan şişkinlik (xüsusilə üz/əllər) — preeklampsiya riski.",
+  "en": "Sudden swelling (especially face/hands) — preeclampsia risk."
+ },
+ {
+  "key": "rf_swelling_title",
+  "az": "Üz və əllərdə qəfil şişkinlik",
+  "en": "Sudden face/hand swelling"
+ },
+ {
+  "key": "rf_title",
+  "az": "Təhlükə Əlamətləri",
+  "en": "Danger Signs"
+ },
+ {
+  "key": "rf_urgent_chip",
+  "az": "TƏCİLİ",
+  "en": "URGENT"
+ },
+ {
+  "key": "rf_urgent_guidance",
+  "az": "⚠️ Gözləməyin: dərhal həkiminizə zəng edin və ya təcili yardıma (103) müraciət edin.",
+  "en": "⚠️ Don’t wait: call your doctor now or seek emergency care."
+ },
+ {
+  "key": "rf_urgent_section",
+  "az": "Dərhal müraciət",
+  "en": "Seek help now"
+ },
+ {
+  "key": "rf_urination_desc",
+  "az": "Yanma/ağrı — sidik yolu infeksiyası müalicəsiz qalmamalıdır.",
+  "en": "Burning/pain — a UTI should not go untreated."
+ },
+ {
+  "key": "rf_urination_title",
+  "az": "Ağrılı sidik ifrazı",
+  "en": "Painful urination"
+ },
+ {
+  "key": "rf_vomiting_desc",
+  "az": "24 saatdan çox heç nə saxlaya bilmirsinizsə — susuzlaşma riski.",
+  "en": "Unable to keep anything down for 24+ hours — dehydration risk."
+ },
+ {
+  "key": "rf_vomiting_title",
+  "az": "Dayanmayan qusma",
+  "en": "Persistent vomiting"
+ },
+ {
+  "key": "rf_waters_desc",
+  "az": "Qəfil və ya davamlı maye axını — 37 həftədən əvvəldirsə xüsusilə təcilidir.",
+  "en": "Sudden or continuous fluid leak — especially urgent before 37 weeks."
+ },
+ {
+  "key": "rf_waters_title",
+  "az": "Su gəlib (dölyanı maye)",
+  "en": "Waters broke"
+ },
+ {
+  "key": "rfb_urgent_sub",
+  "az": "Dərhal həkimə müraciət edin — ətraflı üçün toxunun",
+  "en": "Seek medical help now — tap for details"
+ },
+ {
+  "key": "rfb_urgent_title",
+  "az": "Təzyiq təhlükəli səviyyədədir!",
+  "en": "Blood pressure at dangerous level!"
+ },
+ {
+  "key": "rfb_warning_sub",
+  "az": "Preeklampsiya riski — bu gün həkiminizlə danışın",
+  "en": "Preeclampsia risk — talk to your doctor today"
+ },
+ {
+  "key": "rfb_warning_title",
+  "az": "Təzyiqiniz yüksəkdir",
+  "en": "Your blood pressure is high"
+ },
+ {
+  "key": "settingsscreen_ai_sohbet_tarixcesi_9acf70",
+  "az": "AI söhbət tarixçəsi",
+  "en": "AI chat history"
+ },
+ {
+  "key": "settingsscreen_b_e_c_c_gunleri_saat_10_00_40d25b",
+  "az": "B.e., Ç., C. günləri saat 10:00",
+  "en": "Mon, Wed, Fri at 10:00"
+ },
+ {
+  "key": "settingsscreen_baslama_vaxti_b3791d",
+  "az": "Başlama vaxtı",
+  "en": "Start time"
+ },
+ {
+  "key": "settingsscreen_beyenme_bildirisleri_a6b18f",
+  "az": "Bəyənmə bildirişləri",
+  "en": "Like notifications"
+ },
+ {
+  "key": "settingsscreen_bildiris_sesleri_fc9269",
+  "az": "Bildiriş səsləri",
+  "en": "Notification sounds"
+ },
+ {
+  "key": "settingsscreen_bildirisler_54eb88",
+  "az": "Bildirişlər",
+  "en": "Notifications"
+ },
+ {
+  "key": "settingsscreen_bildirisler_susacaq_c5cd6d",
+  "az": "Bildirişlər susacaq",
+  "en": "Notifications will be silenced"
+ },
+ {
+  "key": "settingsscreen_bildirisler_yalniz_mobil_tetbiqde_isleyi_64cd56",
+  "az": "Bildirişlər yalnız mobil tətbiqdə işləyir",
+  "en": "Notifications only work in the mobile app"
+ },
+ {
+  "key": "settingsscreen_bildirisler_yeniden_baslayacaq_37c49d",
+  "az": "Bildirişlər yenidən başlayacaq",
+  "en": "Notifications will resume"
+ },
+ {
+  "key": "settingsscreen_bitme_vaxti_624d01",
+  "az": "Bitmə vaxtı",
+  "en": "End time"
+ },
+ {
+  "key": "settingsscreen_bu_emeliyyat_61940b",
+  "az": "Bu əməliyyat",
+  "en": "This operation"
+ },
+ {
+  "key": "settingsscreen_butun_bildirisleri_aktivlesdirin_beb91d",
+  "az": "Bütün bildirişləri aktivləşdirin",
+  "en": "Enable all notifications"
+ },
+ {
+  "key": "settingsscreen_butun_melumatlari_geri_donmez_sekilde_si_35b4d6",
+  "az": "Bütün məlumatları geri dönməz şəkildə silin",
+  "en": "Permanently delete all data"
+ },
+ {
+  "key": "settingsscreen_butun_melumatlarinizi_json_formatinda_yu_0c02e5",
+  "az": "Bütün məlumatlarınızı JSON formatında yükləyin",
+  "en": "Download all your data in JSON format"
+ },
+ {
+  "key": "settingsscreen_butun_qeydler_ve_izleme_tarixcesi_5544e4",
+  "az": "Bütün qeydlər və izləmə tarixçəsi",
+  "en": "All records and tracking history"
+ },
+ {
+  "key": "settingsscreen_buzusmeler_1ec368",
+  "az": "Büzüşmələr",
+  "en": "Contractions"
+ },
+ {
+  "key": "settingsscreen_ceki_qeydleri_43f237",
+  "az": "Çəki qeydləri",
+  "en": "Weight logs"
+ },
+ {
+  "key": "settingsscreen_cemiyyet_bildirisleri_fa4a16",
+  "az": "Cəmiyyət bildirişləri",
+  "en": "Community notifications"
+ },
+ {
+  "key": "settingsscreen_cemiyyet_paylasimlari_ve_serhler_655338",
+  "az": "Cəmiyyət paylaşımları və şərhlər",
+  "en": "Community posts and comments"
+ },
+ {
+  "key": "settingsscreen_delete_confirm_keyword",
+  "az": "SİL",
+  "en": "DELETE"
+ },
+ {
+  "key": "settingsscreen_every_day_at",
+  "az": "Hər gün saat",
+  "en": "Every day at"
+ },
+ {
+  "key": "settingsscreen_gece_saatlarinda_bildirisleri__45007d",
+  "az": "Gecə saatlarında bildirişləri söndür",
+  "en": "Turn off notifications at night"
+ },
+ {
+  "key": "settingsscreen_geri_qaytarila_bilmez_700864",
+  "az": "geri qaytarıla bilməz",
+  "en": "irreversible"
+ },
+ {
+  "key": "settingsscreen_gorunus_165fe3",
+  "az": "Görünüş",
+  "en": "Appearance"
+ },
+ {
+  "key": "settingsscreen_gundelik_qeydler_285ea0",
+  "az": "Gündəlik qeydlər",
+  "en": "Daily notes"
+ },
+ {
+  "key": "settingsscreen_health_sync",
+  "az": "Sağlamlıq inteqrasiyası",
+  "en": "Health integration"
+ },
+ {
+  "key": "settingsscreen_health_sync_desc",
+  "az": "Apple Health / Health Connect — addım və aktivlik",
+  "en": "Apple Health / Health Connect — steps & activity"
+ },
+ {
+  "key": "settingsscreen_her_2_saatda_bir_08_00_20_00_bc7ea9",
+  "az": "Hər 2 saatda bir (08:00-20:00)",
+  "en": "Every 2 hours (08:00-20:00)"
+ },
+ {
+  "key": "settingsscreen_hesab_silinerken_xeta_bas_verd_426be6",
+  "az": "Hesab silinərkən xəta baş verdi",
+  "en": "An error occurred while deleting the account"
+ },
+ {
+  "key": "settingsscreen_hesabi_sil_95d759",
+  "az": "Hesabı sil",
+  "en": "Delete the account"
+ },
+ {
+  "key": "settingsscreen_hesabiniz_ugurla_silindi_a6ad6e",
+  "az": "Hesabınız uğurla silindi",
+  "en": "Your account has been successfully deleted"
+ },
+ {
+  "key": "settingsscreen_hesabiniz_ve_butun_melumatlari_99630e",
+  "az": ". \n                Hesabınız və bütün məlumatlarınız həmişəlik silinəcək:",
+  "en": ". \nYour account and all your data will be permanently deleted:"
+ },
+ {
+  "key": "settingsscreen_korpe_inkisafi_8816ce",
+  "az": "Körpə inkişafı",
+  "en": "Baby development"
+ },
+ {
+  "key": "settingsscreen_korpe_qeydleri_8d99a2",
+  "az": "Körpə qeydləri",
+  "en": "Baby notes"
+ },
+ {
+  "key": "settingsscreen_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "settingsscreen_melumat_ixraci_988684",
+  "az": "Məlumat ixracı",
+  "en": "Data export"
+ },
+ {
+  "key": "settingsscreen_melumat_ixraci_zamani_xeta_bas_97bbb5",
+  "az": "Məlumat ixracı zamanı xəta baş verdi",
+  "en": "An error occurred while exporting data"
+ },
+ {
+  "key": "settingsscreen_melumatlariniz_ugurla_yuklendi_80afed",
+  "az": "Məlumatlarınız uğurla yükləndi!",
+  "en": "Your data has been uploaded successfully!"
+ },
+ {
+  "key": "settingsscreen_mesaj_bildirisleri_c8fd7b",
+  "az": "Mesaj bildirişləri",
+  "en": "Message notifications"
+ },
+ {
+  "key": "settingsscreen_mesq_xatirlatmasi_399c4f",
+  "az": "Məşq xatırlatması",
+  "en": "Workout reminder"
+ },
+ {
+  "key": "settingsscreen_mexfilik_ve_melumat_f15bb1",
+  "az": "Məxfilik və Məlumat",
+  "en": "Privacy and Data"
+ }
+]

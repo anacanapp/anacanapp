@@ -1,0 +1,19 @@
+{
+ "meal_types": {
+  "412ff1cb-f515-400c-8e42-25955bc5dc3d": {
+   "name": "Emizish"
+  },
+  "4143dfb4-4693-460f-8efa-794978efdc61": {
+   "name": "Tushlik"
+  },
+  "59640d15-c740-4039-9c3a-7fb36f823d14": {
+   "name": "Kechki ovqat"
+  },
+  "72451bbf-93be-416c-850b-d1601ab1dcc1": {
+   "name": "Nonushta"
+  },
+  "dba7014c-7f72-49b9-a747-2eb9c332bd35": {
+   "name": "Tamaddi"
+  }
+ }
+}

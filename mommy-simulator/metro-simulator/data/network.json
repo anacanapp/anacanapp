@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "reviewed": "2026-10-05",
+  "sources": [
+    "https://metro.gov.az/az/about-lines/2",
+    "https://metro.gov.az/az/about-lines/3",
+    "https://metro.gov.az/az/about-lines/5"
+  ],
+  "itinerary_note": "Oyun kampaniyasıdır. Müvəqqəti təmir və canlı hərəkət cədvəli modelləşdirilmir.",
+  "stations": [
+    { "id": "hazi", "name": "Həzi Aslanov", "short": "Həzi Aslanov", "theme": "#73998e", "mood": "Səhər başlayır. Bakı artıq yoldadır.", "hazard": "none" },
+    { "id": "ahmadli", "name": "Əhmədli", "short": "Əhmədli", "theme": "#a58772", "mood": "Çantalar çoxdur. Boşluğu vaxtında tut.", "hazard": "wave" },
+    { "id": "khalglar", "name": "Xalqlar Dostluğu", "short": "Xalqlar Dostluğu", "theme": "#a98b64", "mood": "İzdiham dalğa-dalğa gəlir.", "hazard": "wave" },
+    { "id": "neftchilar", "name": "Neftçilər", "short": "Neftçilər", "theme": "#80a2a0", "mood": "İşə tələsən şəhərin ritmini tut.", "hazard": "phone" },
+    { "id": "gara", "name": "Qara Qarayev", "short": "Qara Qarayev", "theme": "#9a8aab", "mood": "Sürətli toxunuş, dəqiq addım.", "hazard": "slip" },
+    { "id": "koroglu", "name": "Koroğlu", "short": "Koroğlu", "theme": "#7caaa0", "mood": "Avtobusdan metroya böyük axın.", "hazard": "wave" },
+    { "id": "ulduz", "name": "Ulduz", "short": "Ulduz", "theme": "#8c9fa5", "mood": "Dar keçiddə doğru zolağı seç.", "hazard": "barrier" },
+    { "id": "narimanov", "name": "Nəriman Nərimanov", "short": "Nərimanov", "theme": "#af9c78", "mood": "Çamadanlarla dolu platforma.", "hazard": "phone" },
+    { "id": "ganjlik", "name": "Gənclik", "short": "Gənclik", "theme": "#a8b4a0", "mood": "Pik saat. Burada temp hər şeydir.", "hazard": "wave" },
+    { "id": "may28", "name": "28 May", "short": "28 May", "theme": "#b2956b", "mood": "Şəhərin kəsişməsi. Üçqat izdiham.", "hazard": "wave" },
+    { "id": "nizami", "name": "Nizami", "short": "Nizami", "theme": "#aaa07b", "mood": "Mozaikalar arasında sürüşkən yol.", "hazard": "slip" },
+    { "id": "elmlar", "name": "Elmlər Akademiyası", "short": "Elmlər Akademiyası", "theme": "#97a5a4", "mood": "Dərs başlayır. Tələbə axınını aş.", "hazard": "phone" },
+    { "id": "inshaatchilar", "name": "İnşaatçılar", "short": "İnşaatçılar", "theme": "#b2917b", "mood": "Yeni maneələr, daha dar keçid.", "hazard": "barrier" },
+    { "id": "yanvar20", "name": "20 Yanvar", "short": "20 Yanvar", "theme": "#8795a2", "mood": "Qapılar bu dəfə daha tez bağlanır.", "hazard": "wave" },
+    { "id": "ajami", "name": "Memar Əcəmi", "short": "Memar Əcəmi", "theme": "#a3a27c", "mood": "Keçid stansiyasında böyük sınaq.", "hazard": "barrier" },
+    { "id": "nasimi", "name": "Nəsimi", "short": "Nəsimi", "theme": "#94aeab", "mood": "İzdihamdan əvvəl boşluğu gör.", "hazard": "slip" },
+    { "id": "azadlig", "name": "Azadlıq prospekti", "short": "Azadlıq prospekti", "theme": "#8f9b8d", "mood": "Son iki dayanacaq. Ritmi itirmə.", "hazard": "phone" },
+    { "id": "darnagul", "name": "Dərnəgül", "short": "Dərnəgül", "theme": "#8bb1a1", "mood": "Yaşıl xəttin finalı. Son qapı səni gözləyir.", "hazard": "wave" },
+    { "id": "sahil", "name": "Sahil", "short": "Sahil", "theme": "#93a9b3", "mood": "Dəniz küləyi, şəhər tələsi.", "hazard": "slip" },
+    { "id": "ichari", "name": "İçərişəhər", "short": "İçərişəhər", "theme": "#c0a77c", "mood": "Qədim şəhərdə son böyük keçid.", "hazard": "wave" },
+    { "id": "bakmil", "name": "Bakmil", "short": "Bakmil", "theme": "#9bada3", "mood": "Depo ekspresi. Qısa yol, sərt sınaq.", "hazard": "barrier" },
+    { "id": "jabbarli", "name": "Cəfər Cabbarlı", "short": "Cəfər Cabbarlı", "theme": "#b09e87", "mood": "Keçid axınına qoşul, vaxtı qoru.", "hazard": "wave" },
+    { "id": "khatai", "name": "Şah İsmayıl Xətai", "short": "Xətai", "theme": "#a9a993", "mood": "Məkik qatarına son saniyədə çat.", "hazard": "phone" },
+    { "id": "khojasan", "name": "Xocəsən", "short": "Xocəsən", "theme": "#969fbb", "mood": "Yeni xətt. Yeni şəhər ritmi.", "hazard": "barrier" },
+    { "id": "avtovagzal", "name": "Avtovağzal", "short": "Avtovağzal", "theme": "#a9a0c2", "mood": "Səfər çantaları yolu bağlayır.", "hazard": "wave" },
+    { "id": "ajami2", "name": "Memar Əcəmi 2", "short": "Memar Əcəmi 2", "theme": "#ada4bc", "mood": "Yaşıl xətdən gələn izdihamı aş.", "hazard": "slip" },
+    { "id": "noyabr8", "name": "8 Noyabr", "short": "8 Noyabr", "theme": "#9cabc0", "mood": "Bənövşəyi xəttin final sprinti.", "hazard": "wave" }
+  ],
+  "routes": [
+    { "id": "green", "name": "Yaşıl marşrut", "line": "YAŞIL XƏTT", "color": "#b7f36b", "from": "Həzi Aslanov", "to": "Dərnəgül", "subtitle": "Şəhəri başdan-başa keç", "difficulty_offset": 0, "stations": ["hazi", "ahmadli", "khalglar", "neftchilar", "gara", "koroglu", "ulduz", "narimanov", "ganjlik", "may28", "nizami", "elmlar", "inshaatchilar", "yanvar20", "ajami", "nasimi", "azadlig", "darnagul"] },
+    { "id": "red", "name": "Qırmızı marşrut", "line": "QIRMIZI XƏTT", "color": "#ff8576", "from": "Həzi Aslanov", "to": "İçərişəhər", "subtitle": "Köhnə şəhərə son qatar", "difficulty_offset": 0, "stations": ["hazi", "ahmadli", "khalglar", "neftchilar", "gara", "koroglu", "ulduz", "narimanov", "ganjlik", "may28", "sahil", "ichari"] },
+    { "id": "depot", "name": "Bakmil ekspresi", "line": "DEPO QOLU", "color": "#ffc978", "from": "Nərimanov", "to": "Bakmil", "subtitle": "Bir stansiya, dörd qapı", "difficulty_offset": 5, "stations": ["bakmil"] },
+    { "id": "shuttle", "name": "Xətai keçidi", "line": "YAŞIL MƏKİK", "color": "#78dbba", "from": "Cəfər Cabbarlı", "to": "Xətai", "subtitle": "28 May-dan keçid macərası", "difficulty_offset": 3, "stations": ["jabbarli", "khatai"] },
+    { "id": "purple", "name": "Bənövşəyi marşrut", "line": "BƏNÖVŞƏYİ XƏTT", "color": "#b6a0ff", "from": "Xocəsən", "to": "8 Noyabr", "subtitle": "Yeni xəttin sürətli ritmi", "difficulty_offset": 4, "stations": ["khojasan", "avtovagzal", "ajami2", "noyabr8"] }
+  ]
+}

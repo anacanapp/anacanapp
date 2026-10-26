@@ -1,0 +1,78 @@
+{
+  "schema": "anacan-two-friends-acceptance-v1",
+  "at": "2026-10-09T05:01:06.980Z",
+  "passed": true,
+  "revision": "friends-202610-v1",
+  "languages": [
+    "az",
+    "en",
+    "tr",
+    "ru",
+    "de",
+    "ar",
+    "ka",
+    "kk",
+    "uz",
+    "zh",
+    "id",
+    "fr",
+    "es",
+    "pt",
+    "vi",
+    "hi",
+    "ja",
+    "ko",
+    "pl",
+    "nl",
+    "sv"
+  ],
+  "featureTests": {
+    "passed": 21,
+    "failed": 0,
+    "sha256": "af8d78fe1838f6b36792d5a3ca537faa69bbdd1e15523ad5b69731ecf6bc394a"
+  },
+  "independentLevels": {
+    "count": 40,
+    "optimalSolutionsVerified": true,
+    "keysRequired": 16,
+    "pressureDoorsRequired": 16,
+    "doubleSwitchLevels": 6,
+    "asymmetricCoordinationLevels": 36,
+    "catalogSha256": "6ffc8074382e6947d81d963662fea8845206af7e4c34b1eea03e4029c31d76f8"
+  },
+  "productionBrowser": {
+    "checks": 14,
+    "screenshots": 13,
+    "realTouch": true,
+    "realSwipeKeyboard": true,
+    "realWorkerHints": true,
+    "resumeUndo": true,
+    "rtl": true,
+    "testedWidths": [
+      320,
+      390,
+      428,
+      768,
+      844
+    ],
+    "landscape": "844x390"
+  },
+  "productionIndexSha256": "a2e6bef487e28df3447931f5ca26a7de416a88332db7f86fa399a65fc6365afc",
+  "developmentChecks": {
+    "appTypeScript": true,
+    "nodeTypeScript": true,
+    "featureEslint": true,
+    "googleProductionBuild": true
+  },
+  "delivery": {
+    "version": "48.2",
+    "runId": "native-20261009t044714-61919dce",
+    "signedDevelopmentPackage": true,
+    "installed": true,
+    "launched": false,
+    "launchVerification": "user-will-launch",
+    "physicalGameplayVerified": false,
+    "ipaSha256": "3710efaa8c5255ce462dc9c5fac070590b6858fc3100c8bf6baa49c250a9a9e4",
+    "liveWebDeployed": false
+  }
+}

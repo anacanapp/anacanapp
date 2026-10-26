@@ -1,0 +1,132 @@
+{
+  "schema": "mommy-public-connection-v1",
+  "origin": "https://gcp.anacan.az",
+  "project": "ninth-park-492111-m4",
+  "publicKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlzcyI6InN1cGFiYXNlLXNlbGYtaG9zdGVkIiwiaWF0IjoxNzg3NjYxOTU1LCJleHAiOjIxMDMwMjE5NTV9.gw4t5VsSk3W6b1hwIu6efB7DsFTP1u83EFRl2oSkBvs",
+  "tables": [
+    {
+      "key": "pregnancy",
+      "table": "pregnancy_daily_content",
+      "order": "pregnancy_day.asc,id.asc",
+      "fields": [
+        "id",
+        "pregnancy_day",
+        "week_number",
+        "baby_size_cm",
+        "baby_weight_gram",
+        "baby_size_fruit",
+        "baby_size_fruit_en",
+        "baby_size_fruit_tr",
+        "baby_development",
+        "baby_development_en",
+        "baby_development_tr",
+        "baby_message",
+        "baby_message_en",
+        "baby_message_tr",
+        "daily_tip",
+        "daily_tip_en",
+        "daily_tip_tr",
+        "emotional_tip",
+        "emotional_tip_en",
+        "emotional_tip_tr",
+        "partner_tip",
+        "partner_tip_en",
+        "partner_tip_tr"
+      ]
+    },
+    {
+      "key": "milestones",
+      "table": "baby_milestones_db",
+      "order": "sort_order.asc,id.asc",
+      "fields": [
+        "id",
+        "milestone_key",
+        "week_number",
+        "emoji",
+        "label",
+        "label_az",
+        "label_en",
+        "label_tr",
+        "description",
+        "description_az",
+        "description_en",
+        "description_tr"
+      ]
+    },
+    {
+      "key": "recipes",
+      "table": "admin_recipes",
+      "order": "id.asc",
+      "fields": [
+        "id",
+        "category",
+        "prep_time",
+        "cook_time",
+        "image_url",
+        "title",
+        "title_en",
+        "title_tr",
+        "description",
+        "description_en",
+        "description_tr",
+        "ingredients",
+        "ingredients_en",
+        "ingredients_tr",
+        "instructions",
+        "instructions_en",
+        "instructions_tr"
+      ]
+    },
+    {
+      "key": "bag",
+      "table": "hospital_bag_templates",
+      "order": "sort_order.asc,id.asc",
+      "fields": [
+        "id",
+        "category",
+        "is_essential",
+        "sort_order",
+        "item_name",
+        "item_name_az",
+        "item_name_en",
+        "item_name_tr"
+      ]
+    },
+    {
+      "key": "names",
+      "table": "baby_names_db",
+      "order": "popularity.desc.nullslast,id.asc",
+      "filters": {
+        "lang": "eq.az"
+      },
+      "fields": [
+        "id",
+        "name",
+        "gender",
+        "lang",
+        "popularity",
+        "meaning",
+        "meaning_az",
+        "meaning_en",
+        "meaning_tr",
+        "origin"
+      ]
+    },
+    {
+      "key": "weekly",
+      "table": "weekly_tips",
+      "order": "week_number.asc,id.asc",
+      "fields": [
+        "id",
+        "week_number",
+        "life_stage",
+        "title",
+        "title_en",
+        "title_tr",
+        "content",
+        "content_en",
+        "content_tr"
+      ]
+    }
+  ]
+}

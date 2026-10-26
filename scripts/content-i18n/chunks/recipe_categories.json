@@ -1,0 +1,72 @@
+[
+ {
+  "id": "2a8e4579-0a92-4abc-8bbc-75a27dea9790",
+  "category_id": "sam_yemeyi",
+  "name": "Şam yeməyi",
+  "name_az": "Şam yeməyi",
+  "emoji": "🥘",
+  "life_stage": null,
+  "sort_order": 6,
+  "is_active": true,
+  "created_at": "2026-02-09T18:17:20.1467+00:00",
+  "name_en": "Dinners",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "372ace86-3995-45a2-9f98-b60238b36256",
+  "category_id": "saglam_ickiler",
+  "name": "Sağlam İçkilər",
+  "name_az": "Sağlam İçkilər",
+  "emoji": "🥤",
+  "life_stage": null,
+  "sort_order": 3,
+  "is_active": true,
+  "created_at": "2026-02-09T18:17:20.1467+00:00",
+  "name_en": "Healthy Drinks",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "842a4571-5f45-41d9-b267-b0d40a4caafd",
+  "category_id": "seher_yemeyi",
+  "name": "Səhər yeməyi",
+  "name_az": "Səhər yeməyi",
+  "emoji": "🍳",
+  "life_stage": null,
+  "sort_order": 4,
+  "is_active": true,
+  "created_at": "2026-02-09T18:17:20.1467+00:00",
+  "name_en": "Breakfasts",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "a7474502-9f4f-4d80-8dcc-007604627c5e",
+  "category_id": "nahar_yemeyi",
+  "name": "Nahar yeməyi",
+  "name_az": "Nahar yeməyi",
+  "emoji": "🍲",
+  "life_stage": null,
+  "sort_order": 5,
+  "is_active": true,
+  "created_at": "2026-02-09T18:17:20.1467+00:00",
+  "name_en": "Lunches",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "d0dff360-a4a9-4980-9969-fafcef8d4942",
+  "category_id": "saglam_sirniyyatlar",
+  "name": "Sağlam Şirniyyatlar",
+  "name_az": "Sağlam Şirniyyatlar",
+  "emoji": "🍰",
+  "life_stage": null,
+  "sort_order": 2,
+  "is_active": true,
+  "created_at": "2026-02-09T18:17:20.1467+00:00",
+  "name_en": "Healthy Sweets",
+  "name_ru": null,
+  "name_tr": null
+ }
+]

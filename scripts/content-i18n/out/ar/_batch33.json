@@ -1,0 +1,13 @@
+{
+ "nutrition_targets": {
+  "0f7145c3-e9e8-49ec-9aff-cd01a14f11c9": {
+   "description": "فترة الرضاعة الطبيعية"
+  },
+  "3be882f9-ab44-4cd3-9c83-4cdade104577": {
+   "description": "فترة الحمل"
+  },
+  "5fe72988-1d1d-401a-a043-4649c38c0061": {
+   "description": "الصحة العامة"
+  }
+ }
+}

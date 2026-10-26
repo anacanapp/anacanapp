@@ -1,0 +1,50 @@
+{
+ "missingKk": [
+  "community_header_bump",
+  "community_header_flow",
+  "community_header_trying",
+  "group_desc_hamiləlik",
+  "group_desc_məsləhət",
+  "group_desc_təcrübəli_analar",
+  "group_desc_yeni_analar",
+  "group_name_hamiləlik",
+  "group_name_məsləhət",
+  "group_name_təcrübəli_analar",
+  "group_name_yeni_analar"
+ ],
+ "values": {
+  "community_header_bump": {
+   "en": "Connect with other expectant mothers"
+  },
+  "community_header_flow": {
+   "en": "Connect with others trying to conceive"
+  },
+  "community_header_trying": {
+   "en": "Connect with others trying to conceive"
+  },
+  "group_desc_hamiləlik": {
+   "en": "Connect with other expectant mothers"
+  },
+  "group_desc_məsləhət": {
+   "en": "Ask questions and get advice from mothers"
+  },
+  "group_desc_təcrübəli_analar": {
+   "en": "Share advice and experiences"
+  },
+  "group_desc_yeni_analar": {
+   "en": "Share experiences about newborn care"
+  },
+  "group_name_hamiləlik": {
+   "en": "Pregnancy"
+  },
+  "group_name_məsləhət": {
+   "en": "Advice"
+  },
+  "group_name_təcrübəli_analar": {
+   "en": "Experienced Mothers"
+  },
+  "group_name_yeni_analar": {
+   "en": "New Mothers"
+  }
+ }
+}

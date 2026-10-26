@@ -1,0 +1,76 @@
+{
+ "faqs": {
+  "438da049-addd-4cca-bcac-f37630aeda58": {
+   "question": "Anacan nima?",
+   "answer": "Anacan — homiladorlik, tug‘ruq va onalik davringizda sizga yordam beradigan mobil ilova."
+  },
+  "a2f59e84-bacd-44b6-a0c7-59dd61f2dcbf": {
+   "question": "Ilova qaysi platformalarda mavjud?",
+   "answer": "Anacan ilovasini iOS va Android platformalariga yuklab olish mumkin."
+  },
+  "44ba92c4-4cce-4e6e-a953-36953f4c2894": {
+   "question": "Ilova o‘zbek tilidami?",
+   "answer": "Ha! Anacan ham o‘zbek, ham ingliz tilida mavjud."
+  },
+  "842ac77d-8cc3-4bc6-af3d-a767c6881cbb": {
+   "question": "Ilova bepulmi?",
+   "answer": "Asosiy funksiyalar bepul. Qo‘shimcha imkoniyatlar uchun Premium mavjud."
+  },
+  "caa7fc25-0cfc-4524-881e-93f5150d0d2a": {
+   "question": "Premium obunasi qanday imkoniyatlarni taqdim etadi?",
+   "answer": "Premium bilan sun’iy intellekt yordamchisidan cheksiz foydalanish va eksklyuziv kontentga kirish imkoniga ega bo‘lasiz."
+  },
+  "79ee2017-343f-41c5-a4d3-b0ddb22a6013": {
+   "question": "Obunani qanday bekor qilishim mumkin?",
+   "answer": "Profil > Obuna bo‘limi orqali uni istalgan vaqtda bekor qilishingiz mumkin."
+  },
+  "4b092958-cdb1-4970-8946-552d3cf3dc5f": {
+   "question": "Ma’lumotlarim xavfsizmi?",
+   "answer": "Ma’lumotlaringiz shifrlanadi va xavfsiz saqlanadi."
+  },
+  "cea56026-85a8-4a67-9af0-616e55876d7c": {
+   "question": "Ma’lumotlarimni o‘chira olamanmi?",
+   "answer": "Ha, hisobingizni istalgan vaqtda o‘chirishingiz mumkin."
+  },
+  "2aadc8d5-4aef-4443-8133-365ae93fe4f9": {
+   "question": "Ma’lumotlarim uchinchi tomonlar bilan ulashiladimi?",
+   "answer": "Yo‘q, ma’lumotlaringiz hech kimga sotilmaydi."
+  },
+  "89fa6361-f22e-4303-9db4-d37b763e913d": {
+   "question": "Yig‘i analizatori qanday ishlaydi?",
+   "answer": "U sun’iy intellekt texnologiyasi yordamida chaqaloqning ovozini tahlil qiladi."
+  },
+  "2f0a86b1-0a16-49f5-a204-9efe85786d05": {
+   "question": "Uyquni kuzatish aniqmi?",
+   "answer": "U siz qo‘lda kiritgan ma’lumotlar asosida ishlaydi."
+  },
+  "014afe49-2799-44e5-b3ab-23f9cb4efbf7": {
+   "question": "Ertak generatori qanday ishlaydi?",
+   "answer": "Sun’iy intellekt yordamida individual ertaklar yaratiladi."
+  },
+  "39ee01ac-35b3-4b7c-8e94-c38d04914101": {
+   "question": "Dr. Anacan kim?",
+   "answer": "Dr. Anacan — sun’iy intellekt asosidagi virtual shifokor yordamchisi."
+  },
+  "6e6fd1d5-e8a1-4342-988a-6d33d2e16ef3": {
+   "question": "Sun’iy intellekt shifokorining tavsiyalariga ishonsam bo‘ladimi?",
+   "answer": "Dr. Anacan umumiy ma’lumot beradi va haqiqiy shifokor o‘rnini bosa olmaydi."
+  },
+  "4afb8ef8-3847-4b0c-ae69-d1f1392bf148": {
+   "question": "Suhbatlar tarixi saqlanadimi?",
+   "answer": "Ha, barcha suhbatlaringiz hisobingizda saqlanadi."
+  },
+  "3954f6a5-cc07-4ceb-b58d-6860a8818296": {
+   "question": "Hamjamiyatga qanday qo‘shilsam bo‘ladi?",
+   "answer": "Ro‘yxatdan o‘tganingizdan so‘ng avtomatik ravishda qo‘shilasiz."
+  },
+  "00ea0146-c70b-4f41-a1a1-6dbc6972d1e5": {
+   "question": "Postlarim anonim bo‘lishi mumkinmi?",
+   "answer": "Ha, anonim rejimni tanlashingiz mumkin."
+  },
+  "8bfd2f91-c65a-4183-99d6-33b219dada37": {
+   "question": "Nomaqbul kontentni ko‘rsam, nima qilishim kerak?",
+   "answer": "“Shikoyat qilish” tugmasidan foydalaning."
+  }
+ }
+}

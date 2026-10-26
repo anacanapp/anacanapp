@@ -1,0 +1,363 @@
+{
+  "schema": "anacan-translation-bundles-v1",
+  "at": "2026-09-24T07:43:00.537Z",
+  "languages": [
+    "zh",
+    "id",
+    "fr",
+    "es",
+    "pt",
+    "vi",
+    "hi",
+    "ja",
+    "ko",
+    "pl",
+    "nl",
+    "sv"
+  ],
+  "uiSourceHash": "5217894a62fa59b1b39bf0cc19e95dcab11d5d1805833e473bc8a77c7d53fad8",
+  "contentSourceHash": "acb69e8c504923bc3171713ad1a20ad26f2b4141691f565d1ceb987f1f6876df",
+  "uiKeysHash": "245be0f603cae680ccac8d113ef2b0d115e0ffd273f237dabc40fb389e26c9c1",
+  "contentBindingsHash": "a26a3ad9dd5d7b1e57a7a661e39a9c38fa1ae23a36a17318c02df33f902d3472",
+  "files": [
+    {
+      "language": "zh",
+      "kind": "ui",
+      "file": "scripts/i18n/zh.seed.json",
+      "count": 11389,
+      "bytes": 708730,
+      "sha256": "6bd78ea81acc91b2270ec9a472a7ec00f56903163a0ff23e65f015cfd9582f91"
+    },
+    {
+      "language": "zh",
+      "kind": "content",
+      "file": "scripts/i18n/content/zh.json",
+      "count": 14290,
+      "bytes": 4456299,
+      "sha256": "3e3b8ef010f61f65adf21ae30aebb625a61951b6ca1af7856b2e84208a3ea959"
+    },
+    {
+      "language": "id",
+      "kind": "ui",
+      "file": "scripts/i18n/id.seed.json",
+      "count": 11389,
+      "bytes": 741532,
+      "sha256": "5c290dc8a6525720d7811915dbdc3e1731c4771a91eb094308ffac53b856e3b5"
+    },
+    {
+      "language": "id",
+      "kind": "content",
+      "file": "scripts/i18n/content/id.json",
+      "count": 14290,
+      "bytes": 5176610,
+      "sha256": "98678c6d84616e311e6925cd3a145ebb141dd0adedd7ba9eb435d2433414637f"
+    },
+    {
+      "language": "fr",
+      "kind": "ui",
+      "file": "scripts/i18n/fr.seed.json",
+      "count": 11389,
+      "bytes": 788022,
+      "sha256": "2b1688086c39e1da3d0437b1af2c23b485082368b6da19b4356ba5ea84b9c13a"
+    },
+    {
+      "language": "fr",
+      "kind": "content",
+      "file": "scripts/i18n/content/fr.json",
+      "count": 14290,
+      "bytes": 5569356,
+      "sha256": "b7f0899bad0b6d4222b0830c5d7988700eee94c547c4e85a9fc24d26a8438062"
+    },
+    {
+      "language": "es",
+      "kind": "ui",
+      "file": "scripts/i18n/es.seed.json",
+      "count": 11389,
+      "bytes": 767710,
+      "sha256": "1b604680fe89bc2ae3f23c7de3277c403cd88b21c9bbecf3d9873e748a81263f"
+    },
+    {
+      "language": "es",
+      "kind": "content",
+      "file": "scripts/i18n/content/es.json",
+      "count": 14290,
+      "bytes": 5223507,
+      "sha256": "51655a4cc672a4c1a261a15ac3f881b2880f73b38f6492e849634951feeabeba"
+    },
+    {
+      "language": "pt",
+      "kind": "ui",
+      "file": "scripts/i18n/pt.seed.json",
+      "count": 11389,
+      "bytes": 767474,
+      "sha256": "d6c4ac8703bd9df4f2794c76e34217d03ee6065bb16ea8cbc92723a41207b261"
+    },
+    {
+      "language": "pt",
+      "kind": "content",
+      "file": "scripts/i18n/content/pt.json",
+      "count": 14290,
+      "bytes": 5243296,
+      "sha256": "e81ffe29146c833f03a172ef2b42a7a0ef4c8f9e1898c2a1e405915a8ae11809"
+    },
+    {
+      "language": "vi",
+      "kind": "ui",
+      "file": "scripts/i18n/vi.seed.json",
+      "count": 11389,
+      "bytes": 816288,
+      "sha256": "e056c85fb2b160973caba738e093f34f2754528f644162f7f66b720591b29128"
+    },
+    {
+      "language": "vi",
+      "kind": "content",
+      "file": "scripts/i18n/content/vi.json",
+      "count": 14290,
+      "bytes": 5845238,
+      "sha256": "55d085f8368f8daba317c10394a78cf63c576494d965a03b33e78092100c0062"
+    },
+    {
+      "language": "hi",
+      "kind": "ui",
+      "file": "scripts/i18n/hi.seed.json",
+      "count": 11389,
+      "bytes": 1074865,
+      "sha256": "387afe19a3af8efd213f422c297120da8784def7bed60efba37069d9ba8bfbc7"
+    },
+    {
+      "language": "hi",
+      "kind": "content",
+      "file": "scripts/i18n/content/hi.json",
+      "count": 14290,
+      "bytes": 9615375,
+      "sha256": "6e83be94b4faecdd8ce916845869124952a82859636a99611cb4a1b01a99483e"
+    },
+    {
+      "language": "ja",
+      "kind": "ui",
+      "file": "scripts/i18n/ja.seed.json",
+      "count": 11389,
+      "bytes": 807177,
+      "sha256": "d9b40232fccb86162a4738d78277acd7982e86198ad789a4a666016964962aa7"
+    },
+    {
+      "language": "ja",
+      "kind": "content",
+      "file": "scripts/i18n/content/ja.json",
+      "count": 14290,
+      "bytes": 5515445,
+      "sha256": "e8a49426124a3efa8d884b8ca8f730ec6073b6f87694698131d093a70fdd641f"
+    },
+    {
+      "language": "ko",
+      "kind": "ui",
+      "file": "scripts/i18n/ko.seed.json",
+      "count": 11389,
+      "bytes": 766709,
+      "sha256": "cfe475449040b28da4bbe18c63724b6032beed1c50be8400254b05fc4eec44df"
+    },
+    {
+      "language": "ko",
+      "kind": "content",
+      "file": "scripts/i18n/content/ko.json",
+      "count": 14290,
+      "bytes": 5194237,
+      "sha256": "722f540dace7fe575f730c9911803208e16f326d87a7ae7384c7e72434e37cad"
+    },
+    {
+      "language": "pl",
+      "kind": "ui",
+      "file": "scripts/i18n/pl.seed.json",
+      "count": 11389,
+      "bytes": 763759,
+      "sha256": "5c5739070b7aeb93053ed168bfe08cd30d2782d8b43d4d6a32067505bb0aaa5c"
+    },
+    {
+      "language": "pl",
+      "kind": "content",
+      "file": "scripts/i18n/content/pl.json",
+      "count": 14290,
+      "bytes": 5170172,
+      "sha256": "f2d644e3dc0eea45a775622898ee7af5a0e820f5a6f48dc1a701c516404f9e65"
+    },
+    {
+      "language": "nl",
+      "kind": "ui",
+      "file": "scripts/i18n/nl.seed.json",
+      "count": 11389,
+      "bytes": 750869,
+      "sha256": "43791219a8e77e3dce5662099e89aba5aca173e23014901b1abebf84ab3ba807"
+    },
+    {
+      "language": "nl",
+      "kind": "content",
+      "file": "scripts/i18n/content/nl.json",
+      "count": 14290,
+      "bytes": 4980567,
+      "sha256": "420106b4eba35517600b656c76cde4b283254e03c49d9eed7176e1aff89e314f"
+    },
+    {
+      "language": "sv",
+      "kind": "ui",
+      "file": "scripts/i18n/sv.seed.json",
+      "count": 11389,
+      "bytes": 740602,
+      "sha256": "433f08de1d6939bbd4a8a557cd15a82bac371b6e363e433004b7146c34b1f86c"
+    },
+    {
+      "language": "sv",
+      "kind": "content",
+      "file": "scripts/i18n/content/sv.json",
+      "count": 14290,
+      "bytes": 4878844,
+      "sha256": "82c4525de4539011e3b75b0a9e6ace34ec3d1e8645b353eec4b173498a067816"
+    }
+  ],
+  "publicPremiumCopy": {
+    "file": "scripts/i18n/premium-copy.json",
+    "bytes": 30408,
+    "sha256": "ab1219922dea72bdd5bbd5036401850dddb80cfc57229ff93ad44ec354e392dd",
+    "bindings": 36
+  },
+  "publicRegionalCopy": {
+    "languages": [
+      "az",
+      "en",
+      "tr",
+      "ru",
+      "de",
+      "ar",
+      "ka",
+      "kk",
+      "uz",
+      "zh",
+      "id",
+      "fr",
+      "es",
+      "pt",
+      "vi",
+      "hi",
+      "ja",
+      "ko",
+      "pl",
+      "nl",
+      "sv"
+    ],
+    "keys": 9,
+    "bytes": 13836,
+    "sha256": "d3da973ede8b5d8714c8375f03c4b7a3e9d5261ecdcba3f5058f1d791909632b"
+  },
+  "publicFollowupCopy": {
+    "languages": [
+      "az",
+      "en",
+      "tr",
+      "ru",
+      "de",
+      "ar",
+      "ka",
+      "kk",
+      "uz",
+      "zh",
+      "id",
+      "fr",
+      "es",
+      "pt",
+      "vi",
+      "hi",
+      "ja",
+      "ko",
+      "pl",
+      "nl",
+      "sv"
+    ],
+    "keys": 41,
+    "bytes": 63920,
+    "sha256": "9293472d8e1820a318a88245c3ff7ba2b35d40c8c7a9abf86bcd383563c35dc4"
+  },
+  "publicFollowupContent": {
+    "languages": [
+      "az",
+      "en",
+      "tr",
+      "ru",
+      "de",
+      "ar",
+      "ka",
+      "kk",
+      "uz",
+      "zh",
+      "id",
+      "fr",
+      "es",
+      "pt",
+      "vi",
+      "hi",
+      "ja",
+      "ko",
+      "pl",
+      "nl",
+      "sv"
+    ],
+    "bindings": 95,
+    "bytes": 393239,
+    "sha256": "7318591b1cbdecb11c730e988e8b4bfa722d60cfd0b7d1cf55bc09612f470492"
+  },
+  "publicMaternityCopy": {
+    "languages": [
+      "az",
+      "en",
+      "tr",
+      "ru",
+      "de",
+      "ar",
+      "ka",
+      "kk",
+      "uz",
+      "zh",
+      "id",
+      "fr",
+      "es",
+      "pt",
+      "vi",
+      "hi",
+      "ja",
+      "ko",
+      "pl",
+      "nl",
+      "sv"
+    ],
+    "keys": 96,
+    "bytes": 551686,
+    "sha256": "f959d83f156596fc65885114f0b0a132e1c4a3af47c2b115a65bfa403b29f0a3",
+    "policySha256": "6fd7e67ec2fc8180e4d9be1d273bdb0195ba47fcf5525f0638323448c7e2ded6"
+  },
+  "publicFeature37Copy": {
+    "languages": [
+      "az",
+      "en",
+      "tr",
+      "ru",
+      "de",
+      "ar",
+      "ka",
+      "kk",
+      "uz",
+      "zh",
+      "id",
+      "fr",
+      "es",
+      "pt",
+      "vi",
+      "hi",
+      "ja",
+      "ko",
+      "pl",
+      "nl",
+      "sv"
+    ],
+    "keys": 21,
+    "bytes": 33210,
+    "sha256": "b4789f45d3e791604fb82bcadcce436eecd05ad9f5723af585a3d8569f85175f"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "country_code": "KZ",
+  "country_name": "Kazakhstan",
+  "providers": [
+    {
+      "name": "Акушерлік, гинекология және перинатология ғылыми орталығы",
+      "name_en": "Scientific Center of Obstetrics, Gynecology and Perinatology",
+      "provider_type": "hospital",
+      "specialty": "Акушерлік, гинекология және перинатология",
+      "specialty_en": "Obstetrics, Gynecology & Perinatology",
+      "city": "Almaty",
+      "phone": "+7 727 300-45-99",
+      "website": "https://ncagip.kz/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "Ана мен бала ұлттық ғылыми орталығы",
+      "name_en": "National Research Center for Maternal and Child Health",
+      "provider_type": "hospital",
+      "specialty": "Акушерлік, гинекология, перинатология және педиатрия",
+      "specialty_en": "Obstetrics, Gynecology, Perinatology & Pediatrics",
+      "city": "Astana",
+      "phone": null,
+      "website": "https://umc.org.kz/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "Педиатрия және балалар хирургиясы ғылыми орталығы",
+      "name_en": "Scientific Center of Pediatrics and Pediatric Surgery",
+      "provider_type": "hospital",
+      "specialty": "Педиатрия және балалар хирургиясы",
+      "specialty_en": "Pediatrics & Pediatric Surgery",
+      "city": "Almaty",
+      "phone": null,
+      "website": "https://pediatria.kz/",
+      "is_major_landmark": true
+    },
+    {
+      "name": "Перинатология және балалар кардиохирургиясы орталығы",
+      "name_en": "Center of Perinatology and Pediatric Cardiac Surgery",
+      "provider_type": "hospital",
+      "specialty": "Перинатология және балалар кардиохирургиясы",
+      "specialty_en": "Perinatology & Pediatric Cardiac Surgery",
+      "city": "Almaty",
+      "phone": null,
+      "website": null,
+      "is_major_landmark": true
+    },
+    {
+      "name": "Алматы қалалық перинаталдық орталығы",
+      "name_en": "Almaty City Perinatal Center",
+      "provider_type": "hospital",
+      "specialty": "Акушерлік, гинекология және неонатология",
+      "specialty_en": "Obstetrics, Gynecology & Neonatology",
+      "city": "Almaty",
+      "phone": null,
+      "website": null,
+      "is_major_landmark": true
+    },
+    {
+      "name": "Қарағанды облыстық перинаталдық орталығы",
+      "name_en": "Karaganda Regional Perinatal Center",
+      "provider_type": "hospital",
+      "specialty": "Акушерлік, перинатология және неонатология",
+      "specialty_en": "Obstetrics, Perinatology & Neonatology",
+      "city": "Karaganda",
+      "phone": null,
+      "website": null,
+      "is_major_landmark": true
+    },
+    {
+      "name": "Шымкент қалалық перинаталдық орталығы",
+      "name_en": "Shymkent City Perinatal Center",
+      "provider_type": "hospital",
+      "specialty": "Акушерлік, перинатология және неонатология",
+      "specialty_en": "Obstetrics, Perinatology & Neonatology",
+      "city": "Shymkent",
+      "phone": null,
+      "website": null,
+      "is_major_landmark": true
+    },
+    {
+      "name": "Ақтөбе облыстық перинаталдық орталығы",
+      "name_en": "Aktobe Regional Perinatal Center",
+      "provider_type": "hospital",
+      "specialty": "Акушерлік, перинатология және неонатология",
+      "specialty_en": "Obstetrics, Perinatology & Neonatology",
+      "city": "Aktobe",
+      "phone": null,
+      "website": null,
+      "is_major_landmark": true
+    }
+  ]
+}

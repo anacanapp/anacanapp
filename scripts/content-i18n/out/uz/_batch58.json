@@ -1,0 +1,109 @@
+{
+ "mom_friendly_places": {
+  "a1b32b65-24d6-4dd3-92b7-c02bee0b8fb0": {
+   "name": "Mari Vanna",
+   "description": "O‘yin xonasi va enaga xizmati mavjud oilaviy restoran",
+   "address": "Zarifa Aliyeva ko‘chasi"
+  },
+  "c7604c2d-8dcd-46c1-9bc6-66037f04c900": {
+   "name": "Kinderland",
+   "description": "Xavfsizlik bilaguzuklari va dam olish hududi mavjud katta yopiq o‘yin maydonchasi",
+   "address": "Dəniz Mall (5-qavat)"
+  },
+  "cc619ac0-309b-46d4-952b-9822a8a45ff7": {
+   "name": "Gazelli House",
+   "description": "SPA, go‘zallik xizmatlari va sog‘lom ovqatlanish kafesi",
+   "address": "Nizomiy ko‘chasi"
+  },
+  "d0d061fe-b7c9-44ef-8597-a6137850a310": {
+   "name": "Oq shahar bulvari",
+   "description": "Bolalar aravachasi uchun juda qulay, tekis yo‘laklari bor zamonaviy bulvar",
+   "address": "Oq shahar"
+  },
+  "d342802c-67ec-4ce5-b16d-54aefa1b841d": {
+   "name": "YARAT zamonaviy san’at maskani",
+   "description": "Kafesi bor va dengiz bo‘yida sayr qilish imkonini beruvchi zamonaviy san’at maskani",
+   "address": "Bayil"
+  },
+  "db79576b-1679-4cd0-8848-a010c6a6620e": {
+   "name": "Park Cinema",
+   "description": "Flame Towers majmuasidagi kinoteatr",
+   "address": "Flame Towers"
+  },
+  "41d4ffc1-6f29-4a61-ac25-1df92cea84e1": {
+   "name": "Dreamland Boku",
+   "description": "Ko‘l bo‘yida sayr qilish imkoniyati va restoranlari bor golf klubi",
+   "address": "Aeroport yo‘li (Zig‘ shossesi)"
+  },
+  "457acfb4-c668-4cb5-bd3a-211447a90f01": {
+   "name": "CinemaPlus (Platinum zali)",
+   "description": "Onalar uchun yotib tomosha qilishga mos qulay o‘rindiqlari bor premium kinoteatr",
+   "address": "Deniz Mall / Genjlik Mall"
+  },
+  "4c1fe501-8007-4088-b013-b53a9ba23f5d": {
+   "name": "Ozarbayjon Gilam muzeyi",
+   "description": "Kirish uchun qulay sharoit va dengiz manzarasiga ega gilam muzeyi",
+   "address": "Dengizbo‘yi bulvari"
+  },
+  "4e120b99-42a5-4291-916c-73ddc429e634": {
+   "name": "Boku hayvonot bog‘i",
+   "description": "Bolalar aravachasi uchun qulay yo‘laklari va o‘yin maydonchasi bor hayvonot bog‘i",
+   "address": "Narimonov tumani"
+  },
+  "91e4d074-13ba-4905-bdd8-112d17789f63": {
+   "name": "Little Champions",
+   "description": "Chaqaloqlar uchun barcha qulayliklarga ega bolalar kafesi",
+   "address": "Port Baku Mall"
+  },
+  "99eaf588-b414-4116-9da5-7ce08a21d9ed": {
+   "name": "Entrée",
+   "description": "Yangi yopilgan non va foydali yeguliklar taklif qilinadigan kafe",
+   "address": "Port Baku / Nizomiy filiallari"
+  },
+  "17739a2c-efbd-4ecf-be72-b7cca00bee7e": {
+   "name": "Vapiano",
+   "description": "Bolalar aravachasi uchun keng yo‘laklarga ega shinam restoran",
+   "address": "Landmark / Sahil"
+  },
+  "229510f6-4ee4-4426-b71d-4424162c7862": {
+   "name": "Alice's",
+   "description": "Mavzuli interyerga ega, bolalar uchun qiziqarli restoran",
+   "address": "Port Baku Mall / Deniz Mall"
+  },
+  "2c3c0826-98aa-4b74-ab47-e31b37612fa4": {
+   "name": "Beauttech",
+   "description": "Port Baku Malldagi go‘zallik saloni",
+   "address": "Port Baku Mall"
+  },
+  "3e1358e8-e3d7-4d6e-9713-d5dd0778b7ac": {
+   "name": "Haydar Aliyev markazi",
+   "description": "Park, muzey va kafeteriyaga ega madaniyat markazi",
+   "address": "Narimanov"
+  },
+  "40bc3972-c8d7-4a9e-bd11-452e2903d8a4": {
+   "name": "Paul Azerbaijan",
+   "description": "Oilalar uchun foydali yeguliklar taklif etiladigan novvoyxona-kafe",
+   "address": "Port Baku Mall / Ozarbayjon kinoteatri"
+  },
+  "41147eb3-244b-4fb5-8006-3044720862e6": {
+   "name": "Suv sporti saroyi",
+   "description": "Bolalar hovuzi va fitnes markazini o‘z ichiga olgan suzish havzalari",
+   "address": "Bayil"
+  },
+  "df9f77ae-c902-4529-9ba4-6a0b3074d501": {
+   "name": "Boku Kitob Markazi",
+   "description": "Bolalar uchun kitob o‘qish burchagi va kafesi bor kitob do‘koni",
+   "address": "Sahil / Xoqoniy ko‘ch."
+  },
+  "f236d95f-0e04-4118-87e0-a6829ce16cad": {
+   "name": "Coffeemania",
+   "description": "Savdo markazida joylashgan, nonushta tanlovi mavjud kafe",
+   "address": "Park Bulvar / Ganjlik Mall"
+  },
+  "f962985a-1608-4021-be4c-5c01422fe4a1": {
+   "name": "Megafun Ko‘ngilochar Markazi",
+   "description": "Bouling va attraksionlari bor yirik ko‘ngilochar markaz",
+   "address": "Azure Biznes Markazi (Xatoyi)"
+  }
+ }
+}

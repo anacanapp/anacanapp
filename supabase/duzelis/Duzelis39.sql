@@ -1,0 +1,48 @@
+-- Duzelis39: TƏCİLİ DÜZƏLİŞ — Duzelis33.sql '__CRON_SECRET__' yer-tutucusu
+-- ƏVƏZLƏNMƏDƏN işlədilib. Nəticədə 3 cron job (gündəlik bildirişlər, flow
+-- xatırlatmaları, vitamin xatırlatmaları) hazırda HƏR DƏFƏ işə düşəndə
+-- edge function tərəfindən 401 (Unauthorized) ilə rədd olunur — istifadəçilərə
+-- HEÇ bir bildiriş getmir, səssiz şəkildə.
+--
+-- AZURE: pg_net is not available on Azure Database for PostgreSQL Flexible Server,
+-- so cron.schedule()+net.http_post() cannot run here at all. This whole
+-- scheduling concern (and its "unreplaced __CRON_SECRET__ placeholder" bug) is
+-- superseded on Azure by Azure Container Apps Jobs (native cron trigger) calling
+-- the Azure-hosted functions directly with the real secret from Key Vault.
+-- See azure-migration/README.md. Original content preserved below for history.
+--
+-- SELECT cron.schedule(
+--   'send-daily-notifications-slots-secure',
+--   '0 5,6,10,11,15 * * *',
+--   $$
+--   SELECT net.http_post(
+--     url:='https://tntbjulojatnrqmylorp.supabase.co/functions/v1/send-daily-notifications',
+--     headers:='{"Content-Type": "application/json", "x-cron-secret": "__CRON_SECRET__"}'::jsonb,
+--     body:=concat('{"time": "', now(), '"}')::jsonb
+--   ) as request_id;
+--   $$
+-- );
+--
+-- SELECT cron.schedule(
+--   'send-flow-reminders-every-hour-secure',
+--   '0 5,6,7,8,9,10,11,12,13,14,15,16,17 * * *',
+--   $$
+--   SELECT net.http_post(
+--     url:='https://tntbjulojatnrqmylorp.supabase.co/functions/v1/send-flow-reminders',
+--     headers:='{"Content-Type": "application/json", "x-cron-secret": "__CRON_SECRET__"}'::jsonb,
+--     body:=concat('{"time": "', now(), '"}')::jsonb
+--   ) as request_id;
+--   $$
+-- );
+--
+-- SELECT cron.schedule(
+--   'send-vitamin-reminders-every-5min-secure',
+--   '*/5 * * * *',
+--   $$
+--   SELECT net.http_post(
+--     url:='https://tntbjulojatnrqmylorp.supabase.co/functions/v1/send-vitamin-reminders',
+--     headers:='{"Content-Type": "application/json", "x-cron-secret": "__CRON_SECRET__"}'::jsonb,
+--     body:=concat('{"time": "', now(), '"}')::jsonb
+--   ) as request_id;
+--   $$
+-- );

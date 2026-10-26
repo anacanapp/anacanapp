@@ -1,0 +1,44 @@
+{
+ "baby_milestones_db": {
+  "20279fac-cff7-4705-81fb-ab94c4019e82": {
+   "label": "Emekliyor",
+   "description": "Bebek emeklemeye başladı"
+  },
+  "4fb89347-d59c-462a-b6de-6febaaa3794a": {
+   "label": "Ayağa kalkıyor",
+   "description": "Bebek ayağa kalkıyor"
+  },
+  "55034eea-b3e3-4e5e-93e4-88df17d88f2f": {
+   "label": "Başını tutuyor",
+   "description": "Bebek başını tutmaya başladı"
+  },
+  "5c054df0-8bce-421f-9954-5a33392a1056": {
+   "label": "İlk adımlar",
+   "description": "Bebek ilk adımlarını attı"
+  },
+  "6f62e4bd-1746-4709-928f-dd9f482882be": {
+   "label": "Dönüyor",
+   "description": "Bebek kendi kendine dönebiliyor"
+  },
+  "98912b0c-6f44-485c-816d-ac6bf19441a6": {
+   "label": "Elini uzatıyor",
+   "description": "Bebek nesnelere elini uzatıyor"
+  },
+  "b018c429-c030-447a-b40b-dbb21a76df5d": {
+   "label": "İlk gülümseme",
+   "description": "Bebek ilk kez gülümsedi"
+  },
+  "bede9344-42da-47b2-bb53-a66737439810": {
+   "label": "İlk kelimeler",
+   "description": "Bebek ilk kelimelerini söyledi"
+  },
+  "e2454a6c-7b9f-49c3-9c10-ae078acca010": {
+   "label": "Oturuyor",
+   "description": "Bebek desteksiz oturuyor"
+  },
+  "f9933a4f-9254-4130-914e-e72c6547120f": {
+   "label": "Gülüyor",
+   "description": "Bebek sesli gülmeye başladı"
+  }
+ }
+}

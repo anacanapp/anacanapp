@@ -1,0 +1,44 @@
+{
+ "scheduled_notifications": {
+  "b23e355a-80c4-49c5-acab-e255287eb9d0": {
+   "title": "Gününüz Güzel Geçsin ☀️",
+   "body": "Gününüz güzel geçsin! Bugün kendinize zaman ayırın."
+  },
+  "e2a2b1d9-59e6-42ab-a7e9-71b13a431c12": {
+   "title": "Partner Desteği 💑",
+   "body": "Bugün eşinize destek olmayı unutmayın!"
+  },
+  "f099172d-897e-44f4-ad64-884bd19163f0": {
+   "title": "Anne Olmak Güzeldir 🤱",
+   "body": "Bebeğinizle geçirdiğiniz her an değerlidir. Bu anların kıymetini bilin!"
+  },
+  "fc9a8c00-299a-44bb-96ef-47bee0a5ce3a": {
+   "title": "Kişisel Bakım ❤️",
+   "body": "Hamilelik döneminde dinlenmek çok önemlidir. Biraz dinlenin."
+  },
+  "09267660-c676-46bf-8c7f-e363fe1a148e": {
+   "title": "Bebeğin Tekmeleri 👶",
+   "body": "Bugün bebeğinizin hareketlerini kaydetmeyi unutmayın!"
+  },
+  "143a6067-ccae-4656-ba58-73fbcda5af25": {
+   "title": "Sağlık Günlüğü 📝",
+   "body": "Bugünkü ruh halinizi ve belirtilerinizi kaydedin."
+  },
+  "68dfba36-752a-4c6d-b126-b62068dcf29a": {
+   "title": "Vitamin Vakti 💊",
+   "body": "Günlük vitaminlerinizi almayı unutmayın!"
+  },
+  "86369e0e-4f13-4d59-b837-3f52513dd6ce": {
+   "title": "Günün Hatırlatması 💧",
+   "body": "Su içmeyi unutmayın! Sağlığınız için günde 8 bardak su için."
+  },
+  "a808f6e4-abd8-43fb-9582-9221f7780b20": {
+   "title": "Hareket Vakti 🚶‍♀️",
+   "body": "Kısa bir yürüyüşe çıkmak sağlığınız için faydalıdır."
+  },
+  "ab7587a3-43b8-4685-a87c-500223c50943": {
+   "title": "Regl Hatırlatması 🌸",
+   "body": "Bir sonraki regl tarihiniz yaklaşıyor. Hazırlıklı olun!"
+  }
+ }
+}

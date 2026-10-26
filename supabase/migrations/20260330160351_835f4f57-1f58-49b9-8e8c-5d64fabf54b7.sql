@@ -1,0 +1,1 @@
+ALTER TABLE public.admin_recipes ADD COLUMN IF NOT EXISTS calories integer DEFAULT NULL;

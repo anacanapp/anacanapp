@@ -1,0 +1,36 @@
+{
+  "ja": {
+    "content.trimester_tips.tip_text.4938ba9158dc2a028f4c987b": {
+      "source": "Count the kicks - it should be 10+ per day",
+      "value": "胎動を数えましょう。毎日10回以上あるか確認してください。"
+    },
+    "content.trimester_tips.tip_text.9643aebcf7464810a8226fa8": {
+      "source": "Drink 8-10 glasses of water a day",
+      "value": "毎日8-10杯の水を飲みましょう。"
+    }
+  },
+  "ko": {
+    "content.baby_daily_info.info.9accd4f4f8ecdaa70b176574": {
+      "source": "Healthy and balanced nutrition is very important for the smooth continuation of the baby's growth and development. The role of proteins is significant in this process. Proteins, which are the main building blocks of the body, are essential for muscle and cell repair. Breast milk meets this need until the age of 1. After 1 year of age, 20% of the daily protein intake should be of animal origin, and 80% should be of plant origin. During this period, it is sufficient for the baby to receive 2 grams of protein per kilogram of body weight per day. This means an average of 16 grams of protein daily. For example, 2 bowls of yogurt or a plate of cheesy pasta can fully meet the baby's daily protein needs. Foods such as milk, eggs, meat, chicken, and fish are complete protein sources and contain all the amino acids necessary for the body. In addition, it is beneficial to give grains, legumes, and vegetables together to fully meet protein needs.",
+      "value": "아기의 성장과 발달이 원활하게 이어지려면 건강하고 균형 잡힌 영양 섭취가 매우 중요해요. 이 과정에서 단백질의 역할이 커요. 단백질은 우리 몸을 구성하는 주요 성분으로, 근육과 세포의 회복에 꼭 필요해요. 모유는 1세까지 이러한 필요를 충족해 줘요. 1세 이후에는 하루 단백질 섭취량의 20%는 동물성, 80%는 식물성으로 섭취해야 해요. 이 시기에는 하루에 체중의 매 킬로그램마다 단백질 2그램이면 충분해요. 이는 하루 평균 단백질 16그램에 해당해요. 예를 들어 요거트 2그릇이나 치즈 파스타 한 접시로 아기의 하루 단백질 필요량을 모두 충족할 수 있어요. 우유, 달걀, 고기, 닭고기, 생선은 완전 단백질 공급원이며 몸에 필요한 모든 아미노산을 함유하고 있어요. 또한 단백질 필요량을 충분히 채우려면 곡물, 콩류, 채소를 함께 먹이는 것이 좋아요."
+    },
+    "content.healthcare_providers.specialty.302ea7cbe305ca260e5b1c91": {
+      "source": "Obstetrics and Gynecology, Level III Maternity Care",
+      "value": "산부인과, 레벨 III 산모 진료"
+    }
+  },
+  "pl": {
+    "content.admin_recipes.description.3916f1cf7df4a7e1d7f6c992": {
+      "source": "Flourless and protein-packed cake that healthily satisfies sweet cravings. Benefit: High protein keeps you full and protects muscle mass; since it contains no flour, it does not spike blood sugar levels.",
+      "value": "Ciasto bez mąki, pełne białka, które w zdrowy sposób zaspokaja ochotę na słodycze. Korzyść: wysoka zawartość białka zapewnia sytość i pomaga chronić masę mięśniową, a brak mąki zapobiega gwałtownym skokom poziomu cukru we krwi."
+    },
+    "content.admin_recipes.description.42bc596e45270ffcc5405b50": {
+      "source": "A gut-friendly, filling pudding that takes 2 minutes to prepare for morning or snack time. Benefit: Chia and flaxseed swell by absorbing water many times their own weight, creating a feeling of satiety in the stomach and regulating blood sugar.",
+      "value": "Przyjazny dla jelit, sycący pudding, który przygotujesz w 2 minuty na śniadanie lub przekąskę. Korzyść: nasiona chia i siemię lniane pęcznieją, wchłaniając wodę wielokrotnie przekraczającą ich masę, dzięki czemu zapewniają uczucie sytości i pomagają regulować poziom cukru we krwi."
+    },
+    "content.admin_recipes.description.4339f35a99a34ca35ce30b23": {
+      "source": "A favorite of 1-year-olds who love to eat with their own hands. Benefit: Avocado is full of healthy fats, and egg provides essential amino acids.",
+      "value": "Ulubiona potrawa dzieci w wieku 1 roku, które lubią jeść samodzielnie rękami. Korzyść: awokado jest pełne zdrowych tłuszczów, a jajko dostarcza niezbędnych aminokwasów."
+    }
+  }
+}

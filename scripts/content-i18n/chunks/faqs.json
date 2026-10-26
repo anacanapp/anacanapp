@@ -1,0 +1,92 @@
+[
+ {
+  "id": "438da049-addd-4cca-bcac-f37630aeda58",
+  "question": "Anacan nədir?",
+  "answer": "Anacan, hamiləlik, doğuş və analıq dövrünüzdə sizə kömək edən mobil tətbiqdir."
+ },
+ {
+  "id": "a2f59e84-bacd-44b6-a0c7-59dd61f2dcbf",
+  "question": "Tətbiq hansı platformalarda mövcuddur?",
+  "answer": "Anacan iOS və Android platformalarında yüklənə bilər."
+ },
+ {
+  "id": "44ba92c4-4cce-4e6e-a953-36953f4c2894",
+  "question": "Tətbiq Azərbaycan dilindədir?",
+  "answer": "Bəli! Anacan həm Azərbaycan, həm də İngilis dilindədir."
+ },
+ {
+  "id": "842ac77d-8cc3-4bc6-af3d-a767c6881cbb",
+  "question": "Tətbiq pulsuzdur?",
+  "answer": "Əsas funksiyalar pulsuzdur. Əlavələr üçün Premium mövcuddur."
+ },
+ {
+  "id": "caa7fc25-0cfc-4524-881e-93f5150d0d2a",
+  "question": "Premium abunəlik nə verir?",
+  "answer": "Premium ilə limitsiz AI söhbəti və eksklüziv məzmun əldə edirsiniz."
+ },
+ {
+  "id": "79ee2017-343f-41c5-a4d3-b0ddb22a6013",
+  "question": "Abunəliyi necə ləğv edə bilərəm?",
+  "answer": "Profil > Abunəlik bölməsindən istənilən vaxt ləğv edə bilərsiniz."
+ },
+ {
+  "id": "39ee01ac-35b3-4b7c-8e94-c38d04914101",
+  "question": "Dr. Anacan kimdir?",
+  "answer": "Dr. Anacan süni intellekt əsaslı virtual həkim köməkçisidir."
+ },
+ {
+  "id": "6e6fd1d5-e8a1-4342-988a-6d33d2e16ef3",
+  "question": "AI həkimin məsləhətlərinə etibar edə bilərəm?",
+  "answer": "Dr. Anacan ümumi məlumat verir, əsl həkimi əvəz etmir."
+ },
+ {
+  "id": "4afb8ef8-3847-4b0c-ae69-d1f1392bf148",
+  "question": "Söhbət tarixçəsi saxlanılır?",
+  "answer": "Bəli, bütün söhbətləriniz hesabınızda saxlanılır."
+ },
+ {
+  "id": "3954f6a5-cc07-4ceb-b58d-6860a8818296",
+  "question": "İcmaya necə qoşula bilərəm?",
+  "answer": "Qeydiyyatdan keçdikdən sonra avtomatik qoşulursunuz."
+ },
+ {
+  "id": "00ea0146-c70b-4f41-a1a1-6dbc6972d1e5",
+  "question": "Paylaşımlarım anonim ola bilər?",
+  "answer": "Bəli, anonim rejimi seçə bilərsiniz."
+ },
+ {
+  "id": "8bfd2f91-c65a-4183-99d6-33b219dada37",
+  "question": "Münasib olmayan məzmun görsəm nə edim?",
+  "answer": "Şikayət et düyməsindən istifadə edin."
+ },
+ {
+  "id": "4b092958-cdb1-4970-8946-552d3cf3dc5f",
+  "question": "Məlumatlarım təhlükəsizdir?",
+  "answer": "Məlumatlarınız şifrələnir və təhlükəsiz saxlanılır."
+ },
+ {
+  "id": "cea56026-85a8-4a67-9af0-616e55876d7c",
+  "question": "Məlumatlarımı silə bilərəm?",
+  "answer": "Bəli, hesabınızı istədiyiniz vaxt silə bilərsiniz."
+ },
+ {
+  "id": "2aadc8d5-4aef-4443-8133-365ae93fe4f9",
+  "question": "Məlumatlarım üçüncü tərəflərlə paylaşılır?",
+  "answer": "Xeyr, məlumatlarınız kimsəyə satılmır."
+ },
+ {
+  "id": "89fa6361-f22e-4303-9db4-d37b763e913d",
+  "question": "Ağlama analizatoru necə işləyir?",
+  "answer": "AI texnologiyası ilə körpənin səsini analiz edir."
+ },
+ {
+  "id": "2f0a86b1-0a16-49f5-a204-9efe85786d05",
+  "question": "Yuxu izləmə dəqiqdir?",
+  "answer": "Əl ilə daxil etdiyiniz məlumatlar əsasında işləyir."
+ },
+ {
+  "id": "014afe49-2799-44e5-b3ab-23f9cb4efbf7",
+  "question": "Nağıl generatoru necə işləyir?",
+  "answer": "AI tərəfindən fərdi nağıllar yaradılır."
+ }
+]

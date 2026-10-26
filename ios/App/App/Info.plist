@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CAPACITOR_DEBUG</key>
+	<string>$(CAPACITOR_DEBUG)</string>
+
+	<!-- ===== Bundle Info ===== -->
+	<key>CFBundleDevelopmentRegion</key>
+	<string>az</string>
+	<key>CFBundleDisplayName</key>
+	<string>Anacan</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+
+	<!-- ===== Lokalizasiya ===== -->
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>az</string>
+		<string>en</string>
+		<string>tr</string>
+		<string>ru</string>
+		<string>de</string>
+		<string>kk</string>
+		<string>ar</string>
+		<string>uz</string>
+		<string>ka</string>
+	</array>
+
+	<!-- ===== Storyboards / Launch ===== -->
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+
+	<!-- ===== Cihaz Tələbləri ===== -->
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+
+	<!-- ===== Orientasiya ===== -->
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
+
+	<!-- ===== Background Modes ===== -->
+	<!-- Live Activities: kilid ekranı taymerləri -->
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+	<key>NSSupportsLiveActivitiesFrequentUpdates</key>
+	<false/>
+
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+		<string>audio</string>
+		<string>fetch</string>
+	</array>
+
+	<!-- ===== İcazə Mətnləri (Azərbaycan dilində) ===== -->
+	<key>NSCameraUsageDescription</key>
+	<string>Anacan profil şəkli, hamiləlik albomu və nəcis skaneri üçün kameraya ehtiyac duyur.</string>
+
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Anacan profil şəkli və hamiləlik albomu üçün şəkillərinizə daxil olur.</string>
+
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Yaradılmış körpə şəkillərini və albom xatirələrini qalereyaya yadda saxlamaq üçün icazə lazımdır.</string>
+
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Körpə ağlama analizi və səs qeydləri üçün mikrofon istifadə olunur.</string>
+
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Hava vəziyyətinə uyğun geyim tövsiyələri vermək və təcili vəziyyətdə (SOS) məkanınızı partnyorunuzla paylaşmaq üçün istifadə olunur.</string>
+
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Hava vəziyyətinə uyğun geyim tövsiyələri vermək və təcili vəziyyətdə (SOS) məkanınızı partnyorunuzla paylaşmaq üçün istifadə olunur.</string>
+
+	<key>NSFaceIDUsageDescription</key>
+	<string>Tətbiqə təhlükəsiz daxil olmaq üçün Face ID istifadə olunur.</string>
+
+	<key>NSContactsUsageDescription</key>
+	<string>Partnyorunuzu dəvət etmək üçün kontaktlara daxil olur.</string>
+
+	<key>NSCalendarsUsageDescription</key>
+	<string>Həkim qəbulları və xatırladıcıları təqviminizə əlavə etmək üçün icazə lazımdır.</string>
+
+	<key>NSMotionUsageDescription</key>
+	<string>Gündəlik aktivlik və addım sayını izləmək üçün hərəkət sensoru istifadə olunur.</string>
+
+	<key>NSHealthShareUsageDescription</key>
+	<string>Anacan gündəlik addım, aktivlik və məşq məlumatlarınızı göstərmək üçün Apple Health-dən oxuyur. Məlumatlar cihazınızdan kənara göndərilmir.</string>
+
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Anacan sağlamlıq qeydlərini Apple Health-ə əlavə edə bilər.</string>
+
+
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Anacan ağıllı cihazlarla (məs. körpə monitoru) əlaqə üçün Bluetooth istifadə edə bilər.</string>
+
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Tətbiq lokal şəbəkədəki cihazlarla əlaqə qurmaq üçün icazə tələb edir.</string>
+
+	<!-- ===== App Transport Security ===== -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+	</dict>
+
+	<!-- ===== URL Schemes (Deeplink + Facebook) ===== -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.atlasoon.anacan</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>anacan</string>
+				<string>com.atlasoon.anacan</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb927014948766655</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>google</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.296566533432-m57putge5tnil0t0kgh5sdqnp9r0oatc</string>
+			</array>
+		</dict>
+	</array>
+
+	<!-- ===== AdMob (official test App ID; isolated builds may supply reviewed live IDs) ===== -->
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3940256099942544~1458002511</string>
+	<key>GADDelayAppMeasurementInit</key>
+	<true/>
+	<key>SKAdNetworkItems</key>
+	<array>
+		<dict>
+			<key>SKAdNetworkIdentifier</key>
+			<string>cstr6suwn9.skadnetwork</string>
+		</dict>
+	</array>
+
+	<!-- ===== Facebook / Meta SDK ===== -->
+	<key>FacebookAppID</key>
+	<string>927014948766655</string>
+	<key>FacebookClientToken</key>
+	<string>67f7fdf1147431285d5ff230fa259f3a</string>
+	<key>FacebookDisplayName</key>
+	<string>Anacan</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<true/>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+	<true/>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>İcazəniz reklamların fərdiləşdirilməsinə və effektivliyinin ölçülməsinə kömək edir. Razılığınızı istənilən vaxt dəyişə bilərsiniz.</string>
+
+	<!-- ===== Universal Links üçün açılan tətbiqlər ===== -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>itms-apps</string>
+		<string>mailto</string>
+		<string>tel</string>
+		<string>https</string>
+		<string>http</string>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+
+	<!-- ===== Encryption (App Store yükləməni sürətləndirir) ===== -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+
+	<!-- ===== Status Bar ===== -->
+	<key>UIViewEdgeAntialiasing</key>
+	<false/>
+	<key>UIViewGroupOpacity</key>
+	<false/>
+
+	<!-- ===== File Sharing (yüklənmiş PDF/şəkillər üçün) ===== -->
+	<key>UIFileSharingEnabled</key>
+	<false/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<false/>
+</dict>
+</plist>

@@ -1,0 +1,52 @@
+{
+ "symptoms": {
+  "c47dfc99-e8d2-4b81-9256-33d394bf3e95": {
+   "label": "Bel ağrısı"
+  },
+  "ceae327d-ce98-4b9f-942c-f42bd3185d27": {
+   "label": "Yorgunluk"
+  },
+  "ed3d690a-ab52-4103-841b-6ad23f9e7f79": {
+   "label": "Mutluluk"
+  },
+  "ee21c8d8-6d79-4e45-9df6-7ee100b5759d": {
+   "label": "Meme hassasiyeti"
+  },
+  "ee3e2ccc-f544-4749-879d-45b0bb85e69e": {
+   "label": "Sivilce"
+  },
+  "fe634732-f22a-49e9-aec0-e017fda41063": {
+   "label": "Ruh hali değişikliği"
+  },
+  "2155c1bd-6ba8-4ac4-a8dc-229640696cf0": {
+   "label": "Baş ağrısı"
+  },
+  "263cd071-7e73-4787-9933-06f08794649c": {
+   "label": "Yorgunluk"
+  },
+  "3e28a543-415c-4dee-86ca-4106398faa41": {
+   "label": "Mide bulantısı"
+  },
+  "4267f1c2-89ec-4004-9dd3-b3e7fe162e5b": {
+   "label": "Duygusal"
+  },
+  "52a76b87-418c-48d7-b651-8f73c0a5daf3": {
+   "label": "Sakin"
+  },
+  "78c2d99c-93a1-4a26-8f66-549bf68ef778": {
+   "label": "Endişe"
+  },
+  "8dbf3d19-3309-4c89-999f-ec3ec5908228": {
+   "label": "Enerjik"
+  },
+  "aefb25a7-a01c-4d84-884f-2fc6c8bad6d0": {
+   "label": "İştah"
+  },
+  "be113357-b987-4919-831d-7b7798eb260b": {
+   "label": "Şişkinlik"
+  },
+  "bf25f49b-bc20-430f-a996-ebffa72690f0": {
+   "label": "Kramp"
+  }
+ }
+}

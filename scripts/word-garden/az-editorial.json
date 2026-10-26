@@ -1,0 +1,31 @@
+{
+  "schema": "anacan-word-garden-editorial-v1",
+  "language": "az",
+  "revision": "az-202610-v2",
+  "targetFrequency": 40,
+  "openingRacks": ["alma", "işıq", "uşaq", "gecə", "orta", "inək", "rəsm", "bacı", "oyun", "şeir"],
+  "commonWords": "ana ata bala alma alça armud albalı ananas ərik heyva üzüm nar banan limon badam fındıq qoz çörək pendir qatıq qaymaq süd su bal yağ duz çay qənd şəkər un düyü yulaf ət toyuq balıq yumurta yemək meyvə tərəvəz şorba dolma plov salat aşpaz ev otaq qapı pəncərə divar dam tavan döşəmə masa stul divan yataq yastıq yorğan xalça lampa işıq açar bağ ağac gül çiçək yarpaq budaq kök ot toxum dən torpaq meşə dağ dərə çəmən çöl səhra sahil dəniz göl çay bulaq dalğa qum daş hava bulud yağış qar külək günəş ay ulduz göy səhər axşam gecə gün zaman saat dəqiqə saniyə bahar yay payız qış dünya təbiət həyat sevgi ümid arzu inam səbir mehriban qayğı dost ailə bacı qardaş nənə baba körpə uşaq qız oğlan qadın insan adam xalq vətən yurd kənd şəhər küçə yol körpü məktəb sinif kitab dəftər kağız qələm rəsm boya rəng nağıl şeir mahnı musiqi səs söz hərf cümlə fikir sual cavab bilik elm oyun gülüş təbəssüm sevinc rahat sakit gözəl şirin yaxşı yumşaq isti soyuq təmiz ağ qara qırmızı yaşıl mavi sarı çəhrayı bənövşə qızıl gümüş əl ayaq baş üz göz qaş saç ürək qan diş dil qulaq burun qol bel diz bədən sağlam güc enerji idman addım qaçış nəfəs yuxu xəyal xəbər məktub hədiyyə oyuncaq top kukla ayı dovşan pişik it quş ördək qaz at inək qoyun keçi aslan şir fil pələng tülkü ceyran maral kirpi arı kəpənək insan heyvan yuva qanad dənizçi gəmi qayıq maşın qatar təyyarə velosiped səyahət çanta səbət qutu kisə fincan qab qaşıq çəngəl boşqab şüşə güzgü sabun dəsmal ip sap düymə tikmək toxumaq xalça paltar köynək şalvar don corab papaq çəkmə ayaqqabı günlər həftə aylar təqvim bir iki üç dörd beş altı yeddi səkkiz doqquz on yüz min az çox bütün yeni köhnə uzun qısa geniş dar böyük kiçik qalın nazik dərin yaxın uzaq sağ sol ön arxa alt üst orta bərabər tam yarı açıq bağlı ağır yüngül tez gec erkən bəzək naxış təsvir forma dairə üçbucaq kvadrat xətt nöqtə sıra yer aralıq ölçü say hesablamaq tapmaq baxmaq görmək bilmək sevmək gəlmək getmək almaq vermək olmaq etmək yazmaq oxumaq danışmaq dinləmək gülmək demək gəzmək yatmaq oyanmaq yemək içmək durmaq qaçmaq uçmaq açmaq seçmək çəkmək əkmək əyilmək qurmaq qorumaq kömək qayda məqsəd nəticə başlanğıc imkan uğur zəhmət əmək əməl ələm qəm əla ala mal sal ara bar tab bit kit tik üzmək üzük qaşqabaq fidan çinar palıd söyüd lalə nərgiz zanbaq reyhan nanə kəklik göyərçin bülbül sərçə qaranquş toz şeh şəlalə təpə zirvə üfüq səma fəza şüa yağmur mövsüm soğan sarımsaq pomidor xiyar kök bibər kələm noxud lobya balqabaq mərci ayran qayısı kərə yaşıd təravət hekayə zərif qonaq bayram süfrə şən şənlik məkan qonaq otaq rahatlıq qəlb çiçəklər", 
+  "definitions": {
+    "alma": "Ağacda yetişən, yumru və şirin meyvə.",
+    "ala": "Bir neçə rəngi və ya ləkəsi olan.",
+    "mal": "İnək və öküz kimi ev heyvanlarının ümumi adı.",
+    "bala": "İnsanın və ya heyvanın övladı.",
+    "bal": "Arıların hazırladığı şirin qida.",
+    "salam": "Görüşərkən deyilən xoş söz.",
+    "qələm": "Yazı yazmaq və şəkil çəkmək üçün alət.",
+    "əməl": "Görülən iş və ya hərəkət.",
+    "günəş": "Dünyamızı işıqlandıran və isidən ulduz.",
+    "şən": "Sevincli, gülərüz və xoş əhvalda olan.",
+    "kitab": "Oxumaq üçün səhifələri birləşdirilmiş yazılı əsər.",
+    "dəniz": "Duzlu su ilə dolu böyük su hövzəsi.",
+    "çiçək": "Bitkinin rəngli və çox vaxt ətirli hissəsi.",
+    "ailə": "Bir-birinə qohumluq və qayğı ilə bağlı insanlar.",
+    "ümid": "Yaxşı bir şeyin olacağına inam.",
+    "arzu": "Olmasını istədiyimiz bir şey.",
+    "səbir": "Çətinlik qarşısında təmkinli qalmaq.",
+    "qayğı": "Birinə diqqət və kömək göstərmək.",
+    "sevgi": "Birinə və ya bir şeyə dərin bağlılıq hissi.",
+    "dost": "Etibar etdiyimiz və yaxın olduğumuz insan."
+  },
+  "excludedWords": ["sik", "sikiş", "sikmək", "amcıq", "göt", "götveren", "qancıq", "fahişə", "pozğun", "porno", "seks", "seksi", "cinsi", "penis", "vagina", "vulva", "sperma", "erotik", "narkotik", "heroin", "kokain", "cihad", "cihadçı", "terror", "terrorçu", "nasist", "faşist", "qanlı", "qətliam", "intihar", "qətl", "qatil", "ölüm", "ölü", "meyit", "söyüş", "orospı", "orospu", "dığa", "pəzəvəng"]
+}

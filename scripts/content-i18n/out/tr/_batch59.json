@@ -1,0 +1,1148 @@
+{
+ "safety_items": {
+  "0d5a2005-cbee-4482-bdab-a34909be9607": {
+   "name": "Pekmez",
+   "description": "Dut veya üzüm pekmezi demir kaynağıdır ve kansızlığa iyi gelir."
+  },
+  "111e075c-794e-4c81-a617-00bd2ff5db24": {
+   "name": "Nar Ekşisi",
+   "description": "Güvenlidir, iştahı artırır."
+  },
+  "11901ed2-a265-4223-a5b8-e5cbfb8f773e": {
+   "name": "Mantar",
+   "description": "Yalnızca kültür (market) mantarları tamamen pişirilerek tüketilmelidir. Orman mantarları risklidir."
+  },
+  "11e23f3d-d80c-4605-a45a-22a7947b2a6b": {
+   "name": "Nane",
+   "description": "Nane çayı mide bulantısına iyi gelir. Ancak nane yağı dikkatli kullanılmalıdır."
+  },
+  "13f101f3-04c4-4778-9891-0b68a21fef96": {
+   "name": "Üzüm",
+   "description": "İyice yıkanmalıdır. Resveratrol içerir ancak şeker oranı yüksektir; ölçülü tüketilmelidir."
+  },
+  "13f91873-c1b0-43b8-bc6b-9166281d9d9a": {
+   "name": "Elektronik Sigara (Vape)",
+   "description": "Nikotin, bebeğin beynine zarar verir. İçeriği henüz tam olarak araştırılmamıştır."
+  },
+  "14172da9-4efa-42a0-8893-7757c2900a61": {
+   "name": "Maden Suyu",
+   "description": "Güvenlidir, mide yanmasını hafifletmeye yardımcı olabilir."
+  },
+  "144c2b0f-3d81-4774-be36-7766e41eb446": {
+   "name": "Alıç",
+   "description": "Kalp ve damar sistemi için faydalıdır."
+  },
+  "14729a17-9a8e-479b-8332-5813c2a6ed6c": {
+   "name": "Güneş Kremi (SPF)",
+   "description": "Fiziksel filtreler (Çinko oksit, Titanyum dioksit) daha uygundur. Cilt lekelerine karşı korur."
+  },
+  "14797472-1740-468f-a25a-a0879705d4d1": {
+   "name": "Midye (Mussels)",
+   "description": "Zehirlenme riski yüksektir. Çiğ tüketilmesi kesinlikle yasaktır."
+  },
+  "0013b139-f71b-48c3-9500-426b95f36fe0": {
+   "name": "Brokoli",
+   "description": "Folik asit ve kalsiyum açısından zengindir."
+  },
+  "005015d5-313d-474c-8917-c4368a59ddcd": {
+   "name": "Aspirin",
+   "description": "Doktor reçete etmedikçe (kardiyoaspirin) ağrı kesici olarak kullanılmamalıdır."
+  },
+  "0296597e-bafb-48ed-895e-4c84438ec22f": {
+   "name": "Cep Telefonu / Wi-Fi",
+   "description": "Kanıtlanmış bir zararı yoktur."
+  },
+  "02c1f7c4-6c8b-428b-a335-a14f4392a4d7": {
+   "name": "Tarçın",
+   "description": "Baharat olarak kullanılması güvenlidir. Kan şekerini düzenlemeye yardımcı olur."
+  },
+  "02de9065-c8d5-420a-9f9f-381f38069906": {
+   "name": "Havuç",
+   "description": "A vitamini (beta-karoten) güvenli formdadır."
+  },
+  "07b52750-1a09-4c2c-ac44-ad2a941a4731": {
+   "name": "Basma",
+   "description": "Güvenli ve doğal bir boyadır."
+  },
+  "089bec31-a38b-4891-852a-00ce9e78068b": {
+   "name": "Progesteron (Dufaston)",
+   "description": "Düşük tehlikesi durumunda doktor tarafından reçete edilir. Doktora danışmadan kullanılmamalıdır."
+  },
+  "093501ce-f6a1-4966-ab3f-5fade42e305a": {
+   "name": "Kraker",
+   "description": "Tuzlu krakerler gebelik bulantısı sırasında yardımcı olur."
+  },
+  "0a4654e9-7c41-473b-a757-76ec9bb1fb2b": {
+   "name": "Ketçap",
+   "description": "Güvenlidir, ancak şeker ve tuz içeriği nedeniyle az tüketin."
+  },
+  "0b5776be-e0b1-4051-a79c-004825eeecfc": {
+   "name": "Gazlı Şekerli İçecekler",
+   "description": "Zararlı değildir, ancak içerdiği şeker ve gaz şişkinliğe ve kilo alımına neden olur."
+  },
+  "14a47061-074d-4b9c-ba69-91bae5938a58": {
+   "name": "Şekerbura / Baklava",
+   "description": "İçeriği güvenlidir ancak yüksek şeker içeriği kilo alımına neden olabilir."
+  },
+  "14f882f6-96f1-4174-83ab-3873313265fd": {
+   "name": "Levomisetin",
+   "description": "Fetüs için toksiktir (\"Gri bebek\" sendromu)."
+  },
+  "155a10db-1b9e-42ee-9e71-19faf80ca313": {
+   "name": "Kiraz / Vişne",
+   "description": "Güvenlidir, melatonin (uyku) açısından faydalı olabilir."
+  },
+  "15712c68-a377-4501-ab80-a6a7e1d0080f": {
+   "name": "Aseton",
+   "description": "Oje çıkarmak için kullanılabilir ancak odayı havalandırın."
+  },
+  "15ac1978-1b26-401f-9d90-9abd8877dac3": {
+   "name": "Adaçayı (Sage)",
+   "description": "Rahim kasılmalarına neden olabileceği için önerilmez."
+  },
+  "15b4c8fc-e833-437f-bcb0-da0e8f2dd040": {
+   "name": "Kızılcık",
+   "description": "C vitamini kaynağıdır, kan basıncını düzenlemeye yardımcı olur."
+  },
+  "15feef97-b285-4534-90a8-6dd8cc6994e2": {
+   "name": "Laksatifler (Müshil)",
+   "description": "Doğal seçenekler (kayısı, erik) daha iyidir. İlaçları yalnızca doktorunuza danışarak kullanın."
+  },
+  "16141dbb-2ea0-46a1-92bb-a4a9cbc211bd": {
+   "name": "Motal peyniri",
+   "description": "Çiğ sütten yapılmış olabilir ve çok tuzludur. Dikkatli olun."
+  },
+  "16a15229-2aac-4e4f-ae08-5d1a792405ad": {
+   "name": "Balkabağı",
+   "description": "Çok faydalıdır, lif ve vitaminler açısından zengindir."
+  },
+  "170aa39f-276b-4e8a-a118-072d9205cb2a": {
+   "name": "Çökelek",
+   "description": "Güvenlidir, tuzluysa suda bekletin."
+  },
+  "2cbeb816-e302-4800-95f9-653ae9b96f41": {
+   "name": "Zeytin",
+   "description": "Güvenlidir, ancak tuzludur."
+  },
+  "2f141477-bea5-4d25-867b-b67d3e0d3866": {
+   "name": "Cips",
+   "description": "Zararlı yağlar ve tuz içerir. Nadiren tüketilebilir."
+  },
+  "2f3569d2-7904-4608-a2cd-a8d64f63a1b5": {
+   "name": "C vitamini serumu",
+   "description": "Lekelere karşı kullanımı güvenlidir."
+  },
+  "3053a573-4429-4e68-86c4-0e7aa8a0013d": {
+   "name": "Zerdeçal (Turmeric)",
+   "description": "Bağışıklık için faydalıdır ve yemeklerde kullanılabilir."
+  },
+  "30b06132-c93e-44ce-9d7a-1661b85b1e60": {
+   "name": "Piercing",
+   "description": "Enfeksiyon riski vardır. Karın bölgesindeki piercing çıkarılmalıdır."
+  },
+  "31868710-84f8-405d-97d0-cd526f998a88": {
+   "name": "Botoks / Dolgu",
+   "description": "Etik nedenlerle hamilelerde test edilmemiştir; bu nedenle güzellik uzmanları risk almaz."
+  },
+  "32160fb8-7760-4e41-8ffe-b27506c0e08f": {
+   "name": "Oje (Tırnak Cilası)",
+   "description": "Toluen ve formaldehit içermeyen (\"3-free\" veya \"5-free\") ojeleri tercih edin. Odayı havalandırın."
+  },
+  "329e973f-89c7-4150-936a-d3b2b4a30283": {
+   "name": "Araba Kullanmak",
+   "description": "Emniyet kemerini karnınızın altından bağlamanız koşuluyla güvenlidir."
+  },
+  "33035124-c776-4553-8ff5-b7c8bb0b8d3c": {
+   "name": "Kediotu (Valerian)",
+   "description": "Sakinleştirici olarak kullanılabilir. Doktorunuza danışın."
+  },
+  "346d0133-99be-475b-b417-67945f3cc71f": {
+   "name": "Parasetamol",
+   "description": "Ağrı ve ateş için ilk tercihtir."
+  },
+  "26a4dcad-717d-4451-8a11-003e8508571f": {
+   "name": "Meyve Pestili",
+   "description": "Güvenlidir; ekşi tadı gebelik bulantılarına yardımcı olabilir."
+  },
+  "2816eb9b-6c75-4242-869c-91b793782e84": {
+   "name": "Maraton Koşmak",
+   "description": "Gebelik döneminde maraton koşmak, yüksek fiziksel efor ve olası riskler nedeniyle genellikle önerilmez. Kişisel tavsiye için doktorunuza danışın."
+  },
+  "2841191c-cf23-4b01-bf5f-86a558ecb36a": {
+   "name": "Microblading",
+   "description": "Enfeksiyon riski ve ağrı nedeniyle önerilmez."
+  },
+  "28775f4a-1fa8-4cb7-8dac-0132827acef9": {
+   "name": "İyot",
+   "description": "Tiroid bezi ve bebeğin beyin gelişimi için önemlidir."
+  },
+  "2a3c43e7-7984-4ed2-b2db-4df9dd48adbd": {
+   "name": "Koruk Suyu",
+   "description": "Güvenlidir (olgunlaşmamış üzüm suyu)."
+  },
+  "2ac2b30a-da50-4793-b7a3-857694634a38": {
+   "name": "Mısır (Haşlanmış)",
+   "description": "Güvenli bir atıştırmalıktır."
+  },
+  "2b2dad7b-3bcb-456f-8c6d-6200781cc993": {
+   "name": "Diş Tedavisi",
+   "description": "Lokal anestezi (lidokain) gebeler için güvenlidir. Enfeksiyonun tedavi edilmesi önemlidir."
+  },
+  "2b3dc439-9ff4-4b53-993b-7cea853548d1": {
+   "name": "Kaş Laminasyonu",
+   "description": "Kimyasal maddeler cildinize temas edebilir. Alerji testi yaptırın."
+  },
+  "2ba4fe11-76b1-4110-8626-0826230bb91c": {
+   "name": "Ay Çekirdeği (Günebakan)",
+   "description": "Folik asit ve E vitamini kaynağıdır."
+  },
+  "2c380853-1d73-4853-a94f-5df5664edb6d": {
+   "name": "D Vitamini",
+   "description": "Doktorunuzun önerdiği dozda alınmalıdır."
+  },
+  "175f0053-64b2-4e76-b5a5-673b01d8ac1e": {
+   "name": "Hengel (Yaprak)",
+   "description": "Hamur yemeğidir, güvenlidir. Kıyması tamamen pişmiş olmalıdır."
+  },
+  "19ca769a-11f7-46db-8963-6172b215a50a": {
+   "name": "Susam",
+   "description": "Ekmek üzerinde veya tahin şeklinde az miktarda tüketilebilir. Yüksek dozları rahmi etkileyebilir."
+  },
+  "19d422d5-be20-4643-8e69-e66fb97f5167": {
+   "name": "Kirpik Uzatma",
+   "description": "Yapıştırıcının kokusuna karşı reaksiyon göstermiyorsanız güvenlidir."
+  },
+  "19fe3138-0e8f-487a-88e9-ac466b8e7455": {
+   "name": "Pencere silmek",
+   "description": "Yüksekten düşme riski vardır. Dikkatli olun."
+  },
+  "1c5a11d7-6647-4d9c-b566-6ed1d207f677": {
+   "name": "Saç Boyası",
+   "description": "1. trimesterden sonra, iyi havalandırılan bir ortamda ve amonyaksız boyalarla yapılabilir."
+  },
+  "1ec8f09a-93f7-4090-a7b3-291ec4bebda6": {
+   "name": "Kebap (Et)",
+   "description": "Tamamen pişmiş olmalıdır (\"kanlı\" kalmamalıdır). Yanmış kısımlarının yenmesi önerilmez."
+  },
+  "214a8105-e97d-46f4-bfa3-4285b64abb38": {
+   "name": "Bilgisayar başında çalışmak",
+   "description": "Kan dolaşımını desteklemek için her saat başı kalkıp yürüyün."
+  },
+  "2480a0e0-51da-49e1-9ad2-f6accaaf2639": {
+   "name": "Yeşil Çay",
+   "description": "Kafein içerir ve folik asit emilimini engelleyebilir. Günde 1 fincan tüketilebilir."
+  },
+  "256b8c29-d4c6-497b-96ad-14febc117057": {
+   "name": "Uçucu Yağlar",
+   "description": "İlk 3 ay kullanmaktan kaçının. Lavanta ve çay ağacı yağı daha sonraki dönemlerde az miktarda kullanılabilir."
+  },
+  "25c7527b-591c-4620-959d-e45daeaea7e8": {
+   "name": "Aloe Vera (Jel)",
+   "description": "Cilde uygulanması güvenlidir. Müshil etkisi nedeniyle ağızdan alınmamalıdır (suyu içilmemelidir)."
+  },
+  "3f136261-51b1-4e72-b8ca-44853eff06b6": {
+   "name": "Kuşburnu çayı",
+   "description": "C vitamini açısından zengindir, soğuk algınlığına iyi gelir."
+  },
+  "3f8bf8fd-9d0c-44e6-bcfe-aba1fd9bdaba": {
+   "name": "Turşu (Marine)",
+   "description": "Güvenlidir, iştah açar. Tuz miktarı nedeniyle şişkinliğe yol açabilir."
+  },
+  "410cde1d-5aea-4d7b-bb9b-fe8f45a749d3": {
+   "name": "Analgin",
+   "description": "Kan yapımını olumsuz etkileyebilir. Parasetamolü tercih edin."
+  },
+  "41b1cc04-5909-43be-8ce4-86fb1ead21b8": {
+   "name": "Ayran / Dovga",
+   "description": "Güvenlidir, sindirimi iyileştirir."
+  },
+  "438a265a-32b5-43b2-a441-d5edbb5699d7": {
+   "name": "Ekmek (Tam buğday)",
+   "description": "Beyaz ekmekten daha faydalıdır."
+  },
+  "43a45a81-8784-41a1-b75a-fb08a503e946": {
+   "name": "Aslan Kuyruğu (Motherwort)",
+   "description": "Sakinleştirici olarak kullanılır, ancak doktorunuza danışın."
+  },
+  "4409ab79-8040-400f-874e-3014663cbb59": {
+   "name": "Kişniş",
+   "description": "Gıdalarda kullanılan miktarlarda (yeşillik olarak) güvenlidir."
+  },
+  "445ab6ae-6f5b-45dd-948c-e1fb40b68b41": {
+   "name": "Akrilik / Jel Tırnak",
+   "description": "Tozdan ve kimyasal kokulardan korunmak için maske takın. UV lamba zararsızdır."
+  },
+  "455c2f5c-a585-4549-98c6-f4a465fe10e5": {
+   "name": "Papatya Çayı",
+   "description": "Sakinleştiricidir, ancak yüksek miktarda tüketildiğinde rahmi etkileyebilir. Günde 1 fincanla sınırlayın."
+  },
+  "4736feb8-a7c7-47ab-83f0-c0063f1903f5": {
+   "name": "Siyah havyar",
+   "description": "Pastörize edilmişse protein ve Omega-3 kaynağıdır."
+  },
+  "48610fa7-1910-457d-9078-9733a4ac93ef": {
+   "name": "Burger (Fast food)",
+   "description": "Et tamamen pişmiş olmalıdır. Salatanın temizliği şüpheli olabilir."
+  },
+  "48e91094-2376-4f8b-9fcb-b8dff5dabdd6": {
+   "name": "Doğal Meyve Suları",
+   "description": "Pastörize edilmiş meyve suları güvenlidir. Taze sıkılmış meyve suları hemen tüketilmelidir."
+  },
+  "4afbfd15-403c-4f25-8b02-aa586d685816": {
+   "name": "Piti",
+   "description": "Çok yağlıdır (kuyruk yağı içerir) ve sindirimi zorlaştırabilir."
+  },
+  "4bb29538-26fa-451d-93c6-87de4551a116": {
+   "name": "Böcek İlacı",
+   "description": "Toksiktir. Ev ilaçlanırken dışarıda olun."
+  },
+  "4bc02c92-bff2-4d26-b42d-9123d3f84aed": {
+   "name": "Ejder Meyvesi",
+   "description": "Ejder meyvesinin hamilelik döneminde tüketilmesi genellikle güvenlidir. Hamileler için faydalı olabilecek vitaminler, mineraller ve lif açısından iyi bir kaynaktır."
+  },
+  "4bf58079-aa14-4344-8177-0c7e093fb7fd": {
+   "name": "Kvas",
+   "description": "Fermantasyon ürünü olduğu için az miktarda alkol içerebilir. Dikkatli olun."
+  },
+  "4d71f90e-d40d-49a3-a894-6e5ac5b95bc2": {
+   "name": "Kına",
+   "description": "Doğal kına güvenlidir. Kimyasal katkı maddeleri içeren \"siyah kına\"dan uzak durun."
+  },
+  "4e56afe8-e5aa-4f52-9505-f2461311be94": {
+   "name": "Kavun",
+   "description": "Güvenlidir; kabuğundaki bakteriler nedeniyle iyice yıkanmalıdır."
+  },
+  "4e861e2a-5668-4dd0-b2c7-733c3191cebf": {
+   "name": "Dimedrol",
+   "description": "Rahim kasılmalarına neden olabilir, önerilmez."
+  },
+  "4ed749d3-e969-49f1-95f3-cb9354d1022c": {
+   "name": "Burun Spreyleri",
+   "description": "Tuzlu su (Akvamaris) tamamen güvenlidir. Damar daraltıcı spreyler (Ksilometazolin) 3-5 günden uzun süre kullanılmamalıdır."
+  },
+  "3473200c-9a7d-48b0-928c-8e9da88800b1": {
+   "name": "Alkolsüz Bira",
+   "description": "Az miktarda (0.5%) alkol içerebilir. Dikkatli olun."
+  },
+  "35464939-dd9e-4116-b32a-0eae5ac720f8": {
+   "name": "Badambura",
+   "description": "Güvenlidir."
+  },
+  "3982c1ae-13f7-4142-8726-4f0481aa7c58": {
+   "name": "Güneşe maruz kalmak",
+   "description": "Ölçülü şekilde güneşe maruz kalmak genellikle güvenlidir ve D vitamini üretimine yardımcı olur. Ancak uzun süre güneşte kalmak; susuzluğa, sıcak çarpmasına ve güneş yanığına yol açabilir. Bunlar rahatsız edici ve potansiyel olarak zararlı olabilir. Özellikle güneşin en yoğun olduğu saatlerde (sabah 10'dan akşam 4'e kadar) doğrudan güneşe maruz kalmayı sınırlamanız, koruyucu kıyafetler giymeniz, güneş koruyucu krem kullanmanız ve sıvı tüketiminizi artırmanız önerilir."
+  },
+  "3c93069d-d293-4b0f-ad5e-34bac1fe54c6": {
+   "name": "Patlıcan",
+   "description": "Güvenli ve faydalıdır."
+  },
+  "3cea4532-7848-493f-a0d6-e06099618ef1": {
+   "name": "Yüzme",
+   "description": "En iyi egzersiz türlerinden biridir. Suyu temiz olan bir havuzu veya denizi tercih edin."
+  },
+  "3d080cee-a173-4d17-8b0b-c3313c09349e": {
+   "name": "Retinol (A Vitamini)",
+   "description": "Krem ve hap formunda kullanılması yasaktır. Fetüs üzerinde teratojenik etki gösterebilir."
+  },
+  "3d4abaa1-3e7a-4a70-ba17-3a98380b262e": {
+   "name": "Solaryum",
+   "description": "Aşırı ısınma ve UV ışınları zararlıdır. Bronzlaştırıcı (Self-tan) kremler daha güvenlidir."
+  },
+  "3dcd690d-13ac-4649-adb0-5f3754e504df": {
+   "name": "Karnabahar",
+   "description": "Folik asit kaynağıdır."
+  },
+  "3e56c556-b839-4f2c-b232-3ab20776411e": {
+   "name": "Umumi Hamam",
+   "description": "Enfeksiyon riski ve yüksek sıcaklık nedeniyle önerilmez."
+  },
+  "3ee1c3b7-b903-492c-8602-996750c186b8": {
+   "name": "Kutab (Otlu/Etli)",
+   "description": "Yeşillikler iyice yıkanmalı, et tamamen pişirilmelidir."
+  },
+  "4f691cd1-d199-495e-ad77-36cafbbe20a5": {
+   "name": "Kombu çayı",
+   "description": "Az miktarda alkol ve canlı bakteri içerebilir."
+  },
+  "4ff28cff-1e5f-4c00-9bf5-da800caafa84": {
+   "name": "Kırmızı havyar",
+   "description": "Pastörize edilmişse güvenlidir."
+  },
+  "50fbfc91-971a-4630-9616-e61d1e952266": {
+   "name": "Konser",
+   "description": "Çok yüksek ses bebeği rahatsız edebilir."
+  },
+  "519f485f-bbfa-43a2-ab16-3cf1e139361b": {
+   "name": "Margarin",
+   "description": "Trans yağ içerir, tereyağını tercih edin."
+  },
+  "5244c1bd-462f-4e11-80c4-c7698bf4eb81": {
+   "name": "Çiğ Süt",
+   "description": "Kaynatılmamış köy sütü bakteri kaynağıdır. Mutlaka kaynatılmalı veya pastörize olanı alınmalıdır."
+  },
+  "529cbeb0-75e5-405b-980d-b468a119e536": {
+   "name": "Kükü",
+   "description": "Yeşillikler ve yumurta tamamen pişmişse güvenlidir."
+  },
+  "5340f447-5183-44c1-a1e3-6279a989c56c": {
+   "name": "Dondurma",
+   "description": "Pastörize sütten yapılmışsa güvenlidir. Sokakta satılan \"yumuşak\" dondurmalarda bakteri riski olabilir."
+  },
+  "53bfc9ec-dd79-4134-9377-7aa0dbecaa42": {
+   "name": "Tadilat (Boya kokusu)",
+   "description": "Solvent ve boya buharları zararlıdır. Odada kalmayın."
+  },
+  "55091d3f-e65c-41cc-91a3-9aee86cea4b1": {
+   "name": "Mayonez",
+   "description": "Evde çiğ yumurtayla hazırlanan mayonez tüketilmemelidir. Hazır mayonez (pastörize yumurta) güvenlidir."
+  },
+  "560a1bdf-8d00-4164-87ab-508083cf5275": {
+   "name": "Çiğ Yumurta",
+   "description": "Salmonella riski taşır. \"Gogol mogol\", çiğ hamur veya az pişmiş yumurta tüketilmemelidir. Yumurta tamamen pişirilmelidir."
+  },
+  "56778e31-ace8-48db-ae70-70dece506207": {
+   "name": "Demir (Iron)",
+   "description": "Kansızlık (anemi) varsa doktor önerisiyle kullanılmalıdır. Kabızlığa neden olabilir."
+  },
+  "56815cf3-8027-47e0-98e6-8d6cdd30d7f7": {
+   "name": "Kuru meyveler",
+   "description": "Kuru üzüm, gün kurusu ve kuru kayısı güvenlidir (iyice yıkanmalıdır)."
+  },
+  "56b28fa6-2463-4319-a977-abdfc415b72f": {
+   "name": "Hardal",
+   "description": "Sos olarak az miktarda tüketilmesi güvenlidir."
+  },
+  "580c9e78-3ae2-44f8-a423-d1a876ee79a7": {
+   "name": "Zıplamak (Jumping)",
+   "description": "Eklemler gevşediği için yaralanma riski vardır. Rahme baskı uygular."
+  },
+  "583251f4-b8d0-49fb-94d8-09b5b5b8dd82": {
+   "name": "Gül suyu",
+   "description": "Güvenlidir, sakinleştirici etkisi vardır."
+  },
+  "594fcc68-fc42-4bca-900f-141656343888": {
+   "name": "Domates",
+   "description": "Güvenlidir, likopen kaynağıdır."
+  },
+  "5982e012-62cf-416e-b576-902b951f4204": {
+   "name": "Patlıcan dolması",
+   "description": "Güvenlidir (Yaz dolması)."
+  },
+  "59e013bf-1a25-4372-bb1b-e6c0f3f5d350": {
+   "name": "Pasif içicilik",
+   "description": "Sigara dumanı bulunan ortamlarda bulunmak da zararlıdır."
+  },
+  "59fb3680-4faa-49c9-94f4-50c108fe46e7": {
+   "name": "Hindistan cevizi yağı",
+   "description": "Güvenlidir."
+  },
+  "5a458d09-50b8-41b9-bd96-a563718fc867": {
+   "name": "Evcil Hayvanlar (Köpek)",
+   "description": "Güvenlidir. Karnınızın üzerine atlamasına izin vermeyin."
+  },
+  "5b79dbab-363f-4c10-88a5-bb4e7d1189f0": {
+   "name": "Karides",
+   "description": "Tamamen pişirildiğinde güvenlidir. Çiğ veya az pişmiş tüketilmemelidir."
+  },
+  "5c1830c9-88e2-4841-8a68-b24e260dc873": {
+   "name": "Pizza",
+   "description": "İçeriğindeki peynirin pastörize, salam veya sucuğun ise pişmiş olduğundan emin olunmalıdır."
+  },
+  "5c68102b-5a44-4efe-b7b4-4f2dd181733f": {
+   "name": "Kinoa (Quinoa)",
+   "description": "Yüksek protein içeriğiyle mükemmel bir seçimdir."
+  },
+  "5cb8457a-e57a-462e-ab62-e24b3526d8ba": {
+   "name": "Bowling",
+   "description": "Top çok ağır olmamalıdır. Kaygan zemine karşı dikkatli olun."
+  },
+  "5d083314-2569-43ea-ae23-fc114fbfce9c": {
+   "name": "Tetrasiklin",
+   "description": "Fetüsün kemik ve diş gelişimini olumsuz etkiler."
+  },
+  "5f1e0613-8338-4aa2-b8f4-9ceaf2ed0b06": {
+   "name": "Hidrokinon",
+   "description": "Leke açıcı bir maddedir; hamilelikte kullanılması önerilmez."
+  },
+  "5f509ef7-f1c9-4d9c-99c2-3a0e4a01a0f0": {
+   "name": "Yüksek Topuklu Ayakkabı",
+   "description": "Ağırlık merkezi değiştiği için bel ağrısına ve düşme riskine yol açabilir."
+  },
+  "5f82fb09-4272-450a-a938-9061a1796d85": {
+   "name": "Metoklopramid (Cerucal)",
+   "description": "Şiddetli kusma durumunda yalnızca doktor önerisiyle kullanılır."
+  },
+  "5f83ff5e-3c19-423e-98db-8ded8ee940d3": {
+   "name": "Helva",
+   "description": "Güvenlidir, ancak şeker ve kalori içeriği çok yüksektir."
+  },
+  "601714d8-610c-438d-a0d7-5877c0bf636a": {
+   "name": "Keratin (Saç)",
+   "description": "Birçok keratin ürününde zararlı bir madde olan formaldehit bulunur."
+  },
+  "67e60a78-ff25-4e82-a1ee-fcd0e164b46a": {
+   "name": "Selenyum",
+   "description": "Antioksidandır, güvenlidir."
+  },
+  "68436f79-3935-4d42-a531-14e13c04b0a5": {
+   "name": "Kereviz (Celery)",
+   "description": "Güvenlidir, ödem atmaya yardımcı olur."
+  },
+  "6870b771-135d-4435-baf9-06ee70c3447b": {
+   "name": "İncir",
+   "description": "Kabızlık için harika bir seçenektir (hem tazesi hem de kurusu)."
+  },
+  "697c2aaa-a74b-4086-a444-6b7288af80bb": {
+   "name": "Yüksek Cıva İçeren Balıklar",
+   "description": "Köpek balığı, kral uskumru ve kılıç balığı tüketilmemelidir. Cıva, sinir sistemine zarar verir."
+  },
+  "6a7efdd2-06f4-496b-a4e9-bc1dd8c0a77d": {
+   "name": "İbuprofen",
+   "description": "Özellikle 3. trimesterde kullanılmamalıdır (kalp ve damarları etkiler)."
+  },
+  "6ab31194-cd7e-4874-8d53-54c5ec49e6f2": {
+   "name": "Sülük (Leech)",
+   "description": "Kan sulandırıcı etkisi vardır ve kanamaya yol açabilir."
+  },
+  "6d7dba93-bfd3-4549-b0ef-6c472ec9ccc2": {
+   "name": "Pestil",
+   "description": "Doğal meyveden yapılmışsa güvenlidir."
+  },
+  "6d819ec6-ea51-4700-8b68-8a4ec5218349": {
+   "name": "Ağır Kaldırmak",
+   "description": "Bel ve rahim için risklidir."
+  },
+  "6d8da89e-2915-4d50-9726-13000b119af8": {
+   "name": "Ter Önleyici",
+   "description": "Güvenlidir. Alüminyumun fetüse zarar verdiği kanıtlanmamıştır."
+  },
+  "6d9509e9-99c8-48d9-868f-8c628f8bde63": {
+   "name": "Salatalık",
+   "description": "Güvenlidir, vücudu serinletir."
+  },
+  "601ddfdf-ce3e-49f3-b265-6d855abe584f": {
+   "name": "Streptosid",
+   "description": "Hamilelikte kullanılması önerilmez."
+  },
+  "602aceb1-5ab8-47bc-98de-4efa57d115a8": {
+   "name": "Benzoil Peroksit",
+   "description": "Sivilceler için düşük oranlı (2.5-5%) kremler genellikle güvenlidir."
+  },
+  "609cd044-7abe-4055-b0cc-8bd435ceecc8": {
+   "name": "Uçak Yolculuğu",
+   "description": "Hamileliğiniz normal seyrediyorsa 36. haftaya kadar uçak yolculuğuna izin verilir. Bol su için ve hareket edin."
+  },
+  "612ccff1-2754-48e7-95a5-0b34f772498a": {
+   "name": "Sucuk / Sosis",
+   "description": "İyice pişirilmelidir. Çiğ tütsülenmiş şarküteri ürünlerinde (salam) listeria riski vardır."
+  },
+  "6214d75f-88ec-40f6-b373-2db80810bbf5": {
+   "name": "Karın Yağı (Çatlaklar)",
+   "description": "Nemlendirmek için badem yağı veya Hindistan cevizi yağı güvenlidir."
+  },
+  "6301bccb-ed1f-4926-9f49-4d46b17a1eec": {
+   "name": "Bal",
+   "description": "Pastörize bal güvenlidir."
+  },
+  "633e6263-8f53-4f9e-bd0f-e7a29527e3a4": {
+   "name": "Probiyotikler",
+   "description": "Sindirim sistemi için güvenlidir."
+  },
+  "6388ea48-ae0f-43ce-babf-7cfe4ca86b8a": {
+   "name": "Şeftali / Kayısı",
+   "description": "Güvenlidir. Kuru kayısı kabızlığa iyi gelir."
+  },
+  "66dacaf3-0db6-4d5d-80d2-bd4efdac876e": {
+   "name": "Fesleğen",
+   "description": "Güvenlidir."
+  },
+  "67bf765d-e81e-422c-98d9-7f20a6cd4779": {
+   "name": "Salisilik Asit",
+   "description": "Yüksek oranlı peelingler kullanılmamalıdır. Temizleyicilerde (2%-e kadar) güvenlidir."
+  },
+  "6fadb185-4d26-4b03-b90f-2ca2294a8a59": {
+   "name": "Masaj",
+   "description": "Yalnızca hamilelere özel uzman masajı. Karın bölgesine dokunulmamalıdır."
+  },
+  "7118b69a-1054-4e8c-aa5c-be81da487610": {
+   "name": "Fındık / Ceviz",
+   "description": "Omega-3 ve protein kaynağıdır. Alerjiniz yoksa tavsiye edilir."
+  },
+  "716d8b76-bf60-4168-9031-e5be46163dd2": {
+   "name": "Kupa çekme",
+   "description": "Kan dolaşımını aniden artırır ve risklidir."
+  },
+  "732bed92-3030-411f-b2ff-283bf6e4bf48": {
+   "name": "Chia tohumu",
+   "description": "Omega-3 ve lif kaynağıdır."
+  },
+  "7413e106-1816-44e7-aeda-e615ff542fb7": {
+   "name": "Dut (Meyve)",
+   "description": "Güvenlidir ve kan yapıcıdır."
+  },
+  "7460ea4e-59a9-4491-a80d-ca624d9ea62f": {
+   "name": "Röntgen",
+   "description": "Yalnızca çok gerekliyse çekilmelidir. Kurşun önlük kullanılmalıdır. Diş röntgeni güvenlidir."
+  },
+  "763b5893-6ccb-484f-aab4-527f5c6fece0": {
+   "name": "Bulyon küpleri",
+   "description": "Katkı maddesi (MSG) ve tuz içeriği yüksektir. Doğal et suyu daha iyi bir seçenektir."
+  },
+  "77386829-1c50-4449-b632-8771c2292299": {
+   "name": "Kavurma",
+   "description": "Yağlı ve tuzlu olabilir. Ölçülü tüketilmelidir."
+  },
+  "79481482-cb1b-47e5-8f83-f0c433d30ea9": {
+   "name": "Semeni helvası",
+   "description": "Filizlerden yapıldığı için vitamin açısından zengindir ve faydalıdır."
+  },
+  "7988917f-4c54-4fc6-9b33-a6b9eff4a3b9": {
+   "name": "Ekşi krema / Kaymak",
+   "description": "Güvenlidir, ancak yağ oranı yüksektir (kilo alımına dikkat edilmelidir)."
+  },
+  "799cad69-4882-49ca-82ca-3e1794c7fa44": {
+   "name": "Kedi Kumu",
+   "description": "Toksoplazmoz riski taşır. Kumu başka biri değiştirmelidir."
+  },
+  "79a91301-c669-4cf2-b0c3-e09fc1ab5f35": {
+   "name": "Niasinamid",
+   "description": "Cilt için güvenlidir."
+  },
+  "7b5f16d8-cb51-4a76-8024-7be7141ac630": {
+   "name": "Fasulye",
+   "description": "Protein kaynağıdır, iyice pişirilmelidir."
+  },
+  "7bef7061-5448-4c35-b005-2997dcec735a": {
+   "name": "Dereotu",
+   "description": "Yiyeceklerde kullanılan miktarlarda güvenlidir. Tohumu (demleme olarak) dikkatli tüketilmelidir."
+  },
+  "7cb1c932-960e-4993-9740-e2c27e3d25a5": {
+   "name": "Beyaz Kiraz Reçeli",
+   "description": "Güvenlidir."
+  },
+  "7d48f86d-1b7b-41b5-a5c1-7596a6ad0774": {
+   "name": "Diş Beyazlatma",
+   "description": "Diş etleri hassas olduğu için ertelenmesi önerilir."
+  },
+  "7e0caddf-8e7a-4e66-9398-53595240fb6a": {
+   "name": "Karaciğer",
+   "description": "Çok yüksek miktarda A vitamini (retinol) içerir. Ayda 1-2 defadan fazla tüketilmesi önerilmez."
+  },
+  "7ec91bed-5e3e-4a83-adee-8d1221151cae": {
+   "name": "Süzme Yoğurt",
+   "description": "Güvenlidir."
+  },
+  "7f3b0fe2-64b2-4525-b035-fdbd8da666f0": {
+   "name": "Sigara",
+   "description": "Bebeğin gelişme geriliğine ve erken doğuma neden olur."
+  },
+  "815319d2-9b85-4808-b962-fdda0f9d7dd7": {
+   "name": "Hurma",
+   "description": "Faydalıdır. Son haftalarda doğumu kolaylaştırabileceğini gösteren araştırmalar vardır."
+  },
+  "817378f0-f52a-42c2-9dc6-d31be38e3eae": {
+   "name": "Nane suyu (Çayı)",
+   "description": "Mide bulantısına ve sindirime iyi gelir."
+  },
+  "81c3085d-96d9-4f6b-a7ba-21872bb64837": {
+   "name": "Karamuk",
+   "description": "Pilavda az miktarda kullanılabilir. Yüksek dozda (berberin) rahmi uyarabilir."
+  },
+  "81f95f01-3b64-44d0-adc2-51f7584fefc4": {
+   "name": "Cinsel İlişki",
+   "description": "Doktorunuz yasaklamadıysa (plasenta previa veya rahim kasılmaları yoksa) güvenlidir."
+  },
+  "821fb5f2-388e-47ea-9009-cd1b7b556ce2": {
+   "name": "Zeytinyağı",
+   "description": "En faydalı yağlardan biridir."
+  },
+  "82343624-8c0a-4b01-a207-d6aa1be80ee1": {
+   "name": "Patlamış Mısır",
+   "description": "Tuzu ve yağı azsa güvenli bir atıştırmalıktır."
+  },
+  "86120127-596d-4576-9c19-6c32bfbcee8b": {
+   "name": "Dövme (Tatuaj)",
+   "description": "Enfeksiyon (Hepatit, HIV) riski ve boyanın içeriği nedeniyle önerilmez."
+  },
+  "8808c210-3a50-4913-a82e-a41050ba65ec": {
+   "name": "Komposto",
+   "description": "Güvenlidir, ancak çok şekerliyse tüketimini sınırlayın."
+  },
+  "89d45bf0-0499-4c49-9ba9-c5a9223b2a57": {
+   "name": "Mercimek Çorbası",
+   "description": "Demir ve protein kaynağıdır."
+  },
+  "89e5fddd-8b38-4b19-b691-fa64f4c6a90f": {
+   "name": "Keten tohumu",
+   "description": "Fitoöstrojenler içerir. Günde 1 kaşıktan fazlası önerilmez."
+  },
+  "89eeff87-48dd-44b0-b8f9-4070b09a9d0f": {
+   "name": "Azelaik asit",
+   "description": "Akne ve lekeler için hamilelikte kullanılabilecek en güvenli asittir."
+  },
+  "8a010bc8-87c8-49af-9b78-0523759fca38": {
+   "name": "Sirke",
+   "description": "Salatalarda az miktarda tüketilmesi güvenlidir."
+  },
+  "8a8f0fa3-c25c-45d1-b6f6-ee989d541e2a": {
+   "name": "Meyan kökü çayı",
+   "description": "Tansiyonu yükseltebilir ve bebeğin bilişsel gelişimini olumsuz etkileyebilir."
+  },
+  "8c790830-3d81-4c6a-86ad-ab99b3b9a793": {
+   "name": "Karpuz",
+   "description": "Sıvı ihtiyacını karşılamaya yardımcı olur, ancak şeker oranı yüksektir (diyabete dikkat)."
+  },
+  "8d6e0491-4c18-4788-9af6-483ed9d1f574": {
+   "name": "Lahana",
+   "description": "Faydalıdır, ancak gaz yapabilir."
+  },
+  "8e6f587c-2400-4460-be21-1136fc67cf36": {
+   "name": "Peroksit (Hidrojen peroksit)",
+   "description": "Yara temizliğinde kullanılması güvenlidir."
+  },
+  "8ed0967f-876b-45cd-9e91-587c8d5d6e0f": {
+   "name": "Zencefil",
+   "description": "Gebelik bulantısına iyi gelir. Günlük miktarı aşmamak koşuluyla kullanılabilir."
+  },
+  "8f85cccc-8ea2-4c28-93df-cc5072268473": {
+   "name": "Hyaluronik asit serumu",
+   "description": "Nemlendirici olarak kullanılması tamamen güvenlidir."
+  },
+  "8fe52471-8dfb-4d7b-8864-3b1d86d9a2d9": {
+   "name": "Soya",
+   "description": "Gıda olarak (ör. soya sosu) tüketilmesi güvenlidir. Yüksek dozda izoflavon takviyeleri önerilmez."
+  },
+  "90391c7b-3de2-4666-8881-f39dd9405ed2": {
+   "name": "B6 Vitamini",
+   "description": "Gebelik bulantısını azaltmak için kullanılır."
+  },
+  "90b9aa92-c8f3-4b4e-b97e-e6911cdbfbd6": {
+   "name": "Rezene çayı",
+   "description": "Sindirime yardımcı olur, ancak fazla miktarda tüketilmesi rahim kasılmalarını tetikleyebilir."
+  },
+  "92962cf9-e5ec-49cb-81b4-c102843ffd96": {
+   "name": "Koşu (Running)",
+   "description": "Hamilelikten önce koşuyorsanız düşük tempoda devam edebilirsiniz. Hamilelikte koşuya yeni başlanmamalıdır."
+  },
+  "92a311a8-2353-49f2-a478-69bbb6e11521": {
+   "name": "Papaverin (Fitil)",
+   "description": "Rahim kasılmaları için kullanılır. Yalnızca doktor önerisiyle kullanılmalıdır."
+  },
+  "92a61566-5cda-42e3-aa3b-f9e0870a058d": {
+   "name": "No-Spa (Drotaverin)",
+   "description": "Azerbaycan'da rahim kasılmaları için sıkça reçete edilir. Yalnızca doktor önerisiyle kullanılmalıdır."
+  },
+  "92d5127f-93c5-475a-8efe-d203d95f8692": {
+   "name": "Zelyonka (Brilant yeşili)",
+   "description": "Haricen (yaralar için) kullanımı güvenlidir."
+  },
+  "936379c9-7b34-4707-87a4-0cb406f01a7e": {
+   "name": "Kompresyon çorabı",
+   "description": "Varisleri önlemeye yardımcı olur ve şişliği azaltır."
+  },
+  "9465bd4b-eaf1-49d5-b708-d311399b2d80": {
+   "name": "Ananas",
+   "description": "Efsane: Doğumu başlatması için 7-8 bütün ananas yemek gerekir. Normal miktarda tüketilmesi güvenlidir."
+  },
+  "94bf5000-5697-4c9b-b884-b1e8c0efbcda": {
+   "name": "Döner",
+   "description": "Hijyen riski taşıyabilir. Güvenilir bir yerden alınmalı ve tamamen pişmiş olmalıdır."
+  },
+  "94c2c047-2843-4200-936a-3a9fc44240f1": {
+   "name": "Hibiskus (Mekke gülü)",
+   "description": "Bazı araştırmalar hormonal etkileri olabileceğini belirttiğinden tüketilmemesi önerilir."
+  },
+  "9680b85e-c13d-4194-be28-5232a7f113b1": {
+   "name": "Dans",
+   "description": "Moralinizi yükseltir. Ani hareketlerden ve zıplamaktan kaçınmalısınız."
+  },
+  "9811160d-50b0-49ee-ad9a-de2887d861ff": {
+   "name": "Saçı Fönlemek",
+   "description": "Güvenlidir."
+  },
+  "a7b8c93a-6b20-42cb-a6bb-3c24c2d463dd": {
+   "name": "Yumuşak Peynirler",
+   "description": "Pastörize edilmemiş (köy yapımı) peynirler, Brie, Camembert ve Gorgonzola (küflü peynirler) listeria riski taşır."
+  },
+  "a90e3ed7-29b4-4069-9da6-756cd3c34d3b": {
+   "name": "Enerji İçecekleri",
+   "description": "Yüksek kafein, taurin ve kimyasal katkı içerikleri nedeniyle tüketilmemelidir."
+  },
+  "a92ffa8d-a22e-42a9-b273-e99051d02431": {
+   "name": "Otomatik Bronzlaştırıcı (Sprey)",
+   "description": "Cilt yüzeyinde kalır, kana karışmaz. Ancak spreyi solumamaya çalışın."
+  },
+  "a935f993-7f7f-48c5-86da-aa2d5e8367c7": {
+   "name": "Göğal",
+   "description": "Baharatlı olduğu için mide yanmasına neden olabilir."
+  },
+  "a9929822-3bb0-4d7c-a4c2-2a4b33e92a3e": {
+   "name": "Pilates",
+   "description": "Bel kaslarını güçlendirir. Eğitmenin hamile olduğunuzu bilmesi gerekir."
+  },
+  "aacd53cb-1bb0-4268-a1d1-9f9c135ab7ce": {
+   "name": "Haş / Kelle Paça",
+   "description": "Çok yağlıdır ve kolesterolü yükseltebilir. Sarımsak mideyi rahatsız edebilir."
+  },
+  "ab3fa79f-82f8-4fc2-a110-8c6d47485087": {
+   "name": "Acı Biber",
+   "description": "Güvenlidir, ancak mide yanmasını artırabilir."
+  },
+  "abf9d1a9-234a-433d-9ccb-84b093abd005": {
+   "name": "Antihistaminik (Alerji İlacı)",
+   "description": "Doktorunuza danışın. Loratadin ve setirizin genellikle güvenli kabul edilir."
+  },
+  "ac0aee5f-a79c-4c84-b5d8-ef03a487b436": {
+   "name": "Sıcak Banyo / Sauna",
+   "description": "Vücut sıcaklığının 39°C'nin üzerine çıkması fetüs için tehlikelidir. Ilık duş alabilirsiniz."
+  },
+  "acb890db-b750-4b72-8f5e-e8344e92d7a5": {
+   "name": "Sac İçi",
+   "description": "Çok yağlı ve kızartılmış olabilir. Sebzeli kısmı daha faydalıdır."
+  },
+  "99c14318-3cfc-4075-b0a9-fe0b308313db": {
+   "name": "Şeker Ağda / Ağda",
+   "description": "Damar genişlemesi (varis) yoksa güvenlidir. Cildiniz daha hassas olabilir."
+  },
+  "9a1a747c-7173-43b6-9b93-c2a5d9023c83": {
+   "name": "Ahududu / Böğürtlen",
+   "description": "Taze olarak tüketildiğinde güvenlidir. Yaprak çayıyla karıştırmayın."
+  },
+  "9afd3dbd-2a81-4f82-b4a6-f0c365cace3a": {
+   "name": "Lor Peyniri (Pastörize)",
+   "description": "Paketli lor peyniri güvenlidir ve kalsiyum kaynağıdır. Açıkta satılan çiğ lor peyniri pişirilmelidir."
+  },
+  "9ff783a8-6911-4a46-97cd-a4a18396bb13": {
+   "name": "Feijoa",
+   "description": "İyot bakımından zengindir ve tiroit bezi için faydalıdır."
+  },
+  "a07b8699-6338-4bca-94a8-92fcb9ae10db": {
+   "name": "Dikiş Dikmek",
+   "description": "Güvenlidir, ancak uzun süre aynı pozisyonda oturmayın."
+  },
+  "a1f606c2-1658-4e47-bfea-06a80cc7dce7": {
+   "name": "Muşmula",
+   "description": "Güvenlidir."
+  },
+  "a4a9d193-8a0c-48ee-9372-9b37e5b999aa": {
+   "name": "Lazer Epilasyon",
+   "description": "Lazer ışını derin dokulara ulaşmaz, ancak ağrı rahim kasılmalarına neden olabilir. Doktorlar genellikle ertelemenizi önerir."
+  },
+  "a533b46d-afd9-4184-ad2d-ec9d133701ff": {
+   "name": "Tarhun",
+   "description": "Yemeklerde kullanılan miktarlarda güvenlidir."
+  },
+  "a5dd803c-a1ab-47f5-acc3-d5aefdbeca54": {
+   "name": "Tuz",
+   "description": "Tüketilebilir, ancak fazlası ödem (şişlik) yapar. Sınırlandırılmalıdır."
+  },
+  "a6497678-b148-4fbc-8e3e-7625769c440c": {
+   "name": "Maydanoz",
+   "description": "Yemeklerde baharat olarak kullanıldığında güvenlidir. Fazla miktarda suyu veya çayı rahmi uyarabilir."
+  },
+  "b62f0f82-1af4-4811-910c-583d477987e7": {
+   "name": "İncir reçeli",
+   "description": "Sindirime faydalıdır."
+  },
+  "b728c753-908a-4c9b-be3a-95f134405968": {
+   "name": "Bulgur",
+   "description": "Pirinçten daha fazla lif içerir ve faydalıdır."
+  },
+  "b73d6256-1d85-4003-b933-0538a317f86f": {
+   "name": "Ahududu Yaprağı Çayı",
+   "description": "Yalnızca 3. trimesterin sonunda (36+ hafta) doğuma hazırlık amacıyla tüketilebilir."
+  },
+  "b7a6fc30-872d-4080-ab2a-e4fa0f992f45": {
+   "name": "Egzersiz (Hafif)",
+   "description": "Yürüyüş, yüzme ve hamile yogası faydalıdır."
+  },
+  "b89c53eb-32bc-412b-9682-ea88d2687297": {
+   "name": "Şeker / Tatlı",
+   "description": "Gestasyonel diyabet riski varsa sıkı şekilde kontrol edilmelidir."
+  },
+  "c12e6733-ed2c-48df-9554-d169b3d3df30": {
+   "name": "Elektrikli scooter kullanmak",
+   "description": "Elektrikli scooter kullanmak düşme ve yaralanma riski taşır; bu da hamilelik döneminde tehlikeli olabilir. Bu aktiviteden uzak durmanız en iyisidir."
+  },
+  "c1ad91ac-a9d7-4f8b-be51-bcfc572993be": {
+   "name": "Kirpik laminasyonu",
+   "description": "Kimyasal maddeler göze temas edebilir; mutlaka alerji testi yapılmalıdır."
+  },
+  "c2eda676-4afc-47fd-8f07-97d50bd55942": {
+   "name": "Kakao",
+   "description": "Az miktarda tüketilebilir. Kafein içerir."
+  },
+  "c3158731-b3af-4f97-ae42-ad2765f8836f": {
+   "name": "Jöle",
+   "description": "Jelatin güvenlidir."
+  },
+  "c441fedf-30cd-4df7-aeb7-6c6d4c83ce37": {
+   "name": "Nargile",
+   "description": "Sigaradan daha fazla karbonmonoksit ve toksin içerir."
+  },
+  "c61ac58a-22c8-4dd1-80b5-b2984f6468bc": {
+   "name": "Düşbere",
+   "description": "Güvenlidir; mide yanmasına yol açabileceği için karabiber miktarına dikkat edin."
+  },
+  "c92870c6-4067-413f-bf1f-9c3c54c225ff": {
+   "name": "Avokado",
+   "description": "Folik asit açısından zengindir ve çok faydalıdır."
+  },
+  "ca2a1163-b2b3-49fd-96d1-10ea4d670bb2": {
+   "name": "Siyah Çay",
+   "description": "Kafein içerir; günde 3-4 bardaktan fazlası önerilmez. Demir takviyesiyle aynı anda içmeyin."
+  },
+  "cba6bf85-f14b-4324-9d48-90cac59a4bc7": {
+   "name": "Alkol",
+   "description": "Kesinlikle yasaktır. Fetüsün gelişimine doğrudan zarar verir."
+  },
+  "cd2424c6-21a8-4752-9ae9-f4742dae93e4": {
+   "name": "Kestane",
+   "description": "Pişmiş olarak (pilavda veya fırında) tüketilmesi güvenlidir."
+  },
+  "cd2c71df-2aa2-4603-8a8e-9819c6aaf1aa": {
+   "name": "Pirinç / Karabuğday",
+   "description": "Güvenli karbonhidrat kaynaklarıdır. Karabuğday demir kaynağıdır."
+  },
+  "cd79ac84-2fb6-4341-8c05-e49e124e966a": {
+   "name": "Tereyağı",
+   "description": "Güvenlidir; A ve D vitamini kaynağıdır."
+  },
+  "cdb23929-c1a6-4bcd-8e34-e26f78dde126": {
+   "name": "Nohut",
+   "description": "Protein kaynağıdır, şişkinlik ve gaz yapabilir."
+  },
+  "ce123d1a-41fc-4af9-8298-bf41eaa43197": {
+   "name": "Suluboya",
+   "description": "Zararsızdır, hobi amacıyla kullanabilirsiniz."
+  },
+  "ce1b1478-cbd0-4b55-a0c0-52e6ae630be4": {
+   "name": "Ayva",
+   "description": "Mide bulantısına iyi gelir ve sindirimi destekler."
+  },
+  "ad945485-a623-4a91-afca-c9d7bba8b9c8": {
+   "name": "Hacamat",
+   "description": "Kan kaybı ve enfeksiyon riski vardır. Tansiyonu düşürebilir."
+  },
+  "ada1521c-d651-4273-b3da-e1874aaf6625": {
+   "name": "Yoğurt / Kefir",
+   "description": "Kalsiyum ve probiyotik kaynağıdır."
+  },
+  "b0855f6d-792e-4d72-a4d4-3509c5e9f5a1": {
+   "name": "Uçuş",
+   "description": "Ticari hava yolu şirketleriyle yapılan uçuşlar genel olarak hamilelik döneminde güvenli kabul edilir. Ancak özellikle uzun süreli uçuşlardan önce, hamilelikle ilgili herhangi bir sorununız olmasa bile doktorunuza danışmanız önerilir. Bol su için, kan pıhtılaşmasını önlemek için hareket edin ve önerilirse kompresyon çorabı kullanın. Bu öneriler emziren anneler için de geçerlidir; ancak uzun uçuşlarda bebeğin beslenmesi ve konforu için ek hazırlık yapmak faydalı olabilir."
+  },
+  "b0c7bfda-4110-4f88-8a68-a6303d1447c6": {
+   "name": "Somon",
+   "description": "Omega-3 kaynağıdır. Haftada 2 defaya kadar, tamamen pişmiş olarak tüketilmesi önerilir."
+  },
+  "b1a7ab3d-fa21-4a98-ae31-159ea5e65822": {
+   "name": "Uçmak",
+   "description": "Ticari uçuşlar genel olarak hamilelik döneminde güvenli kabul edilir. Özellikle üçüncü trimesterde uçuş konusunda doktorunuza danışmanız; kan pıhtılaşmasını önlemek için bol su içmeniz ve hareket etmeniz önerilir. Bu öneriler emziren anneler için de geçerlidir; ancak uzun uçuşlarda bebeğin beslenmesi ve konforu için ek hazırlık yapmak gerekir."
+  },
+  "b4267eb3-6e6a-46f3-93ce-1dab05fea063": {
+   "name": "Sucuk",
+   "description": "Sucuk, emzirme döneminde ölçülü tüketildiğinde genellikle güvenlidir; ancak yüksek sodyum ve yağ içeriğini göz önünde bulundurmak önemlidir. Ayrıca baharatlı yiyecekler bazen anne sütü yoluyla bebeği etkileyerek huzursuzluğa veya sindirim sorunlarına neden olabilir. Bebeğinizin tepkilerini takip edin."
+  },
+  "b4392c92-b356-4f01-8438-8c0f357714ef": {
+   "name": "Çikolata",
+   "description": "Kafein ve şeker miktarına dikkat edilerek az miktarda yenebilir."
+  },
+  "b45209df-c697-4659-83df-1930e5ece743": {
+   "name": "Kalsiyum",
+   "description": "Kemikler ve dişler için önemlidir."
+  },
+  "b48ef54c-3301-4c72-9e1d-015b47bf0be0": {
+   "name": "Erik",
+   "description": "Güvenlidir, sindirimi hızlandırır."
+  },
+  "b5136762-1228-4319-a02d-71a442045140": {
+   "name": "Ton Balığı (Konserve)",
+   "description": "Haftada 140 gramı aşmamak koşuluyla tüketilebilir (cıva riski)."
+  },
+  "ce5d270b-9ea1-4416-b1ff-dde38b8ca2f7": {
+   "name": "Bandaj (Kemer)",
+   "description": "Bel ağrısını azaltır; doktor tavsiyesiyle kullanın."
+  },
+  "cf62fa05-9fb2-434a-a4ab-259a3cf6c357": {
+   "name": "Ceviz reçeli",
+   "description": "İyot açısından zengindir ancak şeker oranı yüksektir."
+  },
+  "d038498a-680b-480c-b90b-e0469a383504": {
+   "name": "Omega-3",
+   "description": "Beyin gelişimi için önemlidir."
+  },
+  "d0c5b1ff-d7fa-47bd-aa7c-1c513690d586": {
+   "name": "Dolma / Pilav",
+   "description": "Geleneksel yemeklerimiz güvenlidir. Yağ oranına dikkat edin."
+  },
+  "d0d53807-e3ef-43fa-bbbf-982ca54d561a": {
+   "name": "Ev Temizliği (Kimyasal)",
+   "description": "Klor ve güçlü kimyasal maddelerle çalışırken eldiven giyin ve pencereyi açın."
+  },
+  "d28be313-b328-4b02-a097-3b36aa9b4e80": {
+   "name": "İğde",
+   "description": "Mide ve bağırsaklar için faydalıdır."
+  },
+  "d2b2547b-a246-46d2-8237-ba956bc10193": {
+   "name": "Sarımsak",
+   "description": "Bağışıklık için faydalıdır ancak mide yanmasına neden olabilir."
+  },
+  "d35818e9-239f-4c36-89db-cbe81b4ecb74": {
+   "name": "Mikrodalga Fırın",
+   "description": "Radyasyon sızdırmaz; yiyecekleri ısıtmak güvenlidir."
+  },
+  "d5113a84-f54b-44a1-b1e2-c56c174e915f": {
+   "name": "Dovga",
+   "description": "Çok faydalıdır (yeşillik + yoğurt)."
+  },
+  "d5486e80-7fee-4805-914d-8ff740f6faf3": {
+   "name": "Gaviscon / Rennie",
+   "description": "Hamilelikte mide yanması için güvenli kabul edilir."
+  },
+  "e26a7325-c8d0-4547-a1ac-df7fffc1b998": {
+   "name": "Pancar",
+   "description": "Kansızlığa faydalıdır."
+  },
+  "e36740b3-4dab-40b2-b734-4b1f66249624": {
+   "name": "Suşi (Çiğ balık)",
+   "description": "Listeria ve parazit riski taşır. Yalnız tamamen pişmiş rulolar (ör. sebzeli, pişmiş somonlu) tüketilebilir."
+  },
+  "e38db223-f68f-44d7-bb0a-b2d6dc99f899": {
+   "name": "Parfüm",
+   "description": "Güvenlidir. Kokusu mide bulantısına neden olursa kullanmayın."
+  },
+  "e390a057-a91c-44d7-8571-ad77d64de8fa": {
+   "name": "Sikloferon",
+   "description": "Bağışıklık sistemi uyarıcısıdır, hamilelikte kullanılması önerilmez."
+  },
+  "e3acc785-40e5-4a92-9bb2-facf384272da": {
+   "name": "Ispanak",
+   "description": "Demir kaynağıdır, pişmiş olarak tüketildiğinde demir daha iyi emilir."
+  },
+  "e3d7d111-d05a-4b2d-8259-4020258da02d": {
+   "name": "Elma / Armut",
+   "description": "Lif kaynağıdır; iyice yıkandıktan sonra kabuğuyla yenmesi önerilir."
+  },
+  "e45b4364-5c8b-4e45-80ff-f195d16c602d": {
+   "name": "Kahve",
+   "description": "Günlük kafein sınırı 200 mg'dır (1-2 fincan)."
+  },
+  "e82735f7-b021-4a7e-b97d-c632edb2796e": {
+   "name": "Kivi",
+   "description": "C vitamini deposudur, sindirime yardımcı olur."
+  },
+  "e883d250-5c94-4535-90fb-6fa5c2836826": {
+   "name": "Nar",
+   "description": "Demir kaynağıdır, kansızlığa faydalıdır."
+  },
+  "e8d51767-338b-4ed6-a293-ad992553d143": {
+   "name": "Folik Asit",
+   "description": "İlk 12 haftada mutlaka kullanılmalıdır."
+  },
+  "d560e9b8-f582-402d-86f6-7f29f68bb753": {
+   "name": "Ayran (Ev Yapımı)",
+   "description": "Güvenlidir ve faydalıdır."
+  },
+  "d73743e4-7872-43bc-9d17-1a2b6c256ae0": {
+   "name": "Sörf",
+   "description": "Sörf; düşme, çarpışma ve sörf tahtası ya da suyun darbesine maruz kalma gibi yüksek riskler taşır. Bu durumlar hamile kadınlar için tehlikeli olabilir. Genel olarak hamilelik döneminde, özellikle hamilelik ilerledikçe ve denge değiştikçe önerilmez."
+  },
+  "d83727f2-789f-49dc-aa6d-e6fbff9096a4": {
+   "name": "Şalgam Suyu",
+   "description": "Güvenlidir; ancak tuzlu ve acı olduğu için mide rahatsızlığına ve tansiyona dikkat edilmelidir."
+  },
+  "db0ccc2f-9c44-49a3-a91f-95b0501ebf1f": {
+   "name": "Soğan",
+   "description": "Güvenlidir."
+  },
+  "dc6517a4-e925-4d1b-9f7e-57574d39a9db": {
+   "name": "Deodorant",
+   "description": "Güvenlidir. Doğal içerikli olanları tercih etmeniz daha iyidir."
+  },
+  "dd8a1799-d7e7-4c57-975d-6087e06a28ce": {
+   "name": "Bahçe İşleri",
+   "description": "Toprakta toksoplazma bulunabilir. Mutlaka eldiven kullanın."
+  },
+  "dd983a6e-a9da-4d50-bf3f-11e40f8ee87e": {
+   "name": "Antibiyotikler",
+   "description": "Yalnızca doktor reçetesiyle kullanılmalıdır. Bazıları (ör. Amoksisilin) güvenlidir, bazıları ise değildir."
+  },
+  "dfbf3657-efd8-4d40-aebd-02c15dc7e574": {
+   "name": "Ütü Yapmak",
+   "description": "Uzun süre ayakta kalmayın, mola verin."
+  },
+  "e05b24b9-cadb-41e1-b6b3-48f1048188f8": {
+   "name": "Bozbaş",
+   "description": "Güvenlidir, protein (et/nohut) kaynağıdır."
+  },
+  "f6a6dd27-8d74-412d-b6fb-b1110e2c447c": {
+   "name": "Ata Binme / Kayak",
+   "description": "Düşme ve yaralanma riski yüksek olan sporlar önerilmez."
+  },
+  "f755e320-cdeb-4d03-90a1-96e4dd1032a2": {
+   "name": "Çinko (Zinc)",
+   "description": "Normal miktarda bağışıklık sistemi için faydalıdır."
+  },
+  "fbbad452-a7d0-41f7-a1d8-63efe62647b4": {
+   "name": "Kekik (Timyan)",
+   "description": "Çaya aroma vermek için az miktarda kullanılabilir. Çok miktarda ve yoğun demlenerek tüketilmesi rahim kasılmalarını artırabilir."
+  },
+  "fc128896-012c-4f81-ac31-549e0a5cc789": {
+   "name": "Bisiklet",
+   "description": "Denge kaybı riski vardır. Egzersiz bisikleti (sabit) daha güvenlidir."
+  },
+  "fd716581-39ca-4226-8009-c559ab79d883": {
+   "name": "Sırtüstü Uyumak",
+   "description": "20. haftadan sonra önerilmez (damara baskı yapar). Sol yanınıza yatın."
+  },
+  "fddc641b-003a-46d6-809e-4f9cb114299b": {
+   "name": "Sumak",
+   "description": "Sindirime yardımcı olur ve güvenlidir."
+  },
+  "ff2f4a10-f7ce-4435-80d7-15496b65de47": {
+   "name": "Aktif Kömür",
+   "description": "Zehirlenme ve şişkinlik durumunda sorbent olarak güvenlidir (kana karışmaz)."
+  },
+  "ea5fcb8d-f293-4de1-b03f-867f11696e2f": {
+   "name": "Limon / Mandalina",
+   "description": "C vitamini kaynağıdır. Mide asidine dikkat edin."
+  },
+  "eacea764-9a60-4512-9fc1-2c70987d75c9": {
+   "name": "Yoga",
+   "description": "Hamilelere özel yoga faydalıdır. Ters duruşlardan kaçının."
+  },
+  "ebd56f45-7d64-4b54-b3b5-9531167ca52c": {
+   "name": "Papaya",
+   "description": "Tamamen olgunlaştığında güvenlidir. Olgunlaşmamış (yeşil) papaya rahim kasılmalarına neden olabilir."
+  },
+  "ed98f8fa-3592-4ed0-a9f8-3d16571b2d82": {
+   "name": "Metal Dedektörü (Havalimanı)",
+   "description": "Manyetik alanı zayıftır, fetüse zarar vermez."
+  },
+  "ee7f4fa6-99e7-4619-8a6a-1e1d0b1b9a0e": {
+   "name": "Halı Silkelemek",
+   "description": "Ağır fiziksel iştir ve toz alerjiye neden olabilir."
+  },
+  "ef0ef853-8c34-4ff4-9adb-779e825cc1db": {
+   "name": "Safran",
+   "description": "Pilavda az miktarda (bir tutam) kullanılması zararsızdır. Yüksek dozda (tedavi amaçlı) kullanılması yasaktır."
+  },
+  "f0142910-ca1a-444d-82b7-dd12c3cdce1a": {
+   "name": "Sert Peynirler",
+   "description": "Çedar, Hollanda peyniri ve Parmesan gibi peynirler genellikle güvenlidir."
+  },
+  "f06cb3ee-7349-4f72-a537-222dd53ee3c8": {
+   "name": "Saç Kestirmek",
+   "description": "Tamamen güvenlidir. Halk inanışlarının (mitlerin) bilimsel bir dayanağı yoktur."
+  },
+  "f08663bc-1154-49bb-a9f7-231ae2fb7bde": {
+   "name": "Magnezyum",
+   "description": "Kas krampları ve tonus için güvenlidir."
+  },
+  "f2533a58-22fe-41b5-b1ab-cecccbef8362": {
+   "name": "Muz",
+   "description": "Potasyum kaynağıdır, krampları azaltır."
+  }
+ }
+}

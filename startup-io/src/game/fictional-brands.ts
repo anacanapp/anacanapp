@@ -1,0 +1,58 @@
+import type { SectorId } from './market';
+
+export type BotStrategy = 'builder' | 'hunter' | 'collector' | 'funded' | 'cautious';
+export interface Brand { name: string; logo: string; color: string; sector: SectorId; strategy: BotStrategy; ratio: number; path: string }
+
+/** Original Venture City identities. Array positions are durable bot IDs in older saves. */
+export const BRANDS: readonly Brand[] = [
+  { name: 'Vellune Studio', logo: 'vellune', color: '#a7cddd', sector: 'cloud', strategy: 'builder', ratio: .48, path: 'M3 20V9L12 3l9 6v11h-6V10l-3-2-3 2v10Z' },
+  { name: 'Brindle Grid', logo: 'brindle', color: '#bba9e4', sector: 'cloud', strategy: 'collector', ratio: .68, path: 'M3 3h7v7H3Zm11 0h7v7h-7ZM3 14h7v7H3Zm11 0h7v7h-7ZM10 10h4v4h-4Z' },
+  { name: 'Kivora Signal', logo: 'kivora', color: '#8acdd3', sector: 'ai', strategy: 'cautious', ratio: .86, path: 'M3 9h4v6H3Zm7-6h4v18h-4Zm7 3h4v12h-4Z' },
+  { name: 'Lumafern Audio', logo: 'lumafern', color: '#9fceac', sector: 'cloud', strategy: 'collector', ratio: 1.02, path: 'M4 14V8l8-5v18l-8-5v-2Zm12-8h3v12h-3Zm5 3h2v6h-2Z' },
+  { name: 'Asterdock Stay', logo: 'asterdock', color: '#dda4ae', sector: 'cloud', strategy: 'cautious', ratio: 1.2, path: 'M12 2 22 12l-3 3-7-7-7 7-3-3Zm-7 15h14v4H5Zm5-6h4v4h-4Z' },
+  { name: 'Fenvora Pay', logo: 'fenvora', color: '#c8bd8f', sector: 'fintech', strategy: 'funded', ratio: 1.48, path: 'M3 5h18v5H8v4h10v5H3Zm14 5h4v9h-4Z' },
+  { name: 'Sablekite Labs', logo: 'sablekite', color: '#d6b69b', sector: 'ai', strategy: 'builder', ratio: 1.85, path: 'M12 2 21 10l-9 12-9-12Zm0 5-4 4 4 6 4-6Z' },
+  { name: 'Nimvale AI', logo: 'nimvale', color: '#8ccab5', sector: 'ai', strategy: 'hunter', ratio: 2.3, path: 'M3 21V3h4l10 11V3h4v18h-4L7 10v11Zm7-18h4v4h-4Z' },
+  { name: 'Solvane Mobility', logo: 'solvane', color: '#dba0a5', sector: 'ai', strategy: 'hunter', ratio: 2.85, path: 'M3 3h18v4H7v3h10v4H7v3h14v4H3Zm14 7h4v4h-4Z' },
+  { name: 'Merriq Network', logo: 'merriq', color: '#8fb4df', sector: 'cloud', strategy: 'collector', ratio: 3.2, path: 'M3 21V5l4-2 5 8 5-8 4 2v16h-4V11l-5 8-5-8v10Z' },
+  { name: 'Auralith Search', logo: 'auralith', color: '#a4c4e0', sector: 'ai', strategy: 'builder', ratio: 3.5, path: 'M3 11 11 3l8 8-8 8Zm8-3-3 3 3 3 3-3Zm5 8 3-3 4 7-3 2Z' },
+  { name: 'Nectara Market', logo: 'nectara', color: '#dbbe91', sector: 'fintech', strategy: 'funded', ratio: 3.8, path: 'M3 7 8 2h8l5 5v10l-5 5H8l-5-5Zm5 3v5l4 3 4-3v-5l-4-3Z' },
+  { name: 'Kernova Compute', logo: 'kernova', color: '#b7cf8d', sector: 'ai', strategy: 'builder', ratio: 4, path: 'M8 3h8v5h5v8h-5v5H8v-5H3V8h5Zm1 6v6h6V9Z' },
+  { name: 'Perevia Devices', logo: 'perevia', color: '#c3cedc', sector: 'ai', strategy: 'cautious', ratio: 4.2, path: 'M4 4h11l6 6-6 6H9v5H4Zm5 4v4h5l2-2-2-2Z' },
+  { name: 'Dovara Deploy', logo: 'dovara', color: '#a6c8d8', sector: 'cloud', strategy: 'builder', ratio: 1.12, path: 'M3 6 9 2l6 4v7l-6 4-6-4Zm8 11 6-4 5 3-6 6-5-3Z' },
+  { name: 'Cirrel Workflow', logo: 'cirrel', color: '#b7b0e1', sector: 'cloud', strategy: 'builder', ratio: .74, path: 'M3 3h18v4H7v10h14v4H3Zm7 7h11v4H10Z' },
+  { name: 'Mellora Design', logo: 'mellora', color: '#92ced0', sector: 'cloud', strategy: 'collector', ratio: 1.6, path: 'M12 2c6 3 9 7 9 12l-9 8-9-8c0-5 3-9 9-12Zm0 6-4 5 4 4 4-4Z' },
+  { name: 'Ferndex Commerce', logo: 'ferndex', color: '#b6cd91', sector: 'fintech', strategy: 'funded', ratio: 2.4, path: 'M3 4h18v4H7v4h10v4H7v5H3Zm14 14h4v3h-4Z' },
+  { name: 'Orriva Teams', logo: 'orriva', color: '#cdb0d4', sector: 'cloud', strategy: 'cautious', ratio: 1.35, path: 'M3 12 8 3h8l5 9-5 9H8Zm6-4-2 4 2 4h6l2-4-2-4Z' },
+  { name: 'Wavemint Rooms', logo: 'wavemint', color: '#97bde1', sector: 'cloud', strategy: 'collector', ratio: 2.15, path: 'M2 5h4l3 10 3-7 3 7 3-10h4l-6 17h-3l-1-4-1 4H8Z' },
+  { name: 'Tessara Data', logo: 'tessara', color: '#d6ad99', sector: 'ai', strategy: 'builder', ratio: 3.2, path: 'M3 3h18v4h-7v14h-4V7H3Zm0 8h4v10H3Zm14 0h4v10h-4Z' },
+  { name: 'Pollenbyte AI', logo: 'pollenbyte', color: '#d8c497', sector: 'ai', strategy: 'funded', ratio: .92, path: 'M9 2h6v6h6v6h-6v8H9v-8H3V8h6Zm1 7v4h4V9Z' },
+  { name: 'Rovelle Finance', logo: 'rovelle', color: '#b1c6d5', sector: 'fintech', strategy: 'hunter', ratio: 1.8, path: 'M3 3h12l6 6-6 6 6 6h-6l-6-6H7v6H3Zm4 4v4h6l2-2-2-2Z' },
+  { name: 'Sylvara Transfer', logo: 'sylvara', color: '#b4d19e', sector: 'fintech', strategy: 'cautious', ratio: 1.1, path: 'M2 6h14V2l6 6-6 6v-4H2Zm20 12H8v4l-6-6 6-6v4h14Z' },
+  { name: 'Cindral Pay', logo: 'cindral', color: '#ddb4c5', sector: 'fintech', strategy: 'funded', ratio: 2.7, path: 'M7 3h14v4H9L6 12l3 5h12v4H7l-5-9Zm7 7h7v4h-7Z' },
+  { name: 'Violett Ledger', logo: 'violett', color: '#c29fda', sector: 'fintech', strategy: 'collector', ratio: 1.5, path: 'M2 4h5l5 12 5-12h5l-8 18h-4Zm8-2h4v6h-4Z' },
+  { name: 'Clovix Code', logo: 'clovix', color: '#b5cdd7', sector: 'cloud', strategy: 'builder', ratio: 2.8, path: 'M7 3 2 12l5 9 4-2-4-7 4-7Zm10 0-4 2 4 7-4 7 4 2 5-9Z' },
+  { name: 'Tandria Learn', logo: 'tandria', color: '#b4cf99', sector: 'ai', strategy: 'collector', ratio: .82, path: 'M3 6 12 2l9 4-9 5Zm2 5 7 3 7-3v7l-7 4-7-4Z' },
+  { name: 'Borell Cloud', logo: 'borell', color: '#a0bee2', sector: 'cloud', strategy: 'cautious', ratio: 1.7, path: 'M3 7h5V3h8v4h5v14H3Zm4 5v5h10v-5Zm4-5v2h2V7Z' },
+  { name: 'Crestune Forum', logo: 'crestune', color: '#d7ac91', sector: 'cloud', strategy: 'hunter', ratio: 3.1, path: 'M3 3h18v14h-9l-6 5v-5H3Zm4 4v6h10V7Z' },
+  { name: 'Aveniq Social', logo: 'aveniq', color: '#b0b2df', sector: 'cloud', strategy: 'hunter', ratio: 1.4, path: 'M12 2 22 18l-4 3-6-10-6 10-4-3Zm-2 14h4v5h-4Z' },
+  { name: 'Rillora Transit', logo: 'rillora', color: '#b6c8ce', sector: 'fintech', strategy: 'hunter', ratio: 4.1, path: 'M3 3h18v4H7v4h9v4H7v6H3Zm14 12h4v6h-4Z' },
+  { name: 'Flintara Ideas', logo: 'flintara', color: '#d5adbf', sector: 'ai', strategy: 'collector', ratio: 2.2, path: 'M12 2 19 8l-3 10H8L5 8Zm0 5-3 3 2 4h2l2-4Zm-4 14h8v2H8Z' },
+  { name: 'Spherune Exchange', logo: 'spherune', color: '#a0bde3', sector: 'fintech', strategy: 'funded', ratio: 3.6, path: 'M4 3h16l3 9-3 9H4l-3-9Zm4 4-2 5 2 5h8l2-5-2-5Zm2 3h4v4h-4Z' },
+  { name: 'Orbitfern Labs', logo: 'orbitfern', color: '#b6ade1', sector: 'ai', strategy: 'builder', ratio: .55, path: 'M3 3h6v6H3Zm6 6h6v6H9Zm6 6h6v6h-6ZM3 15h6v6H3Zm12-12h6v6h-6Z' },
+  { name: 'Neurava Nest', logo: 'neurava', color: '#94c7dc', sector: 'ai', strategy: 'builder', ratio: .9, path: 'M3 4h4v16H3Zm14 0h4v16h-4ZM7 8h10v4H7Zm0 8h10v4H7Z' },
+  { name: 'Petalforge Robotics', logo: 'petalforge', color: '#d3b0cb', sector: 'ai', strategy: 'funded', ratio: 1.2, path: 'M12 2 17 8l-5 6-5-6ZM2 10l8 4v7l-7-3Zm20 0-1 8-7 3v-7Z' },
+  { name: 'Emberquill Cloud', logo: 'emberquill', color: '#d7b397', sector: 'cloud', strategy: 'hunter', ratio: 1.65, path: 'M12 2 21 13l-3 8H6l-3-8Zm0 8-4 5 2 3h4l2-3Z' },
+  { name: 'Rivora Finance', logo: 'rivora', color: '#9bcbbd', sector: 'fintech', strategy: 'collector', ratio: .7, path: 'M2 7 8 3l8 5 6-4v5l-6 4-8-5-6 4Zm0 10 6-4 8 5 6-4v5l-6 4-8-5-6 4Z' },
+  { name: 'Gemvale Compute', logo: 'gemvale', color: '#b6c4df', sector: 'ai', strategy: 'builder', ratio: 2.4, path: 'M6 3h12l5 9-11 10L1 12Zm3 4-3 5 6 5 6-5-3-5Z' },
+  { name: 'Kestrelune Mobility', logo: 'kestrelune', color: '#bfafe0', sector: 'ai', strategy: 'hunter', ratio: 1.9, path: 'M2 4 12 9l10-5-4 10-6 8-6-8Zm8 8 2 4 2-4-2 1Z' },
+  { name: 'Vespergrid Systems', logo: 'vespergrid', color: '#c0adde', sector: 'cloud', strategy: 'funded', ratio: 3.5, path: 'M3 3h18v18H3Zm4 4v10h10V7Zm2 2h6v6H9Z' },
+  { name: 'Sprigbyte Health', logo: 'sprigbyte', color: '#b3cd9d', sector: 'ai', strategy: 'collector', ratio: .8, path: 'M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7ZM3 3h4v4H3Zm14 14h4v4h-4Z' },
+  { name: 'Cedarloop Bio', logo: 'cedarloop', color: '#a6c9cc', sector: 'ai', strategy: 'cautious', ratio: 1.15, path: 'M3 4h8l4 5-4 5H7v7H3Zm4 4v3h3l1-1-1-2Zm8 7h6v6h-6Z' },
+  { name: 'Helioryn Energy', logo: 'helioryn', color: '#99c4d6', sector: 'ai', strategy: 'builder', ratio: 2.6, path: 'M12 1 15 7l7 2-5 5 1 8-6-4-6 4 1-8-5-5 7-2Zm0 8-3 3 3 3 3-3Z' },
+  { name: 'Ambertide AI', logo: 'ambertide', color: '#d1b1c4', sector: 'ai', strategy: 'funded', ratio: 3.7, path: 'M3 4h18v5l-9 6-9-6Zm0 9 9 6 9-6v5l-9 5-9-5Z' },
+  { name: 'Crownleaf Ventures', logo: 'crownleaf', color: '#d5c199', sector: 'fintech', strategy: 'hunter', ratio: 5.1, path: 'M2 5 8 10l4-8 4 8 6-5-4 15H6Zm6 11h8v-3l-4 2-4-2Z' },
+  { name: 'Seedwing Studio', logo: 'seedwing', color: '#b3ce9c', sector: 'cloud', strategy: 'collector', ratio: .62, path: 'M2 3c8 0 12 5 12 13H8C4 12 2 8 2 3Zm20 4c-6 0-9 4-9 10v5h4v-5c4-3 5-6 5-10Z' },
+];
+
+export const BRAND_PATHS: Readonly<Record<string, string>> = Object.fromEntries(BRANDS.map(brand => [brand.logo, brand.path]));

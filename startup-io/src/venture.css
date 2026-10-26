@@ -1,0 +1,217 @@
+/* Phaser edition — editorial lobby, compact arena chrome, and a shared product UI. */
+.venture-ui {
+  background: radial-gradient(ellipse 80% 50% at 40% 0%, #1c344344, transparent 75%), #0b1420;
+  color: #eff5fb;
+}
+.venture-ui::before { display: none; }
+.venture-ui .home-header { padding-top: 21px; padding-bottom: 20px; }
+.venture-ui .brand { letter-spacing: -1px; font-size: 25px; }
+.venture-ui .brand-icon { height: 31px; width: 31px; color: #c2ec87; background: #bfe58d0a; border: 1px solid #526d513b; border-radius: 10px; }
+.venture-ui .brand-io { color: #bfe88b; }
+.venture-ui .wallet-pill { min-width: 72px; border-color: #455365; background: #1c2837; padding: 5px 9px; height: 36px; gap: 7px; }
+.venture-ui .wallet-pill b { color: #eed5a0; font-size: 12px; }
+.venture-ui .header-actions .icon-button { height: 36px; width: 36px; background: #182434; border-color: #354558; color: #91a5b8; }
+.venture-ui .arena-intro { text-align: left; }
+.venture-ui .endless-tag { font-size: 7px; letter-spacing: 1.6px; color: #8fa7b1; padding: 0; }
+.venture-ui .endless-tag .status-dot { background: #bfe58b; box-shadow: 0 0 7px #bfe58b33; width: 4px; height: 4px; }
+.venture-ui .endless-menu .arena-intro h1 { max-width: 420px; margin: 17px 0 9px; font: 600 clamp(31px, 4.4vw, 54px)/1.08 "Space Grotesk", sans-serif; letter-spacing: -1.7px; }
+.venture-ui .endless-menu .arena-intro p { color: #8098ad; max-width: none; font-size: 11px; margin: 0; }
+.venture-ui .venture-preview { position: relative; background: #192b37; border: 1px solid #3b526455; border-radius: 18px; overflow: hidden; height: 286px; width: 100%; margin: 20px 0 14px; isolation: isolate; }
+.arena-preview-phaser { position: absolute; inset: 0; opacity: 0; transition: opacity .4s; background: #162a36; }
+.arena-preview-phaser.ready { opacity: 1; }
+.arena-preview-phaser > canvas { display: block; }
+.preview-vignette { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(#0d1a294a, transparent 30%, transparent 70%, #0d1a29a8); z-index: 1; }
+.preview-topline { position: absolute; z-index: 2; left: 14px; right: 14px; top: 13px; display: flex; align-items: flex-start; justify-content: space-between; pointer-events: none; }
+.preview-topline > span:first-child { font: 600 8px "Space Grotesk", sans-serif; color: #c6d6db; letter-spacing: 1.6px; }
+.preview-topline small { display: block; font-size: 6px; color: #708b98; letter-spacing: 1px; margin-top: 6px; }
+.preview-topline > span:last-child { display: flex; align-items: center; gap: 5px; padding: 5px 7px; border: 1px solid #b4cecf1b; border-radius: 6px; background: #122431b0; color: #99b9b6; font: 500 9px "Space Grotesk", sans-serif; }
+.preview-topline b { padding-left: 5px; border-left: 1px solid #54706766; font-size: 5px; font-weight: 500; color: #739687; letter-spacing: 1px; }
+.preview-engine-label { position: absolute; bottom: 12px; left: 14px; z-index: 2; color: #829fadb3; font: 500 6px "Space Grotesk", sans-serif; letter-spacing: .9px; pointer-events: none; }
+.venture-ui .founder-profile { border: 1px solid #344a5a; background: #1a2938; border-radius: 12px; padding: 11px 12px; margin: 0; }
+.venture-ui .founder-profile small { color: #648fa0; letter-spacing: 1.2px; font-size: 6px; }
+.venture-ui .founder-profile b { color: #cfdfeb; font-size: 15px; }
+.venture-ui .profile-edit { color: #8dacbb; }
+.venture-ui .endless-mode-card { padding: 18px 13px; background: linear-gradient(120deg, #2536499e, #152535); border: 1px solid #3c5366; border-radius: 13px; gap: 12px; }
+.venture-ui .endless-mode-symbol { height: 42px; width: 42px; border-color: #99ba7236; background: #a8cf6b0a; border-radius: 12px; color: #b7d698; }
+.venture-ui .endless-mode-symbol svg { height: 25px; width: 25px; }
+.venture-ui .endless-mode-card b { color: #dce8ee; font-size: 23px; letter-spacing: -.6px; margin: 6px 0 5px; }
+.venture-ui .endless-mode-card small { font-size: 7px; color: #749ca6; letter-spacing: .6px; }
+.venture-ui .endless-mode-card > div > span { color: #6d8ea0; font-size: 7px; }
+.venture-ui .mode-status { color: #779ba3; top: 11px; right: 12px; font-size: 5px; letter-spacing: 1.3px; }
+.venture-ui .endless-launch .launch-button { background: #c0e88d; border-radius: 12px; margin-top: 15px; box-shadow: 0 8px 25px #b5de7210; min-height: 59px; color: #1a3022; }
+.venture-ui .launch-button > span { font-size: 15px; }
+.venture-ui .launch-meta { color: #648d91; margin-top: 7px; font-size: 7px; }
+.venture-ui .launch-meta button { font-size: 7px; color: #7797aa; }
+.venture-ui .endless-records { border-color: #2d4353; margin-top: 16px; padding-top: 16px; }
+.venture-ui .endless-records > div { color: #6d8f9e; font-size: 7px; }
+.venture-ui .endless-records svg { color: #92acbb; }
+.venture-ui .endless-records b { color: #aec8d4; font-size: 11px; }
+.venture-ui .quiet-rivals { padding-top: 18px; }
+.venture-ui .quiet-rivals > span { font-size: 5px; letter-spacing: 1.2px; color: #4c7482; }
+.venture-ui .quiet-rivals > div { gap: 14px; opacity: .62; }
+.venture-ui .main-nav { background: #172533f5; border-color: #34495c; border-radius: 17px; box-shadow: 0 8px 28px #0004; }
+.venture-ui .main-nav > button { color: #547889; }
+.venture-ui .main-nav > button.selected { color: #c0e88d; background: #b9db6b0b; }
+.venture-ui .main-nav > button > span { font-size: 8px; }
+.venture-ui .new-startup-link { color: #829fac; font-size: 9px; }
+
+/* Shop/studio visual parity with the redesigned lobby */
+.venture-ui .page-intro .eyebrow { color: #668b9d; font-size: 7px; }
+.venture-ui .page-intro h1 { color: #e2ecf5; font-size: 32px; letter-spacing: -1.3px; }
+.venture-ui .page-intro > p { color: #809aac; }
+.venture-ui .shop-category-tabs { background: #152432; border-color: #354a5c; }
+.venture-ui .shop-category-tabs > button { color: #6f91a7; }
+.venture-ui .shop-category-tabs > button.selected { background: #b5d8840e; color: #bcd8a2; box-shadow: inset 0 0 0 1px #91ad6638; }
+.venture-ui .shop-card { background: linear-gradient(145deg, #203444, #182839); border-color: #384e62; }
+.venture-ui .shop-card.equipped { border-color: #a5c57e83; }
+.venture-ui .shop-card h3 { color: #c9dbea; }
+.venture-ui .shop-item-footer { border-color: #314b5e; }
+.venture-ui .collection-item, .venture-ui .studio-name-field input, .venture-ui .monogram-row { background: #1a2d3d; border-color: #3a5368; }
+.venture-ui .collection-item.selected { border-color: #b5d88188; background: #a5cf6408; }
+.venture-ui .studio-preview { background: radial-gradient(ellipse at 50% 30%, #3255493b, #18293a 70%); border-color: #3b5762; }
+.venture-ui .studio-name { color: #bfd2dc; }
+.venture-ui .studio-section-label b { color: #b3cad8; }
+.venture-ui .primary-button, .phaser-game .primary-button { background: #c0e88d; }
+.venture-ui .home-modal, .phaser-game .game-dialog { background: linear-gradient(135deg, #223b3d, #182a3e 75%); border-color: #49696b; }
+.venture-ui .setting-row { border-color: #345062; }
+.venture-ui .settings-caption { color: #608395; }
+.venture-ui .studio-ready { margin-bottom: 17px; }
+
+/* The Phaser canvas owns its scene lifecycle and rendering; React remains the accessible HUD. */
+.phaser-host { position: absolute; inset: 0; width: 100%; height: 100%; }
+.phaser-host canvas { display: block; touch-action: none; }
+.phaser-game { background: #132432; }
+.engine-loading { position: absolute; z-index: 12; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 15px; background: #132432; }
+.loading-orbit { width: 42px; height: 42px; border: 1px solid #557267; border-top: 2px solid #c0e88d; border-radius: 50%; animation: engine-spin 1s linear infinite; }
+.engine-loading b { font: 500 10px "Space Grotesk", sans-serif; letter-spacing: 2px; color: #c5d8de; }
+.engine-loading small { font: 500 8px "Space Grotesk", sans-serif; letter-spacing: .7px; color: #638b9b; }
+.phaser-game .arena-topbar { z-index: 7; top: max(13px, env(safe-area-inset-top)); height: 57px; left: max(14px, env(safe-area-inset-left)); right: max(14px, env(safe-area-inset-right)); border-color: #7693a740; border-radius: 13px; background: linear-gradient(110deg, #1c3442ed, #172a3ceF); box-shadow: 0 7px 19px #05111d30; gap: 9px; padding: 8px 10px; }
+.valuation-eyebrow { display: block; font-size: 5px; text-transform: uppercase; letter-spacing: 1.3px; color: #7595a4; margin-bottom: 5px; }
+.phaser-game .clean-valuation strong { font-size: 22px; color: #d2e8d3; letter-spacing: -.6px; }
+.phaser-game .clean-valuation .hud-logo { height: 34px; width: 34px; border-color: #b4d38b4a; background: #9ecc7708; }
+.phaser-game .clean-run-coins { font-size: 11px; color: #d5c29a; gap: 5px; margin-right: 4px; }
+.phaser-game .clean-rank { position: relative; flex-direction: column; gap: 3px; width: 34px; color: #bcc0a5; }
+.phaser-game .clean-rank b { color: #91aab8; font-size: 8px; }
+.phaser-game .clean-rank i { position: absolute; top: -3px; right: -9px; color: #c1e994; font: 500 7px "Space Grotesk", sans-serif; background: #193329; border-radius: 4px; padding: 2px 3px; }
+.phaser-game .clean-rank.rank-up { color: #bce994; }
+.phaser-game .arena-topbar > .icon-button { height: 33px; width: 33px; background: #253b4a; border-color: #64819266; color: #bed2df; }
+.arena-room-strip { position: absolute; z-index: 5; top: calc(max(13px, env(safe-area-inset-top)) + 67px); left: max(20px, env(safe-area-inset-left)); right: max(20px, env(safe-area-inset-right)); display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
+.room-id { display: flex; align-items: center; gap: 7px; font: 500 7px "Space Grotesk", sans-serif; letter-spacing: 1px; color: #a0bac4; text-shadow: 0 1px 5px #091622; }
+.room-id b { display: flex; align-items: center; gap: 4px; font: 500 5px "Space Grotesk", sans-serif; color: #779aa8; letter-spacing: .7px; padding-left: 7px; border-left: 1px solid #68849245; }
+.room-founder-count { display: flex; align-items: center; gap: 5px; font: 500 8px "Space Grotesk", sans-serif; color: #a9c2c2; }
+.room-founder-count small { font-size: 5px; color: #709697; letter-spacing: .3px; }
+.arena-event-feed { position: absolute; z-index: 4; top: calc(max(13px, env(safe-area-inset-top)) + 97px); right: max(19px, env(safe-area-inset-right)); max-width: 210px; display: flex; align-items: flex-end; flex-direction: column; gap: 4px; pointer-events: none; }
+.arena-feed-row { display: flex; align-items: center; gap: 5px; padding: 6px 8px; border-radius: 6px; border: 1px solid #516f8230; background: #142a36c2; font-size: 6px; color: #698a99; animation: event-appear .2s ease-out; }
+.arena-feed-row b { font-size: 7px; font-weight: 600; color: #aac2cf; }
+.arena-feed-row.event-acquired { border-left: 2px solid #e2c48a70; }
+.arena-feed-row.event-acquired > svg { color: #bcad82; }
+.phaser-game .market-leaders { top: calc(max(13px, env(safe-area-inset-top)) + 91px); background: #1b3143ef; border-color: #5e7e9473; }
+.phaser-game .quiet-shield { top: calc(max(13px, env(safe-area-inset-top)) + 89px); left: max(22px, env(safe-area-inset-left)); right: auto; color: #92c9d4; gap: 5px; padding: 4px 6px; background: #21434db9; border: 1px solid #78b2c53d; border-radius: 6px; }
+.phaser-game .district-corner { top: auto; bottom: calc(max(24px, env(safe-area-inset-bottom)) + 76px); left: max(18px, env(safe-area-inset-left)); color: #83a8b2; font-size: 5px; letter-spacing: 1.6px; }
+.phaser-game .quiet-map .minimap { height: 64px; width: 64px; background: #1a3644cb; border-color: #6e9ba565; border-radius: 10px; }
+.phaser-game .map-tools > button { background: #254354c7; border-color: #7499a647; color: #8eb2c0; height: 27px; width: 27px; }
+.phaser-game .minimap .map-bot { background: #71a2bb; }
+.phaser-game .minimap .map-threat { background: #d597ac; }
+.phaser-game .arena-info-card { background: #1b3344f5; border-color: #6283986b; }
+.phaser-game .arena-info-card h3 { color: #bbd3de; }
+.phaser-game .arena-info-card p, .phaser-game .arena-info-card > div { color: #7196ac; }
+.phaser-game .boost-action { width: 82px; height: 82px; padding: 2px; background: conic-gradient(#bedf92 var(--energy-angle), #486777 var(--energy-angle)); box-shadow: 0 0 0 5px #c0df6f0a, 0 10px 22px #08131f44; }
+.phaser-game .boost-action-core { background: radial-gradient(circle at 32% 23%, #3d5f47, #1f3c3d); color: #c6e69d; }
+.phaser-game .boost-action-core svg { height: 25px; width: 25px; }
+.phaser-game .boost-action-core b { font-size: 7px; letter-spacing: 1px; }
+.phaser-game .boost-action.boosting .boost-action-core { background: #bee58b; color: #224030; }
+.phaser-game .boost-percent { color: #8db3aa; font-size: 6px; }
+.phaser-game .steering-hint { background: #193442cb; border: 1px solid #789a9229; color: #a5c2b2; padding: 10px 13px; }
+.phaser-game .floating-stick { border-color: #a7caae65; background: radial-gradient(#bddc9208, #24495a70); }
+.phaser-game .floating-thumb { border-color: #b8d6bc70; background: linear-gradient(135deg, #6a8e81, #325667); color: #d7ead3; }
+.phaser-game .game-toast { background: #294b3ceF; border-color: #a2ca765b; color: #d4eac6; top: 24%; }
+.phaser-game .result-symbol { background: #7da37d0a; border-color: #a2c87570; }
+.phaser-game .result-reward { background: #93784016; border-color: #a0895744; }
+@keyframes engine-spin { to { transform: rotate(360deg); } }
+@keyframes event-appear { from { opacity: 0; transform: translateX(9px); } to { opacity: 1; transform: translateX(0); } }
+
+@media (orientation: portrait) and (max-width: 759px) {
+  .venture-ui.tab-arena .arena-menu { padding-top: 5px; }
+  .venture-ui.tab-arena .arena-menu-hero { min-height: 247px; }
+  .venture-ui.tab-arena .endless-menu .arena-intro h1 { font-size: clamp(30px, 8.6vw, 39px); max-width: 325px; margin: 15px 0 9px; }
+  .venture-ui.tab-arena .endless-menu .arena-intro p { font-size: 10px; }
+  .venture-ui.tab-arena .venture-preview { margin: 18px 0 13px; flex: 1; max-height: 290px; min-height: 110px; }
+  .venture-ui.tab-arena .founder-profile { flex-shrink: 0; padding: 9px 12px; }
+  .venture-ui.tab-arena .endless-launch { padding-top: 14px; }
+  .venture-ui .quiet-rivals { padding-top: 17px; }
+  .venture-ui .endless-records { padding-top: 13px; margin-top: 14px; }
+}
+@media (orientation: portrait) and (max-height: 720px) {
+  .venture-ui .home-header { padding-top: 14px; padding-bottom: 12px; }
+  .venture-ui.tab-arena .arena-menu-hero { min-height: 205px; }
+  .venture-ui.tab-arena .endless-menu .arena-intro h1 { font-size: 28px; max-width: none; margin-top: 11px; }
+  .venture-ui.tab-arena .endless-menu .arena-intro p { font-size: 9px; }
+  .venture-ui.tab-arena .venture-preview { margin: 13px 0 10px; min-height: 84px; border-radius: 12px; }
+  .venture-ui .preview-topline { top: 9px; left: 10px; right: 10px; }
+  .venture-ui .preview-engine-label { bottom: 8px; left: 10px; font-size: 5px; }
+  .venture-ui .preview-topline > span:first-child { font-size: 6px; }
+  .venture-ui .preview-topline small { display: none; }
+  .venture-ui.tab-arena .endless-launch { padding-top: 11px; }
+  .venture-ui .endless-mode-card { padding: 14px 12px; gap: 10px; }
+  .venture-ui .endless-mode-symbol { height: 36px; width: 36px; }
+  .venture-ui .endless-mode-card b { font-size: 20px; margin: 4px 0; }
+  .venture-ui .endless-launch .launch-button { min-height: 51px; margin-top: 12px; }
+  .venture-ui .quiet-rivals { display: none; }
+  .venture-ui .endless-records { margin-top: 10px; padding-top: 10px; }
+  .venture-ui .new-startup-link { margin-top: 6px; min-height: 25px; }
+}
+@media (max-width: 370px) {
+  .venture-ui .brand { font-size: 23px; }
+  .venture-ui .home-header { gap: 8px; }
+  .venture-ui .wallet-pill { min-width: 65px; height: 33px; padding: 4px 7px; }
+  .venture-ui .header-actions .icon-button { height: 33px; width: 33px; }
+  .phaser-game .arena-topbar { gap: 7px; padding: 8px 9px; }
+  .phaser-game .clean-valuation { gap: 7px; }
+  .phaser-game .clean-valuation strong { font-size: 20px; }
+  .phaser-game .clean-run-coins { font-size: 9px; margin-right: 0; }
+  .phaser-game .clean-rank { width: 27px; }
+  .phaser-game .boost-action { height: 76px; width: 76px; }
+  .arena-feed-row { font-size: 5px; gap: 4px; padding: 5px 7px; }
+  .arena-feed-row b { font-size: 6px; }
+}
+@media (min-width: 760px) {
+  .venture-ui .endless-menu { gap: 65px; }
+  .venture-ui .arena-menu-hero { max-width: 500px; }
+  .venture-ui .endless-launch { max-width: 390px; }
+  .venture-ui .venture-preview { height: 325px; }
+  .phaser-game .arena-topbar { width: 360px; right: auto; }
+  .arena-room-strip { max-width: 350px; }
+  .phaser-game .market-leaders { top: 19px; }
+  .arena-event-feed { top: 20px; }
+  .phaser-game .quiet-shield { top: 110px; }
+}
+@media (orientation: landscape) and (max-height: 620px) {
+  .venture-ui .home-header { padding-top: 12px; padding-bottom: 10px; }
+  .venture-ui .arena-menu-hero { min-width: 0; }
+  .venture-ui .endless-menu .arena-intro h1 { font-size: 27px; margin-top: 10px; }
+  .venture-ui .endless-menu .arena-intro p { font-size: 8px; }
+  .venture-ui .endless-tag { font-size: 5px; letter-spacing: 1.3px; }
+  .venture-ui .venture-preview { height: 139px; max-width: none; margin: 13px 0 10px; border-radius: 12px; }
+  .venture-ui .preview-topline { top: 8px; left: 10px; right: 10px; }
+  .venture-ui .preview-topline > span:first-child { font-size: 6px; }
+  .venture-ui .preview-topline small { display: none; }
+  .venture-ui .preview-engine-label { font-size: 5px; bottom: 8px; left: 10px; }
+  .venture-ui .founder-profile { padding: 8px 9px; }
+  .venture-ui .endless-mode-card { padding: 16px 11px; gap: 9px; }
+  .venture-ui .endless-mode-symbol { height: 36px; width: 36px; }
+  .venture-ui .endless-mode-card b { font-size: 21px; }
+  .venture-ui .endless-launch .launch-button { min-height: 48px; margin-top: 12px; }
+  .venture-ui .launch-button > span { font-size: 13px; }
+  .venture-ui .quiet-rivals { padding-top: 12px; }
+  .venture-ui .quiet-rivals > div { gap: 11px; }
+  .venture-ui .endless-records { padding-top: 12px; margin-top: 14px; }
+  .phaser-game .arena-topbar { width: 350px; max-width: 50%; height: 54px; top: max(11px, env(safe-area-inset-top)); }
+  .arena-room-strip { top: calc(max(11px, env(safe-area-inset-top)) + 65px); max-width: 338px; right: auto; width: 47%; }
+  .arena-event-feed { top: max(18px, env(safe-area-inset-top)); right: max(22px, env(safe-area-inset-right)); }
+  .phaser-game .quiet-shield { top: calc(max(11px, env(safe-area-inset-top)) + 87px); }
+  .phaser-game .district-corner { bottom: calc(max(20px, env(safe-area-inset-bottom)) + 76px); }
+  .phaser-game .boost-action { width: 76px; height: 76px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arena-feed-row, .engine-loading .loading-orbit { animation: none; }
+}

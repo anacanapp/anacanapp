@@ -1,0 +1,414 @@
+{
+  "base": "38a3e4675c23bcddb63956bcea6891aa21ebf235",
+  "head": "2b6ebb7cdc289ee8db706fe2b3cdd8c5ad94af35",
+  "count": 100,
+  "outsideManifest": [
+    {
+      "status": "M",
+      "path": "src/integrations/supabase/types.ts",
+      "note": "platform-generated: +3 lines editorial_metadata Json|null (Row/Insert/Update); not edited manually"
+    }
+  ],
+  "changes": [
+    {
+      "status": "A",
+      "path": "ANACAN_BLOG_IMPORT_REPORT.json"
+    },
+    {
+      "status": "A",
+      "path": "ANACAN_BLOG_MANIFEST.json"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/ana-sudu-kolostrum-kecid-yetkin-sud-88b8241c890d.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/ana-sudu-kolostrum-kecid-yetkin-sud.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/dogum-evinden-cixis-hazirliq-c5e52e75c9a2.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/dogum-evinden-cixis-hazirliq.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/emizdirme-dosun-duzgun-tutulmasi-4f6075b0e1bb.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/emizdirme-dosun-duzgun-tutulmasi.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpe-besiyi-tehlukesiz-yuxu-2e4aa44b1608.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpe-besiyi-tehlukesiz-yuxu.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpe-derisine-qulluq-vasiteleri-345ee86f009c.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpe-derisine-qulluq-vasiteleri.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpeni-belemek-tehlukesiz-qundaq-02f18de91c4a.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpeni-belemek-tehlukesiz-qundaq-311e7d99a5fc.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpeni-belemek-tehlukesiz-qundaq-833042f6471e.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpeni-belemek-tehlukesiz-qundaq.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpeni-tehlukesiz-cimdirmek-203c4a64be18.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpeni-tehlukesiz-cimdirmek.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpeni-yirgalayaraq-uyutmaq-3230f5fcf180.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpeni-yirgalayaraq-uyutmaq.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpenin-bas-boyun-desteyi-87e9de377c79.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/korpenin-bas-boyun-desteyi.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/qarisiq-qidalanma-ana-sudu-formula-3b97a9872232.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/qarisiq-qidalanma-ana-sudu-formula.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/qidalanmadan-sonra-korpeni-dik-tutmaq-e15df7d74373.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/qidalanmadan-sonra-korpeni-dik-tutmaq.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/sudsagan-aparat-sagim-saxlama-ecbe925509a2.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/sudsagan-aparat-sagim-saxlama.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/tehlukesiz-korpe-otagi-6864bd187a36.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/tehlukesiz-korpe-otagi.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/tez-tez-bez-deyismek-bismece-1b9eca18abfa.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/tez-tez-bez-deyismek-bismece.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/usaq-bezi-secimi-olcu-qulluq-4b39d6a86a62.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/usaq-bezi-secimi-olcu-qulluq.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/yenidogulmus-gobek-ciyesi-baximi-3d1294620bfa.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/yenidogulmus-gobek-ciyesi-baximi.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/yenidogulmus-sariliq-bilirubin-59444f6e8cf4.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/yenidogulmus-sariliq-bilirubin-f0fbcabe6332.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/yenidogulmus-sariliq-bilirubin.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/yenidogulmus-sidik-urat-kristallari-86932844c12a.webp"
+    },
+    {
+      "status": "A",
+      "path": "public/blog-covers/yenidogulmus-sidik-urat-kristallari.webp"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/ar.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/az.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/de.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/en.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/es.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/fr.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/hi.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/id.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/ja.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/ka.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/kk.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/ko.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/nl.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/pl.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/pt.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/ru.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/sv.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/tr.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/uz.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/vi.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/catalog/zh.json"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/prerender.d.mts"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/prerender.mjs"
+    },
+    {
+      "status": "A",
+      "path": "scripts/blog/prerender.test.mjs"
+    },
+    {
+      "status": "A",
+      "path": "scripts/i18n/blog-editorial-copy.json"
+    },
+    {
+      "status": "M",
+      "path": "scripts/i18n/inline-localization.mjs"
+    },
+    {
+      "status": "M",
+      "path": "src/App.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/BlogScreen.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/Dashboard.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/admin/AdminBlog.tsx"
+    },
+    {
+      "status": "A",
+      "path": "src/components/admin/BlogSeoFields.tsx"
+    },
+    {
+      "status": "A",
+      "path": "src/components/blog/BlogEditorialSections.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/blog/BlogLinkHost.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/blog/BlogPostDetail.tsx"
+    },
+    {
+      "status": "A",
+      "path": "src/components/blog/BlogSeo.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/blog/BlogShareDialog.tsx"
+    },
+    {
+      "status": "A",
+      "path": "src/components/blog/ModuleArticles.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/blog/RelatedPosts.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/dashboard/RecentBlogPosts.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/tools/HospitalBag.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/hooks/useBlog.ts"
+    },
+    {
+      "status": "M",
+      "path": "src/integrations/supabase/database-types.ts"
+    },
+    {
+      "status": "M",
+      "path": "src/integrations/supabase/types.ts"
+    },
+    {
+      "status": "A",
+      "path": "src/lib/blog-editorial.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "src/lib/blog-editorial.ts"
+    },
+    {
+      "status": "A",
+      "path": "src/lib/blog-i18n.ts"
+    },
+    {
+      "status": "M",
+      "path": "src/lib/blog-links.ts"
+    },
+    {
+      "status": "A",
+      "path": "src/lib/blog-module-navigation.ts"
+    },
+    {
+      "status": "M",
+      "path": "src/main.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/pages/BlogLink.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/pages/Index.tsx"
+    },
+    {
+      "status": "A",
+      "path": "src/public-blog/BlogPage.tsx"
+    },
+    {
+      "status": "A",
+      "path": "src/public-blog/api.ts"
+    },
+    {
+      "status": "A",
+      "path": "src/public-blog/bootstrap.tsx"
+    },
+    {
+      "status": "A",
+      "path": "src/public-blog/model.ts"
+    },
+    {
+      "status": "A",
+      "path": "src/public-blog/seo.ts"
+    },
+    {
+      "status": "A",
+      "path": "src/styles/public-blog.css"
+    },
+    {
+      "status": "A",
+      "path": "supabase/migrations/20261005180000_blog_editorial_metadata.sql"
+    },
+    {
+      "status": "M",
+      "path": "vite.config.ts"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+[
+ {
+  "id": "412ff1cb-f515-400c-8e42-25955bc5dc3d",
+  "meal_id": "nursing",
+  "name": "Nursing",
+  "name_az": "Əmizdirmə",
+  "emoji": "🍼",
+  "time_range": "Əlavə qida",
+  "life_stages": [
+   "mommy"
+  ],
+  "sort_order": 5,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "Nursing",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "4143dfb4-4693-460f-8efa-794978efdc61",
+  "meal_id": "lunch",
+  "name": "Lunch",
+  "name_az": "Nahar",
+  "emoji": "🍲",
+  "time_range": "12:00 - 14:00",
+  "life_stages": [
+   "flow",
+   "bump",
+   "mommy"
+  ],
+  "sort_order": 2,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "Lunch",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "59640d15-c740-4039-9c3a-7fb36f823d14",
+  "meal_id": "dinner",
+  "name": "Dinner",
+  "name_az": "Şam yeməyi",
+  "emoji": "🍽️",
+  "time_range": "18:00 - 20:00",
+  "life_stages": [
+   "flow",
+   "bump",
+   "mommy"
+  ],
+  "sort_order": 3,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "Dinner",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "72451bbf-93be-416c-850b-d1601ab1dcc1",
+  "meal_id": "breakfast",
+  "name": "Breakfast",
+  "name_az": "Səhər yeməyi",
+  "emoji": "🍳",
+  "time_range": "07:00 - 09:00",
+  "life_stages": [
+   "flow",
+   "bump",
+   "mommy"
+  ],
+  "sort_order": 1,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "Breakfast",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "dba7014c-7f72-49b9-a747-2eb9c332bd35",
+  "meal_id": "snack",
+  "name": "Snack",
+  "name_az": "Qəlyanaltı",
+  "emoji": "🍎",
+  "time_range": "İstənilən vaxt",
+  "life_stages": [
+   "flow",
+   "bump",
+   "mommy"
+  ],
+  "sort_order": 4,
+  "is_active": true,
+  "created_at": "2026-01-25T09:35:29.464473+00:00",
+  "name_en": "Snack",
+  "name_ru": null,
+  "name_tr": null
+ }
+]

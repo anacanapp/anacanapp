@@ -1,0 +1,147 @@
+{
+ "baby_crisis_periods": {
+  "00332eb5-3642-4caa-aa0d-06c76e8858be": {
+   "title": "Die Welt der Abläufe",
+   "description": "Das Baby versteht Abläufe und kann mehrstufigen Handlungen folgen",
+   "symptoms": [
+    "Frustration",
+    "Forderndes Verhalten",
+    "Ungeduld",
+    "Anhänglichkeit"
+   ],
+   "tips": [
+    "Spiele mit aufeinanderfolgenden Schritten",
+    "Spielzeug stapeln",
+    "Feste Abläufe beim Geschichtenerzählen"
+   ]
+  },
+  "368b778d-29bd-4c6e-a693-d14f3dbde8cb": {
+   "title": "Die Welt der Programme",
+   "description": "Das Kleinkind beginnt, komplexe Handlungen zu planen und auszuführen",
+   "symptoms": [
+    "Willensstärke",
+    "Machtkämpfe",
+    "Streben nach Selbstständigkeit"
+   ],
+   "tips": [
+    "Wahlmöglichkeiten innerhalb klarer Grenzen",
+    "Sichere Möglichkeiten zur Selbstständigkeit",
+    "Bemühungen loben"
+   ]
+  },
+  "68ec3d1f-0c2d-487a-b2b6-226b82a023c8": {
+   "title": "Die Welt der Prinzipien",
+   "description": "Das Kind entwickelt ein moralisches Verständnis und eigene Prinzipien",
+   "symptoms": [
+    "Trotziges Verhalten",
+    "Grenzen austesten",
+    "Gefühlsausbrüche"
+   ],
+   "tips": [
+    "Konsequente Regeln",
+    "Erkläre, warum",
+    "Sei ein Vorbild"
+   ]
+  },
+  "6957aa52-d7bb-49bc-96d0-6c055983318b": {
+   "title": "Die Welt der Systeme",
+   "description": "Das Kind versteht Systeme und wie verschiedene Dinge zusammenwirken",
+   "symptoms": [
+    "Alles hinterfragen",
+    "Frustration angesichts komplexer Zusammenhänge"
+   ],
+   "tips": [
+    "Beantworte Fragen geduldig",
+    "Entdeckt gemeinsam Neues",
+    "Baut gemeinsam Dinge"
+   ]
+  },
+  "91076f7e-3fa0-4b65-b6c3-202f437732a4": {
+   "title": "Die Welt der sich verändernden Wahrnehmungen",
+   "description": "Das Baby nimmt seine Umgebung allmählich anders wahr und seine Sinne werden schärfer",
+   "symptoms": [
+    "Häufigeres Weinen",
+    "Stärkeres Nähebedürfnis",
+    "Schlechter Schlaf",
+    "Appetitlosigkeit"
+   ],
+   "tips": [
+    "Zusätzliche Kuscheleinheiten",
+    "Hautkontakt",
+    "Geduld"
+   ]
+  },
+  "6f91418c-7c6d-4189-804a-e00a07db94db": {
+   "title": "Die Welt der Muster",
+   "description": "Das Baby entdeckt Muster und beginnt, Gesichter und Gegenstände wiederzuerkennen",
+   "symptoms": [
+    "Unruhe",
+    "Längere Wachphasen",
+    "Mehr Aufmerksamkeit nötig",
+    "Häufigerer Hunger"
+   ],
+   "tips": [
+    "Schwarz-weißes Spielzeug",
+    "Zeit für Blickkontakt",
+    "Ruhige Umgebung"
+   ]
+  },
+  "f8fc8a04-d9e6-4b79-b565-8cbc1c9ccb94": {
+   "title": "Die Welt der fließenden Übergänge",
+   "description": "Das Baby lernt fließende Bewegungen und Übergänge zwischen verschiedenen Handlungen",
+   "symptoms": [
+    "Häufigeres Weinen",
+    "Schlafprobleme",
+    "Möchte ständig getragen werden"
+   ],
+   "tips": [
+    "Bewegungsspiele",
+    "Sanftes Wiegen",
+    "Massage"
+   ]
+  },
+  "4f00fc01-ffca-4cb6-a186-c3cae46fe443": {
+   "title": "Die Welt der Ereignisse",
+   "description": "Das Baby versteht Ursache und Wirkung sowie die Abfolge von Ereignissen",
+   "symptoms": [
+    "Extremes Nähebedürfnis",
+    "Stimmungsschwankungen",
+    "Wenig Appetit",
+    "Nächtliches Aufwachen"
+   ],
+   "tips": [
+    "Kuckuck-Spiele",
+    "Feste Routinen",
+    "Besonders viel Geduld"
+   ]
+  },
+  "5c97a8c2-5724-4bd6-97dd-fe1b7f05c200": {
+   "title": "Die Welt der Beziehungen",
+   "description": "Das Baby versteht Entfernungen und die Beziehungen zwischen Gegenständen",
+   "symptoms": [
+    "Trennungsangst",
+    "Albträume",
+    "Fremdeln"
+   ],
+   "tips": [
+    "Bleib in der Nähe",
+    "Vertraute Kuscheltiere oder andere Trostspender",
+    "Schrittweise Trennung"
+   ]
+  },
+  "f13911eb-137a-4fe7-be01-bccf1325e4e6": {
+   "title": "Die Welt der Kategorien",
+   "description": "Das Baby beginnt, Gegenstände, Menschen und Gefühle in Kategorien einzuordnen",
+   "symptoms": [
+    "Wutanfälle",
+    "Besitzergreifendes Verhalten",
+    "Austesten von Grenzen"
+   ],
+   "tips": [
+    "Dinge benennen",
+    "Sortierspiele",
+    "Klare Grenzen"
+   ]
+  }
+ }
+}

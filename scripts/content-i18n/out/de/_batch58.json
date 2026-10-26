@@ -1,0 +1,109 @@
+{
+ "mom_friendly_places": {
+  "df9f77ae-c902-4529-9ba4-6a0b3074d501": {
+   "name": "Baku Book Center",
+   "description": "Buchhandlung mit Kinderleseecke und Café",
+   "address": "Sahil / Xəqani-Straße"
+  },
+  "f236d95f-0e04-4118-87e0-a6829ce16cad": {
+   "name": "Coffeemania",
+   "description": "Café im Einkaufszentrum mit Frühstücksangebot",
+   "address": "Park Bulvar / Gənclik Mall"
+  },
+  "f962985a-1608-4021-be4c-5c01422fe4a1": {
+   "name": "Megafun Unterhaltungszentrum",
+   "description": "Großes Unterhaltungszentrum mit Bowling und Fahrgeschäften",
+   "address": "Azure Business Center (Xətai)"
+  },
+  "41d4ffc1-6f29-4a61-ac25-1df92cea84e1": {
+   "name": "Dreamland Bakı",
+   "description": "Golfclub am See mit Spazierwegen und Restaurants",
+   "address": "Flughafenstraße (Zığ-Autobahn)"
+  },
+  "457acfb4-c668-4cb5-bd3a-211447a90f01": {
+   "name": "CinemaPlus (Platinum-Saal)",
+   "description": "Premium-Kino mit bequemen Liegesesseln für Mütter",
+   "address": "Dəniz Mall / Gənclik Mall"
+  },
+  "4c1fe501-8007-4088-b013-b53a9ba23f5d": {
+   "name": "Aserbaidschanisches Teppichmuseum",
+   "description": "Barrierefreies Teppichmuseum mit Meerblick",
+   "address": "Boulevard am Meer"
+  },
+  "4e120b99-42a5-4291-916c-73ddc429e634": {
+   "name": "Zoo Baku",
+   "description": "Zoo mit kinderwagenfreundlichen Wegen und einem Spielplatz",
+   "address": "Bezirk Nərimanov"
+  },
+  "91e4d074-13ba-4905-bdd8-112d17789f63": {
+   "name": "Little Champions",
+   "description": "Kindercafé mit umfassender babygerechter Ausstattung",
+   "address": "Port Baku Mall"
+  },
+  "99eaf588-b414-4116-9da5-7ce08a21d9ed": {
+   "name": "Entrée",
+   "description": "Café mit frischem Brot und gesunden Snacks",
+   "address": "Filialen in Port Baku / Nizami"
+  },
+  "a1b32b65-24d6-4dd3-92b7-c02bee0b8fb0": {
+   "name": "Mari Vanna",
+   "description": "Familienrestaurant mit Spielzimmer und Kinderbetreuung",
+   "address": "Zərifə-Əliyeva-Straße"
+  },
+  "c7604c2d-8dcd-46c1-9bc6-66037f04c900": {
+   "name": "Kinderland",
+   "description": "Großer Indoor-Spielplatz mit Sicherheitsarmbändern und Ruhebereich",
+   "address": "Dəniz Mall (5. Etage)"
+  },
+  "cc619ac0-309b-46d4-952b-9822a8a45ff7": {
+   "name": "Gazelli House",
+   "description": "Spa, Schönheitssalon und Café mit gesunden Speisen",
+   "address": "Nizami-Straße"
+  },
+  "d0d061fe-b7c9-44ef-8597-a6137850a310": {
+   "name": "Boulevard der Weißen Stadt",
+   "description": "Moderner Boulevard mit glatten Wegen, ideal für Kinderwagen",
+   "address": "Weiße Stadt"
+  },
+  "d342802c-67ec-4ce5-b16d-54aefa1b841d": {
+   "name": "YARAT-Zentrum für zeitgenössische Kunst",
+   "description": "Zentrum für zeitgenössische Kunst mit Café und der Möglichkeit zu Spaziergängen am Meer",
+   "address": "Bayıl"
+  },
+  "db79576b-1679-4cd0-8848-a010c6a6620e": {
+   "name": "Park Cinema",
+   "description": "Kino in den Flame Towers",
+   "address": "Flame Towers"
+  },
+  "17739a2c-efbd-4ecf-be72-b7cca00bee7e": {
+   "name": "Vapiano",
+   "description": "Geräumiges Restaurant mit breiten Gängen für Kinderwagen",
+   "address": "Landmark / Sahil"
+  },
+  "229510f6-4ee4-4426-b71d-4424162c7862": {
+   "name": "Alice's",
+   "description": "Kinderfreundliches Restaurant mit thematisch gestaltetem Interieur",
+   "address": "Port Baku Mall / Deniz Mall"
+  },
+  "2c3c0826-98aa-4b74-ab47-e31b37612fa4": {
+   "name": "Beauttech",
+   "description": "Schönheitssalon in der Port Baku Mall",
+   "address": "Port Baku Mall"
+  },
+  "3e1358e8-e3d7-4d6e-9713-d5dd0778b7ac": {
+   "name": "Heydar-Aliyev-Zentrum",
+   "description": "Kulturzentrum mit Park, Museum und Café",
+   "address": "Nərimanov"
+  },
+  "40bc3972-c8d7-4a9e-bd11-452e2903d8a4": {
+   "name": "Paul Azerbaijan",
+   "description": "Bäckerei-Café mit gesunden Snacks für Familien",
+   "address": "Port Baku Mall / Azərbaycan-Kino"
+  },
+  "41147eb3-244b-4fb5-8006-3044720862e6": {
+   "name": "Wassersportpalast",
+   "description": "Schwimmbäder mit Kinderbecken und Fitnessbereich",
+   "address": "Bayıl"
+  }
+ }
+}

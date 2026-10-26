@@ -1,0 +1,1948 @@
+{
+ "baby_names_db": {
+  "0d1f9133-2758-4801-9364-80e843beb427": {
+   "origin": "Türkisch",
+   "meaning": "Kleiner Wassertropfen, Symbol der Reinheit"
+  },
+  "0e3be933-d956-4aca-a78d-984a9b5a249a": {
+   "origin": "Japanisch",
+   "meaning": "Anmut, Seele"
+  },
+  "0ed0f2bc-3242-477a-b196-afc23dedad2d": {
+   "origin": "Walisisch",
+   "meaning": "Beschützer des Meeres, aus dem Meer geboren"
+  },
+  "0f115198-eeaa-4a60-92a2-cdd03051316b": {
+   "origin": "Irisch",
+   "meaning": "Roter König, temperamentvoller Anführer, feurig"
+  },
+  "0f524d97-1c4b-4ea0-a038-0106bd224cde": {
+   "origin": "Türkisch",
+   "meaning": "Herrscherin"
+  },
+  "0ff4902c-1393-427e-96ea-c6ec6d0dc61f": {
+   "origin": "Schottisch",
+   "meaning": "Aus der Siedlung auf der Wiese, friedlich"
+  },
+  "0b3b4313-5c8a-4bfe-81ea-18cf579f20c4": {
+   "origin": "Türkisch",
+   "meaning": "Löwe, mutiger Krieger"
+  },
+  "0b5de2f1-9bcf-4a6e-87e4-4e05a2e44f31": {
+   "origin": "Englisch",
+   "meaning": "Tapfer im Krieg, kleiner Krieger"
+  },
+  "0b606a67-f64d-4b58-9c74-5d5554ad67f5": {
+   "origin": "Griechisch",
+   "meaning": "Leben, Lebendigkeit, strahlende Energie"
+  },
+  "0c342178-f0ae-4e38-a77c-f8bf0168a9fd": {
+   "origin": "Englisch",
+   "meaning": "Edle Stärke, vornehme Kraft"
+  },
+  "0c72066a-3e41-48a2-a946-07bcc336088e": {
+   "origin": "Türkisch",
+   "meaning": "Licht, das die Dunkelheit vertreibt"
+  },
+  "0cd22906-9c03-4963-924b-6f021e227799": {
+   "origin": "Französisch",
+   "meaning": "Ruderer, Seemann, Reisender"
+  },
+  "07eb0b4a-935a-4133-8ede-b4d747b3c5dd": {
+   "origin": "Persisch",
+   "meaning": "Wohlriechende Jasminblüte"
+  },
+  "084c3f78-ca05-4641-89df-ef491c340dd6": {
+   "origin": "Englisch",
+   "meaning": "Haselnussbaum, haselnussfarben, grünbraun"
+  },
+  "08b836f4-fa97-4e7d-878d-11e0a4fa5245": {
+   "origin": "Lateinisch",
+   "meaning": "Strahlend, leuchtend"
+  },
+  "08e151b2-ce64-4801-8d64-b9e77ad493c4": {
+   "origin": "Hawaiianisch",
+   "meaning": "Ruhe, Ozean"
+  },
+  "09b95538-ca19-4e3a-9a19-97a50381b340": {
+   "origin": "Hebräisch",
+   "meaning": "Gnade, Barmherzigkeit, Güte, liebenswert"
+  },
+  "0a2bce8b-ceaf-478b-96ff-760a323c47bd": {
+   "origin": "Lateinisch",
+   "meaning": "Göttin der Natur und des Frühlings"
+  },
+  "00472532-b771-47ce-a6cc-31631719239c": {
+   "origin": "Arabisch",
+   "meaning": "Redner, jemand mit großer Redegewandtheit"
+  },
+  "006c03da-785b-456d-9564-5da1f72bb2c8": {
+   "origin": "Deutsch",
+   "meaning": "Herrscher des Hauses, Eigentümer eines Anwesens"
+  },
+  "007f0cdb-c530-4079-a717-0f6fdeae89cc": {
+   "origin": "Chinesisch",
+   "meaning": "Groß und mächtig"
+  },
+  "00b00619-2609-4a63-bbea-1d734b072561": {
+   "origin": "Japanisch",
+   "meaning": "Talentiert und flink"
+  },
+  "03169fe5-8a63-4049-9df6-75cc9587c178": {
+   "origin": "Türkisch",
+   "meaning": "Lichtschein, der den Mond umgibt"
+  },
+  "0354e275-f22f-440a-be49-098692dfaa1d": {
+   "origin": "Türkisch",
+   "meaning": "So stürmisch wie eine Flut, voller Leben"
+  },
+  "03bc0cec-b2ab-4e44-9bf1-5720ec2103a4": {
+   "origin": "Hebräisch",
+   "meaning": "Allah ist mein Richter"
+  },
+  "048bd246-da6c-4a0f-a56f-2d1d10f6fc3c": {
+   "origin": "Persisch",
+   "meaning": "Herrscher der Welt, Eroberer"
+  },
+  "06363134-ce5a-484d-a850-3100f3825cda": {
+   "origin": "Russisch",
+   "meaning": "Beschützer der Menschen"
+  },
+  "069afd46-8c96-437f-a667-5ecc60d75297": {
+   "origin": "Englisch",
+   "meaning": "Mythische und magische Kraft"
+  },
+  "06a6074a-457a-4cd3-9214-2b484679d17e": {
+   "origin": "Irisch",
+   "meaning": "Blonder Held, mutiger Krieger"
+  },
+  "073aa609-247b-405d-9dfc-b34e125d9c47": {
+   "origin": "Arabisch",
+   "meaning": "Schöpferische Leidenschaft, die von Herzen kommt"
+  },
+  "107f1098-3fe1-4493-872c-501e2e9a6fc5": {
+   "origin": "Englisch",
+   "meaning": "Naturverbunden"
+  },
+  "109f9b45-ec70-479b-a489-47b3e2d97485": {
+   "origin": "Lateinisch",
+   "meaning": "Sieg, siegreich, triumphierend"
+  },
+  "1292e936-0461-402b-a863-1d26d521333a": {
+   "origin": "Chinesisch",
+   "meaning": "Morgendämmerung, Erleuchtung"
+  },
+  "1306512b-96a7-42d4-a8fe-a5d28b5a7602": {
+   "origin": "Arabisch",
+   "meaning": "Rächerisch, unversöhnlich"
+  },
+  "15263621-0334-4936-b806-600b37214ec4": {
+   "origin": "Walisisch",
+   "meaning": "Leidenschaftlich, temperamentvoll, feurig, aktiv"
+  },
+  "16d23729-57c6-46e9-b613-a7ea429e5463": {
+   "origin": "Türkisch",
+   "meaning": "Unabhängig, frei, selbstständig"
+  },
+  "17662355-8116-4042-98a5-1490a135b456": {
+   "origin": "Arabisch",
+   "meaning": "Freude, Wohlstand"
+  },
+  "1768d58e-9569-4594-80d3-f626f3d4d650": {
+   "origin": "Arabisch",
+   "meaning": "Gepflegt, anmutig, hübsch"
+  },
+  "18cd2da9-d022-4b36-bb4c-36542791fcc4": {
+   "origin": "Hebräisch",
+   "meaning": "Frieden, Geborgenheit"
+  },
+  "19d336ce-2c8c-456c-8347-171049594365": {
+   "origin": "Slawisch",
+   "meaning": "Zart, kostbar, geliebt, liebevoll"
+  },
+  "19dbf1f6-2398-4eb2-b028-0f9592f2e739": {
+   "origin": "Persisch",
+   "meaning": "Vom Glück begünstigt, glücklich"
+  },
+  "1ac4d18e-214d-40e9-b07b-8870c38caab6": {
+   "origin": "Englisch",
+   "meaning": "Eichenwiese, stark, widerstandsfähig"
+  },
+  "1f2b76eb-3274-4c06-82e4-91c13c2ea7a6": {
+   "origin": "Persisch",
+   "meaning": "Morgentau, Tautropfen auf einer Blume"
+  },
+  "1f49053d-0fd7-4ce8-a6a1-4c1a9a83dc74": {
+   "origin": "Türkisch",
+   "meaning": "Waldente, anmutig gehende Dame"
+  },
+  "1f8eb205-a4da-4bf9-94ed-d7adcf76f871": {
+   "origin": "Arabisch",
+   "meaning": "Muschel, glänzend, kostbar"
+  },
+  "200f8b37-692f-40f0-adac-b3617cdc7f39": {
+   "origin": "Türkisch",
+   "meaning": "Licht des Volkes, Schönheit des Volkes"
+  },
+  "20cc9258-407e-4e4e-9a83-3e349f919cd0": {
+   "origin": "Türkisch/Arabisch",
+   "meaning": "Mondlicht, Glanz"
+  },
+  "216941d1-fc33-4f9f-88d2-36764a088762": {
+   "origin": "Türkisch",
+   "meaning": "Vertreter des Volkes"
+  },
+  "1af776d2-350c-4aae-8ecc-523f6ff853ec": {
+   "origin": "Lateinisch",
+   "meaning": "Soldat, gütig, barmherzig"
+  },
+  "1bdcf183-2a7e-48f7-bba3-848daa300a99": {
+   "origin": "Irisch",
+   "meaning": "Wachsam, mutig, aufmerksam, Wächter"
+  },
+  "1bf52978-ebac-4983-aeea-7eb44cb94dc6": {
+   "origin": "Hebräisch",
+   "meaning": "Angesehene Dame, fruchtbar"
+  },
+  "1c065a4a-4dd2-4c62-a58b-2ffb7f58fef3": {
+   "origin": "Türkisch",
+   "meaning": "Langlebig, ewig bestehend"
+  },
+  "1c098ced-e5ce-4caf-bd8e-f39b933edd08": {
+   "origin": "Italienisch",
+   "meaning": "Mein Eigen, geliebtes und ersehntes Kind"
+  },
+  "1c3242b7-2ed8-4258-83f6-e50bbd4dd5f7": {
+   "origin": "Hebräisch",
+   "meaning": "Treu, mutig, von Herzen verbunden"
+  },
+  "1c4fe26d-5a32-4899-be80-8a6fb518ab03": {
+   "origin": "Chinesisch",
+   "meaning": "Wertvolles Juwel"
+  },
+  "1c672634-01bb-4711-a2f8-100006180709": {
+   "origin": "Persisch",
+   "meaning": "Schön wie der Mond, strahlend"
+  },
+  "1dd34786-bd77-4cf7-b70c-284bd9521d40": {
+   "origin": "Arabisch",
+   "meaning": "Vorzeitig geboren (historischer Name)"
+  },
+  "1e092862-2551-4fc4-b4ef-0e229e6fa3b9": {
+   "origin": "Hebräisch",
+   "meaning": "Herabfließend, historischer heiliger Fluss"
+  },
+  "1e6d5c7d-3269-4989-a82f-14eb20c31541": {
+   "origin": "Griechisch",
+   "meaning": "Beschützer der Menschen, Helfer"
+  },
+  "1f11310e-f307-4e1a-adde-1f175c1c2666": {
+   "origin": "Arabisch",
+   "meaning": "Weizenfarbener Teint, schöner Hautton"
+  },
+  "217a810e-ac13-4622-b341-0404c733a07c": {
+   "origin": "Französisch",
+   "meaning": "Hell, strahlend, berühmt, rein"
+  },
+  "21d2369e-73cd-4dd3-a1a2-0070ec45f5dd": {
+   "origin": "Türkisch/Arabisch",
+   "meaning": "Strahlende Zukunft, aufgeweckter Junge"
+  },
+  "229b2bc7-d6a0-42b5-9fec-2991eb81d71e": {
+   "origin": "Arabisch",
+   "meaning": "Mondgesichtig, von schöner Erscheinung"
+  },
+  "22cd0dc5-5d26-4498-85fa-c000350e2836": {
+   "origin": "Swahili",
+   "meaning": "Anziehend, einzigartig"
+  },
+  "22e58897-006c-4330-9a0d-81237675e8d6": {
+   "origin": "Griechisch",
+   "meaning": "Gabe Gottes, göttliches Geschenk"
+  },
+  "22fe5d02-c7e3-4b69-b07d-9298a9c307c9": {
+   "origin": "Türkisch",
+   "meaning": "Der härteste und wertvollste Stein"
+  },
+  "23518516-89db-4863-8557-b84bf1dca6d3": {
+   "origin": "Hebräisch",
+   "meaning": "Thronbesteiger, der Nächste in der Reihe"
+  },
+  "242ef994-a64a-4192-8671-870832da5abc": {
+   "origin": "Keltisch",
+   "meaning": "Mutiger Krieger"
+  },
+  "245c58e4-e32e-4e58-aa35-0c543883c76a": {
+   "origin": "Arabisch",
+   "meaning": "Zuneigung, starke Liebe, Leidenschaft"
+  },
+  "246c65d3-63d3-4d46-abea-91cadd9bf283": {
+   "origin": "Hebräisch",
+   "meaning": "Lieb, angesehen"
+  },
+  "24d0fe8e-db84-4066-a450-4cc8fb85f315": {
+   "origin": "Arabisch",
+   "meaning": "Leben, lebenslang, lebendig"
+  },
+  "267723b5-ef0e-44a7-b98e-6cc5b1a56eba": {
+   "origin": "Englisch",
+   "meaning": "Schöne, heitere Wiese am Meer"
+  },
+  "2c5f2273-b01d-4899-b8fd-cffa7ffdc5d6": {
+   "origin": "Arabisch",
+   "meaning": "Gast, Reisender, Besucher"
+  },
+  "2c654d3c-f031-44bc-a5a8-97c5669bae4d": {
+   "origin": "Hebräisch",
+   "meaning": "Er hat gegeben, Geschenk Gottes"
+  },
+  "2ca67284-aee8-4848-9877-1b00e05669e3": {
+   "origin": "Hebräisch/Arabisch",
+   "meaning": "Eine Frau, die Gott verehrt und geliebt wird"
+  },
+  "2d127b43-48d0-429b-96d0-b1fda14a799d": {
+   "origin": "Hebräisch",
+   "meaning": "Göttlich, schön"
+  },
+  "2e280849-2848-430c-976e-a47e58451cef": {
+   "origin": "Lateinisch",
+   "meaning": "Ehre, Licht, Glanz, edel"
+  },
+  "309fe291-b93f-4a82-b820-a7a355e98f46": {
+   "origin": "Hebräisch",
+   "meaning": "Friedliebend, Frieden und Sicherheit"
+  },
+  "26f10a2f-7931-411e-a2fc-5e24bb5cb928": {
+   "origin": "Irisch",
+   "meaning": "Rothaarig, Eberesche, Schutz"
+  },
+  "27065554-7f1a-479b-9405-66ecd8f9602b": {
+   "origin": "Arabisch",
+   "meaning": "Mit schönem Blick und ausdrucksvollen Augen"
+  },
+  "27dee01c-8ab9-4119-aca4-8434953bdbcd": {
+   "origin": "Französisch",
+   "meaning": "Freie Frau, stark, anmutig"
+  },
+  "284689a6-4457-4749-9f5a-34e06933a647": {
+   "origin": "Hebräisch",
+   "meaning": "Ruhig, friedlich, wohlhabend, geborgen"
+  },
+  "29822193-c16f-4066-ad45-df633f2ca0d2": {
+   "origin": "Hebräisch",
+   "meaning": "Glücklich, gesegnet, glückselig"
+  },
+  "29c46cbb-b46e-4784-aa7a-a07ff25b9ef6": {
+   "origin": "Türkisch",
+   "meaning": "Diener Gottes (meist in zusammengesetzten Namen)"
+  },
+  "2a0e991f-a612-49f0-90c8-850c9a382dae": {
+   "origin": "Deutsch",
+   "meaning": "Ganz, vollkommen, Feenmädchen, schön"
+  },
+  "2a69c4e3-f4e9-43bf-9f09-bdb05c11a86e": {
+   "origin": "Persisch",
+   "meaning": "Herzenserobernd, geliebt"
+  },
+  "2b010a26-4ff0-4ba0-900b-72bf26e6c3d5": {
+   "origin": "Arabisch",
+   "meaning": "Vertraut, lieb, Elternteil"
+  },
+  "2bb3d746-3c5d-4eed-b22a-b0cd3432e4fb": {
+   "origin": "Türkisch",
+   "meaning": "Mit einem Mond über dem Haupt, leuchtende Krone"
+  },
+  "2c225d7b-de73-44fb-a1ce-4d7c6249e47e": {
+   "origin": "Arabisch",
+   "meaning": "Hochgelobt, geschätzt"
+  },
+  "2c49ecdd-54d0-4a0e-b2ce-f4c6836cf474": {
+   "origin": "Arabisch",
+   "meaning": "Barmherzig, weichherzig"
+  },
+  "342ea314-2208-464e-9f28-f83132e9a63b": {
+   "origin": "Persisch",
+   "meaning": "Glücksbringer"
+  },
+  "34452c5a-bfea-4758-aa9c-b0dba9337551": {
+   "origin": "Hebräisch",
+   "meaning": "Diener Gottes, gehorsam"
+  },
+  "348fd636-e77c-4bf7-beaf-7c5aa75ee7d2": {
+   "origin": "Englisch",
+   "meaning": "Hasenwiese, weiter Wald, frei"
+  },
+  "34d34b88-2e93-4735-9a5c-c27ca7e08e5d": {
+   "origin": "Hebräisch",
+   "meaning": "Prinzessin, vornehme Dame, Herrscherin"
+  },
+  "34e0b976-7abd-4df0-b7d0-854089918f4b": {
+   "origin": "Japanisch",
+   "meaning": "Himmel, Weite"
+  },
+  "351db932-29b0-408b-b20b-aaff02e6938a": {
+   "origin": "Arabisch",
+   "meaning": "Klug, ehrlich"
+  },
+  "30d277b7-fa10-4c37-ae5e-800633c5c754": {
+   "origin": "Persisch",
+   "meaning": "Plejaden-Sternhaufen, leuchtender Stern"
+  },
+  "32168bfa-baa6-44f1-b34f-a551baab9dc7": {
+   "origin": "Türkisch",
+   "meaning": "Strahlend wie Mond und Sonne"
+  },
+  "32c815e1-1963-441a-a0f8-5581cf855296": {
+   "origin": "Keltisch",
+   "meaning": "Von der Mündung des Rowan, Bewohner des Flussufers"
+  },
+  "33785714-fc2f-46d2-8ed9-f1dad0e6295a": {
+   "origin": "Griechisch",
+   "meaning": "Blühend, grüner Spross, frische Blüte"
+  },
+  "33b0e006-016f-4fa0-b40d-c97e8ad29ae5": {
+   "origin": "Griechisch",
+   "meaning": "Beschützer der Menschen"
+  },
+  "33c73323-6a2d-4ff4-8ab8-c4deb3305305": {
+   "origin": "Italienisch",
+   "meaning": "Gott ist barmherzig, göttliche Gnade"
+  },
+  "3998864a-9ab5-4991-9060-b48060fb0e3d": {
+   "origin": "Lateinisch",
+   "meaning": "Gnade, Segen, Zartheit, Anmut"
+  },
+  "3a135b57-e7ae-4eb2-a420-e16304ce2f44": {
+   "origin": "Türkisch",
+   "meaning": "Eine sanfte Brise, die Veränderung bringt"
+  },
+  "3a4ae7e6-b0dd-4a2e-b3b0-f9f72818617d": {
+   "origin": "Hebräisch",
+   "meaning": "Von Gott berufen, guter Zuhörer"
+  },
+  "3aeaadbd-7d87-4c69-ac73-f1076fc99d64": {
+   "origin": "Englisch",
+   "meaning": "Parkwächter, Waldhüter"
+  },
+  "3bd0cdc5-45a1-49ef-a109-92b8e7c3cf14": {
+   "origin": "Arabisch",
+   "meaning": "Alis Kämpfer, mutig"
+  },
+  "3cbc9824-236b-45f7-8722-3c1e02737708": {
+   "origin": "Deutsch",
+   "meaning": "Strahlender Ruhm, ruhmreich, bekannt"
+  },
+  "3ce04a11-f46b-4b7b-a0da-37708c0a943b": {
+   "origin": "Englisch",
+   "meaning": "Schneider, Stoffschneider, präzise"
+  },
+  "3ce632a8-9080-4474-851a-8ce121b1acd3": {
+   "origin": "Amerikanisch",
+   "meaning": "Unabhängig, freigeistig, unkonventionell"
+  },
+  "3d0af2cc-9848-4eaa-a696-d328cac1f50d": {
+   "origin": "Persisch",
+   "meaning": "Eine zarte rote Bergblume"
+  },
+  "3d164d86-7858-41e7-8206-845fbd797693": {
+   "origin": "Arabisch",
+   "meaning": "Reinheit, Klarheit, Gelassenheit"
+  },
+  "3d4f4651-5bc7-4d51-b043-7550451f5620": {
+   "origin": "Arabisch",
+   "meaning": "Furchtlos, stattlich, klug"
+  },
+  "3d872096-6ba9-4c63-b7f7-128e89de314b": {
+   "origin": "Französisch",
+   "meaning": "Ein freier Mensch, anmutig und damenhaft"
+  },
+  "3df064b6-fc4e-4b1c-9eab-cd10e59aad3c": {
+   "origin": "Hebräisch",
+   "meaning": "Mutig, göttliche Kraft"
+  },
+  "3fd11095-68bc-4f89-9669-f9ab33abbd8c": {
+   "origin": "Deutsch",
+   "meaning": "Freier Mensch, stark, mutig"
+  },
+  "407b38d0-d8f0-42c0-9ecc-d0b63a39bc4b": {
+   "origin": "Hebräisch",
+   "meaning": "Ort der Wonne, Paradies, Stätte der Freude"
+  },
+  "408f01db-61d7-4b9c-ba45-c7275cc35924": {
+   "origin": "Persisch",
+   "meaning": "Wildrose, zarte Blume"
+  },
+  "40c26ee0-0172-491f-9f5a-f367bde451b8": {
+   "origin": "Arabisch",
+   "meaning": "Herz, Seele, Geistigkeit"
+  },
+  "40c37e54-c1f9-4b2a-9522-5e86df9f7df9": {
+   "origin": "Türkisch",
+   "meaning": "Erstgeborene, die Erste"
+  },
+  "3660e1c2-a310-470e-b060-a2e91dc69ab3": {
+   "origin": "Arabisch",
+   "meaning": "Hochgestellt, groß, erhaben"
+  },
+  "36bee4b8-d747-492a-85c5-a86c37d843fe": {
+   "origin": "Hebräisch",
+   "meaning": "Gnade, Güte"
+  },
+  "37302768-5905-4c1d-8ea7-09c7192abc79": {
+   "origin": "Hebräisch",
+   "meaning": "Vater der Völker, Anführer"
+  },
+  "3815a0bf-1f99-4b09-86a6-9be40e870d99": {
+   "origin": "Arabisch",
+   "meaning": "Jemand, dessen Wunsch in Erfüllung geht und der sein Ziel erreicht"
+  },
+  "38eaf46e-e906-40b0-b6c9-9e5dc131aaa8": {
+   "origin": "Persisch",
+   "meaning": "Widerstandsfähig wie Stahl"
+  },
+  "3996a91a-be31-42cb-afc1-8203940559f8": {
+   "origin": "Lateinisch",
+   "meaning": "Rivale, eifrig, fleißig"
+  },
+  "42015c0b-ebaf-48f3-89fa-3aa13e19d48f": {
+   "origin": "Persisch",
+   "meaning": "Land des Feuers, Feuer"
+  },
+  "4208043e-085a-4d91-885c-f8d8121d6571": {
+   "origin": "Lateinisch",
+   "meaning": "Morgendämmerung, Morgenstern, Göttin der Morgenröte"
+  },
+  "424fdc6c-f6ea-4245-984d-150507508a4b": {
+   "origin": "Englisch",
+   "meaning": "Gott ist barmherzig"
+  },
+  "436355e7-1552-42d8-9f3e-a008111e30fa": {
+   "origin": "Spanisch",
+   "meaning": "Gnade, kostbares Geschenk"
+  },
+  "442abafc-ade7-4454-9247-08a51c69c193": {
+   "origin": "Griechisch",
+   "meaning": "Treue Ehefrau und Weberin"
+  },
+  "44674ad6-23fe-4edc-8d37-c9fc07e3a523": {
+   "origin": "Persisch",
+   "meaning": "Fröhlich, warmherzig und fürsorglich"
+  },
+  "4900ae80-3435-4b18-ae87-f84f27e6832f": {
+   "origin": "Persisch",
+   "meaning": "Himmel, Höhe"
+  },
+  "4a57a0dc-8938-48ef-b8d6-f367869487a3": {
+   "origin": "Lateinisch",
+   "meaning": "Rubin, kostbarer roter Edelstein"
+  },
+  "4ae85074-9752-4285-9f40-e5632fbfb7f7": {
+   "origin": "Deutsch",
+   "meaning": "Weiser Denker"
+  },
+  "4af52961-46f3-4b40-9aa4-38fca2b0ed71": {
+   "origin": "Türkisch",
+   "meaning": "Kräftiger Klang, Donner, Flamme"
+  },
+  "4b210bc4-3719-4313-8d86-e1029079b788": {
+   "origin": "Arabisch",
+   "meaning": "Überbringer von Botschaften, Prophet"
+  },
+  "4b4202fd-6833-42ec-9b8b-4b639532db4b": {
+   "origin": "Persisch",
+   "meaning": "Aufrichtig, gelassen, Seele"
+  },
+  "4ddd482b-7e5a-4fa8-8470-32d3fce3dad8": {
+   "origin": "Deutsch",
+   "meaning": "Edel, großmütig, ehrenhaft"
+  },
+  "4e6c5b9a-60b0-494f-a76f-a1388f120b75": {
+   "origin": "Türkisch",
+   "meaning": "Ein Strom aus Mondlicht, lichtdurchflutet"
+  },
+  "4e74acbc-4f14-460b-9914-12851d2799ad": {
+   "origin": "Englisch",
+   "meaning": "Strahlender Ruhm, fröhlicher Vogel, Freude bringend"
+  },
+  "4edfea0c-67d5-4667-b50f-8d782ae0ba66": {
+   "origin": "Arabisch",
+   "meaning": "Erlösung, Erfüllung eines Wunsches"
+  },
+  "4f343862-cac7-4314-9d5e-834d19a55756": {
+   "origin": "Türkisch",
+   "meaning": "Anführer der Liebe, geliebter Herr"
+  },
+  "500e7663-0174-49a4-b58c-83f343ba46a5": {
+   "origin": "Arabisch",
+   "meaning": "Herzlich, fürsorglich"
+  },
+  "4b6643c7-3583-4b9c-9600-b28cf56f09fb": {
+   "origin": "Englisch",
+   "meaning": "Siedlung am See, Stadt am Seeufer"
+  },
+  "4bb06b6f-5a3b-4c10-9cdf-b12092d990a4": {
+   "origin": "Persisch",
+   "meaning": "Feinfühlig, sanftmütig und mild"
+  },
+  "4c5304a3-ad08-4e52-b130-d163c1afb9d9": {
+   "origin": "Persisch",
+   "meaning": "Schmuck, wertvoll, Reichtum"
+  },
+  "4c53777a-493d-49df-a0c1-0434c445ac24": {
+   "origin": "Arabisch",
+   "meaning": "Einzigartig, unvergleichlich"
+  },
+  "4ccda06b-5ccd-4979-8556-7fc54583e9d8": {
+   "origin": "Türkisch",
+   "meaning": "Ewig, langlebig, überlebend"
+  },
+  "4d5b8f98-a2df-4bf5-a0e6-cce3821dbc57": {
+   "origin": "Türkisch",
+   "meaning": "Anführer des Heeres, Herrscher, Führungspersönlichkeit"
+  },
+  "45e89cfe-72ea-4562-9711-33ae84662f81": {
+   "origin": "Arabisch/Persisch",
+   "meaning": "Rein und schön wie das Antlitz eines Engels"
+  },
+  "464f2291-5b4e-4293-9fa4-61c5bfbb19af": {
+   "origin": "Arabisch",
+   "meaning": "Größe, Erhabenheit"
+  },
+  "46a81761-b913-4e25-8131-6842dabd7346": {
+   "origin": "Hebräisch",
+   "meaning": "Sohn der rechten Hand, geliebter Sohn"
+  },
+  "4831fc19-6b98-46f7-8919-dcb59db55cd7": {
+   "origin": "Türkisch",
+   "meaning": "Ein kostbarer Stein aus den Tiefen des Meeres, rein"
+  },
+  "483a48c3-df67-43e5-8ee9-2eae0ab5a5e5": {
+   "origin": "Lateinisch",
+   "meaning": "Lilienblüte, Symbol für Reinheit und Anmut"
+  },
+  "48d8f43d-0471-44fa-a887-d7b2dd9f3515": {
+   "origin": "Hebräisch",
+   "meaning": "Löwe Gottes, mutig, willensstark"
+  },
+  "5281bd12-17cf-43ed-b727-88d3a88cdc27": {
+   "origin": "Lateinisch",
+   "meaning": "Friedliebend, freundlich"
+  },
+  "53032398-f93e-4814-acbe-4c81e2a01b26": {
+   "origin": "Arabisch",
+   "meaning": "Künstler, Meister"
+  },
+  "53911d79-32fd-4897-85ee-a8346be809ef": {
+   "origin": "Arabisch",
+   "meaning": "Eine höfliche, zuvorkommende Dame"
+  },
+  "539eb357-a61e-48d2-9959-6544c34bfc33": {
+   "origin": "Türkisch",
+   "meaning": "Wohnort, dauerhaft"
+  },
+  "53a27ba0-a5f2-43f8-b286-98de56fd0837": {
+   "origin": "Schottisch",
+   "meaning": "Blonder Krieger, heldenhafter Anführer, ehrlich"
+  },
+  "54b66302-fa6c-41eb-bec5-0a3f375e77b4": {
+   "origin": "Arabisch",
+   "meaning": "Freude, Glück"
+  },
+  "54b71681-2ddd-4a6b-829c-2827a1448780": {
+   "origin": "Türkisch",
+   "meaning": "Herrscher des Mondes, strahlender Anführer"
+  },
+  "54cb984d-3d88-450a-9ad9-4f99b382c1cb": {
+   "origin": "Arabisch",
+   "meaning": "Gedanke, Fantasie, Wunsch"
+  },
+  "5579bc6a-d431-41ea-9005-8825f3ba533b": {
+   "origin": "Arabisch",
+   "meaning": "Baum im Paradies, Reinheit"
+  },
+  "55f8bcb2-e31a-4f66-b709-26bb0ebbb7e5": {
+   "origin": "Lateinisch",
+   "meaning": "Wissend, die Heilpflanze Salbei"
+  },
+  "564b7df7-37c5-44e8-b40d-fcd41c6e7ba5": {
+   "origin": "Arabisch",
+   "meaning": "Welten, Universum, Weite"
+  },
+  "5705a352-932b-42ab-bdd7-d3ecb5340245": {
+   "origin": "Hebräisch",
+   "meaning": "Freude des Vaters, Quelle der Freude"
+  },
+  "50e39564-f9df-4a3d-abe6-9e98ffb968d3": {
+   "origin": "Niederländisch",
+   "meaning": "Gelehrter, schützender Zufluchtsort, Himmel"
+  },
+  "5100604d-b205-46cd-8406-4b382a6c7db5": {
+   "origin": "Lateinisch",
+   "meaning": "Weiser Mensch, Heilkraut, friedlich"
+  },
+  "518a8424-851c-4c1a-84c9-ea655768ab50": {
+   "origin": "Persisch",
+   "meaning": "Scharfsichtig, flink, mächtig"
+  },
+  "51fedc3f-a9b1-4764-90fa-beba29cfe99b": {
+   "origin": "Türkisch",
+   "meaning": "Rotwangig, gesund, schön"
+  },
+  "524d5f21-79b8-420a-8544-4eb199632784": {
+   "origin": "Arabisch",
+   "meaning": "Strahlend, Stern"
+  },
+  "52812353-13d1-401e-816c-9301be1dac00": {
+   "origin": "Japanisch",
+   "meaning": "Leuchtender, klarer Herbst"
+  },
+  "571aa25e-b2e3-433c-a9b6-e3dae5e8ede9": {
+   "origin": "Türkisch",
+   "meaning": "Aufschrei, Lärm, Begeisterung"
+  },
+  "5787f94e-41f2-4899-bc3a-a2a6b00ee406": {
+   "origin": "Swahili",
+   "meaning": "Willenskraft, Lebensziel"
+  },
+  "57a6950f-5bcc-4e50-8ffc-38968f29b97c": {
+   "origin": "Afrikanisch",
+   "meaning": "Stark, ewig lebend"
+  },
+  "57f87ed8-d8c6-4e5b-acb8-54c11a1a483b": {
+   "origin": "Türkisch",
+   "meaning": "Sonne des Volkes, Tag des Volkes"
+  },
+  "59102576-18f3-47e3-b067-ed0403257440": {
+   "origin": "Arabisch",
+   "meaning": "Anführer, Befehlshaber, Herr"
+  },
+  "59f08966-955c-4e48-a34b-fc0e877a53ae": {
+   "origin": "Japanisch",
+   "meaning": "Blume als Symbol der Reinheit"
+  },
+  "5b4bdab6-535f-4d55-9915-251fdd17da06": {
+   "origin": "Arabisch",
+   "meaning": "Vertrauenswürdig, furchtlos, treu"
+  },
+  "5bb56488-0f47-4efa-98dd-7c6e44adce7b": {
+   "origin": "Türkisch",
+   "meaning": "Starker, mächtiger Khan (wie der Ozean)"
+  },
+  "5bbf2f8d-04eb-4649-a884-9ff7bcb0ab80": {
+   "origin": "Griechisch",
+   "meaning": "Helfer, Beschützer, Retter"
+  },
+  "5caa47ae-855b-47ec-81cd-e1bdcfafe5c5": {
+   "origin": "Türkisch",
+   "meaning": "Hat ihre Schönheit vom Mond erhalten, ein Stück des Mondes"
+  },
+  "5ea8977a-9547-44e6-8aa4-fcfcb733451b": {
+   "origin": "Hebräisch",
+   "meaning": "Gott ist meine Stärke"
+  },
+  "5ee7b7a7-ab62-4ba8-b463-6e9b2dd9c090": {
+   "origin": "Lateinisch",
+   "meaning": "Veilchen, zarte Blume, bescheidene Schönheit"
+  },
+  "5ee8dc7f-2042-4460-9277-72e7ded4c3d3": {
+   "origin": "Arabisch",
+   "meaning": "Rein, unbefleckt (historischer und religiöser Name)"
+  },
+  "5fc3a1f6-6f28-47a8-a160-66f430dee259": {
+   "origin": "Türkisch",
+   "meaning": "Hält sein Wort, hält sein Versprechen"
+  },
+  "606ae9d5-21d2-4721-baf2-437fe4165ee7": {
+   "origin": "Persisch",
+   "meaning": "Schah, Herrscher einer Stadt, großer Dichter"
+  },
+  "62eedfec-5103-40d7-beae-d152a8cb71f8": {
+   "origin": "Englisch",
+   "meaning": "Freier, aufrichtiger und freundlicher Mensch"
+  },
+  "634f448e-c9cb-4677-aaed-a1107472e4df": {
+   "origin": "Arabisch",
+   "meaning": "Helligkeit, Licht, Lichtstrahl"
+  },
+  "63636782-e37f-47f3-bf53-1d3d552fdb19": {
+   "origin": "Persisch",
+   "meaning": "Starke Frau (Rostams Gemahlin)"
+  },
+  "6546a36c-ec9a-4ab8-94d7-da9653d7c964": {
+   "origin": "Englisch",
+   "meaning": "Freier, unabhängiger Mensch"
+  },
+  "659e95a9-3370-4a9f-9145-1f5226d6fb9b": {
+   "origin": "Englisch",
+   "meaning": "Musiker, Künstler"
+  },
+  "66730df7-c652-4f1d-b986-f2e5450613e0": {
+   "origin": "Englisch",
+   "meaning": "Königliche Stadt, edles Anwesen, Krieger"
+  },
+  "679f28f9-df41-4d5e-b1cf-40f7b5dd6daa": {
+   "origin": "Griechisch",
+   "meaning": "Beschützer der Menschen, Eroberer"
+  },
+  "67c703b6-23bb-4d22-a8dd-c2afbb905172": {
+   "origin": "Griechisch",
+   "meaning": "Mutter Natur, Illusion"
+  },
+  "67e765de-6afb-4c5f-986e-f47a69319636": {
+   "origin": "Lateinisch",
+   "meaning": "Neuer Stern, Anfang"
+  },
+  "63e05427-7d5f-40b0-a0d7-fcdf3afdb1e9": {
+   "origin": "Walisisch",
+   "meaning": "Wohltätig, gütig, barmherzig, edel"
+  },
+  "64072ecb-ff90-43dc-9b0e-f9d0048f2c1d": {
+   "origin": "Europäisch/Türkisch",
+   "meaning": "Ratgebender Wolf, starker Krieger"
+  },
+  "64734190-36fd-450d-9701-df6eb2c3e288": {
+   "origin": "Chinesisch",
+   "meaning": "Gesund, widerstandsfähig"
+  },
+  "64844ee8-f07b-4b76-8f74-0d53d1379412": {
+   "origin": "Arabisch/Persisch",
+   "meaning": "Klar, rein, mit Emaillemustern verziert"
+  },
+  "64ed02d9-d831-43f5-9cc8-1dedd6d123fc": {
+   "origin": "Arabisch",
+   "meaning": "Himmel, Höhe, Weite des Himmels"
+  },
+  "6538e348-9cae-4be2-9229-5f56edc5425a": {
+   "origin": "Altenglisch",
+   "meaning": "Tapferer Krieger, Sieger"
+  },
+  "68123123-2561-473a-9f22-b568fc717aa8": {
+   "origin": "Arabisch",
+   "meaning": "Rechtschaffenheit, Verstand, Reife"
+  },
+  "6872b8a3-3407-4a45-ba55-319fa801e4c0": {
+   "origin": "Lateinisch",
+   "meaning": "Göttin des Mondes und der Jagd"
+  },
+  "691f05e7-b736-4794-9bc1-8f759c96f407": {
+   "origin": "Türkisch",
+   "meaning": "Frau mit schönem Haar"
+  },
+  "69a3b726-fdee-45ec-be10-5854624eed78": {
+   "origin": "Türkisch",
+   "meaning": "Symbol für Unendlichkeit, Fülle und Schönheit"
+  },
+  "69a441fb-113c-41ac-9c24-c97eb3143a8b": {
+   "origin": "Arabisch",
+   "meaning": "Eine wortgewandte, lieblich erzählende Frau, die nachts Geschichten erzählt"
+  },
+  "6a89d29f-45ed-4374-b2c7-95b1fc998bc7": {
+   "origin": "Persisch",
+   "meaning": "Anmutig, geschmückt"
+  },
+  "6abd6b93-15f1-4e35-9723-e6b4f0435503": {
+   "origin": "Griechisch",
+   "meaning": "Strahlendes Licht, leuchtende Fackel, Lichtschein"
+  },
+  "6af31f4a-6477-4c50-b981-1fc175d5dda8": {
+   "origin": "Hebräisch",
+   "meaning": "Verbunden, zugehörig, treu"
+  },
+  "6c0d48b2-7811-4f8a-a5c1-f4dc455a3f37": {
+   "origin": "Persisch",
+   "meaning": "Großer Fluss oder großes Meer, Tiefe"
+  },
+  "6c93e2ed-1b3c-4e53-921d-e20ac08c9c13": {
+   "origin": "Arabisch",
+   "meaning": "Scharfsinnig, gebildet, weise"
+  },
+  "6ccafffa-3f1e-46a5-a541-ffcd11fb2f81": {
+   "origin": "Indigenes Amerika",
+   "meaning": "Freund, Verbündeter, freundlich"
+  },
+  "6d33e8a2-53b7-4af2-8788-a00fca1b619f": {
+   "origin": "Lateinisch",
+   "meaning": "Schöne, anmutige Dame (Name eines antiken Stammes)"
+  },
+  "7260c634-6346-4a6c-a95e-c369535d8990": {
+   "origin": "Arabisch",
+   "meaning": "Stolz, Gelassenheit, Würde"
+  },
+  "72f60f17-c49c-4037-9829-1aa475cd283c": {
+   "origin": "Lateinisch",
+   "meaning": "Mondlicht, Schönheit der Nacht"
+  },
+  "735fa507-7783-43e5-8690-d3afaec0225f": {
+   "origin": "Lateinisch",
+   "meaning": "Energiegeladen, jung geblieben"
+  },
+  "73a2e788-b780-435f-8989-5c5a8843d630": {
+   "origin": "Türkisch",
+   "meaning": "Hoher Berg, heiliger Gipfel"
+  },
+  "73ac0f5b-6c8c-4cc1-a344-e70262197c8e": {
+   "origin": "Lateinisch",
+   "meaning": "Reinheit, Unschuld"
+  },
+  "742a5d3f-53b1-486f-8604-e0620a9a8ad0": {
+   "origin": "Türkisch",
+   "meaning": "Geliebtes Kind des Volkes"
+  },
+  "6d95d33f-f09f-4875-a17d-a725415f4616": {
+   "origin": "Türkisch",
+   "meaning": "Oberhaupt der Khane, Anführer"
+  },
+  "6e503108-622b-4bfb-9eb9-522fec9d4aae": {
+   "origin": "Italienisch",
+   "meaning": "Luft, Lied, Melodie, Löwentochter"
+  },
+  "70f9f077-2fd0-47a2-b6dd-4f9e8bb15127": {
+   "origin": "Türkisch/Arabisch",
+   "meaning": "Licht des Volkes, ein Mädchen, das seine Heimat liebt"
+  },
+  "71359bb4-b3dc-45fe-8e02-41ea261a2dbc": {
+   "origin": "Deutsch",
+   "meaning": "Entschlossener Beschützer, starker Helm"
+  },
+  "718e92b2-5431-4319-acc1-bdf660511f07": {
+   "origin": "Arabisch",
+   "meaning": "Ein Freund für nächtliche Gespräche"
+  },
+  "71aedc84-5f59-49b3-ab45-43abf8ccd0cc": {
+   "origin": "Lateinisch",
+   "meaning": "Symbol des Friedens, Olivenbaum"
+  },
+  "744170c5-f8bd-4162-9e80-763c97a2c969": {
+   "origin": "Irisch",
+   "meaning": "Schön und wortgewandt sprechend"
+  },
+  "75938313-e957-46c6-8e27-e524eef1d7cb": {
+   "origin": "Lateinisch",
+   "meaning": "Jung, jugendlich, stark"
+  },
+  "7639d8ac-d6c4-4258-8171-980a8ad4d86f": {
+   "origin": "Schottisch",
+   "meaning": "Nachfolger, Thronfolger, treu"
+  },
+  "77dd7f14-160c-4d02-ac46-e0bafddde375": {
+   "origin": "Slawisch",
+   "meaning": "Süß, freundlich"
+  },
+  "780b70c0-a87b-446e-b712-e21126713456": {
+   "origin": "Persisch",
+   "meaning": "Wesen, innere Welt"
+  },
+  "786914ab-4853-477d-bf65-6c06f3de753b": {
+   "origin": "Arabisch",
+   "meaning": "Der Welt entsagend, gläubig"
+  },
+  "7d2ac69e-6a54-418f-b59e-f58d9fe16412": {
+   "origin": "Hebräisch",
+   "meaning": "Gott geweiht"
+  },
+  "7e0bd1d6-c1d6-41bf-ba22-d642a2a51157": {
+   "origin": "Chinesisch",
+   "meaning": "Wunderschöner Jadestein"
+  },
+  "7e215959-6612-4ff2-9502-8baeaf85851c": {
+   "origin": "Türkisch",
+   "meaning": "Quelle des Lebens, Reinheit"
+  },
+  "7e2901e5-9646-4d7c-9aa2-7fe355f8ea83": {
+   "origin": "Arabisch",
+   "meaning": "Die Liebe finden, Vereinigung, Begegnung"
+  },
+  "7eb34a68-c02d-472f-86dc-42a7681b5f66": {
+   "origin": "Irisch",
+   "meaning": "Mutige Frau oder mutiger Mann, tapfer"
+  },
+  "7ed18efa-5f54-4536-afa2-8d9cb526be43": {
+   "origin": "Japanisch",
+   "meaning": "Wasser der Schönheit, Wasserstrom"
+  },
+  "7878434f-2fbb-459f-9baa-e952a8730f64": {
+   "origin": "Türkisch/Persisch",
+   "meaning": "Wunsch, etwas Ersehntes, Ziel"
+  },
+  "789574aa-66c9-499c-a6df-7eedc35def74": {
+   "origin": "Lateinisch",
+   "meaning": "Mond, die Leuchtende, Göttin der Nacht"
+  },
+  "79524b07-d971-49c4-8f94-cd81e8e65919": {
+   "origin": "Türkisch",
+   "meaning": "Die Natur selbst, Reinheit"
+  },
+  "79858810-7c4c-48a7-94bd-d563c8682ed3": {
+   "origin": "Lateinisch",
+   "meaning": "Fleißig, arbeitsam, energiegeladen"
+  },
+  "79e0812d-17a8-4c57-a8cd-8a94dca47787": {
+   "origin": "Deutsch",
+   "meaning": "Ganz, universell, vollkommen, stark"
+  },
+  "7b8c730d-9627-4874-817c-ec4c7ab86bd2": {
+   "origin": "Arabisch",
+   "meaning": "Bestimmung, Glück, Schicksalsanteil"
+  },
+  "7f1e2597-6797-4464-a0f1-6e5394d7efb0": {
+   "origin": "Englisch",
+   "meaning": "Reicher Beschützer, Hüter des Wohlstands"
+  },
+  "7f3c49f7-9da6-4740-8dd5-14158b5ddc11": {
+   "origin": "Persisch",
+   "meaning": "Königin der Blumen, die Krönung"
+  },
+  "7f53a153-6aad-4d0c-b785-1527a20906fa": {
+   "origin": "Türkisch",
+   "meaning": "Warm wie die Sonne, sanft wie der Mond"
+  },
+  "7fbe611d-408f-45c1-9b51-316c09a6042a": {
+   "origin": "Schottisch",
+   "meaning": "Weites Land, Wohnstätte"
+  },
+  "8030706f-3a7b-4efb-b62a-e7bcda3d09a6": {
+   "origin": "Hebräisch",
+   "meaning": "Der heilige Jordan"
+  },
+  "80453996-8e38-49a2-99ef-737cdd88eb73": {
+   "origin": "Türkisch",
+   "meaning": "Jemand, der es verdient, geliebt zu werden"
+  },
+  "83507fd4-55fb-4180-86a2-38857740f89f": {
+   "origin": "Arabisch",
+   "meaning": "Ziel, Wunsch, das Erreichen des Ersehnten"
+  },
+  "83c2adc8-5a1a-4ea6-b4f0-44dc53645939": {
+   "origin": "Arabisch",
+   "meaning": "Gut, gütig, mit einem schönen Gesicht"
+  },
+  "83d5f32c-76e2-4b0f-b97f-c4b0758885b0": {
+   "origin": "Arabisch",
+   "meaning": "Dunkle Nacht, Haare so schwarz wie die Nacht"
+  },
+  "840be61d-4b6b-4862-8d3e-8748a4f83184": {
+   "origin": "Arabisch",
+   "meaning": "Gottesfürchtig, zielstrebig"
+  },
+  "842ce4e0-d837-4483-be83-25abb3d43691": {
+   "origin": "Lateinisch",
+   "meaning": "Olivenbaum, Symbol des Friedens"
+  },
+  "854a5092-b95d-42e8-8da6-72c25fd53482": {
+   "origin": "Italienisch",
+   "meaning": "Schönes Lied"
+  },
+  "8645eb59-949b-4ea4-ad34-27e54a726a80": {
+   "origin": "Lateinisch",
+   "meaning": "Olivenbaum, Symbol für Frieden und Wohlstand"
+  },
+  "866d3061-3d32-4abc-83d1-0e94a630ad8d": {
+   "origin": "Arabisch",
+   "meaning": "Treuer, zuverlässiger Freund"
+  },
+  "86ca05d3-c092-4619-abe3-df04bc97383c": {
+   "origin": "Arabisch",
+   "meaning": "Zart, fein, aufsteigend"
+  },
+  "873967e3-07e4-4a41-8764-e3fd67044f81": {
+   "origin": "Walisisch",
+   "meaning": "Begeistert, feurig"
+  },
+  "873fb67d-9964-49a5-8b4e-d516fc2cb1d2": {
+   "origin": "Türkisch",
+   "meaning": "Wohlstand, Lebensunterhalt, Reinheit"
+  },
+  "88ba3726-b879-4082-a13c-2bb503e40e9d": {
+   "origin": "Englisch",
+   "meaning": "Fuhrmann, Lastenträger"
+  },
+  "80a23f1e-480c-4da0-bd3d-15f7813d2737": {
+   "origin": "Arabisch",
+   "meaning": "Symbol einer geduldigen, ausdauernden Frau"
+  },
+  "81ae9ab0-5db1-4f4e-9a03-3ec801831007": {
+   "origin": "Persisch",
+   "meaning": "Geliebt, Licht spendend"
+  },
+  "81ca42a4-0720-4053-84eb-80f1103020c4": {
+   "origin": "Hebräisch",
+   "meaning": "Geliebt, lautstark (Name eines Propheten)"
+  },
+  "82491646-a36f-4682-8802-7ace60b4d9d1": {
+   "origin": "Türkisch",
+   "meaning": "Standhaft, stark, unbesiegbar"
+  },
+  "8286f236-9913-41a2-8581-c3f2fb29dd53": {
+   "origin": "Griechisch",
+   "meaning": "Der Kontinent Asien, die Richtung des Sonnenaufgangs"
+  },
+  "832f8ba2-f740-4ffa-bac6-ce9c213b7f58": {
+   "origin": "Türkisch",
+   "meaning": "Fröhlich und strahlend"
+  },
+  "8b35210e-34e9-4f9b-a5fd-5ee3480471fe": {
+   "origin": "Türkisch",
+   "meaning": "Stark wie Bronze und strahlend wie der Mond"
+  },
+  "8bcf33d1-1f39-40df-a54c-1225280e0b27": {
+   "origin": "Keltisch",
+   "meaning": "Dichter, Bewohner eines tiefen Tals, schöpferisch"
+  },
+  "8dc1d0da-349c-4045-8d2e-57a31847e5e2": {
+   "origin": "Türkisch",
+   "meaning": "Freude, Lachen, Glücksgefühl"
+  },
+  "8e4e08e4-c9ce-4afa-8ff5-f9df392686fb": {
+   "origin": "Arabisch",
+   "meaning": "Duftende Blume, Lebensunterhalt"
+  },
+  "8e7c2095-344b-4f53-a1b4-cae88f9d002d": {
+   "origin": "Keltisch",
+   "meaning": "Weißer Falke, Kriegsvogel"
+  },
+  "8e847695-f61d-44ae-bda3-8f6e2fb93003": {
+   "origin": "Keltisch",
+   "meaning": "Stark wie ein Bär, edler Held"
+  },
+  "890001eb-55d2-443b-9658-9e6e67c65117": {
+   "origin": "Deutsch",
+   "meaning": "Allumfassend"
+  },
+  "89c5f561-c8bd-4ccc-a6c1-d6acb02499f8": {
+   "origin": "Arabisch",
+   "meaning": "Laute Stimme, Schrei"
+  },
+  "8a352f12-e06c-408b-8b93-5672d9e3ed84": {
+   "origin": "Griechisch",
+   "meaning": "Verstand, Erkenntnis, Weisheit"
+  },
+  "8a573835-810e-4ea4-ad51-7d6e23aa2b96": {
+   "origin": "Arabisch",
+   "meaning": "Sonne, Lichtquelle"
+  },
+  "8a6f72fe-ea5c-44fd-9bc0-42b69a1536ae": {
+   "origin": "Griechisch",
+   "meaning": "Wasser, Illusion, Magie, Wunder, Mutter"
+  },
+  "8a83a5e3-68ab-45bb-928d-41748f7551a3": {
+   "origin": "Hebräisch",
+   "meaning": "Geborgenheit, Trost, Frieden"
+  },
+  "9105467e-c32b-44b3-a886-0fa8a41fd780": {
+   "origin": "Türkisch",
+   "meaning": "Immer lächelnd, fröhlich und optimistisch"
+  },
+  "911a3369-f510-48ad-9378-7101a4204cc0": {
+   "origin": "Lateinisch",
+   "meaning": "Ehrenwert, verehrungswürdig, heilig"
+  },
+  "91f2bec1-c2d9-436d-b767-a0d2b0178a88": {
+   "origin": "Englisch",
+   "meaning": "Herrscher der Elfen, weiser Ratgeber"
+  },
+  "9253cab7-ce93-4ed3-b6c6-56b977901949": {
+   "origin": "Arabisch",
+   "meaning": "Sturm; außerdem der Name eines Wesirs (historisch)"
+  },
+  "9301ae14-3282-4b18-b105-b1a4b78aa786": {
+   "origin": "Griechisch",
+   "meaning": "Verteidiger und Beschützer der Menschen"
+  },
+  "936feaf8-ba1c-49f9-b91a-7bef437f67d0": {
+   "origin": "Hebräisch",
+   "meaning": "Ausdauernd und stark"
+  },
+  "8e96577e-743e-4c8d-9fb1-fccc0f29c668": {
+   "origin": "Arabisch",
+   "meaning": "Liebe, Zuneigung, Aufrichtigkeit"
+  },
+  "8f2da364-102f-4a5a-a56f-6c54938483f9": {
+   "origin": "Sanskrit",
+   "meaning": "Sonnenstrahl, Hoffnung"
+  },
+  "8f5c1597-aad2-46bb-b931-d05db17c2bc5": {
+   "origin": "Arabisch",
+   "meaning": "Verborgene Bedeutung, Verstand, Weisheit"
+  },
+  "8fc1aa6d-b794-434e-baf5-f627d7fd3735": {
+   "origin": "Griechisch",
+   "meaning": "Träger Christi"
+  },
+  "908febfe-08b0-410e-b02b-4e7ce822e26a": {
+   "origin": "Arabisch",
+   "meaning": "Der am meisten Gepriesene (Name des Propheten)"
+  },
+  "90c5bf9b-4a0d-40ca-8865-4d45c04d34c3": {
+   "origin": "Walisisch",
+   "meaning": "Sohn des Meeres, große Welle"
+  },
+  "958f4537-8a03-467f-89e2-ced8e14833db": {
+   "origin": "Persisch",
+   "meaning": "Kokett, geliebt, verwöhnt"
+  },
+  "95ff2028-2ada-4bbb-bf25-6825fef6fa9e": {
+   "origin": "Türkisch",
+   "meaning": "Offensichtlich, bekannt, klar"
+  },
+  "966ede01-e035-4bc7-94cd-cda002da748d": {
+   "origin": "Hebräisch",
+   "meaning": "Geschenk Gottes, Symbol der Schönheit"
+  },
+  "96a4f4ba-b73e-48b6-bf3e-ebf24ad1d86d": {
+   "origin": "Türkisch",
+   "meaning": "Morgenstern, leuchtender Himmelskörper"
+  },
+  "970f2fdc-41aa-4412-8b80-ffece75e8bc5": {
+   "origin": "Persisch",
+   "meaning": "Unsterblich, immerwährend, ewig"
+  },
+  "97e51d4c-3224-42a0-9aef-c2530ff3568d": {
+   "origin": "Englisch",
+   "meaning": "Harfenspieler, Musiker, kreativ"
+  },
+  "9b6c90b7-9da8-4ae4-85d5-16f201b43712": {
+   "origin": "Arabisch",
+   "meaning": "Tugendhaft, gütig"
+  },
+  "9bf5ffae-8a41-42c7-b973-6fcdc8983990": {
+   "origin": "Englisch",
+   "meaning": "Umzäuntes Tal, Weideland, ruhiges Tal"
+  },
+  "9c8d4d6f-4548-450e-99aa-92dcff30b943": {
+   "origin": "Persisch",
+   "meaning": "Farbenfroher Schmuck, Tor zum Paradies"
+  },
+  "9e105032-f444-4123-aa1e-3e3e6aac4f38": {
+   "origin": "Arabisch",
+   "meaning": "Göttliches Licht, Helligkeit"
+  },
+  "9fe3b1c3-dd7c-4197-884e-164fc847d68f": {
+   "origin": "Englisch",
+   "meaning": "Lernender, weiser Mensch"
+  },
+  "a032c056-a504-4f12-9e11-aea47026b335": {
+   "origin": "Japanisch",
+   "meaning": "Frühling, Sonnenlicht"
+  },
+  "a0432b3e-1d08-42d6-beb3-ce7145fb4e10": {
+   "origin": "Türkisch",
+   "meaning": "Schönheit aus türkischen Landen"
+  },
+  "a05b99d3-41f0-4d38-b498-35aaccc927de": {
+   "origin": "Lateinisch",
+   "meaning": "Löwe, mutig und stark"
+  },
+  "a0681106-a6be-4c92-8128-8a148180e9df": {
+   "origin": "Irisch",
+   "meaning": "Weise, klug, führungsstark, beratend"
+  },
+  "a2113d43-077d-4fee-97cb-33c25be03c12": {
+   "origin": "Arabisch",
+   "meaning": "Nacht, dunkelhaarige Schönheit, geheimnisvoll"
+  },
+  "a292d0ef-4695-4ccb-bcb2-f5be9169ab77": {
+   "origin": "Englisch",
+   "meaning": "Freiheit, kleines Glück"
+  },
+  "a2dd20a6-bf69-4d6b-8c61-6e95925bc307": {
+   "origin": "Spanisch",
+   "meaning": "Edelstein, schön"
+  },
+  "9857bff4-1628-4ab2-8d0f-fb42082e7402": {
+   "origin": "Lateinisch",
+   "meaning": "Schön, anmutig, liebenswert"
+  },
+  "9903a557-2371-43ec-94ab-b8aaaffac043": {
+   "origin": "Persisch",
+   "meaning": "Glücklich, vom Glück begünstigt"
+  },
+  "9934c6c2-7e36-437c-a54b-961991cd7d2b": {
+   "origin": "Hawaiianisch",
+   "meaning": "Meer, Ozean, Muschel, Freiheit"
+  },
+  "99b2d5bc-0ca9-4e08-bf23-1f846f765e79": {
+   "origin": "Türkisch",
+   "meaning": "Paradiesblume, der Erschaffende, der Schöpfer"
+  },
+  "9aa3a5d5-bfaf-4e92-882c-c89dc05905b5": {
+   "origin": "Griechisch",
+   "meaning": "Sieg des Volkes, siegreiches Volk"
+  },
+  "9b1f757c-96ff-4382-afcf-9b504ffd399a": {
+   "origin": "Arabisch",
+   "meaning": "Der Barmherzige"
+  },
+  "a80a58ac-9d9d-4564-a31b-239ef128d5ad": {
+   "origin": "Persisch",
+   "meaning": "Feuchtigkeit der Nacht, Morgentau, Reinheit"
+  },
+  "a8343a23-9f4f-4497-93c1-ecfaa127ad7f": {
+   "origin": "Arabisch",
+   "meaning": "Erfolg, Gottes Hilfe"
+  },
+  "a868fb03-e105-4bc7-a77e-c5d414b3dca2": {
+   "origin": "Türkisch",
+   "meaning": "Heimat, Wurzeln, Fruchtbarkeit"
+  },
+  "a8f309df-f3c3-4ab9-8197-6b91bcea56de": {
+   "origin": "Italienisch",
+   "meaning": "Was mir gehört, geliebt"
+  },
+  "aa1d905b-d999-44eb-9c4f-3a46fc4f0a31": {
+   "origin": "Arabisch",
+   "meaning": "Verliebt, innig liebend, voller Bewunderung"
+  },
+  "aab70775-17c8-43af-9f36-fc844a25b19d": {
+   "origin": "Hebräisch",
+   "meaning": "Hilfe, Helfer, starke Stütze"
+  },
+  "a5dbe933-0c74-4562-9b21-974975f2e3b6": {
+   "origin": "Englisch",
+   "meaning": "Zitterpappel, Natur, zart"
+  },
+  "a5f6bc3b-736f-4f63-a698-a44fe96b26ab": {
+   "origin": "Arabisch",
+   "meaning": "Allwissend, gelehrt"
+  },
+  "a69ff2c2-ff3b-439d-96c7-a28907f1089d": {
+   "origin": "Arabisch",
+   "meaning": "Von hohem Rang, rein, erhaben"
+  },
+  "a6e9faf5-3822-4e36-af34-37e3bb5a110f": {
+   "origin": "Arabisch",
+   "meaning": "Treu, hält sein Wort"
+  },
+  "a7b8967b-b18a-4d29-960b-6532111f8709": {
+   "origin": "Arabisch",
+   "meaning": "Einzig, der Einzige (Eigenschaft Allahs)"
+  },
+  "a7ff0168-1739-49ae-a53f-31d0b570513c": {
+   "origin": "Türkisch",
+   "meaning": "Steil aufragender Fels, majestätisch, stolz"
+  },
+  "adee1fbc-532c-452e-9342-7729189d6864": {
+   "origin": "Hebräisch",
+   "meaning": "Freude, Süße, Schönheit, Anmut"
+  },
+  "ae6966ef-bfed-476f-8dbd-4e37a0d182c8": {
+   "origin": "Arabisch",
+   "meaning": "Eroberer, Sieger"
+  },
+  "ae90c801-e021-4acf-8f12-17254c209435": {
+   "origin": "Lateinisch",
+   "meaning": "Frei, aufrichtig, ehrlich, freier Mensch"
+  },
+  "aedb02e4-cb77-4821-9602-388b273a0edd": {
+   "origin": "Türkisch",
+   "meaning": "Das Mutterland der Türken"
+  },
+  "aef16c5d-b6b0-4390-9b17-a2d39cc8566f": {
+   "origin": "Persisch",
+   "meaning": "Friedlich, besänftigend, glücklich"
+  },
+  "afff2aa5-821a-4b7c-b5c3-22468727ee8a": {
+   "origin": "Lateinisch",
+   "meaning": "Licht, strahlend, im Morgengrauen geboren"
+  },
+  "b040855d-4dec-40e5-a12b-ad9cc5d5f4fa": {
+   "origin": "Irisch",
+   "meaning": "Gerechter Held"
+  },
+  "b15a9823-aee9-44f2-a1ce-c689879164fe": {
+   "origin": "Hebräisch",
+   "meaning": "Gott hat erhört, guter Zuhörer"
+  },
+  "b19e3a3f-8b6f-4d3f-9469-4310da1167c8": {
+   "origin": "Arabisch",
+   "meaning": "Der Auserwählte, Erhabene, Hohe"
+  },
+  "b1f3bd33-8422-405e-87bb-19ef2a8633d3": {
+   "origin": "Irisch",
+   "meaning": "Willensstarker Krieger, Beschützer"
+  },
+  "b24e0237-709c-4bd5-a1cf-428e96b7ffa0": {
+   "origin": "Persisch",
+   "meaning": "Stark, mächtig, heldenhaft"
+  },
+  "b25e9f4b-cc08-4479-89ee-f97d85732fd6": {
+   "origin": "Arabisch",
+   "meaning": "Einer, der sein Ziel erreicht und Erfolg hat"
+  },
+  "aad11084-b98d-4eb6-8767-547b9ebc58af": {
+   "origin": "Englisch",
+   "meaning": "Ein Ort, der einem Königshaus gehört"
+  },
+  "ab8dd7d9-bb47-4e61-868f-64a16587b7b6": {
+   "origin": "Türkisch/Arabisch",
+   "meaning": "Anführer des Volkes, Oberhaupt der Gemeinschaft"
+  },
+  "abdf02b5-a2c5-45b0-9d61-699b9a3c8ab7": {
+   "origin": "Türkisch",
+   "meaning": "Angesehen, geschätzt, vom Glück begünstigt"
+  },
+  "ac51aac6-eb76-460f-8c59-f41cc822a394": {
+   "origin": "Französisch",
+   "meaning": "Hohe Burg, beeindruckend, beeindruckender Ort"
+  },
+  "acd6be49-e7d4-4516-b712-5c3456adb87d": {
+   "origin": "Arabisch",
+   "meaning": "Süßer Traum, Wunschvorstellung, Wunsch"
+  },
+  "add017be-6939-4c2b-8b7a-3c1669107720": {
+   "origin": "Arabisch",
+   "meaning": "Weise, wissend, verständnisvoll"
+  },
+  "b518f82c-a936-4ea4-af0d-37dd7a4b8330": {
+   "origin": "Arabisch",
+   "meaning": "So schön, dass man sie verehrt; Idol"
+  },
+  "b54bc110-a433-404b-aa1a-e054227e0beb": {
+   "origin": "Arabisch",
+   "meaning": "Passage aus dem Koran, wertvolles Wort"
+  },
+  "b6015af9-ec54-495e-9246-7389adbc7ac5": {
+   "origin": "Türkisch",
+   "meaning": "Glück, günstiger Verlauf der Dinge"
+  },
+  "b661104d-b28f-42aa-a7df-f80c8b03d583": {
+   "origin": "Arabisch",
+   "meaning": "Edelstein, Stolz ihres Vaters"
+  },
+  "b68f5a94-78d1-4c28-b6ad-fc6fc3d68107": {
+   "origin": "Griechisch",
+   "meaning": "Roter Rubin, kostbar"
+  },
+  "b77d6182-10e0-4818-aa4a-047f9bccd275": {
+   "origin": "Persisch",
+   "meaning": "Blumengarten, Ort der Freude"
+  },
+  "b34b1af9-9346-4873-b59c-ba33a0e8c8e9": {
+   "origin": "Arabisch",
+   "meaning": "Mit strahlendem Gesicht, schön wie eine Blume"
+  },
+  "b39e4110-f3c3-470b-a3f5-08d59fbc8c25": {
+   "origin": "Walisisch",
+   "meaning": "Beschützer des Meeres"
+  },
+  "b3fe7f54-9900-489d-a45e-8d806782beb5": {
+   "origin": "Englisch",
+   "meaning": "Sohn von Hugh, Sohn der Weisheit"
+  },
+  "b4465303-8f39-4aac-860b-f552502946c0": {
+   "origin": "Persisch",
+   "meaning": "Anziehend, liebenswert"
+  },
+  "b465a81e-9070-43cf-bc57-2dd0dced19cb": {
+   "origin": "Französisch",
+   "meaning": "Steinmetz, Maurer, Meister"
+  },
+  "b515788e-b4a5-46fb-a4ea-b9c5bc49857b": {
+   "origin": "Arabisch",
+   "meaning": "Wohlstand bringend, gütig, Gast"
+  },
+  "bf3f05a6-4041-41fb-9f1f-61629713872d": {
+   "origin": "Lateinisch",
+   "meaning": "Aus Hadria stammend, von der Meeresküste"
+  },
+  "bfab72ba-42a6-41af-a7c1-955e4c30abad": {
+   "origin": "Arabisch",
+   "meaning": "Krieger, Liebender (sagenhafter Name)"
+  },
+  "bfb31cb1-c665-45c8-9d31-2cedee259a89": {
+   "origin": "Lateinisch",
+   "meaning": "Erhaben, großartig"
+  },
+  "c0ef6ba3-64b6-446a-9e07-5c9ed250aa4b": {
+   "origin": "Arabisch",
+   "meaning": "Erhaben, rein, himmlisch"
+  },
+  "c0f95c0d-5d96-49f3-a991-8ee6ee4fe52f": {
+   "origin": "Arabisch",
+   "meaning": "Tapfer, mutig, kämpferisch"
+  },
+  "c105afd4-7495-4400-b868-8fdbd2f3ef19": {
+   "origin": "Türkisch",
+   "meaning": "Strahlend wie der Mond, rein wie Wasser"
+  },
+  "bbd58bce-9f68-4c66-a0cb-febbe7e4ad66": {
+   "origin": "Englisch",
+   "meaning": "Fließendes Wasser, Fluss, beständiger Weg, Leben"
+  },
+  "bcc0bb24-1923-4c38-b06f-24fa58975abc": {
+   "origin": "Griechisch",
+   "meaning": "Schöpfung, Ursprung, Anfang, Geburt"
+  },
+  "bd4478ca-b2e0-45a9-8d97-19b2ea43eaeb": {
+   "origin": "Türkisch",
+   "meaning": "Schön wie der Nil und strahlend wie der Mond"
+  },
+  "bd692977-5a5f-464f-a7b8-eef0d08377b9": {
+   "origin": "Arabisch",
+   "meaning": "Am frühen Morgen, bei Tagesanbruch"
+  },
+  "be20d803-fd2e-4d0e-a418-dc83ea5959a5": {
+   "origin": "Arabisch",
+   "meaning": "Schreiber, Verschönerer, Ordner"
+  },
+  "be6a046b-fb98-498c-88c4-4fce766f8051": {
+   "origin": "Hebräisch",
+   "meaning": "Der Herr ist mein Gott"
+  },
+  "c3d65b8a-a6c6-4f84-9d43-ab02483e7bc2": {
+   "origin": "Arabisch",
+   "meaning": "Lobpreisender, Wortkünstler"
+  },
+  "c45713ce-7f5c-4096-984f-2bf7a45880fa": {
+   "origin": "Spanisch",
+   "meaning": "Geschenk Gottes, Gabe"
+  },
+  "c47f4c5c-d2df-41fa-93fd-a3c227302469": {
+   "origin": "Arabisch",
+   "meaning": "Erfolgreicher, glücklicher Herr"
+  },
+  "c4f61667-4414-44b8-8db4-7f3598baea78": {
+   "origin": "Türkisch",
+   "meaning": "Freude des Volkes, frohe Botschaft"
+  },
+  "c518759b-bdba-4609-87ca-f5f97cae60b5": {
+   "origin": "Persisch",
+   "meaning": "Das gesamte Universum, die Welt"
+  },
+  "c522339b-0078-4144-8a9a-39230de510de": {
+   "origin": "Hebräisch",
+   "meaning": "Gott hat erhört, Name Gottes"
+  },
+  "b7d94824-9989-4a57-8513-767efc0f801a": {
+   "origin": "Englisch",
+   "meaning": "Haselnussbaum, haselnussbraune Farbe"
+  },
+  "b9348d3f-083f-4e8b-9203-3e53021062fa": {
+   "origin": "Englisch",
+   "meaning": "Kreativ, gestaltend"
+  },
+  "ba9e044f-7dc6-4a18-a830-89b681e0b6ed": {
+   "origin": "Türkisch",
+   "meaning": "Frisch wie eine Rose, strahlend wie der Mond"
+  },
+  "bb074345-7a3c-44f4-afc9-785c59902f8b": {
+   "origin": "Persisch",
+   "meaning": "Eine helle, strahlende Zukunft"
+  },
+  "bb551f51-fb30-4994-af1a-f04d08a494d9": {
+   "origin": "Persisch",
+   "meaning": "Jemand, dessen Wunsch in Erfüllung geht und der glücklich ist"
+  },
+  "bba3d7a8-645f-425d-a621-e014b5d1e914": {
+   "origin": "Türkisch/Arabisch",
+   "meaning": "Das Licht der Heimat, der Stolz des Volkes"
+  },
+  "c11ab366-568c-466e-8305-010a72b09faf": {
+   "origin": "Deutsch",
+   "meaning": "Sohn von Emeri, fleißiger Herrscher, stark"
+  },
+  "c22919e5-49fc-4b08-9d33-6f831fd7fda8": {
+   "origin": "Hebräisch",
+   "meaning": "Mein Gott ist mein Eid, gesegnet"
+  },
+  "c2b7ce3c-47db-450a-b5b0-c23132c4013e": {
+   "origin": "Englisch",
+   "meaning": "Holzfäller, Säger, fleißig"
+  },
+  "c34e37c9-9b58-4479-b5bb-fa7b11b13078": {
+   "origin": "Lateinisch",
+   "meaning": "Stern, himmlisches Licht, Meeresstern"
+  },
+  "c392e1f6-65d3-4b68-932b-54250be3bb6b": {
+   "origin": "Keltisch",
+   "meaning": "Schützender Baum, Eberesche"
+  },
+  "c3c09a48-fe84-49c7-814e-e1ceb913aad8": {
+   "origin": "Lateinisch",
+   "meaning": "Edler Helfer, junger Zeremonienhelfer"
+  },
+  "c5435d21-5eaa-4e8c-8a6e-99bbd03d024b": {
+   "origin": "Hebräisch",
+   "meaning": "Stark, robust, langlebig"
+  },
+  "c54e647d-9396-4ae3-a150-9ea453059dbf": {
+   "origin": "Irisch",
+   "meaning": "Kleiner König, Prinz"
+  },
+  "c6c2fdd2-f0af-4458-ad79-88491c45b033": {
+   "origin": "Türkisch/Griechisch",
+   "meaning": "Junger Trieb eines Baumes, jung"
+  },
+  "c85fc2a8-fdad-41dc-b58b-1034c4512cdf": {
+   "origin": "Arabisch",
+   "meaning": "Anmut, Lieblichkeit"
+  },
+  "c8a8b8c8-aaa5-4191-b5f6-1177461f2677": {
+   "origin": "Englisch",
+   "meaning": "Heiterer, Freude bringender Ort, fröhlich"
+  },
+  "c8cd710c-78c5-44b3-8b22-c5079b91d7fc": {
+   "origin": "Englisch",
+   "meaning": "Blond oder dunkelhaarig, kontrastreiche Schönheit"
+  },
+  "d049a09d-69a9-4130-9650-48ed3ae2e41b": {
+   "origin": "Griechisch",
+   "meaning": "Phönix, wiedergeboren, unsterblich"
+  },
+  "d0b8af56-42f1-40d7-bc70-8be092d14a06": {
+   "origin": "Arabisch",
+   "meaning": "Heilmittel gegen Leiden, heilend"
+  },
+  "d1339404-4a1b-4fec-bcc9-b32485c29137": {
+   "origin": "Italienisch",
+   "meaning": "Lebendigkeit, Begeisterung, Energie, Lebensfreude"
+  },
+  "d1363ad5-0e77-4479-b3d1-cc1701e43a23": {
+   "origin": "Türkisch",
+   "meaning": "Mutiger, flinker Greifvogel"
+  },
+  "d194be93-6b73-4fc4-a41b-f1138b357a46": {
+   "origin": "Arabisch",
+   "meaning": "Zeichnend, kreativ, ordnend"
+  },
+  "d2fe4a11-1353-416c-993d-793475d6d433": {
+   "origin": "Arabisch",
+   "meaning": "Zurückkehrend, Nutzen bringend"
+  },
+  "cd66e235-ab56-4cab-b065-00acd3f0972c": {
+   "origin": "Arabisch",
+   "meaning": "Heilige Stadt, Zentrum der Kultur"
+  },
+  "cdd8f991-56cf-48da-beb8-112cbb0c57f0": {
+   "origin": "Arabisch",
+   "meaning": "Wie ein Blitz aufleuchtend, strahlend"
+  },
+  "ced4d08e-4d9c-4ee0-842b-a864647de835": {
+   "origin": "Schottisch",
+   "meaning": "Kleines Tal, friedliche Wiese, Zufluchtsort"
+  },
+  "cf1e0fa3-4b14-4f06-b5ec-e95112baf846": {
+   "origin": "Arabisch",
+   "meaning": "Rang, Erhabenheit, Ehre"
+  },
+  "cfcf4e8d-a5d7-45a5-ba0d-930168dd896a": {
+   "origin": "Persisch",
+   "meaning": "Erwachen der Natur, Jahreszeit der Schönheit"
+  },
+  "cfd970f5-7cfc-49b5-8644-e73b7262d7ae": {
+   "origin": "Sanskrit",
+   "meaning": "Ehrenwert, vornehm"
+  },
+  "d3210132-9dab-4383-918a-509f67809eeb": {
+   "origin": "Persisch",
+   "meaning": "Wohlriechende Frühlingsblume"
+  },
+  "d3b48ed5-bdf0-4379-82c0-7239233248f1": {
+   "origin": "Hebräisch",
+   "meaning": "Gott versprochen, treu, fromm"
+  },
+  "d53bfe30-2698-47c0-99db-cadeec4c584e": {
+   "origin": "Griechisch",
+   "meaning": "Klug, intelligent"
+  },
+  "d596ca9c-25bf-4d52-b97a-f97243003094": {
+   "origin": "Griechisch",
+   "meaning": "Jung, frisch"
+  },
+  "d8860a9d-2ed3-4787-ad34-479692151846": {
+   "origin": "Walisisch",
+   "meaning": "Junger Krieger von edler Herkunft, edelmütig"
+  },
+  "d8d8e766-83f8-4045-938b-9b5bdf6afcdd": {
+   "origin": "Persisch",
+   "meaning": "Schöne Musik, Lied"
+  },
+  "c9fd3f6a-03c2-4b7b-92d6-5f0af30fd5b5": {
+   "origin": "Griechisch",
+   "meaning": "Glänzend, strahlend, leuchtend"
+  },
+  "ca3313a5-a439-40d7-a891-553e0edb11e1": {
+   "origin": "Türkisch",
+   "meaning": "Großes Gewässer, unendliche Weite"
+  },
+  "ca7562c9-3176-4c3d-bb84-1caddebe0473": {
+   "origin": "Arabisch",
+   "meaning": "Rein, makellos, auserwählt"
+  },
+  "ca9477fe-3918-4a93-b3ee-9aed5c67beb4": {
+   "origin": "Türkisch",
+   "meaning": "Eine wunderschöne, strahlende Blume"
+  },
+  "cb65af89-cb6a-45f3-a49a-73d6baa5c2ef": {
+   "origin": "Irisch",
+   "meaning": "Liebhaber von Jagdhunden, Sehnsucht, Wunsch"
+  },
+  "cc3a3a26-a6b5-48b6-b3e5-0febf2653652": {
+   "origin": "Türkisch",
+   "meaning": "Vertreter des Volkes, Reisender"
+  },
+  "d9388efc-6b10-4009-805b-725c184eaa86": {
+   "origin": "Lateinisch",
+   "meaning": "Lichtbringend, strahlend"
+  },
+  "dae78b98-255b-4c79-9377-85e923e48e1d": {
+   "origin": "Aramäisch",
+   "meaning": "Zwilling"
+  },
+  "db195666-bc70-423a-98c5-5d5eb814dfe7": {
+   "origin": "Lateinisch",
+   "meaning": "Am Weihnachtstag geboren, gesegnete Geburt"
+  },
+  "db5ac90c-735b-4b52-9909-b0182ad2261d": {
+   "origin": "Irisch",
+   "meaning": "Mutig, tapfer, furchtlos, Wiese"
+  },
+  "db9962b4-b928-4af0-a064-87c49fddd92a": {
+   "origin": "Persisch/Arabisch",
+   "meaning": "Schöpfung, Charakter, natürliche Veranlagung"
+  },
+  "dba03afd-3324-4f35-a878-48fa946f64f3": {
+   "origin": "Slawisch",
+   "meaning": "Gütig, liebevoll, edel, liebenswert"
+  },
+  "dc228f7a-d0a7-4788-82aa-ecf9e0e784e8": {
+   "origin": "Türkisch",
+   "meaning": "Starke, willensstarke Herrscherin"
+  },
+  "dc847123-f2ed-4717-9939-7c09f1c7e2dc": {
+   "origin": "Lateinisch",
+   "meaning": "Rivalin, eifrig, geschäftstüchtig"
+  },
+  "dd30a4d6-b31a-4da1-9941-63814a4912e1": {
+   "origin": "Englisch",
+   "meaning": "Fließendes Wasser, Natur"
+  },
+  "dd83b92c-48bc-41e7-b2da-f05ed34bfe85": {
+   "origin": "Japanisch",
+   "meaning": "Wertvolles Edelmetall"
+  },
+  "dde4c087-49bd-4eee-bc79-8f9423f69ee7": {
+   "origin": "Arabisch",
+   "meaning": "Schnell, flink (ein Name mit historischen Wurzeln)"
+  },
+  "de200a67-40d3-4bed-964d-ab858c4d8b2e": {
+   "origin": "Griechisch",
+   "meaning": "Weberin, treue Ehefrau"
+  },
+  "de3d1d41-5491-4d59-9adf-67aa4170ce12": {
+   "origin": "Lateinisch",
+   "meaning": "Anhänger Christi, Christ"
+  },
+  "de57134a-51bc-4bc8-b37e-20de7c514342": {
+   "origin": "Arabisch",
+   "meaning": "Löwe, mutig, Anführer (Beiname von Ali)"
+  },
+  "dec92751-5bcf-4c20-8a6a-fed07e32068d": {
+   "origin": "Persisch",
+   "meaning": "Legendäre Schönheit, Tochter des Königs der Dschinn"
+  },
+  "df51698f-2ed7-42f5-bb9d-9a77fe15598a": {
+   "origin": "Arabisch",
+   "meaning": "Weise, verständnisvoll"
+  },
+  "e04c5867-9478-45a0-b5e8-716d264427f3": {
+   "origin": "Hebräisch",
+   "meaning": "Wird lachen, Lachen, Freude"
+  },
+  "e0845630-2631-4d00-823c-408aab70c364": {
+   "origin": "Griechisch",
+   "meaning": "Weisheit, tiefer Verstand, Wissen"
+  },
+  "e08cf12e-487c-4b70-b215-b85a26175dd0": {
+   "origin": "Griechisch",
+   "meaning": "Helles Licht"
+  },
+  "e0a0ad61-3b21-49a9-a812-76faae6e1a48": {
+   "origin": "Türkisch",
+   "meaning": "Mondlicht, der Ring um den Mond"
+  },
+  "e1619188-7921-49b4-b89b-8e3d1a780889": {
+   "origin": "Türkisch",
+   "meaning": "Die gesamte Welt des Seins, der Kosmos"
+  },
+  "e17f28ad-68e8-41d2-927a-fdd302883c47": {
+   "origin": "Arabisch",
+   "meaning": "Himmelskörper, unschuldiges, reines Wesen"
+  },
+  "e2c3696e-239d-4d39-8be5-3676248da1e0": {
+   "origin": "Griechisch",
+   "meaning": "Edelstein, leuchtendes Grün"
+  },
+  "e418e4f2-a083-45dd-a82b-34554cc69ccd": {
+   "origin": "Persisch",
+   "meaning": "Aufstrebend, siegreich, erfolgreich"
+  },
+  "e49d2163-24d0-46fc-a582-eb51230550d1": {
+   "origin": "Arabisch",
+   "meaning": "Barmherzig, gütig"
+  },
+  "e5c4df22-c689-4f7a-9b02-b8ab38131342": {
+   "origin": "Türkisch",
+   "meaning": "Licht des Volkes, Helligkeit"
+  },
+  "e6c07465-2bb9-4bcf-a4cd-2c65ceae02b3": {
+   "origin": "Türkisch",
+   "meaning": "Herz, Gefühl, Gefühlswelt"
+  },
+  "e803616e-487a-460c-82bf-32658950bacd": {
+   "origin": "Türkisch/Persisch",
+   "meaning": "Sagenhafter Vogel, der Glück bringt"
+  },
+  "e838dd01-7119-4749-a555-8e2ba8f33391": {
+   "origin": "Arabisch",
+   "meaning": "Für seine Schönheit berühmt (Geschichte von Josef)"
+  },
+  "e891c3dd-cdc0-43c1-ae1c-1356b10f43bb": {
+   "origin": "Hebräisch",
+   "meaning": "Wer ist wie Gott?"
+  },
+  "eed43b3b-6b61-48de-bd72-298ac91040ac": {
+   "origin": "Arabisch",
+   "meaning": "Mutig, furchtlos, Löwe"
+  },
+  "f16db42f-c9ae-42a1-93f3-e417ecef46ad": {
+   "origin": "Persisch",
+   "meaning": "Jemand, der einen schönen Tag hat, glücklich"
+  },
+  "f22f7dcf-caf7-4d91-a88d-911aacccd470": {
+   "origin": "Englisch",
+   "meaning": "Verkäufer von scharlachroten, feinen Stoffen"
+  },
+  "f2341756-c745-4034-b334-aab3fd37b085": {
+   "origin": "Englisch",
+   "meaning": "Erwünscht, schöner Vogel, Quelle des Lebens"
+  },
+  "f288a355-ad25-49c8-9fdc-7b5fb4d98f1d": {
+   "origin": "Arabisch",
+   "meaning": "Jemand, auf den man stolz ist"
+  },
+  "f325b8e8-aff0-4e34-823b-5407a2826cbe": {
+   "origin": "Lateinisch",
+   "meaning": "Gerechtigkeit, Ehrlichkeit, Recht"
+  },
+  "f5e5ef91-8ca3-4b32-9d9c-43696064afe6": {
+   "origin": "Schottisch",
+   "meaning": "Name eines tapferen Clans"
+  },
+  "f787960f-3f47-4ca0-8d12-31600b568515": {
+   "origin": "Hebräisch",
+   "meaning": "Von Gott geschenkt, Geschenk"
+  },
+  "f8dbecb3-212b-47fc-99f1-f31aa2552b0a": {
+   "origin": "Hebräisch",
+   "meaning": "Land der Freude und Wonne"
+  },
+  "f8e133a2-a940-4235-8cac-be4edf171ce1": {
+   "origin": "Türkisch",
+   "meaning": "Bezieht sein Licht vom Mond, leuchtender Mond"
+  },
+  "f97fd75d-f4e3-4773-bba7-94f3265bfb48": {
+   "origin": "Lateinisch",
+   "meaning": "Tapferer und starker Anführer"
+  },
+  "fa11c7cb-c778-4b0b-bfc1-55bc2e167903": {
+   "origin": "Hebräisch",
+   "meaning": "Historischer Ländername, Händler"
+  },
+  "e9d73af7-247d-49c1-9fab-bb5ab620a0c2": {
+   "origin": "Persisch",
+   "meaning": "Eine Geliebte mit wunderschönem Gesicht, schön wie gemalt"
+  },
+  "ea19a579-0e80-47d9-b427-19b4469913d7": {
+   "origin": "Arabisch",
+   "meaning": "Erhabene, edle Gefühle"
+  },
+  "eb9e0954-e761-4172-8499-da3acfcb8652": {
+   "origin": "Französisch",
+   "meaning": "Zur heiligen Insel gehörig"
+  },
+  "ec6a09f4-5a66-4dee-9805-67e7f3b533b8": {
+   "origin": "Englisch",
+   "meaning": "Fröhlich, Frohsinn, Sturm, Kraft"
+  },
+  "ed882ce5-dbd2-4187-bdac-c2f2d70ef031": {
+   "origin": "Türkisch",
+   "meaning": "Stürmisch fließendes Wasser, Kühle"
+  },
+  "edf246c8-12d7-46b9-b3a0-b26214d2e718": {
+   "origin": "Lateinisch",
+   "meaning": "Glücklich, erfolgreich"
+  },
+  "f3dbd245-6e63-4742-bb88-83811f42407d": {
+   "origin": "Hebräisch",
+   "meaning": "Hoher Berg, ehrenhaft, erhaben"
+  },
+  "f414db64-ec22-4e14-85a4-3e0bf092954d": {
+   "origin": "Japanisch",
+   "meaning": "Schneeweiß, Reinheit, Glück"
+  },
+  "f4198c00-6a60-4666-80c1-669fc13124cb": {
+   "origin": "Arabisch",
+   "meaning": "Hell, strahlend, klar"
+  },
+  "f425e1e5-6581-4658-955b-a496782c2ea1": {
+   "origin": "Irisch",
+   "meaning": "Weise, Führungspersönlichkeit"
+  },
+  "f48c3095-dabc-413a-9d24-3341df70419b": {
+   "origin": "Griechisch",
+   "meaning": "Hilfsbereit, nützlich (literarischer Name)"
+  },
+  "f52bb424-65a5-44c1-8334-8146b358bd63": {
+   "origin": "Sanskrit",
+   "meaning": "Liebe, Freude"
+  },
+  "fa31d9d1-bca2-4d5c-832d-edee92cd7ce2": {
+   "origin": "Hebräisch",
+   "meaning": "Geschenk Gottes, Reichtum, Gabe"
+  },
+  "fab7d3b4-3505-4c25-a1d8-1dcff6376eec": {
+   "origin": "Persisch/Türkisch",
+   "meaning": "Sich erinnernd, verständnisvoll"
+  },
+  "fb172a31-509e-4559-b5f4-8a67e0d77023": {
+   "origin": "Türkisch/Hebräisch",
+   "meaning": "Reißender Fluss, lebhaft"
+  },
+  "fb2fd21e-b798-4eaf-986b-119a1de2ab8f": {
+   "origin": "Irisch",
+   "meaning": "Willensstarker Beschützer"
+  },
+  "fb93a960-e5bd-4af4-b0e3-dc1ec31e68ca": {
+   "origin": "Lateinisch",
+   "meaning": "Anmutig, von edler Abstammung"
+  },
+  "fe32682d-762f-41fd-921f-4c668854e32d": {
+   "origin": "Englisch",
+   "meaning": "Berühmt, bekannt"
+  },
+  "fea0f6ec-b06f-4b79-adc7-69875256ea73": {
+   "origin": "Persisch",
+   "meaning": "Verspielt, fröhlich, lebensfroh"
+  },
+  "fed792f9-1057-4174-b221-46086094b269": {
+   "origin": "Französisch",
+   "meaning": "Kreativ, schöpferisch"
+  },
+  "ff0a51c6-f69b-4839-9a85-6b4b0063133e": {
+   "origin": "Türkisch/Persisch",
+   "meaning": "Strahlende Seele, reines Herz"
+  },
+  "ff0c3cbc-a538-491e-9039-f783cba629b5": {
+   "origin": "Persisch",
+   "meaning": "Erwartung, Vertrauen, Stütze"
+  },
+  "ff28ebe3-4033-4a73-b930-dc91a84d27a5": {
+   "origin": "Hebräisch",
+   "meaning": "Aus Erde erschaffen, der erste Mensch"
+  },
+  "ffcd176e-dc43-474c-8075-70da3f58a74b": {
+   "origin": "Persisch",
+   "meaning": "Herrin des Hauses, Prinzessin, angesehene Frau"
+  }
+ }
+}

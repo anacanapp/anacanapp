@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap');
+@import './styles/anacan-design.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Anacan Color Palette - Warm Coral & Beige Theme */
+    --background: 35 35% 97%;
+    --foreground: 20 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 30% 15%;
+
+    /* Primary - Coral #FF5A5F */
+    --primary: 358 100% 68%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Warm Beige */
+    --secondary: 35 40% 92%;
+    --secondary-foreground: 25 50% 35%;
+
+    /* Muted - Soft Beige */
+    --muted: 35 30% 93%;
+    --muted-foreground: 20 20% 45%;
+
+    /* Accent - Deep Coral */
+    --accent: 357 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 25% 88%;
+    --input: 35 30% 91%;
+    --ring: 358 100% 68%;
+
+    --radius: 1rem;
+
+    /* Custom Anacan Colors - Life Stages */
+    --flow: 350 75% 58%;
+    --flow-light: 350 80% 95%;
+    --flow-dark: 350 70% 48%;
+    
+    --bump: 275 55% 58%;
+    --bump-light: 275 60% 95%;
+    --bump-dark: 275 50% 48%;
+    
+    --mommy: 165 55% 48%;
+    --mommy-light: 165 60% 94%;
+    --mommy-dark: 165 50% 38%;
+    
+    --partner: 15 85% 64%;
+    --partner-light: 18 90% 95%;
+    --partner-dark: 12 75% 52%;
+
+    /* Beige Variants */
+    --beige: 35 40% 85%;
+    --beige-light: 35 45% 95%;
+    --beige-dark: 35 35% 75%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(358, 100%, 68%) 0%, hsl(5, 95%, 65%) 50%, hsl(352, 90%, 62%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(35, 40%, 92%) 0%, hsl(30, 45%, 88%) 100%);
+    --gradient-flow: linear-gradient(135deg, hsl(350, 75%, 58%) 0%, hsl(335, 70%, 62%) 50%, hsl(345, 65%, 65%) 100%);
+    --gradient-bump: linear-gradient(135deg, hsl(275, 55%, 58%) 0%, hsl(290, 50%, 62%) 50%, hsl(260, 50%, 62%) 100%);
+    --gradient-mommy: linear-gradient(135deg, hsl(165, 55%, 48%) 0%, hsl(175, 50%, 52%) 50%, hsl(155, 50%, 52%) 100%);
+    --gradient-partner: linear-gradient(135deg, hsl(215, 65%, 55%) 0%, hsl(225, 60%, 58%) 50%, hsl(205, 60%, 55%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(358, 100%, 68%) 0%, hsl(350, 75%, 58%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(35, 35%, 97%) 0%, hsl(35, 40%, 94%) 100%);
+    --gradient-beige: linear-gradient(135deg, hsl(35, 45%, 95%) 0%, hsl(30, 40%, 90%) 100%);
+
+    /* Enhanced Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(358 100% 68% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(20 30% 15% / 0.08);
+    --shadow-button: 0 8px 25px -5px hsl(358 100% 68% / 0.35);
+    --shadow-glow: 0 0 40px -10px hsl(358 100% 68% / 0.4);
+    --shadow-elevated: 0 20px 40px -10px hsl(20 30% 15% / 0.12);
+
+    /* Sidebar */
+    --sidebar-background: 35 35% 97%;
+    --sidebar-foreground: 20 30% 15%;
+    --sidebar-primary: 15 87% 64%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 35 40% 92%;
+    --sidebar-accent-foreground: 25 50% 35%;
+    --sidebar-border: 35 25% 88%;
+    --sidebar-ring: 15 87% 64%;
+  }
+
+  .dark {
+    /* Dark sxem: fon #161922, boxlar #3b3c41, mətnlər ağ
+       (anacan-design.css .dark ilə sinxron) */
+    --background: 225 21% 11%;
+    --foreground: 0 0% 100%;
+
+    --card: 230 5% 24%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 230 5% 24%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Coral (#FF5A5F) aksenti */
+    --primary: 358 100% 68%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 5% 28%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 227 10% 17%;
+    --muted-foreground: 228 8% 74%;
+
+    --accent: 357 85% 62%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 5% 32%;
+    --input: 230 5% 28%;
+    --ring: 358 100% 68%;
+
+    /* Life stage colors for dark mode - brighter for visibility */
+    --flow: 350 75% 65%;
+    --flow-light: 350 50% 18%;
+    --flow-dark: 350 70% 55%;
+    
+    --bump: 275 55% 65%;
+    --bump-light: 275 40% 18%;
+    --bump-dark: 275 50% 55%;
+    
+    --mommy: 165 55% 55%;
+    --mommy-light: 165 35% 18%;
+    --mommy-dark: 165 50% 45%;
+    
+    --partner: 15 80% 60%;
+    --partner-light: 15 40% 18%;
+    --partner-dark: 12 70% 50%;
+
+    --beige: 35 35% 30%;
+    --beige-light: 30 20% 16%;
+    --beige-dark: 35 30% 22%;
+
+    /* Dark mode gradients — flat (#161922 ailəsi) */
+    --gradient-warm: linear-gradient(180deg, hsl(225, 21%, 11%) 0%, hsl(225, 18%, 13%) 100%);
+    --gradient-beige: linear-gradient(135deg, hsl(230, 5%, 24%) 0%, hsl(228, 8%, 20%) 100%);
+
+    /* Sidebar */
+    --sidebar-background: 225 21% 11%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 15 87% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 5% 28%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 230 5% 32%;
+    --sidebar-ring: 15 87% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    position: fixed;
+    inset: 0;
+    background-color: hsl(var(--background));
+    overscroll-behavior: none;
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground font-nunito antialiased;
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+  }
+
+  /* Ərəb (ar): .a-scope xaricindəki mətnlər (nadir) üçün fallback override */
+  body:lang(ar) {
+    font-family: 'Noto Sans Arabic', 'Nunito', system-ui, sans-serif;
+  }
+
+  #root {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(var(--background));
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  /* Gradients */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-flow {
+    background: var(--gradient-flow);
+  }
+  
+  .gradient-bump {
+    background: var(--gradient-bump);
+  }
+  
+  .gradient-mommy {
+    background: var(--gradient-mommy);
+  }
+  
+  .gradient-partner {
+    background: var(--gradient-partner);
+  }
+  
+  .gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+  
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-beige {
+    background: var(--gradient-beige);
+  }
+
+  /* Shadows */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-flow {
+    background: var(--gradient-flow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .dark .glass {
+    background: rgba(59, 60, 65, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Dark mode specific overrides for better contrast */
+  .dark .bg-white\/60 {
+    background: hsl(230 5% 24% / 0.6);
+  }
+  
+  .dark .bg-white\/30,
+  .dark .bg-white\/20,
+  .dark .bg-white\/10 {
+    background: hsl(0 0% 100% / 0.08);
+  }
+
+  .dark .text-gray-200 {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .dark .text-gray-800,
+  .dark .text-gray-700,
+  .dark .text-gray-600 {
+    color: hsl(var(--foreground));
+  }
+
+  /* ── Native app hissi: text seçimi deaktiv ──
+     body.native-app klası Capacitor-da main.tsx tərəfindən qoyulur.
+     İstisnalar: input/textarea/contenteditable (yazı işləməlidir). */
+  body.native-app,
+  body.native-app * {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  body.native-app input,
+  body.native-app textarea,
+  body.native-app [contenteditable],
+  body.native-app [contenteditable] * {
+    -webkit-user-select: text;
+    user-select: text;
+    -webkit-touch-callout: default;
+  }
+
+  /* Safe area for mobile - Capacitor — uses margin so it doesn't stack with padding */
+  .safe-top,
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-left {
+    padding-inline-start: env(safe-area-inset-left, 0px);
+  }
+
+  .safe-right {
+    padding-inline-end: env(safe-area-inset-right, 0px);
+  }
+
+  /* Alt CTA-lar üçün: safe-area + minimum nəfəs payı.
+     (Funnel/paywall ekranları bu klası istifadə edirdi, amma təyin olunmamışdı!) */
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+  }
+
+  /* BottomNav klirensi: nav hündürlüyü (~78px) + safe-area + nəfəs payı.
+     Tab ekranlarının scroll konteynerində istifadə olunur ki, son
+     düymələr/kartlar heç vaxt nav altında qalmasın. */
+  .pb-nav {
+    padding-bottom: calc(108px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Full height for mobile app */
+  .mobile-full-height {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+
+  /* Prevent overscroll/bounce on iOS */
+  .no-overscroll {
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Shimmer Animation - Enhanced */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Smooth skeleton animation */
+  @keyframes skeleton-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-skeleton-pulse {
+    animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -8px hsl(var(--primary) / 0.15);
+  }
+
+  /* Button press effect */
+  .btn-press {
+    transition: transform 0.15s ease;
+  }
+
+  .btn-press:active {
+    transform: scale(0.97);
+  }
+
+  /* Focus ring enhancement */
+  .focus-ring {
+    @apply outline-none ring-offset-2 ring-offset-background transition-shadow;
+  }
+
+  .focus-ring:focus-visible {
+    @apply ring-2 ring-primary;
+  }
+
+  /* Subtle glow on hover */
+  .glow-hover {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.4);
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: var(--gradient-primary);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Pulsing ring animation */
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: var(--gradient-primary);
+  opacity: 0;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Community typography follows component sizes; inputs stay readable on iOS. */
+.community-native-text {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.community-native-text textarea,
+.community-native-text input[type="text"] {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Hide Lovable badge on every page */
+#lovable-badge,
+aside#lovable-badge,
+.lovable-badge,
+[data-lovable-badge] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

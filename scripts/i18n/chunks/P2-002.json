@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "createpostscreen_bos_paylasim_47b52d",
+  "az": "Boş paylaşım",
+  "en": "Empty post"
+ },
+ {
+  "key": "createpostscreen_dogus_01c8e6",
+  "az": "doğuş",
+  "en": "birth"
+ },
+ {
+  "key": "createpostscreen_elave_et_81035a",
+  "az": "Əlavə et:",
+  "en": "Name:"
+ },
+ {
+  "key": "createpostscreen_emzirme_1e11e5",
+  "az": "əmzirmə",
+  "en": "breastfeeding"
+ },
+ {
+  "key": "createpostscreen_fayl_cox_boyukdur_f5cf61",
+  "az": "Fayl çox böyükdür",
+  "en": "The file is too large"
+ },
+ {
+  "key": "createpostscreen_hamilelik_64e7fe",
+  "az": "hamiləlik",
+  "en": "pregnancy"
+ },
+ {
+  "key": "createpostscreen_i_stifadeci_b6bdd6",
+  "az": "İstifadəçi",
+  "en": "User"
+ },
+ {
+  "key": "createpostscreen_inkisaf_abc234",
+  "az": "inkişaf",
+  "en": "development"
+ },
+ {
+  "key": "createpostscreen_korpe_4abca7",
+  "az": "körpə",
+  "en": "baby"
+ },
+ {
+  "key": "createpostscreen_limit_asildi_30a129",
+  "az": "Limit aşıldı",
+  "en": "Limit exceeded"
+ },
+ {
+  "key": "createpostscreen_metn_yazin_ve_ya_media_elave_edin_18fa25",
+  "az": "Mətn yazın və ya media əlavə edin",
+  "en": "Write a text or add media"
+ },
+ {
+  "key": "createpostscreen_ne_dusunursunuz_474859",
+  "az": "Nə düşünürsünüz? ✨",
+  "en": "What's on your mind? ✨"
+ },
+ {
+  "key": "createpostscreen_oyun_hashtag",
+  "az": "oyun",
+  "en": "play"
+ },
+ {
+  "key": "createpostscreen_paylas_b4be3b",
+  "az": "Paylaş",
+  "en": "Share"
+ },
+ {
+  "key": "createpostscreen_paylasim_yaradila_bilmedi_6354b1",
+  "az": "Paylaşım yaradıla bilmədi",
+  "en": "Could not create post"
+ },
+ {
+  "key": "createpostscreen_qidalanma_hashtag",
+  "az": "qidalanma",
+  "en": "nutrition"
+ },
+ {
+  "key": "createpostscreen_saglamliq_d183d2",
+  "az": "sağlamlıq",
+  "en": "health"
+ },
+ {
+  "key": "createpostscreen_sevgi_hashtag",
+  "az": "sevgi",
+  "en": "love"
+ },
+ {
+  "key": "createpostscreen_usaq_36b348",
+  "az": "uşaq",
+  "en": "child"
+ },
+ {
+  "key": "createpostscreen_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "createpostscreen_xosbextlik_55f22a",
+  "az": "xoşbəxtlik",
+  "en": "happiness"
+ },
+ {
+  "key": "createpostscreen_yeni_paylasim_4f5b15",
+  "az": "Yeni Paylaşım",
+  "en": "New Post"
+ },
+ {
+  "key": "createpostscreen_yuxu_hashtag",
+  "az": "yuxu",
+  "en": "sleep"
+ },
+ {
+  "key": "directmessages_yeni_mesaj",
+  "az": "Yeni mesaj",
+  "en": "New message"
+ },
+ {
+  "key": "directmessagescreen_ile_sohbete_baslayin_3ce758",
+  "az": "ilə söhbətə başlayın",
+  "en": "start a conversation with"
+ },
+ {
+  "key": "directmessagescreen_mesaj_yazin_e69f84",
+  "az": "Mesaj yazın...",
+  "en": "Write a message..."
+ },
+ {
+  "key": "directmessagescreen_sekil_43e2e3",
+  "az": "Şəkil",
+  "en": "Image"
+ },
+ {
+  "key": "directmessagescreen_send",
+  "az": "Göndər",
+  "en": null
+ },
+ {
+  "key": "directmessagescreen_stop",
+  "az": "Dayandır",
+  "en": null
+ },
+ {
+  "key": "directmessagescreen_yuklenir_5557de",
+  "az": "Yüklənir...",
+  "en": "Loading..."
+ },
+ {
+  "key": "flow_cycle_alert",
+  "az": "Tsikl xəbərdarlığı",
+  "en": "Cycle alert"
+ },
+ {
+  "key": "flow_cycle_diff_msg",
+  "az": "Tsikllər arasında {days} gün fərq var. Bu stress, çəki dəyişikliyi və ya tireoid problemlərlə bağlı ola bilər.",
+  "en": "There is a {days}-day difference between cycles. This could be due to stress, weight changes, or thyroid issues."
+ },
+ {
+  "key": "flow_days_before",
+  "az": "{days} gün əvvəl",
+  "en": "{days} days before"
+ },
+ {
+  "key": "flow_longest_cycle_msg",
+  "az": "Ən uzun tsikliniz {days} gündür. 35 gündən uzun tsikllər PCOS və ya hormonal disbalans əlaməti ola bilər.",
+  "en": "Your longest cycle is {days} days. Cycles over 35 days can be a sign of PCOS or hormonal imbalance."
+ },
+ {
+  "key": "flow_period_delay_1",
+  "az": "Periodunuz təxmini tarixdən",
+  "en": null
+ },
+ {
+  "key": "flow_period_delay_2",
+  "az": "gün gecikir. Hamiləlik testi etməyi və ya Dr. Anacan-dan soruşmağı düşünün.",
+  "en": null
+ },
+ {
+  "key": "flow_period_delay_prompt_1",
+  "az": "Periodum",
+  "en": null
+ },
+ {
+  "key": "flow_period_delay_prompt_2",
+  "az": "gün gecikib, nə edə bilərəm?",
+  "en": null
+ },
+ {
+  "key": "flow_qeyd_et",
+  "az": "Qeyd et",
+  "en": "Log"
+ },
+ {
+  "key": "flow_shortest_cycle_msg",
+  "az": "Ən qısa tsikliniz {days} gündür. 21 gündən az tsikllər həkim müraciəti tələb edə bilər.",
+  "en": "Your shortest cycle is {days} days. Cycles under 21 days may require medical attention."
+ },
+ {
+  "key": "flowcyclestats_davam_edir_f842cd",
+  "az": "Davam edir",
+  "en": "In progress"
+ },
+ {
+  "key": "flowcyclestats_gun_54e78d",
+  "az": "gün",
+  "en": "day"
+ },
+ {
+  "key": "flowcyclestats_gun_ferq_d595f3",
+  "az": "gün fərq",
+  "en": "day difference"
+ },
+ {
+  "key": "flowcyclestats_gun_tsikl_f123bc",
+  "az": "{length} gün tsikl",
+  "en": "{length} day cycle"
+ },
+ {
+  "key": "flowcyclestats_period_gunlerini_qeyd_etdikde__f44b96",
+  "az": "Period günlərini qeyd etdikdə tarix yaranacaq",
+  "en": "A date will appear when you mark period days"
+ },
+ {
+  "key": "flowcyclestats_son_tsikller_7e7eb6",
+  "az": "Son tsikllər",
+  "en": "Latest Cycles"
+ },
+ {
+  "key": "flowcyclestats_tsikl_count",
+  "az": "{count} tsikl",
+  "en": "{count} cycles"
+ },
+ {
+  "key": "flowcyclestats_tsikl_statistikasi_e8cbea",
+  "az": "Tsikl Statistikası",
+  "en": "Cycle Statistics"
+ },
+ {
+  "key": "flowcyclestats_tsikl_tarixi_yoxdur_b78f8c",
+  "az": "Tsikl tarixi yoxdur",
+  "en": "No cycle history"
+ },
+ {
+  "key": "flowdailylogger_agri_seviyyesi_57b383",
+  "az": "Ağrı Səviyyəsi:",
+  "en": "Pain Level:"
+ },
+ {
+  "key": "flowdailylogger_agri_yoxdur_25522a",
+  "az": "Ağrı yoxdur",
+  "en": "No pain"
+ },
+ {
+  "key": "flowdailylogger_asagi_1c27f1",
+  "az": "Aşağı",
+  "en": "Low"
+ },
+ {
+  "key": "flowdailylogger_bbt_olcme_zamani_deqiq_netice__7b2954",
+  "az": "BBT ölçmə zamanı dəqiq nəticə üçün səhər yuxudan durduqda ölçün",
+  "en": "When measuring BBT, measure when you wake up in the morning for an accurate result"
+ },
+ {
+  "key": "flowdailylogger_beden_temperaturu_c_527103",
+  "az": "Bədən Temperaturu (°C)",
+  "en": "Body Temperature (°C)"
+ },
+ {
+  "key": "flowdailylogger_bu_gun_haqqinda_qeydlerinizi_yazin_eca8f7",
+  "az": "Bu gün haqqında qeydlərinizi yazın...",
+  "en": "Write your notes about today..."
+ },
+ {
+  "key": "flowdailylogger_cinsi_elaqe",
+  "az": "Cinsi əlaqə",
+  "en": "Intimacy"
+ },
+ {
+  "key": "flowdailylogger_cox_agrili_ee7bd3",
+  "az": "Çox ağrılı",
+  "en": "Very painful"
+ },
+ {
+  "key": "flowdailylogger_cox_asagi_e45510",
+  "az": "Çox aşağı",
+  "en": "Very low"
+ },
+ {
+  "key": "flowdailylogger_cox_pis_e041c5",
+  "az": "Çox pis",
+  "en": "Very bad"
+ },
+ {
+  "key": "flowdailylogger_cox_yuksek_c4d475",
+  "az": "Çox yüksək",
+  "en": "Very high"
+ },
+ {
+  "key": "flowdailylogger_doldurulub",
+  "az": "Doldurulub",
+  "en": "Logged"
+ },
+ {
+  "key": "flowdailylogger_ehval_0457f9",
+  "az": "Əhval",
+  "en": "Mood"
+ },
+ {
+  "key": "flowdailylogger_ela_720a0e",
+  "az": "Əla",
+  "en": "Excellent"
+ },
+ {
+  "key": "flowdailylogger_enerji_seviyyesi_961691",
+  "az": "Enerji Səviyyəsi",
+  "en": "Energy Level"
+ },
+ {
+  "key": "flowdailylogger_fertillik_gostericisi",
+  "az": "fertillik göstəricisi",
+  "en": "fertility sign"
+ },
+ {
+  "key": "flowdailylogger_guclu_0fda31",
+  "az": "Güclü",
+  "en": "Strong"
+ },
+ {
+  "key": "flowdailylogger_gundelik_qeyd_32e154",
+  "az": "Gündəlik Qeyd",
+  "en": "Daily Log"
+ },
+ {
+  "key": "flowdailylogger_gundelik_qeyd_saxlanildi_03bc8a",
+  "az": "Gündəlik qeyd saxlanıldı!",
+  "en": "Daily log saved!"
+ },
+ {
+  "key": "flowdailylogger_lekelenme_8e7b1e",
+  "az": "Ləkələnmə",
+  "en": "Spotting"
+ },
+ {
+  "key": "flowdailylogger_libido",
+  "az": "Libido",
+  "en": "Sex drive"
+ },
+ {
+  "key": "flowdailylogger_mucus_creamy",
+  "az": "Kremvari",
+  "en": "Creamy"
+ },
+ {
+  "key": "flowdailylogger_mucus_dry",
+  "az": "Quru",
+  "en": "Dry"
+ },
+ {
+  "key": "flowdailylogger_mucus_eggwhite",
+  "az": "Yumurta ağı",
+  "en": "Egg white"
+ },
+ {
+  "key": "flowdailylogger_mucus_sticky",
+  "az": "Yapışqan",
+  "en": "Sticky"
+ },
+ {
+  "key": "flowdailylogger_mucus_watery",
+  "az": "Sulu",
+  "en": "Watery"
+ },
+ {
+  "key": "flowdailylogger_opk_negative",
+  "az": "Mənfi",
+  "en": "Negative"
+ },
+ {
+  "key": "flowdailylogger_opk_peak",
+  "az": "Pik",
+  "en": "Peak"
+ },
+ {
+  "key": "flowdailylogger_opk_peak_hint",
+  "az": "🌟 Pik LH — ovulyasiya təxminən 24 saat ərzində gözlənilir",
+  "en": "🌟 Peak LH — ovulation expected within ~24 hours"
+ },
+ {
+  "key": "flowdailylogger_opk_positive",
+  "az": "Müsbət",
+  "en": "Positive"
+ },
+ {
+  "key": "flowdailylogger_opk_positive_hint",
+  "az": "➕ LH yüksəlişi — ovulyasiya 24-36 saat ərzində gözlənilir",
+  "en": "➕ LH surge — ovulation expected within 24-36 hours"
+ },
+ {
+  "key": "flowdailylogger_ovulyasiya_testi",
+  "az": "Ovulyasiya testi",
+  "en": "Ovulation test"
+ },
+ {
+  "key": "flowdailylogger_qanaxma_e42bdc",
+  "az": "Qanaxma",
+  "en": "Bleeding"
+ },
+ {
+  "key": "flowdailylogger_qeydler_a7a98b",
+  "az": "Qeydlər",
+  "en": "Notes"
+ },
+ {
+  "key": "flowdailylogger_saxla_7dcde1",
+  "az": "Saxla",
+  "en": "Save"
+ },
+ {
+  "key": "flowdailylogger_saxlanilir_ee05ad",
+  "az": "Saxlanılır...",
+  "en": "Saving..."
+ },
+ {
+  "key": "flowdailylogger_servikal_maye",
+  "az": "Servikal maye",
+  "en": "Cervical mucus"
+ },
+ {
+  "key": "flowdailylogger_sex_protected",
+  "az": "Qorunmalı",
+  "en": "Protected"
+ },
+ {
+  "key": "flowdailylogger_sex_unprotected",
+  "az": "Qorunmasız",
+  "en": "Unprotected"
+ },
+ {
+  "key": "flowdailylogger_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "flowdailylogger_yaxsi_9d8595",
+  "az": "Yaxşı",
+  "en": "Good"
+ },
+ {
+  "key": "flowdailylogger_yenile_570ce2",
+  "az": "Yenilə",
+  "en": "Refresh"
+ },
+ {
+  "key": "flowdailylogger_yuksek_492584",
+  "az": "Yüksək",
+  "en": "High"
+ },
+ {
+  "key": "flowdailylogger_yungul_2a8010",
+  "az": "Yüngül",
+  "en": "Light"
+ },
+ {
+  "key": "flowdailylogger_yuxu_keyfiyyeti_0bb5f7",
+  "az": "Yuxu Keyfiyyəti",
+  "en": "Sleep Quality"
+ },
+ {
+  "key": "flowdailylogger_yuxu_saat_33bd1e",
+  "az": "Yuxu (saat)",
+  "en": "Sleep (hours)"
+ },
+ {
+  "key": "flowdashboard_adaptiv_proqnoz",
+  "az": "Proqnoz son {n} tsiklə əsasən öyrənir · dəqiqlik ±{sd} gün",
+  "en": "Prediction learns from your last {n} cycles · accuracy ±{sd} days"
+ },
+ {
+  "key": "flowdashboard_bitis_tarixi_baslangic_tarixin_6fa84f",
+  "az": "Bitiş tarixi başlanğıc tarixindən əvvəl ola bilməz",
+  "en": "The end date cannot be earlier than the start date"
+ },
+ {
+  "key": "flowdashboard_bu_faza_ucun_meslehetler_14b952",
+  "az": "Bu faza üçün məsləhətlər",
+  "en": "Tips For This Phase"
+ },
+ {
+  "key": "flowdashboard_bu_gun_786fd4",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "flowdashboard_bu_kateqoriyada_meslehet_yoxdur_2e13ec",
+  "az": "Bu kateqoriyada məsləhət yoxdur",
+  "en": "No advice in this category"
+ },
+ {
+  "key": "flowdashboard_demir_30bf6c",
+  "az": "Dəmir",
+  "en": "Iron"
+ },
+ {
+  "key": "flowdashboard_enerji_seviyyesi_961691",
+  "az": "Enerji Səviyyəsi",
+  "en": "Energy Level"
+ },
+ {
+  "key": "flowdashboard_gun_54e78d",
+  "az": "gün",
+  "en": "day"
+ },
+ {
+  "key": "flowdashboard_gun_period_957849",
+  "az": "gün period",
+  "en": "days period"
+ },
+ {
+  "key": "flowdashboard_gun_qaldi_993281",
+  "az": "gün qaldı",
+  "en": "days left"
+ },
+ {
+  "key": "flowdashboard_gun_tsikl_bb0ab6",
+  "az": "gün tsikl",
+  "en": "days cycle"
+ },
+ {
+  "key": "flowdashboard_hal_hazirda_b78349",
+  "az": "Hal-hazırda",
+  "en": "Currently"
+ },
+ {
+  "key": "flowdashboard_hamisi_c73c4d",
+  "az": "Hamısı",
+  "en": "All of them"
+ },
+ {
+  "key": "flowdashboard_intensiv_f123bc",
+  "az": "İntensiv",
+  "en": "Intense"
+ },
+ {
+  "key": "flowdashboard_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel"
+ },
+ {
+  "key": "flowdashboard_lh_yukselisi",
+  "az": "➕ LH yüksəlişi",
+  "en": "➕ LH surge"
+ },
+ {
+  "key": "flowdashboard_maqnezium_f7238a",
+  "az": "Maqnezium",
+  "en": "Magnesium"
+ },
+ {
+  "key": "flowdashboard_maye_siqnali",
+  "az": "💧 Maye siqnalı",
+  "en": "💧 Mucus signal"
+ },
+ {
+  "key": "flowdashboard_maye_tesdiqli",
+  "az": "💧 Maye təsdiqli",
+  "en": "💧 Mucus-confirmed"
+ },
+ {
+  "key": "flowdashboard_mesq_intensivliyi_f59d1b",
+  "az": "Məşq İntensivliyi",
+  "en": "Workout Intensity"
+ },
+ {
+  "key": "flowdashboard_period_baslangici_c90515",
+  "az": "🩸 Period başlanğıcı",
+  "en": "🩸 Period start"
+ },
+ {
+  "key": "flowdashboard_period_baslangici_qeyd_edildi_6961a5",
+  "az": "Period başlanğıcı qeyd edildi! 🩸",
+  "en": "Period marked! 🩸"
+ },
+ {
+  "key": "flowdashboard_period_bitisi_d0fdcc",
+  "az": "✅ Period bitişi",
+  "en": "✅ Period end"
+ },
+ {
+  "key": "flowdashboard_period_bitisi_qeyd_edildi_7aef98",
+  "az": "Period bitişi qeyd edildi! ✅",
+  "en": "The end of the period has been marked! ✅"
+ },
+ {
+  "key": "flowdashboard_period_duration_notice_f7c1d3",
+  "az": "Period {days} gün davam etdi",
+  "en": "Period lasted {days} days"
+ },
+ {
+  "key": "flowdashboard_periodum_basladi_86bd73",
+  "az": "Periodum başladı",
+  "en": "My period has started"
+ },
+ {
+  "key": "flowdashboard_periodum_bitdi_c1b3ea",
+  "az": "✅ Periodum bitdi",
+  "en": "✅ My period ended"
+ },
+ {
+  "key": "flowdashboard_periodunuzun_basladigi_tarixi__454aab",
+  "az": "Periodunuzun başladığı tarixi seçin:",
+  "en": "Select the date your period starts:"
+ },
+ {
+  "key": "flowdashboard_periodunuzun_bitdiyi_tarixi_se_aa37b7",
+  "az": "Periodunuzun bitdiyi tarixi seçin:",
+  "en": "Select the date your period ends:"
+ },
+ {
+  "key": "flowdashboard_pik_lh",
+  "az": "🌟 Pik LH",
+  "en": "🌟 Peak LH"
+ },
+ {
+  "key": "flowdashboard_proqnoz_deqiqlesir",
+  "az": "Proqnoz dəqiqləşir — period günlərini qeyd etməyə davam edin 📈",
+  "en": "Predictions are calibrating — keep logging your period days 📈"
+ },
+ {
+  "key": "flowdashboard_protein_a47bc2",
+  "az": "Protein",
+  "en": "Protein"
+ },
+ {
+  "key": "flowdashboard_qarsidan_gelenler_dc6614",
+  "az": "Qarşıdan gələnlər",
+  "en": "Upcoming"
+ },
+ {
+  "key": "flowdashboard_secilen_tarix_104372",
+  "az": "Seçilən tarix:",
+  "en": "Selected date:"
+ },
+ {
+  "key": "flowdashboard_test_tesdiqli",
+  "az": "✓ Test təsdiqli",
+  "en": "✓ Test-confirmed"
+ },
+ {
+  "key": "flowdashboard_tovsiye_edilen_yuxu_e219dd",
+  "az": "Tövsiyə Edilən Yuxu",
+  "en": "Recommended Sleep"
+ },
+ {
+  "key": "flowdashboard_tsikl_gunu_b9e250",
+  "az": "Tsikl günü",
+  "en": "Cycle day"
+ },
+ {
+  "key": "flowdashboard_x_gun_qaldi",
+  "az": "{days} gün qaldı",
+  "en": "{days} days left"
+ },
+ {
+  "key": "flowdashboard_xeta_bas_verdi_yeniden_cehd_ed_816221",
+  "az": "Xəta baş verdi, yenidən cəhd edin",
+  "en": "An error occurred, please try again"
+ },
+ {
+  "key": "flowdashboard_yuksek_492584",
+  "az": "Yüksək",
+  "en": "High"
+ },
+ {
+  "key": "flowdashboard_yungul_2a8010",
+  "az": "Yüngül",
+  "en": "Light"
+ },
+ {
+  "key": "flowmoodchart_ehval_0457f9",
+  "az": "Əhval",
+  "en": "Mood"
+ },
+ {
+  "key": "flowmoodchart_ehval_1ea198",
+  "az": "Əhval:",
+  "en": "Mood:"
+ },
+ {
+  "key": "flowmoodchart_ehval_qeydleri_elave_edin_f86771",
+  "az": "Əhval qeydləri əlavə edin",
+  "en": "Add mood notes"
+ },
+ {
+  "key": "flowmoodchart_ehval_qrafiki_fe3531",
+  "az": "Əhval Qrafiki",
+  "en": "Mood Chart"
+ },
+ {
+  "key": "flowmoodchart_orta_ehval_d444a0",
+  "az": "Orta Əhval",
+  "en": "Average Mood"
+ },
+ {
+  "key": "flowmoodchart_qeyd_sayi_3b2708",
+  "az": "Qeyd sayı",
+  "en": "Number of Notes"
+ },
+ {
+  "key": "flowmoodchart_son_14_gun_6be43a",
+  "az": "Son 14 gün",
+  "en": "Last 14 days"
+ },
+ {
+  "key": "flowmoodchart_son_90_gun",
+  "az": "Son 90 gün",
+  "en": "Last 90 days"
+ },
+ {
+  "key": "flowmoodchart_yuxu_label",
+  "az": "Yuxu:",
+  "en": "Sleep:"
+ },
+ {
+  "key": "flowperiodcalendar_axinti_intensivliyini_secin_7d78ea",
+  "az": "Axıntı intensivliyini seçin",
+  "en": "Select the flow intensity"
+ },
+ {
+  "key": "flowperiodcalendar_guclu_0fda31",
+  "az": "Güclü",
+  "en": "Strong"
+ },
+ {
+  "key": "flowperiodcalendar_gune_toxunaraq_period_gunlerin_3b5f8a",
+  "az": "Günə toxunaraq period günlərini qeyd edin",
+  "en": "Enter the period days by touching the day"
+ },
+ {
+  "key": "flowperiodcalendar_legv_et_b5e49c",
+  "az": "Ləğv et",
+  "en": "Cancel it"
+ },
+ {
+  "key": "flowperiodcalendar_mehsuldar_7ab8a5",
+  "az": "Məhsuldar",
+  "en": "Fertile"
+ },
+ {
+  "key": "flowperiodcalendar_period_gunu_qeyd_edildi_0555f5",
+  "az": "Period günü qeyd edildi 🩸",
+  "en": "Period day was recorded 🩸"
+ },
+ {
+  "key": "flowperiodcalendar_period_gunu_silindi_c4a18f",
+  "az": "Period günü silindi",
+  "en": "Period day deleted"
+ },
+ {
+  "key": "flowperiodcalendar_period_teqvimi_d04269",
+  "az": "Period Təqvimi",
+  "en": "Period Calendar"
+ },
+ {
+  "key": "flowperiodcalendar_qeyd_edilen_d67bc1",
+  "az": "Qeyd edilən",
+  "en": "Logged"
+ },
+ {
+  "key": "flowperiodcalendar_yungul_2a8010",
+  "az": "Yüngül",
+  "en": "Light"
+ },
+ {
+  "key": "flowreminderscard_aktiv_d7a82c",
+  "az": "aktiv",
+  "en": "active"
+ },
+ {
+  "key": "flowreminderscard_daha_az_goster_47a81d",
+  "az": "Daha az göstər",
+  "en": "Show less"
+ },
+ {
+  "key": "flowreminderscard_hamisini_goster_f123bc",
+  "az": "Hamısını göstər",
+  "en": "Show all"
+ },
+ {
+  "key": "flowreminderscard_hec_bir_xatirlatma_yoxdur_dc234b",
+  "az": "Heç bir xatırlatma yoxdur",
+  "en": "There is no reminder"
+ },
+ {
+  "key": "flowreminderscard_tenzimlemelerden_xatirlatmalar_389fd8",
+  "az": "Tənzimləmələrdən xatırlatmalar əlavə edin",
+  "en": "Add reminders from settings"
+ },
+ {
+  "key": "flowreminderscard_xatirlatmalar_ddd8e7",
+  "az": "Xatırlatmalar",
+  "en": "Reminders"
+ },
+ {
+  "key": "groupfeed_basqa_axtaris_sozleri_sinayin_20e63c",
+  "az": "Başqa axtarış sözləri sınayın",
+  "en": "Try other search terms"
+ },
+ {
+  "key": "groupfeed_bu_qrupda_ilk_paylasimi_siz_ed_124fe7",
+  "az": "Bu qrupda ilk paylaşımı siz edin!",
+  "en": "Be the first to post in this group!"
+ },
+ {
+  "key": "groupfeed_hele_paylasim_yoxdur_a0a7fa",
+  "az": "Hələ paylaşım yoxdur",
+  "en": "No posts yet"
+ },
+ {
+  "key": "groupfeed_i_lk_paylasimi_siz_edin_1ec33a",
+  "az": "İlk paylaşımı siz edin!",
+  "en": "Be the first to share!"
+ },
+ {
+  "key": "groupfeed_netice_tapilmadi_4b1b52",
+  "az": "Nəticə tapılmadı",
+  "en": "No result found"
+ },
+ {
+  "key": "groupfeed_paylasim_yarat_69bdcd",
+  "az": "Paylaşım yarat",
+  "en": "Create a share"
+ },
+ {
+  "key": "groupfeed_umumi_1b5521",
+  "az": "Ümumi",
+  "en": "General"
+ },
+ {
+  "key": "groupfeed_uzv_3f0dbc",
+  "az": "üzv",
+  "en": "member"
+ },
+ {
+  "key": "groupslist_ayril_c052d1",
+  "az": "Ayrıl",
+  "en": "Leave"
+ },
+ {
+  "key": "groupslist_dogum_ayi_638e88",
+  "az": "🍼 Doğum Ayı",
+  "en": "🍼 Birth Month"
+ },
+ {
+  "key": "groupslist_ekizler_ucuzler_371a92",
+  "az": "👶👶 Əkizlər/Üçüzlər",
+  "en": "👶👶 Twins/Triples"
+ },
+ {
+  "key": "groupslist_hamilelik_ayi_bdb0a4",
+  "az": "🤰 Hamiləlik Ayı",
+  "en": "🤰 Pregnancy Month"
+ },
+ {
+  "key": "groupslist_qosul_ed89ce",
+  "az": "Qoşul",
+  "en": "Connect"
+ },
+ {
+  "key": "groupslist_qrup_tapilmadi_78fc7d",
+  "az": "Qrup tapılmadı",
+  "en": "Group not found"
+ },
+ {
+  "key": "groupslist_umumi_92b103",
+  "az": "💬 Ümumi",
+  "en": "💬 General"
+ },
+ {
+  "key": "groupslist_usaq_cinsi_df0c40",
+  "az": "👶 Uşaq Cinsi",
+  "en": "👶 Child Sex"
+ },
+ {
+  "key": "groupslist_uzv_3f0dbc",
+  "az": "üzv",
+  "en": "member"
+ },
+ {
+  "key": "groupslist_uzv_6aa4f8",
+  "az": "Üzv",
+  "en": "Member"
+ },
+ {
+  "key": "hc_write_denied",
+  "az": "İcazə verilmədi",
+  "en": "Permission denied"
+ },
+ {
+  "key": "hc_write_denied_desc",
+  "az": "Sistem ayarlarından icazə verə bilərsiniz",
+  "en": "You can grant it from system settings"
+ },
+ {
+  "key": "hc_write_desc",
+  "az": "Period qeydləriniz avtomatik Apple Health / Health Connect-ə əlavə olunur",
+  "en": "Your period logs are automatically added to Apple Health / Health Connect"
+ },
+ {
+  "key": "hc_write_on",
+  "az": "Aktiv edildi ✓",
+  "en": "Enabled ✓"
+ },
+ {
+  "key": "hc_write_on_desc",
+  "az": "Period qeydləri bundan sonra Health-ə yazılacaq",
+  "en": "Period logs will now be written to Health"
+ },
+ {
+  "key": "hc_write_title",
+  "az": "Tsikli Health-ə yaz",
+  "en": "Write cycle to Health"
+ },
+ {
+  "key": "hc_write_unavailable",
+  "az": "Mövcud deyil",
+  "en": "Unavailable"
+ },
+ {
+  "key": "hc_write_unavailable_desc",
+  "az": "Yazma üçün tətbiqin yeni native build-i lazımdır",
+  "en": "Writing requires the latest native build of the app"
+ },
+ {
+  "key": "health_calories_today",
+  "az": "Kalori (aktiv)",
+  "en": "Calories (active)"
+ },
+ {
+  "key": "health_connect_btn",
+  "az": "İndi qoşul",
+  "en": "Connect now"
+ },
+ {
+  "key": "health_connect_desc",
+  "az": "Addım sayı, kalori və məşqləriniz avtomatik görünəcək. Məlumatlar cihazınızda qalır.",
+  "en": "Your steps, calories and workouts will appear automatically. Data stays on your device."
+ },
+ {
+  "key": "health_connect_failed",
+  "az": "Qoşulmadı",
+  "en": "Connection failed"
+ },
+ {
+  "key": "health_connect_failed_desc",
+  "az": "İcazələr verilmədi — yenidən cəhd edin",
+  "en": "Permissions were not granted — try again"
+ },
+ {
+  "key": "health_connect_title",
+  "az": "ilə qoşulun",
+  "en": "— connect now"
+ },
+ {
+  "key": "health_connected_desc",
+  "az": "məlumatları oxunur",
+  "en": "data is now being read"
+ },
+ {
+  "key": "health_connected_toast",
+  "az": "Qoşuldu! 🎉",
+  "en": "Connected! 🎉"
+ },
+ {
+  "key": "health_connecting",
+  "az": "Qoşulur...",
+  "en": "Connecting..."
+ },
+ {
+  "key": "health_disconnect_btn",
+  "az": "Əlaqəni kəs",
+  "en": "Disconnect"
+ },
+ {
+  "key": "health_disconnected",
+  "az": "Əlaqə kəsildi",
+  "en": "Disconnected"
+ },
+ {
+  "key": "health_disconnected_desc",
+  "az": "İcazələri tam silmək üçün sistem ayarlarından istifadə edin",
+  "en": "Use system settings to fully revoke permissions"
+ },
+ {
+  "key": "health_eyebrow",
+  "az": "Sağlamlıq inteqrasiyası",
+  "en": "Health integration"
+ }
+]

@@ -1,0 +1,284 @@
+{
+ "first_aid_steps": {
+  "58fa242e-5084-47b6-831f-309a9ced96cb": {
+   "title": "Symptome erkennen",
+   "instruction": "Anzeichen einer allergischen Reaktion erkennen"
+  },
+  "0a0d6ada-239c-4443-bbdd-8328972fd28e": {
+   "title": "Auslöser entfernen",
+   "instruction": "Die Allergenquelle entfernen"
+  },
+  "24799f6b-1497-49ab-868b-a69e3ff98ef6": {
+   "title": "Antihistaminikum",
+   "instruction": "Falls vorhanden, ein Antihistaminikum verabreichen"
+  },
+  "9fafb3dd-35ce-413e-a600-29e28c90b0bc": {
+   "title": "Richtige Körperhaltung",
+   "instruction": "Das Kind in die richtige Position bringen"
+  },
+  "a2c10f33-ebf3-42a6-8bd6-a3cef455d93f": {
+   "title": "Notfall",
+   "instruction": "Bei schweren Reaktionen den Notruf 112 wählen"
+  },
+  "bf9c5674-3e2f-4a8b-8247-9136e7d05f44": {
+   "title": "Aufrecht hinsetzen",
+   "instruction": "Das Kind aufrecht hinsetzen und nach vorn beugen"
+  },
+  "fd830f74-88d5-43ee-a94a-fdfea1e0414b": {
+   "title": "Nase zusammendrücken",
+   "instruction": "Drücke den weichen Teil der Nase zusammen"
+  },
+  "23d31f20-3163-4d17-8459-9b3e2c245956": {
+   "title": "Kalte Kompresse",
+   "instruction": "Lege eine kalte Kompresse auf den Nasenrücken"
+  },
+  "af3def79-79b9-46db-85a0-3c43a16733a8": {
+   "title": "Ärztliche Hilfe suchen",
+   "instruction": "Wann du ärztliche Hilfe suchen solltest"
+  },
+  "69bde240-8f21-44bf-bf8c-12cee240b6cd": {
+   "title": "Substanz bestimmen",
+   "instruction": "Finde heraus, was verschluckt wurde"
+  },
+  "9549f870-161d-47a0-9f57-91105222c9cc": {
+   "title": "Giftnotruf anrufen",
+   "instruction": "Rufe den Giftnotruf oder den Notruf 112 an"
+  },
+  "bd87a444-0f16-47e6-8b1b-dbe04e9ced8d": {
+   "title": "Tipps zur Vorbeugung",
+   "instruction": "So kannst du künftige Vorfälle verhindern"
+  },
+  "af0c56b7-08ca-4276-bc53-1dd6d0215995": {
+   "title": "Mit kühlem Wasser kühlen",
+   "instruction": "Halte die Verbrennung unter kühles, fließendes Wasser"
+  },
+  "7556ff0c-b8ca-4ce7-9d14-879ffd290acb": {
+   "title": "Kleidung und Schmuck entfernen",
+   "instruction": "Entferne Kleidung und Schmuck in der Nähe der Verbrennung"
+  },
+  "0155ef9e-2bf9-4a2e-98d1-c2007b7c558d": {
+   "title": "Verbrennung abdecken",
+   "instruction": "Decke die Verbrennung mit steriler Gaze ab"
+  },
+  "a1c6475e-173f-4a3d-a227-05997aeaba07": {
+   "title": "Atemwege prüfen",
+   "instruction": "Prüfe, ob das Baby husten, weinen oder atmen kann"
+  },
+  "ff6832b6-5f9d-4393-b6d3-1a86d6950529": {
+   "title": "Baby positionieren",
+   "instruction": "Lege das Baby mit dem Gesicht nach unten auf deinen Unterarm und stütze dabei seinen Kopf"
+  },
+  "5fd43d8e-354b-4d21-b5ea-5244b0c4065a": {
+   "title": "Schläge auf den Rücken",
+   "instruction": "Gib dem Baby 5 kräftige Schläge zwischen die Schulterblätter"
+  },
+  "23233e34-91c6-4a37-80bd-6d114859cf06": {
+   "title": "Brustkorbkompressionen",
+   "instruction": "Drehe das Baby auf den Rücken und führe 5 Brustkorbkompressionen durch"
+  },
+  "653eda83-c55f-4c1b-9203-69107d939f57": {
+   "title": "Medizinische Hilfe suchen",
+   "instruction": "Erkenne, wann du medizinische Hilfe suchen solltest"
+  },
+  "988f6944-18e0-4fe7-b1c0-7af10f315f8f": {
+   "title": "Ruhe bewahren",
+   "instruction": "Bleib ruhig und schätze die Situation ein"
+  },
+  "26f95e8e-9af5-42b7-bb39-91bb6ca22251": {
+   "title": "Auf Verletzungen prüfen",
+   "instruction": "Prüfe, ob sichtbare Verletzungen vorliegen"
+  },
+  "9ee5ae8b-5908-451c-9702-e1efd5024f91": {
+   "title": "Kalte Kompresse",
+   "instruction": "Lege bei Beulen eine kalte Kompresse auf"
+  },
+  "a66d83b2-83fa-4fa6-8ecf-565311a1e46c": {
+   "title": "Notfallzeichen",
+   "instruction": "Erkenne, wann du den Notruf 112 wählen musst"
+  },
+  "b7b425c0-6726-434a-9518-6b517a1c3fd4": {
+   "title": "Wiederholen oder Notruf wählen",
+   "instruction": "Wiederhole die Maßnahmen, bis der Fremdkörper ausgestoßen wird, oder wähle den Notruf 112"
+  },
+  "cbd724e5-b458-4dfe-85fd-eafc99e6d58a": {
+   "title": "Temperatur messen",
+   "instruction": "Miss die genaue Temperatur mit einem Thermometer"
+  },
+  "bdd2e7c4-7b82-44e4-8d4e-700de7965d6b": {
+   "title": "Kleidung ausziehen",
+   "instruction": "Zieh überschüssige Kleidung aus, damit dein Baby abkühlen kann"
+  },
+  "1b1f79eb-f98c-46a5-a987-256c34544c2e": {
+   "title": "Flüssigkeit geben",
+   "instruction": "Biete häufig Muttermilch, Säuglingsnahrung oder Wasser an"
+  },
+  "7343c1a8-f642-4e01-9166-c11e8d2955b4": {
+   "title": "Lauwarmer Umschlag",
+   "instruction": "Lege einen lauwarmen (nicht kalten) Umschlag auf die Stirn"
+  },
+  "ba39c150-5d98-4c30-b3ef-f8b46ae9ee47": {
+   "title": "Medikamente",
+   "instruction": "Gib ein altersgerechtes fiebersenkendes Mittel, wenn es ärztlich empfohlen wurde"
+  },
+  "c187eaa3-b937-4688-a10c-94e9f9d2fe79": {
+   "title": "Zeit stoppen",
+   "instruction": "Uhrzeit und Dauer notieren"
+  },
+  "6abc357a-cde2-4eea-b124-751d0f5b982b": {
+   "title": "Seitenlage",
+   "instruction": "Wenn möglich, in die Seitenlage bringen"
+  },
+  "7fb97313-d1ba-4bc1-99f3-d69a03914d18": {
+   "title": "Nach dem Krampfanfall",
+   "instruction": "Versorgung nach Ende des Krampfanfalls"
+  },
+  "782f208a-97d0-4a89-a1a8-4b98f0320b1c": {
+   "title": "Stachel entfernen",
+   "instruction": "Falls vorhanden, den Stachel entfernen"
+  },
+  "f667a519-3f8b-438e-b567-b4bdea7ea310": {
+   "title": "Reinigen und kühlen",
+   "instruction": "Abwaschen und kühlen"
+  },
+  "d92d25f1-f474-450d-a6b8-2fc1cdf732fa": {
+   "title": "Medikamente",
+   "instruction": "Ein Antihistaminikum und ein Schmerzmittel geben"
+  },
+  "c6e9e1ca-fe48-474a-8bc2-6f7a87ab8bb1": {
+   "title": "Aus dem Wasser holen",
+   "instruction": "Hol das Kind sofort aus dem Wasser"
+  },
+  "44d2df65-ea71-42cd-bc75-c7d1dca8c151": {
+   "title": "Notruf wählen",
+   "instruction": "Ruf sofort die 112 an"
+  },
+  "a1f7c3ec-bd90-47ad-9151-c695a0a064f5": {
+   "title": "Falls nötig wiederbeleben",
+   "instruction": "Beginne mit der Wiederbelebung, wenn das Kind nicht atmet"
+  },
+  "2a9105e6-557c-48c8-81ca-efca7319c5d4": {
+   "title": "Stabile Seitenlage",
+   "instruction": "Bring das Kind in die stabile Seitenlage, wenn es atmet"
+  },
+  "add506db-eeca-4d44-ac6f-7f4fa88598f0": {
+   "title": "Krankenhausbesuch erforderlich",
+   "instruction": "Fahr in jedem Fall ins Krankenhaus"
+  },
+  "c45d4a4c-6532-4340-91f5-eb71f3e7849d": {
+   "title": "Kind schützen",
+   "instruction": "Schütze das Kind während des Krampfanfalls vor Verletzungen"
+  },
+  "5858f90e-bc12-47ea-a2dd-9ecaa5d11561": {
+   "title": "Auf Allergien achten",
+   "instruction": "Achte auf allergische Reaktionen"
+  },
+  "a905fbaa-2e2c-4567-b1e1-a368cd5c4025": {
+   "title": "Blutung stillen",
+   "instruction": "Übe Druck auf die Wunde aus, um die Blutung zu stillen"
+  },
+  "8bac2809-ffa5-4183-87fa-679393ffe076": {
+   "title": "Antiseptikum auftragen",
+   "instruction": "Trage ein Antiseptikum auf und verbinde die Wunde"
+  },
+  "dffe05b8-fc2b-45a7-b16b-2e5fd5b8dcf5": {
+   "title": "Auf Infektionen achten",
+   "instruction": "Achte auf Anzeichen einer Infektion"
+  },
+  "3bac7512-6058-4d20-b6e6-8ad0da515715": {
+   "title": "Wann eine Wunde genäht werden muss",
+   "instruction": "Erkenne, wann eine Wunde genäht werden muss"
+  },
+  "fba0fe96-09fe-493e-87fb-d2ec8c25353b": {
+   "title": "In den Schatten gehen",
+   "instruction": "Bringe das Kind an einen kühlen Ort"
+  },
+  "d2066b11-8ab9-4d8b-842c-a3bd2e5f425b": {
+   "title": "Abkühlen",
+   "instruction": "Kühle den Körper allmählich ab"
+  },
+  "ad5a9a9c-4b09-4925-a24c-cc3f556f91da": {
+   "title": "Flüssigkeit zuführen",
+   "instruction": "Gib kühles Wasser zu trinken"
+  },
+  "5f02abca-87d3-464a-8802-5cc0da3f9d6c": {
+   "title": "Temperatur prüfen",
+   "instruction": "Überwache die Körpertemperatur"
+  },
+  "96d98b2f-9720-4e00-a491-42587662acc6": {
+   "title": "Vorbeugung",
+   "instruction": "Beuge hitzebedingten Erkrankungen vor"
+  },
+  "866a4859-7218-41e1-a870-02ac453e0cee": {
+   "title": "Strom abschalten",
+   "instruction": "Trenne die Stromquelle sicher vom Netz"
+  },
+  "bc99fba9-1c6d-49b3-9c0a-ee3a3314194e": {
+   "title": "112 anrufen",
+   "instruction": "Ruf sofort den Notruf an"
+  },
+  "a0bc2a2f-ed1e-4120-944a-289ffb490a1b": {
+   "title": "Nachsorge",
+   "instruction": "Versorgung, nachdem die Blutung aufgehört hat"
+  },
+  "768dbde5-35a3-4a89-8efe-dbbc86d1bf17": {
+   "title": "Kein Erbrechen auslösen",
+   "instruction": "Bringe das Kind nicht zum Erbrechen"
+  },
+  "002c32a2-540f-4fbc-945e-5893364e7416": {
+   "title": "Anzeichen beobachten",
+   "instruction": "Achte auf Warnzeichen"
+  },
+  "0fbf556c-906d-4a00-8caf-839936ad0dcd": {
+   "title": "Wann du 112 anrufen solltest",
+   "instruction": "Anzeichen für einen Notfall"
+  },
+  "88e2abb6-a343-49ac-9b1d-daf5cfee9794": {
+   "title": "Vorbeugung",
+   "instruction": "Künftige Stiche verhindern"
+  },
+  "247479ab-451a-4ad9-bbc3-85efd3be4c48": {
+   "title": "Wunde reinigen",
+   "instruction": "Reinige die Wunde gründlich"
+  },
+  "88a9ac7a-97ba-4af6-a453-39018b6ed3ae": {
+   "title": "Wiederbelebung bei Bedarf",
+   "instruction": "Bei fehlender Atmung mit der Wiederbelebung beginnen"
+  },
+  "1e620506-a7ce-4982-9fc0-36b0449300dd": {
+   "title": "Vorbeugung",
+   "instruction": "Stromunfälle verhindern"
+  },
+  "936aadf9-f8ef-41c4-af4b-b3bf62fc0ac2": {
+   "title": "Zahn finden",
+   "instruction": "Den Zahn finden und richtig anfassen"
+  },
+  "89979925-6172-4375-af50-8ae2dc4f2e41": {
+   "title": "Zahn reinigen",
+   "instruction": "Den Zahn vorsichtig abspülen"
+  },
+  "4cb9abc6-62eb-47b3-8c86-4a0e64f0f36a": {
+   "title": "Schmerzlinderung",
+   "instruction": "Ein altersgerechtes Schmerzmittel geben"
+  },
+  "72ba3ef9-68af-48d2-be70-5c8d756e45b3": {
+   "title": "Beobachten",
+   "instruction": "24-48 Stunden lang beobachten"
+  },
+  "f85ac6a7-ac79-45a2-b126-8a5167110f3d": {
+   "title": "Verbrennungen versorgen",
+   "instruction": "Stromverbrennungen versorgen"
+  },
+  "1033885b-1429-4f83-abf8-ddcda4f257c0": {
+   "title": "Zahn aufbewahren",
+   "instruction": "Zahn richtig aufbewahren"
+  },
+  "c4128eb2-fc42-4522-a4f8-c8c94e32f773": {
+   "title": "Blutung stoppen",
+   "instruction": "Blutung im Mund stillen"
+  },
+  "5c8c1c01-3b37-497d-b01a-e63f030d5452": {
+   "title": "Sofort zum Zahnarzt",
+   "instruction": "Innerhalb von 30 Minuten zum Zahnarzt gehen"
+  }
+ }
+}

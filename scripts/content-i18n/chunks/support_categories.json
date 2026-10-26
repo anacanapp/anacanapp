@@ -1,0 +1,67 @@
+[
+ {
+  "id": "57cac88b-bbdb-4cc7-87fa-4a513e859ba3",
+  "category_key": "feature",
+  "name": "Feature Request",
+  "name_az": "Funksiya tələbi",
+  "emoji": "💡",
+  "sort_order": 4,
+  "is_active": true,
+  "created_at": "2026-01-25T10:00:20.525743+00:00",
+  "name_en": "Feature Request",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "87c1c215-ad04-4714-ae2b-7991eac560bc",
+  "category_key": "technical",
+  "name": "Technical Issue",
+  "name_az": "Texniki problem",
+  "emoji": "🔧",
+  "sort_order": 2,
+  "is_active": true,
+  "created_at": "2026-01-25T10:00:20.525743+00:00",
+  "name_en": "Technical Issue",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "af4e55e2-6dfa-4ba2-a395-029af6230cb2",
+  "category_key": "other",
+  "name": "Other",
+  "name_az": "Digər",
+  "emoji": "📋",
+  "sort_order": 5,
+  "is_active": true,
+  "created_at": "2026-01-25T10:00:20.525743+00:00",
+  "name_en": "Other",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "e528b270-052d-47b5-a7ca-1556267c9cf3",
+  "category_key": "general",
+  "name": "General Question",
+  "name_az": "Ümumi sual",
+  "emoji": "❓",
+  "sort_order": 1,
+  "is_active": true,
+  "created_at": "2026-01-25T10:00:20.525743+00:00",
+  "name_en": "General Question",
+  "name_ru": null,
+  "name_tr": null
+ },
+ {
+  "id": "e6afa7d9-ba31-479c-b9df-2ff78d895bff",
+  "category_key": "billing",
+  "name": "Billing",
+  "name_az": "Ödəniş",
+  "emoji": "💳",
+  "sort_order": 3,
+  "is_active": true,
+  "created_at": "2026-01-25T10:00:20.525743+00:00",
+  "name_en": "Billing",
+  "name_ru": null,
+  "name_tr": null
+ }
+]

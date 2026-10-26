@@ -1,0 +1,22 @@
+{
+  "schema": "anacan-word-garden-library-build-v1",
+  "language": "az",
+  "revision": "az-202610-v1",
+  "words": 6857,
+  "targetWords": 2010,
+  "commonWords": 412,
+  "dictionaryRowsRead": 16493,
+  "sourceBytes": 191410852,
+  "librarySha256": "acdab0987fb4dde5bf009746a69ba55fd465cc5f560cb0fdfb871508bf57d4ac",
+  "sources": {
+    "name": "Wiktionary / Kaikki.org",
+    "url": "https://kaikki.org/dictionary/Azerbaijani/kaikki.org-dictionary-Azerbaijani.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sha256": "007d6676f866dc1ae47d206db0126d549fbb6858d8cccf74b7290d452fd452c8",
+    "frequencyUrl": "https://raw.githubusercontent.com/subhangadirli/aosp-dict-az/c68c85cb297510d19cee04787e445e2a558b1f70/az_wordlist.combined",
+    "frequencySha256": "38ce388162db65d7f7ff751f9deda98377cc768319ea5e9a34f9f620645d91a3",
+    "editorialSha256": "a8101cbea4d0b9c41e87182c1307287849a8f7ec48fdaf79548fe199477ab55a",
+    "note": "NFC/az case-normalized Latin-script lemmas, filtered senses, corpus-ranked targets, Anacan editorial difficulty selection."
+  }
+}

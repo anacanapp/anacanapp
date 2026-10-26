@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "fairytalegenerator_bala_it_3c7a2d",
+  "az": "Bala it",
+  "en": "Puppy"
+ },
+ {
+  "key": "fairytalegenerator_basqalarina_komek_d0e8f6",
+  "az": "Başqalarına kömək",
+  "en": "Helping others"
+ },
+ {
+  "key": "fairytalegenerator_bayqus_d690dd",
+  "az": "Bayquş",
+  "en": "Owl"
+ },
+ {
+  "key": "fairytalegenerator_birlikde_is_01f136",
+  "az": "Birlikdə iş",
+  "en": "Working together"
+ },
+ {
+  "key": "fairytalegenerator_bolusmek_df3fa9",
+  "az": "Bölüşmək",
+  "en": "Sharing"
+ },
+ {
+  "key": "fairytalegenerator_cesaret_326b71",
+  "az": "Cəsarət",
+  "en": "Courage"
+ },
+ {
+  "key": "fairytalegenerator_cox_sade_fbc365",
+  "az": "Çox sadə",
+  "en": "Very simple"
+ },
+ {
+  "key": "fairytalegenerator_delfin_3c7a2d",
+  "az": "Delfin",
+  "en": "Dolphin"
+ },
+ {
+  "key": "fairytalegenerator_deq_780a5c",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "fairytalegenerator_deqiqelik_oxu_1896a5",
+  "az": "dəqiqəlik oxu",
+  "en": "minute read"
+ },
+ {
+  "key": "fairytalegenerator_dis_fircalamaq_da9acc",
+  "az": "Diş fırçalamaq",
+  "en": "Brushing teeth"
+ },
+ {
+  "key": "fairytalegenerator_dostluq_3c7a2d",
+  "az": "Dostluq",
+  "en": "Friendship"
+ },
+ {
+  "key": "fairytalegenerator_dovsan_a53a5c",
+  "az": "Dovşan",
+  "en": "Rabbit"
+ },
+ {
+  "key": "fairytalegenerator_durustluk_3d6ddb",
+  "az": "Dürüstlük",
+  "en": "Honesty"
+ },
+ {
+  "key": "fairytalegenerator_ejdaha_b4feca",
+  "az": "Əjdaha",
+  "en": "Dragon"
+ },
+ {
+  "key": "fairytalegenerator_gulmeli_8f7f56",
+  "az": "Gülməli",
+  "en": "Funny"
+ },
+ {
+  "key": "fairytalegenerator_hamisi_3ff72c",
+  "az": "Hamısı (",
+  "en": "All ("
+ },
+ {
+  "key": "fairytalegenerator_hansi_dunyada_macera_olsun_e7e752",
+  "az": "Hansı dünyada macəra olsun?",
+  "en": "In which world should the adventure take place?"
+ },
+ {
+  "key": "fairytalegenerator_hansi_terzde_yazilsin_43fa45",
+  "az": "Hansı tərzdə yazılsın?",
+  "en": "In what style should it be written?"
+ },
+ {
+  "key": "fairytalegenerator_hele_nagil_yoxdur_f0166c",
+  "az": "Hələ nağıl yoxdur",
+  "en": "No fairy tale yet"
+ },
+ {
+  "key": "fairytalegenerator_hormet_45e147",
+  "az": "Hörmət",
+  "en": "Respect"
+ },
+ {
+  "key": "fairytalegenerator_ilk_sehrli_nagilinizi_yaradin_efa8d2",
+  "az": "İlk sehrli nağılınızı yaradın!",
+  "en": "Create your first magical fairy tale!"
+ },
+ {
+  "key": "fairytalegenerator_isteye_bagli_nagilda_istifade_olunacaq_2d77bd",
+  "az": "İstəyə bağlı - nağılda istifadə olunacaq",
+  "en": "Optional - will be used in the fairy tale"
+ },
+ {
+  "key": "fairytalegenerator_isteye_bagli_usagin_dostu_f51381",
+  "az": "İstəyə bağlı - uşağın dostu",
+  "en": "Optional - child's friend"
+ },
+ {
+  "key": "fairytalegenerator_kepenek_d4da32",
+  "az": "Kəpənək",
+  "en": "Butterfly"
+ },
+ {
+  "key": "fairytalegenerator_klassik_3c7a2d",
+  "az": "Klassik",
+  "en": "Classic"
+ },
+ {
+  "key": "fairytalegenerator_komekci_qehreman_077b6f",
+  "az": "Köməkçi qəhrəman",
+  "en": "Supporting character"
+ },
+ {
+  "key": "fairytalegenerator_laylay_3c7a2d",
+  "az": "Laylay",
+  "en": "Lullaby"
+ },
+ {
+  "key": "fairytalegenerator_macera_bc3bdc",
+  "az": "Macəra",
+  "en": "Adventure"
+ },
+ {
+  "key": "fairytalegenerator_mehribanliq_7e25e6",
+  "az": "Mehribanlıq",
+  "en": "Kindness"
+ },
+ {
+  "key": "fairytalegenerator_meselen_1_yasina_hazirlasan_balaca_aslan_e692b9",
+  "az": "Məsələn: 1 yaşına hazırlaşan balaca aslan haqqında nağıl yaz, meşədə dostları ilə ad günü keçirsin...",
+  "en": "For example: Write a story about a little lion turning 1, celebrating with friends in the forest..."
+ },
+ {
+  "key": "fairytalegenerator_mesuliyyet_6e6cbe",
+  "az": "Məsuliyyət",
+  "en": "Responsibility"
+ },
+ {
+  "key": "fairytalegenerator_minnetdarliq_31b225",
+  "az": "Minnətdarlıq",
+  "en": "Gratitude"
+ },
+ {
+  "key": "fairytalegenerator_movzu_5a3526",
+  "az": "Mövzu:",
+  "en": "Theme:"
+ },
+ {
+  "key": "fairytalegenerator_murekkeb_43a904",
+  "az": "Mürəkkəb",
+  "en": "Complex"
+ },
+ {
+  "key": "fairytalegenerator_nagil_1f5665",
+  "az": "Nağıl",
+  "en": "Fairy Tale"
+ },
+ {
+  "key": "fairytalegenerator_nagil_tesviri_4aad0a",
+  "az": "Nağıl təsviri *",
+  "en": "Fairy tale description *"
+ },
+ {
+  "key": "fairytalegenerator_nagil_tesviri_yazilmalidir_24773e",
+  "az": "Nağıl təsviri yazılmalıdır",
+  "en": "A description of the story should be written"
+ },
+ {
+  "key": "fairytalegenerator_nagil_xulasesi_07d402",
+  "az": "📋 Nağıl xülasəsi",
+  "en": "📋 Fairy tale summary"
+ },
+ {
+  "key": "fairytalegenerator_nagil_yarat_11707d",
+  "az": "Nağıl Yarat",
+  "en": "Create a Story"
+ },
+ {
+  "key": "fairytalegenerator_nagilda_esas_qehreman_kimi_olacaq_25a4c8",
+  "az": "Nağılda əsas qəhrəman kimi olacaq",
+  "en": "Will be the main character in the fairy tale"
+ },
+ {
+  "key": "fairytalegenerator_nagilin_cetinlik_seviyyesi_49f08d",
+  "az": "Nağılın çətinlik səviyyəsi",
+  "en": "Fairy tale difficulty level"
+ },
+ {
+  "key": "fairytalegenerator_nagilin_dili_04ad3e",
+  "az": "Nağılın dili",
+  "en": "The language of the tale"
+ },
+ {
+  "key": "fairytalegenerator_nagilin_movzusu_f10323",
+  "az": "Nağılın mövzusu *",
+  "en": "Fairy tale theme *"
+ },
+ {
+  "key": "fairytalegenerator_nagilin_nece_olmasini_istediyinizi_yazin_1a89d4",
+  "az": "Nağılın necə olmasını istədiyinizi yazın",
+  "en": "Write how you want the fairy tale to be"
+ },
+ {
+  "key": "fairytalegenerator_nagilin_sonunda_hansi_ders_olsun_4d833e",
+  "az": "Nağılın sonunda hansı dərs olsun?",
+  "en": "What lesson should be at the end of the fairy tale?"
+ },
+ {
+  "key": "fairytalegenerator_nagilin_uslubu_9f0076",
+  "az": "Nağılın üslubu",
+  "en": "Fairy tale style"
+ },
+ {
+  "key": "fairytalegenerator_nagillar_yuklenir_44f0f1",
+  "az": "Nağıllar yüklənir...",
+  "en": "Fairy tales are loading..."
+ },
+ {
+  "key": "fairytalegenerator_nagillari_oxuyarken_vurun_2acb44",
+  "az": "Nağılları oxuyarkən ❤️ vurun",
+  "en": "Tap ❤️ while reading fairy tales"
+ },
+ {
+  "key": "fairytalegenerator_orta_3c7a2d",
+  "az": "Orta",
+  "en": "Medium"
+ },
+ {
+  "key": "fairytalegenerator_oyredici_b51c23",
+  "az": "Öyrədici",
+  "en": "Educational"
+ },
+ {
+  "key": "fairytalegenerator_ozune_inam_9828d6",
+  "az": "Özünə inam",
+  "en": "Self-confidence"
+ },
+ {
+  "key": "fairytalegenerator_pisik_be8848",
+  "az": "Pişik",
+  "en": "Cat"
+ },
+ {
+  "key": "fairytalegenerator_qartal_3c7a2d",
+  "az": "Qartal",
+  "en": "Eagle"
+ },
+ {
+  "key": "fairytalegenerator_qehreman_aea468",
+  "az": "Qəhrəman:",
+  "en": "Characters:"
+ },
+ {
+  "key": "fairytalegenerator_sade_620f92",
+  "az": "Sadə",
+  "en": "Simple"
+ },
+ {
+  "key": "fairytalegenerator_sebir_831276",
+  "az": "Səbir",
+  "en": "Patience"
+ },
+ {
+  "key": "fairytalegenerator_secimle_9ee0cf",
+  "az": "Seçimlə",
+  "en": "By choice"
+ },
+ {
+  "key": "fairytalegenerator_sehr_hazirlanir_04519a",
+  "az": "Sehr hazırlanır...",
+  "en": "Magic is in the making..."
+ },
+ {
+  "key": "fairytalegenerator_serbest_yaz_4498e0",
+  "az": "Sərbəst yaz",
+  "en": "Write freely"
+ },
+ {
+  "key": "fairytalegenerator_sevimli_3c7a2d",
+  "az": "Sevimli",
+  "en": "Favorite"
+ },
+ {
+  "key": "fairytalegenerator_sevimli_nagil_yoxdur_756411",
+  "az": "Sevimli nağıl yoxdur",
+  "en": "No favorite fairy tale"
+ },
+ {
+  "key": "fairytalegenerator_sincab_3c7a2d",
+  "az": "Sincab",
+  "en": "Squirrel"
+ },
+ {
+  "key": "fairytalegenerator_tebiet_sevgisi_801736",
+  "az": "Təbiət sevgisi",
+  "en": "Love for nature"
+ },
+ {
+  "key": "fairytalegenerator_terbiyevi_mesaj_6bdeb6",
+  "az": "Tərbiyəvi mesaj",
+  "en": "Moral message"
+ },
+ {
+  "key": "fairytalegenerator_terevez_yemek_888a56",
+  "az": "Tərəvəz yemək",
+  "en": "Eating vegetables"
+ },
+ {
+  "key": "fairytalegenerator_tisbaga_c66f32",
+  "az": "Tısbağa",
+  "en": "Turtle"
+ },
+ {
+  "key": "fairytalegenerator_tulku_c6f151",
+  "az": "Tülkü",
+  "en": "Fox"
+ },
+ {
+  "key": "fairytalegenerator_turkce_299adc",
+  "az": "Türkçe",
+  "en": "Turkish"
+ },
+ {
+  "key": "fairytalegenerator_tutuqusu_d3f34f",
+  "az": "Tutuquşu",
+  "en": "Parrot"
+ },
+ {
+  "key": "fairytalegenerator_ucun_0b2db5",
+  "az": "üçün",
+  "en": "for"
+ },
+ {
+  "key": "fairytalegenerator_ucun_yazildi_a6b83f",
+  "az": "üçün yazıldı",
+  "en": "written for"
+ },
+ {
+  "key": "fairytalegenerator_ulduz_3c7a2d",
+  "az": "Ulduz",
+  "en": "Star"
+ },
+ {
+  "key": "fairytalegenerator_usagin_adi_163b8d",
+  "az": "Uşağın adı *",
+  "en": "Child's name *"
+ },
+ {
+  "key": "fairytalegenerator_usagin_adi_80632b",
+  "az": "Uşağın adı",
+  "en": "Child's name"
+ },
+ {
+  "key": "fairytalegenerator_usagin_adi_ve_movzu_secilmelid_50f47b",
+  "az": "Uşağın adı və mövzu seçilməlidir",
+  "en": "A child's name and subject must be selected"
+ },
+ {
+  "key": "fairytalegenerator_usaginizin_adi_ile_sehrli_bir_hekaye_7896ac",
+  "az": "Uşağınızın adı ilə sehrli bir hekayə",
+  "en": "A magical story with your child's name"
+ },
+ {
+  "key": "fairytalegenerator_usaq_3e06e3",
+  "az": "Uşaq",
+  "en": "Child"
+ },
+ {
+  "key": "fairytalegenerator_usaq_b70dbc",
+  "az": "Uşaq:",
+  "en": "Child:"
+ },
+ {
+  "key": "fairytalegenerator_uslub_b96040",
+  "az": "Üslub:",
+  "en": "Style:"
+ },
+ {
+  "key": "fairytalegenerator_ve_ya_ozunuz_yazin_cb37bc",
+  "az": "Və ya özünüz yazın...",
+  "en": "Or write it yourself..."
+ },
+ {
+  "key": "fairytalegenerator_yas_8ef26c",
+  "az": "Yaş:",
+  "en": "Also:"
+ },
+ {
+  "key": "fairytalegenerator_yas_95595b",
+  "az": "Yaş",
+  "en": "Aye"
+ },
+ {
+  "key": "fairytalegenerator_yas_qrupu_54b8f9",
+  "az": "Yaş qrupu",
+  "en": "Age group"
+ },
+ {
+  "key": "fairytalegenerator_yatmaq_3c7a2d",
+  "az": "Yatmaq",
+  "en": "Sleeping"
+ },
+ {
+  "key": "fairytalegenerator_yeni_nagil_yarat_081219",
+  "az": "Yeni Nağıl Yarat",
+  "en": "Create a New Tale"
+ },
+ {
+  "key": "feedinghistorypanel_bu_gun_7d7f30",
+  "az": "bu gün",
+  "en": "today"
+ },
+ {
+  "key": "feedinghistorypanel_elave_qida_ac1beb",
+  "az": "Əlavə qida",
+  "en": "Solid food"
+ },
+ {
+  "key": "feedinghistorypanel_feedings_count",
+  "az": "qidalanma",
+  "en": "feedings"
+ },
+ {
+  "key": "feedinghistorypanel_no_records",
+  "az": "Qeyd yoxdur",
+  "en": "No records"
+ },
+ {
+  "key": "feedinghistorypanel_qeyd_yenilendi_816afb",
+  "az": "Qeyd yeniləndi",
+  "en": "Note updated"
+ },
+ {
+  "key": "feedinghistorypanel_qidalanma_xulasesi_836869",
+  "az": "Qidalanma xülasəsi",
+  "en": "Feeding summary"
+ },
+ {
+  "key": "feedinghistorypanel_record_deleted",
+  "az": "Qeyd silindi",
+  "en": "Record deleted"
+ },
+ {
+  "key": "feedinghistorypanel_sag_sine_074475",
+  "az": "Sağ sinə",
+  "en": "Right breast"
+ },
+ {
+  "key": "feedinghistorypanel_silmek_isteyirsiniz_77af6b",
+  "az": "Silmək istəyirsiniz?",
+  "en": "Do you want to delete?"
+ },
+ {
+  "key": "feedinghistorypanel_sol_sine_64d1ac",
+  "az": "Sol sinə",
+  "en": "Left breast"
+ },
+ {
+  "key": "feedinghistorypanel_suni_qida_fdf267",
+  "az": "Süni qida",
+  "en": "Formula food"
+ },
+ {
+  "key": "feedinghistorypanel_times",
+  "az": "dəfə",
+  "en": "times"
+ },
+ {
+  "key": "feedinghistorypanel_today",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "feedinghistorypanel_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "feedinghistorypanel_yesterday",
+  "az": "Dünən",
+  "en": "Yesterday"
+ },
+ {
+  "key": "financial_details",
+  "az": "Maliyyə Hesablaması",
+  "en": "Financial Calculation"
+ },
+ {
+  "key": "firstaid_complete",
+  "az": "Tamamla",
+  "en": "Complete"
+ },
+ {
+  "key": "firstaid_critical",
+  "az": "KRİTİK",
+  "en": "CRITICAL"
+ },
+ {
+  "key": "firstaid_critical_badge",
+  "az": "Kritik",
+  "en": "Critical"
+ },
+ {
+  "key": "firstaid_medium",
+  "az": "ORTA",
+  "en": "MEDIUM"
+ },
+ {
+  "key": "firstaidguide_103_zeng_et_52da85",
+  "az": "103 Zəng Et",
+  "en": "103 Call"
+ },
+ {
+  "key": "firstaidguide_addim_9346cd",
+  "az": "Addım",
+  "en": "Step"
+ },
+ {
+  "key": "firstaidguide_evvelki_936896",
+  "az": "Əvvəlki",
+  "en": "Previous"
+ },
+ {
+  "key": "firstaidguide_heyat_qurtaran_sos_2f76df",
+  "az": "Həyat Qurtaran SOS",
+  "en": "Life Saving SOS"
+ },
+ {
+  "key": "firstaidguide_novbeti_6e8661",
+  "az": "Növbəti",
+  "en": "The next one"
+ },
+ {
+  "key": "firstaidguide_tecili_tibbi_yardim_b28b39",
+  "az": "Təcili Tibbi Yardım",
+  "en": "Emergency Medical Aid"
+ },
+ {
+  "key": "firstaidguide_tecili_veziyyet_secin_51d6bd",
+  "az": "Təcili Vəziyyət Seçin",
+  "en": "Select Emergency"
+ },
+ {
+  "key": "firstaidguide_yuksek_22d925",
+  "az": "YÜKSƏK",
+  "en": "HIGH"
+ },
+ {
+  "key": "floatingtimerwidget_emizdirme_20d46a",
+  "az": "Əmizdirmə",
+  "en": "Breastfeeding"
+ },
+ {
+  "key": "floatingtimerwidget_kuy_a91589",
+  "az": "Küy",
+  "en": "Noise"
+ },
+ {
+  "key": "floatingtimerwidget_kuy_sesi_7b0cd5",
+  "az": "Küy Səsi",
+  "en": "Noise"
+ },
+ {
+  "key": "floatingtimerwidget_oynayir_2c8aa6",
+  "az": "Oynayır",
+  "en": "Playing"
+ },
+ {
+  "key": "floatingtimerwidget_sag_edbe12",
+  "az": "Sağ",
+  "en": "Right"
+ },
+ {
+  "key": "growthtrackerwidget_bas_3cb8b6",
+  "az": "Baş",
+  "en": "Head size"
+ },
+ {
+  "key": "growthtrackerwidget_bas_sm_927b99",
+  "az": "Baş (sm)",
+  "en": "Head size (cm)"
+ },
+ {
+  "key": "growthtrackerwidget_ceki_b10cc4",
+  "az": "Çəki",
+  "en": "Weight"
+ },
+ {
+  "key": "growthtrackerwidget_ceki_kq_2f7555",
+  "az": "Çəki (kq)",
+  "en": "Weight (kg)"
+ },
+ {
+  "key": "growthtrackerwidget_ceki_ve_ya_boy_daxil_edin_10a689",
+  "az": "Çəki və ya boy daxil edin",
+  "en": "Enter weight or height"
+ },
+ {
+  "key": "growthtrackerwidget_height",
+  "az": "Boy",
+  "en": "Height"
+ },
+ {
+  "key": "growthtrackerwidget_height_cm",
+  "az": "Boy (sm)",
+  "en": "Height (cm)"
+ },
+ {
+  "key": "growthtrackerwidget_inkisaf_izleyicisi_71039e",
+  "az": "İnkişaf izləyicisi",
+  "en": "Growth Tracker"
+ },
+ {
+  "key": "growthtrackerwidget_last_meas_label",
+  "az": "Son ölçü:",
+  "en": "Last measurement:"
+ },
+ {
+  "key": "growthtrackerwidget_melumat_daxil_edin_2ab80a",
+  "az": "Məlumat daxil edin",
+  "en": "Enter information"
+ },
+ {
+  "key": "growthtrackerwidget_olcu_yadda_saxlandi_3c8d60",
+  "az": "Ölçü yadda saxlandı! 📏",
+  "en": "Measurement saved! 📏"
+ },
+ {
+  "key": "growthtrackerwidget_save",
+  "az": "Yadda saxla",
+  "en": "Save"
+ },
+ {
+  "key": "growthtrackerwidget_unit_cm",
+  "az": "sm",
+  "en": "cm"
+ },
+ {
+  "key": "growthtrackerwidget_unit_kg",
+  "az": "kq",
+  "en": "kg"
+ },
+ {
+  "key": "growthtrackerwidget_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "hooks_adminfaq_sual_silindi",
+  "az": "Sual silindi",
+  "en": "Question deleted"
+ },
+ {
+  "key": "hooks_adminmh_resurs_silindi",
+  "az": "Resurs silindi",
+  "en": "Resource deleted"
+ },
+ {
+  "key": "hooks_adminrecipes_resept_silindi",
+  "az": "Resept silindi",
+  "en": "Recipe deleted"
+ },
+ {
+  "key": "hooks_pregnancycontent_day_error",
+  "az": "Gün {day}: {error}",
+  "en": "Day {day}: {error}"
+ },
+ {
+  "key": "horoscope_ana_analizi",
+  "az": "Ana Analizi",
+  "en": "Mother Analysis"
+ },
+ {
+  "key": "horoscope_analyze_now",
+  "az": "Analiz Et",
+  "en": "Analyze"
+ },
+ {
+  "key": "horoscope_ata_analizi",
+  "az": "Ata Analizi",
+  "en": "Father Analysis"
+ },
+ {
+  "key": "horoscope_back",
+  "az": "Geri",
+  "en": "Back"
+ },
+ {
+  "key": "horoscope_element_air",
+  "az": "Hava",
+  "en": "Air"
+ },
+ {
+  "key": "horoscope_element_earth",
+  "az": "Torpaq",
+  "en": "Earth"
+ },
+ {
+  "key": "horoscope_element_fire",
+  "az": "Od",
+  "en": "Fire"
+ },
+ {
+  "key": "horoscope_element_water",
+  "az": "Su",
+  "en": "Water"
+ },
+ {
+  "key": "horoscope_entertainment_disclaimer",
+  "az": "Ulduz falı yalnız əyləncə məqsədi daşıyır. Tibbi, psixoloji və ya valideynlik qərarları üçün ixtisaslı mütəxəssisə (həkim/psixoloq) müraciət edin.",
+  "en": "Horoscope readings are for entertainment purposes only. For medical, psychological, or parenting decisions, please consult a qualified professional (doctor/psychologist)."
+ },
+ {
+  "key": "horoscope_reading_stars",
+  "az": "Ulduzlar oxunur...",
+  "en": "Reading stars..."
+ },
+ {
+  "key": "horoscope_share_baby",
+  "az": "Körpə",
+  "en": "Baby"
+ },
+ {
+  "key": "horoscope_share_compatibility",
+  "az": "Ümumi Uyğunluq",
+  "en": "General Compatibility"
+ },
+ {
+  "key": "horoscope_share_dad",
+  "az": "Ata",
+  "en": "Dad"
+ },
+ {
+  "key": "horoscope_share_footer",
+  "az": "Anacan tətbiqi ilə yaradılıb 💜",
+  "en": "Created with Anacan app 💜"
+ },
+ {
+  "key": "horoscope_share_mom",
+  "az": "Ana",
+  "en": "Mom"
+ },
+ {
+  "key": "horoscope_share_title",
+  "az": "✨ Ailə Doğum Xəritəsi Analizi ✨",
+  "en": "✨ Family Birth Chart Analysis ✨"
+ },
+ {
+  "key": "horoscopecompatibility_addim_9346cd",
+  "az": "Addım",
+  "en": "Step"
+ },
+ {
+  "key": "horoscopecompatibility_aile_dinamikasi_ee22f4",
+  "az": "Ailə Dinamikası",
+  "en": "Family Dynamics"
+ },
+ {
+  "key": "horoscopecompatibility_ana_korpe_kosmik_bagi_deb848",
+  "az": "Ana-Körpə Kosmik Bağı",
+  "en": "Mother-Baby Cosmic Bond"
+ },
+ {
+  "key": "horoscopecompatibility_analiz_tamamlandi_cd8c9d",
+  "az": "Analiz tamamlandı!",
+  "en": "Analysis complete!"
+ },
+ {
+  "key": "horoscopecompatibility_analiz_zamani_xeta_bas_verdi_66508c",
+  "az": "Analiz zamanı xəta baş verdi",
+  "en": "An error occurred during parsing"
+ },
+ {
+  "key": "horoscopecompatibility_ananin_dogum_melumatlari_61548b",
+  "az": "Ananın Doğum Məlumatları",
+  "en": "Mother's Birth Information"
+ },
+ {
+  "key": "horoscopecompatibility_ananin_dogum_tarixini_daxil_ed_d186ab",
+  "az": "Ananın doğum tarixini daxil edin",
+  "en": "Enter the mother's date of birth"
+ },
+ {
+  "key": "horoscopecompatibility_atanin_dogum_melumatlari_fef9a1",
+  "az": "Atanın Doğum Məlumatları",
+  "en": "Father's Birth Information"
+ },
+ {
+  "key": "horoscopecompatibility_ay_fazasi_hesablanir_63cb3c",
+  "az": "Ay fazası hesablanır...",
+  "en": "Moon phase is being calculated..."
+ },
+ {
+  "key": "horoscopecompatibility_bilirem_fa9716",
+  "az": "Bilirəm",
+  "en": "Got it"
+ },
+ {
+  "key": "horoscopecompatibility_burcler_bb45a3",
+  "az": "Bürclər",
+  "en": "Horoscopes"
+ },
+ {
+  "key": "horoscopecompatibility_cox_yaxsi_enerji_axini_17ac98",
+  "az": "✨ Çox yaxşı enerji axını",
+  "en": "✨ Very good energy flow"
+ },
+ {
+  "key": "horoscopecompatibility_dogum_saati_6ecf09",
+  "az": "Doğum saatı",
+  "en": "Time of birth"
+ },
+ {
+  "key": "horoscopecompatibility_dogum_tarixi_d96907",
+  "az": "Doğum tarixi",
+  "en": "Date of birth"
+ },
+ {
+  "key": "horoscopecompatibility_dogum_tarixini_secin_825730",
+  "az": "Doğum tarixini seçin",
+  "en": "Select date of birth"
+ },
+ {
+  "key": "horoscopecompatibility_dogum_xeriteleri_c9a3ce",
+  "az": "Doğum Xəritələri",
+  "en": "Birth Charts"
+ },
+ {
+  "key": "horoscopecompatibility_ela_uygunluq_3b4329",
+  "az": "🌟 Əla uyğunluq!",
+  "en": "🌟 Great match!"
+ },
+ {
+  "key": "horoscopecompatibility_ferqlilik_gucunuzdur_67c1a4",
+  "az": "💝 Fərqlilik gücünüzdür!",
+  "en": "💝 Differentiation is your power!"
+ },
+ {
+  "key": "horoscopecompatibility_gozlenilen_4885bf",
+  "az": "Gözlənilən",
+  "en": "Expected"
+ },
+ {
+  "key": "horoscopecompatibility_gozlenilen_dogum_tarixi_a01877",
+  "az": "Gözlənilən Doğum Tarixi",
+  "en": "Expected Date of Birth"
+ },
+ {
+  "key": "horoscopecompatibility_gozlenilen_korpe_62132c",
+  "az": "Gözlənilən Körpə",
+  "en": "Expected Baby"
+ },
+ {
+  "key": "horoscopecompatibility_gozlenilen_tarix_secin_fdf25e",
+  "az": "Gözlənilən tarix seçin",
+  "en": "Select expected date"
+ },
+ {
+  "key": "horoscopecompatibility_guclu_bag_555d3b",
+  "az": "💪 Güclü bağ",
+  "en": "💪 Strong bond"
+ },
+ {
+  "key": "horoscopecompatibility_gunes_b7b2ab",
+  "az": "Günəş",
+  "en": "Sun"
+ },
+ {
+  "key": "horoscopecompatibility_gunes_movqeyi_teyin_edilir_bfba89",
+  "az": "Günəş mövqeyi təyin edilir...",
+  "en": "Sun position is being determined..."
+ },
+ {
+  "key": "horoscopecompatibility_ixtiyari_4d9763",
+  "az": "İxtiyari",
+  "en": "Random"
+ },
+ {
+  "key": "horoscopecompatibility_korpe_analizi_f790ae",
+  "az": "Körpə Analizi",
+  "en": "Infant Analysis"
+ },
+ {
+  "key": "horoscopecompatibility_korpe_fa2b51",
+  "az": "Körpə",
+  "en": "Baby"
+ },
+ {
+  "key": "horoscopecompatibility_korpe_hele_dogulmayib_b729e6",
+  "az": "Körpə hələ doğulmayıb",
+  "en": "Baby is not born yet"
+ },
+ {
+  "key": "horoscopecompatibility_korpe_proqnozu_3079df",
+  "az": "Körpə Proqnozu",
+  "en": "Baby Prognosis"
+ },
+ {
+  "key": "horoscopecompatibility_korpenin_dogum_melumatlari_4ef9a4",
+  "az": "Körpənin Doğum Məlumatları",
+  "en": "Baby's Birth Information"
+ },
+ {
+  "key": "horoscopecompatibility_kosmik_tovsiyeler_d95708",
+  "az": "Kosmik Tövsiyələr",
+  "en": "Space Recommendations"
+ },
+ {
+  "key": "horoscopecompatibility_kosmik_tovsiyeler_hazirlanir_25cfbf",
+  "az": "Kosmik tövsiyələr hazırlanır...",
+  "en": "Cosmic recommendations are being prepared..."
+ },
+ {
+  "key": "horoscopecompatibility_mukemmel_kosmik_harmoniya_d98359",
+  "az": "💫 Mükəmməl kosmik harmoniya!",
+  "en": "💫 Perfect cosmic harmony!"
+ },
+ {
+  "key": "horoscopecompatibility_neticeni_paylas_28650c",
+  "az": "Nəticəni Paylaş",
+  "en": "Share the result"
+ },
+ {
+  "key": "horoscopecompatibility_neticeniz_d14591",
+  "az": "Nəticəniz",
+  "en": null
+ },
+ {
+  "key": "horoscopecompatibility_novbeti_6e8661",
+  "az": "Növbəti",
+  "en": "The next one"
+ },
+ {
+  "key": "horoscopecompatibility_saat_secin_c24ec4",
+  "az": "Saat seçin",
+  "en": "Select time"
+ },
+ {
+  "key": "horoscopecompatibility_tarazli_elaqe_8d9302",
+  "az": "🤝 Tarazlı əlaqə",
+  "en": "🤝 Balanced communication"
+ },
+ {
+  "key": "horoscopecompatibility_ugurlu_gunler_6caab8",
+  "az": "Uğurlu günlər",
+  "en": "Lucky days"
+ },
+ {
+  "key": "horoscopecompatibility_ugurlu_rengler_e52ad0",
+  "az": "Uğurlu rənglər",
+  "en": "Lucky colors"
+ },
+ {
+  "key": "horoscopecompatibility_ulduz_fali_344189",
+  "az": "Ulduz Falı",
+  "en": "Horoscope"
+ },
+ {
+  "key": "horoscopecompatibility_uygunluq_analiz_edilir_bca7bd",
+  "az": "Uyğunluq analiz edilir...",
+  "en": "Compatibility is being analyzed..."
+ },
+ {
+  "key": "horoscopecompatibility_valideynler_uygunlugu_27180e",
+  "az": "Valideynlər Uyğunluğu",
+  "en": "Parent Compatibility"
+ },
+ {
+  "key": "horoscopecompatibility_xosbext_reqemler_4d0da9",
+  "az": "Xoşbəxt rəqəmlər",
+  "en": "Lucky numbers"
+ },
+ {
+  "key": "horoscopecompatibility_yukselen_b35c71",
+  "az": "Yüksələn",
+  "en": "Ascendant"
+ }
+]

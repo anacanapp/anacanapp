@@ -1,0 +1,14 @@
+node_modules
+android
+ios
+dist
+dist-ssr
+.git
+.next
+.cache
+*.log
+.temp
+.lovable
+scripts/content-i18n
+android/app/build
+android/.gradle

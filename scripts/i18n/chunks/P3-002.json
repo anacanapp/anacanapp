@@ -1,0 +1,1002 @@
+[
+ {
+  "key": "babyphotoshoot_hele_foto_yoxdur_3ce618",
+  "az": "Hələ foto yoxdur",
+  "en": "No photos yet"
+ },
+ {
+  "key": "babyphotoshoot_klassik_ve_vintage_994561",
+  "az": "Klassik və Vintage",
+  "en": "Classic and Vintage"
+ },
+ {
+  "key": "babyphotoshoot_korpe_fotosessiyasi_546576",
+  "az": "Körpə Fotosessiyası",
+  "en": "Baby Photoshoot"
+ },
+ {
+  "key": "babyphotoshoot_korpenin_seklini_yukleyin_b1c595",
+  "az": "Körpənin Şəklini Yükləyin",
+  "en": "Upload Baby's Photo"
+ },
+ {
+  "key": "babyphotoshoot_limitsiz_foto_ucun_premium_a_k_965e5c",
+  "az": "Limitsiz foto üçün Premium-a keçin",
+  "en": "Upgrade to Premium for unlimited photos"
+ },
+ {
+  "key": "babyphotoshoot_maksimum_5mb_sekil_yukleye_bilersiniz_6129b3",
+  "az": "Maksimum 5MB şəkil yükləyə bilərsiniz",
+  "en": "You can upload a maximum 5MB image"
+ },
+ {
+  "key": "babyphotoshoot_minimalist_ve_tebii_b2ab8e",
+  "az": "Minimalist və Təbii",
+  "en": "Minimalist and Natural"
+ },
+ {
+  "key": "babyphotoshoot_movsumi_a19c3b",
+  "az": "Mövsümi",
+  "en": "Seasonal"
+ },
+ {
+  "key": "babyphotoshoot_nagilvari_868d22",
+  "az": "Nağılvari",
+  "en": "Fairy tale"
+ },
+ {
+  "key": "babyphotoshoot_oglan_e9715e",
+  "az": "Oğlan",
+  "en": "Height"
+ },
+ {
+  "key": "babyphotoshoot_oldugu_kimi_39efcb",
+  "az": "Olduğu kimi",
+  "en": "As it is"
+ },
+ {
+  "key": "babyphotoshoot_premium_fonlar",
+  "az": "Premium fonlar",
+  "en": "Premium backgrounds"
+ },
+ {
+  "key": "babyphotoshoot_premium_geyimler_3cf1de",
+  "az": "Premium geyimlər",
+  "en": "Premium clothing"
+ },
+ {
+  "key": "babyphotoshoot_pulsuz_ilk_foto_3c7a2d",
+  "az": "Pulsuz: ilk",
+  "en": "Free: first"
+ },
+ {
+  "key": "babyphotoshoot_qehveyi_b14379",
+  "az": "Qəhvəyi",
+  "en": "Brown"
+ },
+ {
+  "key": "babyphotoshoot_qiz_79bf6b",
+  "az": "Qız",
+  "en": "Girl"
+ },
+ {
+  "key": "babyphotoshoot_sabalidi_b768cd",
+  "az": "Şabalıdı",
+  "en": "Chestnut"
+ },
+ {
+  "key": "babyphotoshoot_sac_formasi_5d3388",
+  "az": "Saç Forması",
+  "en": "Hair Style"
+ },
+ {
+  "key": "babyphotoshoot_sac_rengi_68dd12",
+  "az": "Saç Rəngi",
+  "en": "Hair Color"
+ },
+ {
+  "key": "babyphotoshoot_sarisin_4a1ef8",
+  "az": "Sarışın",
+  "en": "Blonde"
+ },
+ {
+  "key": "babyphotoshoot_sekil_43e2e3",
+  "az": "Şəkil",
+  "en": "Image"
+ },
+ {
+  "key": "babyphotoshoot_sekil_novu_c47221",
+  "az": "Şəkil Növü",
+  "en": "Photo Type"
+ },
+ {
+  "key": "babyphotoshoot_sekil_secin_e3e1f3",
+  "az": "Şəkil seçin",
+  "en": "Select photo"
+ },
+ {
+  "key": "babyphotoshoot_sekil_yarat_6d7c0c",
+  "az": "Şəkil Yarat",
+  "en": "Create Photo"
+ },
+ {
+  "key": "babyphotoshoot_sekil_yukleyin_1e520a",
+  "az": "Şəkil yükləyin",
+  "en": "Upload photo"
+ },
+ {
+  "key": "babyphotoshoot_sekil_yukleyin_ve_foto_yaradin_7b1eb6",
+  "az": "Şəkil yükləyin və foto yaradın!",
+  "en": "Upload a photo and create a photo!"
+ },
+ {
+  "key": "babyphotoshoot_uzu_aydin_gorunen_foto_secin_9b42f9",
+  "az": "Üzü aydın görünən foto seçin",
+  "en": "Choose a photo with a clear face"
+ },
+ {
+  "key": "babyphotoshoot_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "babyphotoshoot_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "babyphotoshoot_yalniz_sekil_fayllari_yukleye_bilersiniz_ed2541",
+  "az": "Yalnız şəkil faylları yükləyə bilərsiniz",
+  "en": "You can only upload image files"
+ },
+ {
+  "key": "babyphotoshoot_yanlis_fayl_tipi_96b7fc",
+  "az": "Yanlış fayl tipi",
+  "en": "Incorrect file type"
+ },
+ {
+  "key": "babyphotoshoot_yaradici_28b2b1",
+  "az": "Yaradıcı",
+  "en": "Creative"
+ },
+ {
+  "key": "babyphotoshoot_yaradilir_9bb5ed",
+  "az": "Yaradılır...",
+  "en": "Creating..."
+ },
+ {
+  "key": "babyphotoshoot_yasil_b257f4",
+  "az": "Yaşıl",
+  "en": "Green"
+ },
+ {
+  "key": "babyphotoshoot_yeni_foto_ugurla_yaradildi_849a22",
+  "az": "Yeni foto uğurla yaradıldı",
+  "en": "New photo created successfully"
+ },
+ {
+  "key": "babyphotoshoot_yuklenmis_sekil_641af4",
+  "az": "Yüklənmiş şəkil",
+  "en": "Uploaded photo"
+ },
+ {
+  "key": "babyphotoshoot_zehmet_olmasa_bir_fon_secin_270d75",
+  "az": "Zəhmət olmasa bir fon seçin",
+  "en": "Please select a background"
+ },
+ {
+  "key": "babyphotoshoot_zehmet_olmasa_korpenin_seklini_yukleyin_cfd8d4",
+  "az": "Zəhmət olmasa körpənin şəklini yükləyin",
+  "en": "Please upload a photo of the baby"
+ },
+ {
+  "key": "birlesdir_best_score_label",
+  "az": "Ən yaxşı xalınız",
+  "en": "Best score"
+ },
+ {
+  "key": "birlesdir_choose_level",
+  "az": "Səviyyə seçin",
+  "en": "Choose a level"
+ },
+ {
+  "key": "birlesdir_intro_desc",
+  "az": "3 və ya daha çox eyni əşyanı yan-yana gətir, \"Sakitlik Anı\" və \"Super Ana\" bonuslarını aç!",
+  "en": "Line up 3 or more matching items to unlock the \"Calm Moment\" and \"Super Mom\" bonuses!"
+ },
+ {
+  "key": "birlesdir_level_complete_title",
+  "az": "Səviyyə tamamlandı!",
+  "en": "Level complete!"
+ },
+ {
+  "key": "birlesdir_level_label",
+  "az": "Səviyyə",
+  "en": "Level"
+ },
+ {
+  "key": "birlesdir_levels_unlocked_prefix",
+  "az": "Açılmış səviyyələr",
+  "en": "Levels unlocked"
+ },
+ {
+  "key": "birlesdir_menu_button",
+  "az": "Menyu",
+  "en": "Menu"
+ },
+ {
+  "key": "birlesdir_move_bonus_label",
+  "az": "gediş bonusu",
+  "en": "move bonus"
+ },
+ {
+  "key": "birlesdir_moves_short",
+  "az": "gediş",
+  "en": "moves"
+ },
+ {
+  "key": "birlesdir_next_level_button",
+  "az": "Növbəti səviyyə",
+  "en": "Next level"
+ },
+ {
+  "key": "birlesdir_out_of_moves_title",
+  "az": "Gedişlər bitdi!",
+  "en": "Out of moves!"
+ },
+ {
+  "key": "birlesdir_paused_title",
+  "az": "Fasilə",
+  "en": "Paused"
+ },
+ {
+  "key": "birlesdir_points_short",
+  "az": "xal",
+  "en": "pts"
+ },
+ {
+  "key": "birlesdir_replay_button",
+  "az": "Təkrar oyna",
+  "en": "Play again"
+ },
+ {
+  "key": "birlesdir_restart_button",
+  "az": "Yenidən başla",
+  "en": "Restart"
+ },
+ {
+  "key": "birlesdir_resume_button",
+  "az": "Davam et",
+  "en": "Resume"
+ },
+ {
+  "key": "birlesdir_retry_button",
+  "az": "Yenidən cəhd et",
+  "en": "Try again"
+ },
+ {
+  "key": "birlesdir_shuffle_notice",
+  "az": "Lövhə qarışdırıldı 🔄",
+  "en": "Board reshuffled 🔄"
+ },
+ {
+  "key": "birlesdir_start_button",
+  "az": "Başla",
+  "en": "Start"
+ },
+ {
+  "key": "birlesdir_target_prefix",
+  "az": "Hədəf",
+  "en": "Target"
+ },
+ {
+  "key": "birlesdir_title",
+  "az": "Birləşdir",
+  "en": "Match Up"
+ },
+ {
+  "key": "birlesdir_your_score_prefix",
+  "az": "Xalınız",
+  "en": "Your score"
+ },
+ {
+  "key": "birth_welcome_world",
+  "az": "dünyaya xoş gəldi! Analıq səyahətinizə başlayırıq.",
+  "en": "has arrived in the world! Your motherhood journey begins."
+ },
+ {
+  "key": "birthonboardingmodal_balaca_mocuzenizin_adi_nedir_d5c071",
+  "az": "Balaca möcüzənizin adı nədir?",
+  "en": "What is your little miracle's name?"
+ },
+ {
+  "key": "birthonboardingmodal_boy_sm_3bc841",
+  "az": "Boy (sm)",
+  "en": "Height (cm)"
+ },
+ {
+  "key": "birthonboardingmodal_ceki_kq_2f7555",
+  "az": "Çəki (kq)",
+  "en": "Weight (kg)"
+ },
+ {
+  "key": "birthonboardingmodal_dogum_nece_bas_tutdu_f27265",
+  "az": "Doğum necə baş tutdu?",
+  "en": "How did the birth happen?"
+ },
+ {
+  "key": "birthonboardingmodal_dogum_olculeri_674a98",
+  "az": "Doğum ölçüləri",
+  "en": "Birth measurements"
+ },
+ {
+  "key": "birthonboardingmodal_dogum_tarixi_d96907",
+  "az": "Doğum tarixi",
+  "en": "Date of birth"
+ },
+ {
+  "key": "birthonboardingmodal_dogum_tipi_c2efb4",
+  "az": "Doğum tipi",
+  "en": "Birth type"
+ },
+ {
+  "key": "birthonboardingmodal_isteye_bagli_sonra_da_elave_ede_bilersin_ade2f0",
+  "az": "İstəyə bağlı - sonra da əlavə edə bilərsiniz",
+  "en": "Optional - you can add later"
+ },
+ {
+  "key": "birthonboardingmodal_komekli_dogus_9ccc60",
+  "az": "Köməkli doğuş",
+  "en": "Assisted delivery"
+ },
+ {
+  "key": "birthonboardingmodal_korpenin_adi_8a4e9e",
+  "az": "Körpənin adı",
+  "en": "Baby's name"
+ },
+ {
+  "key": "birthonboardingmodal_korpenin_adini_daxil_edin_7deaac",
+  "az": "Körpənin adını daxil edin",
+  "en": "Enter the baby's name"
+ },
+ {
+  "key": "birthonboardingmodal_korpeniz_haqqinda_melumat_verin_7560c6",
+  "az": "Körpəniz haqqında məlumat verin",
+  "en": "Provide information about your baby"
+ },
+ {
+  "key": "birthonboardingmodal_korpeniz_ne_vaxt_doguldu_165d80",
+  "az": "Körpəniz nə vaxt doğuldu?",
+  "en": "When was your baby born?"
+ },
+ {
+  "key": "birthonboardingmodal_notes_template",
+  "az": "Doğum çəkisi: {weight} {weightUnit}, Boy: {height} {heightUnit}, Doğum tipi: {type}",
+  "en": "Birth weight: {weight} kg, Height: {height} cm, Delivery type: {type}"
+ },
+ {
+  "key": "birthonboardingmodal_oglan_e9715e",
+  "az": "Oğlan",
+  "en": "Boy"
+ },
+ {
+  "key": "birthonboardingmodal_qeyseriyye_d8c1b4",
+  "az": "Qeysəriyyə",
+  "en": "C-section"
+ },
+ {
+  "key": "birthonboardingmodal_qiz_79bf6b",
+  "az": "Qız",
+  "en": "Girl"
+ },
+ {
+  "key": "birthonboardingmodal_sezaryen_emeliyyati_120bc4",
+  "az": "Sezaryen əməliyyatı",
+  "en": "Cesarean section surgery"
+ },
+ {
+  "key": "birthonboardingmodal_tarix_secin_3377b4",
+  "az": "Tarix seçin",
+  "en": "Select a date"
+ },
+ {
+  "key": "birthonboardingmodal_tebii_dogus_d7dea2",
+  "az": "Təbii doğuş",
+  "en": "Natural birth"
+ },
+ {
+  "key": "birthonboardingmodal_tebrik_edirik_4dc427",
+  "az": "Təbrik edirik! 🎉",
+  "en": "Congratulations! 🎉"
+ },
+ {
+  "key": "birthonboardingmodal_vaginal_dogus_e137c8",
+  "az": "Vaginal doğuş",
+  "en": "Vaginal birth"
+ },
+ {
+  "key": "birthonboardingmodal_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "birthonboardingmodal_xeta_bas_verdi_f22fba",
+  "az": "Xəta baş verdi",
+  "en": "An error occurred"
+ },
+ {
+  "key": "birthonboardingmodal_xulase_029c8a",
+  "az": "Xülasə",
+  "en": "Summary"
+ },
+ {
+  "key": "birthonboardingmodal_zeruri_saheleri_doldurun_ab6828",
+  "az": "Zəruri sahələri doldurun",
+  "en": "Fill in the required fields"
+ },
+ {
+  "key": "bloganalytics_baxis_b54d29",
+  "az": "Baxış",
+  "en": "View"
+ },
+ {
+  "key": "bloganalytics_baxis_d4da3e",
+  "az": "baxış",
+  "en": "review"
+ },
+ {
+  "key": "bloganalytics_beyenmeler_7c86a6",
+  "az": "Bəyənmələr",
+  "en": "Likes"
+ },
+ {
+  "key": "bloganalytics_bu_hefte_60eb9f",
+  "az": "Bu həftə:",
+  "en": "This week:"
+ },
+ {
+  "key": "bloganalytics_derc_edilib_88064f",
+  "az": "Dərc edilib",
+  "en": "Published"
+ },
+ {
+  "key": "bloganalytics_en_cox_oxunanlar_d68b0f",
+  "az": "Ən Çox Oxunanlar",
+  "en": "Most Read"
+ },
+ {
+  "key": "bloganalytics_heftelik_trend_e734f8",
+  "az": "Həftəlik Trend",
+  "en": "Weekly Trend"
+ },
+ {
+  "key": "bloganalytics_hele_meqale_yoxdur_b92aa5",
+  "az": "Hələ məqalə yoxdur",
+  "en": "No articles yet"
+ },
+ {
+  "key": "bloganalytics_kateqoriya_paylanmasi_6a4800",
+  "az": "Kateqoriya Paylanması",
+  "en": "Category Distribution"
+ },
+ {
+  "key": "bloganalytics_meqale_sayi_8121ea",
+  "az": "Məqalə sayı",
+  "en": "Article number"
+ },
+ {
+  "key": "bloganalytics_nesr_statistikasi_8d2fed",
+  "az": "Nəşr Statistikası",
+  "en": "Publication Statistics"
+ },
+ {
+  "key": "bloganalytics_saxlanilanlar_8882c1",
+  "az": "Saxlanılanlar",
+  "en": "Saved"
+ },
+ {
+  "key": "bloganalytics_serhler_30d5d9",
+  "az": "Şərhlər",
+  "en": "Comments"
+ },
+ {
+  "key": "bloganalytics_umumi_baxis_f27f07",
+  "az": "Ümumi Baxış",
+  "en": "Overview"
+ },
+ {
+  "key": "blogpostdetail_baxis_d4da3e",
+  "az": "baxış",
+  "en": "review"
+ },
+ {
+  "key": "blogpostdetail_cavab_elave_edildi_b44ba8",
+  "az": "Cavab əlavə edildi!",
+  "en": "Reply added!"
+ },
+ {
+  "key": "blogpostdetail_cavab_goster_faef92",
+  "az": "cavab göstər",
+  "en": "show answer"
+ },
+ {
+  "key": "blogpostdetail_cavab_yaz_2cd434",
+  "az": "Cavab yaz",
+  "en": "Reply"
+ },
+ {
+  "key": "blogpostdetail_cavab_yazmaq_ucun_hesabiniza_daxil_olun_04a03d",
+  "az": "Cavab yazmaq üçün hesabınıza daxil olun",
+  "en": "Log in to your account to write a reply"
+ },
+ {
+  "key": "blogpostdetail_cavabinizi_yazin_2cda33",
+  "az": "Cavabınızı yazın...",
+  "en": "Write your reply..."
+ },
+ {
+  "key": "blogpostdetail_cavablari_gizle_bc19d3",
+  "az": "Cavabları gizlə",
+  "en": "Hide answers"
+ },
+ {
+  "key": "blogpostdetail_deq_780a5c",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "blogpostdetail_giris_edin_3be3d2",
+  "az": "Giriş edin",
+  "en": "Login"
+ },
+ {
+  "key": "blogpostdetail_hele_serh_yoxdur_1dfc90",
+  "az": "Hələ şərh yoxdur",
+  "en": "No comments yet"
+ },
+ {
+  "key": "blogpostdetail_ilk_serhi_siz_yazin_00a364",
+  "az": "İlk şərhi siz yazın!",
+  "en": "Be the first to comment!"
+ },
+ {
+  "key": "blogpostdetail_meqale_muellifi_1bf996",
+  "az": "Məqalə müəllifi",
+  "en": "Article author"
+ },
+ {
+  "key": "blogpostdetail_saxla_d9cfd1",
+  "az": "Saxla",
+  "en": "Save"
+ },
+ {
+  "key": "blogpostdetail_saxlanildi_66ffe7",
+  "az": "Saxlanıldı",
+  "en": "Saved"
+ },
+ {
+  "key": "blogpostdetail_serh_elave_edildi_192ac0",
+  "az": "Şərh əlavə edildi!",
+  "en": "Comment added!"
+ },
+ {
+  "key": "blogpostdetail_serh_yazmaq_ucun_giris_edin_d02910",
+  "az": "Şərh yazmaq üçün giriş edin",
+  "en": "Sign in to post a comment"
+ },
+ {
+  "key": "blogpostdetail_serh_yazmaq_ucun_hesabiniza_daxil_olun_409134",
+  "az": "Şərh yazmaq üçün hesabınıza daxil olun",
+  "en": "Log in to your account to write a comment"
+ },
+ {
+  "key": "blogpostdetail_serhinizi_yazin_9d6066",
+  "az": "Şərhinizi yazın...",
+  "en": "Write your comment..."
+ },
+ {
+  "key": "blogpostdetail_serhler_8b3fc3",
+  "az": "Şərhlər (",
+  "en": "Comments ("
+ },
+ {
+  "key": "blogscreen_all_filter",
+  "az": "Hamısı",
+  "en": "All"
+ },
+ {
+  "key": "blogscreen_ana_bloqu_28124b",
+  "az": "Qadın Bloqları",
+  "en": "Women Blogs"
+ },
+ {
+  "key": "blogscreen_beyendiyiniz_meqaleleri_saxlay_a35db1",
+  "az": "Bəyəndiyiniz məqalələri saxlayın",
+  "en": "Save articles you like"
+ },
+ {
+  "key": "blogscreen_butun_meqaleler_df9384",
+  "az": "Bütün Məqalələr",
+  "en": "All Articles"
+ },
+ {
+  "key": "blogscreen_deq_780a5c",
+  "az": "dəq",
+  "en": "min"
+ },
+ {
+  "key": "blogscreen_ferqli_acar_sozlerle_axtarin_cb3a83",
+  "az": "Fərqli açar sözlərlə axtarın",
+  "en": "Search with different keywords"
+ },
+ {
+  "key": "blogscreen_meqale_63f1b2",
+  "az": "məqalə",
+  "en": "article"
+ },
+ {
+  "key": "blogscreen_meqale_axtar_0441c1",
+  "az": "Məqalə axtar...",
+  "en": "Search article..."
+ },
+ {
+  "key": "blogscreen_meqale_tapilmadi_746d12",
+  "az": "Məqalə tapılmadı",
+  "en": "Article not found"
+ },
+ {
+  "key": "blogscreen_meqaleler_yuklenir_3f3d01",
+  "az": "Məqalələr yüklənir...",
+  "en": "Articles are loading..."
+ },
+ {
+  "key": "blogscreen_one_cixan_648e68",
+  "az": "Önə Çıxan",
+  "en": "Featured"
+ },
+ {
+  "key": "blogscreen_saxlanilan_meqaleler_7e3136",
+  "az": "Saxlanılan Məqalələr",
+  "en": "Saved Articles"
+ },
+ {
+  "key": "blogscreen_saxlanilanlar_8882c1",
+  "az": "Saxlanılanlar",
+  "en": "Saved"
+ },
+ {
+  "key": "blogscreen_saxlanilmis_meqale_yoxdur_a9cc59",
+  "az": "Saxlanılmış məqalə yoxdur",
+  "en": "There are no saved articles"
+ },
+ {
+  "key": "blogscreen_secilmis_1fa6ef",
+  "az": "Seçilmiş",
+  "en": "Chosen"
+ },
+ {
+  "key": "blogscreen_tezlikle_yeni_meqaleler_elave__20524a",
+  "az": "Tezliklə yeni məqalələr əlavə olunacaq",
+  "en": "New articles will be added soon"
+ },
+ {
+  "key": "blogscreen_x_ucun_neticeler_b1a2c3",
+  "az": "\"{query}\" üçün nəticələr",
+  "en": "Results for \"{query}\""
+ },
+ {
+  "key": "bloodsugartracker_acliq_70_95_mg_dl_d4ac37",
+  "az": "• Aclıq: 70-95 mg/dL",
+  "en": "• Fasting: 70-95 mg/dL"
+ },
+ {
+  "key": "bloodsugartracker_acliq_b6d5ee",
+  "az": "Aclıq",
+  "en": "Fasting"
+ },
+ {
+  "key": "bloodsugartracker_asagi_1c27f1",
+  "az": "Aşağı",
+  "en": "Low"
+ },
+ {
+  "key": "bloodsugartracker_bu_gun_786fd4",
+  "az": "Bu gün",
+  "en": "Today"
+ },
+ {
+  "key": "bloodsugartracker_bu_gun_orta_96f2fa",
+  "az": "Bu gün orta",
+  "en": "Today's average"
+ },
+ {
+  "key": "bloodsugartracker_dunen_52b701",
+  "az": "Dünən",
+  "en": "Yesterday"
+ },
+ {
+  "key": "bloodsugartracker_elave_edilir_3c28b4",
+  "az": "Əlavə edilir...",
+  "en": "Adding..."
+ },
+ {
+  "key": "bloodsugartracker_elave_qeydler_c55f23",
+  "az": "Əlavə qeydlər...",
+  "en": "Additional notes..."
+ },
+ {
+  "key": "bloodsugartracker_gece_yatmaq_ucun_34ca83",
+  "az": "Gecə yatmaq üçün",
+  "en": "For night sleep"
+ },
+ {
+  "key": "bloodsugartracker_hamilelik_zamani_normal_seviyyeler_458722",
+  "az": "Hamiləlik zamanı normal səviyyələr:",
+  "en": "Normal levels during pregnancy:"
+ },
+ {
+  "key": "bloodsugartracker_heftelik_orta_f3a738",
+  "az": "Həftəlik orta",
+  "en": "Weekly average"
+ },
+ {
+  "key": "bloodsugartracker_hele_hec_bir_qeyd_yoxdur_463107",
+  "az": "Hələ heç bir qeyd yoxdur",
+  "en": "No records yet"
+ },
+ {
+  "key": "bloodsugartracker_i_stenilen_vaxt_ec15be",
+  "az": "İstənilən vaxt",
+  "en": "At any time"
+ },
+ {
+  "key": "bloodsugartracker_ilk_olcmenizi_elave_edin_c94d74",
+  "az": "İlk ölçmənizi əlavə edin",
+  "en": "Add your first measurement"
+ },
+ {
+  "key": "bloodsugartracker_melumat_yoxdur_a3e271",
+  "az": "Məlumat yoxdur",
+  "en": "There is no information"
+ },
+ {
+  "key": "bloodsugartracker_meselen_95_23137b",
+  "az": "Məsələn: 95",
+  "en": "Example: 95"
+ },
+ {
+  "key": "bloodsugartracker_nahar",
+  "az": "Nahar",
+  "en": "Lunch"
+ },
+ {
+  "key": "bloodsugartracker_olcme_6aff0d",
+  "az": "ölçmə",
+  "en": "measurement"
+ },
+ {
+  "key": "bloodsugartracker_olcme_novu_0d8219",
+  "az": "Ölçmə növü",
+  "en": "Measurement type"
+ },
+ {
+  "key": "bloodsugartracker_qan_sekeri_b9a2cc",
+  "az": "Qan Şəkəri",
+  "en": "Blood Sugar"
+ },
+ {
+  "key": "bloodsugartracker_qan_sekeri_seviyyesi_mg_dl_cb75a9",
+  "az": "Qan şəkəri səviyyəsi (mg/dL)",
+  "en": "Blood sugar level (mg/dL)"
+ },
+ {
+  "key": "bloodsugartracker_qan_sekeri_seviyyesi_ugurla_qeyd_edildi_cb5736",
+  "az": "Qan şəkəri səviyyəsi uğurla qeyd edildi",
+  "en": "Blood sugar level successfully recorded"
+ },
+ {
+  "key": "bloodsugartracker_qelyanalti_42fb71",
+  "az": "Qəlyanaltı",
+  "en": "Snack"
+ },
+ {
+  "key": "bloodsugartracker_qeyd_elave_edildi_c5012e",
+  "az": "Qeyd əlavə edildi",
+  "en": "Note added"
+ },
+ {
+  "key": "bloodsugartracker_qeyd_elave_edile_bilmedi_c1e5e5",
+  "az": "Qeyd əlavə edilə bilmədi",
+  "en": "Could not add note"
+ },
+ {
+  "key": "bloodsugartracker_qeyd_et_3c7a2d",
+  "az": "Qeyd et",
+  "en": "Record"
+ },
+ {
+  "key": "bloodsugartracker_qeyd_isteye_bagli_96c689",
+  "az": "Qeyd (istəyə bağlı)",
+  "en": "Notes (optional)"
+ },
+ {
+  "key": "bloodsugartracker_qeyd_silindi",
+  "az": "Qeyd silindi",
+  "en": "Record deleted"
+ },
+ {
+  "key": "bloodsugartracker_sam_yemeyi_6002e9",
+  "az": "Şam yeməyi",
+  "en": "Dinner"
+ },
+ {
+  "key": "bloodsugartracker_seher_tezden_yemekden_evvel_3f58e4",
+  "az": "Səhər tezdən, yeməkdən əvvəl",
+  "en": "Early morning, before meal"
+ },
+ {
+  "key": "bloodsugartracker_seher_yemeyi_b82929",
+  "az": "Səhər yeməyi",
+  "en": "Breakfast"
+ },
+ {
+  "key": "bloodsugartracker_seviyyeni_izleyin_1b70d5",
+  "az": "Səviyyəni izləyin",
+  "en": "Track the level"
+ },
+ {
+  "key": "bloodsugartracker_son_olcmeler_b024cf",
+  "az": "Son ölçmələr",
+  "en": "Latest measurements"
+ },
+ {
+  "key": "bloodsugartracker_tesadufi_98c20c",
+  "az": "Təsadüfi",
+  "en": "Random"
+ },
+ {
+  "key": "bloodsugartracker_xeta_3cdbb6",
+  "az": "Xəta",
+  "en": "Error"
+ },
+ {
+  "key": "bloodsugartracker_yatmazdan_evvel_a457fa",
+  "az": "Yatmazdan əvvəl",
+  "en": "Before bedtime"
+ },
+ {
+  "key": "bloodsugartracker_yemek_b1fd56",
+  "az": "Yemək",
+  "en": "Meal"
+ },
+ {
+  "key": "bloodsugartracker_yemekden_2_saat_sonra_c59165",
+  "az": "Yeməkdən 2 saat sonra",
+  "en": "2 hours after meal"
+ },
+ {
+  "key": "bloodsugartracker_yemekden_2_saat_sonra_lt_140_mg_dl_8efae2",
+  "az": "• Yeməkdən 2 saat sonra: &lt;140 mg/dL",
+  "en": "• 2 hours after meal: <140 mg/dL"
+ },
+ {
+  "key": "bloodsugartracker_yemekden_30_deq_evvel_266704",
+  "az": "Yeməkdən 30 dəq əvvəl",
+  "en": "30 min before meal"
+ },
+ {
+  "key": "bloodsugartracker_yemekden_evvel_167a3d",
+  "az": "Yeməkdən əvvəl",
+  "en": "Before meal"
+ },
+ {
+  "key": "bloodsugartracker_yemekden_sonra_56238e",
+  "az": "Yeməkdən sonra",
+  "en": "After meal"
+ },
+ {
+  "key": "bloodsugartracker_yeni_olcme_cc2042",
+  "az": "Yeni ölçmə",
+  "en": "New measurement"
+ },
+ {
+  "key": "bloodsugartracker_yuksek_492584",
+  "az": "Yüksək",
+  "en": "High"
+ },
+ {
+  "key": "bloodsugartracker_yukselmis_1fee34",
+  "az": "Yüksəlmiş",
+  "en": "Elevated"
+ },
+ {
+  "key": "bulktimemanager_basliq_e1f6c5",
+  "az": "Başlıq",
+  "en": "Title"
+ },
+ {
+  "key": "bulktimemanager_cemi_yuklenen_c5d1cb",
+  "az": "Cəmi yüklənən:",
+  "en": "Total downloads:"
+ },
+ {
+  "key": "bulktimemanager_filterlenmis_fdc550",
+  "az": "Filterlənmiş:",
+  "en": "Filtered by:"
+ },
+ {
+  "key": "bulktimemanager_gun_18b2f4",
+  "az": "Gün",
+  "en": "Day"
+ },
+ {
+  "key": "bulktimemanager_hamilelik_bump_b450c6",
+  "az": "Hamiləlik (bump)",
+  "en": "Pregnancy (bump)"
+ },
+ {
+  "key": "bulktimemanager_hamisi_3ff72c",
+  "az": "Hamısı (",
+  "en": "All ("
+ },
+ {
+  "key": "bulktimemanager_hec_bir_setir_secilmeyib_db256d",
+  "az": "Heç bir sətir seçilməyib",
+  "en": "No rows are selected"
+ },
+ {
+  "key": "bulktimemanager_menbe_76eac8",
+  "az": "Mənbə",
+  "en": "Source"
+ },
+ {
+  "key": "bulktimemanager_menbe_secin_movcud_saata_gore__e6c167",
+  "az": "Mənbə seçin → mövcud saata görə filterləyin → yeni saatı təyin edib seçilənləri toplu yeniləyin.",
+  "en": "Select source → filter by available clock → set new clock and batch update selected."
+ },
+ {
+  "key": "bulktimemanager_movcud_saat_filteri_ea28d2",
+  "az": "Mövcud saat filteri",
+  "en": "Existing time filter"
+ },
+ {
+  "key": "bulktimemanager_namelum_974fd5",
+  "az": "naməlum",
+  "en": "unknown"
+ },
+ {
+  "key": "bulktimemanager_secilmis_3c154a",
+  "az": "Seçilmiş:",
+  "en": "Selected:"
+ },
+ {
+  "key": "bulktimemanager_setir_yoxdur_08da0f",
+  "az": "Sətir yoxdur",
+  "en": "No row"
+ },
+ {
+  "key": "bulktimemanager_setre_tetbiq_et_873f93",
+  "az": "sətrə tətbiq et",
+  "en": "apply to string"
+ },
+ {
+  "key": "bulktimemanager_toplu_saat_deyisdirici_9723b3",
+  "az": "Toplu saat dəyişdirici",
+  "en": "Bulk time changer"
+ },
+ {
+  "key": "bulktimemanager_yeni_saat_formati_yanlisdir_hh_b2aa81",
+  "az": "Yeni saat formatı yanlışdır (HH:MM)",
+  "en": "The new time format is incorrect (HH:MM)"
+ },
+ {
+  "key": "bulktimemanager_yenile_570ce2",
+  "az": "Yenilə",
+  "en": "Refresh"
+ },
+ {
+  "key": "bulktimemanager_yenileme_xetasi_c88be0",
+  "az": "Yeniləmə xətası: ",
+  "en": "Update error:"
+ }
+]

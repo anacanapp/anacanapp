@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F28155</color>
+    <color name="colorPrimaryDark">#D96A3F</color>
+    <color name="colorAccent">#F28155</color>
+    <color name="splashBackground">#F28155</color>
+    <!-- WebView/Capacitor fonu ilə eyni (capacitor.config.json backgroundColor) -->
+    <color name="appBackground">#FAF7F4</color>
+</resources>

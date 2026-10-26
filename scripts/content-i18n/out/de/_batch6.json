@@ -1,0 +1,20 @@
+{
+ "nutrition_tips": {
+  "a551c688-076a-470a-9862-b199c56afee1": {
+   "title": "Eier",
+   "content": "Sie sind reich an hochwertigem Eiweiß und Cholin, das für die Gehirnentwicklung wichtig ist. Sie unterstützen die Entwicklung des Nervensystems deines Babys."
+  },
+  "3cd9d02f-2306-400b-bf13-48f59e00d6e0": {
+   "title": "Folatreiche Lebensmittel",
+   "content": "Im ersten Trimester der Schwangerschaft ist Folat besonders wichtig. Dunkelgrünes Blattgemüse, Zitrusfrüchte und Hülsenfrüchte sind gute Quellen."
+  },
+  "c72c92e6-079c-4154-b75a-f4bc2185c69d": {
+   "title": "Eisenversorgung",
+   "content": "Während der Schwangerschaft steigt der Eisenbedarf. Rotes Fleisch, Spinat und Linsen sind gute Eisenquellen."
+  },
+  "a6924eca-1ccc-46fd-aec6-27df0057d25d": {
+   "title": "Die Bedeutung von Kalzium",
+   "content": "Kalzium ist wichtig für die Knochenentwicklung deines Babys. Milchprodukte, Brokkoli und Mandeln sind gute Kalziumquellen."
+  }
+ }
+}

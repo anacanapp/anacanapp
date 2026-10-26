@@ -1,0 +1,3887 @@
+{
+ "admin_recipes": {
+  "228f023f-d713-4f19-be8e-fefdb4fed98b": {
+   "title": "Tovuqli va sabzavotli wok",
+   "description": "Rang-barang sabzavotlar A va C vitaminlariga, tovuq esa yuqori sifatli oqsilga boy",
+   "category": "tushlik_taomi",
+   "ingredients": [
+    "Tovuq filesi - 150 qr",
+    "Rangli bulg‘or qalampiri - 1 dona",
+    "Sabzi - 1 dona",
+    "Soya sousi - 1 osh qoshiq",
+    "Kunjut - 1 choy qoshiq",
+    "Zaytun moyi"
+   ],
+   "instructions": [
+    "Tovuqni baland olovda qovuring",
+    "Sabzi va qalampirni qo‘shing",
+    "Soya sousini qo‘shing",
+    "Ustiga kunjut sepib, dasturxonga torting"
+   ]
+  },
+  "4a2b68f6-c320-464a-a610-abba98c42a7c": {
+   "title": "Xurmo va kakaoli quvvat sharchalari",
+   "description": "Shokoladga bo‘lgan ishtiyoqni foydali usulda qondiradi",
+   "category": "foydali_shirinliklar",
+   "ingredients": [
+    "Xurmo - 10 dona",
+    "Yong‘oq/bodom - yarim stakan",
+    "Kakao kukuni - 1 osh qoshiq",
+    "Kokos qirindisi"
+   ],
+   "instructions": [
+    "Xurmo, yong‘oq va kakaoni blenderda maydalang",
+    "Kichik sharchalar yasang",
+    "Kokos qirindisiga bulang",
+    "Muzlatkichda 30 daqiqa saqlang"
+   ]
+  },
+  "d764c731-4574-4b0a-8c12-4817b002d62a": {
+   "title": "Baby Pancakes - Chaqaloq pankeyklari",
+   "description": "Chaqaloq o‘z qo‘li bilan yeyishi mumkin bo‘lgan taom (9-10 oy+)",
+   "category": "chaqaloq_taomi",
+   "tags": [
+    "chaqaloq_taomi"
+   ],
+   "ingredients": [
+    "Banan - 1 dona",
+    "Tuxum - 1 dona",
+    "Suli uni - 2 osh qoshiq"
+   ],
+   "instructions": [
+    "Bananni ezing",
+    "Tuxum va unni aralashtiring",
+    "Kichik pankeyklar pishiring"
+   ]
+  },
+  "e42eb779-f6d3-46c7-afa9-6b50228bf9fa": {
+   "title": "Sutli va yong‘oqli grechka",
+   "description": "Temirga boy bo‘lib, gemoglobin miqdorini oshiradi va holsizlikni bartaraf etadi",
+   "category": "nonushta",
+   "ingredients": [
+    "Grechka - 4 osh qoshiq",
+    "Sut - 1.5 stakan",
+    "Yong‘oq - 2 dona",
+    "Asal - 1 choy qoshiq"
+   ],
+   "instructions": [
+    "Grechkani sutda pishiring",
+    "Yong‘oq va asal qo‘shing",
+    "Issiq holda dasturxonga torting"
+   ]
+  },
+  "e2a3de56-71ba-425a-9ee4-19af8f674965": {
+   "title": "Qovoqli suli bo‘tqasi",
+   "description": "A vitamini va kletchatkaga boy bo‘lib, immunitetni mustahkamlaydi",
+   "category": "nonushta",
+   "ingredients": [
+    "Qovoq - 1 tilim",
+    "Suli yormasi - 4 osh qoshiq",
+    "Sut - 1.5 stakan",
+    "Dolchin - bir chimdim",
+    "Yong‘oq - 2 dona"
+   ],
+   "instructions": [
+    "Qovoqni pishirib, pyure qiling",
+    "Sut va suli yormasini pishiring",
+    "Qovoq pyuresi va dolchin qo‘shing",
+    "Ustiga yong‘oq sepib, dasturxonga torting"
+   ]
+  },
+  "b152df27-a257-44b7-b48e-cff4b6baf6d9": {
+   "title": "Lavashda tovuq go‘shti va pishloqli tost",
+   "description": "To‘yimli bo‘lib, ertalab ko‘ngil aynishidan qiynaladiganlar uchun quruq yegulik sifatida juda mos",
+   "category": "nonushta",
+   "ingredients": [
+    "Lavash - 1 dona",
+    "Tovuq go‘shti (titilgan) - 100 qr",
+    "Pishloq - 30 qr",
+    "Pomidor - 1 dona",
+    "Salat bargi"
+   ],
+   "instructions": [
+    "Lavash ustiga tovuq go‘shti, pishloq va pomidor qo‘ying",
+    "O‘rang",
+    "Tost apparatida qizartiring",
+    "Salat bargini qo‘shib, dasturxonga torting"
+   ]
+  },
+  "2b6d3d3f-7da4-49e6-9fec-a7c60b44d391": {
+   "title": "Tungi orom - Guruch va qatiq",
+   "description": "Tinch uyquga yordam beradigan to‘yimli kechki ovqat (10 oy+)",
+   "category": "chaqaloq_ovqati",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Guruch - 2 osh qoshiq",
+    "Qatiq - 3 osh qoshiq",
+    "Quritilgan yalpiz - juda oz"
+   ],
+   "instructions": [
+    "Guruchni bo‘tqa holiga kelguncha pishiring",
+    "Qatiq bilan aralashtiring"
+   ]
+  },
+  "1c5b54f3-be70-41b0-84f4-d70a7077aca9": {
+   "title": "Temir kosasi - Grechka va go‘sht",
+   "description": "Gemoglobini past chaqaloqlar uchun juda mos (8 oy+)",
+   "category": "chaqaloq_ovqati",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Grechka - 2 osh qoshiq",
+    "Mol go‘shti - 30 qr",
+    "Sabzi - yarim dona"
+   ],
+   "instructions": [
+    "Go‘sht va grechkani alohida-alohida pishiring",
+    "Sabzini bug‘da pishiring",
+    "Hammasini ezib aralashtiring"
+   ]
+  },
+  "703149ba-626c-42b7-97f3-d9c1417bd36f": {
+   "title": "Duxovkada pishirilgan tvorogli sirnik",
+   "description": "Kalsiyga boy, suyaklarni mustahkamlaydi. Qovurilmagani uchun jig‘ildon qaynashiga sabab bo‘lmaydi",
+   "category": "nonushta",
+   "ingredients": [
+    "Tvorog - 200 qr",
+    "Tuxum - 1 dona",
+    "Guruch uni - 2 osh qoshiq",
+    "Vanilin - bir chimdim",
+    "Asal - 1 choy qoshiq"
+   ],
+   "instructions": [
+    "Tvorogni ezing, tuxum va vanilin qo‘shing",
+    "Un qo‘shib, xamir tayyorlang",
+    "Kichik dumaloq shakllar yasang",
+    "180°C haroratda 20 daqiqa pishiring",
+    "Ustidan asal quying"
+   ]
+  },
+  "29940e49-7e51-47bd-83c9-a23089719fe4": {
+   "title": "Duxovkada sabzavotli tovuq kotletlari",
+   "description": "Qovurilmagani uchun jig‘ildon qaynashiga sabab bo‘lmaydi",
+   "category": "tushlik",
+   "ingredients": [
+    "Tovuq qiymasi - 200 qr",
+    "Piyoz - 1 dona",
+    "Sabzi - 1 dona",
+    "Tuxum - 1 dona",
+    "Non uvog‘i"
+   ],
+   "instructions": [
+    "Qiymani maydalangan sabzavotlar bilan aralashtiring",
+    "Tuxum qo‘shing",
+    "Kotletlar shaklini bering",
+    "Duxovkada 180°C haroratda 25 daqiqa pishiring"
+   ]
+  },
+  "54602d29-0117-4f19-abc3-7ccf4f15b4ad": {
+   "title": "Kinoa va avokadoli Power Bowl",
+   "description": "Kinoa to‘liq oqsil manbai, avokado esa miya rivojlanishi uchun zarur yog‘larni o‘z ichiga oladi",
+   "category": "tushlik",
+   "ingredients": [
+    "Kinoa - yarim stakan",
+    "Avokado - yarim dona",
+    "No‘xat - 3 osh qoshiq",
+    "Cherri pomidor - 6 dona",
+    "Ismaloq - 1 hovuch",
+    "Limon, zaytun moyi"
+   ],
+   "instructions": [
+    "Kinoani pishiring",
+    "Idishga kinoa, no‘xat, pomidor va ismaloqni joylang",
+    "Avokado bo‘laklarini qo‘shing",
+    "Ustidan limon va zaytun moyli sous quying"
+   ]
+  },
+  "351ff1d2-31f6-46a8-8bf8-de0cf3483675": {
+   "title": "Qaymoqli va ismaloqli losos pastasi",
+   "description": "Omega-3 va temirning ajoyib uyg‘unligi",
+   "category": "homiladorlik",
+   "ingredients": [
+    "Makaron - 100 qr",
+    "Losos - 100 qr",
+    "Ismaloq - 1 hovuch",
+    "Suyuq qaymoq - yarim stakan",
+    "Sarimsoq - 1 tish"
+   ],
+   "instructions": [
+    "Makaronni pishiring",
+    "Baliqni qovuring",
+    "Ismaloq va sarimsoq qo‘shing",
+    "Qaymoq qo‘shib, makaron bilan aralashtiring"
+   ]
+  },
+  "c89b9132-cdfc-4225-91e4-8d2f2e0b2795": {
+   "title": "Yashil yasmiqli sabzi taomi",
+   "description": "Foliy kislotasi manbai, qabziyatni bartaraf etish uchun eng yaxshi vosita",
+   "category": "tushlik",
+   "ingredients": [
+    "Yashil yasmiq - 1 stakan",
+    "Sabzi - 1 dona",
+    "Piyoz - 1 dona",
+    "Kartoshka - 1 dona",
+    "Bulyon - 3 stakan"
+   ],
+   "instructions": [
+    "Piyozni qovuring, sabzi qo‘shing",
+    "Yasmiq va kartoshkani soling",
+    "Suv qo‘shib, 30 daqiqa pishiring",
+    "Qatiq bilan dasturxonga torting"
+   ]
+  },
+  "0a806e97-179c-4b02-a4d3-c011bf2e080a": {
+   "title": "Loviya va go‘shtli dimlama",
+   "description": "Qizil go‘sht — temir, loviya esa kletchatka manbai. An’anaviy ta’mlarni yoqtiradiganlar uchun",
+   "category": "tushlik",
+   "tags": [
+    "homiladorlik"
+   ],
+   "ingredients": [
+    "Mol go‘shti - 150 qr",
+    "Yashil loviya - 200 qr",
+    "Pomidor - 2 dona",
+    "Piyoz - 1 dona"
+   ],
+   "instructions": [
+    "Go‘shtni suvda pishiring",
+    "Piyoz va loviya qo‘shing",
+    "Pomidorlarni soling",
+    "Past olovda 25 daqiqa dimlang"
+   ]
+  },
+  "09af16f8-cf6b-4d39-b222-ac1839cff39f": {
+   "title": "Ismaloq va tvorogli yashil omlet",
+   "description": "Temir va kalsiyga boy nonushta",
+   "category": "nonushta",
+   "ingredients": [
+    "Ismaloq - 1 hovuch",
+    "Tvorog - 50 qr",
+    "Tuxum - 2 dona",
+    "Zaytun moyi - 1 choy qoshiq",
+    "Tuz, murch"
+   ],
+   "instructions": [
+    "Ismaloqni yuvib, to‘g‘rang",
+    "Tuxumlarni ko‘pirtirib, tvorog va ismaloq qo‘shing",
+    "Tovada zaytun moyi bilan pishiring"
+   ]
+  },
+  "982adc98-e214-43f5-9309-70a389109d79": {
+   "title": "Kurka go‘shtli koptokchalar bilan sabzavotli sho‘rva",
+   "description": "Kurka go‘shti allergiyani eng kam keltirib chiqaradigan go‘shtlardan biri bo‘lib, ko‘proq suyuqlik iste’mol qilish uchun ajoyib tanlovdir",
+   "category": "tushlik_ovqati",
+   "ingredients": [
+    "Kurka qiymasi - 150 qr",
+    "Kartoshka, sabzi, selderey - har biridan 1",
+    "Guruch - 1 osh qoshiq",
+    "Quritilgan yalpiz"
+   ],
+   "instructions": [
+    "Qiymadan koptokchalar yasang",
+    "Qaynayotgan suvga sabzavotlar va guruchni soling",
+    "Koptokchalarni qo‘shing",
+    "Pishgach, ustiga yalpiz seping"
+   ]
+  },
+  "16d0f02f-4ecd-4fee-a1f5-3b1ea8bae99f": {
+   "title": "Grechka va qo‘ziqorinli sote",
+   "description": "Grechka gemoglobin miqdorini oshirish uchun juda foydali",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Grechka - yarim stakan",
+    "Qo‘ziqorin - 5 dona",
+    "Piyoz - yarim dona",
+    "Petrushka"
+   ],
+   "instructions": [
+    "Piyoz va qo‘ziqorinlarni qovuring",
+    "Pishirilgan grechkani qo‘shing",
+    "Ustiga petrushka sepib, dasturxonga torting"
+   ]
+  },
+  "d2719771-06cb-4a57-8b8e-23c90a1b22ff": {
+   "title": "Zanjabilli qovoq sho‘rvasi",
+   "description": "Qovoq shishlarni kamaytiradi, zanjabil esa oshqozonni tinchlantiradi",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Qovoq - 300 qr",
+    "Kartoshka - 1 dona",
+    "Piyoz - 1 dona",
+    "Zanjabil - funduqdek",
+    "Sut - yarim stakan"
+   ],
+   "instructions": [
+    "Sabzavotlarni suvda pishiring",
+    "Blenderdan o‘tkazing",
+    "Zanjabil va sut qo‘shing",
+    "Bir marta qaynating"
+   ]
+  },
+  "87be74c9-8271-47fa-aa1b-7d56d8593513": {
+   "title": "Qatiq va yong‘oqli qovoqcha sotesi",
+   "description": "Kam kaloriyali, ammo to‘yimli, qatiq probiotik bo‘lgani uchun hazm qilishga yordam beradi",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Qovoqcha - 2 dona",
+    "Sarimsoq - 1 tish",
+    "Qatiq - 1 kosa",
+    "Yong‘oq - 2 osh qoshiq",
+    "Shivit",
+    "Zaytun moyi"
+   ],
+   "instructions": [
+    "Qovoqchalarni qovuring",
+    "Sovigach, sarimsoqli qatiq qo‘shing",
+    "Shivit va yong‘oq qo‘shing"
+   ]
+  },
+  "729bbfc5-f4e9-4c62-83da-11343e2b9372": {
+   "title": "Bug‘da pishirilgan kurka go‘shti va brokkoli",
+   "description": "Kurka go‘shtidagi triptofan uyqu sifatini yaxshilaydi, brokkoli esa foliy kislotasiga boy",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Kurka filesi - 150 qr",
+    "Brokkoli - 150 qr",
+    "Limon sharbati",
+    "Zaytun moyi"
+   ],
+   "instructions": [
+    "Go‘sht va sabzavotni bug‘da 25 daqiqa pishiring",
+    "Ustidan limon sharbati va zaytun moyi quying"
+   ]
+  },
+  "84e49361-f94b-4751-af92-a48dc4c25da7": {
+   "title": "Tvorogli lavash ruleti",
+   "description": "Kalsiyga boy, oshqozonga og‘irlik qilmaydigan tezkor kechki ovqat",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Lavash - 1 dona",
+    "Tvorog - 100 qr",
+    "Bodring - 1 dona",
+    "Shivit",
+    "Yong‘oq - 2 dona"
+   ],
+   "instructions": [
+    "Tvorog, bodring, shivit va yong‘oqni aralashtiring",
+    "Lavash ustiga yoying",
+    "Rulet qilib o‘rang va tilimlang"
+   ]
+  },
+  "c86a2534-28db-4de0-9667-f24ac3182d89": {
+   "title": "Tropik detoks smuzi",
+   "description": "Ananas tarkibidagi bromelayn shishni kamaytirishga yordam beradi",
+   "category": "soglom_ichimliklar",
+   "ingredients": [
+    "Ananas - 2 bo‘lak",
+    "Bodring - 1 dona",
+    "Petrushka - 2-3 shoxcha",
+    "Suv - yarim stakan"
+   ],
+   "instructions": [
+    "Barchasini blenderda aralashtiring",
+    "Ertalab iching"
+   ]
+  },
+  "d8f78084-553b-41ea-bd74-432eaf7e9422": {
+   "title": "Uy usulidagi Snickers (Xurmo qayiqchalari)",
+   "description": "Quvvat beradi, kamqonlikda yordam beradi",
+   "category": "soglom_shirinliklar",
+   "ingredients": [
+    "Xurmo - 6 dona",
+    "Yeryong‘oq pastasi - 4 choy qoshiq",
+    "Yeryong‘oq - 6 dona",
+    "Qora shokolad - 30 gr"
+   ],
+   "instructions": [
+    "Xurmoning danagini olib tashlang",
+    "Ichiga yeryong‘oq pastasini soling",
+    "Yeryong‘oq qo‘ying",
+    "Ustidan eritilgan shokolad quying",
+    "Muzlatkichda muzlating"
+   ]
+  },
+  "a920fc1d-458e-46f5-a2e9-dca7ea79a61f": {
+   "title": "Muzlatilgan yogurt batonchalari",
+   "description": "Kalsiyga bo‘lgan ehtiyojni qondiradi, jig‘ildon qaynashini yengillashtiradi",
+   "category": "soglom_shirinliklar",
+   "ingredients": [
+    "Suzma qatiq - 1.5 stakan",
+    "Asal - 1 osh qoshiq",
+    "Rezavor mevalar - 1 hovuch",
+    "Pista/yong‘oq bo‘laklari"
+   ],
+   "instructions": [
+    "Qatiqni asal bilan aralashtiring",
+    "Yassi idishga yoying",
+    "Ustidan meva va yong‘oq seping",
+    "Muzlatkichda 3 soat saqlang",
+    "Bo‘laklarga bo‘lib, iste’mol qiling"
+   ]
+  },
+  "3b230dc3-81f3-43a5-b56c-24296d3b832b": {
+   "title": "Turshakli konfetlar",
+   "description": "Temir zaxirasini to‘ldiruvchi, qabziyat muammosi bo‘lgan homiladorlar uchun tabiiy dori",
+   "category": "soglom_shirinliklar",
+   "ingredients": [
+    "Turshak - 1 stakan",
+    "Kokos qirindisi - 2 osh qoshiq",
+    "Limon po‘sti",
+    "Bodom - yarim stakan"
+   ],
+   "instructions": [
+    "Turshakni iviting",
+    "Barcha masalliqlarni blenderda maydalang",
+    "Sharchalar yasang",
+    "Kokos qirindisiga botiring"
+   ]
+  },
+  "fc4f12b8-7e49-4b03-9795-79a867c283e5": {
+   "title": "Olmali donatlar",
+   "description": "Kletchatkaga boy va qarsildoq, pishirmasdan tayyorlanadigan gazak",
+   "category": "soglom_shirinliklar",
+   "ingredients": [
+    "Olma - 2 dona",
+    "Yeryong‘oq pastasi",
+    "Shokolad tomchilari",
+    "Kungaboqar urug‘i, yong‘oq"
+   ],
+   "instructions": [
+    "Olmaning o‘rtasini olib tashlang",
+    "Halqa shaklida to‘g‘rang",
+    "Ustiga yeryong‘oq pastasini surting",
+    "Yong‘oq va urug‘lar bilan bezating"
+   ]
+  },
+  "4967c352-4a1e-42bd-be6e-64302b16bec0": {
+   "title": "Immunitet shoti",
+   "description": "Gripp va shamollashdan himoyalanish uchun kuchli antioksidant",
+   "category": "soglom_ichimliklar",
+   "ingredients": [
+    "Apelsin sharbati - yarim stakan",
+    "Zarchava kukuni - yarim choy qoshiq",
+    "Qora murch - bir chimdim",
+    "Zaytun moyi"
+   ],
+   "instructions": [
+    "Yaxshilab aralashtirib, iching"
+   ]
+  },
+  "6db2e407-1ec0-4bf4-af10-d55ecb9f0e4f": {
+   "title": "Yoqut eliksiri",
+   "description": "Gemoglobinni oshiradi, qonni tozalaydi",
+   "category": "soglom_ichimliklar",
+   "ingredients": [
+    "Lavlagi - kichik bo‘lak",
+    "Sabzi - kichik bo‘lak",
+    "Olma - yarimta",
+    "Limon - 1 tilim"
+   ],
+   "instructions": [
+    "Sharbat chiqargichdan o‘tkazing",
+    "Shot stakaniga quying"
+   ]
+  },
+  "24714855-3f91-4f23-8a26-d44837dc668e": {
+   "title": "Baxmaldek binafsha smuzi",
+   "description": "Olxo‘ri qoqi va zig‘ir urug‘i ichni yumshatadi",
+   "category": "soglom_ichimliklar",
+   "ingredients": [
+    "Kefir - 1 stakan",
+    "Olxo‘ri qoqi - 3 dona",
+    "Zig‘ir urug‘i - 1 choy qoshiq",
+    "Banan - yarimta"
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderda aralashtiring",
+    "Darhol iching"
+   ]
+  },
+  "a0dd2f7f-4bf5-469a-8ac2-80ba7e742c2a": {
+   "title": "Omega jilosi smuzisi",
+   "description": "Miya rivoji uchun Omega-3 ga boy",
+   "category": "soglom_ichimliklar",
+   "ingredients": [
+    "Avokado - yarimta",
+    "Banan - 1 dona",
+    "Yong‘oq - 2 dona",
+    "Ismaloq",
+    "Bodom suti - 1 stakan"
+   ],
+   "instructions": [
+    "Barchasini blenderda aralashtiring"
+   ]
+  },
+  "29bb0ce4-9bdc-4fac-b1c7-e5b836d8f1d0": {
+   "title": "Shakshuka",
+   "description": "Issiq, pomidori mo‘l va ziravorli dam olish kuni klassikasi.\n\nFoydasi: Pishirilgan pomidor tarkibidagi likopin ayol organizmi uchun saratonga qarshi eng kuchli antioksidantlardan biridir.",
+   "category": "nonushta",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Tuxum: 2 dona",
+    "Pomidor: 2 dona (to‘g‘ralgan)",
+    "Rangli bulg‘or qalampiri: Yarim dona (to‘g‘ralgan)",
+    "Piyoz: Yarim dona",
+    "Zaytun moyi, zira kukuni (kumin), tuz, murch."
+   ],
+   "instructions": [
+    "Tovada piyoz va qalampirni zaytun moyida qovuring. Pomidor va ziravorlarni qo‘shib, sous holiga kelguncha pishiring. Sous ichida chuqurchalar ochib, ularga tuxumlarni chaqing va qopqog‘ini yopib, o‘zingiz istagan darajada pishiring."
+   ]
+  },
+  "fe3cad51-3e25-4969-b2ba-dbb221d883b9": {
+   "title": "Okean tuhfasi - Losos",
+   "description": "Omega-3 ga boy bo‘lib, ona suti uchun juda foydali. Chaqaloq miyasining rivojlanishini qo‘llab-quvvatlaydi.",
+   "category": "kechki_ovqat",
+   "tags": [
+    "tug‘ruqdan_keyin"
+   ],
+   "ingredients": [
+    "Losos: 150 gr",
+    "Sarsabil yoki yashil loviya: 100 gr",
+    "Limon: yarim dona",
+    "Shivit: 1 bog‘",
+    "Zaytun moyi: 1 osh qoshiq"
+   ],
+   "instructions": [
+    "Baliqqa tuz sepib, limon sharbatida marinadlang (10 daqiqa)",
+    "Sabzavotlarni yoniga terib chiqing",
+    "Ustidan zaytun moyi surtib, folga bilan o‘rang",
+    "Duxovkada 180°C haroratda 20 daqiqa pishiring",
+    "Ustidan mo‘l-ko‘l yangi shivit seping — sut yo‘llarini ochadi"
+   ]
+  },
+  "7b50a305-3e3e-47ca-8cb4-e9cc2bf8695d": {
+   "title": "Zumrad baxmal - Ismaloq sho‘rvasi",
+   "description": "Temirga bo‘lgan ehtiyojni qondiradigan va charchoqni kamaytiradigan yashil quvvat manbai. Foliy kislotasiga boy.",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Ismaloq: 1 katta bog‘",
+    "Kartoshka: 1 dona",
+    "Piyoz: 1 dona",
+    "Qaymoq (yoki sut): yarim stakan",
+    "Tuz, murch"
+   ],
+   "instructions": [
+    "Sabzavotlarni to‘g‘rab, suvda qaynating",
+    "Yumshagach, blenderdan o‘tkazib, pyure holiga keltiring",
+    "Oxirida qaymoq qo‘shib, bir marta qaynating",
+    "Tuz va murch qo‘shing",
+    "Issiq holda torting — temirga bo‘lgan ehtiyojni qondirish uchun juda mos"
+   ]
+  },
+  "ba869d0c-6059-4e21-8549-a6fc4dbae37c": {
+   "title": "Pushti bulut smuzisi",
+   "description": "Sut va kunjut suyaklar hamda tishlarni mustahkamlaydi",
+   "category": "soglom_ichimliklar",
+   "ingredients": [
+    "Sut - 1 stakan",
+    "Qulupnay - 6 dona",
+    "Banan - yarimta",
+    "Kunjut - 1 choy qoshiq"
+   ],
+   "instructions": [
+    "Blenderdan o'tkazing",
+    "Sovuq holda iching"
+   ]
+  },
+  "db39aaba-46b8-48c5-9ee2-718a433c813d": {
+   "title": "Tonggi qatlamlar - Qatiq va granola",
+   "description": "Probiotiklarga boy, hazm qilishni yengillashtiradigan nonushta. Kalsiy va energiya manbai.",
+   "category": "nonushta",
+   "ingredients": [
+    "Qatiq: 1 kosa",
+    "Suli yormasi: 3 osh qoshiq",
+    "Yong'oq: 1 hovuch (maydalangan)",
+    "Asal: 1 osh qoshiq",
+    "Meva (banan, qulupnay): xohishga ko'ra"
+   ],
+   "instructions": [
+    "Suli yormasini quruq tovada yengil qovuring",
+    "Yong'oqni maydalab, suli yormasiga qo'shing",
+    "Asal qo'shib aralashtiring - granolangiz tayyor",
+    "Kosaga qatiq solib, ustidan granola seping",
+    "Yangi meva bo'laklarini qo'shing"
+   ]
+  },
+  "eff41793-674f-452c-86c7-b28f4dd44a0f": {
+   "title": "Okean shabadasi beigeli - Lososli tost",
+   "description": "Miya xiralashuvini tarqatib, teriga yorqinlik baxsh etuvchi Omega-3 manbai.\n\nFoydasi: Losos ayollarda yurak-qon tomir tizimi va miya salomatligini qo'llab-quvvatlaydi, terining elastikligini oshiradi.",
+   "category": "nonushta",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Javdar noni yoki butun donli bug'doy beigeli (bagel): 1 dona",
+    "Krem-pishloq (labne): 1 osh qoshiq",
+    "Dilimlangan losos (Somon): 2-3 yupqa tilim",
+    "Bodring tilimlari, shivit."
+   ],
+   "instructions": [
+    "Nonga krem-pishloq surting. Ustiga bodring va losos tilimlarini joylashtiring. Yangi shivit bilan bezatib, iste'mol qiling."
+   ]
+  },
+  "7bcfa70e-7c6a-42b0-84fa-c8b8642dc2e8": {
+   "title": "Yoqut dimlamasi — lavlagi va go‘sht",
+   "description": "Qon hosil bo‘lishi va ona suti ko‘payishiga yordam beruvchi ajoyib uyg‘unlik. Temir va oqsil manbai.",
+   "category": "tushlik",
+   "tags": [
+    "tug‘ruqdan_keyingi"
+   ],
+   "ingredients": [
+    "Mol go‘shti: 200 qr (kub shaklida to‘g‘ralgan)",
+    "Lavlagi: 1 dona (katta)",
+    "Sabzi: 1 dona",
+    "Bulyon: 2 stakan",
+    "Tuz, murch"
+   ],
+   "instructions": [
+    "Go‘shtni kichik kub shaklida to‘g‘rab, yumshaguncha qaynatib oling",
+    "Lavlagi va sabzini archib, to‘g‘rang",
+    "Go‘shtga qo‘shib, past olovda 30-40 daqiqa pishiring",
+    "Tuz va murch qo‘shing",
+    "Issiq holda dasturxonga torting — qon hosil bo‘lishi va ona suti ko‘payishiga yordam beradi"
+   ]
+  },
+  "fa71b0aa-2b84-4b46-9f5a-66cd2a1a924c": {
+   "title": "Vanil donali makkiato",
+   "description": "Sun’iy sirop o‘rniga tabiiy vanil donalari ishlatiladigan haqiqiy italyancha ta’m.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "1 finjon espresso, chorak stakan issiq va ko‘pirtirilgan sut, tabiiy vanil tayoqchasining donalari (yoki organik vanil ekstrakti)."
+   ],
+   "instructions": [
+    "Sutni vanil bilan birga isitib, yaxshilab ko‘pirtiring. Issiq espresso ustiga faqat vanilli ko‘pikni qoshiq bilan soling."
+   ]
+  },
+  "a8e7b2fb-a93b-4062-b10e-3ec92ab8f15b": {
+   "title": "Oltin kinoa bo‘tqasi",
+   "description": "Samarasi isbotlangan energiya va o‘simlik temiri manbai.\n\nFoydasi: Kinoa tarkibida glyuten bo‘lmagan va barcha almashinmaydigan aminokislotalarni o‘z ichiga olgan ajoyib don bo‘lib, qondagi qand miqdorini me’yorda ushlab turishga yordam beradi.",
+   "category": "nonushta",
+   "ingredients": [
+    "Kinoa: Yarim stakan (yaxshilab yuvilgan)",
+    "Bodom suti: 1 stakan",
+    "Zarchava kukuni: Yarim choy qoshiq (yallig‘lanishga qarshi)",
+    "Bodom mag‘zi, mayiz yoki quritilgan olxo‘ri."
+   ],
+   "instructions": [
+    "Kinoani sut bilan birga qozonga soling, zarchava qo‘shing va suyuqligi shimilib ketguncha past olovda pishiring. Olovdan olib, ustiga bodom va mayiz seping."
+   ]
+  },
+  "ee7e5b2c-3005-40bc-948c-9e7d5600cfdc": {
+   "title": "To‘q sariq jilva — Sabzili salat",
+   "description": "Sabzi va tahinning kalsiyga boy uyg‘unligi. Beta-karotin va kalsiy sut sifatini yaxshilaydi.",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Sabzi: 2 dona (qirg‘ichdan chiqarilgan)",
+    "Yong‘oq: 1 hovuch (maydalangan)",
+    "Tahin (kunjut pastasi): 1 osh qoshiq",
+    "Limon sharbati, zaytun moyi",
+    "Ukrop: bir necha shoxcha"
+   ],
+   "instructions": [
+    "Sabzini qirg‘ichdan chiqaring",
+    "Yong‘oqni maydalab qo‘shing",
+    "Ukropni mayda to‘g‘rang",
+    "Tahin, limon sharbati va zaytun moyidan sous tayyorlang",
+    "Barchasini aralashtirib, dasturxonga torting — vitaminlarga boy"
+   ]
+  },
+  "50c1c324-2182-4a8b-9fa1-e6567601c2d3": {
+   "title": "Hayot nektari kompoti",
+   "description": "Quritilgan mevalardan shakarsiz tayyorlangan tabiiy ichimlik. Sutning 80%-i suvdan iborat — bu kompot chanqoqni bosadi.",
+   "category": "sog‘lom_ichimliklar",
+   "ingredients": [
+    "Turshak (quritilgan o‘rik): 5-6 dona",
+    "Quritilgan qora olxo‘ri: 3-4 dona",
+    "Olma (quritilgan yoki yangi): tilimlangan",
+    "Suv: 1.5 litr"
+   ],
+   "instructions": [
+    "Quritilgan mevalarni yuving",
+    "1.5 litr suvga solib, qaynating",
+    "Qaynab chiqqach, past olovda 20 daqiqa qaynating",
+    "Shakar qo‘shmang — mevalarning tabiiy shirinligi yetarli",
+    "Sovuq holda iching — kun davomida mo‘l-ko‘l"
+   ]
+  },
+  "d3d9ab59-ad73-4c09-ad5f-3b3fedca7488": {
+   "title": "Oltin olma — Pishirilgan olma pyuresi",
+   "description": "Pishirilgan olma gaz hosil qilmaydi va juda mazali (6 oy+)",
+   "category": "chaqaloq_ovqati",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Olma — 1 dona",
+    "Suv"
+   ],
+   "instructions": [
+    "Olmani archib, tilimlang",
+    "Bug‘da pishiring",
+    "Blenderdan o‘tkazing"
+   ]
+  },
+  "5ea647ef-3b19-4587-8829-05b5dcb6c41c": {
+   "title": "Kunjutli qarsildoq shirinlik",
+   "description": "Qadimiy quvvat manbai: faqat asal va kunjut. Kalsiyga boy, shirinlikka bo‘lgan ishtiyoqni kamaytiradi.",
+   "category": "soglom_shirinliklar",
+   "ingredients": [
+    "Kunjut: 1 stakan",
+    "Asal: yarim stakan"
+   ],
+   "instructions": [
+    "Kunjutni quruq tovada yengil qovuring (tilla rangga kirguncha)",
+    "Asalni alohida tovada ko‘piklanguncha qizdiring",
+    "Qovurilgan kunjutni asalga qo‘shib, tezda aralashtiring",
+    "Yog‘li qog‘oz ustiga yoying (1 sm qalinlikda)",
+    "Soviganidan keyin romb shaklida kesing"
+   ]
+  },
+  "971c317e-b7ac-4733-b72a-ef93a65eb1b6": {
+   "title": "Super donli kosa — kinoa salati",
+   "description": "Oqsilga juda boy. Barcha almashinmaydigan aminokislotalarni o‘z ichiga oladi va ona suti sifatini yaxshilaydi.",
+   "category": "tushlik",
+   "tags": [
+    "tugruqdan_keyin"
+   ],
+   "ingredients": [
+    "Kinoa: yarim stakan (pishirilgan)",
+    "Qora loviya yoki no‘xat: yarim stakan",
+    "Avokado: yarim dona",
+    "Petrushka: 1 bog‘lam",
+    "Limon sharbati, zaytun moyi"
+   ],
+   "instructions": [
+    "Kinoani yuvib, 15 daqiqa pishiring va suvini suzib oling",
+    "Pishirilgan loviya/no‘xatni qo‘shing",
+    "Avokadoni kub shaklida to‘g‘rang",
+    "Petrushka, limon sharbati va zaytun moyi bilan aralashtiring",
+    "Sovuq yoki xona haroratida dasturxonga torting"
+   ]
+  },
+  "12f0782c-f0f2-4ba6-a173-dbb482071e15": {
+   "title": "Birinchi sabzavot — kabachki pyuresi",
+   "description": "Chaqaloqning ovqat hazm qilish tizimi uchun eng yengil boshlang‘ich taom (6 oy+)",
+   "category": "chaqaloq_ovqati",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Kabachki - 1 kichik dona",
+    "Zaytun moyi - 1 choy qoshiq",
+    "Ona suti/sun’iy aralashma"
+   ],
+   "instructions": [
+    "Kabachkini bug‘da pishiring",
+    "Blenderda pyure qiling",
+    "Ona suti va zaytun moyini qo‘shing"
+   ]
+  },
+  "8c40752c-6db4-4615-b2ca-638a97aa09f6": {
+   "title": "Orange Power — Qovoq va sabzi pyuresi",
+   "description": "Beta-karotin manbai, shirin ta’mi chaqaloqlarga yoqadi (6-7 oy)",
+   "category": "chaqaloq ovqati",
+   "tags": [
+    "chaqaloq ovqati"
+   ],
+   "ingredients": [
+    "Qovoq — 1 bo‘lak",
+    "Sabzi — 1 dona"
+   ],
+   "instructions": [
+    "Sabzavotlarni bug‘da pishiring",
+    "Blenderda bir xil konsistensiyali pyure tayyorlang"
+   ]
+  },
+  "07319d7d-c920-4693-bc34-502061f38b1b": {
+   "title": "Ocean’s Pearl — Losos va sarsabil",
+   "description": "Terini ichkaridan namlantirishga va shishni kamaytirishga yordam beruvchi klassik juftlik.\n\nFoydasi: Losos tarkibidagi Omega-3 sochlar va teriga jilo beradi, sarsabil esa tabiiy diuretikdir (tanadagi ortiqcha suv va shishni chiqarishga yordam beradi).",
+   "category": "tushlik",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Losos filesi: 150 qr",
+    "Sarsabil: 6-8 dona",
+    "Limon: Yarim dona",
+    "Zaytun moyi, dengiz tuzi, qora murch."
+   ],
+   "instructions": [
+    "Sarsabilning qattiq uchlarini kesib tashlang. Baliq va sarsabilni pech patnisiga tering. Ustidan zaytun moyi, tuz, murch va limon sharbati qo‘shib, 180 darajada 15-20 daqiqa pishiring."
+   ]
+  },
+  "fff5b4d4-5ba2-4e96-98ea-a65ef476ad64": {
+   "title": "Pechda pishirilgan falafel",
+   "description": "Qovurilgan taomlardan saqlanuvchilar uchun pechda pishirilgan, kletchatkaga boy va qarsildoq sharqona taom.\n\nFoydasi: No‘xat ayol organizmidagi estrogen darajasini tabiiy ravishda qo‘llab-quvvatlaydi, tarkibidagi kletchatka esa qabziyatning oldini olishga yordam beradi.",
+   "category": "tushlik",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "No‘xat: 1 stakan (kechqurun ivitilgan, xom)",
+    "Yangi petrushka va kashnich: Yarim bog‘",
+    "Piyoz, sarimsoq, zira (zira kukuni)."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderda juda maydalab yubormasdan aralashtiring. Qo‘lingiz bilan kichik kotletchalar yasab, yog‘li qog‘oz ustida 180 darajada 25 daqiqa pishiring. Qatiq yoki tahin sousi bilan iste’mol qiling."
+   ]
+  },
+  "0af2c4bf-6712-4fe8-994f-bb2c520b2caf": {
+   "title": "Brokkoli (gulkaram) grateni",
+   "description": "Kalsiy va C vitamini manbai, go‘sht iste’mol qilishni xohlamagan kunlar uchun muqobil taom",
+   "category": "kechki_ovqat",
+   "tags": [
+    "homiladorlik"
+   ],
+   "ingredients": [
+    "Gulkaram yoki brokkoli - 300 qr",
+    "Tuxum - 2 dona",
+    "Qatiq - 2 osh qoshiq",
+    "Un - 1 osh qoshiq",
+    "Pishloq - 30 qr"
+   ],
+   "instructions": [
+    "Gulkaram yoki brokkolini pishiring",
+    "Tuxum, qatiq va unni ko‘pirtiring",
+    "Aralashmani sabzavot ustiga quying",
+    "Ustiga pishloq sepib, duxovkada pishiring"
+   ]
+  },
+  "c7535dc2-4407-4715-bc23-3a8242531319": {
+   "title": "Avokadoli shokoladli muss",
+   "description": "Avokado foliy kislotasi va magniyga boy, kakao esa baxt gormoni ajralishiga yordam beradi",
+   "category": "soglom_ichimliklar",
+   "ingredients": [
+    "Avokado - 1 dona",
+    "Kakao - 2 osh qoshiq",
+    "Asal - 3 osh qoshiq",
+    "Vanil",
+    "Bodom suti - 3 qoshiq"
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderga soling",
+    "Kremsimon holatga kelguncha aralashtiring",
+    "Muzlatkichda 30 daqiqa saqlang",
+    "Qulupnay bilan dasturxonga torting"
+   ]
+  },
+  "b8788575-43f0-4748-a08b-a02e6044caa7": {
+   "title": "Yashil mo‘jiza — shivitli ko‘fta",
+   "description": "Ozarbayjon oshxonasining ona sutini ko‘paytirishga oid eng mashhur siri: mo‘l-ko‘l shivit! U sut yo‘llarini ochadi.",
+   "category": "tushlik",
+   "ingredients": [
+    "Qiymа (mol yoki tovuq go‘shti): 300 qr",
+    "Guruch: yarim stakan",
+    "Shivit: 2 katta bog‘lam",
+    "Kartoshka: 2 dona",
+    "Piyoz: 1 dona",
+    "Tuz, murch"
+   ],
+   "instructions": [
+    "Qiymа, yuvilgan guruch va mayda to‘g‘ralgan shivitning yarmini aralashtiring",
+    "Tuz va murch qo‘shib, ko‘ftalar yasang",
+    "Qaynayotgan suvga to‘g‘ralgan kartoshka va piyozni soling",
+    "5 daqiqadan keyin ko‘ftalarni qo‘shib, past olovda 25-30 daqiqa pishiring",
+    "Taom pishishiga yaqin qolgan shivitni mo‘l qilib to‘g‘rang va sho‘rvaga soling"
+   ]
+  },
+  "2b374b35-8810-48b4-a990-d7b6c19bcd99": {
+   "title": "Miya uchun krem - avokado va banan",
+   "description": "Miya rivoji uchun Omega-3 manbai, pishirish talab etilmaydi (7 oy+)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food",
+    "vitamin_rich"
+   ],
+   "ingredients": [
+    "Avokado - yarim dona",
+    "Banan - yarim dona"
+   ],
+   "instructions": [
+    "Ikkalasini ham sanchqi bilan ezing",
+    "Biroz donador holda qoldiring"
+   ]
+  },
+  "f7f4a9f1-a670-4aa2-bc79-2ba16bd08e45": {
+   "title": "Kichkintoy uchun protein - tovuq va sabzavotlar",
+   "description": "Chaqaloqning go‘sht bilan ilk tanishuvi (7-8 oy)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tovuq ko‘krak go‘shti - 40 qr",
+    "Brokkoli - 3 ta gulchasi",
+    "Zaytun moyi"
+   ],
+   "instructions": [
+    "Go‘shtni qaynatib, birinchi suvini to‘kib tashlang",
+    "Sabzavotlarni qo‘shib pishiring",
+    "Barchasini birga blenderdan o‘tkazing"
+   ]
+  },
+  "b455efa4-2b34-4269-90be-921a5749ae99": {
+   "title": "Mayin okean ta’mi - oq baliq va sabzavotlar",
+   "description": "Fosfor va yod manbai (9-10 oy)",
+   "category": "baby_food",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Oq baliq - 40 qr",
+    "Sabzi - yarim dona",
+    "Piyoz - ozroq"
+   ],
+   "instructions": [
+    "Baliqni sabzavotlar bilan bug‘da pishiring",
+    "Qiltiqlarini diqqat bilan tekshiring",
+    "Sanchqi bilan maydalang"
+   ]
+  },
+  "52d3741b-ea80-45a2-99fd-beda7e7b6c4a": {
+   "title": "Qahrabo oqimi - Shambala choyi",
+   "description": "Ona suti ishlab chiqarilishini qo‘llab-quvvatlashi mumkin bo‘lgan o‘simlik: shambala (fenugrek). Prolaktin gormoni ishlab chiqarilishini rag‘batlantirishi mumkin.",
+   "category": "soglom_ichimliklar",
+   "ingredients": [
+    "Shambala urug‘i (fenugrek): 1 choy qoshiq",
+    "Suv: 2 stakan",
+    "Asal: 1 choy qoshiq (ixtiyoriy)",
+    "Limon: bir necha tomchi"
+   ],
+   "instructions": [
+    "Shambala urug‘larini quruq tovada 1-2 daqiqa yengil qovuring (kuyib ketmasin)",
+    "Qaynagan suvga qo‘shing",
+    "10 daqiqa damlab, suzib oling",
+    "Istakka ko‘ra asal va limon qo‘shing",
+    "Kuniga 2-3 finjon iching - ona suti ko‘payishi 24-48 soat ichida sezilishi mumkin"
+   ]
+  },
+  "8c4792f6-0abc-4597-99d1-ff981dc2a340": {
+   "title": "Matchali tonggi boul",
+   "description": "Qahvasiz tetiklanishni istaganlar uchun antioksidantlarga boy va moddalar almashinuvini qo‘llab-quvvatlovchi taom.\n\nFoydasi: Matcha choyi moddalar almashinuvini qo‘llab-quvvatlaydi va teri salomatligiga foyda berishi mumkin. Qahva kabi birdaniga quvvat berib, keyin charchatmaydi, balki kun davomida bir maromda tetiklik beradi",
+   "category": "nonushta",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Muzlatilgan banan: 1 dona",
+    "Matcha kukuni: 1 choy qoshiq",
+    "Ismaloq: 1 kichik hovuch",
+    "Bodom suti: Yarim stakan",
+    "Ustiga: Kokos qirindisi, bodom mag‘zi, kivi bo‘laklari."
+   ],
+   "instructions": [
+    "Banan, matcha, ismaloq va sutni quyuq smuzi hosil bo‘lguncha blenderda aralashtiring. Kosaga quyib, ustini yong‘oq va kivi bilan bezating."
+   ]
+  },
+  "13b7591b-479c-457d-ab27-09785681c532": {
+   "title": "Shirin tushlar shoti",
+   "description": "Mushak tirishishi va tarangligini kamaytirish uchun",
+   "category": "soglom_ichimliklar",
+   "ingredients": [
+    "Bodom - 5 dona (ivitilgan)",
+    "Banan - to‘rtdan bir qismi",
+    "Kakao - yarim choy qoshiq",
+    "Suv - 2 osh qoshiq"
+   ],
+   "instructions": [
+    "Bodomlarni tozalang",
+    "Hammasini blenderda suyuq holga kelguncha aralashtiring"
+   ]
+  },
+  "d9f4e457-b6da-4ebb-92a8-543b9465b164": {
+   "title": "Yoqut rangli gibiskusli moxito",
+   "description": "Yoshlik eliksiri va qon bosimini me’yorlashtiruvchi qizil lazzat.\n\nFoydasi: Gibiskus (Makka guli) C vitamini va antioksidantlarga boy, moddalar almashinuvini tezlashtiradi hamda yurak-qon tomir tizimini himoya qiladi.",
+   "category": "Sog‘lom ichimliklar",
+   "ingredients": [
+    "Gibiskus choyi (quyuq damlanib, sovitilgan): Yarim stakan",
+    "Yalpiz barglari: 5-6 dona",
+    "Laym: Yarim dona (tilimlangan)",
+    "Gazlangan suv (mineral suv) va muz."
+   ],
+   "instructions": [
+    "Stakan tubida yalpiz va laym tilimlarini yog‘och ezgich bilan ezing. Ustidan ko‘p miqdorda muz soling. Sovuq gibiskus choyi va mineral suvni qo‘shib, aralashtiring."
+   ]
+  },
+  "d407408a-9e13-47c0-b565-ec699f31591e": {
+   "title": "Citrus Spark",
+   "description": "Moddalar almashinuvini faollashtiradigan va yog‘larni yoqishga yordam beradigan tonggi kokteyl.\n\nFoydasi: Greypfrut insulin darajasini muvozanatlashtiradi, rozmarin esa xotira va diqqatni kuchaytiradi.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Greypfrut sharbati (yangi siqilgan): Yarim stakan",
+    "Yangi rozmarin: 1 shoxcha",
+    "Gazlangan suv: Yarim stakan",
+    "Muz."
+   ],
+   "instructions": [
+    "Rozmarin shoxchasini xushbo‘y hidi chiqishi uchun qo‘lingiz bilan yengilgina ezing va stakanga soling. Ustidan muz, greypfrut sharbati va mineral suv quying."
+   ]
+  },
+  "fff46867-aa41-4bc9-8647-1346ba044359": {
+   "title": "Muzli kakaoli proteinli sheyk",
+   "description": "Mashqdan keyin mushaklarni tiklash va uzoq vaqt to‘qlik hissini saqlash uchun ideal.",
+   "category": "Sog‘lom ichimliklar",
+   "ingredients": [
+    "1 osh qoshiq kakao, 1 dona muzlatilgan banan, 1 osh qoshiq yeryong‘oq pastasi, 1 stakan sovuq sut, muz."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderda quyuq sheyk hosil bo‘lguncha aralashtiring."
+   ]
+  },
+  "0b4a6a47-3a40-4940-a2d5-e0a7260449ef": {
+   "title": "Kamalak shashlikchalari (3 yosh+)",
+   "description": "Meva yeyishni qiziqarli o‘yinga aylantiradigan rang-barang va xavfsiz shashlikchalar.\n\nFoydasi: Turli rangdagi mevalar turli vitaminlar (C, K, antioksidantlar) manbai hisoblanadi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Qulupnay (qizil), mandarin (to‘q sariq), banan (sariq), kivi (yashil), qorag‘at (ko‘k/binafsha).",
+    "Bolalar uchun xavfsiz, uchi to‘mtoq plastik yoki yog‘och sixlar (cho‘plar)."
+   ],
+   "instructions": [
+    "Mevalarni bola yeyishi mumkin bo‘lgan kichik kubiklar shaklida to‘g‘rang. Ularni kamalak ranglari ketma-ketligida sixlarga tering."
+   ]
+  },
+  "71d8c222-1035-4fd0-929b-23c2b485af16": {
+   "title": "Sarimsoqli krevetka va qovoqcha",
+   "description": "Kafe yoki restoran darajasidagi, ammo kaloriyasi deyarli yo‘q dengiz mahsulotlaridan tayyorlangan taom.\n\nFoydasi: Krevetka rux va yodga boy (soch va tirnoqlarni mustahkamlaydi). Juda yengil bo‘lgani uchun kechki payt uchun juda mos.",
+   "category": "Kechki ovqat",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Krevetka (tozalangan): 150 qr",
+    "Qovoqcha: 2 dona (spagetti shaklida to‘g‘ralgan)",
+    "Sariyog‘ (ozroq) va zaytun moyi aralashmasi.",
+    "Sarimsoq: 2 tish (ezilgan), maydalangan achchiq qalampir."
+   ],
+   "instructions": [
+    "Tovada yog‘ va sarimsoqni qizdiring, krevetkalarni solib, pushti rangga kirguncha (jami 3-4 daqiqa) qovuring. Qovoqchalarni qo‘shib, yana 2 daqiqa yengil qovuring. Ustidan limon siqib, darhol dasturxonga torting."
+   ]
+  },
+  "866a9373-a971-4ae1-bcb7-5c987dbcae3a": {
+   "title": "Lavandali sut",
+   "description": "Mashaqqatli kundan keyin stressni yo‘qotib, chaqaloqdek uxlatadigan sehrli ichimlik.\n\nFoydasi: Lavandaning hidi va ta’mi asab tizimini tezda tinchlantiradi, uyqu sifatini yaxshilaydi.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Bodom yoki suli suti: 1 stakan",
+    "Quritilgan lavanda (pazandachilik uchun): 1 choy qoshiq",
+    "Asal yoki agava siropi: 1 choy qoshiq",
+    "Vanil ekstrakti: Bir necha tomchi."
+   ],
+   "instructions": [
+    "Sutni qozonda isiting (qaynatmang). Unga lavandani solib, 5-10 daqiqa damlanishini kuting. Suzgichdan o‘tkazib stakanga quying, asal va vanil qo‘shib, iliq holda iching."
+   ]
+  },
+  "e3dad099-6f8a-4e3c-8dfa-2922158c70b6": {
+   "title": "Gulkaramli pitsa",
+   "description": "Pitsa lazzatidan vijdon azobisiz, glyuten va xamirsiz bahramand bo‘lish uchun.\n\nFoydasi: Gulkaram fitonutriyentlarga boy va jigar faoliyatini qo‘llab-quvvatlaydi. Bu pitsa qorin dam bo‘lishi va jig‘ildon qaynashini keltirib chiqarmaydi.",
+   "category": "kechki ovqat",
+   "ingredients": [
+    "Gulkaram: Yarim bosh (qirg‘ichdan o‘tkazilgan va suvi to‘liq siqilgan)",
+    "Tuxum: 1 dona",
+    "Pishloq (qirg‘ichdan o‘tkazilgan): 3 osh qoshiq (xamir uchun)",
+    "Usti uchun: Tomat pastasi, pomidor bo‘laklari, pishloq, rayhon."
+   ],
+   "instructions": [
+    "Qirg‘ichdan o‘tkazilgan gulkaramni tuxum va pishloq bilan aralashtirib, pech patnisiga pitsa xamiri shaklida yoying. 200 darajada 15 daqiqa (qizarguncha) pishiring. So‘ng olib, ustiga sous va masalliqlarni joylashtiring hamda pishloq eriguncha yana 5 daqiqa pishiring."
+   ]
+  },
+  "cc18259a-201a-4dd4-83bd-d60fc14dccba": {
+   "title": "Iliq qo‘ziqorin va ismaloq salati",
+   "description": "Go‘sht iste’mol qilishni istamagan oqshomlaringiz uchun o‘ziga xos iforli, iliq va to‘yimli salat.\n\nFoydasi: Ismaloq tarkibidagi magniy mushaklarni bo‘shashtiradi, qo‘ziqorin esa immunitetni mustahkamlovchi D vitamini va B guruhi vitaminlariga boy.",
+   "category": "kechki ovqat",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Shampinyon yoki veshenka qo‘ziqorini: 150 gr (to‘g‘ralgan)",
+    "Yosh ismaloq: 2-3 hovuch (xom)",
+    "Yong‘oq: 1 hovuch",
+    "Balzamli sirka, zaytun moyi, sarimsoq (ozgina)."
+   ],
+   "instructions": [
+    "Qo‘ziqorinlarni bir bo‘lak sarimsoq bilan ozroq yog‘da qizarguncha qovuring. Ismaloqni idishga soling. Issiq qo‘ziqorinlarni ismaloq ustiga quying (issiqlik ismaloqni biroz yumshatadi). Ustidan yong‘oq seping va balzamli sirka quying."
+   ]
+  },
+  "a5b41661-394b-4403-8c11-ef8c670867ac": {
+   "title": "Yasmiqli qovoqcha spagettisi",
+   "description": "Spagettiga bo‘lgan ishtiyoqni qondiradigan, o‘simlik oqsiliga boy muqobil pasta.\n\nFoydasi: Qovoqcha tufayli uglevod miqdori juda kam bo‘ladi, yasmiq esa o‘simlikka mansub temir va kletchatka bilan ta’minlab, hazm qilishni yengillashtiradi.",
+   "category": "kechki ovqat",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Qovoqcha: 2 dona (spagetti shaklida kesilgan)",
+    "Qizil yasmiq: Yarim stakan (qaynatilgan)",
+    "Pomidor, piyoz, sarimsoq (sous uchun)."
+   ],
+   "instructions": [
+    "Piyoz va pomidordan \"Bolonez\" usulidagi sous tayyorlab, unga pishirilgan yasmiqni qo‘shing. Qovoqchalarni tovada 2 daqiqa qovurib, likopchaga oling va ustidan mo‘l yasmiqli sous quying."
+   ]
+  },
+  "64191934-b404-495f-b229-388b63914389": {
+   "title": "Qulupnayli keshyu chizkeyki",
+   "description": "Sut mahsulotlari, un va shakarsiz tayyorlanadigan ajoyib \"Raw Vegan\" chizkeyk.\n\nFoydasi: Keshyu qon bosimini me’yorlashtirishga yordam beradi, qulupnay esa qarishga qarshi ta’sir ko‘rsatuvchi C vitaminiga boy.",
+   "category": "Foydali shirinliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Asosi uchun: Bodom, xurmo (blenderda maydalangan).",
+    "Krem uchun: 1.5 stakan keshyu (bir kecha ivitilgan), 1 stakan qulupnay, 3 osh qoshiq eritilgan kokos yog‘i, agava siropi."
+   ],
+   "instructions": [
+    "Asos uchun tayyorlangan aralashmani qolip tubiga bosib joylang. Suvini suzib olgan keshyuni qulupnay, yog‘ va sirop bilan blenderda butunlay silliq krem hosil bo‘lguncha aralashtiring. Asos ustiga quyib, muzlatkichning muzxonasida 4 soat saqlang."
+   ]
+  },
+  "27feef17-d812-4444-aa98-c2116d7d5049": {
+   "title": "Batat va olma pyuresi (6 oy+)",
+   "description": "Chaqaloqlar shirin ta’mlarni yoqtirishini hisobga olsak, bu ularning eng sevimli ilk taomlaridan biri bo‘ladi.\n\nFoydasi: Shirin kartoshka (batat) A vitamini va tolaga boy, olma esa hazm qilishni osonlashtiradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Shirin kartoshka: 1 ta kichik (po‘sti archilgan, kub shaklida to‘g‘ralgan)",
+    "Shirin olma: Yarimta (po‘sti archilgan)",
+    "Ona suti yoki sutli aralashma (yumshatish uchun)."
+   ],
+   "instructions": [
+    "Shirin kartoshka va olmani bug‘da yoki juda oz suvda butunlay yumshaguncha pishiring. Sanchqi bilan ezing yoki pyure holiga keltiring. Iliq paytida ozgina ona suti qo‘shib, quyuqligini moslang."
+   ]
+  },
+  "10778f55-a6f7-4dea-b6b5-e285d45babb5": {
+   "title": "Sabzi va yasmiq sho‘rvasi\n(8 oy+)",
+   "description": "Chaqaloqni temirga boy mahsulotlar bilan tanishtirish uchun mazali, yorqin to‘q sariq rangli va qorin dam qilmaydigan sho‘rva.\n\nFoydasi: Qizil yasmiq o‘simlik oqsili va temir manbai hisoblanadi. Sabzi esa ko‘zlar rivoji uchun zarur bo‘lgan betakarotinga boy.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Qizil yasmiq: 2 osh qoshiq (yaxshilab yuvilgan)",
+    "Sabzi: 1 ta kichik (qirg‘ichdan chiqarilgan)",
+    "Zaytun yog‘i: 1 choy qoshiq."
+   ],
+   "instructions": [
+    "Sabzi va yasmiqni kichik qozonga solib, ustini qoplaydigan miqdorda suv quying va butunlay yumshaguncha qaynatib pishiring. Blenderdan o‘tkazing va ustiga 1 choy qoshiq ekstra virgin zaytun yog‘i quying."
+   ]
+  },
+  "b3153614-fcee-47f5-887f-a9f21df0723d": {
+   "title": "Kinoa va shokoladli luqmalar",
+   "description": "PMS (hayz oldi) davrida paydo bo‘ladigan shokoladga kuchli ishtiyoq uchun eng qarsildoq va foydali yechim.\n\nFoydasi: Qora shokolad magniyga boy (spazmlar va taranglikni kamaytiradi), puflangan kinoa esa oqsil bilan ta’minlab, qondagi qand miqdorini barqaror saqlaydi.",
+   "category": "Foydali shirinliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Qora shokolad (kamida 70% kakao): 100 qr",
+    "Puflangan kinoa (yoki suli): 1 stakan",
+    "Dengiz tuzi: Juda oz miqdorda (ustiga sepish uchun)"
+   ],
+   "instructions": [
+    "Shokoladni bug‘da (bain-marie usulida) eriting. Unga kinoani qo‘shib, yaxshilab aralashtiring. Qoshiq yordamida pergament qog‘ozi ustiga kichik uyumlar shaklida soling. Ustidan dengiz tuzi sepib, muzlatkichda 20 daqiqa qotiring."
+   ]
+  },
+  "1b665124-a619-4ee4-9dce-a48ced0f8106": {
+   "title": "Kakao va avokadoli tart",
+   "description": "Shokoladli tartning hech kim foydali deb o‘ylamaydigan, pishirish talab etilmaydigan turi.\n\nFoydasi: Avokadodagi foydali yog‘lar ayol gormonlari sintezi uchun juda muhim. Kakao esa endorfin (baxt gormoni) ajralishini oshiradi.",
+   "category": "Foydali shirinliklar",
+   "ingredients": [
+    "Asosi uchun: 1 stakan yong‘oq, 10 dona xurmo.",
+    "Krem uchun: 2 dona pishgan avokado, yarim stakan shakarsiz kakao, 4 osh qoshiq asal yoki shinni."
+   ],
+   "instructions": [
+    "Yong‘oq va xurmoni blenderda maydalab, tart qolipining tubiga yoying. Krem uchun avokado, kakao va asalni butunlay ipakdek mayin holga kelguncha blenderdan o‘tkazing. Kremni asos ustiga yoyib, muzlatkichda 2 soat saqlang."
+   ]
+  },
+  "23124658-0378-42aa-b696-d264cdef885d": {
+   "title": "Yeryong‘oq pastali xurmo",
+   "description": "Haqiqiy karamelli shokolad yeyayotgandek his uyg‘otadigan va bir zumda quvvat beradigan \"gazak\".\n\nFoydasi: Oqartirilgan shakarga bo‘lgan kuchli ishtiyoqni butunlay bartaraf etadi. Yeryong‘oq pastasi oqsil va foydali yog‘lar hisobiga to‘qlik hissini oshiradi.",
+   "category": "Foydali shirinliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Medjool xurmosi (yirik, yumshoq): 5-6 dona",
+    "Shakarsiz yeryong‘oq pastasi: 2 osh qoshiq",
+    "Qora shokolad (eritilgan)."
+   ],
+   "instructions": [
+    "Xurmolarni uzunasiga kesib, danagini olib tashlang. Ichini yeryong‘oq pastasi bilan to‘ldiring. Xurmolarni yarmigacha eritilgan qora shokoladga botirib, qotishi uchun muzlatkichga qo‘ying."
+   ]
+  },
+  "fb03ef40-89b2-4c37-a867-f84dac70544e": {
+   "title": "Ismaloq va ko‘k no‘xat pyuresi \n(8 oy+)",
+   "description": "Kelajakning kuchli qahramonlari uchun temir va oqsilga boy, rangi bilan e’tiborni tortadigan taom.\n\nFoydasi: Ismaloqdagi foliy kislotasi va ko‘k no‘xatdagi oqsil tez o‘sishni qo‘llab-quvvatlaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "ingredients": [
+    "Ismaloq: 1 hovuch (tozalangan)",
+    "Yangi ko‘k no‘xat: 1 osh qoshiq",
+    "Kartoshka: Yarimta kichik dona",
+    "Sariyog‘: Juda kichik bo‘lak (tuzsiz)."
+   ],
+   "instructions": [
+    "Kartoshka va no‘xatni suvda pishiring. Pishishiga oz qolganda ismaloqni qo‘shing. Suvini to‘kib, sariyog‘ qo‘shing va pyure holiga keltiring."
+   ]
+  },
+  "e4dcec61-d668-42ad-9158-cfc7b2b1485d": {
+   "title": "Golubikali pankeyk\n(9 oy+)",
+   "description": "Chaqaloq o‘z qo‘li bilan yeya oladigan (BLW), harakat ko‘nikmalarini rivojlantiruvchi mazali taom.\n\nFoydasi: Golubika miya faoliyatini rag‘batlantiruvchi kuchli antioksidantdir. Shakarsiz, bug‘doy unisiz, yumshoq pankeyk.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Banan: 1 dona (pishgan, ezilgan)",
+    "Tuxum sarig‘i: 1 dona (oqi 1 yoshgacha mumkin emas)",
+    "Golubika: 6-7 dona (ikkiga bo‘lingan)",
+    "Suli uni: 1 osh qoshiq."
+   ],
+   "instructions": [
+    "Bananni ezing, tuxum sarig‘i va un bilan aralashtiring. To‘g‘ralgan golubikalarni qo‘shing. Yog‘siz tovaga qoshiq bilan kichik doiralar shaklida solib, ikki tomonini ham pishiring."
+   ]
+  },
+  "a3480015-30ca-4f9a-b8de-a642fd9a639c": {
+   "title": "Dolchinli suli Flat White",
+   "description": "Qondagi qand miqdorini (insulinni) keskin oshirmaydigan, yengil va xushbo‘y qahva.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "general",
+    "milk_boost"
+   ],
+   "ingredients": [
+    "1 finjon (shot) espresso, yarim stakan ko‘pirtirilgan suli suti, 1 choy qoshiq dolchin kukuni."
+   ],
+   "instructions": [
+    "Espresso ustiga issiq va quyuq ko‘pikli suli sutini qo‘shing, ustidan mo‘l-ko‘l dolchin seping."
+   ]
+  },
+  "e39c8f3d-f865-4de6-8f5d-d3f60a5624c8": {
+   "title": "Avokado va tuxumli pyure\n(8 oy+)",
+   "description": "Pishirishni talab qilmaydigan (tuxumdan tashqari), ertalab onalarning joniga oro kiradigan tabiiy kuch-quvvat uyg‘unligi.\n\nFoydasi: Ikki ajoyib \"superfood\" birgalikda. Avokadodagi Omega yog‘lari va tuxum sarig‘idagi xolin moddasi aql va xotira rivojiga bevosita ta’sir qiladi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Qattiq pishirilgan tuxum sarig‘i: 1 dona",
+    "Avokado: to‘rtdan bir qismi (juda yumshoq pishgani)",
+    "Ona suti yoki formula."
+   ],
+   "instructions": [
+    "Avokado va pishirilgan tuxum sarig‘ini idishda sanchqi bilan yaxshilab ezing. Juda quyuq bo‘lsa, bir necha tomchi ona suti yoki iliq suv qo‘shib, massani yumshating."
+   ]
+  },
+  "dc9362af-ecb7-4bac-9ddf-d84bf1aa2f2d": {
+   "title": "Pushti pantera pastasi(1 yosh+)",
+   "description": "Rangi bilan bolalarni maftun etadigan, pishloq va lavlagili qiziqarli pasta.\n\nFoydasi: Lavlagi qon aylanishini qo‘llab-quvvatlaydi, pishloq esa suyaklar rivoji uchun kalsiy manbaidir.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Chaqaloqlar uchun makaron (kichik o‘lchamli): 3-4 osh qoshiq",
+    "Lavlagi pyuresi (qaynatilgan va ezilgan): 1 osh qoshiq",
+    "Lor pishlog‘i (sho‘r) yoki krem-pishloq: 1 osh qoshiq"
+   ],
+   "instructions": [
+    "Makaronni butunlay yumshaguncha suvda qaynatib, suzib oling. Issiq makaron ustiga lavlagi pyuresi va pishloqni qo‘shib, yaxshilab aralashtiring. Makaron darhol yorqin pushti rangga kiradi."
+   ]
+  },
+  "732a8d20-182d-45bb-9171-f30bbd4cd142": {
+   "title": "Sog‘lom naggets(1 yosh+)",
+   "description": "Do‘kondagi naggetslarga sog‘lom, pechda pishirilgan va qo‘shimchalarsiz muqobil.\n\nFoydasi: Sof tovuq oqsili va suli kepagidagi tolalar tufayli mukammal quvvat manbaidir.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tovuq ko‘krak go‘shti: 100 qr (blenderda maydalangan yoki juda mayda to‘g‘ralgan)",
+    "Suli uni (yoki maydalangan suli yormasi): Botirib olish uchun",
+    "Tuxum: 1 dona (ko‘pirtirilgan)",
+    "Shirin qizil qalampir kukuni (paprika - achchiq emas)."
+   ],
+   "instructions": [
+    "Tovuq go‘shtiga juda oz paprika qo‘shib, yaxshilab aralashtiring. Kichik bo‘laklarga ajratib, avval tuxumga, keyin suli uniga botiring. Yog‘li qog‘oz ustida, pechda 180 darajada 20 daqiqa pishiring."
+   ]
+  },
+  "ec6cb7d9-6570-4500-be81-64329c0e4a07": {
+   "title": "Kamalak rizotto(1 yosh+)",
+   "description": "Chaynash ko‘nikmasini rivojlantiradigan, rang-barang donlarga boy to‘yimli tushlik.\n\nFoydasi: Uglevodlar, oqsillar va vitaminlar bir qozonda uyg‘unlashgan eng muvozanatli taomdir.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Dumaloq guruch: 2 osh qoshiq (yaxshilab yuvilgan)",
+    "Sabzi, yashil no‘xat, makkajo‘xori: Har biridan 1 osh qoshiq (juda mayda to‘g‘ralgan)",
+    "Suyakli yoki tovuq bulyoni: 1 stakan",
+    "Sariyog‘: Juda oz."
+   ],
+   "instructions": [
+    "Sabzavotlar va guruchni bulyonda butunlay yumshab, suvini shimib olguncha va bo‘tqa (rizotto) holiga kelguncha past olovda pishiring. Oxirida sariyog‘ qo‘shib aralashtiring."
+   ]
+  },
+  "269778e2-5f1d-4cd3-b820-0a1898c7e6ea": {
+   "title": "Coco-Espresso Chill",
+   "description": "Tropik ta’mlarni yoqtiradiganlar uchun salqinlantiruvchi, shakarsiz shoh asar.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 finjon (shot) espresso, 1 stakan tabiiy kokos suvi (coconut water), ko‘p muz."
+   ],
+   "instructions": [
+    "Stakanga muzlarni soling, ustidan kokos suvini quying. Ikki xil rangli qatlam hosil bo‘lishi uchun eng oxirida espressoni sekin quying. Aralashtirib iching."
+   ]
+  },
+  "b53735ed-6abe-4b68-b652-4d5d294d5553": {
+   "title": "Kabachki kotletlari(2 yosh+)",
+   "description": "Sabzavotlarni pankeyk/kotlet ko‘rinishida taqdim etib, bolaning e’tiborini tortadigan mazali taom.\n\nFoydasi: Kabachki (qovoq) va ko‘katlar tolaga boy bo‘lib, ichak faoliyatini tartibga soladi. Juda yumshoq bo‘lgani uchun chaynash oson.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Kabachki: 1 dona (qirg‘ichdan chiqarilgan va suvi butunlay siqilgan)",
+    "Tuxum: 1 dona",
+    "Oq pishloq yoki tvorog: 1 osh qoshiq",
+    "Butun donli bug‘doy uni: 1-2 osh qoshiq."
+   ],
+   "instructions": [
+    "Suvi siqilgan kabachkini tuxum, pishloq va un bilan aralashtirib, quyuq xamir tayyorlang.",
+    "Yog‘langan issiq tovaga qoshiq yordamida kichik doiralar shaklida soling.",
+    "Har ikki tomonini tillarang-yashil tusga kirguncha pishiring."
+   ]
+  },
+  "b83ce14e-ac83-4541-a4e8-d4b8fa3d176e": {
+   "title": "Malinali ayiqcha kosasi(2 yosh+)",
+   "description": "Tamaddi yoki nonushta uchun muzqaymoq ta’mini beruvchi qiziqarli smuzi kosasi.\n\nFoydasi: Suzma qatiq probiotiklarga boy (immunitetni mustahkamlaydi), rezavor mevalar esa antioksidantlar manbaidir.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Suzma qatiq: 3 osh qoshiq",
+    "Muzlatilgan malina yoki qulupnay: 1 hovuch",
+    "Banan: Yarim dona (qatiq bilan aralashtirish uchun)",
+    "Bezash uchun: Banan bo‘laklari, golubika (ayiqcha yuzini yasash uchun)."
+   ],
+   "instructions": [
+    "Qatiq, yarim banan va muzlatilgan rezavor mevalarni blenderda bir xil, quyuq krem holiga kelguncha aralashtiring.",
+    "Kosaga quying.",
+    "Ikki bo‘lak banandan ayiqchaning quloqlarini, golubikadan esa ko‘zlari va burnini yasang."
+   ]
+  },
+  "fdd5be2e-2d65-464b-84d3-084f637ea16e": {
+   "title": "Foydali qora mocha",
+   "description": "Qahva va shokolad ta’midan bir paytda bahramand bo‘lishni istaganlar uchun siropsiz muqobil.",
+   "category": "Foydali ichimliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 fincan espresso, 1 choy qoshiq sof kakao, 1 choy qoshiq asal, 1 stakan issiq bodom suti."
+   ],
+   "instructions": [
+    "Issiq espressoda kakao va asalni eriting. Ustiga issiq, ko‘pirtirilgan bodom sutini qo‘shing."
+   ]
+  },
+  "b7520537-fae1-481b-9bea-7a9cf32f15f7": {
+   "title": "Kulib turgan pitsalar(2 yosh+)",
+   "description": "2 yoshli bola tayyorlash jarayonida sizga yordam bera oladigan qiziqarli va foydali pitsa.\n\nFoydasi: Uyda tayyorlangani uchun qo‘shimchalarsiz. Bolada ovqatga nisbatan ijobiy hissiy munosabat shakllanishiga (kulib turgan yuz shakli orqali) yordam beradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Mini butun donli pita noni (yoki kichik lavash): 1 dona",
+    "Tomat pastasi (uyda tayyorlangan, shakarsiz): 1 osh qoshiq",
+    "Mozzarella pishlog‘i: 2 osh qoshiq qirg‘ichdan chiqarilgan",
+    "Qora zaytun halqalari (ko‘zlar uchun) va qizil bulg‘or qalampiri bo‘lagi (og‘iz uchun)."
+   ],
+   "instructions": [
+    "Pita noni ustiga tomat pastasini surting.",
+    "Ustidan mo‘l qilib pishloq seping.",
+    "Zaytun va qalampirdan \"kulib turgan yuz\" yasang. Pishloq eriguncha pechda (taxminan 5-7 daqiqa) pishiring."
+   ]
+  },
+  "7cc7ac25-0798-468f-82c0-6764afc0cd4f": {
+   "title": "Quyoncha pechenyesi (2 yosh+)",
+   "description": "Shakarsiz, biskvit o‘rnini bosadigan qarsildoq va juda foydali uy pechenyesi.\n\nFoydasi: Kletchatkaga boy suli va vitaminli sabzi bolaning hazm qilishini yaxshilaydi. Do‘kon biskvitlariga eng foydali muqobildir.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Suli yormasi: 1 stakan",
+    "Sabzi: 1 dona (qirg‘ichdan chiqarilgan)",
+    "Olma pyuresi: Yarim stakan (olmani pishirib ezing, u shirin ta’m beradi)",
+    "Mayiz (juda mayda to‘g‘ralgan): 1 osh qoshiq",
+    "Sariyog‘: 1 osh qoshiq (eritilgan)."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni chuqur idishda yaxshilab qoring.",
+    "Qo‘lingiz bilan kichik, yassi pechenyelar yasang (yoki hayvoncha shaklidagi qoliplardan foydalaning).",
+    "170 darajali pechda 15-20 daqiqa, biroz qizarguncha pishiring."
+   ]
+  },
+  "e6d245f4-3ec1-4650-92fc-b0b877ba16f0": {
+   "title": "Mini burgerlar (3 yosh+)",
+   "description": "Fastfudga bo‘lgan ishtiyoqni kamaytiradigan, 100% uyda tayyorlangan foydali mini burgerlar.\n\nFoydasi: Uyda qiymalangan sof go‘sht oqsil va temirga, butun donli bug‘doy noni esa B vitaminiga boy.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Butun donli bug‘doy unidan tayyorlangan mini burger nonlari: 2 dona",
+    "Yog‘siz mol go‘shti qiymasi: 100 qr",
+    "Golland pishlog‘i: 1-2 yupqa tilim",
+    "Pomidor va salat bargi",
+    "Zaytun moyi."
+   ],
+   "instructions": [
+    "Qiymadan non kattaligidagi yupqa va yassi kotletlar tayyorlab, tovada ozroq yog‘da qovuring. Nonlar orasiga kotlet, pishloq, pomidor va salat bargini solib, mini burgerlarni yig‘ing."
+   ]
+  },
+  "705fa4d6-de4b-4c10-bc6c-46c0cc463f11": {
+   "title": "Pechda pishirilgan sabzavot tayoqchalari (3 yosh+)",
+   "description": "Klassik kartoshka frisi o‘rnini bosadigan rang-barang va qarsildoq sabzavot tayoqchalari.\n\nFoydasi: Shirin kartoshka va sabzi A vitamini manbaidir. Qovurilmagani sababli tarkibida transyog‘lar yo‘q.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Shirin kartoshka (batat): 1 dona",
+    "Sabzi: 1 katta dona",
+    "Zaytun moyi: 1 osh qoshiq",
+    "Juda oz tuz va shirin qizil qalampir kukuni (paprika)."
+   ],
+   "instructions": [
+    "Sabzavotlarni bir xil o‘lchamdagi uzunchoq tayoqchalar (fri) shaklida kesing. Zaytun moyi va ziravorlar bilan aralashtirib, pergament qog‘oz ustiga tering. 200 darajada 20-25 daqiqa, chetlari qarsildoq bo‘lguncha pishiring."
+   ]
+  },
+  "36867e84-3459-4059-a668-70f297e35576": {
+   "title": "Ayiqcha tost (3 yosh+)",
+   "description": "Nonushtada yuzingizga tabassum ulashadigan, tayyorlash uchun atigi 2 daqiqa ketadigan mazali taom.\n\nFoydasi: Yeryong‘oq pastasi miya uchun foydali yog‘lar va oqsilga boy. Banan esa energiya beradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Kvadrat shakldagi butun donli bug‘doy noni: 1 bo‘lak (qovurilgan)",
+    "Yeryong‘oq pastasi: 1 osh qoshiq",
+    "Banan: 3 ta dumaloq bo‘lak",
+    "Golubika: 3 dona."
+   ],
+   "instructions": [
+    "Qovurilgan non ustiga yeryong‘oq pastasini surting. Ikki bo‘lak bananni quloq shaklida yuqori chetlariga, yana birini esa burun qismiga qo‘ying. Golubikalardan ko‘zlar va burun uchini yasang."
+   ]
+  },
+  "ecfe7439-ff4e-4167-ab7a-c45d91fa903c": {
+   "title": "Sirli bog‘ maffinlari (3 yosh+)",
+   "description": "Ichiga pishloq va sabzavotlar solingan, parkka yoki safarga olib ketish uchun juda qulay tuzli maffinlar.\n\nFoydasi: Tarkibida shakar yo‘q. Bola qo‘lida ushlab, ozoda yeya oladigan darajada qulay, tarkibi esa minerallar va kalsiyga boy.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tuxum: 2 dona",
+    "Qatiq: 2 osh qoshiq",
+    "Sabzi (qirg‘ichdan chiqarilgan) va brokkoli (juda mayda to‘g‘ralgan): Yarim stakan",
+    "Oq pishloq: 2 osh qoshiq (maydalangan)",
+    "Butun donli bug‘doy uni va qabartma kukuni."
+   ],
+   "instructions": [
+    "Suyuq masalliqlarni ko‘pirtirib aralashtiring. Sabzavotlar va pishloqni qo‘shing. Un va qabartma kukunini solib, quyuq maffin xamiri tayyorlang. Maffin qoliplarida 180 darajada 20-25 daqiqa, ko‘tarilib, usti qizarguncha pishiring."
+   ]
+  },
+  "0a108d2a-2483-496b-8459-a35dba184122": {
+   "title": "UFO pitsalari (4 yosh+)",
+   "description": "Xamir o‘rniga qo‘ziqorin qalpoqchalaridan tayyorlanadigan, glutensiz va qiziqarli mini pitsalar.\n\nFoydasi: Portobello yoki yirik shampinyon qo‘ziqorinlari D vitaminiga boy. Bu bolalarni qo‘ziqorin ta’miga o‘rgatishning ajoyib usuli.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yirik shampinyon qo‘ziqorinlari: 4-5 dona (bandlari olib tashlangan)",
+    "Tomat pastasi: 2 osh qoshiq",
+    "Mozzarella pishlog‘i: 3 osh qoshiq (qirg‘ichdan chiqarilgan)",
+    "Makkajo‘xori yoki zaytun."
+   ],
+   "instructions": [
+    "Qo‘ziqorinlarning ichiga tomat pastasini surting. Ustiga pishloq va makkajo‘xori donalarini soling. 180 darajali pechda pishloq erib, qo‘ziqorinlar yumshaguncha (taxminan 15 daqiqa) pishiring."
+   ]
+  },
+  "bb88a8d3-5c23-4d20-8927-32de71e35006": {
+   "title": "Tonggi kamalak(4 yosh+)",
+   "description": "Mini pankeyklar va mevalarni birlashtirgan, qo‘lda yeyish uchun ideal nonushta.\n\nFoydasi: Turli mevalar turli vitaminlar demakdir. Shampurlar bolalarning motorikasini rivojlantiradi va ovqatga qiziqishini oshiradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Mini pankeyklar: Tanga kattaligida pishirilgan",
+    "Qulupnay, banan halqalari, kivi bo‘laklari.",
+    "Uchi to‘mtoq yog‘och cho‘plar."
+   ],
+   "instructions": [
+    "Shampurlarga navbat bilan mini pankeyk, qulupnay, banan, yana pankeyk va kivi tering. Yoniga asal yoki pekmezga botirib yeyish uchun kichik idish qo‘ying."
+   ]
+  },
+  "94068d6c-ec4c-4f36-a84e-fdd44212d93d": {
+   "title": "Baliq kotletlari(4 yosh+)",
+   "description": "Baliqni yoqtirmaydigan bolalar ham ko‘rinishiga qiziqib, ishtaha bilan yeydigan Omega-3 manbai.\n\nFoydasi: Losos miya faoliyati va xotirani mustahkamlaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "ingredients": [
+    "Losos filesi: 100 qr (qaynatilgan, mayda bo‘laklarga ajratilgan)",
+    "Kartoshka: 1 dona (pishirilgan va ezilgan)",
+    "Shivit: Juda oz (to‘g‘ralgan)"
+   ],
+   "instructions": [
+    "Ezilgan kartoshka, baliq va shivitni yaxshilab aralashtirib qoring. Xamirni pergament qog‘oz ustida yoyib, yulduz shaklidagi qolip bilan kesing. Tovada yoki pechda biroz qizarguncha pishiring."
+   ]
+  },
+  "f234c77f-4a04-4526-9394-c82a1bc713cf": {
+   "title": "Galaktik makaron(5 yosh+)",
+   "description": "Yulduzlar va kapalaklarni eslatuvchi shakldagi makaronlar bilan tayyorlangan qaymoqli pishloqli kosmik taom.\n\nFoydasi: Turli rangdagi sabzavotlar (no‘xat, makkajo‘xori) vitaminlar miqdorini oshiradi, shakarsiz yogurt va pishloqli sous esa oshqozonga og‘irlik qilmaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Glyutensiz kapalak shaklidagi makaron (Farfalle) yoki rangli makaron: 1 stakan",
+    "Yashil no‘xat va makkajo‘xori: Har biridan 1 osh qoshiq",
+    "Cherri pomidor: 3-4 dona (ikkiga bo‘lingan)",
+    "Krem-pishloq (yoki suzma yogurt): 1 osh qoshiq."
+   ],
+   "instructions": [
+    "Makaronni to‘liq yumshaguncha qaynatib, suvini suzing (ozgina suvini olib qoling). Issiq makaronga krem-pishloq, no‘xat, makkajo‘xori va pomidorni qo‘shib aralashtiring. Pishloq erib, qaymoqsimon sous hosil qiladi."
+   ]
+  },
+  "f005b3c3-1f74-4e4e-bab7-c8bc5e03c14a": {
+   "title": "Kokosli matcha rohati",
+   "description": "Terini ichdan namlantiradigan mayin va tropik iliq ichimlik.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "1 choy qoshiq matcha kukuni, 1 stakan kokos suti, 1 chimdim vanil ekstrakti."
+   ],
+   "instructions": [
+    "Kokos sutini qozonda bug‘ chiqquncha qizdiring (qaynatmang). Unga vanil va matchani qo‘shib, maxsus ko‘pirtirgich (yoki kapuchinator) yordamida ko‘pirtiring."
+   ]
+  },
+  "e8f085b1-b955-46e7-bd90-9c504005461c": {
+   "title": "Yalpizli matcha frappe",
+   "description": "Shakarli \"frappuccino\"larning 100% tabiiy, kofeinsiz va salqinlantiruvchi muqobili.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "1 choy qoshiq matcha, 1 dona muzlatilgan banan, 3-4 dona yangi yalpiz bargi, yarim stakan suli suti."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderda muzqaymoqqa o‘xshash quyuq tuzilma (frappe) hosil bo‘lguncha yuqori tezlikda aralashtiring."
+   ]
+  },
+  "692f8fd9-2a1f-4e6e-90a2-3450b555119d": {
+   "title": "Ziravorli kakao",
+   "description": "Moddalar almashinuvini \"faollashtiradigan\" va qon aylanishini tezlashtiradigan qadimiy retsept.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "1 osh qoshiq sof kakao, 1 chimdim dolchin, juda oz (pichoq uchida) achchiq qizil qalampir kukuni (kayen), 1 stakan issiq funduq suti, asal."
+   ],
+   "instructions": [
+    "Issiq sutga kakao va ziravorlarni qo‘shib, to‘liq eriguncha aralashtiring. Achchiq va shirin ta’mlarning muvozanati sizni isitadi."
+   ]
+  },
+  "4232cb2b-2881-4a46-bce4-1d4070cda869": {
+   "title": "Sehrli bog‘cha kekslari(4 yosh+)",
+   "description": "Parkka, bog‘chaga yoki yo‘lga olib ketish uchun ichiga mo‘l-ko‘l pishloq va sabzavotlar yashirilgan tuzli kekslar.\n\nFoydasi: Shakarsiz. Kalsiy (pishloq) va vitaminlar (sabzavotlar) birgalikda, qo‘lda ushlash oson.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tuxum: 2 dona",
+    "Qatiq: 2 osh qoshiq",
+    "Sabzi (qirg‘ichdan chiqarilgan) va qovoqcha (suvi siqilgan): Yarim stakan",
+    "Oq pishloq: 2 osh qoshiq",
+    "Un va qabartma kukuni."
+   ],
+   "instructions": [
+    "Suyuq masalliqlar va pishloqni ko‘pirtirib aralashtiring. Sabzavotlarni qo‘shing. Oxirida un va qabartma kukunini solib, muffin qoliplarida 180 darajada 20-25 daqiqa pishiring."
+   ]
+  },
+  "aa773f2c-e3f1-47eb-9a0d-5723d6301a77": {
+   "title": "Sehrli eliksir(5 yosh+)",
+   "description": "Nonushta yoki desert uchun shaffof stakanda qatlam-qatlam tayyorlanadigan, ko‘zni quvontiruvchi mazali taom.\n\nFoydasi: Probiotikli qatiq hazm qilishni me’yorlashtiradi, rezavorlar esa immunitet tizimini mustahkamlaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Qatiq (uy qatig‘i yoki suzma): 1 stakan",
+    "Malina yoki qulupnay pyuresi: 2 osh qoshiq",
+    "Shakarsiz granola yoki suli/yong‘oq aralashmasi: 2 osh qoshiq"
+   ],
+   "instructions": [
+    "Bolalar yoqtiradigan shaffof stakanga avval qatiq, keyin meva pyuresi, undan so‘ng granolani qatlam-qatlam soling. Ustini yana qatiq qatlami bilan yoping va eng ustiga yangi meva qo‘ying."
+   ]
+  },
+  "2e2ead49-bcaf-4338-94ee-467ad791737c": {
+   "title": "Zen limonadi",
+   "description": "Yoz kunlarida metabolizmni tezlashtiradigan va shishni kamaytiradigan gazli matcha.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 choy qoshiq matcha kukuni, yarimta limon sharbati, 1 choy qoshiq agava siropi yoki asal, 1 stakan mineral (gazli) suv, yalpiz barglari, muz."
+   ],
+   "instructions": [
+    "Matchani ozroq suvda asal va limon bilan yaxshilab aralashtirib eriting. Stakanga muz va yalpiz solib, ustidan matcha aralashmasi va mineral suvni quying."
+   ]
+  },
+  "fe1e3f3e-8c82-4bdd-8cb3-2212d66df10f": {
+   "title": "Qarsildoq baliq bo‘lakchalari(5 yosh+)",
+   "description": "Hatto baliq yeyishni yoqtirmaydigan 5 yoshli bolalarni ham maftun etadigan tillarang va qarsildoq baliq kubiklari.\n\nFoydasi: Oq baliq fosfor, yod va oson o‘zlashtiriladigan oqsil manbai hisoblanadi. Aqliy rivojlanish uchun juda foydali.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Oq baliq filesi (masalan, treska, levrek): 150 qr (kubik shaklida to‘g‘ralgan va suyaksiz)",
+    "Tuxum: 1 dona",
+    "Shakarsiz makkajo‘xori donchalari (kornfleks) yoki suxari kukuni: Botirib olish uchun"
+   ],
+   "instructions": [
+    "Makkajo‘xori donchalarini qo‘lingiz bilan maydalang. Baliq kubiklarini avval ko‘pirtirilgan tuxumga, so‘ng makkajo‘xori uvog‘iga botiring. Pergament qog‘oz ustida pechda 180 darajada 15-20 daqiqa pishiring."
+   ]
+  },
+  "2f4202ed-6015-4318-b0d0-ac257ccd10af": {
+   "title": "Qarsildoq olma sendvichlari(5 yosh+)",
+   "description": "Non o‘rniga olma bo‘laklaridan tayyorlanadigan, maktab yoki bog‘chadan keyin yeyish uchun quvvatga boy tamaddi.\n\nFoydasi: Olmadagi pektin tolalari va yeryong‘oq pastasidagi oqsil uzoq vaqt to‘qlik hissini beradi hamda tabiiy shirinlikka bo‘lgan ehtiyojni qondiradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Katta olma: 1 dona (o‘rtasi o‘yib olingan, halqa shaklida kesilgan)",
+    "Yeryong‘oq yoki bodom pastasi (shakarsiz): 2 osh qoshiq",
+    "Mayiz yoki shokolad tomchilari (orasiga solish uchun)."
+   ],
+   "instructions": [
+    "Ikki olma halqasidan biriga yeryong‘oq pastasini surting, ustiga mayizlarni terib chiqing va ikkinchi halqani sendvich kabi ustidan yoping. Bola ushlashiga qulay bo‘lishi uchun o‘rtasidan kesishingiz mumkin."
+   ]
+  },
+  "75bdd91d-7aed-40d8-9434-8c6ca0198e19": {
+   "title": "Kardamonli Cold Brew",
+   "description": "Jig‘ildon qaynashiga sabab bo‘lmaydigan, kislotaliligi juda past va hazm qilishni yengillashtiradigan salqin qahva.",
+   "category": "Foydali ichimliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 stakan Cold Brew (sovuq damlangan qahva), 1-2 dona kardamon (maydalangan), muz, xohishga ko‘ra ozgina o‘simlik suti."
+   ],
+   "instructions": [
+    "Qahvani damlayotganda (yoki suzayotganda) ichiga maydalangan kardamon donalarini soling. Ko‘p muz bilan torting. Kardamon qahvaga juda \"cool\" va o‘ziga xos ifor beradi."
+   ]
+  },
+  "da26b0d3-2e6e-4084-9b19-693dd01e5caa": {
+   "title": "Maka va kakaoli quvvat ichimligi",
+   "description": "Gormonlar muvozanatini saqlashga va jismoniy chidamlilikni oshirishga yordam beradigan, ayollar uchun foydali ichimlik.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "1 osh qoshiq kakao, 1 choy qoshiq maka (maca) kukuni, 1 stakan suli suti, 1 dona finik (pyure holida)."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderda (issiq yoki sovuq sut bilan) bir xil massa hosil bo‘lguncha yaxshilab aralashtiring."
+   ]
+  },
+  "1c2d3ae5-c16d-47ab-acbd-eff8a82af792": {
+   "title": "Sog‘lom Nutella ichimligi",
+   "description": "Shirinlikka bo‘lgan kuchli ishtiyoqni bosadigan, ammo tarkibida umuman shakar bo‘lmagan issiq va mazali ichimlik.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "1 osh qoshiq kakao, 1 osh qoshiq tabiiy funduq pastasi (shakarsiz), 1 stakan issiq sut."
+   ],
+   "instructions": [
+    "Funduq pastasi va kakaoni issiq sutga solib, blender yoki ko‘pirtirgich yordamida butunlay bir xil massa hosil bo‘lguncha aralashtiring."
+   ]
+  },
+  "1eca4e78-4116-42f3-b2fa-fb5f13684582": {
+   "title": "No‘xat bilan to‘ldirilgan batat",
+   "description": "Sportchilar va sog‘lom ovqatlanadiganlar uchun uzoq vaqt to‘qlik beradigan murakkab uglevodlarga boy klassik tushlik.\n\nFoydasi: Batat kaliyga, no‘xat esa o‘simlik oqsiliga boy. Bu haqiqiy quvvat manbai.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Shirin kartoshka (batat): 2 dona (o‘rtacha kattalikda)",
+    "Pishirilgan no‘xat (konservalanganini ham ishlatish mumkin): 1 stakan",
+    "Taxini (kunjut pastasi): 2 osh qoshiq",
+    "Limon sharbati, zaytun moyi, zira."
+   ],
+   "instructions": [
+    "Batatlarni sanchqi bilan bir necha joyidan teshib, duxovkada (200 daraja) butunlay yumshaguncha pishiring (taxminan 40 daqiqa). Duxovkadan olib, o‘rtasidan kesing va ichini biroz ezing. Ustiga ziravorlangan no‘xatni solib, taxini-limon sousini quying."
+   ]
+  },
+  "836bc22f-3cef-4e15-bfd2-c877bc04f782": {
+   "title": "Gulkaramli palov",
+   "description": "Keto va kam uglevodli parhezlarning qiroli. Guruchni 100% almashtiradigan va mutlaqo semirtirmaydigan retsept.\n\nFoydasi: Bir porsiyasida atigi 40-50 kaloriya bor. Oddiy guruchli palovdan keyin kuzatiladigan og‘irlik va uyquchanlik hissini keltirib chiqarmaydi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Gulkaram: Yarim bosh",
+    "Sabzi va yashil no‘xat: Har biridan 2 osh qoshiq",
+    "Piyoz: 1 kichik bosh",
+    "Zaytun moyi va sariyog‘."
+   ],
+   "instructions": [
+    "Gulkaramni qirg‘ichdan o‘tkazing yoki blenderda guruch donalaridek mayda qilib maydalang. Tovada piyoz, sabzi va no‘xatni ozgina yog‘da qovuring. Ustiga gulkaram «guruchi»ni qo‘shib, aralashtirgan holda 5-6 daqiqa davomida (juda yumshab ketishiga yo‘l qo‘ymay) sote qiling."
+   ]
+  },
+  "c8f59b0c-497f-493b-9f85-c45a2583194f": {
+   "title": "Qaymoqli brokkoli va chedar sho‘rvasi",
+   "description": "Amerikaning \"Panera Bread\" restoranlar tarmog‘i tufayli mashhur bo‘lgan, dunyodagi eng mazali qishki sho‘rvalardan biri.\n\nFoydasi: Uy sharoitida tayyorlanganda kalsiy va kletchatkaga boy, suyaklarni mustahkamlovchi haqiqiy sho‘rvaga aylanadi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Brokkoli: 300 gr (juda mayda to‘g‘ralgan)",
+    "Sabzi: 1 dona (qirg‘ichdan chiqarilgan)",
+    "Chedar (Cheddar) pishlog‘i: 1 stakan (qirg‘ichdan chiqarilgan)",
+    "Tovuq yoki sabzavot bulyoni: 3 stakan",
+    "Qaymoq yoki sut: Yarim stakan."
+   ],
+   "instructions": [
+    "Sabzi va brokkolini bulyonda yumshaguncha pishiring (blenderda qisman maydalang, ichida mayda bo‘laklar qolsin). Sutni/qaymoqni qo‘shing. Olovdan olib, issiq sho‘rvaga qirg‘ichdan chiqarilgan chedar pishlog‘ini soling va eriguncha aralashtiring."
+   ]
+  },
+  "a5af4229-e447-48cc-a6f1-6146ae4643a0": {
+   "title": "Meksikacha kinoa salati",
+   "description": "G‘arb dunyosida \"Meal Prep\" (oldindan tayyorlangan taom) madaniyatining eng mashhur namunasi.\n\nFoydasi: Rang-barang, to‘yimli va ko‘p miqdordagi o‘simlik oqsiliga boy. Muzlatkichda 3 kun yangi holatda saqlanadi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Kinoa (pishirilgan): 1 stakan",
+    "Qora loviya (konservalangan): Yarim stakan",
+    "Makkajo‘xori: Yarim stakan",
+    "Cherri pomidor va qizil piyoz (to‘g‘ralgan)",
+    "Yangi kashnich, laym sharbati, zaytun moyi, xalapeno qalampiri (xohishga ko‘ra)."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni katta idishda aralashtiring. Zaytun moyi, laym sharbati va kashnichdan tayyorlangan sousni ustidan quyib, yaxshilab aralashtiring."
+   ]
+  },
+  "64fd534a-ee42-4741-ad1d-2c83048a4d5e": {
+   "title": "Avokadoli brauni",
+   "description": "Sariyog‘ o‘rniga avokado, bug‘doy uni o‘rniga bodom uni ishlatiladigan ajoyib \"shakarsiz brauni\".\n\nFoydasi: Un va rafinatsiyalangan shakarsiz tayyorlanadi. Avokado shirinlikka ajoyib namlik va mayin tuzilish beradi, ammo uning ta’mi umuman sezilmaydi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Avokado: 1 ta katta (to‘liq pishgan, pyure qilingan)",
+    "Bodom uni: Yarim stakan",
+    "Tabiiy kakao (shakarsiz): Yarim stakan",
+    "Tuxum: 2 ta",
+    "Asal yoki zarang siropi: Stakanning uchdan bir qismi."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderda butunlay bir xil, silliq shokoladli krem hosil bo‘lguncha aralashtiring. Yog‘li qog‘oz solingan kvadrat pishiriq qolipiga quyib, 175 darajada 25-30 daqiqa pishiring. Iliqligida bo‘laklarga bo‘ling."
+   ]
+  },
+  "c93f159c-1f03-4766-a5e7-3350ed9505bf": {
+   "title": "Avokadoli tuxum qayiqchalari",
+   "description": "Mayonezsiz tayyorlanadigan, ketogenik va oqsilga boy mazali taom.\n\nFoydasi: Tuxum oqidagi oqsil va avokadodagi Omega yog‘lari ong xiralashuvini kamaytirib, quvvatni tiklaydi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Qattiq qaynatilgan tuxum: 3 ta",
+    "Avokado: Yarimta (pishgan)",
+    "Zig‘ir urug‘i yoki chia: Juda oz (ustiga sepish uchun)",
+    "Limon sharbati, tuz, qora murch."
+   ],
+   "instructions": [
+    "Tuxumlarni uzunasiga ikkiga bo‘ling. Sarig‘ini olib, avokado, limon sharbati va ziravorlar bilan birga bir xil krem holiga kelguncha ezing. Ushbu yashil kremni yana tuxum oqlarining ichiga soling. Ustiga zig‘ir urug‘i seping."
+   ]
+  },
+  "0160a14d-2320-433d-b86d-228b4fe1defc": {
+   "title": "Bodom, zig‘ir va chiali sharchalar",
+   "description": "Pishirmasdan tayyorlanadigan, mashg‘ulot oldidan yoki qahva bilan iste’mol qilish uchun mos qarsildoq quvvat sharchalari.\n\nFoydasi: Uchta supermahsulotning (bodom, zig‘ir, chia) kuchini o‘zida birlashtiradi. Tez quvvat beradi, kletchatka va minerallarga boy.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Bodom pastasi (shakarsiz): Yarim stakan",
+    "Zig‘ir urug‘i (maydalangan): 2 osh qoshiq",
+    "Chia urug‘i: 1 osh qoshiq",
+    "Suli yormasi: Yarim stakan",
+    "Asal yoki agava siropi: 2 osh qoshiq."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni bir idishda qorib, yopishqoq massa hosil qiling. Qo‘lingiz bilan yong‘oq kattaligidagi sharchalar yasab, muzlatkichda sovuting. Cho‘ntak yoki sumkada olib yurish uchun juda qulay."
+   ]
+  },
+  "9ef68860-bc8e-4727-a11e-6e5469f057ef": {
+   "title": "Bodomli keto keks",
+   "description": "O‘zini yengil va xuddi bulutlar ustida yurgandek his qilishni istaganlar uchun uglevodsiz keks.\n\nFoydasi: Tarkibida glyuten, bug‘doy uni va shakar yo‘q. Ayniqsa, parhez paytida shirinlikka bo‘lgan ishtiyoqni xavfsiz tarzda qondiradi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Bodom uni: 1.5 stakan",
+    "Tuxum: 3 dona",
+    "Bodom suti: Stakanning to‘rtdan biri",
+    "Qirg‘ichdan chiqarilgan limon po‘sti yoki vanil.",
+    "Steviya yoki juda oz asal (shirin ta’m berish uchun)."
+   ],
+   "instructions": [
+    "Suyuq masalliqlarni ko‘pirtiring, ustiga bodom unini qo‘shib aralashtiring. Keks (maffin) qoliplariga quyib, 175 darajada 20 daqiqa davomida qizarguncha pishiring."
+   ]
+  },
+  "e067e84f-8a22-4eb0-b5fa-1ae3ae37b95f": {
+   "title": "Yunoncha suvlaki va tzatziki",
+   "description": "O‘rta Yer dengizi parhezining qiroli: sof oqsil, probiotiklar va foydali yog‘lar.\n\nFoydasi: Tzatziki (qatiq va bodringli sous) ichak mikroflorasini asraydi. Tovuq go‘shti esa oqsil bilan ta’minlab, moddalar almashinuvini tezlashtiradi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Tovuq ko‘krak go‘shti: 200 qr (kub shaklida to‘g‘ralgan, limon va timyan bilan marinadlangan)",
+    "Suzma qatiq (yunon yogurti): 4 osh qoshiq",
+    "Bodring: 1 dona (qirg‘ichdan chiqarilgan va suvi to‘liq siqilgan)",
+    "Yangi uzilgan yalpiz, sarimsoq, zaytun moyi."
+   ],
+   "instructions": [
+    "Tovuq bo‘laklarini yog‘och sixlarga terib, tovada yoki grilda qovuring. Tzatziki sousi uchun qatiq, suvi siqilgan bodring, sarimsoq, yalpiz va zaytun moyini aralashtiring. Tovuqli sixlarni ushbu salqin sousga botirib iste’mol qiling."
+   ]
+  },
+  "3a7875bd-9bf1-4570-9e1d-e51c83452192": {
+   "title": "Fransuzcha ratatuy",
+   "description": "Janubiy Fransiyaning rang-barang, butunlay vegan va ko‘rinishi mukammal sabzavotli taomi.\n\nFoydasi: Minimum kaloriya, maksimum kletchatka va vitaminlar. Barcha sabzavotlarning o‘z sharbatida sekin pishishi ularning ozuqaviy qiymatini saqlaydi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Kabachki, baqlajon, pomidor: Har biridan 2 dona (bir xil o‘lchamda, juda yupqa halqa shaklida kesilgan)",
+    "Tomat pastasi va sarimsoq (tagiga solinadigan sous uchun).",
+    "Provans o‘tlari (timyan, rozmarin), zaytun moyi."
+   ],
+   "instructions": [
+    "Dumaloq pech qolipining tubiga pomidorli sousni yoying. To‘g‘ralgan sabzavotlarni ranglar ketma-ketligida (baqlajon, pomidor, kabachki) qolip chetidan markaziga qarab spiral shaklida tering. Ustidan o‘tlar va moy seping, ustini yopgan holda 190 darajada 45 daqiqa pishiring."
+   ]
+  },
+  "35ab7142-651b-45ae-b7e5-7c6acf7f3691": {
+   "title": "Yapon miso sho‘rvasi",
+   "description": "Yaponlarning uzoq umr ko‘rish siri bo‘lgan, ertalab yoki kechqurun ichiladigan yengil fermentlangan sho‘rva.\n\nFoydasi: Miso pastasi (fermentlangan soya) ichak salomatligi uchun eng kuchli probiyotiklardan biridir. Ovqat hazm qilish tizimini qayta tiklaydi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Miso pastasi: 2 osh qoshiq (Osiyo mahsulotlari do‘konlarida topiladi)",
+    "Tofu pishlog‘i: 100 qr (kichik kubik shaklida to‘g‘ralgan)",
+    "Ko‘k piyoz: 2 poya (to‘g‘ralgan)",
+    "Iliq suv yoki sabzavotli bulyon: 2 stakan."
+   ],
+   "instructions": [
+    "Suvni qaynash darajasiga yetkazib, olovdan oling (misoni qaynatish mumkin emas, aks holda probiyotiklar nobud bo‘ladi). Miso pastasini suvda eriting. Ustiga tofu kubiklari va ko‘k piyozni solib, darhol issiqligida iching."
+   ]
+  },
+  "34a3ec68-3237-4337-99bf-0423a1d5cd88": {
+   "title": "Losos va kartoshka (1 yosh+)",
+   "description": "Hatto baliqni yoqtirmaydigan bolalar ham ishtaha bilan yeydigan yumshoq baliq kotletlari.\n\nFoydasi: Losos miya va ko‘z rivojlanishi uchun zarur bo‘lgan Omega-3 yog‘ kislotalari bilan ta’minlaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "umumiy",
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Losos (syomga) filesi: 50 qr (bug‘da pishirilgan va mayda bo‘laklarga ajratilgan)",
+    "Kartoshka: 1 dona (qaynatilgan va ezilgan)",
+    "Yangi ukrop: Juda oz (to‘g‘ralgan)",
+    "Zaytun moyi."
+   ],
+   "instructions": [
+    "Ezilgan kartoshka, suyaksiz va mayda bo‘laklarga ajratilgan baliq hamda ukropni aralashtiring. Kichik kotletlar yasab, tovada juda oz miqdordagi zaytun moyida har ikki tomonini yengil qizartiring."
+   ]
+  },
+  "90e2d20f-198b-4417-92bb-ccab337989e6": {
+   "title": "Suzma yogurt va chia bouli (1 yosh+)",
+   "description": "Tamaddi yoki yengil kechki ovqat uchun probiyotik va kalsiyga boy taom.\n\nFoydasi: Yogurt ichak mikroflorasini boyitadi, chia urug‘i esa Omega-3 bilan ta’minlaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Suzma yogurt yoki yunon yogurti: 2-3 osh qoshiq",
+    "Chia urug‘i: Yarim choy qoshiq (oldindan 1 qoshiq suvda ivitilgan)",
+    "Malina yoki qulupnay: 2-3 dona (ezib pyure qilingan)",
+    "Asal: Choy qoshiq uchida (1 yoshdan katta bolalar uchun xavfsiz)."
+   ],
+   "instructions": [
+    "Yogurt, ivitilgan chia urug‘i, ezilgan meva pyuresi va juda oz asalni bir kosada aralashtiring. Rangi bilan bolangizni qiziqtiradigan mazali desert hosil bo‘ladi."
+   ]
+  },
+  "78095524-c00e-403c-92d3-bbc3e2809be1": {
+   "title": "Makaronli salat (2 yosh+)",
+   "description": "Turli rang va teksturalar 2 yoshli bolaning motorikasini rivojlantirib, qiziqishini oshiradi.\n\nFoydasi: To‘yimli uglevodlar va sabzavot tolalari uyg‘unlashgan. Yozning issiq kunlari uchun ajoyib salqin tushlik.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Rangli fusilli makaron (sabzavotli): 1 stakan (qaynatilgan)",
+    "Yashil no‘xat va makkajo‘xori: Har biridan 1 osh qoshiq (qaynatilgan)",
+    "Sabzi: Yarim dona (juda mayda kub shaklida to‘g‘ralgan va pishirilgan)",
+    "Qatiq (sous uchun): 1 osh qoshiq."
+   ],
+   "instructions": [
+    "Iliq makaron, no‘xat, makkajo‘xori va sabzini bir kosada aralashtiring.",
+    "Ustiga qatiq qo‘shib, ta’mlarni uyg‘unlashtiring.",
+    "O‘z qo‘li bilan yeyishi uchun oldiga qo‘ying."
+   ]
+  },
+  "945b98d6-f61a-4b5b-a323-8398d17756d0": {
+   "title": "Shirin kartoshkali vafli (2 yosh+)",
+   "description": "Pankeykdan zerikkan bolalar uchun qarsildoq va qo‘lda ushlashga qulay vafli.\n\nFoydasi: Shirin kartoshka qondagi shakar miqdorini me’yorlashtiradi va bolaga uzoq vaqt davomida energiya beradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Shirin kartoshka pyuresi: Yarim stakan",
+    "Tuxum: 1 dona",
+    "Un (butun donli bug‘doy yoki suli uni): 2 osh qoshiq",
+    "Dolchin: Juda oz."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni bir idishda aralashtirib, xamir tayyorlang.",
+    "Vafli pishirgichni ozgina yog‘lang va xamirni ichiga quying.",
+    "Tilla rangga kirib, chetlari qarsildoq bo‘lguncha pishiring. (Agar vafli pishirgich bo‘lmasa, tovada pankeyk kabi pishirishingiz ham mumkin)."
+   ]
+  },
+  "4660742b-6a15-4753-92bd-b4b19340e368": {
+   "title": "Uy sharoitidagi naggetslar (4 yosh+)",
+   "description": "Fast-fudga bo‘lgan ishtiyoqni kamaytiradigan, pechda pishirilgan va 100% uy sharoitida tayyorlangan qarsildoq naggetslar.\n\nFoydasi: Sof tovuq oqsili mushaklarni mustahkamlaydi, suli qoplamasi esa hazmni yengillashtirib, uzoq vaqt to‘qlik hissini beradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tovuq ko‘krak go‘shti: 150 qr (kub shaklida to‘g‘ralgan)",
+    "Suli uni yoki maydalangan suli: Botirib olish uchun",
+    "Tuxum: 1 dona",
+    "Shirin qizil qalampir kukuni (paprika) va ozgina tuz."
+   ],
+   "instructions": [
+    "Tovuq bo‘laklarini avval ko‘pirtirilgan tuxumga, so‘ng ziravorli suli uniga botiring. Pergament qog‘oz solingan pech patnisiga terib, 190 darajada 20 daqiqa davomida qizarguncha pishiring."
+   ]
+  },
+  "a8a21b7d-5abe-40d9-9276-a772ffab8e70": {
+   "title": "Olmali donatlar(4 yosh+)",
+   "description": "Xamir va shakarsiz tayyorlanadigan, tayyorlash jarayoni bolalar uchun o‘yinga aylanadigan donatlar.\n\nFoydasi: Olmadagi kletchatka hazm qilishni tartibga soladi, yeryong‘oq pastasi esa to‘yimli oqsil bilan ta’minlaydi.",
+   "category": "Qo‘shimcha oziq-ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yirik olma: 1-2 dona (qizil yoki yashil)",
+    "Yeryong‘oq pastasi yoki shokoladli funduq pastasi (shakarsiz): 2 osh qoshiq",
+    "Shokolad tomchilari, kokos qirindisi, maydalangan yong‘oq."
+   ],
+   "instructions": [
+    "Olmani halqa shaklida kesib, o‘rtasidagi urug‘li qismini aylana shaklida olib tashlang (donat shakli hosil bo‘lsin). Ustiga yeryong‘oq pastasini surting. Farzandingizga o‘z \"g‘ildiraklarini\" shokolad tomchilari va kokos bilan bezashiga ruxsat bering."
+   ]
+  },
+  "cb924e7b-c487-4059-bef0-ff92f0b6b771": {
+   "title": "Ismaloqli vaflilar(5 yosh+)",
+   "description": "Yashil rangi bilan bolalar e’tiborini tortadigan va ertalab ularga \"ajdarho kuchi\" beradigan vaflilar.\n\nFoydasi: Ismaloq temirga, suli esa kletchatkaga boy. Bolani uzoq vaqt to‘q tutadi va kamqonlikning oldini olishga yordam beradi.",
+   "category": "Qo‘shimcha oziq-ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yosh ismaloq: 1 katta hovuch",
+    "Tuxum: 1 dona",
+    "Suli uni (yoki butun donli bug‘doy uni): 3-4 osh qoshiq",
+    "Sut: Yarim stakan",
+    "Zaytun moyi: 1 choy qoshiq."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderda butunlay bir xil va yorqin yashil xamir hosil bo‘lguncha aralashtiring. Vafli pishirgichni (yoki tovani) yog‘lab, xamirni quying va qarsildoq bo‘lguncha pishiring. Ustiga ozgina asal quyishingiz mumkin."
+   ]
+  },
+  "37d5dece-84c4-4e64-b999-a935190306a7": {
+   "title": "Oltin xazina kekslari(5 yosh+)",
+   "description": "Tuxumni yoqtirmaydigan bolalarning ham ko‘nglidan joy oladigan, ichida rang-barang \"xazinalar\" yashiringan tuxumli kekslar.\n\nFoydasi: Tuxum sarig‘idagi xolin moddasi xotirani mustahkamlaydi. Unsiz va glyutensiz bo‘lgani uchun juda yengil.",
+   "category": "Qo‘shimcha oziq-ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tuxum: 3 dona",
+    "Rangli bulg‘or qalampirlari (qizil va yashil): 2 osh qoshiq (juda mayda to‘g‘ralgan)",
+    "Pishloq (qirg‘ichdan chiqarilgan): 2 osh qoshiq",
+    "Tuz va ozgina sut."
+   ],
+   "instructions": [
+    "Tuxumlarni sut va tuz bilan ko‘pirtiring. Unga to‘g‘ralgan qalampir va pishloqni qo‘shing. Keks (maffin) qoliplarini biroz yog‘lab, aralashmani ularga taqsimlang. 180 darajali pechda ko‘tarilib, qizarguncha (15-20 daqiqa) pishiring."
+   ]
+  },
+  "b1385dc4-14fe-4718-ab79-5558f3683c72": {
+   "title": "Kinoa bilan to‘ldirilgan rangli bulg‘or qalampiri",
+   "description": "O‘rta Yer dengizi oshxonasining mashhur taomi — guruch o‘rniga kinoa ishlatilgan, oqsilga boy variant.\n\nFoydasi: Rangli bulg‘or qalampiri C vitaminiga boy. Pechda pishirilganda kinoa teksturasi bilan mukammal uyg‘unlashadi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Bulg‘or qalampiri (qizil, sariq): 3-4 dona (o‘rtasidan bo‘lingan, ichi tozalangan)",
+    "Kinoa (pishirilgan): 1.5 stakan",
+    "Qiyma yoki qo‘ziqorin: 150 qr (qovurilgan)",
+    "Tomat pastasi, pishloq (ustiga sepish uchun)."
+   ],
+   "instructions": [
+    "Pishirilgan kinoani qovurilgan qiyma/qo‘ziqorin va tomat pastasi bilan aralashtiring. Qalampirlarning ichiga soling. Pech idishiga joylab, qalampirlar yumshaguncha 180 darajada pishiring. Pechdan olishga 5 daqiqa qolganida ustiga pishloq seping."
+   ]
+  },
+  "14732b3b-b0ea-4f4d-834e-0f74c755ed69": {
+   "title": "Avokado va bodomli smuzi",
+   "description": "Ham yengil tamaddi, ham mazali desert o‘rnida ichish mumkin bo‘lgan, nihoyatda kremsimon smuzi.\n\nFoydasi: Avokado yog‘i va bodom tarkibidagi E vitamini hujayralar darajasida yoshartiruvchi ta’sir ko‘rsatadi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Avokado: Yarim dona (to‘liq yumshagan)",
+    "Bodom suti: 1 stakan",
+    "Chia urug‘i: 1 choy qoshiq (ustiga sepish uchun)",
+    "Asal: 1 choy qoshiq",
+    "Muz bo‘laklari."
+   ],
+   "instructions": [
+    "Avokado, bodom suti, muz va asalni blenderda butunlay silliq, \"ipakdek\" massa hosil bo‘lguncha aralashtiring. Stakanga quyib, ustiga chia urug‘ini seping."
+   ]
+  },
+  "29f853dc-e269-415a-b733-458329d3f202": {
+   "title": "Protein Cloud — tvorogli pankeyk",
+   "description": "Shirinlikka bo‘lgan istakni sog‘lom tarzda qondiradigan, unsiz va oqsilga boy pishiriq.\n\nFoydasi: Oqsilning yuqori miqdori uzoq vaqt to‘qlik hissini beradi va mushak massasini saqlashga yordam beradi. Un bo‘lmagani uchun qondagi shakar miqdorini keskin oshirmaydi.",
+   "category": "nonushta",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Tvorog (kam yog‘li): 100 qr",
+    "Tuxum: 1 dona",
+    "Suli uni: 2 osh qoshiq",
+    "Vanil va dolchin.",
+    "Dasturxonga tortish uchun: Qatiq yoki asal."
+   ],
+   "instructions": [
+    "Tvorogni tuxum bilan yaxshilab ezing. Ustiga suli uni va ziravorlarni qo‘shib, xamir tayyorlang. Yog‘siz tovada kichik doiralar shaklida ikki tomonini ham qizartirib pishiring."
+   ]
+  },
+  "b2be2ad1-ce46-48a9-9075-79f7864e5758": {
+   "title": "Kurka go‘shti va kinoali do‘lma",
+   "description": "Oddiy do‘lmaning uglevodsiz, vitaminlarga boy va rang-barang turi.\n\nFoydasi: C vitamini (rangli bulg‘or qalampiri) va oqsilning (kurka go‘shti) muvozanati terida kollagen ishlab chiqarilishini oshiradi.",
+   "category": "tushlik",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Rangli bulg‘or qalampiri: 2 dona (o‘rtasidan bo‘lingan, qayiqcha shaklida)",
+    "Maydalangan kurka go‘shti (yoki yog‘siz mol go‘shti): 150 gr",
+    "Kinoa (pishirilgan): 2 osh qoshiq",
+    "Pomidor sousi."
+   ],
+   "instructions": [
+    "Maydalangan go‘shtni kinoa va pomidor sousi bilan tovada chala pishirib oling. Qalampir qayiqchalarining ichiga solib, qalampirlar yumshaguncha pechda pishiring."
+   ]
+  },
+  "cb10f111-6a9d-4baa-9dd6-af7ef8393f1e": {
+   "title": "Matcha limonadi",
+   "description": "Kofeinsiz, yurak urishini tezlashtirmasdan tetiklik beradigan va antioksidantlarga boy ikki rangli ichimlik.\n\nFoydasi: Matcha choyi qahva kabi birdaniga tetiklashtirib, keyin charchatmaydi, balki kun bo‘yi bir maromda bardamlik beradi.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Matcha kukuni: 1 choy qoshiq (iliq suvda ko‘pirtirilgan)",
+    "Yangi siqilgan limon sharbati: Stakanning uchdan bir qismi",
+    "Agava siropi yoki asal: 1 osh qoshiq",
+    "Suv va ko‘p miqdorda muz."
+   ],
+   "instructions": [
+    "Stakanga muz soling. Ustidan limon sharbati, asal va suvni aralashtirib quying. Eng oxirida ko‘pirtirilgan yashil matchani sekin qo‘shing (shunda stakanda ikki rang – pastda sariq, tepada yashil rang hosil bo‘ladi)."
+   ]
+  },
+  "ae635663-e33c-479a-970a-94bd85e39010": {
+   "title": "Yong‘oq va bananli tungi suli bo‘tqasi",
+   "description": "Ertalab ko‘ngil aynishidan qiynaladiganlar uchun ideal, salqin va yengil tanlov",
+   "category": "nonushta",
+   "ingredients": [
+    "Suli yormasi - 4 osh qoshiq",
+    "Sut - 1 stakan",
+    "Banan - yarim dona",
+    "Yong‘oq - 2 dona",
+    "Asal - 1 choy qoshiq"
+   ],
+   "instructions": [
+    "Kechqurun suli yormasi, sut va asalni aralashtiring",
+    "Muzlatkichda saqlang",
+    "Ertalab banan va yong‘oq qo‘shing"
+   ]
+  },
+  "62b8e0b6-2240-42de-af0b-ccfb0617485b": {
+   "title": "Qovurilgan batat",
+   "description": "Kletchatka va murakkab uglevodlarga boy, uzoq vaqt to‘q tutadigan o‘ziga xos ta’m.\n\nFoydasi: Batat tarkibidagi kletchatka va vitaminlar insulin rezistentligini boshqarishga yordam beradi hamda shirinlikka bo‘lgan ishtiyoqni kamaytiradi.",
+   "category": "nonushta",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Batat: 1 dona o‘rtacha (mayda kub shaklida to‘g‘ralgan)",
+    "Qizil piyoz: Yarim dona",
+    "Ismaloq: 1 hovuch",
+    "Zaytun moyi, tuz, qora murch."
+   ],
+   "instructions": [
+    "Tovada moyni qizdiring, batat va piyozni yumshaguniga qadar qovuring. To‘liq pishgach, ismaloqni qo‘shib, 1 daqiqa aralashtiring. Yoniga 1 tilim pishloq qo‘shib iste’mol qilsangiz, juda mazali bo‘ladi."
+   ]
+  },
+  "94c6eeab-3fdb-44c0-af09-f90065cd1128": {
+   "title": "Brokkoli va ismaloqli sho‘rva",
+   "description": "Ertalab qorinda og‘irlik va dam bo‘lmasdan uyg‘onish uchun eng yaxshi \"suyuq\" kechki ovqat.\n\nFoydasi: Organizmdan toksinlarni chiqarishga, jigar va ichaklarni muloyimlik bilan tozalashga yordam beradigan yashil detoks sho‘rva.",
+   "category": "kechki ovqat",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Brokkoli: 200 qr",
+    "Ismaloq: 1 hovuch",
+    "Piyoz, sarimsoq (ozgina).",
+    "Bodom suti yoki qaymoq: 2 osh qoshiq"
+   ],
+   "instructions": [
+    "Brokkoli va piyozni suvda yumshaguniga qadar pishiring. Olovdan olishga 1 daqiqa qolganida ismaloqni qo‘shing. Barchasini blenderdan o‘tkazing, ustiga sut/qaymoq qo‘shib, kremsimon holga kelgunicha aralashtiring. Qovurilgan qovoq urug‘i bilan dasturxonga torting."
+   ]
+  },
+  "51c68a19-8648-4032-8605-7b8cccf441b0": {
+   "title": "Limonli tovuq va sarsabil",
+   "description": "Bitta tovada tayyorlanadigan, oddiy eshitilsa-da, juda \"hashamatli\" ko‘rinadigan parhezbop taom.\n\nFoydasi: Tovuq ko‘krak go‘shti oqsilga boy, sarsabil esa buyraklar faoliyatini rag‘batlantirib, organizmdagi ortiqcha suyuqlikni (shishni) chiqarishga yordam beradigan supermahsulotdir.",
+   "category": "kechki ovqat",
+   "ingredients": [
+    "Tovuq ko‘krak go‘shti: 150 qr (yupqa qilib urilgan yoki to‘g‘ralgan)",
+    "Sarsabil: 1 bog‘lam",
+    "Limon: 1 dona (yarmining sharbati, yarmi tilimlangan)",
+    "Zaytun moyi, sarimsoq kukuni."
+   ],
+   "instructions": [
+    "Keng tovada tovuq go‘shtining har ikki tomonini moyda qizartirib pishiring. Tovuq pishishiga yaqin sarsabil va limon tilimlarini tovaga qo‘shib, 5-7 daqiqa birga qovuring. Ustidan limon sharbatini siqib, dasturxonga torting."
+   ]
+  },
+  "c940ec18-0208-46aa-8361-f2f2f659b141": {
+   "title": "Baqlajon va pishloqli qatlama",
+   "description": "Uglevodsiz va yengil muqobil — soxta lazanya",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Baqlajon — 2 dona",
+    "Pomidor — 2 dona",
+    "Oq pishloq — 60 gr",
+    "Rayhon"
+   ],
+   "instructions": [
+    "Baqlajonlarni yupqa qilib to‘g‘rang va duxovkada yumshating",
+    "Ustiga pishloq, pomidor va rayhon soling",
+    "Pishloq eriguncha duxovkada pishiring"
+   ]
+  },
+  "e7b8a04c-a4fa-4769-bbd9-6735976b643a": {
+   "title": "Duxovkada dolchinli shaftoli",
+   "description": "Juda yengil, muzqaymoqdek zavq beradigan, ammo kaloriyasi deyarli yo‘q desert.\n\nFoydasi: Shaftoli tolaga boy (hazm qilishni tezlashtiradi), dolchin esa qondagi qand miqdorini muvozanatda saqlashga yordam beradi.",
+   "category": "Foydali shirinliklar",
+   "ingredients": [
+    "Shaftoli: 2 dona (ikkiga bo‘lingan, danagi olib tashlangan)",
+    "Dolchin: 1 choy qoshiq",
+    "Yong‘oq yoki pekan yong‘og‘i: maydalangan",
+    "Suzma qatiq (dasturxonga tortish uchun)."
+   ],
+   "instructions": [
+    "Shaftoli bo‘laklarini duxovka idishiga tering, o‘rtasiga dolchin va yong‘oq seping. 180 darajada 15-20 daqiqa, yumshaguncha pishiring. Iliq holida o‘rtasiga bir qoshiq suzma qatiq solib iste’mol qiling."
+   ]
+  },
+  "a8859019-9d72-40f8-8956-b03d1cfb1e34": {
+   "title": "Qovoq va kokos suti\n(8 oy+)",
+   "description": "Chaqaloqning o‘zgacha tropik ta’mlar bilan ilk tanishuvi. Ipakdek mayin tuzilishga ega.\n\nFoydasi: Qovoq A vitaminiga boy bo‘lib, ko‘z salomatligini qo‘llab-quvvatlaydi. Kokos suti esa sigir sutidan xoli yaxshi muqobil bo‘lib, foydali yog‘larni o‘z ichiga oladi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Qovoq: 1 bo‘lak (po‘sti archilgan, kub shaklida to‘g‘ralgan)",
+    "Kokos suti (qutidagi ichimlik turi emas, quyuq pazandachilik turi): 2 osh qoshiq."
+   ],
+   "instructions": [
+    "Qovoqni bug‘da yumshaguncha pishiring. Ustiga kokos sutini qo‘shib, blenderdan o‘tkazing. Juda to‘yimli va mazali sho‘rva hosil bo‘ladi."
+   ]
+  },
+  "e130e1c4-d49f-409f-844e-56265cb3eca7": {
+   "title": "Qirolicha bo‘tqasi — Qirolichaning tongi",
+   "description": "Xurmo va yong‘oq energiyasi bilan suli yormasining sutni ko‘paytiruvchi xususiyati uyg‘unligi. Prolaktin stimulyatori.",
+   "category": "nonushta",
+   "ingredients": [
+    "Suli yormasi: 3 osh qoshiq",
+    "Sut: 1 stakan",
+    "Xurmo: 2-3 dona (danaksiz)",
+    "Yong‘oq: 1 hovuch",
+    "Dolchin: bir chimdim"
+   ],
+   "instructions": [
+    "Sut va suli yormasini qozonda o‘rtacha olovda aralashtirib pishiring",
+    "Quyuqlashguncha (5-7 daqiqa) aralashtirishda davom eting",
+    "Olovdan olib, to‘g‘ralgan xurmoni qo‘shing",
+    "Ustidan yong‘oq va dolchin seping",
+    "Issiq holda iste’mol qiling — sutni ko‘paytirish uchun eng kuchli nonushta"
+   ]
+  },
+  "b862ae81-6647-4306-8478-b02653620beb": {
+   "title": "Yashil detoks eliksiri",
+   "description": "Jigar va terini tozalaydigan, hujayralarni yangilaydigan super «yashil sharbat».\n\nFoydasi: Selderey poyasi husnbuzarlarni kamaytiradi va hazm qilish tizimini yaxshilaydi. Och qoringa ichilganda ajoyib detoks ta’sirini beradi.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Selderey poyasi: 2 dona",
+    "Yashil olma: 1 dona",
+    "Yangi zanjabil: Juda kichik bir bo‘lak",
+    "Limon sharbati: Yarimta limon."
+   ],
+   "instructions": [
+    "Selderey, olma va zanjabilni sharbat chiqargichdan o‘tkazing. Ustiga limon siqib, vitaminlari yo‘qolmasidan darhol iching."
+   ]
+  },
+  "869b95b1-b2fc-4999-9364-14adff9736c9": {
+   "title": "Nok va olxo‘ri pyuresi\n(6 oy+)",
+   "description": "Qo‘shimcha ovqatga o‘tishda tez-tez uchraydigan qabziyat muammosiga tabiiy va mazali yechim.\n\nFoydasi: Olxo‘ri va nok ichaklar faoliyatini yaxshilaydi, suli esa chaqaloqni uzoq vaqt to‘q tutadi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Chaqaloqlar uchun suli uni (yoki blenderda maydalangan suli): 1-2 osh qoshiq",
+    "Nok: Yarimta",
+    "Quritilgan qora olxo‘ri: 2 dona (oldindan issiq suvda yumshatilgan)"
+   ],
+   "instructions": [
+    "Sulini suvda pishirib, bo‘tqa holiga keltiring. Nokni bug‘da yumshating. Olxo‘ri va nokni blenderdan o‘tkazib, suli bo‘tqasiga qo‘shing."
+   ]
+  },
+  "a31f99ac-a31e-4008-9edc-552e80b3f2f2": {
+   "title": "Brokkoli va pishloqli sharchalar(1 yosh+)",
+   "description": "Brokkolini sevdirishning eng qarsildoq va qiziqarli usuli.\n\nFoydasi: Brokkoli immunitetni mustahkamlovchi C vitaminiga boy, pishloq va tuxum esa sifatli oqsil bilan ta’minlaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Brokkoli: 4-5 dona gulchasi (bug‘da pishirilgan va juda mayda to‘g‘ralgan)",
+    "Tuxum: 1 dona",
+    "Gollandiya pishlog‘i yoki Mozzarella: 2 osh qoshiq (qirg‘ichdan chiqarilgan)",
+    "Butun donli bug‘doy uni yoki suxari kukuni: 1 osh qoshiq"
+   ],
+   "instructions": [
+    "To‘g‘ralgan brokkolini tuxum, pishloq va un bilan aralashtiring. Qo‘lingiz bilan kichik silindr (yoki tayoqcha) shaklini bering. 180 darajali pechda 15 daqiqa, usti qizarguncha pishiring."
+   ]
+  },
+  "0d1f8dc7-ed50-4792-a9b8-aaed4334e5c7": {
+   "title": "Sunshine Yolk - Tuxum va kartoshka",
+   "description": "Tuxum sarig‘i miya va ko‘z rivojlanishi uchun muhim (8 oy+)",
+   "category": "chaqaloq_ovqati",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Tuxum sarig‘i - 1 dona",
+    "Kartoshka - 1 kichik dona",
+    "Ona suti/formula"
+   ],
+   "instructions": [
+    "Kartoshka pyuresini tayyorlang",
+    "Pishirilgan tuxum sarig‘ini ezib, qo‘shing",
+    "Sut bilan yumshating"
+   ]
+  },
+  "f09a3c1e-ec4c-4eb2-b2d1-b699bce46612": {
+   "title": "Milky Way Cookies",
+   "description": "Dunyoga mashhur Lactation Cookies pechenyesining sog‘lom varianti. Suli va zig‘ir urug‘i prolaktin miqdorini oshiradi.",
+   "category": "soglom_shirinliklar",
+   "ingredients": [
+    "Suli: 1.5 stakan",
+    "Sariyog‘: 50 qr",
+    "Asal: 3 osh qoshiq",
+    "Tuxum: 1 dona",
+    "Zig‘ir urug‘i: 2 osh qoshiq",
+    "Shokolad tomchilari: ixtiyoriy"
+   ],
+   "instructions": [
+    "Sariyog‘ni eritib, asal va tuxum bilan ko‘pirtiring",
+    "Suli va zig‘ir urug‘ini qo‘shib aralashtiring",
+    "Istakka ko‘ra shokolad tomchilarini qo‘shing",
+    "Qoshiq yordamida qog‘oz ustiga doiralar shaklida joylashtiring",
+    "175°C da 12-15 daqiqa pishiring - kuniga 2-3 dona iste’mol qiling"
+   ]
+  },
+  "47c56e28-7e74-45f9-b91a-7cf55a196ffc": {
+   "title": "Zig‘ir urug‘li lavashda avokado",
+   "description": "Atigi 2 ta masalliqdan tayyorlanadigan, unsiz va glyutensiz «vegan lavash».\n\nFoydasi: Uglevod miqdori deyarli nolga teng. Tarkibi faqat kletchatka va suvdan iborat bo‘lib, ichak salomatligi uchun «supurgi» vazifasini bajaradi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Zig‘ir urug‘i (maydalangan): 1 stakan",
+    "Qaynoq suv: 1 stakan",
+    "Ichiga solish uchun: Avokado bo‘laklari, ismaloq."
+   ],
+   "instructions": [
+    "Qaynoq suvni zig‘ir urug‘i uni ustiga quyib, xamir qoring (quyuqlashib, jelesimon holga keladi). Uni ikki qog‘oz orasida lavashdek yoying va quruq tovada har ikki tomonini pishiring. Ichiga avokado va ismaloq solib, o‘rama (wrap) qiling."
+   ]
+  },
+  "ac0ef609-013d-4d24-9387-eb2cabfeb421": {
+   "title": "Bananli Nice Cream",
+   "description": "Sut va shakarsiz, faqat mevalardan tayyorlanadigan eng foydali muzqaymoq",
+   "category": "soglom_shirinliklar",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Banan - 2 dona (muzlatilgan)",
+    "Kakao - 1 choy qoshiq",
+    "Qulupnay - 3 dona"
+   ],
+   "instructions": [
+    "Muzlatilgan bananlarni blenderda kremsimon holga keltiring",
+    "Kakao/qulupnay qo‘shing",
+    "Darhol dasturxonga torting"
+   ]
+  },
+  "2554217b-8b4f-4356-a70a-64c6a62b32e2": {
+   "title": "Avokado va tuxumli brusketta",
+   "description": "Foliy kislotasi va foydali yog‘larga boy bo‘lib, homila miyasining rivojlanishiga yordam beradi",
+   "category": "nonushta",
+   "ingredients": [
+    "Butun donli bug‘doy noni - 2 bo‘lak",
+    "Avokado - yarim dona",
+    "Tuxum - 1 dona",
+    "Limon sharbati - 1 choy qoshiq",
+    "Kunjut"
+   ],
+   "instructions": [
+    "Avokadoni ezing, limon sharbati va tuz qo‘shing",
+    "Qovurilgan non ustiga avokadoni surting",
+    "Qattiq qaynatilgan tuxumni to‘g‘rab, ustiga joylang",
+    "Kunjut seping"
+   ]
+  },
+  "1dc5ff7a-9167-45eb-a742-f8830d930c68": {
+   "title": "Banan va suli qo‘shilgan unsiz pankeyk",
+   "description": "Tarkibidagi tolalar hazm qilishni yaxshilaydi, banan esa kaliy manbaidir",
+   "category": "nonushta",
+   "ingredients": [
+    "Tuxum - 2 dona",
+    "Banan - 1 dona",
+    "Suli yormasi - yarim stakan",
+    "Dolchin - ta’bga ko‘ra"
+   ],
+   "instructions": [
+    "Bananni ezing",
+    "Tuxum qo‘shib, ko‘pirtiring",
+    "Suli uni va dolchin qo‘shing",
+    "Tovada ikki tomonini ham pishiring"
+   ]
+  },
+  "2f2b9ad9-7480-4118-bad9-8cd23415bda5": {
+   "title": "Duxovkada soxta do‘lma",
+   "description": "Qovurilmagani uchun jig‘ildon qaynashiga sabab bo‘lmaydi, tolaga boy sabzavotlar esa hazm qilishni osonlashtiradi",
+   "category": "tushlik",
+   "ingredients": [
+    "Qovoqcha - 2 dona",
+    "Mol go‘shti qiymasi - 150 qr",
+    "Piyoz - 1 dona",
+    "Pomidor - 1 dona",
+    "Pishloq - 30 qr"
+   ],
+   "instructions": [
+    "Sabzavotlarni ikkiga bo‘lib, ichini o‘yib oling",
+    "Go‘shtni piyoz va pomidor bilan pishiring",
+    "Masalliqni sabzavotlar ichiga soling",
+    "180°C da 25-30 daqiqa pishiring",
+    "Ustidan pishloq seping"
+   ]
+  },
+  "67463cf4-ba39-4257-b387-541018594397": {
+   "title": "Duxovkada pishirilgan oq baliq",
+   "description": "Oq baliqlar kam yog‘li bo‘lib, oshqozonga og‘irlik qilmaydi. Oqsil manbai",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Oq baliq - 1 file",
+    "Limon - 2 bo‘lak",
+    "Dafna yaprog‘i - 1",
+    "Zaytun moyi",
+    "Qora murch"
+   ],
+   "instructions": [
+    "Baliqqa moy surting",
+    "Ustiga limon va dafna yaprog‘ini qo‘ying",
+    "Qog‘ozga o‘rab, 180°C da 25 daqiqa pishiring"
+   ]
+  },
+  "9194dcd7-0593-42ea-be60-36f52bfc96b4": {
+   "title": "Yashil yasmiqli iliq salat",
+   "description": "Foliy kislotasi va kletchatka manbai, yengil kechki ovqat",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Yashil yasmiq — yarim stakan",
+    "Sabzi — 1 dona",
+    "Ismaloq — 1 hovuch",
+    "Limon sharbati",
+    "Zaytun moyi"
+   ],
+   "instructions": [
+    "Yasmiqni pishiring",
+    "Sabzi va ismaloq qo‘shing",
+    "Limon sharbati va moydan tayyorlangan sous bilan aralashtiring"
+   ]
+  },
+  "71de5174-6da5-4ea3-85bb-14cde99315cd": {
+   "title": "Duxovkada pishirilgan behili shirinlik",
+   "description": "Behi ko‘ngil aynishini bartaraf etuvchi eng kuchli mevalardan biridir",
+   "category": "soglom_shirinliklar",
+   "ingredients": [
+    "Behi — 2 dona",
+    "Olma — 1 dona",
+    "Dolchin tayoqchasi — 1 dona",
+    "Chinnigul — 3 dona",
+    "Asal, yong‘oq"
+   ],
+   "instructions": [
+    "Behilarni ikkiga bo‘lib, ichiga qirg‘ichdan chiqarilgan olma soling",
+    "Dolchin va chinnigul qo‘shing",
+    "180°C haroratda 50 daqiqa pishiring",
+    "Ustidan asal quying"
+   ]
+  },
+  "a816a450-3561-451f-b7de-9d70662f2972": {
+   "title": "«Bodom zavqi» smuzisi",
+   "description": "Bodom suti va xurmoning tabiiy shirinligi. Omega-3 va kalsiyga boy bo‘lib, ona sutining yog‘liligini oshiradi.",
+   "category": "soglom_ichimliklar",
+   "ingredients": [
+    "Bodom: 1 hovuch (kechqurun ivitilgan, po‘sti archilgan)",
+    "Sut: 1 stakan",
+    "Banan: 1 dona",
+    "Asal: 1 choy qoshiq"
+   ],
+   "instructions": [
+    "Bodomni kechqurun suvga solib qo‘ying, ertalab po‘stini arching",
+    "Bodomni sut bilan birga blenderda maydalanmaguncha aralashtiring",
+    "Banan va asal qo‘shib, yana blenderdan o‘tkazing",
+    "Sovuq yoki xona haroratida iching",
+    "Har kuni 1 stakan ichish ona sutini ko‘paytirishga yordam beradi"
+   ]
+  },
+  "a447ee30-24f2-4732-9007-6f2676858ba8": {
+   "title": "Mevali chia pudingi",
+   "description": "Omega-3 yog‘ kislotalariga boy. Qabziyatdan aziyat chekayotganlar uchun juda mos.",
+   "category": "nonushta",
+   "ingredients": [
+    "Chia urug‘i - 2 osh qoshiq",
+    "Sut - 1 stakan",
+    "Asal - 1 choy qoshiq",
+    "Yangi mevalar"
+   ],
+   "instructions": [
+    "Chia urug‘i, asal va sutni aralashtiring",
+    "Muzlatkichda 4 soat saqlang",
+    "Mevalarni qo‘shib, iste’mol qiling"
+   ]
+  },
+  "04df0cb9-27f0-4232-a5c9-a3da1994f4f1": {
+   "title": "Sabzavotli maffin-omletlar",
+   "description": "Oqsil va vitaminlar birgalikda. Ishlaydigan ayollar uchun qulay tanlov",
+   "category": "nonushta",
+   "ingredients": [
+    "Tuxum - 3 dona",
+    "Sut - 2 osh qoshiq",
+    "Qizil bulg‘or qalampiri - yarim dona",
+    "Ko‘k piyoz - bir necha poya",
+    "Oq pishloq - 50 g"
+   ],
+   "instructions": [
+    "Tuxumlarni sut bilan ko‘pirtiring",
+    "Qalampir, piyoz va pishloqni qo‘shing",
+    "Maffin qoliplariga quying",
+    "180°C da 15-20 daqiqa pishiring"
+   ]
+  },
+  "004578f9-a884-48b5-a55a-c91cee0ace44": {
+   "title": "Tovuqli sabzavotli sho‘rva",
+   "description": "Haqiqiy vitaminlar manbai, kechasi chanqoq keltirib chiqarmaydi",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Tovuq soni - 1 dona",
+    "Sabzi - 1 dona",
+    "Selderey - 1 dona",
+    "Vermishel - 1 osh qoshiq",
+    "Petrushka"
+   ],
+   "instructions": [
+    "Tovuqni qaynatib, tolalarga ajrating",
+    "Sabzi va seldereyni qo‘shing",
+    "Vermishel soling",
+    "Petrushka va limon qo‘shing"
+   ]
+  },
+  "880d9940-72c5-4091-be98-b624aa0ce63b": {
+   "title": "Ko‘ngil aynishiga qarshi shot",
+   "description": "Ertalabki ko‘ngil aynishini to‘xtatish uchun eng samarali vosita",
+   "category": "sog‘lom_ichimliklar",
+   "ingredients": [
+    "Zanjabil sharbati - 1 choy qoshiq",
+    "Limon sharbati - 1 osh qoshiq",
+    "Olma sharbati - 2 osh qoshiq"
+   ],
+   "instructions": [
+    "Kichik stakanda aralashtiring",
+    "Ertalab och qoringa iching"
+   ]
+  },
+  "aef368fe-083d-4b68-9edb-d6de124b4d49": {
+   "title": "Kinoa va sabzavotli boul",
+   "description": "Rang-barang, to‘yimli va butunlay o‘simlik mahsulotlaridan tayyorlangan quvvat manbai.\n\nFoydasi: Kinoa qondagi qand miqdorini keskin oshirmaydigan murakkab uglevod, no‘xat esa o‘simlik oqsili va fitoestrogenlarga (ayol gormonlarini tartibga soladi) boy.",
+   "category": "tushlik",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Kinoa: Yarim stakan (pishirilgan)",
+    "Shirin kartoshka (batat): 1 dona (kub shaklida to‘g‘ralgan va pechda pishirilgan)",
+    "Qizil karam: 1 hovuch (yupqa to‘g‘ralgan)",
+    "No‘xat: 3 osh qoshiq (qaynatilgan)",
+    "Sous uchun: 1 osh qoshiq tahin, limon sharbati, zaytun moyi."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni chuqur kosaga yonma-yon, rang-barang qilib joylashtiring. Ustidan tahin sousini quyib, dasturxonga torting."
+   ]
+  },
+  "c5e3e953-1def-4129-bf13-05450ac7ffc6": {
+   "title": "Baqlajon grateni",
+   "description": "Italiyaliklarning mashhur \"Parmigiana\" taomining qovurilmaydigan, parhezbop turi.\n\nFoydasi: Baqlajon po‘stlog‘idagi \"nasunin\" deb ataladigan antioksidant miya hujayralarini himoya qiladi. To‘yimli, ammo kaloriyasi past.",
+   "category": "kechki ovqat",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Baqlajon: 2 dona (uzunasiga yupqa tilimlangan)",
+    "Pomidor sousi: 1 stakan",
+    "Mozzarella va lor (tvorog) pishlog‘i: Yarim-yarim aralashtirilgan",
+    "Yangi rayhon."
+   ],
+   "instructions": [
+    "Baqlajon tilimlarini pechda yog‘siz yumshatib oling. Pech qolipiga navbatma-navbat sous, baqlajon, pishloq va rayhonni qavat-qavat qilib joylashtiring (lazanya kabi). Eng ustidagi pishloq qizarib pishguncha pechda pishiring."
+   ]
+  },
+  "396d0e08-df24-45b2-bbc5-d0eb5bb97a61": {
+   "title": "Pechda dolchinli olma chipslari",
+   "description": "Konfet o‘rniga foydali tamaddi",
+   "category": "foydali_shirinliklar",
+   "ingredients": [
+    "Olma - 2 dona",
+    "Dolchin - 1 choy qoshiq"
+   ],
+   "instructions": [
+    "Olmani yupqa qilib to‘g‘rang",
+    "Ustidan dolchin seping",
+    "Pechda past haroratda quriting"
+   ]
+  },
+  "e1dfdbd8-e8bb-4c32-930c-c832c8f118d3": {
+   "title": "Sabzi va yong‘oqli yumshoq keks",
+   "description": "Sabzidagi A vitamini va yong‘oqdagi Omega-3 ko‘z va miya rivojlanishi uchun foydali",
+   "category": "foydali_shirinliklar",
+   "ingredients": [
+    "Suli uni - 1 stakan",
+    "Sabzi - 2 dona",
+    "Tuxum - 2 dona",
+    "Yong‘oq - yarim stakan",
+    "Asal - 3 osh qoshiq",
+    "Dolchin, qabartma"
+   ],
+   "instructions": [
+    "Tuxumni asal bilan ko‘pirtiring",
+    "Sabzi, yong‘oq va dolchin qo‘shing",
+    "Suli uni va qabartmani aralashtiring",
+    "170°C haroratda 25 daqiqa pishiring"
+   ]
+  },
+  "6f156a10-e92e-4a17-a7af-3e68646cf53d": {
+   "title": "Yashil ma’buda smuzisi",
+   "description": "Ismaloqdagi temir va C vitamini kamqonlikka qarshi kuchli yordamchi",
+   "category": "foydali_ichimliklar",
+   "ingredients": [
+    "Ismaloq - 1 hovuch",
+    "Kivi - 1 dona",
+    "Yashil olma - yarimta",
+    "Kokos suvi - yarim stakan",
+    "Limon sharbati"
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderdan o‘tkazing",
+    "Darhol iching"
+   ]
+  },
+  "feb3870e-5bf3-4d4e-8622-e75280b05802": {
+   "title": "Qarsildoq tako kosachalari (3 yosh+)",
+   "description": "Lavashdan tayyorlangan qarsildoq kosachalar ichidagi oqsilga boy Meksika ta’mi.\n\nFoydasi: Loviya tarkibidagi kletchatka hazm qilishni yengillashtiradi, makkajo‘xori va go‘sht esa bolaning o‘sishi uchun zarur energiyani beradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Lavash (yoki tortilya): 1 dona",
+    "Qizil loviya (pishirilgan): 2 osh qoshiq",
+    "Makkajo‘xori: 1 osh qoshiq",
+    "Qiyma yoki titilgan tovuq go‘shti: 2 osh qoshiq",
+    "Qirg‘ichdan chiqarilgan pishloq."
+   ],
+   "instructions": [
+    "Lavashni stakan og‘zi yordamida doira shaklida kesing. Doiralarni keks (maffin) qoliplariga bosib joylashtirib, \"kosacha\" shaklini bering. Ichiga loviya, makkajo‘xori va go‘sht soling, eng ustiga esa pishloq qo‘ying. Pishloq erib, lavash qarsildoq bo‘lguncha (10 daqiqa) pechda pishiring."
+   ]
+  },
+  "290acd87-550a-458c-a7f4-69cb997009e4": {
+   "title": "Yasmiqli bomba sho‘rva",
+   "description": "Foliy kislotasi zaxirasi, homilador ayollar uchun beqiyos taom",
+   "category": "tushlik",
+   "ingredients": [
+    "Qizil yasmiq - 1 stakan",
+    "Sabzi - 1 dona",
+    "Kartoshka - 1 dona",
+    "Piyoz - 1 dona",
+    "Bulyon - 4 stakan",
+    "Yalpiz, limon"
+   ],
+   "instructions": [
+    "Piyozni qovuring, sabzini qo‘shing",
+    "Yasmiq va kartoshkani qo‘shing",
+    "Bulyonni quyib, pishiring",
+    "Blenderdan o‘tkazing",
+    "Yalpiz va limon qo‘shing"
+   ]
+  },
+  "497f352b-6f6a-4450-a0eb-ddccc2332776": {
+   "title": "Pechda limonli losos",
+   "description": "Chaqaloq miyasining rivojlanishi uchun Omega-3 manbai",
+   "category": "kechki_ovqat",
+   "ingredients": [
+    "Baliq filesi - 200 qr",
+    "Limon - 2 bo‘lak",
+    "Brokkoli - 100 qr",
+    "Zaytun moyi, timyan"
+   ],
+   "instructions": [
+    "Baliqqa ziravorlarni surting",
+    "Baliq va sabzavotlarni folga ustiga qo‘ying",
+    "Limon bo‘laklarini joylashtiring",
+    "180°C haroratda 25 daqiqa pishiring"
+   ]
+  },
+  "b7b9eff5-fed2-499e-b5d9-5c57fb32426f": {
+   "title": "Yorqinlik salati",
+   "description": "Sabzavot iste’mol qilishni ertalabdan boshlamoqchi bo‘lganlar uchun detoks ta’siriga ega nonushta.\n\nFoydasi: Ismaloq va zaytun moyi ichak faoliyatini yaxshilaydi, organizmdan toksinlar chiqarilishini tezlashtiradi.",
+   "category": "nonushta",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Yosh ismaloq yoki salat bargi: 1-2 hovuch",
+    "Qattiq qaynatilgan tuxum: 1 dona",
+    "Yong‘oq: 2-3 dona",
+    "Zaytun moyi va limon sharbati.",
+    "Tvorog: 2 osh qoshiq."
+   ],
+   "instructions": [
+    "Ismaloqni idishga soling. Ustiga tilimlangan tuxum, tvorog va yong‘oq qo‘shing. Zaytun moyi va limonli sous quyib, iste’mol qiling."
+   ]
+  },
+  "dcd85da7-ccb3-4272-a895-942bd99de63b": {
+   "title": "Oltin donalar — bulg‘ur palovi",
+   "description": "Bulg‘ur va yasmiq uyg‘unligi. B vitaminlariga boy bo‘lib, sut bezlari to‘qimalarini oziqlantiradi.",
+   "category": "tushlik",
+   "ingredients": [
+    "Bulg‘ur: 1 stakan",
+    "Yashil yasmiq: yarim stakan (qaynatilgan)",
+    "Piyoz: 1 dona",
+    "Sariyog‘: 1 osh qoshiq",
+    "Suv: 2 stakan"
+   ],
+   "instructions": [
+    "Piyozni sariyog‘da tillarang bo‘lguncha qovuring",
+    "Yuvilgan bulg‘urni qo‘shib, 1-2 daqiqa qovuring",
+    "Oldindan pishirilgan yasmiqni qo‘shing",
+    "Ustidan 2 stakan suv quyib, qaynating",
+    "Suvini tortib olguncha past olovda damlang (15-20 daqiqa)"
+   ]
+  },
+  "db9dd331-557e-46cd-9d2b-a47d4771ad41": {
+   "title": "Zen muvozanat smuzisi",
+   "description": "Jig‘ildon qaynashida tinchlantiruvchi ichimlik",
+   "category": "sog‘lom_ichimliklar",
+   "ingredients": [
+    "Suli yormasi - 2 osh qoshiq",
+    "Banan - 1 dona",
+    "Sut - 1 stakan",
+    "Asal - 1 choy qoshiq"
+   ],
+   "instructions": [
+    "Suli yormasini sutda yumshaguncha pishiring",
+    "Banan va asal bilan blenderda aralashtiring"
+   ]
+  },
+  "56b6eb44-1b68-4703-8191-5abf175ce6b4": {
+   "title": "Zirali huzur — yasmiq sho‘rva",
+   "description": "Ona va chaqaloqdagi gaz muammosini yengillashtiruvchi sho‘rva. Zira sutni ko‘paytirishga yordam beradi va kolikani kamaytiradi.",
+   "category": "emizish",
+   "tags": [
+    "tug‘ruqdan_keyin",
+    "sutni_ko‘paytirish"
+   ],
+   "ingredients": [
+    "Qizil yasmiq: 1 stakan",
+    "Piyoz: 1 dona",
+    "Kartoshka: 1 dona",
+    "Zira (kumin): 1 choy qoshiq (mo‘l)",
+    "Sariyog‘: 1 osh qoshiq"
+   ],
+   "instructions": [
+    "Yasmiq, piyoz va kartoshkani to‘g‘rab, suvda qaynatib pishiring",
+    "Yumshagach, blenderdan o‘tkazing",
+    "Alohida idishda sariyog‘ni eritib, zirani (kuminni) xushbo‘y hidi chiqquncha qizdiring",
+    "Qizdirilgan zirali yog‘ni sho‘rva ustidan quying",
+    "Issiq holda iching — sutni ko‘paytirishga yordam beradi va kolikani kamaytiradi"
+   ]
+  },
+  "06ed0fa8-cbd9-44a6-9ddc-7e7b1fe1e84d": {
+   "title": "Probiyotik parfe",
+   "description": "Ichak salomatligi (ikkinchi miya) uchun kalsiy va probiyotiklarga boy taom.\n\nFoydasi: Sog‘lom ichak mikroflorasi ayollarning immuniteti va ruhiy farovonligiga bevosita ta’sir qiladi.",
+   "category": "nonushta",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Suzma yogurt (yoki yunon yogurti): 1 stakan",
+    "Shakarsiz granola (yoki qovurilgan suli va yong‘oq aralashmasi): 3 osh qoshiq",
+    "Yangi meva (kivi, shaftoli yoki qulupnay): To‘g‘ralgan"
+   ],
+   "instructions": [
+    "Baland stakanga avval yogurtning yarmini, so‘ng mevalarni, undan keyin granolani qatlamlab soling. Ustini yana yogurt bilan qoplab, eng yuqorisiga biroz granola seping."
+   ]
+  },
+  "9448c07e-1f48-40e0-a861-ab4dcd62db5b": {
+   "title": "Oltin krem — humus",
+   "description": "No‘xat va tahinning sutni ko‘paytiruvchi xususiyatlarini birlashtirgan eng mazali taom. O‘simlik oqsili va kalsiyga boy.",
+   "category": "tushlik",
+   "ingredients": [
+    "No‘xat: 1 stakan (qaynatilgan)",
+    "Tahin (kunjut pastasi): 2 osh qoshiq",
+    "Limon sharbati: 1 osh qoshiq",
+    "Sarimsoq: 1 tish",
+    "Zaytun moyi: 2 osh qoshiq"
+   ],
+   "instructions": [
+    "No‘xatni oldindan ivitib, yumshoq bo‘lguncha qaynatib pishiring",
+    "Blenderga no‘xat, tahin, limon sharbati va sarimsoqni soling",
+    "Bir xil, silliq krem holiga kelguncha blenderdan o‘tkazing",
+    "Zarur bo‘lsa, no‘xat qaynatilgan suvdan qo‘shing",
+    "Ustidan zaytun moyi quyib, non bilan dasturxonga torting"
+   ]
+  },
+  "69335e75-4e74-4b38-bb31-495c4674ceb3": {
+   "title": "Sitrus iforli oq baliq",
+   "description": "Oshqozonga zarracha ham og‘irlik qilmaydigan, xushbo‘y va nafis dengiz ta’mi.\n\nFoydasi: Oq baliqlar (levrek, sif) oson hazm bo‘ladigan sof oqsil hamda qalqonsimon bezni himoya qiluvchi yod manbaidir. Limon esa temirning o‘zlashtirilishiga yordam beradi.",
+   "category": "kechki ovqat",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Oq baliq filesi: 150-200 gr",
+    "Limon va apelsin: Har biridan 2 bo‘lak",
+    "Yangi tog‘jambil (timyan) yoki rozmarin: 1-2 shoxcha",
+    "Zaytun moyi, tuz, qora murch."
+   ],
+   "instructions": [
+    "Tozalangan baliqni pergament qog‘oz ustiga qo‘ying. Ustidan tuz, murch va moy seping. Sitrus bo‘laklari va ko‘katlarni ustiga joylashtiring. Qog‘ozni paket shaklida o‘rab, 180 darajada 20 daqiqa pishiring. Ko‘p miqdordagi yashil salat bilan iste’mol qiling."
+   ]
+  },
+  "59177852-56ab-4ae0-9965-367e9142cf8e": {
+   "title": "Tropik voha",
+   "description": "Tanadagi suv muvozanatini tiklaydigan (elektrolitli) va shishni kamaytiradigan eng sof ichimlik.\n\nFoydasi: Kokos suvi tabiiy sport ichimligidir (kaliyga boy). Bodring esa teri va organizmni ichdan tozalaydi.",
+   "category": "Sog‘lom ichimliklar",
+   "ingredients": [
+    "Kokos suvi (tabiiy): 1 stakan",
+    "Bodring: Yupqa tasma shaklida kesilgan bo‘laklar",
+    "Yangi yalpiz va laym sharbati."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni grafin yoki katta stakanga solib, ta’mlar uyg‘unlashishi uchun muzlatkichda 30 daqiqa kuting. Sovitilgan holda iching."
+   ]
+  },
+  "0ad5770d-c00e-4aaf-a326-ab7ca620f797": {
+   "title": "Avokado va tovuqli salat",
+   "description": "Kam uglevodli, uzoq vaqt to‘q tutadigan va mushaklarni oziqlantiradigan mazali taom.\n\nFoydasi: To‘yimli oqsil (tovuq) va foydali yog‘lar (avokado) uyg‘unligi shirinlikka bo‘lgan kuchli ishtiyoqning oldini oladi.",
+   "category": "tushlik",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Tovuq ko‘krak go‘shti: 150 gr (grilda yoki tovada qovurilgan)",
+    "Avokado: Yarimta (tilimlangan)",
+    "Yosh ismaloq yoki salat bargi: 2 hovuch",
+    "Cherri pomidor: 5-6 dona",
+    "Limon sharbati, zaytun moyi."
+   ],
+   "instructions": [
+    "Tovuq go‘shtini uzunchoq qilib to‘g‘rang. Ko‘katlar, pomidor va avokadoni katta likopchaga solib, ustiga tovuq bo‘laklarini joylashtiring. Limon sharbati va zaytun moyidan tayyorlangan sous bilan ta’m bering."
+   ]
+  },
+  "3d1a500a-b203-4052-b1f2-91a4407a4e3c": {
+   "title": "Tuxumli avokado tosti (1 yosh+)",
+   "description": "O‘z qo‘li bilan ovqatlanishni yoqtiradigan 1 yoshli bolalarning sevimli taomi.\n\nFoydasi: Avokado foydali yog‘larga boy, tuxum esa organizmni almashtirib bo‘lmaydigan aminokislotalar bilan ta’minlaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Butun donli bug‘doy noni: 1 bo‘lak (chet qismlari kesilgan, qizartirilgan)",
+    "Avokado: To‘rtdan bir qismi (yaxshilab ezilgan)",
+    "Tuxum: 1 dona (qattiq qaynatilgan va qirg‘ichdan chiqarilgan)"
+   ],
+   "instructions": [
+    "Qizartirilgan non ustiga ezilgan avokadoni surting. Ustidan qirg‘ichdan chiqarilgan tuxumni seping. Bola qo‘lida ushlay oladigan uzunchoq bo‘laklar shaklida kesing."
+   ]
+  },
+  "c842f7bd-4741-487b-b42c-981f40c245be": {
+   "title": "Ismaloqli makaron (4 yosh+)",
+   "description": "Yashil rangi bilan bolalarni o‘ziga jalb qiladigan, pishloqli va temirga boy sehrli sous.\n\nFoydasi: Ismaloq va yong‘oq bolaning miya rivojlanishi hamda quvvatini qo‘llab-quvvatlaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Kepakli yoki rangli glyutensiz makaron: 1 stakan",
+    "Ismaloq: 1 katta hovuch",
+    "Yong‘oq mag‘zi: 2 dona",
+    "Krem-pishloq yoki zaytun moyi: 1 osh qoshiq"
+   ],
+   "instructions": [
+    "Makaronni qaynatib pishiring. Ismaloq, yong‘oq va pishloqni (yoki moyni) blenderda butunlay bir xil, yorqin yashil krem holiga kelguncha maydalang. Issiq makaronni ushbu sous bilan aralashtirib, dasturxonga torting."
+   ]
+  },
+  "ce232b23-613e-4e89-87ba-f0def071b9bc": {
+   "title": "Superkuchli go‘shtli sharchalar (2 yosh+)",
+   "description": "Hatto go‘shtni yoqtirmaydigan bolalar ham ishtaha bilan yeydigan, ichi syurprizli, pechda pishiriladigan go‘shtli sharchalar.\n\nFoydasi: Sof tovuq oqsili va brokkolidagi temir bir taomda jamlangan. Qovurilmagani uchun oshqozonga og‘irlik qilmaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tovuq qiymasi: 200 qr",
+    "Brokkoli: 3-4 gulchasi (blenderda kukundek juda mayda qilib maydalangan)",
+    "Piyoz: Juda kichik bo‘lak (qirg‘ichdan chiqarilgan)",
+    "Suxari kukuni: 1 osh qoshiq",
+    "Zaytun moyi va ozgina tuz."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni bir idishda yaxshilab qoring.",
+    "Bola qo‘li bilan ushlab yeya oladigan, yong‘oqdan biroz kichikroq go‘shtli sharchalar yasang.",
+    "Pergament qog‘oz solingan pechda 180 darajada 20-25 daqiqa pishiring."
+   ]
+  },
+  "e3b32abb-4f90-4796-9370-d8e31b9a5d8e": {
+   "title": "Ismaloqli pankeyk (1 yosh+)",
+   "description": "Nonushta uchun o‘zgacha rangdagi, shakarsiz, yumshoq va mazali bulutchalar.\n\nFoydasi: Ismaloq va bananning ajoyib uyg‘unligi. Temir va kaliyga boy.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yosh ismaloq: 1 hovuch",
+    "Banan: 1 dona (pishgan)",
+    "Tuxum: 1 dona",
+    "Un (butun donli bug‘doy yoki suli uni): 2 osh qoshiq"
+   ],
+   "instructions": [
+    "Ismaloq, banan va tuxumni blenderda bir xil silliq, yashil massa hosil bo‘lguncha aralashtiring. Ustiga un qo‘shib, aralashtiring. Yog‘siz tovaga qoshiq bilan oz-ozdan quyib, har ikki tomonini pishiring."
+   ]
+  },
+  "d55a1489-0c64-4fd1-9c95-61ccad0e27bf": {
+   "title": "Shirin kartoshkali qayiqchalar (4 yosh+)",
+   "description": "Kema shaklida tortiladigan, rang-barang va vitaminlarga boy qayiqchalar.\n\nFoydasi: Shirin kartoshka tarkibidagi A vitamini ko‘zlarni himoya qiladi. Makkajo‘xori va yashil no‘xat esa taomga qiziqarli tuzilish beradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Shirin kartoshka (batat): 2 dona (o‘rtasidan bo‘lingan, pechda pishirilgan)",
+    "Yashil no‘xat va makkajo‘xori: Har biridan 1 osh qoshiq (qaynatilgan)",
+    "Maydalangan tovuq go‘shti yoki qiyma: 2 osh qoshiq",
+    "Pishloq (yelkan uchun)."
+   ],
+   "instructions": [
+    "Pishgan kartoshkalarning ichini biroz o‘yib olib, pyure qiling. Yashil no‘xat, makkajo‘xori va go‘sht bilan aralashtirib, yana kartoshka ichiga soling. Ustiga tish cho‘piga uchburchak shaklida kesilgan pishloqni (yelkan) mahkamlab qo‘ying."
+   ]
+  },
+  "c4928087-d44e-49b9-b047-6872459c8c34": {
+   "title": "Apelsinli kakao",
+   "description": "Apelsin tarkibidagi C vitamini kakaodagi temirning o‘zlashtirilishiga yordam beradi. Teriga yorqinlik baxsh etadi.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 osh qoshiq kakao, 1 stakan bodom suti, 1 osh qoshiq yangi siqilgan apelsin sharbati (yoki qirg‘ichdan chiqarilgan apelsin po‘sti), 1 choy qoshiq shinni."
+   ],
+   "instructions": [
+    "Kakaoni iliq bodom sutida eritib, olovdan olgach, apelsin sharbati va shinnini qo‘shing."
+   ]
+  },
+  "76ceddd0-3762-4c0e-938c-757205264083": {
+   "title": "Rezavorli chia mo‘jizasi",
+   "description": "Antioksidantlarga boy, terini ichdan namlantiradigan salqin tamaddi.",
+   "category": "nonushta",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Chia urug‘i: 3 osh qoshiq",
+    "Bodom suti (yoki kokos suti): 1 stakan",
+    "Yangi malina yoki golubika: 1 hovuch",
+    "Asal yoki zarang siropi: 1 choy qoshiq"
+   ],
+   "instructions": [
+    "Kechqurun chia urug‘i, sut va asalni idishda yaxshilab aralashtiring (qumoqlanmasligi uchun 10 daqiqadan so‘ng yana aralashtiring). Muzlatkichda tonggacha qoldiring. Ertalab ustini yangi rezavorlar bilan bezatib, dasturxonga torting."
+   ]
+  },
+  "db6223cf-fd40-4b31-9334-3aa607532faa": {
+   "title": "Lavlagi va pishloqli salat",
+   "description": "Qon aylanishini yaxshilaydigan, chiroyli rangi bilan ko‘zni quvontiradigan yengil tushlik.\n\nFoydasi: Lavlagi jigar faoliyatini qo‘llab-quvvatlaydigan eng foydali sabzavotlardan biri, echki pishlog‘i yoki tvorog esa oson hazm bo‘ladigan kalsiy manbaidir.",
+   "category": "tushlik",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Lavlagi: 1 dona o‘rtacha (pechda pishirilgan yoki qaynatilgan, kub shaklida to‘g‘ralgan)",
+    "Echki pishlog‘i (yoki sho‘r pishloq/tvorog): 2 osh qoshiq",
+    "Yong‘oq mag‘zi: 1 hovuch",
+    "Rukkola (Arugula) barglari.",
+    "Balzamik sirka va zaytun moyi."
+   ],
+   "instructions": [
+    "Rukkola barglari ustiga to‘g‘ralgan lavlagi, pishloq va yong‘oqni qo‘shing. Ustidan balzamik sirka va zaytun moyi aralashmasini quying."
+   ]
+  },
+  "be15d84a-f891-40e8-bcea-25a7ea3f5e77": {
+   "title": "Avokadoli tost",
+   "description": "Foydali yog‘lar va sifatli oqsilning eng mazali uyg‘unligi.\n\nFoydasi: Avokado ayol gormonlari uchun muhim bo‘lgan foydali yog‘larni o‘z ichiga oladi, tuxum esa mushaklarni saqlashga yordam beradigan sof oqsil manbaidir.",
+   "category": "nonushta",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Butun donli bug‘doy yoki javdar noni: 1-2 katta bo‘lak",
+    "Avokado: Yarim dona (yetilgan)",
+    "Tuxum: 1-2 dona (suvda pishirilgan — poached usulida yoki yarim pishirilgan)",
+    "Limon sharbati, tuz, qizil qalampir parchalari."
+   ],
+   "instructions": [
+    "Nonni qizartiring. Avokadoni sanchqi bilan ezing, limon sharbati va tuz bilan aralashtirib, non ustiga surting. Ustiga pishirilgan tuxumni qo‘ying va qizil qalampir parchalari seping."
+   ]
+  },
+  "f34874ad-c7fb-4bad-9d1d-814135cad038": {
+   "title": "Kurka go‘shtli kabachki",
+   "description": "Xamir va nonsiz, oqsilga boy, ishtaha ochar «qayiqchalar».\n\nFoydasi: Uglevod miqdori juda kam. Kurka go‘shtidagi «triptofan» aminokislotasi melatonin (uyqu gormoni) ajralishini oshirib, chuqur va oromli uyquga ketishga yordam beradi.",
+   "category": "kechki ovqat",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kabachki (qovoq): 2 ta o‘rtacha (uzunasiga bo‘lingan, ichi o‘yilgan)",
+    "Kurka qiymasi (yoki yog‘siz mol go‘shti): 150 qr",
+    "Pomidor: 1 dona (qirg‘ichdan chiqarilgan)",
+    "Mozzarella yoki golland pishlog‘i: 30 qr (qirg‘ichdan chiqarilgan)",
+    "Piyoz, sarimsoq, kekik."
+   ],
+   "instructions": [
+    "Qiymani piyoz, sarimsoq va pomidor bilan tovada chala pishirib oling. Kabachki qayiqchalarining ichiga solib, 180 darajali pechda kabachki yumshaguncha (taxminan 25 daqiqa) pishiring. Pechdan olishdan 5 daqiqa oldin ustiga pishloq seping."
+   ]
+  },
+  "d3ad67eb-6c19-4eee-9f9a-b784483c1a16": {
+   "title": "Losos va brokkoli\n(9 oy+)",
+   "description": "Miya hujayralarini shakllantiruvchi Omega-3 yog‘ kislotalariga boy ilk dengiz taomi.\n\nFoydasi: Losos miya va asab tizimining rivojlanishi uchun juda muhim. Brokkoli esa kalsiy va C vitamini bilan ta’minlaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Losos filesi: 30 qr (butunlay suyaksiz)",
+    "Brokkoli: 2-3 ta gulchasi",
+    "Zaytun moyi: Bir necha tomchi."
+   ],
+   "instructions": [
+    "Baliq va brokkolini bug‘da (yoki ozroq suvda) yaxshilab pishiring. Baliqni sanchqi bilan maydalayotganda suyak bor-yo‘qligini yana bir bor tekshiring. Brokkoli bilan birga ezing va ustidan zaytun moyi tomizing."
+   ]
+  },
+  "f04550c5-0fdb-4ab9-8b7b-831a4d2f5e5a": {
+   "title": "Sabzavotli guruch(4 yosh+)",
+   "description": "Bayramona kayfiyat ulashuvchi, rang-barang sabzavotlarga boy guruch.\n\nFoydasi: Uglevodlar, vitaminlar va kletchatka bir qozonda uyg‘unlashgan eng to‘yimli tushlik.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Basmati yoki uzun donli guruch: 1 stakan",
+    "Sabzi, yashil no‘xat, shirin qizil qalampir, makkajo‘xori: Har biridan 2 osh qoshiq (mayda kubik shaklida to‘g‘ralgan)",
+    "Sariyog‘ va tovuq bulyoni."
+   ],
+   "instructions": [
+    "Sabzavotlarni ozgina sariyog‘da qovurib oling. Yuvilgan guruch va bulyonni qo‘shib, suvi tortilib, guruch donador bo‘lguncha pishiring."
+   ]
+  },
+  "6b9ff319-0e3b-432c-ae21-5efca3c9d50d": {
+   "title": "Yoqut pechenyelari",
+   "description": "Choy vaqti uchun unsiz, glyutensiz, jemli \"barmoq izi\" pechenyelari.\n\nFoydasi: Bodom uni terini E vitamini bilan oziqlantiradi, uyda tayyorlangan chia \"jemi\" esa Omega-3 ga bo‘lgan ehtiyojni qondiradi.",
+   "category": "Foydali shirinliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Bodom uni: 1.5 stakan",
+    "Asal yoki agava siropi: 3 osh qoshiq",
+    "Kokos yog‘i: 2 osh qoshiq (eritilgan)",
+    "Yangi malina va 1 osh qoshiq chia urug‘i (jem uchun)."
+   ],
+   "instructions": [
+    "Malinani sanchqi bilan ezib, chia urug‘i bilan aralashtiring (quyuqlashishi uchun 15 daq. chetga qo‘ying). Bodom uni, yog‘ va asalni qorib, kichik sharchalar yasang. O‘rtasini barmog‘ingiz bilan chuqurcha qilib, duxovkada 160 darajada 10 daq. pishiring. Duxovkadan olib, chuqurchalarni malinali chia murabbosi bilan to‘ldiring."
+   ]
+  },
+  "55df2691-7b63-4f38-bfb6-d946010b6903": {
+   "title": "Lavlagi va olma pyuresi\n(7 oy+)",
+   "description": "Chaqalog‘ingizning yonoqlariga rang beradigan, immunitetni mustahkamlovchi shirin pyure.\n\nFoydasi: Lavlagi kamqonlikka qarshi foydali tabiiy mahsulotlardan biridir. Olma esa lavlagining o‘ziga xos ta’mini yumshatadi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Lavlagi: 1 kichik dona",
+    "Olma: Yarim dona"
+   ],
+   "instructions": [
+    "Lavlagini po‘sti bilan qaynatib yoki duxovkada pishiring (vitaminlari saqlanib qolishi uchun). So‘ng po‘stini archib, olma bilan birga blenderda bir xil mayin pyure holiga keltiring. Kiyimiga to‘kilmasligiga e’tibor bering!"
+   ]
+  },
+  "03922c9b-57cd-4e60-9084-3b45e0d48642": {
+   "title": "Sho‘r kamalak keksi(2 yosh+)",
+   "description": "Shirinlikka o‘xshaydigan, ammo aslida sabzavot va pishloqdan tayyorlanadigan sho‘r keks.\n\nFoydasi: Ovqat tanlaydigan bolaga turli sabzavotlarni (rangli bulg‘or qalampiri, ko‘katlar) yoqtirishning amaliy usuli. Parkka chiqqanda o‘zingiz bilan olib ketish uchun ham juda qulay.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tuxum: 2 dona",
+    "Qatiq: 2 osh qoshiq",
+    "Zaytun yog‘i: 1 osh qoshiq",
+    "Qizil bulg‘or qalampiri va ismaloq: Juda mayda to‘g‘ralgan (1-2 osh qoshiq)",
+    "Pishloq (qirg‘ichdan chiqarilgan): 2 osh qoshiq",
+    "Un va qabartma kukuni (quyuq keks xamiri hosil bo‘lguncha)."
+   ],
+   "instructions": [
+    "Suyuq masalliqlarni (tuxum, qatiq, yog‘) ko‘pirtiring. Sabzavotlar va pishloqni qo‘shing.",
+    "Oxirida un va qabartma kukunini qo‘shib aralashtiring.",
+    "Maffin (keks) qoliplariga quyib, 180 darajada 20 daqiqa davomida ko‘tarilib, qizarguncha pishiring."
+   ]
+  },
+  "dbb5731f-3844-4a55-a0b0-63c083018f90": {
+   "title": "Duxovkada pishirilgan gulkaram steyki",
+   "description": "Vegan va sog‘lom ovqatlanish olamidagi eng mashhur \"go‘sht o‘rnini bosuvchi\" taom. Ko‘rinishi steykni eslatadi.\n\nFoydasi: Kaloriyasi juda past, tolaga boy va duxovkada pishirilganda karam tarkibidagi tabiiy shakar karamellashib, ajoyib ta’m hosil qiladi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Gulkaram: 1 butun bosh (juda katta)",
+    "Zaytun moyi: 2 osh qoshiq",
+    "Sarimsoq kukuni, qizil shirin qalampir kukuni (paprika), dengiz tuzi, qora murch."
+   ],
+   "instructions": [
+    "Gulkaramni butunligicha yuving va o‘rtasidan 2 santimetr qalinlikdagi butun \"steyk\" bo‘laklarini kesing. Duxovka patnisiga qo‘ying, har ikki tomoniga zaytun moyi va ziravorlar aralashmasini cho‘tka bilan surting. 200 darajada har ikki tomoni qizarguncha (taxminan 25-30 daqiqa) pishiring."
+   ]
+  },
+  "38175de9-042b-4fc9-8a58-cdff56307d6d": {
+   "title": "Qayiqcha tuxumlar(3 yosh+)",
+   "description": "Tuxum sarig‘ini yoqtirmaydigan bolalar uchun \"kema\" shaklidagi qiziqarli tamaddi.\n\nFoydasi: Tuxum sarig‘idagi xolin moddasi 3 yoshli bolaning tez rivojlanayotgan miyasi va xotirasi uchun eng muhim elementlardan biridir.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Qattiq pishirilgan tuxum: 2 dona",
+    "Qatiq: 1 choy qoshiq",
+    "Juda mayda to‘g‘ralgan rangli qalampir (\"xazinalar\" uchun)",
+    "Pishloq: Uchburchak shakldagi yupqa bo‘laklar (yelkan uchun) va tish cho‘pi."
+   ],
+   "instructions": [
+    "Tuxumlarni uzunasiga ikkiga bo‘ling. Sarig‘ini olib, qatiq bilan ezing, ichiga rangli qalampir bo‘lakchalarini (xazinalarni) qo‘shing va yana tuxum oqiga soling. Tish cho‘piga uchburchak pishloq bo‘lagini o‘tkazib, \"yelkan\" kabi tuxumga sanching (yeyishdan oldin cho‘pni olib tashlashni unutmang!)."
+   ]
+  },
+  "fef93b73-64a7-48d4-94bf-fe08f3ed1adc": {
+   "title": "Ichiga masalliq solingan portobello qo‘ziqorini",
+   "description": "Qizil go‘sht yemasdan ham go‘shtga xos tuzilish va ta’mni beradigan ajoyib \"qalpoqchalar\".\n\nFoydasi: Portobello qo‘ziqorini terini qarishdan himoya qiluvchi selen mineraliga boy. Juda oson hazm bo‘ladi va oshqozonga og‘irlik qilmaydi.",
+   "category": "kechki ovqat",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Portobello qo‘ziqorini: 2 ta katta (bandlari olib tashlangan, ichi tozalangan)",
+    "Ismaloq: 1 hovuch (to‘g‘ralgan)",
+    "Kinoa (yoki bulg‘ur): 2 osh qoshiq (pishirilgan)",
+    "Feta (yoki oq pishloq): 1 osh qoshiq"
+   ],
+   "instructions": [
+    "Qo‘ziqorinlarning ichini kinoa, ismaloq va pishloq aralashmasi bilan to‘ldiring. Duxovka idishiga joylashtirib, ustidan ozgina zaytun moyi quying. 180 darajada qo‘ziqorinlar yumshaguncha pishiring."
+   ]
+  },
+  "87d23e0f-a0db-4aa1-b0fb-794cb2b35b28": {
+   "title": "Chiali avokado tosti",
+   "description": "Klassik avokado tostining ko‘proq Omega-3 va qarsildoq ta’mga ega, uzoq vaqt to‘q tutadigan turi.\n\nFoydasi: Chia urug‘lari va avokado uyg‘unligi terini ichdan namlantiruvchi ajoyib foydali yog‘lar kombinatsiyasidir.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Qora yoki butun donli bug‘doy noni: 1 bo‘lak (qizartirilgan)",
+    "Avokado: Yarim dona (pishgan)",
+    "Chia urug‘i: 1 choy qoshiq",
+    "Limon sharbati, dengiz tuzi, qizil qalampir parchalari."
+   ],
+   "instructions": [
+    "Avokadoni sanchqi bilan ezing va limon sharbati hamda tuz bilan aralashtiring. Qizartirilgan non ustiga mo‘l qilib surting. Qarsildoq ta’m va qo‘shimcha foyda berishi uchun ustidan chia urug‘i va qizil qalampir parchalarini seping."
+   ]
+  },
+  "f84c1bc3-0bf2-4206-b695-21d5ec9708da": {
+   "title": "Rose & Berry Spritz",
+   "description": "Teringiz uchun suyuq kollagen va antioksidant ko‘magi. Juda nafis va tetiklantiruvchi.\n\nFoydasi: Rezavorlar hujayralarning qarishini sekinlashtiradi, atirgul suvi esa terini ichdan namlantirib, unga tabiiy \"glow\" (jilo) bag‘ishlaydi.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Yangi malina yoki qulupnay: 1 hovuch",
+    "Atirgul suvi (ichimlik uchun, qo‘shimchalarsiz): 1 osh qoshiq",
+    "Gazlangan suv (mineral suv): 1 stakan",
+    "Laym: 1 bo‘lak",
+    "Muz kubiklari."
+   ],
+   "instructions": [
+    "Stakan tubida rezavorlarni sanchqi bilan ezing. Ustiga muz, atirgul suvi va laym sharbatini qo‘shing. Oxirida gazlangan suvni quyib, aralashtiring"
+   ]
+  },
+  "792abbe5-dddc-4848-8d97-bdcb84318aee": {
+   "title": "Zarchavali desert",
+   "description": "Teriga jilo beruvchi, yallig‘lanishga qarshi italyan klassikasi.\n\nFoydasi: Zarchava va kokos suti husnbuzarlarni ichdan davolashga yordam beradi, jelatin esa tirnoq va sochlarni mustahkamlovchi tabiiy kollagen manbaidir.",
+   "category": "Sog‘lom shirinliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Kokos suti (qadoqlangan, quyuq): 1 stakan",
+    "Zarchava kukuni: 1 choy qoshiq",
+    "Asal: 2 osh qoshiq",
+    "Bargli jelatin: 2 dona (yoki 1 choy qoshiq agar-agar)"
+   ],
+   "instructions": [
+    "Jelatinni sovuq suvda iviting. Sutni qozonda isiting (qaynatmang), unga zarchava, asal va yumshagan jelatinni qo‘shib aralashtiring. Kichik shisha idishlarga suzib quying va muzlatkichda 3-4 soat qotiring."
+   ]
+  },
+  "ceb5db8c-58a7-4fde-a771-d2ed012eb9df": {
+   "title": "Matcha va pistali tryufel",
+   "description": "Metabolizmni tezlashtiradigan va terini yoshartiradigan qahva yoniga \"premium\" shirinlik.\n\nFoydasi: Matcha choyi hujayralar yangilanishini tezlashtiradigan kuchli antioksidantdir. Keshyu va pista foydali yog‘lar bilan terini namlantiradi.",
+   "category": "Sog‘lom shirinliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Keshyu (xom, ivitilgan): 1 stakan",
+    "Xurmo: 5-6 dona",
+    "Matcha kukuni: 1 osh qoshiq (va botirish uchun qo‘shimcha)",
+    "Pista: Yarim stakan (maydalangan)"
+   ],
+   "instructions": [
+    "Barcha masalliqlarni (pistaning yarmidan tashqari) blenderda yopishqoq xamir hosil bo‘lguncha maydalang. Qo‘lingiz bilan sharchalar yasang, yarmini matcha kukuniga, qolgan yarmini maydalangan pistaga botiring."
+   ]
+  },
+  "71967587-de0b-4a79-8b91-69af7cbe3013": {
+   "title": "Marokashcha sabzavotli tajin",
+   "description": "Shimoliy Afrikaga xos maxsus idishda sekin pishiriladigan, sabzavot va mevalarning shirin-sho‘r uyg‘unligi.\n\nFoydasi: No‘xat va sabzavotlar qondagi qand miqdorini me’yorda ushlashga yordam beradigan murakkab uglevodlar bilan ta’minlaydi. Shakar qo‘shilmaydi, quruq mevalar bilan tabiiy ravishda shirinlashtiriladi.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "No‘xat (pishirilgan): 1 stakan",
+    "Sabzi, qovoqcha, batat (yirik to‘g‘ralgan).",
+    "Turshak yoki mayiz: Yarim stakan",
+    "Dolchin, zira, zanjabil kukuni, zaytun moyi, sabzavotli bulyon."
+   ],
+   "instructions": [
+    "Chuqur qozonda (yoki an’anaviy tajin idishida) ziravorlarni moy bilan qizdiring. Sabzavotlar, no‘xat va quruq mevalarni qo‘shing. Ustidan bulyon quying va qopqog‘ini yopib, past olovda sabzavotlar to‘liq yumshaguncha (40-45 daqiqa) pishiring. Kinoa yoki kuskus bilan dasturxonga torting."
+   ]
+  },
+  "989c089a-7705-4f4f-aa06-64d202a23310": {
+   "title": "Smuzi kosasi (4 yosh+)",
+   "description": "Sabzavot va mevalarni suyuq holda sevdiradigan, qoshiq bilan yeyiladigan qiziqarli desert.\n\nFoydasi: Immunitetni mustahkamlovchi vitaminlar manbaidir. Bolaning tushdan keyingi tamaddisi uchun juda mos.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Ismaloq: 1 hovuch",
+    "Muzlatilgan banan: 1 dona",
+    "Kivi: 1 dona",
+    "Qatiq yoki sut: Yarim stakan",
+    "Bezash uchun: Kivi bo‘laklaridan kesilgan dinozavr \"tikanlari\" yoki suyaklari."
+   ],
+   "instructions": [
+    "Ismaloq, banan, kivi va sutni blenderda quyuq krem holiga kelguncha aralashtiring. Kosaga quying va ustini kivi bo‘laklari bilan dinozavrning orqasiga o‘xshatib bezang."
+   ]
+  },
+  "3c637a80-dd91-4c2f-bf85-45f21dbc4610": {
+   "title": "Pushti flamingo pankeyklari (3 yosh+)",
+   "description": "Oziq-ovqat bo‘yoqlarisiz, tabiiy pushti rangi bilan bolalarni maftun etadigan nonushta.\n\nFoydasi: Lavlagi qon aylanishini yaxshilaydi va immunitetni qo‘llab-quvvatlaydi. Suli esa bolani uzoq vaqt to‘q va quvvatga to‘la tutadi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Lavlagi pyuresi: 1 osh qoshiq (pishirilgan lavlagidan)",
+    "Tuxum: 1 dona",
+    "Suli uni: 3 osh qoshiq",
+    "Sut: Yarim choy stakani",
+    "Asal: Juda oz (shirinlik berish uchun)"
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderda butunlay bir xil, pushti rangli xamir hosil bo‘lguncha aralashtiring. Yog‘siz tovada kichik doiralar shaklida har ikki tomonini pishiring."
+   ]
+  },
+  "13882a92-abb0-49d4-b8c0-e8f4f9c2ea1b": {
+   "title": "Meteorit energiya sharchalari (5 yosh+)",
+   "description": "Bog‘cha yoki parkka ketayotganda olib yurishga qulay, shakarsiz \"shokoladli\" quvvat manbai.\n\nFoydasi: Xurmo va kakao tezda quvvat beradi, yong‘oq yoki funduq esa Omega-3 yog‘lari bilan teri va sochni oziqlantiradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yumshoq xurmo: 8-10 dona (danagi olib tashlangan)",
+    "Suli: Yarim stakan",
+    "Kakao (shakarsiz): 1 osh qoshiq",
+    "Funduq yoki kungaboqar urug‘i: 2 osh qoshiq."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderda yopishqoq massa hosil bo‘lguncha maydalang. Qo‘lingiz bilan kichik \"meteoritlar\" yasang. Ustiga kokos qirindisini ham sepishingiz mumkin. Muzlatkichda 30 daqiqa saqlab, so‘ng bering."
+   ]
+  },
+  "9a57e53c-6cc6-4002-bebc-5ba8dd87a146": {
+   "title": "Zig‘ir va chia pudingi",
+   "description": "Tayyorlash uchun 2 daqiqa kifoya qiladigan, nonushta yoki tamaddi uchun hazm qilishga foydali va uzoq vaqt to‘q tutuvchi puding.\n\nFoydasi: Chia va zig‘ir urug‘lari o‘z vaznidan bir necha barobar ko‘p suvni shimib, shishadi, oshqozonda to‘qlik hissini hosil qiladi va qondagi shakar miqdorini me’yorda saqlashga yordam beradi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Chia urug‘i: 2 osh qoshiq",
+    "Zig‘ir urug‘i (maydalangan): 1 osh qoshiq",
+    "Bodom suti (yoki kokos suti): 1 stakan",
+    "Tabiiy vanil ekstrakti va 1 choy qoshiq asal."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni bankada yaxshilab aralashtiring. 10 daqiqadan so‘ng qumoqlashib qolmasligi uchun yana aralashtirib, muzlatkichga qo‘ying (kamida 2 soat yoki kechadan ertalabgacha). Ustini mevalar bilan bezatib, iste’mol qiling."
+   ]
+  },
+  "9e271ac6-efc7-4123-9cc8-b60e93936503": {
+   "title": "Toskana quyoshi",
+   "description": "Italiyaning mashhur \"Melanzane alla Parmigiana\" taomining qovurilmagan, yengil va foydali talqini.\n\nFoydasi: Baqlajon antioksidantlar manbaidir. An’anaviy usulda qovurish o‘rniga pechda pishirilgani sababli kaloriyasi juda past, shu bilan birga italyan pishloqlaridagi oqsil tufayli to‘yimli.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Baqlajon: 2 ta katta (uzunasiga tilimlangan)",
+    "Tabiiy tomat (pomidor) pastasi: 2 stakan (sarimsoq va rayhon bilan ta’m berilgan)",
+    "Mozzarella va Parmezan pishlog‘i: Qirg‘ichdan chiqarilgan",
+    "Yangi rayhon, zaytun moyi."
+   ],
+   "instructions": [
+    "Baqlajon tilimlariga zaytun moyi surtib, pechda yumshaguncha (15 daqiqa) pishiring. Chuqur pech qolipiga lazanya kabi qatlamlab pomidor sousi, baqlajon, pishloq va rayhonni joylashtiring. Eng ustiga pishloq solib, qizarguncha 190 darajada 20 daqiqa pishiring."
+   ]
+  },
+  "80d2e83c-c415-4e59-854e-3c904d65b0ff": {
+   "title": "Anorli qatiq plitkasi",
+   "description": "Ko‘zni qamashtiruvchi muzqaymoq muqobili. Salqin va ayni paytda qarsildoq.\n\nFoydasi: Anor donalari ayollarda estrogen muvozanatini saqlashga yordam beradigan fitoestrogenlar va antioksidantlarga boy. Qatiq esa probiotik hisoblanadi.",
+   "category": "Foydali shirinliklar",
+   "ingredients": [
+    "Qatiq (yunoncha yoki suzma): 1.5 stakan",
+    "Asal: 1 osh qoshiq",
+    "Anor donalari: Yarim stakan",
+    "Pista: 2 osh qoshiq (maydalangan)."
+   ],
+   "instructions": [
+    "Qatiqni asal bilan aralashtirib, yog‘li qog‘oz to‘shalgan yassi idishga (0.5 sm qalinlikda) yoying. Ustiga anor donalari va pista sepib, muzlatkichning muzxonasida 3 soat saqlang. Muzlagach, shokolad kabi qo‘lda bo‘laklarga sindiring."
+   ]
+  },
+  "45628e71-5b41-431f-b26f-8283c2b308a2": {
+   "title": "Tovuq go‘shti va kinoali oqsil kosasi\n(9 oy+)",
+   "description": "Faolligi oshgan va emaklayotgan chaqaloqlar uchun uzoq muddatli energiya manbai.\n\nFoydasi: Tovuq go‘shti sof oqsil manbai, kinoa esa donlar orasida ozuqaviy qiymati eng yuqori bo‘lgan, glyutensiz supermahsulotdir.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Tovuq ko‘krak go‘shti: 30 qr",
+    "Kabachki (qovoq): Yarimdan kam",
+    "Kinoa: 1 osh qoshiq (oldindan ivitilgan va yuvilgan)."
+   ],
+   "instructions": [
+    "Tovuq go‘shtini qaynatib, birinchi suvini to‘kib tashlang. Ikkinchi suvga kinoa va to‘g‘ralgan kabachkini qo‘shib, barchasi to‘liq yumshaguncha pishiring. So‘ng blenderdan o‘tkazing yoki sanchqi bilan biroz donador holatda ezing."
+   ]
+  },
+  "2369413b-697e-4e19-93a2-ff9c61cde8f7": {
+   "title": "Sabzavotli köftachalar(1 yosh+)",
+   "description": "Sabzavot yeyishni istamaydigan bolalar uchun ichiga sabzavotlar \"yashirilgan\" yumshoq köftachalar.\n\nFoydasi: Qizil go‘sht temirga bo‘lgan ehtiyojni qondiradi, yashirin sabzavotlar esa kletchatka va vitaminlar bilan ta’minlaydi. Bola o‘z qo‘li bilan ushlab yeyishi uchun juda mos.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Yog‘siz mol go‘shti qiymasi: 150 gr",
+    "Kabachki va sabzi: Har biridan chorak dona (juda mayda qirg‘ichdan chiqarilgan va suvi siqilgan)",
+    "Piyoz: Juda kichik bo‘lak (qirg‘ichdan chiqarilgan)",
+    "Zaytun moyi."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni yaxshilab qoring. Yong‘oq kattaligidagi kichik köftachalar yasang. Pishirish qog‘ozi solingan duxovkada 180 darajada 20-25 daqiqa davomida (quritib yubormasdan) pishiring."
+   ]
+  },
+  "a67b3fb0-1d8c-4568-bbb8-eea9c5b74c3a": {
+   "title": "Sabzavotli fri(5 yosh+)",
+   "description": "Zararli kartoshka frisi o‘rnini bosadigan, duxovkada pishirilgan rang-barang va qarsildoq sabzavot tayoqchalari.\n\nFoydasi: Sabzi va batat A vitamini hamda beta-karotinga boy bo‘lib, ko‘zlar va teri salomatligini asrashga yordam beradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Batat, sabzi, kabachki: Har biridan yarim dona",
+    "Zaytun moyi: 1 osh qoshiq",
+    "Quritilgan yalpiz yoki kekik, ozgina tuz."
+   ],
+   "instructions": [
+    "Sabzavotlarni bir xil o‘lchamdagi uzunchoq tayoqchalar (sehrli tayoqcha) shaklida kesing. Moy va ziravorlar bilan aralashtirib, duxovka patnisiga yonma-yon tering. 200 darajada 20-25 daqiqa, chetlari qizarguncha pishiring."
+   ]
+  },
+  "244e5027-cbdf-4e83-8b58-62158b64f304": {
+   "title": "Golden Matcha Elixir",
+   "description": "Yallig‘lanishga qarshi kurkuma va energiya beruvchi matchaning ajoyib uyg‘unligi.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "1 choy qoshiq matcha, yarim choy qoshiq kurkuma, bir chimdim qora murch, 1 stakan iliq bodom suti, 1 choy qoshiq asal."
+   ],
+   "instructions": [
+    "Iliq sutga barcha masalliqlarni qo‘shib, yaxshilab aralashtiring va ko‘pirtiring."
+   ]
+  },
+  "cf74a166-77b4-4cd9-978f-5f84fbaf4d6d": {
+   "title": "Qarsildoq baliq tayoqchalari (2 yosh+)",
+   "description": "Do‘konda sotiladigan muzlatilgan baliq tayoqchalarining qovurilmagan, 100% tabiiy turi.\n\nFoydasi: Baliq chaqaloqning miya va ko‘zlari rivojlanishi uchun zarur bo‘lgan Omega-3 yog‘ kislotalari bilan ta’minlaydi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Oq baliq filesi (masalan, levrek — suyaksiz): 100 gr (uzunchoq qilib kesilgan)",
+    "Tuxum: 1 dona (ko‘pirtirilgan)",
+    "Suli uni (botirib olish uchun)",
+    "Zaytun moyi, ozgina tuz."
+   ],
+   "instructions": [
+    "Baliq bo‘laklarini avval tuxumga, so‘ngra suli uniga botirib oling.",
+    "Pergament qog‘ozi solingan pech patnisiga terib, ustiga juda oz miqdorda zaytun moyi surting.",
+    "190 darajada 15 daqiqa, qarsildoq bo‘lguncha pishiring."
+   ]
+  },
+  "495abf5b-aca7-4840-8cc2-c8a7f267da78": {
+   "title": "Supermen kesadiyasi (5 yosh+)",
+   "description": "Ichiga sabzavotlar yashirilgan, bolalar qo‘lda yeb zavqlanadigan Meksika taomi.\n\nFoydasi: Qora loviya va tovuq go‘shti sifatli oqsil manbai, pishloq esa suyaklarni mustahkamlovchi kalsiyga boy.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Butun donli bug‘doy unidan lavash (tortilya): 1 dona",
+    "Golland pishlog‘i (qirg‘ichdan chiqarilgan): 2 osh qoshiq",
+    "Qora loviya (pishirilgan) va makkajo‘xori: 1 osh qoshiq",
+    "Maydalangan tovuq go‘shti: 1 osh qoshiq",
+    "Ismaloq (juda mayda to‘g‘ralgan): Bir necha barg."
+   ],
+   "instructions": [
+    "Lavashning yarmiga pishloq, tovuq go‘shti, loviya, makkajo‘xori va ismaloqni yoying. Ikkinchi yarmini ustiga buklang (yarimoy shaklida). Qizigan tovaga solib, pishloq eriguncha va lavash qarsildoq bo‘lguncha ikki tomonini qovuring. Uchburchak shaklida kesib, dasturxonga torting."
+   ]
+  },
+  "405b0576-a236-4ed8-8698-3423fb1d2ff0": {
+   "title": "Batat va yasmiqli karri",
+   "description": "Yallig‘lanishga qarshi xususiyatga ega ziravorlarga boy, veganlar uchun mos va glyutensiz hind oshxonasi klassikasi.\n\nFoydasi: Karri va zarchava immunitetni mustahkamlaydi, batat esa taomga tabiiy, mayin shirinlik bag‘ishlaydi.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Batat (shirin kartoshka): 1 katta dona (kubik shaklida to‘g‘ralgan)",
+    "Qizil yasmiq: 1 stakan",
+    "Kokos suti (qadoqdagi quyuq turi): 1 stakan",
+    "Karri kukuni: 1 osh qoshiq",
+    "Ismaloq: 1 hovuch."
+   ],
+   "instructions": [
+    "Piyoz, sarimsoq va karri kukunini yog‘da qovuring. Ustiga batat, yasmiq, kokos suti va 2 stakan suv qo‘shing. Sabzavotlar to‘liq pishguncha past olovda qaynating. Olovdan olishdan oldin ismaloqni solib, aralashtiring."
+   ]
+  },
+  "287fe4e5-acde-487e-8549-304293001ae7": {
+   "title": "Buffalo uslubidagi gulkaram",
+   "description": "Amerikaning mashhur \"Buffalo Wings\" (tovuq qanotchalari) taomiga 100% vegetarian va foydali muqobil.\n\nFoydasi: Qarsildoq fast-fudga bo‘lgan istakni to‘liq qondiradi, ammo tovuq o‘rniga kletchatkaga boy gulkaram ishlatiladi va yog‘da qovurish o‘rniga pechda pishiriladi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Gulkaram: 1 bosh (to‘pgullarga ajratilgan)",
+    "Butun donli bug‘doy uni va suv: Xamir tayyorlash uchun (quymoq xamiri quyuqligida)",
+    "Achchiq Buffalo sousi (yoki istalgan achchiq sous+sariyog‘ aralashmasi)."
+   ],
+   "instructions": [
+    "Gulkaram to‘pgullarini un va suvli aralashmaga botirib, pech patnisiga tering. 200 darajada 20 daqiqa pishiring. Pechdan olib, ustidan achchiq sous quying va chetlari qarsildoq bo‘lguncha yana 10 daqiqa pechda pishiring."
+   ]
+  },
+  "0732d705-b1b2-4b26-b8dc-748f80e0f06a": {
+   "title": "Andalusiya shabadasi — ispancha gaspacho",
+   "description": "Ispaniyaning janubidan kelib chiqqan, pishirmasdan tayyorlanadigan salqin, xom va vitaminlarga boy pomidorli sho‘rva.\n\nFoydasi: Bu haqiqiy \"gul va sabzavot\" detoksidir. Likopin (pomidor) va C vitamini (qalampir) tufayli terini quyoshning zararli nurlaridan ichkaridan himoya qiladi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Juda pishgan qizil pomidor: 4-5 dona",
+    "Bodring: 1 dona (sovutilgan)",
+    "Yashil bulg‘or qalampiri: Yarim dona",
+    "Qizil piyoz va sarimsoq (juda oz)",
+    "Birinchi sovuq siqimdagi zaytun moyi (2 osh qoshiq) va olma sirkasi (1 osh qoshiq)."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni blenderga soling, ustidan zaytun moyi, sirka va ozgina tuz qo‘shib, butunlay suyuq (sho‘rva) holga kelguncha aralashtiring. Muzdek sovishi uchun muzlatkichda kamida 2 soat saqlang."
+   ]
+  },
+  "6a513f71-83a0-47b7-94eb-0de33be5ff6d": {
+   "title": "Gold Mac & Cheese (2 yosh+)",
+   "description": "Bolalar eng yaxshi ko‘radigan pishloqli makaronning ichiga sabzavotlar yashirilgan juda foydali turi.\n\nFoydasi: Klassik unli va yog‘li sous o‘rniga sousning asosini qovoq va sabzi tashkil etadi. A vitamini va kalsiyga boy.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Butun donli bug‘doy makaroni (shoxcha yoki spiral shaklida): 1 stakan",
+    "Qovoq va sabzi (qaynatilgan): Har biridan yarim stakan",
+    "Sut: Yarim stakan",
+    "Cheddar yoki golland pishlog‘i: 3 osh qoshiq qirg‘ichdan chiqarilgan"
+   ],
+   "instructions": [
+    "Makaronni suvda to‘liq pishguncha qaynatib, suvini suzib tashlang.",
+    "Pishgan qovoq, sabzi va sutni blenderda butunlay silliq, to‘q sariq krem (sous) holiga kelguncha aralashtiring.",
+    "Sousni qizigan tovaga quying, ustidan qirg‘ichdan chiqarilgan pishloqni qo‘shib eriting. Oxirida makaronni sousga solib aralashtiring."
+   ]
+  },
+  "60680ede-d11d-4b46-a277-695525f7d111": {
+   "title": "Yulduzli tun sho‘rvasi (3 yosh+)",
+   "description": "Sho‘rva ichishni yoqtirmaydigan bolalar uchun ichida yulduzchalar suzib yuradigan, suyak bulyonidan tayyorlangan mazali taom.\n\nFoydasi: Suyak bulyoni kollagen va kalsiyga boy bo‘lib, bolalarning bo‘yi o‘sishi va suyaklari mustahkamlanishiga yordam beradi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "chaqaloq_ovqati"
+   ],
+   "ingredients": [
+    "Toza suyak yoki tovuq bulyoni: 2 stakan",
+    "Yulduzcha shaklidagi bolalar makaronchasi: 2 osh qoshiq",
+    "Sabzi: Yarim dona (juda mayda yulduzcha shaklida kesilgan)",
+    "Petrushka: Juda oz (ustiga sepish uchun)."
+   ],
+   "instructions": [
+    "Bulyonni qaynating, ichiga yulduzcha shaklidagi makaron va sabzini qo‘shing. Makaron to‘liq yumshaguncha (taxminan 8-10 daqiqa) pishiring."
+   ]
+  },
+  "40f5ac74-8479-42d8-bab7-5b56e15de9ae": {
+   "title": "Matchali qulupnay buluti",
+   "description": "Ijtimoiy tarmoqlardagi eng urfdagi ichimlik. Terini oziqlantiruvchi antioksidantlar manbai.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "1 choy qoshiq matcha kukuni (iliq suvda eritilgan), 4-5 dona yangi qulupnay (pyure holiga keltirilgan), 1 stakan bodom suti, muz."
+   ],
+   "instructions": [
+    "Stakan tubiga qulupnay pyuresini soling, ustidan muz va sut qo‘shing. Oxirida eritilgan yashil matchani sekin quying, shunda ranglar qatlam-qatlam (pastda pushti, tepada yashil) bo‘lib qoladi."
+   ]
+  },
+  "0d809ddc-e476-418c-9f34-67e7b608cf9f": {
+   "title": "Bodomli pankeyk va chia jemi",
+   "description": "Oddiy undan tayyorlanadigan pankeyklarning glyutensiz va shakarsiz \"sog‘lom hayot\" muqobili.\n\nFoydasi: Bodom uni qondagi shakar miqdorini keskin oshirmaydi (glikemik indeksi past). Chia jemi esa sanoatda ishlab chiqarilgan murabbolardagi ortiqcha shakardan xalos bo‘lishga yordam beradi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Bodom uni: 1 stakan",
+    "Tuxum: 2 dona",
+    "Bodom suti: Stakanning to‘rtdan biri",
+    "Jem uchun: 1 stakan muzlatilgan malina va 2 osh qoshiq chia urug‘i."
+   ],
+   "instructions": [
+    "Malinani isitib, ezing, ichiga chia urug‘ini qo‘shing va sovib, quyuqlashishi uchun qoldiring. Alohida idishda bodom uni, tuxum va sutni ko‘pirtirib aralashtiring, so‘ng tovada kichik pankeyklar pishiring. Ustidan o‘zingiz tayyorlagan shakarsiz chia jemini quying."
+   ]
+  },
+  "53cbba9d-f39f-4a00-950a-386243d164bd": {
+   "title": "Peru sevichesi",
+   "description": "Lotin Amerikasining baliq olovsiz, faqat sitrus kislotasi yordamida \"pishadigan\" tetiklantiruvchi va oqsilga boy taomi.\n\nFoydasi: Qo‘shimcha yog‘ umuman yo‘q, sof oqsil esa maksimal darajada. Bu parhez tutuvchilarning eng sevimli taomlaridan biridir.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Oq baliq filesi (juda yangi va suyaksiz): 200 gr (mayda kub shaklida to‘g‘ralgan)",
+    "Laym sharbati: Yarim stakan (yangi siqilgan)",
+    "Qizil piyoz: Yarim dona (yupqa yarim halqa shaklida to‘g‘ralgan)",
+    "Yangi kashnich, achchiq xalapenyo qalampiri (xohishga ko‘ra), tuz."
+   ],
+   "instructions": [
+    "Xom baliq bo‘laklarini shisha idishga soling, ustidan laym sharbati va ozgina tuz quying. Sharbat baliq rangini oqartirib, uni \"pishiradi\". Muzlatkichda 20-30 daqiqa saqlang. Dasturxonga tortishdan oldin piyoz va kashnich qo‘shib aralashtiring."
+   ]
+  },
+  "dded217d-3179-4368-8e13-255ed13ea4cf": {
+   "title": "Skandinaviya Smørrebrød",
+   "description": "Daniya va Norvegiyaga xos, to‘q rangli javdar noni ustida tayyorlanadigan ochiq sendvich san’ati.\n\nFoydasi: Javdar noni murakkab uglevod bo‘lib, qondagi shakar miqdorini keskin oshirmaydi. Losos esa skandinavlarning uzoq umr ko‘rish siri hisoblangan Omega-3 manbaidir.",
+   "category": "general",
+   "ingredients": [
+    "To‘q rangli, donli javdar noni: 1 katta bo‘lak",
+    "Krem-pishloq (labne): 1 osh qoshiq",
+    "Dudlangan yoki tuzlangan losos (syomga): 2-3 tilim",
+    "Qizil piyoz halqalari, yangi shivit, rediska tilimlari."
+   ],
+   "instructions": [
+    "Non ustiga krem-pishloq surting. Baliq tilimlarini to‘lqinsimon shaklda joylashtiring. Ustini piyoz halqalari, yupqa to‘g‘ralgan rediska va mo‘l-ko‘l shivit bilan bezatib, chiroyli tarzda dasturxonga torting."
+   ]
+  },
+  "23f9812f-031f-4161-95cf-ce2d96da0985": {
+   "title": "Kinoali tabbule (Livan oshxonasi)",
+   "description": "An’anaviy bulg‘ur o‘rniga glyutensiz va oqsilga boyroq kinoa ishlatiladigan mashhur Yaqin Sharq salati.\n\nFoydasi: Yengil, kletchatka va C vitaminiga (mo‘l-ko‘l petrushka tufayli) boy. Qondagi shakar miqdorini me’yorda ushlab turishga yordam beradi.",
+   "category": "general",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kinoa (pishirilgan va sovitilgan): 1 stakan",
+    "Yangi petrushka (juda mayda to‘g‘ralgan): 2 katta bog‘lam",
+    "Yangi yalpiz: 1 kichik bog‘lam",
+    "Pomidor: 2 dona (mayda kub shaklida to‘g‘ralgan)",
+    "Ko‘k piyoz: 3-4 dona",
+    "Extra virgin zaytun moyi va mo‘l-ko‘l limon sharbati, tuz."
+   ],
+   "instructions": [
+    "Chuqur idishda barcha to‘g‘ralgan ko‘kat va sabzavotlarni pishirilgan kinoa bilan aralashtiring. Ustidan mo‘l-ko‘l zaytun moyi va limon sharbati quyib, yaxshilab aralashtiring. Muzlatkichda kamida 30 daqiqa tindiring."
+   ]
+  },
+  "f1edbb7c-89ad-49b8-9c59-42461d445810": {
+   "title": "Hindcha yasmiq pyuresi",
+   "description": "Vegetarianlarning sevimli taomi — ziravorlar kuchi bilan tanani ichdan isitadigan tillarang hindcha dimlama.\n\nFoydasi: Kurkuma va zanjabil organizmdagi yallig‘lanishni kamaytiradi. Yasmiq esa o‘simlik oqsili tufayli uzoq vaqt to‘q tutadi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Qizil yoki sariq yasmiq: 1 stakan",
+    "Piyoz, sarimsoq, yangi zanjabil.",
+    "Kurkuma va karri kukuni: Har biridan 1 choy qoshiq.",
+    "Pomidor: 1 dona",
+    "Kokos suti: Juda oz (ustiga)."
+   ],
+   "instructions": [
+    "Piyoz, sarimsoq, zanjabil va ziravorlarni yog‘da xushbo‘y hidi chiqquncha qovuring. To‘g‘ralgan pomidor va yasmiqni qo‘shing. Suv solib, yasmiq butunlay yumshab, pyurega o‘xshash dimlama holiga kelguncha pishiring. Ustiga kokos suti quyib, kashnich seping."
+   ]
+  },
+  "bfa226ee-4fae-4a95-b348-aee056cab96b": {
+   "title": "Nemischa kartoshka salati",
+   "description": "Og‘ir, mayonezli salatlar o‘rnini bosadigan, xantal va sirkali ajoyib yengil nemis salati.\n\nFoydasi: Sovigan kartoshkada prebiotik xususiyatga ega \"chidamli kraxmal\" hosil bo‘ladi (u ichaklar uchun foydali). Tarkibida mayonez bo‘lmagani uchun xolesterin bilan bog‘liq muammo tug‘dirmaydi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Kartoshka: 3-4 dona (qaynatilgan, sovitilgan, tilimlangan)",
+    "Qizil piyoz: 1 ta kichik bosh (mayda to‘g‘ralgan)",
+    "Yangi petrushka yoki shivit",
+    "Sous uchun: 1 osh qoshiq donador xantal, 2 osh qoshiq olma sirkasi, 3 osh qoshiq zaytun moyi, tuz, qora murch."
+   ],
+   "instructions": [
+    "Iliq yoki to‘liq sovigan kartoshka tilimlari ustiga piyoz va ko‘katlarni soling. Xantal, sirka va moyni bankada chayqatib, sous tayyorlang va salatga aralashtiring."
+   ]
+  },
+  "82a7ccbd-e708-435c-afe7-61fd5589966e": {
+   "title": "Shrek's Mac & Cheese (3 yosh+)",
+   "description": "Chiroyli yashil rangi bilan e’tiborni tortadigan, ichiga ismaloq yashirilgan pishloqli makaron.\n\nFoydasi: 3 yoshli bolalarning aksariyati ismaloqni xom yoki pishirilgan holda iste’mol qilishdan bosh tortadi. Bu sous yordamida ular o‘zlari sezmagan holda ko‘p miqdorda temir moddasini qabul qiladi.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Makaron: 1 stakan",
+    "Ismaloq: 1 katta hovuch",
+    "Sut: Yarim stakan",
+    "Mozzarella yoki Gouda pishlog‘i: 2 osh qoshiq (qirg‘ichdan chiqarilgan)."
+   ],
+   "instructions": [
+    "Makaronni qaynatib, suvini suzib oling. Ismaloq va sutni blenderda butunlay yashil, bir tekis suyuqlik hosil bo‘lguncha aralashtiring. Bu yashil sutni qizigan tovaga quying, pishloqni qo‘shib eriting. Oxirida makaronni qo‘shib, yaxshilab aralashtiring."
+   ]
+  },
+  "55d6317c-4bcb-4a93-943a-dda17af68226": {
+   "title": "Oltin yog‘du tonigi",
+   "description": "Tanadagi yallig‘lanishni kamaytiradigan va kasalliklardan himoya qiladigan ertalabki tonik.\n\nFoydasi: Zarchava kuchli tabiiy yallig‘lanishga qarshi vositadir. U terining qizarishi va bo‘g‘imlardagi og‘riqni kamaytiradi, shuningdek, terining tabiiy yorqinligini tiklaydi.",
+   "category": "Sog‘lom ichimliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Iliq suv: 1 stəkan",
+    "Zarchava kukuni: Yarım çay qaşığı",
+    "Qora murch: Bir çimdik (zarchavaning qonga so‘rilishi uchun mütləqdir)",
+    "Limon sharbati va 1 çay qaşığı tabiiy olma sirkasi"
+   ],
+   "instructions": [
+    "Barcha masalliqlarni yaxshilab aralashtiring va ertalab iliq holatda (tomoq va oshqozonni kuydirmaydigan darajada) qultumlab iching."
+   ]
+  },
+  "d945cba8-c55e-4693-91cb-3385f3ce8b99": {
+   "title": "Rang-barang sixchalar(5 yaş+)",
+   "description": "Sabzavot va go‘shtni birga, rangli o‘yin kabi taqdim etadigan sixchalar.\n\nFoydasi: Bolalarga bir vaqtning o‘zida ham oqsil, ham vitaminlarni qiziqarli usulda yedirishning eng qulay yo‘lidir.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Tovuq ko‘krak go‘shti: 100 qr (qovurilgan yoki qaynatilgan, kub shaklida kesilgan)",
+    "Rangli bulg‘or qalampirlari (qizil, sariq), cherri pomidor va bodring (qalin kesilgan).",
+    "Uchi to‘mtoq yog‘och cho‘plar (sixchalar)."
+   ],
+   "instructions": [
+    "Cho‘plarga navbat bilan cherri pomidor, tovuq kubigi, sariq qalampir, bodring va yana tovuqni o‘tkazing. Ranglar kamalak kabi joylashishiga e’tibor bering."
+   ]
+  },
+  "4562e352-5778-4e1f-951e-cc27bf63469a": {
+   "title": "Pesto sousli kabachki spagettisi",
+   "description": "Xamirli taomdan bahramand bo‘lish hissini beradigan, ammo mutlaqo semirtirmaydigan ajoyib pasta.\n\nFoydasi: Kaloriyasi juda past. Pesto sousidagi zaytun moyi va rayhon kuchli antioksidant bo‘lib, hujayralarning yoshligini saqlaydi.",
+   "category": "tushlik",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Kabachki: 2 orta boy (maxsus moslama yordamida spagetti shaklida kesilgan)",
+    "Pesto sousi: 2 xörək qaşığı (yangi rayhon, zaytun moyi, yong‘oq, sarimsoq ezmasi)",
+    "Cherri pomidor: 4-5 ədəd."
+   ],
+   "instructions": [
+    "Kabachki spagettisini tovada ozgina zaytun moyida atigi 2-3 dəqiqə sote qiling (ortiqcha pishirmang, qarsildoq bo‘lib qolsin). Olovdan olib, pesto sousi va ikkiga bo‘lingan pomidorlar bilan aralashtiring."
+   ]
+  },
+  "9dca9acb-e3bc-495a-9af1-62c75bc63dca": {
+   "title": "Oltin yasmiq va zanjabil sho‘rvasi",
+   "description": "Moddalar almashinuvini faollashtiradigan, ichdan isitadigan qishki tushlik.\n\nFoydasi: Zanjabil va zarchava organizmdagi yallig‘lanishni (shish, husnbuzar, bo‘g‘im og‘riqlari) kamaytiradi, qizil yasmiq esa uzoq vaqt to‘q tutadi.",
+   "category": "tushlik",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Qizil yasmiq: 1 stakan",
+    "Yangi zanjabil: Funduqdek (qirg‘ichdan chiqarilgan)",
+    "Zarchava (kurkuma): Yarim choy qoshiq",
+    "Sabzi, piyoz.",
+    "Kokos suti: 2 osh qoshiq (xohishga ko‘ra, ustiga quyish uchun)."
+   ],
+   "instructions": [
+    "Barcha sabzavotlar va yasmiqni suvda yumshaguncha qaynatib, blenderdan o‘tkazing. Zarchava va zanjabilni qo‘shib, yana biroz qaynatib oling. Kosaga suzgach, ustidan kokos sutini quying."
+   ]
+  },
+  "0298f702-76b2-4fe4-995b-506dab64f0f1": {
+   "title": "Shirin kartoshka va loviya",
+   "description": "PMS (hayz oldi) davrida shirinlikka bo‘lgan ehtiyoj va kayfiyat o‘zgarishlarini me’yorlashtirishga yordam beradigan retsept.\n\nFoydasi: Shirin kartoshka va qora loviya magniyga boy bo‘lib, asab tizimini tinchlantiradi, spazmlarni kamaytiradi va uzoq vaqt to‘q tutadi.",
+   "category": "tushlik",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Shirin kartoshka (batat): 1 dona (o‘rtasidan bo‘lingan va pechda to‘liq pishirilgan)",
+    "Qora loviya (yoki qizil): 2 osh qoshiq (qaynatilgan)",
+    "Makkajo‘xori: 1 osh qoshiq",
+    "Avokado pyuresi (guakamole) va laym sharbati."
+   ],
+   "instructions": [
+    "Pishgan va ichi yumshagan shirin kartoshkaning o‘rtasiga qora loviya va makkajo‘xorini soling. Ustiga avokado pyuresini qo‘yib, laym sharbatini siqing."
+   ]
+  },
+  "a7eb16f8-9a88-4ac0-92d3-fb7d3da355e0": {
+   "title": "Kichkina ayiqcha pyuresi(1 yosh+)",
+   "description": "Go‘shtni chaynashga qiynaladigan bolalar uchun og‘izda eriydigan, shirali qishki taom.\n\nFoydasi: Uzoq vaqt pishirilgan go‘sht oson hazm bo‘ladi, uning bulyoni esa suyaklar rivojlanishi uchun foydalidir.",
+   "category": "Qo‘shimcha ovqat",
+   "tags": [
+    "baby_food"
+   ],
+   "ingredients": [
+    "Mol go‘shti: 50 qr (juda mayda, no‘xat kattaligidagi kubiklar)",
+    "Sabzi va kartoshka: Yarim dona (kubik shaklida to‘g‘ralgan)",
+    "Pomidor: To‘rtdan bir qismi (qirg‘ichdan chiqarilgan)",
+    "Zaytun moyi va suv."
+   ],
+   "instructions": [
+    "Go‘shtni zaytun moyida rangi o‘zgarguncha qovuring, ustiga pomidor va suv qo‘shib, yumshaguncha pishiring (bosimli qozonda yaxshiroq pishadi). Keyin sabzi va kartoshkani qo‘shib, sabzavotlar eziladigan darajada yumshaguncha pishiring."
+   ]
+  },
+  "cdafe114-fffe-4d67-b795-0770d33715ea": {
+   "title": "Brokkoli va mol go‘shti sotesi",
+   "description": "Mashhur Osiyo (Xitoy) oshxonasining butun dunyoda seviladigan eng foydali klassik taomlaridan biri.\n\nFoydasi: Temir (go‘shtdan) hamda kalsiy va C vitamini (brokkolidan) mukammal muvozanat hosil qiladi. Tez tayyorlanadi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Mol go‘shti (lahm, juda yupqa tilimlangan): 250 qr",
+    "Brokkoli: 1 butun bosh (gulchalarga ajratilgan)",
+    "Soya sousi (kam tuzli): 3 osh qoshiq",
+    "Yangi zanjabil va sarimsoq (ezilgan).",
+    "Kunjut yog‘i va kunjut urug‘i."
+   ],
+   "instructions": [
+    "Tovada (wok) go‘shtni baland olovda tezda qovurib, chetga olib qo‘ying. Xuddi shu tovaga brokkoli, sarimsoq va zanjabilni solib, 3-4 daqiqa sote qiling (brokkoli qarsildoq bo‘lib qolishi kerak). Go‘shtni yana tovaga soling, soya sousini qo‘shib 1 daqiqa aralashtiring, ustidan kunjut sepib, olovdan oling."
+   ]
+  },
+  "d73926c7-3c66-41bd-88a6-1a28c3a2f959": {
+   "title": "Zig‘ir va bodom unidan kreker",
+   "description": "Do‘konda sotiladigan zararli chipslar o‘rnini bosuvchi, 100% glyutensiz, uglevodsiz (Keto) uy krekerlari.\n\nFoydasi: Bodom uni E vitaminiga boy, zig‘ir urug‘i esa ichak faoliyatini juda yaxshi tartibga soladi.",
+   "category": "umumiy",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Bodom uni: 1 stakan",
+    "Zig‘ir urug‘i (maydalangan): 3 osh qoshiq",
+    "Suv: 3 osh qoshiq",
+    "Zaytun yog‘i: 1 osh qoshiq",
+    "Tuz va quritilgan timyan."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni bir idishda qorib, xamir tayyorlang. Xamirni ikki pishirish qog‘ozi orasiga qo‘yib, o‘qlov bilan juda yupqa (chips kabi) yoying. Pichoq bilan kvadratlarga kesib, 170 daraja haroratdagi pechda 15-20 daqiqa, qarsildoq bo‘lguncha pishiring."
+   ]
+  },
+  "9af7ce60-d92c-4cdf-bbaf-e2276dc4e407": {
+   "title": "Cacao Maca Magic",
+   "description": "Ayol gormonlarini muvozanatlashtiradigan va baxt gormoni darajasini oshiradigan iliq lazzat.\n\nFoydasi: Perudan kelib chiqqan \"Maca\" (maka) ildizi kukuni ayollarda gormonlarni (PMS va menopauza davrida) tartibga soladi, quvvat va libidoni oshiradi. Kakao esa magniy manbaidir.",
+   "category": "Foydali ichimliklar",
+   "tags": [
+    "umumiy"
+   ],
+   "ingredients": [
+    "Shakarsiz, sof kakao kukuni: 1 osh qoshiq",
+    "Maca (maka) kukuni: 1 choy qoshiq",
+    "Bodom yoki funduk suti: 1 stakan",
+    "Dolchin va asal."
+   ],
+   "instructions": [
+    "Barcha masalliqlarni kichik qozonda isitib, yaxshilab (ko‘pik hosil bo‘lguncha) ko‘pirtiring. Issiq shokolad kabi, kechki payt zavq bilan iching."
+   ]
+  },
+  "4b5bc08b-15b1-4187-aa19-05b7b3bb4ae4": {
+   "title": "No‘xatli blondi",
+   "description": "Tarkibida no‘xat borligiga hech kim ishonmaydigan karamelli, unsiz keks.\n\nFoydasi: Bu shirinlik sof oqsil va murakkab uglevodlar manbaidir. Glyuten sababli qorin dam bo‘lishiga olib kelmaydi, kechki mashg‘ulotdan so‘ng (mushaklar tiklanishi uchun) choy bilan juda yaxshi ketadi.",
+   "category": "Sog‘lom shirinliklar",
+   "tags": [
+    "general"
+   ],
+   "ingredients": [
+    "Konservalangan no‘xat: 1 stakan (yaxshilab yuvilgan va po‘sti archilgan)",
+    "Yeryong‘oq pastasi: 3 osh qoshiq",
+    "Asal yoki zarang siropi: 3 osh qoshiq",
+    "Vanilin, qabartma.",
+    "Shokolad tomchilari (qora shokoladli)."
+   ],
+   "instructions": [
+    "Shokoladdan tashqari barcha masalliqlarni blenderda butunlay bir xil, silliq xamir holiga kelguncha aralashtiring. Unga shokolad tomchilarini qo‘shib, kichik kvadrat keks qolipiga quying. 175 darajada 20 daqiqa pishiring. Iliqligida bo‘laklarga bo‘ling."
+   ]
+  }
+ }
+}
