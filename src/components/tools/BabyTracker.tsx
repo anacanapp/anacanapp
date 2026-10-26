@@ -17,6 +17,7 @@ import {
 import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
+import TrackerAIInsight, { useBabyInsight } from '@/components/baby/TrackerAIInsight';
 
 type Tab = 'feeding' | 'sleep' | 'diaper';
 const PERIODS = [7, 14, 30, 90] as const;
@@ -141,7 +142,7 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
   const { loading, addLog, deleteLog } = useBabyLogs();
   const range = useBabyLogsRange(90);
   const logs = range.logs;
-  const { selectedChild, hasMultipleChildren } = useChildren();
+  const { selectedChild, hasMultipleChildren, getChildAge } = useChildren();
   const { unlockAchievement } = useAchievements();
   const { toast } = useToast();
   const childId = selectedChild?.id;
@@ -272,6 +273,17 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
     return { id: l.id, time: new Date(l.start_time), title: k ? diaperLabel(k) : bc('babytracker_tab_diaper'), detail: '' };
   }), [today]);
 
+  // AI analysis of today, one request per section when its button is pressed (moved here from the home screen).
+  const insightStats = useMemo(() => ({
+    sleepMinutes: Math.round(sleepToday.totalMinutes), sleepCount: sleepToday.sessions.length,
+    feedingCount: feedToday.total, breastCount: feedToday.left + feedToday.right, formulaCount: feedToday.formulaCount,
+    formulaMl: feedToday.formulaMl, solidCount: feedToday.solidCount,
+    diaperCount: diaperToday.total, wetCount: diaperToday.wet, dirtyCount: diaperToday.dirty, mixedCount: diaperToday.mixed,
+  }), [sleepToday, feedToday, diaperToday]);
+  const age = selectedChild ? getChildAge(selectedChild) : null;
+  const insight = useBabyInsight(selectedChild && age ? insightStats : null,
+    selectedChild && age ? { id: selectedChild.id, ageMonths: age.months, ageDays: age.days, gender: selectedChild.gender ?? undefined } : null);
+
   const totalTitle = periodText('babytracker_period_total', days);
   const avgLabel = periodText('babytracker_period_avg', days);
   const trendTitle = periodText('babytracker_trend_period', days);
@@ -312,6 +324,7 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
               <BreastButton label={bc('babytracker_breast_right')} startedAt={rightTimer?.startTime} busy={busy} onClick={() => void toggleBreast('right')} />
             </div>
           </Card>
+          <TrackerAIInsight section="feeding" api={insight} />
           <Card title={bc('babytracker_bottle')}>
             <form className="bt-inline" onSubmit={(e) => { e.preventDefault(); void saveFormula(); }}>
               <input className="bt-input" inputMode="decimal" value={ml} onChange={(e) => setMl(e.target.value)} placeholder={bc('babytracker_ml_label')} aria-label={bc('babytracker_ml_label')} />
@@ -353,6 +366,7 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
               <Moon size={16} />{sleepTimer ? bc('babytracker_sleep_stop') : bc('babytracker_sleep_start')}
             </button>
           </section>
+          <TrackerAIInsight section="sleep" api={insight} />
           <Card title={bc('babytracker_today')}>
             <Row label={bc('babytracker_total')} value={dur(sleepToday.totalMinutes)} />
             <Row label={bc('babytracker_sessions')} value={String(sleepToday.sessions.length)} />
@@ -384,6 +398,7 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
               ))}
             </div>
           </Card>
+          <TrackerAIInsight section="diaper" api={insight} />
           <Card title={bc('babytracker_today')}>
             <Row label={bc('babytracker_total')} value={String(diaperToday.total)} />
             <Row label={bc('babytracker_diaper_wet')} value={String(diaperToday.wet)} />

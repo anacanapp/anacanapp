@@ -153,6 +153,28 @@ apart from asset hashes.
 - **Users:** they get the redesign through the next native build (48), which bundles this same
   code.
 
+## Dashboard cleanup (2026-10-26, after the web deploy)
+- **Backup:** tag `backup/pre-dashboard-cleanup` (plus a branch of the same name with `-branch`)
+  is exactly what is deployed as `gateway@sha256:f59f8735…`.
+  - Restore the code: `git checkout backup/pre-dashboard-cleanup -- src`.
+  - Restore the site: the VM has `rollback-articles-web-plan.json` and
+    `rollback-redesign-web-plan.json`.
+- **Baby home:** `Dashboard.tsx` went from 1,664 to 848 lines.
+  - **Replaced by the Baby tracker tool:** the duplicated sleep/feeding/diaper trackers, with
+    their timers, modals, history panel and today's summary.
+    - The home now shows one compact card that opens the tool.
+    - The `data-blog-module-section` anchors are kept, so article deep links still land.
+    - The per-section AI analysis moved into the tool's three tabs.
+  - **Removed duplicates:** the water widget (the water tile and day plan cover it) and the
+    weekly feeding/sleep/diaper averages (the tool's 7/14/30/90-day view covers them).
+  - **Merged:** daily info, the message for mom and the monthly illustration text are now one
+    tabbed card.
+  - **Restyled:** the preemie and cakes entries use the new card style.
+- **Deleted, now unused:** `FeedingHistoryPanel`, `SleepHistoryPanel`, `QuickStatsWidget`, dead
+  helpers in `Dashboard.tsx`, and unused imports in `FlowDashboard.tsx`.
+- **Global styles:** older screens' `.a-section` and `.a-card` follow the new spacing, title type
+  and borderless cards (cards keep their border in dark mode).
+
 ## Known limitations (not regressions)
 - **Fetus and baby illustration images:** the URLs stored in the database point to the retired Azure
   gateway and return 404. The pregnancy hero falls back to the bundled SVGs and the baby hero uses

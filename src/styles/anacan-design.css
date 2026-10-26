@@ -2834,3 +2834,20 @@ html.a-lite .a3-hero::before, html.a-lite .a3-art img, html.a-lite .a3-mascot.bo
 .a-topbar > div { min-width: 0; }
 .a-topbar > div > div { min-width: 0; }
 .a-topbar .a3-icon-btn { margin-inline-start: -8px; }
+
+/* Home: compact entry rows (preemie, cakes) and the baby-care summary card */
+.a3-entry { flex-direction: row; width: 100%; border: 0; text-align: start; cursor: pointer; }
+.a3-entry-title { display: block; font-size: 15px; font-weight: 700; color: var(--a-ink); }
+.a3-entry .a3-meta { display: block; }
+.a3-entry-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.bt-home { width: 100%; gap: 4px; border: 0; text-align: start; cursor: pointer; color: var(--a-ink); }
+.bt-home-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-top: 1px solid var(--a-line); font-size: 14.5px; }
+.bt-home-row:first-of-type { border-top: 0; }
+.bt-home-row b { font-weight: 700; }
+
+/* Older screens adopt the redesign rhythm: same section spacing, title type and borderless cards. */
+.a-section { margin-top: 24px; }
+.a-section-head { align-items: center; min-height: 28px; }
+.a-section-title { font-size: 18px; font-weight: 700; letter-spacing: -0.025em; color: var(--a-ink); }
+.a-section-link { color: var(--a-coral-text); font-weight: 600; }
+:root:not(.dark) .a-card { border-color: transparent; }

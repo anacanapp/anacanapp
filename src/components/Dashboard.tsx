@@ -1,18 +1,15 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
-import { getLocaleTag } from '@/lib/i18n';
-import TrackerAIInsight, { useBabyInsight } from '@/components/baby/TrackerAIInsight';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import {
-  Droplets, Moon, Utensils, Activity, Plus, TrendingUp, Heart, Sparkles,
-  Bell, ChevronRight, Flame, Target, Calendar, Zap, Sun, Cloud, Wind,
-  ThermometerSun, Pill, Baby, Footprints, Scale, Clock, Star, Award,
-  MessageCircle, Check, Lightbulb, BookOpen, PartyPopper, RefreshCw, ChevronUp, ChevronDown, FileText, Smile, Droplet } from
+  Droplets, Moon,
+ ChevronRight,
+ Pill, Baby, Footprints, Scale,
+  MessageCircle, Check, Smile, Droplet } from
 'lucide-react';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
 import { useTimerStore } from '@/store/timerStore';
-import { FRUIT_SIZES } from '@/types/anacan';
 import { hapticFeedback } from '@/lib/native';
 import { useToast } from '@/hooks/use-toast';
 import { useDailyLogs } from '@/hooks/useDailyLogs';
@@ -31,20 +28,11 @@ import { useDirectMessages } from '@/hooks/useDirectMessages';
 import { useNotifications } from '@/hooks/useNotifications';
 import { useFruitImages, getDynamicFruitData } from '@/hooks/useFruitData';
 import { useTrimesterTips } from '@/hooks/useTrimesterTips';
-import { useFlowSymptoms, useFlowPhaseTips, useFlowInsights } from '@/hooks/useFlowData';
 import { useBabyIllustrationByMonth } from '@/hooks/useBabyMonthIllustrations';
 import { useBabyDailyInfoByDay } from '@/hooks/useBabyDailyInfo';
 import { useMommyDailyMessageByDay } from '@/hooks/useMommyDailyMessages';
-import { useCurrentBabyCrisis, useUpcomingBabyCrises } from '@/hooks/useBabyCrisisPeriods';
-import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useChildren } from '@/hooks/useChildren';
-import { useSubscription } from '@/hooks/useSubscription';
 import { usePregnancyDayNavigation } from '@/hooks/usePregnancyDayNavigation';
-import { formatDateAz } from '@/lib/date-utils';
-import { getPregnancyDay, getDaysUntilDue, getDaysElapsed, getPregnancyProgress, getTrimester } from '@/lib/pregnancy-utils';
-import FeedingHistoryPanel from '@/components/baby/FeedingHistoryPanel';
-import SleepHistoryPanel from '@/components/baby/SleepHistoryPanel';
-import QuickStatsWidget from '@/components/mommy/QuickStatsWidget';
 import PremiumBlurGate from '@/components/premium/PremiumBlurGate';
 import AdFreePremiumOffer from '@/components/premium/AdFreePremiumOffer';
 import GrowthTrackerWidget from '@/components/mommy/GrowthTrackerWidget';
@@ -62,7 +50,6 @@ import RecentBlogPosts from '@/components/dashboard/RecentBlogPosts';
 import ModuleArticles from '@/components/blog/ModuleArticles';
 import FlowDashboard, { type FlowHeroContext } from '@/components/flow/FlowDashboard';
 import BirthOnboardingModal from '@/components/BirthOnboardingModal';
-import WaterWidget from '@/components/dashboard/WaterWidget';
 import { MommyPeriodBanner } from '@/components/mommy/MommyPeriodTracker';
 import MotherSleepWidget from '@/components/dashboard/MotherSleepWidget';
 
@@ -74,78 +61,13 @@ import { TrackerTile } from '@/components/anacan/TrackerTile';
 import { Section, InfoTabs } from '@/components/anacan/Section';
 import { Mascot } from '@/components/anacan/Mascot';
 import { AskBar, DayPlan, Upcoming, QuickTools, HomeTopbar, greetingKey } from '@/components/home/HomeParts';
-import { MommyHero, useVaccineEvents, clockDuration } from '@/components/home/MommyHome';
+import { MommyHero, useVaccineEvents, clockDuration, agoLabel, hoursMinutes } from '@/components/home/MommyHome';
+import { bc } from '@/lib/babycare-i18n';
 import { AptekHomeCard } from '@/components/aptek/AptekEntry';
 import { BumpHero, MonthGallery, WeekSheet, pregnancyMilestones, fetusMonthOf } from '@/components/home/BumpHome';
 import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { useFetusIllustrationByMonth } from '@/hooks/useFetusIllustrations';
 
-
-interface QuickActionProps {
-  icon: any;
-  label: string;
-  color: string;
-  value?: string;
-  onClick?: () => void;
-}
-
-const QuickActionButton = ({ icon: Icon, label, color, value, onClick }: QuickActionProps) =>
-<motion.button
-  onClick={async () => {
-    await hapticFeedback.light();
-    onClick?.();
-  }}
-  className={`${color} p-3 rounded-xl flex flex-col items-center gap-1 shadow-card relative overflow-hidden`}
-  whileHover={{ scale: 1.05, y: -2 }}
-  whileTap={{ scale: 0.95 }}>
-  
-    <Icon className="w-5 h-5" />
-    <span className="text-[10px] font-bold">{label}</span>
-    {value &&
-  <span className="absolute top-1.5 end-1.5 text-[9px] font-bold bg-white/30 px-1 py-0.5 rounded-full">
-        {value}
-      </span>
-  }
-  </motion.button>;
-
-
-// Animated Progress Ring
-const ProgressRing = ({ progress, size = 100, strokeWidth = 8, color = "stroke-primary"
-
-
-
-
-}: {progress: number;size?: number;strokeWidth?: number;color?: string;}) => {
-  const radius = (size - strokeWidth) / 2;
-  const circumference = radius * 2 * Math.PI;
-  const offset = circumference - progress / 100 * circumference;
-
-  return (
-    <svg width={size} height={size} className="rotate-[-90deg]">
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={radius}
-        fill="none"
-        strokeWidth={strokeWidth}
-        className="stroke-muted" />
-      
-      <motion.circle
-        cx={size / 2}
-        cy={size / 2}
-        r={radius}
-        fill="none"
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        className={color}
-        initial={{ strokeDashoffset: circumference }}
-        animate={{ strokeDashoffset: offset }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        style={{ strokeDasharray: circumference }} />
-      
-    </svg>);
-
-};
 
 // FlowDashboard is now imported from @/components/flow/FlowDashboard
 
@@ -363,19 +285,6 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateTo
 };
 
 
-const getBabyFunFacts = (): string[] => [
-  tr('baby_fun_fact_1', 'Körpəniz hər gün yeni şeylər öyrənir!'),
-  tr('baby_fun_fact_2', 'Sevgi və qulluq beynin sağlam inkişafına kömək edir.'),
-  tr('baby_fun_fact_3', 'Körpələr ana səsini doğumdan əvvəl tanıyır.'),
-];
-
-const getBabyDailyFunFact = (ageInDays: number): string => {
-  const dayOfYear = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
-  const facts = getBabyFunFacts();
-  const factIndex = (ageInDays + dayOfYear) % facts.length;
-  return facts[factIndex];
-};
-
 const formatTimerDuration = (seconds: number) => {
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
@@ -395,18 +304,17 @@ const ElapsedTime = ({ id }: { id: string }) => {
 };
 
 const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateToTool?: (tool: string) => void;onNavigate?: (screen: string) => void;onOpenAI?: () => void;}) => {
-  const { toast } = useToast();
   const language = useUserStore((s) => s.language);
   const { profile: mommyProfile } = useAuth();
   const { isMilestoneAchieved, toggleMilestone, getMilestoneDate, MILESTONES } = useBabyMilestones();
-  const { unlockAchievement, getTotalPoints } = useAchievements();
-  const { activeTimers, startTimer, stopTimer, getActiveTimer } = useTimerStore();
-  const { todayLogs, addLog, getTodayStats, refetch } = useBabyLogs();
+  const { unlockAchievement } = useAchievements();
+  const { getActiveTimer } = useTimerStore();
+  const { todayLogs, getTodayStats } = useBabyLogs();
   const { isToolDisabled } = useDisabledTools();
   const mommyName = useUserStore((s) => s.name);
   const { todayLog: mommyDayLog, updateWaterIntake: addMommyWater } = useDailyLogs();
 
-  const { children, selectedChild, hasChildren, hasMultipleChildren, getChildAge, refetch: refetchChildren } = useChildren();
+  const { selectedChild, getChildAge, refetch: refetchChildren } = useChildren();
 
   // Derive baby data from selectedChild for multi-child support
   const childAge = selectedChild ? getChildAge(selectedChild) : null;
@@ -426,7 +334,7 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
   // correctedMonths xronoloji ilə eynidir, heç nə dəyişmir.
   const babyAgeMonths = (childAge?.correctionApplied ? childAge.correctedMonths : childAge?.months) || 1;
   const contentDay = childAge ? (childAge.correctionApplied ? childAge.correctedDayNumber : childAge.dayNumber) : 0;
-  const { imageUrl: babyIllustration, title: illustrationTitle, description: illustrationDescription } = useBabyIllustrationByMonth(Math.max(1, Math.min(36, babyAgeMonths)));
+  const { title: illustrationTitle, description: illustrationDescription } = useBabyIllustrationByMonth(Math.max(1, Math.min(36, babyAgeMonths)));
   const { data: dailyInfo } = useBabyDailyInfoByDay(contentDay > 0 ? contentDay : null);
   const { data: mommyMessage } = useMommyDailyMessageByDay(contentDay > 0 ? contentDay : null);
 
@@ -458,10 +366,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
     mixedCount: todayStats.bothCount,
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }), [todayLogs]);
-  const insightApi = useBabyInsight(
-    babyData ? aiInsightStats : null,
-    babyData ? { id: babyData.id, ageMonths: babyData.ageInMonths, ageDays: babyData.ageInDays, gender: babyData.gender } : null
-  );
 
   const vaccineEvents = useVaccineEvents(selectedChild ?? null, isToolDisabled('vaccine-calendar') ? undefined : () => onNavigateToTool?.('vaccine-calendar'));
 
@@ -469,25 +373,15 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
   // taymer sorğularına ötürülür (əvvəllər qlobal idi, uşaq dəyişəndə data qarışırdı)
   const selectedChildId = selectedChild?.id;
   // UI-də uşaq adı yalnız BİRDƏN ÇOX uşaq olanda göstərilir (tək uşaqlı ailələrdə əlavə söz olmasın)
-  const timerChildName = hasMultipleChildren ? selectedChild?.name : undefined;
 
   // Sleep tracking
   const sleepTimer = getActiveTimer('sleep', undefined, selectedChildId);
 
   // Feeding tracking with live timer
-  const [showFeedingModal, setShowFeedingModal] = useState(false);
-  const [showFormulaMLInput, setShowFormulaMLInput] = useState(false);
-  const [formulaML, setFormulaML] = useState('');
-  const formulaMLPresets = [30, 60, 90, 120, 150, 180];
-  const [showSolidFoodInput, setShowSolidFoodInput] = useState(false);
-  const [solidFoodName, setSolidFoodName] = useState('');
   const leftFeedTimer = getActiveTimer('feeding', 'left', selectedChildId);
   const rightFeedTimer = getActiveTimer('feeding', 'right', selectedChildId);
 
   // Diaper tracking
-  const [showDiaperModal, setShowDiaperModal] = useState(false);
-  const feedingSummaryRef = useRef<HTMLDivElement>(null);
-  const [sleepExpanded, setSleepExpanded] = useState(false);
 
   // Nisbi "x dəq əvvəl" mətnləri üçün dəqiqəlik yeniləmə. Saniyəlik taymer mətni
   // <ElapsedTime> içində yenilənir ki, bütün dashboard hər saniyə render olunmasın.
@@ -547,136 +441,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
   );
   const hasMoreMilestones = allMilestones.length > milestonesPerPage;
 
-  const formatDuration = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
-
-  const toggleSleep = async () => {
-    await hapticFeedback.medium();
-    if (sleepTimer) {
-      // End sleep - save to database
-      const result = stopTimer(sleepTimer.id);
-      if (result) {
-        await addLog({
-          log_type: 'sleep',
-          start_time: new Date(Date.now() - result.durationSeconds * 1000).toISOString(),
-          end_time: new Date().toISOString()
-        });
-        toast({ title: tr("dashboard_sleep_ended", "Yuxu bitdi! ☀️"), description: `${formatDuration(result.durationSeconds)} ${tr("dashboard_slept", "yatdı")}` });
-      }
-    } else {
-      // Start sleep
-      startTimer('sleep', undefined, undefined, selectedChildId, timerChildName);
-      toast({ title: tr("dashboard_yuxu_basladi_b503f7", "Yuxu başladı! 😴"), description: tr("dashboard_bitirmek_ucun_yeniden_basin_37b592", "Bitirmək üçün yenidən basın") });
-    }
-  };
-
-  const toggleFeeding = async (type: 'left' | 'right') => {
-    await hapticFeedback.medium();
-    const activeTimer = type === 'left' ? leftFeedTimer : rightFeedTimer;
-
-    if (activeTimer) {
-      // Stop feeding - save to database
-      const result = stopTimer(activeTimer.id);
-      if (result) {
-        await addLog({
-          log_type: 'feeding',
-          feed_type: type === 'left' ? 'breast_left' : 'breast_right',
-          start_time: new Date(Date.now() - result.durationSeconds * 1000).toISOString(),
-          end_time: new Date().toISOString()
-        });
-        toast({
-          title: type === 'left' ? tr("dashboard_left_breast_done", "Sol sinə bitti!") : tr("dashboard_right_breast_done", "Sağ sinə bitti!"),
-          description: `${tr("dashboard_duration", "Müddət:")} ${formatDuration(result.durationSeconds)}`
-        });
-
-        // Check for achievement
-        if (todayStats.feedingCount >= 9) {
-          unlockAchievement('feeding_pro', 'mommy');
-        }
-      }
-    } else {
-      // Start feeding
-      startTimer('feeding', type, undefined, selectedChildId, timerChildName);
-      setShowFeedingModal(false);
-    }
-  };
-
-  const addFeeding = async (type: 'formula' | 'solid', amountMl?: number, foodName?: string) => {
-    await hapticFeedback.medium();
-    let notes: string | undefined;
-    if (type === 'formula' && amountMl) notes = `${amountMl} ml`;
-    if (type === 'solid' && foodName) notes = foodName;
-
-    await addLog({
-      log_type: 'feeding',
-      feed_type: type,
-      notes
-    });
-    setShowFeedingModal(false);
-    setShowFormulaMLInput(false);
-    setFormulaML('');
-    setShowSolidFoodInput(false);
-    setSolidFoodName('');
-
-    const typeLabels = {
-      formula: amountMl ? `${tr("dashboard_sud_evezedicisi", "Süd əvəzedicisi")} ${amountMl} ml 🍼` : tr("dashboard_sud_evezedicisi_057b37", "S\xFCd \u0259v\u0259zedicisi \uD83C\uDF7C"),
-      solid: foodName ? `${foodName} 🥣` : tr("dashboard_elave_qida_0e11a2", "\u018Flav\u0259 qida \uD83E\uDD63")
-    };
-    toast({ title: `${typeLabels[type]} ${tr("dashboard_qeyd_edildi", "qeyd edildi!")}` });
-  };
-
-  const handleFormulaClick = () => {
-    setShowFormulaMLInput(true);
-  };
-
-  const submitFormula = () => {
-    const ml = parseInt(formulaML);
-    addFeeding('formula', ml > 0 ? ml : undefined);
-  };
-
-  const addDiaper = async (type: 'wet' | 'dirty' | 'both') => {
-    await hapticFeedback.medium();
-    await addLog({
-      log_type: 'diaper',
-      diaper_type: type === 'both' ? 'mixed' : type
-    });
-    setShowDiaperModal(false);
-
-    const typeEmojis = {
-      wet: '💧',
-      dirty: '💩',
-      both: '💧💩'
-    };
-    toast({ title: `${tr("dashboard_diaper_change", "Bez dəyişmə:")} ${typeEmojis[type]}` });
-
-    // Check for achievement
-    if (todayStats.diaperCount >= 9) {
-      unlockAchievement('diaper_hero', 'mommy');
-    }
-  };
-
-  const getFeedingIcon = (type: string) => {
-    switch (type) {
-      case 'left':return '🤱L';
-      case 'right':return '🤱R';
-      case 'formula':return '🍼';
-      case 'solid':return '🥣';
-      default:return '🍼';
-    }
-  };
-
-  const getDiaperIcon = (type: string) => {
-    switch (type) {
-      case 'wet':return '💧';
-      case 'dirty':return '💩';
-      case 'both':return '💧💩';
-      case 'mixed':return '💧💩';
-      default:return '💧';
-    }
-  };
 
   const handleMilestoneClick = async (milestoneId: string) => {
     await hapticFeedback.medium();
@@ -698,11 +462,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
   const [greetKey, greetFallback] = greetingKey();
   const mommyWater = mommyDayLog?.water_intake || 0;
   const lastFeedIso = todayStats.feedingLogs.reduce<string | null>((last, l) => (!last || l.start_time > last ? l.start_time : last), null);
-  // Trackers live in premium sections below; the tiles jump there instead of bypassing the gate.
-  const scrollToModule = (module: 'feeding' | 'sleep' | 'diaper') => {
-    void hapticFeedback.light();
-    document.querySelector<HTMLElement>(`[data-blog-module-section="${module}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
 
 
   return (
@@ -717,12 +476,12 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
         correctedText={childAge?.correctionApplied ? `${tr('preemie_corrected_label', 'Korreksiya olunmuş yaş')}: ${childAge.correctedDisplayText}` : null}
         lastFeedIso={lastFeedIso}
         sleepMinutes={aiInsightStats.sleepMinutes}
-        onOpenDay={() => scrollToModule('feeding')} />
+        onOpenDay={() => onNavigateToTool?.('baby-tracker')} />
 
       <div className="a3-today" aria-label={rd('today')}>
-        <TrackerTile icon={Baby} tone="c-peach" value={todayStats.feedingCount} label={rd('tk_feed')} live={!!(leftFeedTimer || rightFeedTimer)} onClick={() => scrollToModule('feeding')} />
-        <TrackerTile icon={Moon} tone="c-lav" value={sleepTimer ? <ElapsedTime id={sleepTimer.id} /> : clockDuration(aiInsightStats.sleepMinutes)} label={rd('tk_sleep')} live={!!sleepTimer} onClick={() => scrollToModule('sleep')} />
-        <TrackerTile icon={Droplet} tone="c-yellow" value={todayStats.diaperCount} label={rd('tk_diaper')} onClick={() => scrollToModule('diaper')} />
+        <TrackerTile icon={Baby} tone="c-peach" value={todayStats.feedingCount} label={rd('tk_feed')} live={!!(leftFeedTimer || rightFeedTimer)} onClick={() => onNavigateToTool?.('baby-tracker')} />
+        <TrackerTile icon={Moon} tone="c-lav" value={sleepTimer ? <ElapsedTime id={sleepTimer.id} /> : clockDuration(aiInsightStats.sleepMinutes)} label={rd('tk_sleep')} live={!!sleepTimer} onClick={() => onNavigateToTool?.('baby-tracker')} />
+        <TrackerTile icon={Droplet} tone="c-yellow" value={todayStats.diaperCount} label={rd('tk_diaper')} onClick={() => onNavigateToTool?.('baby-tracker')} />
         <TrackerTile icon={Droplets} tone="c-blue" value={`${mommyWater}/${waterTarget('mommy')}`} label={rd('tk_water_mom')} plus count={mommyWater} ariaLabel={rd('add_water')} onClick={() => { void addMommyWater(1); }} />
       </div>
 
@@ -745,612 +504,51 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
 
       {/* Preemie Bələdçisi girişi — yalnız premature körpələrdə (36 aya qədər) */}
       {!isToolDisabled('preemie-hub') && childAge?.isPremature && babyData.ageInMonths < 36 &&
-      <section className="a-section">
-          <motion.button
-          className="a-card a-fade-in w-full flex items-center gap-3 text-start"
-          style={{ padding: 14 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => onNavigateToTool?.('preemie-hub')}>
-
-            <span className="a-rank-avatar" style={{ background: 'var(--a-peach-1)', fontSize: 20 }}>💛</span>
-            <span className="flex-1 min-w-0">
-              <span className="a-rank-title block">{tr('preemie_dash_entry_title', 'Preemie Bələdçisi')}</span>
-              <span className="a-rank-sub block">{tr('preemie_dash_entry_sub', 'NICU, kenquru qayğısı, qidalanma və korreksiya olunmuş yaş')}</span>
-            </span>
-            <ChevronRight size={16} style={{ color: 'var(--a-ink-faint)' }} className="rtl:rotate-180 shrink-0" />
-          </motion.button>
+      <section className="a3-sec">
+          <button type="button" className="a3-card a3-pad a3-li a3-entry" onClick={() => onNavigateToTool?.('preemie-hub')}>
+            <span className="a3-ico-sq c-peach" aria-hidden="true">💛</span>
+            <span className="grow"><span className="a3-entry-title">{tr('preemie_dash_entry_title', 'Preemie Bələdçisi')}</span>
+              <span className="a3-meta">{tr('preemie_dash_entry_sub', 'NICU, kenquru qayğısı, qidalanma və korreksiya olunmuş yaş')}</span></span>
+            <ChevronRight size={18} className="rtl:rotate-180" />
+          </button>
         </section>
       }
 
-      {/* Bu günün məlumatları — standalone card */}
-      {dailyInfo &&
-      <section className="a-section">
-          <div className="a-today-info a-fade-in">
-            <div className="a-today-info-head">
-              <span className="a-today-info-icon">
-                <Lightbulb size={19} strokeWidth={2} />
-              </span>
-              <div>
-                <p className="a-today-info-eyebrow">{tr('dashboard_todays_info', 'Bu günün məlumatları')}</p>
-                <p className="a-today-info-meta">
-                  {tr('mommy_hero_day_label', 'Gün')} {contentDay}
-                  {childAge?.correctionApplied && <> ({tr('preemie_corrected_short', 'korreksiya')})</>}
-                  {' '}· {babyData.ageInDays === 0 ? tr('pregnancy_utils_first_day', '1-ci gün') : <>{exactMonths} {tr('mommy_meta_months', 'ay')}, {remainingDays} {tr('mommy_meta_days', 'gün')}</>}
-                </p>
-              </div>
-              <span className="a-today-info-badge">{tr('dashboard_daily_badge', 'Gündəlik')}</span>
-            </div>
-            <div className="a-today-info-text">
-              {dailyInfo.info.
-            split('\n').
-            filter((line) => line.trim().length > 0).
-            map((line, index) =>
-            <p key={index}>{line.trim()}</p>
-            )
-            }
-            </div>
-          </div>
-        </section>
+      {/* Bu günün məlumatı, anaya mesaj və ayın inkişafı — bir kartda, tablarla */}
+      {(dailyInfo || mommyMessage || illustrationTitle) &&
+      <Section title={tr('dashboard_todays_info', 'Bu günün məlumatları')} meta={<span className="a3-chip a3-num">{tr('mommy_hero_day_label', 'Gün')} {contentDay}</span>}>
+          <InfoTabs tabs={[
+          { label: tr('dashboard_daily_badge', 'Gündəlik'), text: dailyInfo?.info },
+          { label: tr('dashboard_message_for_mom', 'Anaya Mesaj'), text: mommyMessage?.message },
+          { label: illustrationTitle || '', text: illustrationDescription }].
+          filter((t): t is {label: string;text: string;} => !!t.label && !!t.text)} />
+        </Section>
       }
 
-      {/* Anaya Mesaj — CTA banner */}
-      {mommyMessage &&
-      <section className="a-section">
-          <div className="a-cta a-fade-in">
-            <div className="a-cta-top">
-              <span className="a-cta-badge">
-                {tr('mommy_hero_day_label', 'Gün')} {contentDay} · {tr('dashboard_message_for_mom', 'Anaya Mesaj')}
-              </span>
-              <span className="a-cta-deco">
-                <Heart size={18} strokeWidth={2} />
-              </span>
-            </div>
-            <div className="a-cta-text">
-              {mommyMessage.message.
-            split('\n').
-            filter((line: string) => line.trim().length > 0).
-            map((line: string, index: number) =>
-            <p key={index} style={{ margin: index === 0 ? 0 : '8px 0 0' }}>{line.trim()}</p>
-            )
-            }
-            </div>
-          </div>
-        </section>
-      }
-
-      {/* Month illustration info */}
-      {illustrationTitle &&
-      <section className="a-section">
-          <div className="a-card a-fade-in">
-            <div className="a-list-row" style={{ padding: 0, borderTop: 'none', alignItems: 'flex-start' }}>
-              <span className="a-list-icon" style={{ background: 'var(--a-peach-1)', color: 'var(--a-accent-ink)' }}>
-                <Baby size={18} strokeWidth={2} />
-              </span>
-              <div style={{ minWidth: 0 }}>
-                <p className="a-list-title">{illustrationTitle}</p>
-                {illustrationDescription &&
-              <p className="a-list-sub" style={{ whiteSpace: 'normal', lineHeight: 1.6 }}>
-                    {illustrationDescription}
-                  </p>
-              }
-              </div>
-            </div>
-          </div>
-        </section>
-      }
-
-      {/* Log today — water + trackers + summary */}
-      <section className="a-section">
-        <div className="a-section-head">
-          <h2 className="a-section-title a-heading">{tr('mommy_log_today_title', 'Bu günü qeyd et')}</h2>
-          <span className="a-section-link">{tr('mommy_log_today_hint', 'Toxun və əlavə et')}</span>
-        </div>
-        <WaterWidget variant="anacan" />
-        <div style={{ marginTop: 10 }}>
-          <MotherSleepWidget />
-        </div>
+      {/* Körpə qulluğu — qısa xülasə; tam izləyici Körpə izləyicisi alətindədir.
+          data-blog-module-section anker-ləri məqalə deep link-ləri üçün qalır. */}
+      <section className="a3-sec">
+        <button type="button" className="a3-card a3-pad bt-home" onClick={() => onNavigateToTool?.('baby-tracker')}>
+          <span className="a3-entry-head"><span className="a3-entry-title">{bc('babytracker_title')}</span><ChevronRight size={18} className="rtl:rotate-180" /></span>
+          <span className="bt-home-row" data-blog-module-section="feeding" tabIndex={-1}>
+            <span className="a3-ico-sq sm c-peach" aria-hidden="true"><Baby size={16} /></span>
+            <span className="grow">{rd('tk_feed')}</span>
+            <b className="a3-num">{todayStats.feedingCount}{lastFeedIso ? ` · ${agoLabel(lastFeedIso)}` : ''}</b>
+          </span>
+          <span className="bt-home-row" data-blog-module-section="sleep" tabIndex={-1}>
+            <span className="a3-ico-sq sm c-lav" aria-hidden="true"><Moon size={16} /></span>
+            <span className="grow">{rd('tk_sleep')}</span>
+            <b className="a3-num">{sleepTimer ? <ElapsedTime id={sleepTimer.id} /> : hoursMinutes(aiInsightStats.sleepMinutes)}</b>
+          </span>
+          <span className="bt-home-row" data-blog-module-section="diaper" tabIndex={-1}>
+            <span className="a3-ico-sq sm c-yellow" aria-hidden="true"><Droplet size={16} /></span>
+            <span className="grow">{rd('tk_diaper')}</span>
+            <b className="a3-num">{todayStats.diaperCount}</b>
+          </span>
+        </button>
       </section>
 
-      {/* Qulluq izləmə alətləri (Yuxu/Qidalanma/Bez/Bugünkü xülasə) — Premium.
-          Tək PremiumBlurGate-lə əhatə olunub (4 ayrı overlay yerinə BİR
-          səliqəli overlay — hər kartın başlığı/ikonu blur arxasından görünür,
-          amma tıklana bilmir). Timer-lər (yuxu/qidalanma) YALNIZ bu kartların
-          düymələrindən başladılır (bax toggleSleep/toggleFeeding) — pointer-
-          events:none blur-u bu düymələri də əhatə etdiyi üçün premium
-          olmayan istifadəçi heç vaxt taymer başlada bilmir. */}
-      <PremiumBlurGate
-        feature="baby_care_tracking"
-        title={tr('premiumgate_babycare_title', 'Qulluq izləmə alətləri')}
-        subtitle={tr('premiumgate_babycare_sub', 'Yuxu, qidalanma və bez dəyişmə qeydləri Premium-da')}
-      >
-      {/* Sleep Tracker */}
-      <motion.div
-        data-blog-module-section="sleep" tabIndex={-1}
-        className="a-card a-fade-in"
-        style={{ marginTop: 10 }}
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.1 }}>
-        
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="a-list-icon" style={{ background: 'var(--a-grad-peach)', color: 'var(--a-accent-ink)' }}>
-              <Moon size={17} strokeWidth={2} />
-            </span>
-            <div>
-              <p className="a-list-title">{tr("dashboard_yuxu_izleme_adaa4f", "Yuxu İzləmə")}</p>
-              <p className="a-list-sub">
-                {tr('dashboard_today_label', 'Bu gün')}: {(() => {
-                  const m = todayStats.sleepMinutes || Math.round(todayStats.sleepHours * 60);
-                  const h = Math.floor(m / 60);
-                  const rm = m % 60;
-                  if (h === 0 && rm === 0) return tr("dashboard_0_deq_86d70a", "0 dəq");
-                  if (h === 0) return `${rm} ${tr("common_minutes_short", "dəq")}`;
-                  if (rm === 0) return `${h} ${tr("common_hours", "saat")}`;
-                  return `${h}${tr("common_h_short", "s")} ${rm}${tr("common_m_short", "d")}`;
-                })()}
-              </p>
-            </div>
-          </div>
-          <motion.button
-            onClick={toggleSleep}
-            className={sleepTimer ? 'a-btn-solid' : 'a-btn-soft'}
-            whileTap={{ scale: 0.95 }}
-            >
-            
-            {sleepTimer ? <>☀️ <ElapsedTime id={sleepTimer.id} /></> : '😴 ' + tr('dashboard_slept_btn', 'Yatdı')}
-          </motion.button>
-        </div>
-        
-        {sleepTimer &&
-        <motion.div
-          className="a-today-info-tip"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}>
-          
-            <span className="w-3 h-3 rounded-full animate-pulse" style={{ background: 'var(--a-peach-2)', flexShrink: 0, marginTop: 3 }} />
-            <span>
-              {tr('dashboard_sleep_ongoing', 'Yuxu davam edir')}: <ElapsedTime id={sleepTimer.id} />
-            </span>
-          </motion.div>
-        }
-        <TrackerAIInsight section="sleep" api={insightApi} />
-      </motion.div>
-
-      {/* Feeding Tracker */}
-      <motion.div
-        data-blog-module-section="feeding" tabIndex={-1}
-        className="a-card a-fade-in"
-        style={{ marginTop: 10 }}
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.15 }}>
-        
-        <div className="flex items-center justify-between mb-3">
-          <button
-            className="flex items-center gap-3 cursor-pointer"
-            onClick={() => feedingSummaryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
-            
-            <span className="a-list-icon" style={{ background: 'var(--a-grad-peach)', color: 'var(--a-accent-ink)' }}>
-              <Baby size={17} strokeWidth={2} />
-            </span>
-            <div className="text-start">
-              <p className="a-list-title">{tr("dashboard_qidalanmaya_nezaret_1b60b4", "Qidalanmaya nəzarət")}</p>
-              <p className="a-list-sub">{tr('dashboard_today_label', 'Bu gün')}: {todayStats.feedingCount} {tr('dashboard_times_unit', 'dəfə')}</p>
-            </div>
-          </button>
-          <motion.button
-            onClick={() => setShowFeedingModal(true)}
-            className="a-btn-soft"
-            whileTap={{ scale: 0.95 }}>
-            {tr("dashboard_elave_et_a5fb21", "+ \u018Flav\u0259 et")}
-          
-          </motion.button>
-        </div>
-        
-        <AnimatePresence>
-          {showFeedingModal &&
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="grid grid-cols-2 gap-2 mb-3">
-            
-              {/* Breastfeeding buttons - hide after 12 months */}
-              {babyData && babyData.ageInMonths < 12 &&
-            <>
-                  <motion.button
-                onClick={() => toggleFeeding('left')}
-                className={`a-choice pink${leftFeedTimer ? ' running' : ''}`}
-                whileTap={{ scale: 0.95 }}>
-                
-                    <span className="text-2xl">🤱</span>
-                    <span className="a-choice-label">
-                      {leftFeedTimer ? <ElapsedTime id={leftFeedTimer.id} /> : tr("dashboard_sol_sine_92503e", "Sol Sin\u0259")}
-                    </span>
-                  </motion.button>
-                  <motion.button
-                onClick={() => toggleFeeding('right')}
-                className={`a-choice pink${rightFeedTimer ? ' running' : ''}`}
-                whileTap={{ scale: 0.95 }}>
-                
-                    <span className="text-2xl">🤱</span>
-                    <span className="a-choice-label">
-                      {rightFeedTimer ? <ElapsedTime id={rightFeedTimer.id} /> : tr("dashboard_sag_sine_590332", "Sa\u011F Sin\u0259")}
-                    </span>
-                  </motion.button>
-                </>
-            }
-              <motion.button
-              onClick={handleFormulaClick}
-              className="a-choice blue"
-              whileTap={{ scale: 0.95 }}>
-              
-                <span className="text-xl">🍼</span>
-                <span className="a-choice-label">{tr("dashboard_sud_evezedicisi_4ba2dd", "Süd Əvəzedicisi")}</span>
-              </motion.button>
-              <motion.button
-              onClick={() => setShowSolidFoodInput(true)}
-              className="a-choice peach"
-              whileTap={{ scale: 0.95 }}>
-              
-                <span className="text-xl">🥣</span>
-                <span className="a-choice-label">{tr("dashboard_elave_qida_676032", "Əlavə Qida")}</span>
-              </motion.button>
-            </motion.div>
-          }
-        </AnimatePresence>
-
-        {/* Formula ML Input Modal */}
-        <AnimatePresence>
-          {showFormulaMLInput &&
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="a-inset-panel">
-            
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-lg">🍼</span>
-                <span className="a-list-title">{tr("dashboard_nece_ml_c9f7a6", "Neçə ml?")}</span>
-              </div>
-              <div className="flex flex-wrap gap-1.5 mb-2">
-                {formulaMLPresets.map((ml) =>
-              <motion.button
-                key={ml}
-                onClick={() => addFeeding('formula', ml)}
-                className="a-tag on"
-                whileTap={{ scale: 0.95 }}>
-                
-                    {ml} ml
-                  </motion.button>
-              )}
-              </div>
-              <div className="flex gap-2">
-                <input
-                type="number"
-                value={formulaML}
-                onChange={(e) => setFormulaML(e.target.value)}
-                placeholder={tr("dashboard_diger_ml_ph", "Digər (ml)")}
-                className="a-input"
-                min="1"
-                max="500" />
-              
-                <motion.button
-                onClick={submitFormula}
-                className="a-btn-solid"
-                whileTap={{ scale: 0.95 }}>
-                
-                  {tr("dashboard_qeyd_et_f12345", "Qeyd et")}
-                </motion.button>
-                <motion.button
-                onClick={() => {setShowFormulaMLInput(false);setFormulaML('');}}
-                className="a-tag"
-                whileTap={{ scale: 0.95 }}>
-                  {tr("dashboard_legv_f7100a", "L\u0259\u011Fv")}
-                
-              </motion.button>
-              </div>
-            </motion.div>
-          }
-        </AnimatePresence>
-
-        {/* Solid Food Input */}
-        <AnimatePresence>
-          {showSolidFoodInput &&
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="a-inset-panel">
-            
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-lg">🥣</span>
-                <span className="a-list-title">{tr("dashboard_elave_qida_676032", "Əlavə Qida")}</span>
-              </div>
-              <div className="flex gap-2">
-                <input
-                type="text"
-                value={solidFoodName}
-                onChange={(e) => setSolidFoodName(e.target.value)}
-                placeholder={tr("dashboard_qida_ph", "Məs: balkabaqlı püre")}
-                className="a-input" />
-              
-                <motion.button
-                onClick={() => {
-                  if (solidFoodName.trim()) addFeeding('solid', undefined, solidFoodName.trim());
-                }}
-                className="a-btn-solid"
-                whileTap={{ scale: 0.95 }}>
-                
-                  {tr("dashboard_qeyd_et_f12345", "Qeyd et")}
-                </motion.button>
-                <motion.button
-                onClick={() => {setShowSolidFoodInput(false);setSolidFoodName('');}}
-                className="a-tag"
-                whileTap={{ scale: 0.95 }}>
-                  {tr("dashboard_legv_f7100a", "L\u0259\u011Fv")}
-                
-              </motion.button>
-              </div>
-            </motion.div>
-          }
-        </AnimatePresence>
-        
-        {/* Active feeding timer indicator */}
-        {(leftFeedTimer || rightFeedTimer) && !showFeedingModal &&
-        <motion.div
-          className="a-inset-panel flex items-center justify-between"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}>
-          
-            <div className="flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full animate-pulse" style={{ background: 'var(--a-pink-2)' }} />
-              <span className="a-list-title">
-                {leftFeedTimer ? tr('dashboard_left_breast', 'Sol sinə') : tr('dashboard_right_breast', 'Sağ sinə')}: <ElapsedTime id={(leftFeedTimer || rightFeedTimer)!.id} />
-              </span>
-            </div>
-            <motion.button
-            onClick={() => toggleFeeding(leftFeedTimer ? 'left' : 'right')}
-            className="a-btn-solid"
-            whileTap={{ scale: 0.95 }}>
-            
-              {tr("dashboard_bitir_btn", "Bitir")}
-            </motion.button>
-          </motion.div>
-        }
-        <TrackerAIInsight section="feeding" api={insightApi} />
-      </motion.div>
-
-      {/* Diaper Tracker */}
-      <motion.div
-        data-blog-module-section="diaper" tabIndex={-1}
-        className="a-card a-fade-in"
-        style={{ marginTop: 10 }}
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}>
-        
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-3">
-            <span className="a-list-icon" style={{ background: 'var(--a-grad-peach)', color: 'var(--a-accent-ink)' }}>
-              <Clock size={17} strokeWidth={2} />
-            </span>
-            <div>
-              <p className="a-list-title">{tr("dashboard_bez_deyisme_ba242a", "Bez Dəyişmə")}</p>
-              <p className="a-list-sub">{tr('dashboard_today_label', 'Bu gün')}: {todayStats.diaperCount} {tr('dashboard_times_unit', 'dəfə')}</p>
-            </div>
-          </div>
-          <motion.button
-            onClick={() => setShowDiaperModal(true)}
-            className="a-btn-soft"
-            whileTap={{ scale: 0.95 }}>
-            {tr("dashboard_elave_et_a5fb21", "+ \u018Flav\u0259 et")}
-          
-          </motion.button>
-        </div>
-        
-        <AnimatePresence>
-          {showDiaperModal &&
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="grid grid-cols-3 gap-2 mb-3">
-            
-              <motion.button
-              onClick={() => addDiaper('wet')}
-              className="a-choice blue"
-              whileTap={{ scale: 0.95 }}>
-              
-                <span className="text-2xl">💧</span>
-              </motion.button>
-              <motion.button
-              onClick={() => addDiaper('dirty')}
-              className="a-choice yellow"
-              whileTap={{ scale: 0.95 }}>
-              
-                <span className="text-2xl">💩</span>
-              </motion.button>
-              <motion.button
-              onClick={() => addDiaper('both')}
-              className="a-choice lav"
-              whileTap={{ scale: 0.95 }}>
-              
-                <span className="text-xl">💧💩</span>
-              </motion.button>
-            </motion.div>
-          }
-        </AnimatePresence>
-        
-        {/* Recent Diapers */}
-        <div className="flex gap-1.5 overflow-x-auto hide-scrollbar">
-          {todayStats.diaperLogs.slice(-5).reverse().map((log) =>
-          <div
-            key={log.id}
-            className="a-tag flex-shrink-0"
-            style={{ cursor: 'default' }}>
-            
-              <span className="text-base">{getDiaperIcon(log.diaper_type || 'wet')}</span>
-              <span>
-                {new Date(log.start_time).toLocaleTimeString(getLocaleTag(), { hour: '2-digit', minute: '2-digit' })}
-              </span>
-            </div>
-          )}
-        </div>
-        <TrackerAIInsight section="diaper" api={insightApi} />
-      </motion.div>
-
-      {/* Today's Summary */}
-      <motion.div
-        className="a-card a-fade-in"
-        style={{ marginTop: 10 }}
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3 }}>
-        
-        <div className="a-card-head">
-          <h3 className="a-card-title a-heading">{tr("dashboard_bugunku_xulase_e1e1b3", "Bugünkü xülasə")}</h3>
-          <div style={{ display: 'flex', gap: 6 }}>
-            {onNavigate &&
-            <button
-              onClick={() => onNavigate('doctor-report')}
-              className="a-icon-btn"
-              style={{ width: 30, height: 30 }}
-              aria-label={tr("dash_pdf_report", 'Həkim hesabatı (PDF)')}
-              title={tr("dash_pdf_report", 'Həkim hesabatı (PDF)')}>
-              <FileText size={13} />
-            </button>
-            }
-            <button
-              onClick={() => refetch()}
-              className="a-icon-btn"
-              style={{ width: 30, height: 30 }}>
-              
-              <RefreshCw size={13} />
-            </button>
-          </div>
-        </div>
-        <div className="a-list-card" style={{ border: '1px solid var(--a-line)', boxShadow: 'none' }}>
-          {/* Sleep Summary - Expandable */}
-          <div>
-            <button
-              onClick={() => setSleepExpanded(!sleepExpanded)}
-              className="a-list-row w-full"
-              style={{ cursor: 'pointer', width: '100%', textAlign: 'start', background: 'none', border: 'none', borderTop: 'none' }}>
-              
-              <span className="a-list-icon" style={{ background: 'var(--a-peach-1)', color: 'var(--a-accent-ink)' }}>
-                <Moon size={17} strokeWidth={2} />
-              </span>
-              <div>
-                <p className="a-list-title">{tr("dashboard_yuxu_xulasesi_b2dc87", "Yuxu xülasəsi")}</p>
-                <p className="a-list-sub">
-                  {todayStats.sleepLogs?.length || 0} {tr('dashboard_sleep_recorded', 'yuxu qeydə alınıb')}
-                </p>
-              </div>
-              <span className="a-list-trail" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span>
-                  <p className="a-list-value">
-                    {(() => {
-                      const totalMin = todayStats.sleepMinutes || Math.round(todayStats.sleepHours * 60);
-                      const h = Math.floor(totalMin / 60);
-                      const m = totalMin % 60;
-                      if (h === 0 && m === 0) return tr("dashboard_0_deq_86d70a", "0 d\u0259q");
-                      if (h === 0) return `${m} ${tr("dashboard_min", "dəq")}`;
-                      if (m === 0) return `${h} ${tr("common_hours", "saat")}`;
-                      return `${h} ${tr("dashboard_hour", "saat")} ${m} ${tr("dashboard_min", "dəq")}`;
-                    })()}
-                  </p>
-                  <p className="a-list-time">{tr("dashboard_bu_gun_7d7f30", "bu gün")}</p>
-                </span>
-                {sleepExpanded ?
-                <ChevronUp size={15} className="a-list-chevron" /> :
-
-                <ChevronDown size={15} className="a-list-chevron" />
-                }
-              </span>
-            </button>
-            <AnimatePresence>
-              {sleepExpanded &&
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="overflow-hidden">
-                
-                  <div className="px-4 pb-3 space-y-1.5">
-                    {todayStats.sleepLogs && todayStats.sleepLogs.length > 0 ?
-                  [...todayStats.sleepLogs].reverse().map((log) => {
-                    const start = new Date(log.start_time);
-                    const end = log.end_time ? new Date(log.end_time) : null;
-                    const durationSec = end ? Math.round((end.getTime() - start.getTime()) / 1000) : 0;
-                    const dH = Math.floor(durationSec / 3600);
-                    const dM = Math.floor(durationSec % 3600 / 60);
-                    const dS = durationSec % 60;
-                    const durText = dH > 0 ? `${dH}${tr("dashboard_h", "s")} ${dM}${tr("dashboard_m", "d")}` : dM > 0 ? `${dM} ${tr("dashboard_min", "dəq")} ${dS} ${tr("dashboard_sec", "san")}` : `${dS} ${tr("dashboard_sec", "san")}`;
-
-                    return (
-                      <div key={log.id} className="flex items-center justify-between p-2 rounded-xl" style={{ background: 'var(--a-surface-soft)' }}>
-                            <div className="flex items-center gap-2">
-                              <span className="text-sm">😴</span>
-                              <div>
-                                <p className="a-list-sub" style={{ margin: 0, color: 'var(--a-ink)' }}>
-                                  {start.toLocaleTimeString(getLocaleTag(), { hour: '2-digit', minute: '2-digit' })}
-                                  {end && ` – ${end.toLocaleTimeString(getLocaleTag(), { hour: '2-digit', minute: '2-digit' })}`}
-                                </p>
-                              </div>
-                            </div>
-                            <span className="a-list-value" style={{ color: 'var(--a-accent-ink)' }}>
-                              {end ? durText : tr("dashboard_davam_edir_88d3a2", 'Davam edir...')}
-                            </span>
-                          </div>);
-
-                  }) :
-
-                  <p className="a-list-sub text-center py-2" style={{ margin: 0 }}>{tr("dashboard_bu_gun_yuxu_qeyde_alinmayib_8a3535", "Bu gün yuxu qeydə alınmayıb")}</p>
-                  }
-                  </div>
-                </motion.div>
-              }
-            </AnimatePresence>
-          </div>
-          
-          {/* Enhanced Feeding History Panel */}
-          <div ref={feedingSummaryRef} style={{ borderTop: '1px solid var(--a-line)', padding: '10px 12px' }}>
-            <FeedingHistoryPanel />
-          </div>
-          <button
-            onClick={() => setShowDiaperModal(true)}
-            className="a-list-row w-full"
-            style={{ cursor: 'pointer', width: '100%', textAlign: 'start', background: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: 'none', borderTop: '1px solid var(--a-line)' }}>
-            
-            <span className="a-list-icon" style={{ background: 'var(--a-peach-1)', color: 'var(--a-accent-ink)' }}>
-              <Clock size={17} strokeWidth={2} />
-            </span>
-            <div>
-              <p className="a-list-title">{tr("dashboard_bez_deyisme_647cbc", "Bez dəyişmə")}</p>
-              <p className="a-list-sub">
-                💧{todayStats.wetCount} 💩{todayStats.dirtyCount} 💧💩{todayStats.bothCount}
-              </p>
-            </div>
-            <span className="a-list-trail">
-              <p className="a-list-value" style={{ color: 'var(--a-accent-ink)' }}>{todayStats.diaperCount} {tr("dashboard_defe_420246", "d\u0259f\u0259")}</p>
-              <p className="a-list-time">{tr("dashboard_bu_gun_7d7f30", "bu gün")}</p>
-            </span>
-          </button>
-        </div>
-      </motion.div>
-      </PremiumBlurGate>
-
-      {/* Weekly review — Premium (Flo-stil blur teaser) */}
-      <PremiumBlurGate
-        feature="weekly_stats"
-        title={tr('premiumgate_weekly_title', 'Həftəlik inkişaf icmalı')}
-        subtitle={tr('premiumgate_weekly_sub', 'Yuxu, qidalanma və bez statistikası — körpənizin həftəlik analizi Premium-da')}
-      >
-        <QuickStatsWidget />
-      </PremiumBlurGate>
+      <section className="a3-sec"><MotherSleepWidget /></section>
 
       {/* Teething — Premium */}
       <div className="a-section">
@@ -1377,25 +575,14 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
       </div>
 
       {/* Cakes cross-sell — yalnız AZ bazarı (dil az/ru + ölkə AZ), 12 aydan sonra gizli */}
-      {!isToolDisabled('cakes') && isCakesAvailable((mommyProfile as any)?.country_code, language) && babyData.ageInMonths < 12 &&
-      <section className="a-section">
-          <motion.button
-          className="a-card a-fade-in"
-          style={{ width: '100%', textAlign: 'start', cursor: 'pointer', padding: '14px 18px' }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => onNavigateToTool?.('cakes')}>
-          
-            <div className="a-rank-row" style={{ borderTop: 'none', padding: 0 }}>
-              <span className="a-rank-avatar" style={{ background: 'var(--a-peach-1)', fontSize: 20 }}>🎂</span>
-              <div style={{ minWidth: 0 }}>
-                <p className="a-rank-title">{tr("dashboard_xususi_tortlar_ba1400", "Xüsusi Tortlar")}</p>
-                <p className="a-rank-sub">
-                  {babyData.ageInMonths > 0 ? tr('dashboard_order_monthly_cake', '{n}-ci aylıq tortunu sifariş ver!').replace('{n}', String(babyData.ageInMonths + 1)) : tr("dashboard_korpeniz_ucun_milestone_tortla_3bcbc1", "K\xF6rp\u0259niz \xFC\xE7\xFCn milestone tortlar\u0131")}
-                </p>
-              </div>
-              <ChevronRight className="rtl:rotate-180 a-list-chevron" style={{ marginInlineStart: 'auto' }} size={18} />
-            </div>
-          </motion.button>
+      {!isToolDisabled('cakes') && isCakesAvailable((mommyProfile as {country_code?: string} | null)?.country_code, language) && babyData.ageInMonths < 12 &&
+      <section className="a3-sec">
+          <button type="button" className="a3-card a3-pad a3-li a3-entry" onClick={() => onNavigateToTool?.('cakes')}>
+            <span className="a3-ico-sq c-pink" aria-hidden="true">🎂</span>
+            <span className="grow"><span className="a3-entry-title">{tr("dashboard_xususi_tortlar_ba1400", "Xüsusi Tortlar")}</span>
+              <span className="a3-meta">{babyData.ageInMonths > 0 ? tr('dashboard_order_monthly_cake', '{n}-ci aylıq tortunu sifariş ver!').replace('{n}', String(babyData.ageInMonths + 1)) : tr("dashboard_korpeniz_ucun_milestone_tortla_3bcbc1", "Körpəniz üçün milestone tortları")}</span></span>
+            <ChevronRight size={18} className="rtl:rotate-180" />
+          </button>
         </section>
       }
 
@@ -1496,8 +683,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
       }
 
 
-
-
       {/* Development Tips - Dynamic based on age */}
       <div className="a-section">
         <DevelopmentTipsWidget />
@@ -1557,7 +742,6 @@ const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate, onOpenAI, onOpenP
     return tr('dashboard_good_evening_xeyir', 'Axşamınız xeyir');
   };
 
-  const hasPartner = !!profile?.linked_partner_id;
 
   // ——— Anacan redesign (github.com/Jmlsltnl/anacan-demo-app): mommy + bump + flow home ———
   if (lifeStage === 'mommy' || lifeStage === 'bump' || lifeStage === 'flow') {
