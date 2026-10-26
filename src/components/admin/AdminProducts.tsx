@@ -42,7 +42,34 @@ interface Product {
   stock: number;
   is_active: boolean;
   created_at: string;
+  // Anacan Aptek catalogue fields (20261027090000_aptek_store.sql)
+  store?: string | null;
+  sku?: string | null;
+  brand?: string | null;
+  kind?: string | null;
+  min_age_months?: number | null;
+  volume?: string | null;
+  original_price?: number | null;
+  images?: string[] | null;
+  tags?: string[] | null;
 }
+
+const APTEK_KINDS = ['bottles', 'cups', 'bowls', 'cutlery', 'appliances', 'food'];
+const emptyAptek = { store: '', sku: '', brand: '', kind: '', min_age_months: '', volume: '', original_price: '', images: '', anti_colic: false, infant_formula: false };
+type AptekForm = typeof emptyAptek;
+
+/** Aptek columns for insert/update; empty strings become NULL. */
+const aptekPayload = (a: AptekForm) => a.store !== 'aptek' ? { store: null } : {
+  store: 'aptek',
+  sku: a.sku.trim() || null,
+  brand: a.brand.trim() || null,
+  kind: a.kind || null,
+  min_age_months: a.min_age_months === '' ? null : Math.max(0, Math.min(72, parseInt(a.min_age_months, 10) || 0)),
+  volume: a.volume.trim() || null,
+  original_price: a.original_price === '' ? null : parseFloat(a.original_price) || null,
+  images: a.images.split(/[\n,]/).map((x) => x.trim()).filter(Boolean),
+  tags: [a.anti_colic && 'anti_colic', a.infant_formula && 'infant_formula'].filter(Boolean) as string[],
+};
 
 const categories = [tr("adminproducts_hamilelik_e86feb", "Hamil\u0259lik"), tr("adminproducts_korpe_fa2b51", "K\xF6rp\u0259"), tr("adminproducts_analiq_9e762d", "Anal\u0131q"),
 
@@ -68,6 +95,7 @@ const AdminProducts = () => {
     stock: 0,
     is_active: true
   });
+  const [aptek, setAptek] = useState<AptekForm>(emptyAptek);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -95,7 +123,7 @@ const AdminProducts = () => {
       if (editingProduct) {
         const { error } = await supabase.
         from('products').
-        update(formData).
+        update({ ...formData, ...aptekPayload(aptek) } as never).
         eq('id', editingProduct.id);
 
         if (error) throw error;
@@ -103,7 +131,7 @@ const AdminProducts = () => {
       } else {
         const { error } = await supabase.
         from('products').
-        insert([formData]);
+        insert([{ ...formData, ...aptekPayload(aptek) } as never]);
 
         if (error) throw error;
         toast({ title: tr("adminproducts_ugurlu_7fe64c", "Uğurlu"), description: tr("adminproducts_mehsul_elave_edildi_f09ac4", "Məhsul əlavə edildi") });
@@ -153,6 +181,12 @@ const AdminProducts = () => {
       stock: product.stock,
       is_active: product.is_active
     });
+    setAptek({
+      store: product.store || '', sku: product.sku || '', brand: product.brand || '', kind: product.kind || '',
+      min_age_months: product.min_age_months == null ? '' : String(product.min_age_months), volume: product.volume || '',
+      original_price: product.original_price == null ? '' : String(product.original_price), images: (product.images || []).join('\n'),
+      anti_colic: !!product.tags?.includes('anti_colic'), infant_formula: !!product.tags?.includes('infant_formula'),
+    });
     setDialogOpen(true);
   };
 
@@ -167,6 +201,7 @@ const AdminProducts = () => {
       stock: 0,
       is_active: true
     });
+    setAptek(emptyAptek);
   };
 
   const filteredProducts = products.filter((product) =>
@@ -256,6 +291,34 @@ const AdminProducts = () => {
                   placeholder="https://..." />
                 
               </div>
+              <div className="flex items-center justify-between">
+                <label className="text-sm font-medium">Anacan Aptek</label>
+                <Switch checked={aptek.store === 'aptek'} onCheckedChange={(on) => setAptek({ ...aptek, store: on ? 'aptek' : '' })} />
+              </div>
+              {aptek.store === 'aptek' &&
+              <div className="space-y-3 rounded-xl border p-3">
+                  <div className="grid grid-cols-2 gap-3">
+                    <div><label className="text-sm font-medium">SKU</label><Input value={aptek.sku} onChange={(e) => setAptek({ ...aptek, sku: e.target.value })} /></div>
+                    <div><label className="text-sm font-medium">{tr('adminproducts_brand', 'Brend')}</label><Input value={aptek.brand} onChange={(e) => setAptek({ ...aptek, brand: e.target.value })} /></div>
+                    <div>
+                      <label className="text-sm font-medium">{tr('adminproducts_kind', 'Növ')}</label>
+                      <Select value={aptek.kind} onValueChange={(v) => setAptek({ ...aptek, kind: v })}>
+                        <SelectTrigger><SelectValue placeholder="—" /></SelectTrigger>
+                        <SelectContent>{APTEK_KINDS.map((k) => <SelectItem key={k} value={k}>{k}</SelectItem>)}</SelectContent>
+                      </Select>
+                    </div>
+                    <div><label className="text-sm font-medium">{tr('adminproducts_min_age', 'Min. yaş (ay)')}</label><Input type="number" min={0} max={72} value={aptek.min_age_months} onChange={(e) => setAptek({ ...aptek, min_age_months: e.target.value })} /></div>
+                    <div><label className="text-sm font-medium">{tr('adminproducts_volume', 'Həcm')}</label><Input value={aptek.volume} onChange={(e) => setAptek({ ...aptek, volume: e.target.value })} /></div>
+                    <div><label className="text-sm font-medium">{tr('adminproducts_old_price', 'Köhnə qiymət (₼)')}</label><Input type="number" value={aptek.original_price} onChange={(e) => setAptek({ ...aptek, original_price: e.target.value })} /></div>
+                  </div>
+                  <div><label className="text-sm font-medium">{tr('adminproducts_images', 'Şəkillər (hər sətirdə bir URL)')}</label><Textarea value={aptek.images} onChange={(e) => setAptek({ ...aptek, images: e.target.value })} placeholder="/aptek/12345_0.webp" /></div>
+                  <div className="flex items-center justify-between"><label className="text-sm">{tr('adminproducts_anti_colic', 'Anti-kolik')}</label><Switch checked={aptek.anti_colic} onCheckedChange={(v) => setAptek({ ...aptek, anti_colic: v })} /></div>
+                  <div className="flex items-center justify-between">
+                    <label className="text-sm">{tr('adminproducts_infant_formula', 'Uşaq qarışığı (təklif edilmir)')}</label>
+                    <Switch checked={aptek.infant_formula} onCheckedChange={(v) => setAptek({ ...aptek, infant_formula: v })} />
+                  </div>
+                </div>
+              }
               <div className="flex items-center justify-between">
                 <label className="text-sm font-medium">Aktiv</label>
                 <Switch

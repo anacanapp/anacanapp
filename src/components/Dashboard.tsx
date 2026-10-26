@@ -75,6 +75,7 @@ import { Section, InfoTabs } from '@/components/anacan/Section';
 import { Mascot } from '@/components/anacan/Mascot';
 import { AskBar, DayPlan, Upcoming, QuickTools, HomeTopbar, greetingKey } from '@/components/home/HomeParts';
 import { MommyHero, useVaccineEvents, hoursMinutes } from '@/components/home/MommyHome';
+import { AptekHomeCard } from '@/components/aptek/AptekEntry';
 import { BumpHero, MonthGallery, WeekSheet, pregnancyMilestones, fetusMonthOf } from '@/components/home/BumpHome';
 import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { useFetusIllustrationByMonth } from '@/hooks/useFetusIllustrations';
@@ -330,6 +331,8 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateTo
         events={pregnancyMilestones(new Date(pregData.lastPeriodDate), onNavigateToTool)}
         onAddAppointment={onNavigate ? () => onNavigate('calendar') : undefined}
         onOpenCalendar={onNavigate ? () => onNavigate('calendar') : undefined} />
+
+      {onNavigate && <AptekHomeCard stage="bump" onOpen={onNavigate} />}
 
       <QuickTools stage="bump" ids={['kick', 'contraction', 'hospital', 'names', 'safety', 'blood-pressure', 'danger-signs', 'vitamin-tracker', 'weight', 'fetal-growth']} onNavigateToTool={onNavigateToTool} />
 
@@ -732,6 +735,8 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
         events={vaccineEvents}
         onAddAppointment={onNavigate ? () => onNavigate('calendar') : undefined}
         onOpenCalendar={onNavigate ? () => onNavigate('calendar') : undefined} />
+
+      {onNavigate && <AptekHomeCard stage="mommy" babyMonths={exactMonths} babyName={babyData.name} onOpen={onNavigate} />}
 
       {/* Premature backfill — yalnız due_date məlum olmayanda görünür */}
       <MommyPeriodBanner onOpen={() => onNavigate?.('mommy-period')} />

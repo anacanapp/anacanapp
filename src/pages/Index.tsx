@@ -50,6 +50,7 @@ const AIChatScreen = lazy(() => import('@/components/AIChatScreen'));
 const PartnerAIPremiumGate = lazy(() => import('@/components/partner/PartnerAIPremiumGate'));
 const PartnerChatScreen = lazy(() => import('@/components/partner/PartnerChatScreen'));
 const ShopScreen = lazy(() => import('@/components/ShopScreen'));
+const AptekScreen = lazy(() => import('@/components/aptek/AptekScreen'));
 const CakesScreen = lazy(() => import('@/components/CakesScreen'));
 const ProfileScreen = lazy(() => import('@/components/ProfileScreen'));
 const PartnerProfileScreen = lazy(() => import('@/components/PartnerProfileScreen'));
@@ -79,6 +80,7 @@ const PartnerHospitalBagScreen = lazy(() => import('@/components/partner/Partner
 const DailySummaryScreen = lazy(() => import('@/components/partner/DailySummaryScreen'));
 // ── Partner Module 2.0 ──
 import { GlobalSearch } from '@/components/home/GlobalSearch';
+import { AptekSearchResults, AptekCartButton } from '@/components/aptek/AptekEntry';
 const PartnerHomeScreen = lazy(() => import('@/components/partner/v2/PartnerHomeScreen'));
 const PartnerTogetherScreen = lazy(() => import('@/components/partner/v2/PartnerTogetherScreen'));
 const PartnerShoppingScreen = lazy(() => import('@/components/partner/v2/PartnerShoppingScreen'));
@@ -559,7 +561,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         return (
           <motion.div key="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <AdSurface id="home_banner" />
-            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={setActiveScreen} onOpenAI={() => handleTabChange('ai')} onOpenProfile={() => handleTabChange('profile')} onSearch={() => setShowSearch(true)} />
+            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={setActiveScreen} onOpenAI={() => handleTabChange('ai')} onOpenProfile={() => handleTabChange('profile')} onSearch={() => setShowSearch(true)} topbarExtra={<AptekCartButton onOpen={setActiveScreen} />} />
           </motion.div>
         );
       case 'tools':
@@ -765,6 +767,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     const initialSlug = activeScreen?.startsWith('blog/') ? activeScreen.replace('blog/', '') : undefined;
     return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BlogScreen onBack={() => setActiveScreen(null)} initialSlug={initialSlug} lifeStage={lifeStage} /></ErrorBoundary></Suspense>;
   }
+  if (activeScreen === 'aptek' || activeScreen?.startsWith('aptek/')) return <Suspense fallback={suspenseFallback}><ErrorBoundary key="aptek"><AptekScreen onBack={() => setActiveScreen(null)} initialScreen={activeScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'shop' && isAdmin) return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><ShopScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'name-voting' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><NameVotingScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-hospital-bag' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerHospitalBagScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
@@ -813,7 +816,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       data-main-dashboard={activeTab === 'home' && !blogOverlayOpen ? 'true' : undefined}
       style={isAnacanRedesignHome ? { background: 'var(--a-bg)' } : undefined}
     >
-      <GlobalSearch open={showSearch} onClose={() => setShowSearch(false)} onOpenTool={handleNavigateToTool} onAskAI={() => handleTabChange('ai')} />
+      <GlobalSearch open={showSearch} onClose={() => setShowSearch(false)} onOpenTool={handleNavigateToTool} onAskAI={() => handleTabChange('ai')}
+        extra={(q, close) => <AptekSearchResults query={q} close={close} onOpen={setActiveScreen} />} />
 
       {/* App Rating Prompt */}
       <AppRatingPrompt />

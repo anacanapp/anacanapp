@@ -1,0 +1,32 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261027090000_aptek_store.sql",
+  "runtime": "google-aptek-store",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; no new relation, every changed relation must already be guarded (the migration refuses otherwise)",
+  "preserve": [
+    "existing products / orders rows and policies",
+    "legacy client order insert path (orders + order_items RLS)",
+    "get_public_app_setting allowlist (not redefined)",
+    "cron0, no timer added"
+  ],
+  "relations": [
+    { "relation": "public.products", "change": "altered", "cdc": true, "writer_guard": true, "private": false, "pii": false,
+      "note": "new nullable catalogue columns, images/tags arrays with defaults, partial unique index on sku, 52 seeded rows (store='aptek')" },
+    { "relation": "public.orders", "change": "altered", "cdc": true, "writer_guard": true, "private": true, "pii": true,
+      "note": "delivery_slot, payment_method, phone (PII), price breakdown, coupon_code; exclude phone from analytics exports" },
+    { "relation": "public.order_items", "change": "written", "cdc": true, "writer_guard": true, "private": true, "pii": false },
+    { "relation": "public.cart_items", "change": "written", "cdc": true, "writer_guard": true, "private": true, "pii": false },
+    { "relation": "public.coupons", "change": "seeded", "cdc": true, "writer_guard": true, "private": false, "pii": false,
+      "note": "ANACAN10, ON CONFLICT DO NOTHING" },
+    { "relation": "public.app_settings", "change": "seeded", "cdc": true, "writer_guard": true, "private": false, "pii": false,
+      "note": "aptek_config, enabled=false, ON CONFLICT DO NOTHING" }
+  ],
+  "functions": [
+    { "name": "public.get_aptek_config()", "security": "definer", "grant": ["anon", "authenticated"] },
+    { "name": "public.place_aptek_order(jsonb, text, text, text, jsonb, text, text)", "security": "definer", "grant": ["authenticated"] }
+  ],
+  "operator_follow_up": [
+    "set app_settings.aptek_config.enabled = true when fulfilment with aloe.az is agreed",
+    "orders appear in Admin → Orders (store = aptek)"
+  ]
+}

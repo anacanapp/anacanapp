@@ -35,7 +35,8 @@ const AdminOrders = () => {
     const matchesSearch =
     order.order_number.toLowerCase().includes(search.toLowerCase()) ||
     order.shipping_address?.name?.toLowerCase().includes(search.toLowerCase()) ||
-    order.shipping_address?.phone?.includes(search);
+    order.shipping_address?.phone?.includes(search) ||
+    order.phone?.includes(search);
 
     const matchesStatus = statusFilter === 'all' || order.status === statusFilter;
 
@@ -217,8 +218,23 @@ const AdminOrders = () => {
                             </p>
                     }
                           {order.shipping_address.address && <p>{order.shipping_address.address}</p>}
+                          {order.shipping_address.line && <p>{order.shipping_address.line}</p>}
                           {order.shipping_address.city && <p>{order.shipping_address.city}</p>}
                         </div>
+                      </div>
+                }
+
+                    {/* Anacan Aptek delivery details */}
+                    {order.store === 'aptek' &&
+                <div className="bg-muted/50 rounded-lg p-3 text-sm space-y-1">
+                        <h4 className="font-semibold text-sm mb-1">Anacan Aptek</h4>
+                        {order.phone && <p className="flex items-center gap-1"><Phone className="w-3 h-3" /><a href={`tel:${order.phone}`}>{order.phone}</a></p>}
+                        {order.delivery_slot && <p>{tr('adminorders_delivery_slot', 'Çatdırılma vaxtı')}: {order.delivery_slot}</p>}
+                        {order.payment_method && <p>{tr('adminorders_payment', 'Ödəniş')}: {order.payment_method === 'cash' ? tr('adminorders_pay_cash', 'Qapıda nağd') : tr('adminorders_pay_card', 'Qapıda kartla')}</p>}
+                        <p className="text-muted-foreground">
+                          {Number(order.subtotal ?? 0).toFixed(2)} ₼ − {Number(order.discount_amount ?? 0).toFixed(2)} ₼ + {Number(order.shipping_fee ?? 0).toFixed(2)} ₼
+                          {order.coupon_code ? ` · ${order.coupon_code}` : ''}
+                        </p>
                       </div>
                 }
 

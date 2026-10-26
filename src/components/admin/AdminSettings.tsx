@@ -33,6 +33,7 @@ interface AppSetting {
 // dəfə ikiqat JSON-encode olunaraq korlanırdı (`AdminForceUpdate.tsx`
 // onu sadə string kimi geri oxuyurdu). İndi YALNIZ bu ekranın özünün
 // idarə etdiyi açarlar yazılır.
+import AdminAptekSettings from './AdminAptekSettings';
 const MANAGED_SETTING_KEYS = [
   'flow_mode_enabled',
   'bump_mode_enabled',
@@ -171,6 +172,8 @@ const AdminSettings = () => {
         </Card> :
 
       <div className="grid gap-6">
+          <AdminAptekSettings />
+
           {/* Life Stage Settings */}
           <motion.div
           initial={{ opacity: 0, y: 20 }}

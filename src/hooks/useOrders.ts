@@ -28,12 +28,23 @@ export interface Order {
     address?: string;
     city?: string;
     postal_code?: string;
+    /** Anacan Aptek single-line address */
+    line?: string;
   } | null;
   billing_address: any | null;
   notes: string | null;
   created_at: string;
   updated_at: string;
   items?: OrderItem[];
+  // Anacan Aptek (20261027090000_aptek_store.sql)
+  store?: string | null;
+  delivery_slot?: string | null;
+  payment_method?: string | null;
+  phone?: string | null;
+  subtotal?: number | null;
+  discount_amount?: number | null;
+  shipping_fee?: number | null;
+  coupon_code?: string | null;
 }
 
 export interface CartItem {
