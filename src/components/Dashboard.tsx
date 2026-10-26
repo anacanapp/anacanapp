@@ -915,7 +915,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
           </motion.div>
         }
         <TrackerAIInsight section="sleep" api={insightApi} />
-        <ModuleArticles module="sleep" />
       </motion.div>
 
       {/* Feeding Tracker */}
@@ -1121,7 +1120,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
           </motion.div>
         }
         <TrackerAIInsight section="feeding" api={insightApi} />
-        <ModuleArticles module="feeding" />
       </motion.div>
 
       {/* Diaper Tracker */}
@@ -1201,7 +1199,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
           )}
         </div>
         <TrackerAIInsight section="diaper" api={insightApi} />
-        <ModuleArticles module="diaper" />
       </motion.div>
 
       {/* Today's Summary */}
