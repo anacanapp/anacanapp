@@ -103,6 +103,56 @@ Admin → Settings → **Anacan Aptek** → "Aptek istifadəçilərə açıqdır
   - **Languages:** check Arabic (RTL) and one CJK language for text overflow on the small tracker
     tiles.
 
+
+## Web deploy — done on Google, 2026-10-26 13:35 UTC
+
+### Before the deploy: making this source match live
+The live web build had two tools this source lacked: **Sleep training** (`SleepTraining`) and
+**Baby tracker** (`BabyTracker`, with `useBabyLogsRange`). Both were rebuilt here in the new
+design:
+- Same behaviour, the same `baby_logs` data and the same device storage key
+  (`anacan.sleepTraining.v1.<user>`).
+- 255 strings in 21 languages.
+- Logic tests in `src/lib/sleep-training.test.ts` and `src/lib/baby-logs-range.test.ts`.
+
+The live startup screen (white mark, dark-mode colours, in `index.html`) was also ported. Result:
+every component chunk on the live site now exists in this build, and `index.html` matches live
+apart from asset hashes.
+
+### Performance (gzipped, compared with live)
+- **App chunk:** 455 KB (live 458).
+- **ToolsHub:** 13 KB (live 16).
+- **Startup CSS:** 40 KB (live 36).
+- **On demand:** the new copy is one chunk of about 5–9 KB per language, loaded by
+  `ensureLanguageReady`, with English inline as the fallback. Search, the drawer library, the
+  Aptek top bar and the Aptek / baby-care styles load only when used.
+
+### Image and deploy
+- **Build:** Cloud Build `b11e8903…` produced `gateway@sha256:542f4b36…` (tag
+  `redesign-aptek-202610261327`).
+  - It is `FROM` the live image `1139061f…` and adds only `index.html`, the hash-named `assets/`
+    and `aptek/`.
+  - The blog, website, brand portal, sitemaps and nginx config are untouched.
+- **Isolated test:** a test container on 127.0.0.1:8089 matched live on health, admission,
+  `/brands`, auth and REST.
+  - New assets are served gzipped with immutable caching.
+  - Old live assets are still served, so open sessions keep working.
+- **Deploy:** `deploy-current-web.py /home/anacan-runner/redesign-web-plan.json` returned
+  `passed`.
+  - `indexVerified`; no DNS or database change.
+  - The previous container is kept as `anacan-gateway-before-refresh-1793021720`.
+- **Public check:** `https://app.anacan.az/` serves `index.html` sha `c33bd0d6…`, and the
+  admin entry `/?web=admin` loads with no console errors.
+
+**Rollback (one command on the VM):**
+`sudo python3 /home/anacan-runner/deploy-current-web.py /home/anacan-runner/rollback-redesign-web-plan.json`
+
+**Note — who sees it:**
+- **Browsers:** ordinary browser visits are sent to the store / native app, as documented in
+  `docs/APP_ENTRY_20261006.md`. The web build is used by admins and by the web preview.
+- **Users:** they get the redesign through the next native build (48), which bundles this same
+  code.
+
 ## Known limitations (not regressions)
 - **Fetus and baby illustration images:** the URLs stored in the database point to the retired Azure
   gateway and return 404. The pregnancy hero falls back to the bundled SVGs and the baby hero uses

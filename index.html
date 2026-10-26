@@ -35,9 +35,6 @@
     <meta name="twitter:description" content="Hamiləlik və analıq tətbiqi" />
     <meta name="twitter:image" content="/icon-512.png" />
     
-    <!-- Qaranlıq rejimdə klaviatura/ölçü dəyişəndə body krem rəngdə görünməsin -->
-    <style>body{background-color:#faf7f4}html.dark body{background-color:#161922}</style>
-
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
     
@@ -47,19 +44,22 @@
       aside#lovable-badge,
       .lovable-badge,
       [data-lovable-badge] {
-        display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
         pointer-events: none !important;
+        display: none !important;
       }
+      /* Startup colours live here, not inline, so the dark variant can follow the system theme. */
+      .anacan-startup { background-color: #F28155; color: #fff; }
+      @media (prefers-color-scheme: dark) { .anacan-startup { background-color: #161922; } }
     </style>
   </head>
 
-  <body style="margin: 0; padding: 0;">
+  <body style="margin: 0; padding: 0; background-color: #faf7f4;">
     <div id="root" style="height: 100%;">
       <div class="anacan-startup" role="status" aria-label="Anacan" aria-busy="true" data-startup-screen>
         <div class="anacan-startup-brand">
-          <img class="anacan-startup-mark" src="/brand-mark.png" width="96" height="96" alt="" fetchpriority="high" />
+          <img class="anacan-startup-mark" src="/brand-mark-white.png" width="120" height="120" alt="" fetchpriority="high" style="width: 120px; height: 120px; object-fit: contain;" />
           <p class="anacan-startup-name">Anacan</p>
           <span class="anacan-startup-progress" aria-hidden="true"><span></span></span>
         </div>
