@@ -4,13 +4,7 @@ import { useDailyLogs } from '@/hooks/useDailyLogs';
 import { useUserStore } from '@/store/userStore';
 import { tr } from '@/lib/tr';
 import { appLanguageLocale } from '@/lib/app-languages';
-
-// Fallback targets for different life stages
-const fallbackTargets = {
-  bump: { water_glasses: 10 },
-  mommy: { water_glasses: 12 },
-  flow: { water_glasses: 8 }
-};
+import { waterTarget } from '@/lib/water-target';
 
 interface WaterWidgetProps {
   /** 'anacan' renders the redesigned (anacan-demo) progress-ring card */
@@ -23,8 +17,7 @@ export default function WaterWidget({ variant = 'default' }: WaterWidgetProps) {
   const language = useUserStore((s) => s.language);
   
   const waterGlasses = todayLog?.water_intake || 0;
-  const stage = lifeStage || 'flow';
-  const target = fallbackTargets[stage as keyof typeof fallbackTargets]?.water_glasses || 8;
+  const target = waterTarget(lifeStage);
   
   const percentage = Math.min((waterGlasses / target) * 100, 100);
 

@@ -7,6 +7,10 @@ export const COMPANIONS = { flow: { file: 'cycle', name: 'Ritm' }, bump: { file:
 export type CompanionPose = 'welcome' | 'mode' | 'name' | 'data' | 'q1' | 'q2' | 'q3' | 'q4' | 'q5'
   | 'sproof' | 'privacy' | 'value' | 'analysis' | 'results' | 'proof' | 'paywall' | 'exit' | 'freemode' | 'success';
 
+/** URL of a companion pose; shared with the home screens and empty states. */
+export const companionSrc = (stage: OnboardingStage, pose: CompanionPose): string | undefined =>
+  images[`../../assets/onboarding/${COMPANIONS[stage].file}-${pose}.webp`];
+
 export function OnboardingCompanion({ stage, pose = 'welcome', language, size = 'hero' }: {
   stage: OnboardingStage; pose?: CompanionPose; language: string; size?: 'hero' | 'compact' | 'tiny' | 'option';
 }) {

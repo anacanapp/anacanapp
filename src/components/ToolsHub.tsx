@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useRef, lazy, Suspense } from 'react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { TOOL_ICONS } from '@/lib/tool-icons';
 import { saveScroll, restoreScroll } from '@/lib/scrollMemory';
 import { pushBackHandler } from '@/lib/backButton';
 import { isToolFree, isCakesAvailable } from '@/lib/freemium';
@@ -80,45 +81,8 @@ interface Tool {
   isLocked?: boolean;
 }
 
-// Icon mapping for dynamic tool configs
-const iconMap: Record<string, LucideIcon> = {
-  'Ruler': Ruler,
-  'Camera': Camera,
-  'Utensils': Utensils,
-  'ShoppingCart': ShoppingCart,
-  'Shield': Shield,
-  'Footprints': Footprints,
-  'Timer': Timer,
-  'Scale': Scale,
-  'Baby': Baby,
-  'Briefcase': Briefcase,
-  'Volume2': Volume2,
-  'Activity': Activity,
-  'Heart': Heart,
-  'Wrench': Wrench,
-  'BookOpen': BookOpen,
-  'ChefHat': ChefHat,
-  'Stethoscope': Stethoscope,
-  'Droplet': Droplet,
-  'ImagePlus': ImagePlus,
-  'Package': Package,
-  'Mic': Mic,
-  'Scan': Scan,
-  'CloudSun': CloudSun,
-  'Gauge': Gauge,
-  'Store': Store,
-  'MapPin': MapPin,
-  'Gamepad2': Gamepad2,
-  'ShieldAlert': ShieldAlert,
-  'BookHeart': BookHeart,
-  'Stars': Stars,
-  'Calculator': Calculator,
-  'Pill': Pill,
-  'Syringe': Syringe,
-  'TrendingUp': TrendingUp,
-  'Dumbbell': Dumbbell,
-  'Brain': Brain
-};
+// Icon mapping for dynamic tool configs (shared with the home quick tools)
+const iconMap = TOOL_ICONS;
 
 // Import Calculator icon
 import { Calculator } from 'lucide-react';

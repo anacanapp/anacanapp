@@ -6,7 +6,7 @@ import {
   Droplets, Moon, Utensils, Activity, Plus, TrendingUp, Heart, Sparkles,
   Bell, ChevronRight, Flame, Target, Calendar, Zap, Sun, Cloud, Wind,
   ThermometerSun, Pill, Baby, Footprints, Scale, Clock, Star, Award,
-  MessageCircle, Check, Lightbulb, BookOpen, PartyPopper, RefreshCw, ChevronUp, ChevronDown, FileText } from
+  MessageCircle, Check, Lightbulb, BookOpen, PartyPopper, RefreshCw, ChevronUp, ChevronDown, FileText, Smile, Droplet } from
 'lucide-react';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import { useUserStore } from '@/store/userStore';
@@ -60,37 +60,25 @@ import PartnerCareCard from '@/components/partner/v2/PartnerCareCard';
 import RedFlagBanner from '@/components/dashboard/RedFlagBanner';
 import RecentBlogPosts from '@/components/dashboard/RecentBlogPosts';
 import ModuleArticles from '@/components/blog/ModuleArticles';
-import FlowDashboard from '@/components/flow/FlowDashboard';
+import FlowDashboard, { type FlowHeroContext } from '@/components/flow/FlowDashboard';
 import BirthOnboardingModal from '@/components/BirthOnboardingModal';
 import WaterWidget from '@/components/dashboard/WaterWidget';
 import { MommyPeriodBanner } from '@/components/mommy/MommyPeriodTracker';
 import MotherSleepWidget from '@/components/dashboard/MotherSleepWidget';
 
-// Fetus images by month
-import FetusMonth1 from '@/assets/fetus/month-1.svg';
-import FetusMonth2 from '@/assets/fetus/month-2.svg';
-import FetusMonth3 from '@/assets/fetus/month-3.svg';
-import FetusMonth4 from '@/assets/fetus/month-4.svg';
-import FetusMonth5 from '@/assets/fetus/month-5.svg';
-import FetusMonth6 from '@/assets/fetus/month-6.svg';
-import FetusMonth7 from '@/assets/fetus/month-7.svg';
-import FetusMonth8 from '@/assets/fetus/month-8.svg';
-import FetusMonth9 from '@/assets/fetus/month-9.svg';
 import { tr } from "@/lib/tr";
+import { rd } from '@/lib/redesign-i18n';
+import { waterTarget } from '@/lib/water-target';
+import { useVitaminSchedules } from '@/hooks/useVitaminSchedules';
+import { TrackerTile } from '@/components/anacan/TrackerTile';
+import { Section, InfoTabs } from '@/components/anacan/Section';
+import { Mascot } from '@/components/anacan/Mascot';
+import { AskBar, DayPlan, Upcoming, QuickTools, HomeTopbar, greetingKey } from '@/components/home/HomeParts';
+import { MommyHero, useVaccineEvents, hoursMinutes } from '@/components/home/MommyHome';
+import { BumpHero, MonthGallery, WeekSheet, pregnancyMilestones, fetusMonthOf } from '@/components/home/BumpHome';
 import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { useFetusIllustrationByMonth } from '@/hooks/useFetusIllustrations';
 
-const FETUS_IMAGES: {[key: number]: string;} = {
-  1: FetusMonth1,
-  2: FetusMonth2,
-  3: FetusMonth3,
-  4: FetusMonth4,
-  5: FetusMonth5,
-  6: FetusMonth6,
-  7: FetusMonth7,
-  8: FetusMonth8,
-  9: FetusMonth9
-};
 
 interface QuickActionProps {
   icon: any;
@@ -161,172 +149,76 @@ const ProgressRing = ({ progress, size = 100, strokeWidth = 8, color = "stroke-p
 // FlowDashboard is now imported from @/components/flow/FlowDashboard
 
 
-const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) => void;}) => {
-  const { getPregnancyData, setLifeStage, language } = useUserStore(
-    useShallow((s) => ({ getPregnancyData: s.getPregnancyData, setLifeStage: s.setLifeStage, language: s.language }))
-  );
+const BumpDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateToTool?: (tool: string) => void;onNavigate?: (screen: string) => void;onOpenAI?: () => void;}) => {
+  const getPregnancyData = useUserStore((s) => s.getPregnancyData);
+  const name = useUserStore((s) => s.name);
   const { toast } = useToast();
   const { profile } = useAuth();
   // Əkiz/üçüz və s. — hero başlığı və digər "körpəniz" mətnləri buna görə uyğunlaşır
   const isMultiple = !!(profile as any)?.multiples_type && (profile as any).multiples_type !== 'single';
   const pregData = getPregnancyData();
-  const { todayLog, updateWaterIntake, updateMood } = useDailyLogs();
+  const { todayLog, updateWaterIntake } = useDailyLogs();
   const { getTodayStats, addSession } = useKickSessions();
   const { entries: weightEntries } = useWeightEntries();
+  const { schedules: vitaminSchedules, todayLogs: vitaminLogs } = useVitaminSchedules();
   const { data: fruitImages = [] } = useFruitImages();
-  const { isPremium } = useSubscription();
 
-  // Birth onboarding modal state
   const [showBirthModal, setShowBirthModal] = useState(false);
+  const [weekSheet, setWeekSheet] = useState<number | null>(null);
 
-  // Calculate actual current pregnancy day (1-280)
-  const actualPregnancyDay = pregData?.lastPeriodDate ?
-  getPregnancyDay(pregData.lastPeriodDate) :
-  1;
-
-  // Day hook — naviqasiya UI silinib, həmişə cari gün göstərilir
   const {
     selectedDay: pregnancyDay,
+    actualCurrentDay,
     selectedWeek,
     selectedDayInWeek,
     selectedTrimester,
-    daysUntilDueFromSelected
+    daysUntilDueFromSelected,
+    isViewingCurrentDay,
+    navigateToDay
   } = usePregnancyDayNavigation({
     lastPeriodDate: pregData?.lastPeriodDate || null,
     dueDate: pregData?.dueDate
   });
 
-  // Fetch weekly tip from database based on selected week
   const { data: weeklyTips = [] } = useWeeklyTips(selectedWeek, 'bump');
   const currentWeekTip = weeklyTips[0];
-
-  // Fetch dynamic pregnancy content by selected day
   const { data: dayContent } = usePregnancyContentByDay(pregnancyDay);
-
-  // Fetch dynamic trimester tips from database based on selected trimester
   const { data: dynamicTrimesterTips = [] } = useTrimesterTips(selectedTrimester);
+
+  // Hooks must run before the early return below: when pregnancy data appeared
+  // after a null render, React threw "Rendered more hooks" and blanked the screen.
+  const fetusMonth = fetusMonthOf(selectedWeek);
+  const fetusImageFromDb = useFetusIllustrationByMonth(fetusMonth);
+
+  if (!pregData) return null;
 
   const todayStats = getTodayStats();
   const kickCount = todayStats.totalKicks;
   const waterCount = todayLog?.water_intake || 0;
   const currentMood = todayLog?.mood || 0;
-
-  // Calculate weight gain from first entry
   const latestWeight = weightEntries[0]?.weight;
-  const firstWeight = weightEntries[weightEntries.length - 1]?.weight;
-  const weightGain = latestWeight && firstWeight ? (latestWeight - firstWeight).toFixed(1) : '0';
-
-  // Show "I gave birth" button from 3rd trimester (last 3 months, week 27+)
   const showBirthButton = pregData?.currentWeek ? pregData.currentWeek >= 27 : false;
+  const weekData = getDynamicFruitData(fruitImages, pregnancyDay, selectedWeek, dayContent);
+  const [greetKey, greetFallback] = greetingKey();
 
-  // Hooks must run before the early return below: when pregnancy data appeared
-  // after a null render, React threw "Rendered more hooks" and blanked the screen.
-  const fetusMonth = Math.min(Math.ceil(selectedWeek / 4.4), 9);
-  const fetusImageFromDb = useFetusIllustrationByMonth(fetusMonth);
-
-  if (!pregData) return null;
-
-  // Trimester color scheme
-  const getTrimesterColors = (trimester: number) => {
-    switch (trimester) {
-      case 1:
-        return {
-          bg: 'from-green-500/10 via-green-400/5 to-green-500/10 dark:from-green-500/20 dark:via-green-400/10 dark:to-green-500/20',
-          border: 'border-green-500/20',
-          accent: 'bg-green-500/10 dark:bg-green-500/20',
-          text: 'text-green-600 dark:text-green-400',
-          badge: 'bg-green-500/10 text-green-600 dark:text-green-400',
-          progress: 'bg-green-500',
-          icon: 'text-green-600 dark:text-green-400'
-        };
-      case 2:
-        return {
-          bg: 'from-amber-500/10 via-amber-400/5 to-amber-500/10 dark:from-amber-500/20 dark:via-amber-400/10 dark:to-amber-500/20',
-          border: 'border-amber-500/20',
-          accent: 'bg-amber-500/10 dark:bg-amber-500/20',
-          text: 'text-amber-600 dark:text-amber-400',
-          badge: 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
-          progress: 'bg-amber-500',
-          icon: 'text-amber-600 dark:text-amber-400'
-        };
-      case 3:
-      default:
-        return {
-          bg: 'from-primary/10 via-primary/5 to-primary/10 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20',
-          border: 'border-primary/20',
-          accent: 'bg-primary/10 dark:bg-primary/20',
-          text: 'text-primary',
-          badge: 'bg-primary/10 text-primary',
-          progress: 'bg-primary',
-          icon: 'text-primary'
-        };
-    }
+  // Week stepping moves the selected day by 7 (clamped by the hook); "now" resets.
+  const stepWeek = (delta: number) => {
+    void hapticFeedback.light();
+    const target = pregnancyDay + delta * 7;
+    navigateToDay(Math.abs(target - actualCurrentDay) < 7 ? actualCurrentDay : target);
   };
 
-  // Use selected trimester for colors (based on navigated day)
-  const trimesterColors = getTrimesterColors(selectedTrimester);
-
-  // Trimester info for display
-  const getTrimesterInfo = (trimester: number) => {
-    switch (trimester) {
-      case 1:
-        return { title: tr("dashboard_1_ci_trimester_tovsiyeleri_0a4c84", '1-ci Trimester Tövsiyələri'), emoji: '🌱' };
-      case 2:
-        return { title: tr("dashboard_2_ci_trimester_tovsiyeleri_16e100", '2-ci Trimester Tövsiyələri'), emoji: '🌸' };
-      case 3:
-      default:
-        return { title: tr("dashboard_3_cu_trimester_tovsiyeleri_93f711", '3-cü Trimester Tövsiyələri'), emoji: '🍼' };
-    }
-  };
-
-  const trimesterInfo = getTrimesterInfo(selectedTrimester);
-
-  // Get mood emoji
-  const getMoodEmoji = (mood: number) => {
-    if (mood >= 4) return '😊';
-    if (mood >= 3) return '🙂';
-    if (mood >= 2) return '😐';
-    if (mood >= 1) return '😔';
-    return '❓';
-  };
-
-  // Get fruit data from unified hook - priority: pregnancy_daily_content > fruit_size_images > static
-  const getFruitData = () => {
-    return getDynamicFruitData(
-      fruitImages,
-      pregnancyDay,
-      selectedWeek,
-      dayContent
-    );
-  };
-
-  const weekData = getFruitData();
-
-  // Fetus şəkli: bazadan (admin paneldən idarə olunur, tətbiq
-  // yeniləmədən dəyişir). Bazada yoxdursa daxili SVG fallback işləyir.
-  const fetusImageSrc = fetusImageFromDb || FETUS_IMAGES[fetusMonth] || FETUS_IMAGES[1];
-
-  // For progress bar and development milestones, use actual current day
-  const daysLeft = daysUntilDueFromSelected;
-  const totalDays = 280;
-  const daysElapsed = pregnancyDay;
-  const progressPercent = pregnancyDay / totalDays * 100;
-
-  // Dynamic baby message from database
-  const babyMessage = dayContent?.baby_message || tr("dashboard_salam_ana_bu_gun_cox_boyudum_4e9d53", "Salam ana! Bu g\xFCn \xE7ox b\xF6y\xFCd\xFCm. \uD83D\uDC95");
-
-  // Development milestones based on selected week
-  const weeklyDevelopment = {
-    eyes: selectedWeek >= 8,
-    ears: selectedWeek >= 16,
-    fingers: selectedWeek >= 10,
-    kicks: selectedWeek >= 18,
-    hair: selectedWeek >= 22
-  };
+  const headline = (() => {
+    // Tək körpədə "mən danışıram" (1-ci şəxs) səsi təbiidir; əkiz/üçüzdə isə hər körpə
+    // fərqli ölçüdə ola bilər — ona görə ana-yönümlü (2-ci şəxs cəm) şablona keçirik.
+    const tpl = isMultiple ?
+    tr("dashboard_hero_fruit_tpl_multiple", "Körpələriniz təxminən {fruit} boydadır") :
+    tr("dashboard_hero_fruit_tpl", "Anacan, hazırda {fruit} boydayam");
+    const [before, after] = tpl.split('{fruit}');
+    return <>{before}<em>{weekData.fruit}</em>{after ?? ''}</>;
+  })();
 
   const addKick = async () => {
-    await hapticFeedback.medium();
-    // Add a quick single-kick session for tracking
     await addSession(1, 0);
     toast({
       title: tr("dashboard_tepik_qeyd_edildi_284f06", "Təpik qeyd edildi! 👶"),
@@ -334,465 +226,126 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
     });
   };
 
-  const addWater = async () => {
-    await hapticFeedback.light();
-    await updateWaterIntake(1);
-    toast({
-      title: tr("dashboard_su_elave_edildi_7b894d", "Su əlavə edildi! 💧"),
-      description: `${waterCount + 1}/8 ${tr("dashboard_glasses", "stəkan")}`
-    });
-  };
+  const infoTabs = [
+  { label: rd('tab_baby'), text: dayContent?.baby_development },
+  { label: rd('tab_you'), text: dayContent?.body_changes },
+  { label: rd('tab_tip'), text: dayContent?.daily_tip || currentWeekTip?.content }].
+  filter((t): t is {label: string;text: string;} => !!t.text);
 
   return (
-    <div>
+    <div className="a3-enter">
       {/* Qırmızı bayraq: bu günkü BP ≥140/90 → avtomatik xəbərdarlıq */}
       <RedFlagBanner onOpenTool={onNavigateToTool} />
 
-      {/* Editorial hero (anacan-demo pregnancy design) —
-          gün naviqatoru silinib: həmişə cari gün göstərilir */}
-      <section className="a-hero-min a-fade-in">
-        <p className="a-hero-eyebrow">
-          {selectedWeek}{tr("dashboard_hefte_5af01f", ". h\u0259ft\u0259,")} <strong>{selectedDayInWeek}{tr("dashboard_gun_a4ba4e", ". g\xFCn \u2022")}</strong> {selectedTrimester === 1 ? tr("dashboard_1_trimester", "1-ci Trimester") :
-          selectedTrimester === 2 ? tr("dashboard_2_trimester", "2-ci Trimester") :
-          tr("dashboard_3_trimester", "3-cü Trimester")}
-        </p>
+      <BumpHero
+        greeting={`${tr(greetKey, greetFallback)}, ${name || tr("dashboard_xanim_39ff6a", "Xanım")}`}
+        week={selectedWeek}
+        dayInWeek={selectedDayInWeek}
+        day={pregnancyDay}
+        trimester={selectedTrimester}
+        isNow={isViewingCurrentDay}
+        daysLeft={daysUntilDueFromSelected}
+        fruit={weekData.fruit}
+        lengthCm={weekData.lengthCm}
+        weightG={weekData.weightG}
+        headline={headline}
+        firstLine={dayContent?.baby_development?.split('. ')[0]}
+        fetusSrc={fetusImageFromDb}
+        onPrevWeek={() => stepWeek(-1)}
+        onNextWeek={() => stepWeek(1)}
+        onOpenWeek={() => setWeekSheet(selectedWeek)} />
 
-        {/* Fetus illustration with heart badge */}
-        <div className="a-egg-wrap" style={{ width: 156, margin: '10px auto 14px' }}>
-          <span className="a-egg-heart">
-            <span style={{ fontSize: 13 }}>💗</span>
-          </span>
-          {/* Üzmə hərəkəti CSS-dədir (compositor) — framer-in sonsuz JS döngüsü əvəzinə */}
-          <div className="a-float">
-          <motion.img
-            src={fetusImageSrc}
-            onError={(event) => {
-              const fallback = FETUS_IMAGES[fetusMonth] || FETUS_IMAGES[1];
-              if (event.currentTarget.src !== new URL(fallback, window.location.href).href) {
-                event.currentTarget.src = fallback;
-              }
-            }}
-            alt={`${selectedWeek} ${tr("dashboard_week_baby", "həftəlik körpə")}`}
-            style={{ width: 156, height: 156, objectFit: 'contain', filter: 'drop-shadow(0 18px 22px rgba(217, 108, 74, 0.3))' }}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{
-              scale: { delay: 0.2, type: "spring" },
-              opacity: { delay: 0.2 }
-            }} />
-          </div>
-          
-        </div>
+      <div className="a3-today" aria-label={rd('today')}>
+        <TrackerTile icon={Droplets} tone="c-blue" value={`${waterCount}/${waterTarget('bump')}`} label={rd('tk_water')} plus count={waterCount} ariaLabel={rd('add_water')} onClick={() => { void updateWaterIntake(1); }} />
+        {selectedWeek >= 16 ?
+        <TrackerTile icon={Footprints} tone="c-peach" value={kickCount} label={rd('tk_kicks')} plus count={kickCount} ariaLabel={rd('add_kick')} onClick={addKick} /> :
+        <TrackerTile icon={Scale} tone="c-green" value={latestWeight ? Number(latestWeight).toLocaleString() : '—'} label={rd('tk_weight')} onClick={() => onNavigateToTool?.('weight')} />}
+        <TrackerTile icon={Pill} tone="c-yellow" value={vitaminSchedules.length ? `${vitaminLogs.length}/${vitaminSchedules.length}` : '—'} label={rd('tk_vitamin')} onClick={() => onNavigateToTool?.('vitamin-tracker')} />
+        <TrackerTile icon={Smile} tone="c-pink" value={currentMood ? `${currentMood}/5` : '—'} label={rd('tk_mood')} onClick={() => onNavigateToTool?.('mood')} />
+      </div>
 
-        <h1 className="a-hero-headline a-heading">
-          {(() => {
-            // Tək körpədə "mən danışıram" (1-ci şəxs) səsi təbiidir; əkiz/üçüzdə
-            // isə hər körpə fərqli ölçüdə ola bilər — ona görə fərqli, ana-yönümlü
-            // (2-ci şəxs cəm) şablona keçirik ki, "mən alma boydayam" kimi TƏK
-            // körpə iddiası yaranmasın.
-            const tpl = isMultiple ?
-            tr("dashboard_hero_fruit_tpl_multiple", "Körpələriniz təxminən {fruit} boydadır") :
-            tr("dashboard_hero_fruit_tpl", "Anacan, hazırda {fruit} boydayam");
-            const [before, after] = tpl.split('{fruit}');
-            return <>{before}<em>{weekData.fruit}</em>{after ?? ''}</>;
-          })()}
-        </h1>
+      <AskBar placeholder={rd('ask_placeholder')} onAsk={onOpenAI} />
 
-        <div className="a-tag-row" style={{ justifyContent: 'center', marginTop: 18, marginBottom: 0 }}>
-          <span className="a-tag" style={{ cursor: 'default' }}>{pregnancyDay}{tr("dashboard_gun_d96b5d", ". g\xFCn")}</span>
-          <span className="a-tag" style={{ cursor: 'default' }}>{weekData.lengthCm} {tr("dashboard_sm", "sm")}</span>
-          <span className="a-tag" style={{ cursor: 'default' }}>{weekData.weightG} {tr("dashboard_qr", "qr")}</span>
-          <span className="a-tag" style={{ cursor: 'default' }}>{daysLeft} {tr("dashboard_gun_qaldi_993281", "g\xFCn qald\u0131")}</span>
-        </div>
+      <DayPlan stage="bump" week={selectedWeek} onNavigateToTool={onNavigateToTool} />
 
-        {/* Progress Bar */}
-        <div className="a-pbar">
-          <div className="a-pbar-track">
-            <motion.div
-              className="a-pbar-fill"
-              initial={{ width: 0 }}
-              animate={{ width: `${progressPercent}%` }}
-              transition={{ duration: 1, delay: 0.3 }} />
-            
-            <span className="a-pbar-pct" style={{ insetInlineStart: `${Math.min(94, Math.max(6, progressPercent))}%` }}>
-              {Math.round(progressPercent)}%
-            </span>
-          </div>
-          <div className="a-pbar-labels">
-            <span>{tr("dashboard_baslangic_e9d2d5", "Başlanğıc")}</span>
-            <span>{tr("dashboard_dogus_6b7bfd", "Doğuş")}</span>
-          </div>
-        </div>
-      </section>
+      {dayContent?.baby_message &&
+      <section className="a3-sec">
+          <figure className="a3-quote" style={{ margin: 0 }}>
+            <div className="a3-quote-head">
+              <span className="a3-quote-ava"><Baby size={18} /></span>
+              <div><p className="a3-quote-label">{rd('baby_message')}</p><p className="a3-quote-sub a3-num">{rd('day_n_of', { n: pregnancyDay })}</p></div>
+            </div>
+            <blockquote className="a3-quote-text">{dayContent.baby_message}</blockquote>
+          </figure>
+        </section>
+      }
 
-      {/* Trimester Tips Section */}
+      {infoTabs.length > 0 &&
+      <Section title={isViewingCurrentDay ? rd('this_week') : rd('week_n', { n: selectedWeek })}>
+          <InfoTabs tabs={infoTabs} />
+        </Section>
+      }
+
+      {/* Əkiz/çoxdöllü hamiləliyə xas məsləhət — YALNIZ isMultiple=true olanlara,
+          yalnız məzmun mövcud olan günlərdə (bax Duzelis29/32.sql). applyLanguage()
+          (usePregnancyContent.ts) UI dilinə uyğun multiples_tip_{lang} dəyərini
+          artıq multiples_tip sahəsinə köçürüb — burda UI dilindən asılı deyil. */}
+      {isMultiple && (dayContent as any)?.multiples_tip &&
+      <section className="a3-sec">
+          <article className="a3-card a3-pad">
+            <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}><span className="a3-ico-sq sm c-blue"><Baby size={16} /></span><p style={{ margin: 0, fontWeight: 600 }}>{tr("dashboard_ekiz_hameleliyiniz_ucun", "Əkiz Hamiləliyiniz üçün")}</p></div>
+            <p style={{ margin: 0, fontSize: 15, lineHeight: 1.55 }}>{(dayContent as any).multiples_tip}</p>
+          </article>
+        </section>
+      }
+
+      {currentWeekTip && dayContent?.daily_tip &&
+      <section className="a3-sec">
+          <article className="a3-card a3-pad">
+            <p className="a3-eyebrow" style={{ color: 'var(--a-accent-ink)' }}>{tr("dashboard_hefte_3aa886", "Həftə")} {selectedWeek} {tr("dashboard_tovsiyesi_6412b4", "T\xF6vsiyəsi")}</p>
+            <p style={{ margin: 0, fontWeight: 600 }}>{currentWeekTip.title}</p>
+            <p style={{ margin: 0, fontSize: 15, lineHeight: 1.55 }}>{currentWeekTip.content}</p>
+          </article>
+        </section>
+      }
+
+      <MonthGallery currentWeek={selectedWeek} onOpenWeek={(w) => setWeekSheet(w)} />
+
       {dynamicTrimesterTips.length > 0 &&
-      <section className="a-section">
-          <div className="a-section-head" style={{ justifyContent: 'center' }}>
-            <h2 className="a-section-title a-heading" style={{ textAlign: 'center' }}>
-              {trimesterInfo.emoji} {trimesterInfo.title} {trimesterInfo.emoji}
-            </h2>
-          </div>
-          <div className="a-list-card a-fade-in">
-            {dynamicTrimesterTips.map((tip, index) =>
-          <motion.div
-            key={tip.id}
-            className="a-list-row"
-            initial={{ x: document.documentElement.dir === 'rtl' ? 20 : -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.15 + index * 0.05 }}>
-            
-                <span className="a-list-icon" style={{ background: 'var(--a-surface-soft)', fontSize: 17 }}>{tip.icon}</span>
-                <p className="a-list-title" style={{ fontWeight: 600, whiteSpace: 'normal', lineHeight: 1.5 }}>{tip.tip_text}</p>
-              </motion.div>
-          )}
-          </div>
-        </section>
-      }
-
-      {/* Stats trio - Show kick counter only after week 16 */}
-      <section className="a-section">
-        <div className="a-trio" style={{ gridTemplateColumns: selectedWeek >= 16 ? 'repeat(3, 1fr)' : 'repeat(2, 1fr)' }}>
-          <motion.div
-            className="a-trio-item"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}>
-            
-            <span className="a-trio-icon" style={{ background: 'var(--a-grad-yellow)', color: 'var(--a-warn-ink)' }}>
-              <Calendar size={17} strokeWidth={2} />
-            </span>
-            <p className="a-trio-value">{daysLeft}</p>
-            <p className="a-trio-label">{tr("dashboard_gun_qaldi_993281", "gün qaldı")}</p>
-          </motion.div>
-
-          {/* Only show kick counter after week 16 */}
-          {selectedWeek >= 16 &&
-          <motion.button
-            onClick={addKick}
-            className="a-trio-item"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.25 }}
-            whileTap={{ scale: 0.92 }}>
-            
-              <span className="a-trio-icon" style={{ background: 'var(--a-grad-pink)', color: 'var(--a-berry-ink)' }}>
-                <Footprints size={17} strokeWidth={2} />
-              </span>
-              <p className="a-trio-value">{kickCount}</p>
-              <p className="a-trio-label">{tr("dashboard_tepik_6483fe", "təpik")}</p>
-            </motion.button>
-          }
-
-          <motion.div
-            className="a-trio-item"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}>
-            
-            <span className="a-trio-icon" style={{ background: 'var(--a-grad-blue)', color: 'var(--a-blue-ink)' }}>
-              <Scale size={17} strokeWidth={2} />
-            </span>
-            <p className="a-trio-value">+{weightGain}</p>
-            <p className="a-trio-label">{tr("dashboard_kq_ceki_b42b8d", "kq çəki")}</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Baby Development - Static Icons */}
-      <section className="a-section">
-        <div className="a-section-head">
-          <h2 className="a-section-title a-heading">{tr("dashboard_korpenin_inkisafi_269d83", "Körpənin inkişafı")}</h2>
-        </div>
-        <div className="a-trio" style={{ gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: 6 }}>
-          {[
-          { icon: '👀', label: tr("dashboard_goz_fbc05e", 'Göz'), active: weeklyDevelopment.eyes },
-          { icon: '👂', label: tr("dashboard_qulaq_93ab", 'Qulaq'), active: weeklyDevelopment.ears },
-          { icon: '✋', label: tr("dashboard_barmaq_18bc", 'Barmaq'), active: weeklyDevelopment.fingers },
-          { icon: '🦶', label: tr("dashboard_tepik_9a873a", 'Təpik'), active: weeklyDevelopment.kicks },
-          { icon: '💇', label: tr("dashboard_sac_a09eaa", 'Saç'), active: weeklyDevelopment.hair }].
-          map((item, index) =>
-          <motion.div
-            key={item.label}
-            className="a-trio-item"
-            style={{ padding: '12px 2px', minWidth: 0, opacity: item.active ? 1 : 0.65, cursor: 'default' }}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.3 + index * 0.08 }}>
-            
-              <span className="a-trio-icon" aria-hidden="true" style={{
-                background: item.active ? 'var(--a-peach-1)' : 'var(--a-surface-soft)',
-                width: 32, height: 36, fontSize: 22, fontWeight: 400, lineHeight: 1,
-                fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif',
-              }}>
-                {item.icon}
-              </span>
-              <p className="a-trio-label" style={{ overflowWrap: 'anywhere', ...(item.active ? { color: 'var(--a-ink)' } : {}) }}>
-                {item.label}
-              </p>
-            </motion.div>
-          )}
-        </div>
-      </section>
-
-      {/* Daily Content Cards - Separated */}
-      {dayContent &&
-      <>
-          {/* Baby Message Card — CTA banner with organic shapes */}
-          {dayContent.baby_message &&
-        <section className="a-section">
-            <motion.div
-            className="a-cta a-fade-in"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}>
-            
-              <span className="a-cta-shape" style={{ width: 140, height: 140, top: -50, insetInlineEnd: -40 }} />
-              <span className="a-cta-shape" style={{ width: 90, height: 90, bottom: -30, insetInlineStart: -20 }} />
-              <div className="a-cta-top">
-                <span className="a-cta-badge">
-                  {tr("dashboard_gun_18b2f4", "G\xFCn")} {pregnancyDay} / 280 · {tr("dashboard_korpeden_mesaj_89353a", "Körpədən Mesaj")}
-                </span>
-                <span className="a-cta-deco">
-                  <Baby size={18} strokeWidth={2} />
-                </span>
-              </div>
-              <p className="a-cta-text" style={{ position: 'relative', marginTop: 14, fontSize: 13.5, fontWeight: 500, color: 'var(--a-ink-soft)', lineHeight: 1.65 }}>
-                {dayContent.baby_message}
-              </p>
-            </motion.div>
-          </section>
-        }
-
-          {/* Body Changes Card */}
-          {dayContent.body_changes &&
-        <section className="a-section">
-            <motion.div
-            className="a-card a-fade-in"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.35 }}>
-            
-              <div className="a-card-head" style={{ marginBottom: 10 }}>
-                <h3 className="a-card-title a-heading" style={{ fontSize: 15 }}>
-                  🤰 {tr("dashboard_bedendeki_deyisiklikler_7a5c81", "Bədəndəki Dəyişikliklər")}
-                </h3>
-              </div>
-              <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.65, color: 'var(--a-ink-soft)' }}>
-                {dayContent.body_changes}
-              </p>
-            </motion.div>
-          </section>
-        }
-
-          {/* Baby Development Card */}
-          {dayContent.baby_development &&
-        <section className="a-section">
-            <motion.div
-            className="a-card a-fade-in"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}>
-            
-              <div className="a-card-head" style={{ marginBottom: 10 }}>
-                <h3 className="a-card-title a-heading" style={{ fontSize: 15 }}>
-                  🌱 {tr("dashboard_korpenin_inkisafi_485a30", "Körpənin İnkişafı")}
-                </h3>
-              </div>
-              <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.65, color: 'var(--a-ink-soft)' }}>
-                {dayContent.baby_development}
-              </p>
-            </motion.div>
-          </section>
-        }
-
-          {/* Əkiz/çoxdöllü hamiləliyə xas məsləhət — YALNIZ isMultiple=true olanlara,
-              yalnız məzmun mövcud olan günlərdə (bax Duzelis29/32.sql). applyLanguage()
-              (usePregnancyContent.ts) UI dilinə uyğun multiples_tip_{lang} dəyərini
-              artıq multiples_tip sahəsinə köçürüb — burda UI dilindən asılı deyil. */}
-          {isMultiple && (dayContent as any).multiples_tip &&
-        <section className="a-section">
-            <motion.div
-            className="a-card a-fade-in"
-            style={{ background: 'var(--a-blue-1)' }}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.42 }}>
-            
-              <div className="a-card-head" style={{ marginBottom: 10 }}>
-                <h3 className="a-card-title a-heading" style={{ fontSize: 15 }}>
-                  👶👶 {tr("dashboard_ekiz_hameleliyiniz_ucun", "Əkiz Hamiləliyiniz üçün")}
-                </h3>
-              </div>
-              <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.65, color: 'var(--a-ink-soft)' }}>
-                {(dayContent as any).multiples_tip}
-              </p>
-            </motion.div>
-          </section>
-        }
-
-          {/* Daily Tip Card */}
-          {dayContent.daily_tip &&
-        <section className="a-section">
-            <motion.div
-            className="a-card a-fade-in"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.45 }}>
-            
-              <div className="a-card-head" style={{ marginBottom: 10 }}>
-                <h3 className="a-card-title a-heading" style={{ fontSize: 15 }}>
-                  💡 {tr("dashboard_gunun_tovsiyesi_b3a563", "Günün Tövsiyəsi")}
-                </h3>
-              </div>
-              <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.65, color: 'var(--a-ink-soft)' }}>
-                {dayContent.daily_tip}
-              </p>
-            </motion.div>
-          </section>
-        }
-        </>
-      }
-
-      {/* Weekly Tip from Database */}
-      {currentWeekTip &&
-      <section className="a-section">
-          <motion.div
-          className="a-card a-fade-in"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}>
-          
-            <div className="a-today-info-head" style={{ marginBottom: 10 }}>
-              <span className="a-today-info-icon" style={{ width: 38, height: 38, borderRadius: 12 }}>
-                <Lightbulb size={17} strokeWidth={2} />
-              </span>
-              <div>
-                <p className="a-today-info-eyebrow">{tr("dashboard_hefte_3aa886", "H\u0259ft\u0259")} {selectedWeek} {tr("dashboard_tovsiyesi_6412b4", "T\xF6vsiy\u0259si")}</p>
-                <p className="a-today-info-meta">{currentWeekTip.title}</p>
-              </div>
+      <Section title={[rd('tri_1'), rd('tri_2'), rd('tri_3')][selectedTrimester - 1] || rd('tri_3')}>
+          <div className="a3-card a3-pad" style={{ paddingBlock: 4 }}>
+            <div className="a3-list">
+              {dynamicTrimesterTips.map((tip, index) =>
+            <div key={tip.id} className="a3-li" style={{ cursor: 'default', alignItems: 'flex-start' }}>
+                  <span className="a3-chip ac a3-num" style={{ minWidth: 26, justifyContent: 'center' }}>{index + 1}</span>
+                  <span className="grow" style={{ fontSize: 14.5, lineHeight: 1.5 }}>{tip.tip_text}</span>
+                </div>
+            )}
             </div>
-            <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.65, color: 'var(--a-ink-soft)' }}>{currentWeekTip.content}</p>
-          </motion.div>
-        </section>
+          </div>
+        </Section>
       }
 
-      {/* Water + quick logs (anacan-demo QuickLog) */}
-      <section className="a-section">
-        <motion.div
-          className="a-card a-fade-in"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.55 }}>
-          
-          <div className="a-list-row" style={{ padding: '2px 0 16px', borderTop: 'none' }}>
-            <span className="a-list-icon" style={{ background: 'var(--a-grad-blue)', color: 'var(--a-blue-ink)' }}>
-              <Droplets size={17} strokeWidth={2} />
-            </span>
-            <div>
-              <p className="a-list-title">{tr("common_su_water", "Su")}</p>
-              <p className="a-list-sub">
-                {waterCount} / 10 {tr('waterwidget_glass_unit', 'stəkan')} · {tr('dashboard_today_label', 'Bu gün')}
-              </p>
-            </div>
-            <button
-              type="button"
-              className="a-list-trail"
-              aria-label={tr("dashboard_su_elave_edildi_7b894d", "Su əlavə edildi! 💧")}
-              onClick={addWater}
-              style={{
-                display: 'grid',
-                placeItems: 'center',
-                width: 34,
-                height: 34,
-                borderRadius: '50%',
-                background: 'var(--a-ink)',
-                color: 'var(--a-bg)',
-                border: 'none',
-                cursor: 'pointer'
-              }}>
-              
-              <Plus size={16} strokeWidth={2.6} />
-            </button>
-          </div>
+      <Upcoming
+        events={pregnancyMilestones(new Date(pregData.lastPeriodDate), onNavigateToTool)}
+        onAddAppointment={onNavigate ? () => onNavigate('calendar') : undefined}
+        onOpenCalendar={onNavigate ? () => onNavigate('calendar') : undefined} />
 
-          <div className="a-trio">
-            <motion.button
-              className="a-trio-item"
-              style={{ boxShadow: 'none', background: 'var(--a-surface-soft)' }}
-              whileTap={{ scale: 0.92 }}
-              onClick={() => {
-                if (onNavigateToTool) onNavigateToTool('vitaminTracker');
-              }}>
-              
-              <span className="a-trio-icon" style={{ background: 'var(--a-grad-pink)', color: 'var(--a-berry-ink)' }}>
-                <Pill size={17} strokeWidth={2} />
-              </span>
-              <p className="a-trio-label">{tr("dashboard_vitamin_8331ee", "Vitamin")}</p>
-            </motion.button>
-            <motion.button
-              className="a-trio-item"
-              style={{ boxShadow: 'none', background: 'var(--a-surface-soft)' }}
-              whileTap={{ scale: 0.92 }}
-              onClick={() => {
-                if (onNavigateToTool) onNavigateToTool('safetyLookup');
-              }}>
-              
-              <span className="a-trio-icon" style={{ background: 'var(--a-grad-green)', color: 'var(--a-green-ink)' }}>
-                <Activity size={17} strokeWidth={2} />
-              </span>
-              <p className="a-trio-label">{tr("dashboard_mesq_046a80", "Məşq")}</p>
-            </motion.button>
-            <motion.button
-              className="a-trio-item"
-              style={{ boxShadow: 'none', background: 'var(--a-surface-soft)' }}
-              whileTap={{ scale: 0.92 }}
-              onClick={() => {
-                if (onNavigateToTool) onNavigateToTool('mood-diary');
-              }}>
-              
-              <span className="a-trio-icon" style={{ background: 'var(--a-grad-yellow)', color: 'var(--a-warn-ink)', fontSize: 17 }}>
-                {currentMood ? getMoodEmoji(currentMood) : <Heart size={17} strokeWidth={2} />}
-              </span>
-              <p className="a-trio-label">{tr("dashboard_ehval_0457f9", "Əhval")}</p>
-            </motion.button>
-          </div>
-        </motion.div>
-      </section>
+      <QuickTools stage="bump" ids={['kick', 'contraction', 'hospital', 'names', 'safety', 'blood-pressure', 'danger-signs', 'vitamin-tracker', 'weight', 'fetal-growth']} onNavigateToTool={onNavigateToTool} />
 
-
-      {/* "I Gave Birth" Button - Shown from week 27+ */}
       {showBirthButton &&
-      <section className="a-section">
-          <motion.button
-          onClick={() => setShowBirthModal(true)}
-          className="a-cta a-fade-in"
-          style={{ width: '100%', textAlign: 'start', cursor: 'pointer' }}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          whileTap={{ scale: 0.98 }}>
-          
-            <span className="a-cta-shape" style={{ width: 140, height: 140, top: -50, insetInlineEnd: -40, background: 'var(--a-pink-1)' }} />
-            <span className="a-cta-shape" style={{ width: 90, height: 90, bottom: -30, insetInlineStart: -20, background: 'var(--a-pink-1)' }} />
-            <div className="a-cta-top">
-              <span className="a-cta-badge" style={{ background: 'var(--a-pink-1)', color: 'var(--a-berry-ink)' }}>
-                {tr("dashboard_hefte_3aa886", "H\u0259ft\u0259")} {selectedWeek} 🎉
-              </span>
-              <span className="a-cta-deco" style={{ background: 'var(--a-pink-1)', color: 'var(--a-berry-ink)' }}>
-                <PartyPopper size={18} strokeWidth={2} />
-              </span>
-            </div>
-            <h2 className="a-cta-title a-heading">{tr("dashboard_dogum_etdim_e3eca9", "Doğum etdim! 🎉")}</h2>
-            <p className="a-cta-text">{tr("dashboard_analiq_seyahetinize_baslayin_b03582", "Analıq səyahətinizə başlayın")}</p>
-            <span className="a-cta-btn" style={{ marginTop: 16, background: 'var(--a-pink-2)' }}>
-              {tr("dashboard_dogum_etdim_e3eca9", "Doğum etdim! 🎉").replace(' 🎉', '')} <ChevronRight className="rtl:rotate-180" size={14} />
+      <section className="a3-sec">
+          <button type="button" className="a3-card a3-pad" style={{ flexDirection: 'row', alignItems: 'center', gap: 14, border: 0, textAlign: 'start', cursor: 'pointer', width: '100%' }} onClick={() => setShowBirthModal(true)}>
+            <Mascot stage="mommy" pose="welcome" width={64} />
+            <span style={{ flex: 1, minWidth: 0 }}>
+              <span style={{ display: 'block', fontSize: 17, fontWeight: 700 }}>{rd('gave_birth')}</span>
+              <span className="a3-meta">{rd('gave_birth_sub')}</span>
             </span>
-          </motion.button>
+            <ChevronRight size={18} className="rtl:rotate-180" />
+          </button>
         </section>
       }
 
-      {/* Birth Onboarding Modal */}
       <BirthOnboardingModal
         isOpen={showBirthModal}
         onClose={() => setShowBirthModal(false)}
@@ -800,36 +353,11 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
           setShowBirthModal(false);
           window.location.reload();
         }} />
-      
+
+      <WeekSheet week={weekSheet} onClose={() => setWeekSheet(null)} onChangeWeek={(w) => setWeekSheet(Math.max(4, Math.min(40, w)))} />
     </div>);
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 const getBabyFunFacts = (): string[] => [
@@ -863,7 +391,7 @@ const ElapsedTime = ({ id }: { id: string }) => {
   return <>{formatTimerDuration(getElapsedSeconds(id))}</>;
 };
 
-const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (tool: string) => void;onNavigate?: (screen: string) => void;}) => {
+const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateToTool?: (tool: string) => void;onNavigate?: (screen: string) => void;onOpenAI?: () => void;}) => {
   const { toast } = useToast();
   const language = useUserStore((s) => s.language);
   const { profile: mommyProfile } = useAuth();
@@ -872,6 +400,8 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
   const { activeTimers, startTimer, stopTimer, getActiveTimer } = useTimerStore();
   const { todayLogs, addLog, getTodayStats, refetch } = useBabyLogs();
   const { isToolDisabled } = useDisabledTools();
+  const mommyName = useUserStore((s) => s.name);
+  const { todayLog: mommyDayLog, updateWaterIntake: addMommyWater } = useDailyLogs();
 
   const { children, selectedChild, hasChildren, hasMultipleChildren, getChildAge, refetch: refetchChildren } = useChildren();
 
@@ -929,6 +459,8 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
     babyData ? aiInsightStats : null,
     babyData ? { id: babyData.id, ageMonths: babyData.ageInMonths, ageDays: babyData.ageInDays, gender: babyData.gender } : null
   );
+
+  const vaccineEvents = useVaccineEvents(selectedChild ?? null, isToolDisabled('vaccine-calendar') ? undefined : () => onNavigateToTool?.('vaccine-calendar'));
 
   // Əkiz/üçüzlərdə hər körpənin MÜSTƏQİL taymeri olsun deyə — seçilmiş uşağın id-si
   // taymer sorğularına ötürülür (əvvəllər qlobal idi, uşaq dəyişəndə data qarışırdı)
@@ -1160,30 +692,46 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
   const exactMonths = babyData.ageInMonths;
   const remainingDays = babyData.ageRemainingDays;
 
-  // Editorial hero headline template (anacan-demo design)
-  const heroHeadlineTpl = tr('mommy_hero_headline', '{days} gündür {name} həyatınızdadır')
-    .replace('{days}', String(babyData.dayNumber));
-  const [heroBefore, heroAfter = ''] = heroHeadlineTpl.split('{name}');
+  const [greetKey, greetFallback] = greetingKey();
+  const mommyWater = mommyDayLog?.water_intake || 0;
+  const lastFeedIso = todayStats.feedingLogs.reduce<string | null>((last, l) => (!last || l.start_time > last ? l.start_time : last), null);
+  // Trackers live in premium sections below; the tiles jump there instead of bypassing the gate.
+  const scrollToModule = (module: 'feeding' | 'sleep' | 'diaper') => {
+    void hapticFeedback.light();
+    document.querySelector<HTMLElement>(`[data-blog-module-section="${module}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
 
   return (
     <div>
-      {/* Editorial hero */}
-      <section className="a-hero-min a-fade-in">
-        <p className="a-hero-eyebrow">
-          {tr('mommy_hero_day_label', 'Gün')} <strong>{babyData.dayNumber}</strong> · {babyData.name}
-        </p>
-        <h1 className="a-hero-headline a-heading">
-          {heroBefore}<em>{babyData.name}</em>{heroAfter}
-        </h1>
-        {childAge?.correctionApplied &&
-        <p className="a-hero-eyebrow" style={{ marginTop: 6, opacity: 0.85 }}>
-            {tr('preemie_corrected_label', 'Korreksiya olunmuş yaş')}: <strong>{childAge.correctedDisplayText}</strong>
-            {childAge.gestationalWeeksAtBirth !== null &&
-          <> · {childAge.gestationalWeeksAtBirth}{childAge.gestationalExtraDays ? `+${childAge.gestationalExtraDays}` : ''} {tr('preemie_weeks_born', 'həftəlik doğulub')}</>
-          }
-          </p>
-        }
-      </section>
+      <MommyHero
+        greeting={`${tr(greetKey, greetFallback)}, ${mommyName || tr("dashboard_xanim_39ff6a", "Xanım")}`}
+        babyName={babyData.name}
+        ageInDays={babyData.ageInDays}
+        months={exactMonths}
+        remainingDays={remainingDays}
+        dayNumber={babyData.dayNumber}
+        correctedText={childAge?.correctionApplied ? `${tr('preemie_corrected_label', 'Korreksiya olunmuş yaş')}: ${childAge.correctedDisplayText}` : null}
+        lastFeedIso={lastFeedIso}
+        sleepMinutes={aiInsightStats.sleepMinutes}
+        art={babyIllustration}
+        onOpenDay={() => scrollToModule('feeding')} />
+
+      <div className="a3-today" aria-label={rd('today')}>
+        <TrackerTile icon={Baby} tone="c-peach" value={todayStats.feedingCount} label={rd('tk_feed')} live={!!(leftFeedTimer || rightFeedTimer)} onClick={() => scrollToModule('feeding')} />
+        <TrackerTile icon={Moon} tone="c-lav" value={sleepTimer ? <ElapsedTime id={sleepTimer.id} /> : hoursMinutes(aiInsightStats.sleepMinutes)} label={rd('tk_sleep')} live={!!sleepTimer} onClick={() => scrollToModule('sleep')} />
+        <TrackerTile icon={Droplet} tone="c-yellow" value={todayStats.diaperCount} label={rd('tk_diaper')} onClick={() => scrollToModule('diaper')} />
+        <TrackerTile icon={Droplets} tone="c-blue" value={`${mommyWater}/${waterTarget('mommy')}`} label={rd('tk_water_mom')} plus count={mommyWater} ariaLabel={rd('add_water')} onClick={() => { void addMommyWater(1); }} />
+      </div>
+
+      <AskBar placeholder={rd('ask_baby', { name: babyData.name })} onAsk={onOpenAI} />
+
+      <DayPlan stage="mommy" babyMonths={exactMonths} onNavigateToTool={onNavigateToTool} />
+
+      <Upcoming
+        events={vaccineEvents}
+        onAddAppointment={onNavigate ? () => onNavigate('calendar') : undefined}
+        onOpenCalendar={onNavigate ? () => onNavigate('calendar') : undefined} />
 
       {/* Premature backfill — yalnız due_date məlum olmayanda görünür */}
       <MommyPeriodBanner onOpen={() => onNavigate?.('mommy-period')} />
@@ -1961,9 +1509,35 @@ interface DashboardProps {
   onOpenChat?: () => void;
   onNavigateToTool?: (tool: string) => void;
   onNavigate?: (screen: string) => void;
+  /** Switches to the Anacan.AI tab. */
+  onOpenAI?: () => void;
+  /** Switches to the profile tab. */
+  onOpenProfile?: () => void;
+  /** Opens the global search sheet. */
+  onSearch?: () => void;
+  /** Extra top-bar actions (e.g. the Aptek cart). */
+  topbarExtra?: React.ReactNode;
 }
 
-const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate }: DashboardProps) => {
+// Ask bar, day plan and upcoming cycle events, slotted under the flow hero.
+const FlowHomeExtras = ({ ctx, onNavigateToTool, onNavigate, onOpenAI }: {ctx: FlowHeroContext;onNavigateToTool?: (tool: string) => void;onNavigate?: (screen: string) => void;onOpenAI?: () => void;}) => {
+  const events = useMemo(() => [
+  { date: ctx.nextPeriodDate, title: rd('ms_next_period') },
+  { date: ctx.fertileStart, title: rd('ms_fertile_high') },
+  { date: ctx.ovulationDate, title: rd('ms_ovulation') }],
+  [ctx.nextPeriodDate, ctx.fertileStart, ctx.ovulationDate]);
+  return (
+    <>
+      <AskBar placeholder={rd('ask_cycle')} onAsk={onOpenAI} />
+      <DayPlan stage="flow" onNavigateToTool={onNavigateToTool} />
+      <Upcoming
+        events={events}
+        onAddAppointment={onNavigate ? () => onNavigate('calendar') : undefined}
+        onOpenCalendar={onNavigate ? () => onNavigate('calendar') : undefined} />
+    </>);
+};
+
+const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate, onOpenAI, onOpenProfile, onSearch, topbarExtra }: DashboardProps) => {
   const { lifeStage, name } = useUserStore(
     useShallow((s) => ({ lifeStage: s.lifeStage, name: s.name }))
   );
@@ -1988,73 +1562,25 @@ const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate }: DashboardProps)
   if (lifeStage === 'mommy' || lifeStage === 'bump' || lifeStage === 'flow') {
     return (
       <div className="a-scope a-dash pb-6 overflow-x-hidden">
-        {/* Watercolor sky behind topbar + hero */}
-        <div className="a-sky" aria-hidden>
-          <span className="a-cloud c1" />
-          <span className="a-cloud c2" />
-          <span className="a-cloud c3" />
-          <span className="a-cloud c4" />
-          <span className="a-cloud c5" />
-          <span className="a-cloud c6 deep" />
-          <span className="a-cloud c7 deep" />
-        </div>
         <div className="a-shell">
-          {/* Top bar */}
-          <motion.header
-            className="a-topbar"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}>
-            
-            <div>
-              <p className="a-eyebrow">{getGreeting()}</p>
-              <p className="a-wordmark">{name || tr("dashboard_xanim_39ff6a", "Xan\u0131m")} 👋</p>
-            </div>
-            <div className="a-topbar-actions">
-              {lifeStage === 'mommy' ?
-              <ChildSelector compact /> :
-
-              <button
-                type="button"
-                className="a-icon-btn"
-                onClick={onOpenChat}
-                aria-label={tr("bottomnav_mesajlar", "Mesajlar")}
-                style={{ cursor: 'pointer' }}>
-                
-                  <MessageCircle size={16} strokeWidth={2} />
-                  {totalUnread > 0 &&
-                <span
-                  style={{
-                    position: 'absolute',
-                    top: -4,
-                    insetInlineEnd: -4,
-                    minWidth: 15,
-                    height: 15,
-                    padding: '0 4px',
-                    borderRadius: 999,
-                    background: '#e05555',
-                    color: '#fff',
-                    fontSize: 8.5,
-                    fontWeight: 800,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                  
-                      {totalUnread > 9 ? '9+' : totalUnread}
-                    </span>
-                }
-                </button>
-              }
-            </div>
-          </motion.header>
+          <HomeTopbar
+            name={name || tr("dashboard_xanim_39ff6a", "Xanım")}
+            avatarUrl={profile?.avatar_url}
+            onSearch={onSearch}
+            extra={<>{lifeStage === 'mommy' && <ChildSelector compact />}{topbarExtra}</>}
+            onChat={lifeStage === 'mommy' ? undefined : onOpenChat}
+            chatUnread={totalUnread}
+            onNotifications={onNavigate ? () => onNavigate('notifications') : undefined}
+            notificationCount={notificationCount}
+            onProfile={onOpenProfile} />
 
           {/* Top Banner Slot */}
           <BannerSlot placement="home_top" onNavigate={() => {}} onToolOpen={onNavigateToTool} className="mb-2" />
           <AdFreePremiumOffer position="top" />
 
-          {lifeStage === 'mommy' && <MommyDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}
-          {lifeStage === 'bump' && <BumpDashboard onNavigateToTool={onNavigateToTool} />}
-          {lifeStage === 'flow' && <FlowDashboard />}
+          {lifeStage === 'mommy' && <MommyDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} onOpenAI={onOpenAI} />}
+          {lifeStage === 'bump' && <BumpDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} onOpenAI={onOpenAI} />}
+          {lifeStage === 'flow' && <FlowDashboard afterHero={(c) => <FlowHomeExtras ctx={c} onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} onOpenAI={onOpenAI} />} />}
           <AdInlineAnchor id="home_banner" />
 
           {/* Daily summary auto-syncs to partner in background */}

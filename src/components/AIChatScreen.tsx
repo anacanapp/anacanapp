@@ -1,3 +1,4 @@
+import { takeAiDraft } from '@/lib/ai-draft';
 import { useState, useRef, useEffect, forwardRef, memo, useCallback } from 'react';
 import { getLocaleTag } from '@/lib/i18n';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -153,7 +154,7 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
   useScreenAnalytics('AIChat', 'Chat');
 
   const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState(takeAiDraft);
   const [isLoading, setIsLoading] = useState(false);
   const [showPremiumModal, setShowPremiumModal] = useState(false);
   const { checkAndConsume } = useSubscription();

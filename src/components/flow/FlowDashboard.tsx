@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
+import { Ring } from '@/components/anacan/Ring';
+import { Mascot } from '@/components/anacan/Mascot';
+import { rd } from '@/lib/redesign-i18n';
 import { tr } from '@/lib/tr';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Droplets, Heart, Sparkles, AlertCircle, Plus, Calendar as CalendarIcon, Beaker, Pill, Droplet, Moon, Activity, Baby, Sparkle, Wind, CheckCircle2, XCircle, ArrowRight, TrendingUp, Flame, Apple, Dumbbell, Brain, CircleDot } from 'lucide-react';
@@ -43,7 +46,9 @@ import { useFlowDailyLogs } from '@/hooks/useFlowDailyLogs';
 import PremiumGate from '@/components/premium/PremiumGate';
 import { usePeriodDayLogs, useRecordPeriodDays } from '@/hooks/usePeriodDayLogs';
 import { hasPeriodFlow } from '@/lib/period-flow';
-const FlowDashboard = () => {
+export interface FlowHeroContext { nextPeriodDate: Date; ovulationDate: Date; fertileStart: Date }
+
+const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => ReactNode } = {}) => {
   const { getCycleData, cycleLength, periodLength, language } = useUserStore(
     useShallow((s) => ({ getCycleData: s.getCycleData, cycleLength: s.cycleLength, periodLength: s.periodLength, language: s.language }))
   );
@@ -183,6 +188,16 @@ const FlowDashboard = () => {
   };
 
 
+  const isInRange = (d: Date, from: Date, to: Date) => startOfDay(d) >= startOfDay(from) && startOfDay(d) <= startOfDay(to);
+  const isFertileToday = isInRange(today, fertileStart, fertileEnd);
+  // Seven days centred on today, tinted by predicted phase.
+  const weekStrip = Array.from({ length: 7 }, (_, i) => {
+    const date = new Date(today.getFullYear(), today.getMonth(), today.getDate() + i - 3);
+    const phase = getPhaseInfoForDate(date, lastPeriodDate, cycleLength, periodLength).phase;
+    const kind = phase === 'menstrual' ? 'period' : isInRange(date, fertileStart, fertileEnd) ? 'fertile' : 'none';
+    return { key: i, date, today: i === 3, kind };
+  });
+
   const categories: (TipCategory | 'all')[] = ['all', 'nutrition', 'exercise', 'selfcare', 'mood'];
 
   const categoryIcons: Record<string, any> = {
@@ -207,70 +222,45 @@ const FlowDashboard = () => {
       {/* Period delay banner (auto-shows if late) */}
       <PeriodDelayBanner />
 
-      {/* Daily Story Cards — phase-personalized */}
-      <DailyStoryCards />
-
-      {/* Currently — phase status card (anacan-demo PeriodStatus) */}
+      {/* Hero — cycle ring, companion and the week around today */}
       <section className="a-section">
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="a-card a-fade-in">
-          
-          <div className="a-card-head">
-            <h3 className="a-card-title a-heading">{tr("flowdashboard_hal_hazirda_b78349", "Hal-hazırda")}</h3>
-            <span
-              className="a-tag"
-              style={{
-                cursor: 'default',
-                border: 'none',
-                background: `${PHASE_INFO[currentPhase].color}22`,
-                color: PHASE_INFO[currentPhase].color,
-                fontWeight: 700
-              }}>
-              
-              {PHASE_INFO[currentPhase].emoji} {PHASE_INFO[currentPhase].labelAz}
-            </span>
+        <div className="a3-hero" aria-label={rd('f_cycle')}>
+          <div className="a3-hero-top">
+            <span className="a3-chip ac">{PHASE_INFO[currentPhase].emoji} {PHASE_INFO[currentPhase].labelAz}</span>
+            <span className="a3-chip a3-num">{rd('f_days_of', { n: cycleLength })}</span>
           </div>
-
-          <div className="a-ring-hero">
-            <div
-              className="a-ring"
-              style={{
-                '--pct': Math.min(100, Math.round(currentDay / (cycleLength || 28) * 100)),
-                background: `conic-gradient(${PHASE_INFO[currentPhase].color} calc(var(--pct) * 1%), var(--a-line) 0)`
-              } as React.CSSProperties}>
-              
-              <div className="a-ring-inner">
-                <b>{currentDay}</b>
-                <span>{tr("flowdashboard_tsikl_gunu_b9e250", "Tsikl günü")}</span>
-              </div>
-            </div>
-            <div className="a-trio" style={{ gridTemplateColumns: 'repeat(3, 1fr)', flex: 1, gap: 6 }}>
-              <div className="a-trio-item" style={{ padding: '10px 4px', border: 'none', boxShadow: 'none', background: 'var(--a-surface-soft)' }}>
-                <p className="a-trio-value">{daysUntilPeriod > 0 ? daysUntilPeriod : 0}</p>
-                <p className="a-trio-label">{tr("flowdashboard_gun_qaldi_993281", "gün qaldı")}</p>
-              </div>
-              <div className="a-trio-item" style={{ padding: '10px 4px', border: 'none', boxShadow: 'none', background: 'var(--a-surface-soft)' }}>
-                <p className="a-trio-value">{cycleLength}</p>
-                <p className="a-trio-label">{tr("flowdashboard_gun_tsikl_bb0ab6", "gün tsikl")}</p>
-              </div>
-              <div className="a-trio-item" style={{ padding: '10px 4px', border: 'none', boxShadow: 'none', background: 'var(--a-surface-soft)' }}>
-                <p className="a-trio-value">{periodLength}</p>
-                <p className="a-trio-label">{tr("flowdashboard_gun_period_957849", "gün period")}</p>
-              </div>
+          <div className="a3-hero-main">
+            <Ring value={Math.min(100, currentDay / (cycleLength || 28) * 100)}>
+              <b className="a3-num">{currentDay}</b>
+              <span>{tr("flowdashboard_tsikl_gunu_b9e250", "Tsikl günü")}</span>
+            </Ring>
+            <span className="a3-art" aria-hidden="true"><Mascot stage="flow" pose="mode" width={120} bob /></span>
+            <div className="a3-hero-txt">
+              <p className="a3-hero-line">{currentPhase === 'menstrual' ? rd('f_period_tip') : rd('f_to_period', { n: Math.max(0, daysUntilPeriod) })}</p>
+              <p className="a3-meta">{isFertileToday ? rd('f_fertile') : rd('f_low')}</p>
             </div>
           </div>
-
-          {/* Phase Progress */}
-          <div className="a-inline-bar" style={{ marginTop: 16 }}>
+          <div className="a3-days" role="list">
+            {weekStrip.map((d) =>
+            <span key={d.key} role="listitem" className={`a3-day${d.today ? ' on' : ''}`} data-kind={d.kind}>
+                <small>{format(d.date, 'EEEEEE', { locale: getCurrentDateLocale() })}</small>
+                <b className="a3-num">{format(d.date, 'd')}</b>
+                <i aria-hidden="true" />
+              </span>
+            )}
+          </div>
+          <div className="a3-stats a3-num">
+            <div><b>{daysUntilPeriod > 0 ? daysUntilPeriod : 0}</b><span>{tr("flowdashboard_gun_qaldi_993281", "gün qaldı")}</span></div>
+            <div><b>{cycleLength}</b><span>{tr("flowdashboard_gun_tsikl_bb0ab6", "gün tsikl")}</span></div>
+            <div><b>{periodLength}</b><span>{tr("flowdashboard_gun_period_957849", "gün period")}</span></div>
+          </div>
+          <div className="a-inline-bar">
             <motion.div
               className="a-inline-bar-fill"
               style={{ background: PHASE_INFO[currentPhase].color }}
               initial={{ width: 0 }}
               animate={{ width: `${getPhaseProgress()}%` }}
               transition={{ duration: 0.8 }} />
-            
           </div>
 
           {/* Adaptiv proqnoz etibarı */}
@@ -313,8 +303,13 @@ const FlowDashboard = () => {
               </motion.button>
             }
           </div>
-        </motion.div>
+        </div>
       </section>
+
+      {afterHero?.({ nextPeriodDate, ovulationDate: refinedOvulation.ovulationDate ?? fertileWindowData.ovulationDate, fertileStart })}
+
+      {/* Daily Story Cards — phase-personalized */}
+      <DailyStoryCards />
 
       {/* Interactive Period Calendar (Apple Health style) */}
       <div className="a-section">

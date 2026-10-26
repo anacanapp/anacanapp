@@ -78,6 +78,7 @@ const NameVotingScreen = lazy(() => import('@/components/partner/NameVotingScree
 const PartnerHospitalBagScreen = lazy(() => import('@/components/partner/PartnerHospitalBagScreen'));
 const DailySummaryScreen = lazy(() => import('@/components/partner/DailySummaryScreen'));
 // ── Partner Module 2.0 ──
+import { GlobalSearch } from '@/components/home/GlobalSearch';
 const PartnerHomeScreen = lazy(() => import('@/components/partner/v2/PartnerHomeScreen'));
 const PartnerTogetherScreen = lazy(() => import('@/components/partner/v2/PartnerTogetherScreen'));
 const PartnerShoppingScreen = lazy(() => import('@/components/partner/v2/PartnerShoppingScreen'));
@@ -419,6 +420,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     }
   };
 
+  const [showSearch, setShowSearch] = useState(false);
+
   // Handle tab change - reset tool state when clicking Tools tab
   const handleTabChange = (tab: string) => {
     // If clicking Tools tab while already on tools, reset to tools list
@@ -556,7 +559,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         return (
           <motion.div key="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <AdSurface id="home_banner" />
-            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={setActiveScreen} />
+            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={setActiveScreen} onOpenAI={() => handleTabChange('ai')} onOpenProfile={() => handleTabChange('profile')} onSearch={() => setShowSearch(true)} />
           </motion.div>
         );
       case 'tools':
@@ -806,9 +809,12 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     <div
       className={`fixed inset-0 flex flex-col overflow-hidden ${isAnacanRedesignHome ? '' : 'bg-background'}`}
       data-app-viewport
+      vaul-drawer-wrapper=""
       data-main-dashboard={activeTab === 'home' && !blogOverlayOpen ? 'true' : undefined}
       style={isAnacanRedesignHome ? { background: 'var(--a-bg)' } : undefined}
     >
+      <GlobalSearch open={showSearch} onClose={() => setShowSearch(false)} onOpenTool={handleNavigateToTool} onAskAI={() => handleTabChange('ai')} />
+
       {/* App Rating Prompt */}
       <AppRatingPrompt />
       
