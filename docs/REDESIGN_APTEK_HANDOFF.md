@@ -175,6 +175,16 @@ apart from asset hashes.
 - **Global styles:** older screens' `.a-section` and `.a-card` follow the new spacing, title type
   and borderless cards (cards keep their border in dark mode).
 
+### Cleanup deploy (2026-10-26)
+- **Image:** `gateway@sha256:2536ecbe…`, built FROM live `f59f8735…`; isolated test passed.
+- **Deploy:** `deploy-current-web.py cleanup-web-plan.json` returned `passed`. The public
+  `index.html` sha is `42d3a3f3…`; the previous container is
+  `anacan-gateway-before-refresh-1793024816`.
+- **Rollback chain (newest first), all on the VM:**
+  1. `rollback-cleanup-web-plan.json` returns to the articles build (`f59f8735…`).
+  2. `rollback-articles-web-plan.json` returns to the first redesign build (`542f4b36…`).
+  3. `rollback-redesign-web-plan.json` returns to the pre-redesign live image (`1139061f…`).
+
 ## Known limitations (not regressions)
 - **Fetus and baby illustration images:** the URLs stored in the database point to the retired Azure
   gateway and return 404. The pregnancy hero falls back to the bundled SVGs and the baby hero uses
