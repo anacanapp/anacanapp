@@ -641,7 +641,7 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
             <AlertDialogAction
               onClick={(event) => { event.preventDefault(); void handleMarkPeriodStarted(); }}
               disabled={markingPeriod || periodStartDates.length === 0}
-              className="bg-red-500 hover:bg-red-600">
+              className="bg-[color:var(--a-coral-strong)] text-[color:var(--a-on-coral)]">
               
               {markingPeriod ? tr("untranslated_qeyd_edilir_df7cba", "Qeyd edilir...") : tr("flow_qeyd_et", 'Qeyd et')}
             </AlertDialogAction>
@@ -682,7 +682,7 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
             <AlertDialogAction
               onClick={(event) => { event.preventDefault(); void handleMarkPeriodEnded(); }}
               disabled={markingPeriod}
-              className="bg-green-600 hover:bg-green-700">
+              className="bg-[color:var(--a-coral-strong)]">
               
               {markingPeriod ? tr("untranslated_qeyd_edilir_df7cba", "Qeyd edilir...") : tr("flow_qeyd_et", 'Qeyd et')}
             </AlertDialogAction>

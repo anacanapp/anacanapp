@@ -82,12 +82,12 @@ const LevelUpCelebration = ({ show, level, onClose }: LevelUpCelebrationProps) =
           animate={{ scale: 1, rotate: 0 }}
           exit={{ scale: 0, rotate: 180 }}
           transition={{ type: 'spring', damping: 15, stiffness: 200 }}
-          className="bg-gradient-to-br from-partner via-violet-600 to-purple-700 rounded-3xl p-8 mx-6 text-center relative overflow-hidden shadow-2xl"
+          className="bg-[color:var(--a-coral-strong)] rounded-[28px] p-8 mx-6 text-center relative overflow-hidden shadow-2xl"
           onClick={(e) => e.stopPropagation()}>
           
             {/* Decorative elements */}
             <div className="absolute -top-10 -start-10 w-32 h-32 rounded-full bg-white/10 blur-2xl" />
-            <div className="absolute -bottom-10 -end-10 w-40 h-40 rounded-full bg-pink-500/20 blur-3xl" />
+            <div className="absolute -bottom-10 -end-10 w-40 h-40 rounded-full bg-[color:var(--a-pink-1)] blur-3xl" />
             
             {/* Floating stars */}
             <motion.div
@@ -95,21 +95,21 @@ const LevelUpCelebration = ({ show, level, onClose }: LevelUpCelebrationProps) =
             animate={{ y: [0, -10, 0], rotate: [0, 15, 0] }}
             transition={{ duration: 2, repeat: 2 }}>
             
-              <Star className="w-6 h-6 text-yellow-400 fill-yellow-400" />
+              <Star className="w-6 h-6 text-[color:var(--a-yellow-ink)] fill-[color:var(--a-yellow-2)]" />
             </motion.div>
             <motion.div
             className="absolute top-6 end-6"
             animate={{ y: [0, -8, 0], rotate: [0, -15, 0] }}
             transition={{ duration: 1.5, repeat: 2, delay: 0.3 }}>
             
-              <Sparkles className="w-5 h-5 text-pink-300" />
+              <Sparkles className="w-5 h-5 text-[color:var(--a-pink-2)]" />
             </motion.div>
             <motion.div
             className="absolute bottom-8 start-8"
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 1.8, repeat: 2, delay: 0.5 }}>
             
-              <Star className="w-4 h-4 text-amber-300 fill-amber-300" />
+              <Star className="w-4 h-4 text-[color:var(--a-yellow-2)] fill-[color:var(--a-yellow-2)]" />
             </motion.div>
 
             <div className="relative z-10">
@@ -118,7 +118,7 @@ const LevelUpCelebration = ({ show, level, onClose }: LevelUpCelebrationProps) =
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center shadow-lg">
+              className="w-24 h-24 mx-auto mb-4 rounded-full bg-[color:var(--a-coral-strong)] flex items-center justify-center shadow-lg">
               
                 <Trophy className="w-12 h-12 text-white" />
               </motion.div>
@@ -144,7 +144,7 @@ const LevelUpCelebration = ({ show, level, onClose }: LevelUpCelebrationProps) =
               transition={{ delay: 0.6, type: 'spring', damping: 10 }}
               className="inline-flex items-center gap-3 bg-white/25 rounded-2xl px-6 py-4 mb-4">
               
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-yellow-500 flex items-center justify-center shadow-md">
+                <div className="w-16 h-16 rounded-full bg-[color:var(--a-coral-strong)] flex items-center justify-center shadow-md">
                   <span className="text-white font-black text-2xl">{level}</span>
                 </div>
                 <div className="text-start">

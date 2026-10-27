@@ -320,8 +320,8 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className={`bg-gradient-to-br ${activeDbSound.color} rounded-[26px] p-6 mb-4 relative overflow-hidden`}
-            style={{ boxShadow: 'var(--a-card-shadow)' }}>
+            className="rounded-[26px] p-6 mb-4 relative overflow-hidden"
+            style={{ background: 'var(--a-coral-strong)', boxShadow: 'var(--a-coral-shadow)' }}>
             
               <style>{WAVE_STYLE}</style>
               <div className="absolute inset-0 opacity-20">
@@ -376,8 +376,9 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
                   </motion.button>
                   <motion.button
                   onClick={() => handleSoundToggle(activeSound)}
-                  className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-xl"
-                  style={{ color: '#333' }}
+                  className="w-16 h-16 rounded-full flex items-center justify-center"
+                  style={{ background: 'var(--a-surface)', color: 'var(--a-ink)' }}
+                  aria-label={tr("mentalhealthtracker_dayandir_b2ea06", "Dayandır")}
                   whileTap={{ scale: 0.9 }}>
                   
                     <Pause className="w-8 h-8" />
@@ -515,11 +516,10 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.25 + ntIdx * 0.08 + index * 0.03 }}
                       onClick={() => handleSoundToggle(sound.id)}
-                      className={`relative rounded-2xl flex flex-col items-center justify-center transition-all overflow-hidden p-3 ${
-                      isActive ? `bg-gradient-to-br ${sound.color}` : ''}`
-                      }
+                      aria-pressed={isActive}
+                      className="relative rounded-2xl flex flex-col items-center justify-center transition-all overflow-hidden p-3"
                       style={isActive ?
-                      { boxShadow: 'var(--a-card-shadow)' } :
+                      { background: 'var(--a-coral-strong)', boxShadow: 'var(--a-coral-shadow)' } :
                       { background: 'var(--a-surface)', border: '1px solid var(--a-line)', boxShadow: 'var(--a-card-shadow)' }}
                       whileHover={{ scale: 1.03, y: -2 }}
                       whileTap={{ scale: 0.97 }}>
@@ -537,12 +537,12 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
                         {sound.emoji}
                       </span>
                       <span
-                        className="text-[11px] font-bold relative z-10 px-1 text-center leading-tight"
-                        style={{ color: isActive ? '#fff' : 'var(--a-ink)' }}>
+                        className="text-[12.5px] font-semibold relative z-10 px-1 text-center leading-tight"
+                        style={{ color: isActive ? 'var(--a-on-coral)' : 'var(--a-ink)' }}>
                         {sound.name}
                       </span>
                       {sound.description && !isActive &&
-                      <span className="text-[9px] mt-0.5 text-center leading-tight line-clamp-1 px-1" style={{ color: 'var(--a-ink-soft)' }}>
+                      <span className="text-[11px] mt-0.5 text-center leading-tight line-clamp-1 px-1" style={{ color: 'var(--a-ink-soft)' }}>
                           {sound.description}
                         </span>
                       }

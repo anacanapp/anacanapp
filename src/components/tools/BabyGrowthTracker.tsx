@@ -584,7 +584,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
             <div className="grid grid-cols-3 gap-3">
               <div>
                 <label className="text-sm font-medium mb-1.5 block flex items-center gap-1">
-                  <Scale className="w-3.5 h-3.5 text-rose-500" />
+                  <Scale className="w-3.5 h-3.5 text-[color:var(--a-pink-ink)]" />
                   {tr("babygrowthtracker_ceki_kq_2f7555", "\xC7\u0259ki (kq)")}
                 </label>
                 <Input
@@ -598,7 +598,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block flex items-center gap-1">
-                  <Ruler className="w-3.5 h-3.5 text-indigo-500" />
+                  <Ruler className="w-3.5 h-3.5 text-[color:var(--a-lav-ink)]" />
                   {tr("babygrowthtracker_boy_sm_3bc841", "Boy (sm)")}
                 </label>
                 <Input
@@ -612,7 +612,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block flex items-center gap-1">
-                  <Baby className="w-3.5 h-3.5 text-violet-500" />
+                  <Baby className="w-3.5 h-3.5 text-[color:var(--a-lav-ink)]" />
                   {tr("babygrowthtracker_bas_sm_927b99", "Ba\u015F (sm)")}
                 </label>
                 <Input

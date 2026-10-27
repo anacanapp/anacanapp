@@ -523,7 +523,7 @@ export default function VaccineCalendar({ onBack }: Props) {
               <Button
                 variant="ghost"
                 size="sm"
-                className="w-full text-red-500"
+                className="w-full text-[color:var(--a-pink-ink)]"
                 onClick={async () => {
                   const log = logs.find((l) => l.vaccine_schedule_id === detailRow.id);
                   if (log && selectedChild) {
@@ -653,7 +653,7 @@ function ActionDialog({
               <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={2} />
             </div>
             <Button
-            className="w-full bg-emerald-500 hover:bg-emerald-600"
+            className="w-full rounded-full bg-[color:var(--a-coral-strong)] text-[color:var(--a-on-coral)]"
             disabled={saving || !date || date > today}
             onClick={() => void submit({
               administered_at: date, is_skipped: false, skip_reason: null,

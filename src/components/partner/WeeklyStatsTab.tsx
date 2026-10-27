@@ -42,7 +42,7 @@ const WeeklyStatsTab = () => {
 
   const getMoodColor = (mood: number | null) => {
     if (mood === null) return 'bg-muted';
-    const colors = ['bg-red-400', 'bg-orange-400', 'bg-yellow-400', 'bg-lime-400', 'bg-green-400'];
+    const colors = ['bg-[color:var(--a-pink-2)]', 'bg-[color:var(--a-peach-2)]', 'bg-[color:var(--a-yellow-2)]', 'bg-[color:var(--a-green-2)]', 'bg-[color:var(--a-green-2)]'];
     return colors[mood - 1] || 'bg-muted';
   };
 
@@ -94,7 +94,7 @@ const WeeklyStatsTab = () => {
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl p-4 text-white">
+          className="bg-[color:var(--a-coral-strong)] rounded-2xl p-4 text-white">
           
           <Droplets className="w-6 h-6 mb-2 opacity-80" />
           <p className="text-2xl font-black">{(stats.totalWater / 1000).toFixed(1)}L</p>
@@ -105,7 +105,7 @@ const WeeklyStatsTab = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.05 }}
-          className="bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl p-4 text-white">
+          className="bg-[color:var(--a-coral-strong)] rounded-2xl p-4 text-white">
           
           <Dumbbell className="w-6 h-6 mb-2 opacity-80" />
           <p className="text-2xl font-black">{stats.exerciseCount}</p>
@@ -116,7 +116,7 @@ const WeeklyStatsTab = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-4 text-white">
+          className="bg-[color:var(--a-coral-strong)] rounded-2xl p-4 text-white">
           
           <Flame className="w-6 h-6 mb-2 opacity-80" />
           <p className="text-2xl font-black">{stats.totalCalories}</p>
@@ -127,7 +127,7 @@ const WeeklyStatsTab = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.15 }}
-          className="bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl p-4 text-white">
+          className="bg-[color:var(--a-coral-strong)] rounded-2xl p-4 text-white">
           
           <div className="flex items-center gap-2 mb-2">
             <Smile className="w-6 h-6 opacity-80" />
@@ -199,7 +199,7 @@ const WeeklyStatsTab = () => {
                   style={{ height: '60px' }}>
                   
                   <motion.div
-                    className={`w-full rounded-t-lg ${isGoalMet ? 'bg-cyan-500 dark:bg-cyan-400' : 'bg-cyan-300 dark:bg-cyan-600'}`}
+                    className={`w-full rounded-t-lg ${isGoalMet ? 'bg-[color:var(--a-coral-strong)]' : 'bg-[color:var(--a-blue-2)]'}`}
                     initial={{ height: 0 }}
                     animate={{ height }}
                     transition={{ delay: 0.35 + idx * 0.05, duration: 0.5 }} />
@@ -216,9 +216,9 @@ const WeeklyStatsTab = () => {
           })}
         </div>
         <div className="flex items-center gap-2 mt-3 text-xs text-muted-foreground">
-          <div className="w-3 h-3 rounded bg-cyan-500 dark:bg-cyan-400" />
+          <div className="w-3 h-3 rounded bg-[color:var(--a-coral-strong)]" />
           <span>{tr("weeklystatstab_hedefe_catdi_2l_23ea87", "Hədəfə çatdı (2L+)")}</span>
-          <div className="w-3 h-3 rounded bg-cyan-300 dark:bg-cyan-600 ms-2" />
+          <div className="w-3 h-3 rounded bg-[color:var(--a-blue-2)] ms-2" />
           <span>{tr("weeklystatstab_hedef_alti_2de340", "Hədəf altı")}</span>
         </div>
       </motion.div>
@@ -243,7 +243,7 @@ const WeeklyStatsTab = () => {
                   style={{ height: '60px' }}>
                   
                   <motion.div
-                    className={`w-full rounded-t-lg ${day.count > 0 ? 'bg-violet-500 dark:bg-violet-400' : 'bg-muted'}`}
+                    className={`w-full rounded-t-lg ${day.count > 0 ? 'bg-[color:var(--a-lav-2)]' : 'bg-muted'}`}
                     initial={{ height: 0 }}
                     animate={{ height }}
                     transition={{ delay: 0.4 + idx * 0.05, duration: 0.5 }} />

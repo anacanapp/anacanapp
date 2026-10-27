@@ -122,7 +122,7 @@ const CartDrawer = ({ isOpen, onClose, onCheckout }: CartDrawerProps) => {
                 <span>{totalPrice.toFixed(2)} ₼</span>
               </div>
               {appliedCoupon &&
-            <div className="flex justify-between items-center text-sm text-green-600">
+            <div className="flex justify-between items-center text-sm text-[color:var(--a-green-ink)]">
                   <span>{tr("untranslated_kupon_endirimi_hqg79o", "Kupon endirimi:")}</span>
                   <span>-{appliedCoupon.discountAmount.toFixed(2)} ₼</span>
                 </div>

@@ -85,12 +85,12 @@ const LOADING_STARS = Array.from({ length: 50 }, (_, i) => ({
 }));
 
 const LOADING_STEPS = [
-{ icon: Star, text: tr("horoscope_reading_stars", "Ulduzlar oxunur..."), color: 'text-yellow-500' },
-{ icon: Moon, text: tr("horoscopecompatibility_ay_fazasi_hesablanir_63cb3c", "Ay fazası hesablanır..."), color: 'text-blue-400' },
-{ icon: Sun, text: tr("horoscopecompatibility_gunes_movqeyi_teyin_edilir_bfba89", "Günəş mövqeyi təyin edilir..."), color: 'text-orange-500' },
-{ icon: Compass, text: tr("horoscopecompatibility_yukselen_burc_axtarilir_f2408d", "Yüksələn bürc axtarılır..."), color: 'text-purple-400' },
-{ icon: Heart, text: tr("horoscopecompatibility_uygunluq_analiz_edilir_bca7bd", "Uyğunluq analiz edilir..."), color: 'text-pink-400' },
-{ icon: Sparkles, text: tr("horoscopecompatibility_kosmik_tovsiyeler_hazirlanir_25cfbf", "Kosmik tövsiyələr hazırlanır..."), color: 'text-cyan-400' }];
+{ icon: Star, text: tr("horoscope_reading_stars", "Ulduzlar oxunur..."), color: 'text-[color:var(--a-yellow-ink)]' },
+{ icon: Moon, text: tr("horoscopecompatibility_ay_fazasi_hesablanir_63cb3c", "Ay fazası hesablanır..."), color: 'text-[color:var(--a-blue-ink)]' },
+{ icon: Sun, text: tr("horoscopecompatibility_gunes_movqeyi_teyin_edilir_bfba89", "Günəş mövqeyi təyin edilir..."), color: 'text-[color:var(--a-peach-ink)]' },
+{ icon: Compass, text: tr("horoscopecompatibility_yukselen_burc_axtarilir_f2408d", "Yüksələn bürc axtarılır..."), color: 'text-[color:var(--a-lav-ink)]' },
+{ icon: Heart, text: tr("horoscopecompatibility_uygunluq_analiz_edilir_bca7bd", "Uyğunluq analiz edilir..."), color: 'text-[color:var(--a-pink-ink)]' },
+{ icon: Sparkles, text: tr("horoscopecompatibility_kosmik_tovsiyeler_hazirlanir_25cfbf", "Kosmik tövsiyələr hazırlanır..."), color: 'text-[color:var(--a-blue-ink)]' }];
 
 
 const TIME_OPTIONS = Array.from({ length: 24 }, (_, h) =>

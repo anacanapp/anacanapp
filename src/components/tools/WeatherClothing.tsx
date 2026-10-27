@@ -122,11 +122,11 @@ const WeatherClothing = ({ onBack }: WeatherClothingProps) => {
 
       if (error) throw error;
 
-      if (data.success) {
+      if (data?.success) {
         setCityName(data.cityName);
         setAdvice(data.advice);
       } else {
-        throw new Error(data.error || tr("weatherclothing_hava_melumati_alinmadi_f903fd", "Hava m\u0259lumat\u0131 al\u0131nmad\u0131"));
+        throw new Error(data?.error || tr("weatherclothing_hava_melumati_alinmadi_f903fd", "Hava m\u0259lumat\u0131 al\u0131nmad\u0131"));
       }
     } catch (error) {
       console.error('Weather fetch error:', error);

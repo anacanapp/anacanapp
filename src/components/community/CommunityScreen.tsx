@@ -215,8 +215,8 @@ const CommunityScreen = forwardRef<HTMLDivElement, CommunityScreenProps>(({ onBa
     }) : null;
     return (
       <div ref={ref} className="a-scope min-h-screen flex flex-col items-center justify-center px-6" style={{ background: 'var(--a-bg)' }}>
-        <div className="w-16 h-16 rounded-3xl bg-red-50 flex items-center justify-center mb-4">
-          <Ban className="w-8 h-8 text-red-500" />
+        <div className="w-16 h-16 rounded-3xl bg-[color:var(--a-pink-1)] flex items-center justify-center mb-4">
+          <Ban className="w-8 h-8 text-[color:var(--a-pink-ink)]" />
         </div>
         <h2 className="text-lg font-black text-foreground text-center mb-2" style={{ color: 'var(--a-ink)' }}>
           {tr('community_blocked_title', 'Community girişiniz bloklanıb')}

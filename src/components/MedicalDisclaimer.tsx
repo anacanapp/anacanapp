@@ -34,23 +34,11 @@ const MedicalDisclaimer = ({ variant = 'banner', className = '' }: MedicalDiscla
     );
   }
 
-  if (variant === 'compact') {
-    return (
-      <div
-        className={`flex items-start gap-2 px-3 py-2 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 ${className}`}
-      >
-        <AlertCircle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-        <p className="text-[11px] text-amber-800 dark:text-amber-200 leading-relaxed">{text}</p>
-      </div>
-    );
-  }
-
+  // banner / compact: the same design-system card, without the home-page top margin
   return (
-    <div
-      className={`flex items-start gap-2.5 px-3 py-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 ${className}`}
-    >
-      <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-      <p className="text-xs text-amber-800 dark:text-amber-200 leading-relaxed">{text}</p>
+    <div className={`a-disclaimer flat${variant === 'compact' ? ' compact' : ''} ${className}`}>
+      <AlertCircle size={variant === 'compact' ? 14 : 16} />
+      <p>{text}</p>
     </div>
   );
 };

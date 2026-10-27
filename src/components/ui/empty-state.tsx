@@ -38,13 +38,13 @@ const EmptyState = ({
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
       >
         {/* Background glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-pink-500/20 rounded-full animate-pulse blur-xl" />
+        <div className="absolute inset-0 bg-[color:var(--a-coral-soft)] rounded-full blur-xl" />
         
         {/* Outer ring */}
         <motion.div
           className={`absolute inset-0 rounded-full ${
             variant === 'gradient'
-              ? 'bg-gradient-to-br from-primary/10 to-pink-500/10'
+              ? 'bg-[color:var(--a-coral-soft)]'
               : 'bg-muted/50'
           }`}
           animate={{ scale: [1, 1.05, 1] }}
@@ -63,7 +63,7 @@ const EmptyState = ({
           transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
         />
         <motion.div
-          className="absolute -bottom-1 -start-1 w-2 h-2 rounded-full bg-pink-500/60"
+          className="absolute -bottom-1 -start-1 w-2 h-2 rounded-full bg-[color:var(--a-pink-2)]"
           animate={{ scale: [1, 0.8, 1], opacity: [0.6, 0.3, 0.6] }}
           transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
         />

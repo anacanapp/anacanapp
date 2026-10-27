@@ -38,7 +38,6 @@ const MANAGED_SETTING_KEYS = [
   'flow_mode_enabled',
   'bump_mode_enabled',
   'mommy_mode_enabled',
-  'mommy_hero_variant',
   'dark_mode_enabled',
   'ai_model',
   'app_version',
@@ -238,50 +237,6 @@ const AdminSettings = () => {
                   onCheckedChange={(checked) => updateSetting('mommy_mode_enabled', checked)} />
                 
                 </div>
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* Mommy Hero Variant */}
-          <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.04 }}>
-          
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-pink-500/10">
-                  <Baby className="w-5 h-5 text-pink-500" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{tr("adminsettings_mommy_hero_dizayni_603f42", "Mommy Hero Dizaynı")}</h3>
-                  <p className="text-sm text-muted-foreground">{tr("adminsettings_mommy_panelinin_yuxari_sekilli_kartinin__a903d6", "Mommy panelinin yuxarı şəkilli kartının görünüşü")}</p>
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium mb-2 block text-foreground">Aktiv variant</label>
-                <Select
-                value={getSettingValue('mommy_hero_variant', 'classic')}
-                onValueChange={(value) => updateSetting('mommy_hero_variant', value)}>
-                
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="classic">{tr("adminsettings_classic_coral_glassmorphism_movcud_8ff4ae", "Classic — Coral glassmorphism (mövcud)")}</SelectItem>
-                    <SelectItem value="aurora">{tr("adminsettings_aurora_premium_tund_qizili_halqa_de8559", "Aurora — Premium tünd, qızılı halqa")}</SelectItem>
-                    <SelectItem value="storybook">{tr("adminsettings_storybook_pastel_usaq_kitabi_stili_d21718", "Storybook — Pastel uşaq kitabı stili")}</SelectItem>
-                    <SelectItem value="polaroid">{tr("adminsettings_polaroid_peanut_terzi_eyilmis_foto_washi_621108", "Polaroid — Peanut tərzi əyilmiş foto + washi")}</SelectItem>
-                    <SelectItem value="minimal">{tr("adminsettings_minimal_card_flo_clue_ag_kart_statistika_1b051e", "Minimal Card — Flo/Clue ağ kart + statistika")}</SelectItem>
-                    <SelectItem value="mesh">{tr("adminsettings_mesh_apple_vari_mesh_gradient_uzen_foto_081739", "Mesh — Apple-vari mesh gradient + üzən foto")}</SelectItem>
-                    <SelectItem value="story">{tr("adminsettings_story_instagram_story_terzi_tam_ekran_5c22a0", "Story — Instagram story tərzi tam ekran")}</SelectItem>
-                    <SelectItem value="bento">Bento — Apple bento qrid (foto + statistika)</SelectItem>
-                  </SelectContent>
-                </Select>
-                <p className="text-xs text-muted-foreground">
-                  {tr("adminsettings_deyisiklik_butun_istifadeciler_198453", "D\u0259yi\u015Fiklik b\xFCt\xFCn istifad\u0259\xE7il\u0259r \xFC\xE7\xFCn d\u0259rhal t\u0259tbiq olunur.")}
-                </p>
               </div>
             </Card>
           </motion.div>

@@ -26,17 +26,17 @@ const CouponInput = ({
       <motion.div
         initial={{ opacity: 0, y: -5 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex items-center gap-2 p-2.5 rounded-xl bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800">
+        className="flex items-center gap-2 p-2.5 rounded-xl bg-[color:var(--a-green-1)] border border-[color:var(--a-line)]">
         
-        <Check className="w-4 h-4 text-green-600 shrink-0" />
+        <Check className="w-4 h-4 text-[color:var(--a-green-ink)] shrink-0" />
         <div className="flex-1 min-w-0">
-          <span className="text-xs font-bold text-green-700 dark:text-green-400">{appliedCoupon.coupon.code}</span>
-          <span className="text-[10px] text-green-600 dark:text-green-500 ms-1.5">
+          <span className="text-xs font-bold text-[color:var(--a-green-ink)]">{appliedCoupon.coupon.code}</span>
+          <span className="text-[10px] text-[color:var(--a-green-ink)] ms-1.5">
             -{appliedCoupon.discountAmount.toFixed(2)}₼
           </span>
         </div>
-        <button onClick={onRemove} className="p-1 rounded-full hover:bg-green-100 dark:hover:bg-green-900">
-          <X className="w-3.5 h-3.5 text-green-600" />
+        <button onClick={onRemove} className="p-1 rounded-full hover:bg-[color:var(--a-green-1)]">
+          <X className="w-3.5 h-3.5 text-[color:var(--a-green-ink)]" />
         </button>
       </motion.div>);
 
