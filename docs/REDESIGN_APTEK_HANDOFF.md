@@ -193,3 +193,71 @@ apart from asset hashes.
   failed on the untouched baseline.
 - **Order confirmation:** there are no push or email confirmations for Aptek orders. Admins see new
   orders in the panel; the courier/aloe.az workflow is a business decision.
+
+## Appointments and reminders (2026-10-27)
+
+### What changed
+- **App:**
+  - "+ Görüş" in the home "Qarşıda" list (all three stages) opens a sheet with title, type, date,
+    time, note and a "Remind me" switch. Tapping an appointment edits it; deleting needs two taps.
+  - The calendar uses the same sheet (`src/components/home/AppointmentSheet.tsx`).
+  - `useAppointments` uses react-query, so the home screen and the calendar share one fetch.
+  - 23 new strings in all 21 languages.
+- **Reminders:** sent by the server, not the phone.
+  - **When (Baku time):** the day before at 10:00, and 2 hours before when a time is set.
+  - **Push:** type `appointment_reminder`, which opens the calendar.
+  - **Edits:** changing the date or time re-arms the reminder.
+  - **Skipped:**
+    - users with `push_enabled = false`;
+    - a reminder whose moment had already passed when the appointment was created.
+  - **Old phone reminders:** they used random ids and were never cancelled. Pending ones are
+    cleared once per device.
+
+### Database — applied on Google 2026-10-27 08:38 UTC
+1. **Backup:** verified backup `base_0000000100000098000000C8`.
+2. **Dry run:** `40-appointment-reminders.dryrun.sql` (ends in ROLLBACK) passed.
+3. **Apply:** `40-appointment-reminders.sql` (sha256 `4c49fbd1e21d…`, identical to
+   `supabase/migrations/20261027120000_appointment_reminders.sql`).
+
+The migration adds:
+- `reminder_day_sent_at` and `reminder_soon_sent_at`;
+- the `appointments_rearm_reminders` trigger;
+- the partial index `appointments_reminder_due_idx`.
+
+The table was already guarded, and its 3 CDC/guard triggers are unchanged. 74 past rows were marked
+as already reminded; 1 upcoming row is armed.
+
+A claim rehearsal as `pgadmin` inside a rolled-back transaction confirmed that both the claim and the
+re-arm pass the writer guard.
+
+### Notification job — live 2026-10-27 08:41 UTC
+- **Image:** `notification-jobs@sha256:ca490aab8ae87fc7b1ea69ea43f7b249f92e4938cb108cbe90f568be89df0914`.
+  - Cloud Build `4fad7b6c`; the 4 job tests run inside the build.
+  - It is `FROM` `c4ae4731…`. Compared with that image, exactly 2 files differ:
+    `send-vitamin-reminders.mjs` and the new `send-appointment-reminders.mjs`.
+  - Sources: `merge-pending/2026-10-27-appointment-reminders/`.
+- **Scope:** only `anacan-job-vitamin-reminders.json` points at the new image. Appointment reminders
+  run inside that 5-minute run, so they arrive at most 5 minutes late.
+  - No timer was added: 8 business timers, unchanged.
+  - The first run on the new image exited 0.
+- **Rollback:**
+  `sudo cp -p /srv/anacan/runtime/jobs/anacan-job-vitamin-reminders.json.before-appt-reminders-20261027 /srv/anacan/runtime/jobs/anacan-job-vitamin-reminders.json`.
+  The added columns are harmless when left in place.
+
+### Web deploy — 2026-10-27
+- **Image:** `gateway@sha256:6c1db2e0f544013a241101eed98ca1fae72c76eacad2d2e3ab71ca53600e1881`.
+  - Cloud Build `d27378d1`, built `FROM` live `2536ecbe…`; only `index.html`, `assets/` and `aptek/`
+    were added.
+- **Isolated test:** on :8089, every shared path matched live.
+- **Deploy:** `deploy-current-web.py appointments-web-plan.json` returned `passed`.
+  - Public `index.html` sha `567835b2…`; previous container `anacan-gateway-before-refresh-1793090833`.
+  - No DNS or database change.
+- **Rollback (newest first):** `rollback-appointments-web-plan.json` returns to the cleanup build
+  (`2536ecbe…`), followed by the earlier chain above.
+- **Size:** App chunk unchanged at 466 KB gzipped (the same as live before this change). The sheet is
+  a separate 1.9 KB chunk.
+
+### Note (pre-existing, not changed)
+The vitamin job looks for schedules within ±1 minute of "now + 5 minutes", but its timer runs every
+5 minutes. A vitamin time that is not near a multiple of 5 minutes (e.g. 09:12) can therefore be
+missed.
