@@ -429,3 +429,23 @@ was done.
   `sudo cp -p /srv/anacan/runtime/jobs/anacan-job-vitamin-reminders.json.before-vitamin-guard-20261027 /srv/anacan/runtime/jobs/anacan-job-vitamin-reminders.json`.
 - **Manual starts:** a manual `systemctl start anacan-job-vitamin-reminders.service` is now safe
   after the slice's scheduled run.
+
+## Homes + admin test-send web deploy — 2026-10-27
+- **Contents:**
+  - Commit `e0aa2b0`, homes:
+    - pregnancy hero fixed on today;
+    - baby message under the hero;
+    - today's plan after This week;
+    - baby home: today's info after the hero;
+    - feeding and sleep widgets (formula with ml presets, solid food);
+    - no growth related articles.
+  - Commit `0d25052`: the admin test-send UI (the queue and job parts went live earlier, see that session's
+    section).
+- **Image:** `gateway@sha256:487bce5c167cecc68d23e5872f6c8fc1c1c0b9d5272ced788f4bc9d909f54b8b`.
+  - Cloud Build `94709c5d`, built `FROM` `dfd63929…`.
+- **Isolated test:** passed on :8089.
+- **Deploy:** `deploy-current-web.py homes-web-plan.json` returned `passed`.
+  - Public `index.html` sha `3c75dd49…`; previous container `anacan-gateway-before-refresh-1793100487`.
+  - 8 timers; no DNS or database change.
+- **Rollback:** `rollback-homes-web-plan.json` returns to the design-pass build (`dfd63929…`), followed by the
+  earlier chain.
