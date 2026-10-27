@@ -7,6 +7,7 @@ import { getFirebaseAccessToken, sendFCMv1 } from './shared/fcm.mjs';
 import { startRunLog, finishRunLog, logFailedSend, bumpReason } from './shared/notif-logging.mjs';
 import { query, closePool } from './shared/db.mjs';
 import { runAppointmentReminders } from './send-appointment-reminders.mjs';
+import { vitaminSlices } from './vitamin-window.mjs';
 
 const TEST_USER_ID = process.env.TEST_USER_ID || null; // debug: yalnız bu istifadəçi üçün, vaxt pəncərəsi keçilir
 const SKIP_DEDUP = process.env.SKIP_DEDUP === 'true';
@@ -24,33 +25,31 @@ async function main() {
     const now = new Date();
     const bakuOffsetMs = 4 * 60 * 60 * 1000;
     const bakuNow = new Date(now.getTime() + bakuOffsetMs);
-    const targetTime = new Date(bakuNow.getTime() + 5 * 60 * 1000);
     const bakuTimeStr = `${String(bakuNow.getUTCHours()).padStart(2, '0')}:${String(bakuNow.getUTCMinutes()).padStart(2, '0')}`;
 
     runId = await startRunLog('send-vitamin-reminders', triggeredBy, bakuTimeStr, manual ? 'manual' : null);
 
-    const targetTimeMinus = new Date(targetTime.getTime() - 60 * 1000);
-    const targetTimePlus = new Date(targetTime.getTime() + 60 * 1000);
-    const timeMin = `${String(targetTimeMinus.getUTCHours()).padStart(2, '0')}:${String(targetTimeMinus.getUTCMinutes()).padStart(2, '0')}:00`;
-    const timeMax = `${String(targetTimePlus.getUTCHours()).padStart(2, '0')}:${String(targetTimePlus.getUTCMinutes()).padStart(2, '0')}:00`;
-    const currentDayOfWeek = bakuNow.getUTCDay();
+    // Each 5-minute run handles its own slice of schedule times (see vitamin-window.mjs).
+    const slices = vitaminSlices(now);
+    console.log(`Checking vitamin reminders for ${slices.map((w) => `${w.from}-${w.to} (day ${w.dow})`).join(', ')}`);
 
-    console.log(`Checking vitamin reminders for time range ${timeMin}-${timeMax}, day: ${currentDayOfWeek}`);
-
-    let schedules;
+    let schedules = [];
     if (manual) {
-      schedules = await query(
+      schedules = (await query(
         `SELECT * FROM user_vitamin_schedules WHERE is_active = true AND notification_enabled = true AND user_id = $1`,
         [TEST_USER_ID]
-      );
+      )).map((row) => ({ ...row, _date: slices[0].date }));
     } else {
-      schedules = await query(
-        `SELECT * FROM user_vitamin_schedules
-         WHERE is_active = true AND notification_enabled = true
-           AND scheduled_time >= $1 AND scheduled_time <= $2
-           AND days_of_week @> ARRAY[$3]::int[]`,
-        [timeMin, timeMax, currentDayOfWeek]
-      );
+      for (const w of slices) {
+        const rows = await query(
+          `SELECT * FROM user_vitamin_schedules
+           WHERE is_active = true AND notification_enabled = true
+             AND scheduled_time >= $1::time AND scheduled_time < $2::time
+             AND days_of_week @> ARRAY[$3]::int[]`,
+          [w.from, w.to, w.dow]
+        );
+        schedules.push(...rows.map((row) => ({ ...row, _date: w.date })));
+      }
     }
 
     if (!schedules.length) {
@@ -64,14 +63,16 @@ async function main() {
 
     let pendingSchedules = schedules;
     if (!SKIP_DEDUP) {
-      const today = bakuNow.toISOString().split('T')[0];
-      const scheduleIds = schedules.map((s) => s.id);
-      const takenLogs = await query(
-        `SELECT schedule_id FROM vitamin_intake_logs WHERE schedule_id = ANY($1::uuid[]) AND log_date = $2`,
-        [scheduleIds, today]
-      );
-      const takenScheduleIds = new Set(takenLogs.map((l) => l.schedule_id));
-      pendingSchedules = schedules.filter((s) => !takenScheduleIds.has(s.id));
+      const takenScheduleIds = new Set();
+      for (const date of new Set(schedules.map((s) => s._date))) {
+        const scheduleIds = schedules.filter((s) => s._date === date).map((s) => s.id);
+        const takenLogs = await query(
+          `SELECT schedule_id FROM vitamin_intake_logs WHERE schedule_id = ANY($1::uuid[]) AND log_date = $2`,
+          [scheduleIds, date]
+        );
+        takenLogs.forEach((l) => takenScheduleIds.add(`${date}|${l.schedule_id}`));
+      }
+      pendingSchedules = schedules.filter((s) => !takenScheduleIds.has(`${s._date}|${s.id}`));
       const taken = schedules.length - pendingSchedules.length;
       if (taken > 0) { skippedCount += taken; reasons['already_taken'] = taken; }
     }

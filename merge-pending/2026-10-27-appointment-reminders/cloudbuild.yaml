@@ -1,7 +1,7 @@
 steps:
 - name: gcr.io/cloud-builders/docker
-  args: ['build', '--platform=linux/amd64', '--build-arg', 'BASE=europe-west1-docker.pkg.dev/ninth-park-492111-m4/anacan-runtime/notification-jobs@sha256:c4ae47318db804324b45ce3ffa3a6d0b5b74a986f6ed952960838b00672ca0d8', '-t', 'europe-west1-docker.pkg.dev/ninth-park-492111-m4/anacan-runtime/notification-jobs:appt-reminders-202610270838', '.']
-images: ['europe-west1-docker.pkg.dev/ninth-park-492111-m4/anacan-runtime/notification-jobs:appt-reminders-202610270838']
+  args: ['build', '--platform=linux/amd64', '--build-arg', 'BASE=europe-west1-docker.pkg.dev/ninth-park-492111-m4/anacan-runtime/notification-jobs@sha256:c4ae47318db804324b45ce3ffa3a6d0b5b74a986f6ed952960838b00672ca0d8', '-t', 'europe-west1-docker.pkg.dev/ninth-park-492111-m4/anacan-runtime/notification-jobs:vitamin-slices-202610270910', '.']
+images: ['europe-west1-docker.pkg.dev/ninth-park-492111-m4/anacan-runtime/notification-jobs:vitamin-slices-202610270910']
 serviceAccount: 'projects/ninth-park-492111-m4/serviceAccounts/anacan-build@ninth-park-492111-m4.iam.gserviceaccount.com'
 options:
   logging: CLOUD_LOGGING_ONLY

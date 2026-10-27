@@ -257,7 +257,26 @@ re-arm pass the writer guard.
 - **Size:** App chunk unchanged at 466 KB gzipped (the same as live before this change). The sheet is
   a separate 1.9 KB chunk.
 
-### Note (pre-existing, not changed)
-The vitamin job looks for schedules within ±1 minute of "now + 5 minutes", but its timer runs every
-5 minutes. A vitamin time that is not near a multiple of 5 minutes (e.g. 09:12) can therefore be
-missed.
+### Vitamin reminder window fix — live 2026-10-27 09:11 UTC
+- **Problem:** the job looked for schedules within ±1 minute of "now + 5 minutes", but runs every
+  5 minutes. Times ending in :x2, :x3, :x7 or :x8 (e.g. 09:12) were never sent.
+  - Live check: 50 active schedules, none at such a minute yet, so no user had lost a reminder.
+- **Fix:** `vitamin-window.mjs`.
+  - Each run handles its own 5-minute slice `[tick + 3, tick + 8)` in Baku time, so every minute of
+    the day belongs to exactly one run.
+  - Reminders come 3–7 minutes before the scheduled time. Every time the old window covered is sent
+    at the same moment as before.
+  - A slice crossing midnight is split, with each part using its own date and weekday (this also
+    applies to the "already taken" check).
+  - Tests: a full simulated day, the 09:12 case and the midnight split (3 tests). They run inside
+    the image build with the 4 appointment tests.
+- **Image:** `notification-jobs@sha256:1681a0b0e80d7d47ad7d396f1c2b1545a513495d460b0982c8c829a0b3f118b3`.
+  - Cloud Build `bb1d3b44`.
+  - Compared with base `c4ae4731…`, exactly 3 files differ: `send-vitamin-reminders.mjs`,
+    `send-appointment-reminders.mjs` and `vitamin-window.mjs`.
+- **Verified:** a manual run and the 09:15 and 09:20 UTC timer runs exited 0, with continuous slices
+  (13:13–13:18, then 13:23–13:28 Baku).
+- **Rollback:**
+  - To the appointment-only image:
+    `sudo cp -p /srv/anacan/runtime/jobs/anacan-job-vitamin-reminders.json.before-vitamin-slices-20261027 /srv/anacan/runtime/jobs/anacan-job-vitamin-reminders.json`
+  - To the original image: the `.before-appt-reminders-20261027` copy.
