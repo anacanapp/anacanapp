@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Loader2, RefreshCw, Send, ServerCog, Clock3, AlertTriangle, CheckCircle2, XCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import { runNotificationTest, describeNotificationTest, KIND_BY_FUNCTION, type NotificationTestRow } from '@/lib/notification-tests';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -123,14 +124,12 @@ const NotificationOpsCard = () => {
     setTesting(fn);
     setLastTestResult(null);
     try {
-      const { data, error } = await supabase.functions.invoke(fn, {
-        body: { manual: true, userId: user.id, skipDedup: true }
-      });
-      if (error) throw error;
-      setLastTestResult({ fn, payload: data });
-      const sent = (data as any)?.sent ?? 0;
-      if (sent > 0) toast.success(`${fn}: ${sent} push göndərildi`);else
-      toast.warning(`${fn}: 0 push (səbəbə bax)`);
+      // Google: queued self-test, run by the 5-minute notification job (see lib/notification-tests).
+      toast.info(describeNotificationTest({ status: 'pending' } as NotificationTestRow).text);
+      const row = await runNotificationTest(KIND_BY_FUNCTION[fn], (update) => setLastTestResult({ fn, payload: update }));
+      setLastTestResult({ fn, payload: row });
+      const outcome = describeNotificationTest(row);
+      (outcome.tone === 'success' ? toast.success : outcome.tone === 'error' ? toast.error : outcome.tone === 'info' ? toast.info : toast.warning)(outcome.text);
       refresh();
     } catch (e: any) {
       setLastTestResult({ fn, payload: { error: e?.message } });

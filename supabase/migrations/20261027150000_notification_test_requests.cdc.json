@@ -1,0 +1,18 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261027150000_notification_test_requests.sql",
+  "runtime": "google-notification-test-requests",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the new relation is registered in guarded_relations with the three standard triggers",
+  "preserve": [
+    "cron0, no timer added: requests are run by anacan-job-vitamin-reminders",
+    "8 enabled business timers",
+    "tests only ever target the requesting admin (TEST_USER_ID mode of the existing jobs)"
+  ],
+  "relations": [
+    { "relation": "public.notification_test_requests", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false,
+      "note": "admin test-send queue: requested_by, kind (daily|flow|vitamin), status, result (job counts/reasons), timestamps; RLS: admins read their own rows" }
+  ],
+  "functions": [
+    { "name": "public.request_notification_test(text)", "security": "definer", "grant": ["authenticated"], "note": "admin-only, targets auth.uid(), dedupes open requests, 20 per day" }
+  ]
+}

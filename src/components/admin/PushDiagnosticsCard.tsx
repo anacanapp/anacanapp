@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Loader2, Send, Bug, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
+import { runNotificationTest, describeNotificationTest, KIND_BY_FUNCTION, type NotificationTestRow } from '@/lib/notification-tests';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -66,17 +67,11 @@ const PushDiagnosticsCard = () => {
     setLoading('me-daily');
     setLastResult(null);
     try {
-      const { data, error } = await supabase.functions.invoke('send-daily-notifications', {
-        body: { manual: true, userId: user.id, skipDedup: true }
-      });
-      if (error) throw error;
-      setLastResult({ kind: 'send-daily-notifications', payload: data });
-      const sent = data?.sent ?? 0;
-      if (sent > 0) {
-        toast.success(`${sent} dinamik push göndərildi (sənin cihazına)`);
-      } else {
-        toast.warning(tr("pushdiagnosticscard_push_hazirlandi_amma_0_gonderi_af80a2", "Push haz\u0131rland\u0131, amma 0 g\xF6nd\u0259rildi. Detallar\u0131 a\u015Fa\u011F\u0131da g\xF6r."));
-      }
+      toast.info(describeNotificationTest({ status: 'pending' } as NotificationTestRow).text);
+      const row = await runNotificationTest('daily', (update) => setLastResult({ kind: 'send-daily-notifications', payload: update }));
+      setLastResult({ kind: 'send-daily-notifications', payload: row });
+      const outcome = describeNotificationTest(row);
+      (outcome.tone === 'success' ? toast.success : outcome.tone === 'error' ? toast.error : outcome.tone === 'info' ? toast.info : toast.warning)(outcome.text);
     } catch (err: any) {
       console.error(err);
       setLastResult({ kind: 'error', payload: err?.message || String(err) });
@@ -94,12 +89,11 @@ const PushDiagnosticsCard = () => {
     setLoading('me-flow');
     setLastResult(null);
     try {
-      const { data, error } = await supabase.functions.invoke('send-flow-reminders', {
-        body: { manual: true }
-      });
-      if (error) throw error;
-      setLastResult({ kind: 'send-flow-reminders', payload: data });
-      toast.success(tr("pushdiagnosticscard_flow_reminders_icra_edildi_det_a7156b", "Flow reminders icra edildi. Detallar a\u015Fa\u011F\u0131da."));
+      toast.info(describeNotificationTest({ status: 'pending' } as NotificationTestRow).text);
+      const row = await runNotificationTest('flow', (update) => setLastResult({ kind: 'send-flow-reminders', payload: update }));
+      setLastResult({ kind: 'send-flow-reminders', payload: row });
+      const outcome = describeNotificationTest(row);
+      (outcome.tone === 'success' ? toast.success : outcome.tone === 'error' ? toast.error : outcome.tone === 'info' ? toast.info : toast.warning)(outcome.text);
     } catch (err: any) {
       console.error(err);
       setLastResult({ kind: 'error', payload: err?.message || String(err) });

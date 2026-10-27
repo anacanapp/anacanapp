@@ -40,6 +40,7 @@ import {
 '@/hooks/useMommyDayNotifications';
 import { Progress } from '@/components/ui/progress';
 import { toast } from 'sonner';
+import { runNotificationTest, describeNotificationTest, KIND_BY_FUNCTION, type NotificationTestRow } from '@/lib/notification-tests';
 import { supabase } from '@/integrations/supabase/client';
 import PushDiagnosticsCard from './PushDiagnosticsCard';
 import NotificationOpsCard from './NotificationOpsCard';
@@ -210,8 +211,10 @@ const ScheduledNotificationsTab = () => {
 
   const handleTriggerNow = async () => {
     try {
-      await triggerDaily.mutateAsync();
-      toast.success(tr("adminpushnotifications_bildirisler_gonderildi_ab3631", "Bildiri\u015Fl\u0259r g\xF6nd\u0259rildi!"));
+      toast.info(describeNotificationTest({ status: 'pending' } as NotificationTestRow).text);
+      const row = await triggerDaily.mutateAsync();
+      const outcome = describeNotificationTest(row);
+      (outcome.tone === 'success' ? toast.success : outcome.tone === 'error' ? toast.error : outcome.tone === 'info' ? toast.info : toast.warning)(outcome.text);
     } catch (error) {
       toast.error(tr("adminpushnotifications_bildiris_gonderme_xetasi_d50d38", "Bildiri\u015F g\xF6nd\u0259rm\u0259 x\u0259tas\u0131"));
     }
@@ -938,13 +941,11 @@ const FlowRemindersTab = () => {
   const handleTriggerNow = async () => {
     setIsTriggering(true);
     try {
-      const { data, error } = await supabase.functions.invoke('send-flow-reminders', {
-        body: { manual: true }
-      });
-
-      if (error) throw error;
-
-      toast.success(`${data.sent || 0} flow xatırlatması göndərildi!`);
+      // Google: a self-test for the admin (the scheduled job sends to users on its own).
+      toast.info(describeNotificationTest({ status: 'pending' } as NotificationTestRow).text);
+      const row = await runNotificationTest('flow');
+      const outcome = describeNotificationTest(row);
+      (outcome.tone === 'success' ? toast.success : outcome.tone === 'error' ? toast.error : outcome.tone === 'info' ? toast.info : toast.warning)(outcome.text);
       loadStats();
     } catch (error) {
       console.error('Error triggering flow reminders:', error);

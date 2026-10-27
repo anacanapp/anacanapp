@@ -8,6 +8,7 @@ import { startRunLog, finishRunLog, logFailedSend, bumpReason } from './shared/n
 import { query, closePool } from './shared/db.mjs';
 import { runAppointmentReminders } from './send-appointment-reminders.mjs';
 import { vitaminSlices } from './vitamin-window.mjs';
+import { runNotificationTests } from './run-notification-tests.mjs';
 
 const TEST_USER_ID = process.env.TEST_USER_ID || null; // debug: yalnız bu istifadəçi üçün, vaxt pəncərəsi keçilir
 const SKIP_DEDUP = process.env.SKIP_DEDUP === 'true';
@@ -212,6 +213,13 @@ async function main() {
         await runAppointmentReminders({ query, getFirebaseAccessToken, sendFCMv1, startRunLog, finishRunLog, logFailedSend, bumpReason });
       } catch (err) {
         console.error('Error in appointment reminders:', err);
+        process.exitCode = 1;
+      }
+      // Admin test sends queued from the admin panel (each targets only the requesting admin).
+      try {
+        await runNotificationTests({ query });
+      } catch (err) {
+        console.error('Error in notification tests:', err);
         process.exitCode = 1;
       }
     }

@@ -327,3 +327,66 @@ re-arm pass the writer guard.
 The admin "test send" for daily and cycle notifications calls `send-daily-notifications` and
 `send-flow-reminders` as functions. On Google these run only as scheduled jobs, so those test buttons
 do not work.
+
+## Admin notification test-send on Google (2026-10-27)
+
+### Why
+On Google the daily, cycle and vitamin senders run only as scheduled job images. The admin test
+buttons invoked them as functions and got 404. The buttons affected:
+- `NotificationOpsCard`: "Test: Daily / Flow / Vitamin";
+- `PushDiagnosticsCard`: "send to me";
+- both "İndi Test Et" buttons in `AdminPushNotifications`.
+
+### How it works now
+1. **Queue:** the button calls `request_notification_test(kind)`, where kind is `daily`, `flow` or
+   `vitamin`.
+   - It is admin-only and **always targets the caller's own account**.
+   - It reuses an open request and allows 20 per day.
+   - The request is a row in `public.notification_test_requests`.
+2. **Run:** the 5-minute `anacan-job-vitamin-reminders` run claims pending rows (requests older than
+   30 minutes expire).
+   - For each row it spawns the real job script with `TEST_USER_ID=<admin>` and `SKIP_DEDUP=true`.
+   - It stores that run's `notification_run_log` counts in `result`.
+   - There is no broadcast path.
+3. **Result:** the admin UI (`src/lib/notification-tests.ts`) shows "queued", then polls the row and
+   shows the result. Expect up to about 5 minutes.
+
+### Database — applied 2026-10-27 10:55 UTC
+- **Backup:** verified backup `base_000000010000009900000054`.
+- **Dry run:** `44-notification-test-requests.dryrun.sql` (ROLLBACK) passed.
+- **Apply:** `44-notification-test-requests.sql` (sha256 `0c15037de4025000…`, identical to
+  `supabase/migrations/20261027150000_notification_test_requests.sql`).
+- **Verified:**
+  - table owned by `pgadmin`, with RLS on;
+  - SELECT policy "Admins read own notification tests";
+  - 3 CDC/guard triggers, and 1 `guarded_relations` row;
+  - RPC is SECURITY DEFINER, owned by `pgadmin`, executable by `authenticated` only, not `anon`;
+  - `authenticated` has SELECT only.
+- **Live rehearsal** (rolled back, `46-rehearsal.sql`):
+  - an admin request works, and a second request reuses the same id;
+  - the job's claim targets the admin;
+  - the admin reads `done`, and another user sees 0 rows;
+  - 0 rows remain after the rollback.
+- **Pre-release test:** PGlite harness `.redesign-backup/pg/notiftest.mjs`, 17/17 checks.
+
+### Job image — live 2026-10-27 10:57 UTC
+- **Image:** `notification-jobs@sha256:03a230fcdbb20d8e695c78c7088981d774c0667fb32ab499bac332cc40911169`.
+  - Cloud Build `98bb1229`; 10 job tests run inside the build.
+  - It is `FROM` base `c4ae4731…`. Exactly 4 files differ:
+    - `send-vitamin-reminders.mjs`
+    - `send-appointment-reminders.mjs`
+    - `vitamin-window.mjs`
+    - `run-notification-tests.mjs`
+- **Scope:** only `anacan-job-vitamin-reminders.json` was switched (from `1681a0b0…`). The first run
+  exited 0, and the 8 timers are unchanged.
+- **Rollback:**
+  `sudo cp -p /srv/anacan/runtime/jobs/anacan-job-vitamin-reminders.json.before-notification-tests-20261027 /srv/anacan/runtime/jobs/anacan-job-vitamin-reminders.json`.
+  The table can stay; it is unused without the job.
+- **Goes live:** the admin buttons start working with the next web deploy, which carries the
+  changed admin files.
+
+### Incident during verification
+The manual verification run at 10:57 UTC repeated the 14:58–15:03 Baku vitamin slice that the 10:55
+scheduled run had already sent. Two users received a duplicate vitamin reminder.
+- Do not start `anacan-job-vitamin-reminders.service` by hand between ticks.
+- A per-slice "already sent" guard in the vitamin job is the follow-up.

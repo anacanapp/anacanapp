@@ -1,4 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { runNotificationTest } from '@/lib/notification-tests';
 import { supabase } from '@/integrations/supabase/client';
 
 export interface ScheduledNotification {
@@ -87,12 +88,7 @@ export const useDeleteScheduledNotification = () => {
 
 export const useTriggerDailyNotifications = () => {
   return useMutation({
-    mutationFn: async () => {
-      const { error } = await supabase.functions.invoke('send-daily-notifications', {
-        body: { manual: true },
-      });
-
-      if (error) throw error;
-    },
+    // Google: a queued self-test for the admin; resolves with the finished request.
+    mutationFn: () => runNotificationTest('daily'),
   });
 };
