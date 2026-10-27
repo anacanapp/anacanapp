@@ -390,3 +390,42 @@ The manual verification run at 10:57 UTC repeated the 14:58–15:03 Baku vitamin
 scheduled run had already sent. Two users received a duplicate vitamin reminder.
 - Do not start `anacan-job-vitamin-reminders.service` by hand between ticks.
 - A per-slice "already sent" guard in the vitamin job is the follow-up.
+
+## Vitamin per-slice "already sent" guard (2026-10-27)
+
+### Why
+The 10:57 manual verification run repeated a slice the 10:55 scheduled run had already sent, so two
+users got a duplicate vitamin reminder (see above). The job had nothing that remembered a slice
+was done.
+
+### What changed
+- **New file:** `merge-pending/2026-10-27-appointment-reminders/vitamin-guard.mjs`.
+- **Slice key:** each scheduled run writes its key (Baku date and slice start, e.g.
+  `2026-10-27T15:13`) to `notification_run_log.active_slot`.
+  - That column was null for vitamin runs, and the admin status RPC and UI do not read it for vitamin.
+- **Skip:** before sending, a run skips the slice (reason `slice_already_sent`) when a successful
+  scheduled run already has the same key within the last day.
+  - It uses the existing index `idx_notif_run_log_function_started`.
+- **Exceptions:** a run that ended in error does not count, so it can be retried. Admin test runs
+  (`TEST_USER_ID`) bypass the guard.
+- **No race:** runs of the job are serialized by the `flock` in `run-job.py`, so check-then-send
+  cannot race. No database change was needed.
+- **Build checks:** the image build now fails when a local import or a test file is missing, and
+  requires 12 passing tests.
+  - This caught a real problem: the first build (`a6039642…`) lacked `vitamin-guard.mjs` and was
+    never switched in.
+
+### Live — 2026-10-27 11:07:49 UTC
+- **Image:** `notification-jobs@sha256:33c829f343f861f38cc1df6841df041026aca438fd0427714752b055e0d3009c`.
+  - Cloud Build `4aa75fcb`, built `FROM` base `c4ae4731…`.
+  - Exactly 5 files differ from the base, now including `vitamin-guard.mjs`.
+- **Verified:**
+  - the 11:10 scheduled run recorded slice `15:13`;
+  - a manual start at 11:10:29 in the same slice logged "already sent … skipping" and sent nothing
+    (that slice was empty, so the check was safe);
+  - the 11:15 run handled its new slice `15:18` normally;
+  - 8 timers unchanged.
+- **Rollback:** returns to the image without the guard.
+  `sudo cp -p /srv/anacan/runtime/jobs/anacan-job-vitamin-reminders.json.before-vitamin-guard-20261027 /srv/anacan/runtime/jobs/anacan-job-vitamin-reminders.json`.
+- **Manual starts:** a manual `systemctl start anacan-job-vitamin-reminders.service` is now safe
+  after the slice's scheduled run.

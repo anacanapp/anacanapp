@@ -9,6 +9,7 @@ import { query, closePool } from './shared/db.mjs';
 import { runAppointmentReminders } from './send-appointment-reminders.mjs';
 import { vitaminSlices } from './vitamin-window.mjs';
 import { runNotificationTests } from './run-notification-tests.mjs';
+import { sliceKey, sliceAlreadySent } from './vitamin-guard.mjs';
 
 const TEST_USER_ID = process.env.TEST_USER_ID || null; // debug: yalnız bu istifadəçi üçün, vaxt pəncərəsi keçilir
 const SKIP_DEDUP = process.env.SKIP_DEDUP === 'true';
@@ -28,11 +29,19 @@ async function main() {
     const bakuNow = new Date(now.getTime() + bakuOffsetMs);
     const bakuTimeStr = `${String(bakuNow.getUTCHours()).padStart(2, '0')}:${String(bakuNow.getUTCMinutes()).padStart(2, '0')}`;
 
-    runId = await startRunLog('send-vitamin-reminders', triggeredBy, bakuTimeStr, manual ? 'manual' : null);
-
     // Each 5-minute run handles its own slice of schedule times (see vitamin-window.mjs).
     const slices = vitaminSlices(now);
+    const slice = sliceKey(slices);
+    runId = await startRunLog('send-vitamin-reminders', triggeredBy, bakuTimeStr, manual ? 'manual' : slice);
     console.log(`Checking vitamin reminders for ${slices.map((w) => `${w.from}-${w.to} (day ${w.dow})`).join(', ')}`);
+
+    // A slice is sent once: a manual start between ticks or a retried timer skips it (vitamin-guard.mjs).
+    if (!manual && await sliceAlreadySent({ query, key: slice, runId })) {
+      console.log(`Slice ${slice} already sent by an earlier run; skipping`);
+      bumpReason(reasons, 'slice_already_sent');
+      await finishRunLog(runId, { status: 'success', skipped_count: 1, reasons });
+      return;
+    }
 
     let schedules = [];
     if (manual) {
