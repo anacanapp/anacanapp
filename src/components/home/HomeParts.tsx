@@ -1,5 +1,5 @@
 // Redesign v3 home building blocks shared by the bump / mommy / flow dashboards.
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { Suspense, lazy, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { format, differenceInCalendarDays } from 'date-fns';
 import { ArrowRight, Bell, Check, Footprints, Pill, Plus, Search, Smile, Droplets, Baby, MessageCircle } from 'lucide-react';
 import { rd, shortMonth } from '@/lib/redesign-i18n';
@@ -12,7 +12,8 @@ import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { useDailyLogs } from '@/hooks/useDailyLogs';
 import { useVitaminSchedules } from '@/hooks/useVitaminSchedules';
 import { useKickSessions } from '@/hooks/useKickSessions';
-import { useAppointments } from '@/hooks/useAppointments';
+import { useAppointments, type Appointment } from '@/hooks/useAppointments';
+import { useAuth } from '@/hooks/useAuth';
 import { useHomePlanStore, type ManualPlanItem } from '@/store/homePlanStore';
 import { MiniRing } from '@/components/anacan/Ring';
 import { Mascot } from '@/components/anacan/Mascot';
@@ -139,36 +140,54 @@ export function Cheer({ stage, onClose }: { stage: Stage; onClose: () => void })
 }
 
 /* ---------------- Upcoming timeline ---------------- */
-export interface UpcomingEvent { date: Date; title: string; sub?: string; onTap?: () => void }
+export interface UpcomingEvent { date: Date; title: string; sub?: string; onTap?: () => void; appointment?: Appointment; reminder?: boolean }
 
-export function Upcoming({ events, onAddAppointment, onOpenCalendar }: { events: UpcomingEvent[]; onAddAppointment?: () => void; onOpenCalendar?: () => void }) {
+const AppointmentSheet = lazy(() => import('./AppointmentSheet'));
+
+/** Appointments (add / edit in a sheet) merged with stage events such as vaccines or milestones. */
+export function Upcoming({ events }: { events: UpcomingEvent[] }) {
+  const { user } = useAuth();
   const { appointments } = useAppointments();
+  const [sheet, setSheet] = useState<{ appointment: Appointment | null } | null>(null);
   const today = useMemo(() => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; }, []);
   const list = useMemo(() => {
-    const appts: UpcomingEvent[] = (appointments || []).map((a) => ({
-      date: new Date(`${a.event_date}T00:00:00`), title: a.title,
-      sub: [a.event_time?.slice(0, 5), a.description].filter(Boolean).join(' · '), onTap: onOpenCalendar,
+    const appts: UpcomingEvent[] = appointments.map((a) => ({
+      date: new Date(`${a.event_date}T00:00:00`), title: a.title, appointment: a, reminder: a.reminder_enabled !== false,
+      sub: [a.event_time?.slice(0, 5), a.description].filter(Boolean).join(' · '),
     }));
-    return [...appts, ...events].filter((e) => e.date >= today).sort((a, b) => +a.date - +b.date).slice(0, 3);
-  }, [appointments, events, today, onOpenCalendar]);
+    // Appointments are already ordered by date and time; the sort is stable for same-day events.
+    return [...appts, ...events].filter((e) => e.date >= today).sort((a, b) => +a.date - +b.date).slice(0, 4);
+  }, [appointments, events, today]);
 
   return (
-    <Section title={rd('upcoming_title')} meta={onAddAppointment ? <button type="button" className="a3-link" onClick={onAddAppointment}><Plus size={14} />{rd('upcoming_add')}</button> : undefined}>
+    <Section title={rd('upcoming_title')} meta={user ? <button type="button" className="a3-link" onClick={() => setSheet({ appointment: null })}><Plus size={14} />{rd('upcoming_add')}</button> : undefined}>
       <div className="a3-card a3-pad" style={{ paddingBlock: 4 }}>
-        {list.length ? list.map((e, i) => {
+        {list.length ? list.map((e) => {
           const days = differenceInCalendarDays(e.date, today);
+          const onTap = e.appointment ? () => setSheet({ appointment: e.appointment! }) : e.onTap;
           return (
-            <button key={i} type="button" className="a3-tl-row" onClick={e.onTap} disabled={!e.onTap}>
+            <button key={e.appointment?.id ?? `${+e.date}-${e.title}`} type="button" className="a3-tl-row" onClick={onTap} disabled={!onTap}>
               <span className="a3-tl-date a3-num"><b>{e.date.getDate()}</b><span>{shortMonth(e.date)}</span></span>
               <span className="grow">
                 <span style={{ fontSize: 14, fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{e.title}</span>
-                {e.sub && <span className="a3-meta" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{e.sub}</span>}
+                {(e.sub || e.reminder) && <span className="a3-meta" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                  {e.reminder && <Bell size={12} className="a3-tl-bell" aria-label={rd('appt_remind')} />}{e.sub}
+                </span>}
               </span>
               <span className={`a3-chip${days <= 7 ? ' ac' : ''}`} style={{ alignSelf: 'center' }}>{days === 0 ? rd('today') : days === 1 ? rd('tomorrow') : rd('in_days', { n: days })}</span>
             </button>
           );
-        }) : <p className="a3-meta" style={{ padding: '12px 0', fontSize: 14 }}>{rd('upcoming_empty')}</p>}
+        }) : (
+          <button type="button" className="a3-tl-row" onClick={user ? () => setSheet({ appointment: null }) : undefined} disabled={!user}>
+            <span className="a3-meta" style={{ padding: '8px 0', fontSize: 14 }}>{rd('upcoming_empty')}</span>
+          </button>
+        )}
       </div>
+      {sheet && (
+        <Suspense fallback={null}>
+          <AppointmentSheet open onClose={() => setSheet(null)} appointment={sheet.appointment} />
+        </Suspense>
+      )}
     </Section>
   );
 }

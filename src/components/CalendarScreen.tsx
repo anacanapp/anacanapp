@@ -1,12 +1,12 @@
-﻿import { useState, useMemo } from 'react';
+﻿import { Suspense, lazy, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ArrowLeft, ChevronLeft, ChevronRight, Plus, X,
+  ArrowLeft, ChevronLeft, ChevronRight, Plus, Bell,
   Droplets, Sparkles, Calendar as CalendarIcon } from
 'lucide-react';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
-import { useAppointments } from '@/hooks/useAppointments';
+import { useAppointments, type Appointment } from '@/hooks/useAppointments';
 import { useDailyLogs } from '@/hooks/useDailyLogs';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
@@ -16,6 +16,8 @@ import { getCurrentDateLocale } from '@/lib/date-utils';
 import { tr } from "@/lib/tr";
 import { usePeriodDayLogs } from '@/hooks/usePeriodDayLogs';
 import { hasPeriodFlow } from '@/lib/period-flow';
+
+const AppointmentSheet = lazy(() => import('@/components/home/AppointmentSheet'));
 
 interface CalendarScreenProps {
   onBack: () => void;
@@ -51,11 +53,10 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
   );
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [showAddForm, setShowAddForm] = useState(false);
-  const [newEventTitle, setNewEventTitle] = useState('');
-  const [newEventType, setNewEventType] = useState('appointment');
+  // null = closed; { appointment: null } = new appointment on the selected day.
+  const [sheet, setSheet] = useState<{ appointment: Appointment | null } | null>(null);
 
-  const { appointments, addAppointment, deleteAppointment } = useAppointments();
+  const { appointments } = useAppointments();
   const { logs } = useDailyLogs();
   const { data: periodDays = [] } = usePeriodDayLogs();
   const cycleData = getCycleData();
@@ -141,19 +142,6 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
     setCurrentMonth((prev) => direction === 'prev' ? subMonths(prev, 1) : addMonths(prev, 1));
   };
 
-  const handleAddEvent = async () => {
-    if (!newEventTitle || !selectedDate) return;
-
-    await addAppointment({
-      title: newEventTitle,
-      event_date: format(selectedDate, 'yyyy-MM-dd'),
-      event_type: newEventType
-    });
-
-    setNewEventTitle('');
-    setShowAddForm(false);
-  };
-
   const today = new Date();
 
   const selectedDateStr = selectedDate ? format(selectedDate, 'yyyy-MM-dd') : '';
@@ -196,7 +184,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
           </div>
           {selectedDate &&
           <div className="a-topbar-actions">
-              <motion.button onClick={() => setShowAddForm(true)} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("calendarscreen_elave_et_6e1b9b", "\u018Flav\u0259 et")}>
+              <motion.button onClick={() => setSheet({ appointment: null })} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("calendarscreen_elave_et_6e1b9b", "\u018Flav\u0259 et")}>
                 <Plus size={16} strokeWidth={2} />
               </motion.button>
             </div>
@@ -347,7 +335,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
                 }
                 </div>
                 <motion.button
-                onClick={() => setShowAddForm(true)}
+                onClick={() => setSheet({ appointment: null })}
                 className="a-btn-soft"
                 whileTap={{ scale: 0.95 }}>
 
@@ -365,17 +353,17 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
                     </div>
               )}
                   {selectedDateAppointments.map((apt) =>
-              <div key={apt.id} className="flex items-center justify-between gap-3" style={{ background: 'var(--a-surface-soft)', borderRadius: 14, padding: '11px 13px' }}>
-                      <div className="flex items-center gap-3 min-w-0">
-                        <div className="w-3 h-3 rounded-full shrink-0" style={{ background: DOT.appointment }} />
+              <button key={apt.id} type="button" onClick={() => setSheet({ appointment: apt })} className="flex w-full items-center justify-between gap-3 text-start" style={{ background: 'var(--a-surface-soft)', borderRadius: 14, padding: '11px 13px' }}>
+                      <span className="flex items-center gap-3 min-w-0">
+                        <span className="w-3 h-3 rounded-full shrink-0" style={{ background: DOT.appointment }} />
                         <span className="truncate" style={{ fontSize: 13, fontWeight: 600, color: 'var(--a-ink)' }}>{apt.title}</span>
-                      </div>
-                      <motion.button
-                  onClick={() => deleteAppointment(apt.id)}
-                  className="shrink-0"
-                  style={{ background: 'var(--a-alert-bg)', color: 'var(--a-alert-ink)', borderRadius: 10, padding: '4px 10px', fontSize: 11, fontWeight: 700 }}
-                  whileTap={{ scale: 0.95 }}>{tr("untranslated_sil_zwa7lz", "Sil")}</motion.button>
-                    </div>
+                      </span>
+                      <span className="flex items-center gap-1.5 shrink-0" style={{ fontSize: 12, fontWeight: 600, color: 'var(--a-ink-soft)' }}>
+                        {apt.reminder_enabled !== false && <Bell size={12} aria-hidden="true" />}
+                        {apt.event_time?.slice(0, 5)}
+                        <ChevronRight size={14} className="rtl:rotate-180" />
+                      </span>
+                    </button>
               )}
                 </div> :
 
@@ -389,91 +377,11 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
         </AnimatePresence>
       </div>
 
-      {/* Add Event Modal */}
-      <AnimatePresence>
-        {showAddForm && selectedDate &&
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/40 z-50 flex items-end"
-          onClick={() => setShowAddForm(false)}>
-
-            <motion.div
-            initial={{ y: '100%' }}
-            animate={{ y: 0 }}
-            exit={{ y: '100%' }}
-            transition={{ type: 'spring', damping: 25 }}
-            onClick={(e) => e.stopPropagation()}
-            className="w-full p-6 relative"
-            style={{ background: 'var(--a-surface)', borderTopLeftRadius: 26, borderTopRightRadius: 26, paddingBottom: 'calc(env(safe-area-inset-bottom, 20px) + 24px)' }}>
-
-              <div className="absolute left-1/2 -translate-x-1/2 top-3 w-12 h-1.5 rounded-full" style={{ background: 'var(--a-line-strong)' }} />
-              <div className="flex items-center justify-between mb-6 mt-1">
-                <h2 style={{ fontSize: 17, fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--a-ink)' }}>
-                  {tr("calendarscreen_randevu_elave_et_2cfa5a", "Randevu \u0259lav\u0259 et")}
-                </h2>
-                <motion.button
-                onClick={() => setShowAddForm(false)}
-                className="a-icon-btn"
-                style={{ width: 32, height: 32, borderRadius: 999 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={tr("premiummodal_bagla_84bdc9", "Bağla")}>
-                  <X size={14} />
-                </motion.button>
-              </div>
-
-              <p style={{ fontSize: 13, color: 'var(--a-ink-soft)', marginBottom: 16 }}>
-                {format(selectedDate, 'd MMMM yyyy', { locale: getCurrentDateLocale() })}
-              </p>
-
-              <div className="mb-4">
-                <label className="block mb-2" style={{ fontSize: 13, fontWeight: 600, color: 'var(--a-ink)' }}>{tr("calendarscreen_basliq_e1f6c5", "Başlıq")}</label>
-                <input
-                placeholder={tr("calendarscreen_hekim_muayinesi_78c373", "Həkim müayinəsi")}
-                value={newEventTitle}
-                onChange={(e) => setNewEventTitle(e.target.value)}
-                className="a-input w-full"
-                style={{ height: 48 }} />
-
-              </div>
-
-              <div className="mb-6">
-                <label className="block mb-2" style={{ fontSize: 13, fontWeight: 600, color: 'var(--a-ink)' }}>{tr("calendarscreen_nov_98ad7c", "Növ")}</label>
-                <div className="flex gap-2">
-                  {[
-                { id: 'appointment', label: 'Randevu', icon: '📅' },
-                { id: 'pill', label: tr("calendarscreen_derman_8b4b27", 'Dərman'), icon: '💊' },
-                { id: 'reminder', label: tr("calendarscreen_xatirlatma_3f3c48", 'Xatırlatma'), icon: '🔔' }].
-                map((type) =>
-                <button
-                  key={type.id}
-                  onClick={() => setNewEventType(type.id)}
-                  className="flex-1 py-3 transition-all"
-                  style={{
-                    borderRadius: 14,
-                    fontSize: 12.5,
-                    fontWeight: 700,
-                    background: newEventType === type.id ? 'var(--a-peach-1)' : 'var(--a-surface-soft)',
-                    color: newEventType === type.id ? 'var(--a-accent-ink)' : 'var(--a-ink-soft)',
-                    border: newEventType === type.id ? '1.5px solid var(--a-peach-2)' : '1.5px solid transparent'
-                  }}>
-
-                      {type.icon} {type.label}
-                    </button>
-                )}
-                </div>
-              </div>
-
-              <button
-              onClick={handleAddEvent}
-              disabled={!newEventTitle}
-              className="w-full h-14 rounded-full text-white font-bold disabled:opacity-50"
-              style={{ background: 'var(--a-peach-2)', boxShadow: '0 14px 28px -12px rgba(217, 108, 74, 0.55)', fontSize: 14.5 }}>{tr("untranslated_yadda_saxla_bpdu9v", "Yadda saxla")}</button>
-            </motion.div>
-          </motion.div>
-        }
-      </AnimatePresence>
+      {sheet &&
+      <Suspense fallback={null}>
+          <AppointmentSheet open onClose={() => setSheet(null)} appointment={sheet.appointment} defaultDate={selectedDate} />
+        </Suspense>
+      }
     </div>);
 
 };

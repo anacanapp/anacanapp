@@ -150,37 +150,6 @@ export const useNotificationSettings = () => {
     }
   }, [settings.notifications_enabled, settings.exercise_reminder, settings.exercise_days, language]);
 
-  // Schedule appointment reminder
-  const scheduleAppointmentReminder = useCallback(async (appointmentDate: Date, title: string) => {
-    if (!settings.notifications_enabled || !isNative) {
-      return;
-    }
-
-    const reminderTime = new Date(appointmentDate);
-    reminderTime.setDate(reminderTime.getDate() - 1);
-    reminderTime.setHours(10, 0, 0, 0);
-
-    const now = new Date();
-    if (reminderTime <= now) {
-      // If reminder time passed, set for same day morning
-      reminderTime.setTime(appointmentDate.getTime());
-      reminderTime.setHours(8, 0, 0, 0);
-
-      if (reminderTime <= now) {
-        return; // Skip if appointment is too soon
-      }
-    }
-
-    await localNotifications.schedule([{
-      id: 400 + Math.floor(Math.random() * 100),
-      title: tr("appointments_sabah_randevunuz_var", 'Sabah randevunuz var!') + ' 📅',
-      body: title,
-      schedule: { at: reminderTime }
-    }]);
-
-    toast.success(tr("usenotificationsettings_randevu_xatirlatmasi_teyin_edi_48cc3e", "Randevu xat\u0131rlatmas\u0131 t\u0259yin edildi"));
-  }, [settings.notifications_enabled]);
-
   // Update a single setting - persists to database
   const updateSetting = useCallback(async <K extends keyof NotificationSettings,>(
   key: K,
@@ -284,7 +253,6 @@ export const useNotificationSettings = () => {
     settings,
     loading,
     updateSetting,
-    scheduleAppointmentReminder,
     initializeReminders,
     isNative
   };

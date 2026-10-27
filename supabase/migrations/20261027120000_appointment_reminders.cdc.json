@@ -1,0 +1,18 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261027120000_appointment_reminders.sql",
+  "runtime": "google-appointment-reminders",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; no new relation, the changed relation must already be guarded (the migration refuses otherwise)",
+  "preserve": [
+    "existing appointments rows, RLS policies (own rows; partner read) and grants",
+    "cron0, no timer added: reminders run inside anacan-job-vitamin-reminders",
+    "8 enabled business timers"
+  ],
+  "relations": [
+    { "relation": "public.appointments", "change": "altered", "cdc": true, "writer_guard": true, "private": true, "pii": false,
+      "note": "nullable reminder_day_sent_at / reminder_soon_sent_at (written by the notification job), BEFORE UPDATE re-arm trigger, partial index on event_date; past rows marked as already reminded" }
+  ],
+  "functions": [
+    { "name": "public.appointments_rearm_reminders()", "security": "invoker", "grant": [], "note": "trigger function only" }
+  ]
+}

@@ -250,9 +250,7 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateTo
       }
 
       <Upcoming
-        events={pregnancyMilestones(new Date(pregData.lastPeriodDate), onNavigateToTool)}
-        onAddAppointment={onNavigate ? () => onNavigate('calendar') : undefined}
-        onOpenCalendar={onNavigate ? () => onNavigate('calendar') : undefined} />
+        events={pregnancyMilestones(new Date(pregData.lastPeriodDate), onNavigateToTool)} />
 
       {onNavigate && <AptekHomeCard stage="bump" onOpen={onNavigate} />}
 
@@ -490,9 +488,7 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
       <DayPlan stage="mommy" babyMonths={exactMonths} onNavigateToTool={onNavigateToTool} />
 
       <Upcoming
-        events={vaccineEvents}
-        onAddAppointment={onNavigate ? () => onNavigate('calendar') : undefined}
-        onOpenCalendar={onNavigate ? () => onNavigate('calendar') : undefined} />
+        events={vaccineEvents} />
 
       {onNavigate && <AptekHomeCard stage="mommy" babyMonths={exactMonths} babyName={babyData.name} onOpen={onNavigate} />}
 
@@ -717,9 +713,7 @@ const FlowHomeExtras = ({ ctx, onNavigateToTool, onNavigate, onOpenAI }: {ctx: F
       <AskBar placeholder={rd('ask_cycle')} onAsk={onOpenAI} />
       <DayPlan stage="flow" onNavigateToTool={onNavigateToTool} />
       <Upcoming
-        events={events}
-        onAddAppointment={onNavigate ? () => onNavigate('calendar') : undefined}
-        onOpenCalendar={onNavigate ? () => onNavigate('calendar') : undefined} />
+        events={events} />
     </>);
 };
 

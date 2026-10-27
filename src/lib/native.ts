@@ -231,20 +231,6 @@ export const localNotifications = {
     }]);
   },
 
-  // Schedule appointment reminder
-  scheduleAppointmentReminder: async (appointmentDate: Date, title: string) => {
-    const reminderTime = new Date(appointmentDate);
-    reminderTime.setDate(reminderTime.getDate() - 1);
-    reminderTime.setHours(10, 0, 0, 0);
-
-    await localNotifications.schedule([{
-      id: 300,
-      title: tr("appointments_sabah_randevunuz_var", 'Sabah randevunuz var!') + ' 📅',
-      body: title,
-      schedule: { at: reminderTime }
-    }]);
-  },
-
   cancelAll: async () => {
     if (!isNative) return;
 
@@ -254,6 +240,22 @@ export const localNotifications = {
         notifications: pending.notifications.map((n) => ({ id: n.id }))
       });
     }
+  }
+};
+
+// Appointment reminders used to be local notifications with random ids 400..1499. They now come
+// from the server, so pending local ones are cancelled once per device to avoid duplicates.
+const LEGACY_APPOINTMENT_CLEARED = 'anacan.appointmentLocalReminders.cleared.v1';
+export const clearLegacyAppointmentNotifications = async () => {
+  if (!isNative) return;
+  try {
+    if (localStorage.getItem(LEGACY_APPOINTMENT_CLEARED)) return;
+    const pending = await LocalNotifications.getPending();
+    const stale = pending.notifications.filter((n) => n.id >= 400 && n.id < 1500);
+    if (stale.length) await LocalNotifications.cancel({ notifications: stale.map((n) => ({ id: n.id })) });
+    localStorage.setItem(LEGACY_APPOINTMENT_CLEARED, '1');
+  } catch (e) {
+    console.warn('clearLegacyAppointmentNotifications failed:', e);
   }
 };
 

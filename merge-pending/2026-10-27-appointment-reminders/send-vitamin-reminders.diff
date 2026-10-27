@@ -1,0 +1,26 @@
+--- send-vitamin-reminders.original.mjs	2026-10-27 11:47:35.716594400 +0400
++++ send-vitamin-reminders.mjs	2026-10-27 11:47:45.343767800 +0400
+@@ -6,6 +6,7 @@
+ import { getFirebaseAccessToken, sendFCMv1 } from './shared/fcm.mjs';
+ import { startRunLog, finishRunLog, logFailedSend, bumpReason } from './shared/notif-logging.mjs';
+ import { query, closePool } from './shared/db.mjs';
++import { runAppointmentReminders } from './send-appointment-reminders.mjs';
+ 
+ const TEST_USER_ID = process.env.TEST_USER_ID || null; // debug: yalnız bu istifadəçi üçün, vaxt pəncərəsi keçilir
+ const SKIP_DEDUP = process.env.SKIP_DEDUP === 'true';
+@@ -204,6 +205,15 @@
+     }
+     process.exitCode = 1;
+   } finally {
++    // Appointment reminders share this run (and its timer); an admin vitamin test skips them.
++    if (!manual) {
++      try {
++        await runAppointmentReminders({ query, getFirebaseAccessToken, sendFCMv1, startRunLog, finishRunLog, logFailedSend, bumpReason });
++      } catch (err) {
++        console.error('Error in appointment reminders:', err);
++        process.exitCode = 1;
++      }
++    }
+     await closePool();
+   }
+ }
