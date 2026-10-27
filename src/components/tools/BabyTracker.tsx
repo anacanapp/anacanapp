@@ -3,11 +3,11 @@ import { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Milk, Moon, Droplets, Plus, Trash2, type LucideIcon } from 'lucide-react';
 import { useBabyLogs } from '@/hooks/useBabyLogs';
 import { useChildren } from '@/hooks/useChildren';
+import { useBabyCareActions } from '@/hooks/useBabyCareActions';
 import { useAchievements } from '@/hooks/useAchievements';
 import { useToast } from '@/hooks/use-toast';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { useBabyLogsRange } from '@/hooks/useBabyLogsRange';
-import { useTimerStore } from '@/store/timerStore';
 import { hapticFeedback } from '@/lib/native';
 import { bc, durationUnits } from '@/lib/babycare-i18n';
 import {
@@ -22,7 +22,6 @@ import TrackerAIInsight, { useBabyInsight } from '@/components/baby/TrackerAIIns
 type Tab = 'feeding' | 'sleep' | 'diaper';
 const PERIODS = [7, 14, 30, 90] as const;
 const DIAPERS: { value: DiaperKind; emoji: string }[] = [{ value: 'wet', emoji: '💧' }, { value: 'dirty', emoji: '💩' }, { value: 'mixed', emoji: '💧💩' }];
-const FEEDING_PRO_AFTER = 9;
 const DIAPER_HERO_AFTER = 9;
 
 const dur = (m: number) => formatMinutes(m, durationUnits());
@@ -142,29 +141,17 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
   const { loading, addLog, deleteLog } = useBabyLogs();
   const range = useBabyLogsRange(90);
   const logs = range.logs;
-  const { selectedChild, hasMultipleChildren, getChildAge } = useChildren();
+  const { selectedChild, getChildAge } = useChildren();
   const { unlockAchievement } = useAchievements();
   const { toast } = useToast();
-  const childId = selectedChild?.id;
-  const childName = hasMultipleChildren ? selectedChild?.name : undefined;
-  const activeTimers = useTimerStore((s) => s.activeTimers);
-  const startTimer = useTimerStore((s) => s.startTimer);
-  const stopTimer = useTimerStore((s) => s.stopTimer);
 
   const [tab, setTab] = useState<Tab>('feeding');
   const [days, setDays] = useState<number>(7);
   const [ml, setMl] = useState('');
   const [food, setFood] = useState('');
-  const [busy, setBusy] = useState(false);
   // Minute clock for "x min ago" and day boundaries; the running timers tick on their own.
   const [now, setNow] = useState(() => new Date());
   useEffect(() => { const id = window.setInterval(() => setNow(new Date()), 30_000); return () => window.clearInterval(id); }, []);
-
-  const timerFor = (pred: (t: typeof activeTimers[number]) => boolean) =>
-    activeTimers.find((t) => (t.childId ?? undefined) === (childId ?? undefined) && pred(t));
-  const leftTimer = timerFor((t) => t.type === 'feeding' && t.feedType === 'left');
-  const rightTimer = timerFor((t) => t.type === 'feeding' && t.feedType === 'right');
-  const sleepTimer = timerFor((t) => t.type === 'sleep');
 
   const today = useMemo(() => logsOfDay(logs, now), [logs, now]);
   const feedToday = useMemo(() => feedingStats(today), [today]);
@@ -177,67 +164,12 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
   const trend = useMemo(() => trendPoints(logs, tab, now, days), [logs, tab, now, days]);
   const history = useMemo(() => dailyHistory(logs, now, days).filter((r) => r.feedings + r.diapers + r.sleepMinutes > 0), [logs, now, days]);
   const labelOf = dayLabel(days);
-
-  const saveError = (): void => { toast({ title: bc('babytracker_save_error'), variant: 'destructive' }); };
-  const run = async (fn: () => Promise<void>) => {
-    if (busy) return;
-    setBusy(true);
-    try { await fn(); } finally { setBusy(false); }
-  };
   const refresh = () => { void range.refresh(); };
+  const { busy, run, saveError, leftTimer, rightTimer, sleepTimer, toggleBreast, saveFormula: saveFormulaMl, saveSolid: saveSolidName, toggleSleep } =
+    useBabyCareActions({ onSaved: refresh, feedingsToday: feedToday.total });
 
-  const toggleBreast = (side: 'left' | 'right') => run(async () => {
-    void hapticFeedback.medium();
-    const timer = side === 'left' ? leftTimer : rightTimer;
-    if (!timer) { startTimer('feeding', side, undefined, childId, childName); return; }
-    const result = stopTimer(timer.id);
-    if (!result) return;
-    const end = new Date();
-    const { error } = await addLog({
-      log_type: 'feeding', feed_type: side === 'left' ? 'breast_left' : 'breast_right',
-      start_time: new Date(end.getTime() - result.durationSeconds * 1000).toISOString(), end_time: end.toISOString(),
-    });
-    if (error) return saveError();
-    refresh();
-    toast({ title: side === 'left' ? bc('babytracker_left_done') : bc('babytracker_right_done'), description: `${bc('babytracker_duration')}: ${formatClockSeconds(result.durationSeconds)}` });
-    if (feedToday.total >= FEEDING_PRO_AFTER) void unlockAchievement('feeding_pro', 'mommy');
-  });
-
-  const saveFormula = () => run(async () => {
-    const amount = Math.round(Number(ml.replace(',', '.')));
-    if (!Number.isFinite(amount) || amount <= 0 || amount > 1000) { toast({ title: bc('babytracker_ml_invalid'), variant: 'destructive' }); return; }
-    void hapticFeedback.light();
-    const { error } = await addLog({ log_type: 'feeding', feed_type: 'formula', notes: `${amount} ml` });
-    if (error) return saveError();
-    refresh(); setMl('');
-    toast({ title: `${bc('babytracker_formula')} ${amount} ml ${bc('babytracker_saved')}` });
-  });
-
-  const saveSolid = () => run(async () => {
-    const name = food.trim().slice(0, 80);
-    if (!name) return;
-    void hapticFeedback.light();
-    const { error } = await addLog({ log_type: 'feeding', feed_type: 'solid', notes: name });
-    if (error) return saveError();
-    refresh(); setFood('');
-    toast({ title: `${name} ${bc('babytracker_saved')}` });
-  });
-
-  const toggleSleep = () => run(async () => {
-    void hapticFeedback.medium();
-    if (!sleepTimer) {
-      startTimer('sleep', undefined, undefined, childId, childName);
-      toast({ title: bc('babytracker_sleep_started'), description: bc('babytracker_tap_to_stop') });
-      return;
-    }
-    const result = stopTimer(sleepTimer.id);
-    if (!result) return;
-    const end = new Date();
-    const { error } = await addLog({ log_type: 'sleep', start_time: new Date(end.getTime() - result.durationSeconds * 1000).toISOString(), end_time: end.toISOString() });
-    if (error) return saveError();
-    refresh();
-    toast({ title: bc('babytracker_sleep_ended'), description: `${bc('babytracker_slept')}: ${formatClockSeconds(result.durationSeconds)}` });
-  });
+  const saveFormula = async () => { if (await saveFormulaMl(Number(ml.replace(',', '.')))) setMl(''); };
+  const saveSolid = async () => { if (await saveSolidName(food)) setFood(''); };
 
   const addDiaper = (kind: DiaperKind) => run(async () => {
     void hapticFeedback.light();

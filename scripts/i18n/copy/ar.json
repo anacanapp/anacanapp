@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "عدد تغييرات الحفاض",
   "sleeptraining_tool_desc": "جدول نوم وروتين وخطة 14 يومًا للأطفال من 1 إلى 12 شهرًا",
   "babytracker_tool_name": "متتبع الطفل",
-  "babytracker_tool_desc": "سجلات التغذية والنوم والحفاض في مكان واحد"
+  "babytracker_tool_desc": "سجلات التغذية والنوم والحفاض في مكان واحد",
+  "home_formula": "حليب صناعي",
+  "home_solid": "طعام صلب",
+  "home_other_ml": "كمية أخرى"
  }
 }

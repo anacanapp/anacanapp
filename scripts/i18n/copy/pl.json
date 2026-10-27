@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Liczba zmian pieluchy",
   "sleeptraining_tool_desc": "Plan dnia, rytuał snu i plan na 14 dni dla dziecka w wieku 1–12 mies.",
   "babytracker_tool_name": "Dziennik dziecka",
-  "babytracker_tool_desc": "Karmienie, sen i pieluchy w jednym miejscu"
+  "babytracker_tool_desc": "Karmienie, sen i pieluchy w jednym miejscu",
+  "home_formula": "Mleko modyfikowane",
+  "home_solid": "Rozszerzanie diety",
+  "home_other_ml": "Inna ilość"
  }
 }

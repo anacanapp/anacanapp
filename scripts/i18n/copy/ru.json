@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Смены подгузника",
   "sleeptraining_tool_desc": "График сна, ритуал и план на 14 дней для малышей 1–12 месяцев",
   "babytracker_tool_name": "Трекер малыша",
-  "babytracker_tool_desc": "Кормления, сон и подгузники в одном месте"
+  "babytracker_tool_desc": "Кормления, сон и подгузники в одном месте",
+  "home_formula": "Смесь (заменитель молока)",
+  "home_solid": "Прикорм",
+  "home_other_ml": "Другое количество"
  }
 }

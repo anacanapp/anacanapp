@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Antal blöjbyten",
   "sleeptraining_tool_desc": "Sömnschema, rutin och 14-dagarsplan för barn 1–12 månader",
   "babytracker_tool_name": "Bebislogg",
-  "babytracker_tool_desc": "Matning, sömn och blöjor på ett ställe"
+  "babytracker_tool_desc": "Matning, sömn och blöjor på ett ställe",
+  "home_formula": "Modersmjölksersättning",
+  "home_solid": "Smakportioner",
+  "home_other_ml": "Annan mängd"
  }
 }

@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "おむつ替えの回数",
   "sleeptraining_tool_desc": "生後1–12か月の赤ちゃんの睡眠スケジュール、ルーティン、14日間プラン",
   "babytracker_tool_name": "ベビートラッカー",
-  "babytracker_tool_desc": "授乳・睡眠・おむつの記録をひとまとめに"
+  "babytracker_tool_desc": "授乳・睡眠・おむつの記録をひとまとめに",
+  "home_formula": "粉ミルク",
+  "home_solid": "離乳食",
+  "home_other_ml": "その他の量"
  }
 }

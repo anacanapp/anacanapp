@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Windelwechsel",
   "sleeptraining_tool_desc": "Schlafplan, Routine und 14-Tage-Plan für Babys von 1–12 Monaten",
   "babytracker_tool_name": "Baby-Tracker",
-  "babytracker_tool_desc": "Füttern, Schlaf und Windeln an einem Ort"
+  "babytracker_tool_desc": "Füttern, Schlaf und Windeln an einem Ort",
+  "home_formula": "Säuglingsnahrung",
+  "home_solid": "Beikost",
+  "home_other_ml": "Andere Menge"
  }
 }

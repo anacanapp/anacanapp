@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Bez dəyişmə sayı",
   "sleeptraining_tool_desc": "1–12 aylıq körpələr üçün yuxu cədvəli, rutin və 14 günlük plan",
   "babytracker_tool_name": "Körpə izləyicisi",
-  "babytracker_tool_desc": "Qidalanma, yuxu və bez qeydləri bir yerdə"
+  "babytracker_tool_desc": "Qidalanma, yuxu və bez qeydləri bir yerdə",
+  "home_formula": "Süni qida · süd əvəzedicisi",
+  "home_solid": "Əlavə qida",
+  "home_other_ml": "Başqa miqdar"
  }
 }

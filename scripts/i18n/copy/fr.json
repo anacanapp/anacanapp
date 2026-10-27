@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Nombre de changes",
   "sleeptraining_tool_desc": "Horaires de sommeil, routine et plan de 14 jours pour les bébés de 1 à 12 mois",
   "babytracker_tool_name": "Suivi de bébé",
-  "babytracker_tool_desc": "Repas, sommeil et couches au même endroit"
+  "babytracker_tool_desc": "Repas, sommeil et couches au même endroit",
+  "home_formula": "Lait infantile",
+  "home_solid": "Diversification",
+  "home_other_ml": "Autre quantité"
  }
 }

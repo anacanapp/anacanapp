@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Aantal verschoningen",
   "sleeptraining_tool_desc": "Slaapschema, ritueel en 14-dagenplan voor baby's van 1–12 maanden",
   "babytracker_tool_name": "Babytracker",
-  "babytracker_tool_desc": "Voeding, slaap en luiers op één plek"
+  "babytracker_tool_desc": "Voeding, slaap en luiers op één plek",
+  "home_formula": "Flesvoeding",
+  "home_solid": "Vast voedsel",
+  "home_other_ml": "Andere hoeveelheid"
  }
 }

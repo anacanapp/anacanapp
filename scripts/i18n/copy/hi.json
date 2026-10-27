@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "डायपर बदलने की संख्या",
   "sleeptraining_tool_desc": "1–12 महीने के शिशु के लिए नींद का शेड्यूल, दिनचर्या और 14 दिन की योजना",
   "babytracker_tool_name": "शिशु ट्रैकर",
-  "babytracker_tool_desc": "आहार, नींद और डायपर रिकॉर्ड एक ही जगह"
+  "babytracker_tool_desc": "आहार, नींद और डायपर रिकॉर्ड एक ही जगह",
+  "home_formula": "फ़ॉर्मूला दूध",
+  "home_solid": "ठोस आहार",
+  "home_other_ml": "अन्य मात्रा"
  }
 }

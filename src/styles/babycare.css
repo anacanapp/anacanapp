@@ -180,3 +180,17 @@
 .st-hero-foot { display: inline-flex; align-items: center; gap: 6px; margin: 0; font-size: 12.5px; font-weight: 700; color: var(--a-lav-ink); }
 @media (prefers-reduced-motion: reduce) { .st-live-btn.on::after, .st-chart-col i { animation: none; } }
 html.a-lite .st-live-btn.on::after { animation: none; }
+
+/* Baby home feeding / sleep widgets */
+.bt-widget { gap: 12px; }
+.bt-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.bt-options .a3-chip-btn { height: 40px; padding: 0 14px; }
+.bt-extra { display: flex; flex-direction: column; gap: 10px; }
+.bt-presets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.bt-preset { min-height: 44px; border: 0; border-radius: 14px; background: var(--a-surface-soft); color: var(--a-ink); font-size: 15px; font-weight: 600; cursor: pointer; transition: transform 160ms var(--a-ease); }
+.bt-preset:active { transform: scale(0.96); }
+.bt-preset:disabled { opacity: 0.5; }
+.bt-sleep-row { display: flex; align-items: center; gap: 12px; }
+.bt-sleep-row .grow { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.bt-sleep-live { font-size: 22px; font-weight: 700; color: var(--a-ink); letter-spacing: -0.02em; }
+.bt-options .a3-chip-btn.on { background: var(--a-coral-soft); border-color: var(--a-coral-strong); color: var(--a-accent-ink); }

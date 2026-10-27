@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "换尿布次数",
   "sleeptraining_tool_desc": "1–12 个月宝宝的作息表、睡前流程和 14 天计划",
   "babytracker_tool_name": "宝宝记录",
-  "babytracker_tool_desc": "喂养、睡眠和尿布记录一站搞定"
+  "babytracker_tool_desc": "喂养、睡眠和尿布记录一站搞定",
+  "home_formula": "配方奶",
+  "home_solid": "辅食",
+  "home_other_ml": "其他量"
  }
 }

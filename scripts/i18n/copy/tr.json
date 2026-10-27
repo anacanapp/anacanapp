@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Bez değişimi sayısı",
   "sleeptraining_tool_desc": "1–12 aylık bebekler için uyku düzeni, rutin ve 14 günlük plan",
   "babytracker_tool_name": "Bebek takibi",
-  "babytracker_tool_desc": "Beslenme, uyku ve bez kayıtları tek yerde"
+  "babytracker_tool_desc": "Beslenme, uyku ve bez kayıtları tek yerde",
+  "home_formula": "Mama (süt yerine)",
+  "home_solid": "Ek gıda",
+  "home_other_ml": "Başka miktar"
  }
 }

@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Trocas de fralda",
   "sleeptraining_tool_desc": "Horários de sono, rotina e plano de 14 dias para bebês de 1–12 meses",
   "babytracker_tool_name": "Diário do bebê",
-  "babytracker_tool_desc": "Registros de alimentação, sono e fraldas em um só lugar"
+  "babytracker_tool_desc": "Registros de alimentação, sono e fraldas em um só lugar",
+  "home_formula": "Fórmula infantil",
+  "home_solid": "Papinha",
+  "home_other_ml": "Outra quantidade"
  }
 }

@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Jumlah ganti popok",
   "sleeptraining_tool_desc": "Jadwal tidur, rutinitas, dan rencana 14 hari untuk bayi 1–12 bulan",
   "babytracker_tool_name": "Pelacak bayi",
-  "babytracker_tool_desc": "Catatan menyusu, tidur, dan popok di satu tempat"
+  "babytracker_tool_desc": "Catatan menyusu, tidur, dan popok di satu tempat",
+  "home_formula": "Susu formula",
+  "home_solid": "MPASI",
+  "home_other_ml": "Jumlah lain"
  }
 }

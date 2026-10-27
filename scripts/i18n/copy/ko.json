@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "기저귀 교체 횟수",
   "sleeptraining_tool_desc": "생후 1–12개월 아기를 위한 수면 일정, 루틴, 14일 플랜",
   "babytracker_tool_name": "아기 기록",
-  "babytracker_tool_desc": "수유, 수면, 기저귀 기록을 한곳에서"
+  "babytracker_tool_desc": "수유, 수면, 기저귀 기록을 한곳에서",
+  "home_formula": "분유",
+  "home_solid": "이유식",
+  "home_other_ml": "다른 양"
  }
 }

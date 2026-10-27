@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Số lần thay tã",
   "sleeptraining_tool_desc": "Lịch ngủ, nếp sinh hoạt và kế hoạch 14 ngày cho bé 1–12 tháng",
   "babytracker_tool_name": "Theo dõi bé",
-  "babytracker_tool_desc": "Ghi chép ăn bú, giấc ngủ và thay tã ở cùng một nơi"
+  "babytracker_tool_desc": "Ghi chép ăn bú, giấc ngủ và thay tã ở cùng một nơi",
+  "home_formula": "Sữa công thức",
+  "home_solid": "Ăn dặm",
+  "home_other_ml": "Lượng khác"
  }
 }

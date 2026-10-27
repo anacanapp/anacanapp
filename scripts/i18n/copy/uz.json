@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Taglik almashtirish soni",
   "sleeptraining_tool_desc": "1–12 oylik chaqaloq uchun uyqu jadvali, tartib va 14 kunlik reja",
   "babytracker_tool_name": "Chaqaloq trekeri",
-  "babytracker_tool_desc": "Ovqatlanish, uyqu va taglik qaydlari bir joyda"
+  "babytracker_tool_desc": "Ovqatlanish, uyqu va taglik qaydlari bir joyda",
+  "home_formula": "Sun’iy aralashma",
+  "home_solid": "Qo‘shimcha ovqat",
+  "home_other_ml": "Boshqa miqdor"
  }
 }

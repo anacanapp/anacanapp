@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Жөргек ауыстыру саны",
   "sleeptraining_tool_desc": "1–12 айлық нәрестеге ұйқы кестесі, рәсім және 14 күндік жоспар",
   "babytracker_tool_name": "Нәресте трекері",
-  "babytracker_tool_desc": "Тамақтану, ұйқы және жөргек жазбалары бір жерде"
+  "babytracker_tool_desc": "Тамақтану, ұйқы және жөргек жазбалары бір жерде",
+  "home_formula": "Жасанды қоспа",
+  "home_solid": "Қосымша тағам",
+  "home_other_ml": "Басқа мөлшер"
  }
 }

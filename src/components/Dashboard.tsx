@@ -47,7 +47,6 @@ import DailySummaryAutoSync from '@/components/partner/DailySummaryAutoSync';
 import PartnerCareCard from '@/components/partner/v2/PartnerCareCard';
 import RedFlagBanner from '@/components/dashboard/RedFlagBanner';
 import RecentBlogPosts from '@/components/dashboard/RecentBlogPosts';
-import ModuleArticles from '@/components/blog/ModuleArticles';
 import FlowDashboard, { type FlowHeroContext } from '@/components/flow/FlowDashboard';
 import BirthOnboardingModal from '@/components/BirthOnboardingModal';
 import { MommyPeriodBanner } from '@/components/mommy/MommyPeriodTracker';
@@ -61,8 +60,8 @@ import { TrackerTile } from '@/components/anacan/TrackerTile';
 import { Section, InfoTabs } from '@/components/anacan/Section';
 import { Mascot } from '@/components/anacan/Mascot';
 import { AskBar, DayPlan, Upcoming, QuickTools, HomeTopbar, greetingKey } from '@/components/home/HomeParts';
-import { MommyHero, useVaccineEvents, clockDuration, agoLabel, hoursMinutes } from '@/components/home/MommyHome';
-import { bc } from '@/lib/babycare-i18n';
+import { MommyHero, useVaccineEvents, clockDuration } from '@/components/home/MommyHome';
+import { FeedingWidget, SleepWidget } from '@/components/home/BabyCareWidgets';
 import { AptekHomeCard } from '@/components/aptek/AptekEntry';
 import { BumpHero, MonthGallery, WeekSheet, pregnancyMilestones, fetusMonthOf } from '@/components/home/BumpHome';
 import { useDisabledTools } from '@/hooks/useDisabledTools';
@@ -91,13 +90,11 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateTo
 
   const {
     selectedDay: pregnancyDay,
-    actualCurrentDay,
     selectedWeek,
     selectedDayInWeek,
     selectedTrimester,
     daysUntilDueFromSelected,
-    isViewingCurrentDay,
-    navigateToDay
+    isViewingCurrentDay
   } = usePregnancyDayNavigation({
     lastPeriodDate: pregData?.lastPeriodDate || null,
     dueDate: pregData?.dueDate
@@ -123,13 +120,6 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateTo
   const showBirthButton = pregData?.currentWeek ? pregData.currentWeek >= 27 : false;
   const weekData = getDynamicFruitData(fruitImages, pregnancyDay, selectedWeek, dayContent);
   const [greetKey, greetFallback] = greetingKey();
-
-  // Week stepping moves the selected day by 7 (clamped by the hook); "now" resets.
-  const stepWeek = (delta: number) => {
-    void hapticFeedback.light();
-    const target = pregnancyDay + delta * 7;
-    navigateToDay(Math.abs(target - actualCurrentDay) < 7 ? actualCurrentDay : target);
-  };
 
   const headline = (() => {
     // Tək körpədə "mən danışıram" (1-ci şəxs) səsi təbiidir; əkiz/üçüzdə isə hər körpə
@@ -174,22 +164,7 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateTo
         headline={headline}
         firstLine={dayContent?.baby_development?.split('. ')[0]}
         fetusSrc={fetusImageFromDb}
-        onPrevWeek={() => stepWeek(-1)}
-        onNextWeek={() => stepWeek(1)}
         onOpenWeek={() => setWeekSheet(selectedWeek)} />
-
-      <div className="a3-today" aria-label={rd('today')}>
-        <TrackerTile icon={Droplets} tone="c-blue" value={`${waterCount}/${waterTarget('bump')}`} label={rd('tk_water')} plus count={waterCount} ariaLabel={rd('add_water')} onClick={() => { void updateWaterIntake(1); }} />
-        {selectedWeek >= 16 ?
-        <TrackerTile icon={Footprints} tone="c-peach" value={kickCount} label={rd('tk_kicks')} plus count={kickCount} ariaLabel={rd('add_kick')} onClick={addKick} /> :
-        <TrackerTile icon={Scale} tone="c-green" value={latestWeight ? Number(latestWeight).toLocaleString() : '—'} label={rd('tk_weight')} onClick={() => onNavigateToTool?.('weight')} />}
-        <TrackerTile icon={Pill} tone="c-yellow" value={vitaminSchedules.length ? `${vitaminLogs.length}/${vitaminSchedules.length}` : '—'} label={rd('tk_vitamin')} onClick={() => onNavigateToTool?.('vitamin-tracker')} />
-        <TrackerTile icon={Smile} tone="c-pink" value={currentMood ? `${currentMood}/5` : '—'} label={rd('tk_mood')} onClick={() => onNavigateToTool?.('mood')} />
-      </div>
-
-      <AskBar placeholder={rd('ask_placeholder')} onAsk={onOpenAI} />
-
-      <DayPlan stage="bump" week={selectedWeek} onNavigateToTool={onNavigateToTool} />
 
       {dayContent?.baby_message &&
       <section className="a3-sec">
@@ -203,11 +178,24 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateTo
         </section>
       }
 
+      <div className="a3-today" aria-label={rd('today')}>
+        <TrackerTile icon={Droplets} tone="c-blue" value={`${waterCount}/${waterTarget('bump')}`} label={rd('tk_water')} plus count={waterCount} ariaLabel={rd('add_water')} onClick={() => { void updateWaterIntake(1); }} />
+        {selectedWeek >= 16 ?
+        <TrackerTile icon={Footprints} tone="c-peach" value={kickCount} label={rd('tk_kicks')} plus count={kickCount} ariaLabel={rd('add_kick')} onClick={addKick} /> :
+        <TrackerTile icon={Scale} tone="c-green" value={latestWeight ? Number(latestWeight).toLocaleString() : '—'} label={rd('tk_weight')} onClick={() => onNavigateToTool?.('weight')} />}
+        <TrackerTile icon={Pill} tone="c-yellow" value={vitaminSchedules.length ? `${vitaminLogs.length}/${vitaminSchedules.length}` : '—'} label={rd('tk_vitamin')} onClick={() => onNavigateToTool?.('vitamin-tracker')} />
+        <TrackerTile icon={Smile} tone="c-pink" value={currentMood ? `${currentMood}/5` : '—'} label={rd('tk_mood')} onClick={() => onNavigateToTool?.('mood')} />
+      </div>
+
+      <AskBar placeholder={rd('ask_placeholder')} onAsk={onOpenAI} />
+
       {infoTabs.length > 0 &&
       <Section title={isViewingCurrentDay ? rd('this_week') : rd('week_n', { n: selectedWeek })}>
           <InfoTabs tabs={infoTabs} />
         </Section>
       }
+
+      <DayPlan stage="bump" week={selectedWeek} onNavigateToTool={onNavigateToTool} />
 
       {/* Əkiz/çoxdöllü hamiləliyə xas məsləhət — YALNIZ isMultiple=true olanlara,
           yalnız məzmun mövcud olan günlərdə (bax Duzelis29/32.sql). applyLanguage()
@@ -476,7 +464,18 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
         sleepMinutes={aiInsightStats.sleepMinutes}
         onOpenDay={() => onNavigateToTool?.('baby-tracker')} />
 
-      <div className="a3-today" aria-label={rd('today')}>
+      {/* Bu günün məlumatı, anaya mesaj və ayın inkişafı — bir kartda, tablarla */}
+      {(dailyInfo || mommyMessage || illustrationTitle) &&
+      <Section title={tr('dashboard_todays_info', 'Bu günün məlumatları')} meta={<span className="a3-chip a3-num">{tr('mommy_hero_day_label', 'Gün')} {contentDay}</span>}>
+          <InfoTabs tabs={[
+          { label: tr('dashboard_daily_badge', 'Gündəlik'), text: dailyInfo?.info },
+          { label: tr('dashboard_message_for_mom', 'Anaya Mesaj'), text: mommyMessage?.message },
+          { label: illustrationTitle || '', text: illustrationDescription }].
+          filter((t): t is {label: string;text: string;} => !!t.label && !!t.text)} />
+        </Section>
+      }
+
+      <div className="a3-today" aria-label={rd('today')} data-blog-module-section="diaper" tabIndex={-1}>
         <TrackerTile icon={Baby} tone="c-peach" value={todayStats.feedingCount} label={rd('tk_feed')} live={!!(leftFeedTimer || rightFeedTimer)} onClick={() => onNavigateToTool?.('baby-tracker')} />
         <TrackerTile icon={Moon} tone="c-lav" value={sleepTimer ? <ElapsedTime id={sleepTimer.id} /> : clockDuration(aiInsightStats.sleepMinutes)} label={rd('tk_sleep')} live={!!sleepTimer} onClick={() => onNavigateToTool?.('baby-tracker')} />
         <TrackerTile icon={Droplet} tone="c-yellow" value={todayStats.diaperCount} label={rd('tk_diaper')} onClick={() => onNavigateToTool?.('baby-tracker')} />
@@ -486,6 +485,11 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
       <AskBar placeholder={rd('ask_baby', { name: babyData.name })} onAsk={onOpenAI} />
 
       <DayPlan stage="mommy" babyMonths={exactMonths} onNavigateToTool={onNavigateToTool} />
+
+      {/* Qidalanma və yuxu — evdən birbaşa qeyd; tam tarixçə Körpə izləyicisi alətindədir.
+          data-blog-module-section anker-ləri (feeding / sleep / diaper) məqalə deep link-ləri üçündür. */}
+      <FeedingWidget feedingsToday={todayStats.feedingCount} lastFeedIso={lastFeedIso} onOpenTracker={() => onNavigateToTool?.('baby-tracker')} />
+      <SleepWidget sleepMinutesToday={aiInsightStats.sleepMinutes} onOpenTracker={() => onNavigateToTool?.('baby-tracker')} />
 
       <Upcoming
         events={vaccineEvents} />
@@ -510,40 +514,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
         </section>
       }
 
-      {/* Bu günün məlumatı, anaya mesaj və ayın inkişafı — bir kartda, tablarla */}
-      {(dailyInfo || mommyMessage || illustrationTitle) &&
-      <Section title={tr('dashboard_todays_info', 'Bu günün məlumatları')} meta={<span className="a3-chip a3-num">{tr('mommy_hero_day_label', 'Gün')} {contentDay}</span>}>
-          <InfoTabs tabs={[
-          { label: tr('dashboard_daily_badge', 'Gündəlik'), text: dailyInfo?.info },
-          { label: tr('dashboard_message_for_mom', 'Anaya Mesaj'), text: mommyMessage?.message },
-          { label: illustrationTitle || '', text: illustrationDescription }].
-          filter((t): t is {label: string;text: string;} => !!t.label && !!t.text)} />
-        </Section>
-      }
-
-      {/* Körpə qulluğu — qısa xülasə; tam izləyici Körpə izləyicisi alətindədir.
-          data-blog-module-section anker-ləri məqalə deep link-ləri üçün qalır. */}
-      <section className="a3-sec">
-        <button type="button" className="a3-card a3-pad bt-home" onClick={() => onNavigateToTool?.('baby-tracker')}>
-          <span className="a3-entry-head"><span className="a3-entry-title">{bc('babytracker_title')}</span><ChevronRight size={18} className="rtl:rotate-180" /></span>
-          <span className="bt-home-row" data-blog-module-section="feeding" tabIndex={-1}>
-            <span className="a3-ico-sq sm c-peach" aria-hidden="true"><Baby size={16} /></span>
-            <span className="grow">{rd('tk_feed')}</span>
-            <b className="a3-num">{todayStats.feedingCount}{lastFeedIso ? ` · ${agoLabel(lastFeedIso)}` : ''}</b>
-          </span>
-          <span className="bt-home-row" data-blog-module-section="sleep" tabIndex={-1}>
-            <span className="a3-ico-sq sm c-lav" aria-hidden="true"><Moon size={16} /></span>
-            <span className="grow">{rd('tk_sleep')}</span>
-            <b className="a3-num">{sleepTimer ? <ElapsedTime id={sleepTimer.id} /> : hoursMinutes(aiInsightStats.sleepMinutes)}</b>
-          </span>
-          <span className="bt-home-row" data-blog-module-section="diaper" tabIndex={-1}>
-            <span className="a3-ico-sq sm c-yellow" aria-hidden="true"><Droplet size={16} /></span>
-            <span className="grow">{rd('tk_diaper')}</span>
-            <b className="a3-num">{todayStats.diaperCount}</b>
-          </span>
-        </button>
-      </section>
-
       <section className="a3-sec"><MotherSleepWidget /></section>
 
       {/* Teething — Premium */}
@@ -566,7 +536,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate, onOpenAI }: {onNavigateT
           subtitle={tr('premiumgate_growth_sub', 'ÜST standartları ilə müqayisəli inkişaf qrafikləri Premium-da')}
         >
           <GrowthTrackerWidget />
-          <ModuleArticles module="babyGrowth" />
         </PremiumBlurGate>
       </div>
 

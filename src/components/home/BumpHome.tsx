@@ -1,5 +1,5 @@
 // Redesign v3: pregnancy home pieces (hero with ring + fetus art, month gallery, week sheet, milestones).
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { ChevronLeft, ChevronRight, Check, Heart, User, Sparkles } from 'lucide-react';
 import { rd } from '@/lib/redesign-i18n';
 import { tr } from '@/lib/tr';
@@ -41,39 +41,20 @@ const formatSize = (g: number) => (g >= 1000 ? rd('unit_kg', { n: (Math.round(g 
 
 export function BumpHero({
   greeting, week, dayInWeek, day, trimester, isNow, daysLeft, fruit, lengthCm, weightG, headline, firstLine,
-  fetusSrc, onPrevWeek, onNextWeek, onOpenWeek,
+  fetusSrc, onOpenWeek,
 }: {
   greeting: string; week: number; dayInWeek: number; day: number; trimester: number; isNow: boolean; daysLeft: number;
   fruit: string; lengthCm: number; weightG: number; headline: React.ReactNode; firstLine?: string;
-  fetusSrc?: string | null; onPrevWeek: () => void; onNextWeek: () => void; onOpenWeek: () => void;
+  fetusSrc?: string | null; onOpenWeek: () => void;
 }) {
   const month = fetusMonthOf(week);
   const triFill = [[0, 13], [13, 27], [27, 40]].map(([a, b]) => Math.max(0, Math.min(1, (day / 7 - a) / (b - a))) * 100);
-  const swipe = useRef<{ x: number; y: number } | null>(null);
-  const [dx, setDx] = useState(0);
   return (
-    <section
-      className="a3-hero"
-      aria-label={rd('week_n', { n: week })}
-      onPointerDown={(e) => { if (!(e.target as HTMLElement).closest('button')) swipe.current = { x: e.clientX, y: e.clientY }; }}
-      onPointerMove={(e) => { const s = swipe.current; if (s && Math.abs(e.clientX - s.x) > Math.abs(e.clientY - s.y)) setDx((e.clientX - s.x) * 0.4); }}
-      onPointerUp={(e) => {
-        const s = swipe.current; swipe.current = null; setDx(0);
-        if (!s) return;
-        const delta = e.clientX - s.x;
-        const rtl = document.documentElement.dir === 'rtl';
-        if (Math.abs(delta) > 48) ((delta < 0) !== rtl ? onNextWeek : onPrevWeek)();
-      }}
-      onPointerCancel={() => { swipe.current = null; setDx(0); }}
-    >
+    <section className="a3-hero" aria-label={rd('week_n', { n: week })}>
       <div className="a3-hero-top">
-        <span className="a3-chip ac">{isNow ? greeting : rd('week_preview')}</span>
-        <span className="a3-stepper">
-          <button type="button" onClick={onPrevWeek} disabled={week <= 4} aria-label={rd('prev_week')}><ChevronLeft size={16} className="rtl:rotate-180" /></button>
-          <button type="button" onClick={onNextWeek} disabled={week >= 40} aria-label={rd('next_week')}><ChevronRight size={16} className="rtl:rotate-180" /></button>
-        </span>
+        <span className="a3-chip ac">{greeting}</span>
       </div>
-      <div className="a3-hero-main" style={{ transform: dx ? `translateX(${dx}px)` : undefined, transition: dx ? 'none' : undefined }}>
+      <div className="a3-hero-main">
         <button type="button" className="a3-ring-btn" onClick={onOpenWeek} aria-label={rd('week_details', { n: week })}>
           <Ring value={(day / 280) * 100}>
             <b className="a3-num">{week}</b>

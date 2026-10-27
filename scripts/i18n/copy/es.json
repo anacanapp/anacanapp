@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Cambios de pañal",
   "sleeptraining_tool_desc": "Horario de sueño, rutina y plan de 14 días para bebés de 1–12 meses",
   "babytracker_tool_name": "Registro del bebé",
-  "babytracker_tool_desc": "Tomas, sueño y pañales en un solo lugar"
+  "babytracker_tool_desc": "Tomas, sueño y pañales en un solo lugar",
+  "home_formula": "Leche de fórmula",
+  "home_solid": "Alimentación complementaria",
+  "home_other_ml": "Otra cantidad"
  }
 }

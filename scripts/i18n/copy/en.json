@@ -537,6 +537,9 @@
   "babytracker_trend_diaper": "Diaper changes",
   "sleeptraining_tool_desc": "Sleep schedule, routine and a 14-day plan for babies 1–12 months",
   "babytracker_tool_name": "Baby tracker",
-  "babytracker_tool_desc": "Feeding, sleep and diaper logs in one place"
+  "babytracker_tool_desc": "Feeding, sleep and diaper logs in one place",
+  "home_formula": "Formula",
+  "home_solid": "Solid food",
+  "home_other_ml": "Other amount"
  }
 }
