@@ -24,28 +24,39 @@ Trigger yoxdur: build yalnız **Start new build** ilə başlayır. Personal hesa
    native layihəyə (repoda Google-un test ID-ləri durur), Customer.io write key yalnız
    generated `capacitor.config.json` → `plugins.CustomerIoDataIn`-ə yazılır. Key web
    bundle-da tapılsa build dayanır.
-5. iOS: App Store profilləri (app + widget) tətbiq olunur, `MARKETING_VERSION=$APP_VERSION`,
+5. iOS: sertifikat və App Store profilləri (app + widget) API ilə gətirilir/yaradılır, `MARKETING_VERSION=$APP_VERSION`,
    `CURRENT_PROJECT_VERSION=$APP_VERSION.$BUILD_NUMBER` (məs. `48.0.3`).
    Android: `versionName=$APP_VERSION`, `versionCode=$ANDROID_VERSION_CODE`.
 
 ## Codemagic-də bir dəfəlik qurulum
 
+Personal hesabda Team integrations / Code signing identities menyuları yoxdur. Ona görə
+bütün imzalama dəyərləri tətbiqin öz **Environment variables** tab-ındadır
+(app → **Settings** → **Environment variables**). Hər dəyişən **Secret** işarələnir və
+aşağıdakı qrup adına əlavə edilir.
+
 1. **Personal** hesabla GitHub üzərindən daxil olun, `anacanapp/anacanapp` repo-nu
    əlavə edin, layihə tipi **Ionic**. Konfiqurasiya `codemagic.yaml`-dan oxunur.
-2. **App Store Connect API key** (Integrations → Developer Portal): App Store Connect →
-   Users and Access → Integrations → yeni key (App Manager). Codemagic-də adı dəqiq
-   **`Anacan ASC`** olmalıdır.
-3. **iOS code signing** (Code signing identities): mövcud Apple Distribution
-   sertifikatını `.p12` kimi yükləyin (və ya Codemagic-də yaradın), sonra
-   **Fetch profiles** ilə `com.atlasoon.anacan` və
-   `com.atlasoon.anacan.AnacanTimerWidgetExt` App Store profillərini gətirin.
-   Profillərdə push (production), HealthKit, Sign in with Apple və
-   `group.com.atlasoon.anacan` olmalıdır.
-4. **Android keystore** (Code signing identities → Android keystores): mövcud Play
-   upload keystore-u (`anacan-release-key.jks`) parolları və alias ilə yükləyin,
-   reference adı **`anacan_upload`**. Yeni keystore yaratmayın: Play yalnız mövcud
-   upload açarını qəbul edir.
-5. **Environment variables** → qrup **`anacan_native`**, hamısı **Secure**:
+2. Qrup **`anacan_ios_signing`**:
+   - `APP_STORE_CONNECT_ISSUER_ID`, `APP_STORE_CONNECT_KEY_IDENTIFIER`,
+     `APP_STORE_CONNECT_PRIVATE_KEY` (`.p8` faylının bütün mətni). Açar: App Store
+     Connect → Users and Access → Integrations → App Store Connect API → Team Keys,
+     rol **App Manager**. `.p8` yalnız bir dəfə endirilir.
+   - `CERTIFICATE_PRIVATE_KEY`: Codemagic-ə məxsus sertifikat açarı (PEM, bütün mətn,
+     `BEGIN/END RSA PRIVATE KEY` sətirləri daxil). Bir dəfə yaradılır və saxlanır:
+     `ssh-keygen -t rsa -b 2048 -m PEM -f anacan_codemagic_cert_key -q -N ""`.
+     İlk build bu açarla yeni Apple Distribution sertifikatı və app + widget üçün App
+     Store profillərini yaradır (`--create`), sonrakı build-lər onları təkrar istifadə
+     edir. Push, HealthKit, Sign in with Apple və App Group App ID-lərdən gəlir.
+     Apple hesabında Distribution sertifikat limiti dolubsa, köhnə istifadəsizini silin.
+3. Qrup **`anacan_android_signing`**:
+   - `CM_KEYSTORE`: mövcud Play upload keystore-un (`anacan-release-key.jks`) base64
+     mətni. Windows PowerShell:
+     `[Convert]::ToBase64String([IO.File]::ReadAllBytes("anacan-release-key.jks")) | Set-Clipboard`.
+     Yeni keystore yaratmayın: Play yalnız mövcud upload açarını qəbul edir.
+   - `CM_KEYSTORE_PASSWORD`, `CM_KEY_ALIAS`, `CM_KEY_PASSWORD`
+     (`android/keystore.properties`-dəki `storePassword`, `keyAlias`, `keyPassword`).
+4. Qrup **`anacan_native`**:
    - 47 Store namizədinin native build mühitindəki bütün `VITE_*` dəyərləri
      (`VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`,
      `VITE_INITIAL_MANAGED_ADMISSION`, `VITE_SOURCE_SUPABASE_PUBLISHABLE_KEY`,
