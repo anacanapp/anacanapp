@@ -56,18 +56,25 @@ aşağıdakı qrup adına əlavə edilir.
      Yeni keystore yaratmayın: Play yalnız mövcud upload açarını qəbul edir.
    - `CM_KEYSTORE_PASSWORD`, `CM_KEY_ALIAS`, `CM_KEY_PASSWORD`
      (`android/keystore.properties`-dəki `storePassword`, `keyAlias`, `keyPassword`).
-4. Qrup **`anacan_native`**:
-   - 47 Store namizədinin native build mühitindəki bütün `VITE_*` dəyərləri
-     (`VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`,
-     `VITE_INITIAL_MANAGED_ADMISSION`, `VITE_SOURCE_SUPABASE_PUBLISHABLE_KEY`,
-     `VITE_AUTH_CUTOVER`, `VITE_BACKEND_BOOTSTRAP`, Azure/Google flag-ləri və s.).
-     Mənbə PC-dədir: `azure-migration/native-preview/native-20261007t153716-3039ae35/`.
-     `VITE_NATIVE_BUILD` və `VITE_APP_VERSION`-u əlavə etməyin, build özü qoyur.
-   - Canlı AdMob: `VITE_ADMOB_IOS_APP_ID`, `VITE_ADMOB_ANDROID_APP_ID`.
-   - Customer.io (production profil, `.env.customerio.production.local`-dan):
-     `VITE_CUSTOMERIO_ENABLED`, `VITE_CUSTOMERIO_ENVIRONMENT`, `VITE_CUSTOMERIO_REGION`,
-     `VITE_CUSTOMERIO_WORKSPACE_ID`, `VITE_CUSTOMERIO_SOURCE_ID`,
-     `VITE_CUSTOMERIO_CDP_WRITE_KEY`.
+4. Qrup **`anacan_native`** (`VITE_NATIVE_BUILD` və `VITE_APP_VERSION`-u əlavə
+   etməyin, build özü qoyur). `azure-migration/` olmadan da yığılır:
+
+   | Dəyişən | Dəyər / mənbə |
+   |---|---|
+   | `VITE_SUPABASE_URL` | `https://api.anacan.az` |
+   | `VITE_SUPABASE_PUBLISHABLE_KEY` | Google public anon key: PC-də `node setup-env-google.mjs` `.env.google` yazır |
+   | `VITE_SOURCE_SUPABASE_PUBLISHABLE_KEY` | Köhnə Source anon key: repodakı `.env`-də `VITE_SUPABASE_PUBLISHABLE_KEY` (one-way adoption üçün) |
+   | `VITE_INITIAL_MANAGED_ADMISSION` | `https://api.anacan.az/.well-known/anacan-backend.json` cavabının JSON-u, tək sətir |
+   | `VITE_BACKEND_BOOTSTRAP` | `source-first-v1` |
+   | `VITE_AUTH_CUTOVER` | `false` |
+   | `VITE_AZURE_PARTNER_PAIRING`, `VITE_AZURE_GOOGLE_OAUTH_ENABLED`, `VITE_AZURE_APPLE_OAUTH_ENABLED`, `VITE_AZURE_REVENUECAT_ENABLED` | `true` (managed backend-də partner, Google/Apple login və RevenueCat bunlarsız sönür) |
+   | `VITE_ADMOB_IOS_APP_ID` / `VITE_ADMOB_ANDROID_APP_ID` | `docs/SOURCE_RUNTIME_COMPATIBILITY.md`-dakı canlı ID-lər |
+   | `VITE_CUSTOMERIO_ENABLED` / `_ENVIRONMENT` / `_REGION` | `true` / `production` / `EU` |
+   | `VITE_CUSTOMERIO_WORKSPACE_ID` / `_SOURCE_ID` | `224149` / `93570` |
+   | `VITE_CUSTOMERIO_CDP_WRITE_KEY` | `.env.customerio.production.local` və ya Customer.io → workspace 224149 → Data & Integrations → Sources → source 93570 → API key |
+
+   Firebase web dəyişənləri repodakı `.env`-dən avtomatik gəlir. Yoxlama skripti
+   bootstrap, cutover, açarlar və admission səhv olarsa build-i dayandırır.
 
 Bu dəyərlər heç vaxt Git-ə, loglara və ya chat-ə yazılmır.
 

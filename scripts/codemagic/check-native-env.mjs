@@ -19,6 +19,14 @@ else if (key.startsWith('eyJ')) {
   } catch { errors.push('VITE_SUPABASE_PUBLISHABLE_KEY is not a readable JWT'); }
 }
 
+// Store natives keep source-first-v1 adoption: selectAdmittedBackend() refuses to
+// boot without both distinct keys and with VITE_AUTH_CUTOVER=true.
+if (env.VITE_BACKEND_BOOTSTRAP !== 'source-first-v1') errors.push('VITE_BACKEND_BOOTSTRAP must be "source-first-v1"');
+if (env.VITE_AUTH_CUTOVER !== 'false') errors.push('VITE_AUTH_CUTOVER must be "false"');
+const sourceKey = env.VITE_SOURCE_SUPABASE_PUBLISHABLE_KEY ?? '';
+if (!sourceKey) errors.push('VITE_SOURCE_SUPABASE_PUBLISHABLE_KEY is missing');
+else if (sourceKey === key) errors.push('VITE_SOURCE_SUPABASE_PUBLISHABLE_KEY must differ from VITE_SUPABASE_PUBLISHABLE_KEY');
+
 // The bundled offline admission must be the managed (azure-named) Google decision
 // that the public control endpoint serves right now, field for field.
 const FIELDS = ['schema', 'generation', 'phase', 'minNativeVersion', 'handoffSha256'];
