@@ -1,0 +1,97 @@
+# Codemagic CI: signed Anacan store packages (Capacitor 8).
+# No triggers: builds start only from "Start new build", so the free 500 macOS
+# minutes are not spent on every push. Setup and private values: docs/CODEMAGIC.md
+
+definitions:
+  scripts:
+    - &install
+      name: Install dependencies
+      script: npm ci
+    - &web_build
+      name: Build native web bundle
+      script: |
+        export VITE_NATIVE_BUILD=true VITE_APP_VERSION="$APP_VERSION"
+        node scripts/codemagic/check-native-env.mjs
+        # The Customer.io write key is native-only (apply-native-config.mjs), never Vite input
+        env -u VITE_CUSTOMERIO_CDP_WRITE_KEY npx vite build --mode google
+        # Marketing website files stay out of native packages
+        rm -rf dist/website dist/anacan-pitch-deck.html dist/anacan-pitch-deck.md
+
+workflows:
+  ios-store:
+    name: iOS App Store (TestFlight upload)
+    instance_type: mac_mini_m2
+    max_build_duration: 90
+    integrations:
+      app_store_connect: Anacan ASC
+    environment:
+      node: 22
+      xcode: latest
+      groups:
+        - anacan_native
+      vars:
+        APP_VERSION: "48.0"
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.atlasoon.anacan
+    scripts:
+      - *install
+      - *web_build
+      - name: Sync Capacitor iOS and apply live native config
+        script: |
+          npx cap sync ios
+          node scripts/codemagic/apply-native-config.mjs ios
+      - name: Apply App Store profiles (app + widget)
+        script: xcode-project use-profiles --project ios/App/App.xcodeproj
+      - name: Build IPA
+        script: |
+          xcode-project build-ipa \
+            --project ios/App/App.xcodeproj \
+            --scheme App \
+            --archive-xcargs "MARKETING_VERSION=$APP_VERSION CURRENT_PROJECT_VERSION=$APP_VERSION.$BUILD_NUMBER"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: false
+
+  android-store:
+    name: Android Google Play (AAB)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      node: 22
+      java: 21
+      groups:
+        - anacan_native
+      vars:
+        APP_VERSION: "48.0"
+        ANDROID_VERSION_CODE: "48"
+      android_signing:
+        - anacan_upload
+    scripts:
+      - *install
+      - *web_build
+      - name: Sync Capacitor Android and apply live native config
+        script: |
+          npx cap sync android
+          node scripts/codemagic/apply-native-config.mjs android
+      - name: Write keystore.properties from Codemagic signing
+        script: |
+          cat > android/keystore.properties <<EOF
+          storeFile=$CM_KEYSTORE_PATH
+          storePassword=$CM_KEYSTORE_PASSWORD
+          keyAlias=$CM_KEY_ALIAS
+          keyPassword=$CM_KEY_PASSWORD
+          EOF
+      - name: Build signed AAB and APK
+        script: |
+          cd android
+          ./gradlew bundleRelease assembleRelease \
+            -PanacanVersionCode="$ANDROID_VERSION_CODE" \
+            -PanacanVersionName="$APP_VERSION"
+    artifacts:
+      - android/app/build/outputs/bundle/release/*.aab
+      - android/app/build/outputs/apk/release/*.apk
