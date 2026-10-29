@@ -131,7 +131,7 @@ const iconMap: Record<string, LucideIcon> = {
 // Import Calculator icon
 import { Calculator, MoonStar, Salad } from 'lucide-react';
 import { bc } from '@/lib/babycare-i18n';
-import { isSolidFoodGuideAvailable } from '@/lib/solid-food-guide-entry';
+import { feature37Text } from '@/lib/feature37-i18n';
 import { sleepTrainingEligible } from '@/lib/sleep-training';
 import { useChildren } from '@/hooks/useChildren';
 import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
@@ -264,8 +264,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       && sleepTrainingEligible({ lifeStage, birthDate: childBirthDate ? new Date(childBirthDate) : null, now: new Date() })) {
       extra.push(virtual('sleep-training', bc('sleeptraining_title'), bc('sleeptraining_tool_desc'), MoonStar));
     }
-    if (lifeStage === 'mommy' && isSolidFoodGuideAvailable(language) && !disabledTools.includes('solid-food-guide')) {
-      extra.push(virtual('solid-food-guide', 'Əlavə Qida Bələdçisi', 'Porsiya, dəmir balansı, allergenlər və reseptlər', Salad));
+    if (lifeStage === 'mommy' && !disabledTools.includes('solid-food-guide')) {
+      extra.push(virtual('solid-food-guide', feature37Text('sfg_home_title', language), feature37Text('sfg_tool_desc', language), Salad));
     }
     return [...fromDb, ...extra];
   }, [toolConfigs, hasPartner, lifeStage, language, isNonAz, disabledTools, profile?.country_code, storeCountry, childBirthDate]);

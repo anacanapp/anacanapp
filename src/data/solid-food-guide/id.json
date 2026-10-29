@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Panduan MPASI",
+  "tab_stage": "Tahap",
+  "tab_balance": "Keseimbangan",
+  "tab_rules": "Aturan",
+  "tab_foods": "Bahan Makanan",
+  "tab_recipes": "Resep",
+  "age_aria": "Usia",
+  "months_short": "{n} bln",
+  "years_short": "{n} thn",
+  "months_plus": "{n} bln+",
+  "years_plus": "{n} thn+",
+  "fact_milk": "Susu",
+  "fact_meals": "Makan",
+  "fact_portion": "Porsi",
+  "fact_texture": "Tekstur",
+  "portion_note": "Porsi hanya patokan — si kecil sendiri yang menentukan berapa banyak ia makan.",
+  "readiness_title": "Tanda-tanda siap",
+  "readiness_all": "Semuanya ada — siap mulai di usia 6 bulan.",
+  "readiness_hint": "WHO menganjurkan MPASI dimulai pada usia 6 bulan (180 hari). Jika ragu, konsultasikan dengan dokter anak.",
+  "sample_day_title": "Contoh sehari (8 bulan)",
+  "dishes_title": "Ide menu untuk usia ini",
+  "see_recipes": "Lihat resep",
+  "plate_title": "Piring seimbang (mulai 1 tahun)",
+  "plate_note": "Lengkapi dengan produk susu dan sedikit lemak sehat (minyak zaitun, mentega, alpukat).",
+  "needs_title": "Kebutuhan harian",
+  "needs_note": "Pada usia 6–11 bulan, kebutuhan zat besi per berat badan adalah yang tertinggi seumur hidup — sertakan satu sumber zat besi di setiap waktu makan.",
+  "sources_title": "Sumbernya",
+  "iron_helps_title": "Meningkatkan zat besi",
+  "iron_blocks_title": "Menurunkan zat besi",
+  "allergens_title": "Alergen: jangan ditunda",
+  "allergens_intro": "Telur dan kacang tanah mulai 6 bulan, satu per satu. Jika ada eksim berat atau alergi telur, bicarakan dulu dengan dokter.",
+  "avoid_title": "Jangan diberikan",
+  "choking_title": "Cegah tersedak (hingga 4 tahun)",
+  "choking_note": "Gagging (refleks hampir muntah) itu normal; tersedak terjadi tanpa suara dan anak tidak bisa batuk — ini keadaan darurat.",
+  "myths_title": "Mitos usang",
+  "all": "Semua",
+  "recipes_intro": "Pilihan sesuai usia si kecil dari bagian Resep Anacan. Resep pertama gratis, sisanya di Premium.",
+  "recipes_loading": "Memuat resep…",
+  "all_recipes": "Semua resep bayi",
+  "all_recipes_sub": "{n} resep · Dibuka di bagian Resep",
+  "tag_iron": "★ Zat besi",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Alergen",
+  "home_title": "Panduan MPASI",
+  "home_sub_before": "Mulai di usia 6 bulan — tanda siap dan makanan pertama",
+  "home_sub_after": "Porsi sesuai usia, keseimbangan zat besi, dan resep",
+  "tool_desc": "Porsi, keseimbangan zat besi, alergen, dan resep"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 bulan",
+   "milk": "ASI / susu formula sesuai permintaan",
+   "meals": "Belum ada MPASI",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Tetes vitamin D setiap hari; perhatikan tanda-tanda siap"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 bulan",
+   "milk": "Makanan utama, 5–6 kali sehari",
+   "meals": "2–3 kali makan",
+   "portion": "2–3 sendok makan hingga ½ cangkir (~125 ml)",
+   "texture": "Puree halus → puree kental, finger food lunak",
+   "goal": "Zat besi, rasa baru, pengenalan alergen"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 bulan",
+   "milk": "3–4 kali sehari",
+   "meals": "3 kali makan + 1–2 camilan",
+   "portion": "½ cangkir (~125 ml)",
+   "texture": "Dilumatkan, dicincang halus, finger food",
+   "goal": "Mengunyah, menjumput dengan jari, gelas terbuka"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 tahun",
+   "milk": "ASI atau susu sapi 350–500 ml/hari",
+   "meals": "3 kali makan + 2 camilan",
+   "portion": "¾–1 cangkir (~200–250 ml)",
+   "texture": "Makanan keluarga (tanpa garam, potongan kecil)",
+   "goal": "Beralih ke makanan keluarga"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 tahun",
+   "milk": "Susu / yoghurt 2 porsi sehari",
+   "meals": "3 kali makan + 2 camilan",
+   "portion": "1 cangkir; daging/ikan ~30–50 g",
+   "texture": "Makanan keluarga",
+   "goal": "Variasi, menghadapi anak pilih-pilih makanan"
+  }
+ ],
+ "readiness": [
+  "Menegakkan kepala dengan stabil",
+  "Bisa duduk dengan sandaran",
+  "Tertarik pada makanan, membuka mulut",
+  "Lidah tidak lagi mendorong makanan keluar"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Susu"
+  },
+  {
+   "time": "09:00",
+   "what": "Bubur fortifikasi zat besi + buah"
+  },
+  {
+   "time": "12:00",
+   "what": "Susu"
+  },
+  {
+   "time": "13:30",
+   "what": "Daging + sayur"
+  },
+  {
+   "time": "16:00",
+   "what": "Susu"
+  },
+  {
+   "time": "18:30",
+   "what": "Telur / yoghurt + serealia"
+  },
+  {
+   "time": "Sebelum tidur",
+   "what": "Susu"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 bulan",
+  "1–2 tahun",
+  "2–4 tahun"
+ ],
+ "nutrients": [
+  {
+   "name": "Zat besi",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Daging sapi/domba, paha ayam, kuning telur, lentil, kacang arab, bubur fortifikasi zat besi, bayam",
+   "rule": "Satu sumber zat besi tiap makan, disertai vitamin C"
+  },
+  {
+   "name": "Vitamin D",
+   "need": [
+    "400 IU",
+    "600 IU",
+    "600 IU"
+   ],
+   "sources": "Tetes, ikan berlemak, kuning telur",
+   "rule": "Tetes setiap hari"
+  },
+  {
+   "name": "Seng",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Daging, telur, yoghurt, kacang-kacangan, oat",
+   "rule": "Sepiring dengan makanan kaya zat besi"
+  },
+  {
+   "name": "Kalsium",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Yoghurt, keju, susu (mulai 1 tahun), tahini",
+   "rule": "2–3 porsi produk susu sehari"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Salmon, makarel, sarden, kenari, biji hemp",
+   "rule": "Makan ikan 2 kali seminggu"
+  },
+  {
+   "name": "Vitamin A",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Wortel, labu, ubi jalar, aprikot",
+   "rule": "Satu sayuran oranye setiap hari"
+  },
+  {
+   "name": "Vitamin C",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Paprika, brokoli, stroberi, kiwi, jeruk",
+   "rule": "Bersama makanan kaya zat besi"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Protein",
+   "hint": "daging, ikan, telur, kacang-kacangan"
+  },
+  {
+   "label": "Serealia",
+   "hint": "bubur, nasi, roti"
+  },
+  {
+   "label": "Sayur dan buah",
+   "hint": "warna-warni"
+  }
+ ],
+ "ironHelps": [
+  "Vitamin C (paprika, brokoli, stroberi)",
+  "Daging + sayur bersamaan"
+ ],
+ "ironBlocks": [
+  "Teh saat makan",
+  "Susu sapi sebagai minuman utama sebelum 1 tahun",
+  "Makanan tinggi bekatul"
+ ],
+ "allergens": [
+  "Telur",
+  "Kacang tanah",
+  "Kacang pohon",
+  "Susu sapi",
+  "Kedelai",
+  "Gandum",
+  "Wijen",
+  "Ikan",
+  "Krustasea"
+ ],
+ "allergenSteps": [
+  "Hanya satu alergen baru setiap kali; amati reaksi selama 2–3 hari",
+  "Berikan pagi atau siang agar mudah dipantau",
+  "Telur dimasak matang sempurna; kacang tanah dalam bentuk selai, jangan pernah utuh",
+  "Jika cocok, ulangi 2–3 kali seminggu"
+ ],
+ "avoid": [
+  {
+   "food": "Madu",
+   "until": "12 bulan",
+   "why": "Risiko botulisme"
+  },
+  {
+   "food": "Garam",
+   "until": "12 bulan, lalu sangat sedikit",
+   "why": "Membebani ginjal"
+  },
+  {
+   "food": "Gula tambahan, permen dan manisan",
+   "until": "24 bulan",
+   "why": "Kebiasaan rasa manis, gigi berlubang"
+  },
+  {
+   "food": "Jus buah",
+   "until": "12 bulan; lalu ≤120 ml/hari",
+   "why": "Mengurangi nafsu makan"
+  },
+  {
+   "food": "Susu sapi (sebagai minuman)",
+   "until": "12 bulan",
+   "why": "Menurunkan zat besi; boleh dalam masakan"
+  },
+  {
+   "food": "Telur, daging, ikan mentah; susu tidak dipasteurisasi",
+   "until": "4 tahun",
+   "why": "Infeksi"
+  },
+  {
+   "food": "Ikan tinggi merkuri (todak, hiu, tuna besar)",
+   "until": "4 tahun",
+   "why": "Merkuri"
+  },
+  {
+   "food": "Teh, kopi, kola",
+   "until": "4 tahun",
+   "why": "Kafein, mengikat zat besi"
+  },
+  {
+   "food": "Sosis, salami, daging asap",
+   "until": "Sesedikit mungkin",
+   "why": "Garam, nitrat"
+  },
+  {
+   "food": "Susu beras",
+   "until": "4–5 tahun",
+   "why": "Arsenik"
+  }
+ ],
+ "choking": [
+  "Jangan beri kacang dan biji utuh — haluskan atau jadikan selai",
+  "Anggur, ceri, tomat ceri — potong memanjang jadi 4",
+  "Wortel dan apel mentah — parut atau masak",
+  "Sosis — potong memanjang; popcorn, permen keras, permen karet — jangan",
+  "Selalu makan sambil duduk dan diawasi"
+ ],
+ "myths": [
+  {
+   "myth": "Putih telur baru boleh setelah 1 tahun",
+   "fact": "Telur utuh boleh mulai 6 bulan; menundanya bisa meningkatkan risiko alergi."
+  },
+  {
+   "myth": "Ikan, jeruk, stroberi dilarang sebelum 1 tahun",
+   "fact": "Semuanya boleh diberikan mulai 6 bulan."
+  },
+  {
+   "myth": "Kalau buah diberikan duluan, ia tak akan suka sayur",
+   "fact": "Tidak ada bukti kuat; yang utama adalah makanan kaya zat besi dan variasi."
+  },
+  {
+   "myth": "Puree buah mulai 4 bulan",
+   "fact": "WHO menganjurkan MPASI dimulai pada usia 6 bulan."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Daging",
+  "fish": "Ikan",
+  "egg": "Telur",
+  "dairy": "Susu",
+  "legumes": "Kacang-kacangan",
+  "grains": "Serealia",
+  "vegetables": "Sayur",
+  "fruit": "Buah",
+  "fats_seeds": "Lemak, biji"
+ },
+ "foods": [
+  {
+   "name": "Daging sapi",
+   "value": "Zat besi, seng, B12",
+   "form": "Puree atau potongan panjang yang lunak"
+  },
+  {
+   "name": "Daging domba",
+   "value": "Zat besi, seng",
+   "form": "Puree, daging cincang"
+  },
+  {
+   "name": "Paha ayam",
+   "value": "Protein, zat besi",
+   "form": "Disuwir, puree"
+  },
+  {
+   "name": "Kalkun",
+   "value": "Protein, seng",
+   "form": "Puree, bola-bola daging"
+  },
+  {
+   "name": "Hati",
+   "value": "Zat besi, vitamin A",
+   "form": "1 kali seminggu, 1–2 sendok teh"
+  },
+  {
+   "name": "Salmon",
+   "value": "Omega-3, vitamin D",
+   "form": "Tanpa duri, dilumatkan"
+  },
+  {
+   "name": "Makarel, sarden",
+   "value": "Omega-3",
+   "form": "Tanpa duri, dilumatkan"
+  },
+  {
+   "name": "Ikan kod, ikan sebelah",
+   "value": "Protein, yodium",
+   "form": "Disuwir-suwir"
+  },
+  {
+   "name": "Telur ayam",
+   "value": "Protein, kolin, D",
+   "form": "Rebus matang, dilumatkan; potongan omelet"
+  },
+  {
+   "name": "Yoghurt (tanpa gula)",
+   "value": "Kalsium, probiotik",
+   "form": "Disuapkan dengan sendok"
+  },
+  {
+   "name": "Keju cottage, keju putih",
+   "value": "Kalsium, protein",
+   "form": "Dilumatkan; rendam keju putih untuk mengurangi garamnya"
+  },
+  {
+   "name": "Mentega",
+   "value": "Energi",
+   "form": "Tambahkan sedikit ke makanan"
+  },
+  {
+   "name": "Susu sapi",
+   "value": "Kalsium",
+   "form": "Sebagai minuman mulai 12 bulan; dalam masakan mulai 6 bulan"
+  },
+  {
+   "name": "Lentil merah",
+   "value": "Zat besi, protein",
+   "form": "Sup, puree"
+  },
+  {
+   "name": "Kacang arab",
+   "value": "Zat besi, serat",
+   "form": "Hummus (tanpa garam)"
+  },
+  {
+   "name": "Kacang merah, kacang hijau",
+   "value": "Zat besi, folat",
+   "form": "Dilumatkan"
+  },
+  {
+   "name": "Oat",
+   "value": "Serat, zat besi",
+   "form": "Bubur"
+  },
+  {
+   "name": "Beras",
+   "value": "Energi",
+   "form": "Bubur (2–3 kali seminggu)"
+  },
+  {
+   "name": "Soba (buckwheat)",
+   "value": "Zat besi, magnesium",
+   "form": "Bubur"
+  },
+  {
+   "name": "Bulgur, semolina, pasta, roti",
+   "value": "Energi, B",
+   "form": "Bubur, pasta lunak"
+  },
+  {
+   "name": "Jewawut, kinoa",
+   "value": "Zat besi, protein",
+   "form": "Bubur"
+  },
+  {
+   "name": "Labu, wortel, ubi jalar",
+   "value": "Vitamin A",
+   "form": "Puree, stik kukus"
+  },
+  {
+   "name": "Zukini, brokoli, kembang kol",
+   "value": "Vitamin C, K",
+   "form": "Dikukus; brokoli berbentuk \"pohon\""
+  },
+  {
+   "name": "Kentang",
+   "value": "Energi",
+   "form": "Puree"
+  },
+  {
+   "name": "Bayam, bit",
+   "value": "Folat, zat besi",
+   "form": "Dicampur sayuran lain"
+  },
+  {
+   "name": "Terong, paprika, tomat",
+   "value": "Vitamin C",
+   "form": "Dimasak, tanpa kulit"
+  },
+  {
+   "name": "Kacang polong, buncis",
+   "value": "Zat besi, serat",
+   "form": "Dilumatkan"
+  },
+  {
+   "name": "Apel, pir",
+   "value": "Serat",
+   "form": "Puree matang, diparut"
+  },
+  {
+   "name": "Pisang, alpukat",
+   "value": "Energi, lemak sehat",
+   "form": "Potongan panjang, dilumatkan"
+  },
+  {
+   "name": "Persik, aprikot, plum",
+   "value": "Vitamin A, C, serat",
+   "form": "Tanpa kulit, lunak"
+  },
+  {
+   "name": "Stroberi, kiwi, jeruk",
+   "value": "Vitamin C",
+   "form": "Dilumatkan, iris"
+  },
+  {
+   "name": "Anggur, ceri, bluberi",
+   "value": "Antioksidan",
+   "form": "Potong memanjang jadi 4; gepengkan bluberi"
+  },
+  {
+   "name": "Aprikot kering, kismis, kurma",
+   "value": "Zat besi, serat",
+   "form": "Direndam, puree"
+  },
+  {
+   "name": "Minyak zaitun",
+   "value": "Lemak sehat",
+   "form": "1 sendok teh ke makanan"
+  },
+  {
+   "name": "Selai kacang tanah",
+   "value": "Protein",
+   "form": "Diencerkan, dicampur ke puree"
+  },
+  {
+   "name": "Selai almon, kenari, hazelnut",
+   "value": "Vitamin E, omega-3",
+   "form": "Bubuk atau selai"
+  },
+  {
+   "name": "Tahini (wijen)",
+   "value": "Kalsium, zat besi",
+   "form": "Dicampur ke bubur"
+  },
+  {
+   "name": "Biji hemp, biji chia",
+   "value": "Omega-3",
+   "form": "Digiling"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Daging sapi + puree labu",
+   "Ayam + wortel + puree kentang",
+   "Sup lentil merah",
+   "Bubur oat + puree apel",
+   "Bubur soba",
+   "Puree pisang dengan yoghurt",
+   "Lumatan alpukat + pisang",
+   "Lumatan telur rebus matang",
+   "\"Pohon\" brokoli kukus",
+   "Salmon + puree ubi jalar",
+   "Hummus kacang arab (dengan tahini)",
+   "Puree pir matang + kayu manis"
+  ],
+  "9-11": [
+   "Bola-bola daging sapi mini",
+   "Potongan omelet sayur",
+   "Perkedel ikan",
+   "Pancake oat yoghurt",
+   "Bubur nasi ayam + zukini",
+   "Semur sayur daging domba",
+   "Perkedel lentil",
+   "Pasta + saus tomat daging cincang",
+   "Soba + saus hati",
+   "Syrniki keju cottage (dipanggang)",
+   "Muffin brokoli-keju",
+   "Bar apel-oat"
+  ],
+  "12-24": [
+   "Dolma daun anggur (kecil)",
+   "Dolma kubis",
+   "Pilaf anak",
+   "Sup ayam dengan mi",
+   "Dushbara (pangsit mini dalam kaldu)",
+   "Kuku sayuran hijau (omelet panggang)",
+   "Sup lentil",
+   "Perkedel ikan + puree kentang",
+   "Soba + gulas daging sapi",
+   "Menemen (telur tomat, tidak pedas)",
+   "Lasagna anak",
+   "Parfait yoghurt, buah, dan oat",
+   "Casserole keju cottage",
+   "Khingal berkuah (lembaran pasta)"
+  ],
+  "24-48": [
+   "Bola-bola ayam sayur + bulgur",
+   "Salmon panggang + sayur",
+   "Masakan kacang merah",
+   "Piza rumahan (gandum utuh)",
+   "Qutab (roti tipis isi sayur / daging)",
+   "Borscht",
+   "Salad kinoa + kacang arab",
+   "\"Prajurit\" roti panggang dengan telur",
+   "Smoothie bowl",
+   "Nugget rumahan (dipanggang)"
+  ]
+ },
+ "emergency": "Bengkak di wajah atau bibir, sulit bernapas, muntah berulang, pucat — segera hubungi 103 / 112.",
+ "disclaimer": "Panduan ini bersifat edukatif dan bukan nasihat medis. Dosis zat besi dan vitamin ditentukan oleh dokter anak Anda. Sumber: WHO (2023), AAP, Kementerian Kesehatan Turki, Persatuan Dokter Anak Rusia, SACN."
+}

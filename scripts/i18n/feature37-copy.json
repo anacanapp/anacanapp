@@ -60,7 +60,11 @@
       "chat_delete": "Sil",
       "chat_delete_confirm": "Mesaj hər kəs üçün silinsin?",
       "chat_deleted": "Bu mesaj silindi",
-      "chat_more_reactions": "Daha çox reaksiya"
+      "chat_more_reactions": "Daha çox reaksiya",
+      "sfg_home_title": "Əlavə Qida Bələdçisi",
+      "sfg_home_sub_before": "6 ayda başlayırıq — hazırlıq və ilk qidalar",
+      "sfg_home_sub_after": "Yaşa uyğun porsiya, dəmir balansı və reseptlər",
+      "sfg_tool_desc": "Porsiya, dəmir balansı, allergenlər və reseptlər"
     },
     "en": {
       "blog_command_hint": "Type /Blog to find and attach an article",
@@ -121,7 +125,11 @@
       "chat_delete": "Delete",
       "chat_delete_confirm": "Delete this message for everyone?",
       "chat_deleted": "This message was deleted",
-      "chat_more_reactions": "More reactions"
+      "chat_more_reactions": "More reactions",
+      "sfg_home_title": "Solid Food Guide",
+      "sfg_home_sub_before": "Starting at 6 months — readiness and first foods",
+      "sfg_home_sub_after": "Age-based portions, iron balance and recipes",
+      "sfg_tool_desc": "Portions, iron balance, allergens and recipes"
     },
     "tr": {
       "blog_command_hint": "Bir makale bulup eklemek için /Blog yazın",
@@ -182,7 +190,11 @@
       "chat_delete": "Sil",
       "chat_delete_confirm": "Mesaj herkes için silinsin mi?",
       "chat_deleted": "Bu mesaj silindi",
-      "chat_more_reactions": "Daha fazla tepki"
+      "chat_more_reactions": "Daha fazla tepki",
+      "sfg_home_title": "Ek Gıda Rehberi",
+      "sfg_home_sub_before": "6. ayda başlıyoruz — hazırlık ve ilk besinler",
+      "sfg_home_sub_after": "Yaşa uygun porsiyon, demir dengesi ve tarifler",
+      "sfg_tool_desc": "Porsiyon, demir dengesi, alerjenler ve tarifler"
     },
     "ru": {
       "blog_command_hint": "Введите /Blog, чтобы найти и прикрепить статью",
@@ -243,7 +255,11 @@
       "chat_delete": "Удалить",
       "chat_delete_confirm": "Удалить сообщение для всех?",
       "chat_deleted": "Сообщение удалено",
-      "chat_more_reactions": "Ещё реакции"
+      "chat_more_reactions": "Ещё реакции",
+      "sfg_home_title": "Гид по прикорму",
+      "sfg_home_sub_before": "Начинаем в 6 месяцев — готовность и первые продукты",
+      "sfg_home_sub_after": "Порции по возрасту, баланс железа и рецепты",
+      "sfg_tool_desc": "Порции, баланс железа, аллергены и рецепты"
     },
     "de": {
       "blog_command_hint": "Gib /Blog ein, um einen Artikel zu suchen und anzuhängen",
@@ -304,7 +320,11 @@
       "chat_delete": "Löschen",
       "chat_delete_confirm": "Nachricht für alle löschen?",
       "chat_deleted": "Diese Nachricht wurde gelöscht",
-      "chat_more_reactions": "Weitere Reaktionen"
+      "chat_more_reactions": "Weitere Reaktionen",
+      "sfg_home_title": "Beikost-Ratgeber",
+      "sfg_home_sub_before": "Start mit 6 Monaten — Beikostreife und erste Lebensmittel",
+      "sfg_home_sub_after": "Altersgerechte Portionen, Eisenbalance und Rezepte",
+      "sfg_tool_desc": "Portionen, Eisenbalance, Allergene und Rezepte"
     },
     "ar": {
       "blog_command_hint": "اكتبي /Blog للعثور على مقال وإرفاقه",
@@ -365,7 +385,11 @@
       "chat_delete": "حذف",
       "chat_delete_confirm": "حذف الرسالة لدى الجميع؟",
       "chat_deleted": "تم حذف هذه الرسالة",
-      "chat_more_reactions": "تفاعلات أخرى"
+      "chat_more_reactions": "تفاعلات أخرى",
+      "sfg_home_title": "دليل الأطعمة التكميلية",
+      "sfg_home_sub_before": "نبدأ في عمر 6 أشهر — الاستعداد وأولى الأطعمة",
+      "sfg_home_sub_after": "حصص حسب العمر، توازن الحديد، ووصفات",
+      "sfg_tool_desc": "الحصص، توازن الحديد، مسببات الحساسية والوصفات"
     },
     "ka": {
       "blog_command_hint": "სტატიის მოსაძებნად და დასამაგრებლად აკრიფეთ /Blog",
@@ -426,7 +450,11 @@
       "chat_delete": "წაშლა",
       "chat_delete_confirm": "წაიშალოს შეტყობინება ყველასთვის?",
       "chat_deleted": "ეს შეტყობინება წაიშალა",
-      "chat_more_reactions": "მეტი რეაქცია"
+      "chat_more_reactions": "მეტი რეაქცია",
+      "sfg_home_title": "დამატებითი კვების გზამკვლევი",
+      "sfg_home_sub_before": "ვიწყებთ 6 თვეში — მზაობა და პირველი საკვები",
+      "sfg_home_sub_after": "ასაკის შესაბამისი პორციები, რკინის ბალანსი და რეცეპტები",
+      "sfg_tool_desc": "პორციები, რკინის ბალანსი, ალერგენები და რეცეპტები"
     },
     "kk": {
       "blog_command_hint": "Мақаланы тауып, тіркеу үшін /Blog деп теріңіз",
@@ -487,7 +515,11 @@
       "chat_delete": "Жою",
       "chat_delete_confirm": "Хабар барлығы үшін жойылсын ба?",
       "chat_deleted": "Бұл хабар жойылды",
-      "chat_more_reactions": "Басқа реакциялар"
+      "chat_more_reactions": "Басқа реакциялар",
+      "sfg_home_title": "Қосымша тамақ нұсқаулығы",
+      "sfg_home_sub_before": "6 айда бастаймыз — дайындық пен алғашқы тағамдар",
+      "sfg_home_sub_after": "Жасқа сай порция, темір балансы және рецепттер",
+      "sfg_tool_desc": "Порция, темір балансы, аллергендер және рецепттер"
     },
     "uz": {
       "blog_command_hint": "Maqolani topish va biriktirish uchun /Blog buyrug‘ini kiriting",
@@ -548,7 +580,11 @@
       "chat_delete": "O'chirish",
       "chat_delete_confirm": "Xabar hamma uchun o'chirilsinmi?",
       "chat_deleted": "Bu xabar o'chirildi",
-      "chat_more_reactions": "Ko'proq reaksiyalar"
+      "chat_more_reactions": "Ko'proq reaksiyalar",
+      "sfg_home_title": "Qoʻshimcha ovqat qoʻllanmasi",
+      "sfg_home_sub_before": "6 oyda boshlaymiz — tayyorlik va ilk taomlar",
+      "sfg_home_sub_after": "Yoshga mos porsiya, temir balansi va retseptlar",
+      "sfg_tool_desc": "Porsiya, temir balansi, allergenlar va retseptlar"
     },
     "zh": {
       "blog_command_hint": "输入 /Blog 查找并附加文章",
@@ -609,7 +645,11 @@
       "chat_delete": "删除",
       "chat_delete_confirm": "要为所有人删除这条消息吗？",
       "chat_deleted": "此消息已删除",
-      "chat_more_reactions": "更多表情"
+      "chat_more_reactions": "更多表情",
+      "sfg_home_title": "辅食添加指南",
+      "sfg_home_sub_before": "6个月开始——准备信号与第一口辅食",
+      "sfg_home_sub_after": "按年龄的份量、铁均衡与食谱",
+      "sfg_tool_desc": "份量、铁均衡、过敏原与食谱"
     },
     "id": {
       "blog_command_hint": "Ketik /Blog untuk mencari dan melampirkan artikel",
@@ -670,7 +710,11 @@
       "chat_delete": "Hapus",
       "chat_delete_confirm": "Hapus pesan ini untuk semua orang?",
       "chat_deleted": "Pesan ini telah dihapus",
-      "chat_more_reactions": "Reaksi lainnya"
+      "chat_more_reactions": "Reaksi lainnya",
+      "sfg_home_title": "Panduan MPASI",
+      "sfg_home_sub_before": "Mulai di usia 6 bulan — tanda siap dan makanan pertama",
+      "sfg_home_sub_after": "Porsi sesuai usia, keseimbangan zat besi, dan resep",
+      "sfg_tool_desc": "Porsi, keseimbangan zat besi, alergen, dan resep"
     },
     "fr": {
       "blog_command_hint": "Tapez /Blog pour rechercher et joindre un article",
@@ -731,7 +775,11 @@
       "chat_delete": "Supprimer",
       "chat_delete_confirm": "Supprimer ce message pour tout le monde ?",
       "chat_deleted": "Ce message a été supprimé",
-      "chat_more_reactions": "Plus de réactions"
+      "chat_more_reactions": "Plus de réactions",
+      "sfg_home_title": "Guide de diversification alimentaire",
+      "sfg_home_sub_before": "On commence à 6 mois — signes et premiers aliments",
+      "sfg_home_sub_after": "Portions selon l'âge, équilibre en fer et recettes",
+      "sfg_tool_desc": "Portions, équilibre en fer, allergènes et recettes"
     },
     "es": {
       "blog_command_hint": "Escribe /Blog para buscar y adjuntar un artículo",
@@ -792,7 +840,11 @@
       "chat_delete": "Eliminar",
       "chat_delete_confirm": "¿Eliminar el mensaje para todos?",
       "chat_deleted": "Este mensaje se eliminó",
-      "chat_more_reactions": "Más reacciones"
+      "chat_more_reactions": "Más reacciones",
+      "sfg_home_title": "Guía de alimentación complementaria",
+      "sfg_home_sub_before": "Empezamos a los 6 meses: señales y primeros alimentos",
+      "sfg_home_sub_after": "Porciones por edad, equilibrio de hierro y recetas",
+      "sfg_tool_desc": "Porciones, equilibrio de hierro, alérgenos y recetas"
     },
     "pt": {
       "blog_command_hint": "Escreva /Blog para encontrar e anexar um artigo",
@@ -853,7 +905,11 @@
       "chat_delete": "Excluir",
       "chat_delete_confirm": "Excluir a mensagem para todos?",
       "chat_deleted": "Esta mensagem foi excluída",
-      "chat_more_reactions": "Mais reações"
+      "chat_more_reactions": "Mais reações",
+      "sfg_home_title": "Guia de introdução alimentar",
+      "sfg_home_sub_before": "Começamos aos 6 meses — sinais e primeiros alimentos",
+      "sfg_home_sub_after": "Porções por idade, equilíbrio de ferro e receitas",
+      "sfg_tool_desc": "Porções, equilíbrio de ferro, alergênicos e receitas"
     },
     "vi": {
       "blog_command_hint": "Nhập /Blog để tìm và đính kèm bài viết",
@@ -914,7 +970,11 @@
       "chat_delete": "Xóa",
       "chat_delete_confirm": "Xóa tin nhắn này với mọi người?",
       "chat_deleted": "Tin nhắn này đã bị xóa",
-      "chat_more_reactions": "Thêm cảm xúc"
+      "chat_more_reactions": "Thêm cảm xúc",
+      "sfg_home_title": "Cẩm nang ăn dặm",
+      "sfg_home_sub_before": "Bắt đầu lúc 6 tháng — dấu hiệu sẵn sàng và món đầu tiên",
+      "sfg_home_sub_after": "Khẩu phần theo tuổi, cân bằng sắt và công thức",
+      "sfg_tool_desc": "Khẩu phần, cân bằng sắt, chất gây dị ứng và công thức"
     },
     "hi": {
       "blog_command_hint": "लेख खोजने और संलग्न करने के लिए /Blog टाइप करें",
@@ -975,7 +1035,11 @@
       "chat_delete": "हटाएँ",
       "chat_delete_confirm": "यह संदेश सभी के लिए हटाएँ?",
       "chat_deleted": "यह संदेश हटा दिया गया",
-      "chat_more_reactions": "और प्रतिक्रियाएँ"
+      "chat_more_reactions": "और प्रतिक्रियाएँ",
+      "sfg_home_title": "ठोस आहार गाइड",
+      "sfg_home_sub_before": "6 महीने पर शुरुआत — तैयारी और पहला आहार",
+      "sfg_home_sub_after": "उम्र के अनुसार मात्रा, आयरन संतुलन और रेसिपी",
+      "sfg_tool_desc": "मात्रा, आयरन संतुलन, एलर्जन और रेसिपी"
     },
     "ja": {
       "blog_command_hint": "/Blog と入力して記事を検索し、添付できます",
@@ -1036,7 +1100,11 @@
       "chat_delete": "削除",
       "chat_delete_confirm": "全員に対してメッセージを削除しますか？",
       "chat_deleted": "このメッセージは削除されました",
-      "chat_more_reactions": "その他のリアクション"
+      "chat_more_reactions": "その他のリアクション",
+      "sfg_home_title": "離乳食ガイド",
+      "sfg_home_sub_before": "6か月でスタート — 準備のサインと最初の食材",
+      "sfg_home_sub_after": "月齢に合った量、鉄のバランス、レシピ",
+      "sfg_tool_desc": "量、鉄のバランス、アレルゲン、レシピ"
     },
     "ko": {
       "blog_command_hint": "글을 찾아 첨부하려면 /Blog를 입력하세요",
@@ -1097,7 +1165,11 @@
       "chat_delete": "삭제",
       "chat_delete_confirm": "모두에게서 메시지를 삭제할까요?",
       "chat_deleted": "삭제된 메시지입니다",
-      "chat_more_reactions": "반응 더 보기"
+      "chat_more_reactions": "반응 더 보기",
+      "sfg_home_title": "이유식 가이드",
+      "sfg_home_sub_before": "6개월에 시작해요 — 준비 신호와 첫 음식",
+      "sfg_home_sub_after": "월령별 양, 철분 균형, 레시피",
+      "sfg_tool_desc": "1회 양, 철분 균형, 알레르기 식품, 레시피"
     },
     "pl": {
       "blog_command_hint": "Wpisz /Blog, aby znaleźć i załączyć artykuł",
@@ -1158,7 +1230,11 @@
       "chat_delete": "Usuń",
       "chat_delete_confirm": "Usunąć wiadomość dla wszystkich?",
       "chat_deleted": "Ta wiadomość została usunięta",
-      "chat_more_reactions": "Więcej reakcji"
+      "chat_more_reactions": "Więcej reakcji",
+      "sfg_home_title": "Przewodnik po rozszerzaniu diety",
+      "sfg_home_sub_before": "Zaczynamy w 6. miesiącu — gotowość i pierwsze pokarmy",
+      "sfg_home_sub_after": "Porcje według wieku, bilans żelaza i przepisy",
+      "sfg_tool_desc": "Porcje, bilans żelaza, alergeny i przepisy"
     },
     "nl": {
       "blog_command_hint": "Typ /Blog om een artikel te zoeken en toe te voegen",
@@ -1219,7 +1295,11 @@
       "chat_delete": "Verwijderen",
       "chat_delete_confirm": "Bericht voor iedereen verwijderen?",
       "chat_deleted": "Dit bericht is verwijderd",
-      "chat_more_reactions": "Meer reacties"
+      "chat_more_reactions": "Meer reacties",
+      "sfg_home_title": "Gids bijvoeding",
+      "sfg_home_sub_before": "We beginnen met 6 maanden — gereedheid en eerste hapjes",
+      "sfg_home_sub_after": "Porties per leeftijd, ijzerbalans en recepten",
+      "sfg_tool_desc": "Porties, ijzerbalans, allergenen en recepten"
     },
     "sv": {
       "blog_command_hint": "Skriv /Blog för att hitta och bifoga en artikel",
@@ -1280,7 +1360,11 @@
       "chat_delete": "Radera",
       "chat_delete_confirm": "Radera meddelandet för alla?",
       "chat_deleted": "Meddelandet har raderats",
-      "chat_more_reactions": "Fler reaktioner"
+      "chat_more_reactions": "Fler reaktioner",
+      "sfg_home_title": "Guide till fast föda",
+      "sfg_home_sub_before": "Vi börjar vid 6 månader — tecken på att vara redo och första maten",
+      "sfg_home_sub_after": "Portioner efter ålder, järnbalans och recept",
+      "sfg_tool_desc": "Portioner, järnbalans, allergener och recept"
     }
   }
 }

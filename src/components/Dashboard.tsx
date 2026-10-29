@@ -56,7 +56,8 @@ import TeethingWidget from '@/components/mommy/TeethingWidget';
 import BannerSlot from '@/components/banners/BannerSlot';
 import { AdInlineAnchor } from '@/components/ads/AdExperienceProvider';
 import { AptekHomeCard } from '@/components/aptek/AptekEntry';
-import { isSolidFoodGuideAvailable, solidFoodGuideRelevant } from '@/lib/solid-food-guide-entry';
+import { solidFoodGuideRelevant } from '@/lib/solid-food-guide-entry';
+import { feature37Text } from '@/lib/feature37-i18n';
 import { offersBreastfeeding } from '@/lib/breastfeeding';
 import UpcomingAppointments from '@/components/home/UpcomingAppointments';
 import DailySummaryAutoSync from '@/components/partner/DailySummaryAutoSync';
@@ -1530,13 +1531,13 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
       </motion.div>
 
       {/* Solid food guide entry: from about five months (before solids start) to four years */}
-      {isSolidFoodGuideAvailable(language) && solidFoodGuideRelevant(babyData?.ageInMonths) && onNavigateToTool &&
+      {solidFoodGuideRelevant(babyData?.ageInMonths) && onNavigateToTool &&
       <button type="button" className="a-card a-fade-in flex items-center gap-3 w-full text-start" style={{ marginTop: 10, border: 'none' }}
         onClick={() => onNavigateToTool('solid-food-guide')}>
           <span className="a-list-icon" style={{ background: 'var(--a-grad-green)', fontSize: 18 }}>🥣</span>
           <span className="min-w-0 flex-1">
-            <span className="a-list-title block">Əlavə Qida Bələdçisi</span>
-            <span className="a-list-sub block">{babyData && babyData.ageInMonths < 6 ? '6 ayda başlayırıq — hazırlıq və ilk qidalar' : 'Yaşa uyğun porsiya, dəmir balansı və reseptlər'}</span>
+            <span className="a-list-title block">{feature37Text('sfg_home_title', language)}</span>
+            <span className="a-list-sub block">{feature37Text(babyData && babyData.ageInMonths < 6 ? 'sfg_home_sub_before' : 'sfg_home_sub_after', language)}</span>
           </span>
           <ChevronRight size={16} className="rtl:rotate-180" style={{ color: 'var(--a-ink-faint)' }} />
         </button>

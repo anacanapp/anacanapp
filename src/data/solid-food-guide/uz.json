@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Qoʻshimcha ovqat qoʻllanmasi",
+  "tab_stage": "Bosqich",
+  "tab_balance": "Balans",
+  "tab_rules": "Qoidalar",
+  "tab_foods": "Mahsulotlar",
+  "tab_recipes": "Retseptlar",
+  "age_aria": "Yosh",
+  "months_short": "{n} oy",
+  "years_short": "{n} yosh",
+  "months_plus": "{n} oy+",
+  "years_plus": "{n} yosh+",
+  "fact_milk": "Sut",
+  "fact_meals": "Ovqatlanish",
+  "fact_portion": "Porsiya",
+  "fact_texture": "Konsistensiya",
+  "portion_note": "Porsiyalar taxminiy — qancha yeyishini chaqaloqning oʻzi hal qiladi.",
+  "readiness_title": "Tayyorlik belgilari",
+  "readiness_all": "Hammasi bor — 6 oyda boshlashga tayyor.",
+  "readiness_hint": "JSST qoʻshimcha ovqatni 6 oyda (180 kun) boshlashni tavsiya qiladi. Ikkilansangiz, pediatr bilan maslahatlashing.",
+  "sample_day_title": "Namunaviy kun (8 oy)",
+  "dishes_title": "Shu yosh uchun taom gʻoyalari",
+  "see_recipes": "Retseptlarni koʻrish",
+  "plate_title": "Muvozanatli likopcha (1 yoshdan)",
+  "plate_note": "Yonida sut mahsuloti va biroz foydali yogʻ (zaytun moyi, sariyogʻ, avokado).",
+  "needs_title": "Kunlik ehtiyoj",
+  "needs_note": "6–11 oylikda temirga ehtiyoj tana vazniga nisbatan butun umr davomidagi eng yuqori darajada — har bir ovqatda bitta temir manbai boʻlsin.",
+  "sources_title": "Qayerda bor",
+  "iron_helps_title": "Temirni oshiradi",
+  "iron_blocks_title": "Temirni kamaytiradi",
+  "allergens_title": "Allergenlar: kechiktirmang",
+  "allergens_intro": "Tuxum va yeryongʻoq 6 oydan, birma-bir beriladi. Ogʻir ekzema yoki tuxumga allergiya boʻlsa, avval shifokor bilan maslahatlashing.",
+  "avoid_title": "Bermang",
+  "choking_title": "Boʻgʻilishning oldini oling (4 yoshgacha)",
+  "choking_note": "Oʻqchish — normal holat; boʻgʻilish esa ovozsiz boʻladi, bola yoʻtala olmaydi — bu shoshilinch holat.",
+  "myths_title": "Eskirgan afsonalar",
+  "all": "Hammasi",
+  "recipes_intro": "Anacan Retseptlar boʻlimidan chaqalogʻingiz yoshiga mos tanlovlar. Dastlabki retseptlar bepul, qolganlari Premium’da.",
+  "recipes_loading": "Retseptlar yuklanmoqda…",
+  "all_recipes": "Barcha chaqaloq retseptlari",
+  "all_recipes_sub": "{n} ta retsept · Retseptlar boʻlimida ochiladi",
+  "tag_iron": "★ Temir",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Allergen",
+  "home_title": "Qoʻshimcha ovqat qoʻllanmasi",
+  "home_sub_before": "6 oyda boshlaymiz — tayyorlik va ilk taomlar",
+  "home_sub_after": "Yoshga mos porsiya, temir balansi va retseptlar",
+  "tool_desc": "Porsiya, temir balansi, allergenlar va retseptlar"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 oy",
+   "milk": "Talab boʻyicha ona suti / formula",
+   "meals": "Qoʻshimcha ovqat yoʻq",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Har kuni D vitamini tomchilari; tayyorlik belgilarini kuzating"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 oy",
+   "milk": "Asosiy oziq, kuniga 5–6 marta",
+   "meals": "2–3 mahal",
+   "portion": "2–3 osh qoshiqdan ½ stakangacha (~125 ml)",
+   "texture": "Silliq pyure → quyuq pyure, qoʻlda yeyiladigan yumshoq boʻlaklar",
+   "goal": "Temir, yangi taʼmlar, allergenlar bilan tanishish"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 oy",
+   "milk": "Kuniga 3–4 marta",
+   "meals": "3 mahal + 1–2 yengil tamaddi",
+   "portion": "½ stakan (~125 ml)",
+   "texture": "Ezilgan, mayda toʻgʻralgan, qoʻlda yeyiladigan",
+   "goal": "Chaynash, barmoqlar bilan chimdib olish, ochiq stakan"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 yosh",
+   "milk": "Ona suti yoki sigir suti 350–500 ml/kun",
+   "meals": "3 mahal + 2 tamaddi",
+   "portion": "¾–1 stakan (~200–250 ml)",
+   "texture": "Oila dasturxoni (tuzsiz, mayda)",
+   "goal": "Oilaviy taomga oʻtish"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 yosh",
+   "milk": "Sut / qatiq kuniga 2 porsiya",
+   "meals": "3 mahal + 2 tamaddi",
+   "portion": "1 stakan; goʻsht/baliq ~30–50 g",
+   "texture": "Oilaviy taom",
+   "goal": "Xilma-xillik, tanlab yeyishni yengish"
+  }
+ ],
+ "readiness": [
+  "Boshini barqaror tutadi",
+  "Suyanib oʻtiradi",
+  "Ovqatga qiziqadi, ogʻzini ochadi",
+  "Tili bilan ovqatni tashqariga itarmaydi"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Sut"
+  },
+  {
+   "time": "09:00",
+   "what": "Temir bilan boyitilgan boʻtqa + meva"
+  },
+  {
+   "time": "12:00",
+   "what": "Sut"
+  },
+  {
+   "time": "13:30",
+   "what": "Goʻsht + sabzavot"
+  },
+  {
+   "time": "16:00",
+   "what": "Sut"
+  },
+  {
+   "time": "18:30",
+   "what": "Tuxum / qatiq + don"
+  },
+  {
+   "time": "Uyqudan oldin",
+   "what": "Sut"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 oy",
+  "1–2 yosh",
+  "2–4 yosh"
+ ],
+ "nutrients": [
+  {
+   "name": "Temir",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Mol/qoʻy goʻshti, tovuq soni, tuxum sarigʻi, yasmiq, noʻxat, temir bilan boyitilgan boʻtqa, ismaloq",
+   "rule": "Har ovqatda bitta temir manbai, yonida C vitamini"
+  },
+  {
+   "name": "D vitamini",
+   "need": [
+    "400 XB",
+    "600 XB",
+    "600 XB"
+   ],
+   "sources": "Tomchilar, yogʻli baliq, tuxum sarigʻi",
+   "rule": "Har kuni tomchi"
+  },
+  {
+   "name": "Rux",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Goʻsht, tuxum, qatiq, dukkaklilar, suli",
+   "rule": "Temirli taomlar bilan bir likopchada"
+  },
+  {
+   "name": "Kalsiy",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Qatiq, pishloq, sut (1 yoshdan), tahina",
+   "rule": "Kuniga 2–3 porsiya sut mahsuloti"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Losos, skumbriya, sardina, yongʻoq, kanop urugʻi",
+   "rule": "Haftada 2 marta baliq"
+  },
+  {
+   "name": "A vitamini",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Sabzi, qovoq, batat, oʻrik",
+   "rule": "Kuniga bitta toʻq sariq sabzavot"
+  },
+  {
+   "name": "C vitamini",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Bolgar qalampiri, brokkoli, qulupnay, kivi, apelsin",
+   "rule": "Temirli taom yonida"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Oqsil",
+   "hint": "goʻsht, baliq, tuxum, dukkaklilar"
+  },
+  {
+   "label": "Don",
+   "hint": "boʻtqa, guruch, non"
+  },
+  {
+   "label": "Sabzavot va meva",
+   "hint": "rang-barang"
+  }
+ ],
+ "ironHelps": [
+  "C vitamini (qalampir, brokkoli, qulupnay)",
+  "Goʻsht + sabzavot birga"
+ ],
+ "ironBlocks": [
+  "Ovqat bilan choy",
+  "1 yoshgacha sigir suti asosiy ichimlik sifatida",
+  "Kepagi juda koʻp taom"
+ ],
+ "allergens": [
+  "Tuxum",
+  "Yeryongʻoq",
+  "Daraxt yongʻoqlari",
+  "Sigir suti",
+  "Soya",
+  "Bugʻdoy",
+  "Kunjut",
+  "Baliq",
+  "Qisqichbaqasimonlar"
+ ],
+ "allergenSteps": [
+  "Har safar faqat bitta yangi allergen; 2–3 kun reaksiyani kuzating",
+  "Ertalab yoki tushda bering — kuzatish oson boʻladi",
+  "Tuxum toʻliq pishgan; yeryongʻoq pasta holida, hech qachon butun donasi emas",
+  "Yaxshi qabul qilsa, haftada 2–3 marta takrorlang"
+ ],
+ "avoid": [
+  {
+   "food": "Asal",
+   "until": "12 oy",
+   "why": "Botulizm xavfi"
+  },
+  {
+   "food": "Tuz",
+   "until": "12 oy, keyin juda oz",
+   "why": "Buyraklarga yuk"
+  },
+  {
+   "food": "Qoʻshilgan shakar, shirinliklar",
+   "until": "24 oy",
+   "why": "Shirinlikka oʻrganish, tish kariyesi"
+  },
+  {
+   "food": "Meva sharbati",
+   "until": "12 oy; keyin ≤120 ml/kun",
+   "why": "Ishtahani pasaytiradi"
+  },
+  {
+   "food": "Sigir suti (ichimlik sifatida)",
+   "until": "12 oy",
+   "why": "Temirni kamaytiradi; taomda mumkin"
+  },
+  {
+   "food": "Xom tuxum, goʻsht, baliq; pasterizatsiya qilinmagan sut",
+   "until": "4 yosh",
+   "why": "Infeksiya"
+  },
+  {
+   "food": "Simobli baliq (qilichbaliq, akula, yirik tunets)",
+   "until": "4 yosh",
+   "why": "Simob"
+  },
+  {
+   "food": "Choy, qahva, kola",
+   "until": "4 yosh",
+   "why": "Kofein, temirni bogʻlaydi"
+  },
+  {
+   "food": "Kolbasa, sosiska, dudlangan goʻsht",
+   "until": "Iloji boricha kam",
+   "why": "Tuz, nitratlar"
+  },
+  {
+   "food": "Guruch suti",
+   "until": "4–5 yosh",
+   "why": "Mishyak"
+  }
+ ],
+ "choking": [
+  "Butun yongʻoq va urugʻlar bermang — maydalangan yoki pasta",
+  "Uzum, olcha, cherri pomidor — boʻyiga 4 boʻlakka",
+  "Xom sabzi, olma — qirgʻichdan oʻtkazing yoki pishiring",
+  "Sosiska — boʻyiga tasma; popkorn, qattiq konfet, saqich — yoʻq",
+  "Doim oʻtirgan holda va nazorat ostida yesin"
+ ],
+ "myths": [
+  {
+   "myth": "Tuxum oqi — faqat 1 yoshdan keyin",
+   "fact": "Butun tuxum 6 oydan beriladi; kechiktirish allergiya xavfini oshirishi mumkin."
+  },
+  {
+   "myth": "Baliq, sitrus, qulupnay 1 yoshgacha taqiqlangan",
+   "fact": "Hammasini 6 oydan berish mumkin."
+  },
+  {
+   "myth": "Avval meva bersangiz, sabzavotni yoqtirmaydi",
+   "fact": "Kuchli dalil yoʻq; asosiysi — temirli ovqat va xilma-xillik."
+  },
+  {
+   "myth": "4 oydan meva pyuresi",
+   "fact": "JSST qoʻshimcha ovqatni 6 oyda boshlashni tavsiya qiladi."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Goʻsht",
+  "fish": "Baliq",
+  "egg": "Tuxum",
+  "dairy": "Sut mahsulotlari",
+  "legumes": "Dukkaklilar",
+  "grains": "Don",
+  "vegetables": "Sabzavot",
+  "fruit": "Meva",
+  "fats_seeds": "Yogʻ, urugʻlar"
+ },
+ "foods": [
+  {
+   "name": "Mol goʻshti",
+   "value": "Temir, rux, B12",
+   "form": "Pyure yoki uzun yumshoq tasma"
+  },
+  {
+   "name": "Qoʻy goʻshti",
+   "value": "Temir, rux",
+   "form": "Pyure, qiyma"
+  },
+  {
+   "name": "Tovuq soni",
+   "value": "Oqsil, temir",
+   "form": "Titilgan, pyure"
+  },
+  {
+   "name": "Kurka",
+   "value": "Oqsil, rux",
+   "form": "Pyure, koʻfta"
+  },
+  {
+   "name": "Jigar",
+   "value": "Temir, A vitamini",
+   "form": "Haftada 1 marta, 1–2 choy qoshiq"
+  },
+  {
+   "name": "Losos",
+   "value": "Omega-3, D vitamini",
+   "form": "Suyaksiz, ezilgan"
+  },
+  {
+   "name": "Skumbriya, sardina",
+   "value": "Omega-3",
+   "form": "Suyaksiz, ezilgan"
+  },
+  {
+   "name": "Treska, kambala",
+   "value": "Oqsil, yod",
+   "form": "Boʻlak-boʻlak"
+  },
+  {
+   "name": "Tovuq tuxumi",
+   "value": "Oqsil, xolin, D",
+   "form": "Qattiq pishirilgan, ezilgan; omlet tasmasi"
+  },
+  {
+   "name": "Qatiq (shakarsiz)",
+   "value": "Kalsiy, probiotik",
+   "form": "Qoshiqda"
+  },
+  {
+   "name": "Tvorog, oq pishloq",
+   "value": "Kalsiy, oqsil",
+   "form": "Ezilgan; pishloqni suvda ivitib, tuzini chiqaring"
+  },
+  {
+   "name": "Sariyogʻ",
+   "value": "Energiya",
+   "form": "Taomga ozgina qoʻshing"
+  },
+  {
+   "name": "Sigir suti",
+   "value": "Kalsiy",
+   "form": "Ichimlik sifatida 12 oydan; taomda 6 oydan"
+  },
+  {
+   "name": "Qizil yasmiq",
+   "value": "Temir, oqsil",
+   "form": "Shoʻrva, pyure"
+  },
+  {
+   "name": "Noʻxat",
+   "value": "Temir, kletchatka",
+   "form": "Xumus (tuzsiz)"
+  },
+  {
+   "name": "Loviya, mosh",
+   "value": "Temir, folat",
+   "form": "Ezilgan"
+  },
+  {
+   "name": "Suli",
+   "value": "Kletchatka, temir",
+   "form": "Boʻtqa"
+  },
+  {
+   "name": "Guruch",
+   "value": "Energiya",
+   "form": "Boʻtqa (haftada 2–3 marta)"
+  },
+  {
+   "name": "Grechka",
+   "value": "Temir, magniy",
+   "form": "Boʻtqa"
+  },
+  {
+   "name": "Bulgʻur, manka, makaron, non",
+   "value": "Energiya, B",
+   "form": "Boʻtqa, yumshoq makaron"
+  },
+  {
+   "name": "Tariq, kinoa",
+   "value": "Temir, oqsil",
+   "form": "Boʻtqa"
+  },
+  {
+   "name": "Qovoq, sabzi, batat",
+   "value": "A vitamini",
+   "form": "Pyure, bugʻda pishgan tayoqchalar"
+  },
+  {
+   "name": "Qovoqcha, brokkoli, gulkaram",
+   "value": "C, K vitamini",
+   "form": "Bugʻda; brokkoli «daraxtcha» shaklida"
+  },
+  {
+   "name": "Kartoshka",
+   "value": "Energiya",
+   "form": "Pyure"
+  },
+  {
+   "name": "Ismaloq, lavlagi",
+   "value": "Folat, temir",
+   "form": "Boshqa sabzavot bilan aralash"
+  },
+  {
+   "name": "Baqlajon, qalampir, pomidor",
+   "value": "C vitamini",
+   "form": "Pishgan, poʻstsiz"
+  },
+  {
+   "name": "Koʻk noʻxat, loviya",
+   "value": "Temir, kletchatka",
+   "form": "Ezilgan"
+  },
+  {
+   "name": "Olma, nok",
+   "value": "Kletchatka",
+   "form": "Pishirilgan pyure, qirgʻichda"
+  },
+  {
+   "name": "Banan, avokado",
+   "value": "Energiya, foydali yogʻ",
+   "form": "Uzun tasma, ezilgan"
+  },
+  {
+   "name": "Shaftoli, oʻrik, olxoʻri",
+   "value": "A, C vitamini, kletchatka",
+   "form": "Poʻstsiz, yumshoq"
+  },
+  {
+   "name": "Qulupnay, kivi, apelsin",
+   "value": "C vitamini",
+   "form": "Ezilgan, tilim"
+  },
+  {
+   "name": "Uzum, olcha, chernika",
+   "value": "Antioksidant",
+   "form": "Boʻyiga 4 boʻlak; chernikani ezing"
+  },
+  {
+   "name": "Turshak, mayiz, xurmo",
+   "value": "Temir, kletchatka",
+   "form": "Ivitilgan, pyure"
+  },
+  {
+   "name": "Zaytun moyi",
+   "value": "Foydali yogʻ",
+   "form": "Taomga 1 choy qoshiq"
+  },
+  {
+   "name": "Yeryongʻoq pastasi",
+   "value": "Oqsil",
+   "form": "Yupqa, pyurega aralashtirilgan"
+  },
+  {
+   "name": "Bodom, yongʻoq, findiq pastasi",
+   "value": "E vitamini, omega-3",
+   "form": "Kukun yoki pasta"
+  },
+  {
+   "name": "Tahina (kunjut)",
+   "value": "Kalsiy, temir",
+   "form": "Boʻtqaga aralashtirilgan"
+  },
+  {
+   "name": "Kanop, chia urugʻi",
+   "value": "Omega-3",
+   "form": "Maydalangan"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Mol goʻshti + qovoq pyuresi",
+   "Tovuq + sabzi + kartoshka pyuresi",
+   "Qizil yasmiq shoʻrvasi",
+   "Suli boʻtqasi + olma pyuresi",
+   "Grechka boʻtqasi",
+   "Qatiqli banan pyuresi",
+   "Avokado + banan ezmasi",
+   "Qattiq pishgan tuxum ezmasi",
+   "Bugʻda pishgan brokkoli «daraxtchalari»",
+   "Losos + batat pyuresi",
+   "Noʻxat xumusi (tahina bilan)",
+   "Pishgan nok pyuresi + dolchin"
+  ],
+  "9-11": [
+   "Mol goʻshtidan mini koʻftalar",
+   "Sabzavotli omlet tasmalari",
+   "Baliq kotleti",
+   "Qatiqli suli quymogʻi",
+   "Tovuqli guruch boʻtqasi + qovoqcha",
+   "Qoʻy goʻshtli sabzavot dimlamasi",
+   "Yasmiq kotleti",
+   "Makaron + qiymali pomidor sousi",
+   "Grechka + jigar sousi",
+   "Tvorogli sirniki (pechda)",
+   "Brokkoli-pishloqli maffin",
+   "Olma-suli batonchiklari"
+  ],
+  "12-24": [
+   "Barg doʻlmasi (mayda)",
+   "Karam doʻlmasi",
+   "Bolalar palovi",
+   "Lapshali tovuq shoʻrva",
+   "Dushbara (shoʻrvadagi mayda chuchvara)",
+   "Koʻkatli kuku (pechda pishgan omlet)",
+   "Yasmiq shoʻrvasi",
+   "Baliq kotleti + kartoshka pyuresi",
+   "Grechka + mol goʻshti gulyashi",
+   "Menemen (tuxum-pomidor, achchiqsiz)",
+   "Bolalar lazanyasi",
+   "Qatiq, meva va suli parfesi",
+   "Tvorogli zapekanka",
+   "Shoʻrvali xangal (xamir boʻlaklari)"
+  ],
+  "24-48": [
+   "Sabzavotli tovuq koʻftasi + bulgʻur",
+   "Pechda losos + sabzavot",
+   "Loviya taomi",
+   "Uy pitsasi (butun donli)",
+   "Qutob (koʻkatli / goʻshtli)",
+   "Borshch",
+   "Kinoa salati + noʻxat",
+   "Tuxumli tost «askarchalari»",
+   "Smuzi-kosa",
+   "Uy naggetslari (pechda)"
+  ]
+ },
+ "emergency": "Yuz yoki lablar shishishi, nafas qisishi, takroriy qusish, rangparlik — darhol 103 / 112.",
+ "disclaimer": "Ushbu qoʻllanma maʼrifiy maqsadda boʻlib, tibbiy maslahat emas. Temir va vitamin dozasini pediatringiz belgilaydi. Manbalar: JSST (2023), AAP, Turkiya Sogʻliqni saqlash vazirligi, Rossiya pediatrlar ittifoqi, SACN."
+}
