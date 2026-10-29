@@ -93,9 +93,12 @@ Big curious open eyes looking at the block, cheerful open smile with two tiny lo
     month: 8,
     title_az: '8 ay — əl-dizləri üstə emekləyir',
     milestone_az: 'Əlləri və dizləri üstə emekləyir, ətrafı kəşf edir.',
-    scene: `8-month-old baby CRAWLING on hands and knees, seen from the side, moving toward the left.
-Correct crawling posture: body horizontal and lifted off the ground, both arms straight with palms flat on the ground under the shoulders, both knees on the ground under the hips, lower legs and feet lying flat behind, one hand and the opposite knee slightly forward (mid-step).
-Head up looking forward, big bright eyes, happy smile.`,
+    scene: `8-month-old baby CRAWLING on hands and knees, drawn in STRICT SIDE PROFILE view (like a dog seen from the side), moving toward the LEFT edge of the image.
+Correct crawling anatomy: the torso is HORIZONTAL like a little table top, lifted off the ground with the tummy NOT touching the ground; the head is at the left end of the torso, the diaper/bottom at the right end at the same height as the shoulders.
+Under the shoulders: both arms straight and vertical, palms flat on the ground. Under the hips: both thighs vertical with the knees on the ground, and the lower legs lying flat on the ground pointing backward to the right, soles of the feet facing up.
+The near-side hand and the far-side knee are slightly forward (mid-step).
+Head lifted, face turned three-quarters toward the viewer, big bright eyes, happy open smile with two tiny lower teeth.
+The baby is NOT sitting, NOT facing the viewer, NOT lying on its tummy.`,
   },
   {
     month: 9,
