@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import {
   ImagePlus, Camera, Trash2, RefreshCw,
   X, Edit, Save, Heart, ShoppingBag } from
@@ -471,7 +472,8 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
 
 
       {/* Action Sheet - appears when tapping a photo */}
-      <AnimatePresence>
+      {/* Portal: ToolPage's .a-shell (z-index 1) kept this overlay under the bottom nav. */}
+      {createPortal(<AnimatePresence>
         {showActionSheet &&
         <motion.div
           initial={{ opacity: 0 }}
@@ -557,10 +559,11 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
             </motion.div>
           </motion.div>
         }
-      </AnimatePresence>
+      </AnimatePresence>, document.body)}
 
       {/* Photo Viewer Modal */}
-      <AnimatePresence>
+      {/* Portal: ToolPage's .a-shell (z-index 1) kept this overlay under the bottom nav. */}
+      {createPortal(<AnimatePresence>
         {viewingPhoto &&
         <motion.div
           initial={{ opacity: 0 }}
@@ -652,7 +655,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
             </div>
           </motion.div>
         }
-      </AnimatePresence>
+      </AnimatePresence>, document.body)}
 
       {/* Uploading Overlay */}
       {uploading &&

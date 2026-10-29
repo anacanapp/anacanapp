@@ -122,7 +122,7 @@ const PillReminderCard = () => {
               </div>
               <div>
                 <label className="a-stat-tile-label" style={{ display: 'block', marginBottom: 4 }}>{tr("untranslated_vaxt_8etncj", "Vaxt")}</label>
-                <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="a-input" style={{ width: '100%' }} />
+                <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="a-input a-date-input" />
               </div>
               <div className="flex gap-2">
                 <button onClick={handleSave} disabled={save.isPending} className="a-btn-solid" style={{ flex: 1, justifyContent: 'center' }}>{tr("untranslated_yadda_saxla_bpdu9v", "Yadda saxla")}</button>

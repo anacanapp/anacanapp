@@ -429,7 +429,8 @@ const ProviderDetail = ({ provider, onBack, onReserve }: ProviderDetailProps) =>
   return (
     <div className="a-scope pb-24" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
       {/* Hero */}
-      <div className="relative h-48" style={{ background: 'var(--a-grad-peach)' }}>
+      {/* Without a photo the hero is only a slim bar for the back button. */}
+      <div className={`relative ${provider.image_url ? 'h-48' : 'h-16'}`} style={{ background: provider.image_url ? 'var(--a-grad-peach)' : undefined }}>
         {provider.image_url &&
         <img
           src={provider.image_url}
@@ -447,7 +448,7 @@ const ProviderDetail = ({ provider, onBack, onReserve }: ProviderDetailProps) =>
       </div>
 
       {/* Content */}
-      <div className="a-shell -mt-12 relative z-10">
+      <div className={`a-shell relative z-10 ${provider.image_url ? '-mt-12' : ''}`}>
         {/* Main Card */}
         <div className="a-card mb-3">
           {provider.is_featured &&

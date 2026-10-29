@@ -402,7 +402,8 @@ const VitaminTracker = ({ onBack }: VitaminTrackerProps) => {
                   type="time"
                   value={newVitamin.time}
                   onChange={(e) => setNewVitamin((prev) => ({ ...prev, time: e.target.value }))}
-                  className="a-input w-full" />
+                  className="a-input a-date-input"
+                  style={{ maxWidth: 140, minHeight: 42, padding: '8px 14px' }} />
                 
                 </div>
 

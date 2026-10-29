@@ -291,6 +291,11 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         }
         return;
       }
+      if (intent.tool) {
+        setActiveTab('tools');
+        setActiveTool(intent.tool);
+        return;
+      }
       if (intent.screen) {setActiveScreen(intent.screen);return;}
       if (intent.tab) {
         setActiveTab(intent.tab);

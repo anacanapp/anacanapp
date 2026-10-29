@@ -350,7 +350,7 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
 
       {/* Editorial hero (anacan-demo pregnancy design) —
           gün naviqatoru silinib: həmişə cari gün göstərilir */}
-      <section className="a-hero-min a-fade-in">
+      <section className="a-hero-min a-hero-compact a-fade-in">
         <p className="a-hero-eyebrow">
           {selectedWeek}{tr("dashboard_hefte_5af01f", ". h\u0259ft\u0259,")} <strong>{selectedDayInWeek}{tr("dashboard_gun_a4ba4e", ". g\xFCn \u2022")}</strong> {selectedTrimester === 1 ? tr("dashboard_1_trimester", "1-ci Trimester") :
           selectedTrimester === 2 ? tr("dashboard_2_trimester", "2-ci Trimester") :
@@ -358,7 +358,7 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
         </p>
 
         {/* Fetus illustration with heart badge */}
-        <div className="a-egg-wrap" style={{ width: 156, margin: '10px auto 14px' }}>
+        <div className="a-egg-wrap" style={{ width: 128, margin: '4px auto 8px' }}>
           <span className="a-egg-heart">
             <span style={{ fontSize: 13 }}>💗</span>
           </span>
@@ -373,7 +373,7 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
               }
             }}
             alt={`${selectedWeek} ${tr("dashboard_week_baby", "həftəlik körpə")}`}
-            style={{ width: 156, height: 156, objectFit: 'contain', filter: 'drop-shadow(0 18px 22px rgba(217, 108, 74, 0.3))' }}
+            style={{ width: 128, height: 128, objectFit: 'contain', filter: 'drop-shadow(0 14px 18px rgba(217, 108, 74, 0.3))' }}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{
@@ -398,7 +398,7 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
           })()}
         </h1>
 
-        <div className="a-tag-row" style={{ justifyContent: 'center', marginTop: 18, marginBottom: 0 }}>
+        <div className="a-tag-row" style={{ justifyContent: 'center', marginTop: 12, marginBottom: 0 }}>
           <span className="a-tag" style={{ cursor: 'default' }}>{pregnancyDay}{tr("dashboard_gun_d96b5d", ". g\xFCn")}</span>
           <span className="a-tag" style={{ cursor: 'default' }}>{weekData.lengthCm} {tr("dashboard_sm", "sm")}</span>
           <span className="a-tag" style={{ cursor: 'default' }}>{weekData.weightG} {tr("dashboard_qr", "qr")}</span>
@@ -425,119 +425,7 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
         </div>
       </section>
 
-      {/* Trimester Tips Section */}
-      {dynamicTrimesterTips.length > 0 &&
-      <section className="a-section">
-          <div className="a-section-head" style={{ justifyContent: 'center' }}>
-            <h2 className="a-section-title a-heading" style={{ textAlign: 'center' }}>
-              {trimesterInfo.emoji} {trimesterInfo.title} {trimesterInfo.emoji}
-            </h2>
-          </div>
-          <div className="a-list-card a-fade-in">
-            {dynamicTrimesterTips.map((tip, index) =>
-          <motion.div
-            key={tip.id}
-            className="a-list-row"
-            initial={{ x: document.documentElement.dir === 'rtl' ? 20 : -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.15 + index * 0.05 }}>
-            
-                <span className="a-list-icon" style={{ background: 'var(--a-surface-soft)', fontSize: 17 }}>{tip.icon}</span>
-                <p className="a-list-title" style={{ fontWeight: 600, whiteSpace: 'normal', lineHeight: 1.5 }}>{tip.tip_text}</p>
-              </motion.div>
-          )}
-          </div>
-        </section>
-      }
-
-      {/* Stats trio - Show kick counter only after week 16 */}
-      <section className="a-section">
-        <div className="a-trio" style={{ gridTemplateColumns: selectedWeek >= 16 ? 'repeat(3, 1fr)' : 'repeat(2, 1fr)' }}>
-          <motion.div
-            className="a-trio-item"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}>
-            
-            <span className="a-trio-icon" style={{ background: 'var(--a-grad-yellow)', color: 'var(--a-warn-ink)' }}>
-              <Calendar size={17} strokeWidth={2} />
-            </span>
-            <p className="a-trio-value">{daysLeft}</p>
-            <p className="a-trio-label">{tr("dashboard_gun_qaldi_993281", "gün qaldı")}</p>
-          </motion.div>
-
-          {/* Only show kick counter after week 16 */}
-          {selectedWeek >= 16 &&
-          <motion.button
-            onClick={addKick}
-            className="a-trio-item"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.25 }}
-            whileTap={{ scale: 0.92 }}>
-            
-              <span className="a-trio-icon" style={{ background: 'var(--a-grad-pink)', color: 'var(--a-berry-ink)' }}>
-                <Footprints size={17} strokeWidth={2} />
-              </span>
-              <p className="a-trio-value">{kickCount}</p>
-              <p className="a-trio-label">{tr("dashboard_tepik_6483fe", "təpik")}</p>
-            </motion.button>
-          }
-
-          <motion.div
-            className="a-trio-item"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}>
-            
-            <span className="a-trio-icon" style={{ background: 'var(--a-grad-blue)', color: 'var(--a-blue-ink)' }}>
-              <Scale size={17} strokeWidth={2} />
-            </span>
-            <p className="a-trio-value">+{weightGain}</p>
-            <p className="a-trio-label">{tr("dashboard_kq_ceki_b42b8d", "kq çəki")}</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Baby Development - Static Icons */}
-      <section className="a-section">
-        <div className="a-section-head">
-          <h2 className="a-section-title a-heading">{tr("dashboard_korpenin_inkisafi_269d83", "Körpənin inkişafı")}</h2>
-        </div>
-        <div className="a-trio" style={{ gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: 6 }}>
-          {[
-          { icon: '👀', label: tr("dashboard_goz_fbc05e", 'Göz'), active: weeklyDevelopment.eyes },
-          { icon: '👂', label: tr("dashboard_qulaq_93ab", 'Qulaq'), active: weeklyDevelopment.ears },
-          { icon: '✋', label: tr("dashboard_barmaq_18bc", 'Barmaq'), active: weeklyDevelopment.fingers },
-          { icon: '🦶', label: tr("dashboard_tepik_9a873a", 'Təpik'), active: weeklyDevelopment.kicks },
-          { icon: '💇', label: tr("dashboard_sac_a09eaa", 'Saç'), active: weeklyDevelopment.hair }].
-          map((item, index) =>
-          <motion.div
-            key={item.label}
-            className="a-trio-item"
-            style={{ padding: '12px 2px', minWidth: 0, opacity: item.active ? 1 : 0.65, cursor: 'default' }}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.3 + index * 0.08 }}>
-            
-              <span className="a-trio-icon" aria-hidden="true" style={{
-                background: item.active ? 'var(--a-peach-1)' : 'var(--a-surface-soft)',
-                width: 32, height: 36, fontSize: 22, fontWeight: 400, lineHeight: 1,
-                fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif',
-              }}>
-                {item.icon}
-              </span>
-              <p className="a-trio-label" style={{ overflowWrap: 'anywhere', ...(item.active ? { color: 'var(--a-ink)' } : {}) }}>
-                {item.label}
-              </p>
-            </motion.div>
-          )}
-        </div>
-      </section>
-
-      {/* Calendar sits after the baby message; without daily content it takes its place */}
-      {!dayContent && <UpcomingAppointments />}
-
+      {/* Daily messages come straight after the hero; the days-left / weight trio was removed (days left is in the hero chips). */}
       {/* Daily Content Cards - Separated */}
       {dayContent &&
       <>
@@ -566,9 +454,6 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
             </motion.div>
           </section>
         }
-
-          {/* Calendar: upcoming appointments, add / edit in a sheet, server push reminders */}
-          <UpcomingAppointments />
 
           {/* Body Changes Card */}
           {dayContent.body_changes &&
@@ -658,6 +543,70 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
           </section>
         }
         </>
+      }
+
+      {/* Calendar after the daily messages (bump) */}
+      <UpcomingAppointments />
+
+      {/* Baby Development - Static Icons */}
+      <section className="a-section">
+        <div className="a-section-head">
+          <h2 className="a-section-title a-heading">{tr("dashboard_korpenin_inkisafi_269d83", "Körpənin inkişafı")}</h2>
+        </div>
+        <div className="a-trio" style={{ gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: 6 }}>
+          {[
+          { icon: '👀', label: tr("dashboard_goz_fbc05e", 'Göz'), active: weeklyDevelopment.eyes },
+          { icon: '👂', label: tr("dashboard_qulaq_93ab", 'Qulaq'), active: weeklyDevelopment.ears },
+          { icon: '✋', label: tr("dashboard_barmaq_18bc", 'Barmaq'), active: weeklyDevelopment.fingers },
+          { icon: '🦶', label: tr("dashboard_tepik_9a873a", 'Təpik'), active: weeklyDevelopment.kicks },
+          { icon: '💇', label: tr("dashboard_sac_a09eaa", 'Saç'), active: weeklyDevelopment.hair }].
+          map((item, index) =>
+          <motion.div
+            key={item.label}
+            className="a-trio-item"
+            style={{ padding: '12px 2px', minWidth: 0, opacity: item.active ? 1 : 0.65, cursor: 'default' }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.3 + index * 0.08 }}>
+            
+              <span className="a-trio-icon" aria-hidden="true" style={{
+                background: item.active ? 'var(--a-peach-1)' : 'var(--a-surface-soft)',
+                width: 32, height: 36, fontSize: 22, fontWeight: 400, lineHeight: 1,
+                fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif',
+              }}>
+                {item.icon}
+              </span>
+              <p className="a-trio-label" style={{ overflowWrap: 'anywhere', ...(item.active ? { color: 'var(--a-ink)' } : {}) }}>
+                {item.label}
+              </p>
+            </motion.div>
+          )}
+        </div>
+      </section>
+
+      {/* Trimester Tips Section */}
+      {dynamicTrimesterTips.length > 0 &&
+      <section className="a-section">
+          <div className="a-section-head" style={{ justifyContent: 'center' }}>
+            <h2 className="a-section-title a-heading" style={{ textAlign: 'center' }}>
+              {trimesterInfo.emoji} {trimesterInfo.title} {trimesterInfo.emoji}
+            </h2>
+          </div>
+          <div className="a-list-card a-list-compact a-fade-in">
+            {dynamicTrimesterTips.map((tip, index) =>
+          <motion.div
+            key={tip.id}
+            className="a-list-row"
+            initial={{ x: document.documentElement.dir === 'rtl' ? 20 : -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.15 + index * 0.05 }}>
+            
+                <span className="a-list-icon" style={{ background: 'var(--a-surface-soft)', fontSize: 17 }}>{tip.icon}</span>
+                <p className="a-list-title" style={{ fontWeight: 600, whiteSpace: 'normal', lineHeight: 1.5 }}>{tip.tip_text}</p>
+              </motion.div>
+          )}
+          </div>
+        </section>
       }
 
       {/* Weekly Tip from Database */}
@@ -1873,7 +1822,7 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
               if (!el || el.dataset.positioned) return;
               el.dataset.positioned = '1';
               const first = el.querySelector<HTMLElement>('[data-achieved="false"]');
-              if (first) el.scrollLeft = first.offsetLeft - el.offsetLeft - 8;
+              if (first) el.scrollLeft = Math.max(0, first.offsetLeft - el.offsetLeft - 14);
             }}>
             {allMilestones.map((milestone) =>
             <button

@@ -2962,11 +2962,11 @@ html.a-lite .a3-mascot.bob { animation: none; }
 .a-dev-card { padding: 14px 0 12px; }
 .a-dev-rail {
   display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x proximity;
-  scrollbar-width: none; padding: 0 12px 2px;
+  scrollbar-width: none; padding: 0 14px 2px; scroll-padding-inline: 14px;
 }
 .a-dev-rail::-webkit-scrollbar { display: none; }
 .a-dev-ms {
-  flex: 0 0 60px; scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  flex: 0 0 64px; min-width: 0; scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; gap: 4px;
   background: none; border: none; cursor: pointer; padding: 0;
 }
 .a-dev-ms-ico {
@@ -2980,8 +2980,9 @@ html.a-lite .a3-mascot.bob { animation: none; }
   width: 15px; height: 15px; border-radius: 50%; background: var(--a-green-2); color: #fff;
 }
 .a-dev-ms-label {
-  max-width: 100%; font-size: 10px; line-height: 1.2; font-weight: 500; color: var(--a-ink-soft);
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  /* min-width: 0 on the item keeps long labels ("İlk təbəssüm") inside the 64px column. */
+  width: 100%; font-size: 10px; line-height: 1.2; font-weight: 500; color: var(--a-ink-soft); text-align: center;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow-wrap: anywhere;
 }
 .a-dev-ms.on .a-dev-ms-label { font-weight: 700; color: var(--a-ink); }
 .a-dev-tip {
@@ -3007,3 +3008,11 @@ html.a-lite .a3-mascot.bob { animation: none; }
 .a-period-day.on { background: #ef4b6c; color: #fff; }
 .a-period-day.today { border-color: var(--a-ink); }
 .a-period-day:disabled { opacity: 0.35; cursor: default; }
+
+/* Pregnancy home: tighter hero and tip list so the daily message is reached sooner. */
+.a-hero-compact { padding-top: 10px; }
+.a-hero-compact .a-hero-headline { font-size: 23px; }
+.a-hero-compact .a-pbar { margin-top: 16px; }
+.a-list-compact .a-list-row { padding: 10px 14px; gap: 10px; }
+.a-list-compact .a-list-icon { width: 32px; height: 32px; font-size: 15px !important; }
+.a-list-compact .a-list-title { font-size: 12.5px; line-height: 1.4 !important; }

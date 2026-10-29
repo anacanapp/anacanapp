@@ -52,7 +52,9 @@
       "forecast_learned": "Proqnoz son {n} normal tsiklinizə əsaslanır.",
       "recent_cycles": "Son tsikllər",
       "cycle_len": "{n} gün tsikl",
-      "postpartum_note": "Doğuşdan və əmizdirmə dövründən sonra tsikl bir müddət düzənsiz ola bilər."
+      "postpartum_note": "Doğuşdan və əmizdirmə dövründən sonra tsikl bir müddət düzənsiz ola bilər.",
+      "baby_feeding_title": "Körpənin qidalanması",
+      "baby_feeding_sub": "Əmizdirmə və şüşəni körpə izləyicisində qeyd edin"
     },
     "en": {
       "blog_command_hint": "Type /Blog to find and attach an article",
@@ -105,7 +107,9 @@
       "forecast_learned": "The forecast is based on your last {n} normal cycles.",
       "recent_cycles": "Recent cycles",
       "cycle_len": "{n}-day cycle",
-      "postpartum_note": "After birth and while breastfeeding, cycles can be irregular for a while."
+      "postpartum_note": "After birth and while breastfeeding, cycles can be irregular for a while.",
+      "baby_feeding_title": "Baby's feeding",
+      "baby_feeding_sub": "Log breastfeeding and bottles in the baby tracker"
     },
     "tr": {
       "blog_command_hint": "Bir makale bulup eklemek için /Blog yazın",
@@ -158,7 +162,9 @@
       "forecast_learned": "Tahmin son {n} normal döngünüze dayanır.",
       "recent_cycles": "Son döngüler",
       "cycle_len": "{n} günlük döngü",
-      "postpartum_note": "Doğumdan sonra ve emzirme döneminde döngü bir süre düzensiz olabilir."
+      "postpartum_note": "Doğumdan sonra ve emzirme döneminde döngü bir süre düzensiz olabilir.",
+      "baby_feeding_title": "Bebeğin beslenmesi",
+      "baby_feeding_sub": "Emzirme ve biberonu bebek takipçisinde kaydedin"
     },
     "ru": {
       "blog_command_hint": "Введите /Blog, чтобы найти и прикрепить статью",
@@ -211,7 +217,9 @@
       "forecast_learned": "Прогноз основан на ваших последних нормальных циклах: {n}.",
       "recent_cycles": "Последние циклы",
       "cycle_len": "Цикл {n} дн.",
-      "postpartum_note": "После родов и во время грудного вскармливания цикл некоторое время может быть нерегулярным."
+      "postpartum_note": "После родов и во время грудного вскармливания цикл некоторое время может быть нерегулярным.",
+      "baby_feeding_title": "Кормление малыша",
+      "baby_feeding_sub": "Записывайте кормления грудью и из бутылочки в трекере малыша"
     },
     "de": {
       "blog_command_hint": "Gib /Blog ein, um einen Artikel zu suchen und anzuhängen",
@@ -264,7 +272,9 @@
       "forecast_learned": "Die Prognose basiert auf deinen letzten {n} normalen Zyklen.",
       "recent_cycles": "Letzte Zyklen",
       "cycle_len": "{n}-Tage-Zyklus",
-      "postpartum_note": "Nach der Geburt und in der Stillzeit kann der Zyklus eine Weile unregelmäßig sein."
+      "postpartum_note": "Nach der Geburt und in der Stillzeit kann der Zyklus eine Weile unregelmäßig sein.",
+      "baby_feeding_title": "Fütterung des Babys",
+      "baby_feeding_sub": "Stillen und Fläschchen im Baby-Tracker eintragen"
     },
     "ar": {
       "blog_command_hint": "اكتبي /Blog للعثور على مقال وإرفاقه",
@@ -317,7 +327,9 @@
       "forecast_learned": "يعتمد التوقع على آخر {n} دورات طبيعية لديك.",
       "recent_cycles": "آخر الدورات",
       "cycle_len": "دورة {n} يومًا",
-      "postpartum_note": "بعد الولادة وأثناء الرضاعة قد تكون الدورة غير منتظمة لفترة."
+      "postpartum_note": "بعد الولادة وأثناء الرضاعة قد تكون الدورة غير منتظمة لفترة.",
+      "baby_feeding_title": "رضاعة الطفل",
+      "baby_feeding_sub": "سجّلي الرضاعة الطبيعية والزجاجة في متتبع الطفل"
     },
     "ka": {
       "blog_command_hint": "სტატიის მოსაძებნად და დასამაგრებლად აკრიფეთ /Blog",
@@ -370,7 +382,9 @@
       "forecast_learned": "პროგნოზი ეყრდნობა თქვენს ბოლო {n} ნორმალურ ციკლს.",
       "recent_cycles": "ბოლო ციკლები",
       "cycle_len": "{n}-დღიანი ციკლი",
-      "postpartum_note": "მშობიარობის შემდეგ და ძუძუთი კვების დროს ციკლი შეიძლება გარკვეული დროით არარეგულარული იყოს."
+      "postpartum_note": "მშობიარობის შემდეგ და ძუძუთი კვების დროს ციკლი შეიძლება გარკვეული დროით არარეგულარული იყოს.",
+      "baby_feeding_title": "ბავშვის კვება",
+      "baby_feeding_sub": "ძუძუთი და ბოთლით კვება ჩაწერეთ ბავშვის ტრეკერში"
     },
     "kk": {
       "blog_command_hint": "Мақаланы тауып, тіркеу үшін /Blog деп теріңіз",
@@ -423,7 +437,9 @@
       "forecast_learned": "Болжам соңғы {n} қалыпты циклыңызға негізделген.",
       "recent_cycles": "Соңғы циклдар",
       "cycle_len": "{n} күндік цикл",
-      "postpartum_note": "Босанғаннан кейін және емізу кезінде цикл біраз уақыт тұрақсыз болуы мүмкін."
+      "postpartum_note": "Босанғаннан кейін және емізу кезінде цикл біраз уақыт тұрақсыз болуы мүмкін.",
+      "baby_feeding_title": "Нәрестені тамақтандыру",
+      "baby_feeding_sub": "Емізу мен бөтелкені нәресте трекеріне жазыңыз"
     },
     "uz": {
       "blog_command_hint": "Maqolani topish va biriktirish uchun /Blog buyrug‘ini kiriting",
@@ -476,7 +492,9 @@
       "forecast_learned": "Prognoz oxirgi {n} ta normal siklingizga asoslanadi.",
       "recent_cycles": "Oxirgi sikllar",
       "cycle_len": "{n} kunlik sikl",
-      "postpartum_note": "Tug'ruqdan keyin va emizish davrida sikl bir muddat notekis bo'lishi mumkin."
+      "postpartum_note": "Tug'ruqdan keyin va emizish davrida sikl bir muddat notekis bo'lishi mumkin.",
+      "baby_feeding_title": "Chaqaloqni ovqatlantirish",
+      "baby_feeding_sub": "Emizish va butilkani chaqaloq trekerida qayd eting"
     },
     "zh": {
       "blog_command_hint": "输入 /Blog 查找并附加文章",
@@ -529,7 +547,9 @@
       "forecast_learned": "预测基于你最近 {n} 个正常周期。",
       "recent_cycles": "最近周期",
       "cycle_len": "{n} 天周期",
-      "postpartum_note": "产后及哺乳期间，月经周期可能会有一段时间不规律。"
+      "postpartum_note": "产后及哺乳期间，月经周期可能会有一段时间不规律。",
+      "baby_feeding_title": "宝宝喂养",
+      "baby_feeding_sub": "在宝宝记录中记录母乳和奶瓶喂养"
     },
     "id": {
       "blog_command_hint": "Ketik /Blog untuk mencari dan melampirkan artikel",
@@ -582,7 +602,9 @@
       "forecast_learned": "Prediksi didasarkan pada {n} siklus normal terakhir Anda.",
       "recent_cycles": "Siklus terakhir",
       "cycle_len": "Siklus {n} hari",
-      "postpartum_note": "Setelah melahirkan dan selama menyusui, siklus bisa tidak teratur untuk sementara."
+      "postpartum_note": "Setelah melahirkan dan selama menyusui, siklus bisa tidak teratur untuk sementara.",
+      "baby_feeding_title": "Menyusui bayi",
+      "baby_feeding_sub": "Catat ASI dan botol di pelacak bayi"
     },
     "fr": {
       "blog_command_hint": "Tapez /Blog pour rechercher et joindre un article",
@@ -635,7 +657,9 @@
       "forecast_learned": "La prévision repose sur vos {n} derniers cycles normaux.",
       "recent_cycles": "Derniers cycles",
       "cycle_len": "Cycle de {n} jours",
-      "postpartum_note": "Après l'accouchement et pendant l'allaitement, le cycle peut rester irrégulier un moment."
+      "postpartum_note": "Après l'accouchement et pendant l'allaitement, le cycle peut rester irrégulier un moment.",
+      "baby_feeding_title": "Alimentation de bébé",
+      "baby_feeding_sub": "Notez tétées et biberons dans le suivi de bébé"
     },
     "es": {
       "blog_command_hint": "Escribe /Blog para buscar y adjuntar un artículo",
@@ -688,7 +712,9 @@
       "forecast_learned": "La previsión se basa en tus últimos {n} ciclos normales.",
       "recent_cycles": "Ciclos recientes",
       "cycle_len": "Ciclo de {n} días",
-      "postpartum_note": "Tras el parto y durante la lactancia, el ciclo puede ser irregular un tiempo."
+      "postpartum_note": "Tras el parto y durante la lactancia, el ciclo puede ser irregular un tiempo.",
+      "baby_feeding_title": "Alimentación del bebé",
+      "baby_feeding_sub": "Registra lactancia y biberones en el seguimiento del bebé"
     },
     "pt": {
       "blog_command_hint": "Escreva /Blog para encontrar e anexar um artigo",
@@ -741,7 +767,9 @@
       "forecast_learned": "A previsão se baseia nos seus últimos {n} ciclos normais.",
       "recent_cycles": "Ciclos recentes",
       "cycle_len": "Ciclo de {n} dias",
-      "postpartum_note": "Após o parto e durante a amamentação, o ciclo pode ficar irregular por um tempo."
+      "postpartum_note": "Após o parto e durante a amamentação, o ciclo pode ficar irregular por um tempo.",
+      "baby_feeding_title": "Alimentação do bebê",
+      "baby_feeding_sub": "Registre amamentação e mamadeira no acompanhamento do bebê"
     },
     "vi": {
       "blog_command_hint": "Nhập /Blog để tìm và đính kèm bài viết",
@@ -794,7 +822,9 @@
       "forecast_learned": "Dự đoán dựa trên {n} chu kỳ bình thường gần nhất của bạn.",
       "recent_cycles": "Chu kỳ gần đây",
       "cycle_len": "Chu kỳ {n} ngày",
-      "postpartum_note": "Sau sinh và khi cho con bú, chu kỳ có thể không đều một thời gian."
+      "postpartum_note": "Sau sinh và khi cho con bú, chu kỳ có thể không đều một thời gian.",
+      "baby_feeding_title": "Cho bé ăn",
+      "baby_feeding_sub": "Ghi bú mẹ và bú bình trong theo dõi bé"
     },
     "hi": {
       "blog_command_hint": "लेख खोजने और संलग्न करने के लिए /Blog टाइप करें",
@@ -847,7 +877,9 @@
       "forecast_learned": "पूर्वानुमान आपके पिछले {n} सामान्य चक्रों पर आधारित है।",
       "recent_cycles": "हाल के चक्र",
       "cycle_len": "{n} दिन का चक्र",
-      "postpartum_note": "प्रसव के बाद और स्तनपान के दौरान चक्र कुछ समय अनियमित रह सकता है।"
+      "postpartum_note": "प्रसव के बाद और स्तनपान के दौरान चक्र कुछ समय अनियमित रह सकता है।",
+      "baby_feeding_title": "शिशु का आहार",
+      "baby_feeding_sub": "स्तनपान और बोतल को शिशु ट्रैकर में दर्ज करें"
     },
     "ja": {
       "blog_command_hint": "/Blog と入力して記事を検索し、添付できます",
@@ -900,7 +932,9 @@
       "forecast_learned": "予測は直近 {n} 回の正常な周期に基づいています。",
       "recent_cycles": "最近の周期",
       "cycle_len": "{n}日周期",
-      "postpartum_note": "出産後や授乳中は、しばらく周期が不規則になることがあります。"
+      "postpartum_note": "出産後や授乳中は、しばらく周期が不規則になることがあります。",
+      "baby_feeding_title": "赤ちゃんの授乳",
+      "baby_feeding_sub": "授乳とミルクは赤ちゃん記録に記録しましょう"
     },
     "ko": {
       "blog_command_hint": "글을 찾아 첨부하려면 /Blog를 입력하세요",
@@ -953,7 +987,9 @@
       "forecast_learned": "예측은 최근 정상 주기 {n}회를 기준으로 해요.",
       "recent_cycles": "최근 주기",
       "cycle_len": "{n}일 주기",
-      "postpartum_note": "출산 후와 모유 수유 중에는 한동안 주기가 불규칙할 수 있어요."
+      "postpartum_note": "출산 후와 모유 수유 중에는 한동안 주기가 불규칙할 수 있어요.",
+      "baby_feeding_title": "아기 수유",
+      "baby_feeding_sub": "모유 수유와 젖병은 아기 기록에 남기세요"
     },
     "pl": {
       "blog_command_hint": "Wpisz /Blog, aby znaleźć i załączyć artykuł",
@@ -1006,7 +1042,9 @@
       "forecast_learned": "Prognoza opiera się na Twoich ostatnich prawidłowych cyklach: {n}.",
       "recent_cycles": "Ostatnie cykle",
       "cycle_len": "Cykl {n}-dniowy",
-      "postpartum_note": "Po porodzie i w czasie karmienia piersią cykl może być przez jakiś czas nieregularny."
+      "postpartum_note": "Po porodzie i w czasie karmienia piersią cykl może być przez jakiś czas nieregularny.",
+      "baby_feeding_title": "Karmienie dziecka",
+      "baby_feeding_sub": "Zapisuj karmienie piersią i butelką w dzienniku dziecka"
     },
     "nl": {
       "blog_command_hint": "Typ /Blog om een artikel te zoeken en toe te voegen",
@@ -1059,7 +1097,9 @@
       "forecast_learned": "De voorspelling is gebaseerd op je laatste {n} normale cycli.",
       "recent_cycles": "Recente cycli",
       "cycle_len": "Cyclus van {n} dagen",
-      "postpartum_note": "Na de bevalling en tijdens borstvoeding kan de cyclus een tijd onregelmatig zijn."
+      "postpartum_note": "Na de bevalling en tijdens borstvoeding kan de cyclus een tijd onregelmatig zijn.",
+      "baby_feeding_title": "Voeding van de baby",
+      "baby_feeding_sub": "Leg borst- en flesvoeding vast in de babytracker"
     },
     "sv": {
       "blog_command_hint": "Skriv /Blog för att hitta och bifoga en artikel",
@@ -1112,7 +1152,9 @@
       "forecast_learned": "Prognosen bygger på dina senaste {n} normala cykler.",
       "recent_cycles": "Senaste cykler",
       "cycle_len": "{n}-dagarscykel",
-      "postpartum_note": "Efter förlossningen och under amning kan cykeln vara oregelbunden ett tag."
+      "postpartum_note": "Efter förlossningen och under amning kan cykeln vara oregelbunden ett tag.",
+      "baby_feeding_title": "Babyns matning",
+      "baby_feeding_sub": "Logga amning och flaska i babyloggen"
     }
   }
 }

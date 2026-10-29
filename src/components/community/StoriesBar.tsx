@@ -132,7 +132,7 @@ const StoriesBar = ({ groupId, autoOpenStoryId, onAutoOpenConsumed }: StoriesBar
   return (
     <>
       <RestrictionNote scope="story" />
-      <div className="flex gap-3.5 overflow-x-auto hide-scrollbar py-1">
+      <div className="flex gap-3.5 overflow-x-auto hide-scrollbar py-2 -mx-5 px-5" style={{ scrollPaddingInline: 20 }}>
         {/* Own Story */}
         <motion.button
           onClick={() => hasOwnStory ? handleStoryClick(0) : !moderationStatus?.story && setShowCreateModal(true)}

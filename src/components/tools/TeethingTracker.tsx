@@ -4,7 +4,6 @@ import { Check, Calendar, Sparkles, AlertCircle, Heart, Info, X } from 'lucide-r
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Textarea } from '@/components/ui/textarea';
-import { DatePickerWheel } from '@/components/ui/date-picker-wheel';
 import { useTeething, BabyTooth } from '@/hooks/useTeething';
 import { useChildren } from '@/hooks/useChildren';
 import ChildSelector from '@/components/mommy/ChildSelector';
@@ -411,11 +410,13 @@ const TeethingTracker = ({ onBack }: TeethingTrackerProps) => {
                   <Calendar className="w-4 h-4" style={{ color: 'var(--a-ink-soft)' }} />
                   {tr("teethingtracker_cixma_tarixi_3c7ae9", "Çıxma tarixi")}
                 </label>
-                <DatePickerWheel
-                value={emergedDate ? new Date(emergedDate) : undefined}
-                onChange={(date) => setEmergedDate(date ? date.toISOString().split('T')[0] : '')}
-                minYear={new Date().getFullYear() - 5}
-                maxYear={new Date().getFullYear()} />
+                {/* Native picker: the wheel popup was cut off inside this sheet on iPhone. */}
+                <input
+                type="date"
+                className="a-input a-date-input"
+                value={emergedDate}
+                max={new Date().toISOString().slice(0, 10)}
+                onChange={(e) => setEmergedDate(e.target.value)} />
               
               </div>
 

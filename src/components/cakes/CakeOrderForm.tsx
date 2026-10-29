@@ -295,7 +295,7 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
           </div>
           <div>
             {fieldLabel(tr("cakeorderform_catdirilma_tarixi_716cbd", "Çatdırılma tarixi"))}
-            <input className="a-input w-full mt-1" type="date" value={formData.delivery_date} onChange={(e) => setFormData({ ...formData, delivery_date: e.target.value })} />
+            <input className="a-input a-date-input mt-1" type="date" value={formData.delivery_date} onChange={(e) => setFormData({ ...formData, delivery_date: e.target.value })} />
           </div>
           <div>
             {fieldLabel(tr("cakeorderform_catdirilma_unvani_5cec99", "Çatdırılma ünvanı"))}

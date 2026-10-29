@@ -28,6 +28,8 @@ export interface PushNavIntent {
   /** Qadın tərəfdə partner söhbəti (MessagesScreen) */
   motherChat?: boolean;
   shoppingList?: boolean;
+  /** Open a tool from another screen (e.g. Nutrition → baby feeding). */
+  tool?: string;
   /** Community-yə keçəndə MƏHZ hansı post/şərh/story-nin açılacağı (bax CommunityDeepLinkTarget) */
   communityTarget?: CommunityDeepLinkTarget;
 }

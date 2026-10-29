@@ -260,7 +260,7 @@ const BlogPostDetail = ({ post, categories, allPosts, onBack, onSelectPost }: Bl
             void leaveArticle();
           }}
           className="absolute start-4 z-50 w-10 h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center cursor-pointer"
-          style={{ top: 'calc(env(safe-area-inset-top, 12px) + 12px)', border: 'none' }}
+          style={{ top: 12, border: 'none' }}
           whileTap={{ scale: 0.95 }}>
           
           <ArrowLeft className="rtl:rotate-180 w-5 h-5 text-white" />
@@ -274,7 +274,7 @@ const BlogPostDetail = ({ post, categories, allPosts, onBack, onSelectPost }: Bl
             handleShare();
           }}
           className="absolute end-4 z-50 w-10 h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center cursor-pointer"
-          style={{ top: 'calc(env(safe-area-inset-top, 12px) + 12px)', border: 'none' }}
+          style={{ top: 12, border: 'none' }}
           whileTap={{ scale: 0.95 }}>
           
           <Share2 className="w-5 h-5 text-white" />

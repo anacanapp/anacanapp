@@ -123,7 +123,7 @@ const AlbumOrderScreen = ({ albumType, onBack }: AlbumOrderScreenProps) => {
     <div className="a-scope min-h-screen pb-28" style={{ background: 'var(--a-bg)' }}>
       {/* Header */}
       <div className="sticky top-0 z-20" style={{ background: 'var(--a-nav-bg)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid var(--a-line)' }}>
-        <div className="px-4 py-2.5 safe-area-top flex items-center gap-3">
+        <div className="px-4 py-2.5 flex items-center gap-3">
           <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
             <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
           </motion.button>

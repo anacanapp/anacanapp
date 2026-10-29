@@ -478,7 +478,7 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
                   value={scanDate}
                   onChange={(e) => setScanDate(e.target.value)}
                   max={new Date().toISOString().split('T')[0]}
-                  className="a-input w-full" />
+                  className="a-input a-date-input" />
                 
                 </div>
 

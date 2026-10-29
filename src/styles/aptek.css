@@ -67,7 +67,9 @@
 .ap-field input[aria-invalid="true"] { box-shadow: 0 0 0 2px var(--a-bad); }
 .ap-offer { display: flex; flex-direction: column; gap: 10px; padding: 14px 14px 4px; border-radius: 22px; background: var(--a-surface); box-shadow: var(--a-card-shadow), inset 0 0 0 1px var(--a-green-2); }
 .ap-offer .a3-eyebrow { color: var(--a-green-ink); }
-.ap-offer .a3-rail { margin-inline: -14px; padding-inline: 14px; }
+.ap-offer .a3-rail { margin-inline: -14px; padding-inline: 14px; scroll-padding-inline: 14px; }
+/* Two whole cards per view on the home offer card (fixed 136px left a cut third card). */
+.ap-offer .ap-card.small { width: calc((100% - 10px) / 2); }
 .ap-bundle { display: flex; flex-direction: column; gap: 12px; padding: 12px; border-radius: 20px; background: var(--a-surface); box-shadow: var(--a-card-shadow); }
 .ap-bundle.wide { width: 286px; flex-shrink: 0; scroll-snap-align: start; }
 .ap-bthumbs { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 10px; border-radius: 16px; }

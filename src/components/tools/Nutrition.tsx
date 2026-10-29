@@ -2,7 +2,7 @@ import { useState, forwardRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, Utensils, Apple, Coffee, Droplets, Droplet,
-  Plus, Star, X, Check, Trash2, Heart } from
+  Plus, Star, X, Check, Trash2, Heart, ChevronRight } from
 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
@@ -20,6 +20,10 @@ import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
 import { tr } from "@/lib/tr";
 import { NEW_LANGUAGE_CODES } from '@/lib/app-languages';
 import { useIsRtl, rtlX } from '@/lib/rtl';
+import { feature37Text } from '@/lib/feature37-i18n';
+import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
+
+const openTool = (tool: string) => window.dispatchEvent(new CustomEvent<PushNavIntent>(PUSH_NAV_EVENT, { detail: { tool } }));
 
 interface NutritionProps {
   onBack: () => void;
@@ -470,6 +474,19 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
                 </div>
                 <div className="a-list-card pb-4">
                   {mealTypes.map((meal, index) => {
+                  // The mother's own "nursing meal" stayed empty; the row now opens the baby's feeding log.
+                  if (meal.id === 'nursing') {
+                    return (
+                      <button key={meal.id} type="button" onClick={() => openTool('baby-tracker')}
+                        className="a-list-row w-full text-start" style={{ width: '100%', background: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: 'none', cursor: 'pointer' }}>
+                        <span className="a-list-icon" style={{ background: 'var(--a-grad-peach)', fontSize: 18 }}>🍼</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="a-list-title">{feature37Text('baby_feeding_title')}</p>
+                          <p className="a-list-sub">{feature37Text('baby_feeding_sub')}</p>
+                        </div>
+                        <span className="a-list-trail"><ChevronRight className="w-4 h-4 rtl:rotate-180" style={{ color: 'var(--a-ink-faint)' }} /></span>
+                      </button>);
+                  }
                   const mealLogs = getMealsByType(meal.id);
                   const mealCalories = stats.mealCalories[meal.id as keyof typeof stats.mealCalories] || 0;
 

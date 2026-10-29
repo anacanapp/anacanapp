@@ -367,11 +367,13 @@ export function DatePickerWheel({
             onClick={() => setIsOpen(false)}
             className="fixed inset-0 bg-black/50 z-50" />
           
+            {/* Flex centring: framer's transform replaced -translate-y-1/2 and pushed the popup off screen. */}
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
             <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed inset-x-4 top-1/2 -translate-y-1/2 z-50 mx-auto max-w-sm">
+            className="pointer-events-auto w-full max-w-sm max-h-full overflow-y-auto">
             
               <div className="bg-background rounded-3xl shadow-2xl border overflow-hidden">
                 {/* Modal Header */}
@@ -429,6 +431,7 @@ export function DatePickerWheel({
                 </div>
               </div>
             </motion.div>
+            </div>
           </>
         }
       </AnimatePresence>

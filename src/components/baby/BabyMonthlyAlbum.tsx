@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import { Camera, X, Loader2, ShoppingBag, Trash2, RefreshCw, Sparkles } from 'lucide-react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
@@ -247,7 +248,8 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
       <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleUpload} />
 
       {/* Photo Viewer Modal */}
-      <AnimatePresence>
+      {/* Portal: ToolPage's .a-shell (z-index 1) kept this overlay under the bottom nav. */}
+      {createPortal(<AnimatePresence>
         {viewingPhoto &&
         <motion.div
           initial={{ opacity: 0 }}
@@ -291,10 +293,11 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
             </div>
           </motion.div>
         }
-      </AnimatePresence>
+      </AnimatePresence>, document.body)}
 
       {/* Action Sheet */}
-      <AnimatePresence>
+      {/* Portal: ToolPage's .a-shell (z-index 1) kept this overlay under the bottom nav. */}
+      {createPortal(<AnimatePresence>
         {showActionSheet &&
         <motion.div
           initial={{ opacity: 0 }}
@@ -308,7 +311,7 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
             animate={{ y: 0 }}
             exit={{ y: 300 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="w-full max-w-md rounded-t-[26px] overflow-hidden"
+            className="w-full max-w-md max-h-[90dvh] overflow-y-auto rounded-t-[26px]"
             style={{ background: 'var(--a-surface)' }}
             onClick={(e) => e.stopPropagation()}>
             
@@ -371,7 +374,7 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
             </motion.div>
           </motion.div>
         }
-      </AnimatePresence>
+      </AnimatePresence>, document.body)}
 
       {uploading &&
       <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">

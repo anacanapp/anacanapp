@@ -180,7 +180,10 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
     setText(value => value.slice(0, start) + emoji + value.slice(end)); input.current?.focus();
   };
   const content = profile ? <Suspense fallback={<div className="chat-empty"><Loader2 className="animate-spin" /></div>}>
-    <UserProfile userId={profile} onBack={() => setProfile(null)} onUserClick={setProfile} />
+    {/* The chat overlay is full screen; only its own top bar had the status-bar inset. */}
+    <div style={{ paddingTop: 'env(safe-area-inset-top, 0px)', overflowY: 'auto', height: '100%' }}>
+      <UserProfile userId={profile} onBack={() => setProfile(null)} onUserClick={setProfile} />
+    </div>
   </Suspense> : <>
     <header className="chat-topbar">
       <button type="button" className="chat-icon-button" aria-label={tr('common_geri', 'Geri')} onClick={() => { cancelRecording(); onBack(); }}><ArrowLeft size={21} className="rtl:rotate-180" /></button>
