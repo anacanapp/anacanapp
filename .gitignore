@@ -71,3 +71,5 @@ scripts/i18n/ka-translate.log
 **/test-results/
 **/playwright-report/
 scripts/store-screenshots/out/
+scripts/store-screenshots/shots/
+scripts/store-screenshots/real-app/scenarios/

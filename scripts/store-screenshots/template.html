@@ -199,15 +199,15 @@ const CHIP_ICONS = {
   ai: [['zap', 't-yellow'], ['shield-check', 't-blue']], flow: [['brain', 't-lav'], ['sun', 't-yellow']],
   mommy: [['moon', 't-lav'], ['trending-up', 't-green']], tools: [['camera', 't-lav'], ['scan-line', 't-blue']],
   community: [['image', 't-peach'], ['message-circle', 't-pink']], partner: [['siren', 't-pink'], ['heart', 't-peach']],
-  toolsGrid: [['crown', 't-yellow'], ['shopping-bag', 't-green']],
+  toolsGrid: [['crown', 't-yellow'], ['gamepad-2', 't-green']],
 };
 // Chip placement per slide: [side, y offset from the phone top] for the first and second chip.
 const CHIP_POS = {
-  hero: [['left', 120], ['right', 575]], pregnancy: [['left', 300], ['right', 455]],
-  ai: [['left', 520], ['right', 250]], flow: [['left', 470], ['right', 620]],
-  mommy: [['left', 60], ['right', 390]], tools: [['left', 210], ['right', 330]],
-  community: [['left', 520], ['right', 120]], partner: [['left', 600], ['right', 470]],
-  toolsGrid: [['left', 165], ['right', 520]],
+  hero: [['left', 95], ['right', 235]], pregnancy: [['left', 252], ['right', 300]],
+  ai: [['left', 560], ['right', 95]], flow: [['left', 120], ['right', 560]],
+  mommy: [['left', 455], ['right', 330]], tools: [['left', 420], ['right', 250]],
+  community: [['left', 560], ['right', 300]], partner: [['left', 470], ['right', 330]],
+  toolsGrid: [['left', 600], ['right', 500]],
 };
 const PILL_ICONS = { hero: 'heart', pregnancy: 'baby', ai: 'sparkles', flow: 'flower-2', mommy: 'baby', tools: 'wand-2', community: 'users', partner: 'heart-handshake', toolsGrid: 'layout-grid' };
 
@@ -220,7 +220,7 @@ document.getElementById('root').innerHTML = `
   <span class="blob" style="width:220px;height:220px;right:-70px;top:180px;background:#ffd2a6"></span>
   <div class="head"><span class="pill">${icon(PILL_ICONS[id])}${f.pill}</span><h1 class="title">${f.title}</h1><p class="sub">${f.sub}</p></div>
   <div class="phone"><div class="screen"><span class="island"></span><div class="screen-inner a-scope a-dash" style="background:var(--a-bg)">
-    ${status()}<div class="app">${SCREENS[id](f.s)}</div>${tabs(ACTIVE[id])}</div></div></div>
+    ${status()}${window.SHOTS ? `<img src="${window.SHOTS}/${id}.png" style="display:block;width:390px;height:863px">` : `<div class="app">${SCREENS[id](f.s)}</div>${tabs(ACTIVE[id])}`}</div></div></div>
   ${f.chips.map(([b, sub], i) => `<div class="chip" data-side="${CHIP_POS[id][i][0]}" data-y="${CHIP_POS[id][i][1]}" style="${CHIP_POS[id][i][0]}:8px"><span class="ci ${CHIP_ICONS[id][i][1]}">${icon(CHIP_ICONS[id][i][0])}</span><span><b>${b}</b><span class="cs">${sub}</span></span></div>`).join('')}
 </div>`;
 lucide.createIcons();
@@ -229,7 +229,7 @@ const head = document.querySelector('.head'), phone = document.querySelector('.p
 const phoneTop = Math.round(head.getBoundingClientRect().bottom + 28);
 phone.style.top = phoneTop + 'px';
 document.querySelectorAll('.chip').forEach((c) => { c.style.top = (phoneTop + Number(c.dataset.y)) + 'px'; });
-document.fonts.ready.then(() => { document.body.dataset.ready = '1'; });
+Promise.all([document.fonts.ready, ...[...document.images].map((i) => i.decode().catch(() => {}))]).then(() => { document.body.dataset.ready = '1'; });
 </script>
 </body>
 </html>

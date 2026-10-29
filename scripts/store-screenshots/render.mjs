@@ -10,6 +10,8 @@ const { chromium } = require('playwright');
 const here = dirname(fileURLToPath(import.meta.url));
 const lang = process.argv[2] || 'az';
 const out = resolve(process.argv[3] || join(here, 'out', lang));
+// Real app screens captured by capture.sh (390x863 each); without them the HTML mock screens are used.
+const shots = process.env.SHOTS_DIR ? pathToFileURL(resolve(process.env.SHOTS_DIR)).href : null;
 const copy = JSON.parse(readFileSync(join(here, 'copy', `${lang}.json`), 'utf8'));
 const ORDER = ['hero', 'pregnancy', 'ai', 'flow', 'mommy', 'tools', 'community', 'partner', 'toolsGrid'];
 
@@ -20,7 +22,7 @@ const browser = await chromium.launch({
   proxy: process.env.HTTPS_PROXY ? { server: process.env.HTTPS_PROXY } : undefined,
 });
 const page = await browser.newPage({ viewport: { width: 430, height: 932 }, deviceScaleFactor: 3, ignoreHTTPSErrors: true });
-await page.addInitScript((c) => { window.COPY = c; }, copy);
+await page.addInitScript(([c, s]) => { window.COPY = c; window.SHOTS = s; }, [copy, shots]);
 for (const [i, id] of ORDER.entries()) {
   await page.goto(`${pathToFileURL(join(here, 'template.html'))}?slide=${id}`);
   await page.waitForSelector('body[data-ready="1"]', { timeout: 30000 });
