@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Guide till fast föda",
+  "tab_stage": "Fas",
+  "tab_balance": "Balans",
+  "tab_rules": "Regler",
+  "tab_foods": "Livsmedel",
+  "tab_recipes": "Recept",
+  "age_aria": "Ålder",
+  "months_short": "{n} mån",
+  "years_short": "{n} år",
+  "months_plus": "{n} mån+",
+  "years_plus": "{n} år+",
+  "fact_milk": "Mjölk",
+  "fact_meals": "Måltider",
+  "fact_portion": "Portion",
+  "fact_texture": "Konsistens",
+  "portion_note": "Portionerna är riktmärken — barnet bestämmer själv hur mycket det äter.",
+  "readiness_title": "Tecken på att barnet är redo",
+  "readiness_all": "Alla finns — redo att börja vid 6 månader.",
+  "readiness_hint": "WHO rekommenderar att börja med fast föda vid 6 månader (180 dagar). Är du osäker, prata med barnläkaren.",
+  "sample_day_title": "Exempeldag (8 mån)",
+  "dishes_title": "Måltidsidéer för den här åldern",
+  "see_recipes": "Se recept",
+  "plate_title": "Balanserad tallrik (från 1 år)",
+  "plate_note": "Med en mejeriprodukt och lite nyttigt fett (olivolja, smör, avokado).",
+  "needs_title": "Dagligt behov",
+  "needs_note": "Vid 6–11 månader är järnbehovet per kilo kroppsvikt det högsta i hela livet — ha en järnkälla vid varje måltid.",
+  "sources_title": "Var det finns",
+  "iron_helps_title": "Ökar järnupptaget",
+  "iron_blocks_title": "Minskar järnupptaget",
+  "allergens_title": "Allergener: vänta inte",
+  "allergens_intro": "Ägg och jordnöt från 6 månader, en i taget. Vid svårt eksem eller äggallergi, prata med läkaren först.",
+  "avoid_title": "Ge inte",
+  "choking_title": "Förebygg kvävning (upp till 4 år)",
+  "choking_note": "Kväljningar är normala; kvävning är tyst och barnet kan inte hosta — det är ett nödläge.",
+  "myths_title": "Föråldrade myter",
+  "all": "Alla",
+  "recipes_intro": "Förslag från Anacan Recept som passar ditt barns ålder. De första recepten är gratis, resten finns i Premium.",
+  "recipes_loading": "Laddar recept…",
+  "all_recipes": "Alla bebisrecept",
+  "all_recipes_sub": "{n} recept · Öppnas i Recept",
+  "tag_iron": "★ Järn",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Allergen",
+  "home_title": "Guide till fast föda",
+  "home_sub_before": "Vi börjar vid 6 månader — tecken på att vara redo och första maten",
+  "home_sub_after": "Portioner efter ålder, järnbalans och recept",
+  "tool_desc": "Portioner, järnbalans, allergener och recept"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 mån",
+   "milk": "Bröstmjölk / modersmjölksersättning efter behov",
+   "meals": "Ingen fast föda",
+   "portion": "—",
+   "texture": "—",
+   "goal": "D-vitamindroppar varje dag; håll utkik efter tecken på att barnet är redo"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 mån",
+   "milk": "Huvudföda, 5–6 gånger per dag",
+   "meals": "2–3 måltider",
+   "portion": "Från 2–3 msk upp till ½ kopp (~125 ml)",
+   "texture": "Slät puré → tjockare puré, mjuk fingermat",
+   "goal": "Järn, nya smaker, introduktion av allergener"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 mån",
+   "milk": "3–4 gånger per dag",
+   "meals": "3 måltider + 1–2 mellanmål",
+   "portion": "½ kopp (~125 ml)",
+   "texture": "Mosad, finhackad, fingermat",
+   "goal": "Tugga, pincettgrepp, öppen mugg"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 år",
+   "milk": "Bröstmjölk eller komjölk 350–500 ml/dag",
+   "meals": "3 måltider + 2 mellanmål",
+   "portion": "¾–1 kopp (~200–250 ml)",
+   "texture": "Familjens mat (osaltad, i små bitar)",
+   "goal": "Övergång till familjens mat"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 år",
+   "milk": "Mjölk / yoghurt 2 portioner per dag",
+   "meals": "3 måltider + 2 mellanmål",
+   "portion": "1 kopp; kött/fisk ~30–50 g",
+   "texture": "Familjens mat",
+   "goal": "Variation, hantera kräsenhet"
+  }
+ ],
+ "readiness": [
+  "Håller huvudet stadigt",
+  "Sitter med stöd",
+  "Visar intresse för mat, öppnar munnen",
+  "Trycker inte ut maten med tungan"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Mjölk"
+  },
+  {
+   "time": "09:00",
+   "what": "Järnberikad gröt + frukt"
+  },
+  {
+   "time": "12:00",
+   "what": "Mjölk"
+  },
+  {
+   "time": "13:30",
+   "what": "Kött + grönsaker"
+  },
+  {
+   "time": "16:00",
+   "what": "Mjölk"
+  },
+  {
+   "time": "18:30",
+   "what": "Ägg / yoghurt + spannmål"
+  },
+  {
+   "time": "Före sänggåendet",
+   "what": "Mjölk"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 mån",
+  "1–2 år",
+  "2–4 år"
+ ],
+ "nutrients": [
+  {
+   "name": "Järn",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Nöt-/lammkött, kycklinglår, äggula, linser, kikärtor, järnberikad gröt, spenat",
+   "rule": "En järnkälla vid varje måltid, med C-vitamin till"
+  },
+  {
+   "name": "D-vitamin",
+   "need": [
+    "400 IE",
+    "600 IE",
+    "600 IE"
+   ],
+   "sources": "Droppar, fet fisk, äggula",
+   "rule": "Droppar varje dag"
+  },
+  {
+   "name": "Zink",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Kött, ägg, yoghurt, baljväxter, havre",
+   "rule": "På samma tallrik som järnrik mat"
+  },
+  {
+   "name": "Kalcium",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Yoghurt, ost, mjölk (från 1 år), tahini",
+   "rule": "2–3 portioner mejeriprodukter per dag"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Lax, makrill, sardiner, valnötter, hampafrön",
+   "rule": "Fisk 2 gånger i veckan"
+  },
+  {
+   "name": "A-vitamin",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Morot, pumpa, sötpotatis, aprikos",
+   "rule": "En orange grönsak om dagen"
+  },
+  {
+   "name": "C-vitamin",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Paprika, broccoli, jordgubbar, kiwi, apelsin",
+   "rule": "Till den järnrika maten"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Protein",
+   "hint": "kött, fisk, ägg, baljväxter"
+  },
+  {
+   "label": "Spannmål",
+   "hint": "gröt, ris, bröd"
+  },
+  {
+   "label": "Grönsaker och frukt",
+   "hint": "färgglatt"
+  }
+ ],
+ "ironHelps": [
+  "C-vitamin (paprika, broccoli, jordgubbar)",
+  "Kött + grönsaker tillsammans"
+ ],
+ "ironBlocks": [
+  "Te till maten",
+  "Komjölk som huvuddryck före 1 år",
+  "Mycket kli"
+ ],
+ "allergens": [
+  "Ägg",
+  "Jordnöt",
+  "Trädnötter",
+  "Komjölk",
+  "Soja",
+  "Vete",
+  "Sesam",
+  "Fisk",
+  "Skaldjur"
+ ],
+ "allergenSteps": [
+  "Bara en ny allergen åt gången; håll koll på reaktioner i 2–3 dagar",
+  "Ge den på morgonen eller mitt på dagen så att det är lätt att följa upp",
+  "Ägg helt genomkokt; jordnöt som jordnötssmör, aldrig hela nötter",
+  "Om det gick bra, fortsätt ge det 2–3 gånger i veckan"
+ ],
+ "avoid": [
+  {
+   "food": "Honung",
+   "until": "12 mån",
+   "why": "Risk för botulism"
+  },
+  {
+   "food": "Salt",
+   "until": "12 mån, sedan mycket lite",
+   "why": "Belastar njurarna"
+  },
+  {
+   "food": "Tillsatt socker, godis",
+   "until": "24 mån",
+   "why": "Sötsug, karies"
+  },
+  {
+   "food": "Fruktjuice",
+   "until": "12 mån; sedan ≤120 ml/dag",
+   "why": "Minskar aptiten"
+  },
+  {
+   "food": "Komjölk (som dryck)",
+   "until": "12 mån",
+   "why": "Sänker järnet; går bra i maten"
+  },
+  {
+   "food": "Rått ägg, kött, fisk; opastöriserad mjölk",
+   "until": "4 år",
+   "why": "Infektion"
+  },
+  {
+   "food": "Fisk med mycket kvicksilver (svärdfisk, haj, stor tonfisk)",
+   "until": "4 år",
+   "why": "Kvicksilver"
+  },
+  {
+   "food": "Te, kaffe, cola",
+   "until": "4 år",
+   "why": "Koffein, binder järn"
+  },
+  {
+   "food": "Korv, prinskorv, rökt kött",
+   "until": "Så lite som möjligt",
+   "why": "Salt, nitrat"
+  },
+  {
+   "food": "Risdryck",
+   "until": "4–5 år",
+   "why": "Arsenik"
+  }
+ ],
+ "choking": [
+  "Inga hela nötter och frön — malda eller som smör",
+  "Vindruvor, körsbär, körsbärstomater — på längden i 4 delar",
+  "Rå morot, äpple — riv eller koka",
+  "Korv — i långa stavar; popcorn, hårda karameller, tuggummi — nej",
+  "Låt alltid barnet äta sittande och under uppsikt"
+ ],
+ "myths": [
+  {
+   "myth": "Äggvita först efter 1 år",
+   "fact": "Helt ägg kan ges från 6 månader; att vänta kan öka risken för allergi."
+  },
+  {
+   "myth": "Fisk, citrus och jordgubbar är förbjudna före 1 år",
+   "fact": "Allt kan ges från 6 månader."
+  },
+  {
+   "myth": "Får barnet frukt först gillar det inte grönsaker",
+   "fact": "Det finns inga starka belägg; det viktigaste är järnrik mat och variation."
+  },
+  {
+   "myth": "Fruktpuré från 4 månader",
+   "fact": "WHO rekommenderar att börja med fast föda vid 6 månader."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Kött",
+  "fish": "Fisk",
+  "egg": "Ägg",
+  "dairy": "Mejeri",
+  "legumes": "Baljväxter",
+  "grains": "Spannmål",
+  "vegetables": "Grönsaker",
+  "fruit": "Frukt",
+  "fats_seeds": "Fett, frön"
+ },
+ "foods": [
+  {
+   "name": "Nötkött",
+   "value": "Järn, zink, B12",
+   "form": "Puré eller långa mjuka strimlor"
+  },
+  {
+   "name": "Lammkött",
+   "value": "Järn, zink",
+   "form": "Puré, färs"
+  },
+  {
+   "name": "Kycklinglår",
+   "value": "Protein, järn",
+   "form": "Strimlad, puré"
+  },
+  {
+   "name": "Kalkon",
+   "value": "Protein, zink",
+   "form": "Puré, köttbullar"
+  },
+  {
+   "name": "Lever",
+   "value": "Järn, A-vitamin",
+   "form": "1 gång i veckan, 1–2 tsk"
+  },
+  {
+   "name": "Lax",
+   "value": "Omega-3, D-vitamin",
+   "form": "Benfri, mosad"
+  },
+  {
+   "name": "Makrill, sardiner",
+   "value": "Omega-3",
+   "form": "Benfri, mosad"
+  },
+  {
+   "name": "Torsk, rödspätta",
+   "value": "Protein, jod",
+   "form": "I flagor"
+  },
+  {
+   "name": "Hönsägg",
+   "value": "Protein, kolin, D",
+   "form": "Hårdkokt, mosat; omelettstavar"
+  },
+  {
+   "name": "Yoghurt (osötad)",
+   "value": "Kalcium, probiotika",
+   "form": "Med sked"
+  },
+  {
+   "name": "Keso, vit ost",
+   "value": "Kalcium, protein",
+   "form": "Mosad; blötlägg osten för att få bort saltet"
+  },
+  {
+   "name": "Smör",
+   "value": "Energi",
+   "form": "Lite i maten"
+  },
+  {
+   "name": "Komjölk",
+   "value": "Kalcium",
+   "form": "Som dryck från 12 mån; i maten från 6 mån"
+  },
+  {
+   "name": "Röda linser",
+   "value": "Järn, protein",
+   "form": "Soppa, puré"
+  },
+  {
+   "name": "Kikärtor",
+   "value": "Järn, fibrer",
+   "form": "Hummus (osaltad)"
+  },
+  {
+   "name": "Bönor, mungbönor",
+   "value": "Järn, folat",
+   "form": "Mosade"
+  },
+  {
+   "name": "Havre",
+   "value": "Fibrer, järn",
+   "form": "Gröt"
+  },
+  {
+   "name": "Ris",
+   "value": "Energi",
+   "form": "Gröt (2–3 gånger i veckan)"
+  },
+  {
+   "name": "Bovete",
+   "value": "Järn, magnesium",
+   "form": "Gröt"
+  },
+  {
+   "name": "Bulgur, mannagryn, pasta, bröd",
+   "value": "Energi, B",
+   "form": "Gröt, mjuk pasta"
+  },
+  {
+   "name": "Hirs, quinoa",
+   "value": "Järn, protein",
+   "form": "Gröt"
+  },
+  {
+   "name": "Pumpa, morot, sötpotatis",
+   "value": "A-vitamin",
+   "form": "Puré, ångkokta stavar"
+  },
+  {
+   "name": "Zucchini, broccoli, blomkål",
+   "value": "C-, K-vitamin",
+   "form": "Ångkokt; broccoli som \"träd\""
+  },
+  {
+   "name": "Potatis",
+   "value": "Energi",
+   "form": "Mos"
+  },
+  {
+   "name": "Spenat, rödbeta",
+   "value": "Folat, järn",
+   "form": "Blandat med andra grönsaker"
+  },
+  {
+   "name": "Aubergine, paprika, tomat",
+   "value": "C-vitamin",
+   "form": "Tillagad, utan skal"
+  },
+  {
+   "name": "Gröna ärtor, haricots verts",
+   "value": "Järn, fibrer",
+   "form": "Mosade"
+  },
+  {
+   "name": "Äpple, päron",
+   "value": "Fibrer",
+   "form": "Kokt puré, rivet"
+  },
+  {
+   "name": "Banan, avokado",
+   "value": "Energi, nyttigt fett",
+   "form": "Långa stavar, mosad"
+  },
+  {
+   "name": "Persika, aprikos, plommon",
+   "value": "A-, C-vitamin, fibrer",
+   "form": "Utan skal, mjuk"
+  },
+  {
+   "name": "Jordgubbar, kiwi, apelsin",
+   "value": "C-vitamin",
+   "form": "Mosad, skivad"
+  },
+  {
+   "name": "Vindruvor, körsbär, blåbär",
+   "value": "Antioxidanter",
+   "form": "På längden i 4 delar; mosa blåbären"
+  },
+  {
+   "name": "Torkade aprikoser, russin, dadlar",
+   "value": "Järn, fibrer",
+   "form": "Blötlagda, puré"
+  },
+  {
+   "name": "Olivolja",
+   "value": "Nyttigt fett",
+   "form": "1 tsk i maten"
+  },
+  {
+   "name": "Jordnötssmör",
+   "value": "Protein",
+   "form": "Tunt, inrört i puré"
+  },
+  {
+   "name": "Mandel-, valnöts-, hasselnötssmör",
+   "value": "E-vitamin, omega-3",
+   "form": "Malet eller som smör"
+  },
+  {
+   "name": "Tahini (sesam)",
+   "value": "Kalcium, järn",
+   "form": "Inrört i gröten"
+  },
+  {
+   "name": "Hampafrön, chiafrön",
+   "value": "Omega-3",
+   "form": "Malda"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Puré på nötkött + pumpa",
+   "Puré på kyckling + morot + potatis",
+   "Soppa på röda linser",
+   "Havregrynsgröt + äppelmos",
+   "Bovetegröt",
+   "Bananpuré med yoghurt",
+   "Mosad avokado + banan",
+   "Mosat hårdkokt ägg",
+   "Ångkokta broccoli-\"träd\"",
+   "Puré på lax + sötpotatis",
+   "Kikärtshummus (med tahini)",
+   "Kokt päronpuré + kanel"
+  ],
+  "9-11": [
+   "Små köttbullar av nötkött",
+   "Omelettstavar med grönsaker",
+   "Fiskbullar",
+   "Havrepannkakor med yoghurt",
+   "Risgröt med kyckling + zucchini",
+   "Lammgryta med grönsaker",
+   "Linsbiffar (köfte)",
+   "Pasta + tomatsås med köttfärs",
+   "Bovete + leversås",
+   "Syrniki på kvarg (ugnsbakade)",
+   "Broccoli- och ostmuffins",
+   "Äppel- och havrebars"
+  ],
+  "12-24": [
+   "Dolma i vinblad (små)",
+   "Kåldolmar",
+   "Pilaff för barn",
+   "Kycklingsoppa med nudlar",
+   "Düşbərə (små dumplings i buljong)",
+   "Örtkuku (ugnsomelett)",
+   "Linssoppa",
+   "Fiskbiff + potatismos",
+   "Bovete + gulasch på nötkött",
+   "Menemen (mild)",
+   "Barnlasagne",
+   "Parfait med yoghurt, frukt och havre",
+   "Kesogratäng (zapekanka)",
+   "Chingal i buljong"
+  ],
+  "24-48": [
+   "Kycklingbullar med grönsaker + bulgur",
+   "Ugnsbakad lax + grönsaker",
+   "Bönrätt",
+   "Hemgjord pizza (fullkorn)",
+   "Qutab (med örter / kött)",
+   "Borsjtj",
+   "Quinoasallad + kikärtor",
+   "Fattiga riddare-\"soldater\"",
+   "Smoothie bowl",
+   "Hemgjorda nuggets (ugnsbakade)"
+  ]
+ },
+ "emergency": "Svullnad i ansikte eller läppar, andningssvårigheter, upprepade kräkningar, blekhet — ring genast 103 / 112.",
+ "disclaimer": "Den här guiden är till för information och är inte medicinsk rådgivning. Dosen av järn och vitaminer bestäms av barnläkaren. Källor: WHO (2023), AAP, Turkiets hälsoministerium, Rysslands barnläkarförbund, SACN."
+}
