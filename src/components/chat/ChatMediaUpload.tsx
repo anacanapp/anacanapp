@@ -5,6 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { hapticFeedback } from '@/lib/native';
 import { useToast } from '@/hooks/use-toast';
 import { createAudioRecorder, getAudioErrorToast, openMicrophone, releaseAudioRecording } from '@/lib/audioRecording';
+import { compressImageForUpload } from '@/lib/image-compress';
 
 interface ChatMediaUploadProps {
   onUpload: (type: 'image' | 'audio', url: string) => void;
@@ -55,7 +56,8 @@ const ChatMediaUpload = ({ onUpload, disabled }: ChatMediaUploadProps) => {
     await uploadFile(file, 'image');
   };
 
-  const uploadFile = async (file: Blob, type: 'image' | 'audio', signal?: AbortSignal) => {
+  const uploadFile = async (original: Blob, type: 'image' | 'audio', signal?: AbortSignal) => {
+    const file = type === 'image' ? await compressImageForUpload(original) : original;
     if (!mountedRef.current || signal?.aborted) return;
     setUploading(true);
     void hapticFeedback.light().catch(() => {});
@@ -80,6 +82,7 @@ const ChatMediaUpload = ({ onUpload, disabled }: ChatMediaUploadProps) => {
         const fileType = file.type || '';
         if (fileType.includes('png')) ext = 'png';
         else if (fileType.includes('gif')) ext = 'gif';
+        else if (fileType.includes('webp')) ext = 'webp';
         contentType = fileType || 'image/jpeg';
       }
 

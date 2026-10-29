@@ -174,7 +174,8 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
     setCommentImagePreview(URL.createObjectURL(file));
   };
 
-  const uploadCommentImage = async (file: File): Promise<string> => {
+  const uploadCommentImage = async (original: File): Promise<string> => {
+    const file = await compressImageForUpload(original);
     if (!user) throw new Error('Not authenticated');
     const fileExt = file.name.split('.').pop() || 'jpg';
     const fileName = `${user.id}/${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
@@ -639,3 +640,4 @@ PostCard.displayName = 'PostCard';
 export default PostCard;
 import GroupPostTags from './GroupPostTags';
 import CommentText from './CommentText';
+import { compressImageForUpload } from '@/lib/image-compress';

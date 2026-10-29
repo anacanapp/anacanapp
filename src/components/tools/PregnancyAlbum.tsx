@@ -16,6 +16,7 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 import { tr } from "@/lib/tr";
+import { compressImageForUpload } from '@/lib/image-compress';
 
 interface PregnancyAlbumProps {
   onBack: () => void;
@@ -127,12 +128,13 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
         await supabase.from('pregnancy_album_photos').delete().eq('id', replacePhoto.id);
       }
 
-      const fileExt = file.name.split('.').pop();
+      const upload = await compressImageForUpload(file);
+      const fileExt = upload.name.split('.').pop();
       const fileName = `${user.id}/${monthToUpload}-${Date.now()}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage.
       from('pregnancy-album').
-      upload(fileName, file);
+      upload(fileName, upload);
 
       if (uploadError) throw uploadError;
 

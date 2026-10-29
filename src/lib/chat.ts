@@ -1,6 +1,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { getBackendConfig } from '@/integrations/supabase/backend-config';
 import { tr } from '@/lib/group-i18n';
+import { compressImageForUpload } from '@/lib/image-compress';
 
 export type ChatKind = 'direct' | 'partner' | 'group';
 export type ChatMediaType = 'image' | 'video' | 'audio';
@@ -62,7 +63,8 @@ export async function notifyChatMessage(kind: ChatKind, target: string, message:
   }
 }
 
-export async function uploadChatMedia(actor: string, kind: ChatKind, target: string, file: Blob, type: ChatMediaType, signal?: AbortSignal): Promise<ChatAttachment | null> {
+export async function uploadChatMedia(actor: string, kind: ChatKind, target: string, original: Blob, type: ChatMediaType, signal?: AbortSignal): Promise<ChatAttachment | null> {
+  const file = type === 'image' ? await compressImageForUpload(original) : original;
   const mime = file.type.toLowerCase().split(';')[0];
   const ext = MIME_EXTENSIONS[mime];
   if (!ext || !mime.startsWith(`${type}/`) || file.size === 0) throw new Error('CHAT_INVALID_MEDIA');

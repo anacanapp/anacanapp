@@ -19,6 +19,7 @@ import { blogCommand, type SharedBlog, validSharedBlog } from '@/lib/community-b
 import { feature37Text } from '@/lib/feature37-i18n';
 import { useMyModerationStatus } from '@/hooks/useModerator';
 import RestrictionNote from '@/components/moderation/RestrictionNote';
+import { compressImageForUpload } from '@/lib/image-compress';
 
 interface CreatePostScreenProps {
   onBack: () => void;
@@ -170,7 +171,8 @@ const CreatePostScreen = ({ onBack, groupId, groups, initialBlog }: CreatePostSc
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) throw new Error('Not authenticated');
     const urls: string[] = [];
-    for (const file of mediaFiles) {
+    for (const original of mediaFiles) {
+      const file = await compressImageForUpload(original);
       const fileExt = file.name.split('.').pop() || 'jpg';
       const fileName = `${user.id}/${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
       const { error } = await supabase.storage.from('community-media').upload(fileName, file, { cacheControl: '3600', upsert: false });

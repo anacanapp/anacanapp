@@ -15,6 +15,7 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 import { tr } from "@/lib/tr";
+import { compressImageForUpload } from '@/lib/image-compress';
 interface SecondHandMarketProps {
   onBack: () => void;
 }
@@ -141,7 +142,7 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
 
     try {
       for (let i = 0; i < Math.min(files.length, 5 - uploadedImages.length); i++) {
-        const file = files[i];
+        const file = await compressImageForUpload(files[i]);
         const fileExt = file.name.split('.').pop();
         const fileName = `${user.id}/${Date.now()}-${i}.${fileExt}`;
 

@@ -12,6 +12,7 @@ import { ToolPage, ToolHeader } from '@/components/tools/anacan/ToolKit';
 import { tr } from "@/lib/tr";
 import { getOrdinal } from "@/lib/utils";
 import { useUserStore } from "@/store/userStore";
+import { compressImageForUpload } from '@/lib/image-compress';
 
 interface BabyMonthlyAlbumProps {
   onBack: () => void;
@@ -87,9 +88,10 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
         await supabase.storage.from('baby-album').remove([`${user.id}/${replacingPhoto.name}`]);
         setReplacingPhoto(null);
       }
-      const ext = file.name.split('.').pop();
+      const upload = await compressImageForUpload(file);
+      const ext = upload.name.split('.').pop();
       const path = `${user.id}/month-${uploadMonth}-${Date.now()}.${ext}`;
-      const { error } = await supabase.storage.from('baby-album').upload(path, file);
+      const { error } = await supabase.storage.from('baby-album').upload(path, upload);
       if (error) throw error;
       toast({ title: tr("babymonthlyalbum_sekil_yuklendi_0c2f85", 'Şəkil yükləndi!') });
       queryClient.invalidateQueries({ queryKey: ['baby-album-photos'] });

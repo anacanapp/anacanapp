@@ -18,6 +18,7 @@ import BlogAttachmentPicker from './BlogAttachmentPicker';
 import { blogCommand } from '@/lib/community-blog';
 import { useMyModerationStatus } from '@/hooks/useModerator';
 import RestrictionNote from '@/components/moderation/RestrictionNote';
+import { compressImageForUpload } from '@/lib/image-compress';
 
 interface CreatePostModalProps {
   isOpen: boolean;
@@ -164,7 +165,8 @@ const CreatePostModal = ({ isOpen, onClose, groupId, groups }: CreatePostModalPr
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) throw new Error('Not authenticated');
     const urls: string[] = [];
-    for (const file of mediaFiles) {
+    for (const original of mediaFiles) {
+      const file = await compressImageForUpload(original);
       const fileExt = file.name.split('.').pop() || 'jpg';
       const fileName = `${user.id}/${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
       const { error } = await supabase.storage.from('community-media').upload(fileName, file, { cacheControl: '3600', upsert: false });
