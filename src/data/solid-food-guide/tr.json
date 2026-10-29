@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Ek Gıda Rehberi",
+  "tab_stage": "Dönem",
+  "tab_balance": "Denge",
+  "tab_rules": "Kurallar",
+  "tab_foods": "Besinler",
+  "tab_recipes": "Tarifler",
+  "age_aria": "Yaş",
+  "months_short": "{n} ay",
+  "years_short": "{n} yaş",
+  "months_plus": "{n} ay+",
+  "years_plus": "{n} yaş+",
+  "fact_milk": "Süt",
+  "fact_meals": "Öğün",
+  "fact_portion": "Porsiyon",
+  "fact_texture": "Kıvam",
+  "portion_note": "Porsiyonlar yol göstericidir — ne kadar yiyeceğine bebeğiniz kendisi karar verir.",
+  "readiness_title": "Hazır olma belirtileri",
+  "readiness_all": "Hepsi var — 6. ayda başlamaya hazır.",
+  "readiness_hint": "DSÖ ek gıdaya 6. ayda (180 gün) başlanmasını önerir. Emin değilseniz çocuk doktorunuzla konuşun.",
+  "sample_day_title": "Örnek gün (8 ay)",
+  "dishes_title": "Bu yaş için yemek fikirleri",
+  "see_recipes": "Tariflere bak",
+  "plate_title": "Dengeli tabak (1 yaştan itibaren)",
+  "plate_note": "Yanında bir süt ürünü ve biraz sağlıklı yağ (zeytinyağı, tereyağı, avokado).",
+  "needs_title": "Günlük ihtiyaç",
+  "needs_note": "6–11 ayda vücut ağırlığına göre demir ihtiyacı hayat boyunca en yüksek düzeydedir — her öğünde bir demir kaynağı olsun.",
+  "sources_title": "Nerede bulunur",
+  "iron_helps_title": "Demiri artırır",
+  "iron_blocks_title": "Demiri azaltır",
+  "allergens_title": "Alerjenler: geciktirmeyin",
+  "allergens_intro": "Yumurta ve yer fıstığı 6. aydan itibaren, tek tek verilir. Ağır egzama ya da yumurta alerjisi varsa önce doktorunuzla konuşun.",
+  "avoid_title": "Vermeyin",
+  "choking_title": "Boğulmayı önleyin (4 yaşına kadar)",
+  "choking_note": "Öğürme normaldir; boğulma sessizdir ve çocuk öksüremez — bu acil bir durumdur.",
+  "myths_title": "Eskimiş efsaneler",
+  "all": "Tümü",
+  "recipes_intro": "Anacan Tarifler bölümünden bebeğinizin yaşına uygun seçenekler. İlk tarifler ücretsiz, diğerleri Premium'da.",
+  "recipes_loading": "Tarifler yükleniyor…",
+  "all_recipes": "Tüm bebek tarifleri",
+  "all_recipes_sub": "{n} tarif · Tarifler bölümünde açılır",
+  "tag_iron": "★ Demir",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Alerjen",
+  "home_title": "Ek Gıda Rehberi",
+  "home_sub_before": "6. ayda başlıyoruz — hazırlık ve ilk besinler",
+  "home_sub_after": "Yaşa uygun porsiyon, demir dengesi ve tarifler",
+  "tool_desc": "Porsiyon, demir dengesi, alerjenler ve tarifler"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 ay",
+   "milk": "İsteğe göre anne sütü / mama",
+   "meals": "Ek gıda yok",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Her gün D vitamini damlası; hazır olma belirtilerini izleyin"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 ay",
+   "milk": "Ana besin, günde 5–6 kez",
+   "meals": "2–3 öğün",
+   "portion": "2–3 yemek kaşığından ½ su bardağına (~125 ml)",
+   "texture": "Pürüzsüz püre → koyu püre, yumuşak parmak besinler",
+   "goal": "Demir, yeni tatlar, alerjenlerle tanışma"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 ay",
+   "milk": "Günde 3–4 kez",
+   "meals": "3 öğün + 1–2 ara öğün",
+   "portion": "½ su bardağı (~125 ml)",
+   "texture": "Ezilmiş, ince doğranmış, parmak besinler",
+   "goal": "Çiğneme, kıskaç tutuş, açık bardak"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 yaş",
+   "milk": "Anne sütü ya da inek sütü 350–500 ml/gün",
+   "meals": "3 öğün + 2 ara öğün",
+   "portion": "¾–1 su bardağı (~200–250 ml)",
+   "texture": "Aile sofrası (tuzsuz, küçük parçalar)",
+   "goal": "Aile yemeğine geçiş"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 yaş",
+   "milk": "Süt / yoğurt günde 2 porsiyon",
+   "meals": "3 öğün + 2 ara öğün",
+   "portion": "1 su bardağı; et/balık ~30–50 g",
+   "texture": "Aile yemeği",
+   "goal": "Çeşitlilik, seçici yemeyle başa çıkma"
+  }
+ ],
+ "readiness": [
+  "Başını dik tutuyor",
+  "Destekle oturuyor",
+  "Yemeğe ilgi gösteriyor, ağzını açıyor",
+  "Dili yiyeceği geri itmiyor"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Süt"
+  },
+  {
+   "time": "09:00",
+   "what": "Demirli lapa + meyve"
+  },
+  {
+   "time": "12:00",
+   "what": "Süt"
+  },
+  {
+   "time": "13:30",
+   "what": "Et + sebze"
+  },
+  {
+   "time": "16:00",
+   "what": "Süt"
+  },
+  {
+   "time": "18:30",
+   "what": "Yumurta / yoğurt + tahıl"
+  },
+  {
+   "time": "Uyku öncesi",
+   "what": "Süt"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 ay",
+  "1–2 yaş",
+  "2–4 yaş"
+ ],
+ "nutrients": [
+  {
+   "name": "Demir",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Dana/kuzu eti, tavuk but, yumurta sarısı, mercimek, nohut, demirli lapa, ıspanak",
+   "rule": "Her öğünde bir demir kaynağı, yanında C vitamini"
+  },
+  {
+   "name": "D vitamini",
+   "need": [
+    "400 IU",
+    "600 IU",
+    "600 IU"
+   ],
+   "sources": "Damla, yağlı balık, yumurta sarısı",
+   "rule": "Her gün damla"
+  },
+  {
+   "name": "Çinko",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Et, yumurta, yoğurt, baklagiller, yulaf",
+   "rule": "Demirli besinlerle aynı tabakta"
+  },
+  {
+   "name": "Kalsiyum",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Yoğurt, peynir, süt (1 yaştan itibaren), tahin",
+   "rule": "Günde 2–3 porsiyon süt ürünü"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Somon, uskumru, sardalya, ceviz, kenevir tohumu",
+   "rule": "Haftada 2 balık öğünü"
+  },
+  {
+   "name": "A vitamini",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Havuç, bal kabağı, tatlı patates, kayısı",
+   "rule": "Günde bir turuncu sebze"
+  },
+  {
+   "name": "C vitamini",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Dolmalık biber, brokoli, çilek, kivi, portakal",
+   "rule": "Demirli yemeğin yanında"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Protein",
+   "hint": "et, balık, yumurta, baklagil"
+  },
+  {
+   "label": "Tahıl",
+   "hint": "lapa, pirinç, ekmek"
+  },
+  {
+   "label": "Sebze ve meyve",
+   "hint": "rengârenk"
+  }
+ ],
+ "ironHelps": [
+  "C vitamini (biber, brokoli, çilek)",
+  "Et + sebze birlikte"
+ ],
+ "ironBlocks": [
+  "Yemekle birlikte çay",
+  "1 yaştan önce ana içecek olarak inek sütü",
+  "Çok kepekli besinler"
+ ],
+ "allergens": [
+  "Yumurta",
+  "Yer fıstığı",
+  "Sert kabuklu yemişler",
+  "İnek sütü",
+  "Soya",
+  "Buğday",
+  "Susam",
+  "Balık",
+  "Kabuklu deniz ürünleri"
+ ],
+ "allergenSteps": [
+  "Her seferinde yalnızca bir yeni alerjen; 2–3 gün tepkiyi izleyin",
+  "Takibi kolay olsun diye sabah ya da öğlen verin",
+  "Yumurta tam pişmiş; yer fıstığı ezme şeklinde, asla bütün tane değil",
+  "Sorun olmadıysa haftada 2–3 kez vermeye devam edin"
+ ],
+ "avoid": [
+  {
+   "food": "Bal",
+   "until": "12 ay",
+   "why": "Botulizm riski"
+  },
+  {
+   "food": "Tuz",
+   "until": "12 ay, sonra çok az",
+   "why": "Böbreklere yük"
+  },
+  {
+   "food": "Eklenmiş şeker, tatlılar",
+   "until": "24 ay",
+   "why": "Tat alışkanlığı, diş çürüğü"
+  },
+  {
+   "food": "Meyve suyu",
+   "until": "12 ay; sonra ≤120 ml/gün",
+   "why": "İştahı azaltır"
+  },
+  {
+   "food": "İnek sütü (içecek olarak)",
+   "until": "12 ay",
+   "why": "Demiri düşürür; yemeklerde olabilir"
+  },
+  {
+   "food": "Çiğ yumurta, et, balık; pastörize edilmemiş süt",
+   "until": "4 yaş",
+   "why": "Enfeksiyon"
+  },
+  {
+   "food": "Cıvası yüksek balık (kılıç, köpek balığı, büyük ton)",
+   "until": "4 yaş",
+   "why": "Cıva"
+  },
+  {
+   "food": "Çay, kahve, kola",
+   "until": "4 yaş",
+   "why": "Kafein, demiri bağlar"
+  },
+  {
+   "food": "Salam, sosis, tütsülenmiş et",
+   "until": "Olabildiğince az",
+   "why": "Tuz, nitrat"
+  },
+  {
+   "food": "Pirinç sütü",
+   "until": "4–5 yaş",
+   "why": "Arsenik"
+  }
+ ],
+ "choking": [
+  "Bütün kuruyemiş ve tohum vermeyin — öğütülmüş ya da ezme",
+  "Üzüm, vişne, çeri domates — uzunlamasına 4'e bölün",
+  "Çiğ havuç, elma — rendeleyin ya da pişirin",
+  "Sosis — uzunlamasına şeritler; patlamış mısır, sert şeker, sakız — hayır",
+  "Her zaman oturarak ve gözetim altında yesin"
+ ],
+ "myths": [
+  {
+   "myth": "Yumurta beyazı 1 yaştan sonra",
+   "fact": "Bütün yumurta 6. aydan itibaren verilir; geciktirmek alerji riskini artırabilir."
+  },
+  {
+   "myth": "Balık, turunçgiller, çilek 1 yaşına kadar yasaktır",
+   "fact": "Hepsi 6. aydan itibaren verilebilir."
+  },
+  {
+   "myth": "Önce meyve verirsen sebzeyi sevmez",
+   "fact": "Güçlü bir kanıt yok; asıl önemli olan demirli besin ve çeşitliliktir."
+  },
+  {
+   "myth": "4. aydan meyve püresi",
+   "fact": "DSÖ ek gıdaya 6. ayda başlanmasını önerir."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Et",
+  "fish": "Balık",
+  "egg": "Yumurta",
+  "dairy": "Süt ürünleri",
+  "legumes": "Baklagil",
+  "grains": "Tahıl",
+  "vegetables": "Sebze",
+  "fruit": "Meyve",
+  "fats_seeds": "Yağ, tohum"
+ },
+ "foods": [
+  {
+   "name": "Dana eti",
+   "value": "Demir, çinko, B12",
+   "form": "Püre ya da uzun yumuşak şerit"
+  },
+  {
+   "name": "Kuzu eti",
+   "value": "Demir, çinko",
+   "form": "Püre, kıyma"
+  },
+  {
+   "name": "Tavuk but",
+   "value": "Protein, demir",
+   "form": "Didilmiş, püre"
+  },
+  {
+   "name": "Hindi",
+   "value": "Protein, çinko",
+   "form": "Püre, köfte"
+  },
+  {
+   "name": "Ciğer",
+   "value": "Demir, A vitamini",
+   "form": "Haftada 1 kez, 1–2 çay kaşığı"
+  },
+  {
+   "name": "Somon",
+   "value": "Omega-3, D vitamini",
+   "form": "Kılçıksız, ezilmiş"
+  },
+  {
+   "name": "Uskumru, sardalya",
+   "value": "Omega-3",
+   "form": "Kılçıksız, ezilmiş"
+  },
+  {
+   "name": "Morina, pisi balığı",
+   "value": "Protein, iyot",
+   "form": "Lif lif ayrılmış"
+  },
+  {
+   "name": "Tavuk yumurtası",
+   "value": "Protein, kolin, D",
+   "form": "Katı haşlanmış, ezilmiş; omlet şeritleri"
+  },
+  {
+   "name": "Yoğurt (şekersiz)",
+   "value": "Kalsiyum, probiyotik",
+   "form": "Kaşıkla"
+  },
+  {
+   "name": "Lor, beyaz peynir",
+   "value": "Kalsiyum, protein",
+   "form": "Ezilmiş; peyniri suda bekletip tuzunu alın"
+  },
+  {
+   "name": "Tereyağı",
+   "value": "Enerji",
+   "form": "Yemeğe az miktarda"
+  },
+  {
+   "name": "İnek sütü",
+   "value": "Kalsiyum",
+   "form": "İçecek olarak 12. aydan; yemeklerde 6. aydan"
+  },
+  {
+   "name": "Kırmızı mercimek",
+   "value": "Demir, protein",
+   "form": "Çorba, püre"
+  },
+  {
+   "name": "Nohut",
+   "value": "Demir, lif",
+   "form": "Humus (tuzsuz)"
+  },
+  {
+   "name": "Fasulye, maş fasulyesi",
+   "value": "Demir, folat",
+   "form": "Ezilmiş"
+  },
+  {
+   "name": "Yulaf",
+   "value": "Lif, demir",
+   "form": "Lapa"
+  },
+  {
+   "name": "Pirinç",
+   "value": "Enerji",
+   "form": "Lapa (haftada 2–3 kez)"
+  },
+  {
+   "name": "Karabuğday",
+   "value": "Demir, magnezyum",
+   "form": "Lapa"
+  },
+  {
+   "name": "Bulgur, irmik, makarna, ekmek",
+   "value": "Enerji, B",
+   "form": "Lapa, yumuşak makarna"
+  },
+  {
+   "name": "Darı, kinoa",
+   "value": "Demir, protein",
+   "form": "Lapa"
+  },
+  {
+   "name": "Bal kabağı, havuç, tatlı patates",
+   "value": "A vitamini",
+   "form": "Püre, buharda çubuk"
+  },
+  {
+   "name": "Kabak, brokoli, karnabahar",
+   "value": "C, K vitamini",
+   "form": "Buharda; brokoli \"ağaç\" şeklinde"
+  },
+  {
+   "name": "Patates",
+   "value": "Enerji",
+   "form": "Püre"
+  },
+  {
+   "name": "Ispanak, pancar",
+   "value": "Folat, demir",
+   "form": "Başka sebzelerle karışık"
+  },
+  {
+   "name": "Patlıcan, biber, domates",
+   "value": "C vitamini",
+   "form": "Pişmiş, kabuksuz"
+  },
+  {
+   "name": "Bezelye, taze fasulye",
+   "value": "Demir, lif",
+   "form": "Ezilmiş"
+  },
+  {
+   "name": "Elma, armut",
+   "value": "Lif",
+   "form": "Pişmiş püre, rendelenmiş"
+  },
+  {
+   "name": "Muz, avokado",
+   "value": "Enerji, sağlıklı yağ",
+   "form": "Uzun şerit, ezilmiş"
+  },
+  {
+   "name": "Şeftali, kayısı, erik",
+   "value": "A, C vitamini, lif",
+   "form": "Kabuksuz, yumuşak"
+  },
+  {
+   "name": "Çilek, kivi, portakal",
+   "value": "C vitamini",
+   "form": "Ezilmiş, dilim"
+  },
+  {
+   "name": "Üzüm, vişne, yaban mersini",
+   "value": "Antioksidan",
+   "form": "Uzunlamasına 4'e bölün; yaban mersinini ezin"
+  },
+  {
+   "name": "Kuru kayısı, kuru üzüm, hurma",
+   "value": "Demir, lif",
+   "form": "Suda bekletilmiş, püre"
+  },
+  {
+   "name": "Zeytinyağı",
+   "value": "Sağlıklı yağ",
+   "form": "Yemeğe 1 çay kaşığı"
+  },
+  {
+   "name": "Yer fıstığı ezmesi",
+   "value": "Protein",
+   "form": "İnceltilmiş, püreye karışık"
+  },
+  {
+   "name": "Badem, ceviz, fındık ezmesi",
+   "value": "E vitamini, omega-3",
+   "form": "Toz ya da ezme"
+  },
+  {
+   "name": "Tahin (susam)",
+   "value": "Kalsiyum, demir",
+   "form": "Lapaya karışık"
+  },
+  {
+   "name": "Kenevir, chia tohumu",
+   "value": "Omega-3",
+   "form": "Öğütülmüş"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Dana eti + bal kabağı püresi",
+   "Tavuk + havuç + patates püresi",
+   "Kırmızı mercimek çorbası",
+   "Yulaf lapası + elma püresi",
+   "Karabuğday lapası",
+   "Yoğurtlu muz püresi",
+   "Avokado + muz ezmesi",
+   "Haşlanmış yumurta ezmesi",
+   "Buharda brokoli \"ağaçları\"",
+   "Somon + tatlı patates püresi",
+   "Nohut humusu (tahinli)",
+   "Fırında armut püresi + tarçın"
+  ],
+  "9-11": [
+   "Mini dana köfte",
+   "Sebzeli omlet şeritleri",
+   "Balık köftesi",
+   "Yoğurtlu yulaf pankek",
+   "Tavuklu pirinç lapası + kabak",
+   "Kuzu etli sebze yahnisi",
+   "Mercimek köftesi",
+   "Makarna + kıymalı domates sosu",
+   "Karabuğday + ciğer sosu",
+   "Lorlu sırnikı (fırında)",
+   "Brokolili peynirli muffin",
+   "Elmalı yulaf barları"
+  ],
+  "12-24": [
+   "Yaprak sarma (küçük)",
+   "Lahana sarması",
+   "Çocuk pilavı (Azerbaycan plovu)",
+   "Şehriyeli tavuk çorbası",
+   "Düşbere (mini mantı çorbası)",
+   "Yeşillikli kuku (fırında)",
+   "Mercimek çorbası",
+   "Balık köftesi + patates püresi",
+   "Karabuğday + dana gulaş",
+   "Menemen (acısız)",
+   "Çocuk lazanyası",
+   "Yoğurt + meyve + yulaf parfe",
+   "Fırında lorlu kek (zapekanka)",
+   "Sulu hingel"
+  ],
+  "24-48": [
+   "Sebzeli tavuk köfte + bulgur",
+   "Fırında somon + sebze",
+   "Fasulye yemeği",
+   "Ev yapımı pizza (tam tahıllı)",
+   "Kutab (yeşillikli / etli)",
+   "Borş",
+   "Kinoa salatası + nohut",
+   "Yumurtalı tost \"askerleri\"",
+   "Smoothie kasesi",
+   "Ev yapımı nugget (fırında)"
+  ]
+ },
+ "emergency": "Yüzde veya dudaklarda şişlik, nefes darlığı, tekrarlayan kusma, solukluk — hemen 103 / 112.",
+ "disclaimer": "Bu rehber bilgilendirme amaçlıdır ve tıbbi tavsiye değildir. Demir ve vitamin dozunu çocuk doktorunuz belirler. Kaynaklar: DSÖ (2023), AAP, T.C. Sağlık Bakanlığı, Rusya Pediatristler Birliği, SACN."
+}

@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Guide de diversification alimentaire",
+  "tab_stage": "Étape",
+  "tab_balance": "Équilibre",
+  "tab_rules": "Règles",
+  "tab_foods": "Aliments",
+  "tab_recipes": "Recettes",
+  "age_aria": "Âge",
+  "months_short": "{n} mois",
+  "years_short": "{n} ans",
+  "months_plus": "{n} mois+",
+  "years_plus": "{n} ans+",
+  "fact_milk": "Lait",
+  "fact_meals": "Repas",
+  "fact_portion": "Portion",
+  "fact_texture": "Texture",
+  "portion_note": "Les portions sont indicatives — c'est bébé qui décide de la quantité qu'il mange.",
+  "readiness_title": "Signes qu'il est prêt",
+  "readiness_all": "Tous présents — prêt à commencer à 6 mois.",
+  "readiness_hint": "L'OMS recommande de commencer la diversification à 6 mois (180 jours). En cas de doute, parlez-en au pédiatre.",
+  "sample_day_title": "Exemple de journée (8 mois)",
+  "dishes_title": "Idées de repas pour cet âge",
+  "see_recipes": "Voir les recettes",
+  "plate_title": "Assiette équilibrée (dès 1 an)",
+  "plate_note": "Avec un produit laitier et un peu de bonne matière grasse (huile d'olive, beurre, avocat).",
+  "needs_title": "Besoins quotidiens",
+  "needs_note": "Entre 6 et 11 mois, les besoins en fer rapportés au poids sont les plus élevés de toute la vie — prévoyez une source de fer à chaque repas.",
+  "sources_title": "Où les trouver",
+  "iron_helps_title": "Favorise l'absorption du fer",
+  "iron_blocks_title": "Réduit l'absorption du fer",
+  "allergens_title": "Allergènes : ne pas retarder",
+  "allergens_intro": "Œuf et arachide dès 6 mois, un à la fois. En cas d'eczéma sévère ou d'allergie à l'œuf, parlez-en d'abord au médecin.",
+  "avoid_title": "À ne pas donner",
+  "choking_title": "Prévenir l'étouffement (jusqu'à 4 ans)",
+  "choking_note": "Les haut-le-cœur sont normaux ; l'étouffement est silencieux et l'enfant ne peut pas tousser — c'est une urgence.",
+  "myths_title": "Idées reçues dépassées",
+  "all": "Tout",
+  "recipes_intro": "Une sélection adaptée à l'âge de votre bébé, issue de la rubrique Recettes d'Anacan. Les premières recettes sont gratuites, les autres sont en Premium.",
+  "recipes_loading": "Chargement des recettes…",
+  "all_recipes": "Toutes les recettes pour bébé",
+  "all_recipes_sub": "{n} recettes · s'ouvre dans la rubrique Recettes",
+  "tag_iron": "★ Fer",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Allergène",
+  "home_title": "Guide de diversification alimentaire",
+  "home_sub_before": "On commence à 6 mois — signes et premiers aliments",
+  "home_sub_after": "Portions selon l'âge, équilibre en fer et recettes",
+  "tool_desc": "Portions, équilibre en fer, allergènes et recettes"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 mois",
+   "milk": "Lait maternel / infantile à la demande",
+   "meals": "Pas de diversification",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Gouttes de vitamine D chaque jour ; observez les signes qu'il est prêt"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 mois",
+   "milk": "Aliment principal, 5–6 fois par jour",
+   "meals": "2–3 repas",
+   "portion": "De 2–3 c. à soupe à ½ tasse (~125 ml)",
+   "texture": "Purée lisse → purée épaisse, aliments mous à prendre avec les doigts",
+   "goal": "Fer, nouvelles saveurs, découverte des allergènes"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 mois",
+   "milk": "3–4 fois par jour",
+   "meals": "3 repas + 1–2 collations",
+   "portion": "½ tasse (~125 ml)",
+   "texture": "Écrasé, finement haché, aliments à prendre avec les doigts",
+   "goal": "Mastication, pince pouce-index, gobelet ouvert"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 ans",
+   "milk": "Lait maternel ou lait de vache 350–500 ml/jour",
+   "meals": "3 repas + 2 collations",
+   "portion": "¾–1 tasse (~200–250 ml)",
+   "texture": "Repas familial (sans sel, en petits morceaux)",
+   "goal": "Passage aux repas de la famille"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 ans",
+   "milk": "Lait / yaourt, 2 portions par jour",
+   "meals": "3 repas + 2 collations",
+   "portion": "1 tasse ; viande/poisson ~30–50 g",
+   "texture": "Repas familial",
+   "goal": "Variété, gérer la sélectivité alimentaire"
+  }
+ ],
+ "readiness": [
+  "Tient bien sa tête",
+  "S'assoit avec un appui",
+  "S'intéresse à la nourriture, ouvre la bouche",
+  "Ne repousse plus les aliments avec la langue"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Lait"
+  },
+  {
+   "time": "09:00",
+   "what": "Céréales enrichies en fer + fruit"
+  },
+  {
+   "time": "12:00",
+   "what": "Lait"
+  },
+  {
+   "time": "13:30",
+   "what": "Viande + légumes"
+  },
+  {
+   "time": "16:00",
+   "what": "Lait"
+  },
+  {
+   "time": "18:30",
+   "what": "Œuf / yaourt + céréales"
+  },
+  {
+   "time": "Avant le coucher",
+   "what": "Lait"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 mois",
+  "1–2 ans",
+  "2–4 ans"
+ ],
+ "nutrients": [
+  {
+   "name": "Fer",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Bœuf/agneau, cuisse de poulet, jaune d'œuf, lentilles, pois chiches, céréales enrichies en fer, épinards",
+   "rule": "Une source de fer à chaque repas, avec de la vitamine C"
+  },
+  {
+   "name": "Vitamine D",
+   "need": [
+    "400 UI",
+    "600 UI",
+    "600 UI"
+   ],
+   "sources": "Gouttes, poissons gras, jaune d'œuf",
+   "rule": "Gouttes chaque jour"
+  },
+  {
+   "name": "Zinc",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Viande, œuf, yaourt, légumineuses, avoine",
+   "rule": "Dans la même assiette que les aliments riches en fer"
+  },
+  {
+   "name": "Calcium",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Yaourt, fromage, lait (dès 1 an), tahini",
+   "rule": "2–3 portions de produits laitiers par jour"
+  },
+  {
+   "name": "Oméga-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Saumon, maquereau, sardine, noix, chanvre",
+   "rule": "2 repas de poisson par semaine"
+  },
+  {
+   "name": "Vitamine A",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Carotte, potiron, patate douce, abricot",
+   "rule": "Un légume orange par jour"
+  },
+  {
+   "name": "Vitamine C",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Poivron, brocoli, fraise, kiwi, orange",
+   "rule": "Avec le repas riche en fer"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Protéines",
+   "hint": "viande, poisson, œuf, légumineuses"
+  },
+  {
+   "label": "Céréales",
+   "hint": "bouillie, riz, pain"
+  },
+  {
+   "label": "Légumes et fruits",
+   "hint": "colorés"
+  }
+ ],
+ "ironHelps": [
+  "Vitamine C (poivron, brocoli, fraise)",
+  "Viande + légumes ensemble"
+ ],
+ "ironBlocks": [
+  "Thé pendant le repas",
+  "Lait de vache comme boisson principale avant 1 an",
+  "Aliments très riches en son"
+ ],
+ "allergens": [
+  "Œuf",
+  "Arachide",
+  "Fruits à coque",
+  "Lait de vache",
+  "Soja",
+  "Blé",
+  "Sésame",
+  "Poisson",
+  "Crustacés"
+ ],
+ "allergenSteps": [
+  "Un seul nouvel allergène à la fois ; surveillez les réactions pendant 2–3 jours",
+  "Donnez-le le matin ou le midi pour pouvoir surveiller facilement",
+  "Œuf bien cuit ; arachide en purée, jamais entière",
+  "S'il est bien toléré, redonnez-le 2–3 fois par semaine"
+ ],
+ "avoid": [
+  {
+   "food": "Miel",
+   "until": "12 mois",
+   "why": "Risque de botulisme"
+  },
+  {
+   "food": "Sel",
+   "until": "12 mois, puis très peu",
+   "why": "Surcharge pour les reins"
+  },
+  {
+   "food": "Sucre ajouté, sucreries",
+   "until": "24 mois",
+   "why": "Habitude du goût sucré, caries"
+  },
+  {
+   "food": "Jus de fruits",
+   "until": "12 mois ; ensuite ≤120 ml/jour",
+   "why": "Coupe l'appétit"
+  },
+  {
+   "food": "Lait de vache (en boisson)",
+   "until": "12 mois",
+   "why": "Fait baisser le fer ; possible dans les plats"
+  },
+  {
+   "food": "Œuf, viande, poisson crus ; lait non pasteurisé",
+   "until": "4 ans",
+   "why": "Infections"
+  },
+  {
+   "food": "Poissons riches en mercure (espadon, requin, gros thon)",
+   "until": "4 ans",
+   "why": "Mercure"
+  },
+  {
+   "food": "Thé, café, cola",
+   "until": "4 ans",
+   "why": "Caféine, bloque le fer"
+  },
+  {
+   "food": "Saucisson, saucisses, viandes fumées",
+   "until": "Le moins possible",
+   "why": "Sel, nitrites"
+  },
+  {
+   "food": "Lait de riz",
+   "until": "4–5 ans",
+   "why": "Arsenic"
+  }
+ ],
+ "choking": [
+  "Pas de noix ni de graines entières — écrasées ou en purée",
+  "Raisin, cerises, tomates cerises — coupés en 4 dans la longueur",
+  "Carotte et pomme crues — râpées ou cuites",
+  "Saucisse — en lamelles dans la longueur ; pas de pop-corn, bonbons durs ni chewing-gum",
+  "Toujours assis et sous surveillance pendant le repas"
+ ],
+ "myths": [
+  {
+   "myth": "Le blanc d'œuf après 1 an",
+   "fact": "L'œuf entier se donne dès 6 mois ; retarder peut augmenter le risque d'allergie."
+  },
+  {
+   "myth": "Poisson, agrumes et fraises interdits avant 1 an",
+   "fact": "Tous peuvent être donnés dès 6 mois."
+  },
+  {
+   "myth": "Si on commence par les fruits, il n'aimera pas les légumes",
+   "fact": "Aucune preuve solide ; l'essentiel, ce sont les aliments riches en fer et la variété."
+  },
+  {
+   "myth": "Compote de fruits dès 4 mois",
+   "fact": "L'OMS recommande de commencer la diversification à 6 mois."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Viande",
+  "fish": "Poisson",
+  "egg": "Œuf",
+  "dairy": "Laitages",
+  "legumes": "Légumineuses",
+  "grains": "Céréales",
+  "vegetables": "Légumes",
+  "fruit": "Fruits",
+  "fats_seeds": "Graisses, graines"
+ },
+ "foods": [
+  {
+   "name": "Bœuf",
+   "value": "Fer, zinc, B12",
+   "form": "En purée ou en longues lamelles fondantes"
+  },
+  {
+   "name": "Agneau",
+   "value": "Fer, zinc",
+   "form": "Purée, haché"
+  },
+  {
+   "name": "Cuisse de poulet",
+   "value": "Protéines, fer",
+   "form": "Effilochée, purée"
+  },
+  {
+   "name": "Dinde",
+   "value": "Protéines, zinc",
+   "form": "Purée, boulettes"
+  },
+  {
+   "name": "Foie",
+   "value": "Fer, vitamine A",
+   "form": "1 fois par semaine, 1–2 c. à café"
+  },
+  {
+   "name": "Saumon",
+   "value": "Oméga-3, vitamine D",
+   "form": "Sans arêtes, écrasé"
+  },
+  {
+   "name": "Maquereau, sardine",
+   "value": "Oméga-3",
+   "form": "Sans arêtes, écrasé"
+  },
+  {
+   "name": "Cabillaud, limande",
+   "value": "Protéines, iode",
+   "form": "Émietté"
+  },
+  {
+   "name": "Œuf de poule",
+   "value": "Protéines, choline, D",
+   "form": "Dur, écrasé ; lamelles d'omelette"
+  },
+  {
+   "name": "Yaourt (sans sucre)",
+   "value": "Calcium, probiotiques",
+   "form": "À la cuillère"
+  },
+  {
+   "name": "Fromage blanc, fromage frais",
+   "value": "Calcium, protéines",
+   "form": "Écrasé ; dessalez le fromage en le faisant tremper"
+  },
+  {
+   "name": "Beurre",
+   "value": "Énergie",
+   "form": "Un peu dans les plats"
+  },
+  {
+   "name": "Lait de vache",
+   "value": "Calcium",
+   "form": "En boisson dès 12 mois ; dans les plats dès 6 mois"
+  },
+  {
+   "name": "Lentilles corail",
+   "value": "Fer, protéines",
+   "form": "Soupe, purée"
+  },
+  {
+   "name": "Pois chiches",
+   "value": "Fer, fibres",
+   "form": "Houmous (sans sel)"
+  },
+  {
+   "name": "Haricots, haricots mungo",
+   "value": "Fer, folates",
+   "form": "Écrasés"
+  },
+  {
+   "name": "Avoine",
+   "value": "Fibres, fer",
+   "form": "Bouillie"
+  },
+  {
+   "name": "Riz",
+   "value": "Énergie",
+   "form": "Bouillie (2–3 fois par semaine)"
+  },
+  {
+   "name": "Sarrasin",
+   "value": "Fer, magnésium",
+   "form": "Bouillie"
+  },
+  {
+   "name": "Boulgour, semoule, pâtes, pain",
+   "value": "Énergie, B",
+   "form": "Bouillie, pâtes bien cuites"
+  },
+  {
+   "name": "Millet, quinoa",
+   "value": "Fer, protéines",
+   "form": "Bouillie"
+  },
+  {
+   "name": "Potiron, carotte, patate douce",
+   "value": "Vitamine A",
+   "form": "Purée, bâtonnets vapeur"
+  },
+  {
+   "name": "Courgette, brocoli, chou-fleur",
+   "value": "Vitamines C, K",
+   "form": "À la vapeur ; brocoli en « petits arbres »"
+  },
+  {
+   "name": "Pomme de terre",
+   "value": "Énergie",
+   "form": "Purée"
+  },
+  {
+   "name": "Épinards, betterave",
+   "value": "Folates, fer",
+   "form": "Mélangés à d'autres légumes"
+  },
+  {
+   "name": "Aubergine, poivron, tomate",
+   "value": "Vitamine C",
+   "form": "Cuits, sans la peau"
+  },
+  {
+   "name": "Petits pois, haricots verts",
+   "value": "Fer, fibres",
+   "form": "Écrasés"
+  },
+  {
+   "name": "Pomme, poire",
+   "value": "Fibres",
+   "form": "Compote cuite, râpée"
+  },
+  {
+   "name": "Banane, avocat",
+   "value": "Énergie, bonnes graisses",
+   "form": "Longues lamelles, écrasé"
+  },
+  {
+   "name": "Pêche, abricot, prune",
+   "value": "Vitamines A, C, fibres",
+   "form": "Sans la peau, bien mûrs"
+  },
+  {
+   "name": "Fraise, kiwi, orange",
+   "value": "Vitamine C",
+   "form": "Écrasés, en tranches"
+  },
+  {
+   "name": "Raisin, cerises, myrtilles",
+   "value": "Antioxydants",
+   "form": "Coupés en 4 dans la longueur ; écrasez les myrtilles"
+  },
+  {
+   "name": "Abricots secs, raisins secs, dattes",
+   "value": "Fer, fibres",
+   "form": "Trempés, en purée"
+  },
+  {
+   "name": "Huile d'olive",
+   "value": "Bonnes graisses",
+   "form": "1 c. à café dans le plat"
+  },
+  {
+   "name": "Beurre de cacahuète",
+   "value": "Protéines",
+   "form": "En fine couche, mélangé à une purée"
+  },
+  {
+   "name": "Purée d'amande, de noix, de noisette",
+   "value": "Vitamine E, oméga-3",
+   "form": "En poudre ou en purée"
+  },
+  {
+   "name": "Tahini (sésame)",
+   "value": "Calcium, fer",
+   "form": "Mélangé à la bouillie"
+  },
+  {
+   "name": "Graines de chanvre, de chia",
+   "value": "Oméga-3",
+   "form": "Moulues"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Purée bœuf + potiron",
+   "Purée poulet + carotte + pomme de terre",
+   "Soupe de lentilles corail",
+   "Bouillie d'avoine + compote de pomme",
+   "Bouillie de sarrasin",
+   "Purée de banane au yaourt",
+   "Écrasé d'avocat + banane",
+   "Œuf dur écrasé",
+   "« Petits arbres » de brocoli vapeur",
+   "Purée saumon + patate douce",
+   "Houmous de pois chiches (au tahini)",
+   "Compote de poire cuite + cannelle"
+  ],
+  "9-11": [
+   "Mini-boulettes de bœuf",
+   "Lamelles d'omelette aux légumes",
+   "Boulettes de poisson",
+   "Pancakes avoine-yaourt",
+   "Riz au poulet + courgette",
+   "Ragoût d'agneau aux légumes",
+   "Galettes de lentilles",
+   "Pâtes + sauce tomate à la viande hachée",
+   "Sarrasin + sauce au foie",
+   "Syrniki au fromage blanc (au four)",
+   "Muffins brocoli-fromage",
+   "Barres pomme-avoine"
+  ],
+  "12-24": [
+   "Dolmas de feuilles de vigne (petits)",
+   "Chou farci",
+   "Pilaf pour enfant",
+   "Soupe de poulet aux nouilles",
+   "Düşbərə (petits raviolis en bouillon)",
+   "Kuku aux herbes (au four)",
+   "Soupe de lentilles",
+   "Croquettes de poisson + purée",
+   "Sarrasin + goulasch de bœuf",
+   "Menemen (non épicé)",
+   "Lasagnes pour enfant",
+   "Parfait yaourt + fruits + avoine",
+   "Gratin de fromage blanc",
+   "Xəngəl en bouillon (pâtes azerbaïdjanaises)"
+  ],
+  "24-48": [
+   "Boulettes de poulet aux légumes + boulgour",
+   "Saumon au four + légumes",
+   "Ragoût de haricots",
+   "Pizza maison (céréales complètes)",
+   "Qutab (aux herbes / à la viande)",
+   "Bortsch",
+   "Salade de quinoa + pois chiches",
+   "Mouillettes de pain perdu",
+   "Smoothie bowl",
+   "Nuggets maison (au four)"
+  ]
+ },
+ "emergency": "Gonflement du visage ou des lèvres, difficulté à respirer, vomissements répétés, pâleur — appelez immédiatement le 103 / 112.",
+ "disclaimer": "Ce guide est informatif et ne remplace pas un avis médical. Les doses de fer et de vitamines sont prescrites par votre pédiatre. Sources : OMS (2023), AAP, ministère turc de la Santé, Union des pédiatres de Russie, SACN."
+}

@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Przewodnik po rozszerzaniu diety",
+  "tab_stage": "Etap",
+  "tab_balance": "Bilans",
+  "tab_rules": "Zasady",
+  "tab_foods": "Produkty",
+  "tab_recipes": "Przepisy",
+  "age_aria": "Wiek",
+  "months_short": "{n} mies.",
+  "years_short": "{n} l.",
+  "months_plus": "{n} mies.+",
+  "years_plus": "{n} l.+",
+  "fact_milk": "Mleko",
+  "fact_meals": "Posiłki",
+  "fact_portion": "Porcja",
+  "fact_texture": "Konsystencja",
+  "portion_note": "Porcje są orientacyjne — to dziecko decyduje, ile zje.",
+  "readiness_title": "Oznaki gotowości",
+  "readiness_all": "Wszystkie są — dziecko jest gotowe, by zacząć w 6. miesiącu.",
+  "readiness_hint": "WHO zaleca rozpoczęcie rozszerzania diety w 6. miesiącu (180 dni). W razie wątpliwości porozmawiaj z pediatrą.",
+  "sample_day_title": "Przykładowy dzień (8 mies.)",
+  "dishes_title": "Pomysły na posiłki w tym wieku",
+  "see_recipes": "Zobacz przepisy",
+  "plate_title": "Zbilansowany talerz (od 1. roku)",
+  "plate_note": "Do tego nabiał i odrobina zdrowego tłuszczu (oliwa, masło, awokado).",
+  "needs_title": "Dzienne zapotrzebowanie",
+  "needs_note": "W wieku 6–11 mies. zapotrzebowanie na żelazo w przeliczeniu na masę ciała jest najwyższe w całym życiu — w każdym posiłku powinno być jedno źródło żelaza.",
+  "sources_title": "Gdzie występuje",
+  "iron_helps_title": "Zwiększa wchłanianie żelaza",
+  "iron_blocks_title": "Zmniejsza wchłanianie żelaza",
+  "allergens_title": "Alergeny: nie odkładaj",
+  "allergens_intro": "Jajko i orzeszki ziemne od 6. miesiąca, po kolei. Przy ciężkim AZS lub alergii na jajko najpierw porozmawiaj z lekarzem.",
+  "avoid_title": "Nie podawaj",
+  "choking_title": "Zapobiegaj zadławieniu (do 4. roku)",
+  "choking_note": "Odruch wymiotny jest normalny; zadławienie jest ciche i dziecko nie może kaszleć — to stan nagły.",
+  "myths_title": "Przestarzałe mity",
+  "all": "Wszystkie",
+  "recipes_intro": "Propozycje z działu Przepisy w Anacan dopasowane do wieku dziecka. Pierwsze przepisy są bezpłatne, pozostałe w Premium.",
+  "recipes_loading": "Ładowanie przepisów…",
+  "all_recipes": "Wszystkie przepisy dla niemowląt",
+  "all_recipes_sub": "Przepisy: {n} · Otwiera się w dziale Przepisy",
+  "tag_iron": "★ Żelazo",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Alergen",
+  "home_title": "Przewodnik po rozszerzaniu diety",
+  "home_sub_before": "Zaczynamy w 6. miesiącu — gotowość i pierwsze pokarmy",
+  "home_sub_after": "Porcje według wieku, bilans żelaza i przepisy",
+  "tool_desc": "Porcje, bilans żelaza, alergeny i przepisy"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 mies.",
+   "milk": "Mleko mamy / mleko modyfikowane na żądanie",
+   "meals": "Bez rozszerzania diety",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Codziennie krople z witaminą D; obserwuj oznaki gotowości"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 mies.",
+   "milk": "Główny pokarm, 5–6 razy dziennie",
+   "meals": "2–3 posiłki",
+   "portion": "Od 2–3 łyżek do ½ szklanki (~125 ml)",
+   "texture": "Gładkie purée → gęste purée, miękkie kawałki do rączki",
+   "goal": "Żelazo, nowe smaki, poznawanie alergenów"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 mies.",
+   "milk": "3–4 razy dziennie",
+   "meals": "3 posiłki + 1–2 przekąski",
+   "portion": "½ szklanki (~125 ml)",
+   "texture": "Rozgniecione, drobno posiekane, kawałki do rączki",
+   "goal": "Gryzienie, chwyt pęsetkowy, otwarty kubek"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 lata",
+   "milk": "Mleko mamy lub krowie 350–500 ml/dzień",
+   "meals": "3 posiłki + 2 przekąski",
+   "portion": "¾–1 szklanki (~200–250 ml)",
+   "texture": "Rodzinny stół (bez soli, drobno)",
+   "goal": "Przejście na rodzinne posiłki"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 lata",
+   "milk": "Mleko / jogurt 2 porcje dziennie",
+   "meals": "3 posiłki + 2 przekąski",
+   "portion": "1 szklanka; mięso/ryba ~30–50 g",
+   "texture": "Posiłki rodzinne",
+   "goal": "Różnorodność, radzenie sobie z wybrednym jedzeniem"
+  }
+ ],
+ "readiness": [
+  "Stabilnie trzyma główkę",
+  "Siedzi z podparciem",
+  "Interesuje się jedzeniem, otwiera buzię",
+  "Nie wypycha jedzenia językiem"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Mleko"
+  },
+  {
+   "time": "09:00",
+   "what": "Kaszka wzbogacona w żelazo + owoc"
+  },
+  {
+   "time": "12:00",
+   "what": "Mleko"
+  },
+  {
+   "time": "13:30",
+   "what": "Mięso + warzywa"
+  },
+  {
+   "time": "16:00",
+   "what": "Mleko"
+  },
+  {
+   "time": "18:30",
+   "what": "Jajko / jogurt + zboża"
+  },
+  {
+   "time": "Przed snem",
+   "what": "Mleko"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 mies.",
+  "1–2 lata",
+  "2–4 lata"
+ ],
+ "nutrients": [
+  {
+   "name": "Żelazo",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Wołowina/jagnięcina, udko kurczaka, żółtko, soczewica, ciecierzyca, kaszka wzbogacona w żelazo, szpinak",
+   "rule": "W każdym posiłku jedno źródło żelaza, do tego witamina C"
+  },
+  {
+   "name": "Witamina D",
+   "need": [
+    "400 j.m.",
+    "600 j.m.",
+    "600 j.m."
+   ],
+   "sources": "Krople, tłuste ryby, żółtko",
+   "rule": "Krople codziennie"
+  },
+  {
+   "name": "Cynk",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Mięso, jajka, jogurt, rośliny strączkowe, owies",
+   "rule": "Na jednym talerzu z produktami bogatymi w żelazo"
+  },
+  {
+   "name": "Wapń",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Jogurt, ser, mleko (od 1. roku), tahini",
+   "rule": "2–3 porcje nabiału dziennie"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Łosoś, makrela, sardynki, orzechy włoskie, konopie",
+   "rule": "2 posiłki rybne w tygodniu"
+  },
+  {
+   "name": "Witamina A",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Marchew, dynia, batat, morela",
+   "rule": "Jedno pomarańczowe warzywo dziennie"
+  },
+  {
+   "name": "Witamina C",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Papryka, brokuł, truskawki, kiwi, pomarańcza",
+   "rule": "Razem z posiłkiem bogatym w żelazo"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Białko",
+   "hint": "mięso, ryba, jajko, strączki"
+  },
+  {
+   "label": "Zboża",
+   "hint": "kasza, ryż, pieczywo"
+  },
+  {
+   "label": "Warzywa i owoce",
+   "hint": "kolorowo"
+  }
+ ],
+ "ironHelps": [
+  "Witamina C (papryka, brokuł, truskawki)",
+  "Mięso + warzywa razem"
+ ],
+ "ironBlocks": [
+  "Herbata do posiłku",
+  "Mleko krowie jako główny napój przed 1. rokiem",
+  "Bardzo dużo otrębów"
+ ],
+ "allergens": [
+  "Jajko",
+  "Orzeszki ziemne",
+  "Orzechy",
+  "Mleko krowie",
+  "Soja",
+  "Pszenica",
+  "Sezam",
+  "Ryby",
+  "Skorupiaki"
+ ],
+ "allergenSteps": [
+  "Tylko jeden nowy alergen naraz; obserwuj reakcję przez 2–3 dni",
+  "Podawaj rano lub w południe, by łatwiej było obserwować",
+  "Jajko dobrze ugotowane; orzeszki ziemne jako masło, nigdy w całości",
+  "Jeśli dobrze tolerowany, podawaj 2–3 razy w tygodniu"
+ ],
+ "avoid": [
+  {
+   "food": "Miód",
+   "until": "12 mies.",
+   "why": "Ryzyko botulizmu"
+  },
+  {
+   "food": "Sól",
+   "until": "12 mies., potem bardzo mało",
+   "why": "Obciąża nerki"
+  },
+  {
+   "food": "Dodany cukier, słodycze",
+   "until": "24 mies.",
+   "why": "Nawyk słodkiego smaku, próchnica"
+  },
+  {
+   "food": "Sok owocowy",
+   "until": "12 mies.; potem ≤120 ml/dzień",
+   "why": "Zmniejsza apetyt"
+  },
+  {
+   "food": "Mleko krowie (jako napój)",
+   "until": "12 mies.",
+   "why": "Obniża poziom żelaza; w potrawach można"
+  },
+  {
+   "food": "Surowe jajka, mięso, ryby; niepasteryzowane mleko",
+   "until": "4 lata",
+   "why": "Infekcje"
+  },
+  {
+   "food": "Ryby z rtęcią (miecznik, rekin, duży tuńczyk)",
+   "until": "4 lata",
+   "why": "Rtęć"
+  },
+  {
+   "food": "Herbata, kawa, cola",
+   "until": "4 lata",
+   "why": "Kofeina, wiąże żelazo"
+  },
+  {
+   "food": "Kiełbasa, parówki, wędzone mięso",
+   "until": "Jak najmniej",
+   "why": "Sól, azotany"
+  },
+  {
+   "food": "Napój ryżowy",
+   "until": "4–5 lat",
+   "why": "Arsen"
+  }
+ ],
+ "choking": [
+  "Nie podawaj całych orzechów i nasion — zmielone lub jako masło",
+  "Winogrona, wiśnie, pomidorki koktajlowe — wzdłuż na 4 części",
+  "Surowa marchew, jabłko — zetrzyj lub ugotuj",
+  "Parówka — w podłużne paski; popcorn, twarde cukierki, guma do żucia — nie",
+  "Zawsze na siedząco i pod nadzorem"
+ ],
+ "myths": [
+  {
+   "myth": "Białko jaja dopiero po 1. roku",
+   "fact": "Całe jajko można podawać od 6. miesiąca; odkładanie może zwiększać ryzyko alergii."
+  },
+  {
+   "myth": "Ryby, cytrusy, truskawki są zakazane do 1. roku",
+   "fact": "Wszystkie można podawać od 6. miesiąca."
+  },
+  {
+   "myth": "Jeśli najpierw dasz owoce, dziecko nie polubi warzyw",
+   "fact": "Brak mocnych dowodów; najważniejsze są produkty bogate w żelazo i różnorodność."
+  },
+  {
+   "myth": "Przecier owocowy od 4. miesiąca",
+   "fact": "WHO zaleca rozpoczęcie rozszerzania diety w 6. miesiącu."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Mięso",
+  "fish": "Ryby",
+  "egg": "Jajka",
+  "dairy": "Nabiał",
+  "legumes": "Strączki",
+  "grains": "Zboża",
+  "vegetables": "Warzywa",
+  "fruit": "Owoce",
+  "fats_seeds": "Tłuszcze, nasiona"
+ },
+ "foods": [
+  {
+   "name": "Wołowina",
+   "value": "Żelazo, cynk, B12",
+   "form": "Purée lub długie miękkie paski"
+  },
+  {
+   "name": "Jagnięcina",
+   "value": "Żelazo, cynk",
+   "form": "Purée, mielone"
+  },
+  {
+   "name": "Udko kurczaka",
+   "value": "Białko, żelazo",
+   "form": "Rozdrobnione, purée"
+  },
+  {
+   "name": "Indyk",
+   "value": "Białko, cynk",
+   "form": "Purée, klopsiki"
+  },
+  {
+   "name": "Wątróbka",
+   "value": "Żelazo, witamina A",
+   "form": "Raz w tygodniu, 1–2 łyżeczki"
+  },
+  {
+   "name": "Łosoś",
+   "value": "Omega-3, witamina D",
+   "form": "Bez ości, rozgnieciony"
+  },
+  {
+   "name": "Makrela, sardynki",
+   "value": "Omega-3",
+   "form": "Bez ości, rozgniecione"
+  },
+  {
+   "name": "Dorsz, flądra",
+   "value": "Białko, jod",
+   "form": "Rozdzielone na płatki"
+  },
+  {
+   "name": "Jajko kurze",
+   "value": "Białko, cholina, D",
+   "form": "Na twardo, rozgniecione; paski omletu"
+  },
+  {
+   "name": "Jogurt (bez cukru)",
+   "value": "Wapń, probiotyki",
+   "form": "Łyżeczką"
+  },
+  {
+   "name": "Twaróg, biały ser",
+   "value": "Wapń, białko",
+   "form": "Rozgnieciony; ser namocz, by usunąć sól"
+  },
+  {
+   "name": "Masło",
+   "value": "Energia",
+   "form": "Odrobina do potraw"
+  },
+  {
+   "name": "Mleko krowie",
+   "value": "Wapń",
+   "form": "Do picia od 12 mies.; w potrawach od 6 mies."
+  },
+  {
+   "name": "Czerwona soczewica",
+   "value": "Żelazo, białko",
+   "form": "Zupa, purée"
+  },
+  {
+   "name": "Ciecierzyca",
+   "value": "Żelazo, błonnik",
+   "form": "Hummus (bez soli)"
+  },
+  {
+   "name": "Fasola, fasola mung",
+   "value": "Żelazo, foliany",
+   "form": "Rozgniecione"
+  },
+  {
+   "name": "Owies",
+   "value": "Błonnik, żelazo",
+   "form": "Owsianka"
+  },
+  {
+   "name": "Ryż",
+   "value": "Energia",
+   "form": "Kleik (2–3 razy w tygodniu)"
+  },
+  {
+   "name": "Kasza gryczana",
+   "value": "Żelazo, magnez",
+   "form": "Kaszka"
+  },
+  {
+   "name": "Bulgur, kasza manna, makaron, pieczywo",
+   "value": "Energia, B",
+   "form": "Kaszka, miękki makaron"
+  },
+  {
+   "name": "Kasza jaglana, komosa ryżowa",
+   "value": "Żelazo, białko",
+   "form": "Kaszka"
+  },
+  {
+   "name": "Dynia, marchew, batat",
+   "value": "Witamina A",
+   "form": "Purée, słupki z parowaru"
+  },
+  {
+   "name": "Cukinia, brokuł, kalafior",
+   "value": "Witamina C, K",
+   "form": "Na parze; brokuł jako „drzewka”"
+  },
+  {
+   "name": "Ziemniaki",
+   "value": "Energia",
+   "form": "Purée"
+  },
+  {
+   "name": "Szpinak, burak",
+   "value": "Foliany, żelazo",
+   "form": "Wymieszane z innymi warzywami"
+  },
+  {
+   "name": "Bakłażan, papryka, pomidor",
+   "value": "Witamina C",
+   "form": "Gotowane, bez skórki"
+  },
+  {
+   "name": "Zielony groszek, fasolka szparagowa",
+   "value": "Żelazo, błonnik",
+   "form": "Rozgniecione"
+  },
+  {
+   "name": "Jabłko, gruszka",
+   "value": "Błonnik",
+   "form": "Pieczone purée, starte"
+  },
+  {
+   "name": "Banan, awokado",
+   "value": "Energia, zdrowy tłuszcz",
+   "form": "Długie paski, rozgniecione"
+  },
+  {
+   "name": "Brzoskwinia, morela, śliwka",
+   "value": "Witamina A, C, błonnik",
+   "form": "Bez skórki, miękkie"
+  },
+  {
+   "name": "Truskawki, kiwi, pomarańcza",
+   "value": "Witamina C",
+   "form": "Rozgniecione, w plasterkach"
+  },
+  {
+   "name": "Winogrona, wiśnie, borówki",
+   "value": "Antyoksydanty",
+   "form": "Wzdłuż na 4 części; borówki rozgnieć"
+  },
+  {
+   "name": "Suszone morele, rodzynki, daktyle",
+   "value": "Żelazo, błonnik",
+   "form": "Namoczone, purée"
+  },
+  {
+   "name": "Oliwa z oliwek",
+   "value": "Zdrowy tłuszcz",
+   "form": "1 łyżeczka do potrawy"
+  },
+  {
+   "name": "Masło orzechowe (z orzeszków ziemnych)",
+   "value": "Białko",
+   "form": "Cienko, wmieszane w purée"
+  },
+  {
+   "name": "Pasta z migdałów, orzechów włoskich, laskowych",
+   "value": "Witamina E, omega-3",
+   "form": "Zmielone lub jako pasta"
+  },
+  {
+   "name": "Tahini (sezam)",
+   "value": "Wapń, żelazo",
+   "form": "Wmieszane w kaszkę"
+  },
+  {
+   "name": "Nasiona konopi, chia",
+   "value": "Omega-3",
+   "form": "Zmielone"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Purée z wołowiny i dyni",
+   "Purée z kurczaka, marchwi i ziemniaków",
+   "Zupa z czerwonej soczewicy",
+   "Owsianka + mus jabłkowy",
+   "Kaszka gryczana",
+   "Purée z banana z jogurtem",
+   "Rozgniecione awokado z bananem",
+   "Rozgniecione jajko na twardo",
+   "„Drzewka” brokułu z parowaru",
+   "Purée z łososia i batata",
+   "Hummus z ciecierzycy (z tahini)",
+   "Purée z pieczonej gruszki z cynamonem"
+  ],
+  "9-11": [
+   "Mini klopsiki wołowe",
+   "Paski omletu z warzywami",
+   "Klopsiki rybne",
+   "Owsiane placuszki z jogurtem",
+   "Kleik ryżowy z kurczakiem i cukinią",
+   "Gulasz warzywny z jagnięciną",
+   "Kotleciki z soczewicy",
+   "Makaron + sos pomidorowy z mięsem mielonym",
+   "Kasza gryczana + sos z wątróbki",
+   "Syrniki z twarogu (z piekarnika)",
+   "Muffinki brokułowo-serowe",
+   "Batoniki jabłkowo-owsiane"
+  ],
+  "12-24": [
+   "Dolma w liściach winogron (małe)",
+   "Gołąbki (dolma w liściach kapusty)",
+   "Pilaw dla dzieci",
+   "Rosół z makaronem",
+   "Düşbərə (mini pierożki w bulionie)",
+   "Kuku z ziół (z piekarnika)",
+   "Zupa z soczewicy",
+   "Kotlet rybny + purée ziemniaczane",
+   "Kasza gryczana + gulasz wołowy",
+   "Menemen (łagodny)",
+   "Lasagne dla dzieci",
+   "Parfait z jogurtu, owoców i płatków owsianych",
+   "Zapiekanka z twarogu",
+   "Chingal w bulionie"
+  ],
+  "24-48": [
+   "Pulpeciki z kurczaka z warzywami + bulgur",
+   "Łosoś pieczony z warzywami",
+   "Duszona fasola",
+   "Domowa pizza (pełnoziarnista)",
+   "Kutab (z ziołami / z mięsem)",
+   "Barszcz",
+   "Sałatka z komosy ryżowej + ciecierzyca",
+   "Tostowe „paluszki” w jajku",
+   "Smoothie bowl",
+   "Domowe nuggetsy (z piekarnika)"
+  ]
+ },
+ "emergency": "Obrzęk twarzy lub ust, trudności w oddychaniu, powtarzające się wymioty, bladość — natychmiast 103 / 112.",
+ "disclaimer": "Ten przewodnik ma charakter edukacyjny i nie stanowi porady medycznej. Dawkę żelaza i witamin ustala pediatra. Źródła: WHO (2023), AAP, Ministerstwo Zdrowia Turcji, Związek Pediatrów Rosji, SACN."
+}

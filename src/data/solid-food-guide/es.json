@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Guía de alimentación complementaria",
+  "tab_stage": "Etapa",
+  "tab_balance": "Equilibrio",
+  "tab_rules": "Reglas",
+  "tab_foods": "Alimentos",
+  "tab_recipes": "Recetas",
+  "age_aria": "Edad",
+  "months_short": "{n} meses",
+  "years_short": "{n} años",
+  "months_plus": "{n} meses+",
+  "years_plus": "{n} años+",
+  "fact_milk": "Leche",
+  "fact_meals": "Comidas",
+  "fact_portion": "Porción",
+  "fact_texture": "Textura",
+  "portion_note": "Las porciones son orientativas: el bebé decide cuánto come.",
+  "readiness_title": "Señales de que está listo",
+  "readiness_all": "Las tiene todas: listo para empezar a los 6 meses.",
+  "readiness_hint": "La OMS recomienda empezar la alimentación complementaria a los 6 meses (180 días). Si tienes dudas, consulta al pediatra.",
+  "sample_day_title": "Día de ejemplo (8 meses)",
+  "dishes_title": "Ideas de comidas para esta edad",
+  "see_recipes": "Ver recetas",
+  "plate_title": "Plato equilibrado (desde 1 año)",
+  "plate_note": "Acompaña con un lácteo y un poco de grasa saludable (aceite de oliva, mantequilla, aguacate).",
+  "needs_title": "Necesidades diarias",
+  "needs_note": "Entre los 6 y 11 meses, la necesidad de hierro por kilo de peso es la más alta de toda la vida: incluye una fuente de hierro en cada comida.",
+  "sources_title": "Dónde se encuentra",
+  "iron_helps_title": "Aumenta el hierro",
+  "iron_blocks_title": "Reduce el hierro",
+  "allergens_title": "Alérgenos: no los retrases",
+  "allergens_intro": "Huevo y cacahuete desde los 6 meses, de uno en uno. Si hay eccema grave o alergia al huevo, consulta antes con el médico.",
+  "avoid_title": "No ofrecer",
+  "choking_title": "Prevenir el atragantamiento (hasta los 4 años)",
+  "choking_note": "Las arcadas son normales; el atragantamiento es silencioso y el niño no puede toser: es una emergencia.",
+  "myths_title": "Mitos superados",
+  "all": "Todos",
+  "recipes_intro": "Opciones adecuadas a la edad de tu bebé de la sección Recetas de Anacan. Las primeras recetas son gratis; el resto, en Premium.",
+  "recipes_loading": "Cargando recetas…",
+  "all_recipes": "Todas las recetas para bebés",
+  "all_recipes_sub": "{n} recetas · se abre en la sección Recetas",
+  "tag_iron": "★ Hierro",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Alérgeno",
+  "home_title": "Guía de alimentación complementaria",
+  "home_sub_before": "Empezamos a los 6 meses: señales y primeros alimentos",
+  "home_sub_after": "Porciones por edad, equilibrio de hierro y recetas",
+  "tool_desc": "Porciones, equilibrio de hierro, alérgenos y recetas"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 meses",
+   "milk": "Leche materna / fórmula a demanda",
+   "meals": "Sin alimentación complementaria",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Gotas de vitamina D a diario; observa las señales de que está listo"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 meses",
+   "milk": "Alimento principal, 5–6 veces al día",
+   "meals": "2–3 comidas",
+   "portion": "De 2–3 cucharadas a ½ taza (~125 ml)",
+   "texture": "Puré fino → puré espeso, alimentos blandos para comer con la mano",
+   "goal": "Hierro, nuevos sabores, introducción de alérgenos"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 meses",
+   "milk": "3–4 veces al día",
+   "meals": "3 comidas + 1–2 tentempiés",
+   "portion": "½ taza (~125 ml)",
+   "texture": "Machacado, picado fino, alimentos para comer con la mano",
+   "goal": "Masticar, pinza fina, vaso abierto"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 años",
+   "milk": "Leche materna o leche de vaca 350–500 ml/día",
+   "meals": "3 comidas + 2 tentempiés",
+   "portion": "¾–1 taza (~200–250 ml)",
+   "texture": "Comida familiar (sin sal, en trocitos)",
+   "goal": "Transición a la comida familiar"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 años",
+   "milk": "Leche / yogur, 2 porciones al día",
+   "meals": "3 comidas + 2 tentempiés",
+   "portion": "1 taza; carne/pescado ~30–50 g",
+   "texture": "Comida familiar",
+   "goal": "Variedad, manejar la selectividad con la comida"
+  }
+ ],
+ "readiness": [
+  "Sostiene la cabeza firme",
+  "Se sienta con apoyo",
+  "Muestra interés por la comida y abre la boca",
+  "Ya no empuja la comida hacia fuera con la lengua"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Leche"
+  },
+  {
+   "time": "09:00",
+   "what": "Cereal enriquecido con hierro + fruta"
+  },
+  {
+   "time": "12:00",
+   "what": "Leche"
+  },
+  {
+   "time": "13:30",
+   "what": "Carne + verduras"
+  },
+  {
+   "time": "16:00",
+   "what": "Leche"
+  },
+  {
+   "time": "18:30",
+   "what": "Huevo / yogur + cereal"
+  },
+  {
+   "time": "Antes de dormir",
+   "what": "Leche"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 meses",
+  "1–2 años",
+  "2–4 años"
+ ],
+ "nutrients": [
+  {
+   "name": "Hierro",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Ternera/cordero, muslo de pollo, yema de huevo, lentejas, garbanzos, cereal enriquecido con hierro, espinacas",
+   "rule": "Una fuente de hierro en cada comida, con vitamina C"
+  },
+  {
+   "name": "Vitamina D",
+   "need": [
+    "400 UI",
+    "600 UI",
+    "600 UI"
+   ],
+   "sources": "Gotas, pescado azul, yema de huevo",
+   "rule": "Gotas a diario"
+  },
+  {
+   "name": "Zinc",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Carne, huevo, yogur, legumbres, avena",
+   "rule": "En el mismo plato que los alimentos ricos en hierro"
+  },
+  {
+   "name": "Calcio",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Yogur, queso, leche (desde 1 año), tahini",
+   "rule": "2–3 porciones de lácteos al día"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Salmón, caballa, sardina, nueces, cáñamo",
+   "rule": "2 comidas de pescado a la semana"
+  },
+  {
+   "name": "Vitamina A",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Zanahoria, calabaza, boniato, albaricoque",
+   "rule": "Una verdura naranja al día"
+  },
+  {
+   "name": "Vitamina C",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Pimiento, brócoli, fresa, kiwi, naranja",
+   "rule": "Junto a la comida rica en hierro"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Proteína",
+   "hint": "carne, pescado, huevo, legumbres"
+  },
+  {
+   "label": "Cereales",
+   "hint": "papilla, arroz, pan"
+  },
+  {
+   "label": "Verduras y frutas",
+   "hint": "de colores"
+  }
+ ],
+ "ironHelps": [
+  "Vitamina C (pimiento, brócoli, fresa)",
+  "Carne + verduras juntas"
+ ],
+ "ironBlocks": [
+  "Té con las comidas",
+  "Leche de vaca como bebida principal antes de 1 año",
+  "Alimentos con mucho salvado"
+ ],
+ "allergens": [
+  "Huevo",
+  "Cacahuete",
+  "Frutos secos de árbol",
+  "Leche de vaca",
+  "Soja",
+  "Trigo",
+  "Sésamo",
+  "Pescado",
+  "Crustáceos"
+ ],
+ "allergenSteps": [
+  "Solo un alérgeno nuevo cada vez; observa reacciones durante 2–3 días",
+  "Ofrécelo por la mañana o a mediodía para poder vigilarlo",
+  "Huevo bien cocido; cacahuete en crema, nunca entero",
+  "Si lo tolera, repítelo 2–3 veces por semana"
+ ],
+ "avoid": [
+  {
+   "food": "Miel",
+   "until": "12 meses",
+   "why": "Riesgo de botulismo"
+  },
+  {
+   "food": "Sal",
+   "until": "12 meses, después muy poca",
+   "why": "Sobrecarga los riñones"
+  },
+  {
+   "food": "Azúcar añadido, dulces",
+   "until": "24 meses",
+   "why": "Hábito del sabor dulce, caries"
+  },
+  {
+   "food": "Zumo de fruta",
+   "until": "12 meses; después ≤120 ml/día",
+   "why": "Quita el apetito"
+  },
+  {
+   "food": "Leche de vaca (como bebida)",
+   "until": "12 meses",
+   "why": "Baja el hierro; en las comidas sí"
+  },
+  {
+   "food": "Huevo, carne o pescado crudos; leche sin pasteurizar",
+   "until": "4 años",
+   "why": "Infecciones"
+  },
+  {
+   "food": "Pescado con mercurio (pez espada, tiburón, atún grande)",
+   "until": "4 años",
+   "why": "Mercurio"
+  },
+  {
+   "food": "Té, café, cola",
+   "until": "4 años",
+   "why": "Cafeína, bloquea el hierro"
+  },
+  {
+   "food": "Embutidos, salchichas, carne ahumada",
+   "until": "Lo menos posible",
+   "why": "Sal, nitritos"
+  },
+  {
+   "food": "Bebida de arroz",
+   "until": "4–5 años",
+   "why": "Arsénico"
+  }
+ ],
+ "choking": [
+  "Nada de frutos secos ni semillas enteros: molidos o en crema",
+  "Uvas, cerezas, tomates cherry: en 4 a lo largo",
+  "Zanahoria y manzana crudas: ralladas o cocidas",
+  "Salchicha: en tiras a lo largo; palomitas, caramelos duros y chicle, no",
+  "Siempre sentado y bajo supervisión mientras come"
+ ],
+ "myths": [
+  {
+   "myth": "La clara de huevo, después de 1 año",
+   "fact": "El huevo entero se da desde los 6 meses; retrasarlo puede aumentar el riesgo de alergia."
+  },
+  {
+   "myth": "Pescado, cítricos y fresas están prohibidos antes de 1 año",
+   "fact": "Todos se pueden dar desde los 6 meses."
+  },
+  {
+   "myth": "Si empiezas por la fruta, no le gustarán las verduras",
+   "fact": "No hay pruebas sólidas; lo esencial son los alimentos ricos en hierro y la variedad."
+  },
+  {
+   "myth": "Puré de fruta desde los 4 meses",
+   "fact": "La OMS recomienda empezar la alimentación complementaria a los 6 meses."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Carne",
+  "fish": "Pescado",
+  "egg": "Huevo",
+  "dairy": "Lácteos",
+  "legumes": "Legumbres",
+  "grains": "Cereales",
+  "vegetables": "Verduras",
+  "fruit": "Fruta",
+  "fats_seeds": "Grasas, semillas"
+ },
+ "foods": [
+  {
+   "name": "Ternera",
+   "value": "Hierro, zinc, B12",
+   "form": "En puré o en tiras largas y tiernas"
+  },
+  {
+   "name": "Cordero",
+   "value": "Hierro, zinc",
+   "form": "Puré, picado"
+  },
+  {
+   "name": "Muslo de pollo",
+   "value": "Proteína, hierro",
+   "form": "Desmenuzado, puré"
+  },
+  {
+   "name": "Pavo",
+   "value": "Proteína, zinc",
+   "form": "Puré, albóndigas"
+  },
+  {
+   "name": "Hígado",
+   "value": "Hierro, vitamina A",
+   "form": "1 vez por semana, 1–2 cucharaditas"
+  },
+  {
+   "name": "Salmón",
+   "value": "Omega-3, vitamina D",
+   "form": "Sin espinas, desmenuzado"
+  },
+  {
+   "name": "Caballa, sardina",
+   "value": "Omega-3",
+   "form": "Sin espinas, desmenuzado"
+  },
+  {
+   "name": "Bacalao, platija",
+   "value": "Proteína, yodo",
+   "form": "En lascas"
+  },
+  {
+   "name": "Huevo de gallina",
+   "value": "Proteína, colina, D",
+   "form": "Duro, machacado; tiras de tortilla"
+  },
+  {
+   "name": "Yogur (sin azúcar)",
+   "value": "Calcio, probióticos",
+   "form": "Con cuchara"
+  },
+  {
+   "name": "Requesón, queso fresco",
+   "value": "Calcio, proteína",
+   "form": "Machacado; deja el queso en remojo para quitarle la sal"
+  },
+  {
+   "name": "Mantequilla",
+   "value": "Energía",
+   "form": "Un poco en la comida"
+  },
+  {
+   "name": "Leche de vaca",
+   "value": "Calcio",
+   "form": "Como bebida desde los 12 meses; en comidas desde los 6"
+  },
+  {
+   "name": "Lentejas rojas",
+   "value": "Hierro, proteína",
+   "form": "Sopa, puré"
+  },
+  {
+   "name": "Garbanzos",
+   "value": "Hierro, fibra",
+   "form": "Hummus (sin sal)"
+  },
+  {
+   "name": "Alubias, judías mungo",
+   "value": "Hierro, folato",
+   "form": "Machacadas"
+  },
+  {
+   "name": "Avena",
+   "value": "Fibra, hierro",
+   "form": "Papilla"
+  },
+  {
+   "name": "Arroz",
+   "value": "Energía",
+   "form": "Papilla (2–3 veces por semana)"
+  },
+  {
+   "name": "Trigo sarraceno",
+   "value": "Hierro, magnesio",
+   "form": "Papilla"
+  },
+  {
+   "name": "Bulgur, sémola, pasta, pan",
+   "value": "Energía, B",
+   "form": "Papilla, pasta blanda"
+  },
+  {
+   "name": "Mijo, quinoa",
+   "value": "Hierro, proteína",
+   "form": "Papilla"
+  },
+  {
+   "name": "Calabaza, zanahoria, boniato",
+   "value": "Vitamina A",
+   "form": "Puré, bastones al vapor"
+  },
+  {
+   "name": "Calabacín, brócoli, coliflor",
+   "value": "Vitaminas C, K",
+   "form": "Al vapor; brócoli en «arbolitos»"
+  },
+  {
+   "name": "Patata",
+   "value": "Energía",
+   "form": "Puré"
+  },
+  {
+   "name": "Espinacas, remolacha",
+   "value": "Folato, hierro",
+   "form": "Mezcladas con otras verduras"
+  },
+  {
+   "name": "Berenjena, pimiento, tomate",
+   "value": "Vitamina C",
+   "form": "Cocinados, sin piel"
+  },
+  {
+   "name": "Guisantes, judías verdes",
+   "value": "Hierro, fibra",
+   "form": "Machacados"
+  },
+  {
+   "name": "Manzana, pera",
+   "value": "Fibra",
+   "form": "Puré cocido, rallada"
+  },
+  {
+   "name": "Plátano, aguacate",
+   "value": "Energía, grasa saludable",
+   "form": "Tiras largas, machacado"
+  },
+  {
+   "name": "Melocotón, albaricoque, ciruela",
+   "value": "Vitaminas A, C, fibra",
+   "form": "Sin piel, blandos"
+  },
+  {
+   "name": "Fresa, kiwi, naranja",
+   "value": "Vitamina C",
+   "form": "Machacados, en rodajas"
+  },
+  {
+   "name": "Uvas, cerezas, arándanos",
+   "value": "Antioxidantes",
+   "form": "En 4 a lo largo; aplasta los arándanos"
+  },
+  {
+   "name": "Orejones, pasas, dátiles",
+   "value": "Hierro, fibra",
+   "form": "Remojados, en puré"
+  },
+  {
+   "name": "Aceite de oliva",
+   "value": "Grasa saludable",
+   "form": "1 cucharadita en la comida"
+  },
+  {
+   "name": "Crema de cacahuete",
+   "value": "Proteína",
+   "form": "Fina, mezclada con un puré"
+  },
+  {
+   "name": "Crema de almendra, nuez o avellana",
+   "value": "Vitamina E, omega-3",
+   "form": "En polvo o en crema"
+  },
+  {
+   "name": "Tahini (sésamo)",
+   "value": "Calcio, hierro",
+   "form": "Mezclado con la papilla"
+  },
+  {
+   "name": "Semillas de cáñamo, chía",
+   "value": "Omega-3",
+   "form": "Molidas"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Puré de ternera + calabaza",
+   "Puré de pollo + zanahoria + patata",
+   "Sopa de lentejas rojas",
+   "Papilla de avena + puré de manzana",
+   "Papilla de trigo sarraceno",
+   "Puré de plátano con yogur",
+   "Machacado de aguacate + plátano",
+   "Huevo duro machacado",
+   "«Arbolitos» de brócoli al vapor",
+   "Puré de salmón + boniato",
+   "Hummus de garbanzos (con tahini)",
+   "Puré de pera cocida + canela"
+  ],
+  "9-11": [
+   "Mini albóndigas de ternera",
+   "Tiras de tortilla con verduras",
+   "Albóndigas de pescado",
+   "Tortitas de avena y yogur",
+   "Arroz con pollo + calabacín",
+   "Guiso de cordero con verduras",
+   "Croquetas de lentejas",
+   "Pasta + salsa de tomate con carne picada",
+   "Trigo sarraceno + salsa de hígado",
+   "Syrniki de requesón (al horno)",
+   "Muffins de brócoli y queso",
+   "Barritas de manzana y avena"
+  ],
+  "12-24": [
+   "Dolma de hojas de parra (pequeños)",
+   "Rollitos de col rellenos",
+   "Pilaf infantil",
+   "Sopa de pollo con fideos",
+   "Düşbərə (sopa de minicaravioles)",
+   "Kuku de hierbas (al horno)",
+   "Sopa de lentejas",
+   "Croquetas de pescado + puré de patata",
+   "Trigo sarraceno + gulash de ternera",
+   "Menemen (sin picante)",
+   "Lasaña infantil",
+   "Parfait de yogur + fruta + avena",
+   "Pastel de requesón al horno",
+   "Xəngəl en caldo (pasta azerbaiyana)"
+  ],
+  "24-48": [
+   "Albóndigas de pollo con verduras + bulgur",
+   "Salmón al horno + verduras",
+   "Guiso de alubias",
+   "Pizza casera (integral)",
+   "Qutab (de hierbas / de carne)",
+   "Borsch",
+   "Ensalada de quinoa + garbanzos",
+   "«Soldaditos» de tostada con huevo",
+   "Bol de smoothie",
+   "Nuggets caseros (al horno)"
+  ]
+ },
+ "emergency": "Hinchazón de cara o labios, dificultad para respirar, vómitos repetidos, palidez: llama de inmediato al 103 / 112.",
+ "disclaimer": "Esta guía es informativa y no sustituye el consejo médico. Las dosis de hierro y vitaminas las indica tu pediatra. Fuentes: OMS (2023), AAP, Ministerio de Salud de Turquía, Unión de Pediatras de Rusia, SACN."
+}

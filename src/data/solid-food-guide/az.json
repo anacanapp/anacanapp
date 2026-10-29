@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Əlavə Qida Bələdçisi",
+  "tab_stage": "Mərhələ",
+  "tab_balance": "Balans",
+  "tab_rules": "Qaydalar",
+  "tab_foods": "Ərzaqlar",
+  "tab_recipes": "Reseptlər",
+  "age_aria": "Yaş",
+  "months_short": "{n} ay",
+  "years_short": "{n} yaş",
+  "months_plus": "{n} ay+",
+  "years_plus": "{n} yaş+",
+  "fact_milk": "Süd",
+  "fact_meals": "Öğün",
+  "fact_portion": "Porsiya",
+  "fact_texture": "Tekstura",
+  "portion_note": "Porsiyalar orientirdir — nə qədər yeyəcəyinə körpə özü qərar verir.",
+  "readiness_title": "Hazırlıq əlamətləri",
+  "readiness_all": "Hamısı var — 6 ayda başlamağa hazırdır.",
+  "readiness_hint": "ÜST əlavə qidaya 6 ayda (180 gün) başlamağı tövsiyə edir. Tərəddüd varsa, pediatrla danışın.",
+  "sample_day_title": "Nümunə gün (8 ay)",
+  "dishes_title": "Bu yaş üçün yemək ideyaları",
+  "see_recipes": "Reseptlərə bax",
+  "plate_title": "Balanslı boşqab (1 yaşdan)",
+  "plate_note": "Yanında süd məhsulu və bir az sağlam yağ (zeytun yağı, kərə yağı, avokado).",
+  "needs_title": "Gündəlik ehtiyac",
+  "needs_note": "6–11 ayda dəmir ehtiyacı bədən çəkisinə görə ömür boyu ən yüksəkdir — hər öğündə bir dəmir mənbəyi olsun.",
+  "sources_title": "Harada tapılır",
+  "iron_helps_title": "Dəmiri artırır",
+  "iron_blocks_title": "Dəmiri azaldır",
+  "allergens_title": "Allergenlər: gecikdirməyin",
+  "allergens_intro": "Yumurta və yer fındığı 6 aydan, bir-bir verilir. Ağır ekzema və ya yumurta allergiyası varsa, əvvəl həkimlə danışın.",
+  "avoid_title": "Verməyin",
+  "choking_title": "Boğulmanın qarşısını alın (4 yaşa qədər)",
+  "choking_note": "Öğürmə normaldır; boğulma səssizdir və öskürə bilmir — bu təcili haldır.",
+  "myths_title": "Köhnəlmiş miflər",
+  "all": "Hamısı",
+  "recipes_intro": "Anacan Reseptlər bölməsindən körpənizin yaşına uyğun seçimlər. İlk reseptlər pulsuzdur, qalanları Premium-dadır.",
+  "recipes_loading": "Reseptlər yüklənir…",
+  "all_recipes": "Bütün körpə reseptləri",
+  "all_recipes_sub": "{n} resept · Reseptlər bölməsində açılır",
+  "tag_iron": "★ Dəmir",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Allergen",
+  "home_title": "Əlavə Qida Bələdçisi",
+  "home_sub_before": "6 ayda başlayırıq — hazırlıq və ilk qidalar",
+  "home_sub_after": "Yaşa uyğun porsiya, dəmir balansı və reseptlər",
+  "tool_desc": "Porsiya, dəmir balansı, allergenlər və reseptlər"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 ay",
+   "milk": "Tələbə görə ana südü / formula",
+   "meals": "Əlavə qida yoxdur",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Hər gün D vitamini damlası; hazırlıq əlamətlərini izləyin"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 ay",
+   "milk": "Əsas qida, gündə 5–6 dəfə",
+   "meals": "2–3 öğün",
+   "portion": "2–3 xörək qaşığından ½ stəkana (~125 ml)",
+   "texture": "Hamar püre → qalın püre, yumşaq barmaq qidası",
+   "goal": "Dəmir, yeni dadlar, allergenlərlə tanışlıq"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 ay",
+   "milk": "Gündə 3–4 dəfə",
+   "meals": "3 öğün + 1–2 ara öğün",
+   "portion": "½ stəkan (~125 ml)",
+   "texture": "Əzilmiş, xırda doğranmış, barmaq qidası",
+   "goal": "Çeynəmə, qısqac tutuş, açıq stəkan"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 yaş",
+   "milk": "Ana südü və ya inək südü 350–500 ml/gün",
+   "meals": "3 öğün + 2 ara öğün",
+   "portion": "¾–1 stəkan (~200–250 ml)",
+   "texture": "Ailə süfrəsi (duzsuz, xırda)",
+   "goal": "Ailə yeməyinə keçid"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 yaş",
+   "milk": "Süd / qatıq gündə 2 porsiya",
+   "meals": "3 öğün + 2 ara öğün",
+   "portion": "1 stəkan; ət/balıq ~30–50 q",
+   "texture": "Ailə yeməyi",
+   "goal": "Müxtəliflik, seçici yeməklə bacarmaq"
+  }
+ ],
+ "readiness": [
+  "Başını sabit tutur",
+  "Dəstəklə oturur",
+  "Yeməyə maraq göstərir, ağzını açır",
+  "Dili qidanı geri itələmir"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Süd"
+  },
+  {
+   "time": "09:00",
+   "what": "Dəmirli sıyıq + meyvə"
+  },
+  {
+   "time": "12:00",
+   "what": "Süd"
+  },
+  {
+   "time": "13:30",
+   "what": "Ət + tərəvəz"
+  },
+  {
+   "time": "16:00",
+   "what": "Süd"
+  },
+  {
+   "time": "18:30",
+   "what": "Yumurta / qatıq + taxıl"
+  },
+  {
+   "time": "Yuxudan əvvəl",
+   "what": "Süd"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 ay",
+  "1–2 yaş",
+  "2–4 yaş"
+ ],
+ "nutrients": [
+  {
+   "name": "Dəmir",
+   "need": [
+    "11 mq",
+    "7 mq",
+    "7–10 mq"
+   ],
+   "sources": "Mal/quzu əti, toyuq budu, yumurta sarısı, mərci, noxud, dəmirli sıyıq, ispanaq",
+   "rule": "Hər öğündə bir dəmir mənbəyi, yanında C vitamini"
+  },
+  {
+   "name": "D vitamini",
+   "need": [
+    "400 BV",
+    "600 BV",
+    "600 BV"
+   ],
+   "sources": "Damla, yağlı balıq, yumurta sarısı",
+   "rule": "Hər gün damla"
+  },
+  {
+   "name": "Sink",
+   "need": [
+    "3 mq",
+    "3 mq",
+    "3–5 mq"
+   ],
+   "sources": "Ət, yumurta, qatıq, paxlalılar, yulaf",
+   "rule": "Dəmirli qidalarla eyni boşqabda"
+  },
+  {
+   "name": "Kalsium",
+   "need": [
+    "260 mq",
+    "700 mq",
+    "700–1000 mq"
+   ],
+   "sources": "Qatıq, pendir, süd (1 yaşdan), tahin",
+   "rule": "Gündə 2–3 süd məhsulu porsiyası"
+  },
+  {
+   "name": "Omeqa-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Qızılbalıq, skumbriya, sardina, qoz, çətənə",
+   "rule": "Həftədə 2 balıq öğünü"
+  },
+  {
+   "name": "A vitamini",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Yerkökü, balqabaq, şirin kartof, ərik",
+   "rule": "Gündə bir narıncı tərəvəz"
+  },
+  {
+   "name": "C vitamini",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Bolqar bibəri, brokoli, çiyələk, kivi, portağal",
+   "rule": "Dəmirli yeməyin yanında"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Protein",
+   "hint": "ət, balıq, yumurta, paxlalı"
+  },
+  {
+   "label": "Taxıl",
+   "hint": "sıyıq, düyü, çörək"
+  },
+  {
+   "label": "Tərəvəz və meyvə",
+   "hint": "rəngbərəng"
+  }
+ ],
+ "ironHelps": [
+  "C vitamini (bibər, brokoli, çiyələk)",
+  "Ət + tərəvəz birlikdə"
+ ],
+ "ironBlocks": [
+  "Yeməklə çay",
+  "1 yaşdan əvvəl inək südü əsas içki kimi",
+  "Çox kəpəkli qida"
+ ],
+ "allergens": [
+  "Yumurta",
+  "Yer fındığı",
+  "Ağac qozları",
+  "İnək südü",
+  "Soya",
+  "Buğda",
+  "Küncüt",
+  "Balıq",
+  "Xərçəngkimilər"
+ ],
+ "allergenSteps": [
+  "Hər dəfə yalnız bir yeni allergen; 2–3 gün reaksiyaya baxın",
+  "Səhər və ya günorta verin ki, izləmək asan olsun",
+  "Yumurta tam bişmiş; yer fındığı pasta şəklində, heç vaxt bütöv dən",
+  "Qəbul olunubsa, həftədə 2–3 dəfə təkrar verin"
+ ],
+ "avoid": [
+  {
+   "food": "Bal",
+   "until": "12 ay",
+   "why": "Botulizm riski"
+  },
+  {
+   "food": "Duz",
+   "until": "12 ay, sonra çox az",
+   "why": "Böyrəklərə yük"
+  },
+  {
+   "food": "Əlavə şəkər, şirniyyat",
+   "until": "24 ay",
+   "why": "Dad vərdişi, diş çürüməsi"
+  },
+  {
+   "food": "Meyvə şirəsi",
+   "until": "12 ay; sonra ≤120 ml/gün",
+   "why": "İştahı azaldır"
+  },
+  {
+   "food": "İnək südü (içki kimi)",
+   "until": "12 ay",
+   "why": "Dəmiri aşağı salır; yeməkdə olar"
+  },
+  {
+   "food": "Çiy yumurta, ət, balıq; pasterizə olunmamış süd",
+   "until": "4 yaş",
+   "why": "İnfeksiya"
+  },
+  {
+   "food": "Civəli balıq (qılınc, köpək balığı, böyük tuna)",
+   "until": "4 yaş",
+   "why": "Civə"
+  },
+  {
+   "food": "Çay, qəhvə, kola",
+   "until": "4 yaş",
+   "why": "Kofein, dəmiri bağlayır"
+  },
+  {
+   "food": "Kolbasa, sosis, hisə verilmiş ət",
+   "until": "Mümkün qədər az",
+   "why": "Duz, nitrat"
+  },
+  {
+   "food": "Düyü südü",
+   "until": "4–5 yaş",
+   "why": "Arsen"
+  }
+ ],
+ "choking": [
+  "Bütöv qoz-fındıq və toxum vermə — əzilmiş və ya pasta",
+  "Üzüm, albalı, gilas tomat — uzununa 4 hissə",
+  "Çiy yerkökü, alma — sürtgəcdən keçir və ya bişir",
+  "Sosis — uzununa zolaq; popkorn, sərt konfet, saqqız — yox",
+  "Həmişə oturaraq və nəzarət altında yesin"
+ ],
+ "myths": [
+  {
+   "myth": "Yumurta ağı 1 yaşdan sonra",
+   "fact": "Tam yumurta 6 aydan verilir; gecikdirmək allergiya riskini artıra bilər."
+  },
+  {
+   "myth": "Balıq, sitrus, çiyələk 1 yaşa qədər qadağandır",
+   "fact": "Hamısı 6 aydan verilə bilər."
+  },
+  {
+   "myth": "Əvvəl meyvə versən, tərəvəzi sevməz",
+   "fact": "Güclü sübut yoxdur; əsas şərt dəmirli qida və müxtəliflikdir."
+  },
+  {
+   "myth": "4 aydan meyvə püresi",
+   "fact": "ÜST əlavə qidaya 6 ayda başlamağı tövsiyə edir."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Ət",
+  "fish": "Balıq",
+  "egg": "Yumurta",
+  "dairy": "Süd",
+  "legumes": "Paxlalı",
+  "grains": "Taxıl",
+  "vegetables": "Tərəvəz",
+  "fruit": "Meyvə",
+  "fats_seeds": "Yağ, toxum"
+ },
+ "foods": [
+  {
+   "name": "Mal əti",
+   "value": "Dəmir, sink, B12",
+   "form": "Püre və ya uzun yumşaq zolaq"
+  },
+  {
+   "name": "Quzu əti",
+   "value": "Dəmir, sink",
+   "form": "Püre, qiymə"
+  },
+  {
+   "name": "Toyuq budu",
+   "value": "Protein, dəmir",
+   "form": "Didilmiş, püre"
+  },
+  {
+   "name": "Hinduşka",
+   "value": "Protein, sink",
+   "form": "Püre, köftə"
+  },
+  {
+   "name": "Ciyər",
+   "value": "Dəmir, A vitamini",
+   "form": "Həftədə 1 dəfə, 1–2 çay qaşığı"
+  },
+  {
+   "name": "Qızılbalıq",
+   "value": "Omeqa-3, D vitamini",
+   "form": "Sümüksüz, əzilmiş"
+  },
+  {
+   "name": "Skumbriya, sardina",
+   "value": "Omeqa-3",
+   "form": "Sümüksüz, əzilmiş"
+  },
+  {
+   "name": "Treska, kambala",
+   "value": "Protein, yod",
+   "form": "Lopa-lopa"
+  },
+  {
+   "name": "Toyuq yumurtası",
+   "value": "Protein, xolin, D",
+   "form": "Bərk bişmiş, əzilmiş; omlet zolağı"
+  },
+  {
+   "name": "Qatıq (şəkərsiz)",
+   "value": "Kalsium, probiotik",
+   "form": "Qaşıqla"
+  },
+  {
+   "name": "Kəsmik, ağ pendir",
+   "value": "Kalsium, protein",
+   "form": "Əzilmiş; pendiri isladıb duzunu çıxarın"
+  },
+  {
+   "name": "Kərə yağı",
+   "value": "Enerji",
+   "form": "Yeməyə az əlavə"
+  },
+  {
+   "name": "İnək südü",
+   "value": "Kalsium",
+   "form": "İçki kimi 12 aydan; yeməkdə 6 aydan"
+  },
+  {
+   "name": "Qırmızı mərci",
+   "value": "Dəmir, protein",
+   "form": "Şorba, püre"
+  },
+  {
+   "name": "Noxud",
+   "value": "Dəmir, lif",
+   "form": "Humus (duzsuz)"
+  },
+  {
+   "name": "Lobya, maş",
+   "value": "Dəmir, folat",
+   "form": "Əzilmiş"
+  },
+  {
+   "name": "Yulaf",
+   "value": "Lif, dəmir",
+   "form": "Sıyıq"
+  },
+  {
+   "name": "Düyü",
+   "value": "Enerji",
+   "form": "Sıyıq (həftədə 2–3 dəfə)"
+  },
+  {
+   "name": "Qarabaşaq (qreçka)",
+   "value": "Dəmir, maqnezium",
+   "form": "Sıyıq"
+  },
+  {
+   "name": "Bulqur, manna, makaron, çörək",
+   "value": "Enerji, B",
+   "form": "Sıyıq, yumşaq makaron"
+  },
+  {
+   "name": "Darı, kinoa",
+   "value": "Dəmir, protein",
+   "form": "Sıyıq"
+  },
+  {
+   "name": "Balqabaq, yerkökü, şirin kartof",
+   "value": "A vitamini",
+   "form": "Püre, buxarda çubuq"
+  },
+  {
+   "name": "Kabak, brokoli, gül kələm",
+   "value": "C, K vitamini",
+   "form": "Buxarda; brokoli \"ağac\" kimi"
+  },
+  {
+   "name": "Kartof",
+   "value": "Enerji",
+   "form": "Püre"
+  },
+  {
+   "name": "İspanaq, çuğundur",
+   "value": "Folat, dəmir",
+   "form": "Başqa tərəvəzlə qarışıq"
+  },
+  {
+   "name": "Badımcan, bibər, pomidor",
+   "value": "C vitamini",
+   "form": "Bişmiş, qabıqsız"
+  },
+  {
+   "name": "Yaşıl noxud, lobya",
+   "value": "Dəmir, lif",
+   "form": "Əzilmiş"
+  },
+  {
+   "name": "Alma, armud",
+   "value": "Lif",
+   "form": "Bişmiş püre, sürtgəc"
+  },
+  {
+   "name": "Banan, avokado",
+   "value": "Enerji, sağlam yağ",
+   "form": "Uzun zolaq, əzilmiş"
+  },
+  {
+   "name": "Şaftalı, ərik, gavalı",
+   "value": "A, C vitamini, lif",
+   "form": "Qabıqsız, yumşaq"
+  },
+  {
+   "name": "Çiyələk, kivi, portağal",
+   "value": "C vitamini",
+   "form": "Əzilmiş, dilim"
+  },
+  {
+   "name": "Üzüm, albalı, qaragilə",
+   "value": "Antioksidant",
+   "form": "Uzununa 4 hissə; qaragiləni əzin"
+  },
+  {
+   "name": "Quru ərik, kişmiş, xurma",
+   "value": "Dəmir, lif",
+   "form": "İsladılmış, püre"
+  },
+  {
+   "name": "Zeytun yağı",
+   "value": "Sağlam yağ",
+   "form": "Yeməyə 1 çay qaşığı"
+  },
+  {
+   "name": "Yer fındığı pastası",
+   "value": "Protein",
+   "form": "Nazik, püreyə qarışıq"
+  },
+  {
+   "name": "Badam, qoz, fındıq pastası",
+   "value": "E vitamini, omeqa-3",
+   "form": "Toz və ya pasta"
+  },
+  {
+   "name": "Tahin (küncüt)",
+   "value": "Kalsium, dəmir",
+   "form": "Sıyığa qarışıq"
+  },
+  {
+   "name": "Çətənə, çiya toxumu",
+   "value": "Omeqa-3",
+   "form": "Üyüdülmüş"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Mal əti + balqabaq püresi",
+   "Toyuq + yerkökü + kartof püresi",
+   "Qırmızı mərci şorbası",
+   "Yulaf sıyığı + alma püresi",
+   "Qarabaşaq sıyığı",
+   "Qatıqlı banan püresi",
+   "Avokado + banan əzməsi",
+   "Bərk bişmiş yumurta əzməsi",
+   "Buxarda brokoli \"ağacları\"",
+   "Qızılbalıq + şirin kartof püresi",
+   "Noxud humusu (tahinlə)",
+   "Bişmiş armud püresi + darçın"
+  ],
+  "9-11": [
+   "Mini mal əti köftələri",
+   "Tərəvəzli omlet zolaqları",
+   "Balıq köftəsi",
+   "Qatıqlı yulaf pancake",
+   "Toyuqlu düyü sıyığı + kabak",
+   "Quzu ətli tərəvəz yaxnisi",
+   "Mərcimək köftəsi",
+   "Makaron + qiyməli tomat sousu",
+   "Qreçka + ciyər sousu",
+   "Kəsmikli syrniki (sobada)",
+   "Brokoli-pendir muffini",
+   "Alma-yulaf barları"
+  ],
+  "12-24": [
+   "Yarpaq dolması (xırda)",
+   "Kələm dolması",
+   "Uşaq plovu",
+   "Toyuq şorbası əriştə ilə",
+   "Düşbərə",
+   "Göyərti kükü (sobada)",
+   "Mərci şorbası",
+   "Balıq kotleti + kartof püresi",
+   "Qreçka + mal əti gulyaşı",
+   "Menemen (acısız)",
+   "Uşaq lazanyası",
+   "Qatıq + meyvə + yulaf parfe",
+   "Kəsmikli zapekanka",
+   "Sulu xəngəl"
+  ],
+  "24-48": [
+   "Tərəvəzli toyuq köftəsi + bulqur",
+   "Sobada qızılbalıq + tərəvəz",
+   "Lobya yeməyi",
+   "Ev pizzası (tam taxıl)",
+   "Qutab (göyərti / ətli)",
+   "Borş",
+   "Kinoa salatı + noxud",
+   "Yumurtalı tost \"əsgərləri\"",
+   "Smuzi kasası",
+   "Ev nuggetsi (sobada)"
+  ]
+ },
+ "emergency": "Üz və ya dodaqlarda şişkinlik, nəfəs çətinliyi, təkrar qusma, solğunluq — dərhal 103 / 112.",
+ "disclaimer": "Bu bələdçi maarifləndirmə məqsədlidir və tibbi məsləhət deyil. Dəmir və vitamin dozasını pediatrınız təyin edir. Mənbələr: ÜST (2023), AAP, Türkiyə Sağlıq Nazirliyi, Rusiya Pediatrlar İttifaqı, SACN."
+}

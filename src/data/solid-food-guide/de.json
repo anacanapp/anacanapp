@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Beikost-Ratgeber",
+  "tab_stage": "Phase",
+  "tab_balance": "Balance",
+  "tab_rules": "Regeln",
+  "tab_foods": "Lebensmittel",
+  "tab_recipes": "Rezepte",
+  "age_aria": "Alter",
+  "months_short": "{n} Mon.",
+  "years_short": "{n} J.",
+  "months_plus": "{n} Mon.+",
+  "years_plus": "{n} J.+",
+  "fact_milk": "Milch",
+  "fact_meals": "Mahlzeiten",
+  "fact_portion": "Portion",
+  "fact_texture": "Konsistenz",
+  "portion_note": "Die Portionen sind Richtwerte — wie viel es isst, entscheidet dein Baby selbst.",
+  "readiness_title": "Anzeichen der Beikostreife",
+  "readiness_all": "Alle vorhanden — bereit für den Start mit 6 Monaten.",
+  "readiness_hint": "Die WHO empfiehlt, mit 6 Monaten (180 Tagen) mit der Beikost zu beginnen. Wenn du unsicher bist, sprich mit deiner Kinderärztin oder deinem Kinderarzt.",
+  "sample_day_title": "Beispieltag (8 Monate)",
+  "dishes_title": "Essensideen für dieses Alter",
+  "see_recipes": "Zu den Rezepten",
+  "plate_title": "Ausgewogener Teller (ab 1 Jahr)",
+  "plate_note": "Dazu ein Milchprodukt und etwas gesundes Fett (Olivenöl, Butter, Avocado).",
+  "needs_title": "Tagesbedarf",
+  "needs_note": "Mit 6–11 Monaten ist der Eisenbedarf pro kg Körpergewicht so hoch wie nie wieder im Leben — zu jeder Mahlzeit eine Eisenquelle.",
+  "sources_title": "Enthalten in",
+  "iron_helps_title": "Fördert die Eisenaufnahme",
+  "iron_blocks_title": "Hemmt die Eisenaufnahme",
+  "allergens_title": "Allergene: nicht hinauszögern",
+  "allergens_intro": "Ei und Erdnuss ab 6 Monaten, eins nach dem anderen. Bei schwerem Ekzem oder Ei-Allergie zuerst mit der Ärztin oder dem Arzt sprechen.",
+  "avoid_title": "Nicht geben",
+  "choking_title": "Verschlucken vorbeugen (bis 4 Jahre)",
+  "choking_note": "Würgen ist normal; Ersticken ist lautlos und das Kind kann nicht husten — das ist ein Notfall.",
+  "myths_title": "Veraltete Mythen",
+  "all": "Alle",
+  "recipes_intro": "Altersgerechte Auswahl für dein Baby aus den Anacan-Rezepten. Die ersten Rezepte sind kostenlos, die übrigen gibt es mit Premium.",
+  "recipes_loading": "Rezepte werden geladen…",
+  "all_recipes": "Alle Babyrezepte",
+  "all_recipes_sub": "{n} Rezepte · Öffnet sich unter Rezepte",
+  "tag_iron": "★ Eisen",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Allergen",
+  "home_title": "Beikost-Ratgeber",
+  "home_sub_before": "Start mit 6 Monaten — Beikostreife und erste Lebensmittel",
+  "home_sub_after": "Altersgerechte Portionen, Eisenbalance und Rezepte",
+  "tool_desc": "Portionen, Eisenbalance, Allergene und Rezepte"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 Mon.",
+   "milk": "Muttermilch / Säuglingsnahrung nach Bedarf",
+   "meals": "Noch keine Beikost",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Täglich Vitamin-D-Tropfen; auf Anzeichen der Beikostreife achten"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 Mon.",
+   "milk": "Hauptnahrung, 5–6-mal täglich",
+   "meals": "2–3 Mahlzeiten",
+   "portion": "2–3 Esslöffel bis ½ Tasse (~125 ml)",
+   "texture": "Feiner Brei → stückiger Brei, weiches Fingerfood",
+   "goal": "Eisen, neue Geschmäcker, Allergene kennenlernen"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 Mon.",
+   "milk": "3–4-mal täglich",
+   "meals": "3 Mahlzeiten + 1–2 Snacks",
+   "portion": "½ Tasse (~125 ml)",
+   "texture": "Zerdrückt, fein gehackt, Fingerfood",
+   "goal": "Kauen, Pinzettengriff, offener Becher"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 J.",
+   "milk": "Muttermilch oder Kuhmilch 350–500 ml/Tag",
+   "meals": "3 Mahlzeiten + 2 Snacks",
+   "portion": "¾–1 Tasse (~200–250 ml)",
+   "texture": "Familienessen (ungesalzen, klein geschnitten)",
+   "goal": "Übergang zum Familienessen"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 J.",
+   "milk": "Milch / Joghurt, 2 Portionen täglich",
+   "meals": "3 Mahlzeiten + 2 Snacks",
+   "portion": "1 Tasse; Fleisch/Fisch ~30–50 g",
+   "texture": "Familienessen",
+   "goal": "Vielfalt, Umgang mit wählerischem Essen"
+  }
+ ],
+ "readiness": [
+  "Hält den Kopf stabil",
+  "Sitzt mit Unterstützung",
+  "Zeigt Interesse am Essen, öffnet den Mund",
+  "Die Zunge schiebt das Essen nicht mehr heraus"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Milch"
+  },
+  {
+   "time": "09:00",
+   "what": "Eisenangereicherter Brei + Obst"
+  },
+  {
+   "time": "12:00",
+   "what": "Milch"
+  },
+  {
+   "time": "13:30",
+   "what": "Fleisch + Gemüse"
+  },
+  {
+   "time": "16:00",
+   "what": "Milch"
+  },
+  {
+   "time": "18:30",
+   "what": "Ei / Joghurt + Getreide"
+  },
+  {
+   "time": "Vor dem Schlafen",
+   "what": "Milch"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 Mon.",
+  "1–2 J.",
+  "2–4 J."
+ ],
+ "nutrients": [
+  {
+   "name": "Eisen",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Rind-/Lammfleisch, Hähnchenschenkel, Eigelb, Linsen, Kichererbsen, eisenangereicherter Brei, Spinat",
+   "rule": "Zu jeder Mahlzeit eine Eisenquelle, dazu Vitamin C"
+  },
+  {
+   "name": "Vitamin D",
+   "need": [
+    "400 IE",
+    "600 IE",
+    "600 IE"
+   ],
+   "sources": "Tropfen, fetter Fisch, Eigelb",
+   "rule": "Täglich Tropfen"
+  },
+  {
+   "name": "Zink",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Fleisch, Eier, Joghurt, Hülsenfrüchte, Hafer",
+   "rule": "Auf demselben Teller wie eisenreiche Lebensmittel"
+  },
+  {
+   "name": "Calcium",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Joghurt, Käse, Milch (ab 1 Jahr), Tahini",
+   "rule": "2–3 Portionen Milchprodukte täglich"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Lachs, Makrele, Sardinen, Walnüsse, Hanfsamen",
+   "rule": "2 Fischmahlzeiten pro Woche"
+  },
+  {
+   "name": "Vitamin A",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Karotten, Kürbis, Süßkartoffel, Aprikosen",
+   "rule": "Täglich ein oranges Gemüse"
+  },
+  {
+   "name": "Vitamin C",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Paprika, Brokkoli, Erdbeeren, Kiwi, Orange",
+   "rule": "Zu eisenreichen Mahlzeiten"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Eiweiß",
+   "hint": "Fleisch, Fisch, Eier, Hülsenfrüchte"
+  },
+  {
+   "label": "Getreide",
+   "hint": "Brei, Reis, Brot"
+  },
+  {
+   "label": "Gemüse und Obst",
+   "hint": "bunt gemischt"
+  }
+ ],
+ "ironHelps": [
+  "Vitamin C (Paprika, Brokkoli, Erdbeeren)",
+  "Fleisch + Gemüse zusammen"
+ ],
+ "ironBlocks": [
+  "Tee zum Essen",
+  "Kuhmilch als Hauptgetränk vor 1 Jahr",
+  "Sehr kleiereiche Lebensmittel"
+ ],
+ "allergens": [
+  "Ei",
+  "Erdnuss",
+  "Baumnüsse",
+  "Kuhmilch",
+  "Soja",
+  "Weizen",
+  "Sesam",
+  "Fisch",
+  "Krebstiere"
+ ],
+ "allergenSteps": [
+  "Immer nur ein neues Allergen; 2–3 Tage auf Reaktionen achten",
+  "Morgens oder mittags geben, damit du es gut beobachten kannst",
+  "Ei vollständig durchgegart; Erdnuss als Mus, nie als ganze Nuss",
+  "Wenn vertragen, weiterhin 2–3-mal pro Woche geben"
+ ],
+ "avoid": [
+  {
+   "food": "Honig",
+   "until": "12 Mon.",
+   "why": "Botulismusrisiko"
+  },
+  {
+   "food": "Salz",
+   "until": "12 Mon., danach sehr wenig",
+   "why": "Belastung der Nieren"
+  },
+  {
+   "food": "Zugesetzter Zucker, Süßigkeiten",
+   "until": "24 Mon.",
+   "why": "Gewöhnung an Süßes, Karies"
+  },
+  {
+   "food": "Fruchtsaft",
+   "until": "12 Mon.; danach ≤120 ml/Tag",
+   "why": "Verringert den Appetit"
+  },
+  {
+   "food": "Kuhmilch (als Getränk)",
+   "until": "12 Mon.",
+   "why": "Senkt den Eisenspiegel; im Essen in Ordnung"
+  },
+  {
+   "food": "Rohe Eier, rohes Fleisch, roher Fisch; Rohmilch",
+   "until": "4 J.",
+   "why": "Infektionen"
+  },
+  {
+   "food": "Quecksilberreicher Fisch (Schwertfisch, Hai, großer Thunfisch)",
+   "until": "4 J.",
+   "why": "Quecksilber"
+  },
+  {
+   "food": "Tee, Kaffee, Cola",
+   "until": "4 J.",
+   "why": "Koffein, bindet Eisen"
+  },
+  {
+   "food": "Wurst, Würstchen, geräuchertes Fleisch",
+   "until": "So wenig wie möglich",
+   "why": "Salz, Nitrat"
+  },
+  {
+   "food": "Reisdrink",
+   "until": "4–5 J.",
+   "why": "Arsen"
+  }
+ ],
+ "choking": [
+  "Keine ganzen Nüsse und Samen — gemahlen oder als Mus",
+  "Weintrauben, Kirschen, Cocktailtomaten — längs vierteln",
+  "Rohe Karotte, Apfel — reiben oder garen",
+  "Würstchen — in lange Streifen; Popcorn, harte Bonbons, Kaugummi — nein",
+  "Immer im Sitzen und unter Aufsicht essen"
+ ],
+ "myths": [
+  {
+   "myth": "Eiweiß erst nach 1 Jahr",
+   "fact": "Das ganze Ei kann ab 6 Monaten gegeben werden; Hinauszögern kann das Allergierisiko erhöhen."
+  },
+  {
+   "myth": "Fisch, Zitrusfrüchte und Erdbeeren sind bis 1 Jahr tabu",
+   "fact": "All das kann ab 6 Monaten gegeben werden."
+  },
+  {
+   "myth": "Wer zuerst Obst bekommt, mag kein Gemüse",
+   "fact": "Dafür gibt es keine starken Belege; entscheidend sind eisenreiche Kost und Vielfalt."
+  },
+  {
+   "myth": "Obstbrei ab 4 Monaten",
+   "fact": "Die WHO empfiehlt, mit 6 Monaten mit der Beikost zu beginnen."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Fleisch",
+  "fish": "Fisch",
+  "egg": "Ei",
+  "dairy": "Milchprodukte",
+  "legumes": "Hülsenfrüchte",
+  "grains": "Getreide",
+  "vegetables": "Gemüse",
+  "fruit": "Obst",
+  "fats_seeds": "Fette, Samen"
+ },
+ "foods": [
+  {
+   "name": "Rindfleisch",
+   "value": "Eisen, Zink, B12",
+   "form": "Püree oder lange weiche Streifen"
+  },
+  {
+   "name": "Lammfleisch",
+   "value": "Eisen, Zink",
+   "form": "Püree, Hackfleisch"
+  },
+  {
+   "name": "Hähnchenschenkel",
+   "value": "Eiweiß, Eisen",
+   "form": "Gezupft, Püree"
+  },
+  {
+   "name": "Pute",
+   "value": "Eiweiß, Zink",
+   "form": "Püree, Bällchen"
+  },
+  {
+   "name": "Leber",
+   "value": "Eisen, Vitamin A",
+   "form": "1-mal pro Woche, 1–2 Teelöffel"
+  },
+  {
+   "name": "Lachs",
+   "value": "Omega-3, Vitamin D",
+   "form": "Grätenfrei, zerdrückt"
+  },
+  {
+   "name": "Makrele, Sardinen",
+   "value": "Omega-3",
+   "form": "Grätenfrei, zerdrückt"
+  },
+  {
+   "name": "Kabeljau, Flunder",
+   "value": "Eiweiß, Jod",
+   "form": "In Flocken zerteilt"
+  },
+  {
+   "name": "Hühnerei",
+   "value": "Eiweiß, Cholin, D",
+   "form": "Hart gekocht, zerdrückt; Omelettstreifen"
+  },
+  {
+   "name": "Joghurt (ungesüßt)",
+   "value": "Calcium, Probiotika",
+   "form": "Mit dem Löffel"
+  },
+  {
+   "name": "Hüttenkäse, Weißkäse (Feta)",
+   "value": "Calcium, Eiweiß",
+   "form": "Zerdrückt; Käse wässern, um Salz zu entziehen"
+  },
+  {
+   "name": "Butter",
+   "value": "Energie",
+   "form": "Etwas ins Essen geben"
+  },
+  {
+   "name": "Kuhmilch",
+   "value": "Calcium",
+   "form": "Als Getränk ab 12 Mon.; im Essen ab 6 Mon."
+  },
+  {
+   "name": "Rote Linsen",
+   "value": "Eisen, Eiweiß",
+   "form": "Suppe, Püree"
+  },
+  {
+   "name": "Kichererbsen",
+   "value": "Eisen, Ballaststoffe",
+   "form": "Hummus (ungesalzen)"
+  },
+  {
+   "name": "Bohnen, Mungbohnen",
+   "value": "Eisen, Folat",
+   "form": "Zerdrückt"
+  },
+  {
+   "name": "Hafer",
+   "value": "Ballaststoffe, Eisen",
+   "form": "Brei"
+  },
+  {
+   "name": "Reis",
+   "value": "Energie",
+   "form": "Brei (2–3-mal pro Woche)"
+  },
+  {
+   "name": "Buchweizen",
+   "value": "Eisen, Magnesium",
+   "form": "Brei"
+  },
+  {
+   "name": "Bulgur, Grieß, Nudeln, Brot",
+   "value": "Energie, B",
+   "form": "Brei, weiche Nudeln"
+  },
+  {
+   "name": "Hirse, Quinoa",
+   "value": "Eisen, Eiweiß",
+   "form": "Brei"
+  },
+  {
+   "name": "Kürbis, Karotte, Süßkartoffel",
+   "value": "Vitamin A",
+   "form": "Püree, gedämpfte Sticks"
+  },
+  {
+   "name": "Zucchini, Brokkoli, Blumenkohl",
+   "value": "Vitamin C, K",
+   "form": "Gedämpft; Brokkoli als \"Bäumchen\""
+  },
+  {
+   "name": "Kartoffel",
+   "value": "Energie",
+   "form": "Püree"
+  },
+  {
+   "name": "Spinat, Rote Bete",
+   "value": "Folat, Eisen",
+   "form": "Mit anderem Gemüse gemischt"
+  },
+  {
+   "name": "Aubergine, Paprika, Tomate",
+   "value": "Vitamin C",
+   "form": "Gegart, geschält"
+  },
+  {
+   "name": "Erbsen, grüne Bohnen",
+   "value": "Eisen, Ballaststoffe",
+   "form": "Zerdrückt"
+  },
+  {
+   "name": "Apfel, Birne",
+   "value": "Ballaststoffe",
+   "form": "Gegartes Püree, gerieben"
+  },
+  {
+   "name": "Banane, Avocado",
+   "value": "Energie, gesunde Fette",
+   "form": "Lange Streifen, zerdrückt"
+  },
+  {
+   "name": "Pfirsich, Aprikose, Pflaume",
+   "value": "Vitamin A, C, Ballaststoffe",
+   "form": "Geschält, weich"
+  },
+  {
+   "name": "Erdbeere, Kiwi, Orange",
+   "value": "Vitamin C",
+   "form": "Zerdrückt, in Scheiben"
+  },
+  {
+   "name": "Weintrauben, Kirschen, Heidelbeeren",
+   "value": "Antioxidantien",
+   "form": "Längs vierteln; Heidelbeeren zerdrücken"
+  },
+  {
+   "name": "Getrocknete Aprikosen, Rosinen, Datteln",
+   "value": "Eisen, Ballaststoffe",
+   "form": "Eingeweicht, püriert"
+  },
+  {
+   "name": "Olivenöl",
+   "value": "Gesundes Fett",
+   "form": "1 Teelöffel ins Essen"
+  },
+  {
+   "name": "Erdnussmus",
+   "value": "Eiweiß",
+   "form": "Verdünnt, in Brei gemischt"
+  },
+  {
+   "name": "Mandel-, Walnuss-, Haselnussmus",
+   "value": "Vitamin E, Omega-3",
+   "form": "Gemahlen oder als Mus"
+  },
+  {
+   "name": "Tahini (Sesam)",
+   "value": "Calcium, Eisen",
+   "form": "In den Brei gemischt"
+  },
+  {
+   "name": "Hanf-, Chiasamen",
+   "value": "Omega-3",
+   "form": "Gemahlen"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Rindfleisch-Kürbis-Püree",
+   "Hähnchen-Karotten-Kartoffel-Püree",
+   "Rote-Linsen-Suppe",
+   "Haferbrei + Apfelmus",
+   "Buchweizenbrei",
+   "Bananenpüree mit Joghurt",
+   "Avocado-Bananen-Mus",
+   "Zerdrücktes hart gekochtes Ei",
+   "Gedämpfte Brokkoli-\"Bäumchen\"",
+   "Lachs-Süßkartoffel-Püree",
+   "Kichererbsen-Hummus (mit Tahini)",
+   "Gebackenes Birnenpüree + Zimt"
+  ],
+  "9-11": [
+   "Mini-Rindfleischbällchen",
+   "Gemüse-Omelettstreifen",
+   "Fischfrikadellen",
+   "Joghurt-Hafer-Pancakes",
+   "Hähnchen-Reisbrei + Zucchini",
+   "Lamm-Gemüse-Eintopf",
+   "Linsenbratlinge",
+   "Nudeln + Tomatensoße mit Hackfleisch",
+   "Buchweizen + Lebersoße",
+   "Quarkpuffer (Syrniki, aus dem Ofen)",
+   "Brokkoli-Käse-Muffins",
+   "Apfel-Hafer-Riegel"
+  ],
+  "12-24": [
+   "Weinblätter-Dolma (klein)",
+   "Kohl-Dolma (Kohlrouladen)",
+   "Kinder-Plov (Pilaw)",
+   "Hühnersuppe mit Nudeln",
+   "Düschbara (Suppe mit Mini-Teigtaschen)",
+   "Kräuter-Kükü (Ofen-Frittata)",
+   "Linsensuppe",
+   "Fischfrikadellen + Kartoffelpüree",
+   "Buchweizen + Rindergulasch",
+   "Menemen (mild)",
+   "Kinder-Lasagne",
+   "Joghurt-Obst-Hafer-Parfait",
+   "Quarkauflauf",
+   "Chingal in Brühe"
+  ],
+  "24-48": [
+   "Hähnchen-Gemüse-Bällchen + Bulgur",
+   "Ofenlachs mit Gemüse",
+   "Bohneneintopf",
+   "Selbstgemachte Pizza (Vollkorn)",
+   "Qutab (mit Kräutern / Fleisch)",
+   "Borschtsch",
+   "Quinoasalat + Kichererbsen",
+   "Ei-Toast-\"Soldaten\"",
+   "Smoothie-Bowl",
+   "Selbstgemachte Nuggets (aus dem Ofen)"
+  ]
+ },
+ "emergency": "Schwellung von Gesicht oder Lippen, Atemnot, wiederholtes Erbrechen, Blässe — sofort 103 / 112.",
+ "disclaimer": "Dieser Ratgeber dient der Information und ersetzt keine ärztliche Beratung. Eisen- und Vitamindosen legt deine Kinderärztin oder dein Kinderarzt fest. Quellen: WHO (2023), AAP, Türkisches Gesundheitsministerium, Union der Kinderärzte Russlands, SACN."
+}

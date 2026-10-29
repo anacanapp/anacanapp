@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Guia de introdução alimentar",
+  "tab_stage": "Fase",
+  "tab_balance": "Equilíbrio",
+  "tab_rules": "Regras",
+  "tab_foods": "Alimentos",
+  "tab_recipes": "Receitas",
+  "age_aria": "Idade",
+  "months_short": "{n} meses",
+  "years_short": "{n} anos",
+  "months_plus": "{n} meses+",
+  "years_plus": "{n} anos+",
+  "fact_milk": "Leite",
+  "fact_meals": "Refeições",
+  "fact_portion": "Porção",
+  "fact_texture": "Textura",
+  "portion_note": "As porções são uma referência — quem decide quanto vai comer é o bebê.",
+  "readiness_title": "Sinais de prontidão",
+  "readiness_all": "Todos presentes — pronto para começar aos 6 meses.",
+  "readiness_hint": "A OMS recomenda iniciar a introdução alimentar aos 6 meses (180 dias). Na dúvida, converse com o pediatra.",
+  "sample_day_title": "Exemplo de dia (8 meses)",
+  "dishes_title": "Ideias de refeições para esta idade",
+  "see_recipes": "Ver receitas",
+  "plate_title": "Prato equilibrado (a partir de 1 ano)",
+  "plate_note": "Junto, um laticínio e um pouco de gordura saudável (azeite, manteiga, abacate).",
+  "needs_title": "Necessidade diária",
+  "needs_note": "Dos 6 aos 11 meses, a necessidade de ferro por quilo de peso é a mais alta da vida — inclua uma fonte de ferro em cada refeição.",
+  "sources_title": "Onde encontrar",
+  "iron_helps_title": "Aumenta o ferro",
+  "iron_blocks_title": "Reduz o ferro",
+  "allergens_title": "Alergênicos: não adie",
+  "allergens_intro": "Ovo e amendoim a partir dos 6 meses, um de cada vez. Se houver eczema grave ou alergia a ovo, converse antes com o médico.",
+  "avoid_title": "Não oferecer",
+  "choking_title": "Evite o engasgo (até 4 anos)",
+  "choking_note": "Ânsia (reflexo de gag) é normal; o engasgo é silencioso e a criança não consegue tossir — é uma emergência.",
+  "myths_title": "Mitos ultrapassados",
+  "all": "Todos",
+  "recipes_intro": "Opções adequadas à idade do seu bebê, da seção Receitas do Anacan. As primeiras receitas são grátis; as demais são Premium.",
+  "recipes_loading": "Carregando receitas…",
+  "all_recipes": "Todas as receitas para bebês",
+  "all_recipes_sub": "{n} receitas · abre na seção Receitas",
+  "tag_iron": "★ Ferro",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Alergênico",
+  "home_title": "Guia de introdução alimentar",
+  "home_sub_before": "Começamos aos 6 meses — sinais e primeiros alimentos",
+  "home_sub_after": "Porções por idade, equilíbrio de ferro e receitas",
+  "tool_desc": "Porções, equilíbrio de ferro, alergênicos e receitas"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 meses",
+   "milk": "Leite materno / fórmula em livre demanda",
+   "meals": "Sem introdução alimentar",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Gotas de vitamina D todos os dias; observe os sinais de prontidão"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 meses",
+   "milk": "Alimento principal, 5–6 vezes ao dia",
+   "meals": "2–3 refeições",
+   "portion": "De 2–3 colheres de sopa a ½ xícara (~125 ml)",
+   "texture": "Purê liso → purê grosso, alimentos macios para pegar com a mão",
+   "goal": "Ferro, novos sabores, contato com alergênicos"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 meses",
+   "milk": "3–4 vezes ao dia",
+   "meals": "3 refeições + 1–2 lanches",
+   "portion": "½ xícara (~125 ml)",
+   "texture": "Amassado, bem picado, alimentos para pegar com a mão",
+   "goal": "Mastigação, movimento de pinça, copo aberto"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 anos",
+   "milk": "Leite materno ou leite de vaca 350–500 ml/dia",
+   "meals": "3 refeições + 2 lanches",
+   "portion": "¾–1 xícara (~200–250 ml)",
+   "texture": "Comida da família (sem sal, em pedaços pequenos)",
+   "goal": "Transição para a comida da família"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 anos",
+   "milk": "Leite / iogurte, 2 porções ao dia",
+   "meals": "3 refeições + 2 lanches",
+   "portion": "1 xícara; carne/peixe ~30–50 g",
+   "texture": "Comida da família",
+   "goal": "Variedade, lidar com a seletividade alimentar"
+  }
+ ],
+ "readiness": [
+  "Sustenta bem a cabeça",
+  "Senta com apoio",
+  "Mostra interesse pela comida e abre a boca",
+  "Não empurra mais a comida para fora com a língua"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Leite"
+  },
+  {
+   "time": "09:00",
+   "what": "Mingau enriquecido com ferro + fruta"
+  },
+  {
+   "time": "12:00",
+   "what": "Leite"
+  },
+  {
+   "time": "13:30",
+   "what": "Carne + legumes"
+  },
+  {
+   "time": "16:00",
+   "what": "Leite"
+  },
+  {
+   "time": "18:30",
+   "what": "Ovo / iogurte + cereal"
+  },
+  {
+   "time": "Antes de dormir",
+   "what": "Leite"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 meses",
+  "1–2 anos",
+  "2–4 anos"
+ ],
+ "nutrients": [
+  {
+   "name": "Ferro",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Carne bovina/cordeiro, coxa de frango, gema de ovo, lentilha, grão-de-bico, mingau enriquecido com ferro, espinafre",
+   "rule": "Uma fonte de ferro em cada refeição, com vitamina C"
+  },
+  {
+   "name": "Vitamina D",
+   "need": [
+    "400 UI",
+    "600 UI",
+    "600 UI"
+   ],
+   "sources": "Gotas, peixes gordos, gema de ovo",
+   "rule": "Gotas todos os dias"
+  },
+  {
+   "name": "Zinco",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Carne, ovo, iogurte, leguminosas, aveia",
+   "rule": "No mesmo prato que os alimentos ricos em ferro"
+  },
+  {
+   "name": "Cálcio",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Iogurte, queijo, leite (a partir de 1 ano), tahine",
+   "rule": "2–3 porções de laticínios por dia"
+  },
+  {
+   "name": "Ômega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Salmão, cavala, sardinha, nozes, cânhamo",
+   "rule": "2 refeições com peixe por semana"
+  },
+  {
+   "name": "Vitamina A",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Cenoura, abóbora, batata-doce, damasco",
+   "rule": "Um vegetal laranja por dia"
+  },
+  {
+   "name": "Vitamina C",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Pimentão, brócolis, morango, kiwi, laranja",
+   "rule": "Junto com a refeição rica em ferro"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Proteína",
+   "hint": "carne, peixe, ovo, leguminosas"
+  },
+  {
+   "label": "Cereais",
+   "hint": "mingau, arroz, pão"
+  },
+  {
+   "label": "Legumes e frutas",
+   "hint": "coloridos"
+  }
+ ],
+ "ironHelps": [
+  "Vitamina C (pimentão, brócolis, morango)",
+  "Carne + legumes juntos"
+ ],
+ "ironBlocks": [
+  "Chá junto com a refeição",
+  "Leite de vaca como bebida principal antes de 1 ano",
+  "Alimentos com muito farelo"
+ ],
+ "allergens": [
+  "Ovo",
+  "Amendoim",
+  "Castanhas",
+  "Leite de vaca",
+  "Soja",
+  "Trigo",
+  "Gergelim",
+  "Peixe",
+  "Crustáceos"
+ ],
+ "allergenSteps": [
+  "Apenas um alergênico novo por vez; observe reações por 2–3 dias",
+  "Ofereça de manhã ou no almoço para facilitar a observação",
+  "Ovo bem cozido; amendoim em pasta, nunca inteiro",
+  "Se for bem aceito, repita 2–3 vezes por semana"
+ ],
+ "avoid": [
+  {
+   "food": "Mel",
+   "until": "12 meses",
+   "why": "Risco de botulismo"
+  },
+  {
+   "food": "Sal",
+   "until": "12 meses, depois bem pouco",
+   "why": "Sobrecarrega os rins"
+  },
+  {
+   "food": "Açúcar adicionado, doces",
+   "until": "24 meses",
+   "why": "Hábito do sabor doce, cáries"
+  },
+  {
+   "food": "Suco de fruta",
+   "until": "12 meses; depois ≤120 ml/dia",
+   "why": "Tira o apetite"
+  },
+  {
+   "food": "Leite de vaca (como bebida)",
+   "until": "12 meses",
+   "why": "Reduz o ferro; nas preparações pode"
+  },
+  {
+   "food": "Ovo, carne, peixe crus; leite não pasteurizado",
+   "until": "4 anos",
+   "why": "Infecções"
+  },
+  {
+   "food": "Peixes com mercúrio (peixe-espada, cação, atum grande)",
+   "until": "4 anos",
+   "why": "Mercúrio"
+  },
+  {
+   "food": "Chá, café, refrigerante de cola",
+   "until": "4 anos",
+   "why": "Cafeína, bloqueia o ferro"
+  },
+  {
+   "food": "Embutidos, salsicha, carnes defumadas",
+   "until": "O mínimo possível",
+   "why": "Sal, nitritos"
+  },
+  {
+   "food": "Bebida de arroz",
+   "until": "4–5 anos",
+   "why": "Arsênio"
+  }
+ ],
+ "choking": [
+  "Nada de castanhas e sementes inteiras — moídas ou em pasta",
+  "Uva, cereja, tomate-cereja — em 4 partes no sentido do comprimento",
+  "Cenoura e maçã cruas — raladas ou cozidas",
+  "Salsicha — em tiras no comprimento; pipoca, bala dura e chiclete, não",
+  "Sempre sentado e com supervisão ao comer"
+ ],
+ "myths": [
+  {
+   "myth": "Clara de ovo só depois de 1 ano",
+   "fact": "O ovo inteiro pode ser oferecido a partir dos 6 meses; adiar pode aumentar o risco de alergia."
+  },
+  {
+   "myth": "Peixe, frutas cítricas e morango são proibidos antes de 1 ano",
+   "fact": "Todos podem ser oferecidos a partir dos 6 meses."
+  },
+  {
+   "myth": "Se começar pela fruta, o bebê não vai gostar de legumes",
+   "fact": "Não há evidência forte; o essencial são alimentos ricos em ferro e variedade."
+  },
+  {
+   "myth": "Papinha de fruta a partir dos 4 meses",
+   "fact": "A OMS recomenda iniciar a introdução alimentar aos 6 meses."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Carne",
+  "fish": "Peixe",
+  "egg": "Ovo",
+  "dairy": "Laticínios",
+  "legumes": "Leguminosas",
+  "grains": "Cereais",
+  "vegetables": "Legumes e verduras",
+  "fruit": "Frutas",
+  "fats_seeds": "Gorduras, sementes"
+ },
+ "foods": [
+  {
+   "name": "Carne bovina",
+   "value": "Ferro, zinco, B12",
+   "form": "Em purê ou em tiras longas e macias"
+  },
+  {
+   "name": "Cordeiro",
+   "value": "Ferro, zinco",
+   "form": "Purê, moída"
+  },
+  {
+   "name": "Coxa de frango",
+   "value": "Proteína, ferro",
+   "form": "Desfiada, purê"
+  },
+  {
+   "name": "Peru",
+   "value": "Proteína, zinco",
+   "form": "Purê, almôndegas"
+  },
+  {
+   "name": "Fígado",
+   "value": "Ferro, vitamina A",
+   "form": "1 vez por semana, 1–2 colheres de chá"
+  },
+  {
+   "name": "Salmão",
+   "value": "Ômega-3, vitamina D",
+   "form": "Sem espinhas, amassado"
+  },
+  {
+   "name": "Cavala, sardinha",
+   "value": "Ômega-3",
+   "form": "Sem espinhas, amassado"
+  },
+  {
+   "name": "Bacalhau fresco, linguado",
+   "value": "Proteína, iodo",
+   "form": "Em lascas"
+  },
+  {
+   "name": "Ovo de galinha",
+   "value": "Proteína, colina, D",
+   "form": "Cozido, amassado; tiras de omelete"
+  },
+  {
+   "name": "Iogurte (sem açúcar)",
+   "value": "Cálcio, probióticos",
+   "form": "De colher"
+  },
+  {
+   "name": "Cottage, queijo branco",
+   "value": "Cálcio, proteína",
+   "form": "Amassado; deixe o queijo de molho para tirar o sal"
+  },
+  {
+   "name": "Manteiga",
+   "value": "Energia",
+   "form": "Um pouco na comida"
+  },
+  {
+   "name": "Leite de vaca",
+   "value": "Cálcio",
+   "form": "Como bebida a partir de 12 meses; em preparações a partir de 6"
+  },
+  {
+   "name": "Lentilha vermelha",
+   "value": "Ferro, proteína",
+   "form": "Sopa, purê"
+  },
+  {
+   "name": "Grão-de-bico",
+   "value": "Ferro, fibras",
+   "form": "Homus (sem sal)"
+  },
+  {
+   "name": "Feijão, feijão-mungo",
+   "value": "Ferro, folato",
+   "form": "Amassado"
+  },
+  {
+   "name": "Aveia",
+   "value": "Fibras, ferro",
+   "form": "Mingau"
+  },
+  {
+   "name": "Arroz",
+   "value": "Energia",
+   "form": "Mingau (2–3 vezes por semana)"
+  },
+  {
+   "name": "Trigo-sarraceno",
+   "value": "Ferro, magnésio",
+   "form": "Mingau"
+  },
+  {
+   "name": "Triguilho, semolina, macarrão, pão",
+   "value": "Energia, B",
+   "form": "Mingau, macarrão bem macio"
+  },
+  {
+   "name": "Painço, quinoa",
+   "value": "Ferro, proteína",
+   "form": "Mingau"
+  },
+  {
+   "name": "Abóbora, cenoura, batata-doce",
+   "value": "Vitamina A",
+   "form": "Purê, palitos no vapor"
+  },
+  {
+   "name": "Abobrinha, brócolis, couve-flor",
+   "value": "Vitaminas C, K",
+   "form": "No vapor; brócolis em \"arvorezinhas\""
+  },
+  {
+   "name": "Batata",
+   "value": "Energia",
+   "form": "Purê"
+  },
+  {
+   "name": "Espinafre, beterraba",
+   "value": "Folato, ferro",
+   "form": "Misturados com outros legumes"
+  },
+  {
+   "name": "Berinjela, pimentão, tomate",
+   "value": "Vitamina C",
+   "form": "Cozidos, sem casca"
+  },
+  {
+   "name": "Ervilha, vagem",
+   "value": "Ferro, fibras",
+   "form": "Amassadas"
+  },
+  {
+   "name": "Maçã, pera",
+   "value": "Fibras",
+   "form": "Purê cozido, raladas"
+  },
+  {
+   "name": "Banana, abacate",
+   "value": "Energia, gordura saudável",
+   "form": "Tiras longas, amassados"
+  },
+  {
+   "name": "Pêssego, damasco, ameixa",
+   "value": "Vitaminas A, C, fibras",
+   "form": "Sem casca, macios"
+  },
+  {
+   "name": "Morango, kiwi, laranja",
+   "value": "Vitamina C",
+   "form": "Amassados, em fatias"
+  },
+  {
+   "name": "Uva, cereja, mirtilo",
+   "value": "Antioxidantes",
+   "form": "Em 4 partes no comprimento; amasse o mirtilo"
+  },
+  {
+   "name": "Damasco seco, uva-passa, tâmara",
+   "value": "Ferro, fibras",
+   "form": "Hidratados, em purê"
+  },
+  {
+   "name": "Azeite de oliva",
+   "value": "Gordura saudável",
+   "form": "1 colher de chá na comida"
+  },
+  {
+   "name": "Pasta de amendoim",
+   "value": "Proteína",
+   "form": "Bem fina, misturada a um purê"
+  },
+  {
+   "name": "Pasta de amêndoa, nozes, avelã",
+   "value": "Vitamina E, ômega-3",
+   "form": "Em pó ou em pasta"
+  },
+  {
+   "name": "Tahine (gergelim)",
+   "value": "Cálcio, ferro",
+   "form": "Misturado ao mingau"
+  },
+  {
+   "name": "Sementes de cânhamo, chia",
+   "value": "Ômega-3",
+   "form": "Moídas"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Purê de carne + abóbora",
+   "Purê de frango + cenoura + batata",
+   "Sopa de lentilha vermelha",
+   "Mingau de aveia + purê de maçã",
+   "Mingau de trigo-sarraceno",
+   "Purê de banana com iogurte",
+   "Amassadinho de abacate + banana",
+   "Ovo cozido amassado",
+   "\"Arvorezinhas\" de brócolis no vapor",
+   "Purê de salmão + batata-doce",
+   "Homus de grão-de-bico (com tahine)",
+   "Purê de pera cozida + canela"
+  ],
+  "9-11": [
+   "Mini almôndegas de carne",
+   "Tiras de omelete com legumes",
+   "Bolinhos de peixe",
+   "Panqueca de aveia com iogurte",
+   "Arroz com frango + abobrinha",
+   "Ensopado de cordeiro com legumes",
+   "Bolinhos de lentilha",
+   "Macarrão + molho de tomate com carne moída",
+   "Trigo-sarraceno + molho de fígado",
+   "Syrniki de cottage (no forno)",
+   "Muffin de brócolis e queijo",
+   "Barrinhas de maçã e aveia"
+  ],
+  "12-24": [
+   "Dolma de folha de uva (pequenos)",
+   "Charuto de repolho",
+   "Pilaf infantil",
+   "Canja de frango com macarrão",
+   "Düşbərə (sopa de mini pastéis)",
+   "Kuku de ervas (no forno)",
+   "Sopa de lentilha",
+   "Bolinho de peixe + purê de batata",
+   "Trigo-sarraceno + goulash de carne",
+   "Menemen (sem pimenta)",
+   "Lasanha infantil",
+   "Parfait de iogurte + fruta + aveia",
+   "Torta de cottage assada",
+   "Xəngəl no caldo (massa azerbaijana)"
+  ],
+  "24-48": [
+   "Almôndegas de frango com legumes + triguilho",
+   "Salmão assado + legumes",
+   "Ensopado de feijão",
+   "Pizza caseira (integral)",
+   "Qutab (de ervas / de carne)",
+   "Borscht",
+   "Salada de quinoa + grão-de-bico",
+   "\"Soldadinhos\" de torrada com ovo",
+   "Smoothie bowl",
+   "Nuggets caseiros (no forno)"
+  ]
+ },
+ "emergency": "Inchaço no rosto ou nos lábios, dificuldade para respirar, vômitos repetidos, palidez — ligue imediatamente para 103 / 112.",
+ "disclaimer": "Este guia tem caráter informativo e não substitui orientação médica. As doses de ferro e vitaminas são definidas pelo seu pediatra. Fontes: OMS (2023), AAP, Ministério da Saúde da Turquia, União dos Pediatras da Rússia, SACN."
+}

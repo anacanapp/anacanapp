@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Solid Food Guide",
+  "tab_stage": "Stage",
+  "tab_balance": "Balance",
+  "tab_rules": "Rules",
+  "tab_foods": "Foods",
+  "tab_recipes": "Recipes",
+  "age_aria": "Age",
+  "months_short": "{n} mo",
+  "years_short": "{n} yrs",
+  "months_plus": "{n} mo+",
+  "years_plus": "{n} yrs+",
+  "fact_milk": "Milk",
+  "fact_meals": "Meals",
+  "fact_portion": "Portion",
+  "fact_texture": "Texture",
+  "portion_note": "Portions are a guide — your baby decides how much to eat.",
+  "readiness_title": "Signs of readiness",
+  "readiness_all": "All present — ready to start at 6 months.",
+  "readiness_hint": "WHO recommends starting solids at 6 months (180 days). If you're unsure, talk to your pediatrician.",
+  "sample_day_title": "Sample day (8 months)",
+  "dishes_title": "Meal ideas for this age",
+  "see_recipes": "See recipes",
+  "plate_title": "Balanced plate (from 1 year)",
+  "plate_note": "Add a dairy food and a little healthy fat (olive oil, butter, avocado).",
+  "needs_title": "Daily needs",
+  "needs_note": "At 6–11 months, iron needs per kg of body weight are the highest of a lifetime — include an iron source at every meal.",
+  "sources_title": "Where to find it",
+  "iron_helps_title": "Boosts iron",
+  "iron_blocks_title": "Reduces iron",
+  "allergens_title": "Allergens: don't delay",
+  "allergens_intro": "Offer egg and peanut from 6 months, one at a time. If your baby has severe eczema or an egg allergy, talk to a doctor first.",
+  "avoid_title": "Don't give",
+  "choking_title": "Prevent choking (under 4 years)",
+  "choking_note": "Gagging is normal; choking is silent and the child can't cough — this is an emergency.",
+  "myths_title": "Outdated myths",
+  "all": "All",
+  "recipes_intro": "Age-appropriate picks for your baby from Anacan Recipes. The first recipes are free; the rest are in Premium.",
+  "recipes_loading": "Loading recipes…",
+  "all_recipes": "All baby recipes",
+  "all_recipes_sub": "{n} recipes · Opens in Recipes",
+  "tag_iron": "★ Iron",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Allergen",
+  "home_title": "Solid Food Guide",
+  "home_sub_before": "Starting at 6 months — readiness and first foods",
+  "home_sub_after": "Age-based portions, iron balance and recipes",
+  "tool_desc": "Portions, iron balance, allergens and recipes"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 mo",
+   "milk": "Breast milk / formula on demand",
+   "meals": "No solids yet",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Vitamin D drops daily; watch for signs of readiness"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 mo",
+   "milk": "Main food, 5–6 times a day",
+   "meals": "2–3 meals",
+   "portion": "2–3 tablespoons up to ½ cup (~125 ml)",
+   "texture": "Smooth purée → thick purée, soft finger foods",
+   "goal": "Iron, new flavors, introducing allergens"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 mo",
+   "milk": "3–4 times a day",
+   "meals": "3 meals + 1–2 snacks",
+   "portion": "½ cup (~125 ml)",
+   "texture": "Mashed, finely chopped, finger foods",
+   "goal": "Chewing, pincer grasp, open cup"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 yrs",
+   "milk": "Breast milk or cow's milk 350–500 ml/day",
+   "meals": "3 meals + 2 snacks",
+   "portion": "¾–1 cup (~200–250 ml)",
+   "texture": "Family foods (unsalted, small pieces)",
+   "goal": "Moving to family meals"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 yrs",
+   "milk": "Milk / yogurt, 2 servings a day",
+   "meals": "3 meals + 2 snacks",
+   "portion": "1 cup; meat/fish ~30–50 g",
+   "texture": "Family meals",
+   "goal": "Variety, handling picky eating"
+  }
+ ],
+ "readiness": [
+  "Holds head steady",
+  "Sits with support",
+  "Shows interest in food, opens mouth",
+  "Tongue doesn't push food back out"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Milk"
+  },
+  {
+   "time": "09:00",
+   "what": "Iron-fortified cereal + fruit"
+  },
+  {
+   "time": "12:00",
+   "what": "Milk"
+  },
+  {
+   "time": "13:30",
+   "what": "Meat + vegetables"
+  },
+  {
+   "time": "16:00",
+   "what": "Milk"
+  },
+  {
+   "time": "18:30",
+   "what": "Egg / yogurt + grains"
+  },
+  {
+   "time": "Before bed",
+   "what": "Milk"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 mo",
+  "1–2 yrs",
+  "2–4 yrs"
+ ],
+ "nutrients": [
+  {
+   "name": "Iron",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Beef/lamb, chicken thigh, egg yolk, lentils, chickpeas, iron-fortified cereal, spinach",
+   "rule": "An iron source at every meal, with vitamin C"
+  },
+  {
+   "name": "Vitamin D",
+   "need": [
+    "400 IU",
+    "600 IU",
+    "600 IU"
+   ],
+   "sources": "Drops, oily fish, egg yolk",
+   "rule": "Drops every day"
+  },
+  {
+   "name": "Zinc",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Meat, eggs, yogurt, legumes, oats",
+   "rule": "On the same plate as iron-rich foods"
+  },
+  {
+   "name": "Calcium",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Yogurt, cheese, milk (from 1 year), tahini",
+   "rule": "2–3 servings of dairy a day"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Salmon, mackerel, sardines, walnuts, hemp seeds",
+   "rule": "2 fish meals a week"
+  },
+  {
+   "name": "Vitamin A",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Carrots, pumpkin, sweet potato, apricots",
+   "rule": "One orange vegetable a day"
+  },
+  {
+   "name": "Vitamin C",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Bell pepper, broccoli, strawberries, kiwi, orange",
+   "rule": "Alongside iron-rich meals"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Protein",
+   "hint": "meat, fish, eggs, legumes"
+  },
+  {
+   "label": "Grains",
+   "hint": "porridge, rice, bread"
+  },
+  {
+   "label": "Vegetables and fruit",
+   "hint": "colorful"
+  }
+ ],
+ "ironHelps": [
+  "Vitamin C (peppers, broccoli, strawberries)",
+  "Meat + vegetables together"
+ ],
+ "ironBlocks": [
+  "Tea with meals",
+  "Cow's milk as the main drink before 1 year",
+  "Very high-bran foods"
+ ],
+ "allergens": [
+  "Egg",
+  "Peanut",
+  "Tree nuts",
+  "Cow's milk",
+  "Soy",
+  "Wheat",
+  "Sesame",
+  "Fish",
+  "Shellfish"
+ ],
+ "allergenSteps": [
+  "Only one new allergen at a time; watch for reactions for 2–3 days",
+  "Offer it in the morning or at midday so it's easy to monitor",
+  "Egg fully cooked; peanut as a paste, never whole",
+  "If tolerated, keep offering it 2–3 times a week"
+ ],
+ "avoid": [
+  {
+   "food": "Honey",
+   "until": "12 months",
+   "why": "Risk of botulism"
+  },
+  {
+   "food": "Salt",
+   "until": "12 months, then very little",
+   "why": "Strain on the kidneys"
+  },
+  {
+   "food": "Added sugar, sweets",
+   "until": "24 months",
+   "why": "Sweet-taste habit, tooth decay"
+  },
+  {
+   "food": "Fruit juice",
+   "until": "12 months; then ≤120 ml/day",
+   "why": "Reduces appetite"
+  },
+  {
+   "food": "Cow's milk (as a drink)",
+   "until": "12 months",
+   "why": "Lowers iron; fine in cooking"
+  },
+  {
+   "food": "Raw egg, meat, fish; unpasteurized milk",
+   "until": "4 years",
+   "why": "Infection"
+  },
+  {
+   "food": "High-mercury fish (swordfish, shark, large tuna)",
+   "until": "4 years",
+   "why": "Mercury"
+  },
+  {
+   "food": "Tea, coffee, cola",
+   "until": "4 years",
+   "why": "Caffeine; blocks iron"
+  },
+  {
+   "food": "Sausages, hot dogs, smoked meats",
+   "until": "As little as possible",
+   "why": "Salt, nitrates"
+  },
+  {
+   "food": "Rice milk",
+   "until": "4–5 years",
+   "why": "Arsenic"
+  }
+ ],
+ "choking": [
+  "No whole nuts or seeds — ground or as a paste",
+  "Grapes, cherries, cherry tomatoes — quartered lengthwise",
+  "Raw carrot, apple — grate or cook",
+  "Sausage — long strips; no popcorn, hard candy or gum",
+  "Always eat seated and supervised"
+ ],
+ "myths": [
+  {
+   "myth": "Egg white only after 1 year",
+   "fact": "Whole egg can be given from 6 months; delaying it may increase allergy risk."
+  },
+  {
+   "myth": "Fish, citrus and strawberries are off-limits until 1 year",
+   "fact": "All of them can be given from 6 months."
+  },
+  {
+   "myth": "Start with fruit and your baby won't like vegetables",
+   "fact": "There's no strong evidence; what matters is iron-rich food and variety."
+  },
+  {
+   "myth": "Fruit purée from 4 months",
+   "fact": "WHO recommends starting solids at 6 months."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Meat",
+  "fish": "Fish",
+  "egg": "Egg",
+  "dairy": "Dairy",
+  "legumes": "Legumes",
+  "grains": "Grains",
+  "vegetables": "Vegetables",
+  "fruit": "Fruit",
+  "fats_seeds": "Fats, seeds"
+ },
+ "foods": [
+  {
+   "name": "Beef",
+   "value": "Iron, zinc, B12",
+   "form": "Purée or long soft strips"
+  },
+  {
+   "name": "Lamb",
+   "value": "Iron, zinc",
+   "form": "Purée, minced"
+  },
+  {
+   "name": "Chicken thigh",
+   "value": "Protein, iron",
+   "form": "Shredded, purée"
+  },
+  {
+   "name": "Turkey",
+   "value": "Protein, zinc",
+   "form": "Purée, meatballs"
+  },
+  {
+   "name": "Liver",
+   "value": "Iron, vitamin A",
+   "form": "Once a week, 1–2 teaspoons"
+  },
+  {
+   "name": "Salmon",
+   "value": "Omega-3, vitamin D",
+   "form": "Boneless, mashed"
+  },
+  {
+   "name": "Mackerel, sardines",
+   "value": "Omega-3",
+   "form": "Boneless, mashed"
+  },
+  {
+   "name": "Cod, flounder",
+   "value": "Protein, iodine",
+   "form": "Flaked"
+  },
+  {
+   "name": "Chicken egg",
+   "value": "Protein, choline, D",
+   "form": "Hard-boiled, mashed; omelet strips"
+  },
+  {
+   "name": "Yogurt (unsweetened)",
+   "value": "Calcium, probiotics",
+   "form": "With a spoon"
+  },
+  {
+   "name": "Cottage cheese, white cheese",
+   "value": "Calcium, protein",
+   "form": "Mashed; soak cheese to remove salt"
+  },
+  {
+   "name": "Butter",
+   "value": "Energy",
+   "form": "A little added to food"
+  },
+  {
+   "name": "Cow's milk",
+   "value": "Calcium",
+   "form": "As a drink from 12 months; in food from 6 months"
+  },
+  {
+   "name": "Red lentils",
+   "value": "Iron, protein",
+   "form": "Soup, purée"
+  },
+  {
+   "name": "Chickpeas",
+   "value": "Iron, fiber",
+   "form": "Hummus (unsalted)"
+  },
+  {
+   "name": "Beans, mung beans",
+   "value": "Iron, folate",
+   "form": "Mashed"
+  },
+  {
+   "name": "Oats",
+   "value": "Fiber, iron",
+   "form": "Porridge"
+  },
+  {
+   "name": "Rice",
+   "value": "Energy",
+   "form": "Porridge (2–3 times a week)"
+  },
+  {
+   "name": "Buckwheat",
+   "value": "Iron, magnesium",
+   "form": "Porridge"
+  },
+  {
+   "name": "Bulgur, semolina, pasta, bread",
+   "value": "Energy, B",
+   "form": "Porridge, soft pasta"
+  },
+  {
+   "name": "Millet, quinoa",
+   "value": "Iron, protein",
+   "form": "Porridge"
+  },
+  {
+   "name": "Pumpkin, carrot, sweet potato",
+   "value": "Vitamin A",
+   "form": "Purée, steamed sticks"
+  },
+  {
+   "name": "Zucchini, broccoli, cauliflower",
+   "value": "Vitamins C, K",
+   "form": "Steamed; broccoli as \"trees\""
+  },
+  {
+   "name": "Potato",
+   "value": "Energy",
+   "form": "Purée"
+  },
+  {
+   "name": "Spinach, beetroot",
+   "value": "Folate, iron",
+   "form": "Mixed with other vegetables"
+  },
+  {
+   "name": "Eggplant, pepper, tomato",
+   "value": "Vitamin C",
+   "form": "Cooked, peeled"
+  },
+  {
+   "name": "Green peas, green beans",
+   "value": "Iron, fiber",
+   "form": "Mashed"
+  },
+  {
+   "name": "Apple, pear",
+   "value": "Fiber",
+   "form": "Cooked purée, grated"
+  },
+  {
+   "name": "Banana, avocado",
+   "value": "Energy, healthy fats",
+   "form": "Long strips, mashed"
+  },
+  {
+   "name": "Peach, apricot, plum",
+   "value": "Vitamins A, C, fiber",
+   "form": "Peeled, soft"
+  },
+  {
+   "name": "Strawberry, kiwi, orange",
+   "value": "Vitamin C",
+   "form": "Mashed, slices"
+  },
+  {
+   "name": "Grapes, cherries, blueberries",
+   "value": "Antioxidants",
+   "form": "Quartered lengthwise; squash blueberries"
+  },
+  {
+   "name": "Dried apricots, raisins, dates",
+   "value": "Iron, fiber",
+   "form": "Soaked, puréed"
+  },
+  {
+   "name": "Olive oil",
+   "value": "Healthy fat",
+   "form": "1 teaspoon added to food"
+  },
+  {
+   "name": "Peanut butter",
+   "value": "Protein",
+   "form": "Thinned, mixed into purée"
+  },
+  {
+   "name": "Almond, walnut, hazelnut butter",
+   "value": "Vitamin E, omega-3",
+   "form": "Ground or as a paste"
+  },
+  {
+   "name": "Tahini (sesame)",
+   "value": "Calcium, iron",
+   "form": "Mixed into porridge"
+  },
+  {
+   "name": "Hemp, chia seeds",
+   "value": "Omega-3",
+   "form": "Ground"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Beef + pumpkin purée",
+   "Chicken + carrot + potato purée",
+   "Red lentil soup",
+   "Oat porridge + apple purée",
+   "Buckwheat porridge",
+   "Banana purée with yogurt",
+   "Avocado + banana mash",
+   "Mashed hard-boiled egg",
+   "Steamed broccoli \"trees\"",
+   "Salmon + sweet potato purée",
+   "Chickpea hummus (with tahini)",
+   "Baked pear purée + cinnamon"
+  ],
+  "9-11": [
+   "Mini beef meatballs",
+   "Veggie omelet strips",
+   "Fish patties",
+   "Yogurt oat pancakes",
+   "Chicken rice porridge + zucchini",
+   "Lamb and vegetable stew",
+   "Lentil patties",
+   "Pasta + meat tomato sauce",
+   "Buckwheat + liver sauce",
+   "Cottage cheese syrniki (baked)",
+   "Broccoli-cheese muffins",
+   "Apple-oat bars"
+  ],
+  "12-24": [
+   "Grape leaf dolma (small)",
+   "Cabbage dolma",
+   "Kids' plov (pilaf)",
+   "Chicken noodle soup",
+   "Dushbara (mini dumpling soup)",
+   "Herb kuku (baked frittata)",
+   "Lentil soup",
+   "Fish cakes + mashed potato",
+   "Buckwheat + beef goulash",
+   "Menemen (mild)",
+   "Kids' lasagna",
+   "Yogurt + fruit + oat parfait",
+   "Cottage cheese bake",
+   "Soupy khingal"
+  ],
+  "24-48": [
+   "Chicken veggie meatballs + bulgur",
+   "Baked salmon + vegetables",
+   "Bean stew",
+   "Homemade pizza (whole grain)",
+   "Qutab (herb / meat)",
+   "Borscht",
+   "Quinoa salad + chickpeas",
+   "Egg toast \"soldiers\"",
+   "Smoothie bowl",
+   "Homemade nuggets (baked)"
+  ]
+ },
+ "emergency": "Swelling of the face or lips, trouble breathing, repeated vomiting, paleness — call 103 / 112 right away.",
+ "disclaimer": "This guide is for educational purposes and is not medical advice. Your pediatrician determines iron and vitamin doses. Sources: WHO (2023), AAP, Turkish Ministry of Health, Union of Pediatricians of Russia, SACN."
+}
