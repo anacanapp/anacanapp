@@ -21,6 +21,8 @@ import { tr } from "@/lib/tr";
 import { NEW_LANGUAGE_CODES } from '@/lib/app-languages';
 import { useIsRtl, rtlX } from '@/lib/rtl';
 import { feature37Text } from '@/lib/feature37-i18n';
+import { offersBreastfeeding } from '@/lib/breastfeeding';
+import { useChildren } from '@/hooks/useChildren';
 import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
 
 const openTool = (tool: string) => window.dispatchEvent(new CustomEvent<PushNavIntent>(PUSH_NAV_EVENT, { detail: { tool } }));
@@ -100,6 +102,8 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
   const { profile } = useAuth();
   const isMultiple = !!profile?.multiples_type && profile.multiples_type !== 'single';
   const babyCount = Math.max(1, Math.min(4, profile?.baby_count || 1));
+  const { selectedChild, getChildAge } = useChildren();
+  const childMonths = selectedChild ? getChildAge(selectedChild).months : null;
 
   // Dynamic data from database
   const { data: dbMealTypes = [] } = useMealTypes(lifeStage || 'flow');
@@ -476,6 +480,7 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
                   {mealTypes.map((meal, index) => {
                   // The mother's own "nursing meal" stayed empty; the row now opens the baby's feeding log.
                   if (meal.id === 'nursing') {
+                    if (!offersBreastfeeding(childMonths)) return null;
                     return (
                       <button key={meal.id} type="button" onClick={() => openTool('baby-tracker')}
                         className="a-list-row w-full text-start" style={{ width: '100%', background: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: 'none', cursor: 'pointer' }}>

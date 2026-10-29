@@ -3,6 +3,7 @@ import { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Milk, Moon, Droplets, Plus, Trash2, type LucideIcon } from 'lucide-react';
 import { useBabyLogs } from '@/hooks/useBabyLogs';
 import { useChildren } from '@/hooks/useChildren';
+import { offersBreastfeeding } from '@/lib/breastfeeding';
 import { useBabyCareActions } from '@/hooks/useBabyCareActions';
 import { useAchievements } from '@/hooks/useAchievements';
 import { useToast } from '@/hooks/use-toast';
@@ -213,6 +214,8 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
     diaperCount: diaperToday.total, wetCount: diaperToday.wet, dirtyCount: diaperToday.dirty, mixedCount: diaperToday.mixed,
   }), [sleepToday, feedToday, diaperToday]);
   const age = selectedChild ? getChildAge(selectedChild) : null;
+  // After the second birthday breastfeeding is no longer offered (a running timer still shows).
+  const showBreast = offersBreastfeeding(age?.months) || !!leftTimer || !!rightTimer;
   const insight = useBabyInsight(selectedChild && age ? insightStats : null,
     selectedChild && age ? { id: selectedChild.id, ageMonths: age.months, ageDays: age.days, gender: selectedChild.gender ?? undefined } : null);
 
@@ -250,12 +253,12 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
 
       {tab === 'feeding' && (
         <div className="bt-stack">
-          <Card title={bc('babytracker_live_breast')}>
+          {showBreast && <Card title={bc('babytracker_live_breast')}>
             <div className="bt-two">
               <BreastButton label={bc('babytracker_breast_left')} startedAt={leftTimer?.startTime} busy={busy} onClick={() => void toggleBreast('left')} />
               <BreastButton label={bc('babytracker_breast_right')} startedAt={rightTimer?.startTime} busy={busy} onClick={() => void toggleBreast('right')} />
             </div>
-          </Card>
+          </Card>}
           <TrackerAIInsight section="feeding" api={insight} />
           <Card title={bc('babytracker_bottle')}>
             <form className="bt-inline" onSubmit={(e) => { e.preventDefault(); void saveFormula(); }}>
@@ -268,9 +271,11 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
             </form>
           </Card>
           <Card title={bc('babytracker_today')}>
-            <Row label={bc('babytracker_breast_left')} value={`${feedToday.left} ${times}`} />
-            <Row label={bc('babytracker_breast_right')} value={`${feedToday.right} ${times}`} />
-            <Row label={bc('babytracker_breast_minutes')} value={dur(feedToday.breastMinutes)} />
+            {showBreast && <>
+              <Row label={bc('babytracker_breast_left')} value={`${feedToday.left} ${times}`} />
+              <Row label={bc('babytracker_breast_right')} value={`${feedToday.right} ${times}`} />
+              <Row label={bc('babytracker_breast_minutes')} value={dur(feedToday.breastMinutes)} />
+            </>}
             <Row label={bc('babytracker_formula')} value={`${feedToday.formulaCount} ${times}${feedToday.formulaMl ? ` · ${feedToday.formulaMl} ml` : ''}`} />
             <Row label={bc('babytracker_solid')} value={`${feedToday.solidCount} ${times}`} />
             <Row label={bc('babytracker_avg_gap')} value={feedToday.averageGapMinutes ? dur(feedToday.averageGapMinutes) : '—'} />
@@ -278,7 +283,7 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
           </Card>
           <Card title={totalTitle}>
             <Row label={bc('babytracker_total')} value={String(feedPeriod.total)} />
-            <Row label={bc('babytracker_breast_minutes')} value={dur(feedPeriod.breastMinutes)} />
+            {showBreast && <Row label={bc('babytracker_breast_minutes')} value={dur(feedPeriod.breastMinutes)} />}
             <Row label={bc('babytracker_formula')} value={`${feedPeriod.formulaCount}${feedPeriod.formulaMl ? ` · ${feedPeriod.formulaMl} ml` : ''}`} />
             <Row label={bc('babytracker_solid')} value={String(feedPeriod.solidCount)} />
             <Row label={avgLabel} value={`${oneDecimal(perDay(feedPeriod.total, days))} ${bc('babytracker_per_day')}`} />

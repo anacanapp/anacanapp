@@ -56,6 +56,7 @@ import TeethingWidget from '@/components/mommy/TeethingWidget';
 import BannerSlot from '@/components/banners/BannerSlot';
 import { AdInlineAnchor } from '@/components/ads/AdExperienceProvider';
 import { AptekHomeCard } from '@/components/aptek/AptekEntry';
+import { offersBreastfeeding } from '@/lib/breastfeeding';
 import UpcomingAppointments from '@/components/home/UpcomingAppointments';
 import DailySummaryAutoSync from '@/components/partner/DailySummaryAutoSync';
 import PartnerCareCard from '@/components/partner/v2/PartnerCareCard';
@@ -1361,8 +1362,8 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
             exit={{ opacity: 0, height: 0 }}
             className="grid grid-cols-2 gap-2 mb-3">
             
-              {/* Breastfeeding buttons - hide after 12 months */}
-              {babyData && babyData.ageInMonths < 12 &&
+              {/* Breastfeeding buttons until the second birthday */}
+              {babyData && offersBreastfeeding(babyData.ageInMonths) &&
             <>
                   <motion.button
                 onClick={() => toggleFeeding('left')}
