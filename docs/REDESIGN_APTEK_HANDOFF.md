@@ -459,3 +459,19 @@ was done.
   - 8 timers; no DNS or database change.
 - **Rollback:** `rollback-homes-web-plan.json` returns to the design-pass build (`dfd63929…`), followed by the
   earlier chain.
+
+## Original-design web deploy — 2026-10-29
+- **Contents:** commits `88a65fa` (redesign UI reverted, features kept) and `44130aa` (Upcoming
+  appointments card on the three homes), built with `npm run build` (Google mode).
+- **Image:** `gateway@sha256:1354acb417dda7be6381754d84c39b77bbdd8feebb4a04691895854a5b22a157`
+  (tag `revert-design-202610290733`, Cloud Build `0a54b733`, service account `anacan-build`), built
+  `FROM` live `487bce5c…`; adds only `index.html`, `assets/` and `aptek/`.
+- **Isolated test (:8089):** health, `index.html`, admission, `/brands`, `/blog/`, sitemap, auth,
+  REST and the website matched live; new and previous live assets both served (gzip).
+- **Deploy:** `deploy-current-web.py original-design-web-plan.json` returned `passed`;
+  `index.html` sha `eabd2670…`; previous container `anacan-gateway-before-refresh-1793259436`;
+  no DNS or database change. Public `app.anacan.az` serves the new `index.html`; `/?web=admin`
+  loads with no console errors.
+- **Rollback:** `rollback-original-design-web-plan.json` returns to the homes build (`487bce5c…`),
+  followed by the earlier chain.
+
