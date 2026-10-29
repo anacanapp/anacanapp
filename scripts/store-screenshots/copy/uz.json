@@ -1,0 +1,141 @@
+{
+  "lang": "uz",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "Onalar uchun super-ilova",
+      "title": "Eng yaqin <em>dugonang</em>",
+      "sub": "Hayz, homiladorlik va onalik — barchasi bitta ilovada",
+      "chips": [
+        [
+          "Anacan.AI",
+          "24/7 yoningda"
+        ],
+        [
+          "30+ vosita",
+          "bitta ilovada"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Homiladorlik",
+      "title": "Homiladorlikni <em>hafta-hafta</em> kuzat",
+      "sub": "Chaqaloq oʻlchami, rivojlanishi va senga mos maslahatlar",
+      "chips": [
+        [
+          "Tepki hisoblagich",
+          "bir bosishda"
+        ],
+        [
+          "Shifokor qabuli",
+          "eslatma bilan"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Savollaringga javob, <em>24/7</em>",
+      "sub": "Sunʼiy intellekt yordamching tungi soat 3 da ham yoningda",
+      "chips": [
+        [
+          "Tezkor javoblar",
+          "kutmasdan"
+        ],
+        [
+          "Ishonchli maʼlumot",
+          "senga mos"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Hayz kuzatuvi",
+      "title": "Sikling <em>nazorat ostida</em>",
+      "sub": "Hayz, ovulyatsiya va unumdor kunlar uchun aniq prognoz",
+      "chips": [
+        [
+          "Aqlli prognoz",
+          "sen bilan oʻrganadi"
+        ],
+        [
+          "Ovulyatsiya kuni",
+          "aniq hisob"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Onalik",
+      "title": "Chaqalogʻing uchun <em>hammasi</em> shu yerda",
+      "sub": "Uyqu, ovqatlantirish, rivojlanish va hayz — bir joyda",
+      "chips": [
+        [
+          "Uyqu tovushlari",
+          "oq shovqin va allalar"
+        ],
+        [
+          "Oʻsish egri chiziqlari",
+          "JSST standarti"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "AI vositalar",
+      "title": "<em>Sehrli</em> AI vositalari",
+      "sub": "Yigʻi tahlili, AI fotosessiya, taglik skaneri va ertak generatori",
+      "chips": [
+        [
+          "AI fotosessiya",
+          "sehrli chaqaloq rasmlari"
+        ],
+        [
+          "Taglik skaneri",
+          "AI tahlil"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Hamjamiyat",
+      "title": "Sen <em>yolgʻiz emassan</em>",
+      "sub": "Minglab onalar bilan boʻlish, soʻra va qoʻllab-quvvatlash ol",
+      "chips": [
+        [
+          "Hikoyalar",
+          "kuningni ulash"
+        ],
+        [
+          "Xabarlar",
+          "dugonalaring bilan"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Hamroh",
+      "title": "Otalar uchun <em>maxsus</em> rejim",
+      "sub": "Jonli yangiliklar, sevgi xatlari va SOS — ota ham yoningda",
+      "chips": [
+        [
+          "SOS tugmasi",
+          "bir bosishda"
+        ],
+        [
+          "Sevgi xatlari",
+          "tayyor javoblar"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Vositalar",
+      "title": "<em>30+ vosita</em> — bitta ilova",
+      "sub": "Tepki hisoblagich, toʻlgʻoq taymeri, uyqu tovushlari, emlash taqvimi va boshqalar",
+      "chips": [
+        [
+          "Premium vositalar",
+          "3 kun bepul"
+        ],
+        [
+          "Mini oʻyinlar",
+          "dam olish uchun"
+        ]
+      ]
+    }
+  }
+}

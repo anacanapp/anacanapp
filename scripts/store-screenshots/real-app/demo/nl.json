@@ -1,0 +1,34 @@
+{
+  "country": "NL",
+  "locale": "nl-NL",
+  "names": {
+    "mother": "Sanne",
+    "baby": "Emma",
+    "cycle": "Lotte",
+    "partner": "Daan"
+  },
+  "appointments": [
+    "Echo",
+    "Geboortecentrum",
+    "Bloedonderzoek",
+    "Consult bij de kinderarts"
+  ],
+  "authors": [
+    "Lisa de Vries",
+    "Anouk Jansen",
+    "Fleur Bakker"
+  ],
+  "posts": [
+    "Vandaag voor het eerst de schopjes gevoeld! 🥹 Ik kan dit gevoel niet onder woorden brengen. In welke week was het bij jullie? #zwangerschap",
+    "Om 3 uur ’s nachts, toen mijn baby niet wilde slapen, hielp praten met Anacan.AI echt. Aanrader voor nieuwe moeders 💛",
+    "We zijn 24 weken en ik ben begonnen met de vluchttas. Wat staat er op jullie lijst? 🧳"
+  ],
+  "ai_question": "Wat helpt tegen misselijkheid?",
+  "ai_answer": [
+    "3 eenvoudige tips tegen misselijkheid:\n\n",
+    "1. **Gemberthee** — ’s ochtends op een lege maag.\n",
+    "2. **Kleine, frequente maaltijden** — laat je maag niet leeg.\n",
+    "3. **Voordat je opstaat** een paar droge crackers eten.\n\n",
+    "Drink de hele dag door water 💧 Wordt het overgeven erger, neem contact op met je arts."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "country": "DE",
+  "locale": "de-DE",
+  "names": {
+    "mother": "Lena",
+    "baby": "Mia",
+    "cycle": "Hannah",
+    "partner": "Jonas"
+  },
+  "appointments": [
+    "Ultraschall",
+    "Frauenklinik am Park",
+    "Bluttest",
+    "Kinderarzt-Termin"
+  ],
+  "authors": [
+    "Laura Schmidt",
+    "Julia Becker",
+    "Sarah Wagner"
+  ],
+  "posts": [
+    "Heute habe ich die ersten Tritte gespürt! 🥹 Ich kann dieses Gefühl nicht in Worte fassen. In welcher Woche war es bei euch? #schwangerschaft",
+    "Um 3 Uhr nachts, als mein Baby nicht schlafen wollte, hat mir Anacan.AI sehr geholfen. Kann ich allen neuen Mamas empfehlen 💛",
+    "Wir sind in der 24. Woche und ich packe schon die Kliniktasche. Was steht auf eurer Liste? 🧳"
+  ],
+  "ai_question": "Was hilft gegen Übelkeit?",
+  "ai_answer": [
+    "3 einfache Tipps gegen Übelkeit:\n\n",
+    "1. **Ingwertee** — morgens eine Tasse auf nüchternen Magen.\n",
+    "2. **Kleine, häufige Mahlzeiten** — lass den Magen nicht leer werden.\n",
+    "3. **Vor dem Aufstehen** ein paar trockene Kekse essen.\n\n",
+    "Trink über den Tag verteilt viel Wasser 💧 Wird das Erbrechen stärker, wende dich an deine Ärztin."
+  ]
+}

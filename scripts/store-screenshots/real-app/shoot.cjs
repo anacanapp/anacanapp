@@ -13,7 +13,7 @@ const session = { access_token: jwt, refresh_token: 'r', token_type: 'bearer', e
 const seen = new Map();
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, proxy: process.env.HTTPS_PROXY ? { server: process.env.HTTPS_PROXY, bypass: '<-loopback>,127.0.0.1,localhost' } : undefined });
-  const ctx = await b.newContext({ viewport: { width: 390, height: S.height || 863 }, deviceScaleFactor: 3, ignoreHTTPSErrors: true, locale: 'az-AZ', timezoneId: 'Asia/Baku' });
+  const ctx = await b.newContext({ viewport: { width: 390, height: S.height || 863 }, deviceScaleFactor: 3, ignoreHTTPSErrors: true, locale: S.locale || 'az-AZ', timezoneId: 'Asia/Baku' });
   await ctx.addInitScript(([session, ls]) => {
     if (sessionStorage.getItem('__seeded')) return; sessionStorage.setItem('__seeded', '1');
     localStorage.setItem('sb-api-auth-token', JSON.stringify(session));

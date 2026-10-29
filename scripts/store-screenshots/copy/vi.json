@@ -1,0 +1,141 @@
+{
+  "lang": "vi",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "Siêu ứng dụng cho mẹ",
+      "title": "Người bạn <em>thân nhất</em>",
+      "sub": "Kinh nguyệt, thai kỳ và làm mẹ — tất cả trong một ứng dụng",
+      "chips": [
+        [
+          "Anacan.AI",
+          "luôn bên bạn 24/7"
+        ],
+        [
+          "30+ công cụ",
+          "trong một ứng dụng"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Thai kỳ",
+      "title": "Theo dõi thai kỳ <em>từng tuần</em>",
+      "sub": "Kích thước, sự phát triển của bé và lời khuyên dành riêng cho bạn",
+      "chips": [
+        [
+          "Đếm cử động thai",
+          "chỉ một chạm"
+        ],
+        [
+          "Lịch khám",
+          "có nhắc nhở"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Giải đáp thắc mắc <em>24/7</em>",
+      "sub": "Trợ lý AI luôn bên bạn, kể cả lúc 3 giờ sáng",
+      "chips": [
+        [
+          "Trả lời tức thì",
+          "không phải chờ"
+        ],
+        [
+          "Thông tin tin cậy",
+          "phù hợp với bạn"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Theo dõi chu kỳ",
+      "title": "Chu kỳ <em>trong tầm tay</em>",
+      "sub": "Dự đoán chính xác kỳ kinh, rụng trứng và ngày dễ thụ thai",
+      "chips": [
+        [
+          "Dự đoán thông minh",
+          "học cùng bạn"
+        ],
+        [
+          "Ngày rụng trứng",
+          "tính toán chính xác"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Làm mẹ",
+      "title": "<em>Mọi thứ</em> cho bé ở đây",
+      "sub": "Giấc ngủ, cho ăn, phát triển và kinh nguyệt — ở cùng một nơi",
+      "chips": [
+        [
+          "Âm thanh ru ngủ",
+          "tiếng ồn trắng & hát ru"
+        ],
+        [
+          "Biểu đồ tăng trưởng",
+          "chuẩn WHO"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "Công cụ AI",
+      "title": "Công cụ AI <em>kỳ diệu</em>",
+      "sub": "Phân tích tiếng khóc, chụp ảnh AI, quét tã và tạo truyện cổ tích",
+      "chips": [
+        [
+          "Chụp ảnh AI",
+          "ảnh bé kỳ diệu"
+        ],
+        [
+          "Quét tã",
+          "phân tích AI"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Cộng đồng",
+      "title": "Bạn <em>không đơn độc</em>",
+      "sub": "Chia sẻ, đặt câu hỏi và nhận hỗ trợ từ hàng nghìn mẹ",
+      "chips": [
+        [
+          "Tin",
+          "chia sẻ ngày của bạn"
+        ],
+        [
+          "Tin nhắn",
+          "với bạn bè"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Bạn đời",
+      "title": "Chế độ <em>đặc biệt</em> cho bố",
+      "sub": "Cập nhật trực tiếp, lời nhắn yêu thương và SOS — bố luôn đồng hành",
+      "chips": [
+        [
+          "Nút SOS",
+          "chỉ một chạm"
+        ],
+        [
+          "Lời nhắn yêu thương",
+          "trả lời có sẵn"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Công cụ",
+      "title": "<em>30+ công cụ</em> — một ứng dụng",
+      "sub": "Đếm cử động thai, đo cơn gò, âm thanh ru ngủ, lịch tiêm chủng và hơn thế nữa",
+      "chips": [
+        [
+          "Công cụ Premium",
+          "miễn phí 3 ngày"
+        ],
+        [
+          "Trò chơi nhỏ",
+          "để thư giãn"
+        ]
+      ]
+    }
+  }
+}

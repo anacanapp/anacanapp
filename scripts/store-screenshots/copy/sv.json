@@ -1,0 +1,141 @@
+{
+  "lang": "sv",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "Superappen för mammor",
+      "title": "Din närmaste <em>vän</em>",
+      "sub": "Mens, graviditet och föräldraskap — allt i en app",
+      "chips": [
+        [
+          "Anacan.AI",
+          "med dig dygnet runt"
+        ],
+        [
+          "30+ verktyg",
+          "i en app"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Graviditet",
+      "title": "Följ graviditeten <em>vecka för vecka</em>",
+      "sub": "Bebisens storlek, utveckling och tips anpassade för dig",
+      "chips": [
+        [
+          "Sparkräknare",
+          "med ett tryck"
+        ],
+        [
+          "Läkarbesök",
+          "med påminnelse"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Svar på dina frågor, <em>dygnet runt</em>",
+      "sub": "Din AI-assistent finns där, även klockan 3 på natten",
+      "chips": [
+        [
+          "Snabba svar",
+          "utan väntan"
+        ],
+        [
+          "Pålitlig info",
+          "anpassad för dig"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Menskalender",
+      "title": "Din cykel <em>under kontroll</em>",
+      "sub": "Exakta prognoser för mens, ägglossning och fertila dagar",
+      "chips": [
+        [
+          "Smart prognos",
+          "lär sig med dig"
+        ],
+        [
+          "Ägglossning",
+          "exakt beräkning"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Föräldraskap",
+      "title": "<em>Allt</em> för din bebis, här",
+      "sub": "Sömn, matning, utveckling och mens — på ett ställe",
+      "chips": [
+        [
+          "Sömnljud",
+          "vitt brus och vaggvisor"
+        ],
+        [
+          "Tillväxtkurvor",
+          "WHO-standard"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "AI-verktyg",
+      "title": "<em>Magiska</em> AI-verktyg",
+      "sub": "Gråtanalys, AI-fotografering, blöjskanner och sagogenerator",
+      "chips": [
+        [
+          "AI-foto",
+          "magiska bebisbilder"
+        ],
+        [
+          "Blöjskanner",
+          "AI-analys"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Community",
+      "title": "Du är <em>inte ensam</em>",
+      "sub": "Dela, fråga och få stöd från tusentals mammor",
+      "chips": [
+        [
+          "Berättelser",
+          "dela din dag"
+        ],
+        [
+          "Meddelanden",
+          "med vänner"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Partner",
+      "title": "Ett <em>speciellt</em> läge för pappor",
+      "sub": "Liveuppdateringar, kärleksbrev och SOS — pappa är med",
+      "chips": [
+        [
+          "SOS-knapp",
+          "med ett tryck"
+        ],
+        [
+          "Kärleksbrev",
+          "färdiga svar"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Verktyg",
+      "title": "<em>30+ verktyg</em> — en app",
+      "sub": "Sparkräknare, värktimer, sömnljud, vaccinationskalender och mer",
+      "chips": [
+        [
+          "Premiumverktyg",
+          "3 dagar gratis"
+        ],
+        [
+          "Minispel",
+          "för att varva ner"
+        ]
+      ]
+    }
+  }
+}

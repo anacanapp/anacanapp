@@ -1,0 +1,141 @@
+{
+  "lang": "pl",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "Super-aplikacja dla mam",
+      "title": "Twoja najbliższa <em>przyjaciółka</em>",
+      "sub": "Okres, ciąża i macierzyństwo — wszystko w jednej aplikacji",
+      "chips": [
+        [
+          "Anacan.AI",
+          "z Tobą 24/7"
+        ],
+        [
+          "30+ narzędzi",
+          "w jednej aplikacji"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Ciąża",
+      "title": "Śledź ciążę <em>tydzień po tygodniu</em>",
+      "sub": "Wielkość i rozwój dziecka oraz porady dla Ciebie",
+      "chips": [
+        [
+          "Licznik ruchów",
+          "jednym dotknięciem"
+        ],
+        [
+          "Wizyty u lekarza",
+          "z przypomnieniem"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Odpowiedzi na pytania, <em>24/7</em>",
+      "sub": "Twoja asystentka AI jest przy Tobie nawet o 3 w nocy",
+      "chips": [
+        [
+          "Natychmiastowe odpowiedzi",
+          "bez czekania"
+        ],
+        [
+          "Rzetelne informacje",
+          "dopasowane do Ciebie"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Kalendarz cyklu",
+      "title": "Twój cykl <em>pod kontrolą</em>",
+      "sub": "Dokładne prognozy okresu, owulacji i dni płodnych",
+      "chips": [
+        [
+          "Inteligentna prognoza",
+          "uczy się z Tobą"
+        ],
+        [
+          "Dzień owulacji",
+          "dokładne obliczenie"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Macierzyństwo",
+      "title": "<em>Wszystko</em> dla dziecka w jednym miejscu",
+      "sub": "Sen, karmienie, rozwój i okres — razem",
+      "chips": [
+        [
+          "Dźwięki do snu",
+          "biały szum i kołysanki"
+        ],
+        [
+          "Siatki centylowe",
+          "standard WHO"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "Narzędzia AI",
+      "title": "<em>Magiczne</em> narzędzia AI",
+      "sub": "Analiza płaczu, sesja zdjęciowa AI, skaner pieluszki i generator bajek",
+      "chips": [
+        [
+          "Sesja AI",
+          "magiczne zdjęcia dziecka"
+        ],
+        [
+          "Skaner pieluszki",
+          "analiza AI"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Społeczność",
+      "title": "Nie jesteś <em>sama</em>",
+      "sub": "Dziel się, pytaj i otrzymuj wsparcie od tysięcy mam",
+      "chips": [
+        [
+          "Relacje",
+          "podziel się dniem"
+        ],
+        [
+          "Wiadomości",
+          "z przyjaciółkami"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Partner",
+      "title": "<em>Specjalny</em> tryb dla taty",
+      "sub": "Aktualności na żywo, liściki miłosne i SOS — tata jest przy Tobie",
+      "chips": [
+        [
+          "Przycisk SOS",
+          "jednym dotknięciem"
+        ],
+        [
+          "Liściki miłosne",
+          "gotowe odpowiedzi"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Narzędzia",
+      "title": "<em>30+ narzędzi</em> — jedna aplikacja",
+      "sub": "Licznik ruchów, stoper skurczów, dźwięki do snu, kalendarz szczepień i więcej",
+      "chips": [
+        [
+          "Narzędzia Premium",
+          "3 dni za darmo"
+        ],
+        [
+          "Minigry",
+          "na odpoczynek"
+        ]
+      ]
+    }
+  }
+}

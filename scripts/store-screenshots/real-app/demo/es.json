@@ -1,0 +1,34 @@
+{
+  "country": "ES",
+  "locale": "es-ES",
+  "names": {
+    "mother": "Lucía",
+    "baby": "Sofía",
+    "cycle": "Marta",
+    "partner": "Pablo"
+  },
+  "appointments": [
+    "Ecografía",
+    "Maternidad Central",
+    "Análisis de sangre",
+    "Revisión con el pediatra"
+  ],
+  "authors": [
+    "Laura García",
+    "Carmen López",
+    "Elena Martín"
+  ],
+  "posts": [
+    "¡Hoy sentí las primeras patadas! 🥹 No puedo describir lo que sentí. ¿En qué semana fue para vosotras? #embarazo",
+    "Hablar con Anacan.AI a las 3 de la mañana cuando mi bebé no dormía me ayudó muchísimo. Se lo recomiendo a las mamás primerizas 💛",
+    "Estamos en la semana 24 y he empezado a preparar la bolsa del hospital. ¿Qué tenéis en vuestra lista? 🧳"
+  ],
+  "ai_question": "¿Qué ayuda con las náuseas?",
+  "ai_answer": [
+    "3 formas sencillas de aliviar las náuseas:\n\n",
+    "1. **Infusión de jengibre** — una taza por la mañana en ayunas.\n",
+    "2. **Comidas pequeñas y frecuentes** — no dejes el estómago vacío.\n",
+    "3. **Antes de levantarte**, come unas galletas saladas.\n\n",
+    "Bebe agua a lo largo del día 💧 Si los vómitos empeoran, consulta a tu médico."
+  ]
+}

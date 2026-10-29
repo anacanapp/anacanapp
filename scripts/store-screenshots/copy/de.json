@@ -1,0 +1,141 @@
+{
+  "lang": "de",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "Die Super-App für Mamas",
+      "title": "Deine engste <em>Freundin</em>",
+      "sub": "Periode, Schwangerschaft und Mutterschaft — alles in einer App",
+      "chips": [
+        [
+          "Anacan.AI",
+          "rund um die Uhr da"
+        ],
+        [
+          "30+ Tools",
+          "in einer App"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Schwangerschaft",
+      "title": "Deine Schwangerschaft <em>Woche für Woche</em>",
+      "sub": "Größe und Entwicklung deines Babys und Tipps nur für dich",
+      "chips": [
+        [
+          "Tritt-Zähler",
+          "mit einem Tipp"
+        ],
+        [
+          "Arzttermine",
+          "mit Erinnerung"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Antworten, <em>rund um die Uhr</em>",
+      "sub": "Deine KI-Begleiterin ist auch um 3 Uhr nachts für dich da",
+      "chips": [
+        [
+          "Sofortige Antworten",
+          "ohne Warten"
+        ],
+        [
+          "Verlässliche Infos",
+          "passend für dich"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Zyklus-Tracker",
+      "title": "Dein Zyklus <em>im Griff</em>",
+      "sub": "Genaue Prognosen für Periode, Eisprung und fruchtbare Tage",
+      "chips": [
+        [
+          "Smarte Prognose",
+          "lernt mit dir"
+        ],
+        [
+          "Eisprung",
+          "genau berechnet"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Mutterschaft",
+      "title": "<em>Alles</em> für dein Baby an einem Ort",
+      "sub": "Schlaf, Stillen, Entwicklung und deine Periode — zusammen",
+      "chips": [
+        [
+          "Schlafgeräusche",
+          "Rauschen & Schlaflieder"
+        ],
+        [
+          "Wachstumskurven",
+          "WHO-Standard"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "KI-Tools",
+      "title": "<em>Magische</em> KI-Tools",
+      "sub": "Weinanalyse, KI-Fotoshooting, Windelscanner und Märchengenerator",
+      "chips": [
+        [
+          "KI-Fotoshooting",
+          "magische Babyfotos"
+        ],
+        [
+          "Windelscanner",
+          "KI-Analyse"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Community",
+      "title": "Du bist <em>nicht allein</em>",
+      "sub": "Teile, frage und erhalte Unterstützung von tausenden Mamas",
+      "chips": [
+        [
+          "Stories",
+          "teile deinen Tag"
+        ],
+        [
+          "Nachrichten",
+          "mit Freundinnen"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Partner",
+      "title": "Ein <em>besonderer</em> Modus für Papas",
+      "sub": "Live-Updates, Liebesnachrichten und SOS — Papa ist dabei",
+      "chips": [
+        [
+          "SOS-Taste",
+          "mit einem Tipp"
+        ],
+        [
+          "Liebesnachrichten",
+          "fertige Antworten"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Tools",
+      "title": "<em>30+ Tools</em> — eine App",
+      "sub": "Tritt-Zähler, Wehen-Timer, Schlafgeräusche, Impfkalender und mehr",
+      "chips": [
+        [
+          "Premium-Tools",
+          "3 Tage gratis"
+        ],
+        [
+          "Minispiele",
+          "zum Entspannen"
+        ]
+      ]
+    }
+  }
+}

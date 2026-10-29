@@ -1,0 +1,141 @@
+{
+  "lang": "nl",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "De super-app voor moeders",
+      "title": "Je beste <em>vriendin</em>",
+      "sub": "Menstruatie, zwangerschap en moederschap — alles in één app",
+      "chips": [
+        [
+          "Anacan.AI",
+          "24/7 bij je"
+        ],
+        [
+          "30+ tools",
+          "in één app"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Zwangerschap",
+      "title": "Volg je zwangerschap <em>week voor week</em>",
+      "sub": "Grootte en ontwikkeling van je baby en tips op maat",
+      "chips": [
+        [
+          "Schoppenteller",
+          "met één tik"
+        ],
+        [
+          "Doktersafspraken",
+          "met herinnering"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Antwoord op je vragen, <em>24/7</em>",
+      "sub": "Je AI-hulp is er voor je, zelfs om 3 uur ’s nachts",
+      "chips": [
+        [
+          "Direct antwoord",
+          "zonder wachten"
+        ],
+        [
+          "Betrouwbare info",
+          "op maat"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Cyclus bijhouden",
+      "title": "Je cyclus <em>onder controle</em>",
+      "sub": "Nauwkeurige voorspelling van menstruatie, eisprong en vruchtbare dagen",
+      "chips": [
+        [
+          "Slimme voorspelling",
+          "leert met je mee"
+        ],
+        [
+          "Eisprong",
+          "precies berekend"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Moederschap",
+      "title": "<em>Alles</em> voor je baby, hier",
+      "sub": "Slapen, voeden, ontwikkeling en menstruatie — op één plek",
+      "chips": [
+        [
+          "Slaapgeluiden",
+          "witte ruis en slaapliedjes"
+        ],
+        [
+          "Groeicurves",
+          "WHO-standaard"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "AI-tools",
+      "title": "<em>Magische</em> AI-tools",
+      "sub": "Huilanalyse, AI-fotoshoot, luierscanner en verhaalgenerator",
+      "chips": [
+        [
+          "AI-fotoshoot",
+          "magische babyfoto’s"
+        ],
+        [
+          "Luierscanner",
+          "AI-analyse"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Community",
+      "title": "Je bent <em>niet alleen</em>",
+      "sub": "Deel, vraag en krijg steun van duizenden moeders",
+      "chips": [
+        [
+          "Verhalen",
+          "deel je dag"
+        ],
+        [
+          "Berichten",
+          "met vriendinnen"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Partner",
+      "title": "Een <em>speciale</em> modus voor papa’s",
+      "sub": "Live updates, liefdesbriefjes en SOS — papa is er ook bij",
+      "chips": [
+        [
+          "SOS-knop",
+          "met één tik"
+        ],
+        [
+          "Liefdesbriefjes",
+          "kant-en-klare antwoorden"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Tools",
+      "title": "<em>30+ tools</em> — één app",
+      "sub": "Schoppenteller, weeëntimer, slaapgeluiden, vaccinatiekalender en meer",
+      "chips": [
+        [
+          "Premium-tools",
+          "3 dagen gratis"
+        ],
+        [
+          "Minigames",
+          "om te ontspannen"
+        ]
+      ]
+    }
+  }
+}

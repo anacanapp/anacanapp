@@ -1,13 +1,6 @@
 {
   "lang": "az",
   "dir": "ltr",
-  "nav": {
-    "home": "Əsas",
-    "tools": "Alətlər",
-    "community": "Cəmiyyət",
-    "ai": "Anacan.AI",
-    "profile": "Profil"
-  },
   "slides": {
     "hero": {
       "pill": "Analıq super-tətbiqi",
@@ -460,5 +453,12 @@
         ]
       }
     }
+  },
+  "nav": {
+    "home": "Əsas",
+    "tools": "Alətlər",
+    "community": "Cəmiyyət",
+    "ai": "Anacan.AI",
+    "profile": "Profil"
   }
 }

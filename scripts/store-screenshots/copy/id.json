@@ -1,0 +1,141 @@
+{
+  "lang": "id",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "Aplikasi super untuk ibu",
+      "title": "Sahabat <em>terdekatmu</em>",
+      "sub": "Menstruasi, kehamilan, dan menjadi ibu — semua dalam satu aplikasi",
+      "chips": [
+        [
+          "Anacan.AI",
+          "siap 24/7"
+        ],
+        [
+          "30+ alat",
+          "dalam satu aplikasi"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Kehamilan",
+      "title": "Pantau kehamilan <em>minggu demi minggu</em>",
+      "sub": "Ukuran bayi, perkembangan, dan tips khusus untukmu",
+      "chips": [
+        [
+          "Penghitung tendangan",
+          "sekali ketuk"
+        ],
+        [
+          "Jadwal dokter",
+          "dengan pengingat"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Jawaban untukmu, <em>24/7</em>",
+      "sub": "Asisten AI-mu ada bahkan pukul 3 pagi",
+      "chips": [
+        [
+          "Jawaban instan",
+          "tanpa menunggu"
+        ],
+        [
+          "Info terpercaya",
+          "sesuai kebutuhanmu"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Pelacak siklus",
+      "title": "Siklusmu <em>terkendali</em>",
+      "sub": "Prediksi akurat untuk menstruasi, ovulasi, dan masa subur",
+      "chips": [
+        [
+          "Prediksi pintar",
+          "belajar bersamamu"
+        ],
+        [
+          "Hari ovulasi",
+          "perhitungan tepat"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Ibu & bayi",
+      "title": "<em>Semua</em> untuk bayimu ada di sini",
+      "sub": "Tidur, menyusui, perkembangan, dan menstruasi — dalam satu tempat",
+      "chips": [
+        [
+          "Suara tidur",
+          "white noise & lagu nina bobo"
+        ],
+        [
+          "Kurva pertumbuhan",
+          "standar WHO"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "Alat AI",
+      "title": "Alat AI yang <em>ajaib</em>",
+      "sub": "Analisis tangisan, foto AI, pemindai popok, dan pembuat dongeng",
+      "chips": [
+        [
+          "Foto AI",
+          "foto bayi yang ajaib"
+        ],
+        [
+          "Pemindai popok",
+          "analisis AI"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Komunitas",
+      "title": "Kamu <em>tidak sendiri</em>",
+      "sub": "Berbagi, bertanya, dan dapatkan dukungan dari ribuan ibu",
+      "chips": [
+        [
+          "Cerita",
+          "bagikan harimu"
+        ],
+        [
+          "Pesan",
+          "dengan teman"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Pasangan",
+      "title": "Mode <em>khusus</em> untuk ayah",
+      "sub": "Kabar langsung, catatan cinta, dan SOS — ayah ikut menemani",
+      "chips": [
+        [
+          "Tombol SOS",
+          "sekali ketuk"
+        ],
+        [
+          "Catatan cinta",
+          "balasan siap pakai"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Alat",
+      "title": "<em>30+ alat</em> — satu aplikasi",
+      "sub": "Penghitung tendangan, timer kontraksi, suara tidur, kalender imunisasi, dan lainnya",
+      "chips": [
+        [
+          "Alat premium",
+          "gratis 3 hari"
+        ],
+        [
+          "Mini game",
+          "untuk bersantai"
+        ]
+      ]
+    }
+  }
+}

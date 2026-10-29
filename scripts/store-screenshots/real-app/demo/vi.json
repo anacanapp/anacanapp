@@ -1,0 +1,34 @@
+{
+  "country": "VN",
+  "locale": "vi-VN",
+  "names": {
+    "mother": "Lan",
+    "baby": "Bống",
+    "cycle": "Mai",
+    "partner": "Minh"
+  },
+  "appointments": [
+    "Siêu âm thai",
+    "Bệnh viện Phụ sản",
+    "Xét nghiệm máu",
+    "Khám nhi"
+  ],
+  "authors": [
+    "Nguyễn Thu Hà",
+    "Trần Ngọc Anh",
+    "Lê Thảo"
+  ],
+  "posts": [
+    "Hôm nay lần đầu cảm nhận được bé đạp! 🥹 Mình không thể diễn tả cảm giác này. Các mẹ cảm nhận ở tuần thứ mấy? #mangthai",
+    "Trò chuyện với Anacan.AI lúc 3 giờ sáng khi bé không chịu ngủ giúp mình rất nhiều. Gợi ý cho các mẹ bỉm mới 💛",
+    "Tụi mình đã 24 tuần, mình bắt đầu chuẩn bị đồ đi sinh. Danh sách của các mẹ có gì? 🧳"
+  ],
+  "ai_question": "Làm sao để giảm buồn nôn?",
+  "ai_answer": [
+    "3 cách đơn giản để giảm buồn nôn:\n\n",
+    "1. **Trà gừng** — một tách vào buổi sáng lúc bụng đói.\n",
+    "2. **Ăn ít, chia nhiều bữa** — đừng để bụng rỗng.\n",
+    "3. **Trước khi rời giường**, ăn vài chiếc bánh quy giòn.\n\n",
+    "Uống nhiều nước trong ngày 💧 Nếu nôn nhiều hơn, hãy đi khám bác sĩ."
+  ]
+}

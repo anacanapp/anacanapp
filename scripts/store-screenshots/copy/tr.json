@@ -1,0 +1,141 @@
+{
+  "lang": "tr",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "Annelik süper uygulaması",
+      "title": "En yakın <em>dostun</em>",
+      "sub": "Adet, hamilelik ve annelik — hepsi tek uygulamada",
+      "chips": [
+        [
+          "Anacan.AI",
+          "7/24 yanında"
+        ],
+        [
+          "30+ araç",
+          "tek uygulamada"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Hamilelik",
+      "title": "Hamileliğini <em>hafta hafta</em> takip et",
+      "sub": "Bebeğinin boyu, gelişimi ve sana özel öneriler",
+      "chips": [
+        [
+          "Tekme sayacı",
+          "tek dokunuşla"
+        ],
+        [
+          "Doktor randevusu",
+          "hatırlatmalı"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Sorularına cevap, <em>7/24</em>",
+      "sub": "Yapay zekâ asistanın gece 3’te bile yanında",
+      "chips": [
+        [
+          "Anında cevap",
+          "beklemeden"
+        ],
+        [
+          "Güvenilir bilgi",
+          "sana uygun"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Adet takibi",
+      "title": "Döngün <em>kontrol altında</em>",
+      "sub": "Adet, yumurtlama ve doğurgan günler için doğru tahmin",
+      "chips": [
+        [
+          "Akıllı tahmin",
+          "seninle öğrenir"
+        ],
+        [
+          "Yumurtlama günü",
+          "hassas hesap"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Annelik",
+      "title": "Bebeğin için <em>her şey</em> burada",
+      "sub": "Uyku, beslenme, gelişim ve adet — hepsi bir arada",
+      "chips": [
+        [
+          "Uyku sesleri",
+          "beyaz gürültü ve ninniler"
+        ],
+        [
+          "Büyüme eğrileri",
+          "DSÖ standardı"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "AI araçlar",
+      "title": "<em>Sihirli</em> AI araçları",
+      "sub": "Ağlama analizi, AI fotoğraf çekimi, bez tarayıcı ve masal üretici",
+      "chips": [
+        [
+          "AI fotoğraf",
+          "sihirli bebek fotoğrafları"
+        ],
+        [
+          "Bez tarayıcı",
+          "AI analiz"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Topluluk",
+      "title": "<em>Yalnız değilsin</em>",
+      "sub": "Binlerce anneyle paylaş, soru sor ve destek al",
+      "chips": [
+        [
+          "Hikâyeler",
+          "gününü paylaş"
+        ],
+        [
+          "Mesajlar",
+          "arkadaşlarınla"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Partner",
+      "title": "Babalar için <em>özel</em> mod",
+      "sub": "Canlı güncellemeler, sevgi notları ve SOS — baba da yanında",
+      "chips": [
+        [
+          "SOS butonu",
+          "tek dokunuşla"
+        ],
+        [
+          "Sevgi notları",
+          "hazır cevaplarla"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Araçlar",
+      "title": "<em>30+ araç</em> — tek uygulama",
+      "sub": "Tekme sayacı, kasılma zamanlayıcı, uyku sesleri, aşı takvimi ve fazlası",
+      "chips": [
+        [
+          "Premium araçlar",
+          "3 gün ücretsiz"
+        ],
+        [
+          "Mini oyunlar",
+          "rahatlamak için"
+        ]
+      ]
+    }
+  }
+}

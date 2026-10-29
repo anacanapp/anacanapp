@@ -1,0 +1,141 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "Motherhood super-app",
+      "title": "Your closest <em>friend</em>",
+      "sub": "Periods, pregnancy and motherhood — all in one app",
+      "chips": [
+        [
+          "Anacan.AI",
+          "with you 24/7"
+        ],
+        [
+          "30+ tools",
+          "in one app"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Pregnancy",
+      "title": "Track your pregnancy <em>week by week</em>",
+      "sub": "Your baby’s size, development and tips made for you",
+      "chips": [
+        [
+          "Kick counter",
+          "one tap away"
+        ],
+        [
+          "Doctor visits",
+          "with reminders"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Answers to your questions, <em>24/7</em>",
+      "sub": "Your AI companion is there for you, even at 3 am",
+      "chips": [
+        [
+          "Instant answers",
+          "no waiting"
+        ],
+        [
+          "Trusted info",
+          "tailored to you"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Period tracking",
+      "title": "Your cycle, <em>under control</em>",
+      "sub": "Accurate predictions for periods, ovulation and fertile days",
+      "chips": [
+        [
+          "Smart forecast",
+          "learns with you"
+        ],
+        [
+          "Ovulation day",
+          "precise prediction"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Motherhood",
+      "title": "<em>Everything</em> for your baby, right here",
+      "sub": "Sleep, feeding, development and your period — all together",
+      "chips": [
+        [
+          "Sleep sounds",
+          "white noise & lullabies"
+        ],
+        [
+          "Growth curves",
+          "WHO standard"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "AI tools",
+      "title": "<em>Magical</em> AI tools",
+      "sub": "Cry analysis, AI photoshoot, diaper scanner and story generator",
+      "chips": [
+        [
+          "AI photoshoot",
+          "magical baby photos"
+        ],
+        [
+          "Diaper scanner",
+          "AI analysis"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Community",
+      "title": "You’re <em>not alone</em>",
+      "sub": "Share, ask questions and get support from thousands of moms",
+      "chips": [
+        [
+          "Stories",
+          "share your day"
+        ],
+        [
+          "Messages",
+          "with your friends"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Partner",
+      "title": "A <em>special</em> mode for dads",
+      "sub": "Live updates, love notes and SOS — dad’s along for the ride",
+      "chips": [
+        [
+          "SOS button",
+          "one tap away"
+        ],
+        [
+          "Love notes",
+          "ready-made replies"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Tools",
+      "title": "<em>30+ tools</em> — one app",
+      "sub": "Kick counter, contraction timer, sleep sounds, vaccine calendar and more",
+      "chips": [
+        [
+          "Premium tools",
+          "free for 3 days"
+        ],
+        [
+          "Mini games",
+          "to unwind"
+        ]
+      ]
+    }
+  }
+}

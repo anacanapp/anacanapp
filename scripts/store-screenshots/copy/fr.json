@@ -1,0 +1,141 @@
+{
+  "lang": "fr",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "La super-app des mamans",
+      "title": "Ta <em>meilleure amie</em>",
+      "sub": "Règles, grossesse et maternité — tout dans une seule app",
+      "chips": [
+        [
+          "Anacan.AI",
+          "là pour toi 24 h/24"
+        ],
+        [
+          "30+ outils",
+          "dans une seule app"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Grossesse",
+      "title": "Suis ta grossesse <em>semaine après semaine</em>",
+      "sub": "Taille et développement de bébé, et conseils faits pour toi",
+      "chips": [
+        [
+          "Compteur de coups",
+          "en un geste"
+        ],
+        [
+          "Rendez-vous médicaux",
+          "avec rappel"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Des réponses <em>24 h/24</em>",
+      "sub": "Ton assistante IA est là, même à 3 h du matin",
+      "chips": [
+        [
+          "Réponses instantanées",
+          "sans attendre"
+        ],
+        [
+          "Infos fiables",
+          "adaptées à toi"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Suivi du cycle",
+      "title": "Ton cycle <em>sous contrôle</em>",
+      "sub": "Prévisions précises des règles, de l’ovulation et des jours fertiles",
+      "chips": [
+        [
+          "Prévision intelligente",
+          "apprend avec toi"
+        ],
+        [
+          "Jour d’ovulation",
+          "calcul précis"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Maternité",
+      "title": "<em>Tout</em> pour bébé, ici",
+      "sub": "Sommeil, allaitement, développement et règles — au même endroit",
+      "chips": [
+        [
+          "Sons apaisants",
+          "bruit blanc et berceuses"
+        ],
+        [
+          "Courbes de croissance",
+          "norme OMS"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "Outils IA",
+      "title": "Des outils IA <em>magiques</em>",
+      "sub": "Analyse des pleurs, shooting IA, scanner de couche et générateur d’histoires",
+      "chips": [
+        [
+          "Shooting IA",
+          "photos magiques de bébé"
+        ],
+        [
+          "Scanner de couche",
+          "analyse IA"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Communauté",
+      "title": "Tu n’es <em>pas seule</em>",
+      "sub": "Partage, pose tes questions et reçois le soutien de milliers de mamans",
+      "chips": [
+        [
+          "Stories",
+          "partage ta journée"
+        ],
+        [
+          "Messages",
+          "avec tes amies"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Partenaire",
+      "title": "Un mode <em>spécial</em> pour les papas",
+      "sub": "Nouvelles en direct, mots doux et SOS — papa est de la partie",
+      "chips": [
+        [
+          "Bouton SOS",
+          "en un geste"
+        ],
+        [
+          "Mots doux",
+          "réponses toutes prêtes"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Outils",
+      "title": "<em>30+ outils</em> — une seule app",
+      "sub": "Compteur de coups, chrono des contractions, sons apaisants, calendrier vaccinal et plus",
+      "chips": [
+        [
+          "Outils Premium",
+          "3 jours gratuits"
+        ],
+        [
+          "Mini-jeux",
+          "pour souffler"
+        ]
+      ]
+    }
+  }
+}

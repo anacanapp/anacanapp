@@ -1,0 +1,34 @@
+{
+  "country": "GB",
+  "locale": "en-GB",
+  "names": {
+    "mother": "Emma",
+    "baby": "Lily",
+    "cycle": "Sophie",
+    "partner": "James"
+  },
+  "appointments": [
+    "Ultrasound scan",
+    "City Maternity Clinic",
+    "Blood test",
+    "Paediatrician check-up"
+  ],
+  "authors": [
+    "Olivia Bennett",
+    "Grace Turner",
+    "Chloe Harris"
+  ],
+  "posts": [
+    "Felt the first kicks today! 🥹 I can’t even put this feeling into words. When did it happen for you? #pregnancy",
+    "Talking to Anacan.AI at 3 am when my baby wouldn’t sleep really helped. Highly recommend to new moms 💛",
+    "We’re at 24 weeks and I’ve started packing my hospital bag. What’s on your list? 🧳"
+  ],
+  "ai_question": "What helps with nausea?",
+  "ai_answer": [
+    "Three simple ways to ease nausea:\n\n",
+    "1. **Ginger tea** — a cup first thing in the morning.\n",
+    "2. **Small, frequent meals** — don’t let your stomach get empty.\n",
+    "3. **Plain crackers** before you get out of bed.\n\n",
+    "Sip water throughout the day 💧 If vomiting gets worse, contact your doctor."
+  ]
+}

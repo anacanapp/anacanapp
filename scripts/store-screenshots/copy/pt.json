@@ -1,0 +1,141 @@
+{
+  "lang": "pt",
+  "dir": "ltr",
+  "slides": {
+    "hero": {
+      "pill": "O super app das mamães",
+      "title": "Sua <em>melhor amiga</em>",
+      "sub": "Menstruação, gravidez e maternidade — tudo em um só app",
+      "chips": [
+        [
+          "Anacan.AI",
+          "com você 24/7"
+        ],
+        [
+          "30+ ferramentas",
+          "em um só app"
+        ]
+      ]
+    },
+    "pregnancy": {
+      "pill": "Gravidez",
+      "title": "Acompanhe a gravidez <em>semana a semana</em>",
+      "sub": "Tamanho e desenvolvimento do bebê e dicas feitas para você",
+      "chips": [
+        [
+          "Contador de chutes",
+          "com um toque"
+        ],
+        [
+          "Consultas médicas",
+          "com lembrete"
+        ]
+      ]
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Respostas para você, <em>24/7</em>",
+      "sub": "Sua assistente de IA está ao seu lado até às 3 da manhã",
+      "chips": [
+        [
+          "Respostas na hora",
+          "sem esperar"
+        ],
+        [
+          "Informação confiável",
+          "feita para você"
+        ]
+      ]
+    },
+    "flow": {
+      "pill": "Ciclo menstrual",
+      "title": "Seu ciclo <em>sob controle</em>",
+      "sub": "Previsões precisas de menstruação, ovulação e dias férteis",
+      "chips": [
+        [
+          "Previsão inteligente",
+          "aprende com você"
+        ],
+        [
+          "Dia da ovulação",
+          "cálculo preciso"
+        ]
+      ]
+    },
+    "mommy": {
+      "pill": "Maternidade",
+      "title": "<em>Tudo</em> para o seu bebê, aqui",
+      "sub": "Sono, alimentação, desenvolvimento e menstruação — em um só lugar",
+      "chips": [
+        [
+          "Sons para dormir",
+          "ruído branco e canções de ninar"
+        ],
+        [
+          "Curvas de crescimento",
+          "padrão OMS"
+        ]
+      ]
+    },
+    "tools": {
+      "pill": "Ferramentas de IA",
+      "title": "Ferramentas de IA <em>mágicas</em>",
+      "sub": "Análise do choro, ensaio de fotos com IA, scanner de fralda e gerador de histórias",
+      "chips": [
+        [
+          "Fotos com IA",
+          "fotos mágicas do bebê"
+        ],
+        [
+          "Scanner de fralda",
+          "análise com IA"
+        ]
+      ]
+    },
+    "community": {
+      "pill": "Comunidade",
+      "title": "Você <em>não está sozinha</em>",
+      "sub": "Compartilhe, pergunte e receba apoio de milhares de mães",
+      "chips": [
+        [
+          "Stories",
+          "compartilhe seu dia"
+        ],
+        [
+          "Mensagens",
+          "com suas amigas"
+        ]
+      ]
+    },
+    "partner": {
+      "pill": "Parceiro",
+      "title": "Um modo <em>especial</em> para os pais",
+      "sub": "Novidades ao vivo, recados de amor e SOS — o papai junto",
+      "chips": [
+        [
+          "Botão SOS",
+          "com um toque"
+        ],
+        [
+          "Recados de amor",
+          "respostas prontas"
+        ]
+      ]
+    },
+    "toolsGrid": {
+      "pill": "Ferramentas",
+      "title": "<em>30+ ferramentas</em> — um só app",
+      "sub": "Contador de chutes, cronômetro de contrações, sons para dormir, calendário de vacinas e mais",
+      "chips": [
+        [
+          "Ferramentas Premium",
+          "3 dias grátis"
+        ],
+        [
+          "Minijogos",
+          "para relaxar"
+        ]
+      ]
+    }
+  }
+}
