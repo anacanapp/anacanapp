@@ -11,9 +11,12 @@ the live API with the public anon key. No real user data is shown and nothing is
    `CHROMIUM_PATH=/path/to/chrome scripts/store-screenshots/real-app/capture.sh`
 3. Compose the slides into `out/az/`:
    `SHOTS_DIR=scripts/store-screenshots/shots/az CHROMIUM_PATH=/path/to/chrome node scripts/store-screenshots/render.mjs az`
+4. Google Play: the same command with `FORMAT=android` writes nine 1080×1920 (9:16) slides and the
+   1024×500 `feature-graphic.png` into `out-android/az/`. Play rejects the 1290×2796 iOS images
+   (aspect ratio above 2:1), so the phone is scaled down rather than cropped.
 
 Slide texts and feature chips: `copy/<lang>.json`. Scenario data and demo texts:
 `real-app/build_fixtures.py`. Screen choice and scroll positions: `real-app/capture.sh`.
 For another language set the user store language in the fixtures and translate the demo texts.
 `CHROMIUM_PATH` is only needed when the project's Playwright has no downloaded browser.
-`shots/`, `out/` and `real-app/scenarios/` are generated and ignored by Git.
+`shots/`, `out/`, `out-android/` and `real-app/scenarios/` are generated and ignored by Git.

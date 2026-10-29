@@ -29,6 +29,20 @@
   .warm .pill { background: rgba(255,255,255,.22); color: #fff; box-shadow: none; }
   .warm .title { color: #fff; } .warm .title em { color: #ffe08a; } .warm .sub { color: rgba(255,255,255,.92); }
 
+  /* ---------- Google Play (9:16, 432x768 @2.5 = 1080x1920) ---------- */
+  body.android, .android .slide { width: 432px; height: 768px; }
+  .android .head { padding-top: 26px; } .android .title { font-size: 34px; } .android .sub { font-size: 14.5px; }
+  .android .phone { transform: translateX(-50%) scale(.78); transform-origin: top center; }
+  /* ---------- Play feature graphic (512x250 @2 = 1024x500) ---------- */
+  body.feature { width: 512px; height: 250px; }
+  .feature .slide { width: 512px; height: 250px; }
+  .feature .fg-text { position: absolute; z-index: 3; inset-inline-start: 30px; top: 0; bottom: 0; width: 280px; display: flex; flex-direction: column; justify-content: center; }
+  .feature .fg-brand { display: flex; align-items: center; gap: 9px; color: #fff; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+  .feature .fg-brand img { width: 38px; height: 38px; border-radius: 11px; }
+  .feature .title { margin-top: 12px; font-size: 25px; } .feature .sub { margin: 8px 0 0; font-size: 12px; max-width: 250px; }
+  .feature .phone { left: auto; inset-inline-end: 40px; transform: rotate(-6deg) scale(.5); transform-origin: top right; top: 30px; }
+  [dir=rtl] .feature .phone { transform: rotate(6deg) scale(.5); transform-origin: top left; }
+
   /* ---------- Phone ---------- */
   .phone { position: absolute; left: 50%; transform: translateX(-50%); top: 268px; width: 336px; height: 760px;
     border-radius: 54px; background: #1d1d22; padding: 11px; z-index: 2;
@@ -211,24 +225,32 @@ const CHIP_POS = {
 };
 const PILL_ICONS = { hero: 'heart', pregnancy: 'baby', ai: 'sparkles', flow: 'flower-2', mommy: 'baby', tools: 'wand-2', community: 'users', partner: 'heart-handshake', toolsGrid: 'layout-grid' };
 
-const id = new URLSearchParams(location.search).get('slide');
+const params = new URLSearchParams(location.search);
+const FORMAT = params.get('format') || 'ios';       // ios | android | feature
+const id = FORMAT === 'feature' ? 'hero' : params.get('slide');
 const f = C.slides[id];
+const PHONE_SCALE = FORMAT === 'android' ? 0.78 : 1;
+document.body.classList.add(FORMAT);
 document.documentElement.lang = C.lang; document.documentElement.dir = C.dir || 'ltr';
 document.getElementById('root').innerHTML = `
 <div class="slide${id === 'hero' ? ' warm' : ''}">
   <span class="blob" style="width:260px;height:260px;left:-80px;top:420px;background:#ffb4a2"></span>
   <span class="blob" style="width:220px;height:220px;right:-70px;top:180px;background:#ffd2a6"></span>
-  <div class="head"><span class="pill">${icon(PILL_ICONS[id])}${f.pill}</span><h1 class="title">${f.title}</h1><p class="sub">${f.sub}</p></div>
+  ${FORMAT === 'feature'
+    ? `<div class="fg-text"><span class="fg-brand"><img src="${P}icon.png">Anacan</span><h1 class="title">${f.title}</h1><p class="sub">${f.sub}</p></div>`
+    : `<div class="head"><span class="pill">${icon(PILL_ICONS[id])}${f.pill}</span><h1 class="title">${f.title}</h1><p class="sub">${f.sub}</p></div>`}
   <div class="phone"><div class="screen"><span class="island"></span><div class="screen-inner a-scope a-dash" style="background:var(--a-bg)">
     ${status()}${window.SHOTS ? `<img src="${window.SHOTS}/${id}.png" style="display:block;width:390px;height:863px">` : `<div class="app">${SCREENS[id](f.s)}</div>${tabs(ACTIVE[id])}`}</div></div></div>
-  ${f.chips.map(([b, sub], i) => `<div class="chip" data-side="${CHIP_POS[id][i][0]}" data-y="${CHIP_POS[id][i][1]}" style="${CHIP_POS[id][i][0]}:8px"><span class="ci ${CHIP_ICONS[id][i][1]}">${icon(CHIP_ICONS[id][i][0])}</span><span><b>${b}</b><span class="cs">${sub}</span></span></div>`).join('')}
+  ${(FORMAT === 'feature' ? [] : f.chips).map(([b, sub], i) => `<div class="chip" data-side="${CHIP_POS[id][i][0]}" data-y="${CHIP_POS[id][i][1]}" style="${CHIP_POS[id][i][0]}:8px"><span class="ci ${CHIP_ICONS[id][i][1]}">${icon(CHIP_ICONS[id][i][0])}</span><span><b>${b}</b><span class="cs">${sub}</span></span></div>`).join('')}
 </div>`;
 lucide.createIcons();
 // The phone sits right under the headline block; chips follow the phone.
 const head = document.querySelector('.head'), phone = document.querySelector('.phone');
-const phoneTop = Math.round(head.getBoundingClientRect().bottom + 28);
-phone.style.top = phoneTop + 'px';
-document.querySelectorAll('.chip').forEach((c) => { c.style.top = (phoneTop + Number(c.dataset.y)) + 'px'; });
+if (head) {
+  const phoneTop = Math.round(head.getBoundingClientRect().bottom + 28 * PHONE_SCALE);
+  phone.style.top = phoneTop + 'px';
+  document.querySelectorAll('.chip').forEach((c) => { c.style.top = (phoneTop + Number(c.dataset.y) * PHONE_SCALE) + 'px'; });
+}
 Promise.all([document.fonts.ready, ...[...document.images].map((i) => i.decode().catch(() => {}))]).then(() => { document.body.dataset.ready = '1'; });
 </script>
 </body>
