@@ -59,6 +59,7 @@ const CakesScreen = lazy(() => import('./CakesScreen'));
 const MiniGamesHub = lazy(() => import('./games/MiniGamesHub'));
 const BabyTracker = lazy(() => import('./tools/BabyTracker'));
 const SleepTraining = lazy(() => import('./tools/SleepTraining'));
+const SolidFoodGuide = lazy(() => import('./tools/SolidFoodGuide'));
 // Aptek product hits under the tool search; loaded only once the user types.
 const AptekSearchResults = lazy(() => import('./aptek/AptekEntry').then((m) => ({ default: m.AptekSearchResults })));
 const openAptek = (screen: string) =>
@@ -128,8 +129,9 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 // Import Calculator icon
-import { Calculator, MoonStar } from 'lucide-react';
+import { Calculator, MoonStar, Salad } from 'lucide-react';
 import { bc } from '@/lib/babycare-i18n';
+import { isSolidFoodGuideAvailable } from '@/lib/solid-food-guide-entry';
 import { sleepTrainingEligible } from '@/lib/sleep-training';
 import { useChildren } from '@/hooks/useChildren';
 import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
@@ -261,6 +263,9 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     if (!fromDb.some((t) => t.id === 'sleep-training') && !disabledTools.includes('sleep-training')
       && sleepTrainingEligible({ lifeStage, birthDate: childBirthDate ? new Date(childBirthDate) : null, now: new Date() })) {
       extra.push(virtual('sleep-training', bc('sleeptraining_title'), bc('sleeptraining_tool_desc'), MoonStar));
+    }
+    if (lifeStage === 'mommy' && isSolidFoodGuideAvailable(language) && !disabledTools.includes('solid-food-guide')) {
+      extra.push(virtual('solid-food-guide', 'Əlavə Qida Bələdçisi', 'Porsiya, dəmir balansı, allergenlər və reseptlər', Salad));
     }
     return [...fromDb, ...extra];
   }, [toolConfigs, hasPartner, lifeStage, language, isNonAz, disabledTools, profile?.country_code, storeCountry, childBirthDate]);
@@ -424,6 +429,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       case 'cakes':return <CakesScreen onBack={handleBack} />;
       case 'baby-tracker':return <BabyTracker onBack={handleBack} />;
       case 'sleep-training':return <SleepTraining onBack={handleBack} />;
+      case 'solid-food-guide':return <SolidFoodGuide onBack={handleBack} />;
       case 'mini-games':return <MiniGamesHub onBack={handleBack} />;
       default:return null;
     }

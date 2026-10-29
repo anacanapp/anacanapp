@@ -28,6 +28,8 @@ const FREE_TOOL_IDS = new Set<string>([
 'mini-games',
 // Təhlükəsizlik istisnası
 'first-aid',
+// Əlavə qida bələdçisi pulsuzdur; içindəki reseptlər Premium-dur (SolidFoodGuide)
+'solid-food-guide',
 'mental-health']
 );
 
