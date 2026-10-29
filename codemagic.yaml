@@ -46,6 +46,16 @@ workflows:
           done
           keychain add-certificates
           xcode-project use-profiles --project ios/App/App.xcodeproj
+      - name: Resolve Swift packages
+        script: |
+          # build-ipa only prints "Failed to show build settings" when Swift Package resolution fails
+          # (GitHub fetch of capacitor-swift-pm / Firebase / Facebook SDK). Retry and show the real error.
+          for attempt in 1 2 3; do
+            if xcodebuild -resolvePackageDependencies -project ios/App/App.xcodeproj -scheme App; then break; fi
+            [ "$attempt" = 3 ] && exit 1
+            echo "Package resolution failed (attempt $attempt), retrying in 30s"; sleep 30
+          done
+          xcodebuild -project ios/App/App.xcodeproj -scheme App -showBuildSettings > /dev/null
       - name: Build IPA
         script: |
           xcode-project build-ipa \
