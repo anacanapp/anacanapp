@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mommyCycleInsights, mommyPeriodStatus, recentDays } from './mommy-period';
+import { mommyCycleInsights, mommyPeriodStatus, phaseForCycleDay, recentDays } from './mommy-period';
 
 const T = '2026-10-29';
 
@@ -66,5 +66,14 @@ describe('mommyCycleInsights', () => {
       { start: '2026-06-01', length: 30, anomalous: false },
     ]);
     expect(insights).toMatchObject({ learned: true, cycleLength: 29, nextPeriod: '2026-11-18' });
+  });
+});
+
+describe('phaseForCycleDay', () => {
+  it('maps cycle days to phases for a 28-day cycle with 5 period days', () => {
+    expect(phaseForCycleDay(3, 28, 5)).toBe('menstrual');
+    expect(phaseForCycleDay(9, 28, 5)).toBe('follicular');
+    expect(phaseForCycleDay(14, 28, 5)).toBe('ovulation');
+    expect(phaseForCycleDay(20, 28, 5)).toBe('luteal');
   });
 });

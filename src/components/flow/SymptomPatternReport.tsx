@@ -11,6 +11,8 @@ import { Button } from '@/components/ui/button';
 
 interface Props {
   onUpgrade?: () => void;
+  /** Cycle anchor when it is not the Flow profile's (the Mommy module computes its own). */
+  anchor?: { lastPeriodDate: Date; cycleLength: number; periodLength: number } | null;
 }
 
 const PHASE_LABEL: Record<string, {label: string;emoji: string;}> = {
@@ -20,11 +22,12 @@ const PHASE_LABEL: Record<string, {label: string;emoji: string;}> = {
   luteal: { label: tr("symptompatternreport_lutein_f123bc", 'Lutein'), emoji: '🌙' }
 };
 
-const SymptomPatternReport = ({ onUpgrade }: Props) => {
+const SymptomPatternReport = ({ onUpgrade, anchor }: Props) => {
   const { isPremium } = useSubscription();
-  const { lastPeriodDate, cycleLength, periodLength } = useUserStore(
+  const stored = useUserStore(
     useShallow((s) => ({ lastPeriodDate: s.lastPeriodDate, cycleLength: s.cycleLength, periodLength: s.periodLength }))
   );
+  const { lastPeriodDate, cycleLength, periodLength } = anchor ?? stored;
   const start = format(subDays(new Date(), 90), 'yyyy-MM-dd');
   const end = format(new Date(), 'yyyy-MM-dd');
   const { data: logs = [], isLoading } = useFlowDailyLogs(start, end);

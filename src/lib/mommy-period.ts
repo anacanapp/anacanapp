@@ -93,3 +93,13 @@ export function mommyCycleInsights(flowDays: readonly string[], today: string, f
   return { cycleDay, cycleLength, periodLength, nextPeriod: next,
     daysUntilNext: differenceInCalendarDays(parseISO(next), parseISO(today)), cycles, learned };
 }
+
+export type CyclePhase = 'menstrual' | 'follicular' | 'ovulation' | 'luteal';
+
+/** Phase of a cycle day: period days, ovulation around (length - 14) ± 1, follicular before, luteal after. */
+export function phaseForCycleDay(cycleDay: number, cycleLength: number, periodLength: number): CyclePhase {
+  const ovulation = cycleLength - 14;
+  if (cycleDay <= periodLength) return 'menstrual';
+  if (Math.abs(cycleDay - ovulation) <= 1) return 'ovulation';
+  return cycleDay < ovulation ? 'follicular' : 'luteal';
+}

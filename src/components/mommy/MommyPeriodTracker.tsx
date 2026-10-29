@@ -1,12 +1,17 @@
 import { useEffect, useMemo, useState } from 'react';
-import { eachDayOfInterval, format, parseISO } from 'date-fns';
+import { eachDayOfInterval, format, parseISO, subDays } from 'date-fns';
 import { toast } from 'sonner';
 import { ArrowLeft, CalendarDays, ChevronRight, Droplets } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserStore } from '@/store/userStore';
 import { usePeriodDayLogs, useRecordPeriodDays } from '@/hooks/usePeriodDayLogs';
 import { getCurrentDateLocale } from '@/lib/date-utils';
-import { mommyCycleInsights, mommyPeriodStatus, recentDays, type MommyCycleInsights } from '@/lib/mommy-period';
+import { mommyCycleInsights, mommyPeriodStatus, phaseForCycleDay, recentDays, type CyclePhase, type MommyCycleInsights } from '@/lib/mommy-period';
+import { usePhaseTips, PHASE_INFO, CATEGORY_INFO } from '@/hooks/usePhaseTips';
+import { tr } from '@/lib/tr';
+import PremiumGate from '@/components/premium/PremiumGate';
+import FlowDailyLogger from '@/components/flow/FlowDailyLogger';
+import SymptomPatternReport from '@/components/flow/SymptomPatternReport';
 import { hasPeriodFlow } from '@/lib/period-flow';
 import { feature37Text } from '@/lib/feature37-i18n';
 import FlowPeriodCalendar from '@/components/flow/FlowPeriodCalendar';
@@ -132,6 +137,28 @@ function MommyCycleCard({ insights, language }: { insights: MommyCycleInsights; 
   </section>;
 }
 
+/** The Period module's "tips for this phase", for the phase of the postpartum cycle. */
+function MommyPhaseTips({ phase }: { phase: CyclePhase }) {
+  const { data: tips = [] } = usePhaseTips(phase);
+  const info = PHASE_INFO[phase];
+  if (!tips.length) return null;
+  return <section>
+    <div className="a-section-head">
+      <h2 className="a-section-title a-heading">{tr("flowdashboard_bu_faza_ucun_meslehetler_14b952", "Bu Faza Üçün Məsləhətlər")}</h2>
+      <span className="a-tag" style={{ cursor: 'default', border: 'none', background: `${info.color}22`, color: info.color, fontWeight: 700 }}>{info.emoji} {info.labelAz}</span>
+    </div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      {tips.slice(0, 4).map((tip) => <div key={tip.id} className="a-card">
+        <div className="a-list-row" style={{ padding: 0 }}>
+          <span className="a-list-icon" style={{ background: 'var(--a-surface-soft)', fontSize: 18 }}>{tip.emoji}</span>
+          <div style={{ minWidth: 0 }}><p className="a-list-title">{tip.title}</p><span className="a-list-value" style={{ color: info.color }}>{CATEGORY_INFO[tip.category]?.labelAz}</span></div>
+        </div>
+        <p style={{ margin: '10px 0 0', fontSize: 12, lineHeight: 1.55, color: 'var(--a-ink-soft)' }}>{tip.content}</p>
+      </div>)}
+    </div>
+  </section>;
+}
+
 export default function MommyPeriodTracker({ onBack }: { onBack: () => void }) {
   const language = useUserStore(state => state.language), { profile } = useAuth(), { data: logs = [] } = usePeriodDayLogs();
   const since = profile?.baby_birth_date?.slice(0,10) || null;
@@ -141,9 +168,18 @@ export default function MommyPeriodTracker({ onBack }: { onBack: () => void }) {
   return <div className="a-scope min-h-screen pb-24" data-mommy-period-tracker style={{ background: 'var(--a-bg)' }}><div className="a-shell space-y-4">
     <header className="a-topbar"><button className="a-icon-btn" onClick={onBack} aria-label={feature37Text('back_mommy', language)}><ArrowLeft size={18} className="rtl:rotate-180" /></button><h1 className="a-wordmark text-base">{feature37Text('period_title', language)}</h1></header>
     <p className="a-list-sub">{feature37Text('period_body', language)}</p>
+    {/* Calendar first, then the Period-module style overview, phase tips, daily log and symptom patterns */}
+    <FlowPeriodCalendar trackingOnly fromDate={since} />
     {insights ? <MommyCycleCard insights={insights} language={language} /> :
     <div className="a-card flex items-center gap-3"><Droplets size={24} /><div><p className="a-list-title">{feature37Text('period_days', language)}: {observed.length}</p><p className="a-list-sub">{latest ? `${feature37Text('period_last', language)}: ${latest}` : feature37Text('period_empty', language)}</p></div></div>}
-    <FlowPeriodCalendar trackingOnly fromDate={since} />
+    {insights && <MommyPhaseTips phase={phaseForCycleDay(insights.cycleDay, insights.cycleLength, insights.periodLength)} />}
+    <PremiumGate title={tr("flowdailylogger_gundelik_qeyd_32e154", "Gündəlik Qeyd")}
+      description={tr("pgate_flow_logger", "Əhval, simptom, qanaxma və fertillik qeydləri — proqnozlar bunlarla dəqiqləşir")} emoji="📝" feature="flow_daily_logger">
+      <FlowDailyLogger compact />
+    </PremiumGate>
+    {insights && <PremiumGate title={tr("pgate_symptom_title", "Simptom analizi")} description={tr("pgate_symptom", "Fazalara görə simptom nümunələriniz")} emoji="🧠" feature="flow_symptom_report">
+      <SymptomPatternReport anchor={{ lastPeriodDate: subDays(new Date(), insights.cycleDay - 1), cycleLength: insights.cycleLength, periodLength: insights.periodLength }} />
+    </PremiumGate>}
     <p className="a-list-sub">{feature37Text('period_tracking_note', language)}</p>
   </div></div>;
 }

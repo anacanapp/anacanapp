@@ -428,6 +428,31 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
         </div>
       </section>
 
+      {/* Trimester Tips Section */}
+      {dynamicTrimesterTips.length > 0 &&
+      <section className="a-section">
+          <div className="a-section-head" style={{ justifyContent: 'center' }}>
+            <h2 className="a-section-title a-heading" style={{ textAlign: 'center' }}>
+              {trimesterInfo.emoji} {trimesterInfo.title} {trimesterInfo.emoji}
+            </h2>
+          </div>
+          <div className="a-list-card a-list-compact a-fade-in">
+            {dynamicTrimesterTips.map((tip, index) =>
+          <motion.div
+            key={tip.id}
+            className="a-list-row"
+            initial={{ x: document.documentElement.dir === 'rtl' ? 20 : -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.15 + index * 0.05 }}>
+            
+                <span className="a-list-icon" style={{ background: 'var(--a-surface-soft)', fontSize: 17 }}>{tip.icon}</span>
+                <p className="a-list-title" style={{ fontWeight: 600, whiteSpace: 'normal', lineHeight: 1.5 }}>{tip.tip_text}</p>
+              </motion.div>
+          )}
+          </div>
+        </section>
+      }
+
       {/* Daily messages come straight after the hero; the days-left / weight trio was removed (days left is in the hero chips). */}
       {/* Daily Content Cards - Separated */}
       {dayContent &&
@@ -587,30 +612,6 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
         </div>
       </section>
 
-      {/* Trimester Tips Section */}
-      {dynamicTrimesterTips.length > 0 &&
-      <section className="a-section">
-          <div className="a-section-head" style={{ justifyContent: 'center' }}>
-            <h2 className="a-section-title a-heading" style={{ textAlign: 'center' }}>
-              {trimesterInfo.emoji} {trimesterInfo.title} {trimesterInfo.emoji}
-            </h2>
-          </div>
-          <div className="a-list-card a-list-compact a-fade-in">
-            {dynamicTrimesterTips.map((tip, index) =>
-          <motion.div
-            key={tip.id}
-            className="a-list-row"
-            initial={{ x: document.documentElement.dir === 'rtl' ? 20 : -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.15 + index * 0.05 }}>
-            
-                <span className="a-list-icon" style={{ background: 'var(--a-surface-soft)', fontSize: 17 }}>{tip.icon}</span>
-                <p className="a-list-title" style={{ fontWeight: 600, whiteSpace: 'normal', lineHeight: 1.5 }}>{tip.tip_text}</p>
-              </motion.div>
-          )}
-          </div>
-        </section>
-      }
 
       {/* Weekly Tip from Database */}
       {currentWeekTip &&
