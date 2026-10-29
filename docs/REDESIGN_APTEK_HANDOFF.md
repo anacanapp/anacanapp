@@ -490,3 +490,13 @@ was done.
   database change. Public `/?web=admin` loads with no console errors.
 - **Rollback:** `rollback-homes-carousel-web-plan.json` returns to the original-design build
   (`1354acb4…`), followed by the earlier chain.
+
+## Mommy period card web deploy — 2026-10-29
+- **Contents:** commit `2556f63`: Menstruasiya wording and the minimal period card on the baby home.
+- **Image:** `gateway@sha256:0c3804714f9438966417fee9c07f49b558b3c602033651a4c1a0b850e5226760`
+  (Cloud Build `a579b6e6`), built `FROM` live `fb35ddc1…`; adds only `index.html`, `assets/`, `aptek/`.
+- **Isolated test (:8089):** all checked paths and the website matched live; index sha, admission and
+  previous live assets verified first.
+- **Deploy:** `deploy-current-web.py mommy-period-web-plan.json` returned `passed`; `index.html` sha
+  `c6bd6755…`; no DNS or database change; public `/?web=admin` loads with no console errors.
+- **Rollback:** `rollback-mommy-period-web-plan.json` returns to the homes carousel build (`fb35ddc1…`).
