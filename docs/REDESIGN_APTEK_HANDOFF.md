@@ -500,3 +500,20 @@ was done.
 - **Deploy:** `deploy-current-web.py mommy-period-web-plan.json` returned `passed`; `index.html` sha
   `c6bd6755…`; no DNS or database change; public `/?web=admin` loads with no console errors.
 - **Rollback:** `rollback-mommy-period-web-plan.json` returns to the homes carousel build (`fb35ddc1…`).
+
+## Storage cache + upload compression web deploy — 2026-10-29
+- **Contents:** commit `f1d7c74` (photos are downscaled to 1600 px and re-encoded in the browser
+  before upload) and gateway `nginx.conf` marker `storage-cache-v1`: a `$storage_cache_control`
+  map sends `public, max-age=31536000, immutable` for GET/HEAD of public `community-media` and
+  `chat-media` objects, `public, max-age=86400` for public `assets` (admin uploads use upsert),
+  and the Storage API's own header everywhere else (private buckets, signed URLs, uploads).
+  Goal: cut load-balancer egress, which repeat downloads of uncached feed media dominated.
+- **Image:** `gateway@sha256:68576641eef72460788eadbd8f481e2ceea1c33ae415537c7312345b008b2332`
+  (Cloud Build `4c9f8772`), built `FROM` live `0c380471…`; replaces `nginx.conf` (live file plus
+  the map and two lines in `location /storage/v1/`) and adds `index.html`, `assets/`, `aptek/`.
+- **Isolated test (:8089):** `nginx -t` passed; all checked paths, website, admission, old and new
+  JS matched; public media returned the same bytes with the new headers; private unauthenticated
+  reads still 400; storage preflight still 204.
+- **Deploy:** `deploy-current-web.py storage-cache-web-plan.json` returned `passed`; `index.html`
+  sha `8b26124c…`; no DNS or database change; public `/?web=admin` loads with no console errors.
+- **Rollback:** `rollback-storage-cache-web-plan.json` returns to the mommy period build (`0c380471…`).
