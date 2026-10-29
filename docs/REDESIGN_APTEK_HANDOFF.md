@@ -569,3 +569,11 @@ was done.
   image `gateway@sha256:adb697720abd1b28d1d15fc2881f68b18153d6c4f24153310a5265957a89f38a` (Cloud Build `f5639bdc`) from `10798349…`; plan
   `sfg-i18n-web-plan.json` passed (index `91ec84f8…`); public `/?web=admin` has no console errors.
 - **Rollback:** `rollback-sfg-i18n-web-plan.json` (→ `10798349…`), then `rollback-solid-food-web-plan.json`.
+
+## Dark mode, Mommy period screen and chat edit web deploy — 2026-10-29
+- **Contents:** commits `96f594e` (dark-mode pastel mapping, CTA/switch/blog cover, trimester tips under
+  the hero, Mommy period screen: calendar first, cycle overview, phase tips, daily log, symptoms) and
+  `f138c91` (chat edit through `chat_edit_message_v1`; no SQL change).
+- **Image:** `gateway@sha256:d3678a34d2d5f36ef3b0fbf99e992289840ce7f7f1fb53dd722abf0397ac6f01` (Cloud Build `96e820f2`) from `adb69772…`; isolated test matched.
+- **Deploy:** `chat-edit-web-plan.json` passed; index `fb2e9a8b…`; no console errors.
+- **Rollback:** `rollback-chat-edit-web-plan.json` (→ `adb69772…`).
