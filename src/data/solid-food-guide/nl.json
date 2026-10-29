@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Gids bijvoeding",
+  "tab_stage": "Fase",
+  "tab_balance": "Balans",
+  "tab_rules": "Regels",
+  "tab_foods": "Voeding",
+  "tab_recipes": "Recepten",
+  "age_aria": "Leeftijd",
+  "months_short": "{n} mnd",
+  "years_short": "{n} jr",
+  "months_plus": "{n} mnd+",
+  "years_plus": "{n} jr+",
+  "fact_milk": "Melk",
+  "fact_meals": "Maaltijden",
+  "fact_portion": "Portie",
+  "fact_texture": "Structuur",
+  "portion_note": "Porties zijn een richtlijn — je baby bepaalt zelf hoeveel hij eet.",
+  "readiness_title": "Tekenen van gereedheid",
+  "readiness_all": "Alles aanwezig — klaar om met 6 maanden te beginnen.",
+  "readiness_hint": "De WHO adviseert om met 6 maanden (180 dagen) te beginnen met bijvoeding. Twijfel je? Overleg met de kinderarts.",
+  "sample_day_title": "Voorbeelddag (8 mnd)",
+  "dishes_title": "Maaltijdideeën voor deze leeftijd",
+  "see_recipes": "Bekijk recepten",
+  "plate_title": "Gebalanceerd bord (vanaf 1 jaar)",
+  "plate_note": "Met een zuivelproduct en een beetje gezond vet (olijfolie, boter, avocado).",
+  "needs_title": "Dagelijkse behoefte",
+  "needs_note": "Tussen 6–11 maanden is de ijzerbehoefte per kilo lichaamsgewicht het hoogst van het hele leven — zorg bij elke maaltijd voor een ijzerbron.",
+  "sources_title": "Waar zit het in",
+  "iron_helps_title": "Verhoogt ijzeropname",
+  "iron_blocks_title": "Verlaagt ijzeropname",
+  "allergens_title": "Allergenen: niet uitstellen",
+  "allergens_intro": "Ei en pinda vanaf 6 maanden, één voor één. Bij ernstig eczeem of een eiallergie: overleg eerst met de arts.",
+  "avoid_title": "Niet geven",
+  "choking_title": "Verslikken voorkomen (tot 4 jaar)",
+  "choking_note": "Kokhalzen is normaal; stikken is stil en je kind kan niet hoesten — dat is een noodgeval.",
+  "myths_title": "Achterhaalde mythes",
+  "all": "Alle",
+  "recipes_intro": "Keuzes uit Anacan Recepten die passen bij de leeftijd van je baby. De eerste recepten zijn gratis, de rest zit in Premium.",
+  "recipes_loading": "Recepten laden…",
+  "all_recipes": "Alle babyrecepten",
+  "all_recipes_sub": "{n} recepten · Opent in Recepten",
+  "tag_iron": "★ IJzer",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Allergeen",
+  "home_title": "Gids bijvoeding",
+  "home_sub_before": "We beginnen met 6 maanden — gereedheid en eerste hapjes",
+  "home_sub_after": "Porties per leeftijd, ijzerbalans en recepten",
+  "tool_desc": "Porties, ijzerbalans, allergenen en recepten"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 mnd",
+   "milk": "Borstvoeding / flesvoeding op verzoek",
+   "meals": "Nog geen bijvoeding",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Elke dag vitamine D-druppels; let op tekenen van gereedheid"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 mnd",
+   "milk": "Hoofdvoeding, 5–6 keer per dag",
+   "meals": "2–3 maaltijden",
+   "portion": "Van 2–3 eetlepels tot ½ kopje (~125 ml)",
+   "texture": "Gladde puree → dikkere puree, zacht vingervoedsel",
+   "goal": "IJzer, nieuwe smaken, kennismaken met allergenen"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 mnd",
+   "milk": "3–4 keer per dag",
+   "meals": "3 maaltijden + 1–2 tussendoortjes",
+   "portion": "½ kopje (~125 ml)",
+   "texture": "Geprakt, fijngesneden, vingervoedsel",
+   "goal": "Kauwen, pincetgreep, open beker"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 jaar",
+   "milk": "Borstvoeding of koemelk 350–500 ml/dag",
+   "meals": "3 maaltijden + 2 tussendoortjes",
+   "portion": "¾–1 kopje (~200–250 ml)",
+   "texture": "Meeëten met de familie (zonder zout, klein)",
+   "goal": "Overgang naar het gezinsmaal"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 jaar",
+   "milk": "Melk / yoghurt 2 porties per dag",
+   "meals": "3 maaltijden + 2 tussendoortjes",
+   "portion": "1 kopje; vlees/vis ~30–50 g",
+   "texture": "Gezinsmaaltijd",
+   "goal": "Variatie, omgaan met kieskeurig eten"
+  }
+ ],
+ "readiness": [
+  "Houdt het hoofd stabiel",
+  "Zit met steun",
+  "Toont interesse in eten, opent de mond",
+  "Duwt eten niet met de tong naar buiten"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Melk"
+  },
+  {
+   "time": "09:00",
+   "what": "Pap met ijzer + fruit"
+  },
+  {
+   "time": "12:00",
+   "what": "Melk"
+  },
+  {
+   "time": "13:30",
+   "what": "Vlees + groente"
+  },
+  {
+   "time": "16:00",
+   "what": "Melk"
+  },
+  {
+   "time": "18:30",
+   "what": "Ei / yoghurt + granen"
+  },
+  {
+   "time": "Voor het slapen",
+   "what": "Melk"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 mnd",
+  "1–2 jaar",
+  "2–4 jaar"
+ ],
+ "nutrients": [
+  {
+   "name": "IJzer",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Rund-/lamsvlees, kippendij, eigeel, linzen, kikkererwten, pap met ijzer, spinazie",
+   "rule": "Bij elke maaltijd een ijzerbron, met vitamine C erbij"
+  },
+  {
+   "name": "Vitamine D",
+   "need": [
+    "400 IE",
+    "600 IE",
+    "600 IE"
+   ],
+   "sources": "Druppels, vette vis, eigeel",
+   "rule": "Elke dag druppels"
+  },
+  {
+   "name": "Zink",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Vlees, ei, yoghurt, peulvruchten, havermout",
+   "rule": "Op hetzelfde bord als ijzerrijk eten"
+  },
+  {
+   "name": "Calcium",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Yoghurt, kaas, melk (vanaf 1 jaar), tahin",
+   "rule": "2–3 porties zuivel per dag"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Zalm, makreel, sardines, walnoten, hennepzaad",
+   "rule": "2 keer per week vis"
+  },
+  {
+   "name": "Vitamine A",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Wortel, pompoen, zoete aardappel, abrikoos",
+   "rule": "Elke dag een oranje groente"
+  },
+  {
+   "name": "Vitamine C",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Paprika, broccoli, aardbei, kiwi, sinaasappel",
+   "rule": "Bij de ijzerrijke maaltijd"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Eiwit",
+   "hint": "vlees, vis, ei, peulvruchten"
+  },
+  {
+   "label": "Granen",
+   "hint": "pap, rijst, brood"
+  },
+  {
+   "label": "Groente en fruit",
+   "hint": "kleurrijk"
+  }
+ ],
+ "ironHelps": [
+  "Vitamine C (paprika, broccoli, aardbei)",
+  "Vlees + groente samen"
+ ],
+ "ironBlocks": [
+  "Thee bij het eten",
+  "Koemelk als hoofddrank vóór 1 jaar",
+  "Veel zemelen"
+ ],
+ "allergens": [
+  "Ei",
+  "Pinda",
+  "Noten",
+  "Koemelk",
+  "Soja",
+  "Tarwe",
+  "Sesam",
+  "Vis",
+  "Schaaldieren"
+ ],
+ "allergenSteps": [
+  "Telkens maar één nieuw allergeen; let 2–3 dagen op reacties",
+  "Geef het 's ochtends of 's middags, zodat je het goed kunt volgen",
+  "Ei goed doorgekookt; pinda als pindakaas, nooit hele pinda's",
+  "Gaat het goed, geef het dan 2–3 keer per week"
+ ],
+ "avoid": [
+  {
+   "food": "Honing",
+   "until": "12 mnd",
+   "why": "Risico op botulisme"
+  },
+  {
+   "food": "Zout",
+   "until": "12 mnd, daarna heel weinig",
+   "why": "Belast de nieren"
+  },
+  {
+   "food": "Toegevoegde suiker, snoep",
+   "until": "24 mnd",
+   "why": "Went aan zoet, gaatjes"
+  },
+  {
+   "food": "Vruchtensap",
+   "until": "12 mnd; daarna ≤120 ml/dag",
+   "why": "Remt de eetlust"
+  },
+  {
+   "food": "Koemelk (als drank)",
+   "until": "12 mnd",
+   "why": "Verlaagt ijzer; in eten mag het wel"
+  },
+  {
+   "food": "Rauw ei, vlees, vis; ongepasteuriseerde melk",
+   "until": "4 jaar",
+   "why": "Infectie"
+  },
+  {
+   "food": "Vis met veel kwik (zwaardvis, haai, grote tonijn)",
+   "until": "4 jaar",
+   "why": "Kwik"
+  },
+  {
+   "food": "Thee, koffie, cola",
+   "until": "4 jaar",
+   "why": "Cafeïne, bindt ijzer"
+  },
+  {
+   "food": "Worst, knakworst, gerookt vlees",
+   "until": "Zo weinig mogelijk",
+   "why": "Zout, nitraat"
+  },
+  {
+   "food": "Rijstdrank",
+   "until": "4–5 jaar",
+   "why": "Arseen"
+  }
+ ],
+ "choking": [
+  "Geen hele noten en zaden — gemalen of als pasta",
+  "Druiven, kersen, cherrytomaatjes — in de lengte in 4 stukken",
+  "Rauwe wortel, appel — raspen of koken",
+  "Knakworst — in lange reepjes; popcorn, harde snoepjes, kauwgom — niet",
+  "Altijd zittend en onder toezicht laten eten"
+ ],
+ "myths": [
+  {
+   "myth": "Eiwit pas na 1 jaar",
+   "fact": "Een heel ei mag vanaf 6 maanden; uitstellen kan het allergierisico verhogen."
+  },
+  {
+   "myth": "Vis, citrusfruit en aardbeien zijn verboden tot 1 jaar",
+   "fact": "Alles mag vanaf 6 maanden."
+  },
+  {
+   "myth": "Geef je eerst fruit, dan lust hij geen groente",
+   "fact": "Daar is geen sterk bewijs voor; het belangrijkste zijn ijzerrijk eten en variatie."
+  },
+  {
+   "myth": "Fruitpuree vanaf 4 maanden",
+   "fact": "De WHO adviseert om met 6 maanden te beginnen met bijvoeding."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Vlees",
+  "fish": "Vis",
+  "egg": "Ei",
+  "dairy": "Zuivel",
+  "legumes": "Peulvruchten",
+  "grains": "Granen",
+  "vegetables": "Groente",
+  "fruit": "Fruit",
+  "fats_seeds": "Vetten, zaden"
+ },
+ "foods": [
+  {
+   "name": "Rundvlees",
+   "value": "IJzer, zink, B12",
+   "form": "Puree of lange zachte reepjes"
+  },
+  {
+   "name": "Lamsvlees",
+   "value": "IJzer, zink",
+   "form": "Puree, gehakt"
+  },
+  {
+   "name": "Kippendij",
+   "value": "Eiwit, ijzer",
+   "form": "Uit elkaar getrokken, puree"
+  },
+  {
+   "name": "Kalkoen",
+   "value": "Eiwit, zink",
+   "form": "Puree, balletjes"
+  },
+  {
+   "name": "Lever",
+   "value": "IJzer, vitamine A",
+   "form": "1 keer per week, 1–2 theelepels"
+  },
+  {
+   "name": "Zalm",
+   "value": "Omega-3, vitamine D",
+   "form": "Zonder graten, geprakt"
+  },
+  {
+   "name": "Makreel, sardines",
+   "value": "Omega-3",
+   "form": "Zonder graten, geprakt"
+  },
+  {
+   "name": "Kabeljauw, schol",
+   "value": "Eiwit, jodium",
+   "form": "In vlokken"
+  },
+  {
+   "name": "Kippenei",
+   "value": "Eiwit, choline, D",
+   "form": "Hardgekookt, geprakt; omeletreepjes"
+  },
+  {
+   "name": "Yoghurt (zonder suiker)",
+   "value": "Calcium, probiotica",
+   "form": "Met een lepel"
+  },
+  {
+   "name": "Kwark/cottage cheese, witte kaas",
+   "value": "Calcium, eiwit",
+   "form": "Geprakt; kaas laten weken om het zout eruit te halen"
+  },
+  {
+   "name": "Boter",
+   "value": "Energie",
+   "form": "Een beetje door het eten"
+  },
+  {
+   "name": "Koemelk",
+   "value": "Calcium",
+   "form": "Als drank vanaf 12 mnd; in eten vanaf 6 mnd"
+  },
+  {
+   "name": "Rode linzen",
+   "value": "IJzer, eiwit",
+   "form": "Soep, puree"
+  },
+  {
+   "name": "Kikkererwten",
+   "value": "IJzer, vezels",
+   "form": "Hummus (zonder zout)"
+  },
+  {
+   "name": "Bonen, mungbonen",
+   "value": "IJzer, foliumzuur",
+   "form": "Geprakt"
+  },
+  {
+   "name": "Havermout",
+   "value": "Vezels, ijzer",
+   "form": "Pap"
+  },
+  {
+   "name": "Rijst",
+   "value": "Energie",
+   "form": "Pap (2–3 keer per week)"
+  },
+  {
+   "name": "Boekweit",
+   "value": "IJzer, magnesium",
+   "form": "Pap"
+  },
+  {
+   "name": "Bulgur, griesmeel, pasta, brood",
+   "value": "Energie, B",
+   "form": "Pap, zachte pasta"
+  },
+  {
+   "name": "Gierst, quinoa",
+   "value": "IJzer, eiwit",
+   "form": "Pap"
+  },
+  {
+   "name": "Pompoen, wortel, zoete aardappel",
+   "value": "Vitamine A",
+   "form": "Puree, gestoomde staafjes"
+  },
+  {
+   "name": "Courgette, broccoli, bloemkool",
+   "value": "Vitamine C, K",
+   "form": "Gestoomd; broccoli als \"boompjes\""
+  },
+  {
+   "name": "Aardappel",
+   "value": "Energie",
+   "form": "Puree"
+  },
+  {
+   "name": "Spinazie, rode biet",
+   "value": "Foliumzuur, ijzer",
+   "form": "Gemengd met andere groente"
+  },
+  {
+   "name": "Aubergine, paprika, tomaat",
+   "value": "Vitamine C",
+   "form": "Gekookt, zonder schil"
+  },
+  {
+   "name": "Doperwten, sperziebonen",
+   "value": "IJzer, vezels",
+   "form": "Geprakt"
+  },
+  {
+   "name": "Appel, peer",
+   "value": "Vezels",
+   "form": "Gekookte puree, geraspt"
+  },
+  {
+   "name": "Banaan, avocado",
+   "value": "Energie, gezond vet",
+   "form": "Lange reepjes, geprakt"
+  },
+  {
+   "name": "Perzik, abrikoos, pruim",
+   "value": "Vitamine A, C, vezels",
+   "form": "Zonder schil, zacht"
+  },
+  {
+   "name": "Aardbei, kiwi, sinaasappel",
+   "value": "Vitamine C",
+   "form": "Geprakt, in plakjes"
+  },
+  {
+   "name": "Druiven, kersen, blauwe bessen",
+   "value": "Antioxidanten",
+   "form": "In de lengte in 4 stukken; blauwe bessen prakken"
+  },
+  {
+   "name": "Gedroogde abrikozen, rozijnen, dadels",
+   "value": "IJzer, vezels",
+   "form": "Geweekt, puree"
+  },
+  {
+   "name": "Olijfolie",
+   "value": "Gezond vet",
+   "form": "1 theelepel door het eten"
+  },
+  {
+   "name": "Pindakaas",
+   "value": "Eiwit",
+   "form": "Dun, door de puree gemengd"
+  },
+  {
+   "name": "Amandel-, walnoot-, hazelnootpasta",
+   "value": "Vitamine E, omega-3",
+   "form": "Gemalen of als pasta"
+  },
+  {
+   "name": "Tahin (sesam)",
+   "value": "Calcium, ijzer",
+   "form": "Door de pap gemengd"
+  },
+  {
+   "name": "Hennepzaad, chiazaad",
+   "value": "Omega-3",
+   "form": "Gemalen"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Puree van rundvlees + pompoen",
+   "Puree van kip + wortel + aardappel",
+   "Rodelinzensoep",
+   "Havermoutpap + appelmoes",
+   "Boekweitpap",
+   "Bananenpuree met yoghurt",
+   "Geprakte avocado + banaan",
+   "Geprakt hardgekookt ei",
+   "Gestoomde broccoli-\"boompjes\"",
+   "Puree van zalm + zoete aardappel",
+   "Kikkererwtenhummus (met tahin)",
+   "Gekookte perenpuree + kaneel"
+  ],
+  "9-11": [
+   "Mini-gehaktballetjes van rundvlees",
+   "Omeletreepjes met groente",
+   "Visballetjes",
+   "Havermoutpannenkoekjes met yoghurt",
+   "Rijstepap met kip + courgette",
+   "Lamsstoofpotje met groente",
+   "Linzenballetjes (köfte)",
+   "Pasta + tomatensaus met gehakt",
+   "Boekweit + leversaus",
+   "Kwarkpannenkoekjes (syrniki, uit de oven)",
+   "Broccoli-kaasmuffins",
+   "Appel-haverrepen"
+  ],
+  "12-24": [
+   "Dolma in wijnbladeren (klein)",
+   "Koolrolletjes (dolma)",
+   "Pilav voor kinderen",
+   "Kippensoep met noedels",
+   "Düşbərə (mini-dumplings in bouillon)",
+   "Kruidenkuku (omelet uit de oven)",
+   "Linzensoep",
+   "Visburger + aardappelpuree",
+   "Boekweit + rundergoulash",
+   "Menemen (niet pittig)",
+   "Kinderlasagne",
+   "Parfait van yoghurt, fruit en havermout",
+   "Kwarkovenschotel",
+   "Khingal in bouillon"
+  ],
+  "24-48": [
+   "Kipballetjes met groente + bulgur",
+   "Zalm met groente uit de oven",
+   "Bonenstoofpot",
+   "Zelfgemaakte pizza (volkoren)",
+   "Qutab (met kruiden / vlees)",
+   "Borsjt",
+   "Quinoasalade + kikkererwten",
+   "Wentelteefje-\"soldaatjes\"",
+   "Smoothiebowl",
+   "Zelfgemaakte nuggets (uit de oven)"
+  ]
+ },
+ "emergency": "Zwelling van gezicht of lippen, moeite met ademen, herhaald braken, bleekheid — direct 103 / 112.",
+ "disclaimer": "Deze gids is bedoeld als informatie en is geen medisch advies. De dosering van ijzer en vitamines bepaalt je kinderarts. Bronnen: WHO (2023), AAP, Turks ministerie van Volksgezondheid, Unie van Kinderartsen van Rusland, SACN."
+}

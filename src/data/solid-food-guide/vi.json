@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Cẩm nang ăn dặm",
+  "tab_stage": "Giai đoạn",
+  "tab_balance": "Cân bằng",
+  "tab_rules": "Nguyên tắc",
+  "tab_foods": "Thực phẩm",
+  "tab_recipes": "Công thức",
+  "age_aria": "Tuổi",
+  "months_short": "{n} tháng",
+  "years_short": "{n} tuổi",
+  "months_plus": "{n} tháng+",
+  "years_plus": "{n} tuổi+",
+  "fact_milk": "Sữa",
+  "fact_meals": "Bữa ăn",
+  "fact_portion": "Khẩu phần",
+  "fact_texture": "Độ thô",
+  "portion_note": "Khẩu phần chỉ để tham khảo — bé tự quyết định ăn bao nhiêu.",
+  "readiness_title": "Dấu hiệu sẵn sàng",
+  "readiness_all": "Đủ cả — bé sẵn sàng bắt đầu lúc 6 tháng.",
+  "readiness_hint": "WHO khuyến nghị bắt đầu ăn dặm khi bé 6 tháng (180 ngày). Nếu còn băn khoăn, hãy hỏi bác sĩ nhi khoa.",
+  "sample_day_title": "Một ngày mẫu (8 tháng)",
+  "dishes_title": "Gợi ý món ăn cho độ tuổi này",
+  "see_recipes": "Xem công thức",
+  "plate_title": "Đĩa ăn cân bằng (từ 1 tuổi)",
+  "plate_note": "Kèm một món từ sữa và một chút chất béo lành mạnh (dầu ô liu, bơ động vật, quả bơ).",
+  "needs_title": "Nhu cầu hằng ngày",
+  "needs_note": "Từ 6–11 tháng, nhu cầu sắt tính theo cân nặng cao nhất trong cả cuộc đời — mỗi bữa nên có một nguồn sắt.",
+  "sources_title": "Có trong thực phẩm nào",
+  "iron_helps_title": "Tăng hấp thu sắt",
+  "iron_blocks_title": "Giảm hấp thu sắt",
+  "allergens_title": "Chất gây dị ứng: đừng trì hoãn",
+  "allergens_intro": "Trứng và đậu phộng từ 6 tháng, cho từng loại một. Nếu bé bị chàm nặng hoặc dị ứng trứng, hãy hỏi bác sĩ trước.",
+  "avoid_title": "Không cho bé ăn",
+  "choking_title": "Phòng hóc nghẹn (đến 4 tuổi)",
+  "choking_note": "Ọe là bình thường; hóc nghẹn thì im lặng và bé không ho được — đây là tình huống khẩn cấp.",
+  "myths_title": "Quan niệm lỗi thời",
+  "all": "Tất cả",
+  "recipes_intro": "Các lựa chọn phù hợp với tuổi của bé từ mục Công thức của Anacan. Những công thức đầu tiên miễn phí, phần còn lại thuộc Premium.",
+  "recipes_loading": "Đang tải công thức…",
+  "all_recipes": "Tất cả công thức cho bé",
+  "all_recipes_sub": "{n} công thức · mở trong mục Công thức",
+  "tag_iron": "★ Sắt",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Dị ứng",
+  "home_title": "Cẩm nang ăn dặm",
+  "home_sub_before": "Bắt đầu lúc 6 tháng — dấu hiệu sẵn sàng và món đầu tiên",
+  "home_sub_after": "Khẩu phần theo tuổi, cân bằng sắt và công thức",
+  "tool_desc": "Khẩu phần, cân bằng sắt, chất gây dị ứng và công thức"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 tháng",
+   "milk": "Sữa mẹ / sữa công thức theo nhu cầu",
+   "meals": "Chưa ăn dặm",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Nhỏ giọt vitamin D mỗi ngày; theo dõi dấu hiệu sẵn sàng"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 tháng",
+   "milk": "Nguồn dinh dưỡng chính, 5–6 lần/ngày",
+   "meals": "2–3 bữa",
+   "portion": "Từ 2–3 thìa canh đến ½ cốc (~125 ml)",
+   "texture": "Nghiền mịn → nghiền đặc, thức ăn mềm cầm tay",
+   "goal": "Sắt, vị mới, làm quen chất gây dị ứng"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 tháng",
+   "milk": "3–4 lần/ngày",
+   "meals": "3 bữa + 1–2 bữa phụ",
+   "portion": "½ cốc (~125 ml)",
+   "texture": "Tán nhuyễn, thái nhỏ, thức ăn cầm tay",
+   "goal": "Nhai, nhón bằng hai ngón tay, uống cốc hở"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 tuổi",
+   "milk": "Sữa mẹ hoặc sữa bò 350–500 ml/ngày",
+   "meals": "3 bữa + 2 bữa phụ",
+   "portion": "¾–1 cốc (~200–250 ml)",
+   "texture": "Ăn cùng gia đình (không muối, cắt nhỏ)",
+   "goal": "Chuyển sang ăn cùng gia đình"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 tuổi",
+   "milk": "Sữa / sữa chua 2 phần mỗi ngày",
+   "meals": "3 bữa + 2 bữa phụ",
+   "portion": "1 cốc; thịt/cá ~30–50 g",
+   "texture": "Ăn cùng gia đình",
+   "goal": "Đa dạng, xử lý chuyện kén ăn"
+  }
+ ],
+ "readiness": [
+  "Giữ đầu vững",
+  "Ngồi được khi có người đỡ",
+  "Thích thú với đồ ăn, há miệng",
+  "Lưỡi không còn đẩy thức ăn ra"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Sữa"
+  },
+  {
+   "time": "09:00",
+   "what": "Bột ngũ cốc bổ sung sắt + trái cây"
+  },
+  {
+   "time": "12:00",
+   "what": "Sữa"
+  },
+  {
+   "time": "13:30",
+   "what": "Thịt + rau củ"
+  },
+  {
+   "time": "16:00",
+   "what": "Sữa"
+  },
+  {
+   "time": "18:30",
+   "what": "Trứng / sữa chua + ngũ cốc"
+  },
+  {
+   "time": "Trước khi ngủ",
+   "what": "Sữa"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 tháng",
+  "1–2 tuổi",
+  "2–4 tuổi"
+ ],
+ "nutrients": [
+  {
+   "name": "Sắt",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Thịt bò/cừu, đùi gà, lòng đỏ trứng, đậu lăng, đậu gà, bột ngũ cốc bổ sung sắt, rau bina",
+   "rule": "Mỗi bữa một nguồn sắt, kèm vitamin C"
+  },
+  {
+   "name": "Vitamin D",
+   "need": [
+    "400 IU",
+    "600 IU",
+    "600 IU"
+   ],
+   "sources": "Dạng giọt, cá béo, lòng đỏ trứng",
+   "rule": "Nhỏ giọt mỗi ngày"
+  },
+  {
+   "name": "Kẽm",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Thịt, trứng, sữa chua, các loại đậu, yến mạch",
+   "rule": "Ăn cùng đĩa với thực phẩm giàu sắt"
+  },
+  {
+   "name": "Canxi",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Sữa chua, phô mai, sữa (từ 1 tuổi), sốt mè tahini",
+   "rule": "2–3 phần chế phẩm từ sữa mỗi ngày"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Cá hồi, cá thu, cá mòi, óc chó, hạt gai dầu",
+   "rule": "2 bữa cá mỗi tuần"
+  },
+  {
+   "name": "Vitamin A",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Cà rốt, bí đỏ, khoai lang, mơ",
+   "rule": "Mỗi ngày một loại rau củ màu cam"
+  },
+  {
+   "name": "Vitamin C",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Ớt chuông, bông cải xanh, dâu tây, kiwi, cam",
+   "rule": "Ăn kèm món giàu sắt"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Đạm",
+   "hint": "thịt, cá, trứng, các loại đậu"
+  },
+  {
+   "label": "Ngũ cốc",
+   "hint": "cháo, cơm, bánh mì"
+  },
+  {
+   "label": "Rau củ và trái cây",
+   "hint": "nhiều màu sắc"
+  }
+ ],
+ "ironHelps": [
+  "Vitamin C (ớt chuông, bông cải xanh, dâu tây)",
+  "Thịt + rau củ ăn cùng nhau"
+ ],
+ "ironBlocks": [
+  "Uống trà trong bữa ăn",
+  "Sữa bò làm đồ uống chính trước 1 tuổi",
+  "Thực phẩm quá nhiều cám"
+ ],
+ "allergens": [
+  "Trứng",
+  "Đậu phộng",
+  "Các loại hạt cây",
+  "Sữa bò",
+  "Đậu nành",
+  "Lúa mì",
+  "Mè (vừng)",
+  "Cá",
+  "Giáp xác"
+ ],
+ "allergenSteps": [
+  "Mỗi lần chỉ một chất gây dị ứng mới; theo dõi phản ứng 2–3 ngày",
+  "Cho ăn vào buổi sáng hoặc buổi trưa để dễ theo dõi",
+  "Trứng nấu chín kỹ; đậu phộng dạng bơ, không bao giờ cho nguyên hạt",
+  "Nếu bé dung nạp tốt, cho ăn lại 2–3 lần mỗi tuần"
+ ],
+ "avoid": [
+  {
+   "food": "Mật ong",
+   "until": "12 tháng",
+   "why": "Nguy cơ ngộ độc botulinum"
+  },
+  {
+   "food": "Muối",
+   "until": "12 tháng, sau đó rất ít",
+   "why": "Gây gánh nặng cho thận"
+  },
+  {
+   "food": "Đường thêm vào, đồ ngọt",
+   "until": "24 tháng",
+   "why": "Quen vị ngọt, sâu răng"
+  },
+  {
+   "food": "Nước ép trái cây",
+   "until": "12 tháng; sau đó ≤120 ml/ngày",
+   "why": "Làm giảm cảm giác thèm ăn"
+  },
+  {
+   "food": "Sữa bò (làm đồ uống)",
+   "until": "12 tháng",
+   "why": "Làm giảm sắt; dùng trong món ăn thì được"
+  },
+  {
+   "food": "Trứng, thịt, cá sống; sữa chưa tiệt trùng",
+   "until": "4 tuổi",
+   "why": "Nhiễm khuẩn"
+  },
+  {
+   "food": "Cá nhiều thủy ngân (cá kiếm, cá mập, cá ngừ lớn)",
+   "until": "4 tuổi",
+   "why": "Thủy ngân"
+  },
+  {
+   "food": "Trà, cà phê, cola",
+   "until": "4 tuổi",
+   "why": "Caffeine, cản trở hấp thu sắt"
+  },
+  {
+   "food": "Xúc xích, lạp xưởng, thịt hun khói",
+   "until": "Càng ít càng tốt",
+   "why": "Muối, nitrit"
+  },
+  {
+   "food": "Sữa gạo",
+   "until": "4–5 tuổi",
+   "why": "Asen"
+  }
+ ],
+ "choking": [
+  "Không cho ăn nguyên hạt và hạt giống — nghiền hoặc dạng bơ",
+  "Nho, anh đào, cà chua bi — cắt dọc làm 4",
+  "Cà rốt, táo sống — bào sợi hoặc nấu chín",
+  "Xúc xích — cắt dọc thành thanh; không cho ăn bỏng ngô, kẹo cứng, kẹo cao su",
+  "Luôn cho bé ngồi ăn và có người lớn trông chừng"
+ ],
+ "myths": [
+  {
+   "myth": "Lòng trắng trứng phải sau 1 tuổi",
+   "fact": "Có thể cho ăn cả quả trứng từ 6 tháng; trì hoãn có thể làm tăng nguy cơ dị ứng."
+  },
+  {
+   "myth": "Cá, cam quýt, dâu tây bị cấm trước 1 tuổi",
+   "fact": "Tất cả đều có thể cho ăn từ 6 tháng."
+  },
+  {
+   "myth": "Cho ăn trái cây trước thì bé sẽ không thích rau",
+   "fact": "Chưa có bằng chứng mạnh; điều quan trọng là thực phẩm giàu sắt và sự đa dạng."
+  },
+  {
+   "myth": "Cho ăn trái cây nghiền từ 4 tháng",
+   "fact": "WHO khuyến nghị bắt đầu ăn dặm khi bé 6 tháng."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Thịt",
+  "fish": "Cá",
+  "egg": "Trứng",
+  "dairy": "Sữa",
+  "legumes": "Các loại đậu",
+  "grains": "Ngũ cốc",
+  "vegetables": "Rau củ",
+  "fruit": "Trái cây",
+  "fats_seeds": "Chất béo, hạt"
+ },
+ "foods": [
+  {
+   "name": "Thịt bò",
+   "value": "Sắt, kẽm, B12",
+   "form": "Xay nhuyễn hoặc thanh dài mềm"
+  },
+  {
+   "name": "Thịt cừu",
+   "value": "Sắt, kẽm",
+   "form": "Xay nhuyễn, băm"
+  },
+  {
+   "name": "Đùi gà",
+   "value": "Đạm, sắt",
+   "form": "Xé sợi, xay nhuyễn"
+  },
+  {
+   "name": "Gà tây",
+   "value": "Đạm, kẽm",
+   "form": "Xay nhuyễn, viên thịt"
+  },
+  {
+   "name": "Gan",
+   "value": "Sắt, vitamin A",
+   "form": "1 lần/tuần, 1–2 thìa cà phê"
+  },
+  {
+   "name": "Cá hồi",
+   "value": "Omega-3, vitamin D",
+   "form": "Bỏ xương, tán nhuyễn"
+  },
+  {
+   "name": "Cá thu, cá mòi",
+   "value": "Omega-3",
+   "form": "Bỏ xương, tán nhuyễn"
+  },
+  {
+   "name": "Cá tuyết, cá bơn",
+   "value": "Đạm, i-ốt",
+   "form": "Gỡ thành miếng nhỏ"
+  },
+  {
+   "name": "Trứng gà",
+   "value": "Đạm, choline, D",
+   "form": "Luộc chín kỹ, tán nhuyễn; trứng tráng cắt thanh"
+  },
+  {
+   "name": "Sữa chua (không đường)",
+   "value": "Canxi, lợi khuẩn",
+   "form": "Xúc bằng thìa"
+  },
+  {
+   "name": "Phô mai tươi, phô mai trắng",
+   "value": "Canxi, đạm",
+   "form": "Tán nhuyễn; ngâm phô mai để bớt mặn"
+  },
+  {
+   "name": "Bơ (động vật)",
+   "value": "Năng lượng",
+   "form": "Thêm một chút vào món ăn"
+  },
+  {
+   "name": "Sữa bò",
+   "value": "Canxi",
+   "form": "Làm đồ uống từ 12 tháng; trong món ăn từ 6 tháng"
+  },
+  {
+   "name": "Đậu lăng đỏ",
+   "value": "Sắt, đạm",
+   "form": "Súp, nghiền nhuyễn"
+  },
+  {
+   "name": "Đậu gà",
+   "value": "Sắt, chất xơ",
+   "form": "Hummus (không muối)"
+  },
+  {
+   "name": "Đậu đỗ, đậu xanh",
+   "value": "Sắt, folate",
+   "form": "Tán nhuyễn"
+  },
+  {
+   "name": "Yến mạch",
+   "value": "Chất xơ, sắt",
+   "form": "Cháo"
+  },
+  {
+   "name": "Gạo",
+   "value": "Năng lượng",
+   "form": "Cháo (2–3 lần/tuần)"
+  },
+  {
+   "name": "Kiều mạch",
+   "value": "Sắt, magie",
+   "form": "Cháo"
+  },
+  {
+   "name": "Bulgur, bột semolina, mì ống, bánh mì",
+   "value": "Năng lượng, B",
+   "form": "Cháo, mì nấu mềm"
+  },
+  {
+   "name": "Kê, diêm mạch (quinoa)",
+   "value": "Sắt, đạm",
+   "form": "Cháo"
+  },
+  {
+   "name": "Bí đỏ, cà rốt, khoai lang",
+   "value": "Vitamin A",
+   "form": "Nghiền nhuyễn, hấp cắt thanh"
+  },
+  {
+   "name": "Bí ngòi, bông cải xanh, súp lơ trắng",
+   "value": "Vitamin C, K",
+   "form": "Hấp; bông cải xanh để dạng \"cây nhỏ\""
+  },
+  {
+   "name": "Khoai tây",
+   "value": "Năng lượng",
+   "form": "Nghiền nhuyễn"
+  },
+  {
+   "name": "Rau bina, củ dền",
+   "value": "Folate, sắt",
+   "form": "Trộn với rau củ khác"
+  },
+  {
+   "name": "Cà tím, ớt chuông, cà chua",
+   "value": "Vitamin C",
+   "form": "Nấu chín, bỏ vỏ"
+  },
+  {
+   "name": "Đậu Hà Lan, đậu que",
+   "value": "Sắt, chất xơ",
+   "form": "Tán nhuyễn"
+  },
+  {
+   "name": "Táo, lê",
+   "value": "Chất xơ",
+   "form": "Nấu chín nghiền, bào sợi"
+  },
+  {
+   "name": "Chuối, quả bơ",
+   "value": "Năng lượng, chất béo lành mạnh",
+   "form": "Thanh dài, tán nhuyễn"
+  },
+  {
+   "name": "Đào, mơ, mận",
+   "value": "Vitamin A, C, chất xơ",
+   "form": "Bỏ vỏ, chín mềm"
+  },
+  {
+   "name": "Dâu tây, kiwi, cam",
+   "value": "Vitamin C",
+   "form": "Tán nhuyễn, cắt lát"
+  },
+  {
+   "name": "Nho, anh đào, việt quất",
+   "value": "Chất chống oxy hóa",
+   "form": "Cắt dọc làm 4; dằm dẹt việt quất"
+  },
+  {
+   "name": "Mơ khô, nho khô, chà là",
+   "value": "Sắt, chất xơ",
+   "form": "Ngâm mềm, xay nhuyễn"
+  },
+  {
+   "name": "Dầu ô liu",
+   "value": "Chất béo lành mạnh",
+   "form": "1 thìa cà phê vào món ăn"
+  },
+  {
+   "name": "Bơ đậu phộng",
+   "value": "Đạm",
+   "form": "Pha loãng, trộn vào món nghiền"
+  },
+  {
+   "name": "Bơ hạnh nhân, óc chó, phỉ",
+   "value": "Vitamin E, omega-3",
+   "form": "Dạng bột hoặc dạng bơ"
+  },
+  {
+   "name": "Tahini (mè)",
+   "value": "Canxi, sắt",
+   "form": "Trộn vào cháo"
+  },
+  {
+   "name": "Hạt gai dầu, hạt chia",
+   "value": "Omega-3",
+   "form": "Xay nhỏ"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Thịt bò + bí đỏ nghiền",
+   "Gà + cà rốt + khoai tây nghiền",
+   "Súp đậu lăng đỏ",
+   "Cháo yến mạch + táo nghiền",
+   "Cháo kiều mạch",
+   "Chuối nghiền với sữa chua",
+   "Bơ + chuối dằm",
+   "Trứng luộc chín tán nhuyễn",
+   "\"Cây nhỏ\" bông cải xanh hấp",
+   "Cá hồi + khoai lang nghiền",
+   "Hummus đậu gà (với tahini)",
+   "Lê nấu nghiền + quế"
+  ],
+  "9-11": [
+   "Thịt viên bò mini",
+   "Trứng tráng rau củ cắt thanh",
+   "Chả cá viên",
+   "Bánh pancake yến mạch sữa chua",
+   "Cháo gà + bí ngòi",
+   "Thịt cừu hầm rau củ",
+   "Chả đậu lăng",
+   "Mì ống + sốt cà chua thịt băm",
+   "Kiều mạch + sốt gan",
+   "Bánh syrniki phô mai tươi (nướng lò)",
+   "Bánh muffin bông cải phô mai",
+   "Thanh táo yến mạch"
+  ],
+  "12-24": [
+   "Dolma lá nho (cỡ nhỏ)",
+   "Bắp cải cuộn thịt",
+   "Cơm pilaf cho bé",
+   "Súp gà mì sợi",
+   "Düşbərə (súp bánh bao nhỏ)",
+   "Kuku rau thơm (nướng lò)",
+   "Súp đậu lăng",
+   "Chả cá + khoai tây nghiền",
+   "Kiều mạch + bò hầm goulash",
+   "Menemen (trứng cà chua, không cay)",
+   "Lasagna cho bé",
+   "Parfait sữa chua + trái cây + yến mạch",
+   "Bánh phô mai tươi nướng",
+   "Xəngəl nước dùng (mì Azerbaijan)"
+  ],
+  "24-48": [
+   "Gà viên rau củ + bulgur",
+   "Cá hồi nướng lò + rau củ",
+   "Đậu hầm",
+   "Pizza tự làm (ngũ cốc nguyên cám)",
+   "Qutab (bánh kẹp rau thơm / thịt)",
+   "Súp borscht",
+   "Salad diêm mạch + đậu gà",
+   "Bánh mì nhúng trứng cắt thanh",
+   "Smoothie bowl",
+   "Gà viên nugget tự làm (nướng lò)"
+  ]
+ },
+ "emergency": "Sưng mặt hoặc môi, khó thở, nôn nhiều lần, xanh xao — gọi ngay 103 / 112.",
+ "disclaimer": "Cẩm nang này nhằm mục đích cung cấp thông tin, không phải lời khuyên y tế. Liều sắt và vitamin do bác sĩ nhi khoa chỉ định. Nguồn: WHO (2023), AAP, Bộ Y tế Thổ Nhĩ Kỳ, Liên hiệp Bác sĩ Nhi khoa Nga, SACN."
+}
