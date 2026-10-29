@@ -13,7 +13,7 @@ const fallbackTargets = {
 };
 
 interface WaterWidgetProps {
-  /** 'anacan' renders the redesigned (anacan-demo) progress-ring card */
+  /** 'anacan' renders the compact one-row home tracker */
   variant?: 'default' | 'anacan';
 }
 
@@ -29,43 +29,34 @@ export default function WaterWidget({ variant = 'default' }: WaterWidgetProps) {
   const percentage = Math.min((waterGlasses / target) * 100, 100);
 
   if (variant === 'anacan') {
+    const percent = new Intl.NumberFormat(appLanguageLocale(language), { style: 'percent', maximumFractionDigits: 0 }).format(percentage / 100);
+    // Compact one-row tracker: icon, count + thin progress bar, add button.
     return (
-      <div className="a-card a-fade-in">
-        <div className="a-card-head">
-          <h3 className="a-card-title a-heading">{tr("common_su_water", "Su")}</h3>
-          <span className="a-section-link" style={{ color: 'var(--a-ink-soft)' }}>
-            {waterGlasses}/{target} {tr('waterwidget_glass_unit', 'stəkan')}
-          </span>
-        </div>
-        <div className="a-ring-hero">
-          <div className="a-ring a-water-ring" style={{ '--pct': percentage } as React.CSSProperties}>
-            <div className="a-ring-inner">
-              <b data-water-percentage><bdi>{new Intl.NumberFormat(appLanguageLocale(language), { style: 'percent', maximumFractionDigits: 0 }).format(percentage / 100)}</bdi></b>
-              <span>{tr('mommy_daily_goal', 'günlük hədəf')}</span>
-            </div>
-          </div>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <p className="a-list-title" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <Droplets size={14} style={{ color: 'var(--a-blue-2)' }} />
-              {waterGlasses} / {target} {tr('waterwidget_glass_unit', 'stəkan')}
-            </p>
-            <p className="a-list-sub" style={{ whiteSpace: 'normal', marginTop: 4 }}>
-              {tr('waterwidget_hint', 'Ana üçün su balansı süd istehsalına dəstəkdir')}
-            </p>
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={(e) => {
-                e.stopPropagation();
-                updateWaterIntake(1);
-              }}
-              className="a-btn-soft"
-              style={{ marginTop: 10 }}
-            >
-              <Plus size={14} strokeWidth={2.5} />
-              {tr('waterwidget_add_glass', '1 stəkan əlavə et')}
-            </motion.button>
+      <div className="a-card a-fade-in a-water-row">
+        <span className="a-list-icon" style={{ background: 'var(--a-grad-blue)', color: 'var(--a-blue-ink)' }}>
+          <Droplets size={17} strokeWidth={2} />
+        </span>
+        <div className="a-water-main">
+          <p className="a-list-title">
+            {tr("common_su_water", "Su")}
+            <span className="a-water-count"><bdi>{waterGlasses}/{target}</bdi> {tr('waterwidget_glass_unit', 'stəkan')} · <b data-water-percentage><bdi>{percent}</bdi></b></span>
+          </p>
+          <div className="a-water-bar" role="progressbar" aria-valuemin={0} aria-valuemax={target} aria-valuenow={Math.min(waterGlasses, target)}>
+            <span style={{ width: `${percentage}%` }} />
           </div>
         </div>
+        <motion.button
+          type="button"
+          whileTap={{ scale: 0.9 }}
+          onClick={(e) => {
+            e.stopPropagation();
+            updateWaterIntake(1);
+          }}
+          className="a-water-add"
+          aria-label={tr('waterwidget_add_glass', '1 stəkan əlavə et')}
+        >
+          <Plus size={16} strokeWidth={2.6} />
+        </motion.button>
       </div>
     );
   }

@@ -5,6 +5,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useAppointments, type Appointment } from '@/hooks/useAppointments';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { rd } from '@/lib/redesign-i18n';
+import { tr } from '@/lib/tr';
 
 const AppointmentSheet = lazy(() => import('./AppointmentSheet'));
 
@@ -25,7 +26,7 @@ export default function UpcomingAppointments() {
   return (
     <section className="a-section">
       <div className="a-section-head">
-        <h2 className="a-section-title a-heading">{rd('upcoming_title')}</h2>
+        <h2 className="a-section-title a-heading">{tr("calendarscreen_teqvim_584bdd", "Təqvim")}</h2>
         <button type="button" className="a-section-link inline-flex items-center gap-1" onClick={() => setSheet({ appointment: null })}>
           <Plus size={14} strokeWidth={2.2} />{rd('upcoming_add')}
         </button>

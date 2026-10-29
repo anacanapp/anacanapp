@@ -211,6 +211,9 @@ const FlowDashboard = () => {
       {/* Daily Story Cards — phase-personalized */}
       <DailyStoryCards />
 
+      {/* Calendar: upcoming appointments, add / edit in a sheet, server push reminders */}
+      <UpcomingAppointments />
+
       {/* Currently — phase status card (anacan-demo PeriodStatus) */}
       <section className="a-section">
         <motion.div
@@ -483,9 +486,6 @@ const FlowDashboard = () => {
           </div>
         </motion.div>
       </section>
-
-      {/* Upcoming appointments: add / edit in a sheet, server push reminders */}
-      <UpcomingAppointments />
 
       {/* Daily Logger — PREMIUM (freemium siyasəti) */}
       <motion.div

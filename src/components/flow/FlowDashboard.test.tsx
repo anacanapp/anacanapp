@@ -28,6 +28,7 @@ vi.mock('./PeriodDelayBanner', () => ({ default: () => null }));
 vi.mock('./PillReminderCard', () => ({ default: () => null }));
 vi.mock('./SymptomPatternReport', () => ({ default: () => null }));
 vi.mock('./DailyStoryCards', () => ({ default: () => null }));
+vi.mock('@/components/home/UpcomingAppointments', () => ({ default: () => null }));
 vi.mock('@/components/premium/PremiumGate', () => ({ default: ({ children }) => children }));
 vi.mock('@/components/ui/calendar', () => ({ Calendar: props => <button onClick={() => props.onSelect(
   props.mode === 'multiple' ? [10,11,12,13,14].map(day => new Date(2026, 8, day)) : new Date(2026, 8, 14))}>Select five days</button> }));

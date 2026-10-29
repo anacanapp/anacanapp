@@ -61,12 +61,10 @@ import DailySummaryAutoSync from '@/components/partner/DailySummaryAutoSync';
 import PartnerCareCard from '@/components/partner/v2/PartnerCareCard';
 import RedFlagBanner from '@/components/dashboard/RedFlagBanner';
 import RecentBlogPosts from '@/components/dashboard/RecentBlogPosts';
-import ModuleArticles from '@/components/blog/ModuleArticles';
 import FlowDashboard from '@/components/flow/FlowDashboard';
 import BirthOnboardingModal from '@/components/BirthOnboardingModal';
 import WaterWidget from '@/components/dashboard/WaterWidget';
 import { MommyPeriodBanner } from '@/components/mommy/MommyPeriodTracker';
-import MotherSleepWidget from '@/components/dashboard/MotherSleepWidget';
 
 // Fetus images by month
 import FetusMonth1 from '@/assets/fetus/month-1.svg';
@@ -427,9 +425,6 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
         </div>
       </section>
 
-      {/* Upcoming appointments: add / edit in a sheet, server push reminders */}
-      <UpcomingAppointments />
-
       {/* Trimester Tips Section */}
       {dynamicTrimesterTips.length > 0 &&
       <section className="a-section">
@@ -540,6 +535,9 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
         </div>
       </section>
 
+      {/* Calendar sits after the baby message; without daily content it takes its place */}
+      {!dayContent && <UpcomingAppointments />}
+
       {/* Daily Content Cards - Separated */}
       {dayContent &&
       <>
@@ -568,6 +566,9 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
             </motion.div>
           </section>
         }
+
+          {/* Calendar: upcoming appointments, add / edit in a sheet, server push reminders */}
+          <UpcomingAppointments />
 
           {/* Body Changes Card */}
           {dayContent.body_changes &&
@@ -1018,7 +1019,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
     milestonePageIndex * milestonesPerPage,
     (milestonePageIndex + 1) * milestonesPerPage
   );
-  const hasMoreMilestones = allMilestones.length > milestonesPerPage;
 
   const formatDuration = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -1249,9 +1249,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
         </section>
       }
 
-      {/* Upcoming appointments: add / edit in a sheet, server push reminders */}
-      <UpcomingAppointments />
-
       {/* Anaya Mesaj — CTA banner */}
       {mommyMessage &&
       <section className="a-section">
@@ -1276,6 +1273,9 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
           </div>
         </section>
       }
+
+      {/* Calendar: upcoming appointments, add / edit in a sheet, server push reminders */}
+      <UpcomingAppointments />
 
       {/* Month illustration info */}
       {illustrationTitle &&
@@ -1305,9 +1305,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
           <span className="a-section-link">{tr('mommy_log_today_hint', 'Toxun və əlavə et')}</span>
         </div>
         <WaterWidget variant="anacan" />
-        <div style={{ marginTop: 10 }}>
-          <MotherSleepWidget />
-        </div>
       </section>
 
       {/* Qulluq izləmə alətləri (Yuxu/Qidalanma/Bez/Bugünkü xülasə) — Premium.
@@ -1374,7 +1371,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
           </motion.div>
         }
         <TrackerAIInsight section="sleep" api={insightApi} />
-        <ModuleArticles module="sleep" />
       </motion.div>
 
       {/* Feeding Tracker */}
@@ -1580,7 +1576,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
           </motion.div>
         }
         <TrackerAIInsight section="feeding" api={insightApi} />
-        <ModuleArticles module="feeding" />
       </motion.div>
 
       {/* Diaper Tracker */}
@@ -1660,7 +1655,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
           )}
         </div>
         <TrackerAIInsight section="diaper" api={insightApi} />
-        <ModuleArticles module="diaper" />
       </motion.div>
 
       {/* Today's Summary */}
@@ -1834,7 +1828,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
           subtitle={tr('premiumgate_growth_sub', 'ÜST standartları ilə müqayisəli inkişaf qrafikləri Premium-da')}
         >
           <GrowthTrackerWidget />
-          <ModuleArticles module="babyGrowth" />
         </PremiumBlurGate>
       </div>
 
@@ -1864,7 +1857,7 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
         </section>
       }
 
-      {/* Milestones with Carousel */}
+      {/* Development: milestones (swipe row) + one age-based tip, in one compact card */}
       <section className="a-section">
         <div className="a-section-head">
           <h2 className="a-section-title a-heading">{tr("dashboard_inkisaf_merheleleri_d6d887", "İnkişaf mərhələləri")}</h2>
@@ -1872,83 +1865,34 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
             {allMilestones.filter((m) => m.achieved).length}/{allMilestones.length}
           </span>
         </div>
-        <motion.div
-          className="a-card a-fade-in"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.25 }}>
-          
-          {/* Carousel navigation + page indicator */}
-          {hasMoreMilestones &&
-          <div className="flex items-center justify-between mb-3">
-              <motion.button
-              onClick={() => setMilestonePageIndex((p) => Math.max(0, p - 1))}
-              disabled={milestonePageIndex === 0}
-              className="a-icon-btn"
-              style={{ width: 30, height: 30 }}
-              whileTap={{ scale: 0.9 }}>
-              
-                <ChevronRight size={15} className="rtl:rotate-180 rotate-180" />
-              </motion.button>
-              <div className="flex gap-1.5">
-                {Array.from({ length: totalMilestonePages }).map((_, i) =>
-              <span
-                key={i}
-                style={{
-                  width: i === milestonePageIndex ? 16 : 6,
-                  height: 6,
-                  borderRadius: 999,
-                  background: i === milestonePageIndex ? 'var(--a-peach-2)' : 'var(--a-line-strong)',
-                  transition: 'all 150ms ease'
-                }} />
-
-              )}
-              </div>
-              <motion.button
-              onClick={() => setMilestonePageIndex((p) => Math.min(totalMilestonePages - 1, p + 1))}
-              disabled={milestonePageIndex === totalMilestonePages - 1}
-              className="a-icon-btn"
-              style={{ width: 30, height: 30 }}
-              whileTap={{ scale: 0.9 }}>
-              
-                <ChevronRight className="rtl:rotate-180" size={15} />
-              </motion.button>
-            </div>
-          }
-          
-          <div className="flex justify-between overflow-hidden">
-            {displayMilestones.map((milestone, index) =>
-            <motion.button
+        <div className="a-card a-fade-in a-dev-card">
+          <div
+            className="a-dev-rail"
+            ref={(el) => {
+              // Start at the first milestone that is not achieved yet (once per mount).
+              if (!el || el.dataset.positioned) return;
+              el.dataset.positioned = '1';
+              const first = el.querySelector<HTMLElement>('[data-achieved="false"]');
+              if (first) el.scrollLeft = first.offsetLeft - el.offsetLeft - 8;
+            }}>
+            {allMilestones.map((milestone) =>
+            <button
               key={milestone.id}
+              type="button"
+              data-achieved={milestone.achieved ? 'true' : 'false'}
               onClick={() => handleMilestoneClick(milestone.id)}
-              className="text-center flex-1"
-              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.05 + index * 0.05 }}
-              whileTap={{ scale: 0.9 }}>
-              
-                <div
-                className="w-10 h-10 mx-auto rounded-full flex items-center justify-center text-lg mb-1 relative"
-                style={milestone.achieved ?
-                { background: 'var(--a-grad-peach)', boxShadow: '0 8px 16px -8px rgba(255, 157, 99, 0.8)' } :
-                { background: 'var(--a-surface-soft)', opacity: 0.65 }}>
+              className={`a-dev-ms${milestone.achieved ? ' on' : ''}`}
+              aria-pressed={milestone.achieved}>
+                <span className="a-dev-ms-ico">
                   {milestone.emoji}
-                  {milestone.achieved &&
-                <div className="absolute -bottom-1 -end-1 w-4 h-4 rounded-full flex items-center justify-center" style={{ background: 'var(--a-green-2)' }}>
-                      <Check className="w-2.5 h-2.5 text-white" />
-                    </div>
-                }
-                </div>
-                <span
-                className="text-[10px] line-clamp-1"
-                style={{ color: milestone.achieved ? 'var(--a-ink)' : 'var(--a-ink-soft)', fontWeight: milestone.achieved ? 700 : 500 }}>
-                  {milestone.label}
+                  {milestone.achieved && <span className="a-dev-ms-check"><Check className="w-2.5 h-2.5" /></span>}
                 </span>
-              </motion.button>
+                <span className="a-dev-ms-label">{milestone.label}</span>
+              </button>
             )}
           </div>
-        </motion.div>
+          <DevelopmentTipsWidget embedded />
+        </div>
       </section>
 
       {/* Baby Crisis Calendar Widget - hide after week 75 (last crisis ends) */}
@@ -1963,10 +1907,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
 
 
 
-      {/* Development Tips - Dynamic based on age */}
-      <div className="a-section">
-        <DevelopmentTipsWidget />
-      </div>
     </div>);
 
 };
