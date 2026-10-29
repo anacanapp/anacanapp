@@ -31,8 +31,9 @@ const MONTHS = [
     month: 1,
     title_az: '1 ay — yeni doğulmuş, arxası üstə yatır',
     milestone_az: 'Yuxunun çoxunu arxası üstə keçirir, yumruqları sıxılıb, ayaqları qurbağa kimi bükülüdür.',
-    scene: `Newborn (1 month old) peacefully SLEEPING lying on its back, seen from the side, head on the left, body horizontal.
-Typical newborn flexed posture: both hands curled into tight little fists held up near the cheeks, elbows bent; both legs bent and drawn up toward the tummy in a relaxed "frog" position, knees apart.
+    scene: `Newborn (1 month old) peacefully SLEEPING lying flat on its BACK (supine, the safe sleep position), seen from the side, head on the left, body horizontal.
+IMPORTANT ORIENTATION: the back of the head and the whole spine rest on the ground; the tummy, chest and the front of the diaper face UP toward the top of the image; the face looks up toward the sky / slightly turned toward the viewer, upright and NOT upside down. The baby is NOT on its tummy and NOT curled on its side.
+Typical newborn flexed posture: both hands curled into tight little fists resting up on the chest near the chin, elbows bent; both legs bent and drawn up above the tummy in a relaxed "frog" position, knees apart, feet in the air.
 Eyes CLOSED drawn as gentle downward-curved arcs, relaxed calm face, tiny closed mouth, cheeks blushing.
 Three small pastel-blue "z" shapes floating diagonally above the head are allowed (these are the only symbol allowed).`,
   },

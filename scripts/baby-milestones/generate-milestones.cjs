@@ -66,14 +66,16 @@ const GCP_PROJECT_ID = ENV.GCP_PROJECT_ID || '';
 const GCP_LOCATION = ENV.GCP_LOCATION || 'global';
 const USE_VERTEX = !!((SA_PATH || SA_JSON) && GCP_PROJECT_ID);
 
-// Nano Banana 2 (primary) → Nano Banana Pro → Nano Banana — generate-baby-photo/index.ts ilə eyni sıra
+// Nano Banana Pro (ən yüksək keyfiyyət) → Nano Banana 2 → Nano Banana.
+// Vertex-də artıq stabil ID-lər işləyir; `-preview` ID-lər 404 qaytarır və yalnız son fallback-dır.
 const VERTEX_MODELS = [
-  'gemini-3.1-flash-image-preview',
+  'gemini-3-pro-image',
+  'gemini-3.1-flash-image',
   'gemini-3-pro-image-preview',
+  'gemini-3.1-flash-image-preview',
   'gemini-2.5-flash-image',
-  'gemini-2.5-flash-image-preview',
 ];
-const GEMINI_MODELS = ['gemini-3.1-flash-image', 'gemini-3-pro-image', 'gemini-2.5-flash-image'];
+const GEMINI_MODELS = ['gemini-3-pro-image', 'gemini-3.1-flash-image', 'gemini-2.5-flash-image'];
 
 // imageConfig variantları: əvvəl 2K, model tanımırsa sadəcə 1:1, sonra onsuz
 const IMAGE_CONFIGS = [{ aspectRatio: '1:1', imageSize: '2K' }, { aspectRatio: '1:1' }, null];
