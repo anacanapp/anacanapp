@@ -142,11 +142,43 @@ SCENE: Character reference sheet image — a 6-month-old baby SITTING upright fa
 
 ${NEGATIVE}`;
 
-function buildPrompt(m, withReference) {
+
+// 3D Pixar üslubu (--style=3d): yumşaq studiya render, Anacan Mərcan (#FF5A5F) geyim.
+const STYLE_3D = `
+High-end 3D animated feature film character render (Pixar / Disney quality) of ONE adorable baby, soft cinematic studio lighting, subsurface-scattering skin, gentle global illumination, crisp clean details, sharp focus, premium quality.
+CHARACTER (must stay identical in every image):
+- chubby, round, cute baby with a big round head, full rosy cheeks, small button nose, big glossy dark-brown eyes with soft catch-lights and long lashes, soft light-brown eyebrows, small rounded ears
+- warm light peach skin with natural pink blush on cheeks, knees and fingertips; soft realistic chubby baby hands and feet with correct number of fingers and toes
+- hair: short soft chestnut-brown baby hair, with ONE signature curl twisted into a spiral on top of the head
+- clothing: a neat, clean, soft ribbed-cotton baby bodysuit in Anacan CORAL color (exact hue #FF5A5F, a warm vivid coral red-pink), short sleeves, a small henley placket with two tiny white snap buttons, a thin slightly lighter coral trim at the neck and sleeves; the diaper is hidden under the bodysuit; no shoes, no socks, no hat unless the scene says so
+- the baby is perfectly clean and tidy: NO food, NO mess, NO stains, NO crumbs
+RENDER & COMPOSITION:
+- the whole baby fully visible and centered, with generous empty margin (at least 10%) on every side, nothing cropped
+- BACKGROUND: perfectly plain pure white (#FFFFFF) seamless studio, completely empty — no floor texture, no horizon line, no props unless the scene says so, NO cast shadow and NO contact shadow on the ground
+- square 1:1
+- if the scene below mentions outlines, arcs, "z" shapes, motion lines or confetti symbols, IGNORE them — render everything naturally in 3D with no symbols; any props mentioned in the scene are rendered as soft realistic 3D toys in white / pastel colors
+`.trim();
+
+const NEGATIVE_3D = `
+STRICT RULES: exactly one baby; anatomically correct and physically realistic for the stated age; exactly two arms and two legs; five fingers per hand, five toes per foot; no fused or extra limbs.
+NO text, NO letters, NO numbers, NO logos, NO watermark, NO symbols, NO motion lines.
+NO flat 2D cartoon, NO outlines, NO photorealistic real-baby photo, NO adults, NO animals, NO background scenery, NO shadow on the ground.
+`.trim();
+
+const REFERENCE_PROMPT_3D = `STYLE REFERENCE: the attached image shows the target art style (3D animated film look, skin shading, eyes, signature hair curl, soft lighting). Match that rendering style, but create a NEW clean character sheet image — do NOT copy the food, the mess, the pie, the spoon, the leaf-print clothing or the beige background.
+
+${STYLE_3D}
+
+SCENE: Character reference image — a 6-month-old baby SITTING upright facing the viewer, legs spread in front, hands resting on the knees, sweet happy smile, eyes open. This image defines the character design for a whole series.
+
+${NEGATIVE_3D}`;
+
+function buildPrompt(m, withReference, style = 'flat') {
+  const is3d = style === '3d';
   const ref = withReference
-    ? `REFERENCE IMAGE: the attached image shows the exact character design. Draw THE SAME baby (same head shape, same hair curl, same eyes, same colors, same outline weight, same bodysuit and diaper, same flat vector style) — only the pose, age-appropriate body proportions and expression change as described below. Do NOT copy the reference pose.\n\n`
+    ? `REFERENCE IMAGE: the attached image shows the exact character design. Draw THE SAME baby (same head shape, same hair curl, same eyes, same colors, same clothing, same rendering style) — only the pose, age-appropriate body proportions and expression change as described below. Do NOT copy the reference pose.\n\n`
     : '';
-  return `${ref}${STYLE}\n\nSCENE (${m.month} month${m.month > 1 ? 's' : ''} old — developmental milestone pose; the pose must be physically realistic for a baby of this age):\n${m.scene}\n\n${NEGATIVE}`;
+  return `${ref}${is3d ? STYLE_3D : STYLE}\n\nSCENE (${m.month} month${m.month > 1 ? 's' : ''} old — developmental milestone pose; the pose must be physically realistic for a baby of this age):\n${m.scene}\n\n${is3d ? NEGATIVE_3D : NEGATIVE}`;
 }
 
-module.exports = { STYLE, NEGATIVE, MONTHS, REFERENCE_PROMPT, buildPrompt };
+module.exports = { STYLE, NEGATIVE, STYLE_3D, NEGATIVE_3D, MONTHS, REFERENCE_PROMPT, REFERENCE_PROMPT_3D, buildPrompt };

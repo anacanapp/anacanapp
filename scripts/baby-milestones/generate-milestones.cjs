@@ -21,12 +21,14 @@
 //   node generate-milestones.cjs --force         # mövcudları da yenidən çək
 //   node generate-milestones.cjs --no-ref        # istinad şəkli olmadan
 //   node generate-milestones.cjs --cutout-only   # yalnız raw/ → şəffaf PNG emalı
+//   node generate-milestones.cjs --style=3d --style-ref=nümunə.jpg
+//                                                # 3D Pixar üslubu, Mərcan geyim; nümunə şəkil üslub istinadıdır
 //   OUT_DIR=/path node generate-milestones.cjs   # çıxış qovluğu (default: ./output)
 
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { MONTHS, REFERENCE_PROMPT, buildPrompt } = require('./prompts.cjs');
+const { MONTHS, REFERENCE_PROMPT, REFERENCE_PROMPT_3D, buildPrompt } = require('./prompts.cjs');
 
 let sharp;
 try {
@@ -234,6 +236,8 @@ const pad = (n) => String(n).padStart(2, '0');
   const force = args.includes('--force');
   const noRef = args.includes('--no-ref');
   const cutoutOnly = args.includes('--cutout-only');
+  const style = (args.find((a) => a.startsWith('--style=')) || '').split('=')[1] || 'flat';
+  const styleRef = (args.find((a) => a.startsWith('--style-ref=')) || '').split('=')[1] || '';
   const months = only.length ? MONTHS.filter((m) => only.includes(m.month)) : MONTHS;
 
   fs.mkdirSync(RAW_DIR, { recursive: true });
@@ -246,7 +250,8 @@ const pad = (n) => String(n).padStart(2, '0');
   if (!noRef && !cutoutOnly) {
     if (!fs.existsSync(REF_PATH)) {
       process.stdout.write('⏳ reference.png — personaj istinad şəkli ... ');
-      const r = await generateImage(REFERENCE_PROMPT, null);
+      const styleImage = styleRef ? await sharp(fs.readFileSync(styleRef)).resize({ width: 1024, height: 1024, fit: 'inside' }).png().toBuffer() : null;
+      const r = await generateImage(style === '3d' ? REFERENCE_PROMPT_3D : REFERENCE_PROMPT, styleImage);
       fs.writeFileSync(REF_PATH, r.buffer);
       console.log(`✓ (${r.model})`);
     }
@@ -260,7 +265,7 @@ const pad = (n) => String(n).padStart(2, '0');
     try {
       if (!cutoutOnly && (force || !fs.existsSync(rawPath))) {
         process.stdout.write(`⏳ ${m.title_az} ... `);
-        const r = await generateImage(buildPrompt(m, !!refImage), refImage);
+        const r = await generateImage(buildPrompt(m, !!refImage, style), refImage);
         fs.writeFileSync(rawPath, await sharp(r.buffer).png().toBuffer());
         console.log(`✓ (${r.model})`);
         await new Promise((res) => setTimeout(res, 8000)); // kvota üçün fasilə
