@@ -70,3 +70,4 @@ scripts/i18n/ka-translate.log
 **/xcshareddata/swiftpm/configuration/
 **/test-results/
 **/playwright-report/
+scripts/store-screenshots/out/

@@ -1,0 +1,148 @@
+{
+  "lang": "az",
+  "dir": "ltr",
+  "nav": { "home": "Əsas", "tools": "Alətlər", "community": "Cəmiyyət", "ai": "Anacan.AI", "profile": "Profil" },
+  "slides": {
+    "hero": {
+      "pill": "Analıq super-tətbiqi",
+      "title": "Ən yaxın <em>rəfiqən</em>",
+      "sub": "Menstruasiya, hamiləlik və analıq — hamısı bir tətbiqdə",
+      "chips": [["Anacan.AI", "7/24 yanında"], ["30+ alət", "bir tətbiqdə"]],
+      "s": {
+        "greet": "Günortanız xeyir", "name": "Leyla", "eyebrow": "20. həftə, <b>3. gün •</b> 2-ci Trimester",
+        "headline": "Anacan, hazırda <em>banan</em> boydayam",
+        "tags": ["138. gün", "16,4 sm", "300 qr", "142 gün qaldı"],
+        "start": "Başlanğıc", "birth": "Doğuş",
+        "trio": [["142", "gün qaldı"], ["12", "təpik bu gün"], ["+4,2", "kq artım"]],
+        "msgBadge": "Gün 138 / 280 · Körpədən Mesaj",
+        "msg": "Salam, anacan! Artıq səsini eşidirəm — mənimlə danış, mənə nəğmə oxu 💛"
+      }
+    },
+    "pregnancy": {
+      "pill": "Hamiləlik",
+      "title": "Hamiləliyi <em>həftə-həftə</em> izlə",
+      "sub": "Körpənin ölçüsü, inkişafı və sizə özəl tövsiyələr",
+      "chips": [["Təpik sayğacı", "bir toxunuşla"], ["Həkim görüşü", "xatırlatma ilə"]],
+      "s": {
+        "title": "20. həftə", "eyebrow": "Həftəlik bələdçi",
+        "sizeLabel": "Körpəniz bu həftə", "size": "<em>Banan</em> boyda", "sizeTags": ["16,4 sm", "300 qr"],
+        "devTitle": "Körpənin inkişafı", "dev": [["👂", "Qulaqlar"], ["✋", "Barmaqlar"], ["🦶", "Təpiklər"], ["💇‍♀️", "Saçlar"]],
+        "calTitle": "Təqvim", "calAdd": "Görüş",
+        "cal": [["USM müayinəsi", "28 okt · 10:30", "Sabah"], ["Qan analizi", "4 noy · 09:00", "6 gün"]],
+        "tipTitle": "Günün tövsiyəsi",
+        "tip": "Dəmirlə zəngin qidalar seçin: ispanaq, mərci, qırmızı ət. C vitamini ilə birlikdə daha yaxşı mənimsənilir.",
+        "tipTags": ["İspanaq", "Mərci", "C vitamini"]
+      }
+    },
+    "ai": {
+      "pill": "Anacan.AI",
+      "title": "Suallarına cavab, <em>7/24</em>",
+      "sub": "Süni intellekt köməkçin gecə saat 3-də də yanındadır",
+      "chips": [["Ani cavablar", "gözləmədən"], ["Etibarlı məlumat", "sizə uyğun"]],
+      "s": {
+        "name": "Anacan.AI", "status": "Onlayn · tibbi məsləhəti əvəz etmir",
+        "warn": "Tibbi məsləhət deyil — ətraflı üçün toxunun",
+        "m1": "Salam, Leyla! 👋 Hamiləliyin 20-ci həftəsindəsiniz — körpəniz banan boydadır 🍌 Nəyi bilmək istəyirsiniz?",
+        "u1": "Ürəkbulanmaya nə kömək edir?",
+        "m2": "Sadə 3 üsul:<br>1. Zəncefil çayı için<br>2. Az-az, tez-tez yeyin<br>3. Səhər quru peçenye yeyin<br><span class='hl'>Gün ərzində bol su içməyi unutmayın 💧</span>",
+        "u2": "Təşəkkürlər! Hansı vitaminləri qəbul etməliyəm?",
+        "suggestLabel": "Sual seçin",
+        "suggest": ["Körpəm necə inkişaf edir?", "Hansı qidalar faydalıdır?"],
+        "input": "Anacan.AI-dan soruşun…"
+      }
+    },
+    "flow": {
+      "pill": "Menstruasiya izləmə",
+      "title": "Siklin <em>nəzarətdə</em>",
+      "sub": "Menstruasiya, ovulyasiya və münbit günlər üçün dəqiq proqnoz",
+      "chips": [["Ağıllı proqnoz", "sizinlə öyrənir"], ["Ovulyasiya günü", "dəqiq hesab"]],
+      "s": {
+        "eyebrow": "Sikl izləmə", "name": "Aysel",
+        "now": "Hazırda", "phase": "Menstruasiya fazası", "day": "Sikl günü",
+        "stats": [["2 gün", "qalıb"], ["28 gün", "sikl uzunluğu"], ["11 gün", "ovulyasiyaya"]],
+        "started": "Menstruasiya başladı", "ended": "Menstruasiya bitdi",
+        "upcoming": "Qarşıdakılar",
+        "list": [["Növbəti menstruasiya", "26 noy", "28 gün"], ["Münbit pəncərə", "28 okt – 2 noy", "4 gün"], ["Ovulyasiya günü", "1 noy", "LH zirvəsi"]]
+      }
+    },
+    "mommy": {
+      "pill": "Analıq",
+      "title": "Körpən üçün <em>hər şey</em> burada",
+      "sub": "Yuxu, qidalanma, inkişaf və menstruasiya — bir yerdə",
+      "chips": [["Yuxu səsləri", "ağ səs və laylalar"], ["İnkişaf əyriləri", "ÜST standartı"]],
+      "s": {
+        "greet": "Axşamınız xeyir", "name": "Leyla", "dayLine": "Gün <b>245</b> · Nərmin",
+        "headline": "<em>Nərmin</em> həyatınızda 245 gündür",
+        "tags": ["8 ay, 1 gün", "68 sm", "7,8 kq"],
+        "msgBadge": "Gün 245 · Anaya Mesaj",
+        "msg": "Nərmin artıq əşyalardan tutub ayağa qalxmağa çalışır. Evi təhlükəsiz edin 💛",
+        "water": "Su", "waterCount": "7/12 stəkan · 58%",
+        "period": "Menstruasiya", "periodSub": "Gün 2", "periodCal": "Təqvim", "periodEnd": "Bitdi",
+        "devTitle": "İnkişaf mərhələləri", "devCount": "12/18",
+        "dev": [["🧸", "Oturur"], ["🐛", "Sürünür"], ["👋", "Əl edir"], ["🧍‍♀️", "Ayaqda"], ["👣", "İlk addım"]],
+        "tipHead": "İnkişaf Tövsiyələri · 6-9 ay", "tipTitle": "Gizlənpaç oyunu",
+        "tipText": "Əşyanın yox olub qayıtması körpənin yaddaşını inkişaf etdirir."
+      }
+    },
+    "tools": {
+      "pill": "AI alətlər",
+      "title": "<em>Sehrli</em> AI alətləri",
+      "sub": "Ağlama analizi, AI fotosessiya, bez skaneri və nağıl generatoru",
+      "chips": [["AI fotosessiya", "sehrli körpə şəkilləri"], ["Bez skaneri", "AI analiz"]],
+      "s": {
+        "eyebrow": "Körpənin ağlamasını AI ilə analiz edin", "title": "Ağlama analizi",
+        "timer": "00:07 / 10s", "analyzing": "AI analiz edir…",
+        "result": "Acdır", "confidence": "87% əminlik", "urgency": "Orta təcililik",
+        "text": "Ağlama ritmik və təkrarlanandır — klassik aclıq siqnalı. Son qidalanmadan 3 saat keçib.",
+        "steps": ["Körpəni sakit mühitdə qidalandırın", "Dəri-dəriyə təmas yaradın", "Gəyirtməyi unutmayın"],
+        "again": "Yenidən dinlə"
+      }
+    },
+    "community": {
+      "pill": "Cəmiyyət",
+      "title": "Sən <em>tək deyilsən</em>",
+      "sub": "Minlərlə ana ilə paylaş, soruş və dəstək al",
+      "chips": [["Hekayələr", "gününü paylaş"], ["Mesajlar", "dostlarınla"]],
+      "s": {
+        "eyebrow": "Digər analarla əlaqə", "title": "Cəmiyyət",
+        "stories": ["Əlavə et", "Günay", "Aynur", "Lalə", "Səbinə"],
+        "composer": "Nə düşünürsünüz?", "post": "Paylaş",
+        "p1name": "Aynur M.", "p1meta": "2-ci trimester · 5 dəq əvvəl", "p1badge": "Admin",
+        "p1": "Bu gün ilk təpikləri hiss etdim! Bu hissi sözlə izah edə bilmirəm 🥹 Sizdə ilk dəfə nə vaxt oldu? #hamiləlik",
+        "p1stats": ["124", "18"],
+        "p2name": "Lalə K.", "p2meta": "Yeni ana · 32 dəq əvvəl",
+        "p2": "Gecə saat 3-də Anacan.AI ilə danışmaq çox kömək etdi. Hamıya tövsiyə edirəm 💛",
+        "p2stats": ["89", "12"], "share": "Paylaş"
+      }
+    },
+    "partner": {
+      "pill": "Partnyor",
+      "title": "Atalar üçün <em>xüsusi</em> rejim",
+      "sub": "Canlı yeniliklər, sevgi qeydləri və SOS — ata da yanında",
+      "chips": [["SOS düyməsi", "bir toxunuşla"], ["Sevgi qeydləri", "hazır cavablarla"]],
+      "s": {
+        "eyebrow": "Birlikdə", "name": "Salam, Rauf! 👋", "sos": "SOS",
+        "partner": "Leyla", "partnerSub": "Hamiləlik · 28-ci həftə", "mood": "Əhval",
+        "stats": [["🍆", "badımcan boyda"], ["84 gün", "qaldı"], ["6/10", "su"]],
+        "noteTitle": "Sevgi qeydi göndər", "notePh": "Sevgi qeydi yaz…",
+        "notes": ["❤️ Səni sevirəm!", "🌹 Çox gözəlsən!"],
+        "guideTitle": "28-ci həftə — ata bələdçisi",
+        "guide": "Bu axşam ona isti bitki çayı hazırlayın və ayaqlarını dincəltməyə kömək edin.",
+        "voteTitle": "Ad səsverməsi", "vote": "3 yeni ad təklifi — birlikdə seçin", "voteBtn": "Səs ver"
+      }
+    },
+    "toolsGrid": {
+      "pill": "Alətlər",
+      "title": "<em>30+ alət</em> — bir tətbiq",
+      "sub": "Təpik sayğacı, sancı taymeri, yuxu səsləri, peyvənd təqvimi və daha çox",
+      "chips": [["Premium alətlər", "3 gün pulsuz"], ["Anacan Aptek", "evə çatdırılma"]],
+      "s": {
+        "eyebrow": "Sizin alətləriniz", "title": "Alətlər", "search": "Alət axtar…",
+        "featured": "Seçilmişlər",
+        "hero": [["🎮", "Mini oyunlar", "İstirahət et"], ["📸", "AI fotosessiya", "Sehrli şəkillər"], ["🎙️", "Ağlama analizi", "AI ilə"]],
+        "all": "Bütün alətlər",
+        "grid": [["🦶", "Təpik sayğacı", "Bir toxunuşla qeyd"], ["⏱️", "Sancı taymeri", "5-1-1 xəbərdarlıq"], ["🌙", "Yuxu səsləri", "Ağ səs və laylalar"], ["💉", "Peyvənd təqvimi", "Vaxtında xatırlatma"], ["📈", "Böyümə izləyicisi", "ÜST əyriləri"], ["🥗", "Reseptlər", "Ana və körpə üçün"]]
+      }
+    }
+  }
+}

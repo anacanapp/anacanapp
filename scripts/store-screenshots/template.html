@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=430">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap">
+<link rel="stylesheet" href="../../src/styles/anacan-design.css">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { width: 430px; height: 932px; overflow: hidden; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; }
+  p, h1, h2, h3 { margin: 0; }
+  svg.lucide { width: 1em; height: 1em; stroke-width: 2; }
+
+  /* ---------- Store slide frame ---------- */
+  .slide { position: relative; width: 430px; height: 932px; overflow: hidden;
+    background: radial-gradient(120% 70% at 50% 0%, #fff4ef 0%, #ffe3da 55%, #ffd6cb 100%); }
+  .slide.warm { background: radial-gradient(120% 70% at 50% 0%, #ff8a73 0%, #ff6b6b 45%, #f2546a 100%); }
+  .blob { position: absolute; border-radius: 50%; filter: blur(40px); opacity: .55; }
+  .head { position: relative; z-index: 3; padding: 34px 26px 0; text-align: center; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px; background: #fff;
+    color: #e2495a; font-size: 13px; font-weight: 700; box-shadow: 0 6px 18px -10px rgba(217,72,74,.6); }
+  .pill svg { font-size: 14px; }
+  .title { margin-top: 14px; font-size: 39px; line-height: 1.06; font-weight: 800; letter-spacing: -0.035em; color: #2b1d1b; }
+  .title em { font-style: italic; color: #ff5a5f; }
+  .sub { margin: 12px auto 0; max-width: 330px; font-size: 15.5px; line-height: 1.42; color: #7a5f58; font-weight: 500; }
+  .warm .pill { background: rgba(255,255,255,.22); color: #fff; box-shadow: none; }
+  .warm .title { color: #fff; } .warm .title em { color: #ffe08a; } .warm .sub { color: rgba(255,255,255,.92); }
+
+  /* ---------- Phone ---------- */
+  .phone { position: absolute; left: 50%; transform: translateX(-50%); top: 268px; width: 336px; height: 760px;
+    border-radius: 54px; background: #1d1d22; padding: 11px; z-index: 2;
+    box-shadow: 0 40px 70px -30px rgba(120,40,30,.55), inset 0 0 0 2px #3a3a42; }
+  .screen { position: relative; width: 314px; height: 738px; border-radius: 44px; overflow: hidden; background: var(--a-bg); }
+  .screen-inner { position: absolute; left: 0; top: 0; width: 390px; height: 917px; transform: scale(0.8051); transform-origin: 0 0; overflow: hidden; }
+  .island { position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: 118px; height: 34px; border-radius: 20px; background: #0b0b0d; z-index: 20; }
+  .status { position: relative; height: 54px; display: flex; align-items: center; justify-content: space-between; padding: 0 30px 0 36px;
+    font-size: 16px; font-weight: 700; color: var(--a-ink); z-index: 10; }
+  .status .sig { display: flex; gap: 6px; align-items: center; font-size: 17px; }
+
+  /* ---------- Floating feature chips ---------- */
+  .chip { position: absolute; z-index: 5; display: flex; align-items: center; gap: 9px; padding: 9px 13px 9px 9px; border-radius: 16px;
+    background: #fff; box-shadow: 0 14px 30px -14px rgba(120,40,30,.45); }
+  .chip .ci { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; font-size: 18px; }
+  .chip b { display: block; font-size: 13.5px; font-weight: 700; color: #2b1d1b; line-height: 1.2; }
+  .chip span.cs { display: block; font-size: 11.5px; color: #8b7069; line-height: 1.25; }
+
+  /* ---------- App screen helpers (on top of anacan-design.css) ---------- */
+  .app { position: relative; padding: 0 20px 110px; font-family: 'Inter', system-ui, sans-serif; }
+  .app .a-section:first-child { margin-top: 6px; }
+  .em-coral em { font-style: italic; color: #e2495a; }
+  .tabs { position: absolute; left: 0; right: 0; bottom: 0; height: 96px; padding: 10px 14px 28px; display: flex; justify-content: space-around;
+    background: rgba(255,255,255,.96); border-top: 1px solid var(--a-line); z-index: 9; }
+  .tab { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--a-ink-soft); width: 64px; }
+  .tab svg { font-size: 22px; }
+  .tab.on { color: #ff5a5f; }
+  .tab .aiw { display: grid; place-items: center; width: 40px; height: 40px; margin-top: -6px; border-radius: 50%; color: #fff;
+    background: linear-gradient(135deg, #ff8a73, #ff5a5f); box-shadow: 0 8px 18px -8px rgba(255,90,95,.8); }
+  .row { display: flex; align-items: center; gap: 12px; }
+  .grow { flex: 1; min-width: 0; }
+  .card { background: var(--a-surface); border-radius: 22px; box-shadow: var(--a-card-shadow); padding: 16px; }
+  .muted { color: var(--a-ink-soft); }
+  .small { font-size: 12px; }
+  .ico { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 13px; font-size: 18px; flex-shrink: 0; }
+  .t-peach { background: var(--a-grad-peach); color: var(--a-accent-ink); }
+  .t-pink { background: var(--a-grad-pink); color: var(--a-berry-ink); }
+  .t-blue { background: var(--a-grad-blue); color: var(--a-blue-ink); }
+  .t-green { background: var(--a-grad-green); color: var(--a-green-ink); }
+  .t-yellow { background: var(--a-grad-yellow); color: var(--a-warn-ink); }
+  .t-lav { background: var(--a-grad-lav, linear-gradient(135deg,#efe7ff,#d9c8ff)); color: #6a4bc4; }
+  .btn-solid { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 44px; border-radius: 999px; font-weight: 700; font-size: 14px;
+    background: #ff5a5f; color: #fff; padding: 0 18px; }
+  .btn-soft { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 44px; border-radius: 999px; font-weight: 700; font-size: 14px;
+    background: var(--a-peach-1); color: var(--a-accent-ink); padding: 0 18px; }
+  .bubble { max-width: 82%; padding: 12px 14px; border-radius: 20px; font-size: 14px; line-height: 1.45; }
+  .bubble.bot { background: var(--a-surface); box-shadow: var(--a-card-shadow); border-bottom-left-radius: 6px; color: var(--a-ink); }
+  .bubble.me { margin-left: auto; background: #2b1d1b; color: #fff; border-bottom-right-radius: 6px; }
+  .bubble .hl { color: #2f7fd0; font-weight: 600; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const C = window.COPY, A = '../../src/assets/', P = '../../public/';
+const icon = (n, extra = '') => `<i data-lucide="${n}" ${extra}></i>`;
+const esc = (s) => s;
+
+function tabs(active) {
+  const t = C.nav, items = [['home', 'home'], ['tools', 'layout-grid'], ['community', 'users'], ['ai', 'sparkles'], ['profile', 'user']];
+  return `<nav class="tabs">${items.map(([k, i]) => k === 'ai'
+    ? `<span class="tab"><span class="aiw">${icon(i)}</span>${t[k]}</span>`
+    : `<span class="tab${k === active ? ' on' : ''}">${icon(i)}${t[k]}</span>`).join('')}</nav>`;
+}
+const status = () => `<div class="status"><span>9:41</span><span class="sig">${icon('signal')}${icon('wifi')}${icon('battery-full')}</span></div>`;
+const topbar = (eyebrow, name, right = icon('bell')) => `<div class="a-topbar"><div><p class="a-eyebrow">${eyebrow}</p><p class="a-wordmark" style="font-size:19px">${name}</p></div><div class="a-topbar-actions"><span class="a-icon-btn">${right}</span></div></div>`;
+const backbar = (eyebrow, title, right = icon('heart')) => `<div class="a-topbar"><span class="a-icon-btn">${icon('chevron-left')}</span><div style="flex:1;margin-left:12px"><p class="a-eyebrow">${eyebrow}</p><p class="a-wordmark" style="font-size:18px">${title}</p></div><span class="a-icon-btn">${right}</span></div>`;
+
+/* ---------- Screens (markup follows the app components) ---------- */
+const SCREENS = {
+  hero: (s) => `${topbar(s.greet, `${s.name} 👋`)}
+    <section class="a-hero-min" style="padding-top:6px">
+      <p class="a-hero-eyebrow">${s.eyebrow}</p>
+      <div class="a-egg-wrap" style="width:150px;margin:8px auto 10px"><span class="a-egg-heart"><span style="font-size:13px">💗</span></span>
+        <img src="${A}fetus/month-5.svg" style="width:150px;height:150px;object-fit:contain;filter:drop-shadow(0 18px 22px rgba(217,108,74,.3))"></div>
+      <h1 class="a-hero-headline a-heading">${s.headline}</h1>
+      <div class="a-tag-row" style="justify-content:center;margin-top:16px">${s.tags.map(t => `<span class="a-tag">${t}</span>`).join('')}</div>
+      <div class="a-pbar"><div class="a-pbar-track"><div class="a-pbar-fill" style="width:49%"></div><span class="a-pbar-pct" style="inset-inline-start:49%">49%</span></div>
+        <div class="a-pbar-labels"><span>${s.start}</span><span>${s.birth}</span></div></div>
+    </section>
+    <section class="a-section"><div class="a-trio">${s.trio.map(([v, l], i) => `<div class="a-trio-item"><span class="a-trio-icon ${['t-yellow','t-pink','t-blue'][i]}">${icon(['calendar','footprints','scale'][i])}</span><p style="font-weight:800;font-size:18px;margin-top:6px">${v}</p><p class="a-trio-label">${l}</p></div>`).join('')}</div></section>
+    <section class="a-section"><div class="a-cta"><span class="a-cta-shape" style="width:140px;height:140px;top:-50px;inset-inline-end:-40px"></span>
+      <div class="a-cta-top"><span class="a-cta-badge">${s.msgBadge}</span><span class="a-cta-deco">${icon('baby')}</span></div>
+      <p class="a-cta-text" style="position:relative;margin-top:14px;font-size:13.5px;font-weight:500;line-height:1.65">${s.msg}</p></div></section>`,
+
+  pregnancy: (s) => `${backbar(s.eyebrow, s.title)}
+    <section class="a-section"><div class="card row" style="gap:14px"><span class="ico t-yellow" style="width:64px;height:64px;border-radius:50%;font-size:34px">🍌</span>
+      <div class="grow"><p class="a-eyebrow">${s.sizeLabel}</p><p class="em-coral" style="font-size:20px;font-weight:800;letter-spacing:-.02em">${s.size}</p>
+      <div class="a-tag-row" style="margin:8px 0 0">${s.sizeTags.map(t => `<span class="a-tag">${t}</span>`).join('')}</div></div></div></section>
+    <section class="a-section"><div class="a-section-head"><h2 class="a-section-title a-heading">${s.devTitle}</h2></div>
+      <div class="card" style="display:flex;justify-content:space-between">${s.dev.map(([e, l]) => `<div style="text-align:center;width:64px"><span class="ico t-peach" style="margin:0 auto 6px;width:48px;height:48px;border-radius:50%;font-size:22px">${e}</span><span class="small muted" style="font-weight:600">${l}</span></div>`).join('')}</div></section>
+    <section class="a-section"><div class="a-section-head"><h2 class="a-section-title a-heading">${s.calTitle}</h2><span class="a-section-link">+ ${s.calAdd}</span></div>
+      <div class="a-list-card">${s.cal.map(([t, d, r]) => `<div class="a-list-row"><span class="a-list-icon t-peach">${icon('calendar')}</span><div><p class="a-list-title">${t}</p><p class="a-list-sub">${icon('bell','style="font-size:11px"')} ${d}</p></div><span class="a-list-trail"><p class="a-list-value">${r}</p></span></div>`).join('')}</div></section>
+    <section class="a-section"><div class="card"><div class="row"><span class="ico t-yellow">💡</span><p style="font-weight:700;font-size:15px">${s.tipTitle}</p></div>
+      <p class="muted" style="font-size:13.5px;line-height:1.55;margin-top:10px">${s.tip}</p>
+      <div class="a-tag-row" style="margin:10px 0 0">${s.tipTags.map(t => `<span class="a-tag">${t}</span>`).join('')}</div></div></section>`,
+
+  ai: (s) => `<div class="a-topbar"><div class="row"><span class="ico t-lav" style="border-radius:50%">${icon('sparkles')}</span><div><p class="a-wordmark" style="font-size:17px">${s.name}</p><p class="small" style="color:#1c9b5d;font-weight:600">● ${s.status}</p></div></div><span class="a-icon-btn">${icon('rotate-ccw')}</span></div>
+    <div style="margin:6px 0 14px;padding:9px 12px;border-radius:12px;background:#fff6dd;color:#8a6200;font-size:12px;font-weight:600">⚠️ ${s.warn}</div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="bubble bot">${s.m1}</div><div class="bubble me">${s.u1}</div><div class="bubble bot">${s.m2}</div><div class="bubble me">${s.u2}</div>
+      <div class="bubble bot" style="width:70px;color:var(--a-ink-soft)">● ● ●</div></div>
+    <p class="a-eyebrow" style="margin:18px 0 8px">${s.suggestLabel}</p>
+    <div style="display:flex;gap:8px">${s.suggest.map(t => `<span class="a-tag" style="white-space:nowrap">${t}</span>`).join('')}</div>
+    <div class="card row" style="margin-top:14px;padding:10px 10px 10px 16px;border-radius:999px"><span class="grow muted" style="font-size:14px">${s.input}</span><span class="ico" style="background:#ff5a5f;color:#fff;border-radius:50%">${icon('send')}</span></div>`,
+
+  flow: (s) => `${topbar(s.eyebrow, `${s.name} 👋`)}
+    <section class="a-section"><div class="card"><div class="row" style="justify-content:space-between"><p style="font-weight:700">${s.now}</p><span class="a-tag" style="background:#ffe1e6;color:#d23a5b">${s.phase}</span></div>
+      <div class="row" style="margin-top:14px;gap:18px"><div style="position:relative;width:104px;height:104px;border-radius:50%;background:conic-gradient(#ef4b6c 0 11%, #f4ecea 11% 100%);display:grid;place-items:center">
+        <div style="width:82px;height:82px;border-radius:50%;background:#fff;display:grid;place-items:center;text-align:center"><div><b style="font-size:30px">3</b><p class="small muted">${s.day}</p></div></div></div>
+        <div class="grow" style="display:flex;flex-direction:column;gap:8px">${s.stats.map(([v, l]) => `<div class="row" style="justify-content:space-between;background:var(--a-surface-soft);border-radius:10px;padding:7px 10px"><b style="font-size:13px">${v}</b><span class="small muted">${l}</span></div>`).join('')}</div></div>
+      <div class="row" style="margin-top:14px;gap:8px"><span class="btn-solid" style="flex:1;background:#2b1d1b">${s.started}</span><span class="btn-soft" style="flex:1;background:#ffe1e6;color:#d23a5b">✓ ${s.ended}</span></div></div></section>
+    <section class="a-section"><div class="a-section-head"><h2 class="a-section-title a-heading">${s.upcoming}</h2></div>
+      <div class="a-list-card">${s.list.map(([t, d, r], i) => `<div class="a-list-row"><span class="a-list-icon ${['t-pink','t-green','t-yellow'][i]}">${icon(['droplet','heart','sparkles'][i])}</span><div><p class="a-list-title">${t}</p><p class="a-list-sub">${d}</p></div><span class="a-list-trail"><p class="a-list-value">${r}</p></span></div>`).join('')}</div></section>`,
+
+  mommy: (s) => `${topbar(s.greet, `${s.name} 👋`)}
+    <section class="a-hero-min" style="padding-top:2px"><p class="a-hero-eyebrow">${s.dayLine}</p>
+      <img src="${A}onboarding/mother-success.webp" style="width:150px;height:150px;object-fit:contain;display:block;margin:4px auto 6px">
+      <h1 class="a-hero-headline a-heading" style="font-size:24px">${s.headline}</h1>
+      <div class="a-tag-row" style="justify-content:center;margin-top:12px">${s.tags.map(t => `<span class="a-tag">${t}</span>`).join('')}</div></section>
+    <section class="a-section"><div class="a-cta"><div class="a-cta-top"><span class="a-cta-badge">${s.msgBadge}</span><span class="a-cta-deco">${icon('heart')}</span></div>
+      <div class="a-cta-text"><p style="margin:0">${s.msg}</p></div></div></section>
+    <section class="a-section"><div class="a-card a-water-row"><span class="a-list-icon t-blue">${icon('droplets')}</span>
+      <div class="a-water-main"><p class="a-list-title">${s.water}<span class="a-water-count">${s.waterCount}</span></p><div class="a-water-bar"><span style="width:58%"></span></div></div><span class="a-water-add">${icon('plus')}</span></div></section>
+    <section class="a-section"><div class="a-card" style="padding:14px 14px 12px"><div class="row"><span class="a-list-icon t-pink">${icon('droplets')}</span>
+      <div class="grow"><p class="a-list-title">${s.period}</p><p class="a-list-sub">${s.periodSub}</p></div><span class="a-section-link">${s.periodCal} ›</span></div>
+      <div class="a-period-strip">${Array.from({ length: 14 }, (_, i) => `<span class="a-period-day${i >= 12 ? ' on' : ''}${i === 13 ? ' today' : ''}">${16 + i}</span>`).join('')}</div>
+      <div style="margin-top:10px"><span class="btn-solid" style="width:100%;height:40px;background:#2b1d1b">${s.periodEnd}</span></div></div></section>
+    <section class="a-section"><div class="a-section-head"><h2 class="a-section-title a-heading">${s.devTitle}</h2><span class="a-section-link">${s.devCount}</span></div>
+      <div class="a-card a-dev-card"><div class="a-dev-rail">${s.dev.map(([e, l], i) => `<span class="a-dev-ms${i < 3 ? ' on' : ''}"><span class="a-dev-ms-ico">${e}${i < 3 ? `<span class="a-dev-ms-check">✓</span>` : ''}</span><span class="a-dev-ms-label">${l}</span></span>`).join('')}</div>
+        <div class="a-dev-tip"><span class="a-list-icon t-peach">🙈</span><div style="flex:1;min-width:0"><p class="a-dev-tip-head"><span>${s.tipHead}</span><span>1/5</span></p><p class="a-list-title">${s.tipTitle}</p><p class="a-dev-tip-text">${s.tipText}</p></div></div></div></section>`,
+
+  tools: (s) => `${backbar(s.eyebrow, s.title, icon('history'))}
+    <section class="a-section"><div class="card" style="text-align:center;padding:26px 16px">
+      <div style="width:150px;height:150px;margin:0 auto;border-radius:50%;background:radial-gradient(circle,#ff8a8a 0%,#ff6b6b 55%,#ffd2cc 56%,#fff 75%);display:grid;place-items:center;color:#fff;font-size:44px">${icon('mic')}</div>
+      <p style="margin-top:12px;font-weight:700;letter-spacing:.06em" class="muted">${s.timer}</p><p style="font-weight:600;margin-top:2px">${s.analyzing} ✨</p>
+      <div style="height:6px;border-radius:999px;background:var(--a-surface-soft);margin-top:12px;overflow:hidden"><div style="width:70%;height:100%;background:#ff5a5f"></div></div></div></section>
+    <section class="a-section"><div class="card"><div class="row"><span class="ico t-peach" style="font-size:22px">🍼</span><div class="grow"><p style="font-weight:800;font-size:18px">${s.result} <span class="a-tag" style="font-size:11px;margin-left:6px;background:#ffe1e6;color:#d23a5b">${s.confidence}</span></p><p class="small muted">● ${s.urgency}</p></div></div>
+      <p style="margin-top:12px;padding:12px;border-radius:14px;background:#fff4ef;font-size:13px;line-height:1.55;color:#7a5f58">${s.text}</p>
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:9px">${s.steps.map((t, i) => `<div class="row" style="font-size:13.5px"><span style="width:22px;height:22px;border-radius:50%;background:#ffe1e6;color:#d23a5b;display:grid;place-items:center;font-size:12px;font-weight:700">${i + 1}</span>${t}</div>`).join('')}</div>
+      <span class="btn-solid" style="width:100%;margin-top:14px">${icon('rotate-ccw')} ${s.again}</span></div></section>`,
+
+  community: (s) => `${topbar(s.eyebrow, s.title, icon('message-circle'))}
+    <div style="display:flex;gap:14px;margin:8px 0 14px">${s.stories.map((n, i) => `<div style="text-align:center;width:58px"><div style="width:56px;height:56px;border-radius:50%;padding:3px;background:${i ? 'linear-gradient(135deg,#ff8a73,#ff5a5f)' : 'var(--a-line-strong)'}"><div style="width:100%;height:100%;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;color:#ff5a5f;font-size:18px">${i ? n[0] : '+'}</div></div><span class="small muted" style="font-size:11px">${n}</span></div>`).join('')}</div>
+    <div class="card row" style="padding:10px 10px 10px 14px;border-radius:999px"><span class="ico t-peach" style="border-radius:50%;width:32px;height:32px">😊</span><span class="grow muted" style="font-size:14px">${s.composer}</span><span class="btn-solid" style="height:34px;font-size:13px">${s.post}</span></div>
+    ${[['p1', 'A', true], ['p2', 'L', false]].map(([k, l, admin]) => `<div class="card" style="margin-top:12px"><div class="row"><span class="ico t-peach" style="border-radius:50%;font-weight:800;color:#ff5a5f">${l}</span><div class="grow"><p style="font-weight:700;font-size:14px">${s[k + 'name']} ${admin ? `<span class="a-tag" style="font-size:10px;padding:2px 7px;background:#fff1c7;color:#946200">${s.p1badge}</span>` : ''}</p><p class="small muted" style="font-size:11.5px">${s[k + 'meta']}</p></div><span class="muted">•••</span></div>
+      <p style="margin-top:10px;font-size:14px;line-height:1.5">${s[k]}</p>
+      <div class="row muted" style="margin-top:12px;font-size:13px;gap:16px"><span>❤️ ${s[k + 'stats'][0]}</span><span>💬 ${s[k + 'stats'][1]}</span><span style="margin-left:auto">↗ ${s.share}</span></div></div>`).join('')}`,
+
+  partner: (s) => `<div class="a-topbar"><div><p class="a-eyebrow">${s.eyebrow}</p><p class="a-wordmark" style="font-size:19px">${s.name}</p></div><span class="btn-solid" style="height:34px;font-size:13px;background:#e2495a">${s.sos}</span></div>
+    <section class="a-section"><div class="card"><div class="row"><span class="ico t-peach" style="width:52px;height:52px;border-radius:50%;font-size:22px;font-weight:800;color:#ff5a5f">${s.partner[0]}</span><div class="grow"><p style="font-weight:800;font-size:17px">${s.partner}</p><p class="small muted">${s.partnerSub}</p></div><div style="text-align:center"><span style="font-size:22px">😊</span><p class="small muted" style="font-size:10px">${s.mood}</p></div><span class="ico t-pink" style="border-radius:50%">${icon('heart')}</span></div>
+      <div class="a-trio" style="margin-top:12px">${s.stats.map(([v, l]) => `<div class="a-trio-item" style="box-shadow:none;background:var(--a-surface-soft)"><p style="font-weight:800;font-size:15px">${v}</p><p class="a-trio-label">${l}</p></div>`).join('')}</div></div></section>
+    <section class="a-section"><div class="card"><p style="font-weight:700">${s.noteTitle}</p><div class="row" style="margin-top:10px;padding:10px 10px 10px 14px;border-radius:999px;background:var(--a-surface-soft)"><span class="grow muted" style="font-size:13.5px">${s.notePh}</span><span class="ico" style="background:#ff5a5f;color:#fff;border-radius:50%;width:32px;height:32px">${icon('send')}</span></div>
+      <div class="row" style="gap:8px;margin-top:10px">${s.notes.map(n => `<span class="a-tag" style="background:#ffe1e6;color:#d23a5b">${n}</span>`).join('')}</div></div></section>
+    <section class="a-section"><div class="card row" style="align-items:flex-start"><span class="ico t-yellow">📖</span><div class="grow"><p style="font-weight:700">${s.guideTitle}</p><p class="muted" style="font-size:13px;line-height:1.5;margin-top:4px">${s.guide}</p></div></div></section>
+    <section class="a-section"><div class="card row"><span class="ico t-blue">🗳️</span><div class="grow"><p style="font-weight:700">${s.voteTitle}</p><p class="small muted">${s.vote}</p></div><span class="a-tag">${s.voteBtn}</span></div></section>`,
+
+  toolsGrid: (s) => `${topbar(s.eyebrow, s.title, icon('search'))}
+    <div class="card row" style="padding:12px 16px;border-radius:16px;margin-top:4px"><span class="muted">${icon('search')}</span><span class="muted" style="font-size:14px">${s.search}</span></div>
+    <p style="font-weight:700;margin:16px 0 10px">${s.featured}</p>
+    <div style="display:flex;gap:10px">${s.hero.map(([e, t, d], i) => `<div style="flex:1;border-radius:20px;padding:12px;height:112px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;background:${['linear-gradient(160deg,#5fd39a,#2fae76)','linear-gradient(160deg,#a98bff,#7b5cf0)','linear-gradient(160deg,#ff8a8a,#ff5a5f)'][i]}"><span style="font-size:24px">${e}</span><b style="font-size:13px;margin-top:6px">${t}</b><span style="font-size:10.5px;opacity:.9">${d}</span></div>`).join('')}</div>
+    <p style="font-weight:700;margin:16px 0 10px">${s.all}</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">${s.grid.map(([e, t, d], i) => `<div class="card" style="padding:14px"><span class="ico ${['t-pink','t-peach','t-lav','t-blue','t-green','t-yellow'][i]}">${e}</span><p style="font-weight:700;font-size:14px;margin-top:10px">${t}</p><p class="small muted" style="font-size:11.5px">${d}</p></div>`).join('')}</div>`,
+};
+const ACTIVE = { hero: 'home', pregnancy: 'home', ai: 'ai', flow: 'home', mommy: 'home', tools: 'tools', community: 'community', partner: 'home', toolsGrid: 'tools' };
+const CHIP_ICONS = {
+  hero: [['sparkles', 't-lav'], ['layout-grid', 't-peach']], pregnancy: [['footprints', 't-pink'], ['calendar-check', 't-blue']],
+  ai: [['zap', 't-yellow'], ['shield-check', 't-blue']], flow: [['brain', 't-lav'], ['sun', 't-yellow']],
+  mommy: [['moon', 't-lav'], ['trending-up', 't-green']], tools: [['camera', 't-lav'], ['scan-line', 't-blue']],
+  community: [['image', 't-peach'], ['message-circle', 't-pink']], partner: [['siren', 't-pink'], ['heart', 't-peach']],
+  toolsGrid: [['crown', 't-yellow'], ['shopping-bag', 't-green']],
+};
+// Chip placement per slide: [side, y offset from the phone top] for the first and second chip.
+const CHIP_POS = {
+  hero: [['left', 120], ['right', 575]], pregnancy: [['left', 300], ['right', 455]],
+  ai: [['left', 520], ['right', 250]], flow: [['left', 470], ['right', 620]],
+  mommy: [['left', 60], ['right', 390]], tools: [['left', 210], ['right', 330]],
+  community: [['left', 520], ['right', 120]], partner: [['left', 600], ['right', 470]],
+  toolsGrid: [['left', 165], ['right', 520]],
+};
+const PILL_ICONS = { hero: 'heart', pregnancy: 'baby', ai: 'sparkles', flow: 'flower-2', mommy: 'baby', tools: 'wand-2', community: 'users', partner: 'heart-handshake', toolsGrid: 'layout-grid' };
+
+const id = new URLSearchParams(location.search).get('slide');
+const f = C.slides[id];
+document.documentElement.lang = C.lang; document.documentElement.dir = C.dir || 'ltr';
+document.getElementById('root').innerHTML = `
+<div class="slide${id === 'hero' ? ' warm' : ''}">
+  <span class="blob" style="width:260px;height:260px;left:-80px;top:420px;background:#ffb4a2"></span>
+  <span class="blob" style="width:220px;height:220px;right:-70px;top:180px;background:#ffd2a6"></span>
+  <div class="head"><span class="pill">${icon(PILL_ICONS[id])}${f.pill}</span><h1 class="title">${f.title}</h1><p class="sub">${f.sub}</p></div>
+  <div class="phone"><div class="screen"><span class="island"></span><div class="screen-inner a-scope a-dash" style="background:var(--a-bg)">
+    ${status()}<div class="app">${SCREENS[id](f.s)}</div>${tabs(ACTIVE[id])}</div></div></div>
+  ${f.chips.map(([b, sub], i) => `<div class="chip" data-side="${CHIP_POS[id][i][0]}" data-y="${CHIP_POS[id][i][1]}" style="${CHIP_POS[id][i][0]}:8px"><span class="ci ${CHIP_ICONS[id][i][1]}">${icon(CHIP_ICONS[id][i][0])}</span><span><b>${b}</b><span class="cs">${sub}</span></span></div>`).join('')}
+</div>`;
+lucide.createIcons();
+// The phone sits right under the headline block; chips follow the phone.
+const head = document.querySelector('.head'), phone = document.querySelector('.phone');
+const phoneTop = Math.round(head.getBoundingClientRect().bottom + 28);
+phone.style.top = phoneTop + 'px';
+document.querySelectorAll('.chip').forEach((c) => { c.style.top = (phoneTop + Number(c.dataset.y)) + 'px'; });
+document.fonts.ready.then(() => { document.body.dataset.ready = '1'; });
+</script>
+</body>
+</html>
