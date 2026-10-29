@@ -13,16 +13,26 @@
       "blog_label": "Anacan məqaləsi",
       "blog_community_share": "İcmada paylaş",
       "blog_unavailable": "Bu məqalə artıq əlçatan deyil.",
-      "period_banner_title": "Aybaşınız bərpa olunub?",
-      "period_banner_body": "Aybaşı izləyicinizi və təqviminizi açın",
-      "period_title": "Aybaşı izləyicim",
-      "period_body": "Analıq bölməsində qalaraq aybaşınızı burada izləyin.",
+      "period_banner_title": "Menstruasiyanız bərpa olunub?",
+      "period_banner_body": "Menstruasiya izləyicinizi və təqviminizi açın",
+      "period_title": "Menstruasiya izləyicim",
+      "period_body": "Analıq bölməsində qalaraq menstruasiyanızı burada izləyin.",
       "period_tracking_note": "Doğuşdan sonrakı sikllər qeyri-müntəzəm ola bilər. Bu təqvim müşahidələrinizi qeydə alır; münbit və ya təhlükəsiz günləri proqnozlaşdırmır.",
       "period_days": "Qeydə alınmış günlər",
       "period_last": "Son qeydə alınmış gün",
-      "period_empty": "Aybaşınızı qeydə almaq üçün tarixə toxunun.",
+      "period_empty": "Menstruasiyanızı qeydə almaq üçün tarixə toxunun.",
       "back_mommy": "Analıq bölməsinə qayıt",
-      "premium_checking": "Premium giriş yoxlanılır…"
+      "premium_checking": "Premium giriş yoxlanılır…",
+      "period_card_title": "Menstruasiya",
+      "period_start": "Başladı",
+      "period_end": "Bitdi",
+      "period_continue": "Davam edir",
+      "period_day_n": "Gün {n}",
+      "period_ask_today": "Bu gün də davam edir?",
+      "period_last_short": "Son: {date}",
+      "period_calendar": "Təqvim",
+      "period_saved": "Qeyd saxlanıldı",
+      "period_failed": "Saxlanmadı, yenidən cəhd edin"
     },
     "en": {
       "blog_command_hint": "Type /Blog to find and attach an article",
@@ -45,7 +55,17 @@
       "period_last": "Latest recorded day",
       "period_empty": "Tap a date to record your period.",
       "back_mommy": "Back to Motherhood",
-      "premium_checking": "Checking Premium access…"
+      "premium_checking": "Checking Premium access…",
+      "period_card_title": "Period",
+      "period_start": "Started",
+      "period_end": "Ended",
+      "period_continue": "Still on",
+      "period_day_n": "Day {n}",
+      "period_ask_today": "Still on today?",
+      "period_last_short": "Last: {date}",
+      "period_calendar": "Calendar",
+      "period_saved": "Saved",
+      "period_failed": "Not saved, please try again"
     },
     "tr": {
       "blog_command_hint": "Bir makale bulup eklemek için /Blog yazın",
@@ -68,7 +88,17 @@
       "period_last": "Son kaydedilen gün",
       "period_empty": "Adetinizi kaydetmek için bir tarihe dokunun.",
       "back_mommy": "Annelik bölümüne dön",
-      "premium_checking": "Premium erişimi kontrol ediliyor…"
+      "premium_checking": "Premium erişimi kontrol ediliyor…",
+      "period_card_title": "Adet",
+      "period_start": "Başladı",
+      "period_end": "Bitti",
+      "period_continue": "Devam ediyor",
+      "period_day_n": "{n}. gün",
+      "period_ask_today": "Bugün de devam ediyor mu?",
+      "period_last_short": "Son: {date}",
+      "period_calendar": "Takvim",
+      "period_saved": "Kaydedildi",
+      "period_failed": "Kaydedilemedi, tekrar deneyin"
     },
     "ru": {
       "blog_command_hint": "Введите /Blog, чтобы найти и прикрепить статью",
@@ -91,7 +121,17 @@
       "period_last": "Последний отмеченный день",
       "period_empty": "Нажмите на дату, чтобы отметить месячные.",
       "back_mommy": "Назад к разделу «Материнство»",
-      "premium_checking": "Проверяем доступ к Premium…"
+      "premium_checking": "Проверяем доступ к Premium…",
+      "period_card_title": "Менструация",
+      "period_start": "Началась",
+      "period_end": "Закончилась",
+      "period_continue": "Продолжается",
+      "period_day_n": "День {n}",
+      "period_ask_today": "Сегодня тоже продолжается?",
+      "period_last_short": "Последняя: {date}",
+      "period_calendar": "Календарь",
+      "period_saved": "Сохранено",
+      "period_failed": "Не сохранено, попробуйте ещё раз"
     },
     "de": {
       "blog_command_hint": "Gib /Blog ein, um einen Artikel zu suchen und anzuhängen",
@@ -114,7 +154,17 @@
       "period_last": "Zuletzt erfasster Tag",
       "period_empty": "Tippe auf ein Datum, um deine Periode einzutragen.",
       "back_mommy": "Zurück zu Mutterschaft",
-      "premium_checking": "Premium-Zugang wird überprüft…"
+      "premium_checking": "Premium-Zugang wird überprüft…",
+      "period_card_title": "Periode",
+      "period_start": "Begonnen",
+      "period_end": "Beendet",
+      "period_continue": "Läuft noch",
+      "period_day_n": "Tag {n}",
+      "period_ask_today": "Heute auch noch?",
+      "period_last_short": "Zuletzt: {date}",
+      "period_calendar": "Kalender",
+      "period_saved": "Gespeichert",
+      "period_failed": "Nicht gespeichert, bitte erneut versuchen"
     },
     "ar": {
       "blog_command_hint": "اكتبي /Blog للعثور على مقال وإرفاقه",
@@ -137,7 +187,17 @@
       "period_last": "آخر يوم مسجّل",
       "period_empty": "اضغطي على تاريخ لتسجيل دورتك الشهرية.",
       "back_mommy": "العودة إلى الأمومة",
-      "premium_checking": "جارٍ التحقق من صلاحية الوصول إلى Premium…"
+      "premium_checking": "جارٍ التحقق من صلاحية الوصول إلى Premium…",
+      "period_card_title": "الدورة الشهرية",
+      "period_start": "بدأت",
+      "period_end": "انتهت",
+      "period_continue": "مستمرة",
+      "period_day_n": "اليوم {n}",
+      "period_ask_today": "هل ما زالت مستمرة اليوم؟",
+      "period_last_short": "الأخيرة: {date}",
+      "period_calendar": "التقويم",
+      "period_saved": "تم الحفظ",
+      "period_failed": "لم يتم الحفظ، حاولي مرة أخرى"
     },
     "ka": {
       "blog_command_hint": "სტატიის მოსაძებნად და დასამაგრებლად აკრიფეთ /Blog",
@@ -160,7 +220,17 @@
       "period_last": "ბოლო აღრიცხული დღე",
       "period_empty": "მენსტრუაციის აღსანიშნავად შეეხეთ თარიღს.",
       "back_mommy": "დედობის მოდულში დაბრუნება",
-      "premium_checking": "Premium-ზე წვდომის შემოწმება…"
+      "premium_checking": "Premium-ზე წვდომის შემოწმება…",
+      "period_card_title": "მენსტრუაცია",
+      "period_start": "დაიწყო",
+      "period_end": "დასრულდა",
+      "period_continue": "გრძელდება",
+      "period_day_n": "დღე {n}",
+      "period_ask_today": "დღესაც გრძელდება?",
+      "period_last_short": "ბოლო: {date}",
+      "period_calendar": "კალენდარი",
+      "period_saved": "შენახულია",
+      "period_failed": "ვერ შეინახა, სცადეთ ხელახლა"
     },
     "kk": {
       "blog_command_hint": "Мақаланы тауып, тіркеу үшін /Blog деп теріңіз",
@@ -183,7 +253,17 @@
       "period_last": "Соңғы тіркелген күн",
       "period_empty": "Етеккіріңізді тіркеу үшін күнді түртіңіз.",
       "back_mommy": "«Ана болу» бөліміне оралу",
-      "premium_checking": "Premium қолжетімділігі тексерілуде…"
+      "premium_checking": "Premium қолжетімділігі тексерілуде…",
+      "period_card_title": "Етеккір",
+      "period_start": "Басталды",
+      "period_end": "Аяқталды",
+      "period_continue": "Жалғасуда",
+      "period_day_n": "{n}-күн",
+      "period_ask_today": "Бүгін де жалғасып жатыр ма?",
+      "period_last_short": "Соңғы: {date}",
+      "period_calendar": "Күнтізбе",
+      "period_saved": "Сақталды",
+      "period_failed": "Сақталмады, қайталап көріңіз"
     },
     "uz": {
       "blog_command_hint": "Maqolani topish va biriktirish uchun /Blog buyrug‘ini kiriting",
@@ -206,7 +286,17 @@
       "period_last": "Oxirgi qayd etilgan kun",
       "period_empty": "Hayzingizni qayd etish uchun sanani bosing.",
       "back_mommy": "Onalik bo‘limiga qaytish",
-      "premium_checking": "Premium xizmatidan foydalanish huquqi tekshirilmoqda…"
+      "premium_checking": "Premium xizmatidan foydalanish huquqi tekshirilmoqda…",
+      "period_card_title": "Hayz",
+      "period_start": "Boshlandi",
+      "period_end": "Tugadi",
+      "period_continue": "Davom etmoqda",
+      "period_day_n": "{n}-kun",
+      "period_ask_today": "Bugun ham davom etyaptimi?",
+      "period_last_short": "Oxirgi: {date}",
+      "period_calendar": "Taqvim",
+      "period_saved": "Saqlandi",
+      "period_failed": "Saqlanmadi, qayta urinib koʻring"
     },
     "zh": {
       "blog_command_hint": "输入 /Blog 查找并附加文章",
@@ -229,7 +319,17 @@
       "period_last": "最近记录的日期",
       "period_empty": "点击日期记录月经。",
       "back_mommy": "返回母婴模块",
-      "premium_checking": "正在检查 Premium 权限…"
+      "premium_checking": "正在检查 Premium 权限…",
+      "period_card_title": "月经",
+      "period_start": "已开始",
+      "period_end": "已结束",
+      "period_continue": "仍在继续",
+      "period_day_n": "第 {n} 天",
+      "period_ask_today": "今天还在继续吗？",
+      "period_last_short": "上次：{date}",
+      "period_calendar": "日历",
+      "period_saved": "已保存",
+      "period_failed": "保存失败，请重试"
     },
     "id": {
       "blog_command_hint": "Ketik /Blog untuk mencari dan melampirkan artikel",
@@ -252,7 +352,17 @@
       "period_last": "Hari terakhir yang dicatat",
       "period_empty": "Ketuk tanggal untuk mencatat menstruasi Anda.",
       "back_mommy": "Kembali ke Motherhood",
-      "premium_checking": "Memeriksa akses Premium…"
+      "premium_checking": "Memeriksa akses Premium…",
+      "period_card_title": "Menstruasi",
+      "period_start": "Mulai",
+      "period_end": "Selesai",
+      "period_continue": "Masih berlangsung",
+      "period_day_n": "Hari ke-{n}",
+      "period_ask_today": "Masih berlangsung hari ini?",
+      "period_last_short": "Terakhir: {date}",
+      "period_calendar": "Kalender",
+      "period_saved": "Tersimpan",
+      "period_failed": "Gagal menyimpan, coba lagi"
     },
     "fr": {
       "blog_command_hint": "Tapez /Blog pour rechercher et joindre un article",
@@ -275,7 +385,17 @@
       "period_last": "Dernier jour enregistré",
       "period_empty": "Touchez une date pour enregistrer vos règles.",
       "back_mommy": "Retour au module Maternité",
-      "premium_checking": "Vérification de l’accès Premium…"
+      "premium_checking": "Vérification de l’accès Premium…",
+      "period_card_title": "Règles",
+      "period_start": "Commencées",
+      "period_end": "Terminées",
+      "period_continue": "Toujours en cours",
+      "period_day_n": "Jour {n}",
+      "period_ask_today": "Toujours en cours aujourd’hui ?",
+      "period_last_short": "Dernières : {date}",
+      "period_calendar": "Calendrier",
+      "period_saved": "Enregistré",
+      "period_failed": "Non enregistré, réessayez"
     },
     "es": {
       "blog_command_hint": "Escribe /Blog para buscar y adjuntar un artículo",
@@ -298,7 +418,17 @@
       "period_last": "Último día registrado",
       "period_empty": "Toca una fecha para registrar tu regla.",
       "back_mommy": "Volver a Maternidad",
-      "premium_checking": "Comprobando el acceso a Premium…"
+      "premium_checking": "Comprobando el acceso a Premium…",
+      "period_card_title": "Menstruación",
+      "period_start": "Empezó",
+      "period_end": "Terminó",
+      "period_continue": "Sigue",
+      "period_day_n": "Día {n}",
+      "period_ask_today": "¿Sigue hoy también?",
+      "period_last_short": "Última: {date}",
+      "period_calendar": "Calendario",
+      "period_saved": "Guardado",
+      "period_failed": "No se guardó, inténtalo de nuevo"
     },
     "pt": {
       "blog_command_hint": "Escreva /Blog para encontrar e anexar um artigo",
@@ -321,7 +451,17 @@
       "period_last": "Último dia registado",
       "period_empty": "Toque numa data para registar a sua menstruação.",
       "back_mommy": "Voltar à Maternidade",
-      "premium_checking": "A verificar o acesso Premium…"
+      "premium_checking": "A verificar o acesso Premium…",
+      "period_card_title": "Menstruação",
+      "period_start": "Começou",
+      "period_end": "Terminou",
+      "period_continue": "Continua",
+      "period_day_n": "Dia {n}",
+      "period_ask_today": "Continua hoje também?",
+      "period_last_short": "Última: {date}",
+      "period_calendar": "Calendário",
+      "period_saved": "Salvo",
+      "period_failed": "Não foi salvo, tente novamente"
     },
     "vi": {
       "blog_command_hint": "Nhập /Blog để tìm và đính kèm bài viết",
@@ -344,7 +484,17 @@
       "period_last": "Ngày ghi lại gần nhất",
       "period_empty": "Nhấn vào một ngày để ghi lại kỳ kinh.",
       "back_mommy": "Quay lại mục Làm mẹ",
-      "premium_checking": "Đang kiểm tra quyền truy cập Premium…"
+      "premium_checking": "Đang kiểm tra quyền truy cập Premium…",
+      "period_card_title": "Kinh nguyệt",
+      "period_start": "Đã bắt đầu",
+      "period_end": "Đã kết thúc",
+      "period_continue": "Vẫn đang có",
+      "period_day_n": "Ngày {n}",
+      "period_ask_today": "Hôm nay vẫn còn chứ?",
+      "period_last_short": "Gần nhất: {date}",
+      "period_calendar": "Lịch",
+      "period_saved": "Đã lưu",
+      "period_failed": "Chưa lưu được, vui lòng thử lại"
     },
     "hi": {
       "blog_command_hint": "लेख खोजने और संलग्न करने के लिए /Blog टाइप करें",
@@ -367,7 +517,17 @@
       "period_last": "हाल ही में दर्ज किया गया दिन",
       "period_empty": "अपनी माहवारी दर्ज करने के लिए किसी तारीख पर टैप करें।",
       "back_mommy": "Motherhood पर वापस जाएँ",
-      "premium_checking": "Premium एक्सेस की जाँच की जा रही है…"
+      "premium_checking": "Premium एक्सेस की जाँच की जा रही है…",
+      "period_card_title": "मासिक धर्म",
+      "period_start": "शुरू हुआ",
+      "period_end": "खत्म हुआ",
+      "period_continue": "जारी है",
+      "period_day_n": "दिन {n}",
+      "period_ask_today": "क्या आज भी जारी है?",
+      "period_last_short": "पिछला: {date}",
+      "period_calendar": "कैलेंडर",
+      "period_saved": "सहेजा गया",
+      "period_failed": "सहेजा नहीं गया, फिर से कोशिश करें"
     },
     "ja": {
       "blog_command_hint": "/Blog と入力して記事を検索し、添付できます",
@@ -390,7 +550,17 @@
       "period_last": "最新の記録日",
       "period_empty": "日付をタップして生理を記録してください。",
       "back_mommy": "マザーフッドに戻る",
-      "premium_checking": "Premiumへのアクセスを確認中…"
+      "premium_checking": "Premiumへのアクセスを確認中…",
+      "period_card_title": "生理",
+      "period_start": "始まった",
+      "period_end": "終わった",
+      "period_continue": "続いている",
+      "period_day_n": "{n}日目",
+      "period_ask_today": "今日も続いていますか？",
+      "period_last_short": "前回：{date}",
+      "period_calendar": "カレンダー",
+      "period_saved": "保存しました",
+      "period_failed": "保存できませんでした。もう一度お試しください"
     },
     "ko": {
       "blog_command_hint": "글을 찾아 첨부하려면 /Blog를 입력하세요",
@@ -413,7 +583,17 @@
       "period_last": "최근 기록일",
       "period_empty": "날짜를 눌러 생리를 기록하세요.",
       "back_mommy": "마더후드로 돌아가기",
-      "premium_checking": "Premium 이용 권한 확인 중…"
+      "premium_checking": "Premium 이용 권한 확인 중…",
+      "period_card_title": "생리",
+      "period_start": "시작됨",
+      "period_end": "끝남",
+      "period_continue": "진행 중",
+      "period_day_n": "{n}일째",
+      "period_ask_today": "오늘도 계속되나요?",
+      "period_last_short": "최근: {date}",
+      "period_calendar": "캘린더",
+      "period_saved": "저장됨",
+      "period_failed": "저장되지 않았어요. 다시 시도해 주세요"
     },
     "pl": {
       "blog_command_hint": "Wpisz /Blog, aby znaleźć i załączyć artykuł",
@@ -436,7 +616,17 @@
       "period_last": "Ostatni zapisany dzień",
       "period_empty": "Dotknij daty, aby zapisać miesiączkę.",
       "back_mommy": "Wróć do Macierzyństwa",
-      "premium_checking": "Sprawdzanie dostępu Premium…"
+      "premium_checking": "Sprawdzanie dostępu Premium…",
+      "period_card_title": "Miesiączka",
+      "period_start": "Zaczęła się",
+      "period_end": "Skończyła się",
+      "period_continue": "Nadal trwa",
+      "period_day_n": "Dzień {n}",
+      "period_ask_today": "Czy dziś też trwa?",
+      "period_last_short": "Ostatnio: {date}",
+      "period_calendar": "Kalendarz",
+      "period_saved": "Zapisano",
+      "period_failed": "Nie zapisano, spróbuj ponownie"
     },
     "nl": {
       "blog_command_hint": "Typ /Blog om een artikel te zoeken en toe te voegen",
@@ -459,7 +649,17 @@
       "period_last": "Meest recent geregistreerde dag",
       "period_empty": "Tik op een datum om je menstruatie te registreren.",
       "back_mommy": "Terug naar Moederschap",
-      "premium_checking": "Premium-toegang controleren…"
+      "premium_checking": "Premium-toegang controleren…",
+      "period_card_title": "Menstruatie",
+      "period_start": "Begonnen",
+      "period_end": "Gestopt",
+      "period_continue": "Nog bezig",
+      "period_day_n": "Dag {n}",
+      "period_ask_today": "Vandaag ook nog?",
+      "period_last_short": "Laatst: {date}",
+      "period_calendar": "Kalender",
+      "period_saved": "Opgeslagen",
+      "period_failed": "Niet opgeslagen, probeer het opnieuw"
     },
     "sv": {
       "blog_command_hint": "Skriv /Blog för att hitta och bifoga en artikel",
@@ -482,7 +682,17 @@
       "period_last": "Senast registrerade dag",
       "period_empty": "Tryck på ett datum för att registrera din mens.",
       "back_mommy": "Tillbaka till Moderskap",
-      "premium_checking": "Kontrollerar åtkomst till Premium…"
+      "premium_checking": "Kontrollerar åtkomst till Premium…",
+      "period_card_title": "Mens",
+      "period_start": "Började",
+      "period_end": "Slutade",
+      "period_continue": "Pågår fortfarande",
+      "period_day_n": "Dag {n}",
+      "period_ask_today": "Pågår den även idag?",
+      "period_last_short": "Senast: {date}",
+      "period_calendar": "Kalender",
+      "period_saved": "Sparat",
+      "period_failed": "Kunde inte sparas, försök igen"
     }
   }
 }

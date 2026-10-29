@@ -2996,3 +2996,14 @@ html.a-lite .a3-mascot.bob { animation: none; }
   margin: 3px 0 0; font-size: 12px; line-height: 1.5; color: var(--a-ink-soft);
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
+
+/* ---------- Mommy home period card: last 14 days ---------- */
+.a-period-strip { display: grid; grid-template-columns: repeat(14, minmax(0, 1fr)); gap: 3px; margin-top: 12px; }
+.a-period-day {
+  aspect-ratio: 1; max-width: 26px; width: 100%; justify-self: center; border-radius: 50%;
+  display: grid; place-items: center; font-size: 10px; font-weight: 600; line-height: 1;
+  background: var(--a-surface-soft); color: var(--a-ink-soft); border: 1.5px solid transparent; cursor: pointer;
+}
+.a-period-day.on { background: #ef4b6c; color: #fff; }
+.a-period-day.today { border-color: var(--a-ink); }
+.a-period-day:disabled { opacity: 0.35; cursor: default; }
