@@ -475,3 +475,18 @@ was done.
 - **Rollback:** `rollback-original-design-web-plan.json` returns to the homes build (`487bce5c…`),
   followed by the earlier chain.
 
+
+## Homes carousel web deploy — 2026-10-29
+- **Contents:** commit `c82c4bb`: Calendar card after the message sections, no related-articles
+  blocks on the homes, article carousel (up to 9, autoplay), My sleep removed, compact water row,
+  merged development card.
+- **Image:** `gateway@sha256:fb35ddc18328fd32d775980f9cd3e3a427c61d3c1e5da2145b037f0449bc0e1f`
+  (Cloud Build `790dda3c`, `anacan-build`), built `FROM` live `1354acb4…`; adds only `index.html`,
+  `assets/` and `aptek/`.
+- **Isolated test (:8089):** every checked path and the website matched live; index sha, admission
+  and the previous live assets verified before the deploy started.
+- **Deploy:** `deploy-current-web.py homes-carousel-web-plan.json` returned `passed`; `index.html`
+  sha `f75e75bf…`; previous container `anacan-gateway-before-refresh-1793270208`; no DNS or
+  database change. Public `/?web=admin` loads with no console errors.
+- **Rollback:** `rollback-homes-carousel-web-plan.json` returns to the original-design build
+  (`1354acb4…`), followed by the earlier chain.
