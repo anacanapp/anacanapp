@@ -223,7 +223,7 @@ const ChatMediaUpload = ({ onUpload, disabled }: ChatMediaUploadProps) => {
     return (
       <div className="flex items-center gap-2 px-2">
         <motion.div
-          className="w-3 h-3 rounded-full bg-[color:var(--a-pink-2)]"
+          className="w-3 h-3 rounded-full bg-red-500"
           animate={{ opacity: [1, 0.3, 1] }}
           transition={{ duration: 1, repeat: Infinity }}
         />
@@ -239,7 +239,7 @@ const ChatMediaUpload = ({ onUpload, disabled }: ChatMediaUploadProps) => {
         </motion.button>
         <motion.button
           onClick={stopRecording}
-          className="w-8 h-8 rounded-full bg-[color:var(--a-pink-2)] flex items-center justify-center"
+          className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center"
           whileTap={{ scale: 0.9 }}
         >
           <Square className="w-3 h-3 text-white fill-white" />

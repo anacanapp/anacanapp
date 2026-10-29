@@ -113,8 +113,8 @@ export default function DoctorReportScreen({ onBack }: DoctorReportScreenProps) 
   return <div className="a-scope min-h-screen pb-28" style={{ background: 'var(--a-bg)' }} data-doctor-report>
     <div className="a-shell">
       <header className="a-topbar">
-        <div className="flex min-w-0 items-center gap-3"><button className="a3-icon-btn" onClick={onBack} aria-label={tr('common_geri', 'Geri')}><ArrowLeft size={20} className="rtl:rotate-180" /></button>
-          <div className="min-w-0"><p className="a-eyebrow">{tr('report_visit_ready', 'Həkim görüşünə hazırlıq')}</p><h1 className="a3-tool-title">{tr('doctorreportscreen_hekim_hesabati_0525fc', 'Həkim Hesabatı')}</h1></div>
+        <div className="flex min-w-0 items-center gap-3"><button className="a-icon-btn" onClick={onBack} aria-label={tr('common_geri', 'Geri')}><ArrowLeft size={18} className="rtl:rotate-180" /></button>
+          <div className="min-w-0"><p className="a-eyebrow">{tr('report_visit_ready', 'Həkim görüşünə hazırlıq')}</p><h1 className="a-wordmark" style={{ fontSize: 18 }}>{tr('doctorreportscreen_hekim_hesabati_0525fc', 'Həkim Hesabatı')}</h1></div>
         </div>
       </header>
       <div className="space-y-4">

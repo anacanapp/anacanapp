@@ -364,12 +364,12 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{selectedChild?.name || tr("common_qeyd", "qeyd")}</p>
-              <p className="a3-tool-title">{tr("babygrowthtracker_i_nkisaf_izleyicisi_71039e", "\u0130nki\u015Faf izl\u0259yicisi")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("babygrowthtracker_i_nkisaf_izleyicisi_71039e", "\u0130nki\u015Faf izl\u0259yicisi")}</p>
             </div>
           </div>
           <div className="a-topbar-actions">
@@ -584,7 +584,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
             <div className="grid grid-cols-3 gap-3">
               <div>
                 <label className="text-sm font-medium mb-1.5 block flex items-center gap-1">
-                  <Scale className="w-3.5 h-3.5 text-[color:var(--a-pink-ink)]" />
+                  <Scale className="w-3.5 h-3.5 text-rose-500" />
                   {tr("babygrowthtracker_ceki_kq_2f7555", "\xC7\u0259ki (kq)")}
                 </label>
                 <Input
@@ -598,7 +598,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block flex items-center gap-1">
-                  <Ruler className="w-3.5 h-3.5 text-[color:var(--a-lav-ink)]" />
+                  <Ruler className="w-3.5 h-3.5 text-indigo-500" />
                   {tr("babygrowthtracker_boy_sm_3bc841", "Boy (sm)")}
                 </label>
                 <Input
@@ -612,7 +612,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block flex items-center gap-1">
-                  <Baby className="w-3.5 h-3.5 text-[color:var(--a-lav-ink)]" />
+                  <Baby className="w-3.5 h-3.5 text-violet-500" />
                   {tr("babygrowthtracker_bas_sm_927b99", "Ba\u015F (sm)")}
                 </label>
                 <Input

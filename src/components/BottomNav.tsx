@@ -13,8 +13,9 @@ interface BottomNavProps {
 }
 
 /**
- * Floating glass bottom navigation (redesign v3): a sliding indicator follows the
- * active tab and the AI tab is a solid coral pill. Opaque under html.a-lite.
+ * Floating pill bottom navigation — redesigned to match the
+ * anacan-demo-app concept (blurred white pill, peach active state,
+ * special circular gradient icon for the AI tab).
  * All tabs, badges and translations are unchanged.
  */
 const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps) => {
@@ -43,17 +44,10 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
 
   if (hiddenForChat) return null;
 
-  const tabs = isPartner ? partnerTabs : visibleWomanTabs;
-  const activeIndex = tabs.findIndex((t) => t.id === activeTab);
-  const rtl = typeof document !== 'undefined' && document.documentElement.dir === 'rtl';
-
   return (
     <div className="a-nav-wrap a-scope" data-ad-bottom-nav>
-      <nav className="a-nav" aria-label="Primary" style={{ ['--a-nav-count' as string]: tabs.length }}>
-        {/* Sliding pill behind the active tab (hidden on the special AI tab, which carries its own fill) */}
-        {activeIndex >= 0 && !tabs[activeIndex].special &&
-          <span className="a-nav-ind" aria-hidden="true" style={{ transform: `translateX(${(rtl ? -1 : 1) * activeIndex * 100}%)` }} />}
-        {tabs.map((tab) => {
+      <nav className="a-nav" aria-label="Primary">
+        {(isPartner ? partnerTabs : visibleWomanTabs).map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
           // Show badge on chat tab for unread messages (both partner and woman)
@@ -67,7 +61,6 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
               className={`a-nav-item${isActive ? ' active' : ''}`}
-              aria-current={isActive ? 'page' : undefined}
               whileTap={{ scale: 0.92 }}
             >
               {tab.special ? (
@@ -75,9 +68,7 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
                   <Icon size={15} strokeWidth={2.4} />
                 </span>
               ) : (
-                <span className="a-nav-ib">
-                  <Icon size={tab.id === 'tools' && !isPartner ? 19 : 21} strokeWidth={isActive ? 2.4 : 2} />
-                </span>
+                <Icon size={tab.id === 'tools' && !isPartner ? 17 : 19} strokeWidth={isActive ? 2.4 : 2} />
               )}
 
               {/* Unread badge */}

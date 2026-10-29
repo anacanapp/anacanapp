@@ -228,14 +228,14 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
           initial={{ scale: 0.9, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.9, opacity: 0, y: 20 }}
-          className="a-scope w-full max-w-md bg-[color:var(--a-bg)] rounded-[28px] shadow-2xl overflow-hidden"
+          className="w-full max-w-md bg-card rounded-3xl shadow-2xl overflow-hidden"
           onClick={(e) => e.stopPropagation()}>
           
           {/* Header */}
-          <div className="relative bg-[color:var(--a-coral-strong)] text-[color:var(--a-on-coral)] p-6 text-white">
+          <div className="relative bg-gradient-to-br from-pink-500 via-rose-500 to-red-500 p-6 text-white">
             <button
               onClick={onClose}
-              className="absolute top-3 end-3 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center" aria-label={tr("premiummodal_bagla_84bdc9", "Bağla")}>
+              className="absolute top-4 end-4 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
               
               <X className="w-4 h-4" />
             </button>
@@ -280,8 +280,8 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                 className="space-y-4">
                 
                   <div className="text-center mb-4">
-                    <div className="w-16 h-16 rounded-full bg-[color:var(--a-pink-1)] flex items-center justify-center mx-auto mb-3">
-                      <Calendar className="w-8 h-8 text-[color:var(--a-coral-text)]" />
+                    <div className="w-16 h-16 rounded-full bg-pink-100 dark:bg-pink-950/50 flex items-center justify-center mx-auto mb-3">
+                      <Calendar className="w-8 h-8 text-pink-500" />
                     </div>
                     <h3 className="text-lg font-bold text-foreground">{tr("birthonboardingmodal_dogum_tarixi_d96907", "Doğum tarixi")}</h3>
                     <p className="text-sm text-muted-foreground">
@@ -300,7 +300,7 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                         !birthDate && "text-muted-foreground"
                       )}>
                       
-                        <Calendar className="me-3 h-5 w-5 text-[color:var(--a-coral-text)]" />
+                        <Calendar className="me-3 h-5 w-5 text-pink-500" />
                         {birthDate ? format(birthDate, "d MMMM yyyy", { locale: getCurrentDateLocale() }) : tr("birthonboardingmodal_tarix_secin_3377b4", "Tarix se\xE7in")}
                       </Button>
                     </PopoverTrigger>
@@ -328,8 +328,8 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                 className="space-y-4">
                 
                   <div className="text-center mb-4">
-                    <div className="w-16 h-16 rounded-full bg-[color:var(--a-pink-1)] flex items-center justify-center mx-auto mb-3">
-                      <Heart className="w-8 h-8 text-[color:var(--a-coral-text)]" />
+                    <div className="w-16 h-16 rounded-full bg-pink-100 dark:bg-pink-950/50 flex items-center justify-center mx-auto mb-3">
+                      <Heart className="w-8 h-8 text-pink-500" />
                     </div>
                     <h3 className="text-lg font-bold text-foreground">
                       {isMultiple ? tr("birthonboardingmodal_korpelerin_adlari", "Körpələrin adları") : tr("birthonboardingmodal_korpenin_adi_8a4e9e", "Körpənin adı")}
@@ -345,7 +345,7 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                     {babies.map((baby, i) =>
                   <div key={i} className={isMultiple ? "rounded-2xl border border-border/60 p-3" : ""}>
                         {isMultiple &&
-                    <p className="text-xs font-bold text-[color:var(--a-coral-text)] mb-2">
+                    <p className="text-xs font-bold text-pink-500 mb-2">
                             {tr("birthonboardingmodal_n_ci_korpe", "{n}-ci körpə").replace('{n}', String(i + 1))}
                           </p>
                     }
@@ -360,8 +360,8 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                         {/* Gender Selection */}
                         <div className={`grid grid-cols-2 gap-3 ${isMultiple ? 'mt-3' : 'mt-4'}`}>
                           {[
-                      { value: 'boy', label: tr("birthonboardingmodal_oglan_e9715e", 'Oğlan'), emoji: '👦', color: 'bg-[color:var(--a-blue-1)] border-[color:var(--a-blue-2)]' },
-                      { value: 'girl', label: tr("birthonboardingmodal_qiz_79bf6b", 'Qız'), emoji: '👧', color: 'bg-[color:var(--a-pink-1)] border-[color:var(--a-pink-2)]' }].
+                      { value: 'boy', label: tr("birthonboardingmodal_oglan_e9715e", 'Oğlan'), emoji: '👦', color: 'bg-blue-100 dark:bg-blue-950/50 border-blue-300' },
+                      { value: 'girl', label: tr("birthonboardingmodal_qiz_79bf6b", 'Qız'), emoji: '👧', color: 'bg-pink-100 dark:bg-pink-950/50 border-pink-300' }].
                       map((option) =>
                       <motion.button
                         key={option.value}
@@ -394,8 +394,8 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                 className="space-y-4">
                 
                   <div className="text-center mb-4">
-                    <div className="w-16 h-16 rounded-full bg-[color:var(--a-pink-1)] flex items-center justify-center mx-auto mb-3">
-                      <Stethoscope className="w-8 h-8 text-[color:var(--a-coral-text)]" />
+                    <div className="w-16 h-16 rounded-full bg-pink-100 dark:bg-pink-950/50 flex items-center justify-center mx-auto mb-3">
+                      <Stethoscope className="w-8 h-8 text-pink-500" />
                     </div>
                     <h3 className="text-lg font-bold text-foreground">{tr("birthonboardingmodal_dogum_tipi_c2efb4", "Doğum tipi")}</h3>
                     <p className="text-sm text-muted-foreground">{tr("birthonboardingmodal_dogum_nece_bas_tutdu_f27265", "Doğum necə baş tutdu?")}</p>
@@ -408,7 +408,7 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                     onClick={() => setDeliveryType(option.value as DeliveryType)}
                     className={`w-full p-4 rounded-xl border-2 flex items-center gap-4 transition-all ${
                     deliveryType === option.value ?
-                    'bg-[color:var(--a-coral-soft)] border-[color:var(--a-peach-2)]' :
+                    'bg-pink-50 dark:bg-pink-950/30 border-pink-300' :
                     'bg-muted/50 border-transparent'}`
                     }
                     whileTap={{ scale: 0.98 }}>
@@ -419,7 +419,7 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                           <p className="text-xs text-muted-foreground">{option.description}</p>
                         </div>
                         {deliveryType === option.value &&
-                    <Check className="w-5 h-5 text-[color:var(--a-coral-text)] ms-auto" />
+                    <Check className="w-5 h-5 text-pink-500 ms-auto" />
                     }
                       </motion.button>
                   )}
@@ -437,8 +437,8 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                 className="space-y-4">
                 
                   <div className="text-center mb-4">
-                    <div className="w-16 h-16 rounded-full bg-[color:var(--a-pink-1)] flex items-center justify-center mx-auto mb-3">
-                      <Sparkles className="w-8 h-8 text-[color:var(--a-coral-text)]" />
+                    <div className="w-16 h-16 rounded-full bg-pink-100 dark:bg-pink-950/50 flex items-center justify-center mx-auto mb-3">
+                      <Sparkles className="w-8 h-8 text-pink-500" />
                     </div>
                     <h3 className="text-lg font-bold text-foreground">{tr("birthonboardingmodal_dogum_olculeri_674a98", "Doğum ölçüləri")}</h3>
                     <p className="text-sm text-muted-foreground">{tr("birthonboardingmodal_isteye_bagli_sonra_da_elave_ede_bilersin_ade2f0", "İstəyə bağlı - sonra da əlavə edə bilərsiniz")}</p>
@@ -448,7 +448,7 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                     {babies.map((baby, i) =>
                   <div key={i} className={isMultiple ? "rounded-2xl border border-border/60 p-3" : ""}>
                         {isMultiple &&
-                    <p className="text-xs font-bold text-[color:var(--a-coral-text)] mb-2">
+                    <p className="text-xs font-bold text-pink-500 mb-2">
                             {baby.name.trim() || tr("birthonboardingmodal_n_ci_korpe", "{n}-ci körpə").replace('{n}', String(i + 1))}
                           </p>
                     }
@@ -491,15 +491,15 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                   </div>
                   
                   {/* Summary */}
-                  <div className="bg-[color:var(--a-surface-soft)] rounded-xl p-4 mt-4">
+                  <div className="bg-pink-50 dark:bg-pink-950/30 rounded-xl p-4 mt-4">
                     <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
-                      <Baby className="w-4 h-4 text-[color:var(--a-coral-text)]" />
+                      <Baby className="w-4 h-4 text-pink-500" />
                       {tr("birthonboardingmodal_xulase_029c8a", "X\xFClas\u0259")}
                     </h4>
                     {babies.map((baby, i) =>
-                  <div key={i} className={i > 0 ? "mt-2.5 pt-2.5 border-t border-[color:var(--a-line)]" : ""}>
+                  <div key={i} className={i > 0 ? "mt-2.5 pt-2.5 border-t border-pink-200/50 dark:border-pink-800/30" : ""}>
                         {isMultiple &&
-                    <p className="text-xs font-bold text-[color:var(--a-coral-text)] mb-1">
+                    <p className="text-xs font-bold text-pink-600 dark:text-pink-400 mb-1">
                             {baby.name.trim() || tr("birthonboardingmodal_n_ci_korpe", "{n}-ci körpə").replace('{n}', String(i + 1))}
                           </p>
                     }
@@ -511,7 +511,7 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
                         </div>
                       </div>
                   )}
-                    <div className="grid grid-cols-2 gap-2 text-sm mt-2.5 pt-2.5 border-t border-[color:var(--a-line)]">
+                    <div className="grid grid-cols-2 gap-2 text-sm mt-2.5 pt-2.5 border-t border-pink-200/50 dark:border-pink-800/30">
                       <p className="text-muted-foreground">{tr("untranslated_tarix_15qhck", "Tarix:")}<span className="text-foreground font-medium">{birthDate ? format(birthDate, 'd MMM yyyy', { locale: getCurrentDateLocale() }) : '-'}</span></p>
                       <p className="text-muted-foreground">{tr("untranslated_tip_5d1vhb", "Tip:")}<span className="text-foreground font-medium">{deliveryOptions.find((d) => d.value === deliveryType)?.label}</span></p>
                     </div>
@@ -527,7 +527,7 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
             <Button
               variant="outline"
               onClick={prevStep}
-              className="flex-1 h-12 rounded-full font-semibold">
+              className="flex-1 h-12">
               
                 <ChevronLeft className="rtl:rotate-180 w-4 h-4 me-1" />
                 {tr("common_geri", "Geri")}
@@ -538,13 +538,13 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
             <Button
               onClick={nextStep}
               disabled={!canProceed()}
-              className="flex-1 h-12 rounded-full font-semibold bg-[color:var(--a-coral-strong)] text-[color:var(--a-on-coral)]">{tr("untranslated_davam_et_rchhd5", "Davam et")}<ChevronRight className="rtl:rotate-180 w-4 h-4 ms-1" />
+              className="flex-1 h-12 bg-gradient-to-r from-pink-500 to-rose-500">{tr("untranslated_davam_et_rchhd5", "Davam et")}<ChevronRight className="rtl:rotate-180 w-4 h-4 ms-1" />
               </Button> :
 
             <Button
               onClick={handleComplete}
               disabled={loading}
-              className="flex-1 h-12 rounded-full font-semibold bg-[color:var(--a-coral-strong)] text-[color:var(--a-on-coral)]">
+              className="flex-1 h-12 bg-gradient-to-r from-pink-500 to-rose-500">
               
                 {loading ?
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> :

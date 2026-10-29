@@ -25,28 +25,28 @@ interface FlowDailyLoggerProps {
 }
 
 const MOOD_OPTIONS = [
-{ value: 1, emoji: '😢', label: tr("flowdailylogger_cox_pis_e041c5", 'Çox pis'), color: 'bg-[color:var(--a-pink-1)] border-[color:var(--a-pink-2)] text-[color:var(--a-pink-ink)]' },
-{ value: 2, emoji: '😔', label: tr("common_pis", 'Pis'), color: 'bg-[color:var(--a-peach-1)] border-[color:var(--a-peach-2)] text-[color:var(--a-peach-ink)]' },
-{ value: 3, emoji: '😐', label: 'Normal', color: 'bg-[color:var(--a-yellow-1)] border-[color:var(--a-yellow-2)] text-[color:var(--a-yellow-ink)]' },
-{ value: 4, emoji: '😊', label: tr("flowdailylogger_yaxsi_9d8595", 'Yaxşı'), color: 'bg-[color:var(--a-green-1)] border-[color:var(--a-green-2)] text-[color:var(--a-green-ink)]' },
-{ value: 5, emoji: '🥰', label: tr("flowdailylogger_ela_720a0e", 'Əla'), color: 'bg-[color:var(--a-pink-1)] border-[color:var(--a-pink-2)] text-[color:var(--a-pink-ink)]' }];
+{ value: 1, emoji: '😢', label: tr("flowdailylogger_cox_pis_e041c5", 'Çox pis'), color: 'bg-red-100 border-red-300 text-red-700' },
+{ value: 2, emoji: '😔', label: tr("common_pis", 'Pis'), color: 'bg-orange-100 border-orange-300 text-orange-700' },
+{ value: 3, emoji: '😐', label: 'Normal', color: 'bg-yellow-100 border-yellow-300 text-yellow-700' },
+{ value: 4, emoji: '😊', label: tr("flowdailylogger_yaxsi_9d8595", 'Yaxşı'), color: 'bg-green-100 border-green-300 text-green-700' },
+{ value: 5, emoji: '🥰', label: tr("flowdailylogger_ela_720a0e", 'Əla'), color: 'bg-pink-100 border-pink-300 text-pink-700' }];
 
 
 const ENERGY_OPTIONS = [
 { value: 1, icon: CloudRain, label: tr("flowdailylogger_cox_asagi_e45510", 'Çox aşağı'), color: 'text-slate-400' },
 { value: 2, icon: Meh, label: tr("flowdailylogger_asagi_1c27f1", 'Aşağı'), color: 'text-slate-500' },
-{ value: 3, icon: Sun, label: 'Normal', color: 'text-[color:var(--a-yellow-ink)]' },
-{ value: 4, icon: Zap, label: tr("flowdailylogger_yuksek_492584", 'Yüksək'), color: 'text-[color:var(--a-peach-ink)]' },
-{ value: 5, icon: Sparkles, label: tr("flowdailylogger_cox_yuksek_c4d475", 'Çox yüksək'), color: 'text-[color:var(--a-yellow-ink)]' }];
+{ value: 3, icon: Sun, label: 'Normal', color: 'text-yellow-500' },
+{ value: 4, icon: Zap, label: tr("flowdailylogger_yuksek_492584", 'Yüksək'), color: 'text-orange-500' },
+{ value: 5, icon: Sparkles, label: tr("flowdailylogger_cox_yuksek_c4d475", 'Çox yüksək'), color: 'text-amber-500' }];
 
 
 const flowOptions = () => [
-{ value: 'unspecified', label: tr('flow_had_flow', 'Axın oldu'), emoji: '🩸', color: 'bg-[color:var(--a-pink-1)]' },
+{ value: 'unspecified', label: tr('flow_had_flow', 'Axın oldu'), emoji: '🩸', color: 'bg-red-100' },
 { value: 'none', label: tr("common_yoxdur", 'Yoxdur'), emoji: '⚪', color: 'bg-slate-100' },
-{ value: 'spotting', label: tr("flowdailylogger_lekelenme_8e7b1e", 'Ləkələnmə'), emoji: '🔵', color: 'bg-[color:var(--a-blue-1)]' },
-{ value: 'light', label: tr("flowdailylogger_yungul_2a8010", 'Yüngül'), emoji: '🩸', color: 'bg-[color:var(--a-pink-1)]' },
-{ value: 'medium', label: tr("common_orta", 'Orta'), emoji: '🩸🩸', color: 'bg-[color:var(--a-pink-1)]' },
-{ value: 'heavy', label: tr("flowdailylogger_guclu_0fda31", 'Güclü'), emoji: '🩸🩸🩸', color: 'bg-[color:var(--a-pink-2)]' }];
+{ value: 'spotting', label: tr("flowdailylogger_lekelenme_8e7b1e", 'Ləkələnmə'), emoji: '🔵', color: 'bg-blue-100' },
+{ value: 'light', label: tr("flowdailylogger_yungul_2a8010", 'Yüngül'), emoji: '🩸', color: 'bg-red-100' },
+{ value: 'medium', label: tr("common_orta", 'Orta'), emoji: '🩸🩸', color: 'bg-red-200' },
+{ value: 'heavy', label: tr("flowdailylogger_guclu_0fda31", 'Güclü'), emoji: '🩸🩸🩸', color: 'bg-red-300' }];
 
 
 const SLEEP_QUALITY = [
@@ -275,7 +275,7 @@ const FlowDailyLogger = ({ date = new Date(), compact = false, onSave }: FlowDai
               {/* Flow Intensity */}
               <div>
                 <label className="text-sm font-medium text-foreground mb-3 block flex items-center gap-2">
-                  <Droplets className="w-4 h-4 text-[color:var(--a-pink-ink)]" /> {tr("flowdailylogger_qanaxma_e42bdc", "Qanaxma")}
+                  <Droplets className="w-4 h-4 text-red-500" /> {tr("flowdailylogger_qanaxma_e42bdc", "Qanaxma")}
                 </label>
                 <div className="flex gap-2 flex-wrap">
                   {flowOptions().map((option) =>
@@ -288,7 +288,7 @@ const FlowDailyLogger = ({ date = new Date(), compact = false, onSave }: FlowDai
                   })); }}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
                   formData.flow_intensity === option.value ?
-                  `${option.color} border-2 border-[color:var(--a-pink-2)]` :
+                  `${option.color} border-2 border-red-300` :
                   'bg-muted hover:bg-muted/80 border-2 border-transparent'}`
                   }>
                   
@@ -457,7 +457,7 @@ const FlowDailyLogger = ({ date = new Date(), compact = false, onSave }: FlowDai
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block flex items-center gap-2">
-                    <Moon className="w-4 h-4 text-[color:var(--a-lav-ink)]" /> {tr("flowdailylogger_yuxu_saat_33bd1e", "Yuxu (saat)")}
+                    <Moon className="w-4 h-4 text-indigo-500" /> {tr("flowdailylogger_yuxu_saat_33bd1e", "Yuxu (saat)")}
                   </label>
                   <Input
                   type="number"
@@ -482,7 +482,7 @@ const FlowDailyLogger = ({ date = new Date(), compact = false, onSave }: FlowDai
                     onClick={() => setFormData((prev) => ({ ...prev, sleep_quality: option.value }))}
                     className={`flex-1 py-2 rounded-lg text-lg transition-all ${
                     formData.sleep_quality === option.value ?
-                    'bg-[color:var(--a-lav-1)] scale-110' :
+                    'bg-indigo-100 dark:bg-indigo-900/30 scale-110' :
                     'hover:bg-muted'}`
                     }
                     title={option.label}>
@@ -497,7 +497,7 @@ const FlowDailyLogger = ({ date = new Date(), compact = false, onSave }: FlowDai
               {/* Temperature */}
               <div>
                 <label className="text-sm font-medium text-foreground mb-2 block flex items-center gap-2">
-                  <Thermometer className="w-4 h-4 text-[color:var(--a-pink-ink)]" /> {tr("flowdailylogger_beden_temperaturu_c_527103", "B\u0259d\u0259n Temperaturu (\xB0C)")}
+                  <Thermometer className="w-4 h-4 text-red-500" /> {tr("flowdailylogger_beden_temperaturu_c_527103", "B\u0259d\u0259n Temperaturu (\xB0C)")}
                 </label>
                 <Input
                 type="number"
@@ -532,7 +532,7 @@ const FlowDailyLogger = ({ date = new Date(), compact = false, onSave }: FlowDai
               <Button
               onClick={handleSave}
               disabled={saveLog.isPending || !hasChanges}
-              className="w-full bg-[color:var(--a-coral-strong)] text-white">
+              className="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white">
               
                 {saveLog.isPending ? tr("flowdailylogger_saxlanilir_ee05ad", "Saxlan\u0131l\u0131r...") : existingLog ? tr("flowdailylogger_yenile_570ce2", "Yenil\u0259") : tr("flowdailylogger_saxla_7dcde1", "Saxla")}
               </Button>

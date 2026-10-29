@@ -1,10 +1,5 @@
 import { useState, useEffect, useMemo, useRef, lazy, Suspense } from 'react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { TOOL_ICONS, TOOL_CATEGORIES, toolCategory, toolTone, type ToolCategory } from '@/lib/tool-icons';
-import { rd } from '@/lib/redesign-i18n';
-import { bc } from '@/lib/babycare-i18n';
-import { sleepTrainingEligible } from '@/lib/sleep-training';
-import { useChildren } from '@/hooks/useChildren';
 import { saveScroll, restoreScroll } from '@/lib/scrollMemory';
 import { pushBackHandler } from '@/lib/backButton';
 import { isToolFree, isCakesAvailable } from '@/lib/freemium';
@@ -64,6 +59,11 @@ const CakesScreen = lazy(() => import('./CakesScreen'));
 const MiniGamesHub = lazy(() => import('./games/MiniGamesHub'));
 const BabyTracker = lazy(() => import('./tools/BabyTracker'));
 const SleepTraining = lazy(() => import('./tools/SleepTraining'));
+// Aptek product hits under the tool search; loaded only once the user types.
+const AptekSearchResults = lazy(() => import('./aptek/AptekEntry').then((m) => ({ default: m.AptekSearchResults })));
+const openAptek = (screen: string) =>
+  window.dispatchEvent(new CustomEvent<PushNavIntent>(PUSH_NAV_EVENT, { detail: { screen } }));
+const foldQuery = (v: string) => v.trim().toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 import { PremiumModal } from './PremiumModal';
 import PremiumToolBoundary from './premium/PremiumToolBoundary';
 
@@ -87,11 +87,52 @@ interface Tool {
   isLocked?: boolean;
 }
 
-// Icon mapping for dynamic tool configs (shared with the home quick tools)
-const iconMap = TOOL_ICONS;
+// Icon mapping for dynamic tool configs
+const iconMap: Record<string, LucideIcon> = {
+  'Ruler': Ruler,
+  'Camera': Camera,
+  'Utensils': Utensils,
+  'ShoppingCart': ShoppingCart,
+  'Shield': Shield,
+  'Footprints': Footprints,
+  'Timer': Timer,
+  'Scale': Scale,
+  'Baby': Baby,
+  'Briefcase': Briefcase,
+  'Volume2': Volume2,
+  'Activity': Activity,
+  'Heart': Heart,
+  'Wrench': Wrench,
+  'BookOpen': BookOpen,
+  'ChefHat': ChefHat,
+  'Stethoscope': Stethoscope,
+  'Droplet': Droplet,
+  'ImagePlus': ImagePlus,
+  'Package': Package,
+  'Mic': Mic,
+  'Scan': Scan,
+  'CloudSun': CloudSun,
+  'Gauge': Gauge,
+  'Store': Store,
+  'MapPin': MapPin,
+  'Gamepad2': Gamepad2,
+  'ShieldAlert': ShieldAlert,
+  'BookHeart': BookHeart,
+  'Stars': Stars,
+  'Calculator': Calculator,
+  'Pill': Pill,
+  'Syringe': Syringe,
+  'TrendingUp': TrendingUp,
+  'Dumbbell': Dumbbell,
+  'Brain': Brain
+};
 
 // Import Calculator icon
 import { Calculator, MoonStar } from 'lucide-react';
+import { bc } from '@/lib/babycare-i18n';
+import { sleepTrainingEligible } from '@/lib/sleep-training';
+import { useChildren } from '@/hooks/useChildren';
+import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
 import { tr } from "@/lib/tr";
 import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { followupText } from '@/lib/followup-i18n';
@@ -105,7 +146,6 @@ interface ToolsHubProps {
 
 const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [category, setCategory] = useState<ToolCategory | 'all'>('all');
   const [activeTool, setActiveTool] = useState<string | null>(initialTool);
   const [showPremiumModal, setShowPremiumModal] = useState(false);
 
@@ -145,6 +185,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     }
     openTool(toolId);
   };
+  const childrenInfo = useChildren();
+  const childBirthDate = (childrenInfo.selectedChild ?? childrenInfo.children[0])?.birth_date ?? null;
   const { lifeStage, getPregnancyData } = useUserStore(
     useShallow((s) => ({ lifeStage: s.lifeStage, getPregnancyData: s.getPregnancyData }))
   );
@@ -170,8 +212,6 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   // Build tools from DB configs
   const isNonAz = language !== 'az';
   const { disabledTools, isToolDisabled } = useDisabledTools();
-  const childrenInfo = useChildren();
-  const childBirthDate = (childrenInfo.selectedChild ?? childrenInfo.children[0])?.birth_date ?? null;
   const tools: Tool[] = useMemo(() => {
     if (toolConfigs.length === 0) {
       return [];
@@ -211,7 +251,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     // Baby tracker and Sleep training are app-defined tools (no tool_configs row needed);
     // a DB row with the same id wins, and both respect disabled tools.
     const virtual = (id: string, name: string, description: string, icon: typeof Wrench): Tool => ({
-      id, name, description, icon, color: '', bgColor: '', stages: ['mommy'],
+      id, name, description, icon, color: 'pink', bgColor: 'pink', stages: ['mommy'],
       isPremium: !isToolFree(id), premiumType: 'none', premiumLimit: 0, isLocked: false,
     });
     const extra: Tool[] = [];
@@ -317,9 +357,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const showCakes = !isToolDisabled('cakes') && cakesMarketOk && (lifeStage === 'bump' || lifeStage === 'mommy' || isAdmin) && (
   cakesVirtual.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
   cakesVirtual.description.toLowerCase().includes(searchQuery.toLowerCase()));
-  const allDisplayedTools: Tool[] = showCakes ? [cakesVirtual, ...filteredTools] : filteredTools;
-  const presentCategories = TOOL_CATEGORIES.filter((c) => allDisplayedTools.some((t) => toolCategory(t.id) === c));
-  const displayedTools: Tool[] = category === 'all' || searchQuery ? allDisplayedTools : allDisplayedTools.filter((t) => toolCategory(t.id) === category);
+  const displayedTools: Tool[] = showCakes ? [cakesVirtual, ...filteredTools] : filteredTools;
 
   const handleBack = () => {
     if (activeTool) {
@@ -384,9 +422,9 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       case 'vaccine-calendar':case 'vaccines-calendar':return <VaccineCalendar onBack={handleBack} />;
       case 'vitamin-tracker':case 'vitamins':return <VitaminTracker onBack={handleBack} />;
       case 'cakes':return <CakesScreen onBack={handleBack} />;
-      case 'mini-games':return <MiniGamesHub onBack={handleBack} />;
       case 'baby-tracker':return <BabyTracker onBack={handleBack} />;
       case 'sleep-training':return <SleepTraining onBack={handleBack} />;
+      case 'mini-games':return <MiniGamesHub onBack={handleBack} />;
       default:return null;
     }
   })();
@@ -411,6 +449,9 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
 
   const stageInfo = getLifeStageInfo();
 
+  // anacan-demo tool tile gradient cycle
+  const TILE_GRADIENTS = ['var(--a-grad-peach)', 'var(--a-grad-pink)', 'var(--a-grad-lav)', 'var(--a-grad-blue)', 'var(--a-grad-green)', 'var(--a-grad-yellow)'];
+  const TILE_INKS = ['var(--a-accent-ink)', 'var(--a-berry-ink)', 'var(--a-lav-ink)', 'var(--a-blue-ink)', 'var(--a-green-ink)', 'var(--a-warn-ink)'];
   // Featured (hero) banner backgrounds cycle
   const HERO_BGS = ['var(--a-grad-lav)', 'var(--a-grad-peach)', 'var(--a-grad-green)', 'var(--a-grad-blue)'];
   // Dark mode düzəlişi: 3 hardcoded hex (#3c2e5c/#14532d/#153e57) dark modda
@@ -422,11 +463,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     <div className="a-scope pb-8 overflow-x-hidden" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
       <AdSurface id="tools_banner" />
       <div className="a-shell">
-        <header className="a3-topbar">
-          <h1 className="a3-page-title">{rd('tools_title')}</h1>
-        </header>
         {/* Search header */}
-        <div>
+        <div style={{ paddingTop: 14 }}>
           <div className="a-search">
             <span style={{ fontSize: 15 }}>{stageInfo.emoji}</span>
             <input
@@ -439,16 +477,6 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
             {!searchQuery && <Search size={15} strokeWidth={2} color="var(--a-ink-faint)" />}
           </div>
         </div>
-
-        {!searchQuery && presentCategories.length > 1 &&
-        <div className="a3-chips hide-scrollbar" role="tablist" aria-label={rd('tools_title')}>
-            {(['all', ...presentCategories] as const).map((c) =>
-          <button key={c} type="button" role="tab" aria-selected={category === c} className={`a3-chip-btn${category === c ? ' on' : ''}`} onClick={() => setCategory(c)}>
-                {rd(`cat_${c}`)}
-              </button>
-          )}
-          </div>
-        }
 
         {/* Top Banner */}
         <BannerSlot placement="tools_top" onNavigate={() => {}} onToolOpen={gatedOpenTool} className="mt-3" />
@@ -526,6 +554,12 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
         })()
         }
 
+        {searchQuery.trim() &&
+        <Suspense fallback={null}>
+            <AptekSearchResults query={foldQuery(searchQuery)} close={() => setSearchQuery('')} onOpen={openAptek} />
+          </Suspense>
+        }
+
         {/* Tools grid section */}
         <section className="a-section">
           <div className="a-section-head">
@@ -570,7 +604,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
                     }
                     
                     {/* Icon */}
-                    <span className={`a-tool-icon a3-ico-sq ${toolTone(tool.id)}`}>
+                    <span className="a-tool-icon" style={{ background: TILE_GRADIENTS[index % TILE_GRADIENTS.length], color: TILE_INKS[index % TILE_INKS.length] }}>
                       <Icon size={17} strokeWidth={2} />
                     </span>
                     

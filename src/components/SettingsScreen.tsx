@@ -209,10 +209,10 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
-            <p className="a3-tool-title">{tr("settingsscreen_tenzimlemeler_085659", "Tənzimləmələr")}</p>
+            <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("settingsscreen_tenzimlemeler_085659", "Tənzimləmələr")}</p>
           </div>
         </header>
 

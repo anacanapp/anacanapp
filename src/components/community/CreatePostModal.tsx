@@ -332,8 +332,8 @@ const CreatePostModal = ({ isOpen, onClose, groupId, groups }: CreatePostModalPr
                   <Image className="w-4 h-4 text-primary" />
                 </button>
                 <button onClick={() => videoInputRef.current?.click()} disabled={mediaFiles.length >= 4 || isUploading}
-              className="w-9 h-9 rounded-full bg-[color:var(--a-blue-1)] flex items-center justify-center disabled:opacity-40 transition-colors active:bg-[color:var(--a-blue-1)]">
-                  <Video className="w-4 h-4 text-[color:var(--a-blue-ink)]" />
+              className="w-9 h-9 rounded-full bg-blue-500/15 flex items-center justify-center disabled:opacity-40 transition-colors active:bg-blue-500/25">
+                  <Video className="w-4 h-4 text-blue-500" />
                 </button>
                 {mediaFiles.length > 0 && <span className="text-[10px] text-muted-foreground/60 font-medium ms-auto">{mediaFiles.length}/4</span>}
               </div>

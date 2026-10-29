@@ -9,26 +9,17 @@
    ============================================================ */
 
 :root {
-  /* Canvas & surfaces — warm white canvas, white cards (redesign v3) */
-  --a-bg: #fff8f5;
+  --a-bg: #ffe7e1;
   --a-surface: #ffffff;
-  --a-surface-soft: #fbefea;
-  --a-ink: #2a2120;
-  --a-ink-soft: #6b5a56;
-  --a-ink-faint: #a6978f;
-  --a-on-bg: #2a2120;
-  --a-on-bg-soft: #6b5a56;
-  --a-on-bg-faint: #a6978f;
-  --a-line: rgba(42, 33, 32, 0.07);
-  --a-line-strong: rgba(42, 33, 32, 0.12);
-
-  /* Brand coral: --a-coral for rings/icons/large numerals; --a-coral-strong for
-     buttons with white text (4.5:1); --a-coral-text for coral text on light surfaces */
-  --a-coral: #ff5a5f;
-  --a-coral-strong: #d93a40;
-  --a-coral-text: #c4262e;
-  --a-coral-soft: #ffe7e1;
-  --a-on-coral: #ffffff;
+  --a-surface-soft: #fdefe6;
+  --a-ink: #333333;
+  --a-ink-soft: #8c8177;
+  --a-ink-faint: #c9c0b8;
+  --a-on-bg: #333333;
+  --a-on-bg-soft: #a1735e;
+  --a-on-bg-faint: #cfa08c;
+  --a-line: rgba(51, 51, 51, 0.08);
+  --a-line-strong: rgba(51, 51, 51, 0.14);
 
   --a-peach-1: #ffdcdd;
   --a-peach-2: #FF5A5F;
@@ -55,7 +46,6 @@
 
   /* Hue ink-ləri — pastel -1 fonlarda oxunan tünd mətn rəngləri.
      Dark modda açıq variantlarla əvəzlənir (kontrast üçün). */
-  --a-peach-ink: #9e2b2e;
   --a-blue-ink: #1c5a80;
   --a-pink-ink: #b1275b;
   --a-berry-ink: #a3355f;
@@ -63,26 +53,19 @@
   --a-yellow-ink: #946200;
   --a-lav-ink: #5b3aa5;
   --a-cta-ink: #7c2726;
-  --a-deep: #2a2120;
-  --a-on-deep: #ffffff;
   /* Rəngli banner üstündəki yarım-şəffaf çip fonu */
   --a-chip-overlay: rgba(255, 255, 255, 0.6);
 
-  --a-ok: #1c7a4d;
-  --a-warn: #946200;
-  --a-bad: #c4262e;
-
-  --a-body-text: rgba(42, 33, 32, 0.8);
-  --a-tag-on-bg: #ffffff;
+  --a-body-text: rgba(51, 51, 51, 0.74);
+  --a-tag-on-bg: #fff7ef;
   --a-illus-grad: linear-gradient(135deg, #fff1e3, #ffddbc);
-  --a-btn-border: rgba(42, 33, 32, 0.06);
-  --a-nav-bg: rgba(255, 255, 255, 0.86);
-  --a-nav-solid: #ffffff;
-  --a-nav-border: rgba(42, 33, 32, 0.06);
-  --a-disclaimer-bg: #f8ece7;
-  --a-disclaimer-border: transparent;
-  --a-disclaimer-ink: #6b5a56;
-  --a-disclaimer-strong: #2a2120;
+  --a-btn-border: rgba(255, 255, 255, 0.7);
+  --a-nav-bg: rgba(255, 255, 255, 0.92);
+  --a-nav-border: rgba(255, 255, 255, 0.65);
+  --a-disclaimer-bg: rgba(255, 255, 255, 0.55);
+  --a-disclaimer-border: rgba(255, 255, 255, 0.5);
+  --a-disclaimer-ink: rgba(90, 45, 18, 0.85);
+  --a-disclaimer-strong: #5a2d12;
 
   --a-alert-bg: linear-gradient(180deg, #fff4f2, #ffe7e9);
   --a-alert-ink: #7a1f34;
@@ -90,39 +73,36 @@
   --a-warn-ink: #7a5200;
   --a-warn-soft: #8a6b1f;
 
-  --a-shadow: 122, 60, 48;
-  --a-card-shadow: 0 1px 2px rgba(122, 60, 48, 0.05), 0 8px 24px -14px rgba(122, 60, 48, 0.22);
-  --a-lift-shadow: 0 12px 32px -12px rgba(122, 60, 48, 0.28);
-  --a-coral-shadow: 0 8px 20px -8px rgba(217, 58, 64, 0.55);
-  --a-radius-xl: 26px;
-  --a-radius-lg: 22px;
-  --a-radius-md: 18px;
-  --a-radius-sm: 12px;
-  --a-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --a-spring: cubic-bezier(0.32, 0.72, 0, 1);
-  --a-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --a-shadow: 217, 108, 74;
+  --a-card-shadow: 0 14px 30px -18px rgba(217, 108, 74, 0.35);
+  --a-radius-lg: 26px;
+  --a-radius-md: 20px;
+  --a-radius-sm: 14px;
 }
 
-/* Tünd tema (redesign v3): neytral göy-qara fon, açıq ink-lər, pastellərin tünd tint-ləri. */
+/* Neytral, səliqəli dark tema (#121212 ailəsi).
+   Qaydalar:
+   - Fon/kart/soft: 3 pilləli neytral boz (#121212 / #1E1E1E / #262626)
+   - -1 pastellər: az doymuş tünd tint-lər (icon çipləri üçün)
+   - -2 aksentlər: dəyişmir (canlı qalır)
+   - Qradientlər: FLAT statik rənglərlə əvəzlənir (icon fonları səliqəli görünsün)
+   - Bütün ink-lər açıq variantda (tünd-üstə-tünd mətn olmasın) */
 .dark {
-  --a-bg: #15161c;
-  --a-surface: #1f2027;
-  --a-surface-soft: #2a2c35;
-  --a-ink: #f6f2f1;
-  --a-ink-soft: #b9b3af;
-  --a-ink-faint: #827c79;
-  --a-on-bg: #f6f2f1;
-  --a-on-bg-soft: #b9b3af;
-  --a-on-bg-faint: #6e6966;
-  --a-line: rgba(255, 255, 255, 0.07);
-  --a-line-strong: rgba(255, 255, 255, 0.13);
+  --a-bg: #161922;
+  --a-surface: #3b3c41;
+  --a-surface-soft: #4b4c53;
+  --a-ink: #ffffff;
+  --a-ink-soft: #c7c8ce;
+  --a-ink-faint: #93949b;
+  --a-on-bg: #ffffff;
+  --a-on-bg-soft: #b9bcc8;
+  --a-on-bg-faint: #71737e;
+  --a-line: rgba(255, 255, 255, 0.1);
+  --a-line-strong: rgba(255, 255, 255, 0.18);
 
-  --a-coral: #ff5a5f;
-  --a-coral-strong: #d93a40;
-  --a-coral-text: #ff9a9e;
-  --a-coral-soft: #3a2427;
-
-  --a-peach-1: #47292c;
+  /* -1 pastellər: box (#3b3c41) içində seçilən çip fonları
+     (peach = birbaşa coral aksent #FF5A5F, ağ ikonlarla) */
+  --a-peach-1: #FF5A5F;
   --a-pink-1: #4a3038;
   --a-lav-1: #3d3450;
   --a-blue-1: #2e3d4d;
@@ -130,44 +110,40 @@
   --a-yellow-1: #4a4028;
 
   /* Qradientlər dark-da FLAT statik rəng olur (background shorthand ilə işləyir) */
-  --a-grad-peach: #47292c;
+  --a-grad-peach: #FF5A5F;
   --a-grad-pink: #4a3038;
   --a-grad-lav: #3d3450;
   --a-grad-blue: #2e3d4d;
   --a-grad-green: #30443a;
   --a-grad-yellow: #4a4028;
-  --a-grad-cta: #d93a40;
+  --a-grad-cta: #FF5A5F;
 
+  /* Coral aksenti (düymələr, aktiv nav, proqres) */
   --a-peach-2: #FF5A5F;
   --a-chart-line: #FF5A5F;
 
-  --a-accent-ink: #ffc2c4;
-  --a-peach-ink: #ffc2c4;
-  --a-blue-ink: #bfe2ff;
-  --a-pink-ink: #ffc0d6;
-  --a-berry-ink: #ffc0d6;
-  --a-green-ink: #b8ebcb;
-  --a-yellow-ink: #ffe29a;
-  --a-lav-ink: #d9c8ff;
+  /* Dark-da BÜTÜN icon/hue ink-ləri AĞ — ikonlar tam görünsün.
+     Rəng kodlaması çiplərin tint fonundan gəlir. */
+  --a-accent-ink: #ffffff;
+  --a-blue-ink: #ffffff;
+  --a-pink-ink: #ffffff;
+  --a-berry-ink: #ffffff;
+  --a-green-ink: #ffffff;
+  --a-yellow-ink: #ffffff;
+  --a-lav-ink: #ffffff;
   --a-cta-ink: #ffffff;
-  --a-deep: #2c2d35;
   --a-chip-overlay: rgba(255, 255, 255, 0.14);
 
-  --a-ok: #8fe0b0;
-  --a-warn: #ffd57a;
-  --a-bad: #ff9a9e;
-
-  --a-body-text: rgba(246, 242, 241, 0.84);
-  --a-tag-on-bg: #2a2c35;
-  --a-illus-grad: #2a2c35;
-  --a-btn-border: rgba(255, 255, 255, 0.06);
-  --a-nav-bg: rgba(31, 32, 39, 0.88);
-  --a-nav-solid: #1f2027;
-  --a-nav-border: rgba(255, 255, 255, 0.07);
-  --a-disclaimer-bg: #1f2027;
-  --a-disclaimer-border: transparent;
-  --a-disclaimer-ink: #aaa4a0;
-  --a-disclaimer-strong: #f6f2f1;
+  --a-body-text: rgba(255, 255, 255, 0.85);
+  --a-tag-on-bg: #4b4c53;
+  --a-illus-grad: #4b4c53;
+  --a-btn-border: rgba(255, 255, 255, 0.1);
+  --a-nav-bg: rgba(59, 60, 65, 0.95);
+  --a-nav-border: rgba(255, 255, 255, 0.1);
+  --a-disclaimer-bg: rgba(59, 60, 65, 0.6);
+  --a-disclaimer-border: rgba(255, 255, 255, 0.1);
+  --a-disclaimer-ink: rgba(255, 255, 255, 0.82);
+  --a-disclaimer-strong: #ffffff;
 
   --a-alert-bg: #46333a;
   --a-alert-ink: #ffffff;
@@ -176,9 +152,7 @@
   --a-warn-soft: #ddd0b5;
 
   --a-shadow: 0, 0, 0;
-  --a-card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
-  --a-lift-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.7);
-  --a-coral-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.6);
+  --a-card-shadow: 0 10px 24px -16px rgba(0, 0, 0, 0.6);
 }
 
 /* Typography scope for redesigned surfaces */
@@ -813,7 +787,7 @@
   gap: 6px;
   padding: 11px 18px;
   border-radius: 999px;
-  background: var(--a-coral-strong);
+  background: var(--a-peach-2);
   color: #ffffff;
   font-size: 12.5px;
   font-weight: 700;
@@ -851,7 +825,7 @@
   gap: 6px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: var(--a-coral-strong);
+  background: var(--a-peach-2);
   color: #ffffff;
   font-size: 12px;
   font-weight: 700;
@@ -1097,7 +1071,7 @@
 }
 
 .a-cal-day-circle.selected {
-  background: var(--a-coral-strong);
+  background: var(--a-peach-2);
   color: #ffffff;
 }
 
@@ -1347,7 +1321,6 @@
 }
 
 .a-inline-bar-fill {
-  width: 0; /* start empty: motion/inline width animates up, never down from 100% */
   height: 100%;
   border-radius: 999px;
   background: var(--a-grad-peach);
@@ -1732,7 +1705,7 @@
   gap: 3px;
   padding: 8px 13px;
   border-radius: 999px;
-  background: var(--a-coral-strong);
+  background: var(--a-peach-2);
   color: #ffffff;
   font-size: 11px;
   font-weight: 800;
@@ -2319,7 +2292,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--a-coral-strong);
+  background: var(--a-peach-2);
   color: #ffffff;
   display: grid;
   place-items: center;
@@ -2554,26 +2527,51 @@ html.a-lite .animate-pulse, html.a-lite .animate-ping, html.a-lite .animate-boun
 }
 
 /* ============================================================
+   Tokens used only by components kept from redesign v3 (Aptek, Baby tracker,
+   Sleep training, appointment sheet). Existing --a-* tokens keep the original design.
+   ============================================================ */
+:root {
+  --a-coral: #ff5a5f;
+  --a-coral-strong: #d93a40;
+  --a-coral-text: #c4262e;
+  --a-coral-soft: #ffe7e1;
+  --a-on-coral: #ffffff;
+  --a-peach-ink: #9e2b2e;
+  --a-deep: #2a2120;
+  --a-on-deep: #ffffff;
+  --a-ok: #1c7a4d;
+  --a-warn: #946200;
+  --a-bad: #c4262e;
+  --a-nav-solid: #ffffff;
+  --a-lift-shadow: 0 12px 32px -12px rgba(122, 60, 48, 0.28);
+  --a-coral-shadow: 0 8px 20px -8px rgba(217, 58, 64, 0.55);
+  --a-radius-xl: 26px;
+  --a-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --a-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --a-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.dark {
+  --a-coral: #ff5a5f;
+  --a-coral-strong: #d93a40;
+  --a-coral-text: #ff9a9e;
+  --a-coral-soft: #3a2427;
+  --a-peach-ink: #ffc2c4;
+  --a-deep: #2c2d35;
+  --a-ok: #8fe0b0;
+  --a-warn: #ffd57a;
+  --a-bad: #ff9a9e;
+  --a-nav-solid: #1f2027;
+  --a-lift-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.7);
+  --a-coral-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================================
    Redesign v3 (prototype port): a3-* components.
    Built on the --a-* tokens above; respects .dark, html.a-lite and reduced motion.
    ============================================================ */
 
 /* ---------- Bottom tab bar: floating glass with sliding indicator ---------- */
-.a-nav-wrap { padding: 0 max(12px, env(safe-area-inset-left, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)); }
-.a-nav {
-  position: relative;
-  max-width: 440px;
-  padding: 6px;
-  gap: 0;
-  border-radius: 26px;
-  background: var(--a-nav-bg);
-  -webkit-backdrop-filter: blur(18px) saturate(1.6);
-  backdrop-filter: blur(18px) saturate(1.6);
-  border: 1px solid var(--a-nav-border);
-  box-shadow: var(--a-lift-shadow);
-}
-.dark .a-nav { box-shadow: var(--a-lift-shadow); }
-html.a-lite .a-nav { background: var(--a-nav-solid); }
+
 .a-nav-ind {
   position: absolute; top: 6px; bottom: 6px; left: 6px;
   width: calc((100% - 12px) / var(--a-nav-count, 5));
@@ -2582,12 +2580,8 @@ html.a-lite .a-nav { background: var(--a-nav-solid); }
   pointer-events: none;
 }
 [dir='rtl'] .a-nav-ind { left: auto; right: 6px; }
-.a-nav-item { position: relative; z-index: 1; min-height: 52px; justify-content: center; gap: 2px; padding: 4px 0 2px; color: var(--a-ink-soft); font-size: 11px; font-weight: 600; border-radius: 20px; }
-.a-nav-item.active { background: transparent; color: var(--a-ink); }
 .a-nav-item .a-nav-ib { display: grid; place-items: center; width: 44px; height: 30px; border-radius: 16px; transition: color 200ms; }
 .a-nav-item.active .a-nav-ib { color: var(--a-coral-text); }
-.a-nav-ai-icon { width: 44px; height: 30px; margin: 0; border-radius: 16px; background: var(--a-coral-strong); color: var(--a-on-coral); box-shadow: var(--a-coral-shadow); }
-.a-nav-badge { background: var(--a-coral-strong); }
 
 /* ---------- Top bar ---------- */
 .a3-topbar { display: flex; align-items: center; gap: 2px; padding: 12px 0 6px; min-height: 60px; }
@@ -2622,7 +2616,8 @@ html.a-lite .a-nav { background: var(--a-nav-solid); }
 .a3-chip.bad { background: var(--a-peach-1); color: var(--a-bad); }
 .a3-seg { display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--a-surface-soft); }
 .a3-seg button { flex: 1; min-height: 34px; padding: 0 8px; border: 0; border-radius: 999px; background: transparent; font-size: 13.5px; font-weight: 500; color: var(--a-ink-soft); cursor: pointer; white-space: nowrap; transition: background 160ms; }
-.a3-seg button[aria-selected='true'], .a3-seg button[aria-pressed='true'] { background: var(--a-surface); color: var(--a-ink); font-weight: 600; box-shadow: var(--a-card-shadow); }
+.a3-seg button[aria-selected='true'],
+.a3-seg button[aria-pressed='true'] { background: var(--a-surface); color: var(--a-ink); font-weight: 600; box-shadow: var(--a-card-shadow); }
 .a3-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 20px; border: 0; border-radius: 999px; background: var(--a-ink); color: var(--a-surface); font-size: 15px; font-weight: 600; cursor: pointer; transition: transform 160ms var(--a-ease); }
 .a3-btn:active { transform: scale(0.97); }
 .a3-btn.accent { background: var(--a-coral-strong); color: var(--a-on-coral); box-shadow: var(--a-coral-shadow); }
@@ -2696,7 +2691,8 @@ html.a-lite .a-nav { background: var(--a-nav-solid); }
 .a3-tk.live { background: var(--a-deep); color: var(--a-on-deep); }
 .a3-tk.live .lbl { color: inherit; opacity: 0.7; }
 @keyframes a3-pop { 40% { transform: scale(1.18); } }
-.a3-tk.bump b, .a3-tk.bump .plus { animation: a3-pop 420ms var(--a-bounce); }
+.a3-tk.bump b,
+.a3-tk.bump .plus { animation: a3-pop 420ms var(--a-bounce); }
 .a3-plus1 { position: absolute; inset-inline-end: 12px; top: 34px; font-size: 15px; font-weight: 800; color: var(--a-coral); pointer-events: none; animation: a3-float-up 900ms var(--a-spring) forwards; }
 @keyframes a3-float-up { to { opacity: 0; transform: translateY(-34px); } }
 .c-peach { background: var(--a-peach-1); color: var(--a-peach-ink); } .c-pink { background: var(--a-pink-1); color: var(--a-pink-ink); }
@@ -2763,7 +2759,6 @@ html.a-lite .a-nav { background: var(--a-nav-solid); }
 .a3-sheet-head h2 { flex: 1; min-width: 0; margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -0.025em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .a3-sheet-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 6px 16px calc(28px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 20px; }
 .a3-sheet-bar { display: flex; align-items: center; gap: 10px; padding: 10px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: var(--a-surface); box-shadow: 0 -1px 0 var(--a-line); }
-[vaul-drawer-wrapper] { background: var(--a-bg); }
 
 /* ---------- Enter choreography (transform only: content is never hidden) ---------- */
 @keyframes a3-rise { from { transform: translateY(16px); } }
@@ -2773,10 +2768,18 @@ html.a-lite .a-nav { background: var(--a-nav-solid); }
 .a3-enter > *:nth-child(n+6) { animation-delay: 250ms; }
 
 @media (prefers-reduced-motion: reduce) {
-  .a3-hero::before, .a3-art img, .a3-mascot.bob, .a3-enter > *, .a3-enter .a3-ring .fill { animation: none !important; }
-  .a-nav-ind, .a3-ring .fill, .a3-cheer-card { transition: none !important; }
+  .a3-hero::before,
+.a3-art img,
+.a3-mascot.bob,
+.a3-enter > *,
+.a3-enter .a3-ring .fill { animation: none !important; }
+  .a-nav-ind,
+.a3-ring .fill,
+.a3-cheer-card { transition: none !important; }
 }
-html.a-lite .a3-hero::before, html.a-lite .a3-art img, html.a-lite .a3-mascot.bob { animation: none; }
+html.a-lite .a3-hero::before,
+html.a-lite .a3-art img,
+html.a-lite .a3-mascot.bob { animation: none; }
 
 .a3-ring-btn { border: 0; padding: 0; background: none; color: inherit; border-radius: 50%; cursor: pointer; transition: transform 200ms var(--a-bounce); }
 .a3-ring-btn:active { transform: scale(0.96); }
@@ -2789,9 +2792,11 @@ html.a-lite .a3-hero::before, html.a-lite .a3-art img, html.a-lite .a3-mascot.bo
 .a3-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .a3-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .a3-field > span { font-size: 13px; font-weight: 600; color: var(--a-ink-soft); }
-.a3-field input, .a3-field textarea { width: 100%; min-width: 0; min-height: 48px; padding: 12px 14px; border: 0; border-radius: 14px; background: var(--a-surface); box-shadow: 0 0 0 1px var(--a-line); color: var(--a-ink); font: inherit; font-size: 16px; outline: 0; -webkit-appearance: none; appearance: none; }
+.a3-field input,
+.a3-field textarea { width: 100%; min-width: 0; min-height: 48px; padding: 12px 14px; border: 0; border-radius: 14px; background: var(--a-surface); box-shadow: 0 0 0 1px var(--a-line); color: var(--a-ink); font: inherit; font-size: 16px; outline: 0; -webkit-appearance: none; appearance: none; }
 .a3-field textarea { min-height: 76px; resize: vertical; }
-.a3-field input:focus, .a3-field textarea:focus { box-shadow: 0 0 0 2px var(--a-coral-strong); }
+.a3-field input:focus,
+.a3-field textarea:focus { box-shadow: 0 0 0 2px var(--a-coral-strong); }
 .a3-field input[aria-invalid='true'] { box-shadow: 0 0 0 2px var(--a-bad); }
 .a3-appt-types { display: flex; flex-wrap: wrap; gap: 8px; }
 .a3-appt-types .a3-chip-btn { height: 40px; padding: 0 14px; }
@@ -2842,7 +2847,7 @@ html.a-lite .a3-hero::before, html.a-lite .a3-art img, html.a-lite .a3-mascot.bo
 .a3-chip-btn:active { transform: scale(0.96); }
 
 /* AI chat: companion avatars and intro */
-.a-chat-header-avatar.a3-ai-face, .a-chat-avatar:not(.user) { overflow: hidden; background: var(--a-coral-soft); }
+.a-chat-header-avatar.a3-ai-face { overflow: hidden; background: var(--a-coral-soft); }
 .a-chat-avatar:not(.user) .a3-mascot { width: 26px; height: 26px; object-fit: cover; object-position: top; }
 .a3-ai-face .a3-mascot { width: 40px; height: 40px; object-fit: cover; object-position: top; }
 .a3-ai-intro { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 8px 12px 18px; text-align: center; }
@@ -2857,8 +2862,6 @@ html.a-lite .a3-hero::before, html.a-lite .a3-art img, html.a-lite .a3-mascot.bo
 /* Tool screens: shared header (ToolKit.ToolHeader) */
 .a3-tool-head { gap: 8px; }
 .a3-tool-title { margin: 0; overflow: hidden; font-size: 22px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; color: var(--a-ink); text-overflow: ellipsis; white-space: nowrap; }
-.a-topbar > div { min-width: 0; }
-.a-topbar > div > div { min-width: 0; }
 .a-topbar .a3-icon-btn { margin-inline-start: -8px; }
 
 /* Home: compact entry rows (preemie, cakes) and the baby-care summary card */
@@ -2872,47 +2875,10 @@ html.a-lite .a3-hero::before, html.a-lite .a3-art img, html.a-lite .a3-mascot.bo
 .bt-home-row b { font-weight: 700; }
 
 /* Older screens adopt the redesign rhythm: same section spacing, title type and borderless cards. */
-.a-section { margin-top: 24px; }
-.a-section-head { align-items: center; min-height: 28px; }
-.a-section-title { font-size: 18px; font-weight: 700; letter-spacing: -0.025em; color: var(--a-ink); }
-.a-section-link { color: var(--a-coral-text); font-weight: 600; }
-:root:not(.dark) .a-card { border-color: transparent; }
+
 
 /* Tools and older screens on the redesign scale: native text sizes (≥ 12.5px, 16px inputs so iOS
    does not zoom), 44px tap targets, pill buttons like .a3-btn, borderless light cards. */
-:root:not(.dark) .a-list-card, :root:not(.dark) .a-cta, :root:not(.dark) .a-trio-item { border-color: transparent; }
-.a-card { padding: 16px; }
-.a-card-head { margin-bottom: 12px; gap: 10px; }
-.a-card-title { font-size: 15.5px; letter-spacing: -0.01em; }
-.a-list-row { gap: 12px; padding: 12px 16px; min-height: 56px; }
-.a-list-icon { width: 36px; height: 36px; border-radius: 12px; }
-.a-list-title { font-size: 14.5px; font-weight: 600; line-height: 1.3; }
-.a-list-sub { margin-top: 2px; font-size: 12.5px; line-height: 1.35; }
-.a-list-value, .a-list-time { font-size: 12.5px; }
-.a-eyebrow { font-size: 11.5px; letter-spacing: 0.06em; }
-.a-section-link { min-height: 32px; font-size: 14px; }
-.a-cta-btn, .a-btn-solid, .a-btn-soft { justify-content: center; min-height: 44px; padding: 0 18px; font-size: 14px; font-weight: 600; transition: transform 160ms var(--a-ease), opacity 160ms; }
-.a-cta-btn, .a-btn-solid { color: var(--a-on-coral); box-shadow: var(--a-coral-shadow); }
-.a-btn-soft { background: var(--a-coral-soft); }
-.a-cta-btn:active, .a-btn-solid:active, .a-btn-soft:active, .a-tag:active, .a-trio-item:active { transform: scale(0.97); }
-.a-cta-btn:disabled, .a-btn-solid:disabled, .a-btn-soft:disabled { opacity: 0.45; box-shadow: none; cursor: default; }
-.a-cta-badge { font-size: 11.5px; font-weight: 700; }
-.a-cta-text { font-size: 14px; line-height: 1.55; }
-.a-input { min-height: 48px; padding: 12px 14px; border: 0; border-radius: 14px; box-shadow: 0 0 0 1px var(--a-line); font-size: 16px; transition: box-shadow 160ms; }
-.a-input:focus { box-shadow: 0 0 0 2px var(--a-coral-strong); }
-textarea.a-input { min-height: 76px; line-height: 1.45; }
-.a-tab { min-height: 34px; padding: 0 14px; font-size: 13.5px; font-weight: 500; }
-.a-tab.active { background: var(--a-surface); color: var(--a-ink); font-weight: 600; box-shadow: var(--a-card-shadow); }
-.a-tag { min-height: 36px; padding: 0 14px; border: 1px solid var(--a-line); background: var(--a-surface); font-size: 13.5px; }
-.a-tag.on { background: var(--a-ink); border-color: var(--a-ink); color: var(--a-bg); }
-.a-rank-tag { font-size: 11.5px; font-weight: 700; padding: 4px 10px; }
-.a-stat-tile { padding: 12px 14px; }
-.a-stat-tile-label, .a-trio-label { font-size: 12px; font-weight: 600; }
-.a-stat-tile-value { font-size: 16px; font-weight: 700; }
-.a-teaser { font-size: 13px; }
+
 /* Long tool names (de, ru, tr) wrap to two lines instead of being cut off. */
 .a3-tool-title { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow-wrap: anywhere; }
-.a-disclaimer p { font-size: 12px; }
-.a-disclaimer.flat { margin-top: 0; }
-.a-disclaimer.compact { padding: 10px 12px; border-radius: 14px; }
-.a-disclaimer.compact p { font-size: 11.5px; }

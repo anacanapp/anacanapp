@@ -18,9 +18,6 @@ interface MoodDiaryProps {
   onBack: () => void;
 }
 
-// Mood 1–5 on the design palette (light and dark), instead of fixed Tailwind colours.
-const moodTone = (value: number) => (['pink', 'peach', 'yellow', 'green', 'green'] as const)[Math.min(4, Math.max(0, value - 1))];
-
 const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) => {
   useScrollToTop();
   useScreenAnalytics('MoodDiary', 'Tools');
@@ -45,11 +42,11 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
   const moodEmojis = useMemo(() => {
     if (!dbMoods || dbMoods.length === 0) {
       return [
-      { value: 1, emoji: '😢', label: tr("mooddiary_cox_pis_e041c5", 'Çox pis'), color: 'bg-[color:var(--a-pink-1)] border-[color:var(--a-pink-2)]' },
-      { value: 2, emoji: '😔', label: tr("mooddiary_pis_3c7a2d", "Pis"), color: 'bg-[color:var(--a-peach-1)] border-[color:var(--a-peach-2)]' },
-      { value: 3, emoji: '😐', label: tr("common_normal", "Normal"), color: 'bg-[color:var(--a-yellow-1)] border-[color:var(--a-yellow-2)]' },
-      { value: 4, emoji: '🙂', label: tr("mooddiary_yaxsi_9d8595", 'Yaxşı'), color: 'bg-[color:var(--a-green-1)] border-[color:var(--a-green-2)]' },
-      { value: 5, emoji: '😊', label: tr("mooddiary_ela_720a0e", 'Əla'), color: 'bg-[color:var(--a-green-1)] border-[color:var(--a-green-2)]' }];
+      { value: 1, emoji: '😢', label: tr("mooddiary_cox_pis_e041c5", 'Çox pis'), color: 'bg-red-100 border-red-300' },
+      { value: 2, emoji: '😔', label: tr("mooddiary_pis_3c7a2d", "Pis"), color: 'bg-orange-100 border-orange-300' },
+      { value: 3, emoji: '😐', label: tr("common_normal", "Normal"), color: 'bg-yellow-100 border-yellow-300' },
+      { value: 4, emoji: '🙂', label: tr("mooddiary_yaxsi_9d8595", 'Yaxşı'), color: 'bg-lime-100 border-lime-300' },
+      { value: 5, emoji: '😊', label: tr("mooddiary_ela_720a0e", 'Əla'), color: 'bg-green-100 border-green-300' }];
 
     }
     return dbMoods.map((m) => ({
@@ -208,12 +205,12 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
                   animate={{ scale: 1 }}
                   transition={{ delay: index * 0.08 }}
                   onClick={() => setSelectedMood(mood.value)}
-                  aria-pressed={selectedMood === mood.value}
-                  aria-label={mood.label}
-                  className={`w-11 h-11 rounded-2xl flex items-center justify-center text-lg border-2 transition-all ${selectedMood === mood.value ? 'scale-110' : ''}`}
-                  style={selectedMood === mood.value ?
-                  { background: `var(--a-${moodTone(mood.value)}-1)`, borderColor: `var(--a-${moodTone(mood.value)}-2)`, cursor: 'pointer' } :
-                  { background: 'var(--a-surface-soft)', borderColor: 'transparent', cursor: 'pointer' }}
+                  className={`w-11 h-11 rounded-2xl flex items-center justify-center text-lg border-2 transition-all ${
+                  selectedMood === mood.value ?
+                  `${mood.color} scale-110 shadow-lg` :
+                  ''}`
+                  }
+                  style={selectedMood === mood.value ? { cursor: 'pointer' } : { background: 'var(--a-surface-soft)', borderColor: 'transparent', cursor: 'pointer' }}
                   whileTap={{ scale: 0.95 }}>
                   
                       {mood.emoji}

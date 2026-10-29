@@ -282,7 +282,7 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
           className="flex-shrink-0 pt-1"
           aria-label={tr("commentreply_beyen", "Bəyən")}>
           <Heart
-            className={`w-4 h-4 transition-colors ${comment.is_liked ? 'text-[color:var(--a-pink-ink)] fill-current' : 'text-muted-foreground active:text-[color:var(--a-pink-ink)]'}`} />
+            className={`w-4 h-4 transition-colors ${comment.is_liked ? 'text-rose-500 fill-current' : 'text-muted-foreground active:text-rose-400'}`} />
         </motion.button>
       </div>
 

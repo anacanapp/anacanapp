@@ -261,12 +261,12 @@ const MiniGamesHub = ({ onBack }: MiniGamesHubProps) => {
         {/* Header */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }} aria-label={t('back')}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={t('back')}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div style={{ minWidth: 0 }}>
               <p className="a-eyebrow">{tr('minigames_hub_subtitle', 'Stresi at, oyna, rahatla')}</p>
-              <p className="a3-tool-title">{tr('minigames_hub_title', 'Mini Oyunlar')}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr('minigames_hub_title', 'Mini Oyunlar')}</p>
             </div>
           </div>
           <div className="a-topbar-actions">

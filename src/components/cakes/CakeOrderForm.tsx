@@ -250,12 +250,12 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
       <div className="a-shell pt-2">
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }} aria-label="Back">
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label="Back">
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div style={{ minWidth: 0 }}>
               <p className="a-eyebrow">{items.length} tort, {totalPrice.toFixed(2)}₼</p>
-              <p className="a3-tool-title">{tr("cakeorderform_sifaris_ver_f2be54", "Sifariş ver")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("cakeorderform_sifaris_ver_f2be54", "Sifariş ver")}</p>
             </div>
           </div>
         </header>

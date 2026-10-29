@@ -215,8 +215,8 @@ const CommunityScreen = forwardRef<HTMLDivElement, CommunityScreenProps>(({ onBa
     }) : null;
     return (
       <div ref={ref} className="a-scope min-h-screen flex flex-col items-center justify-center px-6" style={{ background: 'var(--a-bg)' }}>
-        <div className="w-16 h-16 rounded-3xl bg-[color:var(--a-pink-1)] flex items-center justify-center mb-4">
-          <Ban className="w-8 h-8 text-[color:var(--a-pink-ink)]" />
+        <div className="w-16 h-16 rounded-3xl bg-red-50 flex items-center justify-center mb-4">
+          <Ban className="w-8 h-8 text-red-500" />
         </div>
         <h2 className="text-lg font-black text-foreground text-center mb-2" style={{ color: 'var(--a-ink)' }}>
           {tr('community_blocked_title', 'Community girişiniz bloklanıb')}
@@ -291,7 +291,7 @@ const CommunityScreen = forwardRef<HTMLDivElement, CommunityScreenProps>(({ onBa
             }
             <div className="min-w-0">
               <p className="a-eyebrow truncate">{headerText}</p>
-              <h1 className="a3-page-title">{tr("communityscreen_cemiyyet_2dc44d", "Cəmiyyət")}</h1>
+              <p className="a-wordmark" style={{ fontSize: 18 }}>{tr("communityscreen_cemiyyet_2dc44d", "Cəmiyyət")}</p>
             </div>
           </div>
           <div className="a-topbar-actions">
@@ -323,9 +323,9 @@ const CommunityScreen = forwardRef<HTMLDivElement, CommunityScreenProps>(({ onBa
           </div>
         </header>
 
-        <div className="a3-seg mb-3" role="tablist" aria-label={tr('communityscreen_cemiyyet_2dc44d', 'Cəmiyyət')}>
+        <div className="flex gap-2 mb-3 rounded-2xl bg-muted/40 p-1" role="tablist" aria-label={tr('communityscreen_cemiyyet_2dc44d', 'Cəmiyyət')}>
           {tabs.map(tab => <button key={tab.id} type="button" role="tab" aria-selected={activeTab === tab.id}
-            onClick={() => setActiveTab(tab.id)} className="inline-flex items-center justify-center gap-1.5"><tab.icon size={15} />{tab.label}</button>)}
+            onClick={() => setActiveTab(tab.id)} className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-xs font-bold ${activeTab === tab.id ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground'}`}><tab.icon size={15} />{tab.label}</button>)}
         </div>
 
         {/* Search */}

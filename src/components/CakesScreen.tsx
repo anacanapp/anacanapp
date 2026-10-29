@@ -126,13 +126,13 @@ const CakesScreen = ({ onBack, initialMonth }: CakesScreenProps) => {
       <motion.header className="a-topbar" initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           {onBack &&
-          <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+          <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
           }
           <div>
             <p className="a-eyebrow">{tr("cakesscreen_ayliq_milestone_tortlari_81907e", "Aylıq & Milestone tortları")}</p>
-            <p className="a3-tool-title">{tr("untranslated_tortlar_go6yj8", "Tortlar 🎂")}</p>
+            <p className="a-wordmark" style={{ fontSize: 18 }}>{tr("untranslated_tortlar_go6yj8", "Tortlar 🎂")}</p>
           </div>
         </div>
         <div className="a-topbar-actions">

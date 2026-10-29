@@ -523,7 +523,7 @@ export default function VaccineCalendar({ onBack }: Props) {
               <Button
                 variant="ghost"
                 size="sm"
-                className="w-full text-[color:var(--a-pink-ink)]"
+                className="w-full text-red-500"
                 onClick={async () => {
                   const log = logs.find((l) => l.vaccine_schedule_id === detailRow.id);
                   if (log && selectedChild) {
@@ -573,12 +573,12 @@ function Header({ onBack }: {onBack: () => void;}) {
     <div className="a-shell">
       <header className="a-topbar">
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }}>
-            <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+          <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }}>
+            <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
           </motion.button>
           <div>
             <p className="a-eyebrow">{tr("vaccine_national_schedule", "Milli İmmunizasiya Qrafiki")}</p>
-            <p className="a3-tool-title">{tr("vaccinecalendar_peyvend_teqvimi_d84c87", "Peyv\u0259nd T\u0259qvimi")}</p>
+            <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("vaccinecalendar_peyvend_teqvimi_d84c87", "Peyv\u0259nd T\u0259qvimi")}</p>
           </div>
         </div>
         <Sparkles size={16} style={{ color: 'var(--a-peach-2)' }} />
@@ -653,7 +653,7 @@ function ActionDialog({
               <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={2} />
             </div>
             <Button
-            className="w-full rounded-full bg-[color:var(--a-coral-strong)] text-[color:var(--a-on-coral)]"
+            className="w-full bg-emerald-500 hover:bg-emerald-600"
             disabled={saving || !date || date > today}
             onClick={() => void submit({
               administered_at: date, is_skipped: false, skip_reason: null,

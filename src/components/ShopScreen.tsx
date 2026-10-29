@@ -181,7 +181,7 @@ const ShopScreen = ({ onBack }: ShopScreenProps) => {
           <h2 className="text-lg font-bold mb-1">{selectedProduct.name}</h2>
           <div className="flex items-center gap-2 mb-3">
             <div className="flex items-center gap-1">
-              <Star className="w-3.5 h-3.5 text-[color:var(--a-yellow-ink)] fill-[color:var(--a-yellow-2)]" />
+              <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
               <span className="text-xs font-semibold">{selectedProduct.rating}</span>
             </div>
             <span className="text-xs text-muted-foreground">({selectedProduct.reviews} {tr("shopscreen_rey_f2285f", "r\u0259y)")}</span>
@@ -321,7 +321,7 @@ const ShopScreen = ({ onBack }: ShopScreenProps) => {
             <div className="px-3 pb-3">
               <h3 className="font-semibold text-foreground text-xs mb-0.5 line-clamp-2 leading-tight">{product.name}</h3>
               <div className="flex items-center gap-1 mb-1.5">
-                <Star className="w-2.5 h-2.5 text-[color:var(--a-yellow-ink)] fill-[color:var(--a-yellow-2)]" />
+                <Star className="w-2.5 h-2.5 text-amber-500 fill-amber-500" />
                 <span className="text-[10px] font-medium text-foreground">{product.rating}</span>
                 <span className="text-[10px] text-muted-foreground">({product.reviews})</span>
               </div>

@@ -1,5 +1,15 @@
 # Redesign v3 + Anacan Aptek — operator handoff (2026-10-27)
 
+> **2026-10-29: redesign v3 UI reverted in source.** At the user's request every screen is back to
+> the pre-redesign design (`976bd00`). Kept and re-wired onto the old screens: Anacan Aptek (store
+> route, pregnancy/baby home offers, hospital-bag offer, product hits under the Tools search, Admin
+> card/fields), appointment add/edit sheet + server reminders (Calendar), Baby tracker and Sleep
+> training (Tools), Admin notification test-send, vitamin job changes. Six screens keep the mojibake
+> text repair and the home shortcuts keep the corrected tool ids. `anacan-design.css` is the old file
+> plus new-only tokens/classes used by the kept components. No database or job change: everything
+> below that is live stays live. The live web still serves the redesign until the next web deploy
+> from the PC; native 48 builds from this source get the old design.
+
 This change ports the approved prototype (`prototype/anacan-prototype.html`) into the app and adds
 **Anacan Aptek**, a baby-feeding store on the existing shop tables. Everything client-side ships with
 a normal web deploy and native build. One database migration must be applied by the operator.

@@ -57,12 +57,12 @@ const PartnerShoppingScreen = ({ onBack }: Props) => {
       <div className="a-shell">
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr('common_geri', 'Geri')}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr('common_geri', 'Geri')}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{tr('partnerdashboard_sinxronlasdirilmis_siyahi_08835b', 'Sinxronlaşdırılmış siyahı')}</p>
-              <p className="a3-tool-title">{tr('partnerdashboard_alis_veris_siyahisi_a2d4a8', 'Alış-veriş Siyahısı')}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr('partnerdashboard_alis_veris_siyahisi_a2d4a8', 'Alış-veriş Siyahısı')}</p>
             </div>
           </div>
         </header>

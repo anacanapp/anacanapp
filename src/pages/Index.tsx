@@ -50,7 +50,6 @@ const AIChatScreen = lazy(() => import('@/components/AIChatScreen'));
 const PartnerAIPremiumGate = lazy(() => import('@/components/partner/PartnerAIPremiumGate'));
 const PartnerChatScreen = lazy(() => import('@/components/partner/PartnerChatScreen'));
 const ShopScreen = lazy(() => import('@/components/ShopScreen'));
-const AptekScreen = lazy(() => import('@/components/aptek/AptekScreen'));
 const CakesScreen = lazy(() => import('@/components/CakesScreen'));
 const ProfileScreen = lazy(() => import('@/components/ProfileScreen'));
 const PartnerProfileScreen = lazy(() => import('@/components/PartnerProfileScreen'));
@@ -59,6 +58,7 @@ const SettingsScreen = lazy(() => import('@/components/SettingsScreen'));
 const HealthSyncScreen = lazy(() => import('@/components/HealthSyncScreen'));
 const ReferralScreen = lazy(() => import('@/components/ReferralScreen'));
 const CalendarScreen = lazy(() => import('@/components/CalendarScreen'));
+const AptekScreen = lazy(() => import('@/components/aptek/AptekScreen'));
 const AdminPanel = lazy(() => import('@/components/AdminPanel'));
 const ModeratorPanel = lazy(() => import('@/components/moderation/ModeratorPanel'));
 const MyModerationDecisions = lazy(() => import('@/components/moderation/MyModerationDecisions'));
@@ -79,10 +79,6 @@ const NameVotingScreen = lazy(() => import('@/components/partner/NameVotingScree
 const PartnerHospitalBagScreen = lazy(() => import('@/components/partner/PartnerHospitalBagScreen'));
 const DailySummaryScreen = lazy(() => import('@/components/partner/DailySummaryScreen'));
 // ── Partner Module 2.0 ──
-// Loaded on demand: the search sheet (and its drawer library) and the Aptek top-bar pieces.
-const GlobalSearch = lazy(() => import('@/components/home/GlobalSearch').then((m) => ({ default: m.GlobalSearch })));
-const AptekSearchResults = lazy(() => import('@/components/aptek/AptekEntry').then((m) => ({ default: m.AptekSearchResults })));
-const AptekCartButton = lazy(() => import('@/components/aptek/AptekEntry').then((m) => ({ default: m.AptekCartButton })));
 const PartnerHomeScreen = lazy(() => import('@/components/partner/v2/PartnerHomeScreen'));
 const PartnerTogetherScreen = lazy(() => import('@/components/partner/v2/PartnerTogetherScreen'));
 const PartnerShoppingScreen = lazy(() => import('@/components/partner/v2/PartnerShoppingScreen'));
@@ -424,8 +420,6 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     }
   };
 
-  const [showSearch, setShowSearch] = useState(false);
-
   // Handle tab change - reset tool state when clicking Tools tab
   const handleTabChange = (tab: string) => {
     // If clicking Tools tab while already on tools, reset to tools list
@@ -563,7 +557,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         return (
           <motion.div key="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <AdSurface id="home_banner" />
-            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={setActiveScreen} onOpenAI={() => handleTabChange('ai')} onOpenProfile={() => handleTabChange('profile')} onSearch={() => setShowSearch(true)} topbarExtra={<Suspense fallback={null}><AptekCartButton onOpen={setActiveScreen} /></Suspense>} />
+            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={setActiveScreen} />
           </motion.div>
         );
       case 'tools':
@@ -755,6 +749,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'referral') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><ReferralScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'doctor-report') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><DoctorReportScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'calendar') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><CalendarScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'aptek' || activeScreen?.startsWith('aptek/')) return <Suspense fallback={suspenseFallback}><ErrorBoundary key="aptek"><AptekScreen onBack={() => setActiveScreen(null)} initialScreen={activeScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'edit-profile') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><ProfileEditScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'help') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HelpScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'privacy') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PrivacyScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
@@ -769,7 +764,6 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     const initialSlug = activeScreen?.startsWith('blog/') ? activeScreen.replace('blog/', '') : undefined;
     return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BlogScreen onBack={() => setActiveScreen(null)} initialSlug={initialSlug} lifeStage={lifeStage} /></ErrorBoundary></Suspense>;
   }
-  if (activeScreen === 'aptek' || activeScreen?.startsWith('aptek/')) return <Suspense fallback={suspenseFallback}><ErrorBoundary key="aptek"><AptekScreen onBack={() => setActiveScreen(null)} initialScreen={activeScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'shop' && isAdmin) return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><ShopScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'name-voting' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><NameVotingScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-hospital-bag' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerHospitalBagScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
@@ -814,15 +808,9 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     <div
       className={`fixed inset-0 flex flex-col overflow-hidden ${isAnacanRedesignHome ? '' : 'bg-background'}`}
       data-app-viewport
-      vaul-drawer-wrapper=""
       data-main-dashboard={activeTab === 'home' && !blogOverlayOpen ? 'true' : undefined}
       style={isAnacanRedesignHome ? { background: 'var(--a-bg)' } : undefined}
     >
-      {showSearch && <Suspense fallback={null}>
-        <GlobalSearch open onClose={() => setShowSearch(false)} onOpenTool={handleNavigateToTool} onAskAI={() => handleTabChange('ai')}
-          extra={(q, close) => <Suspense fallback={null}><AptekSearchResults query={q} close={close} onOpen={setActiveScreen} /></Suspense>} />
-      </Suspense>}
-
       {/* App Rating Prompt */}
       <AppRatingPrompt />
       

@@ -115,20 +115,20 @@ const SurpriseTab = () => {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'easy':return 'bg-[color:var(--a-green-1)] text-[color:var(--a-green-ink)]';
-      case 'medium':return 'bg-[color:var(--a-yellow-1)] text-[color:var(--a-yellow-ink)]';
-      case 'hard':return 'bg-[color:var(--a-pink-1)] text-[color:var(--a-pink-ink)]';
+      case 'easy':return 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400';
+      case 'medium':return 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400';
+      case 'hard':return 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400';
       default:return 'bg-muted text-muted-foreground';
     }
   };
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'romantic':return 'c-pink';
-      case 'care':return 'c-lav';
-      case 'adventure':return 'c-yellow';
-      case 'gift':return 'c-green';
-      default:return 'c-blue';
+      case 'romantic':return 'from-pink-500 to-rose-600';
+      case 'care':return 'from-violet-500 to-purple-600';
+      case 'adventure':return 'from-amber-500 to-orange-600';
+      case 'gift':return 'from-emerald-500 to-teal-600';
+      default:return 'from-partner to-indigo-600';
     }
   };
 
@@ -229,7 +229,7 @@ const SurpriseTab = () => {
       {/* Header with Stats */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-[color:var(--a-coral-strong)] flex items-center justify-center">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
             <Gift className="w-6 h-6 text-white" />
           </div>
           <div>
@@ -239,11 +239,11 @@ const SurpriseTab = () => {
         </div>
         
         {/* Stats Badge */}
-        <div className="flex items-center gap-2 bg-[color:var(--a-yellow-1)] px-4 py-2 rounded-2xl">
-          <Trophy className="w-5 h-5 text-[color:var(--a-yellow-ink)]" />
+        <div className="flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 px-4 py-2 rounded-2xl">
+          <Trophy className="w-5 h-5 text-amber-600" />
           <div className="text-end">
-            <p className="text-xs text-[color:var(--a-yellow-ink)]">{tr("untranslated_toplam_lheej5", "Toplam")}</p>
-            <p className="font-bold text-[color:var(--a-yellow-ink)]">{totalPoints} xal</p>
+            <p className="text-xs text-amber-700 dark:text-amber-400">{tr("untranslated_toplam_lheej5", "Toplam")}</p>
+            <p className="font-bold text-amber-800 dark:text-amber-300">{totalPoints} xal</p>
           </div>
         </div>
       </div>
@@ -258,7 +258,7 @@ const SurpriseTab = () => {
           {plannedSurprises.map((planned) =>
         <motion.div
           key={planned.id}
-          className="bg-[color:var(--a-coral-soft)] rounded-2xl p-4"
+          className="bg-gradient-to-r from-partner/10 to-violet-500/10 rounded-2xl p-4 border border-partner/20"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           layout>
@@ -275,14 +275,14 @@ const SurpriseTab = () => {
                 <div className="flex items-center gap-2">
                   <motion.button
                 onClick={() => handleDeleteSurprise(planned.id)}
-                className="w-9 h-9 rounded-full bg-[color:var(--a-pink-1)] text-[color:var(--a-pink-ink)] flex items-center justify-center"
+                className="w-9 h-9 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 flex items-center justify-center"
                 whileTap={{ scale: 0.9 }}>
                 
                     <Trash2 className="w-4 h-4" />
                   </motion.button>
                   <motion.button
                 onClick={() => handleCompleteSurprise(planned.id, planned.surprise_title, planned.surprise_points, planned.surprise_emoji)}
-                className="w-10 h-10 rounded-full bg-[color:var(--a-green-1)] text-[color:var(--a-green-ink)] flex items-center justify-center"
+                className="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center"
                 whileTap={{ scale: 0.9 }}>
                 
                     <Check className="w-5 h-5" />
@@ -302,16 +302,16 @@ const SurpriseTab = () => {
       <div className="space-y-3">
           <motion.button
           onClick={() => setShowHistory(!showHistory)}
-          className="w-full flex items-center justify-between p-4 bg-[color:var(--a-green-1)] rounded-2xl border border-[color:var(--a-line)]"
+          className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl border border-emerald-200 dark:border-emerald-800"
           whileTap={{ scale: 0.98 }}>
           
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[color:var(--a-green-2)] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500 flex items-center justify-center">
                 <History className="w-5 h-5 text-white" />
               </div>
               <div className="text-start">
-                <h3 className="font-semibold text-[color:var(--a-green-ink)]">{tr("surprisetab_surpriz_tarixcesi_46a7ab", "Sürpriz Tarixçəsi")}</h3>
-                <p className="text-sm text-[color:var(--a-green-ink)]">
+                <h3 className="font-semibold text-emerald-800 dark:text-emerald-200">{tr("surprisetab_surpriz_tarixcesi_46a7ab", "Sürpriz Tarixçəsi")}</h3>
+                <p className="text-sm text-emerald-600 dark:text-emerald-400">
                   {completedSurprises.length} {tr("surprisetab_surpriz_tamamlanib_e7514f", "s\xFCrpriz tamamlan\u0131b")}
                 </p>
               </div>
@@ -320,7 +320,7 @@ const SurpriseTab = () => {
             animate={{ rotate: showHistory ? 180 : 0 }}
             transition={{ duration: 0.2 }}>
             
-              <ChevronDown className="w-5 h-5 text-[color:var(--a-green-ink)]" />
+              <ChevronDown className="w-5 h-5 text-emerald-600" />
             </motion.div>
           </motion.button>
 
@@ -340,7 +340,7 @@ const SurpriseTab = () => {
               transition={{ delay: index * 0.05 }}
               className="bg-card rounded-xl p-3 border border-border/50 flex items-center gap-3">
               
-                    <div className="w-10 h-10 rounded-xl bg-[color:var(--a-green-1)] flex items-center justify-center text-xl">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-xl">
                       {surprise.surprise_emoji}
                     </div>
                     <div className="flex-1">
@@ -352,9 +352,9 @@ const SurpriseTab = () => {
                   }
                       </p>
                     </div>
-                    <div className="flex items-center gap-1 bg-[color:var(--a-yellow-1)] px-2 py-1 rounded-lg">
-                      <Star className="w-3 h-3 text-[color:var(--a-yellow-ink)]" />
-                      <span className="text-xs font-bold text-[color:var(--a-yellow-ink)]">+{surprise.surprise_points}</span>
+                    <div className="flex items-center gap-1 bg-amber-100 dark:bg-amber-900/30 px-2 py-1 rounded-lg">
+                      <Star className="w-3 h-3 text-amber-600" />
+                      <span className="text-xs font-bold text-amber-700 dark:text-amber-400">+{surprise.surprise_points}</span>
                     </div>
                   </motion.div>
             )}
@@ -399,7 +399,7 @@ const SurpriseTab = () => {
               }>
               
               <div className="flex items-start gap-4">
-                <div className={`w-14 h-14 rounded-2xl ${getCategoryColor(idea.category)} flex items-center justify-center shrink-0`}>
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${getCategoryColor(idea.category)} flex items-center justify-center shrink-0 shadow-md`}>
                   <span className="text-2xl">{idea.emoji}</span>
                 </div>
                 <div className="flex-1 min-w-0">
@@ -412,8 +412,8 @@ const SurpriseTab = () => {
                   <p className="text-sm text-muted-foreground line-clamp-2">{idea.description}</p>
                   <div className="flex items-center justify-between mt-3">
                     <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 text-[color:var(--a-yellow-ink)]" />
-                      <span className="text-sm font-bold text-[color:var(--a-yellow-ink)]">+{idea.points} xal</span>
+                      <Star className="w-4 h-4 text-amber-500" />
+                      <span className="text-sm font-bold text-amber-600">+{idea.points} xal</span>
                     </div>
                     {planned ?
                     <span className="text-xs text-partner font-medium flex items-center gap-1">
@@ -460,7 +460,7 @@ const SurpriseTab = () => {
               <div className="w-12 h-1 bg-muted rounded-full mx-auto mb-6" />
               
               <div className="flex items-center gap-4 mb-6">
-                <div className={`w-16 h-16 rounded-2xl ${getCategoryColor(selectedSurprise.category)} flex items-center justify-center`}>
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${getCategoryColor(selectedSurprise.category)} flex items-center justify-center`}>
                   <span className="text-3xl">{selectedSurprise.emoji}</span>
                 </div>
                 <div>
@@ -492,7 +492,7 @@ const SurpriseTab = () => {
                 <motion.button
                 onClick={planSurprise}
                 disabled={!planningDate}
-                className="w-full h-14 bg-[color:var(--a-coral-strong)] text-[color:var(--a-on-coral)] font-semibold rounded-full flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full h-14 bg-gradient-to-r from-partner to-violet-600 text-white font-bold rounded-2xl flex items-center justify-center gap-2 disabled:opacity-50"
                 whileTap={{ scale: 0.98 }}>
                 
                   <Gift className="w-5 h-5" />
@@ -506,16 +506,16 @@ const SurpriseTab = () => {
 
       {/* Tips Section */}
       <motion.div
-        className="bg-[color:var(--a-pink-1)] rounded-2xl p-5 border border-[color:var(--a-line)]"
+        className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-2xl p-5 border border-pink-200 dark:border-pink-800"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}>
         
         <div className="flex items-center gap-2 mb-3">
-          <Sparkles className="w-5 h-5 text-[color:var(--a-pink-ink)]" />
-          <h3 className="font-bold text-[color:var(--a-pink-ink)]">{tr("surprisetab_ipucu_a842e4", "İpucu")}</h3>
+          <Sparkles className="w-5 h-5 text-pink-500" />
+          <h3 className="font-bold text-pink-800 dark:text-pink-200">{tr("surprisetab_ipucu_a842e4", "İpucu")}</h3>
         </div>
-        <p className="text-sm text-[color:var(--a-pink-ink)]">
+        <p className="text-sm text-pink-700 dark:text-pink-300">
           {tr("surprisetab_kicik_ve_sade_jestler_cox_vaxt_53a074", "Ki\xE7ik v\u0259 sad\u0259 jestl\u0259r \xE7ox vaxt \u0259n yadda qalanlar olur. G\xF6zl\u0259nilm\u0259z anlarda edil\u0259n s\xFCrprizl\u0259r daha x\xFCsusidir! \uD83D\uDC95")}
         </p>
       </motion.div>

@@ -262,12 +262,12 @@ const MaternityCalculator = ({ onBack }: MaternityCalculatorProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{localizedCountryName(selectedCountryCode, language)} {selectedRule.flag}</p>
-              <p className="a3-tool-title">{tr("maternitycalculator_title_3c7a2d", "Dekret Kalkulyatoru")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("maternitycalculator_title_3c7a2d", "Dekret Kalkulyatoru")}</p>
             </div>
           </div>
         </header>
