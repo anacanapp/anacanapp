@@ -548,3 +548,14 @@ was done.
 - **Also on 2026-10-29:** deleted unused travelmatch leftovers in us-central1 (reserved IP
   `travelmatchstatic`, snapshot schedule `default-schedule-1`, 14 snapshots of the deleted
   `travelmatch` disk). Anacan disks have no snapshot schedule; backups stay in GCS.
+
+## Breastfeeding age web deploy and Cloud Armor removal — 2026-10-29
+- **Contents:** commit `8055305` (breastfeeding options until the child's second birthday).
+- **Image:** `gateway@sha256:a7ee8504319d12ee35871c3d1be93962a27b234945787963ed3eb3a5f7f1af55` (Cloud Build `1a049bc5`), built `FROM` live
+  `8c7b1128…`; adds only `index.html`, `assets/`, `aptek/`. Isolated test matched live.
+- **Deploy:** `deploy-current-web.py breastfeeding-web-plan.json` returned `passed`; `index.html`
+  sha `fac8db01…`. Rollback: `rollback-breastfeeding-web-plan.json` (`8c7b1128…`).
+- **Cloud Armor:** `anacan-preview` (only an allow-all default rule, ~$17/month at 14.5M
+  requests/30 days) was detached from `anacan-runtime-backend`; app, API, website and storage
+  answered as before, then the policy was deleted. Rate limits remain in the gateway; Google's
+  load balancer keeps its built-in L3/L4 DDoS protection.
