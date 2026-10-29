@@ -517,3 +517,18 @@ was done.
 - **Deploy:** `deploy-current-web.py storage-cache-web-plan.json` returned `passed`; `index.html`
   sha `8b26124c…`; no DNS or database change; public `/?web=admin` loads with no console errors.
 - **Rollback:** `rollback-storage-cache-web-plan.json` returns to the mommy period build (`0c380471…`).
+
+## One-time recompression of stored images — 2026-10-29
+- **Scope:** JPEG/PNG objects over 500 KB in every bucket (1,740 objects, 3.05 GB). Tool image
+  `anacan-runtime/media-recompress@sha256:9448230f…` (Pillow): EXIF-oriented, max 1600 px, JPEG
+  q82 progressive or optimized PNG; same path, same type; replaced only when ≥20% smaller.
+- **Path:** each original was copied to
+  `gs://anacan-migration-ninth-park-492111-m4/gcp-backups/files/media-originals-20261029/<bucket>/<name>`
+  (2.65 GB, `ifGenerationMatch=0`) before an upsert through the Storage API with a short-lived
+  `service_role` JWT whose `sub` is the object's owner, so `owner_id` and `cacheControl` stay and
+  storage triggers/CDC run as for any upload. No direct database writes.
+- **Result:** 1,029 replaced, 530 left (not ≥20% smaller), 181 left unchanged: 155 moderation/ad
+  media refused by `community_ad_storage_guard_v1` (`MODERATION_MEDIA_IMMUTABLE`, intentional),
+  14 truncated files, 9 undecodable, 3 transient errors. 3.05 GB → 1.36 GB.
+- **Restore:** upload the backup object back to the same path with `x-upsert: true`.
+  Working files: `/var/tmp/media-recompress-20261029/` on the VM (`result.tsv`, `dry-result.tsv`).
