@@ -56,6 +56,7 @@ import TeethingWidget from '@/components/mommy/TeethingWidget';
 import BannerSlot from '@/components/banners/BannerSlot';
 import { AdInlineAnchor } from '@/components/ads/AdExperienceProvider';
 import { AptekHomeCard } from '@/components/aptek/AptekEntry';
+import UpcomingAppointments from '@/components/home/UpcomingAppointments';
 import DailySummaryAutoSync from '@/components/partner/DailySummaryAutoSync';
 import PartnerCareCard from '@/components/partner/v2/PartnerCareCard';
 import RedFlagBanner from '@/components/dashboard/RedFlagBanner';
@@ -425,6 +426,9 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
           </div>
         </div>
       </section>
+
+      {/* Upcoming appointments: add / edit in a sheet, server push reminders */}
+      <UpcomingAppointments />
 
       {/* Trimester Tips Section */}
       {dynamicTrimesterTips.length > 0 &&
@@ -1244,6 +1248,9 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
           </div>
         </section>
       }
+
+      {/* Upcoming appointments: add / edit in a sheet, server push reminders */}
+      <UpcomingAppointments />
 
       {/* Anaya Mesaj — CTA banner */}
       {mommyMessage &&

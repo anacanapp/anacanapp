@@ -43,6 +43,7 @@ import { useFlowDailyLogs } from '@/hooks/useFlowDailyLogs';
 import PremiumGate from '@/components/premium/PremiumGate';
 import { usePeriodDayLogs, useRecordPeriodDays } from '@/hooks/usePeriodDayLogs';
 import { hasPeriodFlow } from '@/lib/period-flow';
+import UpcomingAppointments from '@/components/home/UpcomingAppointments';
 const FlowDashboard = () => {
   const { getCycleData, cycleLength, periodLength, language } = useUserStore(
     useShallow((s) => ({ getCycleData: s.getCycleData, cycleLength: s.cycleLength, periodLength: s.periodLength, language: s.language }))
@@ -482,6 +483,9 @@ const FlowDashboard = () => {
           </div>
         </motion.div>
       </section>
+
+      {/* Upcoming appointments: add / edit in a sheet, server push reminders */}
+      <UpcomingAppointments />
 
       {/* Daily Logger — PREMIUM (freemium siyasəti) */}
       <motion.div
