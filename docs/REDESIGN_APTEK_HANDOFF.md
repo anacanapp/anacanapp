@@ -559,3 +559,13 @@ was done.
   requests/30 days) was detached from `anacan-runtime-backend`; app, API, website and storage
   answered as before, then the policy was deleted. Rate limits remain in the gateway; Google's
   load balancer keeps its built-in L3/L4 DDoS protection.
+
+## Solid food guide web deploys — 2026-10-29
+- **First:** commits `6fb9599`, `54cb18c`; image `gateway@sha256:107983495d02d1e0c6a286c539907ce86b95838d6ddaad00c5cb74b9f29e6cf3` (Cloud Build
+  `271c07a7`) from `a7ee8504…`; plan `solid-food-web-plan.json` passed (index `336fed3f…`).
+  SQL first: `supabase/duzelis/Duzelis67.sql` adds recipe category `baby_food` / Körpə (21 languages)
+  and moves the 60 'Əlavə qida' recipes into it (70 active baby recipes).
+- **All languages:** commit `71a5689` (texts in `src/data/solid-food-guide/<lang>.json`, 21 languages);
+  image `gateway@sha256:adb697720abd1b28d1d15fc2881f68b18153d6c4f24153310a5265957a89f38a` (Cloud Build `f5639bdc`) from `10798349…`; plan
+  `sfg-i18n-web-plan.json` passed (index `91ec84f8…`); public `/?web=admin` has no console errors.
+- **Rollback:** `rollback-sfg-i18n-web-plan.json` (→ `10798349…`), then `rollback-solid-food-web-plan.json`.
