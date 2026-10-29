@@ -54,7 +54,13 @@
       "cycle_len": "{n} gün tsikl",
       "postpartum_note": "Doğuşdan və əmizdirmə dövründən sonra tsikl bir müddət düzənsiz ola bilər.",
       "baby_feeding_title": "Körpənin qidalanması",
-      "baby_feeding_sub": "Əmizdirmə və şüşəni körpə izləyicisində qeyd edin"
+      "baby_feeding_sub": "Əmizdirmə və şüşəni körpə izləyicisində qeyd edin",
+      "chat_copy": "Kopyala",
+      "chat_copied": "Kopyalandı",
+      "chat_delete": "Sil",
+      "chat_delete_confirm": "Mesaj hər kəs üçün silinsin?",
+      "chat_deleted": "Bu mesaj silindi",
+      "chat_more_reactions": "Daha çox reaksiya"
     },
     "en": {
       "blog_command_hint": "Type /Blog to find and attach an article",
@@ -109,7 +115,13 @@
       "cycle_len": "{n}-day cycle",
       "postpartum_note": "After birth and while breastfeeding, cycles can be irregular for a while.",
       "baby_feeding_title": "Baby's feeding",
-      "baby_feeding_sub": "Log breastfeeding and bottles in the baby tracker"
+      "baby_feeding_sub": "Log breastfeeding and bottles in the baby tracker",
+      "chat_copy": "Copy",
+      "chat_copied": "Copied",
+      "chat_delete": "Delete",
+      "chat_delete_confirm": "Delete this message for everyone?",
+      "chat_deleted": "This message was deleted",
+      "chat_more_reactions": "More reactions"
     },
     "tr": {
       "blog_command_hint": "Bir makale bulup eklemek için /Blog yazın",
@@ -164,7 +176,13 @@
       "cycle_len": "{n} günlük döngü",
       "postpartum_note": "Doğumdan sonra ve emzirme döneminde döngü bir süre düzensiz olabilir.",
       "baby_feeding_title": "Bebeğin beslenmesi",
-      "baby_feeding_sub": "Emzirme ve biberonu bebek takipçisinde kaydedin"
+      "baby_feeding_sub": "Emzirme ve biberonu bebek takipçisinde kaydedin",
+      "chat_copy": "Kopyala",
+      "chat_copied": "Kopyalandı",
+      "chat_delete": "Sil",
+      "chat_delete_confirm": "Mesaj herkes için silinsin mi?",
+      "chat_deleted": "Bu mesaj silindi",
+      "chat_more_reactions": "Daha fazla tepki"
     },
     "ru": {
       "blog_command_hint": "Введите /Blog, чтобы найти и прикрепить статью",
@@ -219,7 +237,13 @@
       "cycle_len": "Цикл {n} дн.",
       "postpartum_note": "После родов и во время грудного вскармливания цикл некоторое время может быть нерегулярным.",
       "baby_feeding_title": "Кормление малыша",
-      "baby_feeding_sub": "Записывайте кормления грудью и из бутылочки в трекере малыша"
+      "baby_feeding_sub": "Записывайте кормления грудью и из бутылочки в трекере малыша",
+      "chat_copy": "Копировать",
+      "chat_copied": "Скопировано",
+      "chat_delete": "Удалить",
+      "chat_delete_confirm": "Удалить сообщение для всех?",
+      "chat_deleted": "Сообщение удалено",
+      "chat_more_reactions": "Ещё реакции"
     },
     "de": {
       "blog_command_hint": "Gib /Blog ein, um einen Artikel zu suchen und anzuhängen",
@@ -274,7 +298,13 @@
       "cycle_len": "{n}-Tage-Zyklus",
       "postpartum_note": "Nach der Geburt und in der Stillzeit kann der Zyklus eine Weile unregelmäßig sein.",
       "baby_feeding_title": "Fütterung des Babys",
-      "baby_feeding_sub": "Stillen und Fläschchen im Baby-Tracker eintragen"
+      "baby_feeding_sub": "Stillen und Fläschchen im Baby-Tracker eintragen",
+      "chat_copy": "Kopieren",
+      "chat_copied": "Kopiert",
+      "chat_delete": "Löschen",
+      "chat_delete_confirm": "Nachricht für alle löschen?",
+      "chat_deleted": "Diese Nachricht wurde gelöscht",
+      "chat_more_reactions": "Weitere Reaktionen"
     },
     "ar": {
       "blog_command_hint": "اكتبي /Blog للعثور على مقال وإرفاقه",
@@ -329,7 +359,13 @@
       "cycle_len": "دورة {n} يومًا",
       "postpartum_note": "بعد الولادة وأثناء الرضاعة قد تكون الدورة غير منتظمة لفترة.",
       "baby_feeding_title": "رضاعة الطفل",
-      "baby_feeding_sub": "سجّلي الرضاعة الطبيعية والزجاجة في متتبع الطفل"
+      "baby_feeding_sub": "سجّلي الرضاعة الطبيعية والزجاجة في متتبع الطفل",
+      "chat_copy": "نسخ",
+      "chat_copied": "تم النسخ",
+      "chat_delete": "حذف",
+      "chat_delete_confirm": "حذف الرسالة لدى الجميع؟",
+      "chat_deleted": "تم حذف هذه الرسالة",
+      "chat_more_reactions": "تفاعلات أخرى"
     },
     "ka": {
       "blog_command_hint": "სტატიის მოსაძებნად და დასამაგრებლად აკრიფეთ /Blog",
@@ -384,7 +420,13 @@
       "cycle_len": "{n}-დღიანი ციკლი",
       "postpartum_note": "მშობიარობის შემდეგ და ძუძუთი კვების დროს ციკლი შეიძლება გარკვეული დროით არარეგულარული იყოს.",
       "baby_feeding_title": "ბავშვის კვება",
-      "baby_feeding_sub": "ძუძუთი და ბოთლით კვება ჩაწერეთ ბავშვის ტრეკერში"
+      "baby_feeding_sub": "ძუძუთი და ბოთლით კვება ჩაწერეთ ბავშვის ტრეკერში",
+      "chat_copy": "კოპირება",
+      "chat_copied": "დაკოპირდა",
+      "chat_delete": "წაშლა",
+      "chat_delete_confirm": "წაიშალოს შეტყობინება ყველასთვის?",
+      "chat_deleted": "ეს შეტყობინება წაიშალა",
+      "chat_more_reactions": "მეტი რეაქცია"
     },
     "kk": {
       "blog_command_hint": "Мақаланы тауып, тіркеу үшін /Blog деп теріңіз",
@@ -439,7 +481,13 @@
       "cycle_len": "{n} күндік цикл",
       "postpartum_note": "Босанғаннан кейін және емізу кезінде цикл біраз уақыт тұрақсыз болуы мүмкін.",
       "baby_feeding_title": "Нәрестені тамақтандыру",
-      "baby_feeding_sub": "Емізу мен бөтелкені нәресте трекеріне жазыңыз"
+      "baby_feeding_sub": "Емізу мен бөтелкені нәресте трекеріне жазыңыз",
+      "chat_copy": "Көшіру",
+      "chat_copied": "Көшірілді",
+      "chat_delete": "Жою",
+      "chat_delete_confirm": "Хабар барлығы үшін жойылсын ба?",
+      "chat_deleted": "Бұл хабар жойылды",
+      "chat_more_reactions": "Басқа реакциялар"
     },
     "uz": {
       "blog_command_hint": "Maqolani topish va biriktirish uchun /Blog buyrug‘ini kiriting",
@@ -494,7 +542,13 @@
       "cycle_len": "{n} kunlik sikl",
       "postpartum_note": "Tug'ruqdan keyin va emizish davrida sikl bir muddat notekis bo'lishi mumkin.",
       "baby_feeding_title": "Chaqaloqni ovqatlantirish",
-      "baby_feeding_sub": "Emizish va butilkani chaqaloq trekerida qayd eting"
+      "baby_feeding_sub": "Emizish va butilkani chaqaloq trekerida qayd eting",
+      "chat_copy": "Nusxalash",
+      "chat_copied": "Nusxalandi",
+      "chat_delete": "O'chirish",
+      "chat_delete_confirm": "Xabar hamma uchun o'chirilsinmi?",
+      "chat_deleted": "Bu xabar o'chirildi",
+      "chat_more_reactions": "Ko'proq reaksiyalar"
     },
     "zh": {
       "blog_command_hint": "输入 /Blog 查找并附加文章",
@@ -549,7 +603,13 @@
       "cycle_len": "{n} 天周期",
       "postpartum_note": "产后及哺乳期间，月经周期可能会有一段时间不规律。",
       "baby_feeding_title": "宝宝喂养",
-      "baby_feeding_sub": "在宝宝记录中记录母乳和奶瓶喂养"
+      "baby_feeding_sub": "在宝宝记录中记录母乳和奶瓶喂养",
+      "chat_copy": "复制",
+      "chat_copied": "已复制",
+      "chat_delete": "删除",
+      "chat_delete_confirm": "要为所有人删除这条消息吗？",
+      "chat_deleted": "此消息已删除",
+      "chat_more_reactions": "更多表情"
     },
     "id": {
       "blog_command_hint": "Ketik /Blog untuk mencari dan melampirkan artikel",
@@ -604,7 +664,13 @@
       "cycle_len": "Siklus {n} hari",
       "postpartum_note": "Setelah melahirkan dan selama menyusui, siklus bisa tidak teratur untuk sementara.",
       "baby_feeding_title": "Menyusui bayi",
-      "baby_feeding_sub": "Catat ASI dan botol di pelacak bayi"
+      "baby_feeding_sub": "Catat ASI dan botol di pelacak bayi",
+      "chat_copy": "Salin",
+      "chat_copied": "Disalin",
+      "chat_delete": "Hapus",
+      "chat_delete_confirm": "Hapus pesan ini untuk semua orang?",
+      "chat_deleted": "Pesan ini telah dihapus",
+      "chat_more_reactions": "Reaksi lainnya"
     },
     "fr": {
       "blog_command_hint": "Tapez /Blog pour rechercher et joindre un article",
@@ -659,7 +725,13 @@
       "cycle_len": "Cycle de {n} jours",
       "postpartum_note": "Après l'accouchement et pendant l'allaitement, le cycle peut rester irrégulier un moment.",
       "baby_feeding_title": "Alimentation de bébé",
-      "baby_feeding_sub": "Notez tétées et biberons dans le suivi de bébé"
+      "baby_feeding_sub": "Notez tétées et biberons dans le suivi de bébé",
+      "chat_copy": "Copier",
+      "chat_copied": "Copié",
+      "chat_delete": "Supprimer",
+      "chat_delete_confirm": "Supprimer ce message pour tout le monde ?",
+      "chat_deleted": "Ce message a été supprimé",
+      "chat_more_reactions": "Plus de réactions"
     },
     "es": {
       "blog_command_hint": "Escribe /Blog para buscar y adjuntar un artículo",
@@ -714,7 +786,13 @@
       "cycle_len": "Ciclo de {n} días",
       "postpartum_note": "Tras el parto y durante la lactancia, el ciclo puede ser irregular un tiempo.",
       "baby_feeding_title": "Alimentación del bebé",
-      "baby_feeding_sub": "Registra lactancia y biberones en el seguimiento del bebé"
+      "baby_feeding_sub": "Registra lactancia y biberones en el seguimiento del bebé",
+      "chat_copy": "Copiar",
+      "chat_copied": "Copiado",
+      "chat_delete": "Eliminar",
+      "chat_delete_confirm": "¿Eliminar el mensaje para todos?",
+      "chat_deleted": "Este mensaje se eliminó",
+      "chat_more_reactions": "Más reacciones"
     },
     "pt": {
       "blog_command_hint": "Escreva /Blog para encontrar e anexar um artigo",
@@ -769,7 +847,13 @@
       "cycle_len": "Ciclo de {n} dias",
       "postpartum_note": "Após o parto e durante a amamentação, o ciclo pode ficar irregular por um tempo.",
       "baby_feeding_title": "Alimentação do bebê",
-      "baby_feeding_sub": "Registre amamentação e mamadeira no acompanhamento do bebê"
+      "baby_feeding_sub": "Registre amamentação e mamadeira no acompanhamento do bebê",
+      "chat_copy": "Copiar",
+      "chat_copied": "Copiado",
+      "chat_delete": "Excluir",
+      "chat_delete_confirm": "Excluir a mensagem para todos?",
+      "chat_deleted": "Esta mensagem foi excluída",
+      "chat_more_reactions": "Mais reações"
     },
     "vi": {
       "blog_command_hint": "Nhập /Blog để tìm và đính kèm bài viết",
@@ -824,7 +908,13 @@
       "cycle_len": "Chu kỳ {n} ngày",
       "postpartum_note": "Sau sinh và khi cho con bú, chu kỳ có thể không đều một thời gian.",
       "baby_feeding_title": "Cho bé ăn",
-      "baby_feeding_sub": "Ghi bú mẹ và bú bình trong theo dõi bé"
+      "baby_feeding_sub": "Ghi bú mẹ và bú bình trong theo dõi bé",
+      "chat_copy": "Sao chép",
+      "chat_copied": "Đã sao chép",
+      "chat_delete": "Xóa",
+      "chat_delete_confirm": "Xóa tin nhắn này với mọi người?",
+      "chat_deleted": "Tin nhắn này đã bị xóa",
+      "chat_more_reactions": "Thêm cảm xúc"
     },
     "hi": {
       "blog_command_hint": "लेख खोजने और संलग्न करने के लिए /Blog टाइप करें",
@@ -879,7 +969,13 @@
       "cycle_len": "{n} दिन का चक्र",
       "postpartum_note": "प्रसव के बाद और स्तनपान के दौरान चक्र कुछ समय अनियमित रह सकता है।",
       "baby_feeding_title": "शिशु का आहार",
-      "baby_feeding_sub": "स्तनपान और बोतल को शिशु ट्रैकर में दर्ज करें"
+      "baby_feeding_sub": "स्तनपान और बोतल को शिशु ट्रैकर में दर्ज करें",
+      "chat_copy": "कॉपी करें",
+      "chat_copied": "कॉपी हो गया",
+      "chat_delete": "हटाएँ",
+      "chat_delete_confirm": "यह संदेश सभी के लिए हटाएँ?",
+      "chat_deleted": "यह संदेश हटा दिया गया",
+      "chat_more_reactions": "और प्रतिक्रियाएँ"
     },
     "ja": {
       "blog_command_hint": "/Blog と入力して記事を検索し、添付できます",
@@ -934,7 +1030,13 @@
       "cycle_len": "{n}日周期",
       "postpartum_note": "出産後や授乳中は、しばらく周期が不規則になることがあります。",
       "baby_feeding_title": "赤ちゃんの授乳",
-      "baby_feeding_sub": "授乳とミルクは赤ちゃん記録に記録しましょう"
+      "baby_feeding_sub": "授乳とミルクは赤ちゃん記録に記録しましょう",
+      "chat_copy": "コピー",
+      "chat_copied": "コピーしました",
+      "chat_delete": "削除",
+      "chat_delete_confirm": "全員に対してメッセージを削除しますか？",
+      "chat_deleted": "このメッセージは削除されました",
+      "chat_more_reactions": "その他のリアクション"
     },
     "ko": {
       "blog_command_hint": "글을 찾아 첨부하려면 /Blog를 입력하세요",
@@ -989,7 +1091,13 @@
       "cycle_len": "{n}일 주기",
       "postpartum_note": "출산 후와 모유 수유 중에는 한동안 주기가 불규칙할 수 있어요.",
       "baby_feeding_title": "아기 수유",
-      "baby_feeding_sub": "모유 수유와 젖병은 아기 기록에 남기세요"
+      "baby_feeding_sub": "모유 수유와 젖병은 아기 기록에 남기세요",
+      "chat_copy": "복사",
+      "chat_copied": "복사됨",
+      "chat_delete": "삭제",
+      "chat_delete_confirm": "모두에게서 메시지를 삭제할까요?",
+      "chat_deleted": "삭제된 메시지입니다",
+      "chat_more_reactions": "반응 더 보기"
     },
     "pl": {
       "blog_command_hint": "Wpisz /Blog, aby znaleźć i załączyć artykuł",
@@ -1044,7 +1152,13 @@
       "cycle_len": "Cykl {n}-dniowy",
       "postpartum_note": "Po porodzie i w czasie karmienia piersią cykl może być przez jakiś czas nieregularny.",
       "baby_feeding_title": "Karmienie dziecka",
-      "baby_feeding_sub": "Zapisuj karmienie piersią i butelką w dzienniku dziecka"
+      "baby_feeding_sub": "Zapisuj karmienie piersią i butelką w dzienniku dziecka",
+      "chat_copy": "Kopiuj",
+      "chat_copied": "Skopiowano",
+      "chat_delete": "Usuń",
+      "chat_delete_confirm": "Usunąć wiadomość dla wszystkich?",
+      "chat_deleted": "Ta wiadomość została usunięta",
+      "chat_more_reactions": "Więcej reakcji"
     },
     "nl": {
       "blog_command_hint": "Typ /Blog om een artikel te zoeken en toe te voegen",
@@ -1099,7 +1213,13 @@
       "cycle_len": "Cyclus van {n} dagen",
       "postpartum_note": "Na de bevalling en tijdens borstvoeding kan de cyclus een tijd onregelmatig zijn.",
       "baby_feeding_title": "Voeding van de baby",
-      "baby_feeding_sub": "Leg borst- en flesvoeding vast in de babytracker"
+      "baby_feeding_sub": "Leg borst- en flesvoeding vast in de babytracker",
+      "chat_copy": "Kopiëren",
+      "chat_copied": "Gekopieerd",
+      "chat_delete": "Verwijderen",
+      "chat_delete_confirm": "Bericht voor iedereen verwijderen?",
+      "chat_deleted": "Dit bericht is verwijderd",
+      "chat_more_reactions": "Meer reacties"
     },
     "sv": {
       "blog_command_hint": "Skriv /Blog för att hitta och bifoga en artikel",
@@ -1154,7 +1274,13 @@
       "cycle_len": "{n}-dagarscykel",
       "postpartum_note": "Efter förlossningen och under amning kan cykeln vara oregelbunden ett tag.",
       "baby_feeding_title": "Babyns matning",
-      "baby_feeding_sub": "Logga amning och flaska i babyloggen"
+      "baby_feeding_sub": "Logga amning och flaska i babyloggen",
+      "chat_copy": "Kopiera",
+      "chat_copied": "Kopierat",
+      "chat_delete": "Radera",
+      "chat_delete_confirm": "Radera meddelandet för alla?",
+      "chat_deleted": "Meddelandet har raderats",
+      "chat_more_reactions": "Fler reaktioner"
     }
   }
 }

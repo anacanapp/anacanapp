@@ -9,7 +9,7 @@ export interface ChatMessage {
   id: string; sender_id: string; receiver_id?: string; group_id?: string;
   content: string | null; message_type: string; media_url?: string | null;
   media_path?: string | null; media_mime?: string | null; duration_ms?: number | null;
-  reply_to_id?: string | null; is_read?: boolean; created_at: string;
+  reply_to_id?: string | null; is_read?: boolean; created_at: string; deleted_at?: string | null;
 }
 export interface ChatReaction {
   id: string; user_id: string; emoji: string;
@@ -17,6 +17,8 @@ export interface ChatReaction {
 }
 export interface ChatAttachment { path: string; mime: string; type: ChatMediaType; durationMs?: number }
 export const CHAT_REACTIONS = ['👍', '❤️', '😂', '😮', '😢', '🙏', '🔥', '👏'] as const;
+/** Behind the "+" in the message menu; the server (Duzelis66) accepts exactly these plus CHAT_REACTIONS. */
+export const CHAT_MORE_REACTIONS = ['😍', '🥰', '😘', '🤗', '😅', '😭', '😡', '🤔', '👌', '🙌', '💪', '🎉', '💕', '🌸', '👶', '🍼'] as const;
 export const chatTable = (kind: ChatKind) => kind === 'group' ? 'group_messages' : kind === 'partner' ? 'partner_messages' : 'direct_messages';
 export const reactionColumn = (kind: ChatKind) => kind === 'group' ? 'group_message_id' : kind === 'partner' ? 'partner_message_id' : 'direct_message_id';
 const MIME_EXTENSIONS: Record<string, string> = {

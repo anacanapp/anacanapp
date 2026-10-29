@@ -85,8 +85,10 @@ export function useChatMessages(kind: ChatKind, target: string) {
     return data as ChatMessage;
   }, onSuccess: () => { void client.invalidateQueries({ queryKey: key }); void client.invalidateQueries({ queryKey: ['chat-groups-v3'] }); } });
   const remove = useMutation({ mutationFn: async (message: string) => {
-    if (kind !== 'group') throw new Error('CHAT_INVALID_KIND');
-    const { data, error } = await (supabase as any).rpc('chat_delete_group_message_v3', { p_actor: actor, p_group: target, p_message: message });
+    // Private chats: the sender deletes for both sides (same server contract as groups).
+    const { data, error } = kind === 'group'
+      ? await (supabase as any).rpc('chat_delete_group_message_v3', { p_actor: actor, p_group: target, p_message: message })
+      : await (supabase as any).rpc('chat_delete_message_v1', { p_actor: actor, p_kind: kind, p_target: target, p_message: message });
     if (error) throw error;
     if (data?.media_path) await discardChatAttachment(data.media_path);
   }, onSuccess: () => { void client.invalidateQueries({ queryKey: key }); void client.invalidateQueries({ queryKey: ['chat-groups-v3'] }); } });

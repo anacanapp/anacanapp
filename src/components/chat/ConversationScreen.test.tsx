@@ -3,12 +3,14 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import ConversationScreen from './ConversationScreen';
 import { useChatChromeHidden } from '@/hooks/useChatChrome';
 
-const mocks = vi.hoisted(() => ({ send: vi.fn(), react: vi.fn(), upload: vi.fn(), remove: vi.fn(), sign: vi.fn(), toast: vi.fn(), restricted: false }));
+const mocks = vi.hoisted(() => ({ send: vi.fn(), react: vi.fn(), upload: vi.fn(), remove: vi.fn(), deleteMessage: vi.fn(), sign: vi.fn(), toast: vi.fn(), restricted: false,
+  messages: [] as Record<string, unknown>[] }));
 const message = { id: 'message-one', sender_id: 'peer', receiver_id: 'sender', content: 'Original message', message_type: 'text', created_at: '2026-09-21T10:00:00Z' };
+mocks.messages = [message];
 vi.mock('@/hooks/useChatMessages', () => ({ useChatMessages: () => ({
-  messages: [message], allMessages: new Map([[message.id, message]]), authors: { peer: { name: 'Peer' } }, media: {}, reactions: [],
+  messages: mocks.messages, allMessages: new Map(mocks.messages.map(item => [item.id, item])), authors: { peer: { name: 'Peer' } }, media: {}, reactions: [],
   actor: 'sender', loading: false, error: null, hasOlder: false, loadingOlder: false, sending: false, reacting: false,
-  send: mocks.send, react: mocks.react, refetch: vi.fn(), loadOlder: vi.fn(),
+  send: mocks.send, react: mocks.react, remove: mocks.deleteMessage, removing: false, refetch: vi.fn(), loadOlder: vi.fn(),
 }) }));
 vi.mock('@/hooks/useAuth', () => ({ useAuth: () => ({ user: { id: 'sender' } }) }));
 vi.mock('@/hooks/useModerator', () => ({ useMyModerationStatus: () => ({ data: { message: mocks.restricted, restrictions: [] } }) }));
@@ -43,7 +45,27 @@ beforeEach(() => {
   vi.stubGlobal('MediaRecorder', Recorder);
   vi.stubGlobal('navigator', { mediaDevices: { getUserMedia: async () => ({ getTracks: () => [{ stop: vi.fn() }] }) } });
 });
-afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
+afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks(); mocks.messages = [message]; });
+
+it('offers reply, copy and delete for an own private message and deletes it after confirming', async () => {
+  const own = { ...message, id: 'own-one', sender_id: 'sender', receiver_id: 'peer', content: 'Mine' };
+  mocks.messages = [own]; mocks.deleteMessage.mockResolvedValue(undefined);
+  vi.spyOn(window, 'confirm').mockReturnValue(true);
+  mount();
+  fireEvent.click(screen.getByRole('button', { name: 'Mesaj seçimləri' }));
+  expect(screen.getByRole('button', { name: /Cavab ver/ })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /Copy|Kopyala/ })).toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: /Delete|Sil/ }));
+  await waitFor(() => expect(mocks.deleteMessage).toHaveBeenCalledWith('own-one'));
+});
+
+it('does not offer delete for the peer message and shows a deleted placeholder', () => {
+  mocks.messages = [message, { ...message, id: 'gone', deleted_at: '2026-09-21T11:00:00Z', content: '' }];
+  mount();
+  fireEvent.click(screen.getAllByRole('button', { name: 'Mesaj seçimləri' })[0]);
+  expect(screen.queryByRole('button', { name: /^(Delete|Sil)$/ })).not.toBeInTheDocument();
+  expect(screen.getByText(/This message was deleted|Bu mesaj silindi/)).toBeInTheDocument();
+});
 
 it('hides the footer, keeps the top back action, and opens the peer profile', async () => {
   const back = vi.fn(); mount(back);
