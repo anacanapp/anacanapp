@@ -61,3 +61,4 @@
 .chat-action-list button:disabled { opacity: .5; }
 .chat-action-danger { color: var(--a-bad, #d93a40) !important; }
 .chat-message-deleted { opacity: .7; font-style: italic; }
+.chat-edited { font-size: 10.5px; font-style: italic; opacity: .75; margin-inline-end: 4px; }

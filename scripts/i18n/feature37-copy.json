@@ -64,7 +64,10 @@
       "sfg_home_title": "Əlavə Qida Bələdçisi",
       "sfg_home_sub_before": "6 ayda başlayırıq — hazırlıq və ilk qidalar",
       "sfg_home_sub_after": "Yaşa uyğun porsiya, dəmir balansı və reseptlər",
-      "sfg_tool_desc": "Porsiya, dəmir balansı, allergenlər və reseptlər"
+      "sfg_tool_desc": "Porsiya, dəmir balansı, allergenlər və reseptlər",
+      "chat_edit": "Redaktə et",
+      "chat_editing": "Mesajı redaktə edirsiniz",
+      "chat_edited": "redaktə edilib"
     },
     "en": {
       "blog_command_hint": "Type /Blog to find and attach an article",
@@ -129,7 +132,10 @@
       "sfg_home_title": "Solid Food Guide",
       "sfg_home_sub_before": "Starting at 6 months — readiness and first foods",
       "sfg_home_sub_after": "Age-based portions, iron balance and recipes",
-      "sfg_tool_desc": "Portions, iron balance, allergens and recipes"
+      "sfg_tool_desc": "Portions, iron balance, allergens and recipes",
+      "chat_edit": "Edit",
+      "chat_editing": "Editing message",
+      "chat_edited": "edited"
     },
     "tr": {
       "blog_command_hint": "Bir makale bulup eklemek için /Blog yazın",
@@ -194,7 +200,10 @@
       "sfg_home_title": "Ek Gıda Rehberi",
       "sfg_home_sub_before": "6. ayda başlıyoruz — hazırlık ve ilk besinler",
       "sfg_home_sub_after": "Yaşa uygun porsiyon, demir dengesi ve tarifler",
-      "sfg_tool_desc": "Porsiyon, demir dengesi, alerjenler ve tarifler"
+      "sfg_tool_desc": "Porsiyon, demir dengesi, alerjenler ve tarifler",
+      "chat_edit": "Düzenle",
+      "chat_editing": "Mesaj düzenleniyor",
+      "chat_edited": "düzenlendi"
     },
     "ru": {
       "blog_command_hint": "Введите /Blog, чтобы найти и прикрепить статью",
@@ -259,7 +268,10 @@
       "sfg_home_title": "Гид по прикорму",
       "sfg_home_sub_before": "Начинаем в 6 месяцев — готовность и первые продукты",
       "sfg_home_sub_after": "Порции по возрасту, баланс железа и рецепты",
-      "sfg_tool_desc": "Порции, баланс железа, аллергены и рецепты"
+      "sfg_tool_desc": "Порции, баланс железа, аллергены и рецепты",
+      "chat_edit": "Изменить",
+      "chat_editing": "Редактирование сообщения",
+      "chat_edited": "изменено"
     },
     "de": {
       "blog_command_hint": "Gib /Blog ein, um einen Artikel zu suchen und anzuhängen",
@@ -324,7 +336,10 @@
       "sfg_home_title": "Beikost-Ratgeber",
       "sfg_home_sub_before": "Start mit 6 Monaten — Beikostreife und erste Lebensmittel",
       "sfg_home_sub_after": "Altersgerechte Portionen, Eisenbalance und Rezepte",
-      "sfg_tool_desc": "Portionen, Eisenbalance, Allergene und Rezepte"
+      "sfg_tool_desc": "Portionen, Eisenbalance, Allergene und Rezepte",
+      "chat_edit": "Bearbeiten",
+      "chat_editing": "Nachricht bearbeiten",
+      "chat_edited": "bearbeitet"
     },
     "ar": {
       "blog_command_hint": "اكتبي /Blog للعثور على مقال وإرفاقه",
@@ -389,7 +404,10 @@
       "sfg_home_title": "دليل الأطعمة التكميلية",
       "sfg_home_sub_before": "نبدأ في عمر 6 أشهر — الاستعداد وأولى الأطعمة",
       "sfg_home_sub_after": "حصص حسب العمر، توازن الحديد، ووصفات",
-      "sfg_tool_desc": "الحصص، توازن الحديد، مسببات الحساسية والوصفات"
+      "sfg_tool_desc": "الحصص، توازن الحديد، مسببات الحساسية والوصفات",
+      "chat_edit": "تعديل",
+      "chat_editing": "تعديل الرسالة",
+      "chat_edited": "معدّلة"
     },
     "ka": {
       "blog_command_hint": "სტატიის მოსაძებნად და დასამაგრებლად აკრიფეთ /Blog",
@@ -454,7 +472,10 @@
       "sfg_home_title": "დამატებითი კვების გზამკვლევი",
       "sfg_home_sub_before": "ვიწყებთ 6 თვეში — მზაობა და პირველი საკვები",
       "sfg_home_sub_after": "ასაკის შესაბამისი პორციები, რკინის ბალანსი და რეცეპტები",
-      "sfg_tool_desc": "პორციები, რკინის ბალანსი, ალერგენები და რეცეპტები"
+      "sfg_tool_desc": "პორციები, რკინის ბალანსი, ალერგენები და რეცეპტები",
+      "chat_edit": "რედაქტირება",
+      "chat_editing": "შეტყობინების რედაქტირება",
+      "chat_edited": "რედაქტირებული"
     },
     "kk": {
       "blog_command_hint": "Мақаланы тауып, тіркеу үшін /Blog деп теріңіз",
@@ -519,7 +540,10 @@
       "sfg_home_title": "Қосымша тамақ нұсқаулығы",
       "sfg_home_sub_before": "6 айда бастаймыз — дайындық пен алғашқы тағамдар",
       "sfg_home_sub_after": "Жасқа сай порция, темір балансы және рецепттер",
-      "sfg_tool_desc": "Порция, темір балансы, аллергендер және рецепттер"
+      "sfg_tool_desc": "Порция, темір балансы, аллергендер және рецепттер",
+      "chat_edit": "Өңдеу",
+      "chat_editing": "Хабарды өңдеу",
+      "chat_edited": "өңделген"
     },
     "uz": {
       "blog_command_hint": "Maqolani topish va biriktirish uchun /Blog buyrug‘ini kiriting",
@@ -584,7 +608,10 @@
       "sfg_home_title": "Qoʻshimcha ovqat qoʻllanmasi",
       "sfg_home_sub_before": "6 oyda boshlaymiz — tayyorlik va ilk taomlar",
       "sfg_home_sub_after": "Yoshga mos porsiya, temir balansi va retseptlar",
-      "sfg_tool_desc": "Porsiya, temir balansi, allergenlar va retseptlar"
+      "sfg_tool_desc": "Porsiya, temir balansi, allergenlar va retseptlar",
+      "chat_edit": "Tahrirlash",
+      "chat_editing": "Xabar tahrirlanmoqda",
+      "chat_edited": "tahrirlangan"
     },
     "zh": {
       "blog_command_hint": "输入 /Blog 查找并附加文章",
@@ -649,7 +676,10 @@
       "sfg_home_title": "辅食添加指南",
       "sfg_home_sub_before": "6个月开始——准备信号与第一口辅食",
       "sfg_home_sub_after": "按年龄的份量、铁均衡与食谱",
-      "sfg_tool_desc": "份量、铁均衡、过敏原与食谱"
+      "sfg_tool_desc": "份量、铁均衡、过敏原与食谱",
+      "chat_edit": "编辑",
+      "chat_editing": "正在编辑消息",
+      "chat_edited": "已编辑"
     },
     "id": {
       "blog_command_hint": "Ketik /Blog untuk mencari dan melampirkan artikel",
@@ -714,7 +744,10 @@
       "sfg_home_title": "Panduan MPASI",
       "sfg_home_sub_before": "Mulai di usia 6 bulan — tanda siap dan makanan pertama",
       "sfg_home_sub_after": "Porsi sesuai usia, keseimbangan zat besi, dan resep",
-      "sfg_tool_desc": "Porsi, keseimbangan zat besi, alergen, dan resep"
+      "sfg_tool_desc": "Porsi, keseimbangan zat besi, alergen, dan resep",
+      "chat_edit": "Edit",
+      "chat_editing": "Mengedit pesan",
+      "chat_edited": "diedit"
     },
     "fr": {
       "blog_command_hint": "Tapez /Blog pour rechercher et joindre un article",
@@ -779,7 +812,10 @@
       "sfg_home_title": "Guide de diversification alimentaire",
       "sfg_home_sub_before": "On commence à 6 mois — signes et premiers aliments",
       "sfg_home_sub_after": "Portions selon l'âge, équilibre en fer et recettes",
-      "sfg_tool_desc": "Portions, équilibre en fer, allergènes et recettes"
+      "sfg_tool_desc": "Portions, équilibre en fer, allergènes et recettes",
+      "chat_edit": "Modifier",
+      "chat_editing": "Modification du message",
+      "chat_edited": "modifié"
     },
     "es": {
       "blog_command_hint": "Escribe /Blog para buscar y adjuntar un artículo",
@@ -844,7 +880,10 @@
       "sfg_home_title": "Guía de alimentación complementaria",
       "sfg_home_sub_before": "Empezamos a los 6 meses: señales y primeros alimentos",
       "sfg_home_sub_after": "Porciones por edad, equilibrio de hierro y recetas",
-      "sfg_tool_desc": "Porciones, equilibrio de hierro, alérgenos y recetas"
+      "sfg_tool_desc": "Porciones, equilibrio de hierro, alérgenos y recetas",
+      "chat_edit": "Editar",
+      "chat_editing": "Editando mensaje",
+      "chat_edited": "editado"
     },
     "pt": {
       "blog_command_hint": "Escreva /Blog para encontrar e anexar um artigo",
@@ -909,7 +948,10 @@
       "sfg_home_title": "Guia de introdução alimentar",
       "sfg_home_sub_before": "Começamos aos 6 meses — sinais e primeiros alimentos",
       "sfg_home_sub_after": "Porções por idade, equilíbrio de ferro e receitas",
-      "sfg_tool_desc": "Porções, equilíbrio de ferro, alergênicos e receitas"
+      "sfg_tool_desc": "Porções, equilíbrio de ferro, alergênicos e receitas",
+      "chat_edit": "Editar",
+      "chat_editing": "Editando mensagem",
+      "chat_edited": "editada"
     },
     "vi": {
       "blog_command_hint": "Nhập /Blog để tìm và đính kèm bài viết",
@@ -974,7 +1016,10 @@
       "sfg_home_title": "Cẩm nang ăn dặm",
       "sfg_home_sub_before": "Bắt đầu lúc 6 tháng — dấu hiệu sẵn sàng và món đầu tiên",
       "sfg_home_sub_after": "Khẩu phần theo tuổi, cân bằng sắt và công thức",
-      "sfg_tool_desc": "Khẩu phần, cân bằng sắt, chất gây dị ứng và công thức"
+      "sfg_tool_desc": "Khẩu phần, cân bằng sắt, chất gây dị ứng và công thức",
+      "chat_edit": "Chỉnh sửa",
+      "chat_editing": "Đang chỉnh sửa tin nhắn",
+      "chat_edited": "đã sửa"
     },
     "hi": {
       "blog_command_hint": "लेख खोजने और संलग्न करने के लिए /Blog टाइप करें",
@@ -1039,7 +1084,10 @@
       "sfg_home_title": "ठोस आहार गाइड",
       "sfg_home_sub_before": "6 महीने पर शुरुआत — तैयारी और पहला आहार",
       "sfg_home_sub_after": "उम्र के अनुसार मात्रा, आयरन संतुलन और रेसिपी",
-      "sfg_tool_desc": "मात्रा, आयरन संतुलन, एलर्जन और रेसिपी"
+      "sfg_tool_desc": "मात्रा, आयरन संतुलन, एलर्जन और रेसिपी",
+      "chat_edit": "संपादित करें",
+      "chat_editing": "संदेश संपादित हो रहा है",
+      "chat_edited": "संपादित"
     },
     "ja": {
       "blog_command_hint": "/Blog と入力して記事を検索し、添付できます",
@@ -1104,7 +1152,10 @@
       "sfg_home_title": "離乳食ガイド",
       "sfg_home_sub_before": "6か月でスタート — 準備のサインと最初の食材",
       "sfg_home_sub_after": "月齢に合った量、鉄のバランス、レシピ",
-      "sfg_tool_desc": "量、鉄のバランス、アレルゲン、レシピ"
+      "sfg_tool_desc": "量、鉄のバランス、アレルゲン、レシピ",
+      "chat_edit": "編集",
+      "chat_editing": "メッセージを編集中",
+      "chat_edited": "編集済み"
     },
     "ko": {
       "blog_command_hint": "글을 찾아 첨부하려면 /Blog를 입력하세요",
@@ -1169,7 +1220,10 @@
       "sfg_home_title": "이유식 가이드",
       "sfg_home_sub_before": "6개월에 시작해요 — 준비 신호와 첫 음식",
       "sfg_home_sub_after": "월령별 양, 철분 균형, 레시피",
-      "sfg_tool_desc": "1회 양, 철분 균형, 알레르기 식품, 레시피"
+      "sfg_tool_desc": "1회 양, 철분 균형, 알레르기 식품, 레시피",
+      "chat_edit": "수정",
+      "chat_editing": "메시지 수정 중",
+      "chat_edited": "수정됨"
     },
     "pl": {
       "blog_command_hint": "Wpisz /Blog, aby znaleźć i załączyć artykuł",
@@ -1234,7 +1288,10 @@
       "sfg_home_title": "Przewodnik po rozszerzaniu diety",
       "sfg_home_sub_before": "Zaczynamy w 6. miesiącu — gotowość i pierwsze pokarmy",
       "sfg_home_sub_after": "Porcje według wieku, bilans żelaza i przepisy",
-      "sfg_tool_desc": "Porcje, bilans żelaza, alergeny i przepisy"
+      "sfg_tool_desc": "Porcje, bilans żelaza, alergeny i przepisy",
+      "chat_edit": "Edytuj",
+      "chat_editing": "Edytujesz wiadomość",
+      "chat_edited": "edytowano"
     },
     "nl": {
       "blog_command_hint": "Typ /Blog om een artikel te zoeken en toe te voegen",
@@ -1299,7 +1356,10 @@
       "sfg_home_title": "Gids bijvoeding",
       "sfg_home_sub_before": "We beginnen met 6 maanden — gereedheid en eerste hapjes",
       "sfg_home_sub_after": "Porties per leeftijd, ijzerbalans en recepten",
-      "sfg_tool_desc": "Porties, ijzerbalans, allergenen en recepten"
+      "sfg_tool_desc": "Porties, ijzerbalans, allergenen en recepten",
+      "chat_edit": "Bewerken",
+      "chat_editing": "Bericht bewerken",
+      "chat_edited": "bewerkt"
     },
     "sv": {
       "blog_command_hint": "Skriv /Blog för att hitta och bifoga en artikel",
@@ -1364,7 +1424,10 @@
       "sfg_home_title": "Guide till fast föda",
       "sfg_home_sub_before": "Vi börjar vid 6 månader — tecken på att vara redo och första maten",
       "sfg_home_sub_after": "Portioner efter ålder, järnbalans och recept",
-      "sfg_tool_desc": "Portioner, järnbalans, allergener och recept"
+      "sfg_tool_desc": "Portioner, järnbalans, allergener och recept",
+      "chat_edit": "Redigera",
+      "chat_editing": "Redigerar meddelande",
+      "chat_edited": "redigerad"
     }
   }
 }

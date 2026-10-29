@@ -10,6 +10,7 @@ export interface ChatMessage {
   content: string | null; message_type: string; media_url?: string | null;
   media_path?: string | null; media_mime?: string | null; duration_ms?: number | null;
   reply_to_id?: string | null; is_read?: boolean; created_at: string; deleted_at?: string | null;
+  revision?: number | null; edited_at?: string | null;
 }
 export interface ChatReaction {
   id: string; user_id: string; emoji: string;

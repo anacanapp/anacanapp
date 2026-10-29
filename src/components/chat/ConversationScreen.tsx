@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft, Check, CheckCheck, ChevronDown, Copy, ImagePlus, Loader2, Mic, MoreHorizontal, Plus, Reply, Send, Smile, Square, Trash2, Video, X } from 'lucide-react';
+import { ArrowLeft, Check, CheckCheck, ChevronDown, Copy, ImagePlus, Pencil, Loader2, Mic, MoreHorizontal, Plus, Reply, Send, Smile, Square, Trash2, Video, X } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useChatMessages } from '@/hooks/useChatMessages';
 import { useFullScreenChat } from '@/hooks/useChatChrome';
@@ -42,7 +42,7 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
   const [uploading, setUploading] = useState(false), [recording, setRecording] = useState(false), [recordedSeconds, setRecordedSeconds] = useState(0);
   const [showAttachments, setShowAttachments] = useState(false), [emojiComposer, setEmojiComposer] = useState(false);
   const [actionsFor, setActionsFor] = useState<string | null>(null), [profile, setProfile] = useState<string | null>(null);
-  const [moreReactions, setMoreReactions] = useState(false);
+  const [moreReactions, setMoreReactions] = useState(false), [editing, setEditing] = useState<ChatMessage | null>(null);
   const [photo, setPhoto] = useState<{ id: string; url: string } | null>(null), [newMessages, setNewMessages] = useState(0);
   const [viewport, setViewport] = useState(() => ({ height: window.visualViewport?.height ?? window.innerHeight, top: window.visualViewport?.offsetTop ?? 0 }));
   const scroller = useRef<HTMLDivElement>(null), input = useRef<HTMLTextAreaElement>(null), imageInput = useRef<HTMLInputElement>(null), videoInput = useRef<HTMLInputElement>(null);
@@ -166,6 +166,14 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
   };
   const stopRecording = () => { try { if (recorder.current?.state === 'recording') recorder.current.stop(); } catch (error) { cancelRecording(); toast(getAudioErrorToast(error, 'audio')); } };
   const send = async () => {
+    if (editing) {
+      if (!text.trim() || chat.editing) return;
+      try {
+        await chat.edit({ message: editing, content: text.trim() });
+        if (alive.current) { setEditing(null); setText(''); }
+      } catch (error) { if (alive.current) reportFailure(error); }
+      return;
+    }
     if (uploading || chat.sending || readOnly || (!text.trim() && !attachment)) return;
     const payload = { text: text.trim(), attachment, replyTo: reply?.id ?? null };
     const fingerprint = JSON.stringify(payload);
@@ -239,7 +247,7 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
                     : <button type="button" className="chat-notice" onClick={() => renew(message).catch(reportFailure)}>{tr('chat_load_media', 'Faylı yüklə')}</button>
                     : <p className="chat-message-text" dir="auto"><CommentText content={message.message_type === 'love' ? '❤️' : message.content || ''} allowLinks /></p>}
                   {!!message.media_path && !!message.content && <p className="chat-message-text mt-1" dir="auto"><CommentText content={message.content} allowLinks /></p>}
-                  <div className="chat-message-meta"><time>{timeFormat.format(created)}</time>
+                  <div className="chat-message-meta">{message.edited_at && <span className="chat-edited">{feature37Text('chat_edited')}</span>}<time>{timeFormat.format(created)}</time>
                     {own && kind !== 'group' && (message.is_read ? <CheckCheck size={13} className="text-sky-600" /> : <Check size={12} />)}
                     <button type="button" className="chat-icon-button chat-icon-button-small" onClick={() => setActionsFor(actionsFor === message.id ? null : message.id)} aria-label={tr('chat_message_actions', 'Mesaj seçimləri')}><MoreHorizontal size={15} /></button>
                   </div>
@@ -261,6 +269,9 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
                     </div>
                     <div className="chat-action-list">
                       <button type="button" onClick={() => { setReply(message); setActionsFor(null); input.current?.focus(); }}><Reply size={17} />{tr('chat_reply', 'Cavab ver')}</button>
+                      {own && message.message_type === 'text' && !!message.content && <button type="button" onClick={() => {
+                        setEditing(message); setReply(null); setText(message.content || ''); setActionsFor(null); input.current?.focus();
+                      }}><Pencil size={17} />{feature37Text('chat_edit')}</button>}
                       {!!message.content && message.message_type !== 'love' && <button type="button" onClick={() => {
                         void navigator.clipboard?.writeText(message.content || '').then(() => toast({ title: feature37Text('chat_copied') })).catch(() => {});
                         setActionsFor(null);
@@ -279,6 +290,8 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
     </div>
     {newMessages > 0 && <button type="button" className="chat-notice flex items-center justify-center gap-1" onClick={() => { if (scroller.current) scroller.current.scrollTop = scroller.current.scrollHeight; setNewMessages(0); }}><ChevronDown size={15} />{tr('chat_new_messages', 'Yeni mesajlar')} · {newMessages}</button>}
     {readOnly ? <footer className="chat-composer chat-notice">{moderationStatus?.message ? <RestrictionNote scope="message" /> : tr('group_admins_only')}</footer> : <footer className="chat-composer"><div className="chat-composer-inner">
+      {editing && <div className="flex items-center gap-2"><div className="chat-reply-preview flex-1"><strong>{feature37Text('chat_editing')}</strong><p>{chatPreview(editing)}</p></div>
+        <button type="button" className="chat-icon-button" aria-label={tr('common_legv_et', 'Ləğv et')} onClick={() => { setEditing(null); setText(''); }}><X size={18} /></button></div>}
       {reply && <div className="flex items-center gap-2"><div className="chat-reply-preview flex-1"><strong>{tr('chat_reply', 'Cavab ver')} · {reply.sender_id === chat.actor ? tr('chat_you', 'Siz') : chat.authors[reply.sender_id]?.name || title}</strong><p>{chatPreview(reply)}</p></div><button type="button" className="chat-icon-button" aria-label={tr('chat_cancel_reply', 'Cavabı ləğv et')} onClick={() => setReply(null)}><X size={18} /></button></div>}
       {attachment && <div className="flex items-center gap-2 pb-2"><div className="min-w-0 flex-1">
         {attachment.type === 'audio' && attachmentUrl ? <VoiceMessage src={attachmentUrl} /> : <p className="chat-notice text-start">{chatPreview({ message_type: attachment.type, content: '' })} · {tr('chat_ready_to_send', 'Göndərməyə hazırdır')}</p>}
@@ -297,8 +310,8 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
           <textarea ref={input} rows={1} maxLength={10000} value={text} disabled={chat.sending} onChange={event => setText(event.target.value)} className="chat-text-input" dir="auto"
             placeholder={tr('directmessagescreen_mesaj_yazin_e69f84', 'Mesaj yazın…')} onKeyDown={event => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); void send(); } }} />
           <button type="button" className="chat-icon-button" disabled={chat.sending} onClick={() => setEmojiComposer(value => !value)} aria-label={tr('chat_emoji', 'Emoji')}><Smile size={21} /></button>
-          {!text.trim() && !attachment && !uploading ? <button type="button" className="chat-send" disabled={chat.sending} onClick={beginRecording} aria-label={tr('conversationlistscreen_ses_mesaji_acd8d9', '🎤 Səs mesajı')}><Mic size={20} /></button>
-            : <button type="button" className="chat-send" disabled={uploading || chat.sending || (!text.trim() && !attachment)} onClick={send} aria-label={tr('directmessagescreen_send', 'Göndər')}>{uploading || chat.sending ? <Loader2 size={19} className="animate-spin" /> : <Send size={18} />}</button>}
+          {!text.trim() && !attachment && !uploading && !editing ? <button type="button" className="chat-send" disabled={chat.sending} onClick={beginRecording} aria-label={tr('conversationlistscreen_ses_mesaji_acd8d9', '🎤 Səs mesajı')}><Mic size={20} /></button>
+            : <button type="button" className="chat-send" disabled={uploading || chat.sending || chat.editing || (!text.trim() && !attachment)} onClick={send} aria-label={tr('directmessagescreen_send', 'Göndər')}>{uploading || chat.sending ? <Loader2 size={19} className="animate-spin" /> : <Send size={18} />}</button>}
         </div>}
       {uploading && <p role="status" className="chat-notice">{tr('chat_uploading', 'Fayl yüklənir…')}</p>}
     </div></footer>}

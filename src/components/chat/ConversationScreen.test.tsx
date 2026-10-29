@@ -3,14 +3,14 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import ConversationScreen from './ConversationScreen';
 import { useChatChromeHidden } from '@/hooks/useChatChrome';
 
-const mocks = vi.hoisted(() => ({ send: vi.fn(), react: vi.fn(), upload: vi.fn(), remove: vi.fn(), deleteMessage: vi.fn(), sign: vi.fn(), toast: vi.fn(), restricted: false,
+const mocks = vi.hoisted(() => ({ send: vi.fn(), react: vi.fn(), upload: vi.fn(), remove: vi.fn(), deleteMessage: vi.fn(), editMessage: vi.fn(), sign: vi.fn(), toast: vi.fn(), restricted: false,
   messages: [] as Record<string, unknown>[] }));
 const message = { id: 'message-one', sender_id: 'peer', receiver_id: 'sender', content: 'Original message', message_type: 'text', created_at: '2026-09-21T10:00:00Z' };
 mocks.messages = [message];
 vi.mock('@/hooks/useChatMessages', () => ({ useChatMessages: () => ({
   messages: mocks.messages, allMessages: new Map(mocks.messages.map(item => [item.id, item])), authors: { peer: { name: 'Peer' } }, media: {}, reactions: [],
   actor: 'sender', loading: false, error: null, hasOlder: false, loadingOlder: false, sending: false, reacting: false,
-  send: mocks.send, react: mocks.react, remove: mocks.deleteMessage, removing: false, refetch: vi.fn(), loadOlder: vi.fn(),
+  send: mocks.send, react: mocks.react, remove: mocks.deleteMessage, removing: false, edit: mocks.editMessage, editing: false, refetch: vi.fn(), loadOlder: vi.fn(),
 }) }));
 vi.mock('@/hooks/useAuth', () => ({ useAuth: () => ({ user: { id: 'sender' } }) }));
 vi.mock('@/hooks/useModerator', () => ({ useMyModerationStatus: () => ({ data: { message: mocks.restricted, restrictions: [] } }) }));
@@ -130,5 +130,19 @@ it('keeps message history available but removes text/audio composition when rest
   expect(screen.getByText('Original message')).toBeInTheDocument();
   expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
   expect(screen.queryByRole('button', { name: '🎤 Səs mesajı' })).not.toBeInTheDocument();
+  expect(mocks.send).not.toHaveBeenCalled();
+});
+
+it('edits an own text message through the composer', async () => {
+  const own = { ...message, id: 'own-edit', sender_id: 'sender', receiver_id: 'peer', content: 'Typo', revision: 0 };
+  mocks.messages = [own]; mocks.editMessage.mockResolvedValue(undefined);
+  mount();
+  fireEvent.click(screen.getByRole('button', { name: 'Mesaj seçimləri' }));
+  fireEvent.click(screen.getByRole('button', { name: /Edit|Redaktə et/ }));
+  const box = screen.getByPlaceholderText('Mesaj yazın…') as HTMLTextAreaElement;
+  expect(box.value).toBe('Typo');
+  fireEvent.change(box, { target: { value: 'Fixed' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Göndər' }));
+  await waitFor(() => expect(mocks.editMessage).toHaveBeenCalledWith({ message: own, content: 'Fixed' }));
   expect(mocks.send).not.toHaveBeenCalled();
 });

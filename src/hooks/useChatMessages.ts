@@ -92,6 +92,12 @@ export function useChatMessages(kind: ChatKind, target: string) {
     if (error) throw error;
     if (data?.media_path) await discardChatAttachment(data.media_path);
   }, onSuccess: () => { void client.invalidateQueries({ queryKey: key }); void client.invalidateQueries({ queryKey: ['chat-groups-v3'] }); } });
+  // The sender edits text; the server checks ownership and the expected revision (CHAT_MESSAGE_CHANGED).
+  const edit = useMutation({ mutationFn: async ({ message, content }: { message: ChatMessage; content: string }) => {
+    const { error } = await (supabase as any).rpc('chat_edit_message_v1', { p_actor: actor, p_kind: kind, p_target: target,
+      p_message: message.id, p_content: content, p_expected_revision: message.revision ?? 0 });
+    if (error) throw error;
+  }, onSuccess: () => { void client.invalidateQueries({ queryKey: key }); } });
   const react = useMutation({ mutationFn: async ({ message, emoji }: { message: string; emoji: string | null }) => {
     const { error } = await (supabase as any).rpc('chat_set_reaction_v2', { p_actor: actor, p_kind: kind, p_message: message, p_emoji: emoji });
     if (error) throw error;
@@ -152,5 +158,5 @@ export function useChatMessages(kind: ChatKind, target: string) {
     reactions: reactionsQuery.data || [], actor, loading: query.isPending, error: query.error,
     refetch: query.refetch, loadOlder: query.fetchNextPage, hasOlder: query.hasNextPage, loadingOlder: query.isFetchingNextPage,
     send: send.mutateAsync, sending: send.isPending, react: react.mutateAsync, reacting: react.isPending,
-    remove: remove.mutateAsync, removing: remove.isPending };
+    remove: remove.mutateAsync, removing: remove.isPending, edit: edit.mutateAsync, editing: edit.isPending };
 }
