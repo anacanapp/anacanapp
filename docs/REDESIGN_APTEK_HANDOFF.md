@@ -532,3 +532,19 @@ was done.
   14 truncated files, 9 undecodable, 3 transient errors. 3.05 GB → 1.36 GB.
 - **Restore:** upload the backup object back to the same path with `x-upsert: true`.
   Working files: `/var/tmp/media-recompress-20261029/` on the VM (`result.tsv`, `dry-result.tsv`).
+
+## Review PDF fixes web deploy — 2026-10-29
+- **Contents:** commits `99dc8ee` (period), `56651fd` (layout, pregnancy home, nutrition),
+  `5be44e2` (chat menu). SQL applied on Google first, each in one transaction with owner/ACL
+  unchanged: `supabase/duzelis/Duzelis65.sql` (record_period_days learns cycle length from
+  21–35 day cycles only) and `Duzelis66.sql` (chat_set_reaction_v2 and the
+  `chat_reaction_emoji_v2` CHECK accept 16 extra reactions).
+- **Image:** `gateway@sha256:8c7b11287998b988bbf6d0cadfef3321ea7203100c5e8b7c38e99f93e105e1c9` (Cloud Build `44915637`), built `FROM` live
+  `68576641…`; adds only `index.html`, `assets/`, `aptek/`.
+- **Isolated test (:8089):** nginx -t, paths, website, admission, old/new JS and storage headers matched.
+- **Deploy:** `deploy-current-web.py review-fixes-web-plan.json` returned `passed`; `index.html`
+  sha `4f3fd00a…`; public `/?web=admin` loads with no console errors.
+- **Rollback:** `rollback-review-fixes-web-plan.json` returns to the storage cache build (`68576641…`).
+- **Also on 2026-10-29:** deleted unused travelmatch leftovers in us-central1 (reserved IP
+  `travelmatchstatic`, snapshot schedule `default-schedule-1`, 14 snapshots of the deleted
+  `travelmatch` disk). Anacan disks have no snapshot schedule; backups stay in GCS.
