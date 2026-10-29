@@ -6,7 +6,8 @@ const CycleAnomalyBanner = () => {
   const stats = useCycleStats();
   const { data: cycles = [] } = useCycleHistory();
 
-  if (cycles.length < 3) return null;
+  // Bir tamamlanmış tsikl kifayətdir: 53 günlük gecikmə dərhal xəbərdarlıq tələb edir.
+  if (!cycles.some((c) => c.cycle_length)) return null;
 
   const anomalies: {severity: 'warn' | 'info';title: string;message: string;}[] = [];
 
@@ -26,7 +27,7 @@ const CycleAnomalyBanner = () => {
     });
   }
 
-  if (stats.cycleVariation > 7) {
+  if (cycles.length >= 3 && stats.cycleVariation > 7) {
     anomalies.push({
       severity: 'info',
       title: tr("cycleanomalybanner_duzensiz_tsikl_7b2693", "Düzənsiz tsikl"),

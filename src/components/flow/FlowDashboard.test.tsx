@@ -2,7 +2,7 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react';
 import FlowDashboard from './FlowDashboard';
 
-const mocks = vi.hoisted(() => ({ record: vi.fn() }));
+const mocks = vi.hoisted(() => ({ record: vi.fn(), periodDays: [] as { log_date: string; flow_intensity: string | null }[] }));
 vi.mock('@/lib/tr', () => ({ tr: (_key, fallback) => fallback }));
 vi.mock('@/lib/tip-translations', () => ({ getTranslatedTip: value => value }));
 vi.mock('@/lib/date-utils', () => ({ getCurrentDateLocale: () => undefined }));
@@ -10,8 +10,8 @@ vi.mock('@/integrations/supabase/client', () => ({ supabase: {} }));
 vi.mock('@tanstack/react-query', () => ({ useQuery: () => ({ data: {} }) }));
 vi.mock('@/store/userStore', () => ({ useUserStore: selector => selector({ cycleLength: 28, periodLength: 5, language: 'az',
   getCycleData: () => ({ lastPeriodDate: new Date(2026, 8, 10) }) }) }));
-vi.mock('@/hooks/usePeriodDayLogs', () => ({ useRecordPeriodDays: () => ({ mutateAsync: mocks.record }), usePeriodDayLogs: () => ({ data: [] }) }));
-vi.mock('@/hooks/useCycleHistory', () => ({ useCycleHistory: () => ({ data: [] }) }));
+vi.mock('@/hooks/usePeriodDayLogs', () => ({ useRecordPeriodDays: () => ({ mutateAsync: mocks.record }), usePeriodDayLogs: () => ({ data: mocks.periodDays }) }));
+vi.mock('@/hooks/useCycleHistory', () => ({ useCycleHistory: () => ({ data: [] }), useEffectiveCycleLength: () => 28 }));
 vi.mock('@/hooks/useFlowDailyLogs', () => ({ useFlowDailyLogs: () => ({ data: [] }) }));
 vi.mock('@/hooks/usePhaseTips', () => ({ usePhaseTips: () => ({ data: [], isLoading: false }),
   PHASE_INFO: Object.fromEntries(['menstrual','follicular','ovulation','luteal'].map(key => [key, { color: '#f00', emoji: '🩸', labelAz: key }])),
@@ -45,7 +45,7 @@ vi.mock('framer-motion', async () => {
   return { motion: { div: el('div'), button: el('button') }, AnimatePresence: ({ children }) => children };
 });
 beforeEach(() => { vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(new Date(2026, 8, 14, 12)); mocks.record.mockResolvedValue({}); });
-afterEach(() => { cleanup(); vi.useRealTimers(); vi.clearAllMocks(); });
+afterEach(() => { cleanup(); vi.useRealTimers(); vi.clearAllMocks(); mocks.periodDays = []; });
 
 it('places the period calendar immediately before water tracking', () => {
   render(<FlowDashboard />);
@@ -60,5 +60,16 @@ it('submits all five chosen days as observations rather than a single start date
   fireEvent.click(screen.getByRole('button', { name: 'Qeyd et' }));
   await waitFor(() => expect(mocks.record).toHaveBeenCalledTimes(1));
   expect(mocks.record.mock.calls[0][0]).toMatchObject({ flow: 'unspecified', preserveExisting: true });
-  expect(mocks.record.mock.calls[0][0].dates.map(date => date.getDate())).toEqual([10,11,12,13,14]);
+  expect(mocks.record.mock.calls[0][0].dates).toEqual(['2026-09-10','2026-09-11','2026-09-12','2026-09-13','2026-09-14']);
+});
+
+it('keeps already recorded days selected and clears the ones the user unselects', async () => {
+  mocks.periodDays = [{ log_date: '2026-09-08', flow_intensity: 'medium' }, { log_date: '2026-09-10', flow_intensity: 'unspecified' }];
+  render(<FlowDashboard />);
+  fireEvent.click(screen.getByRole('button', { name: 'Period günlərini qeyd et' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Select five days' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Qeyd et' }));
+  await waitFor(() => expect(mocks.record).toHaveBeenCalledTimes(2));
+  expect(mocks.record.mock.calls[0][0]).toEqual({ dates: ['2026-09-08'], flow: 'clear' });
+  expect(mocks.record.mock.calls[1][0].dates).toEqual(['2026-09-11','2026-09-12','2026-09-13','2026-09-14']);
 });

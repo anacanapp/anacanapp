@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mommyPeriodStatus, recentDays } from './mommy-period';
+import { mommyCycleInsights, mommyPeriodStatus, recentDays } from './mommy-period';
 
 const T = '2026-10-29';
 
@@ -43,5 +43,28 @@ describe('recentDays', () => {
     expect(days).toHaveLength(14);
     expect(days[0]).toBe('2026-10-21');
     expect(days.at(-1)).toBe('2026-11-03');
+  });
+});
+
+describe('mommyCycleInsights', () => {
+  it('is null without recorded days', () => {
+    expect(mommyCycleInsights([], T)).toBeNull();
+  });
+
+  it('forecasts from 28 days until two normal cycles are recorded', () => {
+    expect(mommyCycleInsights(['2026-10-20', '2026-10-21', '2026-10-22'], T)).toMatchObject({
+      cycleDay: 10, cycleLength: 28, periodLength: 3, nextPeriod: '2026-11-17', daysUntilNext: 19, cycles: [], learned: false });
+  });
+
+  it('learns normal cycles and flags a 53-day delay as an anomaly', () => {
+    const insights = mommyCycleInsights(['2026-06-01', '2026-06-02', '2026-07-01',
+      '2026-07-30', '2026-09-21', '2026-10-20'], T)!;
+    expect(insights.cycles).toEqual([
+      { start: '2026-09-21', length: 29, anomalous: false },
+      { start: '2026-07-30', length: 53, anomalous: true },
+      { start: '2026-07-01', length: 29, anomalous: false },
+      { start: '2026-06-01', length: 30, anomalous: false },
+    ]);
+    expect(insights).toMatchObject({ learned: true, cycleLength: 29, nextPeriod: '2026-11-18' });
   });
 });

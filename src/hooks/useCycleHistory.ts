@@ -1,6 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
+import { useUserStore } from '@/store/userStore';
+import { effectiveCycleLength, isAnomalousCycleLength } from '@/lib/cycle-predictions';
 
 export interface CycleHistory {
   id: string;
@@ -22,6 +24,8 @@ export interface CycleStats {
   longestCycle: number;
   totalCycles: number;
   cycleVariation: number;
+  /** 21–35 gün aralığından kənar tamamlanmış tsikllərin sayı. */
+  anomalousCycles: number;
 }
 
 export const useCycleHistory = () => {
@@ -45,16 +49,25 @@ export const useCycleHistory = () => {
   });
 };
 
+/** Proqnozlar üçün tsikl uzunluğu; anomal tsikllər (məs. 53 gün) normanı dəyişmir. */
+export const useEffectiveCycleLength = () => {
+  const { data: cycles = [] } = useCycleHistory();
+  const stored = useUserStore((s) => s.cycleLength);
+  return effectiveCycleLength(cycles, stored);
+};
+
 export const useCycleStats = () => {
   const { data: cycles = [] } = useCycleHistory();
+  const fallbackCycleLength = useEffectiveCycleLength();
 
   const stats: CycleStats = {
-    averageCycleLength: 28,
+    averageCycleLength: fallbackCycleLength,
     averagePeriodLength: 5,
     shortestCycle: 28,
     longestCycle: 28,
     totalCycles: 0,
     cycleVariation: 0,
+    anomalousCycles: 0,
   };
 
   if (cycles.length > 0) {
@@ -68,7 +81,10 @@ export const useCycleStats = () => {
     map(c => c.period_length!);
 
     if (cycleLengths.length > 0) {
-      stats.averageCycleLength = Math.round(cycleLengths.reduce((a, b) => a + b, 0) / cycleLengths.length);
+      // Orta tsikl yalnız normal (21–35 gün) tsikllərdən; anomaliyalar ayrıca sayılır.
+      const normal = cycleLengths.filter(l => !isAnomalousCycleLength(l));
+      if (normal.length > 0) stats.averageCycleLength = Math.round(normal.reduce((a, b) => a + b, 0) / normal.length);
+      stats.anomalousCycles = cycleLengths.length - normal.length;
       stats.shortestCycle = Math.min(...cycleLengths);
       stats.longestCycle = Math.max(...cycleLengths);
       stats.cycleVariation = stats.longestCycle - stats.shortestCycle;

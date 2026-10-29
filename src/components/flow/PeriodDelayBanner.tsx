@@ -4,13 +4,14 @@ import { motion } from 'framer-motion';
 import { AlertCircle, MessageCircle } from 'lucide-react';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
-import { useCycleStats } from '@/hooks/useCycleHistory';
+import { useCycleStats, useEffectiveCycleLength } from '@/hooks/useCycleHistory';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 
 const PeriodDelayBanner = () => {
-  const { lastPeriodDate, cycleLength } = useUserStore(
-    useShallow((s) => ({ lastPeriodDate: s.lastPeriodDate, cycleLength: s.cycleLength }))
+  const cycleLength = useEffectiveCycleLength();
+  const { lastPeriodDate } = useUserStore(
+    useShallow((s) => ({ lastPeriodDate: s.lastPeriodDate }))
   );
   const { user } = useAuth();
   const stats = useCycleStats();

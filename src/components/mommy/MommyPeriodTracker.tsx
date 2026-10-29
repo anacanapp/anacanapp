@@ -6,7 +6,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useUserStore } from '@/store/userStore';
 import { usePeriodDayLogs, useRecordPeriodDays } from '@/hooks/usePeriodDayLogs';
 import { getCurrentDateLocale } from '@/lib/date-utils';
-import { mommyPeriodStatus, recentDays } from '@/lib/mommy-period';
+import { mommyCycleInsights, mommyPeriodStatus, recentDays, type MommyCycleInsights } from '@/lib/mommy-period';
 import { hasPeriodFlow } from '@/lib/period-flow';
 import { feature37Text } from '@/lib/feature37-i18n';
 import FlowPeriodCalendar from '@/components/flow/FlowPeriodCalendar';
@@ -97,15 +97,52 @@ export function MommyPeriodBanner({ onOpen }: { onOpen: () => void }) {
   </section>;
 }
 
+/** Period-module style overview inside the Mommy period screen (not on the home card). */
+function MommyCycleCard({ insights, language }: { insights: MommyCycleInsights; language: string }) {
+  const t = (key: Parameters<typeof feature37Text>[0]) => feature37Text(key, language);
+  const pct = Math.min(100, Math.round(insights.cycleDay / insights.cycleLength * 100));
+  const anomalies = insights.cycles.filter(c => c.anomalous).length;
+  const dateText = (d: string) => format(parseISO(d), 'd MMM', { locale: getCurrentDateLocale() });
+  return <section className="a-card">
+    <div className="a-card-head"><h3 className="a-card-title a-heading">{t('cycle_now')}</h3>
+      <span className="a-list-sub">{t('next_period').replace('{date}', dateText(insights.nextPeriod))}</span></div>
+    <div className="a-ring-hero">
+      <div className="a-ring" style={{ '--pct': pct, background: `conic-gradient(var(--a-coral) calc(var(--pct) * 1%), var(--a-line) 0)` } as React.CSSProperties}>
+        <div className="a-ring-inner"><b>{insights.cycleDay}</b><span>{t('cycle_day')}</span></div>
+      </div>
+      <div className="a-trio" style={{ gridTemplateColumns: 'repeat(3, 1fr)', flex: 1, gap: 6 }}>
+        {[[Math.max(0, insights.daysUntilNext), t('days_left')], [insights.cycleLength, t('cycle_days')], [insights.periodLength, t('period_days_short')]].map(([value, label]) =>
+          <div key={label} className="a-trio-item" style={{ padding: '10px 4px', border: 'none', boxShadow: 'none', background: 'var(--a-surface-soft)' }}>
+            <p className="a-trio-value">{value}</p><p className="a-trio-label">{label}</p></div>)}
+      </div>
+    </div>
+    <p className="a-list-sub" style={{ marginTop: 12 }}>
+      {insights.learned ? t('forecast_learned').replace('{n}', String(insights.cycles.filter(c => !c.anomalous).slice(0, 6).length)) : t('forecast_default')}
+    </p>
+    {anomalies > 0 && <p className="a-list-sub" style={{ marginTop: 6, color: 'var(--a-warn-ink)' }}>{t('cycle_anomaly_note').replace('{n}', String(anomalies))}</p>}
+    {insights.cycles.length > 0 && <div style={{ marginTop: 12 }}>
+      <p className="a-today-info-eyebrow" style={{ marginBottom: 4 }}>{t('recent_cycles')}</p>
+      {insights.cycles.slice(0, 3).map(c => <div key={c.start} className="a-rank-row">
+        <div style={{ minWidth: 0 }}><p className="a-rank-title">{dateText(c.start)}</p>
+          <p className="a-rank-sub">{t('cycle_len').replace('{n}', String(c.length))}</p></div>
+        {c.anomalous && <span className="a-rank-tag" style={{ background: 'var(--a-yellow-1)', color: 'var(--a-warn-ink)' }}>{t('cycle_anomaly_badge')}</span>}
+      </div>)}
+    </div>}
+    <p className="a-list-sub" style={{ marginTop: 10 }}>{t('postpartum_note')}</p>
+  </section>;
+}
+
 export default function MommyPeriodTracker({ onBack }: { onBack: () => void }) {
   const language = useUserStore(state => state.language), { profile } = useAuth(), { data: logs = [] } = usePeriodDayLogs();
   const since = profile?.baby_birth_date?.slice(0,10) || null;
   const observed = logs.filter(row => (!since || row.log_date >= since) && hasPeriodFlow(row.flow_intensity));
   const latest = observed.map(row => row.log_date).sort().at(-1);
+  const insights = useMemo(() => mommyCycleInsights(observed.map(row => row.log_date), format(new Date(), 'yyyy-MM-dd')), [observed]);
   return <div className="a-scope min-h-screen pb-24" data-mommy-period-tracker style={{ background: 'var(--a-bg)' }}><div className="a-shell space-y-4">
     <header className="a-topbar"><button className="a-icon-btn" onClick={onBack} aria-label={feature37Text('back_mommy', language)}><ArrowLeft size={18} className="rtl:rotate-180" /></button><h1 className="a-wordmark text-base">{feature37Text('period_title', language)}</h1></header>
     <p className="a-list-sub">{feature37Text('period_body', language)}</p>
-    <div className="a-card flex items-center gap-3"><Droplets size={24} /><div><p className="a-list-title">{feature37Text('period_days', language)}: {observed.length}</p><p className="a-list-sub">{latest ? `${feature37Text('period_last', language)}: ${latest}` : feature37Text('period_empty', language)}</p></div></div>
+    {insights ? <MommyCycleCard insights={insights} language={language} /> :
+    <div className="a-card flex items-center gap-3"><Droplets size={24} /><div><p className="a-list-title">{feature37Text('period_days', language)}: {observed.length}</p><p className="a-list-sub">{latest ? `${feature37Text('period_last', language)}: ${latest}` : feature37Text('period_empty', language)}</p></div></div>}
     <FlowPeriodCalendar trackingOnly fromDate={since} />
     <p className="a-list-sub">{feature37Text('period_tracking_note', language)}</p>
   </div></div>;

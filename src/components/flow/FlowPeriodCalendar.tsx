@@ -7,6 +7,7 @@ import { getCurrentDateLocale } from '@/lib/date-utils';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
 import { usePeriodDayLogs, useRecordPeriodDays } from '@/hooks/usePeriodDayLogs';
+import { useEffectiveCycleLength } from '@/hooks/useCycleHistory';
 import { hasPeriodFlow, periodFlowLabel, type PeriodFlowAction } from '@/lib/period-flow';
 import { getPhaseInfoForDate } from '@/lib/cycle-utils';
 import { toast } from 'sonner';
@@ -22,8 +23,9 @@ const flowOptions = () => [
 
 
 const FlowPeriodCalendar = ({ trackingOnly = false, fromDate }: { trackingOnly?: boolean; fromDate?: string | null } = {}) => {
-  const { cycleLength, periodLength, getCycleData } = useUserStore(
-    useShallow((s) => ({ cycleLength: s.cycleLength, periodLength: s.periodLength, getCycleData: s.getCycleData }))
+  const cycleLength = useEffectiveCycleLength();
+  const { periodLength, getCycleData } = useUserStore(
+    useShallow((s) => ({ periodLength: s.periodLength, getCycleData: s.getCycleData }))
   );
   const cycleData = getCycleData();
   const [calendarMonth, setCalendarMonth] = useState(new Date());

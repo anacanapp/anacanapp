@@ -4,6 +4,8 @@ import { Calendar, TrendingUp, Clock, Activity, BarChart3 } from 'lucide-react';
 import { format, parseISO, differenceInDays } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { useCycleHistory, useCycleStats, CycleHistory } from '@/hooks/useCycleHistory';
+import { isAnomalousCycleLength } from '@/lib/cycle-predictions';
+import { feature37Text } from '@/lib/feature37-i18n';
 
 const FlowCycleStats = () => {
   const { data: cycles = [], isLoading } = useCycleHistory();
@@ -75,6 +77,12 @@ const FlowCycleStats = () => {
         </div>
       </div>
 
+      {stats.anomalousCycles > 0 &&
+      <p className="a-list-sub" style={{ margin: '10px 0 0' }}>
+          {feature37Text('cycle_anomaly_note').replace('{n}', String(stats.anomalousCycles))}
+        </p>
+      }
+
       {/* Recent Cycles */}
       {cycles.length > 0 &&
       <div style={{ marginTop: 14 }}>
@@ -99,6 +107,11 @@ const FlowCycleStats = () => {
                     {cycle.cycle_length ? tr("flowcyclestats_gun_tsikl_f123bc", "{length} gün tsikl").replace("{length}", String(cycle.cycle_length)) : tr("flowcyclestats_davam_edir_f842cd", "Davam edir")}
                   </p>
                 </div>
+                {isAnomalousCycleLength(cycle.cycle_length) &&
+            <span className="a-rank-tag" style={{ background: 'var(--a-yellow-1)', color: 'var(--a-warn-ink)', marginInlineEnd: 6 }}>
+                    {feature37Text('cycle_anomaly_badge')}
+                  </span>
+            }
                 {cycle.period_length &&
             <span className="a-rank-tag intensive">
                     {cycle.period_length} {tr("flowcyclestats_gun_54e78d", "g\xFCn")}

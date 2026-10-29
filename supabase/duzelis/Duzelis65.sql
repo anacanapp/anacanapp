@@ -1,88 +1,172 @@
--- Duzelis65.sql — scheduled_notifications (statik push) tərcümələri: 7 dil
--- SƏBƏB: bu cədvəl run-kk-all ORDER-də yox idi → statik pushlar bütün dillərdə AZ gedirdi.
--- COALESCE ilə idempotent — mövcud dəyərlər əzilmir.
+-- Duzelis65.sql — Tsikl uzunluğu anomaliyaları proqnozu dəyişmir
+--
+-- record_period_days profilin cycle_length dəyərini son tamamlanmış tsikllərin
+-- çəkili ortalamasından öyrənirdi (15–60 gün). 42 və 53 günlük gecikmələr belə
+-- "norma" sayılır, 28 günlük tsikli olan istifadəçidə proqnoz 49 günə qalxırdı.
+-- İndi yalnız 21–35 günlük (klinik normal) tsikllər öyrədir; ən azı iki belə
+-- tsikl yoxdursa istifadəçinin öz dəyəri saxlanılır. cycle_history yazılışı,
+-- RLS, writer guard/CDC trigerləri və funksiya imzası dəyişmir.
+--
+-- İCRA (Google): VM-də anacan-postgres konteynerində bir transaksiyada.
 
--- ── ru (10 sətir) ──
-UPDATE public.scheduled_notifications SET title_ru = COALESCE(title_ru, 'Хорошего дня ☀️'), body_ru = COALESCE(body_ru, 'Пусть ваш день будет прекрасным! Сегодня уделите время себе.') WHERE id = 'b23e355a-80c4-49c5-acab-e255287eb9d0';
-UPDATE public.scheduled_notifications SET title_ru = COALESCE(title_ru, 'Поддержка партнёра 💑'), body_ru = COALESCE(body_ru, 'Не забудьте сегодня поддержать своего партнёра!') WHERE id = 'e2a2b1d9-59e6-42ab-a7e9-71b13a431c12';
-UPDATE public.scheduled_notifications SET title_ru = COALESCE(title_ru, 'Быть мамой — прекрасно 🤱'), body_ru = COALESCE(body_ru, 'Каждое мгновение с вашим малышом бесценно. Цените эти моменты!') WHERE id = 'f099172d-897e-44f4-ad64-884bd19163f0';
-UPDATE public.scheduled_notifications SET title_ru = COALESCE(title_ru, 'Забота о себе ❤️'), body_ru = COALESCE(body_ru, 'Во время беременности отдых очень важен. Немного отдохните.') WHERE id = 'fc9a8c00-299a-44bb-96ef-47bee0a5ce3a';
-UPDATE public.scheduled_notifications SET title_ru = COALESCE(title_ru, 'Шевеления малыша 👶'), body_ru = COALESCE(body_ru, 'Не забудьте сегодня отметить шевеления вашего малыша!') WHERE id = '09267660-c676-46bf-8c7f-e363fe1a148e';
-UPDATE public.scheduled_notifications SET title_ru = COALESCE(title_ru, 'Дневник здоровья 📝'), body_ru = COALESCE(body_ru, 'Запишите, как вы себя сегодня чувствуете и какие у вас симптомы.') WHERE id = '143a6067-ccae-4656-ba58-73fbcda5af25';
-UPDATE public.scheduled_notifications SET title_ru = COALESCE(title_ru, 'Время принимать витамины 💊'), body_ru = COALESCE(body_ru, 'Не забудьте принять ежедневные витамины!') WHERE id = '68dfba36-752a-4c6d-b126-b62068dcf29a';
-UPDATE public.scheduled_notifications SET title_ru = COALESCE(title_ru, 'Напоминание дня 💧'), body_ru = COALESCE(body_ru, 'Не забывайте пить воду! Для поддержания здоровья выпивайте 8 стаканов воды в день.') WHERE id = '86369e0e-4f13-4d59-b837-3f52513dd6ce';
-UPDATE public.scheduled_notifications SET title_ru = COALESCE(title_ru, 'Время двигаться 🚶‍♀️'), body_ru = COALESCE(body_ru, 'Небольшая прогулка полезна для вашего здоровья.') WHERE id = 'a808f6e4-abd8-43fb-9582-9221f7780b20';
-UPDATE public.scheduled_notifications SET title_ru = COALESCE(title_ru, 'Напоминание о менструации 🌸'), body_ru = COALESCE(body_ru, 'Приближается дата следующей менструации. Будьте готовы!') WHERE id = 'ab7587a3-43b8-4685-a87c-500223c50943';
+BEGIN;
+CREATE OR REPLACE FUNCTION public.record_period_days(p_expected_user_id uuid, p_dates date[], p_flow text DEFAULT 'unspecified'::text, p_complete boolean DEFAULT false, p_preserve_existing boolean DEFAULT false, p_daily_log jsonb DEFAULT NULL::jsonb, p_timezone text DEFAULT 'UTC'::text)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ SET search_path TO ''
+AS $function$
+DECLARE
+  v_uid uuid := auth.uid();
+  v_today date;
+  v_dates date[];
+  v_profile public.profiles%ROWTYPE;
+  v_cycle public.cycle_history%ROWTYPE;
+  v_start date;
+  v_observed_start date;
+  v_count integer;
+  v_episode date[];
+  v_anchor date;
+  v_diff integer;
+  v_cycle_length integer;
+  v_completed_count integer;
+  v_new_cycle boolean := false;
+  v_assignments text;
+  v_daily jsonb;
+  v_health jsonb := '[]'::jsonb;
+BEGIN
+  IF v_uid IS NULL OR v_uid IS DISTINCT FROM p_expected_user_id THEN
+    RAISE EXCEPTION 'NOT_AUTHENTICATED_OR_ACCOUNT_CHANGED' USING ERRCODE = '42501';
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_catalog.pg_timezone_names WHERE name=p_timezone) THEN
+    RAISE EXCEPTION 'INVALID_TIMEZONE' USING ERRCODE = '22023';
+  END IF;
+  v_today := (pg_catalog.now() AT TIME ZONE p_timezone)::date;
+  SELECT array_agg(DISTINCT d ORDER BY d) INTO v_dates FROM unnest(p_dates) d;
+  IF cardinality(v_dates) IS NULL OR cardinality(v_dates) NOT BETWEEN 1 AND 90
+    OR array_position(v_dates,NULL) IS NOT NULL
+    OR EXISTS (SELECT 1 FROM unnest(v_dates) d WHERE d>v_today)
+    OR (p_flow IS NOT NULL AND p_flow NOT IN ('unspecified','light','medium','heavy','none','spotting','clear'))
+    OR (p_flow IS NULL AND p_daily_log IS NULL) THEN
+    RAISE EXCEPTION 'INVALID_PERIOD_RECORD' USING ERRCODE = '22023';
+  END IF;
+  -- Serialize this user's day/history writes; all access remains protected by RLS.
+  SELECT * INTO v_profile FROM public.profiles WHERE user_id=v_uid FOR UPDATE;
+  IF NOT FOUND THEN RAISE EXCEPTION 'PROFILE_NOT_READY'; END IF;
 
--- ── tr (10 sətir) ──
-UPDATE public.scheduled_notifications SET title_tr = COALESCE(title_tr, 'Gününüz Güzel Geçsin ☀️'), body_tr = COALESCE(body_tr, 'Gününüz güzel geçsin! Bugün kendinize zaman ayırın.') WHERE id = 'b23e355a-80c4-49c5-acab-e255287eb9d0';
-UPDATE public.scheduled_notifications SET title_tr = COALESCE(title_tr, 'Partner Desteği 💑'), body_tr = COALESCE(body_tr, 'Bugün eşinize destek olmayı unutmayın!') WHERE id = 'e2a2b1d9-59e6-42ab-a7e9-71b13a431c12';
-UPDATE public.scheduled_notifications SET title_tr = COALESCE(title_tr, 'Anne Olmak Güzeldir 🤱'), body_tr = COALESCE(body_tr, 'Bebeğinizle geçirdiğiniz her an değerlidir. Bu anların kıymetini bilin!') WHERE id = 'f099172d-897e-44f4-ad64-884bd19163f0';
-UPDATE public.scheduled_notifications SET title_tr = COALESCE(title_tr, 'Kişisel Bakım ❤️'), body_tr = COALESCE(body_tr, 'Hamilelik döneminde dinlenmek çok önemlidir. Biraz dinlenin.') WHERE id = 'fc9a8c00-299a-44bb-96ef-47bee0a5ce3a';
-UPDATE public.scheduled_notifications SET title_tr = COALESCE(title_tr, 'Bebeğin Tekmeleri 👶'), body_tr = COALESCE(body_tr, 'Bugün bebeğinizin hareketlerini kaydetmeyi unutmayın!') WHERE id = '09267660-c676-46bf-8c7f-e363fe1a148e';
-UPDATE public.scheduled_notifications SET title_tr = COALESCE(title_tr, 'Sağlık Günlüğü 📝'), body_tr = COALESCE(body_tr, 'Bugünkü ruh halinizi ve belirtilerinizi kaydedin.') WHERE id = '143a6067-ccae-4656-ba58-73fbcda5af25';
-UPDATE public.scheduled_notifications SET title_tr = COALESCE(title_tr, 'Vitamin Vakti 💊'), body_tr = COALESCE(body_tr, 'Günlük vitaminlerinizi almayı unutmayın!') WHERE id = '68dfba36-752a-4c6d-b126-b62068dcf29a';
-UPDATE public.scheduled_notifications SET title_tr = COALESCE(title_tr, 'Günün Hatırlatması 💧'), body_tr = COALESCE(body_tr, 'Su içmeyi unutmayın! Sağlığınız için günde 8 bardak su için.') WHERE id = '86369e0e-4f13-4d59-b837-3f52513dd6ce';
-UPDATE public.scheduled_notifications SET title_tr = COALESCE(title_tr, 'Hareket Vakti 🚶‍♀️'), body_tr = COALESCE(body_tr, 'Kısa bir yürüyüşe çıkmak sağlığınız için faydalıdır.') WHERE id = 'a808f6e4-abd8-43fb-9582-9221f7780b20';
-UPDATE public.scheduled_notifications SET title_tr = COALESCE(title_tr, 'Regl Hatırlatması 🌸'), body_tr = COALESCE(body_tr, 'Bir sonraki regl tarihiniz yaklaşıyor. Hazırlıklı olun!') WHERE id = 'ab7587a3-43b8-4685-a87c-500223c50943';
+  IF p_daily_log IS NOT NULL THEN
+    IF cardinality(v_dates)<>1 OR jsonb_typeof(p_daily_log)<>'object'
+      OR EXISTS (SELECT 1 FROM jsonb_object_keys(p_daily_log) k WHERE k NOT IN
+        ('mood','energy_level','symptoms','pain_level','sleep_hours','sleep_quality',
+         'temperature','water_glasses','notes','cervical_mucus','sexual_activity','libido','ovulation_test')) THEN
+      RAISE EXCEPTION 'INVALID_DAILY_LOG_FIELDS' USING ERRCODE = '22023';
+    END IF;
+    INSERT INTO public.flow_daily_logs(user_id,log_date) VALUES(v_uid,v_dates[1])
+      ON CONFLICT(user_id,log_date) DO NOTHING;
+    SELECT string_agg(format('%1$I=src.%1$I',k),',') INTO v_assignments FROM jsonb_object_keys(p_daily_log) k;
+    IF v_assignments IS NOT NULL THEN
+      EXECUTE format('UPDATE public.flow_daily_logs t SET %s,updated_at=now()
+        FROM jsonb_populate_record(NULL::public.flow_daily_logs,$1) src WHERE t.user_id=$2 AND t.log_date=$3',v_assignments)
+        USING p_daily_log,v_uid,v_dates[1];
+    END IF;
+  END IF;
 
--- ── en (10 sətir) ──
-UPDATE public.scheduled_notifications SET title_en = COALESCE(title_en, 'Have a Wonderful Day ☀️'), body_en = COALESCE(body_en, 'Have a lovely day! Take some time for yourself today.') WHERE id = 'b23e355a-80c4-49c5-acab-e255287eb9d0';
-UPDATE public.scheduled_notifications SET title_en = COALESCE(title_en, 'Partner Support 💑'), body_en = COALESCE(body_en, 'Remember to support your partner today!') WHERE id = 'e2a2b1d9-59e6-42ab-a7e9-71b13a431c12';
-UPDATE public.scheduled_notifications SET title_en = COALESCE(title_en, 'Motherhood Is Beautiful 🤱'), body_en = COALESCE(body_en, 'Every moment with your baby is precious. Cherish these moments!') WHERE id = 'f099172d-897e-44f4-ad64-884bd19163f0';
-UPDATE public.scheduled_notifications SET title_en = COALESCE(title_en, 'Self-Care ❤️'), body_en = COALESCE(body_en, 'Rest is very important during pregnancy. Take some time to relax.') WHERE id = 'fc9a8c00-299a-44bb-96ef-47bee0a5ce3a';
-UPDATE public.scheduled_notifications SET title_en = COALESCE(title_en, 'Baby Kicks 👶'), body_en = COALESCE(body_en, 'Don''t forget to log your baby''s movements today!') WHERE id = '09267660-c676-46bf-8c7f-e363fe1a148e';
-UPDATE public.scheduled_notifications SET title_en = COALESCE(title_en, 'Health Journal 📝'), body_en = COALESCE(body_en, 'Record your mood and symptoms today.') WHERE id = '143a6067-ccae-4656-ba58-73fbcda5af25';
-UPDATE public.scheduled_notifications SET title_en = COALESCE(title_en, 'Vitamin Time 💊'), body_en = COALESCE(body_en, 'Don''t forget to take your daily vitamins!') WHERE id = '68dfba36-752a-4c6d-b126-b62068dcf29a';
-UPDATE public.scheduled_notifications SET title_en = COALESCE(title_en, 'Daily Reminder 💧'), body_en = COALESCE(body_en, 'Don''t forget to drink water! Drink 8 glasses of water a day to support your health.') WHERE id = '86369e0e-4f13-4d59-b837-3f52513dd6ce';
-UPDATE public.scheduled_notifications SET title_en = COALESCE(title_en, 'Time to Get Moving 🚶‍♀️'), body_en = COALESCE(body_en, 'Going for a short walk is good for your health.') WHERE id = 'a808f6e4-abd8-43fb-9582-9221f7780b20';
-UPDATE public.scheduled_notifications SET title_en = COALESCE(title_en, 'Period Reminder 🌸'), body_en = COALESCE(body_en, 'Your next period is approaching. Be prepared!') WHERE id = 'ab7587a3-43b8-4685-a87c-500223c50943';
+  IF p_flow='clear' THEN
+    DELETE FROM public.period_day_logs WHERE user_id=v_uid AND log_date=ANY(v_dates);
+    UPDATE public.flow_daily_logs SET flow_intensity=NULL,updated_at=now()
+      WHERE user_id=v_uid AND log_date=ANY(v_dates);
+  ELSIF p_flow IS NOT NULL THEN
+    IF p_preserve_existing THEN
+      INSERT INTO public.period_day_logs(user_id,log_date,flow_intensity)
+        SELECT v_uid,d,p_flow FROM unnest(v_dates) d ON CONFLICT(user_id,log_date) DO NOTHING;
+    ELSE
+      INSERT INTO public.period_day_logs(user_id,log_date,flow_intensity)
+        SELECT v_uid,d,p_flow FROM unnest(v_dates) d
+        ON CONFLICT(user_id,log_date) DO UPDATE SET flow_intensity=excluded.flow_intensity;
+    END IF;
+    INSERT INTO public.flow_daily_logs(user_id,log_date,flow_intensity)
+      SELECT v_uid,log_date,CASE WHEN flow_intensity IN ('none','spotting','light','medium','heavy') THEN flow_intensity ELSE NULL END
+      FROM public.period_day_logs WHERE user_id=v_uid AND log_date=ANY(v_dates)
+      ON CONFLICT(user_id,log_date) DO UPDATE SET flow_intensity=excluded.flow_intensity,updated_at=now();
+  END IF;
 
--- ── kk (10 sətir) ──
-UPDATE public.scheduled_notifications SET title_kk = COALESCE(title_kk, 'Күніңіз сәтті өтсін ☀️'), body_kk = COALESCE(body_kk, 'Күніңіз сәтті болсын! Бүгін өзіңізге уақыт бөліңіз.') WHERE id = 'b23e355a-80c4-49c5-acab-e255287eb9d0';
-UPDATE public.scheduled_notifications SET title_kk = COALESCE(title_kk, 'Жұбайыңыздың қолдауы 💑'), body_kk = COALESCE(body_kk, 'Бүгін де жұбайыңызға қолдау көрсетуді ұмытпаңыз!') WHERE id = 'e2a2b1d9-59e6-42ab-a7e9-71b13a431c12';
-UPDATE public.scheduled_notifications SET title_kk = COALESCE(title_kk, 'Ана болу — бақыт 🤱'), body_kk = COALESCE(body_kk, 'Бөпеңізбен өткізген әр сәт қымбат. Осы сәттерді бағалаңыз!') WHERE id = 'f099172d-897e-44f4-ad64-884bd19163f0';
-UPDATE public.scheduled_notifications SET title_kk = COALESCE(title_kk, 'Өзіңізге күтім жасау ❤️'), body_kk = COALESCE(body_kk, 'Жүктілік кезінде демалу өте маңызды. Біраз тынығып алыңыз.') WHERE id = 'fc9a8c00-299a-44bb-96ef-47bee0a5ce3a';
-UPDATE public.scheduled_notifications SET title_kk = COALESCE(title_kk, 'Бөпенің тебуі 👶'), body_kk = COALESCE(body_kk, 'Бүгін бөпеңіздің қимылдарын белгілеуді ұмытпаңыз!') WHERE id = '09267660-c676-46bf-8c7f-e363fe1a148e';
-UPDATE public.scheduled_notifications SET title_kk = COALESCE(title_kk, 'Денсаулық күнделігі 📝'), body_kk = COALESCE(body_kk, 'Бүгінгі көңіл күйіңіз бен белгілеріңізді жазып қойыңыз.') WHERE id = '143a6067-ccae-4656-ba58-73fbcda5af25';
-UPDATE public.scheduled_notifications SET title_kk = COALESCE(title_kk, 'Дәрумен қабылдайтын уақыт 💊'), body_kk = COALESCE(body_kk, 'Күнделікті дәрумендеріңізді қабылдауды ұмытпаңыз!') WHERE id = '68dfba36-752a-4c6d-b126-b62068dcf29a';
-UPDATE public.scheduled_notifications SET title_kk = COALESCE(title_kk, 'Күнделікті еске салу 💧'), body_kk = COALESCE(body_kk, 'Су ішуді ұмытпаңыз! Денсаулығыңыз үшін күніне 8 стақан су ішіңіз.') WHERE id = '86369e0e-4f13-4d59-b837-3f52513dd6ce';
-UPDATE public.scheduled_notifications SET title_kk = COALESCE(title_kk, 'Қимылдайтын уақыт 🚶‍♀️'), body_kk = COALESCE(body_kk, 'Аздап серуендеу денсаулығыңызға пайдалы.') WHERE id = 'a808f6e4-abd8-43fb-9582-9221f7780b20';
-UPDATE public.scheduled_notifications SET title_kk = COALESCE(title_kk, 'Етеккір туралы еске салу 🌸'), body_kk = COALESCE(body_kk, 'Келесі етеккіріңіздің күні жақындап қалды. Дайын болыңыз!') WHERE id = 'ab7587a3-43b8-4685-a87c-500223c50943';
+  IF p_flow IS NOT NULL THEN
+    -- Keep the existing 12-day editing tolerance; a missed diary day is not a new cycle.
+    WITH ordered AS (
+      SELECT log_date,lag(log_date) OVER(ORDER BY log_date) AS previous
+      FROM public.period_day_logs WHERE user_id=v_uid AND log_date<=v_today
+        AND (flow_intensity IS NULL OR flow_intensity NOT IN ('none','spotting'))
+    ), grouped AS (
+      SELECT log_date,sum(CASE WHEN previous IS NULL OR log_date-previous>12 THEN 1 ELSE 0 END)
+        OVER(ORDER BY log_date) AS episode FROM ordered
+    )
+    SELECT min(log_date),count(*)::integer,array_agg(log_date ORDER BY log_date)
+      INTO v_start,v_count,v_episode FROM grouped GROUP BY episode ORDER BY episode DESC LIMIT 1;
+    v_observed_start := v_start;
+    SELECT * INTO v_cycle FROM public.cycle_history WHERE user_id=v_uid ORDER BY cycle_number DESC LIMIT 1;
+    v_anchor := coalesce(v_cycle.start_date,v_profile.last_period_date);
 
--- ── de (10 sətir) ──
-UPDATE public.scheduled_notifications SET title_de = COALESCE(title_de, 'Hab einen schönen Tag ☀️'), body_de = COALESCE(body_de, 'Wir wünschen dir einen schönen Tag! Nimm dir heute etwas Zeit für dich.') WHERE id = 'b23e355a-80c4-49c5-acab-e255287eb9d0';
-UPDATE public.scheduled_notifications SET title_de = COALESCE(title_de, 'Unterstützung durch den Partner 💑'), body_de = COALESCE(body_de, 'Vergiss nicht, deinen Partner heute zu unterstützen!') WHERE id = 'e2a2b1d9-59e6-42ab-a7e9-71b13a431c12';
-UPDATE public.scheduled_notifications SET title_de = COALESCE(title_de, 'Mama zu sein ist wunderschön 🤱'), body_de = COALESCE(body_de, 'Jeder Moment mit deinem Baby ist kostbar. Genieße diese Augenblicke!') WHERE id = 'f099172d-897e-44f4-ad64-884bd19163f0';
-UPDATE public.scheduled_notifications SET title_de = COALESCE(title_de, 'Selbstfürsorge ❤️'), body_de = COALESCE(body_de, 'In der Schwangerschaft ist Erholung besonders wichtig. Ruh dich ein wenig aus.') WHERE id = 'fc9a8c00-299a-44bb-96ef-47bee0a5ce3a';
-UPDATE public.scheduled_notifications SET title_de = COALESCE(title_de, 'Babytritte 👶'), body_de = COALESCE(body_de, 'Vergiss nicht, heute die Bewegungen deines Babys zu notieren!') WHERE id = '09267660-c676-46bf-8c7f-e363fe1a148e';
-UPDATE public.scheduled_notifications SET title_de = COALESCE(title_de, 'Gesundheitstagebuch 📝'), body_de = COALESCE(body_de, 'Notiere deine heutige Stimmung und deine Symptome.') WHERE id = '143a6067-ccae-4656-ba58-73fbcda5af25';
-UPDATE public.scheduled_notifications SET title_de = COALESCE(title_de, 'Zeit für deine Vitamine 💊'), body_de = COALESCE(body_de, 'Vergiss nicht, deine täglichen Vitamine einzunehmen!') WHERE id = '68dfba36-752a-4c6d-b126-b62068dcf29a';
-UPDATE public.scheduled_notifications SET title_de = COALESCE(title_de, 'Erinnerung des Tages 💧'), body_de = COALESCE(body_de, 'Vergiss nicht, Wasser zu trinken! Trinke für deine Gesundheit täglich 8 Gläser Wasser.') WHERE id = '86369e0e-4f13-4d59-b837-3f52513dd6ce';
-UPDATE public.scheduled_notifications SET title_de = COALESCE(title_de, 'Zeit für Bewegung 🚶‍♀️'), body_de = COALESCE(body_de, 'Ein kleiner Spaziergang tut deiner Gesundheit gut.') WHERE id = 'a808f6e4-abd8-43fb-9582-9221f7780b20';
-UPDATE public.scheduled_notifications SET title_de = COALESCE(title_de, 'Periodenerinnerung 🌸'), body_de = COALESCE(body_de, 'Deine nächste Periode steht bald bevor. Sei vorbereitet!') WHERE id = 'ab7587a3-43b8-4685-a87c-500223c50943';
+    IF v_profile.life_stage='flow' AND v_start IS NOT NULL
+      AND (v_anchor IS NULL OR v_start>=v_anchor-12)
+      AND (v_anchor IS NULL OR v_dates[cardinality(v_dates)]>=v_anchor-12) THEN
+      -- An explicit start already exists: adding day 2/3 must not move it forward.
+      IF v_anchor IS NOT NULL AND v_start BETWEEN v_anchor AND v_anchor+12
+        AND NOT (v_anchor=ANY(v_dates) AND p_flow IN ('clear','none','spotting')) THEN
+        v_start := v_anchor;
+      END IF;
+      v_diff := v_start-v_cycle.start_date;
+      IF v_cycle.id IS NULL THEN
+        INSERT INTO public.cycle_history(user_id,cycle_number,start_date,period_length)
+          VALUES(v_uid,1,v_start,v_count);
+      ELSIF abs(v_diff)<=12 THEN
+        UPDATE public.cycle_history SET start_date=v_start,period_length=v_count WHERE id=v_cycle.id AND user_id=v_uid;
+        IF v_diff<>0 THEN
+          UPDATE public.cycle_history SET end_date=v_start,
+            cycle_length=CASE WHEN v_start-start_date BETWEEN 15 AND 60 THEN v_start-start_date ELSE NULL END
+            WHERE user_id=v_uid AND cycle_number=v_cycle.cycle_number-1;
+        END IF;
+      ELSIF v_diff>12 THEN
+        UPDATE public.cycle_history SET end_date=v_start,
+          cycle_length=CASE WHEN v_diff BETWEEN 15 AND 60 THEN v_diff ELSE NULL END WHERE id=v_cycle.id AND user_id=v_uid;
+        INSERT INTO public.cycle_history(user_id,cycle_number,start_date,period_length)
+          VALUES(v_uid,v_cycle.cycle_number+1,v_start,v_count);
+        v_new_cycle := true;
+      END IF;
+      UPDATE public.profiles SET last_period_date=v_start,
+        -- A first observed day does NOT change a typical five-day period into one day.
+        period_length=CASE WHEN p_complete AND v_count BETWEEN 1 AND 15 THEN v_count
+          WHEN v_count BETWEEN 2 AND 15 THEN greatest(coalesce(period_length,5),v_count) ELSE period_length END
+        WHERE user_id=v_uid;
+      -- Duzelis65: only clinically normal cycles (21-35 days) teach the typical length;
+      -- a 53-day delay is an anomaly, not the user's new norm.
+      WITH recent AS (
+        SELECT cycle_number,cycle_length FROM public.cycle_history WHERE user_id=v_uid AND cycle_length BETWEEN 21 AND 35
+          ORDER BY cycle_number DESC LIMIT 6
+      ), weighted AS (
+        SELECT cycle_length,count(*) OVER() - row_number() OVER(ORDER BY cycle_number DESC) + 1 AS weight FROM recent
+      ) SELECT round(sum(cycle_length*weight)::numeric/nullif(sum(weight),0))::integer,count(*)::integer
+        INTO v_cycle_length,v_completed_count FROM weighted;
+      IF v_completed_count>=2 THEN
+        UPDATE public.profiles SET cycle_length=v_cycle_length WHERE user_id=v_uid;
+      END IF;
+    END IF;
 
--- ── ar (10 sətir) ──
-UPDATE public.scheduled_notifications SET title_ar = COALESCE(title_ar, 'نتمنى لكِ يومًا سعيدًا ☀️'), body_ar = COALESCE(body_ar, 'نتمنى لكِ يومًا مباركًا! خصّصي بعض الوقت لنفسكِ اليوم.') WHERE id = 'b23e355a-80c4-49c5-acab-e255287eb9d0';
-UPDATE public.scheduled_notifications SET title_ar = COALESCE(title_ar, 'دعم الشريك 💑'), body_ar = COALESCE(body_ar, 'لا تنسي دعم زوجكِ اليوم!') WHERE id = 'e2a2b1d9-59e6-42ab-a7e9-71b13a431c12';
-UPDATE public.scheduled_notifications SET title_ar = COALESCE(title_ar, 'الأمومة جميلة 🤱'), body_ar = COALESCE(body_ar, 'كل لحظة مع طفلكِ ثمينة. استمتعي بهذه اللحظات!') WHERE id = 'f099172d-897e-44f4-ad64-884bd19163f0';
-UPDATE public.scheduled_notifications SET title_ar = COALESCE(title_ar, 'العناية بنفسكِ ❤️'), body_ar = COALESCE(body_ar, 'الراحة مهمة جدًا خلال فترة الحمل. خذي قسطًا من الراحة.') WHERE id = 'fc9a8c00-299a-44bb-96ef-47bee0a5ce3a';
-UPDATE public.scheduled_notifications SET title_ar = COALESCE(title_ar, 'ركلات طفلكِ 👶'), body_ar = COALESCE(body_ar, 'لا تنسي تسجيل حركات طفلكِ اليوم!') WHERE id = '09267660-c676-46bf-8c7f-e363fe1a148e';
-UPDATE public.scheduled_notifications SET title_ar = COALESCE(title_ar, 'مفكرة الصحة 📝'), body_ar = COALESCE(body_ar, 'سجّلي حالتكِ المزاجية وأعراضكِ اليوم.') WHERE id = '143a6067-ccae-4656-ba58-73fbcda5af25';
-UPDATE public.scheduled_notifications SET title_ar = COALESCE(title_ar, 'موعد الفيتامينات 💊'), body_ar = COALESCE(body_ar, 'لا تنسي تناول فيتاميناتكِ اليومية!') WHERE id = '68dfba36-752a-4c6d-b126-b62068dcf29a';
-UPDATE public.scheduled_notifications SET title_ar = COALESCE(title_ar, 'تذكير اليوم 💧'), body_ar = COALESCE(body_ar, 'لا تنسي شرب الماء! اشربي 8 أكواب من الماء يوميًا للحفاظ على صحتكِ.') WHERE id = '86369e0e-4f13-4d59-b837-3f52513dd6ce';
-UPDATE public.scheduled_notifications SET title_ar = COALESCE(title_ar, 'وقت الحركة 🚶‍♀️'), body_ar = COALESCE(body_ar, 'الخروج في نزهة قصيرة مفيد لصحتكِ.') WHERE id = 'a808f6e4-abd8-43fb-9582-9221f7780b20';
-UPDATE public.scheduled_notifications SET title_ar = COALESCE(title_ar, 'تذكير بالدورة الشهرية 🌸'), body_ar = COALESCE(body_ar, 'اقترب موعد دورتكِ الشهرية القادمة. كوني مستعدة!') WHERE id = 'ab7587a3-43b8-4685-a87c-500223c50943';
+    SELECT coalesce(jsonb_agg(jsonb_build_object('date',d,
+      'flow',coalesce(l.flow_intensity,CASE WHEN l.id IS NULL THEN 'clear' ELSE 'unspecified' END),
+      'cycleStart',l.id IS NOT NULL AND (l.flow_intensity IS NULL OR l.flow_intensity NOT IN ('none','spotting'))
+        AND NOT EXISTS (SELECT 1 FROM public.period_day_logs prev WHERE prev.user_id=v_uid
+          AND prev.log_date<d AND prev.log_date>=d-12
+          AND (prev.flow_intensity IS NULL OR prev.flow_intensity NOT IN ('none','spotting')))) ORDER BY d),'[]'::jsonb) INTO v_health
+      FROM (SELECT unnest(v_dates) d UNION SELECT unnest(v_episode) d) dates
+      LEFT JOIN public.period_day_logs l ON l.user_id=v_uid AND l.log_date=dates.d;
+  END IF;
+  SELECT * INTO v_profile FROM public.profiles WHERE user_id=v_uid;
+  IF p_daily_log IS NOT NULL THEN
+    SELECT to_jsonb(l) INTO v_daily FROM public.flow_daily_logs l WHERE l.user_id=v_uid AND l.log_date=v_dates[1];
+  END IF;
+  RETURN jsonb_build_object('ok',true,'userId',v_uid,'dates',v_dates,'flow',p_flow,'dailyLog',v_daily,
+    'profile',jsonb_build_object('last_period_date',v_profile.last_period_date,'period_length',v_profile.period_length,'cycle_length',v_profile.cycle_length),
+    'healthDays',v_health);
+END $function$;
 
--- ── uz (10 sətir) ──
-UPDATE public.scheduled_notifications SET title_uz = COALESCE(title_uz, 'Chaqaloqning tepishlari 👶'), body_uz = COALESCE(body_uz, 'Bugun chaqalog‘ingizning harakatlarini qayd etishni unutmang!') WHERE id = '09267660-c676-46bf-8c7f-e363fe1a148e';
-UPDATE public.scheduled_notifications SET title_uz = COALESCE(title_uz, 'Salomatlik kundaligi 📝'), body_uz = COALESCE(body_uz, 'Bugungi kayfiyatingiz va alomatlaringizni qayd eting.') WHERE id = '143a6067-ccae-4656-ba58-73fbcda5af25';
-UPDATE public.scheduled_notifications SET title_uz = COALESCE(title_uz, 'Vitaminlar vaqti 💊'), body_uz = COALESCE(body_uz, 'Kundalik vitaminlaringizni qabul qilishni unutmang!') WHERE id = '68dfba36-752a-4c6d-b126-b62068dcf29a';
-UPDATE public.scheduled_notifications SET title_uz = COALESCE(title_uz, 'Kun eslatmasi 💧'), body_uz = COALESCE(body_uz, 'Suv ichishni unutmang! Salomatligingiz uchun kuniga 8 stakan suv iching.') WHERE id = '86369e0e-4f13-4d59-b837-3f52513dd6ce';
-UPDATE public.scheduled_notifications SET title_uz = COALESCE(title_uz, 'Harakatlanish vaqti 🚶‍♀️'), body_uz = COALESCE(body_uz, 'Biroz sayr qilish salomatligingiz uchun foydali.') WHERE id = 'a808f6e4-abd8-43fb-9582-9221f7780b20';
-UPDATE public.scheduled_notifications SET title_uz = COALESCE(title_uz, 'Hayz eslatmasi 🌸'), body_uz = COALESCE(body_uz, 'Keyingi hayz sanangiz yaqinlashmoqda. Tayyor turing!') WHERE id = 'ab7587a3-43b8-4685-a87c-500223c50943';
-UPDATE public.scheduled_notifications SET title_uz = COALESCE(title_uz, 'Kuningiz Xayrli O‘tsin ☀️'), body_uz = COALESCE(body_uz, 'Kuningiz xayrli bo‘lsin! Bugun o‘zingizga vaqt ajrating.') WHERE id = 'b23e355a-80c4-49c5-acab-e255287eb9d0';
-UPDATE public.scheduled_notifications SET title_uz = COALESCE(title_uz, 'Juftingizning Ko‘magi 💑'), body_uz = COALESCE(body_uz, 'Bugun ham turmush o‘rtog‘ingizni qo‘llab-quvvatlashni unutmang!') WHERE id = 'e2a2b1d9-59e6-42ab-a7e9-71b13a431c12';
-UPDATE public.scheduled_notifications SET title_uz = COALESCE(title_uz, 'Ona Bo‘lish Go‘zal 🤱'), body_uz = COALESCE(body_uz, 'Chaqalog‘ingiz bilan o‘tgan har bir lahza qadrli. Bu lahzalarni qadrlang!') WHERE id = 'f099172d-897e-44f4-ad64-884bd19163f0';
-UPDATE public.scheduled_notifications SET title_uz = COALESCE(title_uz, 'O‘zingizga G‘amxo‘rlik ❤️'), body_uz = COALESCE(body_uz, 'Homiladorlik davrida dam olish juda muhim. Biroz dam oling.') WHERE id = 'fc9a8c00-299a-44bb-96ef-47bee0a5ce3a';
-
+NOTIFY pgrst, 'reload schema';
+COMMIT;

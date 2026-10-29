@@ -1,4 +1,4 @@
-import { differenceInCalendarDays, parseISO, subDays, format } from 'date-fns';
+import { addDays, differenceInCalendarDays, parseISO, subDays, format } from 'date-fns';
 
 /** Days apart that still count as the same period (one missed log in between). */
 const SAME_PERIOD_GAP = 2;
@@ -46,4 +46,50 @@ export function mommyPeriodStatus(flowDays: readonly string[], today: string, en
 export function recentDays(today: string, count = 14): string[] {
   const end = parseISO(today);
   return Array.from({ length: count }, (_, i) => format(subDays(end, count - 1 - i), 'yyyy-MM-dd'));
+}
+
+export interface MommyCycleInsights {
+  /** Day of the current cycle counting the latest period start as day 1. */
+  cycleDay: number;
+  /** Cycle length used for the forecast (normal 21–35 day cycles only). */
+  cycleLength: number;
+  /** Average recorded period length in days. */
+  periodLength: number;
+  nextPeriod: string;
+  daysUntilNext: number;
+  /** Completed cycles since the birth, newest first. */
+  cycles: { start: string; length: number; anomalous: boolean }[];
+  /** True once two or more normal cycles drive the forecast. */
+  learned: boolean;
+}
+
+/**
+ * Postpartum cycle overview from recorded flow days alone (the Mommy profile keeps its
+ * pregnancy anchors). Periods are runs of flow days; a cycle runs from one start to the next.
+ * Cycles outside 21–35 days are shown as anomalies and do not move the forecast.
+ */
+export function mommyCycleInsights(flowDays: readonly string[], today: string, fallbackCycleLength = 28): MommyCycleInsights | null {
+  const days = [...new Set(flowDays)].filter((d) => d <= today).sort();
+  if (!days.length) return null;
+  const periods: string[][] = [];
+  for (const day of days) {
+    const run = periods.at(-1);
+    if (run && differenceInCalendarDays(parseISO(day), parseISO(run.at(-1)!)) <= SAME_PERIOD_GAP) run.push(day);
+    else periods.push([day]);
+  }
+  const starts = periods.map((run) => run[0]);
+  const cycles = starts.slice(1).map((start, i) => {
+    const length = differenceInCalendarDays(parseISO(start), parseISO(starts[i]));
+    return { start: starts[i], length, anomalous: length < 21 || length > 35 };
+  }).reverse();
+  const normal = cycles.filter((c) => !c.anomalous).slice(0, 6).map((c) => c.length);
+  const learned = normal.length >= 2;
+  const cycleLength = learned ? Math.round(normal.reduce((a, b) => a + b, 0) / normal.length) : fallbackCycleLength;
+  const lengths = periods.map((run) => differenceInCalendarDays(parseISO(run.at(-1)!), parseISO(run[0])) + 1);
+  const periodLength = Math.round(lengths.reduce((a, b) => a + b, 0) / lengths.length);
+  const latest = starts.at(-1)!;
+  const cycleDay = differenceInCalendarDays(parseISO(today), parseISO(latest)) + 1;
+  const next = format(addDays(parseISO(latest), cycleLength), 'yyyy-MM-dd');
+  return { cycleDay, cycleLength, periodLength, nextPeriod: next,
+    daysUntilNext: differenceInCalendarDays(parseISO(next), parseISO(today)), cycles, learned };
 }
