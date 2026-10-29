@@ -159,40 +159,5 @@ export const DISHES: Record<string, GuideDish[]> = {
     d('Kinoa salatı + noxud', 'iron'), d('Yumurtalı tost "əsgərləri"', 'iron', 'allergen'), d('Smuzi kasası', 'ca', 'allergen'), d('Ev nuggetsi (sobada)', 'iron')],
 };
 
-export interface GuideRecipe { id: string; title: string; from: number; tags: GuideTag[]; ingredients: string; steps: string[] }
-export const RECIPES: GuideRecipe[] = [
-  { id: 'beef-pumpkin', title: 'Mal əti + balqabaq püresi', from: 6, tags: ['iron'], ingredients: '100 q yağsız mal əti, 150 q balqabaq, 1 çay qaşığı zeytun yağı',
-    steps: ['Əti xırda doğrayıb suda 40–50 dəq tam yumşalana qədər bişirin; balqabağı son 15 dəqiqədə əlavə edin.', 'Bulyonla blenderdən keçirin, zeytun yağı qatın. 9 aydan sonra çəngəllə əzin.'] },
-  { id: 'lentil-soup', title: 'Qırmızı mərci şorbası', from: 6, tags: ['iron'], ingredients: '½ stəkan qırmızı mərci, 1 kiçik yerkökü, ¼ soğan, 1 kiçik kartof, 2½ stəkan su, ½ çay qaşığı zirə, 1 çay qaşığı kərə yağı',
-    steps: ['Hamısını 25 dəq bişirin, blenderdən keçirin; kərə yağı və zirə qatın.', 'Dəmirin mənimsənilməsi üçün yanında çiyələk və ya portağal dilimi verin.'] },
-  { id: 'oat-apple', title: 'Yulaf-alma sıyığı', from: 6, tags: ['iron'], ingredients: '3 xörək qaşığı üyüdülmüş yulaf, ½ stəkan su və ya ana südü/formula, ½ alma (sürtgəcdən), bir çimdik darçın',
-    steps: ['Yulafı su ilə 5 dəq bişirin, almanı qatıb 2 dəq də bişirin.', 'Oddan götürəndən sonra ana südü/formula əlavə edin. Variasiya: 1 çay qaşığı tahin və ya nazik yer fındığı pastası.'] },
-  { id: 'salmon-sweet-potato', title: 'Qızılbalıq + şirin kartof püresi', from: 6, tags: ['omega', 'allergen'], ingredients: '80 q sümüksüz qızılbalıq, 1 orta şirin kartof, 1 çay qaşığı kərə yağı, şüyüd',
-    steps: ['Kartofu 20 dəq, balığı 10 dəq buxarda (və ya 180°C sobada) bişirin.', 'Balığın sümüksüz olduğunu əllə yoxlayın, kartofla birlikdə əzin.'] },
-  { id: 'first-egg', title: 'Tam yumurta ilə ilk tanışlıq', from: 6, tags: ['iron', 'allergen'], ingredients: '1 yumurta, 1 xörək qaşığı ana südü/formula və ya qatıq',
-    steps: ['Yumurtanı 10–12 dəq bərk bişirin, ağı və sarısı ilə birlikdə maye ilə əzin.', 'Səhər verin, 2–3 gün başqa yeni allergen verməyin; sonra həftədə 2–3 dəfə davam edin.'] },
-  { id: 'mini-meatballs', title: 'Mini mal əti köftələri', from: 9, tags: ['iron'], ingredients: '250 q mal əti qiyməsi, 3 xörək qaşığı yulaf, ½ yerkökü, ½ kabak (sıxılmış), 1 yumurta, cəfəri, zirə',
-    steps: ['Hamısını qarışdırıb barmaq ölçüsündə uzunsov köftələr düzəldin.', '180°C sobada 18–20 dəq bişirin; içində çəhrayı rəng qalmamalıdır.'] },
-  { id: 'omelette-strips', title: 'Tərəvəzli omlet zolaqları', from: 9, tags: ['iron', 'allergen'], ingredients: '2 yumurta, 2 xörək qaşığı xırda ispanaq, 1 xörək qaşığı sürtgəcdən pendir (duzu az)',
-    steps: ['Qarışdırıb kiçik tavada az yağla hər iki üzü tam bişənə qədər qızardın.', 'Barmaq qalınlığında zolaqlara kəsin.'] },
-  { id: 'yogurt-pancake', title: 'Qatıqlı yulaf pancake', from: 9, tags: ['ca', 'allergen'], ingredients: '1 yetişmiş banan, 1 yumurta, 4 xörək qaşığı yulaf unu, 2 xörək qaşığı qatıq',
-    steps: ['Bananı əzib qalanları qatın; yapışmayan tavada kiçik pancake-lər bişirin.', 'Üstünə qatıq və əzilmiş qaragilə.'] },
-  { id: 'buckwheat-liver', title: 'Qreçka + toyuq ciyəri sousu', from: 9, tags: ['iron'], ingredients: '½ stəkan qreçka, 50 q toyuq ciyəri, ¼ soğan, ½ yerkökü, 1 çay qaşığı kərə yağı',
-    steps: ['Qreçkanı bişirin. Ciyəri soğan və yerkökü ilə az suda 10–12 dəq bişirib blenderdən keçirin.', 'Sousu qreçkaya qatın. Ciyər həftədə 1 dəfədən çox olmasın (A vitamini).'] },
-  { id: 'kids-plov', title: 'Uşaq plovu', from: 12, tags: ['iron'], ingredients: '1 stəkan düyü, 200 q toyuq budu və ya quzu əti, 1 yerkökü, ½ soğan, 3–4 ərik qurusu, 1 xörək qaşığı kərə yağı, zəfəran/zerdeçal',
-    steps: ['Əti, soğanı və yerkökünü az yağda qovurub su əlavə edərək 30 dəq bişirin.', 'Düyü və doğranmış ərik qurusunu qatıb dəmə qoyun (20–25 dəq). Böyüklər üçün duzu ayrıca əlavə edin.'] },
-  { id: 'herb-kuku', title: 'Göyərti kükü (sobada)', from: 12, tags: ['iron', 'c', 'allergen'], ingredients: '4 yumurta, şüyüd, cəfəri, keşniş, ispanaq, 1 xörək qaşığı qatıq',
-    steps: ['Göyərtiləri xırda doğrayın, yumurta və qatıqla qarışdırın.', 'Muffin qəlibində 180°C-də 20 dəq bişirin; yanında pomidor dilimləri.'] },
-  { id: 'fish-cutlet', title: 'Balıq kotleti', from: 12, tags: ['omega', 'allergen'], ingredients: '250 q treska və ya qızılbalıq, 1 qaynadılmış kartof, 1 yumurta, şüyüd, 2 xörək qaşığı yulaf',
-    steps: ['Balığı xırda doğrayıb hamısı ilə qarışdırın, kotlet formasına salın.', '190°C sobada 15–18 dəq bişirin; yanında yaşıl noxud püresi.'] },
-  { id: 'cottage-bake', title: 'Kəsmikli zapekanka', from: 12, tags: ['ca', 'allergen'], ingredients: '250 q kəsmik, 1 yumurta, 2 xörək qaşığı manna, 1 yetişmiş banan, 2 xörək qaşığı qatıq',
-    steps: ['Hamısını blenderdən keçirib yağlanmış qəlibə tökün.', '180°C-də 30–35 dəq bişirin, soyuyandan sonra kəsin.'] },
-  { id: 'smoothie-bowl', title: 'Smuzi kasası', from: 12, tags: ['ca', 'allergen'], ingredients: '½ stəkan qatıq, ½ stəkan dondurulmuş giləmeyvə, ½ banan, 1 çay qaşığı qoz pastası, 1 çay qaşığı üyüdülmüş çətənə',
-    steps: ['Hamısını blenderdə qalın qarışdırın.', 'Kasaya töküb üstünə yulaf səpin.'] },
-  { id: 'beans', title: 'Lobya yeməyi', from: 24, tags: ['iron'], ingredients: '1 stəkan isladılmış ağ lobya, 150 q mal əti, 1 soğan, 1 xörək qaşığı tomat pastası, 1 xörək qaşığı zeytun yağı',
-    steps: ['Əti soğanla qovurun, tomat pastası və lobyanı əlavə edin.', 'Üstünü örtənə qədər su töküb 60–70 dəq bişirin; bulqur və ya düyü, yanında qatıq.'] },
-];
-
-export const RECIPE_NOTE = 'Bütün reseptlər duzsuz və şəkərsizdir; 1 yaşdan sonra böyüklərin porsiyası ayrılandan sonra duz əlavə olunur. Artığı 3 aya qədər dondurula bilər.';
 export const DISCLAIMER = 'Bu bələdçi maarifləndirmə məqsədlidir və tibbi məsləhət deyil. Dəmir və vitamin dozasını pediatrınız təyin edir. Mənbələr: ÜST (2023), AAP, Türkiyə Sağlıq Nazirliyi, Rusiya Pediatrlar İttifaqı, SACN.';
 export const EMERGENCY = 'Üz və ya dodaqlarda şişkinlik, nəfəs çətinliyi, təkrar qusma, solğunluq — dərhal 103 / 112.';

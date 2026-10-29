@@ -1,14 +1,23 @@
-import { useMemo, useState } from 'react';
-import { AlertTriangle, Check, ChevronDown, Crown, Lock } from 'lucide-react';
+import { lazy, Suspense, useMemo, useState } from 'react';
+import { AlertTriangle, Check, ChevronRight, Crown, Lock } from 'lucide-react';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 import { useChildren } from '@/hooks/useChildren';
 import { useSubscription } from '@/hooks/useSubscription';
-import { PremiumModal } from '@/components/PremiumModal';
+import { useRecipes } from '@/hooks/useDynamicContent';
 import {
   ALLERGENS, ALLERGEN_STEPS, AVOID, CHOKING, DISCLAIMER, DISHES, EMERGENCY, FOODS, FOOD_GROUPS, IRON_BLOCKS, IRON_HELPS,
-  MYTHS, NUTRIENTS, NUTRIENT_AGES, PLATE, READINESS, RECIPES, RECIPE_NOTE, SAMPLE_DAY, STAGES, type FoodGroup, type GuideTag,
+  MYTHS, NUTRIENTS, NUTRIENT_AGES, PLATE, READINESS, SAMPLE_DAY, STAGES, type FoodGroup, type GuideTag,
 } from '@/data/solidFoodGuide';
 import '@/styles/solid-food-guide.css';
+
+const Recipes = lazy(() => import('./Recipes'));
+/** The app's Recipes tool keeps baby recipes in this category (Duzelis67). */
+export const BABY_RECIPE_CATEGORY = 'baby_food';
+/** Minimum age in months from titles such as "Armud püresi (6 ay+)" or "Naqets (1 yaş+)". */
+export const recipeMinMonths = (title: string): number | null => {
+  const match = title.match(/(\d+)\s*(ay|yaş)\s*\+/i);
+  return match ? Number(match[1]) * (match[2].toLowerCase() === 'yaş' ? 12 : 1) : null;
+};
 
 const TAG_LABEL: Record<GuideTag, string> = { iron: '★ Dəmir', ca: 'Ca', omega: 'Ω-3', c: 'C', allergen: 'Allergen' };
 const Tags = ({ tags }: { tags: GuideTag[] }) => tags.length ? (
@@ -29,12 +38,24 @@ export default function SolidFoodGuide({ onBack }: { onBack: () => void }) {
   const [stageId, setStageId] = useState(() => stageFor(months).id);
   const [ready, setReady] = useState<string[]>([]);
   const [group, setGroup] = useState<FoodGroup | 'all'>('all');
-  const [openRecipe, setOpenRecipe] = useState<string | null>(null);
-  const [paywall, setPaywall] = useState(false);
+  const [recipesView, setRecipesView] = useState<{ recipeId?: string } | null>(null);
+  const { data: allRecipes = [] } = useRecipes();
+  // Same order and free tier as the Recipes tool: the first three of the category are free.
+  const babyRecipes = useMemo(() => allRecipes.filter((r) => r.category === BABY_RECIPE_CATEGORY)
+    .map((r, index) => ({ recipe: r, minMonths: recipeMinMonths(r.title), free: index < 3 })), [allRecipes]);
+  const suggested = useMemo(() => babyRecipes
+    .filter((r) => months == null || r.minMonths == null || r.minMonths <= Math.max(months, 6))
+    .sort((a, b) => (b.minMonths ?? 0) - (a.minMonths ?? 0)).slice(0, 8), [babyRecipes, months]);
   const stage = STAGES.find((s) => s.id === stageId) ?? STAGES[1];
   const foods = useMemo(() => FOODS.filter((food) => group === 'all' || food.group === group), [group]);
   const dishes = DISHES[stage.id] ?? DISHES['6-8'];
   const ageText = months == null ? undefined : months < 24 ? `${selectedChild?.name ?? ''} · ${months} ay` : `${selectedChild?.name ?? ''} · ${Math.floor(months / 12)} yaş`;
+
+  if (recipesView) {
+    return <Suspense fallback={null}>
+      <Recipes onBack={() => setRecipesView(null)} initialCategory={BABY_RECIPE_CATEGORY} initialRecipeId={recipesView.recipeId} />
+    </Suspense>;
+  }
 
   return (
     <ToolPage>
@@ -157,33 +178,27 @@ export default function SolidFoodGuide({ onBack }: { onBack: () => void }) {
       </div>}
 
       {tab === 'recipes' && <div className="sfg-stack">
-        {!isPremium && <section className="sfg-premium" onClick={() => setPaywall(true)}>
-          <Crown size={18} /><div><b>Reseptlər Premium-dadır</b><p>{RECIPES.length} yaşa uyğun resept — tərkib və addım-addım hazırlanma.</p></div>
-        </section>}
-        <p className="a3-meta">{RECIPE_NOTE}</p>
+        <p className="a3-meta">Anacan Reseptlər bölməsindən körpənizin yaşına uyğun seçimlər. İlk reseptlər pulsuzdur, qalanları Premium-dadır.</p>
         <section className="a-list-card">
-          {RECIPES.map((r) => {
-            const open = openRecipe === r.id && isPremium;
-            return <div key={r.id} className="sfg-recipe">
-              <button type="button" className="a-list-row sfg-recipe-head" aria-expanded={open}
-                onClick={() => isPremium ? setOpenRecipe(open ? null : r.id) : setPaywall(true)}>
-                <div style={{ minWidth: 0, flex: 1, textAlign: 'start' }}>
-                  <p className="a-list-title">{r.title}</p>
-                  <p className="a-list-sub">{r.from} ay+ <Tags tags={r.tags} /></p>
-                </div>
-                {isPremium ? <ChevronDown size={16} style={{ transform: open ? 'rotate(180deg)' : undefined }} /> : <span className="sfg-lock"><Lock size={12} />Premium</span>}
-              </button>
-              {open && <div className="sfg-recipe-body">
-                <p><b>Tərkib:</b> {r.ingredients}</p>
-                <ol className="sfg-steps">{r.steps.map((s) => <li key={s}>{s}</li>)}</ol>
-              </div>}
-            </div>;
-          })}
+          {suggested.map(({ recipe, minMonths, free }) => (
+            <button key={recipe.id} type="button" className="a-list-row sfg-recipe-head" onClick={() => setRecipesView({ recipeId: recipe.id })}>
+              {recipe.image_url ? <img src={recipe.image_url} alt="" className="sfg-recipe-img" loading="lazy" /> : <span className="a-list-icon" style={{ background: 'var(--a-grad-peach)', fontSize: 18 }}>🥣</span>}
+              <div style={{ minWidth: 0, flex: 1, textAlign: 'start' }}>
+                <p className="a-list-title">{recipe.title.replace(/\s*\(\s*\d+\s*(ay|yaş)\s*\+?\s*\)\s*$/i, '')}</p>
+                {minMonths != null && <p className="a-list-sub">{minMonths < 12 ? `${minMonths} ay+` : `${minMonths / 12} yaş+`}</p>}
+              </div>
+              {!isPremium && !free ? <span className="sfg-lock"><Lock size={12} />Premium</span> : <ChevronRight size={16} className="rtl:rotate-180" style={{ color: 'var(--a-ink-faint)' }} />}
+            </button>
+          ))}
+          {!suggested.length && <p className="a3-meta" style={{ padding: 16 }}>Reseptlər yüklənir…</p>}
         </section>
+        <button type="button" className="sfg-premium" onClick={() => setRecipesView({})}>
+          <Crown size={18} /><div><b>Bütün körpə reseptləri</b><p>{babyRecipes.length} resept · Reseptlər bölməsində açılır</p></div>
+          <ChevronRight size={16} className="rtl:rotate-180" style={{ marginInlineStart: 'auto' }} />
+        </button>
       </div>}
 
       <p className="a3-meta sfg-disclaimer">{DISCLAIMER}</p>
-      <PremiumModal isOpen={paywall} onClose={() => setPaywall(false)} feature="Əlavə qida reseptləri" />
     </ToolPage>
   );
 }

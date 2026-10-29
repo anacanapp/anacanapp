@@ -1,4 +1,4 @@
-import { useState, useMemo, forwardRef } from 'react';
+import { useState, useMemo, forwardRef, useEffect, useRef } from 'react';
 import { tr } from '@/lib/tr';
 import { useIsRtl, rtlX } from '@/lib/rtl';
 import { getCachedTranslation } from '@/lib/i18n';
@@ -23,16 +23,19 @@ import { AdInlineAnchor, AdSurface, useAdExit } from '@/components/ads/AdExperie
 
 interface RecipesProps {
   onBack: () => void;
+  /** Opened from another tool (e.g. the solid food guide): start on this category / recipe. */
+  initialCategory?: string;
+  initialRecipeId?: string;
 }
 
 
-const Recipes = forwardRef<HTMLDivElement, RecipesProps>(({ onBack }, ref) => {
+const Recipes = forwardRef<HTMLDivElement, RecipesProps>(({ onBack, initialCategory, initialRecipeId }, ref) => {
   useScrollToTop();
   const isRtl = useIsRtl();
   useScreenAnalytics('Recipes', 'Tools');
 
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
-  const [recipeCategory, setRecipeCategory] = useState('all');
+  const [recipeCategory, setRecipeCategory] = useState(initialCategory ?? 'all');
   const [recipeSearch, setRecipeSearch] = useState('');
   const [favorites, setFavorites] = useState<string[]>([]);
   const [showPremiumModal, setShowPremiumModal] = useState(false);
@@ -244,6 +247,16 @@ const Recipes = forwardRef<HTMLDivElement, RecipesProps>(({ onBack }, ref) => {
       resetAppScrollPosition();
     });
   };
+
+  // Open the requested recipe once the list is loaded (the premium gate still applies).
+  const initialOpened = useRef(false);
+  useEffect(() => {
+    if (initialOpened.current || !initialRecipeId || subscriptionLoading) return;
+    const recipe = recipes.find((item) => item.id === initialRecipeId);
+    if (!recipe) return;
+    initialOpened.current = true;
+    handleRecipeClick(recipe);
+  }, [recipes, initialRecipeId, subscriptionLoading]);
 
   const handleBackFromDetail = () => {
     setSelectedRecipe(null);
