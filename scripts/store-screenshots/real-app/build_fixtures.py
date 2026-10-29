@@ -40,7 +40,10 @@ def scenario(name, p, st, fx, functions=None):
               'group_memberships', 'community_groups', 'post_likes', 'community_post_bookmarks', 'partner_sharing_settings']:
         fx.setdefault(t, [] if not t.endswith('status_v1') else {})
     ls = {"anacan-language": LANG, "anacan-user-store": st, "anacan_partner_tour_v1": "1"}
-    json.dump({"email": p['email'], "premium": True, "profile": p, "localStorage": ls, "fixtures": fx, "functions": functions or {},
+    # Admin-written Azerbaijani community headers lack translations in several languages;
+    # other languages fall back to the app's translated default header.
+    settings = {} if LANG == 'az' else {"community_header_bump": None, "community_header_flow": None, "community_header_mommy": None}
+    json.dump({"email": p['email'], "premium": True, "profile": p, "localStorage": ls, "fixtures": fx, "functions": functions or {}, "appSettings": settings,
                "locale": D['locale']}, open(f'{H}/{name}.json', 'w'), ensure_ascii=False, indent=1)
 
 def log(u, **kw):

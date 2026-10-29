@@ -35,6 +35,10 @@ const seen = new Map();
     }
     if (path.startsWith('/rest/v1/')) {
       const table = path.slice(9);
+      if (table === 'rpc/get_public_app_setting' && S.appSettings) {
+        let key; try { key = JSON.parse(req.postData() || '{}').p_key; } catch { key = null; }
+        if (key && key in S.appSettings) { seen.set('setting ' + key, 'fixture'); return json(r, S.appSettings[key]); }
+      }
       if (table === 'rpc/get_premium_access_v1' && S.premium) {
         const now = Date.now(), grant = { active: true, expiresAt: null };
         return json(r, { protocol: 'anacan-premium-access-v1', userId: UID, checkedAt: new Date(now).toISOString(), validUntil: new Date(now + 30000).toISOString(), own: grant, household: grant });
