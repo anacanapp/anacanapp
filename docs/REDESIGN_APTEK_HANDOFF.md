@@ -630,3 +630,14 @@ was done.
 - **Image:** `gateway@sha256:26fb99ea3ebb73bb99adf86c7cd350e3c0e8e972cbdde7b1eed151a7583d5e6b` from `f24217c2…`; isolated test matched.
 - **Deploy:** `fix-sfg-aptek-web-plan.json` passed; index `bb27c6dd…`; no console errors.
 - **Rollback:** `rollback-fix-sfg-aptek-web-plan.json` (→ `f24217c2…`).
+
+## Körpəmdən mesajlar — 2026-10-30
+- **Contents:** commit `3972fd6`. Pregnancy dashboard card + `baby-chat` screen: the baby's daily message (existing
+  `pregnancy_daily_content.baby_message`) arrives at a per-user/per-day time between 09:00 and 20:30; the mother's replies
+  get curated, week-aware baby answers (`src/data/baby-chat`, 21 languages; no AI, nothing medical). Threads stay on the
+  device (last 14 days). On-device local notifications for the next 7 arrivals (`src/lib/baby-chat-notifications.ts`;
+  tap → pushNav `baby_chat`). Share as a 1080×1920 photo or a recorded message-by-message video with pop sounds
+  (`src/lib/baby-chat-share.ts`). No SQL, server job or functions change.
+- **Image:** `gateway@sha256:c1ffe62e75275e1254692bd7942c1e555515a95dc39074202924ecccd02bc7d0` from `26fb99ea…`; isolated test matched.
+- **Deploy:** `baby-chat-web-plan.json` passed; index `094dff49…`; no console errors.
+- **Rollback:** `rollback-baby-chat-web-plan.json` (→ `26fb99ea…`).
