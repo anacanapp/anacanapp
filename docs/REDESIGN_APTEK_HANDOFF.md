@@ -577,3 +577,17 @@ was done.
 - **Image:** `gateway@sha256:d3678a34d2d5f36ef3b0fbf99e992289840ce7f7f1fb53dd722abf0397ac6f01` (Cloud Build `96e820f2`) from `adb69772…`; isolated test matched.
 - **Deploy:** `chat-edit-web-plan.json` passed; index `fb2e9a8b…`; no console errors.
 - **Rollback:** `rollback-chat-edit-web-plan.json` (→ `adb69772…`).
+
+## Partner rebuild phase 1 web deploy — 2026-10-30
+- **SQL first:** `supabase/duzelis/Duzelis68.sql` (applied on Google). `partner_can_see_v1` applies the woman's
+  `share_*` flags to partner reads of appointments, baby_logs, contractions, kick_sessions and
+  weight_entries. Partners can no longer read `daily_logs` or `daily_summaries` directly; they use the masked RPCs
+  `partner_daily_logs_v1` and `partner_daily_summaries_v1` instead (mood, symptoms and water only per flag; never notes,
+  temperature or bleeding). Old native clients (≤47) lose the partner mood view until the next native build.
+- **Contents:** commits `018f840` (real sign-out, newest-first feed, quick messages with push), `2cee7ed`
+  (client on masked RPCs, Google always uses secure pairing) and `ae90c91` (in-app re-link form on the not-linked home
+  and the profile, legacy pairing removed, a one-sided legacy link is cleared only after the server confirms
+  it is not mutual).
+- **Image:** `gateway@sha256:0b979ca713a451f75e5842cb341882674a2cb3fc098e9365c571112fdc571f92` (Cloud Build `a19b34b4`) from `d3678a34…`; isolated test matched.
+- **Deploy:** `partner-p1-web-plan.json` passed; index `29099c92…`; no console errors.
+- **Rollback:** `rollback-partner-p1-web-plan.json` (→ `d3678a34…`).
