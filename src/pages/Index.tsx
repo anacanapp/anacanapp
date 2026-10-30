@@ -91,6 +91,7 @@ const PartnerSharingScreen = lazy(() => import('@/components/partner/v2/PartnerS
 const NightShiftScreen = lazy(() => import('@/components/partner/v2/NightShiftScreen'));
 const BirthPlanScreen = lazy(() => import('@/components/partner/v2/BirthPlanScreen'));
 const PartnerNotificationsScreen = lazy(() => import('@/components/partner/v2/PartnerNotificationsScreen'));
+const BabyChatScreen = lazy(() => import('@/components/baby-chat/BabyChatScreen'));
 const PostpartumSupportScreen = lazy(() => import('@/components/partner/v2/PostpartumSupportScreen'));
 const AlertReceiver = lazy(() => import('@/components/partner/v2/AlertReceiver'));
 const PartnersScreen = lazy(() => import('@/components/partners/PartnersScreen'));
@@ -349,6 +350,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
 
   // Initialize push notification token registration for native apps
   useDeviceToken();
+  // Taps on on-device notifications (e.g. Körpəmdən mesajlar) use the same push routing.
+  useEffect(() => { void import('@/lib/baby-chat-notifications').then((m) => m.registerLocalNotificationTaps()); }, []);
 
   // Kilid ekranı widget-indən (iOS Live Activity / Android bildiriş) dayandırılan
   // yuxu/əmizdirmə taymerlərini baby_logs-a yaz — HƏMİŞƏ aktiv host (sub-ekranlar
@@ -787,6 +790,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'partner-sharing' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSharingScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'night-shift') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><NightShiftScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'postpartum-support' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PostpartumSupportScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'baby-chat' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BabyChatScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-notifications') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerNotificationsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'birth-plan') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BirthPlanScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partners') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnersScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;

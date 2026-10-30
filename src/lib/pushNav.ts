@@ -57,6 +57,9 @@ export function intentFromPushData(data: Record<string, any>): PushNavIntent | n
       };
     case 'shopping_list':
       return { shoppingList: true };
+    case 'baby_chat':
+      // Local notification from "Körpəmdən mesajlar" (src/lib/baby-chat-notifications.ts)
+      return { screen: 'baby-chat' };
     case 'group_message':
     case 'group_invite':
     case 'group_join_request':

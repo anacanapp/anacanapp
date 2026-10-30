@@ -62,6 +62,7 @@ import { offersBreastfeeding } from '@/lib/breastfeeding';
 import UpcomingAppointments from '@/components/home/UpcomingAppointments';
 import DailySummaryAutoSync from '@/components/partner/DailySummaryAutoSync';
 import PartnerCareCard from '@/components/partner/v2/PartnerCareCard';
+import BabyChatCard from '@/components/baby-chat/BabyChatCard';
 import RedFlagBanner from '@/components/dashboard/RedFlagBanner';
 import RecentBlogPosts from '@/components/dashboard/RecentBlogPosts';
 import FlowDashboard from '@/components/flow/FlowDashboard';
@@ -164,7 +165,7 @@ const ProgressRing = ({ progress, size = 100, strokeWidth = 8, color = "stroke-p
 // FlowDashboard is now imported from @/components/flow/FlowDashboard
 
 
-const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) => void;}) => {
+const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (tool: string) => void;onNavigate?: (screen: string) => void;}) => {
   const { getPregnancyData, setLifeStage, language } = useUserStore(
     useShallow((s) => ({ getPregnancyData: s.getPregnancyData, setLifeStage: s.setLifeStage, language: s.language }))
   );
@@ -457,31 +458,8 @@ const BumpDashboard = ({ onNavigateToTool }: {onNavigateToTool?: (tool: string) 
       {/* Daily Content Cards - Separated */}
       {dayContent &&
       <>
-          {/* Baby Message Card — CTA banner with organic shapes */}
-          {dayContent.baby_message &&
-        <section className="a-section">
-            <motion.div
-            className="a-cta a-fade-in"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}>
-            
-              <span className="a-cta-shape" style={{ width: 140, height: 140, top: -50, insetInlineEnd: -40 }} />
-              <span className="a-cta-shape" style={{ width: 90, height: 90, bottom: -30, insetInlineStart: -20 }} />
-              <div className="a-cta-top">
-                <span className="a-cta-badge">
-                  {tr("dashboard_gun_18b2f4", "G\xFCn")} {pregnancyDay} / 280 · {tr("dashboard_korpeden_mesaj_89353a", "Körpədən Mesaj")}
-                </span>
-                <span className="a-cta-deco">
-                  <Baby size={18} strokeWidth={2} />
-                </span>
-              </div>
-              <p className="a-cta-text" style={{ position: 'relative', marginTop: 14, fontSize: 13.5, fontWeight: 500, color: 'var(--a-ink-soft)', lineHeight: 1.65 }}>
-                {dayContent.baby_message}
-              </p>
-            </motion.div>
-          </section>
-        }
+          {/* Körpəmdən mesajlar — the baby's daily message opens the chat */}
+          <BabyChatCard onOpen={() => onNavigate?.('baby-chat')} />
 
           {/* Body Changes Card */}
           {dayContent.body_changes &&
@@ -1973,7 +1951,7 @@ const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate }: DashboardProps)
           <AdFreePremiumOffer position="top" />
 
           {lifeStage === 'mommy' && <MommyDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}
-          {lifeStage === 'bump' && <BumpDashboard onNavigateToTool={onNavigateToTool} />}
+          {lifeStage === 'bump' && <BumpDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}
           {lifeStage === 'flow' && <FlowDashboard />}
           <AdInlineAnchor id="home_banner" />
 

@@ -1,0 +1,85 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { describe, expect, it } from 'vitest';
+import { babyReply, dailyArrival, dailyBabyMessages, detectIntent, type BabyChatText } from './baby-chat';
+
+const dir = join(__dirname, '../data/baby-chat');
+const languages = readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => f.replace('.json', ''));
+const read = (lang: string) => JSON.parse(readFileSync(join(dir, `${lang}.json`), 'utf8')) as BabyChatText;
+const az = read('az');
+const allReplies = (t: BabyChatText) => Object.values(t.replies).flat();
+
+describe('baby chat content', () => {
+  it('has every reply group, keyword group and UI text in all 21 languages', () => {
+    expect(languages).toHaveLength(21);
+    for (const lang of languages) {
+      const t = read(lang);
+      expect(Object.keys(t.ui).sort(), lang).toEqual(Object.keys(az.ui).sort());
+      expect(Object.keys(t.replies).sort(), lang).toEqual(Object.keys(az.replies).sort());
+      expect(Object.keys(t.keywords).sort(), lang).toEqual(Object.keys(az.keywords).sort());
+      for (const [k, v] of Object.entries(t.replies)) expect(v.length, `${lang}.${k}`).toBe(az.replies[k as keyof typeof az.replies].length);
+      expect(t.openers.length && t.notifications.length, lang).toBeTruthy();
+    }
+  });
+});
+
+describe('baby replies', () => {
+  const facts = { week: 8, fruit: 'Noxud', cm: 1.6, weeksLeft: 32 };
+
+  it('matches the mother\'s topic in Azerbaijani and other scripts', () => {
+    expect(detectIntent('Səni çox sevirəm 💛', az.keywords, 'az')).toBe('love');
+    expect(detectIntent('Sən hələ noxud boydasan 😂', az.keywords, 'az')).toBe('size');
+    expect(detectIntent('Atana salam de', az.keywords, 'az')).toBe('dad');
+    expect(detectIntent('Necəsən balaca?', az.keywords, 'az')).not.toBeNull();
+    expect(detectIntent('Я тебя люблю', read('ru').keywords, 'ru')).toBe('love');
+    expect(detectIntent('大好きだよ', read('ja').keywords, 'ja')).toBe('love');
+    expect(detectIntent('qwerty', az.keywords, 'az')).toBeNull();
+  });
+
+  it('answers with week facts and never leaves a placeholder', () => {
+    const size = babyReply('Nə boydasan?', az, facts, 'az', 's1');
+    expect(az.replies.size.map((t) => t.replace('{fruit}', 'Noxud').replace('{cm}', '1.6').replace('{week}', '8'))).toContain(size);
+    for (const lang of languages) {
+      const t = read(lang);
+      for (let i = 0; i < 30; i++) {
+        const reply = babyReply(['love', 'kick', 'hello', 'zzz', 'meet', 'size'][i % 6], t, { week: 10 + i, fruit: null, cm: 0.5, weeksLeft: 1 }, lang, `x${i}`);
+        expect(reply, lang).not.toMatch(/\{\w+\}/);
+        expect(reply.trim().length, lang).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it('keeps early-pregnancy answers realistic', () => {
+    const early = babyReply('təpik atdın?', az, { week: 10 }, 'az', 'a');
+    expect(az.replies.kick_early).toContain(early);
+    const late = babyReply('təpik atdın?', az, { week: 26 }, 'az', 'a');
+    expect(az.replies.kick).toContain(late);
+  });
+
+  it('only uses curated lines', () => {
+    const reply = babyReply('random words here', az, facts, 'az', 'z');
+    expect(allReplies(az).some((t) => t.replace(/\{\w+\}/g, '').length > 0)).toBe(true);
+    expect(az.replies.generic).toContain(reply);
+  });
+});
+
+describe('daily arrival', () => {
+  it('is between 09:00 and 20:30, stable for a user and day, and varies across days', () => {
+    const times = new Set<string>();
+    for (let d = 1; d <= 20; d++) {
+      const at = dailyArrival(new Date(2026, 9, d, 3), 'user-1');
+      expect(at.getHours() * 60 + at.getMinutes()).toBeGreaterThanOrEqual(9 * 60);
+      expect(at.getHours() * 60 + at.getMinutes()).toBeLessThanOrEqual(20 * 60 + 30);
+      expect(dailyArrival(new Date(2026, 9, d, 22), 'user-1').getTime()).toBe(at.getTime());
+      times.add(`${at.getHours()}:${at.getMinutes()}`);
+    }
+    expect(times.size).toBeGreaterThan(10);
+  });
+
+  it('builds the day\'s opener and content message', () => {
+    const msgs = dailyBabyMessages(az, 'Bu gün barmaqlarım çıxdı 🖐', new Date(2026, 9, 30), 'u');
+    expect(msgs.map((m) => m.from)).toEqual(['baby', 'baby']);
+    expect(az.openers).toContain(msgs[0].text);
+    expect(msgs[1].text).toBe('Bu gün barmaqlarım çıxdı 🖐');
+  });
+});
