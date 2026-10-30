@@ -39,5 +39,6 @@ export function getBackendConfig(): Readonly<BackendConfig> {
 }
 
 export const isAzureBackend = () => getBackendConfig().azure;
-export const isAzurePairingBackend = () => import.meta.env.VITE_AZURE_PARTNER_PAIRING === 'true'
-  && (!usesSourceFirstBootstrap() || isAzureBackend());
+// Google builds (mode 'google') always pair through link_partner_by_code / ensure_secure_partner_code.
+export const isAzurePairingBackend = () => import.meta.env.MODE === 'google'
+  || (import.meta.env.VITE_AZURE_PARTNER_PAIRING === 'true' && (!usesSourceFirstBootstrap() || isAzureBackend()));

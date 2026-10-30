@@ -49,19 +49,10 @@ export const useDailySummary = () => {
     try {
       const isPartner = profile?.life_stage === 'partner';
 
-      let query = supabase
-        .from('daily_summaries')
-        .select('*')
-        .order('summary_date', { ascending: false })
-        .limit(30);
-
-      if (isPartner) {
-        query = query.eq('partner_user_id', user.id);
-      } else {
-        query = query.eq('user_id', user.id);
-      }
-
-      const { data, error } = await query;
+      // The partner reads summaries masked by her sharing settings (Duzelis68).
+      const { data, error } = isPartner
+        ? await (supabase as any).rpc('partner_daily_summaries_v1', { p_limit: 30 })
+        : await supabase.from('daily_summaries').select('*').eq('user_id', user.id).order('summary_date', { ascending: false }).limit(30);
 
       if (error) throw error;
       setSummaries((data || []) as DailySummary[]);

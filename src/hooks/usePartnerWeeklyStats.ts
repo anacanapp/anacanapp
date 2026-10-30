@@ -59,13 +59,9 @@ export const usePartnerWeeklyStats = () => {
       const endDate = today.toISOString().split('T')[0];
 
       // Fetch daily logs for the week
-      const { data: dailyLogs } = await supabase
-        .from('daily_logs')
-        .select('log_date, mood, water_intake')
-        .eq('user_id', partnerId)
-        .gte('log_date', startDate)
-        .lte('log_date', endDate)
-        .order('log_date', { ascending: true });
+      // Masked by her sharing settings on the server (Duzelis68).
+      const { data: dailyLogs } = await (supabase as any).rpc('partner_daily_logs_v1', { p_from: startDate, p_to: endDate }) as
+        { data: { log_date: string; mood: number | null; water_intake: number | null }[] | null };
 
       // Fetch exercise logs for the week
       const { data: exerciseLogs } = await supabase

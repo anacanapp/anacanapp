@@ -84,12 +84,9 @@ export const usePartnerData = () => {
 
         // Fetch today's daily log for the partner
         const today = new Date().toISOString().split('T')[0];
-        const { data: logData, error: logError } = await supabase.
-        from('daily_logs').
-        select('mood, symptoms, water_intake, log_date').
-        eq('user_id', partnerData.user_id).
-        eq('log_date', today).
-        maybeSingle();
+        // Masked by her sharing settings on the server (Duzelis68); no direct daily_logs access.
+        const { data: logRows, error: logError } = await (supabase as any).rpc('partner_daily_logs_v1', { p_from: today, p_to: today });
+        const logData = (logRows as PartnerDailyLog[] | null)?.[0] ?? null;
 
         if (!logError && logData) {
           setPartnerDailyLog(logData);
@@ -109,24 +106,13 @@ export const usePartnerData = () => {
   useEffect(() => {
     fetchPartnerData();
 
-    // Set up realtime subscription for partner's daily logs — server-side
-    // filtrlənir (partnerProfile.user_id məlum olan kimi), bütün daily_logs
-    // cədvəlinə yox.
+    // daily_logs is no longer readable row-by-row for the partner (Duzelis68), so realtime
+    // cannot deliver it; refresh while the app is open and when it returns to the foreground.
     if (profile?.linked_partner_id && partnerProfile?.user_id) {
-      const channel = supabase.
-      channel(`partner-logs-${profile.linked_partner_id}:${crypto.randomUUID()}`).
-      on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'daily_logs', filter: `user_id=eq.${partnerProfile.user_id}` },
-        () => {
-          fetchPartnerData();
-        }
-      ).
-      subscribe();
-
-      return () => {
-        supabase.removeChannel(channel);
-      };
+      const timer = window.setInterval(fetchPartnerData, 60_000);
+      const onVisible = () => { if (document.visibilityState === 'visible') fetchPartnerData(); };
+      document.addEventListener('visibilitychange', onVisible);
+      return () => { window.clearInterval(timer); document.removeEventListener('visibilitychange', onVisible); };
     }
   }, [profile?.linked_partner_id, partnerProfile?.user_id]);
 
