@@ -10,6 +10,7 @@ import { hapticFeedback } from '@/lib/native';
 import { useToast } from '@/hooks/use-toast';
 import { tr } from '@/lib/tr';
 import MotherSOSSheet from './MotherSOSSheet';
+import { feature37Text } from '@/lib/feature37-i18n';
 
 /**
  * Ana dashboard-u — "Partnyorum" kartı.
@@ -39,7 +40,6 @@ const PartnerCareCard = ({ lifeStage, onOpenSharing }: Props) => {
   // düymə real, çatılabilən bir yol yaradır.
   const { todaySummary, generateAndSendSummary } = useDailySummary();
   const [sendingSummary, setSendingSummary] = useState(false);
-  const isBump = lifeStage === 'bump';
   const summaryAlreadySent = !!todaySummary?.is_sent;
 
   const sendSummary = async () => {
@@ -157,39 +157,28 @@ const PartnerCareCard = ({ lifeStage, onOpenSharing }: Props) => {
             {tr('partnerv2_tesekkur_et', 'Təşəkkür et')}
           </motion.button>
           <motion.button
+            onClick={sendSummary}
+            disabled={sendingSummary || summaryAlreadySent}
+            className="flex items-center justify-center gap-1.5 disabled:opacity-80"
+            style={{
+              height: 42, borderRadius: 999, padding: '0 14px', fontSize: 12.5, fontWeight: 700,
+              background: summaryAlreadySent ? 'var(--a-green-1)' : 'var(--a-lav-1)',
+              color: summaryAlreadySent ? 'var(--a-green-ink)' : 'var(--a-lav-ink)'
+            }}
+            aria-label={summaryAlreadySent ? tr('partnerv2_xulase_gonderildi_badge', 'Bugünkü xülasə göndərildi') : tr('partnerv2_xulaseni_gonder', 'Bugünkü xülasəni partnyoruma göndər')}
+            whileTap={{ scale: summaryAlreadySent ? 1 : 0.96 }}>
+            {summaryAlreadySent ? <Check size={15} /> : <Send size={15} />}
+            {feature37Text('ph_summary')}
+          </motion.button>
+          <motion.button
             onClick={() => setSosOpen(true)}
             className="flex items-center justify-center gap-1.5"
-            style={{ height: 42, borderRadius: 999, background: 'var(--a-alert-bg)', color: 'var(--a-alert-ink)', fontSize: 12.5, fontWeight: 800, padding: '0 18px' }}
+            style={{ height: 42, borderRadius: 999, background: 'var(--a-alert-bg)', color: 'var(--a-alert-ink)', fontSize: 12.5, fontWeight: 800, padding: '0 16px' }}
             whileTap={{ scale: 0.96 }}>
             <Siren size={15} />
             SOS
           </motion.button>
         </div>
-
-        {isBump &&
-        <motion.button
-          onClick={sendSummary}
-          disabled={sendingSummary || summaryAlreadySent}
-          className="w-full flex items-center justify-center gap-1.5 disabled:opacity-70"
-          style={{
-            height: 40,
-            marginTop: 8,
-            borderRadius: 999,
-            background: summaryAlreadySent ? 'var(--a-green-1)' : 'var(--a-lav-1)',
-            color: summaryAlreadySent ? 'var(--a-green-ink)' : 'var(--a-lav-ink)',
-            fontSize: 12,
-            fontWeight: 700
-          }}
-          whileTap={{ scale: summaryAlreadySent ? 1 : 0.97 }}>
-          
-            {summaryAlreadySent ? <Check size={14} /> : <Send size={14} />}
-            {summaryAlreadySent ?
-          tr('partnerv2_xulase_gonderildi_badge', 'Bugünkü xülasə göndərildi') :
-          sendingSummary ?
-          tr('partnerv2_gonderilir', 'Göndərilir...') :
-          tr('partnerv2_xulaseni_gonder', 'Bugünkü xülasəni partnyoruma göndər')}
-          </motion.button>
-        }
       </motion.div>
 
       <MotherSOSSheet open={sosOpen} onClose={() => setSosOpen(false)} lifeStage={lifeStage} />

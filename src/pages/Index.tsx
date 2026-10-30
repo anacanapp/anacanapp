@@ -781,7 +781,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'partner-surprises' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSurprisesScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'hospital-run' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HospitalRunScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} onOpenContractions={() => setActiveScreen('live-contractions')} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'live-contractions' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><LiveContractionsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
-  if (activeScreen === 'partner-sharing' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSharingScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'partner-sharing' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSharingScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partners') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnersScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   return null;
   })();

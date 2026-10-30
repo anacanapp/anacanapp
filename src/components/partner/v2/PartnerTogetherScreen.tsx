@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import {
   ShoppingCart, Package, Vote, FileText, CalendarHeart,
-  Baby, BarChart3, Gift, ChevronRight } from
+  Baby, BarChart3, Gift, ChevronRight, ClipboardList, Moon } from
 'lucide-react';
+import { feature37Text } from '@/lib/feature37-i18n';
 import { usePartnerData } from '@/hooks/usePartnerData';
 import { usePartnerHospitalBag } from '@/hooks/usePartnerHospitalBag';
 import { useDailySummary } from '@/hooks/useDailySummary';
@@ -44,11 +45,13 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
     badge?: string | null;
     progress?: number;
     visible: boolean;
+    group: 'prepare' | 'daily' | 'us';
   }
 
   const features: FeatureCard[] = [
   {
     id: 'shopping',
+    group: 'daily',
     screen: 'partner-shopping',
     title: tr('partnerv2_alisveris', 'Alışveriş'),
     subtitle: uncheckedShopping > 0 ?
@@ -61,6 +64,7 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
   },
   {
     id: 'hospital-bag',
+    group: 'prepare',
     screen: 'partner-hospital-bag',
     title: tr('syncedfeaturesgrid_xestexana_cantasi_045078', 'Xəstəxana Çantası'),
     subtitle: `${checkedCount}/${totalCount} ${tr('partner_ready', 'hazır')}`,
@@ -71,15 +75,37 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
   },
   {
     id: 'name-voting',
+    group: 'prepare',
     screen: 'name-voting',
     title: tr('syncedfeaturesgrid_ad_secimi_465d2a', 'Ad Seçimi'),
     subtitle: tr('partnerv2_birlikde_secin', 'Birlikdə seçin'),
     icon: Vote,
     bg: 'var(--a-pink-1)', ink: 'var(--a-pink-ink)',
-    visible: lifeStage !== 'flow'
+    visible: lifeStage === 'bump'
+  },
+  {
+    id: 'birth-plan',
+    group: 'prepare',
+    screen: 'birth-plan',
+    title: feature37Text('pm_birth_plan'),
+    subtitle: feature37Text('pm_birth_plan_sub'),
+    icon: ClipboardList,
+    bg: 'var(--a-lav-1)', ink: 'var(--a-lav-ink)',
+    visible: lifeStage === 'bump'
+  },
+  {
+    id: 'night-shift',
+    group: 'daily',
+    screen: 'night-shift',
+    title: feature37Text('pm_night_shift'),
+    subtitle: feature37Text('pm_night_shift_sub'),
+    icon: Moon,
+    bg: 'var(--a-lav-1)', ink: 'var(--a-lav-ink)',
+    visible: lifeStage === 'mommy'
   },
   {
     id: 'daily-summary',
+    group: 'daily',
     screen: 'daily-summary',
     title: tr('syncedfeaturesgrid_gundelik_xulase_3d07a5', 'Gündəlik Xülasə'),
     // NOT: əvvəllər `todaySummary` (səssiz auto-sync tərəfindən HƏMİŞƏ doldurulur)
@@ -95,6 +121,7 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
   },
   {
     id: 'appointments',
+    group: 'prepare',
     screen: 'partner-appointments',
     title: tr('partnerv2_randevular', 'Randevular'),
     subtitle: tr('partnerv2_hekim_vizitleri', 'Həkim vizitləri'),
@@ -104,6 +131,7 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
   },
   {
     id: 'baby-day',
+    group: 'daily',
     screen: 'partner-baby-day',
     title: tr('partnerv2_korpe_gunu', 'Körpə Günü'),
     subtitle: tr('partnerv2_yeme_yuxu_bez', 'Yemə · yuxu · bez'),
@@ -113,6 +141,7 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
   },
   {
     id: 'weekly-stats',
+    group: 'us',
     screen: 'partner-weekly-stats',
     title: tr('syncedfeaturesgrid_heftelik_statistika_292953', 'Həftəlik Statistika'),
     subtitle: tr('syncedfeaturesgrid_ehval_aktivlik_a0a105', 'Əhval & aktivlik'),
@@ -122,6 +151,7 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
   },
   {
     id: 'surprises',
+    group: 'us',
     screen: 'partner-surprises',
     title: tr('syncedfeaturesgrid_surpriz_planla_d495ce', 'Sürpriz Planla'),
     subtitle: plannedSurprises.length > 0 ?
@@ -135,6 +165,10 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
 
 
   const visibleFeatures = features.filter((f) => f.visible);
+  const GROUPS = [
+  { id: 'prepare' as const, label: feature37Text('pm_biz_prepare') },
+  { id: 'daily' as const, label: feature37Text('pm_biz_daily') },
+  { id: 'us' as const, label: feature37Text('pm_biz_us') }];
 
   return (
     <div className="a-scope pb-6 min-h-screen relative overflow-x-hidden" style={{ background: 'var(--a-bg)' }}>
@@ -150,8 +184,15 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
           </div>
         </header>
 
-        <div className="grid grid-cols-2 gap-2.5">
-          {visibleFeatures.map((f, idx) => {
+        <div className="space-y-5">
+          {GROUPS.map(({ id, label }) => {
+            const items = visibleFeatures.filter((f) => f.group === id);
+            if (!items.length) return null;
+            return (
+              <section key={id}>
+                <h2 className="a-section-title" style={{ fontSize: 13, fontWeight: 800, color: 'var(--a-ink-soft)', textTransform: 'uppercase', letterSpacing: '0.06em', margin: '0 4px 8px' }}>{label}</h2>
+                <div className="grid grid-cols-2 gap-2.5">
+          {items.map((f, idx) => {
             const Icon = f.icon;
             return (
               <motion.button
@@ -198,6 +239,9 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
                 }
               </motion.button>);
 
+          })}
+                </div>
+              </section>);
           })}
         </div>
       </div>

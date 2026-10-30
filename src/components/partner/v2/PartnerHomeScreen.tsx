@@ -22,6 +22,7 @@ import { tr } from '@/lib/tr';
 import SOSButton from '@/components/partner/SOSButton';
 import PartnerOnboardingTour, { PARTNER_TOUR_KEY } from './PartnerOnboardingTour';
 import DailyMissionsCard from './DailyMissionsCard';
+import BirthModeCard from './BirthModeCard';
 import PartnerActivityFeed from './PartnerActivityFeed';
 import NextAppointmentCard from './NextAppointmentCard';
 import PartnerWeekInfoCard from './PartnerWeekInfoCard';
@@ -224,6 +225,11 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
         </header>
 
         <div className="space-y-4">
+          {/* ── Doğuş rejimi: 36+ həftə ── */}
+          {lifeStage === 'bump' && currentWeek >= 36 &&
+          <BirthModeCard daysUntilDue={daysUntilDue} onNavigate={onNavigate} />
+          }
+
           {/* ── HERO: onun günü ── */}
           <motion.div className="a-card" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
             <div className="flex items-center gap-3 mb-4">
@@ -269,6 +275,10 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
                   </div>
               )}
               </div>
+            }
+
+            {lifeStage === 'flow' && !sharing.share_cycle &&
+            <p style={{ fontSize: 12, color: 'var(--a-ink-soft)', lineHeight: 1.5 }}>{feature37Text('pm_cycle_hidden')}</p>
             }
 
             {/* Simptomlar */}
@@ -347,7 +357,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
 
           {/* ── Günlük tapşırıqlar ── */}
           <AdInlineAnchor id="home_banner" />
-          <DailyMissionsCard />
+          <DailyMissionsCard lifeStage={lifeStage} pregnancyWeek={currentWeek} babyAgeDays={babyAgeDays} />
 
           {/* ── Növbəti randevu ── */}
           {sharing.share_appointments &&
@@ -378,9 +388,13 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
             <div className="flex flex-wrap gap-1.5 mt-2.5">
               {[
               tr('partnerdashboard_seni_sevirem_d85d3c', '❤️ Səni sevirəm!'),
-              tr('partnerdashboard_gozelsen_1124fe', '🌹 Gözəlsən!'),
-              tr('partnerdashboard_guclusen_673231', '💪 Güclüsən!'),
-              tr('partnerv2_nece_hiss_edirsen', '🤗 Necə hiss edirsən?')].
+              tr('partnerv2_nece_hiss_edirsen', '🤗 Necə hiss edirsən?'),
+              ...(lifeStage === 'mommy' ?
+              [feature37Text('pm_chip_night'), feature37Text('pm_chip_rest'), feature37Text('pm_chip_buy')] :
+              lifeStage === 'flow' ?
+              [feature37Text('pm_chip_tea'), feature37Text('pm_chip_rest'), feature37Text('pm_chip_buy')] :
+              [feature37Text('pm_chip_on_way'), feature37Text('pm_chip_tea'), feature37Text('pm_chip_buy')]),
+              tr('partnerdashboard_guclusen_673231', '💪 Güclüsən!')].
               map((msg) =>
               <motion.button
                 key={msg}

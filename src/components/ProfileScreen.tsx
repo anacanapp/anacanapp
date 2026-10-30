@@ -17,6 +17,7 @@ import { useChildren, Child } from '@/hooks/useChildren';
 import { PremiumModal } from '@/components/PremiumModal';
 import { useSubscription } from '@/hooks/useSubscription';
 import { nativeShare } from '@/lib/native';
+import { feature37Text } from '@/lib/feature37-i18n';
 import { getPartnerCodeForSharing, getPartnerLinkErrorMessage, isAzurePartnerPairingEnabled } from '@/lib/partner-link';
 import BannerSlot from '@/components/banners/BannerSlot';
 import LanguageSelector from '@/components/LanguageSelector';
@@ -401,8 +402,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
             <ChevronRight size={15} className="rtl:rotate-180 a-list-chevron" />
           </motion.button>
 
-          {/* Paylaşım ayarları — yalnız bağlı partnyor olduqda */}
-          {profile?.linked_partner_id &&
+          {/* Partnyor bölməsi: dəvət, paylaşım ayarları, bağlantı */}
           <motion.button
           onClick={() => onNavigate?.('partner-sharing')}
           className="a-teaser w-full"
@@ -410,10 +410,9 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
           whileTap={{ scale: 0.98 }}>
 
               <Shield size={15} style={{ color: 'var(--a-blue-2)', flexShrink: 0 }} />
-              <span style={{ flex: 1 }}>{tr("partnerv2_partnyor_nleri_gorur", "Partnyor nələri görür?")}</span>
+              <span style={{ flex: 1 }}>{profile?.linked_partner_id ? tr("partnerv2_partnyor_nleri_gorur", "Partnyor nələri görür?") : feature37Text('ph_what_sees')}</span>
               <ChevronRight size={15} className="rtl:rotate-180 a-list-chevron" />
             </motion.button>
-          }
         </motion.div>
       }
 
