@@ -622,3 +622,11 @@ was done.
 - **Deploy:** `partner-pp-web-plan.json` passed; index `102adcb0…`; no console errors.
 - **Rollback:** `rollback-partner-pp-web-plan.json` (→ `6f795048…`). To undo the claim filter: drop the wrapper and
   rename `claim_communication_notification_core_v2` back.
+
+## Solid food guide alignment and Aptek offer frame — 2026-10-30
+- **Contents:** commit `00c6a30`. Guide chip rows (tabs, ages, food groups) start on the card edge
+  (`.sfg-chips`); the Aptek home offer uses a real border with `overflow: hidden`, so the full-width product
+  rail no longer paints over the green frame.
+- **Image:** `gateway@sha256:26fb99ea3ebb73bb99adf86c7cd350e3c0e8e972cbdde7b1eed151a7583d5e6b` from `f24217c2…`; isolated test matched.
+- **Deploy:** `fix-sfg-aptek-web-plan.json` passed; index `bb27c6dd…`; no console errors.
+- **Rollback:** `rollback-fix-sfg-aptek-web-plan.json` (→ `f24217c2…`).
