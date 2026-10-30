@@ -606,3 +606,19 @@ was done.
 - **Image:** `gateway@sha256:6f79504860a592b040c3526b4281bac170a07974df11d70c3f60a018b97c111c` (Cloud Build `aaaedb4f`) from `0b979ca7…`; isolated test matched.
 - **Deploy:** `partner-full-web-plan.json` passed; index `cb71cda9…`; no console errors.
 - **Rollback:** `rollback-partner-full-web-plan.json` (→ `0b979ca7…`). The new tables are additive.
+
+## Partner postpartum guide, notification choices and tour — 2026-10-30
+- **SQL first:** `supabase/duzelis/Duzelis70.sql` (rolled-back dry run, then applied). `user_preferences` (already
+  guarded) gains `push_partner_thanks`, `push_partner_shopping`, `push_partner_contractions` (default true). The original
+  claim function is kept as `claim_communication_notification_core_v2`; the new `claim_communication_notification_v2`
+  (same signature, pgadmin, service_role only) still writes the claim and in-app notification, then returns false for
+  a partner type the target turned off, so `send-push-notification` sends no push. SOS/birth alerts are never filtered.
+  The functions image is unchanged.
+- **Contents:** commit `5763ac9`: "İlk 8 həftə" partner guide (`src/data/postpartum-partner`, 21 languages; week guide,
+  baby blues vs postnatal depression, warning-sign checklist with the local emergency number, one-tap messages,
+  "today I've got this" task list), home card for babies under 8 weeks with a low-mood nudge from shared moods,
+  Biz tile, `PartnerNotificationsScreen`, tour v2 texts and Ata AI step.
+- **Image:** `gateway@sha256:f24217c2b5c0813489aa73d02892265e23258d0488e40671e586f124da207725` from `6f795048…`; isolated test matched.
+- **Deploy:** `partner-pp-web-plan.json` passed; index `102adcb0…`; no console errors.
+- **Rollback:** `rollback-partner-pp-web-plan.json` (→ `6f795048…`). To undo the claim filter: drop the wrapper and
+  rename `claim_communication_notification_core_v2` back.
