@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "İlk 8 hafta",
+    "subtitle": "Doğumdan sonra ona nasıl destek olursun",
+    "home_card": "Doğumdan sonra · {n}/8. hafta",
+    "open": "Aç",
+    "week": "{n}. hafta",
+    "tab_week": "Bu hafta",
+    "tab_blues": "Lohusa hüznü",
+    "tab_signs": "Uyarı işaretleri",
+    "tab_support": "Ona destek ol",
+    "her_body": "Bedeni",
+    "her_mind": "Duyguları",
+    "you_do": "Neler yapabilirsin",
+    "you_say": "Neler söyleyebilirsin",
+    "avoid": "Bundan kaçın",
+    "send": "Gönder",
+    "sent": "Gönderildi 💌",
+    "phrases_title": "Ona birkaç söz gönder",
+    "phrases_sub": "Tek dokunuşla mesaj olarak gönderilir.",
+    "tasks_title": "Bugün bunlar bende",
+    "tasks_sub": "Üstlendiğin işleri ona gönder, her şeyin halledildiğini bilsin.",
+    "tasks_send": "Listemi ona gönder",
+    "tasks_message": "Bugün bunları ben hallediyorum: {list} 💪 Sen dinlen.",
+    "signs_title": "İşaretleri kontrol et",
+    "signs_sub": "Son zamanlarda fark ettiklerini işaretle. Bu bir teşhis değildir.",
+    "signs_none": "Şu anda işaretlenmiş bir uyarı işareti yok. Desteğini sürdür.",
+    "signs_some": "Bu işaretler 2 haftadan uzun sürerse birlikte doktora gidin.",
+    "signs_urgent": "Acil bir işaret seçtin. Onu yalnız bırakma ve hemen acil yardımı (112) ara.",
+    "mood_low_title": "Son zamanlarda morali düşük",
+    "mood_low_body": "Son 7 günün {n} gününde moralini düşük olarak kaydetti. Bugün ona daha fazla zaman ayır ve nasıl hissettiğini sor.",
+    "mood_low_long": "Bu durum 2 haftadan uzun sürerse birlikte bir doktorla konuşun.",
+    "disclaimer": "Bu bilgiler tıbbi tavsiyenin yerini tutmaz."
+  },
+  "weeks": [
+    {
+      "title": "Evdeki ilk günler",
+      "body": "Doğumdan sonra kanama (loşi) olur, dikişler ya da sezaryen yarası ağrır. Süt 3–5. gün civarında gelir; göğüsleri şişebilir ve ağrıyabilir.",
+      "mind": "3–5. gün civarında hormonlar hızla düşer. Sebepsiz ağlama, endişe ve yetersizlik hissi normaldir: bu lohusa hüznüdür (baby blues).",
+      "do": ["Bu hafta ziyaretçileri en aza indir ve kapıyı sen karşıla", "Her emzirmede su ve atıştırmalık getir", "Bebeğin bezini, giydirilmesini ve banyosunu üstlen", "Ev işlerini, yemeği ve alışverişi tamamen sen hallet"],
+      "say": ["Harika bir annesin. Daha yeni tanışıyoruz birbirimizle", "Ağlamak istiyorsan ağla. Ben buradayım"],
+      "avoid": "\"Herkes doğuruyor, ne var bunda?\" deme. Duygularını küçümseme."
+    },
+    {
+      "title": "Uykusuzluk birikiyor",
+      "body": "Kanama azalmaya başlar. Emzirmek hâlâ acıtabilir; çatlak, sert bir şişlik ya da kızarıklık varsa doktora veya emzirme danışmanına başvurun.",
+      "mind": "Lohusa hüznü genellikle 2 haftada geçer. Üzüntü, umutsuzluk ya da ilgi kaybı daha uzun sürerse doğum sonrası depresyon olabilir. Dikkatle takip et.",
+      "do": ["En az 4–5 saat aralıksız uyuyabilmesi için bir gece nöbeti planı yapın", "Evde biraz yalnız kalabilsin diye bebeği yürüyüşe çıkar", "Emzirme soruları için bir emzirme danışmanı bul", "Her gün \"Nasıl hissediyorsun?\" diye sor ve dinle"],
+      "say": ["Bu gece bende, sen uyu", "Neye ihtiyacın varsa söyle; her şeyi birlikte halledeceğiz"],
+      "avoid": "Onun yerine karar verme, öğütlere boğma. Önce dinle."
+    },
+    {
+      "title": "Büyüme atağı",
+      "body": "Bebek çok sık emmek isteyebilir (küme emzirme). Bu, sütün yetmediği anlamına gelmez: bebek büyüyor.",
+      "mind": "Durmadan emzirmek onu yorar ve hiçbir şeye yetişemiyormuş gibi hissettirir. Yalnız hissetmesine izin verme.",
+      "do": ["Akşam emzirmelerinde yanında otur: su, yemek ve kumandayı getir", "Emzirmeden sonra bebeğin gazını çıkar ve uyut", "Çamaşırı ve temizliği sen planla", "En sevdiği yemeği pişir ya da sipariş et"],
+      "say": ["Bebeğimizi büyütüyorsun. Bu zor bir iş ve sen başarıyorsun", "Buradayım, yalnız değilsin"],
+      "avoid": "\"Yine mi emiyor?\" ya da \"Belki sütün yetmiyordur\" deme. Bu, özgüvenini kırar."
+    },
+    {
+      "title": "İlk ay geride kaldı",
+      "body": "Dikişler genellikle iyileşmiştir, ama ağır kaldırmak için hâlâ erken; özellikle sezaryenden sonra.",
+      "mind": "Yorgunluk birikti. Eski hayatından uzaklaşmış, artık \"sadece anne\" olmuş gibi hissedebilir.",
+      "do": ["Ona sadece kendisi için 1–2 saat ver: duş, yürüyüş, arkadaşlar", "Küçük bir sürpriz hazırla: çiçek, sevdiği bir tatlı, bir not", "Yemekleri ve aile ile arkadaşlardan gelecek yardımı sen organize et", "Bebeğin ilk fotoğraflarıyla birlikte bir albüm yapın"],
+      "say": ["Bugün senin için işleri biraz kolaylaştırmak için ne yapabilirim?", "Seni çok seviyorum. Anne olduğundan beri sana daha da hayranım"],
+      "avoid": "Görünüşü ya da kilosu hakkında konuşma."
+    },
+    {
+      "title": "Bir düzen oluşuyor",
+      "body": "Kanama artık çok azalmış olmalı. Aniden artarsa ya da ateş veya kötü bir koku varsa doktora başvurun.",
+      "mind": "Bir düzen oluşuyor, ama her gün aynı şeyleri yapmak onu yıpratabilir. Üzüntü 2 haftadan uzun sürerse profesyonel destek alma zamanı gelmiştir.",
+      "do": ["Her gün bir akşam rutinini üstlen: banyo ya da uyku vakti", "Hafta sonu kısa bir aile gezisi planla", "Şu an en çok neyin zorladığını sor ve bir şeyi çöz", "Kendi yorgunluğunu da takip et ve bunu onunla konuş"],
+      "say": ["Bu akşam dinlen, bebeği ben uyuturum", "Biz bir takımız"],
+      "avoid": "Gününü \"bütün gün evdeydin\" diye özetleme."
+    },
+    {
+      "title": "Ağlamanın zirvesi ve kontrol",
+      "body": "Doğum sonrası kontrol genellikle bu dönemde yapılır. Bebekler en çok 6–8. haftalarda ağlar; sonra azalır.",
+      "mind": "Bebeği sakinleştirememek çok yorucudur. Sinir birikirse bebeği güvenle beşiğine yatırıp birkaç dakika nefes almak sorun değil. Bebeği asla sarsmayın.",
+      "do": ["Kontrole birlikte gidin ve soruları önceden yazın", "Ağlama nöbetlerinde bebeği sırayla gezdirin", "\"Şimdi ben bakıyorum\" de ve ona mola ver", "Kendi nasıl hissettiğini de doktora anlatması için onu cesaretlendir"],
+      "say": ["Ağlaması senin suçun değil; bebekler böyledir", "Sırayla yapalım, sen biraz dinlen"],
+      "avoid": "Yakınlaşma için acele etme. Hazır olduğunda sana söyleyecek."
+    },
+    {
+      "title": "Kendini yeniden bulmak",
+      "body": "Bedeni hâlâ iyileşiyor. Doktor izin verdiyse hafif yürüyüşler ve nefes egzersizleri iyi gelir.",
+      "mind": "Kendini yeniden tanıyor; bedeni, işi ya da arkadaşlarıyla ilgili endişeleri olabilir. Senin desteğin ona güç verir.",
+      "do": ["Her hafta ona tamamen \"boş bir saat\" ver", "Birlikte kısa bir yürüyüş ya da kafe ziyareti planlayın", "Gece nöbetlerini adil şekilde paylaşmaya devam edin", "Teşekkürünü yüksek sesle söyle"],
+      "say": ["Sen hâlâ sensin ve ben her gün seni seçiyorum", "Bu ay çok büyük bir iş başardın"],
+      "avoid": "Kıyaslama yapma: \"Falanca çabucak toparlandı\" deme."
+    },
+    {
+      "title": "İki ay: yeni bir aile",
+      "body": "Birçok anne bu dönemde kendini daha güçlü hisseder. Ağrı, kanama ya da bitkinlik hâlâ ağırsa doktora söyleyin.",
+      "mind": "Morali düzeliyor olmalı. Üzüntü, kaygı ya da bebeğe karşı uzaklık hissi sürüyorsa bunu birlikte bir doktorla konuşun. Yardım var ve tedavi edilebilir.",
+      "do": ["Bu iki aya birlikte dönüp bakın: neler iyi gitti, neler değişmeli", "Ev işlerini nasıl paylaştığınızı birlikte yeniden düzenleyin", "Küçük bir \"iki ay\" kutlaması yapın", "Kendi ruh hâlini de kontrol et: babalarda da doğum sonrası depresyon olabilir"],
+      "say": ["Seninle ebeveyn olmak en büyük mutluluğum", "Gelecek ay neyi farklı yapalım?"],
+      "avoid": "\"Artık her şey yolunda\" diye desteğini birden azaltma."
+    }
+  ],
+  "blues": {
+    "title": "Lohusa hüznü nedir?",
+    "intro": "Kadınların yaklaşık %50–80'i doğumdan sonra lohusa hüznü (baby blues) yaşar. Nedenleri hormonlardaki ani düşüş, uykusuzluk ve yeni sorumluluktur.",
+    "facts": ["Genellikle doğumdan 2–5 gün sonra başlar", "Sebepsiz ağlama, sinirlilik, endişe ve yorgunluk sık görülür", "Genellikle 2 hafta içinde kendiliğinden geçer", "En iyi ilaç: uyku, yemek, destek ve anlayış"],
+    "help_title": "Neler yapabilirsin",
+    "help": ["Onu dinle; duygularını \"düzeltmeye\" çalışma", "Uykusunu koru: gece nöbetleri ayarlayın", "Ev işlerini ve ziyaretçileri üstlen", "Onu her gün öv ve yanında olduğunu göster"],
+    "ppd_title": "Doğum sonrası depresyon farklıdır",
+    "ppd_intro": "Kadınların yaklaşık %10–15'ini etkiler ve doğumdan sonraki ilk yıl içinde herhangi bir zamanda başlayabilir. Bu bir zayıflık değildir ve tedavi edilebilir.",
+    "ppd_signs": ["2 haftadan uzun süren üzüntü ya da boşluk hissi", "Eskiden keyif aldığı şeylere ilgisini kaybetti", "Bebek uyurken bile uyuyamıyor", "Kendini değersiz ya da suçlu hissediyor", "Bebeğe karşı uzaklık hissediyor", "İştahı belirgin şekilde değişti"],
+    "ppd_action": "Bu işaretleri görürsen onu bir doktora (kadın doğum uzmanı, aile hekimi ya da psikolog) gitmeye teşvik et ve onunla birlikte git.",
+    "urgent_title": "Hemen yardım alın",
+    "urgent_signs": ["Kendine ya da bebeğe zarar verme düşünceleri", "Olmayan şeyleri görme ya da duyma", "Kafa karışıklığı, aşırı duygu dalgalanmaları, günlerce uyuyamama"],
+    "urgent_action": "Bu durumlarda onu yalnız bırakma ve hemen acil yardımı (112) ara.",
+    "self_title": "Sen de önemlisin",
+    "self": ["Babalarda da doğum sonrası depresyon olabilir (yaklaşık %10)", "Kısa şekerlemeler yap ve öğün atlama", "Duygularını onunla ya da bir arkadaşınla konuş", "Yardım istemek bir güçtür"]
+  },
+  "phrases": ["Harika bir annesin 💛", "Bugün neye ihtiyacın olursa olsun, buradayım", "Biraz uzan, bebeğe ben bakarım", "Seni çok seviyorum, yalnız değilsin", "Yorgunsun ve bu tamamen normal. Birlikte üstesinden geleceğiz", "Sana ne getireyim? Çay, yemek ya da sadece bir sarılma?", "Bu gece bende, iyi uykular", "Bugün yaptığın her şey için teşekkür ederim"],
+  "tasks": ["Bir gece beslemesi", "Bez değiştirme", "Bebeğin banyosu", "Yemek yapmak", "Bulaşıklar", "Çamaşır", "Market alışverişi", "Ziyaretçiler", "Bebekle yürüyüş", "Eczane"]
+}

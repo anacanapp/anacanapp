@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "İlk 8 həftə",
+    "subtitle": "Doğuşdan sonra ona necə dəstək olasan",
+    "home_card": "Doğuşdan sonra · həftə {n}/8",
+    "open": "Aç",
+    "week": "Həftə {n}",
+    "tab_week": "Bu həftə",
+    "tab_blues": "Baby blues",
+    "tab_signs": "Siqnallar",
+    "tab_support": "Ona dəstək",
+    "her_body": "Onun bədəni",
+    "her_mind": "Onun hissləri",
+    "you_do": "Nə edə bilərsən",
+    "you_say": "Nə deyə bilərsən",
+    "avoid": "Bundan çəkin",
+    "send": "Göndər",
+    "sent": "Göndərildi 💌",
+    "phrases_title": "Ona bir söz yaz",
+    "phrases_sub": "Bir toxunuşla mesaj kimi göndərilir.",
+    "tasks_title": "Bu gün mən götürürəm",
+    "tasks_sub": "Seçdiklərini ona göndər ki, nəyin sənin üzərində olduğunu bilsin.",
+    "tasks_send": "Seçdiklərimi ona göndər",
+    "tasks_message": "Bu gün bunları mən edirəm: {list} 💪 Sən dincəl.",
+    "signs_title": "Siqnalları yoxla",
+    "signs_sub": "Son günlərdə gördüklərini seç. Bu, diaqnoz deyil.",
+    "signs_none": "Hazırda narahatlıq siqnalı seçilməyib. Dəstəyinə davam et.",
+    "signs_some": "Bu əlamətlər 2 həftədən çox davam edirsə, onunla birlikdə həkimə müraciət edin.",
+    "signs_urgent": "Təcili siqnal seçdin. Onu tək qoyma və dərhal təcili yardıma (112) zəng et.",
+    "mood_low_title": "Son günlərdə əhvalı aşağıdır",
+    "mood_low_body": "Son 7 gündə {n} gün əhvalını aşağı qeyd edib. Bu gün ona əlavə vaxt ayır və necə hiss etdiyini soruş.",
+    "mood_low_long": "Bu, 2 həftədən çox davam edirsə, birlikdə həkimlə danışın.",
+    "disclaimer": "Bu məlumat həkim məsləhətini əvəz etmir."
+  },
+  "weeks": [
+    {
+      "title": "Evdə ilk günlər",
+      "body": "Doğuşdan sonra qanaxma (loxiya) gedir, tikiş və ya qeysəriyyə yarası ağrıyır. 3–5-ci gün döşlərə süd gəlir, döşlər şişib ağrıya bilər.",
+      "mind": "3–5-ci günlərdə hormonlar kəskin düşür. Səbəbsiz ağlamaq, narahatlıq və özünü yetərsiz hiss etmək normaldır: bu, baby blues-dur.",
+      "do": ["Qonaqları bu həftə minimuma endir, qapını sən idarə et", "Hər qidalanmada yanına su və qəlyanaltı qoy", "Bez dəyişməyi, geyindirməyi və çimizdirməyi öz üzərinə götür", "Ev işlərini, yeməyi və alış-verişi tamamilə sən apar"],
+      "say": ["Sən əla anasan. Biz hələ bir-birimizi tanıyırıq", "Ağlamaq istəyirsənsə, ağla. Mən buradayam"],
+      "avoid": "“Hamı uşaq doğur, nə var ki?” demə. Hisslərini kiçiltmə."
+    },
+    {
+      "title": "Yuxusuzluq yığılır",
+      "body": "Qanaxma azalmağa başlayır. Əmizdirmə hələ ağrılı ola bilər; döşdə çat, sərtlik və ya qızartı varsa, həkimə və ya laktasiya məsləhətçisinə müraciət edin.",
+      "mind": "Baby blues adətən 2 həftəyə keçir. Kədər, ümidsizlik və ya maraqsızlıq bundan sonra da davam edirsə, bu doğuşdan sonrakı depressiya ola bilər. Diqqətlə izlə.",
+      "do": ["Gecə növbəsi planı qurun: o, ən azı 4–5 saat fasiləsiz yatsın", "Körpəni gəzintiyə apar, ona evdə tək vaxt qalsın", "Əmizdirmə sualları üçün laktasiya məsləhətçisi tap", "Hər gün “Özünü necə hiss edirsən?” deyə soruş və dinlə"],
+      "say": ["Bu gecəni mən götürürəm, sən yat", "Nə lazımdırsa de, hər şeyi birlikdə həll edərik"],
+      "avoid": "Onun əvəzinə qərar vermə, məsləhət yağdırma. Əvvəl dinlə."
+    },
+    {
+      "title": "Böyümə sıçrayışı",
+      "body": "Körpə tez-tez döş istəyə bilər (klaster qidalanma). Bu, südün azlığı demək deyil: körpə böyüyür.",
+      "mind": "Durmadan qidalandırmaq onu yorur və “heç nəyə çatmıram” hissi yaradır. Tək qaldığını hiss etməsin.",
+      "do": ["Axşam qidalanmalarında yanında otur: su, yemək və pultu gətir", "Qidalanmadan sonra körpəni gəyirt və yatırt", "Paltar yumağı və təmizliyi sən planla", "Sevdiyi yeməyi bişir və ya sifariş et"],
+      "say": ["Körpəmizi sən böyüdürsən. Bu ağır işdir və sən bacarırsan", "Mən buradayam, sən tək deyilsən"],
+      "avoid": "“Yenə yeyir?” və ya “Bəlkə südün çatmır” demə. İnamını qırar."
+    },
+    {
+      "title": "Bir ay oldu",
+      "body": "Tikişlər çox vaxt sağalıb, amma ağır qaldırmaq hələ tezdir, xüsusən qeysəriyyədən sonra.",
+      "mind": "Yorğunluq yığılıb. O, özünü köhnə həyatından uzaq, “yalnız ana” kimi hiss edə bilər.",
+      "do": ["Ona 1–2 saat tam özü üçün vaxt ver: duş, gəzinti, dostlar", "Kiçik sürpriz et: gül, sevdiyi şirniyyat, məktub", "Ailə və dostlardan yemək və köməyi sən təşkil et", "Körpənin ilk fotolarından birlikdə albom yığın"],
+      "say": ["Bu gün sənin üçün nə edim ki, bir az yüngül olsun?", "Səni çox sevirəm. Ana olandan sonra sənə daha çox heyranam"],
+      "avoid": "Onun görünüşü və çəkisi haqqında danışma."
+    },
+    {
+      "title": "Rutin yaranır",
+      "body": "Qanaxma artıq çox az olmalıdır. Birdən artarsa, qızdırma və ya pis qoxu varsa, həkimə müraciət edin.",
+      "mind": "Rutin yaranır, amma hər gün eyni işlər onu yora bilər. Kədər 2 həftədən çox davam edirsə, peşəkar dəstək vaxtıdır.",
+      "do": ["Hər axşam bir rutini sən al: çimizdirmə və ya yatırtma", "Həftəsonu kiçik ailə gəzintisi planla", "Ondan nəyin ən çətin olduğunu soruş və birini həll et", "Öz yorğunluğunu da izlə və ona danış"],
+      "say": ["Bu axşam dincəl, körpəni mən yatırım", "Biz bir komandayıq"],
+      "avoid": "Onun gününü “bütün gün evdə idin” deyə dəyərləndirmə."
+    },
+    {
+      "title": "Ağlama zirvəsi və həkim yoxlaması",
+      "body": "Bu həftələrdə doğuşdan sonrakı həkim yoxlaması olur. Körpənin ağlaması da 6–8-ci həftədə ən çox olur, sonra azalır.",
+      "mind": "Körpəni sakitləşdirə bilməmək onu ağır yorur. Əsəbiləşəndə körpəni təhlükəsiz beşiyə qoyub bir neçə dəqiqə nəfəs almaq olar. Körpəni heç vaxt silkələmə.",
+      "do": ["Həkim yoxlamasına birlikdə gedin, sualları əvvəlcədən yazın", "Ağlama saatlarında növbə ilə körpəni gəzdirin", "“İndi mən götürürəm” deyib ona fasilə ver", "Necə hiss etdiyini həkimə də deməsi üçün onu həvəsləndir"],
+      "say": ["Ağlaması sənin günahın deyil, körpələr belədir", "Növbə ilə edək, sən fasilə ver"],
+      "avoid": "Yaxınlıq məsələsində tələsmə. Hazır olanda o özü deyəcək."
+    },
+    {
+      "title": "Özünə qayıtmaq",
+      "body": "Bədən hələ bərpa olunur. Həkim icazə veribsə, yüngül gəzinti və nəfəs məşqləri faydalıdır.",
+      "mind": "O, özünü yenidən tanımağa çalışır: bədəni, işi, dostları haqqında düşüncələr ola bilər. Sənin dəstəyin ona güc verir.",
+      "do": ["Həftədə bir dəfə ona tam “sərbəst saat” ver", "Birlikdə qısa gəzinti və ya kafe planla", "Gecə növbələrini ədalətli bölüşməyə davam et", "Minnətdarlığını açıq şəkildə de"],
+      "say": ["Sən hələ də sənsən və mən hər gün səni seçirəm", "Bu ay çox böyük iş gördün"],
+      "avoid": "Müqayisə etmə: “Filankəs tez bərpa olundu” demə."
+    },
+    {
+      "title": "İki ay: yeni ailə",
+      "body": "Bir çox ana artıq özünü daha güclü hiss edir. Ağrı, qanaxma və ya yorğunluq hələ çoxdursa, həkimə deyin.",
+      "mind": "Əhval yaxşılaşmalıdır. Kədər, narahatlıq və ya körpəyə qarşı uzaqlıq davam edirsə, bunu birlikdə həkimlə müzakirə edin. Kömək var və müalicə olunur.",
+      "do": ["Bu iki ayı birlikdə dəyərləndirin: nə yaxşı getdi, nə dəyişsin", "Ev işlərinin bölgüsünü yenidən birlikdə qurun", "Kiçik “iki ay” bayramı edin", "Öz əhvalını da yoxla: atalar da doğuşdan sonra depressiya yaşaya bilər"],
+      "say": ["Səninlə valideyn olmaq mənim ən böyük xoşbəxtliyimdir", "Növbəti ay nəyi fərqli edək?"],
+      "avoid": "“Artıq hər şey qaydasındadır” deyib dəstəyi birdən azaltma."
+    }
+  ],
+  "blues": {
+    "title": "Baby blues nədir?",
+    "intro": "Doğuşdan sonra qadınların təxminən 50–80%-i baby blues yaşayır. Səbəbi hormonların kəskin düşməsi, yuxusuzluq və yeni məsuliyyətdir.",
+    "facts": ["Adətən doğuşdan 2–5 gün sonra başlayır", "Səbəbsiz ağlama, əsəbilik, narahatlıq və yorğunluq olur", "Adətən 2 həftə ərzində öz-özünə keçir", "Ən yaxşı dərman: yuxu, yemək, dəstək və anlayış"],
+    "help_title": "Sən nə edə bilərsən",
+    "help": ["Onu dinlə, hisslərini “düzəltməyə” çalışma", "Yuxusunu qoru: gecə növbəsi qurun", "Ev işlərini və qonaqları öz üzərinə götür", "Hər gün onu təriflə və yanında olduğunu göstər"],
+    "ppd_title": "Doğuşdan sonrakı depressiya fərqlidir",
+    "ppd_intro": "Təxminən 10–15% qadında olur və doğuşdan sonrakı ilk il ərzində istənilən vaxt başlaya bilər. Bu, zəiflik deyil və müalicə olunur.",
+    "ppd_signs": ["Kədər və ya boşluq hissi 2 həftədən çox davam edir", "Əvvəl sevdiyi şeylərə marağı qalmayıb", "Körpə yatanda belə yata bilmir", "Özünü dəyərsiz və ya günahkar hiss edir", "Körpəyə qarşı uzaqlıq hiss edir", "İştahı kəskin dəyişib"],
+    "ppd_action": "Bu əlamətlər varsa, onu həkimə (ginekoloq, ailə həkimi və ya psixoloq) getməyə həvəsləndir və birlikdə get.",
+    "urgent_title": "Dərhal kömək lazımdır",
+    "urgent_signs": ["Özünə və ya körpəyə zərər vermək fikirləri", "Olmayan şeyləri görmək və ya eşitmək", "Çaşqınlıq, kəskin əhval dəyişikliyi, günlərlə yatmamaq"],
+    "urgent_action": "Belə hallarda onu tək qoyma və dərhal təcili yardıma (112) zəng et.",
+    "self_title": "Sən də vacibsən",
+    "self": ["Atalar da doğuşdan sonra depressiya yaşaya bilər (təxminən 10%)", "Qısa yuxular al, yeməyi atlama", "Hisslərini ona və ya bir dostuna danış", "Kömək istəmək güclülükdür"]
+  },
+  "phrases": ["Sən inanılmaz anasan 💛", "Bu gün nə lazımdırsa, mən buradayam", "Bir az uzan, körpəyə mən baxıram", "Səni çox sevirəm, sən tək deyilsən", "Yorulmusan və bu çox normaldır. Birlikdə bacararıq", "Sənə nə gətirim? Çay, yemək, ya sadəcə qucaq?", "Bu gecəni mən götürürəm, rahat yat", "Bu gün etdiyin hər şey üçün təşəkkür edirəm"],
+  "tasks": ["Bir gecə qidalanması", "Bezlər", "Körpəni çimizdirmək", "Yemək hazırlamaq", "Qab-qacaq", "Paltar yumaq", "Market alış-verişi", "Qonaqlar", "Körpə ilə gəzinti", "Aptek"]
+}

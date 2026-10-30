@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "8 minggu pertama",
+    "subtitle": "Cara mendukungnya setelah melahirkan",
+    "home_card": "Setelah melahirkan · minggu {n}/8",
+    "open": "Buka",
+    "week": "Minggu {n}",
+    "tab_week": "Minggu ini",
+    "tab_blues": "Baby blues",
+    "tab_signs": "Tanda bahaya",
+    "tab_support": "Dukung dia",
+    "her_body": "Tubuhnya",
+    "her_mind": "Perasaannya",
+    "you_do": "Yang bisa Anda lakukan",
+    "you_say": "Yang bisa Anda katakan",
+    "avoid": "Hindari ini",
+    "send": "Kirim",
+    "sent": "Terkirim 💌",
+    "phrases_title": "Kirimi dia beberapa kata",
+    "phrases_sub": "Dikirim sebagai pesan dengan satu ketukan.",
+    "tasks_title": "Hari ini biar aku yang urus",
+    "tasks_sub": "Kirimi dia daftar tugas yang Anda ambil alih agar dia tahu semuanya sudah ditangani.",
+    "tasks_send": "Kirim daftarku kepadanya",
+    "tasks_message": "Hari ini aku yang urus: {list} 💪 Kamu istirahat saja.",
+    "signs_title": "Periksa tandanya",
+    "signs_sub": "Centang yang Anda perhatikan akhir-akhir ini. Ini bukan diagnosis.",
+    "signs_none": "Saat ini tidak ada tanda bahaya yang dicentang. Teruskan dukungan Anda.",
+    "signs_some": "Jika tanda-tanda ini berlangsung lebih dari 2 minggu, temui dokter bersama.",
+    "signs_urgent": "Anda mencentang tanda darurat. Jangan tinggalkan dia sendirian dan hubungi layanan darurat (112) sekarang.",
+    "mood_low_title": "Suasana hatinya sedang murung akhir-akhir ini",
+    "mood_low_body": "Dia mencatat suasana hati murung pada {n} dari 7 hari terakhir. Beri dia waktu lebih hari ini dan tanyakan bagaimana perasaannya.",
+    "mood_low_long": "Jika ini berlangsung lebih dari 2 minggu, bicarakan dengan dokter bersama.",
+    "disclaimer": "Informasi ini tidak menggantikan saran medis."
+  },
+  "weeks": [
+    {
+      "title": "Hari-hari pertama di rumah",
+      "body": "Setelah melahirkan akan ada perdarahan (lokia atau darah nifas), dan jahitan atau luka operasi caesar terasa sakit. ASI mulai keluar sekitar hari ke-3–5, dan payudaranya bisa membengkak dan nyeri.",
+      "mind": "Sekitar hari ke-3–5 hormon turun drastis. Menangis tanpa alasan, cemas, dan merasa tidak cukup baik itu normal: inilah baby blues.",
+      "do": ["Batasi tamu seminimal mungkin minggu ini dan jadilah orang yang menyambut di pintu", "Bawakan air dan camilan setiap kali dia menyusui", "Ambil alih ganti popok, memakaikan baju, dan memandikan bayi", "Urus pekerjaan rumah, makanan, dan belanja sepenuhnya"],
+      "say": ["Kamu ibu yang luar biasa. Kita masih saling mengenal", "Kalau perlu menangis, menangislah. Aku di sini"],
+      "avoid": "Jangan bilang “Semua orang juga punya anak, apa susahnya?” Jangan meremehkan perasaannya."
+    },
+    {
+      "title": "Utang tidur menumpuk",
+      "body": "Perdarahan mulai berkurang. Menyusui masih bisa terasa sakit; jika ada puting lecet, benjolan keras, atau kemerahan, temui dokter atau konselor laktasi.",
+      "mind": "Baby blues biasanya hilang dalam 2 minggu. Jika rasa sedih, putus asa, atau hilang minat berlanjut setelah itu, bisa jadi itu depresi pascapersalinan. Perhatikan dengan saksama.",
+      "do": ["Buat jadwal jaga malam agar dia bisa tidur setidaknya 4–5 jam berturut-turut", "Ajak bayi jalan-jalan agar dia punya waktu sendiri di rumah", "Carikan konselor laktasi untuk pertanyaan seputar menyusui", "Tanyakan “Bagaimana perasaanmu?” setiap hari, lalu dengarkan"],
+      "say": ["Malam ini biar aku yang jaga, kamu tidur", "Bilang saja apa yang kamu butuhkan; kita atasi semuanya bersama"],
+      "avoid": "Jangan memutuskan untuknya atau membanjirinya dengan nasihat. Dengarkan dulu."
+    },
+    {
+      "title": "Masa lonjakan pertumbuhan",
+      "body": "Bayi mungkin ingin menyusu sangat sering (cluster feeding). Ini tidak berarti ASI-nya kurang: bayi sedang tumbuh.",
+      "mind": "Menyusui tanpa henti membuatnya kelelahan dan merasa tidak bisa mengurus apa pun. Jangan biarkan dia merasa sendirian.",
+      "do": ["Temani dia saat menyusui malam hari: bawakan air, makanan, dan remot", "Sendawakan bayi setelah menyusu dan tidurkan dia", "Rencanakan sendiri urusan cucian dan bersih-bersih", "Masakkan atau pesankan makanan favoritnya"],
+      "say": ["Kamu sedang membesarkan bayi kita. Itu kerja keras dan kamu berhasil melakukannya", "Aku di sini, kamu tidak sendirian"],
+      "avoid": "Jangan bilang “Menyusu lagi?” atau “Mungkin ASI-mu kurang”. Itu meruntuhkan kepercayaan dirinya."
+    },
+    {
+      "title": "Satu bulan berlalu",
+      "body": "Jahitan biasanya sudah sembuh, tetapi mengangkat beban berat masih terlalu dini, terutama setelah operasi caesar.",
+      "mind": "Kelelahan sudah menumpuk. Dia mungkin merasa jauh dari kehidupannya yang dulu, seolah sekarang dia “hanya seorang ibu”.",
+      "do": ["Beri dia 1–2 jam khusus untuk dirinya sendiri: mandi, jalan-jalan, bertemu teman", "Siapkan kejutan kecil: bunga, camilan favoritnya, sepucuk catatan", "Atur sendiri makanan serta bantuan dari keluarga dan teman", "Buat album foto pertama bayi bersama-sama"],
+      "say": ["Apa yang bisa kulakukan hari ini supaya semuanya terasa sedikit lebih ringan untukmu?", "Aku sangat mencintaimu. Sejak kamu jadi ibu, aku makin mengagumimu"],
+      "avoid": "Jangan membicarakan penampilan atau berat badannya."
+    },
+    {
+      "title": "Rutinitas mulai terbentuk",
+      "body": "Perdarahan seharusnya sudah sangat sedikit sekarang. Jika tiba-tiba bertambah banyak, atau ada demam atau bau tidak sedap, temui dokter.",
+      "mind": "Rutinitas mulai terbentuk, tetapi melakukan hal yang sama setiap hari bisa menguras tenaganya. Jika rasa sedih berlangsung lebih dari 2 minggu, sudah waktunya mencari bantuan profesional.",
+      "do": ["Ambil alih satu rutinitas malam setiap hari: memandikan atau menidurkan bayi", "Rencanakan jalan-jalan singkat bersama keluarga di akhir pekan", "Tanyakan apa yang paling berat baginya saat ini dan selesaikan satu hal", "Perhatikan juga rasa lelah Anda sendiri dan bicarakan dengannya"],
+      "say": ["Malam ini istirahatlah, aku yang menidurkan bayi", "Kita satu tim"],
+      "avoid": "Jangan menyimpulkan harinya dengan “kamu kan seharian di rumah”."
+    },
+    {
+      "title": "Puncak tangisan dan kontrol",
+      "body": "Kontrol pascapersalinan biasanya dilakukan sekitar waktu ini. Bayi paling banyak menangis di usia 6–8 minggu; setelah itu akan mereda.",
+      "mind": "Tidak bisa menenangkan bayi itu sangat melelahkan. Saat rasa frustrasi memuncak, tidak apa-apa membaringkan bayi dengan aman di boks lalu menarik napas selama beberapa menit. Jangan pernah mengguncang bayi.",
+      "do": ["Datanglah ke jadwal kontrol bersama dan tulis pertanyaan sebelumnya", "Bergantian menggendong bayi berjalan-jalan saat dia rewel menangis", "Katakan “Sekarang biar aku” dan beri dia waktu istirahat", "Dorong dia untuk menceritakan perasaannya juga kepada dokter"],
+      "say": ["Tangisannya bukan salahmu; bayi memang begitu", "Kita gantian, kamu istirahat dulu"],
+      "avoid": "Jangan terburu-buru soal hubungan intim. Dia akan memberi tahu saat sudah siap."
+    },
+    {
+      "title": "Menemukan dirinya kembali",
+      "body": "Tubuhnya masih dalam pemulihan. Jika dokter sudah mengizinkan, jalan santai dan latihan pernapasan akan membantu.",
+      "mind": "Dia sedang mengenal dirinya lagi dan mungkin khawatir soal tubuh, pekerjaan, atau teman-temannya. Dukungan Anda memberinya kekuatan.",
+      "do": ["Beri dia satu “jam bebas” penuh setiap minggu", "Rencanakan jalan-jalan singkat atau mampir ke kafe berdua", "Terus bagi jaga malam secara adil", "Ucapkan terima kasih Anda secara langsung"],
+      "say": ["Kamu tetap dirimu, dan aku memilihmu setiap hari", "Kamu sudah melakukan pekerjaan besar bulan ini"],
+      "avoid": "Jangan membandingkan: jangan bilang “Si anu cepat pulih, lho”."
+    },
+    {
+      "title": "Dua bulan: keluarga baru",
+      "body": "Banyak ibu merasa lebih kuat pada saat ini. Jika nyeri, perdarahan, atau kelelahan masih berat, beri tahu dokter.",
+      "mind": "Suasana hatinya seharusnya membaik. Jika rasa sedih, cemas, atau merasa jauh dari bayi terus berlanjut, bicarakan dengan dokter bersama. Bantuan tersedia dan kondisi ini bisa diobati.",
+      "do": ["Tinjau dua bulan ini bersama: apa yang berjalan baik, apa yang perlu diubah", "Atur ulang pembagian pekerjaan rumah bersama-sama", "Adakan perayaan kecil “dua bulan”", "Periksa juga suasana hati Anda: ayah juga bisa mengalami depresi pascapersalinan"],
+      "say": ["Menjadi orang tua bersamamu adalah kebahagiaan terbesarku", "Apa yang mau kita lakukan secara berbeda bulan depan?"],
+      "avoid": "Jangan tiba-tiba mengurangi dukungan Anda karena “sekarang semuanya sudah baik-baik saja”."
+    }
+  ],
+  "blues": {
+    "title": "Apa itu baby blues?",
+    "intro": "Sekitar 50–80% perempuan mengalami baby blues setelah melahirkan. Penyebabnya adalah penurunan hormon yang drastis, kurang tidur, dan tanggung jawab baru.",
+    "facts": ["Biasanya dimulai 2–5 hari setelah melahirkan", "Menangis tanpa alasan, mudah tersinggung, cemas, dan lelah adalah hal yang umum", "Biasanya hilang dengan sendirinya dalam 2 minggu", "Obat terbaik: tidur, makan, dukungan, dan pengertian"],
+    "help_title": "Yang bisa Anda lakukan",
+    "help": ["Dengarkan dia; jangan mencoba “memperbaiki” perasaannya", "Lindungi waktu tidurnya: atur jadwal jaga malam", "Ambil alih pekerjaan rumah dan urusan tamu", "Puji dia setiap hari dan tunjukkan bahwa Anda ada untuknya"],
+    "ppd_title": "Depresi pascapersalinan itu berbeda",
+    "ppd_intro": "Kondisi ini dialami sekitar 10–15% perempuan dan bisa muncul kapan saja dalam tahun pertama setelah melahirkan. Ini bukan kelemahan, dan bisa diobati.",
+    "ppd_signs": ["Rasa sedih atau hampa yang berlangsung lebih dari 2 minggu", "Kehilangan minat pada hal-hal yang dulu dia sukai", "Tidak bisa tidur meskipun bayi sedang tidur", "Merasa tidak berharga atau bersalah", "Merasa jauh dari bayinya", "Nafsu makannya berubah drastis"],
+    "ppd_action": "Jika Anda melihat tanda-tanda ini, dorong dia untuk menemui dokter (dokter kandungan, dokter umum, atau psikolog) dan dampingi dia.",
+    "urgent_title": "Segera cari bantuan",
+    "urgent_signs": ["Pikiran untuk menyakiti diri sendiri atau bayi", "Melihat atau mendengar hal-hal yang tidak ada", "Kebingungan, perubahan suasana hati yang ekstrem, tidak tidur berhari-hari"],
+    "urgent_action": "Dalam kondisi ini jangan tinggalkan dia sendirian, dan segera hubungi layanan darurat (112).",
+    "self_title": "Anda juga penting",
+    "self": ["Ayah juga bisa mengalami depresi pascapersalinan (sekitar 10%)", "Tidur siang sebentar dan jangan melewatkan waktu makan", "Ceritakan perasaan Anda kepadanya atau kepada teman", "Meminta bantuan adalah tanda kekuatan"]
+  },
+  "phrases": ["Kamu ibu yang hebat 💛", "Apa pun yang kamu butuhkan hari ini, aku di sini", "Rebahan sebentar ya, biar aku yang jaga bayi", "Aku sangat mencintaimu, kamu tidak sendirian", "Kamu lelah dan itu sangat wajar. Kita hadapi bersama", "Mau kubawakan apa? Teh, makanan, atau cukup pelukan?", "Malam ini biar aku yang jaga, tidur yang nyenyak ya", "Terima kasih untuk semua yang sudah kamu lakukan hari ini"],
+  "tasks": ["Satu kali memberi susu malam", "Popok", "Memandikan bayi", "Memasak", "Cuci piring", "Cucian", "Belanja kebutuhan", "Tamu", "Jalan-jalan dengan bayi", "Apotek"]
+}

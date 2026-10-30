@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import {
   ShoppingCart, Package, Vote, FileText, CalendarHeart,
-  Baby, BarChart3, Gift, ChevronRight, ClipboardList, Moon } from
+  Baby, BarChart3, Gift, ChevronRight, ClipboardList, Moon, HeartHandshake } from
 'lucide-react';
 import { feature37Text } from '@/lib/feature37-i18n';
+import { useUserStore } from '@/store/userStore';
+import { usePostpartumPartnerText } from '@/data/postpartum-partner';
 import { usePartnerData } from '@/hooks/usePartnerData';
 import { usePartnerHospitalBag } from '@/hooks/usePartnerHospitalBag';
 import { useDailySummary } from '@/hooks/useDailySummary';
@@ -25,7 +27,11 @@ const MOOD_EMOJIS = ['😢', '😔', '😐', '🙂', '😊'];
 const PartnerTogetherScreen = ({ onNavigate }: Props) => {
   useScrollToTop();
 
-  const { partnerProfile, sharing } = usePartnerData();
+  const { partnerProfile, sharing, getBabyAgeDays } = usePartnerData();
+  const babyAgeDays = getBabyAgeDays();
+  const postpartumText = usePostpartumPartnerText(useUserStore((s) => s.language) || 'az');
+  const postpartumTitle = postpartumText?.ui.title || '';
+  const postpartumSub = postpartumText?.ui.subtitle || '';
   const { checkedCount, totalCount, getProgress } = usePartnerHospitalBag();
   const { todaySummary } = useDailySummary();
   const { plannedSurprises, totalPoints } = useSurprises();
@@ -92,6 +98,16 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
     icon: ClipboardList,
     bg: 'var(--a-lav-1)', ink: 'var(--a-lav-ink)',
     visible: lifeStage === 'bump'
+  },
+  {
+    id: 'postpartum',
+    group: 'daily',
+    screen: 'postpartum-support',
+    title: postpartumTitle,
+    subtitle: postpartumSub,
+    icon: HeartHandshake,
+    bg: 'var(--a-peach-1)', ink: 'var(--a-accent-ink)',
+    visible: lifeStage === 'mommy' && babyAgeDays < 84
   },
   {
     id: 'night-shift',

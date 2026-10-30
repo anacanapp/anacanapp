@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "Die ersten 8 Wochen",
+    "subtitle": "Wie du sie nach der Geburt unterstützt",
+    "home_card": "Nach der Geburt · Woche {n}/8",
+    "open": "Öffnen",
+    "week": "Woche {n}",
+    "tab_week": "Diese Woche",
+    "tab_blues": "Babyblues",
+    "tab_signs": "Warnzeichen",
+    "tab_support": "Unterstütze sie",
+    "her_body": "Ihr Körper",
+    "her_mind": "Ihre Gefühle",
+    "you_do": "Was du tun kannst",
+    "you_say": "Was du sagen kannst",
+    "avoid": "Vermeide das",
+    "send": "Senden",
+    "sent": "Gesendet 💌",
+    "phrases_title": "Schick ihr ein paar Worte",
+    "phrases_sub": "Mit einem Tippen als Nachricht gesendet.",
+    "tasks_title": "Heute übernehme ich",
+    "tasks_sub": "Schick ihr, was du übernimmst, damit sie weiß, dass es erledigt wird.",
+    "tasks_send": "Meine Liste an sie senden",
+    "tasks_message": "Heute kümmere ich mich um: {list} 💪 Ruh du dich aus.",
+    "signs_title": "Zeichen prüfen",
+    "signs_sub": "Hak an, was dir in letzter Zeit aufgefallen ist. Das ist keine Diagnose.",
+    "signs_none": "Gerade sind keine Warnzeichen angehakt. Unterstütze sie weiter so.",
+    "signs_some": "Wenn diese Zeichen länger als 2 Wochen anhalten, geht gemeinsam zu einer Ärztin oder einem Arzt.",
+    "signs_urgent": "Du hast ein dringendes Zeichen angehakt. Lass sie nicht allein und ruf jetzt den Notruf (112) an.",
+    "mood_low_title": "Ihre Stimmung war zuletzt gedrückt",
+    "mood_low_body": "Sie hat an {n} der letzten 7 Tage eine gedrückte Stimmung eingetragen. Nimm dir heute mehr Zeit für sie und frag, wie es ihr geht.",
+    "mood_low_long": "Wenn das länger als 2 Wochen anhält, sprecht gemeinsam mit einer Ärztin oder einem Arzt.",
+    "disclaimer": "Diese Informationen ersetzen keine ärztliche Beratung."
+  },
+  "weeks": [
+    {
+      "title": "Die ersten Tage zu Hause",
+      "body": "Nach der Geburt kommt es zu Blutungen (Wochenfluss), und Nähte oder eine Kaiserschnittwunde tun weh. Um den 3.–5. Tag schießt die Milch ein, und ihre Brüste können anschwellen und schmerzen.",
+      "mind": "Um den 3.–5. Tag fallen die Hormone stark ab. Grundloses Weinen, Sorgen und das Gefühl, nicht gut genug zu sein, sind normal: Das ist der Babyblues.",
+      "do": ["Halte Besuch diese Woche auf ein Minimum und sei du derjenige an der Tür", "Bring zu jeder Stillmahlzeit Wasser und einen Snack", "Übernimm Windeln, Anziehen und Baden des Babys", "Kümmere dich komplett um Haushalt, Essen und Einkäufe"],
+      "say": ["Du bist eine wunderbare Mama. Wir lernen uns gerade erst kennen", "Wenn du weinen musst, wein. Ich bin da"],
+      "avoid": "Sag nicht: „Alle kriegen Kinder, was ist schon dabei?“ Spiel ihre Gefühle nicht herunter."
+    },
+    {
+      "title": "Der Schlafmangel wächst",
+      "body": "Die Blutung lässt allmählich nach. Stillen kann noch wehtun; bei wunden Stellen, einer harten Verhärtung oder Rötung wendet euch an eine Ärztin, einen Arzt oder eine Stillberaterin.",
+      "mind": "Der Babyblues vergeht meist innerhalb von 2 Wochen. Halten Traurigkeit, Hoffnungslosigkeit oder Interessenverlust länger an, kann es eine postpartale Depression sein. Achte genau darauf.",
+      "do": ["Macht einen Nachtschichtplan, damit sie mindestens 4–5 Stunden am Stück schläft", "Geh mit dem Baby spazieren, damit sie die Wohnung für sich hat", "Such eine Stillberaterin für Fragen zum Füttern", "Frag jeden Tag „Wie geht es dir?“ und hör zu"],
+      "say": ["Heute Nacht übernehme ich, du schläfst", "Sag mir, was du brauchst; wir kriegen alles gemeinsam hin"],
+      "avoid": "Entscheide nicht über ihren Kopf hinweg und überschütte sie nicht mit Ratschlägen. Hör erst zu."
+    },
+    {
+      "title": "Ein Wachstumsschub",
+      "body": "Das Baby will vielleicht sehr oft trinken (Clusterfeeding). Das heißt nicht, dass die Milch nicht reicht: Das Baby wächst.",
+      "mind": "Pausenloses Stillen erschöpft sie und gibt ihr das Gefühl, mit nichts hinterherzukommen. Lass sie sich nicht allein fühlen.",
+      "do": ["Setz dich bei den Abendmahlzeiten zu ihr: Bring Wasser, Essen und die Fernbedienung", "Lass das Baby nach dem Trinken aufstoßen und bring es zum Schlafen", "Plane Wäsche und Putzen selbst", "Koch oder bestell ihr Lieblingsessen"],
+      "say": ["Du lässt unser Baby wachsen. Das ist harte Arbeit, und du schaffst sie", "Ich bin da, du bist nicht allein"],
+      "avoid": "Sag nicht „Schon wieder trinken?“ oder „Vielleicht hast du nicht genug Milch“. Das zerstört ihr Selbstvertrauen."
+    },
+    {
+      "title": "Ein Monat ist geschafft",
+      "body": "Die Nähte sind meist verheilt, aber schweres Heben ist noch zu früh, besonders nach einem Kaiserschnitt.",
+      "mind": "Die Müdigkeit hat sich angesammelt. Vielleicht fühlt sie sich weit weg von ihrem alten Leben, als wäre sie jetzt „nur noch Mama“.",
+      "do": ["Schenk ihr 1–2 Stunden nur für sich: Duschen, Spazieren, Freundinnen", "Plane eine kleine Überraschung: Blumen, ihre Lieblingsnascherei, eine Notiz", "Organisiere selbst Essen und Hilfe von Familie und Freunden", "Gestaltet gemeinsam ein Album mit den ersten Babyfotos"],
+      "say": ["Was kann ich heute tun, damit es für dich etwas leichter wird?", "Ich liebe dich so sehr. Seit du Mama bist, bewundere ich dich noch mehr"],
+      "avoid": "Sprich nicht über ihr Aussehen oder ihr Gewicht."
+    },
+    {
+      "title": "Ein Rhythmus entsteht",
+      "body": "Die Blutung sollte jetzt sehr schwach sein. Wird sie plötzlich stärker oder kommen Fieber oder ein übler Geruch hinzu, geht zur Ärztin oder zum Arzt.",
+      "mind": "Ein Rhythmus entsteht, aber jeden Tag dasselbe zu tun kann sie zermürben. Hält die Traurigkeit länger als 2 Wochen an, ist es Zeit für professionelle Unterstützung.",
+      "do": ["Übernimm jeden Tag ein Abendritual: Baden oder Schlafenlegen", "Plane am Wochenende einen kurzen Familienausflug", "Frag sie, was gerade am schwersten ist, und löse eine Sache", "Achte auch auf deine eigene Müdigkeit und sprich mit ihr darüber"],
+      "say": ["Ruh dich heute Abend aus, ich bring das Baby ins Bett", "Wir sind ein Team"],
+      "avoid": "Fass ihren Tag nicht mit „Du warst doch den ganzen Tag zu Hause“ zusammen."
+    },
+    {
+      "title": "Schreispitze und Nachsorge",
+      "body": "Die Nachuntersuchung nach der Geburt findet meist um diese Zeit statt. Babys schreien mit 6–8 Wochen am meisten; danach wird es besser.",
+      "mind": "Das Baby nicht beruhigen zu können, ist zermürbend. Wenn sich Frust aufstaut, ist es in Ordnung, das Baby sicher ins Bettchen zu legen und ein paar Minuten durchzuatmen. Ein Baby niemals schütteln.",
+      "do": ["Geht gemeinsam zur Nachuntersuchung und schreibt vorher Fragen auf", "Tragt das Baby bei Schreiphasen abwechselnd herum", "Sag „Ich übernehme jetzt“ und gönn ihr eine Pause", "Ermutige sie, der Ärztin oder dem Arzt auch zu erzählen, wie es ihr geht"],
+      "say": ["Das Weinen ist nicht deine Schuld; Babys sind so", "Lass uns abwechseln, mach du eine Pause"],
+      "avoid": "Dräng nicht auf Intimität. Sie sagt dir, wenn sie so weit ist."
+    },
+    {
+      "title": "Sich selbst wiederfinden",
+      "body": "Ihr Körper erholt sich noch. Wenn die Ärztin oder der Arzt zugestimmt hat, helfen sanfte Spaziergänge und Atemübungen.",
+      "mind": "Sie lernt sich neu kennen und macht sich vielleicht Sorgen um ihren Körper, ihre Arbeit oder ihre Freundschaften. Deine Unterstützung gibt ihr Kraft.",
+      "do": ["Schenk ihr jede Woche eine komplett „freie Stunde“", "Plant gemeinsam einen kurzen Spaziergang oder einen Cafébesuch", "Teilt die Nachtschichten weiterhin fair auf", "Sprich deinen Dank laut aus"],
+      "say": ["Du bist immer noch du, und ich entscheide mich jeden Tag für dich", "Du hast diesen Monat Großartiges geleistet"],
+      "avoid": "Vergleiche nicht: Sag nicht „Die und die war ganz schnell wieder fit“."
+    },
+    {
+      "title": "Zwei Monate: eine neue Familie",
+      "body": "Viele Mütter fühlen sich jetzt kräftiger. Sind Schmerzen, Blutung oder Erschöpfung noch stark, sagt es der Ärztin oder dem Arzt.",
+      "mind": "Ihre Stimmung sollte sich bessern. Halten Traurigkeit, Ängste oder das Gefühl der Distanz zum Baby an, besprecht das gemeinsam mit einer Ärztin oder einem Arzt. Es gibt Hilfe, und es ist behandelbar.",
+      "do": ["Blickt gemeinsam auf diese zwei Monate zurück: Was lief gut, was sollte sich ändern", "Verteilt die Hausarbeit gemeinsam neu", "Feiert ein kleines „Zwei Monate“-Fest", "Achte auch auf deine eigene Stimmung: Auch Väter können eine postpartale Depression bekommen"],
+      "say": ["Mit dir Eltern zu sein, ist mein größtes Glück", "Was wollen wir nächsten Monat anders machen?"],
+      "avoid": "Fahr deine Unterstützung nicht plötzlich zurück, weil „jetzt alles gut ist“."
+    }
+  ],
+  "blues": {
+    "title": "Was ist der Babyblues?",
+    "intro": "Etwa 50–80 % der Frauen erleben nach der Geburt den Babyblues. Ursachen sind der starke Hormonabfall, Schlafmangel und die neue Verantwortung.",
+    "facts": ["Er beginnt meist 2–5 Tage nach der Geburt", "Grundloses Weinen, Reizbarkeit, Sorgen und Müdigkeit sind häufig", "Er vergeht meist innerhalb von 2 Wochen von selbst", "Die beste Medizin: Schlaf, Essen, Unterstützung und Verständnis"],
+    "help_title": "Was du tun kannst",
+    "help": ["Hör ihr zu; versuch nicht, ihre Gefühle zu „reparieren“", "Schütze ihren Schlaf: Richtet Nachtschichten ein", "Übernimm Haushalt und Besuch", "Lob sie jeden Tag und zeig, dass du da bist"],
+    "ppd_title": "Eine postpartale Depression ist etwas anderes",
+    "ppd_intro": "Sie betrifft etwa 10–15 % der Frauen und kann jederzeit im ersten Jahr nach der Geburt beginnen. Sie ist keine Schwäche und ist behandelbar.",
+    "ppd_signs": ["Traurigkeit oder Leere, die länger als 2 Wochen anhält", "Sie hat das Interesse an Dingen verloren, die ihr früher Freude gemacht haben", "Sie kann nicht schlafen, selbst wenn das Baby schläft", "Sie fühlt sich wertlos oder schuldig", "Sie fühlt sich dem Baby fern", "Ihr Appetit hat sich stark verändert"],
+    "ppd_action": "Wenn du diese Zeichen bemerkst, ermutige sie, eine Ärztin oder einen Arzt aufzusuchen (Frauenärztin, Hausarzt oder Psychologin), und geh mit ihr hin.",
+    "urgent_title": "Sofort Hilfe holen",
+    "urgent_signs": ["Gedanken, sich selbst oder dem Baby zu schaden", "Dinge sehen oder hören, die nicht da sind", "Verwirrtheit, extreme Stimmungsschwankungen, tagelang kein Schlaf"],
+    "urgent_action": "Lass sie in diesen Fällen nicht allein und ruf sofort den Notruf (112) an.",
+    "self_title": "Du bist auch wichtig",
+    "self": ["Auch Väter können eine postpartale Depression bekommen (etwa 10 %)", "Mach kurze Nickerchen und lass keine Mahlzeiten aus", "Sprich mit ihr oder einem Freund über deine Gefühle", "Um Hilfe zu bitten, ist eine Stärke"]
+  },
+  "phrases": ["Du bist eine großartige Mama 💛", "Was auch immer du heute brauchst, ich bin da", "Leg dich ein bisschen hin, ich kümmere mich um das Baby", "Ich liebe dich so sehr, du bist nicht allein", "Du bist müde, und das ist völlig normal. Wir schaffen das zusammen", "Was kann ich dir bringen? Tee, etwas zu essen oder einfach eine Umarmung?", "Heute Nacht übernehme ich, schlaf gut", "Danke für alles, was du heute geleistet hast"],
+  "tasks": ["Eine Nachtmahlzeit", "Windeln", "Babybad", "Kochen", "Abwasch", "Wäsche", "Lebensmitteleinkauf", "Besuch", "Spaziergang mit dem Baby", "Apotheke"]
+}

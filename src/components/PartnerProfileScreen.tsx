@@ -119,7 +119,7 @@ const PartnerProfileScreen = ({ onNavigate }: PartnerProfileScreenProps) => {
   { icon: Gift, value: completedSurprises.length, label: feature37Text('pp_surprises'), bg: 'var(--a-pink-1)', ink: 'var(--a-pink-ink)' },
   { icon: MessageCircle, value: stats.messagesSent, label: feature37Text('pp_messages'), bg: 'var(--a-green-1)', ink: 'var(--a-green-ink)' }];
 
-  const menu = [...menuItems, { id: 'settings', icon: Settings, label: feature37Text('pp_settings') }];
+  const menu = [{ id: 'partner-notifications', icon: Bell, label: feature37Text('pn_title') }, ...menuItems, { id: 'settings', icon: Settings, label: feature37Text('pp_settings') }];
   const card = { background: 'var(--a-surface)', borderRadius: 'var(--a-radius-md)', boxShadow: 'var(--a-card-shadow)' } as const;
 
   return (

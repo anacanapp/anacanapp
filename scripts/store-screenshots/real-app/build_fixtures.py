@@ -39,7 +39,7 @@ def scenario(name, p, st, fx, functions=None):
               'vitamin_schedules', 'notifications', 'meal_logs', 'rpc/chat_groups_v4', 'rpc/get_my_moderation_status_v1',
               'group_memberships', 'community_groups', 'post_likes', 'community_post_bookmarks', 'partner_sharing_settings']:
         fx.setdefault(t, [] if not t.endswith('status_v1') else {})
-    ls = {"anacan-language": LANG, "anacan-user-store": st, "anacan_partner_tour_v1": "1"}
+    ls = {"anacan-language": LANG, "anacan-user-store": st, "anacan_partner_tour_v2": "1"}
     # Admin-written Azerbaijani community headers lack translations in several languages;
     # other languages fall back to the app's translated default header.
     settings = {} if LANG == 'az' else {"community_header_bump": None, "community_header_flow": None, "community_header_mommy": None}

@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "Pierwsze 8 tygodni",
+    "subtitle": "Jak wspierać ją po porodzie",
+    "home_card": "Po porodzie · tydzień {n}/8",
+    "open": "Otwórz",
+    "week": "Tydzień {n}",
+    "tab_week": "Ten tydzień",
+    "tab_blues": "Baby blues",
+    "tab_signs": "Sygnały ostrzegawcze",
+    "tab_support": "Wspieraj ją",
+    "her_body": "Jej ciało",
+    "her_mind": "Jej uczucia",
+    "you_do": "Co możesz zrobić",
+    "you_say": "Co możesz powiedzieć",
+    "avoid": "Unikaj tego",
+    "send": "Wyślij",
+    "sent": "Wysłano 💌",
+    "phrases_title": "Wyślij jej kilka słów",
+    "phrases_sub": "Wysyłane jako wiadomość jednym dotknięciem.",
+    "tasks_title": "Dziś biorę to na siebie",
+    "tasks_sub": "Wyślij jej, czym się zajmiesz, żeby wiedziała, że wszystko jest ogarnięte.",
+    "tasks_send": "Wyślij jej moją listę",
+    "tasks_message": "Dziś zajmuję się: {list} 💪 Ty odpoczywaj.",
+    "signs_title": "Sprawdź sygnały",
+    "signs_sub": "Zaznacz, co ostatnio zauważyłeś. To nie jest diagnoza.",
+    "signs_none": "Nie zaznaczono teraz żadnych sygnałów ostrzegawczych. Wspieraj ją dalej.",
+    "signs_some": "Jeśli te sygnały utrzymują się dłużej niż 2 tygodnie, idźcie razem do lekarza.",
+    "signs_urgent": "Zaznaczyłeś pilny sygnał. Nie zostawiaj jej samej i natychmiast zadzwoń na numer alarmowy (112).",
+    "mood_low_title": "Ostatnio ma obniżony nastrój",
+    "mood_low_body": "W {n} z ostatnich 7 dni zapisała obniżony nastrój. Poświęć jej dziś więcej czasu i zapytaj, jak się czuje.",
+    "mood_low_long": "Jeśli potrwa to dłużej niż 2 tygodnie, porozmawiajcie razem z lekarzem.",
+    "disclaimer": "Te informacje nie zastępują porady lekarskiej."
+  },
+  "weeks": [
+    {
+      "title": "Pierwsze dni w domu",
+      "body": "Po porodzie występuje krwawienie (odchody połogowe), a szwy lub rana po cesarskim cięciu bolą. Około 3.–5. doby pojawia się nawał mleczny, a piersi mogą być obrzmiałe i bolesne.",
+      "mind": "Około 3.–5. doby poziom hormonów gwałtownie spada. Płacz bez powodu, niepokój i poczucie, że nie jest wystarczająco dobra, są normalne: to baby blues.",
+      "do": ["Ogranicz w tym tygodniu wizyty do minimum i sam otwieraj drzwi", "Przy każdym karmieniu przynoś wodę i przekąskę", "Przejmij pieluchy, ubieranie i kąpiel dziecka", "Zajmij się w całości domem, posiłkami i zakupami"],
+      "say": ["Jesteś cudowną mamą. Wciąż dopiero się poznajemy", "Jeśli chcesz płakać, płacz. Jestem przy tobie"],
+      "avoid": "Nie mów: „Wszyscy mają dzieci, co w tym wielkiego?”. Nie umniejszaj jej uczuć."
+    },
+    {
+      "title": "Narasta niedobór snu",
+      "body": "Krwawienie zaczyna słabnąć. Karmienie piersią wciąż może boleć; jeśli pojawią się pęknięcia brodawek, twardy guzek lub zaczerwienienie, skontaktujcie się z lekarzem lub doradczynią laktacyjną.",
+      "mind": "Baby blues zwykle mija w ciągu 2 tygodni. Jeśli smutek, poczucie beznadziei lub utrata zainteresowań trwają dłużej, może to być depresja poporodowa. Obserwuj uważnie.",
+      "do": ["Ułóż plan nocnych dyżurów, żeby spała co najmniej 4–5 godzin bez przerwy", "Wyjdź z dzieckiem na spacer, żeby miała dom tylko dla siebie", "Znajdź doradczynię laktacyjną do pytań o karmienie", "Codziennie pytaj „Jak się czujesz?” i słuchaj"],
+      "say": ["Dziś w nocy ja czuwam, ty śpij", "Powiedz, czego potrzebujesz; razem wszystko ogarniemy"],
+      "avoid": "Nie decyduj za nią i nie zasypuj jej radami. Najpierw słuchaj."
+    },
+    {
+      "title": "Skok rozwojowy",
+      "body": "Dziecko może chcieć jeść bardzo często (karmienie klasterowe). To nie znaczy, że brakuje mleka: dziecko rośnie.",
+      "mind": "Karmienie bez przerwy ją wyczerpuje i sprawia, że czuje, że z niczym nie nadąża. Nie pozwól, by czuła się sama.",
+      "do": ["Siedź przy niej podczas wieczornych karmień: przynieś wodę, jedzenie i pilota", "Po karmieniu pomóż dziecku się odbić i uśpij je", "Sam zaplanuj pranie i sprzątanie", "Ugotuj lub zamów jej ulubione danie"],
+      "say": ["To dzięki tobie nasze dziecko rośnie. To ciężka praca, a ty dajesz radę", "Jestem tu, nie jesteś sama"],
+      "avoid": "Nie mów „Znowu je?” ani „Może masz za mało mleka”. To podkopuje jej pewność siebie."
+    },
+    {
+      "title": "Pierwszy miesiąc za wami",
+      "body": "Szwy zwykle są już wygojone, ale na dźwiganie ciężkich rzeczy jest jeszcze za wcześnie, zwłaszcza po cesarskim cięciu.",
+      "mind": "Zmęczenie się nawarstwiło. Może czuć się daleko od dawnego życia, jakby teraz była „tylko mamą”.",
+      "do": ["Daj jej 1–2 godziny tylko dla siebie: prysznic, spacer, przyjaciółki", "Przygotuj małą niespodziankę: kwiaty, jej ulubiony smakołyk, liścik", "Sam zorganizuj posiłki i pomoc od rodziny i przyjaciół", "Zróbcie razem album z pierwszymi zdjęciami dziecka"],
+      "say": ["Co mogę dziś zrobić, żeby było ci choć trochę lżej?", "Bardzo cię kocham. Odkąd zostałaś mamą, podziwiam cię jeszcze bardziej"],
+      "avoid": "Nie komentuj jej wyglądu ani wagi."
+    },
+    {
+      "title": "Układa się rytm dnia",
+      "body": "Krwawienie powinno być już bardzo skąpe. Jeśli nagle się nasili albo pojawi się gorączka lub nieprzyjemny zapach, trzeba iść do lekarza.",
+      "mind": "Rytm dnia się układa, ale codzienna powtarzalność może ją męczyć. Jeśli smutek trwa dłużej niż 2 tygodnie, czas na profesjonalne wsparcie.",
+      "do": ["Codziennie przejmij jeden wieczorny rytuał: kąpiel albo usypianie", "Zaplanuj krótkie rodzinne wyjście w weekend", "Zapytaj, co jest teraz najtrudniejsze, i rozwiąż jedną rzecz", "Pilnuj też własnego zmęczenia i rozmawiaj z nią o tym"],
+      "say": ["Odpocznij dziś wieczorem, ja uśpię dziecko", "Jesteśmy drużyną"],
+      "avoid": "Nie podsumowuj jej dnia słowami „przecież cały dzień byłaś w domu”."
+    },
+    {
+      "title": "Szczyt płaczu i wizyta kontrolna",
+      "body": "Poporodowa wizyta kontrolna zwykle przypada mniej więcej teraz. Dzieci płaczą najwięcej w 6–8 tygodniu życia; potem płaczu ubywa.",
+      "mind": "Gdy nie da się uspokoić dziecka, to bardzo wyczerpuje. Kiedy narasta frustracja, można bezpiecznie położyć dziecko w łóżeczku i przez kilka minut złapać oddech. Nigdy nie potrząsaj dzieckiem.",
+      "do": ["Idźcie razem na wizytę i zapiszcie wcześniej pytania", "Na zmianę noście dziecko, gdy płacze", "Powiedz „Teraz ja się nim zajmę” i daj jej odpocząć", "Zachęć ją, by powiedziała lekarzowi także o tym, jak się czuje"],
+      "say": ["To nie twoja wina, że płacze; dzieci po prostu takie są", "Zmieniajmy się, odpocznij chwilę"],
+      "avoid": "Nie przyspieszaj zbliżenia. Sama powie, kiedy będzie gotowa."
+    },
+    {
+      "title": "Odnaleźć siebie na nowo",
+      "body": "Jej ciało wciąż dochodzi do siebie. Jeśli lekarz pozwolił, pomagają spokojne spacery i ćwiczenia oddechowe.",
+      "mind": "Na nowo poznaje siebie i może martwić się o ciało, pracę czy przyjaciół. Twoje wsparcie dodaje jej sił.",
+      "do": ["Co tydzień daj jej jedną całkowicie „wolną godzinę”", "Zaplanujcie razem krótki spacer albo wyjście do kawiarni", "Nadal sprawiedliwie dzielcie się nocnymi dyżurami", "Dziękuj na głos"],
+      "say": ["Wciąż jesteś sobą i każdego dnia wybieram ciebie", "W tym miesiącu wykonałaś ogromną pracę"],
+      "avoid": "Nie porównuj: nie mów „Ta i ta szybko wróciła do formy”."
+    },
+    {
+      "title": "Dwa miesiące: nowa rodzina",
+      "body": "Wiele mam czuje się już silniejszych. Jeśli ból, krwawienie lub wyczerpanie wciąż są duże, powiedzcie o tym lekarzowi.",
+      "mind": "Jej nastrój powinien się poprawiać. Jeśli smutek, lęk lub poczucie dystansu wobec dziecka się utrzymują, porozmawiajcie razem z lekarzem. Pomoc jest dostępna, a to się leczy.",
+      "do": ["Podsumujcie razem te dwa miesiące: co poszło dobrze, co trzeba zmienić", "Ustalcie razem na nowo podział obowiązków domowych", "Urządźcie małe świętowanie „dwóch miesięcy”", "Sprawdzaj też swój nastrój: ojcowie również mogą mieć depresję poporodową"],
+      "say": ["Bycie rodzicem razem z tobą to moje największe szczęście", "Co zrobimy inaczej w przyszłym miesiącu?"],
+      "avoid": "Nie ograniczaj nagle wsparcia, bo „teraz wszystko jest w porządku”."
+    }
+  ],
+  "blues": {
+    "title": "Czym jest baby blues?",
+    "intro": "Około 50–80% kobiet doświadcza po porodzie baby blues (tzw. smutku poporodowego). Przyczyną są gwałtowny spadek hormonów, brak snu i nowa odpowiedzialność.",
+    "facts": ["Zwykle zaczyna się 2–5 dni po porodzie", "Częste są płacz bez powodu, drażliwość, niepokój i zmęczenie", "Zwykle mija samoistnie w ciągu 2 tygodni", "Najlepsze lekarstwo: sen, jedzenie, wsparcie i zrozumienie"],
+    "help_title": "Co możesz zrobić",
+    "help": ["Słuchaj jej; nie próbuj „naprawiać” jej uczuć", "Chroń jej sen: zorganizuj nocne dyżury", "Przejmij obowiązki domowe i gości", "Chwal ją codziennie i pokazuj, że jesteś obok"],
+    "ppd_title": "Depresja poporodowa to coś innego",
+    "ppd_intro": "Dotyka około 10–15% kobiet i może zacząć się w dowolnym momencie w pierwszym roku po porodzie. To nie słabość i można ją leczyć.",
+    "ppd_signs": ["Smutek lub pustka trwające dłużej niż 2 tygodnie", "Straciła zainteresowanie tym, co wcześniej sprawiało jej radość", "Nie może spać, nawet gdy dziecko śpi", "Czuje się bezwartościowa lub winna", "Czuje dystans wobec dziecka", "Jej apetyt gwałtownie się zmienił"],
+    "ppd_action": "Jeśli widzisz te sygnały, zachęć ją do wizyty u lekarza (ginekologa, lekarza rodzinnego lub psychologa) i idź z nią.",
+    "urgent_title": "Natychmiast szukaj pomocy",
+    "urgent_signs": ["Myśli o skrzywdzeniu siebie lub dziecka", "Widzenie lub słyszenie rzeczy, których nie ma", "Splątanie, skrajne wahania nastroju, brak snu przez kilka dni"],
+    "urgent_action": "W takich sytuacjach nie zostawiaj jej samej i natychmiast zadzwoń na numer alarmowy (112).",
+    "self_title": "Ty też się liczysz",
+    "self": ["Ojcowie również mogą mieć depresję poporodową (około 10%)", "Rób krótkie drzemki i nie pomijaj posiłków", "Rozmawiaj o swoich uczuciach z nią lub z przyjacielem", "Proszenie o pomoc to oznaka siły"]
+  },
+  "phrases": ["Jesteś niesamowitą mamą 💛", "Czegokolwiek dziś potrzebujesz, jestem przy tobie", "Połóż się na chwilę, zajmę się dzieckiem", "Bardzo cię kocham, nie jesteś sama", "Jesteś zmęczona i to zupełnie normalne. Razem damy radę", "Co ci przynieść? Herbatę, coś do jedzenia, czy po prostu cię przytulić?", "Dziś w nocy ja czuwam, śpij dobrze", "Dziękuję za wszystko, co dziś zrobiłaś"],
+  "tasks": ["Jedno nocne karmienie", "Pieluchy", "Kąpiel dziecka", "Gotowanie", "Zmywanie", "Pranie", "Zakupy spożywcze", "Goście", "Spacer z dzieckiem", "Apteka"]
+}

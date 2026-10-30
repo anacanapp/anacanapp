@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "As primeiras 8 semanas",
+    "subtitle": "Como apoiá-la depois do parto",
+    "home_card": "Depois do parto · semana {n}/8",
+    "open": "Abrir",
+    "week": "Semana {n}",
+    "tab_week": "Esta semana",
+    "tab_blues": "Baby blues",
+    "tab_signs": "Sinais de alerta",
+    "tab_support": "Apoie-a",
+    "her_body": "O corpo dela",
+    "her_mind": "Os sentimentos dela",
+    "you_do": "O que pode fazer",
+    "you_say": "O que pode dizer",
+    "avoid": "Evite isto",
+    "send": "Enviar",
+    "sent": "Enviado 💌",
+    "phrases_title": "Envie-lhe algumas palavras",
+    "phrases_sub": "Enviado como mensagem com um toque.",
+    "tasks_title": "Hoje fico eu com isto",
+    "tasks_sub": "Diga-lhe aquilo de que se vai encarregar, para ela saber que está tratado.",
+    "tasks_send": "Enviar-lhe a minha lista",
+    "tasks_message": "Hoje trato eu de: {list} 💪 Tu descansa.",
+    "signs_title": "Verifique os sinais",
+    "signs_sub": "Assinale o que tem notado ultimamente. Isto não é um diagnóstico.",
+    "signs_none": "De momento não há sinais de alerta assinalados. Continue a apoiá-la.",
+    "signs_some": "Se estes sinais durarem mais de 2 semanas, vão juntos ao médico.",
+    "signs_urgent": "Assinalou um sinal urgente. Não a deixe sozinha e ligue já para o número de emergência (112).",
+    "mood_low_title": "O humor dela tem estado em baixo",
+    "mood_low_body": "Ela registou humor em baixo em {n} dos últimos 7 dias. Dê-lhe mais tempo hoje e pergunte-lhe como se sente.",
+    "mood_low_long": "Se isto durar mais de 2 semanas, falem juntos com um médico.",
+    "disclaimer": "Esta informação não substitui o aconselhamento médico."
+  },
+  "weeks": [
+    {
+      "title": "Os primeiros dias em casa",
+      "body": "Depois do parto há perdas de sangue (lóquios), e os pontos ou a ferida da cesariana doem. A subida do leite acontece por volta do 3.º–5.º dia, e as mamas podem ficar inchadas e doridas.",
+      "mind": "Por volta do 3.º–5.º dia as hormonas descem bruscamente. Chorar sem motivo, preocupação e sentir que não está à altura são normais: é o baby blues.",
+      "do": ["Reduza as visitas ao mínimo esta semana e seja você a atender a porta", "Leve-lhe água e um lanche em cada mamada", "Encarregue-se das fraldas, de vestir e de dar banho ao bebé", "Trate por completo das tarefas da casa, das refeições e das compras"],
+      "say": ["És uma mãe maravilhosa. Ainda estamos a conhecer-nos uns aos outros", "Se precisares de chorar, chora. Eu estou aqui"],
+      "avoid": "Não diga «Toda a gente tem filhos, qual é o problema?». Não desvalorize o que ela sente."
+    },
+    {
+      "title": "A falta de sono acumula-se",
+      "body": "As perdas de sangue começam a diminuir. A amamentação ainda pode doer; se houver fissuras, um nódulo duro ou vermelhidão, consulte um médico ou uma conselheira em aleitamento materno.",
+      "mind": "O baby blues costuma passar em 2 semanas. Se a tristeza, a desesperança ou a perda de interesse continuarem para além disso, pode ser depressão pós-parto. Esteja atento.",
+      "do": ["Faça um plano de turnos noturnos para que ela durma pelo menos 4–5 horas seguidas", "Leve o bebé a passear para que ela tenha a casa só para si", "Procure uma conselheira em aleitamento materno para as dúvidas sobre a amamentação", "Pergunte todos os dias «Como te sentes?» e ouça"],
+      "say": ["Esta noite fico eu, tu dorme", "Diz-me do que precisas; resolvemos tudo juntos"],
+      "avoid": "Não decida por ela nem a encha de conselhos. Primeiro, ouça."
+    },
+    {
+      "title": "Um pico de crescimento",
+      "body": "O bebé pode querer mamar com muita frequência (mamadas em grupo). Isso não significa que não haja leite suficiente: o bebé está a crescer.",
+      "mind": "Amamentar sem parar esgota-a e faz com que sinta que não consegue dar conta de nada. Não a deixe sentir-se sozinha.",
+      "do": ["Fique com ela nas mamadas da noite: leve água, comida e o comando", "Ponha o bebé a arrotar depois das mamadas e adormeça-o", "Organize você a roupa e as limpezas", "Cozinhe ou encomende a comida preferida dela"],
+      "say": ["Estás a fazer crescer o nosso bebé. É um trabalho duro e estás a conseguir", "Estou aqui, não estás sozinha"],
+      "avoid": "Não diga «Outra vez a mamar?» nem «Se calhar não tens leite suficiente». Isso abala a confiança dela."
+    },
+    {
+      "title": "Um mês depois",
+      "body": "Os pontos costumam estar cicatrizados, mas ainda é cedo para levantar pesos, sobretudo depois de uma cesariana.",
+      "mind": "O cansaço foi-se acumulando. Ela pode sentir-se longe da vida de antes, como se agora fosse «só mãe».",
+      "do": ["Dê-lhe 1–2 horas só para ela: um duche, um passeio, as amigas", "Prepare uma pequena surpresa: flores, o doce preferido dela, um bilhete", "Organize você as refeições e a ajuda da família e dos amigos", "Façam juntos um álbum com as primeiras fotografias do bebé"],
+      "say": ["O que posso fazer hoje para te tornar as coisas um pouco mais leves?", "Amo-te muito. Desde que foste mãe, admiro-te ainda mais"],
+      "avoid": "Não fale da aparência nem do peso dela."
+    },
+    {
+      "title": "Começa a criar-se uma rotina",
+      "body": "As perdas de sangue já devem ser muito ligeiras. Se aumentarem de repente, ou se houver febre ou mau cheiro, consulte um médico.",
+      "mind": "Está a formar-se uma rotina, mas fazer as mesmas coisas todos os dias pode desgastá-la. Se a tristeza durar mais de 2 semanas, é altura de procurar apoio profissional.",
+      "do": ["Assuma todos os dias uma rotina da noite: o banho ou a hora de deitar", "Planeie um pequeno passeio em família ao fim de semana", "Pergunte-lhe o que está a ser mais difícil agora e resolva uma coisa", "Esteja atento ao seu próprio cansaço e fale com ela sobre isso"],
+      "say": ["Descansa esta noite, eu deito o bebé", "Somos uma equipa"],
+      "avoid": "Não resuma o dia dela com «estiveste o dia todo em casa»."
+    },
+    {
+      "title": "O pico do choro e a consulta",
+      "body": "A consulta de revisão do pós-parto costuma ser por esta altura. Os bebés choram mais entre as 6–8 semanas; depois, acalma.",
+      "mind": "Não conseguir acalmar o bebé é esgotante. Quando a frustração aumenta, não faz mal deitar o bebé em segurança no berço e respirar durante alguns minutos. Nunca abane um bebé.",
+      "do": ["Vão juntos à consulta e escrevam as perguntas antes", "Revezem-se a passear o bebé nos momentos de choro", "Diga «Agora fico eu» e dê-lhe uma pausa", "Incentive-a a dizer também ao médico como se sente"],
+      "say": ["O choro não é culpa tua; os bebés são assim", "Vamos revezar-nos, faz uma pausa"],
+      "avoid": "Não apresse a intimidade. Ela dir-lhe-á quando estiver pronta."
+    },
+    {
+      "title": "Reencontrar-se",
+      "body": "O corpo dela ainda está a recuperar. Se o médico autorizar, caminhadas suaves e exercícios de respiração ajudam.",
+      "mind": "Ela está a voltar a conhecer-se e pode ter preocupações com o corpo, o trabalho ou as amizades. O seu apoio dá-lhe força.",
+      "do": ["Dê-lhe todas as semanas uma «hora livre» completa", "Planeiem juntos um pequeno passeio ou uma ida a um café", "Continue a partilhar os turnos da noite de forma justa", "Agradeça-lhe em voz alta"],
+      "say": ["Continuas a ser tu, e eu escolho-te todos os dias", "Fizeste um trabalho enorme este mês"],
+      "avoid": "Não compare: não diga «Fulana recuperou depressa»."
+    },
+    {
+      "title": "Dois meses: uma nova família",
+      "body": "Muitas mães sentem-se mais fortes por esta altura. Se a dor, as perdas de sangue ou o cansaço ainda forem intensos, diga ao médico.",
+      "mind": "O humor dela deve estar a melhorar. Se a tristeza, a ansiedade ou o sentir-se distante do bebé continuarem, falem juntos com um médico. Há ajuda e tem tratamento.",
+      "do": ["Olhem juntos para estes dois meses: o que correu bem, o que deve mudar", "Reorganizem juntos a divisão das tarefas da casa", "Façam uma pequena celebração dos «dois meses»", "Verifique também o seu humor: os pais também podem ter depressão pós-parto"],
+      "say": ["Ser pai contigo é a minha maior felicidade", "O que vamos fazer de diferente no próximo mês?"],
+      "avoid": "Não reduza de repente o seu apoio porque «agora já está tudo bem»."
+    }
+  ],
+  "blues": {
+    "title": "O que é o baby blues?",
+    "intro": "Cerca de 50–80% das mulheres têm baby blues depois do parto. As causas são a descida brusca das hormonas, a falta de sono e a nova responsabilidade.",
+    "facts": ["Normalmente começa 2–5 dias depois do parto", "Chorar sem motivo, irritabilidade, preocupação e cansaço são frequentes", "Normalmente passa por si só em 2 semanas", "O melhor remédio: sono, comida, apoio e compreensão"],
+    "help_title": "O que pode fazer",
+    "help": ["Ouça-a; não tente «resolver» o que ela sente", "Proteja o sono dela: organizem turnos noturnos", "Encarregue-se das tarefas e das visitas", "Elogie-a todos os dias e mostre que está presente"],
+    "ppd_title": "A depressão pós-parto é diferente",
+    "ppd_intro": "Afeta cerca de 10–15% das mulheres e pode começar em qualquer momento do primeiro ano após o parto. Não é uma fraqueza e tem tratamento.",
+    "ppd_signs": ["Tristeza ou vazio que dura mais de 2 semanas", "Perdeu o interesse por coisas de que gostava", "Não consegue dormir mesmo quando o bebé dorme", "Sente-se inútil ou culpada", "Sente-se distante do bebé", "O apetite mudou muito"],
+    "ppd_action": "Se vir estes sinais, incentive-a a consultar um médico (o ginecologista, o médico de família ou um psicólogo) e vá com ela.",
+    "urgent_title": "Peça ajuda imediatamente",
+    "urgent_signs": ["Pensamentos de fazer mal a si própria ou ao bebé", "Ver ou ouvir coisas que não existem", "Confusão, mudanças de humor extremas, não dormir durante dias"],
+    "urgent_action": "Nestes casos, não a deixe sozinha e ligue imediatamente para o número de emergência (112).",
+    "self_title": "Você também é importante",
+    "self": ["Os pais também podem ter depressão pós-parto (cerca de 10%)", "Faça sestas curtas e não salte refeições", "Fale sobre o que sente com ela ou com um amigo", "Pedir ajuda é um sinal de força"]
+  },
+  "phrases": ["És uma mãe incrível 💛", "Precises do que precisares hoje, estou aqui", "Deita-te um bocadinho, eu fico com o bebé", "Amo-te muito, não estás sozinha", "Estás cansada e isso é perfeitamente normal. Vamos conseguir juntos", "O que te posso trazer? Chá, comida ou só um abraço?", "Esta noite fico eu, dorme bem", "Obrigado por tudo o que fizeste hoje"],
+  "tasks": ["Uma mamada noturna", "Fraldas", "O banho do bebé", "Cozinhar", "A loiça", "A roupa", "As compras", "As visitas", "Um passeio com o bebé", "A farmácia"]
+}

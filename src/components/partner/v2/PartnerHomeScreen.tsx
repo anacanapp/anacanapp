@@ -23,6 +23,8 @@ import SOSButton from '@/components/partner/SOSButton';
 import PartnerOnboardingTour, { PARTNER_TOUR_KEY } from './PartnerOnboardingTour';
 import DailyMissionsCard from './DailyMissionsCard';
 import BirthModeCard from './BirthModeCard';
+import PostpartumCard from './PostpartumCard';
+import { postpartumWeek } from '@/data/postpartum-partner';
 import PartnerActivityFeed from './PartnerActivityFeed';
 import NextAppointmentCard from './NextAppointmentCard';
 import PartnerWeekInfoCard from './PartnerWeekInfoCard';
@@ -228,6 +230,11 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
           {/* ── Doğuş rejimi: 36+ həftə ── */}
           {lifeStage === 'bump' && currentWeek >= 36 &&
           <BirthModeCard daysUntilDue={daysUntilDue} onNavigate={onNavigate} />
+          }
+
+          {/* ── Doğuşdan sonra ilk 8 həftə ── */}
+          {lifeStage === 'mommy' && postpartumWeek(babyAgeDays) !== null &&
+          <PostpartumCard week={postpartumWeek(babyAgeDays)!} shareMood={sharing.share_mood} onOpen={() => onNavigate('postpartum-support')} />
           }
 
           {/* ── HERO: onun günü ── */}

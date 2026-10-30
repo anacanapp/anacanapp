@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, Smile, Thermometer, Droplets, Baby, Timer, Scale, CalendarHeart, Milk, Flower2, ShieldCheck, Unlink,
-  Loader2, ChevronDown, Share2, Copy, Crown, ClipboardList, Moon, Eye, EyeOff,
+  Loader2, ChevronDown, Share2, Copy, Crown, ClipboardList, Moon, Eye, EyeOff, Bell,
 } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -293,6 +293,13 @@ const PartnerSharingScreen = ({ onBack, onNavigate }: Props) => {
             {feature37Text('ph_more_groups')} <ChevronDown size={14} style={{ transform: showOthers ? 'rotate(180deg)' : undefined }} />
           </button>
           {showOthers && <div className="space-y-2.5">{otherGroups.map(renderGroup)}</div>}
+
+          {onNavigate &&
+            <button type="button" onClick={() => onNavigate('partner-notifications')} className="w-full flex items-center gap-3 text-start" style={{ ...card, padding: 13 }}>
+              <span className="w-10 h-10 flex items-center justify-center shrink-0" style={{ borderRadius: 13, background: 'var(--a-blue-1)' }}><Bell size={17} style={{ color: 'var(--a-blue-ink)' }} /></span>
+              <span className="flex-1" style={{ fontSize: 13.5, fontWeight: 800, color: 'var(--a-ink)' }}>{feature37Text('pn_title')}</span>
+              <ChevronDown size={15} className="-rotate-90 rtl:rotate-90" style={{ color: 'var(--a-ink-faint)' }} />
+            </button>}
 
           <div className="flex items-start gap-2.5" style={{ background: 'var(--a-disclaimer-bg)', border: '1px solid var(--a-disclaimer-border)', borderRadius: 16, padding: 13 }}>
             <ShieldCheck size={15} className="mt-0.5 shrink-0" style={{ color: 'var(--a-disclaimer-strong)' }} />
