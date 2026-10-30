@@ -591,3 +591,18 @@ was done.
 - **Image:** `gateway@sha256:0b979ca713a451f75e5842cb341882674a2cb3fc098e9365c571112fdc571f92` (Cloud Build `a19b34b4`) from `d3678a34…`; isolated test matched.
 - **Deploy:** `partner-p1-web-plan.json` passed; index `29099c92…`; no console errors.
 - **Rollback:** `rollback-partner-p1-web-plan.json` (→ `d3678a34…`).
+
+## Partner rebuild phases 2–5 web deploy — 2026-10-30
+- **SQL first:** `supabase/duzelis/Duzelis69.sql` (applied on Google after a rolled-back dry run). New tables
+  `partner_night_shifts` and `birth_plans` (pgadmin, RLS on, no direct grants) are reachable only through
+  `partner_family_mother_v1`, `night_shifts_v1`, `night_shift_set_v1`, `birth_plan_get_v1`, `birth_plan_save_v1`
+  (mother, or her mutually linked partner). Both relations are enrolled in `_anacan_gcp_migration.guarded_relations`
+  with `anacan_gcp_writer_guard` / `anacan_gcp_change` / `anacan_gcp_truncate`; no cron or timer.
+- **Contents:** commits `e3226a6`, `0e6ab4a`, `d0f441f`: stage-aware partner missions (`src/data/partner-missions`, 50
+  missions, 21 languages), birth mode card from week 36, stage chips, grouped "Biz" with birth plan / night shift,
+  woman-side partner hub (invite, last 7 days, grouped sharing with preview, unlink), compact dashboard card,
+  Ata AI (partner persona, `chat_type='partner'` history, woman's stage, cycle dates only when shared), night shift
+  and birth plan screens, new partner profile; 131 new feature37 keys in 21 languages; dead partner files removed.
+- **Image:** `gateway@sha256:6f79504860a592b040c3526b4281bac170a07974df11d70c3f60a018b97c111c` (Cloud Build `aaaedb4f`) from `0b979ca7…`; isolated test matched.
+- **Deploy:** `partner-full-web-plan.json` passed; index `cb71cda9…`; no console errors.
+- **Rollback:** `rollback-partner-full-web-plan.json` (→ `0b979ca7…`). The new tables are additive.
