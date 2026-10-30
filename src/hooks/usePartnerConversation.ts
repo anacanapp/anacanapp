@@ -17,7 +17,7 @@ export const usePartnerConversation = (partnerId?: string | null) => {
     }
 
     const unread = messages.filter(m => m.receiver_id === user.id && !m.is_read).length;
-    const lastMsg = messages[messages.length - 1];
+    const lastMsg = messages[0]; // newest first (usePartnerMessages)
 
     const conversation: Conversation = {
       user_id: partnerId,

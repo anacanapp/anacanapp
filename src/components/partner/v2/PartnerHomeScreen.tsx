@@ -12,6 +12,7 @@ import { useDailyTip } from '@/hooks/usePartnerDailyTips';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { getPregnancyDay } from '@/lib/pregnancy-utils';
 import { supabase } from '@/integrations/supabase/client';
+import { sendPartnerMessage } from '@/lib/chat';
 import { hapticFeedback } from '@/lib/native';
 import { useToast } from '@/hooks/use-toast';
 import { tr } from '@/lib/tr';
@@ -104,12 +105,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
     await hapticFeedback.heavy();
     if (!profile || !partnerProfile) return;
     try {
-      await supabase.from('partner_messages').insert({
-        sender_id: profile.user_id,
-        receiver_id: partnerProfile.user_id,
-        message_type: 'love',
-        content: '❤️'
-      });
+      await sendPartnerMessage(profile.user_id, partnerProfile.user_id, '❤️');
       toast({ title: tr('partnerdashboard_sevgi_gonderildi_4284b1', '💕 Sevgi göndərildi!'), description: `${womanName} ${tr('partner_will_receive_notification', 'bildiriş alacaq')}` });
     } catch (err) {
       console.error('Error sending love:', err);
@@ -121,12 +117,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
     if (!content || !profile || !partnerProfile) return;
     await hapticFeedback.medium();
     try {
-      await supabase.from('partner_messages').insert({
-        sender_id: profile.user_id,
-        receiver_id: partnerProfile.user_id,
-        message_type: 'text',
-        content
-      });
+      await sendPartnerMessage(profile.user_id, partnerProfile.user_id, content);
       toast({ title: tr('partnerdashboard_mesaj_gonderildi_dca65e', '💌 Mesaj göndərildi!'), description: content });
       if (!text) setLoveMessage('');
     } catch (err) {

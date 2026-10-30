@@ -120,3 +120,14 @@ export async function resolveChatMedia(message: ChatMessage): Promise<string | n
   }
   return url.href;
 }
+
+/** One send path for partner quick messages and ❤️ (same RPC and push as the chat screen). */
+export async function sendPartnerMessage(actor: string, partnerUserId: string, content: string, type: 'text' | 'love' = 'text'): Promise<ChatMessage> {
+  const { data, error } = await (supabase as any).rpc('chat_send_message_v2', {
+    p_actor: actor, p_id: crypto.randomUUID(), p_kind: 'partner', p_target: partnerUserId, p_content: content,
+    p_type: type, p_media_path: null, p_media_mime: null, p_reply_to: null, p_duration_ms: null,
+  });
+  if (error) throw error;
+  void notifyChatMessage('partner', partnerUserId, data as ChatMessage).catch(() => {});
+  return data as ChatMessage;
+}

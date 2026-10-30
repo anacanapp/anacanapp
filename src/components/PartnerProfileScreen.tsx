@@ -8,6 +8,7 @@ import {
 'lucide-react';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
+import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
 import { usePartnerStats } from '@/hooks/usePartnerStats';
 import { usePartnerMissions } from '@/hooks/usePartnerMissions';
@@ -64,6 +65,7 @@ const PartnerProfileScreen = ({ onNavigate }: PartnerProfileScreenProps) => {
     useShallow((s) => ({ name: s.name, email: s.email, partnerWomanData: s.partnerWomanData, logout: s.logout }))
   );
   const { toast } = useToast();
+  const { signOut } = useAuth();
   const { stats, loading: statsLoading } = usePartnerStats();
   const { level, levelProgress, pointsToNextLevel } = usePartnerMissions();
   const {
@@ -412,7 +414,7 @@ const PartnerProfileScreen = ({ onNavigate }: PartnerProfileScreenProps) => {
 
       {/* Logout */}
       <motion.button
-        onClick={logout}
+        onClick={async () => { await signOut(); logout(); }}
         className="w-full mt-6 p-4 rounded-2xl bg-destructive/10 text-destructive font-bold flex items-center justify-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
