@@ -420,37 +420,16 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
   const linkPartner = useCallback(async (partnerCode: string) => {
     if (!user) return { error: 'No user logged in' };
     try {
-      const { isAzurePartnerPairingEnabled, linkPartnerByCode } = await import('@/lib/partner-link');
-      if (isAzurePartnerPairingEnabled()) {
+      const { clearStaleOneSidedLink, linkPartnerByCode, PartnerLinkError } = await import('@/lib/partner-link');
+      try {
         await linkPartnerByCode(partnerCode);
-        const newProfile = await fetchProfileStrict(user.id);
-        if (!newProfile) throw new Error('Profile could not be refreshed after pairing');
-        setProfile(newProfile);
-        syncProfileToStore(newProfile, user.id);
-        return { error: null };
+      } catch (error) {
+        if (!(error instanceof PartnerLinkError && error.code === 'PAIRING_CONFLICT' && profile?.linked_partner_id
+          && await clearStaleOneSidedLink(user.id))) throw error;
+        await linkPartnerByCode(partnerCode);
       }
-
-      const { data: partnerProfile, error: findError } = await supabase.
-      from('profiles').
-      select('id, user_id').
-      eq('partner_code', partnerCode).
-      maybeSingle();
-
-      if (findError || !partnerProfile) return { error: 'Partner code not found' };
-
-      const { error: updateError } = await supabase.
-      from('profiles').
-      update({ linked_partner_id: partnerProfile.id, life_stage: 'partner' as const }).
-      eq('user_id', user.id);
-
-      if (updateError) throw updateError;
-
-      const { data: myProfile } = await supabase.from('profiles').select('id').eq('user_id', user.id).single();
-      if (myProfile) {
-        await supabase.from('profiles').update({ linked_partner_id: myProfile.id }).eq('user_id', partnerProfile.user_id);
-      }
-
-      const newProfile = await fetchProfile(user.id);
+      const newProfile = await fetchProfileStrict(user.id);
+      if (!newProfile) throw new Error('Profile could not be refreshed after pairing');
       setProfile(newProfile);
       syncProfileToStore(newProfile, user.id);
       return { error: null };
@@ -458,7 +437,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       console.error('Link partner error:', error);
       return { error };
     }
-  }, [user, fetchProfile, fetchProfileStrict, syncProfileToStore]);
+  }, [user, profile?.linked_partner_id, fetchProfileStrict, syncProfileToStore]);
 
   const refreshProfile = useCallback(async () => {
     if (!user) return;

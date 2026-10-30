@@ -9,6 +9,7 @@ import {
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
 import { useAuth } from '@/hooks/useAuth';
+import PartnerLinkForm from '@/components/partner/v2/PartnerLinkForm';
 import { useToast } from '@/hooks/use-toast';
 import { usePartnerStats } from '@/hooks/usePartnerStats';
 import { usePartnerMissions } from '@/hooks/usePartnerMissions';
@@ -65,7 +66,8 @@ const PartnerProfileScreen = ({ onNavigate }: PartnerProfileScreenProps) => {
     useShallow((s) => ({ name: s.name, email: s.email, partnerWomanData: s.partnerWomanData, logout: s.logout }))
   );
   const { toast } = useToast();
-  const { signOut } = useAuth();
+  const { signOut, profile } = useAuth();
+  const isLinked = !!profile?.linked_partner_id;
   const { stats, loading: statsLoading } = usePartnerStats();
   const { level, levelProgress, pointsToNextLevel } = usePartnerMissions();
   const {
@@ -185,13 +187,15 @@ const PartnerProfileScreen = ({ onNavigate }: PartnerProfileScreenProps) => {
           <div className="flex-1">
             <h2 className="text-2xl font-black text-white">{name || 'Partner'}</h2>
             <p className="text-white/80 font-medium">{email || 'email@example.com'}</p>
-            <div className="mt-2 inline-flex items-center px-3 py-1 bg-white/20 rounded-full text-white text-xs font-bold gap-1">
+            {isLinked && <div className="mt-2 inline-flex items-center px-3 py-1 bg-white/20 rounded-full text-white text-xs font-bold gap-1">
               <Heart className="w-3 h-3 fill-white" />
               {partnerWomanData?.name || tr("partnerprofilescreen_heyat_yoldasi_ad6f31", "H\u0259yat Yolda\u015F\u0131")} {tr("partnerprofilescreen_ile_elaqeli_b0595d", "il\u0259 \u0259laq\u0259li")}
-            </div>
+            </div>}
           </div>
         </div>
       </motion.div>
+
+      {!isLinked && <div className="a-scope flex justify-center mb-6"><PartnerLinkForm /></div>}
 
       {/* Stats Grid */}
       <motion.div

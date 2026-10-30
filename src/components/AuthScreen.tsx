@@ -217,8 +217,9 @@ const AuthScreen = () => {
 
       // ── Validate partner code ──
       const normalizedPartnerCode = partnerCode.trim().toUpperCase();
-      if (isAzurePartnerPairingEnabled()) {
+      {
         try {
+          if (!isAzurePartnerPairingEnabled()) throw new PartnerLinkError('PAIRING_UNAVAILABLE');
           normalizeSecurePartnerCode(partnerCode);
         } catch (error) {
           toast({ title: getPartnerLinkErrorMessage(error), variant: 'destructive' });
@@ -275,114 +276,6 @@ const AuthScreen = () => {
         setIsLoading(false);
         return;
       }
-      if (!normalizedPartnerCode.startsWith('ANACAN-') || normalizedPartnerCode.length < 10) {
-        toast({
-          title: tr("authscreen_kod_yanlisdir_64b48f", 'Kod yanlışdır'),
-          description: tr("authscreen_zehmet_olmasa_duzgun_partnyor_kodu_daxil_cface0", 'Zəhmət olmasa düzgün partnyor kodu daxil edin.'),
-          variant: 'destructive'
-        });
-        setIsLoading(false);
-        return;
-      }
-
-      // Verify the partner code exists BEFORE registering
-      const { data: partnerProfiles, error: findError } = await supabase.
-      rpc('find_partner_by_code', { p_partner_code: normalizedPartnerCode });
-
-      const partnerProfile = partnerProfiles?.[0];
-
-      if (findError || !partnerProfile) {
-        toast({
-          title: tr("authscreen_partnyor_tapilmadi_1239a8", 'Partnyor tapılmadı'),
-          description: tr("authscreen_bu_kodla_partnyor_tapilmadi_kodu_yoxlayi_a94376", 'Bu kodla partnyor tapılmadı. Kodu yoxlayın.'),
-          variant: 'destructive'
-        });
-        setIsLoading(false);
-        return;
-      }
-
-
-      // Register new partner
-      const partnerName = nameInputRef.current?.value || name || 'Partner';
-      const { error: registerError } = await signUp(email, password, partnerName.trim(), countryCode);
-      if (registerError) {
-        toast({
-          title: tr("authscreen_qeydiyyat_alinmadi_982f04", "Qeydiyyat alınmadı"),
-          description: getSignupErrorMessage(registerError),
-          variant: 'destructive'
-        });
-        setIsLoading(false);
-        return;
-      }
-
-      // Wait for profile to be created (trigger may take a moment)
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // Get current user session
-      const { data: sessionData } = await supabase.auth.getSession();
-      const currentUserId = sessionData?.session?.user?.id;
-
-      if (!currentUserId) {
-        toast({
-          title: tr("authscreen_xeta_bas_verdi_f22fba", 'Xəta baş verdi'),
-          description: tr("authscreen_sessiya_tapilmadi_yeniden_cehd_edin_651207", 'Sessiya tapılmadı. Yenidən cəhd edin.'),
-          variant: 'destructive'
-        });
-        setIsLoading(false);
-        return;
-      }
-
-      // Get my profile
-      const { data: myProfile, error: profileError } = await supabase.
-      from('profiles').
-      select('id').
-      eq('user_id', currentUserId).
-      maybeSingle();
-
-      if (profileError || !myProfile) {
-        toast({
-          title: tr("authscreen_profil_xetasi_4b403e", 'Profil xətası'),
-          description: tr("authscreen_profiliniz_yaradilarken_xeta_bas_verdi_y_2bdc7b", 'Profiliniz yaradılarkən xəta baş verdi. Yenidən cəhd edin.'),
-          variant: 'destructive'
-        });
-        setIsLoading(false);
-        return;
-      }
-
-      // Update my profile to link to partner and set life_stage to partner
-      const { error: updateMyError } = await supabase.
-      from('profiles').
-      update({
-        linked_partner_id: partnerProfile.id,
-        life_stage: 'partner'
-      }).
-      eq('user_id', currentUserId);
-
-      if (updateMyError) {
-        console.error('Error updating my profile:', updateMyError);
-        toast({
-          title: tr("authscreen_baglanti_xetasi_e97fbc", 'Bağlantı xətası'),
-          description: tr("authscreen_partnyor_ile_baglanti_qurula_bilmedi_d95403", 'Partnyor ilə bağlantı qurula bilmədi.'),
-          variant: 'destructive'
-        });
-        setIsLoading(false);
-        return;
-      }
-
-      // Update partner's profile to link back to me using SECURITY DEFINER function
-      await supabase.rpc('link_partners', {
-        p_my_profile_id: myProfile.id,
-        p_partner_profile_id: partnerProfile.id,
-        p_partner_user_id: partnerProfile.user_id
-      });
-
-      toast({
-        title: tr("authscreen_ugurla_baglandiniz_62b079", 'Uğurla bağlandınız! 🎉'),
-        description: `${partnerProfile.name} ${tr("auth_linked_with", "ilə əlaqələndirildiniz.")}`
-      });
-
-      // Force page refresh to update auth state
-      window.location.reload();
     } catch (error) {
       console.error('Partner auth error:', error);
       toast({

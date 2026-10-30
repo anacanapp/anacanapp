@@ -96,14 +96,38 @@ describe('existing-account linkPartner', () => {
     expect(mocks.writeCache).toHaveBeenCalledWith('profile', 'user-a', expect.objectContaining({ linked_partner_id: 'other-profile' }));
   });
 
-  it('keeps both legacy direct updates without new RPCs when the flag is absent', async () => {
+  it('clears a server-confirmed one-sided legacy link once, then retries the code', async () => {
+    mocks.profiles[0] = { ...mocks.profiles[0], linked_partner_id: 'stale-profile', life_stage: 'partner' };
+    let linkCalls = 0;
+    mocks.rpc.mockImplementation(async (name: string) => {
+      if (name === 'get_user_linked_partner_id') return { data: null, error: null };
+      if (name === 'unlink_partners') { mocks.profiles[0].linked_partner_id = null; return { data: null, error: null }; }
+      linkCalls += 1;
+      if (linkCalls === 1) return { data: { ok: false, error: 'PAIRING_CONFLICT' }, error: null };
+      mocks.profiles[0] = { ...mocks.profiles[0], linked_partner_id: 'other-profile' };
+      return { data: { ok: true }, error: null };
+    });
+    const { result } = await signedIn();
+    await act(async () => { await expect(result.current.linkPartner('ANACAN-ABCD23')).resolves.toEqual({ error: null }); });
+    expect(mocks.rpc.mock.calls.map(([name]) => name)).toEqual(['link_partner_by_code', 'get_user_linked_partner_id', 'unlink_partners', 'link_partner_by_code']);
+    expect(result.current.profile?.linked_partner_id).toBe('other-profile');
+  });
+
+  it('keeps a mutual link and reports the conflict without unlinking', async () => {
+    mocks.profiles[0] = { ...mocks.profiles[0], linked_partner_id: 'other-profile', life_stage: 'partner' };
+    mocks.rpc.mockImplementation(async (name: string) => name === 'get_user_linked_partner_id'
+      ? { data: 'other-profile', error: null } : { data: { ok: false, error: 'PAIRING_CONFLICT' }, error: null });
+    const { result } = await signedIn();
+    await act(async () => { await expect(result.current.linkPartner('ANACAN-ABCD23')).resolves.toMatchObject({ error: { code: 'PAIRING_CONFLICT' } }); });
+    expect(mocks.rpc.mock.calls.map(([name]) => name)).toEqual(['link_partner_by_code', 'get_user_linked_partner_id']);
+  });
+
+  it('never falls back to legacy direct updates when secure pairing is unavailable', async () => {
     vi.stubEnv('VITE_AZURE_PARTNER_PAIRING', undefined);
     const { result } = await signedIn();
-    await act(async () => { await expect(result.current.linkPartner('ANACAN-A01F')).resolves.toEqual({ error: null }); });
+    await act(async () => { await expect(result.current.linkPartner('ANACAN-ABCD23')).resolves.toMatchObject({ error: { code: 'PAIRING_UNAVAILABLE' } }); });
     expect(mocks.rpc).not.toHaveBeenCalled();
-    expect(mocks.update.mock.calls).toEqual([
-      [{ linked_partner_id: 'other-profile', life_stage: 'partner' }], [{ linked_partner_id: 'my-profile' }],
-    ]);
+    expect(mocks.update).not.toHaveBeenCalled();
   });
 
   it.each(['42501', 'PGRST202'])('returns %s without falling back to direct writes', async (code) => {

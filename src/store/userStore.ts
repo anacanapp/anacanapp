@@ -77,15 +77,6 @@ interface UserState {
   getPostpartumWeek: () => PostpartumData | null;
 }
 
-const generatePartnerCode = (): string => {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  let code = 'ANACAN-';
-  for (let i = 0; i < 4; i++) {
-    code += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return code;
-};
-
 export const useUserStore = create<UserState>()(
   persist(
     (set, get) => ({
@@ -122,8 +113,8 @@ export const useUserStore = create<UserState>()(
           userId: userId || null,
           email: email || null,
           name: name || null,
-          // Only generate partner code if we don't already have one
-          partnerCode: isAuth ? (current.partnerCode || generatePartnerCode()) : null,
+          // The invitation code comes from the server profile (ensure_secure_partner_code).
+          partnerCode: isAuth ? current.partnerCode : null,
         });
       },
 

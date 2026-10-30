@@ -67,7 +67,12 @@
       "sfg_tool_desc": "Porsiya, dəmir balansı, allergenlər və reseptlər",
       "chat_edit": "Redaktə et",
       "chat_editing": "Mesajı redaktə edirsiniz",
-      "chat_edited": "redaktə edilib"
+      "chat_edited": "redaktə edilib",
+      "partner_link_title": "Partnyor kodunu daxil edin",
+      "partner_link_hint": "Kodu həyat yoldaşınız Profil → Partnyor bölməsindən paylaşa bilər.",
+      "partner_link_submit": "Bağlan",
+      "partner_link_step2": "Kodu aşağıdakı xanaya yazın",
+      "partner_linked_ok": "Bağlandınız! 🎉"
     },
     "en": {
       "blog_command_hint": "Type /Blog to find and attach an article",
@@ -135,7 +140,12 @@
       "sfg_tool_desc": "Portions, iron balance, allergens and recipes",
       "chat_edit": "Edit",
       "chat_editing": "Editing message",
-      "chat_edited": "edited"
+      "chat_edited": "edited",
+      "partner_link_title": "Enter your partner's code",
+      "partner_link_hint": "Your partner can share the code from Profile → Partner.",
+      "partner_link_submit": "Connect",
+      "partner_link_step2": "Type the code in the field below",
+      "partner_linked_ok": "You're connected! 🎉"
     },
     "tr": {
       "blog_command_hint": "Bir makale bulup eklemek için /Blog yazın",
@@ -203,7 +213,12 @@
       "sfg_tool_desc": "Porsiyon, demir dengesi, alerjenler ve tarifler",
       "chat_edit": "Düzenle",
       "chat_editing": "Mesaj düzenleniyor",
-      "chat_edited": "düzenlendi"
+      "chat_edited": "düzenlendi",
+      "partner_link_title": "Partner kodunu girin",
+      "partner_link_hint": "Eşiniz kodu Profil → Partner bölümünden paylaşabilir.",
+      "partner_link_submit": "Bağlan",
+      "partner_link_step2": "Kodu aşağıdaki alana yazın",
+      "partner_linked_ok": "Bağlandınız! 🎉"
     },
     "ru": {
       "blog_command_hint": "Введите /Blog, чтобы найти и прикрепить статью",
@@ -271,7 +286,12 @@
       "sfg_tool_desc": "Порции, баланс железа, аллергены и рецепты",
       "chat_edit": "Изменить",
       "chat_editing": "Редактирование сообщения",
-      "chat_edited": "изменено"
+      "chat_edited": "изменено",
+      "partner_link_title": "Введите код партнёра",
+      "partner_link_hint": "Партнёр может отправить код из раздела Профиль → Партнёр.",
+      "partner_link_submit": "Подключиться",
+      "partner_link_step2": "Введите код в поле ниже",
+      "partner_linked_ok": "Вы подключены! 🎉"
     },
     "de": {
       "blog_command_hint": "Gib /Blog ein, um einen Artikel zu suchen und anzuhängen",
@@ -339,7 +359,12 @@
       "sfg_tool_desc": "Portionen, Eisenbalance, Allergene und Rezepte",
       "chat_edit": "Bearbeiten",
       "chat_editing": "Nachricht bearbeiten",
-      "chat_edited": "bearbeitet"
+      "chat_edited": "bearbeitet",
+      "partner_link_title": "Partnercode eingeben",
+      "partner_link_hint": "Deine Partnerin kann den Code unter Profil → Partner teilen.",
+      "partner_link_submit": "Verbinden",
+      "partner_link_step2": "Gib den Code im Feld unten ein",
+      "partner_linked_ok": "Ihr seid verbunden! 🎉"
     },
     "ar": {
       "blog_command_hint": "اكتبي /Blog للعثور على مقال وإرفاقه",
@@ -407,7 +432,12 @@
       "sfg_tool_desc": "الحصص، توازن الحديد، مسببات الحساسية والوصفات",
       "chat_edit": "تعديل",
       "chat_editing": "تعديل الرسالة",
-      "chat_edited": "معدّلة"
+      "chat_edited": "معدّلة",
+      "partner_link_title": "أدخل رمز شريكتك",
+      "partner_link_hint": "يمكن لشريكتك مشاركة الرمز من الملف الشخصي ← الشريك.",
+      "partner_link_submit": "اتصال",
+      "partner_link_step2": "اكتب الرمز في الحقل أدناه",
+      "partner_linked_ok": "تم الاتصال! 🎉"
     },
     "ka": {
       "blog_command_hint": "სტატიის მოსაძებნად და დასამაგრებლად აკრიფეთ /Blog",
@@ -475,7 +505,12 @@
       "sfg_tool_desc": "პორციები, რკინის ბალანსი, ალერგენები და რეცეპტები",
       "chat_edit": "რედაქტირება",
       "chat_editing": "შეტყობინების რედაქტირება",
-      "chat_edited": "რედაქტირებული"
+      "chat_edited": "რედაქტირებული",
+      "partner_link_title": "შეიყვანეთ პარტნიორის კოდი",
+      "partner_link_hint": "პარტნიორს შეუძლია კოდის გაზიარება პროფილი → პარტნიორი განყოფილებიდან.",
+      "partner_link_submit": "დაკავშირება",
+      "partner_link_step2": "ჩაწერეთ კოდი ქვემოთ მოცემულ ველში",
+      "partner_linked_ok": "დაკავშირებულია! 🎉"
     },
     "kk": {
       "blog_command_hint": "Мақаланы тауып, тіркеу үшін /Blog деп теріңіз",
@@ -543,7 +578,12 @@
       "sfg_tool_desc": "Порция, темір балансы, аллергендер және рецепттер",
       "chat_edit": "Өңдеу",
       "chat_editing": "Хабарды өңдеу",
-      "chat_edited": "өңделген"
+      "chat_edited": "өңделген",
+      "partner_link_title": "Серіктесіңіздің кодын енгізіңіз",
+      "partner_link_hint": "Серіктесіңіз кодты Профиль → Серіктес бөлімінен бөлісе алады.",
+      "partner_link_submit": "Қосылу",
+      "partner_link_step2": "Кодты төмендегі өріске жазыңыз",
+      "partner_linked_ok": "Қосылдыңыз! 🎉"
     },
     "uz": {
       "blog_command_hint": "Maqolani topish va biriktirish uchun /Blog buyrug‘ini kiriting",
@@ -611,7 +651,12 @@
       "sfg_tool_desc": "Porsiya, temir balansi, allergenlar va retseptlar",
       "chat_edit": "Tahrirlash",
       "chat_editing": "Xabar tahrirlanmoqda",
-      "chat_edited": "tahrirlangan"
+      "chat_edited": "tahrirlangan",
+      "partner_link_title": "Hamkoringiz kodini kiriting",
+      "partner_link_hint": "Hamkoringiz kodni Profil → Hamkor bo‘limidan ulashishi mumkin.",
+      "partner_link_submit": "Ulanish",
+      "partner_link_step2": "Kodni quyidagi maydonga yozing",
+      "partner_linked_ok": "Ulandingiz! 🎉"
     },
     "zh": {
       "blog_command_hint": "输入 /Blog 查找并附加文章",
@@ -679,7 +724,12 @@
       "sfg_tool_desc": "份量、铁均衡、过敏原与食谱",
       "chat_edit": "编辑",
       "chat_editing": "正在编辑消息",
-      "chat_edited": "已编辑"
+      "chat_edited": "已编辑",
+      "partner_link_title": "输入伴侣的邀请码",
+      "partner_link_hint": "伴侣可以在「个人资料 → 伴侣」中分享邀请码。",
+      "partner_link_submit": "连接",
+      "partner_link_step2": "在下方输入框中输入邀请码",
+      "partner_linked_ok": "已连接！🎉"
     },
     "id": {
       "blog_command_hint": "Ketik /Blog untuk mencari dan melampirkan artikel",
@@ -747,7 +797,12 @@
       "sfg_tool_desc": "Porsi, keseimbangan zat besi, alergen, dan resep",
       "chat_edit": "Edit",
       "chat_editing": "Mengedit pesan",
-      "chat_edited": "diedit"
+      "chat_edited": "diedit",
+      "partner_link_title": "Masukkan kode pasangan Anda",
+      "partner_link_hint": "Pasangan Anda dapat membagikan kode dari Profil → Pasangan.",
+      "partner_link_submit": "Hubungkan",
+      "partner_link_step2": "Ketik kode di kolom di bawah",
+      "partner_linked_ok": "Anda sudah terhubung! 🎉"
     },
     "fr": {
       "blog_command_hint": "Tapez /Blog pour rechercher et joindre un article",
@@ -815,7 +870,12 @@
       "sfg_tool_desc": "Portions, équilibre en fer, allergènes et recettes",
       "chat_edit": "Modifier",
       "chat_editing": "Modification du message",
-      "chat_edited": "modifié"
+      "chat_edited": "modifié",
+      "partner_link_title": "Saisissez le code de votre partenaire",
+      "partner_link_hint": "Votre partenaire peut partager le code depuis Profil → Partenaire.",
+      "partner_link_submit": "Connecter",
+      "partner_link_step2": "Saisissez le code dans le champ ci-dessous",
+      "partner_linked_ok": "Vous êtes connectés ! 🎉"
     },
     "es": {
       "blog_command_hint": "Escribe /Blog para buscar y adjuntar un artículo",
@@ -883,7 +943,12 @@
       "sfg_tool_desc": "Porciones, equilibrio de hierro, alérgenos y recetas",
       "chat_edit": "Editar",
       "chat_editing": "Editando mensaje",
-      "chat_edited": "editado"
+      "chat_edited": "editado",
+      "partner_link_title": "Introduce el código de tu pareja",
+      "partner_link_hint": "Tu pareja puede compartir el código desde Perfil → Pareja.",
+      "partner_link_submit": "Conectar",
+      "partner_link_step2": "Escribe el código en el campo de abajo",
+      "partner_linked_ok": "¡Ya estáis conectados! 🎉"
     },
     "pt": {
       "blog_command_hint": "Escreva /Blog para encontrar e anexar um artigo",
@@ -951,7 +1016,12 @@
       "sfg_tool_desc": "Porções, equilíbrio de ferro, alergênicos e receitas",
       "chat_edit": "Editar",
       "chat_editing": "Editando mensagem",
-      "chat_edited": "editada"
+      "chat_edited": "editada",
+      "partner_link_title": "Insira o código do seu parceiro",
+      "partner_link_hint": "Sua parceira pode compartilhar o código em Perfil → Parceiro.",
+      "partner_link_submit": "Conectar",
+      "partner_link_step2": "Digite o código no campo abaixo",
+      "partner_linked_ok": "Vocês estão conectados! 🎉"
     },
     "vi": {
       "blog_command_hint": "Nhập /Blog để tìm và đính kèm bài viết",
@@ -1019,7 +1089,12 @@
       "sfg_tool_desc": "Khẩu phần, cân bằng sắt, chất gây dị ứng và công thức",
       "chat_edit": "Chỉnh sửa",
       "chat_editing": "Đang chỉnh sửa tin nhắn",
-      "chat_edited": "đã sửa"
+      "chat_edited": "đã sửa",
+      "partner_link_title": "Nhập mã của bạn đời",
+      "partner_link_hint": "Bạn đời có thể chia sẻ mã trong Hồ sơ → Bạn đời.",
+      "partner_link_submit": "Kết nối",
+      "partner_link_step2": "Nhập mã vào ô bên dưới",
+      "partner_linked_ok": "Đã kết nối! 🎉"
     },
     "hi": {
       "blog_command_hint": "लेख खोजने और संलग्न करने के लिए /Blog टाइप करें",
@@ -1087,7 +1162,12 @@
       "sfg_tool_desc": "मात्रा, आयरन संतुलन, एलर्जन और रेसिपी",
       "chat_edit": "संपादित करें",
       "chat_editing": "संदेश संपादित हो रहा है",
-      "chat_edited": "संपादित"
+      "chat_edited": "संपादित",
+      "partner_link_title": "अपने साथी का कोड दर्ज करें",
+      "partner_link_hint": "आपकी साथी प्रोफ़ाइल → पार्टनर से कोड साझा कर सकती हैं।",
+      "partner_link_submit": "जोड़ें",
+      "partner_link_step2": "नीचे दिए गए खाने में कोड लिखें",
+      "partner_linked_ok": "आप जुड़ गए! 🎉"
     },
     "ja": {
       "blog_command_hint": "/Blog と入力して記事を検索し、添付できます",
@@ -1155,7 +1235,12 @@
       "sfg_tool_desc": "量、鉄のバランス、アレルゲン、レシピ",
       "chat_edit": "編集",
       "chat_editing": "メッセージを編集中",
-      "chat_edited": "編集済み"
+      "chat_edited": "編集済み",
+      "partner_link_title": "パートナーのコードを入力",
+      "partner_link_hint": "パートナーは「プロフィール → パートナー」からコードを共有できます。",
+      "partner_link_submit": "接続する",
+      "partner_link_step2": "下の欄にコードを入力します",
+      "partner_linked_ok": "接続しました！🎉"
     },
     "ko": {
       "blog_command_hint": "글을 찾아 첨부하려면 /Blog를 입력하세요",
@@ -1223,7 +1308,12 @@
       "sfg_tool_desc": "1회 양, 철분 균형, 알레르기 식품, 레시피",
       "chat_edit": "수정",
       "chat_editing": "메시지 수정 중",
-      "chat_edited": "수정됨"
+      "chat_edited": "수정됨",
+      "partner_link_title": "파트너 코드를 입력하세요",
+      "partner_link_hint": "파트너가 프로필 → 파트너에서 코드를 공유할 수 있어요.",
+      "partner_link_submit": "연결하기",
+      "partner_link_step2": "아래 칸에 코드를 입력하세요",
+      "partner_linked_ok": "연결되었어요! 🎉"
     },
     "pl": {
       "blog_command_hint": "Wpisz /Blog, aby znaleźć i załączyć artykuł",
@@ -1291,7 +1381,12 @@
       "sfg_tool_desc": "Porcje, bilans żelaza, alergeny i przepisy",
       "chat_edit": "Edytuj",
       "chat_editing": "Edytujesz wiadomość",
-      "chat_edited": "edytowano"
+      "chat_edited": "edytowano",
+      "partner_link_title": "Wpisz kod partnerki",
+      "partner_link_hint": "Partnerka może udostępnić kod w sekcji Profil → Partner.",
+      "partner_link_submit": "Połącz",
+      "partner_link_step2": "Wpisz kod w polu poniżej",
+      "partner_linked_ok": "Połączono! 🎉"
     },
     "nl": {
       "blog_command_hint": "Typ /Blog om een artikel te zoeken en toe te voegen",
@@ -1359,7 +1454,12 @@
       "sfg_tool_desc": "Porties, ijzerbalans, allergenen en recepten",
       "chat_edit": "Bewerken",
       "chat_editing": "Bericht bewerken",
-      "chat_edited": "bewerkt"
+      "chat_edited": "bewerkt",
+      "partner_link_title": "Voer de code van je partner in",
+      "partner_link_hint": "Je partner kan de code delen via Profiel → Partner.",
+      "partner_link_submit": "Verbinden",
+      "partner_link_step2": "Typ de code in het veld hieronder",
+      "partner_linked_ok": "Jullie zijn verbonden! 🎉"
     },
     "sv": {
       "blog_command_hint": "Skriv /Blog för att hitta och bifoga en artikel",
@@ -1427,7 +1527,12 @@
       "sfg_tool_desc": "Portioner, järnbalans, allergener och recept",
       "chat_edit": "Redigera",
       "chat_editing": "Redigerar meddelande",
-      "chat_edited": "redigerad"
+      "chat_edited": "redigerad",
+      "partner_link_title": "Ange din partners kod",
+      "partner_link_hint": "Din partner kan dela koden under Profil → Partner.",
+      "partner_link_submit": "Anslut",
+      "partner_link_step2": "Skriv koden i fältet nedan",
+      "partner_linked_ok": "Ni är anslutna! 🎉"
     }
   }
 }

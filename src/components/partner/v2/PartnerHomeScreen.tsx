@@ -15,6 +15,8 @@ import { supabase } from '@/integrations/supabase/client';
 import { sendPartnerMessage } from '@/lib/chat';
 import { hapticFeedback } from '@/lib/native';
 import { useToast } from '@/hooks/use-toast';
+import PartnerLinkForm from './PartnerLinkForm';
+import { feature37Text } from '@/lib/feature37-i18n';
 import { tr } from '@/lib/tr';
 
 import SOSButton from '@/components/partner/SOSButton';
@@ -186,9 +188,12 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
           <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-ink)', marginBottom: 8 }}>{tr('partnerdashboard_nece_baglanmali_8234cb', '📲 Necə bağlanmalı?')}</p>
           <ol className="text-start space-y-1.5 list-decimal list-inside" style={{ fontSize: 12, color: 'var(--a-ink-soft)' }}>
             <li>{tr('partnerdashboard_heyat_yoldasinizdan_onun_profilindeki_pa_c8a86f', 'Həyat yoldaşınızdan onun profilindəki partnyor kodunu istəyin')}</li>
-            <li>{tr('partnerdashboard_profil_bolmesine_kecerek_kodu_daxil_edin_2d8a3e', 'Profil bölməsinə keçərək kodu daxil edin')}</li>
+            <li>{feature37Text('partner_link_step2')}</li>
             <li>{tr('partnerdashboard_bir_nece_saniye_icinde_baglanti_yaranaca_99fbd5', 'Bir neçə saniyə içində bağlantı yaranacaq')}</li>
           </ol>
+        </div>
+        <div className="relative z-10 w-full flex justify-center" style={{ marginTop: 14 }}>
+          <PartnerLinkForm />
         </div>
       </div>);
   }
