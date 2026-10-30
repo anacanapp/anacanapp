@@ -160,7 +160,30 @@ GRANT EXECUTE ON FUNCTION public.partner_family_mother_v1(), public.night_shifts
   public.birth_plan_save_v1(jsonb, timestamptz) TO authenticated, service_role;
 
 -- ── CDC and writer-guard enrollment of the two new relations ──────────────────────────
--- @@ENROLLMENT@@
+INSERT INTO _anacan_gcp_migration.guarded_relations (schema_name, table_name, primary_key) VALUES
+  ('public', 'partner_night_shifts', ARRAY['id']),
+  ('public', 'birth_plans', ARRAY['mother_id'])
+ON CONFLICT DO NOTHING;
+
+DO $$
+DECLARE t text;
+BEGIN
+  FOREACH t IN ARRAY ARRAY['partner_night_shifts', 'birth_plans'] LOOP
+    EXECUTE format('DROP TRIGGER IF EXISTS anacan_gcp_writer_guard ON public.%I', t);
+    EXECUTE format('DROP TRIGGER IF EXISTS anacan_gcp_change ON public.%I', t);
+    EXECUTE format('DROP TRIGGER IF EXISTS anacan_gcp_truncate ON public.%I', t);
+    EXECUTE format('CREATE TRIGGER anacan_gcp_writer_guard BEFORE INSERT OR DELETE OR UPDATE OR TRUNCATE ON public.%I FOR EACH STATEMENT EXECUTE FUNCTION _anacan_gcp_migration.guard_write()', t);
+    EXECUTE format('CREATE TRIGGER anacan_gcp_change AFTER INSERT OR DELETE OR UPDATE ON public.%I FOR EACH ROW EXECUTE FUNCTION _anacan_gcp_migration.capture_change()', t);
+    EXECUTE format('CREATE TRIGGER anacan_gcp_truncate AFTER TRUNCATE ON public.%I FOR EACH STATEMENT EXECUTE FUNCTION _anacan_gcp_migration.capture_change()', t);
+  END LOOP;
+  IF (SELECT count(*) FROM _anacan_gcp_migration.guarded_relations WHERE schema_name = 'public'
+      AND table_name IN ('partner_night_shifts', 'birth_plans')) <> 2
+     OR (SELECT count(*) FROM pg_trigger tg JOIN pg_class c ON c.oid = tg.tgrelid JOIN pg_namespace n ON n.oid = c.relnamespace
+         WHERE n.nspname = 'public' AND c.relname IN ('partner_night_shifts', 'birth_plans')
+           AND tg.tgname IN ('anacan_gcp_writer_guard', 'anacan_gcp_change', 'anacan_gcp_truncate')) <> 6 THEN
+    RAISE EXCEPTION 'PARTNER_P4_GUARD_ENROLLMENT_INCOMPLETE';
+  END IF;
+END $$;
 
 NOTIFY pgrst, 'reload schema';
 COMMIT;

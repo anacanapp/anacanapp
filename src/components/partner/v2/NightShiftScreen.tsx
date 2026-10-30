@@ -131,7 +131,7 @@ const NightShiftScreen = ({ onBack }: { onBack: () => void }) => {
                     </div>
                     <input className="a-input" value={note} maxLength={280} onChange={(e) => setNote(e.target.value)}
                       placeholder={feature37Text('ns_note_ph')} style={{ width: '100%', marginTop: 8 }} />
-                    <button type="button" onClick={finishLastNight} disabled={set.isPending} className="a-btn-solid w-full" style={{ marginTop: 10 }}>
+                    <button type="button" onClick={finishLastNight} disabled={set.isPending} className="a-btn-solid w-full inline-flex items-center justify-center" style={{ marginTop: 10 }}>
                       {feature37Text('ns_mark_done')}
                     </button>
                   </>}

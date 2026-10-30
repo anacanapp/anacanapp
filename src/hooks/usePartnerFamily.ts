@@ -18,7 +18,8 @@ export interface NightShift {
   updated_at: string;
 }
 
-const rpc = supabase.rpc as unknown as (name: string, args?: Record<string, unknown>) => Promise<{ data: any; error: any }>;
+// Keep the call on the client object: a detached supabase.rpc loses `this`.
+const rpc = (name: string, args?: Record<string, unknown>): Promise<{ data: any; error: any }> => (supabase.rpc as any)(name, args);
 
 export const isoDay = (date: Date) => {
   const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
