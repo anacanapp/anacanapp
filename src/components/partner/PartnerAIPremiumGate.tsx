@@ -4,6 +4,8 @@ import { Crown, Sparkles, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useSubscription } from '@/hooks/useSubscription';
 import { PremiumModal } from '@/components/PremiumModal';
+import { usePartnerData } from '@/hooks/usePartnerData';
+import type { AIChatPartnerContext } from '@/components/AIChatScreen';
 
 const AIChatScreen = lazy(() => import('@/components/AIChatScreen'));
 
@@ -15,6 +17,19 @@ const fallback =
 
 const PartnerAIPremiumGate = () => {
   const { isPremium, loading } = useSubscription();
+  const { partnerProfile, sharing, getPregnancyWeek } = usePartnerData();
+  const stage = partnerProfile?.life_stage;
+  // Ata AI: the woman's stage and only what she shares (cycle dates need share_cycle).
+  const partnerContext: AIChatPartnerContext = {
+    lifeStage: stage === 'flow' || stage === 'mommy' ? stage : 'bump',
+    pregnancyWeek: stage === 'bump' ? getPregnancyWeek() || undefined : undefined,
+    womanName: partnerProfile?.name,
+    dueDate: partnerProfile?.due_date,
+    babyName: partnerProfile?.baby_name,
+    babyBirthDate: partnerProfile?.baby_birth_date,
+    lastPeriodDate: stage === 'flow' && !sharing.share_cycle ? null : partnerProfile?.last_period_date,
+    cycleLength: partnerProfile?.cycle_length,
+  };
   const [showModal, setShowModal] = useState(false);
   const hadPremium = useRef(false);
 
@@ -31,7 +46,7 @@ const PartnerAIPremiumGate = () => {
   if (isPremium) {
     return (
       <Suspense fallback={fallback}>
-        <AIChatScreen />
+        <AIChatScreen partner={partnerContext} />
       </Suspense>);
 
   }

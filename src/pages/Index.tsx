@@ -48,7 +48,6 @@ const ToolsHub = lazy(() => import('@/components/ToolsHub'));
 const DoctorReportScreen = lazy(() => import('@/components/DoctorReportScreen'));
 const AIChatScreen = lazy(() => import('@/components/AIChatScreen'));
 const PartnerAIPremiumGate = lazy(() => import('@/components/partner/PartnerAIPremiumGate'));
-const PartnerChatScreen = lazy(() => import('@/components/partner/PartnerChatScreen'));
 const ShopScreen = lazy(() => import('@/components/ShopScreen'));
 const CakesScreen = lazy(() => import('@/components/CakesScreen'));
 const ProfileScreen = lazy(() => import('@/components/ProfileScreen'));
@@ -89,6 +88,8 @@ const PartnerSurprisesScreen = lazy(() => import('@/components/partner/v2/Partne
 const HospitalRunScreen = lazy(() => import('@/components/partner/v2/HospitalRunScreen'));
 const LiveContractionsScreen = lazy(() => import('@/components/partner/v2/LiveContractionsScreen'));
 const PartnerSharingScreen = lazy(() => import('@/components/partner/v2/PartnerSharingScreen'));
+const NightShiftScreen = lazy(() => import('@/components/partner/v2/NightShiftScreen'));
+const BirthPlanScreen = lazy(() => import('@/components/partner/v2/BirthPlanScreen'));
 const AlertReceiver = lazy(() => import('@/components/partner/v2/AlertReceiver'));
 const PartnersScreen = lazy(() => import('@/components/partners/PartnersScreen'));
 const AdPreferencesScreen = lazy(() => import('@/components/ads/AdPreferencesScreen'));
@@ -782,6 +783,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'hospital-run' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HospitalRunScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} onOpenContractions={() => setActiveScreen('live-contractions')} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'live-contractions' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><LiveContractionsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-sharing' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSharingScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'night-shift') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><NightShiftScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'birth-plan') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BirthPlanScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partners') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnersScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   return null;
   })();

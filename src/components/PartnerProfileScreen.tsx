@@ -3,8 +3,7 @@ import { tr } from '@/lib/tr';
 import { motion } from 'framer-motion';
 import {
   User, Settings, Bell, Shield, HelpCircle, LogOut,
-  ChevronRight, Crown, Heart, MessageCircle, Sparkles,
-  Trophy, Target, Star, Gift, TrendingUp, BarChart3 } from
+  ChevronRight, MessageCircle, Trophy, Target, Gift, Zap } from
 'lucide-react';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
@@ -18,11 +17,11 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import {
   usePartnerAchievements,
   usePartnerMenuItems,
-  useSurpriseCategories,
   FALLBACK_ACHIEVEMENTS,
-  FALLBACK_MENU_ITEMS,
-  FALLBACK_SURPRISE_CATEGORIES } from
+  FALLBACK_MENU_ITEMS } from
 '@/hooks/usePartnerConfig';
+import { usePartnerData } from '@/hooks/usePartnerData';
+import { feature37Text } from '@/lib/feature37-i18n';
 
 // Icon mapping for menu items
 const MENU_ICON_MAP: Record<string, any> = {
@@ -48,13 +47,6 @@ const MENU_LABEL_TR: Record<string, [string, string]> = {
   "partner-privacy": ["usepartnerconfig_gizlilik", "Gizlilik"],
   help: ["usepartnerconfig_yardim_da857a", "Yardım"],
 };
-const SURPRISE_CATEGORY_LABEL_TR: Record<string, [string, string]> = {
-  romantic: ["usepartnerconfig_romantik", "Romantik"],
-  care: ["usepartnerconfig_qaygi_868e7d", "Qayğı"],
-  adventure: ["usepartnerconfig_macera_bc3bdc", "Macəra"],
-  gift: ["usepartnerconfig_hediyye_8578f3", "Hədiyyə"],
-};
-
 interface PartnerProfileScreenProps {
   onNavigate?: (screen: string) => void;
 }
@@ -62,26 +54,20 @@ interface PartnerProfileScreenProps {
 const PartnerProfileScreen = ({ onNavigate }: PartnerProfileScreenProps) => {
   useScrollToTop();
 
-  const { name, email, partnerWomanData, logout } = useUserStore(
-    useShallow((s) => ({ name: s.name, email: s.email, partnerWomanData: s.partnerWomanData, logout: s.logout }))
+  const { name, email, logout } = useUserStore(
+    useShallow((s) => ({ name: s.name, email: s.email, logout: s.logout }))
   );
+  const { partnerProfile, getPregnancyWeek, getBabyAgeDays } = usePartnerData();
   const { toast } = useToast();
   const { signOut, profile } = useAuth();
   const isLinked = !!profile?.linked_partner_id;
   const { stats, loading: statsLoading } = usePartnerStats();
   const { level, levelProgress, pointsToNextLevel } = usePartnerMissions();
-  const {
-    completedSurprises,
-    totalPoints: surprisePoints,
-    categoryStats,
-    monthlyChartData,
-    topCategory
-  } = useSurprises();
+  const { completedSurprises, totalPoints: surprisePoints } = useSurprises();
 
   // Fetch dynamic config
   const { data: dbAchievements = [] } = usePartnerAchievements();
   const { data: dbMenuItems = [] } = usePartnerMenuItems();
-  const { data: dbSurpriseCategories = [] } = useSurpriseCategories();
 
   // Build achievements from DB or fallback
   // NOT: əvvəllər yalnız Sürprizlər aktivliyi (completed_surprises/
@@ -118,318 +104,124 @@ const PartnerProfileScreen = ({ onNavigate }: PartnerProfileScreenProps) => {
     }));
   }, [dbMenuItems]);
 
-  // Build surprise category lookup
-  const getCategoryLabel = useMemo(() => {
-    const source = dbSurpriseCategories.length > 0 ? dbSurpriseCategories : FALLBACK_SURPRISE_CATEGORIES;
-    return (category: string) => {
-      const found = source.find((c) => c.category_key === category);
-      if (found) {
-        return {
-          label: SURPRISE_CATEGORY_LABEL_TR[found.category_key] ?
-          tr(...SURPRISE_CATEGORY_LABEL_TR[found.category_key]) :
-          found.label_az || category,
-          emoji: found.emoji,
-          color: found.color_gradient
-        };
-      }
-      return { label: category, emoji: '✨', color: 'from-blue-500 to-indigo-600' };
-    };
-  }, [dbSurpriseCategories]);
+  const stage = partnerProfile?.life_stage;
+  const weeks = stage === 'bump' ? getPregnancyWeek() : 0;
+  const babyDays = stage === 'mommy' ? getBabyAgeDays() : 0;
+  const stageLine = stage === 'bump' ?
+  `${tr('partnerprofilescreen_hamilelik_dovru_57af7a', 'Hamiləlik dövrü')}${weeks ? ` · ${feature37Text('pp_week').replace('{n}', String(weeks))}` : ''}` :
+  stage === 'mommy' ?
+  babyDays >= 60 ? feature37Text('pp_baby_age_months').replace('{n}', String(Math.floor(babyDays / 30))) : feature37Text('pp_baby_age_days').replace('{n}', String(babyDays)) :
+  tr('partnerprofilescreen_menstruasiya_dovru_a5852d', 'Menstruasiya dövrü');
 
-  const maxPoints = Math.max(...monthlyChartData.map((d) => d.points), 1);
+  const statTiles = [
+  { icon: Trophy, value: stats.totalPoints + surprisePoints, label: feature37Text('pp_points'), bg: 'var(--a-yellow-1)', ink: 'var(--a-yellow-ink)' },
+  { icon: Target, value: stats.completedMissions, label: feature37Text('pp_missions'), bg: 'var(--a-blue-1)', ink: 'var(--a-blue-ink)' },
+  { icon: Gift, value: completedSurprises.length, label: feature37Text('pp_surprises'), bg: 'var(--a-pink-1)', ink: 'var(--a-pink-ink)' },
+  { icon: MessageCircle, value: stats.messagesSent, label: feature37Text('pp_messages'), bg: 'var(--a-green-1)', ink: 'var(--a-green-ink)' }];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.05 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 }
-  };
+  const menu = [...menuItems, { id: 'settings', icon: Settings, label: feature37Text('pp_settings') }];
+  const card = { background: 'var(--a-surface)', borderRadius: 'var(--a-radius-md)', boxShadow: 'var(--a-card-shadow)' } as const;
 
   return (
-    <div className="pb-28 pt-2 px-5">
-      {/* Header */}
-      <motion.div
-        className="flex items-center justify-between mb-6"
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}>
-        
-        <h1 className="text-2xl font-black text-foreground">{tr("untranslated_partner_profili_lip00f", "Partner Profili")}</h1>
-        <motion.button
-          className="w-12 h-12 rounded-2xl bg-muted flex items-center justify-center"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => onNavigate?.('partner-privacy')}>
-          
-          <Settings className="w-6 h-6 text-muted-foreground" />
-        </motion.button>
-      </motion.div>
-
-      {/* Profile Card */}
-      <motion.div
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700 p-6 mb-6 shadow-elevated"
-        initial={{ scale: 0.95, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.1 }}>
-        
-        <div className="absolute -end-10 -top-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
-        <div className="absolute -start-10 -bottom-10 w-32 h-32 rounded-full bg-white/5 blur-xl" />
-        
-        <div className="relative z-10 flex items-center gap-4">
-          <div className="w-20 h-20 rounded-2xl bg-white/20 flex items-center justify-center text-4xl shadow-lg">
-            👨
-          </div>
-          <div className="flex-1">
-            <h2 className="text-2xl font-black text-white">{name || 'Partner'}</h2>
-            <p className="text-white/80 font-medium">{email || 'email@example.com'}</p>
-            {isLinked && <div className="mt-2 inline-flex items-center px-3 py-1 bg-white/20 rounded-full text-white text-xs font-bold gap-1">
-              <Heart className="w-3 h-3 fill-white" />
-              {partnerWomanData?.name || tr("partnerprofilescreen_heyat_yoldasi_ad6f31", "H\u0259yat Yolda\u015F\u0131")} {tr("partnerprofilescreen_ile_elaqeli_b0595d", "il\u0259 \u0259laq\u0259li")}
-            </div>}
-          </div>
-        </div>
-      </motion.div>
-
-      {!isLinked && <div className="a-scope flex justify-center mb-6"><PartnerLinkForm /></div>}
-
-      {/* Stats Grid */}
-      <motion.div
-        className="grid grid-cols-2 gap-3 mb-6"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.15 }}>
-        
-        <div className="bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl p-4 text-white">
-          <Trophy className="w-6 h-6 mb-2" />
-          <p className="text-3xl font-black">{stats.totalPoints + surprisePoints}</p>
-          <p className="text-xs text-white/80">{tr("untranslated_toplam_xal_dy1dwr", "Toplam Xal")}</p>
-        </div>
-        <div className="bg-gradient-to-br from-violet-400 to-purple-600 rounded-2xl p-4 text-white">
-          <Target className="w-6 h-6 mb-2" />
-          <p className="text-3xl font-black">{stats.completedMissions}</p>
-          <p className="text-xs text-white/80">{tr("partnerprofilescreen_tapsiriq_d827b6", "Tapşırıq")}</p>
-        </div>
-        <div className="bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl p-4 text-white">
-          <Gift className="w-6 h-6 mb-2" />
-          <p className="text-3xl font-black">{completedSurprises.length}</p>
-          <p className="text-xs text-white/80">{tr("partnerprofilescreen_surpriz_67b2b2", "Sürpriz")}</p>
-        </div>
-        <div className="bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl p-4 text-white">
-          <MessageCircle className="w-6 h-6 mb-2" />
-          <p className="text-3xl font-black">{stats.messagesSent}</p>
-          <p className="text-xs text-white/80">{tr("untranslated_mesaj_3c09op", "Mesaj")}</p>
-        </div>
-      </motion.div>
-
-      {/* Surprise Statistics Section */}
-      {completedSurprises.length > 0 &&
-      <motion.div
-        className="bg-card rounded-3xl p-5 mb-6 shadow-card border border-border/50"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.18 }}>
-        
-          <div className="flex items-center gap-2 mb-4">
-            <BarChart3 className="w-5 h-5 text-partner" />
-            <h3 className="font-bold text-foreground">{tr("partnerprofilescreen_surpriz_statistikasi_5eee15", "Sürpriz Statistikası")}</h3>
-          </div>
-
-          {/* Monthly Points Chart */}
-          <div className="mb-5">
-            <p className="text-sm text-muted-foreground mb-3">{tr("partnerprofilescreen_ayliq_xal_qrafiki_dca77f", "Aylıq Xal Qrafiki")}</p>
-            <div className="flex items-end justify-between gap-2 h-24">
-              {monthlyChartData.map((data, index) =>
-            <div key={data.month} className="flex-1 flex flex-col items-center gap-1">
-                  <motion.div
-                className="w-full bg-gradient-to-t from-partner to-violet-500 rounded-t-lg"
-                initial={{ height: 0 }}
-                animate={{ height: `${data.points / maxPoints * 100}%` }}
-                transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-                style={{ minHeight: data.points > 0 ? '8px' : '2px' }} />
-              
-                  <span className="text-[10px] text-muted-foreground font-medium">{data.label}</span>
-                </div>
-            )}
-            </div>
-          </div>
-
-          {/* Category Breakdown */}
+    <div className="a-scope pb-28 min-h-screen relative overflow-x-hidden" style={{ background: 'var(--a-bg)' }}>
+      <div className="a-sky" aria-hidden>
+        <span className="a-cloud c1" /><span className="a-cloud c2" /><span className="a-cloud c3" />
+      </div>
+      <div className="a-shell relative z-10">
+        <header className="a-topbar">
           <div>
-            <p className="text-sm text-muted-foreground mb-3">{tr("partnerprofilescreen_surpriz_novleri_592120", "Sürpriz Növləri")}</p>
-            <div className="grid grid-cols-2 gap-2">
-              {Object.entries(categoryStats).map(([category, count]) => {
-              const catInfo = getCategoryLabel(category);
+            <p className="a-eyebrow">{feature37Text('pp_profile')}</p>
+            <p className="a-wordmark" style={{ fontSize: 19 }}>{name || 'Partner'}</p>
+          </div>
+          <div className="a-topbar-actions">
+            <button type="button" className="a-icon-btn" onClick={() => onNavigate?.('partner-privacy')} aria-label={tr('usepartnerconfig_gizlilik', 'Gizlilik')}>
+              <Shield size={16} />
+            </button>
+          </div>
+        </header>
+
+        <div className="space-y-3.5">
+          {/* Me + level */}
+          <motion.section className="a-card" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} style={{ padding: 16 }}>
+            <div className="flex items-center gap-3">
+              <span className="w-14 h-14 rounded-full flex items-center justify-center text-3xl shrink-0" style={{ background: 'var(--a-grad-blue)' }}>👨</span>
+              <div className="flex-1 min-w-0">
+                <p className="truncate" style={{ fontSize: 17, fontWeight: 900, color: 'var(--a-ink)' }}>{name || 'Partner'}</p>
+                {email && <p className="truncate" style={{ fontSize: 12, color: 'var(--a-ink-soft)' }}>{email}</p>}
+              </div>
+              <span className="inline-flex items-center gap-1 shrink-0" style={{ background: 'var(--a-blue-1)', color: 'var(--a-blue-ink)', borderRadius: 999, padding: '5px 11px', fontSize: 11.5, fontWeight: 800 }}>
+                <Zap size={12} />{feature37Text('pp_level').replace('{n}', String(level))}
+              </span>
+            </div>
+            <div className="h-2 rounded-full overflow-hidden" style={{ background: 'var(--a-surface-soft)', marginTop: 14 }}>
+              <motion.div className="h-full rounded-full" style={{ background: 'var(--a-grad-blue)' }} initial={{ width: 0 }} animate={{ width: `${levelProgress}%` }} />
+            </div>
+            <p style={{ fontSize: 10.5, color: 'var(--a-ink-faint)', marginTop: 4, textAlign: 'end' }}>{feature37Text('pp_to_next').replace('{n}', String(pointsToNextLevel))}</p>
+          </motion.section>
+
+          {/* Connection */}
+          {isLinked && partnerProfile ?
+          <section className="flex items-center gap-3" style={{ ...card, padding: 14 }}>
+              <span className="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0" style={{ background: 'var(--a-pink-1)' }}>
+                {stage === 'bump' ? '🤰' : stage === 'mommy' ? '👩‍🍼' : '🌸'}
+              </span>
+              <div className="flex-1 min-w-0">
+                <p style={{ fontSize: 10.5, fontWeight: 800, color: 'var(--a-ink-faint)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{feature37Text('pp_connected_with')}</p>
+                <p className="truncate" style={{ fontSize: 15, fontWeight: 900, color: 'var(--a-ink)' }}>{partnerProfile.name}</p>
+                <p className="truncate" style={{ fontSize: 11.5, color: 'var(--a-ink-soft)' }}>{stageLine}</p>
+              </div>
+              <span style={{ fontSize: 10.5, fontWeight: 800, color: 'var(--a-green-ink)', background: 'var(--a-green-1)', borderRadius: 999, padding: '3px 9px' }}>● {feature37Text('ph_linked')}</span>
+            </section> :
+          <div className="flex justify-center"><PartnerLinkForm /></div>
+          }
+
+          {/* Stats */}
+          <div className="grid grid-cols-4 gap-2">
+            {statTiles.map(({ icon: Icon, value, label, bg, ink }) =>
+            <div key={label} className="text-center" style={{ ...card, padding: '12px 4px' }}>
+                <span className="w-8 h-8 mx-auto flex items-center justify-center" style={{ borderRadius: 10, background: bg }}><Icon size={15} style={{ color: ink }} /></span>
+                <p style={{ fontSize: 17, fontWeight: 900, color: 'var(--a-ink)', marginTop: 6 }}>{statsLoading ? '·' : value}</p>
+                <p className="truncate" style={{ fontSize: 10, color: 'var(--a-ink-soft)' }}>{label}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Achievements */}
+          <section style={{ ...card, padding: '14px 0 12px' }}>
+            <p style={{ fontSize: 14, fontWeight: 900, color: 'var(--a-ink)', padding: '0 16px 10px' }}>{feature37Text('pp_achievements')}</p>
+            <div className="flex gap-3 overflow-x-auto hide-scrollbar" style={{ padding: '0 16px' }}>
+              {achievements.map((a) =>
+              <div key={a.id} className="flex-shrink-0 text-center" style={{ width: 68, opacity: a.unlocked ? 1 : 0.4 }}>
+                  <div className="w-14 h-14 mx-auto flex items-center justify-center text-2xl" style={{ borderRadius: 18, background: a.unlocked ? 'var(--a-blue-1)' : 'var(--a-surface-soft)' }}>{a.emoji}</div>
+                  <p style={{ fontSize: 10, fontWeight: 600, color: 'var(--a-ink-soft)', marginTop: 5, lineHeight: 1.25 }}>{a.name}</p>
+                </div>
+              )}
+            </div>
+          </section>
+
+          {/* Menu */}
+          <nav style={{ ...card, overflow: 'hidden' }}>
+            {menu.map((item, index) => {
+              const Icon = item.icon;
               return (
-                <motion.div
-                  key={category}
-                  className={`flex items-center gap-2 p-3 rounded-xl bg-gradient-to-r ${catInfo.color} bg-opacity-10`}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}>
-                  
-                    <span className="text-xl">{catInfo.emoji}</span>
-                    <div>
-                      <p className="text-xs font-medium text-white">{catInfo.label}</p>
-                      <p className="text-lg font-black text-white">{count}</p>
-                    </div>
-                  </motion.div>);
-
+                <button key={item.id} type="button" onClick={() => onNavigate?.(item.id)} className="w-full flex items-center gap-3 text-start"
+                style={{ padding: '13px 16px', borderTop: index ? '1px solid var(--a-line)' : undefined }}>
+                  <span className="w-9 h-9 flex items-center justify-center shrink-0" style={{ borderRadius: 12, background: 'var(--a-surface-soft)' }}>
+                    <Icon size={16} style={{ color: 'var(--a-ink-soft)' }} />
+                  </span>
+                  <span className="flex-1" style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-ink)' }}>{item.label}</span>
+                  <ChevronRight size={16} className="rtl:rotate-180" style={{ color: 'var(--a-ink-faint)' }} />
+                </button>);
             })}
-            </div>
-          </div>
+          </nav>
 
-          {/* Top Category Badge */}
-          {topCategory &&
-        <motion.div
-          className="mt-4 flex items-center gap-3 p-3 bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-xl"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5 }}>
-          
-              <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="text-xs text-amber-700 dark:text-amber-400">{tr("partnerprofilescreen_en_cox_edilen_f000e8", "Ən çox edilən")}</p>
-                <p className="font-bold text-amber-800 dark:text-amber-300">
-                  {getCategoryLabel(topCategory.category).emoji} {getCategoryLabel(topCategory.category).label} ({topCategory.count} {tr("partnerprofilescreen_defe_cf1e5e", "d\u0259f\u0259)")}
-                </p>
-              </div>
-            </motion.div>
-        }
-        </motion.div>
-      }
-
-      {/* Level Card */}
-      <motion.div
-        className="bg-card rounded-3xl p-5 mb-6 shadow-card border border-border/50"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}>
-        
-        <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
-            <span className="text-3xl font-black text-white">{level}</span>
-          </div>
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-1">
-              <Star className="w-4 h-4 text-amber-500" />
-              <h3 className="font-bold text-foreground">{tr("partnerprofilescreen_seviyye_8266e7", "S\u0259viyy\u0259")} {level}</h3>
-            </div>
-            <p className="text-sm text-muted-foreground">{tr("partnerprofilescreen_novbeti_seviyyeye_d52c78", "N\xF6vb\u0259ti s\u0259viyy\u0259y\u0259")} {pointsToNextLevel} {tr("partnerprofilescreen_xal_qalib_5931e2", "xal qal\u0131b")}</p>
-            <div className="h-2 bg-muted rounded-full mt-2 overflow-hidden">
-              <motion.div
-                className="h-full bg-gradient-to-r from-amber-400 to-orange-500 rounded-full"
-                initial={{ width: 0 }}
-                animate={{ width: `${levelProgress}%` }} />
-              
-            </div>
-          </div>
+          <motion.button type="button" onClick={async () => { await signOut(); logout(); }} whileTap={{ scale: 0.98 }}
+          className="w-full flex items-center justify-center gap-2"
+          style={{ padding: 14, borderRadius: 16, background: 'var(--a-alert-bg)', color: 'var(--a-alert-ink)', fontSize: 14, fontWeight: 800 }}>
+            <LogOut size={17} />{feature37Text('pp_logout')}
+          </motion.button>
         </div>
-      </motion.div>
-
-      {/* Achievements */}
-      <motion.div
-        className="mb-6"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.25 }}>
-        
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-foreground">{tr("partnerprofilescreen_nailiyyetler_92db73", "Nailiyyətlər")}</h3>
-        </div>
-        <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
-          {achievements.map((achievement) =>
-          <motion.div
-            key={achievement.id}
-            className={`flex-shrink-0 w-20 text-center ${
-            achievement.unlocked ? '' : 'opacity-40'}`
-            }
-            whileHover={{ scale: 1.05 }}>
-            
-              <div className={`w-16 h-16 mx-auto rounded-2xl ${
-            achievement.unlocked ?
-            'bg-gradient-to-br from-indigo-100 to-violet-100 border-2 border-indigo-200' :
-            'bg-muted'} flex items-center justify-center text-3xl mb-2`
-            }>
-                {achievement.emoji}
-              </div>
-              <p className="text-[10px] font-medium text-muted-foreground">{achievement.name}</p>
-            </motion.div>
-          )}
-        </div>
-      </motion.div>
-
-      {/* Linked Partner Info */}
-      {partnerWomanData &&
-      <motion.div
-        className="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-3xl p-5 mb-6 border border-pink-100 dark:border-pink-800"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3 }}>
-        
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center shadow-lg text-3xl">
-              🤰
-            </div>
-            <div className="flex-1">
-              <h3 className="font-bold text-foreground">{partnerWomanData.name}</h3>
-              <p className="text-sm text-muted-foreground">
-                {partnerWomanData.lifeStage === 'bump' ? tr("partnerprofilescreen_hamilelik_dovru_57af7a", "Hamil\u0259lik d\xF6vr\xFC") :
-              partnerWomanData.lifeStage === 'mommy' ? tr("partnerprofilescreen_analiq_dovru_b1c7dd", "Anal\u0131q d\xF6vr\xFC") : tr("partnerprofilescreen_menstruasiya_dovru_a5852d", "Menstruasiya d\xF6vr\xFC")}
-              </p>
-            </div>
-            <Gift className="w-6 h-6 text-pink-500" />
-          </div>
-        </motion.div>
-      }
-
-      {/* Menu Items */}
-      <motion.div
-        className="bg-card rounded-3xl overflow-hidden shadow-card border border-border/50"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible">
-        
-        {menuItems.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <motion.button
-              key={item.id}
-              variants={itemVariants}
-              onClick={() => onNavigate?.(item.id)}
-              className={`w-full flex items-center gap-4 p-4 hover:bg-muted/50 transition-colors ${
-              index !== menuItems.length - 1 ? 'border-b border-border/50' : ''}`
-              }>
-              
-              <div className="w-11 h-11 rounded-xl bg-muted flex items-center justify-center">
-                <Icon className="w-5 h-5 text-muted-foreground" />
-              </div>
-              <span className="flex-1 text-start font-medium text-foreground">{item.label}</span>
-              <ChevronRight className="rtl:rotate-180 w-5 h-5 text-muted-foreground" />
-            </motion.button>);
-
-        })}
-      </motion.div>
-
-      {/* Logout */}
-      <motion.button
-        onClick={async () => { await signOut(); logout(); }}
-        className="w-full mt-6 p-4 rounded-2xl bg-destructive/10 text-destructive font-bold flex items-center justify-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}>
-        
-        <LogOut className="w-5 h-5" />
-        {tr("partnerprofilescreen_cixis_c2de5c", "\xC7\u0131x\u0131\u015F")}
-      </motion.button>
-
+      </div>
     </div>);
 
 };

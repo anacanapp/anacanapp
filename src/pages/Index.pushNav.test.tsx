@@ -69,9 +69,6 @@ vi.mock('@/components/BillingScreen', () => ({ default: ({ onBack }: any) =>
 vi.mock('@/components/MessagesScreen', () => ({ default: ({ partnerProfileId, onBack }: any) =>
   <div data-testid="messages" data-partner-profile={partnerProfileId}><button onClick={onBack}>Chat back</button></div>,
 }));
-vi.mock('@/components/partner/PartnerChatScreen', () => ({ default: ({ onBack }: any) =>
-  <div data-testid="partner-chat"><button onClick={onBack}>Chat back</button></div>,
-}));
 vi.mock('@/components/community/CommunityScreen', () => ({ default: ({ deepLinkTarget, onDeepLinkConsumed }: any) =>
   <div data-testid="community" data-target={JSON.stringify(deepLinkTarget)}>
     <button onClick={onDeepLinkConsumed}>Consume community link</button>

@@ -10,6 +10,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { usePregnancyContentByDay } from '@/hooks/usePregnancyContent';
 import { useFruitImages, getDynamicFruitData } from '@/hooks/useFruitData';
 import { useAIChatHistory } from '@/hooks/useAIChatHistory';
+import { feature37Text } from '@/lib/feature37-i18n';
 import { useAuth } from '@/hooks/useAuth';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics, trackEvent } from '@/hooks/useScreenAnalytics';
@@ -148,7 +149,25 @@ const ChatMessageRow = memo(({ message, copied, onCopy }: {
 ));
 ChatMessageRow.displayName = 'ChatMessageRow';
 
-const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
+/** Woman's context for the partner persona (Ata AI): stage and shared profile fields. */
+export interface AIChatPartnerContext {
+  lifeStage: 'flow' | 'bump' | 'mommy';
+  pregnancyWeek?: number;
+  womanName?: string | null;
+  dueDate?: string | null;
+  babyName?: string | null;
+  babyBirthDate?: string | null;
+  lastPeriodDate?: string | null;
+  cycleLength?: number | null;
+}
+
+const PARTNER_QUESTIONS = {
+  flow: ['ai_pq_flow_1', 'ai_pq_flow_2', 'ai_pq_support'],
+  bump: ['ai_pq_support', 'ai_pq_birth', 'ai_pq_bag'],
+  mommy: ['ai_pq_crying', 'ai_pq_night', 'ai_pq_postpartum'],
+} as const;
+
+const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext }>(({ partner }, ref) => {
   useScrollToTop();
   useScreenAnalytics('AIChat', 'Chat');
 
@@ -236,7 +255,7 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
   // Kopyalama feedback-i
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const { lifeStage, getPregnancyData, name, dueDate, babyName, babyBirthDate, lastPeriodDate, cycleLength, periodLength, language } = useUserStore(
+  const { lifeStage: storeLifeStage, getPregnancyData, name, dueDate, babyName, babyBirthDate, lastPeriodDate: storeLastPeriodDate, cycleLength: storeCycleLength, periodLength, language } = useUserStore(
     useShallow((s) => ({
       lifeStage: s.lifeStage,
       getPregnancyData: s.getPregnancyData,
@@ -250,10 +269,14 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
       language: s.language,
     }))
   );
+  // Ata AI talks about the woman's stage; the partner's own store stage is 'partner'.
+  const lifeStage = partner ? partner.lifeStage : storeLifeStage;
+  const lastPeriodDate = partner ? partner.lastPeriodDate ?? null : storeLastPeriodDate;
+  const cycleLength = partner ? partner.cycleLength ?? 28 : storeCycleLength;
   const { user, profile } = useAuth();
   // Əkiz/üçüz və s. — qarşılama mesajı və AI-a göndərilən kontekst buna görə uyğunlaşır
   const isMultiplePregnancy = !!(profile as any)?.multiples_type && (profile as any).multiples_type !== 'single';
-  const { messages: savedMessages, addMessage, clearHistory, loading: historyLoading } = useAIChatHistory('woman');
+  const { messages: savedMessages, addMessage, clearHistory, loading: historyLoading } = useAIChatHistory(partner ? 'partner' : 'woman');
   const { toast } = useToast();
 
   const copyMessage = useCallback(async (id: string, content: string) => {
@@ -339,6 +362,7 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
 
   const getWelcomeMessage = () => {
     const userName = name ? `, ${name}` : '';
+    if (partner) return feature37Text('ai_partner_welcome').replace('{name}', userName);
     const dynamicFruit = getDynamicFruitName();
     const lang = useUserStore.getState().language || 'az';
 
@@ -496,8 +520,8 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
         body: JSON.stringify({
           messages: conversationHistory,
           lifeStage: lifeStage || 'bump',
-          pregnancyWeek: pregnancyData?.currentWeek,
-          isPartner: false,
+          pregnancyWeek: partner ? partner.pregnancyWeek : pregnancyData?.currentWeek,
+          isPartner: !!partner,
           stream: true,
           language: useUserStore.getState().language || 'az',
           // Gemini vision: son user mesajına şəkil qoşulur (bax dr-anacan-chat)
@@ -508,7 +532,15 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
               return { cyclePhase: info.phase, cycleDay: info.dayInCycle };
             } catch {return {};}
           })() : {}),
-          userProfile: {
+          userProfile: partner ? {
+            name: name || undefined,
+            partnerName: partner.womanName || undefined,
+            dueDate: partner.dueDate || undefined,
+            babyName: partner.babyName || undefined,
+            babyBirthDate: partner.babyBirthDate || undefined,
+            lastPeriodDate: partner.lastPeriodDate || undefined,
+            cycleLength: partner.cycleLength || undefined
+          } : {
             name: userProfile.name,
             dueDate: userProfile.due_date,
             babyName: userProfile.baby_name,
@@ -698,10 +730,12 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
   };
 
   // Fetch dynamic suggested questions
-  const { data: dynamicQuestions = [] } = useAISuggestedQuestions(lifeStage || 'bump', 'mother');
+  const { data: dynamicQuestions = [] } = useAISuggestedQuestions(lifeStage || 'bump', partner ? 'partner' : 'mother');
 
   const suggestedQuestions = dynamicQuestions.length > 0 ?
   dynamicQuestions.map((q) => q.question) :
+  partner ?
+  PARTNER_QUESTIONS[partner.lifeStage].map((key) => feature37Text(key)) :
   lifeStage === 'bump' ?
   [tr("aichatscreen_bu_hefte_korpem_nece_inkisaf_e_7ffbca", "Bu h\u0259ft\u0259 k\xF6rp\u0259m nec\u0259 inki\u015Faf edir?"), tr("aichatscreen_hamilelikde_hansi_qidalar_fayd_cfee1a", "Hamil\u0259likd\u0259 hans\u0131 qidalar faydal\u0131d\u0131r?"), tr("aichatscreen_urek_bulanmasina_qarsi_ne_ede__39caf3", "\xDCr\u0259k bulanmas\u0131na qar\u015F\u0131 n\u0259 ed\u0259 bil\u0259r\u0259m?")] :
 
@@ -729,7 +763,7 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
             <Sparkles size={19} strokeWidth={2} />
           </span>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <h1 className="a-chat-header-name a-heading">{tr("bottomnav_anacan_ai", 'Anacan.AI')}</h1>
+            <h1 className="a-chat-header-name a-heading">{partner ? feature37Text('pm_ata_ai') : tr("bottomnav_anacan_ai", 'Anacan.AI')}</h1>
             <div className="a-chat-header-status">
               <span className="a-chat-status-dot" />
               {tr("untranslated_onlayn_xfaffi", "Onlayn")} · {tr("aichatscreen_hekim_mesleheti_evezi_deyil_a1808c", "⚕️ Həkim məsləhəti əvəzi deyil").replace('⚕️ ', '')}
