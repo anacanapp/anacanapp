@@ -65,7 +65,8 @@
 .ap-field textarea { min-height: 72px; resize: vertical; }
 .ap-field input:focus, .ap-field textarea:focus { box-shadow: 0 0 0 2px var(--a-coral-strong); }
 .ap-field input[aria-invalid="true"] { box-shadow: 0 0 0 2px var(--a-bad); }
-.ap-offer { display: flex; flex-direction: column; gap: 10px; padding: 14px 14px 4px; border-radius: 22px; background: var(--a-surface); box-shadow: var(--a-card-shadow), inset 0 0 0 1px var(--a-green-2); }
+/* A real border (not an inset shadow): the full-width product rail painted over the inset frame. */
+.ap-offer { display: flex; flex-direction: column; gap: 10px; padding: 14px 14px 4px; border-radius: 22px; background: var(--a-surface); border: 1px solid var(--a-green-2); box-shadow: var(--a-card-shadow); overflow: hidden; }
 .ap-offer .a3-eyebrow { color: var(--a-green-ink); }
 .ap-offer .a3-rail { margin-inline: -14px; padding-inline: 14px; scroll-padding-inline: 14px; }
 /* Two whole cards per view on the home offer card (fixed 136px left a cut third card). */

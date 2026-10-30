@@ -1,5 +1,7 @@
 /* Əlavə Qida Bələdçisi — loaded with the tool chunk only. */
 .sfg-tabs { margin-bottom: 4px; }
+/* Chip rows start on the same edge as the cards below (the page gutter is not --a-gutter). */
+.sfg-chips { margin-inline: 0; padding-inline: 0; scroll-padding-inline: 0; }
 .sfg-small { height: 32px; padding: 0 13px; font-size: 13px; }
 .sfg-stack { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
 .sfg-h { margin: 0 0 10px; font-size: 15px; font-weight: 700; color: var(--a-ink); }

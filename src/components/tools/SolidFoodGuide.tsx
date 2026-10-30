@@ -82,14 +82,14 @@ export default function SolidFoodGuide({ onBack }: { onBack: () => void }) {
     <ToolPage>
       <ToolHeader title={u.title} eyebrow={ageText} onBack={onBack} />
 
-      <div className="a3-chips hide-scrollbar sfg-tabs" role="tablist">
+      <div className="a3-chips hide-scrollbar sfg-chips sfg-tabs" role="tablist">
         {TABS.map((id) => (
           <button key={id} type="button" role="tab" aria-selected={tab === id} className={`a3-chip-btn${tab === id ? ' on' : ''}`} onClick={() => setTab(id)}>{u[`tab_${id}`]}</button>
         ))}
       </div>
 
       {tab === 'stage' && <div className="sfg-stack">
-        <div className="a3-chips hide-scrollbar" role="radiogroup" aria-label={u.age_aria}>
+        <div className="a3-chips hide-scrollbar sfg-chips" role="radiogroup" aria-label={u.age_aria}>
           {t.stages.map((s) => (
             <button key={s.id} type="button" role="radio" aria-checked={s.id === stageId} className={`a3-chip-btn sfg-small${s.id === stageId ? ' on' : ''}`} onClick={() => setStageId(s.id)}>{s.label}</button>
           ))}
@@ -179,7 +179,7 @@ export default function SolidFoodGuide({ onBack }: { onBack: () => void }) {
       </div>}
 
       {tab === 'foods' && <div className="sfg-stack">
-        <div className="a3-chips hide-scrollbar">
+        <div className="a3-chips hide-scrollbar sfg-chips">
           {(['all', ...FOOD_GROUPS] as const).map((g) => (
             <button key={g} type="button" className={`a3-chip-btn sfg-small${group === g ? ' on' : ''}`} onClick={() => setGroup(g)}>{g === 'all' ? u.all : t.foodGroups[g]}</button>
           ))}
