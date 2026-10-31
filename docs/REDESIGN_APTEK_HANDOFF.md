@@ -651,3 +651,23 @@ was done.
 - **Image:** `gateway@sha256:0f1bdb8e9181ae2d5708f573bc58c5b97b36187088cba5421aa64cb6d83ccaf3` from `c1ffe62e…`; isolated test matched.
 - **Deploy:** `baby-chat2-web-plan.json` passed; index `0e5f4a4d…`; no console errors.
 - **Rollback:** `rollback-baby-chat2-web-plan.json` (→ `c1ffe62e…`).
+
+## Körpəmdən mesajlar AI replies (off by default) — 2026-10-31
+- **SQL:** `supabase/duzelis/Duzelis71.sql` (rolled-back dry run, then applied): `usage_tracking` allows feature
+  `baby_chat_ai`; `app_settings.baby_chat_ai = {"enabled": false, "daily_limit": 20}` is the kill switch (Admin →
+  Premium → limits → "Körpəmdən mesajlar — AI cavablar"). Off = curated replies only.
+- **Function:** `supabase/functions/baby-chat-reply/index.ts`, route `baby-chat-reply` (user auth, provider google) added to
+  the image's `main/catalog.mjs` and to `ENABLED_FUNCTIONS`. Layers: kill switch + daily limit → per-language care
+  pre-filter (also in the app, `src/lib/baby-chat-safety.ts`; a test keeps the lists equal) → narrow JSON prompt with a
+  topic label (health/worry/what is safe → care card) → output filter (length, links, numbers, scary words, script) →
+  independent model check. Any failure returns `reply: null` and the app shows a curated line; logs hold outcomes only.
+  A throwaway-container harness ran 18 samples in 8 languages: playful replies, prompt injections deflected, health,
+  sadness, movement, medicine and food-safety questions routed to the care card.
+- **Functions image:** `functions@sha256:bc46f07f9be8ce2bc168cf83e2cfc5aa09dd32dada6b3ace1cd2ec6cc15efb01` (FROM `0a6bd203…`,
+  adds the route and file only). `/home/anacan-runner/functions-baby-chat-recreate.py` (based on the admin-premium
+  recreate) passed preflight and `verified`; previous container `anacan-functions-before-baby-chat-1793436663`, env backup
+  `runtime/secrets/functions.env.before-baby-chat`. Public `POST /functions/v1/baby-chat-reply` without auth → 401.
+- **Web:** commit `88f224b`; `gateway@sha256:4e4f84517e55e290fefed519f9ab45a6a01d15e4b974fe9a6db86575cc46d795` from `0f1bdb8e…`;
+  `baby-ai-web-plan.json` passed; index `b2dfa396…`; no console errors. Rollback `rollback-baby-ai-web-plan.json`.
+- **Functions rollback:** stop/remove `anacan-functions`, rename the previous container back, restore the env backup,
+  start it and reload the gateway (the recreate script's own rollback path does exactly this).
