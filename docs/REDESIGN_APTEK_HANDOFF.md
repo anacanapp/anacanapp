@@ -695,3 +695,30 @@ was done.
 - **Web:** `gateway@sha256:92f4e1831b0d50b4571791c24f61a26ec4f7341d96b458e7d0099d48c226ae57` from `4e4f8451…`;
   isolated test matched; `pregnancy-loss-web-plan.json` passed; index `30235881…`; no console errors.
   Rollback `rollback-pregnancy-loss-web-plan.json`.
+
+## Dodo Payments web Premium (test mode) — 2026-10-31
+- **Purpose:** web funnels on `anacan.az` (not `app.anacan.az`) sell Premium through Dodo Payments (Merchant of
+  Record). Test mode only. Products (test): monthly `pdt_0NqwRg55cchf4cITkePee` $2.22, yearly
+  `pdt_0NqwRgF56gFbhesTuTjgh` $15.55 (recurring, 20-year term = renews until cancelled). Webhook endpoint
+  `ep_3LSyu2004YAuGgveLx9X7Ov3ptv` → `https://api.anacan.az/functions/v1/dodo-webhook`.
+- **SQL:** `supabase/duzelis/Duzelis73.sql` (rolled-back dry run, then applied): `web_checkouts`, `web_subscriptions`,
+  `web_payment_webhooks` (RLS, owner pgadmin, CDC/writer guarded); `web_subscription_link_user_v1`,
+  `web_subscription_link_email_v1`, `web_entitlement_v1` (service_role only). Linking uses only emails verified by
+  Google/Apple identities, because email sign-up is auto-confirmed (`mailer_autoconfirm: true`).
+- **Functions:** `dodo-checkout` (auth `public`, 30/min, anacan.az origins only, other origins 403) and `dodo-webhook`
+  (auth `signed-webhook`; Standard Webhooks signature in the function). Gate `ENABLE_WEB_PAYMENTS`. The image's
+  `catalog.mjs` gains both routes, the gate and `_shared/dodo.ts`. `_shared/revenuecat-sync.ts` in the repo is now the
+  live file (it had diverged) plus the web merge: the later-ending of store and web entitlement is written through
+  `azure_apply_revenuecat_states`, and an active web entitlement is written even when RevenueCat is unreachable.
+- **Image:** `functions@sha256:ed99f0832c7a1e7035089b12a197c55a06868885a9383186d2ea7fe40a740246` (FROM `bc46f07f…`).
+  `/home/anacan-runner/functions-dodo-recreate.py` passed check-only and `verified`; previous container
+  `anacan-functions-before-dodo-1793465499`, env backup `runtime/secrets/functions.env.before-dodo`. The env gained
+  exactly `DODO_PAYMENTS_API_KEY` (test key), `DODO_PAYMENTS_ENVIRONMENT=test_mode`, `DODO_PRODUCTS_JSON`,
+  `DODO_PAYMENTS_WEBHOOK_KEY`, `ENABLE_WEB_PAYMENTS=true` and the two routes in `ENABLED_FUNCTIONS`.
+- **End-to-end test:** public checkout → hosted Dodo checkout (test card) → return to `https://anacan.az/az/?premium=thanks`;
+  four signed webhooks stored once each; `web_subscriptions` row `active` until 2026-11-30, unlinked (the test email has
+  no account). Unsigned webhook → 401.
+- **Rollback:** set `ENABLE_WEB_PAYMENTS` off, or restore the env backup and the previous container (the recreate
+  script's rollback path). Going live needs a live key, live products/webhook and `DODO_PAYMENTS_ENVIRONMENT=live_mode`
+  (the key prefix must match the environment or the functions refuse to run).
+- **Not yet built:** the funnel pages on anacan.az and an in-app claim for email/password accounts.
