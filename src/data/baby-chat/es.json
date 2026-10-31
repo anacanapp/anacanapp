@@ -24,7 +24,9 @@
     "share_ready_video": "Tu vídeo está listo 🎉",
     "share_ready_photo": "Tu foto está lista 🎉",
     "share_now": "Compartir",
-    "save": "Guardar"
+    "save": "Guardar",
+    "care_text": "Coméntaselo también a tu médico, mamá. Cada pregunta importa 💛",
+    "care_cta": "Preguntar a Anacan.AI"
   },
   "openers": [
     "¡Mamá! Adivina qué 🖐",
@@ -115,6 +117,10 @@
       "Mmm… eso lo preguntaré cuando sea más mayor 😄",
       "Todavía soy pequeñito, pero me ha encantado 😄",
       "¡Escríbeme más, mamá! 🥰"
+    ],
+    "care": [
+      "Te quiero muchísimo, mamá 💛",
+      "Siempre estoy contigo 🤗"
     ]
   },
   "keywords": {

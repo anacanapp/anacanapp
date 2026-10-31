@@ -24,7 +24,9 @@
     "share_ready_video": "Video của mẹ đã sẵn sàng 🎉",
     "share_ready_photo": "Ảnh của mẹ đã sẵn sàng 🎉",
     "share_now": "Chia sẻ",
-    "save": "Lưu"
+    "save": "Lưu",
+    "care_text": "Mẹ hãy chia sẻ điều này với bác sĩ nữa nhé. Câu hỏi nào của mẹ cũng quan trọng 💛",
+    "care_cta": "Hỏi Anacan.AI"
   },
   "openers": [
     "Mẹ ơi! Đoán xem 🖐",
@@ -115,6 +117,10 @@
       "Hmm… chuyện đó để con lớn hơn rồi hỏi nha 😄",
       "Con còn bé, nhưng con thích điều đó lắm 😄",
       "Mẹ nhắn cho con nữa đi! 🥰"
+    ],
+    "care": [
+      "Con yêu mẹ nhiều lắm 💛",
+      "Con luôn ở bên mẹ 🤗"
     ]
   },
   "keywords": {

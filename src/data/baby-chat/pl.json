@@ -24,7 +24,9 @@
     "share_ready_video": "Twój film jest gotowy 🎉",
     "share_ready_photo": "Twoje zdjęcie jest gotowe 🎉",
     "share_now": "Udostępnij",
-    "save": "Zapisz"
+    "save": "Zapisz",
+    "care_text": "Porozmawiaj o tym też ze swoim lekarzem, mamo. Każde Twoje pytanie jest ważne 💛",
+    "care_cta": "Zapytaj Anacan.AI"
   },
   "openers": [
     "Mamo! Wiesz co? 🖐",
@@ -115,6 +117,10 @@
       "Hmm… o to zapytam, jak będę większy 😄",
       "Jestem jeszcze mały, ale bardzo mi się to podobało 😄",
       "Pisz do mnie jeszcze, mamo! 🥰"
+    ],
+    "care": [
+      "Bardzo Cię kocham, mamo 💛",
+      "Zawsze jestem z Tobą 🤗"
     ]
   },
   "keywords": {

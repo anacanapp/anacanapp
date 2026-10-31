@@ -24,7 +24,9 @@
     "share_ready_video": "Videongiz tayyor 🎉",
     "share_ready_photo": "Rasmingiz tayyor 🎉",
     "share_now": "Ulashish",
-    "save": "Saqlash"
+    "save": "Saqlash",
+    "care_text": "Buni shifokoringiz bilan ham boʻlishing, oyijon. Har bir savolingiz muhim 💛",
+    "care_cta": "Anacan.AI’dan soʻrash"
   },
   "openers": [
     "Oyijon! Bilasizmi nima? 🖐",
@@ -115,6 +117,10 @@
       "Hmm… buni kattaroq boʻlganimda soʻrayman 😄",
       "Hali kichkinaman, lekin bu menga juda yoqdi 😄",
       "Menga yana yozing, oyijon! 🥰"
+    ],
+    "care": [
+      "Sizni juda yaxshi koʻraman, oyijon 💛",
+      "Men doim siz bilanman 🤗"
     ]
   },
   "keywords": {

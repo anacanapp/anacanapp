@@ -24,7 +24,9 @@
     "share_ready_video": "Videon hazır 🎉",
     "share_ready_photo": "Fotoğrafın hazır 🎉",
     "share_now": "Paylaş",
-    "save": "Kaydet"
+    "save": "Kaydet",
+    "care_text": "Bunu doktorunla da paylaş anne. Her sorun önemli 💛",
+    "care_cta": "Anacan.AI'a sor"
   },
   "openers": [
     "Anne! Bil bakalım ne oldu 🖐",
@@ -115,6 +117,10 @@
       "Hmm… onu büyüyünce sorarım 😄",
       "Daha küçüğüm ama buna bayıldım 😄",
       "Bana daha çok yaz anne! 🥰"
+    ],
+    "care": [
+      "Seni çok seviyorum anne 💛",
+      "Hep yanındayım 🤗"
     ]
   },
   "keywords": {

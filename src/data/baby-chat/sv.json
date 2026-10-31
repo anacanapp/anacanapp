@@ -24,7 +24,9 @@
     "share_ready_video": "Din video är klar 🎉",
     "share_ready_photo": "Din bild är klar 🎉",
     "share_now": "Dela",
-    "save": "Spara"
+    "save": "Spara",
+    "care_text": "Prata med din läkare om det här också, mamma. Varje fråga är viktig 💛",
+    "care_cta": "Fråga Anacan.AI"
   },
   "openers": [
     "Mamma! Gissa vad 🖐",
@@ -115,6 +117,10 @@
       "Hmm… det frågar jag om när jag är större 😄",
       "Jag är fortfarande liten, men det där älskade jag 😄",
       "Skriv mer till mig, mamma! 🥰"
+    ],
+    "care": [
+      "Jag älskar dig så mycket, mamma 💛",
+      "Jag är alltid med dig 🤗"
     ]
   },
   "keywords": {

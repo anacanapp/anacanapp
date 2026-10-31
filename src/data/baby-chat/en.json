@@ -24,7 +24,9 @@
     "share_ready_video": "Your video is ready 🎉",
     "share_ready_photo": "Your photo is ready 🎉",
     "share_now": "Share",
-    "save": "Save"
+    "save": "Save",
+    "care_text": "Share this with your doctor too, mum. Every question matters 💛",
+    "care_cta": "Ask Anacan.AI"
   },
   "openers": [
     "Mum! Guess what 🖐",
@@ -115,6 +117,10 @@
       "Hmm… I'll ask about that when I'm bigger 😄",
       "I'm still little, but I loved that 😄",
       "Write me more, mum! 🥰"
+    ],
+    "care": [
+      "I love you so much, mum 💛",
+      "I'm always with you 🤗"
     ]
   },
   "keywords": {

@@ -24,7 +24,9 @@
     "share_ready_video": "Je video is klaar 🎉",
     "share_ready_photo": "Je foto is klaar 🎉",
     "share_now": "Delen",
-    "save": "Opslaan"
+    "save": "Opslaan",
+    "care_text": "Bespreek dit ook met je arts, mama. Elke vraag is belangrijk 💛",
+    "care_cta": "Vraag het Anacan.AI"
   },
   "openers": [
     "Mama! Raad eens 🖐",
@@ -115,6 +117,10 @@
       "Hmm… dat vraag ik als ik groter ben 😄",
       "Ik ben nog klein, maar dit vond ik heerlijk 😄",
       "Schrijf me nog meer, mama! 🥰"
+    ],
+    "care": [
+      "Ik hou zoveel van je, mama 💛",
+      "Ik ben altijd bij je 🤗"
     ]
   },
   "keywords": {

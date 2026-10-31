@@ -8,16 +8,19 @@ import { hapticFeedback } from '@/lib/native';
 import { tr } from '@/lib/tr';
 import { babyReply, type BabyChatMessage } from '@/lib/baby-chat';
 import { scheduleBabyChatNotifications } from '@/lib/baby-chat-notifications';
+import { askBabyAi } from '@/lib/baby-chat-ai';
+import { hasCareTopic } from '@/lib/baby-chat-safety';
 import { downloadMedia, isNativeShare, renderChatPhoto, renderChatVideo, shareMedia, ShareError, videoRecordingSupported, type ShareChatInput } from '@/lib/baby-chat-share';
 import './baby-chat.css';
 
 /** "Körpəmdən mesajlar": the unborn baby's daily message and its replies, shareable as photo or video. */
-const BabyChatScreen = ({ onBack }: { onBack: () => void }) => {
+const BabyChatScreen = ({ onBack, onOpenAssistant }: { onBack: () => void; onOpenAssistant?: () => void }) => {
   const chat = useBabyChat();
   const { text, facts, thread, pendingDaily, setThread, arrived, userId, today, language } = chat;
   const rtl = useIsRtl();
   const { toast } = useToast();
   const [typing, setTyping] = useState(false);
+  const [care, setCare] = useState(false);
   const [draft, setDraft] = useState('');
   const [busy, setBusy] = useState<'photo' | 'video' | null>(null);
   const [progress, setProgress] = useState(0);
@@ -72,10 +75,18 @@ const BabyChatScreen = ({ onBack }: { onBack: () => void }) => {
     setDraft('');
     void hapticFeedback.light();
     setTyping(true);
-    await new Promise((r) => setTimeout(r, 1100 + Math.random() * 900));
+    const seed = `${userId}:${today}:${next.length}`;
+    // Health or worry: a loving curated line plus the "talk to your doctor" card, never AI.
+    const careLocal = hasCareTopic(value, language);
+    const [ai] = await Promise.all([
+      careLocal ? Promise.resolve({ reply: null, care: true }) : askBabyAi(value, facts, language),
+      new Promise((r) => setTimeout(r, 1100 + Math.random() * 700)),
+    ]);
     setTyping(false);
-    const reply = babyReply(value, text, facts, language, `${userId}:${today}:${next.length}`);
+    const reply = ai.care ? text.replies.care[next.length % text.replies.care.length]
+      : ai.reply ?? babyReply(value, text, facts, language, seed);
     setThread([...threadRef.current, { id: `${today}-b${Date.now()}`, from: 'baby', text: reply, at: Date.now() }]);
+    if (ai.care) setCare(true);
     void hapticFeedback.light();
   };
 
@@ -136,6 +147,13 @@ const BabyChatScreen = ({ onBack }: { onBack: () => void }) => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {care && !typing && (
+          <motion.section className="bc-care" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} role="note">
+            <p>{u.care_text}</p>
+            {onOpenAssistant && <button type="button" onClick={onOpenAssistant}>{u.care_cta}</button>}
+          </motion.section>
+        )}
 
         {canShare && !typing && (
           <motion.section className="bc-share" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>

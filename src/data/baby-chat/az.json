@@ -24,7 +24,9 @@
     "share_ready_video": "Video hazırdır 🎉",
     "share_ready_photo": "Şəkil hazırdır 🎉",
     "share_now": "Paylaş",
-    "save": "Yadda saxla"
+    "save": "Yadda saxla",
+    "care_text": "Bunu həkiminlə də bölüş, ana. Hər sualın vacibdir 💛",
+    "care_cta": "Anacan.AI-dan soruş"
   },
   "openers": [
     "Ana! Xəbərim var 🖐",
@@ -115,6 +117,10 @@
       "Hmm… bunu böyüyəndə soruşaram 😄",
       "Mən hələ balacayam, amma bunu sevdim 😄",
       "Daha çox yaz, ana! 🥰"
+    ],
+    "care": [
+      "Səni çox sevirəm, ana 💛",
+      "Mən həmişə səninləyəm 🤗"
     ]
   },
   "keywords": {

@@ -104,3 +104,24 @@ describe('daily baby lines', () => {
     }
   });
 });
+
+describe('baby chat safety', () => {
+  it('uses the same care lists as the server function', async () => {
+    const { CARE_STEMS } = await import('./baby-chat-safety');
+    const server = readFileSync(join(__dirname, '../../supabase/functions/baby-chat-reply/index.ts'), 'utf8');
+    const block = server.slice(server.indexOf('export const CARE_STEMS'), server.indexOf('};', server.indexOf('export const CARE_STEMS')));
+    const serverStems = [...block.matchAll(/'([^']+)'/g)].map((m) => m[1]);
+    expect(serverStems.sort()).toEqual(Object.values(CARE_STEMS).flat().sort());
+  });
+
+  it('spots health and worry topics without false alarms', async () => {
+    const { hasCareTopic } = await import('./baby-chat-safety');
+    expect(hasCareTopic('Bu gün qarnımda ağrı var', 'az')).toBe(true);
+    expect(hasCareTopic('Körpə bu gün tərpənmir', 'az')).toBe(true);
+    expect(hasCareTopic('I am so worried about you', 'en')).toBe(true);
+    expect(hasCareTopic('У меня кровь', 'ru')).toBe(true);
+    expect(hasCareTopic('Səni çox sevirəm 💛', 'az')).toBe(false);
+    expect(hasCareTopic('I love the paint colour', 'en')).toBe(false);
+    expect(hasCareTopic('Die Sonne scheint', 'de')).toBe(false);
+  });
+});

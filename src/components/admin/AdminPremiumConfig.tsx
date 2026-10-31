@@ -17,6 +17,7 @@ import { useAppSettings, useUpdateAppSetting } from '@/hooks/useAppSettings';
 import { supabase } from '@/integrations/supabase/client';
 import UnsavedChangesDialog from './UnsavedChangesDialog';
 import PaywallDesignerTab from './PaywallDesignerTab';
+import BabyChatAiSetting from './BabyChatAiSetting';
 import BillingDesignerTab from './BillingDesignerTab';
 import { LocalizedInput } from "./ui/LocalizedInput";
 import { LocalizedTextarea } from "./ui/LocalizedTextarea";
@@ -66,6 +67,7 @@ const FreeLimitsTab = () => {
 
   return (
     <div className="space-y-4">
+      <BabyChatAiSetting />
       <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
         <p className="text-sm text-muted-foreground">
           <Settings2 className="w-4 h-4 inline me-1" />

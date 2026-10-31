@@ -24,7 +24,9 @@
     "share_ready_video": "Videomu sudah siap 🎉",
     "share_ready_photo": "Fotomu sudah siap 🎉",
     "share_now": "Bagikan",
-    "save": "Simpan"
+    "save": "Simpan",
+    "care_text": "Ceritakan ini juga ke doktermu ya, Mama. Setiap pertanyaanmu penting 💛",
+    "care_cta": "Tanya Anacan.AI"
   },
   "openers": [
     "Mama! Coba tebak 🖐",
@@ -115,6 +117,10 @@
       "Hmm… nanti aku tanya soal itu kalau sudah besar 😄",
       "Aku masih kecil, tapi aku suka banget 😄",
       "Tulis lagi buat aku, Mama! 🥰"
+    ],
+    "care": [
+      "Aku sayang banget sama Mama 💛",
+      "Aku selalu bersama Mama 🤗"
     ]
   },
   "keywords": {
