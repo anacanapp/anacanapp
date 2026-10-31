@@ -671,3 +671,27 @@ was done.
   `baby-ai-web-plan.json` passed; index `b2dfa396…`; no console errors. Rollback `rollback-baby-ai-web-plan.json`.
 - **Functions rollback:** stop/remove `anacan-functions`, rename the previous container back, restore the env backup,
   start it and reload the gateway (the recreate script's own rollback path does exactly this).
+
+## Pregnancy loss support — 2026-10-31
+- **Contents:** commit `2281ddc`. Profile → Hamiləliyim (bump) has dates, "Körpəm doğuldu" and a calm
+  "Hamiləliyim davam etmir" entry: one sheet, no reason asked, date + optional partner message. The 8-week
+  recovery mode (lavender `loss-scope`) replaces the home: week card, mood check-in (daily log), warning
+  signs, body check, Anacan.AI, EPDS, diary, memories (album, baby chat read/delete, private letter on the
+  device) and "Hazır olanda" (track cycle from the loss date / new pregnancy / stay). Partner: support card
+  and guide (4 phases, say/avoid, one-tap messages, tasks, his grief, warning signs); missions, tips, cycle
+  stats hidden. Baby chat local notifications are cancelled whenever the stage is not bump. 21 languages
+  (`src/data/pregnancy-loss/`, test checks shape, placeholders and emergency numbers).
+- **SQL:** `supabase/duzelis/Duzelis72.sql` (rolled-back dry run, then applied): `profiles.pregnancy_loss_date`,
+  `loss_recovery_active`, `loss_share_partner`; `pregnancy_loss_begin_v1(date, boolean)` (own bump profile →
+  flow, no cycle dates) and `pregnancy_loss_end_v1(boolean)`; definer, owner pgadmin, authenticated only.
+  `profiles` was already CDC/writer guarded. No new relation, cron or timer.
+- **Daily notifications:** the live job runs `notification-jobs` (`send-daily-notifications.mjs`), not the
+  Supabase function. `merge-pending/2026-10-31-pregnancy-loss/`: the profile query skips users in recovery and
+  their linked partners (the image build runs the job tests and requires `# fail 0`; one new test covers the query). Image
+  `notification-jobs@sha256:496787ef665c5ee6f395783c59faf2b062eaac9d4ed8f5f020501a85eb89c8eb` (FROM `133332019c…`,
+  only `send-daily-notifications.mjs` differs). Both `anacan-job-daily-notif-slots` and `-halfhour` switched;
+  backups `*.json.before-pregnancy-loss-20261031` (rollback: copy them back). The new query returned all
+  15307 profiles (nobody in recovery yet). Timers unchanged. The repo's Supabase function got the same filter.
+- **Web:** `gateway@sha256:92f4e1831b0d50b4571791c24f61a26ec4f7341d96b458e7d0099d48c226ae57` from `4e4f8451…`;
+  isolated test matched; `pregnancy-loss-web-plan.json` passed; index `30235881…`; no console errors.
+  Rollback `rollback-pregnancy-loss-web-plan.json`.
