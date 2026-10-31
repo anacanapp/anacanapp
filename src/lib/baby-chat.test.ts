@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { babyReply, dailyArrival, dailyBabyMessages, detectIntent, type BabyChatText } from './baby-chat';
+import { babyDailyLine, babyReply, dailyArrival, dailyBabyMessages, detectIntent, type BabyChatText } from './baby-chat';
 
 const dir = join(__dirname, '../data/baby-chat');
 const languages = readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => f.replace('.json', ''));
@@ -81,5 +81,26 @@ describe('daily arrival', () => {
     expect(msgs.map((m) => m.from)).toEqual(['baby', 'baby']);
     expect(az.openers).toContain(msgs[0].text);
     expect(msgs[1].text).toBe('Bu gün barmaqlarım çıxdı 🖐');
+  });
+});
+
+describe('daily baby lines', () => {
+  it('are short, complete and in every language', () => {
+    for (const lang of languages) {
+      const t = read(lang);
+      expect(Object.keys(t.weekly).map(Number).sort((a, b) => a - b), lang).toEqual(Array.from({ length: 38 }, (_, i) => i + 4));
+      expect(t.daily, lang).toHaveLength(az.daily.length);
+      for (const line of [...Object.values(t.weekly), ...t.daily]) expect(line.length, `${lang}: ${line}`).toBeLessThanOrEqual(110);
+    }
+  });
+
+  it('uses the week line twice a week and the daily pool otherwise, without placeholders', () => {
+    expect(babyDailyLine(az, { week: 8, fruit: 'Noxud' }, 56, 'u')).toBe(az.weekly['8']);
+    expect(babyDailyLine(az, { week: 8, fruit: 'Noxud' }, 59, 'u')).toBe(az.weekly['8']);
+    for (let day = 1; day < 290; day++) {
+      const line = babyDailyLine(az, { week: Math.floor(day / 7), fruit: day % 2 ? 'Noxud' : null }, day, 'u');
+      expect(line).not.toMatch(/\{\w+\}/);
+      expect(line.length).toBeGreaterThan(0);
+    }
   });
 });

@@ -20,40 +20,261 @@
     "end_line1": "Je baby stuurt je",
     "end_line2": "elke dag een berichtje.",
     "notif_title": "Mijn baby 💛",
-    "about": "Gewoon voor de lol: Anacan schrijft de berichtjes passend bij de week van je baby."
+    "about": "Gewoon voor de lol: Anacan schrijft de berichtjes passend bij de week van je baby.",
+    "share_ready_video": "Je video is klaar 🎉",
+    "share_ready_photo": "Je foto is klaar 🎉",
+    "share_now": "Delen",
+    "save": "Opslaan"
   },
-  "openers": ["Mama! Raad eens 🖐", "Mama, ben je wakker? 👀", "Psst… mama! 🤫", "Mama, mag ik je iets vertellen? 💛", "Hoi mama! 👋"],
-  "notifications": ["Mama! Raad eens 🖐", "Ik heb je iets geschreven 💬", "Psst… mama, kijk! 👀", "Je raadt nooit wat ik je vandaag wil vertellen! 💛"],
+  "openers": [
+    "Mama! Raad eens 🖐",
+    "Mama, ben je wakker? 👀",
+    "Psst… mama! 🤫",
+    "Mama, mag ik je iets vertellen? 💛",
+    "Hoi mama! 👋"
+  ],
+  "notifications": [
+    "Mama! Raad eens 🖐",
+    "Ik heb je iets geschreven 💬",
+    "Psst… mama, kijk! 👀",
+    "Je raadt nooit wat ik je vandaag wil vertellen! 💛"
+  ],
   "replies": {
-    "love": ["Ik hou ook van jou, mama 💛", "Ik heb je nog nooit gezien, maar ik hou nu al zoveel van je 🥰", "Ik ben misschien zo groot als een {fruit}, maar mijn hartje zit vol met jou 💛"],
-    "how": ["Super! Het is hier warm en knus 😌", "Goed hoor, mama. Ik ben vandaag weer een beetje gegroeid 🌱", "Heel goed! Ik luister naar je hartslag 💓"],
-    "size": ["Op dit moment ben ik ongeveer zo groot als een {fruit} 😄", "Ik ben al {cm} cm! Ik groei 📏", "Ik zit in week {week} en groei elke dag een beetje 🌱"],
-    "kick_early": ["Ik wiebel al, maar ik ben nog zo klein dat je het niet voelt 🤭", "Ik maak hier kleine koprolletjes 🤸 Binnenkort voel je ze!"],
-    "kick": ["Voelde je dat? Dat was ik 🦶", "Ik heb vandaag gedanst, voelde je het? 💃", "Die schop was mijn manier om hallo te zeggen 👋🦶"],
-    "hear_early": ["Mijn oortjes zijn nog in de maak, maar binnenkort hoor ik je 👂", "Laat me nog een beetje groeien, dan hoor ik je stem 🥰"],
-    "hear": ["Ik hoor je, mama! Praat nog eens met me 🥰", "Jouw stem is mijn lievelingsmuziek 🎶", "Zing een liedje voor me, ik luister 🎵"],
-    "food": ["Wat jij eet, proef ik ook een beetje 😋", "Zullen we vandaag wat fruit eten? 🍎", "Mmm, dat was lekker! Nog een beetje? 😄"],
-    "sleep": ["Ik wil ook slapen 😴 Laten we samen rusten", "Als jij gaat liggen, ontspan ik ook 😌", "Sorry als ik 's nachts dans 🙈"],
-    "dad": ["Doe papa de groeten van mij! 👋", "Ik ken papa's stem ook 😊", "Ik vind het zo fijn als papa tegen je buik praat 🥰"],
-    "meet": ["Nog {weeks_left} weken en dan zien we elkaar! 🤗", "Ik wil jou ook zien! Laat me nog een beetje groeien 🌱", "Het duurt niet lang meer tot we elkaar ontmoeten 💛"],
-    "meet_soon": ["Nog even, mama! Ik maak me ook klaar 🤗", "Straks lig ik in je armen 💛"],
-    "name": ["Hoe ga je me noemen? 😊 Kies een mooie naam!", "Elke naam klinkt prachtig met jouw stem 💛"],
-    "hello": ["Hoi mama! 👋", "Hoiii! Ik zat op je te wachten 💛"],
-    "thanks": ["Graag gedaan, mama! 😊", "Dankjewel dat je me overal mee naartoe draagt 💛"],
-    "generic": ["Mama, jij bent de liefste 💛", "Ik luister 👂😊", "Hmm… dat vraag ik als ik groter ben 😄", "Ik ben nog klein, maar dit vond ik heerlijk 😄", "Schrijf me nog meer, mama! 🥰"]
+    "love": [
+      "Ik hou ook van jou, mama 💛",
+      "Ik heb je nog nooit gezien, maar ik hou nu al zoveel van je 🥰",
+      "Ik ben misschien zo groot als een {fruit}, maar mijn hartje zit vol met jou 💛"
+    ],
+    "how": [
+      "Super! Het is hier warm en knus 😌",
+      "Goed hoor, mama. Ik ben vandaag weer een beetje gegroeid 🌱",
+      "Heel goed! Ik luister naar je hartslag 💓"
+    ],
+    "size": [
+      "Op dit moment ben ik ongeveer zo groot als een {fruit} 😄",
+      "Ik ben al {cm} cm! Ik groei 📏",
+      "Ik zit in week {week} en groei elke dag een beetje 🌱"
+    ],
+    "kick_early": [
+      "Ik wiebel al, maar ik ben nog zo klein dat je het niet voelt 🤭",
+      "Ik maak hier kleine koprolletjes 🤸 Binnenkort voel je ze!"
+    ],
+    "kick": [
+      "Voelde je dat? Dat was ik 🦶",
+      "Ik heb vandaag gedanst, voelde je het? 💃",
+      "Die schop was mijn manier om hallo te zeggen 👋🦶"
+    ],
+    "hear_early": [
+      "Mijn oortjes zijn nog in de maak, maar binnenkort hoor ik je 👂",
+      "Laat me nog een beetje groeien, dan hoor ik je stem 🥰"
+    ],
+    "hear": [
+      "Ik hoor je, mama! Praat nog eens met me 🥰",
+      "Jouw stem is mijn lievelingsmuziek 🎶",
+      "Zing een liedje voor me, ik luister 🎵"
+    ],
+    "food": [
+      "Wat jij eet, proef ik ook een beetje 😋",
+      "Zullen we vandaag wat fruit eten? 🍎",
+      "Mmm, dat was lekker! Nog een beetje? 😄"
+    ],
+    "sleep": [
+      "Ik wil ook slapen 😴 Laten we samen rusten",
+      "Als jij gaat liggen, ontspan ik ook 😌",
+      "Sorry als ik 's nachts dans 🙈"
+    ],
+    "dad": [
+      "Doe papa de groeten van mij! 👋",
+      "Ik ken papa's stem ook 😊",
+      "Ik vind het zo fijn als papa tegen je buik praat 🥰"
+    ],
+    "meet": [
+      "Nog {weeks_left} weken en dan zien we elkaar! 🤗",
+      "Ik wil jou ook zien! Laat me nog een beetje groeien 🌱",
+      "Het duurt niet lang meer tot we elkaar ontmoeten 💛"
+    ],
+    "meet_soon": [
+      "Nog even, mama! Ik maak me ook klaar 🤗",
+      "Straks lig ik in je armen 💛"
+    ],
+    "name": [
+      "Hoe ga je me noemen? 😊 Kies een mooie naam!",
+      "Elke naam klinkt prachtig met jouw stem 💛"
+    ],
+    "hello": [
+      "Hoi mama! 👋",
+      "Hoiii! Ik zat op je te wachten 💛"
+    ],
+    "thanks": [
+      "Graag gedaan, mama! 😊",
+      "Dankjewel dat je me overal mee naartoe draagt 💛"
+    ],
+    "generic": [
+      "Mama, jij bent de liefste 💛",
+      "Ik luister 👂😊",
+      "Hmm… dat vraag ik als ik groter ben 😄",
+      "Ik ben nog klein, maar dit vond ik heerlijk 😄",
+      "Schrijf me nog meer, mama! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["dank", "bedankt", "thanks", "merci"],
-    "love": ["hou van", "houd van", "liefde", "lieverd", "schat", "lief", "dikke kus", "❤", "💛", "😘", "🥰"],
-    "name": ["naam", "noemen", "heten", "heet"],
-    "dad": ["papa", "pappa", "vader", "paps", "papa's"],
-    "kick": ["schop", "trap", "beweg", "dans", "wiebel", "koprol", "voel"],
-    "hear": ["hoor", "horen", "stem", "muziek", "liedje", "zing", "praat"],
-    "size": ["groot", "grootte", "klein", "groei", "cm", "weeg", "gewicht", "framboos", "erwt"],
-    "food": ["eet", "eten", "honger", "proef", "fruit", "chocola", "melk", "trek"],
-    "sleep": ["slaap", "slapen", "dutje", "nacht", "moe", "bed"],
-    "meet": ["ontmoet", "zien we", "wanneer", "wacht", "geboren", "komt eruit", "kom je"],
-    "how": ["hoe gaat", "hoe is", "wat doe je", "gaat het", "alles goed"],
-    "hello": ["hoi", "hallo", "hey", "goedemorgen", "hai"]
-  }
+    "thanks": [
+      "dank",
+      "bedankt",
+      "thanks",
+      "merci"
+    ],
+    "love": [
+      "hou van",
+      "houd van",
+      "liefde",
+      "lieverd",
+      "schat",
+      "lief",
+      "dikke kus",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "naam",
+      "noemen",
+      "heten",
+      "heet"
+    ],
+    "dad": [
+      "papa",
+      "pappa",
+      "vader",
+      "paps",
+      "papa's"
+    ],
+    "kick": [
+      "schop",
+      "trap",
+      "beweg",
+      "dans",
+      "wiebel",
+      "koprol",
+      "voel"
+    ],
+    "hear": [
+      "hoor",
+      "horen",
+      "stem",
+      "muziek",
+      "liedje",
+      "zing",
+      "praat"
+    ],
+    "size": [
+      "groot",
+      "grootte",
+      "klein",
+      "groei",
+      "cm",
+      "weeg",
+      "gewicht",
+      "framboos",
+      "erwt"
+    ],
+    "food": [
+      "eet",
+      "eten",
+      "honger",
+      "proef",
+      "fruit",
+      "chocola",
+      "melk",
+      "trek"
+    ],
+    "sleep": [
+      "slaap",
+      "slapen",
+      "dutje",
+      "nacht",
+      "moe",
+      "bed"
+    ],
+    "meet": [
+      "ontmoet",
+      "zien we",
+      "wanneer",
+      "wacht",
+      "geboren",
+      "komt eruit",
+      "kom je"
+    ],
+    "how": [
+      "hoe gaat",
+      "hoe is",
+      "wat doe je",
+      "gaat het",
+      "alles goed"
+    ],
+    "hello": [
+      "hoi",
+      "hallo",
+      "hey",
+      "goedemorgen",
+      "hai"
+    ]
+  },
+  "weekly": {
+    "4": "Mama, ik ben nog maar zo groot als een maanzaadje, maar ik heb grote plannen 🌱",
+    "5": "Mijn hartje is gaan kloppen! Boem-boem… hoor je het? 💓",
+    "6": "Deze week krijg ik een neusje 👃 Ik weet zeker dat ik jouw geur heerlijk ga vinden!",
+    "7": "Mijn handjes lijken op kleine peddeltjes 🤲 Klappen lukt nog niet",
+    "8": "Mijn vingertjes komen eraan 🖐 Ik ben gaan tellen: 1, 2, 3… zal ik nog een keer tellen?",
+    "9": "Ik heb nu kleine spiertjes 💪 Ik train stiekem",
+    "10": "Mijn nageltjes beginnen te groeien 💅 Over manicure praten we later",
+    "11": "Ik heb leren hikken! Hik! 😅",
+    "12": "Vandaag stopte ik mijn duim in mijn mond 👍 Lekker!",
+    "13": "Ik heb nu vingerafdrukken ☝️ Ik ben uniek!",
+    "14": "Ik oefen gezichtjes: fronsen, lachen… 😄",
+    "15": "Ik kan licht voelen ☀️ Ik ga dol zijn op zonnige dagen!",
+    "16": "Mijn oogjes bewegen langzaam 👀 Nog dicht, maar wel spannend",
+    "17": "Ik spaar wat vet voor mijn wangetjes 😊 Voor kusjes!",
+    "18": "Mijn oortjes zijn klaar 👂 Ik maak me klaar om je stem te horen",
+    "19": "Ik leer koprollen 🤸 Voelde je dat?",
+    "20": "We zijn halverwege! 🎉 Ik heb vandaag voor mezelf geklapt",
+    "21": "Mijn schopjes worden sterker 🦶 Dat betekent “hoi”!",
+    "22": "Mijn wenkbrauwen zijn er 🤨 Nu kijk ik veel expressiever",
+    "23": "Ik luister naar muziek 🎶 Jouw liedje vond ik prachtig",
+    "24": "Ik oefen met ademen 🌬 Nog onder water, maar ik ben een pro!",
+    "25": "Mijn haartjes groeien 💇 De kleur blijft een verrassing!",
+    "26": "Ik kan mijn ogen opendoen! 👀 Alles is hier roze",
+    "27": "Ik droom 💭 Vast over jou",
+    "28": "Ik kan knipperen 😉 Dat ben ik die naar je knipoogt",
+    "29": "Het wordt krap, maar ik dans nog steeds 💃",
+    "30": "Ik word elke dag slimmer 🧠 Net als jij!",
+    "31": "Ik kan mijn hoofdje draaien ↔️ Ik kijk naar je stem",
+    "32": "Mijn nageltjes komen tot mijn vingertopjes 💅 Ik maak me klaar!",
+    "33": "Ik word elke dag sterker 💪 Klaar voor knuffels",
+    "34": "Mijn wangetjes worden bol 😊 Klaar voor kusjes",
+    "35": "Het is hier zo knus 🙈 Ik zoek nog een plekje voor mijn voetjes",
+    "36": "Ik ben bijna klaar! Alleen nog de laatste puntjes op de i ✨",
+    "37": "Mijn ogen, mijn oren, mijn hart: ze wachten allemaal op jou 💛",
+    "38": "Ik droom van jouw armen 🤗 Nog even",
+    "39": "Heb je je tas al ingepakt? 😄 Ik ben er klaar voor",
+    "40": "Misschien vandaag, misschien morgen 😄 Ik verras je!",
+    "41": "Het is hier zo lekker, mag ik nog heel even blijven? 🙈💛"
+  },
+  "daily": [
+    "Vandaag ben ik zo groot als een {fruit}! Ik groei 🌱",
+    "Jouw hartslag is mijn slaapliedje 💓",
+    "Het is hier warm en knus, maak je geen zorgen 😌",
+    "Rust vandaag even uit, dan rust ik ook 😴",
+    "Vergeet niet water te drinken, dat vind ik ook fijn 💧",
+    "Wat eten we vandaag? 😋",
+    "Lach eens, mama! Als jij lacht, word ik ook rustig 😊",
+    "Zeg je papa gedag van mij? 👋",
+    "Ik ben nog klein, maar ik hou zoveel van je 💛",
+    "Ik ben vandaag een beetje gegroeid, voelde je het? 📏",
+    "Ik hou elke dag een beetje meer van je 🥰",
+    "Vertel je me een verhaaltje? 📖",
+    "Je ziet er vandaag prachtig uit, mama! ✨",
+    "Ik wacht op jou, en jij wacht op mij 🤗"
+  ]
 }

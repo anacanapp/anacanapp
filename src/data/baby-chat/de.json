@@ -20,40 +20,267 @@
     "end_line1": "Dein Baby schreibt dir",
     "end_line2": "jeden Tag.",
     "notif_title": "Mein Baby 💛",
-    "about": "Nur zum Spaß: Anacan schreibt die Nachrichten passend zur Woche deines Babys."
+    "about": "Nur zum Spaß: Anacan schreibt die Nachrichten passend zur Woche deines Babys.",
+    "share_ready_video": "Dein Video ist fertig 🎉",
+    "share_ready_photo": "Dein Foto ist fertig 🎉",
+    "share_now": "Teilen",
+    "save": "Speichern"
   },
-  "openers": ["Mama! Rate mal 🖐", "Mama, bist du wach? 👀", "Psst… Mama! 🤫", "Mama, darf ich dir was erzählen? 💛", "Hallo Mama! 👋"],
-  "notifications": ["Mama! Rate mal 🖐", "Ich hab dir was geschrieben 💬", "Psst… Mama, schau mal! 👀", "Du glaubst nicht, was ich dir heute erzählen will! 💛"],
+  "openers": [
+    "Mama! Rate mal 🖐",
+    "Mama, bist du wach? 👀",
+    "Psst… Mama! 🤫",
+    "Mama, darf ich dir was erzählen? 💛",
+    "Hallo Mama! 👋"
+  ],
+  "notifications": [
+    "Mama! Rate mal 🖐",
+    "Ich hab dir was geschrieben 💬",
+    "Psst… Mama, schau mal! 👀",
+    "Du glaubst nicht, was ich dir heute erzählen will! 💛"
+  ],
   "replies": {
-    "love": ["Ich hab dich auch lieb, Mama 💛", "Ich hab dich noch nie gesehen, aber ich liebe dich schon so sehr 🥰", "Meine Größe: gerade mal {fruit}, aber mein Herz ist voll von dir 💛"],
-    "how": ["Super! Hier drin ist es warm und kuschelig 😌", "Mir geht's gut, Mama. Heute bin ich wieder ein bisschen gewachsen 🌱", "Total gut! Ich lausche deinem Herzschlag 💓"],
-    "size": ["Meine Größe gerade: ungefähr {fruit} 😄", "Ich bin schon {cm} cm groß! Ich wachse 📏", "Ich bin in Woche {week} und wachse jeden Tag ein bisschen 🌱"],
-    "kick_early": ["Ich zappel schon, aber ich bin noch so winzig, dass du es nicht spürst 🤭", "Ich schlage hier kleine Purzelbäume 🤸 Bald spürst du sie!"],
-    "kick": ["Hast du das gespürt? Das war ich 🦶", "Ich hab heute getanzt, hast du's gemerkt? 💃", "Der Tritt war mein Hallo an dich 👋🦶"],
-    "hear_early": ["Meine Ohren machen sich noch bereit, aber bald höre ich dich 👂", "Lass mich noch ein bisschen wachsen, dann höre ich deine Stimme 🥰"],
-    "hear": ["Ich höre dich, Mama! Sprich noch mal mit mir 🥰", "Deine Stimme ist meine Lieblingsmusik 🎶", "Sing mir ein Lied, ich hör zu 🎵"],
-    "food": ["Was du isst, probiere ich auch ein bisschen 😋", "Wollen wir heute etwas Obst essen? 🍎", "Mmm, das war lecker! Noch ein bisschen? 😄"],
-    "sleep": ["Ich will auch schlafen 😴 Lass uns zusammen ausruhen", "Wenn du dich hinlegst, entspanne ich mich auch 😌", "Sorry, wenn ich nachts tanze 🙈"],
-    "dad": ["Sag Papa Hallo von mir! 👋", "Papas Stimme kenne ich auch 😊", "Ich mag es so, wenn Papa mit deinem Bauch redet 🥰"],
-    "meet": ["Noch {weeks_left} Wochen, dann sehen wir uns! 🤗", "Ich will dich auch sehen! Lass mich noch ein bisschen wachsen 🌱", "Es dauert nicht mehr lange, bis wir uns sehen 💛"],
-    "meet_soon": ["Nicht mehr lange, Mama! Ich mach mich auch schon bereit 🤗", "Bald liege ich in deinen Armen 💛"],
-    "name": ["Wie wirst du mich nennen? 😊 Such einen schönen Namen aus!", "Jeder Name klingt wunderschön mit deiner Stimme 💛"],
-    "hello": ["Hallo Mama! 👋", "Haaallo! Ich hab auf dich gewartet 💛"],
-    "thanks": ["Gern geschehen, Mama! 😊", "Danke, dass du mich überallhin trägst 💛"],
-    "generic": ["Mama, du bist die Beste 💛", "Ich hör zu 👂😊", "Hmm… das frag ich, wenn ich größer bin 😄", "Ich bin noch klein, aber das fand ich toll 😄", "Schreib mir mehr, Mama! 🥰"]
+    "love": [
+      "Ich hab dich auch lieb, Mama 💛",
+      "Ich hab dich noch nie gesehen, aber ich liebe dich schon so sehr 🥰",
+      "Meine Größe: gerade mal {fruit}, aber mein Herz ist voll von dir 💛"
+    ],
+    "how": [
+      "Super! Hier drin ist es warm und kuschelig 😌",
+      "Mir geht's gut, Mama. Heute bin ich wieder ein bisschen gewachsen 🌱",
+      "Total gut! Ich lausche deinem Herzschlag 💓"
+    ],
+    "size": [
+      "Meine Größe gerade: ungefähr {fruit} 😄",
+      "Ich bin schon {cm} cm groß! Ich wachse 📏",
+      "Ich bin in Woche {week} und wachse jeden Tag ein bisschen 🌱"
+    ],
+    "kick_early": [
+      "Ich zappel schon, aber ich bin noch so winzig, dass du es nicht spürst 🤭",
+      "Ich schlage hier kleine Purzelbäume 🤸 Bald spürst du sie!"
+    ],
+    "kick": [
+      "Hast du das gespürt? Das war ich 🦶",
+      "Ich hab heute getanzt, hast du's gemerkt? 💃",
+      "Der Tritt war mein Hallo an dich 👋🦶"
+    ],
+    "hear_early": [
+      "Meine Ohren machen sich noch bereit, aber bald höre ich dich 👂",
+      "Lass mich noch ein bisschen wachsen, dann höre ich deine Stimme 🥰"
+    ],
+    "hear": [
+      "Ich höre dich, Mama! Sprich noch mal mit mir 🥰",
+      "Deine Stimme ist meine Lieblingsmusik 🎶",
+      "Sing mir ein Lied, ich hör zu 🎵"
+    ],
+    "food": [
+      "Was du isst, probiere ich auch ein bisschen 😋",
+      "Wollen wir heute etwas Obst essen? 🍎",
+      "Mmm, das war lecker! Noch ein bisschen? 😄"
+    ],
+    "sleep": [
+      "Ich will auch schlafen 😴 Lass uns zusammen ausruhen",
+      "Wenn du dich hinlegst, entspanne ich mich auch 😌",
+      "Sorry, wenn ich nachts tanze 🙈"
+    ],
+    "dad": [
+      "Sag Papa Hallo von mir! 👋",
+      "Papas Stimme kenne ich auch 😊",
+      "Ich mag es so, wenn Papa mit deinem Bauch redet 🥰"
+    ],
+    "meet": [
+      "Noch {weeks_left} Wochen, dann sehen wir uns! 🤗",
+      "Ich will dich auch sehen! Lass mich noch ein bisschen wachsen 🌱",
+      "Es dauert nicht mehr lange, bis wir uns sehen 💛"
+    ],
+    "meet_soon": [
+      "Nicht mehr lange, Mama! Ich mach mich auch schon bereit 🤗",
+      "Bald liege ich in deinen Armen 💛"
+    ],
+    "name": [
+      "Wie wirst du mich nennen? 😊 Such einen schönen Namen aus!",
+      "Jeder Name klingt wunderschön mit deiner Stimme 💛"
+    ],
+    "hello": [
+      "Hallo Mama! 👋",
+      "Haaallo! Ich hab auf dich gewartet 💛"
+    ],
+    "thanks": [
+      "Gern geschehen, Mama! 😊",
+      "Danke, dass du mich überallhin trägst 💛"
+    ],
+    "generic": [
+      "Mama, du bist die Beste 💛",
+      "Ich hör zu 👂😊",
+      "Hmm… das frag ich, wenn ich größer bin 😄",
+      "Ich bin noch klein, aber das fand ich toll 😄",
+      "Schreib mir mehr, Mama! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["danke", "dank", "merci", "thx"],
-    "love": ["lieb", "hab dich", "schatz", "süße", "süßer", "suess", "herz", "❤", "💛", "😘", "🥰"],
-    "name": ["name", "nennen", "heißen", "heissen", "heißt", "heisst"],
-    "dad": ["papa", "papi", "vater", "mann"],
-    "kick": ["tritt", "tret", "beweg", "zappel", "tanz", "strampel", "purzel"],
-    "hear": ["hör", "hoer", "stimme", "musik", "lied", "sing", "sprech", "red"],
-    "size": ["groß", "gross", "klein", "winzig", "wachs", "cm", "wieg", "gewicht", "himbeere", "erbse"],
-    "food": ["ess", "iss", "hunger", "hungrig", "lecker", "obst", "frucht", "schoko", "milch"],
-    "sleep": ["schlaf", "nacht", "müde", "muede", "bett", "nicker"],
-    "meet": ["treffen", "sehen", "wann", "warte", "geburt", "geboren", "kommst"],
-    "how": ["wie geht", "wie gehts", "wie geht's", "was machst", "alles gut", "alles ok"],
-    "hello": ["hallo", "hi", "hey", "guten morgen", "moin", "servus"]
-  }
+    "thanks": [
+      "danke",
+      "dank",
+      "merci",
+      "thx"
+    ],
+    "love": [
+      "lieb",
+      "hab dich",
+      "schatz",
+      "süße",
+      "süßer",
+      "suess",
+      "herz",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "name",
+      "nennen",
+      "heißen",
+      "heissen",
+      "heißt",
+      "heisst"
+    ],
+    "dad": [
+      "papa",
+      "papi",
+      "vater",
+      "mann"
+    ],
+    "kick": [
+      "tritt",
+      "tret",
+      "beweg",
+      "zappel",
+      "tanz",
+      "strampel",
+      "purzel"
+    ],
+    "hear": [
+      "hör",
+      "hoer",
+      "stimme",
+      "musik",
+      "lied",
+      "sing",
+      "sprech",
+      "red"
+    ],
+    "size": [
+      "groß",
+      "gross",
+      "klein",
+      "winzig",
+      "wachs",
+      "cm",
+      "wieg",
+      "gewicht",
+      "himbeere",
+      "erbse"
+    ],
+    "food": [
+      "ess",
+      "iss",
+      "hunger",
+      "hungrig",
+      "lecker",
+      "obst",
+      "frucht",
+      "schoko",
+      "milch"
+    ],
+    "sleep": [
+      "schlaf",
+      "nacht",
+      "müde",
+      "muede",
+      "bett",
+      "nicker"
+    ],
+    "meet": [
+      "treffen",
+      "sehen",
+      "wann",
+      "warte",
+      "geburt",
+      "geboren",
+      "kommst"
+    ],
+    "how": [
+      "wie geht",
+      "wie gehts",
+      "wie geht's",
+      "was machst",
+      "alles gut",
+      "alles ok"
+    ],
+    "hello": [
+      "hallo",
+      "hi",
+      "hey",
+      "guten morgen",
+      "moin",
+      "servus"
+    ]
+  },
+  "weekly": {
+    "4": "Mama, ich bin erst so groß wie ein Mohnsamen, aber ich hab große Pläne 🌱",
+    "5": "Mein Herz schlägt! Bumm-bumm… hörst du es? 💓",
+    "6": "Diese Woche bekomme ich ein Näschen 👃 Bestimmt mag ich, wie du riechst!",
+    "7": "Meine Händchen sehen aus wie kleine Paddel 🤲 Klatschen kann ich noch nicht",
+    "8": "Meine Finger kommen 🖐 Ich zähle schon: 1, 2, 3… nochmal zählen?",
+    "9": "Ich hab jetzt winzige Muskeln 💪 Ich trainiere heimlich",
+    "10": "Meine Nägel fangen an zu wachsen 💅 Über Maniküre reden wir später",
+    "11": "Ich kann Schluckauf! Hicks! 😅",
+    "12": "Heute hatte ich meinen Daumen im Mund 👍 Lecker!",
+    "13": "Ich hab jetzt Fingerabdrücke ☝️ Mich gibt's nur einmal!",
+    "14": "Ich übe Grimassen: Stirnrunzeln, Lächeln… 😄",
+    "15": "Ich spüre Licht ☀️ Sonnige Tage werde ich lieben!",
+    "16": "Meine Augen bewegen sich langsam 👀 Noch zu, aber so spannend",
+    "17": "Ich sammle ein bisschen Speck für meine Bäckchen 😊 Für Küsschen!",
+    "18": "Meine Ohren sind bereit 👂 Ich freu mich auf deine Stimme",
+    "19": "Ich lerne Purzelbäume 🤸 Hast du's gespürt?",
+    "20": "Halbzeit! 🎉 Heute hab ich mir selbst applaudiert",
+    "21": "Meine Tritte werden stärker 🦶 Das heißt „Hallo“!",
+    "22": "Ich hab Augenbrauen bekommen 🤨 Jetzt kann ich mehr ausdrücken",
+    "23": "Ich höre Musik 🎶 Dein Lied fand ich toll",
+    "24": "Ich übe Atmen 🌬 Noch unter Wasser, aber ich bin schon Profi!",
+    "25": "Meine Haare wachsen 💇 Die Farbe bleibt eine Überraschung!",
+    "26": "Ich kann die Augen öffnen! 👀 Hier drin ist alles rosa",
+    "27": "Ich träume 💭 Bestimmt von dir",
+    "28": "Ich kann blinzeln 😉 Das bin ich, wie ich dir zuzwinkere",
+    "29": "Es wird eng, aber ich tanze trotzdem 💃",
+    "30": "Ich werde jeden Tag schlauer 🧠 Genau wie du!",
+    "31": "Ich kann den Kopf drehen ↔️ Ich drehe mich zu deiner Stimme",
+    "32": "Meine Nägel reichen bis zu den Fingerspitzen 💅 Ich mach mich bereit!",
+    "33": "Ich werde jeden Tag stärker 💪 Bereit fürs Kuscheln",
+    "34": "Meine Bäckchen werden pausbäckig 😊 Bereit für Küsschen",
+    "35": "Hier ist es so kuschelig 🙈 Nur wohin mit meinen Füßen?",
+    "36": "Ich bin fast fertig! Nur noch der letzte Schliff ✨",
+    "37": "Meine Augen, meine Ohren, mein Herz: alle warten auf dich 💛",
+    "38": "Ich träume von deinen Armen 🤗 Nicht mehr lange",
+    "39": "Hast du deine Kliniktasche gepackt? 😄 Ich bin bereit",
+    "40": "Vielleicht heute, vielleicht morgen 😄 Ich überrasche dich!",
+    "41": "Hier ist es so gemütlich, darf ich noch ein bisschen bleiben? 🙈💛"
+  },
+  "daily": [
+    "Heute ist meine Größe: {fruit}! Ich wachse 🌱",
+    "Dein Herzschlag ist mein Schlaflied 💓",
+    "Hier drin ist es warm und kuschelig, keine Sorge 😌",
+    "Ruh dich heute ein bisschen aus, ich ruhe mich auch aus 😴",
+    "Vergiss nicht, Wasser zu trinken, ich mag das auch 💧",
+    "Was essen wir heute? 😋",
+    "Lächle, Mama! Wenn du lächelst, entspanne ich mich auch 😊",
+    "Grüß Papa von mir! 👋",
+    "Ich bin klein, aber ich hab dich sooo lieb 💛",
+    "Heute bin ich ein bisschen gewachsen, hast du's gemerkt? 📏",
+    "Ich hab dich jeden Tag ein bisschen lieber 🥰",
+    "Erzählst du mir eine Geschichte? 📖",
+    "Du siehst heute wunderschön aus, Mama! ✨",
+    "Ich warte auf dich, und du wartest auf mich 🤗"
+  ]
 }

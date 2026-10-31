@@ -77,6 +77,19 @@ export function babyReply(message: string, text: BabyChatText, facts: BabyWeekFa
   return fill(pick(options.length ? options : usable(r.generic, facts), `${seed}:${message}`), facts);
 }
 
+/**
+ * The day's short message: the week's line on two days of each pregnancy week (so it is
+ * seen even if one day is missed), a sweet line from the daily pool on the others.
+ */
+export function babyDailyLine(text: BabyChatText, facts: BabyWeekFacts, pregnancyDay: number, userId: string): string {
+  const weekly = text.weekly as Record<string, string>;
+  const week = Math.min(41, Math.max(4, facts.week));
+  const dayInWeek = ((pregnancyDay % 7) + 7) % 7;
+  if ((dayInWeek === 0 || dayInWeek === 3) && weekly[String(week)]) return weekly[String(week)];
+  const pool = usable(text.daily, facts);
+  return fill(pick(pool.length ? pool : text.daily.filter((t) => !t.includes('{')), `${userId}:${pregnancyDay}:daily`), facts);
+}
+
 /** The day's thread from the baby: an opener and the day's content message. */
 export function dailyBabyMessages(text: BabyChatText, dailyMessage: string, date: Date, userId: string): BabyChatMessage[] {
   const at = dailyArrival(date, userId).getTime();

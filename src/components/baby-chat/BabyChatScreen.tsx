@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Send, Share2, Image as ImageIcon, Clapperboard, Loader2 } from 'lucide-react';
+import { ArrowLeft, Send, Share2, Image as ImageIcon, Clapperboard, Loader2, Download, X } from 'lucide-react';
 import { useBabyChat } from '@/hooks/useBabyChat';
 import { useToast } from '@/hooks/use-toast';
 import { useIsRtl } from '@/lib/rtl';
@@ -8,7 +8,7 @@ import { hapticFeedback } from '@/lib/native';
 import { tr } from '@/lib/tr';
 import { babyReply, type BabyChatMessage } from '@/lib/baby-chat';
 import { scheduleBabyChatNotifications } from '@/lib/baby-chat-notifications';
-import { renderChatPhoto, renderChatVideo, shareMedia, videoRecordingSupported, type ShareChatInput } from '@/lib/baby-chat-share';
+import { downloadMedia, isNativeShare, renderChatPhoto, renderChatVideo, shareMedia, ShareError, videoRecordingSupported, type ShareChatInput } from '@/lib/baby-chat-share';
 import './baby-chat.css';
 
 /** "Körpəmdən mesajlar": the unborn baby's daily message and its replies, shareable as photo or video. */
@@ -21,6 +21,8 @@ const BabyChatScreen = ({ onBack }: { onBack: () => void }) => {
   const [draft, setDraft] = useState('');
   const [busy, setBusy] = useState<'photo' | 'video' | null>(null);
   const [progress, setProgress] = useState(0);
+  const [ready, setReady] = useState<{ blob: Blob; kind: 'photo' | 'video'; url: string } | null>(null);
+  useEffect(() => () => { if (ready) URL.revokeObjectURL(ready.url); }, [ready]);
   const listRef = useRef<HTMLDivElement>(null);
   const threadRef = useRef(thread);
   threadRef.current = thread;
@@ -77,19 +79,31 @@ const BabyChatScreen = ({ onBack }: { onBack: () => void }) => {
     void hapticFeedback.light();
   };
 
-  const share = async (kind: 'photo' | 'video') => {
+  const fail = (error: unknown) => {
+    console.error('Baby chat share failed', error);
+    const code = error instanceof ShareError ? error.code : (error as { name?: string })?.name || 'UNKNOWN';
+    toast({ title: u.share_error, description: code, variant: 'destructive' });
+  };
+
+  // Step 1: render. Step 2 (a fresh tap in the preview) shares or saves — a long render
+  // would otherwise outlive the browser's permission to open the share sheet.
+  const render = async (kind: 'photo' | 'video') => {
     const input: ShareChatInput = { messages: thread, text, subtitle, chip, dayLabel, rtl };
     setBusy(kind);
     setProgress(0);
     try {
       const blob = kind === 'photo' ? await renderChatPhoto(input) : await renderChatVideo(input, setProgress);
-      await shareMedia(blob, `anacan-korpem-${today}`, u.share_text);
+      setReady({ blob, kind, url: URL.createObjectURL(blob) });
     } catch (error) {
-      console.error('Baby chat share failed', error);
-      toast({ title: u.share_error, variant: 'destructive' });
+      fail(error);
     } finally {
       setBusy(null);
     }
+  };
+  const fileBase = `anacan-korpem-${today}`;
+  const shareReady = async () => {
+    if (!ready) return;
+    try { await shareMedia(ready.blob, fileBase, u.share_text); } catch (error) { fail(error); }
   };
 
   return (
@@ -128,11 +142,11 @@ const BabyChatScreen = ({ onBack }: { onBack: () => void }) => {
             <p className="bc-share-title"><Share2 size={15} /> {u.share_title}</p>
             <p className="bc-share-sub">{u.share_sub}</p>
             <div className="bc-share-row">
-              <button type="button" onClick={() => share('photo')} disabled={!!busy}>
+              <button type="button" onClick={() => render('photo')} disabled={!!busy}>
                 {busy === 'photo' ? <Loader2 size={16} className="animate-spin" /> : <ImageIcon size={16} />}{u.share_photo}
               </button>
               {videoRecordingSupported() && (
-                <button type="button" className="primary" onClick={() => share('video')} disabled={!!busy}>
+                <button type="button" className="primary" onClick={() => render('video')} disabled={!!busy}>
                   {busy === 'video' ? <Loader2 size={16} className="animate-spin" /> : <Clapperboard size={16} />}
                   {busy === 'video' ? `${u.share_making} ${Math.round(progress * 100)}%` : u.share_video}
                 </button>
@@ -142,6 +156,29 @@ const BabyChatScreen = ({ onBack }: { onBack: () => void }) => {
         )}
         <p className="bc-about">{u.about}</p>
       </div>
+
+      <AnimatePresence>
+        {ready && (
+          <motion.div className="bc-sheet-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setReady(null)}>
+            <motion.div className="bc-sheet safe-area-bottom" initial={{ y: 40 }} animate={{ y: 0 }} exit={{ y: 40 }} onClick={(e) => e.stopPropagation()}
+              role="dialog" aria-label={ready.kind === 'video' ? u.share_ready_video : u.share_ready_photo}>
+              <div className="bc-sheet-head">
+                <p>{ready.kind === 'video' ? u.share_ready_video : u.share_ready_photo}</p>
+                <button type="button" onClick={() => setReady(null)} aria-label={tr('common_bagla', 'Bağla')}><X size={18} /></button>
+              </div>
+              {ready.kind === 'video' ?
+                <video className="bc-preview" src={ready.url} controls playsInline autoPlay muted loop /> :
+                <img className="bc-preview" src={ready.url} alt="" />}
+              <div className="bc-share-row">
+                {!isNativeShare() && (
+                  <button type="button" onClick={() => downloadMedia(ready.blob, fileBase)}><Download size={16} />{u.save}</button>
+                )}
+                <button type="button" className="primary" onClick={shareReady}><Share2 size={16} />{isNativeShare() ? `${u.share_now} · ${u.save}` : u.share_now}</button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <form className="bc-input safe-area-bottom" onSubmit={(e) => { e.preventDefault(); void send(); }}>
         <input value={draft} onChange={(e) => setDraft(e.target.value)} placeholder={u.placeholder} maxLength={300} aria-label={u.placeholder} />

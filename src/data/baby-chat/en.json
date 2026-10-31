@@ -20,40 +20,245 @@
     "end_line1": "Your baby texts you",
     "end_line2": "every day.",
     "notif_title": "My baby 💛",
-    "about": "Just for fun: Anacan writes the messages to match your baby's week."
+    "about": "Just for fun: Anacan writes the messages to match your baby's week.",
+    "share_ready_video": "Your video is ready 🎉",
+    "share_ready_photo": "Your photo is ready 🎉",
+    "share_now": "Share",
+    "save": "Save"
   },
-  "openers": ["Mum! Guess what 🖐", "Mum, are you awake? 👀", "Psst… mum! 🤫", "Mum, can I tell you something? 💛", "Hi mum! 👋"],
-  "notifications": ["Mum! Guess what 🖐", "I wrote you something 💬", "Psst… mum, look! 👀", "You won't believe what I want to tell you today! 💛"],
+  "openers": [
+    "Mum! Guess what 🖐",
+    "Mum, are you awake? 👀",
+    "Psst… mum! 🤫",
+    "Mum, can I tell you something? 💛",
+    "Hi mum! 👋"
+  ],
+  "notifications": [
+    "Mum! Guess what 🖐",
+    "I wrote you something 💬",
+    "Psst… mum, look! 👀",
+    "You won't believe what I want to tell you today! 💛"
+  ],
   "replies": {
-    "love": ["I love you too, mum 💛", "I haven't seen you yet, but I already love you so much 🥰", "I may be the size of a {fruit}, but my heart is full of you 💛"],
-    "how": ["Great! It's warm and cosy in here 😌", "I'm good, mum. I grew a little more today 🌱", "So good! I'm listening to your heartbeat 💓"],
-    "size": ["Right now I'm about the size of a {fruit} 😄", "I'm already {cm} cm! Growing 📏", "I'm in week {week} and growing a little every day 🌱"],
-    "kick_early": ["I'm already wiggling, but I'm still so tiny you won't feel it 🤭", "I'm doing little somersaults in here 🤸 You'll feel them soon!"],
-    "kick": ["Did you feel that? That was me 🦶", "I danced today, did you feel it? 💃", "That kick was me saying hi 👋🦶"],
-    "hear_early": ["My ears are still getting ready, but I'll hear you soon 👂", "Let me grow a little more, then I'll hear your voice 🥰"],
-    "hear": ["I can hear you, mum! Talk to me again 🥰", "Your voice is my favourite music 🎶", "Sing me a song and I'll listen 🎵"],
-    "food": ["Whatever you eat, I get a taste too 😋", "Shall we have some fruit today? 🍎", "Mmm, that was yummy! A bit more? 😄"],
-    "sleep": ["I want to sleep too 😴 Let's rest together", "When you lie down, I relax too 😌", "Sorry if I dance at night 🙈"],
-    "dad": ["Say hi to dad for me! 👋", "I know dad's voice too 😊", "I love it when dad talks to your bump 🥰"],
-    "meet": ["{weeks_left} more weeks and then we meet! 🤗", "I want to see you too! Let me grow a bit more 🌱", "It won't be long until we meet 💛"],
-    "meet_soon": ["Not long now, mum! I'm getting ready too 🤗", "Soon I'll be in your arms 💛"],
-    "name": ["What will you call me? 😊 Pick a lovely name!", "Any name will sound lovely in your voice 💛"],
-    "hello": ["Hi mum! 👋", "Hiii! I was waiting for you 💛"],
-    "thanks": ["You're welcome, mum! 😊", "Thank you for carrying me around 💛"],
-    "generic": ["Mum, you're the best 💛", "I'm listening 👂😊", "Hmm… I'll ask about that when I'm bigger 😄", "I'm still little, but I loved that 😄", "Write me more, mum! 🥰"]
+    "love": [
+      "I love you too, mum 💛",
+      "I haven't seen you yet, but I already love you so much 🥰",
+      "I may be the size of a {fruit}, but my heart is full of you 💛"
+    ],
+    "how": [
+      "Great! It's warm and cosy in here 😌",
+      "I'm good, mum. I grew a little more today 🌱",
+      "So good! I'm listening to your heartbeat 💓"
+    ],
+    "size": [
+      "Right now I'm about the size of a {fruit} 😄",
+      "I'm already {cm} cm! Growing 📏",
+      "I'm in week {week} and growing a little every day 🌱"
+    ],
+    "kick_early": [
+      "I'm already wiggling, but I'm still so tiny you won't feel it 🤭",
+      "I'm doing little somersaults in here 🤸 You'll feel them soon!"
+    ],
+    "kick": [
+      "Did you feel that? That was me 🦶",
+      "I danced today, did you feel it? 💃",
+      "That kick was me saying hi 👋🦶"
+    ],
+    "hear_early": [
+      "My ears are still getting ready, but I'll hear you soon 👂",
+      "Let me grow a little more, then I'll hear your voice 🥰"
+    ],
+    "hear": [
+      "I can hear you, mum! Talk to me again 🥰",
+      "Your voice is my favourite music 🎶",
+      "Sing me a song and I'll listen 🎵"
+    ],
+    "food": [
+      "Whatever you eat, I get a taste too 😋",
+      "Shall we have some fruit today? 🍎",
+      "Mmm, that was yummy! A bit more? 😄"
+    ],
+    "sleep": [
+      "I want to sleep too 😴 Let's rest together",
+      "When you lie down, I relax too 😌",
+      "Sorry if I dance at night 🙈"
+    ],
+    "dad": [
+      "Say hi to dad for me! 👋",
+      "I know dad's voice too 😊",
+      "I love it when dad talks to your bump 🥰"
+    ],
+    "meet": [
+      "{weeks_left} more weeks and then we meet! 🤗",
+      "I want to see you too! Let me grow a bit more 🌱",
+      "It won't be long until we meet 💛"
+    ],
+    "meet_soon": [
+      "Not long now, mum! I'm getting ready too 🤗",
+      "Soon I'll be in your arms 💛"
+    ],
+    "name": [
+      "What will you call me? 😊 Pick a lovely name!",
+      "Any name will sound lovely in your voice 💛"
+    ],
+    "hello": [
+      "Hi mum! 👋",
+      "Hiii! I was waiting for you 💛"
+    ],
+    "thanks": [
+      "You're welcome, mum! 😊",
+      "Thank you for carrying me around 💛"
+    ],
+    "generic": [
+      "Mum, you're the best 💛",
+      "I'm listening 👂😊",
+      "Hmm… I'll ask about that when I'm bigger 😄",
+      "I'm still little, but I loved that 😄",
+      "Write me more, mum! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["thank", "thanks", "thx"],
-    "love": ["love", "darling", "sweetie", "❤", "💛", "😘", "🥰"],
-    "name": ["name", "named", "call you"],
-    "dad": ["dad", "daddy", "papa", "father"],
-    "kick": ["kick", "move", "dance", "wiggle", "somersault"],
-    "hear": ["hear", "voice", "music", "song", "sing", "talk"],
-    "size": ["size", "big", "small", "tiny", "grow", "cm", "weigh", "raspberry", "pea"],
-    "food": ["eat", "food", "hungry", "taste", "fruit", "chocolate", "milk"],
-    "sleep": ["sleep", "nap", "night", "tired", "bed"],
-    "meet": ["meet", "come out", "when", "wait", "born"],
-    "how": ["how are", "what are you doing", "how's", "you ok"],
-    "hello": ["hi", "hello", "hey", "good morning"]
-  }
+    "thanks": [
+      "thank",
+      "thanks",
+      "thx"
+    ],
+    "love": [
+      "love",
+      "darling",
+      "sweetie",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "name",
+      "named",
+      "call you"
+    ],
+    "dad": [
+      "dad",
+      "daddy",
+      "papa",
+      "father"
+    ],
+    "kick": [
+      "kick",
+      "move",
+      "dance",
+      "wiggle",
+      "somersault"
+    ],
+    "hear": [
+      "hear",
+      "voice",
+      "music",
+      "song",
+      "sing",
+      "talk"
+    ],
+    "size": [
+      "size",
+      "big",
+      "small",
+      "tiny",
+      "grow",
+      "cm",
+      "weigh",
+      "raspberry",
+      "pea"
+    ],
+    "food": [
+      "eat",
+      "food",
+      "hungry",
+      "taste",
+      "fruit",
+      "chocolate",
+      "milk"
+    ],
+    "sleep": [
+      "sleep",
+      "nap",
+      "night",
+      "tired",
+      "bed"
+    ],
+    "meet": [
+      "meet",
+      "come out",
+      "when",
+      "wait",
+      "born"
+    ],
+    "how": [
+      "how are",
+      "what are you doing",
+      "how's",
+      "you ok"
+    ],
+    "hello": [
+      "hi",
+      "hello",
+      "hey",
+      "good morning"
+    ]
+  },
+  "weekly": {
+    "4": "Mum, I'm only the size of a poppy seed, but I have big plans 🌱",
+    "5": "My heart started beating! Thump-thump… can you hear it? 💓",
+    "6": "My nose is forming this week 👃 I'm sure I'll love how you smell!",
+    "7": "My hands look like tiny paddles 🤲 I can't clap yet",
+    "8": "My fingers are coming 🖐 I started counting: 1, 2, 3… shall I count again?",
+    "9": "I have tiny muscles now 💪 I'm working out in secret",
+    "10": "My nails are starting to grow 💅 We'll talk about manicures later",
+    "11": "I learned to hiccup! Hic! 😅",
+    "12": "I put my thumb in my mouth today 👍 Yummy!",
+    "13": "I've got my fingerprints now ☝️ I'm one of a kind!",
+    "14": "I'm practising faces: a frown, a smile… 😄",
+    "15": "I can sense light ☀️ I'm going to love sunny days!",
+    "16": "My eyes are moving slowly 👀 Still closed, but it's exciting",
+    "17": "I'm storing a little fat for my cheeks 😊 For kisses!",
+    "18": "My ears are ready 👂 Getting ready to hear your voice",
+    "19": "I'm learning somersaults 🤸 Did you feel it?",
+    "20": "We're halfway there! 🎉 I clapped for myself today",
+    "21": "My kicks are getting stronger 🦶 That means “hi”!",
+    "22": "My eyebrows came in 🤨 Now I'm more expressive",
+    "23": "I'm listening to music 🎶 I loved your song",
+    "24": "I'm practising breathing 🌬 Still underwater, but I'm a pro!",
+    "25": "My hair is growing 💇 The colour will be a surprise!",
+    "26": "I can open my eyes! 👀 Everything looks pink in here",
+    "27": "I'm dreaming 💭 Probably about you",
+    "28": "I can blink 😉 That's me winking at you",
+    "29": "Space is getting tight, but I'm still dancing 💃",
+    "30": "I'm getting smarter every day 🧠 Just like you!",
+    "31": "I can turn my head ↔️ I look towards your voice",
+    "32": "My nails reach my fingertips 💅 Getting ready!",
+    "33": "I'm getting stronger every day 💪 Getting ready for cuddles",
+    "34": "My cheeks are getting chubby 😊 Ready for kisses",
+    "35": "It's so cosy in here 🙈 I need somewhere to put my feet",
+    "36": "I'm almost ready! Just the finishing touches ✨",
+    "37": "My eyes, my ears, my heart: they're all waiting for you 💛",
+    "38": "I'm dreaming of your arms 🤗 Not long now",
+    "39": "Have you packed your bag? 😄 I'm ready",
+    "40": "Could be today, could be tomorrow 😄 I'll surprise you!",
+    "41": "It's so comfy in here, can I stay a little longer? 🙈💛"
+  },
+  "daily": [
+    "Today I'm the size of a {fruit}! I'm growing 🌱",
+    "Your heartbeat is my lullaby 💓",
+    "It's warm and cosy in here, don't worry 😌",
+    "Rest a little today, I'll rest too 😴",
+    "Don't forget to drink water, I like it too 💧",
+    "What are we eating today? 😋",
+    "Smile, mum! When you smile, I relax too 😊",
+    "Say hi to dad for me! 👋",
+    "I'm little, but I love you so much 💛",
+    "I grew a little today, did you feel it? 📏",
+    "I love you a little more every day 🥰",
+    "Will you tell me a story? 📖",
+    "You look lovely today, mum! ✨",
+    "I'm waiting for you, and you're waiting for me 🤗"
+  ]
 }

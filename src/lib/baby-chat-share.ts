@@ -178,15 +178,28 @@ const canvasBlob = (canvas: HTMLCanvasElement, type: string, quality?: number) =
 
 export async function renderChatPhoto(input: ShareChatInput): Promise<Blob> {
   await document.fonts?.ready;
-  const canvas = Object.assign(document.createElement('canvas'), { width: W, height: H });
-  drawChat(canvas.getContext('2d')!, input, input.messages.slice(-8));
-  return canvasBlob(canvas, 'image/jpeg', 0.92);
+  try {
+    const canvas = Object.assign(document.createElement('canvas'), { width: W, height: H });
+    drawChat(canvas.getContext('2d')!, input, input.messages.slice(-8));
+    return await canvasBlob(canvas, 'image/jpeg', 0.92);
+  } catch (error) { throw new ShareError('PHOTO', error); }
 }
 
 export const videoRecordingSupported = () =>
   typeof MediaRecorder !== 'undefined' && typeof HTMLCanvasElement.prototype.captureStream === 'function';
 
-const VIDEO_TYPES = ['video/mp4;codecs=avc1', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'];
+// Audio+video first. Safari rejects a video-only codec string for a stream that has audio,
+// so each type is tried for real (constructor and start), then without the audio track.
+const VIDEO_TYPES = ['video/mp4;codecs=avc1,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm'];
+
+/** A stage-tagged failure, shown with the error message so a device problem can be traced. */
+export class ShareError extends Error {
+  constructor(readonly code: string, cause?: unknown) {
+    super(code);
+    this.name = 'ShareError';
+    if (cause) console.error(`[baby-chat-share] ${code}`, cause);
+  }
+}
 
 /** Plays the chat into a canvas in real time and records it. */
 export async function renderChatVideo(input: ShareChatInput, onProgress?: (p: number) => void): Promise<Blob> {
@@ -215,6 +228,7 @@ export async function renderChatVideo(input: ShareChatInput, onProgress?: (p: nu
   let audio: AudioContext | null = null;
   try {
     audio = new AudioContext();
+    void audio.resume().catch(() => undefined);
     const dest = audio.createMediaStreamDestination();
     dest.stream.getAudioTracks().forEach((track) => stream.addTrack(track));
     // A silent source from the first frame: an audio track without samples makes some muxers drop the opening video.
@@ -239,19 +253,35 @@ export async function renderChatVideo(input: ShareChatInput, onProgress?: (p: nu
     osc.start(); osc.stop(audio.currentTime + 0.2);
   };
 
-  const mimeType = VIDEO_TYPES.find((t) => MediaRecorder.isTypeSupported?.(t)) || '';
-  const recorder = new MediaRecorder(stream, mimeType ? { mimeType, videoBitsPerSecond: 6_000_000 } : undefined);
   const chunks: Blob[] = [];
-  recorder.ondataavailable = (e) => { if (e.data.size) chunks.push(e.data); };
+  let recorder: MediaRecorder | null = null;
+  let mimeType = '';
+  steps[0].draw(0);
+  const types = [...VIDEO_TYPES.filter((t) => { try { return MediaRecorder.isTypeSupported(t); } catch { return false; } }), ''];
+  for (const withAudio of [true, false]) {
+    const source = withAudio ? stream : new MediaStream(stream.getVideoTracks());
+    for (const type of types) {
+      try {
+        const candidate = new MediaRecorder(source, type ? { mimeType: type } : undefined);
+        candidate.ondataavailable = (e) => { if (e.data.size) chunks.push(e.data); };
+        candidate.start(250);
+        recorder = candidate;
+        mimeType = type;
+        break;
+      } catch { /* try the next format */ }
+    }
+    if (recorder) break;
+  }
+  if (!recorder) { stream.getTracks().forEach((t) => t.stop()); void audio?.close(); throw new ShareError('VIDEO_RECORDER'); }
+  const active = recorder;
   const done = new Promise<Blob>((resolve) => {
-    recorder.onstop = () => resolve(new Blob(chunks, { type: recorder.mimeType || mimeType || 'video/webm' }));
+    active.onstop = () => resolve(new Blob(chunks, { type: (active.mimeType || mimeType || 'video/webm').split(';')[0] }));
   });
 
   // Start the clock only once the recorder really runs, so the hook is not cut off.
   steps[0].draw(0);
   const keepAlive = window.setInterval(() => steps[0].draw(0), 50);
-  await new Promise<void>((resolve) => { recorder.onstart = () => resolve(); recorder.start(250); setTimeout(resolve, 800); });
-  await new Promise((r) => setTimeout(r, 300));
+  await new Promise((r) => setTimeout(r, 500));
   window.clearInterval(keepAlive);
   const started = performance.now();
   const sounded = new Set<number>();
@@ -268,10 +298,11 @@ export async function renderChatVideo(input: ShareChatInput, onProgress?: (p: nu
     };
     requestAnimationFrame(frame);
   });
-  recorder.stop();
+  active.stop();
   const blob = await done;
   stream.getTracks().forEach((t) => t.stop());
   void audio?.close();
+  if (!blob.size) throw new ShareError('VIDEO_EMPTY');
   return blob;
 }
 
@@ -292,22 +323,34 @@ export async function shareMedia(blob: Blob, baseName: string, text: string): Pr
       reader.onerror = reject;
       reader.readAsDataURL(blob);
     });
-    const saved = await Filesystem.writeFile({ path: `baby-chat/${Date.now()}-${name}`, directory: Directory.Cache, data, recursive: true });
+    let uri: string;
     try {
-      await Share.share({ text, files: [saved.uri] });
+      uri = (await Filesystem.writeFile({ path: `baby-chat/${Date.now()}-${name}`, directory: Directory.Cache, data, recursive: true })).uri;
+    } catch (error) { throw new ShareError('SAVE_FILE', error); }
+    try {
+      await Share.share({ title: name, files: [uri] });
       return 'shared';
     } catch (error) {
       if (isCancelled(error)) return 'cancelled';
-      throw error;
+      throw new ShareError('SHARE_SHEET', error);
     }
   }
   const file = new File([blob], name, { type: blob.type });
   if (navigator.canShare?.({ files: [file] })) {
     try { await navigator.share({ files: [file], text }); return 'shared'; } catch (error) { if (isCancelled(error)) return 'cancelled'; }
   }
-  const url = URL.createObjectURL(file);
-  const a = Object.assign(document.createElement('a'), { href: url, download: name });
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 10_000);
+  downloadMedia(blob, baseName);
   return 'downloaded';
 }
+
+const extensionOf = (blob: Blob) => (blob.type.includes('mp4') ? 'mp4' : blob.type.includes('webm') ? 'webm' : 'jpg');
+
+/** Saves the file through the browser (web). On the native app the share sheet offers saving. */
+export function downloadMedia(blob: Blob, baseName: string) {
+  const url = URL.createObjectURL(blob);
+  const a = Object.assign(document.createElement('a'), { href: url, download: `${baseName}.${extensionOf(blob)}` });
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 60_000);
+}
+
+export const isNativeShare = () => Capacitor.isNativePlatform() && Capacitor.isPluginAvailable('Share');

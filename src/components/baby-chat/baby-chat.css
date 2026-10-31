@@ -34,3 +34,9 @@
 .bc-input button { width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center; background: var(--a-coral, #ff5a5f); color: #fff; flex-shrink: 0; }
 .bc-input button:disabled { background: var(--a-pink-1); color: var(--a-coral, #ff5a5f); }
 .bc-input input:focus { outline: none; border-color: var(--a-coral, #ff5a5f); }
+.bc-sheet-backdrop { position: fixed; inset: 0; z-index: 60; display: flex; align-items: flex-end; justify-content: center; background: rgba(20, 12, 14, 0.45); }
+.bc-sheet { width: 100%; max-width: 480px; padding: 16px 16px 20px; border-radius: 24px 24px 0 0; background: var(--a-surface); display: flex; flex-direction: column; gap: 12px; }
+.bc-sheet-head { display: flex; align-items: center; justify-content: space-between; }
+.bc-sheet-head p { margin: 0; font-size: 15px; font-weight: 900; color: var(--a-ink); }
+.bc-sheet-head button { width: 34px; height: 34px; border-radius: 999px; display: grid; place-items: center; background: var(--a-surface-soft); color: var(--a-ink); }
+.bc-preview { display: block; width: auto; max-width: 100%; max-height: 52vh; margin: 0 auto; border-radius: 16px; background: #000; }

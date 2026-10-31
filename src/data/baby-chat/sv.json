@@ -20,40 +20,264 @@
     "end_line1": "Din bebis skriver till dig",
     "end_line2": "varje dag.",
     "notif_title": "Min bebis 💛",
-    "about": "Bara på skoj: Anacan skriver meddelandena efter din bebis vecka."
+    "about": "Bara på skoj: Anacan skriver meddelandena efter din bebis vecka.",
+    "share_ready_video": "Din video är klar 🎉",
+    "share_ready_photo": "Din bild är klar 🎉",
+    "share_now": "Dela",
+    "save": "Spara"
   },
-  "openers": ["Mamma! Gissa vad 🖐", "Mamma, är du vaken? 👀", "Psst… mamma! 🤫", "Mamma, får jag berätta en sak? 💛", "Hej mamma! 👋"],
-  "notifications": ["Mamma! Gissa vad 🖐", "Jag har skrivit något till dig 💬", "Psst… mamma, titta! 👀", "Du kommer inte tro vad jag vill berätta idag! 💛"],
+  "openers": [
+    "Mamma! Gissa vad 🖐",
+    "Mamma, är du vaken? 👀",
+    "Psst… mamma! 🤫",
+    "Mamma, får jag berätta en sak? 💛",
+    "Hej mamma! 👋"
+  ],
+  "notifications": [
+    "Mamma! Gissa vad 🖐",
+    "Jag har skrivit något till dig 💬",
+    "Psst… mamma, titta! 👀",
+    "Du kommer inte tro vad jag vill berätta idag! 💛"
+  ],
   "replies": {
-    "love": ["Jag älskar dig också, mamma 💛", "Jag har inte sett dig än, men jag älskar dig redan så mycket 🥰", "Jag är kanske bara {fruit}-stor, men mitt hjärta är fullt av dig 💛"],
-    "how": ["Jättebra! Här inne är det varmt och mysigt 😌", "Jag mår bra, mamma. Jag växte lite till idag 🌱", "Så bra! Jag lyssnar på dina hjärtslag 💓"],
-    "size": ["Just nu är jag ungefär {fruit}-stor 😄", "Jag är redan {cm} cm! Jag växer 📏", "Jag är i vecka {week} och växer lite varje dag 🌱"],
-    "kick_early": ["Jag sprattlar redan, men jag är så liten att du inte känner det än 🤭", "Jag gör små kullerbyttor här inne 🤸 Snart känner du dem!"],
-    "kick": ["Kände du det? Det var jag 🦶", "Jag dansade idag, kände du det? 💃", "Den sparken var jag som sa hej 👋🦶"],
-    "hear_early": ["Mina öron gör sig fortfarande redo, men snart hör jag dig 👂", "Låt mig växa lite till, sen hör jag din röst 🥰"],
-    "hear": ["Jag hör dig, mamma! Prata med mig igen 🥰", "Din röst är min favoritmusik 🎶", "Sjung en sång för mig så lyssnar jag 🎵"],
-    "food": ["Vad du än äter får jag också smaka lite 😋", "Ska vi äta lite frukt idag? 🍎", "Mmm, det var gott! Lite till? 😄"],
-    "sleep": ["Jag vill också sova 😴 Vi vilar tillsammans", "När du lägger dig slappnar jag också av 😌", "Förlåt om jag dansar på natten 🙈"],
-    "dad": ["Hälsa pappa från mig! 👋", "Jag känner igen pappas röst också 😊", "Jag älskar när pappa pratar med din mage 🥰"],
-    "meet": ["{weeks_left} veckor till, sen ses vi! 🤗", "Jag vill också se dig! Låt mig växa lite till 🌱", "Det dröjer inte länge tills vi ses 💛"],
-    "meet_soon": ["Inte länge kvar nu, mamma! Jag gör mig också redo 🤗", "Snart ligger jag i din famn 💛"],
-    "name": ["Vad ska du kalla mig? 😊 Välj ett fint namn!", "Alla namn låter fina med din röst 💛"],
-    "hello": ["Hej mamma! 👋", "Hejsan! Jag har väntat på dig 💛"],
-    "thanks": ["Varsågod, mamma! 😊", "Tack för att du bär runt på mig 💛"],
-    "generic": ["Mamma, du är bäst 💛", "Jag lyssnar 👂😊", "Hmm… det frågar jag om när jag är större 😄", "Jag är fortfarande liten, men det där älskade jag 😄", "Skriv mer till mig, mamma! 🥰"]
+    "love": [
+      "Jag älskar dig också, mamma 💛",
+      "Jag har inte sett dig än, men jag älskar dig redan så mycket 🥰",
+      "Jag är kanske bara {fruit}-stor, men mitt hjärta är fullt av dig 💛"
+    ],
+    "how": [
+      "Jättebra! Här inne är det varmt och mysigt 😌",
+      "Jag mår bra, mamma. Jag växte lite till idag 🌱",
+      "Så bra! Jag lyssnar på dina hjärtslag 💓"
+    ],
+    "size": [
+      "Just nu är jag ungefär {fruit}-stor 😄",
+      "Jag är redan {cm} cm! Jag växer 📏",
+      "Jag är i vecka {week} och växer lite varje dag 🌱"
+    ],
+    "kick_early": [
+      "Jag sprattlar redan, men jag är så liten att du inte känner det än 🤭",
+      "Jag gör små kullerbyttor här inne 🤸 Snart känner du dem!"
+    ],
+    "kick": [
+      "Kände du det? Det var jag 🦶",
+      "Jag dansade idag, kände du det? 💃",
+      "Den sparken var jag som sa hej 👋🦶"
+    ],
+    "hear_early": [
+      "Mina öron gör sig fortfarande redo, men snart hör jag dig 👂",
+      "Låt mig växa lite till, sen hör jag din röst 🥰"
+    ],
+    "hear": [
+      "Jag hör dig, mamma! Prata med mig igen 🥰",
+      "Din röst är min favoritmusik 🎶",
+      "Sjung en sång för mig så lyssnar jag 🎵"
+    ],
+    "food": [
+      "Vad du än äter får jag också smaka lite 😋",
+      "Ska vi äta lite frukt idag? 🍎",
+      "Mmm, det var gott! Lite till? 😄"
+    ],
+    "sleep": [
+      "Jag vill också sova 😴 Vi vilar tillsammans",
+      "När du lägger dig slappnar jag också av 😌",
+      "Förlåt om jag dansar på natten 🙈"
+    ],
+    "dad": [
+      "Hälsa pappa från mig! 👋",
+      "Jag känner igen pappas röst också 😊",
+      "Jag älskar när pappa pratar med din mage 🥰"
+    ],
+    "meet": [
+      "{weeks_left} veckor till, sen ses vi! 🤗",
+      "Jag vill också se dig! Låt mig växa lite till 🌱",
+      "Det dröjer inte länge tills vi ses 💛"
+    ],
+    "meet_soon": [
+      "Inte länge kvar nu, mamma! Jag gör mig också redo 🤗",
+      "Snart ligger jag i din famn 💛"
+    ],
+    "name": [
+      "Vad ska du kalla mig? 😊 Välj ett fint namn!",
+      "Alla namn låter fina med din röst 💛"
+    ],
+    "hello": [
+      "Hej mamma! 👋",
+      "Hejsan! Jag har väntat på dig 💛"
+    ],
+    "thanks": [
+      "Varsågod, mamma! 😊",
+      "Tack för att du bär runt på mig 💛"
+    ],
+    "generic": [
+      "Mamma, du är bäst 💛",
+      "Jag lyssnar 👂😊",
+      "Hmm… det frågar jag om när jag är större 😄",
+      "Jag är fortfarande liten, men det där älskade jag 😄",
+      "Skriv mer till mig, mamma! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["tack", "tackar", "tusen tack", "tacksam"],
-    "love": ["älskar", "älskling", "puss", "kram", "gullunge", "hjärtat", "❤", "💛", "😘", "🥰"],
-    "name": ["namn", "heta", "heter", "kalla dig", "döpa"],
-    "dad": ["pappa", "papa", "farsan", "far", "din pappa"],
-    "kick": ["spark", "rör", "rörelse", "dansa", "sprattla", "kullerbytta", "knuff"],
-    "hear": ["hör", "höra", "röst", "musik", "sång", "sjung", "prata"],
-    "size": ["storlek", "stor", "liten", "pytte", "växer", "växa", "cm", "väger", "hallon", "ärta"],
-    "food": ["äta", "äter", "mat", "hungrig", "smak", "frukt", "choklad", "mjölk", "godis"],
-    "sleep": ["sova", "sover", "somna", "natt", "trött", "säng", "vila"],
-    "meet": ["träffa", "ses", "när", "vänta", "född", "födas", "komma ut"],
-    "how": ["hur mår", "hur är det", "vad gör du", "hur har du", "mår du"],
-    "hello": ["hej", "hejsan", "tjena", "hallå", "god morgon"]
-  }
+    "thanks": [
+      "tack",
+      "tackar",
+      "tusen tack",
+      "tacksam"
+    ],
+    "love": [
+      "älskar",
+      "älskling",
+      "puss",
+      "kram",
+      "gullunge",
+      "hjärtat",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "namn",
+      "heta",
+      "heter",
+      "kalla dig",
+      "döpa"
+    ],
+    "dad": [
+      "pappa",
+      "papa",
+      "farsan",
+      "far",
+      "din pappa"
+    ],
+    "kick": [
+      "spark",
+      "rör",
+      "rörelse",
+      "dansa",
+      "sprattla",
+      "kullerbytta",
+      "knuff"
+    ],
+    "hear": [
+      "hör",
+      "höra",
+      "röst",
+      "musik",
+      "sång",
+      "sjung",
+      "prata"
+    ],
+    "size": [
+      "storlek",
+      "stor",
+      "liten",
+      "pytte",
+      "växer",
+      "växa",
+      "cm",
+      "väger",
+      "hallon",
+      "ärta"
+    ],
+    "food": [
+      "äta",
+      "äter",
+      "mat",
+      "hungrig",
+      "smak",
+      "frukt",
+      "choklad",
+      "mjölk",
+      "godis"
+    ],
+    "sleep": [
+      "sova",
+      "sover",
+      "somna",
+      "natt",
+      "trött",
+      "säng",
+      "vila"
+    ],
+    "meet": [
+      "träffa",
+      "ses",
+      "när",
+      "vänta",
+      "född",
+      "födas",
+      "komma ut"
+    ],
+    "how": [
+      "hur mår",
+      "hur är det",
+      "vad gör du",
+      "hur har du",
+      "mår du"
+    ],
+    "hello": [
+      "hej",
+      "hejsan",
+      "tjena",
+      "hallå",
+      "god morgon"
+    ]
+  },
+  "weekly": {
+    "4": "Mamma, jag är bara stor som ett vallmofrö, men jag har stora planer 🌱",
+    "5": "Mitt hjärta har börjat slå! Dunk-dunk… hör du? 💓",
+    "6": "Min näsa bildas den här veckan 👃 Jag kommer säkert älska hur du doftar!",
+    "7": "Mina händer ser ut som små paddlar 🤲 Jag kan inte klappa än",
+    "8": "Mina fingrar kommer 🖐 Jag började räkna: 1, 2, 3… ska jag räkna igen?",
+    "9": "Nu har jag små muskler 💪 Jag tränar i hemlighet",
+    "10": "Mina naglar börjar växa 💅 Vi pratar manikyr sen",
+    "11": "Jag har lärt mig hicka! Hick! 😅",
+    "12": "Jag stoppade tummen i munnen idag 👍 Mums!",
+    "13": "Nu har jag fingeravtryck ☝️ Jag är helt unik!",
+    "14": "Jag övar miner: en rynkad panna, ett leende… 😄",
+    "15": "Jag kan känna ljus ☀️ Jag kommer älska soliga dagar!",
+    "16": "Mina ögon rör sig sakta 👀 Fortfarande stängda, men så spännande",
+    "17": "Jag sparar lite fett till kinderna 😊 För pussar!",
+    "18": "Mina öron är klara 👂 Jag gör mig redo att höra din röst",
+    "19": "Jag lär mig kullerbyttor 🤸 Kände du det?",
+    "20": "Vi är halvvägs! 🎉 Jag applåderade mig själv idag",
+    "21": "Mina sparkar blir starkare 🦶 Det betyder ”hej”!",
+    "22": "Jag har fått ögonbryn 🤨 Nu är jag mer uttrycksfull",
+    "23": "Jag lyssnar på musik 🎶 Jag älskade din sång",
+    "24": "Jag övar på att andas 🌬 Fortfarande under vatten, men jag är ett proffs!",
+    "25": "Mitt hår växer 💇 Färgen blir en överraskning!",
+    "26": "Jag kan öppna ögonen! 👀 Allt ser rosa ut här inne",
+    "27": "Jag drömmer 💭 Säkert om dig",
+    "28": "Jag kan blinka 😉 Det är jag som blinkar åt dig",
+    "29": "Det börjar bli trångt, men jag dansar fortfarande 💃",
+    "30": "Jag blir smartare för varje dag 🧠 Precis som du!",
+    "31": "Jag kan vrida på huvudet ↔️ Jag tittar mot din röst",
+    "32": "Mina naglar når ut till fingertopparna 💅 Snart redo!",
+    "33": "Jag blir starkare för varje dag 💪 Redo för gos",
+    "34": "Mina kinder blir knubbiga 😊 Redo för pussar",
+    "35": "Det är så mysigt här inne 🙈 Jag behöver bara plats för fötterna",
+    "36": "Jag är nästan klar! Bara sista finputsen ✨",
+    "37": "Mina ögon, mina öron, mitt hjärta: alla väntar på dig 💛",
+    "38": "Jag drömmer om din famn 🤗 Inte länge kvar",
+    "39": "Har du packat väskan? 😄 Jag är redo",
+    "40": "Kanske idag, kanske imorgon 😄 Jag överraskar dig!",
+    "41": "Det är så skönt här inne, får jag stanna lite till? 🙈💛"
+  },
+  "daily": [
+    "Idag är jag {fruit}-stor! Jag växer 🌱",
+    "Dina hjärtslag är min vaggvisa 💓",
+    "Här inne är det varmt och mysigt, oroa dig inte 😌",
+    "Vila lite idag, så vilar jag också 😴",
+    "Glöm inte att dricka vatten, jag gillar det också 💧",
+    "Vad ska vi äta idag? 😋",
+    "Le, mamma! När du ler slappnar jag också av 😊",
+    "Hälsa till pappa från mig! 👋",
+    "Jag är liten, men jag älskar dig så mycket 💛",
+    "Jag växte lite idag, kände du det? 📏",
+    "Jag älskar dig lite mer för varje dag 🥰",
+    "Berättar du en saga för mig? 📖",
+    "Du är så fin idag, mamma! ✨",
+    "Jag väntar på dig, och du väntar på mig 🤗"
+  ]
 }

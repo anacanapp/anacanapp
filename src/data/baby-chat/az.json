@@ -20,40 +20,245 @@
     "end_line1": "Körpən sənə",
     "end_line2": "hər gün yazır.",
     "notif_title": "Körpəm 💛",
-    "about": "Bu, əyləncə üçündür: mesajları körpənin həftəsinə uyğun Anacan yazır."
+    "about": "Bu, əyləncə üçündür: mesajları körpənin həftəsinə uyğun Anacan yazır.",
+    "share_ready_video": "Video hazırdır 🎉",
+    "share_ready_photo": "Şəkil hazırdır 🎉",
+    "share_now": "Paylaş",
+    "save": "Yadda saxla"
   },
-  "openers": ["Ana! Xəbərim var 🖐", "Ana, oyaqsan? 👀", "Psst… ana! 🤫", "Ana, sənə bir şey deyim? 💛", "Salam ana! 👋"],
-  "notifications": ["Ana! Xəbərim var 🖐", "Sənə bir şey yazdım 💬", "Psst… ana, bax! 👀", "Bu gün sənə nə deyəcəyimi bilsən! 💛"],
+  "openers": [
+    "Ana! Xəbərim var 🖐",
+    "Ana, oyaqsan? 👀",
+    "Psst… ana! 🤫",
+    "Ana, sənə bir şey deyim? 💛",
+    "Salam ana! 👋"
+  ],
+  "notifications": [
+    "Ana! Xəbərim var 🖐",
+    "Sənə bir şey yazdım 💬",
+    "Psst… ana, bax! 👀",
+    "Bu gün sənə nə deyəcəyimi bilsən! 💛"
+  ],
   "replies": {
-    "love": ["Mən də səni sevirəm, ana 💛", "Səni hələ görməmişəm, amma artıq çox sevirəm 🥰", "{fruit} boyda olsam da, ürəyim səninlə doludur 💛"],
-    "how": ["Əlayam! Burada isti və rahatdır 😌", "Yaxşıyam, ana. Bu gün bir az da böyüdüm 🌱", "Çox yaxşıyam! Sənin ürək döyüntünü dinləyirəm 💓"],
-    "size": ["İndi təxminən {fruit} boydayam 😄", "Artıq {cm} sm-əm! Böyüyürəm 📏", "{week}. həftədəyəm, hər gün bir az da böyüyürəm 🌱"],
-    "kick_early": ["Mən artıq tərpənirəm, amma hələ çox balacayam, hiss etməyəcəksən 🤭", "Burada balaca mayallaqlar aşıram 🤸 Tezliklə hiss edəcəksən!"],
-    "kick": ["Hiss etdin? O mən idim 🦶", "Bu gün rəqs etdim, sən də hiss etdin? 💃", "Salam vermək üçün təpik atdım 👋🦶"],
-    "hear_early": ["Qulaqlarım hələ hazırlanır, amma tezliklə səni eşidəcəyəm 👂", "Bir az da böyüyüm, sonra səsini eşidəcəyəm 🥰"],
-    "hear": ["Səsini eşidirəm, ana! Yenə danış 🥰", "Sənin səsin ən sevdiyim musiqidir 🎶", "Mahnı oxusan, mən də qulaq asaram 🎵"],
-    "food": ["Sən nə yesən, mən də dadına baxıram 😋", "Bu gün meyvə yeyək? 🍎", "Mm, ləzzətli idi! Bir az da? 😄"],
-    "sleep": ["Mən də yatmaq istəyirəm 😴 Bərabər dincələk", "Sən uzananda mən də rahatlayıram 😌", "Gecə rəqs etsəm, bağışla 🙈"],
-    "dad": ["Atama da salam de! 👋", "Atamın səsini də tanıyıram 😊", "Atam qarnına danışanda xoşuma gəlir 🥰"],
-    "meet": ["Daha {weeks_left} həftə, sonra görüşəcəyik! 🤗", "Mən də səni görmək istəyirəm! Bir az da böyüyüm 🌱", "Görüşməyimizə az qalıb 💛"],
-    "meet_soon": ["Çox az qaldı, ana! Mən də hazırlaşıram 🤗", "Tezliklə qucağında olacağam 💛"],
-    "name": ["Adımı nə qoyacaqsan? 😊 Gözəl bir ad seç!", "Hər ad sənin səsinlə gözəl olacaq 💛"],
-    "hello": ["Salam ana! 👋", "Salaaam! Səni gözləyirdim 💛"],
-    "thanks": ["Dəyməz, ana! 😊", "Mən sənə təşəkkür edirəm, məni gəzdirdiyin üçün 💛"],
-    "generic": ["Ana, sən ən yaxşısısan 💛", "Səni dinləyirəm 👂😊", "Hmm… bunu böyüyəndə soruşaram 😄", "Mən hələ balacayam, amma bunu sevdim 😄", "Daha çox yaz, ana! 🥰"]
+    "love": [
+      "Mən də səni sevirəm, ana 💛",
+      "Səni hələ görməmişəm, amma artıq çox sevirəm 🥰",
+      "{fruit} boyda olsam da, ürəyim səninlə doludur 💛"
+    ],
+    "how": [
+      "Əlayam! Burada isti və rahatdır 😌",
+      "Yaxşıyam, ana. Bu gün bir az da böyüdüm 🌱",
+      "Çox yaxşıyam! Sənin ürək döyüntünü dinləyirəm 💓"
+    ],
+    "size": [
+      "İndi təxminən {fruit} boydayam 😄",
+      "Artıq {cm} sm-əm! Böyüyürəm 📏",
+      "{week}. həftədəyəm, hər gün bir az da böyüyürəm 🌱"
+    ],
+    "kick_early": [
+      "Mən artıq tərpənirəm, amma hələ çox balacayam, hiss etməyəcəksən 🤭",
+      "Burada balaca mayallaqlar aşıram 🤸 Tezliklə hiss edəcəksən!"
+    ],
+    "kick": [
+      "Hiss etdin? O mən idim 🦶",
+      "Bu gün rəqs etdim, sən də hiss etdin? 💃",
+      "Salam vermək üçün təpik atdım 👋🦶"
+    ],
+    "hear_early": [
+      "Qulaqlarım hələ hazırlanır, amma tezliklə səni eşidəcəyəm 👂",
+      "Bir az da böyüyüm, sonra səsini eşidəcəyəm 🥰"
+    ],
+    "hear": [
+      "Səsini eşidirəm, ana! Yenə danış 🥰",
+      "Sənin səsin ən sevdiyim musiqidir 🎶",
+      "Mahnı oxusan, mən də qulaq asaram 🎵"
+    ],
+    "food": [
+      "Sən nə yesən, mən də dadına baxıram 😋",
+      "Bu gün meyvə yeyək? 🍎",
+      "Mm, ləzzətli idi! Bir az da? 😄"
+    ],
+    "sleep": [
+      "Mən də yatmaq istəyirəm 😴 Bərabər dincələk",
+      "Sən uzananda mən də rahatlayıram 😌",
+      "Gecə rəqs etsəm, bağışla 🙈"
+    ],
+    "dad": [
+      "Atama da salam de! 👋",
+      "Atamın səsini də tanıyıram 😊",
+      "Atam qarnına danışanda xoşuma gəlir 🥰"
+    ],
+    "meet": [
+      "Daha {weeks_left} həftə, sonra görüşəcəyik! 🤗",
+      "Mən də səni görmək istəyirəm! Bir az da böyüyüm 🌱",
+      "Görüşməyimizə az qalıb 💛"
+    ],
+    "meet_soon": [
+      "Çox az qaldı, ana! Mən də hazırlaşıram 🤗",
+      "Tezliklə qucağında olacağam 💛"
+    ],
+    "name": [
+      "Adımı nə qoyacaqsan? 😊 Gözəl bir ad seç!",
+      "Hər ad sənin səsinlə gözəl olacaq 💛"
+    ],
+    "hello": [
+      "Salam ana! 👋",
+      "Salaaam! Səni gözləyirdim 💛"
+    ],
+    "thanks": [
+      "Dəyməz, ana! 😊",
+      "Mən sənə təşəkkür edirəm, məni gəzdirdiyin üçün 💛"
+    ],
+    "generic": [
+      "Ana, sən ən yaxşısısan 💛",
+      "Səni dinləyirəm 👂😊",
+      "Hmm… bunu böyüyəndə soruşaram 😄",
+      "Mən hələ balacayam, amma bunu sevdim 😄",
+      "Daha çox yaz, ana! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["sağ ol", "sağol", "təşəkkür"],
-    "love": ["sevir", "sevgi", "canım", "əzizim", "balam", "❤", "💛", "😘", "🥰"],
-    "name": ["adın", "adını", "adım", "ad qoy"],
-    "dad": ["ata", "papa", "baba"],
-    "kick": ["təpik", "tərpən", "rəqs", "hərəkət", "mayallaq"],
-    "hear": ["eşid", "səs", "musiqi", "mahnı", "danış"],
-    "size": ["boy", "böyü", "balaca", "kiçik", "sm", "kilo", "çəki", "moruq", "noxud"],
-    "food": ["ye", "yemək", "ac", "dad", "meyvə", "şokolad", "süd"],
-    "sleep": ["yat", "yuxu", "gecə", "yorğun"],
-    "meet": ["görüş", "gəl", "nə vaxt", "gözlə", "doğul"],
-    "how": ["necəsən", "nə var", "nə edirsən", "nətərsən", "yaxşısan"],
-    "hello": ["salam", "hey", "sabahın"]
-  }
+    "thanks": [
+      "sağ ol",
+      "sağol",
+      "təşəkkür"
+    ],
+    "love": [
+      "sevir",
+      "sevgi",
+      "canım",
+      "əzizim",
+      "balam",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "adın",
+      "adını",
+      "adım",
+      "ad qoy"
+    ],
+    "dad": [
+      "ata",
+      "papa",
+      "baba"
+    ],
+    "kick": [
+      "təpik",
+      "tərpən",
+      "rəqs",
+      "hərəkət",
+      "mayallaq"
+    ],
+    "hear": [
+      "eşid",
+      "səs",
+      "musiqi",
+      "mahnı",
+      "danış"
+    ],
+    "size": [
+      "boy",
+      "böyü",
+      "balaca",
+      "kiçik",
+      "sm",
+      "kilo",
+      "çəki",
+      "moruq",
+      "noxud"
+    ],
+    "food": [
+      "ye",
+      "yemək",
+      "ac",
+      "dad",
+      "meyvə",
+      "şokolad",
+      "süd"
+    ],
+    "sleep": [
+      "yat",
+      "yuxu",
+      "gecə",
+      "yorğun"
+    ],
+    "meet": [
+      "görüş",
+      "gəl",
+      "nə vaxt",
+      "gözlə",
+      "doğul"
+    ],
+    "how": [
+      "necəsən",
+      "nə var",
+      "nə edirsən",
+      "nətərsən",
+      "yaxşısan"
+    ],
+    "hello": [
+      "salam",
+      "hey",
+      "sabahın"
+    ]
+  },
+  "weekly": {
+    "4": "Ana, mən hələ xaşxaş toxumu boydayam, amma böyük planlarım var 🌱",
+    "5": "Ürəyim döyünməyə başladı! Tık-tık… eşidirsən? 💓",
+    "6": "Bu həftə burnum yaranır 👃 Ətrin mütləq xoşuma gələcək!",
+    "7": "Əllərim balaca kürəkciklərə oxşayır 🤲 Hələ alqışlaya bilmirəm",
+    "8": "Barmaqlarım çıxır 🖐 Saymağa başladım: 1, 2, 3… bir də sayım?",
+    "9": "Artıq balaca əzələlərim var 💪 Gizlicə idman edirəm",
+    "10": "Dırnaqlarım çıxmağa başladı 💅 Manikürü sonra danışarıq",
+    "11": "Hıçqırmağı öyrəndim! Hık! 😅",
+    "12": "Bu gün barmağımı ağzıma apardım 👍 Çox dadlıdır!",
+    "13": "Barmaq izlərim yarandı ☝️ Mən təkrarsızam!",
+    "14": "Üz ifadələri məşq edirəm: qaşqabaq, təbəssüm… 😄",
+    "15": "İşığı hiss edirəm ☀️ Günəşli günləri sevəcəm!",
+    "16": "Gözlərim yavaş-yavaş tərpənir 👀 Hələ yumuludur, amma maraqlıdır",
+    "17": "Yanaqlarım üçün bir az yağ yığıram 😊 Öpmək üçün!",
+    "18": "Qulaqlarım hazırdır 👂 Səsini eşitməyə hazırlaşıram",
+    "19": "Mayallaq aşmağı öyrənirəm 🤸 Hiss etdin?",
+    "20": "Yarı yoldayıq! 🎉 Bu gün özümə alqış etdim",
+    "21": "Təpiklərim güclənir 🦶 Bu, “salam” deməkdir!",
+    "22": "Qaşlarım çıxdı 🤨 İndi daha ifadəliyəm",
+    "23": "Musiqi dinləyirəm 🎶 Sənin mahnını sevdim",
+    "24": "Nəfəs almağı məşq edirəm 🌬 Hələ sudan, amma ustayam!",
+    "25": "Saçlarım çıxır 💇 Rəngi sürpriz olacaq!",
+    "26": "Gözlərimi aça bilirəm! 👀 Burada hər şey çəhrayı görünür",
+    "27": "Yuxu görürəm 💭 Yəqin səni görürəm",
+    "28": "Gözlərimi qırpıram 😉 Sənə göz vururam",
+    "29": "Burada yer azalır, amma yenə rəqs edirəm 💃",
+    "30": "Hər gün daha ağıllı oluram 🧠 Sənə oxşayıram!",
+    "31": "Başımı çevirə bilirəm ↔️ Səsin gələn tərəfə baxıram",
+    "32": "Dırnaqlarım barmaqlarımın ucuna çatdı 💅 Hazırlaşıram!",
+    "33": "Hər gün daha güclü oluram 💪 Qucaqlaşmağa hazırlaşıram",
+    "34": "Yanaqlarım dolğunlaşır 😊 Öpüşlər üçün hazırdır",
+    "35": "Burada çox sıxlıqdır 🙈 Ayaqlarımı harasa qoymalıyam",
+    "36": "Demək olar ki, hazıram! Son tamamlamalar gedir ✨",
+    "37": "Gözlərim, qulaqlarım, ürəyim, hamısı səni gözləyir 💛",
+    "38": "Qucağını xəyal edirəm 🤗 Az qaldı",
+    "39": "Çantanı yığdın? 😄 Mən hazıram",
+    "40": "Bu gün də ola bilər, sabah da 😄 Sürpriz edəcəm!",
+    "41": "Burada çox rahatdır, bir az da qalım? 🙈💛"
+  },
+  "daily": [
+    "Bu gün {fruit} boyda oldum! Böyüyürəm 🌱",
+    "Sənin ürək döyüntün mənim laylamdır 💓",
+    "Burada isti və rahatdır, narahat olma 😌",
+    "Bu gün bir az dincəl, mən də dincələcəm 😴",
+    "Su içməyi unutma, mən də sevirəm 💧",
+    "Bu gün nə yeyəcəyik? 😋",
+    "Gülümsə, ana! Sən gülümsəyəndə mən də rahatlayıram 😊",
+    "Atama salam de! 👋",
+    "Mən balacayam, amma səni çox sevirəm 💛",
+    "Bu gün bir az böyüdüm, hiss etdin? 📏",
+    "Hər gün səni bir az daha çox sevirəm 🥰",
+    "Mənə bir nağıl danışarsan? 📖",
+    "Bu gün çox gözəlsən, ana! ✨",
+    "Səni gözləyirəm, sən də məni gözləyirsən 🤗"
+  ]
 }

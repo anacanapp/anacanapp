@@ -20,40 +20,267 @@
     "end_line1": "Bayimu mengirimimu pesan",
     "end_line2": "setiap hari.",
     "notif_title": "Bayiku 💛",
-    "about": "Hanya untuk seru-seruan: Anacan menulis pesan sesuai minggu kehamilan bayimu."
+    "about": "Hanya untuk seru-seruan: Anacan menulis pesan sesuai minggu kehamilan bayimu.",
+    "share_ready_video": "Videomu sudah siap 🎉",
+    "share_ready_photo": "Fotomu sudah siap 🎉",
+    "share_now": "Bagikan",
+    "save": "Simpan"
   },
-  "openers": ["Mama! Coba tebak 🖐", "Mama, sudah bangun? 👀", "Psst… Mama! 🤫", "Mama, boleh aku cerita sesuatu? 💛", "Hai Mama! 👋"],
-  "notifications": ["Mama! Coba tebak 🖐", "Aku menulis sesuatu untuk Mama 💬", "Psst… Mama, lihat! 👀", "Mama nggak bakal percaya apa yang mau aku ceritakan hari ini! 💛"],
+  "openers": [
+    "Mama! Coba tebak 🖐",
+    "Mama, sudah bangun? 👀",
+    "Psst… Mama! 🤫",
+    "Mama, boleh aku cerita sesuatu? 💛",
+    "Hai Mama! 👋"
+  ],
+  "notifications": [
+    "Mama! Coba tebak 🖐",
+    "Aku menulis sesuatu untuk Mama 💬",
+    "Psst… Mama, lihat! 👀",
+    "Mama nggak bakal percaya apa yang mau aku ceritakan hari ini! 💛"
+  ],
   "replies": {
-    "love": ["Aku juga sayang Mama 💛", "Aku belum pernah lihat Mama, tapi aku sudah sayang banget 🥰", "Aku mungkin cuma seukuran {fruit}, tapi hatiku penuh dengan Mama 💛"],
-    "how": ["Baik banget! Di sini hangat dan nyaman 😌", "Aku baik, Mama. Hari ini aku tumbuh sedikit lagi 🌱", "Senang sekali! Aku lagi dengar detak jantung Mama 💓"],
-    "size": ["Sekarang aku kira-kira seukuran {fruit} 😄", "Aku sudah {cm} cm! Terus tumbuh 📏", "Aku di minggu ke-{week} dan tumbuh sedikit setiap hari 🌱"],
-    "kick_early": ["Aku sudah bergerak-gerak, tapi masih kecil banget jadi Mama belum terasa 🤭", "Aku lagi jungkir balik kecil di sini 🤸 Sebentar lagi Mama bisa merasakannya!"],
-    "kick": ["Terasa nggak? Itu aku 🦶", "Hari ini aku menari, Mama rasa nggak? 💃", "Tendangan tadi itu aku bilang hai 👋🦶"],
-    "hear_early": ["Telingaku masih bersiap, tapi sebentar lagi aku bisa dengar Mama 👂", "Biar aku tumbuh sedikit lagi, nanti aku dengar suara Mama 🥰"],
-    "hear": ["Aku dengar Mama! Ajak aku ngobrol lagi 🥰", "Suara Mama adalah musik favoritku 🎶", "Nyanyikan aku lagu, aku dengarkan 🎵"],
-    "food": ["Apa pun yang Mama makan, aku ikut mencicipi 😋", "Hari ini kita makan buah, yuk? 🍎", "Mmm, enak! Tambah sedikit lagi? 😄"],
-    "sleep": ["Aku juga mau tidur 😴 Yuk istirahat bareng", "Kalau Mama berbaring, aku juga ikut santai 😌", "Maaf ya kalau aku menari malam-malam 🙈"],
-    "dad": ["Salam buat Papa dariku! 👋", "Aku juga kenal suara Papa 😊", "Aku suka kalau Papa ngobrol sama perut Mama 🥰"],
-    "meet": ["{weeks_left} minggu lagi, lalu kita bertemu! 🤗", "Aku juga ingin lihat Mama! Biar aku tumbuh sedikit lagi 🌱", "Nggak lama lagi kita bertemu 💛"],
-    "meet_soon": ["Sebentar lagi, Mama! Aku juga lagi bersiap 🤗", "Sebentar lagi aku ada di pelukan Mama 💛"],
-    "name": ["Mama mau kasih aku nama apa? 😊 Pilih nama yang cantik ya!", "Nama apa pun akan terdengar indah dengan suara Mama 💛"],
-    "hello": ["Hai Mama! 👋", "Haiii! Aku sudah menunggu Mama 💛"],
-    "thanks": ["Sama-sama, Mama! 😊", "Terima kasih sudah membawaku ke mana-mana 💛"],
-    "generic": ["Mama adalah yang terbaik 💛", "Aku mendengarkan 👂😊", "Hmm… nanti aku tanya soal itu kalau sudah besar 😄", "Aku masih kecil, tapi aku suka banget 😄", "Tulis lagi buat aku, Mama! 🥰"]
+    "love": [
+      "Aku juga sayang Mama 💛",
+      "Aku belum pernah lihat Mama, tapi aku sudah sayang banget 🥰",
+      "Aku mungkin cuma seukuran {fruit}, tapi hatiku penuh dengan Mama 💛"
+    ],
+    "how": [
+      "Baik banget! Di sini hangat dan nyaman 😌",
+      "Aku baik, Mama. Hari ini aku tumbuh sedikit lagi 🌱",
+      "Senang sekali! Aku lagi dengar detak jantung Mama 💓"
+    ],
+    "size": [
+      "Sekarang aku kira-kira seukuran {fruit} 😄",
+      "Aku sudah {cm} cm! Terus tumbuh 📏",
+      "Aku di minggu ke-{week} dan tumbuh sedikit setiap hari 🌱"
+    ],
+    "kick_early": [
+      "Aku sudah bergerak-gerak, tapi masih kecil banget jadi Mama belum terasa 🤭",
+      "Aku lagi jungkir balik kecil di sini 🤸 Sebentar lagi Mama bisa merasakannya!"
+    ],
+    "kick": [
+      "Terasa nggak? Itu aku 🦶",
+      "Hari ini aku menari, Mama rasa nggak? 💃",
+      "Tendangan tadi itu aku bilang hai 👋🦶"
+    ],
+    "hear_early": [
+      "Telingaku masih bersiap, tapi sebentar lagi aku bisa dengar Mama 👂",
+      "Biar aku tumbuh sedikit lagi, nanti aku dengar suara Mama 🥰"
+    ],
+    "hear": [
+      "Aku dengar Mama! Ajak aku ngobrol lagi 🥰",
+      "Suara Mama adalah musik favoritku 🎶",
+      "Nyanyikan aku lagu, aku dengarkan 🎵"
+    ],
+    "food": [
+      "Apa pun yang Mama makan, aku ikut mencicipi 😋",
+      "Hari ini kita makan buah, yuk? 🍎",
+      "Mmm, enak! Tambah sedikit lagi? 😄"
+    ],
+    "sleep": [
+      "Aku juga mau tidur 😴 Yuk istirahat bareng",
+      "Kalau Mama berbaring, aku juga ikut santai 😌",
+      "Maaf ya kalau aku menari malam-malam 🙈"
+    ],
+    "dad": [
+      "Salam buat Papa dariku! 👋",
+      "Aku juga kenal suara Papa 😊",
+      "Aku suka kalau Papa ngobrol sama perut Mama 🥰"
+    ],
+    "meet": [
+      "{weeks_left} minggu lagi, lalu kita bertemu! 🤗",
+      "Aku juga ingin lihat Mama! Biar aku tumbuh sedikit lagi 🌱",
+      "Nggak lama lagi kita bertemu 💛"
+    ],
+    "meet_soon": [
+      "Sebentar lagi, Mama! Aku juga lagi bersiap 🤗",
+      "Sebentar lagi aku ada di pelukan Mama 💛"
+    ],
+    "name": [
+      "Mama mau kasih aku nama apa? 😊 Pilih nama yang cantik ya!",
+      "Nama apa pun akan terdengar indah dengan suara Mama 💛"
+    ],
+    "hello": [
+      "Hai Mama! 👋",
+      "Haiii! Aku sudah menunggu Mama 💛"
+    ],
+    "thanks": [
+      "Sama-sama, Mama! 😊",
+      "Terima kasih sudah membawaku ke mana-mana 💛"
+    ],
+    "generic": [
+      "Mama adalah yang terbaik 💛",
+      "Aku mendengarkan 👂😊",
+      "Hmm… nanti aku tanya soal itu kalau sudah besar 😄",
+      "Aku masih kecil, tapi aku suka banget 😄",
+      "Tulis lagi buat aku, Mama! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["terima kasih", "makasih", "trims", "thanks", "tq"],
-    "love": ["sayang", "cinta", "kangen", "rindu", "love", "❤", "💛", "😘", "🥰"],
-    "name": ["nama", "namamu", "manggil", "panggil", "dipanggil"],
-    "dad": ["papa", "ayah", "bapak", "papi", "daddy"],
-    "kick": ["tendang", "gerak", "bergerak", "nendang", "menari", "joget", "jungkir"],
-    "hear": ["dengar", "denger", "suara", "musik", "lagu", "nyanyi", "bernyanyi", "ngobrol", "bicara"],
-    "size": ["ukuran", "seukuran", "besar", "kecil", "tumbuh", "cm", "berat", "beratmu", "kacang"],
-    "food": ["makan", "makanan", "lapar", "laper", "rasa", "buah", "cokelat", "coklat", "susu"],
-    "sleep": ["tidur", "bobo", "malam", "capek", "lelah", "ngantuk", "kasur"],
-    "meet": ["ketemu", "bertemu", "lahir", "kapan", "tunggu", "nunggu", "keluar"],
-    "how": ["apa kabar", "gimana", "bagaimana", "lagi apa", "sedang apa", "baik-baik"],
-    "hello": ["hai", "halo", "hallo", "hi", "selamat pagi", "pagi"]
-  }
+    "thanks": [
+      "terima kasih",
+      "makasih",
+      "trims",
+      "thanks",
+      "tq"
+    ],
+    "love": [
+      "sayang",
+      "cinta",
+      "kangen",
+      "rindu",
+      "love",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "nama",
+      "namamu",
+      "manggil",
+      "panggil",
+      "dipanggil"
+    ],
+    "dad": [
+      "papa",
+      "ayah",
+      "bapak",
+      "papi",
+      "daddy"
+    ],
+    "kick": [
+      "tendang",
+      "gerak",
+      "bergerak",
+      "nendang",
+      "menari",
+      "joget",
+      "jungkir"
+    ],
+    "hear": [
+      "dengar",
+      "denger",
+      "suara",
+      "musik",
+      "lagu",
+      "nyanyi",
+      "bernyanyi",
+      "ngobrol",
+      "bicara"
+    ],
+    "size": [
+      "ukuran",
+      "seukuran",
+      "besar",
+      "kecil",
+      "tumbuh",
+      "cm",
+      "berat",
+      "beratmu",
+      "kacang"
+    ],
+    "food": [
+      "makan",
+      "makanan",
+      "lapar",
+      "laper",
+      "rasa",
+      "buah",
+      "cokelat",
+      "coklat",
+      "susu"
+    ],
+    "sleep": [
+      "tidur",
+      "bobo",
+      "malam",
+      "capek",
+      "lelah",
+      "ngantuk",
+      "kasur"
+    ],
+    "meet": [
+      "ketemu",
+      "bertemu",
+      "lahir",
+      "kapan",
+      "tunggu",
+      "nunggu",
+      "keluar"
+    ],
+    "how": [
+      "apa kabar",
+      "gimana",
+      "bagaimana",
+      "lagi apa",
+      "sedang apa",
+      "baik-baik"
+    ],
+    "hello": [
+      "hai",
+      "halo",
+      "hallo",
+      "hi",
+      "selamat pagi",
+      "pagi"
+    ]
+  },
+  "weekly": {
+    "4": "Bunda, aku baru sebesar biji poppy, tapi rencanaku besar 🌱",
+    "5": "Jantungku mulai berdetak! Dug-dug… Bunda dengar? 💓",
+    "6": "Minggu ini hidungku mulai terbentuk 👃 Aku pasti suka wangi Bunda!",
+    "7": "Tanganku kayak dayung kecil 🤲 Belum bisa tepuk tangan",
+    "8": "Jari-jariku mulai tumbuh 🖐 Aku mulai menghitung: 1, 2, 3… hitung lagi?",
+    "9": "Sekarang aku punya otot kecil 💪 Diam-diam aku olahraga",
+    "10": "Kukuku mulai tumbuh 💅 Soal manikur nanti saja ya",
+    "11": "Aku belajar cegukan! Hik! 😅",
+    "12": "Hari ini aku mengisap jempol 👍 Enak!",
+    "13": "Sidik jariku sudah jadi ☝️ Aku satu-satunya di dunia!",
+    "14": "Aku latihan ekspresi: cemberut, senyum… 😄",
+    "15": "Aku bisa merasakan cahaya ☀️ Aku pasti suka hari yang cerah!",
+    "16": "Mataku bergerak pelan-pelan 👀 Masih tertutup, tapi seru",
+    "17": "Aku menabung sedikit lemak untuk pipiku 😊 Buat dicium!",
+    "18": "Telingaku sudah siap 👂 Siap-siap mendengar suara Bunda",
+    "19": "Aku lagi belajar jungkir balik 🤸 Terasa nggak?",
+    "20": "Kita sudah setengah jalan! 🎉 Hari ini aku tepuk tangan untuk diriku sendiri",
+    "21": "Tendanganku makin kuat 🦶 Artinya “halo”!",
+    "22": "Alisku sudah tumbuh 🤨 Sekarang aku makin ekspresif",
+    "23": "Aku lagi dengar musik 🎶 Aku suka lagu Bunda",
+    "24": "Aku latihan bernapas 🌬 Masih di dalam air, tapi aku jago!",
+    "25": "Rambutku tumbuh 💇 Warnanya kejutan!",
+    "26": "Aku bisa membuka mata! 👀 Di sini semuanya kelihatan merah muda",
+    "27": "Aku lagi bermimpi 💭 Mungkin tentang Bunda",
+    "28": "Aku bisa berkedip 😉 Ini kedipan buat Bunda",
+    "29": "Tempatnya makin sempit, tapi aku masih menari 💃",
+    "30": "Aku makin pintar setiap hari 🧠 Sama seperti Bunda!",
+    "31": "Aku bisa menoleh ↔️ Aku menoleh ke arah suara Bunda",
+    "32": "Kukuku sudah sampai ujung jari 💅 Lagi siap-siap!",
+    "33": "Aku makin kuat setiap hari 💪 Siap-siap dipeluk",
+    "34": "Pipiku makin tembam 😊 Siap dicium",
+    "35": "Di sini nyaman banget 🙈 Aku butuh tempat buat kakiku",
+    "36": "Aku hampir siap! Tinggal sentuhan terakhir ✨",
+    "37": "Mataku, telingaku, hatiku: semuanya menunggu Bunda 💛",
+    "38": "Aku memimpikan pelukan Bunda 🤗 Sebentar lagi",
+    "39": "Tasnya sudah dikemas? 😄 Aku siap",
+    "40": "Bisa hari ini, bisa besok 😄 Aku mau kasih kejutan!",
+    "41": "Di sini nyaman banget, boleh aku tinggal sebentar lagi? 🙈💛"
+  },
+  "daily": [
+    "Hari ini aku sebesar {fruit}! Aku terus tumbuh 🌱",
+    "Detak jantung Bunda adalah lagu nina boboku 💓",
+    "Di sini hangat dan nyaman, jangan khawatir ya 😌",
+    "Istirahat sebentar hari ini, aku juga istirahat 😴",
+    "Jangan lupa minum air, aku juga suka 💧",
+    "Hari ini kita makan apa? 😋",
+    "Senyum dong, Bunda! Kalau Bunda senyum, aku juga tenang 😊",
+    "Titip salam buat Ayah ya! 👋",
+    "Aku masih kecil, tapi aku sayang banget sama Bunda 💛",
+    "Hari ini aku tumbuh sedikit, terasa nggak? 📏",
+    "Setiap hari aku makin sayang Bunda 🥰",
+    "Bunda mau ceritain dongeng? 📖",
+    "Bunda cantik banget hari ini! ✨",
+    "Aku menunggu Bunda, dan Bunda menunggu aku 🤗"
+  ]
 }

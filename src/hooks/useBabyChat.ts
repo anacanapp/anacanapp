@@ -7,7 +7,7 @@ import { usePregnancyContentByDay } from './usePregnancyContent';
 import { getDynamicFruitData, useFruitImages } from './useFruitData';
 import { useBabyChatText } from '@/data/baby-chat';
 import {
-  dailyArrival, dailyBabyMessages, dayKey, loadThreads, saveThread, type BabyChatMessage, type BabyWeekFacts,
+  babyDailyLine, dailyArrival, dailyBabyMessages, dayKey, loadThreads, saveThread, type BabyChatMessage, type BabyWeekFacts,
 } from '@/lib/baby-chat';
 
 /** Today's "Körpəmdən mesajlar" state for the pregnant user: week facts, arrival time and thread. */
@@ -27,7 +27,8 @@ export function useBabyChat() {
 
   const facts: BabyWeekFacts = {
     week,
-    fruit: size?.fruit || null,
+    // Mid-sentence the fruit is a common noun (German keeps its capital).
+    fruit: size?.fruit ? (language === 'de' ? size.fruit : size.fruit.toLocaleLowerCase(language)) : null,
     cm: size?.lengthCm || null,
     weeksLeft: daysUntilDueFromSelected != null ? Math.max(0, Math.ceil(daysUntilDueFromSelected / 7)) : null,
   };
@@ -40,7 +41,8 @@ export function useBabyChat() {
   const today = dayKey(now);
   const arrival = dailyArrival(now, userId);
   const arrived = now >= arrival;
-  const dailyMessage = dayContent?.baby_message || null;
+  // Short, sweet lines of our own (the long day content stays on its own cards).
+  const dailyMessage = text && week > 0 ? babyDailyLine(text, facts, day, userId) : null;
 
   const [threads, setThreads] = useState(() => loadThreads(userId));
   useEffect(() => { setThreads(loadThreads(userId)); }, [userId]);

@@ -20,40 +20,271 @@
     "end_line1": "Twoje maleństwo pisze do Ciebie",
     "end_line2": "codziennie.",
     "notif_title": "Moje maleństwo 💛",
-    "about": "Tylko dla zabawy: Anacan pisze wiadomości dopasowane do tygodnia Twojego maleństwa."
+    "about": "Tylko dla zabawy: Anacan pisze wiadomości dopasowane do tygodnia Twojego maleństwa.",
+    "share_ready_video": "Twój film jest gotowy 🎉",
+    "share_ready_photo": "Twoje zdjęcie jest gotowe 🎉",
+    "share_now": "Udostępnij",
+    "save": "Zapisz"
   },
-  "openers": ["Mamo! Wiesz co? 🖐", "Mamo, nie śpisz? 👀", "Psst… mamo! 🤫", "Mamo, mogę Ci coś powiedzieć? 💛", "Cześć, mamo! 👋"],
-  "notifications": ["Mamo! Wiesz co? 🖐", "Napisałem coś dla Ciebie 💬", "Psst… mamo, zobacz! 👀", "Nie uwierzysz, co chcę Ci dziś powiedzieć! 💛"],
+  "openers": [
+    "Mamo! Wiesz co? 🖐",
+    "Mamo, nie śpisz? 👀",
+    "Psst… mamo! 🤫",
+    "Mamo, mogę Ci coś powiedzieć? 💛",
+    "Cześć, mamo! 👋"
+  ],
+  "notifications": [
+    "Mamo! Wiesz co? 🖐",
+    "Napisałem coś dla Ciebie 💬",
+    "Psst… mamo, zobacz! 👀",
+    "Nie uwierzysz, co chcę Ci dziś powiedzieć! 💛"
+  ],
   "replies": {
-    "love": ["Ja też Cię kocham, mamo 💛", "Jeszcze Cię nie widziałem, a już tak bardzo Cię kocham 🥰", "Może jestem mały jak {fruit}, ale serduszko mam pełne Ciebie 💛"],
-    "how": ["Super! Tu jest ciepło i przytulnie 😌", "Dobrze, mamo. Dziś znowu trochę urosłem 🌱", "Świetnie! Słucham bicia Twojego serca 💓"],
-    "size": ["Teraz jestem mniej więcej wielki jak {fruit} 😄", "Mam już {cm} cm! Rosnę 📏", "Jestem w {week}. tygodniu i codziennie trochę rosnę 🌱"],
-    "kick_early": ["Już się wiercę, ale jestem jeszcze taki malutki, że tego nie poczujesz 🤭", "Robię tu małe fikołki 🤸 Niedługo je poczujesz!"],
-    "kick": ["Czułaś to? To byłem ja 🦶", "Tańczyłem dziś, czułaś? 💃", "Tym kopnięciem mówiłem Ci cześć 👋🦶"],
-    "hear_early": ["Moje uszka jeszcze się szykują, ale niedługo Cię usłyszę 👂", "Niech jeszcze trochę urosnę, a usłyszę Twój głos 🥰"],
-    "hear": ["Słyszę Cię, mamo! Powiedz coś jeszcze 🥰", "Twój głos to moja ulubiona muzyka 🎶", "Zaśpiewaj mi piosenkę, posłucham 🎵"],
-    "food": ["Co Ty jesz, to ja też trochę próbuję 😋", "Zjemy dziś jakieś owoce? 🍎", "Mmm, pyszne było! Jeszcze trochę? 😄"],
-    "sleep": ["Mnie też chce się spać 😴 Odpocznijmy razem", "Kiedy się kładziesz, ja też się relaksuję 😌", "Przepraszam, jeśli tańczę w nocy 🙈"],
-    "dad": ["Pozdrów ode mnie tatę! 👋", "Znam też głos taty 😊", "Uwielbiam, kiedy tata mówi do Twojego brzuszka 🥰"],
-    "meet": ["Jeszcze {weeks_left} tyg. i się poznamy! 🤗", "Ja też chcę Cię zobaczyć! Niech jeszcze trochę urosnę 🌱", "Już niedługo się spotkamy 💛"],
-    "meet_soon": ["Już niedługo, mamo! Ja też się szykuję 🤗", "Zaraz będę w Twoich ramionach 💛"],
-    "name": ["Jak mnie nazwiesz? 😊 Wybierz piękne imię!", "Każde imię będzie pięknie brzmiało Twoim głosem 💛"],
-    "hello": ["Cześć, mamo! 👋", "Heeej! Czekałem na Ciebie 💛"],
-    "thanks": ["Nie ma za co, mamo! 😊", "Dziękuję, że mnie wszędzie nosisz 💛"],
-    "generic": ["Mamo, jesteś najlepsza 💛", "Słucham 👂😊", "Hmm… o to zapytam, jak będę większy 😄", "Jestem jeszcze mały, ale bardzo mi się to podobało 😄", "Pisz do mnie jeszcze, mamo! 🥰"]
+    "love": [
+      "Ja też Cię kocham, mamo 💛",
+      "Jeszcze Cię nie widziałem, a już tak bardzo Cię kocham 🥰",
+      "Może jestem mały jak {fruit}, ale serduszko mam pełne Ciebie 💛"
+    ],
+    "how": [
+      "Super! Tu jest ciepło i przytulnie 😌",
+      "Dobrze, mamo. Dziś znowu trochę urosłem 🌱",
+      "Świetnie! Słucham bicia Twojego serca 💓"
+    ],
+    "size": [
+      "Teraz jestem mniej więcej wielki jak {fruit} 😄",
+      "Mam już {cm} cm! Rosnę 📏",
+      "Jestem w {week}. tygodniu i codziennie trochę rosnę 🌱"
+    ],
+    "kick_early": [
+      "Już się wiercę, ale jestem jeszcze taki malutki, że tego nie poczujesz 🤭",
+      "Robię tu małe fikołki 🤸 Niedługo je poczujesz!"
+    ],
+    "kick": [
+      "Czułaś to? To byłem ja 🦶",
+      "Tańczyłem dziś, czułaś? 💃",
+      "Tym kopnięciem mówiłem Ci cześć 👋🦶"
+    ],
+    "hear_early": [
+      "Moje uszka jeszcze się szykują, ale niedługo Cię usłyszę 👂",
+      "Niech jeszcze trochę urosnę, a usłyszę Twój głos 🥰"
+    ],
+    "hear": [
+      "Słyszę Cię, mamo! Powiedz coś jeszcze 🥰",
+      "Twój głos to moja ulubiona muzyka 🎶",
+      "Zaśpiewaj mi piosenkę, posłucham 🎵"
+    ],
+    "food": [
+      "Co Ty jesz, to ja też trochę próbuję 😋",
+      "Zjemy dziś jakieś owoce? 🍎",
+      "Mmm, pyszne było! Jeszcze trochę? 😄"
+    ],
+    "sleep": [
+      "Mnie też chce się spać 😴 Odpocznijmy razem",
+      "Kiedy się kładziesz, ja też się relaksuję 😌",
+      "Przepraszam, jeśli tańczę w nocy 🙈"
+    ],
+    "dad": [
+      "Pozdrów ode mnie tatę! 👋",
+      "Znam też głos taty 😊",
+      "Uwielbiam, kiedy tata mówi do Twojego brzuszka 🥰"
+    ],
+    "meet": [
+      "Jeszcze {weeks_left} tyg. i się poznamy! 🤗",
+      "Ja też chcę Cię zobaczyć! Niech jeszcze trochę urosnę 🌱",
+      "Już niedługo się spotkamy 💛"
+    ],
+    "meet_soon": [
+      "Już niedługo, mamo! Ja też się szykuję 🤗",
+      "Zaraz będę w Twoich ramionach 💛"
+    ],
+    "name": [
+      "Jak mnie nazwiesz? 😊 Wybierz piękne imię!",
+      "Każde imię będzie pięknie brzmiało Twoim głosem 💛"
+    ],
+    "hello": [
+      "Cześć, mamo! 👋",
+      "Heeej! Czekałem na Ciebie 💛"
+    ],
+    "thanks": [
+      "Nie ma za co, mamo! 😊",
+      "Dziękuję, że mnie wszędzie nosisz 💛"
+    ],
+    "generic": [
+      "Mamo, jesteś najlepsza 💛",
+      "Słucham 👂😊",
+      "Hmm… o to zapytam, jak będę większy 😄",
+      "Jestem jeszcze mały, ale bardzo mi się to podobało 😄",
+      "Pisz do mnie jeszcze, mamo! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["dzięk", "dziek", "dzięki", "thx"],
-    "love": ["kocham", "kochan", "skarb", "słonecz", "serdusz", "miłość", "buziak", "❤", "💛", "😘", "🥰"],
-    "name": ["imię", "imie", "nazw", "nazywa", "imion"],
-    "dad": ["tat", "tatuś", "tatus", "ojc", "ojciec"],
-    "kick": ["kop", "rusz", "tańcz", "tancz", "wierc", "fikoł", "fikol"],
-    "hear": ["słysz", "slysz", "głos", "glos", "muzyk", "piosen", "śpiew", "spiew", "mówię", "gada"],
-    "size": ["wielk", "duży", "duzy", "mał", "rośn", "rosn", "cm", "waży", "malin", "groszek"],
-    "food": ["jem", "jeść", "jesc", "jedzen", "głodn", "glodn", "smak", "owoc", "czekolad", "mlek"],
-    "sleep": ["śpi", "spi", "spać", "spac", "drzemk", "noc", "zmęcz", "zmecz", "łóżk"],
-    "meet": ["spotka", "poznam", "kiedy", "czekam", "urodz", "wyjdziesz"],
-    "how": ["jak się masz", "jak sie masz", "co robisz", "wszystko ok", "jak tam"],
-    "hello": ["cześć", "czesc", "hej", "dzień dobry", "siema", "witaj"]
-  }
+    "thanks": [
+      "dzięk",
+      "dziek",
+      "dzięki",
+      "thx"
+    ],
+    "love": [
+      "kocham",
+      "kochan",
+      "skarb",
+      "słonecz",
+      "serdusz",
+      "miłość",
+      "buziak",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "imię",
+      "imie",
+      "nazw",
+      "nazywa",
+      "imion"
+    ],
+    "dad": [
+      "tat",
+      "tatuś",
+      "tatus",
+      "ojc",
+      "ojciec"
+    ],
+    "kick": [
+      "kop",
+      "rusz",
+      "tańcz",
+      "tancz",
+      "wierc",
+      "fikoł",
+      "fikol"
+    ],
+    "hear": [
+      "słysz",
+      "slysz",
+      "głos",
+      "glos",
+      "muzyk",
+      "piosen",
+      "śpiew",
+      "spiew",
+      "mówię",
+      "gada"
+    ],
+    "size": [
+      "wielk",
+      "duży",
+      "duzy",
+      "mał",
+      "rośn",
+      "rosn",
+      "cm",
+      "waży",
+      "malin",
+      "groszek"
+    ],
+    "food": [
+      "jem",
+      "jeść",
+      "jesc",
+      "jedzen",
+      "głodn",
+      "glodn",
+      "smak",
+      "owoc",
+      "czekolad",
+      "mlek"
+    ],
+    "sleep": [
+      "śpi",
+      "spi",
+      "spać",
+      "spac",
+      "drzemk",
+      "noc",
+      "zmęcz",
+      "zmecz",
+      "łóżk"
+    ],
+    "meet": [
+      "spotka",
+      "poznam",
+      "kiedy",
+      "czekam",
+      "urodz",
+      "wyjdziesz"
+    ],
+    "how": [
+      "jak się masz",
+      "jak sie masz",
+      "co robisz",
+      "wszystko ok",
+      "jak tam"
+    ],
+    "hello": [
+      "cześć",
+      "czesc",
+      "hej",
+      "dzień dobry",
+      "siema",
+      "witaj"
+    ]
+  },
+  "weekly": {
+    "4": "Mamo, jestem dopiero wielkości ziarenka maku, ale mam wielkie plany 🌱",
+    "5": "Moje serduszko zaczęło bić! Puk-puk… słyszysz? 💓",
+    "6": "W tym tygodniu rośnie mi nosek 👃 Na pewno pokocham Twój zapach!",
+    "7": "Moje rączki wyglądają jak małe wiosełka 🤲 Jeszcze nie umiem klaskać",
+    "8": "Rosną mi paluszki 🖐 Zaczynam liczyć: 1, 2, 3… policzyć jeszcze raz?",
+    "9": "Mam już malutkie mięśnie 💪 Ćwiczę po kryjomu",
+    "10": "Zaczynają mi rosnąć paznokcie 💅 O manicure pogadamy później",
+    "11": "Umiem już czkać! Hep! 😅",
+    "12": "Dziś ssę kciuk 👍 Pycha!",
+    "13": "Mam już odciski palców ☝️ Takich nie ma nikt inny!",
+    "14": "Ćwiczę minki: marszczę brwi, uśmiecham się… 😄",
+    "15": "Czuję światło ☀️ Będę uwielbiać słoneczne dni!",
+    "16": "Moje oczka powoli się ruszają 👀 Jeszcze zamknięte, ale to ekscytujące",
+    "17": "Zbieram trochę tłuszczyku na policzki 😊 Do całowania!",
+    "18": "Moje uszka są gotowe 👂 Szykuję się, żeby usłyszeć Twój głos",
+    "19": "Uczę się fikołków 🤸 Poczułaś?",
+    "20": "Jesteśmy w połowie drogi! 🎉 Dziś sobie klaszczę",
+    "21": "Moje kopniaki są coraz mocniejsze 🦶 To znaczy „cześć”!",
+    "22": "Urosły mi brwi 🤨 Teraz mam więcej min",
+    "23": "Słucham muzyki 🎶 Twoja piosenka jest super",
+    "24": "Ćwiczę oddychanie 🌬 Jeszcze pod wodą, ale idzie mi świetnie!",
+    "25": "Rosną mi włoski 💇 Kolor będzie niespodzianką!",
+    "26": "Umiem otwierać oczy! 👀 Wszystko tu jest różowe",
+    "27": "Śnię 💭 Pewnie o Tobie",
+    "28": "Umiem mrugać 😉 To ja puszczam do Ciebie oczko",
+    "29": "Robi się ciasno, ale wciąż tańczę 💃",
+    "30": "Codziennie trochę mądrzeję 🧠 Zupełnie jak Ty!",
+    "31": "Umiem obracać główkę ↔️ Patrzę w stronę Twojego głosu",
+    "32": "Paznokcie sięgają mi już czubków palców 💅 Szykuję się!",
+    "33": "Codziennie nabieram sił 💪 Szykuję się na przytulanie",
+    "34": "Moje policzki robią się pucułowate 😊 Czekają na buziaki",
+    "35": "Tak tu przytulnie 🙈 Tylko nóżek nie mam gdzie położyć",
+    "36": "Już prawie! Zostały ostatnie szlify ✨",
+    "37": "Moje oczy, uszy i serduszko: wszystko czeka na Ciebie 💛",
+    "38": "Marzę o Twoich ramionach 🤗 Już niedługo",
+    "39": "Spakowałaś torbę? 😄 Ja już czekam",
+    "40": "Może dziś, może jutro 😄 Zrobię Ci niespodziankę!",
+    "41": "Tak tu wygodnie, mogę zostać jeszcze chwilkę? 🙈💛"
+  },
+  "daily": [
+    "Dziś moja wielkość to: {fruit}! Rosnę 🌱",
+    "Bicie Twojego serca to moja kołysanka 💓",
+    "Tu jest ciepło i przytulnie, nie martw się 😌",
+    "Odpocznij dziś trochę, ja też odpocznę 😴",
+    "Nie zapomnij pić wody, ja też ją lubię 💧",
+    "Co dziś jemy? 😋",
+    "Uśmiechnij się, mamo! Kiedy się uśmiechasz, ja też się uspokajam 😊",
+    "Pozdrów ode mnie tatę! 👋",
+    "Jestem maleństwem, ale bardzo Cię kocham 💛",
+    "Twoje maleństwo dziś trochę podrosło, poczułaś? 📏",
+    "Każdego dnia kocham Cię trochę bardziej 🥰",
+    "Opowiesz mi bajkę? 📖",
+    "Pięknie dziś wyglądasz, mamo! ✨",
+    "Czekam na Ciebie, a Ty na mnie 🤗"
+  ]
 }

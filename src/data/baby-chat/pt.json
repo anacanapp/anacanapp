@@ -20,40 +20,265 @@
     "end_line1": "O teu bebé manda-te mensagens",
     "end_line2": "todos os dias.",
     "notif_title": "O meu bebé 💛",
-    "about": "Só por diversão: a Anacan escreve as mensagens de acordo com a semana do teu bebé."
+    "about": "Só por diversão: a Anacan escreve as mensagens de acordo com a semana do teu bebé.",
+    "share_ready_video": "O teu vídeo está pronto 🎉",
+    "share_ready_photo": "A tua foto está pronta 🎉",
+    "share_now": "Partilhar",
+    "save": "Guardar"
   },
-  "openers": ["Mãe! Adivinha 🖐", "Mãe, estás acordada? 👀", "Psst… mãe! 🤫", "Mãe, posso contar-te uma coisa? 💛", "Olá, mãe! 👋"],
-  "notifications": ["Mãe! Adivinha 🖐", "Escrevi-te uma coisa 💬", "Psst… mãe, olha! 👀", "Nem vais acreditar no que te quero contar hoje! 💛"],
+  "openers": [
+    "Mãe! Adivinha 🖐",
+    "Mãe, estás acordada? 👀",
+    "Psst… mãe! 🤫",
+    "Mãe, posso contar-te uma coisa? 💛",
+    "Olá, mãe! 👋"
+  ],
+  "notifications": [
+    "Mãe! Adivinha 🖐",
+    "Escrevi-te uma coisa 💬",
+    "Psst… mãe, olha! 👀",
+    "Nem vais acreditar no que te quero contar hoje! 💛"
+  ],
   "replies": {
-    "love": ["Também te amo, mãe 💛", "Ainda não te vi, mas já te amo tanto 🥰", "Sou pequenino ({fruit}), mas o meu coração está cheio de ti 💛"],
-    "how": ["Ótimo! Está quentinho e aconchegante aqui dentro 😌", "Estou bem, mãe. Hoje cresci mais um bocadinho 🌱", "Muito bem! Estou a ouvir o teu coração 💓"],
-    "size": ["O meu tamanho agora? Mais ou menos {fruit}! 😄", "Já tenho {cm} cm! A crescer 📏", "Estou na semana {week} e cresço um bocadinho todos os dias 🌱"],
-    "kick_early": ["Já me mexo, mas ainda sou tão pequenino que não vais sentir 🤭", "Ando a dar cambalhotas aqui dentro 🤸 Em breve vais senti-las!"],
-    "kick": ["Sentiste? Fui eu 🦶", "Hoje dancei, sentiste? 💃", "Aquele pontapé era eu a dizer olá 👋🦶"],
-    "hear_early": ["Os meus ouvidos ainda se estão a preparar, mas em breve vou ouvir-te 👂", "Deixa-me crescer mais um pouco e depois vou ouvir a tua voz 🥰"],
-    "hear": ["Estou a ouvir-te, mãe! Fala comigo outra vez 🥰", "A tua voz é a minha música preferida 🎶", "Canta-me uma canção e eu fico a ouvir 🎵"],
-    "food": ["Tudo o que comes, eu também provo 😋", "E se hoje comêssemos fruta? 🍎", "Hmm, que bom! Mais um bocadinho? 😄"],
-    "sleep": ["Também quero dormir 😴 Vamos descansar juntos", "Quando te deitas, eu também relaxo 😌", "Desculpa se danço à noite 🙈"],
-    "dad": ["Diz olá ao pai por mim! 👋", "Também conheço a voz do pai 😊", "Adoro quando o pai fala com a tua barriga 🥰"],
-    "meet": ["Mais {weeks_left} semanas e conhecemo-nos! 🤗", "Também te quero ver! Deixa-me crescer mais um pouco 🌱", "Falta pouco para nos conhecermos 💛"],
-    "meet_soon": ["Já falta pouco, mãe! Eu também me estou a preparar 🤗", "Em breve vou estar nos teus braços 💛"],
-    "name": ["Como me vais chamar? 😊 Escolhe um nome bonito!", "Qualquer nome vai soar lindo na tua voz 💛"],
-    "hello": ["Olá, mãe! 👋", "Oláááá! Estava à tua espera 💛"],
-    "thanks": ["De nada, mãe! 😊", "Obrigado por me levares contigo para todo o lado 💛"],
-    "generic": ["Mãe, és a melhor 💛", "Estou a ouvir 👂😊", "Hmm… pergunto sobre isso quando for maior 😄", "Ainda sou pequenino, mas adorei 😄", "Escreve-me mais, mãe! 🥰"]
+    "love": [
+      "Também te amo, mãe 💛",
+      "Ainda não te vi, mas já te amo tanto 🥰",
+      "Sou pequenino ({fruit}), mas o meu coração está cheio de ti 💛"
+    ],
+    "how": [
+      "Ótimo! Está quentinho e aconchegante aqui dentro 😌",
+      "Estou bem, mãe. Hoje cresci mais um bocadinho 🌱",
+      "Muito bem! Estou a ouvir o teu coração 💓"
+    ],
+    "size": [
+      "O meu tamanho agora? Mais ou menos {fruit}! 😄",
+      "Já tenho {cm} cm! A crescer 📏",
+      "Estou na semana {week} e cresço um bocadinho todos os dias 🌱"
+    ],
+    "kick_early": [
+      "Já me mexo, mas ainda sou tão pequenino que não vais sentir 🤭",
+      "Ando a dar cambalhotas aqui dentro 🤸 Em breve vais senti-las!"
+    ],
+    "kick": [
+      "Sentiste? Fui eu 🦶",
+      "Hoje dancei, sentiste? 💃",
+      "Aquele pontapé era eu a dizer olá 👋🦶"
+    ],
+    "hear_early": [
+      "Os meus ouvidos ainda se estão a preparar, mas em breve vou ouvir-te 👂",
+      "Deixa-me crescer mais um pouco e depois vou ouvir a tua voz 🥰"
+    ],
+    "hear": [
+      "Estou a ouvir-te, mãe! Fala comigo outra vez 🥰",
+      "A tua voz é a minha música preferida 🎶",
+      "Canta-me uma canção e eu fico a ouvir 🎵"
+    ],
+    "food": [
+      "Tudo o que comes, eu também provo 😋",
+      "E se hoje comêssemos fruta? 🍎",
+      "Hmm, que bom! Mais um bocadinho? 😄"
+    ],
+    "sleep": [
+      "Também quero dormir 😴 Vamos descansar juntos",
+      "Quando te deitas, eu também relaxo 😌",
+      "Desculpa se danço à noite 🙈"
+    ],
+    "dad": [
+      "Diz olá ao pai por mim! 👋",
+      "Também conheço a voz do pai 😊",
+      "Adoro quando o pai fala com a tua barriga 🥰"
+    ],
+    "meet": [
+      "Mais {weeks_left} semanas e conhecemo-nos! 🤗",
+      "Também te quero ver! Deixa-me crescer mais um pouco 🌱",
+      "Falta pouco para nos conhecermos 💛"
+    ],
+    "meet_soon": [
+      "Já falta pouco, mãe! Eu também me estou a preparar 🤗",
+      "Em breve vou estar nos teus braços 💛"
+    ],
+    "name": [
+      "Como me vais chamar? 😊 Escolhe um nome bonito!",
+      "Qualquer nome vai soar lindo na tua voz 💛"
+    ],
+    "hello": [
+      "Olá, mãe! 👋",
+      "Oláááá! Estava à tua espera 💛"
+    ],
+    "thanks": [
+      "De nada, mãe! 😊",
+      "Obrigado por me levares contigo para todo o lado 💛"
+    ],
+    "generic": [
+      "Mãe, és a melhor 💛",
+      "Estou a ouvir 👂😊",
+      "Hmm… pergunto sobre isso quando for maior 😄",
+      "Ainda sou pequenino, mas adorei 😄",
+      "Escreve-me mais, mãe! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["obrigad", "obg", "agradeço", "valeu"],
-    "love": ["amo", "amor", "adoro", "querid", "fofinh", "beijinho", "❤", "💛", "😘", "🥰"],
-    "name": ["nome", "chamar", "chamas", "chamo", "chama"],
-    "dad": ["pai", "papá", "papai", "paizinho"],
-    "kick": ["pontapé", "chuta", "chute", "mexe", "mexer", "dança", "dançar", "cambalhota"],
-    "hear": ["ouve", "ouvir", "ouves", "voz", "música", "canção", "canta", "cantar", "falar"],
-    "size": ["tamanho", "grande", "pequen", "cresce", "cm", "pesa", "peso", "framboesa", "ervilha"],
-    "food": ["come", "comer", "comida", "fome", "sabor", "fruta", "chocolate", "leite"],
-    "sleep": ["dorm", "sono", "sesta", "noite", "cansad", "cama"],
-    "meet": ["conhecer", "nascer", "nasces", "quando", "esperar", "sair", "ver-te"],
-    "how": ["como estás", "como vais", "tudo bem", "estás bem", "que fazes", "o que estás"],
-    "hello": ["olá", "ola", "oi", "bom dia", "boa tarde", "boa noite"]
-  }
+    "thanks": [
+      "obrigad",
+      "obg",
+      "agradeço",
+      "valeu"
+    ],
+    "love": [
+      "amo",
+      "amor",
+      "adoro",
+      "querid",
+      "fofinh",
+      "beijinho",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "nome",
+      "chamar",
+      "chamas",
+      "chamo",
+      "chama"
+    ],
+    "dad": [
+      "pai",
+      "papá",
+      "papai",
+      "paizinho"
+    ],
+    "kick": [
+      "pontapé",
+      "chuta",
+      "chute",
+      "mexe",
+      "mexer",
+      "dança",
+      "dançar",
+      "cambalhota"
+    ],
+    "hear": [
+      "ouve",
+      "ouvir",
+      "ouves",
+      "voz",
+      "música",
+      "canção",
+      "canta",
+      "cantar",
+      "falar"
+    ],
+    "size": [
+      "tamanho",
+      "grande",
+      "pequen",
+      "cresce",
+      "cm",
+      "pesa",
+      "peso",
+      "framboesa",
+      "ervilha"
+    ],
+    "food": [
+      "come",
+      "comer",
+      "comida",
+      "fome",
+      "sabor",
+      "fruta",
+      "chocolate",
+      "leite"
+    ],
+    "sleep": [
+      "dorm",
+      "sono",
+      "sesta",
+      "noite",
+      "cansad",
+      "cama"
+    ],
+    "meet": [
+      "conhecer",
+      "nascer",
+      "nasces",
+      "quando",
+      "esperar",
+      "sair",
+      "ver-te"
+    ],
+    "how": [
+      "como estás",
+      "como vais",
+      "tudo bem",
+      "estás bem",
+      "que fazes",
+      "o que estás"
+    ],
+    "hello": [
+      "olá",
+      "ola",
+      "oi",
+      "bom dia",
+      "boa tarde",
+      "boa noite"
+    ]
+  },
+  "weekly": {
+    "4": "Mãe, sou do tamanho de uma sementinha de papoila, mas tenho grandes planos 🌱",
+    "5": "O meu coração começou a bater! Tum-tum… ouves? 💓",
+    "6": "Esta semana está a formar-se o meu nariz 👃 De certeza que vou adorar o teu cheirinho!",
+    "7": "As minhas mãos parecem pequenos remos 🤲 Ainda não sei bater palmas",
+    "8": "Estão a nascer os meus dedos 🖐 Comecei a contar: 1, 2, 3… conto outra vez?",
+    "9": "Já tenho músculos pequeninos 💪 Ando a treinar às escondidas",
+    "10": "As minhas unhas começaram a crescer 💅 Da manicure falamos depois",
+    "11": "Aprendi a ter soluços! Hic! 😅",
+    "12": "Hoje pus o polegar na boca 👍 Que delícia!",
+    "13": "Já tenho impressões digitais ☝️ Sou único no mundo!",
+    "14": "Ando a ensaiar caretas: franzir, sorrir… 😄",
+    "15": "Já sinto a luz ☀️ Vou adorar dias de sol!",
+    "16": "Os meus olhos mexem-se devagarinho 👀 Ainda fechados, mas que emoção",
+    "17": "Estou a guardar gordurinha para as bochechas 😊 Para os beijinhos!",
+    "18": "Os meus ouvidos estão prontos 👂 A preparar-me para ouvir a tua voz",
+    "19": "Estou a aprender cambalhotas 🤸 Sentiste?",
+    "20": "Já vamos a meio! 🎉 Hoje bati palmas a mim mesmo",
+    "21": "Os meus pontapés estão mais fortes 🦶 Quer dizer “olá”!",
+    "22": "Nasceram-me as sobrancelhas 🤨 Agora sou mais expressivo",
+    "23": "Estou a ouvir música 🎶 Adorei a tua canção",
+    "24": "Estou a treinar a respiração 🌬 Ainda debaixo de água, mas sou um craque!",
+    "25": "O meu cabelo está a crescer 💇 A cor vai ser surpresa!",
+    "26": "Já consigo abrir os olhos! 👀 Aqui dentro está tudo cor-de-rosa",
+    "27": "Estou a sonhar 💭 Provavelmente contigo",
+    "28": "Já sei pestanejar 😉 Isto é uma piscadela para ti",
+    "29": "Está a ficar apertado, mas continuo a dançar 💃",
+    "30": "Estou mais esperto a cada dia 🧠 Tal como tu!",
+    "31": "Já consigo virar a cabeça ↔️ Viro-me para a tua voz",
+    "32": "As minhas unhas já chegam à ponta dos dedos 💅 A preparar-me!",
+    "33": "Estou mais forte a cada dia 💪 A preparar-me para os miminhos",
+    "34": "As minhas bochechas estão a ficar fofinhas 😊 Prontas para beijinhos",
+    "35": "Aqui está tão aconchegante 🙈 Preciso de sítio para os pés",
+    "36": "Estou quase pronto! Só faltam os retoques finais ✨",
+    "37": "Os meus olhos, os meus ouvidos, o meu coração: estão todos à tua espera 💛",
+    "38": "Sonho com o teu colo 🤗 Já falta pouco",
+    "39": "Já fizeste a mala? 😄 Eu estou pronto",
+    "40": "Pode ser hoje, pode ser amanhã 😄 Vou fazer-te uma surpresa!",
+    "41": "Está tão bom aqui, posso ficar mais um bocadinho? 🙈💛"
+  },
+  "daily": [
+    "Hoje sou do tamanho de: {fruit}! Estou a crescer 🌱",
+    "O bater do teu coração é a minha canção de embalar 💓",
+    "Aqui está quentinho e aconchegante, não te preocupes 😌",
+    "Descansa um pouco hoje, eu também descanso 😴",
+    "Não te esqueças de beber água, eu também gosto 💧",
+    "O que vamos comer hoje? 😋",
+    "Sorri, mãe! Quando sorris, eu também fico tranquilo 😊",
+    "Dá um olá ao pai por mim! 👋",
+    "Sou pequenino, mas gosto tanto de ti 💛",
+    "Hoje cresci mais um bocadinho, sentiste? 📏",
+    "Cada dia gosto mais de ti 🥰",
+    "Contas-me uma história? 📖",
+    "Estás tão bonita hoje, mãe! ✨",
+    "Eu espero por ti e tu esperas por mim 🤗"
+  ]
 }

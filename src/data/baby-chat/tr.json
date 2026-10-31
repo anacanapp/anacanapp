@@ -20,40 +20,273 @@
     "end_line1": "Bebeğin sana",
     "end_line2": "her gün yazıyor.",
     "notif_title": "Bebeğim 💛",
-    "about": "Sadece eğlence için: Anacan mesajları bebeğinin haftasına göre yazar."
+    "about": "Sadece eğlence için: Anacan mesajları bebeğinin haftasına göre yazar.",
+    "share_ready_video": "Videon hazır 🎉",
+    "share_ready_photo": "Fotoğrafın hazır 🎉",
+    "share_now": "Paylaş",
+    "save": "Kaydet"
   },
-  "openers": ["Anne! Bil bakalım ne oldu 🖐", "Anne, uyanık mısın? 👀", "Pışşt… anne! 🤫", "Anne, sana bir şey söyleyebilir miyim? 💛", "Merhaba anne! 👋"],
-  "notifications": ["Anne! Bil bakalım ne oldu 🖐", "Sana bir şey yazdım 💬", "Pışşt… anne, bak! 👀", "Bugün sana ne anlatmak istediğime inanamayacaksın! 💛"],
+  "openers": [
+    "Anne! Bil bakalım ne oldu 🖐",
+    "Anne, uyanık mısın? 👀",
+    "Pışşt… anne! 🤫",
+    "Anne, sana bir şey söyleyebilir miyim? 💛",
+    "Merhaba anne! 👋"
+  ],
+  "notifications": [
+    "Anne! Bil bakalım ne oldu 🖐",
+    "Sana bir şey yazdım 💬",
+    "Pışşt… anne, bak! 👀",
+    "Bugün sana ne anlatmak istediğime inanamayacaksın! 💛"
+  ],
   "replies": {
-    "love": ["Ben de seni seviyorum anne 💛", "Seni henüz görmedim ama şimdiden çok seviyorum 🥰", "Boyum şimdilik bir {fruit} kadar ama kalbim seninle dolu 💛"],
-    "how": ["Harika! Burası sıcacık ve rahat 😌", "İyiyim anne. Bugün biraz daha büyüdüm 🌱", "Çok iyi! Kalp atışlarını dinliyorum 💓"],
-    "size": ["Şu an boyum aşağı yukarı bir {fruit} kadar 😄", "Şimdiden {cm} cm oldum! Büyüyorum 📏", "{week}. haftadayım ve her gün biraz büyüyorum 🌱"],
-    "kick_early": ["Şimdiden kıpırdıyorum ama o kadar minicikim ki hissetmezsin 🤭", "Burada küçük taklalar atıyorum 🤸 Yakında hissedeceksin!"],
-    "kick": ["Hissettin mi? O bendim 🦶", "Bugün dans ettim, hissettin mi? 💃", "O tekme sana merhaba demekti 👋🦶"],
-    "hear_early": ["Kulaklarım daha hazırlanıyor ama yakında seni duyacağım 👂", "Biraz daha büyüyeyim, sonra sesini duyacağım 🥰"],
-    "hear": ["Seni duyuyorum anne! Benimle yine konuş 🥰", "Sesin en sevdiğim müzik 🎶", "Bana bir şarkı söyle, ben dinlerim 🎵"],
-    "food": ["Sen ne yersen ben de tadına bakıyorum 😋", "Bugün biraz meyve yiyelim mi? 🍎", "Mmm, çok lezzetliydi! Biraz daha? 😄"],
-    "sleep": ["Benim de uykum geldi 😴 Birlikte dinlenelim", "Sen uzanınca ben de rahatlıyorum 😌", "Geceleri dans edersem kusura bakma 🙈"],
-    "dad": ["Babama benden selam söyle! 👋", "Babamın sesini de tanıyorum 😊", "Babam karnınla konuşunca çok seviyorum 🥰"],
-    "meet": ["{weeks_left} hafta daha, sonra tanışıyoruz! 🤗", "Ben de seni görmek istiyorum! Biraz daha büyüyeyim 🌱", "Tanışmamıza az kaldı 💛"],
-    "meet_soon": ["Çok az kaldı anne! Ben de hazırlanıyorum 🤗", "Yakında kollarında olacağım 💛"],
-    "name": ["Bana ne isim koyacaksın? 😊 Güzel bir isim seç!", "Hangi isim olursa olsun senin sesinle çok güzel duyulur 💛"],
-    "hello": ["Merhaba anne! 👋", "Selaaam! Seni bekliyordum 💛"],
-    "thanks": ["Rica ederim anne! 😊", "Beni taşıdığın için teşekkürler 💛"],
-    "generic": ["Anne, sen bir tanesin 💛", "Dinliyorum 👂😊", "Hmm… onu büyüyünce sorarım 😄", "Daha küçüğüm ama buna bayıldım 😄", "Bana daha çok yaz anne! 🥰"]
+    "love": [
+      "Ben de seni seviyorum anne 💛",
+      "Seni henüz görmedim ama şimdiden çok seviyorum 🥰",
+      "Boyum şimdilik bir {fruit} kadar ama kalbim seninle dolu 💛"
+    ],
+    "how": [
+      "Harika! Burası sıcacık ve rahat 😌",
+      "İyiyim anne. Bugün biraz daha büyüdüm 🌱",
+      "Çok iyi! Kalp atışlarını dinliyorum 💓"
+    ],
+    "size": [
+      "Şu an boyum aşağı yukarı bir {fruit} kadar 😄",
+      "Şimdiden {cm} cm oldum! Büyüyorum 📏",
+      "{week}. haftadayım ve her gün biraz büyüyorum 🌱"
+    ],
+    "kick_early": [
+      "Şimdiden kıpırdıyorum ama o kadar minicikim ki hissetmezsin 🤭",
+      "Burada küçük taklalar atıyorum 🤸 Yakında hissedeceksin!"
+    ],
+    "kick": [
+      "Hissettin mi? O bendim 🦶",
+      "Bugün dans ettim, hissettin mi? 💃",
+      "O tekme sana merhaba demekti 👋🦶"
+    ],
+    "hear_early": [
+      "Kulaklarım daha hazırlanıyor ama yakında seni duyacağım 👂",
+      "Biraz daha büyüyeyim, sonra sesini duyacağım 🥰"
+    ],
+    "hear": [
+      "Seni duyuyorum anne! Benimle yine konuş 🥰",
+      "Sesin en sevdiğim müzik 🎶",
+      "Bana bir şarkı söyle, ben dinlerim 🎵"
+    ],
+    "food": [
+      "Sen ne yersen ben de tadına bakıyorum 😋",
+      "Bugün biraz meyve yiyelim mi? 🍎",
+      "Mmm, çok lezzetliydi! Biraz daha? 😄"
+    ],
+    "sleep": [
+      "Benim de uykum geldi 😴 Birlikte dinlenelim",
+      "Sen uzanınca ben de rahatlıyorum 😌",
+      "Geceleri dans edersem kusura bakma 🙈"
+    ],
+    "dad": [
+      "Babama benden selam söyle! 👋",
+      "Babamın sesini de tanıyorum 😊",
+      "Babam karnınla konuşunca çok seviyorum 🥰"
+    ],
+    "meet": [
+      "{weeks_left} hafta daha, sonra tanışıyoruz! 🤗",
+      "Ben de seni görmek istiyorum! Biraz daha büyüyeyim 🌱",
+      "Tanışmamıza az kaldı 💛"
+    ],
+    "meet_soon": [
+      "Çok az kaldı anne! Ben de hazırlanıyorum 🤗",
+      "Yakında kollarında olacağım 💛"
+    ],
+    "name": [
+      "Bana ne isim koyacaksın? 😊 Güzel bir isim seç!",
+      "Hangi isim olursa olsun senin sesinle çok güzel duyulur 💛"
+    ],
+    "hello": [
+      "Merhaba anne! 👋",
+      "Selaaam! Seni bekliyordum 💛"
+    ],
+    "thanks": [
+      "Rica ederim anne! 😊",
+      "Beni taşıdığın için teşekkürler 💛"
+    ],
+    "generic": [
+      "Anne, sen bir tanesin 💛",
+      "Dinliyorum 👂😊",
+      "Hmm… onu büyüyünce sorarım 😄",
+      "Daha küçüğüm ama buna bayıldım 😄",
+      "Bana daha çok yaz anne! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["teşekkür", "tesekkur", "sağ ol", "sagol", "sağol", "eyvallah", "tşk"],
-    "love": ["sev", "aşk", "ask", "canım", "canim", "kuzum", "bir tanem", "❤", "💛", "😘", "🥰"],
-    "name": ["isim", "ismin", "adın", "adin", "ad koy"],
-    "dad": ["baba", "babiş", "babis", "eşim", "esim"],
-    "kick": ["tekme", "kıpır", "kipir", "hareket", "dans", "takla", "oyna"],
-    "hear": ["duy", "ses", "müzik", "muzik", "şarkı", "sarki", "konuş", "konus"],
-    "size": ["boy", "büyü", "buyu", "küçük", "kucuk", "minik", "cm", "kilo", "ağırlı", "boyut"],
-    "food": ["ye", "yemek", "aç", "acık", "tat", "meyve", "çikolata", "cikolata", "süt", "sut"],
-    "sleep": ["uyu", "uyku", "gece", "yorgun", "yatak", "yat"],
-    "meet": ["tanış", "tanis", "ne zaman", "bekl", "doğ", "dog", "kavuş", "kavus"],
-    "how": ["nasılsın", "nasilsin", "naber", "ne yapıyorsun", "ne yapiyorsun", "iyi misin"],
-    "hello": ["merhaba", "selam", "slm", "mrb", "günaydın", "gunaydin", "hey"]
-  }
+    "thanks": [
+      "teşekkür",
+      "tesekkur",
+      "sağ ol",
+      "sagol",
+      "sağol",
+      "eyvallah",
+      "tşk"
+    ],
+    "love": [
+      "sev",
+      "aşk",
+      "ask",
+      "canım",
+      "canim",
+      "kuzum",
+      "bir tanem",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "isim",
+      "ismin",
+      "adın",
+      "adin",
+      "ad koy"
+    ],
+    "dad": [
+      "baba",
+      "babiş",
+      "babis",
+      "eşim",
+      "esim"
+    ],
+    "kick": [
+      "tekme",
+      "kıpır",
+      "kipir",
+      "hareket",
+      "dans",
+      "takla",
+      "oyna"
+    ],
+    "hear": [
+      "duy",
+      "ses",
+      "müzik",
+      "muzik",
+      "şarkı",
+      "sarki",
+      "konuş",
+      "konus"
+    ],
+    "size": [
+      "boy",
+      "büyü",
+      "buyu",
+      "küçük",
+      "kucuk",
+      "minik",
+      "cm",
+      "kilo",
+      "ağırlı",
+      "boyut"
+    ],
+    "food": [
+      "ye",
+      "yemek",
+      "aç",
+      "acık",
+      "tat",
+      "meyve",
+      "çikolata",
+      "cikolata",
+      "süt",
+      "sut"
+    ],
+    "sleep": [
+      "uyu",
+      "uyku",
+      "gece",
+      "yorgun",
+      "yatak",
+      "yat"
+    ],
+    "meet": [
+      "tanış",
+      "tanis",
+      "ne zaman",
+      "bekl",
+      "doğ",
+      "dog",
+      "kavuş",
+      "kavus"
+    ],
+    "how": [
+      "nasılsın",
+      "nasilsin",
+      "naber",
+      "ne yapıyorsun",
+      "ne yapiyorsun",
+      "iyi misin"
+    ],
+    "hello": [
+      "merhaba",
+      "selam",
+      "slm",
+      "mrb",
+      "günaydın",
+      "gunaydin",
+      "hey"
+    ]
+  },
+  "weekly": {
+    "4": "Anne, şimdilik bir haşhaş tanesi kadarım ama büyük planlarım var 🌱",
+    "5": "Kalbim atmaya başladı! Güm güm… duyuyor musun? 💓",
+    "6": "Bu hafta burnum oluşuyor 👃 Eminim kokunu çok seveceğim!",
+    "7": "Ellerim minik kürekler gibi 🤲 Henüz alkış tutamıyorum",
+    "8": "Parmaklarım geliyor 🖐 Saymaya başladım: 1, 2, 3… bir daha sayayım mı?",
+    "9": "Artık minik kaslarım var 💪 Gizli gizli spor yapıyorum",
+    "10": "Tırnaklarım uzamaya başladı 💅 Manikürü sonra konuşuruz",
+    "11": "Hıçkırmayı öğrendim! Hık! 😅",
+    "12": "Bugün parmağımı ağzıma soktum 👍 Nefis!",
+    "13": "Artık parmak izlerim var ☝️ Benden bir tane daha yok!",
+    "14": "Surat ifadeleri çalışıyorum: kaş çatmak, gülümsemek… 😄",
+    "15": "Işığı hissedebiliyorum ☀️ Güneşli günleri çok seveceğim!",
+    "16": "Gözlerim yavaş yavaş hareket ediyor 👀 Hâlâ kapalı ama çok heyecanlı",
+    "17": "Yanaklarım için biraz yağ biriktiriyorum 😊 Öpücükler için!",
+    "18": "Kulaklarım hazır 👂 Sesini duymaya hazırlanıyorum",
+    "19": "Takla atmayı öğreniyorum 🤸 Hissettin mi?",
+    "20": "Yolu yarıladık! 🎉 Bugün kendimi alkışladım",
+    "21": "Tekmelerim güçleniyor 🦶 Bu “merhaba” demek!",
+    "22": "Kaşlarım çıktı 🤨 Artık daha ifadeliyim",
+    "23": "Müzik dinliyorum 🎶 Senin şarkını çok sevdim",
+    "24": "Nefes almayı çalışıyorum 🌬 Hâlâ suyun altındayım ama artık ustayım!",
+    "25": "Saçlarım uzuyor 💇 Rengi sürpriz olacak!",
+    "26": "Gözlerimi açabiliyorum! 👀 Burada her şey pembe",
+    "27": "Rüya görüyorum 💭 Herhalde seni",
+    "28": "Göz kırpabiliyorum 😉 Sana göz kırpan benim",
+    "29": "Yer daralıyor ama ben hâlâ dans ediyorum 💃",
+    "30": "Her gün biraz daha akıllanıyorum 🧠 Tıpkı senin gibi!",
+    "31": "Başımı çevirebiliyorum ↔️ Sesine doğru dönüyorum",
+    "32": "Tırnaklarım parmak uçlarıma ulaştı 💅 Hazırlanıyorum!",
+    "33": "Her gün biraz daha güçleniyorum 💪 Sarılmalara hazırlanıyorum",
+    "34": "Yanaklarım tombullaşıyor 😊 Öpücüklere hazır",
+    "35": "Burası çok sıcacık 🙈 Ayaklarımı koyacak yer lazım",
+    "36": "Neredeyse hazırım! Son rötuşlar ✨",
+    "37": "Gözlerim, kulaklarım, kalbim: hepsi seni bekliyor 💛",
+    "38": "Kollarını hayal ediyorum 🤗 Az kaldı",
+    "39": "Çantanı hazırladın mı? 😄 Ben hazırım",
+    "40": "Belki bugün, belki yarın 😄 Sana sürpriz yapacağım!",
+    "41": "Burası çok rahat, biraz daha kalabilir miyim? 🙈💛"
+  },
+  "daily": [
+    "Bugün bir {fruit} kadarım! Büyüyorum 🌱",
+    "Kalp atışın benim ninnim 💓",
+    "Burası sıcacık ve rahat, merak etme 😌",
+    "Bugün biraz dinlen, ben de dinleneyim 😴",
+    "Su içmeyi unutma, ben de seviyorum 💧",
+    "Bugün ne yiyoruz? 😋",
+    "Gülümse anne! Sen gülünce ben de rahatlıyorum 😊",
+    "Babama benden selam söyle! 👋",
+    "Küçüğüm ama seni çok seviyorum 💛",
+    "Bugün biraz büyüdüm, hissettin mi? 📏",
+    "Seni her gün biraz daha çok seviyorum 🥰",
+    "Bana bir masal anlatır mısın? 📖",
+    "Bugün çok güzelsin anne! ✨",
+    "Ben seni bekliyorum, sen de beni 🤗"
+  ]
 }

@@ -20,40 +20,274 @@
     "end_line1": "Tu bebé te escribe",
     "end_line2": "cada día.",
     "notif_title": "Mi bebé 💛",
-    "about": "Solo por diversión: Anacan escribe los mensajes según la semana de tu bebé."
+    "about": "Solo por diversión: Anacan escribe los mensajes según la semana de tu bebé.",
+    "share_ready_video": "Tu vídeo está listo 🎉",
+    "share_ready_photo": "Tu foto está lista 🎉",
+    "share_now": "Compartir",
+    "save": "Guardar"
   },
-  "openers": ["¡Mamá! Adivina qué 🖐", "Mamá, ¿estás despierta? 👀", "Psst… ¡mamá! 🤫", "Mamá, ¿te puedo contar algo? 💛", "¡Hola, mamá! 👋"],
-  "notifications": ["¡Mamá! Adivina qué 🖐", "Te he escrito algo 💬", "Psst… ¡mamá, mira! 👀", "¡No te vas a creer lo que te quiero contar hoy! 💛"],
+  "openers": [
+    "¡Mamá! Adivina qué 🖐",
+    "Mamá, ¿estás despierta? 👀",
+    "Psst… ¡mamá! 🤫",
+    "Mamá, ¿te puedo contar algo? 💛",
+    "¡Hola, mamá! 👋"
+  ],
+  "notifications": [
+    "¡Mamá! Adivina qué 🖐",
+    "Te he escrito algo 💬",
+    "Psst… ¡mamá, mira! 👀",
+    "¡No te vas a creer lo que te quiero contar hoy! 💛"
+  ],
   "replies": {
-    "love": ["Yo también te quiero, mamá 💛", "Todavía no te he visto, pero ya te quiero muchísimo 🥰", "Mi tamaño: apenas {fruit}, pero mi corazón está lleno de ti 💛"],
-    "how": ["¡Genial! Aquí dentro se está calentito y a gusto 😌", "Estoy bien, mamá. Hoy he crecido un poquito más 🌱", "¡Muy bien! Estoy escuchando tu corazón 💓"],
-    "size": ["Ahora mismo mi tamaño es más o menos: {fruit} 😄", "¡Ya mido {cm} cm! Creciendo 📏", "Estoy en la semana {week} y crezco un poquito cada día 🌱"],
-    "kick_early": ["Ya me muevo, pero soy tan chiquitito que no lo notarás 🤭", "Aquí dentro hago volteretas 🤸 ¡Pronto las notarás!"],
-    "kick": ["¿Lo has notado? Era yo 🦶", "Hoy he bailado, ¿lo has notado? 💃", "Esa patadita era para decirte hola 👋🦶"],
-    "hear_early": ["Mis oídos todavía se están preparando, pero pronto te oiré 👂", "Déjame crecer un poco más y oiré tu voz 🥰"],
-    "hear": ["¡Te oigo, mamá! Háblame otra vez 🥰", "Tu voz es mi música favorita 🎶", "Cántame una canción y te escucho 🎵"],
-    "food": ["Todo lo que comes, yo también lo pruebo 😋", "¿Comemos algo de fruta hoy? 🍎", "¡Mmm, qué rico! ¿Un poquito más? 😄"],
-    "sleep": ["Yo también quiero dormir 😴 Descansemos juntos", "Cuando te tumbas, yo también me relajo 😌", "Perdona si bailo por la noche 🙈"],
-    "dad": ["¡Dale un saludo a papá de mi parte! 👋", "También conozco la voz de papá 😊", "Me encanta cuando papá le habla a tu barriguita 🥰"],
-    "meet": ["¡{weeks_left} semanas más y nos conocemos! 🤗", "¡Yo también quiero verte! Déjame crecer un poquito más 🌱", "Falta poco para conocernos 💛"],
-    "meet_soon": ["¡Ya falta muy poco, mamá! Yo también me estoy preparando 🤗", "Pronto estaré en tus brazos 💛"],
-    "name": ["¿Cómo me vas a llamar? 😊 ¡Elige un nombre bonito!", "Cualquier nombre sonará precioso con tu voz 💛"],
-    "hello": ["¡Hola, mamá! 👋", "¡Holaaa! Te estaba esperando 💛"],
-    "thanks": ["¡De nada, mamá! 😊", "Gracias por llevarme contigo a todas partes 💛"],
-    "generic": ["Mamá, eres la mejor 💛", "Te escucho 👂😊", "Mmm… eso lo preguntaré cuando sea más mayor 😄", "Todavía soy pequeñito, pero me ha encantado 😄", "¡Escríbeme más, mamá! 🥰"]
+    "love": [
+      "Yo también te quiero, mamá 💛",
+      "Todavía no te he visto, pero ya te quiero muchísimo 🥰",
+      "Mi tamaño: apenas {fruit}, pero mi corazón está lleno de ti 💛"
+    ],
+    "how": [
+      "¡Genial! Aquí dentro se está calentito y a gusto 😌",
+      "Estoy bien, mamá. Hoy he crecido un poquito más 🌱",
+      "¡Muy bien! Estoy escuchando tu corazón 💓"
+    ],
+    "size": [
+      "Ahora mismo mi tamaño es más o menos: {fruit} 😄",
+      "¡Ya mido {cm} cm! Creciendo 📏",
+      "Estoy en la semana {week} y crezco un poquito cada día 🌱"
+    ],
+    "kick_early": [
+      "Ya me muevo, pero soy tan chiquitito que no lo notarás 🤭",
+      "Aquí dentro hago volteretas 🤸 ¡Pronto las notarás!"
+    ],
+    "kick": [
+      "¿Lo has notado? Era yo 🦶",
+      "Hoy he bailado, ¿lo has notado? 💃",
+      "Esa patadita era para decirte hola 👋🦶"
+    ],
+    "hear_early": [
+      "Mis oídos todavía se están preparando, pero pronto te oiré 👂",
+      "Déjame crecer un poco más y oiré tu voz 🥰"
+    ],
+    "hear": [
+      "¡Te oigo, mamá! Háblame otra vez 🥰",
+      "Tu voz es mi música favorita 🎶",
+      "Cántame una canción y te escucho 🎵"
+    ],
+    "food": [
+      "Todo lo que comes, yo también lo pruebo 😋",
+      "¿Comemos algo de fruta hoy? 🍎",
+      "¡Mmm, qué rico! ¿Un poquito más? 😄"
+    ],
+    "sleep": [
+      "Yo también quiero dormir 😴 Descansemos juntos",
+      "Cuando te tumbas, yo también me relajo 😌",
+      "Perdona si bailo por la noche 🙈"
+    ],
+    "dad": [
+      "¡Dale un saludo a papá de mi parte! 👋",
+      "También conozco la voz de papá 😊",
+      "Me encanta cuando papá le habla a tu barriguita 🥰"
+    ],
+    "meet": [
+      "¡{weeks_left} semanas más y nos conocemos! 🤗",
+      "¡Yo también quiero verte! Déjame crecer un poquito más 🌱",
+      "Falta poco para conocernos 💛"
+    ],
+    "meet_soon": [
+      "¡Ya falta muy poco, mamá! Yo también me estoy preparando 🤗",
+      "Pronto estaré en tus brazos 💛"
+    ],
+    "name": [
+      "¿Cómo me vas a llamar? 😊 ¡Elige un nombre bonito!",
+      "Cualquier nombre sonará precioso con tu voz 💛"
+    ],
+    "hello": [
+      "¡Hola, mamá! 👋",
+      "¡Holaaa! Te estaba esperando 💛"
+    ],
+    "thanks": [
+      "¡De nada, mamá! 😊",
+      "Gracias por llevarme contigo a todas partes 💛"
+    ],
+    "generic": [
+      "Mamá, eres la mejor 💛",
+      "Te escucho 👂😊",
+      "Mmm… eso lo preguntaré cuando sea más mayor 😄",
+      "Todavía soy pequeñito, pero me ha encantado 😄",
+      "¡Escríbeme más, mamá! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["gracias", "grax", "graci", "agradez"],
-    "love": ["quier", "amo", "amor", "cariño", "carino", "corazón", "corazon", "tesoro", "❤", "💛", "😘", "🥰"],
-    "name": ["nombre", "llamar", "llamarás", "llamaras", "llamo"],
-    "dad": ["papá", "papa", "papi", "padre", "marido"],
-    "kick": ["patad", "patea", "mueve", "mov", "baila", "voltereta"],
-    "hear": ["oye", "oyes", "oír", "oir", "escuch", "voz", "música", "musica", "canci", "cant", "habl"],
-    "size": ["tamaño", "tamano", "grande", "pequeñ", "pequen", "chiquit", "crec", "cm", "pesa", "frambuesa"],
-    "food": ["come", "comer", "comida", "hambre", "sabor", "rico", "fruta", "chocolate", "leche"],
-    "sleep": ["dorm", "duerm", "siesta", "noche", "cansad", "cama", "sueño"],
-    "meet": ["conocer", "conocernos", "cuándo", "cuando", "espera", "nacer", "naces", "salir"],
-    "how": ["cómo estás", "como estas", "qué tal", "que tal", "qué haces", "que haces", "estás bien"],
-    "hello": ["hola", "holi", "buenos días", "buenos dias", "buenas", "hey", "ey"]
-  }
+    "thanks": [
+      "gracias",
+      "grax",
+      "graci",
+      "agradez"
+    ],
+    "love": [
+      "quier",
+      "amo",
+      "amor",
+      "cariño",
+      "carino",
+      "corazón",
+      "corazon",
+      "tesoro",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "nombre",
+      "llamar",
+      "llamarás",
+      "llamaras",
+      "llamo"
+    ],
+    "dad": [
+      "papá",
+      "papa",
+      "papi",
+      "padre",
+      "marido"
+    ],
+    "kick": [
+      "patad",
+      "patea",
+      "mueve",
+      "mov",
+      "baila",
+      "voltereta"
+    ],
+    "hear": [
+      "oye",
+      "oyes",
+      "oír",
+      "oir",
+      "escuch",
+      "voz",
+      "música",
+      "musica",
+      "canci",
+      "cant",
+      "habl"
+    ],
+    "size": [
+      "tamaño",
+      "tamano",
+      "grande",
+      "pequeñ",
+      "pequen",
+      "chiquit",
+      "crec",
+      "cm",
+      "pesa",
+      "frambuesa"
+    ],
+    "food": [
+      "come",
+      "comer",
+      "comida",
+      "hambre",
+      "sabor",
+      "rico",
+      "fruta",
+      "chocolate",
+      "leche"
+    ],
+    "sleep": [
+      "dorm",
+      "duerm",
+      "siesta",
+      "noche",
+      "cansad",
+      "cama",
+      "sueño"
+    ],
+    "meet": [
+      "conocer",
+      "conocernos",
+      "cuándo",
+      "cuando",
+      "espera",
+      "nacer",
+      "naces",
+      "salir"
+    ],
+    "how": [
+      "cómo estás",
+      "como estas",
+      "qué tal",
+      "que tal",
+      "qué haces",
+      "que haces",
+      "estás bien"
+    ],
+    "hello": [
+      "hola",
+      "holi",
+      "buenos días",
+      "buenos dias",
+      "buenas",
+      "hey",
+      "ey"
+    ]
+  },
+  "weekly": {
+    "4": "Mamá, solo mido lo que una semilla de amapola, pero tengo grandes planes 🌱",
+    "5": "¡Mi corazón empezó a latir! Pum-pum… ¿lo oyes? 💓",
+    "6": "Esta semana se me forma la naricita 👃 ¡Seguro que me encantará tu olor!",
+    "7": "Mis manitas parecen remos diminutos 🤲 Todavía no sé aplaudir",
+    "8": "Me están saliendo los deditos 🖐 Empecé a contar: 1, 2, 3… ¿cuento otra vez?",
+    "9": "Ya tengo músculos diminutos 💪 Hago ejercicio en secreto",
+    "10": "Me empiezan a crecer las uñitas 💅 De la manicura hablamos luego",
+    "11": "¡Aprendí a tener hipo! ¡Hip! 😅",
+    "12": "Hoy me metí el pulgar en la boca 👍 ¡Qué rico!",
+    "13": "Ya tengo huellas dactilares ☝️ ¡Soy único en el mundo!",
+    "14": "Estoy practicando caritas: fruncir el ceño, sonreír… 😄",
+    "15": "Puedo sentir la luz ☀️ ¡Me van a encantar los días de sol!",
+    "16": "Mis ojitos se mueven despacito 👀 Aún cerrados, pero ¡qué emoción!",
+    "17": "Estoy guardando un poquito de grasa para mis mofletes 😊 ¡Para los besos!",
+    "18": "Mis orejitas están listas 👂 Preparándome para oír tu voz",
+    "19": "Estoy aprendiendo volteretas 🤸 ¿Lo sentiste?",
+    "20": "¡Ya vamos por la mitad! 🎉 Hoy me aplaudí a mí mismo",
+    "21": "Mis pataditas son más fuertes 🦶 ¡Eso significa «hola»!",
+    "22": "Me salieron las cejas 🤨 Ahora soy más expresivo",
+    "23": "Estoy escuchando música 🎶 Me encantó tu canción",
+    "24": "Estoy practicando respirar 🌬 Aún bajo el agua, ¡pero ya soy un experto!",
+    "25": "Me está creciendo el pelo 💇 ¡El color será sorpresa!",
+    "26": "¡Puedo abrir los ojos! 👀 Aquí dentro todo se ve rosa",
+    "27": "Estoy soñando 💭 Seguro que contigo",
+    "28": "Sé parpadear 😉 Ese soy yo guiñándote un ojo",
+    "29": "Cada vez hay menos espacio, pero sigo bailando 💃",
+    "30": "Cada día soy más listo 🧠 ¡Igual que tú!",
+    "31": "Puedo girar la cabeza ↔️ Me giro hacia tu voz",
+    "32": "Mis uñitas llegan a la punta de los dedos 💅 ¡Me estoy preparando!",
+    "33": "Cada día soy más fuerte 💪 Preparándome para los abrazos",
+    "34": "Mis mofletes se ponen redonditos 😊 Listos para los besos",
+    "35": "Aquí se está tan a gusto 🙈 Pero no sé dónde poner los pies",
+    "36": "¡Ya casi estoy! Solo los últimos retoques ✨",
+    "37": "Mis ojos, mis oídos, mi corazón: todos te esperan 💛",
+    "38": "Sueño con tus brazos 🤗 Ya falta poco",
+    "39": "¿Ya preparaste la bolsa? 😄 Yo estoy listo",
+    "40": "Puede ser hoy, puede ser mañana 😄 ¡Te daré una sorpresa!",
+    "41": "Aquí se está tan cómodo, ¿me puedo quedar un poquito más? 🙈💛"
+  },
+  "daily": [
+    "¡Hoy mi tamaño: {fruit}! Estoy creciendo 🌱",
+    "Tu latido es mi canción de cuna 💓",
+    "Aquí dentro está calentito y cómodo, no te preocupes 😌",
+    "Descansa un poquito hoy, yo también descansaré 😴",
+    "No olvides tomar agua, a mí también me gusta 💧",
+    "¿Qué comemos hoy? 😋",
+    "¡Sonríe, mamá! Cuando sonríes, yo también me relajo 😊",
+    "¡Salúdame a papá! 👋",
+    "Soy pequeñito, pero te quiero muchísimo 💛",
+    "Hoy crecí un poquito, ¿lo notaste? 📏",
+    "Cada día te quiero un poquito más 🥰",
+    "¿Me cuentas un cuento? 📖",
+    "¡Hoy estás preciosa, mamá! ✨",
+    "Yo te espero a ti y tú me esperas a mí 🤗"
+  ]
 }

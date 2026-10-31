@@ -20,40 +20,271 @@
     "end_line1": "Ton bébé t'écrit",
     "end_line2": "chaque jour.",
     "notif_title": "Mon bébé 💛",
-    "about": "Juste pour le plaisir : Anacan écrit les messages selon la semaine de ton bébé."
+    "about": "Juste pour le plaisir : Anacan écrit les messages selon la semaine de ton bébé.",
+    "share_ready_video": "Ta vidéo est prête 🎉",
+    "share_ready_photo": "Ta photo est prête 🎉",
+    "share_now": "Partager",
+    "save": "Enregistrer"
   },
-  "openers": ["Maman ! Devine quoi 🖐", "Maman, tu dors ? 👀", "Psst… maman ! 🤫", "Maman, je peux te dire un truc ? 💛", "Coucou maman ! 👋"],
-  "notifications": ["Maman ! Devine quoi 🖐", "Je t'ai écrit un petit mot 💬", "Psst… maman, regarde ! 👀", "Tu ne vas pas croire ce que j'ai à te raconter aujourd'hui ! 💛"],
+  "openers": [
+    "Maman ! Devine quoi 🖐",
+    "Maman, tu dors ? 👀",
+    "Psst… maman ! 🤫",
+    "Maman, je peux te dire un truc ? 💛",
+    "Coucou maman ! 👋"
+  ],
+  "notifications": [
+    "Maman ! Devine quoi 🖐",
+    "Je t'ai écrit un petit mot 💬",
+    "Psst… maman, regarde ! 👀",
+    "Tu ne vas pas croire ce que j'ai à te raconter aujourd'hui ! 💛"
+  ],
   "replies": {
-    "love": ["Moi aussi je t'aime, maman 💛", "Je ne t'ai jamais vue, mais je t'aime déjà tellement 🥰", "Ma taille : à peine {fruit}, mais mon cœur est rempli de toi 💛"],
-    "how": ["Super ! Il fait bien chaud et tout douillet ici 😌", "Ça va, maman. J'ai encore un peu grandi aujourd'hui 🌱", "Trop bien ! J'écoute ton cœur battre 💓"],
-    "size": ["En ce moment, ma taille, c'est à peu près : {fruit} 😄", "Je mesure déjà {cm} cm ! Je grandis 📏", "Je suis à la semaine {week} et je grandis un peu chaque jour 🌱"],
-    "kick_early": ["Je gigote déjà, mais je suis encore si petit que tu ne le sens pas 🤭", "Je fais des petites galipettes ici 🤸 Tu les sentiras bientôt !"],
-    "kick": ["Tu as senti ? C'était moi 🦶", "J'ai dansé aujourd'hui, tu l'as senti ? 💃", "Ce petit coup de pied, c'était pour te dire coucou 👋🦶"],
-    "hear_early": ["Mes oreilles se préparent encore, mais bientôt je t'entendrai 👂", "Laisse-moi grandir encore un peu, et j'entendrai ta voix 🥰"],
-    "hear": ["Je t'entends, maman ! Parle-moi encore 🥰", "Ta voix, c'est ma musique préférée 🎶", "Chante-moi une chanson, je t'écoute 🎵"],
-    "food": ["Tout ce que tu manges, j'y goûte un peu aussi 😋", "Et si on mangeait des fruits aujourd'hui ? 🍎", "Miam, c'était trop bon ! Encore un peu ? 😄"],
-    "sleep": ["Moi aussi j'ai envie de dormir 😴 Reposons-nous ensemble", "Quand tu t'allonges, je me détends aussi 😌", "Pardon si je danse la nuit 🙈"],
-    "dad": ["Fais un coucou à papa de ma part ! 👋", "Je connais aussi la voix de papa 😊", "J'adore quand papa parle à ton ventre 🥰"],
-    "meet": ["Encore {weeks_left} semaines et on se rencontre ! 🤗", "Moi aussi j'ai hâte de te voir ! Laisse-moi grandir encore un peu 🌱", "On se rencontre bientôt 💛"],
-    "meet_soon": ["Plus très longtemps, maman ! Je me prépare moi aussi 🤗", "Bientôt je serai dans tes bras 💛"],
-    "name": ["Comment tu vas m'appeler ? 😊 Choisis un joli prénom !", "N'importe quel prénom sera joli dans ta voix 💛"],
-    "hello": ["Coucou maman ! 👋", "Coucouuu ! Je t'attendais 💛"],
-    "thanks": ["De rien, maman ! 😊", "Merci de me porter partout 💛"],
-    "generic": ["Maman, tu es la meilleure 💛", "Je t'écoute 👂😊", "Hmm… je demanderai ça quand je serai plus grand 😄", "Je suis encore petit, mais j'ai adoré 😄", "Écris-moi encore, maman ! 🥰"]
+    "love": [
+      "Moi aussi je t'aime, maman 💛",
+      "Je ne t'ai jamais vue, mais je t'aime déjà tellement 🥰",
+      "Ma taille : à peine {fruit}, mais mon cœur est rempli de toi 💛"
+    ],
+    "how": [
+      "Super ! Il fait bien chaud et tout douillet ici 😌",
+      "Ça va, maman. J'ai encore un peu grandi aujourd'hui 🌱",
+      "Trop bien ! J'écoute ton cœur battre 💓"
+    ],
+    "size": [
+      "En ce moment, ma taille, c'est à peu près : {fruit} 😄",
+      "Je mesure déjà {cm} cm ! Je grandis 📏",
+      "Je suis à la semaine {week} et je grandis un peu chaque jour 🌱"
+    ],
+    "kick_early": [
+      "Je gigote déjà, mais je suis encore si petit que tu ne le sens pas 🤭",
+      "Je fais des petites galipettes ici 🤸 Tu les sentiras bientôt !"
+    ],
+    "kick": [
+      "Tu as senti ? C'était moi 🦶",
+      "J'ai dansé aujourd'hui, tu l'as senti ? 💃",
+      "Ce petit coup de pied, c'était pour te dire coucou 👋🦶"
+    ],
+    "hear_early": [
+      "Mes oreilles se préparent encore, mais bientôt je t'entendrai 👂",
+      "Laisse-moi grandir encore un peu, et j'entendrai ta voix 🥰"
+    ],
+    "hear": [
+      "Je t'entends, maman ! Parle-moi encore 🥰",
+      "Ta voix, c'est ma musique préférée 🎶",
+      "Chante-moi une chanson, je t'écoute 🎵"
+    ],
+    "food": [
+      "Tout ce que tu manges, j'y goûte un peu aussi 😋",
+      "Et si on mangeait des fruits aujourd'hui ? 🍎",
+      "Miam, c'était trop bon ! Encore un peu ? 😄"
+    ],
+    "sleep": [
+      "Moi aussi j'ai envie de dormir 😴 Reposons-nous ensemble",
+      "Quand tu t'allonges, je me détends aussi 😌",
+      "Pardon si je danse la nuit 🙈"
+    ],
+    "dad": [
+      "Fais un coucou à papa de ma part ! 👋",
+      "Je connais aussi la voix de papa 😊",
+      "J'adore quand papa parle à ton ventre 🥰"
+    ],
+    "meet": [
+      "Encore {weeks_left} semaines et on se rencontre ! 🤗",
+      "Moi aussi j'ai hâte de te voir ! Laisse-moi grandir encore un peu 🌱",
+      "On se rencontre bientôt 💛"
+    ],
+    "meet_soon": [
+      "Plus très longtemps, maman ! Je me prépare moi aussi 🤗",
+      "Bientôt je serai dans tes bras 💛"
+    ],
+    "name": [
+      "Comment tu vas m'appeler ? 😊 Choisis un joli prénom !",
+      "N'importe quel prénom sera joli dans ta voix 💛"
+    ],
+    "hello": [
+      "Coucou maman ! 👋",
+      "Coucouuu ! Je t'attendais 💛"
+    ],
+    "thanks": [
+      "De rien, maman ! 😊",
+      "Merci de me porter partout 💛"
+    ],
+    "generic": [
+      "Maman, tu es la meilleure 💛",
+      "Je t'écoute 👂😊",
+      "Hmm… je demanderai ça quand je serai plus grand 😄",
+      "Je suis encore petit, mais j'ai adoré 😄",
+      "Écris-moi encore, maman ! 🥰"
+    ]
   },
   "keywords": {
-    "thanks": ["merci", "mci", "remerci", "thx"],
-    "love": ["aime", "t'aime", "amour", "chéri", "cheri", "mon cœur", "mon coeur", "bisou", "❤", "💛", "😘", "🥰"],
-    "name": ["prénom", "prenom", "nom", "appeler", "appellera", "appelle"],
-    "dad": ["papa", "père", "pere", "mari", "chéri"],
-    "kick": ["coup", "bouge", "gigot", "danse", "galipette", "pied", "tape"],
-    "hear": ["entend", "écoute", "ecoute", "voix", "musique", "chanson", "chante", "parle"],
-    "size": ["taille", "grand", "petit", "minuscule", "grandi", "cm", "pèse", "pese", "poids", "framboise"],
-    "food": ["mange", "manger", "faim", "goût", "gout", "fruit", "chocolat", "lait", "miam"],
-    "sleep": ["dor", "sieste", "nuit", "fatigu", "lit", "dodo"],
-    "meet": ["rencontr", "quand", "attend", "naître", "naitre", "naissance", "hâte", "hate", "voir"],
-    "how": ["ça va", "ca va", "comment vas", "comment tu vas", "tu fais quoi", "que fais"],
-    "hello": ["coucou", "salut", "bonjour", "hello", "cc", "slt"]
-  }
+    "thanks": [
+      "merci",
+      "mci",
+      "remerci",
+      "thx"
+    ],
+    "love": [
+      "aime",
+      "t'aime",
+      "amour",
+      "chéri",
+      "cheri",
+      "mon cœur",
+      "mon coeur",
+      "bisou",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "prénom",
+      "prenom",
+      "nom",
+      "appeler",
+      "appellera",
+      "appelle"
+    ],
+    "dad": [
+      "papa",
+      "père",
+      "pere",
+      "mari",
+      "chéri"
+    ],
+    "kick": [
+      "coup",
+      "bouge",
+      "gigot",
+      "danse",
+      "galipette",
+      "pied",
+      "tape"
+    ],
+    "hear": [
+      "entend",
+      "écoute",
+      "ecoute",
+      "voix",
+      "musique",
+      "chanson",
+      "chante",
+      "parle"
+    ],
+    "size": [
+      "taille",
+      "grand",
+      "petit",
+      "minuscule",
+      "grandi",
+      "cm",
+      "pèse",
+      "pese",
+      "poids",
+      "framboise"
+    ],
+    "food": [
+      "mange",
+      "manger",
+      "faim",
+      "goût",
+      "gout",
+      "fruit",
+      "chocolat",
+      "lait",
+      "miam"
+    ],
+    "sleep": [
+      "dor",
+      "sieste",
+      "nuit",
+      "fatigu",
+      "lit",
+      "dodo"
+    ],
+    "meet": [
+      "rencontr",
+      "quand",
+      "attend",
+      "naître",
+      "naitre",
+      "naissance",
+      "hâte",
+      "hate",
+      "voir"
+    ],
+    "how": [
+      "ça va",
+      "ca va",
+      "comment vas",
+      "comment tu vas",
+      "tu fais quoi",
+      "que fais"
+    ],
+    "hello": [
+      "coucou",
+      "salut",
+      "bonjour",
+      "hello",
+      "cc",
+      "slt"
+    ]
+  },
+  "weekly": {
+    "4": "Maman, je ne suis pas plus gros qu'une graine de pavot, mais j'ai de grands projets 🌱",
+    "5": "Mon cœur s'est mis à battre ! Boum-boum… tu l'entends ? 💓",
+    "6": "Mon petit nez se forme cette semaine 👃 Je suis sûr que j'adorerai ton odeur !",
+    "7": "Mes mains ressemblent à de petites pagaies 🤲 Je ne sais pas encore applaudir",
+    "8": "Mes doigts arrivent 🖐 J'ai commencé à compter : 1, 2, 3… je recompte ?",
+    "9": "J'ai de tout petits muscles maintenant 💪 Je m'entraîne en secret",
+    "10": "Mes ongles commencent à pousser 💅 On parlera manucure plus tard",
+    "11": "J'ai appris à avoir le hoquet ! Hic ! 😅",
+    "12": "J'ai mis mon pouce dans ma bouche aujourd'hui 👍 Miam !",
+    "13": "J'ai mes empreintes digitales ☝️ Je suis unique au monde !",
+    "14": "Je m'entraîne aux grimaces : froncer les sourcils, sourire… 😄",
+    "15": "Je sens la lumière ☀️ Je vais adorer les jours de soleil !",
+    "16": "Mes yeux bougent doucement 👀 Encore fermés, mais c'est trop excitant",
+    "17": "Je fais des réserves pour mes joues 😊 Pour les bisous !",
+    "18": "Mes oreilles sont prêtes 👂 J'ai hâte d'entendre ta voix",
+    "19": "J'apprends les galipettes 🤸 Tu l'as senti ?",
+    "20": "On est à mi-chemin ! 🎉 Je me suis applaudi tout seul aujourd'hui",
+    "21": "Mes coups de pied sont plus forts 🦶 Ça veut dire « coucou » !",
+    "22": "Mes sourcils sont arrivés 🤨 Je suis plus expressif maintenant",
+    "23": "J'écoute de la musique 🎶 J'ai adoré ta chanson",
+    "24": "Je m'entraîne à respirer 🌬 Encore sous l'eau, mais je suis un pro !",
+    "25": "Mes cheveux poussent 💇 La couleur sera une surprise !",
+    "26": "Je peux ouvrir les yeux ! 👀 Tout est rose ici",
+    "27": "Je fais des rêves 💭 Sûrement de toi",
+    "28": "Je sais cligner des yeux 😉 C'est moi qui te fais un clin d'œil",
+    "29": "Il y a de moins en moins de place, mais je danse quand même 💃",
+    "30": "Je deviens plus malin chaque jour 🧠 Comme toi !",
+    "31": "Je peux tourner la tête ↔️ Je me tourne vers ta voix",
+    "32": "Mes ongles arrivent au bout de mes doigts 💅 Je me prépare !",
+    "33": "Je deviens plus fort chaque jour 💪 Je me prépare pour les câlins",
+    "34": "Mes joues s'arrondissent 😊 Prêtes pour les bisous",
+    "35": "C'est si douillet ici 🙈 Mais où je mets mes pieds ?",
+    "36": "C'est presque fini ! Juste les dernières retouches ✨",
+    "37": "Mes yeux, mes oreilles, mon cœur : tout le monde t'attend 💛",
+    "38": "Je rêve de tes bras 🤗 Plus très longtemps",
+    "39": "Tu as préparé ta valise ? 😄 Moi, je suis prêt",
+    "40": "Peut-être aujourd'hui, peut-être demain 😄 Surprise !",
+    "41": "On est si bien ici, je peux rester encore un peu ? 🙈💛"
+  },
+  "daily": [
+    "Aujourd'hui, ma taille : {fruit} ! Je grandis 🌱",
+    "Ton cœur qui bat, c'est ma berceuse 💓",
+    "Il fait chaud et douillet ici, ne t'inquiète pas 😌",
+    "Repose-toi un peu aujourd'hui, moi aussi je me repose 😴",
+    "N'oublie pas de boire de l'eau, j'aime ça aussi 💧",
+    "On mange quoi aujourd'hui ? 😋",
+    "Souris, maman ! Quand tu souris, je me détends aussi 😊",
+    "Fais un coucou à papa de ma part ! 👋",
+    "Je suis tout petit, mais je t'aime tellement 💛",
+    "J'ai un peu grandi aujourd'hui, tu l'as senti ? 📏",
+    "Je t'aime un peu plus chaque jour 🥰",
+    "Tu me racontes une histoire ? 📖",
+    "Tu es magnifique aujourd'hui, maman ! ✨",
+    "Je t'attends, et toi tu m'attends 🤗"
+  ]
 }
