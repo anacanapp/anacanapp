@@ -641,3 +641,13 @@ was done.
 - **Image:** `gateway@sha256:c1ffe62e75275e1254692bd7942c1e555515a95dc39074202924ecccd02bc7d0` from `26fb99ea…`; isolated test matched.
 - **Deploy:** `baby-chat-web-plan.json` passed; index `094dff49…`; no console errors.
 - **Rollback:** `rollback-baby-chat-web-plan.json` (→ `26fb99ea…`).
+
+## Körpəmdən mesajlar: short messages and video sharing fix — 2026-10-31
+- **Contents:** commit `6564d37`. The baby's daily message is now our own short line (`weekly` 4–41 on two days of
+  each pregnancy week, a 14-line `daily` pool otherwise; 21 languages) instead of the long day content. Video recording
+  tries audio+video formats for real (Safari rejects a video-only codec with an audio track), then video only; the share
+  sheet opens from a fresh tap in a preview (Paylaş / Yadda saxla), so a long render cannot outlive the browser's share
+  permission; errors show a stage code (VIDEO_RECORDER, VIDEO_EMPTY, SAVE_FILE, SHARE_SHEET, PHOTO).
+- **Image:** `gateway@sha256:0f1bdb8e9181ae2d5708f573bc58c5b97b36187088cba5421aa64cb6d83ccaf3` from `c1ffe62e…`; isolated test matched.
+- **Deploy:** `baby-chat2-web-plan.json` passed; index `0e5f4a4d…`; no console errors.
+- **Rollback:** `rollback-baby-chat2-web-plan.json` (→ `c1ffe62e…`).
