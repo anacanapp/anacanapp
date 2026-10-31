@@ -722,3 +722,31 @@ was done.
   script's rollback path). Going live needs a live key, live products/webhook and `DODO_PAYMENTS_ENVIRONMENT=live_mode`
   (the key prefix must match the environment or the functions refuse to run).
 - **Not yet built:** the funnel pages on anacan.az and an in-app claim for email/password accounts.
+
+## E-mail code verification + Anacan-themed Dodo checkout + Premium funnel — 2026-10-31
+- **Contents:** commits `fff41c0`, `255f7dd`.
+- **SQL:** `supabase/duzelis/Duzelis74.sql` (rolled-back dry run, then applied): `email_verifications` (RLS, no client
+  access, owner pgadmin, CDC/writer guarded), `email_verification_state_v1()` (authenticated), switch
+  `app_settings.email_verification = {"enabled": false, "required_since": null}` (**off**), and the web Premium link
+  RPCs also accept an e-mail proven with the code.
+- **Function `email-verification`** (auth `user`): 6-digit code, salted SHA-256, 15 min, 5 attempts, 60 s cooldown,
+  5 per hour; Customer.io transactional EU (`/v1/send/email`, inline 21-language HTML + text, `tracked: false`,
+  `disable_message_retention: true`, `send_to_unsubscribed: true`). Verifying runs the entitlement sync (web Premium
+  attaches). Env names (not yet set): `CUSTOMERIO_APP_API_KEY`, `CUSTOMERIO_REGION` (default EU),
+  `EMAIL_VERIFICATION_FROM`. Without them `send` returns `send_failed`; that is why the switch stays off.
+- **App:** `EmailVerificationScreen` before onboarding/Premium offer for new e-mail/password accounts only (not
+  Google/Apple, not onboarded accounts, never queried for onboarded users).
+- **Functions image:** `functions@sha256:4c336b4f1e34aa23e8fb25a571e70b49f1baf06458bcdc5991815d9e7bfe69e2` (FROM
+  `ed99f083…`); `/home/anacan-runner/functions-email-recreate.py` verified; previous container
+  `anacan-functions-before-email-verify-1793468310`, env backup `functions.env.before-email-verify`.
+- **Dodo checkout:** session `customization.theme_config` (Anacan coral/peach, Inter, 14px), `force_language`
+  (az→tr, kk/uz→ru, hi/vi→en), return to the funnel, discount codes on.
+- **Funnel:** `https://anacan.az/website/premium/index.html?lang=<code>` (static in the gateway website root,
+  noindex; 21 languages; vendored Checkout SDK 2.0.1). Default: hosted Dodo page in the Anacan theme; `&checkout=inline`
+  embeds it on the page (inline did not complete a headless test payment; hosted did, end to end, twice).
+- **Gateway:** `gateway@sha256:9c80d707187cd9789b12bba9128f182fe340443c192f37f71949aa451c49f54b` (app index `583c4ad3…`),
+  plans `email-funnel-web-plan.json` then `funnel2-web-plan.json`; rollbacks `rollback-funnel2-web-plan.json`
+  (→ `c75bb121…`) and `rollback-email-funnel-web-plan.json` (→ `92f4e183…`).
+- **To turn e-mail codes on:** Customer.io sending domain verified (DKIM/return-path records in Cloudflare), App API key
+  and from-address added to the functions env, one real code test, then set
+  `{"enabled": true, "required_since": now()}`.
