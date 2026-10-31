@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan은 프로필 사진, 임신 앨범 및 대변 스캐너를 위해 카메라 접근 권한이 필요합니다.";
+"NSPhotoLibraryUsageDescription" = "Anacan은 프로필 사진과 임신 앨범을 위해 사진에 접근합니다.";
+"NSPhotoLibraryAddUsageDescription" = "생성된 아기 사진과 앨범 추억을 갤러리에 저장하려면 권한이 필요합니다.";
+"NSMicrophoneUsageDescription" = "마이크는 아기 울음 분석과 음성 메모에 사용됩니다.";
+"NSLocationWhenInUseUsageDescription" = "날씨에 맞는 옷차림 추천과 주변의 엄마 친화적인 장소를 보여 드리기 위해 위치 정보가 필요합니다.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "날씨에 맞는 옷차림 추천과 주변의 엄마 친화적인 장소를 보여 드리기 위해 위치 정보가 필요합니다.";
+"NSFaceIDUsageDescription" = "Face ID는 앱에 안전하게 로그인하는 데 사용됩니다.";
+"NSContactsUsageDescription" = "파트너를 초대하기 위해 연락처에 접근합니다.";
+"NSCalendarsUsageDescription" = "병원 예약과 알림을 캘린더에 추가하려면 권한이 필요합니다.";
+"NSMotionUsageDescription" = "동작 센서는 일일 활동량과 걸음 수를 기록하는 데 사용됩니다.";
+"NSBluetoothAlwaysUsageDescription" = "Anacan은 스마트 기기(예: 베이비 모니터)와 연결하기 위해 Bluetooth를 사용할 수 있습니다.";
+"NSLocalNetworkUsageDescription" = "로컬 네트워크의 기기와 연결하려면 앱에 권한이 필요합니다.";
+"NSUserTrackingUsageDescription" = "권한을 허용해 주시면 광고 효과를 측정하고 더 관련성 높은 콘텐츠를 보여 드리는 데 도움이 됩니다. 회원님의 개인 데이터는 제3자와 공유되지 않습니다.";

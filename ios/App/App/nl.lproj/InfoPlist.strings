@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan heeft toegang tot de camera nodig voor profielfoto’s, zwangerschapsalbums en de ontlastingsscanner.";
+"NSPhotoLibraryUsageDescription" = "Anacan gebruikt je foto’s voor profielfoto’s en zwangerschapsalbums.";
+"NSPhotoLibraryAddUsageDescription" = "Toestemming is nodig om gegenereerde babyfoto’s en albumherinneringen in je galerij te bewaren.";
+"NSMicrophoneUsageDescription" = "De microfoon wordt gebruikt voor analyse van babygehuil en spraaknotities.";
+"NSLocationWhenInUseUsageDescription" = "Je locatie is nodig om kledingadvies op basis van het weer en moedervriendelijke plekken in de buurt te tonen.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Je locatie is nodig om kledingadvies op basis van het weer en moedervriendelijke plekken in de buurt te tonen.";
+"NSFaceIDUsageDescription" = "Face ID wordt gebruikt om veilig in te loggen in de app.";
+"NSContactsUsageDescription" = "Gebruikt je contacten om je partner uit te nodigen.";
+"NSCalendarsUsageDescription" = "Toestemming is nodig om doktersafspraken en herinneringen aan je agenda toe te voegen.";
+"NSMotionUsageDescription" = "De bewegingssensor wordt gebruikt om je dagelijkse activiteit en aantal stappen bij te houden.";
+"NSBluetoothAlwaysUsageDescription" = "Anacan kan Bluetooth gebruiken om verbinding te maken met slimme apparaten (bijv. babyfoons).";
+"NSLocalNetworkUsageDescription" = "De app heeft toestemming nodig om verbinding te maken met apparaten in je lokale netwerk.";
+"NSUserTrackingUsageDescription" = "Met je toestemming kunnen we de effectiviteit van onze advertenties meten en je relevantere content tonen. Je persoonsgegevens worden niet gedeeld met derden.";

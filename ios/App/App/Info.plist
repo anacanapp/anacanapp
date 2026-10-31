@@ -39,6 +39,18 @@
 		<string>ar</string>
 		<string>uz</string>
 		<string>ka</string>
+		<string>zh-Hans</string>
+		<string>id</string>
+		<string>fr</string>
+		<string>es</string>
+		<string>pt-PT</string>
+		<string>vi</string>
+		<string>hi</string>
+		<string>ja</string>
+		<string>ko</string>
+		<string>pl</string>
+		<string>nl</string>
+		<string>sv</string>
 	</array>
 
 	<!-- ===== Storyboards / Launch ===== -->
