@@ -113,6 +113,11 @@ export function loadThreads(userId: string): Store {
   }
 }
 
+/** Deletes every stored thread of this user on this device. */
+export function deleteThreads(userId: string) {
+  try { localStorage.removeItem(storeKey(userId)); } catch { /* storage blocked */ }
+}
+
 export function saveThread(userId: string, day: string, messages: BabyChatMessage[]) {
   try {
     const all = { ...loadThreads(userId), [day]: messages.slice(-60) };

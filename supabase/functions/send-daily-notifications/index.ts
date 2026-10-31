@@ -300,10 +300,14 @@ Deno.serve(async (req) => {
     // Page the profile population, including disabled users, so every offset is
     // stable. Fetch only this chunk's private rows instead of the whole database
     // and its high-volume event send log on every recursive invocation.
-    let profileQuery = supabase.from('profiles').select('user_id, life_stage, role, due_date, last_period_date').order('user_id');
+    let profileQuery = supabase.from('profiles').select('user_id, life_stage, role, due_date, last_period_date, linked_partner_id, loss_recovery_active').order('user_id');
     if (body.userId) profileQuery = profileQuery.eq('user_id', body.userId);
     const { data: profiles, error: profileError } = await profileQuery.range(chunkOffset, chunkOffset + CHUNK_SIZE - 1);
     if (profileError) throw new Error('notification_profiles_unavailable');
+    // Pregnancy loss recovery (Duzelis72): no daily content for her, nor for her linked partner.
+    const { data: lossProfiles, error: lossError } = await supabase.from('profiles').select('id').eq('loss_recovery_active', true);
+    if (lossError) throw new Error('notification_profiles_unavailable');
+    const lossProfileIds = new Set((lossProfiles || []).map((p: any) => p.id));
     const userIds = (profiles || []).map((profile: any) => profile.user_id);
     if (!userIds.length) {
       await finishRunLog(supabase, runId, { status: 'success', eligible_count: 0, sent_count: 0 });
@@ -364,6 +368,10 @@ Deno.serve(async (req) => {
     // Build user map
     const userMap = new Map<string, UserForNotification>();
     profiles?.forEach((p: any) => {
+      if (p.loss_recovery_active || (p.linked_partner_id && lossProfileIds.has(p.linked_partner_id))) {
+        skippedCount++; bumpReason(reasons, 'loss_recovery');
+        return;
+      }
       userMap.set(p.user_id, {
         user_id: p.user_id, life_stage: p.life_stage || 'flow', role: p.role || 'user',
         due_date: p.due_date, last_period_date: p.last_period_date,

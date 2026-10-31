@@ -1,0 +1,357 @@
+{
+  "ui": {
+    "section_title": "Homiladorligim",
+    "dates_row": "Homiladorlik sanalari",
+    "dates_sub": "Tug‘ish sanasi va haftalar",
+    "birth_row": "Chaqalog‘im tug‘ildi",
+    "birth_sub": "Ona rejimiga o‘tish",
+    "entry_title": "Homiladorligim davom etmayapti",
+    "entry_sub": "Sokin, qisqa qadam",
+    "entry_note": "Agar homiladorlik davom etmasa, Anacan bildirishnomalarni darhol to‘xtatadi va tiklanish davrida senga yordam beradi.",
+    "sheet_title": "Juda afsusdamiz",
+    "sheet_body": "Bu sening aybing emas. Anacan bu davrda yoningda bo‘ladi.",
+    "sheet_stop": "Chaqaloq xabarlari va homiladorlik bildirishnomalari darhol to‘xtaydi",
+    "sheet_keep": "Albom va yozishmalar o‘chirilmaydi, faqat yashiriladi",
+    "sheet_guide": "8 haftalik tiklanish qo‘llanmasi ochiladi",
+    "sheet_date": "Bu qachon sodir bo‘ldi?",
+    "sheet_date_sub": "Tiklanish haftalari shu sanadan hisoblanadi",
+    "sheet_partner": "Turmush o‘rtog‘imga xabar berish",
+    "sheet_partner_sub": "Unga yumshoq xabar yuboramiz va senga qanday yordam berishini ko‘rsatamiz",
+    "sheet_continue": "Davom etish",
+    "sheet_back": "Ortga qaytish",
+    "sheet_error": "Bo‘lmadi. Internet aloqasini tekshirib, qaytadan urinib ko‘r.",
+    "partner_message": "Shu kunlarda sening yordamingga juda muhtojman 🤍 Anacan’da sen uchun qo‘llanma ochildi.",
+    "home_hello": "Salom, {name}",
+    "home_title": "Bugun o‘zingga mehribon bo‘l",
+    "home_week": "Tiklanish · {n}/8-hafta",
+    "home_done": "8 hafta ortda qoldi",
+    "home_done_body": "Tiklanish har kimda turlicha sur’atda kechadi. Tayyor bo‘lganingda quyidagi tanlovlar seni kutadi, shoshilma.",
+    "home_open_week": "Shu haftani ko‘rish",
+    "mood_title": "Bugun qalaysan?",
+    "moods": [
+      "Juda og‘ir",
+      "G‘amgin",
+      "Bo‘shliq",
+      "Sokin",
+      "Biroz yaxshiroq"
+    ],
+    "mood_reply": [
+      "Bugun juda og‘ir va bu tushunarli. O‘zingni hech narsaga majburlama. Xohlasang, kimgadir yoz yoki Anacan.AI bilan gaplash.",
+      "Qayg‘u — muhabbatning davomi. Yig‘laging kelsa, yig‘la. Bu tuyg‘ular asta-sekin yumshaydi.",
+      "Yo‘qotishdan keyin bo‘shliq hissi juda ko‘p uchraydi. Bugun kichik bir ish qil: suv ich, biroz sayr qil, biror narsa ye.",
+      "Sokin kunlar ham bo‘ladi. Undan quvon va o‘zingni aybdor his qilma.",
+      "Yaxshi his qilish unutish degani emas. Shu lahzadan zavq ol."
+    ],
+    "mood_saved": "Belgilandi",
+    "warn_title": "Darhol shifokorga murojaat qil, agar:",
+    "warn_body": "kuchli qon ketish, 38°C dan yuqori harorat, qattiq og‘riq, yoqimsiz hidli ajralma yoki bosh aylanishi bo‘lsa.",
+    "check_title": "Tana tekshiruvi",
+    "check_sub": "Bezovta qiladigan belgi bormi? Bir daqiqada tekshir",
+    "talk_title": "Gaplashging keladimi?",
+    "talk_sub": "Anacan.AI seni hukm qilmasdan tinglaydi",
+    "epds_title": "Kayfiyatingni tekshir",
+    "epds_sub": "Qisqa so‘rovnoma (EPDS), 2 daqiqa",
+    "diary_title": "Hislarimni yozay",
+    "diary_sub": "Kayfiyat kundaligi",
+    "memories_title": "Xotiralarim",
+    "memories_sub": "Albom, yozishma va maktub — faqat seniki",
+    "ready_title": "Tayyor bo‘lganingda",
+    "ready_sub": "Shoshilma. Bu tanlovlar doim shu yerda bo‘ladi.",
+    "ready_cycle": "Siklimni kuzatish",
+    "ready_cycle_sub": "Hayz va ovulyatsiya taqvimi",
+    "ready_pregnant": "Yana homiladorman",
+    "ready_pregnant_sub": "Yangi homiladorlikni boshlash",
+    "ready_stay": "Hozircha tiklanishda qolaman",
+    "ready_stay_sub": "Hech narsa o‘zgarmaydi",
+    "ready_confirm_cycle": "Tiklanish rejimi yopiladi va hayz taqvimi ochiladi. Tiklanish qo‘llanmasi «Xotiralarim» bo‘limida ochiq qoladi.",
+    "ready_confirm_pregnant": "Tiklanish rejimi yopiladi. Keyingi qadamda yangi homiladorliging sanalarini kiritasan.",
+    "ready_yes": "Ha, davom etish",
+    "ready_no": "Hali emas",
+    "guide_title": "Tiklanish qo‘llanmasi",
+    "guide_sub": "8 hafta, qadamma-qadam",
+    "week": "{n}-hafta",
+    "tab_week": "Shu hafta",
+    "tab_signs": "Belgilar",
+    "tab_faq": "Savollar",
+    "your_body": "Tanang",
+    "your_mind": "Tuyg‘ularing",
+    "for_you": "Shu hafta o‘zing uchun",
+    "signs_title": "Tana tekshiruvi",
+    "signs_sub": "So‘nggi kunlarda sezganlaringni tanla. Bu tashxis emas.",
+    "signs_none": "Xavotirli belgi tanlanmadi. Dam olishda va o‘zingga g‘amxo‘rlik qilishda davom et.",
+    "signs_some": "Bu belgilar haqida yaqin kunlarda shifokoring bilan gaplash. Kutish shart emas.",
+    "signs_urgent": "Shoshilinch belgini tanlading. Yolg‘iz qolma: darhol tez yordamga (103) qo‘ng‘iroq qil yoki yaqinlaringdan birini chaqir.",
+    "signs_urgent_group": "Shoshilinch",
+    "signs_soon_group": "Yaqin kunlarda shifokorga",
+    "call": "Qo‘ng‘iroq qilish",
+    "faq_title": "Ko‘p beriladigan savollar",
+    "disclaimer": "Bu ma’lumot shifokor maslahatining o‘rnini bosmaydi. Tiklanish har kimda turlicha va yo‘qotish qaysi haftada bo‘lganiga bog‘liq.",
+    "mem_intro": "Bu xotiralar faqat seniki. Ularni hech kim ko‘rmaydi. Xohlagan paytingda ko‘rishing, saqlashing yoki o‘chirishing mumkin.",
+    "mem_album": "Homiladorlik albomi",
+    "mem_album_sub": "Rasmlarni ko‘rish yoki o‘chirish",
+    "mem_chat": "Chaqaloq bilan yozishma",
+    "mem_chat_sub": "{n} kun",
+    "mem_chat_empty": "Yozishma yo‘q",
+    "mem_chat_delete": "Yozishmani o‘chirish",
+    "mem_chat_delete_confirm": "Yozishma bu qurilmadan butunlay o‘chiriladi. Ishonching komilmi?",
+    "mem_deleted": "O‘chirildi",
+    "mem_letter": "Unga maktub",
+    "mem_letter_sub": "Aytmoqchi bo‘lganlaringni yoz. Faqat shu qurilmada saqlanadi.",
+    "mem_letter_placeholder": "Jonim...",
+    "mem_save": "Saqlash",
+    "mem_saved": "Saqlandi 🤍",
+    "mem_guide": "Tiklanish qo‘llanmasi",
+    "mem_guide_sub": "8 haftalik qo‘llanma doim shu yerda ochiq",
+    "back": "Ortga",
+    "p_card_title": "Shu kunlarda uning yonida bo‘l",
+    "p_card_sub": "Tiklanish · {n}/8-hafta · qo‘llanmani ochish",
+    "p_title": "Uning yonida bo‘l",
+    "p_sub": "Yo‘qotishdan keyingi yordam qo‘llanmasi",
+    "p_hero_label": "Tiklanish davri",
+    "p_tab_now": "Hozir",
+    "p_tab_say": "Nima deyay",
+    "p_tab_you": "Sening tuyg‘ung",
+    "p_tab_signs": "Belgilar",
+    "p_phase": "{a}–{b}-haftalar",
+    "p_intro_title": "Uning yonida bo‘l 🤍",
+    "p_intro_body": "Bu yo‘qotish ikkovingiz uchun ham og‘ir. Sening ham qayg‘urishga haqqing bor. U uchun eng muhimi to‘g‘ri so‘zlar emas, sening yonida bo‘lishing.",
+    "p_what_do": "Nima qila olasan",
+    "p_say_title": "Aytishing mumkin",
+    "p_avoid_title": "Aytmaganing ma’qul",
+    "p_send": "Yuborish",
+    "p_sent": "Yuborildi 🤍",
+    "p_phrases_title": "Unga bir og‘iz so‘z yoz",
+    "p_phrases_sub": "Bir bosishda xabar sifatida yuboriladi.",
+    "p_tasks_title": "Bugun bularni men o‘z zimmamga olaman",
+    "p_tasks_sub": "Tanlaganlaringni unga yubor, nimalar sening zimmangda ekanini bilsin.",
+    "p_tasks_send": "Tanlaganlarimni unga yuborish",
+    "p_tasks_message": "Bugun bularni men qilaman: {list} 🤍 Sen dam ol.",
+    "p_mood_low_title": "So‘nggi kunlar unga juda og‘ir",
+    "p_mood_low_body": "So‘nggi 7 kunda u {n} kun kayfiyatini past deb belgiladi. Bugun unga ko‘proq vaqt ajrat va o‘zini qanday his qilayotganini so‘ra.",
+    "p_mood_low_long": "Agar bu 2 haftadan ko‘p davom etsa, birga shifokor yoki psixolog bilan gaplashinglar.",
+    "p_signs_sub": "Unda sezganlaringni tanla. Bu tashxis emas.",
+    "p_hidden_note": "Homiladorlik vazifalari, tug‘ruq rejasi va tungi navbatchilik vaqtincha yashirildi."
+  },
+  "weeks": [
+    {
+      "title": "Ilk kunlar",
+      "body": "Bu hafta qon ketishi va hayzdagiga o‘xshash tortishib og‘rishlar normal holat. Tampon emas, gigiyenik prokladka ishlat. Agar yo‘qotish kech haftada bo‘lgan bo‘lsa, ko‘kraklarga sut kelishi mumkin: zich byustgalter va sovuq kompress yordam beradi.",
+      "mind": "Shok, qayg‘u, g‘azab, bo‘shliq yoki hech narsa his qilmaslik — barchasi normal. “Nega?” degan savol tez-tez keladi. Bu sening aybing emas.",
+      "todo": [
+        "Dam ol, uy ishlarini boshqalarga qoldir",
+        "Harorating va qon ketishini kuzatib bor",
+        "Yaqin bir insonga qanday ekaningni ayt"
+      ]
+    },
+    {
+      "title": "Tana tiklanmoqda",
+      "body": "Qon ketishi odatda kamayadi, ba’zan 1–2 hafta davom etadi. Ko‘p suv ich, temirga boy ovqat ye (go‘sht, yasmiq, ismaloq). Qon ketishi tugaguncha basseyn, vanna va jinsiy aloqadan saqlan.",
+      "mind": "Atrofingdagilar hayotga qaytmoqda, sen esa hali ham og‘riq his qilyapsan. Bu farq yolg‘izlik tuyg‘usini uyg‘otishi mumkin. Tuyg‘ularingni yashirishing shart emas.",
+      "todo": [
+        "Har kuni qisqa sayr — faqat xohlasang",
+        "Shifokor aytgan nazorat ko‘rigini rejalashtir",
+        "Senga og‘ir botadigan savollarga turmush o‘rtog‘ing javob bersin"
+      ]
+    },
+    {
+      "title": "Qayg‘u to‘lqin-to‘lqin keladi",
+      "body": "Charchoq hali davom etishi mumkin. Qon ketishi tugagan bo‘lsa, yengil harakat va uyqu tartibi kuchingni qaytaradi. Homiladorlik testi bir necha hafta ijobiy qolishi mumkin, bu normal.",
+      "mind": "Yaxshi kundan keyin og‘ir kun kelishi mumkin. Qayg‘u to‘g‘ri chiziq emas. Homilador ayollar va chaqaloqlarni ko‘rish qiyin bo‘lishi mumkin — o‘zingni asrashing mumkin.",
+      "todo": [
+        "Seni charchatadigan ijtimoiy tarmoq akkauntlarini vaqtincha yashir",
+        "Turmush o‘rtog‘ing bilan bu haqda gaplashinglar",
+        "O‘zingga kichik bir yaxshilik qil"
+      ]
+    },
+    {
+      "title": "Ritm qaytmoqda",
+      "body": "Ko‘p ayollarda tana shu haftalarda avvalgi ritmiga qaytadi. Keyingi hayz odatda yo‘qotishdan 4–6 hafta o‘tib keladi va birinchi marta biroz boshqacha bo‘lishi mumkin.",
+      "mind": "Kundalik ishlarga qaytish ham yordam beradi, ham charchatadi. Ishga qaytishga shoshilma, imkoni bo‘lsa, yukingni kamaytir.",
+      "todo": [
+        "Ishda kimga qancha aytishni o‘zing hal qil",
+        "Kuniga bir marta kayfiyatingni belgila",
+        "Kerak bo‘lsa, kayfiyat so‘rovnomasini (EPDS) to‘ldir"
+      ]
+    },
+    {
+      "title": "Kichik qadamlar",
+      "body": "Kuch-quvvat asta-sekin qaytmoqda. Muvozanatli ovqatlan, foliy kislotasini qabul qilishni shifokoring bilan muhokama qil. Nazorat ko‘rigi hali bo‘lmagan bo‘lsa, hozir rejalashtir.",
+      "mind": "Sanalar — kutilgan tug‘ish kuni, ma’lum haftalar — og‘ir botishi mumkin. Bu kunlar uchun oldindan sokin reja tuz.",
+      "todo": [
+        "Og‘ir sanalar uchun reja tuz",
+        "Bir dugonang bilan uchrash",
+        "Tanang uchun yumshoq harakat tanla: yoga, sayr"
+      ]
+    },
+    {
+      "title": "Muhabbatni yodga olish",
+      "body": "Tanang asosan tiklandi. Hayz hali kelmagan bo‘lsa, shifokoring bilan gaplash.",
+      "mind": "Ba’zi oilalar xotira uchun kichik marosim o‘tkazadi: maktub yozadi, daraxt ekadi, sham yoqadi. Bu faqat sen xohlasang.",
+      "todo": [
+        "«Xotiralarim» bo‘limida unga maktub yoz",
+        "Senga nima yordam berganini yozib qo‘y",
+        "Turmush o‘rtog‘ing bilan birga vaqt o‘tkazinglar"
+      ]
+    },
+    {
+      "title": "O‘zingga qaytish",
+      "body": "Uyqu, ovqatlanish va harakat tartibi tiklanishning asosi. Yangi homiladorlik haqida o‘ylayotgan bo‘lsang, qachon tayyor ekaningni shifokoring bilan birga hal qilinglar.",
+      "mind": "Qayg‘u kamaysa ham, butunlay yo‘qolmasligi mumkin. Bu uni unutmaganingni anglatadi. Agar g‘am 2 haftadan ko‘p kundalik hayotingga xalaqit bersa, mutaxassis bilan gaplash.",
+      "todo": [
+        "Kayfiyat so‘rovnomasini qayta to‘ldir",
+        "Kelajak uchun bitta kichik reja tuz",
+        "O‘zingni maqta: shu yergacha yetib kelding"
+      ]
+    },
+    {
+      "title": "Yo‘lning davomi",
+      "body": "8 hafta ortda qoldi. Tanang tiklandi, ammo tuyg‘ularing uchun vaqt chegarasi yo‘q.",
+      "mind": "Tayyor bo‘lganingda siklingni kuzatishga yoki yangi rejalarga o‘tishing mumkin. Tayyor bo‘lmasang, bu ham normal. Anacan seni shoshiltirmaydi.",
+      "todo": [
+        "Tayyor bo‘lganingda tanlovlaringni ko‘r",
+        "Senga yordam berganlarga rahmat ayt",
+        "Kerak bo‘lganda bu qo‘llanmaga qayt"
+      ]
+    }
+  ],
+  "signs": {
+    "urgent": [
+      "Kuchli qon ketish: bir soatda prokladka butunlay to‘ladi",
+      "38°C dan yuqori harorat yoki qaltirash",
+      "Qattiq yoki kuchayib borayotgan qorin og‘rig‘i",
+      "Yoqimsiz hidli ajralma",
+      "Bosh aylanishi, hushdan ketish",
+      "O‘ziga zarar yetkazish haqidagi fikrlar"
+    ],
+    "soon": [
+      "Qon ketishi 2 haftadan ko‘p davom etyapti",
+      "8 hafta o‘tsa ham hayz hali kelmadi",
+      "G‘am yoki bo‘shliq 2 haftadan ko‘p kundalik hayotimga xalaqit beryapti",
+      "Uyqu va ishtaham butunlay buzilgan",
+      "Hech narsa meni quvontirmaydi"
+    ]
+  },
+  "faq": [
+    {
+      "q": "Bu mening aybimmi?",
+      "a": "Yo‘q. Erta yo‘qotishlarning aksariyati chaqaloqdagi xromosoma farqlari sababli yuz beradi va hech qanday harakat, stress, ovqat yoki ish bunga sabab bo‘lmaydi."
+    },
+    {
+      "q": "Bu qanchalik ko‘p uchraydi?",
+      "a": "Tasdiqlangan homiladorliklarning taxminan 10–20% i yo‘qotish bilan tugaydi. Sen yolg‘iz emassan, shunchaki bu haqda kam gapiriladi."
+    },
+    {
+      "q": "Qachon shifokorga borishim kerak?",
+      "a": "Shoshilinch belgilar bo‘lsa — darhol. Boshqa hollarda shifokor belgilagan nazorat ko‘rigiga bor va savollaringni oldindan yozib ol."
+    },
+    {
+      "q": "Hayz qachon keladi?",
+      "a": "Odatda 4–6 hafta o‘tib. Birinchi hayz odatdagidan ko‘p yoki kam bo‘lishi mumkin. 8 hafta o‘tib ham kelmagan bo‘lsa, shifokorga murojaat qil."
+    },
+    {
+      "q": "Keyingi homiladorlikda ham shunday bo‘ladimi?",
+      "a": "Bir yo‘qotishdan keyin ayollarning aksariyati keyinchalik sog‘lom homiladorlikni boshdan kechiradi. Yo‘qotishlar takrorlangan bo‘lsa, shifokor qo‘shimcha tekshiruv taklif qilishi mumkin."
+    },
+    {
+      "q": "Qachon yana urinib ko‘rishimiz mumkin?",
+      "a": "Bu sizning jismoniy va hissiy tayyorligingizga bog‘liq. Vaqtini shifokoring bilan birga hal qilinglar; shoshilish shart emas."
+    },
+    {
+      "q": "Tuyg‘ularim qachon o‘tadi?",
+      "a": "Buning jadvali yo‘q. Vaqt o‘tishi bilan qayg‘u yumshaydi. Agar 2 haftadan ko‘p kundalik hayotingga xalaqit bersa, psixolog bilan gaplashish yordam beradi."
+    }
+  ],
+  "partner": {
+    "phases": [
+      {
+        "title": "Ilk kunlar: yonida bo‘l",
+        "body": "Uning tanasi qon ketish va og‘riq bilan tiklanmoqda, tuyg‘ulari esa shok holatida. To‘g‘ri so‘z izlama — yonida bo‘lishning o‘zi kifoya.",
+        "do": [
+          "Uy ishlari va ovqatni butunlay o‘z zimmangga ol",
+          "Qarindoshlarga o‘zing xabar ber, u tushuntirishga majbur bo‘lmasin",
+          "Shifokor ko‘rigiga birga boringlar",
+          "Uning harorati va qon ketishiga e’tibor ber"
+        ]
+      },
+      {
+        "title": "3–4-haftalar: dunyo davom etmoqda, u esa hali yo‘q",
+        "body": "Hamma hayotga qaytmoqda va senga ham hammasi o‘tib ketgandek tuyulishi mumkin. U uchun esa qayg‘u to‘lqin-to‘lqin keladi.",
+        "do": [
+          "Har kuni “Bugun qalaysan?” deb so‘ra va javobini tingla",
+          "Uni homilador tanishlar va chaqaloq yangiliklaridan asra",
+          "Birga qisqa sayr qilinglar",
+          "Uning tuyg‘ularini “tuzatishga” urinma"
+        ]
+      },
+      {
+        "title": "5–6-haftalar: og‘ir sanalar",
+        "body": "Kutilgan tug‘ish sanasi yoki ma’lum haftalar unga og‘ir botishi mumkin. Ularni oldindan bil va yonida bo‘l.",
+        "do": [
+          "Og‘ir sanalarni taqvimingda belgilab qo‘y",
+          "Xotira uchun biror narsa qilmoqchi bo‘lsa, qo‘llab-quvvatla",
+          "Birga vaqt o‘tkazish uchun sokin rejalar taklif qil",
+          "O‘z qayg‘ung haqida ham gapir"
+        ]
+      },
+      {
+        "title": "7–8-haftalar: birga oldinga",
+        "body": "Tana tiklanmoqda, ammo tuyg‘ular hali davom etishi mumkin. Kelajak rejalarini uning sur’atida muhokama qilinglar.",
+        "do": [
+          "U o‘zi ochmaguncha yangi homiladorlik mavzusini ochma",
+          "Shifokorga beradigan savollaringizni birga tayyorlanglar",
+          "Kichik quvonchlar rejalashtir",
+          "Kerak bo‘lsa, psixolog topishga yordam ber"
+        ]
+      }
+    ],
+    "say": [
+      "Men shu yerdaman.",
+      "Nima kerak bo‘lsa, qilaman.",
+      "Men ham g‘amginman.",
+      "Bu sening aybing emas.",
+      "Yig‘laging kelsa, yig‘la. Men yoningdaman.",
+      "Uni ikkovimiz ham hech qachon unutmaymiz."
+    ],
+    "avoid": [
+      "“Yana bo‘ladi.”",
+      "“Yaxshiyamki, erta bo‘ldi.”",
+      "“Hamma narsaning bir sababi bor.”",
+      "“Hech bo‘lmasa…” bilan boshlanadigan gaplar",
+      "“Endi o‘tib ketishi kerak.”",
+      "“Yig‘lama.”"
+    ],
+    "tasks": [
+      "Ovqatni men tayyorlayman",
+      "Uyni men yig‘ishtiraman",
+      "Xarid qilishni men bajaraman",
+      "Qarindoshlarga men javob beraman",
+      "Shifokor ko‘rigini men rejalashtiraman",
+      "Qo‘ng‘iroq va xabarlarga men javob beraman",
+      "Kechqurun birga sayr qilaylik",
+      "Senga issiq choy damlab beraman"
+    ],
+    "phrases": [
+      "Seni juda yaxshi ko‘raman. Men shu yerdaman 🤍",
+      "Bugun qalaysan? Nima kerak bo‘lsa, ayt.",
+      "Bu sening aybing emas.",
+      "Men ham uni eslayman.",
+      "Bu oqshom hech narsa qilma, hammasi menda.",
+      "Sen bilan faxrlanaman, sen juda kuchlisan."
+    ],
+    "you_title": "Sening ham qayg‘ung bor",
+    "you_body": "Erkaklar bu yo‘qotishni ko‘pincha jimgina boshdan kechiradi va “kuchli bo‘lishim kerak” deb tuyg‘ularini yashiradi. Ammo sening ham qayg‘urishga haqqing bor. Birga qayg‘urish sizni bir-biringizga yaqinlashtiradi.",
+    "you_tips": [
+      "Tuyg‘ularingni unga ham ayt: “Men ham g‘amginman”",
+      "Ishongan do‘sting bilan gaplash",
+      "Uyqu, ovqat va harakatni unutma",
+      "Qiyin bo‘lsa, psixologdan yordam so‘ra",
+      "Qayg‘uni spirtli ichimlik yoki ishga qochish bilan bosishga urinma"
+    ]
+  },
+  "chips": [
+    "🤍 Yoningdaman",
+    "🤗 Qalaysan?",
+    "🍵 Choy olib kelaymi?",
+    "🛒 Biror narsa kerakmi?"
+  ]
+}

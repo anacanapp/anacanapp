@@ -93,6 +93,9 @@ const BirthPlanScreen = lazy(() => import('@/components/partner/v2/BirthPlanScre
 const PartnerNotificationsScreen = lazy(() => import('@/components/partner/v2/PartnerNotificationsScreen'));
 const BabyChatScreen = lazy(() => import('@/components/baby-chat/BabyChatScreen'));
 const PostpartumSupportScreen = lazy(() => import('@/components/partner/v2/PostpartumSupportScreen'));
+const RecoveryGuideScreen = lazy(() => import('@/components/pregnancy-loss/RecoveryGuideScreen'));
+const LossMemoriesScreen = lazy(() => import('@/components/pregnancy-loss/LossMemoriesScreen'));
+const PartnerLossSupportScreen = lazy(() => import('@/components/pregnancy-loss/PartnerLossSupportScreen'));
 const AlertReceiver = lazy(() => import('@/components/partner/v2/AlertReceiver'));
 const PartnersScreen = lazy(() => import('@/components/partners/PartnersScreen'));
 const AdPreferencesScreen = lazy(() => import('@/components/ads/AdPreferencesScreen'));
@@ -413,6 +416,19 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     return () => clearTimeout(timer);
   }, [hasSeenIntro]);
 
+  // The baby's daily notifications are scheduled on the device while pregnant; once the stage changes
+  // (birth, loss, or another device), cancel whatever is still pending here.
+  useEffect(() => {
+    if (!lifeStage || lifeStage === 'bump') return;
+    void import('@/lib/baby-chat-notifications').then((m) => m.cancelBabyChatNotifications()).catch(() => {});
+  }, [lifeStage]);
+
+  // Screen navigation from sub-screens; 'home' closes the screen and opens the home tab.
+  const navigateScreen = (screen: string) => {
+    if (screen === 'home') { setActiveScreen(null); setActiveTab('home'); }
+    else setActiveScreen(screen);
+  };
+
   // Handle tool navigation from Dashboard
   const handleNavigateToTool = (tool: string) => {
     setActiveTool(tool);
@@ -568,7 +584,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         return (
           <motion.div key="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <AdSurface id="home_banner" />
-            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={setActiveScreen} />
+            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={navigateScreen} onOpenAssistant={() => setActiveTab('ai')} />
           </motion.div>
         );
       case 'tools':
@@ -609,7 +625,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       case 'profile':
         return (
           <motion.div key="profile" variants={pageVariants} initial="initial" animate="animate" exit="exit">
-            <ProfileScreen onNavigate={setActiveScreen} />
+            <ProfileScreen onNavigate={navigateScreen} />
           </motion.div>
         );
       default:
@@ -790,7 +806,10 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'partner-sharing' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSharingScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'night-shift') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><NightShiftScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'postpartum-support' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PostpartumSupportScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
-  if (activeScreen === 'baby-chat' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BabyChatScreen onBack={() => setActiveScreen(null)} onOpenAssistant={() => { setActiveScreen(null); setActiveTab('ai'); }} /></ErrorBoundary></Suspense>;
+  if ((activeScreen === 'loss-guide' || activeScreen === 'loss-guide/signs') && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><RecoveryGuideScreen onBack={() => setActiveScreen(null)} initialTab={activeScreen === 'loss-guide/signs' ? 'signs' : 'week'} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'loss-memories' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><LossMemoriesScreen onBack={() => setActiveScreen(null)} onNavigate={navigateScreen} onOpenTool={(tool) => { setActiveScreen(null); handleNavigateToTool(tool); }} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'partner-loss-support' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerLossSupportScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'baby-chat' && role !== 'partner' && lifeStage === 'bump') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BabyChatScreen onBack={() => setActiveScreen(null)} onOpenAssistant={() => { setActiveScreen(null); setActiveTab('ai'); }} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-notifications') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerNotificationsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'birth-plan') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BirthPlanScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partners') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnersScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;

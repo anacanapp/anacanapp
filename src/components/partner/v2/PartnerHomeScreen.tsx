@@ -32,6 +32,8 @@ import PartnerBabyCrisisCard from './PartnerBabyCrisisCard';
 import PartnerBabyTodayCard from './PartnerBabyTodayCard';
 import PartnerFlowStatusCard from '@/components/flow/PartnerFlowStatusCard';
 import { AdInlineAnchor } from '@/components/ads/AdExperienceProvider';
+import PartnerLossCard from '@/components/pregnancy-loss/PartnerLossCard';
+import { usePregnancyLossText } from '@/data/pregnancy-loss';
 
 /**
  * Partnyor "Bu gün" — v2 ana ekran.
@@ -88,6 +90,10 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
   const babyAgeDays = getBabyAgeDays();
   const cyclePhase = getCyclePhaseInfo();
   const pregnancyDay = partnerProfile?.last_period_date ? getPregnancyDay(partnerProfile.last_period_date) : 0;
+  // Pregnancy loss recovery: no fertility, missions or tips. The guide only when she chose to share it.
+  const inLoss = lifeStage === 'flow' && !!partnerProfile?.loss_recovery_active;
+  const lossShared = inLoss && !!partnerProfile?.loss_share_partner;
+  const lossText = usePregnancyLossText(language || 'az');
 
   const { data: dayContent } = usePregnancyContentByDay(pregnancyDay > 0 ? pregnancyDay : undefined);
   const { data: fruitImages = [] } = useFruitImages();
@@ -132,6 +138,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
 
   // ── Stage-ə görə hero statları ──
   const heroStats: {emoji: string;value: string;label: string;}[] = (() => {
+    if (inLoss) return [];
     if (lifeStage === 'bump') {
       return [
       { emoji: weekData?.emoji || '🍎', value: `${currentWeek}`, label: tr('partnerv2_hefte', 'həftə') },
@@ -227,6 +234,10 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
         </header>
 
         <div className="space-y-4">
+          {lossShared &&
+          <PartnerLossCard lossDate={partnerProfile?.pregnancy_loss_date} onOpen={() => onNavigate('partner-loss-support')} />
+          }
+
           {/* ── Doğuş rejimi: 36+ həftə ── */}
           {lifeStage === 'bump' && currentWeek >= 36 &&
           <BirthModeCard daysUntilDue={daysUntilDue} onNavigate={onNavigate} />
@@ -242,12 +253,13 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0"
               style={{ background: 'var(--a-grad-blue)' }}>
-                {lifeStage === 'bump' ? '🤰' : lifeStage === 'mommy' ? '👩‍🍼' : '🌸'}
+                {lossShared ? '🤍' : lifeStage === 'bump' ? '🤰' : lifeStage === 'mommy' ? '👩‍🍼' : '🌸'}
               </div>
               <div className="flex-1 min-w-0">
                 <h2 className="truncate" style={{ fontSize: 17, fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--a-ink)' }}>{womanName}</h2>
                 <p style={{ fontSize: 11.5, color: 'var(--a-ink-soft)' }}>
-                  {lifeStage === 'bump' ? tr('partnerv2_hamilelik_yolculugu', 'Hamiləlik yolçuluğu') :
+                  {lossShared && lossText ? lossText.ui.p_hero_label :
+                  lifeStage === 'bump' ? tr('partnerv2_hamilelik_yolculugu', 'Hamiləlik yolçuluğu') :
                   lifeStage === 'mommy' ? tr('partnerv2_analiq_dovru', 'Analıq dövrü') :
                   tr('partnerv2_tsikl_izleme', 'Tsikl izləmə')}
                 </p>
@@ -284,7 +296,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
               </div>
             }
 
-            {lifeStage === 'flow' && !sharing.share_cycle &&
+            {lifeStage === 'flow' && !inLoss && !sharing.share_cycle &&
             <p style={{ fontSize: 12, color: 'var(--a-ink-soft)', lineHeight: 1.5 }}>{feature37Text('pm_cycle_hidden')}</p>
             }
 
@@ -345,7 +357,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
           budur (partnyorun öz ekranı, burada usePartnerData() qadının
           profilini qaytarır, komponentin öz life_stage yoxlaması düzgün
           işləyir). */}
-          {lifeStage === 'flow' && sharing.share_cycle &&
+          {lifeStage === 'flow' && !inLoss && sharing.share_cycle &&
           <PartnerFlowStatusCard />
           }
 
@@ -364,7 +376,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
 
           {/* ── Günlük tapşırıqlar ── */}
           <AdInlineAnchor id="home_banner" />
-          <DailyMissionsCard lifeStage={lifeStage} pregnancyWeek={currentWeek} babyAgeDays={babyAgeDays} />
+          {!inLoss && <DailyMissionsCard lifeStage={lifeStage} pregnancyWeek={currentWeek} babyAgeDays={babyAgeDays} />}
 
           {/* ── Növbəti randevu ── */}
           {sharing.share_appointments &&
@@ -393,7 +405,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
               </motion.button>
             </div>
             <div className="flex flex-wrap gap-1.5 mt-2.5">
-              {[
+              {(lossShared && lossText ? lossText.chips : [
               tr('partnerdashboard_seni_sevirem_d85d3c', '❤️ Səni sevirəm!'),
               tr('partnerv2_nece_hiss_edirsen', '🤗 Necə hiss edirsən?'),
               ...(lifeStage === 'mommy' ?
@@ -401,7 +413,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
               lifeStage === 'flow' ?
               [feature37Text('pm_chip_tea'), feature37Text('pm_chip_rest'), feature37Text('pm_chip_buy')] :
               [feature37Text('pm_chip_on_way'), feature37Text('pm_chip_tea'), feature37Text('pm_chip_buy')]),
-              tr('partnerdashboard_guclusen_673231', '💪 Güclüsən!')].
+              tr('partnerdashboard_guclusen_673231', '💪 Güclüsən!')]).
               map((msg) =>
               <motion.button
                 key={msg}
@@ -418,7 +430,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
           <PartnerActivityFeed />
 
           {/* ── Həftəlik bələdçi / günün tövsiyəsi ── */}
-          {(partnerTip || tipText) &&
+          {!inLoss && (partnerTip || tipText) &&
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
           className="a-card" style={{ background: 'var(--a-surface)' }}>
               <div className="flex items-center gap-2 mb-2.5">

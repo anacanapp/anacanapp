@@ -67,6 +67,7 @@ import RedFlagBanner from '@/components/dashboard/RedFlagBanner';
 import RecentBlogPosts from '@/components/dashboard/RecentBlogPosts';
 import FlowDashboard from '@/components/flow/FlowDashboard';
 import BirthOnboardingModal from '@/components/BirthOnboardingModal';
+import RecoveryHome from '@/components/pregnancy-loss/RecoveryHome';
 import WaterWidget from '@/components/dashboard/WaterWidget';
 import { MommyPeriodBanner } from '@/components/mommy/MommyPeriodTracker';
 
@@ -1859,9 +1860,10 @@ interface DashboardProps {
   onOpenChat?: () => void;
   onNavigateToTool?: (tool: string) => void;
   onNavigate?: (screen: string) => void;
+  onOpenAssistant?: () => void;
 }
 
-const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate }: DashboardProps) => {
+const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate, onOpenAssistant }: DashboardProps) => {
   const { lifeStage, name } = useUserStore(
     useShallow((s) => ({ lifeStage: s.lifeStage, name: s.name }))
   );
@@ -1881,11 +1883,13 @@ const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate }: DashboardProps)
   };
 
   const hasPartner = !!profile?.linked_partner_id;
+  // Pregnancy loss recovery (Duzelis72): a calm home without pregnancy, fertility, ads or shop content.
+  const recovering = lifeStage === 'flow' && !!profile?.loss_recovery_active;
 
   // ——— Anacan redesign (github.com/Jmlsltnl/anacan-demo-app): mommy + bump + flow home ———
   if (lifeStage === 'mommy' || lifeStage === 'bump' || lifeStage === 'flow') {
     return (
-      <div className="a-scope a-dash pb-6 overflow-x-hidden">
+      <div className={`a-scope a-dash pb-6 overflow-x-hidden${recovering ? ' loss-scope loss-page' : ''}`}>
         {/* Watercolor sky behind topbar + hero */}
         <div className="a-sky" aria-hidden>
           <span className="a-cloud c1" />
@@ -1905,7 +1909,7 @@ const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate }: DashboardProps)
             
             <div>
               <p className="a-eyebrow">{getGreeting()}</p>
-              <p className="a-wordmark">{name || tr("dashboard_xanim_39ff6a", "Xan\u0131m")} 👋</p>
+              <p className="a-wordmark">{name || tr("dashboard_xanim_39ff6a", "Xan\u0131m")} {recovering ? '🤍' : '👋'}</p>
             </div>
             <div className="a-topbar-actions">
               {lifeStage === 'mommy' ?
@@ -1946,14 +1950,18 @@ const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate }: DashboardProps)
             </div>
           </motion.header>
 
-          {/* Top Banner Slot */}
-          <BannerSlot placement="home_top" onNavigate={() => {}} onToolOpen={onNavigateToTool} className="mb-2" />
-          <AdFreePremiumOffer position="top" />
+          {recovering ?
+            <RecoveryHome onNavigate={onNavigate} onNavigateToTool={onNavigateToTool} onOpenAssistant={onOpenAssistant} /> :
+            <>
+              {/* Top Banner Slot */}
+              <BannerSlot placement="home_top" onNavigate={() => {}} onToolOpen={onNavigateToTool} className="mb-2" />
+              <AdFreePremiumOffer position="top" />
 
-          {lifeStage === 'mommy' && <MommyDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}
-          {lifeStage === 'bump' && <BumpDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}
-          {lifeStage === 'flow' && <FlowDashboard />}
-          <AdInlineAnchor id="home_banner" />
+              {lifeStage === 'mommy' && <MommyDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}
+              {lifeStage === 'bump' && <BumpDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}
+              {lifeStage === 'flow' && <FlowDashboard />}
+              <AdInlineAnchor id="home_banner" />
+            </>}
 
           {/* Daily summary auto-syncs to partner in background */}
           {lifeStage === 'bump' && profile?.linked_partner_id && <DailySummaryAutoSync />}
@@ -1965,15 +1973,18 @@ const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate }: DashboardProps)
           </div>
           }
 
-          {/* Recent Blog Posts */}
-          {onNavigate && <RecentBlogPosts onNavigate={onNavigate} lifeStage={lifeStage} variant="anacan" />}
+          {!recovering &&
+            <>
+              {/* Recent Blog Posts */}
+              {onNavigate && <RecentBlogPosts onNavigate={onNavigate} lifeStage={lifeStage} variant="anacan" />}
 
-          {/* Bottom Banner Slot */}
-          <BannerSlot placement="home_bottom" onNavigate={() => {}} onToolOpen={onNavigateToTool} className="mt-2" />
+              {/* Bottom Banner Slot */}
+              <BannerSlot placement="home_bottom" onNavigate={() => {}} onToolOpen={onNavigateToTool} className="mt-2" />
 
-          {/* Small medical disclaimer — Google Play Health Content policy */}
-          <MedicalDisclaimer variant="anacan" />
-          <AdFreePremiumOffer position="bottom" />
+              {/* Small medical disclaimer — Google Play Health Content policy */}
+              <MedicalDisclaimer variant="anacan" />
+              <AdFreePremiumOffer position="bottom" />
+            </>}
         </div>
       </div>
     );

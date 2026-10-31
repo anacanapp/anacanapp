@@ -272,6 +272,8 @@ const ProfileEditScreen = ({ onBack }: ProfileEditScreenProps) => {
         cycle_length: formData.cycle_length,
         country_code: formData.country_code || null
       };
+      // A new stage (pregnant again, or a baby) ends the pregnancy loss recovery mode.
+      if ((profile as any)?.loss_recovery_active && formData.life_stage !== 'flow') updateData.loss_recovery_active = false;
 
       // KRİTİK BUG DÜZƏLİŞİ ("hamiləlik həftəsi öz-özünə dəyişir"):
       // Əvvəllər HƏR save-də (ad/şəkil dəyişəndə belə) LMP/doğuş tarixi

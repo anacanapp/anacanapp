@@ -24,6 +24,10 @@ export interface PartnerWomanData {
   // Əkiz/üçüz və s. — partnyor ekranlarında "körpəniz"/"körpələriniz" mətnini
   // düzgün seçmək üçün (bax PartnerHomeScreen.tsx, PartnerWeekInfoCard.tsx)
   multiples_type: string | null;
+  /** Pregnancy loss recovery (Duzelis72); the partner guide shows only when she chose to share it. */
+  pregnancy_loss_date?: string | null;
+  loss_recovery_active?: boolean | null;
+  loss_share_partner?: boolean | null;
 }
 
 export interface PartnerDailyLog {
@@ -64,7 +68,7 @@ export const usePartnerData = () => {
       // Fetch partner's profile using the linked_partner_id
       const { data: partnerData, error: profileError } = await supabase.
       from('profiles').
-      select('id, user_id, name, life_stage, last_period_date, due_date, baby_birth_date, baby_name, baby_gender, cycle_length, period_length, multiples_type').
+      select('id, user_id, name, life_stage, last_period_date, due_date, baby_birth_date, baby_name, baby_gender, cycle_length, period_length, multiples_type, pregnancy_loss_date, loss_recovery_active, loss_share_partner').
       eq('id', profile.linked_partner_id).
       maybeSingle();
 
@@ -79,7 +83,7 @@ export const usePartnerData = () => {
       }
 
       if (partnerData) {
-        setPartnerProfile(partnerData as PartnerWomanData);
+        setPartnerProfile(partnerData as unknown as PartnerWomanData);
         if (profile?.user_id) writeCache(PARTNER_PROFILE_CACHE, profile.user_id, partnerData);
 
         // Fetch today's daily log for the partner

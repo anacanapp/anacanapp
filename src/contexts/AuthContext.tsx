@@ -44,6 +44,10 @@ export interface Profile {
   // Əvvəllər burada elan edilməmişdi (sütun DB-də var idi, HƏR YERDƏ `as any`
   // ilə oxunurdu — məs. useCommunity.ts, useBanners.ts, useBlog.ts).
   country_code: string | null;
+  /** Pregnancy loss support (Duzelis72): the date it ended, the 8-week recovery mode, and partner sharing. */
+  pregnancy_loss_date?: string | null;
+  loss_recovery_active?: boolean | null;
+  loss_share_partner?: boolean | null;
   onboarding_answers?: Json;
   created_at: string;
   updated_at: string;

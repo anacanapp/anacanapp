@@ -1,0 +1,116 @@
+/* Pregnancy loss recovery: a calm lavender variant of the a-* theme (light and dark). */
+.loss-scope {
+  --a-bg: #f4effb;
+  --loss-hero: linear-gradient(135deg, #f3ecff, #e3d4fb);
+  --loss-accent: #ab84ee;
+  --loss-accent-ink: #5b3aa5;
+  --loss-soft: #ece3fb;
+  --loss-cta: linear-gradient(130deg, #efe6fd, #c9b0f5 55%, #ab84ee);
+  --loss-cta-ink: #3d2575;
+  --a-on-bg-soft: #7b62a8;
+  --a-on-bg-faint: #b4a2d6;
+}
+.loss-page { background: var(--a-bg); }
+.dark .loss-scope,
+.dark.loss-scope {
+  --a-bg: #1a1724;
+  --loss-hero: linear-gradient(135deg, #2c2540, #3a2d58);
+  --loss-accent: #9b7ae0;
+  --loss-accent-ink: #d9c8ff;
+  --loss-soft: #2f2940;
+  --loss-cta: linear-gradient(130deg, #3a2d58, #5b45a0 60%, #7a5cc9);
+  --loss-cta-ink: #f3edff;
+  --a-on-bg-soft: #b9a8de;
+  --a-on-bg-faint: #7d6fa0;
+}
+.loss-scope .a-sky {
+  background:
+    radial-gradient(120% 85% at 50% -30%, rgba(171, 132, 238, 0.32) 0%, rgba(201, 176, 245, 0.22) 42%, rgba(244, 239, 251, 0) 78%),
+    radial-gradient(52% 34% at 10% 4%, rgba(255, 255, 255, 0.55), transparent 70%),
+    radial-gradient(48% 30% at 90% 10%, rgba(255, 255, 255, 0.45), transparent 70%);
+}
+.loss-scope .a-cloud.deep { background: rgba(214, 198, 245, 0.7); }
+.dark .loss-scope .a-cloud.deep { background: rgba(255, 255, 255, 0.07); }
+.dark .loss-scope .a-sky {
+  background: radial-gradient(120% 85% at 50% -30%, rgba(155, 122, 224, 0.16) 0%, rgba(26, 23, 36, 0) 78%);
+}
+.loss-card {
+  background: var(--a-surface);
+  border-radius: var(--a-radius-md);
+  box-shadow: 0 14px 30px -18px rgba(120, 90, 170, 0.35);
+  padding: 15px 16px;
+}
+.loss-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--loss-accent-ink);
+}
+.loss-body {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--a-body-text);
+}
+.loss-cta {
+  width: 100%;
+  border-radius: 16px;
+  padding: 14px;
+  font-weight: 800;
+  font-size: 14.5px;
+  background: var(--loss-cta);
+  color: var(--loss-cta-ink);
+}
+.loss-cta:disabled { opacity: 0.6; }
+.loss-ghost {
+  width: 100%;
+  border-radius: 16px;
+  padding: 13px;
+  font-weight: 700;
+  font-size: 14px;
+  background: transparent;
+  color: var(--a-ink-soft);
+}
+.loss-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 2px;
+  text-align: start;
+  border-bottom: 1px solid var(--a-line);
+}
+.loss-row:last-child { border-bottom: 0; }
+.loss-row-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  flex: none;
+  background: var(--loss-soft);
+}
+.loss-row-title { font-size: 14px; font-weight: 700; color: var(--a-ink); }
+.loss-row-sub { font-size: 12px; color: var(--a-ink-soft); line-height: 1.4; }
+.loss-bar { height: 7px; border-radius: 9px; background: var(--loss-soft); overflow: hidden; }
+.loss-bar > i { display: block; height: 100%; border-radius: 9px; background: var(--loss-accent); }
+.loss-alert {
+  background: var(--a-alert-bg);
+  border-radius: 18px;
+  padding: 12px 14px;
+  color: var(--a-alert-ink);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.loss-chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 800;
+  background: var(--a-surface);
+  color: var(--a-ink);
+}
+.loss-chip[aria-selected='true'], .loss-chip[aria-pressed='true'] { background: var(--loss-accent); color: #fff; }
+.loss-say-yes { background: var(--a-green-1); color: var(--a-green-ink); border-radius: 16px; padding: 12px 14px; }
+.loss-say-no { background: var(--a-peach-1); color: var(--a-alert-ink); border-radius: 16px; padding: 12px 14px; }

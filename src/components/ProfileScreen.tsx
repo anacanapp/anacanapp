@@ -29,6 +29,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import countriesData from '../../countries.json';
 import { tr } from "@/lib/tr";
 import { lifeStageName } from '@/lib/stage-names';
+import ProfilePregnancyCard from '@/components/pregnancy-loss/ProfilePregnancyCard';
 import { moderatorText } from '@/lib/moderator-i18n';
 
 interface ProfileScreenProps {
@@ -507,6 +508,9 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
           </motion.div>
         }
       </AnimatePresence>
+
+      {/* Hamiləliyim: dates, birth, and the calm pregnancy loss entry (bump); recovery links (loss) */}
+      <ProfilePregnancyCard onNavigate={onNavigate} />
 
       {/* Children Management Section - Only for mommy stage */}
       {lifeStage === 'mommy' &&
