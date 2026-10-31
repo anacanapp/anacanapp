@@ -90,10 +90,16 @@ export async function syncEntitlementForUser(userId: string): Promise<SyncResult
     Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
   );
 
+  // Web purchases (Dodo, Duzelis73): link this account's Google/Apple-verified purchases, then read the
+  // best active one. Premium bought on the web must survive every RevenueCat sync.
+  const web = await webEntitlement(admin, userId);
+
   const rcResult = await fetchRevenueCatSubscriber(userId);
   if (!rcResult.data) {
     // RC əlçatan deyil (açar yoxdur / şəbəkə xətası) — mövcud DB vəziyyətinə
     // toxunmuruq (yanlış "expired" yazmaqdansa heç nə etməmək daha təhlükəsizdir).
+    // An active web subscription is still written: it does not depend on RevenueCat.
+    if (web) return await writeEntitlement(admin, userId, webState(web), { referral: false });
     return { ok: false, reason: rcResult.debugReason, rcStatus: rcResult.debugStatus, rcDetail: rcResult.debugDetail };
   }
   const rc = rcResult.data;
@@ -125,12 +131,58 @@ export async function syncEntitlementForUser(userId: string): Promise<SyncResult
 
   const isTrial = isPro && periodType === 'trial';
 
+  const store: EntitlementState = { isPro, planType: isPro ? planType : 'free', status, expiresAt: isPro ? expiresAtIso : null, isTrial, productId, willRenew, periodType };
+  // The later-ending of the store and web entitlements wins.
+  const merged = web && (!isPro || (web.expires_at && Date.parse(web.expires_at) > Date.parse(expiresAtIso))) ? webState(web) : store;
+  return await writeEntitlement(admin, userId, merged, { referral: merged === store && isPro && periodType === 'normal' });
+}
+
+interface EntitlementState {
+  isPro: boolean;
+  planType: string;
+  status: string;
+  expiresAt: string | null;
+  isTrial: boolean;
+  productId: string | null;
+  willRenew: boolean;
+  periodType: string | null;
+}
+
+interface WebEntitlementRow { plan: string; expires_at: string | null; cancel_at_period_end: boolean; provider_subscription_id: string }
+
+async function webEntitlement(admin: any, userId: string): Promise<WebEntitlementRow | null> {
+  try {
+    await admin.rpc('web_subscription_link_user_v1', { p_user_id: userId });
+    const { data, error } = await admin.rpc('web_entitlement_v1', { p_user_id: userId });
+    if (error) return null;
+    const row = Array.isArray(data) ? data[0] : data;
+    return row?.active ? row as WebEntitlementRow : null;
+  } catch {
+    return null;
+  }
+}
+
+function webState(web: WebEntitlementRow): EntitlementState {
+  const far = new Date(); far.setFullYear(far.getFullYear() + 100);
+  return {
+    isPro: true,
+    planType: web.plan === 'yearly' ? 'premium_plus' : 'premium',
+    status: web.cancel_at_period_end ? 'cancelled' : 'active',
+    expiresAt: web.expires_at ? new Date(web.expires_at).toISOString() : far.toISOString(),
+    isTrial: false,
+    productId: `dodo:${web.plan}`,
+    willRenew: !web.cancel_at_period_end,
+    periodType: 'normal',
+  };
+}
+
+async function writeEntitlement(admin: any, userId: string, state: EntitlementState, options: { referral: boolean }): Promise<SyncResult> {
+  const { isPro, planType, status, expiresAt: expiresAtIso, isTrial } = state;
   // DÜZƏLİŞ: əvvəllər `started_at` HƏR sinxronizasiyada indiki vaxta
   // yenilənirdi (halbuki "abunəlik nə vaxt başladı" sabit qalmalıdır) və
-  // `cancelled_at` heç saxlanılmırdı (Admin Premium səhifəsi üçün "kim NƏ
-  // VAXT cancel edib" göstərmək mümkün deyildi). İndi mövcud sətir əvvəlcə
-  // oxunur: `started_at` YALNIZ ilk dəfə yazılır, `cancelled_at` status
-  // 'cancelled'-ə KEÇİDDƏ təyin olunur (yenidən aktivləşəndə təmizlənir).
+  // `cancelled_at` heç saxlanılmırdı. İndi mövcud sətir əvvəlcə oxunur:
+  // `started_at` YALNIZ ilk dəfə yazılır, `cancelled_at` status 'cancelled'-ə
+  // KEÇİDDƏ təyin olunur (yenidən aktivləşəndə təmizlənir).
   const { data: existingSub } = await admin
     .from('subscriptions')
     .select('status, started_at, cancelled_at')
@@ -165,7 +217,7 @@ export async function syncEntitlementForUser(userId: string): Promise<SyncResult
 
   // Referral: YALNIZ burada, RC-nin öz REST API-sindən müstəqil təsdiqləndikdən
   // sonra — klient artıq 'converted' göndərə bilmir (bax Duzelis33.sql).
-  if (isPro && periodType === 'normal') {
+  if (options.referral) {
     const { error: refError } = await admin.rpc('confirm_referral_conversion', {
       p_referred_user_id: userId,
     });
@@ -178,9 +230,9 @@ export async function syncEntitlementForUser(userId: string): Promise<SyncResult
     planType: isPro ? planType : 'free',
     status,
     expiresAt: isPro ? expiresAtIso : null,
-    productId,
-    willRenew,
-    periodType,
+    productId: state.productId,
+    willRenew: state.willRenew,
+    periodType: state.periodType,
     isTrial,
   };
 }
