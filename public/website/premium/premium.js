@@ -129,7 +129,8 @@
     view.innerHTML = '<h1 style="font-size:20px">' + esc(t.plans_title) + ' · ' + esc(state.plan === 'yearly' ? t.yearly : t.monthly) + '</h1>';
     var wrap = document.getElementById('checkout-wrap'); wrap.hidden = false;
     var Dodo = window.DodoPaymentsCheckout && window.DodoPaymentsCheckout.DodoPayments;
-    if (!Dodo) { location.href = url; return; }   // SDK blocked: the hosted page has the same Anacan theme.
+    // Default: Dodo's hosted page in the Anacan theme (verified end to end). Inline on this page with ?checkout=inline.
+    if (!Dodo || params.get('checkout') !== 'inline') { location.href = url; return; }
     Dodo.Initialize({
       mode: testMode ? 'test' : 'live', displayType: 'inline', manualRedirect: true,
       onEvent: function (event) {
@@ -153,7 +154,7 @@
     document.getElementById('checkout-wrap').hidden = true;
     header(5);
     document.getElementById('progress').style.width = '100%';
-    var email = state.email || store.get('email') || '';
+    var email = state.email || store.get('email') || params.get('email') || '';
     view.innerHTML = '<img class="hero" src="/website/characters/' + (CHARACTERS[state.stage] || 'tumurcuq') + '-success.webp" alt="" width="150" height="150">' +
       '<h1>' + esc(t.done_title) + '</h1><p class="sub">' + esc(t.done_body).replace(esc('{email}'), '<b dir="ltr">' + esc(email) + '</b>') + '</p>' +
       '<div class="card"><ol class="steps"><li>' + esc(t.done_step1) + '</li><li>' + esc(t.done_step2) + '</li><li>' + esc(t.done_step3) + '</li></ol>' +
