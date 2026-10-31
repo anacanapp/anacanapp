@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "title": "Confirme ton e-mail",
+    "subtitle": "Nous avons envoyé un code à 6 chiffres à {email}. Saisis-le ci-dessous.",
+    "why": "Cela protège ton compte et garantit que ton Premium est bien lié à ton compte.",
+    "code_label": "Code de vérification",
+    "confirm": "Confirmer",
+    "resend": "Renvoyer le code",
+    "resend_in": "Renvoyer dans {s} s",
+    "sent": "Code envoyé",
+    "spam_hint": "Pas d’e-mail ? Regarde aussi dans le dossier Spam ou Promotions.",
+    "wrong_code": "Code incorrect. Vérifie et réessaie.",
+    "expired": "Ce code a expiré. Demande un nouveau code.",
+    "too_many": "Trop de tentatives. Demande un nouveau code.",
+    "rate_limited": "Patiente un instant et réessaie.",
+    "send_failed": "Impossible d’envoyer le code. Vérifie ta connexion Internet et réessaie.",
+    "verified": "Ton e-mail est confirmé 🎉",
+    "wrong_email": "Mauvais e-mail ? Déconnecte-toi et inscris-toi à nouveau"
+  },
+  "email": {
+    "subject": "{code} — ton code de vérification Anacan",
+    "preheader": "Saisis ce code pour confirmer ton compte.",
+    "heading": "Ton code de vérification",
+    "intro": "Saisis ce code dans l’application pour confirmer ton compte Anacan :",
+    "expires": "Le code est valable 15 minutes.",
+    "ignore": "Si tu n’es pas à l’origine de cette demande, ignore simplement cet e-mail — rien ne changera sur ton compte.",
+    "footer": "Anacan — à tes côtés à chaque étape"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "title": "E-poçtunu təsdiqlə",
+    "subtitle": "{email} ünvanına 6 rəqəmli kod göndərdik. Onu aşağıya yaz.",
+    "why": "Bu, hesabını qoruyur və alacağın Premium-un məhz sənin hesabına bağlanmasını təmin edir.",
+    "code_label": "Təsdiq kodu",
+    "confirm": "Təsdiqlə",
+    "resend": "Kodu yenidən göndər",
+    "resend_in": "Yenidən göndərmək: {s} san",
+    "sent": "Kod göndərildi",
+    "spam_hint": "Məktub gəlməyibsə, Spam və ya Promotions qovluğuna da bax.",
+    "wrong_code": "Kod yanlışdır. Yenidən yoxla.",
+    "expired": "Kodun vaxtı bitib. Yeni kod göndər.",
+    "too_many": "Çox cəhd edildi. Yeni kod göndər.",
+    "rate_limited": "Bir az gözlə və yenidən cəhd et.",
+    "send_failed": "Kodu göndərmək alınmadı. İnternet bağlantını yoxla və yenidən cəhd et.",
+    "verified": "E-poçtun təsdiqləndi 🎉",
+    "wrong_email": "E-poçt səhvdir? Çıxış et və yenidən qeydiyyatdan keç"
+  },
+  "email": {
+    "subject": "{code} — Anacan təsdiq kodun",
+    "preheader": "Hesabını təsdiqləmək üçün bu kodu daxil et.",
+    "heading": "Təsdiq kodun",
+    "intro": "Anacan hesabını təsdiqləmək üçün tətbiqdə bu kodu daxil et:",
+    "expires": "Kod 15 dəqiqə etibarlıdır.",
+    "ignore": "Bu sorğunu sən etməmisənsə, bu məktuba məhəl qoyma — hesabında heç nə dəyişməyəcək.",
+    "footer": "Anacan — hər mərhələdə yanında"
+  }
+}

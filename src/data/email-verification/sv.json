@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "title": "Bekräfta din e-post",
+    "subtitle": "Vi har skickat en 6-siffrig kod till {email}. Skriv in den nedan.",
+    "why": "Det skyddar ditt konto och ser till att ditt Premium kopplas till just ditt konto.",
+    "code_label": "Verifieringskod",
+    "confirm": "Bekräfta",
+    "resend": "Skicka koden igen",
+    "resend_in": "Skicka igen om {s} s",
+    "sent": "Koden har skickats",
+    "spam_hint": "Inget mejl? Titta även i mappen Skräppost eller Kampanjer.",
+    "wrong_code": "Fel kod. Kontrollera och försök igen.",
+    "expired": "Koden har gått ut. Skicka en ny kod.",
+    "too_many": "För många försök. Skicka en ny kod.",
+    "rate_limited": "Vänta en stund och försök igen.",
+    "send_failed": "Det gick inte att skicka koden. Kontrollera din internetanslutning och försök igen.",
+    "verified": "Din e-post är bekräftad 🎉",
+    "wrong_email": "Fel e-post? Logga ut och registrera dig igen"
+  },
+  "email": {
+    "subject": "{code} — din verifieringskod för Anacan",
+    "preheader": "Ange den här koden för att bekräfta ditt konto.",
+    "heading": "Din verifieringskod",
+    "intro": "Ange den här koden i appen för att bekräfta ditt Anacan-konto:",
+    "expires": "Koden gäller i 15 minuter.",
+    "ignore": "Om det inte var du som begärde detta kan du ignorera mejlet — inget ändras på ditt konto.",
+    "footer": "Anacan — vid din sida i varje skede"
+  }
+}

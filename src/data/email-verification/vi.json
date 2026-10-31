@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "title": "Xác nhận email của bạn",
+    "subtitle": "Chúng mình đã gửi mã 6 chữ số đến {email}. Hãy nhập mã bên dưới.",
+    "why": "Việc này bảo vệ tài khoản của bạn và đảm bảo gói Premium bạn nhận được gắn đúng với tài khoản của bạn.",
+    "code_label": "Mã xác minh",
+    "confirm": "Xác nhận",
+    "resend": "Gửi lại mã",
+    "resend_in": "Gửi lại sau {s} giây",
+    "sent": "Đã gửi mã",
+    "spam_hint": "Chưa thấy thư? Hãy kiểm tra cả thư mục Thư rác hoặc Quảng cáo.",
+    "wrong_code": "Mã không đúng. Hãy kiểm tra và thử lại.",
+    "expired": "Mã đã hết hạn. Hãy gửi mã mới.",
+    "too_many": "Bạn đã thử quá nhiều lần. Hãy gửi mã mới.",
+    "rate_limited": "Đợi một chút rồi thử lại nhé.",
+    "send_failed": "Không gửi được mã. Hãy kiểm tra kết nối Internet và thử lại.",
+    "verified": "Email của bạn đã được xác nhận 🎉",
+    "wrong_email": "Sai email? Đăng xuất và đăng ký lại"
+  },
+  "email": {
+    "subject": "{code} — mã xác minh Anacan của bạn",
+    "preheader": "Nhập mã này để xác nhận tài khoản của bạn.",
+    "heading": "Mã xác minh của bạn",
+    "intro": "Nhập mã này trong ứng dụng để xác nhận tài khoản Anacan của bạn:",
+    "expires": "Mã có hiệu lực trong 15 phút.",
+    "ignore": "Nếu bạn không yêu cầu, hãy bỏ qua email này — tài khoản của bạn sẽ không thay đổi gì.",
+    "footer": "Anacan — bên bạn ở mọi giai đoạn"
+  }
+}

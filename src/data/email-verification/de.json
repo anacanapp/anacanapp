@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "title": "Bestätige deine E-Mail",
+    "subtitle": "Wir haben einen 6-stelligen Code an {email} gesendet. Gib ihn unten ein.",
+    "why": "Das schützt dein Konto und sorgt dafür, dass dein Premium genau mit deinem Konto verknüpft wird.",
+    "code_label": "Bestätigungscode",
+    "confirm": "Bestätigen",
+    "resend": "Code erneut senden",
+    "resend_in": "Erneut senden in {s} s",
+    "sent": "Code gesendet",
+    "spam_hint": "Keine E-Mail? Schau auch im Ordner Spam oder Werbung nach.",
+    "wrong_code": "Falscher Code. Prüf ihn und versuch es noch mal.",
+    "expired": "Der Code ist abgelaufen. Fordere einen neuen an.",
+    "too_many": "Zu viele Versuche. Fordere einen neuen Code an.",
+    "rate_limited": "Warte kurz und versuch es noch mal.",
+    "send_failed": "Der Code konnte nicht gesendet werden. Prüf deine Internetverbindung und versuch es noch mal.",
+    "verified": "Deine E-Mail ist bestätigt 🎉",
+    "wrong_email": "Falsche E-Mail? Melde dich ab und registriere dich neu"
+  },
+  "email": {
+    "subject": "{code} — dein Anacan-Bestätigungscode",
+    "preheader": "Gib diesen Code ein, um dein Konto zu bestätigen.",
+    "heading": "Dein Bestätigungscode",
+    "intro": "Gib diesen Code in der App ein, um dein Anacan-Konto zu bestätigen:",
+    "expires": "Der Code ist 15 Minuten gültig.",
+    "ignore": "Falls du das nicht angefordert hast, ignoriere diese E-Mail einfach — an deinem Konto ändert sich nichts.",
+    "footer": "Anacan — in jeder Phase an deiner Seite"
+  }
+}

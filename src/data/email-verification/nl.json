@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "title": "Bevestig je e-mailadres",
+    "subtitle": "We hebben een 6-cijferige code naar {email} gestuurd. Vul hem hieronder in.",
+    "why": "Zo blijft je account beveiligd en wordt je Premium echt aan jouw account gekoppeld.",
+    "code_label": "Verificatiecode",
+    "confirm": "Bevestigen",
+    "resend": "Code opnieuw sturen",
+    "resend_in": "Opnieuw sturen over {s} s",
+    "sent": "Code verstuurd",
+    "spam_hint": "Geen e-mail? Kijk ook in je map Spam of Reclame.",
+    "wrong_code": "Verkeerde code. Controleer hem en probeer het opnieuw.",
+    "expired": "De code is verlopen. Vraag een nieuwe code aan.",
+    "too_many": "Te veel pogingen. Vraag een nieuwe code aan.",
+    "rate_limited": "Wacht even en probeer het opnieuw.",
+    "send_failed": "De code kon niet worden verstuurd. Controleer je internetverbinding en probeer het opnieuw.",
+    "verified": "Je e-mailadres is bevestigd 🎉",
+    "wrong_email": "Verkeerd e-mailadres? Log uit en meld je opnieuw aan"
+  },
+  "email": {
+    "subject": "{code} — je Anacan-verificatiecode",
+    "preheader": "Vul deze code in om je account te bevestigen.",
+    "heading": "Je verificatiecode",
+    "intro": "Vul deze code in de app in om je Anacan-account te bevestigen:",
+    "expires": "De code is 15 minuten geldig.",
+    "ignore": "Heb je dit niet aangevraagd? Negeer deze e-mail dan gewoon — er verandert niets aan je account.",
+    "footer": "Anacan — in elke fase aan je zijde"
+  }
+}

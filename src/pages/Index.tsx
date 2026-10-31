@@ -7,6 +7,7 @@ import ErrorBoundary from '@/components/ErrorBoundary';
 import AppIntroduction from '@/components/AppIntroduction';
 import InitialLanguageScreen from '@/components/InitialLanguageScreen';
 import AuthScreen from '@/components/AuthScreen';
+import { fetchEmailVerificationState } from '@/lib/email-verification';
 import BottomNav from '@/components/BottomNav';
 import AppRatingPrompt from '@/components/AppRatingPrompt';
 import FloatingTimerWidget from '@/components/FloatingTimerWidget';
@@ -43,6 +44,7 @@ const PENDING_FUNNEL_KEY = 'anacan_pending_funnel';
 
 // Lazy load heavy screens
 const PremiumOnboarding = lazy(() => import('@/components/onboarding/PremiumOnboarding'));
+const EmailVerificationScreen = lazy(() => import('@/components/EmailVerificationScreen'));
 const Dashboard = lazy(() => import('@/components/Dashboard'));
 const ToolsHub = lazy(() => import('@/components/ToolsHub'));
 const DoctorReportScreen = lazy(() => import('@/components/DoctorReportScreen'));
@@ -423,6 +425,29 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     void import('@/lib/baby-chat-notifications').then((m) => m.cancelBabyChatNotifications()).catch(() => {});
   }, [lifeStage]);
 
+  // E-mail code for new e-mail/password accounts (Duzelis74). "Not required" is remembered per account so later
+  // launches never wait; a slow or failed check never blocks (4 s, then the app continues).
+  const [emailGate, setEmailGate] = useState<{ userId: string; required: boolean; email: string | null } | null>(null);
+  useEffect(() => {
+    if (!isAuthenticated || !user?.id) { setEmailGate(null); return; }
+    const userId = user.id;
+    // The code comes before onboarding, so an onboarded account is never asked (and never queried).
+    if (isOnboarded) { setEmailGate({ userId, required: false, email: null }); return; }
+    const cacheKey = `anacan_email_verified_v1:${userId}`;
+    let cached = false;
+    try { cached = localStorage.getItem(cacheKey) === '1'; } catch { /* ignore */ }
+    if (cached) { setEmailGate({ userId, required: false, email: null }); return; }
+    let alive = true;
+    const timer = window.setTimeout(() => { if (alive) setEmailGate((g) => g?.userId === userId ? g : { userId, required: false, email: null }); }, 4000);
+    void fetchEmailVerificationState().then((state) => {
+      if (!alive) return;
+      window.clearTimeout(timer);
+      if (state.answered && !state.required) { try { localStorage.setItem(cacheKey, '1'); } catch { /* ignore */ } }
+      setEmailGate({ userId, required: state.required, email: state.email });
+    });
+    return () => { alive = false; window.clearTimeout(timer); };
+  }, [isAuthenticated, user?.id, isOnboarded]);
+
   // Screen navigation from sub-screens; 'home' closes the screen and opens the home tab.
   const navigateScreen = (screen: string) => {
     if (screen === 'home') { setActiveScreen(null); setActiveTab('home'); }
@@ -696,6 +721,18 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   // Community bloku isə yalnız CommunityScreen-i bağlayır (orada idarə olunur).
   if (activeBlock?.block_type === 'full') {
     return <BlockedScreen block={activeBlock} />;
+  }
+
+  // New e-mail/password accounts confirm their e-mail before onboarding and the Premium offer.
+  // Only a not-yet-onboarded (new) account waits for the check; everyone else continues at once.
+  if (user && !isOnboarded && emailGate?.userId !== user.id) return suspenseFallback;
+  if (user && emailGate?.required && emailGate.email) {
+    return <Suspense fallback={suspenseFallback}><ErrorBoundary key={`email:${user.id}`}>
+      <EmailVerificationScreen email={emailGate.email} onVerified={() => {
+        try { localStorage.setItem(`anacan_email_verified_v1:${user.id}`, '1'); } catch { /* ignore */ }
+        setEmailGate({ userId: user.id, required: false, email: null });
+      }} />
+    </ErrorBoundary></Suspense>;
   }
 
   // MƏCBURİ ölkə seçimi: profili olan amma country_code-u boş olan hər kəsə
