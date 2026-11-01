@@ -867,3 +867,24 @@ was done.
 - **Pay page:** static `public/website/p/` (index.html + pay.js + copy/*, 21 langs) served by nginx at
   `/website/p/`; must be COPYd into the gateway website root on deploy (it is new, not in the base image).
 - **Decisions (user):** partner offer = woman's toggle; sponsor picks the plan on the page; test mode.
+
+## Premium sponsor links — deployed (test mode, flag OFF) 2026-11-01
+- **SQL** `Duzelis77.sql`: dry-run (ROLLBACK) clean, then applied as supabase_admin. Verified:
+  `premium_sponsor_links` (0 rows), `app_settings.premium_sponsor = {"enabled": false}`, RPCs
+  `create_premium_sponsor_link_v1` / `premium_sponsor_link_info_v1` / `web_subscription_link_sponsor_v1`.
+- **Functions:** image `functions@sha256:fc93af7d3da0ee1427704032ddf80707b8b0ffc35e129fd11880a64ddc09f08c`
+  (Cloud Build FROM `0f941b2f…`): updated dodo-checkout/dodo-webhook, new `sponsor-link-info`, patched
+  `main/catalog.mjs` (added the `sponsor-link-info` route). Swapped with `functions-sponsor-recreate.py`
+  (based on functions-dodo-recreate.py; NEW_NAMES empty; adds `sponsor-link-info` to ENABLED_FUNCTIONS).
+  Previous container `anacan-functions-before-sponsor-1793552304`; env backup `functions.env.before-sponsor`.
+  Smoke: OPTIONS 204, bogus token → `{found:false}`, bad format → 400.
+- **Gateway:** image `gateway@sha256:f1cc9b7bc7bc62e42415904f5f39449538cec6e3cc476450551a24767832784f`
+  (FROM `0493242…`, app bundle unchanged, index `47848de…`): COPYs `public/website/p` into the website
+  root. Plan `sponsorpay-web-plan.json` (version 47.0-sponsorpay) `passed`; rollback
+  `rollback-sponsorpay-web-plan.json` (→ `0493242…` / 47.0-lockoffer). Live: `/website/p/…` = 200, app
+  index unchanged on app./gcp.anacan.az.
+- **To turn ON:** set `app_settings.premium_sponsor = {"enabled": true}` after an end-to-end test (real
+  user generates a link → sponsor pays with a Dodo test card → requester's Premium activates). Going live
+  (real charges) still needs `DODO_PAYMENTS_ENVIRONMENT=live_mode` + live key/products (same as the funnel).
+- **Known follow-up:** share link is `anacan.az/website/p/?t=<token>`; the shorter `anacan.az/p/<token>`
+  needs a one-line nginx location (or a website-server route) on the next full website image rebuild.
