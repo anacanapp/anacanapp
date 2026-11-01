@@ -833,3 +833,4 @@ was done.
   native only). Sessions now come from `anacan_app_usage_count`; first open from `anacan.review.firstOpenAt`.
 - Kept: Android `@capacitor-community/in-app-review` plugin registration (used by the 5★ path).
 - Duzelis76 server objects (`review_prompts` setting, `get_review_prompt_config_v1`) stay but are unused.
+- Web deployed as `47.0-rating` (gateway `sha256:cb574750…`, index `e6dd8052…`); rollback plan `rollback-rating-web-plan.json` → 47.0-feedback.
