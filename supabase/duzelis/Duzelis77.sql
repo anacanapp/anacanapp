@@ -54,6 +54,7 @@ LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public
 AS $$
+#variable_conflict use_column
 DECLARE
   uid uuid := auth.uid();
   v_kind text := CASE WHEN p_kind IN ('partner', 'gift') THEN p_kind ELSE NULL END;
@@ -87,7 +88,7 @@ BEGIN
    WHERE requester_user_id = uid AND created_at > now() - interval '1 hour';
   IF recent >= 20 THEN RAISE EXCEPTION 'TOO_MANY_LINKS' USING errcode = '53400'; END IF;
 
-  v_tok := translate(encode(gen_random_bytes(18), 'base64'), '+/=', '-_');
+  v_tok := replace(gen_random_uuid()::text, '-', '') || substr(replace(gen_random_uuid()::text, '-', ''), 1, 10);  -- 42 url-safe hex chars (no pgcrypto)
   v_exp := now() + interval '7 days';
   INSERT INTO public.premium_sponsor_links(token, requester_user_id, kind, relation, language, expires_at)
   VALUES (v_tok, uid, v_kind, v_relation, v_language, v_exp);
