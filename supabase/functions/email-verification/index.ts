@@ -16,6 +16,9 @@ const headers = {
   'Cache-Control': 'no-store',
 };
 const json = (status: number, body: Record<string, unknown>) => new Response(JSON.stringify(body), { status, headers });
+// The functions router replaces every non-2xx body with a generic code, so outcomes the person must see
+// (wrong/expired code, too many attempts, wait, could not send) are answered with 200 and an error field.
+const outcome = (body: Record<string, unknown>) => json(200, { ok: false, ...body });
 
 const CODE_TTL_MS = 15 * 60_000;
 const COOLDOWN_MS = 60_000;
@@ -108,11 +111,11 @@ Deno.serve(async (req) => {
 
   if (action === 'send') {
     if (current?.last_sent_at && now - Date.parse(current.last_sent_at) < COOLDOWN_MS) {
-      return json(429, { error: 'rate_limited', retry_in: Math.ceil((COOLDOWN_MS - (now - Date.parse(current.last_sent_at))) / 1000) });
+      return outcome({ error: 'rate_limited', retry_in: Math.ceil((COOLDOWN_MS - (now - Date.parse(current.last_sent_at))) / 1000) });
     }
     const windowStart = current?.window_started_at && now - Date.parse(current.window_started_at) < WINDOW_MS ? current.window_started_at : new Date(now).toISOString();
     const sends = windowStart === current?.window_started_at ? (current?.sends_in_window ?? 0) : 0;
-    if (sends >= MAX_SENDS_PER_WINDOW) return json(429, { error: 'rate_limited', retry_in: Math.ceil((WINDOW_MS - (now - Date.parse(windowStart))) / 1000) });
+    if (sends >= MAX_SENDS_PER_WINDOW) return outcome({ error: 'rate_limited', retry_in: Math.ceil((WINDOW_MS - (now - Date.parse(windowStart))) / 1000) });
     const code = newCode();
     const { error } = await admin.from('email_verifications').upsert({
       user_id: userId, email, code_hash: await sha256(`${userId}:${code}`),
@@ -121,20 +124,20 @@ Deno.serve(async (req) => {
       verified_at: null, updated_at: new Date(now).toISOString(),
     }, { onConflict: 'user_id' });
     if (error) return json(500, { error: 'store_failed' });
-    if (!(await sendEmail(userId, email, language, code))) return json(502, { error: 'send_failed' });
+    if (!(await sendEmail(userId, email, language, code))) return outcome({ error: 'send_failed' });
     return json(200, { sent: true, retry_in: COOLDOWN_MS / 1000 });
   }
 
   if (action === 'confirm') {
     const code = typeof body.code === 'string' ? body.code.replace(/\D/g, '') : '';
-    if (code.length !== 6) return json(400, { error: 'wrong_code' });
-    if (!current?.code_hash || !current.code_expires_at) return json(400, { error: 'expired' });
-    if (Date.parse(current.code_expires_at) < now) return json(400, { error: 'expired' });
-    if (current.attempts >= MAX_ATTEMPTS) return json(400, { error: 'too_many' });
+    if (code.length !== 6) return outcome({ error: 'wrong_code' });
+    if (!current?.code_hash || !current.code_expires_at) return outcome({ error: 'expired' });
+    if (Date.parse(current.code_expires_at) < now) return outcome({ error: 'expired' });
+    if (current.attempts >= MAX_ATTEMPTS) return outcome({ error: 'too_many' });
     const ok = equal(await sha256(`${userId}:${code}`), current.code_hash);
     if (!ok) {
       await admin.from('email_verifications').update({ attempts: current.attempts + 1, updated_at: new Date(now).toISOString() }).eq('user_id', userId);
-      return json(400, { error: current.attempts + 1 >= MAX_ATTEMPTS ? 'too_many' : 'wrong_code' });
+      return outcome({ error: current.attempts + 1 >= MAX_ATTEMPTS ? 'too_many' : 'wrong_code' });
     }
     const { error } = await admin.from('email_verifications').update({
       verified_at: new Date(now).toISOString(), code_hash: null, code_expires_at: null, attempts: 0, updated_at: new Date(now).toISOString(),

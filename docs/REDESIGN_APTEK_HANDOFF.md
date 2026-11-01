@@ -750,3 +750,18 @@ was done.
 - **To turn e-mail codes on:** Customer.io sending domain verified (DKIM/return-path records in Cloudflare), App API key
   and from-address added to the functions env, one real code test, then set
   `{"enabled": true, "required_since": now()}`.
+
+## E-mail code verification turned on — 2026-11-01
+- **Customer.io:** App API key (EU) works; sender identity `Anacan <noreply@anacan.az>`; `email.anacan.az` points to
+  Customer.io tracking. A test code e-mail to info@anacan.az was delivered to the **Inbox** (user confirmed).
+- **Env:** `CUSTOMERIO_APP_API_KEY`, `CUSTOMERIO_REGION=eu`, `EMAIL_VERIFICATION_FROM` added with
+  `/home/anacan-runner/functions-cio-recreate.py` (same image; backup `functions.env.before-cio`).
+- **Function fix:** the router replaces non-2xx bodies with generic codes, so `email-verification` now answers
+  wrong/expired code, too many attempts, wait and send failure with 200 + `{ok:false,error}`. Image
+  `functions@sha256:0f941b2fd78d797efb0ae0c4f64ff43fcb4d0ecc955936fb864f9f5fea1de7f5`
+  (`functions-ev2-recreate.py`, backup `functions.env.before-email-verify2`, env unchanged).
+- **End-to-end:** throwaway account → code sent through Customer.io → the received code verified (`verified: true`),
+  a repeat send is refused as already verified, a code-less confirm returns `expired`; both throwaway accounts were
+  deleted with `delete-user-account` and their verification rows removed. The app screen was checked visually.
+- **Switch:** `app_settings.email_verification = {"enabled": true, "required_since": "2026-11-01T06:34:09Z"}`; only
+  e-mail/password accounts created after that moment are asked. Off again: set `"enabled": false`.
