@@ -1126,7 +1126,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
       </section>
 
       {/* Premature backfill — yalnız due_date məlum olmayanda görünür */}
-      <MommyPeriodBanner onOpen={() => onNavigate?.('mommy-period')} />
       {selectedChild &&
       <PrematurityBackfillCard child={selectedChild} onSaved={refetchChildren} />
       }
@@ -1205,6 +1204,9 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
           </div>
         </section>
       }
+
+      {/* Period return question + calendar: after the daily info texts, right above Təqvim */}
+      <MommyPeriodBanner onOpen={() => onNavigate?.('mommy-period')} />
 
       {/* Calendar: upcoming appointments, add / edit in a sheet, server push reminders */}
       <UpcomingAppointments />
