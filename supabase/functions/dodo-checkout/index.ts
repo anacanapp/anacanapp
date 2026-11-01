@@ -103,9 +103,11 @@ Deno.serve(async (req) => {
       body: {
         product_cart: [{ product_id: productId, quantity: 1 }],
         customer: { email },
-        return_url: sponsorToken ? `https://anacan.az/website/p/?t=${sponsorToken}&done=1&lang=${language}` : `${FUNNEL_URL}?lang=${language}&done=1`,
+        return_url: sponsorToken ? `https://anacan.az/${language}/p/?t=${sponsorToken}&done=1` : `${FUNNEL_URL}?lang=${language}&done=1`,
         customization: { theme: 'light', show_order_details: true, force_language: checkoutLanguage, theme_config: themeConfig(payLabel) },
-        feature_flags: { allow_discount_code: true },
+        // Digital product: collect as little as possible. Dodo (Merchant of Record) may still require a
+        // billing country for tax; we never ask for a full address, phone or tax id.
+        feature_flags: { allow_discount_code: true, allow_phone_number_collection: false, require_phone_number: false, allow_tax_id: false },
         metadata: { anacan_checkout: checkout.id, anacan_plan: plan, anacan_source: sponsorToken ? 'sponsor' : 'anacan.az', ...(sponsorToken ? { anacan_sponsor_token: sponsorToken } : {}) },
       },
     });

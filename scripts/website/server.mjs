@@ -11,6 +11,10 @@ const rest=api==='https://gcp.anacan.az'?api+'/rest/v1':api;
 const backend=JSON.parse(await readFile(join(root,'website/backend.json'),'utf8'));
 if(backend.project!=='ninth-park-492111-m4'||backend.url!=='https://gcp.anacan.az')throw new Error('WEBSITE_GOOGLE_BACKEND_REQUIRED');
 const shell=await readFile(join(root,'az/index.html'),'utf8');
+// Sponsor pay page ("someone else pays for Premium"): served at /<lang>/p/ so the link opens in the
+// requester's language. The shell's assets load statically from /website/p/. Optional (older builds).
+let payShell=null;try{payShell=await readFile(join(root,'website/p/index.html'),'utf8');}catch{payShell=null;}
+const PAY_LANGS=new Set(APP_LANGUAGES.map((item)=>item.code));
 const cleanShell=shell.replace(/<html[^>]*>/,'<html lang="az">').replace(/<meta (?:name|property)="(?:description|robots|og:[^"]+|twitter:[^"]+|article:[^"]+)"[^>]*>/g,'')
   .replace(/<link rel="(?:canonical|alternate|preload)"[^>]*>/g,'').replace(/<script type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g,'')
   .replace(/<script id="anacan-website-boot"[^>]*>[\s\S]*?<\/script>/g,'').replace(/<div id="root">[\s\S]*<\/div>\s*\n/, '<div id="root"></div>\n');
@@ -86,6 +90,8 @@ createServer(async(request,response)=>{
   try{
     const url=new URL(request.url,'http://website.internal'),prefix=request.headers['x-anacan-website-prefix']==='/site'?'/site':'';
     if(url.pathname==='/healthz'){reply(response,200,JSON.stringify({status:'ok',service:'anacan-website',backend:'google'}),'application/json');return;}
+    const payMatch=/^\/([a-z]{2})\/p\/?$/.exec(url.pathname);
+    if(payMatch&&payShell&&PAY_LANGS.has(payMatch[1])){reply(response,200,request.method==='HEAD'?'':payShell,'text/html; charset=utf-8',{'X-Robots-Tag':'noindex'});return;}
     if(url.pathname==='/sitemap-blog.xml'||url.pathname==='/sitemap-pages.xml'){reply(response,200,await sitemap(url.pathname.includes('blog')?'articles':'pages'),'application/xml; charset=utf-8');return;}
     if(url.pathname==='/sitemap.xml'){reply(response,200,await readFile(join(root,'sitemap.xml')),'application/xml; charset=utf-8');return;}
     const dataMatch=/^\/website\/data\/([a-z]{2})(?:\/([^/]+))?\.json$/.exec(decodeURIComponent(url.pathname));

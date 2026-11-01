@@ -11,7 +11,9 @@
   var params = new URLSearchParams(location.search);
   var token = (params.get('t') || location.hash.replace(/^#/, '') || '').trim();
   var browser = (navigator.language || 'az').slice(0, 2).toLowerCase();
-  var lang = LANGS.indexOf(params.get('lang')) >= 0 ? params.get('lang') : LANGS.indexOf(browser) >= 0 ? browser : 'az';
+  // Language: /<lang>/p/ path first, then ?lang=, then the browser.
+  var pathLang = (location.pathname.match(/^\/([a-z]{2})\/p\/?/) || [])[1];
+  var lang = LANGS.indexOf(pathLang) >= 0 ? pathLang : LANGS.indexOf(params.get('lang')) >= 0 ? params.get('lang') : LANGS.indexOf(browser) >= 0 ? browser : 'az';
   var t = null, info = null, state = { plan: 'yearly', email: '' };
   var view = document.getElementById('view');
   var money = function (n) { try { return new Intl.NumberFormat(lang === 'az' ? 'az-Latn-AZ' : lang, { style: 'currency', currency: 'USD' }).format(n); } catch (e) { return '$' + n.toFixed(2); } };
@@ -61,12 +63,41 @@
       .then(function (res) {
         if (!res.ok || !res.d.checkout_url) throw new Error((res.d && res.d.error) || 'checkout');
         if (res.d.test_mode) { var tm = document.getElementById('test'); tm.hidden = false; tm.textContent = t.test_mode; }
-        location.href = res.d.checkout_url;
+        openCheckout(res.d.checkout_url, res.d.test_mode);
       })
       .catch(function (e) {
         btn.disabled = false; btn.textContent = t.pay;
         showErr(String(e.message) === 'link_expired' ? t.expired : String(e.message) === 'link_not_found' ? t.not_found : t.error);
       });
+  }
+
+  // Card entry stays on anacan.az: Dodo inline checkout embedded on the page. If the SDK is missing or
+  // errors, fall back to the hosted Dodo page (redirect) so the sponsor can always complete the payment.
+  function openCheckout(url, testMode) {
+    var Dodo = window.DodoPaymentsCheckout && window.DodoPaymentsCheckout.DodoPayments;
+    if (!Dodo) { location.href = url; return; }
+    var wrap = document.getElementById('checkout-wrap');
+    view.innerHTML = '<h1 style="font-size:20px">' + esc(t.doc_title) + '</h1><p class="sub">' + esc(t.inline_hint || '') + '</p>';
+    wrap.hidden = false;
+    try {
+      Dodo.Initialize({
+        mode: testMode ? 'test' : 'live', displayType: 'inline', manualRedirect: true,
+        onEvent: function (event) {
+          var type = event && event.event_type;
+          var data = (event && event.data) || {};
+          var status = data.status || (data.message && data.message.status);
+          if (type === 'checkout.status' && (status === 'succeeded' || status === 'active')) { wrap.hidden = true; info.paid = true; renderState(); }
+          if (type === 'checkout.redirect' || type === 'checkout.redirect_requested') {
+            var target = data.message && (data.message.redirect_to || data.message.url);
+            if (target && target.indexOf('done=1') < 0 && /^https:\/\/(anacan\.az|[a-z0-9.-]+\.dodopayments\.com)\//.test(target)) location.href = target;
+            else { wrap.hidden = true; info.done = true; params.set('done', '1'); renderState(); }
+          }
+          if (type === 'checkout.error') { wrap.hidden = true; location.href = url; }
+        }
+      });
+      Dodo.Checkout.open({ checkoutUrl: url, elementId: 'dodo-inline-checkout' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) { location.href = url; }
   }
 
   function renderState() {

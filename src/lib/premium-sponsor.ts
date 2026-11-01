@@ -7,9 +7,10 @@ import { supabase } from '@/integrations/supabase/client';
 export type SponsorKind = 'partner' | 'gift';
 export type SponsorRelation = 'spouse' | 'mother' | 'father' | 'sibling' | 'other';
 
-// The pay page is served statically from the website root at /website/p/ and reads ?t=<token>.
-export const SPONSOR_BASE = 'https://anacan.az/website/p/?t=';
-export const sponsorUrl = (token: string) => `${SPONSOR_BASE}${token}`;
+// The pay page opens in the requester's own language: anacan.az/<lang>/p/?t=<token>.
+const SPONSOR_LANGS = ['az', 'en', 'tr', 'ru', 'kk', 'uz', 'ka', 'de', 'ar', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'];
+export const sponsorLang = (language: string) => (SPONSOR_LANGS.includes(language) ? language : 'az');
+export const sponsorUrl = (token: string, language = 'az') => `https://anacan.az/${sponsorLang(language)}/p/?t=${token}`;
 
 export interface SponsorLink { token: string; url: string; expiresAt: string; kind: SponsorKind }
 
@@ -20,5 +21,5 @@ export async function createSponsorLink(kind: SponsorKind, relation: SponsorRela
   });
   const row = Array.isArray(data) ? data[0] : data;
   if (error || !row?.token) throw new Error(error?.message || 'sponsor_link_failed');
-  return { token: row.token, url: sponsorUrl(row.token), expiresAt: row.expires_at, kind: row.kind };
+  return { token: row.token, url: sponsorUrl(row.token, language), expiresAt: row.expires_at, kind: row.kind };
 }
