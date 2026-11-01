@@ -803,3 +803,17 @@ was done.
 - Widget buttons open `anacan://tool/<tool>?widget_action=feed|sleep|diaper`; Sleep starts the sleep timer, Feed/Diaper
   open the matching tracker tab. The Swift code was not compiled in this environment — build in Xcode before release.
 - Deployed 2026-11-02: web gateway `47.0-sleep-widgets` (`sleep-web-plan.json`, rollback `rollback-sleep-web-plan.json` → care) passed.
+
+## Store review prompts — 2026-11-02
+
+- Removed the custom 5-star pre-prompt (`AppRatingPrompt`, `useAppRating`): it sent only 5-star users to the store
+  (review gating, App Store guideline 5.6.1). Replaced by the OS sheet only (`@capacitor-community/in-app-review`) at
+  positive moments: a new baby milestone marked (mommy home), a new pregnancy week viewed 8 s on the bump home, and
+  day 7+ after 20 s on Home. Logic and gates: `src/lib/review-prompt.ts` (tested).
+- Gates: remote switch `app_settings.review_prompts` (Duzelis76, seeded **disabled**; admin card "App Store / Play rəy
+  sorğusu" in Admin → Settings with min iOS/Android build and cooldown), app crash on this device in the last 7 days
+  (crashReporter → `noteAppCrash`), pregnancy-loss recovery, < 3 sessions, 60-day cooldown, max 3 per 365 days.
+  Requests are recorded in `app_rating_prompts.last_action = native_<moment>`.
+- Android: `@capacitor-community/in-app-review` added to `capacitor.config.json` android.includePlugins (it was missing,
+  so Play review never worked); generated gradle files re-synced. Needs native build 48.
+- Turn the switch on only after the crash-fix build is live; set min build to that build number.

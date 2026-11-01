@@ -1,4 +1,5 @@
 import { supabase } from '@/integrations/supabase/client';
+import { noteAppCrash } from '@/lib/review-prompt';
 
 interface CrashReport {
   error_message: string;
@@ -52,6 +53,9 @@ async function sendCrashReport(report: CrashReport) {
   const now = Date.now();
   if (report.error_message === lastReport.message && now - lastReport.time < DEDUPE_MS) return;
   lastReport = { message: report.error_message, time: now };
+  // Real app crashes pause store review requests on this device for 7 days.
+  const kind = (report.extra_data as { type?: string } | undefined)?.type;
+  if (kind === 'uncaught_error' || kind === 'react_error_boundary') noteAppCrash();
 
   try {
     const { data: { user } } = await supabase.auth.getUser();

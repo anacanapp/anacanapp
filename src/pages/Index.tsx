@@ -9,7 +9,7 @@ import InitialLanguageScreen from '@/components/InitialLanguageScreen';
 import AuthScreen from '@/components/AuthScreen';
 import { fetchEmailVerificationState } from '@/lib/email-verification';
 import BottomNav from '@/components/BottomNav';
-import AppRatingPrompt from '@/components/AppRatingPrompt';
+import { maybeRequestReview, trackReviewSession } from '@/lib/review-prompt';
 import FloatingTimerWidget from '@/components/FloatingTimerWidget';
 import HomeWidgetSync from '@/components/HomeWidgetSync';
 import { Capacitor } from '@capacitor/core';
@@ -170,6 +170,16 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     }))
   );
   const { isAdmin, loading, profile, user, profileLoaded } = useAuth();
+  // Store review: count sessions once; ask on day 7+ after 20 s on Home (all gates in review-prompt.ts).
+  useEffect(() => {trackReviewSession();}, []);
+  useEffect(() => {
+    if (!user?.id || activeTab !== 'home' || activeScreen || activeTool) return;
+    const id = window.setTimeout(() => {
+      void maybeRequestReview('day7', { userId: user.id, accountCreatedAt: (user as { created_at?: string }).created_at ?? null,
+        lossRecovery: !!(profile as { loss_recovery_active?: boolean } | null)?.loss_recovery_active, delayMs: 0 });
+    }, 20_000);
+    return () => window.clearTimeout(id);
+  }, [user?.id, activeTab, activeScreen, activeTool]);
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get('blog_language');
     if (!isAppLanguage(requested || '') || requested === language) return;
@@ -899,7 +909,6 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       style={isAnacanRedesignHome ? { background: 'var(--a-bg)' } : undefined}
     >
       {/* App Rating Prompt */}
-      <AppRatingPrompt />
       
       {/* SOS / Doğuş siqnalı qəbuledicisi — bağlı olan HƏR İKİ tərəf üçün */}
       {profile?.linked_partner_id &&

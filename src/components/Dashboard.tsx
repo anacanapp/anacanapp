@@ -71,6 +71,7 @@ import RecoveryHome from '@/components/pregnancy-loss/RecoveryHome';
 import WaterWidget from '@/components/dashboard/WaterWidget';
 import { MommyPeriodBanner } from '@/components/mommy/MommyPeriodTracker';
 import IllnessHomeCard from '@/components/illness/IllnessHomeCard';
+import { markPregnancyWeekSeen, maybeRequestReview } from '@/lib/review-prompt';
 import RecoveryHomeCard from '@/components/recovery/RecoveryHomeCard';
 
 // Fetus images by month
@@ -177,6 +178,17 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
   // Əkiz/üçüz və s. — hero başlığı və digər "körpəniz" mətnləri buna görə uyğunlaşır
   const isMultiple = !!(profile as any)?.multiples_type && (profile as any).multiples_type !== 'single';
   const pregData = getPregnancyData();
+  // A new pregnancy week viewed for a while on Home is a happy moment for the store review sheet.
+  useEffect(() => {
+    const week = pregData?.currentWeek;
+    if (!week) return;
+    const id = window.setTimeout(() => {
+      if (markPregnancyWeekSeen(week)) {
+        void maybeRequestReview('pregnancy_week', { userId: profile?.user_id ?? null, accountCreatedAt: (profile as { created_at?: string } | null)?.created_at ?? null, delayMs: 0 });
+      }
+    }, 8000);
+    return () => window.clearTimeout(id);
+  }, [pregData?.currentWeek, profile?.user_id]);
   const { todayLog, updateWaterIntake, updateMood } = useDailyLogs();
   const { getTodayStats, addSession } = useKickSessions();
   const { entries: weightEntries } = useWeightEntries();
@@ -1087,7 +1099,13 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
 
   const handleMilestoneClick = async (milestoneId: string) => {
     await hapticFeedback.medium();
+    const wasAchieved = isMilestoneAchieved(milestoneId);
     await toggleMilestone(milestoneId);
+    // A new milestone is a happy moment: the OS may show its review sheet (gated in review-prompt.ts).
+    if (!wasAchieved) {
+      void maybeRequestReview('milestone', { userId: mommyProfile?.user_id ?? null, accountCreatedAt: (mommyProfile as { created_at?: string } | null)?.created_at ?? null,
+        lossRecovery: false, delayMs: 2000 });
+    }
 
     // Check for milestone achievements
     const achievedCount = displayMilestones.filter((m) => isMilestoneAchieved(m.id)).length;
