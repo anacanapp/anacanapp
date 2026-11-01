@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useFeedbackText } from '@/data/feedback';
+import FeedbackSheet from '@/components/FeedbackSheet';
 import { useWidgetText } from '@/data/widgets';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -61,6 +63,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   useScreenAnalytics('Profile', 'Profile');
   const language = useUserStore(state => state.language);
   const widgetText = useWidgetText(language);
+  const feedbackText = useFeedbackText(language);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
 
   const { name, email, lifeStage, role } = useUserStore(
     useShallow((s) => ({ name: s.name, email: s.email, lifeStage: s.lifeStage, role: s.role }))
@@ -141,6 +145,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   { id: 'appearance', icon: Palette, label: tr("profilescreen_gorunus_165fe3", 'Görünüş') },
   { id: 'calendar', icon: Calendar, label: tr("profilescreen_teqvim_ayarlari_012790", 'Təqvim Ayarları') },
   { id: 'privacy', icon: Shield, label: tr("profilescreen_gizlilik", "Gizlilik") },
+  ...(feedbackText ? [{ id: 'feedback', icon: MessageCircle, label: feedbackText.menu }] : []),
   { id: 'help', icon: HelpCircle, label: tr("profilescreen_yardim_da857a", 'Yardım') },
   { id: 'moderation-history', icon: Shield, label: moderatorText('user_history', language) },
   ...(isModerator || isAdmin ? [{ id: 'moderator', icon: ShieldCheck, label: moderatorText('open_panel', language) }] : []),
@@ -706,7 +711,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
             <motion.button
               key={item.id}
               variants={itemVariants}
-              onClick={() => onNavigate?.(item.id)}
+              onClick={() => item.id === 'feedback' ? setFeedbackOpen(true) : onNavigate?.(item.id)}
               className="a-list-row w-full"
               style={{ width: '100%', textAlign: 'start', background: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: 'none', cursor: 'pointer' }}>
               
@@ -724,6 +729,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
 
         })}
       </motion.div>
+
+      <FeedbackSheet open={feedbackOpen} onClose={() => setFeedbackOpen(false)} />
 
       {/* Dil seçimi — əlçatan yerdə (Settings-də deyil) */}
       <motion.div

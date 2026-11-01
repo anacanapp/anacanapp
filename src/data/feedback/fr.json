@@ -1,0 +1,46 @@
+{
+  "menu": "Donner votre avis",
+  "title": "Que pensez-vous d'Anacan ?",
+  "subtitle": "Votre avis nous aide à améliorer l'application pour chaque maman.",
+  "stars": [
+    "Très mauvais",
+    "Mauvais",
+    "Correct",
+    "Bien",
+    "Excellent"
+  ],
+  "low_title": "Qu'est-ce qui ne vous a pas plu ?",
+  "low_sub": "Choisissez-en quelques-uns — nous lisons chaque réponse.",
+  "high_title": "Qu'aimez-vous le plus ?",
+  "high_sub": "Dites-le-nous pour que nous l'améliorions encore.",
+  "low_reasons": {
+    "crash": "L'appli plante / se fige",
+    "bug": "Quelque chose ne marche pas",
+    "slow": "C'est lent",
+    "missing": "Il manque une fonction",
+    "content": "Infos imprécises",
+    "ads": "Trop de pubs",
+    "price": "Premium trop cher",
+    "hard": "Difficile à utiliser",
+    "other": "Autre"
+  },
+  "high_reasons": {
+    "tracking": "Suivis",
+    "content": "Infos du jour",
+    "ai": "Assistant IA",
+    "community": "Communauté",
+    "partner": "Mode partenaire",
+    "design": "Design",
+    "other": "Autre"
+  },
+  "message_low": "Que s'est-il passé ? Que devrions-nous changer ?",
+  "message_high": "Quelque chose à ajouter ? (facultatif)",
+  "send": "Envoyer",
+  "sending": "Envoi...",
+  "thanks_low": "Merci. Notre équipe va le lire et essayer de corriger cela 💛",
+  "thanks_high": "Merci beaucoup ! C'est une grande motivation pour notre équipe 💛",
+  "close": "Fermer",
+  "later": "Plus tard",
+  "error": "Échec de l'envoi. Vérifiez votre connexion Internet et réessayez.",
+  "subject": "Avis sur l'application"
+}

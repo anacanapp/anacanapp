@@ -1,0 +1,22 @@
+{
+  "menu": "Fikrinizi bildirin",
+  "title": "Anacan necədir?",
+  "subtitle": "Fikriniz tətbiqi hər ana üçün daha yaxşı etməyə kömək edir.",
+  "stars": ["Çox pis", "Pis", "Normal", "Yaxşı", "Əla"],
+  "low_title": "Nəyi bəyənmədiniz?",
+  "low_sub": "Bir neçəsini seçin — hər birini oxuyuruq.",
+  "high_title": "Ən çox nəyi bəyənirsiniz?",
+  "high_sub": "Seçin ki, bunu daha da yaxşı edək.",
+  "low_reasons": { "crash": "Tətbiq çökür / donur", "bug": "Nəsə düz işləmir", "slow": "Yavaşdır", "missing": "Lazım olan funksiya yoxdur", "content": "Məlumat dəqiq deyil", "ads": "Reklam çoxdur", "price": "Premium bahadır", "hard": "İstifadəsi çətindir", "other": "Başqa" },
+  "high_reasons": { "tracking": "İzləyicilər", "content": "Gündəlik məlumatlar", "ai": "AI köməkçi", "community": "İcma", "partner": "Partnyor rejimi", "design": "Dizayn", "other": "Başqa" },
+  "message_low": "Nə baş verdi? Nəyi dəyişək?",
+  "message_high": "Əlavə etmək istədiyiniz nəsə? (istəyə bağlı)",
+  "send": "Göndər",
+  "sending": "Göndərilir...",
+  "thanks_low": "Təşəkkür edirik. Komandamız bunu oxuyacaq və düzəltməyə çalışacaq 💛",
+  "thanks_high": "Çox sağ olun! Bu, komandamız üçün böyük motivasiyadır 💛",
+  "close": "Bağla",
+  "later": "Sonra",
+  "error": "Göndərilmədi. İnterneti yoxlayıb yenidən cəhd edin.",
+  "subject": "Tətbiq rəyi"
+}

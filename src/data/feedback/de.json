@@ -1,0 +1,46 @@
+{
+  "menu": "Feedback geben",
+  "title": "Wie gefällt dir Anacan?",
+  "subtitle": "Dein Feedback hilft uns, die App für jede Mama besser zu machen.",
+  "stars": [
+    "Sehr schlecht",
+    "Schlecht",
+    "Okay",
+    "Gut",
+    "Super"
+  ],
+  "low_title": "Was hat dir nicht gefallen?",
+  "low_sub": "Wähle ein paar aus — wir lesen jede Antwort.",
+  "high_title": "Was gefällt dir am meisten?",
+  "high_sub": "Wähle aus, damit wir es noch besser machen.",
+  "low_reasons": {
+    "crash": "App stürzt ab / hängt",
+    "bug": "Etwas funktioniert nicht",
+    "slow": "Zu langsam",
+    "missing": "Funktion fehlt",
+    "content": "Infos ungenau",
+    "ads": "Zu viel Werbung",
+    "price": "Premium zu teuer",
+    "hard": "Schwer zu bedienen",
+    "other": "Sonstiges"
+  },
+  "high_reasons": {
+    "tracking": "Tracker",
+    "content": "Tägliche Infos",
+    "ai": "KI-Assistent",
+    "community": "Community",
+    "partner": "Partnermodus",
+    "design": "Design",
+    "other": "Sonstiges"
+  },
+  "message_low": "Was ist passiert? Was sollen wir ändern?",
+  "message_high": "Möchtest du noch etwas hinzufügen? (optional)",
+  "send": "Senden",
+  "sending": "Wird gesendet...",
+  "thanks_low": "Danke dir. Unser Team liest das und versucht, es zu beheben 💛",
+  "thanks_high": "Vielen Dank! Das motiviert unser Team sehr 💛",
+  "close": "Schließen",
+  "later": "Später",
+  "error": "Senden fehlgeschlagen. Prüfe deine Internetverbindung und versuche es erneut.",
+  "subject": "App-Feedback"
+}

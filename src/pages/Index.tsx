@@ -10,6 +10,8 @@ import AuthScreen from '@/components/AuthScreen';
 import { fetchEmailVerificationState } from '@/lib/email-verification';
 import BottomNav from '@/components/BottomNav';
 import { maybeRequestReview, trackReviewSession } from '@/lib/review-prompt';
+import { shouldAutoPromptFeedback } from '@/lib/app-feedback';
+import FeedbackSheet from '@/components/FeedbackSheet';
 import FloatingTimerWidget from '@/components/FloatingTimerWidget';
 import HomeWidgetSync from '@/components/HomeWidgetSync';
 import { Capacitor } from '@capacitor/core';
@@ -170,13 +172,17 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     }))
   );
   const { isAdmin, loading, profile, user, profileLoaded } = useAuth();
+  const [autoFeedback, setAutoFeedback] = useState(false);
   // Store review: count sessions once; ask on day 7+ after 20 s on Home (all gates in review-prompt.ts).
   useEffect(() => {trackReviewSession();}, []);
   useEffect(() => {
     if (!user?.id || activeTab !== 'home' || activeScreen || activeTool) return;
-    const id = window.setTimeout(() => {
-      void maybeRequestReview('day7', { userId: user.id, accountCreatedAt: (user as { created_at?: string }).created_at ?? null,
-        lossRecovery: !!(profile as { loss_recovery_active?: boolean } | null)?.loss_recovery_active, delayMs: 0 });
+    const id = window.setTimeout(async () => {
+      const lossRecovery = !!(profile as { loss_recovery_active?: boolean } | null)?.loss_recovery_active;
+      const accountCreatedAt = (user as { created_at?: string }).created_at ?? null;
+      const asked = await maybeRequestReview('day7', { userId: user.id, accountCreatedAt, lossRecovery, delayMs: 0 });
+      // From day 14, once: our own feedback form (team only, never a store link).
+      if (!asked && Capacitor.isNativePlatform() && shouldAutoPromptFeedback({ accountCreatedAt, lossRecovery })) setAutoFeedback(true);
     }, 20_000);
     return () => window.clearTimeout(id);
   }, [user?.id, activeTab, activeScreen, activeTool]);
@@ -947,6 +953,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       
       {/* Floating timer widget - above bottom nav */}
       <FloatingTimerWidget />
+      <FeedbackSheet open={autoFeedback} auto onClose={() => setAutoFeedback(false)} />
       {Capacitor.isNativePlatform() && (lifeStage === 'bump' || lifeStage === 'mommy') && <HomeWidgetSync />}
       
       {/* Bottom navigation with safe area */}

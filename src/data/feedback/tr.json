@@ -1,0 +1,46 @@
+{
+  "menu": "Geri bildirim gönder",
+  "title": "Anacan nasıl?",
+  "subtitle": "Görüşünüz uygulamayı her anne için daha iyi hale getirmemize yardımcı olur.",
+  "stars": [
+    "Çok kötü",
+    "Kötü",
+    "Normal",
+    "İyi",
+    "Mükemmel"
+  ],
+  "low_title": "Neyi beğenmediniz?",
+  "low_sub": "Birkaçını seçin — her birini okuyoruz.",
+  "high_title": "En çok neyi beğeniyorsunuz?",
+  "high_sub": "Seçin ki bunu daha da iyi yapalım.",
+  "low_reasons": {
+    "crash": "Uygulama çöküyor / donuyor",
+    "bug": "Bir şey düzgün çalışmıyor",
+    "slow": "Yavaş",
+    "missing": "Gereken özellik yok",
+    "content": "Bilgiler doğru değil",
+    "ads": "Çok fazla reklam",
+    "price": "Premium pahalı",
+    "hard": "Kullanımı zor",
+    "other": "Diğer"
+  },
+  "high_reasons": {
+    "tracking": "Takip araçları",
+    "content": "Günlük bilgiler",
+    "ai": "AI asistan",
+    "community": "Topluluk",
+    "partner": "Partner modu",
+    "design": "Tasarım",
+    "other": "Diğer"
+  },
+  "message_low": "Ne oldu? Neyi değiştirelim?",
+  "message_high": "Eklemek istediğiniz bir şey var mı? (isteğe bağlı)",
+  "send": "Gönder",
+  "sending": "Gönderiliyor...",
+  "thanks_low": "Teşekkür ederiz. Ekibimiz bunu okuyacak ve düzeltmeye çalışacak 💛",
+  "thanks_high": "Çok teşekkürler! Bu, ekibimiz için büyük bir motivasyon 💛",
+  "close": "Kapat",
+  "later": "Sonra",
+  "error": "Gönderilemedi. İnternetinizi kontrol edip tekrar deneyin.",
+  "subject": "Uygulama geri bildirimi"
+}

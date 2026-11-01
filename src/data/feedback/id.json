@@ -1,0 +1,46 @@
+{
+  "menu": "Kirim masukan",
+  "title": "Bagaimana Anacan menurutmu?",
+  "subtitle": "Masukanmu membantu kami membuat aplikasi lebih baik untuk setiap ibu.",
+  "stars": [
+    "Sangat buruk",
+    "Buruk",
+    "Biasa",
+    "Bagus",
+    "Luar biasa"
+  ],
+  "low_title": "Apa yang tidak kamu sukai?",
+  "low_sub": "Pilih beberapa — kami membaca semuanya.",
+  "high_title": "Apa yang paling kamu sukai?",
+  "high_sub": "Pilih agar kami bisa membuatnya lebih baik lagi.",
+  "low_reasons": {
+    "crash": "Aplikasi crash / macet",
+    "bug": "Ada yang tidak berfungsi",
+    "slow": "Lambat",
+    "missing": "Fitur yang dibutuhkan tidak ada",
+    "content": "Info kurang akurat",
+    "ads": "Iklan terlalu banyak",
+    "price": "Premium mahal",
+    "hard": "Sulit digunakan",
+    "other": "Lainnya"
+  },
+  "high_reasons": {
+    "tracking": "Pelacak",
+    "content": "Info harian",
+    "ai": "Asisten AI",
+    "community": "Komunitas",
+    "partner": "Mode pasangan",
+    "design": "Desain",
+    "other": "Lainnya"
+  },
+  "message_low": "Apa yang terjadi? Apa yang perlu kami ubah?",
+  "message_high": "Ada yang ingin ditambahkan? (opsional)",
+  "send": "Kirim",
+  "sending": "Mengirim...",
+  "thanks_low": "Terima kasih. Tim kami akan membacanya dan berusaha memperbaikinya 💛",
+  "thanks_high": "Terima kasih banyak! Ini motivasi besar bagi tim kami 💛",
+  "close": "Tutup",
+  "later": "Nanti",
+  "error": "Gagal mengirim. Periksa koneksi internet lalu coba lagi.",
+  "subject": "Masukan aplikasi"
+}

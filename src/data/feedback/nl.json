@@ -1,0 +1,46 @@
+{
+  "menu": "Feedback geven",
+  "title": "Hoe vind je Anacan?",
+  "subtitle": "Jouw mening helpt ons de app beter te maken voor elke mama.",
+  "stars": [
+    "Heel slecht",
+    "Slecht",
+    "Oké",
+    "Goed",
+    "Geweldig"
+  ],
+  "low_title": "Wat vond je niet fijn?",
+  "low_sub": "Kies er een paar — we lezen ze allemaal.",
+  "high_title": "Wat vind je het leukst?",
+  "high_sub": "Kies, zodat we het nog beter kunnen maken.",
+  "low_reasons": {
+    "crash": "App crasht / loopt vast",
+    "bug": "Iets werkt niet goed",
+    "slow": "Traag",
+    "missing": "Functie ontbreekt",
+    "content": "Info klopt niet",
+    "ads": "Te veel reclame",
+    "price": "Premium is duur",
+    "hard": "Lastig te gebruiken",
+    "other": "Anders"
+  },
+  "high_reasons": {
+    "tracking": "Trackers",
+    "content": "Dagelijkse info",
+    "ai": "AI-assistent",
+    "community": "Community",
+    "partner": "Partnermodus",
+    "design": "Ontwerp",
+    "other": "Anders"
+  },
+  "message_low": "Wat is er gebeurd? Wat moeten we veranderen?",
+  "message_high": "Wil je nog iets toevoegen? (optioneel)",
+  "send": "Versturen",
+  "sending": "Bezig met versturen...",
+  "thanks_low": "Bedankt. Ons team leest dit en probeert het op te lossen 💛",
+  "thanks_high": "Heel erg bedankt! Dit motiveert ons team enorm 💛",
+  "close": "Sluiten",
+  "later": "Later",
+  "error": "Versturen mislukt. Controleer je internetverbinding en probeer het opnieuw.",
+  "subject": "App-feedback"
+}
