@@ -156,7 +156,7 @@ RENDER & COMPOSITION:
 - the whole baby fully visible and centered, with generous empty margin (at least 10%) on every side, nothing cropped
 - BACKGROUND: perfectly plain pure white (#FFFFFF) seamless studio, completely empty — no floor texture, no horizon line, no props unless the scene says so, NO cast shadow and NO contact shadow on the ground
 - square 1:1
-- if the scene below mentions outlines, arcs, "z" shapes, motion lines or confetti symbols, IGNORE them — render everything naturally in 3D with no symbols; any props mentioned in the scene are rendered as soft realistic 3D toys in white / pastel colors
+- render NO symbols, letters or motion lines of any kind; any props mentioned in the scene are rendered as soft realistic 3D toys in white / pastel colors
 `.trim();
 
 const NEGATIVE_3D = `
@@ -178,7 +178,11 @@ function buildPrompt(m, withReference, style = 'flat') {
   const ref = withReference
     ? `REFERENCE IMAGE: the attached image shows the exact character design. Draw THE SAME baby (same head shape, same hair curl, same eyes, same colors, same clothing, same rendering style) — only the pose, age-appropriate body proportions and expression change as described below. Do NOT copy the reference pose.\n\n`
     : '';
-  return `${ref}${is3d ? STYLE_3D : STYLE}\n\nSCENE (${m.month} month${m.month > 1 ? 's' : ''} old — developmental milestone pose; the pose must be physically realistic for a baby of this age):\n${m.scene}\n\n${is3d ? NEGATIVE_3D : NEGATIVE}`;
+  // 3D-də simvollar (z, hərəkət xətləri, konfeti) render olunmamalıdır — həmin sətirləri çıxar
+  const scene = is3d
+    ? m.scene.split('\n').filter((l) => !/"z"|motion (arc|line)|confetti/i.test(l)).join('\n')
+    : m.scene;
+  return `${ref}${is3d ? STYLE_3D : STYLE}\n\nSCENE (${m.month} month${m.month > 1 ? 's' : ''} old — developmental milestone pose; the pose must be physically realistic for a baby of this age):\n${scene}\n\n${is3d ? NEGATIVE_3D : NEGATIVE}`;
 }
 
 module.exports = { STYLE, NEGATIVE, STYLE_3D, NEGATIVE_3D, MONTHS, REFERENCE_PROMPT, REFERENCE_PROMPT_3D, buildPrompt };

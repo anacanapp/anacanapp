@@ -23,11 +23,14 @@
 //   node generate-milestones.cjs --cutout-only   # yalnız raw/ → şəffaf PNG emalı
 //   node generate-milestones.cjs --style=3d --style-ref=nümunə.jpg
 //                                                # 3D Pixar üslubu, Mərcan geyim; nümunə şəkil üslub istinadıdır
+//                                                # 3D-də fon cutout_ai.py (rembg/BiRefNet) ilə silinir;
+//                                                # REMBG_PYTHON=<rembg quraşdırılmış python>
 //   OUT_DIR=/path node generate-milestones.cjs   # çıxış qovluğu (default: ./output)
 
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { execFileSync } = require('child_process');
 const { MONTHS, REFERENCE_PROMPT, REFERENCE_PROMPT_3D, buildPrompt } = require('./prompts.cjs');
 
 let sharp;
@@ -271,7 +274,11 @@ const pad = (n) => String(n).padStart(2, '0');
         await new Promise((res) => setTimeout(res, 8000)); // kvota üçün fasilə
       }
       if (fs.existsSync(rawPath)) {
-        await cutout(fs.readFileSync(rawPath), outPath);
+        if (style === '3d') {
+          execFileSync(process.env.REMBG_PYTHON || 'python3', ['-I', path.join(DIR, 'cutout_ai.py'), rawPath, outPath], { stdio: ['ignore', 'ignore', 'inherit'] });
+        } else {
+          await cutout(fs.readFileSync(rawPath), outPath);
+        }
         console.log(`   ↳ şəffaf PNG: ${outPath}`);
       }
     } catch (e) {
