@@ -1,126 +1,80 @@
-import { useState } from 'react';
-import { getLocaleTag } from '@/lib/i18n';
+import { useMemo, useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Activity, Footprints, HeartPulse, Link2, Settings2, Download, Dumbbell, Wind } from 'lucide-react';
-import { Capacitor } from '@capacitor/core';
+import {
+  ArrowLeft, Activity, Footprints, HeartPulse, Link2, Settings2, Download, RefreshCw,
+  ArrowDownToLine, ArrowUpFromLine, Scale, Droplet, ShieldCheck } from
+'lucide-react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { getLocaleTag } from '@/lib/i18n';
+import { tr } from '@/lib/tr';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useToast } from '@/hooks/use-toast';
 import {
-  isNativeHealthPlatform, isHealthConnected, requestHealthPermissions,
-  disconnectHealth, openHealthSettings, installHealthConnect } from
+  healthPlatform, isHealthConnected, requestHealthPermissions, mindfulnessSupported,
+  disconnectHealth, openHealthSettings, installHealthConnect, localDayKey } from
 '@/lib/health';
 import {
   isCycleWriteEnabled, setCycleWriteEnabled,
   isCycleWriteAvailable, requestCycleWritePermission } from
 '@/lib/healthCycle';
 import {
-  isVitalsWriteEnabled, setVitalsWriteEnabled,
-  isVitalsWriteAvailable, requestVitalsWritePermission } from
+  isVitalsWriteEnabled, setVitalsWriteEnabled, isVitalsWriteAvailable,
+  requestVitalsWritePermission, syncVitalsToHealth, getLastVitalsSync } from
 '@/lib/healthVitals';
 import { Switch } from '@/components/ui/switch';
 import { useUserStore } from '@/store/userStore';
-import { useHealthAvailability, useHealthDaily, useHealthWorkouts } from '@/hooks/useHealthData';
-import { tr } from '@/lib/tr';
+import { useHealthAvailability, useHealthDaily, useHealthReadAccess, useHealthWorkouts } from '@/hooks/useHealthData';
+import { useHealthSyncText, fill, type HealthSyncText } from '@/data/health-sync';
+import '@/styles/health-sync.css';
 
 interface Props {
   onBack: () => void;
 }
 
-/** Apple Health integration on iOS; optional cycle writes only on Android. */
+export const STEP_GOAL = 7000;
+
+const enter = (delay = 0) => ({ initial: { opacity: 0, y: 14 }, animate: { opacity: 1, y: 0 }, transition: { delay } });
+
+/**
+ * Apple Health (iOS) and Health Connect (Android), both directions:
+ * reads steps/workouts (+ mindful minutes on iOS) to show here, and optionally copies saved
+ * measurements and period days from Anacan to the phone's health store.
+ */
 const HealthSyncScreen = ({ onBack }: Props) => {
   useScrollToTop();
+  const language = useUserStore((s) => s.language);
+  const t = useHealthSyncText(language);
+  if (!t) return <div className="a-scope min-h-screen" style={{ background: 'var(--a-bg)' }} />;
+  return <HealthSyncContent t={t} onBack={onBack} />;
+};
+
+function HealthSyncContent({ t, onBack }: { t: HealthSyncText; onBack: () => void }) {
   const { toast } = useToast();
   const queryClient = useQueryClient();
-
-  const isIos = Capacitor.getPlatform() === 'ios';
-  const isAndroid = isNativeHealthPlatform() && Capacitor.getPlatform() === 'android';
-  const platformName = isIos ? 'Apple Health' : 'Health Connect';
+  const platform = healthPlatform();
+  const isAndroid = platform === 'android';
+  const platformName = platform === 'android' ? 'Health Connect' : 'Apple Health';
+  const userId = useUserStore((s) => s.userId);
+  const lifeStage = useUserStore((s) => s.lifeStage);
+  const locale = getLocaleTag();
+  const number = (n: number) => n.toLocaleString(locale);
 
   const [connected, setConnected] = useState(isHealthConnected());
   const [connecting, setConnecting] = useState(false);
 
-  // Flow users can enable cycle writes; prior Android opt-ins can always be disabled.
-  const lifeStage = useUserStore((s) => s.lifeStage);
-  const [cycleWrite, setCycleWrite] = useState(isCycleWriteEnabled());
-  const [cycleWriteBusy, setCycleWriteBusy] = useState(false);
-  const { data: cycleAvailable } = useQuery({
-    queryKey: ['health-cycle-write-available'],
-    queryFn: isCycleWriteAvailable,
-    enabled: isAndroid,
-    staleTime: 60 * 1000
-  });
+  const availability = useHealthAvailability();
+  const hcMissing = isAndroid && availability.data === false && !availability.isLoading;
+  const access = useHealthReadAccess(connected);
+  const daily = useHealthDaily(7, connected);
+  const workoutsQuery = useHealthWorkouts(7, connected);
+  const workouts = workoutsQuery.data ?? [];
+  const noAccess = isAndroid && !!access.data && !access.data.steps && !access.data.workouts;
 
-  const toggleCycleWrite = async (on: boolean) => {
-    if (!on) {
-      setCycleWriteEnabled(false);
-      setCycleWrite(false);
-      return;
-    }
-    setCycleWriteBusy(true);
-    const available = await isCycleWriteAvailable();
-    if (!available) {
-      setCycleWriteBusy(false);
-      toast({
-        title: tr('hc_write_unavailable', 'Mövcud deyil'),
-        description: isAndroid ?
-          tr('health_android_unavailable_desc', 'Health Connect bu cihazda əlçatan deyil. Quraşdırılması və ya yenilənməsi tələb oluna bilər.') :
-          tr('hc_write_unavailable_desc', 'Yazma üçün tətbiqin yeni native build-i lazımdır'),
-        variant: 'destructive'
-      });
-      return;
-    }
-    const granted = await requestCycleWritePermission();
-    setCycleWriteBusy(false);
-    if (granted) {
-      setCycleWriteEnabled(true);
-      setCycleWrite(true);
-      toast({ title: tr('hc_write_on', 'Aktiv edildi ✓'), description: tr('hc_write_on_desc', 'Period qeydləri bundan sonra Health-ə yazılacaq') });
-    } else {
-      toast({ title: tr('hc_write_denied', 'İcazə verilmədi'), description: tr('hc_write_denied_desc', 'Sistem ayarlarından icazə verə bilərsiniz'), variant: 'destructive' });
-    }
+  const refresh = () => {
+    void queryClient.invalidateQueries({ queryKey: ['health-read-access'] });
+    void queryClient.invalidateQueries({ queryKey: ['health-daily'] });
+    void queryClient.invalidateQueries({ queryKey: ['health-workouts'] });
   };
-
-  // Vitals writes remain available on iOS only.
-  const [vitalsWrite, setVitalsWrite] = useState(isVitalsWriteEnabled());
-  const [vitalsWriteBusy, setVitalsWriteBusy] = useState(false);
-
-  const toggleVitalsWrite = async (on: boolean) => {
-    if (!on) {
-      setVitalsWriteEnabled(false);
-      setVitalsWrite(false);
-      return;
-    }
-    setVitalsWriteBusy(true);
-    const available = await isVitalsWriteAvailable();
-    if (!available) {
-      setVitalsWriteBusy(false);
-      toast({
-        title: tr('hc_write_unavailable', 'Mövcud deyil'),
-        description: tr('hc_write_unavailable_desc', 'Yazma üçün tətbiqin yeni native build-i lazımdır'),
-        variant: 'destructive'
-      });
-      return;
-    }
-    const granted = await requestVitalsWritePermission();
-    setVitalsWriteBusy(false);
-    if (granted) {
-      setVitalsWriteEnabled(true);
-      setVitalsWrite(true);
-      toast({ title: tr('hc_write_on', 'Aktiv edildi ✓'), description: tr('vitals_write_on_desc', 'Çəki, qan təzyiqi və qan şəkəri qeydləriniz bundan sonra Health-ə yazılacaq') });
-    } else {
-      toast({ title: tr('hc_write_denied', 'İcazə verilmədi'), description: tr('hc_write_denied_desc', 'Sistem ayarlarından icazə verə bilərsiniz'), variant: 'destructive' });
-    }
-  };
-
-  const { isLoading: availLoading } = useHealthAvailability();
-  const { data: daily } = useHealthDaily(7, connected);
-  const { data: workouts = [] } = useHealthWorkouts(7, connected);
-
-  const todayKey = new Date().toISOString().split('T')[0];
-  const todaySteps = daily?.steps.find((s) => s.date === todayKey)?.value ?? 0;
-  const maxSteps = Math.max(1, ...(daily?.steps || []).map((s) => s.value));
-  const weekMindfulness = (daily?.mindfulness || []).reduce((sum, s) => sum + s.value, 0);
 
   const handleConnect = async () => {
     setConnecting(true);
@@ -128,30 +82,131 @@ const HealthSyncScreen = ({ onBack }: Props) => {
     setConnecting(false);
     if (ok) {
       setConnected(true);
-      queryClient.invalidateQueries({ queryKey: ['health-daily'] });
-      queryClient.invalidateQueries({ queryKey: ['health-workouts'] });
-      toast({ title: tr('health_connected_toast', 'Qoşuldu! 🎉'), description: `${platformName} ${tr('health_connected_desc', 'məlumatları oxunur')}` });
+      refresh();
+      toast({ title: t.connected_toast, description: fill(t.dir_in_title, { platform: platformName }) });
     } else {
-      toast({ title: tr('health_connect_failed', 'Qoşulmadı'), description: tr('health_connect_failed_desc', 'İcazələr verilmədi — yenidən cəhd edin'), variant: 'destructive' });
+      toast({ title: t.denied_title, description: fill(t.denied_desc, { platform: platformName }), variant: 'destructive' });
     }
   };
 
   const handleDisconnect = () => {
     disconnectHealth();
     setConnected(false);
-    toast({ title: tr('health_disconnected', 'Əlaqə kəsildi'), description: tr('health_disconnected_desc', 'İcazələri tam silmək üçün sistem ayarlarından istifadə edin') });
+    toast({ title: t.disconnect, description: t.disconnected_toast });
   };
+
+  // ---- Anacan → Health: measurements ----
+  const [vitalsWrite, setVitalsWrite] = useState(isVitalsWriteEnabled());
+  const [vitalsBusy, setVitalsBusy] = useState(false);
+  const [lastSync, setLastSync] = useState(() => userId ? getLastVitalsSync(userId) : null);
+
+  const runVitalsSync = async (announceEmpty: boolean) => {
+    if (!userId) return;
+    setVitalsBusy(true);
+    try {
+      const result = await syncVitalsToHealth(userId);
+      setLastSync(getLastVitalsSync(userId));
+      if (result.failed > 0) toast({ title: t.sync_failed, variant: 'destructive' });else
+      if (result.written > 0) toast({ title: fill(t.synced_toast, { count: result.written }) });else
+      if (announceEmpty) toast({ title: t.synced_none });
+    } catch {
+      toast({ title: t.sync_failed, variant: 'destructive' });
+    } finally {
+      setVitalsBusy(false);
+    }
+  };
+
+  const toggleVitals = async (on: boolean) => {
+    if (!on) {
+      setVitalsWriteEnabled(false);
+      setVitalsWrite(false);
+      return;
+    }
+    setVitalsBusy(true);
+    if (!(await isVitalsWriteAvailable())) {
+      setVitalsBusy(false);
+      toast({ title: t.unavailable, description: isAndroid ? t.install_desc : t.unavailable_update, variant: 'destructive' });
+      return;
+    }
+    const granted = await requestVitalsWritePermission();
+    setVitalsBusy(false);
+    if (!granted) {
+      toast({ title: t.denied_title, description: fill(t.denied_desc, { platform: platformName }), variant: 'destructive' });
+      return;
+    }
+    setVitalsWriteEnabled(true);
+    setVitalsWrite(true);
+    toast({ title: t.connected_toast, description: t.vitals_on });
+    await runVitalsSync(false);
+  };
+
+  // ---- Anacan → Health: period days (Flow; an earlier opt-in can always be turned off) ----
+  const [cycleWrite, setCycleWrite] = useState(isCycleWriteEnabled());
+  const [cycleBusy, setCycleBusy] = useState(false);
+  const { data: cycleAvailable } = useQuery({
+    queryKey: ['health-cycle-write-available'],
+    queryFn: isCycleWriteAvailable,
+    enabled: platform !== null,
+    staleTime: 60 * 1000
+  });
+  const showCycle = lifeStage === 'flow' || cycleWrite;
+
+  const toggleCycle = async (on: boolean) => {
+    if (!on) {
+      setCycleWriteEnabled(false);
+      setCycleWrite(false);
+      return;
+    }
+    setCycleBusy(true);
+    if (!(await isCycleWriteAvailable())) {
+      setCycleBusy(false);
+      toast({ title: t.unavailable, description: isAndroid ? t.install_desc : t.unavailable_update, variant: 'destructive' });
+      return;
+    }
+    const granted = await requestCycleWritePermission();
+    setCycleBusy(false);
+    if (granted) {
+      setCycleWriteEnabled(true);
+      setCycleWrite(true);
+      toast({ title: t.connected_toast, description: t.cycle_on });
+    } else {
+      toast({ title: t.denied_title, description: fill(t.denied_desc, { platform: platformName }), variant: 'destructive' });
+    }
+  };
+
+  // ---- derived read data ----
+  const todayKey = localDayKey(new Date());
+  const steps = daily.data?.steps ?? [];
+  const todaySteps = steps.find((s) => s.date === todayKey)?.value ?? 0;
+  const avgSteps = steps.length ? Math.round(steps.reduce((sum, s) => sum + s.value, 0) / steps.length) : 0;
+  const maxSteps = Math.max(STEP_GOAL, ...steps.map((s) => s.value));
+  const weekMindful = (daily.data?.mindfulness ?? []).reduce((sum, s) => sum + s.value, 0);
+  const activeMinutes = Math.round(workouts.reduce((sum, w) => sum + w.duration, 0) / 60);
+  const loaded = daily.isSuccess && workoutsQuery.isSuccess;
+  const nothingFound = loaded && steps.every((s) => s.value === 0) && workouts.length === 0 && weekMindful === 0;
+  const readError = daily.isError || workoutsQuery.isError;
 
   const workoutLabel = (type: string): string => {
     const key = type.toLowerCase();
-    if (key.includes('walk')) return tr('health_wt_walking', 'Gəzinti');
-    if (key.includes('run')) return tr('health_wt_running', 'Qaçış');
-    if (key.includes('yoga')) return 'Yoga';
-    if (key.includes('swim')) return tr('health_wt_swimming', 'Üzgüçülük');
-    if (key.includes('cycl') || key.includes('bik')) return tr('health_wt_cycling', 'Velosiped');
-    if (key.includes('pilates')) return 'Pilates';
-    return tr('health_wt_workout', 'Məşq');
+    if (key.includes('walk') || key.includes('hik')) return t.wt_walking;
+    if (key.includes('run')) return t.wt_running;
+    if (key.includes('yoga')) return t.wt_yoga;
+    if (key.includes('swim')) return t.wt_swimming;
+    if (key.includes('cycl') || key.includes('bik')) return t.wt_cycling;
+    if (key.includes('pilates')) return t.wt_pilates;
+    return t.wt_workout;
   };
+
+  const status = useMemo(() => {
+    if (hcMissing) return { cls: 'warn', label: t.status_install };
+    if (!connected) return { cls: '', label: t.status_off };
+    if (noAccess) return { cls: 'warn', label: t.status_no_access };
+    return { cls: 'on', label: t.status_connected };
+  }, [hcMissing, connected, noAccess, t]);
+
+  const lastSyncText = lastSync ?
+  fill(t.last_sync, { time: new Date(lastSync).toLocaleString(locale, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) }) :
+  t.never_synced;
 
   return (
     <div className="a-scope min-h-screen safe-top pb-24 overflow-y-auto overflow-x-hidden" style={{ background: 'var(--a-bg)' }}>
@@ -162,228 +217,270 @@ const HealthSyncScreen = ({ onBack }: Props) => {
       </div>
 
       <div className="relative z-10 max-w-md mx-auto px-5 pb-10">
-        {/* Header */}
         <div className="flex items-center gap-3 py-5">
           <button onClick={onBack} className="a-icon-btn" style={{ width: 44, height: 44 }} aria-label={tr('common_geri', 'Geri')}>
             <ArrowLeft className="rtl:rotate-180" size={18} strokeWidth={2} />
           </button>
-          <div>
-            <p className="a-today-info-eyebrow" style={{ margin: 0 }}>{tr('health_eyebrow', 'Sağlamlıq inteqrasiyası')}</p>
+          <div className="min-w-0 flex-1">
+            <p className="a-today-info-eyebrow" style={{ margin: 0 }}>{t.eyebrow}</p>
             <h1 className="a-heading" style={{ margin: 0, fontSize: 20, color: 'var(--a-ink)' }}>{platformName}</h1>
           </div>
+          {platform && <span className={`hs-status ${status.cls}`} data-testid="health-status"><i />{status.label}</span>}
         </div>
 
-        {/* Qoşulma statusu / CTA */}
-        {!isNativeHealthPlatform() ?
+        {!platform ?
         <div className="a-card text-center" style={{ padding: '28px 18px' }}>
             <HeartPulse size={34} style={{ color: 'var(--a-ink-faint)', margin: '0 auto 10px' }} />
-            <p className="a-list-title" style={{ fontSize: 15 }}>{tr('health_web_title', 'Yalnız mobil tətbiqdə')}</p>
-            <p className="a-list-sub" style={{ whiteSpace: 'normal', marginTop: 4 }}>
-              {tr('health_web_desc', 'Sağlamlıq inteqrasiyası iOS və Android tətbiqlərində işləyir.')}
-            </p>
+            <p className="a-list-title" style={{ fontSize: 15 }}>{t.web_title}</p>
+            <p className="a-list-sub" style={{ whiteSpace: 'normal', marginTop: 4 }}>{t.web_desc}</p>
           </div> :
 
-        isAndroid ?
-        <motion.div className="a-card" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="a-list-icon" style={{ background: 'var(--a-grad-blue)', color: 'var(--a-blue-ink)' }}>
-                  <HeartPulse size={17} strokeWidth={2} />
-                </span>
-                <div>
-                  <p className="a-list-title">{tr('health_android_cycle_only', 'Health Connect: yalnız period qeydlərinin yazılması')}</p>
-                  <p className="a-list-sub" style={{ whiteSpace: 'normal' }}>
-                    {tr('health_android_flow_only', 'Bu inteqrasiya yalnız Flow rejimində period qeydlərini yazmaq üçündür. Health Connect-dən məlumat oxunmur.')}
-                  </p>
-                </div>
-              </div>
-              {cycleAvailable === false &&
-              <>
-                <p className="a-list-sub" style={{ whiteSpace: 'normal', marginBottom: 12 }}>
-                  {tr('health_android_unavailable_desc', 'Health Connect bu cihazda əlçatan deyil. Quraşdırılması və ya yenilənməsi tələb oluna bilər.')}
-                </p>
+        <>
+            {hcMissing ?
+          <motion.div className="a-card" {...enter()}>
+                <p className="a-list-sub" style={{ whiteSpace: 'normal', marginBottom: 12 }}>{t.install_desc}</p>
                 <button className="a-cta-btn w-full" style={{ justifyContent: 'center', height: 48 }} onClick={installHealthConnect}>
                   <Download size={17} strokeWidth={2} />
-                  {tr('health_hc_install', 'Play Store-dan quraşdır')}
+                  {t.install_btn}
                 </button>
-              </>
-              }
-            </motion.div> :
+              </motion.div> :
 
-        availLoading ?
-        <div className="a-card animate-pulse" style={{ height: 120 }} /> :
-
-        !connected ?
-        <motion.div className="a-card text-center" style={{ padding: '26px 18px' }} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center" style={{ borderRadius: 20, background: 'var(--a-grad-green)' }}>
-                <HeartPulse size={28} style={{ color: 'var(--a-green-ink)' }} />
-              </div>
-              <h2 className="a-heading" style={{ fontSize: 18, color: 'var(--a-ink)', margin: '0 0 6px' }}>
-                {`${platformName} ${tr('health_connect_title', 'ilə qoşulun')}`}
-              </h2>
-              <p className="a-list-sub" style={{ whiteSpace: 'normal', marginBottom: 18 }}>
-                {tr('health_connect_desc', 'Addım sayınız və məşqləriniz avtomatik görünəcək. Məlumatlar cihazınızda qalır.')}
-              </p>
-              <button
-            className="a-cta-btn w-full"
-            style={{ justifyContent: 'center', height: 50, opacity: connecting ? 0.6 : 1 }}
-            disabled={connecting}
-            onClick={handleConnect}>
-                <Link2 size={16} strokeWidth={2.2} />
-                {connecting ? tr('health_connecting', 'Qoşulur...') : tr('health_connect_btn', 'İndi qoşul')}
-              </button>
-            </motion.div> :
-
-        <>
-            {/* Bu gün */}
-            <div className="a-trio">
-              <motion.div className="a-trio-item" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-                <span className="a-trio-icon" style={{ background: 'var(--a-grad-green)', color: 'var(--a-green-ink)' }}>
-                  <Footprints size={17} strokeWidth={2} />
-                </span>
-                <p className="a-trio-value" style={{ fontSize: 17 }}>{todaySteps.toLocaleString()}</p>
-                <p className="a-trio-label">{tr('health_steps_today', 'Addım (bu gün)')}</p>
-              </motion.div>
-              <motion.div className="a-trio-item" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.06 }}>
-                <span className="a-trio-icon" style={{ background: 'var(--a-grad-peach)', color: 'var(--a-accent-ink)' }}>
-                  <Wind size={17} strokeWidth={2} />
-                </span>
-                <p className="a-trio-value" style={{ fontSize: 17 }}>{weekMindfulness}</p>
-                <p className="a-trio-label">{tr('health_mindfulness_week', 'Rahatlama dəq (7 gün)')}</p>
-              </motion.div>
-              <motion.div className="a-trio-item" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }}>
-                <span className="a-trio-icon" style={{ background: 'var(--a-grad-lav)', color: 'var(--a-lav-ink)' }}>
-                  <Dumbbell size={17} strokeWidth={2} />
-                </span>
-                <p className="a-trio-value" style={{ fontSize: 17 }}>{workouts.length}</p>
-                <p className="a-trio-label">{tr('health_workouts_week', 'Məşq (7 gün)')}</p>
-              </motion.div>
-            </div>
-
-            {/* 7 günlük addım qrafiki */}
-            <motion.div className="a-card" style={{ marginTop: 12 }} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-              <div className="a-card-head">
-                <h3 className="a-card-title a-heading">{tr('health_steps_7d', 'Son 7 gün — addımlar')}</h3>
-              </div>
-              <div className="h-28 flex items-end gap-2">
-                {(daily?.steps || []).map((s) =>
-              <div key={s.date} className="flex-1 flex flex-col items-center gap-1">
-                    <motion.div
-                  className="w-full"
-                  style={{ background: 'var(--a-grad-green)', borderRadius: '8px 8px 4px 4px' }}
-                  initial={{ height: 0 }}
-                  animate={{ height: `${Math.max(6, s.value / maxSteps * 100)}%` }} />
-                    <span className="a-list-time" style={{ margin: 0, fontSize: 9 }}>
-                      {new Date(s.date).toLocaleDateString(getLocaleTag(), { weekday: 'short' })}
-                    </span>
-                  </div>
-              )}
-              </div>
-            </motion.div>
-
-            {/* Son məşqlər */}
-            {workouts.length > 0 &&
-          <motion.div className="a-list-card" style={{ marginTop: 12 }} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
-                {workouts.slice(0, 5).map((w, i) =>
-            <div key={`${w.startDate}-${i}`} className="a-list-row">
-                    <span className="a-list-icon" style={{ background: 'var(--a-lav-1)', color: 'var(--a-lav-ink)' }}>
-                      <Activity size={17} strokeWidth={2} />
-                    </span>
-                    <div>
-                      <p className="a-list-title" style={{ fontSize: 14 }}>{workoutLabel(w.workoutType)}</p>
-                      <p className="a-list-sub">
-                        {new Date(w.startDate).toLocaleDateString(getLocaleTag(), { day: 'numeric', month: 'short' })} · {Math.round(w.duration / 60)} {tr('health_min', 'dəq')}
-                      </p>
-                    </div>
-                    {w.calories > 0 &&
-              <span className="a-list-trail">
-                        <p className="a-list-value">{w.calories} kal</p>
-                      </span>
-              }
-                  </div>
-            )}
-              </motion.div>
-          }
-          </>
-        }
-
-        {isNativeHealthPlatform() && (isAndroid || (!availLoading && connected)) &&
-          <>
-            {/* Cycle writing is independent of the reader connection on Android. */}
-            {(lifeStage === 'flow' || (isAndroid && cycleWrite)) &&
-          <div className="a-card flex items-center gap-3" style={{ marginTop: 12, padding: '14px 16px' }}>
-                <span className="a-list-icon shrink-0" style={{ background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)' }}>
-                  🩸
-                </span>
-                <div className="flex-1 min-w-0">
-                  <p className="a-list-title" style={{ fontSize: 14 }}>{tr('hc_write_title', 'Tsikli Health-ə yaz')}</p>
-                  <p className="a-list-sub" style={{ whiteSpace: 'normal' }}>
-                    {isAndroid ?
-                      tr('health_android_cycle_write_desc', 'Aktiv etdikdən sonra ana ekranda "Periodum başladı" ilə yeni qeyd əlavə edin. Əvvəlki qeydlər köçürülmür.') :
-                      tr('hc_write_desc', 'Period qeydləriniz avtomatik Apple Health / Health Connect-ə əlavə olunur')}
-                  </p>
+          !connected ?
+          <motion.div className="a-card" style={{ padding: '22px 18px' }} {...enter()}>
+                <div className="w-14 h-14 mx-auto mb-3 flex items-center justify-center" style={{ borderRadius: 18, background: 'var(--a-grad-green)' }}>
+                  <HeartPulse size={26} style={{ color: 'var(--a-green-ink)' }} />
                 </div>
-                <Switch
-              className="data-[state=checked]:bg-[var(--a-peach-2)]"
-              aria-label={tr('hc_write_title', 'Tsikli Health-ə yaz')}
-              checked={cycleWrite}
-              disabled={cycleWriteBusy || (isAndroid && !cycleWrite && (lifeStage !== 'flow' || !cycleAvailable))}
-              onCheckedChange={toggleCycleWrite} />
-              </div>
-          }
+                <p className="a-list-sub text-center" style={{ whiteSpace: 'normal' }}>{t.intro}</p>
+                <Directions t={t} platformName={platformName} />
+                <button
+              className="a-cta-btn w-full"
+              style={{ justifyContent: 'center', height: 50, opacity: connecting ? 0.6 : 1 }}
+              disabled={connecting}
+              onClick={handleConnect}>
+                  <Link2 size={16} strokeWidth={2.2} />
+                  {connecting ? t.connecting : fill(t.connect_btn, { platform: platformName })}
+                </button>
+              </motion.div> :
 
-            {/* Vitals writing is iOS-only. */}
-            {isIos &&
-            <div className="a-card flex items-center gap-3" style={{ marginTop: 12, padding: '14px 16px' }}>
-              <span className="a-list-icon shrink-0" style={{ background: 'var(--a-blue-1)', color: 'var(--a-blue-ink)' }}>
-                <HeartPulse size={16} strokeWidth={2} />
-              </span>
-              <div className="flex-1 min-w-0">
-                <p className="a-list-title" style={{ fontSize: 14 }}>{tr('vitals_write_title', 'Ölçmələrimi Health-ə yaz')}</p>
-                <p className="a-list-sub" style={{ whiteSpace: 'normal' }}>
-                  {tr('vitals_write_desc', 'Çəki, qan təzyiqi və qan şəkəri qeydləriniz Apple Health / Health Connect-ə əlavə olunur')}
-                </p>
-              </div>
-              <Switch
-                className="data-[state=checked]:bg-[var(--a-peach-2)]"
-                checked={vitalsWrite}
-                disabled={vitalsWriteBusy}
-                onCheckedChange={toggleVitalsWrite} />
-            </div>
+          noAccess ?
+          <motion.div className="hs-hint" {...enter()}>
+                <b>{t.status_no_access}</b>
+                <p>{t.no_access_desc}</p>
+                <div className="hs-hint-actions">
+                  <button className="hs-chip-btn" onClick={handleConnect} disabled={connecting}><Link2 size={14} />{t.grant_btn}</button>
+                  <button className="hs-chip-btn" onClick={openHealthSettings}><Settings2 size={14} />{t.open_permissions}</button>
+                </div>
+              </motion.div> :
+
+          <>
+                <motion.div className="a-card" {...enter()}>
+                  <div className="hs-today">
+                    <StepRing value={todaySteps} goal={STEP_GOAL} loading={daily.isLoading}>
+                      <b>{daily.isLoading ? '…' : number(todaySteps)}</b>
+                      <span>{t.steps}</span>
+                    </StepRing>
+                    <div className="hs-today-side">
+                      <div className="hs-label">{t.today}</div>
+                      {todaySteps >= STEP_GOAL ?
+                  <p className="hs-goal-done">{t.goal_done}</p> :
+                  <p>{fill(t.goal, { goal: number(STEP_GOAL) })}</p>}
+                    </div>
+                  </div>
+                  <div className="hs-stats">
+                    <Stat value={number(avgSteps)} label={t.avg7} />
+                    <Stat value={String(workouts.length)} label={t.workouts7} />
+                    {mindfulnessSupported() ?
+                <Stat value={String(weekMindful)} label={t.mindful7} /> :
+                <Stat value={String(activeMinutes)} label={t.active7} />}
+                  </div>
+                </motion.div>
+
+                {(readError || nothingFound) &&
+            <motion.div className="hs-hint" style={{ marginTop: 12 }} {...enter(0.05)}>
+                    <b>{readError ? t.load_error : t.empty_title}</b>
+                    <p>{isAndroid ? t.empty_android : t.empty_ios}</p>
+                    <div className="hs-hint-actions">
+                      <button className="hs-chip-btn" onClick={openHealthSettings}><Settings2 size={14} />{t.open_permissions}</button>
+                      <button className="hs-chip-btn" onClick={refresh}><RefreshCw size={14} />{t.refresh}</button>
+                    </div>
+                  </motion.div>
             }
 
-            {/* İdarəetmə */}
-            <div className="a-list-card" style={{ marginTop: 12 }}>
+                {!nothingFound &&
+            <motion.div className="a-card" style={{ marginTop: 12 }} {...enter(0.08)}>
+                  <div className="a-card-head" style={{ marginBottom: 6 }}>
+                    <h3 className="a-card-title a-heading">{t.week_title}</h3>
+                    <button className="a-icon-btn" style={{ width: 34, height: 34 }} onClick={refresh} aria-label={t.refresh}>
+                      <RefreshCw size={15} className={daily.isFetching ? 'animate-spin' : undefined} />
+                    </button>
+                  </div>
+                  <div className="hs-plot">
+                    <div className="hs-goal-line" style={{ bottom: `${STEP_GOAL / maxSteps * 100}%` }} aria-hidden />
+                    {steps.map((s) =>
+                <div key={s.date} className="hs-bar-col">
+                        <motion.div
+                    className={`hs-bar${s.value >= STEP_GOAL ? ' met' : ''}${s.date === todayKey ? ' today' : ''}`}
+                    initial={{ height: 0 }}
+                    animate={{ height: `${Math.max(4, s.value / maxSteps * 100)}%` }}>
+                          {s.value > 0 && <span className="hs-bar-val">{s.value >= 1000 ? `${(s.value / 1000).toFixed(1)}k` : s.value}</span>}
+                        </motion.div>
+                      </div>
+                )}
+                  </div>
+                  <div className="hs-days">
+                    {steps.map((s) => {
+                  const [y, m, d] = s.date.split('-').map(Number);
+                  return (
+                    <span key={s.date} className={`hs-bar-day${s.date === todayKey ? ' today' : ''}`}>
+                          {new Date(y, m - 1, d).toLocaleDateString(locale, { weekday: 'short' })}
+                        </span>);
+                })}
+                  </div>
+                </motion.div>
+            }
+
+                {workouts.length > 0 &&
+            <>
+                    <p className="hs-section-title">{t.workouts_title}</p>
+                    <motion.div className="a-list-card" {...enter(0.12)}>
+                      {workouts.slice(0, 5).map((w, i) =>
+                <div key={`${w.startDate}-${i}`} className="a-list-row">
+                          <span className="a-list-icon" style={{ background: 'var(--a-lav-1)', color: 'var(--a-lav-ink)' }}>
+                            <Activity size={17} strokeWidth={2} />
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <p className="a-list-title" style={{ fontSize: 14 }}>{workoutLabel(w.workoutType)}</p>
+                            <p className="a-list-sub">
+                              {new Date(w.startDate).toLocaleDateString(locale, { day: 'numeric', month: 'short' })} · {Math.max(1, Math.round(w.duration / 60))} {t.min}
+                            </p>
+                          </div>
+                          {w.calories > 0 &&
+                  <span className="a-list-trail"><p className="a-list-value">{w.calories} {t.kcal}</p></span>
+                  }
+                        </div>
+                )}
+                    </motion.div>
+                  </>
+            }
+              </>
+          }
+
+            {!hcMissing &&
+          <>
+                <p className="hs-section-title">{fill(t.out_title, { platform: platformName })}</p>
+                <div className="a-list-card">
+                  <div className="hs-switch-row">
+                    <span className="a-list-icon shrink-0" style={{ background: 'var(--a-blue-1)', color: 'var(--a-blue-ink)' }}>
+                      <Scale size={16} strokeWidth={2} />
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <p className="a-list-title" style={{ fontSize: 14 }}>{t.vitals_title}</p>
+                      <p className="a-list-sub" style={{ whiteSpace: 'normal' }}>{t.vitals_desc}</p>
+                    </div>
+                    <Switch
+                  className="data-[state=checked]:bg-[var(--a-peach-2)]"
+                  aria-label={t.vitals_title}
+                  checked={vitalsWrite}
+                  disabled={vitalsBusy}
+                  onCheckedChange={toggleVitals} />
+                  </div>
+                  {vitalsWrite &&
+              <div className="hs-sync-row">
+                      <span>{lastSyncText}</span>
+                      <button className="hs-chip-btn" onClick={() => runVitalsSync(true)} disabled={vitalsBusy}>
+                        <RefreshCw size={14} className={vitalsBusy ? 'animate-spin' : undefined} />
+                        {vitalsBusy ? t.syncing : t.sync_now}
+                      </button>
+                    </div>
+              }
+                  {showCycle &&
+              <div className="hs-switch-row">
+                      <span className="a-list-icon shrink-0" style={{ background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)' }}>
+                        <Droplet size={16} strokeWidth={2} />
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <p className="a-list-title" style={{ fontSize: 14 }}>{t.cycle_title}</p>
+                        <p className="a-list-sub" style={{ whiteSpace: 'normal' }}>{t.cycle_desc}</p>
+                      </div>
+                      <Switch
+                  className="data-[state=checked]:bg-[var(--a-peach-2)]"
+                  aria-label={t.cycle_title}
+                  checked={cycleWrite}
+                  disabled={cycleBusy || !cycleWrite && (lifeStage !== 'flow' || cycleAvailable === false)}
+                  onCheckedChange={toggleCycle} />
+                    </div>
+              }
+                </div>
+              </>
+          }
+
+            <div className="a-list-card" style={{ marginTop: 22 }}>
               <button className="a-list-row w-full text-start" style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={openHealthSettings}>
                 <span className="a-list-icon" style={{ background: 'var(--a-blue-1)', color: 'var(--a-blue-ink)' }}>
                   <Settings2 size={17} strokeWidth={2} />
                 </span>
                 <div>
-                  <p className="a-list-title" style={{ fontSize: 14 }}>{tr('health_open_settings', 'İcazə ayarları')}</p>
-                  <p className="a-list-sub" style={{ whiteSpace: 'normal' }}>{`${platformName} ${tr('health_open_settings_desc', 'icazələrini idarə edin')}`}</p>
+                  <p className="a-list-title" style={{ fontSize: 14 }}>{t.permissions}</p>
+                  <p className="a-list-sub" style={{ whiteSpace: 'normal' }}>{fill(t.permissions_desc, { platform: platformName })}</p>
                 </div>
               </button>
-              {isIos &&
-              <button className="a-list-row w-full text-start" style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={handleDisconnect}>
-                <span className="a-list-icon" style={{ background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)' }}>
-                  <Link2 size={17} strokeWidth={2} />
-                </span>
-                <div>
-                  <p className="a-list-title" style={{ fontSize: 14, color: 'var(--a-pink-ink)' }}>{tr('health_disconnect_btn', 'Əlaqəni kəs')}</p>
-                </div>
-              </button>
-              }
+              {connected &&
+            <button className="a-list-row w-full text-start" style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={handleDisconnect}>
+                  <span className="a-list-icon" style={{ background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)' }}>
+                    <Link2 size={17} strokeWidth={2} />
+                  </span>
+                  <p className="a-list-title" style={{ fontSize: 14, color: 'var(--a-pink-ink)' }}>{t.disconnect}</p>
+                </button>
+            }
             </div>
 
-            <p className="a-teaser text-center" style={{ marginTop: 14 }}>
-              {isAndroid ?
-                tr('health_android_privacy_note', 'Bu seçim yalnız Health Connect-ə yazmanı idarə edir. Tətbiqdə daxil etdiyiniz sağlamlıq qeydləri hesabınızda saxlanmağa davam edir.') :
-                tr('health_privacy_note', 'Sağlamlıq məlumatlarınız yalnız cihazınızda oxunur — serverlərimizə göndərilmir.')}
+            <p className="a-teaser text-start flex items-start gap-2" style={{ marginTop: 14 }}>
+              <ShieldCheck size={15} className="shrink-0" style={{ marginTop: 2 }} />
+              <span>{t.privacy}</span>
             </p>
           </>
         }
       </div>
     </div>);
+}
 
-};
+function Directions({ t, platformName }: { t: HealthSyncText; platformName: string }) {
+  return (
+    <div className="hs-dirs">
+      <div className="hs-dir">
+        <span className="hs-dir-icon" style={{ background: 'var(--a-green-1)', color: 'var(--a-green-ink)' }}><ArrowDownToLine size={17} /></span>
+        <div>
+          <b>{fill(t.dir_in_title, { platform: platformName })}</b>
+          <span>{mindfulnessSupported() ? t.dir_in_ios : t.dir_in_android}</span>
+        </div>
+      </div>
+      <div className="hs-dir">
+        <span className="hs-dir-icon" style={{ background: 'var(--a-peach-1)', color: 'var(--a-accent-ink)' }}><ArrowUpFromLine size={17} /></span>
+        <div>
+          <b>{fill(t.dir_out_title, { platform: platformName })}</b>
+          <span>{t.dir_out_desc}</span>
+        </div>
+      </div>
+    </div>);
+}
+
+function StepRing({ value, goal, loading, children }: { value: number; goal: number; loading: boolean; children: ReactNode }) {
+  const radius = 48;
+  const circumference = 2 * Math.PI * radius;
+  const progress = loading ? 0 : Math.min(1, value / goal);
+  return (
+    <div className="hs-ring">
+      <svg width="112" height="112" viewBox="0 0 112 112" aria-hidden>
+        <circle className="hs-ring-track" cx="56" cy="56" r={radius} fill="none" strokeWidth="10" />
+        <circle className="hs-ring-fill" cx="56" cy="56" r={radius} fill="none" strokeWidth="10" strokeLinecap="round"
+        strokeDasharray={circumference} strokeDashoffset={circumference * (1 - progress)} />
+      </svg>
+      <div className="hs-ring-center"><Footprints size={14} style={{ color: 'var(--a-green-ink)' }} />{children}</div>
+    </div>);
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return <div className="hs-stat"><b>{value}</b><span>{label}</span></div>;
+}
 
 export default HealthSyncScreen;

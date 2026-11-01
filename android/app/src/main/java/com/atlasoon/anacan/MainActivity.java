@@ -21,8 +21,10 @@ public class MainActivity extends BridgeActivity {
     @Override
     protected void load() {
         disableProblematicAndroidPlugins();
-        // Health Connect: menstruation writes only.
+        // Health Connect writes: period records (HealthCycle) and weight / blood pressure /
+        // blood glucose (HealthVitals). Steps and exercise reads come from capacitor-health.
         registerPlugin(HealthCyclePlugin.class);
+        registerPlugin(HealthVitalsPlugin.class);
         // Lokal plugin: Facebook App Events (köhnə plugin crash-lərinə görə
         // söndürülüb — bu minimal versiya load()-da heç nə etmir)
         registerPlugin(FbEventsPlugin.class);

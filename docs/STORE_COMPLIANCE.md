@@ -1,8 +1,10 @@
 # Store Compliance — Anacan
 
-> Android Health Connect is limited to optional menstruation writes. iOS HealthKit
-> functionality is unchanged. Align store declarations with the final release;
-> these changes do not guarantee Google Play approval.
+> **Changed 2026-11-01:** Android Health Connect now reads steps + exercise (shown only
+> on the Health screen, never uploaded) and optionally writes menstruation, weight,
+> blood pressure and blood glucose. The Play Console Health Connect declaration and
+> Data safety form below MUST be updated before uploading a build with this manifest.
+> These changes do not guarantee Google Play approval.
 
 ## 40.0 development candidate — 2026-09-25
 
@@ -69,23 +71,38 @@ Play Console → App content → Data safety → yenilə:
 
 ### Health Connect bölməsi (Play Console ayrıca soruşur)
 - **"Does your app access Health Connect?"** → **Yes**
-- Declare **write access to menstruation only**: `android.permission.health.WRITE_MENSTRUATION`.
-- Purpose: **App functionality**, reproductive health / cycle tracking. Flow users can explicitly enable copying newly logged period records to Health Connect.
-- Do not declare steps, cadence, exercise, mindfulness, calories, distance or heart-rate reads. Android does not import Health Connect data or display imported activity. Weight, blood-pressure and blood-glucose writes are also disabled on Android.
-- The app manifest removes the read permissions contributed by `capacitor-health`, including `READ_STEPS` and `READ_EXERCISE`. Verify the final merged release manifest and artifact contain only `WRITE_MENSTRUATION` among health permissions.
-- This is **not** a "no health data collected" app. Manually entered cycle, pregnancy, symptom and measurement records still use the Supabase/Lovable backend. Disclose actual backend collection and SDK handling; do not mark these records as ephemeral/on-device-only merely because the Health Connect export stays on the device.
+- Declare exactly the permissions in the merged release manifest:
+  - Read: `android.permission.health.READ_STEPS`, `android.permission.health.READ_EXERCISE`.
+  - Write: `WRITE_MENSTRUATION`, `WRITE_WEIGHT`, `WRITE_BLOOD_PRESSURE`, `WRITE_BLOOD_GLUCOSE`.
+  - Not requested (removed with `tools:node="remove"`): calories, distance, heart rate, exercise route.
+- Purpose for reads: **App functionality** — show the person's daily steps, 7-day step chart and recent
+  workouts on the Health screen (pregnancy/postpartum activity). Read data stays on the device: it is not
+  sent to Anacan servers, not shared and not used for ads.
+- Purpose for writes: **App functionality** — copy measurements (weight, blood pressure, blood glucose) and
+  Flow period days that the person saved in Anacan to Health Connect, only after they turn on the matching
+  switch. Each switch requests its own permission when turned on.
+- Manually entered cycle, pregnancy, symptom and measurement records still use the backend. Disclose that
+  collection; do not mark it as on-device-only merely because Health Connect data stays on the device.
+- Verify the final merged release manifest contains only the six health permissions above.
 
 ### Android reviewer path
-1. Sign in with a Flow (menstruation) account on a device where Health Connect is available. Non-Flow accounts cannot enable a new cycle export.
-2. Open **Profile > Health integration** (`health-sync`), or **Profile > Settings > Health integration**.
-3. Enable **Tsikli Health-ə yaz**. Only this explicit action requests menstruation write access. Opening/resuming the screen does not request authorization, and no reader connection is required.
-4. **After enabling**, return to the Flow home screen, tap **Periodum başladı**, select a test start date and confirm with **Qeyd et**. This saves the app log and invokes the existing cycle writer. Enabling the toggle alone does not export historical logs.
-5. Inspect Anacan's menstruation flow records in Health Connect for the selected start date and configured period length. The calendar path writes when a saved change updates the latest period start; do not use an unchanged historical log as proof of a new export.
-6. Turn the toggle off to stop future exports. A prior enabled flag can also be disabled after leaving Flow mode or when Health Connect is unavailable. **İcazə ayarları** opens system settings to revoke permissions/manage existing records; turning the toggle off does not revoke permissions or delete prior exports.
+1. Open **Profile > Health integration** (`health-sync`). Install/update Health Connect if the screen asks.
+2. Tap **Health Connect ilə qoşul** and allow Steps and Exercise. The screen shows today's steps with a
+   7,000 goal ring, the 7-day chart and recent workouts. If no app writes steps to Health Connect, the
+   screen explains where to enable a source (Google Fit, Samsung Health…). Denied access is shown as
+   **İcazə yoxdur** with **İcazə ver** / **İcazələri aç**.
+3. Under **Anacan-dan Health Connect-ə köçürmə**, turn on **Ölçmələr**: this requests weight/blood-pressure/
+   blood-glucose write access and copies the last 30 days of saved measurements once; later saves in the
+   Weight, Blood pressure and Blood sugar trackers are copied automatically (no duplicates). **İndi sinxron et**
+   retries anything not yet copied.
+4. Flow accounts can turn on **Period qeydləri**; then log a period start on the Flow home screen and check
+   Health Connect for Anacan's menstruation records.
+5. Turning a switch off stops future copies; it does not revoke permissions or delete copied records
+   (use **İcazə ayarları** → Health Connect for that). **Oxumanı dayandır** stops reading on this device.
 
 ### Native rationale check before submission
 - Both Android permission-rationale entry points target the app's `HealthPermissionsActivity`.
-- The rationale displays the Android write-only behavior offline and links to `https://anacanapp.lovable.app/legal/privacy_policy`, the same public policy used by the app. It replaces the dependency activity that required a missing resource and attempted to render a web page without JavaScript. Test both the Android 13-and-below and Android 14+ entry points.
+- The rationale explains the Android reads (steps, exercise; on-device only) and optional writes offline and links to `https://anacanapp.lovable.app/legal/privacy_policy`, the same public policy used by the app. It replaces the dependency activity that required a missing resource and attempted to render a web page without JavaScript. Test both the Android 13-and-below and Android 14+ entry points.
 - The public policy must also describe actual health-data handling. It was reachable during this release check, but its current text does not explicitly describe Health Connect; update it through the existing legal-content administration before resubmitting.
 - Complete these device checks and the final manifest/artifact inspection with the release build. Source changes and unit tests alone do not verify native permission dialogs or store approval.
 
@@ -101,7 +118,7 @@ Play Console → App content → Data safety → yenilə:
 | Purchase history | Yes | Yes (RevenueCat) | App functionality |
 | Crash logs / Diagnostics | Yes | No | Analytics |
 - Encryption in transit: **Yes** · Deletion request: **Yes** (tətbiqdaxili hesab silmə var)
-- Health Connect steps/cadence/exercise are not collected by this Android integration. Assess any manually logged fitness data separately against actual backend behavior; recheck the other rows against the release's SDK configuration.
+- Health Connect steps/exercise are read and displayed on the device only; they are not collected by Anacan servers. Assess manually logged fitness data separately against actual backend behavior; recheck the other rows against the release's SDK configuration.
 
 ### Health apps declaration (2024+ tələbi)
 Play Console → App content → **Health apps** → "My app is a health & fitness app" →
@@ -125,7 +142,7 @@ kateqoriya: **Reproductive health / cycle tracking** seçin.
   > and optionally writes menstruation and vital measurements with user consent.
   > Imported HealthKit data is processed on-device. Health records entered manually
   > in the app are stored with the user's Supabase account and may optionally be
-  > copied to HealthKit. The Android write-only restriction does not change iOS functionality."
+  > copied to HealthKit."
 - App Store təsvirində HealthKit istifadəsini qeyd edin (1 cümlə kifayətdir).
 - Privacy Policy səhifəsinə HealthKit/Health Connect bölməsi əlavə edin:
   distinguish iOS reads/writes, Android menstruation-only writes, manually entered

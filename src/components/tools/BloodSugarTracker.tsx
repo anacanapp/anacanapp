@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useUserStore } from '@/store/userStore';
 import { motion } from 'framer-motion';
 import { Droplet, Plus, TrendingUp, Trash2, AlertTriangle, X } from 'lucide-react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -113,8 +114,8 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
       });
       if (error) throw error;
 
-      // Health inteqrasiyası aktivdirsə → Apple Health / Health Connect-ə də yaz (arxa planda)
-      import('@/lib/healthVitals').then((m) => m.writeBloodGlucoseToHealth(parseFloat(newReading))).catch(() => {});
+      // Health copy is on → copy the saved record to Apple Health / Health Connect (background, no duplicates)
+      import('@/lib/healthVitals').then((m) => m.syncVitalsInBackground(useUserStore.getState().userId)).catch(() => {});
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['blood-sugar-logs'] });

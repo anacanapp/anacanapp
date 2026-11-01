@@ -21,7 +21,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.time.Instant
-import java.time.ZoneOffset
+import java.time.ZoneId
 
 /**
  * HealthVitals — çəki / qan təzyiqi / qan şəkəri ölçmələrinin Google Health Connect-ə
@@ -124,7 +124,7 @@ class HealthVitalsPlugin : Plugin() {
                     listOf(
                         WeightRecord(
                             time = time,
-                            zoneOffset = ZoneOffset.UTC,
+                            zoneOffset = ZoneId.systemDefault().rules.getOffset(time),
                             weight = Mass.kilograms(kg),
                             metadata = Metadata.manualEntry()
                         )
@@ -160,7 +160,7 @@ class HealthVitalsPlugin : Plugin() {
                     listOf(
                         BloodPressureRecord(
                             time = time,
-                            zoneOffset = ZoneOffset.UTC,
+                            zoneOffset = ZoneId.systemDefault().rules.getOffset(time),
                             systolic = Pressure.millimetersOfMercury(sys),
                             diastolic = Pressure.millimetersOfMercury(dia),
                             metadata = Metadata.manualEntry()
@@ -196,7 +196,7 @@ class HealthVitalsPlugin : Plugin() {
                     listOf(
                         BloodGlucoseRecord(
                             time = time,
-                            zoneOffset = ZoneOffset.UTC,
+                            zoneOffset = ZoneId.systemDefault().rules.getOffset(time),
                             level = BloodGlucose.milligramsPerDeciliter(mgdl),
                             metadata = Metadata.manualEntry()
                         )
