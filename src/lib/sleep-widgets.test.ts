@@ -78,13 +78,18 @@ describe('sleep notifications plan', () => {
 });
 
 describe('home widgets', () => {
-  it('never puts feeding or sleep data into the snapshot without Premium', () => {
+  it('never puts the real feeding or sleep data into the snapshot without Premium (shows a locked sample)', () => {
     const care = { name: 'Murad', age: '3', emoji: '👶', lastFeedAt: 1, lastFeedText: 'x', nextNapStart: 2, nextNapEnd: 3, nextNapIsBedtime: false, sleepingSince: null, todayFeeds: 1, todaySleep: '1', todayDiapers: 1 };
     const free = buildWidgetSnapshot({ text: az, premium: false, settings: DEFAULT_WIDGET_SETTINGS, journey: null, care });
-    expect(free.care).toBeNull();
+    // Non-Premium: a locked sample preview, never the user's real data.
+    expect(free.careLocked).toBe(true);
+    expect(free.care?.name).not.toBe('Murad');
+    expect(free.care?.lastFeedAt).not.toBe(1);
+    expect(free.care?.nextNapStart).not.toBe(2);
     expect(free.labels.premiumTitle).toBe(az.premium_title);
     expect(free.links.premium).toBe('anacan://premium');
     const paid = buildWidgetSnapshot({ text: az, premium: true, settings: { ...DEFAULT_WIDGET_SETTINGS, showFeed: false }, journey: null, care });
+    expect(paid.careLocked).toBe(false);
     expect(paid.care?.lastFeedAt).toBeNull();
     expect(paid.care?.nextNapStart).toBe(2);
   });

@@ -49,5 +49,20 @@
   "how_lock": "Låsskärm (iPhone): håll fingret på låsskärmen → ”Anpassa” → widgetområdet → Anacan.",
   "show": "Visa",
   "native_only": "Widgetar fungerar i appen för iOS och Android.",
-  "updated": "Widgeten uppdaterad"
+  "updated": "Widgeten uppdaterad",
+  "premium_locked_title": "Anacan Premium krävs",
+  "premium_locked_body": "Premium behövs för att lägga till widgeten på din hemskärm. Detta är en exempelförhandsvisning.",
+  "word_eyebrow": "Dagens ord",
+  "words": [
+    "Var lite snällare mot dig själv idag — du gör det jättebra. 🌸",
+    "Andas. Det här ögonblicket, och du, räcker. 💛",
+    "Varje litet steg är stor kärlek.",
+    "Din kropp skapar ett mirakel — lita på den.",
+    "Att be om hjälp är en del av att vara stark.",
+    "Stanna upp idag bara för att känna ett ögonblick.",
+    "Det viktiga är att finnas där, inte att vara perfekt.",
+    "Din kärlek är den största näringen för din bebis. 🤍",
+    "Tröttheten är också ett spår av kärlek — unna dig vila.",
+    "Du är inte ensam; Anacan finns med dig vid varje steg."
+  ]
 }

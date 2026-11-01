@@ -49,5 +49,20 @@
   "how_lock": "Qulflangan ekran (iPhone): qulflangan ekranni bosib turing → “Moslash” → vidjet maydoni → Anacan.",
   "show": "Koʻrsatish",
   "native_only": "Vidjetlar iOS va Android ilovasida ishlaydi.",
-  "updated": "Vidjet yangilandi"
+  "updated": "Vidjet yangilandi",
+  "premium_locked_title": "Anacan Premium kerak",
+  "premium_locked_body": "Vidjetni asosiy ekraningizga qoʻshish uchun Premium kerak. Bu — namuna koʻrinishi.",
+  "word_eyebrow": "Kun soʻzi",
+  "words": [
+    "Bugun oʻzingga biroz mehribonroq boʻl — sen zoʻr ish qilyapsan. 🌸",
+    "Nafas ol. Bu lahza ham, sen ham yetarlisan. 💛",
+    "Har bir kichik qadam — katta mehr.",
+    "Tanang moʻjiza yaratyapti — unga ishon.",
+    "Yordam soʻrash ham kuchli boʻlishning bir qismi.",
+    "Bugun bir lahzani shunchaki his qilish uchun toʻxta.",
+    "Mukammal boʻlish emas, yonida boʻlish muhim.",
+    "Mehring bolang uchun eng katta ozuqa. 🤍",
+    "Charchoq ham mehr izi — oʻzingga dam ber.",
+    "Yolgʻiz emassan; Anacan har qadamda yoningda."
+  ]
 }

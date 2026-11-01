@@ -49,5 +49,20 @@
   "how_lock": "Pantalla bloqueada (iPhone): mantén pulsada la pantalla bloqueada → «Personalizar» → zona de widgets → Anacan.",
   "show": "Mostrar",
   "native_only": "Los widgets funcionan en la app de iOS y Android.",
-  "updated": "Widget actualizado"
+  "updated": "Widget actualizado",
+  "premium_locked_title": "Se requiere Anacan Premium",
+  "premium_locked_body": "Necesitas Premium para añadir el widget a tu pantalla de inicio. Esta es una vista previa de ejemplo.",
+  "word_eyebrow": "Palabra del día",
+  "words": [
+    "Hoy sé un poquito más amable contigo — lo estás haciendo genial. 🌸",
+    "Respira. Este momento, y tú, sois suficiente. 💛",
+    "Cada pequeño paso es un gran gesto de amor.",
+    "Tu cuerpo está haciendo un milagro — confía en él.",
+    "Pedir ayuda también es ser fuerte.",
+    "Haz una pausa hoy solo para sentir un momento.",
+    "Lo importante es estar ahí, no ser perfecta.",
+    "Tu amor es el mayor alimento para tu bebé. 🤍",
+    "El cansancio también es una huella de amor — date un descanso.",
+    "No estás sola; Anacan te acompaña en cada paso."
+  ]
 }

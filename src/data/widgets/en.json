@@ -49,5 +49,20 @@
   "how_lock": "Lock Screen (iPhone): touch and hold the Lock Screen → “Customize” → widget area → Anacan.",
   "show": "Show",
   "native_only": "Widgets work in the iOS and Android app.",
-  "updated": "Widget updated"
+  "updated": "Widget updated",
+  "premium_locked_title": "Anacan Premium required",
+  "premium_locked_body": "Premium is needed to add the widget to your home screen. This is a sample preview.",
+  "word_eyebrow": "Word of the day",
+  "words": [
+    "Be a little gentler with yourself today — you're doing great. 🌸",
+    "Breathe. This moment, and you, are enough. 💛",
+    "Every small step is a big act of love.",
+    "Your body is working a miracle — trust it.",
+    "Asking for help is part of being strong.",
+    "Pause today just to feel one moment.",
+    "What matters is being there, not being perfect.",
+    "Your love is the greatest nourishment for your baby. 🤍",
+    "Tiredness is a trace of love too — give yourself some rest.",
+    "You're not alone; Anacan is with you every step."
+  ]
 }

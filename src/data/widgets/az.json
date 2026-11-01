@@ -49,5 +49,20 @@
   "how_lock": "Kilid ekranı (iPhone): kilid ekranını basıb saxlayın → “Fərdiləşdir” → vidjet sahəsi → Anacan.",
   "show": "Göstər",
   "native_only": "Vidjetlər iOS və Android tətbiqində işləyir.",
-  "updated": "Vidjet yeniləndi"
+  "updated": "Vidjet yeniləndi",
+  "premium_locked_title": "Anacan Premium tələb olunur",
+  "premium_locked_body": "Vidjeti ana ekranına əlavə etmək üçün Premium lazımdır. Bu, nümunə görüntüdür.",
+  "word_eyebrow": "Günün sözü",
+  "words": [
+    "Bu gün özünə bir az da zərif ol — sən əla iş görürsən. 🌸",
+    "Nəfəs al. Bu an da, sən də kifayətsən. 💛",
+    "Hər kiçik addım böyük sevgidir.",
+    "Bədənin möcüzə yaradır — ona güvən.",
+    "Kömək istəmək güclü olmağın bir hissəsidir.",
+    "Bu gün bir anı sadəcə hiss etmək üçün dayan.",
+    "Mükəmməl olmaq yox, orada olmaq vacibdir.",
+    "Sənin sevgin balan üçün ən böyük qidadır. 🤍",
+    "Yorğunluq da sevginin izidir — özünə dincəlik ver.",
+    "Sən tək deyilsən; Anacan hər addımda yanındadır."
+  ]
 }

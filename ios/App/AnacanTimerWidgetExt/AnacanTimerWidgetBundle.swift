@@ -8,6 +8,7 @@ struct AnacanTimerWidgetBundle: WidgetBundle {
     var body: some Widget {
         AnacanJourneyWidget()
         AnacanCareWidget()
+        AnacanWordWidget()
         if #available(iOS 16.1, *) {
             AnacanTimerWidgetLiveActivity()
         }

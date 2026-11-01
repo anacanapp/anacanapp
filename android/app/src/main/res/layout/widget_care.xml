@@ -11,6 +11,9 @@
             <TextView android:id="@+id/wc_age" android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:textSize="16sp" android:textStyle="bold" android:textColor="#FF333333" android:maxLines="1" />
         </LinearLayout>
+        <TextView android:id="@+id/wc_lock" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textSize="9sp" android:textStyle="bold" android:textColor="#FFFFFFFF" android:paddingStart="8dp" android:paddingEnd="8dp"
+            android:paddingTop="3dp" android:paddingBottom="3dp" android:background="@drawable/widget_btn_coral" android:maxLines="1" android:visibility="gone" />
     </LinearLayout>
     <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="8dp" android:orientation="horizontal">
         <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical"
@@ -44,4 +47,6 @@
         <TextView android:id="@+id/wc_btn_diaper" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:layout_marginStart="6dp" android:gravity="center"
             android:textSize="12sp" android:textStyle="bold" android:textColor="#FF7C2726" android:background="@drawable/widget_btn_soft" android:maxLines="1" />
     </LinearLayout>
+    <TextView android:id="@+id/wc_premium_cta" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginTop="6dp" android:gravity="center"
+        android:textSize="13sp" android:textStyle="bold" android:textColor="#FFFFFFFF" android:background="@drawable/widget_btn_coral" android:maxLines="1" android:ellipsize="end" android:visibility="gone" />
 </LinearLayout>

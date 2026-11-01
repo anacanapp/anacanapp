@@ -49,5 +49,20 @@
   "how_lock": "Kilitli Ekran (iPhone): Kilitli Ekran'a dokunup basılı tutun → “Özelleştir” → widget alanı → Anacan.",
   "show": "Göster",
   "native_only": "Widget'lar iOS ve Android uygulamasında çalışır.",
-  "updated": "Widget güncellendi"
+  "updated": "Widget güncellendi",
+  "premium_locked_title": "Anacan Premium gerekli",
+  "premium_locked_body": "Widget'ı ana ekranına eklemek için Premium gerekir. Bu, örnek bir önizlemedir.",
+  "word_eyebrow": "Günün sözü",
+  "words": [
+    "Bugün kendine biraz daha nazik ol — harika iş çıkarıyorsun. 🌸",
+    "Nefes al. Bu an da, sen de yetiyorsun. 💛",
+    "Her küçük adım büyük bir sevgidir.",
+    "Bedenin bir mucize yaratıyor — ona güven.",
+    "Yardım istemek de güçlü olmanın bir parçası.",
+    "Bugün bir anı sadece hissetmek için dur.",
+    "Önemli olan mükemmel olmak değil, orada olmak.",
+    "Sevgin bebeğin için en büyük besindir. 🤍",
+    "Yorgunluk da sevginin izidir — kendine dinlenme hakkı tanı.",
+    "Yalnız değilsin; Anacan her adımda yanında."
+  ]
 }

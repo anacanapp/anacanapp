@@ -29,7 +29,7 @@ object AnacanWidgets {
 
     fun refreshAll(context: Context) {
         val manager = AppWidgetManager.getInstance(context)
-        for (cls in listOf(AnacanJourneyWidget::class.java, AnacanCareWidget::class.java)) {
+        for (cls in listOf(AnacanJourneyWidget::class.java, AnacanCareWidget::class.java, AnacanWordWidget::class.java)) {
             val ids = manager.getAppWidgetIds(ComponentName(context, cls))
             if (ids.isEmpty()) continue
             val intent = Intent(context, cls).apply {
@@ -103,9 +103,9 @@ class AnacanCareWidget : AppWidgetProvider() {
     }
 
     private fun render(context: Context, s: JSONObject?): RemoteViews {
-        val premium = s?.optBoolean("premium", false) == true
         val care = s?.optJSONObject("care")
-        if (!premium || care == null) {
+        if (care == null) {
+            // No child/care data yet: keep the simple teaser card.
             val v = RemoteViews(context.packageName, R.layout.widget_locked)
             v.setTextViewText(R.id.wl_title, AnacanWidgets.label(s, if (s == null) "openApp" else "premiumTitle", "Anacan Premium"))
             v.setTextViewText(R.id.wl_body, if (s == null) "" else AnacanWidgets.label(s, "premiumBody", ""))
@@ -113,9 +113,14 @@ class AnacanCareWidget : AppWidgetProvider() {
             v.setOnClickPendingIntent(R.id.wl_root, AnacanWidgets.link(context, target, 7200))
             return v
         }
+        // Non-Premium: show the FULL care widget as a sample preview with a lock badge + "Premium required"
+        // CTA; all taps go to the paywall. Premium: real data + quick actions.
+        val locked = s.optBoolean("careLocked", false) || !s.optBoolean("premium", false)
         val v = RemoteViews(context.packageName, R.layout.widget_care)
         val now = System.currentTimeMillis()
         val privacy = s.optBoolean("privacy", false)
+        v.setViewVisibility(R.id.wc_lock, if (locked) View.VISIBLE else View.GONE)
+        if (locked) v.setTextViewText(R.id.wc_lock, "🔒 " + AnacanWidgets.label(s, "premiumBadge", "Premium").uppercase())
         v.setTextViewText(R.id.wc_name, if (privacy) "ANACAN" else care.optString("name").uppercase())
         v.setTextViewText(R.id.wc_age, if (privacy) "" else care.optString("age"))
         v.setTextViewText(R.id.wc_emoji, care.optString("emoji", "👶"))
@@ -156,6 +161,17 @@ class AnacanCareWidget : AppWidgetProvider() {
 
         v.setTextViewText(R.id.wc_today, "${AnacanWidgets.label(s, "today", "Today").uppercase()}  ·  🍼 ${care.optInt("todayFeeds")}  ·  😴 ${care.optString("todaySleep")}  ·  🧷 ${care.optInt("todayDiapers")}")
 
+        if (locked) {
+            // Sample preview: no quick actions; a single "Premium required" CTA, everything → paywall.
+            v.setViewVisibility(R.id.wc_actions, View.GONE)
+            v.setViewVisibility(R.id.wc_premium_cta, View.VISIBLE)
+            v.setTextViewText(R.id.wc_premium_cta, "🔒 " + AnacanWidgets.label(s, "premiumLocked", "Anacan Premium"))
+            val premium = AnacanWidgets.link(context, AnacanWidgets.linkOf(s, "premium", "anacan://premium"), 7200)
+            v.setOnClickPendingIntent(R.id.wc_premium_cta, premium)
+            v.setOnClickPendingIntent(R.id.wc_root, premium)
+            return v
+        }
+        v.setViewVisibility(R.id.wc_premium_cta, View.GONE)
         val actions = s.optBoolean("showActions", true)
         v.setViewVisibility(R.id.wc_actions, if (actions) View.VISIBLE else View.GONE)
         v.setTextViewText(R.id.wc_btn_feed, "🍼 " + AnacanWidgets.label(s, "btnFeed", "Feed"))
@@ -167,5 +183,22 @@ class AnacanCareWidget : AppWidgetProvider() {
         v.setOnClickPendingIntent(R.id.wc_btn_diaper, AnacanWidgets.link(context, AnacanWidgets.linkOf(s, "diaper", "anacan://tool/baby-tracker"), 7303))
         v.setOnClickPendingIntent(R.id.wc_root, AnacanWidgets.link(context, AnacanWidgets.linkOf(s, "tracker", "anacan://tool/baby-tracker"), 7304))
         return v
+    }
+}
+
+/** Word of the day (free): a gentle daily affirmation from the snapshot. */
+class AnacanWordWidget : AppWidgetProvider() {
+    override fun onUpdate(context: Context, manager: AppWidgetManager, ids: IntArray) {
+        val s = AnacanWidgets.snapshot(context)
+        val word = s?.optJSONObject("word")
+        for (id in ids) {
+            val v = RemoteViews(context.packageName, R.layout.widget_word)
+            v.setTextViewText(R.id.ww_eyebrow, (word?.optString("eyebrow")?.takeIf { it.isNotEmpty() }
+                ?: AnacanWidgets.label(s, "wordEyebrow", "Anacan")).uppercase())
+            v.setTextViewText(R.id.ww_text, word?.optString("text")?.takeIf { it.isNotEmpty() }
+                ?: AnacanWidgets.label(s, "openApp", "Anacan"))
+            v.setOnClickPendingIntent(R.id.ww_root, AnacanWidgets.link(context, AnacanWidgets.linkOf(s, "home", "anacan:///"), 7400))
+            manager.updateAppWidget(id, v)
+        }
     }
 }

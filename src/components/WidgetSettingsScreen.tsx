@@ -122,24 +122,22 @@ function Preview({ t, size, premium, settings, bump }: { t: WidgetText; size: Si
         <div style={{ fontSize: 18, fontWeight: 800, lineHeight: 1.15 }}>{title}</div>
       </div>);
   }
-  if (!premium) {
-    return (
-      <div style={{ ...card, width: size === 'large' ? 300 : 320, height: size === 'large' ? 300 : 150, background: 'linear-gradient(135deg,#ff8a8e,#ff5a5f)', color: '#fff', display: 'grid', placeItems: 'center', textAlign: 'center', padding: 16 }}>
-        <div><div style={{ fontSize: 30 }}>👑</div><b style={{ fontSize: 16 }}>{t.premium_title}</b><div style={{ fontSize: 12, opacity: .9, marginTop: 4 }}>{t.premium_body}</div></div>
-      </div>);
-  }
+  // Non-Premium sees the SAME full preview with a lock badge + "Premium required" CTA (not a teaser card).
   return (
     <div style={{ ...card, width: size === 'large' ? 300 : 320, padding: 12, display: 'flex', flexDirection: 'column', gap: 8 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
         <span style={{ width: 36, height: 36, borderRadius: 12, background: '#ffdcdd', display: 'grid', placeItems: 'center', fontSize: 20 }}>👶</span>
-        <div><div style={{ fontSize: 10, fontWeight: 800, color: '#b22255' }}>{settings.privacy ? 'ANACAN' : 'MURAD'}</div><b style={{ fontSize: 16 }}>{settings.privacy ? '' : t.baby_months.replace('{m}', '3').replace('{d}', '12')}</b></div>
+        <div style={{ flex: 1 }}><div style={{ fontSize: 10, fontWeight: 800, color: '#b22255' }}>{settings.privacy ? 'ANACAN' : 'NURAY'}</div><b style={{ fontSize: 16 }}>{settings.privacy ? '' : t.baby_months.replace('{m}', '3').replace('{d}', '12')}</b></div>
+        {!premium && <span style={{ fontSize: 9, fontWeight: 800, color: '#fff', background: '#ff5a5f', borderRadius: 999, padding: '3px 8px' }}>🔒 {t.premium_badge.toUpperCase()}</span>}
       </div>
       <div style={{ display: 'flex', gap: 8 }}>
         <div style={{ flex: 1, borderRadius: 16, background: '#ddf3e3', padding: 10 }}><div style={{ fontSize: 9.5, fontWeight: 800, color: '#1c7a4d' }}>🍼 {t.last_feed.toUpperCase()}</div><b style={{ fontSize: 17 }}>{settings.showFeed ? t.hours_minutes.replace('{h}', '1').replace('{m}', '40') : '—'}</b><div style={{ fontSize: 11, color: '#8c8177' }}>{settings.showFeed ? t.sides.left : ''}</div></div>
         <div style={{ flex: 1, borderRadius: 16, background: '#e9ddfc', padding: 10 }}><div style={{ fontSize: 9.5, fontWeight: 800, color: '#5b3aa5' }}>🌙 {t.next_nap.toUpperCase()}</div><b style={{ fontSize: 17 }}>{settings.showNap ? '14:35' : '—'}</b><div style={{ fontSize: 11, color: '#8c8177' }}>{settings.showNap ? '14:35–14:55' : ''}</div></div>
       </div>
       {size === 'large' && <div style={{ borderRadius: 14, background: '#fff', padding: '8px 10px', fontSize: 12, fontWeight: 700, display: 'flex', justifyContent: 'space-between' }}><span style={{ color: '#8c8177' }}>{t.today.toUpperCase()}</span><span>🍼 6 · 😴 9:20 · 🧷 5</span></div>}
-      {settings.showActions &&
+      {!premium ?
+      <div style={{ textAlign: 'center', borderRadius: 14, padding: '11px 0', background: '#ff5a5f', color: '#fff', fontSize: 13, fontWeight: 800 }}>🔒 {t.premium_locked_title}</div> :
+      settings.showActions &&
       <div style={{ display: 'flex', gap: 6 }}>
           <span style={{ flex: 1, textAlign: 'center', borderRadius: 14, padding: '9px 0', background: '#ff5a5f', color: '#fff', fontSize: 12, fontWeight: 800 }}>🍼 {t.btn_feed}</span>
           <span style={{ flex: 1, textAlign: 'center', borderRadius: 14, padding: '9px 0', background: '#7c5cd6', color: '#fff', fontSize: 12, fontWeight: 800 }}>😴 {t.btn_sleep}</span>

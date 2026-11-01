@@ -20,4 +20,6 @@
     <string name="widget_journey_desc">Pregnancy week and baby size, or your baby\'s age</string>
     <string name="widget_care_name">Anacan · Feeding and sleep</string>
     <string name="widget_care_desc">Last feed, next nap and quick buttons (Premium)</string>
+    <string name="widget_word_name">Anacan · Word of the day</string>
+    <string name="widget_word_desc">A gentle daily affirmation</string>
 </resources>

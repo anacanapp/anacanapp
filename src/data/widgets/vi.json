@@ -49,5 +49,20 @@
   "how_lock": "Màn hình khóa (iPhone): chạm và giữ Màn hình khóa → “Tùy chỉnh” → vùng tiện ích → Anacan.",
   "show": "Hiển thị",
   "native_only": "Tiện ích hoạt động trong ứng dụng iOS và Android.",
-  "updated": "Đã cập nhật tiện ích"
+  "updated": "Đã cập nhật tiện ích",
+  "premium_locked_title": "Cần Anacan Premium",
+  "premium_locked_body": "Bạn cần Premium để thêm tiện ích vào màn hình chính. Đây là bản xem trước mẫu.",
+  "word_eyebrow": "Lời nhắn hôm nay",
+  "words": [
+    "Hôm nay hãy dịu dàng với bản thân hơn một chút — bạn đang làm rất tốt. 🌸",
+    "Hít thở nhé. Khoảnh khắc này, và cả bạn, đều đã đủ. 💛",
+    "Mỗi bước nhỏ đều là một tình yêu lớn.",
+    "Cơ thể bạn đang tạo nên điều kỳ diệu — hãy tin vào nó.",
+    "Xin giúp đỡ cũng là một phần của sự mạnh mẽ.",
+    "Hôm nay hãy dừng lại để cảm nhận một khoảnh khắc.",
+    "Điều quan trọng là hiện diện, không phải hoàn hảo.",
+    "Tình yêu của bạn là nguồn dưỡng chất lớn nhất cho bé. 🤍",
+    "Mệt mỏi cũng là dấu vết của yêu thương — hãy cho mình nghỉ ngơi.",
+    "Bạn không đơn độc; Anacan luôn bên bạn mỗi bước đi."
+  ]
 }

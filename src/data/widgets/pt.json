@@ -49,5 +49,20 @@
   "how_lock": "Tela Bloqueada (iPhone): toque e mantenha pressionada a Tela Bloqueada → “Personalizar” → área de widgets → Anacan.",
   "show": "Mostrar",
   "native_only": "Os widgets funcionam no app para iOS e Android.",
-  "updated": "Widget atualizado"
+  "updated": "Widget atualizado",
+  "premium_locked_title": "Anacan Premium necessário",
+  "premium_locked_body": "O Premium é necessário para adicionar o widget à sua tela de início. Esta é uma pré-visualização de exemplo.",
+  "word_eyebrow": "Palavra do dia",
+  "words": [
+    "Hoje seja um pouco mais gentil consigo — você está indo muito bem. 🌸",
+    "Respire. Este momento, e você, já são suficientes. 💛",
+    "Cada pequeno passo é um grande gesto de amor.",
+    "Seu corpo está realizando um milagre — confie nele.",
+    "Pedir ajuda também faz parte de ser forte.",
+    "Pare hoje só para sentir um momento.",
+    "O que importa é estar presente, não ser perfeita.",
+    "Seu amor é o maior alimento para o seu bebê. 🤍",
+    "O cansaço também é um traço de amor — permita-se descansar.",
+    "Você não está sozinha; o Anacan está com você a cada passo."
+  ]
 }

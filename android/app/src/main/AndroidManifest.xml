@@ -90,6 +90,10 @@
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_care_info" />
         </receiver>
+        <receiver android:name=".AnacanWordWidget" android:exported="false" android:label="@string/widget_word_name">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_word_info" />
+        </receiver>
     </application>
 
     <!-- Permissions -->

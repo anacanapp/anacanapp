@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Delete, Fingerprint } from 'lucide-react';
+import { Capacitor } from '@capacitor/core';
+import { Delete, Fingerprint, ScanFace } from 'lucide-react';
 import { hapticFeedback } from '@/lib/native';
 import { PIN_LENGTH } from '@/lib/appLock';
+
+// Face ID on iOS, fingerprint elsewhere.
+const BiometricIcon = Capacitor.getPlatform() === 'ios' ? ScanFace : Fingerprint;
 
 /**
  * Paylaşılan PIN klaviaturası — kilid ekranı və quraşdırma sheet-i üçün.
@@ -94,7 +98,7 @@ const PinPad = ({ onComplete, showBiometric = false, onBiometric, resetKey, disa
                 style={{ width: 68, height: 68, borderRadius: 999, color: 'var(--a-accent-ink)' }}
                 whileTap={{ scale: 0.9 }}
                 aria-label="Biometric">
-                <Fingerprint size={28} strokeWidth={1.8} />
+                <BiometricIcon size={28} strokeWidth={1.8} />
               </motion.button>);
           }
           if (k === 'back') {

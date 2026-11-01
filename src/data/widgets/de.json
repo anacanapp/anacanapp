@@ -49,5 +49,20 @@
   "how_lock": "Sperrbildschirm (iPhone): Sperrbildschirm gedrückt halten → „Anpassen“ → Widget-Bereich → Anacan.",
   "show": "Zeigen",
   "native_only": "Widgets funktionieren in der iOS- und Android-App.",
-  "updated": "Widget aktualisiert"
+  "updated": "Widget aktualisiert",
+  "premium_locked_title": "Anacan Premium erforderlich",
+  "premium_locked_body": "Für das Hinzufügen des Widgets zu deinem Home-Bildschirm ist Premium nötig. Dies ist eine Beispielvorschau.",
+  "word_eyebrow": "Wort des Tages",
+  "words": [
+    "Sei heute ein bisschen sanfter zu dir — du machst das großartig. 🌸",
+    "Atme durch. Dieser Moment und auch du sind genug. 💛",
+    "Jeder kleine Schritt ist große Liebe.",
+    "Dein Körper vollbringt ein Wunder — vertrau ihm.",
+    "Um Hilfe zu bitten gehört zum Starksein dazu.",
+    "Halt heute kurz inne, um einen Moment einfach zu fühlen.",
+    "Wichtig ist, da zu sein — nicht, perfekt zu sein.",
+    "Deine Liebe ist die größte Nahrung für dein Baby. 🤍",
+    "Auch Müdigkeit ist eine Spur der Liebe — gönn dir Ruhe.",
+    "Du bist nicht allein; Anacan ist bei jedem Schritt an deiner Seite."
+  ]
 }

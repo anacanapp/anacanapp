@@ -50,6 +50,7 @@ export interface WidgetCare {
   todaySleep: string;
   todayDiapers: number;
 }
+export interface WidgetWord { eyebrow: string; text: string }
 export interface WidgetSnapshot {
   v: 1;
   updatedAt: number;
@@ -57,9 +58,33 @@ export interface WidgetSnapshot {
   privacy: boolean;
   showActions: boolean;
   journey: WidgetJourney | null;
+  /** Real care data (Premium) OR a sample preview (non-Premium: native shows it locked). */
   care: WidgetCare | null;
+  /** True when `care` is the non-Premium sample; native shows the "Premium required" overlay. */
+  careLocked: boolean;
+  /** Daily word / affirmation widget (free). */
+  word: WidgetWord | null;
   labels: Record<string, string>;
   links: typeof WIDGET_LINKS;
+}
+
+/** A realistic sample so a non-Premium user sees the full care widget (locked), not an empty teaser. */
+export function sampleCare(t: WidgetText, now = new Date()): WidgetCare {
+  const ms = now.getTime();
+  return {
+    name: 'Nuray', age: fill(t.baby_months, { m: 3, d: 12 }), emoji: '👶',
+    lastFeedAt: ms - 2 * 3600_000, lastFeedText: `${t.sides.left} · ${fill(t.minutes, { n: 14 })}`,
+    nextNapStart: ms + 45 * 60_000, nextNapEnd: ms + 105 * 60_000, nextNapIsBedtime: false,
+    sleepingSince: null, todayFeeds: 6, todaySleep: fill(t.hours_minutes, { h: 4, m: 20 }), todayDiapers: 5,
+  };
+}
+
+/** Günün sözü — a short daily affirmation, rotated by the day of the year. */
+export function dailyWord(t: WidgetText, now = new Date()): WidgetWord | null {
+  const words = Array.isArray(t.words) ? t.words : [];
+  if (!words.length) return null;
+  const day = Math.floor((now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / 86_400_000);
+  return { eyebrow: t.word_eyebrow, text: words[day % words.length] };
 }
 
 export const compactDuration = (t: WidgetText, minutes: number) => {
@@ -84,25 +109,32 @@ export function widgetLabels(t: WidgetText): Record<string, string> {
     lastFeed: t.last_feed, nextNap: t.next_nap, bedtime: t.bedtime, sleeping: t.sleeping, awake: t.awake, today: t.today,
     feeds: t.feeds, sleep: t.sleep, diapers: t.diapers, btnFeed: t.btn_feed, btnSleep: t.btn_sleep, btnDiaper: t.btn_diaper,
     btnWoke: t.btn_woke, premiumTitle: t.premium_title, premiumBody: t.premium_body, noData: t.no_data, openApp: t.open_app,
-    hidden: t.hidden, hoursMinutes: t.hours_minutes, minutes: t.minutes
+    hidden: t.hidden, hoursMinutes: t.hours_minutes, minutes: t.minutes,
+    premiumBadge: t.premium_badge, premiumLocked: t.premium_locked_title, wordEyebrow: t.word_eyebrow
   };
 }
 
 export function buildWidgetSnapshot(o: {
   text: WidgetText; premium: boolean; settings: WidgetSettings; journey: WidgetJourney | null; care: WidgetCare | null; now?: Date;
 }): WidgetSnapshot {
-  const care = o.care && o.settings ? {
-    ...o.care,
-    lastFeedAt: o.settings.showFeed ? o.care.lastFeedAt : null,
-    lastFeedText: o.settings.showFeed ? o.care.lastFeedText : '',
-    nextNapStart: o.settings.showNap ? o.care.nextNapStart : null,
-    nextNapEnd: o.settings.showNap ? o.care.nextNapEnd : null
-  } : null;
+  const now = o.now ?? new Date();
+  const applySettings = (c: WidgetCare): WidgetCare => ({
+    ...c,
+    lastFeedAt: o.settings.showFeed ? c.lastFeedAt : null,
+    lastFeedText: o.settings.showFeed ? c.lastFeedText : '',
+    nextNapStart: o.settings.showNap ? c.nextNapStart : null,
+    nextNapEnd: o.settings.showNap ? c.nextNapEnd : null,
+  });
+  // Premium: real data. Non-Premium: a sample preview (native renders it with a "Premium required"
+  // overlay) so the full widget is visible before buying — no real feeding/sleep data leaves the app.
+  const careLocked = !o.premium;
+  const care = o.premium ? (o.care ? applySettings(o.care) : null) : applySettings(sampleCare(o.text, now));
   return {
-    v: 1, updatedAt: (o.now ?? new Date()).getTime(), premium: o.premium, privacy: o.settings.privacy, showActions: o.settings.showActions,
+    v: 1, updatedAt: now.getTime(), premium: o.premium, privacy: o.settings.privacy, showActions: o.settings.showActions,
     journey: o.journey,
-    // Without Premium the care widget shows "Get Anacan Premium" — no feeding/sleep data leaves the app.
-    care: o.premium ? care : null,
+    care,
+    careLocked,
+    word: dailyWord(o.text, now),
     labels: widgetLabels(o.text), links: WIDGET_LINKS
   };
 }

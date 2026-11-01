@@ -31,6 +31,11 @@ struct HWCare: Codable {
     let todayDiapers: Int
 }
 
+struct HWWord: Codable {
+    let eyebrow: String
+    let text: String
+}
+
 struct HWSnapshot: Codable {
     let v: Int
     let updatedAt: Double
@@ -39,6 +44,8 @@ struct HWSnapshot: Codable {
     let showActions: Bool
     let journey: HWJourney?
     let care: HWCare?
+    let careLocked: Bool?
+    let word: HWWord?
     let labels: [String: String]
     let links: [String: String]
 
@@ -243,10 +250,18 @@ struct HWCareView: View {
     let entry: HWEntry
 
     var body: some View {
-        if let snap = entry.snapshot, snap.premium, let care = snap.care {
-            content(snap, care)
+        // Non-Premium users see the FULL care widget as a sample preview (locked); real data with Premium.
+        if let snap = entry.snapshot, let care = snap.care {
+            let locked = !snap.premium || (snap.careLocked ?? false)
+            if locked && (family == .accessoryRectangular || family == .accessoryCircular) {
+                Text("🔒 \(snap.label("premiumTitle", "Anacan Premium"))").font(.caption).lineLimit(2)
+                    .widgetURL(snap.url("premium", "anacan://premium"))
+                    .hwBackground(Color.clear)
+            } else {
+                content(snap, care, locked: locked)
+            }
         } else if family == .accessoryRectangular || family == .accessoryCircular {
-            Text("👑 \(entry.snapshot?.label("premiumTitle", "Anacan Premium") ?? "Anacan")").font(.caption).lineLimit(2)
+            Text("🔒 \(entry.snapshot?.label("premiumTitle", "Anacan Premium") ?? "Anacan")").font(.caption).lineLimit(2)
                 .widgetURL(entry.snapshot?.url("premium", "anacan://premium") ?? URL(string: "anacan:///")!)
                 .hwBackground(Color.clear)
         } else {
@@ -290,7 +305,7 @@ struct HWCareView: View {
         }
     }
 
-    @ViewBuilder private func content(_ snap: HWSnapshot, _ care: HWCare) -> some View {
+    @ViewBuilder private func content(_ snap: HWSnapshot, _ care: HWCare, locked: Bool = false) -> some View {
         let sleeping = hwDate(care.sleepingSince) != nil
         switch family {
         case .accessoryCircular:
@@ -328,6 +343,11 @@ struct HWCareView: View {
                         Text(snap.privacy ? "" : care.age).font(.system(size: 17, weight: .heavy)).foregroundColor(.hwInk).lineLimit(1)
                     }
                     Spacer(minLength: 0)
+                    if locked {
+                        Text("🔒 " + snap.label("premiumBadge", "Premium").uppercased())
+                            .font(.system(size: 9, weight: .heavy)).foregroundColor(.white)
+                            .padding(.horizontal, 8).padding(.vertical, 3).background(Capsule().fill(Color.hwCoral))
+                    }
                 }
                 HStack(spacing: 8) { feedTile(snap, care); napTile(snap, care) }
                 if family == .systemLarge {
@@ -339,7 +359,14 @@ struct HWCareView: View {
                     .padding(10).background(RoundedRectangle(cornerRadius: 14).fill(Color.white))
                     Spacer(minLength: 0)
                 }
-                if snap.showActions {
+                if locked {
+                    Link(destination: snap.url("premium", "anacan://premium")) {
+                        Text("🔒 " + snap.label("premiumLocked", "Anacan Premium"))
+                            .font(.system(size: 13, weight: .heavy)).foregroundColor(.white).lineLimit(1).minimumScaleFactor(0.7)
+                            .frame(maxWidth: .infinity, minHeight: 38)
+                            .background(RoundedRectangle(cornerRadius: 14).fill(Color.hwCoral))
+                    }
+                } else if snap.showActions {
                     HStack(spacing: 6) {
                         button("🍼 " + snap.label("btnFeed", "Feed"), snap.url("feed", "anacan://tool/baby-tracker"), bg: .hwCoral, fg: .white)
                         button(sleeping ? "☀️ " + snap.label("btnWoke", "Woke") : "😴 " + snap.label("btnSleep", "Sleep"),
@@ -349,7 +376,7 @@ struct HWCareView: View {
                     }
                 }
             }
-            .widgetURL(snap.url("tracker", "anacan://tool/baby-tracker"))
+            .widgetURL(locked ? snap.url("premium", "anacan://premium") : snap.url("tracker", "anacan://tool/baby-tracker"))
             .hwBackground(LinearGradient(colors: [.white, .hwWarm], startPoint: .topLeading, endPoint: .bottomTrailing))
         }
     }
@@ -363,5 +390,52 @@ struct AnacanCareWidget: Widget {
         .configurationDisplayName("Anacan · Premium")
         .description("Last feed · next nap · quick buttons")
         .supportedFamilies([.systemMedium, .systemLarge, .accessoryRectangular, .accessoryCircular])
+    }
+}
+
+// MARK: - Word of the day widget (free)
+
+struct HWWordView: View {
+    @Environment(\.widgetFamily) var family
+    let entry: HWEntry
+
+    var body: some View {
+        let snap = entry.snapshot
+        let word = snap?.word
+        let eyebrow = word?.eyebrow ?? snap?.label("wordEyebrow", "Word of the day") ?? "Anacan"
+        let text = word?.text ?? snap?.label("openApp", "Anacan") ?? "Anacan"
+        Group {
+            switch family {
+            case .accessoryRectangular:
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(eyebrow.uppercased()).font(.caption2).lineLimit(1)
+                    Text(text).font(.caption).lineLimit(3)
+                }
+            case .accessoryCircular:
+                Text("🌸").font(.title2)
+            default:
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(eyebrow.uppercased()).font(.system(size: 10, weight: .heavy)).foregroundColor(.hwCoral).lineLimit(1)
+                    Text(text).font(.system(size: family == .systemSmall ? 13 : 15, weight: .semibold)).foregroundColor(.hwInk)
+                        .lineLimit(family == .systemSmall ? 5 : 4).minimumScaleFactor(0.8)
+                    Spacer(minLength: 0)
+                    Text("🌸").font(.system(size: 18))
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            }
+        }
+        .widgetURL(snap?.url("home", "anacan:///") ?? URL(string: "anacan:///")!)
+        .hwBackground(LinearGradient(colors: [.hwWarm, .hwPeach], startPoint: .topLeading, endPoint: .bottomTrailing))
+    }
+}
+
+struct AnacanWordWidget: Widget {
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: "AnacanWordWidget", provider: HWProvider()) { entry in
+            HWWordView(entry: entry)
+        }
+        .configurationDisplayName("Anacan · Word of the day")
+        .description("A gentle daily affirmation")
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryRectangular, .accessoryCircular])
     }
 }

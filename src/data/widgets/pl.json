@@ -49,5 +49,20 @@
   "how_lock": "Ekran blokady (iPhone): dotknij i przytrzymaj ekran blokady → „Dostosuj” → obszar widżetów → Anacan.",
   "show": "Pokaż",
   "native_only": "Widżety działają w aplikacji na iOS i Androida.",
-  "updated": "Widżet zaktualizowany"
+  "updated": "Widżet zaktualizowany",
+  "premium_locked_title": "Wymagane Anacan Premium",
+  "premium_locked_body": "Premium jest potrzebne, aby dodać widżet do ekranu początkowego. To przykładowy podgląd.",
+  "word_eyebrow": "Słowo na dziś",
+  "words": [
+    "Bądź dziś trochę łagodniejsza dla siebie — świetnie sobie radzisz. 🌸",
+    "Oddychaj. Ta chwila i ty jesteście wystarczające. 💛",
+    "Każdy mały krok to wielka miłość.",
+    "Twoje ciało tworzy cud — zaufaj mu.",
+    "Proszenie o pomoc to część bycia silną.",
+    "Zatrzymaj się dziś, by poczuć jedną chwilę.",
+    "Ważne jest być obecną, nie być idealną.",
+    "Twoja miłość to największy pokarm dla twojego dziecka. 🤍",
+    "Zmęczenie też jest śladem miłości — daj sobie odpocząć.",
+    "Nie jesteś sama; Anacan jest przy tobie na każdym kroku."
+  ]
 }

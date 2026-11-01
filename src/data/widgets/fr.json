@@ -49,5 +49,20 @@
   "how_lock": "Écran verrouillé (iPhone) : maintenez le doigt sur l'écran verrouillé → « Personnaliser » → zone des widgets → Anacan.",
   "show": "Afficher",
   "native_only": "Les widgets fonctionnent dans l'app iOS et Android.",
-  "updated": "Widget mis à jour"
+  "updated": "Widget mis à jour",
+  "premium_locked_title": "Anacan Premium requis",
+  "premium_locked_body": "Premium est nécessaire pour ajouter le widget à ton écran d'accueil. Ceci est un aperçu d'exemple.",
+  "word_eyebrow": "Mot du jour",
+  "words": [
+    "Sois un peu plus douce avec toi aujourd'hui — tu fais un travail formidable. 🌸",
+    "Respire. Cet instant, et toi aussi, vous suffisez. 💛",
+    "Chaque petit pas est un grand geste d'amour.",
+    "Ton corps accomplit un miracle — fais-lui confiance.",
+    "Demander de l'aide fait partie de la force.",
+    "Fais une pause aujourd'hui, juste pour ressentir un instant.",
+    "L'important, c'est d'être là, pas d'être parfaite.",
+    "Ton amour est la plus grande nourriture pour ton bébé. 🤍",
+    "La fatigue aussi est une trace d'amour — accorde-toi du repos.",
+    "Tu n'es pas seule ; Anacan est à tes côtés à chaque pas."
+  ]
 }

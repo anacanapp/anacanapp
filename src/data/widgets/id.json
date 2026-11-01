@@ -49,5 +49,20 @@
   "how_lock": "Layar Terkunci (iPhone): sentuh dan tahan Layar Terkunci → “Sesuaikan” → area widget → Anacan.",
   "show": "Tampilkan",
   "native_only": "Widget berfungsi di aplikasi iOS dan Android.",
-  "updated": "Widget diperbarui"
+  "updated": "Widget diperbarui",
+  "premium_locked_title": "Perlu Anacan Premium",
+  "premium_locked_body": "Premium diperlukan untuk menambahkan widget ke layar utamamu. Ini hanya pratinjau contoh.",
+  "word_eyebrow": "Kata hari ini",
+  "words": [
+    "Hari ini bersikaplah sedikit lebih lembut pada dirimu — kamu hebat. 🌸",
+    "Tarik napas. Momen ini, dan kamu, sudah cukup. 💛",
+    "Setiap langkah kecil adalah cinta yang besar.",
+    "Tubuhmu sedang menciptakan keajaiban — percayalah padanya.",
+    "Meminta bantuan adalah bagian dari menjadi kuat.",
+    "Berhentilah sejenak hari ini untuk merasakan satu momen.",
+    "Yang penting hadir, bukan menjadi sempurna.",
+    "Cintamu adalah makanan terbesar bagi bayimu. 🤍",
+    "Lelah pun adalah jejak cinta — berilah dirimu istirahat.",
+    "Kamu tidak sendiri; Anacan menemanimu di setiap langkah."
+  ]
 }

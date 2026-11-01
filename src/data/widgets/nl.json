@@ -49,5 +49,20 @@
   "how_lock": "Toegangsscherm (iPhone): houd het toegangsscherm ingedrukt → ‘Pas aan’ → widgetgebied → Anacan.",
   "show": "Tonen",
   "native_only": "Widgets werken in de iOS- en Android-app.",
-  "updated": "Widget bijgewerkt"
+  "updated": "Widget bijgewerkt",
+  "premium_locked_title": "Anacan Premium vereist",
+  "premium_locked_body": "Premium is nodig om de widget aan je beginscherm toe te voegen. Dit is een voorbeeldweergave.",
+  "word_eyebrow": "Woord van de dag",
+  "words": [
+    "Wees vandaag wat liever voor jezelf — je doet het geweldig. 🌸",
+    "Adem. Dit moment, en jij ook, zijn genoeg. 💛",
+    "Elke kleine stap is grote liefde.",
+    "Je lichaam verricht een wonder — vertrouw erop.",
+    "Om hulp vragen hoort bij sterk zijn.",
+    "Sta vandaag even stil om één moment echt te voelen.",
+    "Er zijn is belangrijker dan perfect zijn.",
+    "Jouw liefde is de grootste voeding voor je baby. 🤍",
+    "Ook moeheid is een spoor van liefde — gun jezelf rust.",
+    "Je staat er niet alleen voor; Anacan is bij elke stap bij je."
+  ]
 }
