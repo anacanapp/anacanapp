@@ -823,3 +823,13 @@ was done.
   stars + reasons + text as `support_tickets` (category `app_feedback`, priority by rating) for Admin → Support. It never
   links to a store; store reviews stay OS-sheet only (owner chose this compliant hybrid over 4–5★ store gating).
   Deployed: web gateway `47.0-feedback` (`feedback-web-plan.json`, rollback → review) passed; user ticket insert verified.
+
+## Store rating prompt restored (2026-11-01)
+
+- Reverted the native happy-moment review flow (de5da29): `review-prompt.ts`, Admin review switch,
+  Dashboard moments and crash gating are removed. The original custom `AppRatingPrompt`
+  (`useAppRating`: 3rd usage, 5★ → native review / store link) is back.
+- Kept: the in-app `FeedbackSheet` (Profile → feedback, plus one auto prompt from day 14, 5+ sessions,
+  native only). Sessions now come from `anacan_app_usage_count`; first open from `anacan.review.firstOpenAt`.
+- Kept: Android `@capacitor-community/in-app-review` plugin registration (used by the 5★ path).
+- Duzelis76 server objects (`review_prompts` setting, `get_review_prompt_config_v1`) stay but are unused.

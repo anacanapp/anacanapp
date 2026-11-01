@@ -1,6 +1,6 @@
 // In-app feedback (1–5 stars + reasons + text) sent to the team as a support ticket (category
 // "app_feedback", visible in Admin → Support). It never links to the App Store / Play Store for any
-// rating: store reviews only come from the OS sheet (review-prompt.ts), so there is no review gating.
+// rating: the store prompt is the separate AppRatingPrompt, so there is no review gating here.
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -22,17 +22,21 @@ export function feedbackPromptDue(o: { now: number; firstUseAt: number | null; s
   return true;
 }
 
+const FIRST_OPEN_KEY = 'anacan.review.firstOpenAt';
+/** Remember the first app open on this device (kept from earlier builds when present). */
+export function noteFirstOpen(): void {
+  try {if (!localStorage.getItem(FIRST_OPEN_KEY)) localStorage.setItem(FIRST_OPEN_KEY, String(Date.now()));} catch {/* optional */}
+}
+
 export function shouldAutoPromptFeedback(o: { accountCreatedAt?: string | null; lossRecovery?: boolean }): boolean {
-  let asked: number[] = [];
-  try {asked = JSON.parse(localStorage.getItem('anacan.review.askedAt') || '[]');} catch {asked = [];}
-  const firstOpen = (() => {try {return Number(localStorage.getItem('anacan.review.firstOpenAt')) || null;} catch {return null;}})();
+  const firstOpen = read(FIRST_OPEN_KEY);
   const created = o.accountCreatedAt ? Date.parse(o.accountCreatedAt) : NaN;
   const firstUseAt = [firstOpen, Number.isNaN(created) ? null : created].filter((x): x is number => !!x);
-  const sessions = (() => {try {return Number(localStorage.getItem('anacan.review.sessions')) || 0;} catch {return 0;}})();
+  // Sessions are counted by the store rating prompt (useAppRating).
+  const sessions = (() => {try {return Number(localStorage.getItem('anacan_app_usage_count')) || 0;} catch {return 0;}})();
   return feedbackPromptDue({
     now: Date.now(), firstUseAt: firstUseAt.length ? Math.min(...firstUseAt) : null, sessions,
-    sentAt: read(K.sent), dismissedAt: read(K.dismissed),
-    lastStoreRequestAt: Array.isArray(asked) && asked.length ? Math.max(...asked.filter((x) => typeof x === 'number')) : null,
+    sentAt: read(K.sent), dismissedAt: read(K.dismissed), lastStoreRequestAt: null,
     lossRecovery: !!o.lossRecovery
   });
 }

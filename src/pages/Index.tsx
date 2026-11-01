@@ -9,8 +9,8 @@ import InitialLanguageScreen from '@/components/InitialLanguageScreen';
 import AuthScreen from '@/components/AuthScreen';
 import { fetchEmailVerificationState } from '@/lib/email-verification';
 import BottomNav from '@/components/BottomNav';
-import { maybeRequestReview, trackReviewSession } from '@/lib/review-prompt';
-import { shouldAutoPromptFeedback } from '@/lib/app-feedback';
+import AppRatingPrompt from '@/components/AppRatingPrompt';
+import { noteFirstOpen, shouldAutoPromptFeedback } from '@/lib/app-feedback';
 import FeedbackSheet from '@/components/FeedbackSheet';
 import FloatingTimerWidget from '@/components/FloatingTimerWidget';
 import HomeWidgetSync from '@/components/HomeWidgetSync';
@@ -173,16 +173,14 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   );
   const { isAdmin, loading, profile, user, profileLoaded } = useAuth();
   const [autoFeedback, setAutoFeedback] = useState(false);
-  // Store review: count sessions once; ask on day 7+ after 20 s on Home (all gates in review-prompt.ts).
-  useEffect(() => {trackReviewSession();}, []);
+  // In-app feedback form (team only, never a store link): once, from day 14, after 20 s on Home.
+  useEffect(() => {noteFirstOpen();}, []);
   useEffect(() => {
     if (!user?.id || activeTab !== 'home' || activeScreen || activeTool) return;
-    const id = window.setTimeout(async () => {
+    const id = window.setTimeout(() => {
       const lossRecovery = !!(profile as { loss_recovery_active?: boolean } | null)?.loss_recovery_active;
       const accountCreatedAt = (user as { created_at?: string }).created_at ?? null;
-      const asked = await maybeRequestReview('day7', { userId: user.id, accountCreatedAt, lossRecovery, delayMs: 0 });
-      // From day 14, once: our own feedback form (team only, never a store link).
-      if (!asked && Capacitor.isNativePlatform() && shouldAutoPromptFeedback({ accountCreatedAt, lossRecovery })) setAutoFeedback(true);
+      if (Capacitor.isNativePlatform() && shouldAutoPromptFeedback({ accountCreatedAt, lossRecovery })) setAutoFeedback(true);
     }, 20_000);
     return () => window.clearTimeout(id);
   }, [user?.id, activeTab, activeScreen, activeTool]);
@@ -915,6 +913,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       style={isAnacanRedesignHome ? { background: 'var(--a-bg)' } : undefined}
     >
       {/* App Rating Prompt */}
+      <AppRatingPrompt />
       
       {/* SOS / Doğuş siqnalı qəbuledicisi — bağlı olan HƏR İKİ tərəf üçün */}
       {profile?.linked_partner_id &&
