@@ -819,3 +819,6 @@ was done.
 - Turn the switch on only after the crash-fix build is live; set min build to that build number.
 - Deployed 2026-11-02: Duzelis76 applied (review_prompts seeded disabled, RPC verified as an authenticated user); web
   gateway `47.0-review` (`review-web-plan.json`, rollback `rollback-review-web-plan.json` → sleep) passed.
+- In-app feedback (2026-11-02): `FeedbackSheet` (Profile → "Fikrinizi bildirin", plus one auto ask from day 14) saves
+  stars + reasons + text as `support_tickets` (category `app_feedback`, priority by rating) for Admin → Support. It never
+  links to a store; store reviews stay OS-sheet only (owner chose this compliant hybrid over 4–5★ store gating).
