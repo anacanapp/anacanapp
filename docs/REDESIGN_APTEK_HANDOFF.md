@@ -817,3 +817,5 @@ was done.
 - Android: `@capacitor-community/in-app-review` added to `capacitor.config.json` android.includePlugins (it was missing,
   so Play review never worked); generated gradle files re-synced. Needs native build 48.
 - Turn the switch on only after the crash-fix build is live; set min build to that build number.
+- Deployed 2026-11-02: Duzelis76 applied (review_prompts seeded disabled, RPC verified as an authenticated user); web
+  gateway `47.0-review` (`review-web-plan.json`, rollback `rollback-review-web-plan.json` → sleep) passed.
