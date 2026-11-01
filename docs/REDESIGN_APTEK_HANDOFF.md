@@ -888,3 +888,26 @@ was done.
   (real charges) still needs `DODO_PAYMENTS_ENVIRONMENT=live_mode` + live key/products (same as the funnel).
 - **Known follow-up:** share link is `anacan.az/website/p/?t=<token>`; the shorter `anacan.az/p/<token>`
   needs a one-line nginx location (or a website-server route) on the next full website image rebuild.
+
+## Widgets redesign + Word-of-day + lock icon + sponsor pay (lang URL, inline) — deployed 2026-11-01
+- **App (committed 16421a1, 75cad47):** non-Premium home-screen care widget now shows a full LOCKED
+  sample preview + "Premium required" CTA (iOS HWCareView, Android AnacanWidgets.kt/widget_care.xml,
+  WidgetSettingsScreen); new free "Word of the day" widget (iOS AnacanWordWidget, Android
+  AnacanWordWidget + widget_word layout/info/manifest, content src/data/widgets 21 langs); Face ID
+  (scan-face) lock-screen icon on iOS. **Native widget visuals ship in native build 48** (not web).
+- **Functions:** `functions@sha256:e09f1778…` (FROM fc93af7): dodo-checkout return_url now
+  `anacan.az/<lang>/p/`, minimal fields (no phone/tax-id/full address; billing country stays — Dodo MoR
+  tax). Swapped via `functions-sponsorpay-recreate.py` (image-only, env unchanged). Previous container
+  `anacan-functions-before-sponsorpay-1793555205`.
+- **Website runtime:** `website@sha256:bf39a7b7…` (FROM f25e1c1a): adds the `/<lang>/p/` route to the
+  Node server. Deployed via `deploy-website-runtime.py` (plan image bumped; backup
+  `website-runtime-plan.json.before-sponsorp`). Live: `/az/p/`, `/en/p/` = 200; `/az/`, `/llms.txt` intact.
+  ⚠️ **Repo drift:** the live `/app/server/server.mjs` (161 lines, LLM/sitemap/IndexNow/markdown) is NEWER
+  than repo `scripts/website/server.mjs` (stale). The deploy patched the LIVE server.mjs, not the repo file.
+  A future website image built from the repo would REGRESS SEO/LLM infra — reconcile the repo server.mjs
+  with production before any repo-sourced website rebuild.
+- **Gateway:** `gateway@sha256:d4c49bfc…` (FROM f1cc9b7, index `58dded87…`): new app bundle (lock icon,
+  widget settings preview, sponsor sheet) + inline pay page (`/website/p/` pay.js/index.html/copy).
+  Plan `sponsorpay2-web-plan.json` (47.0-sponsorpay2); rollback `rollback-sponsorpay2-web-plan.json`.
+- **Pay page:** inline Dodo checkout on-site (falls back to hosted on SDK error), opens in the requester's
+  language at `anacan.az/<lang>/p/?t=<token>`. Sponsor feature still flag-OFF (`app_settings.premium_sponsor`).
