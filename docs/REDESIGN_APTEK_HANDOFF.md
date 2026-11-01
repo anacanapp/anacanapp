@@ -783,3 +783,6 @@ was done.
   chance, LH / BBT / intimacy (private) / pregnancy test log reusing `flow_daily_logs`, BBT chart with three-over-six
   shift (Premium), months-trying guidance, pre-conception checklist, positive test → pregnancy mode (+ first visit).
 - Copy: `src/data/{illness,recovery,ttc}/<lang>.json`, 21 languages, shape test in `src/lib/care-features.test.ts`.
+- Deployed 2026-11-01: Duzelis75 applied on Google `anacan` (3 relations guarded, 9 triggers, 7 RPCs; rollback test as
+  a real mommy user passed). Web gateway `47.0-care` (`care-web-plan.json`, rollback `rollback-care-web-plan.json` →
+  funnel2) passed; it also carries the Health screen and mommy period-card order changes. Native apps need build 48.
