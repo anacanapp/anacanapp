@@ -822,3 +822,4 @@ was done.
 - In-app feedback (2026-11-02): `FeedbackSheet` (Profile → "Fikrinizi bildirin", plus one auto ask from day 14) saves
   stars + reasons + text as `support_tickets` (category `app_feedback`, priority by rating) for Admin → Support. It never
   links to a store; store reviews stay OS-sheet only (owner chose this compliant hybrid over 4–5★ store gating).
+  Deployed: web gateway `47.0-feedback` (`feedback-web-plan.json`, rollback → review) passed; user ticket insert verified.
