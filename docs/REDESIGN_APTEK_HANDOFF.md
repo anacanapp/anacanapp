@@ -844,3 +844,4 @@ was done.
   native only, on the first Home visit after onboarding when the app lock is off. "Enable" opens
   `AppLockSetupSheet` with `preferBio` (PIN, then the OS Face ID / fingerprint prompt). The sheet says it
   can be turned off in Settings → Password protection. Shares the one-prompt-per-day marker.
+- Web `47.0-lockoffer` (gateway `sha256:0493242…`, index `47848de…`); rollback → 47.0-oneprompt.
