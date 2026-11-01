@@ -41,8 +41,11 @@ android {
     buildTypes {
         release {
             signingConfig hasKeystoreProperties ? signingConfigs.release : null
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // R8: shrink, optimize and obfuscate the DEX (Google Play "DEX code optimization").
+            // Resource shrinking stays off: plugins look up some resources (e.g. notification icons) by name.
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     // Java və Kotlin task-larının JVM hədəfini bərabərləşdir

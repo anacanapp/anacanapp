@@ -25,7 +25,9 @@ allprojects {
         mavenCentral()
     }
 
-    // Fix duplicate Kotlin stdlib classes (jdk7/jdk8 1.6.21 vs stdlib 1.8.22)
+    // Fix duplicate Kotlin stdlib classes (jdk7/jdk8 1.6.21 vs stdlib 1.8.22): one stdlib version for all.
+    // It must match the Kotlin compiler (kotlin-gradle-plugin 2.2.20): suspend code compiled by 2.2 needs
+    // kotlin.coroutines.jvm.internal.SpillingKt, which 1.9.x lacks (runtime crash; R8 reports it as missing).
     configurations.all {
         resolutionStrategy.eachDependency { details ->
             if (details.requested.group == 'org.jetbrains.kotlin'
@@ -33,7 +35,7 @@ allprojects {
                     || details.requested.name == 'kotlin-stdlib-jdk7'
                     || details.requested.name == 'kotlin-stdlib-jdk8'
                     || details.requested.name == 'kotlin-stdlib-common')) {
-                details.useVersion '1.9.24'
+                details.useVersion '2.2.20'
             }
         }
     }

@@ -141,3 +141,17 @@ kateqoriya: **Reproductive health / cycle tracking** seçin.
 - [ ] App Store Privacy labels yeniləndi
 - [ ] App Review notes-a HealthKit izahı yazıldı
 - [ ] PrivacyInfo.xcprivacy target-ə əlavə olundu (Xcode)
+
+## Google Play "DEX code optimization" (obfuscation 2%) — 2026-11-01
+- Release builds now run R8 (`minifyEnabled true`, `proguard-android-optimize.txt`); `shrinkResources` stays off
+  because plugins resolve some resources (notification icons) by name. Keep rules in `android/app/proguard-rules.pro`
+  cover the Capacitor bridge, Cordova, every `com.getcapacitor.Plugin`, `@JavascriptInterface`, Anacan's own
+  `com.atlasoon.anacan` classes and the local Customer.io plugin; line numbers are kept and the mapping is embedded
+  in the AAB (`BUNDLE-METADATA/.../proguard.map`), so Play deobfuscates crashes.
+- R8 found a real defect: the root `build.gradle` forced every Kotlin stdlib to 1.9.24 while the compiler is 2.2.20,
+  so suspend code in `HealthCyclePlugin` referenced `kotlin.coroutines.jvm.internal.SpillingKt`, which 1.9 lacks
+  (a runtime crash on the Health Connect write path). The pin is now 2.2.20.
+- `org.gradle.jvmargs` raised to `-Xmx4g` (R8 ran out of memory at 1.5 GB; Codemagic mac_mini_m2 has 8 GB).
+- Local check (same `npx cap sync android` + `bundleRelease` as Codemagic, 19 plugins): build passes, 50% of
+  33,050 classes obfuscated (threshold 25%), all plugin classes keep their names. No emulator here: run the
+  release build on a device (sign-in, purchase screen, push, Health Connect, AdMob, timer widget) before publishing.
