@@ -1,8 +1,12 @@
 import {createServer} from 'node:http';
 import {readFile} from 'node:fs/promises';
 import {join} from 'node:path';
-import {renderWebsite,renderArticleContent,resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE_ORIGIN,APP_LANGUAGES} from './renderer.mjs';
+import * as renderer from './renderer.mjs';
+import {renderWebsite,renderArticleContent,resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE_ORIGIN,APP_LANGUAGES,renderLlmDocument,renderLlmIndex,renderLlmHub,renderLlmManifest,renderLlmJournal,discoveryLinks,discoveryLinkHeader,markdownPath} from './renderer.mjs';
 import {renderWebsiteHtml} from './prerender.mjs';
+import {websiteRobots,sitemapIndex,sitemapEntries} from './llm-policy.mjs';
+import {createLlmRuntime} from './llm-runtime.mjs';
+import {createIndexNowPublisher} from './indexnow.mjs';
 
 const root=process.env.WEBSITE_ROOT||'/app/website',port=Number(process.env.PORT||9200);
 const api=process.env.WEBSITE_INTERNAL_API||'http://anacan-rest:3000';
@@ -11,22 +15,27 @@ const rest=api==='https://gcp.anacan.az'?api+'/rest/v1':api;
 const backend=JSON.parse(await readFile(join(root,'website/backend.json'),'utf8'));
 if(backend.project!=='ninth-park-492111-m4'||backend.url!=='https://gcp.anacan.az')throw new Error('WEBSITE_GOOGLE_BACKEND_REQUIRED');
 const shell=await readFile(join(root,'az/index.html'),'utf8');
-// Sponsor pay page ("someone else pays for Premium"): served at /<lang>/p/ so the link opens in the
-// requester's language. The shell's assets load statically from /website/p/. Optional (older builds).
+// Sponsor pay page (someone else pays for Premium): served at /<lang>/p/ so the link opens in the
+// requester's language. Assets load statically from /website/p/. Optional (older builds).
 let payShell=null;try{payShell=await readFile(join(root,'website/p/index.html'),'utf8');}catch{payShell=null;}
 const PAY_LANGS=new Set(APP_LANGUAGES.map((item)=>item.code));
 const cleanShell=shell.replace(/<html[^>]*>/,'<html lang="az">').replace(/<meta (?:name|property)="(?:description|robots|og:[^"]+|twitter:[^"]+|article:[^"]+)"[^>]*>/g,'')
   .replace(/<link rel="(?:canonical|alternate|preload)"[^>]*>/g,'').replace(/<script type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g,'')
   .replace(/<script id="anacan-website-boot"[^>]*>[\s\S]*?<\/script>/g,'').replace(/<div id="root">[\s\S]*<\/div>\s*\n/, '<div id="root"></div>\n');
+const llmCleanShell=cleanShell.replace(/<link[^>]*data-llm-discovery[^>]*>/g,'').replace(/<meta name="apple-itunes-app"[^>]*>/g,'');
 const copies=Object.fromEntries(await Promise.all(APP_LANGUAGES.map(async({code})=>[code,JSON.parse(await readFile(join(root,'copy',code+'.json'),'utf8'))])));
 const details=Object.fromEntries(await Promise.all(APP_LANGUAGES.map(async({code})=>[code,JSON.parse(await readFile(join(root,'details',code+'.json'),'utf8'))])));
 const fallback=Object.fromEntries(await Promise.all(APP_LANGUAGES.map(async({code})=>[code,JSON.parse(await readFile(join(root,'website/data',code+'.json'),'utf8'))])));
 const knownRoutes=JSON.parse(await readFile(join(root,'article-routes.json'),'utf8'));
 const legacyMap=JSON.parse(await readFile(join(root,'website-redirects.json'),'utf8')).redirects;
+let indexNow;
+try{const key=(await readFile(join(root,'indexnow-key.txt'),'utf8')).trim();const initial=fallback.az.articles;
+  indexNow=createIndexNowPublisher({key,languages:APP_LANGUAGES.map(item=>item.code),initial,onResult:result=>console.log(JSON.stringify({service:'anacan-indexnow',...result}))});
+}catch(error){if(error.code!=='ENOENT')throw error;}
 let metadata=[],metadataTime=0,metadataPending;
 const articles=new Map();
 async function googleGet(query) {
-  const response=await fetch(rest+'/blog_posts?'+query,{credentials:'omit',redirect:'error',signal:AbortSignal.timeout(15000),headers:{apikey:backend.publishableKey,Authorization:`Bearer ${backend.publishableKey}`}});
+  const response=await fetch(rest+'/blog_posts?'+query,{credentials:'omit',redirect:'error',signal:AbortSignal.timeout(15000),headers:{apikey:backend.publishableKey,Authorization:`Bearer ${backend.publishableKey}`,'X-Anacan-Blog-Format':'source-v1'}});
   if(!response.ok)throw new Error('WEBSITE_PUBLIC_GOOGLE_READ_FAILED');
   const data=await response.json();if(!Array.isArray(data))throw new Error('WEBSITE_PUBLIC_GOOGLE_DATA_INVALID');return data;
 }
@@ -36,7 +45,8 @@ async function publicMetadata() {
   metadataPending=(async()=>{
     const fields=['id','slug','title','excerpt','author_name','cover_image_url','reading_time','category','life_stage','tags','is_published','created_at','updated_at','editorial_metadata',
       ...APP_LANGUAGES.filter(item=>item.code!=='az').flatMap(({code})=>[`title_${code}`,`excerpt_${code}`])];
-    try{metadata=await googleGet(new URLSearchParams({select:fields.join(','),is_published:'eq.true',order:'created_at.desc,id',limit:'1000'}));metadataTime=Date.now();}
+    try{metadata=await googleGet(new URLSearchParams({select:fields.join(','),is_published:'eq.true',order:'created_at.desc,id',limit:'1000'}));metadataTime=Date.now();
+      indexNow?.observe(metadata.map(row=>({id:row.id,title:row.title,excerpt:row.excerpt,updatedAt:row.updated_at,slugs:row.editorial_metadata?.website?.slugs||knownRoutes.find(item=>item.id===row.id)?.slugs||{}})));}
     catch{if(!metadata.length)return null;}
     return metadata;
   })();
@@ -59,6 +69,11 @@ async function catalog(language) {
   if(!rows)return fallback[language];
   return {...fallback[language],articles:rows.map(row=>project(row,language)).filter(Boolean)};
 }
+const llms=await createLlmRuntime({root,languages:APP_LANGUAGES.map(item=>item.code),renderer,catalog,copies,details,fallback,readBodies:async(language,batch)=>{
+  const field=language==='az'?'content':`content_${language}`;
+  const values=await googleGet(new URLSearchParams({select:`id,${field}`,id:`in.(${batch.map(item=>item.id).join(',')})`,is_published:'eq.true',limit:'12'}));
+  return values.map(item=>({id:item.id,content:item[field]}));
+}});
 async function articleFor(summary,language) {
   const key=language+':'+summary.id,cached=articles.get(key);
   if(cached&&cached.updatedAt===summary.updatedAt&&cached.expires>Date.now())return cached.value;
@@ -85,6 +100,17 @@ async function sitemap(kind) {
   return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${entries.map(item=>`<url><loc>${escape(WEBSITE_ORIGIN+item.path)}</loc><lastmod>${item.updated.slice(0,10)}</lastmod>${[...APP_LANGUAGES.map(value=>value.code),'x-default'].flatMap(code=>{const lang=code==='x-default'?'az':code,url=item.kind==='article'?item.slugs[lang]&&sitePath(lang,'article',item.slugs[lang]):sitePath(lang,item.kind,undefined,item.page);return url?[`<xhtml:link rel="alternate" hreflang="${code}" href="${escape(WEBSITE_ORIGIN+url)}"/>`]:[];}).join('')}</url>`).join('')}</urlset>`;
 }
 function reply(response,status,body,type='text/html; charset=utf-8',headers={}) {response.writeHead(status,{'Content-Type':type,'Cache-Control':'public, max-age=0, must-revalidate',...headers});response.end(body);}
+const publishedPageKinds=['home',...Object.keys(PAGE_SLUGS.az)];
+async function localeSitemap(language) {
+  const data=await catalog(language),entries=[];
+  for(const kind of publishedPageKinds)entries.push({url:WEBSITE_ORIGIN+sitePath(language,kind),updatedAt:data.generatedAt,
+    alternates:[...APP_LANGUAGES.map(({code})=>({code,url:WEBSITE_ORIGIN+sitePath(code,kind)})),{code:'x-default',url:WEBSITE_ORIGIN+sitePath('az',kind)}]});
+  for(let page=2;page<=Math.ceil(data.articles.length/12);page++)entries.push({url:WEBSITE_ORIGIN+sitePath(language,'journal',undefined,page),updatedAt:data.generatedAt,
+    alternates:[...APP_LANGUAGES.map(({code})=>({code,url:WEBSITE_ORIGIN+sitePath(code,'journal',undefined,page)})),{code:'x-default',url:WEBSITE_ORIGIN+sitePath('az','journal',undefined,page)}]});
+  for(const article of data.articles)entries.push({url:WEBSITE_ORIGIN+sitePath(language,'article',article.slug),updatedAt:article.updatedAt,
+    alternates:[...APP_LANGUAGES.filter(item=>article.slugs[item.code]).map(({code})=>({code,url:WEBSITE_ORIGIN+sitePath(code,'article',article.slugs[code])})),{code:'x-default',url:WEBSITE_ORIGIN+sitePath('az','article',article.slugs.az)}]});
+  return sitemapEntries(entries);
+}
 createServer(async(request,response)=>{
   if(!['GET','HEAD'].includes(request.method)){reply(response,405,'','text/plain',{Allow:'GET, HEAD'});return;}
   try{
@@ -93,12 +119,31 @@ createServer(async(request,response)=>{
     const payMatch=/^\/([a-z]{2})\/p\/?$/.exec(url.pathname);
     if(payMatch&&payShell&&PAY_LANGS.has(payMatch[1])){reply(response,200,request.method==='HEAD'?'':payShell,'text/html; charset=utf-8',{'X-Robots-Tag':'noindex'});return;}
     if(url.pathname==='/sitemap-blog.xml'||url.pathname==='/sitemap-pages.xml'){reply(response,200,await sitemap(url.pathname.includes('blog')?'articles':'pages'),'application/xml; charset=utf-8');return;}
-    if(url.pathname==='/sitemap.xml'){reply(response,200,await readFile(join(root,'sitemap.xml')),'application/xml; charset=utf-8');return;}
+    if(url.pathname==='/sitemap.xml'){reply(response,200,sitemapIndex(APP_LANGUAGES.map(item=>item.code)),'application/xml; charset=utf-8');return;}
+    const localeMap=/^\/sitemap-([a-z]{2})\.xml$/.exec(url.pathname);
+    if(localeMap&&fallback[localeMap[1]]){reply(response,200,await localeSitemap(localeMap[1]),'application/xml; charset=utf-8');return;}
+    if(url.pathname==='/robots.txt'){reply(response,200,websiteRobots(),'text/plain; charset=utf-8');return;}
+    if(url.pathname==='/llms.txt'){reply(response,200,renderLlmHub(),'text/plain; charset=utf-8',{'Content-Language':'en'});return;}
+    if(url.pathname==='/indexnow-key.txt'){reply(response,200,await readFile(join(root,'indexnow-key.txt')),'text/plain; charset=utf-8',{'Cache-Control':'public, max-age=3600'});return;}
+    if(url.pathname==='/llms-manifest.json'){
+      const catalogs=await Promise.all(APP_LANGUAGES.map(({code})=>catalog(code)));
+      reply(response,200,JSON.stringify(renderLlmManifest(catalogs,copies,details)),'application/json; charset=utf-8');return;
+    }
+    const localeLlm=/^\/([a-z]{2})\/llms(-full)?\.txt$/.exec(url.pathname);
+    if(url.pathname==='/llms-full.txt'||localeLlm&&localeLlm[2]){
+      if(localeLlm&&!fallback[localeLlm[1]]){reply(response,404,'Anacan','text/plain; charset=utf-8');return;}
+      await llms.serveFull(request,response,localeLlm?.[1]);return;
+    }
+    if(localeLlm&&fallback[localeLlm[1]]){
+      const language=localeLlm[1];reply(response,200,renderLlmIndex(await catalog(language),copies[language],details[language]),'text/plain; charset=utf-8',{'Content-Language':language});return;
+    }
     const dataMatch=/^\/website\/data\/([a-z]{2})(?:\/([^/]+))?\.json$/.exec(decodeURIComponent(url.pathname));
     if(dataMatch&&fallback[dataMatch[1]]){const data=await catalog(dataMatch[1]);if(dataMatch[2]){const summary=data.articles.find(item=>item.slug===dataMatch[2]),article=summary&&await articleFor(summary,dataMatch[1]);reply(response,article?200:404,JSON.stringify(article||{}),'application/json');}else reply(response,200,JSON.stringify(data),'application/json');return;}
-    const defaultLanguage=APP_LANGUAGES.some(item=>url.pathname.startsWith('/'+item.code+'/'))?url.pathname.split('/')[1]:'az';
+    const markdown=/\/(?:index\.md|index\.html\.md)$/.test(url.pathname);
+    const path=markdown?url.pathname.replace(/(?:index\.md|index\.html\.md)$/,''):url.pathname;
+    const defaultLanguage=APP_LANGUAGES.some(item=>path.startsWith('/'+item.code+'/'))?path.split('/')[1]:'az';
     const data=await catalog(defaultLanguage),routes=data.articles;
-    const resolved=resolveWebsiteRoute(url.pathname,routes);
+    const resolved=resolveWebsiteRoute(path,routes);
     const legacy=legacyMap[url.pathname]||legacyMap[decodeURIComponent(url.pathname)];
     if(resolved.redirect||legacy){reply(response,301,'','text/plain',{Location:prefix+(resolved.redirect||legacy)+url.search});return;}
     const route=resolved.route,activeData=route.language===defaultLanguage?data:await catalog(route.language);
@@ -108,8 +153,15 @@ createServer(async(request,response)=>{
     const detail=['cycle','pregnancy','motherhood','partner','memories','ai','community','health'].includes(route.kind);
     const boot={schema:'anacan-website-boot-v1',route,copy:copies[route.language],details:details[route.language],articles:route.kind==='journal'||detail?activeData.articles:route.kind==='home'?activeData.articles.slice(0,3):related,article,
       legalContent:activeData.legal[route.kind]?.content,legalUpdated:activeData.legal[route.kind]?.updatedAt,basePath:prefix,generatedAt:activeData.generatedAt};
-    const rendered=renderWebsite(boot),html=renderWebsiteHtml({shell:cleanShell,boot,...rendered,preload:article?.cover?[article.cover]:[]});
-    reply(response,route.kind==='notFound'?404:200,request.method==='HEAD'?'':html,'text/html; charset=utf-8',route.kind==='notFound'?{'X-Robots-Tag':'noindex'}:{});
-  }catch{reply(response,503,'Anacan','text/plain; charset=utf-8',{'Retry-After':'30'});}
+    if(markdown){
+      if(route.kind==='notFound'){reply(response,404,'Anacan','text/markdown; charset=utf-8',{'X-Robots-Tag':'noindex'});return;}
+      if(url.pathname!==markdownPath(route)){reply(response,301,'','text/plain',{Location:markdownPath(route)});return;}
+      const content=route.kind==='journal'?renderLlmJournal(activeData,copies[route.language],route.page):renderLlmDocument(boot);
+      reply(response,200,request.method==='HEAD'?'':content,'text/markdown; charset=utf-8',{'Content-Language':route.language,
+        Link:`<${WEBSITE_ORIGIN+routePath(route)}>; rel="canonical", ${discoveryLinkHeader(route)}`});return;
+    }
+    const rendered=renderWebsite(boot),html=renderWebsiteHtml({shell:llmCleanShell,boot,...rendered,discovery:discoveryLinks(route),preload:article?.cover?[article.cover]:[]});
+    reply(response,route.kind==='notFound'?404:200,request.method==='HEAD'?'':html,'text/html; charset=utf-8',route.kind==='notFound'?{'X-Robots-Tag':'noindex'}:{'Content-Language':route.language,Link:discoveryLinkHeader(route)});
+  }catch{if(response.headersSent)response.destroy();else reply(response,503,'Anacan','text/plain; charset=utf-8',{'Retry-After':'30'});}
 }).listen(port,'0.0.0.0',()=>console.log(JSON.stringify({status:'ready',service:'anacan-website',backend:'google'})));
 void publicMetadata();

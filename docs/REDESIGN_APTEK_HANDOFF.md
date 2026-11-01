@@ -911,3 +911,12 @@ was done.
   Plan `sponsorpay2-web-plan.json` (47.0-sponsorpay2); rollback `rollback-sponsorpay2-web-plan.json`.
 - **Pay page:** inline Dodo checkout on-site (falls back to hosted on SDK error), opens in the requester's
   language at `anacan.az/<lang>/p/?t=<token>`. Sponsor feature still flag-OFF (`app_settings.premium_sponsor`).
+
+## Website runtime repo re-sync (2026-11-01)
+- Re-synced the hand-written website runtime from the live container into `scripts/website/`:
+  `server.mjs` (with the `/<lang>/p/` sponsor route), `prerender.mjs`, `indexnow.mjs`, `llm-policy.mjs`,
+  `llm-runtime.mjs` — the repo copies were stale / missing. See `scripts/website/RUNTIME_DRIFT.md`.
+- Still open: `renderer.mjs` is a build artifact whose `src/website/` LLM/SEO/markdown source is NOT in
+  this branch (live sha `02bc1985…`). Do NOT run `build-server.mjs` from this branch — it would build a
+  renderer without the LLM exports `server.mjs` imports and regress the live site. Recover the upstream
+  `src/website/` source before any repo-based website rebuild.

@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
+import {websiteRobots,sitemapIndex} from './llm-policy.mjs';
 
 const escape=value=>String(value??'').replace(/[&<>"']/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 const safeJson=value=>JSON.stringify(value).replace(/[<>&\u2028\u2029]/g,character=>`\\u${character.charCodeAt(0).toString(16).padStart(4,'0')}`);
@@ -39,7 +40,7 @@ export function redirectsFor({routes,articles,prefix=''}) {
 function xmlSitemap(entries,origin) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.map(entry=>`<url><loc>${escape(origin+entry.path)}</loc><lastmod>${entry.updated.slice(0,10)}</lastmod>${entry.alternates.map(item=>`<xhtml:link rel="alternate" hreflang="${item.code}" href="${escape(item.url)}"/>`).join('')}</url>`).join('\n')}\n</urlset>\n`;
 }
-export function renderWebsiteHtml({shell,body,boot,meta,schema,preload=[]}) {
+export function renderWebsiteHtml({shell,body,boot,meta,schema,preload=[],discovery=[]}) {
   const head=[];
   const setMeta=(key,value,property=false)=>head.push(`<meta ${property?'property':'name'}="${key}" content="${escape(value)}">`);
   setMeta('description',meta.description);setMeta('robots',boot.route.kind==='notFound'?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1');
@@ -48,6 +49,9 @@ export function renderWebsiteHtml({shell,body,boot,meta,schema,preload=[]}) {
   if(boot.article){setMeta('article:published_time',boot.article.publishedAt,true);setMeta('article:modified_time',boot.article.updatedAt,true);}
   head.push(`<link rel="canonical" href="${escape(meta.canonical)}">`);
   if(boot.route.kind!=='notFound')for(const item of meta.alternates)head.push(`<link rel="alternate" hreflang="${item.code}" href="${escape(item.url)}">`);
+  setMeta('apple-itunes-app','app-id=6758301924');
+  for(const item of meta.alternates.filter(item=>item.code!=='x-default'&&item.code!==boot.route.language))setMeta('og:locale:alternate',item.locale.replace('-','_'),true);
+  for(const item of discovery)head.push(`<link rel="${item.rel}" type="${item.type}" href="${escape(item.href)}" data-llm-discovery>`);
   for(const href of preload)head.push(`<link rel="preload" as="image" href="${escape(href)}">`);
   if(boot.route.kind!=='notFound')head.push(`<script type="application/ld+json" data-website-schema>${safeJson(schema)}</script>`);
   return shell.replace(/<html[^>]*>/,`<html lang="${boot.route.language}" dir="${boot.route.language==='ar'?'rtl':'ltr'}" class="anacan-public-website">`)
@@ -63,22 +67,26 @@ export function websitePrerenderPlugin({standalone=false,root,catalogDir=join(ro
     async generateBundle(_options,bundle){
       const mainKey=bundle['src/website/index.html']?'src/website/index.html':'index.html';
       const shell=bundle[mainKey]?.source;if(typeof shell!=='string')throw new Error('WEBSITE_SHELL_REQUIRED');
-      const [{default:Website},routes,seo,{renderArticleContent}]=await Promise.all([server.ssrLoadModule('/src/website/Website.tsx'),server.ssrLoadModule('/src/website/routes.ts'),server.ssrLoadModule('/src/website/seo.ts'),server.ssrLoadModule('/src/website/article-content.ts')]);
+      const [{default:Website},routes,seo,{renderArticleContent},llm,discovery]=await Promise.all([server.ssrLoadModule('/src/website/Website.tsx'),server.ssrLoadModule('/src/website/routes.ts'),server.ssrLoadModule('/src/website/seo.ts'),server.ssrLoadModule('/src/website/article-content.ts'),server.ssrLoadModule('/src/website/llm-content.ts'),server.ssrLoadModule('/src/website/discovery.ts')]);
       const prefix=standalone?'':'/site',languages=Object.keys(routes.PAGE_SLUGS),staticEntries=[],articleEntries=[];
       let articleRoutes,postCount=0,pages=0,notFoundHtml='';
+      const fullContent=[],manifestCatalogs=[],copies={},detailCopies={};
       for(const language of languages){
         const catalog=JSON.parse(await readFile(join(catalogDir,language+'.json'),'utf8'));
         const copy=JSON.parse(await readFile(join(root,'src/website/copy',language+'.json'),'utf8'));
         const details=JSON.parse(await readFile(join(root,'src/website/details',language+'.json'),'utf8'));
+        copies[language]=copy;detailCopies[language]=details;
         catalog.articles=catalog.articles.map(article=>article.contentFormat==='anacan-article-html-v1'?article:{...article,...renderArticleContent(article.content||'',{footnotesLabel:copy.references})});
         if(catalog.schema!=='anacan-website-catalog-v1'||catalog.language!==language||catalog.articles.length<75||Object.keys(copy).length!==306)throw new Error('WEBSITE_CATALOG_OR_COPY_INCOMPLETE');
         if(!catalog.legal?.privacy?.content||!catalog.legal?.terms?.content)throw new Error('WEBSITE_LEGAL_REQUIRED');
         articleRoutes ||= catalog.articles;
         postCount=catalog.articles.length;
-        const cards=catalog.articles.map(article=>({id:article.id,legacySlug:article.legacySlug,slugs:{},language,slug:article.slug,title:article.title,excerpt:article.excerpt,
+        const cards=catalog.articles.map(article=>({id:article.id,legacySlug:article.legacySlug,slugs:article.slugs,language,slug:article.slug,title:article.title,excerpt:article.excerpt,
           cover:article.cover,coverAlt:article.coverAlt,author:article.author,minutes:article.minutes,category:article.category,stages:article.stages,tags:article.tags,
           modules:article.modules,relatedIds:article.relatedIds,faq:[],references:[],headings:[],seoTitle:article.seoTitle,seoDescription:article.seoDescription,publishedAt:article.publishedAt,updatedAt:article.updatedAt}));
         const data={...catalog,articles:cards};
+        manifestCatalogs.push(data);
+        const localeDocuments=new Map(),localeEntries=[];
         this.emitFile({type:'asset',fileName:`website/data/${language}.json`,source:safeJson(data)});
         for(const article of catalog.articles)this.emitFile({type:'asset',fileName:`website/data/${language}/${article.slug}.json`,source:safeJson(article)});
         const pageRoutes=[{language,kind:'home'},...Object.keys(routes.PAGE_SLUGS[language]).map(kind=>({language,kind})),
@@ -90,13 +98,24 @@ export function websitePrerenderPlugin({standalone=false,root,catalogDir=join(ro
           const boot={schema:'anacan-website-boot-v1',route,copy,details,articles:visibleCards,article,basePath:prefix,generatedAt:catalog.generatedAt,
             legalContent:catalog.legal[route.kind]?.content,legalUpdated:catalog.legal[route.kind]?.updatedAt};
           const meta=seo.websiteMeta(boot),schema=seo.websiteSchema(boot),body=renderToString(createElement(Website,{boot}));
-          const path=routes.routePath(route),html=renderWebsiteHtml({shell,body,boot,meta,schema,preload:route.kind==='home'?['/website/characters/tumurcuq-welcome.webp']:article?.cover?[article.cover]:[]});
+          const path=routes.routePath(route),html=renderWebsiteHtml({shell,body,boot,meta,schema,discovery:discovery.discoveryLinks(route),preload:route.kind==='home'?['/website/characters/tumurcuq-welcome.webp']:article?.cover?[article.cover]:[]});
           this.emitFile({type:'asset',fileName:decodeURIComponent(prefix+path).slice(1)+'index.html',source:html});pages++;
           if(route.kind==='notFound'&&language==='az')notFoundHtml=html;
           if(route.kind!=='notFound'){
+            const markdown=route.kind==='journal'?llm.renderLlmJournal(data,copy,route.page):llm.renderLlmDocument(boot);
+            this.emitFile({type:'asset',fileName:decodeURIComponent(prefix+discovery.markdownPath(route)).slice(1),source:markdown});
+            if(route.kind!=='journal'||(route.page||1)===1)localeDocuments.set(article?'article:'+article.id:route.kind,markdown);
             const entry={path,updated:article?.updatedAt||catalog.generatedAt,alternates:meta.alternates};
+            localeEntries.push(entry);
             (article?articleEntries:staticEntries).push(entry);
           }
+        }
+        if(standalone){
+          const localeFull=[llm.renderLlmFullHeader(language),...llm.LLM_PAGE_KINDS.map(kind=>'\n\n---\n\n'+localeDocuments.get(kind)),...catalog.articles.map(article=>'\n\n---\n\n'+localeDocuments.get('article:'+article.id))].join('');
+          this.emitFile({type:'asset',fileName:`${language}/llms.txt`,source:llm.renderLlmIndex(data,copy,details)});
+          this.emitFile({type:'asset',fileName:`${language}/llms-full.txt`,source:localeFull});
+          this.emitFile({type:'asset',fileName:`sitemap-${language}.xml`,source:xmlSitemap(localeEntries,routes.WEBSITE_ORIGIN)});
+          fullContent.push(localeFull);
         }
       }
       delete bundle[mainKey];
@@ -105,10 +124,11 @@ export function websitePrerenderPlugin({standalone=false,root,catalogDir=join(ro
       if(standalone){
         this.emitFile({type:'asset',fileName:'sitemap-pages.xml',source:xmlSitemap(staticEntries,routes.WEBSITE_ORIGIN)});
         this.emitFile({type:'asset',fileName:'sitemap-blog.xml',source:xmlSitemap(articleEntries,routes.WEBSITE_ORIGIN)});
-        this.emitFile({type:'asset',fileName:'sitemap.xml',source:`<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>${routes.WEBSITE_ORIGIN}/sitemap-pages.xml</loc></sitemap><sitemap><loc>${routes.WEBSITE_ORIGIN}/sitemap-blog.xml</loc></sitemap></sitemapindex>\n`});
-        this.emitFile({type:'asset',fileName:'robots.txt',source:`User-agent: *\nAllow: /\nDisallow: /website/data/\nSitemap: ${routes.WEBSITE_ORIGIN}/sitemap.xml\n`});
-        const llms=`# Anacan\n\nMenstrual cycle, pregnancy and baby-care guides in 21 languages.\n\n${languages.map(language=>`## ${language}\n- [Home](${routes.WEBSITE_ORIGIN+routes.sitePath(language)})\n- [Journal](${routes.WEBSITE_ORIGIN+routes.sitePath(language,'journal')})\n- [Ovulation calculator](${routes.WEBSITE_ORIGIN+routes.sitePath(language,'ovulation')})\n- [Due date calculator](${routes.WEBSITE_ORIGIN+routes.sitePath(language,'dueDate')})`).join('\n\n')}\n\nCalculators provide estimates, not diagnosis or contraception. Author: Anacan editorial team.\n`;
-        this.emitFile({type:'asset',fileName:'llms.txt',source:llms});
+        this.emitFile({type:'asset',fileName:'sitemap.xml',source:sitemapIndex(languages,routes.WEBSITE_ORIGIN)});
+        this.emitFile({type:'asset',fileName:'robots.txt',source:websiteRobots(routes.WEBSITE_ORIGIN)});
+        this.emitFile({type:'asset',fileName:'llms.txt',source:llm.renderLlmHub()});
+        this.emitFile({type:'asset',fileName:'llms-full.txt',source:llm.renderLlmFullHeader()+fullContent.join('\n\n---\n\n')});
+        this.emitFile({type:'asset',fileName:'llms-manifest.json',source:safeJson(llm.renderLlmManifest(manifestCatalogs,copies,detailCopies))});
         this.emitFile({type:'asset',fileName:'404.html',source:notFoundHtml});
       }
       this.emitFile({type:'asset',fileName:standalone?'website-release.json':'site/website-release.json',source:safeJson({schema:'anacan-website-release-v1',languages:languages.length,articles:postCount,pages,canonicalOrigin:routes.WEBSITE_ORIGIN,googleProject:'ninth-park-492111-m4',googleApiOrigin:'https://gcp.anacan.az',redirects:Object.keys(redirects).length,staticUrls:staticEntries.length,articleUrls:articleEntries.length})});
