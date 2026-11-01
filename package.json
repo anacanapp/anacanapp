@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite --mode google",
-    "build": "vite build --mode google",
+    "build": "vite build --mode google && npm run verify:bundle",
     "build:website": "node --max-old-space-size=2048 scripts/website/build.mjs",
-    "build:dev": "vite build --mode development",
+    "build:dev": "vite build --mode development && npm run verify:bundle",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "verify:bundle": "node scripts/verify-bundle.mjs dist"
   },
   "dependencies": {
     "@anacan/customerio-data-in": "file:packages/customerio-data-in",

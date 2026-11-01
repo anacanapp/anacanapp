@@ -25,7 +25,10 @@ android {
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
              // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
-            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+            // Default ignores + strip internal/dev artifacts so they can never ride into the APK even
+            // if they reach dist/ (second layer; scripts/verify-bundle.mjs fails the build first):
+            // Markdown docs, the pitch deck, any *preview-build* config, and source maps.
+            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~:!*.md:!*pitch-deck*:!*preview-build*:!*.map'
         }
     }
     signingConfigs {
