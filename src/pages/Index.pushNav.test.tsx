@@ -43,6 +43,8 @@ vi.mock('@/components/OnboardingScreen', () => ({ default: () => null }));
 vi.mock('@/components/BlockedScreen', () => ({ default: () => null }));
 vi.mock('@/components/CountryGate', () => ({ default: () => null }));
 vi.mock('@/components/AppRatingPrompt', () => ({ default: () => null }));
+vi.mock('@/components/security/LockOfferSheet', () => ({ default: () => null }));
+vi.mock('@/components/security/AppLockSetupSheet', () => ({ default: () => null }));
 vi.mock('@/components/FloatingTimerWidget', () => ({ default: () => null }));
 vi.mock('@/components/BottomNav', () => ({ default: ({ onTabChange }: any) =>
   <button onClick={() => onTabChange('home')}>Home tab</button>,

@@ -17,7 +17,7 @@ import {
   type WidgetCare, type WidgetJourney } from
 '@/lib/home-widgets';
 
-/** The latest feeding as widget text: "Sol döş · 14 dəq". */
+/** The latest feeding as widget text: "Sol sinə · 14 dəq". */
 export function lastFeed(t: WidgetText, logs: BabyLogRow[]): { at: number; text: string } | null {
   const feeds = logs.filter((l) => l.log_type === 'feeding' && feedKind(l.feed_type))
     .sort((a, b) => b.start_time.localeCompare(a.start_time));

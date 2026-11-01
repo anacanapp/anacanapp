@@ -1,0 +1,13 @@
+{
+  "title": "Protege tus datos",
+  "subtitle": "Tus notas de embarazo, salud y bebé son privadas. Que solo tú puedas abrir la app.",
+  "bio_ios": "Face ID",
+  "bio_android": "Huella o reconocimiento facial",
+  "bio_line": "Se abre con una mirada o un toque",
+  "pin_title": "PIN de 4 dígitos",
+  "pin_line": "Alternativa: siempre puedes desbloquear con tu PIN",
+  "settings_title": "Desactívalo cuando quieras",
+  "settings_line": "Puedes desactivarlo o cambiar el PIN en {where}",
+  "enable": "Activar protección",
+  "later": "Ahora no"
+}

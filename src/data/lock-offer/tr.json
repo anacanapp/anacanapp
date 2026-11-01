@@ -1,0 +1,13 @@
+{
+  "title": "Verilerinizi koruyun",
+  "subtitle": "Hamilelik, sağlık ve bebek notlarınız size özel. Uygulamayı yalnızca siz açabilirsiniz.",
+  "bio_ios": "Face ID",
+  "bio_android": "Parmak izi veya yüz tanıma",
+  "bio_line": "Bir bakışla ya da dokunuşla açılır",
+  "pin_title": "4 haneli PIN",
+  "pin_line": "Yedek yol: her zaman PIN ile de açabilirsiniz",
+  "settings_title": "İstediğiniz zaman kapatın",
+  "settings_line": "{where} bölümünden kapatabilir veya PIN'i değiştirebilirsiniz",
+  "enable": "Korumayı etkinleştir",
+  "later": "Şimdi değil"
+}

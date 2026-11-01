@@ -1,0 +1,13 @@
+{
+  "title": "내 정보를 지켜요",
+  "subtitle": "임신, 건강, 아기 기록은 소중한 개인 정보예요. 앱은 나만 열 수 있게 해요.",
+  "bio_ios": "Face ID",
+  "bio_android": "지문 또는 얼굴 인식",
+  "bio_line": "한 번 보거나 터치하면 열려요",
+  "pin_title": "4자리 PIN",
+  "pin_line": "예비 수단: 언제든 PIN으로도 열 수 있어요",
+  "settings_title": "언제든 끌 수 있어요",
+  "settings_line": "{where}에서 끄거나 PIN을 바꿀 수 있어요",
+  "enable": "보호 켜기",
+  "later": "나중에"
+}

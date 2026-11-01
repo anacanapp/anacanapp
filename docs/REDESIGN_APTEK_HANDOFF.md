@@ -835,3 +835,12 @@ was done.
 - Duzelis76 server objects (`review_prompts` setting, `get_review_prompt_config_v1`) stay but are unused.
 - Web deployed as `47.0-rating` (gateway `sha256:cb574750…`, index `e6dd8052…`); rollback plan `rollback-rating-web-plan.json` → 47.0-feedback.
 - One prompt per day (`src/lib/prompt-day.ts`): web `47.0-oneprompt` (gateway `sha256:939d312a…`, index `5a83646d…`); rollback → 47.0-rating.
+
+## "Döş" → "sinə" and first-run lock offer (2026-11-01)
+
+- Azerbaijani app copy uses "sinə" instead of "döş" (symptoms, feeding sides, widget labels, preemie,
+  postpartum, loss and recovery texts). Website copy and Word Garden lexicon words are unchanged.
+- `LockOfferSheet` (`src/lib/lock-offer.ts`, copy `src/data/lock-offer/*`, 21 languages): once per device,
+  native only, on the first Home visit after onboarding when the app lock is off. "Enable" opens
+  `AppLockSetupSheet` with `preferBio` (PIN, then the OS Face ID / fingerprint prompt). The sheet says it
+  can be turned off in Settings → Password protection. Shares the one-prompt-per-day marker.

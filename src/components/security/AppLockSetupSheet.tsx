@@ -29,9 +29,11 @@ interface Props {
   open: boolean;
   onClose: () => void;
   onChanged?: () => void;
+  /** First-run offer: after the PIN, ask the OS for Face ID / fingerprint straight away. */
+  preferBio?: boolean;
 }
 
-const AppLockSetupSheet = ({ open, onClose, onChanged }: Props) => {
+const AppLockSetupSheet = ({ open, onClose, onChanged, preferBio = false }: Props) => {
   const { toast } = useToast();
   const [step, setStep] = useState<Step>('create');
   const [firstPin, setFirstPin] = useState('');
@@ -70,7 +72,10 @@ const AppLockSetupSheet = ({ open, onClose, onChanged }: Props) => {
     }
     await setPin(pin);
     toast({ title: tr('applock_enabled_toast', 'Kilid aktivləşdirildi 🔒') });
-    if (bioAvailable) {
+    if (bioAvailable && preferBio) {
+      await handleBioToggle(true);
+      finish();
+    } else if (bioAvailable) {
       setStep('bio-offer');
     } else {
       finish();

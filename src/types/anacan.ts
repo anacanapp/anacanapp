@@ -108,7 +108,7 @@ export const SYMPTOMS = [
 { id: 'mood_swings', label: tr("anacan_ehval_deyisikliyi_9fa36f", "Əhval dəyişikliyi"), icon: '🎭' },
 { id: 'nausea', label: tr("anacan_urek_bulanmasi_e8f29d", "Ürək bulanması"), icon: '🤢' },
 { id: 'back_pain', label: tr("anacan_bel_agrisi_9e824e", "Bel ağrısı"), icon: '🔙' },
-{ id: 'breast_tenderness', label: tr("anacan_dos_hessasligi_326b6d", "Döş həssaslığı"), icon: '💗' },
+{ id: 'breast_tenderness', label: tr("anacan_dos_hessasligi_326b6d", "Sinə həssaslığı"), icon: '💗' },
 { id: 'acne', label: tr("anacan_sizanaq_0b0664", "Sızanaq"), icon: '😖' },
 { id: 'cravings', label: tr("anacan_istah_54578a", "İştah"), icon: '🍫' }];
 

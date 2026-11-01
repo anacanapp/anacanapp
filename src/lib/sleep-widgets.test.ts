@@ -99,6 +99,6 @@ describe('home widgets', () => {
       { id: '1', log_type: 'feeding', feed_type: 'breast_left', start_time: '2026-11-10T10:00:00.000Z', end_time: '2026-11-10T10:14:00.000Z' },
       { id: '2', log_type: 'feeding', feed_type: 'formula', start_time: '2026-11-10T07:00:00.000Z' }
     ]);
-    expect(feed?.text).toBe('Sol döş · 14 dəq');
+    expect(feed?.text).toBe('Sol sinə · 14 dəq');
   });
 });

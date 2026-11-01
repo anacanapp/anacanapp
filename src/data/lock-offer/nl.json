@@ -1,0 +1,13 @@
+{
+  "title": "Bescherm je gegevens",
+  "subtitle": "Je notities over zwangerschap, gezondheid en baby zijn privé. Zorg dat alleen jij de app kunt openen.",
+  "bio_ios": "Face ID",
+  "bio_android": "Vingerafdruk of gezichtsherkenning",
+  "bio_line": "Opent met één blik of aanraking",
+  "pin_title": "4-cijferige pincode",
+  "pin_line": "Reserve: je kunt altijd ontgrendelen met je pincode",
+  "settings_title": "Altijd uit te zetten",
+  "settings_line": "Je kunt het uitzetten of je pincode wijzigen via {where}",
+  "enable": "Bescherming aanzetten",
+  "later": "Niet nu"
+}

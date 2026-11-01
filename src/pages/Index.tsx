@@ -11,7 +11,10 @@ import { fetchEmailVerificationState } from '@/lib/email-verification';
 import BottomNav from '@/components/BottomNav';
 import AppRatingPrompt from '@/components/AppRatingPrompt';
 import { noteFirstOpen, shouldAutoPromptFeedback } from '@/lib/app-feedback';
-import { markPromptShown } from '@/lib/prompt-day';
+import { markPromptShown, promptShownToday } from '@/lib/prompt-day';
+import { markLockOfferSeen, shouldOfferLock } from '@/lib/lock-offer';
+import LockOfferSheet from '@/components/security/LockOfferSheet';
+import AppLockSetupSheet from '@/components/security/AppLockSetupSheet';
 import FeedbackSheet from '@/components/FeedbackSheet';
 import FloatingTimerWidget from '@/components/FloatingTimerWidget';
 import HomeWidgetSync from '@/components/HomeWidgetSync';
@@ -174,6 +177,14 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   );
   const { isAdmin, loading, profile, user, profileLoaded } = useAuth();
   const [autoFeedback, setAutoFeedback] = useState(false);
+  // First Home visit after onboarding: offer Face ID / fingerprint + PIN once (native, lock not on yet).
+  const [lockOffer, setLockOffer] = useState(false);
+  const [lockSetup, setLockSetup] = useState(false);
+  useEffect(() => {
+    if (!user?.id || activeTab !== 'home' || activeScreen || activeTool || !shouldOfferLock() || promptShownToday()) return;
+    const id = window.setTimeout(() => {markLockOfferSeen();markPromptShown();setLockOffer(true);}, 1500);
+    return () => window.clearTimeout(id);
+  }, [user?.id, activeTab, activeScreen, activeTool]);
   // In-app feedback form (team only, never a store link): once, from day 14, after 20 s on Home.
   useEffect(() => {noteFirstOpen();}, []);
   useEffect(() => {
@@ -954,6 +965,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       {/* Floating timer widget - above bottom nav */}
       <FloatingTimerWidget />
       <FeedbackSheet open={autoFeedback} auto onClose={() => setAutoFeedback(false)} />
+      <LockOfferSheet open={lockOffer} onClose={() => setLockOffer(false)} onEnable={() => {setLockOffer(false);window.setTimeout(() => setLockSetup(true), 350);}} />
+      <AppLockSetupSheet open={lockSetup} preferBio onClose={() => setLockSetup(false)} />
       {Capacitor.isNativePlatform() && (lifeStage === 'bump' || lifeStage === 'mommy') && <HomeWidgetSync />}
       
       {/* Bottom navigation with safe area */}

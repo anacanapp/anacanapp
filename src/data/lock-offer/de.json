@@ -1,0 +1,13 @@
+{
+  "title": "Schütze deine Daten",
+  "subtitle": "Deine Notizen zu Schwangerschaft, Gesundheit und Baby sind privat. Nur du kannst die App öffnen.",
+  "bio_ios": "Face ID",
+  "bio_android": "Fingerabdruck oder Gesichtserkennung",
+  "bio_line": "Mit einem Blick oder einer Berührung öffnen",
+  "pin_title": "4-stellige PIN",
+  "pin_line": "Als Backup kannst du jederzeit mit deiner PIN entsperren",
+  "settings_title": "Jederzeit ausschaltbar",
+  "settings_line": "Unter {where} kannst du sie ausschalten oder die PIN ändern",
+  "enable": "Schutz aktivieren",
+  "later": "Jetzt nicht"
+}

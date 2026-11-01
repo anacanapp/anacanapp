@@ -1,0 +1,13 @@
+{
+  "title": "Chroń swoje dane",
+  "subtitle": "Twoje notatki o ciąży, zdrowiu i dziecku są prywatne. Aplikację otworzysz tylko Ty.",
+  "bio_ios": "Face ID",
+  "bio_android": "Odcisk palca lub rozpoznawanie twarzy",
+  "bio_line": "Otwiera się jednym spojrzeniem lub dotykiem",
+  "pin_title": "4-cyfrowy PIN",
+  "pin_line": "Zapasowo: zawsze możesz odblokować kodem PIN",
+  "settings_title": "Wyłącz w dowolnej chwili",
+  "settings_line": "Możesz to wyłączyć lub zmienić PIN w {where}",
+  "enable": "Włącz ochronę",
+  "later": "Nie teraz"
+}
