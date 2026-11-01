@@ -70,6 +70,8 @@ import BirthOnboardingModal from '@/components/BirthOnboardingModal';
 import RecoveryHome from '@/components/pregnancy-loss/RecoveryHome';
 import WaterWidget from '@/components/dashboard/WaterWidget';
 import { MommyPeriodBanner } from '@/components/mommy/MommyPeriodTracker';
+import IllnessHomeCard from '@/components/illness/IllnessHomeCard';
+import RecoveryHomeCard from '@/components/recovery/RecoveryHomeCard';
 
 // Fetus images by month
 import FetusMonth1 from '@/assets/fetus/month-1.svg';
@@ -1125,6 +1127,9 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
         }
       </section>
 
+      {/* An open illness episode stays at the top until the baby is better. */}
+      <IllnessHomeCard mode="active" onOpen={() => onNavigate?.('illness')} />
+
       {/* Premature backfill — yalnız due_date məlum olmayanda görünür */}
       {selectedChild &&
       <PrematurityBackfillCard child={selectedChild} onSaved={refetchChildren} />
@@ -1210,6 +1215,10 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
 
       {/* Calendar: upcoming appointments, add / edit in a sheet, server push reminders */}
       <UpcomingAppointments />
+
+      {/* Mother's own recovery (first 12 weeks) and the illness journal entry */}
+      <RecoveryHomeCard onOpen={() => onNavigate?.('recovery')} />
+      <IllnessHomeCard mode="entry" onOpen={() => onNavigate?.('illness')} />
 
       {/* Month illustration info */}
       {illustrationTitle &&

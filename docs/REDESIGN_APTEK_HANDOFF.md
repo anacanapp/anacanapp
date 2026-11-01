@@ -765,3 +765,21 @@ was done.
   deleted with `delete-user-account` and their verification rows removed. The app screen was checked visually.
 - **Switch:** `app_settings.email_verification = {"enabled": true, "required_since": "2026-11-01T06:34:09Z"}`; only
   e-mail/password accounts created after that moment are asked. Off again: set `"enabled": false`.
+
+## Illness journal, postpartum recovery, TTC goal — 2026-11-01
+
+- SQL `supabase/duzelis/Duzelis75.sql`: `baby_illness_episodes` / `baby_illness_entries` (family access only via
+  SECURITY DEFINER RPCs `illness_*_v1`, family = `partner_family_mother_v1()`), `postpartum_checkins` (RLS own rows),
+  `profiles.birth_type`, `profiles.flow_goal`, `profiles.ttc_state`. The three new relations are CDC/writer-guard enrolled
+  in the same migration (it refuses otherwise).
+- Illness journal (`illness` screen; mommy home active/entry cards, partner home cards): temperature dial + chart,
+  medicines with the doctor's dose/interval (never calculated), early-dose warning, next-dose countdown and local
+  reminder on each family phone, partner chat message on medicine/start, symptoms, emergency/doctor signs with the
+  country emergency number, PDF summary (Premium).
+- Postpartum recovery (`recovery`, `recovery/kegel`; mommy home card for 12 weeks): birth type, 6-week plan per birth
+  type, daily check-in (bleeding/pain/stitches/mood, 7-day history), warning signs with urgent/doctor alerts, 103 call
+  and SOS to partner, Kegel trainer (Premium), 6-week check-up questions → calendar.
+- TTC goal inside Flow (`FlowGoalSection` at the top of the Flow home): goal switch, tappable fertility ring with daily
+  chance, LH / BBT / intimacy (private) / pregnancy test log reusing `flow_daily_logs`, BBT chart with three-over-six
+  shift (Premium), months-trying guidance, pre-conception checklist, positive test → pregnancy mode (+ first visit).
+- Copy: `src/data/{illness,recovery,ttc}/<lang>.json`, 21 languages, shape test in `src/lib/care-features.test.ts`.

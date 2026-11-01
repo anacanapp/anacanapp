@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import IllnessHomeCard from '@/components/illness/IllnessHomeCard';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Send, MessageCircle, BookOpen, Sparkles } from 'lucide-react';
 import { useUserStore } from '@/store/userStore';
@@ -248,6 +249,9 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
           <PostpartumCard week={postpartumWeek(babyAgeDays)!} shareMood={sharing.share_mood} onOpen={() => onNavigate('postpartum-support')} />
           }
 
+          {/* ── Körpə xəstədirsə: ailənin xəstəlik jurnalı ── */}
+          {lifeStage === 'mommy' && <IllnessHomeCard mode="active" onOpen={() => onNavigate('illness')} />}
+
           {/* ── HERO: onun günü ── */}
           <motion.div className="a-card" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
             <div className="flex items-center gap-3 mb-4">
@@ -382,6 +386,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
           {sharing.share_appointments &&
           <NextAppointmentCard motherUserId={partnerProfile.user_id} onOpen={() => onNavigate('partner-appointments')} />
           }
+          {lifeStage === 'mommy' && <IllnessHomeCard mode="entry" onOpen={() => onNavigate('illness')} />}
 
           {/* ── Sürətli mesaj ── */}
           <motion.div className="a-card" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>

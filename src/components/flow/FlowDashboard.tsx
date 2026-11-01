@@ -44,6 +44,7 @@ import PremiumGate from '@/components/premium/PremiumGate';
 import { usePeriodDayLogs, useRecordPeriodDays } from '@/hooks/usePeriodDayLogs';
 import { hasPeriodFlow } from '@/lib/period-flow';
 import UpcomingAppointments from '@/components/home/UpcomingAppointments';
+import { FlowGoalSection } from '@/components/ttc/TtcSection';
 const FlowDashboard = () => {
   const { getCycleData, periodLength, language } = useUserStore(
     useShallow((s) => ({ getCycleData: s.getCycleData, periodLength: s.periodLength, language: s.language }))
@@ -223,6 +224,10 @@ const FlowDashboard = () => {
 
       {/* Period delay banner (auto-shows if late) */}
       <PeriodDelayBanner />
+
+      {/* Goal: track the cycle or get pregnant (fertile ring, LH / BBT log, checklist) */}
+      <FlowGoalSection lastPeriodDate={lastPeriodDate} cycleLength={cycleLength || 28} periodLength={periodLength || 5}
+        ovulation={refinedOvulation.ovulationDate} ovulationConfirmed={refinedOvulation.confirmed} />
 
       {/* Daily Story Cards — phase-personalized */}
       <DailyStoryCards />

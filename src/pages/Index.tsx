@@ -57,6 +57,8 @@ const PartnerProfileScreen = lazy(() => import('@/components/PartnerProfileScree
 const NotificationsScreen = lazy(() => import('@/components/NotificationsScreen'));
 const SettingsScreen = lazy(() => import('@/components/SettingsScreen'));
 const HealthSyncScreen = lazy(() => import('@/components/HealthSyncScreen'));
+const IllnessScreen = lazy(() => import('@/components/illness/IllnessScreen'));
+const RecoveryScreen = lazy(() => import('@/components/recovery/RecoveryScreen'));
 const ReferralScreen = lazy(() => import('@/components/ReferralScreen'));
 const CalendarScreen = lazy(() => import('@/components/CalendarScreen'));
 const AptekScreen = lazy(() => import('@/components/aptek/AptekScreen'));
@@ -809,6 +811,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'notifications') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><NotificationsScreen onBack={() => setActiveScreen(null)} onNavigateToModeration={() => setActiveScreen('moderation-history')} onNavigateToCommunity={(target) => { setActiveScreen(null); setActiveTab('community'); if (target) setCommunityDeepLink(target); }} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'settings') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><SettingsScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'ad-preferences') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><AdPreferencesScreen onBack={() => setActiveScreen('settings')} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'illness') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><IllnessScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if ((activeScreen === 'recovery' || activeScreen === 'recovery/kegel') && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><RecoveryScreen onBack={() => setActiveScreen(null)} initialTab={activeScreen === 'recovery/kegel' ? 'kegel' : 'week'} onNavigateToTool={(tool) => { setActiveScreen(null); handleNavigateToTool(tool); }} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'health-sync') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HealthSyncScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'referral') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><ReferralScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'doctor-report') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><DoctorReportScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
