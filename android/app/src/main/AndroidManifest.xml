@@ -81,6 +81,15 @@
         <meta-data android:name="com.facebook.sdk.AutoInitEnabled" android:value="true" />
         <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="true" />
         <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled" android:value="true" />
+        <!-- Home-screen widgets (snapshot from AnacanWidgetsPlugin). -->
+        <receiver android:name=".AnacanJourneyWidget" android:exported="false" android:label="@string/widget_journey_name">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_journey_info" />
+        </receiver>
+        <receiver android:name=".AnacanCareWidget" android:exported="false" android:label="@string/widget_care_name">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_care_info" />
+        </receiver>
     </application>
 
     <!-- Permissions -->

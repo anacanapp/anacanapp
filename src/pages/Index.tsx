@@ -11,6 +11,8 @@ import { fetchEmailVerificationState } from '@/lib/email-verification';
 import BottomNav from '@/components/BottomNav';
 import AppRatingPrompt from '@/components/AppRatingPrompt';
 import FloatingTimerWidget from '@/components/FloatingTimerWidget';
+import HomeWidgetSync from '@/components/HomeWidgetSync';
+import { Capacitor } from '@capacitor/core';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
 import { isNative } from '@/lib/native';
@@ -25,6 +27,7 @@ import CountryGate from '@/components/CountryGate';
 import { useSwipeNavigation } from '@/hooks/useSwipeNavigation';
 import { resetAppScrollPosition } from '@/lib/scroll';
 import { initDeeplinkListener, ParsedDeeplink } from '@/lib/deeplink';
+import { setPendingWidgetAction } from '@/lib/widget-actions';
 import { pushBackHandler } from '@/lib/backButton';
 import { PUSH_NAV_EVENT, consumePendingPushNav, type PushNavIntent } from '@/lib/pushNav';
 import { isCakesAvailable } from '@/lib/freemium';
@@ -59,6 +62,7 @@ const SettingsScreen = lazy(() => import('@/components/SettingsScreen'));
 const HealthSyncScreen = lazy(() => import('@/components/HealthSyncScreen'));
 const IllnessScreen = lazy(() => import('@/components/illness/IllnessScreen'));
 const RecoveryScreen = lazy(() => import('@/components/recovery/RecoveryScreen'));
+const WidgetSettingsScreen = lazy(() => import('@/components/WidgetSettingsScreen'));
 const ReferralScreen = lazy(() => import('@/components/ReferralScreen'));
 const CalendarScreen = lazy(() => import('@/components/CalendarScreen'));
 const AptekScreen = lazy(() => import('@/components/aptek/AptekScreen'));
@@ -382,8 +386,14 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         setActiveScreen(null);
         break;
       case 'tool':
+        setPendingWidgetAction(parsed.params.widget_action);
         setActiveTab('tools');
-        setActiveTool(parsed.params.tool_id);
+        setActiveTool((current) => {
+          const id = parsed.params.tool_id;
+          // A widget action for the already open tool remounts it so the tool picks the action up.
+          if (current === id && parsed.params.widget_action) { window.setTimeout(() => setActiveTool(id), 0); return null; }
+          return id;
+        });
         setToolOpenedFromDashboard(false);
         break;
       case 'screen':
@@ -811,6 +821,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'notifications') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><NotificationsScreen onBack={() => setActiveScreen(null)} onNavigateToModeration={() => setActiveScreen('moderation-history')} onNavigateToCommunity={(target) => { setActiveScreen(null); setActiveTab('community'); if (target) setCommunityDeepLink(target); }} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'settings') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><SettingsScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'ad-preferences') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><AdPreferencesScreen onBack={() => setActiveScreen('settings')} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'widgets') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><WidgetSettingsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'illness') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><IllnessScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if ((activeScreen === 'recovery' || activeScreen === 'recovery/kegel') && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><RecoveryScreen onBack={() => setActiveScreen(null)} initialTab={activeScreen === 'recovery/kegel' ? 'kegel' : 'week'} onNavigateToTool={(tool) => { setActiveScreen(null); handleNavigateToTool(tool); }} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'health-sync') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HealthSyncScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
@@ -927,6 +938,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       
       {/* Floating timer widget - above bottom nav */}
       <FloatingTimerWidget />
+      {Capacitor.isNativePlatform() && (lifeStage === 'bump' || lifeStage === 'mommy') && <HomeWidgetSync />}
       
       {/* Bottom navigation with safe area */}
       <BottomNav activeTab={activeTab} onTabChange={handleTabChange} isPartner={role === 'partner'} />

@@ -1,4 +1,5 @@
 import '@/styles/babycare.css';
+import { consumeWidgetAction } from '@/lib/widget-actions';
 import { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Milk, Moon, Droplets, Plus, Trash2, type LucideIcon } from 'lucide-react';
 import { useBabyLogs } from '@/hooks/useBabyLogs';
@@ -146,7 +147,7 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
   const { unlockAchievement } = useAchievements();
   const { toast } = useToast();
 
-  const [tab, setTab] = useState<Tab>('feeding');
+  const [tab, setTab] = useState<Tab>(() => { const a = consumeWidgetAction(); return a === 'diaper' ? 'diaper' : a === 'sleep' ? 'sleep' : 'feeding'; });
   const [days, setDays] = useState<number>(7);
   const [ml, setMl] = useState('');
   const [food, setFood] = useState('');

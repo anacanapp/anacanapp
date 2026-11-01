@@ -115,7 +115,10 @@ function parseDeeplinkRoute(url: string): ParsedDeeplink | null {
 
   // Tool
   const toolMatch = path.match(/^\/tool\/([^/]+)$/);
-  if (toolMatch) return { action: 'tool', params: { tool_id: toolMatch[1] } };
+  if (toolMatch) {
+    const widgetAction = parameters.get('widget_action');
+    return { action: 'tool', params: { tool_id: toolMatch[1], ...(widgetAction ? { widget_action: widgetAction } : {}) } };
+  }
 
   // Screens
   if (path === '/premium') return { action: 'screen', params: { screen: 'billing' } };

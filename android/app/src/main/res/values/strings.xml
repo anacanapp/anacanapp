@@ -16,4 +16,8 @@
 
     <!-- Google Auth Web Client ID -->
     <string name="default_web_client_id">296566533432-gpmp4takbhknosmejaic4aopdakgd0o3.apps.googleusercontent.com</string>
+    <string name="widget_journey_name">Anacan · Journey</string>
+    <string name="widget_journey_desc">Pregnancy week and baby size, or your baby\'s age</string>
+    <string name="widget_care_name">Anacan · Feeding and sleep</string>
+    <string name="widget_care_desc">Last feed, next nap and quick buttons (Premium)</string>
 </resources>

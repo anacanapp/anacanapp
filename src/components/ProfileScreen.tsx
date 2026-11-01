@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { useWidgetText } from '@/data/widgets';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Settings, Shield, HelpCircle, LogOut,
   ChevronRight, Crown, Copy, Share2,
   Heart, Calendar, Palette, ShieldCheck, Edit, CreditCard, Info, ArrowLeft, X,
   MessageCircle, Baby, ShoppingCart, TrendingUp, Gift, Plus, Trash2, Users,
-  FileText, Scale, AlertCircle, RotateCcw, Database, Sparkles, HeartPulse } from
+  FileText, Scale, AlertCircle, RotateCcw, Database, Sparkles, HeartPulse , LayoutGrid } from
 'lucide-react';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
@@ -59,6 +60,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   useScrollToTop();
   useScreenAnalytics('Profile', 'Profile');
   const language = useUserStore(state => state.language);
+  const widgetText = useWidgetText(language);
 
   const { name, email, lifeStage, role } = useUserStore(
     useShallow((s) => ({ name: s.name, email: s.email, lifeStage: s.lifeStage, role: s.role }))
@@ -135,6 +137,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   { id: 'partners', icon: Sparkles, label: tr("profilescreen_partnyor_endirimleri_e44036", "Partnyor Endirimləri"), badge: tr("profilescreen_badge_yeni", "Yeni") },
   { id: 'doctor-report', icon: FileText, label: tr("profilescreen_hekim_hesabati", 'Həkim Hesabatı (PDF)') },
   { id: 'health-sync', icon: HeartPulse, label: tr("settingsscreen_health_sync", "Sağlamlıq inteqrasiyası") },
+  ...(widgetText && (lifeStage === 'bump' || lifeStage === 'mommy') ? [{ id: 'widgets', icon: LayoutGrid, label: widgetText.settings_title }] : []),
   { id: 'appearance', icon: Palette, label: tr("profilescreen_gorunus_165fe3", 'Görünüş') },
   { id: 'calendar', icon: Calendar, label: tr("profilescreen_teqvim_ayarlari_012790", 'Təqvim Ayarları') },
   { id: 'privacy', icon: Shield, label: tr("profilescreen_gizlilik", "Gizlilik") },

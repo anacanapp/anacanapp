@@ -121,7 +121,7 @@ describe('feature copy', () => {
     else if (value && typeof value === 'object') Object.values(value as Record<string, unknown>).forEach((v) => placeholders(v, out));
     return out;
   };
-  it.each(['illness', 'recovery', 'ttc'])('%s has 21 languages with the same shape and placeholders', (feature) => {
+  it.each(['illness', 'recovery', 'ttc', 'sleep-next', 'widgets'])('%s has 21 languages with the same shape and placeholders', (feature) => {
     const dir = join(__dirname, '..', 'data', feature);
     const files = readdirSync(dir).filter((f) => f.endsWith('.json'));
     expect(files).toHaveLength(21);

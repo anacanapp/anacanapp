@@ -25,6 +25,8 @@ public class MainActivity extends BridgeActivity {
         // blood glucose (HealthVitals). Steps and exercise reads come from capacitor-health.
         registerPlugin(HealthCyclePlugin.class);
         registerPlugin(HealthVitalsPlugin.class);
+        // Home-screen widgets bridge (journey + feeding/sleep widgets).
+        registerPlugin(AnacanWidgetsPlugin.class);
         // Lokal plugin: Facebook App Events (köhnə plugin crash-lərinə görə
         // söndürülüb — bu minimal versiya load()-da heç nə etmir)
         registerPlugin(FbEventsPlugin.class);

@@ -102,6 +102,7 @@
 		18A584743037396B00A66DF5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				AnacanWidgetsPlugin.swift,
 				Info.plist,
 			);
 			target = 18A5845E3037396800A66DF5 /* AnacanTimerWidgetExtExtension */;
@@ -111,6 +112,7 @@
 			membershipExceptions = (
 				AnacanTimerAttributes.swift,
 				AnacanTimerStopIntent.swift,
+				AnacanWidgetsPlugin.swift,
 			);
 			target = 504EC3031FED79650016851F /* App */;
 		};

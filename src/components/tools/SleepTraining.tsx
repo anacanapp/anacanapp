@@ -29,6 +29,9 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { Sheet } from '@/components/anacan/Sheet';
 import { ToolPage, ToolHeader, ToolEmpty } from './anacan/ToolKit';
+import NextNapSection from '@/components/sleep/NextNapSection';
+import { predictNextNap } from '@/lib/sleep-predict';
+import { consumeWidgetAction } from '@/lib/widget-actions';
 
 type Tone = 'lav' | 'blue' | 'green' | 'peach' | 'yellow' | 'pink' | 'neutral';
 type Tab = 'today' | 'week' | 'plan' | 'safety';
@@ -593,6 +596,16 @@ export default function SleepTraining({ onBack }: { onBack: () => void }) {
     try { window.localStorage.setItem(storageKey, JSON.stringify(state)); } catch { /* storage optional */ }
   }, [state, storageKey, loaded]);
 
+  // A "Sleep" tap on the home-screen widget starts the sleep timer right away.
+  const [initialWidgetAction] = useState(consumeWidgetAction);
+  const widgetAction = useRef(initialWidgetAction);
+  useEffect(() => {
+    if (!loaded || widgetAction.current !== 'sleep') return;
+    widgetAction.current = null;
+    if (!state.pendingSleepStart) update((s) => setPendingSleep(s, new Date().toISOString()));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded]);
+
   const update = (fn: (s: PlanState) => PlanState) => setState((s) => prunePlanState(fn(s), localDateKey(new Date())));
   const birth = child?.birth_date ? new Date(child.birth_date) : null;
   const months = birth ? monthsOld(birth, now) : 0;
@@ -607,9 +620,19 @@ export default function SleepTraining({ onBack }: { onBack: () => void }) {
   const nightWakes = state.nightWakes[nightKey(now)] ?? 0;
   const emergency = getEmergencyNumber((profile as { country_code?: string } | null)?.country_code ?? (child as { country_code?: string } | null)?.country_code ?? null);
 
+  const wakeClock = parseClock(state.wakeTime);
+  const morningWake = wakeClock === null ? null : new Date(now.getFullYear(), now.getMonth(), now.getDate(), Math.floor(wakeClock / 60), wakeClock % 60);
+  const predicted = useMemo(() => (band ? predictNextNap({ entries, band, now, sleepingSince, morningWake }) : null),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [band, entries, now, sleepingSince?.getTime(), morningWake?.getTime()]);
+
   const todaySummary = todayDay.totalMinutes > 0 ? fill('sleeptraining_today_summary', { time: dur(todayDay.totalMinutes) }) : bc('sleeptraining_today_none');
   const hero = sleepingSince
     ? { sleeping: true, title: bc('sleeptraining_hero_sleeping'), detail: fill('sleeptraining_live_since', { time: clockOf(sleepingSince) }) }
+    : predicted?.windowStart && predicted.minutesToStart !== null
+      ? predicted.minutesToStart > 0
+        ? { sleeping: false, title: fill('sleeptraining_hero_next', { label: predicted.isBedtime ? bc('sleeptraining_block_bedtime') : bc('sleeptraining_block_nap') }), detail: fill('sleeptraining_hero_in', { time: dur(predicted.minutesToStart), clock: clockOf(predicted.windowStart) }) }
+        : { sleeping: false, title: fill('sleeptraining_hero_now', { label: predicted.isBedtime ? bc('sleeptraining_block_bedtime') : bc('sleeptraining_block_nap') }), detail: fill('sleeptraining_hero_until', { time: clockOf(predicted.windowEnd ?? predicted.windowStart) }) }
     : status.currentIndex !== null
       ? { sleeping: false, title: fill('sleeptraining_hero_now', { label: blockLabel(schedule[status.currentIndex], status.currentIndex) }), detail: fill('sleeptraining_hero_until', { time: schedule[status.currentIndex].end }) }
       : status.nextIndex !== null && status.minutesToNext !== null
@@ -689,6 +712,8 @@ export default function SleepTraining({ onBack }: { onBack: () => void }) {
 
         {tab === 'today' && (
           <>
+            <NextNapSection entries={entries} band={band} now={now} birth={birth} childName={child.name} sleepingSince={sleepingSince}
+              morningWake={morningWake} busy={busy} onStartSleep={startSleep} />
             <LiveSleep sleepingSince={sleepingSince} nightWakes={nightWakes} busy={busy} todaySummary={todaySummary}
               onStart={startSleep} onStop={stopSleep} onDiscard={discard} onNightWake={(d) => update((s) => adjustNightWakes(s, nightKey(new Date()), d))} />
             <DayTimeline schedule={schedule} wakeTime={state.wakeTime} now={now}

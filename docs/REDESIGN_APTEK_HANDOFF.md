@@ -786,3 +786,19 @@ was done.
 - Deployed 2026-11-01: Duzelis75 applied on Google `anacan` (3 relations guarded, 9 triggers, 7 RPCs; rollback test as
   a real mommy user passed). Web gateway `47.0-care` (`care-web-plan.json`, rollback `rollback-care-web-plan.json` →
   funnel2) passed; it also carries the Health screen and mommy period-card order changes. Native apps need build 48.
+
+## Next-nap prediction + home-screen widgets — 2026-11-02
+
+- Sleep tool (`sleep-training`, Today tab) now starts with `src/components/sleep/NextNapSection.tsx`: wake-window
+  gauge learned from the last 7 days of logged sleeps (`src/lib/sleep-predict.ts`, age norms from `sleep-training.ts`),
+  sleepy cues, predicted day plan to bedtime, sleep-regression forecast, and local sleep notifications on the device
+  (`src/lib/nap-alerts.ts`, quiet hours). The hero card uses the prediction. Copy: `src/data/sleep-next` (21 languages).
+- Widgets (native build 48+): iOS `AnacanJourneyWidget` (free: pregnancy week / baby age; small, medium, lock screen)
+  and `AnacanCareWidget` (Premium: last feed, next nap, today, Feed/Sleep/Diaper deep-link buttons; without Premium it
+  shows "Get Anacan Premium" → paywall) in `ios/App/AnacanTimerWidgetExt/AnacanHomeWidgets.swift`; Android
+  `AnacanJourneyWidget` / `AnacanCareWidget` (`AnacanWidgets.kt`, `res/layout/widget_*.xml`). The app writes one localized
+  snapshot through the `AnacanWidgets` plugin (App Group `group.com.atlasoon.anacan` / shared prefs);
+  feeding/sleep data is never written without Premium. `AnacanWidgetsPlugin.swift` is App-only via the synchronized
+  folder exception sets in project.pbxproj. Settings + preview: Profile → `widgets`. Copy: `src/data/widgets`.
+- Widget buttons open `anacan://tool/<tool>?widget_action=feed|sleep|diaper`; Sleep starts the sleep timer, Feed/Diaper
+  open the matching tracker tab. The Swift code was not compiled in this environment — build in Xcode before release.
