@@ -802,3 +802,4 @@ was done.
   folder exception sets in project.pbxproj. Settings + preview: Profile → `widgets`. Copy: `src/data/widgets`.
 - Widget buttons open `anacan://tool/<tool>?widget_action=feed|sleep|diaper`; Sleep starts the sleep timer, Feed/Diaper
   open the matching tracker tab. The Swift code was not compiled in this environment — build in Xcode before release.
+- Deployed 2026-11-02: web gateway `47.0-sleep-widgets` (`sleep-web-plan.json`, rollback `rollback-sleep-web-plan.json` → care) passed.
