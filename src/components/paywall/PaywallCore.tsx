@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Crown, Loader2, RefreshCw, Shield, Sparkles, Star, Infinity as InfinityIcon } from 'lucide-react';
+import SponsorEntry from '@/components/premium/SponsorEntry';
 import { useInAppPurchase, type RCPackage } from '@/hooks/useInAppPurchase';
 import { usePaywallConfig } from '@/hooks/usePaywallConfig';
 import { usePremiumConfig } from '@/hooks/usePremiumConfig';
@@ -333,6 +334,9 @@ const PaywallCore = ({ feature, onPurchased, onNonNativeCta, compact = false }: 
       {selected === 'yearly' && yearlyPlan && <p className="text-center mt-2 text-xs" style={{ color: 'var(--a-ink-soft)' }}>
         {text('charged_today', { price: yearlyPlan.priceString })} {text('renewal_year', { price: yearlyPlan.renewalPriceString })}
       </p>}
+
+      {/* ── Başqası ödəsin? (həyat yoldaşı / ailə üzvü linklə ödəyir) — native + flag ── */}
+      {isNative && <SponsorEntry onSelf={() => void handlePurchase()} />}
 
       {/* ── Zəmanət sırası ── */}
       <div className="flex items-center justify-center gap-1.5 mt-2.5">

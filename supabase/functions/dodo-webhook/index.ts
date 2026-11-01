@@ -60,7 +60,12 @@ Deno.serve(async (req) => {
         console.error('[dodo-webhook] store failed');
         return json(500, { error: 'store_failed' });
       }
-      const { data: userId } = await admin.rpc('web_subscription_link_email_v1', { p_subscription_id: sub.subscription_id });
+      // "Someone else pays" (anacan.az/p/<token>): grant Premium to the link's requester, not the payer.
+      const sponsorToken = typeof sub.metadata?.anacan_sponsor_token === 'string'
+        && /^[A-Za-z0-9_-]{16,64}$/.test(sub.metadata.anacan_sponsor_token) ? sub.metadata.anacan_sponsor_token : null;
+      const { data: userId } = sponsorToken
+        ? await admin.rpc('web_subscription_link_sponsor_v1', { p_subscription_id: sub.subscription_id, p_token: sponsorToken })
+        : await admin.rpc('web_subscription_link_email_v1', { p_subscription_id: sub.subscription_id });
       if (typeof userId === 'string' && userId) {
         const result = await syncEntitlementForUser(userId);
         if (!result.ok) console.error('[dodo-webhook] entitlement sync failed:', result.reason);

@@ -80,3 +80,12 @@ verify_jwt = false
 
 [functions.brand-portal-accounts]
 verify_jwt = false
+
+[functions.dodo-checkout]
+verify_jwt = false
+
+[functions.dodo-webhook]
+verify_jwt = false
+
+[functions.sponsor-link-info]
+verify_jwt = false

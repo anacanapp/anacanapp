@@ -5,6 +5,7 @@ import PaywallCore from './PaywallCore';
 const mocks = vi.hoisted(() => ({ intro: 19.99, purchase: vi.fn(), legacyPurchase: vi.fn(), restore: vi.fn(), toast: vi.fn() }));
 vi.mock('@/store/userStore', () => ({ useUserStore: (selector: any) => selector({ language: 'en' }) }));
 vi.mock('@/lib/revenuecat', () => ({ isNativePlatform: () => true, getPlatform: () => 'ios' }));
+vi.mock('@/components/premium/SponsorEntry', () => ({ default: () => null }));
 vi.mock('@/lib/tr', () => ({ tr: (_key: string, fallback: string) => fallback }));
 vi.mock('@/lib/analytics', () => ({ analytics: { logPaywallClicked: vi.fn() } }));
 vi.mock('@/hooks/use-toast', () => ({ useToast: () => ({ toast: mocks.toast }) }));

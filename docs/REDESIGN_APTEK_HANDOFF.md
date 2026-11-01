@@ -845,3 +845,25 @@ was done.
   `AppLockSetupSheet` with `preferBio` (PIN, then the OS Face ID / fingerprint prompt). The sheet says it
   can be turned off in Settings → Password protection. Shares the one-prompt-per-day marker.
 - Web `47.0-lockoffer` (gateway `sha256:0493242…`, index `47848de…`); rollback → 47.0-oneprompt.
+
+## "Who pays for Premium?" — spouse / family sponsor links (2026-11-01)
+
+- **Idea:** on the paywall, a user can have her Premium paid by herself (store), her spouse, or a family
+  member. Spouse/family get a shareable `anacan.az/website/p/?t=<token>` link (7-day expiry) and a
+  prefilled, editable message. When the sponsor pays (Dodo, test mode), Premium is granted to the
+  REQUESTER (not the payer) via the token; a linked partner shares it through the existing household
+  entitlement. The payer gets no app access and no personal/health data.
+- **Gated OFF** behind `app_settings.premium_sponsor = {"enabled": false}` (allowlisted in
+  get_public_app_setting). Turn on only after SQL + functions + the pay page are all live and tested.
+- **SQL** `supabase/duzelis/Duzelis77.sql`: `premium_sponsor_links` (RLS own-read, service_role writes,
+  CDC/writer guarded); `create_premium_sponsor_link_v1` (authenticated, reuses a fresh link),
+  `premium_sponsor_link_info_v1` + `web_subscription_link_sponsor_v1` (service_role); flag seed + allowlist.
+- **Functions:** `dodo-checkout` accepts `sponsor_token` (validates, sets metadata, sponsor return URL);
+  `dodo-webhook` grants to the requester via the token; new `sponsor-link-info` (public, anacan.az only).
+  Needs the functions image rebuild + `sponsor-link-info` added to ENABLED_FUNCTIONS/catalog.
+- **App:** `SponsorSheet` + `SponsorEntry` (native, flag-gated) under the paywall CTA; spouse has a
+  "also offer partner mode" toggle (switches the message variant); `src/lib/premium-sponsor.ts`;
+  copy `src/data/sponsor/*` (21 langs).
+- **Pay page:** static `public/website/p/` (index.html + pay.js + copy/*, 21 langs) served by nginx at
+  `/website/p/`; must be COPYd into the gateway website root on deploy (it is new, not in the base image).
+- **Decisions (user):** partner offer = woman's toggle; sponsor picks the plan on the page; test mode.

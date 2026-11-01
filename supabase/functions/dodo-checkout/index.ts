@@ -68,6 +68,9 @@ Deno.serve(async (req) => {
   const plan = body.plan === 'yearly' ? 'yearly' : body.plan === 'monthly' ? 'monthly' : null;
   const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
   const language = typeof body.language === 'string' && (LANGUAGE_CODES as readonly string[]).includes(body.language) ? body.language : 'az';
+  // Optional: a "someone else pays" sponsor link (anacan.az/p/<token>). When present the purchase grants
+  // Premium to the link's requester (set in the webhook), not to the paying e-mail.
+  const sponsorToken = typeof body.sponsor_token === 'string' && /^[A-Za-z0-9_-]{16,64}$/.test(body.sponsor_token) ? body.sponsor_token : null;
   if (!plan) return reply(400, { error: 'invalid_plan' });
   if (email.length > 254 || !EMAIL.test(email)) return reply(400, { error: 'invalid_email' });
   const productId = config.products[plan as DodoPlan]!;
@@ -75,6 +78,15 @@ Deno.serve(async (req) => {
   const checkoutLanguage = CHECKOUT_LANGUAGE[language] ?? (DODO_LANGUAGES.has(language) ? language : 'en');
 
   const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
+
+  // A sponsor link must exist and still be valid before we let anyone pay against it.
+  if (sponsorToken) {
+    const { data: info } = await admin.rpc('premium_sponsor_link_info_v1', { p_token: sponsorToken });
+    const link = info as { found?: boolean; valid?: boolean } | null;
+    if (!link?.found) return reply(404, { error: 'link_not_found' });
+    if (!link.valid) return reply(410, { error: 'link_expired' });
+  }
+
   // Light abuse limit: at most 5 checkouts per email in 10 minutes.
   const since = new Date(Date.now() - 10 * 60_000).toISOString();
   const { count } = await admin.from('web_checkouts').select('id', { count: 'exact', head: true }).eq('email', email).gte('created_at', since);
@@ -91,10 +103,10 @@ Deno.serve(async (req) => {
       body: {
         product_cart: [{ product_id: productId, quantity: 1 }],
         customer: { email },
-        return_url: `${FUNNEL_URL}?lang=${language}&done=1`,
+        return_url: sponsorToken ? `https://anacan.az/website/p/?t=${sponsorToken}&done=1&lang=${language}` : `${FUNNEL_URL}?lang=${language}&done=1`,
         customization: { theme: 'light', show_order_details: true, force_language: checkoutLanguage, theme_config: themeConfig(payLabel) },
         feature_flags: { allow_discount_code: true },
-        metadata: { anacan_checkout: checkout.id, anacan_plan: plan, anacan_source: 'anacan.az' },
+        metadata: { anacan_checkout: checkout.id, anacan_plan: plan, anacan_source: sponsorToken ? 'sponsor' : 'anacan.az', ...(sponsorToken ? { anacan_sponsor_token: sponsorToken } : {}) },
       },
     });
     if (!session?.checkout_url || !session.session_id) throw new Error('dodo_no_url');
