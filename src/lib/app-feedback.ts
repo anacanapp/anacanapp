@@ -3,6 +3,7 @@
 // rating: the store prompt is the separate AppRatingPrompt, so there is no review gating here.
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '@/integrations/supabase/client';
+import { promptShownToday } from './prompt-day';
 
 export const LOW_REASONS = ['crash', 'bug', 'slow', 'missing', 'content', 'ads', 'price', 'hard', 'other'] as const;
 export const HIGH_REASONS = ['tracking', 'content', 'ai', 'community', 'partner', 'design', 'other'] as const;
@@ -29,6 +30,8 @@ export function noteFirstOpen(): void {
 }
 
 export function shouldAutoPromptFeedback(o: { accountCreatedAt?: string | null; lossRecovery?: boolean }): boolean {
+  // Never on the same day as the store rating prompt.
+  if (promptShownToday()) return false;
   const firstOpen = read(FIRST_OPEN_KEY);
   const created = o.accountCreatedAt ? Date.parse(o.accountCreatedAt) : NaN;
   const firstUseAt = [firstOpen, Number.isNaN(created) ? null : created].filter((x): x is number => !!x);

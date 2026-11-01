@@ -11,6 +11,7 @@ import { fetchEmailVerificationState } from '@/lib/email-verification';
 import BottomNav from '@/components/BottomNav';
 import AppRatingPrompt from '@/components/AppRatingPrompt';
 import { noteFirstOpen, shouldAutoPromptFeedback } from '@/lib/app-feedback';
+import { markPromptShown } from '@/lib/prompt-day';
 import FeedbackSheet from '@/components/FeedbackSheet';
 import FloatingTimerWidget from '@/components/FloatingTimerWidget';
 import HomeWidgetSync from '@/components/HomeWidgetSync';
@@ -180,7 +181,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     const id = window.setTimeout(() => {
       const lossRecovery = !!(profile as { loss_recovery_active?: boolean } | null)?.loss_recovery_active;
       const accountCreatedAt = (user as { created_at?: string }).created_at ?? null;
-      if (Capacitor.isNativePlatform() && shouldAutoPromptFeedback({ accountCreatedAt, lossRecovery })) setAutoFeedback(true);
+      if (Capacitor.isNativePlatform() && shouldAutoPromptFeedback({ accountCreatedAt, lossRecovery })) {markPromptShown();setAutoFeedback(true);}
     }, 20_000);
     return () => window.clearTimeout(id);
   }, [user?.id, activeTab, activeScreen, activeTool]);

@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { Capacitor } from '@capacitor/core';
+import { markPromptShown, promptShownToday } from '@/lib/prompt-day';
 
 interface AppRatingState {
   shouldShowPrompt: boolean;
@@ -44,6 +45,12 @@ export const useAppRating = (): AppRatingState => {
     // Show on 3rd usage
     if (currentCount >= 3) {
       // Check DB if already rated
+      // Not on a day the feedback form already appeared.
+      const showOnce = () => {
+        if (promptShownToday()) return;
+        markPromptShown();
+        setShouldShowPrompt(true);
+      };
       const checkDb = async () => {
         try {
           const { data } = await supabase
@@ -57,9 +64,9 @@ export const useAppRating = (): AppRatingState => {
             setLoading(false);
             return;
           }
-          setShouldShowPrompt(true);
+          showOnce();
         } catch {
-          setShouldShowPrompt(true);
+          showOnce();
         }
         setLoading(false);
       };
