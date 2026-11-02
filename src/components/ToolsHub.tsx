@@ -157,7 +157,13 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const prevToolRef = useRef<string | null>(null);
   useEffect(() => {
     if (prevToolRef.current && !activeTool) restoreScroll('toolshub');
+    // One tool_opened per real open, whatever the entry point (hub, dashboard shortcut, deep link, push).
+    // Premium tools a free user cannot open show the paywall instead and are logged as paywall views.
+    if (activeTool && activeTool !== prevToolRef.current && (isPremium || isToolFree(activeTool))) {
+      import('@/lib/analytics').then((m) => m.analytics.logToolOpened(activeTool)).catch(() => {});
+    }
     prevToolRef.current = activeTool;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTool]);
 
   // Android geri: açıq alət → alətlər siyahısına qayıt (Index-dən ƏVVƏL işləyir)
@@ -331,8 +337,6 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       return;
     }
 
-    // Track tool opened
-    import('@/lib/analytics').then((m) => m.analytics.logToolOpened(tool.id, tool.name)).catch(() => {});
     openTool(tool.id);
   };
 
@@ -395,7 +399,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       case 'contraction':return <ContractionTimer onBack={handleBack} />;
       case 'weight':return <WeightTracker onBack={handleBack} />;
       case 'whitenoise':case 'white-noise':return <WhiteNoise onBack={handleBack} />;
-      case 'names':return <BabyNames onBack={handleBack} />;
+      case 'names':case 'baby-names':return <BabyNames onBack={handleBack} />;
       case 'hospital':return <HospitalBag onBack={handleBack} />;
       case 'exercise':case 'exercises':return <Exercises onBack={handleBack} />;
       case 'mood':case 'mood-diary':return <MoodDiary onBack={handleBack} />;

@@ -951,3 +951,24 @@ was done.
 - Verified end to end with a temporary anon RPC through `api.anacan.az` (returned `US` for the test
   host), then dropped the probe function.
 - Future LB edits must keep this custom request header.
+
+## 2026-11-02 — AI free quota, campaign deep links, tool analytics
+
+- Functions image `92034c50…` then `8eb48c15…` (pinned `anacan-pinned/functions:*`):
+  `_shared/usage-limit.ts` counts server answers in `<feature>_srv` for features the app pre-consumes
+  (ai_chat, cry_translator, poop_scanner, horoscope) and parses `app_settings.free_limits` when it is a
+  JSON string (the admin panel saves it that way). Before: a free user got 1–2 AI answers instead of the
+  configured 3. Verified end to end with the free test account: 3 answers, 4th `429`.
+  `admin-notification-dispatch` forwards `data.deeplink`.
+- `supabase/duzelis/Duzelis80.sql` applied: `*_srv` allowed in usage_tracking check;
+  `admin_notification_create_v1(..., p_deeplink)` (anacan:// only, bound into payloadHash);
+  claim returns `deeplink`.
+- Repo function sources synced from the running image (15 files were older in the repo).
+- Gateway `a5e7ba27…` (version `47.0-campaignlink`, index `0db3af13…`): admin campaign "Toxunanda açılır"
+  picker; `tool_opened` logged for every real tool open (dashboard/deep link/push too); `baby-names`
+  alias. The gateway image was FLATTENED (123 → 5 layers) because the chain hit Docker's 127-layer
+  limit; runtime config and all nginx/website files verified identical to the previous image.
+  Future gateway builds can again use `FROM <digest>` on top of `a5e7ba27…`.
+- Universal links (https://app.anacan.az/…) still need native work for build 48: iOS Associated
+  Domains capability + entitlement and Android autoVerify intent filter + real assetlinks fingerprint.
+  AASA now carries the real team id `8B6976J8H7`. Until then campaigns use `anacan://` links.

@@ -27,7 +27,7 @@ export const DEEPLINK_ROUTES: DeeplinkRoute[] = [
 { key: 'cakes', label: 'Cakes', label_az: 'Tortlar', pattern: '/cakes', example: '/cakes', category: tr("deeplink_esas_6d87f7", "\u018Fsas"), description_az: tr("deeplink_tortlar_bolmesini_acir_fdf182", "Tortlar b\xF6lm\u0259sini a\xE7\u0131r") },
 
 // ─── Tools ───
-{ key: 'tool', label: 'Specific Tool', label_az: tr("deeplink_spesifik_alet_3c4b49", "Spesifik Al\u0259t"), pattern: '/tool/{tool_id}', example: '/tool/baby-names', category: tr("deeplink_aletler_4778b4", "Al\u0259tl\u0259r"), description_az: tr("deeplink_mueyyen_bir_aleti_acir_c91de9", "M\xFC\u0259yy\u0259n bir al\u0259ti a\xE7\u0131r") },
+{ key: 'tool', label: 'Specific Tool', label_az: tr("deeplink_spesifik_alet_3c4b49", "Spesifik Al\u0259t"), pattern: '/tool/{tool_id}', example: '/tool/names', category: tr("deeplink_aletler_4778b4", "Al\u0259tl\u0259r"), description_az: tr("deeplink_mueyyen_bir_aleti_acir_c91de9", "M\xFC\u0259yy\u0259n bir al\u0259ti a\xE7\u0131r") },
 
 // ─── Screens ───
 { key: 'premium', label: 'Premium', label_az: 'Premium', pattern: '/premium', example: '/premium', category: 'Ekranlar', description_az: tr("deeplink_premium_paywall_u_acir_a7d504", "Premium paywall-u a\xE7\u0131r") },
