@@ -10,8 +10,11 @@ Deno.serve(async (req: Request) => {
   if (req.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
   try {
     const permission = await requireAdmin(req); if (permission.error) return permission.error;
-    const text = await req.text(); if (text.length > 1024) return json({ error: 'invalid_campaign_request' }, 400);
+    const text = await req.text(); if (text.length > 2048) return json({ error: 'invalid_campaign_request' }, 400);
     let input: any; try { input = JSON.parse(text); } catch { return json({ error: 'invalid_campaign_request' }, 400); }
+    // Manual push to ONE account (admin test / support), optionally opening an in-app link.
+    if (input?.contract === 'anacan-admin-direct-v1') return await direct(input, json);
+    if (text.length > 1024) return json({ error: 'invalid_campaign_request' }, 400);
     // Old client/global notifications cannot accidentally enter the new sender.
     if (input?.contract !== 'anacan-admin-campaign-v1' || !uuid.test(input.notificationId || '')
       || Object.keys(input).sort().join(',') !== 'contract,notificationId') return json({ error: 'segmented_campaign_required' }, 409);
@@ -62,3 +65,49 @@ Deno.serve(async (req: Request) => {
     return json({ ok: true, contract: 'anacan-admin-campaign-v1', campaign: finished.data });
   } catch { return json({ error: 'campaign_unavailable' }, 503); }
 });
+
+const LINK = /^(anacan|com\.atlasoon\.anacan):\/\/[A-Za-z0-9/_?=&.-]{1,180}$/;
+async function direct(input: any, json: (value: unknown, status?: number) => Response): Promise<Response> {
+  const keys = Object.keys(input).sort().join(',');
+  const email = typeof input.email === 'string' ? input.email.trim().toLowerCase() : '';
+  const title = typeof input.title === 'string' ? input.title.trim() : '';
+  const body = typeof input.body === 'string' ? input.body.trim() : '';
+  const deeplink = typeof input.deeplink === 'string' && input.deeplink.trim() ? input.deeplink.trim() : null;
+  if (!['body,contract,email,title', 'body,contract,deeplink,email,title'].includes(keys) || !/^[^\s@]{1,64}@[^\s@]{1,189}$/.test(email)
+    || title.length < 1 || title.length > 120 || body.length < 1 || body.length > 500 || (deeplink && !LINK.test(deeplink))) return json({ error: 'invalid_direct_push' }, 400);
+  const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!, { auth: { persistSession: false, autoRefreshToken: false } });
+  const { data: profile } = await admin.from('profiles').select('user_id').ilike('email', email).limit(2);
+  if (!profile || profile.length !== 1) return json({ error: 'direct_user_not_found' }, 404);
+  const userId = profile[0].user_id;
+  const { data: prefs } = await admin.from('user_preferences').select('push_enabled,sound_enabled').eq('user_id', userId).maybeSingle();
+  if (prefs?.push_enabled === false) return json({ error: 'direct_user_opted_out' }, 409);
+  const { data: tokens } = await admin.from('device_tokens').select('id,token').eq('user_id', userId).limit(10);
+  if (!tokens?.length) return json({ error: 'direct_no_device' }, 404);
+  const account = Deno.env.get('FIREBASE_SERVICE_ACCOUNT_JSON');
+  if (!account) return json({ error: 'push_provider_not_configured' }, 503);
+  const provider = await getFirebaseAccessToken(account);
+  if (provider.projectId !== 'anacan-mobile') return json({ error: 'push_provider_mismatch' }, 503);
+  const sound = prefs?.sound_enabled !== false;
+  let sent = 0, failed = 0;
+  for (const item of tokens) {
+    try {
+      const response = await fetch(`https://fcm.googleapis.com/v1/projects/${provider.projectId}/messages:send`, {
+        method: 'POST', redirect: 'error', signal: AbortSignal.timeout(15000),
+        headers: { Authorization: `Bearer ${provider.accessToken}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: { token: item.token, notification: { title, body },
+          data: { type: 'admin_direct', ...(deeplink ? { deeplink } : {}) },
+          android: { priority: 'HIGH', notification: sound ? { sound: 'default' } : {} },
+          apns: { headers: { 'apns-priority': '10', 'apns-push-type': 'alert' }, payload: { aps: { alert: { title, body }, ...(sound ? { sound: 'default' } : {}) } } },
+        } }),
+      });
+      if (response.ok) sent++;
+      else {
+        failed++;
+        const error = await response.json().catch(() => ({}));
+        const code = error?.error?.details?.find((value: any) => value.errorCode)?.errorCode || '';
+        if (code === 'UNREGISTERED') await admin.from('device_tokens').delete().eq('id', item.id).eq('user_id', userId).eq('token', item.token);
+      }
+    } catch { failed++; }
+  }
+  return json({ ok: true, contract: 'anacan-admin-direct-v1', devices: tokens.length, sent, failed });
+}

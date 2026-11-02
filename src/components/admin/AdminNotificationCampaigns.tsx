@@ -71,6 +71,7 @@ export default function AdminNotificationCampaigns() {
   const [expanded, setExpanded] = useState<string | null>(null);
   const [linkChoice, setLinkChoice] = useState(''), [customLink, setCustomLink] = useState('');
   const deeplink = (linkChoice === 'custom' ? customLink : linkChoice).trim();
+  const [testEmail, setTestEmail] = useState(''), [testing, setTesting] = useState(false);
   const linkInvalid = !!deeplink && !isCampaignLink(deeplink);
   const key = JSON.stringify(segment);
   const history = useQuery({ queryKey: ['admin-campaigns', backend.url, user?.id], queryFn: () => adminRpc<Campaign[]>('admin_notification_list_v1', { p_limit: 30 }), enabled: !!user && isAdmin, retry: false, refetchInterval: sending ? 5000 : 30000 });
@@ -110,6 +111,21 @@ export default function AdminNotificationCampaigns() {
       await reload();
     } finally { running.current = false; if (mounted.current) setSending(false); }
   };
+  // Manual push to one account (by e-mail): same title, text and link; ignores the segment.
+  const sendTest = async () => {
+    const email = testEmail.trim();
+    if (testing || !email || !title.trim() || !body.trim() || linkInvalid || body.trim().length > 500) return;
+    setTesting(true); setError('');
+    try {
+      const { data, error: sendError } = await supabase.functions.invoke('admin-notification-dispatch', { body: { contract: 'anacan-admin-direct-v1', email, title: title.trim(), body: body.trim(), ...(deeplink ? { deeplink } : {}) } });
+      if (sendError || !data?.ok) {
+        const code = data?.error || (sendError as { context?: { status?: number } } | null)?.context?.status;
+        setError(code === 'direct_user_not_found' || code === 404 ? 'Bu e-poçtla hesab və ya qeydiyyatlı cihaz tapılmadı.' : code === 'direct_user_opted_out' || code === 409 ? 'Bu istifadəçi bildirişləri söndürüb.' : 'Test göndərişi alınmadı. Yenidən cəhd edin.');
+        return;
+      }
+      toast.success(`Göndərildi: ${data.sent}/${data.devices} cihaz`);
+    } catch { setError('Test göndərişi alınmadı. Yenidən cəhd edin.'); } finally { setTesting(false); }
+  };
   const cancel = async (value: Campaign) => {
     running.current = false;
     try { const next = await adminRpc<Campaign>('admin_notification_cancel_v1', { p_id: value.id }); setCampaign(next); await reload(); }
@@ -141,6 +157,9 @@ export default function AdminNotificationCampaigns() {
       <div className="flex flex-wrap gap-2"><Button onClick={() => void dispatch()} disabled={sending || !!campaign || !preview || preview.key !== key || !preview.value.devices || !title.trim() || !body.trim() || linkInvalid}>
         {sending ? <Loader2 size={16} className="animate-spin me-2" /> : <Send size={16} className="me-2" />}Seçilmiş auditoriyaya göndər</Button>
         {campaign && !campaign.cancelled && !!campaign.pending && <Button variant="outline" onClick={() => void cancel(campaign)}><Square size={14} className="me-2" />Qalanları dayandır</Button>}</div>
+      <div className="rounded-xl border p-3 space-y-2"><label className="block text-xs font-semibold">Bir istifadəçiyə göndər (test və ya dəstək)<Input aria-label="Test göndərişi e-poçtu" type="email" value={testEmail} placeholder="ad@example.com" maxLength={254} disabled={testing} onChange={event => setTestEmail(event.target.value)} className="mt-2" /></label>
+        <Button variant="outline" size="sm" onClick={() => void sendTest()} disabled={testing || !testEmail.trim() || !title.trim() || !body.trim() || linkInvalid || body.trim().length > 500}>{testing ? <Loader2 size={14} className="me-2 animate-spin" /> : <Send size={14} className="me-2" />}Yalnız bu hesaba göndər</Button>
+        <p className="admin-panel-note">Eyni başlıq, mətn və keçid yalnız bu hesabın cihazlarına gedir; seqment nəzərə alınmır. Mətn 500 simvola qədər.</p></div>
       <p className="admin-panel-note">Auditoriya yaradılarkən sabitlənir, göndərişdən əvvəl icazə və cihaz sahibi yenidən yoxlanır. Eyni cihaz bu kampaniyada təkrar göndəriş almır.</p>
     </section><section className="admin-panel"><h2 className="mb-4">Önbaxış və nəticə</h2><div className="rounded-2xl border bg-muted/40 p-4 mb-5"><span className="text-[10px] uppercase tracking-wider text-muted-foreground">Anacan · Bildiriş</span><strong className="block mt-2 text-sm break-words">{campaign?.title || title || 'Bildiriş başlığı'}</strong><p className="text-xs mt-2 whitespace-pre-wrap break-words leading-6">{campaign?.body || body || 'Bildirişin mətni burada görünəcək.'}</p>{(campaign?.snapshot?.deeplink || deeplink) && <p className="text-[11px] mt-3 text-muted-foreground">Toxunanda: {linkLabel(campaign?.snapshot?.deeplink || deeplink)}</p>}</div>
       {campaign ? <Status campaign={campaign} /> : <p className="admin-panel-note">Göndəriş başladıqdan sonra hər partiyanın nəticəsi burada görünür. FCM qəbulu telefonda oxunma təsdiqi deyil.</p>}

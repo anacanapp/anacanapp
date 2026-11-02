@@ -972,3 +972,14 @@ was done.
 - Universal links (https://app.anacan.az/…) still need native work for build 48: iOS Associated
   Domains capability + entitlement and Android autoVerify intent filter + real assetlinks fingerprint.
   AASA now carries the real team id `8B6976J8H7`. Until then campaigns use `anacan://` links.
+
+## 2026-11-02 — Manual single-user push, 21-language reminders
+
+- Functions `b5c917bf…`: `admin-notification-dispatch` accepts contract `anacan-admin-direct-v1`
+  `{email,title,body,deeplink?}` (admin only) → that account's devices; respects push_enabled.
+  Verified: two test pushes with `anacan://tool/cry-translator` and `anacan://tool/whitenoise` to the
+  owner's iPhone (FCM accepted 1/1 each).
+- Gateway `deb96a58…` (`47.0-directpush`, index `2859ccb0…`): campaign page has
+  "Bir istifadəçiyə göndər" (same title/text/link to one e-mail).
+- Notification jobs: flow `ad092e79…`, vitamin `19456c47…` — texts for zh, id, fr, es, pt, vi, hi, ja,
+  ko, pl, nl, sv added; language codes normalised (`pt-BR` → `pt`). Sources: `scripts/notification-jobs/`.
