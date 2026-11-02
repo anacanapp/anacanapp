@@ -995,3 +995,22 @@ was done.
   paused, restored in onResume). Screenshot blocking in the foreground is unchanged. Native 48.
 - Country capture verified end to end: empty country filled from `X-Anacan-Geo-Country` on the next
   analytics insert (test account restored afterwards).
+
+## 2026-11-02 — Crash audit (Play vitals + crash_reports) and fixes
+
+- Play vitals (user-perceived crash rate, Aug–Oct): v23 0.36%, v30 0.32%, v39 0.26%, **v45 0.16%**;
+  ANR v45 0.01% (bad-behaviour threshold 1.09% / 0.47%). Top v45 crash: `FilesystemPlugin …
+  NoClassDefFoundError kotlin.coroutines.jvm.internal.SpillingKt` (16 users); the same root cause crashed
+  Weather & Clothing via `GeolocationPlugin.getPosition` (v23/v39). Fixed for native 48 by the Kotlin
+  stdlib 2.2.20 alignment (e2837ce); verified `releaseRuntimeClasspath` resolves every stdlib to 2.2.20.
+- MainActivity: `onSaveInstanceState` no longer crashes when the Capacitor bridge is null (v45, 4 users).
+- ScreenshotGuardPlugin: the new branded pause cover merged with the existing capture-callback pause
+  handler (`:app:compileReleaseJavaWithJavac` passes).
+- Customer.io native SDK never initialised: the loader resolved a Promise with the Capacitor proxy,
+  whose `.then()` rejects ("not implemented"). The proxy is now wrapped (`{ sdk }`); regression test added.
+- `crash_reports` were ~95% push diagnostics (no_device_tokens / preferences_disabled / duplicate are
+  normal outcomes); the app no longer reports those (native 48 / web).
+- Functions `0b9959c5…`: group-message pushes accept a 15-minute window (was 120 s), so members late in
+  the client fan-out of large groups (up to 159 members) stop getting 403. A server-side fan-out (one
+  call per message) is still the proper fix for build 49.
+- Weather & Clothing server function verified live (az/ru, HTTP 200 in 3–6 s, no errors in 7 days).

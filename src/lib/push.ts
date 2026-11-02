@@ -159,9 +159,10 @@ export async function invokeSendPush(payload: SendPushPayload): Promise<SendPush
       data?.message || (
       data?.error ? String(data.error) : tr("push_push_gonderilmedi_sent_0_7d1a2a", "Push g\xF6nd\u0259rilm\u0259di (sent: 0)"));
       console.warn('[Push] not delivered:', reason, data);
-      // "no_device_tokens" ən çox rast gəlinən real səbəbdir — o da reportlanır
-      // ki, admin hansı istifadəçilərin tokensiz qaldığını görsün
-      report(String(reason), { response: data });
+      // Expected outcomes (recipient has no device, turned notifications off, or the same push was
+      // already sent) are not failures. Reporting them filled crash_reports with ~15k rows a week
+      // and hid real crashes; only unexpected reasons are reported.
+      if (!['no_device_tokens', 'preferences_disabled', 'duplicate'].includes(String(reason))) report(String(reason), { response: data });
       return { ok: false, sent: 0, skipped: reason, data };
     }
 

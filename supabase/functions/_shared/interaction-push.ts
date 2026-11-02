@@ -250,7 +250,11 @@ export async function handleInteractionPush(req: Request) {
 
     const supabase = createClient(Deno.env.get('SUPABASE_URL') ?? '', Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '');
     const now = new Date().toISOString();
-    const since = new Date(Date.parse(now) - 120_000).toISOString();
+    // The app fans a group message out with one call per member (4 at a time), so in groups of
+    // 100+ members the last calls arrive minutes later. A 120 s window rejected them (403) and those
+    // members never got the push. Group messages get 15 minutes; the message must still exist, come
+    // from a member and postdate the recipient joining, and each push is claimed once (dedup).
+    const since = new Date(Date.parse(now) - (context === 'group_message' ? 900_000 : 120_000)).toISOString();
     // PostgreSQL timestamps have finer precision; tolerate up to one second of clock skew.
     const until = new Date(Date.parse(now) + 1000).toISOString();
     const recent = (table: string, columns: string) => supabase.from(table).select(`id,${columns}`)

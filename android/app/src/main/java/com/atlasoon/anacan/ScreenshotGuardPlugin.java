@@ -45,6 +45,7 @@ public class ScreenshotGuardPlugin extends Plugin {
     @Override
     protected void handleOnPause() {
         super.handleOnPause();
+        unregisterCaptureCallback();
         Activity activity = getActivity();
         if (activity == null || !protectionEnabled) return;
         try {
@@ -139,9 +140,7 @@ public class ScreenshotGuardPlugin extends Plugin {
         }
     }
 
-    @Override
-    protected void handleOnPause() {
-        super.handleOnPause();
+    private void unregisterCaptureCallback() {
         if (Build.VERSION.SDK_INT < 34 || !callbackRegistered) return;
         Activity activity = getActivity();
         if (activity == null) return;

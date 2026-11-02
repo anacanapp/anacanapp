@@ -10,7 +10,7 @@ const bob = { ...alice, userId: 'integration-test-bob' };
 function fixture(overrides: Partial<CustomerIoDataInPlugin> = {}) {
   const sdk = { initialize: vi.fn().mockResolvedValue(undefined), identify: vi.fn().mockResolvedValue(undefined),
     reset: vi.fn().mockResolvedValue(undefined), track: vi.fn().mockResolvedValue(undefined), screen: vi.fn().mockResolvedValue(undefined), ...overrides };
-  const load = vi.fn().mockResolvedValue(sdk);
+  const load = vi.fn().mockResolvedValue({ sdk });
   return { sdk, load, tracker: createCustomerIoTracking(config, load) };
 }
 
@@ -29,7 +29,7 @@ describe('Customer.io Data In configuration', () => {
 describe('Customer.io identity and real app behavior', () => {
   it('tracks the current mounted screen after consent/restoration without duplicating navigation', async () => {
     const { sdk } = fixture();
-    const tracker = createCustomerIoTracking(config, async () => sdk, currentAnalyticsScreen);
+    const tracker = createCustomerIoTracking(config, async () => ({ sdk }), currentAnalyticsScreen);
     const release = registerAnalyticsScreen('Community', 'Social');
     try {
       await tracker.screen('Community', 'Social');
@@ -116,5 +116,19 @@ describe('Customer.io identity and real app behavior', () => {
     await tracker.setIdentity(alice);
     await tracker.postCreated(alice.userId, alice.backend, 'identified');
     expect(sdk.track).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('native plugin proxy', () => {
+  it('initializes even when the plugin object rejects a then() lookup like a Capacitor proxy', async () => {
+    const calls: string[] = [];
+    const proxy = new Proxy({}, { get: (_t, name) => {
+      if (name === 'then') return () => Promise.reject(new Error('"CustomerIoDataIn.then()" is not implemented'));
+      return async () => { calls.push(String(name)); };
+    } }) as never;
+    const tracker = createCustomerIoTracking(config, async () => ({ sdk: proxy }));
+    await tracker.setIdentity(alice);
+    expect(calls).toContain('initialize');
+    expect(calls).toContain('identify');
   });
 });

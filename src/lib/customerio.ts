@@ -11,7 +11,7 @@ const config = Capacitor.isNativePlatform() ? readCustomerIoConfig({
 export const customerIoEnabled = config !== null;
 export const customerIo = createCustomerIoTracking(config, async () => {
   if (!Capacitor.isPluginAvailable('CustomerIoDataIn')) throw new Error('CUSTOMERIO_NATIVE_PLUGIN_REQUIRED');
-  return (await import('@anacan/customerio-data-in')).CustomerIoDataIn;
+  return { sdk: (await import('@anacan/customerio-data-in')).CustomerIoDataIn };
 }, currentAnalyticsScreen);
 
 export const CUSTOMER_IO_CONSENT_EVENT = 'anacan:analytics-consent-changed';

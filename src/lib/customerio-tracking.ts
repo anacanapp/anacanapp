@@ -7,9 +7,12 @@ const screenName = /^[A-Za-z][A-Za-z0-9 _-]{0,79}$/;
 
 /** Serializes identity changes and events so a delayed login/post cannot track
  * against another account. Only fixed behavioral fields leave the app. */
-export function createCustomerIoTracking(config: CustomerIoConfig | null, load: () => Promise<CustomerIoDataInPlugin>, currentScreen: () => AnalyticsScreen | null = () => null) {
+export function createCustomerIoTracking(config: CustomerIoConfig | null, load: () => Promise<{ sdk: CustomerIoDataInPlugin }>, currentScreen: () => AnalyticsScreen | null = () => null) {
   let plugin: CustomerIoDataInPlugin | null = null;
-  let initialization: Promise<CustomerIoDataInPlugin> | null = null;
+  // Never resolve a Promise with the Capacitor plugin proxy itself: Promise resolution looks up
+  // `.then` on it, and the native proxy rejects with "CustomerIoDataIn.then() is not implemented",
+  // which made every native initialization fail. The proxy travels wrapped in { sdk } instead.
+  let initialization: Promise<void> | null = null;
   let desired: Identity | null = null;
   let revision = 0;
   let identified: string | null = null;
@@ -24,10 +27,9 @@ export function createCustomerIoTracking(config: CustomerIoConfig | null, load: 
     return pending;
   };
   const initialize = () => {
-    if (!initialization) initialization = load().then(async loaded => {
+    if (!initialization) initialization = load().then(async ({ sdk: loaded }) => {
       await loaded.initialize(config!);
       plugin = loaded;
-      return loaded;
     }).catch(() => { initialization = null; throw new Error('CUSTOMERIO_UNAVAILABLE'); });
     return initialization;
   };
@@ -51,7 +53,7 @@ export function createCustomerIoTracking(config: CustomerIoConfig | null, load: 
           identified = null; identifiedTraits = ''; lastScreen = null;
           return;
         }
-        const sdk = await initialize();
+        await initialize(); const sdk = plugin!;
         if (version !== revision || owner(next) !== owner(desired)) return;
         const key = owner(next)!;
         const language = /^[a-z]{2}$/.test(next.language) ? next.language : 'en';

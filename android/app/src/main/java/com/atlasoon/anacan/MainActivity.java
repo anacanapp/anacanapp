@@ -13,6 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BridgeActivity {
+
+    /**
+     * Play vitals (v45): BridgeActivity.onSaveInstanceState calls bridge.saveInstanceState() and crashes
+     * with a NullPointerException when Android stops the activity before the Capacitor bridge exists
+     * (or after RenderProcessRecovery dropped it). The framework state is already saved by then, so a
+     * missing bridge only means there is no web state to save.
+     */
+    @Override
+    public void onSaveInstanceState(android.os.Bundle outState) {
+        try {
+            super.onSaveInstanceState(outState);
+        } catch (NullPointerException error) {
+            if (getBridge() != null) throw error;
+        }
+    }
     private static final String TAG = "MainActivity";
     private static final String DISABLED_PLUGIN_CLASS = "com.dabchy.plugins.facebookevents.FacebookEventsPlugin";
     // Process-wide: survives recreate() so a renderer that keeps dying cannot loop.
