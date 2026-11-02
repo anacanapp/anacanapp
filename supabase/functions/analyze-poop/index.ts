@@ -1,8 +1,7 @@
-/// <reference types="https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts" />
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { callGeminiSmart } from "../_shared/vertex-ai.ts";
-import { checkAndConsumeServerSide, limitExceededResponse } from "../_shared/usage-limit.ts";
+import { checkDailyLimit, limitExceededResponse, recordDailyUsage } from "../_shared/usage-limit.ts";
 import { EXPANDED_LANGUAGE_NAMES } from '../_shared/languages.ts';
 import { serverCopy } from '../_shared/localized-copy.ts';
 
@@ -27,6 +26,8 @@ interface ImageValidation {
   imageType: string;
   confidence: number;
   message: string;
+  /** true only when the provider returned a usable answer */
+  answered?: boolean;
 }
 
 // Stage 1: Validate if image contains a diaper/poop
@@ -239,7 +240,8 @@ CAVAB FORMATI (STRICT JSON, heç bir əlavə mətn yoxdur):
           isValidDiaperImage: isValid,
           imageType: imageType,
           confidence: result.confidence || 0,
-          message: isValid ? vmsg['valid'] : (vmsg[imageType] || vmsg['other'])
+          message: isValid ? vmsg['valid'] : (vmsg[imageType] || vmsg['other']),
+          answered: true
         };
       }
     } catch (e) {
@@ -252,7 +254,8 @@ CAVAB FORMATI (STRICT JSON, heç bir əlavə mətn yoxdur):
     isValidDiaperImage: false,
     imageType: 'unknown',
     confidence: 0,
-    message: vmsg['failed']
+    message: vmsg['failed'],
+    answered: false
   };
 }
 
@@ -396,7 +399,7 @@ Deno.serve(async (req) => {
 
     const moderationError = await checkModerationAccess(user.id, 'analyze-poop');
     if (moderationError) return moderationError;
-    const usage = await checkAndConsumeServerSide(user.id, 'poop_scanner');
+    const usage = await checkDailyLimit(user.id, 'poop_scanner');
     if (!usage.allowed) return limitExceededResponse(corsHeaders, usage.limit);
 
     const { imageBase64, userContext, language = 'az' } = await req.json() as PoopAnalysisRequest;
@@ -411,6 +414,10 @@ Deno.serve(async (req) => {
     console.log('Validation result:', validation);
 
     if (!validation.isValidDiaperImage) {
+      // Sayğac yalnız validasiya provayder cavabı real olduqda artırılır.
+      if (validation.answered && Number.isFinite(usage.limit)) {
+        await recordDailyUsage(user.id, 'poop_scanner').catch((e) => console.error('usage record failed:', e));
+      }
       // Return validation failure - not a valid diaper/poop image
       return new Response(JSON.stringify({
         success: true,
@@ -523,6 +530,9 @@ Deno.serve(async (req) => {
       console.error('Database insert error:', insertError);
     }
 
+    if (Number.isFinite(usage.limit)) {
+      await recordDailyUsage(user.id, 'poop_scanner').catch((e) => console.error('usage record failed:', e));
+    }
     return new Response(JSON.stringify({
       success: true,
       isValidImage: true,

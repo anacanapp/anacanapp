@@ -1,4 +1,3 @@
-/// <reference types="https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts" />
 
 // name-ai-lookup: Körpə adları alətində tapılmayan adı AI ilə axtarır,
 // mənasını 4 dildə çıxarır və bazaya yazır (safety-ai-lookup pattern-i).

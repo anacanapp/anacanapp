@@ -99,7 +99,7 @@ export async function checkAndConsumeServerSide(
         .select('value')
         .eq('key', 'free_limits')
         .maybeSingle();
-      const configured = (setting?.value as any)?.[DAILY_LIMIT_KEYS[feature]];
+      const configured = (settingObject(setting?.value) as any)?.[DAILY_LIMIT_KEYS[feature]];
       if (typeof configured === 'number' && configured >= 0) limit = configured;
     } catch { /* fallback dəyəri istifadə olunur */ }
 
@@ -133,6 +133,98 @@ export async function checkAndConsumeServerSide(
   }
 }
 
+/** app_settings.value is jsonb, but the admin panel stores it as a JSON string; the app parses both. */
+function settingObject(value: unknown): Record<string, unknown> | null {
+  if (typeof value === 'string') { try { const parsed = JSON.parse(value); return parsed && typeof parsed === 'object' ? parsed : null; } catch { return null; } }
+  return value && typeof value === 'object' ? value as Record<string, unknown> : null;
+}
+
+/** Limit for a feature: admin-configured value from app_settings, else the default. */
+async function resolveDailyLimit(admin: SupabaseAdmin, feature: DailyFeature): Promise<number> {
+  let limit = DEFAULT_LIMITS[feature];
+  try {
+    const { data: setting } = await admin
+      .from('app_settings')
+      .select('value')
+      .eq('key', 'free_limits')
+      .maybeSingle();
+    const configured = (settingObject(setting?.value) as any)?.[DAILY_LIMIT_KEYS[feature]];
+    if (typeof configured === 'number' && configured >= 0) limit = configured;
+  } catch { /* fallback dəyəri istifadə olunur */ }
+  return limit;
+}
+
+/**
+ * The app increments usage_tracking(feature) itself before it calls these AI functions (ai_chat,
+ * cry_translator, poop_scanner, horoscope). Counting the server's own successful answers in the same
+ * row made every message count twice (limit 3 => 1 answer). The server therefore keeps its own row
+ * `<feature>_srv` for those features; the app's row and UI stay as they are. fairy_tale and
+ * baby_insight are only read by the app, so the server row is the single counter there.
+ */
+const SERVER_COUNTER: Partial<Record<DailyFeature, string>> = {
+  ai_chat: 'ai_chat_srv',
+  cry_translator: 'cry_translator_srv',
+  poop_scanner: 'poop_scanner_srv',
+  horoscope: 'horoscope_srv',
+};
+const counterKey = (feature: DailyFeature): string => SERVER_COUNTER[feature] ?? feature;
+
+async function readDailyUsage(
+  admin: SupabaseAdmin,
+  userId: string,
+  feature: DailyFeature
+): Promise<{ id: string | null; used: number }> {
+  const today = new Date().toISOString().split('T')[0];
+  const { data: row } = await admin
+    .from('usage_tracking')
+    .select('id, usage_count')
+    .eq('user_id', userId)
+    .eq('feature_type', counterKey(feature))
+    .eq('usage_date', today)
+    .maybeSingle();
+  return { id: row?.id ?? null, used: row?.usage_count || 0 };
+}
+
+/**
+ * Read-only daily check with the same limit rules as checkAndConsumeServerSide, but it does
+ * NOT increment. Pair it with recordDailyUsage() once the paid provider has answered, so a
+ * failed or rejected attempt never uses up the daily quota.
+ */
+export async function checkDailyLimit(
+  userId: string,
+  feature: DailyFeature
+): Promise<{ allowed: boolean; remaining: number; limit: number }> {
+  const admin = adminClient();
+  try {
+    if (await isPremiumUser(admin, userId)) {
+      return { allowed: true, remaining: Infinity, limit: Infinity };
+    }
+    const limit = await resolveDailyLimit(admin, feature);
+    const { used } = await readDailyUsage(admin, userId, feature);
+    return { allowed: used < limit, remaining: Math.max(0, limit - used), limit };
+  } catch (e) {
+    console.error('[usage-limit] checkDailyLimit failed (allowing by default):', e);
+    return { allowed: true, remaining: 0, limit: DEFAULT_LIMITS[feature] };
+  }
+}
+
+/** Records one successful use for today. Call only for free users (limit is finite). */
+export async function recordDailyUsage(userId: string, feature: DailyFeature): Promise<void> {
+  const admin = adminClient();
+  const today = new Date().toISOString().split('T')[0];
+  const { id, used } = await readDailyUsage(admin, userId, feature);
+  if (id) {
+    await admin.from('usage_tracking').update({ usage_count: used + 1 }).eq('id', id);
+  } else {
+    await admin.from('usage_tracking').upsert({
+      user_id: userId,
+      feature_type: counterKey(feature),
+      usage_date: today,
+      usage_count: 1,
+    }, { onConflict: 'user_id,feature_type,usage_date' });
+  }
+}
+
 const DEFAULT_BABY_PHOTOSHOOT_COUNT = 3;
 
 /**
@@ -155,7 +247,7 @@ export async function checkBabyPhotoshootLimit(
         .select('value')
         .eq('key', 'free_limits')
         .maybeSingle();
-      const configured = (setting?.value as any)?.baby_photoshoot_count;
+      const configured = (settingObject(setting?.value) as any)?.baby_photoshoot_count;
       if (typeof configured === 'number' && configured >= 0) limit = configured;
     } catch { /* fallback dəyəri istifadə olunur */ }
 

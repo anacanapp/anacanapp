@@ -27,6 +27,8 @@ Deno.serve(async (req: Request) => {
     const claimed = await admin.rpc('admin_notification_claim_v1', { p_id: input.notificationId, p_claim: claimId, p_limit: 40 });
     if (claimed.error || !Array.isArray(claimed.data?.items)) return json({ error: 'campaign_claim_failed' }, 409);
     const { items, title, body } = claimed.data;
+    // Optional in-app link (anacan://…), validated and hash-bound by admin_notification_claim_v1; the app opens it on tap.
+    const deeplink = typeof claimed.data.deeplink === 'string' && /^(anacan|com\.atlasoon\.anacan):\/\/[A-Za-z0-9/_?=&.-]{1,180}$/.test(claimed.data.deeplink) ? claimed.data.deeplink : null;
     const receipts: Array<{ id: string; state: string; code: string }> = [];
     for (let offset = 0; offset < items.length; offset += 8) {
       await Promise.all(items.slice(offset, offset + 8).map(async (item: any) => {
@@ -35,7 +37,7 @@ Deno.serve(async (req: Request) => {
             method: 'POST', redirect: 'error', signal: AbortSignal.timeout(15000),
             headers: { Authorization: `Bearer ${provider.accessToken}`, 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: { token: item.token, notification: { title, body },
-              data: { type: 'bulk', notification_id: input.notificationId },
+              data: { type: 'bulk', notification_id: input.notificationId, ...(deeplink ? { deeplink } : {}) },
               android: { priority: 'HIGH', notification: item.sound ? { sound: 'default' } : {} },
               apns: { headers: { 'apns-priority': '10', 'apns-push-type': 'alert' }, payload: { aps: { alert: { title, body }, ...(item.sound ? { sound: 'default' } : {}) } } },
             } }),

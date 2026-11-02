@@ -1,443 +1,295 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { checkModerationAccess } from '../_shared/auth.ts';
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
 };
+const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const reference = /^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/;
 
-// Helper: create signature
-async function createSignature(privateKey: string, data: string): Promise<string> {
-  const sgnString = privateKey + data + privateKey;
-  const encoder = new TextEncoder();
-  const dataBuffer = encoder.encode(sgnString);
-  const hashBuffer = await crypto.subtle.digest('SHA-1', dataBuffer);
-  const hashArray = new Uint8Array(hashBuffer);
-  return btoa(String.fromCharCode(...hashArray));
+class PaymentError extends Error {
+  constructor(readonly status: number, readonly code: string) { super(code); }
 }
 
-function base64Encode(str: string): string { return btoa(str); }
-function base64Decode(str: string): string { return atob(str); }
-
-Deno.serve(async (req) => {
-  if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: corsHeaders });
+function record(value: unknown): Record<string, unknown> {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new PaymentError(400, 'invalid_payment_payload');
   }
+  return value as Record<string, unknown>;
+}
 
-  const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-  const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-  const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
+function amount(value: unknown): string {
+  if ((typeof value !== 'number' && typeof value !== 'string')
+    || !/^(0|[1-9]\d{0,4})(\.\d{1,2})?$/.test(String(value))) {
+    throw new PaymentError(400, 'invalid_amount');
+  }
+  const [whole, fraction = ''] = String(value).split('.');
+  const cents = Number(whole) * 100 + Number(fraction.padEnd(2, '0'));
+  if (cents < 1 || cents > 1_000_000) throw new PaymentError(400, 'invalid_amount');
+  return `${Math.floor(cents / 100)}.${String(cents % 100).padStart(2, '0')}`;
+}
+
+async function limitedText(message: Request | Response): Promise<string> {
+  const reader = message.body?.getReader();
+  if (!reader) return '';
+  const chunks: Uint8Array[] = [];
+  let length = 0;
+  try {
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      length += value.length;
+      if (length > 32_768) {
+        await reader.cancel();
+        throw new PaymentError(413, 'payment_payload_too_large');
+      }
+      chunks.push(value);
+    }
+  } finally { reader.releaseLock(); }
+  const bytes = new Uint8Array(length);
+  let offset = 0;
+  for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
+  return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
+}
+
+function encodeData(value: unknown): string {
+  return btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(value))));
+}
+
+// Preserve Epoint's source contract: base64(SHA-1(privateKey + data + privateKey)).
+async function createSignature(privateKey: string, data: string): Promise<string> {
+  const digest = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(privateKey + data + privateKey));
+  return btoa(String.fromCharCode(...new Uint8Array(digest)));
+}
+
+function sameSignature(expected: string, supplied: string): boolean {
+  if (!/^[A-Za-z0-9+/]{27}=$/.test(supplied)) return false;
+  let difference = 0;
+  for (let i = 0; i < expected.length; i++) difference |= expected.charCodeAt(i) ^ supplied.charCodeAt(i);
+  return difference === 0;
+}
+
+function httpsUrl(value: unknown, provider = false): string {
+  if (typeof value !== 'string' || value.length > 2048) throw new PaymentError(400, 'invalid_redirect');
+  let url: URL;
+  try { url = new URL(value); } catch { throw new PaymentError(400, 'invalid_redirect'); }
+  if (url.protocol !== 'https:' || url.username || url.password || url.port
+    || (provider && url.hostname !== 'epoint.az' && !url.hostname.endsWith('.epoint.az'))) {
+    throw new PaymentError(400, 'invalid_redirect');
+  }
+  return url.href;
+}
+
+Deno.serve(async (req: Request) => {
+  const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
+    status, headers: { ...corsHeaders, 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
+  });
+  if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders });
+  if (req.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
 
   try {
-    const url = new URL(req.url);
-    const action = url.searchParams.get('action') || 'create';
-
-    // ===== Authenticate caller for user-facing actions (skip only for callback) =====
-    let authenticatedUserId: string | null = null;
+    const actions = new URL(req.url).searchParams.getAll('action');
+    const action = actions.length === 0 ? 'create' : actions[0];
+    if (actions.length > 1 || !['create', 'callback', 'status', 'refund'].includes(action)) {
+      throw new PaymentError(400, 'unsupported_payment_action');
+    }
+    const backendUrl = Deno.env.get('SUPABASE_URL');
+    const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+    const anonKey = Deno.env.get('SUPABASE_ANON_KEY');
+    if (!backendUrl || !serviceKey || (action !== 'callback' && !anonKey)) {
+      throw new PaymentError(503, 'payment_not_configured');
+    }
+    const admin = createClient(backendUrl, serviceKey, { auth: { persistSession: false, autoRefreshToken: false } });
+    let userId: string | null = null;
     let isAdmin = false;
-
     if (action !== 'callback') {
-      const authHeader = req.headers.get('Authorization');
-      if (!authHeader?.startsWith('Bearer ')) {
-        return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-          status: 401,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
+      const authorization = req.headers.get('Authorization') || '';
+      if (!/^Bearer [^\s,]+$/.test(authorization)) throw new PaymentError(401, 'unauthorized');
+      const token = authorization.slice(7);
+      if (token === serviceKey || token === anonKey) throw new PaymentError(401, 'unauthorized');
+      const { data, error } = await admin.auth.getUser(token);
+      if (error || !data?.user || !uuid.test(data.user.id) || data.user.role !== 'authenticated' || data.user.is_anonymous) {
+        throw new PaymentError(401, 'unauthorized');
       }
-      const token = authHeader.replace('Bearer ', '');
-      const userClient = createClient(supabaseUrl, supabaseAnonKey, {
-        global: { headers: { Authorization: authHeader } },
-      });
-      const { data: userData, error: userErr } = await userClient.auth.getUser(token);
-      if (userErr || !userData?.user) {
-        return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-          status: 401,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
+      userId = data.user.id;
+      if (action === 'refund' || action === 'status') {
+        const role = await admin.from('user_roles').select('role').eq('user_id', userId).eq('role', 'admin').maybeSingle();
+        if (role.error) throw new PaymentError(503, 'payment_database_unavailable');
+        isAdmin = !!role.data;
+        if (action === 'refund' && !isAdmin) throw new PaymentError(403, 'admin_required');
       }
-      authenticatedUserId = userData.user.id;
-      const moderationError = await checkModerationAccess(authenticatedUserId, 'epoint-payment');
-      if (moderationError) return moderationError;
-
-      // Check admin role for privileged actions
-      const { data: roleData } = await supabase
-        .from('user_roles')
-        .select('role')
-        .eq('user_id', authenticatedUserId)
-        .eq('role', 'admin')
-        .maybeSingle();
-      isAdmin = !!roleData;
     }
 
-    // Get Epoint keys from app_settings
-    const { data: settingsData } = await supabase
-      .from('app_settings')
-      .select('key, value')
+    const settingsResult = await admin.from('app_settings').select('key, value')
       .in('key', ['epoint_public_key', 'epoint_private_key', 'epoint_mode']);
-
+    if (settingsResult.error) throw new PaymentError(503, 'payment_database_unavailable');
     const settings: Record<string, string> = {};
-    settingsData?.forEach((s: any) => {
-      let val = s.value;
-      if (typeof val === 'string') {
-        try { val = JSON.parse(val); } catch { /* keep as is */ }
+    for (const setting of settingsResult.data || []) {
+      let value: unknown = setting.value;
+      if (typeof value === 'string') {
+        try { value = JSON.parse(value); } catch { /* Plain text is also stored by the source admin UI. */ }
       }
-      settings[s.key] = String(val).replace(/^"|"$/g, '');
-    });
-
-    const publicKey = settings['epoint_public_key'];
-    const privateKey = settings['epoint_private_key'];
-    // "Rejim" (Live/Test) admin panelindən (AdminEpoint.tsx) seçilir və
-    // burada YALNIZ oxunur — əvvəllər bu dəyər heç yerdə oxunmurdu, "Test"
-    // seçsə belə HƏMİŞƏ production Epoint endpoint-inə real sorğu gedirdi.
-    // Epoint.az-ın ayrıca sandbox mühiti yoxdur (yalnız test tacir açarları
-    // verir), ona görə "test" rejimi Epoint-ə HEÇ BİR şəbəkə sorğusu
-    // göndərmədən nəticəni yerli olaraq simulyasiya edir — real pul hərəkəti
-    // sıfır, amma tranzaksiya axını (DB yazıları, callback-ə bənzər status)
-    // tam yoxlana bilər.
-    const isTestMode = settings['epoint_mode'] === 'test';
-
-    if (!publicKey || !privateKey) {
-      return new Response(JSON.stringify({ error: 'Epoint açarları konfiqurasiya olunmayıb' }), {
-        status: 400,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
-    }
-
-    const baseUrl = 'https://epoint.az/api/1';
-
-    // ===== ACTION: CREATE PAYMENT =====
-    if (action === 'create') {
-      const body = await req.json();
-      const { amount, orderType, orderReferenceId, description, successUrl, errorUrl } = body;
-
-      // SECURITY: ignore any client-supplied userId; use the authenticated one
-      const userId = authenticatedUserId!;
-
-      // Validate amount
-      const amt = parseFloat(amount);
-      if (!amt || isNaN(amt) || amt <= 0 || amt > 10000) {
-        return new Response(JSON.stringify({ error: 'Etibarsız məbləğ' }), {
-          status: 400,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
-      }
-
-      const orderId = `ANA-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
-
-      const { data: txn, error: txnError } = await supabase
-        .from('payment_transactions')
-        .insert({
-          user_id: userId,
-          order_type: orderType || 'general',
-          order_reference_id: orderReferenceId || null,
-          order_id: orderId,
-          amount: amt,
-          currency: 'AZN',
-          description: description || `Anacan ödənişi - ${orderId}`,
-          status: 'pending',
-        })
-        .select()
-        .single();
-
-      if (txnError) {
-        console.error('Transaction create error:', txnError);
-        return new Response(JSON.stringify({ error: 'Əməliyyat yaradıla bilmədi' }), {
-          status: 500,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
-      }
-
-      // ===== TEST MODE: Epoint-ə heç bir sorğu getmir, nəticə simulyasiya olunur =====
-      if (isTestMode) {
-        await supabase
-          .from('payment_transactions')
-          .update({
-            status: 'success',
-            epoint_transaction: `TEST-${orderId}`,
-            card_mask: '**** **** **** TEST',
-            card_name: 'TEST MODE',
-            bank_response: JSON.stringify({ simulated: true, note: 'epoint_mode=test — real gateway heç çağrılmadı' }),
-            callback_received_at: new Date().toISOString(),
-          })
-          .eq('id', txn.id);
-
-        return new Response(JSON.stringify({
-          success: true,
-          testMode: true,
-          redirectUrl: successUrl || `${new URL(req.url).origin}/payment/success`,
-          transactionId: txn.id,
-          orderId,
-        }), {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
-      }
-
-      const jsonString = JSON.stringify({
-        public_key: publicKey,
-        amount: amt.toFixed(2),
-        currency: 'AZN',
-        language: 'az',
-        order_id: orderId,
-        description: description || `Anacan ödənişi`,
-        success_redirect_url: successUrl || undefined,
-        error_redirect_url: errorUrl || undefined,
-      });
-
-      const data = base64Encode(jsonString);
-      const signature = await createSignature(privateKey, data);
-
-      const formData = new URLSearchParams();
-      formData.append('data', data);
-      formData.append('signature', signature);
-
-      const epointRes = await fetch(`${baseUrl}/request`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData.toString(),
-      });
-
-      const epointResult = await epointRes.json();
-
-      if (epointResult.status === 'success' && epointResult.redirect_url) {
-        await supabase
-          .from('payment_transactions')
-          .update({
-            epoint_transaction: epointResult.transaction || null,
-            redirect_url: epointResult.redirect_url,
-            status: 'processing',
-          })
-          .eq('id', txn.id);
-
-        return new Response(JSON.stringify({
-          success: true,
-          redirectUrl: epointResult.redirect_url,
-          transactionId: txn.id,
-          orderId: orderId,
-        }), {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
-      } else {
-        await supabase
-          .from('payment_transactions')
-          .update({
-            status: 'error',
-            error_message: epointResult.message || 'Epoint sorğusu uğursuz oldu',
-          })
-          .eq('id', txn.id);
-
-        return new Response(JSON.stringify({
-          success: false,
-          error: epointResult.message || 'Ödəniş sorğusu uğursuz oldu',
-        }), {
-          status: 400,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
+      if (typeof value === 'string' && value.trim() && !['null', 'undefined'].includes(value.trim())) {
+        settings[setting.key] = value.trim();
       }
     }
+    const publicKey = settings.epoint_public_key;
+    const privateKey = settings.epoint_private_key;
+    // Test/unconfigured merchants never create sessions, settle real orders, or refund.
+    if (!publicKey || !privateKey || settings.epoint_mode !== 'live') {
+      throw new PaymentError(503, 'payment_merchant_not_live');
+    }
 
-    // ===== ACTION: CALLBACK (result_url from Epoint) =====
+    async function rpc(name: string, parameters: Record<string, unknown>) {
+      const { data, error } = await admin.rpc(name, parameters);
+      if (error) {
+        const status = { PT400: 400, PT403: 403, PT404: 404, PT409: 409 }[error.code as string] || 503;
+        throw new PaymentError(status, status === 503 ? 'payment_database_unavailable' : 'payment_contract_rejected');
+      }
+      if (!data || typeof data !== 'object' || typeof data.changed !== 'boolean') {
+        throw new PaymentError(503, 'payment_database_unavailable');
+      }
+      return data;
+    }
+
+    async function provider(path: 'request' | 'get-status' | 'reverse', payload: Record<string, unknown>) {
+      try {
+        const data = encodeData({ public_key: publicKey, ...payload });
+        const signature = await createSignature(privateKey, data);
+        const response = await fetch(`https://epoint.az/api/1/${path}`, {
+          method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ data, signature }).toString(), redirect: 'error',
+          signal: AbortSignal.timeout(15_000),
+        });
+        if (!response.ok) throw new Error('provider_http_error');
+        return record(JSON.parse(await limitedText(response)));
+      } catch { throw new PaymentError(502, 'payment_provider_unavailable'); }
+    }
+
+    function verifyProviderBinding(result: Record<string, unknown>, transaction: Record<string, unknown>) {
+      try {
+        if (result.transaction !== transaction.epoint_transaction || result.order_id !== transaction.order_id
+          || result.currency !== 'AZN' || result.currency !== transaction.currency
+          || amount(result.amount) !== amount(transaction.amount)
+          || (result.public_key !== undefined && result.public_key !== publicKey)) throw new Error('binding_mismatch');
+      } catch { throw new PaymentError(502, 'payment_provider_binding_mismatch'); }
+    }
+
+    const text = await limitedText(req);
     if (action === 'callback') {
-      const formData = await req.formData();
-      const data = formData.get('data') as string;
-      const signature = formData.get('signature') as string;
-
-      if (!data || !signature) {
-        return new Response('Missing data or signature', { status: 400 });
+      if (req.headers.get('Content-Type')?.split(';')[0].trim() !== 'application/x-www-form-urlencoded') {
+        throw new PaymentError(415, 'invalid_callback_encoding');
       }
-
-      const expectedSignature = await createSignature(privateKey, data);
-      if (expectedSignature !== signature) {
-        console.error('Signature mismatch on callback');
-        return new Response('Invalid signature', { status: 403 });
+      const form = new URLSearchParams(text);
+      const data = form.get('data');
+      const signature = form.get('signature');
+      if (form.getAll('data').length !== 1 || form.getAll('signature').length !== 1 || !data || !signature
+        || data.length % 4 !== 0 || !/^[A-Za-z0-9+/]+={0,2}$/.test(data)) {
+        throw new PaymentError(400, 'invalid_callback_payload');
       }
-
-      const resultJson = JSON.parse(base64Decode(data));
-      console.log('Epoint callback received for order:', resultJson.order_id);
-
-      const {
-        order_id, status, code, message, transaction, bank_transaction,
-        bank_response, operation_code, rrn, card_name, card_mask,
-      } = resultJson;
-
-      const updateData: Record<string, any> = {
-        status: status === 'success' ? 'success' : 'failed',
-        epoint_transaction: transaction || null,
-        bank_transaction: bank_transaction || null,
-        bank_response: typeof bank_response === 'object' ? JSON.stringify(bank_response) : bank_response || null,
-        card_mask: card_mask || null,
-        card_name: card_name || null,
-        rrn: rrn || null,
-        operation_code: operation_code || null,
-        error_code: code || null,
-        error_message: status !== 'success' ? (message || null) : null,
-        callback_received_at: new Date().toISOString(),
-      };
-
-      const { error: updateError } = await supabase
-        .from('payment_transactions')
-        .update(updateData)
-        .eq('order_id', order_id);
-
-      if (updateError) console.error('Error updating transaction');
-
-      if (status === 'success' && order_id) {
-        const { data: txnData } = await supabase
-          .from('payment_transactions')
-          .select('order_type, order_reference_id')
-          .eq('order_id', order_id)
-          .single();
-
-        if (txnData?.order_reference_id) {
-          if (txnData.order_type === 'cake') {
-            await supabase
-              .from('cake_orders')
-              .update({ payment_status: 'paid', payment_method: 'epoint_card' })
-              .eq('id', txnData.order_reference_id);
-          } else if (txnData.order_type === 'album') {
-            await supabase
-              .from('album_orders')
-              .update({ payment_status: 'paid', payment_method: 'epoint_card' })
-              .eq('id', txnData.order_reference_id);
-          }
-        }
+      if (!sameSignature(await createSignature(privateKey, data), signature)) {
+        throw new PaymentError(403, 'invalid_callback_signature');
       }
-
-      return new Response('OK', { status: 200 });
+      let result: Record<string, unknown>;
+      try {
+        result = record(JSON.parse(new TextDecoder('utf-8', { fatal: true })
+          .decode(Uint8Array.from(atob(data), (character) => character.charCodeAt(0)))));
+      } catch { throw new PaymentError(400, 'invalid_callback_payload'); }
+      if (typeof result.order_id !== 'string' || !reference.test(result.order_id)
+        || typeof result.transaction !== 'string' || !reference.test(result.transaction)
+        || !['success', 'failed', 'error'].includes(result.status as string) || result.currency !== 'AZN'
+        || (result.public_key !== undefined && result.public_key !== publicKey)) {
+        throw new PaymentError(400, 'invalid_callback_payload');
+      }
+      await rpc('azure_epoint_transition', {
+        p_order_id: result.order_id, p_transaction: result.transaction,
+        p_amount: amount(result.amount), p_currency: result.currency,
+        p_transition: result.status === 'success' ? 'success' : 'failed',
+      });
+      // No raw callback/card/bank fields are stored or logged. A DB error never ACKs.
+      return new Response('OK', { headers: { 'Cache-Control': 'no-store' } });
     }
 
-    // ===== ACTION: GET STATUS (auth required + ownership check) =====
+    let body: Record<string, unknown>;
+    try { body = record(JSON.parse(text)); } catch { throw new PaymentError(400, 'invalid_payment_payload'); }
+    if (body.currency !== undefined && body.currency !== 'AZN') throw new PaymentError(400, 'unsupported_currency');
+
+    if (action === 'create') {
+      if (!['shop', 'cake', 'album'].includes(body.orderType as string)) throw new PaymentError(400, 'unsupported_order_type');
+      if (typeof body.orderReferenceId !== 'string' || !uuid.test(body.orderReferenceId)) {
+        throw new PaymentError(400, 'order_reference_required');
+      }
+      const successUrl = httpsUrl(body.successUrl ?? new URL('/payment/success', backendUrl).href);
+      const errorUrl = httpsUrl(body.errorUrl ?? new URL('/payment/error', backendUrl).href);
+      const checkout = await rpc('azure_epoint_checkout', {
+        p_user_id: userId, p_order_type: body.orderType, p_reference_id: body.orderReferenceId,
+        p_expected_amount: amount(body.amount), p_currency: 'AZN',
+      });
+      if (!checkout.changed) {
+        if (checkout.status !== 'processing' || !checkout.transaction || !checkout.redirect_url) {
+          throw new PaymentError(409, 'payment_already_attempted_reconcile_before_retry');
+        }
+        return json({ success: true, redirectUrl: httpsUrl(checkout.redirect_url, true), transactionId: checkout.id, orderId: checkout.order_id });
+      }
+      // The RPC returns the DB-derived total, never the caller's order ID/description/price.
+      const result = await provider('request', {
+        amount: amount(checkout.amount), currency: checkout.currency, language: 'az', order_id: checkout.order_id,
+        description: `Anacan ${body.orderType} order`, success_redirect_url: successUrl, error_redirect_url: errorUrl,
+      });
+      if (result.status !== 'success' || typeof result.transaction !== 'string' || !reference.test(result.transaction)) {
+        throw new PaymentError(502, 'payment_provider_request_rejected');
+      }
+      let redirectUrl: string;
+      try { redirectUrl = httpsUrl(result.redirect_url, true); } catch { throw new PaymentError(502, 'payment_provider_request_rejected'); }
+      await rpc('azure_epoint_transition', {
+        p_order_id: checkout.order_id, p_transaction: result.transaction, p_amount: checkout.amount,
+        p_currency: checkout.currency, p_transition: 'register', p_redirect_url: redirectUrl,
+      });
+      return json({ success: true, redirectUrl, transactionId: checkout.id, orderId: checkout.order_id });
+    }
+
+    if (typeof body.transaction !== 'string' || !reference.test(body.transaction) || body.transaction.startsWith('TEST-')) {
+      throw new PaymentError(400, 'invalid_transaction');
+    }
+    const stored = await admin.from('payment_transactions')
+      .select('user_id, order_id, amount, currency, status, epoint_transaction, epoint_contract_version')
+      .eq('epoint_transaction', body.transaction).maybeSingle();
+    if (stored.error) throw new PaymentError(503, 'payment_database_unavailable');
+    if (!stored.data || (!isAdmin && stored.data.user_id !== userId)) throw new PaymentError(404, 'payment_not_found');
+    const transaction = stored.data;
+    if (transaction.epoint_contract_version !== 1 || transaction.currency !== 'AZN') {
+      throw new PaymentError(409, 'legacy_payment_requires_reconciliation');
+    }
+    if (action === 'refund' && (transaction.status !== 'success' || amount(body.amount) !== amount(transaction.amount))) {
+      throw new PaymentError(409, 'only_full_settled_refunds_supported');
+    }
+    const current = await provider('get-status', { transaction: body.transaction });
+    verifyProviderBinding(current, transaction);
     if (action === 'status') {
-      const body = await req.json();
-      const { transaction } = body;
-
-      if (!transaction || typeof transaction !== 'string') {
-        return new Response(JSON.stringify({ error: 'Əməliyyat ID tələb olunur' }), {
-          status: 400,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
+      if (!['processing', 'success', 'failed', 'error', 'returned'].includes(current.status as string)) {
+        throw new PaymentError(502, 'unsupported_provider_state');
       }
-
-      // Verify caller owns this transaction (or is admin)
-      if (!isAdmin) {
-        const { data: ownership } = await supabase
-          .from('payment_transactions')
-          .select('user_id')
-          .eq('epoint_transaction', transaction)
-          .maybeSingle();
-        if (!ownership || ownership.user_id !== authenticatedUserId) {
-          return new Response(JSON.stringify({ error: 'Forbidden' }), {
-            status: 403,
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-          });
-        }
-      }
-
-      // Simulyasiya olunmuş (TEST-...) tranzaksiyalar real Epoint-də mövcud
-      // deyil — status sorğusunu real gateway-ə göndərmək əvəzinə yerli
-      // simulyasiya nəticəsini qaytarırıq.
-      if (transaction.startsWith('TEST-')) {
-        return new Response(JSON.stringify({ status: 'success', simulated: true }), {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
-      }
-
-      const jsonString = JSON.stringify({ public_key: publicKey, transaction });
-      const data = base64Encode(jsonString);
-      const signature = await createSignature(privateKey, data);
-
-      const formDataParams = new URLSearchParams();
-      formDataParams.append('data', data);
-      formDataParams.append('signature', signature);
-
-      const statusRes = await fetch(`${baseUrl}/get-status`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formDataParams.toString(),
-      });
-
-      const statusResult = await statusRes.json();
-      return new Response(JSON.stringify(statusResult), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      return json({ status: current.status, transaction: body.transaction, orderId: transaction.order_id,
+        amount: amount(transaction.amount), currency: transaction.currency });
     }
-
-    // ===== ACTION: REFUND (admin only) =====
-    if (action === 'refund') {
-      if (!isAdmin) {
-        return new Response(JSON.stringify({ error: 'Forbidden — admin only' }), {
-          status: 403,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
-      }
-
-      const body = await req.json();
-      const { transaction, amount: refundAmount } = body;
-
-      if (!transaction || typeof transaction !== 'string') {
-        return new Response(JSON.stringify({ error: 'Əməliyyat ID tələb olunur' }), {
-          status: 400,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
-      }
-
-      // Simulyasiya olunmuş tranzaksiya — real gateway-ə refund sorğusu
-      // göndərmək mənasızdır, yerli olaraq "returned" işarələyirik.
-      if (transaction.startsWith('TEST-')) {
-        await supabase
-          .from('payment_transactions')
-          .update({ status: 'returned' })
-          .eq('epoint_transaction', transaction);
-        return new Response(JSON.stringify({ status: 'success', simulated: true }), {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
-      }
-
-      const jsonData: Record<string, any> = { public_key: publicKey, transaction };
-
-      if (refundAmount) {
-        jsonData.amount = parseFloat(refundAmount).toFixed(2);
-        jsonData.currency = 'AZN';
-      }
-
-      const jsonString = JSON.stringify(jsonData);
-      const data = base64Encode(jsonString);
-      const signature = await createSignature(privateKey, data);
-
-      const formDataParams = new URLSearchParams();
-      formDataParams.append('data', data);
-      formDataParams.append('signature', signature);
-
-      const refundRes = await fetch(`${baseUrl}/reverse`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formDataParams.toString(),
-      });
-
-      const refundResult = await refundRes.json();
-
-      if (refundResult.status === 'success') {
-        await supabase
-          .from('payment_transactions')
-          .update({ status: 'returned' })
-          .eq('epoint_transaction', transaction);
-      }
-
-      return new Response(JSON.stringify(refundResult), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
-    }
-
-    return new Response(JSON.stringify({ error: 'Naməlum əməliyyat' }), {
-      status: 400,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    });
-
+    if (current.status !== 'success') throw new PaymentError(409, 'provider_payment_not_refundable');
+    const parameters = { p_order_id: transaction.order_id, p_transaction: body.transaction,
+      p_amount: amount(transaction.amount), p_currency: 'AZN' };
+    const claim = await rpc('azure_epoint_transition', { ...parameters, p_transition: 'refund_pending' });
+    if (!claim.changed) throw new PaymentError(409, 'refund_already_attempted');
+    // Exactly one reversal attempt. Timeout, rejection, or failed persistence leaves
+    // refund_pending for operator reconciliation, never an automatic reverse retry.
+    const reversed = await provider('reverse', { transaction: body.transaction, amount: parameters.p_amount, currency: 'AZN' });
+    if (reversed.status !== 'success') throw new PaymentError(502, 'refund_requires_reconciliation');
+    const after = await provider('get-status', { transaction: body.transaction });
+    verifyProviderBinding(after, transaction);
+    if (after.status !== 'returned') throw new PaymentError(502, 'refund_requires_reconciliation');
+    await rpc('azure_epoint_transition', { ...parameters, p_transition: 'returned' });
+    return json({ status: 'success', transaction: body.transaction, amount: parameters.p_amount, currency: 'AZN' });
   } catch (error) {
-    console.error('Epoint payment error:', error);
-    return new Response(JSON.stringify({ error: 'Daxili xəta baş verdi' }), {
-      status: 500,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    });
+    // Fixed codes only: never reflect provider responses, DB errors, keys, or user/card data.
+    if (error instanceof PaymentError) return json({ error: error.code }, error.status);
+    return json({ error: 'payment_internal_error' }, 503);
   }
 });

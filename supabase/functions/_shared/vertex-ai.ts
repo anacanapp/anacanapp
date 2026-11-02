@@ -87,6 +87,8 @@ export interface VertexCallOptions {
   model: string; // e.g. "gemini-2.5-flash"
   body: unknown;
   stream?: boolean;
+  // Aborts only the wait for response headers when the caller clears it after headers arrive.
+  signal?: AbortSignal;
 }
 
 export async function callVertex(opts: VertexCallOptions): Promise<Response> {
@@ -108,6 +110,7 @@ export async function callVertex(opts: VertexCallOptions): Promise<Response> {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(opts.body),
+    signal: opts.signal,
   });
 }
 

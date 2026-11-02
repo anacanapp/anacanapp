@@ -1,4 +1,3 @@
-/// <reference types="https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts" />
 import { requireUser } from "../_shared/auth.ts";
 import { callGeminiSmart } from "../_shared/vertex-ai.ts";
 import { LANGUAGE_NAMES } from '../_shared/languages.ts';

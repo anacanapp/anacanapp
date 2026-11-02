@@ -2,7 +2,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { requireUser } from "../_shared/auth.ts";
 import { callGeminiSmart } from "../_shared/vertex-ai.ts";
 import { isExpandedLanguage, outputLanguageRule } from '../_shared/languages.ts';
-import { checkAndConsumeServerSide, limitExceededResponse } from "../_shared/usage-limit.ts";
+import { checkDailyLimit, limitExceededResponse, recordDailyUsage } from "../_shared/usage-limit.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -499,7 +499,7 @@ serve(async (req) => {
     const auth = await requireUser(req);
     if (auth.error) return auth.error;
 
-    const usage = await checkAndConsumeServerSide(auth.user.id, 'fairy_tale');
+    const usage = await checkDailyLimit(auth.user.id, 'fairy_tale');
     if (!usage.allowed) return limitExceededResponse(corsHeaders, usage.limit);
 
     const { childName, theme, hero, moralLesson, language = 'az', ageRange, storyStyle, customPrompt } = await req.json();
@@ -622,6 +622,9 @@ serve(async (req) => {
 
     const wordCount = ['zh', 'ja'].includes(language) ? Array.from(content.replace(/\s/g, '')).length / 2 : content.split(/\s+/).length;
     const durationMinutes = Math.max(2, Math.ceil(wordCount / 100));
+    if (Number.isFinite(usage.limit)) {
+      await recordDailyUsage(auth.user.id, 'fairy_tale').catch((e) => console.error('usage record failed:', e));
+    }
 
     return new Response(
       JSON.stringify({

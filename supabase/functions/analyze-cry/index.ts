@@ -1,4 +1,3 @@
-/// <reference types="https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts" />
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { callGeminiSmart } from "../_shared/vertex-ai.ts";
@@ -12,7 +11,7 @@ const CRY_FALLBACK_COPY = {
   classificationExplanation: 'Baby crying was detected, but the exact type could not be determined.',
   classificationRecommendations: ["Check the baby's overall condition", 'Check the diaper', 'Check if the baby is hungry'],
 };
-import { checkAndConsumeServerSide, limitExceededResponse } from "../_shared/usage-limit.ts";
+import { checkDailyLimit, limitExceededResponse, recordDailyUsage } from "../_shared/usage-limit.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -36,7 +35,7 @@ interface CryAnalysisRequest {
 async function detectIfCrying(
   audioBase64: string,
   _apiKey?: string
-): Promise<{ isCrying: boolean; confidence: number; soundType: string }> {
+): Promise<{ isCrying: boolean; confidence: number; soundType: string; answered: boolean }> {
   // Using the more capable gemini-2.5-flash model instead of lite for better audio precision and less hallucination
   const response = await callGeminiSmart("gemini-2.5-flash", {
     contents: [{
@@ -91,7 +90,7 @@ Return ONLY this JSON (no markdown, no extra keys):
 
   if (!response.ok) {
     console.error('Detection API error:', response.status);
-    return { isCrying: false, confidence: 0, soundType: 'unknown' };
+    return { isCrying: false, confidence: 0, soundType: 'unknown', answered: false };
   }
 
   const data = await response.json();
@@ -126,13 +125,13 @@ Return ONLY this JSON (no markdown, no extra keys):
         (cryPattern === 'rhythmic_cry' || cryPattern === 'intermittent') &&
         confidence >= 85;
 
-      return { isCrying, confidence, soundType };
+      return { isCrying, confidence, soundType, answered: true };
     }
   } catch (e) {
     console.error('Detection parse error:', e);
   }
   
-  return { isCrying: false, confidence: 0, soundType: 'unknown' };
+  return { isCrying: false, confidence: 0, soundType: 'unknown', answered: false };
 }
 
 // Classify cry type only if crying is confirmed
@@ -270,7 +269,7 @@ Deno.serve(async (req) => {
 
     const moderationError = await checkModerationAccess(user.id, 'analyze-cry');
     if (moderationError) return moderationError;
-    const usage = await checkAndConsumeServerSide(user.id, 'cry_translator');
+    const usage = await checkDailyLimit(user.id, 'cry_translator');
     if (!usage.allowed) return limitExceededResponse(corsHeaders, usage.limit);
 
     const { audioBase64, audioDuration, userContext, language = 'az' } = await req.json() as CryAnalysisRequest;
@@ -332,6 +331,10 @@ Deno.serve(async (req) => {
     
     // STAGE 1: First detect if there's actually crying
     const detection = await detectIfCrying(audioBase64);
+    // Sayğac yalnız provayder real cavab verdikdə artırılır (fallback və parse olmayan cavab sayılmır).
+    if (detection.answered && Number.isFinite(usage.limit)) {
+      await recordDailyUsage(user.id, 'cry_translator').catch((e) => console.error('usage record failed:', e));
+    }
     
     console.log('Detection result:', JSON.stringify(detection));
 

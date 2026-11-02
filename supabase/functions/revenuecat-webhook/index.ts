@@ -1,112 +1,122 @@
-// ============================================================
-// revenuecat-webhook — RevenueCat-ın ÖZ SERVERİNDƏN gələn hadisə bildirişi.
-//
-// NİYƏ LAZIMDIR (sistemli düzəliş): əvvəllər Premium-un DB-yə yazılması
-// TAMAMİLƏ client-in tetiklemesinden asılı idi (sync-revenuecat-entitlement,
-// yalnız tətbiq açıq olanda, satın alma/restore/app-open zamanı çağırılırdı).
-// Bunun HEÇ bir server-side "təhlükəsizlik toru" yox idi: satın almadan
-// dərhal sonra tətbiq bağlansa, şəbəkə anlıq kəssə, ya da sync sorğusu
-// hər hansı səbəbdən uğursuz olsa (RC-nin öz serverinin təzə alışı hələ
-// "görməməsi" kimi adi eventual-consistency gecikməsi daxil) — DB HƏMİŞƏLİK
-// köhnə/yanlış qalırdı, çünki heç nə onu düzəltmirdi. Bir müştəri məhz bu
-// səbəbdən ödəyib Premium ala bilməyib şikayət etdi.
-//
-// Bu funksiya RevenueCat-ın Dashboard → Project Settings → Integrations →
-// Webhooks bölməsində konfiqurasiya olunur — RC hər hadisədə (satın alma,
-// yenilənmə, ləğv, bitmə və s.) Apple/Google-dan xəbəri ALAN KİMİ, tətbiqin
-// açıq olub-olmamasından TAM MÜSTƏQİL, bura POST sorğusu göndərir. Beləliklə
-// client-tərəfi sync uğursuz olsa belə, bir neçə saniyə/dəqiqə ərzində real
-// vəziyyət hər halda buradan düzələcək.
-//
-// Konkret hadisə növünü (INITIAL_PURCHASE/RENEWAL/CANCELLATION/EXPIRATION/
-// BILLING_ISSUE və s.) təhlil ETMİRİK — sadəcə hansı istifadəçiyə aid
-// olduğunu (`event.app_user_id`) oxuyub, RC-nin REST API-sindən onun HAZIRKI
-// tam vəziyyətini yenidən çəkirik (eyni `syncEntitlementForUser`,
-// sync-revenuecat-entitlement ilə paylaşılır) — bu, bütün hadisə növlərini
-// eyni, sadə və etibarlı yolla əhatə edir.
-//
-// Tələb olunan Supabase Edge Function Secret:
-//   REVENUECAT_WEBHOOK_SECRET — özün seç (təsadüfi uzun sətir), RC Dashboard-da
-//   webhook URL-i əlavə edərkən "Authorization header value" sahəsinə də EYNİ
-//   dəyəri yaz. Bu, REVENUECAT_SECRET_API_KEY-dən TAMAMİLƏ FƏRQLİ bir sirdir
-//   (o bizim RC-yə, bu isə RC-nin bizə sorğu göndərməsini təsdiqləmək üçündür).
-//
-// Auth: RC-nin göndərdiyi Authorization header REVENUECAT_WEBHOOK_SECRET-lə
-// tam uyğun olmalıdır — əks halda kim olursa olsun saxta hadisə göndərib
-// istənilən istifadəçiyə Premium "verə" bilməzdi.
-// ============================================================
-import { createClient } from 'npm:@supabase/supabase-js@2';
-import { syncEntitlementForUser } from '../_shared/revenuecat-sync.ts';
+import { syncEntitlementForUser, syncRevenueCatTransfer } from '../_shared/revenuecat-sync.ts';
 
-Deno.serve(async (req) => {
-  if (req.method === 'OPTIONS') return new Response('ok');
+const userEvents = new Set([
+  'INITIAL_PURCHASE', 'NON_RENEWING_PURCHASE', 'RENEWAL', 'PRODUCT_CHANGE',
+  'CANCELLATION', 'UNCANCELLATION', 'BILLING_ISSUE', 'EXPIRATION',
+  'SUBSCRIPTION_PAUSED', 'SUBSCRIPTION_EXTENDED', 'TEMPORARY_ENTITLEMENT_GRANT', 'REFUND_REVERSED',
+]);
 
-  const json = (obj: unknown, status = 200) =>
-    new Response(JSON.stringify(obj), { status, headers: { 'Content-Type': 'application/json' } });
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return !!value && typeof value === 'object' && !Array.isArray(value);
+}
+
+Deno.serve(async (req: Request) => {
+  const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
+    status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'Allow': 'POST' },
+  });
+  if (req.method !== 'POST') return json({ ok: false, error: 'method_not_allowed' }, 405);
 
   try {
-    const expectedSecret = Deno.env.get('REVENUECAT_WEBHOOK_SECRET');
-    if (!expectedSecret) {
-      console.error('[revenuecat-webhook] REVENUECAT_WEBHOOK_SECRET not configured');
-      return json({ error: 'webhook_not_configured' }, 500);
+    const secret = Deno.env.get('REVENUECAT_WEBHOOK_SECRET');
+    const apiKey = Deno.env.get('REVENUECAT_SECRET_API_KEY');
+    const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+    const backendUrl = Deno.env.get('SUPABASE_URL');
+    if (!secret || secret.length < 32 || secret.length > 4096 || secret !== secret.trim()
+      || /[\x00-\x1f\x7f,]/.test(secret) || secret === serviceKey || secret === apiKey
+      || secret === Deno.env.get('SUPABASE_ANON_KEY') || /^sb_(publishable|secret)_/.test(secret)
+      || !apiKey?.trim() || !serviceKey?.trim() || !backendUrl?.trim()) {
+      return json({ ok: false, error: 'webhook_not_configured' }, 503);
     }
 
-    const authHeader = req.headers.get('Authorization') || req.headers.get('authorization') || '';
-    const provided = authHeader.replace(/^Bearer\s+/i, '').trim();
-    if (provided !== expectedSecret) {
-      console.warn('[revenuecat-webhook] Unauthorized webhook attempt (secret mismatch)');
-      return json({ error: 'unauthorized' }, 401);
+    // Match the Azure router's custom-secret contract, not a user/project JWT.
+    // Authenticate before parsing any body or calling the entitlement helper.
+    const provided = (req.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '').trim();
+    if (!provided || provided.length > 4096 || /[\x00-\x1f\x7f,]/.test(provided)) {
+      return json({ ok: false, error: 'unauthorized' }, 401);
+    }
+    const encoder = new TextEncoder();
+    const key = await crypto.subtle.generateKey({ name: 'HMAC', hash: 'SHA-256' }, false, ['sign', 'verify']);
+    const signature = await crypto.subtle.sign('HMAC', key, encoder.encode(secret));
+    if (!await crypto.subtle.verify('HMAC', key, signature, encoder.encode(provided))) {
+      return json({ ok: false, error: 'unauthorized' }, 401);
     }
 
-    const body = await req.json().catch(() => null);
-    const appUserId: string | undefined = body?.event?.app_user_id;
-    const eventType: string | undefined = body?.event?.type;
-    // RC-nin ÖZ mağaza-tərəfi ləğv/bitmə səbəbi (UNSUBSCRIBE, BILLING_ERROR,
-    // CUSTOMER_SUPPORT, PRICE_INCREASE, DEVELOPER_INITIATED, UNKNOWN) —
-    // istifadəçinin tətbiq-daxili popup-da özü yazdığı səbəbdən (bax
-    // useSubscriptionCancellation.ts, cancel_flow='in_app') TAMAMİLƏ AYRI,
-    // tamamlayıcı bir siqnal (cancel_flow='store_reported'). Əvvəllər bu
-    // dəyər HEÇ oxunmurdu, HEÇ saxlanılmırdı.
-    const storeReason: string | undefined = body?.event?.cancel_reason || body?.event?.expiration_reason;
-
-    if (!appUserId) {
-      console.warn('[revenuecat-webhook] Missing event.app_user_id in payload:', JSON.stringify(body)?.slice(0, 300));
-      // RC-yə 200 qaytarırıq ki, bu düzgün göndərilməyən hadisəni sonsuz
-      // təkrarlamağa çalışmasın — real problem bizim tərəfdə deyil.
-      return json({ ok: false, error: 'missing_app_user_id' }, 200);
+    if (req.headers.get('Content-Type')?.split(';')[0].trim().toLowerCase() !== 'application/json') {
+      return json({ ok: false, error: 'unsupported_content_type' }, 415);
     }
-
-    console.log(`[revenuecat-webhook] Event "${eventType}" for app_user_id=${appUserId}`);
-    const result = await syncEntitlementForUser(appUserId);
-
-    if ((eventType === 'CANCELLATION' || eventType === 'EXPIRATION') && storeReason) {
-      try {
-        const admin = createClient(Deno.env.get('SUPABASE_URL') ?? '', Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '');
-        await admin.from('subscription_cancellations').insert({
-          user_id: appUserId,
-          reason_code: `store_${storeReason.toLowerCase()}`,
-          reason_text: null,
-          plan_type: result.planType || null,
-          was_trial: result.isTrial || false,
-          cancel_flow: 'store_reported',
-        });
-      } catch (e) {
-        console.error('[revenuecat-webhook] failed to log store-reported cancel reason:', e);
+    const reader = req.body?.getReader();
+    if (!reader) return json({ ok: false, error: 'invalid_webhook_body' }, 400);
+    let body: unknown;
+    try {
+      const decoder = new TextDecoder('utf-8', { fatal: true });
+      let text = '';
+      let bytes = 0;
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        bytes += value.length;
+        if (bytes > 32_768) {
+          await reader.cancel().catch(() => {});
+          return json({ ok: false, error: 'webhook_body_too_large' }, 413);
+        }
+        text += decoder.decode(value, { stream: true });
       }
+      body = JSON.parse(text + decoder.decode());
+    } catch { return json({ ok: false, error: 'invalid_webhook_body' }, 400); }
+    finally { reader.releaseLock(); }
+
+    if (!isRecord(body) || !isRecord(body.event) || typeof body.event.type !== 'string') {
+      return json({ ok: false, error: 'invalid_webhook_event' }, 400);
+    }
+    const event = body.event;
+    if (typeof event.id !== 'string' || !event.id.trim() || event.id.length > 128 || /[\x00-\x1f\x7f]/.test(event.id)) {
+      return json({ ok: false, error: 'invalid_event_id' }, 400);
+    }
+    // Authenticated TEST events validate delivery only; they cannot grant access.
+    if (event.type === 'TEST') return json({ ok: true, test: true });
+    const allowedApps = (Deno.env.get('REVENUECAT_ALLOWED_APP_IDS') || '').split(',').filter(Boolean);
+    if (allowedApps.length && (event.type !== 'TRANSFER' || event.app_id !== undefined)
+      && (typeof event.app_id !== 'string' || !allowedApps.includes(event.app_id))) {
+      return json({ ok: false, error: 'unexpected_revenuecat_app' }, 400);
+    }
+    if (event.environment !== undefined && !['PRODUCTION', 'SANDBOX'].includes(event.environment as string)) {
+      return json({ ok: false, error: 'invalid_store_environment' }, 400);
+    }
+    // Transfer both sides in ONE SQL transaction after all provider reads succeed.
+    // Custom/unmigrated identities stay retryable/reconciliation-required.
+    if (event.type === 'TRANSFER') {
+      const result = await syncRevenueCatTransfer(event);
+      if (!result.ok) return json({ ok: false, error: result.reason === 'transfer_requires_reconciliation'
+        ? 'transfer_requires_reconciliation' : result.reason === 'unknown_product' ? 'product_mapping_required'
+          : result.reason === 'sandbox_entitlement' ? 'sandbox_entitlement_unsupported' : 'entitlement_sync_unavailable' },
+      ['transfer_requires_reconciliation', 'unknown_product', 'sandbox_entitlement'].includes(result.reason || '') ? 422 : 503);
+      return json({ ok: true, transferredUsers: result.transferredUsers });
+    }
+    if (!userEvents.has(event.type as string)) return json({ ok: false, error: 'unsupported_event_type' }, 422);
+    const userId = event.app_user_id;
+    if (typeof userId !== 'string' || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(userId)) {
+      return json({ ok: false, error: 'invalid_app_user_id' }, 400);
     }
 
+    // The helper reads provider truth and commits the event ID and entitlement
+    // together. A second cancellation insert here would defeat its deduplication.
+    const result = await syncEntitlementForUser(userId, event);
     if (!result.ok) {
-      // RC-nin ÖZ API-si müvəqqəti əlçatan deyilsə (nadir hal — webhook
-      // çağırışı elə RC-nin öz sistemindən gəlir) — 500 qaytarırıq ki, RC
-      // öz retry siyasətinə uyğun sonra yenidən sınasın.
-      console.error('[revenuecat-webhook] sync failed:', result.reason, result.rcStatus, result.rcDetail);
-      return json({ ok: false, reason: result.reason }, 500);
+      if (result.reason === 'invalid_user' || result.reason === 'invalid_store_event') {
+        return json({ ok: false, error: 'invalid_webhook_event' }, 400);
+      }
+      if (result.reason === 'sandbox_entitlement') {
+        return json({ ok: false, error: 'sandbox_entitlement_unsupported' }, 422);
+      }
+      if (result.reason === 'unknown_product') return json({ ok: false, error: 'product_mapping_required' }, 422);
+      return json({ ok: false, error: 'entitlement_sync_unavailable' }, 503);
     }
-
-    console.log(`[revenuecat-webhook] Synced app_user_id=${appUserId} → isPro=${result.isPro}`);
+    if ((event.type === 'CANCELLATION' || event.type === 'EXPIRATION') && result.cancellationRecorded !== true) {
+      return json({ ok: false, error: 'cancellation_sync_incomplete' }, 503);
+    }
     return json({ ok: true, isPro: result.isPro });
-  } catch (err) {
-    console.error('[revenuecat-webhook] error:', err);
-    return json({ error: (err as Error).message }, 500);
+  } catch {
+    // Never return/log raw requests, provider/DB exceptions, identities or secrets.
+    return json({ ok: false, error: 'webhook_internal_error' }, 503);
   }
 });

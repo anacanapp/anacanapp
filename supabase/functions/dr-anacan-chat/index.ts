@@ -1,4 +1,3 @@
-/// <reference types="https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts" />
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -41,9 +40,12 @@ interface ChatRequest {
 import { getSystemPrompt } from "./prompts.ts";
 import { requireUser } from "../_shared/auth.ts";
 import { callVertex, isVertexConfigured } from "../_shared/vertex-ai.ts";
-import { checkAndConsumeServerSide, limitExceededResponse } from "../_shared/usage-limit.ts";
+import { checkDailyLimit, limitExceededResponse, recordDailyUsage } from "../_shared/usage-limit.ts";
 import { EXPANDED_LANGUAGE_NAMES } from '../_shared/languages.ts';
 import { serverCopy } from '../_shared/localized-copy.ts';
+
+// Cavab başlığına qədər gözləmə limiti (ms). Bax: models döngəsi.
+const FIRST_RESPONSE_TIMEOUT_MS = 20_000;
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -58,7 +60,9 @@ Deno.serve(async (req) => {
 
     // Server-side gündəlik limit (əvvəllər YALNIZ klient-tərəfi idi — istənilən
     // istifadəçi JWT-si ilə birbaşa çağırıb limitsiz Gemini sorğusu göndərə bilərdi).
-    const usage = await checkAndConsumeServerSide(auth.user.id, 'ai_chat');
+    // Yalnız YOXLANIR, burada artırılmır: sayğac provayder cavab verdikdən sonra artır (aşağıda).
+    // Klient də eyni cəhdi saymır — əvvəllər hər mesaj iki dəfə sayılırdı.
+    const usage = await checkDailyLimit(auth.user.id, 'ai_chat');
     if (!usage.allowed) return limitExceededResponse(corsHeaders, usage.limit);
 
     const useVertex = isVertexConfigured();
@@ -216,7 +220,8 @@ Deno.serve(async (req) => {
       },
       generationConfig: {
         temperature: 0.7,
-        maxOutputTokens: 8192,
+        // Bounded output keeps one streamed answer well under the edge wall-clock limit.
+        maxOutputTokens: 2048,
         // KRİTİK: gemini-2.5-* modelləri default olaraq "thinking" (daxili düşünmə) aparır və bu,
         // maxOutputTokens büdcəsindən sərf olunur — bəzi sorğularda (uzun/az-tokenli dillərdə
         // fərqli tokenləşmə səbəbindən, məs. ərəb skripti) düşünmə bütün büdcəni yeyib vizual
@@ -234,21 +239,29 @@ Deno.serve(async (req) => {
     let lastError = "";
     
     for (const model of models) {
+      // Cavab başlığına (headers) qədər limit. Vertex yavaşlayanda edge funksiyanın ~60 san.
+      // wall-clock limiti stream-i kəsir: yavaş modeldən növbəti (sürətli) modelə keçirik.
+      // Timer headers gəldikdən sonra silinir — stream özü bu limitə məruz qalmır.
+      const firstResponse = new AbortController();
+      const firstResponseTimer = setTimeout(() => firstResponse.abort(), FIRST_RESPONSE_TIMEOUT_MS);
       try {
         if (useVertex) {
-          response = await callVertex({ model, body: geminiBody, stream });
+          response = await callVertex({ model, body: geminiBody, stream, signal: firstResponse.signal });
         } else {
           const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:${endpoint}?${stream ? "alt=sse&" : ""}key=${GEMINI_API_KEY}`;
           response = await fetch(url, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(geminiBody),
+            signal: firstResponse.signal,
           });
         }
       } catch (err) {
         console.error(`Model ${model} request failed:`, err);
         lastError = err instanceof Error ? err.message : String(err);
         continue;
+      } finally {
+        clearTimeout(firstResponseTimer);
       }
       
       if (response.ok) {
@@ -259,15 +272,11 @@ Deno.serve(async (req) => {
       lastError = await response.text();
       console.error(`Model ${model} failed: ${response.status}`, lastError);
       
-      if (response.status === 429) {
-        return new Response(
-          JSON.stringify({ error: "Rate limit exceeded. Please try again later.", success: false }),
-          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } },
-        );
-      }
+      // 429 (Vertex kvotası/tutumu): növbəti modelə keç. Əvvəllər dərhal 429 qaytarılırdı və
+      // ikinci model heç sınanmırdı. Hər iki model məhdudlanarsa aşağıda müvəqqəti xidmət mesajı gedir.
       
-      if (response.status >= 500 || response.status === 404) {
-        continue; // Try next model on server error or retired model
+      if (response.status === 429 || response.status >= 500 || response.status === 404) {
+        continue; // Try next model on rate limit, server error or retired model
       }
       
       // For other errors (4xx except 404), don't retry
@@ -283,6 +292,11 @@ Deno.serve(async (req) => {
         }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" } },
       );
+    }
+
+    // Sayğac yalnız provayder cavab verdikdən sonra artırılır: uğursuz/rədd olunmuş cəhd limit yemir.
+    if (Number.isFinite(usage.limit)) {
+      await recordDailyUsage(auth.user.id, 'ai_chat').catch((e) => console.error('usage record failed:', e));
     }
 
     // Streaming: transform Gemini SSE to OpenAI-compatible SSE format

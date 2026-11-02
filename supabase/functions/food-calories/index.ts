@@ -1,4 +1,3 @@
-/// <reference types="https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts" />
 
 // food-calories: istifadəçi custom qida əlavə edəndə adına görə təxmini
 // kalorini AI ilə təyin edir (1 porsiya). Tapa bilməsə null qaytarır.
