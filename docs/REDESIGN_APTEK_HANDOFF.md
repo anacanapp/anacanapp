@@ -920,3 +920,21 @@ was done.
   this branch (live sha `02bc1985…`). Do NOT run `build-server.mjs` from this branch — it would build a
   renderer without the LLM exports `server.mjs` imports and regress the live site. Recover the upstream
   `src/website/` source before any repo-based website rebuild.
+
+## 2026-11-02 — Incident: community posts stuck in `checking` (≈17 h), scheduled jobs down
+
+- Symptom: on every app build, new Cəmiyyət posts never appeared (18 posts stuck at
+  `ad_moderation_state='checking'` from 2026-11-01 19:17 UTC). Push/e-mail jobs were failing too.
+- Cause: the post-deploy cleanup of the sponsor test (2026-11-01 17:03 UTC) ran `docker image prune -f`
+  on `anacan-gcp-candidate`. Job images in `/srv/anacan/runtime/jobs/*.json` are pulled **by digest
+  only** (no tag), so Docker treats them as dangling and the prune deleted them. root's Docker has no
+  Artifact Registry credentials, so `run-job.py` → `docker run` failed with exit 125 for 8 timers
+  (community-ad-moderation, customerio billing/source sync, daily-notif slots/halfhour, flow/vitamin
+  reminders, expire-partner-links).
+- Fix (no app update): pulled the 6 job image digests with the VM service account (`anacan-runtime@`)
+  using a throw-away `DOCKER_CONFIG`; all 18 posts were moderated and approved within a minute; timers
+  green; `systemctl reset-failed`. Each job image is now also tagged `anacan-pinned/<job>:<digest12>` so
+  a prune can no longer treat it as dangling.
+- Rule: **never run `docker image prune` / `docker system prune` on `anacan-gcp-candidate`.** Remove only
+  the specific image IDs you created. When a new job image digest is deployed, tag it
+  `anacan-pinned/<job>:<digest12>` the same way.
