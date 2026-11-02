@@ -11,6 +11,7 @@
 //
 // Auth (.env.vertex — bu qovluqda və ya baby-activities qovluğunda, gitignore-dadır):
 //   Vertex yolu (prioritet): GCP_SERVICE_ACCOUNT_JSON_PATH + GCP_PROJECT_ID [+ GCP_LOCATION=global]
+//     və ya GCP_SERVICE_ACCOUNT_JSON_B64 (JSON-un tək sətirlik base64-ü — mühit dəyişəni kimi ən etibarlısı)
 //   Gemini API fallback:     GEMINI_API_KEY
 //
 // Asılılıq: sharp (npm i --no-save sharp)
@@ -66,7 +67,8 @@ const ENV = {
 
 const GEMINI_API_KEY = ENV.GEMINI_API_KEY || '';
 const SA_PATH = ENV.GCP_SERVICE_ACCOUNT_JSON_PATH || '';
-const SA_JSON = ENV.GCP_SERVICE_ACCOUNT_JSON || '';
+const SA_JSON = ENV.GCP_SERVICE_ACCOUNT_JSON ||
+  (ENV.GCP_SERVICE_ACCOUNT_JSON_B64 ? Buffer.from(ENV.GCP_SERVICE_ACCOUNT_JSON_B64.trim(), 'base64').toString('utf8') : '');
 const GCP_PROJECT_ID = ENV.GCP_PROJECT_ID || '';
 const GCP_LOCATION = ENV.GCP_LOCATION || 'global';
 const USE_VERTEX = !!((SA_PATH || SA_JSON) && GCP_PROJECT_ID);
@@ -147,7 +149,7 @@ async function callModel({ model, prompt, refImage, imageConfig }) {
 // ── Model fallback loop: 429 → gözlə və təkrar; 400 imageConfig → sadə config; 404/503 → növbəti model ──
 async function generateImage(prompt, refImage) {
   if (!USE_VERTEX && !GEMINI_API_KEY) {
-    throw new Error('Açar yoxdur: GCP_SERVICE_ACCOUNT_JSON(_PATH)+GCP_PROJECT_ID və ya GEMINI_API_KEY təyin edin');
+    throw new Error('Açar yoxdur: GCP_SERVICE_ACCOUNT_JSON(_PATH|_B64)+GCP_PROJECT_ID və ya GEMINI_API_KEY təyin edin');
   }
   const errors = [];
   const BACKOFFS = [15000, 30000, 60000];
