@@ -938,3 +938,16 @@ was done.
 - Rule: **never run `docker image prune` / `docker system prune` on `anacan-gcp-candidate`.** Remove only
   the specific image IDs you created. When a new job image digest is deployed, tag it
   `anacan-pinned/<job>:<digest12>` the same way.
+
+## 2026-11-02 — Country from IP restored on Google (no app update)
+
+- Load balancer: backend service `anacan-runtime-backend` now adds request header
+  `X-Anacan-Geo-Country: {client_region}` (ISO-2 of the client IP). Backup of the previous backend
+  definition was taken before the change (no custom headers existed). The gateway forwards it unchanged.
+- Database: `supabase/duzelis/Duzelis79.sql` applied on Google — `capture_country_from_request()` +
+  `trg_capture_country` on `analytics_events` and `device_tokens` (existing, already CDC/writer-guarded
+  relations). It fills an EMPTY `profiles.country_code` once from `x-anacan-geo-country`
+  (fallback `cf-ipcountry`); a user-chosen country is never overwritten.
+- Verified end to end with a temporary anon RPC through `api.anacan.az` (returned `US` for the test
+  host), then dropped the probe function.
+- Future LB edits must keep this custom request header.
