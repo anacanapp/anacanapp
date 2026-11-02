@@ -21,6 +21,7 @@
 import { validate as isUuid } from 'uuid';
 import { getBackendConfig } from '@/integrations/supabase/backend-config';
 import type { CommunityDeepLinkTarget } from '@/components/community/CommunityScreen';
+import { parseDeeplink, type ParsedDeeplink } from '@/lib/deeplink';
 
 export interface PushNavIntent {
   tab?: string;
@@ -32,6 +33,8 @@ export interface PushNavIntent {
   tool?: string;
   /** Community-yə keçəndə MƏHZ hansı post/şərh/story-nin açılacağı (bax CommunityDeepLinkTarget) */
   communityTarget?: CommunityDeepLinkTarget;
+  /** An in-app link (anacan://tool/…) handled by Index's own deeplink router, no OS round trip. */
+  deeplink?: ParsedDeeplink;
 }
 
 export const PUSH_NAV_EVENT = 'anacan-push-nav';
@@ -134,6 +137,15 @@ export function navigateFromPush(data: Record<string, any>): void {
         && url.href.startsWith(`${url.protocol}//`);
       if (!url.username && !url.password && (appScheme ||
         (url.protocol === 'https:' && trustedOrigins.includes(url.origin)))) {
+        // Route in-app links inside the app. Handing anacan:// back to the OS was lost when the
+        // push opened the app behind the PIN lock (it only showed the dashboard). Pending survives
+        // a cold start: Index consumes it when it mounts.
+        const parsed = parseDeeplink(url.href);
+        if (parsed) {
+          pending = { deeplink: parsed };
+          try { window.dispatchEvent(new CustomEvent(PUSH_NAV_EVENT, { detail: pending })); } catch { /* Index consumes pending */ }
+          return;
+        }
         window.location.href = url.href;
         pending = null;
         return;

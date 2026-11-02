@@ -5,7 +5,10 @@ import WebKit
 
 // Public UIKit secure text rendering is used as a capture-excluding surface.
 // iOS offers no general screenshot-prevention API; availability is reported to
-// JS, and recording/app-switcher concealment also uses a native black curtain.
+// JS, and recording/app-switcher concealment uses a native branded curtain (app background + splash art),
+// so the app switcher shows Anacan instead of a black card.
+private let anacanBackground = UIColor(red: 0.980, green: 0.969, blue: 0.957, alpha: 1) // #FAF7F4, same as the launch screen
+
 private final class CaptureSecureField: UITextField {
     weak var captureSurface: UIView?
     override var canBecomeFirstResponder: Bool { false }
@@ -54,7 +57,7 @@ public class ScreenshotGuardPlugin: CAPPlugin, CAPBridgedPlugin {
         field.text = " "
         field.textColor = .clear
         field.tintColor = .clear
-        field.backgroundColor = .black
+        field.backgroundColor = anacanBackground
         field.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         field.isAccessibilityElement = false
         parent.insertSubview(field, at: parent.subviews.firstIndex(of: web) ?? 0)
@@ -66,7 +69,7 @@ public class ScreenshotGuardPlugin: CAPPlugin, CAPBridgedPlugin {
         originalConstraints = parent.constraints.filter { ($0.firstItem as? UIView) === web || ($0.secondItem as? UIView) === web }
         NSLayoutConstraint.deactivate(originalConstraints)
         surface.isUserInteractionEnabled = true
-        surface.backgroundColor = .black
+        surface.backgroundColor = anacanBackground
         surface.frame = field.bounds
         surface.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         field.captureSurface = surface
@@ -95,8 +98,17 @@ public class ScreenshotGuardPlugin: CAPPlugin, CAPBridgedPlugin {
         guard let host = bridge?.viewController?.view else { return }
         if curtain.superview !== host {
             curtain.removeFromSuperview()
-            curtain.backgroundColor = .black
+            curtain.backgroundColor = anacanBackground
             curtain.isOpaque = true
+            if curtain.subviews.isEmpty, let art = UIImage(named: "Splash") {
+                // Same artwork as the launch screen (light/dark variants come from the asset catalog).
+                let image = UIImageView(image: art)
+                image.contentMode = .scaleAspectFill
+                image.clipsToBounds = true
+                image.frame = curtain.bounds
+                image.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                curtain.addSubview(image)
+            }
             curtain.isUserInteractionEnabled = true
             curtain.accessibilityIdentifier = "anacan-capture-curtain"
             curtain.autoresizingMask = [.flexibleWidth, .flexibleHeight]

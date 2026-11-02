@@ -144,6 +144,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   // Scroll yaddaşı: alt-ekrana keçəndə cari tabın pozisiyası saxlanır,
   // GERİ qayıdanda (activeScreen → null) bərpa olunur.
   const activeTabRef = useRef('home');
+  // Set after handleDeeplink is defined; the push-nav effect uses it for in-app links from pushes.
+  const handleDeeplinkRef = useRef<((parsed: ParsedDeeplink) => void) | null>(null);
   const setActiveScreen = useCallback((s: string | null) => {
     if (s) saveScroll(`tab:${activeTabRef.current}`);
     _setActiveScreen(s);
@@ -332,6 +334,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         }
         return;
       }
+      if (intent.deeplink) { handleDeeplinkRef.current?.(intent.deeplink); return; }
       if (intent.tool) {
         setActiveTab('tools');
         setActiveTool(intent.tool);
@@ -444,6 +447,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     const cleanup = initDeeplinkListener(handleDeeplink);
     return cleanup;
   }, [handleDeeplink]);
+  handleDeeplinkRef.current = handleDeeplink;
 
   useEffect(() => {
     const timer = setTimeout(() => {

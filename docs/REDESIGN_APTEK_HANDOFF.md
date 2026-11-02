@@ -983,3 +983,15 @@ was done.
   "Bir istifadəçiyə göndər" (same title/text/link to one e-mail).
 - Notification jobs: flow `ad092e79…`, vitamin `19456c47…` — texts for zh, id, fr, es, pt, vi, hi, ja,
   ko, pl, nl, sv added; language codes normalised (`pt-BR` → `pt`). Sources: `scripts/notification-jobs/`.
+
+## 2026-11-02 — Push links in-app, branded app-switcher cover (native 48)
+
+- Push `data.deeplink` (anacan://…, app.anacan.az) is parsed and routed by Index's own deeplink
+  router (kept pending for a cold start behind the PIN lock). Native 47 hands the link back to iOS
+  (`window.location.href`), which was lost behind the lock: tapping only showed the dashboard.
+  Needs native build 48 (bundled web); server side already sends the link.
+- ScreenshotGuard: the app-switcher/recording curtain is now Anacan's background (#FAF7F4) with the
+  launch artwork instead of black (iOS `Splash` asset; Android: cover + FLAG_SECURE lifted only while
+  paused, restored in onResume). Screenshot blocking in the foreground is unchanged. Native 48.
+- Country capture verified end to end: empty country filled from `X-Anacan-Geo-Country` on the next
+  analytics insert (test account restored afterwards).
