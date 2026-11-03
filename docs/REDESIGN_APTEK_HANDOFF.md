@@ -1014,3 +1014,15 @@ was done.
   the client fan-out of large groups (up to 159 members) stop getting 403. A server-side fan-out (one
   call per message) is still the proper fix for build 49.
 - Weather & Clothing server function verified live (az/ru, HTTP 200 in 3–6 s, no errors in 7 days).
+
+## 2026-11-03 — Postpartum card shown a year after birth
+
+- Cause: `profiles.baby_birth_date` kept the date of a child record that was later deactivated
+  (example account: children 2025-10-17 / 2022-03-09, profile 2026-10-30 → "4 days postpartum").
+  46 profiles pointed at no active child; 20 saw the recovery card wrongly.
+- `supabase/duzelis/Duzelis81.sql` applied on Google: `sync_profile_child_birth_date_v1` + trigger on
+  `user_children` (insert/delete/update of is_active, birth_date) moves the profile date to the youngest
+  active child only when it matches no active child; one-time repair fixed all 46 (0 left). Tested in a
+  rolled-back transaction (deactivate → falls back; deliberate selection of an active child kept).
+- App: recovery home card limited to the first 8 weeks after birth (`HOME_CARD_WEEKS = 8`, was 12).
+  Ships with native 48 / next web deploy.

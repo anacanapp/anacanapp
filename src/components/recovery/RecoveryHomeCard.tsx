@@ -7,7 +7,7 @@ import { fill } from '@/lib/feature-text';
 import { HOME_CARD_WEEKS, PROGRAM_WEEKS, weekAfterBirth, type BirthType } from '@/lib/recovery';
 import '@/styles/care.css';
 
-/** Mother's recovery card on the mommy home during the first 12 weeks after birth. */
+/** Mother's recovery card on the mommy home during the first 8 weeks after birth. */
 export default function RecoveryHomeCard({ onOpen }: { onOpen: () => void }) {
   const language = useUserStore((s) => s.language);
   const t = useRecoveryText(language);

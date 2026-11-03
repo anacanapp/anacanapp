@@ -1216,7 +1216,7 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
       {/* Calendar: upcoming appointments, add / edit in a sheet, server push reminders */}
       <UpcomingAppointments />
 
-      {/* Mother's own recovery (first 12 weeks) and the illness journal entry */}
+      {/* Mother's own recovery (first 8 weeks after birth) and the illness journal entry */}
       <RecoveryHomeCard onOpen={() => onNavigate?.('recovery')} />
       <IllnessHomeCard mode="entry" onOpen={() => onNavigate?.('illness')} />
 

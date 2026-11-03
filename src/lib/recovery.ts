@@ -24,7 +24,8 @@ export interface Checkin {
 }
 
 export const PROGRAM_WEEKS = 6;
-export const HOME_CARD_WEEKS = 12;
+/** The mommy home shows the recovery card only in the first 8 weeks after birth. */
+export const HOME_CARD_WEEKS = 8;
 export const KEGEL_DAILY_GOAL = 3;
 
 export const isoDay = (date: Date) =>
