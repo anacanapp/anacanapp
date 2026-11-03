@@ -25,7 +25,7 @@ Trigger yoxdur: build yalnız **Start new build** ilə başlayır. Personal hesa
    generated `capacitor.config.json` → `plugins.CustomerIoDataIn`-ə yazılır. Key web
    bundle-da tapılsa build dayanır.
 5. iOS: sertifikat və App Store profilləri (app + widget) API ilə gətirilir/yaradılır, `MARKETING_VERSION=$APP_VERSION`,
-   `CURRENT_PROJECT_VERSION=$APP_VERSION.$BUILD_NUMBER` (məs. `48.0.3`).
+   `CURRENT_PROJECT_VERSION=$APP_VERSION.$BUILD_NUMBER` (məs. `49.0.3`).
    Android: `versionName=$APP_VERSION`, `versionCode=$ANDROID_VERSION_CODE`.
 
 ## Codemagic-də bir dəfəlik qurulum
@@ -81,7 +81,7 @@ Bu dəyərlər heç vaxt Git-ə, loglara və ya chat-ə yazılmır.
 ## Build başlatmaq
 
 **Start new build** → branch → workflow. Versiya `codemagic.yaml`-dadır (`APP_VERSION`
-`48.0`, Android `ANDROID_VERSION_CODE` `48`). Eyni versiyanı Play-ə ikinci dəfə yükləmək
+`49.0`, Android `ANDROID_VERSION_CODE` `49`). Eyni versiyanı Play-ə ikinci dəfə yükləmək
 üçün build başlatarkən `ANDROID_VERSION_CODE`-u artırın (Play eyni versionCode-u rədd edir).
 iOS build nömrəsi `$BUILD_NUMBER` ilə avtomatik artır.
 
@@ -92,5 +92,6 @@ iOS build nömrəsi `$BUILD_NUMBER` ilə avtomatik artır.
   workspace-dən geri qala bilər: Store-a göndərməzdən əvvəl ilk Codemagic paketini
   TestFlight / Play internal testing-də yoxlayın (giriş, admission, push, HealthKit,
   widget, alış, reklam).
-- Common Store pointer 47-dir. Codemagic 48 paketinin publish edilməsi bu sənədlə
-  qeyd olunmur; nəticəni `docs/` altında ayrıca release sənədində qeyd edin.
+- Common Store pointer 47-dir. Codemagic 48 paketi istifadəçi tərəfindən Store-a göndərilib;
+  növbəti paket 49-dur (stikerlər, iOS privacy cover/Face ID düzəlişi, coral splash/ikon).
+  Publish nəticələrini `docs/` altında ayrıca release sənədində qeyd edin.

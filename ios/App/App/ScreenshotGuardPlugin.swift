@@ -92,7 +92,7 @@ public class ScreenshotGuardPlugin: CAPPlugin, CAPBridgedPlugin {
         parent.insertSubview(backdrop, at: parent.subviews.firstIndex(of: web) ?? 0)
         parent.insertSubview(field, aboveSubview: backdrop)
         field.layoutIfNeeded()
-        guard let surface = field.subviews.first else { field.removeFromSuperview(); return false }
+        guard let surface = field.subviews.first else { field.removeFromSuperview(); backdrop.removeFromSuperview(); return false }
         originalParent = parent
         originalIndex = parent.subviews.firstIndex(of: web) ?? 0
         originalTranslates = web.translatesAutoresizingMaskIntoConstraints
