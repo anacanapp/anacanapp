@@ -1,0 +1,13 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261103180000_kyrgyz_estonian_languages.sql",
+  "runtime": "google-ky-et-languages",
+  "install": "applied in one transaction as supabase_admin on anacan-gcp-candidate (2026-11-03); Duzelis86 applied the same way",
+  "preserve": ["cron0", "8 enabled business timers", "Source sealed; no new relation"],
+  "relations": [
+    { "relation": "public.community_post_translations", "change": "constraint", "cdc": true, "writer_guard": true, "note": "lang check accepts ky, et" },
+    { "relation": "public.pregnancy_day_notifications", "change": "columns", "cdc": true, "writer_guard": true, "note": "Duzelis86: nullable title_ky, body_ky, title_et, body_et" },
+    { "relation": "public.mommy_day_notifications", "change": "columns", "cdc": true, "writer_guard": true, "note": "Duzelis86: nullable title_ky, body_ky, title_et, body_et" },
+    { "relation": "public.scheduled_notifications", "change": "columns", "cdc": true, "writer_guard": true, "note": "Duzelis86: nullable title_ky, body_ky, title_et, body_et" }
+  ]
+}

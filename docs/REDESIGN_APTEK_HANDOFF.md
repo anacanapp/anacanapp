@@ -1068,3 +1068,15 @@ App (native 48 / next web deploy):
   `avatar_url: null`, and previewed the newest partner_messages row of ANY type (daily summary / surprise
   JSON). Both people therefore saw an unnamed "Partner" row. `usePartnerConversation` now loads the
   linked person's name + photo and previews only chat types (text/love/image/audio/video). Native 48.
+
+## 2026-11-03 — Kyrgyz (ky) and Estonian (et)
+
+- App: 23 languages, see `docs/LOCALIZATION_23.md` (website/public blog/brand portal stay 21). Native 49.
+- SQL (live): Duzelis85 (`supabase/migrations/20261103180000_kyrgyz_estonian_languages.sql`) — language
+  allow-lists/contracts; Duzelis86 (`supabase/duzelis/Duzelis86.sql`) — `title_ky/body_ky/title_et/body_et`
+  on pregnancy_day/mommy_day/scheduled_notifications (294 + 4 370 + 20 rows filled from the bundles).
+  Existing guarded relations, nullable columns only (CDC row capture unchanged).
+- Functions `bb24700c…` (from `0b9959c5…`; recreate script `functions-kyet-recreate.py`, verified): AI reply
+  language names, server push/error copy, e-mail verification copy, fairy-tale titles, weather labels.
+- Jobs: flow `b61f6ad85498…`, vitamin `fb5dfe4c7e54…` (both ran exitCode 0), daily slots/halfhour `ccaa7bf6683f…`
+  (`shared/language.mjs` with ky/et; backups `*.json.before-kyet`).
