@@ -1026,3 +1026,14 @@ was done.
   rolled-back transaction (deactivate → falls back; deliberate selection of an active child kept).
 - App: recovery home card limited to the first 8 weeks after birth (`HOME_CARD_WEEKS = 8`, was 12).
   Ships with native 48 / next web deploy.
+
+## 2026-11-03 — Partner saw a deleted child's name
+
+- Partner screens read `profiles.baby_name/baby_gender`; Duzelis81 only synced the date, so a deleted
+  child's name ("Alp") stayed while the date was the remaining child's ("Atlas").
+- `supabase/duzelis/Duzelis82.sql` applied: the same sync function now keeps name + date + gender on an
+  active child (name+date match → untouched; date match → that child's name/gender; else youngest
+  active child); trigger also fires on child rename/gender change. Repaired 101 profiles (1 odd row left).
+  Tested in a rolled-back transaction: delete → falls back to Atlas; rename follows; a selected older
+  child is kept.
+- Showing ALL children on the partner side would be an app change (partner screens show one child).
