@@ -1,3 +1,4 @@
+import { stickerFromMessage, stickerText } from './stickers';
 import { supabase } from '@/integrations/supabase/client';
 import { getBackendConfig } from '@/integrations/supabase/backend-config';
 import { tr } from '@/lib/group-i18n';
@@ -44,6 +45,7 @@ export function chatPreview(message: Pick<ChatMessage, 'content' | 'message_type
   if (message.message_type === 'image') return tr('chat_image', 'Şəkil');
   if (message.message_type === 'audio') return tr('chat_voice', 'Səs mesajı');
   if (message.message_type === 'video') return tr('chat_video', 'Video');
+  if (message.message_type === 'text' && stickerFromMessage(message.content)) return `🧸 ${stickerText('sticker')}`;
   return message.content || tr('chat_message', 'Mesaj');
 }
 

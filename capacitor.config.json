@@ -20,7 +20,7 @@
     },
     "LocalNotifications": {
       "smallIcon": "ic_stat_icon",
-      "iconColor": "#F97316"
+      "iconColor": "#FF5A5F"
     },
     "Camera": {
       "permissionText": "Tətbiq nəcis skaneri və şəkil yükləmək üçün kameraya ehtiyac duyur"

@@ -229,7 +229,7 @@ const SurpriseTab = () => {
       {/* Header with Stats */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF8D89] to-[#FF5A5F] flex items-center justify-center">
             <Gift className="w-6 h-6 text-white" />
           </div>
           <div>
@@ -239,11 +239,11 @@ const SurpriseTab = () => {
         </div>
         
         {/* Stats Badge */}
-        <div className="flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 px-4 py-2 rounded-2xl">
-          <Trophy className="w-5 h-5 text-amber-600" />
+        <div className="flex items-center gap-2 bg-[#FFE7E1] dark:bg-[#3a2427] px-4 py-2 rounded-2xl">
+          <Trophy className="w-5 h-5 text-[#FF5A5F]" />
           <div className="text-end">
-            <p className="text-xs text-amber-700 dark:text-amber-400">{tr("untranslated_toplam_lheej5", "Toplam")}</p>
-            <p className="font-bold text-amber-800 dark:text-amber-300">{totalPoints} xal</p>
+            <p className="text-xs text-[#9E2B2E] dark:text-[#FFC2C4]">{tr("untranslated_toplam_lheej5", "Toplam")}</p>
+            <p className="font-bold text-[#9E2B2E] dark:text-[#FFC2C4]">{totalPoints} xal</p>
           </div>
         </div>
       </div>

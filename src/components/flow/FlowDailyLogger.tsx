@@ -532,7 +532,7 @@ const FlowDailyLogger = ({ date = new Date(), compact = false, onSave }: FlowDai
               <Button
               onClick={handleSave}
               disabled={saveLog.isPending || !hasChanges}
-              className="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white">
+              className="w-full bg-gradient-to-r from-[#FF7A7E] to-[#FF5A5F] text-white">
               
                 {saveLog.isPending ? tr("flowdailylogger_saxlanilir_ee05ad", "Saxlan\u0131l\u0131r...") : existingLog ? tr("flowdailylogger_yenile_570ce2", "Yenil\u0259") : tr("flowdailylogger_saxla_7dcde1", "Saxla")}
               </Button>

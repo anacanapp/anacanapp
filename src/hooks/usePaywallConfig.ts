@@ -119,9 +119,9 @@ export const getDefaultPaywallConfig = (): PaywallConfig => ({
    free_trial_cta: '',
    free_trial_note: '',
   purchasing_text: tr("paywall_emal_edilir", 'Emal edilir...'),
-  gradient_from: '#d97706',
-  gradient_via: '#ea580c',
-  gradient_to: '#be123c'
+  gradient_from: '#FF8D89',
+  gradient_via: '#FF5A5F',
+  gradient_to: '#D93A40'
 });
 
 /** Geri uyğunluq (PaywallDesignerTab) — hər müraciətdə cari dillə hesablanır */
@@ -158,9 +158,9 @@ export const getDefaultBillingConfig = (): BillingConfig => ({
   paid_label: tr("usepaywallconfig_odenildi_504c21", "\xD6d\u0259nildi"),
   support_text: tr("usepaywallconfig_suallariniz_ucun_872f23", "Suallar\u0131n\u0131z \xFC\xE7\xFCn:"),
   support_email: 'info@anacan.az',
-  header_gradient_from: '#d97706',
-  header_gradient_via: '#ea580c',
-  header_gradient_to: '#be123c',
+  header_gradient_from: '#FF8D89',
+  header_gradient_via: '#FF5A5F',
+  header_gradient_to: '#D93A40',
   header_free_from: '#475569',
   header_free_via: '#334155',
   header_free_to: '#1e293b'

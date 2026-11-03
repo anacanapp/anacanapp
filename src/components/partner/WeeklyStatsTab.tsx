@@ -116,7 +116,7 @@ const WeeklyStatsTab = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-4 text-white">
+          className="bg-gradient-to-br from-[#FF8D89] to-[#FF5A5F] rounded-2xl p-4 text-white">
           
           <Flame className="w-6 h-6 mb-2 opacity-80" />
           <p className="text-2xl font-black">{stats.totalCalories}</p>
@@ -127,7 +127,7 @@ const WeeklyStatsTab = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.15 }}
-          className="bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl p-4 text-white">
+          className="bg-gradient-to-br from-[#FF8AA4] to-[#E2464B] rounded-2xl p-4 text-white">
           
           <div className="flex items-center gap-2 mb-2">
             <Smile className="w-6 h-6 opacity-80" />

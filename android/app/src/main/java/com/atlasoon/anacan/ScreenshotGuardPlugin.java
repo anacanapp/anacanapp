@@ -113,6 +113,14 @@ public class ScreenshotGuardPlugin extends Plugin {
         call.resolve(result);
     }
 
+    /** iOS-only behaviour (Face ID resigns the app there); Android's BiometricPrompt never pauses the activity. */
+    @PluginMethod
+    public void setCurtainSuspended(PluginCall call) {
+        JSObject result = new JSObject();
+        result.put("suspended", Boolean.TRUE.equals(call.getBoolean("suspended", false)));
+        call.resolve(result);
+    }
+
     @Override
     protected void handleOnResume() {
         super.handleOnResume();

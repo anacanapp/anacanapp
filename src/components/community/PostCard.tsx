@@ -1,6 +1,8 @@
 import { useState, useRef, useCallback, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, MessageCircle, Share2, MoreHorizontal, Send, Trash2, Flag, Pencil, EyeOff, Languages, Pin, PinOff, ImagePlus, X, Loader2, Ban, Bookmark } from 'lucide-react';
+import { Heart, MessageCircle, Share2, MoreHorizontal, Send, Trash2, Flag, Pencil, EyeOff, Languages, Pin, PinOff, ImagePlus, X, Loader2, Ban, Bookmark, Sticker } from 'lucide-react';
+import StickerPicker from '@/components/stickers/StickerPicker';
+import { STICKER_STORAGE_PATH, stickerText } from '@/lib/stickers';
 import { formatDistanceToNow } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { CommunityPost, PostComment, useToggleLike, usePostComments, useCreateComment, useEditPost, useDeletePost, useTogglePinPost } from '@/hooks/useCommunity';
@@ -89,6 +91,7 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [forceShowComments]);
   const [commentText, setCommentText] = useState('');
+  const [showStickers, setShowStickers] = useState(false);
   const { ref: commentTextareaRef } = useAutoGrowTextarea(commentText, 180);
   const [replyTo, setReplyTo] = useState<{ id: string; name: string } | null>(null);
   const composerRef = useRef<HTMLDivElement>(null);
@@ -221,6 +224,28 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
       setReplyTo(null);
     } catch {
       // The mutation reports the error. Keep the complete draft and reply target.
+    } finally {
+      submittingComment.current = false;
+    }
+  };
+
+  const handleSticker = async (id: string) => {
+    if (moderationStatus?.comment || post.comments_locked || !user || submittingComment.current) return;
+    submittingComment.current = true;
+    hapticFeedback.light();
+    try {
+      const { data: { publicUrl } } = supabase.storage.from('community-media').getPublicUrl(STICKER_STORAGE_PATH(id));
+      await createComment.mutateAsync({
+        postId: post.id, content: '', imageUrl: publicUrl, postAuthorId: post.user_id,
+        expectedUserId: user.id,
+        parentCommentId: replyTo?.id ?? null,
+        commenterName: profile?.name || user.user_metadata?.name || tr('postcard_i_stifadeci_b6bdd6', 'İstifadəçi'),
+        isAnonymous: commentAnonymous,
+      });
+      setShowStickers(false);
+      setReplyTo(null);
+    } catch {
+      // The mutation reports the error.
     } finally {
       submittingComment.current = false;
     }
@@ -565,6 +590,9 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
                   <button type="button" onClick={() => commentFileInputRef.current?.click()} disabled={uploadingCommentImage || createComment.isPending} className="a-icon-btn" aria-label={tr('postcard_sekil_elave_et', 'Şəkil əlavə et')}>
                     <ImagePlus size={18} />
                   </button>
+                  <button type="button" onClick={() => setShowStickers((v) => !v)} disabled={uploadingCommentImage || createComment.isPending} className="a-icon-btn" aria-pressed={showStickers} aria-label={stickerText('stickers')}>
+                    <Sticker size={18} />
+                  </button>
                   <button type="button" onClick={() => setCommentAnonymous((v) => !v)} disabled={uploadingCommentImage || createComment.isPending} aria-pressed={commentAnonymous} className={`a-tag${commentAnonymous ? ' on' : ''}`}>
                     <EyeOff size={14} />{tr('postcard_anonim_olaraq_yaz_abc123', 'Anonim olaraq yaz')}
                   </button>
@@ -577,6 +605,7 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
                     {uploadingCommentImage || createComment.isPending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
                   </button>
                 </div>
+                {showStickers && <StickerPicker onPick={(id) => void handleSticker(id)} onClose={() => setShowStickers(false)} disabled={createComment.isPending} />}
                 </div>
                 {commentsLoading ?
               <div className="text-center py-4">

@@ -461,7 +461,7 @@ export default function VaccineCalendar({ onBack }: Props) {
                 <div className="flex items-center gap-3">
                   <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center"
-                  style={{ background: `${detailRow.vaccine.color_hex || '#F28155'}1a`, color: detailRow.vaccine.color_hex || '#F28155' }}>
+                  style={{ background: `${detailRow.vaccine.color_hex || '#FF5A5F'}1a`, color: detailRow.vaccine.color_hex || '#FF5A5F' }}>
                   
                     <Syringe className="w-6 h-6" />
                   </div>

@@ -102,11 +102,18 @@ export const verifyBiometric = async (reason: string, title: string): Promise<bo
   if (!Capacitor.isNativePlatform()) return false;
   try {
     const { NativeBiometric } = await import('@capgo/capacitor-native-biometric');
-    await NativeBiometric.verifyIdentity({
-      reason,
-      title,
-      maxAttempts: 3
-    });
+    // The Face ID sheet resigns the app on iOS; without this the privacy cover flashed over the lock screen.
+    const { default: ScreenshotGuard } = await import('@/plugins/ScreenshotGuard');
+    await ScreenshotGuard.setCurtainSuspended({ suspended: true }).catch(() => {});
+    try {
+      await NativeBiometric.verifyIdentity({
+        reason,
+        title,
+        maxAttempts: 3
+      });
+    } finally {
+      setTimeout(() => { void ScreenshotGuard.setCurtainSuspended({ suspended: false }).catch(() => {}); }, 400);
+    }
     return true;
   } catch {
     return false;

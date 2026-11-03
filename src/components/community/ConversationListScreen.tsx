@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { stickerFromMessage, stickerText } from '@/lib/stickers';
 import { tr } from '@/lib/group-i18n';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MessageCircle, Users } from 'lucide-react';
@@ -45,7 +46,7 @@ const ConversationListScreen = ({ onBack, onOpenChat, partnerId, onOpenGroup }: 
       case 'image':return tr("conversationlistscreen_sekil_25710e", "\uD83D\uDCF7 \u015E\u0259kil");
       case 'video':return '🎥 Video';
       case 'audio':return tr("conversationlistscreen_ses_mesaji_acd8d9", "\uD83C\uDFA4 S\u0259s mesaj\u0131");
-      default:return content?.slice(0, 50) || '';
+      default:return stickerFromMessage(content) ? `🧸 ${stickerText('sticker')}` : content?.slice(0, 50) || '';
     }
   };
 

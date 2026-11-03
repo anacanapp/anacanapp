@@ -232,7 +232,7 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
           onClick={(e) => e.stopPropagation()}>
           
           {/* Header */}
-          <div className="relative bg-gradient-to-br from-pink-500 via-rose-500 to-red-500 p-6 text-white">
+          <div className="relative bg-gradient-to-br from-[#FF8D89] via-[#FF5A5F] to-[#E2464B] p-6 text-white">
             <button
               onClick={onClose}
               className="absolute top-4 end-4 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
@@ -538,13 +538,13 @@ const BirthOnboardingModal = ({ isOpen, onClose, onComplete }: BirthOnboardingMo
             <Button
               onClick={nextStep}
               disabled={!canProceed()}
-              className="flex-1 h-12 bg-gradient-to-r from-pink-500 to-rose-500">{tr("untranslated_davam_et_rchhd5", "Davam et")}<ChevronRight className="rtl:rotate-180 w-4 h-4 ms-1" />
+              className="flex-1 h-12 bg-gradient-to-r from-[#FF7A7E] to-[#FF5A5F]">{tr("untranslated_davam_et_rchhd5", "Davam et")}<ChevronRight className="rtl:rotate-180 w-4 h-4 ms-1" />
               </Button> :
 
             <Button
               onClick={handleComplete}
               disabled={loading}
-              className="flex-1 h-12 bg-gradient-to-r from-pink-500 to-rose-500">
+              className="flex-1 h-12 bg-gradient-to-r from-[#FF7A7E] to-[#FF5A5F]">
               
                 {loading ?
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> :

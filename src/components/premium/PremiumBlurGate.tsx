@@ -164,8 +164,8 @@ const PremiumBlurGate = ({
               fontSize: 13,
               fontWeight: 800,
               color: '#fff',
-              background: 'linear-gradient(135deg, #f97316, #ec4899)',
-              boxShadow: '0 6px 16px rgba(236,72,153,0.35)',
+              background: 'linear-gradient(135deg, #FF7A7E, #FF5A5F)',
+              boxShadow: '0 6px 16px rgba(217,58,64,0.35)',
             }}
           >
             <Crown size={14} strokeWidth={2.5} />

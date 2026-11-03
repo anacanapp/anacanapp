@@ -1,6 +1,8 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft, Check, CheckCheck, ChevronDown, Copy, ImagePlus, Pencil, Loader2, Mic, MoreHorizontal, Plus, Reply, Send, Smile, Square, Trash2, Video, X } from 'lucide-react';
+import { ArrowLeft, Check, CheckCheck, ChevronDown, Copy, ImagePlus, Pencil, Loader2, Mic, MoreHorizontal, Plus, Reply, Send, Smile, Square, Sticker, Trash2, Video, X } from 'lucide-react';
+import StickerPicker, { StickerImage } from '@/components/stickers/StickerPicker';
+import { stickerFromMessage, stickerMessage, stickerText } from '@/lib/stickers';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useChatMessages } from '@/hooks/useChatMessages';
 import { useFullScreenChat } from '@/hooks/useChatChrome';
@@ -40,7 +42,7 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
   const [text, setText] = useState(''), [reply, setReply] = useState<ChatMessage | null>(null);
   const [attachment, setAttachment] = useState<ChatAttachment | null>(null), [attachmentUrl, setAttachmentUrl] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false), [recording, setRecording] = useState(false), [recordedSeconds, setRecordedSeconds] = useState(0);
-  const [showAttachments, setShowAttachments] = useState(false), [emojiComposer, setEmojiComposer] = useState(false);
+  const [showAttachments, setShowAttachments] = useState(false), [emojiComposer, setEmojiComposer] = useState(false), [stickers, setStickers] = useState(false);
   const [actionsFor, setActionsFor] = useState<string | null>(null), [profile, setProfile] = useState<string | null>(null);
   const [moreReactions, setMoreReactions] = useState(false), [editing, setEditing] = useState<ChatMessage | null>(null);
   const [photo, setPhoto] = useState<{ id: string; url: string } | null>(null), [newMessages, setNewMessages] = useState(0);
@@ -187,6 +189,14 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
       input.current?.focus();
     } catch (error) { if (alive.current) reportFailure(error); }
   };
+  const sendSticker = async (id: string) => {
+    if (uploading || chat.sending || readOnly || editing) return;
+    try {
+      await chat.send({ id: crypto.randomUUID(), text: stickerMessage(id), attachment: null, replyTo: reply?.id ?? null });
+      if (!alive.current) return;
+      setReply(null); setStickers(false); atBottom.current = true;
+    } catch (error) { if (alive.current) reportFailure(error); }
+  };
   const renew = async (message: ChatMessage) => {
     return chat.renewMedia(message);
   };
@@ -238,13 +248,14 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
               {kind === 'group' && !own && <button type="button" onClick={() => setProfile(message.sender_id)} aria-label={tr('chat_view_profile', 'Profilə bax')}><Avatar className="h-7 w-7"><AvatarImage src={author?.avatar_url || undefined} /><AvatarFallback>{author?.name?.charAt(0) || '•'}</AvatarFallback></Avatar></button>}
               <div className="chat-message-stack">
                 {deleted ? <div className={`chat-message chat-message-deleted ${own ? 'chat-message-own' : ''}`}><p className="chat-message-text">{feature37Text('chat_deleted')}</p></div> :
-                <div className={`chat-message ${own ? 'chat-message-own' : ''}`} onContextMenu={event => { event.preventDefault(); setActionsFor(message.id); }}>
+                <div className={`chat-message ${own ? 'chat-message-own' : ''}${message.message_type === 'text' && stickerFromMessage(message.content) ? ' chat-message-sticker' : ''}`} onContextMenu={event => { event.preventDefault(); setActionsFor(message.id); }}>
                   {kind === 'group' && !own && <button type="button" className="chat-message-author" onClick={() => setProfile(message.sender_id)}>{author?.name || tr('chat_member', 'Üzv')}</button>}
                   {quoted && <button type="button" className="chat-reply-preview w-full text-start" onClick={() => document.getElementById(`chat-message-${quoted.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
                     <strong>{quoted.sender_id === chat.actor ? tr('chat_you', 'Siz') : chat.authors[quoted.sender_id]?.name || title}</strong><p>{chatPreview(quoted)}</p></button>}
                   {['image', 'video', 'audio'].includes(message.message_type) ? url ?
                     <ChatMediaAttachment src={url} type={message.message_type as ChatMediaType} own={own} onRenew={() => renew(message)} onPhoto={source => setPhoto({ id: message.id, url: source })} />
                     : <button type="button" className="chat-notice" onClick={() => renew(message).catch(reportFailure)}>{tr('chat_load_media', 'Faylı yüklə')}</button>
+                    : message.message_type === 'text' && stickerFromMessage(message.content) ? <StickerImage id={stickerFromMessage(message.content)!} size={140} />
                     : <p className="chat-message-text" dir="auto"><CommentText content={message.message_type === 'love' ? '❤️' : message.content || ''} allowLinks /></p>}
                   {!!message.media_path && !!message.content && <p className="chat-message-text mt-1" dir="auto"><CommentText content={message.content} allowLinks /></p>}
                   <div className="chat-message-meta">{message.edited_at && <span className="chat-edited">{feature37Text('chat_edited')}</span>}<time>{timeFormat.format(created)}</time>
@@ -269,10 +280,10 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
                     </div>
                     <div className="chat-action-list">
                       <button type="button" onClick={() => { setReply(message); setActionsFor(null); input.current?.focus(); }}><Reply size={17} />{tr('chat_reply', 'Cavab ver')}</button>
-                      {own && message.message_type === 'text' && !!message.content && <button type="button" onClick={() => {
+                      {own && message.message_type === 'text' && !!message.content && !stickerFromMessage(message.content) && <button type="button" onClick={() => {
                         setEditing(message); setReply(null); setText(message.content || ''); setActionsFor(null); input.current?.focus();
                       }}><Pencil size={17} />{feature37Text('chat_edit')}</button>}
-                      {!!message.content && message.message_type !== 'love' && <button type="button" onClick={() => {
+                      {!!message.content && message.message_type !== 'love' && !stickerFromMessage(message.content) && <button type="button" onClick={() => {
                         void navigator.clipboard?.writeText(message.content || '').then(() => toast({ title: feature37Text('chat_copied') })).catch(() => {});
                         setActionsFor(null);
                       }}><Copy size={17} />{feature37Text('chat_copy')}</button>}
@@ -300,6 +311,7 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
         attachmentRef.current = null; setAttachment(null); setAttachmentUrl(null);
       }}><X size={18} /></button></div>}
       {showAttachments && <div className="chat-attachment-options"><button type="button" onClick={() => imageInput.current?.click()}><ImagePlus size={18} />{tr('chat_image', 'Şəkil')}</button><button type="button" onClick={() => videoInput.current?.click()}><Video size={18} />{tr('chat_video', 'Video')}</button></div>}
+      {stickers && <div className="px-2"><StickerPicker onPick={id => void sendSticker(id)} onClose={() => setStickers(false)} disabled={chat.sending} /></div>}
       {emojiComposer && <div className="chat-reaction-picker">{['😊', '❤️', '😂', '👍', '🙏', '😘', '🥰', '🎉'].map(emoji => <button type="button" key={emoji} onClick={() => selectEmoji(emoji)}>{emoji}</button>)}</div>}
       <input type="file" ref={imageInput} accept="image/jpeg,image/png,image/webp,image/gif" className="hidden" onChange={event => { const file = event.target.files?.[0]; event.target.value = ''; if (file) void upload(file, 'image'); }} />
       <input type="file" ref={videoInput} accept="video/mp4,video/webm,video/quicktime" className="hidden" onChange={event => { const file = event.target.files?.[0]; event.target.value = ''; if (file) void upload(file, 'video'); }} />
@@ -309,7 +321,8 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
           <button type="button" className="chat-icon-button" disabled={uploading || chat.sending || !!attachment} onClick={() => setShowAttachments(value => !value)} aria-label={tr('chat_attach', 'Fayl əlavə et')}><Plus size={23} /></button>
           <textarea ref={input} rows={1} maxLength={10000} value={text} disabled={chat.sending} onChange={event => setText(event.target.value)} className="chat-text-input" dir="auto"
             placeholder={tr('directmessagescreen_mesaj_yazin_e69f84', 'Mesaj yazın…')} onKeyDown={event => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); void send(); } }} />
-          <button type="button" className="chat-icon-button" disabled={chat.sending} onClick={() => setEmojiComposer(value => !value)} aria-label={tr('chat_emoji', 'Emoji')}><Smile size={21} /></button>
+          {!editing && <button type="button" className="chat-icon-button" disabled={chat.sending || uploading || !!attachment} onClick={() => { setStickers(value => !value); setEmojiComposer(false); setShowAttachments(false); }} aria-pressed={stickers} aria-label={stickerText('stickers')}><Sticker size={21} /></button>}
+          <button type="button" className="chat-icon-button" disabled={chat.sending} onClick={() => { setEmojiComposer(value => !value); setStickers(false); }} aria-label={tr('chat_emoji', 'Emoji')}><Smile size={21} /></button>
           {!text.trim() && !attachment && !uploading && !editing ? <button type="button" className="chat-send" disabled={chat.sending} onClick={beginRecording} aria-label={tr('conversationlistscreen_ses_mesaji_acd8d9', '🎤 Səs mesajı')}><Mic size={20} /></button>
             : <button type="button" className="chat-send" disabled={uploading || chat.sending || chat.editing || (!text.trim() && !attachment)} onClick={send} aria-label={tr('directmessagescreen_send', 'Göndər')}>{uploading || chat.sending ? <Loader2 size={19} className="animate-spin" /> : <Send size={18} />}</button>}
         </div>}

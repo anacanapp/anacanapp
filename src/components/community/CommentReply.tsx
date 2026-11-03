@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
+import { StickerImage } from '@/components/stickers/StickerPicker';
+import { stickerFromImageUrl } from '@/lib/stickers';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Heart, Trash2, Pencil, Pin } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
@@ -228,7 +230,9 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
               }
                 <span className="text-foreground/85"><CommentText content={comment.content} allowLinks={comment.author?.can_share_links === true || ['admin', 'moderator'].includes(authorBadge || '')} /></span>
               </p>
-              {comment.image_url &&
+              {comment.image_url && stickerFromImageUrl(comment.image_url) ?
+            <div style={{ marginTop: 4 }}><StickerImage id={stickerFromImageUrl(comment.image_url)!} size={116} /></div> :
+            comment.image_url &&
             <img loading="lazy" decoding="async"
               src={comment.image_url}
               alt=""
@@ -257,7 +261,7 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
               <button onClick={() => onReply(comment)} disabled={comment.id.startsWith('optimistic-')} className="font-bold active:text-primary disabled:opacity-50">
                 {tr("commentreply_action_reply", "Cavab")}
               </button>
-              {isOwnComment &&
+              {isOwnComment && !stickerFromImageUrl(comment.image_url) &&
             <button
               onClick={() => { setEditContent(comment.content); setEditImageUrl(comment.image_url); setIsEditing(true); }}
               aria-label={tr('postcard_redakte_et_66cf3b', 'Redaktə et')}
@@ -313,7 +317,7 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
       </AnimatePresence>
 
       {/* Şərh şəkli — in-app lightbox */}
-      {imageViewerOpen && comment.image_url &&
+      {imageViewerOpen && comment.image_url && !stickerFromImageUrl(comment.image_url) &&
       <PhotoGalleryViewer
         photos={[{ id: comment.id, url: comment.image_url }]}
         initialIndex={0}

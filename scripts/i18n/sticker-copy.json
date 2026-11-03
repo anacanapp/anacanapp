@@ -1,0 +1,130 @@
+{
+ "languages": {
+  "az": {
+   "stickers": "Stikerlər",
+   "sticker": "Stiker",
+   "all": "Hamısı",
+   "send": "Stiker göndər"
+  },
+  "en": {
+   "stickers": "Stickers",
+   "sticker": "Sticker",
+   "all": "All",
+   "send": "Send sticker"
+  },
+  "tr": {
+   "stickers": "Çıkartmalar",
+   "sticker": "Çıkartma",
+   "all": "Tümü",
+   "send": "Çıkartma gönder"
+  },
+  "ru": {
+   "stickers": "Стикеры",
+   "sticker": "Стикер",
+   "all": "Все",
+   "send": "Отправить стикер"
+  },
+  "de": {
+   "stickers": "Sticker",
+   "sticker": "Sticker",
+   "all": "Alle",
+   "send": "Sticker senden"
+  },
+  "ar": {
+   "stickers": "الملصقات",
+   "sticker": "ملصق",
+   "all": "الكل",
+   "send": "إرسال ملصق"
+  },
+  "ka": {
+   "stickers": "სტიკერები",
+   "sticker": "სტიკერი",
+   "all": "ყველა",
+   "send": "სტიკერის გაგზავნა"
+  },
+  "kk": {
+   "stickers": "Стикерлер",
+   "sticker": "Стикер",
+   "all": "Барлығы",
+   "send": "Стикер жіберу"
+  },
+  "uz": {
+   "stickers": "Stikerlar",
+   "sticker": "Stiker",
+   "all": "Hammasi",
+   "send": "Stiker yuborish"
+  },
+  "zh": {
+   "stickers": "贴纸",
+   "sticker": "贴纸",
+   "all": "全部",
+   "send": "发送贴纸"
+  },
+  "id": {
+   "stickers": "Stiker",
+   "sticker": "Stiker",
+   "all": "Semua",
+   "send": "Kirim stiker"
+  },
+  "fr": {
+   "stickers": "Autocollants",
+   "sticker": "Autocollant",
+   "all": "Tous",
+   "send": "Envoyer un autocollant"
+  },
+  "es": {
+   "stickers": "Stickers",
+   "sticker": "Sticker",
+   "all": "Todos",
+   "send": "Enviar sticker"
+  },
+  "pt": {
+   "stickers": "Figurinhas",
+   "sticker": "Figurinha",
+   "all": "Todas",
+   "send": "Enviar figurinha"
+  },
+  "vi": {
+   "stickers": "Nhãn dán",
+   "sticker": "Nhãn dán",
+   "all": "Tất cả",
+   "send": "Gửi nhãn dán"
+  },
+  "hi": {
+   "stickers": "स्टिकर",
+   "sticker": "स्टिकर",
+   "all": "सभी",
+   "send": "स्टिकर भेजें"
+  },
+  "ja": {
+   "stickers": "ステッカー",
+   "sticker": "ステッカー",
+   "all": "すべて",
+   "send": "ステッカーを送信"
+  },
+  "ko": {
+   "stickers": "스티커",
+   "sticker": "스티커",
+   "all": "전체",
+   "send": "스티커 보내기"
+  },
+  "pl": {
+   "stickers": "Naklejki",
+   "sticker": "Naklejka",
+   "all": "Wszystkie",
+   "send": "Wyślij naklejkę"
+  },
+  "nl": {
+   "stickers": "Stickers",
+   "sticker": "Sticker",
+   "all": "Alle",
+   "send": "Sticker sturen"
+  },
+  "sv": {
+   "stickers": "Klistermärken",
+   "sticker": "Klistermärke",
+   "all": "Alla",
+   "send": "Skicka klistermärke"
+  }
+ }
+}
