@@ -162,8 +162,10 @@ const PartnerProfileScreen = ({ onNavigate }: PartnerProfileScreenProps) => {
           {/* Connection */}
           {isLinked && partnerProfile ?
           <section className="flex items-center gap-3" style={{ ...card, padding: 14 }}>
-              <span className="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0" style={{ background: 'var(--a-pink-1)' }}>
-                {stage === 'bump' ? '🤰' : stage === 'mommy' ? '👩‍🍼' : '🌸'}
+              <span className="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0 overflow-hidden" style={{ background: 'var(--a-pink-1)' }}>
+                {partnerProfile.avatar_url ?
+                <img src={partnerProfile.avatar_url} alt={partnerProfile.name} className="w-full h-full object-cover" loading="lazy" /> :
+                stage === 'bump' ? '🤰' : stage === 'mommy' ? '👩‍🍼' : '🌸'}
               </span>
               <div className="flex-1 min-w-0">
                 <p style={{ fontSize: 10.5, fontWeight: 800, color: 'var(--a-ink-faint)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{feature37Text('pp_connected_with')}</p>

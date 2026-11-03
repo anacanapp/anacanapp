@@ -13,6 +13,47 @@ import { useDailySummary, DailySummary } from '@/hooks/useDailySummary';
 import { format, isToday, isYesterday } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { SYMPTOMS } from '@/types/anacan';
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '@/integrations/supabase/client';
+import { usePartnerData } from '@/hooks/usePartnerData';
+
+interface StageStats { stage: string | null; feeds?: number; feed_ml?: number; sleep_min?: number; diapers?: number; cycle_day?: number; cycle_length?: number; phase?: string }
+
+/** Mommy/flow days come from partner_day_stage_stats_v1 (Duzelis84, masked by her sharing settings). */
+const StageTiles = ({ date, water }: { date: string; water: number | null }) => {
+  const { data } = useQuery({
+    queryKey: ['partner-day-stage', date],
+    queryFn: async () => {
+      const { data, error } = await (supabase as any).rpc('partner_day_stage_stats_v1', { p_date: date });
+      if (error) throw error;
+      return data as StageStats | null;
+    },
+    staleTime: 60_000
+  });
+  const tile = (bg: string, ink: string, value: string, label: string) =>
+  <div className="text-center" style={{ background: bg, borderRadius: 14, padding: 12 }}>
+      <div style={{ fontSize: 16, fontWeight: 800, color: ink }}>{value}</div>
+      <div style={{ fontSize: 10.5, color: ink }}>{label}</div>
+    </div>;
+  const waterTile = tile('var(--a-blue-1)', 'var(--a-blue-ink)', `💧 ${water ?? 0}ml`, tr('untranslated_su_yvcozn', 'Su'));
+  if (data?.stage === 'mommy' && typeof data.feeds === 'number') {
+    const sleep = data.sleep_min ?? 0;
+    return <div className="grid grid-cols-2 gap-2.5">
+        {tile('var(--a-peach-1)', 'var(--a-accent-ink)', `🍼 ${data.feeds}${data.feed_ml ? ` · ${data.feed_ml}ml` : ''}`, tr('partnerv2_qidalanma', 'Qidalanma'))}
+        {tile('var(--a-lav-1)', 'var(--a-lav-ink)', `😴 ${Math.floor(sleep / 60)}:${String(sleep % 60).padStart(2, '0')}`, tr('partnerv2_yuxu', 'Yuxu'))}
+        {tile('var(--a-green-1)', 'var(--a-green-ink)', `🧷 ${data.diapers ?? 0}`, tr('partnerv2_bez', 'Bez'))}
+        {waterTile}
+      </div>;
+  }
+  if (data?.stage === 'flow' && typeof data.cycle_day === 'number') {
+    const phaseEmoji = data.phase === 'menstrual' ? '🩸' : data.phase === 'fertile' ? '🌸' : data.phase === 'follicular' ? '🌱' : '🌙';
+    return <div className="grid grid-cols-2 gap-2.5">
+        {tile('var(--a-pink-1)', 'var(--a-pink-ink)', `${phaseEmoji} ${data.cycle_day}/${data.cycle_length}`, tr('partnerflowstatuscard_tsikl_gunu_b9e250', 'Tsikl günü'))}
+        {waterTile}
+      </div>;
+  }
+  return data?.stage === 'mommy' || data?.stage === 'flow' ? <div className="grid grid-cols-2 gap-2.5">{waterTile}</div> : null;
+};
 
 interface DailySummaryScreenProps {
   onBack: () => void;
@@ -20,6 +61,8 @@ interface DailySummaryScreenProps {
 
 const DailySummaryScreen: React.FC<DailySummaryScreenProps> = ({ onBack }) => {
   const { summaries, loading } = useDailySummary();
+  const { partnerProfile } = usePartnerData();
+  const stage = partnerProfile?.life_stage ?? null;
 
   const getMoodEmoji = (mood: number | null) => {
     if (!mood) return '❓';
@@ -89,7 +132,8 @@ const DailySummaryScreen: React.FC<DailySummaryScreenProps> = ({ onBack }) => {
             getMoodEmoji={getMoodEmoji}
             getMoodLabel={getMoodLabel}
             getSymptomLabel={getSymptomLabel}
-            index={index} />
+            index={index}
+            stage={stage} />
 
           )}
           </div>
@@ -106,6 +150,8 @@ interface SummaryCardProps {
   getMoodLabel: (mood: number | null) => string;
   getSymptomLabel: (symptomId: string) => string;
   index: number;
+  /** The woman's stage: mommy/flow cards show their own day instead of kicks/contractions. */
+  stage: string | null;
 }
 
 const SummaryCard: React.FC<SummaryCardProps> = ({
@@ -114,7 +160,8 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
   getMoodEmoji,
   getMoodLabel,
   getSymptomLabel,
-  index
+  index,
+  stage
 }) => {
   const isRecent = index === 0;
 
@@ -164,7 +211,8 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
           </div>
         </div>
 
-        {/* Stats grid */}
+        {/* Stats: pregnancy keeps water/kicks/contractions; mommy and flow show their own day */}
+        {stage === 'mommy' || stage === 'flow' ? <StageTiles date={summary.summary_date} water={summary.water_intake} /> :
         <div className="grid grid-cols-3 gap-2.5">
           <div className="text-center" style={{ background: 'var(--a-blue-1)', borderRadius: 14, padding: 12 }}>
             <Droplets size={18} className="mx-auto mb-1" style={{ color: 'var(--a-blue-ink)' }} />
@@ -189,7 +237,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
             </div>
             <div style={{ fontSize: 10.5, color: 'var(--a-lav-ink)' }}>{tr("dailysummaryscreen_sanci_350c2d", "Sancı")}</div>
           </div>
-        </div>
+        </div>}
 
         {/* Symptoms */}
         {summary.symptoms && summary.symptoms.length > 0 &&

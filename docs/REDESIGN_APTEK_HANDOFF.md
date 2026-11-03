@@ -1037,3 +1037,25 @@ was done.
   Tested in a rolled-back transaction: delete → falls back to Atlas; rename follows; a selected older
   child is kept.
 - Showing ALL children on the partner side would be an app change (partner screens show one child).
+
+## 2026-11-03 — Partner mode batch
+
+Server (live, no app update):
+- `Duzelis83.sql`: shared shopping list. Partner inserts used priority `medium`, which the check
+  rejected (partner items never saved) → `medium` allowed; RLS lets the linked couple see each other's
+  rows; BEFORE INSERT trigger fills `partner_id`; backfill from the mutual profile link (29 rows for the
+  reported pair). Verified both directions in a rolled-back transaction.
+  Note: `get_linked_partner_user_id(x)` only answers for `x = auth.uid()`; never use it in backfills.
+- `Duzelis83.sql`: `partner_children_v1()` (her active children, masked by share_baby_logs).
+- `Duzelis83.sql`: BEFORE INSERT trigger on `partner_messages` rewrites the `daily_summary` body by the
+  sender's stage (mommy: 🍼 feeds/ml | 😴 sleep | 🧷 diapers | mood | water; flow: 📅 cycle day; bump
+  unchanged), honouring sharing settings. Verified: `🍼 2 (210 ml) | 😴 1:35 | 🧷 1`.
+- `Duzelis84.sql`: `partner_day_stage_stats_v1(date)` for the partner summary screen.
+
+App (native 48 / next web deploy):
+- Partner home: all active children as chips; her profile photo instead of the stage emoji (home +
+  partner profile); the full crisis calendar (`BabyCrisisWidget`, opens calendar + detail sheets)
+  replaces the click-less `PartnerBabyCrisisCard` (deleted).
+- Level-up card restyled to Anacan tokens (white card, peach band, coral button, coral confetti).
+- Partner daily summary screen: mommy/flow cards show feeds/sleep/diapers or cycle day + water instead
+  of kicks/contractions.

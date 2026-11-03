@@ -11,7 +11,7 @@ import { usePregnancyContentByDay } from '@/hooks/usePregnancyContent';
 import { useFruitImages, getDynamicFruitData } from '@/hooks/useFruitData';
 import { useDailyTip } from '@/hooks/usePartnerDailyTips';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { getPregnancyDay } from '@/lib/pregnancy-utils';
+import { getPregnancyDay, getRealCalendarAge } from '@/lib/pregnancy-utils';
 import { supabase } from '@/integrations/supabase/client';
 import { sendPartnerMessage } from '@/lib/chat';
 import { hapticFeedback } from '@/lib/native';
@@ -29,7 +29,7 @@ import { postpartumWeek } from '@/data/postpartum-partner';
 import PartnerActivityFeed from './PartnerActivityFeed';
 import NextAppointmentCard from './NextAppointmentCard';
 import PartnerWeekInfoCard from './PartnerWeekInfoCard';
-import PartnerBabyCrisisCard from './PartnerBabyCrisisCard';
+import BabyCrisisWidget from '@/components/mommy/BabyCrisisWidget';
 import PartnerBabyTodayCard from './PartnerBabyTodayCard';
 import PartnerFlowStatusCard from '@/components/flow/PartnerFlowStatusCard';
 import { AdInlineAnchor } from '@/components/ads/AdExperienceProvider';
@@ -61,7 +61,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
   const { profile } = useAuth();
   const { toast } = useToast();
   const {
-    partnerProfile, partnerDailyLog, sharing, loading,
+    partnerProfile, partnerDailyLog, partnerChildren, sharing, loading,
     getPregnancyWeek, getDaysUntilDue, getBabyAgeDays,
     getCyclePhaseInfo, getDaysUntilNextPeriod
   } = usePartnerData();
@@ -255,9 +255,11 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
           {/* ── HERO: onun günü ── */}
           <motion.div className="a-card" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0"
+              <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0 overflow-hidden"
               style={{ background: 'var(--a-grad-blue)' }}>
-                {lossShared ? '🤍' : lifeStage === 'bump' ? '🤰' : lifeStage === 'mommy' ? '👩‍🍼' : '🌸'}
+                {partnerProfile.avatar_url ?
+                <img src={partnerProfile.avatar_url} alt={womanName} className="w-full h-full object-cover" loading="lazy" /> :
+                lossShared ? '🤍' : lifeStage === 'bump' ? '🤰' : lifeStage === 'mommy' ? '👩‍🍼' : '🌸'}
               </div>
               <div className="flex-1 min-w-0">
                 <h2 className="truncate" style={{ fontSize: 17, fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--a-ink)' }}>{womanName}</h2>
@@ -297,6 +299,22 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
                     {s.label && <p style={{ fontSize: 9.5, fontWeight: 600, color: 'var(--a-ink-soft)' }}>{s.label}</p>}
                   </div>
               )}
+              </div>
+            }
+
+            {/* All of her active children (mommy) when there is more than one */}
+            {lifeStage === 'mommy' && !inLoss && partnerChildren.length > 1 &&
+            <div className="flex flex-wrap gap-1.5 mt-2.5" aria-label={tr('profilescreen_usaqlarim_d988f7', 'Uşaqlarım')}>
+                {partnerChildren.map((child) => {
+                  const days = child.birth_date ? getRealCalendarAge(child.birth_date).totalDays : 0;
+                  const months = Math.floor(days / 30), years = Math.floor(months / 12);
+                  const age = years >= 2 ? `${years} ${tr('time_years_old', 'yaş')}` : months > 0 ? `${months} ${tr('common_ay', 'ay')}` : `${days} ${tr('common_gun', 'gün')}`;
+                  return <span key={child.id} className="inline-flex items-center gap-1"
+                  style={{ background: child.is_current ? 'var(--a-peach-1)' : 'var(--a-surface-soft)', borderRadius: 999, padding: '4px 10px', fontSize: 11.5, fontWeight: 700, color: 'var(--a-ink)' }}>
+                      {child.avatar_emoji || (child.gender === 'boy' ? '👦' : '👧')} {child.name}
+                      <span style={{ fontWeight: 600, color: 'var(--a-ink-soft)' }}>· {child.birth_date ? age : '—'}</span>
+                    </span>;
+                })}
               </div>
             }
 
@@ -373,7 +391,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
             onOpen={() => onNavigate('partner-baby-day')} />
           }
           {lifeStage === 'mommy' && babyAgeDays > 0 &&
-          <PartnerBabyCrisisCard
+          <BabyCrisisWidget
             babyAgeWeeks={Math.floor(babyAgeDays / 7)}
             babyName={partnerProfile.baby_name || tr('partnerv2_korpe', 'Körpə')} />
           }

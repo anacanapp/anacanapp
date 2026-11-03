@@ -24,10 +24,22 @@ export interface PartnerWomanData {
   // Əkiz/üçüz və s. — partnyor ekranlarında "körpəniz"/"körpələriniz" mətnini
   // düzgün seçmək üçün (bax PartnerHomeScreen.tsx, PartnerWeekInfoCard.tsx)
   multiples_type: string | null;
+  /** Her profile photo (null → the stage emoji is shown). */
+  avatar_url?: string | null;
   /** Pregnancy loss recovery (Duzelis72); the partner guide shows only when she chose to share it. */
   pregnancy_loss_date?: string | null;
   loss_recovery_active?: boolean | null;
   loss_share_partner?: boolean | null;
+}
+
+/** One of her ACTIVE children, from partner_children_v1 (Duzelis83; masked by share_baby_logs). */
+export interface PartnerChild {
+  id: string;
+  name: string;
+  birth_date: string | null;
+  gender: 'boy' | 'girl' | null;
+  avatar_emoji: string | null;
+  is_current: boolean;
 }
 
 export interface PartnerDailyLog {
@@ -42,6 +54,7 @@ export const usePartnerData = () => {
   const { sharing } = usePartnerSharedSettings();
   const [partnerProfile, setPartnerProfile] = useState<PartnerWomanData | null>(null);
   const [partnerDailyLog, setPartnerDailyLog] = useState<PartnerDailyLog | null>(null);
+  const [partnerChildren, setPartnerChildren] = useState<PartnerChild[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -68,7 +81,7 @@ export const usePartnerData = () => {
       // Fetch partner's profile using the linked_partner_id
       const { data: partnerData, error: profileError } = await supabase.
       from('profiles').
-      select('id, user_id, name, life_stage, last_period_date, due_date, baby_birth_date, baby_name, baby_gender, cycle_length, period_length, multiples_type, pregnancy_loss_date, loss_recovery_active, loss_share_partner').
+      select('id, user_id, name, life_stage, last_period_date, due_date, baby_birth_date, baby_name, baby_gender, cycle_length, period_length, multiples_type, pregnancy_loss_date, loss_recovery_active, loss_share_partner, avatar_url').
       eq('id', profile.linked_partner_id).
       maybeSingle();
 
@@ -96,6 +109,10 @@ export const usePartnerData = () => {
           setPartnerDailyLog(logData);
           if (profile?.user_id) writeCache(PARTNER_DAILYLOG_CACHE, profile.user_id, logData);
         }
+
+        // All of her active children (a missing RPC on an older backend just leaves the list empty).
+        const { data: kids, error: kidsError } = await (supabase as any).rpc('partner_children_v1');
+        if (!kidsError && Array.isArray(kids)) setPartnerChildren(kids as PartnerChild[]);
       }
     } catch (err) {
       console.error('Error in fetchPartnerData:', err);
@@ -183,6 +200,7 @@ export const usePartnerData = () => {
   return {
     partnerProfile,
     partnerDailyLog: maskedDailyLog,
+    partnerChildren,
     sharing,
     loading,
     error,

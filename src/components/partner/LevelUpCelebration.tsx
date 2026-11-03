@@ -21,7 +21,8 @@ const LevelUpCelebration = ({ show, level, onClose }: LevelUpCelebrationProps) =
       const duration = 3000;
       const end = Date.now() + duration;
 
-      const colors = ['#8B5CF6', '#EC4899', '#F59E0B', '#10B981', '#3B82F6'];
+      // Anacan palette: coral, peach, warm yellow, soft green.
+      const colors = ['#FF5A5F', '#FFB4A2', '#FFD166', '#7FD1AE', '#FFDCDD'];
 
       const frame = () => {
         confetti({
@@ -64,6 +65,9 @@ const LevelUpCelebration = ({ show, level, onClose }: LevelUpCelebrationProps) =
     }
   }, [show, onClose]);
 
+  const close = () => { setIsVisible(false); setTimeout(onClose, 300); };
+
+  // Anacan style: white card, peach header band, coral action (no violet gradient).
   return (
     <AnimatePresence>
       {isVisible &&
@@ -71,106 +75,86 @@ const LevelUpCelebration = ({ show, level, onClose }: LevelUpCelebrationProps) =
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70"
-        onClick={() => {
-          setIsVisible(false);
-          setTimeout(onClose, 300);
-        }}>
-        
+        className="a-scope fixed inset-0 z-[100] flex items-center justify-center px-6"
+        style={{ background: 'rgba(20, 16, 18, 0.55)' }}
+        onClick={close}>
           <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          exit={{ scale: 0, rotate: 180 }}
-          transition={{ type: 'spring', damping: 15, stiffness: 200 }}
-          className="bg-gradient-to-br from-partner via-violet-600 to-purple-700 rounded-3xl p-8 mx-6 text-center relative overflow-hidden shadow-2xl"
+          initial={{ scale: 0.85, opacity: 0, y: 24 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ type: 'spring', damping: 18, stiffness: 240 }}
+          role="dialog" aria-modal="true"
+          className="w-full max-w-[340px] overflow-hidden text-center"
+          style={{ background: 'var(--a-surface)', borderRadius: 28, boxShadow: '0 24px 60px rgba(0,0,0,0.25)' }}
           onClick={(e) => e.stopPropagation()}>
-          
-            {/* Decorative elements */}
-            <div className="absolute -top-10 -start-10 w-32 h-32 rounded-full bg-white/10 blur-2xl" />
-            <div className="absolute -bottom-10 -end-10 w-40 h-40 rounded-full bg-pink-500/20 blur-3xl" />
-            
-            {/* Floating stars */}
-            <motion.div
-            className="absolute top-4 start-4"
-            animate={{ y: [0, -10, 0], rotate: [0, 15, 0] }}
-            transition={{ duration: 2, repeat: 2 }}>
-            
-              <Star className="w-6 h-6 text-yellow-400 fill-yellow-400" />
-            </motion.div>
-            <motion.div
-            className="absolute top-6 end-6"
-            animate={{ y: [0, -8, 0], rotate: [0, -15, 0] }}
-            transition={{ duration: 1.5, repeat: 2, delay: 0.3 }}>
-            
-              <Sparkles className="w-5 h-5 text-pink-300" />
-            </motion.div>
-            <motion.div
-            className="absolute bottom-8 start-8"
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 1.8, repeat: 2, delay: 0.5 }}>
-            
-              <Star className="w-4 h-4 text-amber-300 fill-amber-300" />
-            </motion.div>
-
-            <div className="relative z-10">
-              {/* Trophy icon */}
+            <div className="relative" style={{ background: 'var(--a-grad-peach)', padding: '28px 24px 22px' }}>
               <motion.div
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center shadow-lg">
-              
-                <Trophy className="w-12 h-12 text-white" />
+              initial={{ y: -16, opacity: 0, scale: 0.8 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              transition={{ delay: 0.15, type: 'spring', damping: 12 }}
+              className="mx-auto flex items-center justify-center"
+              style={{ width: 84, height: 84, borderRadius: 999, background: 'var(--a-surface)', boxShadow: '0 8px 24px rgba(255, 90, 95, 0.25)' }}>
+                <Trophy size={40} style={{ color: 'var(--a-coral)' }} />
               </motion.div>
+              <motion.span
+              aria-hidden
+              className="absolute"
+              style={{ top: 18, insetInlineStart: 22 }}
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 1.8, repeat: 2 }}>
+                <Sparkles size={18} style={{ color: 'var(--a-coral)' }} />
+              </motion.span>
+              <motion.span
+              aria-hidden
+              className="absolute"
+              style={{ top: 26, insetInlineEnd: 26 }}
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 1.6, repeat: 2, delay: 0.3 }}>
+                <Star size={16} style={{ color: 'var(--a-yellow-ink, #b7791f)', fill: 'var(--a-yellow-1, #fff2c8)' }} />
+              </motion.span>
+            </div>
 
-              {/* Text content */}
-              <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4 }}>
-              
-                <h2 className="text-white text-2xl font-black mb-2">
+            <div style={{ padding: '18px 24px 22px' }}>
+              <motion.div initial={{ y: 12, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
+                <h2 style={{ fontSize: 21, fontWeight: 900, color: 'var(--a-ink)', letterSpacing: '-0.01em' }}>
                   {tr("levelupcelebration_tebrik_edirik_283dfe", "T\u0259brik Edirik! \uD83C\uDF89")}
                 </h2>
-                <p className="text-white/80 text-lg mb-4">
+                <p style={{ fontSize: 14, color: 'var(--a-ink-soft)', marginTop: 4 }}>
                   {tr("levelupcelebration_yeni_seviyyeye_kecdiniz_72af13", "Yeni s\u0259viyy\u0259y\u0259 ke\xE7diniz!")}
                 </p>
               </motion.div>
 
-              {/* Level badge */}
               <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.6, type: 'spring', damping: 10 }}
-              className="inline-flex items-center gap-3 bg-white/25 rounded-2xl px-6 py-4 mb-4">
-              
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-yellow-500 flex items-center justify-center shadow-md">
-                  <span className="text-white font-black text-2xl">{level}</span>
-                </div>
-                <div className="text-start">
-                  <p className="text-white/70 text-sm">{tr("levelupcelebration_seviyye_8266e7", "Səviyyə")}</p>
-                  <p className="text-white font-bold text-xl">Level {level}</p>
-                </div>
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.45, type: 'spring', damping: 12 }}
+              className="inline-flex items-center gap-3"
+              style={{ marginTop: 16, background: 'var(--a-peach-1)', borderRadius: 18, padding: '10px 16px' }}>
+                <span className="flex items-center justify-center"
+                style={{ width: 44, height: 44, borderRadius: 999, background: 'var(--a-coral)', color: 'var(--a-on-coral, #fff)', fontWeight: 900, fontSize: 20 }}>
+                  {level}
+                </span>
+                <span className="text-start">
+                  <span style={{ display: 'block', fontSize: 10.5, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--a-accent-ink)' }}>
+                    {tr("levelupcelebration_seviyye_8266e7", "Səviyyə")}
+                  </span>
+                  <span style={{ display: 'block', fontSize: 13, fontWeight: 700, color: 'var(--a-ink)' }}>
+                    {tr("levelupcelebration_davam_et_ela_gedirsen_326f52", "Davam et, \u0259la gedirs\u0259n! \uD83D\uDCAA")}
+                  </span>
+                </span>
               </motion.div>
 
-              <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="text-white/60 text-sm">
-                {tr("levelupcelebration_davam_et_ela_gedirsen_326f52", "Davam et, \u0259la gedirs\u0259n! \uD83D\uDCAA")}
-              
-            </motion.p>
-
               <motion.button
-              initial={{ opacity: 0, y: 10 }}
+              type="button"
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              onClick={() => {
-                setIsVisible(false);
-                setTimeout(onClose, 300);
-              }}
-              className="mt-4 px-8 py-3 bg-white text-partner font-bold rounded-xl hover:bg-white/90 transition-colors">{tr("untranslated_davam_et_rchhd5", "Davam et")}</motion.button>
+              transition={{ delay: 0.6 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={close}
+              className="w-full"
+              style={{ marginTop: 18, background: 'var(--a-coral)', color: 'var(--a-on-coral, #fff)', fontWeight: 800, fontSize: 15, borderRadius: 16, padding: '13px 16px' }}>
+                {tr("untranslated_davam_et_rchhd5", "Davam et")}
+              </motion.button>
             </div>
           </motion.div>
         </motion.div>
