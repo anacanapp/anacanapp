@@ -43,6 +43,14 @@ export function getOrdinal(num: number, lang: string): string {
   if (lang === 'pl') return `${num}.`;
   if (lang === 'nl') return `${num}e`;
   if (lang === 'sv') return `${num}:${[1, 2].includes(num % 10) && ![11, 12].includes(num % 100) ? 'a' : 'e'}`;
+  if (lang === 'et') return `${num}.`;
+  if (lang === 'ky') {
+    // Kyrgyz ordinal suffix follows the vowel harmony of the number's last spoken word (1-чи, 3-чү, 6-чы, 9-чу, 100-чү).
+    const units = ['', 'чи', 'чи', 'чү', 'чү', 'чи', 'чы', 'чи', 'чи', 'чу'];
+    const tens = ['чү', 'чу', 'чы', 'чу', 'чы', 'чү', 'чы', 'чи', 'чи', 'чу'];
+    const suffix = num % 10 ? units[num % 10] : num % 100 ? tens[Math.floor((num % 100) / 10)] : 'чү';
+    return `${num}-${suffix}`;
+  }
   
   // AZ by default
   const lastDigit = num % 10;

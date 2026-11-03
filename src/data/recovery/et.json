@@ -1,0 +1,220 @@
+{
+ "title": "Sünnitusjärgne taastumine",
+ "eyebrow_vaginal": "Sünnitusjärgne taastumine · vaginaalne sünnitus",
+ "eyebrow_cesarean": "Sünnitusjärgne taastumine · keisrilõige",
+ "week_title": "{n}. nädal pärast sünnitust",
+ "after_title": "Taastumine jätkub",
+ "after_body": "Esimesed 6 nädalat on möödas. Sinu keha endiselt paraneb – jätka vaagnapõhjalihaste harjutustega ja ole enda vastu õrn.",
+ "choose_title": "Kuidas sa sünnitasid?",
+ "choose_desc": "Kohandame taastumisplaani just sulle sobivaks. Saad seda hiljem muuta.",
+ "vaginal": "Vaginaalne sünnitus",
+ "cesarean": "Keisrilõige",
+ "change_type": "Muuda sünnituse tüüpi",
+ "focus": "Selle nädala fookus",
+ "tips": "See nädal",
+ "weeks": {
+  "vaginal": [
+   {
+    "title": "Puhkus ja intiimpiirkonna hooldus",
+    "body": "Veritsus (lohhia) on kõige tugevam esimestel päevadel. Puhka lamades nii palju kui võimalik ja maga siis, kui beebi magab.",
+    "tips": [
+     "Loputa sooja veega pärast iga tualetis käimist ja tupsuta kuivaks eest taha suunas",
+     "Külm kompress vähendab turset",
+     "Joo rohkelt vett – see on oluline piima tootmiseks ja taastumiseks"
+    ]
+   },
+   {
+    "title": "Kerge liikumine",
+    "body": "Lühikesed jalutuskäigud parandavad vereringet ja aitavad vältida kõhukinnisust. Ära tõsta midagi rasket.",
+    "tips": [
+     "Kõnni 5–10 minutit, 2–3 korda päevas",
+     "Alusta vaagnapõhjalihaste harjutustega rahulikult",
+     "Söö kiudainerikast toitu ja joo vett"
+    ]
+   },
+   {
+    "title": "Kuula oma keha",
+    "body": "Veritsus peaks muutuma heledamaks ja vähenema. Kui see äkki suureneb, võib see olla märk, et oled end liialt koormanud.",
+    "tips": [
+     "Suurenda jalutuskäikude pikkust 15–20 minutini",
+     "Võta vastu abipakkumised",
+     "Planeeri aega uinakuteks"
+    ]
+   },
+   {
+    "title": "Meeleolu ja energia",
+    "body": "Unepuudus ja hormonaalsed muutused mõjutavad sinu tuju. Kui kurbus kestab kauem kui 2 nädalat, ei ole see tavapärane – räägi kellegagi.",
+    "tips": [
+     "Saa iga päev veidi värsket õhku",
+     "Jaga öiseid toitmisi partneriga",
+     "Tee meeleolutest"
+    ]
+   },
+   {
+    "title": "Jõu taastamine",
+    "body": "Kõhulihased taastuvad aeglaselt. Ära kiirusta veel kõhulihaste treeningutega.",
+    "tips": [
+     "Jälgi oma rühti, eriti imetamise ajal",
+     "Tee vaagnapõhjalihaste harjutusi 3 korda päevas",
+     "Söö rauarikkaid toite"
+    ]
+   },
+   {
+    "title": "6-nädalane kontroll",
+    "body": "Arstlik kontroll näitab, kuidas su taastumine kulgeb. Pane oma küsimused eelnevalt kirja.",
+    "tips": [
+     "Küsi rasestumisvastaste vahendite kohta",
+     "Maini, kui esineb uriinipidamatust",
+     "Saa luba treeningutega naasmiseks"
+    ]
+   }
+  ],
+  "cesarean": [
+   {
+    "title": "Haava hooldus ja puhkus",
+    "body": "Keisrilõige on suur operatsioon. Esimesel nädalal on sinu peamised ülesanded puhkamine, valu leevendamine ning haava puhtana ja kuivana hoidmine.",
+    "tips": [
+     "Võta valuvaigistit vastavalt arsti soovitusele",
+     "Köhimisel toeta kõhtu padjaga",
+     "Ära tõsta midagi raskemat kui sinu beebi"
+    ]
+   },
+   {
+    "title": "Haava hooldus ja kerged jalutuskäigud",
+    "body": "5–10-minutiline jalutuskäik 2–3 korda päevas aitab vereringet parandada. Ära tõsta midagi raskemat kui sinu beebi.",
+    "tips": [
+     "Kontrolli haava iga päev: punetus, mädane eritis, haava avanemine",
+     "Voodist tõusmiseks keera end küljele",
+     "Joo piisavalt vett ja söö kiudainerikast toitu"
+    ]
+   },
+   {
+    "title": "Suurenda liikumist järk-järgult",
+    "body": "Kui valu väheneb, jaluta veidi kauem. Trepist käimine on lubatud, kuid tee seda aeglaselt.",
+    "tips": [
+     "Suurenda jalutuskäikude kestust 15 minutini",
+     "Küsi enne autojuhtimist nõu oma arstilt",
+     "Tee sügava hingamise harjutusi"
+    ]
+   },
+   {
+    "title": "Meeleolu ja uni",
+    "body": "Operatsioon ja unetud ööd võivad koos tunduda kurnavad. Abi palumine on märk tugevusest.",
+    "tips": [
+     "Jaga öiseid toitmisi",
+     "Tee meeleolutest",
+     "Väikesed ja sagedased toidukorrad"
+    ]
+   },
+   {
+    "title": "Kõhulihased",
+    "body": "Haav on sulgunud, kuid sisemised koed alles paranevad. Kõhulihaste treenimiseks on veel vara.",
+    "tips": [
+     "Jätka vaagnapõhjalihaste harjutustega",
+     "Ainult kerged kodutööd",
+     "Jälgi oma rühti"
+    ]
+   },
+   {
+    "title": "6-nädalane kontroll",
+    "body": "Arst kontrollib haava ja üldist taastumist. Küsi julgelt tulevaste raseduste ja treeningute kohta.",
+    "tips": [
+     "Tuimus armi ümber on tavaline – küsi selle kohta julgelt",
+     "Aruta rasestumisvastaseid vahendeid",
+     "Uuri, millal võid treeningutega alustada"
+    ]
+   }
+  ]
+ },
+ "checkin_title": "Kuidas sul täna läheb?",
+ "checkin_saved": "Tänane sissekanne salvestatud",
+ "checkin_edit": "Muuda",
+ "bleeding": "Veritsus",
+ "bleeding_levels": [
+  "Puudub",
+  "Kerge",
+  "Keskmine",
+  "Tugev"
+ ],
+ "pain": "Valu",
+ "stitches": "Õmblused",
+ "stitches_levels": {
+  "fine": "Korras",
+  "sore": "Valus",
+  "red": "Punetav",
+  "none": "Õmblused puuduvad"
+ },
+ "mood": "Meeleolu",
+ "mood_levels": [
+  "Väga halb",
+  "Halb",
+  "Rahuldav",
+  "Hea",
+  "Suurepärane"
+ ],
+ "signs_question": "Kas sul esineb mõni neist?",
+ "flags": {
+  "heavy_bleeding": "Veritsus, mis leotab sideme läbi ühe tunni jooksul, või suured vereklombid",
+  "fever": "Palavik üle 38 °C, külmavärinad",
+  "wound": "Punetus, mädane eritis või õmbluste avanemine",
+  "leg": "Turse, punetus ja valu ühes jalas",
+  "chest": "Õhupuudus või valu rinnus",
+  "headache": "Tugev peavalu, mis ei möödu, nägemishäired",
+  "smell": "Halvalõhnaline voolus",
+  "breast": "Punane, kuum ja valulik piirkond rinnal",
+  "harm": "Mõtted endale või lapsele viga teha",
+  "sad": "Kurbus või lootusetus, mis kestab üle 2 nädala"
+ },
+ "urgent_title": "See on hädaohu märk",
+ "urgent_body": "Ära oota – helista kohe numbrile {number} või mine lähimasse haiglasse.",
+ "doctor_alert_title": "Võta täna oma arstiga ühendust",
+ "doctor_alert_body": "Seda märki tuleb kontrollida. Helista oma arstile või ämmaemandale.",
+ "harm_body": "Need mõtted ei ole sinu süü ja neid saab ravida. Helista kohe numbrile {number} või räägi kellelegi lähedasele.",
+ "call": "Helista {number}",
+ "tell_partner": "Teavita partnerit",
+ "partner_told": "Sinu partnerit on teavitatud",
+ "partner_alert_msg": "Märkasin taastumise ajal murettekitavat sümptomit. Palun ole minuga / helista mulle.",
+ "save_checkin": "Salvesta",
+ "kegel_title": "Vaagnapõhja harjutus",
+ "kegel_today": "Täna {done} / {goal} · {min} min",
+ "kegel_start": "Alusta",
+ "kegel_level": [
+  "Õrn algus",
+  "Tugevdamine",
+  "Vastupidavus"
+ ],
+ "squeeze": "Pinguta",
+ "relax": "Lõdvesta",
+ "seconds": "sekundit",
+ "rep": "Kordus {n} / {total}",
+ "rhythm": "Pinguta {hold} s, lõdvesta {rest} s",
+ "kegel_howto": "Pinguta õrnalt, nagu hoiaksid uriini kinni. Ära hoia hinge kinni ning ära pinguta kõhu- ega reielihaseid.",
+ "pause": "Paus",
+ "resume": "Jätka",
+ "finish": "Lõpeta",
+ "kegel_done": "Suurepärane! Tänane seanss {n} on tehtud 💜",
+ "kegel_note_cesarean": "Pärast keisrilõiget alusta vaid arsti loal. Lõpeta, kui tunned valu.",
+ "kegel_note": "Lõpeta, kui tunned valu või ebamugavust.",
+ "kegel_premium": "Igapäevane vaagnapõhja programm on Premiumis",
+ "checkup_title": "6-nädalane kontroll",
+ "checkup_desc": "~ {date} · pane küsimused kirja",
+ "checkup_questions": [
+  "Kas minu veritsus on normaalne?",
+  "Mida soovitad rasestumisvastaseks vahendiks?",
+  "Millal võin trenniga alustada?",
+  "Kas uriinipidamatus on normaalne?",
+  "Soovin rääkida oma meeleolust"
+ ],
+ "add_to_calendar": "Lisa kalendrisse",
+ "added_calendar": "Lisatud kalendrisse",
+ "mood_test": "Meeleolutest (Edinburgh)",
+ "history": "Viimased 7 päeva",
+ "tabs": {
+  "week": "See nädal",
+  "checkin": "Kontroll",
+  "kegel": "Harjutused",
+  "signs": "Sümptomid"
+ },
+ "home_card_desc": "Sel nädalal: {focus}",
+ "disclaimer": "See juhend ei asenda arsti nõuandeid."
+}

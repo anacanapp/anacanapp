@@ -7,7 +7,8 @@ import { prepareBlogContent } from '../../src/lib/blog-content.mjs';
 import copy from '../i18n/blog-editorial-copy.json' with { type: 'json' };
 
 export const CANONICAL = 'https://app.anacan.az';
-export const languages = Object.keys(copy);
+// The public blog keeps the published 21-locale contract; ky/et are in-app only.
+export const languages = Object.keys(copy).filter(language => language !== 'ky' && language !== 'et');
 const escape = value => String(value ?? '').replace(/[&<>"']/g, character => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[character]));
 const safeJson = value => JSON.stringify(value).replace(/[<>&\u2028\u2029]/g, character => `\\u${character.charCodeAt(0).toString(16).padStart(4,'0')}`);
 export const pathFor = (language, slug) => `/blog${language === 'az' ? '' : `/${language}`}${slug ? `/${encodeURIComponent(slug)}` : ''}/`;

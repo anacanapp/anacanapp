@@ -609,6 +609,7 @@ serve(async (req) => {
       es: `El cuento de ${actualChildName}`, pt: `A história de ${actualChildName}`,
       vi: `Câu chuyện của ${actualChildName}`, hi: `${actualChildName} की कहानी`, ja: `${actualChildName}のお話`,
       ko: `${actualChildName}의 이야기`, pl: `Historia: ${actualChildName}`, nl: `Het verhaal van ${actualChildName}`, sv: `${actualChildName} – en berättelse`,
+      ky: `${actualChildName} жөнүндө жомок`, et: `Muinasjutt: ${actualChildName}`,
     };
     
     const title = rawTitle || defaultTitles[language] || defaultTitles['az'];

@@ -124,7 +124,7 @@ describe('feature copy', () => {
   it.each(['illness', 'recovery', 'ttc', 'sleep-next', 'widgets', 'feedback', 'lock-offer', 'sponsor'])('%s has 21 languages with the same shape and placeholders', (feature) => {
     const dir = join(__dirname, '..', 'data', feature);
     const files = readdirSync(dir).filter((f) => f.endsWith('.json'));
-    expect(files).toHaveLength(21);
+    expect(files).toHaveLength(23);
     const az = JSON.parse(readFileSync(join(dir, 'az.json'), 'utf8'));
     for (const file of files) {
       const data = JSON.parse(readFileSync(join(dir, file), 'utf8'));

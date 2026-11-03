@@ -20,7 +20,9 @@
     "ko",
     "pl",
     "nl",
-    "sv"
+    "sv",
+    "ky",
+    "et"
   ],
   "sourceHash": "317a0e4ee21d7fb3cae0c970ac67b01fbf74be89f120c47580953b2261db1a03",
   "values": {
@@ -44,7 +46,9 @@
       "ko": "혈당 추적",
       "pl": "Monitorowanie poziomu cukru we krwi",
       "nl": "Bloedsuiker bijhouden",
-      "sv": "Blodsockeruppföljning"
+      "sv": "Blodsockeruppföljning",
+      "ky": "Кандагы кантты көзөмөлдөө",
+      "et": "Veresuhkru jälgija"
     },
     "0591890c-70df-4ab3-a153-a0af339f386c:description:9793c6377ad4133c36a26b92f185fd446485929aa1d69e31f041c822008d987a": {
       "en": "Premium only",
@@ -66,7 +70,9 @@
       "ko": "Premium 전용",
       "pl": "Tylko Premium",
       "nl": "Alleen met Premium",
-      "sv": "Endast Premium"
+      "sv": "Endast Premium",
+      "ky": "Premium гана",
+      "et": "Ainult Premium"
     },
     "2ad5c743-505e-447d-9de0-ec0a586d1def:title:30e071beb87ab3456b5a5bc22e199086a96f532c3bc44316e853753fdf99a3d3": {
       "en": "Pregnancy Album",
@@ -88,7 +94,9 @@
       "ko": "임신 앨범",
       "pl": "Album ciążowy",
       "nl": "Zwangerschapsalbum",
-      "sv": "Graviditetsalbum"
+      "sv": "Graviditetsalbum",
+      "ky": "Кош бойлуулук альбому",
+      "et": "Raseduse album"
     },
     "2ad5c743-505e-447d-9de0-ec0a586d1def:description:9793c6377ad4133c36a26b92f185fd446485929aa1d69e31f041c822008d987a": {
       "en": "Premium only",
@@ -110,7 +118,9 @@
       "ko": "Premium 전용",
       "pl": "Tylko Premium",
       "nl": "Alleen met Premium",
-      "sv": "Endast Premium"
+      "sv": "Endast Premium",
+      "ky": "Premium гана",
+      "et": "Ainult Premium"
     },
     "36bf3502-3a4c-464d-8444-a4dee86bda90:title:09384c3e2514157ae2a6d66b04bc70be9efed5fd8b443a8b4b40b49b0c983182": {
       "en": "Exercise Programs",
@@ -132,7 +142,9 @@
       "ko": "운동 프로그램",
       "pl": "Programy ćwiczeń",
       "nl": "Trainingsprogramma's",
-      "sv": "Träningsprogram"
+      "sv": "Träningsprogram",
+      "ky": "Көнүгүү программалары",
+      "et": "Treeningprogrammid"
     },
     "36bf3502-3a4c-464d-8444-a4dee86bda90:description:9793c6377ad4133c36a26b92f185fd446485929aa1d69e31f041c822008d987a": {
       "en": "Premium only",
@@ -154,7 +166,9 @@
       "ko": "Premium 전용",
       "pl": "Tylko Premium",
       "nl": "Alleen met Premium",
-      "sv": "Endast Premium"
+      "sv": "Endast Premium",
+      "ky": "Premium гана",
+      "et": "Ainult Premium"
     },
     "6b173bac-e788-4360-8dc5-8b0728368b1f:title:7ff4eeeda7a58ee27697a4cf282113ddc0d6a26367d9c267d78f641315da5873": {
       "en": "Safety Lookup",
@@ -176,7 +190,9 @@
       "ko": "안전 정보 조회",
       "pl": "Sprawdzanie bezpieczeństwa",
       "nl": "Veiligheidscheck",
-      "sv": "Säkerhetssökning"
+      "sv": "Säkerhetssökning",
+      "ky": "Коопсуздукту текшерүү",
+      "et": "Ohutuskontroll"
     },
     "6b173bac-e788-4360-8dc5-8b0728368b1f:description:9793c6377ad4133c36a26b92f185fd446485929aa1d69e31f041c822008d987a": {
       "en": "Premium only",
@@ -198,7 +214,9 @@
       "ko": "Premium 전용",
       "pl": "Tylko Premium",
       "nl": "Alleen met Premium",
-      "sv": "Endast Premium"
+      "sv": "Endast Premium",
+      "ky": "Premium гана",
+      "et": "Ainult Premium"
     },
     "6b762385-283d-46c0-b5b0-c48d447c758b:title:72777e0787ac822aa774237257314e24d9cfa735c6cad62497967598ba576f8e": {
       "en": "Recipes",
@@ -220,7 +238,9 @@
       "ko": "레시피",
       "pl": "Przepisy",
       "nl": "Recepten",
-      "sv": "Recept"
+      "sv": "Recept",
+      "ky": "Рецепттер",
+      "et": "Retseptid"
     },
     "6b762385-283d-46c0-b5b0-c48d447c758b:description:afe1002ce6cb4af78f6f93305854e63e85149684347d687cb13d0687fa2dadf4": {
       "en": "Limited free",
@@ -242,7 +262,9 @@
       "ko": "일부 무료",
       "pl": "Bezpłatnie w ograniczonym zakresie",
       "nl": "Beperkt gratis",
-      "sv": "Begränsad gratisåtkomst"
+      "sv": "Begränsad gratisåtkomst",
+      "ky": "Чектелген акысыз мүмкүнчүлүк",
+      "et": "Piiratud tasuta"
     },
     "7ab2da65-61c5-4d5d-8bd2-f92f7ed2bc04:title:e66f03cb0c1b610f86b9a1ff43ea3aab88d4cacd15ee24d430cc114c54a5dfd2": {
       "en": "Mom-Friendly Map",
@@ -264,7 +286,9 @@
       "ko": "엄마 친화 지도",
       "pl": "Mapa przyjazna mamom",
       "nl": "Mama-vriendelijke kaart",
-      "sv": "Mammavänlig karta"
+      "sv": "Mammavänlig karta",
+      "ky": "Энелер үчүн ыңгайлуу карта",
+      "et": "Emasõbralik kaart"
     },
     "7ab2da65-61c5-4d5d-8bd2-f92f7ed2bc04:description:9793c6377ad4133c36a26b92f185fd446485929aa1d69e31f041c822008d987a": {
       "en": "Premium only",
@@ -286,7 +310,9 @@
       "ko": "Premium 전용",
       "pl": "Tylko Premium",
       "nl": "Alleen met Premium",
-      "sv": "Endast Premium"
+      "sv": "Endast Premium",
+      "ky": "Premium гана",
+      "et": "Ainult Premium"
     },
     "7bbb1acd-2ddf-4d77-9f50-464d97cb3648:title:8f2988620e74ba6c9a85ec7326008fc0e107150837d6cbba9651e020eb3c9cfa": {
       "en": "White Noise",
@@ -308,7 +334,9 @@
       "ko": "백색 소음",
       "pl": "Biały szum",
       "nl": "Witte ruis",
-      "sv": "Vitt brus"
+      "sv": "Vitt brus",
+      "ky": "Ак ызы-чуу (White Noise)",
+      "et": "Valge müra"
     },
     "7bbb1acd-2ddf-4d77-9f50-464d97cb3648:description:30f775787e28cbcd8fd13902704c6271df4de05c57fd575d4fc239f28666df98": {
       "en": "20 min/day free",
@@ -330,7 +358,9 @@
       "ko": "하루 20분 무료",
       "pl": "Bezpłatnie: 20 min dziennie",
       "nl": "20 min./dag gratis",
-      "sv": "20 min/dag gratis"
+      "sv": "20 min/dag gratis",
+      "ky": "Күнүнө 20 мүнөт акысыз",
+      "et": "20 min/päevas tasuta"
     },
     "906f372d-fff0-44ca-aea1-7b5764fa872e:title:6644cbf82276e248ff46f0a65aff0f6b9c5373504774d0c401f37d5604e4beb8": {
       "en": "Cry Translator",
@@ -352,7 +382,9 @@
       "ko": "울음 번역기",
       "pl": "Tłumacz płaczu",
       "nl": "Huilvertaler",
-      "sv": "Tolkning av babygråt"
+      "sv": "Tolkning av babygråt",
+      "ky": "Ымыркайдын ыйын котормочу",
+      "et": "Nutu tõlkija"
     },
     "906f372d-fff0-44ca-aea1-7b5764fa872e:description:7046cf950d1023a89bee0581ea66871173f4498e9a0b563789cf5ddb10f215fb": {
       "en": "3/day free",
@@ -374,7 +406,9 @@
       "ko": "하루 3회 무료",
       "pl": "Bezpłatnie dziennie: 3",
       "nl": "3/dag gratis",
-      "sv": "3/dag gratis"
+      "sv": "3/dag gratis",
+      "ky": "Күнүнө 3 жолу акысыз",
+      "et": "3/päevas tasuta"
     },
     "99e32a46-e48e-405c-ae40-08bd38408c0d:title:f1fdb7f0b45e1ccaeb73141988240a584dbccc2eb91be1474022c034fc35efc9": {
       "en": "Fairy Tales",
@@ -396,7 +430,9 @@
       "ko": "동화",
       "pl": "Bajki",
       "nl": "Sprookjes",
-      "sv": "Sagor"
+      "sv": "Sagor",
+      "ky": "Жомоктор",
+      "et": "Muinasjutud"
     },
     "99e32a46-e48e-405c-ae40-08bd38408c0d:description:7046cf950d1023a89bee0581ea66871173f4498e9a0b563789cf5ddb10f215fb": {
       "en": "3/day free",
@@ -418,7 +454,9 @@
       "ko": "하루 3회 무료",
       "pl": "Bezpłatnie dziennie: 3",
       "nl": "3/dag gratis",
-      "sv": "3/dag gratis"
+      "sv": "3/dag gratis",
+      "ky": "Күнүнө 3 жолу акысыз",
+      "et": "3/päevas tasuta"
     },
     "9a9a69cf-18fd-4172-8638-7a4950b3c603:title:7bc7289b916efb15aecb7e2e8cacac22e1e241b3a560f312376e2fc695c18def": {
       "en": "Baby Photoshoot",
@@ -440,7 +478,9 @@
       "ko": "아기 사진 촬영",
       "pl": "Sesja zdjęciowa maluszka",
       "nl": "Babyfotoshoot",
-      "sv": "Babyfotografering"
+      "sv": "Babyfotografering",
+      "ky": "Ымыркайлардын фотосессиясы",
+      "et": "Beebi fotosessioon"
     },
     "9a9a69cf-18fd-4172-8638-7a4950b3c603:description:405bf1401f6d1557c52dc5f9ec8f2dddca5c9ea8e0fef38baedf2e26c42df156": {
       "en": "3 photos free",
@@ -462,7 +502,9 @@
       "ko": "사진 3장 무료",
       "pl": "Bezpłatne zdjęcia: 3",
       "nl": "3 foto's gratis",
-      "sv": "3 foton gratis"
+      "sv": "3 foton gratis",
+      "ky": "3 сүрөт акысыз",
+      "et": "3 fotot tasuta"
     },
     "a81ba240-cdd1-4695-a758-cd2c21ca8442:title:fe4f6b5ca52927989b390e661d13d3a64d8d4873bd3e62813cae8d00fc4b02c2": {
       "en": "Priority Support",
@@ -484,7 +526,9 @@
       "ko": "우선 지원",
       "pl": "Priorytetowe wsparcie",
       "nl": "Prioriteitsondersteuning",
-      "sv": "Prioriterad support"
+      "sv": "Prioriterad support",
+      "ky": "Артыкчылыктуу колдоо",
+      "et": "Prioriteetne tugi"
     },
     "a81ba240-cdd1-4695-a758-cd2c21ca8442:description:934aa37a3911cf82b7ed02fff6058c8d9754081879675965dca1d63e49a4b1ab": {
       "en": "Fast support",
@@ -506,7 +550,9 @@
       "ko": "빠른 지원",
       "pl": "Szybkie wsparcie",
       "nl": "Snelle ondersteuning",
-      "sv": "Snabb support"
+      "sv": "Snabb support",
+      "ky": "Ыкчам колдоо",
+      "et": "Kiire tugi"
     },
     "bb94201a-dd66-416c-abea-f584f484d0a7:title:0c852636a17f6275fe20f3176c1d7274c0b1497cc637adf6e414307ec27cac68": {
       "en": "Anacan AI",
@@ -528,7 +574,9 @@
       "ko": "Anacan AI",
       "pl": "Anacan AI",
       "nl": "Anacan AI",
-      "sv": "Anacan AI"
+      "sv": "Anacan AI",
+      "ky": "Anacan AI",
+      "et": "Anacan AI"
     },
     "bb94201a-dd66-416c-abea-f584f484d0a7:description:bbb1bbc05e22a9c020762909b9ef22a4fde3f98f95fb273681cb6f77d2bf74b6": {
       "en": "10 messages/day",
@@ -550,7 +598,9 @@
       "ko": "하루 10개 메시지",
       "pl": "Wiadomości dziennie: 10",
       "nl": "10 berichten/dag",
-      "sv": "10 meddelanden/dag"
+      "sv": "10 meddelanden/dag",
+      "ky": "Күнүнө 10 билдирүү",
+      "et": "10 sõnumit/päevas"
     },
     "d029f7f6-0a00-4339-8fd2-79a37194b794:title:583fa7ad8983ec02ee621a9521798042c374e0de9e93f183c65a8954a8ebd1ba": {
       "en": "Ad-Free Experience",
@@ -572,7 +622,9 @@
       "ko": "광고 없는 이용",
       "pl": "Bez reklam",
       "nl": "Advertentievrij",
-      "sv": "Reklamfri upplevelse"
+      "sv": "Reklamfri upplevelse",
+      "ky": "Жарнамасыз тажрыйба",
+      "et": "Reklaamivaba kogemus"
     },
     "d029f7f6-0a00-4339-8fd2-79a37194b794:description:a0580e449711f208dfe5948729172223e2654e68f19b721e83889aec9b63a9d3": {
       "en": "No ads",
@@ -594,7 +646,9 @@
       "ko": "광고 없음",
       "pl": "Bez reklam",
       "nl": "Geen advertenties",
-      "sv": "Inga annonser"
+      "sv": "Inga annonser",
+      "ky": "Жарнамасыз",
+      "et": "Ilma reklaamideta"
     },
     "d2602145-8693-4aeb-96d9-ac5247e58c5c:title:c864d2b717a42359ea94894638d6ff16c822ed60e146fcb8eb8c1dd0e415578b": {
       "en": "Growth Tracking",
@@ -616,7 +670,9 @@
       "ko": "성장 추적",
       "pl": "Monitorowanie wzrostu",
       "nl": "Groei bijhouden",
-      "sv": "Tillväxtuppföljning"
+      "sv": "Tillväxtuppföljning",
+      "ky": "Өсүүнү көзөмөлдөө",
+      "et": "Kasvu jälgimine"
     },
     "d2602145-8693-4aeb-96d9-ac5247e58c5c:description:213b3155862bf81a3a7cce7a636423f59e7645368a798565ce7850dc39806174": {
       "en": "Percentile charts",
@@ -638,7 +694,9 @@
       "ko": "백분위수 차트",
       "pl": "Wykresy centylowe",
       "nl": "Percentielgrafieken",
-      "sv": "Percentilkurvor"
+      "sv": "Percentilkurvor",
+      "ky": "Перцентилдик диаграммалар",
+      "et": "Kasvukõverad"
     },
     "eb33f430-0170-4d55-b0f5-6b5899aaf622:title:cec1012678b1ef0ee2cbc9ea56d2d2491719227c1c4e9bebf64f3247f753eab8": {
       "en": "Nutrition Tracking",
@@ -660,7 +718,9 @@
       "ko": "영양 관리",
       "pl": "Monitorowanie żywienia",
       "nl": "Voeding bijhouden",
-      "sv": "Kostregistrering"
+      "sv": "Kostregistrering",
+      "ky": "Тамактанууну көзөмөлдөө",
+      "et": "Toitumise jälgimine"
     },
     "eb33f430-0170-4d55-b0f5-6b5899aaf622:description:9793c6377ad4133c36a26b92f185fd446485929aa1d69e31f041c822008d987a": {
       "en": "Premium only",
@@ -682,7 +742,9 @@
       "ko": "Premium 전용",
       "pl": "Tylko Premium",
       "nl": "Alleen met Premium",
-      "sv": "Endast Premium"
+      "sv": "Endast Premium",
+      "ky": "Premium гана",
+      "et": "Ainult Premium"
     },
     "f07ae91a-a320-4d7f-8c5b-beaed0166f0a:title:4db6dcf284597bbce6889ae0fbd98c62131b309106f09afdf7e05fb6cc5e6ff0": {
       "en": "Horoscope",
@@ -704,7 +766,9 @@
       "ko": "운세",
       "pl": "Horoskop",
       "nl": "Horoscoop",
-      "sv": "Horoskop"
+      "sv": "Horoskop",
+      "ky": "Жылдыз төлгө",
+      "et": "Horoskoop"
     },
     "f07ae91a-a320-4d7f-8c5b-beaed0166f0a:description:9793c6377ad4133c36a26b92f185fd446485929aa1d69e31f041c822008d987a": {
       "en": "Premium only",
@@ -726,7 +790,9 @@
       "ko": "Premium 전용",
       "pl": "Tylko Premium",
       "nl": "Alleen met Premium",
-      "sv": "Endast Premium"
+      "sv": "Endast Premium",
+      "ky": "Premium гана",
+      "et": "Ainult Premium"
     },
     "327bb19a-a151-401f-8674-583d01582905:name:66bfff83c0bb3f10c3a2412a4a50b8a6c56339a84b19da44b1a3674d4c051844": {
       "en": "Premium",
@@ -748,7 +814,9 @@
       "ko": "Premium",
       "pl": "Premium",
       "nl": "Premium",
-      "sv": "Premium"
+      "sv": "Premium",
+      "ky": "Premium",
+      "et": "Premium"
     },
     "b017feea-12eb-42ee-a760-3d01d333e111:name:bba63938bcea620cd8585ab8472cc1ac7cebb49f8029644a4f0e2c9a7f2229e5": {
       "en": "Free",
@@ -770,7 +838,9 @@
       "ko": "무료",
       "pl": "Bezpłatny",
       "nl": "Gratis",
-      "sv": "Gratis"
+      "sv": "Gratis",
+      "ky": "Акысыз",
+      "et": "Tasuta"
     },
     "9553d156-33b5-4b76-9fe3-49c4364d321e:name:66bfff83c0bb3f10c3a2412a4a50b8a6c56339a84b19da44b1a3674d4c051844": {
       "en": "Premium",
@@ -792,7 +862,9 @@
       "ko": "Premium",
       "pl": "Premium",
       "nl": "Premium",
-      "sv": "Premium"
+      "sv": "Premium",
+      "ky": "Premium",
+      "et": "Premium"
     },
     "d0f33bdf-9bf8-4b0d-9a6d-60520d8c4da6:name:bba63938bcea620cd8585ab8472cc1ac7cebb49f8029644a4f0e2c9a7f2229e5": {
       "en": "Free",
@@ -814,7 +886,9 @@
       "ko": "무료",
       "pl": "Bezpłatny",
       "nl": "Gratis",
-      "sv": "Gratis"
+      "sv": "Gratis",
+      "ky": "Акысыз",
+      "et": "Tasuta"
     }
   }
 }

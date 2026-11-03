@@ -1,4 +1,4 @@
-import { appLanguageLocale, LANGUAGE_EXPANSION_21 } from './app-languages';
+import { appLanguageLocale, LANGUAGE_EXPANSION_21, LANGUAGE_EXPANSION_23 } from './app-languages';
 
 const units: Record<string, { unit: string; short?: boolean }> = {
   day: { unit: 'day' }, days: { unit: 'day' }, gün: { unit: 'day' },
@@ -15,7 +15,7 @@ const units: Record<string, { unit: string; short?: boolean }> = {
 /** CLDR supplies grammatical count forms (e.g. Polish 1 dzień / 2 dni) for
  * simple duration labels. Prices and sentence templates retain their own copy. */
 export function formatCountUnit(language: string, template: string, values: Record<string, unknown>): string | undefined {
-  if (!(LANGUAGE_EXPANSION_21 as readonly string[]).includes(language)) return undefined;
+  if (![...LANGUAGE_EXPANSION_21, ...LANGUAGE_EXPANSION_23].includes(language as never)) return undefined;
   const match = /^\{([A-Za-z_][A-Za-z0-9_]*)\}\s+(day|days|gün|week|weeks|həftə|month|months|ay|year|years|il|hour|hours|saat|minute|minutes|dəqiqə|min|dəq|second|seconds|saniyə|sec|san)\.?$/iu.exec(template.trim());
   if (!match || typeof values[match[1]] !== 'number' || !Number.isFinite(values[match[1]])) return undefined;
   const item = units[match[2].toLowerCase()];

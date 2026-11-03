@@ -6,6 +6,7 @@ export const EXPANDED_LANGUAGE_NAMES: Record<string, string> = {
   vi: 'Vietnamese (vi-VN, with complete Vietnamese diacritics)', hi: 'Hindi (hi-IN, Devanagari script)',
   ja: 'Japanese (ja-JP, natural Japanese with kanji and kana)', ko: 'Korean (ko-KR, Hangul)',
   pl: 'Polish (pl-PL)', nl: 'Dutch (Netherlands, nl-NL)', sv: 'Swedish (sv-SE)',
+  ky: 'Kyrgyz (ky-KG, Cyrillic script)', et: 'Estonian (et-EE)',
 };
 export const LANGUAGE_NAMES: Record<string, string> = {
   az: 'Azerbaijani', en: 'English', tr: 'Turkish', ru: 'Russian', de: 'German',

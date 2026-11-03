@@ -1,0 +1,13 @@
+{
+ "title": "Kaitse oma andmeid",
+ "subtitle": "Sinu raseduse, tervise ja beebi märkmed on privaatsed. Veendu, et ainult sina saad rakenduse avada.",
+ "bio_ios": "Face ID",
+ "bio_android": "Sõrmejälg või näotuvastus",
+ "bio_line": "Avaneb pilgu või puudutusega",
+ "pin_title": "4-kohaline PIN-kood",
+ "pin_line": "Varuvõimalus: saad alati avada PIN-koodiga",
+ "settings_title": "Lülita igal ajal välja",
+ "settings_line": "Saad selle välja lülitada või PIN-koodi muuta jaotises {where}",
+ "enable": "Lülita kaitse sisse",
+ "later": "Mitte praegu"
+}

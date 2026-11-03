@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Search, X, Link2 } from 'lucide-react';
 import BlogContent from '../components/blog/BlogContent';
-import { APP_LANGUAGES } from '../lib/app-languages';
+import { WEBSITE_LANGUAGES } from '../lib/app-languages';
 import { useWebsite } from './context';
 import { Arrow, ArticleCard, Breadcrumb, categoryKey, DownloadCard, Eyebrow, Intro } from './components';
 import type { WebsiteCopyKey } from './model';
@@ -53,7 +53,7 @@ export function ArticlePage() {
   const [shareStatus,setShareStatus]=useState('');
   const rendered=useMemo(()=>article?.contentFormat==='anacan-article-html-v1'?{content:article.content||'',headings:article.headings}:renderArticleContent(article?.content||'',{footnotesLabel:t('references')}),[article?.content,article?.contentFormat,article?.headings,route.language]);
   if(!article)return null;
-  const locale=APP_LANGUAGES.find(item=>item.code===route.language)!.locale;
+  const locale=WEBSITE_LANGUAGES.find(item=>item.code===route.language)!.locale;
   const related=[...articles].filter(item=>item.id!==article.id).sort((a,b)=>Number(article.relatedIds.includes(b.id))-Number(article.relatedIds.includes(a.id))||Number(b.category===article.category)-Number(a.category===article.category)).slice(0,3);
   const share=async()=>{
     const url=WEBSITE_ORIGIN+sitePath(route.language,'article',article.slug);

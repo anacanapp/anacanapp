@@ -376,5 +376,41 @@
     "webPreview": "Webb förhandsgranskning",
     "legal": "Juridiska dokument",
     "checking": "Kontrollerar åtkomsträttigheter…"
+  },
+  "ky": {
+    "opening": "Anacan тиркемеси ачылууда…",
+    "openApp": "Тиркемени ачуу",
+    "storeFallback": "Эгер тиркеме ачылбаса, аны тиешелүү дүкөндөн жүктөп алсаңыз болот.",
+    "adminLogin": "Башкаруучунун кирүүсү",
+    "adminOnly": "Веб-кирүү серверде тастыкталган башкаруучунун аккаунту үчүн гана ачык.",
+    "email": "Электрондук почта",
+    "password": "Сыр сөз",
+    "signIn": "Кирүү",
+    "signOut": "Чыгуу",
+    "accessDenied": "Бул аккаунттун башкаруучу укугу жок.",
+    "loginFailed": "Кирүү ишке ашкан жок. Электрондук почтаны жана сыр сөздү текшериңиз.",
+    "connectionError": "Байланыш үзүлдү. Кайра аракет кылып көрүңүз.",
+    "adminPanel": "Башкаруу панели",
+    "webPreview": "Веб-алдын ала көрүү",
+    "legal": "Укуктук документтер",
+    "checking": "Кирүү укуктары текшерилүүдө…"
+  },
+  "et": {
+    "opening": "Anacan rakendus avaneb…",
+    "openApp": "Ava rakendus",
+    "storeFallback": "Kui rakendus ei avane, saad selle alla laadida vastavast poest.",
+    "adminLogin": "Administraatori sisselogimine",
+    "adminOnly": "Veebiligipääs on avatud ainult serveris kinnitatud administraatorikontole.",
+    "email": "E-post",
+    "password": "Parool",
+    "signIn": "Logi sisse",
+    "signOut": "Logi välja",
+    "accessDenied": "Sellel kontol puudub administraatori ligipääs.",
+    "loginFailed": "Sisselogimine ebaõnnestus. Kontrolli e-posti ja parooli.",
+    "connectionError": "Ühenduse loomine ebaõnnestus. Palun proovi uuesti.",
+    "adminPanel": "Administraatoripaneel",
+    "webPreview": "Veebieelvaade",
+    "legal": "Juriidilised dokumendid",
+    "checking": "Kontrollin ligipääsuõigusi…"
   }
 }

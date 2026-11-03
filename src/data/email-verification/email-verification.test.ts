@@ -9,7 +9,7 @@ const read = (lang: string) => JSON.parse(readFileSync(join(dir, `${lang}.json`)
 
 describe('e-mail verification copy', () => {
   it('exists in all 21 languages with the same keys and placeholders', () => {
-    expect(languages).toHaveLength(21);
+    expect(languages).toHaveLength(23);
     const az = read('az');
     for (const lang of languages) {
       const t = read(lang);

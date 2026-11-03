@@ -50,7 +50,8 @@ backend, native or deployment work. Their detailed continuity rules still apply.
   website gateway overlay, persisted Google credentials and8 enabled timers. New
   native bundles use verified managed admission offline, retain maintenance pins,
   tombstones and refresh-before-use. Never fall back to shadow/Source after cutover.
-- Preserve all21 languages and real-store pricing, eligibility, restore/pending
+- Preserve all 23 app languages (ky/et added; website and brand portal stay 21, see
+  `docs/LOCALIZATION_23.md`) and real-store pricing, eligibility, restore/pending
   and one-time offers. Compact onboarding contract: `docs/ONBOARDING_COMPACT.md`.
 - Word Garden starts Azerbaijani-only; follow `docs/WORD_GARDEN.md`. Each new
   language needs its own lexicon/copy and language+revision+mode progress. Never

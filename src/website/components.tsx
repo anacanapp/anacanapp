@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowUpRight, ArrowRight, Menu, X, Globe2, ChevronDown, Smartphone, Heart, CalendarDays, BookOpen, Leaf } from 'lucide-react';
-import { APP_LANGUAGES } from '../lib/app-languages';
+import { WEBSITE_LANGUAGES } from '../lib/app-languages';
 import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL } from './routes';
 import type { WebsiteCopyKey, WebsiteArticle } from './model';
 import { useWebsite } from './context';
@@ -28,7 +28,7 @@ export function WebsiteHeader() {
               const code = event.target.value as typeof route.language;
               const path = alternateRoute(route,code,article);
               if (path) window.location.assign(basePath+path+window.location.search);
-            }}>{APP_LANGUAGES.filter(item=>route.kind!=='article'||article?.slugs[item.code]).map(item=><option key={item.code} value={item.code} lang={item.code}>{item.native_name}</option>)}</select><ChevronDown aria-hidden="true" size={12}/>
+            }}>{WEBSITE_LANGUAGES.filter(item=>route.kind!=='article'||article?.slugs[item.code]).map(item=><option key={item.code} value={item.code} lang={item.code}>{item.native_name}</option>)}</select><ChevronDown aria-hidden="true" size={12}/>
           </label>
           <a className="site-nav-download" href={href('download')}>{t('download')}<Arrow diagonal/></a>
           <button className="site-menu-button" aria-label={t(open?'closeMenu':'menu')} aria-expanded={open} aria-controls="site-mobile-menu" onClick={()=>setOpen(value=>!value)}>{open?<X size={20}/>:<Menu size={20}/>}</button>
@@ -95,7 +95,7 @@ export function Breadcrumb({label}: {label:string}) {
 }
 export function LanguageLinks() {
   const {route,article,basePath,t}=useWebsite();
-  return <nav className="site-language-links" aria-label={t('language')}>{APP_LANGUAGES.map(item=>{
+  return <nav className="site-language-links" aria-label={t('language')}>{WEBSITE_LANGUAGES.map(item=>{
     const path=alternateRoute(route,item.code,article);
     return path&&<a key={item.code} href={basePath+path} lang={item.code} hrefLang={item.code} aria-current={item.code===route.language?'page':undefined}>{item.native_name}</a>;
   })}</nav>;

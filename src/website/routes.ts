@@ -1,4 +1,4 @@
-import { APP_LANGUAGE_CODES, isAppLanguage, type AppLanguageCode } from '../lib/app-languages.ts';
+import { WEBSITE_LANGUAGE_CODES_ALL, isWebsiteLanguage, type WebsiteLanguageCode } from '../lib/app-languages.ts';
 import detailRoutes from './detail-routes.json' with {type:'json'};
 
 export const WEBSITE_ORIGIN = 'https://anacan.az';
@@ -12,7 +12,7 @@ export type StaticPage = Exclude<WebsitePage, 'home' | 'article' | 'notFound'>;
 type CoreStaticPage=Exclude<StaticPage,DetailPage>;
 
 /** Public URLs are a published contract, independent of translated UI copy. */
-const CORE_PAGE_SLUGS: Record<AppLanguageCode, Record<CoreStaticPage, string>> = {
+const CORE_PAGE_SLUGS: Record<WebsiteLanguageCode, Record<CoreStaticPage, string>> = {
   az: { journal:'jurnal',tools:'kalkulyatorlar',ovulation:'ovulyasiya-kalkulyatoru',dueDate:'dogus-tarixi-kalkulyatoru',symptoms:'hamilelik-elametleri',features:'anacan-tetbiqi',faq:'tez-tez-verilen-suallar',contact:'elaqe',download:'yukle',privacy:'mexfilik-siyaseti',terms:'istifade-sertleri',simulator:'ata-simulyatoru' },
   en: { journal:'journal',tools:'calculators',ovulation:'ovulation-calculator',dueDate:'due-date-calculator',symptoms:'pregnancy-symptoms',features:'anacan-app',faq:'frequently-asked-questions',contact:'contact',download:'download',privacy:'privacy-policy',terms:'terms-of-use',simulator:'partner-readiness-quiz' },
   tr: { journal:'gunluk',tools:'hesaplayicilar',ovulation:'yumurtlama-hesaplayici',dueDate:'dogum-tarihi-hesaplayici',symptoms:'hamilelik-belirtileri',features:'anacan-uygulamasi',faq:'sik-sorulan-sorular',contact:'iletisim',download:'indir',privacy:'gizlilik-politikasi',terms:'kullanim-kosullari',simulator:'babaliga-hazirlik-testi' },
@@ -35,11 +35,11 @@ const CORE_PAGE_SLUGS: Record<AppLanguageCode, Record<CoreStaticPage, string>> =
   nl: { journal:'magazine',tools:'rekentools',ovulation:'ovulatiecalculator',dueDate:'uitgerekende-datum-berekenen',symptoms:'zwangerschapssymptomen',features:'anacan-applicatie',faq:'veelgestelde-vragen',contact:'contact',download:'downloaden',privacy:'privacybeleid',terms:'gebruiksvoorwaarden',simulator:'partner-voorbereidingsquiz' },
   sv: { journal:'magasin',tools:'kalkylatorer',ovulation:'agglossningskalkylator',dueDate:'berakna-forlossningsdatum',symptoms:'graviditetssymtom',features:'anacan-appen',faq:'vanliga-fragor',contact:'kontakt',download:'ladda-ner',privacy:'integritetspolicy',terms:'anvandarvillkor',simulator:'partnerforberedelse-test' },
 };
-export const PAGE_SLUGS=Object.fromEntries(APP_LANGUAGE_CODES.map(code=>[code,{...CORE_PAGE_SLUGS[code],...detailRoutes[code]}])) as Record<AppLanguageCode,Record<StaticPage,string>>;
+export const PAGE_SLUGS=Object.fromEntries(WEBSITE_LANGUAGE_CODES_ALL.map(code=>[code,{...CORE_PAGE_SLUGS[code],...detailRoutes[code]}])) as Record<WebsiteLanguageCode,Record<StaticPage,string>>;
 
-export interface ArticleRoute { id: string; legacySlug: string; slugs: Partial<Record<AppLanguageCode, string>> }
-export interface WebsiteRoute { language: AppLanguageCode; kind: WebsitePage; articleId?: string; slug?: string; page?: number }
-export function sitePath(language: AppLanguageCode, kind: WebsitePage = 'home', slug?: string, page = 1): string {
+export interface ArticleRoute { id: string; legacySlug: string; slugs: Partial<Record<WebsiteLanguageCode, string>> }
+export interface WebsiteRoute { language: WebsiteLanguageCode; kind: WebsitePage; articleId?: string; slug?: string; page?: number }
+export function sitePath(language: WebsiteLanguageCode, kind: WebsitePage = 'home', slug?: string, page = 1): string {
   if (kind === 'home') return `/${language}/`;
   if (kind === 'article') {
     if (!validWebsiteSlug(slug)) throw new Error('WEBSITE_ARTICLE_SLUG_REQUIRED');
@@ -63,7 +63,7 @@ export function localizedSlug(title: string): string {
   return slug.replace(/-+$/g,'');
 }
 export function routePath(route: WebsiteRoute) { return sitePath(route.language, route.kind, route.slug, route.page); }
-export function alternateRoute(route: WebsiteRoute, language: AppLanguageCode, article?: ArticleRoute): string | undefined {
+export function alternateRoute(route: WebsiteRoute, language: WebsiteLanguageCode, article?: ArticleRoute): string | undefined {
   if (route.kind === 'article') return article?.slugs[language] ? sitePath(language, 'article', article.slugs[language]) : undefined;
   return sitePath(language, route.kind, undefined, route.page);
 }
@@ -78,13 +78,13 @@ export function resolveWebsiteRoute(pathname: string, articles: readonly Article
   const oldPage: Record<string, StaticPage> = { blog:'journal',contact:'contact',faq:'faq',privacy:'privacy',terms:'terms',app:'download',
     'ovulyasiya-kalkulyatoru':'ovulation','hamilelik-elamtleri':'symptoms','hamilelik-elametleri':'symptoms','ata-simulyatoru':'simulator',
     'due-date-calculator':'dueDate','ovulation-calculator':'ovulation','pregnancy-symptoms':'symptoms' };
-  let language: AppLanguageCode = isAppLanguage(segments[0]) ? segments[0] : 'az';
-  const hasLanguage = isAppLanguage(segments[0]);
+  let language: WebsiteLanguageCode = isWebsiteLanguage(segments[0]) ? segments[0] : 'az';
+  const hasLanguage = isWebsiteLanguage(segments[0]);
   const rest = hasLanguage ? segments.slice(1) : segments;
   // Both historical layouts are durable aliases: /blog/en/slug and /en/blog/slug.
   if (rest[0] === 'blog') {
-    const offset = isAppLanguage(rest[1]) ? 2 : 1;
-    if (offset === 2) language = rest[1] as AppLanguageCode;
+    const offset = isWebsiteLanguage(rest[1]) ? 2 : 1;
+    if (offset === 2) language = rest[1] as WebsiteLanguageCode;
     if (rest.length === offset) return { route:{language,kind:'journal'}, redirect:sitePath(language,'journal') };
     if (rest.length !== offset + 1) return { route:{language,kind:'notFound'} };
     const article = articles.find(item => item.legacySlug === rest[offset] || Object.values(item.slugs).includes(rest[offset]));
@@ -115,4 +115,4 @@ export function resolveWebsiteRoute(pathname: string, articles: readonly Article
   }
   return {route:{language,kind:'notFound'}};
 }
-export const WEBSITE_LANGUAGE_CODES = APP_LANGUAGE_CODES;
+export const WEBSITE_LANGUAGE_CODES = WEBSITE_LANGUAGE_CODES_ALL;

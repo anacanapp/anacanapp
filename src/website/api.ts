@@ -1,4 +1,4 @@
-import type { AppLanguageCode } from '../lib/app-languages';
+import type { WebsiteLanguageCode } from '../lib/app-languages';
 import { validWebsiteSlug } from './routes';
 import type { WebsiteArticle, WebsiteCatalog } from './model';
 import { localizedSlug } from './routes';
@@ -6,14 +6,14 @@ import DOMPurify from 'dompurify';
 
 /** The public website reads a Google-produced public projection, without creating
  * a consumer, native or brand session. No credentials or health inputs are sent. */
-export async function readWebsiteCatalog(language:AppLanguageCode, signal?:AbortSignal):Promise<WebsiteCatalog> {
+export async function readWebsiteCatalog(language:WebsiteLanguageCode, signal?:AbortSignal):Promise<WebsiteCatalog> {
   const response=await fetch(`/website/data/${language}.json`,{credentials:'omit',redirect:'error',signal,cache:'no-cache'});
   if(!response.ok)throw new Error('WEBSITE_CATALOG_UNAVAILABLE');
   const data=await response.json();
   if(data.schema!=='anacan-website-catalog-v1'||data.language!==language||!Array.isArray(data.articles))throw new Error('WEBSITE_CATALOG_INVALID');
   return data;
 }
-export async function readWebsiteArticle(language:AppLanguageCode, slug:string, signal?:AbortSignal):Promise<WebsiteArticle> {
+export async function readWebsiteArticle(language:WebsiteLanguageCode, slug:string, signal?:AbortSignal):Promise<WebsiteArticle> {
   if(!validWebsiteSlug(slug))throw new Error('WEBSITE_SLUG_INVALID');
   const response=await fetch(`/website/data/${language}/${encodeURIComponent(slug)}.json`,{credentials:'omit',redirect:'error',signal,cache:'no-cache'});
   if(!response.ok)throw new Error('WEBSITE_ARTICLE_UNAVAILABLE');
@@ -34,7 +34,7 @@ async function config() {
 }
 /** Live Google RLS reads are deliberately separate from the app SDK. The anon
  * key is public; user sessions/cookies are never sent or refreshed here. */
-export async function refreshGoogleArticles(language:AppLanguageCode, cached:WebsiteArticle[], signal?:AbortSignal):Promise<WebsiteArticle[]> {
+export async function refreshGoogleArticles(language:WebsiteLanguageCode, cached:WebsiteArticle[], signal?:AbortSignal):Promise<WebsiteArticle[]> {
   const backend=await config();
   const url=new URL('/rest/v1/blog_posts',backend.url);
   const fields=['id','slug','title','excerpt','author_name','cover_image_url','reading_time','category','life_stage','tags','is_published','created_at','updated_at','editorial_metadata'];

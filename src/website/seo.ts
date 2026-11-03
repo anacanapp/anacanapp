@@ -1,4 +1,4 @@
-import { APP_LANGUAGES, type AppLanguageCode } from '../lib/app-languages';
+import { WEBSITE_LANGUAGES, type WebsiteLanguageCode } from '../lib/app-languages';
 import type { WebsiteBoot, WebsiteCopyKey } from './model';
 import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN,DETAIL_PAGES,type DetailPage } from './routes';
 
@@ -19,11 +19,11 @@ export function websiteMeta(boot:WebsiteBoot) {
   const suffix=boot.route.kind==='journal'&&(boot.route.page||1)>1?` — ${boot.copy.page.replace('{count}',String(boot.route.page))}`:'';
   const canonical=WEBSITE_ORIGIN+routePath(boot.route);
   const image=new URL(boot.article?.cover||'/website/og-cover.jpg',WEBSITE_ORIGIN).href;
-  const available=boot.route.kind==='article'?APP_LANGUAGES.filter(item=>boot.article?.slugs[item.code]):APP_LANGUAGES;
+  const available=boot.route.kind==='article'?WEBSITE_LANGUAGES.filter(item=>boot.article?.slugs[item.code]):WEBSITE_LANGUAGES;
   const alternates=available.map(({code,locale})=>({code,locale,url:WEBSITE_ORIGIN+alternateRoute(boot.route,code,boot.article)}));
-  alternates.push({code:'x-default' as AppLanguageCode,locale:'az-AZ',url:WEBSITE_ORIGIN+(alternateRoute(boot.route,'az',boot.article)||sitePath('az'))});
+  alternates.push({code:'x-default' as WebsiteLanguageCode,locale:'az-AZ',url:WEBSITE_ORIGIN+(alternateRoute(boot.route,'az',boot.article)||sitePath('az'))});
   return {title:(title+suffix).includes('Anacan')?title+suffix:title+suffix+' | Anacan',description,canonical,image,
-    imageAlt:boot.article?.coverAlt||'Anacan',locale:APP_LANGUAGES.find(item=>item.code===boot.route.language)!.locale.replace('-','_'),alternates};
+    imageAlt:boot.article?.coverAlt||'Anacan',locale:WEBSITE_LANGUAGES.find(item=>item.code===boot.route.language)!.locale.replace('-','_'),alternates};
 }
 function faqs(boot:WebsiteBoot) {
   const {kind}=boot.route;
@@ -36,7 +36,7 @@ export function websiteSchema(boot:WebsiteBoot) {
   const meta=websiteMeta(boot),language=boot.route.language,graph:Record<string,unknown>[]=[];
   graph.push({'@type':'Organization','@id':ORGANIZATION_ID,name:'Anacan',url:WEBSITE_ORIGIN,logo:{'@type':'ImageObject',url:WEBSITE_ORIGIN+'/brand-mark.png'},
     email:'info@anacan.az',sameAs:['https://instagram.com/anacanapp','https://facebook.com/anacanapp','https://youtube.com/@anacanapp']});
-  graph.push({'@type':'WebSite','@id':WEBSITE_ID,name:'Anacan',url:WEBSITE_ORIGIN,publisher:{'@id':ORGANIZATION_ID},inLanguage:APP_LANGUAGES.map(item=>item.code)});
+  graph.push({'@type':'WebSite','@id':WEBSITE_ID,name:'Anacan',url:WEBSITE_ORIGIN,publisher:{'@id':ORGANIZATION_ID},inLanguage:WEBSITE_LANGUAGES.map(item=>item.code)});
   graph.push({'@type':boot.route.kind==='journal'?'CollectionPage':boot.route.kind==='contact'?'ContactPage':'WebPage','@id':meta.canonical+'#webpage',url:meta.canonical,
     name:meta.title,description:meta.description,inLanguage:language,isPartOf:{'@id':WEBSITE_ID},publisher:{'@id':ORGANIZATION_ID},isAccessibleForFree:true});
   if(boot.route.kind!=='home'&&boot.route.kind!=='notFound'){
@@ -63,7 +63,7 @@ export function websiteSchema(boot:WebsiteBoot) {
     url:meta.canonical,applicationCategory:'HealthApplication',operatingSystem:'Any',inLanguage:language,isAccessibleForFree:true,offers:{'@type':'Offer',price:'0',priceCurrency:'USD'}});
   if(['home','features','download'].includes(boot.route.kind))graph.push({'@type':'MobileApplication','@id':WEBSITE_ORIGIN+'/#app',name:'Anacan',
     applicationCategory:'HealthApplication',operatingSystem:'iOS, Android',url:WEBSITE_ORIGIN+sitePath(language,'download'),downloadUrl:[APP_STORE_URL,GOOGLE_PLAY_URL],
-    inLanguage:APP_LANGUAGES.map(item=>item.code),publisher:{'@id':ORGANIZATION_ID}});
+    inLanguage:WEBSITE_LANGUAGES.map(item=>item.code),publisher:{'@id':ORGANIZATION_ID}});
   return {'@context':'https://schema.org','@graph':graph};
 }
 export function updateWebsiteHead(boot:WebsiteBoot) {

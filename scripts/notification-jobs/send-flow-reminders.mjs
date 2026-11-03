@@ -197,6 +197,24 @@ const DEFAULTS = {
     pms: { title: () => 'PMS-period ⚡', body: () => 'PMS närmar sig – ta hand om dig!' },
     pill: { title: () => 'Dags för tabletten 💊', body: () => 'Glöm inte att ta din dagliga tablett!' },
   },
+  ky: {
+    period_start: { title: () => 'Этек кир жакындап калды 🔴', body: (d) => `Этек кириңизге ${d} күн калды!` },
+    period_end: { title: () => 'Этек кир бүттү ✅', body: () => 'Этек кириңиз аяктады!' },
+    ovulation: { title: () => 'Овуляция күнү 🌸', body: (d) => `Овуляцияга ${d} күн калды!` },
+    fertile_start: { title: () => 'Боюна бүтүүгө ыңгайлуу күндөр 💕', body: () => 'Боюна бүтүүгө ыңгайлуу күндөрүңүз башталды!' },
+    fertile_end: { title: () => 'Ыңгайлуу күндөр аяктап жатат 📅', body: () => 'Боюна бүтүүгө ыңгайлуу күндөрүңүз аяктап баратат.' },
+    pms: { title: () => 'ПМС мезгили ⚡', body: () => 'ПМС жакындап калды, өзүңүзгө кам көрүңүз!' },
+    pill: { title: () => 'Таблетка ичүү убактысы 💊', body: () => 'Күнүмдүк таблеткаңызды ичүүнү унутпаңыз!' },
+  },
+  et: {
+    period_start: { title: () => 'Menstruatsioon läheneb 🔴', body: (d) => `Menstruatsioonini on jäänud ${d} päev(a)!` },
+    period_end: { title: () => 'Menstruatsioon on läbi ✅', body: () => 'Sinu menstruatsioon on lõppenud!' },
+    ovulation: { title: () => 'Ovulatsioonipäev 🌸', body: (d) => `Ovulatsioonini on jäänud ${d} päev(a)!` },
+    fertile_start: { title: () => 'Viljakad päevad 💕', body: () => 'Sinu viljakad päevad algavad!' },
+    fertile_end: { title: () => 'Viljakad päevad lõpevad 📅', body: () => 'Sinu viljakad päevad on lõppemas.' },
+    pms: { title: () => 'PMS-i periood ⚡', body: () => 'PMS läheneb – hoia ennast!' },
+    pill: { title: () => 'Tableti aeg 💊', body: () => 'Ära unusta oma igapäevast tabletti!' },
+  },
 };
 
 function pickLang(value, valueEn, lang) {

@@ -1823,5 +1823,309 @@ export const EXPANDED_SERVER_COPY = {
         "Kontrollera om barnet är hungrigt"
       ]
     }
+  },
+  "ky": {
+    "push": {
+      "message": "Жаңы билдирүү",
+      "like": "Жаңы жактыруу",
+      "comment": "Жаңы комментарий",
+      "reply": "Жаңы жооп",
+      "repliedToComment": "{sender} сиздин комментарийиңизге жооп берди",
+      "commentLike": "Сиздин комментарийиңиз жактырылды",
+      "thankYou": "Сизге ыраазычылык билдирилди!",
+      "contraction": "Толгоо белгиси",
+      "shopping": "Сатып алуулар тизмесинин жаңылануусу",
+      "sos": "Өнөктөштүн шашылыш белгиси",
+      "birth": "Төрөт белгиси",
+      "diagnostic": "Anacan'дан тесттик билдирүү",
+      "diagnosticBody": "Бул сиздин аккаунтуңуз үчүн тесттик билдирүү.",
+      "user": "Колдонуучу",
+      "anonymous": "Анонимдүү",
+      "postLiked": "{sender} сиздин билдирүүңүздү жактырды.",
+      "storyLiked": "{sender} сиздин сториңизди жактырды.",
+      "commentLiked": "{sender} сиздин комментарийиңизди жактырды.",
+      "shoppingAdded": "{sender} сатып алуулар тизмесине {item} кошту.",
+      "thanks": "{sender} сизге ыраазычылык жөнөттү.",
+      "contractionAlert": "{sender} толгоо белгисин жөнөттү. Кененирээк маалымат алуу үчүн Anacan'ды ачыңыз.",
+      "image": "Сүрөт жөнөттү.",
+      "video": "Видео жөнөттү.",
+      "audio": "Үн билдирүүсүн жөнөттү.",
+      "love": "Сизге сүйүүсүн жөнөттү.",
+      "openMessage": "Билдирүүнү көрүү үчүн Anacan'ды ачыңыз."
+    },
+    "chatErrors": {
+      "unavailable": "Кызмат убактылуу иштебей жатат. Бир аздан кийин кайра аракет кылып көрүңүз.",
+      "noAnswer": "Тилекке каршы, жооп келген жок. Кайра аракет кылыңыз."
+    },
+    "poopValidation": {
+      "success": "Сүрөт талданды",
+      "diaper_empty": "Жалаяк бош жана заң көрүнбөйт. Заңы бар жалаякты сүрөткө тартыңыз.",
+      "baby_photo": "Бул баланын сүрөтү. Жалаякты сүрөткө тартыңыз.",
+      "adult_content": "Сүрөттө баланын жалаягы көрүнбөйт. Тиешелүү сүрөттү тандаңыз.",
+      "food": "Бул тамактын сүрөтү. Жалаякты сүрөткө тартыңыз.",
+      "animal": "Бул жаныбардын сүрөтү. Жалаякты сүрөткө тартыңыз.",
+      "screenshot": "Бул экрандын сүрөтү. Жалаяктын чыныгы сүрөтүн тартыңыз.",
+      "landscape": "Бул пейзаждын сүрөтү. Жалаякты сүрөткө тартыңыз.",
+      "object": "Бул буюмдун сүрөтү. Жалаякты сүрөткө тартыңыз.",
+      "other": "Сүрөт талдоого жарабайт. Жалаяктагы заңды сүрөткө тартыңыз.",
+      "unknown": "Сүрөттү таанууга мүмкүн болгон жок. Тагыраак сүрөткө тартыңыз.",
+      "valid": "Сүрөт жарактуу",
+      "failed": "Сүрөттү текшерүүгө мүмкүн болгон жок. Кайра аракет кылыңыз."
+    },
+    "poopFallback": {
+      "colorNameAz": "Белгисиз",
+      "explanation": "Сүрөт талданды. Тагыраак сүрөт тартууга аракет кылыңыз.",
+      "recommendations": [
+        "Баланын жалпы абалына көз салыңыз",
+        "Эгер тынчсызданып жатсаңыз, дарыгерге кайрылыңыз"
+      ]
+    },
+    "babyFallback": {
+      "sleep": {
+        "status": "нормалдуу",
+        "note": "Уйку боюнча маалыматтар чогултулууда – күн бою каттоону улантыңыз."
+      },
+      "feeding": {
+        "status": "нормалдуу",
+        "note": "Тамактандыруу боюнча маалыматтар чогултулууда – ар бир тамактандырууну каттоого аракет кылыңыз."
+      },
+      "diaper": {
+        "status": "нормалдуу",
+        "note": "Жалаяк боюнча маалыматтар чогултулууда – сууланган жалаяктар баланын курсагы тоюп жатканынын жакшы белгиси."
+      }
+    },
+    "weatherFallback": {
+      "hot": {
+        "weatherDescription": "Ысык аба ырайы",
+        "clothingAdvice": "Баланы жеңил, жука жана аба өткөрүүчү пахта кийимдер менен кийинтиңиз. Калпак жана кол кап сыяктуу кышкы кийимдердин кереги жок – күндөн коргонуу үчүн жука күн калпагын гана колдонуңуз.",
+        "clothingItems": [
+          "Жеңил пахта боди",
+          "Жука шорты/жука юбка",
+          "Күн калпагы"
+        ],
+        "indoorClothingAdvice": "Үй ичинде да жеңил, жука пахта кийимдер жетиштүү болот.",
+        "indoorClothingItems": [
+          "Жеңил пахта боди",
+          "Жылаңайлак/жука байпак"
+        ],
+        "roomTemperatureAdvice": "Бөлмө температурасын 20-22°C аралыгында кармаңыз жана зарыл болсо кондиционер же желдеткич колдонуңуз.",
+        "outdoorAdvice": "Эң ысык убакта (саат 12:00дөн 16:00гө чейин) сыртка чыкпоого аракет кылыңыз"
+      },
+      "cold": {
+        "weatherDescription": "Суук аба ырайы",
+        "clothingAdvice": "Баланы кат-кат кылып жылуу кийинтиңиз: ичинен пахта кийим жана сыртынан жылуу катмар.",
+        "clothingItems": [
+          "Жылуу комбинезон",
+          "Жылуу калпак",
+          "Кол кап"
+        ],
+        "indoorClothingAdvice": "Үйдө баланы ыңгайлуу пахта кийимдер менен кийинтиңиз.",
+        "indoorClothingItems": [
+          "Пахта боди",
+          "Байпак"
+        ],
+        "roomTemperatureAdvice": "Бөлмө температурасын 20-22°C аралыгында кармаңыз.",
+        "outdoorAdvice": "Сыртта болуу убактысын чектеңиз, колдорун жана башын жылуу кармаңыз"
+      },
+      "mild": {
+        "weatherDescription": "Мелүүн аба ырайы",
+        "clothingAdvice": "Баланы өтө ысытпай, орточо кийинтиңиз жана өтө көп катмардан качыңыз.",
+        "clothingItems": [
+          "Узун жеңдүү боди",
+          "Жука шым",
+          "Жука күрмө"
+        ],
+        "indoorClothingAdvice": "Үйдө баланы ыңгайлуу пахта кийимдер менен кийинтиңиз.",
+        "indoorClothingItems": [
+          "Пахта боди",
+          "Байпак"
+        ],
+        "roomTemperatureAdvice": "Бөлмө температурасын 20-22°C аралыгында кармаңыз.",
+        "outdoorAdvice": "Аба ырайына көз салып туруңуз"
+      }
+    },
+    "crySounds": {
+      "cough": "Бул баланын ыйы эмес, жөтөл.",
+      "sneeze": "Бул баланын ыйы эмес, чүчкүрүк.",
+      "adult_voice": "Бул баланын ыйы эмес, чоң кишинин үнү сыяктуу угулуп жатат.",
+      "scream": "Бул баланын ыйы катары таанылбаган кыйкырык же катуу үн.",
+      "bang": "Бул баланын ыйы эмес, бир нерсенин кагылган же согулган үнү.",
+      "music_tv": "Бул баланын ыйы эмес, сыналгынын, музыканын же башка медианын үнү.",
+      "animal": "Бул баланын ыйы эмес, жаныбардын үнү болушу мүмкүн.",
+      "silence": "Жаздырууда дээрлик эч кандай үн жок.",
+      "noise": "Бул баланын ыйы эмес, айланадагы ызы-чуу.",
+      "baby_cooing": "Бала ыйлаган жок, кубанычтуу үндөрдү чыгарып жатат.",
+      "unknown": "Баланын ыйы аныкталган жок."
+    },
+    "cryFallback": {
+      "shortExplanation": "Жаздыруу өтө кыска. Туура талдоо үчүн кеминде 3 секунддук үн керек.",
+      "shortRecommendations": [
+        "Кеминде 3 секунддук үн жаздырыңыз",
+        "Микрофонду балага жакын кармаңыз"
+      ],
+      "noCryRecommendations": [
+        "Бала ыйлаганда кайра аракет кылып көрүңүз",
+        "Микрофонду балага жакыныраак жылдырыңыз",
+        "Фондук ызы-чууну азайтыңыз"
+      ],
+      "classificationExplanation": "Ымыркайдын ыйлаганы аныкталды, бирок ыйдын так себебин аныктоо мүмкүн болбоду.",
+      "classificationRecommendations": [
+        "Баланын жалпы абалын текшериңиз",
+        "Жоолугун (подгузнигин) текшериңиз",
+        "Баланын курсагы ач эмес экенин текшериңиз"
+      ]
+    }
+  },
+  "et": {
+    "push": {
+      "message": "Uus sõnum",
+      "like": "Uus meeldimine",
+      "comment": "Uus kommentaar",
+      "reply": "Uus vastus",
+      "repliedToComment": "{sender} vastas sinu kommentaarile",
+      "commentLike": "Sinu kommentaar sai meeldimise",
+      "thankYou": "Said tänuavalduse!",
+      "contraction": "Tuhude häire",
+      "shopping": "Ostunimekirja uuendus",
+      "sos": "Kiire partneri häire",
+      "birth": "Sünnituse häire",
+      "diagnostic": "Anacani tõuketeate test",
+      "diagnosticBody": "See on sinu konto testteavitus.",
+      "user": "Kasutaja",
+      "anonymous": "Anonüümne",
+      "postLiked": "{sender} märkis sinu postituse meeldivaks.",
+      "storyLiked": "{sender} märkis sinu loo meeldivaks.",
+      "commentLiked": "{sender} märkis sinu kommentaari meeldivaks.",
+      "shoppingAdded": "{sender} lisas ostunimekirja: {item}.",
+      "thanks": "{sender} saatis sulle tänuavalduse.",
+      "contractionAlert": "{sender} saatis tuhude häire. Lisateabe saamiseks ava Anacan.",
+      "image": "Saatis foto.",
+      "video": "Saatis video.",
+      "audio": "Saatis häälsõnumi.",
+      "love": "Saatis sulle armastust.",
+      "openMessage": "Sõnumi nägemiseks ava Anacan."
+    },
+    "chatErrors": {
+      "unavailable": "Teenus on ajutiselt kättesaamatu. Proovi hiljem uuesti.",
+      "noAnswer": "Kahjuks ma ei saanud vastust. Proovi uuesti."
+    },
+    "poopValidation": {
+      "success": "Pilt on analüüsitud",
+      "diaper_empty": "Mähe on tühi ja väljaheidet pole näha. Tee pilt väljaheitega mähkmest.",
+      "baby_photo": "See on pilt lapsest. Tee pilt mähkmest.",
+      "adult_content": "Pildil ei ole beebi mähet. Vali sobiv pilt.",
+      "food": "See on pilt toidust. Tee pilt mähkmest.",
+      "animal": "See on pilt loomast. Tee pilt mähkmest.",
+      "screenshot": "See on ekraanipilt. Tee mähkmest päris foto.",
+      "landscape": "See on loodusfoto. Tee pilt mähkmest.",
+      "object": "See on pilt esemest. Tee pilt mähkmest.",
+      "other": "Pilt ei sobi analüüsimiseks. Tee pilt mähkmes olevast väljaheitest.",
+      "unknown": "Pilti ei suudetud tuvastada. Tee selgem foto.",
+      "valid": "Pilt on sobiv",
+      "failed": "Pilti ei õnnestunud kontrollida. Proovi uuesti."
+    },
+    "poopFallback": {
+      "colorNameAz": "Tundmatu",
+      "explanation": "Pilt on analüüsitud. Proovi teha selgem pilt.",
+      "recommendations": [
+        "Jälgi lapse üldseisundit",
+        "Mure korral võta ühendust arstiga"
+      ]
+    },
+    "babyFallback": {
+      "sleep": {
+        "status": "normaalne",
+        "note": "Uneandmeid kogutakse – jätka sisestamist päeva jooksul."
+      },
+      "feeding": {
+        "status": "normaalne",
+        "note": "Toitmisandmeid kogutakse – proovi sisestada iga toitmine."
+      },
+      "diaper": {
+        "status": "normaalne",
+        "note": "Mähkmeandmeid kogutakse – märjad mähkmed on hea märk sellest, et laps saab piisavalt süüa."
+      }
+    },
+    "weatherFallback": {
+      "hot": {
+        "weatherDescription": "Soe ilm",
+        "clothingAdvice": "Riieta laps kergetesse ja õhukestesse hingavatesse puuvillariietesse. Talveriideid, nagu müts ja kindad, pole vaja – kasuta päikese kaitseks vaid õhukest päikesekübarat.",
+        "clothingItems": [
+          "Kerge puuvillane bodi",
+          "Õhukesed lühikesed püksid / õhuke seelik",
+          "Päikesekübar"
+        ],
+        "indoorClothingAdvice": "Kergetest ja õhukestest puuvillariietest piisab ka siseruumides.",
+        "indoorClothingItems": [
+          "Kerge puuvillane bodi",
+          "Paljajalu / õhukesed sokid"
+        ],
+        "roomTemperatureAdvice": "Hoia toatemperatuur vahemikus 20–22 °C ja kasuta vajadusel konditsioneeri või ventilaatorit.",
+        "outdoorAdvice": "Väldi õueminekut kõige kuumematel tundidel (12.00–16.00)"
+      },
+      "cold": {
+        "weatherDescription": "Külm ilm",
+        "clothingAdvice": "Riieta laps soojalt ja kihiliselt: puuvillane aluskiht ja soe pealiskiht.",
+        "clothingItems": [
+          "Soe beebikombe",
+          "Müts",
+          "Kindad"
+        ],
+        "indoorClothingAdvice": "Kodus riieta laps mugavatesse puuvillariietesse.",
+        "indoorClothingItems": [
+          "Puuvillane bodi",
+          "Sokid"
+        ],
+        "roomTemperatureAdvice": "Hoia toatemperatuur vahemikus 20–22 °C.",
+        "outdoorAdvice": "Piira õues viibimise aega ning hoia käed ja pea soojas"
+      },
+      "mild": {
+        "weatherDescription": "Mahe ilm",
+        "clothingAdvice": "Riieta laps parajalt soojalt ja väldi liigseid kihte.",
+        "clothingItems": [
+          "Pikkade varrukatega bodi",
+          "Õhukesed püksid",
+          "Õhuke jope"
+        ],
+        "indoorClothingAdvice": "Kodus riieta laps mugavatesse puuvillariietesse.",
+        "indoorClothingItems": [
+          "Puuvillane bodi",
+          "Sokid"
+        ],
+        "roomTemperatureAdvice": "Hoia toatemperatuur vahemikus 20–22 °C.",
+        "outdoorAdvice": "Jälgi ilma"
+      }
+    },
+    "crySounds": {
+      "cough": "See on köha, mitte beebi nutt.",
+      "sneeze": "See on aevastus, mitte beebi nutt.",
+      "adult_voice": "See kõlab nagu täiskasvanu hääl, mitte beebi nutt.",
+      "scream": "See on karje või vali heli, mida ei liigitata beebi nutuks.",
+      "bang": "See on pauk või löögiheli, mitte beebi nutt.",
+      "music_tv": "See on heli telerist, muusikast või muust meediast, mitte beebi nutt.",
+      "animal": "See võib olla looma hääl, mitte beebi nutt.",
+      "silence": "Salvestis on peaaegu täiesti vaikne.",
+      "noise": "See on taustaheli, mitte beebi nutt.",
+      "baby_cooing": "Laps teeb rõõmsaid hääli ja ei nuta.",
+      "unknown": "Beebi nuttu ei tuvastatud."
+    },
+    "cryFallback": {
+      "shortExplanation": "Salvestis on liiga lühike. Õigeks analüüsiks on vaja vähemalt 3 sekundit heli.",
+      "shortRecommendations": [
+        "Salvesta vähemalt 3 sekundit heli",
+        "Hoia mikrofoni lapse lähedal"
+      ],
+      "noCryRecommendations": [
+        "Proovi uuesti, kui laps nutab",
+        "Liiguta mikrofon lapsele lähemale",
+        "Vähenda taustamüra"
+      ],
+      "classificationExplanation": "Tuvastati beebi nutt, kuid selle täpset tüüpi ei õnnestunud määrata.",
+      "classificationRecommendations": [
+        "Kontrolli lapse üldseisundit",
+        "Kontrolli mähkmeid",
+        "Kontrolli, kas laps on näljane"
+      ]
+    }
   }
 } as const;

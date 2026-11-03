@@ -1,0 +1,29 @@
+{
+ "ui": {
+  "title": "Kinnita oma e-posti aadress",
+  "subtitle": "Saatsime 6-kohalise koodi aadressile {email}. Sisesta see allpool.",
+  "why": "See kaitseb sinu kontot ja tagab, et saadud Premium on seotud sinu kontoga.",
+  "code_label": "Kinnituskood",
+  "confirm": "Kinnita",
+  "resend": "Saada kood uuesti",
+  "resend_in": "Saada uuesti {s} s pärast",
+  "sent": "Kood saadetud",
+  "spam_hint": "Ei saanud kirja? Kontrolli ka rämpsposti ja pakkumiste kaustu.",
+  "wrong_code": "Vale kood. Palun kontrolli ja proovi uuesti.",
+  "expired": "See kood on aegunud. Saada uus.",
+  "too_many": "Liiga palju katseid. Saada uus kood.",
+  "rate_limited": "Oota hetk ja proovi uuesti.",
+  "send_failed": "Koodi saatmine ebaõnnestus. Kontrolli internetiühendust ja proovi uuesti.",
+  "verified": "Sinu e-posti aadress on kinnitatud 🎉",
+  "wrong_email": "Vale e-posti aadress? Logi välja ja registreeru uuesti"
+ },
+ "email": {
+  "subject": "{code} — sinu Anacan kinnituskood",
+  "preheader": "Sisesta see kood oma konto kinnitamiseks.",
+  "heading": "Sinu kinnituskood",
+  "intro": "Sisesta see kood rakenduses, et kinnitada oma Anacan konto:",
+  "expires": "Kood kehtib 15 minutit.",
+  "ignore": "Kui sa seda ei tellinud, ignoreeri seda kirja — sinu kontol ei muutu midagi.",
+  "footer": "Anacan — sinu kõrval igas etapis"
+ }
+}

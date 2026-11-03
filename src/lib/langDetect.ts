@@ -58,6 +58,7 @@ const EXPANDED_STOPWORDS: Partial<Record<FeedLang, Set<string>>> = {
   pl: new Set(['jest', 'jestem', 'moje', 'mój', 'moja', 'dziecko', 'ciąża', 'ciąży', 'nie', 'jak', 'się', 'dla', 'mam', 'bardzo', 'dzisiaj', 'dobrze']),
   nl: new Set(['de', 'het', 'een', 'en', 'ik', 'mijn', 'je', 'jij', 'wij', 'zwanger', 'baby', 'borstvoeding', 'vandaag', 'goed', 'hoe', 'voor', 'met', 'niet', 'dat', 'heb']),
   sv: new Set(['och', 'att', 'är', 'jag', 'min', 'mitt', 'barn', 'bebis', 'gravid', 'för', 'inte', 'det', 'du', 'vi', 'med', 'har', 'som', 'vad', 'hur', 'bra']),
+  et: new Set(['ja', 'on', 'ei', 'ma', 'mina', 'sa', 'sina', 'minu', 'laps', 'beebi', 'rase', 'raseduse', 'kuidas', 'täna', 'väga', 'aga', 'see', 'kas', 'oli', 'olen']),
 };
 
 export function detectLang(text: string, fallback: FeedLang = 'az'): FeedLang {
@@ -96,7 +97,9 @@ export function detectLang(text: string, fallback: FeedLang = 'az'): FeedLang {
     if (evidence.uz >= 2 && evidence.uz > evidence.kk && evidence.uz > evidence.ru) return 'uz';
     if (evidence.kk >= 2 && evidence.kk > evidence.uz && evidence.kk > evidence.ru) return 'kk';
     // ә ғ қ ң ө ұ ү һ і — rus əlifbasında yoxdur, qazax mətninin etibarlı göstəricisidir
-    return /[ӘәҒғҚқҢңӨөҰұҮүҺһІі]/.test(t) ? 'kk' : 'ru';
+    // ә ғ қ ұ һ і are Kazakh-only; ң ө ү without them indicate Kyrgyz.
+    if (/[ӘәҒғҚқҰұҺһІі]/.test(t)) return 'kk';
+    return /[ҢңӨөҮү]/.test(t) ? 'ky' : 'ru';
   }
 
   // 2) "ə" → az (praktikada hər az cümləsində var: və, mən, gələcək...)
@@ -112,6 +115,7 @@ export function detectLang(text: string, fallback: FeedLang = 'az'): FeedLang {
   if (/[Åå]/.test(t)) return 'sv';
   if (/[ß]/.test(t)) return 'de';
   if (/[Ññ¿¡]/.test(t)) return 'es';
+  if (/[Õõ]/.test(t) && !/[ÃãÇç]/.test(t)) return 'et';
   if (/[ÃãÕõ]/.test(t)) return 'pt';
 
   const evidence = turkicLanguageEvidence(t);

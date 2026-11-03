@@ -1,11 +1,11 @@
 import {describe,it,expect} from 'vitest';
-import {APP_LANGUAGES} from '../lib/app-languages';
+import {WEBSITE_LANGUAGES} from '../lib/app-languages';
 import {PAGE_SLUGS,sitePath,resolveWebsiteRoute,localizedSlug} from './routes';
 import articles from './article-routes.json';
 
 describe('locale URLs and durable aliases',()=>{
   it('resolves every real translated route and preserves article identity across all 21 languages',()=>{
-    for(const {code} of APP_LANGUAGES){
+    for(const {code} of WEBSITE_LANGUAGES){
       expect(resolveWebsiteRoute(sitePath(code),articles).route).toMatchObject({language:code,kind:'home'});
       for(const kind of Object.keys(PAGE_SLUGS[code]))expect(resolveWebsiteRoute(sitePath(code,kind as keyof typeof PAGE_SLUGS.az),articles).route.kind).toBe(kind);
       for(const article of articles)expect(resolveWebsiteRoute(sitePath(code,'article',article.slugs[code]),articles).route).toMatchObject({articleId:article.id,language:code,kind:'article'});
@@ -13,7 +13,7 @@ describe('locale URLs and durable aliases',()=>{
   });
   it('redirects both old blog structures directly to the same localized article',()=>{
     const article=articles[0];
-    for(const {code} of APP_LANGUAGES){
+    for(const {code} of WEBSITE_LANGUAGES){
       const target=sitePath(code,'article',article.slugs[code]);
       expect(resolveWebsiteRoute(`/blog/${code}/${article.legacySlug}`,articles).redirect).toBe(target);
       expect(resolveWebsiteRoute(`/${code}/blog/${article.legacySlug}`,articles).redirect).toBe(target);

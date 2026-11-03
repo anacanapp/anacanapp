@@ -4,7 +4,7 @@ import { useWebsite } from './context';
 import { Intro, FaqList, DownloadCard, Arrow, Eyebrow } from './components';
 import { addCalendarDays, calendarIso, CalculatorInputError, estimateCycle, estimatePregnancy, makeCalendarFile, parseCalendarDate, todayIso, type CycleEstimate, type PregnancyEstimate } from './calculators';
 import type { WebsiteCopyKey } from './model';
-import { APP_LANGUAGES } from '../lib/app-languages';
+import { WEBSITE_LANGUAGES } from '../lib/app-languages';
 import {siteDate,siteMonth,siteWeekdays} from './dates';
 
 function downloadCalendar(text:string) {
@@ -23,7 +23,7 @@ export function CycleCalendar({estimate}:{estimate:CycleEstimate}) {
   const {t,route}=useWebsite();
   const initial=parseCalendarDate(estimate.periodStart)!;
   const [month,setMonth]=useState(()=>new Date(Date.UTC(initial.getUTCFullYear(),initial.getUTCMonth(),1,12)));
-  const locale=APP_LANGUAGES.find(item=>item.code===route.language)!.locale;
+  const locale=WEBSITE_LANGUAGES.find(item=>item.code===route.language)!.locale;
   const first=new Date(Date.UTC(month.getUTCFullYear(),month.getUTCMonth(),1,12)),offset=(first.getUTCDay()+6)%7;
   const days=Array.from({length:42},(_,index)=>addCalendarDays(first,index-offset));
   const labels=siteWeekdays(route.language);
@@ -39,7 +39,7 @@ export default function CalculatorPage({kind}:{kind:'ovulation'|'dueDate'}) {
   const [lastPeriod,setLastPeriod]=useState(''),[cycle,setCycle]=useState(28),[period,setPeriod]=useState(5),[luteal,setLuteal]=useState(14);
   const [error,setError]=useState<WebsiteCopyKey|null>(null),[cycleResult,setCycleResult]=useState<CycleEstimate|null>(null),[pregnancyResult,setPregnancyResult]=useState<PregnancyEstimate|null>(null);
   const resultRef=useRef<HTMLElement>(null);
-  const locale=APP_LANGUAGES.find(item=>item.code===route.language)!.locale;
+  const locale=WEBSITE_LANGUAGES.find(item=>item.code===route.language)!.locale;
   const date=(value:string)=>siteDate(value,route.language);
   const calculate=(event:React.FormEvent)=>{
     event.preventDefault();setError(null);setCycleResult(null);setPregnancyResult(null);

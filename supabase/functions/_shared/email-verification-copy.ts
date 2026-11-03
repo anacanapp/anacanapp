@@ -46,6 +46,15 @@ export const EMAIL_VERIFICATION_COPY: Record<string, EmailVerificationCopy> = {
     "ignore": "Si no lo solicitaste, ignora este correo — no cambiará nada en tu cuenta.",
     "footer": "Anacan — a tu lado en cada etapa"
   },
+  "et": {
+    "subject": "{code} — sinu Anacan kinnituskood",
+    "preheader": "Sisesta see kood oma konto kinnitamiseks.",
+    "heading": "Sinu kinnituskood",
+    "intro": "Sisesta see kood rakenduses, et kinnitada oma Anacan konto:",
+    "expires": "Kood kehtib 15 minutit.",
+    "ignore": "Kui sa seda ei tellinud, ignoreeri seda kirja — sinu kontol ei muutu midagi.",
+    "footer": "Anacan — sinu kõrval igas etapis"
+  },
   "fr": {
     "subject": "{code} — ton code de vérification Anacan",
     "preheader": "Saisis ce code pour confirmer ton compte.",
@@ -108,6 +117,15 @@ export const EMAIL_VERIFICATION_COPY: Record<string, EmailVerificationCopy> = {
     "expires": "코드는 15분 동안 유효해요.",
     "ignore": "직접 요청하지 않았다면 이 메일은 무시해 주세요 — 계정에는 아무 변화도 없어요.",
     "footer": "Anacan — 모든 순간 곁에서"
+  },
+  "ky": {
+    "subject": "{code} — сиздин Anacan ырастоо кодуңуз",
+    "preheader": "Аккаунтуңузду ырастоо үчүн бул кодду киргизиңиз.",
+    "heading": "Сиздин ырастоо кодуңуз",
+    "intro": "Anacan аккаунтуңузду ырастоо үчүн колдонмодо бул кодду киргизиңиз:",
+    "expires": "Код 15 мүнөткө жарактуу.",
+    "ignore": "Эгерде сиз бул сурамды жөнөтпөгөн болсоңуз, анда бул катты жөн гана көз жаздымда калтырыңыз — аккаунтуңузда эч нерсе өзгөрбөйт.",
+    "footer": "Anacan — ар бир кадамда сиз менен"
   },
   "nl": {
     "subject": "{code} — je Anacan-verificatiecode",

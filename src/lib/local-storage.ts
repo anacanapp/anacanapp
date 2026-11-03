@@ -6,7 +6,7 @@
 const CACHE_BUDGET_BYTES = 2 * 1024 * 1024;
 const CACHE_STORAGE_CEILING_BYTES = 4 * 1024 * 1024;
 const bytes = (key: string, value: string) => 2 * (key.length + value.length);
-const cachePriority = (key: string) => /^anacan_i18n_cache:(az|en|ru|tr|kk|de|ar|uz|ka|zh|id|fr|es|pt|vi|hi|ja|ko|pl|nl|sv)$/.test(key)
+const cachePriority = (key: string) => /^anacan_i18n_cache:(az|en|ru|tr|kk|de|ar|uz|ka|zh|id|fr|es|pt|vi|hi|ja|ko|pl|nl|sv|ky|et)$/.test(key)
   ? 0 : key.startsWith('anacan_ocache_v1:') ? 1 : -1;
 
 export function isStorageQuotaError(error: unknown): boolean {

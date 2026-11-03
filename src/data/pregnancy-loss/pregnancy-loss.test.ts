@@ -14,7 +14,7 @@ const shape = (value: unknown): unknown => Array.isArray(value)
 
 describe('pregnancy loss content', () => {
   it('has the same shape, placeholders and an emergency number in all 21 languages', () => {
-    expect(languages.sort()).toEqual(['ar', 'az', 'de', 'en', 'es', 'fr', 'hi', 'id', 'ja', 'ka', 'kk', 'ko', 'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'uz', 'vi', 'zh']);
+    expect(languages.sort()).toEqual(['ar', 'az', 'de', 'en', 'es', 'fr', 'hi', 'id', 'ja', 'ka', 'kk', 'ko', 'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'uz', 'vi', 'zh', 'ky', 'et'].sort());
     for (const lang of languages) {
       const t = read(lang);
       expect(shape(t), lang).toEqual(shape(az));

@@ -1,4 +1,4 @@
-import type { AppLanguageCode } from '../lib/app-languages';
+import type { WebsiteLanguageCode } from '../lib/app-languages';
 import type { ArticleRoute, WebsiteRoute } from './routes';
 import type sourceCopy from './copy/az.json';
 import type detailCopy from './details/az.json';
@@ -6,7 +6,7 @@ import type detailCopy from './details/az.json';
 export type WebsiteCopy = Record<keyof typeof sourceCopy, string> & Partial<Record<keyof typeof detailCopy,string>>;
 export type WebsiteCopyKey = keyof WebsiteCopy;
 export interface WebsiteArticle extends ArticleRoute {
-  language: AppLanguageCode;
+  language: WebsiteLanguageCode;
   slug: string;
   title: string;
   excerpt: string;
@@ -43,7 +43,7 @@ export interface WebsiteBoot {
 }
 export interface WebsiteCatalog {
   schema: 'anacan-website-catalog-v1';
-  language: AppLanguageCode;
+  language: WebsiteLanguageCode;
   generatedAt: string;
   articles: WebsiteArticle[];
   legal: Partial<Record<'privacy'|'terms', { content:string; updatedAt:string }>>;

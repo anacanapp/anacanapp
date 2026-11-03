@@ -44,14 +44,14 @@ const SCARY_OUTPUT: Record<string, string[]> = {
 };
 
 const SCRIPT: Record<string, RegExp> = {
-  ru: /[Ѐ-ӿ]/, kk: /[Ѐ-ӿ]/, ka: /[Ⴀ-ჿ]/, ar: /[؀-ۿ]/, hi: /[ऀ-ॿ]/,
+  ru: /[Ѐ-ӿ]/, kk: /[Ѐ-ӿ]/, ky: /[Ѐ-ӿ]/, ka: /[Ⴀ-ჿ]/, ar: /[؀-ۿ]/, hi: /[ऀ-ॿ]/,
   zh: /[一-鿿]/, ja: /[぀-ヿ一-鿿]/, ko: /[가-힯]/,
 };
 const LANGUAGE_NAME: Record<string, string> = {
   az: 'Azerbaijani', en: 'English', ru: 'Russian', tr: 'Turkish', kk: 'Kazakh (Cyrillic)', uz: 'Uzbek (Latin)',
   ka: 'Georgian', de: 'German', ar: 'Arabic', zh: 'Simplified Chinese', id: 'Indonesian', fr: 'French', es: 'Spanish',
   pt: 'European Portuguese', vi: 'Vietnamese', hi: 'Hindi (Devanagari)', ja: 'Japanese', ko: 'Korean', pl: 'Polish',
-  nl: 'Dutch', sv: 'Swedish',
+  nl: 'Dutch', sv: 'Swedish', ky: 'Kyrgyz (Cyrillic)', et: 'Estonian',
 };
 
 const lower = (s: string, lang: string) => s.toLocaleLowerCase(lang === 'tr' || lang === 'az' ? 'tr' : lang);

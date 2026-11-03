@@ -16,10 +16,11 @@ export async function verifyTranslationBundles(root) {
     const bytes = await readFile(join(root, file));
     if (!expected || expected.sha256 !== hash(bytes) || expected.bytes !== bytes.length) throw new Error('TRANSLATION_BUNDLE_HASH_MISMATCH');
     const data = JSON.parse(bytes);
-    if (kind === 'content' && (data.schema !== 'anacan-content-translations-v1' || data.language !== language || data.sourceHash !== manifest.contentSourceHash)) throw new Error('TRANSLATION_CONTENT_MANIFEST_MISMATCH');
+    if (kind === 'content' && (data.schema !== 'anacan-content-translations-v1' || data.language !== language || data.sourceHash !== (expected.sourceHash ?? manifest.contentSourceHash))) throw new Error('TRANSLATION_CONTENT_MANIFEST_MISMATCH');
     const values = kind === 'content' ? data.values : data;
     if (!values || Object.keys(values).length !== expected.count
-      || hash(Object.keys(values).sort().join('\n')) !== (kind === 'ui' ? manifest.uiKeysHash : manifest.contentBindingsHash)) throw new Error('TRANSLATION_BUNDLE_COVERAGE_MISMATCH');
+      // ky/et (2026-11) are bound to the current Google content and carry their own key-set hash.
+      || hash(Object.keys(values).sort().join('\n')) !== (expected.keysHash ?? (kind === 'ui' ? manifest.uiKeysHash : manifest.contentBindingsHash))) throw new Error('TRANSLATION_BUNDLE_COVERAGE_MISMATCH');
   }
   let premiumRequired = false;
   try { await readFile(join(root, 'src/lib/premium-i18n.ts')); premiumRequired = true; } catch (error) { if (error.code !== 'ENOENT') throw error; }
@@ -36,7 +37,7 @@ export async function verifyTranslationBundles(root) {
   try { await readFile(join(root, 'src/lib/regional-i18n.ts')); regionalRequired = true; } catch (error) { if (error.code !== 'ENOENT') throw error; }
   if (regionalRequired) {
     const expected = manifest.publicRegionalCopy;
-    if (!expected || expected.languages?.length !== 21) throw new Error('TRANSLATION_REGIONAL_MANIFEST_REQUIRED');
+    if (!expected || expected.languages?.length !== 9 + languages.length) throw new Error('TRANSLATION_REGIONAL_MANIFEST_REQUIRED');
     const bytes = await readFile(join(root, 'scripts/i18n/regional-copy.json')), copy = JSON.parse(bytes);
     const keys = Object.keys(copy.languages?.en || {});
     if (bytes.length !== expected.bytes || hash(bytes) !== expected.sha256 || copy.protocol !== 'anacan-regional-copy-v1'

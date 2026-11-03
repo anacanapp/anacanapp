@@ -1,5 +1,6 @@
 import { tr } from "@/lib/tr";import { format } from 'date-fns';
-import { az, enUS, ru, tr as trLocale, kk, de, ar, uz, ka, zhCN, id, fr, es, pt, vi, hi, ja, ko, pl, nl, sv } from 'date-fns/locale';
+import { az, enUS, ru, tr as trLocale, kk, de, ar, uz, ka, zhCN, id, fr, es, pt, vi, hi, ja, ko, pl, nl, sv, et } from 'date-fns/locale';
+import type { Locale } from 'date-fns';
 import { getPersistedLanguage } from './tr';
 import { NEW_LANGUAGE_CODES, appLanguageLocale } from './app-languages';
 
@@ -31,8 +32,27 @@ export const getCurrentDateLocale = () => {
   if (lang === 'pl') return pl;
   if (lang === 'nl') return nl;
   if (lang === 'sv') return sv;
+  if (lang === 'et') return et;
+  if (lang === 'ky') return kyrgyzLocale();
   return az;
 };
+
+// date-fns ships no Kyrgyz locale: reuse the Russian grammar/format patterns with Intl (ky-KG) month and weekday names.
+let kyLocale: Locale | null = null;
+function kyrgyzLocale(): Locale {
+  if (kyLocale) return kyLocale;
+  const names = (options: Intl.DateTimeFormatOptions, count: number, at: (i: number) => Date) => {
+    try { const f = new Intl.DateTimeFormat('ky-KG', { ...options, timeZone: 'UTC' }); return Array.from({ length: count }, (_, i) => f.format(at(i))); } catch { return null; }
+  };
+  const month = (width: 'long' | 'short') => names({ month: width }, 12, i => new Date(Date.UTC(2024, i, 15)));
+  const day = (width: 'long' | 'short') => names({ weekday: width }, 7, i => new Date(Date.UTC(2024, 0, 7 + i)));
+  const wide = month('long'), abbr = month('short'), days = day('long'), shortDays = day('short');
+  kyLocale = { ...ru, code: 'ky', localize: { ...ru.localize!,
+    month: (index: number, options?: { width?: string }) => ((options?.width === 'abbreviated' || options?.width === 'short') ? abbr : wide)?.[index] ?? ru.localize!.month(index as never, options as never),
+    day: (index: number, options?: { width?: string }) => ((options?.width === 'short' || options?.width === 'abbreviated') ? shortDays : days)?.[index] ?? ru.localize!.day(index as never, options as never),
+  } } as Locale;
+  return kyLocale;
+}
 /**
  * Format date to Azerbaijani format: "18 Fevral" or "18 Fevral 2025"
  */

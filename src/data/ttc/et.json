@@ -1,0 +1,118 @@
+{
+ "goal_title": "Mis on sinu eesmärk?",
+ "goal_track": "Jälgi minu tsüklit",
+ "goal_track_desc": "Menstruatsioon, sümptomid ja meeleolu",
+ "goal_conceive": "Jääda rasedaks",
+ "goal_conceive_desc": "Viljakad päevad, ovulatsioonitestid, ettevalmistus",
+ "goal_switch": "Eesmärk",
+ "goal_pill": "Eesmärk: rasedus",
+ "eyebrow": "Rasestumise planeerimine · {n}. kuu",
+ "eyebrow_start": "Rasestumise planeerimine",
+ "cycle_day": "Tsükli {n}. päev",
+ "chance": "rasestumise tõenäosus",
+ "chances": {
+  "low": "Madal",
+  "medium": "Keskmine",
+  "high": "Kõrge",
+  "peak": "Tipus"
+ },
+ "window": "Viljakas aken: {range}",
+ "window_today": "Oled oma viljakas aknas",
+ "ovulation": "Prognoositav ovulatsioon: {date}",
+ "ovulation_confirmed": "Kinnitatud sinu ovulatsioonitestiga",
+ "legend": {
+  "period": "Menstruatsioon",
+  "fertile": "Viljakas",
+  "ovulation": "Ovulatsioon",
+  "today": "Täna"
+ },
+ "tap_day": "Puuduta päeva, et näha oma tõenäosust",
+ "day_detail": "{date} · {chance}",
+ "quick_lh": "Ovulatsioonitest",
+ "quick_bbt": "Basaaltemperatuur",
+ "quick_intimacy": "Lähedus",
+ "quick_test": "Rasedustest",
+ "log_title": "Täna",
+ "lh_title": "Ovulatsioonitest (LH)",
+ "lh": {
+  "negative": "Negatiivne",
+  "positive": "Positiivne",
+  "peak": "Tipus"
+ },
+ "bbt_title": "Sa logisid positiivse testi. Anacan on valmis sinuga raseduse teekonnal jätkama.",
+ "bbt_hint": "Hommikul, enne voodist tõusmist",
+ "bbt_chart": "Viimased 14 päeva",
+ "bbt_shift": "Temperatuuri tõus tuvastatud — ovulatsioon on tõenäoliselt toimunud",
+ "intimacy_title": "Lähedus",
+ "intimacy_desc": "Nähtav ainult sulle, ei näidata kunagi partnerile",
+ "test_title": "Rasedustest",
+ "test_desc": "Kõige täpsem pärast menstruatsiooni hilinemist",
+ "test": {
+  "negative": "Negatiivne",
+  "faint": "Õrn triip",
+  "positive": "Positiivne"
+ },
+ "save": "Salvesta",
+ "saved": "Salvestatud",
+ "error": "Salvestamine ebaõnnestus. Palun proovi uuesti.",
+ "checklist_title": "Ettevalmistuse kontrollnimekiri",
+ "checklist": {
+  "folic": {
+   "title": "Foolhape iga päev",
+   "desc": "400 mcg · alustades vähemalt 1 kuu varem"
+  },
+  "gyn": {
+   "title": "Günekoloogi visiit",
+   "desc": "Üldine kontroll enne rasedust"
+  },
+  "labs": {
+   "title": "Vereanalüüsid",
+   "desc": "Veregrupp, punetised, TSH, raud, glükoos"
+  },
+  "vaccines": {
+   "title": "Vaktsineerimised",
+   "desc": "Punetised, tuulerõuged, gripp — konsulteeri arstiga"
+  },
+  "dentist": {
+   "title": "Hambaarst",
+   "desc": "Hambaravi on raseduse ajal keerulisem"
+  },
+  "lifestyle": {
+   "title": "Loobu suitsetamisest ja alkoholist",
+   "desc": "Mõlemale partnerile"
+  },
+  "meds": {
+   "title": "Vaata üle oma ravimid",
+   "desc": "Aruta regulaarseid ravimeid oma arstiga"
+  },
+  "partner": {
+   "title": "Partneri tervis",
+   "desc": "Elustiil mõjutab ka spermat"
+  }
+ },
+ "months_normal": "Oled proovinud {n} kuud. See on täiesti normaalne — enamik paare rasestub 6–12 kuu jooksul.",
+ "months_first": "Alles alustasite. Edu! Kõige tähtsam: lähedus iga 1–2 päeva tagant viljakatel päevadel.",
+ "months_doctor": "Oled proovinud {n} kuud. On aeg pöörduda arsti poole — see algab tavaliselt lihtsatest uuringutest ja on täiesti normaalne samm.",
+ "started_on": "Millal hakkasite proovima?",
+ "tips_title": "Võimaluste suurendamiseks",
+ "tips": [
+  "Lähedus iga 1–2 päeva tagant viljakas aknas",
+  "Tee ovulatsiooniteste varasel pärastlõunal",
+  "Tervislik kehakaal ja hea uni",
+  "Jalutuskäigud ja hingamisharjutused stressi vähendamiseks"
+ ],
+ "positive_title": "Palju õnne!",
+ "positive_body": "Märkisid positiivse testi. Anacan on valmis sinuga rasedusteekonda jätkama.",
+ "positive_lmp": "Viimane menstruatsioon: {date}",
+ "positive_due": "Prognoositav sünnitusaeg: {date}",
+ "positive_visit": "Esimene arstivisiit",
+ "positive_visit_desc": "Soovitatav 6.–8. nädalal",
+ "positive_partner": "Anna partnerile teada",
+ "positive_partner_desc": "Tema rakendus lülitub rasedusrežiimile",
+ "positive_switch": "Lülitu rasedusrežiimile",
+ "positive_later": "Pole veel kindel — tuleta meelde 2 päeva pärast",
+ "faint_hint": "Õrn triip tähendab sageli samuti rasedust. Korda testi 2 päeva pärast.",
+ "switched": "Lülitusid rasedusrežiimile 💛",
+ "bbt_premium": "Temperatuurigraafik on Premium-funktsioon",
+ "no_cycle": "Sisesta oma viimase menstruatsiooni kuupäev, et arvutada oma viljakad päevad."
+}

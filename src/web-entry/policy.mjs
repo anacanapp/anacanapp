@@ -6,7 +6,7 @@ export const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=co
 export const ADMIN_WEB_QUERY = 'web';
 export const ADMIN_WEB_VALUE = 'admin';
 export const APP_PACKAGE = 'com.atlasoon.anacan';
-const languages = ['az','en','tr','ru','de','ar','ka','kk','uz','zh','id','fr','es','pt','vi','hi','ja','ko','pl','nl','sv'];
+const languages = ['az','en','tr','ru','de','ar','ka','kk','uz','zh','id','fr','es','pt','vi','hi','ja','ko','pl','nl','sv','ky','et'];
 const modules = ['sleep','feeding','diaper','babyGrowth','hospitalBag','calendar'];
 const legalNames = new Set(['terms','terms-of-use','terms-of-service','terms_and_conditions','terms-and-conditions','terms_of_service','conditions',
   'privacy','privacy-policy','privacy_policy','privacy-policy.html','terms.html','cookie-policy','cookies','disclaimer',

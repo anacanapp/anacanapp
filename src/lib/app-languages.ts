@@ -1,3 +1,4 @@
+import kyrgyzCountryNames from '../data/country-names-ky.json' with { type: 'json' };
 /** Bundled UI language registry. Region controls formatting, not account country. */
 export const APP_LANGUAGES = [
   { code: 'az', name: 'Azerbaijani', native_name: 'Azərbaycan', locale: 'az-AZ', flag: 'az' },
@@ -21,12 +22,21 @@ export const APP_LANGUAGES = [
   { code: 'pl', name: 'Polish', native_name: 'Polski', locale: 'pl-PL', flag: 'pl' },
   { code: 'nl', name: 'Dutch', native_name: 'Nederlands', locale: 'nl-NL', flag: 'nl' },
   { code: 'sv', name: 'Swedish', native_name: 'Svenska', locale: 'sv-SE', flag: 'se' },
+  { code: 'ky', name: 'Kyrgyz', native_name: 'Кыргызча', locale: 'ky-KG', flag: 'kg' },
+  { code: 'et', name: 'Estonian', native_name: 'Eesti', locale: 'et-EE', flag: 'ee' },
 ] as const;
 export type AppLanguageCode = typeof APP_LANGUAGES[number]['code'];
 export const APP_LANGUAGE_CODES = APP_LANGUAGES.map(language => language.code);
-export const NEW_LANGUAGE_CODES = ['zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'] as const;
+export const NEW_LANGUAGE_CODES = ['zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv', 'ky', 'et'] as const;
 export const LANGUAGE_EXPANSION_21 = ['vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'] as const;
+/** 2026-11 expansion: Kyrgyz (Cyrillic) and Estonian. */
+export const LANGUAGE_EXPANSION_23 = ['ky', 'et'] as const;
 export const isAppLanguage = (code: string): code is AppLanguageCode => APP_LANGUAGES.some(language => language.code === code);
+/** The public website keeps its published 21-locale URL contract; app-only languages are excluded. */
+export const WEBSITE_LANGUAGES = APP_LANGUAGES.filter((language): language is Exclude<typeof APP_LANGUAGES[number], { code: 'ky' | 'et' }> => language.code !== 'ky' && language.code !== 'et');
+export type WebsiteLanguageCode = Exclude<AppLanguageCode, 'ky' | 'et'>;
+export const WEBSITE_LANGUAGE_CODES_ALL = WEBSITE_LANGUAGES.map(language => language.code) as WebsiteLanguageCode[];
+export const isWebsiteLanguage = (code: string): code is WebsiteLanguageCode => WEBSITE_LANGUAGES.some(language => language.code === code);
 export function normalizeAppLanguage(value: unknown): AppLanguageCode {
   const code = typeof value === 'string' ? value.trim().toLowerCase().replace(/_/g, '-').split('-')[0] : '';
   return isAppLanguage(code) ? code : 'az';
@@ -83,6 +93,8 @@ export function resolveAppLanguages(remote: AppLanguage[] = []): AppLanguage[] {
 
 const regionNames = new Map<string, { of(code: string): string | undefined }>();
 export function localizedCountryName(code: string, language: string, fallback = code): string {
+  // Many WebView ICU builds ship no Kyrgyz region names; a bundled list keeps the picker in Kyrgyz.
+  if (normalizeAppLanguage(language) === 'ky') { const name = (kyrgyzCountryNames as Record<string, string>)[code.toUpperCase()]; if (name) return name; }
   try {
     const locale = appLanguageLocale(language);
     if (!regionNames.has(locale)) {

@@ -1,0 +1,46 @@
+{
+ "menu": "Saada tagasiside",
+ "title": "Kuidas Anacan sulle meeldib?",
+ "subtitle": "Sinu tagasiside aitab meil äppi iga ema jaoks paremaks muuta.",
+ "stars": [
+  "Väga halb",
+  "Halb",
+  "Keskmine",
+  "Hea",
+  "Suurepärane"
+ ],
+ "low_title": "Mis sulle ei meeldinud?",
+ "low_sub": "Vali mõni — loeme igaüht neist.",
+ "high_title": "Mis sulle kõige rohkem meeldib?",
+ "high_sub": "Vali, et saaksime seda veelgi paremaks muuta.",
+ "low_reasons": {
+  "crash": "Äpp jookseb kokku / hangub",
+  "bug": "Midagi ei tööta",
+  "slow": "See on aeglane",
+  "missing": "Puudub vajalik funktsioon",
+  "content": "Info pole täpne",
+  "ads": "Liiga palju reklaame",
+  "price": "Premium on kallis",
+  "hard": "Raske kasutada",
+  "other": "Muu"
+ },
+ "high_reasons": {
+  "tracking": "Jälgijad",
+  "content": "Igapäevane info",
+  "ai": "AI-assistent",
+  "community": "Community",
+  "partner": "Partneri režiim",
+  "design": "Design",
+  "other": "Muu"
+ },
+ "message_low": "Mis juhtus? Mida peaksime muutma?",
+ "message_high": "Kas soovid midagi lisada? (valikuline)",
+ "send": "Saada",
+ "sending": "Saadan...",
+ "thanks_low": "Aitäh. Meie meeskond loeb seda ja tegeleb parandamisega 💛",
+ "thanks_high": "Suur aitäh! See on meie meeskonnale suureks motivatsiooniks 💛",
+ "close": "Sulge",
+ "later": "Hiljem",
+ "error": "Saatmine ebaõnnestus. Kontrolli internetiühendust ja proovi uuesti.",
+ "subject": "Äpi tagasiside"
+}

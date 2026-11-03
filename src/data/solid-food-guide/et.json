@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Tahke toidu juhend",
+  "tab_stage": "Etapp",
+  "tab_balance": "Tasakaal",
+  "tab_rules": "Reeglid",
+  "tab_foods": "Toiduained",
+  "tab_recipes": "Retseptid",
+  "age_aria": "Vanus",
+  "months_short": "{n} kuud",
+  "years_short": "{n} aastat",
+  "months_plus": "{n} kuud+",
+  "years_plus": "{n} aastat+",
+  "fact_milk": "Piim",
+  "fact_meals": "Toidukorrad",
+  "fact_portion": "Portion",
+  "fact_texture": "Tekstuur",
+  "portion_note": "Portsjonid on soovituslikud – sinu laps otsustab ise, kui palju ta sööb.",
+  "readiness_title": "Valmisoleku märgid",
+  "readiness_all": "Kõik olemas – valmis alustama 6-kuuselt.",
+  "readiness_hint": "WHO soovitab tahke toiduga alustada 6-kuuselt (180 päeva). Kui oled ebakindel, pea nõu lastearstiga.",
+  "sample_day_title": "Päevamenüü näidis (8 kuud)",
+  "dishes_title": "Ideid toidukordadeks selles vanuses",
+  "see_recipes": "Vaata retsepte",
+  "plate_title": "Tasakaalustatud taldrik (alates 1. eluaastast)",
+  "plate_note": "Lisa piimatoode ja veidi tervislikku rasva (oliiviõli, või, avokaado).",
+  "needs_title": "Päevane vajadus",
+  "needs_note": "6–11 kuu vanuses on rauavajadus kehakaalu kilogrammi kohta elu kõrgeim – lisa rauaallikas igale toidukorrale.",
+  "sources_title": "Kust seda leida",
+  "iron_helps_title": "Suurendab raua imendumist",
+  "iron_blocks_title": "Vähendab raua imendumist",
+  "allergens_title": "Allergeenid: ära viivita",
+  "allergens_intro": "Paku muna ja maapähklit alates 6. elukuust, ükshaaval. Kui lapsel on raske ekseem või munaallergia, konsulteeri esmalt arstiga.",
+  "avoid_title": "Ära anna",
+  "choking_title": "Lämbumise ennetamine (alla 4-aastased)",
+  "choking_note": "Öökimine on normaalne; lämbumine on hääletu ja laps ei saa köhida – see on hädaolukord.",
+  "myths_title": "Aegunud müüdid",
+  "all": "Kõik",
+  "recipes_intro": "Sinu lapse vanusele sobivad valikud Anacani retseptidest. Esimesed retseptid on tasuta, ülejäänud on Premiumis.",
+  "recipes_loading": "Laadin retsepte…",
+  "all_recipes": "Kõik beebiretseptid",
+  "all_recipes_sub": "{n} retsepti · Ava retseptid",
+  "tag_iron": "★ Raud",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Allergen",
+  "home_title": "Tahke toidu juhend",
+  "home_sub_before": "Alustamine 6-kuuselt – valmisolek ja esimesed toidud",
+  "home_sub_after": "Vanusepõhised portsjonid, raua tasakaal ja retseptid",
+  "tool_desc": "Portsjonid, raua tasakaal, allergeenid ja retseptid"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 kuud",
+   "milk": "Rinnapiim / piimasegu nõudmisel",
+   "meals": "Tahket toitu veel ei anta",
+   "portion": "—",
+   "texture": "—",
+   "goal": "D-vitamiini tilgad iga päev; jälgi valmisoleku märke"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 kuud",
+   "milk": "Põhitoit, 5–6 korda päevas",
+   "meals": "2–3 toidukorda",
+   "portion": "2–3 supilusikatäit kuni ½ tassi (~125 ml)",
+   "texture": "Sile püree → paksem püree, pehmed näputoidud",
+   "goal": "Raud, uued maitsed, allergeenide tutvustamine"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 kuud",
+   "milk": "3–4 korda päevas",
+   "meals": "3 toidukorda + 1–2 vahepala",
+   "portion": "½ tassi (~125 ml)",
+   "texture": "Pudruseks tehtud, peeneks hakitud, näputoidud",
+   "goal": "Närimine, näpitsvõte, avatud tassist joomine"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 aastat",
+   "milk": "Rinnapiim või lehmapiim 350–500 ml/päevas",
+   "meals": "3 toidukorda + 2 vahepala",
+   "portion": "¾–1 tass (~200–250 ml)",
+   "texture": "Pere toidud (soolata, väikesed tükid)",
+   "goal": "Üleminek peretoidule"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 aastat",
+   "milk": "Piim / jogurt, 2 portsjonit päevas",
+   "meals": "3 toidukorda + 2 vahepala",
+   "portion": "1 tass; liha/kala ~30–50 g",
+   "texture": "Peretoidud",
+   "goal": "Mitmekesisus, valiva sööja toetamine"
+  }
+ ],
+ "readiness": [
+  "Hoiab pead kindlalt",
+  "Istub toetatult",
+  "Tunneb huvi toidu vastu, avab suu",
+  "Keel ei lükka toitu suust välja"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Piim"
+  },
+  {
+   "time": "09:00",
+   "what": "Rauaga rikastatud puder + puuvili"
+  },
+  {
+   "time": "12:00",
+   "what": "Piim"
+  },
+  {
+   "time": "13:30",
+   "what": "Liha + köögiviljad"
+  },
+  {
+   "time": "16:00",
+   "what": "Piim"
+  },
+  {
+   "time": "18:30",
+   "what": "Muna / jogurt + teravili"
+  },
+  {
+   "time": "Enne magamaminekut",
+   "what": "Piim"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 kuud",
+  "1–2 aastat",
+  "2–4 aastat"
+ ],
+ "nutrients": [
+  {
+   "name": "Raud",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Veise-/lambaliha, kana kintsuliha, munakollane, läätsed, kikerherned, rauaga rikastatud puder, spinat",
+   "rule": "Rauaallikas igal toidukorral, koos C-vitamiiniga"
+  },
+  {
+   "name": "D-vitamiin",
+   "need": [
+    "400 IU",
+    "600 IU",
+    "600 IU"
+   ],
+   "sources": "Tilgad, rasvane kala, munakollane",
+   "rule": "Tilgad iga päev"
+  },
+  {
+   "name": "Tsink",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Liha, munad, jogurt, kaunviljad, kaer",
+   "rule": "Samal taldrikul rauarikaste toitudega"
+  },
+  {
+   "name": "Kaltsium",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Jogurt, juust, piim (alates 1. eluaastast), tahini",
+   "rule": "2–3 portsjonit piimatooteid päevas"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Lõhe, makrell, sardiinid, kreeka pähklid, kanepiseemned",
+   "rule": "2 kalarooga nädalas"
+  },
+  {
+   "name": "A-vitamiin",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Porgand, kõrvits, bataat, aprikoosid",
+   "rule": "Üks oranž köögivili päevas"
+  },
+  {
+   "name": "C-vitamiin",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Paprika, brokoli, maasikad, kiivi, apelsin",
+   "rule": "Koos rauarikaste toitudega"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Protein",
+   "hint": "liha, kala, munad, kaunviljad"
+  },
+  {
+   "label": "Teraviljad",
+   "hint": "puder, riis, leib"
+  },
+  {
+   "label": "Köögiviljad ja puuviljad",
+   "hint": "värvilised"
+  }
+ ],
+ "ironHelps": [
+  "C-vitamiin (paprika, brokoli, maasikad)",
+  "Liha + köögiviljad koos"
+ ],
+ "ironBlocks": [
+  "Tee söögi ajal",
+  "Lehmapiim peamise joogina enne 1. eluaastat",
+  "Väga kiudainerikkad toidud"
+ ],
+ "allergens": [
+  "Muna",
+  "Maapähkel",
+  "Pähklid",
+  "Lehmapiim",
+  "Soja",
+  "Nisu",
+  "Seesam",
+  "Kala",
+  "Karpkalad ja koorikloomad"
+ ],
+ "allergenSteps": [
+  "Ainult üks uus allergeen korraga; jälgi reaktsioone 2–3 päeva",
+  "Paku seda hommikul või lõunal, et oleks lihtsam jälgida",
+  "Muna täielikult küpsetatud; maapähkel pastana, mitte kunagi tervelt",
+  "Kui laps talub, paku seda 2–3 korda nädalas"
+ ],
+ "avoid": [
+  {
+   "food": "Mesi",
+   "until": "12 kuud",
+   "why": "Botulismi oht"
+  },
+  {
+   "food": "Salt",
+   "until": "12 kuud, seejärel väga vähe",
+   "why": "Koormus neerudele"
+  },
+  {
+   "food": "Lisatud suhkur, maiustused",
+   "until": "24 kuud",
+   "why": "Harjumus magusa järele, hambaaugud"
+  },
+  {
+   "food": "Puuviljamahl",
+   "until": "12 kuud; seejärel ≤120 ml/päevas",
+   "why": "Vähendab söögiisu"
+  },
+  {
+   "food": "Lehmapiim (joogina)",
+   "until": "12 kuud",
+   "why": "Vähendab raua imendumist; sobib toiduvalmistamiseks"
+  },
+  {
+   "food": "Toores muna, liha, kala; pastöriseerimata piim",
+   "until": "4 aastat",
+   "why": "Nakkusoht"
+  },
+  {
+   "food": "Kõrge elavhõbedasisaldusega kala (mõõkkala, hai, suur tuunikala)",
+   "until": "4 aastat",
+   "why": "Elavhõbe"
+  },
+  {
+   "food": "Tee, kohv, koolajoogid",
+   "until": "4 aastat",
+   "why": "Kofeiin; takistab raua imendumist"
+  },
+  {
+   "food": "Vorstikesed, viinerid, suitsutatud liha",
+   "until": "Nii vähe kui võimalik",
+   "why": "Sool, nitraadid"
+  },
+  {
+   "food": "Riisipiim",
+   "until": "4–5 aastat",
+   "why": "Arseen"
+  }
+ ],
+ "choking": [
+  "Mitte terveid pähkleid ega seemneid — jahvatatult või pastana",
+  "Viinamarjad, kirsid, kirsstomatid — lõika pikuti neljaks",
+  "Toores porgand, õun — riivi või kuumuta",
+  "Vorst — pikad ribad; ei popkornile, kõvadele kommidele ega nätsule",
+  "Sööge alati istudes ja järelevalve all"
+ ],
+ "myths": [
+  {
+   "myth": "Munavalge alles pärast 1. eluaastat",
+   "fact": "Tervet muna võib anda alates 6. elukuust; edasilükkamine võib suurendada allergiaohtu."
+  },
+  {
+   "myth": "Kala, tsitruselised ja maasikad on keelatud kuni 1. eluaastani",
+   "fact": "Kõiki neid võib anda alates 6. elukuust."
+  },
+  {
+   "myth": "Alusta puuviljadega ja laps ei hakka köögivilju armastama",
+   "fact": "Sellele pole kindlaid tõendeid; oluline on rauarikas toit ja mitmekesisus."
+  },
+  {
+   "myth": "Puuviljapüree alates 4. elukuust",
+   "fact": "WHO soovitab lisatoiduga alustada 6. elukuust."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Liha",
+  "fish": "Kala",
+  "egg": "Muna",
+  "dairy": "Piimatooted",
+  "legumes": "Kaunviljad",
+  "grains": "Teraviljad",
+  "vegetables": "Köögiviljad",
+  "fruit": "Puuviljad",
+  "fats_seeds": "Rasvad, seemned"
+ },
+ "foods": [
+  {
+   "name": "Veiseliha",
+   "value": "Raud, tsink, B12",
+   "form": "Püree või pikad pehmed ribad"
+  },
+  {
+   "name": "Lambaliha",
+   "value": "Raud, tsink",
+   "form": "Püree, hakkliha"
+  },
+  {
+   "name": "Kanakoib",
+   "value": "Valk, raud",
+   "form": "Rebitud, püree"
+  },
+  {
+   "name": "Kalkuniliha",
+   "value": "Valk, tsink",
+   "form": "Püree, lihapallid"
+  },
+  {
+   "name": "Maks",
+   "value": "Raud, A-vitamiin",
+   "form": "Kord nädalas, 1–2 teelusikatäit"
+  },
+  {
+   "name": "Lõhe",
+   "value": "Omega-3, D-vitamiin",
+   "form": "Luudeta, püreestatud"
+  },
+  {
+   "name": "Makrell, sardiinid",
+   "value": "Omega-3",
+   "form": "Luudeta, püreestatud"
+  },
+  {
+   "name": "Tursk, lest",
+   "value": "Valk, jood",
+   "form": "Hautatud ja tükeldatud"
+  },
+  {
+   "name": "Kanamuna",
+   "value": "Valk, koliin, D-vitamiin",
+   "form": "Kõvaks keedetud, püreestatud; omletiribad"
+  },
+  {
+   "name": "Jogurt (maitsestamata)",
+   "value": "Kaltsium, probiootikumid",
+   "form": "Lusikaga"
+  },
+  {
+   "name": "Kodujuust, valge juust",
+   "value": "Kaltsium, valk",
+   "form": "Püreestatud; leota juustu soola eemaldamiseks"
+  },
+  {
+   "name": "Või",
+   "value": "Energia",
+   "form": "Natuke toidule lisatuna"
+  },
+  {
+   "name": "Lehmapiim",
+   "value": "Kaltsium",
+   "form": "Joogina alates 12. elukuust; toidus alates 6. elukuust"
+  },
+  {
+   "name": "Punased läätsed",
+   "value": "Raud, valk",
+   "form": "Supp, püree"
+  },
+  {
+   "name": "Kikerherned",
+   "value": "Raud, kiudained",
+   "form": "Hummus (soolamata)"
+  },
+  {
+   "name": "Oad, mungoad",
+   "value": "Raud, folaadid",
+   "form": "Püreestatud"
+  },
+  {
+   "name": "Kaer",
+   "value": "Kiudained, raud",
+   "form": "Puder"
+  },
+  {
+   "name": "Riis",
+   "value": "Energia",
+   "form": "Puder (2–3 korda nädalas)"
+  },
+  {
+   "name": "Tatar",
+   "value": "Raud, magneesium",
+   "form": "Puder"
+  },
+  {
+   "name": "Bulgur, manna, pasta, leib",
+   "value": "Energia, B-grupi vitamiinid",
+   "form": "Puder, pehme pasta"
+  },
+  {
+   "name": "Hirss, kinoa",
+   "value": "Raud, valk",
+   "form": "Puder"
+  },
+  {
+   "name": "Kõrvits, porgand, bataat",
+   "value": "A-vitamiin",
+   "form": "Püree, aurutatud kangid"
+  },
+  {
+   "name": "Suvikõrvits, brokoli, lillkapsas",
+   "value": "C- ja K-vitamiin",
+   "form": "Aurutatud; brokoli \"puukestena\""
+  },
+  {
+   "name": "Kartul",
+   "value": "Energia",
+   "form": "Püree"
+  },
+  {
+   "name": "Spinat, peet",
+   "value": "Folaadid, raud",
+   "form": "Segatud teiste köögiviljadega"
+  },
+  {
+   "name": "Baklažaan, paprika, tomat",
+   "value": "C-vitamiin",
+   "form": "Keedetud, kooritud"
+  },
+  {
+   "name": "Rohelised herned, rohelised oad",
+   "value": "Raud, kiudained",
+   "form": "Püreestatud"
+  },
+  {
+   "name": "Õun, pirn",
+   "value": "Kiudained",
+   "form": "Keedetud püree, riivitud"
+  },
+  {
+   "name": "Banaan, avokaado",
+   "value": "Energia, tervislikud rasvad",
+   "form": "Pikad ribad, püreestatud"
+  },
+  {
+   "name": "Virsik, aprikoos, ploom",
+   "value": "A- ja C-vitamiin, kiudained",
+   "form": "Kooritud, pehme"
+  },
+  {
+   "name": "Maasikas, kiivi, apelsin",
+   "value": "C-vitamiin",
+   "form": "Püreestatud, viilud"
+  },
+  {
+   "name": "Viinamarjad, kirsid, mustikad",
+   "value": "Antioksüdandid",
+   "form": "Pikuti neljaks lõigatud; purusta mustikad"
+  },
+  {
+   "name": "Kuivatatud aprikoosid, rosinad, datlid",
+   "value": "Raud, kiudained",
+   "form": "Leotatud, püreestatud"
+  },
+  {
+   "name": "Oliiviõli",
+   "value": "Tervislik rasv",
+   "form": "1 teelusikatäis toidule lisatuna"
+  },
+  {
+   "name": "Maapähklivõi",
+   "value": "Protein",
+   "form": "Vedeldatud, segatud püree sisse"
+  },
+  {
+   "name": "Mandli-, kreeka pähkli, sarapuupähklivõi",
+   "value": "E-vitamiin, omega-3",
+   "form": "Jahvatatud või pastana"
+  },
+  {
+   "name": "Tahini (seesamipasta)",
+   "value": "Kaltsium, raud",
+   "form": "Segatud pudru sisse"
+  },
+  {
+   "name": "Kanepi- ja chia-seemned",
+   "value": "Omega-3",
+   "form": "Jahvatatud"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Veiseliha + kõrvitsapüree",
+   "Kana + porgandi + kartulipüree",
+   "Punase läätse supp",
+   "Kaerapuder + õunapüree",
+   "Tatrapuder",
+   "Banaanipüree jogurtiga",
+   "Avokaado-banaanipüree",
+   "Keedumuna-puder",
+   "Aurutatud brokoli-„puud“",
+   "Lõhe-bataadipüree",
+   "Kikerhernehummus (tahiniga)",
+   "Küpsetatud pirnipüree kaneeliga"
+  ],
+  "9-11": [
+   "Väikesed veiselihapallid",
+   "Köögiviljaomleti ribad",
+   "Kalakotletid",
+   "Jogurti-kaerahelbepannkoogid",
+   "Kana-riisipuder suvikõrvitsaga",
+   "Lamba-köögiviljahautis",
+   "Läätsakotletid",
+   "Pasta tomatikastmes hakklihaga",
+   "Tatra-maksakaste",
+   "Kohupiimavorm (küpsetatud)",
+   "Brokoli-juustumuffinid",
+   "Õuna-kaerabatoonid"
+  ],
+  "12-24": [
+   "Viinamarjalehe-dolmad (väikesed)",
+   "Kapsadolmad",
+   "Laste plov",
+   "Kananuudlisupp",
+   "Dushbara (minipelmeenisupp)",
+   "Ürdi-kuku (küpsetatud frittata)",
+   "Läätsesupp",
+   "Kalakotletid kartulipüreega",
+   "Tatra-veiselihagulašš",
+   "Menemen (mild)",
+   "Laste lasanje",
+   "Jogurti-puuvilja-kaerahelbe-parfee",
+   "Kohupiimavorm",
+   "Supine hingal"
+  ],
+  "24-48": [
+   "Kana-köögiviljapallid bulguriga",
+   "Küpsetatud lõhe köögiviljadega",
+   "Oahautis",
+   "Kodune pitsa (täistera)",
+   "Qutab (ürdi- või lihaga)",
+   "Borš",
+   "Kinoasalat kikerhernestega",
+   "Munaleiva-„sõdurid“",
+   "Smoothie bowl",
+   "Kodused kananagitsad (küpsetatud)"
+  ]
+ },
+ "emergency": "Näo või huulte turse, hingamisraskused, korduv oksendamine, kahvatus — helista kohe 103 / 112.",
+ "disclaimer": "See juhend on informatiivse eesmärgiga ega asenda meditsiinilist nõustamist. Sinu lastearst määrab raua- ja vitamiiniannused. Allikad: WHO (2023), AAP, Türgi Terviseministeerium, Venemaa Pediaatrite Liit, SACN."
+}

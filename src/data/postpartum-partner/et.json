@@ -1,0 +1,229 @@
+{
+ "ui": {
+  "title": "Esimesed 8 nädalat",
+  "subtitle": "Kuidas teda pärast sünnitust toetada",
+  "home_card": "Pärast sünnitust · {n}. nädal / 8-st",
+  "open": "Ava",
+  "week": "{n}. nädal",
+  "tab_week": "Sel nädalal",
+  "tab_blues": "Beebibluus",
+  "tab_signs": "Ohumärgid",
+  "tab_support": "Toeta teda",
+  "her_body": "Tema keha",
+  "her_mind": "Tema tunded",
+  "you_do": "Mida saad teha",
+  "you_say": "Mida võid öelda",
+  "avoid": "Väldi seda",
+  "send": "Saada",
+  "sent": "Saadetud 💌",
+  "phrases_title": "Saada talle paar head sõna",
+  "phrases_sub": "Saadetud ühe puudutusega sõnumina.",
+  "tasks_title": "Täna võtan mina vastutuse",
+  "tasks_sub": "Anna talle teada, mille oled enda peale võtnud, et ta teaks – see on kontrolli all.",
+  "tasks_send": "Saada minu nimekiri talle",
+  "tasks_message": "Täna hoolitsen mina: {list} 💪 Sina puhka.",
+  "signs_title": "Kontrolli märke",
+  "signs_sub": "Märgi ära, mida oled viimasel ajal märganud. See ei ole diagnoos.",
+  "signs_none": "Ühtegi ohumärki pole hetkel märgitud. Jätka samas vaimus.",
+  "signs_some": "Kui need märgid kestavad üle 2 nädala, pöörduge koos arsti poole.",
+  "signs_urgent": "Märkisid kriitilise ohumärgi. Ära jäta teda üksi ja helista kohe hädaabinumbrile (112).",
+  "mood_low_title": "Tema tuju on viimasel ajal olnud madal",
+  "mood_low_body": "Ta märkis viimase 7 päeva jooksul {n} päeval madalat tuju. Pööra talle täna rohkem tähelepanu ja küsi, kuidas ta end tunneb.",
+  "mood_low_long": "Kui see kestab üle 2 nädala, rääkige koos arstiga.",
+  "disclaimer": "See teave ei asenda arsti nõuandeid."
+ },
+ "weeks": [
+  {
+   "title": "Esimesed päevad kodus",
+   "body": "Pärast sünnitust esineb veritsust (lohhia) ning õmblused või keisrilõike haav võivad tunda anda. Piim tekib umbes 3.–5. päeval ja rinnad võivad muutuda valusaks ning tursuda.",
+   "mind": "Umbes 3.–5. päeval langeb hormoonide tase järsult. Nutmine ilma põhjuseta, muretsemine ja ebapiisavuse tunne on tavalised: see on beebibluus.",
+   "do": [
+    "Piira sel nädalal külalisi ja ole ise see, kes ukse juures toimetab",
+    "Too igal toitmiskorral talle vett ja suupisteid",
+    "Võta üle mähkmete vahetamine, riietamine ja beebi vannitamine",
+    "Tegele täielikult kodutööde, söögitegemise ja sisseostudega"
+   ],
+   "say": [
+    "Oled imeline ema. Me alles õpime üksteist tundma",
+    "Kui pead nutma, siis nuta. Olen siin sinu jaoks"
+   ],
+   "avoid": "Ära ütle: „Kõigil on lapsed, mis siin ikka nii rasket on?” Ära pisenda tema tundeid."
+  },
+  {
+   "title": "Unepuudus kuhjub",
+   "body": "Veritsus hakkab vähenema. Imetamine võib ikka veel valus olla; kui tekivad lõhed, kõva tükk või punetus, konsulteeri arsti või imetamisnõustajaga.",
+   "mind": "Beebibluus möödub tavaliselt 2 nädalaga. Kui kurbus, lootusetus või huvi kadumine kestavad kauem, võib tegemist olla sünnitusjärgse depressiooniga. Jälgi olukorda tähelepanelikult.",
+   "do": [
+    "Koosta öine graafik, et ta saaks vähemalt 4–5 tundi järjest magada",
+    "Mine beebiga jalutama, et ta saaks kodus omaette olla",
+    "Leia imetamisnõustaja, kui tekib küsimusi toitmise kohta",
+    "Küsi iga päev: „Kuidas sa end tunned?” ja kuula vastust"
+   ],
+   "say": [
+    "Täna öösel olen mina, sina maga",
+    "Ütle, mida vajad; lahendame kõik koos"
+   ],
+   "avoid": "Ära otsusta tema eest ega kuhja nõuandeid. Kuula kõigepealt."
+  },
+  {
+   "title": "Kasvuhüpe",
+   "body": "Beebi võib tahta süüa väga tihti (tihe toitmine). See ei tähenda, et piima on vähe: beebi lihtsalt kasvab.",
+   "mind": "Vahetpidamata toitmine kurnab teda ja tekitab tunde, et ta ei saa millegagi hakkama. Ära lase tal end üksi tunda.",
+   "do": [
+    "Ole õhtuste toitmiste ajal temaga koos: too vett, süüa ja pult",
+    "Aita beebil pärast söömist krooksutada ja uinuda",
+    "Planeeri pesupesemine ja koristamine ise",
+    "Valmista või telli talle tema lemmiksööki"
+   ],
+   "say": [
+    "Sa kasvatad meie last. See on raske töö ja sa teed seda suurepäraselt",
+    "Olen siin, sa ei ole üksi"
+   ],
+   "avoid": "Ära ütle: „Jälle sööb?” või „Ehk sul pole piisavalt piima”. See õõnestab tema enesekindlust."
+  },
+  {
+   "title": "Üks kuu möödas",
+   "body": "Õmblused on tavaliselt paranenud, kuid raskuste tõstmine on ikka veel vara, eriti pärast keisrilõiget.",
+   "mind": "Väsimus on kuhjunud. Ta võib tunda end oma vanast elust kaugel, justkui ta oleks nüüd „ainult ema”.",
+   "do": [
+    "Anna talle 1–2 tundi täiesti oma aega: dušiks, jalutuskäiguks või sõpradega suhtlemiseks",
+    "Planeeri väike üllatus: lilled, tema lemmikmaiustus või kiri",
+    "Korralda ise söögikorrad ning abi perelt ja sõpradelt",
+    "Pane koos kokku beebi esimeste fotode album"
+   ],
+   "say": [
+    "Mida saan täna teha, et sul oleks veidi kergem?",
+    "Armastan sind nii väga. Sellest ajast, kui sinust sai ema, imetlen sind veelgi rohkem"
+   ],
+   "avoid": "Ära räägi tema välimusest ega kaalust."
+  },
+  {
+   "title": "Rutiin hakkab kujunema",
+   "body": "Veritsus peaks nüüdseks olema väga vähene. Kui see muutub ootamatult tugevamaks või tekib palavik või halb lõhn, pöördu arsti poole.",
+   "mind": "Rutiin hakkab tekkima, kuid igapäevane sama tegevus võib teda kurnata. Kui kurbus kestab üle 2 nädala, on aeg otsida professionaalset abi.",
+   "do": [
+    "Võta iga päev üks õhtune rutiin enda peale: vannitamine või magamapanek",
+    "Planeeri nädalavahetuseks lühike pereväljasõit",
+    "Küsi temalt, mis on praegu kõige raskem, ja lahenda üks asi",
+    "Hoia silm peal ka oma väsimusel ja räägi sellest temaga"
+   ],
+   "say": [
+    "Puhka täna öösel, mina panen beebi magama",
+    "Oleme meeskond"
+   ],
+   "avoid": "Ära võta tema päeva kokku sõnadega „olid ju terve päeva kodus”."
+  },
+  {
+   "title": "Nutuhood ja kontrollvisiit",
+   "body": "Sünnitusjärgne kontroll toimub tavaliselt umbes nüüd. Beebid nutavad kõige rohkem 6.–8. nädalal; pärast seda läheb kergemaks.",
+   "mind": "Suutmatus beebit rahustada on kurnav. Kui frustratsioon kasvab, on täiesti okei panna beebi turvaliselt voodisse ja paar minutit sügavalt hingata. Ära kunagi raputa beebit.",
+   "do": [
+    "Minge kontrolli koos ja kirjutage küsimused eelnevalt üles",
+    "Vahetage kordamööda beebi rahustamist nutuhoogude ajal",
+    "Ütle: „Nüüd võtan mina üle” ja anna talle puhkust",
+    "Julgusta teda rääkima arstile ka sellest, kuidas ta end tunneb"
+   ],
+   "say": [
+    "Nutmine ei ole sinu süü; beebid lihtsalt on sellised",
+    "Teeme kordamööda, sina puhka vahepeal"
+   ],
+   "avoid": "Ära kiirusta intiimsusega. Ta annab sulle märku, kui on selleks valmis."
+  },
+  {
+   "title": "Enda taasleidmine",
+   "body": "Tema keha alles taastub. Kui arst on andnud loa, aitavad õrnad jalutuskäigud ja hingamisharjutused.",
+   "mind": "Ta õpib end uuesti tundma ja võib tunda muret oma keha, töö või sõprade pärast. Sinu toetus annab talle jõudu.",
+   "do": [
+    "Kingi talle igal nädalal üks täiesti \"vaba tund\"",
+    "Planeerige koos lühike jalutuskäik või kohvikukülastus",
+    "Jätkake öiste vahetuste õiglast jagamist",
+    "Ütle oma tänu valjusti välja"
+   ],
+   "say": [
+    "Sa oled ikka sina ise ja ma valin sind iga päev",
+    "Sa tegid sel kuul ära hiiglasliku töö"
+   ],
+   "avoid": "Ära võrdle: ära ütle \"See-ja-see taastus küll kiiresti\"."
+  },
+  {
+   "title": "Kaks kuud: uus perekond",
+   "body": "Paljud emad tunnevad end nüüdseks tugevamana. Kui valu, veritsus või kurnatus on endiselt tugevad, räägi arstiga.",
+   "mind": "Tema tuju peaks paranema. Kui kurbus, ärevus või eemaldumistunne beebist jätkuvad, rääkige sellest koos arstiga. Abi on olemas ja see on ravitav.",
+   "do": [
+    "Vaadake koos nendele kahele kuule tagasi: mis läks hästi, mida võiks muuta",
+    "Leppige uuesti kokku, kuidas kodutöid jagate",
+    "Tähistage väikselt \"kahe kuu\" täitumist",
+    "Kontrolli ka enda tuju: ka isadel võib esineda sünnitusjärgset depressiooni"
+   ],
+   "say": [
+    "Sinuga koos lapsevanemaks olemine on minu suurim õnn",
+    "Mida teeme järgmisel kuul teisiti?"
+   ],
+   "avoid": "Ära vähenda järsku oma toetust, sest \"nüüd on kõik korras\"."
+  }
+ ],
+ "blues": {
+  "title": "Mis on beebibluus?",
+  "intro": "Umbes 50–80% naistest kogeb pärast sünnitust beebibluusi. Põhjuseks on hormoonide järsk langus, unepuudus ja uus vastutus.",
+  "facts": [
+   "See algab tavaliselt 2–5 päeva pärast sünnitust",
+   "Põhjusetu nutt, ärrituvus, mure ja väsimus on tavalised",
+   "See möödub tavaliselt iseenesest 2 nädala jooksul",
+   "Parim ravim: uni, toit, toetus ja mõistmine"
+  ],
+  "help_title": "Mida saad teha",
+  "help": [
+   "Kuula teda; ära püüa tema tundeid \"parandada\"",
+   "Kaitse tema und: leppige kokku öised vahetused",
+   "Võta enda kanda kodutööd ja külaliste vastuvõtmine",
+   "Kiida teda iga päev ja näita, et oled olemas"
+  ],
+  "ppd_title": "Sünnitusjärgne depressioon on midagi muud",
+  "ppd_intro": "See mõjutab umbes 10–15% naistest ja võib alata igal ajal esimese aasta jooksul pärast sünnitust. See ei ole nõrkus ja on ravitav.",
+  "ppd_signs": [
+   "Kurbus või tühjusetunne, mis kestab üle 2 nädala",
+   "Ta on kaotanud huvi asjade vastu, mis talle varem rõõmu pakkusid",
+   "Ta ei saa magada isegi siis, kui beebi magab",
+   "Ta tunneb end väärtusetuna või süüdlasena",
+   "Ta tunneb end beebist eemaldununa",
+   "Tema söögiisu on järsult muutunud"
+  ],
+  "ppd_action": "Kui märkad neid märke, julgusta teda arsti poole pöörduma (günekoloog, perearst või psühholoog) ja mine temaga kaasa.",
+  "urgent_title": "Otsi kohe abi",
+  "urgent_signs": [
+   "Mõtted endale või beebile viga teha",
+   "Asjade nägemine või kuulmine, mida pole olemas",
+   "Segadustunne, äärmuslikud meeleolumuutused, mitu päeva magamata olek"
+  ],
+  "urgent_action": "Sellistel juhtudel ära jäta teda üksi ja helista kohe hädaabinumbrile (112).",
+  "self_title": "Ka sina oled oluline",
+  "self": [
+   "Ka isadel võib esineda sünnitusjärgset depressiooni (umbes 10%)",
+   "Tee lühikesi uinakuid ja ära jäta söögikordi vahele",
+   "Räägi oma tunnetest temaga või sõbraga",
+   "Abi küsimine on tugevus"
+  ]
+ },
+ "phrases": [
+  "Sa oled imeline ema 💛",
+  "Mida iganes sa täna vajad, ma olen siin",
+  "Heida korraks pikali, ma vaatan beebi järele",
+  "Ma armastan sind nii väga, sa ei ole üksi",
+  "Sa oled väsinud ja see on täiesti normaalne. Me saame koos hakkama",
+  "Mida ma võin sulle tuua? Teed, süüa või lihtsalt kallistuse?",
+  "Ma võtan öö enda peale, maga hästi",
+  "Aitäh kõige eest, mida sa täna tegid"
+ ],
+ "tasks": [
+  "Üks öine toitmine",
+  "Mähkmed",
+  "Beebi vannitamine",
+  "Söögi tegemine",
+  "Nõudepesu",
+  "Pesupesemine",
+  "Toidupoes käimine",
+  "Külalised",
+  "Jalutuskäik beebiga",
+  "Apteek"
+ ]
+}

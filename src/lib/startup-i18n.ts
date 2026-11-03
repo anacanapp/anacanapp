@@ -40,6 +40,16 @@ const COPY: Record<string, Partial<Record<StartupKey, string>>> = {
     continue: 'Fortsätt', languageHint: 'Du kan ändra språket senare i inställningarna', back: 'Tillbaka',
     updateRequired: 'Uppdatera Anacan i appbutiken för att fortsätta.', connectionPending: 'Anslutningen förbereds. Försök igen om en stund.', retry: 'Försök igen',
   },
+  ky: {
+    selectLanguage: 'Тилди тандаңыз', selectCountry: 'Өлкөнү тандаңыз', searchPlaceholder: 'Издөө', noneFound: 'Өлкө табылган жок',
+    continue: 'Улантуу', languageHint: 'Тилди кийин жөндөөлөрдөн өзгөртө аласыз', back: 'Артка',
+    updateRequired: 'Улантуу үчүн Anacan тиркемесин дүкөндөн жаңыртыңыз.', connectionPending: 'Байланыш даярдалып жатат. Бир аздан кийин кайра аракет кылыңыз.', retry: 'Кайра аракет кылуу',
+  },
+  et: {
+    selectLanguage: 'Vali keel', selectCountry: 'Vali riik', searchPlaceholder: 'Otsi', noneFound: 'Riike ei leitud',
+    continue: 'Jätka', languageHint: 'Keelt saad hiljem seadetes muuta', back: 'Tagasi',
+    updateRequired: 'Jätkamiseks uuenda Anacan rakendustepoes.', connectionPending: 'Ühendust valmistatakse ette. Proovi hetke pärast uuesti.', retry: 'Proovi uuesti',
+  },
   zh: {
     selectLanguage: '选择语言', selectCountry: '选择国家或地区', searchPlaceholder: '搜索', noneFound: '未找到国家或地区',
     continue: '继续', languageHint: '您可以稍后在设置中更改语言', back: '返回',

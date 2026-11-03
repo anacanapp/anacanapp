@@ -11,7 +11,7 @@ const allReplies = (t: BabyChatText) => Object.values(t.replies).flat();
 
 describe('baby chat content', () => {
   it('has every reply group, keyword group and UI text in all 21 languages', () => {
-    expect(languages).toHaveLength(21);
+    expect(languages).toHaveLength(23);
     for (const lang of languages) {
       const t = read(lang);
       expect(Object.keys(t.ui).sort(), lang).toEqual(Object.keys(az.ui).sort());

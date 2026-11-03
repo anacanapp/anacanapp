@@ -231,6 +231,28 @@
       "scheduleError": "Vaccinationsschemat kunde inte läsas in. Försök igen.",
       "retry": "Försök igen",
       "referenceNote": "Det länkade programmet anger undantag för vaccinprodukt, riskgrupp och kompletterande vaccination."
+    },
+    "ky": {
+      "conditional": "Атайын график",
+      "seasonal": "Мезгилдүү график",
+      "routine": "Пландуу график",
+      "interval": "Мурунку дозанын датасы керек",
+      "source": "Булак",
+      "countrySaveFailed": "Өлкөнү сактоо мүмкүн болгон жок. Сураныч, кайра аракет кылып көрүңүз.",
+      "scheduleError": "Эмдөө графигин жүктөө мүмкүн болгон жок. Сураныч, кайра аракет кылып көрүңүз.",
+      "retry": "Кайра аракет кылуу",
+      "referenceNote": "Байланышкан программа продукт, тобокелдик тобу жана кечиктирилген эмдөөлөр боюнча өзгөчө учурларды аныктайт."
+    },
+    "et": {
+      "conditional": "Erigraafik",
+      "seasonal": "Hooajaline graafik",
+      "routine": "Tavagraafik",
+      "interval": "Eelmise doosi kuupäev on vajalik",
+      "source": "Allikas",
+      "countrySaveFailed": "Riiki ei õnnestunud salvestada. Palun proovi uuesti.",
+      "scheduleError": "Vaktsineerimisgraafikut ei õnnestunud laadida. Palun proovi uuesti.",
+      "retry": "Proovi uuesti",
+      "referenceNote": "Seotud programm määratleb toote, riskirühma ja järelevaktsineerimise erandid."
     }
   }
 }

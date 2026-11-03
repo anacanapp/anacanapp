@@ -8,7 +8,7 @@ export type SponsorKind = 'partner' | 'gift';
 export type SponsorRelation = 'spouse' | 'mother' | 'father' | 'sibling' | 'other';
 
 // The pay page opens in the requester's own language: anacan.az/<lang>/p/?t=<token>.
-const SPONSOR_LANGS = ['az', 'en', 'tr', 'ru', 'kk', 'uz', 'ka', 'de', 'ar', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'];
+const SPONSOR_LANGS = ['az', 'en', 'tr', 'ru', 'kk', 'uz', 'ka', 'de', 'ar', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv', 'ky', 'et'];
 export const sponsorLang = (language: string) => (SPONSOR_LANGS.includes(language) ? language : 'az');
 export const sponsorUrl = (token: string, language = 'az') => `https://anacan.az/${sponsorLang(language)}/p/?t=${token}`;
 

@@ -1,5 +1,5 @@
 import { MessageCircle, UsersRound, HeartHandshake, NotebookPen, Camera, ShieldCheck, CalendarDays } from 'lucide-react';
-import { APP_LANGUAGES } from '../lib/app-languages';
+import { WEBSITE_LANGUAGES } from '../lib/app-languages';
 import { useWebsite } from './context';
 import { Arrow, ArticleCard, DownloadCard, Eyebrow, FaqList, SectionHeading, ToolCards } from './components';
 import { Character,CharacterFamily } from './Characters';
@@ -36,7 +36,7 @@ export default function Home() {
       </div>
       <div className="site-hero-scene"><div className="site-hero-character-wash" aria-hidden="true"/><CharacterFamily/><div className="site-hero-care-note"><span className="site-icon-wash site-wash-peach"><Heart size={21} strokeWidth={1.5}/></span><div><strong>{t('heroNoteTitle')}</strong><p>{t('heroNoteText')}</p></div></div></div>
     </section>
-    <div className="site-language-strip"><span>{t('languageCount')}</span><div>{APP_LANGUAGES.slice(0,9).map(language=><span key={language.code} lang={language.code}>{language.native_name}</span>)}<span>+12</span></div></div>
+    <div className="site-language-strip"><span>{t('languageCount')}</span><div>{WEBSITE_LANGUAGES.slice(0,9).map(language=><span key={language.code} lang={language.code}>{language.native_name}</span>)}<span>+12</span></div></div>
     <section className="site-section" id="stages"><SectionHeading eyebrow="stageEyebrow" title="stageTitle" description="stageDescription"/><StageCards/></section>
     <section className="site-section" id="features"><SectionHeading eyebrow="featureEyebrow" title="featureTitle" description="featureDescription"/><FeatureGrid/></section>
     <section className="site-section" id="tools"><SectionHeading eyebrow="toolsEyebrow" title="toolsTitle" description="toolsDescription"/><ToolCards compact/></section>

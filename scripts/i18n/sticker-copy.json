@@ -125,6 +125,18 @@
    "sticker": "Klistermärke",
    "all": "Alla",
    "send": "Skicka klistermärke"
+  },
+  "ky": {
+   "stickers": "Стикерлер",
+   "sticker": "Стикер",
+   "all": "Баары",
+   "send": "Стикер жөнөтүү"
+  },
+  "et": {
+   "stickers": "Kleebised",
+   "sticker": "Kleebis",
+   "all": "Kõik",
+   "send": "Saada kleebis"
   }
  }
 }
