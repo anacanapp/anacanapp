@@ -1059,3 +1059,12 @@ App (native 48 / next web deploy):
 - Level-up card restyled to Anacan tokens (white card, peach band, coral button, coral confetti).
 - Partner daily summary screen: mommy/flow cards show feeds/sleep/diapers or cycle day + water instead
   of kicks/contractions.
+
+## 2026-11-03 — Partner conversation in the Messages list
+
+- Data was fine: partner→woman `text` messages exist, the link is mutual, `chat_messages_v2` returns
+  them to the woman, no direct_messages shadow the partner chat.
+- The Messages list built the partner row as `profile.partner_name || 'Partner'` (no such column) with
+  `avatar_url: null`, and previewed the newest partner_messages row of ANY type (daily summary / surprise
+  JSON). Both people therefore saw an unnamed "Partner" row. `usePartnerConversation` now loads the
+  linked person's name + photo and previews only chat types (text/love/image/audio/video). Native 48.
