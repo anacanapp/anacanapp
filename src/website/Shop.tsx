@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
-import { X } from 'lucide-react';
+import { Check, Plus, X } from 'lucide-react';
 import { Eyebrow } from './components';
 import {
   BOOK_AGES, CAKE_CATEGORIES, FLAVORS, PHOTO_BOX, WEEKDAYS, ageLabel, bookTotal, bookUnit, cakeCategory, cakeSpecs, cakeStory, cakeTag, cakeUnit,
@@ -92,34 +92,31 @@ function BooksShop() {
   const missing = age === 'all' ? [] : list.filter((book) => !items.includes(book.id));
   const tier = nextTier(items.length);
   return <div className="shop">
-    <section className="shop-hero">
-      <div>
-        <Eyebrow>Çap üçün PDF kitablar</Eyebrow>
-        <h1>Uşağınızın yaşına uyğun <em>çap kitabları</em></h1>
-        <p className="lead">6 aydan 6 yaşa qədər {books?.length || 70} kitab: boyama, say, hərflər, məntiq və nitq oyunları. Ödənişdən sonra PDF linkləri e-poçtunuza gəlir, evdə A4 vərəqə çap edirsiniz.</p>
-        <div className="shop-tiers">
-          {[['1 kitab', '4 ₼'], ['3 kitab', '3 ₼ / kitab'], ['5 kitab', '2,60 ₼ / kitab'], ['10+ kitab', '2 ₼ / kitab']].map(([a, b], i) =>
-            <div key={a} className={`shop-tier${i === 3 ? ' best' : ''}`}><b>{b}</b><span>{a}</span></div>)}
-        </div>
-        <div className="shop-facts"><span>A4, rəngli və ya ağ-qara</span><span>Dərhal e-poçtla</span><span>Kartla təhlükəsiz ödəniş</span></div>
-        <Banner status={status} kind="books" />
-      </div>
-      <div className="shop-hero-art" aria-hidden="true">
-        {(books || []).slice(0, 3).map((book, i) => <img key={book.id} src={coverUrl(book)} alt="" loading={i ? 'lazy' : 'eager'} className={`shop-fan shop-fan-${i}`} />)}
-      </div>
+    <section className="shop-intro">
+      <Eyebrow>Çap üçün PDF kitablar</Eyebrow>
+      <h1>Uşağınızın yaşına uyğun <em>çap kitabları</em></h1>
+      <p>6 aydan 6 yaşa qədər {books?.length || 70} kitab: boyama, say, hərflər, məntiq və nitq oyunları. Ödənişdən sonra PDF linkləri e-poçtunuza gəlir, evdə A4 vərəqə çap edirsiniz.</p>
+      <dl className="shop-tiers">
+        {[['1 kitab', '4 ₼'], ['3+ kitab', '3 ₼'], ['5+ kitab', '2,60 ₼'], ['10+ kitab', '2 ₼']].map(([a, b]) => <div key={a}><dt>{a}</dt><dd>{b}<small>{a === '1 kitab' ? '' : ' / kitab'}</small></dd></div>)}
+      </dl>
+      <ul className="shop-facts"><li>A4, rəngli və ya ağ-qara</li><li>Dərhal e-poçtla</li><li>Kartla təhlükəsiz ödəniş</li></ul>
+      <Banner status={status} kind="books" />
     </section>
-    <div className="shop-bar"><h2>Kataloq</h2><Chips items={BOOK_AGES} value={age} onChange={setAge} label="Yaş" /></div>
+    <div className="shop-bar"><Chips items={BOOK_AGES} value={age} onChange={setAge} label="Yaş" /><span className="shop-count">{books ? `${list.length} kitab` : ''}</span></div>
     {missing.length > 0 && <div className="shop-collection"><button type="button" className="shop-btn ghost" onClick={() => setCart([...items, ...missing.map((book) => book.id)])}>
       {ageLabel(age)} kolleksiyası: {missing.length} kitabı əlavə et · {money(bookTotal(items.length + missing.length) - bookTotal(items.length))}</button></div>}
     {failed ? <div className="shop-note bad">Kataloq yüklənmədi. Səhifəni yeniləyin və ya bir az sonra yenidən yoxlayın.</div>
-      : !books ? <div className="shop-grid">{[0, 1, 2, 3].map((i) => <div key={i} className="shop-skeleton" />)}</div>
+      : !books ? <div className="shop-grid">{[0, 1, 2, 3, 4].map((i) => <div key={i} className="shop-skeleton" />)}</div>
         : <div className="shop-grid">{list.map((book) => {
           const inCart = items.includes(book.id);
           return <article key={book.id} className="shop-card book">
-            <button type="button" className="open" aria-label={book.title} onClick={() => setOpen(book)}><img src={coverUrl(book)} alt="" loading="lazy" /><span className="shop-tag">{ageLabel(book.age_group)}</span></button>
-            <div className="shop-card-body"><h3>{book.title}</h3>{book.subtitle && <p>{book.subtitle}</p>}
-              <div className="shop-card-foot"><span className="shop-price">{book.pages} səh.</span>
-                <button type="button" className={`shop-btn${inCart ? ' on' : ''}`} aria-pressed={inCart} onClick={() => toggle(book.id)}>{inCart ? 'Səbətdə ✓' : 'Səbətə'}</button></div></div>
+            <button type="button" className="shop-media" aria-label={book.title} onClick={() => setOpen(book)}><img src={coverUrl(book)} alt="" loading="lazy" /></button>
+            <div className="shop-card-body">
+              <p className="shop-meta">{ageLabel(book.age_group)} · {book.pages} səh.</p>
+              <h3><button type="button" onClick={() => setOpen(book)}>{book.title}</button></h3>
+              <div className="shop-card-foot"><span className="shop-price">{money(bookUnit(1))}</span>
+                <button type="button" className={`shop-add${inCart ? ' on' : ''}`} aria-pressed={inCart} aria-label={inCart ? 'Səbətdən çıxar' : 'Səbətə əlavə et'} onClick={() => toggle(book.id)}>{inCart ? <Check size={16} /> : <Plus size={16} />}</button></div>
+            </div>
           </article>;
         })}</div>}
     {items.length > 0 && <CartBar summary={`${items.length} kitab · ${money(bookTotal(items.length))}`} hint={tier ? `${tier - items.length} kitab da əlavə edin, hər biri ${money(bookUnit(tier))} olsun` : 'Ən sərfəli qiymət: kitabı 2 ₼'} onOpen={() => setCheckout(true)} />}
@@ -159,24 +156,25 @@ function CakesShop() {
   const list = (cakes || []).filter((cake) => category === 'all' || cakeCategory(cake) === category);
   const total = lines.reduce((sum, line) => sum + cakeUnit(line) * line.qty, 0);
   const count = lines.reduce((sum, line) => sum + line.qty, 0);
-  const pics = (cakes || []).filter((cake) => cake.image_url).slice(0, 3);
   return <div className="shop">
-    <section className="shop-hero">
-      <div>
-        <Eyebrow>Anacan tortları</Eyebrow>
-        <h1>Körpənin hər ayı üçün <em>bir tort</em></h1>
-        <p className="lead">Aylıq bento tortlar, 40 gün, ilk diş, 1 yaş və gender reveal tortları. Hamısı Anacan qutusunda, əl işi, pastel kremlə. Bakı daxili çatdırılma.</p>
-        <div className="shop-facts"><span>Ən azı 48 saat qabaqcadan</span><span>4 dad seçimi</span><span>Çatdırılma və ya özün götür</span></div>
-        <Banner status={status} kind="cakes" />
-      </div>
-      <div className="shop-hero-art" aria-hidden="true">{pics.map((cake, i) => <img key={cake.id} src={cake.image_url!} alt="" loading={i ? 'lazy' : 'eager'} className={`shop-pic shop-pic-${i}`} />)}</div>
+    <section className="shop-intro">
+      <Eyebrow>Anacan tortları</Eyebrow>
+      <h1>Körpənin hər ayı üçün <em>bir tort</em></h1>
+      <p>Aylıq bento tortlar, 40 gün, ilk diş, 1 yaş və gender reveal tortları. Hamısı Anacan qutusunda, əl işi, pastel kremlə. Bakı daxili çatdırılma.</p>
+      <ul className="shop-facts"><li>Ən azı 48 saat qabaqcadan</li><li>4 dad seçimi</li><li>Çatdırılma və ya özün götür</li></ul>
+      <Banner status={status} kind="cakes" />
     </section>
-    <div className="shop-bar"><h2>Tortlar</h2><Chips items={categories} value={category} onChange={setCategory} label="Kateqoriya" /></div>
+    <div className="shop-bar"><Chips items={categories} value={category} onChange={setCategory} label="Kateqoriya" /><span className="shop-count">{cakes ? `${list.length} tort` : ''}</span></div>
     {failed ? <div className="shop-note bad">Kataloq yüklənmədi. Səhifəni yeniləyin və ya bir az sonra yenidən yoxlayın.</div>
-      : !cakes ? <div className="shop-grid">{[0, 1, 2, 3].map((i) => <div key={i} className="shop-skeleton" />)}</div>
+      : !cakes ? <div className="shop-grid">{[0, 1, 2, 3, 4].map((i) => <div key={i} className="shop-skeleton" />)}</div>
         : <div className="shop-grid">{list.map((cake) => <article key={cake.id} className="shop-card">
-          <button type="button" className="open" aria-label={cake.name} onClick={() => setOpen(cake)}>{cake.image_url ? <img src={cake.image_url} alt="" loading="lazy" /> : <span className="shop-skeleton" />}{cakeTag(cake) && <span className="shop-tag">{cakeTag(cake)}</span>}</button>
-          <div className="shop-card-body"><h3>{cake.name}</h3><div className="shop-card-foot"><span className="shop-price">{money(Number(cake.price))}</span><button type="button" className="shop-btn" onClick={() => setOpen(cake)}>Seç</button></div></div>
+          <button type="button" className="shop-media" aria-label={cake.name} onClick={() => setOpen(cake)}>{cake.image_url ? <img src={cake.image_url} alt="" loading="lazy" /> : null}</button>
+          <div className="shop-card-body">
+            {cakeTag(cake) && <p className="shop-meta">{cakeTag(cake)}</p>}
+            <h3><button type="button" onClick={() => setOpen(cake)}>{cake.name}</button></h3>
+            <div className="shop-card-foot"><span className="shop-price">{money(Number(cake.price))}</span>
+              <button type="button" className="shop-add" aria-label={`${cake.name}: seç`} onClick={() => setOpen(cake)}><Plus size={16} /></button></div>
+          </div>
         </article>)}</div>}
     {count > 0 && <CartBar summary={`${count} tort · ${money(total)}`} hint="Çatdırılma tarixi növbəti addımda seçilir" onOpen={() => setCheckout(true)} />}
     {open && <CakeSheet cake={open} onClose={() => setOpen(null)} onAdd={(line) => { setCart([...lines, line]); setOpen(null); }} />}
