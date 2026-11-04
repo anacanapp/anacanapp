@@ -8,3 +8,4 @@
   (tətbiq açılanda və ya 5 dəqiqə keşdən sonra).
 - Veb: gateway `sha256:5f920e16207ebc819d71e14a48ccb407210e3051b2c712c86a4bc6e4de253954`
   (`nav-capsule-web-plan.json` passed). Rollback: `rollback-nav-capsule-web-plan.json`. Native: növbəti build.
+- Glass versiya: gateway `sha256:416b3801a9fbb8d5b557df431c5d1b55f6d42506a0d4c9f76dc5d42bdf230f73` (`nav-glass-web-plan.json` passed). Rollback: `rollback-nav-glass-web-plan.json`.
