@@ -11387,5 +11387,12 @@
   "winback_cta": "फिर से जुड़ें — 3 दिन मुफ़्त",
   "winback_dismiss": "बंद करें",
   "winback_expired_text": "AI गाइड, रिपोर्ट और सभी टूल आपका इंतज़ार कर रहे हैं — 3 दिनों के लिए फिर से मुफ़्त आज़माएँ।",
-  "winback_expired_title": "Premium पर आपकी कमी महसूस हुई 💛"
+  "winback_expired_title": "Premium पर आपकी कमी महसूस हुई 💛",
+  "profiletabs_me": "मैं",
+  "profiletabs_family": "परिवार",
+  "profiletabs_settings": "सेटिंग्स",
+  "profiletabs_edit": "प्रोफ़ाइल संपादित करें",
+  "profiletabs_appearance_sub": "थीम और टेक्स्ट आकार",
+  "profiletabs_calendar_sub": "रिमाइंडर और तारीखें",
+  "profiletabs_privacy_sub": "सहमति, एनालिटिक्स, डेटा"
 }

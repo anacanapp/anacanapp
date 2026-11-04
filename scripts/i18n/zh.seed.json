@@ -11387,5 +11387,12 @@
   "winback_cta": "重新加入——免费使用 3 天",
   "winback_dismiss": "暂不",
   "winback_expired_text": "AI 指南、报告和全部工具都在等您——再次免费试用 3 天。",
-  "winback_expired_title": "我们想念 Premium 会员时期的您 💛"
+  "winback_expired_title": "我们想念 Premium 会员时期的您 💛",
+  "profiletabs_me": "我",
+  "profiletabs_family": "家庭",
+  "profiletabs_settings": "设置",
+  "profiletabs_edit": "编辑资料",
+  "profiletabs_appearance_sub": "主题和字号",
+  "profiletabs_calendar_sub": "提醒和日期",
+  "profiletabs_privacy_sub": "同意、分析、数据"
 }

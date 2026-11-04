@@ -8982,5 +8982,12 @@
   "winback_expired_title": "Premium-ის გარეშე მოვიწყინეთ 💛",
   "flow_record_days": "მენსტრუაციის დღეების აღნიშვნა",
   "flow_had_flow_today": "დღეს მენსტრუაცია მქონდა",
-  "flow_today_recorded": "დღეს აღნიშნულია"
+  "flow_today_recorded": "დღეს აღნიშნულია",
+  "profiletabs_me": "მე",
+  "profiletabs_family": "ოჯახი",
+  "profiletabs_settings": "პარამეტრები",
+  "profiletabs_edit": "პროფილის რედაქტირება",
+  "profiletabs_appearance_sub": "თემა და შრიფტის ზომა",
+  "profiletabs_calendar_sub": "შეხსენებები და თარიღები",
+  "profiletabs_privacy_sub": "თანხმობა, ანალიტიკა, მონაცემები"
 }

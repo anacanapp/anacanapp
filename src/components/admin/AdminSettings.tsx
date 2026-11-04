@@ -40,6 +40,7 @@ const MANAGED_SETTING_KEYS = [
   'mommy_mode_enabled',
   'mommy_hero_variant',
   'bottom_nav_style',
+  'profile_layout',
   'dark_mode_enabled',
   'ai_model',
   'app_version',
@@ -297,6 +298,14 @@ const AdminSettings = () => {
                   <SelectContent>
                     <SelectItem value="capsule">Üzən kapsul (test)</SelectItem>
                     <SelectItem value="classic">Klassik (əvvəlki)</SelectItem>
+                  </SelectContent>
+                </Select>
+                <label className="text-sm font-medium mt-4 mb-2 block text-foreground">Profil görünüşü</label>
+                <Select value={getSettingValue('profile_layout', 'tabs')} onValueChange={(value) => updateSetting('profile_layout', value)}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="tabs">Tablı: Mən · Ailə · Ayarlar</SelectItem>
+                    <SelectItem value="classic">Klassik (əvvəlki uzun səhifə)</SelectItem>
                   </SelectContent>
                 </Select>
                 <p className="text-xs text-muted-foreground">Yadda saxlayandan sonra istifadəçilərdə tətbiq yenidən açılanda və ya 5 dəqiqə ərzində dəyişir.</p>

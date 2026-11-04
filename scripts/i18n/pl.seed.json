@@ -11387,5 +11387,12 @@
   "winback_cta": "Dołącz ponownie — 3-dniowy bezpłatny dostęp",
   "winback_dismiss": "Zamknij",
   "winback_expired_text": "Przewodnik AI, raporty i wszystkie narzędzia czekają — wypróbuj je ponownie w ramach 3-dniowego bezpłatnego dostępu.",
-  "winback_expired_title": "Tęskniliśmy za Tobą w Premium 💛"
+  "winback_expired_title": "Tęskniliśmy za Tobą w Premium 💛",
+  "profiletabs_me": "Ja",
+  "profiletabs_family": "Rodzina",
+  "profiletabs_settings": "Ustawienia",
+  "profiletabs_edit": "Edytuj profil",
+  "profiletabs_appearance_sub": "Motyw i rozmiar tekstu",
+  "profiletabs_calendar_sub": "Przypomnienia i daty",
+  "profiletabs_privacy_sub": "Zgody, analityka, dane"
 }

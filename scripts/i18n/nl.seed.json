@@ -11387,5 +11387,12 @@
   "winback_cta": "Word weer lid — 3 dagen gratis",
   "winback_dismiss": "Sluiten",
   "winback_expired_text": "De AI-gids, rapporten en alle tools staan voor je klaar — probeer het opnieuw 3 dagen gratis.",
-  "winback_expired_title": "We hebben je gemist bij Premium 💛"
+  "winback_expired_title": "We hebben je gemist bij Premium 💛",
+  "profiletabs_me": "Ik",
+  "profiletabs_family": "Gezin",
+  "profiletabs_settings": "Instellingen",
+  "profiletabs_edit": "Profiel bewerken",
+  "profiletabs_appearance_sub": "Thema en tekstgrootte",
+  "profiletabs_calendar_sub": "Herinneringen en datums",
+  "profiletabs_privacy_sub": "Toestemming, analyse, gegevens"
 }

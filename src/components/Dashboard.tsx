@@ -175,6 +175,7 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
   );
   const { toast } = useToast();
   const { profile, isAdmin } = useAuth();
+  const booksLanguageOk = useUserStore((st) => st.language) === 'az';
   // Əkiz/üçüz və s. — hero başlığı və digər "körpəniz" mətnləri buna görə uyğunlaşır
   const isMultiple = !!(profile as any)?.multiples_type && (profile as any).multiples_type !== 'single';
   const pregData = getPregnancyData();
@@ -557,7 +558,7 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
 
       {/* Calendar after the daily messages (bump) */}
       <UpcomingAppointments />
-      {isAdmin && <BooksHomeCard mode="bump" pregnancyWeek={pregData?.currentWeek ?? null} onOpen={() => onNavigate?.('books')} />}
+      {(isAdmin || booksLanguageOk) && <BooksHomeCard mode="bump" pregnancyWeek={pregData?.currentWeek ?? null} onOpen={() => onNavigate?.('books')} />}
 
       {/* Baby Development - Static Icons */}
       <section className="a-section">
@@ -812,6 +813,7 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
   const { toast } = useToast();
   const language = useUserStore((s) => s.language);
   const { profile: mommyProfile, isAdmin } = useAuth();
+  const booksLanguageOk = language === 'az';
   const { isMilestoneAchieved, toggleMilestone, getMilestoneDate, MILESTONES } = useBabyMilestones();
   const { unlockAchievement, getTotalPoints } = useAchievements();
   const { activeTimers, startTimer, stopTimer, getActiveTimer } = useTimerStore();
@@ -1221,7 +1223,7 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
       {/* Mother's own recovery (first 8 weeks after birth) and the illness journal entry */}
       <RecoveryHomeCard onOpen={() => onNavigate?.('recovery')} />
       <IllnessHomeCard mode="entry" onOpen={() => onNavigate?.('illness')} />
-      {isAdmin && <BooksHomeCard mode="mommy" childName={selectedChild?.name} childMonths={childAge?.months ?? null} onOpen={() => onNavigate?.('books')} />}
+      {(isAdmin || booksLanguageOk) && <BooksHomeCard mode="mommy" childName={selectedChild?.name} childMonths={childAge?.months ?? null} onOpen={() => onNavigate?.('books')} />}
 
       {/* Month illustration info */}
       {illustrationTitle &&

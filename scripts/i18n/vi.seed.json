@@ -11387,5 +11387,12 @@
   "winback_cta": "Tham gia lại — miễn phí 3 ngày",
   "winback_dismiss": "Bỏ qua",
   "winback_expired_text": "Hướng dẫn AI, báo cáo và mọi công cụ đang chờ bạn — hãy dùng thử lại miễn phí trong 3 ngày.",
-  "winback_expired_title": "Premium nhớ bạn 💛"
+  "winback_expired_title": "Premium nhớ bạn 💛",
+  "profiletabs_me": "Tôi",
+  "profiletabs_family": "Gia đình",
+  "profiletabs_settings": "Cài đặt",
+  "profiletabs_edit": "Sửa hồ sơ",
+  "profiletabs_appearance_sub": "Giao diện và cỡ chữ",
+  "profiletabs_calendar_sub": "Nhắc nhở và ngày",
+  "profiletabs_privacy_sub": "Đồng ý, phân tích, dữ liệu"
 }

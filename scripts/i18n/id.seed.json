@@ -11387,5 +11387,12 @@
   "winback_cta": "Bergabung kembali — gratis 3 hari",
   "winback_dismiss": "Tutup",
   "winback_expired_text": "Panduan AI, laporan, dan semua fitur telah menanti — coba lagi secara gratis selama 3 hari.",
-  "winback_expired_title": "Kami merindukan Anda di Premium 💛"
+  "winback_expired_title": "Kami merindukan Anda di Premium 💛",
+  "profiletabs_me": "Saya",
+  "profiletabs_family": "Keluarga",
+  "profiletabs_settings": "Pengaturan",
+  "profiletabs_edit": "Edit profil",
+  "profiletabs_appearance_sub": "Tema dan ukuran teks",
+  "profiletabs_calendar_sub": "Pengingat dan tanggal",
+  "profiletabs_privacy_sub": "Persetujuan, analitik, data"
 }

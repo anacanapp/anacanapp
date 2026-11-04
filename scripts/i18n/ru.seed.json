@@ -8982,5 +8982,12 @@
   "adminlayout_fetus_sekilleri": "Изображения плода",
   "flow_record_days": "Отметить дни месячных",
   "flow_had_flow_today": "Сегодня были месячные",
-  "flow_today_recorded": "Сегодня отмечено"
+  "flow_today_recorded": "Сегодня отмечено",
+  "profiletabs_me": "Я",
+  "profiletabs_family": "Семья",
+  "profiletabs_settings": "Настройки",
+  "profiletabs_edit": "Редактировать профиль",
+  "profiletabs_appearance_sub": "Тема и размер шрифта",
+  "profiletabs_calendar_sub": "Напоминания и даты",
+  "profiletabs_privacy_sub": "Согласие, аналитика, данные"
 }

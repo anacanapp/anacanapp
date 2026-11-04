@@ -8982,5 +8982,12 @@
   "adminlayout_fetus_sekilleri": "Fötus-Bilder",
   "flow_record_days": "Periodentage eintragen",
   "flow_had_flow_today": "Heute Blutung gehabt",
-  "flow_today_recorded": "Heute eingetragen"
+  "flow_today_recorded": "Heute eingetragen",
+  "profiletabs_me": "Ich",
+  "profiletabs_family": "Familie",
+  "profiletabs_settings": "Einstellungen",
+  "profiletabs_edit": "Profil bearbeiten",
+  "profiletabs_appearance_sub": "Design und Schriftgröße",
+  "profiletabs_calendar_sub": "Erinnerungen und Termine",
+  "profiletabs_privacy_sub": "Einwilligung, Analyse, Daten"
 }

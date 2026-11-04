@@ -34,6 +34,8 @@ import { tr } from "@/lib/tr";
 import { lifeStageName } from '@/lib/stage-names';
 import ProfilePregnancyCard from '@/components/pregnancy-loss/ProfilePregnancyCard';
 import { moderatorText } from '@/lib/moderator-i18n';
+import ProfileTabs, { ProfileRows, type ProfileRow, type ProfileTab } from '@/components/profile/ProfileTabs';
+import { useAppSetting } from '@/hooks/useAppSettings';
 
 interface ProfileScreenProps {
   onNavigate?: (screen: string) => void;
@@ -65,6 +67,12 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   const widgetText = useWidgetText(language);
   const feedbackText = useFeedbackText(language);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
+  // Profile layout: 'tabs' (Mən · Ailə · Ayarlar, default) or 'classic' (previous long page), from app_settings.
+  const tabsLayout = useAppSetting('profile_layout') !== 'classic';
+  const [profileTab, setProfileTab] = useState<ProfileTab>(() => {
+    try { const v = sessionStorage.getItem('anacan_profile_tab'); return v === 'family' || v === 'settings' ? v : 'me'; } catch { return 'me'; }
+  });
+  const chooseProfileTab = (tab: ProfileTab) => { setProfileTab(tab); try { sessionStorage.setItem('anacan_profile_tab', tab); } catch { /* ignore */ } };
 
   const { name, email, lifeStage, role } = useUserStore(
     useShallow((s) => ({ name: s.name, email: s.email, lifeStage: s.lifeStage, role: s.role }))
@@ -155,6 +163,34 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   [])];
 
 
+  const T = (bg: string, ink: string): [string, string] => [bg, ink];
+  const meRows: ProfileRow[] = [
+  { id: 'billing', icon: CreditCard, label: tr("profilescreen_abuneliyim_f6c8ed", 'Abunəliyim'), sub: isPremium ? tr("profilescreen_premium_abuneliyiniz_aktivdir_9f6e62", "Premium abunəliyiniz aktivdir") : tr("profilescreen_butun_xususiyyetleri_acin_a7583b", "Bütün xüsusiyyətləri açın"), tint: T('var(--a-yellow-1)', 'var(--a-warn-ink)') },
+  { id: 'referral', icon: Gift, label: tr("profilescreen_referral", 'Dostunu dəvət et'), badge: tr("profilescreen_referral_badge", '+7 gün'), tint: T('var(--a-green-1)', 'var(--a-green-ink)') },
+  { id: 'partners', icon: Sparkles, label: tr("profilescreen_partnyor_endirimleri_e44036", "Partnyor Endirimləri"), badge: tr("profilescreen_badge_yeni", "Yeni"), tint: T('var(--a-pink-1)', 'var(--a-pink-ink)') },
+  { id: 'doctor-report', icon: FileText, label: tr("profilescreen_hekim_hesabati", 'Həkim Hesabatı (PDF)'), tint: T('var(--a-blue-1)', 'var(--a-blue-ink)') }];
+  const settingsRows: ProfileRow[] = [
+  { id: 'appearance', icon: Palette, label: tr("profilescreen_gorunus_165fe3", 'Görünüş'), sub: tr('profiletabs_appearance_sub', 'Tema və şrift ölçüsü'), tint: T('var(--a-lilac-1, var(--a-surface-soft))', 'var(--a-lilac-ink, var(--a-ink-soft))') },
+  { id: 'calendar', icon: Calendar, label: tr("profilescreen_teqvim_ayarlari_012790", 'Təqvim Ayarları'), sub: tr('profiletabs_calendar_sub', 'Xatırlatmalar və tarixlər'), tint: T('var(--a-yellow-1)', 'var(--a-warn-ink)') },
+  { id: 'health-sync', icon: HeartPulse, label: tr("settingsscreen_health_sync", "Sağlamlıq inteqrasiyası"), tint: T('var(--a-pink-1)', 'var(--a-pink-ink)') },
+  ...(widgetText && (lifeStage === 'bump' || lifeStage === 'mommy') ? [{ id: 'widgets', icon: LayoutGrid, label: widgetText.settings_title, tint: T('var(--a-blue-1)', 'var(--a-blue-ink)') }] : []),
+  { id: 'privacy', icon: Shield, label: tr("profilescreen_gizlilik", "Gizlilik"), sub: tr('profiletabs_privacy_sub', 'Razılıq, analitika, məlumatlar'), tint: T('var(--a-green-1)', 'var(--a-green-ink)') },
+  ...(feedbackText ? [{ id: 'feedback', icon: MessageCircle, label: feedbackText.menu }] : []),
+  { id: 'help', icon: HelpCircle, label: tr("profilescreen_yardim_da857a", 'Yardım') },
+  { id: 'moderation-history', icon: Shield, label: moderatorText('user_history', language) },
+  ...(isModerator || isAdmin ? [{ id: 'moderator', icon: ShieldCheck, label: moderatorText('open_panel', language) }] : []),
+  ...(isAdmin ? [
+  { id: 'shop', icon: ShoppingCart, label: tr("profilescreen_magaza_test_72b060", 'Mağaza (Test)'), badge: 'Beta' },
+  { id: 'admin', icon: ShieldCheck, label: tr("profilescreen_admin_panel", "Admin Panel"), badge: 'Admin' }] : [])];
+  const legalRows: ProfileRow[] = [
+  { id: 'legal/privacy_policy', icon: FileText, label: tr("profilescreen_gizlilik_siyaseti_dc3f28", 'Gizlilik Siyasəti') },
+  { id: 'legal/terms_of_service', icon: Scale, label: tr("profilescreen_i_stifade_sertleri_fbbe3d", 'İstifadə Şərtləri') },
+  { id: 'legal/disclaimer', icon: AlertCircle, label: tr("profilescreen_mesuliyyetden_i_mtina_beyanati_857abd", 'Məsuliyyətdən İmtina Bəyanatı') },
+  { id: 'legal/refund_policy', icon: RotateCcw, label: tr("profilescreen_geri_qaytarma_siyaseti_767324", 'Geri Qaytarma Siyasəti') },
+  { id: 'legal/gdpr_ccpa', icon: Shield, label: 'GDPR / CCPA' },
+  { id: 'legal/data_usage', icon: Database, label: tr("profilescreen_melumat_i_stifadesi_af1211", 'Məlumat İstifadəsi') }];
+  const pickRow = (id: string) => id === 'feedback' ? setFeedbackOpen(true) : onNavigate?.(id);
+
   const copyPartnerCode = async () => {
     let code = partnerCode;
     if (isAzurePartnerPairingEnabled()) {
@@ -235,33 +271,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
     visible: { opacity: 1, x: 0 }
   };
 
-  return (
-    <div className="a-scope pb-8 overflow-x-hidden" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
-      <div className="a-shell">
-      {/* Top bar */}
-      <motion.header
-        className="a-topbar"
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}>
-        
-        <div>
-          <p className="a-eyebrow">{stageInfo.name}</p>
-          <p className="a-wordmark" style={{ fontSize: 18 }}>{tr("untranslated_profil_v8b0sk", "Profil")}</p>
-        </div>
-        <div className="a-topbar-actions">
-          <motion.button
-            onClick={() => onNavigate?.('settings')}
-            className="a-icon-btn"
-            whileTap={{ scale: 0.9 }}>
-            
-            <Settings size={16} strokeWidth={2} />
-          </motion.button>
-        </div>
-      </motion.header>
-
-      {/* Top Banner Slot */}
-      <BannerSlot placement="profile_top" onNavigate={onNavigate} className="mb-3" />
-
+  const block_hero = <>
       {/* Profile Card (anacan-demo CTA hero) */}
       <motion.div
         className="a-cta a-fade-in"
@@ -312,6 +322,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </div>
       </motion.div>
 
+</>;
+  const block_premium = <>
       {/* Premium Banner */}
       <motion.button
         onClick={() => isPremium ? onNavigate?.('billing') : setShowPremiumModal(true)}
@@ -336,6 +348,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </div>
       </motion.button>
 
+</>;
+  const block_partner = <>
       {/* Partner Code */}
       {role === 'woman' &&
       <motion.div
@@ -425,6 +439,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </motion.div>
       }
 
+</>;
+  const block_partnerInfo = <>
       {/* Partner Info Modal */}
       <AnimatePresence>
         {showPartnerInfo &&
@@ -517,9 +533,13 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         }
       </AnimatePresence>
 
+</>;
+  const block_pregnancy = <>
       {/* Hamiləliyim: dates, birth, and the calm pregnancy loss entry (bump); recovery links (loss) */}
       <ProfilePregnancyCard onNavigate={onNavigate} />
 
+</>;
+  const block_children = <>
       {/* Children Management Section - Only for mommy stage */}
       {lifeStage === 'mommy' &&
       <motion.div
@@ -595,6 +615,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </motion.div>
       }
 
+</>;
+  const block_childModal = <>
       {/* Add/Edit Child Modal */}
       <Dialog open={showChildModal || !!editingChild} onOpenChange={(open) => {
         if (!open) {
@@ -697,6 +719,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </DialogContent>
       </Dialog>
 
+</>;
+  const block_menu = <>
       {/* Menu Items */}
       <motion.div
         className="a-list-card a-fade-in"
@@ -730,8 +754,12 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         })}
       </motion.div>
 
+</>;
+  const block_feedback = <>
       <FeedbackSheet open={feedbackOpen} onClose={() => setFeedbackOpen(false)} />
 
+</>;
+  const block_language = <>
       {/* Dil seçimi — əlçatan yerdə (Settings-də deyil) */}
       <motion.div
         style={{ marginTop: 12 }}
@@ -741,6 +769,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         <LanguageSelector />
       </motion.div>
 
+</>;
+  const block_logout = <>
       {/* Logout */}
       <motion.button
         onClick={handleLogout}
@@ -755,6 +785,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         {tr("profilescreen_cixis_c2de5c", "\xC7\u0131x\u0131\u015F")}
       </motion.button>
 
+</>;
+  const block_legal = <>
       {/* Legal Links */}
       <section className="a-section">
         <div className="a-section-head">
@@ -794,10 +826,66 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </motion.div>
       </section>
 
+</>;
+  const block_premiumModal = <>
       {/* Premium Modal */}
       <PremiumModal
         isOpen={showPremiumModal}
         onClose={() => setShowPremiumModal(false)} />
+</>;
+  return (
+    <div className="a-scope pb-8 overflow-x-hidden" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
+      <div className="a-shell">
+      {/* Top bar */}
+      <motion.header
+        className="a-topbar"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}>
+        
+        <div>
+          <p className="a-eyebrow">{stageInfo.name}</p>
+          <p className="a-wordmark" style={{ fontSize: 18 }}>{tr("untranslated_profil_v8b0sk", "Profil")}</p>
+        </div>
+        <div className="a-topbar-actions">
+          <motion.button
+            onClick={() => onNavigate?.('settings')}
+            className="a-icon-btn"
+            whileTap={{ scale: 0.9 }}>
+            
+            <Settings size={16} strokeWidth={2} />
+          </motion.button>
+        </div>
+      </motion.header>
+
+      {/* Top Banner Slot */}
+      <BannerSlot placement="profile_top" onNavigate={onNavigate} className="mb-3" />
+
+      {tabsLayout ? <ProfileTabs
+        tab={profileTab} onTab={chooseProfileTab}
+        name={profile?.name || name || tr("profilescreen_i_stifadeci_b6bdd6", "\u0130stifad\u0259\xE7i")}
+        avatarUrl={profile?.avatar_url || null} emoji={stageInfo.emoji}
+        badge={`${isPremium ? 'Premium · ' : ''}${stageInfo.name}`}
+        onEdit={() => onNavigate?.('edit-profile')}
+        me={<>{block_premium}{block_pregnancy}<ProfileRows rows={meRows} onPick={pickRow} /></>}
+        family={<>{lifeStage === 'mommy' ? block_children : null}{block_partner}</>}
+        showFamily={lifeStage === 'mommy' || role === 'woman'}
+        settings={<><ProfileRows rows={settingsRows} onPick={pickRow} />{block_language}<ProfileRows rows={legalRows} onPick={pickRow} compact title={tr("profilescreen_huquqi_ceb5d3", "Hüquqi")} />{block_logout}</>}
+      /> : <>
+      {block_hero}
+      {block_premium}
+      {block_partner}
+      {block_partnerInfo}
+      {block_pregnancy}
+      {block_children}
+      {block_childModal}
+      {block_menu}
+      {block_feedback}
+      {block_language}
+      {block_logout}
+      {block_legal}
+      {block_premiumModal}
+      </>}
+      {tabsLayout && <>{block_partnerInfo}{block_childModal}{block_feedback}{block_premiumModal}</>}
       
       </div>
     </div>);

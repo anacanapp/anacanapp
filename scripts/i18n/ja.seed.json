@@ -11387,5 +11387,12 @@
   "winback_cta": "再登録する — 3日間無料",
   "winback_dismiss": "閉じる",
   "winback_expired_text": "AIガイド、レポート、すべてのツールをご利用いただけます。もう一度3日間無料でお試しください。",
-  "winback_expired_title": "Premiumでお待ちしていました 💛"
+  "winback_expired_title": "Premiumでお待ちしていました 💛",
+  "profiletabs_me": "わたし",
+  "profiletabs_family": "家族",
+  "profiletabs_settings": "設定",
+  "profiletabs_edit": "プロフィールを編集",
+  "profiletabs_appearance_sub": "テーマと文字サイズ",
+  "profiletabs_calendar_sub": "リマインダーと日付",
+  "profiletabs_privacy_sub": "同意・分析・データ"
 }

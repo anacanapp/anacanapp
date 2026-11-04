@@ -11387,5 +11387,12 @@
   "winback_cta": "Voltar — 3 dias grátis",
   "winback_dismiss": "Fechar",
   "winback_expired_text": "O guia de IA, os relatórios e todas as ferramentas estão à sua espera — experimente novamente grátis durante 3 dias.",
-  "winback_expired_title": "Sentimos a sua falta no Premium 💛"
+  "winback_expired_title": "Sentimos a sua falta no Premium 💛",
+  "profiletabs_me": "Eu",
+  "profiletabs_family": "Família",
+  "profiletabs_settings": "Definições",
+  "profiletabs_edit": "Editar perfil",
+  "profiletabs_appearance_sub": "Tema e tamanho do texto",
+  "profiletabs_calendar_sub": "Lembretes e datas",
+  "profiletabs_privacy_sub": "Consentimento, análises, dados"
 }

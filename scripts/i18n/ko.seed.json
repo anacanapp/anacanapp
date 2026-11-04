@@ -11387,5 +11387,12 @@
   "winback_cta": "다시 가입하세요 — 3일 무료",
   "winback_dismiss": "닫기",
   "winback_expired_text": "AI 가이드, 보고서와 모든 도구가 기다리고 있어요. 3일 동안 다시 무료로 이용해 보세요.",
-  "winback_expired_title": "Premium에서 기다리고 있었어요 💛"
+  "winback_expired_title": "Premium에서 기다리고 있었어요 💛",
+  "profiletabs_me": "나",
+  "profiletabs_family": "가족",
+  "profiletabs_settings": "설정",
+  "profiletabs_edit": "프로필 편집",
+  "profiletabs_appearance_sub": "테마 및 글자 크기",
+  "profiletabs_calendar_sub": "알림 및 날짜",
+  "profiletabs_privacy_sub": "동의, 분석, 데이터"
 }

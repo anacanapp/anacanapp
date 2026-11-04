@@ -11468,5 +11468,12 @@
 "winback_dismiss":"Loobu",
 "winback_expired_text":"AI-juhend, raportid ja kõik tööriistad ootavad — proovi uuesti 3 päeva tasuta.",
 "winback_expired_title":"Igatsesime sind Premiumis 💛",
-"word_garden_language_pending":"Selle keele sõnaraamat on koostamisel."
+"word_garden_language_pending":"Selle keele sõnaraamat on koostamisel.",
+"profiletabs_me":"Mina",
+"profiletabs_family":"Pere",
+"profiletabs_settings":"Seaded",
+"profiletabs_edit":"Muuda profiili",
+"profiletabs_appearance_sub":"Teema ja teksti suurus",
+"profiletabs_calendar_sub":"Meeldetuletused ja kuupäevad",
+"profiletabs_privacy_sub":"Nõusolek, analüütika, andmed"
 }

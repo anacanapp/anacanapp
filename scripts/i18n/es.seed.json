@@ -11387,5 +11387,12 @@
   "winback_cta": "Volver a unirte — 3 días gratis",
   "winback_dismiss": "Descartar",
   "winback_expired_text": "La guía de IA, los informes y todas las herramientas te esperan — vuelve a probarlos gratis durante 3 días.",
-  "winback_expired_title": "Te hemos echado de menos en Premium 💛"
+  "winback_expired_title": "Te hemos echado de menos en Premium 💛",
+  "profiletabs_me": "Yo",
+  "profiletabs_family": "Familia",
+  "profiletabs_settings": "Ajustes",
+  "profiletabs_edit": "Editar perfil",
+  "profiletabs_appearance_sub": "Tema y tamaño de letra",
+  "profiletabs_calendar_sub": "Recordatorios y fechas",
+  "profiletabs_privacy_sub": "Consentimiento, análisis, datos"
 }

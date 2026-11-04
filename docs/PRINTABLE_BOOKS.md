@@ -78,3 +78,9 @@ kataloq `src/data/books/catalog.json`, mətnlər `scripts/i18n/books-copy.json` 
   passed, index `06279d46…`; `/books/covers/*` və yeni `app-entry-*` faylları əlavə olunub). Rollback:
   `sudo python3 /home/anacan-runner/deploy-current-web.py /home/anacan-runner/rollback-books-admin-web-plan.json`.
 - Native tətbiqdə növbəti build ilə (48) gəlir.
+
+## Dil (2026-11-04)
+
+- Tətbiqdə kitab kartları və `books`/`my-books` ekranları yalnız Azərbaycan dilində açıqdır (adminlər istənilən
+  dildə görür). Digər dillər üçün ayrıca kitablar sonra əlavə olunacaq. Ödəniş bağlı olduqca səbətdə
+  "Kartla ödəniş tezliklə" göstərilir; adminin pulsuz test alışı qalır.

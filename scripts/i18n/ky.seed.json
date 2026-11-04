@@ -11468,5 +11468,12 @@
 "winback_dismiss":"Жабуу",
 "winback_expired_text":"AI гид, отчеттор жана бардык куралдар күтүүдө — 3 күн акысыз кайра байкап көрүңүз.",
 "winback_expired_title":"Premium'да сизди сагындык 💛",
-"word_garden_language_pending":"Бул тил үчүн сөз китепканасы даярдалууда."
+"word_garden_language_pending":"Бул тил үчүн сөз китепканасы даярдалууда.",
+"profiletabs_me":"Мен",
+"profiletabs_family":"Үй-бүлө",
+"profiletabs_settings":"Жөндөөлөр",
+"profiletabs_edit":"Профилди түзөтүү",
+"profiletabs_appearance_sub":"Тема жана арип өлчөмү",
+"profiletabs_calendar_sub":"Эскертмелер жана күндөр",
+"profiletabs_privacy_sub":"Макулдук, аналитика, маалымат"
 }

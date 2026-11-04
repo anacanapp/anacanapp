@@ -9148,5 +9148,12 @@
   "pushdiag_event_zero": "Not sent:",
   "games_tier_usta": "Master",
   "games_tier_efsane": "Legend",
-  "adminlayout_fetus_sekilleri": "Fetus Images"
+  "adminlayout_fetus_sekilleri": "Fetus Images",
+  "profiletabs_me": "Me",
+  "profiletabs_family": "Family",
+  "profiletabs_settings": "Settings",
+  "profiletabs_edit": "Edit profile",
+  "profiletabs_appearance_sub": "Theme and text size",
+  "profiletabs_calendar_sub": "Reminders and dates",
+  "profiletabs_privacy_sub": "Consent, analytics, data"
 }

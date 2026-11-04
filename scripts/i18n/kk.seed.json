@@ -8982,5 +8982,12 @@
   "adminlayout_fetus_sekilleri": "Ұрық суреттері",
   "flow_record_days": "Етеккір күндерін белгілеу",
   "flow_had_flow_today": "Бүгін етеккір болды",
-  "flow_today_recorded": "Бүгін белгіленді"
+  "flow_today_recorded": "Бүгін белгіленді",
+  "profiletabs_me": "Мен",
+  "profiletabs_family": "Отбасы",
+  "profiletabs_settings": "Баптаулар",
+  "profiletabs_edit": "Профильді өңдеу",
+  "profiletabs_appearance_sub": "Тақырып және қаріп өлшемі",
+  "profiletabs_calendar_sub": "Еске салғыштар мен күндер",
+  "profiletabs_privacy_sub": "Келісім, аналитика, деректер"
 }

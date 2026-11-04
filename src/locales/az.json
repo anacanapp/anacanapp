@@ -7656,5 +7656,12 @@
   "pushdiag_event_zero": "Göndərilmədi:",
   "games_tier_usta": "Usta",
   "games_tier_efsane": "Əfsanə",
-  "adminlayout_fetus_sekilleri": "Fetus Şəkilləri"
+  "adminlayout_fetus_sekilleri": "Fetus Şəkilləri",
+  "profiletabs_me": "Mən",
+  "profiletabs_family": "Ailə",
+  "profiletabs_settings": "Ayarlar",
+  "profiletabs_edit": "Profili redaktə et",
+  "profiletabs_appearance_sub": "Tema və şrift ölçüsü",
+  "profiletabs_calendar_sub": "Xatırlatmalar və tarixlər",
+  "profiletabs_privacy_sub": "Razılıq, analitika, məlumatlar"
 }

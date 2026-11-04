@@ -8982,5 +8982,12 @@
   "winback_expired_title": "Premium-siz sizni sog'indik 💛",
   "flow_record_days": "Hayz kunlarini belgilash",
   "flow_had_flow_today": "Bugun hayz bo'ldi",
-  "flow_today_recorded": "Bugun belgilandi"
+  "flow_today_recorded": "Bugun belgilandi",
+  "profiletabs_me": "Men",
+  "profiletabs_family": "Oila",
+  "profiletabs_settings": "Sozlamalar",
+  "profiletabs_edit": "Profilni tahrirlash",
+  "profiletabs_appearance_sub": "Mavzu va shrift oʻlchami",
+  "profiletabs_calendar_sub": "Eslatmalar va sanalar",
+  "profiletabs_privacy_sub": "Rozilik, tahlil, maʼlumotlar"
 }

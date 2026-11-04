@@ -11387,5 +11387,12 @@
   "winback_cta": "Gå med igen – 3 dagar gratis",
   "winback_dismiss": "Stäng",
   "winback_expired_text": "AI-guiden, rapporter och alla verktyg väntar – prova igen gratis i 3 dagar.",
-  "winback_expired_title": "Vi har saknat dig som Premium-medlem 💛"
+  "winback_expired_title": "Vi har saknat dig som Premium-medlem 💛",
+  "profiletabs_me": "Jag",
+  "profiletabs_family": "Familj",
+  "profiletabs_settings": "Inställningar",
+  "profiletabs_edit": "Redigera profil",
+  "profiletabs_appearance_sub": "Tema och textstorlek",
+  "profiletabs_calendar_sub": "Påminnelser och datum",
+  "profiletabs_privacy_sub": "Samtycke, analys, data"
 }
