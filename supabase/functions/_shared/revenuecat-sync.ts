@@ -121,6 +121,8 @@ export async function fetchRevenueCatSubscriber(appUserId: string): Promise<{
   } catch { return { data: null, debugReason: 'rc_api_error' }; }
 }
 
+// RevenueCat promotional grants arrive as `rc_promo_<entitlement>_<duration>`; the live map includes them
+// (docs/REVENUECAT_PROMOTIONAL_PREMIUM.md).
 function productConfiguration(productId: string): { plan: 'premium' | 'premium_plus'; kind: 'subscription' | 'lifetime' } | null {
   try {
     const raw = Deno.env.get('REVENUECAT_PRODUCT_PLANS_JSON');
