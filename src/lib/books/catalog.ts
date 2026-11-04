@@ -20,12 +20,18 @@ export function bookAgeForMonths(months: number | null | undefined): BookAge | n
 }
 
 /** Accent colours per age group, matched to the cover age badges. */
-export const AGE_TINT: Record<BookAge, { bg: string; ink: string }> = {
-  '6m': { bg: '#EFE6FF', ink: '#6B4BC8' },
-  '1y': { bg: '#FFF0D6', ink: '#B86E00' },
-  '2y': { bg: '#FFE4EF', ink: '#C2185B' },
-  '3y': { bg: '#DDF6F0', ink: '#0F7F6B' },
-  '4y': { bg: '#FFE7E1', ink: '#D2452F' },
-  '5y': { bg: '#E3E8FF', ink: '#3A4FC0' },
-  '6y': { bg: '#FFE3E3', ink: '#C62F3A' },
+export const AGE_TINT: Record<BookAge, { bg: string; ink: string; bgDark: string; inkDark: string }> = {
+  '6m': { bg: '#EFE6FF', ink: '#6B4BC8', bgDark: '#2C2540', inkDark: '#C7B6FF' },
+  '1y': { bg: '#FFF0D6', ink: '#B86E00', bgDark: '#3A2E1A', inkDark: '#FFC56B' },
+  '2y': { bg: '#FFE4EF', ink: '#C2185B', bgDark: '#3D2230', inkDark: '#FF9CC4' },
+  '3y': { bg: '#DDF6F0', ink: '#0F7F6B', bgDark: '#1C3732', inkDark: '#7EDCC6' },
+  '4y': { bg: '#FFE7E1', ink: '#D2452F', bgDark: '#3D2723', inkDark: '#FFA48F' },
+  '5y': { bg: '#E3E8FF', ink: '#3A4FC0', bgDark: '#232A45', inkDark: '#A9B6FF' },
+  '6y': { bg: '#FFE3E3', ink: '#C62F3A', bgDark: '#3E2326', inkDark: '#FF9AA1' },
+};
+
+/** CSS variables for an age tint; books.css picks the light or dark pair (.bk-tint-*). */
+export const tintVars = (age: BookAge): Record<string, string> => {
+  const t = AGE_TINT[age];
+  return { '--tb': t.bg, '--ti': t.ink, '--tbd': t.bgDark, '--tid': t.inkDark, '--ts': t.ink };
 };

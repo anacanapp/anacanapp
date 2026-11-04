@@ -22,7 +22,7 @@ export async function isBookOrder(admin: any, orderId: unknown): Promise<boolean
 
 /** Mints a fresh download token for a paid order and e-mails the links (also used for "resend"). */
 // deno-lint-ignore no-explicit-any
-export async function emailBookLinks(admin: any, order: { id: string; user_id: string; email: string; book_ids: string[] }): Promise<boolean> {
+export async function emailBookLinks(admin: any, order: { id: string; user_id: string | null; email: string; book_ids: string[] }): Promise<boolean> {
   const token = toBase64Url(crypto.getRandomValues(new Uint8Array(32)));
   const { error } = await admin.from('book_orders').update({ download_token_hash: await sha256Hex(token), updated_at: new Date().toISOString() }).eq('id', order.id).eq('status', 'paid');
   if (error) return false;
@@ -56,9 +56,13 @@ export async function applyBookPaymentResult(admin: any, config: EpointConfig, p
     provider_transaction: typeof payload.transaction === 'string' ? payload.transaction.slice(0, 128) : null,
   }).eq('id', orderId).eq('status', 'pending').select('id');
   if (!updated?.length) return 'duplicate';
-  const grants = (order.book_ids as string[]).map(bookId => ({ user_id: order.user_id, book_id: bookId, order_id: orderId }));
-  const { error } = await admin.from('book_entitlements').upsert(grants, { onConflict: 'user_id,book_id', ignoreDuplicates: true });
-  if (error) return 'grant_failed';
+  // Web (guest) orders without an Anacan account get the e-mail links only; with an account the books
+  // also appear in "Kitablarım".
+  if (order.user_id) {
+    const grants = (order.book_ids as string[]).map(bookId => ({ user_id: order.user_id, book_id: bookId, order_id: orderId }));
+    const { error } = await admin.from('book_entitlements').upsert(grants, { onConflict: 'user_id,book_id', ignoreDuplicates: true });
+    if (error) return 'grant_failed';
+  }
   // Server-side purchase event (internal analytics): the client cannot see the payment itself.
   await admin.from('analytics_events').insert({ user_id: order.user_id, event_name: 'books_purchase_completed', event_category: 'commerce', platform: 'server',
     event_data: { order_id: orderId, book_count: (order.book_ids as string[]).length, value: Number(order.amount), currency: 'AZN' } });

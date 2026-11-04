@@ -1,5 +1,6 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { applyBookPaymentResult, isBookOrder } from '../_shared/book-result.ts';
+import { applyWebCakeResult, isWebCakeOrder } from '../_shared/web-cake-result.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -201,6 +202,12 @@ Deno.serve(async (req: Request) => {
       if (await isBookOrder(admin, result.order_id)) {
         const outcome = await applyBookPaymentResult(admin, { ready: true, merchantLive: true, booksEnabled: true, publicKey, privateKey }, result);
         if (outcome === 'not_confirmed' || outcome === 'grant_failed') throw new PaymentError(outcome === 'not_confirmed' ? 409 : 503, 'book_payment_' + outcome);
+        return new Response('OK', { headers: { 'Cache-Control': 'no-store' } });
+      }
+      // Cake orders from the anacan.az web shop (no payment_transactions row).
+      if (await isWebCakeOrder(admin, result.order_id)) {
+        const outcome = await applyWebCakeResult(admin, { ready: true, merchantLive: true, booksEnabled: true, publicKey, privateKey }, result);
+        if (outcome === 'not_confirmed') throw new PaymentError(409, 'cake_payment_not_confirmed');
         return new Response('OK', { headers: { 'Cache-Control': 'no-store' } });
       }
       if (typeof result.order_id !== 'string' || !reference.test(result.order_id)

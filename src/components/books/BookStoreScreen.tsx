@@ -6,7 +6,7 @@ import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';
 import { useChildren } from '@/hooks/useChildren';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { AGE_TINT, BOOK_AGES, BOOK_TOPICS, BOOKS, bookAgeForMonths, bookCover, findBook, type Book, type BookAge, type BookTopic } from '@/lib/books/catalog';
+import { tintVars, BOOK_AGES, BOOK_TOPICS, BOOKS, bookAgeForMonths, bookCover, findBook, type Book, type BookAge, type BookTopic } from '@/lib/books/catalog';
 import { BOOK_BASE_PRICE, bookOrderTotal, bookUnitPrice, formatAzn, nextBookTier } from '@/lib/books/pricing';
 import { adminTestGrant, bookDownloadUrl, fetchBookPaymentsReady, fetchMyBooks, openExternal, readCart, startBookCheckout, writeCart } from '@/lib/books/api';
 import { useBooksText } from './booksCopy';
@@ -139,7 +139,7 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
 
           {childAge && selectedChild && (
             <section className="bk-section">
-              <div className="bk-head"><h2>{t('for_child', { name: selectedChild.name })}</h2><span className="bk-age" style={{ background: AGE_TINT[childAge].bg, color: AGE_TINT[childAge].ink }}>{ageLabel(childAge)}</span></div>
+              <div className="bk-head"><h2>{t('for_child', { name: selectedChild.name })}</h2><span className="bk-age bk-tint-bg bk-tint-ink" style={tintVars(childAge) as React.CSSProperties}>{ageLabel(childAge)}</span></div>
               <div className="bk-rail">
                 {BOOKS.filter(book => book.age === childAge).map(book => (
                   <button key={book.id} className="bk-rail-item" onClick={() => openDetail(book)}>
@@ -175,7 +175,7 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
             <div className="bk-chips">
               <button className={age === 'all' ? 'on' : ''} onClick={() => pickAge('all')}>{t('age_all')}</button>
               {BOOK_AGES.map(value => (
-                <button key={value} className={age === value ? 'on' : ''} onClick={() => pickAge(value)} style={age === value ? { background: AGE_TINT[value].ink } : { color: AGE_TINT[value].ink }}>{ageLabel(value)}</button>
+                <button key={value} className={age === value ? 'on bk-tint-solid' : 'bk-tint-ink'} onClick={() => pickAge(value)} style={tintVars(value) as React.CSSProperties}>{ageLabel(value)}</button>
               ))}
             </div>
             <div className="bk-chips soft">
@@ -185,12 +185,12 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
           </section>
 
           {age !== 'all' && topic === 'all' && collection.length >= 3 && (
-            <section className="bk-collection" style={{ background: AGE_TINT[age].bg }}>
+            <section className="bk-collection bk-tint-bg" style={tintVars(age) as React.CSSProperties}>
               <div className="bk-collection-covers">{collection.slice(0, 4).map(book => <img key={book.id} src={bookCover(book.id)} alt="" loading="lazy" />)}</div>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <b style={{ color: AGE_TINT[age].ink }}>{t('collection_title', { age: ageLabel(age) })}</b>
+                <b className="bk-tint-ink">{t('collection_title', { age: ageLabel(age) })}</b>
                 <p>{collection.length === 10 ? t('collection_body') : t('results', { n: collection.length })}</p>
-                <button onClick={() => addMany(collection.map(book => book.id))} style={{ background: AGE_TINT[age].ink }}>
+                <button className="bk-tint-solid" onClick={() => addMany(collection.map(book => book.id))}>
                   <Plus size={14} />{t('collection_cta')} · {formatAzn(bookOrderTotal(new Set([...cart, ...collection.map(book => book.id)]).size))}
                 </button>
               </div>
@@ -272,14 +272,14 @@ function PrintGuide() {
 
 function BookDetail({ book, owned, inCart, price, onToggle, onClose, onMine }: { book: Book; owned: boolean; inCart: boolean; price: number; onToggle: () => void; onClose: () => void; onMine: () => void }) {
   const { t } = useBooksText();
-  const tint = AGE_TINT[book.age];
+  const tint = tintVars(book.age) as React.CSSProperties;
   return (
     <Sheet onClose={onClose} label={book.title}>
-      <div className="bk-detail-top" style={{ background: tint.bg }}>
+      <div className="bk-detail-top bk-tint-bg" style={tint}>
         <img src={bookCover(book.id)} alt={book.title} />
       </div>
       <div className="bk-detail-tags">
-        <span style={{ background: tint.bg, color: tint.ink }}>{t(`age_${book.age}` as const)}</span>
+        <span className="bk-tint-bg bk-tint-ink" style={tint}>{t(`age_${book.age}` as const)}</span>
         <span>{t(`topic_${book.topic}` as const)}</span>
         <span>{t('print_meta', { pages: book.pages })}</span>
       </div>
@@ -325,7 +325,7 @@ function CartSheet({ cart, ready, adminTest, busy, onRemove, onClose, onCheckout
         <div><span>{t('cart_total')}</span><b>{formatAzn(total)}</b></div>
       </div>
       <button className="bk-primary" disabled={!count || busy} onClick={onCheckout}>{busy ? <Loader2 className="animate-spin" size={16} /> : <ShoppingBag size={16} />}{t('checkout')}</button>
-      <p className="bk-paynote">{adminTest ? 'Admin test rejimi: ödəniş qoşulmayıb, kitablar pulsuz sizin hesaba əlavə olunacaq.' : ready ? t('pay_note') : t('pay_soon')}</p>
+      <p className="bk-paynote">{adminTest ? 'Admin test rejimi: ödəniş qoşulmayıb, kitablar pulsuz sizin hesaba əlavə olunacaq.' : t('pay_note')}</p>
     </Sheet>
   );
 }

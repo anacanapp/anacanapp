@@ -1,0 +1,14 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261104210000_web_shop_orders.sql",
+  "runtime": "google-web-shop",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; no new relation, both tables already carry the three standard triggers",
+  "relations": [
+    { "relation": "public.book_orders", "change": "altered", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "user_id nullable for channel='web' guest orders; channel, customer_name, customer_phone added" },
+    { "relation": "public.cake_orders", "change": "altered", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "user_id nullable for channel='web' guest orders; channel, customer_email, provider_transaction, paid_at added" },
+    { "relation": "public.app_settings", "change": "row added", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "cakes_web_payments_enabled=false" }
+  ]
+}

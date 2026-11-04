@@ -4,7 +4,7 @@
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]!));
 
 export async function sendBooksEmail(input: {
-  userId: string; to: string; orderId: string; token: string; books: { id: string; title: string; cover: string }[]; functionsUrl: string;
+  userId: string | null; to: string; orderId: string; token: string; books: { id: string; title: string; cover: string }[]; functionsUrl: string;
 }): Promise<boolean> {
   const key = Deno.env.get('CUSTOMERIO_APP_API_KEY');
   const from = Deno.env.get('BOOKS_EMAIL_FROM') || Deno.env.get('EMAIL_VERIFICATION_FROM');
@@ -29,7 +29,7 @@ ${rows}
     method: 'POST',
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ to: input.to, from, subject: 'Anacan — kitablarınız hazırdır 📚', body: html, plaintext_body: text,
-      identifiers: { id: input.userId }, send_to_unsubscribed: true, tracked: false }),
+      identifiers: input.userId ? { id: input.userId } : { email: input.to }, send_to_unsubscribed: true, tracked: false }),
     signal: AbortSignal.timeout(15_000),
   });
   if (!response.ok) console.error('[book-email] send failed:', response.status);
