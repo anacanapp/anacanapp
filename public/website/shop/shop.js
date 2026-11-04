@@ -266,8 +266,8 @@
           h('b', null, money(cakeUnit(l) * l.qty)), h('button', { type: 'button', class: 'shop-x', 'aria-label': 'Sil', onclick: function () { state.cart.splice(idx, 1); saveCart(); drawList(); render(); } }, '×')));
       });
       total.textContent = ''; total.appendChild(h('span', null, 'Cəmi')); total.appendChild(h('span', null, money(cartTotal())));
-      pay.textContent = state.ready ? 'Kartla ödə · ' + money(cartTotal()) : 'Kartla ödəniş tezliklə aktiv olacaq';
-      pay.disabled = !state.ready;
+      pay.textContent = 'Kartla ödə · ' + money(cartTotal());
+      pay.disabled = false;
     }
     function input(id, label, key, type, extra) {
       return h('div', { class: 'shop-field' }, h('label', { for: id }, label), h(type === 'textarea' ? 'textarea' : 'input', Object.assign({ id: id, class: 'shop-input', type: type === 'textarea' ? null : type, oninput: function (e) { form[key] = e.target.value; } }, extra || {})));
@@ -290,6 +290,7 @@
       var body = { kind: KIND, name: form.name, email: form.email, phone: form.phone };
       if (KIND === 'books') body.book_ids = state.cart.slice();
       else { body.items = state.cart.map(function (l) { return { cake_id: l.cake_id, qty: l.qty, flavor: l.flavor, photo_box: !!l.photo_box, fields: l.fields || {} }; }); body.delivery_date = form.date; body.slot = form.slot; body.mode = form.mode; body.address = form.address; body.notes = form.notes; }
+      if (!state.ready) { msg.appendChild(h('div', { class: 'shop-note bad' }, 'Ödəniş sistemi hələ aktiv deyil. Səbətiniz saxlanılıb; kart ödənişi aktivləşən kimi sifarişi tamamlaya bilərsiniz.')); return; }
       var problem = form.name.trim().length < 2 ? 'Adınızı yazın.' : !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(form.email.trim()) ? 'E-poçt ünvanını düzgün yazın.' : (KIND === 'cakes' && !/^\+?[0-9 ()-]{7,20}$/.test(form.phone.trim())) ? 'Telefon nömrəsini yazın.' : (KIND === 'cakes' && form.mode === 'delivery' && form.address.trim().length < 5) ? 'Çatdırılma ünvanını yazın.' : '';
       if (problem) { msg.appendChild(h('div', { class: 'shop-note bad' }, problem)); return; }
       pay.disabled = true; pay.textContent = 'Ödəniş səhifəsi açılır…';
@@ -299,7 +300,7 @@
           if (res.ok && res.body && /^https:\/\/([a-z0-9-]+\.)*epoint\.az\//.test(res.body.checkout_url || '')) { location.href = res.body.checkout_url; return; }
           var code = res.body && res.body.error;
           var text = code === 'payments_unavailable' || res.status === 503 ? 'Kartla ödəniş hələ aktiv deyil. Səbətiniz saxlanılıb.' : code === 'too_many_requests' ? 'Çox sayda sifariş cəhdi oldu. Bir saat sonra yenidən yoxlayın.' : code === 'invalid_date' ? 'Başqa tarix seçin (ən azı 48 saat sonra).' : 'Ödəniş başlamadı. Bir az sonra yenidən cəhd edin.';
-          msg.appendChild(h('div', { class: 'shop-note bad' }, text)); drawList(); pay.disabled = !state.ready;
+          msg.appendChild(h('div', { class: 'shop-note bad' }, text)); drawList();
         })
         .catch(function () { msg.appendChild(h('div', { class: 'shop-note bad' }, 'Bağlantı alınmadı. İnterneti yoxlayıb yenidən cəhd edin.')); drawList(); });
     });
