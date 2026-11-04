@@ -37,6 +37,7 @@ import { PremiumEntitlementMonitor } from '@/hooks/usePremiumEntitlement';
 import ScreenCaptureGuard from '@/components/security/ScreenCaptureGuard';
 import { Capacitor } from '@capacitor/core';
 import ModeratorEnforcement from '@/components/moderation/ModeratorEnforcement';
+import PrivacyConsentSheet from '@/components/privacy/PrivacyConsentSheet';
 import CustomerIoSession from '@/components/CustomerIoSession';
 import ThemeStatusBarSync from '@/components/ThemeStatusBarSync';
 import StartupScreen from '@/components/StartupScreen';
@@ -139,6 +140,7 @@ const App = () => {
           <DirectionProvider dir={isRtlLang(language) ? 'rtl' : 'ltr'}>
           <AuthProvider>
             <CustomerIoSession />
+            <PrivacyConsentSheet />
             <PremiumEntitlementMonitor />
             <TooltipProvider>
               <Toaster />

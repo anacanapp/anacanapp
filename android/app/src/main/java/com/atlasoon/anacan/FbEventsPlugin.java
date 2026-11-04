@@ -1,6 +1,7 @@
 package com.atlasoon.anacan;
 
 import android.os.Bundle;
+import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
@@ -39,6 +40,17 @@ public class FbEventsPlugin extends Plugin {
             }
         }
         return logger;
+    }
+
+    /** Attribution consent from privacyConsent.ts: advertiser id collection follows it. */
+    @PluginMethod
+    public void setConsent(PluginCall call) {
+        try {
+            FacebookSdk.setAdvertiserIDCollectionEnabled(Boolean.TRUE.equals(call.getBoolean("enabled", false)));
+        } catch (Throwable ignored) {
+            // SDK not ready: nothing is sent without consent anyway
+        }
+        call.resolve();
     }
 
     @PluginMethod

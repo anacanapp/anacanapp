@@ -15,6 +15,7 @@ import { toast } from 'sonner';
 import { useTimerStore } from '@/store/timerStore';
 import { useWhiteNoiseStore } from '@/store/whiteNoiseStore';
 import { advanceAdCadence, consumeAdCadence, type AdCadence } from '@/lib/ads/cadence';
+import { usePrivacyConsent } from '@/lib/privacyConsent';
 
 interface AdSurface { token: string; id: AdPlacementId; startedAt: number }
 export interface AdPreview { enabled: boolean; platform: AdPlatform; premium: boolean; fast: boolean }
@@ -79,6 +80,11 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
     viewportHeight: typeof window === 'undefined' ? 800 : window.innerHeight,
     anchors: {} as Record<string, { top: number; height: number; visible: boolean }>, foreground: true, online: true }));
   const [consent, setConsent] = useState<NativeConsent>({ canRequestAds: false, privacyOptionsRequired: false });
+  // Personalised ads need the person's own opt-in (Məxfilik → Razılıq) on top of UMP and the admin NPA switch.
+  const personalizedAdsAllowed = usePrivacyConsent().ads;
+  const personalizedRef = useRef(personalizedAdsAllowed);
+  personalizedRef.current = personalizedAdsAllowed;
+  const npaFor = (value: AdsConfiguration) => value.settings.non_personalized_only || !personalizedRef.current;
   const consentRef = useRef(consent);
   const [nativeVersion, setNativeVersion] = useState('0');
   const [tick, setTick] = useState(Date.now());
@@ -241,7 +247,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
   const bannerTop = bannerPosition === 'top' ? layout.safeTop + 8 : bannerPosition === 'middle' ? anchor?.top ?? 0
     : layout.viewportHeight - layout.bottom - (banner?.height ?? 60);
   const bannerVisible = bannerPosition !== 'middle' || anchor?.visible === true;
-  const bannerKey = bannerSurface && bannerDecision.allowed ? `${bannerSurface.token}:${bannerDecision.mode}:${bannerDecision.adUnitId}:${configuration?.settings.non_personalized_only}:${bannerPosition}` : '';
+  const bannerKey = bannerSurface && bannerDecision.allowed ? `${bannerSurface.token}:${bannerDecision.mode}:${bannerDecision.adUnitId}:${configuration ? npaFor(configuration) : ''}:${bannerPosition}` : '';
   const canDisplay = Boolean(bannerKey && Date.now() >= (backoff.current[bannerKey] ?? 0)
     && (bannerVisible || banner?.key === bannerKey));
   useEffect(() => {
@@ -259,7 +265,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
     if (mode === 'demo') { loaded(); emit(id, 'impression', mode); }
     else void adapter.showBanner(bannerDecision.adUnitId!, Math.max(0, bannerPosition === 'bottom'
       ? layout.bottom - (actualPlatform === 'ios' ? layout.safeBottom : 0) : bannerTop - layout.safeTop), mode,
-      configuration.settings.non_personalized_only, {
+      npaFor(configuration), {
         loaded,
         size: height => { if (valid() && height > 0) setBanner(previous => previous?.key === bannerKey ? { ...previous, height } : previous); },
         impression: () => { if (valid()) emit(id, 'impression', mode); },
@@ -294,15 +300,15 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
           const video = placement.story_format === 'video';
           if (!adapter.isStoryPrepared(decision.adUnitId, video) && !adapter.isStoryPreparing(decision.adUnitId, video)) {
             emit(surface.id, 'requested', decision.mode);
-            void adapter.prepareStory(decision.adUnitId, decision.mode, configuration.settings.non_personalized_only, video).then(ok => {
+            void adapter.prepareStory(decision.adUnitId, decision.mode, npaFor(configuration), video).then(ok => {
               if (!ok) backoff.current[surface.id] = Date.now() + 60000;
               emit(surface.id, ok ? 'loaded' : 'failed', decision.mode, ok ? '' : 'sdk_error');
             });
           }
-        } else if (!adapter.isPrepared(decision.adUnitId, decision.mode, configuration.settings.non_personalized_only)
-          && !adapter.isPreparing(decision.adUnitId, decision.mode, configuration.settings.non_personalized_only)) {
+        } else if (!adapter.isPrepared(decision.adUnitId, decision.mode, npaFor(configuration))
+          && !adapter.isPreparing(decision.adUnitId, decision.mode, npaFor(configuration))) {
           emit(surface.id, 'requested', decision.mode);
-          void adapter.prepare(decision.adUnitId, decision.mode, configuration.settings.non_personalized_only).then(ok => {
+          void adapter.prepare(decision.adUnitId, decision.mode, npaFor(configuration)).then(ok => {
             if (!ok) backoff.current[surface.id] = Date.now() + 60_000;
             emit(surface.id, ok ? 'loaded' : 'failed', decision.mode, ok ? '' : 'sdk_error');
           });
@@ -332,7 +338,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
       emit(id, 'reward_earned', mode);
     };
     if (mode !== 'demo' && !rewarded && !(nativeStory ? adapter.isStoryPrepared(decision.adUnitId!, storyVideo)
-      : adapter.isPrepared(decision.adUnitId!, mode, config.settings.non_personalized_only))) {
+      : adapter.isPrepared(decision.adUnitId!, mode, npaFor(config)))) {
       emit(id, 'skipped', mode, 'not_ready'); return false;
     }
     setBusyState(true); void adapter.stopBanner(); setBanner(null);
@@ -351,7 +357,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
       });
       if (rewarded) {
         emit(id, 'requested', mode);
-        if (!await adapter.prepare(decision.adUnitId!, mode, config.settings.non_personalized_only, true)) {
+        if (!await adapter.prepare(decision.adUnitId!, mode, npaFor(config), true)) {
           emit(id, 'failed', mode, 'sdk_error'); return false;
         }
         emit(id, 'loaded', mode);
@@ -363,7 +369,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
           impression: () => { if (stillCurrent()) emit(id, 'impression', mode); }, rewarded: grant,
       };
       const result = nativeStory ? await adapter.showStory(decision.adUnitId!, storyVideo, allowed, callbacks)
-        : await adapter.showFullscreen(decision.adUnitId!, mode, config.settings.non_personalized_only, rewarded, allowed, callbacks);
+        : await adapter.showFullscreen(decision.adUnitId!, mode, npaFor(config), rewarded, allowed, callbacks);
       if (stillCurrent()) emit(id, result.shown ? 'dismissed' : 'failed', mode, result.shown ? '' : 'sdk_error');
       return rewarded ? result.rewarded && stillCurrent() : result.shown;
     } finally { if (stillCurrent()) setBusyState(false); }

@@ -5,7 +5,7 @@ import {
   ArrowLeft, Bell, Moon, Sun, Lock,
   Smartphone, Trash2, ChevronRight,
   Volume2, Vibrate, Droplets, Dumbbell, Pill,
-  BellOff, Heart, MessageCircle, Users, Download, AlertTriangle, Loader2, HeartPulse, Megaphone } from
+  BellOff, Heart, MessageCircle, Users, Download, AlertTriangle, Loader2, HeartPulse, Megaphone, ShieldCheck } from
 'lucide-react';
 import { Switch } from '@/components/ui/switch';
 import { useNotificationSettings } from '@/hooks/useNotificationSettings';
@@ -29,6 +29,7 @@ import {
 '@/components/ui/alert-dialog';
 import AppLockSetupSheet from '@/components/security/AppLockSetupSheet';
 import { isLockEnabled } from '@/lib/appLock';
+import { usePrivacyText } from '@/components/privacy/privacyCopy';
 
 interface SettingsScreenProps {
   onBack: () => void;
@@ -41,6 +42,7 @@ const SWITCH_CLS = "data-[state=checked]:bg-[var(--a-peach-2)]";
 const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
   useScrollToTop();
   useScreenAnalytics('Settings', 'Settings');
+  const privacyT = usePrivacyText();
 
   const {
     settings,
@@ -390,6 +392,10 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
 
           {/* Privacy & Data */}
           <SectionCard title={tr("settingsscreen_mexfilik_ve_melumat_f15bb1", "Məxfilik və Məlumat")}>
+            <SettingRow icon={ShieldCheck} label={privacyT('settings_row')} description={privacyT('settings_row_desc')}
+            onClick={() => onNavigate?.('privacy')} tintBg="var(--a-green-1)" tintInk="var(--a-green-ink)">
+              <ChevronRight className="rtl:rotate-180" size={18} style={{ color: 'var(--a-ink-faint)' }} />
+            </SettingRow>
             <SettingRow icon={Lock} label={tr("settingsscreen_sifre_ile_qoruma_152a0e", "Şifrə ilə qoruma")}
             description={lockActive ? tr("applock_status_on", "Aktiv — PIN ilə qorunur") : tr("applock_status_off", "PIN və ya biometrika ilə qoruyun")}
             onClick={() => setShowLockSheet(true)}

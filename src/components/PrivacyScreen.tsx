@@ -13,14 +13,18 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useToast } from '@/hooks/use-toast';
 import { usePrivacyPreferences, type PrivacyPrefs } from '@/hooks/usePrivacyPreferences';
 import { tr } from "@/lib/tr";
+import ConsentControls from '@/components/privacy/ConsentControls';
+import { usePrivacyText } from '@/components/privacy/privacyCopy';
+import { setPrivacyConsent, usePrivacyConsent } from '@/lib/privacyConsent';
 
 interface PrivacyScreenProps {
   onBack: () => void;
+  onOpenAdSettings?: () => void;
 }
 
 const SWITCH_CLS = "data-[state=checked]:bg-[var(--a-peach-2)]";
 
-const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
+const PrivacyScreen = ({ onBack, onOpenAdSettings }: PrivacyScreenProps) => {
   useScrollToTop();
 
   const { user, signOut } = useAuth();
@@ -30,6 +34,13 @@ const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
 
   // DB-persist privacy ayarları (əvvəllər yalnız local state idi)
   const { prefs, updatePref, loading: prefsLoading } = usePrivacyPreferences();
+  const consent = usePrivacyConsent();
+  const pt = usePrivacyText();
+  const changeConsent = async (next: { analytics: boolean; ads: boolean; attribution: boolean }) => {
+    await setPrivacyConsent(next);
+    if (next.analytics !== prefs.privacy_share_analytics) void updatePref('privacy_share_analytics', next.analytics);
+    toast({ title: pt('saved') });
+  };
 
   const handleToggle = async (key: keyof PrivacyPrefs, value: boolean) => {
     const ok = await updatePref(key, value);
@@ -117,14 +128,8 @@ const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
     description: tr("privacyscreen_diger_istifadeciler_size_mesaj_gondere_b_c1b1fc", 'Digər istifadəçilər sizə mesaj göndərə bilər'),
     key: 'privacy_allow_messages' as const,
     bg: 'var(--a-pink-1)', ink: 'var(--a-pink-ink)'
-  },
-  {
-    icon: Shield,
-    title: tr("privacyscreen_analitik_melumat_paylas_7971ff", 'Analitik məlumat paylaş'),
-    description: tr("privacyscreen_anonim_istifade_melumatlarini_paylasin_835e3a", 'Anonim istifadə məlumatlarını paylaşın'),
-    key: 'privacy_share_analytics' as const,
-    bg: 'var(--a-green-1)', ink: 'var(--a-green-ink)'
-  }];
+  }
+  ];
 
 
   return (
@@ -179,6 +184,16 @@ const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
 
               })}
             </div>
+          </motion.div>
+
+          {/* Consent (analytics / ads / attribution) */}
+          <motion.div className="a-card" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.05 }}>
+            <h3 className="a-card-title flex items-center gap-2" style={{ marginBottom: 4 }}>
+              <Shield size={16} style={{ color: 'var(--a-accent-ink)' }} />
+              {pt('section_title')}
+            </h3>
+            <p style={{ fontSize: 11, color: 'var(--a-ink-soft)', marginBottom: 6 }}>{pt('section_desc')}</p>
+            <ConsentControls value={consent} onChange={changeConsent} onOpenAdSettings={onOpenAdSettings} />
           </motion.div>
 
           {/* Data Management */}

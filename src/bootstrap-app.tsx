@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { initializeNativeFeatures } from './lib/native';
 import { initCrashReporter } from './lib/crashReporter';
 import { initFacebookEvents } from './lib/facebook-events';
+import { loadPrivacyConsent } from './lib/privacyConsent';
 import { NativeSessionRecoveryPendingError, restoreAdmittedNativeSession, startNativeSessionSync } from './lib/session-persistence';
 import { Preferences } from '@capacitor/preferences';
 import { useUserStore } from '@/store/userStore';
@@ -43,6 +44,7 @@ export async function startApp() {
 
   initCrashReporter();
   initFacebookEvents();
+  void loadPrivacyConsent();
   initializeNativeFeatures().catch(console.error);
   try {
     const cap = (window as any)?.Capacitor;

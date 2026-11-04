@@ -7,6 +7,7 @@
  */
 
 import { Capacitor, registerPlugin } from '@capacitor/core';
+import { isAttributionAllowed } from './privacyConsent';
 
 // IMPORTANT: Capacitor plugin proxies can be treated as thenables if they cross
 // async/promise boundaries. Keep plugin lookup synchronous and only await real
@@ -66,7 +67,8 @@ export const setFacebookAdvertiserTracking = async (enabled: boolean) => {
 /**
  * Daxili event adlarını Facebook standart event adlarına çevirir.
  * Standart adlar Meta Ads Manager-də konversiya kampaniyaları üçün istifadə olunur.
- * Tanınmayan eventlər custom event kimi öz adı ilə göndərilir.
+ * Yalnız bu siyahıdakı marketinq/konversiya eventləri Meta-ya gedir; sağlamlıq qeydləri
+ * (çəki, əhval, simptom, təpik və s.) heç vaxt göndərilmir.
  */
 const EVENT_MAP: Record<string, string> = {
   sign_up: 'fb_mobile_complete_registration',
@@ -112,6 +114,9 @@ const cleanParams = (params?: Record<string, any>) => {
  * Səssiz fail — analytics heç vaxt app-ı sındırmamalıdır.
  */
 export const logFacebookEvent = async (eventName: string, params?: Record<string, any>) => {
+  // Attribution is opt-in (Məxfilik → Razılıq): nothing reaches Meta without it.
+  if (!isAttributionAllowed()) return;
+  if (eventName !== 'fb_mobile_activate_app' && !Object.prototype.hasOwnProperty.call(EVENT_MAP, eventName)) return;
   const p = getPlugin();
   if (!p) return;
   try {
@@ -140,26 +145,32 @@ export const initFacebookEvents = () => {
   if (initialized) return;
   initialized = true;
   if (!Capacitor.isNativePlatform()) return;
-  // Defer plugin lookup + ATT prompt so it doesn't block app boot or race the
-  // native bridge. Apple recommends asking AFTER the app is visible.
-  setTimeout(async () => {
-    try { getPlugin(); } catch { /* silent */ }
+  // Only warms up the plugin. The ATT prompt and any Meta traffic wait for the
+  // person's attribution consent (privacyConsent.ts → applyFacebookConsent).
+  setTimeout(() => { try { getPlugin(); } catch { /* silent */ } }, 2000);
+};
 
-    // ATT yalnız iOS anlayışıdır — Android-də advertiser ID manifest ilə idarə olunur
-    if (!isIos) return;
+let activationLogged = false;
+/**
+ * Applies the attribution choice. Auto-logging is disabled natively, so the app
+ * activation event is logged here once per launch, only with consent. On iOS the
+ * ATT prompt is shown only after the person opted in inside Anacan.
+ */
+export const applyFacebookConsent = async (allowed: boolean, fromUser = false) => {
+  if (!Capacitor.isNativePlatform()) return;
+  let tracking = false;
+  if (allowed && isIos) {
     try {
       const { AppTrackingTransparency } = await import('capacitor-plugin-app-tracking-transparency');
-      const status = await AppTrackingTransparency.getStatus();
-      let finalStatus = status.status;
-      if (finalStatus === 'notDetermined') {
-        const res = await AppTrackingTransparency.requestPermission();
-        finalStatus = res.status;
-      }
-      const granted = finalStatus === 'authorized';
-      await setFacebookAdvertiserTracking(granted);
-      console.log('[ATT] status =', finalStatus, 'fb tracking =', granted);
-    } catch (e) {
-      console.warn('[ATT] request failed', e);
-    }
-  }, 2000);
+      let status = (await AppTrackingTransparency.getStatus()).status;
+      if (status === 'notDetermined' && fromUser) status = (await AppTrackingTransparency.requestPermission()).status;
+      tracking = status === 'authorized';
+    } catch (e) { console.warn('[ATT] request failed', e); }
+  }
+  if (isIos) await setFacebookAdvertiserTracking(allowed && tracking);
+  if (isAndroid) { try { await getPlugin()?.setConsent({ enabled: allowed }); } catch { /* older native build */ } }
+  if (allowed && !activationLogged) {
+    activationLogged = true;
+    await logFacebookEvent('fb_mobile_activate_app');
+  }
 };

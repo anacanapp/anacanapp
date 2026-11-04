@@ -5,6 +5,7 @@
 
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '@/integrations/supabase/client';
+import { isAnalyticsAllowed, isAttributionAllowed } from './privacyConsent';
 
 // Firebase Analytics for web
 let firebaseAnalytics: any = null;
@@ -158,10 +159,18 @@ const trackInternal = async (eventName: string, params?: AnalyticsParams) => {
  * Log an analytics event - triple tracks to Firebase + internal DB + Mixpanel
  */
 export const logEvent = async (eventName: AnalyticsEvent, params?: AnalyticsParams): Promise<void> => {
+  // Both channels are opt-in (Məxfilik → Razılıq): analytics feeds Firebase/internal stats,
+  // attribution feeds Meta App Events. Without consent nothing is recorded.
+  const analytics = isAnalyticsAllowed(), attribution = isAttributionAllowed();
+  if (attribution) {
+    import('@/lib/facebook-events').then(({ logFacebookEvent }) => {
+      logFacebookEvent(eventName, params as Record<string, any>);
+    }).catch(() => {});
+  }
+  if (!analytics) return;
   // Internal usage reporting is independent of optional third-party SDK errors.
   void trackInternal(eventName, params);
   try {
-    // Firebase tracking
     if (Capacitor.isNativePlatform()) {
       const { FirebaseAnalytics } = await import('@capacitor-firebase/analytics');
       await FirebaseAnalytics.logEvent({
@@ -175,18 +184,11 @@ export const logEvent = async (eventName: AnalyticsEvent, params?: AnalyticsPara
       }
     }
 
-    // Mixpanel tracking (non-blocking)
+    // Mixpanel tracking (non-blocking; currently a no-op)
     import('@/lib/mixpanel').then(({ trackMixpanelEvent }) => {
       trackMixpanelEvent(eventName, params as Record<string, any>);
     }).catch(() => {});
 
-    // Facebook / Meta App Events tracking (non-blocking, native-only)
-    import('@/lib/facebook-events').then(({ logFacebookEvent }) => {
-      logFacebookEvent(eventName, params as Record<string, any>);
-    }).catch(() => {});
-
-    // Internal DB tracking (non-blocking)
-    
     if (import.meta.env.DEV) {
       console.log(`📊 Analytics: ${eventName}`, params);
     }
@@ -199,6 +201,7 @@ export const logEvent = async (eventName: AnalyticsEvent, params?: AnalyticsPara
  * Set user ID for analytics
  */
 export const setUserId = async (userId: string | null): Promise<void> => {
+  if (userId && !isAnalyticsAllowed()) return;
   try {
     if (Capacitor.isNativePlatform()) {
       const { FirebaseAnalytics } = await import('@capacitor-firebase/analytics');
@@ -218,6 +221,7 @@ export const setUserId = async (userId: string | null): Promise<void> => {
  * Set user properties
  */
 export const setUserProperties = async (properties: Record<string, string>): Promise<void> => {
+  if (!isAnalyticsAllowed()) return;
   try {
     if (Capacitor.isNativePlatform()) {
       const { FirebaseAnalytics } = await import('@capacitor-firebase/analytics');
@@ -242,6 +246,7 @@ export const setUserProperties = async (properties: Record<string, string>): Pro
  * screen_view eventi Mixpanel/internal DB üçün saxlanılır.
  */
 export const logScreenView = async (screenName: string, screenClass?: string): Promise<void> => {
+  if (!isAnalyticsAllowed()) return;
   void import('./customerio').then(({ customerIo }) => customerIo.screen(screenName, screenClass)).catch(() => {});
   if (Capacitor.isNativePlatform()) {
     try {
@@ -292,12 +297,12 @@ export const analytics = {
   // Health tracking events
   logWaterIntake: (glasses: number) => logEvent('water_logged', { glasses }),
   logSymptom: (symptoms: string[]) => logEvent('symptom_logged', { symptom_count: symptoms.length }),
-  logWeight: (weight: number) => logEvent('weight_logged', { weight }),
-  logKickCount: (count: number) => logEvent('kick_counted', { count }),
-  logContraction: (durationSec: number) => logEvent('contraction_timed', { duration_sec: durationSec }),
-  logMeal: (mealType: string, calories: number) => logEvent('meal_logged', { meal_type: mealType, calories }),
+  logWeight: (_weight: number) => logEvent('weight_logged'), // values stay on the device/server, never in analytics
+  logKickCount: (_count: number) => logEvent('kick_counted'),
+  logContraction: (_durationSec: number) => logEvent('contraction_timed'),
+  logMeal: (mealType: string, _calories: number) => logEvent('meal_logged', { meal_type: mealType }),
   logExercise: (exerciseId: string, durationMin: number) => logEvent('exercise_completed', { exercise_id: exerciseId, duration_min: durationMin }),
-  logMood: (moodValue: number) => logEvent('mood_logged', { mood_value: moodValue }),
+  logMood: (_moodValue: number) => logEvent('mood_logged'),
   logBabyGrowth: () => logEvent('baby_growth_logged'),
   
   // Feature events
@@ -311,7 +316,7 @@ export const analytics = {
   logWhiteNoisePlayed: (soundId: string) => logEvent('white_noise_played', { sound_id: soundId }),
   logHoroscopeViewed: () => logEvent('horoscope_viewed'),
   logRecipeViewed: (recipeId: string) => logEvent('recipe_viewed', { recipe_id: recipeId }),
-  logNameSearched: (query: string) => logEvent('name_searched', { query }),
+  logNameSearched: (_query: string) => logEvent('name_searched'),
   logPlaceViewed: (placeId: string) => logEvent('place_viewed', { place_id: placeId }),
   logProductViewed: (productId: string) => logEvent('product_viewed', { product_id: productId }),
   
