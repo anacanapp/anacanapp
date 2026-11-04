@@ -113,6 +113,7 @@ const PartnerLossSupportScreen = lazy(() => import('@/components/pregnancy-loss/
 const AlertReceiver = lazy(() => import('@/components/partner/v2/AlertReceiver'));
 const PartnersScreen = lazy(() => import('@/components/partners/PartnersScreen'));
 const AdPreferencesScreen = lazy(() => import('@/components/ads/AdPreferencesScreen'));
+const BookStoreScreen = lazy(() => import('@/components/books/BookStoreScreen'));
 // Module scope: a lazy() created during render is a new component type every render.
 const ForceUpdateScreen = lazy(() => import('@/components/ForceUpdateScreen'));
 
@@ -852,6 +853,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'settings') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><SettingsScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'ad-preferences') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><AdPreferencesScreen onBack={() => setActiveScreen('settings')} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'widgets') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><WidgetSettingsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'books' || activeScreen === 'my-books') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BookStoreScreen initialTab={activeScreen === 'my-books' ? 'mine' : 'store'} onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'illness') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><IllnessScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if ((activeScreen === 'recovery' || activeScreen === 'recovery/kegel') && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><RecoveryScreen onBack={() => setActiveScreen(null)} initialTab={activeScreen === 'recovery/kegel' ? 'kegel' : 'week'} onNavigateToTool={(tool) => { setActiveScreen(null); handleNavigateToTool(tool); }} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'health-sync') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HealthSyncScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;

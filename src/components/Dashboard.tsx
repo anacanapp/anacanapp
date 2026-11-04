@@ -1,3 +1,4 @@
+import BooksHomeCard from '@/components/books/BooksHomeCard';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { getLocaleTag } from '@/lib/i18n';
 import TrackerAIInsight, { useBabyInsight } from '@/components/baby/TrackerAIInsight';
@@ -556,6 +557,7 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
 
       {/* Calendar after the daily messages (bump) */}
       <UpcomingAppointments />
+      <BooksHomeCard mode="bump" pregnancyWeek={pregData?.currentWeek ?? null} onOpen={() => onNavigate?.('books')} />
 
       {/* Baby Development - Static Icons */}
       <section className="a-section">
@@ -1219,6 +1221,7 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
       {/* Mother's own recovery (first 8 weeks after birth) and the illness journal entry */}
       <RecoveryHomeCard onOpen={() => onNavigate?.('recovery')} />
       <IllnessHomeCard mode="entry" onOpen={() => onNavigate?.('illness')} />
+      <BooksHomeCard mode="mommy" childName={selectedChild?.name} childMonths={childAge?.months ?? null} onOpen={() => onNavigate?.('books')} />
 
       {/* Month illustration info */}
       {illustrationTitle &&

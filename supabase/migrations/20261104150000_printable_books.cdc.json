@@ -1,0 +1,50 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261104150000_printable_books.sql",
+  "runtime": "google-printable-books",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the new relations are registered in guarded_relations with the three standard triggers",
+  "preserve": [
+    "cron0, no timer added",
+    "8 enabled business timers",
+    "PDFs only through signed URLs from the private book-pdfs bucket"
+  ],
+  "relations": [
+    {
+      "relation": "public.book_catalog",
+      "change": "created",
+      "cdc": true,
+      "writer_guard": true,
+      "private": false,
+      "pii": false,
+      "note": "70 printable books (age group, title, about, skills, pages, pdf/cover paths); public read of active rows"
+    },
+    {
+      "relation": "public.book_orders",
+      "change": "created",
+      "cdc": true,
+      "writer_guard": true,
+      "private": true,
+      "pii": true,
+      "note": "Epoint checkouts: user, email, book ids, price, status, provider transaction, download token hash; owners read non-secret columns, writes only by service role"
+    },
+    {
+      "relation": "public.book_entitlements",
+      "change": "created",
+      "cdc": true,
+      "writer_guard": true,
+      "private": true,
+      "pii": false,
+      "note": "owned books per user; granted only by the signed Epoint result callback"
+    }
+  ],
+  "functions": [
+    {
+      "name": "public.my_books_v1()",
+      "security": "definer",
+      "grant": [
+        "authenticated"
+      ],
+      "note": "the caller's owned books"
+    }
+  ]
+}
