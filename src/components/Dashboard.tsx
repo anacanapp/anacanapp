@@ -174,7 +174,7 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
     useShallow((s) => ({ getPregnancyData: s.getPregnancyData, setLifeStage: s.setLifeStage, language: s.language }))
   );
   const { toast } = useToast();
-  const { profile } = useAuth();
+  const { profile, isAdmin } = useAuth();
   // Əkiz/üçüz və s. — hero başlığı və digər "körpəniz" mətnləri buna görə uyğunlaşır
   const isMultiple = !!(profile as any)?.multiples_type && (profile as any).multiples_type !== 'single';
   const pregData = getPregnancyData();
@@ -557,7 +557,7 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
 
       {/* Calendar after the daily messages (bump) */}
       <UpcomingAppointments />
-      <BooksHomeCard mode="bump" pregnancyWeek={pregData?.currentWeek ?? null} onOpen={() => onNavigate?.('books')} />
+      {isAdmin && <BooksHomeCard mode="bump" pregnancyWeek={pregData?.currentWeek ?? null} onOpen={() => onNavigate?.('books')} />}
 
       {/* Baby Development - Static Icons */}
       <section className="a-section">
@@ -811,7 +811,7 @@ const ElapsedTime = ({ id }: { id: string }) => {
 const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (tool: string) => void;onNavigate?: (screen: string) => void;}) => {
   const { toast } = useToast();
   const language = useUserStore((s) => s.language);
-  const { profile: mommyProfile } = useAuth();
+  const { profile: mommyProfile, isAdmin } = useAuth();
   const { isMilestoneAchieved, toggleMilestone, getMilestoneDate, MILESTONES } = useBabyMilestones();
   const { unlockAchievement, getTotalPoints } = useAchievements();
   const { activeTimers, startTimer, stopTimer, getActiveTimer } = useTimerStore();
@@ -1221,7 +1221,7 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
       {/* Mother's own recovery (first 8 weeks after birth) and the illness journal entry */}
       <RecoveryHomeCard onOpen={() => onNavigate?.('recovery')} />
       <IllnessHomeCard mode="entry" onOpen={() => onNavigate?.('illness')} />
-      <BooksHomeCard mode="mommy" childName={selectedChild?.name} childMonths={childAge?.months ?? null} onOpen={() => onNavigate?.('books')} />
+      {isAdmin && <BooksHomeCard mode="mommy" childName={selectedChild?.name} childMonths={childAge?.months ?? null} onOpen={() => onNavigate?.('books')} />}
 
       {/* Month illustration info */}
       {illustrationTitle &&

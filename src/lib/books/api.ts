@@ -46,3 +46,10 @@ export function readCart(): string[] {
 export function writeCart(ids: string[]) {
   try { localStorage.setItem(CART_KEY, JSON.stringify(ids)); } catch { /* private mode */ }
 }
+
+/** Admins only, while card payments are off: gives the selected books to the admin's own account for free
+ *  (book-admin 'grant', recorded as an admin order of 0 AZN) so the whole flow can be tried in the app. */
+export async function adminTestGrant(bookIds: string[], email: string): Promise<boolean> {
+  const { data, error } = await supabase.functions.invoke('book-admin', { body: { action: 'grant', email, book_ids: bookIds, note: 'admin test (tətbiqdən)' } });
+  return !error && typeof (data as { order_id?: unknown } | null)?.order_id === 'string';
+}

@@ -8,7 +8,7 @@ import { useChildren } from '@/hooks/useChildren';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { AGE_TINT, BOOK_AGES, BOOK_TOPICS, BOOKS, bookAgeForMonths, bookCover, findBook, type Book, type BookAge, type BookTopic } from '@/lib/books/catalog';
 import { BOOK_BASE_PRICE, bookOrderTotal, bookUnitPrice, formatAzn, nextBookTier } from '@/lib/books/pricing';
-import { bookDownloadUrl, fetchBookPaymentsReady, fetchMyBooks, openExternal, readCart, startBookCheckout, writeCart } from '@/lib/books/api';
+import { adminTestGrant, bookDownloadUrl, fetchBookPaymentsReady, fetchMyBooks, openExternal, readCart, startBookCheckout, writeCart } from '@/lib/books/api';
 import { useBooksText } from './booksCopy';
 import { logEvent } from '@/lib/analytics';
 import './books.css';
@@ -23,7 +23,7 @@ function readPending(): { orderId: string; ids: string[]; value: number } | null
 export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBack: () => void; initialTab?: Tab }) {
   useScrollToTop();
   const { t, language } = useBooksText();
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
   const client = useQueryClient();
   const { selectedChild, getChildAge } = useChildren();
   const childMonths = selectedChild ? getChildAge(selectedChild)?.months ?? null : null;
@@ -73,6 +73,19 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
 
   const checkout = async () => {
     if (!cart.length || busy) return;
+    if (!ready && isAdmin && user?.email) {
+      // Preview mode: card payments are off, so an admin gets the books for free to try "Kitablarım" and the e-mail.
+      setBusy(true);
+      try {
+        const ids = cart;
+        if (await adminTestGrant(ids, user.email)) {
+          setCart([]); setCartOpen(false); setTab('mine');
+          await client.invalidateQueries({ queryKey: ['my-books'] });
+          toast.success(`Admin test: ${ids.length} kitab Kitablarım-a əlavə olundu, linklər e-poçta göndərildi.`);
+        } else toast.error(t('pay_error'));
+      } finally { setBusy(false); }
+      return;
+    }
     if (!ready) { void logEvent('books_checkout_unavailable', { book_count: cart.length }); toast(t('pay_soon')); return; }
     setBusy(true);
     try {
@@ -230,7 +243,7 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
           onToggle={() => toggle(detail.id)} onClose={() => setDetail(null)} onMine={() => { setDetail(null); setTab('mine'); }} />
       )}</AnimatePresence>
       <AnimatePresence>{cartOpen && (
-        <CartSheet cart={cart} ready={ready} busy={busy} onRemove={id => setCart(ids => ids.filter(x => x !== id))} onClose={() => setCartOpen(false)} onCheckout={checkout} />
+        <CartSheet cart={cart} ready={ready} adminTest={!ready && isAdmin} busy={busy} onRemove={id => setCart(ids => ids.filter(x => x !== id))} onClose={() => setCartOpen(false)} onCheckout={checkout} />
       )}</AnimatePresence>
     </div>
   );
@@ -285,7 +298,7 @@ function BookDetail({ book, owned, inCart, price, onToggle, onClose, onMine }: {
   );
 }
 
-function CartSheet({ cart, ready, busy, onRemove, onClose, onCheckout }: { cart: string[]; ready: boolean; busy: boolean; onRemove: (id: string) => void; onClose: () => void; onCheckout: () => void }) {
+function CartSheet({ cart, ready, adminTest, busy, onRemove, onClose, onCheckout }: { cart: string[]; ready: boolean; adminTest: boolean; busy: boolean; onRemove: (id: string) => void; onClose: () => void; onCheckout: () => void }) {
   const { t } = useBooksText();
   const count = cart.length, total = bookOrderTotal(count), saved = Math.round((count * BOOK_BASE_PRICE - total) * 100) / 100;
   const next = nextBookTier(count);
@@ -312,7 +325,7 @@ function CartSheet({ cart, ready, busy, onRemove, onClose, onCheckout }: { cart:
         <div><span>{t('cart_total')}</span><b>{formatAzn(total)}</b></div>
       </div>
       <button className="bk-primary" disabled={!count || busy} onClick={onCheckout}>{busy ? <Loader2 className="animate-spin" size={16} /> : <ShoppingBag size={16} />}{t('checkout')}</button>
-      <p className="bk-paynote">{ready ? t('pay_note') : t('pay_soon')}</p>
+      <p className="bk-paynote">{adminTest ? 'Admin test rejimi: ödəniş qoşulmayıb, kitablar pulsuz sizin hesaba əlavə olunacaq.' : ready ? t('pay_note') : t('pay_soon')}</p>
     </Sheet>
   );
 }
