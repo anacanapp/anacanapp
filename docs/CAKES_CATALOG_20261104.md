@@ -28,3 +28,4 @@
 - Kataloq: `1 yaş paketi` (149 ₼, `milestone_type=party_package`, topper adı xanası);
   foto qutusu ayrıca məhsul deyil, bento tortlarda əlavədir. Şəkillər `cake-1793813000-pkg-*.jpg`.
 - Analitika: `cake_viewed`, `cake_added_to_cart`, `cake_next_month_clicked`.
+- Veb: gateway `sha256:2aaeaf72053b67e03d2939f8e7e4e59cb12c802ed46205ba9b1cfd7fcc10b116` (`cakes-vitrin-web-plan.json` passed). Rollback: `rollback-cakes-vitrin-web-plan.json`.
