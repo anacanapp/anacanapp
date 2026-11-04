@@ -99,24 +99,6 @@ async function sitemap(kind) {
   }
   return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${entries.map(item=>`<url><loc>${escape(WEBSITE_ORIGIN+item.path)}</loc><lastmod>${item.updated.slice(0,10)}</lastmod>${[...APP_LANGUAGES.map(value=>value.code),'x-default'].flatMap(code=>{const lang=code==='x-default'?'az':code,url=item.kind==='article'?item.slugs[lang]&&sitePath(lang,'article',item.slugs[lang]):sitePath(lang,item.kind,undefined,item.page);return url?[`<xhtml:link rel="alternate" hreflang="${code}" href="${escape(WEBSITE_ORIGIN+url)}"/>`]:[];}).join('')}</url>`).join('')}</urlset>`;
 }
-const SHOP_META={books:{path:'/az/kitablar/',title:'PDF çap kitabları uşaqlar üçün | Anacan',description:'6 aydan 6 yaşa qədər 70 çap kitabı: boyama, say, hərflər, məntiq. PDF e-poçtla gəlir, evdə A4 çap edin. 1 kitab 4 ₼, 10 kitabdan 2 ₼.'},
-  cakes:{path:'/az/tortlar/',title:'Körpə tortları: aylıq bento, 40 gün, 1 yaş | Anacan',description:'Aylıq bento tortlar, 40 gün, ilk diş, 1 yaş və gender reveal tortları. Bakı daxili çatdırılma, kartla ödəniş.'}};
-function shopPage(html,kind){
-  const meta=SHOP_META[kind],url=WEBSITE_ORIGIN+meta.path,attr=value=>escape(value);
-  return html
-    .replace(/<main id="main"[\s\S]*<\/main>/,`<main id="main" class="site-main site-page-shop"><div id="anacan-shop" data-kind="${kind}"></div><noscript><p>${attr(meta.description)}</p></noscript></main>`)
-    .replace(/<title>[\s\S]*?<\/title>/,`<title>${attr(meta.title)}</title>`)
-    .replace(/(<meta name="description" content=")[^"]*"/,`$1${attr(meta.description)}"`)
-    .replace(/(<meta property="og:title" content=")[^"]*"/,`$1${attr(meta.title)}"`).replace(/(<meta property="og:description" content=")[^"]*"/,`$1${attr(meta.description)}"`)
-    .replace(/(<meta property="og:url" content=")[^"]*"/,`$1${url}"`).replace(/(<meta name="twitter:title" content=")[^"]*"/,`$1${attr(meta.title)}"`)
-    .replace(/(<link rel="canonical" href=")[^"]*"/,`$1${url}"`)
-    .replace(/<link rel="alternate" hreflang="[^"]*"[^>]*>/g,'')
-    .replace(/<script type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g,'')
-    .replace(/<script id="anacan-website-boot"[^>]*>[\s\S]*?<\/script>/g,'')
-    .replace(/<script type="module"[^>]*><\/script>/g,'').replace(/<link rel="modulepreload"[^>]*>/g,'')
-    .replace('</head>','<link rel="stylesheet" href="/website/shop/shop.css?v=1"><script src="/website/shop/shop.js?v=1" defer></script></head>');
-}
-const SHOP_NAV='<script src="/website/shop/nav.js?v=1" defer></script>';
 function reply(response,status,body,type='text/html; charset=utf-8',headers={}) {response.writeHead(status,{'Content-Type':type,'Cache-Control':'public, max-age=0, must-revalidate',...headers});response.end(body);}
 const publishedPageKinds=['home',...Object.keys(PAGE_SLUGS.az)];
 async function localeSitemap(language) {
@@ -134,16 +116,6 @@ createServer(async(request,response)=>{
   try{
     const url=new URL(request.url,'http://website.internal'),prefix=request.headers['x-anacan-website-prefix']==='/site'?'/site':'';
     if(url.pathname==='/healthz'){reply(response,200,JSON.stringify({status:'ok',service:'anacan-website',backend:'google'}),'application/json');return;}
-    // Azerbaijani web shop: /az/kitablar/ (PDF books) and /az/tortlar/ (cakes). The page is the home render
-    // with its <main> replaced by the shop root; /website/shop/shop.js builds the catalogue and checkout.
-    const shopMatch=/^\/az\/(kitablar|tortlar)(\/?)$/.exec(url.pathname);
-    if(shopMatch){
-      if(!shopMatch[2]){reply(response,301,'','text/plain',{Location:prefix+url.pathname+'/'+url.search});return;}
-      const kind=shopMatch[1]==='kitablar'?'books':'cakes',data=await catalog('az'),homeRoute=resolveWebsiteRoute('/az/',data.articles).route;
-      const boot={schema:'anacan-website-boot-v1',route:homeRoute,copy:copies.az,details:details.az,articles:data.articles.slice(0,3),basePath:prefix,generatedAt:data.generatedAt};
-      const rendered=renderWebsite(boot),base=renderWebsiteHtml({shell:llmCleanShell,boot,...rendered,discovery:discoveryLinks(homeRoute),preload:[]});
-      reply(response,200,request.method==='HEAD'?'':shopPage(base,kind),'text/html; charset=utf-8',{'Content-Language':'az'});return;
-    }
     const payMatch=/^\/([a-z]{2})\/p\/?$/.exec(url.pathname);
     if(payMatch&&payShell&&PAY_LANGS.has(payMatch[1])){reply(response,200,request.method==='HEAD'?'':payShell,'text/html; charset=utf-8',{'X-Robots-Tag':'noindex'});return;}
     if(url.pathname==='/sitemap-blog.xml'||url.pathname==='/sitemap-pages.xml'){reply(response,200,await sitemap(url.pathname.includes('blog')?'articles':'pages'),'application/xml; charset=utf-8');return;}
@@ -189,8 +161,7 @@ createServer(async(request,response)=>{
         Link:`<${WEBSITE_ORIGIN+routePath(route)}>; rel="canonical", ${discoveryLinkHeader(route)}`});return;
     }
     const rendered=renderWebsite(boot),html=renderWebsiteHtml({shell:llmCleanShell,boot,...rendered,discovery:discoveryLinks(route),preload:article?.cover?[article.cover]:[]});
-    const page=route.language==='az'&&route.kind!=='notFound'?html.replace('</head>',SHOP_NAV+'</head>'):html;
-    reply(response,route.kind==='notFound'?404:200,request.method==='HEAD'?'':page,'text/html; charset=utf-8',route.kind==='notFound'?{'X-Robots-Tag':'noindex'}:{'Content-Language':route.language,Link:discoveryLinkHeader(route)});
+    reply(response,route.kind==='notFound'?404:200,request.method==='HEAD'?'':html,'text/html; charset=utf-8',route.kind==='notFound'?{'X-Robots-Tag':'noindex'}:{'Content-Language':route.language,Link:discoveryLinkHeader(route)});
   }catch{if(response.headersSent)response.destroy();else reply(response,503,'Anacan','text/plain; charset=utf-8',{'Retry-After':'30'});}
 }).listen(port,'0.0.0.0',()=>console.log(JSON.stringify({status:'ready',service:'anacan-website',backend:'google'})));
 void publicMetadata();
