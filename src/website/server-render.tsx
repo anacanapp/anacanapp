@@ -6,9 +6,15 @@ import { resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE
 import { WEBSITE_LANGUAGES } from '../lib/app-languages';
 import type {WebsiteBoot} from './model';
 import { prepareBlogContent } from '../lib/blog-content.mjs';
-export {resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE_ORIGIN,WEBSITE_LANGUAGES};
+export {resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE_ORIGIN};
+/** `scripts/website/server.mjs` iterates `APP_LANGUAGES` for copy, catalogs, sitemaps and
+ * IndexNow. The public website keeps its 21-locale contract, so the runtime receives the
+ * website language list (app-only ky/et are excluded) under that published export name. */
+export {WEBSITE_LANGUAGES as APP_LANGUAGES};
 export {prepareBlogContent};
 export {renderArticleContent} from './article-content';
+export {LLM_COPY,LLM_FORMAT_VERSION,LLM_PAGE_KINDS,llmLanguageName,renderLlmDocument,renderLlmFullHeader,renderLlmHub,renderLlmIndex,renderLlmJournal,renderLlmManifest} from './llm-content';
+export {discoveryLinkHeader,discoveryLinks,llmFullPath,llmIndexPath,localeSitemapPath,markdownPath} from './discovery';
 export function renderWebsite(boot:WebsiteBoot) {
   return {body:renderToString(createElement(Website,{boot})),meta:websiteMeta(boot),schema:websiteSchema(boot)};
 }

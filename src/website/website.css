@@ -14,6 +14,7 @@
   --site-sky: #fff1ed;
   --site-peach: #ffe7e1;
   --site-accent: #ff5a5f;
+  --site-logo: #ff5a5f;
   --site-accent-dark: #bd353d;
   --site-gradient: linear-gradient(105deg,#b72d39 0%,#e2464b 55%,#d66144 100%);
   --site-body: 'Switzer','Noto Sans',system-ui,sans-serif;
@@ -44,7 +45,7 @@
 .site-nav-wrap { position:sticky; top:20px; z-index:30; width:min(1120px,calc(100% - 48px)); margin:20px auto 0; }
 .site-nav { display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:64px; padding:9px 12px 9px 20px; background:rgba(255,255,255,.97); border:1px solid rgba(8,48,76,.08); border-radius:32px; box-shadow:var(--site-shadow); }
 .site-brand { display:inline-flex; align-items:center; gap:8px; flex-shrink:0; }
-.site-brand span { font-size:25px; font-weight:600; letter-spacing:-1.2px; line-height:1; }
+.site-brand span { font-size:25px; font-weight:600; letter-spacing:-1.2px; line-height:1; color:var(--site-logo); }
 .site-brand img { object-fit:contain; }
 .site-brand i { display:none; }
 .site-nav-links { display:flex; align-items:center; gap:28px; font-size:14px; }
@@ -179,6 +180,8 @@ a:hover>.site-text-link svg,a.site-text-link:hover svg { transform:translate(2px
 .site-footer-contact>div { display:flex; gap:18px; font-size:12px; }
 .site-footer-bottom { border-top:1px solid var(--site-line); padding-top:24px; display:flex; justify-content:space-between; gap:20px; color:var(--site-muted); font-size:11px; }
 .site-footer-bottom nav { display:flex; flex-wrap:wrap; gap:20px; }
+.site-machine-links { display:flex; flex-wrap:wrap; gap:10px 20px; margin-top:20px; color:var(--site-muted); font-size:11px; }
+.site-machine-links a { text-decoration:underline; text-underline-offset:3px; }
 .site-page-intro { max-width:900px; padding-top:85px; margin-bottom:46px; }
 .site-page-intro h1 { font-size:clamp(36px,5.2vw,64px); line-height:1.12; letter-spacing:-.047em; }
 .site-page-intro>p:not(.site-eyebrow) { font-size:18px; line-height:1.6; margin-top:24px; max-width:720px; color:var(--site-muted); }

@@ -1,9 +1,11 @@
 import { WEBSITE_LANGUAGES, type WebsiteLanguageCode } from '../lib/app-languages';
 import type { WebsiteBoot, WebsiteCopyKey } from './model';
 import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN,DETAIL_PAGES,type DetailPage } from './routes';
+import { discoveryLinks, markdownPath } from './discovery';
 
 const ORGANIZATION_ID=WEBSITE_ORIGIN+'/#organization';
 const WEBSITE_ID=WEBSITE_ORIGIN+'/#website';
+const APP_ID=WEBSITE_ORIGIN+'/#app';
 export function websiteMeta(boot:WebsiteBoot) {
   const kind=boot.route.kind;
   const keys:Partial<Record<typeof kind,[WebsiteCopyKey,WebsiteCopyKey]>>={
@@ -34,11 +36,12 @@ function faqs(boot:WebsiteBoot) {
 }
 export function websiteSchema(boot:WebsiteBoot) {
   const meta=websiteMeta(boot),language=boot.route.language,graph:Record<string,unknown>[]=[];
-  graph.push({'@type':'Organization','@id':ORGANIZATION_ID,name:'Anacan',url:WEBSITE_ORIGIN,logo:{'@type':'ImageObject',url:WEBSITE_ORIGIN+'/brand-mark.png'},
+  graph.push({'@type':'Organization','@id':ORGANIZATION_ID,name:'Anacan',url:WEBSITE_ORIGIN,logo:{'@type':'ImageObject',url:WEBSITE_ORIGIN+'/website/brand-mark-coral.png'},legalName:'ANACAN, MMC',
     email:'info@anacan.az',sameAs:['https://instagram.com/anacanapp','https://facebook.com/anacanapp','https://youtube.com/@anacanapp']});
   graph.push({'@type':'WebSite','@id':WEBSITE_ID,name:'Anacan',url:WEBSITE_ORIGIN,publisher:{'@id':ORGANIZATION_ID},inLanguage:WEBSITE_LANGUAGES.map(item=>item.code)});
   graph.push({'@type':boot.route.kind==='journal'?'CollectionPage':boot.route.kind==='contact'?'ContactPage':'WebPage','@id':meta.canonical+'#webpage',url:meta.canonical,
-    name:meta.title,description:meta.description,inLanguage:language,isPartOf:{'@id':WEBSITE_ID},publisher:{'@id':ORGANIZATION_ID},isAccessibleForFree:true});
+    name:meta.title,description:meta.description,inLanguage:language,isPartOf:{'@id':WEBSITE_ID},publisher:{'@id':ORGANIZATION_ID},isAccessibleForFree:true,
+    about:{'@id':APP_ID},encoding:{'@type':'MediaObject',encodingFormat:'text/markdown',contentUrl:WEBSITE_ORIGIN+markdownPath(boot.route),inLanguage:language}});
   if(boot.route.kind!=='home'&&boot.route.kind!=='notFound'){
     const items=[{'@type':'ListItem',position:1,name:boot.copy.home,item:WEBSITE_ORIGIN+sitePath(language)}];
     if(boot.route.kind==='article')items.push({'@type':'ListItem',position:2,name:boot.copy.journal,item:WEBSITE_ORIGIN+sitePath(language,'journal')});
@@ -51,7 +54,9 @@ export function websiteSchema(boot:WebsiteBoot) {
       mainEntityOfPage:{'@id':meta.canonical+'#webpage'},datePublished:article.publishedAt,dateModified:article.updatedAt,
       author:article.author==='Anacan'?{'@id':ORGANIZATION_ID}:{'@type':'Person',name:article.author},publisher:{'@id':ORGANIZATION_ID},
       image:{'@type':'ImageObject',url:meta.image,width:1200,height:630},keywords:article.tags.join(', '),citation:article.references.map(reference=>reference.url),
-      articleSection:article.category,isAccessibleForFree:true});
+      articleSection:boot.copy[(({'korpe-baximi':'categoryBaby','hamiləlik':'categoryPregnancy','menstrual-sağlamlıq':'categoryCycle','qidalanma':'categoryNutrition',
+        'saglamliq':'categoryHealth','psixologiya':'categoryPsychology','motivasiya':'categoryMotivation','məşqlər':'categoryExercise'} as Record<string,WebsiteCopyKey>)[article.category]||'categoryOther')],isAccessibleForFree:true,
+      encoding:{'@type':'MediaObject',encodingFormat:'text/markdown',contentUrl:WEBSITE_ORIGIN+markdownPath(boot.route),inLanguage:language}});
   }
   if(boot.route.kind==='journal'){
     const start=((boot.route.page||1)-1)*12;
@@ -61,8 +66,11 @@ export function websiteSchema(boot:WebsiteBoot) {
   if(questions.length)graph.push({'@type':'FAQPage','@id':meta.canonical+'#faq',inLanguage:language,mainEntity:questions.map(item=>({'@type':'Question',name:item.question,acceptedAnswer:{'@type':'Answer',text:item.answer}}))});
   if(['ovulation','dueDate'].includes(boot.route.kind))graph.push({'@type':'WebApplication','@id':meta.canonical+'#calculator',name:boot.copy[boot.route.kind==='ovulation'?'ovulation':'dueDate'],
     url:meta.canonical,applicationCategory:'HealthApplication',operatingSystem:'Any',inLanguage:language,isAccessibleForFree:true,offers:{'@type':'Offer',price:'0',priceCurrency:'USD'}});
-  if(['home','features','download'].includes(boot.route.kind))graph.push({'@type':'MobileApplication','@id':WEBSITE_ORIGIN+'/#app',name:'Anacan',
-    applicationCategory:'HealthApplication',operatingSystem:'iOS, Android',url:WEBSITE_ORIGIN+sitePath(language,'download'),downloadUrl:[APP_STORE_URL,GOOGLE_PLAY_URL],
+  graph.push({'@type':'MobileApplication','@id':APP_ID,name:'Anacan',alternateName:'Anacan: Flow, Pregnancy & Baby',description:boot.copy.faq1Answer,
+    applicationCategory:'HealthApplication',operatingSystem:['iOS','Android'],url:WEBSITE_ORIGIN+sitePath(language,'features'),downloadUrl:[APP_STORE_URL,GOOGLE_PLAY_URL],
+    sameAs:[APP_STORE_URL,GOOGLE_PLAY_URL],
+    identifier:[{'@type':'PropertyValue',propertyID:'App Store ID',value:'6758301924'},{'@type':'PropertyValue',propertyID:'Google Play package',value:'com.atlasoon.anacan'}],
+    featureList:DETAIL_PAGES.map((kind:DetailPage)=>boot.details?.[`${kind}Description` as keyof NonNullable<WebsiteBoot['details']>]).filter(Boolean),
     inLanguage:WEBSITE_LANGUAGES.map(item=>item.code),publisher:{'@id':ORGANIZATION_ID}});
   return {'@context':'https://schema.org','@graph':graph};
 }
@@ -81,6 +89,12 @@ export function updateWebsiteHead(boot:WebsiteBoot) {
   const canonical=document.createElement('link');canonical.rel='canonical';canonical.href=meta.canonical;document.head.append(canonical);
   if(boot.route.kind!=='notFound')for(const item of meta.alternates){const link=document.createElement('link');link.rel='alternate';link.hreflang=item.code;link.href=item.url;document.head.append(link);}
   if(boot.article){setMeta('article:published_time',boot.article.publishedAt,true);setMeta('article:modified_time',boot.article.updatedAt,true);}
+  setMeta('apple-itunes-app','app-id=6758301924');
+  document.head.querySelectorAll('link[data-llm-discovery],meta[property="og:locale:alternate"]').forEach(node=>node.remove());
+  if(boot.route.kind!=='notFound'){
+    for(const item of discoveryLinks(boot.route)){const link=document.createElement('link');link.rel=item.rel;link.type=item.type;link.href=item.href;link.dataset.llmDiscovery='';document.head.append(link);}
+    for(const item of meta.alternates.filter(item=>(item.code as string)!=='x-default'&&item.code!==boot.route.language)){const node=document.createElement('meta');node.setAttribute('property','og:locale:alternate');node.content=item.locale.replace('-','_');document.head.append(node);}
+  }
   document.head.querySelector('script[data-website-schema]')?.remove();
   if(boot.route.kind!=='notFound'){const script=document.createElement('script');script.type='application/ld+json';script.dataset.websiteSchema='';script.textContent=JSON.stringify(websiteSchema(boot));document.head.append(script);}
 }

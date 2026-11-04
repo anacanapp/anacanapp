@@ -4,11 +4,13 @@ import { WEBSITE_LANGUAGES } from '../lib/app-languages';
 import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL } from './routes';
 import type { WebsiteCopyKey, WebsiteArticle } from './model';
 import { useWebsite } from './context';
+import llmCopy from './llm-copy.json' with {type:'json'};
+import { llmFullPath, llmIndexPath, markdownPath } from './discovery';
 
 export function Arrow({ diagonal = false }: { diagonal?:boolean }) { return diagonal ? <ArrowUpRight aria-hidden="true" size={18} strokeWidth={1.6}/> : <ArrowRight aria-hidden="true" size={18} strokeWidth={1.6}/>; }
 export function Brand() {
   const { href } = useWebsite();
-  return <a className="site-brand" href={href()} aria-label="Anacan"><img src="/brand-mark.png" width="36" height="36" alt=""/><span>anacan</span><i aria-hidden="true"/></a>;
+  return <a className="site-brand" href={href()} aria-label="Anacan"><img src="/website/brand-mark-coral.png" width="36" height="36" alt=""/><span>anacan</span><i aria-hidden="true"/></a>;
 }
 export function WebsiteHeader() {
   const { route, article, basePath, href, t } = useWebsite();
@@ -42,13 +44,20 @@ export function WebsiteHeader() {
   </>;
 }
 export function WebsiteFooter() {
-  const {href,t,generatedAt} = useWebsite();
+  const {href,t,generatedAt,route} = useWebsite();
   return <footer className="site-footer">
     <div className="site-footer-top"><div><Brand/><p>{t('footerDescription')}</p></div>
       <nav aria-label={t('home')}><a href={href('journal')}>{t('journal')}</a><a href={href('tools')}>{t('tools')}</a><a href={href('faq')}>{t('faq')}</a><a href={href('contact')}>{t('contact')}</a></nav>
       <div className="site-footer-contact"><a href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a><span>{t('madeIn')}</span><div><a href="https://instagram.com/anacanapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://facebook.com/anacanapp" target="_blank" rel="noopener noreferrer">Facebook</a></div></div>
     </div>
     <div className="site-footer-bottom"><span>© {new Date(generatedAt).getUTCFullYear()} Anacan. {t('rights')}</span><nav aria-label={t('privacy')}><a href={href('privacy')}>{t('privacy')}</a><a href={href('terms')}>{t('terms')}</a></nav></div>
+    <nav className="site-machine-links" aria-label={llmCopy[route.language].formatsHeading}>
+      <a href={llmIndexPath(route.language)} hrefLang={route.language}>LLM · {llmCopy[route.language].languageLabel}</a>
+      <a href={llmFullPath(route.language)} hrefLang={route.language}>{llmCopy[route.language].fullLabel}</a>
+      {route.kind!=='notFound'&&<a href={markdownPath(route)} hrefLang={route.language}>Markdown</a>}
+      <a href="/llms.txt">llms.txt</a>
+      <a href="/llms-full.txt">llms-full.txt · 21</a>
+    </nav>
   </footer>;
 }
 export function Eyebrow({children,mint=false}: {children:React.ReactNode;mint?:boolean}) { return <p className={`site-eyebrow${mint?' site-eyebrow-mint':''}`}>{children}</p>; }
@@ -70,7 +79,7 @@ export function StoreLinks() {
 }
 export function DownloadCard() {
   const {href,t}=useWebsite();
-  return <section className="site-download-card"><div className="site-download-mark"><img src="/brand-mark.png" width="72" height="72" alt=""/></div><div><Eyebrow mint>{t('downloadEyebrow')}</Eyebrow><h2>{t('downloadTitle')}</h2><p>{t('downloadDescription')}</p></div><a href={href('download')} className="site-outline-button">{t('download')}<Arrow diagonal/></a></section>;
+  return <section className="site-download-card"><div className="site-download-mark"><img src="/website/brand-mark-coral.png" width="72" height="72" alt=""/></div><div><Eyebrow mint>{t('downloadEyebrow')}</Eyebrow><h2>{t('downloadTitle')}</h2><p>{t('downloadDescription')}</p></div><a href={href('download')} className="site-outline-button">{t('download')}<Arrow diagonal/></a></section>;
 }
 export function ArticleCard({article,featured=false}: {article:WebsiteArticle;featured?:boolean}) {
   const {href,t,route}=useWebsite();
