@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Home, Compass, MessageCircle, User, Users, Sparkles, HeartHandshake } from 'lucide-react';
+import { Home, Compass, MessageCircle, User, Users, Sparkles, HeartHandshake, LayoutGrid } from 'lucide-react';
 import { RiApps2AiLine } from 'react-icons/ri';
 import { useUnreadMessages } from '@/hooks/useUnreadMessages';
 import { useUnreadCommunityPosts } from '@/hooks/useUnreadCommunityPosts';
@@ -80,10 +80,11 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
                 </span>
               ) : tab.special ? (
                 <span className="a-nav-ai-icon">
-                  <Icon size={15} strokeWidth={2.4} />
+                  <Icon size={capsule ? 21 : 15} strokeWidth={capsule ? 2.1 : 2.4} />
                 </span>
               ) : (
-                <Icon size={tab.id === 'tools' && !isPartner ? 17 : 19} strokeWidth={isActive ? 2.4 : 2} />
+                capsule && tab.id === 'tools' ? <LayoutGrid size={22} strokeWidth={isActive ? 2.3 : 1.9} />
+                  : <Icon size={capsule ? 22 : tab.id === 'tools' && !isPartner ? 17 : 19} strokeWidth={isActive ? 2.4 : 2} />
               )}
 
               {/* Unread badge */}
@@ -107,7 +108,7 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
                 </motion.span>
               )}
 
-              <span className="a-nav-label">{tab.label}</span>
+              {!capsule && <span className="a-nav-label">{tab.label}</span>}
             </motion.button>
           );
         })}

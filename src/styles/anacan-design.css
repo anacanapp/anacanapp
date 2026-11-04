@@ -3272,41 +3272,61 @@ html.a-lite .a3-mascot.bob { animation: none; }
 .dark .a-blog-cover { background: var(--a-surface-soft); }
 .a-blog-cover img { position: absolute; inset: 0; }
 
-/* ---------- Bottom nav: floating dark capsule (test, app_settings.bottom_nav_style) ---------- */
+/* ---------- Bottom nav: floating glass capsule (test, app_settings.bottom_nav_style) ----------
+   Icons only, frosted glass in light and dark; the active tab sits in a soft glass bubble. */
 .a-nav.capsule {
-  max-width: 372px;
-  gap: 4px;
-  padding: 7px;
+  --nav-glass: rgba(255, 255, 255, 0.58);
+  --nav-glass-edge: rgba(255, 255, 255, 0.75);
+  --nav-glass-shadow: 0 18px 40px -16px rgba(122, 60, 48, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --nav-icon: #5f5450;
+  --nav-icon-on: var(--a-ink, #2e2a28);
+  --nav-bubble: rgba(255, 255, 255, 0.85);
+  --nav-bubble-shadow: 0 4px 14px -6px rgba(80, 40, 30, 0.35), inset 0 1px 0 #fff;
+  max-width: 360px;
+  gap: 2px;
+  padding: 6px;
   justify-content: space-between;
-  border-radius: 32px;
-  background: #2a2120;
-  border: 1px solid transparent;
-  box-shadow: 0 18px 34px -14px rgba(0, 0, 0, 0.55);
+  border-radius: 34px;
+  background: var(--nav-glass);
+  border: 1px solid var(--nav-glass-edge);
+  box-shadow: var(--nav-glass-shadow);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  backdrop-filter: blur(22px) saturate(180%);
 }
-.dark .a-nav.capsule { background: #1d1818; border-color: rgba(255, 255, 255, 0.08); }
+.dark .a-nav.capsule {
+  --nav-glass: rgba(28, 26, 30, 0.55);
+  --nav-glass-edge: rgba(255, 255, 255, 0.12);
+  --nav-glass-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --nav-icon: #c9c3c6;
+  --nav-icon-on: #ffffff;
+  --nav-bubble: rgba(255, 255, 255, 0.14);
+  --nav-bubble-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .a-nav.capsule { --nav-glass: rgba(255, 255, 255, 0.94); }
+  .dark .a-nav.capsule { --nav-glass: rgba(28, 26, 30, 0.94); }
+}
 .a-nav.capsule .a-nav-item {
-  flex: 0 0 48px;
-  height: 48px;
+  flex: 1 1 0;
+  height: 52px;
+  max-width: 64px;
   flex-direction: row;
   justify-content: center;
-  gap: 7px;
   padding: 0;
-  border-radius: 24px;
-  color: #d9cbc6;
-  transition: flex-grow 240ms var(--a-ease, ease), background 200ms ease, color 200ms ease;
+  border-radius: 26px;
+  color: var(--nav-icon);
+  background: transparent;
+  transition: background 220ms var(--a-ease, ease), color 200ms ease, box-shadow 220ms ease;
 }
-.a-nav.capsule .a-nav-item .a-nav-label { display: none; }
-.a-nav.capsule .a-nav-item.active { flex: 1 1 auto; padding: 0 14px; background: var(--a-coral, #ff5a5f); color: #fff; }
-.a-nav.capsule .a-nav-item.active .a-nav-label { display: block; font-size: 13px; font-weight: 900; }
-.a-nav.capsule .a-nav-ai-icon { width: auto; height: auto; margin: 0; background: none; color: #ffb1b3; }
-.a-nav.capsule .a-nav-item.active .a-nav-ai-icon { color: #fff; }
+.a-nav.capsule .a-nav-item.active { background: var(--nav-bubble); box-shadow: var(--nav-bubble-shadow); color: var(--nav-icon-on); }
+.a-nav.capsule .a-nav-ai-icon { width: auto; height: auto; margin: 0; background: none; color: var(--a-coral, #ff5a5f); }
 .a-nav-avatar {
   width: 30px; height: 30px; border-radius: 15px; overflow: hidden; flex-shrink: 0;
   display: grid; place-items: center; font-size: 12px; font-weight: 900;
   background: var(--a-coral-soft, #ffe7e1); color: var(--a-peach-ink, #9e2b2e);
-  box-shadow: 0 0 0 2px #2a2120, 0 0 0 4px #5a4a46;
+  box-shadow: 0 0 0 1.5px var(--nav-icon);
 }
 .a-nav-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.a-nav.capsule .a-nav-item.active .a-nav-avatar { box-shadow: 0 0 0 2px #fff; }
-.a-nav.capsule .a-nav-badge { top: 6px; inset-inline-start: calc(50% + 4px); box-shadow: 0 0 0 2px #2a2120; }
+.a-nav.capsule .a-nav-item.active .a-nav-avatar { box-shadow: 0 0 0 2px var(--a-coral, #ff5a5f); }
+.a-nav.capsule .a-nav-badge { top: 7px; inset-inline-start: calc(50% + 4px); background: var(--a-coral, #ff5a5f); box-shadow: 0 0 0 2px var(--nav-glass-edge); }
 @media (prefers-reduced-motion: reduce) { .a-nav.capsule .a-nav-item { transition: none; } }
