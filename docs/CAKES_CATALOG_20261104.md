@@ -16,3 +16,15 @@
 - Veb: gateway `sha256:4969c2976f3fea9d844b23821b92ea6da9fa195bdc20615e3ce27a524bf019ef`
   (`cakes-cat-web-plan.json` passed). Rollback: `rollback-cakes-cat-web-plan.json`.
 - Diqqət: `payment_methods.card_simulated` aktivdir — real ödəniş almadan sifarişi "paid" yazır.
+
+## Redizayn "Vitrin" (A) — 2026-11-04
+
+- Ekranlar: `CakesScreen` (başlıq, növbəti ay günü hero, kateqoriya çipləri, kateqoriya rəfləri, "+" ilə tez
+  səbət, 1 yaş paketi promo), `CakeDetailScreen` (tam foto, ölçü/çəki/nəfər çipləri, dad seçimi, xanalar,
+  "Foto qutusuna çevir +18 ₼"), `CakeCartDrawer`, `CakeOrderForm` (48 saatdan sonrakı 12 gün, 2 saat aralığı,
+  çatdırılma/özüm götürəcəm, ödəniş üsulları). Stil `src/components/cakes/cakes.css`, köməkçilər `cakeUi.ts`.
+- Səbət: `extraPrice` (əlavələr) və `cakeUnitPrice`; köhnə səbətlər 0 ilə işləyir.
+- Sifariş `custom_fields`: `Dad`, `Əlavə`, `delivery_mode`, `delivery_slot`; qeyddə də yazılır.
+- Kataloq: `1 yaş paketi` (149 ₼, `milestone_type=party_package`, topper adı xanası);
+  foto qutusu ayrıca məhsul deyil, bento tortlarda əlavədir. Şəkillər `cake-1793813000-pkg-*.jpg`.
+- Analitika: `cake_viewed`, `cake_added_to_cart`, `cake_next_month_clicked`.

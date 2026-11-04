@@ -1,11 +1,13 @@
-import { useState, useRef, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Minus, Plus, ShoppingCart, Cake as CakeIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { ArrowLeft, Minus, Plus, ShoppingBag, Check } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { type Cake } from '@/hooks/useCakes';
 import { useCakeCart } from '@/hooks/useCakeCart';
-import { tr } from "@/lib/tr";
+import { trackEvent } from '@/hooks/useScreenAnalytics';
+import { tr } from '@/lib/tr';
 import { useIsRtl } from '@/lib/rtl';
+import { FLAVORS, FLAVOR_FIELD, PHOTO_BOX, cakeSpecs, cakeStory, categoryLabel, categoryOf, isBento, money } from './cakeUi';
+import './cakes.css';
 
 interface CakeDetailScreenProps {
   cake: Cake;
@@ -19,253 +21,114 @@ const CakeDetailScreen = ({ cake, onBack, onOpenCart }: CakeDetailScreenProps) =
   const { addToCart, totalItems } = useCakeCart();
   const [quantity, setQuantity] = useState(1);
   const [customFields, setCustomFields] = useState<Record<string, string>>({});
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [flavor, setFlavor] = useState(FLAVORS[0]);
+  const [photoBox, setPhotoBox] = useState(false);
+  const [image, setImage] = useState(0);
   const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
 
-  // Combine image_url and images array
-  const allImages = [
+  const images = [
   ...(cake.image_url ? [cake.image_url] : []),
   ...(Array.isArray(cake.images) ? cake.images.filter((img) => img && img !== cake.image_url) : [])];
 
-  const hasMultipleImages = allImages.length > 1;
-
-  const fieldLabels: string[] = Array.isArray(cake.custom_field_labels) ?
-  cake.custom_field_labels as string[] :
-  [];
+  const fieldLabels: string[] = Array.isArray(cake.custom_field_labels) ? cake.custom_field_labels as string[] : [];
   const showCustomFields = cake.has_custom_fields && fieldLabels.length > 0;
+  const specs = cakeSpecs(cake.description);
+  const story = cakeStory(cake.description);
+  const offerBox = isBento(cake);
+  const extra = offerBox && photoBox ? PHOTO_BOX.extra : 0;
+  const unit = Number(cake.price) + extra;
 
-  const handleAddToCart = () => {
-    addToCart(cake, quantity, showCustomFields ? customFields : {});
-    toast({ title: tr("cakedetailscreen_sebete_elave_edildi_e0f576", 'Səbətə əlavə edildi! 🎂'), description: `${cake.name} x${quantity}` });
+  const handleAdd = () => {
+    const fields: Record<string, string> = { [FLAVOR_FIELD]: flavor, ...(showCustomFields ? customFields : {}) };
+    if (extra) fields[PHOTO_BOX.field] = PHOTO_BOX.value;
+    addToCart(cake, quantity, fields, extra);
+    trackEvent('cake_added_to_cart', { cake_id: cake.id, category: cake.category, source: 'detail', value: unit * quantity, photo_box: !!extra, flavor });
+    toast({ title: tr('cakedetailscreen_sebete_elave_edildi_e0f576', 'Səbətə əlavə edildi! 🎂'), description: `${cake.name} x${quantity}` });
+    onBack();
   };
 
-  const goToPrev = useCallback(() => {
-    setCurrentImageIndex((i) => i === 0 ? allImages.length - 1 : i - 1);
-  }, [allImages.length]);
-
-  const goToNext = useCallback(() => {
-    setCurrentImageIndex((i) => i === allImages.length - 1 ? 0 : i + 1);
-  }, [allImages.length]);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-  const handleTouchEnd = () => {
-    const diff = touchStartX.current - touchEndX.current;
-    if (Math.abs(diff) > 50) {
-      // RTL: oxu istiqamətinə uyğun güzgülənir (sağa sürüşdürmə = növbəti)
-      const swipedForward = isRtl ? diff < 0 : diff > 0;
-      if (swipedForward) goToNext();else
-      goToPrev();
-    }
+  const onTouchEnd = (x: number) => {
+    const diff = touchStartX.current - x;
+    if (Math.abs(diff) < 50 || images.length < 2) return;
+    const forward = isRtl ? diff < 0 : diff > 0;
+    setImage((i) => forward ? (i + 1) % images.length : (i - 1 + images.length) % images.length);
   };
 
   return (
-    <div className="a-scope min-h-screen pb-44 overflow-y-auto" style={{ background: 'var(--a-bg)' }}>
-      {/* Sticky Header */}
-      <div
-        className="sticky top-0 z-50 flex items-center justify-between px-4 py-3"
-        style={{ paddingTop: 'calc(env(safe-area-inset-top) + 12px)', background: 'var(--a-nav-bg)', backdropFilter: 'blur(12px)', borderBottom: '1px solid var(--a-line)' }}>
-        
-        <button
-          onClick={(e) => {e.stopPropagation();onBack();}}
-          className="a-icon-btn"
-          style={{ pointerEvents: 'auto' }}
-          aria-label="Back">
-          
-          <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
-        </button>
-        <h2 className="a-wordmark truncate max-w-[50%]" style={{ fontSize: 15 }}>{cake.name}</h2>
-        <button
-          onClick={(e) => {e.stopPropagation();onOpenCart();}}
-          className="a-icon-btn relative"
-          style={{ pointerEvents: 'auto' }}
-          aria-label="Cart">
-          
-          <ShoppingCart size={16} strokeWidth={2} />
-          {totalItems > 0 &&
-          <span
-            className="absolute -top-1 -end-1 w-5 h-5 rounded-full text-[10px] font-bold flex items-center justify-center"
-            style={{ background: 'var(--a-peach-2)', color: '#fff' }}>
-              {totalItems}
-            </span>
-          }
-        </button>
-      </div>
-
-      {/* Image Carousel */}
-      <div
-        className="relative w-full aspect-square overflow-hidden"
-        style={{ background: 'var(--a-surface-soft)' }}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}>
-        
-        {allImages.length > 0 ?
-        <AnimatePresence mode="wait">
-            <motion.img
-            key={currentImageIndex}
-            src={allImages[currentImageIndex]}
-            alt={`${cake.name} - ${currentImageIndex + 1}`}
-            className="w-full h-full object-cover"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }} />
-          
-          </AnimatePresence> :
-
-        <div className="w-full h-full flex items-center justify-center">
-            <CakeIcon className="w-20 h-20" style={{ color: 'var(--a-peach-1)' }} />
+    <div className="a-scope ck overflow-y-auto">
+      <div className="ck-gallery" onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }} onTouchEnd={(e) => onTouchEnd(e.changedTouches[0].clientX)}>
+        {images.length > 0 && <img src={photoBox && offerBox ? PHOTO_BOX.image : images[image]} alt={cake.name} />}
+        <div className="ck-gallery-top">
+          <button type="button" className="ck-iconbtn glass" onClick={onBack} aria-label={tr('common_back', 'Geri')}><ArrowLeft className="rtl:rotate-180" size={18} strokeWidth={2.2} /></button>
+          <button type="button" className="ck-iconbtn glass" onClick={onOpenCart} aria-label={tr('cakesscreen_cart', 'Səbət')}>
+            <ShoppingBag size={18} strokeWidth={2.1} />
+            {totalItems > 0 && <span className="ck-badge">{totalItems}</span>}
+          </button>
+        </div>
+        {images.length > 1 && !photoBox &&
+        <div className="ck-dots">
+            {images.map((_, i) => <button key={i} type="button" className={`ck-dot${i === image ? ' on' : ''}`} onClick={() => setImage(i)} aria-label={`${i + 1}`} />)}
           </div>
-        }
-
-        {/* Navigation Arrows */}
-        {hasMultipleImages &&
-        <>
-            <button
-            onClick={goToPrev}
-            className="absolute start-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center shadow-md"
-            style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(4px)', border: 'none', cursor: 'pointer' }}>
-            
-              <ChevronLeft className="rtl:rotate-180 w-5 h-5" style={{ color: 'var(--a-ink)' }} />
-            </button>
-            <button
-            onClick={goToNext}
-            className="absolute end-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center shadow-md"
-            style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(4px)', border: 'none', cursor: 'pointer' }}>
-            
-              <ChevronRight className="rtl:rotate-180 w-5 h-5" style={{ color: 'var(--a-ink)' }} />
-            </button>
-          </>
-        }
-
-        {/* Dots */}
-        {hasMultipleImages &&
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-            {allImages.map((_, i) =>
-          <button
-            key={i}
-            onClick={() => setCurrentImageIndex(i)}
-            className="h-2 rounded-full transition-all"
-            style={{
-              width: i === currentImageIndex ? 20 : 8,
-              background: i === currentImageIndex ? 'var(--a-peach-2)' : 'rgba(255,255,255,0.7)',
-              border: 'none', cursor: 'pointer'
-            }} />
-
-          )}
-          </div>
-        }
-
-        {/* Badge */}
-        {cake.category === 'month' && cake.month_number &&
-        <span className="absolute top-3 start-3 px-3 py-1 rounded-full text-xs font-bold shadow" style={{ background: 'var(--a-peach-2)', color: '#fff' }}>
-            {tr(`common_month_label_${cake.month_number}`, `${cake.month_number}-ci ay`)}
-          </span>
-        }
-        {cake.category === 'milestone' && cake.milestone_label &&
-        <span className="absolute top-3 start-3 px-3 py-1 rounded-full text-xs font-bold shadow" style={{ background: 'var(--a-yellow-2)', color: '#5a3d00' }}>
-            {cake.milestone_label}
-          </span>
         }
       </div>
 
-      {/* Content */}
-      <div className="a-shell pt-5 space-y-4">
-        {/* Title & Price Row */}
+      <div className="ck-sheet">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
+          <div style={{ minWidth: 0 }}>
+            <span className="ck-kicker">{categoryLabel(categoryOf(cake))}{cake.category !== 'month' && cake.milestone_label ? ` · ${cake.milestone_label}` : ''}</span>
+            <h1 className="ck-name">{cake.name}</h1>
+          </div>
+          <span className="ck-bigprice">{money(Number(cake.price))}</span>
+        </div>
+
+        {(specs.size || specs.weight || specs.people) &&
+        <div className="ck-specs">
+            {specs.size && <span className="ck-spec"><b>{specs.size}</b>{tr('cakedetail_size', 'ölçü')}</span>}
+            {specs.weight && <span className="ck-spec"><b>{specs.weight}</b>{tr('cakedetail_weight', 'çəki')}</span>}
+            {specs.people && <span className="ck-spec"><b>{specs.people}</b>{tr('cakedetail_people', 'nəfərlik')}</span>}
+          </div>
+        }
+        {story && <p className="ck-desc">{story}</p>}
+
         <div>
-          <h1 className="text-xl leading-tight a-heading" style={{ margin: 0, color: 'var(--a-ink)' }}>{cake.name}</h1>
-          {cake.description &&
-          <p className="text-sm mt-2 leading-relaxed" style={{ margin: '8px 0 0', color: 'var(--a-body-text)' }}>{cake.description}</p>
-          }
-          <div className="mt-3">
-            <span className="a-heading" style={{ fontSize: 24, color: 'var(--a-accent-ink)' }}>{cake.price}₼</span>
+          <span className="ck-label">{tr('cakedetail_flavor', 'Dad')}</span>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            {FLAVORS.map((f) => <button key={f} type="button" className={`ck-chip${flavor === f ? ' on' : ''}`} onClick={() => setFlavor(f)}>{f}</button>)}
           </div>
         </div>
 
-        {/* Quantity */}
-        <div className="a-card">
-          <p className="text-sm font-bold mb-3" style={{ margin: '0 0 12px', color: 'var(--a-ink)' }}>{tr("cakedetailscreen_say_secin_431dab", "Say seçin")}</p>
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="w-11 h-11 rounded-2xl flex items-center justify-center active:scale-95 transition-transform"
-              style={{ background: 'var(--a-surface-soft)', border: 'none', cursor: 'pointer', color: 'var(--a-ink)' }}>
-              
-              <Minus className="w-4 h-4" />
-            </button>
-            <span className="a-heading w-10 text-center" style={{ fontSize: 20, color: 'var(--a-ink)' }}>{quantity}</span>
-            <button
-              onClick={() => setQuantity(quantity + 1)}
-              className="w-11 h-11 rounded-2xl flex items-center justify-center active:scale-95 transition-transform"
-              style={{ background: 'var(--a-peach-1)', border: 'none', cursor: 'pointer', color: 'var(--a-accent-ink)' }}>
-              
-              <Plus className="w-4 h-4" />
-            </button>
-            <span className="ms-auto text-lg font-bold" style={{ color: 'var(--a-ink-soft)' }}>
-              {(cake.price * quantity).toFixed(2)}₼
+        {showCustomFields && fieldLabels.map((label, i) =>
+        <div key={label}>
+            <label className="ck-label" htmlFor={`ck-field-${i}`}>{label}</label>
+            <input id={`ck-field-${i}`} className="ck-input" value={customFields[label] || ''} onChange={(e) => setCustomFields((prev) => ({ ...prev, [label]: e.target.value }))}
+          type={/gizli|secret/i.test(label) ? 'password' : 'text'} autoComplete="off" />
+          </div>
+        )}
+
+        {offerBox &&
+        <button type="button" className={`ck-upsell${photoBox ? ' on' : ''}`} onClick={() => setPhotoBox((v) => !v)} aria-pressed={photoBox}>
+            <img src={PHOTO_BOX.image} alt="" />
+            <span style={{ flex: 1, minWidth: 0 }}>
+              <b style={{ display: 'block', fontSize: 14 }}>{tr('cakedetail_photo_box', 'Foto qutusuna çevir')}</b>
+              <span style={{ display: 'block', fontSize: 12.5, color: 'var(--a-ink-soft)' }}>{tr('cakedetail_photo_box_sub', 'Bento + 6 kapkeyk bir pəncərəli qutuda')}</span>
             </span>
-          </div>
-        </div>
-
-        {/* Custom Fields */}
-        {showCustomFields &&
-        <div className="a-card space-y-3">
-            <p className="text-sm font-bold" style={{ margin: 0, color: 'var(--a-ink)' }}>{tr("cakedetailscreen_ferdilesdirme_cc39bc", "✨ Fərdiləşdirmə")}</p>
-            {fieldLabels.map((label) =>
-          <div key={label}>
-                <label className="text-xs" style={{ color: 'var(--a-ink-soft)' }}>{label}</label>
-                <input
-              className="a-input w-full mt-1"
-              value={customFields[label] || ''}
-              onChange={(e) => setCustomFields({ ...customFields, [label]: e.target.value })}
-              placeholder={label} />
-            
-              </div>
-          )}
-          </div>
-        }
-
-        {/* Thumbnail strip */}
-        {hasMultipleImages &&
-        <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
-            {allImages.map((img, i) =>
-          <button
-            key={i}
-            onClick={() => setCurrentImageIndex(i)}
-            className="flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden transition-all"
-            style={i === currentImageIndex ?
-            { border: '2px solid var(--a-peach-2)', boxShadow: 'var(--a-card-shadow)', cursor: 'pointer' } :
-            { border: '2px solid transparent', opacity: 0.6, cursor: 'pointer' }}>
-            
-                <img src={img} alt="" className="w-full h-full object-cover" />
-              </button>
-          )}
-          </div>
+            <b style={{ fontSize: 13.5, whiteSpace: 'nowrap' }}>+{money(PHOTO_BOX.extra)}</b>
+            <span className="ck-check" aria-hidden>{photoBox && <Check size={14} strokeWidth={3} />}</span>
+          </button>
         }
       </div>
 
-      {/* Fixed Bottom CTA - above BottomNav */}
-      <div
-        className="fixed start-0 end-0 z-40 px-4 py-3"
-        style={{ bottom: 'calc(72px + env(safe-area-inset-bottom))', background: 'var(--a-nav-bg)', backdropFilter: 'blur(12px)', borderTop: '1px solid var(--a-line)' }}>
-        
-        <button
-          className="a-cta-btn w-full"
-          style={{ justifyContent: 'center', height: 52, fontSize: 14 }}
-          onClick={handleAddToCart}>
-          
-          <ShoppingCart size={18} strokeWidth={2.2} />
-          {tr("cakedetailscreen_sebete_elave_et_074411", "S\u0259b\u0259t\u0259 \u0259lav\u0259 et \u2014")} {(cake.price * quantity).toFixed(2)}₼
+      <div className="ck-bar">
+        <div className="ck-stepper">
+          <button type="button" onClick={() => setQuantity((q) => Math.max(1, q - 1))} aria-label="−"><Minus size={16} strokeWidth={2.4} /></button>
+          <span>{quantity}</span>
+          <button type="button" onClick={() => setQuantity((q) => Math.min(10, q + 1))} aria-label="+"><Plus size={16} strokeWidth={2.4} /></button>
+        </div>
+        <button type="button" className="ck-cta" onClick={handleAdd}>
+          {tr('cakedetail_add', 'Səbətə əlavə et')} · {money(unit * quantity)}
         </button>
       </div>
     </div>);
-
 };
 
 export default CakeDetailScreen;

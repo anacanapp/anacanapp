@@ -3,7 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Send, Cake as CakeIcon, CreditCard, Banknote, Lock, ArrowLeftRight, Upload, Loader2, FileText, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useCakeOrders } from '@/hooks/useCakes';
-import { useCakeCart } from '@/hooks/useCakeCart';
+import { useCakeCart, cakeUnitPrice } from '@/hooks/useCakeCart';
+import { addDays, format, parseISO } from 'date-fns';
+import { money } from './cakeUi';
+import './cakes.css';
 import { usePaymentMethods, type PaymentMethod } from '@/hooks/usePaymentMethods';
 import { supabase } from '@/integrations/supabase/client';
 import { tr } from "@/lib/tr";
@@ -37,11 +40,18 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
   const c2cMethod = activeMethods.find((m) => m.method_key === 'c2c_transfer');
   const c2cConfig = c2cMethod?.config || {};
 
+  // Orders need 48 hours: the first day offered is the day after tomorrow.
+  const days = Array.from({ length: 12 }, (_, i) => addDays(new Date(), i + 2));
+  const SLOTS = ['10:00–13:00', '14:00–18:00'];
+  const WEEKDAYS = [tr('wd_sun', 'B.'), tr('wd_mon', 'B.e.'), tr('wd_tue', 'Ç.a.'), tr('wd_wed', 'Ç.'), tr('wd_thu', 'C.a.'), tr('wd_fri', 'C.'), tr('wd_sat', 'Ş.')];
+  const [mode, setMode] = useState<'delivery' | 'pickup'>('delivery');
+  const [slot, setSlot] = useState(SLOTS[0]);
+
   const [formData, setFormData] = useState({
     customer_name: '',
     child_name: '',
     contact_phone: '',
-    delivery_date: '',
+    delivery_date: format(days[0], 'yyyy-MM-dd'),
     delivery_address: '',
     notes: ''
   });
@@ -126,6 +136,10 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
       toast({ title: tr("cakeorderform_xeta_3cdbb6", 'Xəta'), description: tr("cakeorderform_elaqe_nomresi_teleb_olunur_1c55b7", 'Əlaqə nömrəsi tələb olunur'), variant: 'destructive' });
       return;
     }
+    if (mode === 'delivery' && !formData.delivery_address.trim()) {
+      toast({ title: tr("cakeorderform_xeta_3cdbb6", 'Xəta'), description: tr('cakeorderform_address_required', 'Çatdırılma ünvanını yazın'), variant: 'destructive' });
+      return;
+    }
     if (items.length === 0) {
       toast({ title: tr("cakeorderform_xeta_3cdbb6", 'Xəta'), description: tr("cakeorderform_sebet_bosdur_ff5b34", 'Səbət boşdur'), variant: 'destructive' });
       return;
@@ -153,6 +167,7 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
     });
 
     const itemsSummary = items.map((i) => `${i.cake.name} x${i.quantity}`).join(', ');
+    const modeLabel = mode === 'delivery' ? tr('cakeorderform_mode_delivery', 'Çatdırılma') : tr('cakeorderform_mode_pickup', 'Özüm götürəcəm');
 
     const paymentLabel = paymentMethod === 'c2c_transfer' ? 'Kartdan Karta' :
     paymentMethod === 'card_simulated' ? tr("cakeorderform_kart_de91aa", "Kart") : tr("cakeorderform_nagd_fdeb10", "Na\u011Fd");
@@ -165,9 +180,9 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
       child_age_months: items[0].cake.month_number,
       contact_phone: formData.contact_phone,
       delivery_date: formData.delivery_date || null,
-      delivery_address: formData.delivery_address || null,
-      notes: `${formData.notes || ''} [${paymentLabel} ${tr("cake_payment", "ödəniş")} ]`.trim(),
-      custom_fields: { ...allCustomFields, payment_method: paymentLabel },
+      delivery_address: mode === 'delivery' ? formData.delivery_address || null : null,
+      notes: `${formData.notes || ''} [${modeLabel} · ${slot}] [${paymentLabel} ${tr("cake_payment", "ödəniş")} ]`.trim(),
+      custom_fields: { ...allCustomFields, payment_method: paymentLabel, delivery_mode: modeLabel, delivery_slot: slot },
       status: 'pending',
       total_price: totalPrice
     });
@@ -242,101 +257,100 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
     }
   };
 
-  const fieldLabel = (text: string) =>
-  <label className="text-sm font-bold" style={{ color: 'var(--a-ink)' }}>{text}</label>;
+  const fieldLabel = (text: string, id?: string) =>
+  <label className="ck-label" htmlFor={id}>{text}</label>;
 
   return (
-    <div className="a-scope min-h-screen pb-44 overflow-y-auto" style={{ background: 'var(--a-bg)' }}>
-      <div className="a-shell pt-2">
-        <header className="a-topbar">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label="Back">
-              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
-            </motion.button>
-            <div style={{ minWidth: 0 }}>
-              <p className="a-eyebrow">{items.length} tort, {totalPrice.toFixed(2)}₼</p>
-              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("cakeorderform_sifaris_ver_f2be54", "Sifariş ver")}</p>
-            </div>
+    <div className="a-scope ck overflow-y-auto" style={{ paddingBottom: 120 }}>
+      <header className="ck-top">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
+          <button type="button" className="ck-iconbtn" onClick={onBack} aria-label={tr('common_back', 'Geri')}>
+            <ArrowLeft className="rtl:rotate-180" size={18} strokeWidth={2.2} />
+          </button>
+          <div style={{ minWidth: 0 }}>
+            <p className="ck-eyebrow">{items.length} {tr('cakeorderform_cakes_n', 'tort')} · {money(totalPrice)}</p>
+            <h1 className="ck-title" style={{ fontSize: 22 }}>{tr('cakeorderform_title_v3', 'Sifariş')}</h1>
           </div>
-        </header>
+        </div>
+      </header>
 
-        {/* Cart Summary */}
-        <div className="a-list-card mb-4">
+      <div className="ck-pad" style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {items.map((item, i) =>
-          <div key={i} className="a-list-row">
-              {item.cake.image_url ?
-            <img src={item.cake.image_url} alt={item.cake.name} className="w-12 h-12 rounded-xl object-cover shrink-0" /> :
-
-            <span className="a-list-icon" style={{ background: 'var(--a-peach-1)' }}>
-                  <CakeIcon size={17} strokeWidth={2.2} style={{ color: 'var(--a-accent-ink)' }} />
-                </span>
-            }
-              <div className="flex-1 min-w-0">
-                <p className="a-list-title truncate">{item.cake.name}</p>
-                <p className="a-list-sub">x{item.quantity} — {(item.cake.price * item.quantity).toFixed(2)}₼</p>
+          <div key={i} className="ck-row">
+              {item.cake.image_url ? <img src={item.cake.image_url} alt="" /> :
+            <span style={{ width: 60, height: 60, borderRadius: 14, background: 'var(--a-coral-soft)', display: 'grid', placeItems: 'center', flexShrink: 0 }}><CakeIcon size={22} /></span>}
+              <div className="ck-row-main">
+                <b>{item.cake.name}</b>
+                <span>{[`x${item.quantity}`, ...Object.entries(item.customFields).filter(([, v]) => v).map(([k, v]) => /gizli|secret/i.test(k) ? '••••' : v)].join(' · ')}</span>
               </div>
+              <b style={{ fontSize: 15, whiteSpace: 'nowrap' }}>{money(cakeUnitPrice(item) * item.quantity)}</b>
             </div>
           )}
         </div>
 
-        {/* Form */}
-        <div className="space-y-4">
-          <div>
-            {fieldLabel(tr("cakeorderform_musteri_adi_e9554d", "Müştəri adı *"))}
-            <input className="a-input w-full mt-1" value={formData.customer_name} onChange={(e) => setFormData({ ...formData, customer_name: e.target.value })} placeholder={tr("cakeorderform_adinizi_daxil_edin_bd2b57", "Adınızı daxil edin")} />
+        <div>
+          {fieldLabel(tr('cakeorderform_when', 'Nə vaxt?'))}
+          <div className="ck-days" role="listbox" aria-label={tr('cakeorderform_when', 'Nə vaxt?')}>
+            {days.map((d) => {
+              const value = format(d, 'yyyy-MM-dd');
+              const on = formData.delivery_date === value;
+              return (
+                <button key={value} type="button" role="option" aria-selected={on} className={`ck-day${on ? ' on' : ''}`} onClick={() => setFormData({ ...formData, delivery_date: value })}>
+                  <b>{format(d, 'd')}</b>{WEEKDAYS[d.getDay()]}
+                </button>);
+            })}
           </div>
-          <div>
-            {fieldLabel(tr("cakeorderform_usagin_adi_80632b", "Uşağın adı"))}
-            <input className="a-input w-full mt-1" value={formData.child_name} onChange={(e) => setFormData({ ...formData, child_name: e.target.value })} placeholder={tr("cakeorderform_korpenin_adi_8a4e9e", "Körpənin adı")} />
+          <div style={{ display: 'flex', gap: 8, marginTop: 10 }}>
+            {SLOTS.map((value) => <button key={value} type="button" className={`ck-chip${slot === value ? ' on' : ''}`} style={{ flex: 1 }} onClick={() => setSlot(value)}>{value}</button>)}
           </div>
-          <div>
-            {fieldLabel(tr("cakeorderform_elaqe_nomresi_feb8b9", "Əlaqə nömrəsi *"))}
-            <input className="a-input w-full mt-1" value={formData.contact_phone} onChange={(e) => setFormData({ ...formData, contact_phone: e.target.value })} placeholder="+994 XX XXX XX XX" />
-          </div>
-          <div>
-            {fieldLabel(tr("cakeorderform_catdirilma_tarixi_716cbd", "Çatdırılma tarixi"))}
-            <input className="a-input a-date-input mt-1" type="date" value={formData.delivery_date} onChange={(e) => setFormData({ ...formData, delivery_date: e.target.value })} />
-          </div>
-          <div>
-            {fieldLabel(tr("cakeorderform_catdirilma_unvani_5cec99", "Çatdırılma ünvanı"))}
-            <input className="a-input w-full mt-1" value={formData.delivery_address} onChange={(e) => setFormData({ ...formData, delivery_address: e.target.value })} placeholder={tr("cakeorderform_unvani_daxil_edin_b8da41", "Ünvanı daxil edin")} />
-          </div>
-          <div>
-            {fieldLabel(tr("cakeorderform_elave_qeydler_c98a42", "Əlavə qeydlər"))}
-            <textarea
-              value={formData.notes}
-              onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-              placeholder={tr("cakeorderform_xususi_istekler_allergiya_ve_s_49d429", "Xüsusi istəklər, allergiya və s.")}
-              className="a-input w-full mt-1 resize-none"
-              style={{ minHeight: 80, height: 'auto', fontFamily: 'inherit' }} />
-          </div>
+        </div>
 
-          {/* Payment Method */}
-          <div className="space-y-3">
-            {fieldLabel(tr("cakeorderform_odenis_usulu_b9d87a", "Ödəniş üsulu"))}
-            <div className={`grid gap-3 ${activeMethods.length === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
-              {activeMethods.map((method) => {
-                const { title, sub } = getMethodLabel(method);
-                const isSelected = paymentMethod === method.method_key;
-                return (
-                  <button
-                    key={method.id}
-                    onClick={() => setPaymentMethod(method.method_key)}
-                    className="flex flex-col items-center gap-1.5 p-3 rounded-2xl transition-all"
-                    style={isSelected ?
-                    { border: '2px solid var(--a-peach-2)', background: 'var(--a-peach-1)', cursor: 'pointer' } :
-                    { border: '2px solid var(--a-line)', background: 'var(--a-surface)', cursor: 'pointer' }}>
-                    
-                    <span style={{ color: isSelected ? 'var(--a-accent-ink)' : 'var(--a-ink-soft)' }}>
-                      {getMethodIcon(method.method_key)}
-                    </span>
-                    <span className="text-xs font-bold" style={{ color: isSelected ? 'var(--a-accent-ink)' : 'var(--a-ink-soft)' }}>{title}</span>
-                    <span className="text-[9px] leading-tight text-center" style={{ color: 'var(--a-ink-soft)' }}>{sub}</span>
-                  </button>);
-
-              })}
-            </div>
+        <div className="ck-seg">
+          <button type="button" className={mode === 'delivery' ? 'on' : ''} onClick={() => setMode('delivery')}>{tr('cakeorderform_mode_delivery', 'Çatdırılma')}</button>
+          <button type="button" className={mode === 'pickup' ? 'on' : ''} onClick={() => setMode('pickup')}>{tr('cakeorderform_mode_pickup', 'Özüm götürəcəm')}</button>
+        </div>
+        {mode === 'delivery' &&
+        <div>
+            {fieldLabel(tr('cakeorderform_catdirilma_unvani_5cec99', 'Çatdırılma ünvanı'), 'ck-addr')}
+            <input id="ck-addr" className="ck-input" value={formData.delivery_address} onChange={(e) => setFormData({ ...formData, delivery_address: e.target.value })} placeholder={tr('cakeorderform_unvani_daxil_edin_b8da41', 'Ünvanı daxil edin')} autoComplete="street-address" />
           </div>
+        }
+
+        <div style={{ display: 'grid', gap: 14 }}>
+          <div>
+            {fieldLabel(tr('cakeorderform_musteri_adi_e9554d', 'Müştəri adı *'), 'ck-cname')}
+            <input id="ck-cname" className="ck-input" value={formData.customer_name} onChange={(e) => setFormData({ ...formData, customer_name: e.target.value })} placeholder={tr('cakeorderform_adinizi_daxil_edin_bd2b57', 'Adınızı daxil edin')} autoComplete="name" />
+          </div>
+          <div>
+            {fieldLabel(tr('cakeorderform_elaqe_nomresi_feb8b9', 'Əlaqə nömrəsi *'), 'ck-phone')}
+            <input id="ck-phone" className="ck-input" type="tel" inputMode="tel" value={formData.contact_phone} onChange={(e) => setFormData({ ...formData, contact_phone: e.target.value })} placeholder="+994 XX XXX XX XX" autoComplete="tel" />
+          </div>
+          <div>
+            {fieldLabel(tr('cakeorderform_usagin_adi_80632b', 'Uşağın adı'), 'ck-child')}
+            <input id="ck-child" className="ck-input" value={formData.child_name} onChange={(e) => setFormData({ ...formData, child_name: e.target.value })} placeholder={tr('cakeorderform_korpenin_adi_8a4e9e', 'Körpənin adı')} />
+          </div>
+          <div>
+            {fieldLabel(tr('cakeorderform_elave_qeydler_c98a42', 'Əlavə qeydlər'), 'ck-notes')}
+            <textarea id="ck-notes" className="ck-input" value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} placeholder={tr('cakeorderform_xususi_istekler_allergiya_ve_s_49d429', 'Xüsusi istəklər, allergiya və s.')} />
+          </div>
+        </div>
+
+        <div>
+          {fieldLabel(tr('cakeorderform_odenis_usulu_b9d87a', 'Ödəniş üsulu'))}
+          <div className="ck-pay">
+            {activeMethods.map((method) => {
+              const { title, sub } = getMethodLabel(method);
+              const on = paymentMethod === method.method_key;
+              return (
+                <button key={method.id} type="button" className={on ? 'on' : ''} onClick={() => setPaymentMethod(method.method_key)} aria-pressed={on}>
+                  <span className="ck-radio" aria-hidden />
+                  <span style={{ color: on ? 'var(--a-coral-text)' : 'var(--a-ink-soft)' }}>{getMethodIcon(method.method_key)}</span>
+                  <span style={{ flex: 1, minWidth: 0 }}><b>{title}</b><small>{sub}</small></span>
+                </button>);
+            })}
+          </div>
+        </div>
 
           {/* Card Details */}
           <AnimatePresence>
@@ -478,32 +492,20 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
             }
           </AnimatePresence>
 
-          {/* Total & Submit */}
-          <div className="a-card">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-sm" style={{ color: 'var(--a-ink-soft)' }}>{tr("cakeorderform_cemi_fbbec6", "Cəmi:")}</span>
-              <span className="a-heading" style={{ fontSize: 20, color: 'var(--a-accent-ink)' }}>{totalPrice.toFixed(2)}₼</span>
-            </div>
-            <button
-              className="a-cta-btn w-full"
-              style={{ justifyContent: 'center', height: 52, fontSize: 14, opacity: submitting ? 0.6 : 1 }}
-              onClick={handleSubmit}
-              disabled={submitting}>
-              {submitting ?
-              <div className="w-5 h-5 rounded-full animate-spin" style={{ border: '2px solid var(--a-accent-ink)', borderTopColor: 'transparent' }} /> :
-
-              <>
-                  {paymentMethod === 'card_simulated' ? <CreditCard size={18} strokeWidth={2.2} /> :
-                paymentMethod === 'c2c_transfer' ? <ArrowLeftRight size={18} strokeWidth={2.2} /> :
-                <Send size={18} strokeWidth={2.2} />}
-                  {paymentMethod === 'card_simulated' ? tr("cake_pay_and_order", "Ödə və sifariş ver") :
-                paymentMethod === 'c2c_transfer' ? tr("cake_confirm_order", "Sifarişi təsdiqlə") :
-                tr("cake_send_order", "Sifariş göndər")} — {totalPrice.toFixed(2)}₼
-                </>
-              }
-            </button>
+          <div className="ck-box">
+            {items.map((item, i) => <div key={i} className="ck-line"><span>{item.cake.name} x{item.quantity}</span><span>{money(cakeUnitPrice(item) * item.quantity)}</span></div>)}
+            <div className="ck-line"><span>{mode === 'delivery' ? tr('cakeorderform_mode_delivery', 'Çatdırılma') : tr('cakeorderform_mode_pickup', 'Özüm götürəcəm')}</span><span>{format(parseISO(formData.delivery_date), 'dd.MM')} · {slot}</span></div>
+            <div className="ck-total"><span>{tr('cakeorderform_cemi_fbbec6', 'Cəmi:')}</span><span>{money(totalPrice)}</span></div>
           </div>
-        </div>
+          <button type="button" className="ck-cta" style={{ flex: 'none' }} onClick={handleSubmit} disabled={submitting}>
+            {submitting ? <Loader2 className="animate-spin" size={18} /> :
+            <>
+                {paymentMethod === 'card_simulated' ? <CreditCard size={18} strokeWidth={2.2} /> : paymentMethod === 'c2c_transfer' ? <ArrowLeftRight size={18} strokeWidth={2.2} /> : <Send size={18} strokeWidth={2.2} />}
+                {paymentMethod === 'card_simulated' ? tr('cake_pay_and_order', 'Ödə və sifariş ver') : paymentMethod === 'c2c_transfer' ? tr('cake_confirm_order', 'Sifarişi təsdiqlə') : tr('cake_send_order', 'Sifariş göndər')} · {money(totalPrice)}
+              </>
+            }
+          </button>
+          <p className="ck-fine">{tr('cakeorderform_fine', 'Sifariş ən azı 48 saat qabaqcadan qəbul olunur. Qənnadı təsdiqləyəndə sizə zəng edəcək.')}</p>
       </div>
     </div>);
 
