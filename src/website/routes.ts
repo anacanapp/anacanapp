@@ -7,8 +7,13 @@ export const APP_STORE_URL = 'https://apps.apple.com/us/app/anacan/id6758301924'
 export const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.atlasoon.anacan';
 export const DETAIL_PAGES=['cycle','pregnancy','motherhood','partner','memories','ai','community','health'] as const;
 export type DetailPage=typeof DETAIL_PAGES[number];
-export type WebsitePage = 'home' | 'journal' | 'tools' | 'ovulation' | 'dueDate' | 'symptoms' | 'features' | 'faq' | 'contact' | 'download' | 'privacy' | 'terms' | 'simulator' | 'article' | 'notFound' | DetailPage;
-export type StaticPage = Exclude<WebsitePage, 'home' | 'article' | 'notFound'>;
+/** Azerbaijani-only shop pages (PDF books, cakes); they exist only under /az/. */
+export const SHOP_PAGES=['books','cakes'] as const;
+export type ShopPage=typeof SHOP_PAGES[number];
+export const SHOP_SLUGS: Record<ShopPage,string> = { books:'kitablar', cakes:'tortlar' };
+export const isShopPage=(kind:string):kind is ShopPage=>(SHOP_PAGES as readonly string[]).includes(kind);
+export type WebsitePage = ShopPage | 'home' | 'journal' | 'tools' | 'ovulation' | 'dueDate' | 'symptoms' | 'features' | 'faq' | 'contact' | 'download' | 'privacy' | 'terms' | 'simulator' | 'article' | 'notFound' | DetailPage;
+export type StaticPage = Exclude<WebsitePage, 'home' | 'article' | 'notFound' | ShopPage>;
 type CoreStaticPage=Exclude<StaticPage,DetailPage>;
 
 /** Public URLs are a published contract, independent of translated UI copy. */
@@ -46,6 +51,7 @@ export function sitePath(language: WebsiteLanguageCode, kind: WebsitePage = 'hom
     return `/${language}/${encodeURIComponent(slug)}/`;
   }
   if (kind === 'notFound') return `/${language}/404/`;
+  if (isShopPage(kind)) return `/az/${SHOP_SLUGS[kind]}/`;
   const segment = encodeURIComponent(PAGE_SLUGS[language][kind]);
   return `/${language}/${segment}/${kind === 'journal' && page > 1 ? page + '/' : ''}`;
 }
@@ -65,6 +71,7 @@ export function localizedSlug(title: string): string {
 export function routePath(route: WebsiteRoute) { return sitePath(route.language, route.kind, route.slug, route.page); }
 export function alternateRoute(route: WebsiteRoute, language: WebsiteLanguageCode, article?: ArticleRoute): string | undefined {
   if (route.kind === 'article') return article?.slugs[language] ? sitePath(language, 'article', article.slugs[language]) : undefined;
+  if (isShopPage(route.kind)) return language === 'az' ? sitePath('az', route.kind) : undefined;
   return sitePath(language, route.kind, undefined, route.page);
 }
 export function previewPrefix(pathname: string): string { return /^\/site(?:\/|$)/.test(pathname) ? WEBSITE_PREVIEW_PREFIX : ''; }
@@ -96,6 +103,8 @@ export function resolveWebsiteRoute(pathname: string, articles: readonly Article
     return { route:{language,kind:'notFound'} };
   }
   if (!rest.length) return { route:{language,kind:'home'}, ...(!raw.endsWith('/') ? {redirect:sitePath(language)} : {}) };
+  const shop = language === 'az' && rest.length === 1 ? SHOP_PAGES.find(item => SHOP_SLUGS[item] === rest[0]) : undefined;
+  if (shop) return {route:{language,kind:shop},...(!raw.endsWith('/') ? {redirect:sitePath('az',shop)} : {})};
   const kind = (Object.entries(PAGE_SLUGS[language]) as Array<[StaticPage,string]>).find(([, slug]) => slug === rest[0])?.[0];
   if (kind && (rest.length === 1 || kind === 'journal' && rest.length === 2 && /^[1-9]\d*$/.test(rest[1]))) {
     const page = kind === 'journal' && rest[1] ? Number(rest[1]) : 1;

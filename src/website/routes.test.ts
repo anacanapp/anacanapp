@@ -29,3 +29,15 @@ describe('locale URLs and durable aliases',()=>{
     expect(localizedSlug('Körpənin qayğısı: Əmizdirmə')).toBe('korpenin-qaygisi-emizdirme');
   });
 });
+
+describe('shop pages (Azerbaijani only)', () => {
+  it('resolves /az/kitablar/ and /az/tortlar/ and redirects without a trailing slash', async () => {
+    const { resolveWebsiteRoute, sitePath, alternateRoute } = await import('./routes');
+    expect(resolveWebsiteRoute('/az/kitablar/').route.kind).toBe('books');
+    expect(resolveWebsiteRoute('/az/tortlar/').route.kind).toBe('cakes');
+    expect(resolveWebsiteRoute('/az/tortlar').redirect).toBe('/az/tortlar/');
+    expect(resolveWebsiteRoute('/en/kitablar/').route.kind).toBe('notFound');
+    expect(sitePath('az', 'books')).toBe('/az/kitablar/');
+    expect(alternateRoute({ language: 'az', kind: 'cakes' }, 'en')).toBeUndefined();
+  });
+});
