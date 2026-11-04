@@ -19,6 +19,17 @@ async function sha256(value: string) {
   return [...digest].map(byte => byte.toString(16).padStart(2, '0')).join('');
 }
 
+const escapeHtml = (value: string) => value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]!));
+function downloadPage(url: string, title: string) {
+  const href = escapeHtml(url), name = escapeHtml(title);
+  return `<!doctype html><html lang="az"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="0;url=${href}"><title>${name} — Anacan</title></head>
+<body style="margin:0;background:#FFF7F3;font-family:Arial,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center">
+<div style="background:#fff;border-radius:20px;padding:28px;max-width:420px;text-align:center"><div style="font:800 20px Arial;color:#333">📚 ${name}</div>
+<p style="color:#666;font-size:14px;line-height:1.5">PDF yüklənir. Başlamasa, düyməyə toxunun.</p>
+<a href="${href}" style="display:inline-block;background:#FF5A5F;color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:999px">PDF yüklə</a></div></body></html>`;
+}
+
 async function signedUrl(admin: ReturnType<typeof createClient>, bookId: string): Promise<string | null> {
   const { data: book } = await admin.from('book_catalog').select('pdf_path').eq('id', bookId).maybeSingle();
   if (!book?.pdf_path) return null;
@@ -38,7 +49,12 @@ Deno.serve(async (req) => {
     if (!order || order.status !== 'paid' || !order.download_token_hash || order.download_token_hash !== await sha256(token)
       || !(order.book_ids as string[]).includes(bookId)) return json(404, { error: 'not_found' });
     const target = await signedUrl(admin, bookId);
-    return target ? new Response(null, { status: 302, headers: { Location: target, 'Cache-Control': 'no-store' } }) : json(503, { error: 'file_unavailable' });
+    if (!target) return json(503, { error: 'file_unavailable' });
+    // The functions router passes only 2xx responses through, so the e-mail link answers with a tiny
+    // page that moves straight on to the short-lived signed PDF URL (with a button as a fallback).
+    const { data: book } = await admin.from('book_catalog').select('title').eq('id', bookId).maybeSingle();
+    return new Response(downloadPage(target, String(book?.title ?? 'Anacan')), { status: 200, headers: {
+      'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer', 'X-Robots-Tag': 'noindex' } });
   }
   if (req.method !== 'POST') return json(405, { error: 'method_not_allowed' });
   const auth = await requireUser(req);

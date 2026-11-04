@@ -18,10 +18,11 @@
 1. Tətbiq: Mağaza (yaş + mövzu filtrləri, uşağın yaşına görə tövsiyə, paket pillələri, yaş kolleksiyası) → Səbət → "Ödənişə keç".
 2. `book-checkout` (istifadəçi sessiyası): kitabları yoxlayır, alınmışları rədd edir, qiyməti hesablayır,
    `book_orders` yazır, Epoint `api/1/request` → ödəniş səhifəsi xarici brauzerdə açılır.
-3. `epoint-result` (Epoint kabinetində Result URL: `https://api.anacan.az/functions/v1/epoint-result`):
+3. `epoint-payment?action=callback` (Epoint kabinetindəki tək Result URL) kitab sifarişini tanıyır:
    imza (`base64(sha1(private+data+private))`) + `get-status` + məbləğ yoxlanır → `paid`, `book_entitlements`,
    yükləmə tokeni (hash saxlanır), Customer.io ilə e-poçt (PDF linkləri).
-4. `book-download`: tətbiqdən (sessiya + sahiblik) və ya e-poçt linkindən (token) 15 dəqiqəlik signed URL.
+4. `book-download`: tətbiqdən (POST, sessiya + sahiblik) 15 dəqiqəlik signed URL; e-poçt linki (GET, token)
+   200 HTML səhifə qaytarır və signed PDF-ə yönləndirir (router 3xx cavabları maskalayır, ona görə 302 yox).
 5. "Kitablarım": alınmış kitablar, PDF yüklə, çap bələdçisi.
 
 ## Aktivləşdirmə
@@ -31,10 +32,22 @@
 - Satış **admin → PDF kitablar → Ayarlar**-dakı açarla (`books_payments_enabled`) açılır; söndürülü olanda
   `GET book-checkout` → `{ready:false}` və tətbiq "Kartla ödəniş tezliklə" göstərir.
 - Epoint kabinetində tək Result URL qalır: `…/functions/v1/epoint-payment?action=callback`. Bu callback kitab
-  sifarişlərini (`book_orders.id`) tanıyıb `_shared/book-result.ts`-ə ötürür (`epoint-result` ayrıca URL kimi də işləyir).
+  sifarişlərini (`book_orders.id`) tanıyıb `_shared/book-result.ts`-ə ötürür. `epoint-result` repoda qalır, amma router-də açılmayıb.
+- Funksiyalar konteynerində `functions.env` `ENABLE_EPOINT_PAYMENTS=true` olmalıdır (indi `false`; `book-checkout`
+  `function_disabled` qaytarır). Dəyişəndən sonra functions konteyneri yenidən yaradılır.
 - PDF-lər `book-pdfs` (private) bucket-ə `book_catalog.pdf_path` yolu ilə; qapaqlar `book-covers` (public).
   PDF-lər tətbiqə yerləşdirilmir: yalnız link (tətbiqdə 15 dəq. signed URL, e-poçtda tokenli link).
 - Epoint sahələri canlı sınaq ödənişində yoxlanmalıdır.
+
+## Canlı vəziyyət (2026-11-04)
+
+- Migrasiya tətbiq olunub (70 kataloq sətri, relation guard-lar); sonra `NOTIFY pgrst, 'reload schema'` lazım oldu.
+- Storage: `book-pdfs` 70 PDF, `book-covers` 70 qapaq.
+- Functions image `sha256:75c3c74c84489d1069d838f700b0179c6b0a017f541ab72cb340db36da142201`; `catalog.mjs` routes:
+  `book-checkout` (user, gate `ENABLE_EPOINT_PAYMENTS`, GET/POST), `book-download` (public, GET/POST, 60/dəq),
+  `book-admin` (admin), `epoint-payment` Customer.io env ilə; `ENABLED_FUNCTIONS`-ə üçü əlavə olunub.
+- Smoke: e-poçt linki → 200 HTML → signed PDF 200; səhv token/başqa kitab 404; imzasız PDF 400.
+- Ödəniş bağlıdır: Epoint private key boşdur, `ENABLE_EPOINT_PAYMENTS=false`, `books_payments_enabled=false`.
 
 ## Admin (PDF kitablar)
 
