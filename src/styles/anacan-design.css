@@ -3271,3 +3271,42 @@ html.a-lite .a3-mascot.bob { animation: none; }
 .dark [role="switch"] > span { background-color: #ffffff; }
 .dark .a-blog-cover { background: var(--a-surface-soft); }
 .a-blog-cover img { position: absolute; inset: 0; }
+
+/* ---------- Bottom nav: floating dark capsule (test, app_settings.bottom_nav_style) ---------- */
+.a-nav.capsule {
+  max-width: 372px;
+  gap: 4px;
+  padding: 7px;
+  justify-content: space-between;
+  border-radius: 32px;
+  background: #2a2120;
+  border: 1px solid transparent;
+  box-shadow: 0 18px 34px -14px rgba(0, 0, 0, 0.55);
+}
+.dark .a-nav.capsule { background: #1d1818; border-color: rgba(255, 255, 255, 0.08); }
+.a-nav.capsule .a-nav-item {
+  flex: 0 0 48px;
+  height: 48px;
+  flex-direction: row;
+  justify-content: center;
+  gap: 7px;
+  padding: 0;
+  border-radius: 24px;
+  color: #d9cbc6;
+  transition: flex-grow 240ms var(--a-ease, ease), background 200ms ease, color 200ms ease;
+}
+.a-nav.capsule .a-nav-item .a-nav-label { display: none; }
+.a-nav.capsule .a-nav-item.active { flex: 1 1 auto; padding: 0 14px; background: var(--a-coral, #ff5a5f); color: #fff; }
+.a-nav.capsule .a-nav-item.active .a-nav-label { display: block; font-size: 13px; font-weight: 900; }
+.a-nav.capsule .a-nav-ai-icon { width: auto; height: auto; margin: 0; background: none; color: #ffb1b3; }
+.a-nav.capsule .a-nav-item.active .a-nav-ai-icon { color: #fff; }
+.a-nav-avatar {
+  width: 30px; height: 30px; border-radius: 15px; overflow: hidden; flex-shrink: 0;
+  display: grid; place-items: center; font-size: 12px; font-weight: 900;
+  background: var(--a-coral-soft, #ffe7e1); color: var(--a-peach-ink, #9e2b2e);
+  box-shadow: 0 0 0 2px #2a2120, 0 0 0 4px #5a4a46;
+}
+.a-nav-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.a-nav.capsule .a-nav-item.active .a-nav-avatar { box-shadow: 0 0 0 2px #fff; }
+.a-nav.capsule .a-nav-badge { top: 6px; inset-inline-start: calc(50% + 4px); box-shadow: 0 0 0 2px #2a2120; }
+@media (prefers-reduced-motion: reduce) { .a-nav.capsule .a-nav-item { transition: none; } }

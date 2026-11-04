@@ -5,6 +5,8 @@ import { useUnreadMessages } from '@/hooks/useUnreadMessages';
 import { useUnreadCommunityPosts } from '@/hooks/useUnreadCommunityPosts';
 import { tr } from "@/lib/tr";
 import { useChatChromeHidden } from '@/hooks/useChatChrome';
+import { useAppSetting } from '@/hooks/useAppSettings';
+import { useAuth } from '@/hooks/useAuth';
 
 interface BottomNavProps {
   activeTab: string;
@@ -22,6 +24,13 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
   const { unreadCount } = useUnreadMessages();
   const { unreadCount: communityUnread } = useUnreadCommunityPosts();
   const hiddenForChat = useChatChromeHidden();
+  // Test: floating dark capsule. app_settings.bottom_nav_style = 'classic' brings back the previous pill
+  // without a new build.
+  const navStyle = useAppSetting('bottom_nav_style');
+  const capsule = navStyle !== 'classic';
+  const { profile } = useAuth();
+  const avatarUrl = (profile as { avatar_url?: string | null } | null)?.avatar_url || null;
+  const initial = ((profile as { name?: string | null } | null)?.name || '').trim().charAt(0).toUpperCase();
 
   const womanTabs = [
     { id: 'home', label: tr("bottomnav_esas_6d87f7", 'Əsas'), icon: Home },
@@ -46,7 +55,7 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
 
   return (
     <div className="a-nav-wrap a-scope" data-ad-bottom-nav>
-      <nav className="a-nav" aria-label="Primary">
+      <nav className={`a-nav${capsule ? ' capsule' : ''}`} aria-label="Primary">
         {(isPartner ? partnerTabs : visibleWomanTabs).map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -62,8 +71,14 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
               onClick={() => onTabChange(tab.id)}
               className={`a-nav-item${isActive ? ' active' : ''}`}
               whileTap={{ scale: 0.92 }}
+              aria-label={tab.label}
+              aria-current={isActive ? 'page' : undefined}
             >
-              {tab.special ? (
+              {capsule && tab.id === 'profile' ? (
+                <span className="a-nav-avatar" aria-hidden>
+                  {avatarUrl ? <img src={avatarUrl} alt="" /> : initial || <Icon size={16} strokeWidth={2.2} />}
+                </span>
+              ) : tab.special ? (
                 <span className="a-nav-ai-icon">
                   <Icon size={15} strokeWidth={2.4} />
                 </span>

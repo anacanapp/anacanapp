@@ -39,6 +39,7 @@ const MANAGED_SETTING_KEYS = [
   'bump_mode_enabled',
   'mommy_mode_enabled',
   'mommy_hero_variant',
+  'bottom_nav_style',
   'dark_mode_enabled',
   'ai_model',
   'app_version',
@@ -282,6 +283,23 @@ const AdminSettings = () => {
                 <p className="text-xs text-muted-foreground">
                   {tr("adminsettings_deyisiklik_butun_istifadeciler_198453", "D\u0259yi\u015Fiklik b\xFCt\xFCn istifad\u0259\xE7il\u0259r \xFC\xE7\xFCn d\u0259rhal t\u0259tbiq olunur.")}
                 </p>
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Bottom navigation style (test switch) */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.04 }}>
+            <Card className="p-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium mb-2 block text-foreground">Alt menyu stili</label>
+                <Select value={getSettingValue('bottom_nav_style', 'capsule')} onValueChange={(value) => updateSetting('bottom_nav_style', value)}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="capsule">Üzən kapsul (test)</SelectItem>
+                    <SelectItem value="classic">Klassik (əvvəlki)</SelectItem>
+                  </SelectContent>
+                </Select>
+                <p className="text-xs text-muted-foreground">Yadda saxlayandan sonra istifadəçilərdə tətbiq yenidən açılanda və ya 5 dəqiqə ərzində dəyişir.</p>
               </div>
             </Card>
           </motion.div>
