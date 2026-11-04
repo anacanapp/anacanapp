@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ArrowUpRight, ArrowRight, Menu, X, Globe2, ChevronDown, Smartphone, Heart, CalendarDays, BookOpen, Leaf } from 'lucide-react';
 import { WEBSITE_LANGUAGES } from '../lib/app-languages';
-import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL } from './routes';
+import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, sitePath } from './routes';
 import type { WebsiteCopyKey, WebsiteArticle } from './model';
 import { useWebsite } from './context';
 import llmCopy from './llm-copy.json' with {type:'json'};
@@ -12,6 +12,8 @@ export function Brand() {
   const { href } = useWebsite();
   return <a className="site-brand" href={href()} aria-label="Anacan"><img src="/website/brand-mark-coral.png" width="36" height="36" alt=""/><span>anacan</span><i aria-hidden="true"/></a>;
 }
+/** Azerbaijani-only shop links; the products are sold in Azerbaijan only. */
+const SHOP_LINKS=[['books','Kitablar'],['cakes','Tortlar']] as const;
 export function WebsiteHeader() {
   const { route, article, basePath, href, t } = useWebsite();
   const [open,setOpen] = useState(false);
@@ -23,13 +25,14 @@ export function WebsiteHeader() {
         <nav className="site-nav-links" aria-label={t('home')}>
           <details className="site-nav-stages"><summary>{t('features')}<ChevronDown size={12}/></summary><div>{(['cycle','pregnancy','motherhood','partner'] as const).map(kind=><a href={href(kind)} key={kind}>{t(`${kind}Label`)}<Arrow diagonal/></a>)}<a href={href('features')}>{t('all')}<Arrow diagonal/></a></div></details>
           {(['tools','journal'] as const).map(kind => <a key={kind} href={href(kind)} aria-current={route.kind===kind?'page':undefined}>{t(kind)}</a>)}
+          {route.language==='az'&&SHOP_LINKS.map(([kind,label]) => <a key={kind} href={href(kind)} aria-current={route.kind===kind?'page':undefined}>{label}</a>)}
         </nav>
         <div className="site-nav-actions">
           <label className="site-language"><Globe2 aria-hidden="true" size={16} strokeWidth={1.5}/><span className="site-sr">{t('language')}</span>
             <select value={route.language} aria-label={t('language')} onChange={event => {
               const code = event.target.value as typeof route.language;
               const path = alternateRoute(route,code,article);
-              if (path) window.location.assign(basePath+path+window.location.search);
+              window.location.assign(basePath+(path||sitePath(code))+(path?window.location.search:''));
             }}>{WEBSITE_LANGUAGES.filter(item=>route.kind!=='article'||article?.slugs[item.code]).map(item=><option key={item.code} value={item.code} lang={item.code}>{item.native_name}</option>)}</select><ChevronDown aria-hidden="true" size={12}/>
           </label>
           <a className="site-nav-download" href={href('download')}>{t('download')}<Arrow diagonal/></a>
@@ -39,6 +42,7 @@ export function WebsiteHeader() {
       {open && <nav className="site-mobile-menu" id="site-mobile-menu" aria-label={t('menu')}>
         {(['cycle','pregnancy','motherhood','partner'] as const).map(kind=><a key={kind} href={href(kind)}>{t(`${kind}Label`)}<Arrow/></a>)}
         {(['features','tools','journal','faq','contact','download'] as const).map(kind=><a key={kind} href={href(kind)} aria-current={route.kind===kind?'page':undefined}>{t(kind)}<Arrow/></a>)}
+        {route.language==='az'&&SHOP_LINKS.map(([kind,label])=><a key={kind} href={href(kind)} aria-current={route.kind===kind?'page':undefined}>{label}<Arrow/></a>)}
       </nav>}
     </header>
   </>;
@@ -47,7 +51,7 @@ export function WebsiteFooter() {
   const {href,t,generatedAt,route} = useWebsite();
   return <footer className="site-footer">
     <div className="site-footer-top"><div><Brand/><p>{t('footerDescription')}</p></div>
-      <nav aria-label={t('home')}><a href={href('journal')}>{t('journal')}</a><a href={href('tools')}>{t('tools')}</a><a href={href('faq')}>{t('faq')}</a><a href={href('contact')}>{t('contact')}</a></nav>
+      <nav aria-label={t('home')}><a href={href('journal')}>{t('journal')}</a><a href={href('tools')}>{t('tools')}</a><a href={href('faq')}>{t('faq')}</a><a href={href('contact')}>{t('contact')}</a>{route.language==='az'&&SHOP_LINKS.map(([kind,label])=><a key={kind} href={href(kind)}>{label}</a>)}</nav>
       <div className="site-footer-contact"><a href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a><span>{t('madeIn')}</span><div><a href="https://instagram.com/anacanapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://facebook.com/anacanapp" target="_blank" rel="noopener noreferrer">Facebook</a></div></div>
     </div>
     <div className="site-footer-bottom"><span>© {new Date(generatedAt).getUTCFullYear()} Anacan. {t('rights')}</span><nav aria-label={t('privacy')}><a href={href('privacy')}>{t('privacy')}</a><a href={href('terms')}>{t('terms')}</a></nav></div>

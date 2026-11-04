@@ -1,6 +1,12 @@
 import { WEBSITE_LANGUAGES, type WebsiteLanguageCode } from '../lib/app-languages';
 import type { WebsiteBoot, WebsiteCopyKey } from './model';
-import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN,DETAIL_PAGES,type DetailPage } from './routes';
+import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN,DETAIL_PAGES,type DetailPage,isShopPage } from './routes';
+
+/** Azerbaijani-only shop pages (Kitablar, Tortlar): their own copy, no other-language alternates. */
+const SHOP_META={
+  books:['PDF çap kitabları uşaqlar üçün','6 aydan 6 yaşa qədər 70 çap kitabı: boyama, say, hərflər, məntiq. PDF e-poçtla gəlir, evdə A4 çap edin. 1 kitab 4 ₼, 10 kitabdan 2 ₼.'],
+  cakes:['Uşaq və ana tortları, bento tortlar','Aylıq bento tortlar, 1 yaş paketi, hamiləlik və ailə tortları. Bakıda çatdırılma və ya götürmə, sifariş 48 saat əvvəldən.'],
+} as const;
 import { discoveryLinks, markdownPath } from './discovery';
 
 const ORGANIZATION_ID=WEBSITE_ORIGIN+'/#organization';
@@ -16,12 +22,13 @@ export function websiteMeta(boot:WebsiteBoot) {
   };
   const labels=keys[kind]||keys.home!,copy={...boot.copy,...boot.details};
   const detail=(DETAIL_PAGES as readonly string[]).includes(kind);
-  const title=kind==='article'?boot.article?.seoTitle||copy.notFound:detail?copy[`${kind}Title` as WebsiteCopyKey]:copy[labels[0]];
-  const description=kind==='article'?boot.article?.seoDescription||copy.notFoundDescription:detail?copy[`${kind}Description` as WebsiteCopyKey]:copy[labels[1]];
+  const shop=isShopPage(kind)?SHOP_META[kind]:undefined;
+  const title=shop?shop[0]:kind==='article'?boot.article?.seoTitle||copy.notFound:detail?copy[`${kind}Title` as WebsiteCopyKey]:copy[labels[0]];
+  const description=shop?shop[1]:kind==='article'?boot.article?.seoDescription||copy.notFoundDescription:detail?copy[`${kind}Description` as WebsiteCopyKey]:copy[labels[1]];
   const suffix=boot.route.kind==='journal'&&(boot.route.page||1)>1?` — ${boot.copy.page.replace('{count}',String(boot.route.page))}`:'';
   const canonical=WEBSITE_ORIGIN+routePath(boot.route);
   const image=new URL(boot.article?.cover||'/website/og-cover.jpg',WEBSITE_ORIGIN).href;
-  const available=boot.route.kind==='article'?WEBSITE_LANGUAGES.filter(item=>boot.article?.slugs[item.code]):WEBSITE_LANGUAGES;
+  const available=boot.route.kind==='article'?WEBSITE_LANGUAGES.filter(item=>boot.article?.slugs[item.code]):shop?WEBSITE_LANGUAGES.filter(item=>item.code==='az'):WEBSITE_LANGUAGES;
   const alternates=available.map(({code,locale})=>({code,locale,url:WEBSITE_ORIGIN+alternateRoute(boot.route,code,boot.article)}));
   alternates.push({code:'x-default' as WebsiteLanguageCode,locale:'az-AZ',url:WEBSITE_ORIGIN+(alternateRoute(boot.route,'az',boot.article)||sitePath('az'))});
   return {title:(title+suffix).includes('Anacan')?title+suffix:title+suffix+' | Anacan',description,canonical,image,
