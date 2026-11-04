@@ -7,7 +7,7 @@ container (`/app/server/`) so they match production:
 - `server.mjs` — live production server (incl. the `/<lang>/p/` sponsor pay route added 2026-11-01).
 - `prerender.mjs`, `indexnow.mjs`, `llm-policy.mjs`, `llm-runtime.mjs` — live production runtime modules.
 
-## ⚠️ The renderer source is NOT in this branch — do not rebuild the website image from here yet
+## (Historical, resolved 2026-11-04) The renderer source was NOT in this branch
 
 `server.mjs` imports from `./renderer.mjs`:
 
@@ -38,3 +38,29 @@ regress the live site's SEO/LLM/sitemap/markdown features.
 Until then, build the website image only from that upstream source — not from this branch. The
 `/<lang>/p/` route in the live image was added by patching the live `server.mjs` directly (see
 `docs/REDESIGN_APTEK_HANDOFF.md`, "Widgets redesign … sponsor pay" deploy entry).
+
+## Resolution (2026-11-04): renderer source recovered
+
+The missing `src/website/` source was recovered from the live `renderer.mjs` (unminified SSR bundle,
+`sha256:02bc1985…`) and the live client bundle, so `npm run build:website` and
+`node scripts/website/build-server.mjs` from this branch now produce output equivalent to production:
+
+- `src/website/discovery.ts` — `markdownPath`, `llmIndexPath`, `llmFullPath`, `localeSitemapPath`,
+  `discoveryLinks`, `discoveryLinkHeader`.
+- `src/website/llm-content.ts` — `LLM_COPY`, `LLM_PAGE_KINDS`, `LLM_FORMAT_VERSION`, `llmLanguageName`,
+  `renderLlmDocument`/`Index`/`Hub`/`FullHeader`/`Manifest`/`Journal` (HTML→Markdown via
+  `unified` + `rehype-parse@9.0.1` + `rehype-remark@10.0.1` + `remark-gfm` + `remark-stringify`;
+  `hast-util-to-text` is pinned to 4.0.2 through `overrides` to match the bundled production code).
+- `src/website/llm-copy.json` — per-locale LLM index/footer labels (21 website languages).
+- `server-render.tsx` exports exactly the live renderer's 26 names. `APP_LANGUAGES` is the website's
+  21-language list (`WEBSITE_LANGUAGES`); app-only `ky`/`et` stay excluded from the website.
+- Ported component/schema drift: coral brand mark (`/website/brand-mark-coral.png`), footer
+  `site-machine-links` (LLM/Markdown links) and `--site-logo` CSS, `websiteSchema` (`legalName`,
+  `APP_ID`, Markdown `encoding`, localized `articleSection`, MobileApplication on every page),
+  and client `updateWebsiteHead` discovery links / `apple-itunes-app` / `og:locale:alternate`.
+
+Verified against the live artifacts: identical export list; every renderer function body matches the
+live bundle except intended differences (21-language `WEBSITE_LANGUAGES` naming, the new `/az/` shop
+routes/pages, formatting). `llms.txt`, `robots.txt`, `sitemap.xml` and `404.html` (modulo asset hashes)
+are byte-identical; all 441 non-article Markdown documents in `llms-full.txt` and all manifest page
+entries are identical; article/sitemap differences come only from the newer live catalog data.
