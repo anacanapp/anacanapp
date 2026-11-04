@@ -68,3 +68,13 @@ Server: `books_purchase_completed` (`analytics_events`, ödəniş təsdiqlənən
 Migrasiya `supabase/migrations/20261104150000_printable_books.sql` (+ `.cdc.json`); funksiyalar `book-checkout`,
 `epoint-result`, `book-download`, `book-admin`; `_shared/epoint.ts`, `_shared/book-result.ts`, `_shared/book-email.ts`; admin `src/components/admin/AdminBooks.tsx`; UI `src/components/books/*`,
 kataloq `src/data/books/catalog.json`, mətnlər `scripts/i18n/books-copy.json` (23 dil).
+
+## Admin önizləmə (2026-11-04)
+
+- Ana səhifə kartları və `books` / `my-books` ekranları yalnız `isAdmin` üçün açılır (Epoint aktiv olana qədər).
+- Ödəniş bağlı olanda adminin "Ödənişə keç" düyməsi `book-admin` `grant` ilə kitabları öz hesabına pulsuz verir
+  (0 ₼ admin sifarişi, e-poçt linkləri göndərilir). Satışı hamıya açanda `isAdmin` şərtləri götürülməlidir.
+- Veb: gateway `sha256:1eaec202383237175562311a5875515c8393897bed93d45223d9ac257b7266ab` (`books-admin-web-plan.json`
+  passed, index `06279d46…`; `/books/covers/*` və yeni `app-entry-*` faylları əlavə olunub). Rollback:
+  `sudo python3 /home/anacan-runner/deploy-current-web.py /home/anacan-runner/rollback-books-admin-web-plan.json`.
+- Native tətbiqdə növbəti build ilə (48) gəlir.
