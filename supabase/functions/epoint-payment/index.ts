@@ -1,4 +1,5 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { applyBookPaymentResult, isBookOrder } from '../_shared/book-result.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -196,6 +197,12 @@ Deno.serve(async (req: Request) => {
         result = record(JSON.parse(new TextDecoder('utf-8', { fatal: true })
           .decode(Uint8Array.from(atob(data), (character) => character.charCodeAt(0)))));
       } catch { throw new PaymentError(400, 'invalid_callback_payload'); }
+      // Printable-book orders share this merchant Result URL; they have their own order table.
+      if (await isBookOrder(admin, result.order_id)) {
+        const outcome = await applyBookPaymentResult(admin, { ready: true, merchantLive: true, booksEnabled: true, publicKey, privateKey }, result);
+        if (outcome === 'not_confirmed' || outcome === 'grant_failed') throw new PaymentError(outcome === 'not_confirmed' ? 409 : 503, 'book_payment_' + outcome);
+        return new Response('OK', { headers: { 'Cache-Control': 'no-store' } });
+      }
       if (typeof result.order_id !== 'string' || !reference.test(result.order_id)
         || typeof result.transaction !== 'string' || !reference.test(result.transaction)
         || !['success', 'failed', 'error'].includes(result.status as string) || result.currency !== 'AZN'

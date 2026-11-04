@@ -35,12 +35,14 @@ CREATE TABLE IF NOT EXISTS public.book_orders (
   user_id uuid NOT NULL REFERENCES auth.users (id) ON DELETE CASCADE,
   email text NOT NULL,
   book_ids text[] NOT NULL CHECK (cardinality(book_ids) BETWEEN 1 AND 100),
-  unit_price numeric(8,2) NOT NULL CHECK (unit_price > 0),
-  amount numeric(10,2) NOT NULL CHECK (amount > 0),
+  unit_price numeric(8,2) NOT NULL CHECK (unit_price >= 0),
+  amount numeric(10,2) NOT NULL CHECK (amount >= 0),
   currency text NOT NULL DEFAULT 'AZN' CHECK (currency = 'AZN'),
   language text NOT NULL DEFAULT 'az',
   status text NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'paid', 'failed', 'cancelled', 'refunded')),
-  provider text NOT NULL DEFAULT 'epoint' CHECK (provider = 'epoint'),
+  provider text NOT NULL DEFAULT 'epoint' CHECK (provider IN ('epoint', 'admin')),
+  granted_by uuid,
+  admin_note text,
   provider_transaction text,
   provider_status text,
   download_token_hash text,
@@ -161,6 +163,103 @@ ON CONFLICT (id) DO UPDATE SET age_group = EXCLUDED.age_group, title = EXCLUDED.
   about = EXCLUDED.about, skills = EXCLUDED.skills, pages = EXCLUDED.pages, pdf_path = EXCLUDED.pdf_path,
   cover_path = EXCLUDED.cover_path, size_mb = EXCLUDED.size_mb, sort_order = EXCLUDED.sort_order, updated_at = now();
 
+
+-- ── Admin: dashboard, orders, catalog (admins only) ─────────────────────────────
+CREATE OR REPLACE FUNCTION public.admin_book_dashboard_v1(p_days integer DEFAULT 30)
+RETURNS jsonb
+LANGUAGE plpgsql STABLE SECURITY DEFINER
+SET search_path = pg_catalog, public, pg_temp
+AS $$
+DECLARE v_since timestamptz := now() - make_interval(days => greatest(1, least(coalesce(p_days, 30), 3650)));
+  v_result jsonb;
+BEGIN
+  IF auth.uid() IS NULL OR NOT public.has_role(auth.uid(), 'admin') THEN
+    RAISE EXCEPTION 'BOOKS_ADMIN_FORBIDDEN' USING ERRCODE = '42501';
+  END IF;
+  WITH o AS (SELECT * FROM public.book_orders WHERE created_at >= v_since),
+  paid AS (SELECT * FROM o WHERE status = 'paid' AND provider = 'epoint'),
+  sold AS (SELECT p.id AS order_id, p.unit_price, unnest(p.book_ids) AS book_id FROM paid p)
+  SELECT jsonb_build_object(
+    'days', p_days,
+    'revenue', coalesce((SELECT sum(amount) FROM paid), 0),
+    'paid_orders', (SELECT count(*) FROM paid),
+    'buyers', (SELECT count(DISTINCT user_id) FROM paid),
+    'repeat_buyers', (SELECT count(*) FROM (SELECT user_id FROM paid GROUP BY user_id HAVING count(*) > 1) r),
+    'books_sold', (SELECT count(*) FROM sold),
+    'avg_order', coalesce((SELECT round(avg(amount), 2) FROM paid), 0),
+    'avg_books', coalesce((SELECT round(avg(cardinality(book_ids)), 2) FROM paid), 0),
+    'avg_unit', coalesce((SELECT round(sum(amount) / nullif(sum(cardinality(book_ids)), 0), 2) FROM paid), 0),
+    'checkouts', (SELECT count(*) FROM o WHERE provider = 'epoint'),
+    'pending', (SELECT count(*) FROM o WHERE status = 'pending'),
+    'failed', (SELECT count(*) FROM o WHERE status IN ('failed', 'cancelled')),
+    'refunded', (SELECT count(*) FROM o WHERE status = 'refunded'),
+    'gifted', (SELECT count(*) FROM o WHERE provider = 'admin'),
+    'emails_missing', (SELECT count(*) FROM paid WHERE email_sent_at IS NULL),
+    'all_time_revenue', coalesce((SELECT sum(amount) FROM public.book_orders WHERE status = 'paid' AND provider = 'epoint'), 0),
+    'by_day', coalesce((SELECT jsonb_agg(jsonb_build_object('day', d, 'revenue', r, 'orders', n) ORDER BY d)
+       FROM (SELECT date_trunc('day', paid_at)::date AS d, sum(amount) AS r, count(*) AS n FROM paid GROUP BY 1) x), '[]'::jsonb),
+    'by_bundle', coalesce((SELECT jsonb_agg(jsonb_build_object('bucket', b, 'orders', n, 'revenue', r) ORDER BY b)
+       FROM (SELECT CASE WHEN cardinality(book_ids) >= 10 THEN '10+' WHEN cardinality(book_ids) >= 5 THEN '5-9'
+                         WHEN cardinality(book_ids) >= 3 THEN '3-4' ELSE '1-2' END AS b, count(*) AS n, sum(amount) AS r FROM paid GROUP BY 1) x), '[]'::jsonb),
+    'by_age', coalesce((SELECT jsonb_agg(jsonb_build_object('age', age_group, 'books', n, 'revenue', r) ORDER BY age_group)
+       FROM (SELECT c.age_group, count(*) AS n, sum(s.unit_price) AS r FROM sold s JOIN public.book_catalog c ON c.id = s.book_id GROUP BY 1) x), '[]'::jsonb),
+    'top_books', coalesce((SELECT jsonb_agg(jsonb_build_object('id', id, 'title', title, 'age', age_group, 'sold', n, 'revenue', r) ORDER BY n DESC, title)
+       FROM (SELECT c.id, c.title, c.age_group, count(*) AS n, sum(s.unit_price) AS r FROM sold s JOIN public.book_catalog c ON c.id = s.book_id
+             GROUP BY 1, 2, 3 ORDER BY 4 DESC LIMIT 10) x), '[]'::jsonb)
+  ) INTO v_result;
+  RETURN v_result;
+END $$;
+
+CREATE OR REPLACE FUNCTION public.admin_book_orders_v1(p_status text DEFAULT NULL, p_search text DEFAULT NULL, p_limit integer DEFAULT 50, p_offset integer DEFAULT 0)
+RETURNS TABLE (id uuid, user_id uuid, name text, email text, book_ids text[], amount numeric, unit_price numeric, status text, provider text,
+  language text, created_at timestamptz, paid_at timestamptz, email_sent_at timestamptz, provider_transaction text, admin_note text, total_count bigint)
+LANGUAGE plpgsql STABLE SECURITY DEFINER
+SET search_path = pg_catalog, public, pg_temp
+AS $$
+#variable_conflict use_column
+BEGIN
+  IF auth.uid() IS NULL OR NOT public.has_role(auth.uid(), 'admin') THEN
+    RAISE EXCEPTION 'BOOKS_ADMIN_FORBIDDEN' USING ERRCODE = '42501';
+  END IF;
+  RETURN QUERY
+  SELECT o.id, o.user_id, pr.name, o.email, o.book_ids, o.amount, o.unit_price, o.status, o.provider, o.language,
+         o.created_at, o.paid_at, o.email_sent_at, o.provider_transaction, o.admin_note, count(*) OVER ()
+    FROM public.book_orders o
+    LEFT JOIN public.profiles pr ON pr.user_id = o.user_id
+   WHERE (p_status IS NULL OR o.status = p_status)
+     AND (p_search IS NULL OR o.email ILIKE '%' || p_search || '%' OR coalesce(pr.name, '') ILIKE '%' || p_search || '%' OR o.id::text = p_search)
+   ORDER BY o.created_at DESC
+   LIMIT greatest(1, least(coalesce(p_limit, 50), 200)) OFFSET greatest(0, coalesce(p_offset, 0));
+END $$;
+
+CREATE OR REPLACE FUNCTION public.admin_book_catalog_v1()
+RETURNS TABLE (id text, age_group text, title text, pages integer, pdf_path text, active boolean, has_pdf boolean, sold bigint, revenue numeric)
+LANGUAGE plpgsql STABLE SECURITY DEFINER
+SET search_path = pg_catalog, public, storage, pg_temp
+AS $$
+#variable_conflict use_column
+BEGIN
+  IF auth.uid() IS NULL OR NOT public.has_role(auth.uid(), 'admin') THEN
+    RAISE EXCEPTION 'BOOKS_ADMIN_FORBIDDEN' USING ERRCODE = '42501';
+  END IF;
+  RETURN QUERY
+  SELECT c.id, c.age_group, c.title, c.pages, c.pdf_path, c.active,
+         EXISTS (SELECT 1 FROM storage.objects so WHERE so.bucket_id = 'book-pdfs' AND so.name = c.pdf_path),
+         coalesce(s.n, 0), coalesce(s.r, 0)
+    FROM public.book_catalog c
+    LEFT JOIN (SELECT b.book_id, count(*) AS n, sum(o.unit_price) AS r
+                 FROM public.book_orders o CROSS JOIN LATERAL unnest(o.book_ids) AS b(book_id)
+                WHERE o.status = 'paid' AND o.provider = 'epoint' GROUP BY b.book_id) s ON s.book_id = c.id
+   ORDER BY c.sort_order;
+END $$;
+REVOKE ALL ON FUNCTION public.admin_book_dashboard_v1(integer), public.admin_book_orders_v1(text, text, integer, integer), public.admin_book_catalog_v1() FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.admin_book_dashboard_v1(integer), public.admin_book_orders_v1(text, text, integer, integer), public.admin_book_catalog_v1() TO authenticated;
+
+-- Book sales stay off until an admin switches them on (admin → PDF kitablar).
+INSERT INTO public.app_settings (key, value, description)
+SELECT 'books_payments_enabled', 'false'::jsonb, 'PDF çap kitablarının Epoint ilə satışı (true/false)'
+ WHERE NOT EXISTS (SELECT 1 FROM public.app_settings WHERE key = 'books_payments_enabled');
+
 -- ── CDC / writer guard (Google) ──────────────────────────────────────────────────
 DO $$
 BEGIN
@@ -212,6 +311,9 @@ BEGIN
     EXECUTE 'ALTER TABLE public.book_orders OWNER TO pgadmin';
     EXECUTE 'ALTER TABLE public.book_entitlements OWNER TO pgadmin';
     EXECUTE 'ALTER FUNCTION public.my_books_v1() OWNER TO pgadmin';
+    EXECUTE 'ALTER FUNCTION public.admin_book_dashboard_v1(integer) OWNER TO pgadmin';
+    EXECUTE 'ALTER FUNCTION public.admin_book_orders_v1(text, text, integer, integer) OWNER TO pgadmin';
+    EXECUTE 'ALTER FUNCTION public.admin_book_catalog_v1() OWNER TO pgadmin';
   END IF;
 END $$;
 

@@ -10,10 +10,15 @@ import { AGE_TINT, BOOK_AGES, BOOK_TOPICS, BOOKS, bookAgeForMonths, bookCover, f
 import { BOOK_BASE_PRICE, bookOrderTotal, bookUnitPrice, formatAzn, nextBookTier } from '@/lib/books/pricing';
 import { bookDownloadUrl, fetchBookPaymentsReady, fetchMyBooks, openExternal, readCart, startBookCheckout, writeCart } from '@/lib/books/api';
 import { useBooksText } from './booksCopy';
+import { logEvent } from '@/lib/analytics';
 import './books.css';
 
 type Tab = 'store' | 'mine';
 const TIERS = [1, 3, 5, 10];
+const PENDING_KEY = 'anacan_books_pending_v1';
+function readPending(): { orderId: string; ids: string[]; value: number } | null {
+  try { const value = JSON.parse(localStorage.getItem(PENDING_KEY) || 'null'); return value && Array.isArray(value.ids) ? value : null; } catch { return null; }
+}
 
 export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBack: () => void; initialTab?: Tab }) {
   useScrollToTop();
@@ -36,6 +41,14 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
   const ownedIds = useMemo(() => new Set(owned.map(row => row.book_id)), [owned]);
 
   useEffect(() => { writeCart(cart); }, [cart]);
+  useEffect(() => { void logEvent('books_store_viewed', { tab: initialTab, child_age: childAge ?? 'none' }); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // A purchase is confirmed when the books of the last checkout appear in "Kitablarım".
+  useEffect(() => {
+    const pending = readPending();
+    if (!pending || !pending.ids.length || !pending.ids.every(id => ownedIds.has(id))) return;
+    void logEvent('books_purchase_confirmed', { order_id: pending.orderId, book_count: pending.ids.length, value: pending.value, currency: 'AZN' });
+    try { localStorage.removeItem(PENDING_KEY); } catch { /* ignore */ }
+  }, [ownedIds]);
   // Children load after the first render: open on the child's age group unless the person already chose.
   const [agePicked, setAgePicked] = useState(false);
   useEffect(() => { if (childAge && !agePicked) setAge(childAge); }, [childAge, agePicked]);
@@ -45,21 +58,35 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
 
   const visible = BOOKS.filter(book => (age === 'all' || book.age === age) && (topic === 'all' || book.topic === topic));
   const inCart = (id: string) => cart.includes(id);
-  const toggle = (id: string) => setCart(ids => ids.includes(id) ? ids.filter(x => x !== id) : [...ids, id]);
-  const addMany = (ids: string[]) => setCart(current => [...new Set([...current, ...ids.filter(id => !ownedIds.has(id))])]);
+  const toggle = (id: string) => {
+    const adding = !cart.includes(id);
+    void logEvent(adding ? 'book_added_to_cart' : 'book_removed_from_cart', { book_id: id, cart_size: cart.length + (adding ? 1 : -1), value: bookUnitPrice(cart.length + 1), currency: 'AZN' });
+    setCart(ids => ids.includes(id) ? ids.filter(x => x !== id) : [...ids, id]);
+  };
+  const addMany = (ids: string[]) => {
+    void logEvent('books_collection_added', { age, count: ids.length });
+    setCart(current => [...new Set([...current, ...ids.filter(id => !ownedIds.has(id))])]);
+  };
+  const openDetail = (book: Book) => { void logEvent('book_viewed', { book_id: book.id, age: book.age, topic: book.topic }); setDetail(book); };
   const ageLabel = (value: BookAge) => t(`age_${value}` as const);
   const collection = age !== 'all' ? BOOKS.filter(book => book.age === age && !ownedIds.has(book.id)) : [];
 
   const checkout = async () => {
     if (!cart.length || busy) return;
-    if (!ready) { toast(t('pay_soon')); return; }
+    if (!ready) { void logEvent('books_checkout_unavailable', { book_count: cart.length }); toast(t('pay_soon')); return; }
     setBusy(true);
     try {
       const result = await startBookCheckout(cart, language);
-      if (result.ok === true) { openExternal((result as { url: string }).url); toast(t('pay_waiting')); setCartOpen(false); return; }
+      if (result.ok === true) {
+        const success = result as { url: string; orderId: string };
+        const value = bookOrderTotal(cart.length);
+        void logEvent('books_checkout_started', { order_id: success.orderId, book_count: cart.length, value, currency: 'AZN' });
+        try { localStorage.setItem(PENDING_KEY, JSON.stringify({ orderId: success.orderId, ids: cart, value })); } catch { /* ignore */ }
+        openExternal(success.url); toast(t('pay_waiting')); setCartOpen(false); return;
+      }
       const failure = result as { reason: 'unavailable' | 'owned' | 'error'; owned?: string[] };
       if (failure.reason === 'owned') { setCart(ids => ids.filter(id => !failure.owned?.includes(id))); void client.invalidateQueries({ queryKey: ['my-books'] }); toast(t('pay_owned')); }
-      else if (failure.reason === 'unavailable') toast(t('pay_soon'));
+      else if (failure.reason === 'unavailable') { void logEvent('books_checkout_unavailable', { book_count: cart.length }); toast(t('pay_soon')); }
       else toast.error(t('pay_error'));
     } finally { setBusy(false); }
   };
@@ -102,7 +129,7 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
               <div className="bk-head"><h2>{t('for_child', { name: selectedChild.name })}</h2><span className="bk-age" style={{ background: AGE_TINT[childAge].bg, color: AGE_TINT[childAge].ink }}>{ageLabel(childAge)}</span></div>
               <div className="bk-rail">
                 {BOOKS.filter(book => book.age === childAge).map(book => (
-                  <button key={book.id} className="bk-rail-item" onClick={() => setDetail(book)}>
+                  <button key={book.id} className="bk-rail-item" onClick={() => openDetail(book)}>
                     <img src={bookCover(book.id)} alt={book.title} loading="lazy" />
                     {ownedIds.has(book.id) ? <span className="bk-flag own">{t('owned')}</span> : inCart(book.id) && <span className="bk-flag">{t('added')}</span>}
                   </button>
@@ -164,7 +191,7 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
                 const own = ownedIds.has(book.id), added = inCart(book.id);
                 return (
                   <article key={book.id} className="bk-card">
-                    <button className="bk-cover" onClick={() => setDetail(book)} aria-label={book.title}>
+                    <button className="bk-cover" onClick={() => openDetail(book)} aria-label={book.title}>
                       <img src={bookCover(book.id)} alt={book.title} loading="lazy" />
                     </button>
                     <div className="bk-card-body">
@@ -295,7 +322,7 @@ function MyBooks({ owned, loading, onBrowse }: { owned: string[]; loading: boole
   const [pending, setPending] = useState<string | null>(null);
   const download = async (id: string) => {
     setPending(id);
-    try { const url = await bookDownloadUrl(id); if (url) openExternal(url); else toast.error(t('download_error')); }
+    try { const url = await bookDownloadUrl(id); if (url) { void logEvent('book_downloaded', { book_id: id }); openExternal(url); } else toast.error(t('download_error')); }
     finally { setPending(null); }
   };
   if (loading) return <div className="bk-empty"><Loader2 className="animate-spin" /></div>;

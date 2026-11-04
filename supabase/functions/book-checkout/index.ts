@@ -20,11 +20,13 @@ const APP = 'https://app.anacan.az';
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers });
   // The shop asks whether card payment is live (Epoint keys present and enabled).
-  if (req.method === 'GET') return json(200, { ready: epointConfig().ready, provider: 'epoint' });
+  const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
+  const config = await epointConfig(admin);
+  if (req.method === 'GET') return json(200, { ready: config.ready, provider: 'epoint' });
   if (req.method !== 'POST') return json(405, { error: 'method_not_allowed' });
   const auth = await requireUser(req);
   if (auth.error) return auth.error;
-  if (!epointConfig().ready) return json(503, { error: 'payments_unavailable' });
+  if (!config.ready) return json(503, { error: 'payments_unavailable' });
 
   let body: Record<string, unknown>;
   try {
@@ -36,7 +38,6 @@ Deno.serve(async (req) => {
   if (ids.length < 1 || ids.length > MAX_BOOKS_PER_ORDER || ids.length !== (body.book_ids as unknown[]).length) return json(400, { error: 'invalid_books' });
   const language = typeof body.language === 'string' && (LANGUAGE_CODES as readonly string[]).includes(body.language) ? body.language : 'az';
 
-  const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
   const userId = auth.user.id;
   const { data: books } = await admin.from('book_catalog').select('id').in('id', ids).eq('active', true);
   if ((books?.length ?? 0) !== ids.length) return json(400, { error: 'unknown_books' });
@@ -57,7 +58,7 @@ Deno.serve(async (req) => {
   if (error || !order) return json(500, { error: 'order_not_saved' });
 
   try {
-    const { ok, result } = await epointRequest('request', {
+    const { ok, result } = await epointRequest(config, 'request', {
       amount: amount.toFixed(2), currency: 'AZN', language: epointLanguage(language), order_id: order.id,
       description: `Anacan — ${ids.length} PDF kitab`,
       success_redirect_url: `${APP}/payment/success?kind=books&order=${order.id}`,

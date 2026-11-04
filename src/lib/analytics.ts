@@ -98,6 +98,16 @@ export type AnalyticsEvent =
   | 'baby_growth_logged'
   | 'place_viewed'
   | 'product_viewed'
+  | 'books_store_viewed'
+  | 'book_viewed'
+  | 'book_added_to_cart'
+  | 'book_removed_from_cart'
+  | 'books_collection_added'
+  | 'books_checkout_started'
+  | 'books_checkout_unavailable'
+  | 'books_purchase_confirmed'
+  | 'book_downloaded'
+  | 'books_reco_clicked'
   | 'custom_event';
 
 export interface AnalyticsParams {
@@ -122,6 +132,7 @@ const EVENT_CATEGORIES: Record<string, string> = {
   white_noise_played: 'tools', horoscope_viewed: 'tools',
   recipe_viewed: 'content', name_searched: 'tools',
   place_viewed: 'content', product_viewed: 'content',
+  books_store_viewed: 'commerce', book_viewed: 'commerce', book_added_to_cart: 'commerce', book_removed_from_cart: 'commerce', books_collection_added: 'commerce', books_checkout_started: 'commerce', books_checkout_unavailable: 'commerce', books_purchase_confirmed: 'commerce', book_downloaded: 'commerce', books_reco_clicked: 'commerce',
   shopping_item_added: 'tools', appointment_created: 'tools',
   partner_linked: 'social',
   screen_view: 'navigation', page_view: 'navigation',

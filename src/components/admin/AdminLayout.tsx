@@ -33,7 +33,7 @@ const groups = [
     ['trimester-tips', 'Trimester tövsiyələri'], ['vitamins', 'Vitaminlər'], ['vaccines', 'Peyvənd təqvimi'], ['maternity', 'Dekret kalkulyatoru'],
     ['default-shopping', 'Alışveriş siyahısı'], ['fairy-tales', 'Sehrli nağılçı']] },
   { id: 'commerce', label: 'Satış və reklam', icon: ShoppingBag, items: [
-    ['admob', 'AdMob reklamları'], ['orders', 'Sifarişlər'], ['epoint', 'Epoint ödəniş'], ['products', 'Məhsullar'], ['affiliate', 'Affiliate məhsullar'],
+    ['admob', 'AdMob reklamları'], ['orders', 'Sifarişlər'], ['books', 'PDF kitablar'], ['epoint', 'Epoint ödəniş'], ['products', 'Məhsullar'], ['affiliate', 'Affiliate məhsullar'],
     ['marketplace', 'İkinci əl bazarı'], ['play-activities', 'Ağıllı oyun qutusu'], ['album-orders', 'Albom sifarişləri'], ['cakes', 'Tortlar'],
     ['photoshoot', 'Fotosessiya'], ['coupons', 'Kuponlar']] },
   { id: 'places', label: 'Məkanlar və partnyorlar', icon: Globe, items: [

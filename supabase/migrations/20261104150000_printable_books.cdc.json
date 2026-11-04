@@ -35,6 +35,15 @@
       "private": true,
       "pii": false,
       "note": "owned books per user; granted only by the signed Epoint result callback"
+    },
+    {
+      "relation": "public.app_settings",
+      "change": "row books_payments_enabled added",
+      "cdc": true,
+      "writer_guard": true,
+      "private": false,
+      "pii": false,
+      "note": "existing guarded relation"
     }
   ],
   "functions": [
@@ -45,6 +54,30 @@
         "authenticated"
       ],
       "note": "the caller's owned books"
+    },
+    {
+      "name": "public.admin_book_dashboard_v1(integer)",
+      "security": "definer",
+      "grant": [
+        "authenticated"
+      ],
+      "note": "admin-only sales KPIs"
+    },
+    {
+      "name": "public.admin_book_orders_v1(text,text,integer,integer)",
+      "security": "definer",
+      "grant": [
+        "authenticated"
+      ],
+      "note": "admin-only order list with buyer name/email"
+    },
+    {
+      "name": "public.admin_book_catalog_v1()",
+      "security": "definer",
+      "grant": [
+        "authenticated"
+      ],
+      "note": "admin-only catalog with sales and PDF presence"
     }
   ]
 }

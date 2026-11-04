@@ -1,14 +1,33 @@
 // Epoint (epoint.az) payment gateway. Requests and callbacks carry `data` (base64 JSON) and
 // `signature` = base64(sha1(private_key + data + private_key)) over the raw bytes.
-// Configuration (functions env): EPOINT_PUBLIC_KEY, EPOINT_PRIVATE_KEY, ENABLE_BOOK_PAYMENTS=true.
-// Until all three are present the shop shows "coming soon" and no checkout is created.
+// Keys come from the existing Epoint admin settings; book sales are switched on in admin → PDF kitablar.
 const API = 'https://epoint.az/api/1';
 
-export function epointConfig() {
-  const publicKey = Deno.env.get('EPOINT_PUBLIC_KEY') || '';
-  const privateKey = Deno.env.get('EPOINT_PRIVATE_KEY') || '';
-  const enabled = Deno.env.get('ENABLE_BOOK_PAYMENTS') === 'true';
-  return { ready: enabled && publicKey.length > 0 && privateKey.length > 0, publicKey, privateKey };
+export interface EpointConfig { ready: boolean; merchantLive: boolean; booksEnabled: boolean; publicKey: string; privateKey: string }
+
+function settingValue(value: unknown): string {
+  let v: unknown = value;
+  if (typeof v === 'string') { try { v = JSON.parse(v); } catch { /* plain text */ } }
+  if (typeof v === 'boolean') return String(v);
+  return typeof v === 'string' && v.trim() && !['null', 'undefined'].includes(v.trim()) ? v.trim() : '';
+}
+
+/**
+ * The merchant keys are the ones the existing Epoint integration uses (admin → Epoint ödəniş:
+ * app_settings epoint_public_key / epoint_private_key / epoint_mode = live). Book sales additionally
+ * need app_settings books_payments_enabled = true (admin → PDF kitablar). Env values are a fallback.
+ */
+// deno-lint-ignore no-explicit-any
+export async function epointConfig(admin: any): Promise<EpointConfig> {
+  const { data } = await admin.from('app_settings').select('key, value')
+    .in('key', ['epoint_public_key', 'epoint_private_key', 'epoint_mode', 'books_payments_enabled']);
+  const settings: Record<string, string> = {};
+  for (const row of data || []) settings[row.key] = settingValue(row.value);
+  const publicKey = settings.epoint_public_key || Deno.env.get('EPOINT_PUBLIC_KEY') || '';
+  const privateKey = settings.epoint_private_key || Deno.env.get('EPOINT_PRIVATE_KEY') || '';
+  const merchantLive = !!publicKey && !!privateKey && (settings.epoint_mode || (Deno.env.get('EPOINT_PUBLIC_KEY') ? 'live' : '')) === 'live';
+  const booksEnabled = settings.books_payments_enabled === 'true' || Deno.env.get('ENABLE_BOOK_PAYMENTS') === 'true';
+  return { ready: merchantLive && booksEnabled, merchantLive, booksEnabled, publicKey, privateKey };
 }
 
 const encoder = new TextEncoder();
@@ -40,8 +59,8 @@ export async function verify(data: string, signature: string, privateKey: string
   return diff === 0;
 }
 
-export async function epointRequest(path: 'request' | 'get-status', payload: Record<string, unknown>) {
-  const { publicKey, privateKey } = epointConfig();
+export async function epointRequest(config: EpointConfig, path: 'request' | 'get-status', payload: Record<string, unknown>) {
+  const { publicKey, privateKey } = config;
   const data = encodeData({ public_key: publicKey, ...payload });
   const body = new URLSearchParams({ data, signature: await sign(data, privateKey) });
   const response = await fetch(`${API}/${path}`, {

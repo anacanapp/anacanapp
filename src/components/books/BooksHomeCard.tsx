@@ -1,6 +1,7 @@
 import { ChevronRight } from 'lucide-react';
 import { AGE_TINT, BOOKS, bookAgeForMonths, bookCover, type BookAge } from '@/lib/books/catalog';
 import { useBooksText } from './booksCopy';
+import { logEvent } from '@/lib/analytics';
 
 /**
  * Dashboard entry to the printable books shop, timed to the child's age: from 5 months on a
@@ -24,7 +25,7 @@ export default function BooksHomeCard({ mode, childName, childMonths, pregnancyW
   const tint = AGE_TINT[age];
   return (
     <section className="a-section">
-      <button type="button" onClick={onOpen} className="a-card a-fade-in w-full text-start" style={{ display: 'flex', alignItems: 'center', gap: 14, background: tint.bg, boxShadow: 'none' }}>
+      <button type="button" onClick={() => { void logEvent('books_reco_clicked', { mode, age }); onOpen(); }} className="a-card a-fade-in w-full text-start" style={{ display: 'flex', alignItems: 'center', gap: 14, background: tint.bg, boxShadow: 'none' }}>
         <span aria-hidden style={{ position: 'relative', width: 78, height: 84, flexShrink: 0 }}>
           {covers.map((book, index) => (
             <img key={book.id} src={bookCover(book.id)} alt="" loading="lazy"

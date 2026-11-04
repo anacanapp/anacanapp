@@ -90,6 +90,10 @@ const EVENT_MAP: Record<string, string> = {
   fairy_tale_generated: 'GenerateContent',
   appointment_created: 'fb_mobile_schedule',
   shopping_item_added: 'fb_mobile_add_to_cart',
+  book_viewed: 'fb_mobile_content_view',
+  book_added_to_cart: 'fb_mobile_add_to_cart',
+  books_checkout_started: 'fb_mobile_initiated_checkout',
+  books_purchase_confirmed: 'fb_mobile_purchase',
 };
 
 /**
@@ -126,7 +130,7 @@ export const logFacebookEvent = async (eventName: string, params?: Record<string
     // Purchase/Subscribe/StartTrial üçün _valueToSum və fb_currency vacibdir
     // (Meta value-based optimization yalnız bununla işləyir)
     const monetary = params?.price ?? params?.value;
-    if (['premium_subscribed', 'purchase', 'premium_trial_started'].includes(eventName) &&
+    if (['premium_subscribed', 'purchase', 'premium_trial_started', 'books_purchase_confirmed', 'books_checkout_started'].includes(eventName) &&
     monetary && !cleaned._valueToSum) {
       cleaned._valueToSum = Number(monetary);
       cleaned.fb_currency = params?.currency || 'USD';
