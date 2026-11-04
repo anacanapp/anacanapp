@@ -16,7 +16,17 @@ import { LocalizedInput } from "./ui/LocalizedInput";
 import { LocalizedTextarea } from "./ui/LocalizedTextarea";
 import { useAdminLocalize } from "@/contexts/AdminLanguageContext";
 
+type CakeCategory = 'month' | 'milestone' | 'pregnancy' | 'family';
+
 const MILESTONE_OPTIONS = [
+{ value: 'forty_days', label: tr("admincakes_40_gun", "40 gün") },
+{ value: 'hundred_days', label: tr("admincakes_100_gun", "100 gün") },
+{ value: 'gender_reveal', label: 'Gender reveal' },
+{ value: 'pregnancy_news', label: tr("admincakes_ata_olursan", "Hamiləlik xəbəri") },
+{ value: 'mother', label: tr("admincakes_ana_ucun", "Ana üçün") },
+{ value: 'holiday', label: tr("admincakes_bayram", "Bayram") },
+{ value: 'twins', label: tr("admincakes_ekizler", "Əkizlər") },
+{ value: 'name', label: tr("admincakes_adli", "Adlı tort") },
 { value: 'first_tooth', label: tr("admincakes_ilk_dis_03153e", "İlk Diş") },
 { value: 'first_step', label: tr("admincakes_ilk_addim_e1c5b9", "İlk Addım") },
 { value: 'first_word', label: tr("admincakes_ilk_soz_2ce62a", "İlk Söz") },
@@ -62,7 +72,7 @@ const AdminCakes = () => {
     price: '',
     image_url: '',
     images: [] as string[],
-    category: 'month' as 'month' | 'milestone',
+    category: 'month' as CakeCategory,
     month_number: '1',
     milestone_type: '',
     milestone_label: '',
@@ -91,7 +101,7 @@ const AdminCakes = () => {
       price: String(cake.price),
       image_url: cake.image_url || '',
       images: Array.isArray(cake.images) ? cake.images : [],
-      category: cake.category as 'month' | 'milestone',
+      category: cake.category as CakeCategory,
       month_number: String(cake.month_number || 1),
       milestone_type: cake.milestone_type || '',
       milestone_label: cake.milestone_label || '',
@@ -160,8 +170,8 @@ const AdminCakes = () => {
       images: formData.images,
       category: formData.category,
       month_number: formData.category === 'month' ? parseInt(formData.month_number) : null,
-      milestone_type: formData.category === 'milestone' ? formData.milestone_type : null,
-      milestone_label: formData.category === 'milestone' ? formData.milestone_label : null,
+      milestone_type: formData.category !== 'month' ? formData.milestone_type : null,
+      milestone_label: formData.category !== 'month' ? formData.milestone_label : null,
       is_active: formData.is_active,
       sort_order: parseInt(formData.sort_order) || 0,
       has_custom_fields: formData.has_custom_fields,
@@ -292,7 +302,9 @@ const AdminCakes = () => {
                 className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm">
                 
                     <option value="month">{tr("admincakes_ayliq_tort_db55bc", "Aylıq Tort")}</option>
-                    <option value="milestone">Milestone Tort</option>
+                    <option value="milestone">{tr("admincakes_cat_milestone", "Xüsusi günlər (milestone)")}</option>
+                    <option value="pregnancy">{tr("admincakes_cat_pregnancy", "Hamiləlik")}</option>
+                    <option value="family">{tr("admincakes_cat_family", "Ailə və bayram")}</option>
                   </select>
                 </div>
                 {formData.category === 'month' &&
@@ -309,7 +321,7 @@ const AdminCakes = () => {
                     </select>
                   </div>
             }
-                {formData.category === 'milestone' &&
+                {formData.category !== 'month' &&
             <>
                     <div>
                       <Label>{tr("admincakes_milestone_novu_096351", "Milestone növü")}</Label>
