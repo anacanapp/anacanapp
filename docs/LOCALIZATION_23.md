@@ -37,3 +37,13 @@ Vertex Gemini (`gemini-3-flash-preview`, `gemini-3.1-flash-lite`, `gemini-3.1-pr
 rotasiyası, `GOOGLE_CREDENTIALS_B64` service account). Placeholder-lər (`{x}`, `%s`, URL, HTML)
 yoxlanılır; uyğunsuzluqda yenidən cəhd edilir. Manifestdə ky/et faylları öz `keysHash`
 (və content üçün `sourceHash`) dəyərini saxlayır; `verify-bundles.mjs` bunu qəbul edir.
+
+## First-launch language from the IP country (native 48, 2026-11-05)
+- The Google load balancer adds `X-Anacan-Geo-Country: {client_region}` (see Duzelis79). The anon RPC
+  `public.request_geo_country()` (migration `20261105170000_request_geo_country.sql`, applied on Google,
+  function only, stores nothing) returns that ISO-2 code or NULL.
+- `InitialLanguageScreen` calls it once on mount (`fetchGeoCountry`, 2.5 s timeout) and preselects
+  `languageForCountry()` from `src/lib/geoLanguage.ts`: the country's language when the app offers it
+  (and it is active), otherwise English. The IP country also leads the country list in step 2.
+- The user's own tap always wins; when the RPC fails (offline/timeout/unknown) the previous default stays.
+- Verified live: `POST https://api.anacan.az/rest/v1/rpc/request_geo_country` → `"US"` for a US host.
