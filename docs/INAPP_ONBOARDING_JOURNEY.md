@@ -42,6 +42,16 @@ nə göstərdiyimizi təsvir edir. İnteraktiv prototip: `docs/prototypes/inapp-
   - mətnlər `obtour_*`, 23 dildə;
   - miqrasiya `20261105130000_inapp_onboarding.sql`.
 
+### Deploy (2026-11-05)
+- Web gateway `gateway@sha256:7ac9a3fc…` (FROM `ed338264…`), index `9ad6d58e…`. Rollback:
+  `/home/anacan-runner/rollback-tour-web-plan.json`.
+- Canlıdır: app.anacan.az veb tətbiqi. iOS/Android paketləri veb kodu öz içində daşıyır (Capacitor,
+  live update yoxdur), ona görə tur, Tools bölmələri və 7 pulsuz alətin kod tərəfi native istifadəçilərə
+  növbəti common native buildlə (48) çatır. DB dəyişiklikləri (tool_configs, app_settings, profiles)
+  hamı üçün artıq qüvvədədir: köhnə native buildlərdə həmin 7 alət hələ kilidli görünür, çünki onların
+  daxili pulsuz siyahısı köhnədir.
+- Açar `inapp_onboarding` hələ `off`-dur.
+
 ## v3 (2026-11-05): bələdçi turu real ekranlarda
 Prototip: `docs/prototypes/inapp-onboarding-v3.html`. Stillər: **Glass** (şüşə panellər, canlı
 fon, light/dark), **Sakit** (ağ kart, oxla hədəfə işarə), **Cəsur** (coral alt panel),
