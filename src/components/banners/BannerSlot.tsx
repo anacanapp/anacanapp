@@ -37,7 +37,8 @@ const BannerSlot = ({ placement, onNavigate, onToolOpen, className = '' }: Banne
   // Brand creatives reach Premium only when the brand explicitly targets that tier (v3).
   const tier = isPremium ? 'premium' : 'free';
   // Own banners may also target a tier (e.g. Premium upsell banners: audience_tiers = {free}).
-  const visibleBanners = (banners || []).filter((b) => b.branded
+  const platform = Capacitor.getPlatform();
+  const visibleBanners = (banners || []).filter((b) => !b.target_platforms?.length || (b.target_platforms as string[]).includes(platform)).filter((b) => b.branded
     ? (b.audience_tiers?.length ? b.audience_tiers.includes(tier) : !isPremium)
     : b.audience_tiers?.length ? b.audience_tiers.includes(tier) && (!b.is_premium_only || isPremium)
       : (!b.is_premium_only || isPremium));

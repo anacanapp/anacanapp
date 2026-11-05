@@ -65,4 +65,11 @@ describe('BannerSlot with anacan-brand-ads-v3 creatives', () => {
     render(<BannerSlot placement="home_top" />);
     expect(screen.queryByText('Go Premium')).toBeTruthy();
   });
+  it('shows platform-targeted banners only on that platform', () => {
+    const own = (patch: Partial<Banner>) => base({ branded: false, sponsor_name: undefined, ...patch });
+    state.banners = [own({ id: 'ios', title: 'iOS only', target_platforms: ['ios'] }), own({ id: 'web', title: 'Web and Android', target_platforms: ['web', 'android'] })];
+    render(<BannerSlot placement="home_top" />);
+    expect(screen.queryByText('iOS only')).toBeNull();
+    expect(screen.queryByText('Web and Android')).toBeTruthy();
+  });
 });

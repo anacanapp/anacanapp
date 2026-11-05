@@ -17,6 +17,7 @@ export type BannerPlacement =
 
 export type BannerType = 'native' | 'image';
 export type LinkType = 'external' | 'internal' | 'tool' | 'lead_form';
+export type BannerPlatform = 'ios' | 'android' | 'web';
 export type LifeStageTarget = 'flow' | 'bump' | 'mommy' | 'partner';
 
 export interface Banner {
@@ -49,6 +50,8 @@ export interface Banner {
   target_languages: string[] | null;
   /** Hədəf ölkələr (ISO alpha-2) — NULL/boş = bütün ölkələrə göstərilir */
   target_countries: string[] | null;
+  /** Hədəf platformalar — NULL/boş = hamısı (iOS, Android, veb) */
+  target_platforms?: BannerPlatform[] | null;
   /** Limitsiz üçün NULL — təyin olunubsa istifadəçi bu sayda gördükdən sonra göstərilmir */
   max_impressions_per_user: number | null;
   branded?: boolean;

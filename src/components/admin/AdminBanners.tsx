@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { tr } from '@/lib/tr';
-import { useAllBanners, useCreateBanner, useUpdateBanner, useDeleteBanner, Banner, BannerPlacement, BannerType, LinkType, LifeStageTarget } from '@/hooks/useBanners';
+import { useAllBanners, useCreateBanner, useUpdateBanner, useDeleteBanner, Banner, BannerPlacement, BannerType, LinkType, LifeStageTarget, BannerPlatform } from '@/hooks/useBanners';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,6 +18,7 @@ import { LocalizedTextarea } from "./ui/LocalizedTextarea";
 import { useAdminLocalize } from "@/contexts/AdminLanguageContext";
 import countriesData from '../../../countries.json';
 
+const PLATFORMS: { value: BannerPlatform; label: string }[] = [{ value: 'ios', label: 'iOS' }, { value: 'android', label: 'Android' }, { value: 'web', label: 'Veb' }];
 const LIFE_STAGES: {value: LifeStageTarget;labelKey: string;fallback: string;}[] = [
 { value: 'flow', labelKey: 'lifestage_flow_short', fallback: '🌸 Dövr' },
 { value: 'bump', labelKey: 'lifestage_bump_short', fallback: '🤰 Hamiləlik' },
@@ -93,6 +94,7 @@ const AdminBanners = () => {
     target_life_stages: [],
     target_languages: [],
     target_countries: [],
+    target_platforms: [],
     max_impressions_per_user: null,
     start_date: '',
     end_date: ''
@@ -119,6 +121,7 @@ const AdminBanners = () => {
       target_life_stages: [],
       target_languages: [],
       target_countries: [],
+      target_platforms: [],
       max_impressions_per_user: null,
       start_date: '',
       end_date: ''
@@ -128,7 +131,7 @@ const AdminBanners = () => {
   };
 
   /** target_life_stages / target_languages / target_countries üçün ortaq toggle */
-  const toggleArrayValue = (field: 'target_life_stages' | 'target_languages' | 'target_countries', value: string) => {
+  const toggleArrayValue = (field: 'target_life_stages' | 'target_languages' | 'target_countries' | 'target_platforms', value: string) => {
     setFormData((prev) => {
       const current = (prev[field] as string[] | null) || [];
       const next = current.includes(value) ? current.filter((v) => v !== value) : [...current, value];
@@ -164,6 +167,7 @@ const AdminBanners = () => {
       target_life_stages: formData.target_life_stages?.length ? formData.target_life_stages : null,
       target_languages: formData.target_languages?.length ? formData.target_languages : null,
       target_countries: formData.target_countries?.length ? formData.target_countries : null,
+      target_platforms: formData.target_platforms?.length ? formData.target_platforms : null,
       max_impressions_per_user: formData.max_impressions_per_user || null,
       start_date: formData.start_date || null,
       end_date: formData.end_date || null
@@ -346,6 +350,8 @@ const AdminBanners = () => {
                         {((banner.target_life_stages?.length || 0) > 0 ||
                     (banner.target_languages?.length || 0) > 0 ||
                     (banner.target_countries?.length || 0) > 0 ||
+                    (banner.target_platforms?.length || 0) > 0 ||
+                    (!banner.branded && banner.audience_tiers?.length === 1 && banner.audience_tiers[0] === 'free') ||
                     banner.max_impressions_per_user) &&
                     <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
                             {(banner.target_life_stages?.length || 0) > 0 &&
@@ -365,6 +371,14 @@ const AdminBanners = () => {
                                 <Globe2 className="w-3 h-3" />
                                 {banner.target_countries!.length} {tr("adminbanners_hedef_olkeler", "Hədəf ölkələr")}
                               </span>
+                      }
+                            {(banner.target_platforms?.length || 0) > 0 &&
+                      <span className="inline-flex items-center gap-1 text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full">
+                                {banner.target_platforms!.map((p) => PLATFORMS.find((x) => x.value === p)?.label || p).join(', ')}
+                              </span>
+                      }
+                            {!banner.branded && banner.audience_tiers?.length === 1 && banner.audience_tiers[0] === 'free' &&
+                      <span className="inline-flex items-center gap-1 text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full">Yalnız Free</span>
                       }
                             {banner.max_impressions_per_user &&
                       <span className="inline-flex items-center gap-1 text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">
@@ -604,6 +618,31 @@ const AdminBanners = () => {
                   )}
                 </div>
               </div>
+
+              {/* Platforma: iOS / Android / Veb ayrı reklam */}
+              <div>
+                <Label>Platforma</Label>
+                <p className="text-xs text-muted-foreground mb-2">Heç biri seçilməzsə, bütün platformalara göstərilir</p>
+                <div className="grid grid-cols-3 gap-2">
+                  {PLATFORMS.map((pl) =>
+                  <label key={pl.value} className="flex items-center gap-2 text-sm rounded-md border px-2.5 py-2 cursor-pointer hover:bg-muted/60">
+                      <Checkbox
+                      checked={(formData.target_platforms || []).includes(pl.value)}
+                      onCheckedChange={() => toggleArrayValue('target_platforms', pl.value)} />
+                      {pl.label}
+                    </label>
+                  )}
+                </div>
+              </div>
+
+              {/* Auditoriya: Premium satış bannerləri yalnız Free istifadəçilərə */}
+              <label className="flex items-center gap-2 text-sm rounded-md border px-2.5 py-2 cursor-pointer hover:bg-muted/60">
+                <Checkbox
+                  checked={!formData.branded && formData.audience_tiers?.length === 1 && formData.audience_tiers[0] === 'free'}
+                  disabled={!!formData.branded}
+                  onCheckedChange={(v) => setFormData({ ...formData, audience_tiers: v ? ['free'] : null })} />
+                Yalnız Free istifadəçilər (Premium satış bannerləri üçün)
+              </label>
 
               {/* Dillər */}
               <div>
