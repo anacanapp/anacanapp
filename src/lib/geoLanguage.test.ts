@@ -30,7 +30,7 @@ describe('languageForCountry', () => {
     expect(languageForCountry('KG', ALL.filter(c => c !== 'ky'))).toBe('en');
   });
   it('every mapped language is an app language', () => {
-    const codes = new Set(ALL);
+    const codes = new Set<string>(ALL);
     const countries = ['AZ','TR','RU','BY','TJ','TM','KZ','KG','UZ','GE','EE','DE','FR','NL','ES','PT','PL','SE','JP','KR','CN','VN','ID','IN','SA'];
     for (const c of countries) expect(codes.has(languageForCountry(c, ALL))).toBe(true);
   });
