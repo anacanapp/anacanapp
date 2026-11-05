@@ -36,9 +36,11 @@ const BannerSlot = ({ placement, onNavigate, onToolOpen, className = '' }: Banne
   // uyğun olsun deyə (heç bir early return-dan ƏVVƏL) hesablanır, yüklənərkən boş massivə düşür
   // Brand creatives reach Premium only when the brand explicitly targets that tier (v3).
   const tier = isPremium ? 'premium' : 'free';
+  // Own banners may also target a tier (e.g. Premium upsell banners: audience_tiers = {free}).
   const visibleBanners = (banners || []).filter((b) => b.branded
     ? (b.audience_tiers?.length ? b.audience_tiers.includes(tier) : !isPremium)
-    : (!b.is_premium_only || isPremium));
+    : b.audience_tiers?.length ? b.audience_tiers.includes(tier) && (!b.is_premium_only || isPremium)
+      : (!b.is_premium_only || isPremium));
   const visibleIds = visibleBanners.map((b) => b.id).join(',');
 
   // Hər banner faktiki göründükdə (bu slot render olunanda) BİR DƏFƏ görüntülənmə qeyd olunur

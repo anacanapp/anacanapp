@@ -54,4 +54,15 @@ describe('BannerSlot with anacan-brand-ads-v3 creatives', () => {
     fireEvent.click(screen.getByText('Not live'));
     expect(screen.queryByTestId('lead-sheet')).toBeNull();
   });
+  it('hides own free-tier upsell banners from Premium members', () => {
+    const own = (patch: Partial<Banner>) => base({ branded: false, sponsor_name: undefined, ...patch });
+    state.banners = [own({ id: 'upsell', title: 'Go Premium', audience_tiers: ['free'] }), own({ id: 'all', title: 'For everyone' })];
+    state.premium = true;
+    render(<BannerSlot placement="home_top" />);
+    expect(screen.queryByText('Go Premium')).toBeNull();
+    expect(screen.queryByText('For everyone')).toBeTruthy();
+    cleanup(); state.premium = false;
+    render(<BannerSlot placement="home_top" />);
+    expect(screen.queryByText('Go Premium')).toBeTruthy();
+  });
 });

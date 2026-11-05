@@ -9,8 +9,8 @@
  * shadowed button, so creatives are full-bleed (no own corners or border) and keep text
  * large enough for a 343px-wide phone column (scale ~0.29: 72px title ~ 21px on screen).
  *
- * Spec: { "banners": [ { "id", "layout": "split"|"trio"|"fan"|"row"|"card"|"bold",
- *   "bg", "ink", "accent", "eyebrow", "title", "sub", "cta", "images": [url-or-path, ...] } ] }
+ * Spec: { "banners": [ { "id", "layout": "split"|"trio"|"fan"|"row"|"card"|"bold"|"scene",
+ *   "bg", "ink", "accent", "badge", "focus", "eyebrow", "title", "sub", "cta", "images": [url-or-path, ...] } ] }
  * Images may be https URLs (fetched by Node, so hosts the browser cannot reach still work)
  * or local paths; they are inlined as data URIs. See docs/APP_PROMO_BANNERS.md.
  */
@@ -48,15 +48,17 @@ const fonts = `
 const mark = await dataUri(join(root, 'public/website/brand-mark-coral.png'));
 const esc = (text = '') => String(text).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-function art(layout, imgs) {
+function art(layout, imgs, banner = {}) {
   const i = (n, cls) => imgs[n] ? `<img class="${cls}" src="${imgs[n]}" alt="">` : '';
   if (layout === 'split' || layout === 'bold') return `<div class="art split">${i(0, 'photo')}</div>`;
   if (layout === 'trio') return `<div class="art trio">${i(0, 't0')}${i(1, 't1')}${i(2, 't2')}</div>`;
   if (layout === 'fan') return `<div class="art fan">${i(0, 'f0')}${i(2, 'f2')}${i(1, 'f1')}</div>`;
+  if (layout === 'scene') return `<img class="scene-img" src="${imgs[0]}" alt=""><div class="veil"></div>`;
   if (layout === 'card') return `<div class="art card"><span class="halo"></span>${i(0, 'c0')}</div>`;
   if (layout === 'row') return `<div class="art row">${imgs.slice(0, 4).map((src) => `<img src="${src}" alt="">`).join('')}</div>`;
   throw new Error('unknown layout ' + layout);
 }
+const hexa = (hex, alpha) => { const n = parseInt(String(hex).replace('#', ''), 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${alpha})`; };
 function page(banner, imgs) {
   const bold = banner.layout === 'bold';
   const bg = banner.bg || (bold ? '#ff5a5f' : '#fff3ef'), ink = banner.ink || (bold ? '#ffffff' : '#2f2724'), accent = banner.accent || (bold ? '#ffffff' : '#d8434a');
@@ -81,17 +83,22 @@ h1 em{font-style:normal;color:${accent}}
 .fan .f0{right:300px;top:70px;transform:rotate(-8deg)}.fan .f1{right:150px;top:40px;z-index:3;width:270px}.fan .f2{right:20px;top:80px;transform:rotate(8deg)}
 .row{display:flex;align-items:center;justify-content:flex-end;gap:18px;padding-right:48px;width:${W - 660}px}
 .card .halo{position:absolute;right:70px;top:50%;width:360px;height:360px;margin-top:-180px;border-radius:50%;background:rgba(255,255,255,.7)}.card .c0{position:absolute;right:120px;top:50%;width:270px;transform:translateY(-50%) rotate(4deg);border-radius:18px;box-shadow:0 30px 50px -24px rgba(60,25,20,.55)}
+.scene-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${banner.focus || 'right center'}}
+.veil{position:absolute;inset:0;background:linear-gradient(90deg,${bg} 0%,${bg} 34%,${hexa(bg, .75)} 48%,${hexa(bg, 0)} 66%)}
+.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:9px 18px 9px 14px;border-radius:999px;margin-bottom:20px;font:600 26px/1 Jakarta,sans-serif;letter-spacing:.02em;color:#7a4b00;background:linear-gradient(135deg,#ffe7a3,#f6c453)}
+.badge svg{width:26px;height:26px}
 .row img{width:136px;border-radius:14px;box-shadow:0 18px 30px -18px rgba(60,25,20,.45)}
 .row img:nth-child(odd){transform:translateY(-22px)}.row img:nth-child(even){transform:translateY(22px)}
 </style></head><body>
 <div class="copy">
-  <div class="brand">${bold ? '' : `<img src="${mark}" alt="">`}anacan</div>
+  ${banner.badge ? '' : `<div class="brand">${bold ? '' : `<img src="${mark}" alt="">`}anacan</div>`}
+  ${banner.badge ? `<span class="badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 7l4.5 4L12 4l4.5 7L21 7l-2 12H5z"/></svg>${esc(banner.badge)}</span>` : ''}
   ${banner.eyebrow ? `<p class="eyebrow">${esc(banner.eyebrow)}</p>` : ''}
   <h1>${esc(banner.title).replace(/\*(.+?)\*/g, '<em>$1</em>')}</h1>
   ${banner.sub ? `<p class="sub">${esc(banner.sub)}</p>` : ''}
   ${banner.cta ? `<span class="cta">${esc(banner.cta)}</span>` : ''}
 </div>
-${art(banner.layout, imgs)}
+${art(banner.layout, imgs, banner)}
 </body></html>`;
 }
 
