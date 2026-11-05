@@ -5,6 +5,23 @@ bitəndən sonra istifadəçi tətbiqi ilk dəfə tam açır. Bu sənəd həmin 
 nə göstərdiyimizi təsvir edir. İnteraktiv prototip: `docs/prototypes/inapp-onboarding.html`
 (Ana / Hamilə / Dövr, light / dark).
 
+## v3 (2026-11-05): bələdçi turu real ekranlarda
+Prototip: `docs/prototypes/inapp-onboarding-v3.html`. Stillər: **Glass** (şüşə panellər, canlı
+fon, light/dark), **Sakit** (ağ kart, oxla hədəfə işarə), **Cəsur** (coral alt panel),
+**AI Bələdçi** (Anacan AI avatarı danışır).
+- Tur istifadəçini həqiqətən aparır. Tab düyməsi işıqlanır, toxunuş animasiyası göstərilir,
+  istifadəçi basanda ekran açılır. Alətdən danışanda həmin alətin səhifəsi açılır və
+  "📍 Siz buradasınız: Alətlər › Mental sağlamlıq" göstərilir.
+- Əsas addımlar 5 / 4 qalır. Hər addımın içində 2-4 kiçik keçid var (mini nöqtələr).
+  Hər keçid bir toxunuşdur, "Turu bağla" hər zaman görünür.
+- İlk qeyd alətin öz səhifəsində edilir (ana ekran düyməsi → alət). Bildiriş sorğusu nəticə
+  kartının içindədir və v2 qaydalarına tabedir.
+- Alətlər addımında ilk qeyd alətindən sonra 2 əlavə **açıq** alət açılır (təkrar yoxdur).
+  Free istifadəçinin kilidli alətləri ayrıca "Premium" bölməsində solğun görünür,
+  amma işıqlandırılmır və onlardan danışılmır.
+- Tətbiqdə hədəflər `data-tour="..."` atributu ilə işarələnir: `tab-tools`, `tab-ai`,
+  `tab-community`, `q-<alət>`, `tools-free`, `tool-hero`, `log`, `ai-chips`, `com-feed`.
+
 ## v2 (2026-11-05): addım sayı, yeni axın və məntiq qaydaları
 Prototip v2: `docs/prototypes/inapp-onboarding-v2.html`. 5 dizayn variantı var: A Vərəq,
 B Hekayə, C Spotlight, D Söhbət (Anacan AI bələdçi kimi), E Mərkəz (plitələr, öz tempi ilə).
