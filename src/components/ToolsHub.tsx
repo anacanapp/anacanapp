@@ -10,7 +10,7 @@ import {
   Utensils, Activity, ArrowLeft, Camera, Lock, ShoppingCart, LucideIcon, Wrench, BookOpen, ChefHat,
   Stethoscope, Droplet, ImagePlus, Package, Mic, Scan, CloudSun, Gauge, Store,
   MapPin, Gamepad2, ShieldAlert, BookHeart, Stars, Crown, Ruler, Sparkles, TrendingUp, Zap,
-  Pill, Cake, Syringe, Dumbbell, Brain } from
+  Pill, Cake, Syringe, Dumbbell, Brain, Sprout } from
 'lucide-react';
 import BlogScreen from '@/components/BlogScreen';
 import { useUserStore } from '@/store/userStore';
@@ -60,6 +60,7 @@ const MiniGamesHub = lazy(() => import('./games/MiniGamesHub'));
 const BabyTracker = lazy(() => import('./tools/BabyTracker'));
 const SleepTraining = lazy(() => import('./tools/SleepTraining'));
 const SolidFoodGuide = lazy(() => import('./tools/SolidFoodGuide'));
+const WeaningTool = lazy(() => import('./tools/weaning/WeaningTool'));
 // Aptek product hits under the tool search; loaded only once the user types.
 const AptekSearchResults = lazy(() => import('./aptek/AptekEntry').then((m) => ({ default: m.AptekSearchResults })));
 const openAptek = (screen: string) =>
@@ -125,7 +126,8 @@ const iconMap: Record<string, LucideIcon> = {
   'Syringe': Syringe,
   'TrendingUp': TrendingUp,
   'Dumbbell': Dumbbell,
-  'Brain': Brain
+  'Brain': Brain,
+  'Sprout': Sprout
 };
 
 // Import Calculator icon
@@ -140,6 +142,9 @@ import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { followupText } from '@/lib/followup-i18n';
 import { localizedCountryName } from '@/lib/app-languages';
 import { regionalCountry } from '@/lib/vaccine-schedule';
+import { useAppSetting } from '@/hooks/useAppSettings';
+import { isWeaningTileVisible } from '@/lib/weaning';
+import { wt as weaningText } from '@/lib/weaning-copy';
 
 interface ToolsHubProps {
   initialTool?: string | null;
@@ -220,13 +225,16 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   // Build tools from DB configs
   const isNonAz = language !== 'az';
   const { disabledTools, isToolDisabled } = useDisabledTools();
+  // Süddən ayırma: Ana module only, active child 9+ months, admin switch app_settings.weaning_tool = 'on'.
+  const weaningSetting = useAppSetting('weaning_tool');
+  const showWeaning = !disabledTools.includes('weaning') && isWeaningTileVisible({ lifeStage, birthDate: childBirthDate, setting: weaningSetting });
   const tools: Tool[] = useMemo(() => {
     if (toolConfigs.length === 0) {
       return [];
     }
 
     // Filter out tools disabled for the current language
-    const activeConfigs = toolConfigs.filter((config) => !disabledTools.includes(config.tool_id));
+    const activeConfigs = toolConfigs.filter((config) => !disabledTools.includes(config.tool_id) && (config.tool_id !== 'weaning' || showWeaning));
 
     const fromDb: Tool[] = activeConfigs.map((config) => {
       const name = hasPartner && config.requires_partner && config.partner_name ?
@@ -238,10 +246,11 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       config.description || '';
 
 
+      const isWeaning = config.tool_id === 'weaning';
       return {
         id: config.tool_id,
-        name,
-        description,
+        name: isWeaning ? weaningText('weaning_tool_name') : name,
+        description: isWeaning ? weaningText('weaning_tool_desc') : description,
         icon: iconMap[config.icon] || Wrench,
         color: config.color,
         bgColor: config.bg_color,
@@ -273,8 +282,11 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     if (lifeStage === 'mommy' && !disabledTools.includes('solid-food-guide')) {
       extra.push(virtual('solid-food-guide', feature37Text('sfg_home_title', language), feature37Text('sfg_tool_desc', language), Salad));
     }
+    if (showWeaning && !fromDb.some((t) => t.id === 'weaning')) {
+      extra.push(virtual('weaning', weaningText('weaning_tool_name'), weaningText('weaning_tool_desc'), Sprout));
+    }
     return [...fromDb, ...extra];
-  }, [toolConfigs, hasPartner, lifeStage, language, isNonAz, disabledTools, profile?.country_code, storeCountry, childBirthDate]);
+  }, [toolConfigs, hasPartner, lifeStage, language, isNonAz, disabledTools, profile?.country_code, storeCountry, childBirthDate, showWeaning]);
 
   // Set initial tool from props on mount (Dashboard qısayolları / banner deeplink-ləri)
   // Freemium: free olmayan alət premium-suz açılmır — paywall göstərilir.
@@ -443,6 +455,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       case 'baby-tracker':return <BabyTracker onBack={handleBack} />;
       case 'sleep-training':return <SleepTraining onBack={handleBack} />;
       case 'solid-food-guide':return <SolidFoodGuide onBack={handleBack} />;
+      case 'weaning':return <WeaningTool onBack={handleBack} />;
       case 'mini-games':return <MiniGamesHub onBack={handleBack} />;
       default:return null;
     }

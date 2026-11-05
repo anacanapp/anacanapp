@@ -15,6 +15,8 @@
  *  - 2026-11-05 (istifadəçi qərarı): Həkim və Klinikalar, Xəstəxana Çantası, Təhlükə Əlamətləri,
  *    Peyvənd Təqvimi, Körpə Albomu, Hamiləlik Albomu və Əhval Gündəliyi hamı üçün pulsuzdur
  *    (mərhələ aktivliyi tool_configs-də olduğu kimi qalır; DB is_premium da false edildi).
+ *  - 2026-11-06: Süddən ayırma (weaning) pulsuz alətdir; içində yalnız fərdi plan təqvimi və
+ *    xatırlatmalar Premium-dur.
  *  - mental-health (EPDS/əhval) free saxlanılıb — postpartum depressiya riski
  *    skrininqi first-aid ilə eyni etik prinsiplə pullu divarın arxasında qala bilməz
  *    (istifadəçi qərarı, Doğuşdan Sonra Sağalma planı).
@@ -34,7 +36,10 @@ const FREE_TOOL_IDS = new Set<string>([
 'mental-health',
 // 2026-11-05: hamı üçün pulsuz (istifadəçi qərarı)
 'doctors', 'hospital', 'danger-signs', 'vaccine-calendar', 'vaccines-calendar',
-'baby-album', 'pregnancy-album', 'mood', 'mood-diary']
+'baby-album', 'pregnancy-album', 'mood', 'mood-diary',
+// 2026-11-06: Süddən ayırma — bələdçi, check-in və qırmızı bayraqlar pulsuz; fərdi plan təqvimi və
+// xatırlatmalar alətin içində Premium-dur (PremiumBlurGate).
+'weaning']
 );
 
 /** Alət free siyahısındadır? */

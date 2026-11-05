@@ -42,6 +42,7 @@ const MANAGED_SETTING_KEYS = [
   'bottom_nav_style',
   'profile_layout',
   'inapp_onboarding',
+  'weaning_tool',
   'dark_mode_enabled',
   'ai_model',
   'app_version',
@@ -318,6 +319,15 @@ const AdminSettings = () => {
                   </SelectContent>
                 </Select>
                 <p className="text-xs text-muted-foreground">Yalnız funksiya əlavə olunandan sonra qeydiyyatdan keçən, hesabı 14 gündən gənc hesablar görür. Hər istifadəçi turu bir dəfə görür.</p>
+                <label className="text-sm font-medium mt-4 mb-2 block text-foreground">Süddən ayırma aləti</label>
+                <Select value={getSettingValue('weaning_tool', 'off')} onValueChange={(value) => updateSetting('weaning_tool', value)}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="on">Aktiv: Ana modulunda, uşaq 9+ aylıq olanda görünür</SelectItem>
+                    <SelectItem value="off">Söndürülüb</SelectItem>
+                  </SelectContent>
+                </Select>
+                <p className="text-xs text-muted-foreground">Plan yalnız 12+ aylıq uşaq üçün qurulur. Bələdçi və check-in pulsuz, fərdi təqvim və xatırlatmalar Premium-dur.</p>
                 <p className="text-xs text-muted-foreground">Yadda saxlayandan sonra istifadəçilərdə tətbiq yenidən açılanda və ya 5 dəqiqə ərzində dəyişir.</p>
               </div>
             </Card>
