@@ -10,7 +10,7 @@
  * large enough for a 343px-wide phone column (scale ~0.29: 72px title ~ 21px on screen).
  *
  * Spec: { "banners": [ { "id", "layout": "split"|"trio"|"fan"|"row"|"card"|"bold"|"scene",
- *   "bg", "ink", "accent", "badge", "focus", "eyebrow", "title", "sub", "cta", "images": [url-or-path, ...] } ] }
+ *   "bg", "ink", "accent", "badge", "focus", "veil": [solid%, clear%], "eyebrow", "title", "sub", "cta", "images": [url-or-path, ...] } ] }
  * Images may be https URLs (fetched by Node, so hosts the browser cannot reach still work)
  * or local paths; they are inlined as data URIs. See docs/APP_PROMO_BANNERS.md.
  */
@@ -69,10 +69,10 @@ body{background:${bg};color:${ink};font-family:Switzer,sans-serif;position:relat
 .copy{position:absolute;left:64px;top:0;bottom:0;width:${banner.layout === 'row' ? 600 : 640}px;display:flex;flex-direction:column;justify-content:center;gap:0;z-index:2}
 .brand{display:flex;align-items:center;gap:12px;font:600 30px/1 Jakarta,sans-serif;letter-spacing:-.04em;color:${bold ? '#fff' : '#ff5a5f'};margin-bottom:26px}
 .brand img{width:40px;height:40px}
-.eyebrow{font:500 30px/1.2 Switzer,sans-serif;color:${bold ? 'rgba(255,255,255,.85)' : '#8a7a72'};margin-bottom:12px}
+.eyebrow{font:500 30px/1.2 Switzer,sans-serif;color:${bold ? 'rgba(255,255,255,.85)' : banner.ink ? hexa(ink, .75) : '#8a7a72'};margin-bottom:12px}
 h1{font:600 74px/1.04 Jakarta,sans-serif;letter-spacing:-.045em;text-wrap:balance}
 h1 em{font-style:normal;color:${accent}}
-.sub{margin-top:18px;font:400 38px/1.25 Switzer,sans-serif;color:${bold ? 'rgba(255,255,255,.92)' : '#6f625b'}}
+.sub{margin-top:18px;font:400 38px/1.25 Switzer,sans-serif;color:${bold ? 'rgba(255,255,255,.92)' : banner.ink ? hexa(ink, .82) : '#6f625b'}}
 .cta{margin-top:30px;align-self:flex-start;display:inline-flex;align-items:center;gap:14px;padding:18px 34px;border-radius:999px;font:500 36px/1 Switzer,sans-serif;background:${bold ? '#fff' : '#ff5a5f'};color:${bold ? '#c23a41' : '#fff'}}
 .cta::after{content:"";width:16px;height:16px;border-top:4px solid currentColor;border-right:4px solid currentColor;transform:rotate(45deg);margin-left:-2px}
 .art{position:absolute;top:0;right:0;bottom:0;width:${W - 700}px}
@@ -84,7 +84,7 @@ h1 em{font-style:normal;color:${accent}}
 .row{display:flex;align-items:center;justify-content:flex-end;gap:18px;padding-right:48px;width:${W - 660}px}
 .card .halo{position:absolute;right:70px;top:50%;width:360px;height:360px;margin-top:-180px;border-radius:50%;background:rgba(255,255,255,.7)}.card .c0{position:absolute;right:120px;top:50%;width:270px;transform:translateY(-50%) rotate(4deg);border-radius:18px;box-shadow:0 30px 50px -24px rgba(60,25,20,.55)}
 .scene-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${banner.focus || 'right center'}}
-.veil{position:absolute;inset:0;background:linear-gradient(90deg,${bg} 0%,${bg} 34%,${hexa(bg, .75)} 48%,${hexa(bg, 0)} 66%)}
+.veil{position:absolute;inset:0;background:linear-gradient(90deg,${bg} 0%,${bg} ${(banner.veil || [34, 66])[0]}%,${hexa(bg, .75)} ${((banner.veil || [34, 66])[0] + (banner.veil || [34, 66])[1]) / 2}%,${hexa(bg, 0)} ${(banner.veil || [34, 66])[1]}%)}
 .badge{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:9px 18px 9px 14px;border-radius:999px;margin-bottom:20px;font:600 26px/1 Jakarta,sans-serif;letter-spacing:.02em;color:#7a4b00;background:linear-gradient(135deg,#ffe7a3,#f6c453)}
 .badge svg{width:26px;height:26px}
 .row img{width:136px;border-radius:14px;box-shadow:0 18px 30px -18px rgba(60,25,20,.45)}

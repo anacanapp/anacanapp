@@ -26,6 +26,16 @@ PLAYWRIGHT_CHROMIUM=/opt/pw-browsers/chromium \
   for approval. Show `contact.png` to the owner before uploading anything.
 - Example spec: `scripts/banners/specs/cakes-books-20261105.json` (3 cake, 3 book variants).
 
+## 2b. Premium upsell banners (free users)
+- Scene art: Nano Banana Pro (Vertex `gemini-3-pro-image`, aspect `21:9`) with a prompt that keeps the
+  left 55% as plain negative space, subject on the right, Anacan pastel/coral palette, and no text,
+  logos or UI. All copy is rendered by the script (`layout: "scene"`, `badge: "Anacan Premium"`,
+  `veil: [solid%, clear%]` to hide hard photo edges, `ink` for dark scenes).
+- Copy sells features only (all tools, ad-free, sleep sounds, growth curves, weekly reports). No
+  prices or trial lengths: store prices and trial eligibility differ per store/country/user.
+- Targeting: `audience_tiers = {free}` (own banners honour it since 2026-11-05, so Premium members never
+  see them), link `/premium`. Example: `scripts/banners/specs/premium-20261105.json`.
+
 ## 3. Deeplink targets
 Banners use `link_type = 'internal'` with an app deeplink path. `BannerSlot` parses it with
 `parseDeeplink` (`src/lib/deeplink.ts`) and dispatches the `anacan:deeplink` window event;

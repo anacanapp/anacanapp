@@ -1,0 +1,133 @@
+{
+ "banners": [
+  {
+   "id": "premium-1-gece",
+   "layout": "scene",
+   "bg": "#efcaa6",
+   "badge": "Anacan Premium",
+   "title": "Gecə 3-də də *yanındayıq*",
+   "sub": "Bütün alətlər açıq, reklamsız",
+   "cta": "Premium-a keç",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/assets/banners/scenes/p1-gece.webp"
+   ],
+   "veil": [
+    44,
+    62
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/premium"
+   },
+   "audience_tiers": [
+    "free"
+   ]
+  },
+  {
+   "id": "premium-2-yuxu",
+   "layout": "scene",
+   "bg": "#76667a",
+   "ink": "#ffffff",
+   "accent": "#ffd0b0",
+   "badge": "Anacan Premium",
+   "title": "Körpə *daha tez* yatsın",
+   "sub": "Yuxu səsləri və meditasiya",
+   "cta": "Premium-a keç",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/assets/banners/scenes/p2-yuxu.webp"
+   ],
+   "veil": [
+    58,
+    86
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/premium"
+   },
+   "audience_tiers": [
+    "free"
+   ]
+  },
+  {
+   "id": "premium-3-inkisaf",
+   "layout": "scene",
+   "bg": "#faf1e2",
+   "badge": "Anacan Premium",
+   "title": "Hər ayın *inkişafını* izlə",
+   "sub": "Boy-çəki əyriləri, həftəlik hesabat",
+   "cta": "Premium-a keç",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/assets/banners/scenes/p3-inkisaf.webp"
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/premium"
+   },
+   "audience_tiers": [
+    "free"
+   ]
+  },
+  {
+   "id": "premium-4-reklamsiz",
+   "layout": "scene",
+   "bg": "#f2e4d3",
+   "badge": "Anacan Premium",
+   "title": "Reklamsız, *sakit* Anacan",
+   "sub": "Diqqətiniz yalnız körpədə olsun",
+   "cta": "Premium-a keç",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/assets/banners/scenes/p4-reklamsiz.webp"
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/premium"
+   },
+   "audience_tiers": [
+    "free"
+   ]
+  },
+  {
+   "id": "premium-5-hamilelik",
+   "layout": "scene",
+   "bg": "#ead4c4",
+   "badge": "Anacan Premium",
+   "title": "Hamiləliyin *hər həftəsi*",
+   "sub": "Fərdi həftəlik hesabatlar",
+   "cta": "Premium-a keç",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/assets/banners/scenes/p5-hamilelik.webp"
+   ],
+   "veil": [
+    44,
+    62
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/premium"
+   },
+   "audience_tiers": [
+    "free"
+   ]
+  },
+  {
+   "id": "premium-6-hamisi",
+   "layout": "scene",
+   "bg": "#fbf6ec",
+   "badge": "Anacan Premium",
+   "title": "Bütün alətlər, *bir abunədə*",
+   "sub": "Sınırsız · reklamsız · fərdi",
+   "cta": "Premium-a keç",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/assets/banners/scenes/p6-hamisi.webp"
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/premium"
+   },
+   "audience_tiers": [
+    "free"
+   ]
+  }
+ ],
+ "_note": "Scenes generated with Nano Banana Pro (gemini-3-pro-image, 21:9, text-free, subject on the right); uploaded to assets/banners/scenes/ when approved. Free tier only."
+}
