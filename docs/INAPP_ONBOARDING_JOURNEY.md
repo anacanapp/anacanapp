@@ -5,6 +5,55 @@ bitəndən sonra istifadəçi tətbiqi ilk dəfə tam açır. Bu sənəd həmin 
 nə göstərdiyimizi təsvir edir. İnteraktiv prototip: `docs/prototypes/inapp-onboarding.html`
 (Ana / Hamilə / Dövr, light / dark).
 
+## v2 (2026-11-05): addım sayı, yeni axın və məntiq qaydaları
+Prototip v2: `docs/prototypes/inapp-onboarding-v2.html`. 5 dizayn variantı var: A Vərəq,
+B Hekayə, C Spotlight, D Söhbət (Anacan AI bələdçi kimi), E Mərkəz (plitələr, öz tempi ilə).
+Hamısı eyni məzmun və eyni məntiq ilə işləyir.
+
+### Neçə addım (araşdırma)
+- Chameleon (15 mln tur qarşılıqlı əlaqəsi): 3 addımlı turlar ən yüksək tamamlanır (~66%).
+  4-cü addımdan sonra diqqət kəskin düşür; 5-ci addım tamamlanmanı təxminən yarıya endirir.
+- Produktly 2026 (256 tur): 3-5 addım median 38%, 6-8 addım 25%. Avtomatik açılan
+  turlar daha az tamamlanır (23%), istifadəçinin özü başlatdığı turlar daha çox.
+- Intercom: 5 addımlı turlar median ~34%.
+- Mobil onboarding üçün tövsiyə olunan aralıq 3-7 ekrandır, çox tətbiq 4-5-də dayanır.
+  Bu rəqəmlər vendor məlumatlarıdır; dəqiq sayı öz A/B testimiz təsdiqləyəcək.
+- **Qərar:** əsas tur **Premium üçün 4, Free üçün 5 addım**. Hər addım bir mövzudur, keçmək
+  olar, irəliləmə göstərilir. Qalan hər şey Başlanğıc siyahısına və kontekstual ipuçlarına keçir.
+  Bildiriş sorğusu ayrıca addım deyil: ilk qeydin nəticə ekranının içindədir.
+
+### Axın
+| # | Addım | Free | Premium |
+|---|-------|------|---------|
+| 1 | Xoş gəldin (ad, plan, 3 fayda) | ✓ | ✓ |
+| 2 | İlk qeyd (+ bildiriş, yalnız şərt ödənirsə) | pulsuz funksiya: əhval (ana, hamilə), dövr qeydi | Premium aləti: qidalanma, təpik |
+| 3 | Alətlər | yalnız **pulsuz və uyğun** alətlər, kilidli alət göstərilmir | mərhələnin ən faydalı alətləri |
+| 4 | Anacan AI + İcma | AI: gündə N pulsuz sual (`app_settings.free_limits`) | AI limitsiz |
+| 5 | Premium üstünlükləri | ✓ (qiymətsiz, "Pulsuz davam et" düyməsi ilə) | göstərilmir |
+
+### Məntiq qaydaları (heç bir şərt pozulmamalıdır)
+- **Bildiriş:** `FirebaseMessaging.checkPermissions()`.
+  - `granted`: heç bir sorğu yoxdur.
+  - `denied`: sorğu yoxdur, çünki sistem yenidən soruşmur. Siyahıya "Ayarlardan aç" bəndi düşür.
+  - `prompt` və ya `prompt-with-rationale`: əvvəl öz yumşaq kartımız göstərilir, "Bəli" deyəndə sistem pəncərəsi açılır.
+  - "İndi yox": bu sessiyada yenidən soruşulmur; 3 gün sonra kontekstdə 1 dəfə soruşulur.
+  - Funnel-də (`OnboardingJourney` → `notifications`) artıq soruşulubsa, nəticəyə həmin vəziyyət qərar verir.
+- **Mövcud kodla toqquşma:** `useDeviceToken` hər gün 1 dəfə özü icazə istəyir. Onboarding
+  aktiv olan sessiyada bu avtomatik sorğu dayandırılmalıdır (vahid "permission coordinator"),
+  əks halda istifadəçi eyni gündə iki sorğu görər.
+- **Premium:** `useSubscription().isPremium` yüklənib qurtarmadan tur başlamır (yanlış addım
+  sayı olmasın). Tur zamanı alış olsa, Premium addımı çıxarılır.
+- **Alətlər (Free):** siyahı `freemium.ts` `isToolFree` ilə qurulur və mərhələ/region filtrindən
+  keçir: Tortlar yalnız `isCakesAvailable` (AZ ölkə + dil), PDF kitablar yalnız `az` dili,
+  dövr rejimində körpə alətləri yoxdur. Kilidli alət heç vaxt "sizdə var" kimi göstərilmir.
+- **İlk qeyd:** Free istifadəçidə paywall açan funksiya seçilmir (əhval, mental sağlamlıq,
+  dövr təqvimi pulsuzdur). Premium üçün izləmə aləti seçilir.
+- **Partnyor:** Premium funksiyasıdır. Free siyahısına salınmır, Premium üstünlüklərində göstərilir.
+- **AI limiti:** mətn serverdəki `free_limits.ai_chat_count_per_day` dəyərindən gəlir, kodda sabit yazılmır.
+- **Kimə göstərilmir:** partnyor rolu, loss mode, artıq tamamlamış və ya keçmiş istifadəçi
+  (serverdə `onboarding_journey`), funksiyadan əvvəl qeydiyyatdan keçənlər.
+- **Təkrar və cihazlar:** irəliləmə hesabda saxlanılır; başqa cihazda və ya yenidən qurduqda təkrar olunmur.
+
 ## Məqsəd və ölçü
 - **Aktivləşmə:** ilk 24 saatda ən azı 1 qeyd (qidalanma, yuxu, təpik, əhval, period).
 - **Bildiriş icazəsi:** dəyər göründükdən sonra soruşulur; hədəf ≥ 55% razılıq.
