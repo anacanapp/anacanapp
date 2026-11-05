@@ -150,3 +150,13 @@ Bu sayt yayımı app-build/final population cutover deyil. Source writer və ses
 authority, delivered45/44/43, native entitlements və api/app DNS handoff-u öz
 mövcud müqavilələrinə tabedir. Private operator/signing/session input-ları kod
 handoff-a daxil edilmir.
+
+## MilliNet participant badge (2026-11-05)
+- Footer bottom row on every language page carries the MilliNet 2026 ownership badge
+  (`<script src="https://millinet.az/banner.js?id=755">`), component `MilliNetBadge` in
+  `src/website/components.tsx`, styles `.site-footer-badge` in `website.css`.
+- The vendor script uses `document.write`, so it is rendered only in the SSR HTML via
+  `dangerouslySetInnerHTML` and `suppressHydrationWarning`; client-side renders never execute it.
+- Website runtime `website@sha256:7f1a9a8ace8a…` (FROM `cc4610ba…`, rollback
+  `website-runtime-plan.before-millinet.json`); gateway `gateway@sha256:ffb5337e8b0a…` (FROM `d1db0162…`,
+  website assets and `az/index.html` only, app untouched; rollback `rollback-millinet-web-plan.json`).

@@ -47,6 +47,13 @@ export function WebsiteHeader() {
     </header>
   </>;
 }
+// MilliNet participant badge (competition ownership check). The vendor script uses document.write, so it
+// only runs while the server-rendered HTML is parsed; React keeps the markup untouched on hydration and a
+// client-side render never executes it (scripts set through innerHTML do not run).
+const MILLINET_BADGE = '<!--MilliNet --><script type="text/javascript" src="https://millinet.az/banner.js?id=755"></script>';
+function MilliNetBadge() {
+  return <div className="site-footer-badge" dangerouslySetInnerHTML={{ __html: MILLINET_BADGE }} suppressHydrationWarning/>;
+}
 export function WebsiteFooter() {
   const {href,t,generatedAt,route} = useWebsite();
   return <footer className="site-footer">
@@ -54,7 +61,7 @@ export function WebsiteFooter() {
       <nav aria-label={t('home')}><a href={href('journal')}>{t('journal')}</a><a href={href('tools')}>{t('tools')}</a><a href={href('faq')}>{t('faq')}</a><a href={href('contact')}>{t('contact')}</a>{route.language==='az'&&SHOP_LINKS.map(([kind,label])=><a key={kind} href={href(kind)}>{label}</a>)}</nav>
       <div className="site-footer-contact"><a href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a><span>{t('madeIn')}</span><div><a href="https://instagram.com/anacanapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://facebook.com/anacanapp" target="_blank" rel="noopener noreferrer">Facebook</a></div></div>
     </div>
-    <div className="site-footer-bottom"><span>© {new Date(generatedAt).getUTCFullYear()} Anacan. {t('rights')}</span><nav aria-label={t('privacy')}><a href={href('privacy')}>{t('privacy')}</a><a href={href('terms')}>{t('terms')}</a></nav></div>
+    <div className="site-footer-bottom"><span>© {new Date(generatedAt).getUTCFullYear()} Anacan. {t('rights')}</span><MilliNetBadge/><nav aria-label={t('privacy')}><a href={href('privacy')}>{t('privacy')}</a><a href={href('terms')}>{t('terms')}</a></nav></div>
     <nav className="site-machine-links" aria-label={llmCopy[route.language].formatsHeading}>
       <a href={llmIndexPath(route.language)} hrefLang={route.language}>LLM · {llmCopy[route.language].languageLabel}</a>
       <a href={llmFullPath(route.language)} hrefLang={route.language}>{llmCopy[route.language].fullLabel}</a>

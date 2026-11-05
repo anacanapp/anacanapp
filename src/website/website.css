@@ -180,6 +180,9 @@ a:hover>.site-text-link svg,a.site-text-link:hover svg { transform:translate(2px
 .site-footer-contact>div { display:flex; gap:18px; font-size:12px; }
 .site-footer-bottom { border-top:1px solid var(--site-line); padding-top:24px; display:flex; justify-content:space-between; gap:20px; color:var(--site-muted); font-size:11px; }
 .site-footer-bottom nav { display:flex; flex-wrap:wrap; gap:20px; }
+.site-footer-badge { display:flex; align-items:center; min-height:1px; }
+.site-footer-badge a { display:inline-flex; border-radius:8px; overflow:hidden; box-shadow:0 0 0 1px var(--site-line); }
+.site-footer-badge img { display:block; height:48px; width:auto; max-width:200px; }
 .site-machine-links { display:flex; flex-wrap:wrap; gap:10px 20px; margin-top:20px; color:var(--site-muted); font-size:11px; }
 .site-machine-links a { text-decoration:underline; text-underline-offset:3px; }
 .site-page-intro { max-width:900px; padding-top:85px; margin-bottom:46px; }
