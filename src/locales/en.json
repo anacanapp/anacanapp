@@ -9155,5 +9155,8 @@
   "profiletabs_edit": "Edit profile",
   "profiletabs_appearance_sub": "Theme and text size",
   "profiletabs_calendar_sub": "Reminders and dates",
-  "profiletabs_privacy_sub": "Consent, analytics, data"
+  "profiletabs_privacy_sub": "Consent, analytics, data",
+  "toolshub_free_tools": "Free tools",
+  "toolshub_premium_tools": "Premium tools",
+  "toolshub_premium_open": "Unlocked for you"
 }

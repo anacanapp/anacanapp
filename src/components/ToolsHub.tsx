@@ -340,12 +340,11 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     openTool(tool.id);
   };
 
-  // Get hero tool IDs to exclude from grid
-  const heroToolIds = new Set(toolConfigs.filter((t) => t.is_hero).map((t) => t.tool_id));
+  // Hero tools (admin "is_hero") lead their section in hero_order instead of a separate strip.
+  const heroOrder = new Map(toolConfigs.filter((t) => t.is_hero).map((t) => [t.tool_id, t.hero_order || 0]));
 
-  // Filter by search and category, exclude hero tools from grid
+  // Filter by search
   const filteredTools = tools.filter((tool) => {
-    if (heroToolIds.has(tool.id)) return false;
     const matchesSearch = tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     tool.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesSearch;
@@ -366,7 +365,17 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const showCakes = !isToolDisabled('cakes') && cakesMarketOk && (lifeStage === 'bump' || lifeStage === 'mommy' || isAdmin) && (
   cakesVirtual.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
   cakesVirtual.description.toLowerCase().includes(searchQuery.toLowerCase()));
-  const displayedTools: Tool[] = showCakes ? [cakesVirtual, ...filteredTools] : filteredTools;
+  const miniGamesVirtual: Tool = {
+    id: 'mini-games', name: tr("toolshub_minigames_title", "Mini Oyunlar"), description: '', icon: Gamepad2,
+    color: 'green', bgColor: 'green', stages: ['flow', 'bump', 'mommy'], isPremium: !isToolFree('mini-games'), isLocked: false
+  };
+  const showMiniGames = !isToolDisabled('mini-games') && !filteredTools.some((t) => t.id === 'mini-games') &&
+    miniGamesVirtual.name.toLowerCase().includes(searchQuery.toLowerCase());
+  const displayedTools: Tool[] = [...(showCakes ? [cakesVirtual] : []), ...(showMiniGames ? [miniGamesVirtual] : []), ...filteredTools];
+  // Free vs Premium sections: a tool is free only when no DB flag, stage lock or freemium rule gates it.
+  const byHero = (a: Tool, b: Tool) => (heroOrder.has(a.id) ? 0 : 1) - (heroOrder.has(b.id) ? 0 : 1) || (heroOrder.get(a.id) ?? 0) - (heroOrder.get(b.id) ?? 0);
+  const freeTools = displayedTools.filter((t) => !t.isPremium && !t.isLocked).sort(byHero);
+  const premiumTools = displayedTools.filter((t) => t.isPremium || t.isLocked).sort(byHero);
 
   const handleBack = () => {
     if (activeTool) {
@@ -462,12 +471,6 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   // anacan-demo tool tile gradient cycle
   const TILE_GRADIENTS = ['var(--a-grad-peach)', 'var(--a-grad-pink)', 'var(--a-grad-lav)', 'var(--a-grad-blue)', 'var(--a-grad-green)', 'var(--a-grad-yellow)'];
   const TILE_INKS = ['var(--a-accent-ink)', 'var(--a-berry-ink)', 'var(--a-lav-ink)', 'var(--a-blue-ink)', 'var(--a-green-ink)', 'var(--a-warn-ink)'];
-  // Featured (hero) banner backgrounds cycle
-  const HERO_BGS = ['var(--a-grad-lav)', 'var(--a-grad-peach)', 'var(--a-grad-green)', 'var(--a-grad-blue)'];
-  // Dark mode düzəlişi: 3 hardcoded hex (#3c2e5c/#14532d/#153e57) dark modda
-  // öz uyğun --a-grad-* fonlarının tünd tint-lərinə qarşı ~1:1 kontrast
-  // verirdi (oxunmurdu) — TILE_INKS-dəki kimi CSS dəyişənlərinə keçirilib.
-  const HERO_INKS = ['var(--a-lav-ink)', 'var(--a-cta-ink)', 'var(--a-green-ink)', 'var(--a-blue-ink)'];
 
   return (
     <div className="a-scope pb-8 overflow-x-hidden" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
@@ -491,146 +494,55 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
         {/* Top Banner */}
         <BannerSlot placement="tools_top" onNavigate={() => {}} onToolOpen={gatedOpenTool} className="mt-3" />
 
-        {/* Featured trio — Mini Games + DB hero tools as compact side-by-side tiles */}
-        {!searchQuery &&
-        (() => {
-          const heroTools = toolConfigs.
-          filter((t) => t.is_hero && !disabledTools.includes(t.tool_id)).
-          sort((a, b) => (a.hero_order || 0) - (b.hero_order || 0));
-
-          const featuredItems: {key: string;label: string;icon: LucideIcon;emoji?: string;bg: string;ink: string;premium: boolean;onClick: () => void;}[] = [];
-
-          if (!isToolDisabled('mini-games')) {
-            featuredItems.push({
-              key: 'mini-games',
-              label: tr("toolshub_minigames_title", "Mini Oyunlar"),
-              icon: Gamepad2,
-              bg: 'var(--a-grad-green)',
-              ink: 'var(--a-green-ink)',
-              premium: !isToolFree('mini-games'),
-              onClick: () => gatedOpenTool('mini-games')
-            });
-          }
-
-          heroTools.forEach((hero, idx) => {
-            const HeroIcon = iconMap[hero.icon] || Wrench;
-            const displayName = (hero as any).display_name || hero.name;
-            featuredItems.push({
-              key: hero.tool_id,
-              label: displayName,
-              icon: HeroIcon,
-              bg: HERO_BGS[idx % HERO_BGS.length],
-              ink: HERO_INKS[idx % HERO_INKS.length],
-              premium: !!hero.is_premium || !isToolFree(hero.tool_id),
-              onClick: () => gatedOpenTool(hero.tool_id)
-            });
-          });
-
-          if (featuredItems.length === 0) return null;
-
-          return (
-            <section className="a-section">
-              <div className="a-section-head">
-                <h2 className="a-section-title a-heading">{tr("toolshub_featured_title", "Seçilmişlər")}</h2>
-              </div>
-              <div className="a-trio" style={{ gridTemplateColumns: `repeat(${Math.min(3, featuredItems.length)}, 1fr)` }}>
-                {featuredItems.slice(0, 3).map((item, idx) => {
-                  const ItemIcon = item.icon;
-                  return (
-                    <motion.button
-                      key={item.key}
-                      onClick={item.onClick}
-                      className="a-trio-item a-fade-in"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.05 }}
-                      whileTap={{ scale: 0.92 }}>
-                      
-                      {item.premium &&
-                      <span className="a-crown-chip">
-                          <Crown size={11} strokeWidth={2.6} />
-                        </span>
-                      }
-                      <span className="a-trio-icon" style={{ background: item.bg, color: item.ink }}>
-                        <ItemIcon size={17} strokeWidth={2} />
-                      </span>
-                      <p className="a-trio-label" style={{ color: 'var(--a-ink)' }}>{item.label}</p>
-                    </motion.button>);
-
-                })}
-              </div>
-            </section>);
-
-        })()
-        }
-
         {searchQuery.trim() &&
         <Suspense fallback={null}>
             <AptekSearchResults query={foldQuery(searchQuery)} close={() => setSearchQuery('')} onOpen={openAptek} />
           </Suspense>
         }
 
-        {/* Tools grid section */}
-        <section className="a-section">
-          <div className="a-section-head">
-            <h2 className="a-section-title a-heading">
-              {searchQuery ? `${displayedTools.length} ${tr("toolshub_netice", "nəticə")}` : tr("toolshub_butun_aletler_88b643", "B\xFCt\xFCn Al\u0259tl\u0259r")}
-            </h2>
-            <span className="a-section-link">
-              {displayedTools.length} {tr("toolshub_alet_9a099a", "al\u0259t")}
-            </span>
-          </div>
-
-          {/* Tools Grid - anacan-demo 2 columns */}
-          <AdInlineAnchor id="tools_banner" />
-          <div className="a-tool-grid">
-            {/* layout/popLayout yoxdur: axtarışda hər kafel üçün layout ölçmə zəif cihazları dondururdu */}
-              {displayedTools.map((tool, index) => {
+        {/* Tools: search results as one list, otherwise Ödənişsiz / Premium sections (compact 3-column tiles) */}
+        <AdInlineAnchor id="tools_banner" />
+        {(searchQuery
+          ? [{ key: 'results', title: `${displayedTools.length} ${tr("toolshub_netice", "nəticə")}`, list: displayedTools, premiumSection: false }]
+          : [{ key: 'free', title: tr("toolshub_free_tools", "Ödənişsiz alətlər"), list: freeTools, premiumSection: false },
+             { key: 'premium', title: tr("toolshub_premium_tools", "Premium alətlər"), list: premiumTools, premiumSection: true }]
+        ).filter((group) => group.list.length > 0).map((group) => (
+          <section className="a-section" key={group.key} data-tour={`tools-${group.key}`}>
+            <div className="a-section-head">
+              <h2 className="a-section-title a-heading" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                {group.premiumSection && <Crown size={15} strokeWidth={2.4} style={{ color: 'var(--a-yellow-2)' }} />}
+                {group.title}
+              </h2>
+              <span className="a-section-link">
+                {group.premiumSection && isPremium ? tr("toolshub_premium_open", "Sizdə açıqdır") : `${group.list.length} ${tr("toolshub_alet_9a099a", "al\u0259t")}`}
+              </span>
+            </div>
+            <div className="a-tool-grid compact">
+              {group.list.map((tool, index) => {
                 const Icon = tool.icon;
                 const available = isToolAvailable(tool);
                 const needsPremium = (tool.isLocked || tool.isPremium) && !isPremium;
-
                 return (
                   <motion.button
                     key={tool.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    data-tour={`tool-${tool.id}`}
+                    initial={{ opacity: 0, scale: 0.96 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ delay: Math.min(index * 0.015, 0.18) }}
-                    onClick={() => tool.id === 'cakes' ? openTool('cakes') : handleToolClick(tool)}
-                    className="a-tool-tile"
+                    transition={{ delay: Math.min(index * 0.012, 0.15) }}
+                    onClick={() => tool.id === 'cakes' ? openTool('cakes') : tool.id === 'mini-games' ? gatedOpenTool('mini-games') : handleToolClick(tool)}
+                    className={`a-tool-tile${needsPremium ? ' is-locked' : ''}`}
+                    aria-label={needsPremium ? `${tool.name} · Premium` : tool.name}
                     style={!available ? { opacity: 0.4 } : undefined}>
-                    
-                    {/* Premium/Lock indicator */}
-                    {needsPremium &&
-                    <span className="a-crown-chip">
-                        <Lock size={10} strokeWidth={2.6} />
-                      </span>
-                    }
-                    {!needsPremium && tool.isPremium &&
-                    <span className="a-crown-chip">
-                        <Crown size={10} strokeWidth={2.6} />
-                      </span>
-                    }
-                    
-                    {/* Icon */}
+                    {needsPremium && <span className="a-crown-chip"><Lock size={9} strokeWidth={2.8} /></span>}
                     <span className="a-tool-icon" style={{ background: TILE_GRADIENTS[index % TILE_GRADIENTS.length], color: TILE_INKS[index % TILE_INKS.length] }}>
                       <Icon size={17} strokeWidth={2} />
                     </span>
-                    
                     <p className="a-tool-title">{tool.name}</p>
-                    <p className="a-tool-sub">
-                      {(() => {
-                        if (language === 'en' && tool.id === 'photoshoot') return 'Create magical photoshoots for your baby';
-                        if (language === 'en' && tool.id === 'recipes' && tool.description?.includes('resept')) return 'Healthy and delicious recipes';
-                        return tool.description;
-                      })()}
-                    </p>
                   </motion.button>);
-
               })}
-          </div>
-        </section>
+            </div>
+          </section>
+        ))}
 
         {/* Empty State */}
         {displayedTools.length === 0 &&
