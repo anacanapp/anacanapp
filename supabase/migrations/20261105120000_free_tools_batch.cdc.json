@@ -1,0 +1,10 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261105120000_free_tools_batch.sql",
+  "runtime": "google-tools",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; rows updated through the guarded admin path, tool_configs already carries CDC/writer triggers",
+  "relations": [
+    { "relation": "public.tool_configs", "change": "rows updated", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "is_premium=false, premium_type=none; flow/bump/mommy_active aligned to life_stages for doctors, hospital, danger-signs, vaccine-calendar, baby-album, pregnancy-album, mood" }
+  ]
+}
