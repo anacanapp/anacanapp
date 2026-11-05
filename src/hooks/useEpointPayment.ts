@@ -68,7 +68,8 @@ export const useEpointPayment = () => {
       if (response.ok && result.success === true && typeof result.redirectUrl === 'string') {
         const redirect = new URL(result.redirectUrl);
         if (redirect.protocol !== 'https:' || redirect.username || redirect.password || redirect.port
-          || (redirect.hostname !== 'epoint.az' && !redirect.hostname.endsWith('.epoint.az'))) {
+          // Epoint opens its acquiring bank's page (e.g. ecomm.pashabank.az), so any .az host is accepted.
+          || (redirect.hostname !== 'epoint.az' && !redirect.hostname.endsWith('.az'))) {
           throw new Error('invalid_payment_redirect');
         }
         // Redirect to Epoint payment page

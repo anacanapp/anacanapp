@@ -77,7 +77,8 @@ function httpsUrl(value: unknown, provider = false): string {
   let url: URL;
   try { url = new URL(value); } catch { throw new PaymentError(400, 'invalid_redirect'); }
   if (url.protocol !== 'https:' || url.username || url.password || url.port
-    || (provider && url.hostname !== 'epoint.az' && !url.hostname.endsWith('.epoint.az'))) {
+    // Epoint returns its acquiring bank's page (e.g. ecomm.pashabank.az), so any .az host is a valid provider page.
+    || (provider && url.hostname !== 'epoint.az' && !url.hostname.endsWith('.az'))) {
     throw new PaymentError(400, 'invalid_redirect');
   }
   return url.href;
@@ -160,7 +161,8 @@ Deno.serve(async (req: Request) => {
         const data = encodeData({ public_key: publicKey, ...payload });
         const signature = await createSignature(privateKey, data);
         const response = await fetch(`https://epoint.az/api/1/${path}`, {
-          method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          // Epoint sits behind Cloudflare, which rejects requests without a client User-Agent (error 1010).
+          method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json', 'User-Agent': 'Anacan/1.0 (+https://anacan.az)' },
           body: new URLSearchParams({ data, signature }).toString(), redirect: 'error',
           signal: AbortSignal.timeout(15_000),
         });

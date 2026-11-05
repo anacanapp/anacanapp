@@ -6,7 +6,7 @@
 // in "Kitablarım" in the app.
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.1';
 import { bookOrderTotal, bookUnitPrice, MAX_BOOKS_PER_ORDER } from '../_shared/book-pricing.ts';
-import { epointConfig, epointRequest } from '../_shared/epoint.ts';
+import { epointConfig, epointRequest, isCheckoutUrl } from '../_shared/epoint.ts';
 import { WEBSITE_ORIGINS } from '../_shared/dodo.ts';
 
 const SITE = 'https://anacan.az';
@@ -135,13 +135,17 @@ Deno.serve(async (req) => {
 
   async function startPayment(table: 'book_orders' | 'cake_orders', orderId: string, amount: number, description: string, page: string, extra: Record<string, unknown>) {
     try {
-      const { ok, result } = await epointRequest(config, 'request', {
+      const { ok, httpStatus, result } = await epointRequest(config, 'request', {
         amount: amount.toFixed(2), currency: 'AZN', language: 'az', order_id: orderId, description,
         success_redirect_url: `${SITE}/az/${page}/?odenis=ugurlu&sifaris=${orderId}`,
         error_redirect_url: `${SITE}/az/${page}/?odenis=xeta&sifaris=${orderId}`,
       });
       const url = typeof result.redirect_url === 'string' ? result.redirect_url : '';
-      if (!ok || result.status !== 'success' || !/^https:\/\/([a-z0-9-]+\.)*epoint\.az\//.test(url)) throw new Error('epoint_no_url');
+      if (!ok || result.status !== 'success' || !isCheckoutUrl(url)) {
+        // Provider answer only (no keys, card or customer data): http status, Epoint status/message, redirect host.
+        console.error('[web-shop] epoint request rejected:', JSON.stringify({ http: httpStatus, status: result.status ?? null, message: typeof result.message === 'string' ? result.message.slice(0, 120) : null, host: url ? url.split('/')[2] : null }));
+        throw new Error('epoint_no_url');
+      }
       const transaction = typeof result.transaction === 'string' ? result.transaction.slice(0, 128) : null;
       await admin.from(table).update({ provider_transaction: transaction, updated_at: new Date().toISOString() }).eq('id', orderId);
       return reply(200, { checkout_url: url, order_id: orderId, amount, ...extra });

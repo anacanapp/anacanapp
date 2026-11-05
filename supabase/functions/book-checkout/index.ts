@@ -5,7 +5,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.1';
 import { requireUser } from '../_shared/auth.ts';
 import { bookOrderTotal, bookUnitPrice, MAX_BOOKS_PER_ORDER } from '../_shared/book-pricing.ts';
-import { epointConfig, epointLanguage, epointRequest } from '../_shared/epoint.ts';
+import { epointConfig, epointLanguage, epointRequest, isCheckoutUrl } from '../_shared/epoint.ts';
 import { LANGUAGE_CODES } from '../_shared/languages.ts';
 
 const headers = {
@@ -65,7 +65,7 @@ Deno.serve(async (req) => {
       error_redirect_url: `${APP}/payment/error?kind=books&order=${order.id}`,
     });
     const url = typeof result.redirect_url === 'string' ? result.redirect_url : '';
-    if (!ok || result.status !== 'success' || !/^https:\/\/([a-z0-9-]+\.)*epoint\.az\//.test(url)) throw new Error('epoint_no_url');
+    if (!ok || result.status !== 'success' || !isCheckoutUrl(url)) throw new Error('epoint_no_url');
     await admin.from('book_orders').update({ provider_transaction: typeof result.transaction === 'string' ? result.transaction : null, updated_at: new Date().toISOString() }).eq('id', order.id);
     return json(200, { checkout_url: url, order_id: order.id, amount, unit_price: unit });
   } catch (e) {

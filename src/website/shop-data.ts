@@ -41,11 +41,20 @@ export async function readShopReady(kind: ShopKind): Promise<boolean> {
   } catch { return false; }
 }
 
+/** Epoint opens its acquiring bank's page (e.g. https://ecomm.pashabank.az/...), not only *.epoint.az. */
+export function isCheckoutUrl(value: unknown): value is string {
+  if (typeof value !== 'string' || value.length > 2048) return false;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password && !url.port && (url.hostname === 'epoint.az' || url.hostname.endsWith('.az'));
+  } catch { return false; }
+}
+
 export async function startShopCheckout(body: Record<string, unknown>): Promise<{ url?: string; error?: string; status: number }> {
   try {
     const response = await fetch(SHOP_FUNCTION, { method: 'POST', credentials: 'omit', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     const value = await response.json().catch(() => ({}));
-    const url = typeof value?.checkout_url === 'string' && /^https:\/\/([a-z0-9-]+\.)*epoint\.az\//.test(value.checkout_url) ? value.checkout_url : undefined;
+    const url = isCheckoutUrl(value?.checkout_url) ? value.checkout_url : undefined;
     return { url, error: typeof value?.error === 'string' ? value.error : undefined, status: response.status };
   } catch { return { error: 'network', status: 0 }; }
 }

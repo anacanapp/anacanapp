@@ -1,0 +1,10 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261105150000_epoint_sales_live.sql",
+  "runtime": "google-payments",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; rows updated through the guarded admin path",
+  "relations": [
+    { "relation": "public.app_settings", "change": "rows updated", "cdc": true, "writer_guard": true, "pii": false, "note": "books_payments_enabled=true, cakes_web_payments_enabled=true" },
+    { "relation": "public.payment_methods", "change": "rows updated", "cdc": true, "writer_guard": true, "pii": false, "note": "card_simulated is_active=false" }
+  ]
+}

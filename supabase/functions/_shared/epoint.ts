@@ -59,16 +59,32 @@ export async function verify(data: string, signature: string, privateKey: string
   return diff === 0;
 }
 
+/** Epoint sits behind Cloudflare, which rejects requests without a client User-Agent (error 1010). */
+export const EPOINT_HEADERS = { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json', 'User-Agent': 'Anacan/1.0 (+https://anacan.az)' };
+
+/**
+ * Epoint answers with its acquiring bank's payment page (2026-11: https://ecomm.pashabank.az/...), not only
+ * *.epoint.az. The URL comes from Epoint's own TLS response, so any https .az host without credentials/port is accepted.
+ */
+export function isCheckoutUrl(value: unknown): value is string {
+  if (typeof value !== 'string' || value.length > 2048) return false;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password && !url.port
+      && (url.hostname === 'epoint.az' || url.hostname.endsWith('.az'));
+  } catch { return false; }
+}
+
 export async function epointRequest(config: EpointConfig, path: 'request' | 'get-status', payload: Record<string, unknown>) {
   const { publicKey, privateKey } = config;
   const data = encodeData({ public_key: publicKey, ...payload });
   const body = new URLSearchParams({ data, signature: await sign(data, privateKey) });
   const response = await fetch(`${API}/${path}`, {
     method: 'POST', body, redirect: 'error', signal: AbortSignal.timeout(20_000),
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    headers: EPOINT_HEADERS,
   });
   const result = await response.json().catch(() => ({}));
-  return { ok: response.ok, result: result as Record<string, unknown> };
+  return { ok: response.ok, httpStatus: response.status, result: result as Record<string, unknown> };
 }
 
 /** Epoint checkout languages: az, en, ru. */
