@@ -68,6 +68,7 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
           return (
             <motion.button
               key={tab.id}
+              data-tour={`tab-${tab.id}`}
               onClick={() => onTabChange(tab.id)}
               className={`a-nav-item${isActive ? ' active' : ''}`}
               whileTap={{ scale: 0.92 }}

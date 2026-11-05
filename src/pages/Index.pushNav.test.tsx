@@ -37,6 +37,7 @@ vi.mock('@/lib/analytics', () => ({ analytics: { logScreenView: vi.fn() } }));
 vi.mock('@/components/ErrorBoundary', () => ({ default: ({ children }: any) => children }));
 vi.mock('@/components/SplashScreen', () => ({ needsBrandSplash: () => true, default: ({ onComplete }: any) => <button onClick={onComplete}>Finish splash</button> }));
 vi.mock('@/components/AppIntroduction', () => ({ default: () => null }));
+vi.mock('@/components/onboarding/OnboardingTourHost', () => ({ default: () => null }));
 vi.mock('@/components/InitialLanguageScreen', () => ({ default: () => null }));
 vi.mock('@/components/AuthScreen', () => ({ default: () => null }));
 vi.mock('@/components/OnboardingScreen', () => ({ default: () => null }));

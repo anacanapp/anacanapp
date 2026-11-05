@@ -1,4 +1,5 @@
-import { tr } from "@/lib/tr";import { useState, useEffect, useCallback, useRef } from 'react';
+import { tr } from "@/lib/tr";import { isNewAccount, PUSH_GRANTED_EVENT } from '@/lib/onboardingTour';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { isNative, isIOS, isAndroid } from '@/lib/native';
@@ -114,7 +115,9 @@ export const useDeviceToken = () => {
       const today = new Date().toDateString();
       const lastPrompt = localStorage.getItem('last_push_prompt_date');
 
-      if (permStatus.receive !== 'granted') {
+      // New accounts (< 24h): the onboarding funnel and the in-app tour own the first push prompt,
+      // so the daily auto-prompt and the "allow in settings" toast wait until the next day.
+      if (permStatus.receive !== 'granted' && !isNewAccount(user.created_at)) {
         if (lastPrompt !== today) {
           localStorage.setItem('last_push_prompt_date', today);
           
@@ -289,6 +292,13 @@ export const useDeviceToken = () => {
       console.error('[DeviceToken] Unregister exception:', err);
     }
   }, [user, token]);
+
+  // The in-app tour asked for push and the user allowed it: register this device now.
+  useEffect(() => {
+    const onGranted = () => { if (!isNative || !user) return; registrationAttempted.current = false; void registerDevice(); };
+    window.addEventListener(PUSH_GRANTED_EVENT, onGranted);
+    return () => window.removeEventListener(PUSH_GRANTED_EVENT, onGranted);
+  }, [user, registerDevice]);
 
   // Auto-register on mount if native and user exists; reset on user change
   useEffect(() => {

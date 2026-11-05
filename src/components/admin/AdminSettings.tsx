@@ -41,6 +41,7 @@ const MANAGED_SETTING_KEYS = [
   'mommy_hero_variant',
   'bottom_nav_style',
   'profile_layout',
+  'inapp_onboarding',
   'dark_mode_enabled',
   'ai_model',
   'app_version',
@@ -308,6 +309,15 @@ const AdminSettings = () => {
                     <SelectItem value="classic">Klassik (əvvəlki uzun səhifə)</SelectItem>
                   </SelectContent>
                 </Select>
+                <label className="text-sm font-medium mt-4 mb-2 block text-foreground">Tətbiqdaxili onboarding turu (Glass)</label>
+                <Select value={getSettingValue('inapp_onboarding', 'off')} onValueChange={(value) => updateSetting('inapp_onboarding', value)}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="on">Aktiv: yeni istifadəçilərə ilk açılışda göstərilir</SelectItem>
+                    <SelectItem value="off">Söndürülüb</SelectItem>
+                  </SelectContent>
+                </Select>
+                <p className="text-xs text-muted-foreground">Yalnız funksiya əlavə olunandan sonra qeydiyyatdan keçən, hesabı 14 gündən gənc hesablar görür. Hər istifadəçi turu bir dəfə görür.</p>
                 <p className="text-xs text-muted-foreground">Yadda saxlayandan sonra istifadəçilərdə tətbiq yenidən açılanda və ya 5 dəqiqə ərzində dəyişir.</p>
               </div>
             </Card>

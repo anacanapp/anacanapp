@@ -5,6 +5,43 @@ bitəndən sonra istifadəçi tətbiqi ilk dəfə tam açır. Bu sənəd həmin 
 nə göstərdiyimizi təsvir edir. İnteraktiv prototip: `docs/prototypes/inapp-onboarding.html`
 (Ana / Hamilə / Dövr, light / dark).
 
+## Tətbiqdə (2026-11-05, Glass)
+- **Açar:** Admin → Tənzimləmələr → "Tətbiqdaxili onboarding turu (Glass)": `app_settings.inapp_onboarding`
+  `on` / `off` (default `off`). Public RPC allowlist-də var (`get_public_app_setting`).
+- **Kim görür** (`isTourEligible`, `src/lib/onboardingTour.ts`):
+  - açar `on` olmalıdır;
+  - hesab `inapp_onboarding_since`-dən (miqrasiyanın tətbiq vaxtı) sonra yaradılmış və 14 gündən gənc olmalıdır;
+  - `profiles.onboarding_journey` boş olmalıdır;
+  - partnyor rolu, loss mode və funnel-i bitirməmiş istifadəçi görmür.
+- **Nə vaxt başlayır:** bütün ilk açılış pəncərələri bağlanandan sonra (splash, intro, məxfilik razılığı,
+  app-lock təklifi, feedback). Premium vəziyyəti dəqiq bilinməlidir (`entitlementReady`). Tur açıq olanda
+  app-lock təklifi və feedback gözləyir.
+- **Təkrar yoxdur:** başlayanda `onboarding_journey = {status: 'started'}`, sonda `done` / `skipped` yazılır
+  (+ localStorage). Yarımçıq qalan tur da bir daha göstərilmir.
+- **Plan** (`buildTourPlan`):
+  - Xoş gəldin;
+  - Əhval Gündəliyi: Alətlər tabı → kafel → alətin içi, "Bu gün necəsiniz?";
+  - Alətlər:
+    - Free istifadəçi: "Ödənişsiz alətlər" bölməsi və 2 açıq alət;
+    - Premium istifadəçi: "Premium alətlər" bölməsi və 2 Premium alət;
+  - Anacan AI: Free üçün `free_limits.ai_chat_count_per_day` dəyəri, Premium üçün limitsiz;
+  - İcma;
+  - Premium (yalnız Free istifadəçilər);
+  - Hazırsınız.
+  Alət siyahısı Tools səhifəsi ilə eyni qaydadan keçir: `isToolOpenForUser`, mərhələ aktivliyi, deaktiv alətlər.
+- **Push:** yalnız `checkPermissions() = prompt` olanda bir dəfə soruşulur (vebdə heç vaxt). "Bəli" deyəndə
+  `anacan:push-granted` göndərilir və `useDeviceToken` cihazı dərhal qeydiyyatdan keçirir. 24 saatdan gənc
+  hesablarda `useDeviceToken`-in gündəlik avtomatik sorğusu və "Ayarlardan icazə verin" toast-u işləmir.
+- **Naviqasiya:** `tourNavigate` (Index):
+  - alət açmaq üçün ToolsHub yenidən mount olunur (`initialTool`);
+  - tab keçidi `setActiveTab` ilə edilir;
+  - hədəflər `data-tour="..."` atributu ilə işarələnib: BottomNav, Tools bölmələri və kafelləri.
+- **Fayllar:**
+  - `src/components/onboarding/GlassTour.tsx`, `OnboardingTourHost.tsx`, `glass-tour.css`;
+  - testlər: `src/lib/onboardingTour.test.ts`, `GlassTour.test.tsx`;
+  - mətnlər `obtour_*`, 23 dildə;
+  - miqrasiya `20261105130000_inapp_onboarding.sql`.
+
 ## v3 (2026-11-05): bələdçi turu real ekranlarda
 Prototip: `docs/prototypes/inapp-onboarding-v3.html`. Stillər: **Glass** (şüşə panellər, canlı
 fon, light/dark), **Sakit** (ağ kart, oxla hədəfə işarə), **Cəsur** (coral alt panel),

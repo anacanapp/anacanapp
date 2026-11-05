@@ -5,6 +5,7 @@ import SplashScreen, { needsBrandSplash } from '@/components/SplashScreen';
 import StartupScreen from '@/components/StartupScreen';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import AppIntroduction from '@/components/AppIntroduction';
+import type { TourNav } from '@/lib/onboardingTour';
 import InitialLanguageScreen from '@/components/InitialLanguageScreen';
 import AuthScreen from '@/components/AuthScreen';
 import { fetchEmailVerificationState } from '@/lib/email-verification';
@@ -52,6 +53,7 @@ import BlogLinkHost from '@/components/blog/BlogLinkHost';
 const PENDING_FUNNEL_KEY = 'anacan_pending_funnel';
 
 // Lazy load heavy screens
+const OnboardingTourHost = lazy(() => import('@/components/onboarding/OnboardingTourHost'));
 const PremiumOnboarding = lazy(() => import('@/components/onboarding/PremiumOnboarding'));
 const EmailVerificationScreen = lazy(() => import('@/components/EmailVerificationScreen'));
 const Dashboard = lazy(() => import('@/components/Dashboard'));
@@ -183,22 +185,24 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   // First Home visit after onboarding: offer Face ID / fingerprint + PIN once (native, lock not on yet).
   const [lockOffer, setLockOffer] = useState(false);
   const [lockSetup, setLockSetup] = useState(false);
+  // In-app onboarding tour on screen: the other first-run sheets wait for it.
+  const [tourActive, setTourActive] = useState(false);
   useEffect(() => {
-    if (!user?.id || activeTab !== 'home' || activeScreen || activeTool || !shouldOfferLock() || promptShownToday()) return;
+    if (tourActive || !user?.id || activeTab !== 'home' || activeScreen || activeTool || !shouldOfferLock() || promptShownToday()) return;
     const id = window.setTimeout(() => {markLockOfferSeen();markPromptShown();setLockOffer(true);}, 1500);
     return () => window.clearTimeout(id);
-  }, [user?.id, activeTab, activeScreen, activeTool]);
+  }, [user?.id, activeTab, activeScreen, activeTool, tourActive]);
   // In-app feedback form (team only, never a store link): once, from day 14, after 20 s on Home.
   useEffect(() => {noteFirstOpen();}, []);
   useEffect(() => {
-    if (!user?.id || activeTab !== 'home' || activeScreen || activeTool) return;
+    if (tourActive || !user?.id || activeTab !== 'home' || activeScreen || activeTool) return;
     const id = window.setTimeout(() => {
       const lossRecovery = !!(profile as { loss_recovery_active?: boolean } | null)?.loss_recovery_active;
       const accountCreatedAt = (user as { created_at?: string }).created_at ?? null;
       if (Capacitor.isNativePlatform() && shouldAutoPromptFeedback({ accountCreatedAt, lossRecovery })) {markPromptShown();setAutoFeedback(true);}
     }, 20_000);
     return () => window.clearTimeout(id);
-  }, [user?.id, activeTab, activeScreen, activeTool]);
+  }, [user?.id, activeTab, activeScreen, activeTool, tourActive]);
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get('blog_language');
     if (!isAppLanguage(requested || '') || requested === language) return;
@@ -502,6 +506,22 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     if (screen === 'home') { setActiveScreen(null); setActiveTab('home'); }
     else setActiveScreen(screen);
   };
+
+  // In-app onboarding tour moves the real app between screens: a tool opens through a fresh Tools hub
+  // (initialTool is read on mount), a tab shows its root screen.
+  const tourNavigate = useCallback((nav: TourNav) => {
+    setActiveScreen(null);
+    setShowMotherChat(false);
+    if (nav.tool) {
+      setActiveTool(nav.tool);
+      setToolOpenedFromDashboard(false);
+      setToolsResetKey((k) => k + 1);
+      setActiveTab('tools');
+      return;
+    }
+    if (nav.tab === 'tools') { setActiveTool(null); setToolOpenedFromDashboard(false); setToolsResetKey((k) => k + 1); }
+    setActiveTab(nav.tab);
+  }, []);
 
   // Handle tool navigation from Dashboard
   const handleNavigateToTool = (tool: string) => {
@@ -982,6 +1002,11 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       <AppLockSetupSheet open={lockSetup} preferBio onClose={() => setLockSetup(false)} />
       {Capacitor.isNativePlatform() && (lifeStage === 'bump' || lifeStage === 'mommy') && <HomeWidgetSync />}
       
+      {role !== 'partner' &&
+        <Suspense fallback={null}>
+          <OnboardingTourHost blocked={lockOffer || lockSetup || autoFeedback || showAdmin || blogOverlayOpen} onNavigate={tourNavigate} onRunningChange={setTourActive} />
+        </Suspense>}
+
       {/* Bottom navigation with safe area */}
       <BottomNav activeTab={activeTab} onTabChange={handleTabChange} isPartner={role === 'partner'} />
     </div>
