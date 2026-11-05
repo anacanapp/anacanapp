@@ -9,6 +9,10 @@ import { supabase } from '@/integrations/supabase/client';
 import { Capacitor } from '@capacitor/core';
 import { createBrandExposure } from '@/lib/ads/brandMeasurement';
 import { safeAdUrl } from '@/lib/brand-ads';
+import { parseDeeplink } from '@/lib/deeplink';
+
+/** In-app deeplink event: banners (and other UI) open any app route such as /books, /cakes or /tool/{id}. Index.tsx handles it. */
+export const APP_DEEPLINK_EVENT = 'anacan:deeplink';
 import { leadText } from '@/lib/ads/leadForm';
 import NativeAdCard from './NativeAdCard';
 import LeadFormSheet from './LeadFormSheet';
@@ -67,12 +71,13 @@ const BannerSlot = ({ placement, onNavigate, onToolOpen, className = '' }: Banne
       case 'external':
         window.open(safeAdUrl(banner.link_url)!, '_blank', 'noopener,noreferrer');
         break;
-      case 'internal':
-        if (onNavigate) {
-          const screen = banner.link_url.replace('/', '');
-          onNavigate(screen);
-        }
+      case 'internal': {
+        // Internal links are app deeplink paths (/books, /cakes, /tool/names, /premium...).
+        const parsed = parseDeeplink(banner.link_url);
+        if (parsed) window.dispatchEvent(new CustomEvent(APP_DEEPLINK_EVENT, { detail: parsed }));
+        else if (onNavigate) onNavigate(banner.link_url.replace('/', ''));
         break;
+      }
       case 'tool':
         if (onToolOpen) {
           onToolOpen(banner.link_url);

@@ -25,6 +25,8 @@ export const DEEPLINK_ROUTES: DeeplinkRoute[] = [
 { key: 'community', label: 'Community', label_az: 'İcma', pattern: '/community', example: '/community', category: tr("deeplink_esas_6d87f7", "\u018Fsas"), description_az: tr("deeplink_i_cma_bolmesini_acir_7abff0", "\u0130cma b\xF6lm\u0259sini a\xE7\u0131r") },
 { key: 'profile', label: 'Profile', label_az: 'Profil', pattern: '/profile', example: '/profile', category: tr("deeplink_esas_6d87f7", "\u018Fsas"), description_az: tr("deeplink_profil_bolmesini_acir_d98cb4", "Profil b\xF6lm\u0259sini a\xE7\u0131r") },
 { key: 'cakes', label: 'Cakes', label_az: 'Tortlar', pattern: '/cakes', example: '/cakes', category: tr("deeplink_esas_6d87f7", "\u018Fsas"), description_az: tr("deeplink_tortlar_bolmesini_acir_fdf182", "Tortlar b\xF6lm\u0259sini a\xE7\u0131r") },
+{ key: 'books', label: 'PDF Books', label_az: 'PDF kitablar', pattern: '/books', example: '/books', category: 'Əsas', description_az: 'PDF kitab mağazasını açır (yalnız Azərbaycan dili)' },
+{ key: 'my-books', label: 'My Books', label_az: 'Kitablarım', pattern: '/my-books', example: '/my-books', category: 'Əsas', description_az: 'Alınmış PDF kitabları açır' },
 
 // ─── Tools ───
 { key: 'tool', label: 'Specific Tool', label_az: tr("deeplink_spesifik_alet_3c4b49", "Spesifik Al\u0259t"), pattern: '/tool/{tool_id}', example: '/tool/names', category: tr("deeplink_aletler_4778b4", "Al\u0259tl\u0259r"), description_az: tr("deeplink_mueyyen_bir_aleti_acir_c91de9", "M\xFC\u0259yy\u0259n bir al\u0259ti a\xE7\u0131r") },
@@ -112,6 +114,8 @@ function parseDeeplinkRoute(url: string): ParsedDeeplink | null {
   if (path === '/community') return { action: 'tab', params: { tab: 'community' } };
   if (path === '/profile') return { action: 'tab', params: { tab: 'profile' } };
   if (path === '/cakes') return { action: 'tab', params: { tab: 'cakes' } };
+  if (path === '/books') return { action: 'screen', params: { screen: 'books' } };
+  if (path === '/my-books') return { action: 'screen', params: { screen: 'my-books' } };
 
   // Tool
   const toolMatch = path.match(/^\/tool\/([^/]+)$/);

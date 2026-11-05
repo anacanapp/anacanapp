@@ -448,6 +448,12 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     const cleanup = initDeeplinkListener(handleDeeplink);
     return cleanup;
   }, [handleDeeplink]);
+  // In-app deeplinks (banners): same routing as external links, no app reload.
+  useEffect(() => {
+    const onAppDeeplink = (event: Event) => { const parsed = (event as CustomEvent<ParsedDeeplink>).detail; if (parsed) handleDeeplink(parsed); };
+    window.addEventListener('anacan:deeplink', onAppDeeplink);
+    return () => window.removeEventListener('anacan:deeplink', onAppDeeplink);
+  }, [handleDeeplink]);
   handleDeeplinkRef.current = handleDeeplink;
 
   useEffect(() => {

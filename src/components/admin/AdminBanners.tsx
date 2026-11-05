@@ -576,7 +576,7 @@ const AdminBanners = () => {
                 <Input
                   value={formData.link_url || ''}
                   onChange={(e) => setFormData({ ...formData, link_url: e.target.value })}
-                  placeholder={formData.link_type === 'external' ? 'https://...' : formData.link_type === 'internal' ? '/billing' : 'baby-names'} />
+                  placeholder={formData.link_type === 'external' ? 'https://...' : formData.link_type === 'internal' ? '/books, /cakes, /tool/{id}' : 'baby-names'} />
                 
               </div>
             </div>

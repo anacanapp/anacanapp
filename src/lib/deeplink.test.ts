@@ -26,3 +26,10 @@ it('keeps locale-prefixed articles exact and rejects deceptive destinations',()=
   expect(parseDeeplink('https://gcp.anacan.az/blog/en/%2Fadmin')).toBeNull();
   expect(generateDeeplink('/',{},'scheme')).toBe('anacan:///');
 });
+
+test('opens the PDF book store and purchased books from app and banner deeplinks', () => {
+  expect(parseDeeplink('/books')).toEqual({ action: 'screen', params: { screen: 'books' } });
+  expect(parseDeeplink('anacan://books')).toEqual({ action: 'screen', params: { screen: 'books' } });
+  expect(parseDeeplink('https://app.anacan.az/my-books')).toEqual({ action: 'screen', params: { screen: 'my-books' } });
+  expect(parseDeeplink('/cakes')).toEqual({ action: 'tab', params: { tab: 'cakes' } });
+});
