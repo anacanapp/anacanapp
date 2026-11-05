@@ -692,3 +692,6 @@ export const useAuthContext = (): AuthContextValue => {
   if (!ctx) throw new Error('useAuthContext must be used within AuthProvider');
   return ctx;
 };
+
+/** Same context, but null outside AuthProvider (for widgets rendered anywhere). */
+export const useOptionalAuthContext = (): AuthContextValue | null => useContext(AuthContext);

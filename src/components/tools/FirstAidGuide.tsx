@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { tr } from '@/lib/tr';
+import { fillEmergencyNumber } from '@/lib/emergency';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertTriangle, ChevronRight, ChevronLeft, Phone } from 'lucide-react';
 import { useFirstAidScenarios, useFirstAidSteps, FirstAidScenario } from '@/hooks/useFirstAid';
@@ -16,6 +18,7 @@ interface FirstAidGuideProps {
 const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
   useScrollToTop();
   const isRtl = useIsRtl();
+  const emergency = useEmergencyNumber();
   useScreenAnalytics('FirstAidGuide', 'Tools');
 
   const [selectedScenario, setSelectedScenario] = useState<FirstAidScenario | null>(null);
@@ -76,7 +79,7 @@ const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
           
             {/* Emergency Call Button */}
             <motion.a
-            href="tel:103"
+            href={`tel:${emergency}`}
             className="a-card block w-full mb-3"
             style={{ background: 'var(--a-pink-2)', border: 'none', textDecoration: 'none', padding: '14px 16px' }}
             initial={{ scale: 0.95, opacity: 0 }}
@@ -88,7 +91,7 @@ const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
                   <Phone size={18} strokeWidth={2.2} />
                 </span>
                 <div className="flex-1">
-                  <p className="a-heading" style={{ margin: 0, fontSize: 19, color: '#fff' }}>103</p>
+                  <p className="a-heading" style={{ margin: 0, fontSize: 19, color: '#fff' }}>{emergency}</p>
                   <p style={{ margin: 0, fontSize: 11.5, fontWeight: 600, color: 'rgba(255,255,255,0.85)' }}>{tr("firstaidguide_tecili_tibbi_yardim_b28b39", "Təcili Tibbi Yardım")}</p>
                 </div>
                 <span className="w-8 h-8 rounded-full flex items-center justify-center animate-pulse" style={{ background: 'rgba(255,255,255,0.25)' }}>
@@ -235,12 +238,12 @@ const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
                       </div>
 
                       <a
-                    href="tel:103"
+                    href={`tel:${emergency}`}
                     className="a-btn-soft w-full"
                     style={{ justifyContent: 'center', height: 40, background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)', textDecoration: 'none' }}>
                     
                         <Phone size={13} strokeWidth={2.2} />
-                        {tr("firstaidguide_103_zeng_et_52da85", "103 Z\u0259ng Et")}
+                        {fillEmergencyNumber(tr("firstaidguide_103_zeng_et_52da85", "{emergency} Z\u0259ng Et"), emergency)}
                       </a>
                     </div>
                   </motion.div>

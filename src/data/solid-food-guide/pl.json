@@ -588,6 +588,6 @@
    "Domowe nuggetsy (z piekarnika)"
   ]
  },
- "emergency": "Obrzęk twarzy lub ust, trudności w oddychaniu, powtarzające się wymioty, bladość — natychmiast 103 / 112.",
+ "emergency": "Obrzęk twarzy lub ust, trudności w oddychaniu, powtarzające się wymioty, bladość — natychmiast {emergency}.",
  "disclaimer": "Ten przewodnik ma charakter edukacyjny i nie stanowi porady medycznej. Dawkę żelaza i witamin ustala pediatra. Źródła: WHO (2023), AAP, Ministerstwo Zdrowia Turcji, Związek Pediatrów Rosji, SACN."
 }

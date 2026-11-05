@@ -588,6 +588,6 @@
    "Selbstgemachte Nuggets (aus dem Ofen)"
   ]
  },
- "emergency": "Schwellung von Gesicht oder Lippen, Atemnot, wiederholtes Erbrechen, Blässe — sofort 103 / 112.",
+ "emergency": "Schwellung von Gesicht oder Lippen, Atemnot, wiederholtes Erbrechen, Blässe — sofort {emergency}.",
  "disclaimer": "Dieser Ratgeber dient der Information und ersetzt keine ärztliche Beratung. Eisen- und Vitamindosen legt deine Kinderärztin oder dein Kinderarzt fest. Quellen: WHO (2023), AAP, Türkisches Gesundheitsministerium, Union der Kinderärzte Russlands, SACN."
 }

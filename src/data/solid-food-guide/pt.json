@@ -588,6 +588,6 @@
    "Nuggets caseiros (no forno)"
   ]
  },
- "emergency": "Inchaço no rosto ou nos lábios, dificuldade para respirar, vômitos repetidos, palidez — ligue imediatamente para 103 / 112.",
+ "emergency": "Inchaço no rosto ou nos lábios, dificuldade para respirar, vômitos repetidos, palidez — ligue imediatamente para {emergency}.",
  "disclaimer": "Este guia tem caráter informativo e não substitui orientação médica. As doses de ferro e vitaminas são definidas pelo seu pediatra. Fontes: OMS (2023), AAP, Ministério da Saúde da Turquia, União dos Pediatras da Rússia, SACN."
 }

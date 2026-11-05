@@ -11,6 +11,8 @@ import { takePhoto, pickFromGallery, readImageFileAsDataUrl } from '@/lib/permis
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { tr, getPersistedLanguage } from "@/lib/tr";
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
+import { fillEmergencyNumber } from '@/lib/emergency';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 
 interface PoopScannerProps {
@@ -48,6 +50,7 @@ const concernStyles: Record<string, {grad: string;soft: string;solid: string;ink
 
 const PoopScanner = ({ onBack }: PoopScannerProps) => {
   useScreenAnalytics('PoopScanner', 'Tools');
+  const emergency = useEmergencyNumber();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysis, setAnalysis] = useState<PoopAnalysis | null>(null);
@@ -450,10 +453,10 @@ const PoopScanner = ({ onBack }: PoopScannerProps) => {
                   <button
                     className="a-cta-btn w-full mt-3"
                     style={{ justifyContent: 'center', height: 44, background: 'var(--a-pink-2)' }}
-                    onClick={() => window.open('tel:103', '_blank')}>
+                    onClick={() => window.open(`tel:${emergency}`, '_blank')}>
                     
                           <Phone size={15} strokeWidth={2.2} />
-                          {tr("poopscanner_tecili_yardim_103_176a98", "T\u0259cili yard\u0131m - 103")}
+                          {fillEmergencyNumber(tr("poopscanner_tecili_yardim_103_176a98", "T\u0259cili yard\u0131m - {emergency}"), emergency)}
                         </button>
                   }
                     </div>

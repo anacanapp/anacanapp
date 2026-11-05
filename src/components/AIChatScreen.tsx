@@ -31,6 +31,8 @@ import { useSubscription } from '@/hooks/useSubscription';
 import PremiumModal from '@/components/PremiumModal';
 import MarkdownContent from './MarkdownContent';
 import { tr } from "@/lib/tr";
+import { fillEmergencyNumber } from '@/lib/emergency';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 
 interface Message {
   id: string;
@@ -274,6 +276,7 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
   const lastPeriodDate = partner ? partner.lastPeriodDate ?? null : storeLastPeriodDate;
   const cycleLength = partner ? partner.cycleLength ?? 28 : storeCycleLength;
   const { user, profile } = useAuth();
+  const emergencyNumber = useEmergencyNumber();
   // Əkiz/üçüz və s. — qarşılama mesajı və AI-a göndərilən kontekst buna görə uyğunlaşır
   const isMultiplePregnancy = !!(profile as any)?.multiples_type && (profile as any).multiples_type !== 'single';
   const { messages: savedMessages, addMessage, clearHistory, loading: historyLoading } = useAIChatHistory(partner ? 'partner' : 'woman');
@@ -794,7 +797,7 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
                 overflow: 'hidden'
               }}>
                 {warnExpanded ?
-              tr("aichatscreen_medical_disclaimer_banner", "Anacan.AI tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Verilən məlumatlar yalnız informasiya xarakterli olub yalnız təhsil məqsədi daşıyır. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda 103-ə zəng edin.") :
+              fillEmergencyNumber(tr("aichatscreen_medical_disclaimer_banner", "Anacan.AI tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Verilən məlumatlar yalnız informasiya xarakterli olub yalnız təhsil məqsədi daşıyır. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda {emergency} nömrəsinə zəng edin."), emergencyNumber) :
               tr("aichatscreen_warn_short", "Tibbi məsləhət əvəzi deyil — ətraflı üçün toxunun")}
               </span>
               <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: 6 }}>

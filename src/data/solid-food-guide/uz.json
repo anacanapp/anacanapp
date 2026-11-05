@@ -588,6 +588,6 @@
    "Uy naggetslari (pechda)"
   ]
  },
- "emergency": "Yuz yoki lablar shishishi, nafas qisishi, takroriy qusish, rangparlik — darhol 103 / 112.",
+ "emergency": "Yuz yoki lablar shishishi, nafas qisishi, takroriy qusish, rangparlik — darhol {emergency}.",
  "disclaimer": "Ushbu qoʻllanma maʼrifiy maqsadda boʻlib, tibbiy maslahat emas. Temir va vitamin dozasini pediatringiz belgilaydi. Manbalar: JSST (2023), AAP, Turkiya Sogʻliqni saqlash vazirligi, Rossiya pediatrlar ittifoqi, SACN."
 }

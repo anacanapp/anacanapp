@@ -588,6 +588,6 @@
    "Kodused kananagitsad (küpsetatud)"
   ]
  },
- "emergency": "Näo või huulte turse, hingamisraskused, korduv oksendamine, kahvatus — helista kohe 103 / 112.",
+ "emergency": "Näo või huulte turse, hingamisraskused, korduv oksendamine, kahvatus — helista kohe {emergency}.",
  "disclaimer": "See juhend on informatiivse eesmärgiga ega asenda meditsiinilist nõustamist. Sinu lastearst määrab raua- ja vitamiiniannused. Allikad: WHO (2023), AAP, Türgi Terviseministeerium, Venemaa Pediaatrite Liit, SACN."
 }

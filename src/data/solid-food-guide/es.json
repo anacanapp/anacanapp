@@ -588,6 +588,6 @@
    "Nuggets caseros (al horno)"
   ]
  },
- "emergency": "Hinchazón de cara o labios, dificultad para respirar, vómitos repetidos, palidez: llama de inmediato al 103 / 112.",
+ "emergency": "Hinchazón de cara o labios, dificultad para respirar, vómitos repetidos, palidez: llama de inmediato al {emergency}.",
  "disclaimer": "Esta guía es informativa y no sustituye el consejo médico. Las dosis de hierro y vitaminas las indica tu pediatra. Fuentes: OMS (2023), AAP, Ministerio de Salud de Turquía, Unión de Pediatras de Rusia, SACN."
 }

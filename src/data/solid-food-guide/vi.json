@@ -588,6 +588,6 @@
    "Gà viên nugget tự làm (nướng lò)"
   ]
  },
- "emergency": "Sưng mặt hoặc môi, khó thở, nôn nhiều lần, xanh xao — gọi ngay 103 / 112.",
+ "emergency": "Sưng mặt hoặc môi, khó thở, nôn nhiều lần, xanh xao — gọi ngay {emergency}.",
  "disclaimer": "Cẩm nang này nhằm mục đích cung cấp thông tin, không phải lời khuyên y tế. Liều sắt và vitamin do bác sĩ nhi khoa chỉ định. Nguồn: WHO (2023), AAP, Bộ Y tế Thổ Nhĩ Kỳ, Liên hiệp Bác sĩ Nhi khoa Nga, SACN."
 }

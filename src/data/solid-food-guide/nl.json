@@ -588,6 +588,6 @@
    "Zelfgemaakte nuggets (uit de oven)"
   ]
  },
- "emergency": "Zwelling van gezicht of lippen, moeite met ademen, herhaald braken, bleekheid — direct 103 / 112.",
+ "emergency": "Zwelling van gezicht of lippen, moeite met ademen, herhaald braken, bleekheid — direct {emergency}.",
  "disclaimer": "Deze gids is bedoeld als informatie en is geen medisch advies. De dosering van ijzer en vitamines bepaalt je kinderarts. Bronnen: WHO (2023), AAP, Turks ministerie van Volksgezondheid, Unie van Kinderartsen van Rusland, SACN."
 }

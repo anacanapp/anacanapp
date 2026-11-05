@@ -588,6 +588,6 @@
    "Ev nuggetsi (sobada)"
   ]
  },
- "emergency": "Üz və ya dodaqlarda şişkinlik, nəfəs çətinliyi, təkrar qusma, solğunluq — dərhal 103 / 112.",
+ "emergency": "Üz və ya dodaqlarda şişkinlik, nəfəs çətinliyi, təkrar qusma, solğunluq — dərhal {emergency}.",
  "disclaimer": "Bu bələdçi maarifləndirmə məqsədlidir və tibbi məsləhət deyil. Dəmir və vitamin dozasını pediatrınız təyin edir. Mənbələr: ÜST (2023), AAP, Türkiyə Sağlıq Nazirliyi, Rusiya Pediatrlar İttifaqı, SACN."
 }

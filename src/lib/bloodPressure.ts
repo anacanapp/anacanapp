@@ -78,7 +78,7 @@ export function classifyBp(systolic: number, diastolic: number, isPregnant: bool
       label: tr('bp_cat_crisis', 'Hipertonik böhran'),
       emoji: '🚨',
       bg: 'var(--a-alert-bg)', ink: 'var(--a-alert-ink)',
-      guidance: tr('bp_guide_crisis', 'DƏRHAL təcili yardıma (103) müraciət edin!')
+      guidance: tr('bp_guide_crisis', 'DƏRHAL təcili yardıma ({emergency}) müraciət edin!')
     }
   };
 

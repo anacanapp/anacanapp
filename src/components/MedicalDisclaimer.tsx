@@ -1,5 +1,7 @@
 import { AlertCircle, Stethoscope } from 'lucide-react';
 import { tr } from '@/lib/tr';
+import { fillEmergencyNumber } from '@/lib/emergency';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 
 interface MedicalDisclaimerProps {
   variant?: 'banner' | 'compact' | 'inline' | 'anacan';
@@ -11,10 +13,11 @@ interface MedicalDisclaimerProps {
  * to comply with Google Play Health Content policy.
  */
 const MedicalDisclaimer = ({ variant = 'banner', className = '' }: MedicalDisclaimerProps) => {
-  const text = tr(
+  const emergency = useEmergencyNumber();
+  const text = fillEmergencyNumber(tr(
     'medical_disclaimer_full',
-    tr("medical_disclaimer_text", 'Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda 103-ə zəng edin.')
-  );
+    tr("medical_disclaimer_text", 'Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda {emergency} nömrəsinə zəng edin.')
+  ), emergency);
 
   // Anacan redesign (anacan-demo) frosted disclaimer card
   if (variant === 'anacan') {

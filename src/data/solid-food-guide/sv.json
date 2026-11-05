@@ -588,6 +588,6 @@
    "Hemgjorda nuggets (ugnsbakade)"
   ]
  },
- "emergency": "Svullnad i ansikte eller läppar, andningssvårigheter, upprepade kräkningar, blekhet — ring genast 103 / 112.",
+ "emergency": "Svullnad i ansikte eller läppar, andningssvårigheter, upprepade kräkningar, blekhet — ring genast {emergency}.",
  "disclaimer": "Den här guiden är till för information och är inte medicinsk rådgivning. Dosen av järn och vitaminer bestäms av barnläkaren. Källor: WHO (2023), AAP, Turkiets hälsoministerium, Rysslands barnläkarförbund, SACN."
 }

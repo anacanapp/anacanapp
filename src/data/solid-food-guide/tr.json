@@ -588,6 +588,6 @@
    "Ev yapımı nugget (fırında)"
   ]
  },
- "emergency": "Yüzde veya dudaklarda şişlik, nefes darlığı, tekrarlayan kusma, solukluk — hemen 103 / 112.",
+ "emergency": "Yüzde veya dudaklarda şişlik, nefes darlığı, tekrarlayan kusma, solukluk — hemen {emergency}.",
  "disclaimer": "Bu rehber bilgilendirme amaçlıdır ve tıbbi tavsiye değildir. Demir ve vitamin dozunu çocuk doktorunuz belirler. Kaynaklar: DSÖ (2023), AAP, T.C. Sağlık Bakanlığı, Rusya Pediatristler Birliği, SACN."
 }

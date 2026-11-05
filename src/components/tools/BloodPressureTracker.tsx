@@ -9,6 +9,8 @@ import { useUserStore } from '@/store/userStore';
 import { hapticFeedback } from '@/lib/native';
 import { toast } from 'sonner';
 import { tr } from '@/lib/tr';
+import { fillEmergencyNumber } from '@/lib/emergency';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 
 /**
  * Qan Təzyiqi İzləyicisi — preeklampsiya nəzarəti ilə.
@@ -22,6 +24,7 @@ interface Props {
 const BloodPressureTracker = ({ onBack }: Props) => {
   const lifeStage = useUserStore((s) => s.lifeStage);
   const isPregnant = lifeStage === 'bump';
+  const emergency = useEmergencyNumber();
 
   const { data: logs = [], isLoading } = useBloodPressureLogs();
   const addLog = useAddBpLog();
@@ -115,8 +118,8 @@ const BloodPressureTracker = ({ onBack }: Props) => {
                 {latest?.systolic}/{latest?.diastolic} mmHg. {tr('bp_urgent_text', 'Gözləməyin — dərhal həkiminizə və ya təcili yardıma müraciət edin.')}
               </p>
               <div className="flex gap-2 mt-1">
-                <a href="tel:103" className="a-cta-btn" style={{ background: 'var(--a-pink-ink)', flex: 1, justifyContent: 'center' }}>
-                  <Phone size={14} strokeWidth={2.2} /> 103
+                <a href={`tel:${emergency}`} className="a-cta-btn" style={{ background: 'var(--a-pink-ink)', flex: 1, justifyContent: 'center' }}>
+                  <Phone size={14} strokeWidth={2.2} /> {emergency}
                 </a>
               </div>
             </motion.div>
@@ -218,7 +221,7 @@ const BloodPressureTracker = ({ onBack }: Props) => {
               </div>
             </div>
             <p className="mt-3 leading-relaxed" style={{ fontSize: 12.5, color: 'var(--a-body-text)' }}>
-              {latestAssessment.guidance}
+              {fillEmergencyNumber(latestAssessment.guidance, emergency)}
             </p>
           </div>
         }
@@ -272,8 +275,8 @@ const BloodPressureTracker = ({ onBack }: Props) => {
             <p>🟡 {tr('bp_cat_elevated', 'Yüksəlmiş')}: {isPregnant ? '130–139 / 85–89' : '120–129 / <80'}</p>
             {!isPregnant && <p>🟠 {tr('bp_cat_monitor', 'Yüksəlmiş — izləyin')}: 130–139 / 80–89</p>}
             <p>🔴 {tr('bp_cat_high_reading', 'Yüksək təzyiq')}: ≥140/90{isPregnant ? ` — ${tr('bp_th_preeclampsia', 'hamiləlikdə preeklampsiya riski, həkimə bildirin')}` : ''}</p>
-            {isPregnant && <p>🚨 {tr('bp_urgent_eyebrow', 'Təcili')}: ≥160/110 — {tr('bp_th_crisis', 'dərhal 103')}</p>}
-            <p>🚨 {tr('bp_cat_crisis', 'Hipertonik böhran')}: ≥180/120 — {tr('bp_th_crisis', 'dərhal 103')}</p>
+            {isPregnant && <p>🚨 {tr('bp_urgent_eyebrow', 'Təcili')}: ≥160/110 — {fillEmergencyNumber(tr('bp_th_crisis', 'dərhal {emergency}'), emergency)}</p>}
+            <p>🚨 {tr('bp_cat_crisis', 'Hipertonik böhran')}: ≥180/120 — {fillEmergencyNumber(tr('bp_th_crisis', 'dərhal {emergency}'), emergency)}</p>
           </div>
           <p className="mt-2" style={{ fontSize: 10, color: 'var(--a-disclaimer-ink)', opacity: 0.8 }}>
             {tr('bp_disclaimer', 'Bu alət həkim müayinəsini əvəz etmir.')}

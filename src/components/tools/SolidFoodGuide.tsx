@@ -6,6 +6,8 @@ import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
 import { useSubscription } from '@/hooks/useSubscription';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
+import { fillEmergencyNumber } from '@/lib/emergency';
 import { useRecipes } from '@/hooks/useDynamicContent';
 import { DISH_TAGS, FOODS, FOOD_GROUPS, NUTRIENT_TAGS, PLATE, STAGES, type FoodGroupId, type GuideTag } from '@/data/solidFoodGuide';
 import { fill, useSolidFoodGuideText, type SolidFoodGuideText } from '@/data/solid-food-guide';
@@ -39,6 +41,7 @@ export default function SolidFoodGuide({ onBack }: { onBack: () => void }) {
   const { isPremium } = useSubscription();
   const language = useUserStore((s) => s.language);
   const t = useSolidFoodGuideText(language);
+  const emergency = useEmergencyNumber();
   // Ages come from the Azerbaijani source titles (localized titles use other words for months).
   const { data: sourceTitles = {} } = useQuery({
     queryKey: ['baby-recipe-source-titles'], staleTime: 30 * 60 * 1000,
@@ -156,7 +159,7 @@ export default function SolidFoodGuide({ onBack }: { onBack: () => void }) {
       </div>}
 
       {tab === 'rules' && <div className="sfg-stack">
-        <section className="sfg-alert"><AlertTriangle size={18} /><p>{t.emergency}</p></section>
+        <section className="sfg-alert"><AlertTriangle size={18} /><p>{fillEmergencyNumber(t.emergency, emergency)}</p></section>
         <section className="a-card">
           <h3 className="sfg-h">{u.allergens_title}</h3>
           <p className="a3-meta">{u.allergens_intro}</p>

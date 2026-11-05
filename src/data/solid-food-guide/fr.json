@@ -588,6 +588,6 @@
    "Nuggets maison (au four)"
   ]
  },
- "emergency": "Gonflement du visage ou des lèvres, difficulté à respirer, vomissements répétés, pâleur — appelez immédiatement le 103 / 112.",
+ "emergency": "Gonflement du visage ou des lèvres, difficulté à respirer, vomissements répétés, pâleur — appelez immédiatement le {emergency}.",
  "disclaimer": "Ce guide est informatif et ne remplace pas un avis médical. Les doses de fer et de vitamines sont prescrites par votre pédiatre. Sources : OMS (2023), AAP, ministère turc de la Santé, Union des pédiatres de Russie, SACN."
 }
