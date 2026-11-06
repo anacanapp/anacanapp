@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent } 
 import { ArrowLeft, ArrowUp, Heart, HelpCircle, Leaf, Pause, Play, RotateCcw, Star, Wind } from 'lucide-react';
 import { pushBackHandler } from '@/lib/backButton';
 import { hapticFeedback } from '@/lib/native';
+import { guardHoldSurface, releaseTextFocus } from '@/lib/touch-guards';
 import { useGameAds } from '@/hooks/useGameAds';
 import { trackEvent, useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { useCasualText } from '../casual/useCasualText';
@@ -27,7 +28,7 @@ export default function LeafFlight({ onBack }: { onBack: () => void }) {
   const profileRef = useRef(profile); profileRef.current = profile;
   const [levelNumber, setLevelNumber] = useState<number | null>(null), [phase, setPhase] = useState<'ready' | 'playing' | 'paused' | 'won' | 'lost'>('ready');
   const [help, setHelp] = useState(false), [view, setView] = useState<FlightState | null>(null), [pressed, setPressed] = useState(false), [storageReady, setStorageReady] = useState(true);
-  const round = useRef<FlightState | null>(null), lifting = useRef(false), pointer = useRef<number | null>(null);
+  const round = useRef<FlightState | null>(null), lifting = useRef(false), pointer = useRef<number | null>(null), screen = useRef<HTMLDivElement>(null);
   const phaseRef = useRef(phase); phaseRef.current = phase;
   const definition = useMemo(() => levelNumber === null ? null : flightLevel(levelNumber), [levelNumber]);
   const helpRef = useRef(help); helpRef.current = help;
@@ -38,6 +39,9 @@ export default function LeafFlight({ onBack }: { onBack: () => void }) {
   const save = useCallback(() => { if (round.current && !round.current.won) commit({ ...profileRef.current, round: round.current }); }, [commit]);
   const pause = useCallback(() => { release(); if (phaseRef.current === 'playing') { phaseRef.current = 'paused'; setPhase('paused'); save(); } }, [release, save]);
   const back = useRef(() => {}); back.current = () => { if (levelNumber === null) onBack(); else if (phaseRef.current === 'playing') pause(); else { save(); release(); setLevelNumber(null); } };
+  // Holding the stage or the lift button must never start the iOS long-press
+  // loupe/copy menu, and no text field may keep the QuickType/AutoFill bar open.
+  useEffect(() => { releaseTextFocus(); return guardHoldSurface(screen.current, '.flight-stage,.flight-lift'); }, []);
   useEffect(() => {
     const overflow = document.body.style.overflow; document.body.style.overflow = 'hidden';
     const releaseBack = pushBackHandler(() => { if (helpRef.current) return false; back.current(); return true; });
@@ -82,7 +86,7 @@ export default function LeafFlight({ onBack }: { onBack: () => void }) {
     setView(round.current); setLevelNumber(level); phaseRef.current = round.current.lost ? 'lost' : 'ready'; setPhase(phaseRef.current);
     commit({ ...profileRef.current, round: round.current });
   };
-  const play = () => { release(); phaseRef.current = 'playing'; setPhase('playing'); trackEvent('minigame_level_started', { game_id: LEAF_FLIGHT_ID, level: levelNumber }); };
+  const play = () => { release(); releaseTextFocus(); phaseRef.current = 'playing'; setPhase('playing'); trackEvent('minigame_level_started', { game_id: LEAF_FLIGHT_ID, level: levelNumber }); };
   const restart = () => { if (levelNumber === null) return; release(); round.current = createFlightState(levelNumber); setView(round.current); commit({ ...profileRef.current, round: round.current }); phaseRef.current = 'ready'; setPhase('ready'); gameAds.resetRound(); };
   const pointerDown = (event: PointerEvent<HTMLElement>) => {
     if (phaseRef.current !== 'playing' || help || waiting.current || pointer.current !== null || event.button !== 0 || event.isPrimary === false) return;
@@ -92,7 +96,7 @@ export default function LeafFlight({ onBack }: { onBack: () => void }) {
   const result = definition && view?.won ? flightResult(definition, view) : null;
   const modal = levelNumber !== null && phase !== 'playing';
   const title = help ? t('help') : phase === 'won' ? t('flightWon') : phase === 'lost' ? t('flightLost') : phase === 'ready' ? t('flightTitle') : t('pause');
-  return createPortal(<div className="cg-screen flight-screen" lang={language} dir={dir} data-testid="leaf-flight-screen" data-game-id={LEAF_FLIGHT_ID} data-game-phase={levelNumber === null ? 'menu' : phase} data-ad-block="true" data-ad-allow={gameAds.allowedPlacements}>
+  return createPortal(<div ref={screen} className="cg-screen flight-screen" lang={language} dir={dir} data-testid="leaf-flight-screen" data-game-id={LEAF_FLIGHT_ID} data-game-phase={levelNumber === null ? 'menu' : phase} data-ad-block="true" data-ad-allow={gameAds.allowedPlacements}>
     <div className="cg-shell"><header className="cg-header"><button type="button" className="cg-icon" aria-label={t('back')} onClick={() => back.current()}><ArrowLeft className="cg-back-arrow" size={20} /></button>
       <div><span>{levelNumber === null ? CASUAL_BRAND : t('flightTitle')}</span><h1>{levelNumber === null ? t('flightTitle') : t('level', { level: levelNumber })}</h1></div>
       <button type="button" className="cg-icon" aria-label={t('help')} onClick={() => { pause(); setHelp(true); }}><HelpCircle size={19} /></button></header>

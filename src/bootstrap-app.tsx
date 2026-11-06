@@ -1,6 +1,7 @@
 // Loaded only AFTER backend admission. Every app service below can import the SDK.
 import { createRoot } from 'react-dom/client';
 import { initializeNativeFeatures } from './lib/native';
+import { installTouchGuards } from './lib/touch-guards';
 import { initCrashReporter } from './lib/crashReporter';
 import { initFacebookEvents } from './lib/facebook-events';
 import { loadPrivacyConsent } from './lib/privacyConsent';
@@ -27,6 +28,13 @@ async function restorePreferences() {
 }
 
 export async function startApp() {
+  // Before any await: the startup/login screens must already have the native
+  // no-selection/no-callout styling and the game/long-press guards.
+  try {
+    const cap = (window as any)?.Capacitor;
+    if (typeof cap?.isNativePlatform === 'function' && cap.isNativePlatform()) document.body.classList.add('native-app');
+  } catch { /* Native styling is optional. */ }
+  installTouchGuards();
   // A transient refresh failure must not mount the login form. Bound startup even
   // when the SDK is retrying an unavailable grant; keep the backup for next boot.
   let recoveryTimer: ReturnType<typeof setTimeout> | undefined;
@@ -46,10 +54,6 @@ export async function startApp() {
   initFacebookEvents();
   void loadPrivacyConsent();
   initializeNativeFeatures().catch(console.error);
-  try {
-    const cap = (window as any)?.Capacitor;
-    if (typeof cap?.isNativePlatform === 'function' && cap.isNativePlatform()) document.body.classList.add('native-app');
-  } catch { /* Native styling is optional. */ }
   import('./lib/backButton').then(m => m.initBackButtonHandler()).catch(console.error);
 
   // The selected realm's backup is restored before React can show a login screen.

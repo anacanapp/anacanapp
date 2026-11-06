@@ -32,6 +32,7 @@ import { shouldPersistQuery } from '@/lib/query-persist-policy';
 import { AdExperienceProvider } from '@/components/ads/AdExperienceProvider';
 import '@/styles/ads.css';
 import '@/styles/keyboard.css';
+import '@/styles/game-surface.css';
 import { installKeyboardViewport } from '@/lib/keyboard-viewport';
 import { PremiumEntitlementMonitor } from '@/hooks/usePremiumEntitlement';
 import ScreenCaptureGuard from '@/components/security/ScreenCaptureGuard';

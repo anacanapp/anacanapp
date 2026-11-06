@@ -33,3 +33,25 @@ html[data-keyboard-open="true"] textarea {
   overflow-y: auto;
   scroll-padding-block: 16px;
 }
+/* Custom fixed overlays/bars (not Radix sheets/dialogs) that iOS would leave under
+   the keyboard: lib/keyboard-viewport.ts marks them while a field inside is focused. */
+html[data-keyboard-open="true"] [data-keyboard-lifted="fill"] {
+  top: var(--app-visual-top, 0px) !important;
+  height: var(--app-visual-height, 100dvh) !important;
+  max-height: var(--app-visual-height, 100dvh) !important;
+  bottom: auto !important;
+}
+/* A non-scrolling overlay (e.g. items-end backdrop + sheet) lets the sheet that
+   holds the field scroll inside the visible area. */
+html[data-keyboard-open="true"] [data-keyboard-lifted-child] {
+  max-height: 100% !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scroll-padding-block: 16px;
+}
+html[data-keyboard-open="true"] [data-keyboard-lifted="bottom"] {
+  bottom: var(--app-keyboard-inset, 0px) !important;
+  max-height: calc(var(--app-visual-height, 100dvh) - 16px) !important;
+  overflow-y: auto;
+  scroll-padding-block: 16px;
+}

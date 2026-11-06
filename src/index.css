@@ -324,6 +324,29 @@
     -webkit-user-select: none;
     user-select: none;
     -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Şəkil/ikon uzun basılanda "saxla/kopyala" menyusu və sürükləmə olmasın. */
+  body.native-app img,
+  body.native-app svg,
+  body.native-app video,
+  body.native-app a,
+  body.native-app button {
+    -webkit-user-drag: none;
+  }
+
+  /* Oxunan mətn (bloq/hüquqi məqalələr, data-selectable) kopyalana bilər. */
+  body.native-app .prose,
+  body.native-app .prose *,
+  body.native-app [data-selectable],
+  body.native-app [data-selectable] * {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+  body.native-app .prose :is(p, li, h1, h2, h3, h4, blockquote, td, th, pre, code),
+  body.native-app [data-selectable] {
+    -webkit-touch-callout: default;
   }
 
   body.native-app input,
