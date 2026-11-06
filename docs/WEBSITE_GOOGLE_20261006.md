@@ -175,3 +175,13 @@ handoff-a daxil edilmir.
 - Before swapping, smoke-render every language inside the image build
   (`node /tmp/smoke.mjs` calling `renderWebsite` + `renderWebsiteHtml`) and run a
   canary container on `127.0.0.1:9299` against the same network/env.
+
+## Home page shop block (AZ only, 2026-11-06)
+
+- `src/website/HomeShop.tsx` + `home-shop.css`, mounted on `/az/` after the stage cards: hero slider
+  (PDF books, monthly bento cakes, special-day cakes; autoplay 6.5 s, pauses on hover/focus, swipe, reduced
+  motion respected), a 5-column PDF book grid (10 books; 4 columns on tablet, 2 on phone) and a cake carousel
+  (scroll-snap, arrows). Texts are Azerbaijani inline like the shop pages (no copy keys); catalogue images load in
+  the browser after hydration, SSR keeps texts and links.
+- Live: website runtime `949bdabe…` (rollback plan `website-runtime-plan.before-hshop.json`), gateway `453d6d8a…`
+  (plan `home-shop-web-plan.json`, rollback `rollback-home-shop-web-plan.json` → `5c180b47…`).
