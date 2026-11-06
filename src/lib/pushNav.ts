@@ -113,6 +113,20 @@ export function intentFromPushData(data: Record<string, any>): PushNavIntent | n
   }
 }
 
+/** The public website (not the app host): its pages open in the phone's browser. */
+const WEBSITE_ORIGINS = ['https://anacan.az', 'https://www.anacan.az'];
+
+function openWhenVisible(href: string): void {
+  const open = () => { try { window.open(href, '_blank', 'noopener,noreferrer'); } catch { /* nothing else to try */ } };
+  if (typeof document === 'undefined' || document.visibilityState === 'visible') { setTimeout(open, 350); return; }
+  const onVisible = () => {
+    if (document.visibilityState !== 'visible') return;
+    document.removeEventListener('visibilitychange', onVisible);
+    setTimeout(open, 350);
+  };
+  document.addEventListener('visibilitychange', onVisible);
+}
+
 /** Push toxunuşunda çağırılır (useDeviceToken). */
 export function navigateFromPush(data: Record<string, any>): void {
   // Preserve explicit links only within the app's registered schemes/origins.
@@ -146,8 +160,15 @@ export function navigateFromPush(data: Record<string, any>): void {
           try { window.dispatchEvent(new CustomEvent(PUSH_NAV_EVENT, { detail: pending })); } catch { /* Index consumes pending */ }
           return;
         }
-        window.location.href = url.href;
         pending = null;
+        if (url.protocol === 'https:' && WEBSITE_ORIGINS.includes(url.origin)) {
+          // Website links (e.g. the anacan.az campaign) open in the phone's browser. Assigning
+          // window.location inside the native WebView was silently cancelled on iOS, so the tap
+          // only opened the app. Wait until the app is visible: a cold-start tap runs before that.
+          openWhenVisible(url.href);
+          return;
+        }
+        window.location.href = url.href;
         return;
       }
     } catch {/* aşağıdakı intent yolu ilə davam */}

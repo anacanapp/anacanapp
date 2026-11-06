@@ -66,8 +66,10 @@ describe('push type mapping', () => {
 describe('push link trust boundary and pending intents', () => {
   const navigate = vi.fn();
   const dispatch = vi.fn();
+  const windowOpen = vi.fn();
 
   beforeEach(() => {
+    vi.useFakeTimers();
     vi.resetAllMocks();
     consumePendingPushNav();
     vi.stubEnv('VITE_SUPABASE_URL', AZURE);
@@ -79,6 +81,7 @@ describe('push link trust boundary and pending intents', () => {
         set href(url: string) { navigate(url); },
       },
       dispatchEvent: dispatch,
+      open: windowOpen,
     });
   });
 
@@ -86,6 +89,7 @@ describe('push link trust boundary and pending intents', () => {
     consumePendingPushNav();
     vi.unstubAllEnvs();
     vi.unstubAllGlobals();
+    vi.useRealTimers();
   });
 
   it.each([
@@ -93,7 +97,12 @@ describe('push link trust boundary and pending intents', () => {
     `${CURRENT}/community`, `${AZURE}/messages`,
   ])('opens the trusted web destination %s in the WebView', (deeplink) => {
     navigateFromPush({ type: 'shopping_list', deeplink });
-    expect(navigate).toHaveBeenCalledExactlyOnceWith(deeplink);
+    if (/^https:\/\/(www\.)?anacan\.az\//.test(deeplink)) {
+      // Website pages open in the phone's browser once the app is visible.
+      expect(navigate).not.toHaveBeenCalled();
+      vi.advanceTimersByTime(400);
+      expect(windowOpen).toHaveBeenCalledExactlyOnceWith(deeplink, '_blank', 'noopener,noreferrer');
+    } else expect(navigate).toHaveBeenCalledExactlyOnceWith(deeplink);
     expect(dispatch).not.toHaveBeenCalled();
     expect(consumePendingPushNav()).toBeNull();
   });
