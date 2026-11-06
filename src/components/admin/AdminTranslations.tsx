@@ -713,6 +713,10 @@ const AdminTranslations = () => {
     enabled: !!selectedLang
   });
 
+  // Admin redesign: render the list in pages of 100 rows (a language has thousands of keys; all of them were
+  // mounted as textareas at once). Data, filters and writes are unchanged.
+  const [visibleCount, setVisibleCount] = useState(100);
+  useEffect(() => { setVisibleCount(100); }, [selectedLang, selectedNamespace, searchQuery, filterMode]);
   const filtered = useMemo(() => {
     let result = translations;
     if (selectedNamespace !== 'all') {
@@ -966,7 +970,7 @@ const AdminTranslations = () => {
           <div className="text-center py-8 text-muted-foreground">{tr("admintranslations_tercume_tapilmadi_6b4f34", "Tərcümə tapılmadı")}</div> :
 
           <div className="space-y-2">
-              {filtered.map((t) =>
+              {filtered.slice(0, visibleCount).map((t) =>
             <div key={t.id} className="flex items-start gap-3 p-3 rounded-lg border bg-card hover:bg-accent/5 transition-colors">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
@@ -1000,6 +1004,12 @@ const AdminTranslations = () => {
               }
                 </div>
             )}
+              {filtered.length > visibleCount &&
+            <div className="flex items-center justify-center gap-3 py-2 text-sm text-muted-foreground">
+                  <span>{visibleCount} / {filtered.length}</span>
+                  <Button size="sm" variant="outline" onClick={() => setVisibleCount((count) => count + 200)}>Daha çox göstər</Button>
+                </div>
+            }
             </div>
           }
         </div>

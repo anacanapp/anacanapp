@@ -1,166 +1,106 @@
-import { useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { AlertTriangle, Apple, Monitor, RefreshCw, Smartphone, Trash2 } from 'lucide-react';
+import { toast } from 'sonner';
 import { tr } from '@/lib/tr';
 import { supabase } from '@/integrations/supabase/client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { AlertTriangle, Trash2, RefreshCw, Smartphone, Monitor, Apple } from 'lucide-react';
-import { toast } from 'sonner';
+import { Btn, DataTable, EmptyState, FilterChips, JsonView, KpiRow, Page, PageHeader, Section, SideDrawer, StatTile, StatusPill, fmtDateTime, fmtNumber, fmtRelative, useAdminConfirm, type Column } from './kit';
+import { ADMIN_QUERY } from './data/rpc';
 
 interface CrashReport {
-  id: string;
-  user_id: string | null;
-  error_message: string;
-  error_stack: string | null;
-  component_stack: string | null;
-  url: string | null;
-  user_agent: string | null;
-  app_version: string | null;
-  platform: string | null;
-  extra_data: any;
-  created_at: string;
+  id: string; user_id: string | null; error_message: string; error_stack: string | null; component_stack: string | null; url: string | null; user_agent: string | null;
+  app_version: string | null; platform: string | null; extra_data: unknown; created_at: string;
+}
+interface Group { key: string; items: CrashReport[]; platforms: string[]; versions: string[]; last: string }
+
+const platformIcon = (platform: string | null) => platform === 'android' ? <Smartphone size={14} className="text-green-500" /> : platform === 'ios' ? <Apple size={14} className="text-muted-foreground" /> : <Monitor size={14} className="text-blue-500" />;
+
+/** Same bounded read as before: newest 200 reports, optional platform filter. */
+async function fetchReports(filter: string) {
+  let query = supabase.from('crash_reports').select('*').order('created_at', { ascending: false }).limit(200);
+  if (filter !== 'all') query = query.eq('platform', filter);
+  const { data, error } = await query;
+  if (error) throw error;
+  return (data ?? []) as unknown as CrashReport[];
 }
 
 const AdminCrashReports = () => {
-  const [reports, setReports] = useState<CrashReport[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [filter, setFilter] = useState<string>('all');
+  const confirm = useAdminConfirm();
+  const client = useQueryClient();
+  const [filter, setFilter] = useState('all');
+  const [openKey, setOpenKey] = useState<string | null>(null);
+  const query = useQuery({ queryKey: ['admin-crash-reports', filter], queryFn: () => fetchReports(filter), ...ADMIN_QUERY, staleTime: 30_000 });
+  const reports = query.data ?? [];
 
-  const fetchReports = async () => {
-    setLoading(true);
-    let query = supabase.
-    from('crash_reports').
-    select('*').
-    order('created_at', { ascending: false }).
-    limit(200);
-
-    if (filter !== 'all') {
-      query = query.eq('platform', filter);
-    }
-
-    const { data, error } = await query;
-    if (error) {
-      toast.error(tr("admincrashreports_crash_reportlari_yuklenmedi_d4ba13", "Crash reportlar\u0131 y\xFCkl\u0259nm\u0259di"));
-    } else {
-      setReports(data as any[] || []);
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {fetchReports();}, [filter]);
+  const groups = useMemo<Group[]>(() => {
+    const map = new Map<string, CrashReport[]>();
+    for (const report of reports) { const key = report.error_message.slice(0, 100); map.set(key, [...(map.get(key) ?? []), report]); }
+    return [...map.entries()].map(([key, items]) => ({ key, items, platforms: [...new Set(items.map(item => item.platform || 'web'))], versions: [...new Set(items.map(item => item.app_version || '?'))], last: items[0].created_at }))
+      .sort((a, b) => b.items.length - a.items.length);
+  }, [reports]);
+  const last24 = reports.filter(report => Date.now() - Date.parse(report.created_at) < 86400_000).length;
+  const selected = groups.find(group => group.key === openKey) ?? null;
+  const setCache = (updater: (rows: CrashReport[]) => CrashReport[]) => client.setQueryData<CrashReport[]>(['admin-crash-reports', filter], rows => updater(rows ?? []));
 
   const deleteReport = async (id: string) => {
     await supabase.from('crash_reports').delete().eq('id', id);
-    setReports((r) => r.filter((x) => x.id !== id));
+    setCache(rows => rows.filter(row => row.id !== id));
     toast.success('Silindi');
   };
-
   const deleteAll = async () => {
-    if (!confirm(tr("admincrashreports_butun_crash_reportlari_silinsi_4f4311", "B\xFCt\xFCn crash reportlar\u0131 silinsin?"))) return;
+    if (!(await confirm({ title: tr('admincrashreports_butun_crash_reportlari_silinsi_4f4311', 'Bütün crash reportları silinsin?'), description: 'Bütün platformalar üzrə bütün hesabatlar silinir.', confirmLabel: 'Hamısını sil', danger: true }))) return;
     await supabase.from('crash_reports').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-    setReports([]);
-    toast.success(tr("admincrashreports_hamisi_silindi_3b8089", "Ham\u0131s\u0131 silindi"));
+    setCache(() => []);
+    toast.success(tr('admincrashreports_hamisi_silindi_3b8089', 'Hamısı silindi'));
   };
 
-  const platformIcon = (p: string | null) => {
-    if (p === 'android') return <Smartphone className="w-4 h-4 text-green-500" />;
-    if (p === 'ios') return <Apple className="w-4 h-4 text-gray-500" />;
-    return <Monitor className="w-4 h-4 text-blue-500" />;
-  };
-
-  const grouped = reports.reduce<Record<string, CrashReport[]>>((acc, r) => {
-    const key = r.error_message.slice(0, 100);
-    if (!acc[key]) acc[key] = [];
-    acc[key].push(r);
-    return acc;
-  }, {});
+  const columns = useMemo<Column<Group>[]>(() => [
+    { key: 'message', header: 'Xəta', mobile: 'title', cell: group => <span className="flex items-start gap-2 min-w-0">{platformIcon(group.items[0].platform)}<span className="ak-cell-main ak-mono" style={{ fontSize: 12 }}>{group.key}</span></span> },
+    { key: 'count', header: 'Say', align: 'end', sortable: true, sortValue: group => group.items.length, cell: group => <StatusPill tone={group.items.length > 5 ? 'danger' : 'neutral'} dot={false}>{group.items.length}×</StatusPill> },
+    { key: 'platforms', header: 'Platforma', cell: group => <span className="ak-cell-sub">{group.platforms.join(', ')}</span> },
+    { key: 'versions', header: 'Versiya', cell: group => <span className="ak-cell-sub">{group.versions.join(', ')}</span> },
+    { key: 'last', header: 'Son', align: 'end', sortable: true, sortValue: group => group.last, cell: group => <span className="ak-num" title={fmtDateTime(group.last)}>{fmtRelative(group.last)}</span> },
+  ], []);
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold flex items-center gap-2">
-          <AlertTriangle className="w-5 h-5 text-destructive" />
-          Crash Reports ({reports.length})
-        </h2>
-        <div className="flex gap-2">
-          {['all', 'android', 'ios', 'web'].map((f) =>
-          <Button key={f} size="sm" variant={filter === f ? 'default' : 'outline'}
-          onClick={() => setFilter(f)}>
-              {f === 'all' ? tr("admincrashreports_hamisi_c73c4d", "Ham\u0131s\u0131") : f}
-            </Button>
-          )}
-          <Button size="sm" variant="outline" onClick={fetchReports}>
-            <RefreshCw className="w-4 h-4" />
-          </Button>
-          <Button size="sm" variant="destructive" onClick={deleteAll}>
-            <Trash2 className="w-4 h-4 me-1" /> {tr("admincrashreports_hamisini_sil_f6a3d6", "Ham\u0131s\u0131n\u0131 sil")}
-          </Button>
+    <Page testId="admin-crash-reports">
+      <PageHeader title="Xəta hesabatları" subtitle="Son 200 crash report, eyni mesaja görə qruplaşdırılıb"
+        actions={<>
+          <Btn onClick={() => void query.refetch()} disabled={query.isFetching}><RefreshCw size={15} className={query.isFetching ? 'animate-spin' : ''} />Yenilə</Btn>
+          <Btn variant="danger" onClick={() => void deleteAll()} disabled={!reports.length}><Trash2 size={15} />{tr('admincrashreports_hamisini_sil_f6a3d6', 'Hamısını sil')}</Btn>
+        </>} />
+      <KpiRow columns={3}>
+        <StatTile label="Hesabat" icon={<AlertTriangle size={13} />} loading={query.isLoading} value={fmtNumber(reports.length)} hint="son 200-dən" />
+        <StatTile label="Unikal xəta" loading={query.isLoading} value={fmtNumber(groups.length)} />
+        <StatTile label="Son 24 saat" tone={last24 ? 'danger' : 'default'} loading={query.isLoading} value={fmtNumber(last24)} />
+      </KpiRow>
+      <Section flush>
+        <div className="px-4 pb-3">
+          <FilterChips label="Platforma" value={filter} onChange={setFilter} options={['all', 'android', 'ios', 'web'].map(value => ({ value, label: value === 'all' ? tr('admincrashreports_hamisi_c73c4d', 'Hamısı') : value }))} />
         </div>
-      </div>
-
-      {loading ?
-      <p className="text-muted-foreground">{tr("admincrashreports_yuklenir_5557de", "Yüklənir...")}</p> :
-      reports.length === 0 ?
-      <Card><CardContent className="py-8 text-center text-muted-foreground">Crash report yoxdur 🎉</CardContent></Card> :
-
-      <ScrollArea className="h-[calc(100vh-200px)]">
-          <div className="space-y-2">
-            {Object.entries(grouped).sort((a, b) => b[1].length - a[1].length).map(([msg, items]) =>
-          <Card key={msg} className="cursor-pointer" onClick={() => setExpandedId(expandedId === msg ? null : msg)}>
-                <CardHeader className="py-3 px-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 flex-1 min-w-0">
-                      {platformIcon(items[0].platform)}
-                      <CardTitle className="text-sm font-medium truncate">{msg}</CardTitle>
-                    </div>
-                    <div className="flex items-center gap-2 shrink-0">
-                      <Badge variant="secondary">{items.length}x</Badge>
-                      <Badge variant="outline">{items[0].app_version || '?'}</Badge>
-                      <span className="text-xs text-muted-foreground">
-                        {new Date(items[0].created_at).toLocaleDateString('az')}
-                      </span>
-                    </div>
-                  </div>
-                </CardHeader>
-                {expandedId === msg &&
-            <CardContent className="pt-0 px-4 pb-4 space-y-3">
-                    {items.slice(0, 5).map((r) =>
-              <div key={r.id} className="border rounded p-3 text-xs space-y-1">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">{new Date(r.created_at).toLocaleString('az')}</span>
-                          <div className="flex items-center gap-2">
-                            <span>{r.platform}</span>
-                            <Button size="sm" variant="ghost" onClick={(e) => {e.stopPropagation();deleteReport(r.id);}}>
-                              <Trash2 className="w-3 h-3" />
-                            </Button>
-                          </div>
-                        </div>
-                        {r.url && <div><strong>URL:</strong> {r.url}</div>}
-                        {r.user_id && <div><strong>User:</strong> {r.user_id.slice(0, 8)}...</div>}
-                        {r.error_stack &&
-                <pre className="bg-muted p-2 rounded text-[10px] overflow-x-auto max-h-32 whitespace-pre-wrap">
-                            {r.error_stack}
-                          </pre>
-                }
-                        {r.extra_data &&
-                <pre className="bg-muted p-2 rounded text-[10px] overflow-x-auto">
-                            {JSON.stringify(r.extra_data, null, 2)}
-                          </pre>
-                }
-                      </div>
-              )}
-                    {items.length > 5 && <p className="text-xs text-muted-foreground">+{items.length - 5} daha...</p>}
-                  </CardContent>
-            }
-              </Card>
-          )}
-          </div>
-        </ScrollArea>
-      }
-    </div>);
-
+        {query.isError && <div className="px-4 pb-2"><p className="ak-hint">{tr('admincrashreports_crash_reportlari_yuklenmedi_d4ba13', 'Crash reportları yüklənmədi')}</p></div>}
+        <DataTable testId="admin-crash-table" columns={columns} rows={query.isLoading ? undefined : groups} rowKey={group => group.key} loading={query.isLoading} error={query.isError ? query.error : null}
+          onRetry={() => void query.refetch()} pageSize={25} onRowClick={group => setOpenKey(group.key)} defaultSort={{ key: 'count', dir: 'desc' }}
+          empty={<EmptyState title="Crash report yoxdur 🎉" />} />
+      </Section>
+      {selected && (
+        <SideDrawer open onOpenChange={open => { if (!open) setOpenKey(null); }} size="lg" footer={null} title={<span className="ak-mono" style={{ fontSize: 13 }}>{selected.key}</span>}
+          description={`${selected.items.length} hesabat · ${selected.platforms.join(', ')} · versiya ${selected.versions.join(', ')}`}>
+          {selected.items.slice(0, 5).map(report => (
+            <div key={report.id} className="ak-card-row grid gap-2">
+              <div className="flex items-center gap-2 text-xs">{platformIcon(report.platform)}<span>{fmtDateTime(report.created_at)}</span><span className="ak-cell-sub">{report.platform} · {report.app_version || '?'}</span>
+                <button type="button" className="ak-icon-btn ms-auto" aria-label="Hesabatı sil" onClick={() => void deleteReport(report.id)}><Trash2 size={14} /></button></div>
+              {report.url && <div className="text-xs"><strong>URL:</strong> {report.url}</div>}
+              {report.user_id && <div className="text-xs"><strong>User:</strong> <span className="ak-mono">{report.user_id.slice(0, 8)}…</span></div>}
+              {report.error_stack && <JsonView value={report.error_stack} maxHeight={160} />}
+              {report.extra_data ? <JsonView value={report.extra_data} maxHeight={160} /> : null}
+            </div>
+          ))}
+          {selected.items.length > 5 && <p className="ak-hint">+{selected.items.length - 5} daha...</p>}
+        </SideDrawer>
+      )}
+    </Page>
+  );
 };
 
 export default AdminCrashReports;

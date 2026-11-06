@@ -1,470 +1,167 @@
-import { useState, useMemo, useRef, useEffect } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { keepPreviousData, useQuery, useQueryClient } from '@tanstack/react-query';
+import { AlertCircle, CheckCircle, Clock, Loader2, LifeBuoy, Send, XCircle } from 'lucide-react';
 import { tr } from '@/lib/tr';
-import { motion } from 'framer-motion';
-import {
-  MessageSquare, Clock, CheckCircle, AlertCircle,
-  Send, User, Mail, Filter, ArrowLeft, XCircle, Loader2 } from
-'lucide-react';
-import { useSupportTicketsAdmin, AdminSupportTicket } from '@/hooks/useSupportTicketsAdmin';
+import { supabase } from '@/integrations/supabase/client';
+import type { AdminSupportTicket } from '@/hooks/useSupportTicketsAdmin';
 import { useSupportTicketReplies } from '@/hooks/useSupportTicketReplies';
 import { useSupportCategories } from '@/hooks/useDynamicTools';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
-import { format } from 'date-fns';
-import { getCurrentDateLocale } from '@/lib/date-utils';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue } from
-'@/components/ui/select';
-import { LocalizedInput } from "./ui/LocalizedInput";
-import { LocalizedTextarea } from "./ui/LocalizedTextarea";
-import { useAdminLocalize } from "@/contexts/AdminLanguageContext";
+import { useAdminLocalize } from '@/contexts/AdminLanguageContext';
+import { Avatar, Btn, DataTable, EmptyState, FilterChips, KpiRow, Page, PageHeader, SearchInput, Section, SideDrawer, SkeletonRows, StatTile, StatusPill, Toolbar, fmtDateTime, fmtNumber, fmtRelative, toneFor, type Column } from './kit';
+import { ADMIN_QUERY, ilikeTerm, unwrap } from './data/rpc';
+
+type Status = AdminSupportTicket['status'];
+type Priority = AdminSupportTicket['priority'];
+const STATUS_LABEL: Record<Status, string> = { open: tr('adminsupport_aciq_306cc4', 'Açıq'), in_progress: tr('adminsupport_islenir_65a15d', 'İşlənir'), resolved: tr('adminsupport_hell_edildi_beceb9', 'Həll edildi'), closed: tr('adminsupport_bagli_713069', 'Bağlı') };
+const PRIORITY_LABEL: Record<Priority, string> = { low: tr('adminsupport_asagi_1c27f1', 'Aşağı'), normal: 'Normal', high: tr('adminsupport_yuksek_492584', 'Yüksək'), urgent: tr('adminsupport_tecili_ab784b', 'Təcili') };
+const PAGE = 30;
+
+/** Page of tickets + names for the ≤30 users on the page (was: every ticket and every author profile). */
+async function fetchTickets(status: string, search: string, page: number) {
+  let query = supabase.from('support_tickets').select('*', { count: 'exact' }).order('created_at', { ascending: false });
+  if (status !== 'all') query = query.eq('status', status);
+  if (search.trim()) query = query.or(`subject.ilike.${ilikeTerm(search)},message.ilike.${ilikeTerm(search)}`);
+  const { data, count } = unwrap(await query.range(page * PAGE, page * PAGE + PAGE - 1));
+  const tickets = data as unknown as AdminSupportTicket[];
+  const ids = [...new Set(tickets.map(ticket => ticket.user_id))];
+  const profiles = new Map<string, { name: string | null; email: string | null }>();
+  if (ids.length) {
+    const { data: rows } = await supabase.from('profiles').select('user_id, name, email').in('user_id', ids);
+    rows?.forEach(row => profiles.set(row.user_id, row));
+  }
+  return { rows: tickets.map(ticket => ({ ...ticket, user_name: profiles.get(ticket.user_id)?.name || tr('usesupportticketsadmin_i_stifadeci_b6bdd6', 'İstifadəçi'), user_email: profiles.get(ticket.user_id)?.email || '' })), total: count };
+}
+async function fetchCounts() {
+  const entries = await Promise.all(['all', 'open', 'in_progress', 'resolved', 'closed'].map(async status => {
+    let query = supabase.from('support_tickets').select('id', { count: 'exact', head: true });
+    if (status !== 'all') query = query.eq('status', status);
+    return [status, (await query).count ?? 0] as const;
+  }));
+  return Object.fromEntries(entries) as Record<string, number>;
+}
+/** Same writes as useSupportTicketsAdmin (status / priority on support_tickets). */
+async function updateTicket(id: string, patch: { status?: Status; priority?: Priority }) {
+  const { error } = await supabase.from('support_tickets').update(patch).eq('id', id);
+  return { error };
+}
 
 const AdminSupport = () => {
-    const localize = useAdminLocalize();
-  const { tickets, loading, respondToTicket, updateStatus, updatePriority, refetch } = useSupportTicketsAdmin();
+  const localize = useAdminLocalize();
   const { data: supportCategories = [] } = useSupportCategories();
-  const { toast } = useToast();
-  const [selectedTicket, setSelectedTicket] = useState<AdminSupportTicket | null>(null);
-  const [replyMessage, setReplyMessage] = useState('');
-  const [submitting, setSubmitting] = useState(false);
-  const [filterStatus, setFilterStatus] = useState<string>('all');
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const client = useQueryClient();
+  const [status, setStatus] = useState('all'), [search, setSearch] = useState(''), [page, setPage] = useState(0);
+  const [selected, setSelected] = useState<AdminSupportTicket | null>(null);
+  const list = useQuery({ queryKey: ['admin-support-page', status, search, page], queryFn: () => fetchTickets(status, search, page), placeholderData: keepPreviousData, ...ADMIN_QUERY, staleTime: 15_000 });
+  const counts = useQuery({ queryKey: ['admin-support-counts'], queryFn: fetchCounts, ...ADMIN_QUERY, staleTime: 15_000 });
+  const refresh = () => Promise.all([client.invalidateQueries({ queryKey: ['admin-support-page'] }), client.invalidateQueries({ queryKey: ['admin-support-counts'] })]);
 
-  const { replies, loading: repliesLoading, addReply } = useSupportTicketReplies(selectedTicket?.id || null);
-
-  // Scroll to bottom when new messages arrive
-  useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [replies]);
-
-  // Build category labels from DB
   const categoryLabels = useMemo(() => {
     const labels: Record<string, string> = {};
-    supportCategories.forEach((cat) => {
-      labels[cat.category_key] = localize(cat, 'name');
-    });
-    // Add fallback for common categories
-    if (!labels['general']) labels['general'] = tr("adminsupport_umumi_1b5521", "\xDCmumi");
-    if (!labels['technical']) labels['technical'] = 'Texniki';
-    if (!labels['billing']) labels['billing'] = tr("adminsupport_odenis_a4610e", "\xD6d\u0259ni\u015F");
-    if (!labels['feature']) labels['feature'] = tr("adminsupport_xususiyyet_73f16d", "X\xFCsusiyy\u0259t");
-    if (!labels['other']) labels['other'] = tr("adminsupport_diger_293b3a", "Dig\u0259r");
+    supportCategories.forEach(category => { labels[category.category_key] = localize(category, 'name'); });
+    labels.general ??= tr('adminsupport_umumi_1b5521', 'Ümumi'); labels.technical ??= 'Texniki'; labels.billing ??= tr('adminsupport_odenis_a4610e', 'Ödəniş');
+    labels.feature ??= tr('adminsupport_xususiyyet_73f16d', 'Xüsusiyyət'); labels.other ??= tr('adminsupport_diger_293b3a', 'Digər');
     return labels;
-  }, [supportCategories]);
+  }, [supportCategories]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const filteredTickets = filterStatus === 'all' ?
-  tickets :
-  tickets.filter((t) => t.status === filterStatus);
-
-  const getStatusIcon = (status: AdminSupportTicket['status']) => {
-    switch (status) {
-      case 'open':return <AlertCircle className="w-4 h-4 text-amber-500" />;
-      case 'in_progress':return <Clock className="w-4 h-4 text-blue-500" />;
-      case 'resolved':return <CheckCircle className="w-4 h-4 text-green-500" />;
-      case 'closed':return <XCircle className="w-4 h-4 text-muted-foreground" />;
-    }
-  };
-
-  const getStatusBadge = (status: AdminSupportTicket['status']) => {
-    const styles = {
-      open: 'bg-amber-500/10 text-amber-600 border-amber-500/20',
-      in_progress: 'bg-blue-500/10 text-blue-600 border-blue-500/20',
-      resolved: 'bg-green-500/10 text-green-600 border-green-500/20',
-      closed: 'bg-muted text-muted-foreground'
-    };
-    const labels = {
-      open: tr("adminsupport_aciq_306cc4", "A\xE7\u0131q"),
-      in_progress: tr("adminsupport_i_slenir_65a15d", "\u0130\u015Fl\u0259nir"),
-      resolved: tr("adminsupport_hell_edildi_beceb9", "H\u0259ll edildi"),
-      closed: tr("adminsupport_bagli_713069", "Ba\u011Fl\u0131")
-    };
-    return <Badge variant="outline" className={styles[status]}>{labels[status]}</Badge>;
-  };
-
-  const getPriorityBadge = (priority: AdminSupportTicket['priority']) => {
-    const styles = {
-      low: 'bg-muted text-muted-foreground',
-      normal: 'bg-blue-500/10 text-blue-600',
-      high: 'bg-orange-500/10 text-orange-600',
-      urgent: 'bg-red-500/10 text-red-600'
-    };
-    const labels = {
-      low: tr("adminsupport_asagi_1c27f1", "A\u015Fa\u011F\u0131"),
-      normal: 'Normal',
-      high: tr("adminsupport_yuksek_492584", "Y\xFCks\u0259k"),
-      urgent: tr("adminsupport_tecili_ab784b", "T\u0259cili")
-    };
-    return <Badge variant="outline" className={styles[priority]}>{labels[priority]}</Badge>;
-  };
-
-  const getCategoryLabel = (category: string) => {
-    return categoryLabels[category] || category;
-  };
-
-  const handleSendReply = async () => {
-    if (!selectedTicket || !replyMessage.trim()) return;
-
-    setSubmitting(true);
-    const result = await addReply(replyMessage.trim(), true); // true = is_admin
-    setSubmitting(false);
-
-    if (!result.error) {
-      setReplyMessage('');
-      // Also update status to in_progress if it was open
-      if (selectedTicket.status === 'open') {
-        await updateStatus(selectedTicket.id, 'in_progress');
-        setSelectedTicket({ ...selectedTicket, status: 'in_progress' });
-      }
-      toast({ title: tr("adminsupport_cavab_gonderildi_4746f8", "Cavab göndərildi!") });
-    } else {
-      toast({ title: tr("adminsupport_xeta_bas_verdi_f22fba", "Xəta baş verdi"), variant: 'destructive' });
-    }
-  };
-
-  const handleCloseTicket = async () => {
-    if (!selectedTicket) return;
-    const result = await updateStatus(selectedTicket.id, 'closed');
-    if (result.error) {
-      toast({ title: tr("adminsupport_xeta_bas_verdi_f22fba", "Xəta baş verdi"), variant: 'destructive' });
-      return;
-    }
-    setSelectedTicket({ ...selectedTicket, status: 'closed' });
-    toast({ title: tr("adminsupport_muraciet_baglandi_878702", "Müraciət bağlandı") });
-  };
-
-  const handleResolveTicket = async () => {
-    if (!selectedTicket) return;
-    const result = await updateStatus(selectedTicket.id, 'resolved');
-    if (result.error) {
-      toast({ title: tr("adminsupport_xeta_bas_verdi_f22fba", "Xəta baş verdi"), variant: 'destructive' });
-      return;
-    }
-    setSelectedTicket({ ...selectedTicket, status: 'resolved' });
-    toast({ title: tr("adminsupport_muraciet_hell_edildi_367c6a", "Müraciət həll edildi") });
-  };
-
-  const stats = {
-    total: tickets.length,
-    open: tickets.filter((t) => t.status === 'open').length,
-    inProgress: tickets.filter((t) => t.status === 'in_progress').length,
-    resolved: tickets.filter((t) => t.status === 'resolved').length
-  };
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-64">
-        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-      </div>);
-
-  }
-
-  // Chat view for selected ticket
-  if (selectedTicket) {
-    return (
-      <div className="h-[calc(100vh-120px)] flex flex-col bg-background rounded-xl border border-border overflow-hidden">
-        {/* Header */}
-        <div className="bg-card p-4 border-b border-border">
-          <div className="flex items-start gap-3">
-            <button
-              onClick={() => {
-                setSelectedTicket(null);
-                refetch();
-              }}
-              className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center hover:bg-muted/80">
-              
-              <ArrowLeft className="rtl:rotate-180 w-4 h-4" />
-            </button>
-            <div className="flex-1 min-w-0">
-              <h2 className="font-bold text-foreground truncate">{selectedTicket.subject}</h2>
-              <div className="flex items-center gap-2 mt-1 flex-wrap">
-                <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                  <User className="w-3.5 h-3.5" />
-                  <span>{selectedTicket.user_name}</span>
-                </div>
-                {getStatusBadge(selectedTicket.status)}
-                {getPriorityBadge(selectedTicket.priority)}
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Actions */}
-          <div className="flex gap-2 mt-3">
-            <Select
-              value={selectedTicket.status}
-              onValueChange={async (value) => {
-                // NOT: əvvəllər await/`{error}` yoxlanmadan yerli state
-                // qeydsiz-şərtsiz yenilənirdi - status admin ekranında
-                // dəyişmiş kimi görünə bilərdi, real DB yazısı uğursuz
-                // olsa belə.
-                const result = await updateStatus(selectedTicket.id, value as AdminSupportTicket['status']);
-                if (result.error) {
-                  toast({ title: tr("adminsupport_xeta_bas_verdi_f22fba", "Xəta baş verdi"), variant: 'destructive' });
-                  return;
-                }
-                setSelectedTicket({ ...selectedTicket, status: value as AdminSupportTicket['status'] });
-              }}>
-              
-              <SelectTrigger className="w-32 h-8 text-xs">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="open">{tr("adminsupport_aciq_306cc4", "Açıq")}</SelectItem>
-                <SelectItem value="in_progress">{tr("adminsupport_islenir_65a15d", "İşlənir")}</SelectItem>
-                <SelectItem value="resolved">{tr("adminsupport_hell_edildi_beceb9", "Həll edildi")}</SelectItem>
-                <SelectItem value="closed">{tr("adminsupport_bagli_713069", "Bağlı")}</SelectItem>
-              </SelectContent>
-            </Select>
-            <Select
-              value={selectedTicket.priority}
-              onValueChange={async (value) => {
-                const result = await updatePriority(selectedTicket.id, value as AdminSupportTicket['priority']);
-                if (result.error) {
-                  toast({ title: tr("adminsupport_xeta_bas_verdi_f22fba", "Xəta baş verdi"), variant: 'destructive' });
-                  return;
-                }
-                setSelectedTicket({ ...selectedTicket, priority: value as AdminSupportTicket['priority'] });
-              }}>
-              
-              <SelectTrigger className="w-28 h-8 text-xs">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="low">{tr("adminsupport_asagi_1c27f1", "Aşağı")}</SelectItem>
-                <SelectItem value="normal">Normal</SelectItem>
-                <SelectItem value="high">{tr("adminsupport_yuksek_492584", "Yüksək")}</SelectItem>
-                <SelectItem value="urgent">{tr("adminsupport_tecili_ab784b", "Təcili")}</SelectItem>
-              </SelectContent>
-            </Select>
-            {selectedTicket.status !== 'closed' &&
-            <Button variant="outline" size="sm" className="h-8 text-xs" onClick={handleCloseTicket}>
-                <XCircle className="w-3 h-3 me-1" />
-                {tr("adminsupport_bagla_84bdc9", "Ba\u011Fla")}
-              </Button>
-            }
-            {selectedTicket.status !== 'resolved' && selectedTicket.status !== 'closed' &&
-            <Button variant="outline" size="sm" className="h-8 text-xs text-green-600" onClick={handleResolveTicket}>
-                <CheckCircle className="w-3 h-3 me-1" />
-                {tr("adminsupport_hell_et_aae47e", "H\u0259ll et")}
-              </Button>
-            }
-          </div>
-        </div>
-
-        {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-muted/20">
-          {/* User's initial message */}
-          <div className="flex justify-start">
-            <div className="max-w-[75%] bg-card p-3 rounded-2xl rounded-es-md border border-border">
-              <div className="flex items-center gap-1.5 mb-1">
-                <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
-                  <User className="w-3 h-3 text-primary" />
-                </div>
-                <span className="text-[10px] font-medium text-muted-foreground">{selectedTicket.user_name}</span>
-              </div>
-              <p className="text-sm text-foreground">{selectedTicket.message}</p>
-              <p className="text-[10px] text-muted-foreground mt-1">
-                {format(new Date(selectedTicket.created_at), 'd MMM yyyy, HH:mm', { locale: getCurrentDateLocale() })}
-              </p>
-            </div>
-          </div>
-
-          {/* Legacy admin response */}
-          {selectedTicket.admin_response &&
-          <div className="flex justify-end">
-              <div className="max-w-[75%] bg-primary text-primary-foreground p-3 rounded-2xl rounded-ee-md">
-                <p className="text-sm">{selectedTicket.admin_response}</p>
-                {selectedTicket.responded_at &&
-              <p className="text-[10px] opacity-70 mt-1 text-end">
-                    {format(new Date(selectedTicket.responded_at), 'd MMM, HH:mm', { locale: getCurrentDateLocale() })}
-                  </p>
-              }
-              </div>
-            </div>
-          }
-
-          {/* Chat replies */}
-          {repliesLoading ?
-          <div className="flex justify-center py-4">
-              <Loader2 className="w-5 h-5 animate-spin text-muted-foreground" />
-            </div> :
-
-          replies.map((reply) =>
-          <div key={reply.id} className={`flex ${reply.is_admin ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[75%] p-3 rounded-2xl ${
-            reply.is_admin ?
-            'bg-primary text-primary-foreground rounded-ee-md' :
-            'bg-card border border-border rounded-es-md'}`
-            }>
-                  {!reply.is_admin &&
-              <div className="flex items-center gap-1.5 mb-1">
-                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
-                        <User className="w-3 h-3 text-primary" />
-                      </div>
-                      <span className="text-[10px] font-medium text-muted-foreground">{selectedTicket.user_name}</span>
-                    </div>
-              }
-                  <p className={`text-sm ${reply.is_admin ? '' : 'text-foreground'}`}>{reply.message}</p>
-                  <p className={`text-[10px] mt-1 ${
-              reply.is_admin ? 'opacity-70 text-end' : 'text-muted-foreground'}`
-              }>
-                    {format(new Date(reply.created_at), 'd MMMM, HH:mm', { locale: getCurrentDateLocale() })}
-                  </p>
-                </div>
-              </div>
-          )
-          }
-
-          <div ref={messagesEndRef} />
-        </div>
-
-        {/* Reply Input */}
-        {selectedTicket.status !== 'closed' ?
-        <div className="p-4 border-t border-border bg-card">
-            <div className="flex gap-2">
-              <Textarea
-              value={replyMessage}
-              onChange={(e) => setReplyMessage(e.target.value)}
-              placeholder={tr("adminsupport_cavabinizi_yazin_2cda33", "Cavabınızı yazın...")}
-              rows={1}
-              className="flex-1 min-h-[44px] max-h-[120px] resize-none"
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                  e.preventDefault();
-                  handleSendReply();
-                }
-              }} />
-            
-              <Button
-              onClick={handleSendReply}
-              disabled={submitting || !replyMessage.trim()}
-              size="icon"
-              className="h-11 w-11">
-              
-                {submitting ?
-              <Loader2 className="w-4 h-4 animate-spin" /> :
-
-              <Send className="w-4 h-4" />
-              }
-              </Button>
-            </div>
-          </div> :
-
-        <div className="p-4 border-t border-border bg-muted/50">
-            <p className="text-sm text-muted-foreground text-center">
-              {tr("adminsupport_bu_muraciet_baglanib_ca3d3c", "Bu m\xFCraci\u0259t ba\u011Flan\u0131b.")}
-            </p>
-          </div>
-        }
-      </div>);
-
-  }
+  const columns = useMemo<Column<AdminSupportTicket>[]>(() => [
+    { key: 'subject', header: 'Mövzu', mobile: 'title', cell: ticket => <span><span className="ak-cell-main">{ticket.subject}</span><span className="ak-cell-sub line-clamp-1">{ticket.message}</span></span> },
+    { key: 'user', header: 'İstifadəçi', mobile: 'subtitle', cell: ticket => <span className="ak-cell-user"><Avatar name={ticket.user_name} size={26} /><span className="min-w-0"><span className="ak-cell-main">{ticket.user_name}</span><span className="ak-cell-sub">{ticket.user_email}</span></span></span> },
+    { key: 'category', header: 'Kateqoriya', cell: ticket => <span className="ak-cell-sub">{categoryLabels[ticket.category] || ticket.category}</span> },
+    { key: 'priority', header: 'Prioritet', cell: ticket => <StatusPill tone={toneFor(ticket.priority)} dot={false}>{PRIORITY_LABEL[ticket.priority] ?? ticket.priority}</StatusPill> },
+    { key: 'status', header: 'Status', cell: ticket => <StatusPill tone={toneFor(ticket.status)}>{STATUS_LABEL[ticket.status] ?? ticket.status}</StatusPill> },
+    { key: 'created', header: 'Tarix', align: 'end', cell: ticket => <span className="ak-num" title={fmtDateTime(ticket.created_at)}>{fmtRelative(ticket.created_at)}</span> },
+  ], [categoryLabels]);
 
   return (
-    <div className="space-y-6">
-      {/* Stats */}
-      <div className="grid grid-cols-4 gap-4">
-        <div className="bg-card rounded-xl p-4 border border-border/50">
-          <div className="text-2xl font-bold text-foreground">{stats.total}</div>
-          <div className="text-sm text-muted-foreground">{tr("adminsupport_umumi_1b5521", "Ümumi")}</div>
+    <Page testId="admin-support">
+      <PageHeader title="Dəstək müraciətləri" subtitle="İstifadəçi müraciətlərinə cavab verin, status və prioriteti idarə edin" />
+      <KpiRow columns={4}>
+        <StatTile label={tr('adminsupport_umumi_1b5521', 'Ümumi')} icon={<LifeBuoy size={13} />} loading={counts.isLoading} value={fmtNumber(counts.data?.all)} />
+        <StatTile label={STATUS_LABEL.open} tone={counts.data?.open ? 'warning' : 'default'} icon={<AlertCircle size={13} />} loading={counts.isLoading} value={fmtNumber(counts.data?.open)} onClick={() => { setStatus('open'); setPage(0); }} />
+        <StatTile label={STATUS_LABEL.in_progress} icon={<Clock size={13} />} loading={counts.isLoading} value={fmtNumber(counts.data?.in_progress)} onClick={() => { setStatus('in_progress'); setPage(0); }} />
+        <StatTile label={STATUS_LABEL.resolved} tone="success" icon={<CheckCircle size={13} />} loading={counts.isLoading} value={fmtNumber(counts.data?.resolved)} onClick={() => { setStatus('resolved'); setPage(0); }} />
+      </KpiRow>
+      <Section flush>
+        <div className="px-4 pb-3 grid gap-2.5">
+          <Toolbar><SearchInput value={search} onChange={value => { setSearch(value); setPage(0); }} placeholder="Mövzu və ya mətn üzrə axtar…" /></Toolbar>
+          <FilterChips label="Status" value={status} onChange={value => { setStatus(value); setPage(0); }}
+            options={[{ value: 'all', label: tr('adminsupport_hamisi_c73c4d', 'Hamısı'), count: counts.data?.all }, ...(['open', 'in_progress', 'resolved', 'closed'] as Status[]).map(value => ({ value, label: STATUS_LABEL[value], count: counts.data?.[value] }))]} />
         </div>
-        <div className="bg-amber-500/10 rounded-xl p-4 border border-amber-500/20">
-          <div className="text-2xl font-bold text-amber-600">{stats.open}</div>
-          <div className="text-sm text-amber-600/80">{tr("adminsupport_aciq_306cc4", "Açıq")}</div>
-        </div>
-        <div className="bg-blue-500/10 rounded-xl p-4 border border-blue-500/20">
-          <div className="text-2xl font-bold text-blue-600">{stats.inProgress}</div>
-          <div className="text-sm text-blue-600/80">{tr("adminsupport_islenir_65a15d", "İşlənir")}</div>
-        </div>
-        <div className="bg-green-500/10 rounded-xl p-4 border border-green-500/20">
-          <div className="text-2xl font-bold text-green-600">{stats.resolved}</div>
-          <div className="text-sm text-green-600/80">{tr("adminsupport_hell_edildi_beceb9", "Həll edildi")}</div>
-        </div>
-      </div>
-
-      {/* Filter */}
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
-          <Filter className="w-4 h-4 text-muted-foreground" />
-          <span className="text-sm text-muted-foreground">Status:</span>
-        </div>
-        <div className="flex gap-2 flex-wrap">
-          {['all', 'open', 'in_progress', 'resolved', 'closed'].map((status) =>
-          <button
-            key={status}
-            onClick={() => setFilterStatus(status)}
-            className={`px-3 py-1.5 rounded-full text-sm transition-all ${
-            filterStatus === status ?
-            'bg-primary text-primary-foreground' :
-            'bg-muted text-muted-foreground'}`
-            }>
-            
-              {status === 'all' ? tr("adminsupport_hamisi_c73c4d", "Ham\u0131s\u0131") :
-            status === 'open' ? tr("adminsupport_aciq_306cc4", "A\xE7\u0131q") :
-            status === 'in_progress' ? tr("adminsupport_i_slenir_65a15d", "\u0130\u015Fl\u0259nir") :
-            status === 'resolved' ? tr("adminsupport_hell_edildi_beceb9", "H\u0259ll edildi") : tr("adminsupport_bagli_713069", "Ba\u011Fl\u0131")}
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Tickets List */}
-      {filteredTickets.length === 0 ?
-      <div className="text-center py-12 bg-card rounded-xl border border-border/50">
-          <div className="text-5xl mb-4">📩</div>
-          <p className="text-muted-foreground">{tr("adminsupport_muraciet_tapilmadi_b93f2d", "Müraciət tapılmadı")}</p>
-        </div> :
-
-      <div className="space-y-3">
-          {filteredTickets.map((ticket) =>
-        <motion.div
-          key={ticket.id}
-          className="bg-card rounded-xl p-4 border border-border/50 cursor-pointer hover:shadow-md transition-shadow"
-          onClick={() => setSelectedTicket(ticket)}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}>
-          
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex-1">
-                  <h3 className="font-semibold text-foreground mb-1">{ticket.subject}</h3>
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <User className="w-3.5 h-3.5" />
-                      {ticket.user_name}
-                    </span>
-                    {ticket.user_email &&
-                <span className="flex items-center gap-1">
-                        <Mail className="w-3.5 h-3.5" />
-                        {ticket.user_email}
-                      </span>
-                }
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  {getPriorityBadge(ticket.priority)}
-                  {getStatusBadge(ticket.status)}
-                </div>
-              </div>
-
-              <p className="text-sm text-muted-foreground line-clamp-2 mb-3">{ticket.message}</p>
-
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span>{getCategoryLabel(ticket.category)}</span>
-                <span>{format(new Date(ticket.created_at), 'd MMM yyyy, HH:mm', { locale: getCurrentDateLocale() })}</span>
-              </div>
-            </motion.div>
-        )}
-        </div>
-      }
-    </div>);
-
+        <DataTable testId="admin-support-table" rowTestId="admin-ticket-row" columns={columns} rows={list.data?.rows} rowKey={ticket => ticket.id} loading={list.isLoading}
+          fetching={list.isFetching && !list.isLoading} error={list.isError ? list.error : null} onRetry={() => void list.refetch()}
+          page={page} total={list.data?.total ?? 0} pageSize={PAGE} onPageChange={setPage} onRowClick={ticket => setSelected(ticket)}
+          empty={<EmptyState icon={<LifeBuoy size={20} />} title={tr('adminsupport_muraciet_tapilmadi_b93f2d', 'Müraciət tapılmadı')} />} />
+      </Section>
+      {selected && <TicketDrawer ticket={selected} category={categoryLabels[selected.category] || selected.category} onChange={setSelected} onClose={() => { setSelected(null); void refresh(); }} onRefresh={refresh} />}
+    </Page>
+  );
 };
+
+function TicketDrawer({ ticket, category, onChange, onClose, onRefresh }: { ticket: AdminSupportTicket; category: string; onChange: (ticket: AdminSupportTicket) => void; onClose: () => void; onRefresh: () => void }) {
+  const { toast } = useToast();
+  const { replies, loading, addReply } = useSupportTicketReplies(ticket.id);
+  const [message, setMessage] = useState(''), [sending, setSending] = useState(false);
+  const end = useRef<HTMLDivElement>(null);
+  useEffect(() => { end.current?.scrollIntoView?.({ behavior: 'smooth', block: 'end' }); }, [replies]);
+  const fail = () => toast({ title: tr('adminsupport_xeta_bas_verdi_f22fba', 'Xəta baş verdi'), variant: 'destructive' });
+
+  const setStatus = async (status: Status, success?: string) => {
+    const result = await updateTicket(ticket.id, { status });
+    if (result.error) { fail(); return false; }
+    onChange({ ...ticket, status }); onRefresh();
+    if (success) toast({ title: success });
+    return true;
+  };
+  const setPriority = async (priority: Priority) => {
+    const result = await updateTicket(ticket.id, { priority });
+    if (result.error) { fail(); return; }
+    onChange({ ...ticket, priority }); onRefresh();
+  };
+  const send = async () => {
+    if (!message.trim()) return;
+    setSending(true);
+    const result = await addReply(message.trim(), true); // true = is_admin
+    setSending(false);
+    if (result.error) { fail(); return; }
+    setMessage('');
+    // Also update status to in_progress if it was open
+    if (ticket.status === 'open') await setStatus('in_progress');
+    toast({ title: tr('adminsupport_cavab_gonderildi_4746f8', 'Cavab göndərildi!') });
+  };
+
+  return (
+    <SideDrawer open onOpenChange={open => { if (!open) onClose(); }} size="lg" testId="admin-ticket-drawer" dirty={!!message.trim()}
+      title={ticket.subject} description={`${ticket.user_name}${ticket.user_email ? ` · ${ticket.user_email}` : ''} · ${category}`}
+      footer={ticket.status !== 'closed' ? (
+        <div className="flex w-full items-end gap-2">
+          <textarea className="ak-textarea" style={{ minHeight: 44, maxHeight: 140 }} rows={1} value={message} onChange={event => setMessage(event.target.value)}
+            placeholder={tr('adminsupport_cavabinizi_yazin_2cda33', 'Cavabınızı yazın...')} aria-label="Cavab"
+            onKeyDown={event => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); void send(); } }} />
+          <Btn variant="primary" aria-label="Göndər" onClick={() => void send()} disabled={sending || !message.trim()} style={{ height: 44 }}>
+            {sending ? <Loader2 size={15} className="animate-spin" /> : <Send size={15} />}</Btn>
+        </div>
+      ) : <p className="ak-hint w-full text-center">{tr('adminsupport_bu_muraciet_baglanib_ca3d3c', 'Bu müraciət bağlanıb.')}</p>}>
+      <div className="flex flex-wrap items-center gap-2">
+        <select className="ak-select" aria-label="Status" value={ticket.status} onChange={event => void setStatus(event.target.value as Status)}>
+          {(Object.keys(STATUS_LABEL) as Status[]).map(value => <option key={value} value={value}>{STATUS_LABEL[value]}</option>)}
+        </select>
+        <select className="ak-select" aria-label="Prioritet" value={ticket.priority} onChange={event => void setPriority(event.target.value as Priority)}>
+          {(Object.keys(PRIORITY_LABEL) as Priority[]).map(value => <option key={value} value={value}>{PRIORITY_LABEL[value]}</option>)}
+        </select>
+        {ticket.status !== 'resolved' && ticket.status !== 'closed' && <Btn size="sm" onClick={() => void setStatus('resolved', tr('adminsupport_muraciet_hell_edildi_367c6a', 'Müraciət həll edildi'))}><CheckCircle size={13} />{tr('adminsupport_hell_et_aae47e', 'Həll et')}</Btn>}
+        {ticket.status !== 'closed' && <Btn size="sm" onClick={() => void setStatus('closed', tr('adminsupport_muraciet_baglandi_878702', 'Müraciət bağlandı'))}><XCircle size={13} />{tr('adminsupport_bagla_84bdc9', 'Bağla')}</Btn>}
+      </div>
+      <div className="ak-chat" aria-live="polite">
+        <div className="ak-bubble is-user">{ticket.message}<small>{fmtDateTime(ticket.created_at)}</small></div>
+        {ticket.admin_response && <div className="ak-bubble is-admin">{ticket.admin_response}{ticket.responded_at && <small>{fmtDateTime(ticket.responded_at)}</small>}</div>}
+        {loading ? <SkeletonRows rows={2} columns={2} /> : replies.map(reply => (
+          <div key={reply.id} className={`ak-bubble ${reply.is_admin ? 'is-admin' : 'is-user'}`}>{reply.message}<small>{fmtDateTime(reply.created_at)}</small></div>
+        ))}
+        <div ref={end} />
+      </div>
+    </SideDrawer>
+  );
+}
 
 export default AdminSupport;

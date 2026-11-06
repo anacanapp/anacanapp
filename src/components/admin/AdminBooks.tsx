@@ -11,6 +11,8 @@ import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { BOOKS, bookCover, findBook } from '@/lib/books/catalog';
+import { AdminTabs, Btn, DataTable, EmptyState, ErrorState, FilterChips, KpiRow, Page, PageHeader, SearchInput, Section, SkeletonRows, StatTile, StatusPill, Toolbar, fmtDateTime, toneFor, type Column } from './kit';
+import { ADMIN_QUERY } from './data/rpc';
 import { BOOK_PRICE_TIERS, formatAzn } from '@/lib/books/pricing';
 
 interface Dashboard {
@@ -33,39 +35,25 @@ const num = (value: unknown) => Number(value ?? 0);
 const date = (value: string | null) => value ? new Date(value).toLocaleString('az-AZ', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—';
 const rpc = (name: string, args?: Record<string, unknown>) => (supabase.rpc as any)(name, args);
 
+type BookTab = 'stats' | 'orders' | 'catalog' | 'settings' | 'guide';
 export default function AdminBooks() {
+  const [tab, setTab] = useState<BookTab>('stats');
   return (
-    <div className="space-y-4">
-      <div className="flex items-center gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary"><BookOpen size={22} /></span>
-        <div><h1 className="text-xl font-bold">PDF kitablar</h1><p className="text-sm text-muted-foreground">Çap kitablarının satışı, sifarişlər, kataloq və ayarlar</p></div>
-      </div>
-      <Tabs defaultValue="stats">
-        <TabsList className="flex-wrap h-auto">
-          <TabsTrigger value="stats">Göstəricilər</TabsTrigger>
-          <TabsTrigger value="orders">Sifarişlər</TabsTrigger>
-          <TabsTrigger value="catalog">Kataloq</TabsTrigger>
-          <TabsTrigger value="settings">Ayarlar</TabsTrigger>
-          <TabsTrigger value="guide">Necə işləyir</TabsTrigger>
-        </TabsList>
-        <TabsContent value="stats"><Stats /></TabsContent>
-        <TabsContent value="orders"><Orders /></TabsContent>
-        <TabsContent value="catalog"><Catalog /></TabsContent>
-        <TabsContent value="settings"><Settings /></TabsContent>
-        <TabsContent value="guide"><Guide /></TabsContent>
-      </Tabs>
-    </div>
+    <Page testId="admin-books">
+      <PageHeader icon={<BookOpen size={17} />} title="PDF kitablar" subtitle="Çap kitablarının satışı, sifarişlər, kataloq və ayarlar" />
+      <AdminTabs value={tab} onChange={setTab} items={[{ value: 'stats', label: 'Göstəricilər' }, { value: 'orders', label: 'Sifarişlər' }, { value: 'catalog', label: 'Kataloq' },
+        { value: 'settings', label: 'Ayarlar' }, { value: 'guide', label: 'Necə işləyir' }]} />
+      {tab === 'stats' && <Stats />}
+      {tab === 'orders' && <Orders />}
+      {tab === 'catalog' && <Catalog />}
+      {tab === 'settings' && <Settings />}
+      {tab === 'guide' && <Guide />}
+    </Page>
   );
 }
 
 function Kpi({ icon: Icon, label, value, hint }: { icon: typeof Wallet; label: string; value: string; hint?: string }) {
-  return (
-    <Card><CardContent className="p-4">
-      <div className="flex items-center gap-2 text-xs text-muted-foreground"><Icon size={14} />{label}</div>
-      <p className="mt-1 text-2xl font-bold tracking-tight">{value}</p>
-      {hint && <p className="text-xs text-muted-foreground mt-0.5">{hint}</p>}
-    </CardContent></Card>
-  );
+  return <StatTile icon={<Icon size={13} />} label={label} value={value} hint={hint} />;
 }
 
 function Bars({ rows, label, value, format }: { rows: any[]; label: (row: any) => string; value: (row: any) => number; format: (n: number) => string }) {
@@ -82,18 +70,20 @@ function Bars({ rows, label, value, format }: { rows: any[]; label: (row: any) =
 
 function Stats() {
   const [days, setDays] = useState(30);
-  const { data, isLoading, error, refetch } = useQuery({ queryKey: ['admin-books-dashboard', days], queryFn: async () => {
+  const { data, isLoading, error, refetch, isFetching } = useQuery({ queryKey: ['admin-books-dashboard', days], ...ADMIN_QUERY, queryFn: async () => {
     const { data, error } = await rpc('admin_book_dashboard_v1', { p_days: days }); if (error) throw error; return data as Dashboard; } });
-  if (isLoading) return <p className="p-6 text-sm text-muted-foreground">Yüklənir…</p>;
-  if (error || !data) return <p className="p-6 text-sm text-destructive">Göstəricilər yüklənmədi. Miqrasiya tətbiq olunub?</p>;
+  const periods = (
+    <Toolbar end={<button type="button" className="ak-icon-btn" aria-label="Yenilə" onClick={() => refetch()}><RefreshCw size={14} className={isFetching ? 'animate-spin' : ''} /></button>}>
+      <FilterChips label="Müddət" value={String(days)} onChange={value => setDays(Number(value))} options={[7, 30, 90, 365].map(value => ({ value: String(value), label: value === 365 ? '1 il' : `${value} gün` }))} />
+    </Toolbar>
+  );
+  if (isLoading) return <div className="grid gap-4">{periods}<KpiRow columns={4}>{[0, 1, 2, 3].map(index => <StatTile key={index} label="…" value="" loading />)}</KpiRow></div>;
+  if (error || !data) return <div className="grid gap-4">{periods}<ErrorState message="Göstəricilər yüklənmədi. Miqrasiya tətbiq olunub?" onRetry={() => refetch()} /></div>;
   const conversion = data.checkouts ? Math.round((data.paid_orders / data.checkouts) * 100) : 0;
   return (
-    <div className="space-y-4 mt-3">
-      <div className="flex items-center gap-2">
-        {[7, 30, 90, 365].map(value => <Button key={value} size="sm" variant={days === value ? 'default' : 'outline'} onClick={() => setDays(value)}>{value === 365 ? '1 il' : `${value} gün`}</Button>)}
-        <Button size="sm" variant="ghost" onClick={() => refetch()}><RefreshCw size={14} /></Button>
-      </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+    <div className="grid gap-4">
+      {periods}
+      <KpiRow columns={4}>
         <Kpi icon={Wallet} label="Gəlir" value={formatAzn(num(data.revenue))} hint={`Bütün dövr: ${formatAzn(num(data.all_time_revenue))}`} />
         <Kpi icon={ShoppingBag} label="Ödənilmiş sifariş" value={String(data.paid_orders)} hint={`${data.books_sold} kitab satılıb`} />
         <Kpi icon={TrendingUp} label="Orta çek" value={formatAzn(num(data.avg_order))} hint={`Sifarişdə ${num(data.avg_books)} kitab · kitabı ${formatAzn(num(data.avg_unit))}`} />
@@ -102,7 +92,7 @@ function Stats() {
         <Kpi icon={Clock} label="Gözləyən" value={String(data.pending)} hint="Ödəniş səhifəsində qalanlar" />
         <Kpi icon={XCircle} label="Uğursuz / ləğv" value={String(data.failed)} hint={`${data.refunded} geri qaytarılıb`} />
         <Kpi icon={Gift} label="Hədiyyə edilib" value={String(data.gifted)} hint={data.emails_missing ? `${data.emails_missing} e-poçt göndərilməyib` : 'Bütün e-poçtlar göndərilib'} />
-      </div>
+      </KpiRow>
       <div className="grid lg:grid-cols-2 gap-3">
         <Card><CardHeader className="pb-2"><CardTitle className="text-sm">Günlük gəlir</CardTitle></CardHeader><CardContent>
           <Bars rows={data.by_day.slice(-14)} label={row => new Date(row.day).toLocaleDateString('az-AZ', { day: '2-digit', month: 'short' })} value={row => num(row.revenue)} format={formatAzn} /></CardContent></Card>
@@ -128,7 +118,7 @@ function Orders() {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(0);
   const [busy, setBusy] = useState<string | null>(null);
-  const { data = [], isLoading, refetch } = useQuery({ queryKey: ['admin-books-orders', status, search, page], queryFn: async () => {
+  const { data = [], isLoading, isError, refetch, isFetching } = useQuery({ queryKey: ['admin-books-orders', status, search, page], ...ADMIN_QUERY, staleTime: 20_000, queryFn: async () => {
     const { data, error } = await rpc('admin_book_orders_v1', { p_status: status, p_search: search.trim() || null, p_limit: 30, p_offset: page * 30 });
     if (error) throw error; return data as OrderRow[]; } });
   const total = data[0]?.total_count ?? 0;
@@ -138,43 +128,29 @@ function Orders() {
     setBusy(null);
     if (error || !result?.sent) toast.error('E-poçt göndərilmədi'); else { toast.success('Yükləmə linkləri yenidən göndərildi'); void client.invalidateQueries({ queryKey: ['admin-books-orders'] }); }
   };
+  const columns: Column<OrderRow>[] = [
+    { key: 'buyer', header: 'Alıcı', mobile: 'title', cell: order => <span><span className="ak-cell-main">{order.name || '—'}</span><span className="ak-cell-sub">{order.email}</span></span> },
+    { key: 'books', header: 'Kitablar', cell: order => <span className="flex flex-wrap gap-1 max-w-[340px]">{order.book_ids.map(id => <span key={id} title={findBook(id)?.title ?? id} className="flex items-center gap-1 rounded-md bg-muted px-1.5 py-0.5 text-[11px]">
+      <img src={bookCover(id)} alt="" className="h-5 w-3.5 rounded-sm object-cover" /><span className="max-w-[110px] truncate">{findBook(id)?.title ?? id}</span></span>)}</span> },
+    { key: 'amount', header: 'Məbləğ', align: 'end', cell: order => <span><strong className="ak-num">{formatAzn(num(order.amount))}</strong><span className="ak-cell-sub">{order.book_ids.length} × {formatAzn(num(order.unit_price))}</span></span> },
+    { key: 'status', header: 'Status', cell: order => <span className="flex flex-wrap gap-1"><StatusPill tone={toneFor(order.status)}>{STATUS[order.status]?.label ?? order.status}</StatusPill>{order.provider === 'admin' && <StatusPill tone="violet" dot={false}><Gift size={11} />Hədiyyə</StatusPill>}</span> },
+    { key: 'dates', header: 'Tarix', cell: order => <span><span className="ak-num">{fmtDateTime(order.created_at)}</span><span className="ak-cell-sub">Ödənilib: {date(order.paid_at)}</span></span> },
+    { key: 'email', header: 'E-poçt', mobile: 'hidden', cell: order => <span className="ak-cell-sub inline-flex items-center gap-1"><Mail size={12} />{order.email_sent_at ? `Göndərilib ${date(order.email_sent_at)}` : 'Göndərilməyib'}</span> },
+  ];
   return (
-    <div className="space-y-3 mt-3">
-      <div className="flex flex-wrap items-center gap-2">
-        <div className="relative flex-1 min-w-[200px]"><Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-          <Input className="pl-8" placeholder="E-poçt, ad və ya sifariş ID" value={search} onChange={event => { setSearch(event.target.value); setPage(0); }} /></div>
-        {[null, 'paid', 'pending', 'failed', 'refunded'].map(value => (
-          <Button key={value ?? 'all'} size="sm" variant={status === value ? 'default' : 'outline'} onClick={() => { setStatus(value); setPage(0); }}>{value ? STATUS[value].label : 'Hamısı'}</Button>
-        ))}
-        <Button size="sm" variant="ghost" onClick={() => refetch()}><RefreshCw size={14} /></Button>
-      </div>
-      {isLoading ? <p className="text-sm text-muted-foreground p-4">Yüklənir…</p> : !data.length ? <p className="text-sm text-muted-foreground p-4">Sifariş tapılmadı.</p> : (
-        <div className="space-y-2">{data.map(order => (
-          <Card key={order.id}><CardContent className="p-4 space-y-2">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${STATUS[order.status]?.cls}`}>{STATUS[order.status]?.label ?? order.status}</span>
-              {order.provider === 'admin' && <Badge variant="outline"><Gift size={12} className="me-1" />Hədiyyə</Badge>}
-              <b className="text-sm">{order.name || '—'}</b><span className="text-sm text-muted-foreground">{order.email}</span>
-              <span className="ms-auto text-sm font-bold">{formatAzn(num(order.amount))}</span>
-            </div>
-            <div className="flex flex-wrap gap-1.5">{order.book_ids.map(id => <span key={id} className="flex items-center gap-1.5 rounded-lg bg-muted px-2 py-1 text-xs">
-              <img src={bookCover(id)} alt="" className="h-6 w-4 rounded-sm object-cover" />{findBook(id)?.title ?? id}</span>)}</div>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
-              <span>Yaradılıb: {date(order.created_at)}</span><span>Ödənilib: {date(order.paid_at)}</span>
-              <span>{order.book_ids.length} kitab × {formatAzn(num(order.unit_price))}</span>
-              <span className="flex items-center gap-1"><Mail size={12} />{order.email_sent_at ? `Göndərilib ${date(order.email_sent_at)}` : 'Göndərilməyib'}</span>
-              {order.provider_transaction && <span>Epoint: {order.provider_transaction}</span>}
-              {order.admin_note && <span>Qeyd: {order.admin_note}</span>}
-              {order.status === 'paid' && <Button size="sm" variant="outline" className="ms-auto h-7" disabled={busy === order.id} onClick={() => resend(order.id)}><Mail size={12} className="me-1" />Linkləri yenidən göndər</Button>}
-            </div>
-          </CardContent></Card>
-        ))}</div>
-      )}
-      <div className="flex items-center justify-between text-sm text-muted-foreground">
-        <span>Cəmi {total} sifariş</span>
-        <div className="flex gap-2"><Button size="sm" variant="outline" disabled={page === 0} onClick={() => setPage(page - 1)}>Əvvəlki</Button>
-          <Button size="sm" variant="outline" disabled={(page + 1) * 30 >= total} onClick={() => setPage(page + 1)}>Növbəti</Button></div>
-      </div>
+    <div className="grid gap-4">
+      <Section flush>
+        <div className="px-4 pb-3 grid gap-2.5">
+          <Toolbar end={<button type="button" className="ak-icon-btn" aria-label="Yenilə" onClick={() => refetch()}><RefreshCw size={14} className={isFetching ? 'animate-spin' : ''} /></button>}>
+            <SearchInput value={search} onChange={value => { setSearch(value); setPage(0); }} placeholder="E-poçt, ad və ya sifariş ID" />
+          </Toolbar>
+          <FilterChips label="Status" value={status ?? 'all'} onChange={value => { setStatus(value === 'all' ? null : value); setPage(0); }}
+            options={[{ value: 'all', label: 'Hamısı' }, ...['paid', 'pending', 'failed', 'refunded'].map(value => ({ value, label: STATUS[value].label }))]} />
+        </div>
+        <DataTable testId="admin-books-orders" columns={columns} rows={isLoading ? undefined : data} rowKey={order => order.id} loading={isLoading} error={isError ? true : null} onRetry={() => refetch()}
+          page={page} total={total} pageSize={30} onPageChange={setPage} fetching={isFetching && !isLoading} empty={<EmptyState title="Sifariş tapılmadı." />}
+          actions={[{ label: 'Linkləri yenidən göndər', icon: <Mail size={14} />, hidden: order => order.status !== 'paid' || busy === order.id, onSelect: order => void resend(order.id) }]} />
+      </Section>
       <GrantCard />
     </div>
   );
@@ -194,14 +170,14 @@ function GrantCard() {
     else { toast.success(data.sent ? 'Kitablar verildi, e-poçt göndərildi' : 'Kitablar verildi (e-poçt göndərilmədi)'); setIds(''); setNote(''); }
   };
   return (
-    <Card><CardHeader className="pb-2"><CardTitle className="text-sm flex items-center gap-2"><Gift size={15} />Kitab hədiyyə et (dəstək)</CardTitle></CardHeader>
-      <CardContent className="space-y-2">
+    <Section title={<span className="flex items-center gap-2"><Gift size={15} />Kitab hədiyyə et (dəstək)</span>}>
+      <div className="grid gap-2 max-w-xl">
         <Input placeholder="İstifadəçinin e-poçtu" value={email} onChange={event => setEmail(event.target.value)} />
         <Input placeholder="Kitab ID-ləri, məs. 1_01, 1_02 (Kataloq bölməsində)" value={ids} onChange={event => setIds(event.target.value)} />
         <Textarea placeholder="Qeyd (səbəb), istəyə görə" value={note} onChange={event => setNote(event.target.value)} rows={2} />
         <Button disabled={busy || !email || !ids} onClick={grant}>Hədiyyə et</Button>
-        <p className="text-xs text-muted-foreground">0 ₼ sifariş kimi yazılır, gəlir statistikasına düşmür; istifadəçiyə yükləmə linkləri göndərilir.</p>
-      </CardContent></Card>
+        <p className="ak-hint">0 ₼ sifariş kimi yazılır, gəlir statistikasına düşmür; istifadəçiyə yükləmə linkləri göndərilir.</p>
+      </div></Section>
   );
 }
 
@@ -211,9 +187,9 @@ function Catalog() {
     const { data, error } = await rpc('admin_book_catalog_v1'); if (error) throw error; return data as CatalogRow[]; } });
   const rows = useMemo(() => data.filter(row => !age || row.age_group === age), [data, age]);
   const missing = data.filter(row => !row.has_pdf).length;
-  if (isLoading) return <p className="p-6 text-sm text-muted-foreground">Yüklənir…</p>;
+  if (isLoading) return <SkeletonRows rows={6} columns={3} />;
   return (
-    <div className="space-y-3 mt-3">
+    <div className="grid gap-3">
       {missing > 0 && <div className="flex items-center gap-2 rounded-xl bg-orange-500/10 p-3 text-sm text-orange-800"><FileWarning size={16} />{missing} kitabın PDF faylı hələ yüklənməyib: alıcı həmin kitabı endirə bilməz.</div>}
       <div className="flex flex-wrap gap-2">
         <Button size="sm" variant={!age ? 'default' : 'outline'} onClick={() => setAge(null)}>Hamısı ({data.length})</Button>
@@ -249,9 +225,9 @@ function Settings() {
     const { error } = await supabase.from('app_settings').upsert({ key: 'books_payments_enabled', value: value as any, description: 'PDF çap kitablarının Epoint ilə satışı (true/false)' }, { onConflict: 'key' });
     if (error) toast.error('Yadda saxlanılmadı'); else { toast.success(value ? 'Kitab satışı aktivdir' : 'Kitab satışı dayandırıldı'); void client.invalidateQueries({ queryKey: ['admin-books-settings'] }); }
   };
-  if (isLoading || !data) return <p className="p-6 text-sm text-muted-foreground">Yüklənir…</p>;
+  if (isLoading || !data) return <SkeletonRows rows={4} columns={2} />;
   return (
-    <div className="space-y-3 mt-3">
+    <div className="grid gap-3 max-w-3xl">
       <Card><CardContent className="p-4 flex items-center justify-between gap-4">
         <div><b className="text-sm">Kartla satış (Epoint)</b><p className="text-xs text-muted-foreground mt-1">Söndürülü olanda mağaza açıqdır, amma "Kartla ödəniş tezliklə" göstərilir və ödəniş yaradılmır.</p></div>
         <Switch checked={data.enabled} onCheckedChange={toggle} disabled={!data.live || !data.keys} />
@@ -312,7 +288,7 @@ function Guide() {
     ]],
   ];
   return (
-    <div className="space-y-3 mt-3">{sections.map(([title, items]) => (
+    <div className="grid gap-3 max-w-3xl">{sections.map(([title, items]) => (
       <Card key={title}><CardHeader className="pb-2"><CardTitle className="text-sm">{title}</CardTitle></CardHeader>
         <CardContent><ul className="list-disc ps-5 space-y-1.5 text-sm text-muted-foreground">{items.map(item => <li key={item}>{item}</li>)}</ul></CardContent></Card>
     ))}</div>

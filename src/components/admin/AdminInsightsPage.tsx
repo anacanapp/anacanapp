@@ -58,7 +58,7 @@ export default function AdminInsightsPage({ premium = false, onNavigate }: { pre
     ['manual', ACCESS_LABELS.manual], ['household', ACCESS_LABELS.household], ['expired', tr('admin_kpi_expired', 'Hüququ bitmiş')], ['expiring7d', tr('admin_kpi_expiring_week', '7 günə bitəcək')]];
   const tools = data?.tools.filter(item => `${item.tool_id} ${item.tool_name || ''}`.toLowerCase().includes(toolSearch.toLowerCase())) ?? [];
   return <div className="admin-page" data-testid={premium ? 'admin-premium-page' : 'admin-dashboard'}>
-    <div className="admin-page-heading"><div><h1>{premium ? 'Premium mərkəzi' : 'Dashboard'}</h1><p>{premium ? 'Abunəlik, trial, ləğv, ölkə və istifadə göstəricilərinin vahid görünüşü.' : 'İstifadəçilər, abunəliklər və alət istifadəsinin cari vəziyyəti.'}</p></div>
+    <div className="admin-page-heading"><div><h1>{premium ? 'Premium mərkəzi' : 'İstifadə analitikası'}</h1><p>{premium ? 'Abunəlik, trial, ləğv, ölkə və istifadə göstəricilərinin vahid görünüşü.' : 'İstifadəçilər, abunəliklər və alət istifadəsinin cari vəziyyəti.'}</p></div>
       <div className="admin-page-actions">{!premium && <Button variant="outline" onClick={() => onNavigate?.('premium-analytics')}><Crown size={16} className="me-2" />Premium mərkəzi</Button>}
         <Button variant="outline" disabled={query.isFetching || members.isFetching} onClick={() => { void query.refetch(); void members.refetch(); }}><RefreshCw size={15} className={`me-2 ${query.isFetching ? 'animate-spin' : ''}`} />Yenilə</Button></div>
     </div>

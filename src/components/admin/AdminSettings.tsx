@@ -1,108 +1,62 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { Baby, Key, Moon, RefreshCw, Save, Settings2, Smartphone, Sparkles, Users } from 'lucide-react';
 import { tr } from '@/lib/tr';
-import { motion } from 'framer-motion';
-import { Save, Key, Sparkles, Settings2, RefreshCw, Moon, Sun, Users, Baby } from 'lucide-react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue } from
-'@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-
-interface AppSetting {
-  id: string;
-  key: string;
-  value: any;
-  description: string | null;
-}
-
-// NOT: `handleSave` əvvəllər `localSettings`-dəki HƏR açarı (yəni
-// `app_settings` cədvəlində mövcud olan HƏR sətri, bu ekranın heç bir
-// UI elementi olmasa belə) geri yazırdı — nəticədə: (1) başqa admin
-// ekranlarının (AdminForceUpdate, AdminCommunity, AdminEpoint,
-// AdminFlowContent və s.) bu komponent yükləndikdən SONRA etdiyi
-// dəyişikliklər, bu ekranda əlaqəsiz bir "Yadda saxla" kliki ilə köhnə
-// keşlənmiş dəyərə sıfırlanırdı; (2) `force_update` (JSONB obyekt) hər
-// dəfə ikiqat JSON-encode olunaraq korlanırdı (`AdminForceUpdate.tsx`
-// onu sadə string kimi geri oxuyurdu). İndi YALNIZ bu ekranın özünün
-// idarə etdiyi açarlar yazılır.
+import { AdminTabs, Btn, Field, Notice, Page, PageHeader, Section, SettingRow, SkeletonRows, StatusPill } from './kit';
 import AdminAptekSettings from './AdminAptekSettings';
+
+interface AppSetting { id: string; key: string; value: any; description: string | null }
+
+// NOT: `handleSave` əvvəllər `localSettings`-dəki HƏR açarı (yəni `app_settings` cədvəlində mövcud olan HƏR sətri)
+// geri yazırdı — nəticədə başqa admin ekranlarının dəyişiklikləri köhnə keşlənmiş dəyərə sıfırlanırdı və `force_update`
+// ikiqat JSON-encode olunurdu. İndi YALNIZ bu ekranın özünün idarə etdiyi açarlar yazılır.
 const MANAGED_SETTING_KEYS = [
-  'flow_mode_enabled',
-  'bump_mode_enabled',
-  'mommy_mode_enabled',
-  'mommy_hero_variant',
-  'bottom_nav_style',
-  'profile_layout',
-  'inapp_onboarding',
-  'weaning_tool',
-  'dark_mode_enabled',
-  'ai_model',
-  'app_version',
-  'maintenance_mode',
-  'max_daily_logs',
+  'flow_mode_enabled', 'bump_mode_enabled', 'mommy_mode_enabled', 'mommy_hero_variant', 'bottom_nav_style', 'profile_layout', 'inapp_onboarding', 'weaning_tool',
+  'dark_mode_enabled', 'ai_model', 'app_version', 'maintenance_mode', 'max_daily_logs',
 ] as const;
 
 const aiModels = [
-{ id: 'google/gemini-2.5-flash', name: tr("adminsettings_gemini_2_5_flash_tovsiyye_olunan_be1e47", "Gemini 2.5 Flash (Tövsiyyə olunan)") },
-{ id: 'google/gemini-2.5-pro', name: 'Gemini 2.5 Pro' },
-{ id: 'google/gemini-3-flash-preview', name: 'Gemini 3 Flash Preview' },
-{ id: 'openai/gpt-5-mini', name: 'GPT-5 Mini' },
-{ id: 'openai/gpt-5', name: 'GPT-5' }];
-
+  { id: 'google/gemini-2.5-flash', name: tr('adminsettings_gemini_2_5_flash_tovsiyye_olunan_be1e47', 'Gemini 2.5 Flash (Tövsiyyə olunan)') }, { id: 'google/gemini-2.5-pro', name: 'Gemini 2.5 Pro' },
+  { id: 'google/gemini-3-flash-preview', name: 'Gemini 3 Flash Preview' }, { id: 'openai/gpt-5-mini', name: 'GPT-5 Mini' }, { id: 'openai/gpt-5', name: 'GPT-5' },
+];
+const HERO_VARIANTS = [
+  ['classic', tr('adminsettings_classic_coral_glassmorphism_movcud_8ff4ae', 'Classic — Coral glassmorphism (mövcud)')], ['aurora', tr('adminsettings_aurora_premium_tund_qizili_halqa_de8559', 'Aurora — Premium tünd, qızılı halqa')],
+  ['storybook', tr('adminsettings_storybook_pastel_usaq_kitabi_stili_d21718', 'Storybook — Pastel uşaq kitabı stili')], ['polaroid', tr('adminsettings_polaroid_peanut_terzi_eyilmis_foto_washi_621108', 'Polaroid — Peanut tərzi əyilmiş foto + washi')],
+  ['minimal', tr('adminsettings_minimal_card_flo_clue_ag_kart_statistika_1b051e', 'Minimal Card — Flo/Clue ağ kart + statistika')], ['mesh', tr('adminsettings_mesh_apple_vari_mesh_gradient_uzen_foto_081739', 'Mesh — Apple-vari mesh gradient + üzən foto')],
+  ['story', tr('adminsettings_story_instagram_story_terzi_tam_ekran_5c22a0', 'Story — Instagram story tərzi tam ekran')], ['bento', 'Bento — Apple bento qrid (foto + statistika)'],
+];
+type Tab = 'app' | 'aptek' | 'system';
 
 const AdminSettings = () => {
   const [settings, setSettings] = useState<AppSetting[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
-  const [localSettings, setLocalSettings] = useState<Record<string, any>>({});
+  const [loading, setLoading] = useState(true), [saving, setSaving] = useState(false);
+  const [localSettings, setLocalSettings] = useState<Record<string, any>>({}), [savedSettings, setSavedSettings] = useState<Record<string, any>>({});
+  const [tab, setTab] = useState<Tab>('app');
   const { toast } = useToast();
 
-  useEffect(() => {
-    fetchSettings();
-  }, []);
+  useEffect(() => { void fetchSettings(); }, []);
 
   const fetchSettings = async () => {
     try {
-      const { data, error } = await supabase.
-      from('app_settings').
-      select('*').
-      order('key');
-
+      const { data, error } = await supabase.from('app_settings').select('*').order('key');
       if (error) throw error;
-
       setSettings(data || []);
-
       const settingsMap: Record<string, any> = {};
-      data?.forEach((setting) => {
+      data?.forEach(setting => {
         // Parse JSON strings to actual values
         let value = setting.value;
         if (typeof value === 'string') {
-          if (value === 'true') value = true;else
-          if (value === 'false') value = false;else
-          {
-            try {
-              value = JSON.parse(value);
-            } catch {
-
-              // Keep as string
-            }}
+          if (value === 'true') value = true; else if (value === 'false') value = false;
+          else { try { value = JSON.parse(value); } catch { /* Keep as string */ } }
         }
         settingsMap[setting.key] = value;
       });
-      setLocalSettings(settingsMap);
+      setLocalSettings(settingsMap); setSavedSettings(settingsMap);
     } catch (error) {
       console.error('Error fetching settings:', error);
-    } finally {
-      setLoading(false);
-    }
+    } finally { setLoading(false); }
   };
 
   const handleSave = async () => {
@@ -112,412 +66,92 @@ const AdminSettings = () => {
         if (!(key in localSettings)) continue;
         const value = localSettings[key];
         const stringValue = typeof value === 'string' ? value : JSON.stringify(value);
-
         // Check if setting exists
-        const existingSetting = settings.find((s) => s.key === key);
-
+        const existingSetting = settings.find(setting => setting.key === key);
         if (existingSetting) {
-          const { error } = await supabase.
-          from('app_settings').
-          update({ value: stringValue }).
-          eq('key', key);
+          const { error } = await supabase.from('app_settings').update({ value: stringValue }).eq('key', key);
           if (error) throw error;
         } else {
-          const { error } = await supabase.
-          from('app_settings').
-          insert({ key, value: stringValue });
+          const { error } = await supabase.from('app_settings').insert({ key, value: stringValue });
           if (error) throw error;
         }
       }
-
       await fetchSettings();
-      toast({
-        title: tr("adminsettings_ugurlu_7fe64c", "Uğurlu"),
-        description: tr("adminsettings_tenzimlemeler_yadda_saxlanildi_90a034", "T\u0259nziml\u0259m\u0259l\u0259r yadda saxlan\u0131ld\u0131")
-      });
+      toast({ title: tr('adminsettings_ugurlu_7fe64c', 'Uğurlu'), description: tr('adminsettings_tenzimlemeler_yadda_saxlanildi_90a034', 'Tənzimləmələr yadda saxlanıldı') });
     } catch (error) {
       console.error('Error saving settings:', error);
-      toast({
-        title: tr("adminsettings_xeta_3cdbb6", "Xəta"),
-        description: tr("adminsettings_tenzimlemeler_yadda_saxlanila_bilmedi_f9bdcb", "Tənzimləmələr yadda saxlanıla bilmədi"),
-        variant: 'destructive'
-      });
-    } finally {
-      setSaving(false);
-    }
+      toast({ title: tr('adminsettings_xeta_3cdbb6', 'Xəta'), description: tr('adminsettings_tenzimlemeler_yadda_saxlanila_bilmedi_f9bdcb', 'Tənzimləmələr yadda saxlanıla bilmədi'), variant: 'destructive' });
+    } finally { setSaving(false); }
   };
 
-  const updateSetting = (key: string, value: any) => {
-    setLocalSettings((prev) => ({ ...prev, [key]: value }));
-  };
+  const updateSetting = (key: string, value: any) => setLocalSettings(prev => ({ ...prev, [key]: value }));
+  const getSettingValue = (key: string, defaultValue: any = null) => { const value = localSettings[key]; return value === undefined || value === null ? defaultValue : value; };
+  const changed = useMemo(() => MANAGED_SETTING_KEYS.filter(key => JSON.stringify(localSettings[key]) !== JSON.stringify(savedSettings[key])), [localSettings, savedSettings]);
+  const select = (key: string, fallback: string, options: Array<[string, string]>, label: string) => (
+    <select className="ak-select" aria-label={label} style={{ minWidth: 220 }} value={getSettingValue(key, fallback)} onChange={event => updateSetting(key, event.target.value)}>
+      {options.map(([value, text]) => <option key={value} value={value}>{text}</option>)}
+    </select>
+  );
+  const toggle = (key: string, fallback: boolean, label: string) => <Switch checked={getSettingValue(key, fallback)} onCheckedChange={checked => updateSetting(key, checked)} aria-label={label} />;
 
-  const getSettingValue = (key: string, defaultValue: any = null) => {
-    const value = localSettings[key];
-    if (value === undefined || value === null) return defaultValue;
-    return value;
-  };
+  const saveButton = <Btn variant="primary" onClick={() => void handleSave()} disabled={saving || loading || !changed.length}>{saving ? <RefreshCw size={15} className="animate-spin" /> : <Save size={15} />}Yadda saxla{changed.length ? ` (${changed.length})` : ''}</Btn>;
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-foreground">{tr("adminsettings_tenzimlemeler_085659", "Tənzimləmələr")}</h1>
-          <p className="text-muted-foreground">{tr("adminsettings_tetbiq_konfiqurasiyalarini_idare_edin_d01841", "Tətbiq konfiqurasiyalarını idarə edin")}</p>
-        </div>
-        <Button onClick={handleSave} disabled={saving} className="gap-2">
-          {saving ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-          Yadda saxla
-        </Button>
-      </div>
-
-      {loading ?
-      <Card className="p-8 text-center">
-          <RefreshCw className="w-8 h-8 animate-spin mx-auto text-muted-foreground" />
-        </Card> :
-
-      <div className="grid gap-6">
-          <AdminAptekSettings />
-
-          {/* Life Stage Settings */}
-          <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}>
-          
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-purple-500/10">
-                  <Users className="w-5 h-5 text-purple-500" />
+    <Page testId="admin-settings">
+      <PageHeader title={tr('adminsettings_tenzimlemeler_085659', 'Tənzimləmələr')} subtitle={tr('adminsettings_tetbiq_konfiqurasiyalarini_idare_edin_d01841', 'Tətbiq konfiqurasiyalarını idarə edin')}
+        meta={changed.length > 0 && <StatusPill tone="warning">Yadda saxlanmayıb</StatusPill>} actions={tab !== 'aptek' && saveButton} />
+      <AdminTabs value={tab} onChange={setTab} items={[{ value: 'app', label: 'Tətbiq' }, { value: 'aptek', label: 'Anacan Aptek' }, { value: 'system', label: 'Sistem və AI' }]} />
+      {loading ? <Section><SkeletonRows rows={6} columns={2} /></Section> : (
+        <>
+          {tab === 'aptek' && <AdminAptekSettings />}
+          {tab === 'app' && (
+            <div className="ak-grid ak-grid-2">
+              <Section title={<span className="flex items-center gap-2"><Users size={15} />{tr('adminsettings_heyat_merheleleri_c9d7f6', 'Həyat Mərhələləri')}</span>} description={tr('adminsettings_qeydiyyat_zamani_gosterilecek_merheleler_0d58d9', 'Qeydiyyat zamanı göstəriləcək mərhələlər')}>
+                <SettingRow icon="🌸" title={tr('adminsettings_flow_dovr_izleme_92cd60', 'Flow - Dövr İzləmə')} description={tr('adminsettings_menstruasiya_izleme_rejimi_ee4973', 'Menstruasiya izləmə rejimi')} control={toggle('flow_mode_enabled', true, 'Flow')} />
+                <SettingRow icon="🤰" title={tr('adminsettings_bump_hamilelik_de436a', 'Bump - Hamiləlik')} description={tr('adminsettings_hamilelik_izleme_rejimi_9a1d2f', 'Hamiləlik izləmə rejimi')} control={toggle('bump_mode_enabled', true, 'Bump')} />
+                <SettingRow icon="👶" title={tr('adminsettings_mommy_analiq_4d3d41', 'Mommy - Analıq')} description={tr('adminsettings_korpe_izleme_rejimi_af82ab', 'Körpə izləmə rejimi')} control={toggle('mommy_mode_enabled', true, 'Mommy')} />
+              </Section>
+              <Section title={<span className="flex items-center gap-2"><Smartphone size={15} />Görünüş və təcrübələr</span>} description="Yadda saxlayandan sonra istifadəçilərdə tətbiq yenidən açılanda və ya 5 dəqiqə ərzində dəyişir.">
+                <SettingRow icon={<Baby size={16} />} title={tr('adminsettings_mommy_hero_dizayni_603f42', 'Mommy Hero Dizaynı')} description={tr('adminsettings_deyisiklik_butun_istifadeciler_198453', 'Dəyişiklik bütün istifadəçilər üçün dərhal tətbiq olunur.')}
+                  control={select('mommy_hero_variant', 'classic', HERO_VARIANTS as Array<[string, string]>, 'Mommy Hero')} />
+                <SettingRow title="Alt menyu stili" control={select('bottom_nav_style', 'capsule', [['capsule', 'Üzən kapsul (test)'], ['classic', 'Klassik (əvvəlki)']], 'Alt menyu stili')} />
+                <SettingRow title="Profil görünüşü" control={select('profile_layout', 'tabs', [['tabs', 'Tablı: Mən · Ailə · Ayarlar'], ['classic', 'Klassik (əvvəlki uzun səhifə)']], 'Profil görünüşü')} />
+                <SettingRow title="Tətbiqdaxili onboarding turu (Glass)" description="Yalnız funksiya əlavə olunandan sonra qeydiyyatdan keçən, hesabı 14 gündən gənc hesablar görür. Hər istifadəçi turu bir dəfə görür."
+                  control={select('inapp_onboarding', 'off', [['on', 'Aktiv: yeni istifadəçilərə ilk açılışda'], ['off', 'Söndürülüb']], 'Onboarding turu')} />
+                <SettingRow title="Süddən ayırma aləti" description="Plan yalnız 12+ aylıq uşaq üçün qurulur. Bələdçi və check-in pulsuz, fərdi təqvim və xatırlatmalar Premium-dur."
+                  control={select('weaning_tool', 'off', [['on', 'Aktiv: Ana modulunda, 9+ ay'], ['off', 'Söndürülüb']], 'Süddən ayırma')} />
+                <SettingRow icon={<Moon size={16} />} title={tr('adminsettings_qaranliq_rejim_29c427', 'Qaranlıq Rejim')} description={tr('adminsettings_i_stifadeciler_qaranliq_rejimi_3acc5d', 'İstifadəçilər qaranlıq rejimi aktiv edə bilsin')} control={toggle('dark_mode_enabled', true, 'Qaranlıq rejim')} />
+              </Section>
+            </div>
+          )}
+          {tab === 'system' && (
+            <div className="ak-grid ak-grid-2">
+              <Section title={<span className="flex items-center gap-2"><Sparkles size={15} />{tr('adminsettings_ai_tenzimlemeleri_7d8f40', 'AI Tənzimləmələri')}</span>} description={tr('adminsettings_anacan_ai_modeli_ve_parametrleri_d1304d', 'Anacan.AI modeli və parametrləri')}>
+                <Field label="AI Model" hint={tr('adminsettings_anacan_ai_chat_ucun_istifade_o_ea0c30', 'Anacan.AI chat üçün istifadə olunan model')}>{id => (
+                  <select id={id} className="ak-select w-full" value={getSettingValue('ai_model', 'google/gemini-2.5-flash')} onChange={event => updateSetting('ai_model', event.target.value)}>
+                    {aiModels.map(model => <option key={model.id} value={model.id}>{model.name}</option>)}</select>)}</Field>
+              </Section>
+              <Section title={<span className="flex items-center gap-2"><Settings2 size={15} />{tr('adminsettings_tetbiq_tenzimlemeleri_75a82e', 'Tətbiq Tənzimləmələri')}</span>} description={tr('adminsettings_umumi_tetbiq_parametrleri_499e36', 'Ümumi tətbiq parametrləri')}>
+                <div className="grid gap-3">
+                  <Field label={tr('adminsettings_tetbiq_versiyasi_9f0928', 'Tətbiq Versiyası')}>{id => <input id={id} className="ak-input" value={getSettingValue('app_version', '1.0.0')} onChange={event => updateSetting('app_version', event.target.value)} />}</Field>
+                  <SettingRow title={tr('adminsettings_temir_rejimi_f48428', 'Təmir Rejimi')} description={tr('adminsettings_aktiv_olduqda_istifadeciler_te_8e0fc6', 'Aktiv olduqda istifadəçilər tətbiqə daxil ola bilməz')} control={toggle('maintenance_mode', false, 'Təmir rejimi')} />
+                  {getSettingValue('maintenance_mode', false) && <Notice tone="warning">Təmir rejimi aktiv olanda istifadəçilər tətbiqə daxil ola bilmir.</Notice>}
+                  <Field label={tr('adminsettings_maksimum_gunluk_qeyd_92e635', 'Maksimum Günlük Qeyd')} hint={tr('adminsettings_her_istifadeci_ucun_saxlanilac_bb7b78', 'Hər istifadəçi üçün saxlanılacaq maksimum günlük qeyd sayı')}>{id => (
+                    <input id={id} className="ak-input" type="number" value={getSettingValue('max_daily_logs', 30)} onChange={event => updateSetting('max_daily_logs', parseInt(event.target.value))} />)}</Field>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{tr("adminsettings_heyat_merheleleri_c9d7f6", "Həyat Mərhələləri")}</h3>
-                  <p className="text-sm text-muted-foreground">{tr("adminsettings_qeydiyyat_zamani_gosterilecek_merheleler_0d58d9", "Qeydiyyat zamanı göstəriləcək mərhələlər")}</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 rounded-xl bg-flow-light/50 dark:bg-flow-light">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">🌸</span>
-                    <div>
-                      <label className="text-sm font-medium text-foreground">{tr("adminsettings_flow_dovr_izleme_92cd60", "Flow - Dövr İzləmə")}</label>
-                      <p className="text-xs text-muted-foreground">
-                        {tr("adminsettings_menstruasiya_izleme_rejimi_ee4973", "Menstruasiya izl\u0259m\u0259 rejimi")}
-                      </p>
-                    </div>
-                  </div>
-                  <Switch
-                  checked={getSettingValue('flow_mode_enabled', true)}
-                  onCheckedChange={(checked) => updateSetting('flow_mode_enabled', checked)} />
-                
-                </div>
-
-                <div className="flex items-center justify-between p-4 rounded-xl bg-bump-light/50 dark:bg-bump-light">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">🤰</span>
-                    <div>
-                      <label className="text-sm font-medium text-foreground">{tr("adminsettings_bump_hamilelik_de436a", "Bump - Hamiləlik")}</label>
-                      <p className="text-xs text-muted-foreground">
-                        {tr("adminsettings_hamilelik_izleme_rejimi_9a1d2f", "Hamil\u0259lik izl\u0259m\u0259 rejimi")}
-                      </p>
-                    </div>
-                  </div>
-                  <Switch
-                  checked={getSettingValue('bump_mode_enabled', true)}
-                  onCheckedChange={(checked) => updateSetting('bump_mode_enabled', checked)} />
-                
-                </div>
-
-                <div className="flex items-center justify-between p-4 rounded-xl bg-mommy-light/50 dark:bg-mommy-light">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">👶</span>
-                    <div>
-                      <label className="text-sm font-medium text-foreground">{tr("adminsettings_mommy_analiq_4d3d41", "Mommy - Analıq")}</label>
-                      <p className="text-xs text-muted-foreground">
-                        {tr("adminsettings_korpe_izleme_rejimi_af82ab", "K\xF6rp\u0259 izl\u0259m\u0259 rejimi")}
-                      </p>
-                    </div>
-                  </div>
-                  <Switch
-                  checked={getSettingValue('mommy_mode_enabled', true)}
-                  onCheckedChange={(checked) => updateSetting('mommy_mode_enabled', checked)} />
-                
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* Mommy Hero Variant */}
-          <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.04 }}>
-          
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-pink-500/10">
-                  <Baby className="w-5 h-5 text-pink-500" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{tr("adminsettings_mommy_hero_dizayni_603f42", "Mommy Hero Dizaynı")}</h3>
-                  <p className="text-sm text-muted-foreground">{tr("adminsettings_mommy_panelinin_yuxari_sekilli_kartinin__a903d6", "Mommy panelinin yuxarı şəkilli kartının görünüşü")}</p>
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium mb-2 block text-foreground">Aktiv variant</label>
-                <Select
-                value={getSettingValue('mommy_hero_variant', 'classic')}
-                onValueChange={(value) => updateSetting('mommy_hero_variant', value)}>
-                
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="classic">{tr("adminsettings_classic_coral_glassmorphism_movcud_8ff4ae", "Classic — Coral glassmorphism (mövcud)")}</SelectItem>
-                    <SelectItem value="aurora">{tr("adminsettings_aurora_premium_tund_qizili_halqa_de8559", "Aurora — Premium tünd, qızılı halqa")}</SelectItem>
-                    <SelectItem value="storybook">{tr("adminsettings_storybook_pastel_usaq_kitabi_stili_d21718", "Storybook — Pastel uşaq kitabı stili")}</SelectItem>
-                    <SelectItem value="polaroid">{tr("adminsettings_polaroid_peanut_terzi_eyilmis_foto_washi_621108", "Polaroid — Peanut tərzi əyilmiş foto + washi")}</SelectItem>
-                    <SelectItem value="minimal">{tr("adminsettings_minimal_card_flo_clue_ag_kart_statistika_1b051e", "Minimal Card — Flo/Clue ağ kart + statistika")}</SelectItem>
-                    <SelectItem value="mesh">{tr("adminsettings_mesh_apple_vari_mesh_gradient_uzen_foto_081739", "Mesh — Apple-vari mesh gradient + üzən foto")}</SelectItem>
-                    <SelectItem value="story">{tr("adminsettings_story_instagram_story_terzi_tam_ekran_5c22a0", "Story — Instagram story tərzi tam ekran")}</SelectItem>
-                    <SelectItem value="bento">Bento — Apple bento qrid (foto + statistika)</SelectItem>
-                  </SelectContent>
-                </Select>
-                <p className="text-xs text-muted-foreground">
-                  {tr("adminsettings_deyisiklik_butun_istifadeciler_198453", "D\u0259yi\u015Fiklik b\xFCt\xFCn istifad\u0259\xE7il\u0259r \xFC\xE7\xFCn d\u0259rhal t\u0259tbiq olunur.")}
-                </p>
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* Bottom navigation style (test switch) */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.04 }}>
-            <Card className="p-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium mb-2 block text-foreground">Alt menyu stili</label>
-                <Select value={getSettingValue('bottom_nav_style', 'capsule')} onValueChange={(value) => updateSetting('bottom_nav_style', value)}>
-                  <SelectTrigger><SelectValue /></SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="capsule">Üzən kapsul (test)</SelectItem>
-                    <SelectItem value="classic">Klassik (əvvəlki)</SelectItem>
-                  </SelectContent>
-                </Select>
-                <label className="text-sm font-medium mt-4 mb-2 block text-foreground">Profil görünüşü</label>
-                <Select value={getSettingValue('profile_layout', 'tabs')} onValueChange={(value) => updateSetting('profile_layout', value)}>
-                  <SelectTrigger><SelectValue /></SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="tabs">Tablı: Mən · Ailə · Ayarlar</SelectItem>
-                    <SelectItem value="classic">Klassik (əvvəlki uzun səhifə)</SelectItem>
-                  </SelectContent>
-                </Select>
-                <label className="text-sm font-medium mt-4 mb-2 block text-foreground">Tətbiqdaxili onboarding turu (Glass)</label>
-                <Select value={getSettingValue('inapp_onboarding', 'off')} onValueChange={(value) => updateSetting('inapp_onboarding', value)}>
-                  <SelectTrigger><SelectValue /></SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="on">Aktiv: yeni istifadəçilərə ilk açılışda göstərilir</SelectItem>
-                    <SelectItem value="off">Söndürülüb</SelectItem>
-                  </SelectContent>
-                </Select>
-                <p className="text-xs text-muted-foreground">Yalnız funksiya əlavə olunandan sonra qeydiyyatdan keçən, hesabı 14 gündən gənc hesablar görür. Hər istifadəçi turu bir dəfə görür.</p>
-                <label className="text-sm font-medium mt-4 mb-2 block text-foreground">Süddən ayırma aləti</label>
-                <Select value={getSettingValue('weaning_tool', 'off')} onValueChange={(value) => updateSetting('weaning_tool', value)}>
-                  <SelectTrigger><SelectValue /></SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="on">Aktiv: Ana modulunda, uşaq 9+ aylıq olanda görünür</SelectItem>
-                    <SelectItem value="off">Söndürülüb</SelectItem>
-                  </SelectContent>
-                </Select>
-                <p className="text-xs text-muted-foreground">Plan yalnız 12+ aylıq uşaq üçün qurulur. Bələdçi və check-in pulsuz, fərdi təqvim və xatırlatmalar Premium-dur.</p>
-                <p className="text-xs text-muted-foreground">Yadda saxlayandan sonra istifadəçilərdə tətbiq yenidən açılanda və ya 5 dəqiqə ərzində dəyişir.</p>
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* Theme Settings */}
-          <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.05 }}>
-          
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-indigo-500/10">
-                  <Moon className="w-5 h-5 text-indigo-500" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{tr("adminsettings_tema_tenzimlemeleri_3033b7", "Tema Tənzimləmələri")}</h3>
-                  <p className="text-sm text-muted-foreground">{tr("adminsettings_qaranliq_rejim_ve_gorunus_41b1f9", "Qaranlıq rejim və görünüş")}</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 rounded-xl bg-muted/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
-                      <Moon className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground">{tr("adminsettings_qaranliq_rejim_29c427", "Qaranlıq Rejim")}</label>
-                      <p className="text-xs text-muted-foreground">
-                        {tr("adminsettings_i_stifadeciler_qaranliq_rejimi_3acc5d", "\u0130stifad\u0259\xE7il\u0259r qaranl\u0131q rejimi aktiv ed\u0259 bilsin")}
-                      </p>
-                    </div>
-                  </div>
-                  <Switch
-                  checked={getSettingValue('dark_mode_enabled', true)}
-                  onCheckedChange={(checked) => updateSetting('dark_mode_enabled', checked)} />
-                
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* AI Settings */}
-          <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}>
-          
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-primary/10">
-                  <Sparkles className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{tr("adminsettings_ai_tenzimlemeleri_7d8f40", "AI Tənzimləmələri")}</h3>
-                  <p className="text-sm text-muted-foreground">{tr("adminsettings_anacan_ai_modeli_ve_parametrleri_d1304d", "Anacan.AI modeli və parametrləri")}</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="text-sm font-medium mb-2 block text-foreground">AI Model</label>
-                  <Select
-                  value={getSettingValue('ai_model', 'google/gemini-2.5-flash')}
-                  onValueChange={(value) => updateSetting('ai_model', value)}>
-                  
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {aiModels.map((model) =>
-                    <SelectItem key={model.id} value={model.id}>
-                          {model.name}
-                        </SelectItem>
-                    )}
-                    </SelectContent>
-                  </Select>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {tr("adminsettings_anacan_ai_chat_ucun_istifade_o_ea0c30", "Anacan.AI chat \xFC\xE7\xFCn istifad\u0259 olunan model")}
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* App Settings */}
-          <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}>
-          
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-blue-500/10">
-                  <Settings2 className="w-5 h-5 text-blue-500" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{tr("adminsettings_tetbiq_tenzimlemeleri_75a82e", "Tətbiq Tənzimləmələri")}</h3>
-                  <p className="text-sm text-muted-foreground">{tr("adminsettings_umumi_tetbiq_parametrleri_499e36", "Ümumi tətbiq parametrləri")}</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="text-sm font-medium mb-2 block text-foreground">{tr("adminsettings_tetbiq_versiyasi_9f0928", "Tətbiq Versiyası")}</label>
-                  <Input
-                  value={getSettingValue('app_version', '1.0.0')}
-                  onChange={(e) => updateSetting('app_version', e.target.value)} />
-                
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <label className="text-sm font-medium text-foreground">{tr("adminsettings_temir_rejimi_f48428", "Təmir Rejimi")}</label>
-                    <p className="text-xs text-muted-foreground">
-                      {tr("adminsettings_aktiv_olduqda_istifadeciler_te_8e0fc6", "Aktiv olduqda istifad\u0259\xE7il\u0259r t\u0259tbiq\u0259 daxil ola bilm\u0259z")}
-                    </p>
-                  </div>
-                  <Switch
-                  checked={getSettingValue('maintenance_mode', false)}
-                  onCheckedChange={(checked) => updateSetting('maintenance_mode', checked)} />
-                
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium mb-2 block text-foreground">{tr("adminsettings_maksimum_gunluk_qeyd_92e635", "Maksimum Günlük Qeyd")}</label>
-                  <Input
-                  type="number"
-                  value={getSettingValue('max_daily_logs', 30)}
-                  onChange={(e) => updateSetting('max_daily_logs', parseInt(e.target.value))} />
-                
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {tr("adminsettings_her_istifadeci_ucun_saxlanilac_bb7b78", "H\u0259r istifad\u0259\xE7i \xFC\xE7\xFCn saxlan\u0131lacaq maksimum g\xFCnl\xFCk qeyd say\u0131")}
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* API Keys Info */}
-          <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}>
-          
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-green-500/10">
-                  <Key className="w-5 h-5 text-green-500" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{tr("adminsettings_api_acarlari_9a04ed", "API Açarları")}</h3>
-                  <p className="text-sm text-muted-foreground">{tr("adminsettings_xarici_xidmet_inteqrasiyalari_e295ae", "Xarici xidmət inteqrasiyaları")}</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="p-4 rounded-lg bg-muted/50">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-medium text-foreground">Lovable AI Gateway</p>
-                      <p className="text-sm text-muted-foreground">{tr("adminsettings_ai_funksionalligi_ucun_d7ee26", "AI funksionallığı üçün")}</p>
-                    </div>
-                    <span className="text-sm text-green-500 font-medium">✓ Aktiv</span>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-lg bg-muted/50">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-medium text-foreground">Supabase</p>
-                      <p className="text-sm text-muted-foreground">{tr("adminsettings_database_ve_auth_d103d0", "Database və Auth")}</p>
-                    </div>
-                    <span className="text-sm text-green-500 font-medium">✓ Aktiv</span>
-                  </div>
-                </div>
-
-                <p className="text-xs text-muted-foreground">
-                  {tr("adminsettings_api_acarlari_tehlukesizlik_seb_38465b", "API a\xE7arlar\u0131 t\u0259hl\xFCk\u0259sizlik s\u0259b\u0259bind\u0259n burada g\xF6st\u0259rilmir. \n                  Yeni API a\xE7ar\u0131 \u0259lav\u0259 etm\u0259k \xFC\xE7\xFCn Edge Functions istifad\u0259 edin.")}
-                
-              </p>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      }
-    </div>);
-
+              </Section>
+              <Section title={<span className="flex items-center gap-2"><Key size={15} />{tr('adminsettings_api_acarlari_9a04ed', 'API Açarları')}</span>} description={tr('adminsettings_xarici_xidmet_inteqrasiyalari_e295ae', 'Xarici xidmət inteqrasiyaları')}>
+                <SettingRow title="Lovable AI Gateway" description={tr('adminsettings_ai_funksionalligi_ucun_d7ee26', 'AI funksionallığı üçün')} control={<StatusPill tone="success">Aktiv</StatusPill>} />
+                <SettingRow title="Supabase" description={tr('adminsettings_database_ve_auth_d103d0', 'Database və Auth')} control={<StatusPill tone="success">Aktiv</StatusPill>} />
+                <p className="ak-hint mt-2">{tr('adminsettings_api_acarlari_tehlukesizlik_seb_38465b', 'API açarları təhlükəsizlik səbəbindən burada göstərilmir. Yeni API açarı əlavə etmək üçün Edge Functions istifadə edin.')}</p>
+              </Section>
+            </div>
+          )}
+          {tab !== 'aptek' && changed.length > 0 && <div className="flex justify-end">{saveButton}</div>}
+        </>
+      )}
+    </Page>
+  );
 };
 
 export default AdminSettings;
