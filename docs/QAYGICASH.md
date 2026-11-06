@@ -89,7 +89,7 @@ Each trigger catches its own errors and logs a warning, so the order flow is nev
 | Channel | How |
 | --- | --- |
 | Aptek | `place_aptek_order(..., p_cashback numeric DEFAULT 0)`. `total_amount` is the net amount the courier collects. Older clients still work without the new argument. |
-| Cakes | `qaygicash_redeem_cake_v1(order, amount)`. Owner only, on their pending app order, within 30 minutes. `total_price` becomes the net amount. |
+| Cakes | In-app cakes are paid **only by card through Epoint** (owner decision 2026-11-06; cash and card-to-card removed). `cake-checkout` prices the order on the server and reserves the bonus (60 min); the shared Epoint callback (`_shared/web-cake-result.ts`) marks the order paid and commits the bonus, or cancels the order on failure, which releases the bonus. `total_price` is the charged amount. The older `qaygicash_redeem_cake_v1` RPC is no longer used by the app. |
 | Books | `book-checkout` takes `cashback` in the body. `amount` is the charged amount; `cashback_used` holds the bonus. The reservation is released after 40 minutes if the checkout is not completed. |
 
 **Store Premium earning (`revenuecat-webhook` → `_shared/qaygicash.ts`)**
@@ -125,6 +125,7 @@ The admin edits it on the "Premium bonusla" tab.
 These live outside the repo and must be kept on future functions deploys:
 
 - `qaygicash-premium` has a route in the image's `/home/deno/functions/main/catalog.mjs`: `route('user', REVENUECAT, { gates: ['ENABLE_REVENUECAT'], provider: 'revenuecat' })`.
+- `cake-checkout` has a route next to it: `route('user', [], { gates: ['ENABLE_EPOINT_PAYMENTS'], methods: ['GET', 'POST'] })`, and is in `ENABLED_FUNCTIONS` too. Current image: `functions@sha256:52c4688e…` (deploy script `/root/functions-cake-checkout.py`, env backup `functions.env.before-cake-checkout`).
 - `qaygicash-premium` is listed in `ENABLED_FUNCTIONS` in `/srv/anacan/runtime/secrets/functions.env`. The earlier env is backed up as `functions.env.before-qaygicash-route`.
 - Deploy scripts on the instance:
   - `/root/functions-qaygicash.py` — image `cb255d7d…`
