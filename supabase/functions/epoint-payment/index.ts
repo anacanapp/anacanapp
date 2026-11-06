@@ -2,6 +2,9 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { applyBookPaymentResult, isBookOrder } from '../_shared/book-result.ts';
 import { applyWebCakeResult, isWebCakeOrder } from '../_shared/web-cake-result.ts';
 import { applyWebPremiumResult, isWebPremiumOrder } from '../_shared/web-premium-result.ts';
+import { applyCardResult, applyChargeResult, findSubscriptionCallback } from '../_shared/web-premium-subscription.ts';
+import { sendWebPremiumEmail } from '../_shared/web-premium-email.ts';
+import { syncEntitlementForUser } from '../_shared/revenuecat-sync.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -201,6 +204,27 @@ Deno.serve(async (req: Request) => {
         result = record(JSON.parse(new TextDecoder('utf-8', { fatal: true })
           .decode(Uint8Array.from(atob(data), (character) => character.charCodeAt(0)))));
       } catch { throw new PaymentError(400, 'invalid_callback_payload'); }
+      // anacan.az web subscriptions (saved Epoint cards): charges by order_id (web_premium_charges), card registrations
+      // by card_id (epoint_saved_cards; card-registration callbacks may carry no order_id). Checked before the other tables.
+      const subscription = await findSubscriptionCallback(admin, result);
+      if (subscription) {
+        const config = { ready: true, merchantLive: true, booksEnabled: true, publicKey, privateKey };
+        if (subscription.kind === 'card') {
+          try { await applyCardResult(admin, subscription.cardId, result); } catch { throw new PaymentError(503, 'card_result_failed'); }
+          return new Response('OK', { headers: { 'Cache-Control': 'no-store' } });
+        }
+        const outcome = await applyChargeResult(admin, config, subscription.chargeId, result);
+        if (outcome.result === 'not_confirmed') throw new PaymentError(409, 'subscription_payment_not_confirmed');
+        if (outcome.result === 'paid' && outcome.userId && outcome.detail?.duplicate !== true) {
+          const sync = await syncEntitlementForUser(outcome.userId);
+          if (!sync.ok) console.error('[web-premium] entitlement sync failed:', sync.reason);
+          const { data } = await admin.auth.admin.getUserById(outcome.userId).catch(() => ({ data: null }));
+          const plan = outcome.detail?.plan === 'yearly' ? 'yearly' : 'monthly';
+          await sendWebPremiumEmail('receipt', { userId: outcome.userId, to: data?.user?.email, plan,
+            amount: Number(outcome.detail?.amount), periodEnd: outcome.detail?.period_end as string | undefined });
+        }
+        return new Response('OK', { headers: { 'Cache-Control': 'no-store' } });
+      }
       // Printable-book orders share this merchant Result URL; they have their own order table.
       if (await isBookOrder(admin, result.order_id)) {
         const outcome = await applyBookPaymentResult(admin, { ready: true, merchantLive: true, booksEnabled: true, publicKey, privateKey }, result);

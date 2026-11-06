@@ -63,19 +63,28 @@ export async function verify(data: string, signature: string, privateKey: string
 export const EPOINT_HEADERS = { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json', 'User-Agent': 'Anacan/1.0 (+https://anacan.az)' };
 
 /**
- * Epoint answers with its acquiring bank's payment page (2026-11: https://ecomm.pashabank.az/...), not only
- * *.epoint.az. The URL comes from Epoint's own TLS response, so any https .az host without credentials/port is accepted.
+ * Epoint answers with its acquiring bank's payment page (2026-11: https://ecomm.pashabank.az:443/...), not only
+ * *.epoint.az. The URL comes from Epoint's own TLS response, so any https .az host without credentials is accepted;
+ * the only port allowed is the explicit default :443 (card-registration answers with it).
  */
 export function isCheckoutUrl(value: unknown): value is string {
   if (typeof value !== 'string' || value.length > 2048) return false;
   try {
     const url = new URL(value);
-    return url.protocol === 'https:' && !url.username && !url.password && !url.port
+    const port = /^https:\/\/[^/?#]*:(\d+)(?:[/?#]|$)/i.exec(value)?.[1];
+    return url.protocol === 'https:' && !url.username && !url.password && !url.port && (port === undefined || port === '443')
       && (url.hostname === 'epoint.az' || url.hostname.endsWith('.az'));
   } catch { return false; }
 }
 
-export async function epointRequest(config: EpointConfig, path: 'request' | 'get-status', payload: Record<string, unknown>) {
+/**
+ * Epoint API paths in use. card-registration / card-registration-with-pay / execute-pay are the saved-card calls of the
+ * anacan.az web subscriptions (verified on the merchant 2026-11-06): the first two answer {status, card_id, redirect_url},
+ * execute-pay charges a saved card server-side.
+ */
+export type EpointPath = 'request' | 'get-status' | 'card-registration' | 'card-registration-with-pay' | 'execute-pay';
+
+export async function epointRequest(config: EpointConfig, path: EpointPath, payload: Record<string, unknown>) {
   const { publicKey, privateKey } = config;
   const data = encodeData({ public_key: publicKey, ...payload });
   const body = new URLSearchParams({ data, signature: await sign(data, privateKey) });
@@ -89,3 +98,9 @@ export async function epointRequest(config: EpointConfig, path: 'request' | 'get
 
 /** Epoint checkout languages: az, en, ru. */
 export const epointLanguage = (language: string) => (language === 'az' || language === 'ru' ? language : language === 'kk' || language === 'ky' || language === 'uz' ? 'ru' : 'en');
+
+/** Epoint saved-card id (card-registration answer and callbacks). Opaque provider reference; never sent to a browser. */
+export const EPOINT_CARD_ID = /^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/;
+
+/** Amount as Epoint expects it: a string with two decimals (AZN). */
+export const epointAmount = (value: number) => (Math.round(value * 100) / 100).toFixed(2);

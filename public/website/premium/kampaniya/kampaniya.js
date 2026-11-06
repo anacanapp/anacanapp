@@ -1,0 +1,226 @@
+/* Weekend campaign: login first (app's methods), then the plans at the server's campaign prices; an account with
+   Premium (store or web) sees that instead. Subscribing opens Epoint's bank page (card saved for renewals); the
+   result is confirmed by the signed Epoint callback, the page only polls the status after the redirect back. */
+(function () {
+  'use strict';
+  var A = window.AnacanAccount;
+  var $ = function (id) { return document.getElementById(id); };
+  var card = $('plans');
+  var params = new URLSearchParams(location.search);
+  var payment = params.get('odenis'); // 'ugurlu' | 'xeta' (redirect back from the bank page; never proof of payment)
+  if (payment) { params.delete('odenis'); history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : '')); }
+  var CABINET = '/website/premium/hesab/index.html';
+  var selected = 'yearly';
+  var status = null;
+  var generation = 0;
+
+  var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  var ICON_INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>';
+  var ICON_WAIT = '<span class="spinner" style="width:26px;height:26px"></span>';
+
+  // ── Countdown (campaign end from the server; before login the coming Sunday 23:59:59 Baku) ───────────────
+  var target = (function () {
+    var nowBaku = new Date(Date.now() + 4 * 3600e3);
+    var end = new Date(Date.UTC(nowBaku.getUTCFullYear(), nowBaku.getUTCMonth(), nowBaku.getUTCDate(), 23, 59, 59));
+    end.setUTCDate(end.getUTCDate() + (7 - nowBaku.getUTCDay()) % 7);
+    return end.getTime() - 4 * 3600e3;
+  })();
+  var pad = function (n) { return String(n).padStart(2, '0'); };
+  function tick() {
+    var s = Math.max(0, Math.floor((target - Date.now()) / 1000));
+    $('tD').textContent = Math.floor(s / 86400); s %= 86400;
+    $('tH').textContent = pad(Math.floor(s / 3600)); s %= 3600;
+    $('tM').textContent = pad(Math.floor(s / 60)); $('tS').textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // ── Sticky bar and scroll buttons ─────────────────────────────────────────────────────
+  var sticky = $('sticky');
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (entries) {
+    var e = entries[0];
+    var on = !e.isIntersecting && e.boundingClientRect.top < 0;
+    sticky.classList.toggle('on', on); sticky.setAttribute('aria-hidden', String(!on));
+  }).observe(card);
+  document.querySelectorAll('[data-scroll]').forEach(function (b) {
+    b.addEventListener('click', function () { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+  });
+
+  // ── Rendering ─────────────────────────────────────────────────────────────────────────
+  function plans() { return status && status.campaign && status.campaign.plans; }
+  function pctText(p) { return p && p.pct ? '−' + p.pct + '%' : ''; }
+  function updateHero() {
+    var p = plans();
+    if (!p) return;
+    var y = p.yearly, m = p.monthly, v = selected === 'yearly' ? y : m;
+    $('heroPct').textContent = pctText(v) || 'Premium';
+    $('heroSub').textContent = selected === 'yearly' ? 'illik plan, ayda ≈ ' + A.money(y.per_month) : 'aylıq plan, ' + A.money(m.price);
+    $('finalText').textContent = 'İllik ' + A.money(y.price) + ', ayda cəmi ≈ ' + A.money(y.per_month);
+    $('stickyText').innerHTML = '<b>' + A.money(v.price) + '</b>' + (v.was ? '<s>' + A.money(v.was) + '</s>' : '') +
+      '<small>' + A.esc((pctText(v) ? pctText(v) + ' · ' : '') + (selected === 'yearly' ? 'illik' : 'aylıq')) + '</small>';
+    if (status.campaign.ends_at && isFinite(Date.parse(status.campaign.ends_at))) target = Date.parse(status.campaign.ends_at);
+  }
+
+  /** No selling (sticky bar, final CTA) once the account has Premium or the campaign is over. */
+  function selling(on) { document.body.classList.toggle('no-sell', !on); }
+  function renderState(icon, title, text, actionsHtml, soft) {
+    selling(false);
+    card.innerHTML = '<div class="state"><div class="big' + (soft ? ' soft' : '') + '">' + icon + '</div><h2>' + A.esc(title) + '</h2>' +
+      '<p>' + text + '</p>' + (actionsHtml || '') + '</div>';
+  }
+
+  function storeName(store) {
+    return store === 'app_store' || store === 'mac_app_store' ? 'App Store' : store === 'play_store' ? 'Google Play' : 'tətbiq mağazası';
+  }
+
+  function renderPremium(premium) {
+    var until = premium.expires_at ? A.day(premium.expires_at) : '';
+    if (premium.source === 'web_subscription') {
+      var sub = status.subscription;
+      var line = sub && sub.status === 'cancelled' ? 'Abunəlik ləğv edilib; Premium ' + until + ' tarixinə qədər açıqdır.'
+        : 'Növbəti ödəniş ' + A.day(sub && sub.next_charge_at || premium.expires_at) + (sub ? ' · ' + A.money(sub.next_price || sub.price) : '') + '.';
+      renderState(ICON_OK, 'Premium abunəliyin aktivdir', A.esc((sub && sub.plan === 'monthly' ? 'Aylıq' : 'İllik') + ' plan. ' + line),
+        '<a class="cta" href="' + CABINET + '">Premium hesabım <span class="arr">→</span></a>');
+    } else if (premium.source === 'store') {
+      renderState(ICON_OK, 'Premium-un artıq aktivdir', A.esc('Premium ' + storeName(premium.store) + ' abunəliyi ilə açıqdır' + (until ? ' (' + until + ' tarixinə qədər)' : '') +
+        '. Bu abunəlik mağazada idarə olunur, ona görə burada yeni abunəlik lazım deyil.'), '');
+    } else {
+      renderState(ICON_OK, 'Premium-un artıq aktivdir', A.esc('Premium ' + (until ? until + ' tarixinə qədər ' : '') + 'açıqdır. Müddət bitəndə burada abunə ola bilərsən.'),
+        '<a class="btn" href="' + CABINET + '">Premium hesabım</a>');
+    }
+  }
+
+  function renderPlans(message) {
+    selling(true);
+    var p = plans();
+    var y = p.yearly, m = p.monthly;
+    var v = selected === 'yearly' ? y : m;
+    var save = v.was ? Math.round((v.was - v.price) * 100) / 100 : 0;
+    card.innerHTML =
+      '<h2>Planını seç</h2>' +
+      (message ? '<p class="msg err" role="alert">' + A.esc(message) + '</p>' : '') +
+      '<div role="radiogroup" aria-label="Plan">' +
+      '<button type="button" class="plan" role="radio" aria-checked="' + (selected === 'yearly') + '" data-plan="yearly">' +
+      '<span class="radio" aria-hidden="true"></span>' +
+      '<span><span class="pname">İllik ' + (y.pct ? '<span class="badge">−' + y.pct + '%</span>' : '') + '<span class="badge ghost">Ən sərfəli</span></span>' +
+      '<span class="psub">ayda ≈ ' + A.money(y.per_month) + ' · 12 ay</span></span>' +
+      '<span class="price">' + (y.was ? '<s>' + A.money(y.was) + '</s>' : '') + '<b>' + A.money(y.price) + '</b></span></button>' +
+      '<button type="button" class="plan" role="radio" aria-checked="' + (selected === 'monthly') + '" data-plan="monthly">' +
+      '<span class="radio" aria-hidden="true"></span>' +
+      '<span><span class="pname">Aylıq ' + (m.pct ? '<span class="badge">−' + m.pct + '%</span>' : '') + '</span><span class="psub">hər ay</span></span>' +
+      '<span class="price">' + (m.was ? '<s>' + A.money(m.was) + '</s>' : '') + '<b>' + A.money(m.price) + '</b></span></button>' +
+      '</div>' +
+      (save > 0 ? '<div class="save"><span>Qənaətin</span><span>' + A.money(save) + '</span></div>' : '') +
+      '<button class="cta" type="button" id="cta"' + (status.payments_ready ? '' : ' disabled') + '>' +
+      (status.payments_ready ? 'Endirimi əldə et <span class="arr">→</span>' : 'Ödəniş sistemi hələ aktiv deyil') + '</button>' +
+      '<p class="fine">Avtomatik yenilənir, istədiyin vaxt ləğv edə bilərsən. Endirimli qiymət ləğv edənə qədər hər yenilənmədə qorunur. Kartla, manatla (Epoint).</p>' +
+      (status.email ? '<p class="acct">Hesab: ' + A.esc(status.email) + '</p>' : '');
+    card.querySelectorAll('.plan').forEach(function (b) {
+      b.addEventListener('click', function () { selected = b.getAttribute('data-plan'); renderPlans(); updateHero(); });
+    });
+    var cta = $('cta');
+    if (cta && status.payments_ready) cta.addEventListener('click', subscribe);
+  }
+
+  var ERRORS = {
+    premium_active: 'Premium-un artıq aktivdir.',
+    already_subscribed: 'Sənin artıq abunəliyin var. “Premium hesabım” səhifəsinə bax.',
+    campaign_inactive: 'Kampaniya bitib.',
+    payments_unavailable: 'Ödəniş sistemi hələ aktiv deyil. Bir az sonra yenidən yoxla.',
+    too_many_attempts: 'Çox cəhd edildi. Bir saat sonra yenidən yoxla.',
+    rate_limited: 'Çox cəhd edildi. Bir dəqiqə sonra yenidən yoxla.',
+    checkout_unavailable: 'Ödəniş səhifəsi açılmadı. Bir az sonra yenidən cəhd et.',
+  };
+
+  async function subscribe() {
+    var cta = $('cta');
+    cta.disabled = true; cta.innerHTML = '<span class="spinner"></span>';
+    try {
+      var d = await A.call('subscribe', { plan: selected });
+      if (d.ok && typeof d.redirect_url === 'string' && /^https:\/\/([a-z0-9-]+\.)+az(:443)?\//i.test(d.redirect_url)) {
+        location.href = d.redirect_url; // Epoint / bank card page; it returns to this page
+        return;
+      }
+      if (d.error === 'premium_active' || d.error === 'already_subscribed' || d.error === 'campaign_inactive') { await load(); return; }
+      renderPlans(ERRORS[d.error] || ERRORS.checkout_unavailable);
+    } catch (e) {
+      if (e && e.code === 'unauthorized') { await A.signOut(); return; }
+      renderPlans(ERRORS.checkout_unavailable);
+    }
+  }
+
+  function renderStatus() {
+    $('cabinetLink').hidden = false;
+    if (status.premium && status.premium.active) { renderPremium(status.premium); return; }
+    if (!status.campaign || !status.campaign.active || !plans()) {
+      $('liveText').textContent = 'Kampaniya bitdi';
+      renderState(ICON_INFO, 'Kampaniya bitdi', 'Bu kampaniya artıq bitib. Növbəti endirimlər üçün Anacan tətbiqini izlə.', '', true);
+      return;
+    }
+    updateHero();
+    renderPlans();
+  }
+
+  async function load() {
+    var mine = ++generation;
+    try {
+      status = await A.call('status');
+      if (mine !== generation) return;
+      if (!status.ok) throw new Error(status.error || 'status');
+      renderStatus();
+    } catch (e) {
+      if (mine !== generation) return;
+      if (e && e.code === 'unauthorized') { await A.signOut(); return; }
+      renderState(ICON_INFO, 'Məlumat yüklənmədi', 'Bağlantını yoxlayıb səhifəni yenilə.', '<button class="btn" type="button" id="retry">Yenidən yoxla</button>', true);
+      $('retry').addEventListener('click', load);
+    }
+  }
+
+  /** After the bank page: wait for the signed callback to activate the subscription (up to ~1 minute). */
+  async function waitForPayment() {
+    var mine = ++generation;
+    renderState(ICON_WAIT, 'Ödəniş yoxlanılır…', 'Bank təsdiqini gözləyirik. Bu bir neçə saniyə çəkə bilər.', '', true);
+    for (var i = 0; i < 20; i++) {
+      try {
+        var d = await A.call('status');
+        if (mine !== generation) return;
+        if (d.ok && d.premium && d.premium.active && d.premium.source === 'web_subscription') {
+          status = d;
+          $('cabinetLink').hidden = false;
+          var sub = d.subscription;
+          renderState(ICON_OK, 'Premium aktivdir!', A.esc((sub && sub.plan === 'monthly' ? 'Aylıq' : 'İllik') + ' abunəlik başladı. Tətbiqə eyni hesabla daxil ol, Premium avtomatik açılacaq.' +
+            (sub && sub.next_charge_at ? ' Növbəti ödəniş: ' + A.day(sub.next_charge_at) + '.' : '')),
+            '<a class="cta" href="' + CABINET + '">Premium hesabım <span class="arr">→</span></a>');
+          return;
+        }
+      } catch (e) { if (e && e.code === 'unauthorized') { await A.signOut(); return; } }
+      await new Promise(function (r) { setTimeout(r, 3000); });
+    }
+    if (mine !== generation) return;
+    renderState(ICON_INFO, 'Ödəniş hələ təsdiqlənməyib', 'Bank cavabı gecikir. Bir neçə dəqiqə sonra “Premium hesabım” səhifəsində statusu yoxla. Pul çıxıbsa, abunəlik avtomatik aktivləşəcək.',
+      '<a class="cta" href="' + CABINET + '">Premium hesabım <span class="arr">→</span></a>', true);
+  }
+
+  // ── Boot ──────────────────────────────────────────────────────────────────────────────
+  async function boot() {
+    generation++;
+    var s = null;
+    try { s = await A.session(); } catch (e) { s = null; }
+    A.renderWho($('who'), s);
+    if (!s) {
+      $('cabinetLink').hidden = true;
+      selling(true);
+      card.innerHTML = '';
+      A.renderLogin(card, { title: 'Endirimi görmək üçün daxil ol', subtitle: 'Anacan hesabınla daxil ol: tətbiqdəki eyni hesab. Premium bu hesaba bağlanacaq.' });
+      return;
+    }
+    if (await A.needsVerification()) {
+      A.renderVerify(card, s.user && s.user.email, boot);
+      return;
+    }
+    if (payment === 'ugurlu') { payment = null; await waitForPayment(); return; }
+    if (payment === 'xeta') { payment = null; A.toast('Ödəniş alınmadı. Kartı yoxlayıb yenidən cəhd et.', true); }
+    await load();
+  }
+  A.onChange(function () { boot(); });
+  boot();
+})();

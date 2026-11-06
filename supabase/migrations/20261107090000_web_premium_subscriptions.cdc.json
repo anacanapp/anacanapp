@@ -1,0 +1,20 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261107090000_web_premium_subscriptions.sql",
+  "runtime": "google-web-premium-subscriptions",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls the three new relations and checks their nine triggers",
+  "relations": [
+    { "relation": "public.epoint_saved_cards", "change": "created", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "Epoint saved-card references per user (card_id, mask, card name, expiry, status, default); service role only, card_id never returned to clients" },
+    { "relation": "public.web_premium_subscriptions", "change": "created", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "anacan.az monthly/yearly web subscriptions: locked prices, status, period, cancel flag, next charge; service role only" },
+    { "relation": "public.web_premium_charges", "change": "created", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "one row per Epoint payment (id = Epoint order_id): initial/renewal, amount, status, period; service role only" },
+    { "relation": "public.web_subscriptions", "change": "rows written", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "provider 'epoint', provider_subscription_id 'epoint_sub_<subscription id>', user_id set directly; schema unchanged" },
+    { "relation": "public.cashback_lots", "change": "rows written", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "QayğıCash per paid charge (source_type web_premium, source_id = charge id) through qc_earn; schema unchanged" },
+    { "relation": "public.app_settings", "change": "rows added", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "web_premium_campaign = {active, name, starts_at, ends_at, plans{monthly, yearly}{price, was}} in AZN (read by web-premium)" }
+  ]
+}
