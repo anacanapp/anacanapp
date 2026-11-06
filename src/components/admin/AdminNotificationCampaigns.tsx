@@ -35,9 +35,10 @@ const CAMPAIGN_LINKS: Array<{ value: string; label: string }> = [
   { value: 'anacan://community', label: 'Cəmiyyət' },
   { value: 'anacan://blog', label: 'Bloq' },
   { value: 'anacan://premium', label: 'Premium təklifi' },
+  { value: 'https://anacan.az/website/premium/kampaniya/index.html', label: 'Saytda Premium kampaniyası (brauzerdə açılır)' },
   { value: 'custom', label: 'Başqa keçid…' },
 ];
-const isCampaignLink = (value: string) => /^(anacan|com\.atlasoon\.anacan):\/\/[A-Za-z0-9/_?=&.-]{1,180}$/.test(value);
+const isCampaignLink = (value: string) => /^(?:(?:anacan|com\.atlasoon\.anacan):\/\/|https:\/\/(?:www\.|app\.)?anacan\.az\/)[A-Za-z0-9/_?=&.%#-]{0,180}$/.test(value);
 const linkLabel = (value?: string) => !value ? '' : CAMPAIGN_LINKS.find(item => item.value === value)?.label || value;
 const emptySegment = (): Segment => ({ languages: [], modules: [], countries: [], platforms: [], access: 'all', joinedFrom: null, joinedTo: null });
 const number = (value: number) => Number(value || 0).toLocaleString(getLocaleTag());

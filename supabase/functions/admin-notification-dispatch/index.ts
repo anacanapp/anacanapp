@@ -31,7 +31,7 @@ Deno.serve(async (req: Request) => {
     if (claimed.error || !Array.isArray(claimed.data?.items)) return json({ error: 'campaign_claim_failed' }, 409);
     const { items, title, body } = claimed.data;
     // Optional in-app link (anacan://…), validated and hash-bound by admin_notification_claim_v1; the app opens it on tap.
-    const deeplink = typeof claimed.data.deeplink === 'string' && /^(anacan|com\.atlasoon\.anacan):\/\/[A-Za-z0-9/_?=&.-]{1,180}$/.test(claimed.data.deeplink) ? claimed.data.deeplink : null;
+    const deeplink = typeof claimed.data.deeplink === 'string' && /^(?:(?:anacan|com\.atlasoon\.anacan):\/\/|https:\/\/(?:www\.|app\.)?anacan\.az\/)[A-Za-z0-9/_?=&.%#-]{0,180}$/.test(claimed.data.deeplink) ? claimed.data.deeplink : null;
     const receipts: Array<{ id: string; state: string; code: string }> = [];
     for (let offset = 0; offset < items.length; offset += 8) {
       await Promise.all(items.slice(offset, offset + 8).map(async (item: any) => {
@@ -66,7 +66,7 @@ Deno.serve(async (req: Request) => {
   } catch { return json({ error: 'campaign_unavailable' }, 503); }
 });
 
-const LINK = /^(anacan|com\.atlasoon\.anacan):\/\/[A-Za-z0-9/_?=&.-]{1,180}$/;
+const LINK = /^(?:(?:anacan|com\.atlasoon\.anacan):\/\/|https:\/\/(?:www\.|app\.)?anacan\.az\/)[A-Za-z0-9/_?=&.%#-]{0,180}$/;
 async function direct(input: any, json: (value: unknown, status?: number) => Response): Promise<Response> {
   const keys = Object.keys(input).sort().join(',');
   const email = typeof input.email === 'string' ? input.email.trim().toLowerCase() : '';
