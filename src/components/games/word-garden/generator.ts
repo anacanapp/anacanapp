@@ -1,5 +1,5 @@
 import { canSpellWord, wordsFromRack, type CompiledLexicon, type CompiledWord } from './lexicon';
-import { getGardenLevelProfile, gardenTimeLimit, cellKey, type GardenCell, type GardenWord, type WordGardenLevel, type WordGardenMode } from './model';
+import { getGardenLevelProfile, gardenTimeLimit, cellKey, isSeededGardenRevision, type GardenCell, type GardenWord, type WordGardenLevel, type WordGardenMode } from './model';
 
 export function gardenSeed(value: string): number {
   let hash = 2166136261;
@@ -219,10 +219,15 @@ function variedDeck(lexicon: CompiledLexicon, difficulty: WordGardenLevel['diffi
   }
   return deck;
 }
-export function generateGardenLevel(lexicon: CompiledLexicon, level: number, mode: WordGardenMode = 'calm'): WordGardenLevel {
+/**
+ * `playerSeed` only affects seeded revisions (v3+). Published v1/v2 puzzles
+ * ignore it so their saved rounds keep reopening with the original words.
+ */
+export function generateGardenLevel(lexicon: CompiledLexicon, level: number, mode: WordGardenMode = 'calm', playerSeed = 0): WordGardenLevel {
   const profile = getGardenLevelProfile(level);
   if (!['calm', 'timed'].includes(mode)) throw new Error('WORD_GARDEN_MODE_INVALID');
   if (lexicon.data.revision === 'az-202610-v1') return generateLegacyGardenLevel(lexicon, level, mode);
+  if (isSeededGardenRevision(lexicon.data.revision)) return generateSeededGardenLevel(lexicon, level, mode, playerSeed);
   const seed = gardenSeed(`${lexicon.data.language}:${lexicon.data.revision}:${mode}:${level}`), random = gardenRandom(seed);
   const initial = variedDeck(lexicon, profile.difficulty, mode), offset = level - tierStart(profile.difficulty);
   const deck = variedDeck(lexicon, profile.difficulty, mode, Math.floor(offset / initial.length));
@@ -254,6 +259,231 @@ export function generateGardenLevel(lexicon: CompiledLexicon, level: number, mod
     ...best, letters: shuffleLetters(card.rack.root.letters, random),
     bonusWords: card.rack.words.filter(word => !targets.has(word.word)).map(word => word.word).sort(),
     difficulty: profile.difficulty, timeLimit: mode === 'timed' ? gardenTimeLimit(best.words, card.rack.root.letters.length, profile.difficulty) : null };
+}
+// ---------------------------------------------------------------------------
+// Per-player seeded dealing (az-202611-v3 and later revisions).
+//
+// * Each difficulty tier deals its racks in a per-player permutation keyed by
+//   language/revision/mode/playerSeed, so two players see different words on the
+//   same level while one player always regenerates the same level N.
+// * Answer words are tracked in memory while the run is rebuilt: a word is not
+//   dealt again until no unused answer fits the rack (least recently used first),
+//   and a length bucket starts a new pass once every target of that length was
+//   used. Nothing but the player seed is stored, so saves stay bounded.
+// * Levels 1–220 are one sequential run; difficulty 5 repeats in cycles, each a
+//   fresh permutation of every viable 8-letter rack. A cycle never begins with a
+//   rack from the previous cycle's tail and is rebuilt in O(cycle) for any level.
+// ---------------------------------------------------------------------------
+const SEEDED_TIER_LEVELS = [10, 30, 60, 120] as const;
+const SEEDED_PREFIX_LEVELS = 220;
+const SEEDED_RECENT_TICKS = 40, SEEDED_HARD_GAP = 5;
+interface Dealt { rack: Rack; puzzle: Layout }
+interface Usage { last: Map<string, number>; used: Map<number, Set<string>>; tick: number }
+interface SeededRun { prefix: Dealt[]; state: Usage; cycles: Map<number, Dealt[]> }
+const codeOrder = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
+const poolCache = new WeakMap<CompiledLexicon, Map<number, number>>();
+function lengthPools(lexicon: CompiledLexicon) {
+  let pools = poolCache.get(lexicon);
+  if (!pools) {
+    pools = new Map();
+    for (const word of lexicon.targets) pools.set(word.letters.length, (pools.get(word.letters.length) || 0) + 1);
+    poolCache.set(lexicon, pools);
+  }
+  return pools;
+}
+const isFresh = (usage: Usage, word: CompiledWord) => !usage.used.get(word.letters.length)?.has(word.word);
+function markUsed(lexicon: CompiledLexicon, usage: Usage, words: readonly string[]) {
+  const pools = lengthPools(lexicon);
+  for (const value of words) {
+    const word = lexicon.words.get(value)!, length = word.letters.length;
+    let used = usage.used.get(length);
+    if (!used) { used = new Set(); usage.used.set(length, used); }
+    used.add(word.word); usage.last.set(word.word, usage.tick);
+    // Every target of this length has been dealt: start a new pass for it,
+    // still holding back the words of the most recent puzzles.
+    if (used.size >= (pools.get(length) || 0)) {
+      for (const recent of [...used]) if (usage.tick - usage.last.get(recent)! > SEEDED_RECENT_TICKS) used.delete(recent);
+    }
+  }
+  usage.tick++;
+}
+const cloneUsage = (usage: Usage): Usage => ({ tick: usage.tick, last: new Map(usage.last),
+  used: new Map([...usage.used].map(([length, words]) => [length, new Set(words)])) });
+const seededEligible = (word: CompiledWord, difficulty: number) => word.tier !== 'bonus'
+  && (difficulty > 2 || word.tier === 'common' || word.frequency >= 70);
+const tierRackCache = new WeakMap<CompiledLexicon, Map<number, Rack[]>>();
+function seededTierRacks(lexicon: CompiledLexicon, difficulty: WordGardenLevel['difficulty']): Rack[] {
+  let cache = tierRackCache.get(lexicon);
+  if (!cache) { cache = new Map(); tierRackCache.set(lexicon, cache); }
+  if (cache.has(difficulty)) return cache.get(difficulty)!;
+  const profile = getGardenLevelProfile(tierStart(difficulty)), minimum = difficulty === 1 ? 2 : 3;
+  let racks = racksFor(lexicon, profile.rackLength, minimum);
+  for (let length = profile.rackLength - 1; !racks.length && length >= 4; length--) racks = racksFor(lexicon, length, minimum);
+  if (!racks.length) throw new Error('WORD_GARDEN_LIBRARY_RACKS_REQUIRED');
+  const familiar = difficulty <= 2 ? racks.filter(rack => rack.root.tier === 'common') : [];
+  const result = difficulty <= 2 && familiar.length >= SEEDED_TIER_LEVELS[difficulty - 1] ? familiar : racks;
+  cache.set(difficulty, result);
+  return result;
+}
+// Difficulty-5 cycles index by position, so viability must not depend on a
+// player's history: keep racks that connect at least three answers.
+const viableCache = new WeakMap<CompiledLexicon, { racks: Rack[]; fallback: Map<Rack, Layout> }>();
+function seededFinalPool(lexicon: CompiledLexicon) {
+  let cached = viableCache.get(lexicon);
+  if (cached) return cached;
+  const random = gardenRandom(gardenSeed(`${lexicon.data.revision}:seeded-viable-5`)), fallback = new Map<Rack, Layout>(), racks: Rack[] = [];
+  for (const rack of seededTierRacks(lexicon, 5)) {
+    const candidates = rack.words.filter(word => word.word !== rack.root.word && seededEligible(word, 5));
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const result = layout(rack.root, candidates, 7, random);
+      if (result.words.length >= 3) { racks.push(rack); fallback.set(rack, result); break; }
+    }
+  }
+  if (!racks.length) throw new Error('WORD_GARDEN_LIBRARY_RACKS_REQUIRED');
+  cached = { racks, fallback };
+  viableCache.set(lexicon, cached);
+  return cached;
+}
+function dealPuzzle(rack: Rack, difficulty: number, target: number, minimum: number, usage: Usage, random: () => number): Layout | null {
+  const candidates = rack.words.filter(word => word.word !== rack.root.word && seededEligible(word, difficulty));
+  // Unused answers first (familiar/frequent ones slightly preferred), then the
+  // least recently used ones only when the rack cannot be completed otherwise.
+  const fresh = candidates.filter(word => isFresh(usage, word))
+    .map(word => ({ word, rank: (word.tier === 'common' ? 30 : 0) + word.frequency / 8 + random() * 40 }))
+    .sort((a, b) => b.rank - a.rank || codeOrder(a.word.word, b.word.word)).slice(0, 24).map(item => item.word);
+  const freshWords = new Set(fresh.map(word => word.word));
+  const stale = candidates.filter(word => !freshWords.has(word.word) && !isFresh(usage, word))
+    .sort((a, b) => (usage.last.get(a.word) ?? -1) - (usage.last.get(b.word) ?? -1) || codeOrder(a.word, b.word));
+  // Answers from the last few puzzles are only reused when nothing else fits.
+  const settled = stale.filter(word => usage.tick - usage.last.get(word.word)! > SEEDED_HARD_GAP);
+  let best: Layout | null = null, bestScore = -Infinity;
+  for (const [pool, extra] of [[settled, 0], [settled, Math.max(2, target - fresh.length + 2)], [settled, 8], [stale, 8]] as const) {
+    if (extra && !pool.length || best && pool === stale) break;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const result = layout(rack.root, [...fresh, ...pool.slice(0, extra)], target, random);
+      const reused = result.words.filter(word => word.word !== rack.root.word && !freshWords.has(word.word)).length;
+      const score = Math.min(result.words.length, target) * 100 - reused * 60 - result.rows * result.columns * .1;
+      if (result.words.length >= minimum && score > bestScore) { best = result; bestScore = score; }
+    }
+    if (best && best.words.length >= target) break;
+  }
+  return best;
+}
+// Picks, among the next few racks, the one whose puzzle reuses the fewest
+// answers (ties keep the permutation order) and swaps it to `from`.
+const SEEDED_WINDOW = 8;
+function dealNext(lexicon: CompiledLexicon, queue: Rack[], from: number, until: number, difficulty: number, target: number, minimum: number,
+  usage: Usage, random: () => number, freshRoot: boolean): Dealt | null {
+  const options: { index: number; fresh: number }[] = [];
+  for (let index = from; index < Math.min(until, from + SEEDED_WINDOW); index++) {
+    const rack = queue[index];
+    if (freshRoot && !isFresh(usage, rack.root)) continue;
+    const fresh = rack.words.filter(word => word.word !== rack.root.word && seededEligible(word, difficulty) && isFresh(usage, word)).length;
+    options.push({ index, fresh: Math.min(fresh, target - 1) });
+  }
+  options.sort((a, b) => b.fresh - a.fresh || a.index - b.index);
+  let best: { index: number; puzzle: Layout; reused: number } | null = null;
+  for (const option of options.slice(0, 3)) {
+    const puzzle = dealPuzzle(queue[option.index], difficulty, target, minimum, usage, random);
+    if (!puzzle) continue;
+    const reused = puzzle.words.filter(word => !isFresh(usage, lexicon.words.get(word.word)!)).length;
+    if (!best || reused < best.reused || reused === best.reused && puzzle.words.length > best.puzzle.words.length) best = { index: option.index, puzzle, reused };
+    if (!reused && puzzle.words.length >= target) break;
+  }
+  if (!best) return null;
+  [queue[from], queue[best.index]] = [queue[best.index], queue[from]];
+  return { rack: queue[from], puzzle: best.puzzle };
+}
+const seededRuns = new WeakMap<CompiledLexicon, Map<string, SeededRun>>();
+function seededRun(lexicon: CompiledLexicon, mode: WordGardenMode, playerSeed: number): SeededRun {
+  let runs = seededRuns.get(lexicon);
+  if (!runs) { runs = new Map(); seededRuns.set(lexicon, runs); }
+  const key = `${mode}:${playerSeed}`, cached = runs.get(key);
+  if (cached) return cached;
+  const usage: Usage = { last: new Map(), used: new Map(), tick: 0 }, prefix: Dealt[] = [];
+  for (const difficulty of [1, 2, 3, 4] as const) {
+    const racks = seededTierRacks(lexicon, difficulty);
+    const random = gardenRandom(gardenSeed(`${lexicon.data.language}:${lexicon.data.revision}:${mode}:${playerSeed}:${difficulty}:player-deal`));
+    let queue = shuffleLetters(racks, random), cursor = 0, pass = 0;
+    for (let index = 0; index < SEEDED_TIER_LEVELS[difficulty - 1]; index++) {
+      const profile = getGardenLevelProfile(tierStart(difficulty) + index), minimum = difficulty === 1 ? 2 : 3;
+      let dealt: Dealt | null = null;
+      while (!dealt) {
+        if (cursor >= queue.length) {
+          // The tier's racks are exhausted: begin a new permutation pass.
+          if (++pass > 3) throw new Error('WORD_GARDEN_CONNECTED_LEVEL_REQUIRED');
+          queue = shuffleLetters(racks, random); cursor = 0;
+        }
+        dealt = dealNext(lexicon, queue, cursor, queue.length, difficulty, profile.targetWords, minimum, usage, random, pass === 0);
+        cursor += dealt ? 1 : SEEDED_WINDOW;
+      }
+      prefix.push(dealt); markUsed(lexicon, usage, dealt.puzzle.words.map(word => word.word));
+    }
+  }
+  const run = { prefix, state: usage, cycles: new Map<number, Dealt[]>() };
+  runs.set(key, run);
+  if (runs.size > 4) runs.delete(runs.keys().next().value!);
+  return run;
+}
+const cycleShuffle = (lexicon: CompiledLexicon, mode: WordGardenMode, playerSeed: number, cycle: number) => shuffleLetters(seededFinalPool(lexicon).racks,
+  gardenRandom(gardenSeed(`${lexicon.data.language}:${lexicon.data.revision}:${mode}:${playerSeed}:5:${cycle}:cycle`)));
+function cycleOrder(lexicon: CompiledLexicon, mode: WordGardenMode, playerSeed: number, cycle: number): Rack[] {
+  const order = cycleShuffle(lexicon, mode, playerSeed, cycle), size = order.length;
+  if (!cycle || size < 40) return order;
+  // Swap head racks that closed the previous cycle into the middle. Only head
+  // and middle positions move, so the previous tail is its raw shuffle tail.
+  const tail = new Set(cycleShuffle(lexicon, mode, playerSeed, cycle - 1).slice(-8));
+  let swap = 16;
+  for (let index = 0; index < 8; index++) if (tail.has(order[index])) {
+    while (swap < size - 9 && tail.has(order[swap])) swap++;
+    if (swap >= size - 9) break;
+    [order[index], order[swap]] = [order[swap], order[index]]; swap++;
+  }
+  return order;
+}
+function seededCycle(lexicon: CompiledLexicon, mode: WordGardenMode, playerSeed: number, cycle: number): Dealt[] {
+  const run = seededRun(lexicon, mode, playerSeed), cached = run.cycles.get(cycle);
+  if (cached) return cached;
+  const pool = seededFinalPool(lexicon), order = cycleOrder(lexicon, mode, playerSeed, cycle);
+  const usage = cycle === 0 ? cloneUsage(run.state) : { last: new Map<string, number>(), used: new Map<number, Set<string>>(), tick: 0 };
+  // Later cycles start a new pass but treat the previous tail's answers as
+  // recently used so the boundary does not repeat the words just played.
+  if (cycle) for (const rack of cycleShuffle(lexicon, mode, playerSeed, cycle - 1).slice(-6)) {
+    markUsed(lexicon, usage, rack.words.filter(word => seededEligible(word, 5)).map(word => word.word));
+  }
+  const random = gardenRandom(gardenSeed(`${lexicon.data.language}:${lexicon.data.revision}:${mode}:${playerSeed}:5:${cycle}:deal`));
+  const first = SEEDED_PREFIX_LEVELS + 1 + cycle * order.length, cards: Dealt[] = [];
+  // The body may be reordered inside a small window; the last eight racks stay
+  // in shuffle order because the next cycle's head is checked against them.
+  const body = order.length - (order.length >= 40 ? 8 : 0);
+  for (let index = 0; index < order.length; index++) {
+    const target = getGardenLevelProfile(first + index).targetWords;
+    const dealt = index < body ? dealNext(lexicon, order, index, body, 5, target, 3, usage, random, false) : null;
+    const rack = dealt?.rack || order[index];
+    const puzzle = dealt?.puzzle || dealPuzzle(rack, 5, target, 3, usage, random) || pool.fallback.get(rack)!;
+    cards.push({ rack, puzzle }); markUsed(lexicon, usage, puzzle.words.map(word => word.word));
+  }
+  run.cycles.set(cycle, cards);
+  if (run.cycles.size > 3) for (const key of run.cycles.keys()) if (key !== 0 && key !== cycle) { run.cycles.delete(key); break; }
+  return cards;
+}
+function generateSeededGardenLevel(lexicon: CompiledLexicon, level: number, mode: WordGardenMode, playerSeed: number): WordGardenLevel {
+  if (!Number.isSafeInteger(playerSeed) || playerSeed < 0 || playerSeed > 0xFFFFFFFF) throw new Error('WORD_GARDEN_PLAYER_SEED_INVALID');
+  const profile = getGardenLevelProfile(level);
+  let dealt: Dealt;
+  if (level <= SEEDED_PREFIX_LEVELS) dealt = seededRun(lexicon, mode, playerSeed).prefix[level - 1];
+  else {
+    const size = seededFinalPool(lexicon).racks.length, offset = level - SEEDED_PREFIX_LEVELS - 1;
+    dealt = seededCycle(lexicon, mode, playerSeed, Math.floor(offset / size))[offset % size];
+  }
+  const seed = gardenSeed(`${lexicon.data.language}:${lexicon.data.revision}:${mode}:${level}:${playerSeed}`), random = gardenRandom(seed);
+  const { rack, puzzle } = dealt, targets = new Set(puzzle.words.map(word => word.word));
+  return { schema: 'anacan-word-garden-level-v1', language: lexicon.data.language, revision: lexicon.data.revision,
+    level, mode, seed, id: `${lexicon.data.language}:${lexicon.data.revision}:${mode}:${level}:${seed}`,
+    words: puzzle.words.map(word => ({ ...word })), cells: puzzle.cells.map(cell => ({ ...cell, wordIds: [...cell.wordIds] })),
+    rows: puzzle.rows, columns: puzzle.columns, letters: shuffleLetters(rack.root.letters, random),
+    bonusWords: rack.words.filter(word => !targets.has(word.word)).map(word => word.word).sort(),
+    difficulty: profile.difficulty, timeLimit: mode === 'timed' ? gardenTimeLimit(puzzle.words, rack.root.letters.length, profile.difficulty) : null };
 }
 export function validateGardenLevel(level: WordGardenLevel, lexicon: CompiledLexicon): boolean {
   if (level.language !== lexicon.data.language || level.revision !== lexicon.data.revision || level.words.length < (level.difficulty === 1 ? 2 : 3)

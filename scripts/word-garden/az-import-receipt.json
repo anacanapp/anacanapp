@@ -1,13 +1,46 @@
 {
   "schema": "anacan-word-garden-library-build-v1",
   "language": "az",
-  "revision": "az-202610-v2",
-  "words": 6857,
-  "targetWords": 2921,
-  "commonWords": 412,
+  "revision": "az-202611-v3",
+  "words": 7745,
+  "targetWords": 5606,
+  "commonWords": 743,
+  "lengths": {
+    "3": {
+      "words": 434,
+      "targets": 318
+    },
+    "4": {
+      "words": 911,
+      "targets": 679
+    },
+    "5": {
+      "words": 1943,
+      "targets": 1477
+    },
+    "6": {
+      "words": 1663,
+      "targets": 1230
+    },
+    "7": {
+      "words": 1432,
+      "targets": 981
+    },
+    "8": {
+      "words": 1362,
+      "targets": 921
+    }
+  },
+  "changes": {
+    "promotedCommon": 301,
+    "promotedEditorial": 882,
+    "promotedCorpus": 822,
+    "demoted": 29,
+    "added": 888
+  },
   "dictionaryRowsRead": 16493,
   "sourceBytes": 191410852,
-  "librarySha256": "4ee1a4ccd2dd8bc7753fe92096905a225605f56a599919d5b21e5e331da1cefb",
+  "librarySha256": "15e90509468082bf179917d855d9e3efa7c973d274b31368e98f5a322439f044",
   "sources": {
     "name": "Wiktionary / Kaikki.org",
     "url": "https://kaikki.org/dictionary/Azerbaijani/kaikki.org-dictionary-Azerbaijani.jsonl",
@@ -16,10 +49,10 @@
     "sha256": "007d6676f866dc1ae47d206db0126d549fbb6858d8cccf74b7290d452fd452c8",
     "frequencyUrl": "https://raw.githubusercontent.com/subhangadirli/aosp-dict-az/c68c85cb297510d19cee04787e445e2a558b1f70/az_wordlist.combined",
     "frequencySha256": "38ce388162db65d7f7ff751f9deda98377cc768319ea5e9a34f9f620645d91a3",
-    "editorialSha256": "fd518086e6eb414fb872b12245a34e910332d5eedd56f678c6c8cf71a4a42242",
-    "note": "Verified v1 dictionary snapshot; corpus-confirmed lemmas at frequency40+, varied Anacan opening curriculum; NFC/az Latin-script words and original sense filters retained."
+    "editorialSha256": "32bc9e13e6d76a1474d7c6a6a845e342085d25aa70eddba7d91e5b0353f65ffe",
+    "note": "v2 Kaikki/Wiktionary dictionary snapshot plus hand-curated Azerbaijani editorial lemmas (no machine translation); corpus-confirmed dictionary lemmas promoted; per-player deterministic dealing."
   },
-  "method": "verified-dictionary-snapshot-rebalance",
-  "previousRevision": "az-202610-v1",
-  "previousLibrarySha256": "acdab0987fb4dde5bf009746a69ba55fd465cc5f560cb0fdfb871508bf57d4ac"
+  "method": "v2-snapshot-plus-hand-curated-editorial",
+  "previousRevision": "az-202610-v2",
+  "previousLibrarySha256": "4ee1a4ccd2dd8bc7753fe92096905a225605f56a599919d5b21e5e331da1cefb"
 }
