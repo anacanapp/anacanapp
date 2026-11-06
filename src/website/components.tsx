@@ -62,7 +62,7 @@ export function WebsiteFooter() {
       <nav aria-label={t('home')}><a href={href('journal')}>{t('journal')}</a><a href={href('tools')}>{t('tools')}</a><a href={href('faq')}>{t('faq')}</a><a href={href('contact')}>{t('contact')}</a>{route.language==='az'&&SHOP_LINKS.map(([kind,label])=><a key={kind} href={href(kind)}>{label}</a>)}</nav>
       <div className="site-footer-contact"><a href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a><span>{t('madeIn')}</span><div><a href="https://instagram.com/anacanapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://facebook.com/anacanapp" target="_blank" rel="noopener noreferrer">Facebook</a></div></div>
     </div>
-    <div className="site-footer-bottom"><span>© {new Date(generatedAt).getUTCFullYear()} Anacan. {t('rights')}</span><MilliNetBadge/><nav aria-label={t('privacy')}><a href={href('privacy')}>{t('privacy')}</a><a href={href('terms')}>{t('terms')}</a></nav></div>
+    <div className="site-footer-bottom"><span>© {new Date(generatedAt).getUTCFullYear()} Anacan. {t('rights')}</span><MilliNetBadge/><nav aria-label={t('privacy')}><a href={href('privacy')}>{t('privacy')}</a><a href={href('terms')}>{t('terms')}</a><button type="button" className="site-cookie-settings" onClick={()=>(window as unknown as {anacanAnalytics?:{reopen:()=>void}}).anacanAnalytics?.reopen()}>{t('cookieSettings')}</button></nav></div>
     <nav className="site-machine-links" aria-label={llmCopy[route.language].formatsHeading}>
       <a href={llmIndexPath(route.language)} hrefLang={route.language}>LLM · {llmCopy[route.language].languageLabel}</a>
       <a href={llmFullPath(route.language)} hrefLang={route.language}>{llmCopy[route.language].fullLabel}</a>

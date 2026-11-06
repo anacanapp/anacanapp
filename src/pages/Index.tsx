@@ -47,6 +47,8 @@ import { BLOG_MODULE_EVENT, consumeBlogModule, isBlogModule, rememberBlogModule,
 import type { BlogModule } from '@/lib/blog-editorial';
 import { normalizeAppLanguage, isAppLanguage } from '@/lib/app-languages';
 import BlogLinkHost from '@/components/blog/BlogLinkHost';
+import { useConsentGate } from '@/hooks/useConsentGate';
+import { isKvkkUser } from '@/lib/consentGate';
 
 // PremiumOnboarding.PENDING_FUNNEL_KEY ilə sinxron saxlanmalıdır
 // (lazy chunk-u pozmamaq üçün static import edilmir)
@@ -120,6 +122,8 @@ const QaygiCashScreen = lazy(() => import('@/components/qaygicash/QaygiCashScree
 const RecapScreen = lazy(() => import('@/components/recap/RecapScreen'));
 // Module scope: a lazy() created during render is a new component type every render.
 const ForceUpdateScreen = lazy(() => import('@/components/ForceUpdateScreen'));
+const ConsentGateScreen = lazy(() => import('@/components/consent/ConsentGateScreen'));
+const AiConsentGate = lazy(() => import('@/components/consent/AiConsentGate'));
 
 const suspenseFallback = <StartupScreen />;
 
@@ -182,7 +186,12 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       countryCode: s.countryCode,
     }))
   );
-  const { isAdmin, loading, profile, user, profileLoaded } = useAuth();
+  const { isAdmin, loading, profile, user, profileLoaded, signOut } = useAuth();
+  // Legal documents v2.0 consent gate (docs/CONSENT_GATE.md): never blocks on network errors.
+  const consentBackend = getBackendConfig().url;
+  const consentGate = useConsentGate(isAuthenticated ? user?.id : null, consentBackend);
+  // Türkiye (profile country TR or app language tr): KVKK Açık Rıza wording on the gate and the AI consent.
+  const consentKvkk = isKvkkUser((profile as any)?.country_code || countryCode, language);
   const [autoFeedback, setAutoFeedback] = useState(false);
   // First Home visit after onboarding: offer Face ID / fingerprint + PIN once (native, lock not on yet).
   const [lockOffer, setLockOffer] = useState(false);
@@ -661,7 +670,9 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         case 'ai':
           return (
             <motion.div key="partner-ai" variants={pageVariants} initial="initial" animate="animate" exit="exit" className="h-full">
-              <PartnerAIPremiumGate />
+              <Suspense fallback={suspenseFallback}><AiConsentGate userId={user?.id} backend={consentBackend} kvkk={consentKvkk} onDecline={() => setActiveTab('home')}>
+                <PartnerAIPremiumGate />
+              </AiConsentGate></Suspense>
             </motion.div>
           );
         case 'profile':
@@ -714,7 +725,9 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       case 'ai':
         return (
           <motion.div key="ai" variants={pageVariants} initial="initial" animate="animate" exit="exit" className="h-full">
-            <AIChatScreen />
+            <Suspense fallback={suspenseFallback}><AiConsentGate userId={user?.id} backend={consentBackend} kvkk={consentKvkk} onDecline={() => setActiveTab('home')}>
+              <AIChatScreen />
+            </AiConsentGate></Suspense>
           </motion.div>
         );
       // Blog is now accessed via Tools, remove from nav tabs
@@ -804,6 +817,18 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         setEmailGate({ userId: user.id, required: false, email: null });
       }} />
     </ErrorBoundary></Suspense>;
+  }
+
+  // Consent gate (Terms + Privacy Policy, health data, 16+, optional marketing) before onboarding and the
+  // dashboard, for new and existing users. Skipped when disabled, already accepted or the server is unreachable.
+  if (user && !(showAdmin && isAdmin)) {
+    if (consentGate.status === 'loading') return suspenseFallback;
+    if (consentGate.status === 'show' && consentGate.consent?.gate.version) {
+      return <Suspense fallback={suspenseFallback}><ErrorBoundary key={`consent:${user.id}`}>
+        <ConsentGateScreen userId={user.id} backend={consentBackend} version={consentGate.consent.gate.version} kvkk={consentKvkk}
+          onAccepted={consentGate.markAccepted} onSignOut={() => { void signOut(); }} />
+      </ErrorBoundary></Suspense>;
+    }
   }
 
   // MƏCBURİ ölkə seçimi: profili olan amma country_code-u boş olan hər kəsə

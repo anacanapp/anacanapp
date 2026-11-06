@@ -14,6 +14,7 @@ import { useToast } from '@/hooks/use-toast';
 import { usePrivacyPreferences, type PrivacyPrefs } from '@/hooks/usePrivacyPreferences';
 import { tr } from "@/lib/tr";
 import ConsentControls from '@/components/privacy/ConsentControls';
+import ConsentSettings from '@/components/privacy/ConsentSettings';
 import { usePrivacyText } from '@/components/privacy/privacyCopy';
 import { setPrivacyConsent, usePrivacyConsent } from '@/lib/privacyConsent';
 
@@ -188,6 +189,9 @@ const PrivacyScreen = ({ onBack, onOpenAdSettings, onOpenLegal }: PrivacyScreenP
               })}
             </div>
           </motion.div>
+
+          {/* Legal consents (health data / marketing / Terms acceptance) — docs/CONSENT_GATE.md */}
+          <ConsentSettings />
 
           {/* Consent (analytics / ads / attribution) */}
           <motion.div className="a-card" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.05 }}>

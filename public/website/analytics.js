@@ -7,8 +7,19 @@
   'use strict';
   if (window.anacanAnalytics) return;
   var ID = 'G-QR8KPLJFBE', KEY = 'anacan_consent_v1';
-  var read = function () { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
-  var write = function (value) { try { localStorage.setItem(KEY, value); } catch (e) { /* private mode */ } };
+  var SIX_MONTHS = 183 * 24 * 3600 * 1000;
+  // Stored as "granted|<ms>" / "denied|<ms>"; a choice older than 6 months is asked again (privacy policy §5).
+  var read = function () {
+    try {
+      var raw = localStorage.getItem(KEY); if (!raw) return null;
+      var parts = raw.split('|'), at = Number(parts[1] || 0);
+      if (!at || Date.now() - at > SIX_MONTHS) { localStorage.removeItem(KEY); return null; }
+      return parts[0];
+    } catch (e) { return null; }
+  };
+  var write = function (value) { try { localStorage.setItem(KEY, value + '|' + Date.now()); } catch (e) { /* private mode */ } };
+  // Global Privacy Control: treated as refusing non-essential cookies (no banner, analytics stays denied).
+  if (navigator.globalPrivacyControl === true && !read()) write('denied');
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
   window.gtag = window.gtag || gtag;

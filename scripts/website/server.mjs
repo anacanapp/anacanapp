@@ -116,6 +116,8 @@ createServer(async(request,response)=>{
   try{
     const url=new URL(request.url,'http://website.internal'),prefix=request.headers['x-anacan-website-prefix']==='/site'?'/site':'';
     if(url.pathname==='/healthz'){reply(response,200,JSON.stringify({status:'ok',service:'anacan-website',backend:'google'}),'application/json');return;}
+    // Türkiye: KVKK Aydınlatma Metni (static Turkish page served by the gateway).
+    if(/^\/(?:tr\/)?kvkk\/?$/.test(url.pathname)){reply(response,301,'','text/plain',{Location:prefix+'/website/kvkk/'});return;}
     const payMatch=/^\/([a-z]{2})\/p\/?$/.exec(url.pathname);
     if(payMatch&&payShell&&PAY_LANGS.has(payMatch[1])){reply(response,200,request.method==='HEAD'?'':payShell,'text/html; charset=utf-8',{'X-Robots-Tag':'noindex'});return;}
     if(url.pathname==='/sitemap-blog.xml'||url.pathname==='/sitemap-pages.xml'){reply(response,200,await sitemap(url.pathname.includes('blog')?'articles':'pages'),'application/xml; charset=utf-8');return;}
