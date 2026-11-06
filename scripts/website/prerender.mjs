@@ -77,7 +77,7 @@ export function websitePrerenderPlugin({standalone=false,root,catalogDir=join(ro
         const details=JSON.parse(await readFile(join(root,'src/website/details',language+'.json'),'utf8'));
         copies[language]=copy;detailCopies[language]=details;
         catalog.articles=catalog.articles.map(article=>article.contentFormat==='anacan-article-html-v1'?article:{...article,...renderArticleContent(article.content||'',{footnotesLabel:copy.references})});
-        if(catalog.schema!=='anacan-website-catalog-v1'||catalog.language!==language||catalog.articles.length<75||Object.keys(copy).length!==306)throw new Error('WEBSITE_CATALOG_OR_COPY_INCOMPLETE');
+        if(catalog.schema!=='anacan-website-catalog-v1'||catalog.language!==language||catalog.articles.length<75||Object.keys(copy).length!==307)throw new Error('WEBSITE_CATALOG_OR_COPY_INCOMPLETE');
         if(!catalog.legal?.privacy?.content||!catalog.legal?.terms?.content)throw new Error('WEBSITE_LEGAL_REQUIRED');
         articleRoutes ||= catalog.articles;
         postCount=catalog.articles.length;

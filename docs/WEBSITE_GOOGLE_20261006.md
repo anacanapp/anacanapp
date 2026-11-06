@@ -160,3 +160,18 @@ handoff-a daxil edilmir.
 - Website runtime `website@sha256:7f1a9a8ace8a…` (FROM `cc4610ba…`, rollback
   `website-runtime-plan.before-millinet.json`); gateway `gateway@sha256:ffb5337e8b0a…` (FROM `d1db0162…`,
   website assets and `az/index.html` only, app untouched; rollback `rollback-millinet-web-plan.json`).
+
+## Header "Hesabım" icon and runtime copy rule (2026-11-06)
+
+- The header has a small account icon (`.site-nav-account`) before the download
+  button. It opens the web Premium cabinet `/website/premium/hesab/index.html`.
+  Copy key `account` exists in all 21 copy files (key count guard is 307).
+- Website runtime images built `FROM` the live digest must also
+  `COPY src/website/copy/ /app/website/copy/` whenever a copy key is added. The
+  SSR renderer reads copy from `/app/website/copy/`; a missing key crashes the
+  render and the server answers 503 `Anacan` for every page (healthz stays 200).
+  On 2026-11-06 image `078dab2c…` did this; it was rolled back to `7f1a9a8a…`,
+  then `fda8ad55…` (with copy files) went live.
+- Before swapping, smoke-render every language inside the image build
+  (`node /tmp/smoke.mjs` calling `renderWebsite` + `renderWebsiteHtml`) and run a
+  canary container on `127.0.0.1:9299` against the same network/env.

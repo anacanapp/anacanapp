@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, ArrowRight, Menu, X, Globe2, ChevronDown, Smartphone, Heart, CalendarDays, BookOpen, Leaf } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Menu, X, Globe2, ChevronDown, Smartphone, Heart, CalendarDays, BookOpen, Leaf, UserRound } from 'lucide-react';
 import { WEBSITE_LANGUAGES } from '../lib/app-languages';
 import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, sitePath } from './routes';
 import type { WebsiteCopyKey, WebsiteArticle } from './model';
@@ -35,6 +35,7 @@ export function WebsiteHeader() {
               window.location.assign(basePath+(path||sitePath(code))+(path?window.location.search:''));
             }}>{WEBSITE_LANGUAGES.filter(item=>route.kind!=='article'||article?.slugs[item.code]).map(item=><option key={item.code} value={item.code} lang={item.code}>{item.native_name}</option>)}</select><ChevronDown aria-hidden="true" size={12}/>
           </label>
+          <a className="site-nav-account" href="/website/premium/hesab/index.html" aria-label={t('account')} title={t('account')}><UserRound aria-hidden="true" size={18} strokeWidth={1.75}/></a>
           <a className="site-nav-download" href={href('download')}>{t('download')}<Arrow diagonal/></a>
           <button className="site-menu-button" aria-label={t(open?'closeMenu':'menu')} aria-expanded={open} aria-controls="site-mobile-menu" onClick={()=>setOpen(value=>!value)}>{open?<X size={20}/>:<Menu size={20}/>}</button>
         </div>
