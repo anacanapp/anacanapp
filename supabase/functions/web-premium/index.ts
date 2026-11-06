@@ -112,12 +112,15 @@ Deno.serve(async (req) => {
 
   try {
     if (action === 'status') {
-      const [{ data: campaign }, { data: account, error }] = await Promise.all([
-        admin.rpc('web_premium_campaign_v1'), admin.rpc('web_premium_account_v1', { p_user: userId })]);
+      const [{ data: campaign }, { data: account, error }, { data: testOffer }] = await Promise.all([
+        admin.rpc('web_premium_campaign_v1'), admin.rpc('web_premium_account_v1', { p_user: userId }),
+        admin.rpc('web_premium_test_offer_v1', { p_user: userId })]);
       if (error || !account) return reply(503, { error: 'database_unavailable' });
       const config = await epointConfig(admin);
       return ok({
         campaign: campaignView((campaign ?? { active: false }) as Campaign), payments_ready: config.merchantLive,
+        // Admin-only tiny-price offer for end-to-end card tests (null for everyone else).
+        test_offer: testOffer && typeof testOffer === 'object' ? testOffer : null,
         premium: await premiumState(admin, userId, account.subscription), subscription: account.subscription,
         cards: account.cards ?? [], charges: account.charges ?? [], email: auth.user.email ?? null,
       });
@@ -130,6 +133,7 @@ Deno.serve(async (req) => {
     }
 
     if (action === 'subscribe' || action === 'add_card') {
+      const test = action === 'subscribe' && body.test === true;
       const plan = action === 'subscribe' ? (isPlan(body.plan) ? body.plan : null) : null;
       if (action === 'subscribe' && !plan) return reply(400, { error: 'invalid_plan' });
       const config = await epointConfig(admin);
@@ -143,13 +147,16 @@ Deno.serve(async (req) => {
       if (action === 'subscribe') {
         const { data: account } = await admin.rpc('web_premium_account_v1', { p_user: userId });
         const premium = await premiumState(admin, userId, account?.subscription ?? null);
-        if (premium.active) return fail('premium_active', { premium });
-        const { data: start, error } = await admin.rpc('web_premium_subscribe_start_v1', { p_user: userId, p_plan: plan });
+        // The admin test may run on an account that already has store Premium; a live web subscription still blocks it (RPC).
+        if (premium.active && !(test && premium.source !== 'web_subscription')) return fail('premium_active', { premium });
+        const { data: start, error } = test
+          ? await admin.rpc('web_premium_subscribe_test_start_v1', { p_user: userId })
+          : await admin.rpc('web_premium_subscribe_start_v1', { p_user: userId, p_plan: plan });
         if (error || !start?.charge_id) return fail(rpcErrorCode(error) ?? 'database_unavailable');
         chargeId = start.charge_id as string;
         payload = {
           language: 'az', amount: epointAmount(Number(start.amount)), currency: 'AZN', order_id: chargeId,
-          description: `Anacan Premium — ${plan === 'yearly' ? 'illik' : 'aylıq'} abunəlik`,
+          description: `Anacan Premium — ${start.plan === 'monthly' ? 'aylıq' : 'illik'} abunəlik${test ? ' (test)' : ''}`,
           success_redirect_url: `${CAMPAIGN_PAGE}?odenis=ugurlu`, error_redirect_url: `${CAMPAIGN_PAGE}?odenis=xeta`,
         };
       } else {

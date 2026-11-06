@@ -110,6 +110,7 @@
       '<span class="price">' + (m.was ? '<s>' + A.money(m.was) + '</s>' : '') + '<b>' + A.money(m.price) + '</b></span></button>' +
       '</div>' +
       (save > 0 ? '<div class="save"><span>Qənaətin</span><span>' + A.money(save) + '</span></div>' : '') +
+      (status.payments_ready ? consentHtml('consent') : '') +
       '<button class="cta" type="button" id="cta"' + (status.payments_ready ? '' : ' disabled') + '>' +
       (status.payments_ready ? 'Endirimi əldə et <span class="arr">→</span>' : 'Ödəniş sistemi hələ aktiv deyil') + '</button>' +
       '<p class="fine">Avtomatik yenilənir, istədiyin vaxt ləğv edə bilərsən. Endirimli qiymət ləğv edənə qədər hər yenilənmədə qorunur. Kartla, manatla (Epoint).</p>' +
@@ -118,7 +119,35 @@
       b.addEventListener('click', function () { selected = b.getAttribute('data-plan'); renderPlans(); updateHero(); });
     });
     var cta = $('cta');
-    if (cta && status.payments_ready) cta.addEventListener('click', subscribe);
+    if (cta && status.payments_ready) { cta.addEventListener('click', function () { subscribe(false); }); bindConsent('consent', cta); }
+    appendTest();
+  }
+
+  /** The bank page has no "save card" switch: the card is registered by the payment itself, so ask for consent here. */
+  function consentHtml(id) {
+    return '<label class="consent"><input type="checkbox" id="' + id + '">' +
+      '<span>Kartımın avtomatik yenilənmə üçün Epoint-də təhlükəsiz <b>yadda saxlanmasına</b> razıyam. Kartı “Premium hesabım” səhifəsində istədiyim vaxt silə bilərəm.</span></label>' +
+      '<p class="bank-note">Növbəti addım Paşa Bank-ın ödəniş səhifəsidir. Orada ayrıca “kartı yadda saxla” seçimi olmur: kart bu ödənişlə birlikdə saxlanılır. Anacan yalnız maskalı nömrəni (•••• 1234) görür.</p>';
+  }
+  function bindConsent(id, button) {
+    var box = $(id);
+    if (!box || !button) return;
+    var sync = function () { button.disabled = !box.checked; };
+    box.addEventListener('change', sync); sync();
+  }
+
+  /** Admin-only tiny-price offer for real card tests (the server returns test_offer only for admins). */
+  function appendTest() {
+    var t = status && status.test_offer;
+    if (!t || !status.payments_ready || (status.premium && status.premium.source === 'web_subscription')) return;
+    var box = document.createElement('div');
+    box.className = 'testbox';
+    box.innerHTML = '<b>Admin test</b><span>' + (t.plan === 'monthly' ? 'Aylıq' : 'İllik') + ' abunəlik · ' + A.money(t.price) + '</span>' +
+      consentHtml('consentTest') + '<button class="btn" type="button" id="ctaTest">Test ödənişi et</button>';
+    card.appendChild(box);
+    var b = $('ctaTest');
+    b.addEventListener('click', function () { subscribe(true); });
+    bindConsent('consentTest', b);
   }
 
   var ERRORS = {
@@ -131,26 +160,40 @@
     checkout_unavailable: 'Ödəniş səhifəsi açılmadı. Bir az sonra yenidən cəhd et.',
   };
 
-  async function subscribe() {
-    var cta = $('cta');
+  async function subscribe(test) {
+    var cta = $(test ? 'ctaTest' : 'cta');
     cta.disabled = true; cta.innerHTML = '<span class="spinner"></span>';
     try {
-      var d = await A.call('subscribe', { plan: selected });
+      var d = await A.call('subscribe', test ? { plan: status.test_offer.plan, test: true } : { plan: selected });
       if (d.ok && typeof d.redirect_url === 'string' && /^https:\/\/([a-z0-9-]+\.)+az(:443)?\//i.test(d.redirect_url)) {
         location.href = d.redirect_url; // Epoint / bank card page; it returns to this page
         return;
       }
       if (d.error === 'premium_active' || d.error === 'already_subscribed' || d.error === 'campaign_inactive') { await load(); return; }
-      renderPlans(ERRORS[d.error] || ERRORS.checkout_unavailable);
+      failed(ERRORS[d.error] || ERRORS.checkout_unavailable);
     } catch (e) {
       if (e && e.code === 'unauthorized') { await A.signOut(); return; }
-      renderPlans(ERRORS.checkout_unavailable);
+      failed(ERRORS.checkout_unavailable);
     }
+  }
+
+  function failed(message) {
+    if (plans() && status.campaign.active && !(status.premium && status.premium.active)) renderPlans(message);
+    else { A.toast(message, true); renderStatus(); }
+  }
+
+  function savedCardLine(d) {
+    var cards = (d.cards || []).filter(function (c) { return c.status === 'active'; });
+    var c = cards.filter(function (x) { return x.is_default; })[0] || cards[0];
+    if (!c) return '';
+    var digits = String(c.mask || '').replace(/[^0-9*]/g, '');
+    var mask = digits.length >= 8 ? digits.slice(0, 4) + ' •••• ' + digits.slice(-4) : (c.mask || 'Bank kartı');
+    return '<p class="saved-card"><span class="chip-card" aria-hidden="true"></span>Kart yadda saxlandı: <b>' + A.esc(mask) + '</b></p>';
   }
 
   function renderStatus() {
     $('cabinetLink').hidden = false;
-    if (status.premium && status.premium.active) { renderPremium(status.premium); return; }
+    if (status.premium && status.premium.active) { renderPremium(status.premium); appendTest(); return; }
     if (!status.campaign || !status.campaign.active || !plans()) {
       $('liveText').textContent = 'Kampaniya bitdi';
       renderState(ICON_INFO, 'Kampaniya bitdi', 'Bu kampaniya artıq bitib. Növbəti endirimlər üçün Anacan tətbiqini izlə.', '', true);
@@ -189,7 +232,7 @@
           var sub = d.subscription;
           renderState(ICON_OK, 'Premium aktivdir!', A.esc((sub && sub.plan === 'monthly' ? 'Aylıq' : 'İllik') + ' abunəlik başladı. Tətbiqə eyni hesabla daxil ol, Premium avtomatik açılacaq.' +
             (sub && sub.next_charge_at ? ' Növbəti ödəniş: ' + A.day(sub.next_charge_at) + '.' : '')),
-            '<a class="cta" href="' + CABINET + '">Premium hesabım <span class="arr">→</span></a>');
+            savedCardLine(d) + '<a class="cta" href="' + CABINET + '">Premium hesabım <span class="arr">→</span></a>');
           return;
         }
       } catch (e) { if (e && e.code === 'unauthorized') { await A.signOut(); return; } }
