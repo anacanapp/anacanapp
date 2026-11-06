@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import { Download, Image as ImageIcon, Pause, Play, RotateCcw, Share2, Volume2, VolumeX, X } from 'lucide-react';
 import { useUserStore } from '@/store/userStore';
+import { useAuth } from '@/hooks/useAuth';
 import { useRecap, RECAP_YEAR } from '@/hooks/useRecap';
 import { useToolConfigs } from '@/hooks/useDynamicTools';
 import { useBabyMilestonesDB, useSymptoms } from '@/hooks/useDynamicConfig';
@@ -19,6 +20,7 @@ type Busy = null | { kind: 'video'; progress: number } | { kind: 'image' };
  */
 export default function RecapScreen({ onBack }: { onBack: () => void }) {
   const language = useUserStore((s) => s.language);
+  const { user } = useAuth();
   const { recap, result, isLoading } = useRecap(RECAP_YEAR);
   const { data: tools = [] } = useToolConfigs();
   const { data: milestones = [] } = useBabyMilestonesDB();
@@ -31,7 +33,7 @@ export default function RecapScreen({ onBack }: { onBack: () => void }) {
     return { tool: (id) => toolMap.get(id) || null, milestone: (id) => msMap.get(id) || null, symptom: (id) => symMap.get(id) || null };
   }, [tools, milestones, symptoms]);
 
-  const model = useMemo(() => (recap ? buildRecapModel(recap, language, rt, { labels }) : null), [recap, language, labels]);
+  const model = useMemo(() => (recap ? buildRecapModel(recap, language, rt, { labels, seed: user?.id }) : null), [recap, language, labels, user?.id]);
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -69,7 +71,7 @@ export default function RecapScreen({ onBack }: { onBack: () => void }) {
   useEffect(() => {
     if (!model) return;
     let cancelled = false;
-    void loadRecapAssets(model.rtl).then((assets) => {
+    void loadRecapAssets(model).then((assets) => {
       if (cancelled) return;
       assetsRef.current = assets;
       setReady(true);

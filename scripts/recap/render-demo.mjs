@@ -6,8 +6,9 @@
  *   node scripts/recap/render-demo.mjs --out <dir> --music <music.mp3> [--persona mommy,bump,flow] [--lang az] [--fps 30]
  *
  * Output per persona: recap-<persona>.mp4 (1080×1920, H.264 high/yuv420p, AAC, faststart) and
- * recap-<persona>-sheet.jpg (12-frame contact sheet). Nunito is downloaded once into <out>/.fonts
- * (the app loads the same family from Google Fonts). Nothing is written into the repository.
+ * recap-<persona>-sheet.jpg (12-frame contact sheet). Brand fonts come from public/recap/fonts (Plus Jakarta Sans,
+ * Switzer) and public/fonts (Noto fallbacks); Inter — which the app loads from Google Fonts — is downloaded once
+ * into <out>/.fonts. Nothing is written into the repository.
  */
 import { build } from 'esbuild';
 import { spawn, spawnSync } from 'node:child_process';
@@ -30,9 +31,9 @@ mkdirSync(OUT, { recursive: true });
 async function fonts() {
   const dir = join(OUT, '.fonts');
   mkdirSync(dir, { recursive: true });
-  const cssPath = join(dir, 'nunito.css');
+  const cssPath = join(dir, 'inter.css');
   if (!existsSync(cssPath)) {
-    const res = await fetch('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=block', {
+    const res = await fetch('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block', {
       headers: { 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36' },
     });
     if (!res.ok) throw new Error(`Google Fonts CSS ${res.status}`);
@@ -61,6 +62,16 @@ async function bundle() {
   return result.outputFiles[0].text;
 }
 
+const fontUrls = () => {
+  const out = {};
+  for (const [dir, url] of [['public/recap/fonts', '/recap/fonts'], ['public/fonts', '/fonts']]) {
+    for (const f of readdirSync(join(ROOT, dir))) {
+      const type = f.endsWith('.woff2') ? 'font/woff2' : f.endsWith('.ttf') ? 'font/ttf' : null;
+      if (type) out[`${url}/${f}`] = `data:${type};base64,${readFileSync(join(ROOT, dir, f)).toString('base64')}`;
+    }
+  }
+  return out;
+};
 const dataUrl = (p) => `data:image/png;base64,${readFileSync(join(ROOT, p)).toString('base64')}`;
 const dictFor = (lang) => {
   const file = ['az', 'en'].includes(lang) ? join(ROOT, `src/locales/${lang}.json`) : join(ROOT, `scripts/i18n/${lang}.seed.json`);
@@ -80,7 +91,7 @@ async function main() {
   const { chromium } = require('playwright');
   const [css, js] = await Promise.all([fonts(), bundle()]);
   const html = `<!doctype html><html><head><meta charset="utf-8"><style>${css} html,body{margin:0;background:#000}</style></head>
-<body><canvas id="c" width="1080" height="1920"></canvas><div style="font-family:Nunito;font-weight:900;position:absolute;opacity:0">Aə</div><script>${js}</script></body></html>`;
+<body><canvas id="c" width="1080" height="1920"></canvas><script>${js}</script></body></html>`;
   const launchArgs = ['--disable-gpu-vsync', '--force-color-profile=srgb'];
   const browser = await chromium.launch({ args: launchArgs }).catch(() => {
     // The pre-installed browser may belong to another Playwright revision: use whichever Chromium is there.
@@ -102,9 +113,10 @@ async function main() {
 
   for (const persona of PERSONAS) {
     const info = await page.evaluate((o) => window.recapDemo.setup(o), {
-      persona, language: LANG, dict: dictFor(LANG), logoWhite: dataUrl('public/brand-mark-white.png'), logoCoral: dataUrl('public/brand-mark-coral.png'),
+      persona, language: LANG, dict: dictFor(LANG), fontUrls: fontUrls(), logoWhite: dataUrl('public/brand-mark-white.png'), logoCoral: dataUrl('public/brand-mark-coral.png'),
     });
-    if (!info.fontOk) throw new Error('Nunito did not load');
+    if (!info.fontOk) throw new Error('Brand fonts did not load');
+    console.log(`  persona: ${info.persona}; full story needs: ${JSON.stringify(info.needs)}`);
     const total = Math.round(info.duration * FPS);
     console.log(`${persona}: ${info.duration.toFixed(2)} s, ${total} frames, scenes: ${info.scenes.map((s) => `${s.id}@${s.start.toFixed(1)}`).join(' ')}`);
     const name = `recap-${persona}${LANG === 'az' ? '' : `-${LANG}`}`;

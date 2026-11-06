@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { APP_LANGUAGE_CODES } from '@/lib/app-languages';
 import { RECAP_COPY } from './copy';
+import { RECAP_PERSONA_TABLE } from './persona';
 
 const file = (lang: string) => (['az', 'en'].includes(lang)
   ? resolve(process.cwd(), `src/locales/${lang}.json`) : resolve(process.cwd(), `scripts/i18n/${lang}.seed.json`));
@@ -19,9 +20,10 @@ describe('Anacan Recap copy in every app language', () => {
     const used = [...sources.matchAll(/'(recap_[a-z0-9_]+)'/g)].map((m) => m[1])
       .filter((k) => !['recap_opened', 'recap_completed', 'recap_exported', 'recap_shared'].includes(k));
     expect(used.filter((k) => !(k in RECAP_COPY))).toEqual([]);
-    for (const p of ['night', 'planner', 'knowledge', 'community', 'caring']) {
-      expect(`recap_persona_${p}` in RECAP_COPY).toBe(true);
-      expect(`recap_persona_${p}_why` in RECAP_COPY).toBe(true);
+    // Every persona in the table has a title and all its alternative "why" lines.
+    for (const p of RECAP_PERSONA_TABLE) {
+      expect(`recap_persona_${p.id}` in RECAP_COPY, p.id).toBe(true);
+      for (let i = 1; i <= p.lines; i++) expect(`recap_persona_${p.id}_why_${i}` in RECAP_COPY, `${p.id} why ${i}`).toBe(true);
     }
   });
 

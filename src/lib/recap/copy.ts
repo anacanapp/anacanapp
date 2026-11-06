@@ -123,18 +123,23 @@ export const RECAP_COPY = {
   recap_label_streak: 'günlük seriya',
   recap_label_games: 'oyun',
 
-  // Personality
+  // Personality (table in persona.ts: recap_persona_<id> + recap_persona_<id>_why_<n>)
   recap_persona_eyebrow: 'Sənin {year} tipin',
   recap_persona_night: 'Gecə Qəhrəmanı',
-  recap_persona_night_why: 'Ən çox gecə saatlarında yanımızda idin — sakit, oyaq, sevgi dolu.',
+  recap_persona_night_why_1: 'Ən çox gecə saatlarında yanımızda idin — sakit, oyaq, sevgi dolu.',
+  recap_persona_night_why_2: 'Gecənin ən sakit saatlarında da sevgin oyaq idi.',
   recap_persona_planner: 'Səbirli Planlayıcı',
-  recap_persona_planner_why: 'Ardıcıllıq sənin super gücündür: hər şeyi vaxtında, sakitcə.',
+  recap_persona_planner_why_1: 'Ardıcıllıq sənin super gücündür: hər şeyi vaxtında, sakitcə.',
+  recap_persona_planner_why_2: 'Addım-addım, səbirlə — hər şey öz vaxtında yerinə düşdü.',
   recap_persona_knowledge: 'Bilik Ovçusu',
-  recap_persona_knowledge_why: 'Soruşmaqdan, oxumaqdan, öyrənməkdən yorulmadın.',
+  recap_persona_knowledge_why_1: 'Soruşmaqdan, oxumaqdan, öyrənməkdən yorulmadın.',
+  recap_persona_knowledge_why_2: 'Hər sualın səni bir az daha arxayın etdi.',
   recap_persona_community: 'İcma Ürəyi',
-  recap_persona_community_why: 'Başqa analara ürək verdin, onlar da sənə.',
+  recap_persona_community_why_1: 'Başqa analara ürək verdin, onlar da sənə.',
+  recap_persona_community_why_2: 'Bir bəyəni, bir şərh — başqa bir ananın gününü işıqlandırdın.',
   recap_persona_caring: 'Qayğı Ustası',
-  recap_persona_caring_why: 'Səssiz, sabit, hər gün — əsl qayğı belə olur.',
+  recap_persona_caring_why_1: 'Səssiz, sabit, hər gün — əsl qayğı belə olur.',
+  recap_persona_caring_why_2: 'Kiçik, gündəlik qayğılar — ən böyük sevgi elə budur.',
 
   // Summary card and outro
   recap_summary_kicker: 'Mənim ilim',

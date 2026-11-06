@@ -10,8 +10,10 @@
 import { Capacitor } from '@capacitor/core';
 import { renderRecapFrame, summaryStillTime, RECAP_FPS, RECAP_H, RECAP_W, type RecapAssets } from './render';
 import type { RecapModel } from './types';
+import { loadRecapFonts } from './font-loader';
+import { RECAP_MUSIC_2026 } from './model';
 
-export const RECAP_MUSIC_URL = '/recap/recap-2026.mp3';
+export const RECAP_MUSIC_URL = RECAP_MUSIC_2026.src ?? '/recap/recap-2026.mp3';
 
 const loadImage = (src: string) => new Promise<HTMLImageElement | null>((resolve) => {
   const img = new Image();
@@ -35,18 +37,9 @@ function grainTile(): HTMLCanvasElement {
   return c;
 }
 
-/** Fonts first (Nunito from the app's stylesheet), then the real Anacan marks. Never throws. */
-export async function loadRecapAssets(rtl = false): Promise<RecapAssets> {
-  try {
-    const fonts = document.fonts;
-    if (fonts?.load) {
-      const family = rtl ? 'Noto Sans Arabic' : 'Nunito';
-      await Promise.race([
-        Promise.all(['700', '800', '900'].map((w) => fonts.load(`${w} 64px ${family}`, 'Aə2026'))).then(() => fonts.ready),
-        new Promise((r) => setTimeout(r, 2500)),
-      ]);
-    }
-  } catch { /* system font fallback */ }
+/** Brand fonts first (Plus Jakarta Sans / Switzer / Inter, see fonts.ts), then the real Anacan marks. Never throws. */
+export async function loadRecapAssets(model: RecapModel | null): Promise<RecapAssets> {
+  await loadRecapFonts(model);
   const [logoWhite, logoCoral] = await Promise.all([loadImage('/brand-mark-white.png'), loadImage('/brand-mark-coral.png')]);
   return { logoWhite, logoCoral, grain: grainTile() };
 }

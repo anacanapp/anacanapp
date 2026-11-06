@@ -208,9 +208,13 @@ export interface PersonaScene extends SceneBase { kind: 'persona'; persona: Reca
 export interface SummaryScene extends SceneBase { kind: 'summary'; name: string | null; year: number; kicker: string; stats: RecapStat[]; persona: string; site: string }
 export interface OutroScene extends SceneBase { kind: 'outro'; tagline: string; site: string; stores: string }
 
+/** A scene before it is placed on the timeline. */
+export type UntimedScene<T extends RecapScene = RecapScene> = T extends RecapScene ? Omit<T, 'start' | 'end'> : never;
+
 export type RecapScene = ColdScene | StatScene | JourneyScene | MilestonesScene | GrowthScene | PeakScene | PersonaScene | SummaryScene | OutroScene;
 
-export type RecapPersona = 'night' | 'planner' | 'knowledge' | 'community' | 'caring';
+/** Persona id from the table in persona.ts. */
+export type RecapPersona = string;
 
 export interface RecapModel {
   version: 1;

@@ -8,6 +8,8 @@
  */
 import { clamp01, easeInCubic, easeInOutCubic, easeOutBack, easeOutCubic, easeOutExpo, easeOutQuint, lerp, mix, prng, prog, rgba } from './anim';
 import { formatRecapNumber } from './model';
+import { RECAP_FONTS, type RecapFonts } from './fonts';
+import { PACE, sentenceEnd, statPlan, tokenize } from './pace';
 import type {
   ColdScene, GrowthScene, JourneyScene, MilestonesScene, OutroScene, PeakScene, PersonaScene, RecapModel, RecapScene, RecapStat, StatScene, SummaryScene,
 } from './types';
@@ -19,8 +21,6 @@ const CX = RECAP_W / 2;
 const SAFE_X = 96;
 const SAFE_W = RECAP_W - SAFE_X * 2;
 
-export const RECAP_FONT = '"Nunito", "Noto Sans Arabic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
-export const RECAP_FONT_ARABIC = '"Noto Sans Arabic", "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
 
 type C2D = CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D;
 
@@ -31,8 +31,8 @@ export interface RecapAssets {
   logoCoral?: CanvasImageSource | null;
   /** A small tile of noise, drawn as film grain. */
   grain?: CanvasImageSource | null;
-  /** CSS font family list; defaults to Nunito (Noto Sans Arabic first for Arabic). */
-  font?: string;
+  /** Font family lists per role; defaults to the brand fonts (Plus Jakarta Sans / Switzer / Inter). */
+  fonts?: Partial<RecapFonts>;
 }
 
 const imgSize = (img: CanvasImageSource): [number, number] => {
@@ -61,20 +61,6 @@ interface Line { words: Word[]; width: number }
 interface Layout { lines: Line[]; size: number; weight: number; space: number }
 
 const fontOf = (weight: number, size: number, family: string) => `${weight} ${Math.round(size)}px ${family}`;
-
-function tokenize(text: string, cjk: boolean): string[] {
-  if (!cjk) return text.split(/\s+/).filter(Boolean);
-  // Chinese/Japanese: break between characters, keep Latin words, numbers and punctuation attached.
-  const out: string[] = [];
-  const re = /[A-Za-z0-9.,:%+\-→·]+|[\s]+|[　-〿＀-￯，。！？、：」』）]|./gu;
-  for (const m of text.matchAll(re)) {
-    const tok = m[0];
-    if (/^\s+$/.test(tok)) continue;
-    if (out.length && /^[　-〿＀-￯，。！？、：」』）]$/u.test(tok)) out[out.length - 1] += tok;
-    else out.push(tok);
-  }
-  return out;
-}
 
 function layoutText(ctx: C2D, text: string, size: number, weight: number, maxW: number, family: string, cjk: boolean): Layout {
   ctx.font = fontOf(weight, size, family);
@@ -107,7 +93,7 @@ interface DrawTextOpts { color: string; lineH?: number; delay?: number; stagger?
 /** Kinetic typography: each word rises and fades in, staggered. Returns the block height. */
 function drawKinetic(ctx: C2D, lay: Layout, top: number, lt: number, o: DrawTextOpts): number {
   const lineH = o.lineH ?? lay.size * 1.18;
-  const delay = o.delay ?? 0, stagger = o.stagger ?? 0.055, rise = o.rise ?? 0.42;
+  const delay = o.delay ?? 0, stagger = o.stagger ?? PACE.stagger, rise = o.rise ?? 0.42;
   const cx = o.cx ?? CX;
   ctx.font = fontOf(lay.weight, lay.size, o.family);
   ctx.textBaseline = 'alphabetic';
@@ -117,7 +103,7 @@ function drawKinetic(ctx: C2D, lay: Layout, top: number, lt: number, o: DrawText
     const baseline = top + li * lineH + lay.size * 0.92;
     let x = o.rtl ? cx + line.width / 2 : cx - line.width / 2;
     for (const word of line.words) {
-      const p = easeOutCubic(prog(lt, delay + idx * stagger, 0.5));
+      const p = easeOutCubic(prog(lt, delay + idx * stagger, PACE.word));
       idx++;
       const wx = o.rtl ? x - word.width : x;
       if (p > 0.001) {
@@ -134,7 +120,6 @@ function drawKinetic(ctx: C2D, lay: Layout, top: number, lt: number, o: DrawText
   return lay.lines.length * lineH;
 }
 
-const staggerCount = (lay: Layout) => lay.lines.reduce((s, l) => s + l.words.length, 0);
 
 function roundRect(ctx: C2D, x: number, y: number, w: number, h: number, r: number) {
   const rr = Math.min(r, w / 2, h / 2);
@@ -148,10 +133,10 @@ function roundRect(ctx: C2D, x: number, y: number, w: number, h: number, r: numb
 }
 
 /** Centered pills that wrap to rows; each pops in. Returns the height used. */
-function drawPills(ctx: C2D, s: RecapScene, texts: string[], top: number, lt: number, delay: number, family: string, opts: { size?: number; fill?: string; color?: string; weight?: number } = {}): number {
+function drawPills(ctx: C2D, s: RecapScene, texts: string[], top: number, lt: number, delay: number, family: string, opts: { size?: number; fill?: string; color?: string; weight?: number; gap?: number } = {}): number {
   if (!texts.length) return 0;
   const size = opts.size ?? 40, padX = size * 0.75, h = size * 1.9, gap = 16;
-  ctx.font = fontOf(opts.weight ?? 800, size, family);
+  ctx.font = fontOf(opts.weight ?? 600, size, family);
   const items = texts.map((t) => {
     let text = t;
     while (ctx.measureText(text).width + padX * 2 > SAFE_W && text.length > 4) text = `${text.slice(0, -2)}…`;
@@ -170,7 +155,7 @@ function drawPills(ctx: C2D, s: RecapScene, texts: string[], top: number, lt: nu
     let x = CX - total / 2;
     const y = top + ri * (h + gap);
     for (const it of row) {
-      const p = prog(lt, delay + i * 0.12, 0.45);
+      const p = prog(lt, delay + i * (opts.gap ?? PACE.chipGap), PACE.pill);
       i++;
       if (p > 0) {
         const k = easeOutBack(p, 1.4);
@@ -310,7 +295,7 @@ function drawLockup(ctx: C2D, assets: RecapAssets, ink: 'light' | 'dark', cy: nu
   const textSize = markH * 0.78;
   ctx.save();
   ctx.globalAlpha *= alpha;
-  ctx.font = fontOf(900, textSize, RECAP_FONT);
+  ctx.font = fontOf(700, textSize, family);
   const wordW = ctx.measureText('Anacan').width;
   let markW = 0;
   if (mark) { const [w, h] = imgSize(mark); markW = (markH * w) / h; }
@@ -327,7 +312,6 @@ function drawLockup(ctx: C2D, assets: RecapAssets, ink: 'light' | 'dark', cy: nu
   ctx.fillText('Anacan', x0 + markW + gap, cy + textSize * 0.04);
   ctx.restore();
   ctx.textBaseline = 'alphabetic';
-  void family;
 }
 
 function drawChrome(ctx: C2D, model: RecapModel, t: number, index: number, assets: RecapAssets, family: string) {
@@ -361,27 +345,47 @@ function drawChrome(ctx: C2D, model: RecapModel, t: number, index: number, asset
   ctx.restore();
 }
 
+/** Digit groups ("1 576"): the display face's spaces are too narrow, so groups are drawn with an explicit gap. */
+const GROUP = '\u2009';
+const bigDigits = (text: string) => text.replace(/(\d)[\u00A0\u202F\u2009 ](?=\d)/g, `$1${GROUP}`);
+const groupGap = (ctx: C2D) => (Number(/(\d+(?:\.\d+)?)px/.exec(ctx.font)?.[1]) || 100) * 0.3;
+function measureGrouped(ctx: C2D, text: string): number {
+  const parts = text.split(GROUP);
+  return parts.reduce((w, p) => w + ctx.measureText(p).width, 0) + groupGap(ctx) * (parts.length - 1);
+}
+/** fillText, centred on x, with the digit-group gap. */
+function fillGrouped(ctx: C2D, text: string, x: number, y: number) {
+  const parts = text.split(GROUP);
+  if (parts.length === 1) { ctx.textAlign = 'center'; ctx.fillText(text, x, y); return; }
+  const gap = groupGap(ctx);
+  let cx = x - measureGrouped(ctx, text) / 2;
+  ctx.textAlign = 'left';
+  for (const part of parts) { ctx.fillText(part, cx, y); cx += ctx.measureText(part).width + gap; }
+}
+
 // ── Numbers ───────────────────────────────────────────────────────────────────────────────────
 /** Value shown at local time lt: counts up with an expo ease, or a fixed text. */
-function valueText(model: RecapModel, v: RecapStat, lt: number, start = 0.45, dur = 1.5): string {
+function valueText(model: RecapModel, v: RecapStat, lt: number, start: number = PACE.numberStart, dur: number = PACE.numberCount): string {
   if (v.text) return v.text;
   const p = easeOutExpo(prog(lt, start, dur));
   const n = v.n * p;
   return formatRecapNumber(model.language, v.decimals ? Math.round(n * 10 ** v.decimals) / 10 ** v.decimals : Math.round(n), v.decimals);
 }
 
-function drawBigNumber(ctx: C2D, s: RecapScene, text: string, finalText: string, cx: number, baseline: number, maxSize: number, maxW: number, lt: number, family: string, start = 0.45) {
-  ctx.font = fontOf(900, maxSize, family);
-  const w = ctx.measureText(finalText).width;
+function drawBigNumber(ctx: C2D, s: RecapScene, text: string, finalText: string, cx: number, baseline: number, maxSize: number, maxW: number, lt: number, family: string, start: number = PACE.numberStart, count: number = PACE.numberCount) {
+  // Plus Jakarta Sans draws the no-break space very narrow: show the thousands gap as a visible thin space.
+  text = bigDigits(text); finalText = bigDigits(finalText);
+  ctx.font = fontOf(800, maxSize, family);
+  const w = measureGrouped(ctx, finalText);
   const size = w > maxW ? (maxSize * maxW) / w : maxSize;
   const appear = easeOutCubic(prog(lt, start - 0.25, 0.5));
-  const pop = prog(lt, start + 1.4, 0.5);
+  const pop = prog(lt, start + count, PACE.numberPop);
   const scale = lerp(0.86, 1, easeOutBack(prog(lt, start - 0.25, 0.7), 1.2)) * (1 + 0.05 * Math.sin(Math.PI * pop) * (pop < 1 ? 1 : 0));
   ctx.save();
   ctx.globalAlpha *= appear;
   ctx.translate(cx, baseline - size * 0.35);
   ctx.scale(scale, scale);
-  ctx.font = fontOf(900, size, family);
+  ctx.font = fontOf(800, size, family);
   ctx.textAlign = 'center';
   ctx.textBaseline = 'alphabetic';
   const g = ctx.createLinearGradient(0, -size * 0.75, 0, size * 0.35);
@@ -390,7 +394,7 @@ function drawBigNumber(ctx: C2D, s: RecapScene, text: string, finalText: string,
   ctx.shadowBlur = 30;
   ctx.shadowOffsetY = 10;
   ctx.fillStyle = g;
-  ctx.fillText(text, 0, size * 0.35);
+  fillGrouped(ctx, text, 0, size * 0.35);
   ctx.restore();
   return size;
 }
@@ -408,7 +412,7 @@ function motifCalendar(ctx: C2D, s: StatScene, lt: number, top: number, delay: n
   const rank = new Array<number>(total);
   order.forEach((d, i) => { rank[d] = i; });
   const appear = easeOutCubic(prog(lt, delay, 0.4));
-  const shown = lit * easeOutCubic(prog(lt, delay + 0.1, 1.4));
+  const shown = lit * easeOutCubic(prog(lt, delay + 0.1, PACE.calendar));
   const on = s.look.ink === 'light' ? '#FFFFFF' : CORAL;
   for (let d = 0; d < total; d++) {
     const cx = x0 + (d % cols) * step, cy = y0 + Math.floor(d / cols) * step;
@@ -600,7 +604,7 @@ function motifGlasses(ctx: C2D, s: StatScene, lt: number, top: number) {
   const x0 = CX - (n * w + (n - 1) * gap) / 2;
   for (let i = 0; i < n; i++) {
     const x = x0 + i * (w + gap);
-    const p = easeInOutCubic(prog(lt, 0.6 + i * 0.14, 0.7));
+    const p = easeInOutCubic(prog(lt, 0.4 + i * 0.1, 0.6));
     ctx.save();
     ctx.beginPath();
     ctx.moveTo(x, top);
@@ -762,22 +766,23 @@ function motifGift(ctx: C2D, s: StatScene, lt: number, cy: number) {
 }
 
 // ── Scenes ────────────────────────────────────────────────────────────────────────────────────
-interface RenderCtx { model: RecapModel; assets: RecapAssets; family: string; t: number }
+interface RenderCtx { model: RecapModel; assets: RecapAssets; F: RecapFonts; t: number }
 
 function drawEyebrow(ctx: C2D, s: RecapScene, text: string, top: number, lt: number, r: RenderCtx, delay = 0.05): number {
-  const lay = fitText(ctx, text, { max: 54, min: 36, weight: 800, maxW: SAFE_W, maxLines: 2, family: r.family, cjk: r.model.cjk });
-  return drawKinetic(ctx, lay, top, lt, { color: s.look.ink === 'light' ? rgba(s.look.accent === '#FFFFFF' ? '#FFFFFF' : mix('#FFFFFF', s.look.accent, 0.5), 0.95) : '#C8323F', delay, stagger: 0.04, rtl: r.model.rtl, family: r.family });
+  const lay = fitText(ctx, text, { max: 52, min: 34, weight: 500, maxW: SAFE_W, maxLines: 2, family: r.F.body, cjk: r.model.cjk });
+  return drawKinetic(ctx, lay, top, lt, { color: s.look.ink === 'light' ? rgba(s.look.accent === '#FFFFFF' ? '#FFFFFF' : mix('#FFFFFF', s.look.accent, 0.5), 0.95) : '#C8323F', delay, stagger: 0.03, rtl: r.model.rtl, family: r.F.body });
 }
 
-function drawLine(ctx: C2D, s: RecapScene, text: string, top: number, lt: number, r: RenderCtx, delay: number, maxSize = 66, maxLines = 3): number {
-  const lay = fitText(ctx, text, { max: maxSize, min: 40, weight: 800, maxW: SAFE_W, maxLines, family: r.family, cjk: r.model.cjk });
-  return drawKinetic(ctx, lay, top, lt, { color: INK[s.look.ink], delay, rtl: r.model.rtl, family: r.family, shadow: s.look.ink === 'light' ? 'rgba(30,0,10,0.22)' : null });
+function drawLine(ctx: C2D, s: RecapScene, text: string, top: number, lt: number, r: RenderCtx, delay: number, maxSize = 66, maxLines = 3, body = false, stagger: number = PACE.stagger): number {
+  const family = body ? r.F.body : r.F.display;
+  const lay = fitText(ctx, text, { max: maxSize, min: 38, weight: body ? 500 : 700, maxW: SAFE_W, maxLines, family, cjk: r.model.cjk });
+  return drawKinetic(ctx, lay, top, lt, { color: INK[s.look.ink], delay, stagger, rtl: r.model.rtl, family, shadow: s.look.ink === 'light' ? 'rgba(30,0,10,0.22)' : null });
 }
 
 function drawBadge(ctx: C2D, s: RecapScene, text: string, cy: number, lt: number, r: RenderCtx, delay: number) {
   const p = prog(lt, delay, 0.55);
   if (p <= 0) return;
-  ctx.font = fontOf(900, 40, r.family);
+  ctx.font = fontOf(700, 38, r.F.ui);
   const w = Math.min(SAFE_W, ctx.measureText(text).width + 130), h = 84;
   const k = easeOutBack(p, 1.8);
   ctx.save();
@@ -810,7 +815,7 @@ function drawBadge(ctx: C2D, s: RecapScene, text: string, cy: number, lt: number
 function pillsHeight(ctx: C2D, texts: string[], size: number, family: string): number {
   if (!texts.length) return 0;
   const padX = size * 0.75, h = size * 1.9, gap = 16;
-  ctx.font = fontOf(800, size, family);
+  ctx.font = fontOf(600, size, family);
   let rows = 1, rowW = 0;
   for (const t of texts) {
     const w = Math.min(SAFE_W, ctx.measureText(t).width + padX * 2);
@@ -824,7 +829,8 @@ const lineHeight = (lay: Layout, k = 1.18) => lay.lines.length * lay.size * k;
 function drawStat(ctx: C2D, s: StatScene, lt: number, r: RenderCtx) {
   const { model, t } = r;
   const m = s.motif;
-  const fam = r.family, cjk = model.cjk;
+  const fam = r.F.display, cjk = model.cjk;
+  const plan = statPlan(s, cjk);
   const finalText = s.value.text ?? formatRecapNumber(model.language, s.value.n, s.value.decimals);
   // Background-level motifs
   if (m === 'bubbles') motifBubbles(ctx, s, lt, t);
@@ -833,11 +839,11 @@ function drawStat(ctx: C2D, s: StatScene, lt: number, r: RenderCtx) {
   if (m === 'stars') motifStars(ctx, s, lt, t);
 
   // ── Measure ──
-  const eyebrow = fitText(ctx, s.eyebrow, { max: 54, min: 36, weight: 800, maxW: SAFE_W, maxLines: 2, family: fam, cjk });
-  const line = fitText(ctx, s.line, { max: 66, min: 40, weight: 800, maxW: SAFE_W, maxLines: 3, family: fam, cjk });
+  const eyebrow = fitText(ctx, s.eyebrow, { max: 52, min: 34, weight: 500, maxW: SAFE_W, maxLines: 2, family: r.F.body, cjk });
+  const line = fitText(ctx, s.line, { max: 66, min: 40, weight: 700, maxW: SAFE_W, maxLines: 3, family: fam, cjk });
   const numMax = s.value.text ? (m === 'clock' ? 200 : 210) : m === 'ring' ? 220 : m === 'clock' || m === 'gift' ? 220 : 300;
-  ctx.font = fontOf(900, numMax, fam);
-  const numW = ctx.measureText(finalText).width;
+  ctx.font = fontOf(800, numMax, fam);
+  const numW = measureGrouped(ctx, bigDigits(finalText));
   const numMaxW = m === 'ring' ? 370 : SAFE_W;
   const numSize = numW > numMaxW ? (numMax * numMaxW) / numW : numMax;
   const showCal = m === 'calendar' && s.param * 365 >= 30;
@@ -853,15 +859,15 @@ function drawStat(ctx: C2D, s: StatScene, lt: number, r: RenderCtx) {
     case 'glasses': heroH = numSize * 0.78 + 60 + 110; break;
     default: heroH = numSize * 0.8;
   }
-  const subsH = s.subs.reduce((sum, x) => sum + pillsHeight(ctx, [x], 38, fam) + 18, 0);
-  const chipsH = s.chips.length ? pillsHeight(ctx, s.chips, 36, fam) + 18 : 0;
+  const subsH = s.subs.reduce((sum, x) => sum + pillsHeight(ctx, [x], 36, r.F.ui) + 18, 0);
+  const chipsH = s.chips.length ? pillsHeight(ctx, s.chips, 34, r.F.ui) + 18 : 0;
   const badgeH = s.badge ? 84 + 30 : 0;
   const gapA = 46, gapB = 56, gapC = 40;
   const total = lineHeight(eyebrow) + gapA + heroH + gapB + lineHeight(line) + (showCal ? gapC + CAL_H : 0) + (subsH || chipsH ? gapC : 0) + subsH + chipsH + (badgeH ? 20 + badgeH : 0);
   let y = Math.max(280, 250 + (1420 - total) / 2);
 
   // ── Draw ──
-  y += drawKinetic(ctx, eyebrow, y, lt, { color: s.look.ink === 'light' ? rgba(mix('#FFFFFF', s.look.accent, 0.5), 0.95) : '#C8323F', delay: 0.05, stagger: 0.04, rtl: model.rtl, family: fam }) + gapA;
+  y += drawKinetic(ctx, eyebrow, y, lt, { color: s.look.ink === 'light' ? rgba(mix('#FFFFFF', s.look.accent, 0.5), 0.95) : '#C8323F', delay: 0.05, stagger: 0.03, rtl: model.rtl, family: r.F.body }) + gapA;
   const heroTop = y;
   const value = valueText(model, s.value, lt);
   if (m === 'ring') {
@@ -889,21 +895,19 @@ function drawStat(ctx: C2D, s: StatScene, lt: number, r: RenderCtx) {
     drawBigNumber(ctx, s, value, finalText, CX, heroTop + numSize * 0.76, numSize, SAFE_W + 1, lt, fam);
   }
   y = heroTop + heroH + gapB;
-  const lineDelay = 1.2;
-  y += drawKinetic(ctx, line, y, lt, { color: INK[s.look.ink], delay: lineDelay, rtl: model.rtl, family: fam, shadow: s.look.ink === 'light' ? 'rgba(30,0,10,0.22)' : null });
-  let delay = lineDelay + 0.3 + 0.055 * staggerCount(line);
-  if (showCal) { y += gapC; motifCalendar(ctx, s, lt, y, delay - 0.2); y += CAL_H; delay += 0.6; }
+  y += drawKinetic(ctx, line, y, lt, { color: INK[s.look.ink], delay: plan.line, rtl: model.rtl, family: fam, shadow: s.look.ink === 'light' ? 'rgba(30,0,10,0.22)' : null });
+  if (showCal) { y += gapC; motifCalendar(ctx, s, lt, y, plan.calendar); y += CAL_H; }
   if (subsH || chipsH) y += gapC;
-  for (const sub of s.subs) { y += drawPills(ctx, s, [sub], y, lt, delay, fam, { size: 38, weight: 800 }) + 18; delay += 0.25; }
-  if (s.chips.length) { y += drawPills(ctx, s, s.chips, y, lt, delay, fam, { size: 36, weight: 800, fill: s.look.ink === 'light' ? 'rgba(255,255,255,0.24)' : 'rgba(255,255,255,0.7)' }) + 18; delay += 0.3; }
-  if (s.badge) drawBadge(ctx, s, s.badge, y + 20 + 42, lt, r, Math.max(2.0, delay));
+  s.subs.forEach((sub, i) => { y += drawPills(ctx, s, [sub], y, lt, plan.subs[i], r.F.ui, { size: 36, weight: 600 }) + 18; });
+  if (s.chips.length) y += drawPills(ctx, s, s.chips, y, lt, plan.chips, r.F.ui, { size: 34, weight: 600, fill: s.look.ink === 'light' ? 'rgba(255,255,255,0.24)' : 'rgba(255,255,255,0.7)' }) + 18;
+  if (s.badge) drawBadge(ctx, s, s.badge, y + 20 + 42, lt, r, plan.badge);
 }
 
 function drawCold(ctx: C2D, s: ColdScene, lt: number, r: RenderCtx) {
   const kick = easeOutCubic(prog(lt, 0.3, 0.8));
   ctx.save();
   ctx.globalAlpha *= kick;
-  ctx.font = fontOf(900, 40, r.family);
+  ctx.font = fontOf(700, 40, r.F.body);
   ctx.fillStyle = rgba('#FFB59E', 0.95);
   ctx.textAlign = 'center';
   const label = 'ANACAN RECAP';
@@ -920,12 +924,12 @@ function drawCold(ctx: C2D, s: ColdScene, lt: number, r: RenderCtx) {
   // The year, digit by digit.
   const year = String(s.year);
   const size = 320;
-  ctx.font = fontOf(900, size, r.family);
+  ctx.font = fontOf(800, size, r.F.display);
   const ws = [...year].map((d) => ctx.measureText(d).width);
   const tw = ws.reduce((a, b) => a + b, 0);
   let dx = CX - tw / 2;
   [...year].forEach((d, i) => {
-    const p = prog(lt, 0.7 + i * 0.16, 0.9);
+    const p = prog(lt, 0.5 + i * 0.12, 0.8);
     const k = easeOutBack(p, 1.3);
     ctx.save();
     ctx.globalAlpha *= clamp01(p * 1.5);
@@ -944,8 +948,8 @@ function drawCold(ctx: C2D, s: ColdScene, lt: number, r: RenderCtx) {
     ctx.restore();
     dx += ws[i];
   });
-  const lay = fitText(ctx, s.title, { max: 76, min: 46, weight: 800, maxW: SAFE_W, maxLines: 3, family: r.family, cjk: r.model.cjk });
-  drawKinetic(ctx, lay, 1060, lt, { color: '#FFFFFF', delay: 1.9, stagger: 0.09, rtl: r.model.rtl, family: r.family, shadow: 'rgba(0,0,0,0.3)' });
+  const lay = fitText(ctx, s.title, { max: 76, min: 46, weight: 700, maxW: SAFE_W, maxLines: 3, family: r.F.display, cjk: r.model.cjk });
+  drawKinetic(ctx, lay, 1060, lt, { color: '#FFFFFF', delay: 1.2, stagger: 0.06, rtl: r.model.rtl, family: r.F.display, shadow: 'rgba(0,0,0,0.3)' });
 }
 
 function drawJourney(ctx: C2D, s: JourneyScene, lt: number, r: RenderCtx) {
@@ -955,7 +959,7 @@ function drawJourney(ctx: C2D, s: JourneyScene, lt: number, r: RenderCtx) {
   const cy = 820;
   const xs = s.stages.map((_, i) => (n === 1 ? CX : lerp(250, 830, i / (n - 1))));
   // Path
-  const p = easeInOutCubic(prog(lt, 0.4, 1.6));
+  const p = easeInOutCubic(prog(lt, 0.3, 0.3 + (n - 1) * 0.45));
   ctx.save();
   ctx.lineCap = 'round';
   ctx.lineWidth = 10;
@@ -971,7 +975,7 @@ function drawJourney(ctx: C2D, s: JourneyScene, lt: number, r: RenderCtx) {
   ctx.stroke();
   ctx.restore();
   s.stages.forEach((label, i) => {
-    const k = easeOutBack(prog(lt, 0.4 + i * 0.6, 0.6), 1.8);
+    const k = easeOutBack(prog(lt, 0.3 + i * 0.45, 0.6), 1.8);
     if (k <= 0) return;
     const rr = 74 * k;
     glow(ctx, xs[i], cy, rr * 2.4, GOLD, 0.45 * clamp01(k));
@@ -989,26 +993,30 @@ function drawJourney(ctx: C2D, s: JourneyScene, lt: number, r: RenderCtx) {
     heartPath(ctx, 0, 4, 64);
     ctx.fill();
     ctx.restore();
-    const lay = fitText(ctx, label, { max: 50, min: 30, weight: 900, maxW: n === 3 ? 270 : 380, maxLines: 2, family: r.family, cjk: r.model.cjk });
-    drawKinetic(ctx, lay, cy + 110, lt, { color: '#FFFFFF', delay: 0.5 + i * 0.6, rtl: r.model.rtl, family: r.family, cx: xs[i] });
+    const lay = fitText(ctx, label, { max: 50, min: 30, weight: 700, maxW: n === 3 ? 270 : 380, maxLines: 2, family: r.F.body, cjk: r.model.cjk });
+    drawKinetic(ctx, lay, cy + 110, lt, { color: '#FFFFFF', delay: 0.35 + i * 0.45, rtl: r.model.rtl, family: r.F.body, cx: xs[i] });
   });
-  drawLine(ctx, s, s.line, 1120, lt, r, 0.6 + n * 0.6, 72, 3);
+  drawLine(ctx, s, s.line, 1120, lt, r, 0.4 + n * 0.45, 72, 3);
 }
 
 function drawMilestones(ctx: C2D, s: MilestonesScene, lt: number, r: RenderCtx) {
   const { model } = r;
-  let y = 300;
+  const items = [...s.items, ...(s.more ? [s.more] : [])];
+  const rowH = 96;
+  const eyebrow = fitText(ctx, s.eyebrow, { max: 52, min: 34, weight: 500, maxW: SAFE_W, maxLines: 2, family: r.F.body, cjk: model.cjk });
+  const line = fitText(ctx, s.line, { max: items.length ? 60 : 68, min: 38, weight: 700, maxW: SAFE_W, maxLines: items.length ? 2 : 3, family: r.F.display, cjk: model.cjk });
+  const total = lineHeight(eyebrow) + 10 + 240 + 50 + (items.length ? items.length * rowH + 40 : 40) + lineHeight(line);
+  let y = Math.max(280, 250 + (1420 - total) / 2);
   y += drawEyebrow(ctx, s, s.eyebrow, y, lt, r) + 10;
   const final = formatRecapNumber(model.language, s.value.n);
-  const size = drawBigNumber(ctx, s, valueText(model, s.value, lt, 0.35, 1.1), final, CX, y + 230, 240, SAFE_W, lt, r.family, 0.35);
-  y += 230 + size * 0.15 + 30;
-  if (s.items.length) {
+  const size = drawBigNumber(ctx, s, valueText(model, s.value, lt, 0.3, 1.0), final, CX, y + 210, 240, SAFE_W, lt, r.F.display, 0.3, 1.0);
+  y += 210 + size * 0.15 + 30;
+  const lineDelay = 0.9 + items.length * 0.22;
+  if (items.length) {
     // Vertical timeline: dot + label, in the order they happened.
-    const items = [...s.items, ...(s.more ? [s.more] : [])];
-    const rowH = 96;
     const x0 = 250;
-    const top = y + 20;
-    const p = easeInOutCubic(prog(lt, 1.0, 0.25 + 0.3 * items.length));
+    const top = y;
+    const p = easeInOutCubic(prog(lt, 0.8, 0.2 + 0.22 * items.length));
     ctx.save();
     ctx.strokeStyle = rgba(CORAL, 0.35);
     ctx.lineWidth = 6;
@@ -1019,7 +1027,7 @@ function drawMilestones(ctx: C2D, s: MilestonesScene, lt: number, r: RenderCtx) 
     ctx.stroke();
     ctx.restore();
     items.forEach((label, i) => {
-      const k = easeOutBack(prog(lt, 1.0 + i * 0.3, 0.5), 1.6);
+      const k = easeOutBack(prog(lt, 0.8 + i * 0.22, 0.5), 1.6);
       if (k <= 0) return;
       const cy = top + rowH * 0.5 + i * rowH;
       const more = !!s.more && i === items.length - 1;
@@ -1033,8 +1041,8 @@ function drawMilestones(ctx: C2D, s: MilestonesScene, lt: number, r: RenderCtx) 
       ctx.fill();
       ctx.save();
       ctx.globalAlpha *= clamp01(k);
-      const lay = fitText(ctx, label, { max: 52, min: 32, weight: more ? 700 : 900, maxW: 600, maxLines: 1, family: r.family, cjk: model.cjk });
-      ctx.font = fontOf(lay.weight, lay.size, r.family);
+      const lay = fitText(ctx, label, { max: 52, min: 32, weight: more ? 500 : 700, maxW: 600, maxLines: 1, family: r.F.body, cjk: model.cjk });
+      ctx.font = fontOf(lay.weight, lay.size, r.F.body);
       ctx.fillStyle = more ? rgba(INK.dark, 0.6) : INK.dark;
       ctx.textBaseline = 'middle';
       ctx.textAlign = model.rtl ? 'right' : 'left';
@@ -1044,24 +1052,22 @@ function drawMilestones(ctx: C2D, s: MilestonesScene, lt: number, r: RenderCtx) 
     ctx.textBaseline = 'alphabetic';
     ctx.textAlign = 'left';
     y = top + items.length * rowH + 40;
-    drawLine(ctx, s, s.line, Math.min(y, 1480), lt, r, 1.2 + items.length * 0.3, 60, 2);
-  } else {
-    drawLine(ctx, s, s.line, y + 40, lt, r, 1.2, 68, 3);
-  }
+  } else y += 40;
+  drawKinetic(ctx, line, Math.min(y, 1480), lt, { color: INK.dark, delay: lineDelay, rtl: model.rtl, family: r.F.display });
 }
 
 function drawGrowth(ctx: C2D, s: GrowthScene, lt: number, r: RenderCtx) {
-  const fam = r.family, model = r.model;
-  const eyebrow = fitText(ctx, s.eyebrow, { max: 54, min: 36, weight: 800, maxW: SAFE_W, maxLines: 2, family: fam, cjk: model.cjk });
-  const line = fitText(ctx, s.line, { max: 72, min: 44, weight: 900, maxW: SAFE_W, maxLines: 3, family: fam, cjk: model.cjk });
+  const fam = r.F.display, model = r.model;
+  const eyebrow = fitText(ctx, s.eyebrow, { max: 54, min: 36, weight: 500, maxW: SAFE_W, maxLines: 2, family: r.F.body, cjk: model.cjk });
+  const line = fitText(ctx, s.line, { max: 72, min: 44, weight: 700, maxW: SAFE_W, maxLines: 3, family: fam, cjk: model.cjk });
   const chartH = 640, gainH = 200;
   const total = lineHeight(eyebrow) + 30 + gainH + 30 + chartH + 60 + lineHeight(line);
   let y = Math.max(280, 250 + (1420 - total) / 2);
-  y += drawKinetic(ctx, eyebrow, y, lt, { color: rgba(mix('#FFFFFF', s.look.accent, 0.5), 0.95), delay: 0.05, stagger: 0.04, rtl: model.rtl, family: fam }) + 30;
+  y += drawKinetic(ctx, eyebrow, y, lt, { color: rgba(mix('#FFFFFF', s.look.accent, 0.5), 0.95), delay: 0.05, stagger: 0.03, rtl: model.rtl, family: r.F.body }) + 30;
   // Big gain ("+6,2 kq") counts up.
   const gainN = Math.round((s.to.n - s.from.n) * 10) / 10;
-  drawBigNumber(ctx, s, s.gain.replace(formatRecapNumber(model.language, gainN, 1), formatRecapNumber(model.language, Math.round(gainN * easeOutExpo(prog(lt, 0.9, 1.3)) * 10) / 10, 1)),
-    s.gain, CX, y + 170, 210, SAFE_W, lt, fam, 0.9);
+  drawBigNumber(ctx, s, s.gain.replace(formatRecapNumber(model.language, gainN, 1), formatRecapNumber(model.language, Math.round(gainN * easeOutExpo(prog(lt, 0.5, 1.1)) * 10) / 10, 1)),
+    s.gain, CX, y + 170, 210, SAFE_W, lt, fam, 0.5, 1.1);
   y += gainH + 30;
   // Chart: axis, two bars (start of the year → now), value labels on top, captions under the axis.
   const axisY = y + chartH - 90, maxH = chartH - 200, bw = 250;
@@ -1078,11 +1084,11 @@ function drawGrowth(ctx: C2D, s: GrowthScene, lt: number, r: RenderCtx) {
   for (let i = 1; i <= 3; i++) { const gy = axisY - (maxH * i) / 3; ctx.beginPath(); ctx.moveTo(SAFE_X + 40, gy); ctx.lineTo(RECAP_W - SAFE_X - 40, gy); ctx.stroke(); }
   ctx.restore();
   const bars = [
-    { x: CX - 190, h: maxH * Math.max(0.2, ratio), value: s.from.label, caption: s.fromLabel, delay: 0.3, strong: false },
-    { x: CX + 190, h: maxH, value: s.to.label, caption: s.toLabel, delay: 0.7, strong: true },
+    { x: CX - 190, h: maxH * Math.max(0.2, ratio), value: s.from.label, caption: s.fromLabel, delay: 0.2, strong: false },
+    { x: CX + 190, h: maxH, value: s.to.label, caption: s.toLabel, delay: 0.6, strong: true },
   ];
   bars.forEach((b) => {
-    const p = easeOutQuint(prog(lt, b.delay, 1.1));
+    const p = easeOutQuint(prog(lt, b.delay, 1.0));
     const h = Math.max(8, b.h * p);
     roundRect(ctx, b.x - bw / 2, axisY - h, bw, h, 36);
     const g = ctx.createLinearGradient(0, axisY - h, 0, axisY);
@@ -1092,22 +1098,22 @@ function drawGrowth(ctx: C2D, s: GrowthScene, lt: number, r: RenderCtx) {
     ctx.globalAlpha = ap;
     ctx.fill();
     ctx.globalAlpha = 1;
-    const vp = easeOutCubic(prog(lt, b.delay + 0.5, 0.4));
+    const vp = easeOutCubic(prog(lt, b.delay + 0.4, 0.4));
     ctx.save();
     ctx.globalAlpha *= vp;
     ctx.textAlign = 'center';
-    ctx.font = fontOf(900, 60, fam);
+    ctx.font = fontOf(800, 60, fam);
     ctx.fillStyle = '#FFFFFF';
     ctx.shadowColor = 'rgba(80,10,0,0.25)'; ctx.shadowBlur = 12;
     ctx.fillText(b.value, b.x, axisY - h - 28, bw + 140);
     ctx.shadowBlur = 0;
-    ctx.font = fontOf(800, 38, fam);
+    ctx.font = fontOf(600, 36, r.F.ui);
     ctx.fillStyle = 'rgba(255,255,255,0.92)';
     ctx.fillText(b.caption, b.x, axisY + 60, bw + 140);
     ctx.restore();
   });
   y += chartH + 60;
-  drawKinetic(ctx, line, y, lt, { color: '#FFFFFF', delay: 1.0, rtl: model.rtl, family: fam, shadow: 'rgba(80,10,0,0.3)' });
+  drawKinetic(ctx, line, y, lt, { color: '#FFFFFF', delay: 0.9, rtl: model.rtl, family: fam, shadow: 'rgba(80,10,0,0.3)' });
 }
 
 function drawConfetti(ctx: C2D, seed: number, tau: number, ox: number, oy: number) {
@@ -1139,14 +1145,14 @@ function drawPeak(ctx: C2D, s: PeakScene, lt: number, r: RenderCtx) {
   const dim = 1 - easeOutCubic(prog(lt, s.burst - 0.2, 0.5));
   // During the breath the scene is darker and quieter.
   if (dim > 0) { ctx.fillStyle = `rgba(40,6,20,${(0.45 * dim).toFixed(3)})`; ctx.fillRect(0, 0, RECAP_W, RECAP_H); }
-  const lay = fitText(ctx, s.lead, { max: 84, min: 50, weight: 900, maxW: SAFE_W, maxLines: 2, family: r.family, cjk: model.cjk });
-  const close = fitText(ctx, s.close, { max: 80, min: 48, weight: 900, maxW: SAFE_W, maxLines: 2, family: r.family, cjk: model.cjk });
+  const lay = fitText(ctx, s.lead, { max: 84, min: 50, weight: 800, maxW: SAFE_W, maxLines: 2, family: r.F.display, cjk: model.cjk });
+  const close = fitText(ctx, s.close, { max: 80, min: 48, weight: 800, maxW: SAFE_W, maxLines: 2, family: r.F.display, cjk: model.cjk });
   const rowH = 262;
   const total = lineHeight(lay) + 40 + s.stats.length * rowH + 30 + lineHeight(close);
   let y = Math.max(280, 250 + (1420 - total) / 2);
-  y += drawKinetic(ctx, lay, y, lt, { color: '#FFFFFF', delay: 0.15, stagger: 0.12, rtl: model.rtl, family: r.family, shadow: 'rgba(40,0,10,0.25)' }) + 40;
+  y += drawKinetic(ctx, lay, y, lt, { color: '#FFFFFF', delay: 0.15, stagger: 0.12, rtl: model.rtl, family: r.F.display, shadow: 'rgba(40,0,10,0.25)' }) + 40;
   s.stats.forEach((st, i) => {
-    const at = s.burst + i * 0.32;
+    const at = s.burst + i * 0.25;
     const p = prog(lt, at, 0.6);
     if (p <= 0) return;
     const k = easeOutBack(p, 1.4);
@@ -1156,17 +1162,17 @@ function drawPeak(ctx: C2D, s: PeakScene, lt: number, r: RenderCtx) {
     ctx.translate(CX, cy + 120);
     ctx.scale(lerp(1.5, 1, k), lerp(1.5, 1, k));
     ctx.translate(-CX, -(cy + 120));
-    const text = valueText(model, st, lt, at, 1.0);
-    drawBigNumber(ctx, s, text, formatRecapNumber(model.language, st.n, st.decimals), CX, cy + 150, 170, SAFE_W, 10, r.family, 0);
-    const ll = fitText(ctx, st.label, { max: 50, min: 34, weight: 800, maxW: SAFE_W, maxLines: 1, family: r.family, cjk: model.cjk });
-    ctx.font = fontOf(800, ll.size, r.family);
+    const text = valueText(model, st, lt, at, 0.8);
+    drawBigNumber(ctx, s, text, formatRecapNumber(model.language, st.n, st.decimals), CX, cy + 150, 170, SAFE_W, 10, r.F.display, 0);
+    const ll = fitText(ctx, st.label, { max: 46, min: 32, weight: 600, maxW: SAFE_W, maxLines: 1, family: r.F.ui, cjk: model.cjk });
+    ctx.font = fontOf(600, ll.size, r.F.ui);
     ctx.fillStyle = rgba('#FFFFFF', 0.92);
     ctx.textAlign = 'center';
     ctx.fillText(st.label, CX, cy + 232, SAFE_W);
     ctx.restore();
   });
   y += s.stats.length * rowH + 30;
-  drawKinetic(ctx, close, Math.min(y, 1520), lt, { color: '#FFFFFF', delay: s.burst + 0.4 + s.stats.length * 0.32, stagger: 0.1, rtl: model.rtl, family: r.family, shadow: 'rgba(40,0,10,0.3)' });
+  drawKinetic(ctx, close, Math.min(y, 1520), lt, { color: '#FFFFFF', delay: s.burst + 0.2 + s.stats.length * 0.2, stagger: 0.06, rtl: model.rtl, family: r.F.display, shadow: 'rgba(40,0,10,0.3)' });
   drawConfetti(ctx, s.seed, lt - s.burst, CX, 900);
 }
 
@@ -1219,13 +1225,13 @@ function drawPersona(ctx: C2D, s: PersonaScene, lt: number, r: RenderCtx) {
   ctx.scale(k, k);
   personaGlyph(ctx, s.persona, 170, '#5A1A0C');
   ctx.restore();
-  const title = fitText(ctx, s.title, { max: 124, min: 64, weight: 900, maxW: SAFE_W, maxLines: 2, family: r.family, cjk: r.model.cjk });
+  const title = fitText(ctx, s.title, { max: 124, min: 64, weight: 800, maxW: SAFE_W, maxLines: 2, family: r.F.display, cjk: r.model.cjk });
   ctx.save();
   // Gold title
   const ty = 1010;
-  const th = drawKinetic(ctx, title, ty, lt, { color: GOLD, delay: 0.8, stagger: 0.14, rise: 0.3, rtl: r.model.rtl, family: r.family, shadow: 'rgba(255,201,119,0.35)' });
+  const th = drawKinetic(ctx, title, ty, lt, { color: GOLD, delay: 0.5, stagger: 0.1, rise: 0.3, rtl: r.model.rtl, family: r.F.display, shadow: 'rgba(255,201,119,0.35)' });
   ctx.restore();
-  drawLine(ctx, s, s.reason, ty + th + 50, lt, r, 1.5, 54, 4);
+  drawLine(ctx, s, s.reason, ty + th + 50, lt, r, 0.9, 52, 4, true, 0.03);
 }
 
 function drawSummary(ctx: C2D, s: SummaryScene, lt: number, r: RenderCtx) {
@@ -1257,16 +1263,16 @@ function drawSummary(ctx: C2D, s: SummaryScene, lt: number, r: RenderCtx) {
   // Name and year on the ribbon
   ctx.fillStyle = '#FFFFFF';
   ctx.textAlign = 'center';
-  ctx.font = fontOf(800, 40, r.family);
+  ctx.font = fontOf(600, 38, r.F.ui);
   ctx.fillStyle = rgba('#FFFFFF', 0.92);
   ctx.fillText(`${s.kicker} · ${s.year}`, CX, y + 100, w - 120);
   const nameText = s.name ?? `Anacan ${s.year}`;
-  const nl = fitText(ctx, nameText, { max: 128, min: 64, weight: 900, maxW: w - 140, maxLines: 1, family: r.family, cjk: model.cjk });
-  ctx.font = fontOf(900, nl.size, r.family);
+  const nl = fitText(ctx, nameText, { max: 128, min: 64, weight: 800, maxW: w - 140, maxLines: 1, family: r.F.display, cjk: model.cjk });
+  ctx.font = fontOf(800, nl.size, r.F.display);
   ctx.fillStyle = '#FFFFFF';
   ctx.fillText(nameText, CX, y + 100 + 30 + nl.size * 0.95, w - 140);
   // Persona pill
-  ctx.font = fontOf(900, 40, r.family);
+  ctx.font = fontOf(700, 38, r.F.ui);
   const pw = Math.min(w - 160, ctx.measureText(s.persona).width + 120);
   const py = y + 360;
   ctx.save();
@@ -1290,35 +1296,34 @@ function drawSummary(ctx: C2D, s: SummaryScene, lt: number, r: RenderCtx) {
     const wide = stats.length === 3 && i === 2 || stats.length === 1;
     const cx = wide ? CX : gx + (i % 2) * cellW + cellW / 2, top = gy + Math.floor(i / 2) * cellH;
     const cw = wide ? cellW * 2 : cellW;
-    const k = easeOutBack(prog(lt, 0.5 + i * 0.18, 0.55), 1.4);
+    const k = easeOutBack(prog(lt, 0.4 + i * 0.15, 0.55), 1.4);
     if (k <= 0) return;
     ctx.save();
     ctx.globalAlpha *= clamp01(k * 1.5);
     roundRect(ctx, cx - cw / 2 + 12, top, cw - 24, cellH - 30, 40);
     ctx.fillStyle = '#FFEDE6';
     ctx.fill();
-    const text = valueText(model, st, lt, 0.6 + i * 0.18, 1.0);
-    const final = formatRecapNumber(model.language, st.n, st.decimals);
-    ctx.font = fontOf(900, 118, r.family);
-    const fw = ctx.measureText(final).width;
+    const text = bigDigits(valueText(model, st, lt, 0.6 + i * 0.15, 1.0));
+    const final = bigDigits(formatRecapNumber(model.language, st.n, st.decimals));
+    ctx.font = fontOf(800, 118, r.F.display);
+    const fw = measureGrouped(ctx, final);
     const size = fw > cellW - 70 ? (118 * (cellW - 70)) / fw : 118;
-    ctx.font = fontOf(900, size, r.family);
+    ctx.font = fontOf(800, size, r.F.display);
     const g = ctx.createLinearGradient(0, top + 40, 0, top + 170);
     g.addColorStop(0, '#FF6A5F');
     g.addColorStop(1, '#D6304A');
     ctx.fillStyle = g;
-    ctx.textAlign = 'center';
-    ctx.fillText(text, cx, top + 60 + size * 0.8);
-    const ll = fitText(ctx, st.label, { max: 40, min: 28, weight: 800, maxW: cellW - 70, maxLines: 2, family: r.family, cjk: model.cjk });
-    drawKinetic(ctx, ll, top + 60 + size * 0.8 + 22, 10, { color: rgba(INK.dark, 0.75), rtl: model.rtl, family: r.family, cx });
+    fillGrouped(ctx, text, cx, top + 60 + size * 0.8);
+    const ll = fitText(ctx, st.label, { max: 40, min: 28, weight: 600, maxW: cw - 70, maxLines: 2, family: r.F.ui, cjk: model.cjk });
+    drawKinetic(ctx, ll, top + 60 + size * 0.8 + 22, 10, { color: rgba(INK.dark, 0.75), rtl: model.rtl, family: r.F.ui, cx });
     ctx.restore();
   });
   // Footer: mark + site
   const fy = y + h - 96;
   ctx.save();
-  ctx.globalAlpha *= easeOutCubic(prog(lt, 1.2, 0.5));
+  ctx.globalAlpha *= easeOutCubic(prog(lt, 1.0, 0.5));
   const mark = assets.logoCoral;
-  ctx.font = fontOf(900, 44, r.family);
+  ctx.font = fontOf(700, 44, r.F.body);
   const sw = ctx.measureText(s.site).width;
   let mw = 0;
   if (mark) { const [iw, ih] = imgSize(mark); mw = (56 * iw) / ih; }
@@ -1335,50 +1340,40 @@ function drawSummary(ctx: C2D, s: SummaryScene, lt: number, r: RenderCtx) {
 }
 
 function drawOutro(ctx: C2D, s: OutroScene, lt: number, r: RenderCtx) {
-  const { assets, t } = r;
-  const cy = 760;
+  const { assets } = r;
+  const cy = 740;
+  // The white Anacan mark on its own (no disc, no rings).
   const k = easeOutBack(prog(lt, 0.2, 0.9), 1.4);
-  // Ripples
-  for (let i = 0; i < 3; i++) {
-    const ph = ((t * 0.5) + i / 3) % 1;
-    ctx.beginPath();
-    ctx.arc(CX, cy, 200 + ph * 340, 0, Math.PI * 2);
-    ctx.strokeStyle = rgba('#FFFFFF', (1 - ph) * 0.3 * clamp01(k));
-    ctx.lineWidth = 4;
-    ctx.stroke();
+  const mark = assets.logoWhite ?? assets.logoCoral;
+  if (mark && k > 0) {
+    const [iw, ih] = imgSize(mark);
+    const mh = 330, mw = (mh * iw) / ih;
+    ctx.save();
+    ctx.translate(CX, cy);
+    ctx.scale(lerp(0.6, 1, k), lerp(0.6, 1, k));
+    ctx.globalAlpha *= clamp01(k * 1.5);
+    ctx.shadowColor = 'rgba(110,10,30,0.28)';
+    ctx.shadowBlur = 30;
+    ctx.shadowOffsetY = 10;
+    ctx.drawImage(mark, -mw / 2, -mh / 2, mw, mh);
+    ctx.restore();
   }
-  glow(ctx, CX, cy, 420, '#FFFFFF', 0.3 * clamp01(k));
-  ctx.save();
-  ctx.translate(CX, cy);
-  ctx.scale(lerp(0.4, 1, k), lerp(0.4, 1, k));
-  ctx.globalAlpha *= clamp01(k * 1.5);
-  ctx.beginPath();
-  ctx.arc(0, 0, 200, 0, Math.PI * 2);
-  ctx.fillStyle = '#FFFFFF';
-  ctx.shadowColor = 'rgba(120,20,30,0.35)';
-  ctx.shadowBlur = 50;
-  ctx.shadowOffsetY = 16;
-  ctx.fill();
-  ctx.shadowColor = 'rgba(0,0,0,0)';
-  const mark = assets.logoCoral ?? assets.logoWhite;
-  if (mark) { const [iw, ih] = imgSize(mark); const mh = 250; const mw = (mh * iw) / ih; ctx.drawImage(mark, -mw / 2, -mh / 2 + 6, mw, mh); }
-  ctx.restore();
-  const wp = easeOutCubic(prog(lt, 0.6, 0.6));
+  const wp = easeOutCubic(prog(lt, 0.5, 0.6));
   ctx.save();
   ctx.globalAlpha *= wp;
-  ctx.font = fontOf(900, 150, r.family);
+  ctx.font = fontOf(700, 150, r.F.body);
   ctx.fillStyle = '#FFFFFF';
   ctx.textAlign = 'center';
   ctx.shadowColor = 'rgba(80,0,20,0.25)';
   ctx.shadowBlur = 24;
-  ctx.fillText('Anacan', CX, 1130 + (1 - wp) * 30);
+  ctx.fillText('Anacan', CX, 1110 + (1 - wp) * 30);
   ctx.restore();
-  const tl = fitText(ctx, s.tagline, { max: 64, min: 40, weight: 800, maxW: SAFE_W, maxLines: 2, family: r.family, cjk: r.model.cjk });
-  const th = drawKinetic(ctx, tl, 1180, lt, { color: rgba('#FFFFFF', 0.95), delay: 0.9, stagger: 0.08, rtl: r.model.rtl, family: r.family });
-  const sy = 1180 + th + 50;
-  drawPills(ctx, s, [s.site], sy, lt, 1.4, r.family, { size: 46, weight: 900, fill: '#FFFFFF', color: CORAL });
-  const st = fitText(ctx, s.stores, { max: 40, min: 28, weight: 700, maxW: SAFE_W, maxLines: 1, family: r.family, cjk: r.model.cjk });
-  drawKinetic(ctx, st, sy + 46 * 1.9 + 40, lt, { color: rgba('#FFFFFF', 0.88), delay: 1.7, rtl: r.model.rtl, family: r.family });
+  const tl = fitText(ctx, s.tagline, { max: 62, min: 40, weight: 500, maxW: SAFE_W, maxLines: 2, family: r.F.body, cjk: r.model.cjk });
+  const th = drawKinetic(ctx, tl, 1170, lt, { color: rgba('#FFFFFF', 0.95), delay: 0.7, stagger: 0.06, rtl: r.model.rtl, family: r.F.body });
+  const sy = 1170 + th + 50;
+  drawPills(ctx, s, [s.site], sy, lt, 1.1, r.F.ui, { size: 44, weight: 700, fill: '#FFFFFF', color: CORAL });
+  const st = fitText(ctx, s.stores, { max: 38, min: 28, weight: 500, maxW: SAFE_W, maxLines: 1, family: r.F.ui, cjk: r.model.cjk });
+  drawKinetic(ctx, st, sy + 44 * 1.9 + 40, lt, { color: rgba('#FFFFFF', 0.88), delay: 1.3, rtl: r.model.rtl, family: r.F.ui });
 }
 
 function drawSceneContent(ctx: C2D, s: RecapScene, lt: number, r: RenderCtx) {
@@ -1402,8 +1397,8 @@ export function renderRecapFrame(ctx: C2D, tSeconds: number, model: RecapModel, 
   const s = model.scenes[index];
   const lt = t - s.start;
   const dur = s.end - s.start;
-  const family = assets.font ?? (model.rtl ? RECAP_FONT_ARABIC : RECAP_FONT);
-  const r: RenderCtx = { model, assets, family, t };
+  const F: RecapFonts = { ...RECAP_FONTS, ...(assets.fonts ?? {}) };
+  const r: RenderCtx = { model, assets, F, t };
 
   ctx.save();
   ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -1440,7 +1435,7 @@ export function renderRecapFrame(ctx: C2D, tSeconds: number, model: RecapModel, 
 
   drawVignette(ctx);
   drawGrain(ctx, assets, t);
-  drawChrome(ctx, model, t, index, assets, family);
+  drawChrome(ctx, model, t, index, assets, F.body);
   ctx.restore();
 }
 

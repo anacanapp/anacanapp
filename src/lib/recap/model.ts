@@ -9,8 +9,10 @@
 import { appLanguageLocale, normalizeAppLanguage } from '@/lib/app-languages';
 import { fillRecap, type RecapCopyKey, type RecapTranslate } from './copy';
 import { formatHour, formatNumber, formatPercent, formatUnit, type RecapUnit } from './numbers';
+import { minSceneDuration } from './pace';
+import { pickPersonaDef, pickWhyLine } from './persona';
 import type {
-  RecapData, RecapLook, RecapModel, RecapMotif, RecapPersona, RecapScene, RecapStage, RecapStat, StatScene,
+  ColdScene, RecapData, RecapLook, RecapModel, RecapMotif, RecapPersona, RecapScene, RecapStage, RecapStat, StatScene,
 } from './types';
 
 export interface RecapLabels {
@@ -19,13 +21,32 @@ export interface RecapLabels {
   symptom?: (id: string) => string | null | undefined;
 }
 
-export interface RecapTiming {
-  drop: number; breath: number; lift: number; tail: number; end: number; beat: number;
+/**
+ * The music the video is cut to. Only these numbers change for a new track:
+ *  drop   — first big hit (stage scenes start here)
+ *  breath — start of the quiet bar before the lift (the emotional peak starts here, building)
+ *  lift   — the second hit (confetti burst)
+ *  tail   — the music starts to resolve / fade (outro starts here)
+ *  end    — video end (music fades out from tail to end)
+ */
+export interface RecapMusic {
+  src?: string; length: number; drop: number; breath: number; lift: number; tail: number; end: number; beat: number;
 }
 
-export const RECAP_TIMING: RecapTiming = { drop: 16, breath: 30, lift: 32, tail: 48, end: 52.2, beat: 0.5 };
+/** recap-2026.mp3 as measured: piano 0–16 s, drop 16 s, breath 30–32 s, lift 32 s, tail 48 s, silence ≈52 s. */
+export const RECAP_MUSIC_2026: RecapMusic = { src: '/recap/recap-2026.mp3', length: 56, drop: 16, breath: 30, lift: 32, tail: 48, end: 52.2, beat: 0.5 };
+/** @deprecated name kept for callers; use RECAP_MUSIC_2026. */
+export const RECAP_TIMING = RECAP_MUSIC_2026;
+export type RecapTiming = RecapMusic;
 
-export interface BuildRecapOptions { labels?: RecapLabels; timing?: RecapTiming }
+export interface BuildRecapOptions {
+  labels?: RecapLabels;
+  music?: RecapMusic;
+  /** @deprecated use music */
+  timing?: RecapMusic;
+  /** Stable per-person seed (e.g. the user id) for picking alternative copy lines. */
+  seed?: string;
+}
 
 // ── Looks (palette per scene) ─────────────────────────────────────────────────────────────────
 const look = (bg: [string, string, string], ink: 'light' | 'dark', accent: string): RecapLook => ({ bg, ink, accent });
@@ -242,25 +263,13 @@ function journeyScene(c: Ctx): Draft | null {
   const line = s.length === 3 ? c.t('recap_journey_full') : s.includes('mommy') ? c.t('recap_journey_bump_mommy') : c.t('recap_journey_flow_bump');
   return {
     kind: 'journey', id: 'journey', look: RECAP_LOOKS.journey, seed: hash('journey'), eyebrow: c.t('recap_journey_eyebrow'),
-    stages: s.map((x) => c.t(x === 'flow' ? 'recap_stage_flow' : x === 'bump' ? 'recap_stage_bump' : 'recap_stage_mommy')), line, priority: 95, order: 2,
+    stages: s.map((x) => c.t(x === 'flow' ? 'recap_stage_flow' : x === 'bump' ? 'recap_stage_bump' : 'recap_stage_mommy')), line, priority: 101, order: 2,
   };
 }
 
-// ── Persona (rule-based) ──────────────────────────────────────────────────────────────────────────
+// ── Persona (table-driven, see persona.ts) ────────────────────────────────────────────────────────
 export function pickPersona(d: RecapData): RecapPersona {
-  const m = d.mommy, f = d.flow, b = d.bump;
-  const nightHour = d.favorite_hour != null && (d.favorite_hour >= 22 || d.favorite_hour < 5);
-  const nightShare = m && m.feedings > 0 ? m.night_feedings / m.feedings : 0;
-  const scores: Record<RecapPersona, number> = {
-    night: (nightHour ? 2 : 0) + (m && m.night_feedings >= 30 ? 1.5 : 0) + (nightShare >= 0.2 ? 1 : 0),
-    planner: (d.longest_streak >= 14 ? 1.5 : d.longest_streak >= 7 ? 0.8 : 0) + (b && b.bag_items_ready >= 10 ? 1.2 : 0)
-      + (f && f.days_logged >= 60 ? 1.4 : 0) + (b && b.kick_sessions >= 20 ? 0.8 : 0) + (m && m.feedings >= 300 ? 0.6 : 0),
-    knowledge: (d.ai_questions >= 20 ? 1.6 : d.ai_questions >= 8 ? 0.8 : 0) + (d.posts_read >= 50 ? 1.2 : d.posts_read >= 20 ? 0.6 : 0),
-    community: (d.likes + d.comments * 2 + d.posts * 3 >= 40 ? 2 : d.likes + d.comments * 2 + d.posts * 3 >= 15 ? 1 : 0),
-    caring: 0.9,
-  };
-  const ranked = (Object.keys(scores) as RecapPersona[]).sort((a, z) => scores[z] - scores[a]);
-  return ranked[0];
+  return pickPersonaDef(d).id;
 }
 
 // ── Timing ─────────────────────────────────────────────────────────────────────────────────────────
@@ -296,80 +305,109 @@ function place(start: number, durations: number[], grid: number): Array<[number,
   return durations.map((_, i) => [cuts[i], cuts[i + 1]]);
 }
 
-const FLEX_MAX = 6;
+/** At most this many stage scenes per video (the strongest by priority); the rest of the room goes to journey / days / your Anacan. */
+const STAGE_MAX = 4;
+const FLEX_MAX_DURATION = 7.5;
+
+interface Plan { k: number; chosen: Draft[]; mins: number[] }
+
+/**
+ * Picks the flex scenes that fit the music: stage scenes first (strongest, up to STAGE_MAX), then the journey,
+ * days together and the "your Anacan" scenes. Each scene gets at least its build time + hold + exit; the
+ * longest list that fits wins. `k` scenes go before the drop, the rest between the drop and the breath.
+ */
+function planFlex(stageDrafts: Draft[], others: Draft[], coldMin: number, music: RecapMusic, cjk: boolean): Plan {
+  const byPriority = (a: Draft, z: Draft) => (z.priority ?? 0) - (a.priority ?? 0);
+  const ranked = [...[...stageDrafts].sort(byPriority).slice(0, STAGE_MAX), ...[...others].sort(byPriority)];
+  const intro = music.drop, mid = music.breath - music.drop;
+  for (let n = Math.min(ranked.length, 9); n >= 0; n--) {
+    const chosen = ranked.slice(0, n).sort((a, z) => (a.order ?? 0) - (z.order ?? 0));
+    const mins = chosen.map((d) => Math.max(3.5, minSceneDuration(d, cjk)));
+    let best: Plan | null = null, bestSlack = -Infinity;
+    for (let k = 0; k <= n; k++) {
+      const a = coldMin + mins.slice(0, k).reduce((x, v) => x + v, 0), b = mins.slice(k).reduce((x, v) => x + v, 0);
+      if (a > intro + 1e-6 || b > mid + 1e-6) continue;
+      // Prefer both halves filled (no gap before the drop or the breath) and evenly loose.
+      const cap1 = 7 + k * FLEX_MAX_DURATION, cap2 = (n - k) * FLEX_MAX_DURATION;
+      const gap = Math.max(0, intro - cap1) + Math.max(0, mid - cap2);
+      const slack = Math.min((intro - a) / (k + 1), n - k ? (mid - b) / (n - k) : 99) - gap * 10;
+      if (slack > bestSlack) { bestSlack = slack; best = { k, chosen, mins }; }
+    }
+    if (best) return best;
+  }
+  return { k: 0, chosen: [], mins: [] };
+}
 
 // ── Build ──────────────────────────────────────────────────────────────────────────────────────────
 export function buildRecapModel(data: RecapData, language: string, t: RecapTranslate, options: BuildRecapOptions = {}): RecapModel {
   const lang = normalizeAppLanguage(language);
   const locale = appLanguageLocale(lang);
-  const timing = options.timing ?? RECAP_TIMING;
+  const music = options.music ?? options.timing ?? RECAP_MUSIC_2026;
   const labels = options.labels ?? {};
   const stage = data.stage;
   const child = clean(data.mommy?.child_name);
   const c: Ctx = { d: data, lang, t, labels, child };
   const year = data.year;
+  const cjk = CJK.has(lang);
 
   // Stage scenes follow the current stage only (a past stage never surfaces unless it is a forward journey).
   const journey = journeyScene(c);
   let stageDrafts: Draft[] = stage === 'mommy' ? mommyScenes(c) : stage === 'bump' ? bumpScenes(c) : stage === 'flow' ? flowScenes(c) : [];
   if (journey && stage === 'mommy' && data.stages.includes('bump')) {
-    // A bump→mommy year: the strongest pregnancy memory joins the story.
+    // A bump→mommy year: the strongest pregnancy memory may join the story.
     const kicks = bumpScenes(c).find((s) => s.id === 'bump_kicks');
-    if (kicks) stageDrafts = [...stageDrafts, { ...kicks, priority: 72, order: 5 }];
+    if (kicks) stageDrafts = [...stageDrafts, { ...kicks, priority: 50, order: 5 }];
   }
   const days: Draft | null = data.days_active > 0
     ? { ...stat(c, 'days', RECAP_LOOKS.days, 'calendar', c.t('recap_days_eyebrow'), n0(data.days_active), c.t('recap_days_line'),
       { subs: data.longest_streak >= 2 ? [tf(c, 'recap_days_streak', { days: unit(lang, data.longest_streak, 'day') })] : [], param: Math.min(1, data.days_active / 365) }), priority: 100, order: 1 }
     : null;
 
-  const pool: Draft[] = [...(days ? [days] : []), ...(journey ? [journey] : []), ...stageDrafts, ...anacanScenes(c)];
-  const chosen = [...pool].sort((a, z) => (z.priority ?? 0) - (a.priority ?? 0)).slice(0, FLEX_MAX)
-    .sort((a, z) => (a.order ?? 0) - (z.order ?? 0));
+  const cold: Omit<ColdScene, 'start' | 'end'> = { kind: 'cold', id: 'cold', look: RECAP_LOOKS.cold, seed: hash('cold'), year,
+    title: data.name ? tf(c, 'recap_cold_title_name', { name: data.name }) : c.t('recap_cold_title') };
+  const coldMin = Math.max(4.5, minSceneDuration(cold, cjk));
+  const others: Draft[] = [...(journey ? [journey] : []), ...(days ? [days] : []), ...anacanScenes(c)];
+  const plan = planFlex(stageDrafts, others, coldMin, music, cjk);
+  const chosen = plan.chosen;
 
   // Peak line: the three strongest numbers of the year.
   const peakStats = pickStats(c, 3);
-  const persona = pickPersona(data);
+  const personaDef = pickPersonaDef(data);
+  const persona = personaDef.id;
+  const why = pickWhyLine(personaDef, options.seed ?? `${data.name ?? ''}|${data.member_since ?? ''}|${data.days_active}`, year);
   const closeKey: RecapCopyKey = stage === 'mommy' ? 'recap_peak_close_mommy' : stage === 'bump' ? 'recap_peak_close_bump' : stage === 'flow' ? 'recap_peak_close_flow' : 'recap_peak_close';
 
   // Timing: cold + flex scenes fill [0, breath) with a cut on the drop; then peak, persona, summary, outro.
-  const n = chosen.length;
-  let best = { k: Math.min(2, n), cost: Infinity };
-  for (let k = 0; k <= Math.min(3, n); k++) {
-    const g1 = fitDurations(timing.drop, [{ min: 5, max: 7, w: 1.1 }, ...chosen.slice(0, k).map(() => ({ min: 4.5, max: 7, w: 1 }))]);
-    const g2 = fitDurations(timing.breath - timing.drop, chosen.slice(k).map(() => ({ min: 3.5, max: 7, w: 1 })));
-    const s1 = g1.reduce((s, v) => s + v, 0), s2 = g2.reduce((s, v) => s + v, 0);
-    const cost = Math.abs(timing.drop - s1) * 1.5 + Math.abs(timing.breath - timing.drop - s2) + (k === 2 ? 0 : 0.01);
-    if (cost < best.cost) best = { k, cost };
-  }
-  const g1 = fitDurations(timing.drop, [{ min: 5, max: 7, w: 1.1 }, ...chosen.slice(0, best.k).map(() => ({ min: 4.5, max: 7, w: 1 }))]);
-  const g2 = fitDurations(timing.breath - timing.drop, chosen.slice(best.k).map(() => ({ min: 3.5, max: 7, w: 1 })));
-  const p1 = place(0, g1, timing.beat);
+  const k = plan.k;
+  const g1 = fitDurations(music.drop, [{ min: coldMin, max: 7, w: 1 }, ...chosen.slice(0, k).map((_, i) => ({ min: plan.mins[i], max: FLEX_MAX_DURATION, w: 1 }))]);
+  const g2 = fitDurations(music.breath - music.drop, chosen.slice(k).map((_, i) => ({ min: plan.mins[k + i], max: FLEX_MAX_DURATION, w: 1 })));
+  const p1 = place(0, g1, music.beat);
   const g1End = p1[p1.length - 1][1];
-  const p2 = g2.length ? place(g1End, g2, timing.beat) : [];
+  const p2 = g2.length ? place(g1End, g2, music.beat) : [];
   const flexEnd = p2.length ? p2[p2.length - 1][1] : g1End;
-  const shift = flexEnd - timing.breath; // ≤ 0 when there is too little to fill the first half
-  const peakStart = timing.breath + shift;
-  const personaStart = timing.lift + 4 + shift;
+  const shift = flexEnd - music.breath; // ≤ 0 when there is too little to fill the first half
+  const peakStart = music.breath + shift;
+  const personaStart = music.lift + 4 + shift;
   const summaryStart = personaStart + 5;
-  const outroStart = timing.tail + shift;
-  const end = timing.end + shift;
+  const outroStart = music.tail + shift;
+  const end = music.end + shift;
 
   const scenes: RecapScene[] = [];
-  scenes.push({ kind: 'cold', id: 'cold', look: RECAP_LOOKS.cold, seed: hash('cold'), start: p1[0][0], end: p1[0][1], year,
-    title: data.name ? tf(c, 'recap_cold_title_name', { name: data.name }) : c.t('recap_cold_title') });
+  scenes.push({ ...cold, start: p1[0][0], end: p1[0][1] });
   chosen.forEach((draft, i) => {
-    const [s, e] = i < best.k ? p1[i + 1] : p2[i - best.k];
+    const [s, e] = i < k ? p1[i + 1] : p2[i - k];
     const { priority: _p, order: _o, ...scene } = draft;
     scenes.push({ ...(scene as RecapScene), start: s, end: e });
   });
   scenes.push({
     kind: 'peak', id: 'peak', look: RECAP_LOOKS.peak, seed: hash('peak'), start: peakStart, end: personaStart,
     lead: stage === 'mommy' && child ? tf(c, 'recap_peak_lead_child', { child }) : c.t('recap_peak_lead'),
-    stats: peakStats, close: c.t(closeKey), burst: timing.lift - timing.breath,
+    stats: peakStats, close: c.t(closeKey), burst: music.lift - music.breath,
   });
   scenes.push({
     kind: 'persona', id: 'persona', look: RECAP_LOOKS.persona, seed: hash('persona'), start: personaStart, end: summaryStart, persona,
-    eyebrow: tf(c, 'recap_persona_eyebrow', { year }), title: c.t(`recap_persona_${persona}` as RecapCopyKey), reason: c.t(`recap_persona_${persona}_why` as RecapCopyKey),
+    eyebrow: tf(c, 'recap_persona_eyebrow', { year }), title: c.t(`recap_persona_${persona}` as RecapCopyKey),
+    reason: c.t(`recap_persona_${persona}_why_${why}` as RecapCopyKey),
   });
   scenes.push({
     kind: 'summary', id: 'summary', look: RECAP_LOOKS.summary, seed: hash('summary'), start: summaryStart, end: outroStart,
@@ -380,10 +418,22 @@ export function buildRecapModel(data: RecapData, language: string, t: RecapTrans
   });
 
   return {
-    version: 1, year, language: lang, locale, rtl: lang === 'ar', cjk: CJK.has(lang), stage, persona, scenes,
-    duration: end, beat: timing.beat, fadeStart: outroStart,
-    hits: [g1End, timing.lift + shift].filter((h, i, a) => h > 1 && a.indexOf(h) === i),
+    version: 1, year, language: lang, locale, rtl: lang === 'ar', cjk, stage, persona, scenes,
+    duration: end, beat: music.beat, fadeStart: outroStart,
+    hits: [g1End, music.lift + shift].filter((h, i, a) => h > 1 && a.indexOf(h) === i),
   };
+}
+
+/**
+ * Music length a full story would need (every candidate flex scene at its minimum duration), for briefing a
+ * longer track. Returns the section lengths in seconds.
+ */
+export function recapMusicNeeds(data: RecapData, language: string, t: RecapTranslate, options: BuildRecapOptions = {}) {
+  const m = buildRecapModel(data, language, t, { ...options, music: { length: 999, drop: 400, breath: 800, lift: 802, tail: 818, end: 822.2, beat: 0.5 } });
+  const flex = m.scenes.filter((s) => s.kind !== 'cold' && s.kind !== 'peak' && s.kind !== 'persona' && s.kind !== 'summary' && s.kind !== 'outro');
+  const cold = m.scenes[0];
+  const flexMin = flex.reduce((x, s) => x + Math.max(3.5, minSceneDuration(s, m.cjk)), 0) + Math.max(4.5, minSceneDuration(cold, m.cjk));
+  return { flexScenes: flex.map((s) => s.id), introAndBuild: Math.ceil(flexMin * 2) / 2, afterBreath: 2 + 4 + 5 + 7 + 4.2 };
 }
 
 /** The strongest numbers of the year, stage first, never zero. */

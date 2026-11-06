@@ -4,6 +4,8 @@ import { renderRecapFrame, sceneIndexAt } from './render';
 import { recapSource } from './copy';
 import { RECAP_DEMO_LABELS_AZ, RECAP_PERSONAS } from './fixtures';
 import { formatNumber, formatPercent, formatUnit, pluralOf } from './numbers';
+import { PACE, sceneBuildTime } from './pace';
+import { personaFeatures, pickPersonaDef, RECAP_PERSONA_TABLE, scorePersona, type PersonaDef } from './persona';
 import { parseRecap, type RecapData, type RecapModel, type StatScene } from './types';
 
 const build = (d: RecapData, lang = 'az') => buildRecapModel(d, lang, recapSource, { labels: RECAP_DEMO_LABELS_AZ });
@@ -44,14 +46,24 @@ const hash = (lines: string[]) => {
 };
 
 describe('buildRecapModel — scene selection', () => {
-  it('heavy mommy: journey, feedings, sleep, milestones and growth, then peak / persona / summary / outro', () => {
+  it('heavy mommy: the four strongest stage scenes plus the journey, then peak / persona / summary / outro', () => {
     const m = build(RECAP_PERSONAS.mommy);
-    expect(ids(m)).toEqual(['cold', 'days', 'journey', 'mommy_feed', 'mommy_sleep', 'mommy_milestones', 'mommy_growth', 'peak', 'persona', 'summary', 'outro']);
+    expect(ids(m)).toEqual(['cold', 'journey', 'mommy_feed', 'mommy_sleep', 'mommy_milestones', 'mommy_growth', 'peak', 'persona', 'summary', 'outro']);
     expect((at(m, 'mommy_feed') as StatScene).badge).toBe('Ən fəal 5% arasındasan');
     expect(at(m, 'mommy_milestones')).toMatchObject({ items: ['İlk təbəssüm', 'Başını tutdu', 'Çevrildi', 'İlk gülüş'], more: '+6 daha' });
     expect(at(m, 'mommy_growth')).toMatchObject({ line: 'Leyla bu il 6,2 kq böyüdü.', gain: '+6,2 kq' });
     expect(at(m, 'cold')).toMatchObject({ title: 'Aynur, bu il sənin hekayən idi.' });
     expect(m.persona).toBe('night');
+    expect(at(m, 'persona')).toMatchObject({ title: 'Gecə Qəhrəmanı' });
+  });
+
+  it('a longer track lets more scenes in (days together returns)', () => {
+    const music = { length: 70, drop: 16, breath: 44, lift: 46, tail: 62, end: 66.2, beat: 0.5 };
+    const m = buildRecapModel(RECAP_PERSONAS.mommy, 'az', recapSource, { labels: RECAP_DEMO_LABELS_AZ, music });
+    expect(ids(m)).toEqual(expect.arrayContaining(['days', 'journey', 'mommy_feed', 'mommy_growth']));
+    expect(at(m, 'peak').start).toBe(44);
+    expect(at(m, 'outro').start).toBe(62);
+    expect(m.duration).toBe(66.2);
   });
 
   it('bump: weeks, kicks and hospital bag', () => {
@@ -61,9 +73,9 @@ describe('buildRecapModel — scene selection', () => {
     expect((at(m, 'bump_kicks') as StatScene).value.n).toBe(1172);
   });
 
-  it('flow: cycles, logged days, mood colour and the favourite hour', () => {
+  it('flow: cycles, logged days, mood colour and water', () => {
     const m = build(RECAP_PERSONAS.flow);
-    expect(ids(m)).toEqual(expect.arrayContaining(['flow_cycles', 'flow_days', 'flow_mood', 'anacan_hour']));
+    expect(ids(m)).toEqual(expect.arrayContaining(['days', 'flow_cycles', 'flow_days', 'flow_mood', 'flow_water']));
     expect((at(m, 'flow_mood') as StatScene).subs).toEqual(['Ən çox qeyd etdiyin: şişkinlik']);
     expect((at(m, 'flow_cycles') as StatScene).subs).toEqual(['Orta dövr: 28 gün', 'Menstruasiya: 5 gün']);
     expect(ids(m)).not.toContain('journey');
@@ -102,6 +114,27 @@ describe('buildRecapModel — scene selection', () => {
     expect(ids(m)).not.toContain('mommy_growth');
   });
 
+  it('persona "why" lines are picked by a stable per-person seed', () => {
+    const lines = new Set<string>();
+    for (const seed of ['u1', 'u2', 'u3', 'u4', 'u5', 'u6']) {
+      const a = buildRecapModel(RECAP_PERSONAS.mommy, 'az', recapSource, { seed });
+      const b = buildRecapModel(RECAP_PERSONAS.mommy, 'az', recapSource, { seed });
+      expect(at(a, 'persona')).toEqual(at(b, 'persona'));
+      lines.add((at(a, 'persona') as { reason: string }).reason);
+    }
+    expect(lines.size).toBe(2);
+  });
+
+  it('the persona table is data: stage-limited rows and custom terms', () => {
+    const table: PersonaDef[] = [
+      { id: 'water', stages: ['flow'], lines: 1, terms: [{ input: 'water', from: 100, to: 500, weight: 5 }] },
+      ...RECAP_PERSONA_TABLE,
+    ];
+    expect(pickPersonaDef(RECAP_PERSONAS.flow, table).id).toBe('water');
+    expect(pickPersonaDef({ ...RECAP_PERSONAS.mommy }, table).id).toBe('night');
+    expect(scorePersona(table[0], personaFeatures(RECAP_PERSONAS.light))).toBe(0);
+  });
+
   it('personas follow the data', () => {
     expect(pickPersona(RECAP_PERSONAS.mommy)).toBe('night');
     expect(pickPersona({ ...RECAP_PERSONAS.light, favorite_hour: 12, likes: 40, comments: 10, posts: 2 })).toBe('community');
@@ -120,8 +153,10 @@ describe('buildRecapModel — timing on the music', () => {
     expect(at(m, 'outro').start).toBe(RECAP_TIMING.tail);
     m.scenes.forEach((s, i) => {
       if (i) expect(s.start).toBe(m.scenes[i - 1].end);
-      expect(s.end - s.start).toBeGreaterThanOrEqual(3.5);
-      expect(s.end - s.start).toBeLessThanOrEqual(7.01);
+      expect(s.end - s.start).toBeLessThanOrEqual(7.51);
+      // Fully built for at least 1.5 s before the exit transition.
+      const hold = s.end - s.start - sceneBuildTime(s, false) - (s.kind === 'outro' ? 0 : PACE.exit);
+      expect(hold, s.id).toBeGreaterThanOrEqual(1.5);
     });
     expect(m.hits).toEqual([RECAP_TIMING.drop, RECAP_TIMING.lift]);
   });
