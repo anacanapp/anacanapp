@@ -77,3 +77,9 @@ With `enabled: false` the gate and the Anacan.AI sheet are skipped (Privacy togg
 Keys `consent_*` / `ai_consent_*` (`CONSENT_COPY` in `src/lib/consent-copy.ts`) are in `src/locales/{az,en}.json`
 and `scripts/i18n/<lang>.seed.json` for all 23 languages; `scripts/i18n/translation-manifest.json` was
 updated (sha256/bytes/count/keysHash) so `verify-bundles.mjs` passes.
+
+## Version 1.0 (owner documents)
+
+The owner's Privacy Policy and Terms of Use (both version `1.0`, effective 2026-03-05) replaced the v2.0
+texts. `20261107160000_privacy_terms_owner_v1.sql` sets `consent_gate.version` to `1.0`, and the app fallback
+(`FALLBACK_CONSENT_VERSION`) is `1.0`. Bump the setting again whenever a new document version needs re-acceptance.

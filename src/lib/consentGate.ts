@@ -17,7 +17,7 @@ export const REQUIRED_GATE_KINDS: readonly ConsentKind[] = ['terms', 'health_dat
 export const MARKETING_CHANNELS = ['marketing_email', 'marketing_push', 'marketing_sms'] as const;
 export type ConsentVariant = 'default' | 'kvkk_tr';
 /** Last resort when the server could not be asked (the pending send is dropped if the server disagrees). */
-export const FALLBACK_CONSENT_VERSION = '2.0';
+export const FALLBACK_CONSENT_VERSION = '1.0';
 
 export interface ConsentGateConfig { enabled: boolean; version: string | null }
 export interface ConsentRecord { granted: boolean; document_version: string; text_variant?: ConsentVariant | null; source?: string | null; created_at: string }

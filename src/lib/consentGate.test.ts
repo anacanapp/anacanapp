@@ -5,6 +5,7 @@ vi.mock('@capacitor/core', () => ({ Capacitor: { getPlatform: mocks.platform, is
 vi.mock('@/integrations/supabase/client', () => ({ supabase: { rpc: mocks.rpc } }));
 
 import {
+  FALLBACK_CONSENT_VERSION,
   acceptConsentGate, canContinue, decideAiConsent, decideConsentGate, fetchConsentState, flushPendingConsents, gateItems,
   isKvkkUser, parseConsentState, readAcceptedVersion, readLocalAiConsent, readPendingConsents, setAiConsent, type ConsentState,
 } from './consentGate';
@@ -149,6 +150,6 @@ describe('Anacan.AI consent', () => {
     mocks.rpc.mockRejectedValueOnce(new TypeError('Failed to fetch'));
     expect((await setAiConsent(B, U, false, null)).synced).toBe(false);
     expect(readLocalAiConsent(B, U)).toBe(false);
-    expect(readPendingConsents(B, U)?.items).toEqual([{ kind: 'ai_assistant', granted: false, version: '2.0' }]);
+    expect(readPendingConsents(B, U)?.items).toEqual([{ kind: 'ai_assistant', granted: false, version: FALLBACK_CONSENT_VERSION }]);
   });
 });
