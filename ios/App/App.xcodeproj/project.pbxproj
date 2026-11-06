@@ -17,6 +17,8 @@
 		18A584623037396800A66DF5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A584613037396800A66DF5 /* WidgetKit.framework */; };
 		18A584643037396800A66DF5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A584633037396800A66DF5 /* SwiftUI.framework */; };
 		18A584733037396B00A66DF5 /* AnacanTimerWidgetExtExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 18A5845F3037396800A66DF5 /* AnacanTimerWidgetExtExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		45B162EDBDA646BA0D0AAD67 /* AnacanNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 30105183292AACE5137C3B7C /* AnacanNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C8F60A7CEC0D46A148B7E4F3 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8B6D563135ACB25097EE4C /* NotificationService.swift */; };
 		2FAD9763203C412B000D30F8 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2FAD9762203C412B000D30F8 /* config.xml */; };
 		4D22ABE92AF431CB00220026 /* CapApp-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 4D22ABE82AF431CB00220026 /* CapApp-SPM */; };
 		50379B232058CBB4000EE86E /* capacitor.config.json in Resources */ = {isa = PBXBuildFile; fileRef = 50379B222058CBB4000EE86E /* capacitor.config.json */; };
@@ -37,6 +39,13 @@
 			remoteGlobalIDString = 18A5845E3037396800A66DF5;
 			remoteInfo = AnacanTimerWidgetExtExtension;
 		};
+		4BF944EB71894579689F0FBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 504EC2FC1FED79650016851F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D314D3E7315562B7914D5018;
+			remoteInfo = AnacanNotificationService;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +56,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				18A584733037396B00A66DF5 /* AnacanTimerWidgetExtExtension.appex in Embed Foundation Extensions */,
+				45B162EDBDA646BA0D0AAD67 /* AnacanNotificationService.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +72,9 @@
 		18A584563037390900A66DF5 /* HealthVitalsPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthVitalsPlugin.swift; sourceTree = "<group>"; };
 		18A584593037391100A66DF5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		18A5845F3037396800A66DF5 /* AnacanTimerWidgetExtExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnacanTimerWidgetExtExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		30105183292AACE5137C3B7C /* AnacanNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnacanNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF8B6D563135ACB25097EE4C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		9CC0C199E992E5F4C7957545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A584613037396800A66DF5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		18A584633037396800A66DF5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		18A5848430373B0D00A66DF5 /* AnacanTimerWidgetExtExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnacanTimerWidgetExtExtension.entitlements; sourceTree = "<group>"; };
@@ -125,6 +138,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F9E0A26896886D39D1B7F758 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18A5845C3037396800A66DF5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -146,6 +166,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		478F465DD42D06C29FC049B1 /* AnacanNotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				DF8B6D563135ACB25097EE4C /* NotificationService.swift */,
+				9CC0C199E992E5F4C7957545 /* Info.plist */,
+			);
+			path = AnacanNotificationService;
+			sourceTree = "<group>";
+		};
 		18A584603037396800A66DF5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +191,7 @@
 				958DCC722DB07C7200EA8C5F /* debug.xcconfig */,
 				504EC3061FED79650016851F /* App */,
 				18A584653037396800A66DF5 /* AnacanTimerWidgetExt */,
+				478F465DD42D06C29FC049B1 /* AnacanNotificationService */,
 				18A584603037396800A66DF5 /* Frameworks */,
 				504EC3051FED79650016851F /* Products */,
 			);
@@ -172,6 +202,7 @@
 			children = (
 				504EC3041FED79650016851F /* App.app */,
 				18A5845F3037396800A66DF5 /* AnacanTimerWidgetExtExtension.appex */,
+				30105183292AACE5137C3B7C /* AnacanNotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,6 +255,25 @@
 			productReference = 18A5845F3037396800A66DF5 /* AnacanTimerWidgetExtExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		D314D3E7315562B7914D5018 /* AnacanNotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DF8DCD6C2767117481EAA22 /* Build configuration list for PBXNativeTarget "AnacanNotificationService" */;
+			buildPhases = (
+				F84E411531013DF6B7C52F1A /* Sources */,
+				F9E0A26896886D39D1B7F758 /* Frameworks */,
+				ACB5229CE7D8F12459821C53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnacanNotificationService;
+			packageProductDependencies = (
+			);
+			productName = AnacanNotificationService;
+			productReference = 30105183292AACE5137C3B7C /* AnacanNotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		504EC3031FED79650016851F /* App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 504EC3161FED79650016851F /* Build configuration list for PBXNativeTarget "App" */;
@@ -237,6 +287,7 @@
 			);
 			dependencies = (
 				18A584723037396B00A66DF5 /* PBXTargetDependency */,
+				6311E30365A4B9FB327A5351 /* PBXTargetDependency */,
 			);
 			name = App;
 			packageProductDependencies = (
@@ -259,6 +310,9 @@
 					18A5845E3037396800A66DF5 = {
 						CreatedOnToolsVersion = 26.2;
 						LastSwiftMigration = 2620;
+					};
+					D314D3E7315562B7914D5018 = {
+						CreatedOnToolsVersion = 26.2;
 					};
 					504EC3031FED79650016851F = {
 						CreatedOnToolsVersion = 9.2;
@@ -308,11 +362,19 @@
 			targets = (
 				504EC3031FED79650016851F /* App */,
 				18A5845E3037396800A66DF5 /* AnacanTimerWidgetExtExtension */,
+				D314D3E7315562B7914D5018 /* AnacanNotificationService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		ACB5229CE7D8F12459821C53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18A5845D3037396800A66DF5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,6 +421,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F84E411531013DF6B7C52F1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8F60A7CEC0D46A148B7E4F3 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -366,6 +436,11 @@
 			isa = PBXTargetDependency;
 			target = 18A5845E3037396800A66DF5 /* AnacanTimerWidgetExtExtension */;
 			targetProxy = 18A584713037396B00A66DF5 /* PBXContainerItemProxy */;
+		};
+		6311E30365A4B9FB327A5351 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D314D3E7315562B7914D5018 /* AnacanNotificationService */;
+			targetProxy = 4BF944EB71894579689F0FBF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -419,6 +494,83 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2F051EDC06135AC9C0B97CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 24.0;
+				DEVELOPMENT_TEAM = 8B6976J8H7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnacanNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AnacanNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 24;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.atlasoon.anacan.AnacanNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7C97BD469914F781C9A4C7C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 24.0;
+				DEVELOPMENT_TEAM = 8B6976J8H7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnacanNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AnacanNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 24;
+				PRODUCT_BUNDLE_IDENTIFIER = com.atlasoon.anacan.AnacanNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		18A584763037396B00A66DF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -690,6 +842,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3DF8DCD6C2767117481EAA22 /* Build configuration list for PBXNativeTarget "AnacanNotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F051EDC06135AC9C0B97CBC /* Debug */,
+				7C97BD469914F781C9A4C7C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		18A584753037396B00A66DF5 /* Build configuration list for PBXNativeTarget "AnacanTimerWidgetExtExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

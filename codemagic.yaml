@@ -37,11 +37,14 @@ workflows:
         script: |
           npx cap sync ios
           node scripts/codemagic/apply-native-config.mjs ios
-      - name: Fetch App Store certificate and profiles (app + widget)
+      - name: Fetch App Store certificate and profiles (app + widget + notification service)
         script: |
           # Uses APP_STORE_CONNECT_* and CERTIFICATE_PRIVATE_KEY from anacan_ios_signing
           keychain initialize
-          for BUNDLE_ID in com.atlasoon.anacan com.atlasoon.anacan.AnacanTimerWidgetExt; do
+          # Notification Service Extension App ID: create once; "already exists" is ignored.
+          app-store-connect bundle-ids create com.atlasoon.anacan.AnacanNotificationService \
+            --name "Anacan Notification Service" --platform IOS || true
+          for BUNDLE_ID in com.atlasoon.anacan com.atlasoon.anacan.AnacanTimerWidgetExt com.atlasoon.anacan.AnacanNotificationService; do
             app-store-connect fetch-signing-files "$BUNDLE_ID" --type IOS_APP_STORE --create
           done
           keychain add-certificates

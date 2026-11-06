@@ -28,6 +28,15 @@ Trigger yoxdur: build yalnız **Start new build** ilə başlayır. Personal hesa
    `CURRENT_PROJECT_VERSION=$APP_VERSION.$BUILD_NUMBER` (məs. `49.0.3`).
    Android: `versionName=$APP_VERSION`, `versionCode=$ANDROID_VERSION_CODE`.
 
+**Push şəkilləri (iOS Notification Service Extension).** `ios/App/AnacanNotificationService`
+target-i (`com.atlasoon.anacan.AnacanNotificationService`, team `8B6976J8H7`, iOS 16.6,
+Firebase-siz Swift) FCM-in `fcm_options.image` (və ya üst səviyyə `image`) https URL-ini
+~8 s ərzində endirib bildirişə şəkil kimi əlavə edir; uğursuzluqda bildiriş şəkilsiz
+çatdırılır. App target-i onu `Embed Foundation Extensions`-a widget kimi yerləşdirir.
+`ios-store` workflow-u bundle ID-ni lazım olduqda yaradır (`bundle-ids create … || true`)
+və ilk build onun App Store profilini `fetch-signing-files --create` ilə avtomatik yaradır.
+Entitlement/App Group tələb olunmur.
+
 ## Codemagic-də bir dəfəlik qurulum
 
 Personal hesabda Team integrations / Code signing identities menyuları yoxdur. Ona görə
