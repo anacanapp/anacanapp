@@ -26,7 +26,7 @@ const sections: Record<string, string> = {
   'phase-tips': 'AdminPhaseTips', teething: 'AdminTeething', 'healthcare-reviews': 'AdminHealthcareReviews', cakes: 'AdminCakes',
   'baby-daily-info': 'AdminBabyDailyInfo', 'mommy-daily-messages': 'AdminMommyDailyMessages', 'intro-slides': 'AdminIntroSlides',
   'album-orders': 'AdminAlbumOrders', coupons: 'AdminCoupons', analytics: 'AdminAnalytics', 'country-stats': 'AdminCountryStats',
-  epoint: 'AdminEpoint', books: 'AdminBooks', 'force-update': 'AdminForceUpdate', security: 'AdminSecurity', languages: 'AdminLanguages', translations: 'AdminTranslations',
+  epoint: 'AdminEpoint', books: 'AdminBooks', qaygicash: 'AdminQaygiCash', 'force-update': 'AdminForceUpdate', security: 'AdminSecurity', languages: 'AdminLanguages', translations: 'AdminTranslations',
   'content-i18n': 'AdminContentTranslations', deeplinks: 'AdminDeeplinks', 'crash-reports': 'AdminCrashReports',
   'partner-venues': 'AdminPartnerVenues', 'partner-redemptions': 'AdminPartnerRedemptions', vaccines: 'AdminVaccines', admob: 'AdminAdmob', ads: 'AdminAdmob',
 };
