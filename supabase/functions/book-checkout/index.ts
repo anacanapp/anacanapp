@@ -7,6 +7,7 @@ import { requireUser } from '../_shared/auth.ts';
 import { bookOrderTotal, bookUnitPrice, MAX_BOOKS_PER_ORDER } from '../_shared/book-pricing.ts';
 import { epointConfig, epointLanguage, epointRequest, isCheckoutUrl } from '../_shared/epoint.ts';
 import { LANGUAGE_CODES } from '../_shared/languages.ts';
+import { qcErrorCode } from '../_shared/qaygicash.ts';
 
 const headers = {
   'Access-Control-Allow-Origin': '*',
@@ -52,10 +53,25 @@ Deno.serve(async (req) => {
   const email = (account?.user?.email || '').trim().toLowerCase();
   if (!email) return json(400, { error: 'no_email' });
 
-  const unit = bookUnitPrice(ids.length), amount = bookOrderTotal(ids.length);
+  const unit = bookUnitPrice(ids.length), total = bookOrderTotal(ids.length);
+  // QayğıCash (optional): limits are enforced by qc_reserve (max share of the order, min, balance).
+  const totalMinor = Math.round(total * 100);
+  const wanted = typeof body.cashback === 'number' && Number.isFinite(body.cashback) ? Math.round(body.cashback * 100) : 0;
+  const cashbackMinor = wanted > 0 && wanted < totalMinor ? wanted : 0;
+  if (wanted !== 0 && cashbackMinor === 0) return json(400, { error: 'invalid_cashback' });
+  const amount = (totalMinor - cashbackMinor) / 100;
   const { data: order, error } = await admin.from('book_orders')
-    .insert({ user_id: userId, email, book_ids: ids, unit_price: unit, amount, language }).select('id').single();
+    .insert({ user_id: userId, email, book_ids: ids, unit_price: unit, amount, cashback_used: cashbackMinor / 100, language })
+    .select('id').single();
   if (error || !order) return json(500, { error: 'order_not_saved' });
+  if (cashbackMinor > 0) {
+    const { error: qcError } = await admin.rpc('qc_reserve_book_v1',
+      { p_user: userId, p_order_id: order.id, p_amount_minor: cashbackMinor, p_total_minor: totalMinor });
+    if (qcError) {
+      await admin.from('book_orders').update({ status: 'failed', provider_status: 'cashback_refused', updated_at: new Date().toISOString() }).eq('id', order.id);
+      return json(409, { error: qcErrorCode(qcError) ?? 'QC_NOT_AVAILABLE' });
+    }
+  }
 
   try {
     const { ok, result } = await epointRequest(config, 'request', {
@@ -67,7 +83,7 @@ Deno.serve(async (req) => {
     const url = typeof result.redirect_url === 'string' ? result.redirect_url : '';
     if (!ok || result.status !== 'success' || !isCheckoutUrl(url)) throw new Error('epoint_no_url');
     await admin.from('book_orders').update({ provider_transaction: typeof result.transaction === 'string' ? result.transaction : null, updated_at: new Date().toISOString() }).eq('id', order.id);
-    return json(200, { checkout_url: url, order_id: order.id, amount, unit_price: unit });
+    return json(200, { checkout_url: url, order_id: order.id, amount, unit_price: unit, cashback: cashbackMinor / 100 });
   } catch (e) {
     console.error('[book-checkout] create failed:', e instanceof Error ? e.message : 'unknown');
     await admin.from('book_orders').update({ status: 'failed', provider_status: 'request_failed', updated_at: new Date().toISOString() }).eq('id', order.id);

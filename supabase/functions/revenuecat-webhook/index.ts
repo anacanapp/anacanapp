@@ -1,4 +1,5 @@
 import { syncEntitlementForUser, syncRevenueCatTransfer } from '../_shared/revenuecat-sync.ts';
+import { qaygicashFromStoreEvent } from '../_shared/qaygicash.ts';
 
 const userEvents = new Set([
   'INITIAL_PURCHASE', 'NON_RENEWING_PURCHASE', 'RENEWAL', 'PRODUCT_CHANGE',
@@ -114,6 +115,8 @@ Deno.serve(async (req: Request) => {
     if ((event.type === 'CANCELLATION' || event.type === 'EXPIRATION') && result.cancellationRecorded !== true) {
       return json({ ok: false, error: 'cancellation_sync_incomplete' }, 503);
     }
+    // QayğıCash bonus for paid store Premium (idempotent per transaction; never fails the webhook).
+    await qaygicashFromStoreEvent(event);
     return json({ ok: true, isPro: result.isPro });
   } catch {
     // Never return/log raw requests, provider/DB exceptions, identities or secrets.

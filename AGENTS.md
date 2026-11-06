@@ -57,6 +57,8 @@ backend, native or deployment work. Their detailed continuity rules still apply.
   language needs its own lexicon/copy and language+revision+mode progress. Never
   translate puzzle words or substitute another language's dictionary. Preserve
   deterministic generation, bounded saves and one-time hint/bonus/win rewards.
+- QayğıCash cashback is live for AZ (`docs/QAYGICASH.md`): keep the qaygicash-premium catalog route and
+  ENABLED_FUNCTIONS entry on functions deploys; Premium-with-bonus stays off until the owner enables it.
 - Source Auth-hook binding/IP enforcement and RevenueCat v2 metrics permission
   remain operator dependencies; require live proof before claiming activation.
 - Keep private inputs, signing material, sessions and ignored migration helpers
