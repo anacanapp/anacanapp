@@ -65,7 +65,7 @@ export default function GardenGame({ language, locale, mode, level, profile, cur
     const saved = current.current.round;
     const savedRevision = saved && !saved.awarded && Number(saved.levelId.split(':')[3]) === level
       ? saved.levelId.split(':')[1] : current.current.revision;
-    loadGardenLevel(language, level, mode, controller.signal, savedRevision).then(generated => {
+    loadGardenLevel(language, level, mode, controller.signal, savedRevision, current.current.seed).then(generated => {
       if (controller.signal.aborted) return;
       const value = generated.mode === 'timed' && generated.revision !== current.current.revision
         ? { ...generated, timeLimit: gardenTimeLimit(generated.words, generated.letters.length, generated.difficulty) } : generated;

@@ -1,21 +1,35 @@
 import { writeStorageItem } from '@/lib/local-storage';
 import { createGardenProfile } from './state';
-import type { GardenPreferences, GardenProfile, WordGardenMode } from './model';
+import { isGardenPlayerSeed, isSeededGardenRevision, type GardenPreferences, type GardenProfile, type WordGardenMode } from './model';
 import { WORD_GARDEN_LIBRARIES, WORD_GARDEN_PREVIOUS_REVISIONS } from './library';
 
 export const gardenStorageKey = (language: string, revision: string, mode: WordGardenMode) => `anacan_word_garden_v1:${language}:${revision}:${mode}`;
 const preferencesKey = 'anacan_word_garden_preferences_v1';
 export const DEFAULT_GARDEN_PREFERENCES: GardenPreferences = { sound: false, haptics: true, highContrast: false, reducedMotion: false, theme: 'garden' };
+/** A random uint32 created once per player profile; no account data is involved. */
+export function createGardenPlayerSeed(): number {
+  try { return crypto.getRandomValues(new Uint32Array(1))[0]; }
+  catch { return Math.floor(Math.random() * 0x100000000) >>> 0; }
+}
 export function readGardenProfile(language: string, revision: string, mode: WordGardenMode): GardenProfile {
+  const profile = readStoredGardenProfile(language, revision, mode);
+  // Seeded revisions deal per-player words. A new seed is created once and is
+  // saved with the first progress write (before any seeded round is stored);
+  // afterwards the stored seed is reused, so the player's level N never changes.
+  if (WORD_GARDEN_LIBRARIES[language]?.revision !== revision || !isSeededGardenRevision(revision) || isGardenPlayerSeed(profile.seed)) return profile;
+  return { ...profile, seed: createGardenPlayerSeed() };
+}
+function readStoredGardenProfile(language: string, revision: string, mode: WordGardenMode): GardenProfile {
   const fallback = createGardenProfile(language, revision, mode);
   try {
     const text = localStorage.getItem(gardenStorageKey(language, revision, mode));
     if (!text) {
       if (WORD_GARDEN_LIBRARIES[language]?.revision === revision) for (const previous of WORD_GARDEN_PREVIOUS_REVISIONS[language] || []) {
         if (!localStorage.getItem(gardenStorageKey(language, previous, mode))) continue;
-        const saved = readGardenProfile(language, previous, mode);
+        const { seed: _legacySeed, ...saved } = readStoredGardenProfile(language, previous, mode);
         // Keep aggregates, currency and an unfinished puzzle bound to its original
-        // dictionary. The previous key is retained; only future puzzles use v2.
+        // dictionary. The previous key is retained; only future puzzles use the
+        // current revision (and its per-player seed).
         return { ...saved, revision, round: saved.round?.awarded ? null : saved.round };
       }
       return fallback;
@@ -36,7 +50,8 @@ export function readGardenProfile(language: string, revision: string, mode: Word
       && Array.isArray(saved.found) && Array.isArray(saved.bonus) && Array.isArray(saved.revealed)
       && saved.found.length <= 8 && saved.bonus.length <= 1000 && saved.revealed.length <= 121
       && typeof saved.awarded === 'boolean' ? saved : null;
-    return { ...value, round };
+    const { seed, ...rest } = value;
+    return { ...rest, ...(isGardenPlayerSeed(seed) ? { seed } : {}), round };
   } catch { return fallback; }
 }
 export function writeGardenProfile(profile: GardenProfile): boolean {

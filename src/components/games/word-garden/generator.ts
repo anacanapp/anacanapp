@@ -374,21 +374,30 @@ function dealPuzzle(rack: Rack, difficulty: number, target: number, minimum: num
 const SEEDED_WINDOW = 8;
 function dealNext(lexicon: CompiledLexicon, queue: Rack[], from: number, until: number, difficulty: number, target: number, minimum: number,
   usage: Usage, random: () => number, freshRoot: boolean): Dealt | null {
-  const options: { index: number; fresh: number }[] = [];
-  for (let index = from; index < Math.min(until, from + SEEDED_WINDOW); index++) {
-    const rack = queue[index];
-    if (freshRoot && !isFresh(usage, rack.root)) continue;
-    const fresh = rack.words.filter(word => word.word !== rack.root.word && seededEligible(word, difficulty) && isFresh(usage, word)).length;
-    options.push({ index, fresh: Math.min(fresh, target - 1) });
-  }
-  options.sort((a, b) => b.fresh - a.fresh || a.index - b.index);
-  let best: { index: number; puzzle: Layout; reused: number } | null = null;
-  for (const option of options.slice(0, 3)) {
-    const puzzle = dealPuzzle(queue[option.index], difficulty, target, minimum, usage, random);
-    if (!puzzle) continue;
-    const reused = puzzle.words.filter(word => !isFresh(usage, lexicon.words.get(word.word)!)).length;
-    if (!best || reused < best.reused || reused === best.reused && puzzle.words.length > best.puzzle.words.length) best = { index: option.index, puzzle, reused };
-    if (!reused && puzzle.words.length >= target) break;
+  let best: { index: number; puzzle: Layout; score: number } | null = null;
+  // A wider look-ahead is only needed when every nearby rack would repeat an
+  // answer from the last few puzzles (small familiar pools in early tiers).
+  for (const [start, width] of [[from, SEEDED_WINDOW], [from + SEEDED_WINDOW, SEEDED_WINDOW * 4]]) {
+    if (best && best.score < 1000) break;
+    const options: { index: number; fresh: number }[] = [];
+    for (let index = start; index < Math.min(until, start + width); index++) {
+      const rack = queue[index];
+      if (freshRoot && !isFresh(usage, rack.root)) continue;
+      const fresh = rack.words.filter(word => word.word !== rack.root.word && seededEligible(word, difficulty) && isFresh(usage, word)).length;
+      options.push({ index, fresh: Math.min(fresh, target - 1) });
+    }
+    options.sort((a, b) => b.fresh - a.fresh || a.index - b.index);
+    for (const [rank, option] of options.entries()) {
+      // Usually the first three suffice; look further only to avoid a recent answer.
+      if (rank >= 3 && best && best.score < 1000) break;
+      const puzzle = dealPuzzle(queue[option.index], difficulty, target, minimum, usage, random);
+      if (!puzzle) continue;
+      const reused = puzzle.words.filter(word => !isFresh(usage, lexicon.words.get(word.word)!)).length;
+      const recent = puzzle.words.filter(word => usage.tick - (usage.last.get(word.word) ?? -Infinity) <= SEEDED_HARD_GAP).length;
+      const score = recent * 1000 + reused * 10 - Math.min(puzzle.words.length, target);
+      if (!best || score < best.score) best = { index: option.index, puzzle, score };
+      if (!reused && puzzle.words.length >= target) break;
+    }
   }
   if (!best) return null;
   [queue[from], queue[best.index]] = [queue[best.index], queue[from]];

@@ -2,12 +2,14 @@ import { describe, expect, it } from 'vitest';
 import data from './data/az.json';
 import { compileLexicon } from './lexicon';
 import { generateGardenLevel } from './generator';
-import { cellKey, type WordLexicon } from './model';
+import { cellKey, isGardenPlayerSeed, type WordLexicon } from './model';
 import { completeGardenLevel, createGardenProfile, createGardenRound, gardenResult, submitGardenWord, revealGardenHint, validGardenRound, visibleGardenCells } from './state';
-import { readGardenProfile, writeGardenProfile } from './storage';
+import { gardenStorageKey, readGardenProfile, writeGardenProfile } from './storage';
+import { WORD_GARDEN_LIBRARIES } from './library';
 
-const lexicon = compileLexicon(data as WordLexicon, 'az');
-const level = generateGardenLevel(lexicon, 25);
+const lexicon = compileLexicon(data as WordLexicon, 'az'), current = WORD_GARDEN_LIBRARIES.az.revision;
+// Level 25 of a player whose rack also offers a bonus word (deterministic search).
+const level = Array.from({ length: 64 }, (_, seed) => generateGardenLevel(lexicon, 25, 'calm', seed)).find(item => item.bonusWords.length)!;
 const start = () => ({ ...createGardenProfile('az', lexicon.data.revision, 'calm'), round: createGardenRound(level),
   progress: { ...createGardenProfile('az', lexicon.data.revision, 'calm').progress, unlockedLevel: 25, bonusClaims: { level: 25, words: [] } } });
 describe('Word Garden local progression', () => {
@@ -71,15 +73,35 @@ describe('Word Garden local progression', () => {
     expect(Number.isInteger(gardenResult(timed, { ...profile.round, remainingSeconds: 45.7 }).score)).toBe(true);
   });
   it('carries legacy aggregates and an unfinished round into a new revision without deleting the original save', () => {
+    for (const legacy of ['az-202610-v1', 'az-202610-v2']) {
+      localStorage.clear();
+      const old = { ...createGardenProfile('az', legacy, 'calm'), round: {
+        ...createGardenRound(level), levelId: `az:${legacy}:calm:25:123`, found: ['alma'] },
+        progress: { ...start().progress, coins: 183, totalWords: 67, totalBonusWords: 4, bestScore: 1050 } };
+      expect(writeGardenProfile(old)).toBe(true);
+      const next = readGardenProfile('az', current, 'calm');
+      expect(next.revision).toBe(current); expect(next.progress).toEqual(old.progress); expect(next.round).toEqual(old.round);
+      expect(isGardenPlayerSeed(next.seed)).toBe(true);
+      expect(writeGardenProfile(next)).toBe(true);
+      const reread = readGardenProfile('az', current, 'calm');
+      expect(reread.round).toEqual(old.round); expect(reread.seed).toBe(next.seed);
+      expect(readGardenProfile('az', legacy, 'calm')).toEqual(old);
+    }
+  });
+  it('creates one bounded per-player seed for the seeded revision and keeps it across reloads', () => {
     localStorage.clear();
-    const old = { ...createGardenProfile('az', 'az-202610-v1', 'calm'), round: {
-      ...createGardenRound(level), levelId: 'az:az-202610-v1:calm:25:123', found: ['alma'] },
-      progress: { ...start().progress, coins: 183, totalWords: 67, totalBonusWords: 4, bestScore: 1050 } };
-    expect(writeGardenProfile(old)).toBe(true);
-    const next = readGardenProfile('az', 'az-202610-v2', 'calm');
-    expect(next.revision).toBe('az-202610-v2'); expect(next.progress).toEqual(old.progress); expect(next.round).toEqual(old.round);
-    expect(writeGardenProfile(next)).toBe(true);
-    expect(readGardenProfile('az', 'az-202610-v2', 'calm').round).toEqual(old.round);
-    expect(readGardenProfile('az', 'az-202610-v1', 'calm')).toEqual(old);
+    const fresh = readGardenProfile('az', current, 'timed');
+    expect(isGardenPlayerSeed(fresh.seed)).toBe(true);
+    // Merely opening the lobby does not write; the first progress write stores the seed.
+    expect(localStorage.getItem(gardenStorageKey('az', current, 'timed'))).toBeNull();
+    expect(writeGardenProfile({ ...fresh, round: createGardenRound(generateGardenLevel(lexicon, 1, 'timed', fresh.seed)) })).toBe(true);
+    const reread = readGardenProfile('az', current, 'timed');
+    expect(reread.seed).toBe(fresh.seed);
+    expect(validGardenRound(reread.round, generateGardenLevel(lexicon, 1, 'timed', reread.seed))).toBe(true);
+    expect(JSON.stringify(reread).length).toBeLessThan(2000);
+    // Published revisions are dealt without a player seed.
+    expect(readGardenProfile('az', 'az-202610-v2', 'timed').seed).toBeUndefined();
+    localStorage.setItem(gardenStorageKey('az', current, 'calm'), JSON.stringify({ ...createGardenProfile('az', current, 'calm'), seed: -5 }));
+    expect(isGardenPlayerSeed(readGardenProfile('az', current, 'calm').seed)).toBe(true);
   });
 });
