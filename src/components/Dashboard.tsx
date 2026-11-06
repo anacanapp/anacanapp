@@ -90,6 +90,7 @@ import FetusMonth9 from '@/assets/fetus/month-9.svg';
 import { tr } from "@/lib/tr";
 import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { useFetusIllustrationByMonth } from '@/hooks/useFetusIllustrations';
+import FetusHeroImage from '@/components/bump/FetusHeroImage';
 
 const FETUS_IMAGES: {[key: number]: string;} = {
   1: FetusMonth1,
@@ -235,6 +236,9 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
   // after a null render, React threw "Rendered more hooks" and blanked the screen.
   const fetusMonth = Math.min(Math.ceil(selectedWeek / 4.4), 9);
   const fetusImageFromDb = useFetusIllustrationByMonth(fetusMonth);
+  // Qonşu ayların şəkilləri arxa planda əvvəlcədən yüklənir (ay keçidində boşluq olmasın).
+  const fetusImagePrev = useFetusIllustrationByMonth(Math.max(1, fetusMonth - 1));
+  const fetusImageNext = useFetusIllustrationByMonth(Math.min(9, fetusMonth + 1));
 
   if (!pregData) return null;
 
@@ -315,8 +319,9 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
   const weekData = getFruitData();
 
   // Fetus şəkli: bazadan (admin paneldən idarə olunur, tətbiq
-  // yeniləmədən dəyişir). Bazada yoxdursa daxili SVG fallback işləyir.
-  const fetusImageSrc = fetusImageFromDb || FETUS_IMAGES[fetusMonth] || FETUS_IMAGES[1];
+  // yeniləmədən dəyişir). Daxili SVG dərhal göstərilir; uzaq şəkil tam
+  // yükləndikdən sonra onu əvəz edir (yavaş şəbəkə/offline/xəta halında SVG qalır).
+  const fetusFallbackSrc = FETUS_IMAGES[fetusMonth] || FETUS_IMAGES[1];
 
   // For progress bar and development milestones, use actual current day
   const daysLeft = daysUntilDueFromSelected;
@@ -376,22 +381,12 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
           </span>
           {/* Üzmə hərəkəti CSS-dədir (compositor) — framer-in sonsuz JS döngüsü əvəzinə */}
           <div className="a-float">
-          <motion.img
-            src={fetusImageSrc}
-            onError={(event) => {
-              const fallback = FETUS_IMAGES[fetusMonth] || FETUS_IMAGES[1];
-              if (event.currentTarget.src !== new URL(fallback, window.location.href).href) {
-                event.currentTarget.src = fallback;
-              }
-            }}
+          <FetusHeroImage
+            remoteSrc={fetusImageFromDb}
+            fallbackSrc={fetusFallbackSrc}
+            preloadSrcs={[fetusImageNext, fetusImagePrev]}
             alt={`${selectedWeek} ${tr("dashboard_week_baby", "həftəlik körpə")}`}
-            style={{ width: 128, height: 128, objectFit: 'contain', filter: 'drop-shadow(0 14px 18px rgba(217, 108, 74, 0.3))' }}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{
-              scale: { delay: 0.2, type: "spring" },
-              opacity: { delay: 0.2 }
-            }} />
+            style={{ width: 128, height: 128, objectFit: 'contain', filter: 'drop-shadow(0 14px 18px rgba(217, 108, 74, 0.3))' }} />
           </div>
           
         </div>
