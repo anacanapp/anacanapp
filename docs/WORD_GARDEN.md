@@ -31,27 +31,39 @@ Tətbiqdə **Alətlər → Mini Oyunlar → Söz bağı**.
 
 `src/components/games/word-garden/data/az.json`:
 
-- Revision **`az-202610-v2`**: **6 857 lüğət sözü**, bunlardan **2 921 əsas tapmaca
-  sözü**, **412 tanış başlanğıc sözü**. Eyni təsdiqlənmiş lüğət snapshot-ından911
-  əlavə corpus-confirmed lemma əsas oyun seçiminə daxil edilib.
+- Cari revision **`az-202611-v3`**: **7 745 lüğət sözü**, bunlardan **5 606 əsas
+  tapmaca sözü** (v2: 6 857 / 2 921), **743 tanış başlanğıc sözü**. Hədəf sözləri
+  uzunluq üzrə (v2→v3): 3 hərf 235→318, 4 hərf 459→679, 5 hərf 846→1 477,
+  6 hərf 599→1 230, 7 hərf 423→981, 8 hərf 359→921.
+- v3 = dəyişməz v2 snapshot + əl ilə yazılmış/yoxlanmış Azərbaycan baş sözləri
+  (`scripts/word-garden/az-editorial-v3.json`): 888 yeni söz, 886 redaktə və 822
+  korpusla təsdiqlənmiş lüğət sözü hədəfə keçirilib. Arxaik, şəkilçili, zorakılıq,
+  spirtli içki/tütün və təhqir sözləri yalnız bonus qalır. Xüsusi ad, maşın tərcüməsi
+  və başqa dilin lüğəti yoxdur. Qurulma: `node scripts/word-garden/expand-az-v3.mjs --from-v2`.
 - Mənbə: Wiktionary / Kaikki.org; tezlik sıralaması Leipzig əsaslı
-  `aosp-dict-az` məlumatından. Data attribution və CC BY-SA4.0:
+  `aosp-dict-az` məlumatından (eyni pinned SHA). Data attribution və CC BY-SA4.0:
   `src/components/games/word-garden/data/README.md`.
 - Latin əlifbası, NFC normallaşdırılması, Azərbaycan case qaydaları,3–8hərf,
   baş söz və istifadə/tezlik filtrləri. Sözlər runtime-da avtomatik tərcümə edilmir.
-- Yeni səviyyə dil + kitabxana versiyası + rejim + səviyyə nömrəsinə bağlı
-  deterministik seed-dən yaranır. Eyni giriş eyni hərfləri və lövhəni verir.
+- **Hər oyunçuya ayrı söz ardıcıllığı (v3):** profil ilk dəfə açılanda təsadüfi
+  uint32 `seed` yaranır və irəliləyişlə birlikdə saxlanır (hesab/şəxsi data yoxdur).
+  Səviyyə dil + revision + rejim + səviyyə + oyunçu seed-indən deterministik yaranır:
+  eyni oyunçu həmişə eyni N-ci səviyyəni alır (resume/reload), fərqli oyunçular fərqli
+  sözlər görür (2 400 səviyyədə iki seed arasında 2 400/2 400 fərqli).
+- **Təkrarsız paylama (v3):** hər çətinlik pilləsinin rack-ları oyunçuya məxsus
+  permutasiya ilə paylanır; 1–220 və hər 8 hərfli dövr daxilində eyni rack/ən uzun söz
+  təkrarlanmır. Cavab sözü yalnız həmin rack-a uyğun istifadə olunmamış söz
+  qalmayanda (ən köhnə istifadə edilən) qayıdır; son5tapmacanın sözləri mümkün qədər
+  bloklanır, qonşu səviyyədə təkrar0. Uzunluq hovuzu tükənəndə yeni dövr başlayır.
+  İstifadə tarixçəsi saxlanmır — run yaddaşda seed-dən bərpa olunur, save bounded qalır.
 - Çətinlik4→8hərf və2→8sözə artır; bütün sözlər bir-birinə kəsişmə ilə bağlıdır.
   Səhv hərflər, paralel təsadüfi sözlər və həllsiz səviyyələr qəbul edilmir.
-- Hərf dəstləri çətinlik üzrə qarışdırılmış deck-dən təkrar istifadə etmədən
-  paylanır; son6tapmacanın sözlərinə güclü təkrar cəriməsi tətbiq edilir.
-  Sonrakı deck cycle yeni söz seçimi/lövhə ilə yaranır; sonlu söz kitabxanasında
-  uzaq səviyyələrdə təkrar mümkündür. İlk20tapmaca hər iki rejimdə fərqlidir.
+- v1/v2 revision-ları (`az-v1.json`, `az-v2.json`, SHA saxlanılıb) köhnə ümumi
+  generatorla, seed-siz, bayt-bayt eyni yaranır ki yarımçıq save dəyişməsin.
 - Generator Web Worker-də işləyir; ağır lüğət/genişlənən səviyyə siyahısı əsas
   ekran render-ini bloklamır. Lüğət lazy asset olaraq bundle-ə daxil olur.
 - Son30/300səviyyə kimi oyun limiti yoxdur. Sabit lüğət sonlu olduğundan uzun
-  müddətdə sözlər və bəzi kombinasiyalar təkrarlana bilər; generator yeni səviyyə
-  nömrələri, söz seçimləri və lövhə düzülüşləri yaratmağa davam edir.
+  müddətdə sözlər təkrarlana bilər; generator yeni dövrlərdə yeni permutasiya yaradır.
 
 İdxal və yoxlama:
 
@@ -83,11 +95,14 @@ Yeni dil üçün:
 
 Progress açarı:
 `anacan_word_garden_v1:<language>:<revision>:<calm|timed>`.
+v3 profilində əlavə olaraq tək `seed` (uint32) saxlanır; lobby açılışı yazmır, seed
+ilk progress yazısı ilə (raund yaranmazdan əvvəl) saxlanır.
 Dil, kitabxana revision-u və rejimlər ayrı saxlanır. Son180səviyyənin detallı
 ulduz/xalı, ümumi irəliləyiş və yalnız cari səviyyənin bonus claim-ləri saxlanır;
 yaddaş səviyyə sayı ilə limitsiz böyümür. Storage quota olduqda mövcud cache
 reclamation helper-i istifadə olunur, Auth/pin/session və digər game progress silinmir.
-v1→v2 keçidində ləçək/ulduz/xal/unlockedlevel və yarımçıq raund saxlanır.
+v1→v2 və v2(və ya v1)→v3 keçidində ləçək/ulduz/xal/unlockedlevel və yarımçıq raund
+saxlanır; v3 açarı yoxdursa ən yeni köhnə save qəbul edilir və yeni seed verilir.
 Yarımçıq raund original`az-v1.json` və legacygenerator ilə eyni sözləri açır;
 növbəti səviyyəv2-dir. Köhnə save və lüğət baytları silinmir. Currentv2-də
 restart/reload earnedəlavəvaxtı azaltmır; legacytimedround yeni qısa büdcəyə tabedir.
@@ -120,6 +135,10 @@ Qəbul:
 - Original48.0workspace ilə32legacyv1puzzle qarşılaşdırılıb; söz/lövhə/seed/id
   eyniliyi vəoriginaldictionarySHA qəbul edilib. Receipt:`legacy-verification.json`.
 - App/node TypeScript, feature ESLint və Google-mode production build keçir.
+- v3 (2026-11): `verify-levels.mjs` iki oyunçu seed-i × iki rejim üzrə **9 612 səviyyə**
+  (1–2400 + uzaq nömrələr) keçir; qonşu təkrar söz/rack0, eynitapmaca0, timed25–100s,
+  hər oyunçuda ~3 500 fərqli hədəf sözü (v2: ~1 670). v1/v2 generasiyası əvvəlki kodla
+  604/604 eynidir. Generator/state/UI testləri seed, təkrarsızlıq və v2→v3 adoption-u yoxlayır.
 
 Yekun credential-free qəbul qeydi: `scripts/word-garden/acceptance.json`.
 Digər mövcud mini oyunlar, reklam mükafatı və xal sinxronunun48focused testi

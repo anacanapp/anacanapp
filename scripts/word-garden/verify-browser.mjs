@@ -48,7 +48,7 @@ try {
     return context;
   }
   function seedProfile(level) {
-    return { schema: 'anacan-word-garden-profile-v1', language: 'az', revision: library.revision, mode: 'calm', round: null,
+    return { schema: 'anacan-word-garden-profile-v1', language: 'az', revision: library.revision, mode: 'calm', round: null, seed: 1,
       progress: { unlockedLevel: level, coins: 75, totalWords: 0, totalBonusWords: 0, bestScore: 0, levels: {}, bonusClaims: { level, words: [] } } };
   }
   async function screenshot(page, name) {
@@ -110,7 +110,9 @@ try {
   stage = 'first-game'; console.log(JSON.stringify({ stage }));
   await page.getByRole('button', { name: /Oyna/ }).click(); await page.getByTestId('wordgarden-wheel').waitFor();
   await screenshot(page, 'game-mobile');
-  const firstLevel = engine.generateGardenLevel(lexicon, 1);
+  // Seeded revisions deal the player's own words: read the seed saved with the round.
+  const playerSeed = await page.evaluate(revision => JSON.parse(localStorage.getItem(`anacan_word_garden_v1:az:${revision}:calm`)).seed, library.revision);
+  const firstLevel = engine.generateGardenLevel(lexicon, 1, 'calm', playerSeed);
   stage = 'pointer-game'; console.log(JSON.stringify({ stage, words: firstLevel.words.map(word => word.word) }));
   for (const word of firstLevel.words) { await drawWord(page, word.word); console.log(JSON.stringify({ stage, word: word.word })); }
   await page.getByRole('heading', { name: 'Bağın çiçəkləndi!' }).waitFor();
@@ -120,7 +122,7 @@ try {
   await page.getByRole('button', { name: 'Növbəti səviyyə' }).click();
   await page.getByRole('heading', { name: 'Səviyyə 2' }).waitFor();
   await page.getByTestId('wordgarden-wheel').waitFor();
-  const secondLevel = engine.generateGardenLevel(lexicon, 2);
+  const secondLevel = engine.generateGardenLevel(lexicon, 2, 'calm', playerSeed);
   assert(!firstLevel.words.some(word => secondLevel.words.some(answer => answer.word === word.word)), 'BROWSER_ADJACENT_PUZZLE_REPEATED');
   await page.getByRole('button', { name: /1 nömrəli söz/ }).click();
   assert(await page.locator('.wg-cell.is-focused').count() === secondLevel.words[0].letters.length, 'BROWSER_WORD_FOCUS_FAILED');
@@ -159,7 +161,8 @@ try {
   const pausedTime = await remaining(); await timedPage.waitForTimeout(600);
   assert(await remaining() === pausedTime, 'BROWSER_PAUSED_TIMER_CHANGED');
   await timedPage.getByRole('button', { name: 'Oyuna davam et' }).click();
-  const timedLevel = engine.generateGardenLevel(lexicon, 1, 'timed');
+  const timedSeed = await timedPage.evaluate(revision => JSON.parse(localStorage.getItem(`anacan_word_garden_v1:az:${revision}:timed`)).seed, library.revision);
+  const timedLevel = engine.generateGardenLevel(lexicon, 1, 'timed', timedSeed);
   for (const answer of timedLevel.words) await touchWord(timedPage, answer.word);
   await timedPage.getByRole('heading', { name: 'Bağın çiçəkləndi!' }).waitFor();
   await screenshot(timedPage, 'timed-win'); report.checks.push('short-timer-ready-pause-and-real-touch-win');

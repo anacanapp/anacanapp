@@ -1,48 +1,87 @@
 {
-  "at": "2026-10-08T18:37:48.755Z",
+  "at": "2026-11-06T16:07:19.858Z",
   "passed": true,
   "language": "az",
-  "revision": "az-202610-v2",
-  "words": 6857,
-  "targets": 2921,
-  "generated": 4806,
+  "revision": "az-202611-v3",
+  "words": 7745,
+  "targets": 5606,
+  "generated": 9612,
   "failures": [],
   "wordCounts": {
-    "1:3": 8,
-    "1:2": 12,
-    "2:4": 60,
-    "3:5": 120,
-    "4:6": 240,
-    "5:8": 1802,
-    "5:7": 2001,
-    "5:6": 258,
-    "5:5": 88,
-    "5:4": 145,
-    "5:3": 72
+    "1:3": 14,
+    "1:2": 26,
+    "2:4": 75,
+    "2:3": 45,
+    "3:5": 177,
+    "3:4": 40,
+    "3:3": 23,
+    "4:6": 375,
+    "4:5": 65,
+    "4:4": 22,
+    "4:3": 18,
+    "5:8": 3613,
+    "5:7": 4114,
+    "5:6": 593,
+    "5:3": 110,
+    "5:5": 229,
+    "5:4": 73
   },
   "variants": {
-    "calm": 1796,
-    "timed": 1792
+    "calm:0": 2079,
+    "timed:0": 2061,
+    "calm:2026110601": 2060,
+    "timed:2026110601": 2055
   },
   "variety": {
-    "calm": {
+    "calm:0": {
       "distinctFirstTwenty": 20,
-      "encounteredTargetWords": 1679,
+      "encounteredTargetWords": 3492,
       "adjacentRepeatedWords": 0,
       "adjacentRepeatedRacks": 0,
       "repeatedPuzzles": 0
     },
-    "timed": {
+    "timed:0": {
       "distinctFirstTwenty": 20,
-      "encounteredTargetWords": 1666,
+      "encounteredTargetWords": 3529,
+      "adjacentRepeatedWords": 0,
+      "adjacentRepeatedRacks": 0,
+      "repeatedPuzzles": 0
+    },
+    "calm:2026110601": {
+      "distinctFirstTwenty": 20,
+      "encounteredTargetWords": 3529,
+      "adjacentRepeatedWords": 0,
+      "adjacentRepeatedRacks": 0,
+      "repeatedPuzzles": 0
+    },
+    "timed:2026110601": {
+      "distinctFirstTwenty": 20,
+      "encounteredTargetWords": 3532,
       "adjacentRepeatedWords": 0,
       "adjacentRepeatedRacks": 0,
       "repeatedPuzzles": 0
     }
   },
   "timeLimits": {
-    "minimum": 25,
-    "maximum": 98,
-    "firstLevel": 31
+    "timed:0": {
+      "minimum": 25,
+      "maximum": 100,
+      "firstLevel": 32
+    },
+    "timed:2026110601": {
+      "minimum": 25,
+      "maximum": 100,
+      "firstLevel": 31
+    }
+  },
+  "crossPlayer": {
+    "calm": {
+      "levels": 2400,
+      "differingLevels": 2400
+    },
+    "timed": {
+      "levels": 2400,
+      "differingLevels": 2400
+    }
   }
 }
