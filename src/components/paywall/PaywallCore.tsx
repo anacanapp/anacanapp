@@ -366,10 +366,10 @@ const PaywallCore = ({ feature, onPurchased, onNonNativeCta, compact = false }: 
             <span style={{ fontSize: 10.5, color: 'var(--a-ink-faint)' }}>•</span>
           </>
         }
-        <a href="https://anacanapp.lovable.app/legal/terms_of_service" target="_blank" rel="noopener noreferrer"
+        <a href="https://anacan.az/az/istifade-sertleri/" target="_blank" rel="noopener noreferrer"
         className="underline" style={{ fontSize: 10.5, color: 'var(--a-ink-soft)' }}>{cfg.terms_label}</a>
         <span style={{ fontSize: 10.5, color: 'var(--a-ink-faint)' }}>•</span>
-        <a href="https://anacanapp.lovable.app/legal/privacy_policy" target="_blank" rel="noopener noreferrer"
+        <a href="https://anacan.az/az/mexfilik-siyaseti/" target="_blank" rel="noopener noreferrer"
         className="underline" style={{ fontSize: 10.5, color: 'var(--a-ink-soft)' }}>{cfg.privacy_label}</a>
       </div>
 

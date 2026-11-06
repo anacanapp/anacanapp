@@ -76,7 +76,10 @@
   .anacan-website .hs-head { flex-wrap: wrap; align-items: flex-end; }
   .anacan-website .hs-head-actions .hs-arrow { display: none; }
   .anacan-website .hs-head-actions .site-text-link { margin: 0; }
-  .anacan-website .hs-grid5 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
-  .anacan-website .hs-grid5 > :nth-child(n+7) { display: none; }
-  .anacan-website .hs-rail { grid-auto-columns: 64%; gap: 14px; }
+  /* Phones: books and cakes are horizontal sliders (swipe), not long stacked lists. */
+  .anacan-website .hs-grid5 { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 42%; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px; }
+  .anacan-website .hs-grid5::-webkit-scrollbar { display: none; }
+  .anacan-website .hs-grid5 > * { scroll-snap-align: start; }
+  .anacan-website .hs-grid5 > :nth-child(n+9) { display: grid; }
+  .anacan-website .hs-rail { grid-auto-columns: 58%; gap: 14px; margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px; }
 }

@@ -20,11 +20,12 @@ import { setPrivacyConsent, usePrivacyConsent } from '@/lib/privacyConsent';
 interface PrivacyScreenProps {
   onBack: () => void;
   onOpenAdSettings?: () => void;
+  onOpenLegal?: (documentType: string) => void;
 }
 
 const SWITCH_CLS = "data-[state=checked]:bg-[var(--a-peach-2)]";
 
-const PrivacyScreen = ({ onBack, onOpenAdSettings }: PrivacyScreenProps) => {
+const PrivacyScreen = ({ onBack, onOpenAdSettings, onOpenLegal }: PrivacyScreenProps) => {
   useScrollToTop();
 
   const { user, signOut } = useAuth();
@@ -88,11 +89,13 @@ const PrivacyScreen = ({ onBack, onOpenAdSettings }: PrivacyScreenProps) => {
 
     setDeleting(true);
     try {
-      // Delete user data from various tables
-      await supabase.from('daily_logs').delete().eq('user_id', user.id);
-      await supabase.from('notifications').delete().eq('user_id', user.id);
-      await supabase.from('appointments').delete().eq('user_id', user.id);
-      await supabase.from('profiles').delete().eq('user_id', user.id);
+      // Same server-side deletion as Settings: removes all user data and the auth user.
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) throw new Error(tr("settingsscreen_sessiya_tapilmadi_2d6594", "Sessiya tapılmadı"));
+      const { error } = await supabase.functions.invoke('delete-user-account', {
+        headers: { Authorization: `Bearer ${session.access_token}` }
+      });
+      if (error) throw error;
 
       // Sign out
       await signOut();
@@ -250,7 +253,7 @@ const PrivacyScreen = ({ onBack, onOpenAdSettings }: PrivacyScreenProps) => {
 
             <p className="text-center" style={{ fontSize: 12.5, color: 'var(--a-disclaimer-ink)' }}>
               {tr("privacyscreen_gizlilik_siyasetimiz_ve_istifa_8c585b", "Gizlilik siyas\u0259timiz v\u0259 istifad\u0259 \u015F\u0259rtl\u0259rimiz haqq\u0131nda \u0259trafl\u0131 m\u0259lumat \xFC\xE7\xFCn")}{' '}
-              <a href="#" style={{ color: 'var(--a-disclaimer-strong)', fontWeight: 700 }}>{tr("privacyscreen_buraya_klikleyin_c20d44", "buraya klikləyin")}</a>.
+              <a href="#" onClick={(event) => { event.preventDefault(); onOpenLegal?.('privacy_policy'); }} style={{ color: 'var(--a-disclaimer-strong)', fontWeight: 700 }}>{tr("privacyscreen_buraya_klikleyin_c20d44", "buraya klikləyin")}</a>.
             </p>
           </motion.div>
         </div>
