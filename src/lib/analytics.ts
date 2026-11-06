@@ -112,6 +112,10 @@ export type AnalyticsEvent =
   | 'qc_redeem_toggle'
   | 'qc_redeem_commit'
   | 'qc_premium_redeem'
+  | 'recap_opened'
+  | 'recap_completed'
+  | 'recap_exported'
+  | 'recap_shared'
   | 'custom_event';
 
 export interface AnalyticsParams {
@@ -138,6 +142,7 @@ const EVENT_CATEGORIES: Record<string, string> = {
   place_viewed: 'content', product_viewed: 'content',
   books_store_viewed: 'commerce', book_viewed: 'commerce', book_added_to_cart: 'commerce', book_removed_from_cart: 'commerce', books_collection_added: 'commerce', books_checkout_started: 'commerce', books_checkout_unavailable: 'commerce', books_purchase_confirmed: 'commerce', book_downloaded: 'commerce', books_reco_clicked: 'commerce',
   qc_wallet_view: 'commerce', qc_redeem_toggle: 'commerce', qc_redeem_commit: 'commerce', qc_premium_redeem: 'commerce',
+  recap_opened: 'recap', recap_completed: 'recap', recap_exported: 'recap', recap_shared: 'recap',
   shopping_item_added: 'tools', appointment_created: 'tools',
   partner_linked: 'social',
   screen_view: 'navigation', page_view: 'navigation',

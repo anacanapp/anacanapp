@@ -8,7 +8,7 @@ import {
   ChevronRight, Crown, Copy, Share2,
   Heart, Calendar, Palette, ShieldCheck, Edit, CreditCard, Info, ArrowLeft, X,
   MessageCircle, Baby, ShoppingCart, TrendingUp, Gift, Plus, Trash2, Users,
-  FileText, Scale, AlertCircle, RotateCcw, Database, Sparkles, HeartPulse , LayoutGrid, Coins } from
+  FileText, Scale, AlertCircle, RotateCcw, Database, Sparkles, HeartPulse , LayoutGrid, Coins, Clapperboard } from
 'lucide-react';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
@@ -37,6 +37,7 @@ import { moderatorText } from '@/lib/moderator-i18n';
 import ProfileTabs, { ProfileRows, type ProfileRow, type ProfileTab } from '@/components/profile/ProfileTabs';
 import { useAppSetting } from '@/hooks/useAppSettings';
 import { useQaygiCashWallet } from '@/hooks/useQaygiCash';
+import { useRecapProfileRow } from '@/components/recap/RecapEntry';
 import { QC_BRAND, formatQc } from '@/lib/qaygicash';
 import { qf } from '@/lib/qaygicash-copy';
 
@@ -86,6 +87,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   const { isPremium } = useSubscription();
   // QayğıCash bonus wallet: listed only where the programme is on for this account.
   const { wallet: qcWallet } = useQaygiCashWallet();
+  // Anacan Recap 2026: listed only while the server says it is available for this person.
+  const recapRow = useRecapProfileRow();
   const [partnerCode, setPartnerCode] = useState(profile?.partner_code || 'ANACAN-XXXX');
   const [showPremiumModal, setShowPremiumModal] = useState(false);
   const [showPartnerInfo, setShowPartnerInfo] = useState(false);
@@ -150,6 +153,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
 
   const menuItems = [
   { id: 'billing', icon: CreditCard, label: tr("profilescreen_abuneliyim_f6c8ed", 'Abunəliyim') },
+  ...(recapRow ? [{ id: recapRow.id, icon: Clapperboard, label: recapRow.label, badge: '✨' }] : []),
   ...(qcWallet ? [{ id: 'qaygicash', icon: Coins, label: QC_BRAND, badge: formatQc(qcWallet.available_minor, language) }] : []),
   { id: 'referral', icon: Gift, label: tr("profilescreen_referral", 'Dostunu dəvət et'), badge: tr("profilescreen_referral_badge", '+7 gün') },
   { id: 'partners', icon: Sparkles, label: tr("profilescreen_partnyor_endirimleri_e44036", "Partnyor Endirimləri"), badge: tr("profilescreen_badge_yeni", "Yeni") },
@@ -172,6 +176,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   const T = (bg: string, ink: string): [string, string] => [bg, ink];
   const meRows: ProfileRow[] = [
   { id: 'billing', icon: CreditCard, label: tr("profilescreen_abuneliyim_f6c8ed", 'Abunəliyim'), sub: isPremium ? tr("profilescreen_premium_abuneliyiniz_aktivdir_9f6e62", "Premium abunəliyiniz aktivdir") : tr("profilescreen_butun_xususiyyetleri_acin_a7583b", "Bütün xüsusiyyətləri açın"), tint: T('var(--a-yellow-1)', 'var(--a-warn-ink)') },
+  ...(recapRow ? [{ id: recapRow.id, icon: Clapperboard, label: recapRow.label, sub: recapRow.sub, tint: T('var(--a-pink-1)', 'var(--a-pink-ink)') }] : []),
   ...(qcWallet ? [{ id: 'qaygicash', icon: Coins, label: QC_BRAND, sub: qf('qc_profile_sub', { amount: formatQc(qcWallet.available_minor, language) }), tint: T('var(--a-peach-1)', 'var(--a-accent-ink)') }] : []),
   { id: 'referral', icon: Gift, label: tr("profilescreen_referral", 'Dostunu dəvət et'), badge: tr("profilescreen_referral_badge", '+7 gün'), tint: T('var(--a-green-1)', 'var(--a-green-ink)') },
   { id: 'partners', icon: Sparkles, label: tr("profilescreen_partnyor_endirimleri_e44036", "Partnyor Endirimləri"), badge: tr("profilescreen_badge_yeni", "Yeni"), tint: T('var(--a-pink-1)', 'var(--a-pink-ink)') },

@@ -117,6 +117,7 @@ const PartnersScreen = lazy(() => import('@/components/partners/PartnersScreen')
 const AdPreferencesScreen = lazy(() => import('@/components/ads/AdPreferencesScreen'));
 const BookStoreScreen = lazy(() => import('@/components/books/BookStoreScreen'));
 const QaygiCashScreen = lazy(() => import('@/components/qaygicash/QaygiCashScreen'));
+const RecapScreen = lazy(() => import('@/components/recap/RecapScreen'));
 // Module scope: a lazy() created during render is a new component type every render.
 const ForceUpdateScreen = lazy(() => import('@/components/ForceUpdateScreen'));
 
@@ -887,6 +888,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'health-sync') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HealthSyncScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   // QayğıCash bonus wallet; the screen itself shows nothing when the programme is off for this account.
   if (activeScreen === 'qaygicash') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><QaygiCashScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  // Anacan Recap 2026 player; the screen shows nothing to play unless the server says available.
+  if (activeScreen === 'recap') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><RecapScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'referral') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><ReferralScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'doctor-report') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><DoctorReportScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'calendar') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><CalendarScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
