@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
-import { installKeyboardViewport, isKeyboardEditable, revealKeyboardField } from './keyboard-viewport';
+import { installKeyboardViewport, isKeyboardEditable, keyboardLiftTargets, revealKeyboardField } from './keyboard-viewport';
 
 let uninstall: (() => void) | undefined;
 beforeEach(() => { vi.useFakeTimers(); });
@@ -31,4 +31,24 @@ it('tracks iOS overlay and Android resized keyboards without double inset, then 
   uninstall(); uninstall = undefined; viewport.dispatchEvent(new Event('resize')); vi.advanceTimersByTime(350);
   expect(document.documentElement.dataset.keyboardOpen).toBeUndefined(); expect(document.documentElement.style.getPropertyValue('--app-visual-height')).toBe('');
   vi.unstubAllGlobals();
+});
+it('lifts a custom fixed overlay iOS leaves under the keyboard and releases it on blur', () => {
+  const viewport = new EventTarget() as EventTarget & { height: number; offsetTop: number; scale: number };
+  Object.assign(viewport, { height: 800, offsetTop: 0, scale: 1 });
+  vi.stubGlobal('visualViewport', viewport); vi.stubGlobal('innerHeight', 800);
+  const overlay = document.createElement('div'), sheet = document.createElement('div'), field = document.createElement('input');
+  overlay.style.position = 'fixed'; sheet.append(field); overlay.append(sheet); document.body.append(overlay);
+  overlay.getBoundingClientRect = () => ({ top: 0, bottom: 800, height: 800 }) as DOMRect;
+  uninstall = installKeyboardViewport(); field.focus();
+  viewport.height = 450; viewport.dispatchEvent(new Event('resize')); vi.advanceTimersByTime(350);
+  expect(overlay.dataset.keyboardLifted).toBe('fill'); expect(sheet.dataset.keyboardLiftedChild).toBe('true');
+  field.blur(); vi.advanceTimersByTime(50);
+  expect(overlay.dataset.keyboardLifted).toBeUndefined(); expect(sheet.dataset.keyboardLiftedChild).toBeUndefined();
+});
+it('lifts a bottom-anchored composer bar but never a self-managed sheet', () => {
+  const bar = document.createElement('div'), field = document.createElement('textarea'); bar.style.position = 'fixed'; bar.append(field); document.body.append(bar);
+  bar.getBoundingClientRect = () => ({ top: 720, bottom: 800, height: 80 }) as DOMRect;
+  expect(keyboardLiftTargets(field, 0, 450, 800).get(bar)).toBe('bottom');
+  bar.dataset.keyboardSurface = 'sheet'; expect(keyboardLiftTargets(field, 0, 450, 800).size).toBe(0);
+  delete bar.dataset.keyboardSurface; expect(keyboardLiftTargets(field, 0, 800, 800).size).toBe(0);
 });
