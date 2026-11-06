@@ -48,5 +48,7 @@
   "done_step1": "Tải ứng dụng Anacan",
   "done_step2": "Đăng nhập bằng cùng email (Google, Apple hoặc email)",
   "done_step3": "Nếu đăng ký bằng email, hãy nhập mã được gửi đến email của bạn vào ứng dụng — Premium sẽ tự động mở khóa",
-  "test_mode": "Chế độ thử nghiệm: không trừ tiền thật. Thẻ: 4242 4242 4242 4242, 06/32, 123"
+  "test_mode": "Chế độ thử nghiệm: không trừ tiền thật. Thẻ: 4242 4242 4242 4242, 06/32, 123",
+  "epoint_note": "Đây là khoản thanh toán một lần, không tự động gia hạn: 1 tháng hoặc 12 tháng Premium. Khi hết hạn, bạn có thể mua lại nếu muốn. Thanh toán bằng thẻ ngân hàng, bằng tiền manat (Epoint).",
+  "pay_failed": "Thanh toán chưa hoàn tất. Nếu thẻ chưa bị trừ tiền, vui lòng thử lại."
 }

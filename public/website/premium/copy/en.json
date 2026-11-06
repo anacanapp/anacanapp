@@ -48,5 +48,7 @@
   "done_step1": "Download the Anacan app",
   "done_step2": "Sign in with the same email (Google, Apple or email)",
   "done_step3": "If you sign up with email, enter the code sent to your inbox in the app — Premium will unlock automatically",
-  "test_mode": "Test mode: no real payment is taken. Card: 4242 4242 4242 4242, 06/32, 123"
+  "test_mode": "Test mode: no real payment is taken. Card: 4242 4242 4242 4242, 06/32, 123",
+  "epoint_note": "One-time payment, does not renew automatically: 1 month or 12 months Premium. When the period ends, you can buy it again if you want. Payment is by bank card in manats (Epoint).",
+  "pay_failed": "Payment was not completed. If your card was not charged, please try again."
 }

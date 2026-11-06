@@ -48,5 +48,7 @@
   "done_step1": "Lade die Anacan App herunter",
   "done_step2": "Melde dich mit derselben E-Mail an (Google, Apple oder E-Mail)",
   "done_step3": "Wenn du dich per E-Mail registrierst, gib den Code aus deinem Postfach in der App ein – Premium wird automatisch freigeschaltet",
-  "test_mode": "Testmodus: Es wird keine echte Zahlung abgebucht. Karte: 4242 4242 4242 4242, 06/32, 123"
+  "test_mode": "Testmodus: Es wird keine echte Zahlung abgebucht. Karte: 4242 4242 4242 4242, 06/32, 123",
+  "epoint_note": "Dies ist eine einmalige Zahlung, sie verlängert sich nicht automatisch: 1 Monat oder 12 Monate Premium. Nach Ablauf kannst du es auf Wunsch erneut kaufen. Die Zahlung erfolgt per Bankkarte in Manat (Epoint).",
+  "pay_failed": "Die Zahlung wurde nicht abgeschlossen. Falls kein Geld von deiner Karte abgebucht wurde, versuch es erneut."
 }

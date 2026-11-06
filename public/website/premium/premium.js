@@ -1,11 +1,14 @@
-/* Anacan Premium mini funnel (anacan.az). Steps: stage → needs → plan + e-mail → inline Dodo checkout → done.
-   The checkout session is created by api.anacan.az/functions/v1/dodo-checkout (Anacan theme, language, return URL);
-   Premium is granted only by the signed Dodo webhook, never by this page. */
+/* Anacan Premium mini funnel (anacan.az). Steps: stage → needs → plan + e-mail → checkout → done.
+   Card payments: Epoint (AZN, fixed-term pass; api.anacan.az/functions/v1/web-shop kind 'premium') when it is live,
+   otherwise Dodo (dodo-checkout). Premium is granted only by the signed provider callback/webhook, never by this page. */
 (function () {
   'use strict';
   var LANGS = ['az', 'en', 'tr', 'ru', 'kk', 'uz', 'ka', 'de', 'ar', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'];
   var API = 'https://api.anacan.az/functions/v1/dodo-checkout';
+  var WEB_SHOP = 'https://api.anacan.az/functions/v1/web-shop';
   var PRICES = { monthly: 2.22, yearly: 15.55 };
+  var CURRENCY = 'USD';
+  var provider = 'dodo'; // 'epoint' when web-shop reports the AZN passes as ready
   var APP_STORE = 'https://apps.apple.com/app/anacan/id6758301924';
   var GOOGLE_PLAY = 'https://play.google.com/store/apps/details?id=com.atlasoon.anacan';
   var CHARACTERS = { flow: 'ritm', bump: 'tumurcuq', mommy: 'qucaq' };
@@ -20,7 +23,8 @@
   var state = { step: 1, stage: store.get('stage'), needs: [], plan: 'yearly', email: store.get('email') || '' };
   var view = document.getElementById('view');
   var money = function (n) {
-    try { return new Intl.NumberFormat(lang === 'az' ? 'az-Latn-AZ' : lang, { style: 'currency', currency: 'USD' }).format(n); }
+    if (CURRENCY === 'AZN') return n.toFixed(2).replace('.', lang === 'en' || lang === 'zh' || lang === 'ja' || lang === 'ko' || lang === 'hi' ? '.' : ',') + ' ₼';
+    try { return new Intl.NumberFormat(lang === 'az' ? 'az-Latn-AZ' : lang, { style: 'currency', currency: CURRENCY }).format(n); }
     catch (e) { return '$' + n.toFixed(2); }
   };
   var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
@@ -92,8 +96,8 @@
       '<input class="email" id="email" type="email" inputmode="email" autocomplete="email" dir="ltr" placeholder="' + esc(t.email_placeholder) + '" value="' + esc(state.email) + '">' +
       '<p class="hint">' + esc(t.email_hint) + '</p><p class="error" id="err" hidden></p>' +
       '<button type="button" class="cta" id="pay">' + esc(t.pay) + '</button>' +
-      '<p class="secure">🔒 ' + esc(t.secure) + '</p>' +
-      '<p class="fine">' + esc(t.renew_note) + ' ' + esc(t.legal).replace(esc(t.terms), '<a href="https://anacan.az/terms" target="_blank" rel="noopener">' + esc(t.terms) + '</a>')
+      '<p class="secure">🔒 ' + esc(provider === 'epoint' ? t.secure.split(' · ')[0] : t.secure) + '</p>' +
+      '<p class="fine">' + esc(provider === 'epoint' ? (t.epoint_note || t.renew_note) : t.renew_note) + ' ' + esc(t.legal).replace(esc(t.terms), '<a href="https://anacan.az/terms" target="_blank" rel="noopener">' + esc(t.terms) + '</a>')
         .replace(esc(t.privacy), '<a href="https://anacan.az/privacy" target="_blank" rel="noopener">' + esc(t.privacy) + '</a>') + '</p>';
     view.querySelectorAll('.plan').forEach(function (b) {
       b.onclick = function () {
@@ -112,7 +116,18 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showError(t.email_invalid); input.focus(); return; }
     state.email = email; store.set('email', email); store.set('plan', state.plan);
     var pay = document.getElementById('pay'); pay.disabled = true; pay.textContent = t.loading;
-    track('checkout_start', { plan: state.plan });
+    track('checkout_start', { plan: state.plan, provider: provider });
+    if (provider === 'epoint') {
+      fetch(WEB_SHOP, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind: 'premium', plan: state.plan, email: email, language: lang }) })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (!res.ok || !res.d.checkout_url || !/^https:\/\/[a-z0-9.-]+\.az(:443)?\//.test(res.d.checkout_url)) throw new Error(res.d && res.d.error || 'checkout');
+          location.href = res.d.checkout_url; // Epoint / bank card page; it returns to this funnel
+        })
+        .catch(function () { pay.disabled = false; pay.textContent = t.pay; showError(t.error); });
+      return;
+    }
     fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ plan: state.plan, email: email, language: lang, pay_label: t.pay.slice(0, 40) }) })
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
@@ -175,7 +190,17 @@
     document.documentElement.lang = lang;
     document.documentElement.dir = copy.dir || 'ltr';
     document.title = copy.title;
-    if (params.get('done') === '1') done(); else go(1);
-    track('view');
+    // Epoint passes in AZN when live (web-shop GET); the page keeps working with Dodo if that check fails.
+    fetch(WEB_SHOP).then(function (r) { return r.json(); }).then(function (info) {
+      var p = info && info.premium;
+      if (p && p.ready && p.prices && p.prices.monthly > 0 && p.prices.yearly > 0) {
+        provider = 'epoint'; CURRENCY = 'AZN'; PRICES = { monthly: Number(p.prices.monthly), yearly: Number(p.prices.yearly) };
+      }
+    }).catch(function () { /* Dodo fallback */ }).then(function () {
+      if (params.get('done') === '1') done();
+      else if (params.get('pay') === 'failed') { go(3); showError(t.pay_failed || t.error); track('payment_failed'); }
+      else go(1);
+      track('view', { provider: provider });
+    });
   }).catch(function () { view.innerHTML = '<p class="loading">Anacan Premium</p>'; });
 })();

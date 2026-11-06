@@ -1,6 +1,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { applyBookPaymentResult, isBookOrder } from '../_shared/book-result.ts';
 import { applyWebCakeResult, isWebCakeOrder } from '../_shared/web-cake-result.ts';
+import { applyWebPremiumResult, isWebPremiumOrder } from '../_shared/web-premium-result.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -210,6 +211,12 @@ Deno.serve(async (req: Request) => {
       if (await isWebCakeOrder(admin, result.order_id)) {
         const outcome = await applyWebCakeResult(admin, { ready: true, merchantLive: true, booksEnabled: true, publicKey, privateKey }, result);
         if (outcome === 'not_confirmed') throw new PaymentError(409, 'cake_payment_not_confirmed');
+        return new Response('OK', { headers: { 'Cache-Control': 'no-store' } });
+      }
+      // Premium passes from the anacan.az funnel (web_premium_orders; fixed-term web subscription on success).
+      if (await isWebPremiumOrder(admin, result.order_id)) {
+        const outcome = await applyWebPremiumResult(admin, { ready: true, merchantLive: true, booksEnabled: true, publicKey, privateKey }, result);
+        if (outcome === 'not_confirmed' || outcome === 'grant_failed') throw new PaymentError(outcome === 'not_confirmed' ? 409 : 503, 'premium_payment_' + outcome);
         return new Response('OK', { headers: { 'Cache-Control': 'no-store' } });
       }
       if (typeof result.order_id !== 'string' || !reference.test(result.order_id)

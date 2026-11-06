@@ -48,5 +48,7 @@
   "done_step1": "Descarrega a app Anacan",
   "done_step2": "Inicia sessão com o mesmo e-mail (Google, Apple ou e-mail)",
   "done_step3": "Se te registares com e-mail, introduz na app o código que recebeste por e-mail — o Premium será desbloqueado automaticamente",
-  "test_mode": "Modo de teste: não é feito nenhum pagamento real. Cartão: 4242 4242 4242 4242, 06/32, 123"
+  "test_mode": "Modo de teste: não é feito nenhum pagamento real. Cartão: 4242 4242 4242 4242, 06/32, 123",
+  "epoint_note": "É um pagamento único, não é renovado automaticamente: 1 mês ou 12 meses de Premium. Quando o período terminar, podes comprar novamente se quiseres. Pagamento com cartão bancário, em manat (Epoint).",
+  "pay_failed": "O pagamento não foi concluído. Se o valor não foi debitado do cartão, tenta novamente."
 }

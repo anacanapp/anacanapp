@@ -2,6 +2,8 @@
 // GET  → { books: { ready }, cakes: { ready } } so the page can say when card payment is not live yet.
 // POST → { kind: 'books' | 'cakes', … } creates the order with server-side prices and returns the Epoint
 //        payment page. Orders are confirmed only by the signed Epoint callback (epoint-payment).
+// POST → { kind: 'premium', plan, email, language } for the Premium funnel (anacan.az/website/premium): a fixed-term
+//        pass in AZN (app_settings.web_premium_epoint), granted by the callback as a web subscription.
 // A web order is linked to an existing Anacan account with the same e-mail, so bought books also appear
 // in "Kitablarım" in the app.
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.1';
@@ -16,6 +18,19 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const FLAVORS = ['Vanil', 'Şokolad', 'Çiyələk', 'Karamel'];
 const SLOTS = ['10:00–13:00', '14:00–18:00'];
 const PHOTO_BOX_EXTRA = 18;
+const FUNNEL_LANGS = ['az', 'en', 'tr', 'ru', 'kk', 'uz', 'ka', 'de', 'ar', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'];
+// Epoint's payment page speaks az, en and ru.
+const epointLanguage = (lang: string) => lang === 'az' ? 'az' : ['ru', 'kk', 'uz', 'ky'].includes(lang) ? 'ru' : 'en';
+
+function premiumSetting(value: unknown): { enabled: boolean; prices: { monthly: number; yearly: number } | null } {
+  let v: unknown = value;
+  for (let i = 0; i < 2 && typeof v === 'string'; i++) { try { v = JSON.parse(v); } catch { break; } }
+  const o = v && typeof v === 'object' ? v as Record<string, unknown> : {};
+  const p = o.prices && typeof o.prices === 'object' ? o.prices as Record<string, unknown> : {};
+  const price = (x: unknown) => { const n = Number(x); return Number.isFinite(n) && n >= 0.5 && n <= 500 ? Math.round(n * 100) / 100 : null; };
+  const monthly = price(p.monthly), yearly = price(p.yearly);
+  return { enabled: o.enabled === true, prices: monthly && yearly ? { monthly, yearly } : null };
+}
 
 function headersFor(origin: string | null) {
   return {
@@ -39,8 +54,11 @@ Deno.serve(async (req) => {
   const config = await epointConfig(admin);
   const { data: cakeSetting } = await admin.from('app_settings').select('value').eq('key', 'cakes_web_payments_enabled').maybeSingle();
   const cakesEnabled = String(cakeSetting?.value ?? '').replace(/"/g, '') === 'true';
-  const ready = { books: config.ready, cakes: config.merchantLive && cakesEnabled };
-  if (req.method === 'GET') return reply(200, { books: { ready: ready.books }, cakes: { ready: ready.cakes } });
+  const { data: premiumRow } = await admin.from('app_settings').select('value').eq('key', 'web_premium_epoint').maybeSingle();
+  const premium = premiumSetting(premiumRow?.value);
+  const ready = { books: config.ready, cakes: config.merchantLive && cakesEnabled, premium: config.merchantLive && premium.enabled && !!premium.prices };
+  if (req.method === 'GET') return reply(200, { books: { ready: ready.books }, cakes: { ready: ready.cakes },
+    premium: { ready: ready.premium, currency: 'AZN', prices: ready.premium ? premium.prices : null } });
   if (req.method !== 'POST') return reply(405, { error: 'method_not_allowed' });
 
   let body: Record<string, unknown>;
@@ -51,6 +69,22 @@ Deno.serve(async (req) => {
   } catch { return reply(400, { error: 'invalid_payload' }); }
 
   const name = text(body.name, 80), email = text(body.email, 254).toLowerCase(), phone = text(body.phone, 24);
+  if (body.kind === 'premium') {
+    if (!EMAIL.test(email)) return reply(400, { error: 'invalid_email' });
+    const plan = body.plan === 'monthly' || body.plan === 'yearly' ? body.plan : null;
+    if (!plan) return reply(400, { error: 'invalid_plan' });
+    if (!ready.premium || !premium.prices) return reply(503, { error: 'payments_unavailable' });
+    const lang = typeof body.language === 'string' && FUNNEL_LANGS.includes(body.language) ? body.language : 'az';
+    const since = new Date(Date.now() - 60 * 60_000).toISOString();
+    const { count } = await admin.from('web_premium_orders').select('id', { count: 'exact', head: true }).eq('email', email).gte('created_at', since);
+    if ((count ?? 0) >= 10) return reply(429, { error: 'too_many_orders' });
+    const amount = premium.prices[plan];
+    const { data: order, error } = await admin.from('web_premium_orders').insert({ email, plan, amount, language: lang }).select('id').single();
+    if (error || !order) return reply(500, { error: 'order_not_saved' });
+    const back = `${SITE}/website/premium/index.html?lang=${lang}`;
+    return await startPayment('web_premium_orders', order.id, amount, `Anacan Premium — ${plan === 'yearly' ? '12' : '1'} ay`, '', { plan, currency: 'AZN' },
+      { success: `${back}&done=1&via=epoint`, error: `${back}&pay=failed`, language: epointLanguage(lang) });
+  }
   if (name.length < 2) return reply(400, { error: 'invalid_name' });
   if (!EMAIL.test(email)) return reply(400, { error: 'invalid_email' });
   if (phone && !PHONE.test(phone)) return reply(400, { error: 'invalid_phone' });
@@ -133,12 +167,13 @@ Deno.serve(async (req) => {
   if (error || !order) return reply(500, { error: 'order_not_saved' });
   return await startPayment('cake_orders', order.id, total, `Anacan — ${lines.length} tort sifarişi`, 'tortlar', {});
 
-  async function startPayment(table: 'book_orders' | 'cake_orders', orderId: string, amount: number, description: string, page: string, extra: Record<string, unknown>) {
+  async function startPayment(table: 'book_orders' | 'cake_orders' | 'web_premium_orders', orderId: string, amount: number, description: string, page: string,
+    extra: Record<string, unknown>, urls?: { success: string; error: string; language: string }) {
     try {
       const { ok, httpStatus, result } = await epointRequest(config, 'request', {
-        amount: amount.toFixed(2), currency: 'AZN', language: 'az', order_id: orderId, description,
-        success_redirect_url: `${SITE}/az/${page}/?odenis=ugurlu&sifaris=${orderId}`,
-        error_redirect_url: `${SITE}/az/${page}/?odenis=xeta&sifaris=${orderId}`,
+        amount: amount.toFixed(2), currency: 'AZN', language: urls?.language ?? 'az', order_id: orderId, description,
+        success_redirect_url: urls?.success ?? `${SITE}/az/${page}/?odenis=ugurlu&sifaris=${orderId}`,
+        error_redirect_url: urls?.error ?? `${SITE}/az/${page}/?odenis=xeta&sifaris=${orderId}`,
       });
       const url = typeof result.redirect_url === 'string' ? result.redirect_url : '';
       if (!ok || result.status !== 'success' || !isCheckoutUrl(url)) {
@@ -152,6 +187,7 @@ Deno.serve(async (req) => {
     } catch (e) {
       console.error('[web-shop] payment start failed:', e instanceof Error ? e.message : 'unknown');
       if (table === 'book_orders') await admin.from('book_orders').update({ status: 'failed', provider_status: 'request_failed', updated_at: new Date().toISOString() }).eq('id', orderId);
+      else if (table === 'web_premium_orders') await admin.from('web_premium_orders').update({ status: 'failed', updated_at: new Date().toISOString() }).eq('id', orderId);
       else await admin.from('cake_orders').update({ payment_status: 'failed', updated_at: new Date().toISOString() }).eq('id', orderId);
       return reply(502, { error: 'checkout_unavailable' });
     }

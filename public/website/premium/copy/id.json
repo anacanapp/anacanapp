@@ -48,5 +48,7 @@
   "done_step1": "Unduh aplikasi Anacan",
   "done_step2": "Masuk dengan email yang sama (Google, Apple, atau email)",
   "done_step3": "Jika mendaftar dengan email, masukkan kode yang dikirim ke emailmu di aplikasi — Premium akan terbuka otomatis",
-  "test_mode": "Mode uji: tidak ada pembayaran sungguhan. Kartu: 4242 4242 4242 4242, 06/32, 123"
+  "test_mode": "Mode uji: tidak ada pembayaran sungguhan. Kartu: 4242 4242 4242 4242, 06/32, 123",
+  "epoint_note": "Pembayaran sekali saja, tidak diperpanjang otomatis: 1 bulan atau 12 bulan Premium. Setelah masa berlaku habis, kamu bisa membelinya lagi jika mau. Pembayaran dengan kartu bank, dalam manat (Epoint).",
+  "pay_failed": "Pembayaran tidak selesai. Jika uang tidak terpotong dari kartu, coba lagi."
 }

@@ -48,5 +48,7 @@
   "done_step1": "Anacan ilovasini yukla",
   "done_step2": "Aynan shu e-pochta bilan kir (Google, Apple yoki e-pochta)",
   "done_step3": "Agar e-pochta orqali ro‘yxatdan o‘tsang, pochtangga kelgan kodni ilovaga kirit — Premium avtomatik ochiladi",
-  "test_mode": "Test rejimi: haqiqiy to‘lov olinmaydi. Karta: 4242 4242 4242 4242, 06/32, 123"
+  "test_mode": "Test rejimi: haqiqiy to‘lov olinmaydi. Karta: 4242 4242 4242 4242, 06/32, 123",
+  "epoint_note": "Bir martalik to‘lov, avtomatik yangilanmaydi: 1 oy yoki 12 oy Premium. Muddat tugagach, xohlasang yana sotib olishing mumkin. To‘lov bank kartasi orqali, manatda (Epoint).",
+  "pay_failed": "To‘lov amalga oshmadi. Agar kartadan pul yechilmagan bo‘lsa, qayta urinib ko‘r."
 }

@@ -48,5 +48,7 @@
   "done_step1": "Ladda ner Anacan-appen",
   "done_step2": "Logga in med samma e-post (Google, Apple eller e-post)",
   "done_step3": "Om du registrerar dig med e-post, ange koden du fått i din inkorg i appen — Premium låses upp automatiskt",
-  "test_mode": "Testläge: ingen riktig betalning dras. Kort: 4242 4242 4242 4242, 06/32, 123"
+  "test_mode": "Testläge: ingen riktig betalning dras. Kort: 4242 4242 4242 4242, 06/32, 123",
+  "epoint_note": "Det är en engångsbetalning, den förnyas inte automatiskt: 1 månad eller 12 månader Premium. När perioden är slut kan du köpa igen om du vill. Betalning sker med bankkort i manat (Epoint).",
+  "pay_failed": "Betalningen slutfördes inte. Om inga pengar har dragits från kortet, försök igen."
 }

@@ -48,5 +48,7 @@
   "done_step1": "Download de Anacan-app",
   "done_step2": "Log in met hetzelfde e-mailadres (Google, Apple of e-mail)",
   "done_step3": "Meld je je aan met e-mail? Voer dan de code uit je inbox in de app in — Premium wordt automatisch ontgrendeld",
-  "test_mode": "Testmodus: er wordt niets echt afgeschreven. Kaart: 4242 4242 4242 4242, 06/32, 123"
+  "test_mode": "Testmodus: er wordt niets echt afgeschreven. Kaart: 4242 4242 4242 4242, 06/32, 123",
+  "epoint_note": "Eenmalige betaling, wordt niet automatisch verlengd: 1 maand of 12 maanden Premium. Na afloop kun je het opnieuw kopen als je wilt. Betaling met bankkaart in manat (Epoint).",
+  "pay_failed": "De betaling is niet voltooid. Als er geen geld van je kaart is afgeschreven, probeer het dan opnieuw."
 }

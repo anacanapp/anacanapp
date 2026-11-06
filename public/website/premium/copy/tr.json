@@ -48,5 +48,7 @@
   "done_step1": "Anacan uygulamasını indir",
   "done_step2": "Aynı e-postayla giriş yap (Google, Apple veya e-posta)",
   "done_step3": "E-postayla kaydoluyorsan, e-postana gelen kodu uygulamaya gir — Premium otomatik olarak açılacak",
-  "test_mode": "Test modu: gerçek ödeme alınmaz. Kart: 4242 4242 4242 4242, 06/32, 123"
+  "test_mode": "Test modu: gerçek ödeme alınmaz. Kart: 4242 4242 4242 4242, 06/32, 123",
+  "epoint_note": "Tek seferlik ödemedir, otomatik yenilenmez: 1 ay veya 12 ay Premium. Süre bitince istersen yeniden alabilirsin. Ödeme banka kartıyla, manatla (Epoint).",
+  "pay_failed": "Ödeme tamamlanmadı. Karttan para çekilmediyse tekrar dene."
 }
