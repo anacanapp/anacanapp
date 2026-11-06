@@ -116,6 +116,7 @@ const AlertReceiver = lazy(() => import('@/components/partner/v2/AlertReceiver')
 const PartnersScreen = lazy(() => import('@/components/partners/PartnersScreen'));
 const AdPreferencesScreen = lazy(() => import('@/components/ads/AdPreferencesScreen'));
 const BookStoreScreen = lazy(() => import('@/components/books/BookStoreScreen'));
+const QaygiCashScreen = lazy(() => import('@/components/qaygicash/QaygiCashScreen'));
 // Module scope: a lazy() created during render is a new component type every render.
 const ForceUpdateScreen = lazy(() => import('@/components/ForceUpdateScreen'));
 
@@ -884,6 +885,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'illness') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><IllnessScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if ((activeScreen === 'recovery' || activeScreen === 'recovery/kegel') && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><RecoveryScreen onBack={() => setActiveScreen(null)} initialTab={activeScreen === 'recovery/kegel' ? 'kegel' : 'week'} onNavigateToTool={(tool) => { setActiveScreen(null); handleNavigateToTool(tool); }} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'health-sync') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HealthSyncScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  // QayğıCash bonus wallet; the screen itself shows nothing when the programme is off for this account.
+  if (activeScreen === 'qaygicash') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><QaygiCashScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'referral') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><ReferralScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'doctor-report') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><DoctorReportScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'calendar') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><CalendarScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;

@@ -58,6 +58,7 @@ import TeethingWidget from '@/components/mommy/TeethingWidget';
 import BannerSlot from '@/components/banners/BannerSlot';
 import { AdInlineAnchor } from '@/components/ads/AdExperienceProvider';
 import { AptekHomeCard } from '@/components/aptek/AptekEntry';
+import QaygiCashHomeCard from '@/components/qaygicash/QaygiCashHomeCard';
 import { solidFoodGuideRelevant } from '@/lib/solid-food-guide-entry';
 import { feature37Text } from '@/lib/feature37-i18n';
 import { offersBreastfeeding } from '@/lib/breastfeeding';
@@ -1979,6 +1980,8 @@ const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate, onOpenAssistant }
               {/* Top Banner Slot */}
               <BannerSlot placement="home_top" onNavigate={() => {}} onToolOpen={onNavigateToTool} className="mb-2" />
               <AdFreePremiumOffer position="top" />
+              {/* QayğıCash: balance card once there is bonus activity, else a one-time intro (only where the programme is on) */}
+              <QaygiCashHomeCard onOpen={onNavigate ? () => onNavigate('qaygicash') : undefined} />
 
               {lifeStage === 'mommy' && <MommyDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}
               {lifeStage === 'bump' && <BumpDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}

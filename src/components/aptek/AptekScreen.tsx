@@ -17,6 +17,9 @@ import {
 import { Mascot } from '@/components/anacan/Mascot';
 import { rd } from '@/lib/redesign-i18n';
 import { BundleCard, ProductCard, QtyStepper, ageLabel, discountPct } from './AptekParts';
+import { QcEarnBox, QcLineBonus, QcProductBadge, QcRedeemRow, QcSuccessNote, qcTrack, useQcRedeem, type QcOrderNote } from '@/components/qaygicash/QcParts';
+import { aptekEarnMinor, formatQc, qcErrorCode, qcErrorKey, rateOf, toAzn, toMinor, QC_BRAND } from '@/lib/qaygicash';
+import { qk } from '@/lib/qaygicash-copy';
 
 type View =
   | { name: 'home' }
@@ -24,7 +27,7 @@ type View =
   | { name: 'product'; id: string }
   | { name: 'cart' }
   | { name: 'checkout' }
-  | { name: 'success'; number: string }
+  | { name: 'success'; number: string; qc?: QcOrderNote }
   | { name: 'orders' };
 
 const KINDS = ['bottles', 'cups', 'bowls', 'cutlery', 'appliances', 'food'] as const;
@@ -120,8 +123,8 @@ export default function AptekScreen({ onBack, initialScreen }: { onBack: () => v
       {!isLoading && view.name === 'list' && <ProductList {...common} initial={view} />}
       {!isLoading && view.name === 'product' && <ProductPage {...common} id={view.id} />}
       {view.name === 'cart' && <CartView {...common} onCheckout={() => push({ name: 'checkout' })} />}
-      {view.name === 'checkout' && <CheckoutView {...common} onDone={(number) => { confetti(); reset({ name: 'success', number }); }} />}
-      {view.name === 'success' && <SuccessView number={view.number} onOrders={() => reset({ name: 'orders' })} onHome={() => reset({ name: 'home' })} />}
+      {view.name === 'checkout' && <CheckoutView {...common} onDone={(number, qc) => { confetti(); reset({ name: 'success', number, qc }); }} />}
+      {view.name === 'success' && <SuccessView number={view.number} qc={view.qc} onOrders={() => reset({ name: 'orders' })} onHome={() => reset({ name: 'home' })} />}
       {view.name === 'orders' && <OrdersView byId={byId} />}
     </Shell>
   );
@@ -319,6 +322,7 @@ function ProductPage(c: Common & { id: string }) {
         {p.brand && <p className="a3-eyebrow" style={{ margin: 0, textTransform: 'none' }}>{p.brand}</p>}
         <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em' }}>{p.name}</h2>
         <p className="ap-pd-price a3-num"><b>{formatAzn(p.price)}</b>{off > 0 && p.original_price && <s>{formatAzn(p.original_price)}</s>}</p>
+        {p.cashback_own && <QcProductBadge channel="own_shop" priceMinor={toMinor(p.price)} style={{ alignSelf: 'flex-start', fontSize: 12 }} />}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
           <span className="a3-chip">{ap('age')}: {ageLabel(p.min_age_months)}</span>
           {p.volume && <span className="a3-chip">{ap('volume')}: {p.volume}</span>}
@@ -366,14 +370,15 @@ function useCoupon() {
   return { code, setCode, coupon, error, apply, clear: () => { setCoupon(null); setError(null); } };
 }
 
-function Summary({ totals }: { totals: ReturnType<typeof useAptekTotals> }) {
+function Summary({ totals, cashbackMinor = 0 }: { totals: ReturnType<typeof useAptekTotals>; cashbackMinor?: number }) {
   return (
     <div className="ap-sum a3-num">
       <div><span>{ap('subtotal')}</span><b>{formatAzn(totals.subtotal)}</b></div>
       {totals.bundleDiscount > 0 && <div className="ok"><span>{ap('bundle_discount')}</span><b>−{formatAzn(totals.bundleDiscount)}</b></div>}
       {totals.couponDiscount > 0 && <div className="ok"><span>{ap('coupon_discount')}</span><b>−{formatAzn(totals.couponDiscount)}</b></div>}
       <div><span>{ap('shipping')}</span><b>{totals.shipping ? formatAzn(totals.shipping) : ap('free')}</b></div>
-      <div className="total"><span>{ap('total')}</span><b>{formatAzn(totals.total)}</b></div>
+      {cashbackMinor > 0 && <div className="qc-sum-line" data-testid="qc-summary"><span>{QC_BRAND}</span><b>{`\u2212${formatQc(cashbackMinor)}`}</b></div>}
+      <div className="total"><span>{ap('total')}</span><b>{formatAzn(toAzn(toMinor(totals.total) - cashbackMinor))}</b></div>
     </div>
   );
 }
@@ -413,6 +418,7 @@ function CartView(c: Common & { onCheckout: () => void }) {
               </button>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p className="ap-name" style={{ minHeight: 0 }}>{l.product.name}</p>
+                <QcLineBonus channel="own_shop" amountMinor={toMinor(l.product.price * l.quantity)} own={l.product.cashback_own} />
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginTop: 8 }}>
                   <QtyStepper small value={l.quantity} onChange={(n) => c.setQty(l.product_id, n)} />
                   <b className="a3-num">{formatAzn(l.product.price * l.quantity)}</b>
@@ -438,7 +444,7 @@ function CartView(c: Common & { onCheckout: () => void }) {
   );
 }
 
-function CheckoutView(c: Common & { onDone: (orderNumber: string) => void }) {
+function CheckoutView(c: Common & { onDone: (orderNumber: string, qc?: QcOrderNote) => void }) {
   const { profile } = useAuth();
   const saved = readJson<{ address?: string; phone?: string; name?: string; coupon?: string }>(CHECKOUT_KEY, {});
   const [address, setAddress] = useState(saved.address || '');
@@ -451,6 +457,12 @@ function CheckoutView(c: Common & { onDone: (orderNumber: string) => void }) {
   const [touched, setTouched] = useState(false);
   const totals = useAptekTotals(c.cart.lines, sharedCoupon);
   const place = usePlaceAptekOrder();
+  // QayğıCash: up to max % of the goods after discounts (delivery excluded); Anacan-brand lines earn on their paid share.
+  const discountMinor = toMinor(totals.bundleDiscount + totals.couponDiscount);
+  const qc = useQcRedeem('aptek', toMinor(totals.subtotal) - discountMinor);
+  const earn = aptekEarnMinor(c.cart.lines.map((l) => ({ priceMinor: toMinor(l.product.price), quantity: l.quantity, own: l.product.cashback_own })),
+    discountMinor, qc.amount, rateOf(qc.wallet ?? undefined, 'own_shop'));
+  const payTotal = toAzn(toMinor(totals.total) - qc.amount);
   const phoneOk = /^\+?[0-9][0-9 ()-]{6,19}$/.test(phone.trim());
   const addressOk = address.trim().length >= 5;
 
@@ -463,12 +475,16 @@ function CheckoutView(c: Common & { onDone: (orderNumber: string) => void }) {
         items: c.cart.lines.map((l) => ({ product_id: l.product_id, quantity: l.quantity })),
         coupon: sharedCoupon?.code || null, slot, payment,
         address: { line: address.trim(), ...(name.trim() ? { name: name.trim() } : {}) }, phone: phone.trim(), notes: notes.trim() || undefined,
+        cashback: qc.amount > 0 ? toAzn(qc.amount) : undefined,
       });
       sharedCoupon = null;
       writeJson(CHECKOUT_KEY, { address: address.trim(), phone: phone.trim(), name: name.trim() });
-      c.onDone(res.order_number);
+      const used = res.cashback != null ? toMinor(res.cashback) : qc.amount;
+      if (used > 0) qcTrack('qc_redeem_commit', { channel: 'aptek', amount_minor: used });
+      c.onDone(res.order_number, { earnMinor: earn, usedMinor: used, digital: false });
     } catch (e) {
-      toast.error(ap(aptekErrorKey(e) as AptekKey));
+      const code = qcErrorCode(e);
+      toast.error(code ? qk(qcErrorKey(code)) : ap(aptekErrorKey(e) as AptekKey));
     }
   };
 
@@ -506,22 +522,25 @@ function CheckoutView(c: Common & { onDone: (orderNumber: string) => void }) {
           <textarea value={notes} onChange={(e) => setNotes(e.target.value.slice(0, 500))} placeholder={ap('notes_placeholder')} />
         </label>
       </section>
-      <section className="a3-sec"><div className="a3-card a3-pad"><Summary totals={totals} /></div></section>
+      {qc.wallet && qc.limits.show && <section className="a3-sec"><QcRedeemRow state={qc} /></section>}
+      <section className="a3-sec"><div className="a3-card a3-pad"><Summary totals={totals} cashbackMinor={qc.amount} /></div></section>
+      {earn > 0 && <section className="a3-sec"><QcEarnBox amount={earn} /></section>}
       <div className="ap-bar">
         <button type="button" className="a3-btn accent block" onClick={() => void submit()} disabled={place.isPending || !c.cart.lines.length}>
-          {place.isPending ? ap('placing') : ap('place_order', { amount: formatAzn(totals.total) })}
+          {place.isPending ? ap('placing') : ap('place_order', { amount: formatAzn(payTotal) })}
         </button>
       </div>
     </>
   );
 }
 
-function SuccessView({ number, onOrders, onHome }: { number: string; onOrders: () => void; onHome: () => void }) {
+function SuccessView({ number, qc, onOrders, onHome }: { number: string; qc?: QcOrderNote; onOrders: () => void; onHome: () => void }) {
   return (
     <div className="a3-empty" style={{ paddingTop: 40, gap: 10 }}>
       <Mascot stage="mommy" pose="welcome" width={130} bob />
       <h2 style={{ margin: 0, fontSize: 22, fontWeight: 700 }}>{ap('success_title')}</h2>
       <p className="a3-meta" style={{ margin: 0 }}>{ap('success_text', { number })}</p>
+      <QcSuccessNote note={qc} />
       <button type="button" className="a3-btn accent" onClick={onOrders}>{ap('my_orders')}</button>
       <button type="button" className="a3-btn ghost" onClick={onHome}>{ap('go_shopping')}</button>
     </div>

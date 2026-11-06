@@ -13,6 +13,7 @@ import { useToast } from '@/hooks/use-toast';
 import { tr } from '@/lib/tr';
 import { followupText } from '@/lib/followup-i18n';
 import { appLanguageLocale } from '@/lib/app-languages';
+import { QaygiCashPremiumOption, QcPremiumEarnLine } from '@/components/qaygicash/QaygiCashPremium';
 
 /**
  * Anacan Paywall Core — sıfırdan qurulmuş custom paywall (RevenueCat native UI YOX).
@@ -156,11 +157,11 @@ const PaywallCore = ({ feature, onPurchased, onNonNativeCta, compact = false }: 
 
   // ── Plan kartı ──
   const PlanCard = ({
-    plan, label, priceMain, priceMainSuffix, sub, badge, icon, oldPrice
+    plan, label, priceMain, priceMainSuffix, sub, badge, icon, oldPrice, extra
 
 
 
-  }: {plan: PlanKey;label: string;priceMain: string;priceMainSuffix?: string;sub: string;badge?: string;icon?: React.ReactNode;oldPrice?: string;}) => {
+  }: {plan: PlanKey;label: string;priceMain: string;priceMainSuffix?: string;sub: string;badge?: string;icon?: React.ReactNode;oldPrice?: string;extra?: React.ReactNode;}) => {
     const active = selected === plan;
     return (
       <motion.button
@@ -208,6 +209,7 @@ const PaywallCore = ({ feature, onPurchased, onNonNativeCta, compact = false }: 
               {icon}{label}
             </p>
             <p style={{ fontSize: 10.5, color: 'var(--a-ink-soft)', margin: '2px 0 0' }}>{sub}</p>
+            {extra}
           </div>
 
           <div className="text-end shrink-0">
@@ -278,14 +280,16 @@ const PaywallCore = ({ feature, onPurchased, onNonNativeCta, compact = false }: 
           priceMainSuffix={cfg.yearly_total_suffix}
           oldPrice={annualDiscount ? yearlyPlan!.renewalPriceString : undefined}
           sub={isNative && !yearlyPlan ? text('store_unavailable') : annualDiscount ? text('first_year', { price: yearlyStr }) : `${yearlyPerMonth}${cfg.yearly_suffix} · ${tr('pw_billed_yearly', 'ildə bir dəfə ödənilir')}`}
-          badge={isNative && !yearlyPlan ? undefined : cfg.savings_badge.replace('{percent}', String(savings))} />
+          badge={isNative && !yearlyPlan ? undefined : cfg.savings_badge.replace('{percent}', String(savings))}
+          extra={<QcPremiumEarnLine plan="yearly" />} />
 
           <PlanCard
           plan="monthly"
           label={cfg.monthly_label}
           priceMain={monthlyStr}
           priceMainSuffix={cfg.monthly_suffix}
-          sub={isNative && !monthlyPlan ? text('store_unavailable') : tr('pw_flexible', 'Çevik — istənilən ay dayandır')} />
+          sub={isNative && !monthlyPlan ? text('store_unavailable') : tr('pw_flexible', 'Çevik — istənilən ay dayandır')}
+          extra={<QcPremiumEarnLine plan="monthly" />} />
 
           {lifetimePkg &&
         <PlanCard
@@ -330,6 +334,9 @@ const PaywallCore = ({ feature, onPurchased, onNonNativeCta, compact = false }: 
         <><Crown size={17} strokeWidth={2.2} /> {ctaText}</>
         }
       </motion.button>
+
+      {/* QayğıCash: pay the selected plan with bonus — off by default, shown only when the server enables it for this plan and platform */}
+      {selected !== 'lifetime' && <QaygiCashPremiumOption plan={selected} onDone={() => onPurchased('qaygicash')} style={{ marginTop: 10 }} />}
 
       {selected === 'yearly' && yearlyPlan && <p className="text-center mt-2 text-xs" style={{ color: 'var(--a-ink-soft)' }}>
         {text('charged_today', { price: yearlyPlan.priceString })} {text('renewal_year', { price: yearlyPlan.renewalPriceString })}

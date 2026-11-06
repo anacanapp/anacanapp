@@ -12,11 +12,16 @@ import { adminTestGrant, bookDownloadUrl, fetchBookPaymentsReady, fetchMyBooks, 
 import { useBooksText } from './booksCopy';
 import { logEvent } from '@/lib/analytics';
 import './books.css';
+import { QcEarnBox, QcProductBadge, QcRedeemRow, QcSummaryLine, qcTrack, useQcRedeem, type QcRedeemState } from '@/components/qaygicash/QcParts';
+import { invalidateQaygiCash } from '@/hooks/useQaygiCash';
+import { availableFrom, earnPreview, formatQc, formatQcDate, qcErrorKey, rateOf, toAzn, toMinor } from '@/lib/qaygicash';
+import { qf, qk } from '@/lib/qaygicash-copy';
 
 type Tab = 'store' | 'mine';
 const TIERS = [1, 3, 5, 10];
 const PENDING_KEY = 'anacan_books_pending_v1';
-function readPending(): { orderId: string; ids: string[]; value: number } | null {
+type PendingBooks = { orderId: string; ids: string[]; value: number; qcEarn?: number; qcUsed?: number };
+function readPending(): PendingBooks | null {
   try { const value = JSON.parse(localStorage.getItem(PENDING_KEY) || 'null'); return value && Array.isArray(value.ids) ? value : null; } catch { return null; }
 }
 
@@ -35,6 +40,11 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
   const [detail, setDetail] = useState<Book | null>(null);
   const [cartOpen, setCartOpen] = useState(false);
   const [busy, setBusy] = useState(false);
+  // QayğıCash: up to max % of the order (min 1 ₼); books earn on what the card is charged, spendable after the digital hold.
+  const orderMinor = toMinor(bookOrderTotal(cart.length));
+  const qc = useQcRedeem('book', orderMinor);
+  const bookRate = rateOf(qc.wallet ?? undefined, 'book');
+  const qcEarn = earnPreview(orderMinor - qc.amount, bookRate);
 
   const { data: ready = false } = useQuery({ queryKey: ['books-payments-ready'], queryFn: fetchBookPaymentsReady, staleTime: 60_000 });
   const { data: owned = [], isLoading: ownedLoading } = useQuery({ queryKey: ['my-books', user?.id], queryFn: fetchMyBooks, enabled: !!user, refetchOnWindowFocus: 'always' });
@@ -48,7 +58,12 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
     if (!pending || !pending.ids.length || !pending.ids.every(id => ownedIds.has(id))) return;
     void logEvent('books_purchase_confirmed', { order_id: pending.orderId, book_count: pending.ids.length, value: pending.value, currency: 'AZN' });
     try { localStorage.removeItem(PENDING_KEY); } catch { /* ignore */ }
-  }, [ownedIds]);
+    if (pending.qcEarn && pending.qcEarn > 0 && qc.wallet) {
+      toast.success(qf('qc_success_earn', { amount: `+${formatQc(pending.qcEarn, language)}` }),
+        { description: qf('qc_success_date', { date: formatQcDate(availableFrom(qc.wallet.hold_days_digital), language) }) });
+    }
+    if (pending.qcEarn || pending.qcUsed) void invalidateQaygiCash(client);
+  }, [ownedIds]); // eslint-disable-line react-hooks/exhaustive-deps
   // Children load after the first render: open on the child's age group unless the person already chose.
   const [agePicked, setAgePicked] = useState(false);
   useEffect(() => { if (childAge && !agePicked) setAge(childAge); }, [childAge, agePicked]);
@@ -89,15 +104,20 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
     if (!ready) { void logEvent('books_checkout_unavailable', { book_count: cart.length }); toast(t('pay_soon')); return; }
     setBusy(true);
     try {
-      const result = await startBookCheckout(cart, language);
+      const result = await startBookCheckout(cart, language, qc.amount > 0 ? toAzn(qc.amount) : undefined);
       if (result.ok === true) {
-        const success = result as { url: string; orderId: string };
-        const value = bookOrderTotal(cart.length);
+        const success = result as { url: string; orderId: string; amount?: number; cashback?: number };
+        const value = success.amount ?? toAzn(orderMinor - qc.amount);
+        const used = success.cashback != null ? toMinor(success.cashback) : qc.amount;
         void logEvent('books_checkout_started', { order_id: success.orderId, book_count: cart.length, value, currency: 'AZN' });
-        try { localStorage.setItem(PENDING_KEY, JSON.stringify({ orderId: success.orderId, ids: cart, value })); } catch { /* ignore */ }
+        if (used > 0) qcTrack('qc_redeem_commit', { channel: 'book', amount_minor: used });
+        const pending: PendingBooks = { orderId: success.orderId, ids: cart, value, qcEarn: earnPreview(toMinor(value), bookRate), qcUsed: used };
+        try { localStorage.setItem(PENDING_KEY, JSON.stringify(pending)); } catch { /* ignore */ }
+        if (used > 0) void invalidateQaygiCash(client);
         openExternal(success.url); toast(t('pay_waiting')); setCartOpen(false); return;
       }
-      const failure = result as { reason: 'unavailable' | 'owned' | 'error'; owned?: string[] };
+      const failure = result as { reason: 'unavailable' | 'owned' | 'error' | 'qaygicash'; owned?: string[]; code?: string };
+      if (failure.reason === 'qaygicash') { void invalidateQaygiCash(client); toast.error(qk(qcErrorKey(failure.code))); return; }
       if (failure.reason === 'owned') { setCart(ids => ids.filter(id => !failure.owned?.includes(id))); void client.invalidateQueries({ queryKey: ['my-books'] }); toast(t('pay_owned')); }
       else if (failure.reason === 'unavailable') { void logEvent('books_checkout_unavailable', { book_count: cart.length }); toast(t('pay_soon')); }
       else toast.error(t('pay_error'));
@@ -210,6 +230,7 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
                     <div className="bk-card-body">
                       <b>{book.title}</b>
                       <span>{t('pages', { n: book.pages })}</span>
+                      {!own && <QcProductBadge channel="book" priceMinor={toMinor(bookUnitPrice(Math.max(1, cart.length + (added ? 0 : 1))))} />}
                     </div>
                     {own ? <span className="bk-own"><Check size={13} />{t('owned')}</span> : (
                       <button className={`bk-add${added ? ' on' : ''}`} onClick={() => toggle(book.id)} aria-pressed={added}>
@@ -243,7 +264,7 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
           onToggle={() => toggle(detail.id)} onClose={() => setDetail(null)} onMine={() => { setDetail(null); setTab('mine'); }} />
       )}</AnimatePresence>
       <AnimatePresence>{cartOpen && (
-        <CartSheet cart={cart} ready={ready} adminTest={!ready && isAdmin} busy={busy} onRemove={id => setCart(ids => ids.filter(x => x !== id))} onClose={() => setCartOpen(false)} onCheckout={checkout} />
+        <CartSheet cart={cart} ready={ready} adminTest={!ready && isAdmin} busy={busy} qc={ready ? qc : null} qcEarn={ready ? qcEarn : 0} onRemove={id => setCart(ids => ids.filter(x => x !== id))} onClose={() => setCartOpen(false)} onCheckout={checkout} />
       )}</AnimatePresence>
     </div>
   );
@@ -285,6 +306,7 @@ function BookDetail({ book, owned, inCart, price, onToggle, onClose, onMine }: {
       </div>
       <h2 className="bk-detail-title">{book.title}</h2>
       <p className="bk-detail-sub">{book.subtitle}</p>
+      {!owned && <QcProductBadge channel="book" priceMinor={toMinor(price)} style={{ fontSize: 12 }} />}
       <h3 className="bk-h3">{t('detail_skills')}</h3>
       <div className="bk-skills">{book.skills.map(skill => <span key={skill}>{skill}</span>)}</div>
       <h3 className="bk-h3">{t('detail_about')}</h3>
@@ -298,7 +320,7 @@ function BookDetail({ book, owned, inCart, price, onToggle, onClose, onMine }: {
   );
 }
 
-function CartSheet({ cart, ready, adminTest, busy, onRemove, onClose, onCheckout }: { cart: string[]; ready: boolean; adminTest: boolean; busy: boolean; onRemove: (id: string) => void; onClose: () => void; onCheckout: () => void }) {
+function CartSheet({ cart, ready, adminTest, busy, qc, qcEarn, onRemove, onClose, onCheckout }: { cart: string[]; ready: boolean; adminTest: boolean; busy: boolean; qc: QcRedeemState | null; qcEarn: number; onRemove: (id: string) => void; onClose: () => void; onCheckout: () => void }) {
   const { t } = useBooksText();
   const count = cart.length, total = bookOrderTotal(count), saved = Math.round((count * BOOK_BASE_PRICE - total) * 100) / 100;
   const next = nextBookTier(count);
@@ -320,10 +342,13 @@ function CartSheet({ cart, ready, adminTest, busy, onRemove, onClose, onCheckout
           ); })}
         </ul>
       )}
+      {count > 0 && qc?.wallet && qc.limits.show && <QcRedeemRow state={qc} style={{ marginTop: 12 }} />}
+      {!!qc?.amount && <QcSummaryLine amount={qc.amount} className="qc-sum-line" />}
       <div className="bk-total">
         <div><span>{t('cart_unit', { price: formatAzn(bookUnitPrice(Math.max(1, count))) })}</span>{saved > 0 && <em>{t('cart_saved', { amount: formatAzn(saved) })}</em>}</div>
-        <div><span>{t('cart_total')}</span><b>{formatAzn(total)}</b></div>
+        <div><span>{t('cart_total')}</span><b>{formatAzn(toAzn(toMinor(total) - (qc?.amount ?? 0)))}</b></div>
       </div>
+      {count > 0 && <QcEarnBox amount={qcEarn} digital style={{ marginTop: 10 }} />}
       <button className="bk-primary" disabled={!count || busy} onClick={onCheckout}>{busy ? <Loader2 className="animate-spin" size={16} /> : <ShoppingBag size={16} />}{t('checkout')}</button>
       <p className="bk-paynote">{adminTest ? 'Admin test rejimi: ödəniş qoşulmayıb, kitablar pulsuz sizin hesaba əlavə olunacaq.' : t('pay_note')}</p>
     </Sheet>

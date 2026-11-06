@@ -18,6 +18,8 @@ import { getOrdinal } from '@/lib/utils';
 import { useUserStore } from '@/store/userStore';
 import { useAuth } from '@/hooks/useAuth';
 import { isCakesAvailable } from '@/lib/freemium';
+import { QcProductBadge, QcSuccessNote, type QcOrderNote } from '@/components/qaygicash/QcParts';
+import { toMinor } from '@/lib/qaygicash';
 
 interface CakesScreenProps {
   onBack?: () => void;
@@ -50,6 +52,7 @@ const CakesScreen = ({ onBack, initialMonth }: CakesScreenProps) => {
   const [showCart, setShowCart] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
   const [showOrderSuccess, setShowOrderSuccess] = useState(false);
+  const [orderQc, setOrderQc] = useState<QcOrderNote | null>(null);
   const [justAdded, setJustAdded] = useState<string | null>(null);
 
   useScrollToTop([selectedCake, showCheckout, filter]);
@@ -99,14 +102,15 @@ const CakesScreen = ({ onBack, initialMonth }: CakesScreenProps) => {
           <Check size={44} strokeWidth={3} />
         </motion.div>
         <h2 className="ck-title" style={{ fontSize: 22 }}>{tr('cakesscreen_sifarisiniz_qebul_edildi_ae5b9e', 'Sifarişiniz qəbul edildi!')}</h2>
-        <p className="ck-desc" style={{ margin: '8px 0 26px' }}>{tr('cakesscreen_tezlikle_sizinle_elaqe_saxlanilacaq_806311', 'Tezliklə sizinlə əlaqə saxlanılacaq')}</p>
-        <button className="ck-cta" style={{ flex: 'none', width: '100%', maxWidth: 320 }} onClick={() => { setShowOrderSuccess(false); setShowCheckout(false); setSelectedCake(null); }}>
+        <p className="ck-desc" style={{ margin: '8px 0 18px' }}>{tr('cakesscreen_tezlikle_sizinle_elaqe_saxlanilacaq_806311', 'Tezliklə sizinlə əlaqə saxlanılacaq')}</p>
+        <QcSuccessNote note={orderQc} style={{ marginBottom: 18 }} />
+        <button className="ck-cta" style={{ flex: 'none', width: '100%', maxWidth: 320 }} onClick={() => { setShowOrderSuccess(false); setOrderQc(null); setShowCheckout(false); setSelectedCake(null); }}>
           {tr('cakesscreen_tortlara_qayit_c533c2', 'Tortlara qayıt')}
         </button>
       </div>);
   }
 
-  if (showCheckout) return <CakeOrderForm onBack={() => setShowCheckout(false)} onSuccess={() => setShowOrderSuccess(true)} />;
+  if (showCheckout) return <CakeOrderForm onBack={() => setShowCheckout(false)} onSuccess={(qc) => { setOrderQc(qc ?? null); setShowOrderSuccess(true); }} />;
 
   const cart = <CakeCartDrawer open={showCart} onClose={() => setShowCart(false)} onCheckout={() => { setShowCart(false); setShowCheckout(true); }} />;
 
@@ -126,6 +130,7 @@ const CakesScreen = ({ onBack, initialMonth }: CakesScreenProps) => {
       </button>
       <div className="ck-card-body">
         <p className="ck-card-name">{cake.name}</p>
+        <QcProductBadge channel="cake" priceMinor={toMinor(Number(cake.price))} style={{ alignSelf: 'flex-start' }} />
         <div className="ck-card-foot">
           <span className="ck-price">{money(Number(cake.price))}</span>
           <button type="button" className="ck-add" onClick={() => quickAdd(cake)} aria-label={tr('cakesscreen_add_to_cart', 'Səbətə əlavə et')}>

@@ -16,16 +16,23 @@ export async function fetchMyBooks(): Promise<OwnedBook[]> {
 }
 
 export type CheckoutResult =
-  | { ok: true; url: string; orderId: string }
-  | { ok: false; reason: 'unavailable' | 'owned' | 'error'; owned?: string[] };
+  | { ok: true; url: string; orderId: string; amount?: number; cashback?: number }
+  | { ok: false; reason: 'unavailable' | 'owned' | 'error' | 'qaygicash'; owned?: string[]; code?: string };
 
-export async function startBookCheckout(bookIds: string[], language: string): Promise<CheckoutResult> {
-  const { data, error } = await supabase.functions.invoke('book-checkout', { body: { book_ids: bookIds, language } });
-  if (!error && typeof data?.checkout_url === 'string') return { ok: true, url: data.checkout_url, orderId: data.order_id };
+/** cashback: QayğıCash bonus in AZN (optional); the card is charged `amount`, already net of it. */
+export async function startBookCheckout(bookIds: string[], language: string, cashback?: number): Promise<CheckoutResult> {
+  const { data, error } = await supabase.functions.invoke('book-checkout', {
+    body: { book_ids: bookIds, language, ...(cashback && cashback > 0 ? { cashback } : {}) },
+  });
+  if (!error && typeof data?.checkout_url === 'string') {
+    return { ok: true, url: data.checkout_url, orderId: data.order_id,
+      amount: typeof data.amount === 'number' ? data.amount : undefined, cashback: typeof data.cashback === 'number' ? data.cashback : undefined };
+  }
   let body: any = null;
   try { body = await (error as any)?.context?.json?.(); } catch { /* not json */ }
   if (body?.error === 'payments_unavailable') return { ok: false, reason: 'unavailable' };
   if (body?.error === 'already_owned') return { ok: false, reason: 'owned', owned: body.book_ids ?? [] };
+  if (typeof body?.error === 'string' && /^QC_[A-Z_]+$/.test(body.error)) return { ok: false, reason: 'qaygicash', code: body.error };
   return { ok: false, reason: 'error' };
 }
 

@@ -10,10 +10,16 @@ import './cakes.css';
 import { usePaymentMethods, type PaymentMethod } from '@/hooks/usePaymentMethods';
 import { supabase } from '@/integrations/supabase/client';
 import { tr } from "@/lib/tr";
+import { QcEarnBox, QcRedeemRow, QcSummaryLine, qcTrack, useQcRedeem, type QcOrderNote } from '@/components/qaygicash/QcParts';
+import { invalidateQaygiCash } from '@/hooks/useQaygiCash';
+import { useQueryClient } from '@tanstack/react-query';
+import { earnPreview, rateOf, toAzn, toMinor } from '@/lib/qaygicash';
+import { qt } from '@/lib/qaygicash-copy';
 
 interface CakeOrderFormProps {
   onBack: () => void;
-  onSuccess: () => void;
+  /** Called after the order is placed; carries the QayğıCash note for the success screen. */
+  onSuccess: (qc?: QcOrderNote) => void;
 }
 
 const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
@@ -29,6 +35,14 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
   const [proofFileName, setProofFileName] = useState<string | null>(null);
 
   const activeMethods = getActiveMethods();
+
+  // QayğıCash: up to max % of the order, applied right after the order row is created; the cake earns on what is paid.
+  const queryClient = useQueryClient();
+  const totalMinor = toMinor(totalPrice);
+  const qc = useQcRedeem('cake', totalMinor);
+  const cakeRate = rateOf(qc.wallet ?? undefined, 'cake');
+  const earn = earnPreview(totalMinor - qc.amount, cakeRate);
+  const netTotal = toAzn(totalMinor - qc.amount);
 
   // Set default to first active method
   useEffect(() => {
@@ -189,6 +203,22 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
 
     // Update payment fields separately since they're not in the typed interface
     if (result) {
+      // QayğıCash first: the server only accepts a still-pending app order (before payment_status changes).
+      let used = 0;
+      if (qc.amount > 0) {
+        try {
+          // The RPC is newer than the generated types.
+          const redeem = supabase.rpc as unknown as (fn: string, args: Record<string, unknown>) => Promise<{ error: { message?: string } | null }>;
+          const { error } = await redeem('qaygicash_redeem_cake_v1', { p_order_id: (result as { id: string }).id, p_amount: toAzn(qc.amount) });
+          if (error) throw error;
+          used = qc.amount;
+          qcTrack('qc_redeem_commit', { channel: 'cake', amount_minor: used });
+        } catch (e) {
+          console.warn('QayğıCash was not applied to the cake order:', (e as { message?: string })?.message);
+          toast({ title: qt('qc_cake_not_applied') });
+        }
+        void invalidateQaygiCash(queryClient);
+      }
       try {
         await supabase.
         from('cake_orders').
@@ -204,7 +234,7 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
 
       clearCart();
       toast({ title: tr("cakeorderform_sifaris_gonderildi_712bb6", 'Sifariş göndərildi! 🎂') });
-      onSuccess();
+      onSuccess({ earnMinor: earnPreview(totalMinor - used, cakeRate), usedMinor: used, digital: false });
     } else {
       toast({ title: tr("cakeorderform_xeta_3cdbb6", 'Xəta'), description: tr("cakeorderform_sifaris_gonderile_bilmedi_52b41e", 'Sifariş göndərilə bilmədi'), variant: 'destructive' });
     }
@@ -448,7 +478,7 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
                   }
                     <div className="flex justify-between items-center pt-2" style={{ borderTop: '1px solid rgba(138, 69, 20, 0.15)' }}>
                       <span className="text-xs" style={{ color: 'var(--a-accent-ink)', opacity: 0.7 }}>{tr("cakeorderform_mebleg_f038e4", "Məbləğ:")}</span>
-                      <span className="a-heading" style={{ fontSize: 16, color: 'var(--a-accent-ink)' }}>{totalPrice.toFixed(2)} ₼</span>
+                      <span className="a-heading" style={{ fontSize: 16, color: 'var(--a-accent-ink)' }}>{netTotal.toFixed(2)} ₼</span>
                     </div>
                     {c2cConfig.instructions &&
                   <p className="text-[10px] mt-1" style={{ margin: '4px 0 0', color: 'var(--a-accent-ink)', opacity: 0.7 }}>ℹ️ {c2cConfig.instructions}</p>
@@ -492,16 +522,19 @@ const CakeOrderForm = ({ onBack, onSuccess }: CakeOrderFormProps) => {
             }
           </AnimatePresence>
 
+          {qc.wallet && qc.limits.show && <QcRedeemRow state={qc} />}
           <div className="ck-box">
             {items.map((item, i) => <div key={i} className="ck-line"><span>{item.cake.name} x{item.quantity}</span><span>{money(cakeUnitPrice(item) * item.quantity)}</span></div>)}
             <div className="ck-line"><span>{mode === 'delivery' ? tr('cakeorderform_mode_delivery', 'Çatdırılma') : tr('cakeorderform_mode_pickup', 'Özüm götürəcəm')}</span><span>{format(parseISO(formData.delivery_date), 'dd.MM')} · {slot}</span></div>
-            <div className="ck-total"><span>{tr('cakeorderform_cemi_fbbec6', 'Cəmi:')}</span><span>{money(totalPrice)}</span></div>
+            <QcSummaryLine amount={qc.amount} className="ck-line qc-sum-line" />
+            <div className="ck-total"><span>{tr('cakeorderform_cemi_fbbec6', 'Cəmi:')}</span><span>{money(netTotal)}</span></div>
           </div>
+          <QcEarnBox amount={earn} />
           <button type="button" className="ck-cta" style={{ flex: 'none' }} onClick={handleSubmit} disabled={submitting}>
             {submitting ? <Loader2 className="animate-spin" size={18} /> :
             <>
                 {paymentMethod === 'card_simulated' ? <CreditCard size={18} strokeWidth={2.2} /> : paymentMethod === 'c2c_transfer' ? <ArrowLeftRight size={18} strokeWidth={2.2} /> : <Send size={18} strokeWidth={2.2} />}
-                {paymentMethod === 'card_simulated' ? tr('cake_pay_and_order', 'Ödə və sifariş ver') : paymentMethod === 'c2c_transfer' ? tr('cake_confirm_order', 'Sifarişi təsdiqlə') : tr('cake_send_order', 'Sifariş göndər')} · {money(totalPrice)}
+                {paymentMethod === 'card_simulated' ? tr('cake_pay_and_order', 'Ödə və sifariş ver') : paymentMethod === 'c2c_transfer' ? tr('cake_confirm_order', 'Sifarişi təsdiqlə') : tr('cake_send_order', 'Sifariş göndər')} · {money(netTotal)}
               </>
             }
           </button>

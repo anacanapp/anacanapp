@@ -4,6 +4,8 @@ import { hapticFeedback } from '@/lib/native';
 import { ap, formatAzn, type AptekKey } from '@/lib/aptek-i18n';
 import type { AptekProduct } from '@/hooks/useAptek';
 import type { AptekBundle } from '@/lib/aptek-pricing';
+import { QcProductBadge } from '@/components/qaygicash/QcParts';
+import { toMinor } from '@/lib/qaygicash';
 
 export const discountPct = (p: Pick<AptekProduct, 'price' | 'original_price'>) =>
   p.original_price && p.original_price > p.price ? Math.round((1 - p.price / p.original_price) * 100) : 0;
@@ -38,6 +40,8 @@ export function ProductCard({ product, qty, onOpen, onQty, variant }: {
       <div className="ap-body">
         <button type="button" className="ap-name" onClick={onOpen} style={{ border: 0, background: 'none', padding: 0, cursor: 'pointer' }}>{product.name}</button>
         <span className="a3-meta">{ageLabel(product.min_age_months)}</span>
+        {/* QayğıCash: only Anacan-brand products earn; partner products show nothing in lists */}
+        {product.cashback_own && <QcProductBadge channel="own_shop" priceMinor={toMinor(product.price)} style={{ alignSelf: 'flex-start' }} />}
         <div className="ap-foot">
           <span className="ap-price a3-num">
             <b>{formatAzn(product.price)}</b>

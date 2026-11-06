@@ -6,6 +6,7 @@ const mocks = vi.hoisted(() => ({ intro: 19.99, purchase: vi.fn(), legacyPurchas
 vi.mock('@/store/userStore', () => ({ useUserStore: (selector: any) => selector({ language: 'en' }) }));
 vi.mock('@/lib/revenuecat', () => ({ isNativePlatform: () => true, getPlatform: () => 'ios' }));
 vi.mock('@/components/premium/SponsorEntry', () => ({ default: () => null }));
+vi.mock('@/components/qaygicash/QaygiCashPremium', () => ({ QcPremiumEarnLine: () => null, QaygiCashPremiumOption: () => null }));
 vi.mock('@/lib/tr', () => ({ tr: (_key: string, fallback: string) => fallback }));
 vi.mock('@/lib/analytics', () => ({ analytics: { logPaywallClicked: vi.fn() } }));
 vi.mock('@/hooks/use-toast', () => ({ useToast: () => ({ toast: mocks.toast }) }));

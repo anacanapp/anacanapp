@@ -8,6 +8,8 @@ import { tr } from '@/lib/tr';
 import { useIsRtl } from '@/lib/rtl';
 import { FLAVORS, FLAVOR_FIELD, PHOTO_BOX, cakeSpecs, cakeStory, categoryLabel, categoryOf, isBento, money } from './cakeUi';
 import './cakes.css';
+import { QcProductBadge } from '@/components/qaygicash/QcParts';
+import { toMinor } from '@/lib/qaygicash';
 
 interface CakeDetailScreenProps {
   cake: Cake;
@@ -77,6 +79,7 @@ const CakeDetailScreen = ({ cake, onBack, onOpenCart }: CakeDetailScreenProps) =
           <div style={{ minWidth: 0 }}>
             <span className="ck-kicker">{categoryLabel(categoryOf(cake))}{cake.category !== 'month' && cake.milestone_label ? ` · ${cake.milestone_label}` : ''}</span>
             <h1 className="ck-name">{cake.name}</h1>
+            <QcProductBadge channel="cake" priceMinor={toMinor(Number(cake.price))} style={{ marginTop: 6, fontSize: 12 }} />
           </div>
           <span className="ck-bigprice">{money(Number(cake.price))}</span>
         </div>
