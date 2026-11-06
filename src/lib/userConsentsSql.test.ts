@@ -107,3 +107,16 @@ describe('privacy path and KVKK wording', () => {
     expect(Object.values(tr)).not.toContain(KVKK_TEXTS.health_data);
   });
 });
+
+describe('app shell mount', () => {
+  it('shows the gate after sign-in/e-mail check and before the country gate, onboarding and dashboard; wraps both AI tabs', () => {
+    const index = readFileSync(resolve(process.cwd(), 'src/pages/Index.tsx'), 'utf8');
+    const at = (needle: string) => { const i = index.indexOf(needle); expect(i, needle).toBeGreaterThan(-1); return i; };
+    expect(at('<AuthScreen />')).toBeLessThan(at('<ConsentGateScreen'));
+    expect(at('<EmailVerificationScreen')).toBeLessThan(at('<ConsentGateScreen'));
+    expect(at('<ConsentGateScreen')).toBeLessThan(at('<CountryGate'));
+    expect(at('<ConsentGateScreen')).toBeLessThan(at('<PremiumOnboarding'));
+    expect(index).toContain("if (user && !(showAdmin && isAdmin))");
+    expect(index.match(/<AiConsentGate /g)).toHaveLength(2);
+  });
+});

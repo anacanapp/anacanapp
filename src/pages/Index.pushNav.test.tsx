@@ -27,6 +27,8 @@ vi.mock('@/hooks/useDeviceToken', () => ({ useDeviceToken: () => {} }));
 vi.mock('@/hooks/usePendingTimerStops', () => ({ usePendingTimerStops: () => {} }));
 vi.mock('@/hooks/useForceUpdate', () => ({ useForceUpdate: () => ({ forceUpdate: null, isLoading: false }) }));
 vi.mock('@/hooks/useUserBlock', () => ({ useActiveBlock: () => ({ data: null }) }));
+vi.mock('@/hooks/useConsentGate', () => ({ useConsentGate: () => ({ status: 'skip', consent: null, markAccepted: () => {} }) }));
+vi.mock('@/components/consent/AiConsentGate', () => ({ default: ({ children }: any) => children }));
 vi.mock('@/hooks/useSwipeNavigation', () => ({ useSwipeNavigation: (options: any) => { mocks.swipe = options; } }));
 vi.mock('@/lib/native', () => ({ isNative: false }));
 vi.mock('@/lib/deeplink', () => ({ initDeeplinkListener: (handler: any) => { mocks.deeplink = handler; return () => {}; } }));
