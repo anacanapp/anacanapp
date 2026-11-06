@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "Jika Ibu ingin menyusui lagi",
   "weaning_finish_relact_text": "Terkadang ibu atau anak ingin kembali menyusui. Ini mungkin dilakukan (relaktasi); bicarakan dengan konselor laktasi atau dokter.",
   "weaning_reminder_title": "Menyapih: langkah baru",
-  "weaning_reminder_body": "Hari ini: {label}. Tanpa terburu-buru, dengan cinta."
+  "weaning_reminder_body": "Hari ini: {label}. Tanpa terburu-buru, dengan cinta.",
+  "weaning_home_badge": "ASI",
+  "weaning_home_title": "Melanjutkan atau menyapih adalah pilihan Ibu",
+  "weaning_home_text": "WHO mendukung pemberian ASI hingga usia 2 tahun dan seterusnya. Jika Ibu memutuskan untuk menyapih, mari buat rencana bertahap yang aman bagi si kecil.",
+  "weaning_home_open": "Lihat panduan",
+  "weaning_home_continue": "Lanjutkan",
+  "weaning_home_dismiss": "Tutup",
+  "weaning_home_active_title": "Menyapih · {done}/{total} langkah",
+  "weaning_home_active_step": "Langkah saat ini: {step}",
+  "weaning_home_active_paused": "Rencana dijeda. Lanjutkan saat Ibu sudah siap.",
+  "weaning_home_active_done": "Semua langkah selesai",
+  "weaning_feed_link_title": "Mempertimbangkan untuk menyapih?",
+  "weaning_feed_link_text": "Rencana akan dibuat otomatis berdasarkan catatan 7 hari terakhir.",
+  "weaning_feed_link_cta": "Mari buat rencana",
+  "weaning_ai_title": "Rencana menyapih",
+  "weaning_ai_title_active": "Buka rencana menyapih Ibu",
+  "weaning_ai_text": "Rencana bertahap yang aman untuk si kecil, check-in harian, dan panduan makan."
 }

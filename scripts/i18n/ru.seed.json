@@ -9367,5 +9367,21 @@
   "weaning_finish_relact_title": "Если захотите снова кормить",
   "weaning_finish_relact_text": "Иногда мама или ребенок хотят вернуться назад. Это возможно (релактация); поговорите с консультантом по лактации или врачом.",
   "weaning_reminder_title": "Отлучение от груди: новый шаг",
-  "weaning_reminder_body": "Сегодня: {label}. Без спешки, с любовью."
+  "weaning_reminder_body": "Сегодня: {label}. Без спешки, с любовью.",
+  "weaning_home_badge": "Грудное молоко",
+  "weaning_home_title": "Продолжать или завершать — Ваш выбор",
+  "weaning_home_text": "ВОЗ поддерживает грудное вскармливание до 2 лет и дольше. Если Вы решите завершить его, давайте составим постепенный и мягкий для ребенка план.",
+  "weaning_home_open": "Открыть руководство",
+  "weaning_home_continue": "Я продолжаю",
+  "weaning_home_dismiss": "Закрыть",
+  "weaning_home_active_title": "Завершение ГВ · {done}/{total}",
+  "weaning_home_active_step": "Текущий шаг: {step}",
+  "weaning_home_active_paused": "План приостановлен. Продолжите, когда Вы будете готовы.",
+  "weaning_home_active_done": "Все шаги завершены",
+  "weaning_feed_link_title": "Думаете о завершении ГВ?",
+  "weaning_feed_link_text": "План будет составлен автоматически на основе Ваших записей за последние 7 дней.",
+  "weaning_feed_link_cta": "Составить план",
+  "weaning_ai_title": "План завершения ГВ",
+  "weaning_ai_title_active": "Перейти к Вашему плану завершения ГВ",
+  "weaning_ai_text": "Пошаговый и мягкий для ребенка план, ежедневные отметки и руководство по питанию."
 }

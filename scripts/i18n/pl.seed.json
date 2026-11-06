@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "Jeśli zechcesz znów karmić",
   "weaning_finish_relact_text": "Czasami matka lub dziecko chcą do tego wrócić. Jest to możliwe (relaktacja); porozmawiaj z doradcą laktacyjnym lub lekarzem.",
   "weaning_reminder_title": "Odstawienie od piersi: nowy krok",
-  "weaning_reminder_body": "Dzisiaj: {label}. Bez pośpiechu, z miłością."
+  "weaning_reminder_body": "Dzisiaj: {label}. Bez pośpiechu, z miłością.",
+  "weaning_home_badge": "Karmienie piersią",
+  "weaning_home_title": "Kontynuacja lub odstawienie to Pani decyzja",
+  "weaning_home_text": "WHO popiera karmienie piersią do 2. roku życia i dłużej. Jeśli zdecyduje się Pani na odstawienie, stwórzmy stopniowy, łagodny dla dziecka plan.",
+  "weaning_home_open": "Zobacz przewodnik",
+  "weaning_home_continue": "Kontynuuję",
+  "weaning_home_dismiss": "Zamknij",
+  "weaning_home_active_title": "Odstawienie · {done}/{total} kroków",
+  "weaning_home_active_step": "Obecny krok: {step}",
+  "weaning_home_active_paused": "Plan wstrzymany. Proszę kontynuować, gdy będzie Pani gotowa.",
+  "weaning_home_active_done": "Wszystkie kroki zakończone",
+  "weaning_feed_link_title": "Myśli Pani o odstawieniu?",
+  "weaning_feed_link_text": "Plan zostanie wypełniony automatycznie na podstawie wpisów z ostatnich 7 dni.",
+  "weaning_feed_link_cta": "Stwórzmy plan",
+  "weaning_ai_title": "Plan odstawienia od piersi",
+  "weaning_ai_title_active": "Przejdź do Pani planu odstawienia",
+  "weaning_ai_text": "Krok po kroku, łagodny dla dziecka plan, codzienne monitorowanie i przewodnik żywieniowy."
 }

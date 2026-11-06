@@ -9533,5 +9533,21 @@
   "weaning_finish_relact_title": "If you want to breastfeed again",
   "weaning_finish_relact_text": "Sometimes the mother or child wants to go back. This is possible (relactation); talk to a lactation consultant or doctor.",
   "weaning_reminder_title": "Weaning: new step",
-  "weaning_reminder_body": "Today: {label}. Without rushing, with love."
+  "weaning_reminder_body": "Today: {label}. Without rushing, with love.",
+  "weaning_home_badge": "Breastfeeding",
+  "weaning_home_title": "Continuing or weaning is your choice",
+  "weaning_home_text": "WHO supports breastfeeding up to 2 years and beyond. If you decide to wean, let's create a gradual, child-safe plan.",
+  "weaning_home_open": "View guide",
+  "weaning_home_continue": "Continue breastfeeding",
+  "weaning_home_dismiss": "Close",
+  "weaning_home_active_title": "Weaning · {done}/{total} steps",
+  "weaning_home_active_step": "Current step: {step}",
+  "weaning_home_active_paused": "Plan paused. Continue whenever you are ready.",
+  "weaning_home_active_done": "All steps completed",
+  "weaning_feed_link_title": "Thinking about weaning?",
+  "weaning_feed_link_text": "A plan will be automatically generated based on your logs from the last 7 days.",
+  "weaning_feed_link_cta": "Let's create a plan",
+  "weaning_ai_title": "Weaning plan",
+  "weaning_ai_title_active": "Go to your weaning plan",
+  "weaning_ai_text": "A step-by-step, child-safe plan with daily check-ins and a feeding guide."
 }

@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "Als je weer borstvoeding wilt geven",
   "weaning_finish_relact_text": "Soms wil de moeder of het kindje terugkeren. Dit is mogelijk (relactatie); praat met een lactatiekundige of arts.",
   "weaning_reminder_title": "Afbouwen: nieuwe stap",
-  "weaning_reminder_body": "Vandaag: {label}. Zonder haast, met liefde."
+  "weaning_reminder_body": "Vandaag: {label}. Zonder haast, met liefde.",
+  "weaning_home_badge": "Borstvoeding",
+  "weaning_home_title": "Doorgaan of afbouwen is uw keuze",
+  "weaning_home_text": "De WHO steunt borstvoeding tot 2 jaar en daarna. Als u besluit af te bouwen, maken we een geleidelijk, kindvriendelijk plan.",
+  "weaning_home_open": "Bekijk de gids",
+  "weaning_home_continue": "Ik ga door",
+  "weaning_home_dismiss": "Sluiten",
+  "weaning_home_active_title": "Afbouwen · {done}/{total} stappen",
+  "weaning_home_active_step": "Huidige stap: {step}",
+  "weaning_home_active_paused": "Plan gepauzeerd. Ga door wanneer u er klaar voor bent.",
+  "weaning_home_active_done": "Alle stappen zijn voltooid",
+  "weaning_feed_link_title": "Denkt u aan afbouwen?",
+  "weaning_feed_link_text": "Het plan wordt automatisch ingevuld op basis van uw gegevens van de afgelopen 7 dagen.",
+  "weaning_feed_link_cta": "Laten we een plan maken",
+  "weaning_ai_title": "Afbouwplan",
+  "weaning_ai_title_active": "Ga naar uw afbouwplan",
+  "weaning_ai_text": "Een stapsgewijs, kindvriendelijk plan, dagelijkse check-ins en een voedingsgids."
 }

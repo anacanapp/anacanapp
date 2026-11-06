@@ -29,6 +29,8 @@ import { useWeightEntries } from '@/hooks/useWeightEntries';
 import { useKickSessions } from '@/hooks/useKickSessions';
 import { useSubscription } from '@/hooks/useSubscription';
 import PremiumModal from '@/components/PremiumModal';
+import { isWeaningQuestion } from '@/lib/weaning-entry';
+import { WeaningAiCard } from '@/components/tools/weaning/WeaningEntryCards';
 import MarkdownContent from './MarkdownContent';
 import { tr } from "@/lib/tr";
 import { fillEmergencyNumber } from '@/lib/emergency';
@@ -831,13 +833,18 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
 
         <div className="pb-4 pt-1">
           <AnimatePresence initial={false}>
-            {messages.map((message) =>
-            <ChatMessageRow
-              key={message.id}
-              message={message}
-              copied={copiedId === message.id}
-              onCopy={copyMessage} />
-            )}
+            {messages.flatMap((message, i) => {
+              const row =
+              <ChatMessageRow
+                key={message.id}
+                message={message}
+                copied={copiedId === message.id}
+                onCopy={copyMessage} />;
+              // Süddən ayırma: tool card under the answer to a weaning question (mother persona only).
+              const asked = !partner && message.role === 'assistant' && !message.isStreaming && !!message.content &&
+              messages[i - 1]?.role === 'user' && isWeaningQuestion(messages[i - 1].content);
+              return asked ? [row, <WeaningAiCard key={`${message.id}-weaning`} />] : [row];
+            })}
           </AnimatePresence>
         </div>
 

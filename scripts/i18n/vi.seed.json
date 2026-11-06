@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "Nếu mẹ muốn cho bú lại",
   "weaning_finish_relact_text": "Đôi khi mẹ hoặc bé muốn quay lại bú mẹ. Điều này là có thể (tái kích sữa); hãy nói chuyện với chuyên gia tư vấn sữa mẹ hoặc bác sĩ.",
   "weaning_reminder_title": "Cai sữa: bước mới",
-  "weaning_reminder_body": "Hôm nay: {label}. Không vội vã, với tình yêu thương."
+  "weaning_reminder_body": "Hôm nay: {label}. Không vội vã, với tình yêu thương.",
+  "weaning_home_badge": "Sữa mẹ",
+  "weaning_home_title": "Tiếp tục hay cai sữa đều là lựa chọn của mẹ",
+  "weaning_home_text": "WHO khuyến nghị cho bé bú mẹ đến 2 tuổi và lâu hơn nữa. Nếu mẹ quyết định cai sữa, hãy cùng lập một kế hoạch từ từ và nhẹ nhàng cho bé nhé.",
+  "weaning_home_open": "Xem hướng dẫn",
+  "weaning_home_continue": "Tiếp tục",
+  "weaning_home_dismiss": "Đóng",
+  "weaning_home_active_title": "Cai sữa · {done}/{total} bước",
+  "weaning_home_active_step": "Bước hiện tại: {step}",
+  "weaning_home_active_paused": "Kế hoạch đã tạm dừng. Mẹ hãy tiếp tục khi nào sẵn sàng nhé.",
+  "weaning_home_active_done": "Đã hoàn thành tất cả các bước",
+  "weaning_feed_link_title": "Mẹ đang cân nhắc việc cai sữa?",
+  "weaning_feed_link_text": "Kế hoạch sẽ được tự động tạo dựa trên nhật ký 7 ngày qua của mẹ.",
+  "weaning_feed_link_cta": "Lập kế hoạch",
+  "weaning_ai_title": "Kế hoạch cai sữa",
+  "weaning_ai_title_active": "Đi đến kế hoạch cai sữa của mẹ",
+  "weaning_ai_text": "Kế hoạch từng bước nhẹ nhàng cho bé, theo dõi hàng ngày và hướng dẫn dinh dưỡng."
 }

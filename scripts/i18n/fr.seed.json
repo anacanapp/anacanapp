@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "Si vous souhaitez allaiter à nouveau",
   "weaning_finish_relact_text": "Parfois, la mère ou l'enfant veut revenir en arrière. C'est possible (relactation) ; parlez-en à une consultante en lactation ou un médecin.",
   "weaning_reminder_title": "Sevrage : nouvelle étape",
-  "weaning_reminder_body": "Aujourd'hui : {label}. Sans précipitation, avec amour."
+  "weaning_reminder_body": "Aujourd'hui : {label}. Sans précipitation, avec amour.",
+  "weaning_home_badge": "Allaitement",
+  "weaning_home_title": "Continuer ou sevrer, c'est votre choix",
+  "weaning_home_text": "L'OMS soutient l'allaitement jusqu'à 2 ans et au-delà. Si vous décidez de sevrer, créons un plan progressif et en douceur pour votre enfant.",
+  "weaning_home_open": "Voir le guide",
+  "weaning_home_continue": "Je continue",
+  "weaning_home_dismiss": "Fermer",
+  "weaning_home_active_title": "Sevrage · {done}/{total} étapes",
+  "weaning_home_active_step": "Étape actuelle : {step}",
+  "weaning_home_active_paused": "Plan en pause. Continuez quand vous serez prête.",
+  "weaning_home_active_done": "Toutes les étapes sont terminées",
+  "weaning_feed_link_title": "Vous envisagez le sevrage ?",
+  "weaning_feed_link_text": "Le plan sera généré automatiquement d'après vos données des 7 derniers jours.",
+  "weaning_feed_link_cta": "Créons un plan",
+  "weaning_ai_title": "Plan de sevrage",
+  "weaning_ai_title_active": "Accéder à votre plan de sevrage",
+  "weaning_ai_text": "Un plan étape par étape en douceur pour votre enfant, un suivi quotidien et un guide d'alimentation."
 }

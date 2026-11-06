@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "Om du vill amma igen",
   "weaning_finish_relact_text": "Ibland vill mamman eller barnet gå tillbaka. Det är möjligt (relaktation); prata med en amningsrådgivare eller läkare.",
   "weaning_reminder_title": "Avvänjning: nytt steg",
-  "weaning_reminder_body": "I dag: {label}. Utan stress, med kärlek."
+  "weaning_reminder_body": "I dag: {label}. Utan stress, med kärlek.",
+  "weaning_home_badge": "Amning",
+  "weaning_home_title": "Att fortsätta eller sluta amma är ditt val",
+  "weaning_home_text": "WHO rekommenderar amning upp till 2 år och därefter. Om du bestämmer dig för att sluta, låt oss skapa en skonsam och gradvis plan för ditt barn.",
+  "weaning_home_open": "Se guiden",
+  "weaning_home_continue": "Jag fortsätter",
+  "weaning_home_dismiss": "Stäng",
+  "weaning_home_active_title": "Avvänjning · {done}/{total} steg",
+  "weaning_home_active_step": "Nuvarande steg: {step}",
+  "weaning_home_active_paused": "Planen är pausad. Fortsätt när du är redo.",
+  "weaning_home_active_done": "Alla steg slutförda",
+  "weaning_feed_link_title": "Funderar du på att sluta amma?",
+  "weaning_feed_link_text": "Planen fylls i automatiskt baserat på dina loggar från de senaste 7 dagarna.",
+  "weaning_feed_link_cta": "Skapa en plan",
+  "weaning_ai_title": "Avvänjningsplan",
+  "weaning_ai_title_active": "Gå till din avvänjningsplan",
+  "weaning_ai_text": "En skonsam steg-för-steg-plan för barnet, med dagliga incheckningar och matningsguide."
 }

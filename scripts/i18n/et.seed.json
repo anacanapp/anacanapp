@@ -11853,5 +11853,21 @@
 "weaning_finish_relact_title":"Kui soovid uuesti imetada",
 "weaning_finish_relact_text":"Mõnikord soovib ema või laps tagasi pöörduda. See on võimalik (relaktatsioon); räägi imetamisnõustaja või arstiga.",
 "weaning_reminder_title":"Võõrutamine: uus samm",
-"weaning_reminder_body":"Täna: {label}. Kiirustamata, armastusega."
+"weaning_reminder_body":"Täna: {label}. Kiirustamata, armastusega.",
+"weaning_home_badge":"Rinnapiim",
+"weaning_home_title":"Jätkamine või võõrutamine on Teie valik",
+"weaning_home_text":"WHO toetab rinnaga toitmist kuni 2. eluaastani ja kauemgi. Kui otsustate võõrutada, teeme lapsele ohutu ja järk-järgulise plaani.",
+"weaning_home_open":"Vaadake juhendit",
+"weaning_home_continue":"Jätkan",
+"weaning_home_dismiss":"Sulge",
+"weaning_home_active_title":"Võõrutamine · {done}/{total} sammu",
+"weaning_home_active_step":"Praegune samm: {step}",
+"weaning_home_active_paused":"Plaan on peatatud. Jätkake, kui olete valmis.",
+"weaning_home_active_done":"Kõik sammud on lõpetatud",
+"weaning_feed_link_title":"Kas kaalute võõrutamist?",
+"weaning_feed_link_text":"Plaan koostatakse automaatselt viimase 7 päeva sissekannete põhjal.",
+"weaning_feed_link_cta":"Koostame plaani",
+"weaning_ai_title":"Võõrutamise plaan",
+"weaning_ai_title_active":"Avage oma võõrutamise plaan",
+"weaning_ai_text":"Samm-sammuline, lapsele ohutu plaan, igapäevane ülevaade ja toitumisjuhend."
 }

@@ -354,6 +354,24 @@ export const WEANING_COPY = {
   // Reminders (local notifications, Premium)
   weaning_reminder_title: 'Süddən ayırma: yeni addım',
   weaning_reminder_body: 'Bu gün: {label}. Tələsmədən, sevgi ilə.',
+
+  // Entry points outside the tool (home card, feeding logger, Anacan.AI)
+  weaning_home_badge: 'Ana südü',
+  weaning_home_title: 'Davam etmək də, ayırmaq da sizin seçiminizdir',
+  weaning_home_text: 'ÜST 2 yaşa qədər və sonra da əmizdirməni dəstəkləyir. Ayırmaq qərarına gəlsəniz, uşağa zərərsiz, tədricən plan quraq.',
+  weaning_home_open: 'Bələdçiyə bax',
+  weaning_home_continue: 'Davam edirəm',
+  weaning_home_dismiss: 'Bağla',
+  weaning_home_active_title: 'Süddən ayırma · {done}/{total} addım',
+  weaning_home_active_step: 'İndiki addım: {step}',
+  weaning_home_active_paused: 'Plan dayandırılıb. Hazır olanda davam edin.',
+  weaning_home_active_done: 'Bütün addımlar tamamlandı',
+  weaning_feed_link_title: 'Ayırmağı düşünürsünüz?',
+  weaning_feed_link_text: 'Son 7 günün qeydlərinə əsasən plan avtomatik dolacaq.',
+  weaning_feed_link_cta: 'Plan quraq',
+  weaning_ai_title: 'Süddən ayırma planı',
+  weaning_ai_title_active: 'Süddən ayırma planınıza keçin',
+  weaning_ai_text: 'Addım-addım, uşağa zərərsiz plan, gündəlik check-in və qidalanma bələdçisi.',
 } as const;
 
 export type WeaningKey = keyof typeof WEANING_COPY;

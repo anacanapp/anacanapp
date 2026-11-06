@@ -9367,5 +9367,21 @@
   "weaning_finish_relact_title": "Yeniden emzirmek isterseniz",
   "weaning_finish_relact_text": "Bazen anne veya çocuk geri dönmek ister. Bu mümkündür (relaktasyon); laktasyon danışmanı veya doktorla görüşün.",
   "weaning_reminder_title": "Sütten kesme: yeni adım",
-  "weaning_reminder_body": "Bugün: {label}. Acele etmeden, sevgiyle."
+  "weaning_reminder_body": "Bugün: {label}. Acele etmeden, sevgiyle.",
+  "weaning_home_badge": "Anne sütü",
+  "weaning_home_title": "Devam etmek de, sütten kesmek de sizin seçiminizdir",
+  "weaning_home_text": "DSÖ, 2 yaşa kadar ve sonrasında da emzirmeyi destekliyor. Sütten kesmeye karar verirseniz, çocuğunuza zarar vermeden, kademeli bir plan oluşturalım.",
+  "weaning_home_open": "Rehberi incele",
+  "weaning_home_continue": "Devam ediyorum",
+  "weaning_home_dismiss": "Kapat",
+  "weaning_home_active_title": "Sütten kesme · {done}/{total} adım",
+  "weaning_home_active_step": "Mevcut adım: {step}",
+  "weaning_home_active_paused": "Plan duraklatıldı. Hazır olduğunuzda devam edin.",
+  "weaning_home_active_done": "Tüm adımlar tamamlandı",
+  "weaning_feed_link_title": "Sütten kesmeyi mi düşünüyorsunuz?",
+  "weaning_feed_link_text": "Son 7 günün kayıtlarına göre plan otomatik olarak dolacak.",
+  "weaning_feed_link_cta": "Plan oluşturalım",
+  "weaning_ai_title": "Sütten kesme planı",
+  "weaning_ai_title_active": "Sütten kesme planınıza gidin",
+  "weaning_ai_text": "Adım adım, çocuğunuza zarar vermeyen bir plan, günlük takip ve beslenme rehberi."
 }

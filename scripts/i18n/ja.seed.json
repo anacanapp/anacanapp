@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "再び授乳したくなったら",
   "weaning_finish_relact_text": "ママやお子さまが元に戻りたくなることもあります。それは可能です（再授乳）。母乳育児相談員や医師にご相談ください。",
   "weaning_reminder_title": "断乳: 新しいステップ",
-  "weaning_reminder_body": "今日: {label}。焦らず、愛情を込めて。"
+  "weaning_reminder_body": "今日: {label}。焦らず、愛情を込めて。",
+  "weaning_home_badge": "母乳",
+  "weaning_home_title": "続けるのも、卒乳するのも、お母さんの自由です",
+  "weaning_home_text": "WHOは2歳以降の授乳も推奨しています。もし卒乳を決めたら、お子様に負担のない段階的なプランを立てましょう。",
+  "weaning_home_open": "ガイドを見る",
+  "weaning_home_continue": "授乳を続ける",
+  "weaning_home_dismiss": "閉じる",
+  "weaning_home_active_title": "卒乳 · {done}/{total}ステップ",
+  "weaning_home_active_step": "現在のステップ: {step}",
+  "weaning_home_active_paused": "プランを一時停止しています。準備ができたら再開してください。",
+  "weaning_home_active_done": "すべてのステップが完了しました",
+  "weaning_feed_link_title": "卒乳をお考えですか？",
+  "weaning_feed_link_text": "過去7日間の記録をもとに、プランが自動的に作成されます。",
+  "weaning_feed_link_cta": "プランを立てる",
+  "weaning_ai_title": "卒乳プラン",
+  "weaning_ai_title_active": "卒乳プランへ進む",
+  "weaning_ai_text": "お子様に負担のない段階的なプラン、毎日のチェックイン、お食事ガイド。"
 }

@@ -11853,5 +11853,21 @@
 "weaning_finish_relact_title":"Кайрадан эмизгиңиз келсе",
 "weaning_finish_relact_text":"Кээде эне же бала артка кайтууну каалайт. Бул мүмкүн (релактация); лактация боюнча кеңешчи же дарыгер менен сүйлөшүңүз.",
 "weaning_reminder_title":"Эмчектен чыгаруу: жаңы кадам",
-"weaning_reminder_body":"Бүгүн: {label}. Шашпай, мээрим менен."
+"weaning_reminder_body":"Бүгүн: {label}. Шашпай, мээрим менен.",
+"weaning_home_badge":"Эне сүтү",
+"weaning_home_title":"Улантуу же эмчектен чыгаруу – бул сиздин тандооңуз",
+"weaning_home_text":"ДССУ 2 жашка чейин жана андан кийин да эмизүүнү колдойт. Эгер эмчектен чыгарууну чечсеңиз, балага зыянсыз, акырындык менен ишке ашуучу план түзөлү.",
+"weaning_home_open":"Колдонмону көрүү",
+"weaning_home_continue":"Улантам",
+"weaning_home_dismiss":"Жабуу",
+"weaning_home_active_title":"Эмчектен чыгаруу · {done}/{total} кадам",
+"weaning_home_active_step":"Учурдагы кадам: {step}",
+"weaning_home_active_paused":"План токтотулду. Даяр болгонуңузда улантыңыз.",
+"weaning_home_active_done":"Бардык кадамдар аяктады",
+"weaning_feed_link_title":"Эмчектен чыгарууну ойлонуп жатасызбы?",
+"weaning_feed_link_text":"Акыркы 7 күндүн жазууларына негизделип, план автоматтык түрдө толтурулат.",
+"weaning_feed_link_cta":"План түзөлү",
+"weaning_ai_title":"Эмчектен чыгаруу планы",
+"weaning_ai_title_active":"Эмчектен чыгаруу планыңызга өтүңүз",
+"weaning_ai_text":"Кадам сайын, балага зыянсыз план, күнүмдүк текшерүү жана тамактануу боюнча колдонмо."
 }

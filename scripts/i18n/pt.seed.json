@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "Se quiser voltar a amamentar",
   "weaning_finish_relact_text": "Às vezes, a mãe ou a criança querem voltar atrás. Isso é possível (relactação); converse com uma consultora de lactação ou médico.",
   "weaning_reminder_title": "Desmame: nova etapa",
-  "weaning_reminder_body": "Hoje: {label}. Sem pressa, com amor."
+  "weaning_reminder_body": "Hoje: {label}. Sem pressa, com amor.",
+  "weaning_home_badge": "Leite materno",
+  "weaning_home_title": "Continuar ou desmamar é uma escolha sua",
+  "weaning_home_text": "A OMS recomenda a amamentação até os 2 anos ou mais. Se decidir pelo desmame, vamos criar um plano gradual e gentil para a criança.",
+  "weaning_home_open": "Ver guia",
+  "weaning_home_continue": "Continuar",
+  "weaning_home_dismiss": "Fechar",
+  "weaning_home_active_title": "Desmame · {done}/{total} etapas",
+  "weaning_home_active_step": "Etapa atual: {step}",
+  "weaning_home_active_paused": "Plano pausado. Continue quando estiver pronta.",
+  "weaning_home_active_done": "Todas as etapas concluídas",
+  "weaning_feed_link_title": "Pensando em desmamar?",
+  "weaning_feed_link_text": "O plano será preenchido automaticamente com base nos seus registros dos últimos 7 dias.",
+  "weaning_feed_link_cta": "Criar plano",
+  "weaning_ai_title": "Plano de desmame",
+  "weaning_ai_title_active": "Acessar seu plano de desmame",
+  "weaning_ai_text": "Um plano passo a passo e gentil para a criança, com check-ins diários e guia de alimentação."
 }

@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "如果您想重新哺乳",
   "weaning_finish_relact_text": "有时妈妈或宝宝想要恢复哺乳。这是可能的（重新泌乳）；请咨询哺乳顾问或医生。",
   "weaning_reminder_title": "断奶：新步骤",
-  "weaning_reminder_body": "今天：{label}。不慌不忙，充满爱意。"
+  "weaning_reminder_body": "今天：{label}。不慌不忙，充满爱意。",
+  "weaning_home_badge": "母乳喂养",
+  "weaning_home_title": "继续喂养还是断奶，全凭您的选择",
+  "weaning_home_text": "世卫组织支持母乳喂养至2岁及以上。如果您决定断奶，让我们为您制定一个循序渐进、对宝宝温和无害的计划。",
+  "weaning_home_open": "查看指南",
+  "weaning_home_continue": "我选择继续",
+  "weaning_home_dismiss": "关闭",
+  "weaning_home_active_title": "断奶 · {done}/{total} 步",
+  "weaning_home_active_step": "当前步骤：{step}",
+  "weaning_home_active_paused": "计划已暂停。当您准备好时再继续。",
+  "weaning_home_active_done": "所有步骤已完成",
+  "weaning_feed_link_title": "正在考虑断奶吗？",
+  "weaning_feed_link_text": "将根据您过去7天的记录自动生成计划。",
+  "weaning_feed_link_cta": "制定计划",
+  "weaning_ai_title": "断奶计划",
+  "weaning_ai_title_active": "进入您的断奶计划",
+  "weaning_ai_text": "循序渐进、对宝宝温和无害的计划，包含每日打卡与喂养指南。"
 }

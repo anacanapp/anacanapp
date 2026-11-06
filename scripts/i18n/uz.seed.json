@@ -9367,5 +9367,21 @@
   "weaning_finish_relact_title": "Yana emizishni xohlasangiz",
   "weaning_finish_relact_text": "Ba'zan ona yoki bola orqaga qaytishni xohlaydi. Bu mumkin (relaktatsiya); laktatsiya maslahatchisi yoki shifokor bilan gaplashing.",
   "weaning_reminder_title": "Sutdan ajratish: yangi qadam",
-  "weaning_reminder_body": "Bugun: {label}. Shoshilmasdan, mehr bilan."
+  "weaning_reminder_body": "Bugun: {label}. Shoshilmasdan, mehr bilan.",
+  "weaning_home_badge": "Ona suti",
+  "weaning_home_title": "Davom etish ham, ajratish ham sizning tanlovingiz",
+  "weaning_home_text": "JSST 2 yoshgacha va undan keyin ham emizishni qo'llab-quvvatlaydi. Agar ajratishga qaror qilsangiz, bolaga zararsiz, bosqichma-bosqich reja tuzamiz.",
+  "weaning_home_open": "Qo'llanmani ko'rish",
+  "weaning_home_continue": "Davom etaman",
+  "weaning_home_dismiss": "Yopish",
+  "weaning_home_active_title": "Sutdan ajratish · {done}/{total} bosqich",
+  "weaning_home_active_step": "Hozirgi bosqich: {step}",
+  "weaning_home_active_paused": "Reja to'xtatib turilibdi. Tayyor bo'lganingizda davom eting.",
+  "weaning_home_active_done": "Barcha bosqichlar yakunlandi",
+  "weaning_feed_link_title": "Sutdan ajratish haqida o'ylayapsizmi?",
+  "weaning_feed_link_text": "So'nggi 7 kunlik yozuvlar asosida reja avtomatik ravishda to'ldiriladi.",
+  "weaning_feed_link_cta": "Reja tuzamiz",
+  "weaning_ai_title": "Sutdan ajratish rejasi",
+  "weaning_ai_title_active": "Sutdan ajratish rejangizga o'ting",
+  "weaning_ai_text": "Bosqichma-bosqich, bolaga zararsiz reja, kundalik nazorat va ovqatlantirish qo'llanmasi."
 }

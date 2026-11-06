@@ -51,6 +51,7 @@ import AdFreePremiumOffer from '@/components/premium/AdFreePremiumOffer';
 import GrowthTrackerWidget from '@/components/mommy/GrowthTrackerWidget';
 import DevelopmentTipsWidget from '@/components/mommy/DevelopmentTipsWidget';
 import PrematurityBackfillCard from '@/components/mommy/PrematurityBackfillCard';
+import { WeaningFeedingLink, WeaningHomeCard } from '@/components/tools/weaning/WeaningEntryCards';
 import BabyCrisisWidget from '@/components/mommy/BabyCrisisWidget';
 import ChildSelector from '@/components/mommy/ChildSelector';
 import TeethingWidget from '@/components/mommy/TeethingWidget';
@@ -1139,6 +1140,9 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
       <PrematurityBackfillCard child={selectedChild} onSaved={refetchChildren} />
       }
 
+      {/* Süddən ayırma: one-time choice card at 12+ months, or the running plan (admin switch weaning_tool) */}
+      <WeaningHomeCard />
+
       {/* Preemie Bələdçisi girişi — yalnız premature körpələrdə (36 aya qədər) */}
       {!isToolDisabled('preemie-hub') && childAge?.isPremature && babyData.ageInMonths < 36 &&
       <section className="a-section">
@@ -1404,6 +1408,9 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
             </motion.div>
           }
         </AnimatePresence>
+
+        {/* Süddən ayırma: "thinking about weaning?" — plan prefilled from the last 7 days of breastfeeds */}
+        {showFeedingModal && babyData && offersBreastfeeding(babyData.ageInMonths) && <WeaningFeedingLink />}
 
         {/* Formula ML Input Modal */}
         <AnimatePresence>

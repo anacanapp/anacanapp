@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "Si quieres volver a amamantar",
   "weaning_finish_relact_text": "A veces la madre o el niño quieren volver atrás. Es posible (relactación); habla con una asesora de lactancia o un médico.",
   "weaning_reminder_title": "Destete: nuevo paso",
-  "weaning_reminder_body": "Hoy: {label}. Sin prisas, con amor."
+  "weaning_reminder_body": "Hoy: {label}. Sin prisas, con amor.",
+  "weaning_home_badge": "Lactancia materna",
+  "weaning_home_title": "Continuar o destetar es su decisión",
+  "weaning_home_text": "La OMS apoya la lactancia hasta los 2 años y más allá. Si decide destetar, creemos un plan gradual y seguro para su bebé.",
+  "weaning_home_open": "Ver guía",
+  "weaning_home_continue": "Continuar",
+  "weaning_home_dismiss": "Cerrar",
+  "weaning_home_active_title": "Destete · {done}/{total} pasos",
+  "weaning_home_active_step": "Paso actual: {step}",
+  "weaning_home_active_paused": "Plan pausado. Continúe cuando esté lista.",
+  "weaning_home_active_done": "Todos los pasos completados",
+  "weaning_feed_link_title": "¿Está pensando en el destete?",
+  "weaning_feed_link_text": "El plan se completará automáticamente según sus registros de los últimos 7 días.",
+  "weaning_feed_link_cta": "Crear plan",
+  "weaning_ai_title": "Plan de destete",
+  "weaning_ai_title_active": "Ir a su plan de destete",
+  "weaning_ai_text": "Un plan paso a paso y seguro para su bebé, con registro diario y guía de alimentación."
 }

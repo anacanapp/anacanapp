@@ -11772,5 +11772,21 @@
   "weaning_finish_relact_title": "अगर आप फिर से स्तनपान कराना चाहें",
   "weaning_finish_relact_text": "कभी-कभी मां या बच्चा वापस लौटना चाहते हैं। यह संभव है (रिलैक्टेशन); लैक्टेशन सलाहकार या डॉक्टर से बात करें。",
   "weaning_reminder_title": "दूध छुड़ाना: नया कदम",
-  "weaning_reminder_body": "आज: {label}। बिना जल्दबाजी के, प्यार के साथ।"
+  "weaning_reminder_body": "आज: {label}। बिना जल्दबाजी के, प्यार के साथ।",
+  "weaning_home_badge": "स्तनपान",
+  "weaning_home_title": "स्तनपान जारी रखना या छुड़ाना, यह पूरी तरह आपका निर्णय है",
+  "weaning_home_text": "WHO 2 साल और उसके बाद भी स्तनपान का समर्थन करता है। यदि आप स्तनपान छुड़ाने का निर्णय लेती हैं, तो आइए बच्चे के लिए एक सुरक्षित और क्रमिक योजना बनाएं।",
+  "weaning_home_open": "गाइड देखें",
+  "weaning_home_continue": "मैं जारी रख रही हूँ",
+  "weaning_home_dismiss": "बंद करें",
+  "weaning_home_active_title": "स्तनपान छुड़ाना · {done}/{total} चरण",
+  "weaning_home_active_step": "वर्तमान चरण: {step}",
+  "weaning_home_active_paused": "योजना रोक दी गई है। जब आप तैयार हों, तब जारी रखें।",
+  "weaning_home_active_done": "सभी चरण पूरे हुए",
+  "weaning_feed_link_title": "क्या आप स्तनपान छुड़ाने का विचार कर रही हैं?",
+  "weaning_feed_link_text": "पिछले 7 दिनों के रिकॉर्ड के आधार पर योजना अपने आप तैयार हो जाएगी।",
+  "weaning_feed_link_cta": "आइए योजना बनाएं",
+  "weaning_ai_title": "स्तनपान छुड़ाने की योजना",
+  "weaning_ai_title_active": "अपनी स्तनपान छुड़ाने की योजना पर जाएं",
+  "weaning_ai_text": "बच्चे के लिए सुरक्षित चरण-दर-चरण योजना, दैनिक चेक-इन और आहार गाइड।"
 }

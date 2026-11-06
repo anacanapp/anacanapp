@@ -9367,5 +9367,21 @@
   "weaning_finish_relact_title": "Wenn du wieder stillen möchtest",
   "weaning_finish_relact_text": "Manchmal möchten Mutter oder Kind zurückkehren. Das ist möglich (Relaktation); sprich mit einer Stillberaterin oder einem Arzt.",
   "weaning_reminder_title": "Abstillen: neuer Schritt",
-  "weaning_reminder_body": "Heute: {label}. Ohne Eile, mit Liebe."
+  "weaning_reminder_body": "Heute: {label}. Ohne Eile, mit Liebe.",
+  "weaning_home_badge": "Stillen",
+  "weaning_home_title": "Weiterstillen oder Abstillen – es ist Ihre Entscheidung",
+  "weaning_home_text": "Die WHO empfiehlt das Stillen bis zum 2. Lebensjahr und darüber hinaus. Wenn Sie sich fürs Abstillen entscheiden, erstellen wir einen sanften, schrittweisen Plan für Ihr Kind.",
+  "weaning_home_open": "Leitfaden ansehen",
+  "weaning_home_continue": "Ich stille weiter",
+  "weaning_home_dismiss": "Schließen",
+  "weaning_home_active_title": "Abstillen · {done}/{total} Schritte",
+  "weaning_home_active_step": "Aktueller Schritt: {step}",
+  "weaning_home_active_paused": "Plan pausiert. Fahren Sie fort, wenn Sie bereit sind.",
+  "weaning_home_active_done": "Alle Schritte abgeschlossen",
+  "weaning_feed_link_title": "Denken Sie ans Abstillen?",
+  "weaning_feed_link_text": "Basierend auf den Einträgen der letzten 7 Tage wird der Plan automatisch erstellt.",
+  "weaning_feed_link_cta": "Plan erstellen",
+  "weaning_ai_title": "Abstillplan",
+  "weaning_ai_title_active": "Zu Ihrem Abstillplan",
+  "weaning_ai_text": "Ein sanfter, schrittweiser Plan, tägliche Check-ins und ein Ernährungsratgeber."
 }

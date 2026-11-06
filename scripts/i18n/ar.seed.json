@@ -9367,5 +9367,21 @@
   "weaning_finish_relact_title": "إذا أردتِ الرضاعة مرة أخرى",
   "weaning_finish_relact_text": "أحياناً ترغب الأم أو الطفل في العودة. هذا ممكن (إعادة الإدرار)؛ تحدثي مع استشارية رضاعة أو طبيب.",
   "weaning_reminder_title": "الفطام: خطوة جديدة",
-  "weaning_reminder_body": "اليوم: {label}. بدون استعجال، وبكل حب."
+  "weaning_reminder_body": "اليوم: {label}. بدون استعجال، وبكل حب.",
+  "weaning_home_badge": "حليب الأم",
+  "weaning_home_title": "الاستمرار أو الفطام، الخيار لكِ",
+  "weaning_home_text": "تدعم منظمة الصحة العالمية الرضاعة الطبيعية حتى عمر السنتين وما بعده. إذا قررتِ الفطام، دعينا نضع خطة تدريجية وآمنة لطفلكِ.",
+  "weaning_home_open": "عرض الدليل",
+  "weaning_home_continue": "سأستمر",
+  "weaning_home_dismiss": "إغلاق",
+  "weaning_home_active_title": "الفطام · {done}/{total} خطوة",
+  "weaning_home_active_step": "الخطوة الحالية: {step}",
+  "weaning_home_active_paused": "الخطة متوقفة مؤقتاً. تابعي عندما تكونين مستعدة.",
+  "weaning_home_active_done": "اكتملت جميع الخطوات",
+  "weaning_feed_link_title": "هل تفكرين في الفطام؟",
+  "weaning_feed_link_text": "سيتم إعداد الخطة تلقائياً بناءً على سجلات الأيام السبعة الماضية.",
+  "weaning_feed_link_cta": "لنضع خطة",
+  "weaning_ai_title": "خطة الفطام",
+  "weaning_ai_title_active": "انتقلي إلى خطة الفطام الخاصة بكِ",
+  "weaning_ai_text": "خطة تدريجية وآمنة لطفلكِ، مع متابعة يومية ودليل للتغذية."
 }

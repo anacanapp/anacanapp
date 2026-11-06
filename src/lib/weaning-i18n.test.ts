@@ -17,7 +17,7 @@ describe('weaning tool copy in every app language', () => {
   });
 
   it('uses only the shared copy keys in the tool source', () => {
-    const sources = ['components/tools/weaning/WeaningScreens.tsx', 'components/tools/weaning/WeaningTool.tsx', 'lib/weaning.ts', 'components/ToolsHub.tsx']
+    const sources = ['components/tools/weaning/WeaningScreens.tsx', 'components/tools/weaning/WeaningTool.tsx', 'lib/weaning.ts', 'components/ToolsHub.tsx', 'components/tools/weaning/WeaningEntryCards.tsx']
       .map((p) => readFileSync(resolve(process.cwd(), 'src', p), 'utf8')).join('\n');
     const used = [...sources.matchAll(/'(weaning_[a-z0-9_]+)'/g)].map((m) => m[1]).filter((k) => !k.endsWith('_'));
     const unknown = used.filter((k) => !(k in WEANING_COPY) && k !== 'weaning_plan' && k !== 'weaning_tool');
