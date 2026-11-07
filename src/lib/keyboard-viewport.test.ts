@@ -52,3 +52,16 @@ it('lifts a bottom-anchored composer bar but never a self-managed sheet', () => 
   bar.dataset.keyboardSurface = 'sheet'; expect(keyboardLiftTargets(field, 0, 450, 800).size).toBe(0);
   delete bar.dataset.keyboardSurface; expect(keyboardLiftTargets(field, 0, 800, 800).size).toBe(0);
 });
+
+describe('refreshCaret', () => {
+  it('re-applies the current selection of a text field and ignores other elements', async () => {
+    const { refreshCaret } = await import('./keyboard-viewport');
+    const input = document.createElement('input');
+    input.value = 'salam'; document.body.appendChild(input); input.setSelectionRange(2, 4);
+    const spy = vi.spyOn(input, 'setSelectionRange');
+    refreshCaret(input);
+    expect(spy).toHaveBeenCalledWith(2, 4, expect.any(String));
+    expect(() => refreshCaret(document.createElement('div'))).not.toThrow();
+    input.remove();
+  });
+});

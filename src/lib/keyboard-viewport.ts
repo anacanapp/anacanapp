@@ -54,10 +54,20 @@ export function keyboardLiftTargets(element: HTMLElement, top: number, height: n
 /** One viewport/focus handler for every form, dialog and rich-text editor. The
  * real field is scrolled, never cloned or moved outside its form. Chat and
  * onboarding already size their own viewports and are not translated twice. */
+/** Re-applies the current selection so WebKit repaints the caret at the field's new position. */
+export function refreshCaret(element: HTMLElement): void {
+  if (!(element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement)) return;
+  try {
+    const { selectionStart: start, selectionEnd: end, selectionDirection: direction } = element;
+    if (start === null || end === null) return; // email/number inputs have no selection API
+    element.setSelectionRange(start, end, direction || 'none');
+  } catch { /* input types without selection support */ }
+}
+
 export function installKeyboardViewport(): () => void {
   const root = document.documentElement;
   const viewport = window.visualViewport;
-  let baseline = window.innerHeight, frame = 0;
+  let baseline = window.innerHeight, frame = 0, geometry = '';
   const delayed = new Set<ReturnType<typeof setTimeout>>();
   const lifted = new Set<HTMLElement>();
   const lift = (next: Map<HTMLElement, LiftMode>, focused: Element | null) => {
@@ -92,6 +102,11 @@ export function installKeyboardViewport(): () => void {
     // Lift occluded fixed overlays first, then scroll the field inside them.
     lift(editable && keyboardVisible && inset > 0 ? keyboardLiftTargets(focused, top, height, window.innerHeight) : new Map(), focused);
     if (editable) revealKeyboardField(focused, top, height);
+    // iOS WebKit keeps drawing the caret at its old place (often off-screen, so it looks gone) after the
+    // fixed app viewport moves under a focused field. Re-applying the same selection repaints it.
+    const next = `${root.dataset.keyboardOpen}|${Math.round(top)}|${Math.round(height)}`;
+    if (editable && next !== geometry) refreshCaret(focused);
+    geometry = editable ? next : '';
   };
   const queue = () => { if (!frame) frame = requestAnimationFrame(update); };
   const focus = () => {

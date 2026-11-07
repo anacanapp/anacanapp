@@ -55,3 +55,13 @@ html[data-keyboard-open="true"] [data-keyboard-lifted="bottom"] {
   overflow-y: auto;
   scroll-padding-block: 16px;
 }
+
+/* Visible blinking caret in every text field (also while it is still empty and shows the placeholder).
+   Native builds disable text selection app-wide (body.native-app *), so fields re-enable it explicitly. */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="color"]):not([type="button"]):not([type="submit"]),
+textarea,
+[contenteditable]:not([contenteditable="false"]) {
+  caret-color: var(--a-coral, #ff5a5f) !important;
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}

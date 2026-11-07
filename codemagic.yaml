@@ -29,10 +29,28 @@ workflows:
         - anacan_native
         - anacan_ios_signing
       vars:
-        APP_VERSION: "49.0"
+        APP_VERSION: "50.0"
     scripts:
       - *install
       - *web_build
+      - name: Resolve iOS build number (50.0.0, 50.0.1, …)
+        script: |
+          # Next build number = last TestFlight build of this version + 1; the first build of 50.0 is 50.0.0.
+          if OUT=$(app-store-connect get-latest-testflight-build-number 6758301924 --pre-release-version "$APP_VERSION" 2>/dev/null); then
+            LATEST=$(echo "$OUT" | tail -n 1 | tr -d '[:space:]')
+          else
+            LATEST="lookup-failed"
+          fi
+          if echo "$LATEST" | grep -Eq "^${APP_VERSION//./\\.}\.[0-9]+$"; then
+            NEXT="$APP_VERSION.$(( ${LATEST##*.} + 1 ))"
+          elif [ "$LATEST" = "lookup-failed" ]; then
+            # Could not ask App Store Connect: fall back to Codemagic's own counter so the upload never clashes.
+            NEXT="$APP_VERSION.$BUILD_NUMBER"
+          else
+            NEXT="$APP_VERSION.0"
+          fi
+          echo "Latest TestFlight build for $APP_VERSION: ${LATEST:-none} -> building $NEXT"
+          echo "IOS_BUILD_VERSION=$NEXT" >> "$CM_ENV"
       - name: Sync Capacitor iOS and apply live native config
         script: |
           npx cap sync ios
@@ -64,7 +82,7 @@ workflows:
           xcode-project build-ipa \
             --project ios/App/App.xcodeproj \
             --scheme App \
-            --archive-xcargs "MARKETING_VERSION=$APP_VERSION CURRENT_PROJECT_VERSION=$APP_VERSION.$BUILD_NUMBER"
+            --archive-xcargs "MARKETING_VERSION=$APP_VERSION CURRENT_PROJECT_VERSION=$IOS_BUILD_VERSION"
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
@@ -86,8 +104,10 @@ workflows:
         - anacan_native
         - anacan_android_signing
       vars:
-        APP_VERSION: "49.0"
-        ANDROID_VERSION_CODE: "49"
+        APP_VERSION: "50.0"
+        # Build sequence inside 50.0: 0 -> versionName 50.0.0 / versionCode 5000, 1 -> 50.0.1 / 5001, …
+        # Raise it by one before every new Play upload (Play rejects a versionCode it has seen).
+        ANDROID_BUILD_SEQ: "0"
     scripts:
       - *install
       - *web_build
@@ -111,8 +131,8 @@ workflows:
           cd android
           chmod +x gradlew
           ./gradlew bundleRelease assembleRelease \
-            -PanacanVersionCode="$ANDROID_VERSION_CODE" \
-            -PanacanVersionName="$APP_VERSION"
+            -PanacanVersionCode="$(( 5000 + ANDROID_BUILD_SEQ ))" \
+            -PanacanVersionName="$APP_VERSION.$ANDROID_BUILD_SEQ"
     artifacts:
       - android/app/build/outputs/bundle/release/*.aab
       - android/app/build/outputs/apk/release/*.apk

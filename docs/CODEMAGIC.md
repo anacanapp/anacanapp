@@ -25,8 +25,8 @@ Trigger yoxdur: build yalnız **Start new build** ilə başlayır. Personal hesa
    generated `capacitor.config.json` → `plugins.CustomerIoDataIn`-ə yazılır. Key web
    bundle-da tapılsa build dayanır.
 5. iOS: sertifikat və App Store profilləri (app + widget) API ilə gətirilir/yaradılır, `MARKETING_VERSION=$APP_VERSION`,
-   `CURRENT_PROJECT_VERSION=$APP_VERSION.$BUILD_NUMBER` (məs. `49.0.3`).
-   Android: `versionName=$APP_VERSION`, `versionCode=$ANDROID_VERSION_CODE`.
+   `CURRENT_PROJECT_VERSION=$IOS_BUILD_VERSION`: 50.0-dan başlayaraq App Store Connect-dəki son TestFlight build-i + 1 (`50.0.0`, `50.0.1`, …); sorğu alınmasa `$APP_VERSION.$BUILD_NUMBER`.
+   Android: `versionName=$APP_VERSION.$ANDROID_BUILD_SEQ` (`50.0.0`, `50.0.1`, …), `versionCode=5000+$ANDROID_BUILD_SEQ`.
 
 **Push şəkilləri (iOS Notification Service Extension).** `ios/App/AnacanNotificationService`
 target-i (`com.atlasoon.anacan.AnacanNotificationService`, team `8B6976J8H7`, iOS 16.6,
@@ -91,8 +91,8 @@ Bu dəyərlər heç vaxt Git-ə, loglara və ya chat-ə yazılmır.
 
 **Start new build** → branch → workflow. Versiya `codemagic.yaml`-dadır (`APP_VERSION`
 `49.0`, Android `ANDROID_VERSION_CODE` `49`). Eyni versiyanı Play-ə ikinci dəfə yükləmək
-üçün build başlatarkən `ANDROID_VERSION_CODE`-u artırın (Play eyni versionCode-u rədd edir).
-iOS build nömrəsi `$BUILD_NUMBER` ilə avtomatik artır.
+üçün build başlatarkən `ANDROID_BUILD_SEQ`-i bir artırın (Play eyni versionCode-u rədd edir).
+iOS build nömrəsi App Store Connect-dən avtomatik hesablanır (50.0.0-dan).
 
 ## Məhdudiyyətlər
 
