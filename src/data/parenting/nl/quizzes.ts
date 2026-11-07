@@ -173,7 +173,7 @@ export const MILESTONE_QUIZ: MilestoneQuiz = {
       short: 'Er zijn een paar keer “nog niet” of “weet ik niet zeker”. Je kunt deze vaardigheden met dagelijks spel ondersteunen.',
       detail: [
         'Ondersteun hem 4–6 weken met de tips hieronder en doe de check daarna opnieuw.',
-        'Blijf je je zorgen maken, praat dan met de kinderarts of jeugdarts zonder de volgende controle af te wachten. Vroege steun is altijd beter dan afwachten.',
+        'Blijf je je zorgen maken, praat dan met de kinderarts zonder de volgende controle af te wachten. Vroege steun is altijd beter dan afwachten.',
       ],
     },
     talk: {

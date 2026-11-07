@@ -525,7 +525,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
     tryToday: [
       'Stel open vragen over school: “Met wie zit je in de pauze? Is er iemand die je dwarszit?”',
       'Blijf rustig als je kind het vertelt en laat merken dat je hem gelooft: “Dankjewel dat je het me vertelt. Het is niet jouw schuld.”',
-      'Maak een afspraak met de school — leerkracht, intern begeleider of vertrouwenspersoon, directeur — en neem de feiten (datum, wat er gebeurde) op papier mee.',
+      'Maak een afspraak met de school — leerkracht, vertrouwenspersoon of schoolpsycholoog, directeur — en neem de feiten (datum, wat er gebeurde) op papier mee.',
       'Bij online pesten: maak screenshots, en leer je kind hoe je iemand blokkeert en meldt.',
     ],
     mistakes: [

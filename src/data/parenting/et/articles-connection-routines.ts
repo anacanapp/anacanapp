@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Kiindumus: lapse turvaline sadam',
+    summary: 'Turvaline kiindumus ei sünni täiuslikust vanemlusest, vaid „piisavalt heast“, tundlikust ja usaldusväärsest vanemlusest.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby kirjeldas kiindumust kui lapse instinkti otsida ohu korral lähedust. Mary Ainsworth nägi oma vaatlustes, et lapsed, kelle vanem on tundlik ja etteaimatav, kasutavad teda „turvalise baasina“: nad avastavad julgelt ja tulevad hirmu korral tagasi rahunema.',
+      'Turvalist kiindumust seostatakse hilisemas elus parema emotsioonide reguleerimise, sõprussuhete oskuste ja enesekindlusega. Oluline: selleks ei pea igale nutule kohe ja täiuslikult reageerima. Uuringud näitavad, et suur osa suhtlusest koosneb „mittesobivatest“ hetkedest ning peamine on need hetked hiljem heaks teha.',
+      'Kiindumus ei ole kord ehitatud ja valmis: ka koolieas peab laps teadma, et raskel hetkel võib ta sinu juurde tagasi tulla. Lihtsalt nüüd tähendab see vähem sülle võtmist ja rohkem kuulamist ning tunnet „ma olen sinu poolel“.',
+    ],
+    tryToday: [
+      'Kui laps tuleb sinu juurde (rõõmu või murega), anna talle mõneks sekundiks kogu oma tähelepanu: pane telefon käest, vaata talle silma.',
+      'Loo enne lahkuminekut lühike ja alati ühesugune hüvastijätu rituaal: kallistus, „näeme õhtul“, ja siis tõesti mine. Salaja lahkumine kahjustab usaldust.',
+      'Liitu kord päevas tema huvidega: mida ta mängib, millest ta räägib.',
+      'Tee hetk, mil sa närvi läksid, hiljem heaks: „Hommikul olin kannatamatu. Alustame uuesti.“',
+    ],
+    mistakes: [
+      'Beebi nutma jätmine hirmust, et ta „harjub sülega“. Esimestel kuudel reageerimine ei vähenda iseseisvust, vaid suurendab seda.',
+      'Kiindumuse mõistmine kui „lapsest mitte kunagi lahku minemine“. Turvalised suhted tekivad ka vanaema, isa ja kasvatajaga ning see on hea.',
+      'Täiuslikkuse poole püüdlemine. Laps ei vaja ideaalset, vaid siirast vanemat, kes oskab asju heaks teha.',
+    ],
+    byAge: {
+      '0-1': 'Reageeri nutule, loo silmside, räägi, laula. Selles eas ärahellitamist ei ole.',
+      '1-3': 'Laps avastab ja tuleb tagasi. Piisab, kui istud mänguväljakul ja ütled „ma olen siin“.',
+      '3-6': '10–15-minutiline eriline mänguaeg päevas tugevdab kiindumust.',
+      '6-12': 'Kuula hinnanguid andmata. Kui oled tema kõrval väikeste murede puhul, toob ta sinu juurde ka suured mured.',
+    },
+    specialist: [
+      'Kui beebi väldib silmsidet, ei näita üldse huvi sinu ega tuttavate inimeste vastu ja teda on peaaegu võimatu rahustada — pöördu arsti poole.',
+      'Kui laps kiindub kõigisse, isegi võõrastesse, ühtmoodi ja valimatult (eriti pärast raskeid esimesi eluaastaid) — pöördu lapsepsühholoogi poole.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'Kui beebi nutab: müüt „ta läheb hellaks“',
+    summary: 'Beebi nutt on tema ainus keel. Reageerimine ei hellita, vaid loob usaldust.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'Ameerika Pediaatria Akadeemia ütleb selgelt: esimestel kuudel ei saa beebit ära hellitada. Hooliv reageerimine nutule rahustab beebi stressisüsteemi ja loob usalduse, et „maailm on turvaline“.',
+      'Samas on ka tervete beebide puhul esimestel nädalatel palju nutmine normaalne: see hakkab suurenema umbes 2 nädala vanuselt, saavutab haripunkti 6–8 nädalal ja väheneb 3–4 kuuks. Mõnikord ei õnnestu põhjust leida. See ei ole sinu ebaõnnestumine.',
+      'Kõige olulisem ohutusreegel: kui närvid on viimase piiri peal, ära kunagi raputa beebit. Raputamine võib põhjustada ajukahjustuse. Beebi selili võrevoodisse panemine ja paariks minutiks toast väljumine on täiesti õige samm.',
+    ],
+    tryToday: [
+      'Kontrolli põhivajadusi: nälg, mähe, soe-külm, röhitsemine, väsimus.',
+      'Proovi rahustavaid võtteid: mähkimine (puusad vabad), rütmiline kiigutamine, „šššš“ heli, süles kandes ringi kõndimine, nahk-naha-kontakt.',
+      'Tee nututundideks abiplaan: vahetage partneri, vanaema või naabriga.',
+      'Kui kannatus katkeb: pane beebi turvalisse kohta, hinga 5–10 minutit, joo vett, helista kellelegi ja tule siis tagasi.',
+    ],
+    mistakes: [
+      'Väga väikese beebi pikalt üksi jätmine mõttega „kui lased nutta, siis harjub“.',
+      'Rohke nutu sidumine oma „halva vanemlusega“. See periood läheb mööda.',
+      'Abi palumise häbenemine.',
+    ],
+    specialist: [
+      'Kui nutuga kaasneb palavik (eriti alla 3 kuu vanusel beebil), oksendamine, kõhulahtisus, söömisest keeldumine, loidus või ebatavaliselt kõrge kiunuv nutt — pöördu kohe arsti poole. Tõsise olukorra korral {emergency}.',
+      'Kui sul tekib mõte beebit raputada või talle haiget teha, palu kohe abi. See ei tee sinust halba inimest, vaid näitab, et väsimus on jõudnud piirini.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: '10 minutit päevas: eriline aeg',
+    summary: 'Lühike igapäevane mänguaeg, mida juhib laps, on üks tugevamaid vahendeid käitumisprobleemide vähendamiseks.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Ühe enim uuritud vanemlusprogrammi, PCIT (vanema ja lapse interaktsiooniteraapia), esimene etapp põhinebki sellel: 5–10 minutit päevas mängu, mida juhib laps, ning vanem kiidab, kirjeldab ja jäljendab. Metaanalüüsid näitavad, et need programmid vähendavad käitumisprobleeme märgatavalt.',
+      'Põhjus on lihtne: kui lapse tähelepanuvajadus saab rahuldatud positiivsel viisil, väheneb vajadus „teenida“ tähelepanu halva käitumisega.',
+    ],
+    tryToday: [
+      'Pane taimer: 10 minutit. Telefon teises toas.',
+      'Laps valib mängu, sina järgid. Ei mingeid käske, küsimustetulva ega kriitikat.',
+      'Kirjelda, mida ta teeb: „Panid punase klotsi kõige peale.“ Jäljenda ja kiida: „Kui hoolikalt sa ehitad!“',
+      'Lõpus ütle: „Sinuga oli väga tore mängida. Homme jälle.“',
+    ],
+    mistakes: [
+      'Erilise aja ärajätmine halva käitumise pärast. See pole karistus ega tasu, vaid igapäevane vitamiin.',
+      'Mängu muutmine „tunniks“: „Mis värv see on? Mitu klotsi on?“',
+    ],
+    byAge: {
+      '1-3': 'Piisab 5 minutist. Istu põrandale, tema kõrgusele.',
+      '6-12': 'Andke sellele nimi: „ema ja poja aeg“. See võib olla kaardimäng, koos süüa tegemine või jalutuskäik.',
+    },
+    specialist: [
+      'Kui eriline aeg ja muud võtted ei too mõne nädala jooksul mingit muutust või käitumisprobleemid on rasked — pöördu spetsialisti poole PCIT või sarnase programmi asjus.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Eraldumishirm ja lasteaiaga kohanemine',
+    summary: 'Lahkumineku ajal nutmine on kiindumuse märk. Lühike, siiras hüvastijätt ja etteaimatav tagasitulek teevad kohanemise lihtsamaks.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'Eraldumisärevus algab umbes 8–10 kuu vanuselt, on tipus 15–18 kuu vanuses ja leebub tavaliselt 3. eluaasta paiku. See on periood, mil laps ei mõista veel täielikult, et vanem „ei kao ära“.',
+      'Lapse ärevust suurendab kõige rohkem ettearvamatus. Salaja lahkumine võib hetkel pisaraid vähendada, kuid pikemas plaanis hakkab laps veelgi rohkem klammerduma.',
+    ],
+    tryToday: [
+      'Loo lühike ja ühesugune hüvastijätu rituaal: kallistus, musi, „tulen pärast lõunat“, ja siis mine.',
+      'Tee enne lasteaia algust lühikesi proovieraldumisi: 15 minutit, siis 1 tund.',
+      'Seo oma tagasitulek sündmusega, millest laps aru saab: „Tulen pärast lõunauinakut ja oodet.“',
+      'Kodust kaasa võetud „üleminekuese“ — väike mänguasi või sinu foto — võib teda lohutada.',
+    ],
+    mistakes: [
+      'Nutva lapse juurest pikalt lahkuda suutmatus, uksel ikka ja jälle tagasi pöördumine.',
+      'Lapse hirmu üle naermine või ütlemine „sa oled ju suur, häbi“.',
+    ],
+    specialist: [
+      'Kui eraldumishirm on eakohasest palju tugevam, häirib nädalate kaupa und, söömist ja lasteaias käimist või on koolieas uuesti alanud — pöördu lapsepsühholoogi poole.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Unerituaal: igal õhtul samad kolm sammu',
+    summary: 'Lihtne, igal õhtul korduv rituaal aitab lapsel kiiremini uinuda ja öösel vähem ärgata.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Ühes randomiseeritud uuringus (Mindell ja kolleegid, 2009) viis kolmesammuline õhturituaal — vannitamine, massaaž või kreem, rahulik tegevus (kaisus olemine, hällilaul) — vaid kahe nädalaga selleni, et lapsed uinusid kiiremini ja ärkasid öösel vähem ning emade meeleolu paranes. Hilisemad ülevaated näitasid, et õhturutiinid on seotud ka keele arengu ja emotsioonide reguleerimisega.',
+      'Vanuse järgi soovitatav uneaeg (koos päevaunedega): 4–12 kuud — 12–16 tundi, 1–2 aastat — 11–14 tundi, 3–5 aastat — 10–13 tundi, 6–12 aastat — 9–12 tundi. Unepuudus avaldub lastel sageli mitte väsimuse, vaid ärrituvuse ja hüperaktiivsusena.',
+      'Beebide puhul on olulised turvalise une reeglid: selili, kõval ja tasasel madratsil, ilma padja ja tekita, ideaalis vanematega samas toas, kuid oma voodis.',
+    ],
+    tryToday: [
+      'Loo alates tänasest õhtust rituaal: näiteks vannitamine → pidžaama ja hambapesu → raamat ja hällilaul. Igal õhtul sama järjekord, enam-vähem samal kellaajal.',
+      'Lülita tund enne rituaali ekraanid välja ja hämarda tulesid.',
+      'Valmistage koos rituaali pildiline tabel, laps „märgib“ iga sammu ise ära.',
+      'Rituaal ärgu kestku üle 20–30 minuti. Mida pikemaks see venib, seda rohkem püüab laps seda veel venitada.',
+    ],
+    mistakes: [
+      'Igal õhtul erinev kellaaeg ja erinev järjekord. Aju otsib etteaimatavaid vihjeid.',
+      'Enne magamaminekut ägedad mängud, ekraan või karjumine.',
+      'Uinutamisviiside pidamine „kohustuslikuks“. Kõrval istumine, koos magamine või mitte, järkjärguline eemaldumine — vali, mis sobib sinu perele. Ükski meetod pole kõigile kohustuslik.',
+    ],
+    byAge: {
+      '0-1': 'Rituaal olgu lühike: vann, söötmine, hällilaul. Võid proovida panna beebi voodisse unisena, kuid ärkvel, aga kui ei õnnestu, ära muretse.',
+      '1-3': 'Anna valik: „Kas loeme selle raamatu või selle?“ Magamamineku üle ei arutata, valitakse raamatut.',
+      '3-6': 'Algavad küsimused, et magamaminekut „venitada“. Lisa rituaali „viimase küsimuse“ või „viimase kallistuse“ hetk.',
+      '6-12': 'Telefon, tahvel ja teler ärgu jäägu magamistuppa. Planeerige uneaeg koos, arvestades kodutööde ja trenniga.',
+    },
+    specialist: [
+      'Kui laps norskab, tema hingamine katkeb või ta hingab suu kaudu ning on päeval ülemäära unine — pöördu arsti poole.',
+      'Kui uneprobleemid kestavad üle mõne nädala ja häirivad tõsiselt pere igapäevaelu.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Öised ärkamised ja öised hirmud',
+    summary: 'Õudusunenägu ja öine hirmuhoog on erinevad asjad. Kumbki vajab erinevat lähenemist.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Õudusunenäod tulevad öö teisel poolel, unenägude faasis. Laps ärkab, ütleb, et kartis, tunneb sind ära ja vajab lohutust.',
+      'Öine hirmuhoog (pavor nocturnus) tekib tavaliselt 1–3 tundi pärast uinumist, sügavas unes. Laps võib karjuda ja tema silmad võivad olla lahti, kuid tegelikult pole ta ärkvel, ei tunne sind ära ega mäleta hommikul midagi. Seda esineb sageli 3–7-aastastel ja tavaliselt on see kahjutu.',
+    ],
+    tryToday: [
+      'Pärast õudusunenägu: võta kaissu, lohuta lühidalt, tee tuli veidi heledamaks. Ära lase tal öösel unenägu üksikasjalikult jutustada, rääkige homme.',
+      'Öise hirmuhoo ajal: ära püüa last äratada, taga vaid tema ohutus ja ole rahulikult kõrval. Kui hoog möödub, magab ta edasi.',
+      'Unepuudus suurendab öiseid hirmuhooge: proovi uneaega 20–30 minutit varasemaks tuua.',
+      'Rääkige päeval hirmudest mängu kaudu: joonistage „koletiseraamat“ ja tehke koletised naljakaks.',
+    ],
+    mistakes: [
+      'Lapse raputamine ja äratamine öise hirmuhoo ajal.',
+      'Hirmu üle irvitamine: „Koletisi pole olemas, ära ole rumal.“',
+    ],
+    specialist: [
+      'Kui hood on väga sagedased (mitu korda nädalas), kestavad üle 30 minuti, esineb ebatavalisi liigutusi (rütmiline tõmblemine, pissimine) või tekitavad päevast unisust — pöördu arsti poole.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Valiv sööja: kes mille eest vastutab?',
+    summary: 'Vanem otsustab, mida, millal ja kus süüakse; laps otsustab, kui palju ja kas üldse. See jaotus lõpetab söögilauasõjad.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Uue toidu vältimine (neofoobia) on 2–6-aastaste seas väga levinud ja evolutsiooniliselt loogiline: see kaitseb väikest last tundmatu ja potentsiaalselt ohtliku toidu eest. Tavaliselt on see mööduv etapp.',
+      'Uuringud näitavad, et lapse sundimine sööma, „veel üks lusikas“ ütlemine ja maiustustega premeerimine mõjuvad vastupidiselt: suurendavad vastumeelsust selle toidu vastu ja nõrgendavad lapse oskust kuulda oma nälja- ja küllastustunnet. Selle asemel suurendab vastuvõtmist surveta korduv pakkumine — sageli 10–15 korda.',
+      'Toitumisnõustaja Ellyn Satteri „vastutuse jaotuse“ mudel muudab selle teadmise praktiliseks reegliks: vanem valib menüü, aja ja koha, laps aga selle, kui palju ta sööb.',
+    ],
+    tryToday: [
+      'Igal toidukorral olgu vähemalt üks lapse lemmik „turvaline“ toit ja selle kõrval väike tükk uut toitu.',
+      'Pane uus toit lauale ilma kommenteerimata. Kui ta ei söö, ära ütle midagi. Homme, ülehomme jälle.',
+      'Sööge koos perega, ilma ekraanita. Laps peab nägema, kuidas sina huviga sööd.',
+      'Kaasa laps kööki: ta võib köögivilju pesta ja salatit segada. Ise valmistatut maitseb ta meelsamini.',
+      'Määra kindlad söögi- ja vahepalaajad, et vahepeal ei toimuks pidevat „näksimist“.',
+    ],
+    mistakes: [
+      'Sundimine, äraostmine („söö brokolit, saad šokolaadi“) või karistamine.',
+      'Iga toidukorra jaoks lapsele eraldi „restoranimenüü“ valmistamine.',
+      'Nõudmine, et taldrik peab tühjaks saama. Laps peab kuulma oma küllastustunnet.',
+    ],
+    byAge: {
+      '1-3': 'Näpuotsatoidud, väikesed portsjonid, luba ise süüa. Määrdumine on õppimise osa.',
+      '3-6': '„Maitsmisreegel“: maitsmine pole kohustuslik, kuid uue toidu vaatamine, nuusutamine ja katsumine võib olla mäng.',
+      '6-12': 'Kaasa ta menüü planeerimisse: kord nädalas valib tema uue köögivilja.',
+    },
+    specialist: [
+      'Kui laps kaotab kaalu, jääb pikkuse-kaalu kõverast maha, sööb väga vähe erinevaid toite (näiteks alla 15), öökib, lämbub või tunneb söömisel valu — pöördu arsti poole.',
+      'Kui toidu ees on tugev paanika, oksendamine või teatud tekstuuridest täielik keeldumine — võib aidata toitumisspetsialist.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Ekraaniaeg: nutikas plaan vanuse järgi',
+    summary: 'Väikeses eas ei saa ekraan asendada päris suhtlust. Lapse kasvades pole eesmärk keeld, vaid koos koostatud pere plaan.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Väikesed lapsed õpivad ekraanilt palju vähem kui elavalt inimeselt: keel ja sotsiaalsed oskused kujunevad näost näkku „serv ja vastus“ suhtluses. Isegi taustal mängiv teler vähendab seda, kui palju vanem lapsega räägib.',
+      'WHO (2019): alla 1-aastastele ekraani ei soovitata; 2–4-aastastel mitte üle 1 tunni päevas, vähem on veel parem. Ameerika Pediaatria Akadeemia (2016): kuni 18 kuu vanuseni ekraani vältida (v.a videokõned), 2–5-aastastel kuni 1 tund päevas kvaliteetset sisu ja võimalusel koos vanemaga vaadates; pärast 6. eluaastat püsivad reeglid, mis ei sega und, liikumist ega suhtlemist.',
+      'Ekraan enne magamaminekut lükkab uinumist edasi. Ekraan söögi ajal nõrgendab lapse oskust kuulda oma küllastustunnet.',
+    ],
+    tryToday: [
+      'Määra ekraanivabad tsoonid: söögilaud ja magamistuba.',
+      'Lülita ekraan tund enne magamaminekut välja.',
+      'Teata ekraaniaja lõpust ette ja kasuta taimerit: „Kui taimer heliseb, läheb tahvel puhkama.“',
+      'Vaadake korra koos ja arutage: „Mis sa arvad, miks ta nii tegi?“ Nii muutub ekraan suhtluseks.',
+      'Jälgi ka oma telefoni: kui laps on kõrval, lülita teavitused välja.',
+    ],
+    mistakes: [
+      'Ekraani kasutamine peamise vahendina jonnihoo lõpetamiseks. Laps ei õpi rahunema.',
+      'Reeglite seadmine ainult lapsele. Laps kordab vanema ekraaniharjumusi.',
+      'Kõigi ekraanide pidamine „halvaks“. Videokõne, koos vaadatud hariv sisu ja loovad rakendused on teine asi.',
+    ],
+    byAge: {
+      '0-1': 'Ekraani pole, välja arvatud videokõned. Beebi parim „ekraan“ on sinu nägu.',
+      '1-3': 'Kuni 2. eluaastani võimalikult vähe. Kui vaatab, siis lühidalt, aeglases tempos ja sinu kõrval.',
+      '3-6': 'Kuni 1 tund päevas kvaliteetset, reklaamivaba sisu. Mitte söögi ajal ega enne magamaminekut.',
+      '6-12': 'Kirjutage koos pere meediaplaan: õppimine, uni, sport ja sõbrad on esikohal. Järgi sotsiaalmeedia kontode vanusepiiranguid.',
+    },
+    specialist: [
+      'Kui laps muutub ekraani äravõtmisel ülemäära agressiivseks, ei huvitu millestki muust ning uni ja õppimine on tõsiselt häiritud — pöördu lapsepsühholoogi poole.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Potitreening: kiirustamata',
+    summary: 'Potitreeningu kõige olulisem samm on valmisolekumärkide ootamine. Enamik lapsi on valmis 2. ja 3. eluaasta vahel.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      '1960. aastatel pakkus lastearst T. Berry Brazelton välja „lapsekeskse“ lähenemise: alustada siis, kui laps näitab valmisolekumärke, ilma surve ja karistuseta. See lähenemine on tänaseni Ameerika Pediaatria Akadeemia soovituste alus.',
+      'Valmisolekumärgid: püsib kuivana 2 tundi või kauem, on häiritud märjast mähkmest, mõistab lihtsaid juhiseid, oskab pükse üles-alla tõmmata, näitab huvi poti vastu. Öine kuivus tuleb hiljem: kuni 5.–6. eluaastani on öine märgamine normaalne.',
+    ],
+    tryToday: [
+      'Kontrolli valmisolekumärke. Kui neid veel pole, oota, see on normaalne.',
+      'Laps valib poti või prill-laua ise. Alguses võib ta riietega peal istuda ja raamatut lugeda.',
+      'Määra pärast sööki ja und lühike „potiaeg“ ning täna teda tulemusest sõltumata.',
+      'Võta äpardusi rahulikult: „Juhtub. Teeme koos puhtaks.“',
+    ],
+    mistakes: [
+      'Karistamine, häbistamine, teiste lastega võrdlemine. See võib põhjustada kõhukinnisust ja potihirmu.',
+      'Alustamine suurte muutuste ajal (uus beebi, kolimine, lasteaia algus).',
+      'Pikalt istuma sundimine.',
+    ],
+    byAge: {
+      '1-3': 'Mängige mänguasjaga „potimängu“, lugege raamatuid. Ära kiirusta alustamisega.',
+      '3-6': 'Äpardused on normaalsed, eriti kui laps on mängu süvenenud. Öömähet võib veel edasi kasutada.',
+    },
+    specialist: [
+      'Valulik või väga harv roojamine (kõhukinnisus), valu või kõrvetustunne urineerimisel, sagedased päevased äpardused pärast 4. eluaastat.',
+      'Kui pärast pikka kuiva perioodi on uuesti alanud päevane või öine märgamine — pöördu arsti poole.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'Hommikune kiirustamine: uksest välja karjumata',
+    summary: 'Enamik hommikusi konflikte lahendatakse õhtul. Ettevalmistus, pildiline plaan ja veidi varuaega teevad imesid.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Kiirustades ja pinges nõrgenevad nii vanema kui ka lapse täidesaatvad funktsioonid — planeerimine, meelespidamine, kannatlikkus. Seepärast toimivad hommikused reeglid paremini silmaga nähtava tabeli kui sõnade abil.',
+      'Rutiinid, mis annavad lapsele kontrollitunde (sammud, mille ta ise ära märgib), suurendavad koostööd ja vähendavad vajadust korduvate meeldetuletuste järele.',
+    ],
+    tryToday: [
+      'Pane riided, kott ja jalanõud õhtul valmis. Laps valib riided ise.',
+      'Tehke hommikusammude jaoks pildiline kaart: tõuse üles → WC → riietu → hommikusöök → hambad → jalanõud.',
+      'Jäta 15 minutit varuaega: kirjuta endale väljumisaeg varasemaks.',
+      'Hommik olgu ekraanivaba, vähemalt seni, kuni kõik on valmis.',
+    ],
+    mistakes: [
+      'Sama asja kümneid kordi kordamine. Ütle üks kord ja näita siis kaardile.',
+      'Kõige lapse eest ära tegemine, sest „nii on kiirem“.',
+    ],
+    specialist: [
+      'Kui laps kaebab igal hommikul kõhu- või peavalu ja keeldub visalt lasteaeda või kooli minemast — räägi arsti või psühholoogiga.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '„Serv ja vastus“: keele ja aju saladus',
+    summary: 'Laps „servib“ signaali — pilgu, hääle, žesti — ja sina „lööd tagasi“. See lihtne mäng ehitab aju arhitektuuri.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Harvardi ülikooli Lapse Arengu Keskus võrdleb seda vastastikust suhtlust tennisemänguga: beebi teeb häält, vaatab, näitab; täiskasvanu vastab. Mida rohkem see „serv ja vastus“ kordub, seda tugevamaks muutuvad keele, tähelepanu ja sotsiaalsete oskuste närvirajad. Vastuseta jäämine aga tekitab stressi.',
+      'Üks huvitav uuring (Romeo ja kolleegid, 2018) näitas, et lapse aju keelepiirkondade aktiivsust ei selgita paremini mitte kuuldud sõnade arv, vaid vestluses vaheldumiste arv. Ehk oluline pole palju rääkida, vaid temaga rääkida.',
+    ],
+    tryToday: [
+      'Jälgi, kuhu lapse tähelepanu läheb, ja nimeta see sõnadega: „Jah, koer! Suur pruun koer.“',
+      'Oota vastust: küsimuse järel 5 sekundit vaikimine annab lapsele aega oma käik teha.',
+      'Jäljenda beebi häälitsusi ja laienda neid veidi: tema ütleb „pa“, sina „pa-pa-pall!“',
+      'Räägi igapäevatoimetustest nagu „spordikommentaator“: „Pesen kartulit, nüüd lõikan…“',
+    ],
+    mistakes: [
+      'Rääkimise muutmine „tunniks“: „Ütle: õun! Ütle õun!“ Surve vähendab rääkimist.',
+      'Lapse sõna kohene parandamine. Selle asemel korda lihtsalt õiget vormi: „Mõmm? Jah, punane pehme mõmmik.“',
+      'Telefoni vaatamine lapsega koos olles. Iga teavitus on „tagasi löömata pall“.',
+    ],
+    byAge: {
+      '0-1': 'Näost näkku, naerata, laula, vasta beebi häälitsustele.',
+      '1-3': 'Nimeta ese, millele laps näitab, esita lihtsaid küsimusi, laienda tema ühte sõna kaheks.',
+      '3-6': 'Uurige koos „miks?“ küsimusi, esita avatud küsimusi: „Mis sinu arvates edasi juhtub?“',
+    },
+    specialist: [
+      'Kui 12 kuu vanuselt puuduvad žestid (lehvitamine, näitamine), 16–18 kuu vanuselt pole ühtegi sõna või 2-aastaselt kahesõnalisi ühendeid — pöördu arsti või logopeedi poole.',
+      'Kui laps on mis tahes vanuses kaotanud varem öeldud sõnu — ära oota, pöördu arsti poole.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'Mängu jõud: miks mäng pole „tühi aeg“',
+    summary: 'Vaba mäng tugevdab lapse täidesaatvaid funktsioone, loovust ja stressitaluvust.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Ameerika Pediaatria Akadeemia 2018. aasta raport („The Power of Play“) nimetab mängu lapse arengu jaoks mitte „luksuseks“, vaid vajaduseks. Mängides laps planeerib, peab kinni reeglitest, peab teistega läbirääkimisi ja õpib pettumust taluma.',
+      'Rollimängud („pood“, „arst“) treenivad eriti täidesaatvaid funktsioone: laps peab rollis püsima, reegleid meeles pidama ja oma soove ohjeldama.',
+    ],
+    tryToday: [
+      'Hoia iga päev vähemalt tund struktureerimata mänguaega (vanusest sõltuvalt võib selle jagada osadeks).',
+      'Vali lihtsad, avatud mänguasjad: klotsid, karbid, värvid, kostüümid. Vähem mänguasju tähendab rohkem loovust.',
+      'Kord nädalas vaba mäng õues: puud, liiv, vesi, oksad.',
+      'Liitu mõnikord mänguga „vale“ rollis: sina oled klient, tema müüja.',
+    ],
+    mistakes: [
+      'Iga minuti täitmine huviringidega. Igavus on loovuse algus.',
+      'Mängus alati võitmine või alati kaotamine. Laps peab õppima mõlemat.',
+    ],
+    specialist: [
+      'Kui laps ei näita ka pärast 2.–3. eluaastat mingit huvi rollimängude vastu, tema mängud on väga korduvad ja muutumatud või puudub huvi teiste lastega mängimise vastu — pöördu arsti poole arengu hindamiseks.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Koos lugemine: esimesest päevast',
+    summary: 'Beebieast alates koos raamatute lugemine on üks lihtsamaid ja tugevamaid harjumusi keele, tähelepanu ja kiindumuse jaoks.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Ameerika Pediaatria Akadeemia (2014) soovitab lastearstidel igal visiidil julgustada vanemaid lapsele beebieast alates ette lugema. Koos lugemine suurendab sõnavara, kuulamisoskust ja hilisemat edu lugemises.',
+      'Kõige rohkem kasu toob „dialoogiline lugemine“: vanem esitab küsimusi, laiendab lapse vastust ja räägib piltidest. Nii on ka raamat üks „serva ja vastuse“ vahend.',
+    ],
+    tryToday: [
+      '10–15 minutit päevas koos raamatuga, ideaalis unerituaali osana.',
+      'Esita igal leheküljel üks küsimus: „Mis sa arvad, mida kass nüüd teeb?“',
+      'Kui laps tahab sama raamatut 20 korda — loe. Kordamine on üks õppimise viise.',
+      'Koolieas lugege kordamööda: üks lehekülg sina, üks tema.',
+    ],
+    mistakes: [
+      'Lugemise esitamine kohustusliku tunnina.',
+      'Ettelugemise lõpetamine, kui laps hakkab ise lugema. Ettelugemine on kasulik ka 10–12-aastaseni.',
+    ],
+    specialist: [
+      'Kui koolieas on lugemine eakaaslastega võrreldes väga raske, laps ajab tähti tihti segi või ei edene pingutustest hoolimata — pea nõu õpetaja ja spetsialistiga (logopeed, psühholoog).',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];
