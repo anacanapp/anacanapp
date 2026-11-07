@@ -12161,5 +12161,9 @@
   "par_quiz_support": "इस कौशल में कैसे मदद करें",
   "par_emergency_title": "ख़तरा हो तो इंतज़ार न करें",
   "par_emergency_text": "अगर बच्चा या आप ख़तरे में हैं, हिंसा, ख़ुद को नुकसान पहुँचाने या आत्महत्या के विचार हैं, तो तुरंत {emergency} पर कॉल करें।",
-  "par_call": "कॉल करें: {emergency}"
+  "par_call": "कॉल करें: {emergency}",
+  "dash_parenting_eyebrow": "परवरिश · आज की सलाह",
+  "dash_books_title": "उम्र के अनुसार किताबें",
+  "dash_books_all": "सभी",
+  "dash_books_sub": "{age} · {n} किताबें"
 }

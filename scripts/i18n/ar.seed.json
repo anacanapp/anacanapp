@@ -9756,5 +9756,9 @@
   "par_quiz_support": "كيف تدعمين هذه المهارة",
   "par_emergency_title": "إن كان هناك خطر فلا تنتظري",
   "par_emergency_text": "إذا كان طفلكِ أو أنتِ في خطر، أو هناك عنف أو إيذاء للنفس أو أفكار انتحارية، اتصلي فورًا بالرقم {emergency}.",
-  "par_call": "اتصلي: {emergency}"
+  "par_call": "اتصلي: {emergency}",
+  "dash_parenting_eyebrow": "التربية · نصيحة اليوم",
+  "dash_books_title": "كتب مناسبة لعمر طفلك",
+  "dash_books_all": "الكل",
+  "dash_books_sub": "{age} · {n} كتب"
 }

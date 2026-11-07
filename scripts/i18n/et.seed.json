@@ -12242,5 +12242,9 @@
   "par_quiz_support": "Kuidas seda oskust toetada",
   "par_emergency_title": "Ohu korral ära oota",
   "par_emergency_text": "Kui laps või sina olete ohus, esineb vägivalda, enesevigastamist või enesetapumõtteid, helista kohe {emergency}.",
-  "par_call": "Helista: {emergency}"
+  "par_call": "Helista: {emergency}",
+  "dash_parenting_eyebrow": "Kasvatus · Päeva nõuanne",
+  "dash_books_title": "Eakohased raamatud",
+  "dash_books_all": "Kõik",
+  "dash_books_sub": "{age} · {n} raamatut"
 }

@@ -12161,5 +12161,9 @@
   "par_quiz_support": "Cara mendukung keterampilan ini",
   "par_emergency_title": "Jika ada bahaya, jangan menunggu",
   "par_emergency_text": "Jika anak atau kamu dalam bahaya, ada kekerasan, melukai diri, atau pikiran bunuh diri, segera hubungi {emergency}.",
-  "par_call": "Telepon: {emergency}"
+  "par_call": "Telepon: {emergency}",
+  "dash_parenting_eyebrow": "Pengasuhan · Tips hari ini",
+  "dash_books_title": "Buku sesuai usia",
+  "dash_books_all": "Semua",
+  "dash_books_sub": "{age} · {n} buku"
 }

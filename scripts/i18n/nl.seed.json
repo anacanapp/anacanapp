@@ -12161,5 +12161,9 @@
   "par_quiz_support": "Zo ondersteun je deze vaardigheid",
   "par_emergency_title": "Bij gevaar niet wachten",
   "par_emergency_text": "Als je kind of jij in gevaar bent, of als er geweld, zelfbeschadiging of zelfmoordgedachten zijn, bel dan meteen {emergency}.",
-  "par_call": "Bellen: {emergency}"
+  "par_call": "Bellen: {emergency}",
+  "dash_parenting_eyebrow": "Opvoeding · Tip van de dag",
+  "dash_books_title": "Boeken voor deze leeftijd",
+  "dash_books_all": "Alle",
+  "dash_books_sub": "{age} · {n} boeken"
 }

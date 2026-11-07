@@ -12161,5 +12161,9 @@
   "par_quiz_support": "이 능력을 돕는 방법",
   "par_emergency_title": "위험하다면 기다리지 마세요",
   "par_emergency_text": "아이나 당신이 위험하거나, 폭력·자해·자살 생각이 있다면 즉시 {emergency}에 전화하세요.",
-  "par_call": "전화하기: {emergency}"
+  "par_call": "전화하기: {emergency}",
+  "dash_parenting_eyebrow": "양육 · 오늘의 팁",
+  "dash_books_title": "연령에 맞는 책",
+  "dash_books_all": "전체",
+  "dash_books_sub": "{age} · 책 {n}권"
 }

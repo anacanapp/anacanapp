@@ -9756,5 +9756,9 @@
   "par_quiz_support": "Bu beceri nasıl desteklenir",
   "par_emergency_title": "Tehlike varsa bekleme",
   "par_emergency_text": "Çocuğun ya da sen tehlikedeysen, şiddet, kendine zarar verme veya intihar düşüncesi varsa hemen {emergency} numarasını ara.",
-  "par_call": "Ara: {emergency}"
+  "par_call": "Ara: {emergency}",
+  "dash_parenting_eyebrow": "Terbiye · Günün önerisi",
+  "dash_books_title": "Yaşına uygun kitaplar",
+  "dash_books_all": "Tümü",
+  "dash_books_sub": "{age} · {n} kitap"
 }

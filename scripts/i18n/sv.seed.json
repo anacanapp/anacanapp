@@ -12161,5 +12161,9 @@
   "par_quiz_support": "Så stöttar du den här förmågan",
   "par_emergency_title": "Vänta inte om det finns fara",
   "par_emergency_text": "Om ditt barn eller du är i fara, eller om det finns våld, självskada eller självmordstankar, ring {emergency} direkt.",
-  "par_call": "Ring: {emergency}"
+  "par_call": "Ring: {emergency}",
+  "dash_parenting_eyebrow": "Föräldraskap · Dagens tips",
+  "dash_books_title": "Böcker för barnets ålder",
+  "dash_books_all": "Alla",
+  "dash_books_sub": "{age} · {n} böcker"
 }

@@ -9756,5 +9756,9 @@
   "par_quiz_support": "Bu koʻnikmani qanday qoʻllab-quvvatlash mumkin",
   "par_emergency_title": "Xavf boʻlsa, kutma",
   "par_emergency_text": "Bola yoki sen xavf ostida boʻlsangiz, zoʻravonlik, oʻziga zarar yetkazish yoki oʻz joniga qasd qilish fikri boʻlsa, darhol {emergency} raqamiga qoʻngʻiroq qil.",
-  "par_call": "Qoʻngʻiroq: {emergency}"
+  "par_call": "Qoʻngʻiroq: {emergency}",
+  "dash_parenting_eyebrow": "Tarbiya · Kun maslahati",
+  "dash_books_title": "Yoshiga mos kitoblar",
+  "dash_books_all": "Hammasi",
+  "dash_books_sub": "{age} · {n} ta kitob"
 }

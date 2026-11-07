@@ -12161,5 +12161,9 @@
   "par_quiz_support": "この力を伸ばすには",
   "par_emergency_title": "危険があるときは待たないで",
   "par_emergency_text": "お子さんやあなたが危険な状態にある、暴力・自傷・自殺の考えがある場合は、すぐに{emergency}に電話してください。",
-  "par_call": "電話する：{emergency}"
+  "par_call": "電話する：{emergency}",
+  "dash_parenting_eyebrow": "子育て · 今日のヒント",
+  "dash_books_title": "年齢に合った本",
+  "dash_books_all": "すべて",
+  "dash_books_sub": "{age} · {n}冊"
 }

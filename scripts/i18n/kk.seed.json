@@ -9756,5 +9756,9 @@
   "par_quiz_support": "Бұл дағдыны қалай қолдауға болады",
   "par_emergency_title": "Қауіп болса, күтпе",
   "par_emergency_text": "Бала немесе сен қауіпте болсаңдар, зорлық-зомбылық, өзіне зиян келтіру не суицид ойы болса, дереу {emergency} нөміріне қоңырау шал.",
-  "par_call": "Қоңырау шалу: {emergency}"
+  "par_call": "Қоңырау шалу: {emergency}",
+  "dash_parenting_eyebrow": "Тәрбие · Күн кеңесі",
+  "dash_books_title": "Жасына сай кітаптар",
+  "dash_books_all": "Барлығы",
+  "dash_books_sub": "{age} · {n} кітап"
 }

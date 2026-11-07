@@ -1,4 +1,6 @@
 import BooksHomeCard from '@/components/books/BooksHomeCard';
+import BooksHomeCarousel from '@/components/books/BooksHomeCarousel';
+import ParentingHomeCard from '@/components/tools/parenting/ParentingHomeCard';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { getLocaleTag } from '@/lib/i18n';
 import TrackerAIInsight, { useBabyInsight } from '@/components/baby/TrackerAIInsight';
@@ -1224,7 +1226,10 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
       {/* Mother's own recovery (first 8 weeks after birth) and the illness journal entry */}
       <RecoveryHomeCard onOpen={() => onNavigate?.('recovery')} />
       <IllnessHomeCard mode="entry" onOpen={() => onNavigate?.('illness')} />
-      {(isAdmin || booksLanguageOk) && <BooksHomeCard mode="mommy" childName={selectedChild?.name} childMonths={childAge?.months ?? null} onOpen={() => onNavigate?.('books')} />}
+      {/* Tərbiyə: today's tip for the child's age band (tool switch on, az, Ana module, child under 13) */}
+      <ParentingHomeCard onOpen={() => onNavigateToTool?.('parenting')} />
+      {/* Printable books: the 10 books of the child's age group as a swipe row, opening the book store */}
+      {(isAdmin || booksLanguageOk) && <BooksHomeCarousel childMonths={childAge?.months ?? null} onOpen={() => onNavigate?.('books')} />}
 
       {/* Month illustration info */}
       {illustrationTitle &&

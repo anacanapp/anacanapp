@@ -12161,5 +12161,9 @@
   "par_quiz_support": "Jak wspierać tę umiejętność",
   "par_emergency_title": "Jeśli jest zagrożenie, nie czekaj",
   "par_emergency_text": "Jeśli dziecko lub ty jesteście w niebezpieczeństwie, jest przemoc, samookaleczenie lub myśli samobójcze, natychmiast zadzwoń pod {emergency}.",
-  "par_call": "Zadzwoń: {emergency}"
+  "par_call": "Zadzwoń: {emergency}",
+  "dash_parenting_eyebrow": "Wychowanie · Wskazówka dnia",
+  "dash_books_title": "Książki dopasowane do wieku",
+  "dash_books_all": "Wszystkie",
+  "dash_books_sub": "{age} · {n} książek"
 }

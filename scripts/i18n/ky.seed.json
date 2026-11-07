@@ -12242,5 +12242,9 @@
   "par_quiz_support": "Бул көндүмдү кантип колдоо керек",
   "par_emergency_title": "Коркунуч болсо, күтпө",
   "par_emergency_text": "Бала же сен коркунучта болсоңор, зордук-зомбулук, өзүнө зыян келтирүү же өз жанын кыюу ою болсо, дароо {emergency} номерине чал.",
-  "par_call": "Чалуу: {emergency}"
+  "par_call": "Чалуу: {emergency}",
+  "dash_parenting_eyebrow": "Тарбия · Күндүн кеңеши",
+  "dash_books_title": "Жашына ылайык китептер",
+  "dash_books_all": "Баары",
+  "dash_books_sub": "{age} · {n} китеп"
 }

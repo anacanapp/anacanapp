@@ -147,3 +147,19 @@
 .dark .books .bk-tabs button.on { box-shadow: none; }
 .bk-home-card b { color: var(--a-ink); }
 .bk-home-card span { color: var(--a-ink-soft); }
+
+/* Ana home: age-matched swipe row (BooksHomeCarousel). The track bleeds to the shell edges (.a-shell 20px). */
+.bk-home-rail-head { align-items: flex-end; gap: 10px; margin-bottom: 10px; }
+.bk-home-rail-sub { margin: 2px 0 0; font-size: 12px; font-weight: 600; color: var(--a-on-bg-soft); }
+.bk-home-rail-all { flex: none; padding: 4px 0; color: var(--a-coral-text) !important; font-size: 12.5px; }
+.bk-home-rail-track { list-style: none; margin: 0 -20px; padding: 2px 20px 8px; display: flex; gap: 12px; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: 20px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.bk-home-rail-track::-webkit-scrollbar { display: none; }
+.bk-home-rail-track li { flex: 0 0 auto; scroll-snap-align: start; }
+.bk-home-slide { width: 112px; display: flex; flex-direction: column; gap: 4px; text-align: start; background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: var(--a-ink); }
+.bk-home-slide:active { transform: scale(0.97); }
+.bk-home-slide-cover { display: block; border-radius: 14px; padding: 6px; box-shadow: var(--a-card-shadow); }
+.bk-home-slide-cover img { display: block; width: 100%; height: auto; aspect-ratio: 910 / 1287; object-fit: cover; border-radius: 9px; box-shadow: 0 8px 16px -12px rgba(0, 0, 0, .45); }
+.bk-home-slide b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 4px; font-size: 12.5px; line-height: 1.25; font-weight: 800; color: var(--a-on-bg, var(--a-ink)); }
+.bk-home-slide-age { font-size: 11px; font-weight: 800; }
+@media (min-width: 400px) { .bk-home-slide { width: 120px; } }

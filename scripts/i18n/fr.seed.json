@@ -12161,5 +12161,9 @@
   "par_quiz_support": "Comment soutenir cette compétence",
   "par_emergency_title": "En cas de danger, n’attends pas",
   "par_emergency_text": "Si ton enfant ou toi êtes en danger, en cas de violence, d’automutilation ou d’idées suicidaires, appelle immédiatement le {emergency}.",
-  "par_call": "Appeler : {emergency}"
+  "par_call": "Appeler : {emergency}",
+  "dash_parenting_eyebrow": "Éducation · Conseil du jour",
+  "dash_books_title": "Livres adaptés à son âge",
+  "dash_books_all": "Tout voir",
+  "dash_books_sub": "{age} · {n} livres"
 }

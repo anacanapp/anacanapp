@@ -12161,5 +12161,9 @@
   "par_quiz_support": "如何支持这项能力",
   "par_emergency_title": "有危险时不要等待",
   "par_emergency_text": "如果孩子或你处于危险中，或存在暴力、自伤或自杀念头，请立即拨打 {emergency}。",
-  "par_call": "拨打：{emergency}"
+  "par_call": "拨打：{emergency}",
+  "dash_parenting_eyebrow": "养育 · 今日建议",
+  "dash_books_title": "适龄图书",
+  "dash_books_all": "全部",
+  "dash_books_sub": "{age} · {n} 本书"
 }

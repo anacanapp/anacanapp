@@ -9756,5 +9756,9 @@
   "par_quiz_support": "როგორ დავეხმაროთ ამ უნარს",
   "par_emergency_title": "საფრთხის შემთხვევაში ნუ დაელოდები",
   "par_emergency_text": "თუ ბავშვი ან შენ საფრთხეში ხართ, არის ძალადობა, თვითდაზიანება ან სუიციდური აზრები, დაუყოვნებლივ დარეკე {emergency}-ზე.",
-  "par_call": "დარეკვა: {emergency}"
+  "par_call": "დარეკვა: {emergency}",
+  "dash_parenting_eyebrow": "აღზრდა · დღის რჩევა",
+  "dash_books_title": "ასაკის შესაბამისი წიგნები",
+  "dash_books_all": "ყველა",
+  "dash_books_sub": "{age} · {n} წიგნი"
 }

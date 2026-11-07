@@ -12161,5 +12161,9 @@
   "par_quiz_support": "Cómo apoyar esta habilidad",
   "par_emergency_title": "Si hay peligro, no esperes",
   "par_emergency_text": "Si tu hijo o tú estáis en peligro, o hay violencia, autolesiones o pensamientos suicidas, llama de inmediato al {emergency}.",
-  "par_call": "Llamar: {emergency}"
+  "par_call": "Llamar: {emergency}",
+  "dash_parenting_eyebrow": "Crianza · Consejo del día",
+  "dash_books_title": "Libros para su edad",
+  "dash_books_all": "Todos",
+  "dash_books_sub": "{age} · {n} libros"
 }

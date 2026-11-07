@@ -8430,5 +8430,9 @@
   "par_quiz_support": "Bu bacarığı necə dəstəkləmək olar",
   "par_emergency_title": "Təhlükə varsa, gözləmə",
   "par_emergency_text": "Uşaq və ya sən təhlükədəsənsə, zorakılıq, özünə zərər vermə və ya intihar fikri varsa, dərhal {emergency} nömrəsinə zəng et.",
-  "par_call": "Zəng et: {emergency}"
+  "par_call": "Zəng et: {emergency}",
+  "dash_parenting_eyebrow": "Tərbiyə · Günün məsləhəti",
+  "dash_books_title": "Yaşına uyğun kitablar",
+  "dash_books_all": "Hamısı",
+  "dash_books_sub": "{age} · {n} kitab"
 }

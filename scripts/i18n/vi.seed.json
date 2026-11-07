@@ -12161,5 +12161,9 @@
   "par_quiz_support": "Cách hỗ trợ kỹ năng này",
   "par_emergency_title": "Nếu có nguy hiểm, đừng chờ",
   "par_emergency_text": "Nếu con hoặc bạn đang gặp nguy hiểm, có bạo lực, tự làm hại bản thân hoặc ý nghĩ tự tử, hãy gọi ngay {emergency}.",
-  "par_call": "Gọi: {emergency}"
+  "par_call": "Gọi: {emergency}",
+  "dash_parenting_eyebrow": "Nuôi dạy con · Lời khuyên hôm nay",
+  "dash_books_title": "Sách phù hợp độ tuổi",
+  "dash_books_all": "Tất cả",
+  "dash_books_sub": "{age} · {n} cuốn sách"
 }

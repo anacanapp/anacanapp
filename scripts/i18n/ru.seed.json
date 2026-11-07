@@ -9756,5 +9756,9 @@
   "par_quiz_support": "Как поддержать этот навык",
   "par_emergency_title": "Если есть опасность, не жди",
   "par_emergency_text": "Если ребёнок или ты в опасности, есть насилие, самоповреждение или мысли о суициде, сразу звони {emergency}.",
-  "par_call": "Позвонить: {emergency}"
+  "par_call": "Позвонить: {emergency}",
+  "dash_parenting_eyebrow": "Воспитание · Совет дня",
+  "dash_books_title": "Книги по возрасту",
+  "dash_books_all": "Все",
+  "dash_books_sub": "{age} · {n} книг"
 }

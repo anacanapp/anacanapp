@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import {
   EMPTY_PARENTING, FREE_PROGRAMME_DAYS, MAX_MONTHS, ageBandFor, canCompleteToday, checkpointFor, completeDay, dailyTipIndex,
-  isDayLocked, isFinished, isParentingTileVisible, milestoneResult, nextDayIndex, progressPercent, readParenting, readingMinutes,
+  homeTipFor, isDayLocked, isFinished, isParentingHomeCardVisible, isParentingTileVisible, milestoneResult, nextDayIndex, progressPercent, readParenting, readingMinutes,
   startProgramme, storageKey, styleResult, styleScores, toggleSaved, undoLastDay, writeParenting,
 } from './parenting';
 import type { MilestoneCheckpoint, StyleDimension } from '@/data/parenting/types';
@@ -158,5 +158,34 @@ describe('device store', () => {
   it('estimates reading time', () => {
     expect(readingMinutes(['one two'])).toBe(1);
     expect(readingMinutes([Array(540).fill('söz').join(' ')])).toBe(3);
+  });
+});
+
+describe('Tərbiyə home card', () => {
+  const base = { lifeStage: 'mommy', language: 'az', setting: 'on', birthDate: '2024-07-01', now: NOW };
+  const tips = { '0-1': ['a0', 'a1'], '1-3': ['b0', 'b1', 'b2'], '3-6': ['c0'], '6-12': ['d0', 'd1'] };
+
+  it('uses the tile rules and also hides for a disabled tool or the loss-recovery home', () => {
+    expect(isParentingHomeCardVisible(base)).toBe(true);
+    expect(isParentingHomeCardVisible({ ...base, setting: 'off' })).toBe(false);
+    expect(isParentingHomeCardVisible({ ...base, language: 'ru' })).toBe(false);
+    expect(isParentingHomeCardVisible({ ...base, lifeStage: 'flow' })).toBe(false);
+    expect(isParentingHomeCardVisible({ ...base, birthDate: '2013-11-01' })).toBe(false);
+    expect(isParentingHomeCardVisible({ ...base, toolDisabled: true })).toBe(false);
+    expect(isParentingHomeCardVisible({ ...base, recovering: true })).toBe(false);
+  });
+
+  it('picks the band like the tool: chosen band, else the child, else 1–3', () => {
+    expect(homeTipFor(tips, { birthDate: '2026-05-01', now: NOW })?.band).toBe('0-1');
+    expect(homeTipFor(tips, { birthDate: '2021-01-01', now: NOW })?.band).toBe('3-6');
+    expect(homeTipFor(tips, { birthDate: '2021-01-01', chosenBand: '6-12', now: NOW })?.band).toBe('6-12');
+    expect(homeTipFor(tips, { birthDate: null, now: NOW })?.band).toBe('1-3');
+  });
+
+  it('shows the same tip as the tool for the day', () => {
+    const r = homeTipFor(tips, { birthDate: '2024-07-01', now: NOW })!;
+    expect(r.index).toBe(dailyTipIndex('2026-11-07', 3));
+    expect(r.tip).toBe(tips['1-3'][r.index]);
+    expect(homeTipFor({ ...tips, '1-3': [] }, { now: NOW })).toBeNull();
   });
 });

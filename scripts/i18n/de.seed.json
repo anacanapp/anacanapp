@@ -9756,5 +9756,9 @@
   "par_quiz_support": "So unterstützt du diese Fähigkeit",
   "par_emergency_title": "Bei Gefahr nicht warten",
   "par_emergency_text": "Wenn dein Kind oder du in Gefahr seid, bei Gewalt, Selbstverletzung oder Suizidgedanken ruf sofort {emergency} an.",
-  "par_call": "Anrufen: {emergency}"
+  "par_call": "Anrufen: {emergency}",
+  "dash_parenting_eyebrow": "Erziehung · Tipp des Tages",
+  "dash_books_title": "Bücher passend zum Alter",
+  "dash_books_all": "Alle",
+  "dash_books_sub": "{age} · {n} Bücher"
 }

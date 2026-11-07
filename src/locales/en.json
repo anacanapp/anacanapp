@@ -9922,5 +9922,9 @@
   "par_quiz_support": "How to support this skill",
   "par_emergency_title": "If there is danger, don’t wait",
   "par_emergency_text": "If your child or you are in danger, or there is violence, self-harm or suicidal thoughts, call {emergency} right away.",
-  "par_call": "Call: {emergency}"
+  "par_call": "Call: {emergency}",
+  "dash_parenting_eyebrow": "Parenting · Tip of the day",
+  "dash_books_title": "Books for your child's age",
+  "dash_books_all": "All",
+  "dash_books_sub": "{age} · {n} books"
 }
