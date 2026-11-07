@@ -1,0 +1,148 @@
+<az-AZ>
+• Süddən ayırma aləti: körpəni addım-addım, sakit şəkildə süddən ayır
+• PDF kitablar və tortlar indi tətbiqdə, QayğıCash ilə alışlarından bonus qazan
+• Yeni razılıq ekranı və Profil → Məxfilik → Razılıqlar: məlumatlarına tam nəzarət
+• Bildirişlərdə şəkillər
+• Tətbiq artıq 23 dildə: qırğız və eston dilləri əlavə olundu
+• Döl şəkilləri, klaviatura və sabitlik düzəlişləri
+</az-AZ>
+<en-US>
+• Weaning tool: wean your baby step by step, gently and calmly
+• New consent screen and Profile → Privacy → Consents: full control over your data
+• Pictures in notifications
+• The app is now available in 23 languages, including Kyrgyz and Estonian
+• Fixes for fetal images, the keyboard and overall stability
+</en-US>
+<tr-TR>
+• Sütten kesme aracı: bebeğini adım adım, sakin bir şekilde sütten kes
+• Yeni onay ekranı ve Profil → Gizlilik → Rızalar: verilerin üzerinde tam kontrol
+• Bildirimlerde görseller
+• Uygulama artık 23 dilde: Kırgızca ve Estonca eklendi
+• Bebek görselleri, klavye ve kararlılık düzeltmeleri
+</tr-TR>
+<ru-RU>
+• Инструмент отлучения от груди: постепенно и спокойно, шаг за шагом
+• Новый экран согласий и Профиль → Конфиденциальность → Согласия: полный контроль над вашими данными
+• Картинки в уведомлениях
+• Приложение теперь на 23 языках, добавлены киргизский и эстонский
+• Исправления изображений плода, клавиатуры и стабильности
+</ru-RU>
+<kk>
+• Емшектен шығару құралы: сәбиді біртіндеп, сабырмен емшектен шығару
+• Жаңа келісім экраны және Профиль → Құпиялылық → Келісімдер: деректеріңізді толық бақылау
+• Хабарландырулардағы суреттер
+• Қолданба енді 23 тілде: қырғыз және эстон тілдері қосылды
+• Ұрық суреттері, пернетақта және тұрақтылық түзетулері
+</kk>
+<uz>
+• Ko‘krakdan ajratish vositasi: chaqaloqni bosqichma-bosqich, xotirjam ajrating
+• Yangi rozilik ekrani va Profil → Maxfiylik → Roziliklar: ma’lumotlaringiz ustidan to‘liq nazorat
+• Bildirishnomalarda rasmlar
+• Ilova endi 23 tilda: qirg‘iz va eston tillari qo‘shildi
+• Homila rasmlari, klaviatura va barqarorlik tuzatishlari
+</uz>
+<ka-GE>
+• ძუძუს მოშორების ხელსაწყო: მოაშორე ბავშვი ძუძუს ნაბიჯ-ნაბიჯ, მშვიდად
+• ახალი თანხმობის ეკრანი და პროფილი → კონფიდენციალურობა → თანხმობები: სრული კონტროლი შენს მონაცემებზე
+• სურათები შეტყობინებებში
+• აპი ახლა 23 ენაზეა: დაემატა ყირგიზული და ესტონური
+• ნაყოფის სურათების, კლავიატურისა და სტაბილურობის გასწორებები
+</ka-GE>
+<de-DE>
+• Abstill-Tool: dein Baby Schritt für Schritt und ganz in Ruhe abstillen
+• Neuer Einwilligungsbildschirm und Profil → Datenschutz → Einwilligungen: volle Kontrolle über deine Daten
+• Bilder in Benachrichtigungen
+• Die App gibt es jetzt in 23 Sprachen, neu: Kirgisisch und Estnisch
+• Verbesserungen bei Fötusbildern, Tastatur und Stabilität
+</de-DE>
+<ar>
+• أداة الفطام: افطمي طفلك خطوة بخطوة وبهدوء
+• شاشة موافقات جديدة والملف الشخصي ← الخصوصية ← الموافقات: تحكم كامل في بياناتك
+• صور في الإشعارات
+• التطبيق متاح الآن بـ 23 لغة، مع إضافة القيرغيزية والإستونية
+• إصلاحات لصور الجنين ولوحة المفاتيح والاستقرار
+</ar>
+<zh-CN>
+• 断奶工具：循序渐进、平和地帮宝宝断奶
+• 全新同意页面及“个人资料 → 隐私 → 同意”：完全掌控你的数据
+• 通知中显示图片
+• 应用现已支持 23 种语言，新增吉尔吉斯语和爱沙尼亚语
+• 修复胎儿图片、键盘及稳定性问题
+</zh-CN>
+<id>
+• Alat menyapih: sapih bayimu bertahap dengan tenang
+• Layar persetujuan baru dan Profil → Privasi → Persetujuan: kendali penuh atas datamu
+• Gambar di notifikasi
+• Aplikasi kini tersedia dalam 23 bahasa, termasuk Kirgiz dan Estonia
+• Perbaikan gambar janin, keyboard, dan stabilitas
+</id>
+<fr-FR>
+• Outil de sevrage : sevrez votre bébé pas à pas, en douceur
+• Nouvel écran de consentement et Profil → Confidentialité → Consentements : un contrôle total sur vos données
+• Images dans les notifications
+• L'app est désormais disponible en 23 langues, dont le kirghize et l'estonien
+• Corrections des images du fœtus, du clavier et de la stabilité
+</fr-FR>
+<es-ES>
+• Herramienta de destete: desteta a tu bebé paso a paso y con calma
+• Nueva pantalla de consentimientos y Perfil → Privacidad → Consentimientos: control total de tus datos
+• Imágenes en las notificaciones
+• La app ya está disponible en 23 idiomas, incluidos el kirguís y el estonio
+• Correcciones en imágenes del feto, teclado y estabilidad
+</es-ES>
+<pt-BR>
+• Ferramenta de desmame: desmame seu bebê passo a passo, com calma
+• Nova tela de consentimentos e Perfil → Privacidade → Consentimentos: controle total dos seus dados
+• Imagens nas notificações
+• O app agora está disponível em 23 idiomas, incluindo quirguiz e estoniano
+• Correções nas imagens do feto, no teclado e na estabilidade
+</pt-BR>
+<vi>
+• Công cụ cai sữa: cai sữa cho bé từng bước, nhẹ nhàng
+• Màn hình đồng ý mới và Hồ sơ → Quyền riêng tư → Đồng ý: toàn quyền kiểm soát dữ liệu của bạn
+• Hình ảnh trong thông báo
+• Ứng dụng nay có 23 ngôn ngữ, thêm tiếng Kyrgyz và tiếng Estonia
+• Sửa lỗi hình ảnh thai nhi, bàn phím và tăng độ ổn định
+</vi>
+<hi-IN>
+• दूध छुड़ाने का टूल: बच्चे का दूध धीरे-धीरे, आराम से छुड़ाएँ
+• नई सहमति स्क्रीन और प्रोफ़ाइल → गोपनीयता → सहमतियाँ: अपने डेटा पर पूरा नियंत्रण
+• सूचनाओं में तस्वीरें
+• ऐप अब 23 भाषाओं में, किर्गिज़ और एस्टोनियाई जोड़ी गईं
+• भ्रूण की तस्वीरों, कीबोर्ड और स्थिरता में सुधार
+</hi-IN>
+<ja-JP>
+• 卒乳ツール：赤ちゃんの卒乳を一歩ずつ、穏やかに
+• 新しい同意画面と「プロフィール → プライバシー → 同意」：データを完全に管理
+• 通知に画像を表示
+• アプリが23言語に対応（キルギス語とエストニア語を追加）
+• 胎児の画像、キーボード、安定性の修正
+</ja-JP>
+<ko-KR>
+• 젖떼기 도구: 아기를 단계별로 차분하게 젖떼기
+• 새로운 동의 화면과 프로필 → 개인정보 → 동의: 내 데이터를 완전히 관리
+• 알림에 이미지 표시
+• 이제 23개 언어 지원 (키르기스어, 에스토니아어 추가)
+• 태아 이미지, 키보드 및 안정성 개선
+</ko-KR>
+<pl-PL>
+• Narzędzie do odstawiania od piersi: krok po kroku i spokojnie
+• Nowy ekran zgód oraz Profil → Prywatność → Zgody: pełna kontrola nad Twoimi danymi
+• Obrazy w powiadomieniach
+• Aplikacja jest teraz dostępna w 23 językach, w tym po kirgisku i estońsku
+• Poprawki obrazów płodu, klawiatury i stabilności
+</pl-PL>
+<nl-NL>
+• Afbouwtool: bouw de borstvoeding stap voor stap en rustig af
+• Nieuw toestemmingsscherm en Profiel → Privacy → Toestemmingen: volledige controle over je gegevens
+• Afbeeldingen in meldingen
+• De app is nu beschikbaar in 23 talen, waaronder Kirgizisch en Estisch
+• Verbeteringen voor foetusafbeeldingen, toetsenbord en stabiliteit
+</nl-NL>
+<sv-SE>
+• Avvänjningsverktyg: avvänj ditt barn steg för steg, i lugn takt
+• Ny samtyckesskärm och Profil → Integritet → Samtycken: full kontroll över dina data
+• Bilder i aviseringar
+• Appen finns nu på 23 språk, inklusive kirgiziska och estniska
+• Förbättringar av fosterbilder, tangentbord och stabilitet
+</sv-SE>
