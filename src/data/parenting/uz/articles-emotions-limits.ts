@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Tantrum: miyada nima sodir boʻladi?',
+    summary: 'Tantrum yomon tarbiyaning natijasi emas. Bu katta hissiyot hali kichkina “tormoz tizimi”dan ustun kelgan lahza.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Miyaning chuqur qatlamlarida joylashgan hissiyot tizimi tugʻilgandan kuchli: xavfni, hafsala pir boʻlishini, jahlni bir zumda his qiladi. Bu hislarni jilovlaydigan, “shoshma, boshqa yoʻl bor” deydigan peshona poʻstlogʻi esa 20 yoshgacha yetiladi. 2–4 yoshli bolada bu farq eng katta. Shuning uchun tantrum paytida bola seni eshitmaydi, mantiqqa javob bermaydi: miyasining “oʻylaydigan” qismi vaqtincha oʻchib qolgan.',
+      'Bola bu paytda oʻzi tinchlana olmaydi, xotirjamlikni sening tanangdan, ovozingdan “qarzga oladi”. Tadqiqotchilar buni birgalikdagi boshqaruv (ko-regulyatsiya) deb atashadi. Ota-ona xotirjam qolgani sari bolaning stress tizimi tezroq meʼyorga qaytadi, bu takrorlangan sari esa bola tinchlanishning shu yoʻlini oʻrganib, oʻzlashtiradi. Baqirish va jazolash esa stress gormonlarini oshiradi, tantrumni choʻzadi.',
+      'Tantrum koʻpincha bir xil paytlarda boʻladi: charchoq, ochlik, bir ishdan boshqasiga oʻtish (oʻyindan uyga, bogʻdan chiqish), “yoʻq” javobi. Bu lahzalarni oldindan koʻra bilish tantrumlarning yarmidan koʻpining oldini olishi mumkin.',
+    ],
+    tryToday: [
+      'Avval oʻzingni tinchlantir: bir chuqur nafas ol, yelkalaringni boʻshashtir, ovozingni pasaytir. Sen xotirjam boʻlmasang, u ham xotirjam boʻla olmaydi.',
+      'Kam gapir. Bir-ikki qisqa gap yetarli: “Juda jahling chiqyapti. Men shu yerdaman.”',
+      'Xavfsizlikni taʼminla: ursa, qoʻlini yumshoq ushlab tur, oʻziga zarar yetkazishi mumkin boʻlgan narsalarni chetga ol.',
+      'Tinchlangandan keyin quchoqla va faqat shundan soʻng qisqa gaplash: “Juda jahling chiqdi, chunki oʻyin tugadi. Keyingi safar “yordam ber” deyishing mumkin.”',
+      'Shu hafta tantrumlar qachon boʻlishini yozib bor. Ehtimol, ular charchoq va ochlik soatlariga toʻgʻri keladi.',
+    ],
+    mistakes: [
+      'Tantrum paytida uzoq tushuntirish yoki nasihat qilish. Miya hali tinglash rejimida emas: avval tinchlanish, keyin suhbat.',
+      'Tantrumni toʻxtatish uchun xohlaganini berish. Bu keyingi safar yanada kuchliroq tantrum degani. Hissiga hamdardlik bildir, qaroringda esa qatʼiy tur.',
+      'Bolani uyaltirish: “Uyat, hamma senga qarayapti.” Uyat hissiyotni boshqarishni oʻrgatmaydi, faqat yashirishni oʻrgatadi.',
+      'Tantrumni “manipulyatsiya” deb hisoblash. Kichkina bola uchun bu asosan uddalay olmaslik, hiyla emas.',
+    ],
+    byAge: {
+      '1-3': 'Soʻz boyligi kam, shuning uchun hissiga sen nom ber va oddiy muqobil koʻrsat: “Jahling chiqyapti. Oyogʻingni yerga ur, mana bunday!” Bu yoshda eʼtiborini boshqa narsaga burish juda yaxshi ishlaydi.',
+      '3-6': 'Xotirjam paytda “jahl rejasi” tuzinglar: nafas olish, yostiqni siqish, tinch burchakka borish. Uni rasmlar bilan devorga osinglar, tantrum boshlanganda faqat ishora qil.',
+    },
+    specialist: [
+      'Tantrumlar muntazam ravishda 25 daqiqadan uzoq davom etsa yoki kuniga beshtadan koʻp boʻlsa.',
+      'Bola tantrum paytida oʻziga jiddiy shikast yetkazsa (boshini urish, tishlash) yoki nafasi toʻxtab, hushidan ketsa — shifokorga koʻrsat.',
+      '4–5 yoshdan keyin tantrumlar kamayish oʻrniga koʻpaysa yoki nutq, uyqu, muloqot bilan bogʻliq boshqa xavotirlar ham boʻlsa.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Hissiyot murabbiyligi: hislarga nom berish',
+    summary: 'Hislarni koʻrish va ularga nom berish bolaning oʻzini boshqarishini kuchaytiradi. Bu hamma narsaga ruxsat berish degani emas.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Psixolog Jon Gotman 1990-yillarda oilalarni kuzatib, ota-onalar bolaning hislariga toʻrt xil yoʻl bilan javob berishini aniqladi: hisni inkor qiladigan (“Yigʻlama, nima boʻpti”), jazolaydigan, hamma narsaga ruxsat beradigan va “hissiyot murabbiyi”. Murabbiy ota-ona hisni jiddiy qabul qiladi, unga nom beradi va bola bilan birga yechim izlaydi, lekin xatti-harakatga chegara qoʻyadi.',
+      'Hissiyot murabbiyi boʻlgan ota-onalarning bolalari keyingi yillarda diqqatni yaxshiroq ushlab turgan, doʻstlari bilan kamroq janjallashgan va stressdan tezroq chiqqan. Keyingi dasturlar (masalan, “Tuning in to Kids”) bu koʻnikmani har qanday ota-ona oʻrganishi mumkinligini koʻrsatdi.',
+      'Miya tadqiqotlari ham qiziq narsani koʻrsatadi: hisga nom berish (“jahlim chiqyapti”, “qoʻrqyapman”) hissiyot markazining faolligini pasaytiradi. Yaʼni “hisni nomla, uni jilovla” shunchaki chiroyli gap emas.',
+    ],
+    tryToday: [
+      'Bugun uch marta bolaning hissini goʻyo uning oʻrniga ayt: “Shekilli, hafsalang juda pir boʻldi.” Notoʻgʻri topsang ham qoʻrqma, u seni tuzatib qoʻyadi.',
+      'Hisga ruxsat ber, xatti-harakatga chegara qoʻy: “Jahl qilish mumkin. Urish mumkin emas.”',
+      'Kitob oʻqiyotganda qahramonlarning yuziga qaranglar: “Sencha, u hozir nimani his qilyapti?”',
+      'Oʻz hislaringni ham xotirjam ayt: “Biroz charchadim, shuning uchun jimgina choy ichaman.” Bola eng koʻp senga taqlid qiladi.',
+    ],
+    mistakes: [
+      '“Yigʻlama”, “qoʻrqadigan hech narsa yoʻq”, “arzimagan narsa” deyish. His yoʻqolmaydi, bola shunchaki uni senga koʻrsatmaslikni oʻrganadi.',
+      'Hamdardlikni “yoʻq”ni bekor qilish deb tushunish. “Tushunaman, juda xohlagan eding. Javob baribir yoʻq” deyish mutlaqo mumkin.',
+      'Hislar haqida faqat qiyin paytda gapirish. Eng yaxshi mashq xotirjam paytlarda, oʻyin va kitob orqali boʻladi.',
+    ],
+    byAge: {
+      '1-3': 'Oddiy soʻzlar: quvonch, jahl, gʻam, qoʻrquv. Yuz ifodalarini birga koʻzgu oldida takrorlanglar.',
+      '3-6': 'Hislar uchun “termometr” chizinglar: yashil — xotirjamman, sariq — asabiylashyapman, qizil — portlayapman. Bola rangni koʻrsatsin.',
+      '6-12': 'Nozikroq soʻzlarni oʻrgatinglar: hafsala pir boʻlishi, uyat, rashk, xavotir. His tanada qayerda ekanini soʻranglar.',
+    },
+    specialist: [
+      'Bola uzoq vaqt deyarli hech qanday his koʻrsatmasa yoki har bir arzimas narsa uni soatlab larzaga solsa.',
+      'Gʻam, qoʻrquv yoki jahl ikki haftadan ortiq davom etib, uyqu, ovqat, maktab va doʻstlikka taʼsir qilsa — bolalar psixologiga murojaat qil.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Tinchlanish burchagi va nafas oʻyinlari',
+    summary: 'Bolaga tinchlanishni oʻrgatsa boʻladi, lekin jazo burchagi bilan emas, qulay joy va oʻyinlar bilan.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Oʻzini boshqarish koʻnikmasi avval ota-ona bilan birga, keyin asta-sekin mustaqil shakllanadi. Bola xotirjam katta odam bilan birga necha marta tinchlangan boʻlsa, bu yoʻlni shunchalik yaxshi oʻrganadi.',
+      'Sekin, chuqur nafas (ayniqsa uzun nafas chiqarish) yurak urishini sekinlashtiradi va tananing “xavf” rejimini oʻchiradi. Bolalar buni koʻrsatma orqali emas, oʻyin orqali yaxshiroq oʻrganadi.',
+    ],
+    tryToday: [
+      'Bola bilan birga uyda kichik “qulaylik burchagi” qilinglar: yostiq, yumshoq oʻyinchoq, bir-ikkita kitob, hislar kartochkalari. Bu jazo joyi emas, xohlagan paytda borsa boʻladigan joy.',
+      '“Sham va gul” oʻyini: gulni hidla (burun orqali nafas ol), shamni oʻchir (ogʻiz orqali sekin nafas chiqar). Besh marta.',
+      'Xotirjam paytda birga mashq qilinglar: “Jahlimiz chiqqanda tanamiz qanday boʻladi? Kel, xotirjam paytda nafas olaylik, kerak boʻlganda esimizda boʻlsin.”',
+      'Kichkina bola bilan burchakka birga boringlar: “Kel, birga qulaylik burchagiga boraylik.”',
+    ],
+    mistakes: [
+      'Burchakni jazo sifatida ishlatish: “Bor, burchakda tur!” Shunda bola u yerga borishdan qochadi.',
+      'Nafas mashqini birinchi marta tantrumning oʻrtasida oʻrgatishga urinish. Koʻnikma xotirjam paytda oʻrganiladi.',
+      'Tinchlanishni “darhol” kutish. Katta hissiyotning soʻnishi 10–20 daqiqa olishi mumkin.',
+    ],
+    byAge: {
+      '3-6': 'Qorniga oʻyinchoq qoʻyib, “oʻyinchoqni nafas bilan tebrat” oʻyini juda yaxshi ishlaydi.',
+      '6-12': 'Bola oʻzining tinchlanish roʻyxatini yozsin: musiqa, rasm, sayr, suv ichish. Oʻzi tanlagan usulga koʻproq amal qiladi.',
+    },
+    specialist: [
+      'Bola deyarli hech qachon tinchlana olmasa yoki jahl paytida xavfli harakat qilsa — bolalar psixologiga murojaat qil.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Maktab yoshidagi bolaning katta hislari',
+    summary: 'Jahl, uyat, rashk, hafsala pir boʻlishi: maktab yoshida hislar murakkablashadi, bola ularni tushunishga muhtoj.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Maktab yoshida bola hissini yashirishni biladi, shuning uchun katta hislar koʻpincha uyda, eng xavfsiz odam — sening yoningda portlaydi. Maktabdan keyingi asabiylik koʻpincha kun boʻyi “oʻzini tutib turish”ning charchogʻidir.',
+      'Bu yoshda ijtimoiy solishtirish boshlanadi. Uyat va “men yomonman” hissi jahl boʻlib koʻrinishi mumkin. Bola hissini nomlay olgani sari uni boshqarish ham osonlashadi.',
+    ],
+    tryToday: [
+      'Maktabdan keyin darhol savollarni yogʻdirma. Avval yengil tamaddi, jimlik yoki quchoq, suhbat keyin.',
+      '“His + ehtiyoj” gapini birga mashq qilinglar: “Men … his qilyapman, chunki … . Menga … kerak.”',
+      'Oʻz bolaligingdan oʻxshash voqeani aytib ber: “Men ham 9 yoshimda xuddi shunday uyalgan edim…”',
+      'Portlashdan keyin ayblamasdan tahlil qilinglar: “Nima boʻldi? Tanangda nimani his qilding? Keyingi safar nima yordam beradi?”',
+    ],
+    mistakes: [
+      'Hisni kichraytirish: “Shunga ham yigʻlaydimi.” Uning uchun bu katta narsa.',
+      'Darhol yechim taklif qilish. Baʼzan bola shunchaki eshitilishni xohlaydi.',
+      'Qizlarda jahlni, oʻgʻil bolalarda esa gʻamni “yarashmaydigan” his deb hisoblash. Har bir his har bir bola uchun normal.',
+    ],
+    specialist: [
+      'Ikki haftadan ortiq gʻamginlik, qiziqishni yoʻqotish, uyqu va ishtahaning oʻzgarishi, maktabdan bosh tortish.',
+      'Oʻziga zarar yetkazish yoki oʻlim haqida gapirish: darhol mutaxassisga murojaat qil, xavf boʻlsa {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Ingichka ovozda gʻingshish va erkalanish',
+    summary: 'Gʻingshish asabga tegadi, lekin koʻpincha bu charchoq yoki eʼtiborga ehtiyojning signali.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Bola qaysi xatti-harakat ish berishini tez oʻrganadi. Agar gʻingshish oxir-oqibat xohlaganiga erishtirsa, u davom etadi. Eʼtibor — hatto salbiy eʼtibor ham — xatti-harakatni kuchaytiradi.',
+      'Shu bilan birga, gʻingshish koʻpincha ochlik, charchoq yoki uzoq vaqt eʼtiborsiz qolishning belgisi. Sababga javob berish xatti-harakatni tez kamaytiradi.',
+    ],
+    tryToday: [
+      'Xotirjam paytda “kuchli ovoz” oʻyinini oʻynanglar: bir xil iltimosni gʻingshib va oddiy ovozda aytinglar, kulinglar.',
+      'Gʻingshiganda xotirjam ayt: “Seni oddiy ovozingda yaxshiroq eshitaman.” Oddiy ovozda aytganda darhol va jon deb javob ber.',
+      'Kun davomida birinchi qadamni oʻzing qoʻy: tez-tez qisqa, sababsiz eʼtibor — koʻzga qarash, quchoq, “seni koʻryapman”.',
+    ],
+    mistakes: [
+      'Avval “yoʻq” deb, gʻingshish choʻzilgach “mayli, ol” deyish. Bu gʻingshishni eng kuchli tarzda oʻrgatadi.',
+      'Gʻingshishni masxara qilish yoki taqlid qilib uyaltirish.',
+    ],
+    specialist: [
+      'Gʻingshish bilan birga bola tez-tez charchagan, rangi oʻchgan koʻrinsa, ishtahasi kamaygan boʻlsa — tibbiy sabablarni tekshirish uchun shifokorga murojaat qil.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Ijobiy intizom: chegara va mehr birga',
+    summary: 'Eng yaxshi natijaga qattiqqoʻl ham, hamma narsaga ruxsat beradigan ota-onalar ham emas, ham mehribon, ham aniq boʻlganlar erishadi.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '1960-yillarda psixolog Diana Baumrind ota-onalik uslublarini ikki oʻlchov bilan tasvirladi: mehr (sevgi, eʼtibor, javob berish) va talab/tuzilma (aniq kutilmalar, chegaralar). Ikkalasi ham yuqori boʻlgan “avtoritativ” uslub eng yaxshi natijalar bilan bogʻliq chiqdi: mustaqilroq, oʻziga ishongan va xulq muammolari kamroq bolalar.',
+      'Keyingi oʻn yilliklarda yuzlab tadqiqotlarni birlashtirgan meta-tahlillar bu xulosani tasdiqladi: iliq munosabat va tushuntirish bilan qoʻyilgan chegaralar kamroq tajovuz va tartibsizlik bilan bogʻliq, qattiq nazorat va jazo esa aksincha, koʻproq xulq muammolari bilan.',
+      'Amerika Pediatriya Akademiyasi (2018) va JSST (2022) ota-onalarga bir xil yoʻlni tavsiya qiladi: ijobiy munosabat qurish, yaxshi xatti-harakatni koʻrib kuchaytirish, aniq kutilmalar va xotirjam oqibatlar. Jismoniy jazo va kamsituvchi soʻzlar esa tavsiya etilmaydi.',
+    ],
+    tryToday: [
+      'Bitta qoidani ijobiy tilda ayt: “Yugurma” emas, “uyda yurib harakat qilamiz”.',
+      'Kutilmani oldindan ayt: “Doʻkonda qoʻlimdan ushlab yurasan, aravachaga faqat roʻyxatdagilarni solamiz.”',
+      'Bugun besh marta yaxshi xatti-harakatni aniq nomi bilan koʻr: “Sumkangni oʻzing ilib qoʻyding, rahmat!” Eʼtibor qaysi xatti-harakatga qaratilsa, oʻsha oʻsadi.',
+      'Chegarani xotirjam, qisqa va mehribon ovozda qoʻy, keyin amal qil. Takroriy ogohlantirishlarsiz.',
+    ],
+    mistakes: [
+      'Sevgi va chegarani bir-biriga qarama-qarshi qoʻyish. “Seni yaxshi koʻraman, shuning uchun ruxsat bermayman” — ikkalasi birga boʻlishi mumkin.',
+      'Bir qoidani bir kuni qoʻllab, ertasiga unutish. Izchillik qattiqqoʻllikdan muhimroq.',
+      'Faqat xatolarga munosabat bildirish. Agar bola faqat muammoli xatti-harakat bilan eʼtibor ola olsa, uni takrorlaydi.',
+    ],
+    byAge: {
+      '1-3': 'Soʻzdan koʻra muhit: xavfli narsalarni qoʻli yetmaydigan joyga qoʻy, “yoʻq”ni faqat muhim narsalar uchun saqla.',
+      '3-6': '3–4 ta oddiy oila qoidasi yetarli. Rasmlar bilan chizib, koʻrinadigan joyga osinglar.',
+      '6-12': 'Qoidalarni birga muhokama qil, oqibatlarni oldindan kelishib olinglar. Bola qoidaning bir qismini oʻzi yozganda unga koʻproq amal qiladi.',
+    },
+    specialist: [
+      'Barcha harakatlarga qaramay xulq muammolari oila hayotini, bogʻcha yoki maktabni oylab izdan chiqarsa — bolalar psixologi yoki ota-onalar dasturlari (masalan, PCIT, Triple P) juda samarali.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Nega urish ish bermaydi va nima ish beradi',
+    summary: 'Shapaloq bir lahzalik itoat keltirishi mumkin, lekin uzoq muddatda xulqni yomonlashtiradi. Bu borada ilmiy dalillar juda aniq.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '2016-yilda Gershoff va Grogan-Kaylor 160 mingdan ortiq bolani qamrab olgan 75 ta tadqiqotni birlashtirdi. Xulosa: shapaloq (urish) bolada hech qanday ijobiy uzoq muddatli natija bilan bogʻliq emas, aksincha, koʻproq tajovuz, antisotsial xulq, ruhiy salomatlik muammolari va ota-ona bilan zaif munosabat bilan bogʻliq. Bu bogʻliqlik “yengil”, “mehr bilan” urishda ham koʻrinadi.',
+      'Sababi oddiy: urish bolaga nima qilish kerakligini oʻrgatmaydi, faqat qoʻrqishni oʻrgatadi. Ustiga-ustak, muammolar kuch bilan hal qilinishini koʻrsatadi. Baqirish, doʻq qilish va kamsitish ham shunga oʻxshash taʼsir qiladi: tadqiqotlarda qoʻpol soʻzli intizom keyingi yillarda koʻproq xulq muammolari va depressiv alomatlar bilan bogʻlangan.',
+      'Amerika Pediatriya Akademiyasi (2018) va JSST jismoniy jazo va kamsituvchi soʻzlarni tavsiya etmaydi. Buning oʻrniga ish beradigan yoʻllar: iliq munosabat, aniq qoidalar, yaxshi xatti-harakatni kuchaytirish, mantiqiy oqibatlar va tinchlanish vaqti.',
+    ],
+    tryToday: [
+      'Oʻzing uchun “toʻxtash signali” tanla: jahling chiqqanda qoʻlingni choʻntagingga sol yoki bir qadam orqaga chekin va 10 gacha sana.',
+      'Xavfli xatti-harakatni jismonan, lekin zararsiz toʻxtat: qoʻlini ushla, bolani quchogʻingga ol, narsani olib qoʻy.',
+      'Keyingi safar nima qilish kerakligini oʻrgat: “Akang oʻyinchoqni olganda “ber!” deyishing yoki mening oldimga kelishing mumkin.”',
+      'Agar allaqachon urgan boʻlsang: kechirim soʻra, oʻz xatti-harakating uchun masʼuliyatni oʻz zimmangga ol va rejangni ayt. Bu bolaga ham xatodan qanday chiqishni oʻrgatadi.',
+    ],
+    mistakes: [
+      '“Meni ham urishgan, normal katta boʻldim” degan fikr. Koʻp odamlar shunga qaramay yaxshi ulgʻaygan, lekin tadqiqotlar oʻrtacha xavf oshishini koʻrsatadi.',
+      'Urishni “soʻnggi chora” sifatida saqlab qoʻyish. Soʻnggi chora — tinchlanish uchun tanaffus qilish va yordam soʻrash.',
+      'Jismoniy jazoni boshqa kamsituvchi usul (uyaltirish, doʻq qilish, mehrni qaytarib olish) bilan almashtirish.',
+    ],
+    byAge: {
+      '1-3': 'Bu yoshda eng samarali usullar: eʼtiborni boshqa narsaga burish, muhitni oʻzgartirish, bolani xavfli joydan xotirjam olib ketish.',
+      '3-6': 'Mantiqiy oqibat va “time-in” (sening yoningda tinchlanish) yaxshi ishlaydi.',
+      '6-12': 'Imtiyozni qisqa muddatga cheklash (masalan, ekran vaqti) va muammoni birga hal qilish.',
+    },
+    specialist: [
+      'Agar jahl paytida oʻzingni tuta olmayotganingni, bolaga zarar yetkazishing mumkinligini his qilsang — bu yordam soʻrash uchun jiddiy sabab. Psixolog yoki ota-onalar dasturi bu vaziyatni oʻzgartira oladi.',
+      'Agar bola yoki sen xavf ostida boʻlsangiz, uyda zoʻravonlik boʻlsa, darhol {emergency} raqamiga qoʻngʻiroq qil.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Oqibat va jazo: farqi nimada?',
+    summary: 'Jazo ogʻritishga, oqibat esa oʻrgatishga qaratilgan. Eng yaxshi oqibat xatti-harakat bilan bogʻliq, hurmatli va oldindan maʼlum boʻlganidir.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Xulq psixologiyasi shuni koʻrsatadiki, xatti-harakatni eng koʻp uning ortidan keladigan narsa oʻzgartiradi. Lekin jazolar (urish, kamsitish, uzoq mahrumlik) qoʻrquv va xafagarchilik tugʻdiradi, bola esa “qanday qilib qoʻlga tushmaslik” haqida oʻylaydi.',
+      'Mantiqiy oqibat esa xatti-harakat bilan bevosita bogʻliq, qisqa va oʻrgatuvchi: boʻyoqlar bilan devorga chizdi — birga artamiz; velosiped qoidasini buzdi — bugun velosiped yoʻq. Tabiiy oqibatlar (kurtkasiz chiqdi — sovqotdi) xavfsiz boʻlganda eng kuchli ustoz.',
+    ],
+    tryToday: [
+      '“3 R” tekshiruvi: oqibat xatti-harakat bilan bogʻliqmi (Related), hurmatlimi (Respectful), oqilonami (Reasonable)?',
+      'Oqibatni oldindan ayt: “Oʻyinchoqlarni yigʻishtirmasang, ertaga ular qutida dam oladi.” Keyin xotirjam amal qil.',
+      'Oqibatni qisqa tut: bir kun yetarli. Bir oylik taqiq endi oʻrgatmaydi, faqat xafa qiladi.',
+      'Oqibatdan keyin “toza sahifa”: nasihat emas, qaytadan boshlaymiz.',
+    ],
+    mistakes: [
+      'Jahl ustida oqibat oʻylab topish: “Bir yil velosiped yoʻq!” Keyin buni bajarib boʻlmaydi va soʻz qadrini yoʻqotadi.',
+      'Xatti-harakatga aloqasi yoʻq jazo: uy vazifasini qilmadi — tugʻilgan kunga bormaydi.',
+      'Oqibatni masxara bilan yoki “koʻrdingmi?” deb qoʻllash.',
+    ],
+    byAge: {
+      '3-6': 'Oqibat darhol va juda qisqa boʻlishi kerak. Soatlar oʻtgach bola uni xatti-harakat bilan bogʻlamaydi.',
+      '6-12': 'Oqibatlarni birga belgilanglar. Bola adolatli deb bilgan qoidaga koʻproq amal qiladi.',
+    },
+    specialist: [
+      'Hech qanday oqibat ish bermasa va xatti-harakat xavfli yoki oilani holdan toydiradigan darajada kuchli boʻlsa — ota-onalar dasturlari va bolalar psixologi bilan maslahatlash.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Baqirmasdan qanday gaplashish kerak',
+    summary: 'Baqirish bir lahzalik yengillik beradi, lekin bola ovoz balandligiga koʻnikib, kamroq eshitadi. Xotirjam va yaqindan gapirish kuchliroq.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Tadqiqotlarda muntazam baqirish, soʻkinish va kamsituvchi soʻzlar bilan intizom keyingi yillarda koʻproq xulq muammolari va depressiv alomatlar bilan bogʻlangan, hatto munosabat umuman iliq boʻlganda ham. Sabablardan biri: baqirish bolaning stress tizimini ishga tushiradi va u eshitish oʻrniga himoyaga oʻtadi.',
+      'Yaxshi xabar: ota-onaning oʻzini boshqarishi oʻrganiladigan koʻnikma. Baqirish koʻpincha ota-onaning charchogʻi, ochligi va haddan tashqari yuklamaning signali, “yomon ota-ona” ekanining emas.',
+    ],
+    tryToday: [
+      'Uzoqdan baqirish oʻrniga yaqinlash, bolaning boʻyiga egil, koʻziga qara, ismini ayt va qisqa gap bilan gapir.',
+      'Ovozingni koʻtargin kelganda teskarisini qil: pichirlab gapir. Bolalar pichirlashga qiziqib quloq soladi.',
+      'Kun davomida baqirgan paytlaringni belgilab bor. Eng koʻp qaysi soatda? Shu soat uchun reja tuz (masalan, tamaddi, ishni oldindan tayyorlab qoʻyish).',
+      'Baqirib yuborsang, tuzat: “Baqirdim, bu toʻgʻri emas edi. Asabim buzildi, lekin ovozimni koʻtarmasligim kerak edi.”',
+    ],
+    mistakes: [
+      'Har bir xatodan keyin oʻzingni ayblash. Bu keyingi safar koʻproq zoʻriqish tugʻdiradi. Maqsad mukammallik emas, kamroq takrorlash va tuzatish.',
+      '“Sen meni baqirishga majbur qilyapsan” deyish. Hislarimiz uchun masʼuliyatni oʻzimiz koʻtaramiz.',
+    ],
+    specialist: [
+      'Jahl va asabiylik deyarli har kuni nazoratdan chiqsa, uyqusizlik, gʻam yoki umidsizlik bilan birga boʻlsa — shifokor yoki psixolog bilan gaplash. Ota-onadagi depressiya va xavotir davolanadi.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out yoki time-in?',
+    summary: 'Qisqa tinchlanish tanaffusi ish berishi mumkin, lekin kichkina bolalar uchun asosiysi ajratib qoʻyish emas, tinchlanishga yordam beradigan yaqinlik.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Klassik “time-out” (bir necha daqiqalik xotirjam tanaffus) baʼzi ota-onalar dasturlarida oʻrganilgan va toʻgʻri qoʻllanganda (qisqa, xotirjam, kamsitmasdan, iliq munosabat fonida) zararli emasligi koʻrsatilgan. Lekin bu bolani xonaga qamab qoʻyish yoki qoʻrqitish degani emas.',
+      '“Time-in” esa bolaning sening yoningda tinchlanishi. Kichkina bolalar uchun bu koʻproq mos keladi, chunki ular hali birgalikdagi boshqaruvga muhtoj. Har ikki holatda ham maqsad jazo emas, tinchlanish va “qaytadan boshlash”.',
+    ],
+    tryToday: [
+      'Qoida: taxminan har bir yoshga bir daqiqa, koʻpi bilan 5 daqiqa.',
+      'Joy tinch boʻlsin, lekin qoʻrqinchli emas. Bolani hech qachon qorongʻi xonaga qamama.',
+      'Time-in uchun: “Kel, yonimga oʻtir. Birga nafas olaylik.”',
+      'Tanaffusdan keyin qisqa “qaytadan boshlaymiz”, nasihat emas.',
+    ],
+    mistakes: [
+      'Time-outni uzoq, tez-tez va doʻq bilan ishlatish.',
+      'Tanaffusni kamsitish bilan qoʻshib yuborish: “Bor, koʻzimga koʻrinma.”',
+    ],
+    specialist: [
+      'Bola har bir tanaffusda dahshatli qoʻrquv yoki vahima boshdan kechirsa, ajralish lahzalari uni haddan tashqari larzaga solsa — mutaxassis bilan gaplash.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Oila qoidalari: oz, aniq, izchil',
+    summary: 'Bolalar chegarani sinaydi, chunki u joyidami-yoʻqmi, bilishni xohlaydi. Barqaror chegara xavfsizlik hissini beradi.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Oldindan bilsa boʻladigan muhit bolaning stress tizimini tinchlantiradi. Aniq qoidalar va kun tartibi tadqiqotlarda yaxshiroq uyqu, kamroq xulq muammolari va kuchliroq oʻzini boshqarish bilan bogʻlangan.',
+      'Eng yaxshi ishlaydigan qoidalar oz (3–5 ta), ijobiy tilda yozilgan va ikkala ota-ona tomonidan bir xil qoʻllanadi.',
+    ],
+    tryToday: [
+      'Oilaviy yigʻilish oʻtkaz: har kim bitta qoida taklif qilsin, birga 3–5 ta asosiy qoidani tanlanglar.',
+      'Qoidalarni ijobiy yoz: “Yumshoq qoʻllar”, “Kimdir gapirganda bir-birimizni tinglaymiz”, “Ovqatdan keyin likopcha oshxonaga”.',
+      'Qoidalar bilan birga oqibatlarni ham kelishib olinglar.',
+      'Kattalar ham qoidalarga amal qilsin. Bola soʻzdan koʻra namunaga qaraydi.',
+    ],
+    mistakes: [
+      'Har bir yangi muammo uchun yangi qoida oʻylab topish. Qoida koʻp boʻlsa, hech qanday qoida yoʻqdek gap.',
+      'Onada bir qoida, otada yoki buvida boshqa. Kattalar avval oʻzaro kelishib olishi kerak.',
+    ],
+    specialist: [
+      'Oilada qoidalar borasida doimiy va keskin janjallar boʻlsa, oilaviy maslahatchi yordam berishi mumkin.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: '“Yoʻq!” deydigan bola: qaysarlik bilan qanday ishlash',
+    summary: '“Yoʻq” bosqichi bolaning “men alohida insonman” degan kashfiyoti. U bilan jang qilish emas, unga tanlov berish ish beradi.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Ikkinchi yilda bola oʻz irodasi borligini kashf etadi. Mustaqillik ehtiyoji asosiy psixologik ehtiyojlardan biri: bola nazorat hissini olgani sari hamkorlikka tayyorroq boʻladi.',
+      'Tadqiqotlar koʻrsatadiki, “nazorat qiluvchi” til (“darhol kiyin!”) qarshilikni oshiradi, tanlov va tushuntirish esa hamkorlikni.',
+    ],
+    tryToday: [
+      'Ikkita maqbul tanlov ber: “Avval tish yuvamizmi yoki pijamami?”',
+      '“Ha/yoʻq” savoli oʻrniga xabar gap: “Hozir kiyinish vaqti”, “Kiyinamizmi?” emas.',
+      'Oʻyinga aylantir: “Qani, kim paypogʻini tezroq kiyarkin — senmi yoki ayiqchami?”',
+      'Muhim boʻlmagan janglardan voz kech: koʻylak teskari kiyilgan boʻlsa, dunyo qulab tushmaydi.',
+    ],
+    mistakes: [
+      'Har bir “yoʻq”ni kuch kurashiga aylantirish.',
+      'Tanlov berib, keyin bolaning tanlovini qabul qilmaslik.',
+    ],
+    specialist: [
+      'Bola deyarli hech qanday iltimosga javob bermasa, ismiga munosabat bildirmasa yoki muloqot qurishda qiynalsa — rivojlanishni tekshirish uchun shifokorga murojaat qil.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];
