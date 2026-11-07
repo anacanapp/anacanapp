@@ -376,7 +376,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
     ],
     mistakes: [
       'Versuchen, die ganze Last allein zu tragen, und um Hilfe zu bitten für Schwäche halten.',
-      'Perfekte Eltern sein wollen. Kinder wachsen mit „gut genugen“ Eltern wunderbar auf.',
+      'Perfekte Eltern sein wollen. Kinder wachsen mit Eltern, die „gut genug“ sind, wunderbar auf.',
       'Den eigenen Schlaf, das eigene Essen und die eigene Gesundheit immer ans Ende stellen.',
     ],
     byAge: {

@@ -8,7 +8,7 @@ export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
     area: 'connection',
     emoji: '🤱',
     title: 'Bindung: der sichere Hafen deines Kindes',
-    summary: 'Sichere Bindung entsteht nicht durch perfekte Elternschaft, sondern durch „gut genuge“, feinfühlige und verlässliche Eltern.',
+    summary: 'Sichere Bindung entsteht nicht durch perfekte Elternschaft, sondern durch Eltern, die „gut genug“, feinfühlig und verlässlich sind.',
     bands: ['0-1', '1-3', '3-6', '6-12'],
     free: true,
     science: [
