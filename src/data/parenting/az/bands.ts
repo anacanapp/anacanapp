@@ -1,0 +1,149 @@
+import type { BandOverview } from '../types';
+import { S } from './sources';
+
+export const BANDS: BandOverview[] = [
+  {
+    id: '0-1',
+    emoji: '👶',
+    title: 'İlk il: güvən təməli',
+    lead: 'Bu il körpə dünyanın təhlükəsiz olub-olmadığını öyrənir. Cavabı o, sənin səsindən, qucağından və ona necə cavab verdiyindən götürür.',
+    brain: [
+      'Həyatın ilk illərində beyində saniyədə bir milyondan çox yeni sinir əlaqəsi yaranır. Hansı yolların möhkəmlənəcəyini təkrarlanan gündəlik təcrübə həll edir: körpə səs çıxarır, sən cavab verirsən; ağlayır, sən yaxınlaşırsan.',
+      'Körpənin beyninin özünü sakitləşdirən hissəsi hələ çox gəncdir. Ona görə körpə hələ özü sakitləşə bilmir, sənin sakit bədənindən “borc alır”. Buna birgə tənzimləmə deyilir və bu, gələcəkdə özünü idarə etmənin ilk dərsidir.',
+      'Təxminən 6–9 aylıqda yaddaş və bağlılıq güclənir: körpə tanımadığı adamlardan çəkinməyə, sən otaqdan çıxanda narahat olmağa başlaya bilər. Bu geriləmə deyil, əksinə, sənə bağlandığının əlamətidir.',
+    ],
+    needs: [
+      'Ağlamasına cavab. Bu yaşda körpəni “qucağa öyrətmək” və ya ərköyün etmək mümkün deyil. Tez və mehriban cavab ona dünyaya güvənməyi öyrədir.',
+      'Üz-üzə ünsiyyət: gülümsəmə, mahnı, onun səslərini təkrarlamaq. Bu “ver və qaytar” oyunları dil və emosiya beyninin əsasını qurur.',
+      'Proqnozlaşdırıla bilən gün: yemək, yuxu, çimmək təxminən eyni ardıcıllıqla. Dəqiq saat yox, tanış ritm vacibdir.',
+      'Təhlükəsiz yuxu və təhlükəsiz mühit, bir də dincəlmiş, dəstək alan valideyn.',
+    ],
+    normal: [
+      'Günün müəyyən saatlarında, xüsusən axşamüstü, səbəbsiz kimi görünən uzun ağlamalar (ilk 3–4 ayda).',
+      'Gecə tez-tez oyanmaq. İlk ildə bütün gecəni yatmaq hər körpə üçün norma deyil.',
+      'Hər şeyi ağzına aparmaq: bu, onun dünyanı tanımaq yoludur.',
+      'Yad adamdan qorxmaq və sənin yoxluğunda ağlamaq (təxminən 8 aydan sonra).',
+    ],
+    tryThis: [
+      'Gündə bir neçə dəfə 5 dəqiqəlik “üz-üzə vaxt”: telefon kənarda, körpənin səslərini təkrarla, nə etdiyini sözlə de.',
+      'Gündəlik işləri danışaraq et: “İndi bezini dəyişirik. Ayağını qaldırırıq. Hazırdır!”',
+      'Gizlənpaç oyna: uşaq bu oyunla “gedən qayıdır” fikrini öyrənir, ayrılıq qorxusu yumşalır.',
+      'Ağlama uzun çəkəndə və səbrin tükənəndə körpəni təhlükəsiz yerə — beşiyə — qoy, bir neçə dəqiqə nəfəs al, sonra qayıt.',
+    ],
+    specialist: [
+      'Körpə səslərə reaksiya vermirsə, gözlərinlə göz təması qurmursa, 4 ayda gülümsəmirsə və ya 9 ayda adına reaksiya vermirsə.',
+      'Əvvəl bacardığı bacarığı (gülümsəmək, səs çıxarmaq, oturmaq) itirirsə.',
+      'Ağlaması həmişəkindən fərqlidir, qızdırma, qusma, letargiya və ya qidalanmadan imtina ilə müşayiət olunursa: həkimə müraciət et. Ciddi halda {emergency}.',
+      'Sən özün həftələrlə kədərli, ümidsiz və ya körpəyə zərər vermək qorxusu hiss edirsənsə: bu, doğuşdan sonrakı depressiya ola bilər və müalicə olunur. Həkimə de.',
+    ],
+    sources: [S.harvardServe, S.nurturingCare2018, S.ainsworth1978, S.healthyChildrenCrying, S.zubler2022],
+  },
+  {
+    id: '1-3',
+    emoji: '🧸',
+    title: '1–3 yaş: “Mən özüm!” dövrü',
+    lead: 'Uşaq artıq yeriyir, danışmağa başlayır və müstəqil olmaq istəyir, amma hisslərini idarə edən beyin hələ çox gəncdir. Tantrumların səbəbi budur.',
+    brain: [
+      'Beynin emosiya mərkəzi (amiqdala) güclü və sürətlidir, onu “tormozlayan” alın qabığı isə hələ uzun illər inkişaf edəcək. Ona görə iki yaşlı uşaq “dayan” desə də, dayanmağı bacarmır. Bu inad deyil, yetişməmiş tormozdur.',
+      'Dil sürətlə inkişaf edir, amma uşağın anladığı onun deyə bildiyindən çox-çox irəlidədir. İstədiyini deyə bilməmək böyük məyusluq yaradır və bu, tez-tez qışqırıq və ya vurmaqla çıxır.',
+      'Bu yaşda uşaq səbəb-nəticəni sınaqla öyrənir: qaşığı yerə atır, sənin reaksiyana baxır, yenə atır. Bu, “səni əsəbiləşdirmək” deyil, kiçik bir alimin təcrübəsidir.',
+    ],
+    needs: [
+      'Sakit, aydın və təkrar olunan sərhədlər: “Vurmaq olmaz. Əllərini tuturam.” Uzun izah yox, qısa cümlə və əməl.',
+      'Seçim imkanı: “Qırmızı köynək, yoxsa göy?” Seçim muxtariyyət ehtiyacını ödəyir və “yox” deməyə ehtiyacı azaldır.',
+      'Hisslərinə ad vermək: “Qəzəbləndin, çünki oyun bitdi.” Adı qoyulan hiss daha tez sakitləşir.',
+      'Gündə bir neçə dəqiqə onun rəhbərlik etdiyi oyun, bol hərəkət və açıq hava.',
+    ],
+    normal: [
+      'Gündə bir neçə dəfə tantrum, xüsusən yorğun, ac və ya keçid anlarında.',
+      '“Yox!” sözünü çox işlətmək, eyni şeyi dəfələrlə təkrar istəmək.',
+      'Paylaşmağı bacarmamaq. Həqiqi paylaşma təxminən 3–4 yaşdan sonra formalaşır.',
+      'Ara-sıra dişləmək və ya vurmaq: bu yaşda fiziki aqressiya ən yüksək həddinə çatır, sonra tədricən azalır.',
+    ],
+    tryThis: [
+      'Keçidlərdən 5 dəqiqə əvvəl xəbərdarlıq et: “Daha iki dəfə sürüşürük, sonra evə gedirik.”',
+      '“Yox” əvəzinə “nə etmək olar”ı de: “Divara yox, bu kağıza çək.”',
+      'Gündə 10 dəqiqə “onun oyunu”: o nə edirsə, sən də edirsən, tənqid və sual yağışı olmadan.',
+      'Gün ərzində yaxşı davranışı görüb dəqiq ad ver: “Oyuncağı qardaşına verdin, o necə sevindi!”',
+    ],
+    specialist: [
+      '18 ayda göstərmək (barmaqla işarə etmək) yoxdursa, 2 yaşda iki sözlü cümlələr yoxdursa, adına reaksiya vermirsə və ya göz təması çox azdırsa.',
+      'Əvvəl dediyi sözləri və ya bacarıqları itirirsə (istənilən yaşda).',
+      'Tantrumlar 25 dəqiqədən uzun çəkirsə, gündə 5-dən çoxdursa, özünə və ya başqalarına ciddi xəsarət yetirirsə, ya da 4 yaşdan sonra da azalmırsa.',
+      'Yuxu, yemək və ya davranış çətinlikləri ailənin gündəlik həyatını aylarla pozursa.',
+    ],
+    sources: [S.harvardEF2011, S.healthyChildrenTantrums, S.cdcPositive, S.tremblay2004, S.zubler2022],
+  },
+  {
+    id: '3-6',
+    emoji: '🎨',
+    title: '3–6 yaş: xəyal, sual və qayda',
+    lead: 'Uşaq “niyə?” deyə soruşur, rol oyunları qurur, dostluq öyrənir. Özünü idarə etmək bacarığı sürətlə artır, amma hələ sənin dəstəyinə ehtiyac var.',
+    brain: [
+      'İcraedici funksiyalar — diqqəti saxlamaq, növbə gözləmək, qaydanı yadda tutmaq, fikri dəyişmək — 3–5 yaş arasında sürətlə inkişaf edir. Rol oyunları və qaydalı oyunlar bu bacarıqların ən yaxşı məşqidir.',
+      'Uşaq artıq başqasının fərqli fikirləşə biləcəyini anlamağa başlayır. Ona görə bu yaşda ilk yalanlar ortaya çıxır. Bu, maraqlı şəkildə, zehni inkişafın əlamətidir.',
+      'Təxəyyül güclənir, real ilə uydurmanın sərhədi hələ bulanıqdır. Qaranlıqdan, canavarlardan, yuxudan qorxmaq bu yaşın tipik qorxularıdır.',
+    ],
+    needs: [
+      'Aydın, az sayda ailə qaydası və onların ardıcıl tətbiqi. Qaydalar nə qədər proqnozlaşdırıla bilən olsa, mübahisə o qədər az olur.',
+      'Məntiqi nəticələr, cəza yox: “Topu evdə atsan, top şkafa gedir.”',
+      'Hisslər haqqında söhbət: kitablar, oyuncaqlarla oyunlar, “sən necə hiss edərdin?” sualları.',
+      'Real kiçik məsuliyyətlər: süfrəni qurmaq, oyuncaqları yığmaq, bitkini sulamaq.',
+    ],
+    normal: [
+      'Bəzən yalan danışmaq, xəyalı reallıqla qarışdırmaq.',
+      'Qaydaları sınamaq və “ədalətsizliyə” qarşı güclü reaksiya.',
+      'Qaranlıqdan və ya yeni vəziyyətlərdən qorxmaq.',
+      'Hələ də vaxtaşırı tantrumlar, amma əvvəlkindən qısa və seyrək.',
+    ],
+    tryThis: [
+      'Gündə bir dəfə “gününün ən yaxşı və ən çətin anı” sualını ver və diqqətlə dinlə.',
+      'Qaydaları birlikdə şəkillərlə çək və divara as.',
+      '“Qırmızı işıq, yaşıl işıq” və ya “Simon deyir” kimi oyunlarla özünü saxlamağı məşq et.',
+      'Səhv edəndə həll yolunu birlikdə tap: “Su töküldü. Nə edək?”',
+    ],
+    specialist: [
+      '4 yaşda cümlə qurmursa, danışığını yad adamlar çətin anlayırsa, oyun yoldaşları ilə heç maraqlanmırsa.',
+      'Qorxular və ya narahatlıq gündəlik həyatı (bağça, yuxu, yemək) həftələrlə pozursa.',
+      'Aqressiya başqalarına ciddi zərər verirsə və ya artırsa; heyvanlara qəddarlıq varsa.',
+      'Uzun müddət quru qaldıqdan sonra yenidən gündüz altını isladırsa və ya əvvəlki bacarıqlarını itirirsə.',
+    ],
+    sources: [S.diamond2013, S.harvardEF2011, S.talwarLee2008, S.cdcPositive, S.zubler2022],
+  },
+  {
+    id: '6-12',
+    emoji: '🎒',
+    title: '6–12 yaş: bacarıq, dostluq, özünəinam',
+    lead: 'Məktəb illəri uşağın “mən bacarıram” hissini qurduğu dövrdür. Dostlar önəmli olur, amma sən hələ də onun əsas dayağısan.',
+    brain: [
+      'Planlaşdırma, diqqət və özünü idarə etmək bacarıqları artıq yaxşı inkişaf edir, amma yorğunluq, aclıq və stress onları asanlıqla “söndürür”. Məktəbdən sonra əsəbi uşaq çox vaxt sadəcə tükənmiş uşaqdır.',
+      'Uşaq özünü başqaları ilə müqayisə etməyə başlayır. Bu dövrdə özünə dəyər hissi əsasən səydən, bacarıq qazanmaqdan və qəbul olunmaqdan qidalanır.',
+      'Yeniyetməliyə yaxın (təxminən 9–12 yaş) hormonal dəyişikliklər başlaya bilər: əhval dəyişkənliyi, daha çox şəxsi məkan ehtiyacı normaldır.',
+    ],
+    needs: [
+      'Səyi və strategiyanı görən təşviq: “Bu məsələ üzərində çox çalışdın, başqa yol sınadın.”',
+      'Getdikcə artan məsuliyyət və seçim haqqı, aydın ailə qaydaları ilə birlikdə.',
+      'Mühakimə etmədən dinləyən valideyn. Kiçik şeyləri dinləsən, böyük şeyləri də sənə danışar.',
+      'Ekrandan, ev tapşırığından kənar boş vaxt: oyun, idman, dostlar, yuxu.',
+    ],
+    normal: [
+      'Ədalət mövzusunda uzun mübahisələr, qaydaları müzakirə etmək istəyi.',
+      'Dostluqlarda küsüb-barışmalar, “məni oyuna qatmadılar” kədəri.',
+      'Ev tapşırığından yayınmaq, unutqanlıq.',
+      'Valideyndən bəzən utanmaq və ya daha çox təklik istəmək (xüsusən 10 yaşdan sonra).',
+    ],
+    tryThis: [
+      'Maşında, yeməkdə və ya yatmazdan əvvəl “sorğusuz söhbət” vaxtı: sən də öz günündən danış.',
+      'Ev tapşırığı üçün sabit vaxt və yer, amma tapşırığı onun yerinə etmə.',
+      'Ailə ekran planını birlikdə yaz: harada, nə vaxt və nə qədər.',
+      'Həftədə bir dəfə ikilikdə vaxt: yalnız sən və o, onun seçdiyi fəaliyyət.',
+    ],
+    specialist: [
+      'İki həftədən uzun davam edən kədər, maraq itkisi, yuxu və ya iştahda böyük dəyişiklik.',
+      'Məktəbə getməkdən israrla imtina, tez-tez qarın və baş ağrısı şikayətləri (həkim səbəb tapmırsa).',
+      'Bullinqə məruz qalma və ya başqalarını bulinq etmə əlamətləri; dostlardan tam təcrid.',
+      'Özünə zərər vermə, ölüm və ya intihar haqqında danışma: bunu heç vaxt “diqqət çəkmək” sayma. Dərhal mütəxəssisə müraciət et, təhlükə varsa {emergency}.',
+    ],
+    sources: [S.cdcPositive, S.aapMediaSchool2016, S.pomerantz2007, S.muellerDweck1998, S.unesco2019],
+  },
+];

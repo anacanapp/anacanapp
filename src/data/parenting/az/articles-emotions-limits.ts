@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Tantrum: beyində nə baş verir?',
+    summary: 'Tantrum pis tərbiyənin nəticəsi deyil. Bu, böyük hissin hələ kiçik olan “tormoz sistemini” üstələdiyi andır.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Beynin dərin qatlarında yerləşən emosiya sistemi doğuşdan güclüdür: təhlükəni, məyusluğu, qəzəbi bir anda hiss edir. Bu hisləri saxlayan, “gözlə, başqa yol var” deyən alın qabığı isə 20 yaşa qədər yetişir. 2–4 yaşlı uşaqda bu fərq ən böyükdür. Ona görə tantrum anında uşaq səni eşitmir, məntiqə cavab vermir: beyninin “düşünən” hissəsi müvəqqəti söndürülüb.',
+      'Uşaq bu anda özü sakitləşə bilmir, sakitliyi sənin bədənindən, səsindən “borc alır”. Tədqiqatçılar buna birgə tənzimləmə deyirlər. Valideyn sakit qaldıqca uşağın stres sistemi daha tez normala qayıdır, təkrarlandıqca isə uşaq bu sakitləşmə yolunu öyrənib mənimsəyir. Bağırmaq və cəzalandırmaq isə stres hormonlarını artırır, tantrumu uzadır.',
+      'Tantrum tez-tez eyni anlarda olur: yorğunluq, aclıq, keçidlər (oyundan evə, parkdan çıxmaq), “yox” cavabı. Bu anları əvvəlcədən görmək tantrumların yarıdan çoxunun qarşısını ala bilər.',
+    ],
+    tryToday: [
+      'Əvvəlcə özünü sakitləşdir: bir dərin nəfəs al, çiyinlərini burax, səsini aşağı sal. Sən sakit olmasan, o da sakit ola bilməz.',
+      'Az danış. Bir-iki qısa cümlə kifayətdir: “Çox qəzəblisən. Mən buradayam.”',
+      'Təhlükəsizliyi qoru: vurursa əlini yumşaq tut, özünə zərər verə biləcək əşyaları kənara qoy.',
+      'Sakitləşəndən sonra qucaqla və yalnız sonra, qısa danış: “Çox qəzəbləndin, çünki oyun bitdi. Növbəti dəfə “kömək et” deyə bilərsən.”',
+      'Bu həftə tantrumların nə vaxt olduğunu qeyd et. Çox güman, yorğunluq və aclıq saatları ilə üst-üstə düşəcək.',
+    ],
+    mistakes: [
+      'Tantrum zamanı uzun izah etmək və ya nəsihət vermək. Beyin hələ dinləmək rejimində deyil, əvvəl sakitləşmə, sonra söhbət.',
+      'Tantrumu dayandırmaq üçün istədiyini vermək. Bu, növbəti dəfə daha güclü tantrum deməkdir. Hissə empatiya göstər, qərarında isə qal.',
+      'Uşağı utandırmaq: “Ayıbdır, hamı sənə baxır.” Utanc hissi idarə etməyi öyrətmir, yalnız gizlətməyi öyrədir.',
+      'Tantrumu “manipulyasiya” saymaq. Kiçik uşaq üçün bu, əsasən bacarıqsızlıqdır, hiylə yox.',
+    ],
+    byAge: {
+      '1-3': 'Söz ehtiyatı azdır, ona görə hissi sən adlandır və sadə alternativ göstər: “Qəzəblisən. Ayağını yerə vur, belə!” Yayındırmaq bu yaşda çox yaxşı işləyir.',
+      '3-6': 'Sakit anda “qəzəb planı” qurun: nəfəs almaq, yastığı sıxmaq, sakit küncə getmək. Şəkillərlə divara asın və tantrum başlayanda yalnız işarə et.',
+    },
+    specialist: [
+      'Tantrumlar mütəmadi olaraq 25 dəqiqədən uzun çəkirsə və ya gündə beşdən çox olursa.',
+      'Uşaq tantrum zamanı özünə ciddi xəsarət yetirirsə (başını vurmaq, dişləmək) və ya nəfəsi kəsilib huşunu itirirsə — həkimə göstər.',
+      '4–5 yaşdan sonra tantrumlar azalmaq əvəzinə artırsa, ya da danışıq, yuxu, ünsiyyətlə bağlı başqa narahatlıqlar da varsa.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Emosiya məşqçiliyi: hissləri adlandırmaq',
+    summary: 'Hissləri görmək və adlandırmaq uşağın özünü idarə etməsini gücləndirir. Bu, hər şeyə icazə vermək demək deyil.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Psixoloq Con Qotman 1990-cı illərdə ailələri izləyərək valideynlərin uşağın hisslərinə dörd fərqli yolla cavab verdiyini müəyyən etdi: hissi rədd edən (“Ağlama, bu nədir ki”), cəzalandıran, hər şeyə icazə verən və “emosiya məşqçisi”. Məşqçi valideyn hissi ciddiyə alır, adını qoyur və uşaqla birlikdə həll yolu axtarır, amma davranışa sərhəd qoyur.',
+      'Emosiya məşqçisi olan valideynlərin uşaqları sonrakı illərdə daha yaxşı diqqət saxlayır, dostları ilə daha az münaqişə yaşayır və stresdən daha tez çıxırdılar. Sonrakı proqramlar (məsələn, “Tuning in to Kids”) göstərdi ki, bu bacarığı istənilən valideyn öyrənə bilər.',
+      'Beyin tədqiqatları da maraqlı bir şey göstərir: hissə ad vermək (“qəzəbliyəm”, “qorxuram”) emosiya mərkəzinin aktivliyini azaldır. Yəni “hissi adlandır, ram et” sadəcə gözəl söz deyil.',
+    ],
+    tryToday: [
+      'Bu gün üç dəfə uşağın hissini “sanki” onun yerinə de: “Deyəsən, çox məyus oldun.” Səhv tapsan da qorxma, o səni düzəldəcək.',
+      'Hissə icazə ver, davranışa sərhəd qoy: “Qəzəblənmək olar. Vurmaq olmaz.”',
+      'Kitab oxuyanda qəhrəmanların üzlərinə bax: “Sənə görə o indi nə hiss edir?”',
+      'Öz hisslərini də sakit dillə de: “Bir az yorğunam, ona görə səssizcə çay içəcəyəm.” Uşaq ən çox səni təqlid edir.',
+    ],
+    mistakes: [
+      '“Ağlama”, “qorxmalı bir şey yoxdur”, “boş şeydir” demək. Hiss yox olmur, sadəcə uşaq onu sənə göstərməməyi öyrənir.',
+      'Empatiyanı “yox”u ləğv etmək kimi başa düşmək. “Başa düşürəm, çox istəyirdin. Cavab yenə də yoxdur” demək tamamilə mümkündür.',
+      'Hisslər haqqında yalnız çətin anda danışmaq. Ən yaxşı məşq sakit anlarda, oyun və kitab vasitəsilə olur.',
+    ],
+    byAge: {
+      '1-3': 'Sadə sözlər: sevinc, qəzəb, kədər, qorxu. Üz ifadələrini birlikdə güzgüdə təqlid edin.',
+      '3-6': 'Hisslər üçün “termometr” çəkin: yaşıl — sakitəm, sarı — əsəbiləşirəm, qırmızı — partlayıram. Uşaq rəngi göstərsin.',
+      '6-12': 'Daha incə sözlər öyrədin: məyusluq, utanc, qısqanclıq, narahatlıq. Hissin bədəndə harada olduğunu soruşun.',
+    },
+    specialist: [
+      'Uşaq uzun müddət demək olar ki, heç bir hiss göstərmirsə və ya hər kiçik şey onu saatlarla sarsıdırsa.',
+      'Kədər, qorxu və ya qəzəb iki həftədən çox davam edir və yuxu, yemək, məktəb və dostluğa təsir edirsə — uşaq psixoloquna müraciət et.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Sakitləşmə küncü və nəfəs oyunları',
+    summary: 'Uşağa sakitləşməyi öyrətmək olar, amma bu, cəza küncü ilə deyil, rahat bir yer və oyunlar ilə olur.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Özünü tənzimləmə bacarığı əvvəlcə valideynlə birlikdə, sonra tədricən təkbaşına formalaşır. Uşaq neçə dəfə sakit bir böyüklə birlikdə sakitləşibsə, o yolu bir o qədər yaxşı öyrənir.',
+      'Yavaş, dərin nəfəs (xüsusilə uzun nəfəsvermə) ürək döyüntüsünü yavaşladır və bədənin “təhlükə” rejimini söndürür. Uşaqlar bunu təlimatla yox, oyunla daha yaxşı öyrənirlər.',
+    ],
+    tryToday: [
+      'Uşaqla birlikdə evdə kiçik bir “rahatlıq küncü” düzəldin: yastıq, yumşaq oyuncaq, bir-iki kitab, hiss kartları. Bura cəza yeri deyil, istənilən vaxt gedilə bilən yerdir.',
+      '“Şam və gül” oyunu: gülü iylə (burnundan nəfəs al), şamı söndür (ağızdan yavaş nəfəs ver). Beş dəfə.',
+      'Sakit anda birlikdə məşq edin: “Qəzəbli olanda bədənimiz necə olur? Gəl, sakit vaxtda nəfəs alaq ki, lazım olanda yadımızda olsun.”',
+      'Kiçik uşaqla künc birlikdə olsun: “Gəl, birlikdə rahatlıq küncünə gedək.”',
+    ],
+    mistakes: [
+      'Küncü cəza kimi istifadə etmək: “Get küncdə dur!” Onda uşaq ora getməkdən qaçacaq.',
+      'Nəfəs məşqini ilk dəfə tantrumun ortasında öyrətməyə çalışmaq. Bacarıq sakit vaxtda öyrənilir.',
+      'Sakitləşməni “dərhal” gözləmək. Böyük hissin sönməsi 10–20 dəqiqə çəkə bilər.',
+    ],
+    byAge: {
+      '3-6': 'Qarnının üstünə oyuncaq qoyub “oyuncağı nəfəslə yırğala” oyunu çox işləyir.',
+      '6-12': 'Uşaq öz sakitləşmə siyahısını yazsın: musiqi, rəsm, gəzinti, su içmək. Özünün seçdiyi üsula daha çox əməl edir.',
+    },
+    specialist: [
+      'Uşaq demək olar ki, heç vaxt sakitləşə bilmirsə və ya qəzəb anlarında təhlükəli davranırsa — uşaq psixoloquna müraciət et.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Məktəbli uşağın böyük hissləri',
+    summary: 'Qəzəb, utanc, qısqanclıq, məyusluq: məktəb yaşında hisslər daha mürəkkəbləşir, uşağın onları anlamağa ehtiyacı var.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Məktəb yaşında uşaq artıq hissini gizlətməyi bacarır, ona görə böyük hisslər çox vaxt evdə, ən təhlükəsiz insanın — sənin yanında partlayır. Məktəbdən sonra əsəbilik çox zaman gün boyu “özünü saxlamağın” yorğunluğudur.',
+      'Bu yaşda sosial müqayisə başlayır. Utanc və “mən pisəm” hissi qəzəb kimi görünə bilər. Uşaq hissini adlandıra bildikcə onu idarə etmək də asanlaşır.',
+    ],
+    tryToday: [
+      'Məktəbdən dərhal sonra sual yağdırma. Əvvəl qəlyanaltı, sükut və ya qucaq, söhbət sonra.',
+      '“Hiss + ehtiyac” cümləsini birlikdə məşq edin: “Mən … hiss edirəm, çünki … . Mənə … lazımdır.”',
+      'Öz uşaqlığından oxşar bir hekayə danış: “Mən də 9 yaşında belə utanmışdım…”',
+      'Partlayışdan sonra günahlandırmadan təhlil edin: “Nə oldu? Bədənində nə hiss etdin? Növbəti dəfə nə kömək edər?”',
+    ],
+    mistakes: [
+      'Hissi kiçiltmək: “Bunun üçün ağlamağa dəyməz.” Onun üçün bu, böyükdür.',
+      'Dərhal həll yolu təklif etmək. Bəzən uşaq sadəcə eşidilmək istəyir.',
+      'Qızlarda qəzəbi, oğlanlarda isə kədəri “yaraşmayan” hiss saymaq. Hər hiss hər uşaq üçün normaldır.',
+    ],
+    specialist: [
+      'İki həftədən çox kədər, maraq itkisi, yuxu və iştahın dəyişməsi, məktəbdən imtina.',
+      'Özünə zərər vermək və ya ölüm haqqında danışmaq: dərhal mütəxəssisə müraciət et, təhlükə varsa {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Mızıldanma və nazlanma',
+    summary: 'Mızıldanma əsəb pozur, amma çox vaxt bu, yorğunluq və ya diqqət ehtiyacının siqnalıdır.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Uşaq hansı davranışın işlədiyini tez öyrənir. Əgər mızıldanmaq sonunda istədiyini qazandırırsa, o, davam edəcək. Diqqət — hətta mənfi diqqət də — davranışı gücləndirir.',
+      'Eyni zamanda, mızıldanma çox vaxt aclıq, yorğunluq və ya uzun müddət diqqətsiz qalmağın əlamətidir. Səbəbə cavab vermək davranışı tez azaldır.',
+    ],
+    tryToday: [
+      'Sakit anda “güclü səs” oyunu oynayın: eyni xahişi mızıldanan və normal səslə deyin, gülün.',
+      'Mızıldananda sakitcə de: “Səni normal səsinlə daha yaxşı eşidirəm.” Normal səslə deyəndə dərhal və həvəslə cavab ver.',
+      'Gün ərzində özün ilk addımı at: tez-tez qısa, səbəbsiz diqqət — göz təması, qucaq, “səni görürəm”.',
+    ],
+    mistakes: [
+      'Əvvəl “yox” deyib, mızıldanma uzandıqda “yaxşı, al” demək. Bu, mızıldanmağı ən güclü şəkildə öyrədir.',
+      'Mızıldanmanı ələ salmaq və ya təqlid edib utandırmaq.',
+    ],
+    specialist: [
+      'Mızıldanma ilə birlikdə uşaq tez-tez yorğun, solğun görünürsə, iştahı azalıbsa — tibbi səbəbləri yoxlatmaq üçün həkimə müraciət et.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Pozitiv intizam: sərhəd və istilik birlikdə',
+    summary: 'Ən yaxşı nəticəni nə sərt, nə də hər şeyə icazə verən valideynlər, həm isti, həm də aydın olanlar alır.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '1960-cı illərdə psixoloq Diana Baumrind valideynlik üslublarını iki ölçü ilə təsvir etdi: istilik (sevgi, diqqət, cavab vermək) və tələb/struktur (aydın gözləntilər, sərhədlər). İkisi də yüksək olan “avtoritativ” üslub ən yaxşı nəticələrlə əlaqəli çıxdı: daha müstəqil, özünəinamlı və daha az problemli davranışlı uşaqlar.',
+      'Sonrakı onilliklərdə yüzlərlə tədqiqatı birləşdirən meta-analizlər bu nəticəni təsdiqlədi: isti münasibət və izah ilə qoyulan sərhədlər daha az aqressiya və qaydasızlıqla bağlıdır, sərt nəzarət və cəza isə əksinə, daha çox problemli davranışla.',
+      'Amerika Pediatriya Akademiyası (2018) və ÜST (2022) valideynlərə eyni yolu tövsiyə edir: müsbət münasibət qurmaq, yaxşı davranışı görüb gücləndirmək, aydın gözləntilər və sakit nəticələr. Fiziki cəza və alçaldıcı sözlər isə tövsiyə edilmir.',
+    ],
+    tryToday: [
+      'Bir qaydanı müsbət dillə de: “Qaçma” yox, “evdə yeriyirik”.',
+      'Gözləntini əvvəlcədən de: “Mağazada əlimdən tutursan, arabaya yalnız siyahıdakıları qoyuruq.”',
+      'Bu gün beş dəfə yaxşı davranışı dəqiq adla gör: “Çantanı özün asdın, sağ ol!” Diqqət hansı davranışa gedirsə, o böyüyür.',
+      'Sərhədi sakit, qısa və mehriban səslə qoy, sonra əməl et. Təkrar xəbərdarlıq yox.',
+    ],
+    mistakes: [
+      'Sevgi ilə sərhədi qarşı-qarşıya qoymaq. “Səni sevirəm, ona görə də icazə vermirəm” — ikisi birlikdə mümkündür.',
+      'Eyni qaydanı bir gün tətbiq edib, o biri gün unutmaq. Ardıcıllıq sərtlikdən daha vacibdir.',
+      'Yalnız səhvlərə reaksiya vermək. Uşaq yalnız problemli davranışla diqqət ala bilirsə, onu təkrarlayacaq.',
+    ],
+    byAge: {
+      '1-3': 'Sözdən çox mühit: təhlükəli əşyaları əl çatmayan yerə qoy, “yox”u yalnız vacib şeylər üçün saxla.',
+      '3-6': '3–4 sadə ailə qaydası kifayətdir. Şəkillərlə çəkib görünən yerə asın.',
+      '6-12': 'Qaydaları birlikdə müzakirə et, nəticələri əvvəlcədən razılaşdırın. Uşaq qaydanın bir hissəsini özü yazanda ona daha çox əməl edir.',
+    },
+    specialist: [
+      'Bütün səylərə baxmayaraq davranış problemləri ailə həyatını, bağça və ya məktəbi aylarla pozursa — uşaq psixoloqu və ya valideyn proqramları (məsələn, PCIT, Triple P) çox effektivdir.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Niyə vurmaq işləmir və nə işləyir',
+    summary: 'Şillə anlıq itaət gətirə bilər, amma uzunmüddətli davranışı pisləşdirir. Elmi sübutlar bu məsələdə çox aydındır.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '2016-cı ildə Gershoff və Grogan-Kaylor 160 mindən çox uşağı əhatə edən 75 tədqiqatı birləşdirdilər. Nəticə: şillə (vurmaq) uşaqda heç bir müsbət uzunmüddətli nəticə ilə bağlı deyil, əksinə, daha çox aqressiya, antisosial davranış, psixi sağlamlıq problemləri və valideynlə zəif münasibətlə əlaqəlidir. Bu əlaqə “yüngül”, “sevgi ilə” vurmada da görünür.',
+      'Səbəb sadədir: vurmaq uşağa nə etməli olduğunu öyrətmir, yalnız qorxmağı öyrədir. Üstəlik, problemlərin güclə həll edildiyini göstərir. Bağırmaq, hədələmək və alçaltmaq da oxşar təsir göstərir: tədqiqatlarda sərt sözlü intizam sonrakı illərdə daha çox davranış problemi və depressiv simptomlarla əlaqələndirilib.',
+      'Amerika Pediatriya Akademiyası (2018) və ÜST fiziki cəzanı və alçaldıcı sözləri tövsiyə etmir. Əvəzində işləyən yollar: isti münasibət, aydın qaydalar, yaxşı davranışı gücləndirmək, məntiqi nəticələr və sakitləşmə vaxtı.',
+    ],
+    tryToday: [
+      'Özün üçün “dayanma siqnalı” seç: əsəbin qalxanda əlini cibinə qoy, ya da arxaya bir addım at və 10-a qədər say.',
+      'Təhlükəli davranışı fiziki, amma zərərsiz dayandır: əlini tut, uşağı qucağına al, əşyanı götür.',
+      'Növbəti dəfə nə etmək lazım olduğunu öyrət: “Qardaşın oyuncağı götürəndə “ver!” deyə bilərsən, ya da mənə gəl.”',
+      'Əgər artıq vurmusansa: üzr istə, öz davranışın üçün məsuliyyəti götür və planını de. Bu, uşağa da səhvdən necə çıxmağı öyrədir.',
+    ],
+    mistakes: [
+      '“Mən də döyülmüşəm, normal böyümüşəm” düşüncəsi. Bir çox insan buna baxmayaraq yaxşı böyüyüb, amma tədqiqatlar orta hesabla riskin artdığını göstərir.',
+      'Vurmağı “son çarə” kimi saxlamaq. Son çarə — sakitləşmək üçün ara vermək və kömək istəməkdir.',
+      'Fiziki cəzanı başqa bir alçaldıcı üsulla (utandırmaq, hədələmək, sevgini geri çəkmək) əvəz etmək.',
+    ],
+    byAge: {
+      '1-3': 'Bu yaşda ən effektiv üsullar: yayındırmaq, mühiti dəyişmək, uşağı təhlükəli yerdən sakitcə götürmək.',
+      '3-6': 'Məntiqi nəticə və “time-in” (sənin yanında sakitləşmə) yaxşı işləyir.',
+      '6-12': 'İmtiyazın qısa müddətə məhdudlaşdırılması (məsələn, ekran vaxtı) və problemi birlikdə həll etmək.',
+    },
+    specialist: [
+      'Əgər əsəb anlarında özünü saxlaya bilmədiyini, uşağa zərər verə biləcəyini hiss edirsənsə — bu, kömək istəmək üçün güclü səbəbdir. Psixoloq və ya valideyn proqramı bu vəziyyəti dəyişə bilər.',
+      'Uşaq və ya sən təhlükədəsənsə, evdə zorakılıq varsa, dərhal {emergency} nömrəsinə zəng et.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Nəticə və cəza: fərq nədir?',
+    summary: 'Cəza ağrıtmağa, nəticə isə öyrətməyə yönəlib. Ən yaxşı nəticə davranışla bağlı, hörmətli və əvvəlcədən məlum olandır.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Davranış psixologiyası göstərir ki, davranışı ən çox onun ardınca gələn şey dəyişir. Amma cəzalar (vurmaq, alçaltmaq, uzun məhrumiyyət) qorxu və inciklik yaradır, uşaq isə “necə tutulmamaq” barədə düşünür.',
+      'Məntiqi nəticə isə davranışla birbaşa bağlıdır, qısadır və öyrədir: boyalarla divara çəkdi — birlikdə silirik; velosiped qaydasını pozdu — bu gün velosiped yoxdur. Təbii nəticələr (gödəkçəsiz çıxdı — üşüdü) təhlükəsiz olduqda ən güclü müəllimdir.',
+    ],
+    tryToday: [
+      '“3 R” yoxlaması: nəticə davranışla bağlıdırmı (Related), hörmətlidirmi (Respectful), ağlabatandırmı (Reasonable)?',
+      'Nəticəni əvvəlcədən de: “Oyuncaqları yığmasan, sabah onlar qutuda dincələcək.” Sonra sakitcə əməl et.',
+      'Nəticəni qısa saxla: bir gün kifayətdir. Bir aylıq qadağa artıq öyrətmir, sadəcə incidir.',
+      'Nəticədən sonra “təmiz səhifə”: nəsihət yox, yenidən başlayırıq.',
+    ],
+    mistakes: [
+      'Əsəbi halda nəticə uydurmaq: “Bir il velosiped yoxdur!” Sonra yerinə yetirmək mümkün olmur və söz dəyərini itirir.',
+      'Davranışla əlaqəsi olmayan cəza: ev tapşırığını etmədi — ad gününə getmir.',
+      'Nəticəni istehza və ya “gördün?” deyə tətbiq etmək.',
+    ],
+    byAge: {
+      '3-6': 'Nəticə dərhal və çox qısa olmalıdır. Saatlar sonra uşaq onu davranışla əlaqələndirmir.',
+      '6-12': 'Nəticələri birlikdə müəyyən edin. Uşaq ədalətli saydığı qaydaya daha çox əməl edir.',
+    },
+    specialist: [
+      'Heç bir nəticə işləmirsə və davranış təhlükəli və ya ailəni yoracaq qədər güclüdürsə — valideyn proqramları və uşaq psixoloqu ilə məsləhətləş.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Bağırmadan necə danışmalı',
+    summary: 'Bağırmaq anlıq rahatlıq verir, amma uşaq səsin gücünə alışır və daha az eşidir. Sakit və yaxın danışmaq daha güclüdür.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Tədqiqatlarda müntəzəm qışqırıq, söyüş və alçaldıcı sözlərlə intizam sonrakı illərdə daha çox davranış problemi və depressiv simptomlarla əlaqələndirilib, hətta münasibət ümumən isti olanda belə. Səbəblərdən biri: bağırmaq uşağın stres sistemini işə salır və o, eşitmək əvəzinə müdafiəyə keçir.',
+      'Yaxşı xəbər: valideynin özünü tənzimləməsi öyrənilən bacarıqdır. Bağırmaq çox vaxt valideynin yorğunluğunun, aclığının və həddindən artıq yükün siqnalıdır, “pis valideyn” olmağın yox.',
+    ],
+    tryToday: [
+      'Uzaqdan qışqırmaq əvəzinə yaxınlaş, uşağın səviyyəsinə en, göz təması qur, adını de və qısa cümlə ilə danış.',
+      'Səsini qaldırmaq istəyəndə əksinə et: pıçıltı ilə danış. Uşaqlar pıçıltıya maraqla qulaq asır.',
+      'Gün ərzində bağırdığın anları qeyd et. Ən çox hansı saatda? Həmin saat üçün plan qur (məsələn, qəlyanaltı, işi əvvəlcədən hazırlamaq).',
+      'Bağırsan, düzəlt: “Bağırdım, bu düz deyildi. Əsəbiləşdim, amma səsimi qaldırmamalıydım.”',
+    ],
+    mistakes: [
+      'Hər səhvdən sonra özünü ittiham etmək. Bu, növbəti dəfə daha çox gərginlik yaradır. Məqsəd mükəmməllik deyil, tezlik və düzəltmədir.',
+      '“Sən məni məcbur edirsən bağırmağa” demək. Hisslərimizə görə məsuliyyəti biz daşıyırıq.',
+    ],
+    specialist: [
+      'Qəzəb və əsəbilik demək olar ki, hər gün nəzarətdən çıxırsa, yuxusuzluq, kədər və ya ümidsizliklə birlikdədirsə — həkim və ya psixoloqla danış. Valideyn depressiyası və həyəcanı müalicə olunur.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out, yoxsa time-in?',
+    summary: 'Qısa sakitləşmə fasiləsi işləyə bilər, amma kiçik uşaqlar üçün əsas olan təcrid deyil, sakitləşməyə kömək edən yaxınlıqdır.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Klassik “time-out” (bir neçə dəqiqəlik sakit fasilə) bəzi valideyn proqramlarında tədqiq olunmuş və düzgün tətbiq olunanda (qısa, sakit, alçaltmadan, isti münasibət fonunda) zərərli olmadığı göstərilib. Amma bu, uşağı otağa bağlamaq və ya qorxutmaq demək deyil.',
+      '“Time-in” isə uşağın sənin yanında sakitləşməsidir. Kiçik uşaqlar üçün bu daha uyğundur, çünki onlar hələ birgə tənzimləməyə ehtiyac duyurlar. Hər iki halda məqsəd cəza yox, sakitləşmə və “yenidən başlamaq”dır.',
+    ],
+    tryToday: [
+      'Qayda: təxminən hər yaşa bir dəqiqə, maksimum 5 dəqiqə.',
+      'Yer sakit olsun, amma qorxulu yox. Uşağı heç vaxt qaranlıq otağa bağlama.',
+      'Time-in üçün: “Gəl, yanımda otur. Birlikdə nəfəs alaq.”',
+      'Fasilədən sonra qısa “yenidən başlayırıq”, nəsihət yox.',
+    ],
+    mistakes: [
+      'Time-out-u uzun, tez-tez və hədə ilə istifadə etmək.',
+      'Fasiləni alçaltma ilə birləşdirmək: “Get, gözüm səni görməsin.”',
+    ],
+    specialist: [
+      'Uşaq hər fasilədə dəhşətli qorxu və ya panika yaşayırsa, ayrılıq anları onu həddən artıq sarsıdırsa — mütəxəssislə danış.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Ailə qaydaları: az, aydın, ardıcıl',
+    summary: 'Uşaqlar sərhədi sınayır, çünki onun yerində olub-olmadığını bilmək istəyirlər. Sabit sərhəd təhlükəsizlik hissi verir.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Proqnozlaşdırıla bilən mühit uşağın stres sistemini sakitləşdirir. Aydın qaydalar və gündəlik rejim, tədqiqatlarda daha yaxşı yuxu, daha az davranış problemi və daha güclü özünü idarə etmə ilə əlaqələndirilir.',
+      'Ən çox iş görən qaydalar azdır (3–5), müsbət dildə yazılıb və hər iki valideyn tərəfindən eyni tətbiq olunur.',
+    ],
+    tryToday: [
+      'Ailə yığıncağı keçir: hər kəs bir qayda təklif etsin, birlikdə 3–5 əsas qayda seçin.',
+      'Qaydaları müsbət yaz: “Yumşaq əllər”, “Danışanda bir-birimizi dinləyirik”, “Yeməkdən sonra boşqab mətbəxə”.',
+      'Qaydaların yanında nəticələri də razılaşdırın.',
+      'Böyüklər də qaydalara əməl etsin. Uşaq sözdən çox nümunəyə baxır.',
+    ],
+    mistakes: [
+      'Hər yeni problem üçün yeni qayda icad etmək. Çox qayda heç bir qaydaya bərabərdir.',
+      'Anada bir qayda, atada və ya nənədə başqa. Böyüklər əvvəlcə öz aralarında razılaşmalıdırlar.',
+    ],
+    specialist: [
+      'Ailədə qaydalar barədə daimi və gərgin münaqişələr varsa, ailə məsləhətçisi kömək edə bilər.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: '“Yox!” deyən uşaq: inadla iş',
+    summary: '“Yox” mərhələsi uşağın “mən ayrı bir insanam” kəşfidir. Onunla döyüşmək yox, ona seçim vermək işləyir.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'İkinci ildə uşaq öz iradəsinin olduğunu kəşf edir. Muxtariyyət ehtiyacı əsas psixoloji ehtiyaclardandır: uşaq nəzarət hissi aldıqca, əməkdaşlığa daha hazır olur.',
+      'Tədqiqatlar göstərir ki, “nəzarət edən” dil (“dərhal geyin!”) müqaviməti artırır, seçim və izah isə əməkdaşlığı.',
+    ],
+    tryToday: [
+      'İki qəbul edilən seçim ver: “Əvvəl diş fırçalayırıq, yoxsa pijama?”',
+      '“Bəli” sualı əvəzinə xəbər cümləsi: “İndi geyinmək vaxtıdır”, “Geyinək?” yox.',
+      'Oyuna çevir: “Görək, kim corabını daha tez geyinəcək — sən, yoxsa ayıcıq?”',
+      'Vacib olmayan döyüşləri burax: köynək tərs geyinilibsə, dünya dağılmır.',
+    ],
+    mistakes: [
+      'Hər “yox”u güc mübarizəsinə çevirmək.',
+      'Seçim verib sonra uşağın seçimini qəbul etməmək.',
+    ],
+    specialist: [
+      'Uşaq demək olar ki, heç bir sorğuya cavab vermirsə, adına reaksiya göstərmirsə və ya ünsiyyət qurmaqda çətinlik çəkirsə — inkişaf yoxlaması üçün həkimə müraciət et.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];
