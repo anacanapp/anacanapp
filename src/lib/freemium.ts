@@ -17,6 +17,8 @@
  *    (mərhələ aktivliyi tool_configs-də olduğu kimi qalır; DB is_premium da false edildi).
  *  - 2026-11-06: Süddən ayırma (weaning) pulsuz alətdir; içində yalnız fərdi plan təqvimi və
  *    xatırlatmalar Premium-dur.
+ *  - 2026-11-07: Tərbiyə (parenting) pulsuz alətdir; içində tam kitabxana, bütün SOS kartları, proqramların
+ *    4-cü günündən sonrası və testlərin ətraflı nəticələri Premium-dur (təhlükəsizlik siqnalları hamıya açıq).
  *  - mental-health (EPDS/əhval) free saxlanılıb — postpartum depressiya riski
  *    skrininqi first-aid ilə eyni etik prinsiplə pullu divarın arxasında qala bilməz
  *    (istifadəçi qərarı, Doğuşdan Sonra Sağalma planı).
@@ -39,7 +41,10 @@ const FREE_TOOL_IDS = new Set<string>([
 'baby-album', 'pregnancy-album', 'mood', 'mood-diary',
 // 2026-11-06: Süddən ayırma — bələdçi, check-in və qırmızı bayraqlar pulsuz; fərdi plan təqvimi və
 // xatırlatmalar alətin içində Premium-dur (PremiumBlurGate).
-'weaning']
+'weaning',
+// 2026-11-07: Tərbiyə — yaş dövrləri, günün məsləhəti, pulsuz məqalə/SOS dəsti pulsuz; qalanı alətin içində
+// Premium-dur (PremiumBlurGate).
+'parenting']
 );
 
 /** Alət free siyahısındadır? */

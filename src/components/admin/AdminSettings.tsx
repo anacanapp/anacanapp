@@ -13,7 +13,7 @@ interface AppSetting { id: string; key: string; value: any; description: string 
 // geri yazırdı — nəticədə başqa admin ekranlarının dəyişiklikləri köhnə keşlənmiş dəyərə sıfırlanırdı və `force_update`
 // ikiqat JSON-encode olunurdu. İndi YALNIZ bu ekranın özünün idarə etdiyi açarlar yazılır.
 const MANAGED_SETTING_KEYS = [
-  'flow_mode_enabled', 'bump_mode_enabled', 'mommy_mode_enabled', 'mommy_hero_variant', 'bottom_nav_style', 'profile_layout', 'inapp_onboarding', 'weaning_tool',
+  'flow_mode_enabled', 'bump_mode_enabled', 'mommy_mode_enabled', 'mommy_hero_variant', 'bottom_nav_style', 'profile_layout', 'inapp_onboarding', 'weaning_tool', 'parenting_tool',
   'dark_mode_enabled', 'ai_model', 'app_version', 'maintenance_mode', 'max_daily_logs',
 ] as const;
 
@@ -120,6 +120,8 @@ const AdminSettings = () => {
                   control={select('inapp_onboarding', 'off', [['on', 'Aktiv: yeni istifadəçilərə ilk açılışda'], ['off', 'Söndürülüb']], 'Onboarding turu')} />
                 <SettingRow title="Süddən ayırma aləti" description="Plan yalnız 12+ aylıq uşaq üçün qurulur. Bələdçi və check-in pulsuz, fərdi təqvim və xatırlatmalar Premium-dur."
                   control={select('weaning_tool', 'off', [['on', 'Aktiv: Ana modulunda, 9+ ay'], ['off', 'Söndürülüb']], 'Süddən ayırma')} />
+                <SettingRow title="Tərbiyə aləti" description="Elmə əsaslanan pozitiv tərbiyə (0–12 yaş). Yalnız Azərbaycan dilində və Ana modulunda görünür. Yaş dövrləri, günün məsləhəti, pulsuz məqalə və SOS kartları hamıya, tam kitabxana, proqramlar və testlərin ətraflı nəticələri Premium-dur."
+                  control={select('parenting_tool', 'off', [['on', 'Aktiv: Ana modulunda, az dili'], ['off', 'Söndürülüb']], 'Tərbiyə')} />
                 <SettingRow icon={<Moon size={16} />} title={tr('adminsettings_qaranliq_rejim_29c427', 'Qaranlıq Rejim')} description={tr('adminsettings_i_stifadeciler_qaranliq_rejimi_3acc5d', 'İstifadəçilər qaranlıq rejimi aktiv edə bilsin')} control={toggle('dark_mode_enabled', true, 'Qaranlıq rejim')} />
               </Section>
             </div>

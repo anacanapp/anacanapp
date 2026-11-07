@@ -67,6 +67,10 @@ export interface ProgrammeProgress {
   updatedAt: string;
 }
 
+/** Free users can follow the first days of every programme; the rest is Premium. */
+export const FREE_PROGRAMME_DAYS = 3;
+export const isDayLocked = (dayIndex: number, isPremium: boolean) => !isPremium && dayIndex >= FREE_PROGRAMME_DAYS;
+
 export function startProgramme(today: string): ProgrammeProgress {
   return { startedAt: today, done: [], updatedAt: today };
 }
@@ -162,9 +166,11 @@ export interface ParentingLocal {
   band: AgeBandId | null;
   programmes: Record<string, ProgrammeProgress>;
   quizzes: Record<string, { at: string; result: string }>;
+  /** Bookmarks: 'a:<articleId>' or 's:<sosId>', newest first. */
+  saved: string[];
 }
 
-export const EMPTY_PARENTING = (): ParentingLocal => ({ v: 1, band: null, programmes: {}, quizzes: {} });
+export const EMPTY_PARENTING = (): ParentingLocal => ({ v: 1, band: null, programmes: {}, quizzes: {}, saved: [] });
 export const storageKey = (uid: string | null) => `anacan.parenting.v1.${uid || 'guest'}`;
 
 const BANDS: AgeBandId[] = ['0-1', '1-3', '3-6', '6-12'];
@@ -189,10 +195,24 @@ export function readParenting(uid: string | null): ParentingLocal {
     for (const [id, q] of Object.entries(data.quizzes || {})) {
       if (q && typeof q.result === 'string' && typeof q.at === 'string') out.quizzes[id] = { at: q.at, result: q.result };
     }
+    if (Array.isArray(data.saved)) {
+      out.saved = [...new Set(data.saved.filter((x) => typeof x === 'string' && /^[as]:[a-z0-9-]{1,60}$/.test(x)))].slice(0, 200);
+    }
     return out;
   } catch {
     return EMPTY_PARENTING();
   }
+}
+
+/** Add or remove a bookmark (newest first). */
+export function toggleSaved(saved: string[], ref: string): string[] {
+  return saved.includes(ref) ? saved.filter((x) => x !== ref) : [ref, ...saved].slice(0, 200);
+}
+
+/** Rough reading time of a text block at ~180 words a minute (at least 1 minute). */
+export function readingMinutes(parts: (string | undefined)[]): number {
+  const words = parts.filter(Boolean).join(' ').split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 180));
 }
 
 export function writeParenting(uid: string | null, state: ParentingLocal): void {

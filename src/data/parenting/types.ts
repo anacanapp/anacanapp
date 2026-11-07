@@ -64,6 +64,11 @@ export interface Article {
   sources: Source[];
 }
 
+export interface SosStep {
+  title: string;
+  text: string;
+}
+
 export interface SosCard {
   id: string;
   emoji: string;
@@ -73,7 +78,7 @@ export interface SosCard {
   bands: AgeBandId[];
   free: boolean;
   /** Exactly three steps: what to do / say. */
-  steps: [string, string, string];
+  steps: [SosStep, SosStep, SosStep];
   /** Example phrases. */
   say: string[];
   /** What not to do. */
@@ -141,6 +146,11 @@ export interface MilestoneQuiz {
   sources: Source[];
 }
 
+export interface Tip {
+  title: string;
+  text: string;
+}
+
 export interface ParentingContent {
   bands: BandOverview[];
   areas: Area[];
@@ -149,5 +159,5 @@ export interface ParentingContent {
   programmes: Programme[];
   styleQuiz: StyleQuiz;
   milestoneQuiz: MilestoneQuiz;
-  tips: Record<AgeBandId, string[]>;
+  tips: Record<AgeBandId, Tip[]>;
 }

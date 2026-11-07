@@ -14,7 +14,11 @@ export const PARENTING_COPY = {
   par_child_fallback: 'Uşaq',
   par_age_months: '{n} ay',
   par_age_years: '{n} yaş',
+  par_age_ym: '{y} yaş {m} ay',
   par_minutes: '{n} dəq',
+  par_read_time: '{n} dəqiqəlik oxu',
+  par_count_cards: '{n} kart',
+  par_count_articles: '{n} məqalə',
   par_disclaimer: 'Bu bələdçi məlumat xarakterlidir, həkim və ya psixoloq məsləhətini əvəz etmir.',
 
   // Age bands
@@ -26,15 +30,13 @@ export const PARENTING_COPY = {
   par_band_from_child: '{name} üçün seçildi',
 
   // Home
-  par_home_hello: 'Bu gün kiçik bir addım kifayətdir',
   par_tip_title: 'Günün məsləhəti',
-  par_sec_age: 'Bu yaşda',
   par_sec_topics: 'Mövzular',
   par_sec_sos: 'Çətin an? SOS',
   par_sec_programmes: 'Qısa proqramlar',
   par_sec_quizzes: 'Testlər',
   par_see_all: 'Hamısına bax',
-  par_band_open: 'Beyində nə baş verir?',
+  par_band_open: 'Bu yaşda nə baş verir?',
 
   // Headings
   par_h_brain: 'Beyində nə baş verir',
@@ -58,10 +60,17 @@ export const PARENTING_COPY = {
   par_empty: 'Bu yaş üçün hələ material yoxdur.',
 
   // SOS
-  par_sos_steps: '3 addım',
   par_sos_say: 'Belə deyə bilərsən',
   par_sos_avoid: 'Bunu etmə',
   par_sos_red: 'Bu artıq adi çətin an deyil',
+  par_sos_meta_free: '3 addım · pulsuz',
+  par_sos_meta_premium: '3 addım · Premium',
+
+  // Bookmarks
+  par_saved_title: 'Saxlanılanlar',
+  par_saved_empty: 'Hələ heç nə saxlamamısan. Məqalədə və ya SOS kartında 🔖 düyməsinə toxun.',
+  par_save: 'Yadda saxla',
+  par_unsave: 'Saxlanılanlardan çıxar',
 
   // Premium
   par_lock_title: 'Davamı Premium-dadır',
@@ -72,7 +81,6 @@ export const PARENTING_COPY = {
   par_prog_days: '{n} gün',
   par_prog_progress: '{done}/{total} gün',
   par_prog_start: 'Proqrama başla',
-  par_prog_today: 'Bugünkü addım',
   par_prog_why: 'Niyə işləyir',
   par_prog_done_today: 'Bunu etdim ✓',
   par_prog_come_back: 'Bugünkü addım tamamdır. Sabah növbəti gün açılacaq.',
@@ -81,6 +89,12 @@ export const PARENTING_COPY = {
   par_prog_finished: 'Proqramı bitirdin! Özünə təşəkkür et 🤍',
   par_prog_day: 'Gün {n}',
   par_prog_all_days: 'Bütün günlər',
+  par_prog_great: 'Əla gedirsən! 🔥',
+  par_prog_steps_done: '{n} kiçik addım artıq geridə qalıb',
+  par_prog_daily: 'Hər gün bir kiçik addım',
+  par_prog_free_days: 'İlk {n} gün pulsuz',
+  par_prog_locked_title: 'Proqramlar Premium-dadır',
+  par_prog_unlock: 'Premium ilə aç',
 
   // Quizzes
   par_quiz_start: 'Testə başla',
