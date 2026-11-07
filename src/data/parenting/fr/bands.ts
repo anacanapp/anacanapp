@@ -1,0 +1,149 @@
+import type { BandOverview } from '../types';
+import { S } from './sources';
+
+export const BANDS: BandOverview[] = [
+  {
+    id: '0-1',
+    emoji: '👶',
+    title: 'La première année : les bases de la confiance',
+    lead: 'Cette année, ton bébé découvre si le monde est un endroit sûr. La réponse, il la trouve dans ta voix, dans tes bras et dans ta façon de lui répondre.',
+    brain: [
+      'Pendant les premières années de vie, plus d’un million de nouvelles connexions nerveuses se forment chaque seconde dans le cerveau. Ce sont les expériences répétées du quotidien qui décident quels circuits se renforcent : ton bébé fait un son, tu réponds ; il pleure, tu t’approches.',
+      'La partie du cerveau qui permet de s’apaiser est encore très immature chez ton bébé. C’est pourquoi il ne sait pas encore se calmer seul : il « emprunte » le calme de ton corps détendu. C’est ce qu’on appelle la co-régulation, et c’est la première leçon de la maîtrise de soi future.',
+      'Vers 6–9 mois, la mémoire et l’attachement se renforcent : ton bébé peut commencer à se méfier des inconnus et à s’inquiéter quand tu quittes la pièce. Ce n’est pas une régression, c’est au contraire le signe qu’il s’est attaché à toi.',
+    ],
+    needs: [
+      'Une réponse à ses pleurs. À cet âge, on ne peut pas « habituer un bébé aux bras » ni le rendre capricieux. Une réponse rapide et chaleureuse lui apprend à faire confiance au monde.',
+      'Des échanges en face à face : sourires, chansons, répéter ses sons. Ces jeux de « donner et rendre » posent les bases du cerveau du langage et des émotions.',
+      'Une journée prévisible : repas, sommeil, bain à peu près dans le même ordre. Ce qui compte, ce n’est pas l’heure exacte, mais un rythme familier.',
+      'Un sommeil sûr et un environnement sûr, et aussi un parent reposé et soutenu.',
+    ],
+    normal: [
+      'De longs pleurs apparemment sans raison à certains moments de la journée, surtout en fin d’après-midi (pendant les 3–4 premiers mois).',
+      'Des réveils fréquents la nuit. Faire ses nuits la première année n’est pas la norme pour tous les bébés.',
+      'Tout porter à la bouche : c’est sa façon de découvrir le monde.',
+      'La peur des inconnus et les pleurs quand tu n’es pas là (vers 8 mois et après).',
+    ],
+    tryThis: [
+      'Plusieurs fois par jour, 5 minutes de « temps face à face » : téléphone de côté, répète les sons de ton bébé et mets des mots sur ce qu’il fait.',
+      'Raconte les gestes du quotidien : « Maintenant on change la couche. On lève la jambe. C’est fini ! »',
+      'Joue à coucou : avec ce jeu, ton enfant apprend que ce qui part revient, et l’angoisse de séparation s’adoucit.',
+      'Quand les pleurs durent et que ta patience est à bout, pose ton bébé dans un endroit sûr – son lit –, respire quelques minutes, puis reviens.',
+    ],
+    specialist: [
+      'Si ton bébé ne réagit pas aux sons, ne cherche pas ton regard, ne sourit pas à 4 mois ou ne réagit pas à son prénom à 9 mois.',
+      'S’il perd une compétence qu’il avait déjà (sourire, babiller, s’asseoir).',
+      'Si ses pleurs sont différents d’habitude, ou s’accompagnent de fièvre, de vomissements, d’une léthargie ou d’un refus de s’alimenter : consulte un médecin. En cas de situation grave, appelle le {emergency}.',
+      'Si tu te sens toi-même triste, désespéré(e) ou que tu as peur de faire du mal à ton bébé depuis des semaines : il peut s’agir d’une dépression post-partum, et elle se soigne. Parles-en à ton médecin.',
+    ],
+    sources: [S.harvardServe, S.nurturingCare2018, S.ainsworth1978, S.healthyChildrenCrying, S.zubler2022],
+  },
+  {
+    id: '1-3',
+    emoji: '🧸',
+    title: '1–3 ans : la période du « Tout seul ! »',
+    lead: 'Ton enfant marche déjà, commence à parler et veut être autonome, mais le cerveau qui gère ses émotions est encore très jeune. C’est de là que viennent les crises.',
+    brain: [
+      'Le centre des émotions (l’amygdale) est puissant et rapide, alors que le cortex préfrontal, qui le « freine », va encore se développer pendant de longues années. C’est pourquoi un enfant de deux ans ne parvient pas à s’arrêter, même s’il dit lui-même « stop ». Ce n’est pas de l’entêtement, c’est un frein encore immature.',
+      'Le langage se développe vite, mais ce que ton enfant comprend dépasse de très loin ce qu’il sait dire. Ne pas pouvoir exprimer ce qu’il veut est très frustrant, et cela sort souvent sous forme de cris ou de coups.',
+      'À cet âge, ton enfant découvre la cause et l’effet en expérimentant : il jette la cuillère par terre, observe ta réaction, et recommence. Il ne cherche pas à « t’énerver » : c’est l’expérience d’un petit scientifique.',
+    ],
+    needs: [
+      'Des limites calmes, claires et répétées : « On ne tape pas. Je tiens tes mains. » Pas de longues explications, mais une phrase courte et un geste.',
+      'Des choix : « Le t-shirt rouge ou le bleu ? » Choisir répond à son besoin d’autonomie et réduit son besoin de dire « non ».',
+      'Mettre des mots sur ses émotions : « Tu es en colère parce que le jeu est fini. » Une émotion nommée s’apaise plus vite.',
+      'Chaque jour, quelques minutes de jeu qu’il dirige, beaucoup de mouvement et de grand air.',
+    ],
+    normal: [
+      'Plusieurs crises par jour, surtout quand il est fatigué, a faim ou lors des transitions.',
+      'Dire très souvent « Non ! » et réclamer la même chose encore et encore.',
+      'Ne pas savoir partager. Le vrai partage apparaît vers 3–4 ans.',
+      'Mordre ou taper de temps en temps : à cet âge, l’agressivité physique atteint son pic, puis diminue progressivement.',
+    ],
+    tryThis: [
+      'Préviens 5 minutes avant une transition : « Encore deux toboggans, puis on rentre à la maison. »',
+      'Au lieu de « non », dis ce qui est possible : « Pas sur le mur, dessine sur cette feuille. »',
+      'Chaque jour, 10 minutes de « son jeu à lui » : ce qu’il fait, tu le fais aussi, sans critique ni avalanche de questions.',
+      'Dans la journée, remarque les bons comportements et nomme-les précisément : « Tu as donné le jouet à ton frère, regarde comme il est content ! »',
+    ],
+    specialist: [
+      'S’il ne pointe pas du doigt à 18 mois, ne fait pas de phrases de deux mots à 2 ans, ne réagit pas à son prénom ou établit très peu de contact visuel.',
+      'S’il perd des mots ou des compétences qu’il avait déjà (à tout âge).',
+      'Si les crises durent plus de 25 minutes, surviennent plus de 5 fois par jour, s’il se blesse gravement ou blesse les autres, ou si elles ne diminuent pas après 4 ans.',
+      'Si des difficultés de sommeil, d’alimentation ou de comportement perturbent la vie quotidienne de la famille pendant des mois.',
+    ],
+    sources: [S.harvardEF2011, S.healthyChildrenTantrums, S.cdcPositive, S.tremblay2004, S.zubler2022],
+  },
+  {
+    id: '3-6',
+    emoji: '🎨',
+    title: '3–6 ans : imaginaire, questions et règles',
+    lead: 'Ton enfant demande « pourquoi ? », invente des jeux de rôle, apprend l’amitié. Sa capacité à se maîtriser progresse vite, mais il a encore besoin de ton soutien.',
+    brain: [
+      'Les fonctions exécutives – garder son attention, attendre son tour, retenir une règle, changer d’idée – se développent très vite entre 3 et 5 ans. Les jeux de rôle et les jeux à règles sont le meilleur entraînement pour ces compétences.',
+      'Ton enfant commence à comprendre que les autres peuvent penser différemment de lui. C’est pourquoi les premiers mensonges apparaissent à cet âge : curieusement, c’est un signe de développement intellectuel.',
+      'L’imagination s’épanouit, et la frontière entre le réel et l’inventé est encore floue. La peur du noir, des monstres ou des rêves est typique de cet âge.',
+    ],
+    needs: [
+      'Des règles familiales claires et peu nombreuses, appliquées avec constance. Plus les règles sont prévisibles, moins il y a de disputes.',
+      'Des conséquences logiques plutôt que des punitions : « Si tu lances le ballon dans la maison, le ballon va dans le placard. »',
+      'Parler des émotions : des livres, des jeux avec des peluches, des questions comme « Qu’est-ce que tu ressentirais, toi ? ».',
+      'De vraies petites responsabilités : mettre la table, ranger les jouets, arroser la plante.',
+    ],
+    normal: [
+      'Mentir parfois, mélanger l’imaginaire et la réalité.',
+      'Tester les règles et réagir fortement à « l’injustice ».',
+      'Avoir peur du noir ou des situations nouvelles.',
+      'Encore des crises de temps en temps, mais plus courtes et plus rares qu’avant.',
+    ],
+    tryThis: [
+      'Une fois par jour, demande-lui « le meilleur et le moment le plus difficile de ta journée » et écoute attentivement.',
+      'Dessinez ensemble les règles en images et accrochez-les au mur.',
+      'Entraînez la maîtrise de soi avec des jeux comme « Feu rouge, feu vert » ou « Jacques a dit ».',
+      'Quand il fait une erreur, cherchez la solution ensemble : « L’eau s’est renversée. Qu’est-ce qu’on fait ? »',
+    ],
+    specialist: [
+      'S’il ne fait pas de phrases à 4 ans, si les inconnus le comprennent difficilement ou s’il ne s’intéresse pas du tout aux autres enfants.',
+      'Si des peurs ou de l’anxiété perturbent le quotidien (crèche ou école, sommeil, repas) pendant des semaines.',
+      'Si l’agressivité fait vraiment du mal aux autres ou augmente ; s’il est cruel envers les animaux.',
+      'S’il recommence à faire pipi dans sa culotte en journée après une longue période de propreté, ou s’il perd des compétences acquises.',
+    ],
+    sources: [S.diamond2013, S.harvardEF2011, S.talwarLee2008, S.cdcPositive, S.zubler2022],
+  },
+  {
+    id: '6-12',
+    emoji: '🎒',
+    title: '6–12 ans : compétences, amitié, confiance en soi',
+    lead: 'Les années d’école sont la période où ton enfant construit son sentiment de « je suis capable ». Les amis prennent de l’importance, mais tu restes son principal point d’appui.',
+    brain: [
+      'La planification, l’attention et la maîtrise de soi sont déjà bien développées, mais la fatigue, la faim et le stress les « éteignent » facilement. Un enfant irritable après l’école est souvent tout simplement un enfant épuisé.',
+      'Ton enfant commence à se comparer aux autres. À cette période, l’estime de soi se nourrit surtout de l’effort, des compétences acquises et du sentiment d’être accepté.',
+      'À l’approche de l’adolescence (vers 9–12 ans), des changements hormonaux peuvent commencer : les sautes d’humeur et un plus grand besoin d’intimité sont normaux.',
+    ],
+    needs: [
+      'Des encouragements qui voient l’effort et la stratégie : « Tu as beaucoup travaillé sur ce problème, tu as essayé une autre méthode. »',
+      'Des responsabilités et un droit de choisir qui grandissent, avec des règles familiales claires.',
+      'Un parent qui écoute sans juger. Si tu écoutes les petites choses, il te racontera aussi les grandes.',
+      'Du temps libre en dehors des écrans et des devoirs : jeu, sport, amis, sommeil.',
+    ],
+    normal: [
+      'De longues discussions sur la justice, l’envie de négocier les règles.',
+      'Des brouilles et des réconciliations entre amis, le chagrin de « ils ne m’ont pas laissé jouer ».',
+      'Éviter les devoirs, oublier des choses.',
+      'Avoir parfois honte de ses parents ou vouloir plus de moments seul (surtout après 10 ans).',
+    ],
+    tryThis: [
+      'Un moment de « conversation sans interrogatoire » en voiture, à table ou avant de dormir : raconte aussi ta journée.',
+      'Un moment et un endroit fixes pour les devoirs, mais ne les fais pas à sa place.',
+      'Écrivez ensemble un plan écrans pour la famille : où, quand et combien de temps.',
+      'Une fois par semaine, du temps à deux : juste toi et lui, avec l’activité de son choix.',
+    ],
+    specialist: [
+      'Une tristesse, une perte d’intérêt, de gros changements de sommeil ou d’appétit qui durent plus de deux semaines.',
+      'Un refus persistant d’aller à l’école, des plaintes fréquentes de maux de ventre et de tête (si le médecin ne trouve pas de cause).',
+      'Des signes qu’il subit du harcèlement ou qu’il harcèle les autres ; un isolement total de ses amis.',
+      'S’il se fait du mal, parle de la mort ou du suicide : ne le prends jamais pour une façon « d’attirer l’attention ». Consulte immédiatement un professionnel ; en cas de danger, appelle le {emergency}.',
+    ],
+    sources: [S.cdcPositive, S.aapMediaSchool2016, S.pomerantz2007, S.muellerDweck1998, S.unesco2019],
+  },
+];

@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Ăn vạ: điều gì đang diễn ra trong não?',
+    summary: 'Ăn vạ không phải hậu quả của việc dạy con sai cách. Đó là khoảnh khắc một cảm xúc lớn lấn át “hệ thống phanh” còn non nớt.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Hệ thống cảm xúc nằm sâu trong não mạnh mẽ ngay từ khi sinh ra: nó cảm nhận nguy hiểm, thất vọng, giận dữ chỉ trong tích tắc. Còn vỏ não trước trán — phần giữ những cảm xúc ấy lại và nói “chờ đã, còn cách khác” — phải đến khoảng 20 tuổi mới trưởng thành. Ở trẻ 2–4 tuổi, khoảng cách này lớn nhất. Vì vậy khi đang ăn vạ, con không nghe thấy bạn, không phản ứng với lý lẽ: phần “suy nghĩ” của não tạm thời bị tắt.',
+      'Lúc này con không thể tự bình tĩnh, mà “mượn” sự bình tĩnh từ cơ thể và giọng nói của bạn. Các nhà nghiên cứu gọi đó là đồng điều hòa. Bố mẹ càng giữ bình tĩnh, hệ thống căng thẳng của con càng nhanh trở lại bình thường; lặp đi lặp lại, con sẽ học và biến cách bình tĩnh ấy thành của mình. Còn quát mắng và trừng phạt làm tăng hormone căng thẳng, khiến cơn ăn vạ kéo dài hơn.',
+      'Ăn vạ thường xảy ra vào cùng những thời điểm: khi mệt, khi đói, khi chuyển tiếp (từ chơi sang về nhà, rời công viên), khi nghe câu trả lời “không”. Nhận ra trước những thời điểm này có thể ngăn được hơn một nửa số cơn ăn vạ.',
+    ],
+    tryToday: [
+      'Hãy làm dịu chính mình trước: hít một hơi sâu, thả lỏng vai, hạ giọng xuống. Nếu bạn không bình tĩnh, con cũng không thể bình tĩnh.',
+      'Nói ít thôi. Một hai câu ngắn là đủ: “Con đang giận lắm. Bố mẹ ở đây.”',
+      'Giữ an toàn: nếu con đánh, hãy nhẹ nhàng giữ tay con, cất những đồ vật có thể gây thương tích.',
+      'Khi con đã dịu lại, hãy ôm con, rồi mới nói ngắn gọn: “Con giận lắm vì trò chơi kết thúc. Lần sau con có thể nói “giúp con với” nhé.”',
+      'Tuần này, hãy ghi lại những lúc con ăn vạ. Rất có thể chúng sẽ trùng với giờ con mệt và đói.',
+    ],
+    mistakes: [
+      'Giải thích dài dòng hoặc giảng giải trong lúc con ăn vạ. Não con chưa ở chế độ lắng nghe — bình tĩnh trước, trò chuyện sau.',
+      'Đưa cho con thứ con muốn để dừng cơn ăn vạ. Điều đó đồng nghĩa với cơn ăn vạ dữ dội hơn vào lần sau. Hãy đồng cảm với cảm xúc, nhưng giữ vững quyết định.',
+      'Làm con xấu hổ: “Xấu hổ chưa, mọi người đang nhìn con kìa.” Sự xấu hổ không dạy con kiểm soát cảm xúc, chỉ dạy con giấu nó đi.',
+      'Coi ăn vạ là “thao túng”. Với trẻ nhỏ, đó chủ yếu là vì chưa có kỹ năng, chứ không phải mưu mẹo.',
+    ],
+    byAge: {
+      '1-3': 'Vốn từ của con còn ít, nên bạn hãy gọi tên cảm xúc và chỉ cho con một cách khác đơn giản: “Con đang giận. Dậm chân xuống đất đi, như thế này!” Đánh lạc hướng rất hiệu quả ở tuổi này.',
+      '3-6': 'Lúc bình thường, hãy cùng con lập “kế hoạch khi giận”: hít thở, bóp gối, đến góc yên tĩnh. Vẽ thành tranh dán lên tường, và khi cơn ăn vạ bắt đầu chỉ cần chỉ vào đó.',
+    },
+    specialist: [
+      'Nếu cơn ăn vạ thường xuyên kéo dài hơn 25 phút hoặc xảy ra hơn năm lần mỗi ngày.',
+      'Nếu trong lúc ăn vạ con tự gây thương tích nghiêm trọng (đập đầu, cắn) hoặc nín thở đến mức ngất — hãy đưa con đi khám.',
+      'Nếu sau 4–5 tuổi cơn ăn vạ không giảm mà còn tăng, hoặc có thêm những lo ngại khác về lời nói, giấc ngủ, giao tiếp.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Huấn luyện cảm xúc: gọi tên cảm xúc',
+    summary: 'Nhìn thấy và gọi tên cảm xúc giúp con tự điều chỉnh tốt hơn. Điều đó không có nghĩa là cho phép mọi thứ.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Vào những năm 1990, nhà tâm lý học John Gottman quan sát các gia đình và nhận thấy cha mẹ phản ứng với cảm xúc của con theo bốn cách khác nhau: gạt bỏ cảm xúc (“Đừng khóc, có gì đâu”), trừng phạt, dễ dãi cho phép mọi thứ, và “huấn luyện viên cảm xúc”. Cha mẹ huấn luyện viên coi trọng cảm xúc, gọi tên nó và cùng con tìm cách giải quyết, nhưng vẫn đặt giới hạn cho hành vi.',
+      'Con của những cha mẹ huấn luyện cảm xúc trong những năm sau đó tập trung tốt hơn, ít xung đột với bạn bè hơn và vượt qua căng thẳng nhanh hơn. Các chương trình về sau (ví dụ “Tuning in to Kids”) cho thấy bất kỳ cha mẹ nào cũng có thể học được kỹ năng này.',
+      'Nghiên cứu về não cũng cho thấy một điều thú vị: gọi tên cảm xúc (“mình đang giận”, “mình sợ”) làm giảm hoạt động của trung tâm cảm xúc. Tức là “gọi tên để thuần hóa” không chỉ là một câu nói hay.',
+    ],
+    tryToday: [
+      'Hôm nay, ba lần, hãy nói ra cảm xúc của con như thể bạn đang ở vị trí của con: “Hình như con thất vọng lắm.” Đoán sai cũng đừng lo, con sẽ sửa cho bạn.',
+      'Cho phép cảm xúc, đặt giới hạn cho hành vi: “Giận thì được. Đánh thì không.”',
+      'Khi đọc sách, hãy cùng nhìn nét mặt các nhân vật: “Theo con, bạn ấy đang cảm thấy thế nào?”',
+      'Hãy nói cả cảm xúc của chính bạn một cách bình thản: “Bố mẹ hơi mệt, nên sẽ ngồi uống trà một chút cho yên tĩnh.” Con bắt chước bạn nhiều hơn bất cứ ai.',
+    ],
+    mistakes: [
+      'Nói “Đừng khóc”, “có gì đâu mà sợ”, “chuyện vặt mà”. Cảm xúc không biến mất, con chỉ học cách không cho bạn thấy nó nữa.',
+      'Hiểu nhầm đồng cảm là rút lại chữ “không”. Hoàn toàn có thể nói: “Bố mẹ hiểu, con rất muốn. Nhưng câu trả lời vẫn là không.”',
+      'Chỉ nói về cảm xúc vào những lúc khó khăn. Cách luyện tập tốt nhất là vào lúc bình yên, qua trò chơi và sách.',
+    ],
+    byAge: {
+      '1-3': 'Dùng từ đơn giản: vui, giận, buồn, sợ. Cùng nhau bắt chước các nét mặt trước gương.',
+      '3-6': 'Vẽ một “nhiệt kế” cảm xúc: xanh lá — con bình tĩnh, vàng — con bắt đầu bực, đỏ — con sắp nổ tung. Để con chỉ vào màu.',
+      '6-12': 'Dạy con những từ tinh tế hơn: thất vọng, xấu hổ, ghen tị, lo lắng. Hỏi con cảm xúc ấy nằm ở đâu trong cơ thể.',
+    },
+    specialist: [
+      'Nếu trong thời gian dài con gần như không bộc lộ cảm xúc nào, hoặc chuyện nhỏ nào cũng khiến con suy sụp hàng giờ.',
+      'Nếu nỗi buồn, sợ hãi hoặc giận dữ kéo dài hơn hai tuần và ảnh hưởng đến giấc ngủ, ăn uống, việc học và tình bạn — hãy tìm đến chuyên gia tâm lý trẻ em.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Góc bình yên và trò chơi hít thở',
+    summary: 'Có thể dạy con cách bình tĩnh lại, nhưng không phải bằng góc phạt, mà bằng một chỗ dễ chịu và những trò chơi.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Khả năng tự điều chỉnh hình thành trước tiên cùng với cha mẹ, rồi dần dần con tự làm được. Con càng nhiều lần bình tĩnh lại bên một người lớn điềm tĩnh, con càng học được con đường ấy tốt hơn.',
+      'Hơi thở chậm và sâu (nhất là thở ra thật dài) làm chậm nhịp tim và tắt chế độ “nguy hiểm” của cơ thể. Trẻ học điều này qua trò chơi tốt hơn nhiều so với qua lời hướng dẫn.',
+    ],
+    tryToday: [
+      'Cùng con làm một “góc bình yên” nhỏ trong nhà: gối, thú bông, một hai cuốn sách, thẻ cảm xúc. Đây không phải chỗ phạt, mà là nơi có thể đến bất cứ lúc nào.',
+      'Trò “bông hoa và ngọn nến”: ngửi hoa (hít vào bằng mũi), thổi nến (thở ra chậm bằng miệng). Năm lần.',
+      'Luyện tập cùng nhau lúc bình yên: “Khi giận, cơ thể mình thế nào nhỉ? Mình cùng tập thở lúc bình tĩnh để khi cần thì nhớ ra nhé.”',
+      'Với trẻ nhỏ, hãy cùng con đến góc ấy: “Mình cùng ra góc bình yên nhé.”',
+    ],
+    mistakes: [
+      'Dùng góc ấy như hình phạt: “Ra góc đứng đi!” Khi đó con sẽ né tránh việc đến đó.',
+      'Cố dạy bài tập thở lần đầu tiên giữa cơn ăn vạ. Kỹ năng được học vào lúc bình yên.',
+      'Mong con bình tĩnh “ngay lập tức”. Một cảm xúc lớn có thể cần 10–20 phút để lắng xuống.',
+    ],
+    byAge: {
+      '3-6': 'Trò đặt thú bông lên bụng con và “ru thú bông bằng hơi thở” rất hiệu quả.',
+      '6-12': 'Để con tự viết danh sách cách làm mình bình tĩnh: nghe nhạc, vẽ, đi dạo, uống nước. Cách tự chọn con sẽ làm theo nhiều hơn.',
+    },
+    specialist: [
+      'Nếu con gần như không bao giờ bình tĩnh lại được hoặc có hành vi nguy hiểm khi giận — hãy tìm đến chuyên gia tâm lý trẻ em.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Những cảm xúc lớn của trẻ tuổi đi học',
+    summary: 'Giận dữ, xấu hổ, ghen tị, thất vọng: ở tuổi đi học, cảm xúc trở nên phức tạp hơn, và con cần được giúp để hiểu chúng.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Ở tuổi đi học, con đã biết che giấu cảm xúc, nên những cảm xúc lớn thường bùng ra ở nhà, bên người an toàn nhất — là bạn. Sự cáu kỉnh sau giờ học thường là mệt mỏi vì phải “gồng mình” cả ngày.',
+      'Ở tuổi này bắt đầu có sự so sánh xã hội. Xấu hổ và cảm giác “mình tệ” có thể trông giống như giận dữ. Con càng gọi tên được cảm xúc thì càng dễ kiểm soát nó.',
+    ],
+    tryToday: [
+      'Đừng hỏi dồn dập ngay sau giờ học. Trước hết là đồ ăn nhẹ, sự yên lặng hoặc một cái ôm, trò chuyện để sau.',
+      'Cùng tập câu “cảm xúc + nhu cầu”: “Con cảm thấy … vì … . Con cần … .”',
+      'Kể một câu chuyện tương tự từ tuổi thơ của bạn: “Hồi 9 tuổi, bố mẹ cũng từng xấu hổ như thế…”',
+      'Sau cơn bùng nổ, hãy cùng nhìn lại mà không đổ lỗi: “Chuyện gì đã xảy ra? Con cảm thấy gì trong người? Lần sau điều gì sẽ giúp con?”',
+    ],
+    mistakes: [
+      'Xem nhẹ cảm xúc: “Chuyện đó đâu đáng để khóc.” Với con, đó là chuyện lớn.',
+      'Đưa ra giải pháp ngay lập tức. Đôi khi con chỉ muốn được lắng nghe.',
+      'Coi cơn giận ở bé gái hay nỗi buồn ở bé trai là cảm xúc “không phù hợp”. Mọi cảm xúc đều bình thường với mọi đứa trẻ.',
+    ],
+    specialist: [
+      'Buồn bã, mất hứng thú, thay đổi giấc ngủ và khẩu vị kéo dài hơn hai tuần, không chịu đi học.',
+      'Tự làm hại bản thân hoặc nói về cái chết: hãy tìm đến chuyên gia ngay, nếu có nguy hiểm hãy gọi {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Mè nheo và nhõng nhẽo',
+    summary: 'Mè nheo khiến bạn mệt mỏi, nhưng thường đó là tín hiệu con đang mệt hoặc cần được quan tâm.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Trẻ học rất nhanh hành vi nào có hiệu quả. Nếu mè nheo cuối cùng giúp con có được thứ mình muốn, con sẽ tiếp tục. Sự chú ý — kể cả sự chú ý tiêu cực — đều củng cố hành vi.',
+      'Đồng thời, mè nheo thường là dấu hiệu của đói, mệt hoặc đã lâu không được để ý đến. Đáp ứng nguyên nhân sẽ giúp hành vi giảm nhanh.',
+    ],
+    tryToday: [
+      'Lúc vui vẻ, hãy chơi trò “giọng mạnh mẽ”: nói cùng một lời nhờ bằng giọng mè nheo và giọng bình thường, rồi cùng cười.',
+      'Khi con mè nheo, hãy bình tĩnh nói: “Con nói bằng giọng bình thường thì bố mẹ nghe rõ hơn.” Khi con nói bằng giọng bình thường, hãy đáp lại ngay và thật hào hứng.',
+      'Trong ngày, hãy chủ động trước: dành sự chú ý thường xuyên, ngắn và không cần lý do — ánh mắt, cái ôm, “bố mẹ thấy con rồi”.',
+    ],
+    mistakes: [
+      'Đầu tiên nói “không”, rồi khi con mè nheo lâu thì “thôi được, cầm lấy”. Điều này dạy con mè nheo hiệu quả nhất.',
+      'Chế giễu hoặc nhại lại giọng mè nheo để làm con xấu hổ.',
+    ],
+    specialist: [
+      'Nếu cùng với mè nheo, con thường trông mệt mỏi, xanh xao, ăn kém đi — hãy đưa con đi khám để kiểm tra nguyên nhân y khoa.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Kỷ luật tích cực: giới hạn đi cùng sự ấm áp',
+    summary: 'Kết quả tốt nhất không thuộc về cha mẹ nghiêm khắc, cũng không thuộc về cha mẹ dễ dãi, mà thuộc về những người vừa ấm áp vừa rõ ràng.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Những năm 1960, nhà tâm lý học Diana Baumrind mô tả các phong cách nuôi dạy theo hai chiều: sự ấm áp (yêu thương, quan tâm, đáp ứng) và yêu cầu/cấu trúc (kỳ vọng rõ ràng, giới hạn). Phong cách “có thẩm quyền” (authoritative), khi cả hai đều cao, gắn với kết quả tốt nhất: trẻ tự lập hơn, tự tin hơn và ít hành vi có vấn đề hơn.',
+      'Trong những thập kỷ sau, các phân tích tổng hợp gộp hàng trăm nghiên cứu đã khẳng định kết luận này: mối quan hệ ấm áp và giới hạn đi kèm lời giải thích gắn với ít hung hăng và ít vi phạm quy tắc hơn, còn kiểm soát hà khắc và trừng phạt thì ngược lại, gắn với nhiều hành vi có vấn đề hơn.',
+      'Viện Hàn lâm Nhi khoa Hoa Kỳ (2018) và WHO (2022) khuyến nghị cha mẹ cùng một con đường: xây dựng mối quan hệ tích cực, nhận ra và củng cố hành vi tốt, kỳ vọng rõ ràng và hậu quả bình tĩnh. Đòn roi và lời lẽ xúc phạm không được khuyến khích.',
+    ],
+    tryToday: [
+      'Hãy nói một quy tắc bằng ngôn từ tích cực: thay vì “Đừng chạy”, hãy nói “ở trong nhà mình đi bộ nhé”.',
+      'Nói trước điều bạn mong đợi: “Ở siêu thị con nắm tay bố mẹ, mình chỉ bỏ vào xe những thứ có trong danh sách thôi.”',
+      'Hôm nay, năm lần, hãy nhận ra hành vi tốt và gọi tên cụ thể: “Con tự treo cặp lên rồi, cảm ơn con!” Sự chú ý hướng vào hành vi nào, hành vi đó sẽ lớn lên.',
+      'Đặt giới hạn bằng giọng bình tĩnh, ngắn gọn và thân thiện, rồi làm đúng như vậy. Không nhắc đi nhắc lại.',
+    ],
+    mistakes: [
+      'Đặt tình yêu và giới hạn đối lập nhau. “Bố mẹ thương con, vì thế bố mẹ không cho phép” — cả hai hoàn toàn có thể đi cùng nhau.',
+      'Hôm nay áp dụng quy tắc, hôm sau lại quên. Sự nhất quán quan trọng hơn sự nghiêm khắc.',
+      'Chỉ phản ứng khi con sai. Nếu con chỉ được chú ý khi có hành vi xấu, con sẽ lặp lại hành vi đó.',
+    ],
+    byAge: {
+      '1-3': 'Môi trường quan trọng hơn lời nói: để đồ vật nguy hiểm ngoài tầm với, chỉ dành chữ “không” cho những điều thực sự quan trọng.',
+      '3-6': '3–4 quy tắc gia đình đơn giản là đủ. Vẽ thành tranh và dán ở chỗ dễ thấy.',
+      '6-12': 'Cùng nhau bàn bạc quy tắc, thống nhất trước về hậu quả. Khi con tự viết một phần quy tắc, con sẽ tuân theo nhiều hơn.',
+    },
+    specialist: [
+      'Nếu dù đã cố gắng hết sức mà vấn đề hành vi vẫn làm xáo trộn cuộc sống gia đình, ở trường mầm non hoặc trường học trong nhiều tháng — chuyên gia tâm lý trẻ em hoặc các chương trình dành cho cha mẹ (ví dụ PCIT, Triple P) rất hiệu quả.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Vì sao đánh con không hiệu quả, và điều gì hiệu quả',
+    summary: 'Một cái phát vào mông có thể khiến con nghe lời trong chốc lát, nhưng về lâu dài làm hành vi tệ hơn. Bằng chứng khoa học về vấn đề này rất rõ ràng.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Năm 2016, Gershoff và Grogan-Kaylor tổng hợp 75 nghiên cứu với hơn 160 nghìn trẻ em. Kết luận: đánh đòn không gắn với bất kỳ kết quả tích cực lâu dài nào ở trẻ, mà ngược lại, gắn với nhiều hành vi hung hăng hơn, hành vi chống đối xã hội, vấn đề sức khỏe tâm thần và mối quan hệ kém với cha mẹ. Mối liên hệ này xuất hiện cả khi đánh “nhẹ”, đánh “vì thương”.',
+      'Lý do rất đơn giản: đánh không dạy con phải làm gì, chỉ dạy con sợ hãi. Hơn nữa, nó cho con thấy vấn đề được giải quyết bằng sức mạnh. Quát tháo, đe dọa và hạ nhục cũng có tác động tương tự: trong các nghiên cứu, kỷ luật bằng lời lẽ nặng nề gắn với nhiều vấn đề hành vi và triệu chứng trầm cảm hơn trong những năm sau.',
+      'Viện Hàn lâm Nhi khoa Hoa Kỳ (2018) và WHO không khuyến khích đòn roi và lời lẽ xúc phạm. Thay vào đó, những cách hiệu quả là: mối quan hệ ấm áp, quy tắc rõ ràng, củng cố hành vi tốt, hậu quả hợp lý và thời gian để bình tĩnh.',
+    ],
+    tryToday: [
+      'Hãy chọn cho mình một “tín hiệu dừng”: khi cơn giận bốc lên, đút tay vào túi, hoặc lùi lại một bước và đếm đến 10.',
+      'Ngăn hành vi nguy hiểm bằng cơ thể nhưng không gây đau: giữ tay con, bế con lên, lấy đồ vật đi.',
+      'Dạy con lần sau cần làm gì: “Khi em lấy đồ chơi của con, con có thể nói “trả đây!”, hoặc đến tìm bố mẹ.”',
+      'Nếu bạn đã lỡ đánh: hãy xin lỗi, nhận trách nhiệm về hành vi của mình và nói ra kế hoạch của bạn. Điều này cũng dạy con cách sửa sai.',
+    ],
+    mistakes: [
+      'Suy nghĩ “Ngày xưa tôi cũng bị đánh mà vẫn lớn lên bình thường”. Nhiều người dù vậy vẫn trưởng thành tốt, nhưng nghiên cứu cho thấy tính trung bình rủi ro tăng lên.',
+      'Giữ việc đánh như “biện pháp cuối cùng”. Biện pháp cuối cùng là tạm dừng để bình tĩnh và nhờ giúp đỡ.',
+      'Thay đòn roi bằng một cách hạ nhục khác (làm xấu hổ, đe dọa, rút lại tình thương).',
+    ],
+    byAge: {
+      '1-3': 'Những cách hiệu quả nhất ở tuổi này: đánh lạc hướng, thay đổi môi trường, nhẹ nhàng đưa con ra khỏi chỗ nguy hiểm.',
+      '3-6': 'Hậu quả hợp lý và “time-in” (bình tĩnh lại bên cạnh bạn) rất hiệu quả.',
+      '6-12': 'Tạm hạn chế một đặc quyền trong thời gian ngắn (ví dụ thời gian dùng màn hình) và cùng nhau giải quyết vấn đề.',
+    },
+    specialist: [
+      'Nếu bạn cảm thấy mình không kiềm chế được khi nổi giận, có thể làm hại con — đó là lý do chính đáng để tìm sự giúp đỡ. Chuyên gia tâm lý hoặc chương trình dành cho cha mẹ có thể thay đổi tình trạng này.',
+      'Nếu con hoặc bạn đang gặp nguy hiểm, nếu có bạo lực trong gia đình, hãy gọi ngay {emergency}.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Hậu quả và hình phạt: khác nhau ở đâu?',
+    summary: 'Hình phạt nhằm làm đau, còn hậu quả nhằm dạy dỗ. Hậu quả tốt nhất là gắn với hành vi, tôn trọng và được biết trước.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Tâm lý học hành vi cho thấy điều thay đổi hành vi nhiều nhất là những gì xảy ra ngay sau nó. Nhưng hình phạt (đánh, hạ nhục, tước đoạt lâu dài) tạo ra sợ hãi và oán giận, còn con thì nghĩ cách “làm sao để không bị phát hiện”.',
+      'Hậu quả hợp lý thì gắn trực tiếp với hành vi, ngắn và mang tính dạy dỗ: vẽ màu lên tường — cùng nhau lau sạch; vi phạm quy tắc đi xe đạp — hôm nay không đi xe đạp. Hậu quả tự nhiên (ra ngoài không mặc áo khoác — bị lạnh), khi an toàn, là người thầy mạnh mẽ nhất.',
+    ],
+    tryToday: [
+      'Kiểm tra “3R”: hậu quả có gắn với hành vi không (Related), có tôn trọng không (Respectful), có hợp lý không (Reasonable)?',
+      'Nói trước về hậu quả: “Nếu con không cất đồ chơi, ngày mai chúng sẽ nghỉ ngơi trong hộp.” Rồi bình tĩnh làm đúng như vậy.',
+      'Giữ hậu quả ngắn: một ngày là đủ. Lệnh cấm cả tháng không dạy thêm được gì, chỉ gây tổn thương.',
+      'Sau hậu quả là “trang giấy mới”: không giảng giải, mình bắt đầu lại.',
+    ],
+    mistakes: [
+      'Bịa ra hậu quả khi đang tức giận: “Một năm không được đi xe đạp!” Sau đó không thể thực hiện, và lời nói mất giá trị.',
+      'Hình phạt không liên quan đến hành vi: không làm bài tập — không được đi dự sinh nhật.',
+      'Áp dụng hậu quả kèm giễu cợt hoặc câu “thấy chưa?”.',
+    ],
+    byAge: {
+      '3-6': 'Hậu quả phải ngay lập tức và thật ngắn. Vài giờ sau, con không còn liên hệ nó với hành vi nữa.',
+      '6-12': 'Cùng nhau xác định hậu quả. Con tuân theo quy tắc mà con thấy công bằng nhiều hơn.',
+    },
+    specialist: [
+      'Nếu không hậu quả nào hiệu quả và hành vi nguy hiểm hoặc mạnh đến mức khiến cả nhà kiệt sức — hãy tham khảo các chương trình dành cho cha mẹ và chuyên gia tâm lý trẻ em.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Nói chuyện với con mà không quát',
+    summary: 'Quát mắng cho bạn cảm giác nhẹ nhõm trong chốc lát, nhưng con quen dần với âm lượng và nghe ít hơn. Nói bình tĩnh và gần gũi mạnh mẽ hơn nhiều.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Trong các nghiên cứu, kỷ luật bằng quát tháo, chửi mắng và lời lẽ hạ nhục thường xuyên gắn với nhiều vấn đề hành vi và triệu chứng trầm cảm hơn trong những năm sau, kể cả khi mối quan hệ nhìn chung vẫn ấm áp. Một lý do: quát mắng kích hoạt hệ thống căng thẳng của con, và con chuyển sang phòng thủ thay vì lắng nghe.',
+      'Tin tốt là: khả năng tự điều chỉnh của cha mẹ là kỹ năng có thể học được. Quát mắng thường là tín hiệu cha mẹ đang mệt, đói và quá tải, chứ không phải là “cha mẹ tồi”.',
+    ],
+    tryToday: [
+      'Thay vì hét từ xa, hãy lại gần, hạ người xuống ngang tầm con, nhìn vào mắt con, gọi tên con và nói một câu ngắn.',
+      'Khi muốn lớn tiếng, hãy làm ngược lại: nói thì thầm. Trẻ con rất tò mò lắng nghe tiếng thì thầm.',
+      'Ghi lại những lúc bạn quát trong ngày. Thường là giờ nào? Hãy lập kế hoạch cho giờ đó (ví dụ bữa ăn nhẹ, chuẩn bị việc trước).',
+      'Nếu đã quát, hãy sửa sai: “Bố mẹ đã quát con, như vậy là không đúng. Bố mẹ bực, nhưng lẽ ra không nên lớn tiếng.”',
+    ],
+    mistakes: [
+      'Tự trách mình sau mỗi lần sai. Điều này tạo thêm căng thẳng cho lần sau. Mục tiêu không phải là hoàn hảo, mà là giảm tần suất và biết sửa sai.',
+      'Nói “Con khiến bố mẹ phải quát”. Chúng ta tự chịu trách nhiệm về cảm xúc của mình.',
+    ],
+    specialist: [
+      'Nếu cơn giận và sự cáu bẳn gần như ngày nào cũng mất kiểm soát, đi kèm mất ngủ, buồn bã hoặc tuyệt vọng — hãy nói chuyện với bác sĩ hoặc chuyên gia tâm lý. Trầm cảm và lo âu ở cha mẹ có thể điều trị được.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out hay time-in?',
+    summary: 'Một khoảng nghỉ ngắn để bình tĩnh có thể hiệu quả, nhưng với trẻ nhỏ, điều cốt lõi không phải là cách ly mà là sự gần gũi giúp con bình tĩnh lại.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      '“Time-out” cổ điển (vài phút nghỉ yên lặng) đã được nghiên cứu trong một số chương trình dành cho cha mẹ và cho thấy không gây hại khi áp dụng đúng cách (ngắn, bình tĩnh, không hạ nhục, trong bối cảnh mối quan hệ ấm áp). Nhưng điều đó không có nghĩa là nhốt con trong phòng hay dọa nạt con.',
+      '“Time-in” là khi con bình tĩnh lại bên cạnh bạn. Cách này phù hợp hơn với trẻ nhỏ, vì các con vẫn cần đồng điều hòa. Dù cách nào, mục đích không phải là trừng phạt, mà là bình tĩnh lại và “bắt đầu lại”.',
+    ],
+    tryToday: [
+      'Quy tắc: khoảng một phút cho mỗi tuổi, tối đa 5 phút.',
+      'Chỗ nghỉ nên yên tĩnh nhưng không đáng sợ. Đừng bao giờ nhốt con trong phòng tối.',
+      'Với time-in: “Lại đây ngồi cạnh bố mẹ. Mình cùng hít thở nhé.”',
+      'Sau khoảng nghỉ là một câu ngắn “mình bắt đầu lại nhé”, không giảng giải.',
+    ],
+    mistakes: [
+      'Dùng time-out dài, thường xuyên và kèm đe dọa.',
+      'Kết hợp khoảng nghỉ với hạ nhục: “Đi đi, đừng để bố mẹ nhìn thấy con.”',
+    ],
+    specialist: [
+      'Nếu mỗi lần nghỉ con đều sợ hãi tột độ hoặc hoảng loạn, nếu những lúc xa cách khiến con quá suy sụp — hãy nói chuyện với chuyên gia.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Quy tắc gia đình: ít, rõ ràng, nhất quán',
+    summary: 'Trẻ thử giới hạn vì muốn biết nó có còn ở đó không. Giới hạn vững vàng mang lại cảm giác an toàn.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Một môi trường có thể đoán trước làm dịu hệ thống căng thẳng của trẻ. Trong các nghiên cứu, quy tắc rõ ràng và nếp sinh hoạt hằng ngày gắn với giấc ngủ tốt hơn, ít vấn đề hành vi hơn và khả năng tự kiểm soát mạnh hơn.',
+      'Những quy tắc hiệu quả nhất là ít (3–5 điều), được viết bằng ngôn từ tích cực và được cả bố lẫn mẹ áp dụng như nhau.',
+    ],
+    tryToday: [
+      'Tổ chức một buổi họp gia đình: mỗi người đề xuất một quy tắc, cùng nhau chọn ra 3–5 quy tắc chính.',
+      'Viết quy tắc bằng ngôn từ tích cực: “Bàn tay nhẹ nhàng”, “Khi ai nói, mọi người cùng lắng nghe”, “Ăn xong mang đĩa vào bếp”.',
+      'Cùng thống nhất cả hậu quả bên cạnh quy tắc.',
+      'Người lớn cũng tuân theo quy tắc. Con nhìn vào tấm gương nhiều hơn lời nói.',
+    ],
+    mistakes: [
+      'Mỗi khi có vấn đề mới lại đặt ra quy tắc mới. Quá nhiều quy tắc cũng như không có quy tắc nào.',
+      'Mẹ một quy tắc, bố hoặc bà một quy tắc khác. Người lớn cần thống nhất với nhau trước.',
+    ],
+    specialist: [
+      'Nếu trong gia đình liên tục có xung đột căng thẳng về quy tắc, chuyên gia tư vấn gia đình có thể giúp đỡ.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: 'Đứa trẻ hay nói “Không!”: làm gì với sự bướng bỉnh',
+    summary: 'Giai đoạn “không” là lúc con khám phá ra “mình là một con người riêng biệt”. Đừng đấu với con, hãy cho con lựa chọn.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Trong năm thứ hai, trẻ khám phá ra mình có ý chí riêng. Nhu cầu tự chủ là một trong những nhu cầu tâm lý cơ bản: con càng cảm thấy mình có quyền kiểm soát, con càng sẵn sàng hợp tác.',
+      'Nghiên cứu cho thấy ngôn ngữ “kiểm soát” (“Mặc quần áo ngay!”) làm tăng sự chống đối, còn lựa chọn và lời giải thích làm tăng sự hợp tác.',
+    ],
+    tryToday: [
+      'Đưa ra hai lựa chọn mà bạn đều chấp nhận được: “Mình đánh răng trước hay mặc đồ ngủ trước?”',
+      'Thay câu hỏi “có/không” bằng câu khẳng định: “Giờ là lúc mặc quần áo rồi”, chứ không phải “Mình mặc quần áo nhé?”.',
+      'Biến nó thành trò chơi: “Xem ai đi tất nhanh hơn nào — con hay bạn gấu?”',
+      'Bỏ qua những cuộc chiến không quan trọng: con mặc áo trái thì thế giới cũng chẳng sụp đổ.',
+    ],
+    mistakes: [
+      'Biến mỗi chữ “không” thành một cuộc giằng co quyền lực.',
+      'Cho con lựa chọn rồi lại không chấp nhận lựa chọn của con.',
+    ],
+    specialist: [
+      'Nếu con gần như không đáp lại bất kỳ yêu cầu nào, không phản ứng khi được gọi tên hoặc gặp khó khăn trong giao tiếp — hãy đưa con đi khám để kiểm tra sự phát triển.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

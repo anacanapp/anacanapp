@@ -161,10 +161,10 @@ export default function AdminParentingContent() {
                           <button type="button" role="option" aria-selected={selected === it.id} onClick={() => pick(it.id)}
                             className="ak-list-row" data-testid={`par-item-${it.id}`}
                             style={{ display: 'flex', gap: 10, alignItems: 'flex-start', width: '100%', textAlign: 'start', padding: '10px 14px', border: 0,
-                              borderBottom: '1px solid var(--ad-border)', background: selected === it.id ? 'var(--ad-accent-soft, rgba(0,0,0,.04))' : 'transparent', cursor: 'pointer', color: 'var(--ad-text)' }}>
+                              borderBottom: '1px solid var(--ad-border)', background: selected === it.id ? 'var(--ad-accent-soft)' : 'transparent', cursor: 'pointer', color: 'var(--ad-text)' }}>
                             <span style={{ flex: 1, minWidth: 0 }}>
                               <strong style={{ display: 'block', fontSize: 13 }}>{it.label}</strong>
-                              {it.sub && <span style={{ display: 'block', fontSize: 12, color: 'var(--ad-muted)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{it.sub}</span>}
+                              {it.sub && <span style={{ display: 'block', fontSize: 12, color: 'var(--ad-text-3)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{it.sub}</span>}
                             </span>
                             {st !== 'bundled' && <StatusPill tone={STATUS_PILL[st].tone}>{STATUS_PILL[st].label}</StatusPill>}
                           </button>
@@ -269,12 +269,12 @@ function ObjectFields({ base, value, onChange, path }: { base: Record<string, un
 }
 
 function Original({ text }: { text: string }) {
-  return <span style={{ display: 'block', fontSize: 11.5, color: 'var(--ad-muted)', whiteSpace: 'pre-wrap' }}><b>Orijinal:</b> {text || '—'}</span>;
+  return <span style={{ display: 'block', fontSize: 11.5, color: 'var(--ad-text-3)', whiteSpace: 'pre-wrap' }}><b>Orijinal:</b> {text || '—'}</span>;
 }
 
 function ValueField({ name, base, value, onChange, path }: { name: string; base: unknown; value: unknown; onChange: (v: unknown) => void; path: string }): ReactNode {
   const changed = JSON.stringify(base) !== JSON.stringify(value);
-  const revert = changed ? <button type="button" className="ak-link" onClick={() => onChange(base)} style={{ fontSize: 11.5, background: 'none', border: 0, padding: 0, cursor: 'pointer', color: 'var(--ad-accent)' }}>Orijinala qaytar</button> : null;
+  const revert = changed ? <button type="button" className="ak-link" onClick={() => onChange(base)} style={{ fontSize: 11.5, background: 'none', border: 0, padding: 0, cursor: 'pointer', color: 'var(--ad-accent)' }}>Bu sahəni qaytar</button> : null;
 
   if (typeof base === 'string') {
     const text = typeof value === 'string' ? value : '';
@@ -310,9 +310,9 @@ function ValueField({ name, base, value, onChange, path }: { name: string; base:
             const b = (base[i] ?? base[0]) as Record<string, unknown>;
             return (
               <div key={i} style={{ borderInlineStart: '3px solid var(--ad-border)', paddingInlineStart: 10, display: 'flex', flexDirection: 'column', gap: 8 }}>
-                <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--ad-muted)', display: 'flex', justifyContent: 'space-between' }}>
+                <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--ad-text-3)', display: 'flex', justifyContent: 'space-between' }}>
                   #{i + 1}
-                  {resizable && list.length > 1 && <button type="button" aria-label="Sil" onClick={() => onChange(list.filter((_, j) => j !== i))} style={{ background: 'none', border: 0, cursor: 'pointer', color: 'var(--ad-muted)' }}><Trash2 size={13} /></button>}
+                  {resizable && list.length > 1 && <button type="button" aria-label="Sil" onClick={() => onChange(list.filter((_, j) => j !== i))} style={{ background: 'none', border: 0, cursor: 'pointer', color: 'var(--ad-text-3)' }}><Trash2 size={13} /></button>}
                 </span>
                 <ObjectFields base={b} value={isObj(item) ? item : b} path={`${path}.${i}`} onChange={(v) => onChange(list.map((x, j) => (j === i ? v : x)))} />
               </div>

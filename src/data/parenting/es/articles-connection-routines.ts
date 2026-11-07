@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Apego: el puerto seguro de tu hijo',
+    summary: 'El apego seguro no nace de una crianza perfecta, sino de una crianza “suficientemente buena”, sensible y confiable.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby describió el apego como el instinto del niño de buscar cercanía cuando se siente en peligro. Mary Ainsworth, por su parte, observó que los niños con un padre o una madre sensibles y predecibles los usan como “base segura”: exploran con tranquilidad y, cuando se asustan, vuelven para calmarse.',
+      'El apego seguro se relaciona en los años siguientes con una mejor regulación emocional, más habilidades para hacer amigos y más confianza en sí mismo. Un punto importante: para ello no hace falta responder de inmediato y a la perfección a cada llanto. Los estudios muestran que gran parte de la interacción está hecha de momentos de “desajuste”; lo esencial es reparar esos momentos después.',
+      'El apego no se construye una vez y ya está: en edad escolar el niño también necesita saber que puede volver a ti en los momentos difíciles. Solo que ahora eso pasa menos por los brazos y más por escucharlo y por la sensación de “estoy de tu lado”.',
+    ],
+    tryToday: [
+      'Cuando tu hijo venga a ti (con alegría o con tristeza), dale unos segundos de atención plena: deja el teléfono, míralo a los ojos.',
+      'Antes de separarse, crea un ritual de despedida corto y siempre igual: un abrazo, “nos vemos por la tarde”, y luego vete de verdad. Escaparse a escondidas daña la confianza.',
+      'Una vez al día, súmate a lo que le interesa: a lo que esté jugando, a lo que esté contando.',
+      'Repara después un momento en el que perdiste la paciencia: “Esta mañana estuve impaciente. Ven, empecemos de nuevo.”',
+    ],
+    mistakes: [
+      'Dejar llorar al bebé por miedo a que “se acostumbre a los brazos”. En los primeros meses, responder no reduce la independencia; al contrario, la aumenta.',
+      'Entender el apego como “no separarse nunca del niño”. También se crean vínculos seguros con la abuela, el padre o la educadora, y eso es bueno.',
+      'Intentar ser perfecto. Tu hijo no necesita una madre o un padre ideal, sino alguien auténtico que sepa reparar.',
+    ],
+    byAge: {
+      '0-1': 'Responde a su llanto, míralo a los ojos, háblale, cántale. A esta edad no existe malcriar.',
+      '1-3': 'Explora y vuelve. En el parque basta con sentarte y decirle “estoy aquí”.',
+      '3-6': '10–15 minutos al día de tiempo de juego especial fortalecen el apego.',
+      '6-12': 'Escucha sin juzgar. Si estás a su lado en sus problemas pequeños, también te traerá los grandes.',
+    },
+    specialist: [
+      'Si el bebé evita el contacto visual, no muestra ningún interés por ti ni por las personas conocidas, o es casi imposible calmarlo: consulta al médico.',
+      'Si el niño se apega a todo el mundo por igual y sin distinción, incluso a desconocidos (sobre todo después de unos primeros años difíciles): consulta con un psicólogo infantil.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'Cuando el bebé llora: el mito de “se va a malcriar”',
+    summary: 'El llanto es el único lenguaje del bebé. Responder no lo malcría: crea confianza.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'La Academia Estadounidense de Pediatría lo dice claramente: en los primeros meses es imposible malcriar a un bebé. Responder con cariño a su llanto calma su sistema de estrés y construye la certeza de que “el mundo es seguro”.',
+      'Al mismo tiempo, es normal que los bebés sanos lloren mucho en las primeras semanas: el llanto empieza a aumentar hacia las 2 semanas, llega a su punto máximo a las 6–8 semanas y disminuye hacia los 3–4 meses. A veces no se encuentra ningún motivo. No es un fracaso tuyo.',
+      'La norma de seguridad más importante: cuando llegues a tu límite, nunca sacudas al bebé. Sacudirlo puede causarle una lesión cerebral. Dejarlo boca arriba en su cuna y salir de la habitación unos minutos es lo correcto.',
+    ],
+    tryToday: [
+      'Revisa las necesidades básicas: hambre, pañal, calor o frío, gases, cansancio.',
+      'Prueba métodos que calman: envolverlo (con las caderas libres), mecerlo con ritmo, el sonido “shhh”, pasearlo en brazos, el contacto piel con piel.',
+      'Haz un plan de ayuda para las horas de llanto: túrnense con tu pareja, la abuela o una vecina.',
+      'Si se te agota la paciencia: deja al bebé en un lugar seguro, respira 5–10 minutos, bebe agua, llama a alguien y luego vuelve.',
+    ],
+    mistakes: [
+      'Dejar solo durante mucho rato a un bebé muy pequeño porque “si lo dejas llorar, se acostumbra”.',
+      'Atribuir el llanto intenso a tu “mala crianza”. Esta etapa es pasajera.',
+      'Darte vergüenza pedir ayuda.',
+    ],
+    specialist: [
+      'Si junto con el llanto hay fiebre (sobre todo en un bebé de menos de 3 meses), vómitos, diarrea, rechazo a comer, decaimiento o un llanto agudo poco habitual: consulta al médico de inmediato. Si es grave, llama al {emergency}.',
+      'Si te vienen pensamientos de sacudir al bebé o de hacerle daño, pide ayuda enseguida. Eso no te convierte en una mala persona: indica que tu cansancio ha llegado al límite.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: '10 minutos al día: tiempo especial',
+    summary: 'Un rato de juego corto y diario, dirigido por el niño, es una de las herramientas más potentes para reducir los problemas de conducta.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'La primera fase de la PCIT (Terapia de Interacción Padres-Hijos), uno de los programas para padres más estudiados, se basa precisamente en esto: 5–10 minutos al día de juego dirigido por el niño, mientras el adulto elogia, describe e imita. Los metaanálisis muestran que estos programas reducen de forma notable los problemas de conducta.',
+      'La razón es sencilla: cuando la necesidad de atención del niño se cubre de forma positiva, ya no necesita “ganarse” la atención con malas conductas.',
+    ],
+    tryToday: [
+      'Pon un temporizador: 10 minutos. El teléfono, en otra habitación.',
+      'Él elige el juego y tú lo sigues. Sin órdenes, sin lluvia de preguntas, sin críticas.',
+      'Describe lo que hace: “Pusiste el bloque rojo arriba del todo.” Imítalo y elógialo: “¡Con qué cuidado construyes!”',
+      'Al terminar, dile: “Me encantó jugar contigo. Mañana, otra vez.”',
+    ],
+    mistakes: [
+      'Cancelar el tiempo especial por una mala conducta. No es un castigo ni un premio: es una vitamina diaria.',
+      'Convertir el juego en una “clase”: “¿De qué color es esto? ¿Cuántos bloques hay?”',
+    ],
+    byAge: {
+      '1-3': 'Bastan 5 minutos. Siéntate en el suelo, a su altura.',
+      '6-12': 'Pónganle nombre: “nuestro rato de mamá e hijo” o “de papá e hija”. Puede ser un juego de cartas, cocinar juntos o un paseo.',
+    },
+    specialist: [
+      'Si después de varias semanas el tiempo especial y otros métodos no cambian nada, o los problemas de conducta son graves: consulta con un especialista sobre la PCIT u otros programas similares.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Ansiedad por separación y adaptación a la escuela infantil',
+    summary: 'Llorar al separarse es señal de apego. Una despedida breve y sincera y un regreso predecible facilitan la adaptación.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'La ansiedad por separación empieza hacia los 8–10 meses, llega a su punto máximo a los 15–18 meses y suele suavizarse hacia los 3 años. Es la etapa en la que el niño todavía no entiende del todo que sus padres no “desaparecen”.',
+      'Lo que más aumenta su ansiedad es lo imprevisible. Irse a escondidas puede ahorrar lágrimas en el momento, pero a largo plazo hace que el niño se aferre más.',
+    ],
+    tryToday: [
+      'Crea un ritual de despedida corto y siempre igual: abrazo, beso, “vengo después de comer”, y luego vete.',
+      'Antes de empezar la escuela infantil, haz pequeñas separaciones de prueba: 15 minutos, luego 1 hora.',
+      'Vincula tu regreso a algo que él entienda: “Vengo después de la siesta, después de la merienda.”',
+      'Un “objeto de transición” de casa —un juguete pequeño, una foto tuya— puede consolarlo.',
+    ],
+    mistakes: [
+      'No ser capaz de despedirte de un niño que llora y volver una y otra vez desde la puerta.',
+      'Reírte de su miedo o decirle “ya eres mayor, qué vergüenza”.',
+    ],
+    specialist: [
+      'Si el miedo a la separación es mucho más intenso de lo esperable para su edad, altera durante semanas el sueño, la comida o la ida a la escuela infantil, o reaparece en la edad escolar: consulta con un psicólogo infantil.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Ritual de sueño: los mismos tres pasos cada noche',
+    summary: 'Un ritual sencillo que se repite cada noche ayuda al niño a dormirse antes y a despertarse menos por la noche.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'En un estudio aleatorizado (Mindell y colaboradores, 2009), un ritual nocturno de 3 pasos —baño, masaje o crema, y una actividad tranquila (abrazos, una nana)— consiguió en solo dos semanas que los niños se durmieran antes y se despertaran menos por la noche, y que el estado de ánimo de las madres mejorara. Revisiones posteriores mostraron que las rutinas nocturnas también se relacionan con el desarrollo del lenguaje y la regulación emocional.',
+      'Horas de sueño recomendadas según la edad (incluidas las siestas): 4–12 meses, 12–16 horas; 1–2 años, 11–14 horas; 3–5 años, 10–13 horas; 6–12 años, 9–12 horas. En los niños, la falta de sueño muchas veces no parece cansancio, sino irritabilidad e hiperactividad.',
+      'Para los bebés son importantes las normas de sueño seguro: boca arriba, sobre un colchón firme y plano, sin almohada ni edredón, idealmente en la misma habitación que los padres, pero en su propia cuna.',
+    ],
+    tryToday: [
+      'Desde esta noche, crea un ritual: por ejemplo, baño → pijama y dientes → cuento y nana. Cada noche el mismo orden, más o menos a la misma hora.',
+      'Una hora antes del ritual, apaga las pantallas y baja las luces.',
+      'Preparen juntos un cuadro con dibujos del ritual y que el niño “marque” él mismo cada paso.',
+      'Que el ritual no dure más de 20–30 minutos. Cuanto más se alarga, más intentará alargarlo él.',
+    ],
+    mistakes: [
+      'Cada noche una hora distinta y un orden distinto. El cerebro busca señales predecibles.',
+      'Juegos intensos, pantallas o gritos antes de dormir.',
+      'Creer que hay un método de sueño “obligatorio”. Sentarte a su lado, dormir juntos o no, alejarte poco a poco: elige lo que encaje con tu familia. Ningún método es imprescindible para todos.',
+    ],
+    byAge: {
+      '0-1': 'Que el ritual sea corto: baño, toma, nana. Puedes probar a dejar al bebé en la cuna adormilado pero despierto; si no sale, no te preocupes.',
+      '1-3': 'Dale opciones: “¿Leemos este cuento o el otro?” La hora de dormir no se negocia; el cuento, sí se elige.',
+      '3-6': 'Empiezan las preguntas para “alargar” la hora de ir a la cama. Incluye en el ritual un momento de “última pregunta” o “último abrazo”.',
+      '6-12': 'Que el teléfono, la tablet y la tele no se queden en el dormitorio. Planifiquen juntos la hora de dormir junto con las tareas y el deporte.',
+    },
+    specialist: [
+      'Si el niño ronca, hace pausas al respirar o respira con la boca abierta mientras duerme, y durante el día tiene muchísimo sueño: consulta al médico.',
+      'Si los problemas de sueño duran más de unas semanas y alteran seriamente la vida diaria de la familia.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Despertares nocturnos y miedos de noche',
+    summary: 'Las pesadillas y los terrores nocturnos son cosas distintas. Cada uno necesita un enfoque diferente.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Las pesadillas ocurren en la segunda mitad de la noche, en la fase de sueño en la que se sueña. El niño se despierta, dice que tiene miedo, te reconoce y necesita consuelo.',
+      'Los terrores nocturnos (pavor nocturnus), en cambio, suelen aparecer 1–3 horas después de dormirse, en el sueño profundo. El niño puede gritar y tener los ojos abiertos, pero en realidad no está despierto: no te reconoce y por la mañana no recuerda nada. Son frecuentes entre los 3 y los 7 años y, por lo general, inofensivos.',
+    ],
+    tryToday: [
+      'Después de una pesadilla: abrázalo, consuélalo brevemente y enciende un poco la luz. No le hagas contar la pesadilla con detalle por la noche; hablen de ella al día siguiente.',
+      'Durante un terror nocturno: no intentes despertarlo; solo asegúrate de que está seguro y quédate tranquilo a su lado. Cuando pase el episodio, seguirá durmiendo.',
+      'La falta de sueño aumenta los terrores nocturnos: prueba a adelantar la hora de dormir 20–30 minutos.',
+      'Durante el día, hablen de los miedos jugando: dibujen un “libro de monstruos” y conviértanlos en algo divertido.',
+    ],
+    mistakes: [
+      'Sacudir al niño para despertarlo durante un terror nocturno.',
+      'Burlarse de su miedo: “Los monstruos no existen, no seas tonto.”',
+    ],
+    specialist: [
+      'Si los episodios son muy frecuentes (varias veces a la semana), duran más de 30 minutos, hay movimientos poco habituales (sacudidas rítmicas, pérdida de orina) o le provocan somnolencia durante el día: consulta al médico.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Niños que comen poco variado: ¿quién se encarga de qué?',
+    summary: 'Los padres deciden qué se come, cuándo y dónde; el niño decide cuánto y si come o no. Este reparto acaba con las peleas a la hora de comer.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'El rechazo a los alimentos nuevos (neofobia) es muy común entre los 2 y los 6 años y tiene sentido desde el punto de vista evolutivo: protege al niño pequeño de alimentos desconocidos y potencialmente peligrosos. Suele ser una etapa pasajera.',
+      'Los estudios muestran que obligar al niño a comer, decirle “una cucharada más” y premiarlo con dulces tiene el efecto contrario: aumenta el rechazo a ese alimento y debilita su capacidad de escuchar sus señales de hambre y saciedad. En cambio, ofrecer el alimento una y otra vez sin presión —muchas veces 10–15 veces— aumenta la aceptación.',
+      'El modelo de “división de responsabilidades” de la dietista Ellyn Satter convierte estos datos en una regla práctica: los padres eligen el menú, la hora y el lugar; el niño elige cuánto come.',
+    ],
+    tryToday: [
+      'Que en cada comida haya al menos un alimento “seguro” que le guste y, al lado, un trocito de algo nuevo.',
+      'Sirve el alimento nuevo sin comentarios. Si no lo come, no digas nada. Mañana o pasado, otra vez.',
+      'Coman en familia y sin pantallas. Tu hijo tiene que verte comer con gusto.',
+      'Involúcralo en la cocina: que lave las verduras, que mezcle la ensalada. Prueba más lo que ha preparado él.',
+      'Fija horarios para las comidas y las meriendas, y que no haya “picoteo” entre medias.',
+    ],
+    mistakes: [
+      'Obligar, sobornar (“cómete el brócoli y te compro chocolate”) o castigar.',
+      'Preparar en cada comida un “menú de restaurante” aparte para el niño.',
+      'Exigir que deje el plato limpio. Necesita aprender a escuchar su sensación de saciedad.',
+    ],
+    byAge: {
+      '1-3': 'Alimentos para comer con los dedos, porciones pequeñas y dejar que coma solo. Mancharse es parte del aprendizaje.',
+      '3-6': '“Regla de la exploración”: probar no es obligatorio, pero mirar, oler y tocar el alimento nuevo puede ser un juego.',
+      '6-12': 'Inclúyelo en la planificación del menú: una vez a la semana, que elija una verdura nueva.',
+    },
+    specialist: [
+      'Si pierde peso, se queda atrás en su curva de crecimiento, acepta muy pocos alimentos (por ejemplo, menos de 15), o tiene arcadas, se atraganta o siente dolor al comer: consulta al médico.',
+      'Si hay pánico intenso ante la comida, vómitos o rechazo total de ciertas texturas, un especialista en alimentación infantil puede ayudar.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Tiempo de pantalla: un plan inteligente según la edad',
+    summary: 'En los primeros años, la pantalla no puede sustituir la interacción real. A medida que crece, el objetivo no es prohibir, sino un plan familiar hecho entre todos.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Los niños pequeños aprenden muy poco de una pantalla en comparación con una persona real: el lenguaje y las habilidades sociales se construyen en la interacción cara a cara, de “ida y vuelta”. Incluso una tele encendida de fondo reduce lo que los padres hablan con el niño.',
+      'OMS (2019): para menores de 1 año no se recomienda ninguna pantalla; de 2 a 4 años, no más de 1 hora al día, y cuanto menos, mejor. Academia Estadounidense de Pediatría (2016): evitar las pantallas hasta los 18 meses (salvo las videollamadas); de 2 a 5 años, hasta 1 hora al día de contenido de calidad y, en lo posible, viéndolo con un adulto; a partir de los 6 años, normas estables que no interfieran con el sueño, el movimiento ni la convivencia.',
+      'Las pantallas antes de dormir retrasan el sueño. Y las pantallas durante las comidas debilitan la capacidad del niño de notar sus señales de saciedad.',
+    ],
+    tryToday: [
+      'Define zonas sin pantallas: la mesa y el dormitorio.',
+      'Apaga las pantallas una hora antes de dormir.',
+      'Anticipa el final del tiempo de pantalla y usa un temporizador: “Cuando suene, la tablet se va a descansar.”',
+      'Alguna vez, vean algo juntos y coméntenlo: “¿Por qué crees que hizo eso?” Así la pantalla se convierte en conversación.',
+      'Observa también tu propio teléfono: cuando estés con tu hijo, silencia las notificaciones.',
+    ],
+    mistakes: [
+      'Usar la pantalla como la herramienta principal para frenar una rabieta. Así el niño no aprende a calmarse.',
+      'Poner normas solo al niño. Los niños copian los hábitos de pantalla de sus padres.',
+      'Considerar “mala” cualquier pantalla. Una videollamada, un contenido educativo visto juntos o una aplicación creativa son otra cosa.',
+    ],
+    byAge: {
+      '0-1': 'Sin pantallas, salvo videollamadas. La mejor “pantalla” para tu bebé es tu cara.',
+      '1-3': 'Hasta los 2 años, lo menos posible. Si ve algo, que sea corto, de ritmo lento y contigo al lado.',
+      '3-6': 'Hasta 1 hora al día, de contenido de calidad y sin anuncios. No durante las comidas ni antes de dormir.',
+      '6-12': 'Escriban juntos un plan familiar de medios: primero van las clases, el sueño, el deporte y los amigos. Respeta las edades mínimas de las redes sociales.',
+    },
+    specialist: [
+      'Si cuando le quitas la pantalla se pone muy agresivo, no le interesa nada más, o el sueño y el rendimiento escolar se han alterado seriamente: consulta con un psicólogo infantil.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Dejar el pañal: sin prisas',
+    summary: 'El paso más importante para dejar el pañal es esperar las señales de que está preparado. La mayoría de los niños lo está entre los 2 y los 3 años.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'En los años 60, el pediatra Berry Brazelton propuso un enfoque “centrado en el niño”: empezar cuando el niño muestra señales de estar preparado, sin presión y sin castigos. Este enfoque sigue siendo hoy la base de las recomendaciones de la Academia Estadounidense de Pediatría.',
+      'Señales de que está preparado: se mantiene seco 2 horas o más, le molesta el pañal mojado, entiende instrucciones sencillas, sabe subirse y bajarse el pantalón y muestra interés por el baño. Estar seco por la noche llega más tarde: mojar la cama hasta los 5–6 años es normal.',
+    ],
+    tryToday: [
+      'Revisa si muestra señales de estar preparado. Si todavía no, espera: es normal.',
+      'Que elija él el orinal o el adaptador del inodoro. Al principio, que se siente vestido y lea un cuento.',
+      'Después de comer y de dormir, un breve “rato de baño”; agradécele el intento, salga o no salga algo.',
+      'Recibe los accidentes con calma: “Pasa. Ven, lo limpiamos juntos.”',
+    ],
+    mistakes: [
+      'Castigar, avergonzar o compararlo con otros niños. Eso puede provocar estreñimiento y miedo al baño.',
+      'Empezar en plena época de cambios grandes (un hermanito, una mudanza, el inicio de la escuela infantil).',
+      'Obligarlo a quedarse sentado mucho tiempo.',
+    ],
+    byAge: {
+      '1-3': 'Jueguen al “baño” con un muñeco y lean cuentos sobre el tema. No hay prisa por empezar.',
+      '3-6': 'Los accidentes son normales, sobre todo cuando está absorto jugando. El pañal de noche se puede mantener todavía.',
+    },
+    specialist: [
+      'Si hace caca con dolor o muy pocas veces (estreñimiento), le duele o le arde al hacer pis, o después de los 4 años tiene escapes frecuentes durante el día.',
+      'Si, después de mucho tiempo sin escapes, vuelve a mojarse de día o de noche: consulta al médico.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'Las prisas de la mañana: salir de casa sin gritos',
+    summary: 'La mayoría de los conflictos de la mañana se resuelven la noche anterior. Preparar las cosas, un plan con dibujos y un poco de margen hacen maravillas.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'En los momentos de prisa y tensión, las funciones ejecutivas —planificar, recordar, tener paciencia— se debilitan tanto en los padres como en el niño. Por eso las normas de la mañana funcionan mejor con un cuadro que se ve que con palabras.',
+      'Las rutinas que le dan al niño sensación de control (pasos que marca él mismo) aumentan la colaboración y reducen la necesidad de repetirle las cosas.',
+    ],
+    tryToday: [
+      'Deja preparados la noche anterior la ropa, la mochila y los zapatos. Que el niño elija su ropa.',
+      'Hagan juntos tarjetas con dibujos de los pasos de la mañana: levantarse → baño → vestirse → desayuno → dientes → zapatos.',
+      'Date 15 minutos de margen: apunta para ti una hora de salida más temprana.',
+      'Que la mañana sea sin pantallas, al menos hasta que esté listo.',
+    ],
+    mistakes: [
+      'Repetir lo mismo decenas de veces. Dilo una vez y luego señala la tarjeta.',
+      'Hacerlo todo por él porque “así es más rápido”.',
+    ],
+    specialist: [
+      'Si cada mañana se queja de dolor de barriga o de cabeza, o se niega insistentemente a ir a la escuela infantil o al colegio: habla con el médico o con un psicólogo.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '“Ida y vuelta”: el secreto del lenguaje y del cerebro',
+    summary: 'El niño “lanza” una señal —una mirada, un sonido, un gesto— y tú se la “devuelves”. Este juego tan sencillo construye la arquitectura del cerebro.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'El Centro para el Desarrollo Infantil de la Universidad de Harvard compara esta interacción con un partido de tenis: el bebé hace un sonido, mira, señala; el adulto responde. Al repetirse este “ida y vuelta”, se refuerzan las vías neuronales del lenguaje, la atención y las habilidades sociales. Quedarse sin respuesta, en cambio, genera estrés.',
+      'Un estudio muy interesante (Romeo y colaboradores, 2018) mostró que la actividad de las áreas del lenguaje en el cerebro del niño se explica mejor por el número de turnos de conversación que por la cantidad de palabras que simplemente oye. Es decir, lo importante no es hablar mucho, sino hablar con él.',
+    ],
+    tryToday: [
+      'Fíjate en hacia dónde va su atención y ponlo en palabras: “¡Sí, un perro! Un perro grande y marrón.”',
+      'Espera la respuesta: después de preguntar, quedarte callado 5 segundos le da tiempo para tomar su turno.',
+      'Imita los sonidos del bebé y amplíalos un poco: él dice “ba”, tú dices “¡ba-ba-balón!”.',
+      'Narra las tareas diarias como un “comentarista deportivo”: “Lavo las zanahorias, ahora las corto…”',
+    ],
+    mistakes: [
+      'Convertir el hablar en una “clase”: “Di: ¡manzana! ¡Di manzana!” La presión hace que hable menos.',
+      'Corregirle las palabras en el acto. En vez de eso, repite la forma correcta sin más: “¿Ota? Sí, una pelota roja y blandita.”',
+      'Mirar el teléfono cuando estás con él. Cada notificación es una “pelota que no se devuelve”.',
+    ],
+    byAge: {
+      '0-1': 'Cara a cara: sonríe, canta y responde a los sonidos del bebé.',
+      '1-3': 'Nombra lo que señala, hazle preguntas sencillas y convierte su palabra en dos.',
+      '3-6': 'Investiguen juntos sus “¿por qué?” y hazle preguntas abiertas: “¿Qué crees que pasará después?”',
+    },
+    specialist: [
+      'Si a los 12 meses no hace ningún gesto (decir adiós con la mano, señalar), a los 16–18 meses no dice ninguna palabra o a los 2 años no forma frases de dos palabras: consulta al médico o a un logopeda.',
+      'Si a cualquier edad ha perdido palabras que ya decía, no esperes: consulta al médico.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'El poder del juego: por qué jugar no es “tiempo perdido”',
+    summary: 'El juego libre fortalece las funciones ejecutivas del niño, su creatividad y su resistencia al estrés.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'El informe de 2018 de la Academia Estadounidense de Pediatría (“The Power of Play”) dice que el juego no es un “lujo”, sino una necesidad del desarrollo infantil. Al jugar, el niño planifica, respeta reglas, negocia con otros y aprende a tolerar la frustración.',
+      'Los juegos de roles (“la tienda”, “el médico”) entrenan especialmente las funciones ejecutivas: el niño tiene que mantenerse en su papel, recordar las reglas y contener sus impulsos.',
+    ],
+    tryToday: [
+      'Reserva al menos una hora al día de juego no estructurado (según la edad, puede repartirse a lo largo del día).',
+      'Elige juguetes sencillos y abiertos: bloques, cajas, pinturas, disfraces. Menos juguetes significa más creatividad.',
+      'Una vez a la semana, juego libre al aire libre: árboles, arena, agua, palos.',
+      'A veces, únete al juego con el papel “equivocado”: tú eres el cliente y él, el vendedor.',
+    ],
+    mistakes: [
+      'Llenar cada minuto con actividades extraescolares. El aburrimiento es el punto de partida de la creatividad.',
+      'Ganar siempre o perder siempre en los juegos. El niño tiene que aprender las dos cosas.',
+    ],
+    specialist: [
+      'Si después de los 2–3 años no muestra ningún interés por los juegos de roles, sus juegos son muy repetitivos e invariables, o no le interesa jugar con otros niños: consulta al médico para una revisión del desarrollo.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Leer juntos: desde el primer día',
+    summary: 'Leer juntos desde que es bebé es uno de los hábitos más sencillos y más poderosos para el lenguaje, la atención y el apego.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'La Academia Estadounidense de Pediatría (2014) aconseja a los pediatras que en cada revisión recomienden a las familias leer a sus hijos desde bebés. Leer juntos aumenta el vocabulario, la capacidad de escucha y el éxito posterior en la lectura.',
+      'El mayor beneficio viene de la “lectura dialógica”: el adulto hace preguntas, amplía las respuestas del niño y comenta las ilustraciones. Es decir, el libro también es una herramienta de “ida y vuelta”.',
+    ],
+    tryToday: [
+      'Lean juntos 10–15 minutos al día, idealmente como parte del ritual de sueño.',
+      'En cada página, haz una pregunta: “¿Qué crees que hará ahora el gato?”',
+      'Si quiere el mismo libro 20 veces, léeselo. La repetición es una forma de aprender.',
+      'En edad escolar, lean por turnos: una página tú, una página él.',
+    ],
+    mistakes: [
+      'Presentar la lectura como una tarea obligatoria.',
+      'Dejar de leerle en voz alta cuando empieza a leer solo. Leer en voz alta sigue siendo útil hasta los 10–12 años.',
+    ],
+    specialist: [
+      'Si en edad escolar leer le cuesta mucho más que a sus compañeros, confunde letras a menudo o no avanza a pesar del esfuerzo: consulta con su maestro y con un especialista (logopeda, psicólogo).',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

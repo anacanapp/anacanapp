@@ -1,0 +1,149 @@
+import type { BandOverview } from '../types';
+import { S } from './sources';
+
+export const BANDS: BandOverview[] = [
+  {
+    id: '0-1',
+    emoji: '👶',
+    title: 'İlk yıl: güvenin temeli',
+    lead: 'Bebek bu yıl dünyanın güvenli bir yer olup olmadığını öğrenir. Cevabı senin sesinden, kucağından ve ona nasıl karşılık verdiğinden alır.',
+    brain: [
+      'Hayatın ilk yıllarında beyinde saniyede bir milyondan fazla yeni sinir bağlantısı kurulur. Hangi yolların güçleneceğine tekrar eden günlük deneyimler karar verir: bebek ses çıkarır, sen karşılık verirsin; ağlar, sen yanına gidersin.',
+      'Bebeğin beyninde kendini sakinleştiren bölüm henüz çok olgunlaşmamıştır. Bu yüzden bebek henüz kendi kendine sakinleşemez, senin sakin bedeninden sakinliği “ödünç alır”. Buna birlikte düzenleme denir ve ileride kendini yönetmenin ilk dersidir.',
+      'Yaklaşık 6–9. aylarda bellek ve bağlanma güçlenir: bebek tanımadığı kişilerden çekinmeye, sen odadan çıkınca huzursuzlanmaya başlayabilir. Bu bir gerileme değil, tam tersine sana bağlandığının işaretidir.',
+    ],
+    needs: [
+      'Ağlamasına karşılık vermek. Bu yaşta bebeği “kucağa alıştırmak” ya da şımartmak mümkün değildir. Hızlı ve şefkatli karşılık ona dünyaya güvenmeyi öğretir.',
+      'Yüz yüze iletişim: gülümseme, şarkı, onun seslerini tekrar etmek. Bu “karşılıklı etkileşim” oyunları dilin ve duygusal beynin temelini atar.',
+      'Öngörülebilir bir gün: beslenme, uyku, banyo aşağı yukarı aynı sırayla. Önemli olan tam saat değil, tanıdık bir ritimdir.',
+      'Güvenli uyku ve güvenli bir ortam, bir de dinlenmiş, destek alan bir ebeveyn.',
+    ],
+    normal: [
+      'Günün belli saatlerinde, özellikle akşamüstü, sebepsiz gibi görünen uzun ağlama nöbetleri (ilk 3–4 ayda).',
+      'Gece sık uyanmak. İlk yılda bütün gece deliksiz uyumak her bebek için normal değildir.',
+      'Her şeyi ağzına götürmek: bu, onun dünyayı tanıma yoludur.',
+      'Yabancılardan korkmak ve sen yokken ağlamak (yaklaşık 8. aydan sonra).',
+    ],
+    tryThis: [
+      'Günde birkaç kez 5 dakikalık “yüz yüze zaman”: telefon bir kenarda, bebeğin seslerini tekrar et, ne yaptığını sözle anlat.',
+      'Günlük işleri konuşarak yap: “Şimdi bezini değiştiriyoruz. Bacağını kaldırıyoruz. Tamam, bitti!”',
+      'Ce-e oyna: çocuk bu oyunla “giden geri gelir” fikrini öğrenir, ayrılık kaygısı yumuşar.',
+      'Ağlama uzayıp sabrın tükendiğinde bebeği güvenli bir yere — beşiğine — bırak, birkaç dakika nefes al, sonra geri dön.',
+    ],
+    specialist: [
+      'Bebek seslere tepki vermiyorsa, seninle göz teması kurmuyorsa, 4. ayda gülümsemiyorsa ya da 9. ayda adına tepki vermiyorsa.',
+      'Önceden yapabildiği bir beceriyi (gülümsemek, ses çıkarmak, oturmak) kaybediyorsa.',
+      'Ağlaması her zamankinden farklıysa; ateş, kusma, aşırı halsizlik ya da beslenmeyi reddetme eşlik ediyorsa: doktora başvur. Ciddi durumda {emergency}.',
+      'Haftalardır kendini üzgün, umutsuz hissediyorsan ya da bebeğe zarar verme korkusu yaşıyorsan: bu doğum sonrası depresyon olabilir ve tedavi edilebilir. Doktoruna söyle.',
+    ],
+    sources: [S.harvardServe, S.nurturingCare2018, S.ainsworth1978, S.healthyChildrenCrying, S.zubler2022],
+  },
+  {
+    id: '1-3',
+    emoji: '🧸',
+    title: '1–3 yaş: “Ben yaparım!” dönemi',
+    lead: 'Çocuk artık yürüyor, konuşmaya başlıyor ve bağımsız olmak istiyor, ama duygularını yöneten beyin henüz çok olgunlaşmamış. Öfke nöbetlerinin sebebi bu.',
+    brain: [
+      'Beynin duygu merkezi (amigdala) güçlü ve hızlıdır, onu “frenleyen” ön alın korteksi ise daha uzun yıllar gelişmeye devam edecek. Bu yüzden iki yaşındaki çocuk “dur” dense de durmayı başaramaz. Bu inat değil, henüz olgunlaşmamış bir frendir.',
+      'Dil hızla gelişir, ama çocuğun anladığı, söyleyebildiğinden çok çok ileridedir. İstediğini anlatamamak büyük bir hayal kırıklığı yaratır ve bu çoğu zaman bağırma ya da vurma olarak dışa vurulur.',
+      'Bu yaşta çocuk neden-sonuç ilişkisini deneyerek öğrenir: kaşığı yere atar, tepkine bakar, yine atar. Bu “seni kızdırmak” değil, küçük bir bilim insanının deneyidir.',
+    ],
+    needs: [
+      'Sakin, net ve tekrarlanan sınırlar: “Vurmak yok. Ellerini tutuyorum.” Uzun açıklama değil, kısa bir cümle ve eylem.',
+      'Seçim fırsatı: “Kırmızı tişört mü, mavi mi?” Seçim, özerklik ihtiyacını karşılar ve “hayır” deme ihtiyacını azaltır.',
+      'Duygularına isim vermek: “Oyun bittiği için kızdın.” Adı konan duygu daha çabuk yatışır.',
+      'Günde birkaç dakika onun yönettiği oyun, bol hareket ve açık hava.',
+    ],
+    normal: [
+      'Günde birkaç kez öfke nöbeti, özellikle yorgun, aç ya da geçiş anlarında.',
+      '“Hayır!” kelimesini çok kullanmak, aynı şeyi defalarca tekrar istemek.',
+      'Paylaşamamak. Gerçek paylaşım yaklaşık 3–4 yaşından sonra gelişir.',
+      'Arada bir ısırmak ya da vurmak: fiziksel saldırganlık bu yaşta en üst düzeye çıkar, sonra yavaş yavaş azalır.',
+    ],
+    tryThis: [
+      'Geçişlerden 5 dakika önce haber ver: “İki kez daha kayıyoruz, sonra eve gidiyoruz.”',
+      '“Hayır” yerine “ne yapılabilir”i söyle: “Duvara değil, bu kâğıda çiz.”',
+      'Günde 10 dakika “onun oyunu”: o ne yapıyorsa sen de yap, eleştirmeden ve soru yağmuruna tutmadan.',
+      'Gün içinde iyi davranışı fark et ve tam olarak adlandır: “Oyuncağı kardeşine verdin, nasıl da sevindi!”',
+    ],
+    specialist: [
+      '18. ayda işaret etme (parmakla gösterme) yoksa, 2 yaşında iki kelimelik cümleler yoksa, adına tepki vermiyorsa ya da göz teması çok azsa.',
+      'Önceden söylediği kelimeleri ya da becerileri kaybediyorsa (her yaşta).',
+      'Öfke nöbetleri 25 dakikadan uzun sürüyorsa, günde 5’ten fazlaysa, kendine ya da başkalarına ciddi zarar veriyorsa ya da 4 yaşından sonra da azalmıyorsa.',
+      'Uyku, yemek ya da davranış zorlukları ailenin günlük hayatını aylardır bozuyorsa.',
+    ],
+    sources: [S.harvardEF2011, S.healthyChildrenTantrums, S.cdcPositive, S.tremblay2004, S.zubler2022],
+  },
+  {
+    id: '3-6',
+    emoji: '🎨',
+    title: '3–6 yaş: hayal, soru ve kural',
+    lead: 'Çocuk “neden?” diye sorar, rol oyunları kurar, arkadaşlığı öğrenir. Kendini yönetme becerisi hızla artar, ama hâlâ senin desteğine ihtiyacı vardır.',
+    brain: [
+      'Yürütücü işlevler — dikkati sürdürmek, sıra beklemek, kuralı akılda tutmak, düşünceyi değiştirmek — 3–5 yaş arasında hızla gelişir. Rol oyunları ve kurallı oyunlar bu becerilerin en iyi antrenmanıdır.',
+      'Çocuk artık başkasının farklı düşünebileceğini anlamaya başlar. Bu yüzden ilk yalanlar bu yaşta ortaya çıkar. İlginç bir şekilde bu, zihinsel gelişimin bir işaretidir.',
+      'Hayal gücü güçlenir, gerçekle hayalin sınırı henüz bulanıktır. Karanlıktan, canavarlardan, kâbuslardan korkmak bu yaşın tipik korkularıdır.',
+    ],
+    needs: [
+      'Net, az sayıda aile kuralı ve bunların tutarlı uygulanması. Kurallar ne kadar öngörülebilir olursa tartışma o kadar az olur.',
+      'Ceza değil, mantıklı sonuçlar: “Topu evde atarsan, top dolaba kalkar.”',
+      'Duygular hakkında sohbet: kitaplar, oyuncaklarla oyunlar, “sen olsan ne hissederdin?” soruları.',
+      'Gerçek küçük sorumluluklar: sofrayı kurmak, oyuncakları toplamak, çiçeği sulamak.',
+    ],
+    normal: [
+      'Bazen yalan söylemek, hayali gerçekle karıştırmak.',
+      'Kuralları sınamak ve “haksızlığa” karşı güçlü tepki göstermek.',
+      'Karanlıktan ya da yeni durumlardan korkmak.',
+      'Hâlâ ara sıra öfke nöbetleri, ama eskisinden daha kısa ve seyrek.',
+    ],
+    tryThis: [
+      'Günde bir kez “gününün en güzel ve en zor anı” sorusunu sor ve dikkatle dinle.',
+      'Kuralları birlikte resimlerle çizin ve duvara asın.',
+      '“Kırmızı ışık, yeşil ışık” ya da “Simon diyor ki” gibi oyunlarla kendini tutmayı çalışın.',
+      'Bir hata olduğunda çözümü birlikte bulun: “Su döküldü. Ne yapalım?”',
+    ],
+    specialist: [
+      '4 yaşında cümle kurmuyorsa, konuşmasını yabancılar zor anlıyorsa, oyun arkadaşlarıyla hiç ilgilenmiyorsa.',
+      'Korkular ya da kaygı günlük hayatı (anaokulu, uyku, yemek) haftalardır bozuyorsa.',
+      'Saldırganlık başkalarına ciddi zarar veriyorsa ya da artıyorsa; hayvanlara karşı zalimlik varsa.',
+      'Uzun süre kuru kaldıktan sonra yeniden gündüz altını ıslatıyorsa ya da önceki becerilerini kaybediyorsa.',
+    ],
+    sources: [S.diamond2013, S.harvardEF2011, S.talwarLee2008, S.cdcPositive, S.zubler2022],
+  },
+  {
+    id: '6-12',
+    emoji: '🎒',
+    title: '6–12 yaş: beceri, arkadaşlık, özgüven',
+    lead: 'Okul yılları, çocuğun “ben yapabilirim” duygusunu inşa ettiği dönemdir. Arkadaşlar önem kazanır, ama sen hâlâ onun en büyük dayanağısın.',
+    brain: [
+      'Planlama, dikkat ve kendini yönetme becerileri artık iyi gelişmiştir, ama yorgunluk, açlık ve stres onları kolayca “kapatır”. Okuldan sonra huysuzlanan çocuk çoğu zaman sadece tükenmiş bir çocuktur.',
+      'Çocuk kendini başkalarıyla kıyaslamaya başlar. Bu dönemde öz değer duygusu daha çok çabadan, beceri kazanmaktan ve kabul görmekten beslenir.',
+      'Ergenliğe yaklaşırken (yaklaşık 9–12 yaş) hormonal değişiklikler başlayabilir: duygu dalgalanmaları, daha fazla kişisel alan ihtiyacı normaldir.',
+    ],
+    needs: [
+      'Çabayı ve stratejiyi gören bir teşvik: “Bu soru üzerinde çok çalıştın, başka bir yol denedin.”',
+      'Giderek artan sorumluluk ve seçim hakkı, net aile kurallarıyla birlikte.',
+      'Yargılamadan dinleyen bir ebeveyn. Küçük şeyleri dinlersen, büyük şeyleri de sana anlatır.',
+      'Ekran ve ödev dışında boş zaman: oyun, spor, arkadaşlar, uyku.',
+    ],
+    normal: [
+      'Adalet konusunda uzun tartışmalar, kuralları müzakere etme isteği.',
+      'Arkadaşlıklarda küsüp barışmalar, “beni oyuna almadılar” üzüntüsü.',
+      'Ödevden kaçmak, unutkanlık.',
+      'Bazen ebeveyninden utanmak ya da daha fazla yalnız kalmak istemek (özellikle 10 yaşından sonra).',
+    ],
+    tryThis: [
+      'Arabada, yemekte ya da yatmadan önce “sorgusuz sohbet” zamanı: sen de kendi gününü anlat.',
+      'Ödev için sabit bir saat ve yer belirle, ama ödevi onun yerine yapma.',
+      'Aile ekran planını birlikte yazın: nerede, ne zaman ve ne kadar.',
+      'Haftada bir kez baş başa zaman: sadece sen ve o, onun seçtiği bir etkinlik.',
+    ],
+    specialist: [
+      'İki haftadan uzun süren üzüntü, ilgi kaybı, uykuda ya da iştahta büyük değişiklik.',
+      'Okula gitmeyi ısrarla reddetme, sık karın ve baş ağrısı şikâyetleri (doktor bir neden bulamıyorsa).',
+      'Zorbalığa uğradığına ya da başkalarına zorbalık yaptığına dair işaretler; arkadaşlardan tamamen kopma.',
+      'Kendine zarar verme, ölüm ya da intihar hakkında konuşma: bunu asla “ilgi çekme” olarak görme. Hemen bir uzmana başvur, tehlike varsa {emergency}.',
+    ],
+    sources: [S.cdcPositive, S.aapMediaSchool2016, S.pomerantz2007, S.muellerDweck1998, S.unesco2019],
+  },
+];

@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Bağlanma: çocuğun güvenli limanı',
+    summary: 'Güvenli bağlanma kusursuz ebeveynlikten değil, “yeterince iyi”, duyarlı ve güvenilir ebeveynlikten doğar.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby bağlanmayı çocuğun tehlike anında yakınlık arama içgüdüsü olarak tanımladı. Mary Ainsworth ise gözlemlerinde ebeveyni duyarlı ve öngörülebilir olan çocukların onu “güvenli üs” olarak kullandığını gördü: rahatça keşfediyor, korktuklarında ise geri dönüp sakinleşiyorlardı.',
+      'Güvenli bağlanma sonraki yıllarda daha iyi duygu düzenleme, arkadaşlık becerileri ve özgüvenle ilişkilendirilir. Önemli nokta: bunun için her ağlamaya anında ve kusursuz karşılık vermek gerekmez. Araştırmalar etkileşimin büyük kısmının “uyumsuz” anlardan oluştuğunu, asıl önemli olanın bu anların sonradan onarılması olduğunu gösteriyor.',
+      'Bağlanma bir kez kurulup bitmez: okul çağında da çocuk zor bir anda sana dönebileceğini bilmelidir. Sadece artık bu, kucaktan çok dinlemek ve “senin yanındayım” duygusuyla olur.',
+    ],
+    tryToday: [
+      'Çocuk sana geldiğinde (sevinçle ya da üzüntüyle) birkaç saniye tüm dikkatini ona ver: telefonu bırak, gözlerine bak.',
+      'Ayrılmadan önce kısa ve hep aynı bir vedalaşma ritüeli oluştur: sarılma, “akşam görüşürüz”, ve gerçekten git. Gizlice çıkmak güveni zedeler.',
+      'Günde bir kez onun ilgi alanlarına katıl: o ne oynuyorsa, ne anlatıyorsa.',
+      'Sinirlendiğin bir anı sonradan onar: “Sabah sabırsızdım. Gel, yeniden başlayalım.”',
+    ],
+    mistakes: [
+      'Bebeği “kucağa alışır” korkusuyla ağlamaya bırakmak. İlk aylarda karşılık vermek bağımsızlığı azaltmaz, tam tersine artırır.',
+      'Bağlanmayı “çocuktan hiç ayrılmamak” olarak anlamak. Büyükanne, baba, öğretmenle de güvenli bağlar kurulur ve bu iyidir.',
+      'Kusursuz olmaya çalışmak. Çocuğun ideal değil, samimi ve hatasını onarabilen bir ebeveyne ihtiyacı var.',
+    ],
+    byAge: {
+      '0-1': 'Ağlamasına karşılık ver, göz teması kur, konuş, şarkı söyle. Bu yaşta şımartmak diye bir şey yok.',
+      '1-3': 'Çocuk keşfeder ve geri döner. Parkta oturup “buradayım” demek yeterli.',
+      '3-6': 'Günde 10–15 dakikalık özel oyun zamanı bağlanmayı güçlendirir.',
+      '6-12': 'Yargılamadan dinle. Küçük sorunlarında yanında olursan, büyük sorunlarını da sana getirir.',
+    },
+    specialist: [
+      'Bebek göz temasından kaçıyorsa, sana ya da tanıdık kişilere hiç ilgi göstermiyorsa, sakinleşmesi neredeyse imkânsızsa — doktora başvur.',
+      'Çocuk herkese, hatta yabancılara bile aynı derecede ve ayrım yapmadan bağlanıyorsa (özellikle zor geçen ilk yıllardan sonra) — bir çocuk psikoloğuna başvur.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'Bebek ağladığında: “şımarır” efsanesi',
+    summary: 'Bebeğin ağlaması onun tek dilidir. Karşılık vermek şımartmaz, güven yaratır.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'Amerikan Pediatri Akademisi açıkça söylüyor: ilk aylarda bebeği şımartmak mümkün değildir. Ağlamaya şefkatle karşılık vermek bebeğin stres sistemini sakinleştirir ve “dünya güvenli” inancını oluşturur.',
+      'Aynı zamanda sağlıklı bebeklerin de ilk haftalarda çok ağlaması normaldir: yaklaşık 2. haftada artmaya başlar, 6–8. haftada zirveye ulaşır ve 3–4. ayda azalır. Bazen hiçbir neden bulunamaz. Bu senin başarısızlığın değil.',
+      'En önemli güvenlik kuralı: sinirin tavan yaptığında bebeği asla sarsma. Sarsmak beyin hasarına yol açabilir. Bebeği beşiğine sırtüstü yatırıp birkaç dakikalığına odadan çıkmak tamamen doğru bir adımdır.',
+    ],
+    tryToday: [
+      'Temel ihtiyaçları kontrol et: açlık, bez, sıcak-soğuk, gaz çıkarma, yorgunluk.',
+      'Sakinleştirici yöntemleri dene: kundak (kalçalar serbest), ritmik sallama, “şşş” sesi, kucakta yürüyerek dolaştırmak, ten tene temas.',
+      'Ağlama saatleri için bir yardım planı yap: partnerin, büyükanne ya da komşuyla nöbetleşin.',
+      'Sabrın tükeniyorsa: bebeği güvenli bir yere bırak, 5–10 dakika nefes al, su iç, birini ara, sonra geri dön.',
+    ],
+    mistakes: [
+      '“Ağlamaya bırakırsan alışır” diyerek çok küçük bir bebeği uzun süre yalnız bırakmak.',
+      'Çok ağlamayı kendi “kötü ebeveynliğine” bağlamak. Bu dönem geçicidir.',
+      'Yardım istemekten utanmak.',
+    ],
+    specialist: [
+      'Ağlamayla birlikte ateş (özellikle 3 aydan küçük bebekte), kusma, ishal, beslenmeyi reddetme, aşırı halsizlik, alışılmadık tiz bir ağlama varsa — hemen doktora başvur. Ciddi durumda {emergency}.',
+      'Bebeği sarsma ya da ona zarar verme düşüncesi aklına geliyorsa hemen yardım iste. Bu seni kötü biri yapmaz, yorgunluğunun sınırına geldiğini gösterir.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: 'Günde 10 dakika: özel zaman',
+    summary: 'Çocuğun yönettiği kısa, günlük bir oyun zamanı, davranış sorunlarını azaltmanın en güçlü araçlarından biridir.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'En çok araştırılmış ebeveyn programlarından biri olan PCIT’in (Ebeveyn-Çocuk Etkileşim Terapisi) ilk aşaması tam olarak buna dayanır: günde 5–10 dakika çocuğun yönettiği oyun; ebeveyn ise över, betimler, taklit eder. Meta-analizler bu programların davranış sorunlarını belirgin şekilde azalttığını gösteriyor.',
+      'Nedeni basit: çocuğun ilgi ihtiyacı olumlu bir yolla karşılandığında, ilgiyi olumsuz davranışla “kazanma” ihtiyacı azalır.',
+    ],
+    tryToday: [
+      'Zamanlayıcı kur: 10 dakika. Telefon başka odada.',
+      'Oyunu çocuk seçer, sen takip edersin. Komut, soru yağmuru, eleştiri yok.',
+      'Yaptığını betimle: “Kırmızı bloğu en üste koydun.” Taklit et, öv: “Ne kadar dikkatli inşa ediyorsun!”',
+      'Bitirirken söyle: “Seninle oynamak çok güzeldi. Yarın yine.”',
+    ],
+    mistakes: [
+      'Özel zamanı kötü davranış yüzünden iptal etmek. Bu bir ceza ya da ödül değil, günlük bir vitamindir.',
+      'Oyunu “derse” çevirmek: “Bu hangi renk? Kaç blok var?”',
+    ],
+    byAge: {
+      '1-3': '5 dakika yeterli. Yerde, onun seviyesinde otur.',
+      '6-12': 'Bir isim koyun: “anne-oğul zamanı”. Kart oyunu, birlikte yemek yapmak, yürüyüş olabilir.',
+    },
+    specialist: [
+      'Özel zaman ve diğer yöntemler birkaç hafta içinde hiçbir değişiklik getirmiyorsa, davranış sorunları ağırsa — PCIT ya da benzeri programlar için bir uzmana başvur.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Ayrılık kaygısı ve kreşe uyum',
+    summary: 'Ayrılırken ağlamak bağlanmanın işaretidir. Kısa, içten bir vedalaşma ve öngörülebilir bir dönüş uyumu kolaylaştırır.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'Ayrılık kaygısı yaklaşık 8–10. ayda başlar, 15–18. ayda zirveye ulaşır ve genellikle 3 yaşına doğru yumuşar. Bu, çocuğun ebeveynin “yok olmadığını” henüz tam anlamadığı dönemdir.',
+      'Çocuğun kaygısını en çok artıran şey belirsizliktir. Gizlice gitmek anlık gözyaşını azaltsa da uzun vadede çocuğun daha çok yapışmasına neden olur.',
+    ],
+    tryToday: [
+      'Kısa ve hep aynı bir vedalaşma ritüeli oluştur: sarılma, öpücük, “öğle yemeğinden sonra geleceğim”, sonra git.',
+      'Kreşe başlamadan önce kısa deneme ayrılıkları yapın: 15 dakika, sonra 1 saat.',
+      'Dönüşünü çocuğun anladığı bir olaya bağla: “Uykudan sonra, ara öğünden sonra geliyorum.”',
+      'Evden bir “geçiş nesnesi” — küçük bir oyuncak, senin fotoğrafın — onu teselli edebilir.',
+    ],
+    mistakes: [
+      'Ağlayan çocuğun yanından uzun süre ayrılamamak, kapıdan defalarca geri dönmek.',
+      'Çocuğun korkusuna gülmek ya da “büyüdün, ayıp” demek.',
+    ],
+    specialist: [
+      'Ayrılık kaygısı yaşına göre aşırı güçlüyse, haftalardır uykuyu, yemeği ve kreşe gitmeyi bozuyorsa ya da okul çağında yeniden başladıysa — bir çocuk psikoloğuna başvur.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Uyku rutini: her akşam aynı üç adım',
+    summary: 'Her akşam tekrarlanan basit bir rutin çocuğun daha çabuk uykuya dalmasına ve gece daha az uyanmasına yardım eder.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Randomize bir araştırmada (Mindell ve ark., 2009) 3 adımlı akşam rutini — banyo, masaj ya da losyon, sakin bir etkinlik (sarılma, ninni) — sadece iki haftada çocukların daha çabuk uykuya dalmasını, gece daha az uyanmasını ve annelerin ruh halinin iyileşmesini sağladı. Sonraki derlemeler akşam rutinlerinin dil gelişimi ve duygu düzenlemesiyle de ilişkili olduğunu gösterdi.',
+      'Yaşa göre önerilen uyku süresi (gündüz uykuları dahil): 4–12 ay — 12–16 saat, 1–2 yaş — 11–14 saat, 3–5 yaş — 10–13 saat, 6–12 yaş — 9–12 saat. Uykusuzluk çocuklarda çoğu zaman yorgunluk olarak değil, huysuzluk ve hiperaktivite olarak görünür.',
+      'Bebekler için güvenli uyku kuralları önemlidir: sırtüstü, sert ve düz bir yatakta, yastıksız ve yorgansız, ideal olarak ebeveynle aynı odada ama kendi yatağında.',
+    ],
+    tryToday: [
+      'Bu akşamdan itibaren bir rutin oluştur: örneğin banyo → pijama ve diş → kitap ve ninni. Her akşam aynı sıra, aynı saate yakın.',
+      'Rutinden bir saat önce ekranları kapat, ışıkları kıs.',
+      'Rutinin resimli çizelgesini birlikte hazırlayın, çocuk her adımı kendisi “işaretlesin”.',
+      'Rutin 20–30 dakikadan uzun sürmesin. Uzadıkça çocuk onu daha da uzatmaya çalışır.',
+    ],
+    mistakes: [
+      'Her akşam farklı saat ve farklı sıra. Beyin öngörülebilir ipuçları arar.',
+      'Yatmadan önce hareketli oyun, ekran ya da bağırış.',
+      'Uyku yöntemlerini “zorunlu” saymak. Yanında oturmak, birlikte uyumamak, yavaş yavaş uzaklaşmak — ailene uygun olanı seç. Hiçbir yöntem herkes için şart değil.',
+    ],
+    byAge: {
+      '0-1': 'Rutin kısa olsun: banyo, beslenme, ninni. Bebeği uykulu ama uyanık halde yatağa koymayı deneyebilirsin, olmazsa da dert etme.',
+      '1-3': 'Seçenek sun: “Bu kitabı mı okuyalım, yoksa ötekini mi?” Yatma saati tartışılmaz, kitap seçilir.',
+      '3-6': 'Yatmayı “uzatmak” için sorular başlar. Rutinin içine bir “son soru” ya da “son sarılma” anı koy.',
+      '6-12': 'Telefon, tablet ve televizyon yatak odasında olmasın. Uyku saatini ödev ve sporla birlikte planlayın.',
+    },
+    specialist: [
+      'Çocuk uykuda horluyorsa, nefesi duruyorsa, ağzı açık nefes alıyorsa, gündüz ise aşırı uykuluysa — doktora başvur.',
+      'Uyku sorunları birkaç haftadan uzun sürüyorsa ve ailenin günlük hayatını ciddi şekilde bozuyorsa.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Gece uyanmaları ve gece korkuları',
+    summary: 'Kâbus ve gece terörü farklı şeylerdir. Her birine farklı bir yaklaşım gerekir.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Kâbuslar uykunun ikinci yarısında, rüya görme evresinde olur. Çocuk uyanır, korktuğunu söyler, seni tanır ve teselliye ihtiyacı vardır.',
+      'Gece terörü (pavor nocturnus) ise genellikle uykuya daldıktan 1–3 saat sonra, derin uykuda olur. Çocuk çığlık atabilir, gözleri açık olabilir, ama aslında uyanık değildir, seni tanımaz ve sabah hiçbir şey hatırlamaz. 3–7 yaşta sık görülür ve genellikle zararsızdır.',
+    ],
+    tryToday: [
+      'Kâbustan sonra: sarıl, kısaca teselli et, ışığı biraz aç. Kâbusu gece ayrıntılı anlattırma, yarın konuşun.',
+      'Gece teröründe: çocuğu uyandırmaya çalışma, sadece güvenliğini sağla, sakince yanında ol. Nöbet geçince uykusuna devam edecek.',
+      'Uykusuzluk gece terörünü artırır: yatma saatini 20–30 dakika öne çekmeyi dene.',
+      'Gündüz korkular hakkında oyunla konuşun: bir “canavar kitabı” çizin, onu komik yapın.',
+    ],
+    mistakes: [
+      'Gece terörü sırasında çocuğu sarsarak uyandırmak.',
+      'Korkuyla dalga geçmek: “Canavar yok, saçmalama.”',
+    ],
+    specialist: [
+      'Nöbetler çok sık (haftada birkaç kez) oluyorsa, 30 dakikadan uzun sürüyorsa, alışılmadık hareketler (ritmik titreme, idrar kaçırma) varsa ya da gündüz uykululuğa yol açıyorsa — doktora başvur.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Seçici yeme: kim neden sorumlu?',
+    summary: 'Ebeveyn neyin, ne zaman ve nerede yeneceğini belirler; çocuk ise ne kadar yiyeceğini ve yiyip yemeyeceğini. Bu paylaşım yemek savaşlarını bitirir.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Yeni yiyeceklerden çekinmek (neofobi) 2–6 yaş arasında çok yaygındır ve evrimsel açıdan mantıklıdır: küçük çocuğu bilinmeyen, potansiyel olarak tehlikeli yiyeceklerden korur. Bu genellikle geçici bir evredir.',
+      'Araştırmalar çocuğu yemeye zorlamanın, “bir kaşık daha” demenin ve tatlıyla ödüllendirmenin ters etki yaptığını gösteriyor: o yiyeceğe karşı isteksizliği artırıyor ve çocuğun açlık-tokluk sinyallerini duymasını zayıflatıyor. Bunun yerine baskısız tekrarlı sunum — çoğu zaman 10–15 kez — kabulü artırıyor.',
+      'Diyetisyen Ellyn Satter’in “sorumluluk paylaşımı” modeli bu bilgiyi pratik bir kurala çeviriyor: ebeveyn menüyü, zamanı ve yeri, çocuk ise ne kadar yiyeceğini seçer.',
+    ],
+    tryToday: [
+      'Her öğünde çocuğun sevdiği en az bir “güvenli” yiyecek olsun, yanında da yeni bir yiyecekten küçük bir parça.',
+      'Yeni yiyeceği yorum yapmadan koy. Yemese de bir şey söyleme. Yarın, öbür gün yine.',
+      'Aileyle birlikte, ekransız yiyin. Çocuk seni keyifle yerken görmeli.',
+      'Çocuğu mutfağa kat: sebzeyi yıkasın, salatayı karıştırsın. Kendi hazırladığını daha çok tadar.',
+      'Öğün ve ara öğün saatlerini belirle, aralarda “atıştırıp durmak” olmasın.',
+    ],
+    mistakes: [
+      'Zorlamak, rüşvet vermek (“brokoliyi ye, çikolata alacaksın”) ya da cezalandırmak.',
+      'Her öğünde çocuk için ayrı bir “restoran menüsü” hazırlamak.',
+      'Tabağın mutlaka bitirilmesini istemek. Çocuğun tokluk hissini duymaya ihtiyacı var.',
+    ],
+    byAge: {
+      '1-3': 'Parmak yiyecekleri, küçük porsiyonlar, kendi kendine yemesine izin. Kirlenmek öğrenmenin bir parçasıdır.',
+      '3-6': '“Tatma kuralı”: tatmak zorunlu değil, ama yeni yiyeceğe bakmak, koklamak, dokunmak bir oyun olabilir.',
+      '6-12': 'Menü planlamasına kat: haftada bir kez yeni bir sebzeyi o seçsin.',
+    },
+    specialist: [
+      'Çocuk kilo kaybediyorsa, boy-kilo eğrisinden geri kalıyorsa, kabul ettiği yiyeceklerin sayısı çok azsa (örneğin 15’ten az), yerken öğürüyor, boğuluyor ya da ağrı hissediyorsa — doktora başvur.',
+      'Yemek karşısında yoğun panik, kusma ya da belirli dokulardan tamamen kaçınma varsa — bir beslenme uzmanı yardımcı olabilir.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Ekran süresi: yaşa göre akıllı bir plan',
+    summary: 'Küçük yaşta ekran gerçek iletişimin yerini tutamaz. Çocuk büyüdükçe amaç yasak değil, birlikte kurulan bir aile planıdır.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Küçük çocuklar ekrandan, canlı bir insanla kıyaslandığında, çok az şey öğrenir: dil ve sosyal beceriler yüz yüze “karşılıklı etkileşimle” gelişir. Arka planda açık duran bir televizyon bile ebeveynin çocukla konuşmasını azaltır.',
+      'DSÖ (2019): 1 yaşından küçük çocuklar için ekran önerilmiyor; 2–4 yaşta günde 1 saatten fazla olmamalı, daha az olması daha iyi. Amerikan Pediatri Akademisi (2016): 18. aya kadar ekrandan (görüntülü görüşme hariç) kaçınmak, 2–5 yaşta günde 1 saate kadar kaliteli içerik ve mümkün olduğunca ebeveynle birlikte izlemek; 6 yaşından sonra ise uykuyu, hareketi ve iletişimi engellemeyen tutarlı kurallar.',
+      'Yatmadan önce ekran uykuya dalmayı geciktirir. Yemek sırasında ekran ise çocuğun tokluk sinyallerini duymasını zayıflatır.',
+    ],
+    tryToday: [
+      'Ekransız alanlar belirle: yemek masası ve yatak odası.',
+      'Ekranı yatmadan bir saat önce kapat.',
+      'Ekran süresinin bitişini önceden haber ver ve zamanlayıcı kullan: “Zamanlayıcı çalınca tablet dinlenmeye gidiyor.”',
+      'Bir kez birlikte izleyin ve konuşun: “Sence o neden böyle yaptı?” Bu, ekranı iletişime dönüştürür.',
+      'Kendi telefonunu da gözlemle: çocuk yanındayken bildirimleri kapat.',
+    ],
+    mistakes: [
+      'Ekranı öfke nöbetini durdurmanın ana aracı yapmak. Çocuk sakinleşmeyi öğrenmez.',
+      'Kuralı sadece çocuğa koymak. Çocuk ebeveynin ekran alışkanlıklarını tekrarlar.',
+      'Her ekranı “kötü” saymak. Görüntülü görüşme, birlikte izlenen eğitici içerik, yaratıcı uygulamalar farklıdır.',
+    ],
+    byAge: {
+      '0-1': 'Ekran yok, görüntülü görüşme hariç. Bebeğin en iyi “ekranı” senin yüzündür.',
+      '1-3': '2 yaşına kadar olabildiğince az. İzliyorsa kısa, yavaş tempolu ve senin yanında.',
+      '3-6': 'Günde 1 saate kadar, kaliteli, reklamsız içerik. Yemekte ve yatmadan önce değil.',
+      '6-12': 'Birlikte bir aile medya planı yazın: ders, uyku, spor, arkadaşlar önce gelir. Sosyal medya hesapları için yaş sınırlarına uy.',
+    },
+    specialist: [
+      'Ekran elinden alındığında çocuk aşırı saldırganlaşıyorsa, başka hiçbir şeyle ilgilenmiyorsa, uyku ve dersler ciddi şekilde bozulduysa — bir çocuk psikoloğuna başvur.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Tuvalet eğitimi: acele etmeden',
+    summary: 'Tuvalet eğitiminin en önemli adımı hazır olma işaretlerini beklemektir. Çoğu çocuk 2–3 yaş arasında hazır olur.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      '1960’larda çocuk doktoru Berry Brazelton “çocuk merkezli” yaklaşımı önerdi: çocuk hazır olma işaretleri gösterdiğinde, baskısız ve cezasız başlamak. Bu yaklaşım bugün de Amerikan Pediatri Akademisi önerilerinin temelidir.',
+      'Hazır olma işaretleri: 2 saat ve daha uzun süre kuru kalmak, bezin ıslak olmasından rahatsız olmak, basit yönergeleri anlamak, pantolonunu indirip çekebilmek, tuvalete ilgi göstermek. Gece kuruluğu daha geç gelir: 5–6 yaşına kadar gece altını ıslatmak normaldir.',
+    ],
+    tryToday: [
+      'Hazır olma işaretlerini kontrol et. Henüz yoksa bekle, bu normal.',
+      'Lazımlığı ya da klozet adaptörünü çocuk kendisi seçsin. Önce giyinik oturup kitap okusun.',
+      'Yemekten ve uykudan sonra kısa bir “tuvalet zamanı” koy, sonuç ne olursa olsun teşekkür et.',
+      'Kazaları sakin karşıla: “Olur böyle. Gel, birlikte temizleyelim.”',
+    ],
+    mistakes: [
+      'Cezalandırmak, utandırmak, başka çocuklarla kıyaslamak. Bu, kabızlığa ve tuvalet korkusuna yol açabilir.',
+      'Büyük değişiklikler (yeni kardeş, taşınma, kreşe başlama) sırasında başlamak.',
+      'Uzun süre oturmaya zorlamak.',
+    ],
+    byAge: {
+      '1-3': 'Oyuncakla “tuvalet oyunu” oynayın, kitaplar okuyun. Başlamak için acele etme.',
+      '3-6': 'Kazalar normaldir, özellikle oyuna dalınca. Gece bezi bir süre daha kalabilir.',
+    },
+    specialist: [
+      'Ağrılı ya da çok seyrek dışkılama (kabızlık), idrar yaparken ağrı ya da yanma, 4 yaşından sonra gündüz sık kazalar.',
+      'Uzun süre kuru kaldıktan sonra yeniden gündüz ya da gece ıslatma başladıysa — doktora başvur.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'Sabah telaşı: bağırmadan çıkış',
+    summary: 'Sabah çatışmalarının çoğu akşamdan çözülür. Hazırlık, resimli bir plan ve biraz yedek zaman mucize yaratır.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Aceleli ve gergin anlarda hem ebeveynin hem çocuğun yürütücü işlevleri — planlama, akılda tutma, sabır — zayıflar. Bu yüzden sabah kuralları sözle değil, gözle görülen bir çizelgeyle daha iyi işler.',
+      'Çocuğa kontrol duygusu veren rutinler (kendi işaretlediği adımlar) iş birliğini artırır ve tekrar tekrar hatırlatma ihtiyacını azaltır.',
+    ],
+    tryToday: [
+      'Kıyafeti, çantayı ve ayakkabıyı akşamdan hazırla. Kıyafetini çocuk kendisi seçsin.',
+      'Sabah adımları için resimli bir kart hazırlayın: kalk → tuvalet → giyin → kahvaltı → diş → ayakkabı.',
+      '15 dakika yedek zaman koy: çıkış saatini kendin için erken yaz.',
+      'Sabah ekransız olsun, en azından hazır olana kadar.',
+    ],
+    mistakes: [
+      'Aynı şeyi onlarca kez tekrarlamak. Bir kez söyle, sonra kartı işaret et.',
+      '“Böylesi daha hızlı” diye her şeyi çocuğun yerine yapmak.',
+    ],
+    specialist: [
+      'Çocuk her sabah karın ya da baş ağrısından şikâyet ediyorsa, kreşe ya da okula gitmeyi ısrarla reddediyorsa — bir doktor ya da psikologla konuş.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '“Karşılıklı etkileşim”: dilin ve beynin sırrı',
+    summary: 'Çocuk bir sinyal “atar” — bakış, ses, jest — sen de “geri atarsın”. Bu basit oyun beynin mimarisini inşa eder.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Harvard Üniversitesi Çocuk Gelişimi Merkezi bu karşılıklı iletişimi tenis maçına benzetir: bebek ses çıkarır, bakar, gösterir; yetişkin de karşılık verir. Bu “at-geri at” tekrarlandıkça dil, dikkat ve sosyal beceriler için sinir yolları güçlenir. Karşılıksız kalmak ise stres yaratır.',
+      'İlginç bir araştırma (Romeo ve ark., 2018), çocuğun beynindeki dil alanlarının etkinliğini sadece duyduğu kelime sayısının değil, sohbetteki karşılıklı sıra alma sayısının daha iyi açıkladığını gösterdi. Yani çok konuşmak değil, onunla konuşmak önemli.',
+    ],
+    tryToday: [
+      'Çocuğun dikkatinin nereye gittiğini takip et ve onu sözle adlandır: “Evet, köpek! Büyük, kahverengi bir köpek.”',
+      'Cevap bekle: soru sorduktan sonra 5 saniye susmak, çocuğa sırasını alması için zaman tanır.',
+      'Bebeğin seslerini taklit et ve biraz genişlet: o “ba” der, sen “ba-ba-top!”',
+      'Günlük işleri bir “spor spikeri” gibi anlat: “Patatesi yıkıyorum, şimdi doğruyorum…”',
+    ],
+    mistakes: [
+      'Konuşmayı “derse” çevirmek: “Söyle: elma! Elma de!” Baskı konuşmayı azaltır.',
+      'Çocuğun sözünü hemen düzeltmek. Bunun yerine doğru biçimi sadece tekrarla: “Köpü? Evet, büyük kahverengi köpek.”',
+      'Çocukla birlikteyken telefona bakmak. Her bildirim “geri atılmayan bir top”tur.',
+    ],
+    byAge: {
+      '0-1': 'Yüz yüze gülümse, şarkı söyle, bebeğin seslerine karşılık ver.',
+      '1-3': 'Çocuğun gösterdiği nesneyi adlandır, basit sorular sor, tek kelimesini iki kelimeye genişlet.',
+      '3-6': '“Neden?” sorularını birlikte araştırın, açık uçlu sorular sor: “Sence sonra ne olacak?”',
+    },
+    specialist: [
+      '12. ayda hiçbir jest (el sallama, gösterme) yoksa, 16–18. ayda hiç kelime yoksa, 2 yaşında iki kelimelik ifadeler yoksa — doktora ya da dil ve konuşma terapistine başvur.',
+      'Herhangi bir yaşta önceden söylediği kelimeleri kaybettiyse — bekleme, doktora başvur.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'Oyunun gücü: oyun neden “boş zaman” değildir',
+    summary: 'Serbest oyun çocuğun yürütücü işlevlerini, yaratıcılığını ve strese dayanıklılığını güçlendirir.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Amerikan Pediatri Akademisi’nin 2018 tarihli raporu (“The Power of Play”) oyunu çocuk gelişimi için bir “lüks” değil, bir zorunluluk olarak tanımlar. Oyun sırasında çocuk plan yapar, kurallara uyar, başkasıyla pazarlık eder ve hayal kırıklığına dayanmayı öğrenir.',
+      'Rol oyunları (“market”, “doktorculuk”) özellikle yürütücü işlevleri çalıştırır: çocuk rolünde kalmalı, kuralları aklında tutmalı ve kendi isteğini dizginlemelidir.',
+    ],
+    tryToday: [
+      'Günde en az bir saat yapılandırılmamış oyun zamanı ayır (yaşa göre bölünebilir).',
+      'Basit, açık uçlu oyuncaklar seç: bloklar, kutular, boyalar, kostümler. Az oyuncak daha çok yaratıcılık demektir.',
+      'Haftada bir kez açık havada serbest oyun: ağaç, kum, su, çubuklar.',
+      'Bazen oyuna “ters” bir rolle katıl: sen müşteri ol, o satıcı.',
+    ],
+    mistakes: [
+      'Her dakikayı kurslarla doldurmak. Sıkılmak yaratıcılığın başlangıcıdır.',
+      'Oyunda hep kazanmak ya da hep kaybetmek. Çocuk ikisini de öğrenmeli.',
+    ],
+    specialist: [
+      'Çocuk 2–3 yaşından sonra da rol oyunlarına hiç ilgi göstermiyorsa, oyunları çok tekrarlı ve hiç değişmiyorsa, başka çocuklarla oynamaya ilgisi yoksa — gelişim değerlendirmesi için doktora başvur.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Birlikte okumak: ilk günden',
+    summary: 'Bebeklikten itibaren birlikte kitap okumak dil, dikkat ve bağlanma için en basit ve en güçlü alışkanlıklardan biridir.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Amerikan Pediatri Akademisi (2014) çocuk doktorlarına her muayenede ebeveynlere bebeklikten itibaren kitap okumayı önermelerini tavsiye ediyor. Birlikte okumak kelime dağarcığını, dinleme becerisini ve ilerideki okuma başarısını artırır.',
+      'En çok fayda “diyaloglu okuma”dan gelir: ebeveyn soru sorar, çocuğun cevabını genişletir, resimler hakkında konuşur. Yani kitap da “karşılıklı etkileşim” için bir araçtır.',
+    ],
+    tryToday: [
+      'Günde 10–15 dakika birlikte kitap, ideal olarak uyku rutininin bir parçası olarak.',
+      'Her sayfada bir soru sor: “Sence kedi şimdi ne yapacak?”',
+      'Çocuk aynı kitabı 20 kez istiyorsa — oku. Tekrar, öğrenmenin bir yoludur.',
+      'Okul çağında sırayla okuyun: bir sayfa sen, bir sayfa o.',
+    ],
+    mistakes: [
+      'Okumayı zorunlu bir ders gibi sunmak.',
+      'Çocuk kendisi okumaya başlayınca ona sesli okumayı bırakmak. Sesli okuma 10–12 yaşına kadar da faydalıdır.',
+    ],
+    specialist: [
+      'Okul çağında okumak yaşıtlarına göre çok zor geliyorsa, harfleri sık sık karıştırıyorsa, çabalara rağmen ilerleme yoksa — öğretmen ve bir uzmanla (dil ve konuşma terapisti, psikolog) görüş.',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

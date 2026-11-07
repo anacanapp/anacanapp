@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Anknytning: barnets trygga hamn',
+    summary: 'Trygg anknytning kommer inte från ett perfekt föräldraskap, utan från ett ”tillräckligt bra”, lyhört och pålitligt föräldraskap.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby beskrev anknytning som barnets instinkt att söka närhet när det är fara. Mary Ainsworth såg i sina observationer att barn med en lyhörd och förutsägbar förälder använder föräldern som en ”trygg bas”: de utforskar lugnt, och när de blir rädda kommer de tillbaka för att lugna sig.',
+      'Trygg anknytning hänger under de följande åren ihop med bättre känsloreglering, förmåga till vänskap och självförtroende. Viktigt: det kräver inte att du svarar direkt och perfekt på varje gråt. Forskning visar att en stor del av samspelet består av stunder när man ”missar” varandra; det viktiga är att de stunderna repareras efteråt.',
+      'Anknytningen byggs inte en gång för alla: även i skolåldern behöver barnet veta att hen kan komma tillbaka till dig i svåra stunder. Nu handlar det bara mer om att lyssna och om känslan ”jag är på din sida” än om att bli buren.',
+    ],
+    tryToday: [
+      'När barnet kommer till dig (glad eller ledsen), ge hen din fulla uppmärksamhet i några sekunder: lägg ner mobilen och titta hen i ögonen.',
+      'Skapa en kort och likadan avskedsritual: en kram, ”vi ses i kväll”, och gå sedan på riktigt. Att smyga iväg skadar tilliten.',
+      'Haka på barnets intressen en gång om dagen: det hen leker med, det hen pratar om.',
+      'Reparera efteråt en stund då du blev arg: ”I morse var jag otålig. Kom, vi börjar om.”',
+    ],
+    mistakes: [
+      'Att låta bebisen gråta av rädsla för att hen ska ”vänja sig vid att bäras”. Under de första månaderna gör det inte barnet mindre självständigt att du svarar, utan tvärtom mer.',
+      'Att tolka anknytning som att ”aldrig lämna barnet”. Barn knyter också trygga band till mormor, pappa eller förskolepedagogen, och det är bra.',
+      'Att försöka vara perfekt. Barnet behöver ingen idealisk förälder, utan en uppriktig förälder som kan reparera.',
+    ],
+    byAge: {
+      '0-1': 'Svara på gråt, söka ögonkontakt, prata, sjunga. I den här åldern finns det inget som heter att skämma bort.',
+      '1-3': 'Barnet utforskar och kommer tillbaka. Att sitta på bänken i lekparken och säga ”jag är här” räcker.',
+      '3-6': '10–15 minuters särskild lektid varje dag stärker anknytningen.',
+      '6-12': 'Lyssna utan att döma. Om du finns där vid de små problemen kommer hen också till dig med de stora.',
+    },
+    specialist: [
+      'Om bebisen undviker ögonkontakt, inte visar något intresse för dig eller för bekanta personer, eller nästan inte går att trösta — kontakta läkare.',
+      'Om barnet knyter an lika starkt och utan åtskillnad till alla, även till främlingar (särskilt efter svåra första år) — vänd dig till en barnpsykolog.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'När bebisen gråter: myten om att ”skämma bort”',
+    summary: 'Gråten är bebisens enda språk. Att svara skapar inte bortskämdhet, utan tillit.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'American Academy of Pediatrics säger det tydligt: under de första månaderna går det inte att skämma bort en bebis. Att svara kärleksfullt på gråt lugnar bebisens stressystem och bygger tilliten till att ”världen är trygg”.',
+      'Samtidigt är det normalt att även friska bebisar gråter mycket under de första veckorna: gråten ökar från ungefär 2 veckors ålder, når sin topp vid 6–8 veckor och minskar vid 3–4 månader. Ibland går det inte att hitta någon orsak alls. Det är inte ditt misslyckande.',
+      'Den viktigaste säkerhetsregeln: skaka aldrig en bebis, inte ens när du är helt slut. Skakningar kan orsaka hjärnskador. Att lägga bebisen på rygg i spjälsängen och gå ut ur rummet några minuter är ett helt rätt steg.',
+    ],
+    tryToday: [
+      'Kolla grundbehoven: hunger, blöja, för varmt eller kallt, rapning, trötthet.',
+      'Testa lugnande knep: linda (med höfterna fria), vagga rytmiskt, ett ”schhh”-ljud, gå runt med bebisen i famnen, hud mot hud.',
+      'Gör en hjälpplan för gråttimmarna: turas om med din partner, mormor eller en granne.',
+      'Om tålamodet tar slut: lägg bebisen på en säker plats, andas i 5–10 minuter, drick vatten, ring någon och gå sedan tillbaka.',
+    ],
+    mistakes: [
+      'Att lämna en mycket liten bebis ensam länge med tanken ”låter man hen gråta så vänjer hen sig”.',
+      'Att koppla mycket gråt till ditt eget ”dåliga föräldraskap”. Den här perioden går över.',
+      'Att skämmas för att be om hjälp.',
+    ],
+    specialist: [
+      'Om gråten kommer tillsammans med feber (särskilt hos en bebis yngre än 3 månader), kräkningar, diarré, vägran att äta, slöhet eller ovanligt gäll gråt — kontakta läkare direkt. Är det allvarligt, ring {emergency}.',
+      'Om du får tankar på att skaka bebisen eller skada hen, be om hjälp direkt. Det gör dig inte till en dålig människa; det visar att din trötthet har nått sin gräns.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: '10 minuter om dagen: särskild tid',
+    summary: 'En kort daglig lekstund där barnet bestämmer är ett av de mest kraftfulla sätten att minska beteendeproblem.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Första fasen i PCIT (Parent-Child Interaction Therapy), ett av de mest beforskade föräldraprogrammen, bygger just på detta: 5–10 minuter om dagen av lek där barnet bestämmer, medan föräldern berömmer, beskriver och härmar. Metaanalyser visar att sådana program minskar beteendeproblem märkbart.',
+      'Orsaken är enkel: när barnets behov av uppmärksamhet tillgodoses på ett positivt sätt minskar behovet att ”förtjäna” uppmärksamhet genom negativt beteende.',
+    ],
+    tryToday: [
+      'Ställ in en timer: 10 minuter. Mobilen i ett annat rum.',
+      'Barnet väljer leken, du följer. Inga order, ingen störtskur av frågor, ingen kritik.',
+      'Beskriv vad barnet gör: ”Du lade den röda klossen högst upp.” Härma och beröm: ”Vad noggrant du bygger!”',
+      'Säg när ni är klara: ”Det var jätteroligt att leka med dig. I morgon igen.”',
+    ],
+    mistakes: [
+      'Att ställa in den särskilda tiden på grund av dåligt beteende. Det är inget straff eller belöning, utan en daglig vitamin.',
+      'Att göra leken till en ”lektion”: ”Vilken färg är det här? Hur många klossar finns det?”',
+    ],
+    byAge: {
+      '1-3': '5 minuter räcker. Sätt dig på golvet, på barnets nivå.',
+      '6-12': 'Ge tiden ett namn: ”mamma-sontid” eller ”pappa-dottertid”. Det kan vara ett kortspel, att laga mat tillsammans, en promenad.',
+    },
+    specialist: [
+      'Om särskild tid och andra metoder inte ger någon förändring alls efter några veckor och beteendeproblemen är svåra — vänd dig till en specialist för PCIT eller liknande program.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Separationsångest och inskolning',
+    summary: 'Att gråta vid avsked är ett tecken på anknytning. Ett kort, uppriktigt avsked och en förutsägbar återkomst gör inskolningen lättare.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'Separationsångest börjar runt 8–10 månader, når sin topp vid 15–18 månader och mildras oftast mot 3 års ålder. Det är en period då barnet ännu inte helt förstår att föräldern inte ”försvinner”.',
+      'Det som mest ökar barnets oro är oförutsägbarhet. Att smyga iväg kan minska tårarna för stunden, men leder på lång sikt till att barnet klänger sig fast mer.',
+    ],
+    tryToday: [
+      'Skapa en kort och likadan avskedsritual: kram, puss, ”jag kommer efter lunchen”, och gå sedan.',
+      'Öva med korta provseparationer innan förskolan börjar: 15 minuter, sedan 1 timme.',
+      'Koppla din återkomst till något barnet förstår: ”Efter vilan, efter mellanmålet kommer jag.”',
+      'Ett ”övergångsobjekt” hemifrån — en liten leksak, ett foto av dig — kan trösta.',
+    ],
+    mistakes: [
+      'Att inte kunna gå från ett gråtande barn och vända tillbaka i dörren gång på gång.',
+      'Att skratta åt barnets rädsla eller säga ”du är stor nu, fy skäms”.',
+    ],
+    specialist: [
+      'Om separationsångesten är mycket starkare än vad som passar åldern, stör sömn, mat och förskolegång i veckor, eller har börjat igen i skolåldern — vänd dig till en barnpsykolog.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Läggningsrutin: samma tre steg varje kväll',
+    summary: 'En enkel rutin som upprepas varje kväll hjälper barnet att somna snabbare och vakna mindre på natten.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'I en randomiserad studie (Mindell med kollegor, 2009) ledde en kvällsrutin i 3 steg — bad, massage eller kräm, en lugn aktivitet (mys, vaggvisa) — på bara två veckor till att barnen somnade snabbare och vaknade mindre på natten, och att mammornas humör blev bättre. Senare översikter visade att kvällsrutiner också hänger ihop med språkutveckling och känsloreglering.',
+      'Rekommenderad sömn per ålder (inklusive tupplurar): 4–12 månader — 12–16 timmar, 1–2 år — 11–14 timmar, 3–5 år — 10–13 timmar, 6–12 år — 9–12 timmar. Sömnbrist syns hos barn ofta inte som trötthet utan som irritation och överaktivitet.',
+      'För bebisar är reglerna för säker sömn viktiga: på rygg, på en fast och plan madrass, utan kudde och täcke, helst i samma rum som föräldrarna men i en egen säng.',
+    ],
+    tryToday: [
+      'Börja med en rutin i kväll: till exempel bad → pyjamas och tandborstning → bok och vaggvisa. Samma ordning varje kväll, ungefär vid samma tid.',
+      'Stäng av skärmarna och dämpa belysningen en timme före rutinen.',
+      'Gör ett bildschema för rutinen tillsammans och låt barnet själv ”bocka av” varje steg.',
+      'Låt inte rutinen ta mer än 20–30 minuter. Ju längre den blir, desto mer försöker barnet dra ut på den.',
+    ],
+    mistakes: [
+      'Olika tid och olika ordning varje kväll. Hjärnan letar efter förutsägbara signaler.',
+      'Vild lek, skärmar eller skrik precis före läggdags.',
+      'Att se sömnmetoder som ”obligatoriska”. Sitta bredvid, samsova eller inte, gradvis dra sig undan — välj det som passar er familj. Ingen metod är nödvändig för alla.',
+    ],
+    byAge: {
+      '0-1': 'Håll rutinen kort: bad, mat, vaggvisa. Du kan prova att lägga bebisen sömnig men vaken i sängen, men oroa dig inte om det inte går.',
+      '1-3': 'Ge val: ”Ska vi läsa den här boken eller den där?” Läggdags förhandlas inte, men boken får väljas.',
+      '3-6': 'Frågorna för att ”dra ut på” läggningen börjar. Bygg in en stund för ”sista frågan” eller ”sista kramen” i rutinen.',
+      '6-12': 'Låt inte mobil, surfplatta och tv stå i sovrummet. Planera sovtiden tillsammans, ihop med läxor och idrott.',
+    },
+    specialist: [
+      'Om barnet snarkar, har andningsuppehåll eller andas med öppen mun i sömnen och är väldigt sömnigt på dagen — kontakta läkare.',
+      'Om sömnproblemen håller i sig mer än några veckor och allvarligt stör familjens vardag.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Nattliga uppvaknanden och nattskräck',
+    summary: 'Mardrömmar och nattskräck är olika saker. De behöver olika bemötande.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Mardrömmar kommer under nattens andra halva, i drömsömnen. Barnet vaknar, säger att hen är rädd, känner igen dig och behöver tröst.',
+      'Nattskräck (pavor nocturnus) kommer oftast 1–3 timmar efter insomnandet, i den djupa sömnen. Barnet kan skrika och ha ögonen öppna, men är egentligen inte vaket, känner inte igen dig och minns ingenting på morgonen. Det är vanligt mellan 3 och 7 år och oftast ofarligt.',
+    ],
+    tryToday: [
+      'Efter en mardröm: krama barnet, trösta kort, tänd lite ljus. Låt inte barnet berätta mardrömmen i detalj på natten; prata om den i morgon.',
+      'Vid nattskräck: försök inte väcka barnet, se bara till att hen är säker och var lugnt bredvid. När episoden är över sover hen vidare.',
+      'Sömnbrist förvärrar nattskräck: prova att tidigarelägga läggdags med 20–30 minuter.',
+      'Prata om rädslor på dagen genom lek: rita en ”monsterbok” tillsammans och gör monstren roliga.',
+    ],
+    mistakes: [
+      'Att skaka barnet för att väcka hen under nattskräck.',
+      'Att göra narr av rädslan: ”Monster finns inte, var inte dum.”',
+    ],
+    specialist: [
+      'Om episoderna kommer mycket ofta (flera gånger i veckan), varar längre än 30 minuter, om det finns ovanliga rörelser (rytmiska ryckningar, att barnet kissar på sig) eller om de gör barnet sömnigt på dagen — kontakta läkare.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Selektivt ätande: vem ansvarar för vad?',
+    summary: 'Föräldern bestämmer vad, när och var man äter; barnet bestämmer hur mycket och om hen äter. Den ansvarsfördelningen gör slut på matbråken.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Att undvika ny mat (matneofobi) är mycket vanligt mellan 2 och 6 år och är logiskt ur ett evolutionärt perspektiv: det skyddar ett litet barn mot okänd, möjligen farlig mat. Oftast är det en övergående fas.',
+      'Forskning visar att tvinga barnet att äta, säga ”en tugga till” och belöna med godis har motsatt effekt: motviljan mot maten ökar och barnet blir sämre på att höra sina hunger- och mättnadssignaler. Upprepade erbjudanden utan press — ofta 10–15 gånger — ökar i stället acceptansen.',
+      'Dietisten Ellyn Satters modell om ”ansvarsfördelning” gör om den här kunskapen till en praktisk regel: föräldern väljer meny, tid och plats, barnet väljer hur mycket hen äter.',
+    ],
+    tryToday: [
+      'Se till att det vid varje måltid finns minst en ”säker” maträtt som barnet tycker om, och bredvid en liten bit av något nytt.',
+      'Servera den nya maten utan kommentarer. Äter barnet den inte, säg ingenting. I morgon och i övermorgon igen.',
+      'Ät tillsammans som familj, utan skärmar. Barnet behöver se att du äter med aptit.',
+      'Ta med barnet i köket: låt hen skölja grönsaker eller blanda salladen. Det hen har lagat själv smakar hen oftare på.',
+      'Bestäm tider för måltider och mellanmål, utan ”småätande” däremellan.',
+    ],
+    mistakes: [
+      'Att tvinga, muta (”ät broccolin så får du choklad”) eller straffa.',
+      'Att laga en egen ”restaurangmeny” åt barnet vid varje måltid.',
+      'Att kräva att tallriken ska ätas upp. Barnet behöver lära sig höra sin mättnadskänsla.',
+    ],
+    byAge: {
+      '1-3': 'Fingermat, små portioner, låt barnet äta själv. Att kladda är en del av lärandet.',
+      '3-6': '”Smakregeln”: att smaka är inte obligatoriskt, men att titta på, lukta på och röra den nya maten kan vara en lek.',
+      '6-12': 'Låt barnet vara med och planera menyn: en gång i veckan får hen välja en ny grönsak.',
+    },
+    specialist: [
+      'Om barnet går ner i vikt, halkar efter på sin tillväxtkurva, äter väldigt få olika livsmedel (till exempel färre än 15), eller kväljs, sätter i halsen eller har ont när hen äter — kontakta läkare.',
+      'Om det finns stark panik inför mat, kräkningar eller total vägran av vissa konsistenser — en specialist på barns ätande kan hjälpa.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Skärmtid: en smart plan för varje ålder',
+    summary: 'I tidig ålder kan en skärm inte ersätta verkligt samspel. När barnet växer är målet inte förbud, utan en familjeplan som ni gör tillsammans.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Små barn lär sig mycket mindre från en skärm än från en levande människa: språk och sociala förmågor byggs i turtagning ansikte mot ansikte. Till och med en tv som står på i bakgrunden minskar hur mycket föräldern pratar med barnet.',
+      'WHO (2019): för barn under 1 år rekommenderas ingen skärmtid; vid 2–4 år högst 1 timme om dagen, och mindre är bättre. American Academy of Pediatrics (2016): undvik skärmar fram till 18 månader (videosamtal undantagna), vid 2–5 år upp till 1 timme om dagen med innehåll av god kvalitet och helst tillsammans med en förälder; efter 6 år fasta regler som inte tränger undan sömn, rörelse och samvaro.',
+      'Skärmar före läggdags fördröjer insomningen. Skärmar vid maten gör att barnet hör sina mättnadssignaler sämre.',
+    ],
+    tryToday: [
+      'Bestäm skärmfria zoner: matbordet och sovrummet.',
+      'Stäng av skärmen en timme före läggdags.',
+      'Förvarna om när skärmtiden tar slut och använd en timer: ”När timern ringer går surfplattan och vilar.”',
+      'Titta tillsammans någon gång och prata om det: ”Varför tror du att hen gjorde så?” Då blir skärmen en stund av samvaro.',
+      'Håll också koll på din egen mobil: stäng av notiserna när barnet är med dig.',
+    ],
+    mistakes: [
+      'Att använda skärmen som huvudverktyg för att stoppa utbrott. Barnet lär sig inte att lugna sig.',
+      'Att bara sätta regler för barnet. Barn tar efter föräldrarnas skärmvanor.',
+      'Att se alla skärmar som ”dåliga”. Videosamtal, pedagogiskt innehåll som ni tittar på tillsammans och kreativa appar är något annat.',
+    ],
+    byAge: {
+      '0-1': 'Ingen skärm, förutom videosamtal. Bebisens bästa ”skärm” är ditt ansikte.',
+      '1-3': 'Så lite som möjligt fram till 2 år. Om barnet tittar: kort, lugnt tempo och med dig bredvid.',
+      '3-6': 'Upp till 1 timme om dagen, bra innehåll utan reklam. Inte vid maten och inte före läggdags.',
+      '6-12': 'Skriv en mediaplan för familjen tillsammans: skola, sömn, idrott och kompisar går först. Följ åldersgränserna för sociala medier.',
+    },
+    specialist: [
+      'Om barnet blir extremt aggressivt när skärmen tas ifrån hen, inte intresserar sig för något annat eller om sömn och skola är allvarligt störda — vänd dig till en barnpsykolog.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Potträning: utan brådska',
+    summary: 'Det viktigaste steget i potträningen är att vänta på tecken på att barnet är redo. De flesta barn är redo mellan 2 och 3 år.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'På 1960-talet föreslog barnläkaren T. Berry Brazelton ett ”barncentrerat” förhållningssätt: att börja när barnet visar tecken på att vara redo, utan press och utan straff. Det förhållningssättet är fortfarande grunden för rekommendationerna från American Academy of Pediatrics.',
+      'Tecken på att barnet är redo: att hålla sig torr i 2 timmar eller mer, att tycka det är obehagligt med blöt blöja, att förstå enkla uppmaningar, att kunna dra upp och ner byxorna, att visa intresse för toaletten. Att vara torr på natten kommer senare: att kissa på sig på natten är normalt upp till 5–6 år.',
+    ],
+    tryToday: [
+      'Titta efter tecken på att barnet är redo. Finns de inte än, vänta; det är normalt.',
+      'Låt barnet själv välja potta eller toalettsits. Låt hen först sitta på den med kläderna på och läsa en bok.',
+      'Lägg in en kort ”toastund” efter maten och efter sömnen, och tacka barnet oavsett resultat.',
+      'Ta olyckor med lugn: ”Det händer. Kom, vi torkar upp tillsammans.”',
+    ],
+    mistakes: [
+      'Att straffa, skämma ut eller jämföra med andra barn. Det kan leda till förstoppning och rädsla för toaletten.',
+      'Att börja under stora förändringar (ett nytt syskon, en flytt, förskolestart).',
+      'Att tvinga barnet att sitta länge.',
+    ],
+    byAge: {
+      '1-3': 'Lek ”gå på toa” med ett gosedjur och läs böcker. Stressa inte för att komma igång.',
+      '3-6': 'Olyckor är normala, särskilt när barnet är uppslukat av leken. Nattblöjan kan få sitta kvar ett tag till.',
+    },
+    specialist: [
+      'Smärtsam eller mycket sällan förekommande avföring (förstoppning), smärta eller sveda när barnet kissar, täta olyckor på dagen efter 4 års ålder.',
+      'Om barnet efter att länge ha varit torrt börjar kissa på sig igen på dagen eller natten — kontakta läkare.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'Morgonstress: ut genom dörren utan skrik',
+    summary: 'De flesta morgonkonflikter löses kvällen innan. Förberedelser, ett bildschema och lite marginal gör underverk.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'I stressade och spända stunder försvagas både förälderns och barnets exekutiva funktioner — planering, minne, tålamod. Därför fungerar morgonregler bättre med ett schema man kan se än med ord.',
+      'Rutiner som ger barnet en känsla av kontroll (steg som hen själv bockar av) ökar samarbetet och minskar behovet av tjat.',
+    ],
+    tryToday: [
+      'Lägg fram kläder, väska och skor kvällen innan. Låt barnet välja kläderna själv.',
+      'Gör ett bildkort för morgonens steg: gå upp → toa → klä på sig → frukost → borsta tänderna → skor.',
+      'Lägg in 15 minuters marginal: sätt en tidigare avgångstid för dig själv.',
+      'Låt morgonen vara skärmfri, åtminstone tills alla är klara.',
+    ],
+    mistakes: [
+      'Att upprepa samma sak tiotals gånger. Säg det en gång och peka sedan på kortet.',
+      'Att göra allt åt barnet för att ”det går snabbare så”.',
+    ],
+    specialist: [
+      'Om barnet varje morgon klagar på ont i magen eller huvudet och envist vägrar gå till förskolan eller skolan — prata med en läkare eller psykolog.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '”Serve and return”: hemligheten bakom språk och hjärna',
+    summary: 'Barnet ”servar” en signal — en blick, ett ljud, en gest — och du ”slår tillbaka”. Den här enkla leken bygger hjärnans arkitektur.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Center on the Developing Child vid Harvard University jämför det här samspelet med tennis: bebisen jollrar, tittar, pekar; den vuxna svarar. Ju oftare det fram och tillbaka upprepas, desto starkare blir nervbanorna för språk, uppmärksamhet och sociala förmågor. Att inte få något svar skapar i stället stress.',
+      'En intressant studie (Romeo med kollegor, 2018) visade att aktiviteten i språkområdena i barnets hjärna förklaras bättre av antalet turtagningar i samtalet än av antalet ord barnet hör. Det viktiga är alltså inte att prata mycket till barnet, utan att prata med barnet.',
+    ],
+    tryToday: [
+      'Följ vart barnets uppmärksamhet går och sätt ord på det: ”Ja, en hund! En stor, brun hund.”',
+      'Vänta på svar: att vara tyst i 5 sekunder efter en fråga ger barnet tid att ta sin tur.',
+      'Härma bebisens ljud och bygg ut dem lite: hen säger ”ba”, du säger ”ba-ba-boll!”',
+      'Berätta om vardagssysslorna som en ”sportkommentator”: ”Jag sköljer potatisen, nu skär jag den…”',
+    ],
+    mistakes: [
+      'Att göra pratandet till en ”lektion”: ”Säg: äpple! Säg äpple!” Press gör att barnet pratar mindre.',
+      'Att genast rätta barnets ord. Upprepa i stället bara den rätta formen: ”Nalle? Ja, en röd, mjuk nalle.”',
+      'Att titta i mobilen när du är med barnet. Varje notis är en ”boll som inte slås tillbaka”.',
+    ],
+    byAge: {
+      '0-1': 'Ansikte mot ansikte: le, sjung, svara på bebisens ljud.',
+      '1-3': 'Benämn saken barnet pekar på, ställ enkla frågor, bygg ut ett ord till två ord.',
+      '3-6': 'Utforska ”varför?”-frågorna tillsammans och ställ öppna frågor: ”Vad tror du händer sedan?”',
+    },
+    specialist: [
+      'Om det vid 12 månader inte finns några gester (vinka, peka), vid 16–18 månader inga ord eller vid 2 år inga tvåordsfraser — kontakta läkare eller logoped.',
+      'Om barnet i någon ålder har tappat ord hen redan sade — vänta inte, kontakta läkare.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'Lekens kraft: varför lek inte är ”fritid”',
+    summary: 'Fri lek stärker barnets exekutiva funktioner, kreativitet och stresstålighet.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'American Academy of Pediatrics rapport från 2018 (”The Power of Play”) kallar leken inte en ”lyx” utan en nödvändighet för barns utveckling. Under leken planerar barnet, följer regler, förhandlar med andra och lär sig att stå ut med besvikelse.',
+      'Rollekar (”affär”, ”doktor”) tränar särskilt de exekutiva funktionerna: barnet måste stanna i sin roll, komma ihåg reglerna och hålla tillbaka sina egna impulser.',
+    ],
+    tryToday: [
+      'Avsätt minst en timme ostrukturerad lektid varje dag (beroende på ålder kan den delas upp).',
+      'Välj enkla, öppna leksaker: klossar, kartonger, färger, utklädningskläder. Färre leksaker betyder mer kreativitet.',
+      'En gång i veckan fri lek utomhus: träd, sand, vatten, pinnar.',
+      'Var ibland med i leken i en ”omvänd” roll: du är kund, barnet är försäljare.',
+    ],
+    mistakes: [
+      'Att fylla varje minut med aktiviteter. Tristess är början på kreativitet.',
+      'Att alltid vinna eller alltid förlora i spel. Barnet behöver lära sig båda.',
+    ],
+    specialist: [
+      'Om barnet efter 2–3 års ålder inte visar något intresse alls för låtsaslek, om leken är mycket upprepande och oföränderlig eller om hen inte är intresserad av att leka med andra barn — kontakta läkare för en utvecklingsbedömning.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Läsa tillsammans: från första dagen',
+    summary: 'Att läsa böcker tillsammans från bebistiden är en av de enklaste och mest kraftfulla vanorna för språk, uppmärksamhet och anknytning.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'American Academy of Pediatrics (2014) rekommenderar barnläkare att vid varje besök uppmana föräldrar att läsa högt från bebistiden. Att läsa tillsammans ökar ordförrådet, förmågan att lyssna och den senare läsförmågan.',
+      'Störst nytta ger ”dialogisk läsning”: föräldern ställer frågor, bygger ut barnets svar och pratar om bilderna. En bok är alltså också ett verktyg för ”serve and return”.',
+    ],
+    tryToday: [
+      '10–15 minuter med en bok tillsammans varje dag, helst som en del av läggningsrutinen.',
+      'Ställ en fråga på varje sida: ”Vad tror du katten gör nu?”',
+      'Vill barnet höra samma bok 20 gånger — läs den. Upprepning är ett sätt att lära sig.',
+      'I skolåldern kan ni turas om att läsa: du en sida, barnet en sida.',
+    ],
+    mistakes: [
+      'Att presentera läsning som en obligatorisk lektion.',
+      'Att sluta läsa högt när barnet själv börjar läsa. Högläsning är nyttig ända upp till 10–12 år.',
+    ],
+    specialist: [
+      'Om läsningen i skolåldern går mycket trögare än för jämnåriga, barnet ofta blandar ihop bokstäver eller inte kommer framåt trots ansträngning — rådgör med läraren och en specialist (logoped, psykolog).',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

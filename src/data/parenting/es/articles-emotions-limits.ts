@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Rabietas: ¿qué pasa en el cerebro?',
+    summary: 'Una rabieta no es fruto de una mala crianza. Es el momento en que una emoción grande desborda un “sistema de frenos” que todavía es pequeño.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'El sistema emocional, situado en las capas profundas del cerebro, es potente desde el nacimiento: percibe en un instante el peligro, la frustración o la rabia. En cambio, la corteza prefrontal, la que frena esas emociones y dice “espera, hay otra manera”, no termina de madurar hasta pasados los 20 años. Entre los 2 y los 4 años esta diferencia es máxima. Por eso, en plena rabieta tu hijo no te oye ni responde a razones: la parte “pensante” de su cerebro está temporalmente desconectada.',
+      'En ese momento no puede calmarse solo: “toma prestada” la calma de tu cuerpo y de tu voz. Los investigadores lo llaman corregulación. Mientras tú te mantienes en calma, su sistema de estrés vuelve antes a la normalidad y, a fuerza de repetirlo, aprende e interioriza ese camino para calmarse. Gritar y castigar, en cambio, aumenta las hormonas del estrés y alarga la rabieta.',
+      'Las rabietas suelen aparecer en los mismos momentos: cansancio, hambre, transiciones (dejar el juego, salir del parque) o un “no” por respuesta. Anticipar esos momentos puede evitar más de la mitad de las rabietas.',
+    ],
+    tryToday: [
+      'Primero cálmate tú: respira hondo una vez, suelta los hombros, baja la voz. Si tú no estás en calma, él tampoco podrá estarlo.',
+      'Habla poco. Bastan una o dos frases cortas: “Estás muy enojado. Estoy aquí.”',
+      'Cuida la seguridad: si pega, sujétale la mano con suavidad y aparta los objetos con los que podría hacerse daño.',
+      'Cuando se calme, abrázalo y solo después habla brevemente: “Te enojaste mucho porque se acabó el juego. La próxima vez puedes decir “ayúdame”.”',
+      'Esta semana apunta cuándo ocurren las rabietas. Lo más probable es que coincidan con las horas de cansancio y de hambre.',
+    ],
+    mistakes: [
+      'Dar largas explicaciones o sermones durante la rabieta. Su cerebro todavía no está en modo de escucha: primero calma, después conversación.',
+      'Darle lo que quiere para que pare la rabieta. Eso significa una rabieta más fuerte la próxima vez. Muestra empatía con la emoción, pero mantén tu decisión.',
+      'Avergonzarlo: “Qué vergüenza, todo el mundo te está mirando.” La vergüenza no enseña a gestionar las emociones, solo a esconderlas.',
+      'Ver la rabieta como “manipulación”. En un niño pequeño se trata sobre todo de falta de habilidad, no de una estrategia.',
+    ],
+    byAge: {
+      '1-3': 'Tiene pocas palabras, así que ponle tú nombre a la emoción y muéstrale una alternativa sencilla: “Estás enojado. ¡Pisa fuerte, así!” A esta edad, distraer funciona muy bien.',
+      '3-6': 'En un momento tranquilo, preparen juntos un “plan para el enojo”: respirar, apretar un cojín, ir a un rincón tranquilo. Pónganlo con dibujos en la pared y, cuando empiece la rabieta, limítate a señalarlo.',
+    },
+    specialist: [
+      'Si las rabietas duran con frecuencia más de 25 minutos o hay más de cinco al día.',
+      'Si durante la rabieta se hace daño serio (se golpea la cabeza, se muerde) o contiene la respiración hasta perder el conocimiento: llévalo al médico.',
+      'Si después de los 4–5 años las rabietas aumentan en lugar de disminuir, o si también hay otras preocupaciones con el lenguaje, el sueño o la comunicación.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Educación emocional: ponerle nombre a lo que siente',
+    summary: 'Ver las emociones y ponerles nombre fortalece el autocontrol del niño. Eso no significa permitirlo todo.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'En los años 90, el psicólogo John Gottman observó a muchas familias y vio que los padres responden a las emociones de sus hijos de cuatro maneras distintas: los que descartan la emoción (“No llores, no es para tanto”), los que la castigan, los que lo permiten todo y los “entrenadores emocionales”. El padre o la madre entrenador se toma la emoción en serio, le pone nombre y busca soluciones junto con el niño, pero pone límites a la conducta.',
+      'Los hijos de padres entrenadores emocionales mantenían mejor la atención en los años siguientes, tenían menos conflictos con sus amigos y se recuperaban antes del estrés. Programas posteriores (por ejemplo, “Tuning in to Kids”) demostraron que cualquier madre o padre puede aprender esta habilidad.',
+      'Los estudios del cerebro muestran además algo curioso: ponerle nombre a una emoción (“estoy enojado”, “tengo miedo”) reduce la actividad del centro emocional. Es decir, “nómbralo para domarlo” no es solo una frase bonita.',
+    ],
+    tryToday: [
+      'Hoy, tres veces, di en voz alta lo que crees que siente, como si hablaras por él: “Parece que te has llevado una gran decepción.” Si no aciertas, no pasa nada: te corregirá.',
+      'Permite la emoción, pon límite a la conducta: “Puedes enojarte. No puedes pegar.”',
+      'Al leer un cuento, fíjense en las caras de los personajes: “¿Qué crees que siente ahora?”',
+      'Expresa también tus emociones con calma: “Necesito un respiro, así que voy a tomarme un té en silencio.” Tu hijo te imita a ti más que a nadie.',
+    ],
+    mistakes: [
+      'Decir “no llores”, “no hay nada que temer”, “eso es una tontería”. La emoción no desaparece: el niño solo aprende a no mostrártela.',
+      'Pensar que la empatía anula el “no”. Es perfectamente posible decir: “Entiendo que lo querías mucho. La respuesta sigue siendo no.”',
+      'Hablar de emociones solo en los momentos difíciles. El mejor entrenamiento ocurre en los momentos tranquilos, a través del juego y los cuentos.',
+    ],
+    byAge: {
+      '1-3': 'Palabras sencillas: alegría, enojo, tristeza, miedo. Imiten juntos caras de emociones frente al espejo.',
+      '3-6': 'Dibujen un “termómetro” de emociones: verde, estoy tranquilo; amarillo, me estoy enojando; rojo, ¡voy a explotar! Que el niño señale el color.',
+      '6-12': 'Enséñale palabras más finas: decepción, vergüenza, celos, preocupación. Pregúntale en qué parte del cuerpo siente la emoción.',
+    },
+    specialist: [
+      'Si durante mucho tiempo casi no muestra ninguna emoción, o si cualquier cosa pequeña lo desborda durante horas.',
+      'Si la tristeza, el miedo o la rabia duran más de dos semanas y afectan al sueño, la comida, el colegio o las amistades: consulta con un psicólogo infantil.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Rincón de la calma y juegos de respiración',
+    summary: 'A un niño se le puede enseñar a calmarse, pero no con un rincón de castigo, sino con un lugar acogedor y con juegos.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'La capacidad de autorregularse se forma primero junto a los padres y después, poco a poco, de forma autónoma. Cuantas más veces se ha calmado tu hijo junto a un adulto tranquilo, mejor aprende ese camino.',
+      'Respirar despacio y hondo (sobre todo con exhalaciones largas) ralentiza el ritmo cardíaco y desactiva el modo de “peligro” del cuerpo. Los niños lo aprenden mucho mejor jugando que con instrucciones.',
+    ],
+    tryToday: [
+      'Monten juntos en casa un pequeño “rincón de la calma”: un cojín, un peluche, uno o dos libros, tarjetas de emociones. No es un lugar de castigo, sino un sitio al que se puede ir en cualquier momento.',
+      'Juego de “la flor y la vela”: huele la flor (inspira por la nariz) y apaga la vela (suelta el aire despacio por la boca). Cinco veces.',
+      'Practiquen juntos en un momento tranquilo: “¿Cómo se pone nuestro cuerpo cuando estamos enojados? Vamos a respirar ahora que estamos tranquilos para acordarnos cuando lo necesitemos.”',
+      'Con un niño pequeño, vayan al rincón juntos: “Ven, vamos juntos al rincón de la calma.”',
+    ],
+    mistakes: [
+      'Usar el rincón como castigo: “¡Vete al rincón!” Entonces el niño evitará ir allí.',
+      'Intentar enseñar la respiración por primera vez en plena rabieta. Las habilidades se aprenden en calma.',
+      'Esperar que se calme “ya mismo”. Una emoción grande puede tardar 10–20 minutos en apagarse.',
+    ],
+    byAge: {
+      '3-6': 'Funciona muy bien ponerle un peluche sobre la barriga y jugar a “mecer el peluche con la respiración”.',
+      '6-12': 'Que escriba su propia lista para calmarse: música, dibujar, caminar, beber agua. Cumple más lo que ha elegido él mismo.',
+    },
+    specialist: [
+      'Si casi nunca consigue calmarse o si en los momentos de rabia tiene conductas peligrosas: consulta con un psicólogo infantil.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Las grandes emociones del niño en edad escolar',
+    summary: 'Rabia, vergüenza, celos, decepción: en la edad escolar las emociones se vuelven más complejas y el niño necesita entenderlas.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'En edad escolar el niño ya sabe esconder lo que siente, por eso las grandes emociones suelen estallar en casa, junto a la persona más segura: tú. La irritabilidad después del colegio muchas veces es el cansancio de haberse “contenido” todo el día.',
+      'A esta edad empiezan las comparaciones sociales. La vergüenza y la sensación de “soy malo” pueden parecer rabia. Cuanto mejor sabe nombrar lo que siente, más fácil le resulta gestionarlo.',
+    ],
+    tryToday: [
+      'Justo después del colegio, no lo bombardees a preguntas. Primero algo de comer, silencio o un abrazo; la charla, después.',
+      'Practiquen juntos la frase “emoción + necesidad”: “Me siento … porque … . Necesito … .”',
+      'Cuéntale una historia parecida de tu infancia: “A mí también me dio mucha vergüenza algo así cuando tenía 9 años…”',
+      'Después de un estallido, analícenlo sin culpar: “¿Qué pasó? ¿Qué sentiste en el cuerpo? ¿Qué te ayudaría la próxima vez?”',
+    ],
+    mistakes: [
+      'Quitarle importancia: “No es para llorar por eso.” Para él, sí es algo grande.',
+      'Ofrecer soluciones enseguida. A veces solo quiere sentirse escuchado.',
+      'Considerar que la rabia “no queda bien” en las niñas o la tristeza en los niños. Todas las emociones son normales en cualquier niño.',
+    ],
+    specialist: [
+      'Más de dos semanas de tristeza, pérdida de interés, cambios en el sueño y el apetito, o rechazo a ir al colegio.',
+      'Si se autolesiona o habla de la muerte: busca ayuda profesional de inmediato y, si hay peligro, llama al {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Quejidos y lloriqueos',
+    summary: 'El lloriqueo saca de quicio, pero muchas veces es señal de cansancio o de necesidad de atención.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Los niños aprenden rápido qué conductas funcionan. Si lloriquear acaba consiguiéndole lo que quiere, seguirá haciéndolo. La atención —incluso la atención negativa— refuerza la conducta.',
+      'Al mismo tiempo, el lloriqueo suele ser señal de hambre, cansancio o de haber pasado mucho rato sin atención. Responder a la causa reduce la conducta rápidamente.',
+    ],
+    tryToday: [
+      'En un momento tranquilo, jueguen a la “voz fuerte”: digan la misma petición con voz quejosa y con voz normal, y ríanse juntos.',
+      'Cuando lloriquee, dile con calma: “Te oigo mucho mejor con tu voz normal.” Cuando lo diga con voz normal, respóndele enseguida y con ganas.',
+      'Adelántate tú a lo largo del día: momentos de atención cortos, frecuentes y sin motivo —contacto visual, un abrazo, un “te veo”.',
+    ],
+    mistakes: [
+      'Decir primero “no” y, cuando el lloriqueo se alarga, “bueno, toma”. Esto enseña a lloriquear de la forma más eficaz posible.',
+      'Burlarse del lloriqueo o imitarlo para avergonzarlo.',
+    ],
+    specialist: [
+      'Si además del lloriqueo se le ve a menudo cansado o pálido, o ha perdido el apetito: consulta al médico para descartar causas físicas.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Disciplina positiva: límites y calidez a la vez',
+    summary: 'Los mejores resultados no los obtienen los padres duros ni los que lo permiten todo, sino los que son a la vez cálidos y claros.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'En los años 60, la psicóloga Diana Baumrind describió los estilos de crianza a partir de dos dimensiones: la calidez (amor, atención, capacidad de respuesta) y la exigencia o estructura (expectativas claras, límites). El estilo “democrático” o “con autoridad”, alto en ambas, resultó asociado a los mejores resultados: niños más autónomos, más seguros de sí mismos y con menos problemas de conducta.',
+      'En las décadas siguientes, los metaanálisis que reunieron cientos de estudios confirmaron este resultado: una relación cálida y unos límites explicados se asocian con menos agresividad y menos desobediencia, mientras que el control duro y el castigo se asocian, al contrario, con más problemas de conducta.',
+      'La Academia Estadounidense de Pediatría (2018) y la OMS (2022) recomiendan a las familias el mismo camino: construir una relación positiva, ver y reforzar la buena conducta, expectativas claras y consecuencias tranquilas. El castigo físico y las palabras humillantes no se recomiendan.',
+    ],
+    tryToday: [
+      'Formula una norma en positivo: no “no corras”, sino “en casa caminamos”.',
+      'Anticipa lo que esperas: “En la tienda me das la mano y en el carrito solo ponemos lo que está en la lista.”',
+      'Hoy, cinco veces, nombra con detalle una buena conducta: “¡Colgaste tú solo la mochila, gracias!” La conducta que recibe atención es la que crece.',
+      'Pon el límite con voz tranquila, breve y amable, y luego cúmplelo. Sin avisos repetidos.',
+    ],
+    mistakes: [
+      'Enfrentar el amor y los límites. “Te quiero, y por eso no te dejo”: las dos cosas pueden ir juntas.',
+      'Aplicar una norma un día y olvidarla al siguiente. La constancia es más importante que la dureza.',
+      'Reaccionar solo a los errores. Si el niño solo consigue atención con las conductas problemáticas, las repetirá.',
+    ],
+    byAge: {
+      '1-3': 'Más entorno que palabras: pon los objetos peligrosos fuera de su alcance y reserva el “no” para las cosas importantes.',
+      '3-6': 'Bastan 3–4 normas familiares sencillas. Dibújenlas y cuélguenlas en un lugar visible.',
+      '6-12': 'Habla las normas con él y acuerden las consecuencias de antemano. Cuando el niño escribe él mismo parte de la norma, la cumple más.',
+    },
+    specialist: [
+      'Si a pesar de todos los esfuerzos los problemas de conducta alteran durante meses la vida familiar, la escuela infantil o el colegio: un psicólogo infantil o los programas para padres (por ejemplo, PCIT o Triple P) son muy eficaces.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Por qué pegar no funciona y qué sí funciona',
+    summary: 'Una nalgada puede conseguir obediencia en el momento, pero a largo plazo empeora la conducta. En este tema la evidencia científica es muy clara.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'En 2016, Gershoff y Grogan-Kaylor reunieron 75 estudios con más de 160 000 niños. Conclusión: las nalgadas (pegar) no se asocian con ningún resultado positivo a largo plazo; al contrario, se asocian con más agresividad, conducta antisocial, problemas de salud mental y una relación más débil con los padres. Esta asociación aparece incluso cuando se pega “flojito” o “con cariño”.',
+      'La razón es sencilla: pegar no le enseña al niño qué debe hacer, solo le enseña a tener miedo. Además, le muestra que los problemas se resuelven con la fuerza. Gritar, amenazar y humillar tienen efectos parecidos: en los estudios, la disciplina verbal dura se ha relacionado con más problemas de conducta y síntomas depresivos en los años siguientes.',
+      'La Academia Estadounidense de Pediatría (2018) y la OMS no recomiendan el castigo físico ni las palabras humillantes. Lo que sí funciona: una relación cálida, normas claras, reforzar la buena conducta, consecuencias lógicas y tiempo para calmarse.',
+    ],
+    tryToday: [
+      'Elige una “señal de stop” para ti: cuando sientas que te sube el enojo, mete la mano en el bolsillo o da un paso atrás y cuenta hasta 10.',
+      'Detén la conducta peligrosa de forma física pero sin hacer daño: sujétale la mano, tómalo en brazos, retira el objeto.',
+      'Enséñale qué hacer la próxima vez: “Cuando tu hermano te quite el juguete, puedes decirle “¡devuélvemelo!” o venir a buscarme.”',
+      'Si ya le pegaste: pídele perdón, hazte responsable de tu conducta y cuéntale tu plan. Eso también le enseña cómo salir de un error.',
+    ],
+    mistakes: [
+      'Pensar “a mí también me pegaron y salí bien”. Mucha gente ha crecido bien a pesar de ello, pero los estudios muestran que, de media, el riesgo aumenta.',
+      'Guardar el pegar como “último recurso”. El último recurso es hacer una pausa para calmarte y pedir ayuda.',
+      'Sustituir el castigo físico por otro método humillante (avergonzar, amenazar, retirar el cariño).',
+    ],
+    byAge: {
+      '1-3': 'A esta edad lo más eficaz es distraer, cambiar el entorno y apartar al niño del lugar peligroso con calma.',
+      '3-6': 'Funcionan bien las consecuencias lógicas y el “time-in” (calmarse a tu lado).',
+      '6-12': 'Limitar un privilegio por poco tiempo (por ejemplo, el tiempo de pantalla) y resolver el problema juntos.',
+    },
+    specialist: [
+      'Si sientes que en los momentos de enojo no logras controlarte y que podrías hacerle daño a tu hijo, es una razón de peso para pedir ayuda. Un psicólogo o un programa para padres puede cambiar esta situación.',
+      'Si tu hijo o tú están en peligro, o si hay violencia en casa, llama de inmediato al {emergency}.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Consecuencia y castigo: ¿en qué se diferencian?',
+    summary: 'El castigo busca hacer daño; la consecuencia, enseñar. La mejor consecuencia está relacionada con la conducta, es respetuosa y se conoce de antemano.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'La psicología de la conducta muestra que lo que más cambia una conducta es lo que viene después de ella. Pero los castigos (pegar, humillar, privaciones largas) generan miedo y resentimiento, y el niño acaba pensando en “cómo no ser descubierto”.',
+      'La consecuencia lógica, en cambio, está directamente relacionada con la conducta, es breve y enseña: pintó la pared con témperas, la limpiamos juntos; no respetó la norma de la bicicleta, hoy no hay bicicleta. Las consecuencias naturales (salió sin abrigo y pasó frío), cuando son seguras, son la mejor maestra.',
+    ],
+    tryToday: [
+      'Comprobación de las “3 R”: ¿la consecuencia está Relacionada con la conducta? ¿Es Respetuosa? ¿Es Razonable?',
+      'Anuncia la consecuencia de antemano: “Si no recoges los juguetes, mañana se quedan descansando en la caja.” Después, cúmplela con calma.',
+      'Que la consecuencia sea breve: un día basta. Una prohibición de un mes ya no enseña, solo hiere.',
+      'Después de la consecuencia, “borrón y cuenta nueva”: sin sermones, empezamos de nuevo.',
+    ],
+    mistakes: [
+      'Inventarse una consecuencia en pleno enojo: “¡Un año sin bicicleta!” Luego es imposible cumplirla y tu palabra pierde valor.',
+      'Un castigo que no tiene nada que ver con la conducta: no hizo la tarea, no va al cumpleaños.',
+      'Aplicar la consecuencia con burla o con un “¿ves?”.',
+    ],
+    byAge: {
+      '3-6': 'La consecuencia debe ser inmediata y muy breve. Horas después, el niño ya no la relaciona con su conducta.',
+      '6-12': 'Decidan juntos las consecuencias. Un niño cumple más las normas que considera justas.',
+    },
+    specialist: [
+      'Si ninguna consecuencia funciona y la conducta es peligrosa o tan intensa que agota a la familia, consulta con un psicólogo infantil o infórmate sobre programas para padres.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Cómo hablar sin gritar',
+    summary: 'Gritar da un alivio momentáneo, pero el niño se acostumbra al volumen y escucha menos. Hablar con calma y de cerca tiene más fuerza.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'En los estudios, la disciplina a base de gritos frecuentes, insultos y palabras humillantes se ha relacionado con más problemas de conducta y síntomas depresivos en los años siguientes, incluso cuando la relación es, en general, cálida. Una de las razones: el grito activa el sistema de estrés del niño y, en vez de escuchar, se pone a la defensiva.',
+      'La buena noticia: la autorregulación de los padres es una habilidad que se aprende. Gritar suele ser señal de cansancio, hambre o sobrecarga, no de que seas “un mal padre o una mala madre”.',
+    ],
+    tryToday: [
+      'En lugar de gritar desde lejos, acércate, ponte a su altura, míralo a los ojos, di su nombre y habla con una frase corta.',
+      'Cuando tengas ganas de levantar la voz, haz lo contrario: habla en susurros. Los niños escuchan los susurros con curiosidad.',
+      'Apunta los momentos del día en que gritas. ¿A qué hora pasa más? Haz un plan para esa hora (por ejemplo, un tentempié o dejar las cosas preparadas antes).',
+      'Si gritas, repara: “Te grité y no estuvo bien. Me enojé, pero no debí levantar la voz.”',
+    ],
+    mistakes: [
+      'Culparte después de cada error. Eso crea más tensión la próxima vez. El objetivo no es la perfección, sino gritar menos y reparar.',
+      'Decir “me obligas a gritar”. Cada uno es responsable de sus emociones.',
+    ],
+    specialist: [
+      'Si el enojo y la irritabilidad se te van de las manos casi a diario, o vienen con insomnio, tristeza o desesperanza, habla con un médico o un psicólogo. La depresión y la ansiedad de los padres tienen tratamiento.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: '¿Time-out o time-in?',
+    summary: 'Una pausa breve para calmarse puede funcionar, pero para los niños pequeños lo esencial no es el aislamiento, sino la cercanía que ayuda a calmarse.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'El “time-out” clásico (una pausa tranquila de unos minutos) se ha estudiado en algunos programas para padres y, bien aplicado (breve, con calma, sin humillar y en el contexto de una relación cálida), no ha mostrado ser dañino. Pero no significa encerrar al niño en una habitación ni asustarlo.',
+      'El “time-in”, en cambio, es que el niño se calme a tu lado. Para los niños pequeños es más adecuado, porque todavía necesitan corregulación. En ambos casos el objetivo no es castigar, sino calmarse y “volver a empezar”.',
+    ],
+    tryToday: [
+      'Regla: más o menos un minuto por año de edad, como máximo 5 minutos.',
+      'Que el lugar sea tranquilo, pero no da miedo. Nunca encierres al niño en una habitación a oscuras.',
+      'Para el time-in: “Ven, siéntate a mi lado. Vamos a respirar juntos.”',
+      'Después de la pausa, un breve “volvemos a empezar”, sin sermones.',
+    ],
+    mistakes: [
+      'Usar el time-out de forma larga, frecuente y con amenazas.',
+      'Combinar la pausa con humillación: “Vete, no quiero ni verte.”',
+    ],
+    specialist: [
+      'Si en cada pausa el niño vive un miedo terrible o pánico, o si los momentos de separación lo desbordan por completo, habla con un especialista.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Normas familiares: pocas, claras y constantes',
+    summary: 'Los niños ponen a prueba los límites porque quieren saber si siguen en su sitio. Un límite estable da sensación de seguridad.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Un entorno predecible calma el sistema de estrés del niño. En los estudios, las normas claras y las rutinas diarias se asocian con un mejor sueño, menos problemas de conducta y un autocontrol más fuerte.',
+      'Las normas que mejor funcionan son pocas (3–5), están formuladas en positivo y ambos padres las aplican igual.',
+    ],
+    tryToday: [
+      'Hagan una reunión familiar: que cada uno proponga una norma y elijan juntos 3–5 normas básicas.',
+      'Escribe las normas en positivo: “Manos suaves”, “Cuando alguien habla, lo escuchamos”, “Después de comer, el plato a la cocina”.',
+      'Junto a las normas, acuerden también las consecuencias.',
+      'Que los adultos también cumplan las normas. Los niños se fijan más en el ejemplo que en las palabras.',
+    ],
+    mistakes: [
+      'Inventar una norma nueva para cada problema nuevo. Demasiadas normas equivalen a ninguna.',
+      'Una norma con mamá y otra con papá o con la abuela. Primero, los adultos deben ponerse de acuerdo entre ellos.',
+    ],
+    specialist: [
+      'Si en la familia hay conflictos constantes y tensos por las normas, un orientador familiar puede ayudar.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: 'El niño que dice “¡No!”: cómo manejar la terquedad',
+    summary: 'La etapa del “no” es el descubrimiento de “soy una persona distinta”. Lo que funciona no es pelear con ella, sino darle opciones.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'En el segundo año el niño descubre que tiene voluntad propia. La necesidad de autonomía es una de las necesidades psicológicas básicas: cuanto más sensación de control tiene, más dispuesto está a colaborar.',
+      'Los estudios muestran que el lenguaje “controlador” (“¡vístete ya!”) aumenta la resistencia, mientras que las opciones y las explicaciones aumentan la colaboración.',
+    ],
+    tryToday: [
+      'Dale dos opciones aceptables: “¿Primero nos lavamos los dientes o nos ponemos el pijama?”',
+      'En vez de una pregunta que admite un “no”, una frase afirmativa: “Ahora toca vestirse”, no “¿Nos vestimos?”.',
+      'Conviértelo en juego: “A ver quién se pone antes los calcetines, ¿tú o el osito?”',
+      'Suelta las batallas que no importan: si la camiseta está del revés, no se acaba el mundo.',
+    ],
+    mistakes: [
+      'Convertir cada “no” en una lucha de poder.',
+      'Darle a elegir y después no aceptar lo que eligió.',
+    ],
+    specialist: [
+      'Si casi nunca responde a lo que le pides, no reacciona a su nombre o tiene dificultades para comunicarse: consulta al médico para una revisión del desarrollo.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Wutanfall: Was passiert im Gehirn?',
+    summary: 'Ein Wutanfall ist keine Folge schlechter Erziehung. Es ist der Moment, in dem ein großes Gefühl das noch kleine „Bremssystem“ überrollt.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Das Gefühlssystem in den tiefen Schichten des Gehirns ist von Geburt an stark: Es spürt Gefahr, Enttäuschung und Wut blitzschnell. Der präfrontale Kortex dagegen, der diese Gefühle bremst und sagt „Warte, es gibt noch einen anderen Weg“, reift erst bis etwa zum 20. Lebensjahr. Bei 2- bis 4-Jährigen ist dieser Unterschied am größten. Deshalb hört dein Kind dich während eines Wutanfalls nicht und reagiert nicht auf Vernunft: Der „denkende“ Teil seines Gehirns ist vorübergehend abgeschaltet.',
+      'In diesem Moment kann sich dein Kind nicht selbst beruhigen, es „leiht“ sich die Ruhe von deinem Körper und deiner Stimme. Forschende nennen das Co-Regulation. Je ruhiger du bleibst, desto schneller kehrt das Stresssystem deines Kindes zur Normalität zurück – und durch Wiederholung lernt es diesen Weg der Beruhigung und macht ihn sich zu eigen. Schreien und Strafen dagegen erhöhen die Stresshormone und verlängern den Wutanfall.',
+      'Wutanfälle passieren oft in denselben Momenten: bei Müdigkeit, Hunger, Übergängen (vom Spielen nach Hause, den Spielplatz verlassen) oder nach einem „Nein“. Wer diese Momente vorhersieht, kann mehr als die Hälfte aller Wutanfälle verhindern.',
+    ],
+    tryToday: [
+      'Beruhige zuerst dich selbst: Atme einmal tief durch, lass die Schultern sinken, senke deine Stimme. Wenn du nicht ruhig bist, kann dein Kind es auch nicht werden.',
+      'Sprich wenig. Ein, zwei kurze Sätze reichen: „Du bist sehr wütend. Ich bin da.“',
+      'Sorge für Sicherheit: Wenn es haut, halte seine Hand sanft fest, und räume Gegenstände weg, mit denen es sich verletzen könnte.',
+      'Wenn es sich beruhigt hat, nimm es in den Arm und sprich erst dann kurz: „Du warst sehr wütend, weil das Spiel vorbei war. Beim nächsten Mal kannst du „Hilf mir“ sagen.“',
+      'Notiere diese Woche, wann die Wutanfälle passieren. Sehr wahrscheinlich fallen sie mit Müdigkeit und Hunger zusammen.',
+    ],
+    mistakes: [
+      'Während eines Wutanfalls lange erklären oder Moralpredigten halten. Das Gehirn ist noch nicht im Zuhör-Modus: erst beruhigen, dann reden.',
+      'Ihm geben, was es will, damit der Wutanfall aufhört. Das bedeutet beim nächsten Mal einen noch stärkeren Wutanfall. Zeig Verständnis für das Gefühl, aber bleib bei deiner Entscheidung.',
+      'Dein Kind beschämen: „Schäm dich, alle schauen dich an.“ Scham lehrt nicht, Gefühle zu steuern, sondern nur, sie zu verstecken.',
+      'Den Wutanfall als „Manipulation“ sehen. Bei kleinen Kindern ist es vor allem fehlendes Können, kein Trick.',
+    ],
+    byAge: {
+      '1-3': 'Der Wortschatz ist noch klein, also benenne du das Gefühl und zeig eine einfache Alternative: „Du bist wütend. Stampf mit dem Fuß, so!“ Ablenkung funktioniert in diesem Alter sehr gut.',
+      '3-6': 'Macht in einem ruhigen Moment einen „Wut-Plan“: atmen, ein Kissen drücken, in die ruhige Ecke gehen. Hängt ihn als Bilder an die Wand, und wenn ein Wutanfall beginnt, zeig nur darauf.',
+    },
+    specialist: [
+      'Wenn Wutanfälle regelmäßig länger als 25 Minuten dauern oder mehr als fünfmal am Tag auftreten.',
+      'Wenn sich dein Kind während eines Wutanfalls ernsthaft verletzt (Kopf anschlagen, sich beißen) oder ihm die Luft wegbleibt und es ohnmächtig wird – lass es ärztlich untersuchen.',
+      'Wenn die Wutanfälle nach dem 4.–5. Lebensjahr zunehmen statt abnehmen oder es weitere Sorgen bei Sprache, Schlaf oder Kontakt zu anderen gibt.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Emotionscoaching: Gefühle benennen',
+    summary: 'Gefühle wahrzunehmen und zu benennen stärkt die Selbstregulation deines Kindes. Das heißt nicht, alles zu erlauben.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Der Psychologe John Gottman beobachtete in den 1990er-Jahren Familien und stellte fest, dass Eltern auf vier verschiedene Arten auf die Gefühle ihrer Kinder reagieren: abweisend („Hör auf zu weinen, ist doch nichts“), bestrafend, alles erlaubend – und als „Emotionscoach“. Coachende Eltern nehmen das Gefühl ernst, geben ihm einen Namen und suchen gemeinsam mit dem Kind nach einer Lösung, setzen dem Verhalten aber Grenzen.',
+      'Kinder von Eltern, die Emotionscoaches waren, konnten sich in den folgenden Jahren besser konzentrieren, hatten weniger Konflikte mit Freunden und erholten sich schneller von Stress. Spätere Programme (zum Beispiel „Tuning in to Kids“) zeigten, dass alle Eltern diese Fähigkeit lernen können.',
+      'Auch die Hirnforschung zeigt etwas Spannendes: Einem Gefühl einen Namen zu geben („Ich bin wütend“, „Ich habe Angst“) verringert die Aktivität im Gefühlszentrum. „Name it to tame it“ – benennen, um zu bändigen – ist also nicht nur ein schöner Spruch.',
+    ],
+    tryToday: [
+      'Sprich heute dreimal das Gefühl deines Kindes aus, als wärst du an seiner Stelle: „Es scheint, du bist sehr enttäuscht.“ Keine Angst, wenn du danebenliegst – es wird dich korrigieren.',
+      'Erlaube das Gefühl, setze dem Verhalten eine Grenze: „Wütend sein ist okay. Hauen nicht.“',
+      'Schaut euch beim Vorlesen die Gesichter der Figuren an: „Was meinst du, was fühlt sie gerade?“',
+      'Benenne auch deine eigenen Gefühle in ruhigen Worten: „Ich bin ein bisschen müde, deshalb trinke ich jetzt in Ruhe einen Tee.“ Dein Kind ahmt vor allem dich nach.',
+    ],
+    mistakes: [
+      '„Hör auf zu weinen“, „Da gibt es nichts, wovor man Angst haben muss“, „Ist doch nicht schlimm“ sagen. Das Gefühl verschwindet nicht, dein Kind lernt nur, es dir nicht mehr zu zeigen.',
+      'Mitgefühl so verstehen, als würde es das „Nein“ aufheben. „Ich verstehe, du wolltest das so sehr. Die Antwort ist trotzdem Nein“ – das geht völlig zusammen.',
+      'Nur in schwierigen Momenten über Gefühle sprechen. Am besten übt man in ruhigen Momenten, beim Spielen und mit Büchern.',
+    ],
+    byAge: {
+      '1-3': 'Einfache Wörter: Freude, Wut, Traurigkeit, Angst. Macht die Gesichtsausdrücke gemeinsam vor dem Spiegel nach.',
+      '3-6': 'Malt ein „Gefühlsthermometer“: grün – ich bin ruhig, gelb – ich werde sauer, rot – ich explodiere. Dein Kind zeigt auf die Farbe.',
+      '6-12': 'Bringt feinere Wörter bei: Enttäuschung, Scham, Eifersucht, Sorge. Fragt, wo im Körper das Gefühl sitzt.',
+    },
+    specialist: [
+      'Wenn dein Kind über längere Zeit fast keine Gefühle zeigt oder jede Kleinigkeit es stundenlang aus der Bahn wirft.',
+      'Wenn Traurigkeit, Angst oder Wut länger als zwei Wochen anhalten und Schlaf, Essen, Schule und Freundschaften beeinträchtigen – wende dich an eine Kinderpsychologin oder einen Kinderpsychologen.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Die Ruheecke und Atemspiele',
+    summary: 'Man kann einem Kind beibringen, sich zu beruhigen – aber nicht mit einer Strafecke, sondern mit einem gemütlichen Ort und Spielen.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Selbstregulation entsteht zuerst gemeinsam mit den Eltern und erst nach und nach allein. Je öfter sich ein Kind zusammen mit einem ruhigen Erwachsenen beruhigt hat, desto besser lernt es diesen Weg.',
+      'Langsames, tiefes Atmen (besonders langes Ausatmen) verlangsamt den Herzschlag und schaltet den „Gefahrenmodus“ des Körpers ab. Kinder lernen das besser im Spiel als durch Anweisungen.',
+    ],
+    tryToday: [
+      'Richtet gemeinsam zu Hause eine kleine „Kuschelecke“ ein: Kissen, Kuscheltier, ein, zwei Bücher, Gefühlskarten. Das ist kein Strafort, sondern ein Ort, an den man jederzeit gehen darf.',
+      'Das Spiel „Kerze und Blume“: An der Blume riechen (durch die Nase einatmen), die Kerze auspusten (langsam durch den Mund ausatmen). Fünfmal.',
+      'Übt in einem ruhigen Moment zusammen: „Wie fühlt sich unser Körper an, wenn wir wütend sind? Komm, wir atmen jetzt in Ruhe, damit wir uns daran erinnern, wenn wir es brauchen.“',
+      'Mit kleinen Kindern geht man gemeinsam in die Ecke: „Komm, wir gehen zusammen in die Kuschelecke.“',
+    ],
+    mistakes: [
+      'Die Ecke als Strafe nutzen: „Ab in die Ecke!“ Dann wird dein Kind sie meiden.',
+      'Atemübungen zum ersten Mal mitten in einem Wutanfall beibringen wollen. Fähigkeiten lernt man in ruhigen Zeiten.',
+      'Erwarten, dass es sich „sofort“ beruhigt. Bis ein großes Gefühl abflaut, können 10–20 Minuten vergehen.',
+    ],
+    byAge: {
+      '3-6': 'Sehr gut funktioniert das Spiel, ein Kuscheltier auf den Bauch zu legen und es „mit dem Atem zu schaukeln“.',
+      '6-12': 'Lass dein Kind seine eigene Beruhigungsliste schreiben: Musik, Malen, ein Spaziergang, Wasser trinken. Eine selbst gewählte Methode wendet es eher an.',
+    },
+    specialist: [
+      'Wenn sich dein Kind fast nie beruhigen kann oder sich in Momenten der Wut gefährlich verhält – wende dich an eine Kinderpsychologin oder einen Kinderpsychologen.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Große Gefühle bei Schulkindern',
+    summary: 'Wut, Scham, Eifersucht, Enttäuschung: Im Schulalter werden Gefühle komplexer, und dein Kind braucht Hilfe, sie zu verstehen.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Im Schulalter kann ein Kind seine Gefühle schon verbergen – deshalb explodieren große Gefühle oft zu Hause, beim sichersten Menschen: bei dir. Gereiztheit nach der Schule ist häufig die Erschöpfung davon, sich den ganzen Tag „zusammengerissen“ zu haben.',
+      'In diesem Alter beginnt der soziale Vergleich. Scham und das Gefühl „Ich bin schlecht“ können wie Wut aussehen. Je besser ein Kind sein Gefühl benennen kann, desto leichter kann es damit umgehen.',
+    ],
+    tryToday: [
+      'Bombardiere dein Kind direkt nach der Schule nicht mit Fragen. Zuerst ein Snack, Ruhe oder eine Umarmung, reden später.',
+      'Übt gemeinsam den Satz „Gefühl + Bedürfnis“: „Ich fühle mich …, weil … . Ich brauche …“',
+      'Erzähl eine ähnliche Geschichte aus deiner Kindheit: „Mit 9 habe ich mich auch mal so geschämt …“',
+      'Sprecht nach einer Explosion ohne Schuldzuweisungen darüber: „Was ist passiert? Was hast du im Körper gespürt? Was hilft beim nächsten Mal?“',
+    ],
+    mistakes: [
+      'Das Gefühl kleinreden: „Deswegen muss man doch nicht weinen.“ Für dein Kind ist es groß.',
+      'Sofort eine Lösung anbieten. Manchmal will dein Kind einfach nur gehört werden.',
+      'Wut bei Mädchen und Traurigkeit bei Jungen als „unpassend“ ansehen. Jedes Gefühl ist für jedes Kind normal.',
+    ],
+    specialist: [
+      'Traurigkeit, Interessenverlust, Veränderungen bei Schlaf und Appetit oder Schulverweigerung, die länger als zwei Wochen anhalten.',
+      'Wenn dein Kind davon spricht, sich etwas anzutun, oder vom Tod: Wende dich sofort an Fachleute, bei Gefahr ruf {emergency} an.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Quengeln und Jammern',
+    summary: 'Quengeln zerrt an den Nerven, ist aber oft ein Signal für Müdigkeit oder das Bedürfnis nach Aufmerksamkeit.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Kinder lernen schnell, welches Verhalten funktioniert. Wenn Quengeln am Ende zum Ziel führt, wird es weitergehen. Aufmerksamkeit – selbst negative – verstärkt ein Verhalten.',
+      'Gleichzeitig ist Quengeln oft ein Zeichen von Hunger, Müdigkeit oder davon, dass dein Kind lange keine Aufmerksamkeit bekommen hat. Wenn du auf die Ursache eingehst, nimmt das Verhalten schnell ab.',
+    ],
+    tryToday: [
+      'Spielt in einem ruhigen Moment das Spiel „Starke Stimme“: Sagt dieselbe Bitte einmal mit Quengelstimme und einmal mit normaler Stimme, und lacht dabei.',
+      'Wenn es quengelt, sag ruhig: „Mit deiner normalen Stimme kann ich dich viel besser hören.“ Wenn es dann normal spricht, reagiere sofort und begeistert.',
+      'Mach im Laufe des Tages selbst den ersten Schritt: oft kurze Aufmerksamkeit ohne besonderen Anlass – Blickkontakt, eine Umarmung, „Ich sehe dich“.',
+    ],
+    mistakes: [
+      'Erst „Nein“ sagen und dann, wenn das Quengeln andauert, „Na gut, hier“. So lernt dein Kind das Quengeln am allerbesten.',
+      'Sich über das Quengeln lustig machen oder es nachäffen und dein Kind beschämen.',
+    ],
+    specialist: [
+      'Wenn dein Kind neben dem Quengeln oft müde und blass wirkt oder weniger Appetit hat – lass medizinische Ursachen ärztlich abklären.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Positive Disziplin: Grenzen und Wärme zusammen',
+    summary: 'Die besten Ergebnisse erzielen weder strenge noch alles erlaubende Eltern, sondern solche, die warmherzig und klar zugleich sind.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'In den 1960er-Jahren beschrieb die Psychologin Diana Baumrind Erziehungsstile anhand von zwei Dimensionen: Wärme (Liebe, Aufmerksamkeit, Eingehen auf das Kind) und Anforderung/Struktur (klare Erwartungen, Grenzen). Der „autoritative“ Stil, bei dem beides hoch ist, ging mit den besten Ergebnissen einher: selbstständigere, selbstbewusstere Kinder mit weniger Verhaltensproblemen.',
+      'In den folgenden Jahrzehnten bestätigten Metaanalysen, die Hunderte von Studien zusammenfassten, dieses Ergebnis: Eine warmherzige Beziehung und Grenzen, die erklärt werden, gehen mit weniger Aggression und Regelverstößen einher, strenge Kontrolle und Strafen dagegen mit mehr Verhaltensproblemen.',
+      'Die Amerikanische Akademie für Kinderheilkunde (2018) und die WHO (2022) empfehlen Eltern denselben Weg: eine positive Beziehung aufbauen, gutes Verhalten bemerken und bestärken, klare Erwartungen und ruhige Konsequenzen. Körperstrafen und demütigende Worte werden nicht empfohlen.',
+    ],
+    tryToday: [
+      'Formuliere eine Regel positiv: Nicht „Nicht rennen“, sondern „Drinnen gehen wir“.',
+      'Sag deine Erwartung vorher: „Im Supermarkt hältst du meine Hand, und in den Wagen kommt nur, was auf der Liste steht.“',
+      'Bemerke heute fünfmal gutes Verhalten und benenne es genau: „Du hast deine Tasche selbst aufgehängt, danke!“ Das Verhalten, das Aufmerksamkeit bekommt, wächst.',
+      'Setze die Grenze mit ruhiger, kurzer und freundlicher Stimme und handle dann. Keine wiederholten Warnungen.',
+    ],
+    mistakes: [
+      'Liebe und Grenzen gegeneinander ausspielen. „Ich hab dich lieb, und deshalb erlaube ich das nicht“ – beides geht zusammen.',
+      'Eine Regel an einem Tag durchsetzen und am nächsten vergessen. Beständigkeit ist wichtiger als Strenge.',
+      'Nur auf Fehler reagieren. Wenn dein Kind nur mit problematischem Verhalten Aufmerksamkeit bekommt, wird es dieses wiederholen.',
+    ],
+    byAge: {
+      '1-3': 'Mehr Umgebung als Worte: Leg gefährliche Gegenstände außer Reichweite und heb dir das „Nein“ für wirklich wichtige Dinge auf.',
+      '3-6': '3–4 einfache Familienregeln reichen. Malt sie als Bilder und hängt sie gut sichtbar auf.',
+      '6-12': 'Besprecht die Regeln gemeinsam und vereinbart die Konsequenzen im Voraus. Wenn dein Kind einen Teil der Regeln selbst schreibt, hält es sich eher daran.',
+    },
+    specialist: [
+      'Wenn Verhaltensprobleme trotz aller Bemühungen das Familienleben, die Kita oder die Schule über Monate durcheinanderbringen – dann sind eine Kinderpsychologin oder ein Kinderpsychologe oder Elternprogramme (zum Beispiel PCIT, Triple P) sehr wirksam.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Warum Schlagen nicht funktioniert – und was funktioniert',
+    summary: 'Ein Klaps kann kurzfristig Gehorsam bringen, verschlechtert aber das Verhalten auf lange Sicht. Die wissenschaftliche Beweislage ist hier sehr eindeutig.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '2016 fassten Gershoff und Grogan-Kaylor 75 Studien mit mehr als 160.000 Kindern zusammen. Das Ergebnis: Klapse (Schlagen) hängen mit keinem einzigen positiven Langzeitergebnis zusammen, sondern im Gegenteil mit mehr Aggression, antisozialem Verhalten, psychischen Problemen und einer schwächeren Beziehung zu den Eltern. Dieser Zusammenhang zeigt sich auch bei „leichten“ Schlägen „aus Liebe“.',
+      'Der Grund ist einfach: Schlagen bringt einem Kind nicht bei, was es tun soll, sondern nur, Angst zu haben. Außerdem zeigt es, dass Probleme mit Gewalt gelöst werden. Anschreien, Drohen und Demütigen wirken ähnlich: In Studien wurde verbal harte Disziplin mit mehr Verhaltensproblemen und depressiven Symptomen in den Folgejahren in Verbindung gebracht.',
+      'Die Amerikanische Akademie für Kinderheilkunde (2018) und die WHO raten von Körperstrafen und demütigenden Worten ab. Was stattdessen funktioniert: eine warmherzige Beziehung, klare Regeln, gutes Verhalten bestärken, logische Folgen und Zeit zum Beruhigen.',
+    ],
+    tryToday: [
+      'Wähle für dich ein „Stopp-Signal“: Wenn die Wut hochkommt, steck die Hand in die Tasche oder tritt einen Schritt zurück und zähl bis 10.',
+      'Stoppe gefährliches Verhalten körperlich, aber ohne Schaden: Halte die Hand fest, nimm dein Kind auf den Arm, nimm den Gegenstand weg.',
+      'Zeig, was es beim nächsten Mal tun kann: „Wenn dein Bruder dir das Spielzeug wegnimmt, kannst du „Gib her!“ sagen oder zu mir kommen.“',
+      'Wenn du schon geschlagen hast: Entschuldige dich, übernimm die Verantwortung für dein Verhalten und erzähl von deinem Plan. Das zeigt auch deinem Kind, wie man aus einem Fehler wieder herausfindet.',
+    ],
+    mistakes: [
+      'Der Gedanke „Ich wurde auch geschlagen und bin normal geworden“. Viele Menschen sind trotzdem gut aufgewachsen, aber Studien zeigen, dass das Risiko im Durchschnitt steigt.',
+      'Schlagen als „letztes Mittel“ in der Hinterhand behalten. Das letzte Mittel ist, eine Pause zum Beruhigen einzulegen und um Hilfe zu bitten.',
+      'Die Körperstrafe durch eine andere demütigende Methode ersetzen (Beschämen, Drohen, Liebesentzug).',
+    ],
+    byAge: {
+      '1-3': 'Die wirksamsten Methoden in diesem Alter: ablenken, die Umgebung verändern, dein Kind ruhig von einem gefährlichen Ort wegholen.',
+      '3-6': 'Logische Folgen und „Time-in“ (sich bei dir beruhigen) funktionieren gut.',
+      '6-12': 'Ein Privileg für kurze Zeit einschränken (zum Beispiel Bildschirmzeit) und das Problem gemeinsam lösen.',
+    },
+    specialist: [
+      'Wenn du merkst, dass du dich in Momenten der Wut nicht beherrschen kannst und deinem Kind etwas antun könntest – ist das ein starker Grund, dir Hilfe zu holen. Eine Psychologin, ein Psychologe oder ein Elternprogramm kann diese Situation verändern.',
+      'Wenn dein Kind oder du in Gefahr seid oder es zu Hause Gewalt gibt, ruf sofort {emergency} an.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Folge oder Strafe: Was ist der Unterschied?',
+    summary: 'Eine Strafe soll wehtun, eine Folge soll etwas lehren. Die beste Folge hängt mit dem Verhalten zusammen, ist respektvoll und vorher bekannt.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Die Verhaltenspsychologie zeigt: Ein Verhalten wird vor allem durch das verändert, was darauf folgt. Strafen (Schlagen, Demütigen, langer Entzug) erzeugen jedoch Angst und Groll, und das Kind denkt darüber nach, wie es sich „nicht erwischen lässt“.',
+      'Eine logische Folge dagegen hängt direkt mit dem Verhalten zusammen, ist kurz und lehrt etwas: Es hat mit Farben an die Wand gemalt – wir wischen es zusammen ab; es hat die Fahrradregel gebrochen – heute kein Fahrrad. Natürliche Folgen (ohne Jacke rausgegangen – gefroren) sind die besten Lehrer, solange sie ungefährlich sind.',
+    ],
+    tryToday: [
+      'Der „3-R“-Check: Hängt die Folge mit dem Verhalten zusammen (Related), ist sie respektvoll (Respectful), ist sie angemessen (Reasonable)?',
+      'Kündige die Folge vorher an: „Wenn du die Spielsachen nicht aufräumst, ruhen sie sich morgen in der Kiste aus.“ Dann setz es ruhig um.',
+      'Halte die Folge kurz: Ein Tag reicht. Ein Verbot für einen Monat lehrt nichts mehr, es verletzt nur.',
+      'Nach der Folge eine „weiße Seite“: keine Predigt, wir fangen neu an.',
+    ],
+    mistakes: [
+      'Im Ärger eine Folge erfinden: „Ein Jahr lang kein Fahrrad!“ Dann ist sie nicht umsetzbar, und dein Wort verliert an Wert.',
+      'Eine Strafe ohne Bezug zum Verhalten: Hausaufgaben nicht gemacht – darf nicht zum Geburtstag.',
+      'Die Folge mit Spott oder einem „Siehst du?“ umsetzen.',
+    ],
+    byAge: {
+      '3-6': 'Die Folge muss sofort und sehr kurz sein. Stunden später verbindet dein Kind sie nicht mehr mit dem Verhalten.',
+      '6-12': 'Legt die Folgen gemeinsam fest. Ein Kind hält sich eher an eine Regel, die es fair findet.',
+    },
+    specialist: [
+      'Wenn keine Folge wirkt und das Verhalten gefährlich ist oder die Familie zermürbt – lass dich zu Elternprogrammen und von einer Kinderpsychologin oder einem Kinderpsychologen beraten.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Wie man spricht, ohne zu schreien',
+    summary: 'Schreien verschafft kurz Erleichterung, aber dein Kind gewöhnt sich an die Lautstärke und hört immer weniger hin. Ruhig und aus der Nähe zu sprechen ist wirkungsvoller.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'In Studien wurde Disziplin mit regelmäßigem Anschreien, Beschimpfen und demütigenden Worten mit mehr Verhaltensproblemen und depressiven Symptomen in den folgenden Jahren in Verbindung gebracht – selbst dann, wenn die Beziehung insgesamt warmherzig war. Einer der Gründe: Schreien schaltet das Stresssystem des Kindes ein, und statt zuzuhören, geht es in die Abwehr.',
+      'Die gute Nachricht: Die Selbstregulation von Eltern ist eine erlernbare Fähigkeit. Schreien ist meist ein Signal für Müdigkeit, Hunger und Überlastung der Eltern – nicht dafür, ein „schlechter Elternteil“ zu sein.',
+    ],
+    tryToday: [
+      'Statt aus der Ferne zu rufen: Geh hin, auf Augenhöhe deines Kindes, nimm Blickkontakt auf, sag seinen Namen und sprich in einem kurzen Satz.',
+      'Wenn du laut werden willst, mach das Gegenteil: Flüstere. Kinder hören einem Flüstern neugierig zu.',
+      'Notiere im Laufe des Tages, wann du schreist. Zu welcher Uhrzeit am häufigsten? Mach für diese Zeit einen Plan (zum Beispiel ein Snack, Dinge vorbereiten).',
+      'Wenn du geschrien hast, mach es wieder gut: „Ich habe geschrien, das war nicht in Ordnung. Ich habe mich geärgert, aber ich hätte nicht laut werden sollen.“',
+    ],
+    mistakes: [
+      'Dir nach jedem Fehler Vorwürfe machen. Das erzeugt beim nächsten Mal nur mehr Anspannung. Das Ziel ist nicht Perfektion, sondern seltener schreien und es wiedergutmachen.',
+      '„Du bringst mich dazu, dass ich schreie“ sagen. Für unsere Gefühle tragen wir selbst die Verantwortung.',
+    ],
+    specialist: [
+      'Wenn Wut und Gereiztheit fast jeden Tag außer Kontrolle geraten und mit Schlaflosigkeit, Traurigkeit oder Hoffnungslosigkeit einhergehen – sprich mit einer Ärztin, einem Arzt oder einer psychologischen Fachperson. Depressionen und Ängste bei Eltern sind behandelbar.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out oder Time-in?',
+    summary: 'Eine kurze Beruhigungspause kann funktionieren, aber für kleine Kinder ist nicht Isolation entscheidend, sondern Nähe, die beim Beruhigen hilft.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Das klassische „Time-out“ (eine ruhige Pause von wenigen Minuten) wurde in einigen Elternprogrammen untersucht, und es zeigte sich, dass es bei richtiger Anwendung (kurz, ruhig, ohne Demütigung, auf der Basis einer warmherzigen Beziehung) nicht schädlich ist. Das heißt aber nicht, das Kind in ein Zimmer einzusperren oder ihm Angst zu machen.',
+      '„Time-in“ bedeutet, dass sich dein Kind bei dir beruhigt. Für kleine Kinder passt das besser, weil sie noch Co-Regulation brauchen. In beiden Fällen ist das Ziel nicht Strafe, sondern sich zu beruhigen und „neu anzufangen“.',
+    ],
+    tryToday: [
+      'Faustregel: etwa eine Minute pro Lebensjahr, höchstens 5 Minuten.',
+      'Der Ort soll ruhig sein, aber nicht beängstigend. Sperr dein Kind niemals in einen dunklen Raum.',
+      'Für ein Time-in: „Komm, setz dich zu mir. Wir atmen zusammen.“',
+      'Nach der Pause ein kurzes „Wir fangen neu an“, keine Predigt.',
+    ],
+    mistakes: [
+      'Time-out lange, häufig und mit Drohungen einsetzen.',
+      'Die Pause mit Demütigung verbinden: „Geh weg, ich will dich nicht sehen.“',
+    ],
+    specialist: [
+      'Wenn dein Kind bei jeder Pause schreckliche Angst oder Panik erlebt oder Trennungsmomente es übermäßig erschüttern – sprich mit einer Fachperson.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Familienregeln: wenige, klare, beständige',
+    summary: 'Kinder testen Grenzen, weil sie wissen wollen, ob sie noch da sind. Eine stabile Grenze gibt ihnen ein Gefühl von Sicherheit.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Eine vorhersehbare Umgebung beruhigt das Stresssystem eines Kindes. Klare Regeln und ein fester Tagesablauf werden in Studien mit besserem Schlaf, weniger Verhaltensproblemen und stärkerer Selbststeuerung in Verbindung gebracht.',
+      'Am besten wirken Regeln, die wenige sind (3–5), positiv formuliert und von beiden Eltern gleich umgesetzt werden.',
+    ],
+    tryToday: [
+      'Haltet einen Familienrat ab: Jeder schlägt eine Regel vor, und gemeinsam wählt ihr 3–5 Hauptregeln aus.',
+      'Formuliere die Regeln positiv: „Sanfte Hände“, „Wenn jemand spricht, hören wir zu“, „Nach dem Essen kommt der Teller in die Küche“.',
+      'Vereinbart neben den Regeln auch die Folgen.',
+      'Auch die Erwachsenen halten sich an die Regeln. Kinder achten mehr auf das Vorbild als auf Worte.',
+    ],
+    mistakes: [
+      'Für jedes neue Problem eine neue Regel erfinden. Zu viele Regeln sind so gut wie keine Regeln.',
+      'Bei Mama gilt eine Regel, bei Papa oder Oma eine andere. Die Erwachsenen sollten sich zuerst untereinander einigen.',
+    ],
+    specialist: [
+      'Wenn es in der Familie ständige, angespannte Konflikte über Regeln gibt, kann eine Familienberatung helfen.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: 'Das „Nein!“-Kind: Umgang mit Trotz',
+    summary: 'Die „Nein“-Phase ist die Entdeckung deines Kindes: „Ich bin ein eigener Mensch.“ Nicht dagegen ankämpfen, sondern Wahlmöglichkeiten geben – das funktioniert.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Im zweiten Lebensjahr entdeckt dein Kind, dass es einen eigenen Willen hat. Autonomie gehört zu den psychologischen Grundbedürfnissen: Je mehr Gefühl von Kontrolle ein Kind bekommt, desto eher ist es zur Zusammenarbeit bereit.',
+      'Studien zeigen, dass „kontrollierende“ Sprache („Zieh dich sofort an!“) Widerstand verstärkt, Wahlmöglichkeiten und Erklärungen dagegen Kooperation fördern.',
+    ],
+    tryToday: [
+      'Biete zwei Möglichkeiten an, die beide für dich okay sind: „Erst Zähne putzen oder erst den Schlafanzug?“',
+      'Statt einer Ja/Nein-Frage eine Aussage: „Jetzt ist Zeit zum Anziehen“ statt „Ziehen wir uns an?“.',
+      'Mach ein Spiel daraus: „Mal sehen, wer seine Socken schneller anhat – du oder der Teddy?“',
+      'Lass unwichtige Kämpfe sein: Wenn das T-Shirt verkehrt herum an ist, geht die Welt nicht unter.',
+    ],
+    mistakes: [
+      'Aus jedem „Nein“ einen Machtkampf machen.',
+      'Eine Wahl anbieten und die Entscheidung des Kindes dann nicht akzeptieren.',
+    ],
+    specialist: [
+      'Wenn dein Kind auf fast keine Aufforderung reagiert, nicht auf seinen Namen hört oder Schwierigkeiten hat, Kontakt aufzunehmen – lass seine Entwicklung ärztlich überprüfen.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

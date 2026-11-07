@@ -1,0 +1,149 @@
+import type { BandOverview } from '../types';
+import { S } from './sources';
+
+export const BANDS: BandOverview[] = [
+  {
+    id: '0-1',
+    emoji: '👶',
+    title: 'O primeiro ano: a base da confiança',
+    lead: 'Neste ano o bebê aprende se o mundo é um lugar seguro. A resposta vem da sua voz, do seu colo e de como você responde a ele.',
+    brain: [
+      'Nos primeiros anos de vida, formam-se no cérebro mais de um milhão de novas conexões neurais por segundo. Quais caminhos vão se fortalecer depende da experiência do dia a dia, repetida: o bebê faz um som e você responde; ele chora e você se aproxima.',
+      'A parte do cérebro que ajuda a se acalmar ainda é muito imatura. Por isso o bebê ainda não consegue se acalmar sozinho: ele “pega emprestada” a calma do seu corpo. Isso se chama corregulação, e é a primeira lição de autocontrole para o futuro.',
+      'Por volta dos 6–9 meses, a memória e o apego ficam mais fortes: o bebê pode começar a estranhar pessoas desconhecidas e a ficar inquieto quando você sai do quarto. Isso não é um retrocesso; pelo contrário, é sinal de que ele se apegou a você.',
+    ],
+    needs: [
+      'Resposta ao choro. Nessa idade é impossível “acostumar mal” o bebê ao colo ou mimá-lo. Uma resposta rápida e carinhosa ensina a confiar no mundo.',
+      'Comunicação cara a cara: sorrisos, músicas, repetir os sons dele. Essas brincadeiras de “vai e volta” constroem a base da linguagem e do cérebro emocional.',
+      'Um dia previsível: comida, sono e banho mais ou menos na mesma ordem. O que importa não é o horário exato, e sim um ritmo conhecido.',
+      'Sono seguro e ambiente seguro — e também uma mãe ou um pai descansados e com apoio.',
+    ],
+    normal: [
+      'Choros longos, aparentemente sem motivo, em certos horários do dia, principalmente no fim da tarde (nos primeiros 3–4 meses).',
+      'Acordar muitas vezes à noite. Dormir a noite inteira no primeiro ano não é o normal para todos os bebês.',
+      'Levar tudo à boca: é o jeito dele de conhecer o mundo.',
+      'Medo de estranhos e choro quando você não está (mais ou menos a partir dos 8 meses).',
+    ],
+    tryThis: [
+      'Várias vezes ao dia, 5 minutos de “tempo cara a cara”: celular longe, repita os sons do bebê e coloque em palavras o que ele está fazendo.',
+      'Faça as tarefas do dia conversando: “Agora vamos trocar a fralda. Levanta a perninha. Pronto!”',
+      'Brinque de esconde-achou: com essa brincadeira ele aprende que “quem vai, volta”, e o medo da separação diminui.',
+      'Quando o choro se prolonga e sua paciência se esgota, coloque o bebê num lugar seguro — o berço —, respire por alguns minutos e depois volte.',
+    ],
+    specialist: [
+      'Se o bebê não reage a sons, não faz contato visual com você, não sorri aos 4 meses ou não reage ao próprio nome aos 9 meses.',
+      'Se ele perde uma habilidade que já tinha (sorrir, balbuciar, sentar).',
+      'Se o choro está diferente do habitual ou vem acompanhado de febre, vômito, moleza ou recusa em mamar/comer: procure o médico. Em caso grave, ligue para o {emergency}.',
+      'Se você passa semanas se sentindo triste, sem esperança ou com medo de fazer mal ao bebê: pode ser depressão pós-parto, e tem tratamento. Conte ao seu médico.',
+    ],
+    sources: [S.harvardServe, S.nurturingCare2018, S.ainsworth1978, S.healthyChildrenCrying, S.zubler2022],
+  },
+  {
+    id: '1-3',
+    emoji: '🧸',
+    title: '1–3 anos: a fase do “Eu sozinho!”',
+    lead: 'A criança já anda, começa a falar e quer ser independente, mas o cérebro que lida com as emoções ainda é muito imaturo. É daí que vêm as birras.',
+    brain: [
+      'O centro emocional do cérebro (a amígdala) é forte e rápido, enquanto o córtex pré-frontal, que funciona como “freio”, ainda vai se desenvolver por muitos anos. Por isso uma criança de dois anos não consegue parar, mesmo quando você diz “para”. Não é teimosia: é um freio que ainda não amadureceu.',
+      'A linguagem se desenvolve depressa, mas o que a criança entende está muito à frente do que ela consegue dizer. Não conseguir dizer o que quer gera muita frustração, que muitas vezes sai em forma de grito ou de tapa.',
+      'Nessa idade a criança aprende causa e efeito testando: joga a colher no chão, olha sua reação e joga de novo. Não é para “te irritar”: é a experiência de um pequeno cientista.',
+    ],
+    needs: [
+      'Limites calmos, claros e repetidos: “Bater não pode. Vou segurar suas mãos.” Nada de longas explicações: uma frase curta e a ação.',
+      'Poder escolher: “Camiseta vermelha ou azul?” Escolher atende à necessidade de autonomia e diminui a vontade de dizer “não”.',
+      'Dar nome ao que sente: “Você ficou com raiva porque a brincadeira acabou.” Um sentimento com nome se acalma mais rápido.',
+      'Alguns minutos por dia de brincadeira conduzida por ela, muito movimento e ar livre.',
+    ],
+    normal: [
+      'Várias birras por dia, principalmente quando está cansada, com fome ou nas transições.',
+      'Dizer “Não!” o tempo todo e pedir a mesma coisa várias vezes.',
+      'Não saber dividir. Dividir de verdade aparece mais ou menos a partir dos 3–4 anos.',
+      'Morder ou bater de vez em quando: nessa idade a agressividade física chega ao pico e depois vai diminuindo aos poucos.',
+    ],
+    tryThis: [
+      'Avise 5 minutos antes das transições: “Mais duas vezes no escorregador e depois vamos para casa.”',
+      'Em vez de “não”, diga “o que pode”: “Na parede não, desenhe neste papel.”',
+      '10 minutos por dia de “brincadeira dela”: você faz o que ela faz, sem críticas e sem chuva de perguntas.',
+      'Ao longo do dia, repare no bom comportamento e diga exatamente o que viu: “Você deu o brinquedo para o seu irmão, olha como ele ficou feliz!”',
+    ],
+    specialist: [
+      'Se aos 18 meses não aponta com o dedo, aos 2 anos não forma frases de duas palavras, não reage ao próprio nome ou faz muito pouco contato visual.',
+      'Se perde palavras ou habilidades que já tinha (em qualquer idade).',
+      'Se as birras duram mais de 25 minutos, são mais de 5 por dia, a criança se machuca seriamente ou machuca outras pessoas, ou se não diminuem depois dos 4 anos.',
+      'Se dificuldades de sono, alimentação ou comportamento atrapalham a rotina da família por meses.',
+    ],
+    sources: [S.harvardEF2011, S.healthyChildrenTantrums, S.cdcPositive, S.tremblay2004, S.zubler2022],
+  },
+  {
+    id: '3-6',
+    emoji: '🎨',
+    title: '3–6 anos: imaginação, perguntas e regras',
+    lead: 'A criança pergunta “por quê?”, cria brincadeiras de faz de conta e aprende a fazer amigos. O autocontrole cresce rápido, mas ela ainda precisa do seu apoio.',
+    brain: [
+      'As funções executivas — manter a atenção, esperar a vez, lembrar uma regra, mudar de ideia — se desenvolvem rapidamente entre 3 e 5 anos. O faz de conta e os jogos com regras são o melhor treino para essas habilidades.',
+      'A criança começa a entender que outra pessoa pode pensar diferente. Por isso nessa idade aparecem as primeiras mentiras. Curiosamente, isso é um sinal de desenvolvimento mental.',
+      'A imaginação ganha força, e a fronteira entre o real e o inventado ainda é confusa. Medo do escuro, de monstros e de sonhos é típico dessa idade.',
+    ],
+    needs: [
+      'Poucas regras na família, claras e aplicadas com constância. Quanto mais previsíveis as regras, menos discussão.',
+      'Consequências lógicas, não castigos: “Se jogar a bola dentro de casa, a bola vai para o armário.”',
+      'Conversas sobre sentimentos: livros, brincadeiras com bonecos e perguntas como “como você se sentiria?”.',
+      'Pequenas responsabilidades de verdade: pôr a mesa, guardar os brinquedos, regar uma planta.',
+    ],
+    normal: [
+      'Mentir às vezes e misturar fantasia com realidade.',
+      'Testar as regras e reagir com força a “injustiças”.',
+      'Ter medo do escuro ou de situações novas.',
+      'Ainda ter birras de vez em quando, mas mais curtas e mais raras do que antes.',
+    ],
+    tryThis: [
+      'Uma vez por dia, pergunte “qual foi o melhor e o pior momento do seu dia?” e escute com atenção.',
+      'Desenhem juntos as regras da casa e pendurem na parede.',
+      'Treine o autocontrole com brincadeiras como “sinal vermelho, sinal verde” ou “o mestre mandou”.',
+      'Quando ela errar, procurem a solução juntos: “A água derramou. O que a gente faz?”',
+    ],
+    specialist: [
+      'Se aos 4 anos não forma frases, se estranhos têm dificuldade de entender o que ela fala ou se não mostra nenhum interesse por outras crianças.',
+      'Se medos ou ansiedade atrapalham a vida diária (escola, sono, alimentação) por semanas.',
+      'Se a agressividade machuca seriamente outras pessoas ou está aumentando; se há crueldade com animais.',
+      'Se, depois de muito tempo sem escapes, volta a fazer xixi na roupa durante o dia ou perde habilidades que já tinha.',
+    ],
+    sources: [S.diamond2013, S.harvardEF2011, S.talwarLee2008, S.cdcPositive, S.zubler2022],
+  },
+  {
+    id: '6-12',
+    emoji: '🎒',
+    title: '6–12 anos: habilidades, amizade e autoconfiança',
+    lead: 'Os anos de escola são a fase em que a criança constrói a sensação de “eu consigo”. Os amigos ganham importância, mas você continua sendo o principal apoio dela.',
+    brain: [
+      'Planejamento, atenção e autocontrole já estão bem desenvolvidos, mas cansaço, fome e estresse os “desligam” com facilidade. Uma criança irritada depois da escola muitas vezes é só uma criança esgotada.',
+      'A criança começa a se comparar com os outros. Nessa fase, a autoestima se alimenta principalmente do esforço, de ganhar novas habilidades e de se sentir aceita.',
+      'Perto da adolescência (por volta dos 9–12 anos) podem começar as mudanças hormonais: oscilações de humor e mais necessidade de espaço pessoal são normais.',
+    ],
+    needs: [
+      'Incentivo que enxerga o esforço e a estratégia: “Você se dedicou muito a esse problema e tentou outro caminho.”',
+      'Cada vez mais responsabilidade e direito de escolha, junto com regras familiares claras.',
+      'Uma mãe ou um pai que escuta sem julgar. Se você escuta as coisas pequenas, ela também vai te contar as grandes.',
+      'Tempo livre longe das telas e da lição de casa: brincar, esporte, amigos, sono.',
+    ],
+    normal: [
+      'Longas discussões sobre o que é justo e vontade de negociar as regras.',
+      'Brigas e reconciliações com os amigos, e a tristeza de “não me deixaram brincar”.',
+      'Fugir da lição de casa e esquecer as coisas.',
+      'Às vezes ter vergonha dos pais ou querer mais privacidade (principalmente depois dos 10 anos).',
+    ],
+    tryThis: [
+      'Um momento de “conversa sem interrogatório” no carro, na refeição ou antes de dormir: conte também como foi o seu dia.',
+      'Horário e lugar fixos para a lição de casa — mas não faça a lição por ela.',
+      'Escrevam juntos um plano de telas da família: onde, quando e por quanto tempo.',
+      'Uma vez por semana, um tempo só de vocês dois: só você e ela, com uma atividade que ela escolher.',
+    ],
+    specialist: [
+      'Tristeza que dura mais de duas semanas, perda de interesse, ou grandes mudanças no sono ou no apetite.',
+      'Recusa persistente em ir à escola, queixas frequentes de dor de barriga e de cabeça (quando o médico não encontra causa).',
+      'Sinais de que sofre bullying ou de que pratica bullying; isolamento total dos amigos.',
+      'Autolesão ou falas sobre morte ou suicídio: nunca encare isso como “querer chamar atenção”. Procure um profissional imediatamente e, se houver perigo, ligue para o {emergency}.',
+    ],
+    sources: [S.cdcPositive, S.aapMediaSchool2016, S.pomerantz2007, S.muellerDweck1998, S.unesco2019],
+  },
+];

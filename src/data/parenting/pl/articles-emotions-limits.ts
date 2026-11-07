@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Napad złości: co dzieje się w mózgu?',
+    summary: 'Napad złości nie jest skutkiem złego wychowania. To moment, w którym wielkie uczucie przerasta wciąż mały „układ hamulcowy”.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Układ emocji położony w głębszych warstwach mózgu jest silny od urodzenia: w ułamku sekundy wyczuwa zagrożenie, rozczarowanie, złość. Natomiast kora przedczołowa — ta, która powstrzymuje te uczucia i mówi „zaczekaj, jest inny sposób” — dojrzewa aż do około 20. roku życia. U dziecka w wieku 2–4 lat ta różnica jest największa. Dlatego w trakcie napadu złości dziecko cię nie słyszy i nie reaguje na argumenty: „myśląca” część jego mózgu jest chwilowo wyłączona.',
+      'W tej chwili dziecko nie potrafi samo się uspokoić — „pożycza” spokój od twojego ciała i głosu. Badacze nazywają to koregulacją. Im spokojniejszy pozostaje rodzic, tym szybciej układ stresu dziecka wraca do normy, a dzięki powtórzeniom dziecko uczy się tej drogi i przyswaja ją sobie. Krzyk i kary podnoszą poziom hormonów stresu i wydłużają napad.',
+      'Napady złości często pojawiają się w tych samych momentach: zmęczenie, głód, przejścia (z zabawy do domu, wyjście z placu zabaw), odpowiedź „nie”. Przewidzenie tych chwil może zapobiec ponad połowie napadów.',
+    ],
+    tryToday: [
+      'Najpierw uspokój siebie: weź głęboki oddech, rozluźnij ramiona, ścisz głos. Jeśli ty nie jesteś spokojna/spokojny, ono też nie będzie.',
+      'Mów mało. Wystarczą jedno–dwa krótkie zdania: „Bardzo się złościsz. Jestem tutaj.”',
+      'Zadbaj o bezpieczeństwo: jeśli bije, delikatnie przytrzymaj jego rękę, odsuń przedmioty, którymi mogłoby zrobić sobie krzywdę.',
+      'Gdy się uspokoi, przytul je i dopiero wtedy powiedz krótko: „Bardzo się zezłościłeś, bo zabawa się skończyła. Następnym razem możesz powiedzieć „pomóż mi”.”',
+      'W tym tygodniu zapisuj, kiedy zdarzają się napady złości. Najpewniej zbiegną się z porami zmęczenia i głodu.',
+    ],
+    mistakes: [
+      'Długie tłumaczenie albo moralizowanie w trakcie napadu. Mózg nie jest jeszcze w trybie słuchania: najpierw uspokojenie, potem rozmowa.',
+      'Danie dziecku tego, czego chce, żeby przerwać napad. To oznacza silniejszy napad następnym razem. Okaż empatię uczuciu, ale trzymaj się swojej decyzji.',
+      'Zawstydzanie dziecka: „Wstyd, wszyscy na ciebie patrzą.” Wstyd nie uczy panowania nad uczuciami, uczy tylko ich ukrywania.',
+      'Traktowanie napadu złości jako „manipulacji”. U małego dziecka to przede wszystkim brak umiejętności, a nie podstęp.',
+    ],
+    byAge: {
+      '1-3': 'Zasób słów jest mały, więc to ty nazwij uczucie i pokaż prostą alternatywę: „Złościsz się. Tupnij nogą, o tak!” W tym wieku odwracanie uwagi działa świetnie.',
+      '3-6': 'W spokojnej chwili ułóżcie „plan na złość”: oddychanie, ściskanie poduszki, pójście do spokojnego kącika. Powieście go na ścianie w formie obrazków, a gdy zaczyna się napad, tylko na niego wskaż.',
+    },
+    specialist: [
+      'Jeśli napady złości regularnie trwają dłużej niż 25 minut albo zdarzają się częściej niż pięć razy dziennie.',
+      'Jeśli podczas napadu dziecko poważnie się rani (uderza głową, gryzie się) albo wstrzymuje oddech aż do utraty przytomności — pokaż je lekarzowi.',
+      'Jeśli po 4.–5. roku życia napady zamiast słabnąć — nasilają się, albo są też inne niepokoje związane z mową, snem czy kontaktem z innymi.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Coaching emocji: nazywanie uczuć',
+    summary: 'Dostrzeganie i nazywanie uczuć wzmacnia u dziecka umiejętność panowania nad sobą. Nie oznacza to pozwalania na wszystko.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'W latach 90. psycholog John Gottman, obserwując rodziny, ustalił, że rodzice reagują na uczucia dziecka na cztery sposoby: lekceważąco („Nie płacz, to nic takiego”), karząco, przyzwalając na wszystko lub jako „trener emocji”. Rodzic-trener traktuje uczucie poważnie, nazywa je i razem z dzieckiem szuka rozwiązania, ale stawia granice zachowaniu.',
+      'Dzieci rodziców-trenerów emocji w kolejnych latach lepiej utrzymywały uwagę, rzadziej konfliktowały się z rówieśnikami i szybciej wychodziły ze stresu. Późniejsze programy (np. „Tuning in to Kids”) pokazały, że tej umiejętności może nauczyć się każdy rodzic.',
+      'Badania mózgu pokazują coś ciekawego: nazwanie uczucia („jestem zły”, „boję się”) zmniejsza aktywność ośrodka emocji. Czyli „nazwij, żeby oswoić” to nie tylko ładne hasło.',
+    ],
+    tryToday: [
+      'Dziś trzy razy wypowiedz uczucie dziecka, jakbyś mówił/mówiła w jego imieniu: „Chyba bardzo się rozczarowałeś.” Nie bój się pomyłki — dziecko cię poprawi.',
+      'Pozwól na uczucie, postaw granicę zachowaniu: „Możesz się złościć. Nie wolno bić.”',
+      'Czytając książkę, przyglądajcie się twarzom bohaterów: „Jak myślisz, co on teraz czuje?”',
+      'Mów też spokojnie o własnych uczuciach: „Jestem trochę zmęczona, więc wypiję w ciszy herbatę.” Dziecko najbardziej naśladuje ciebie.',
+    ],
+    mistakes: [
+      'Mówienie „nie płacz”, „nie ma się czego bać”, „to nic takiego”. Uczucie nie znika — dziecko uczy się tylko, żeby ci go nie pokazywać.',
+      'Rozumienie empatii jako odwołania „nie”. Można spokojnie powiedzieć: „Rozumiem, bardzo tego chciałeś. Odpowiedź wciąż brzmi nie.”',
+      'Rozmawianie o uczuciach tylko w trudnych chwilach. Najlepszy trening odbywa się w spokojnych momentach, przez zabawę i książki.',
+    ],
+    byAge: {
+      '1-3': 'Proste słowa: radość, złość, smutek, strach. Naśladujcie razem miny przed lustrem.',
+      '3-6': 'Narysujcie „termometr” uczuć: zielony — jestem spokojny, żółty — zaczynam się denerwować, czerwony — wybucham. Niech dziecko wskaże kolor.',
+      '6-12': 'Uczcie się subtelniejszych słów: rozczarowanie, wstyd, zazdrość, niepokój. Pytaj, gdzie w ciele czuje to uczucie.',
+    },
+    specialist: [
+      'Jeśli dziecko przez dłuższy czas prawie nie okazuje żadnych uczuć albo każda drobnostka wytrąca je z równowagi na wiele godzin.',
+      'Jeśli smutek, lęk lub złość trwają dłużej niż dwa tygodnie i wpływają na sen, jedzenie, szkołę i przyjaźnie — zwróć się do psychologa dziecięcego.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Kącik spokoju i zabawy oddechowe',
+    summary: 'Dziecko można nauczyć uspokajania się, ale nie w kącie za karę, tylko w przytulnym miejscu i przez zabawę.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Umiejętność samoregulacji kształtuje się najpierw razem z rodzicem, a potem stopniowo samodzielnie. Im częściej dziecko uspokajało się przy spokojnym dorosłym, tym lepiej uczy się tej drogi.',
+      'Powolny, głęboki oddech (zwłaszcza długi wydech) zwalnia bicie serca i wyłącza w ciele tryb „zagrożenia”. Dzieci uczą się tego lepiej przez zabawę niż przez instrukcje.',
+    ],
+    tryToday: [
+      'Urządźcie razem w domu mały „kącik spokoju”: poduszka, miękka przytulanka, jedna–dwie książki, karty z uczuciami. To nie miejsce kary, tylko miejsce, do którego można pójść w każdej chwili.',
+      'Zabawa „świeczka i kwiatek”: powąchaj kwiatek (wdech nosem), zdmuchnij świeczkę (powolny wydech ustami). Pięć razy.',
+      'Ćwiczcie razem w spokojnej chwili: „Co dzieje się z naszym ciałem, kiedy się złościmy? Chodź, pooddychajmy teraz, kiedy jest spokojnie, żeby pamiętać, gdy będzie trzeba.”',
+      'Z małym dzieckiem chodźcie do kącika razem: „Chodź, pójdziemy razem do kącika spokoju.”',
+    ],
+    mistakes: [
+      'Używanie kącika jako kary: „Idź do kąta!” Wtedy dziecko będzie go unikać.',
+      'Próba nauczenia ćwiczeń oddechowych po raz pierwszy w środku napadu złości. Umiejętności uczymy się w spokoju.',
+      'Oczekiwanie uspokojenia „od razu”. Wielkie uczucie może gasnąć 10–20 minut.',
+    ],
+    byAge: {
+      '3-6': 'Świetnie działa zabawa w „kołysanie przytulanki oddechem” — połóż ją dziecku na brzuchu.',
+      '6-12': 'Niech dziecko spisze własną listę sposobów na uspokojenie: muzyka, rysowanie, spacer, picie wody. Sposoby wybrane samodzielnie stosuje chętniej.',
+    },
+    specialist: [
+      'Jeśli dziecko prawie nigdy nie potrafi się uspokoić albo w chwilach złości zachowuje się niebezpiecznie — zwróć się do psychologa dziecięcego.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Wielkie uczucia dziecka w wieku szkolnym',
+    summary: 'Złość, wstyd, zazdrość, rozczarowanie: w wieku szkolnym uczucia stają się bardziej złożone, a dziecko potrzebuje pomocy, żeby je zrozumieć.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'W wieku szkolnym dziecko potrafi już ukrywać uczucia, dlatego wielkie emocje często wybuchają w domu, przy najbezpieczniejszej osobie — przy tobie. Rozdrażnienie po szkole to często zmęczenie całodziennym „trzymaniem się w ryzach”.',
+      'W tym wieku zaczyna się porównywanie społeczne. Wstyd i poczucie „jestem gorszy” mogą wyglądać jak złość. Im lepiej dziecko potrafi nazwać uczucie, tym łatwiej mu nad nim zapanować.',
+    ],
+    tryToday: [
+      'Nie zasypuj dziecka pytaniami zaraz po szkole. Najpierw przekąska, cisza albo przytulenie, rozmowa później.',
+      'Ćwiczcie razem zdanie „uczucie + potrzeba”: „Czuję …, bo … . Potrzebuję … .”',
+      'Opowiedz podobną historię ze swojego dzieciństwa: „Jak miałam 9 lat, też tak się wstydziłam…”',
+      'Po wybuchu przeanalizujcie sytuację bez obwiniania: „Co się stało? Co czułeś w ciele? Co pomoże następnym razem?”',
+    ],
+    mistakes: [
+      'Pomniejszanie uczucia: „Nie ma o co płakać.” Dla niego to jest duża sprawa.',
+      'Natychmiastowe proponowanie rozwiązań. Czasem dziecko chce tylko zostać wysłuchane.',
+      'Uznawanie złości u dziewczynek, a smutku u chłopców za uczucia „nie wypada”. Każde uczucie jest normalne u każdego dziecka.',
+    ],
+    specialist: [
+      'Smutek trwający dłużej niż dwa tygodnie, utrata zainteresowań, zmiany snu i apetytu, odmowa chodzenia do szkoły.',
+      'Samookaleczanie lub mówienie o śmierci: natychmiast zwróć się do specjalisty, a jeśli jest zagrożenie — dzwoń pod {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Marudzenie i jęczenie',
+    summary: 'Marudzenie działa na nerwy, ale często jest sygnałem zmęczenia albo potrzeby uwagi.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Dziecko szybko uczy się, które zachowanie działa. Jeśli marudzenie w końcu daje mu to, czego chce, będzie marudzić dalej. Uwaga — nawet negatywna — wzmacnia zachowanie.',
+      'Jednocześnie marudzenie często jest oznaką głodu, zmęczenia albo zbyt długiego braku uwagi. Odpowiedź na przyczynę szybko zmniejsza to zachowanie.',
+    ],
+    tryToday: [
+      'W spokojnej chwili zagrajcie w „mocny głos”: powiedzcie tę samą prośbę marudnym i normalnym głosem, pośmiejcie się.',
+      'Gdy marudzi, powiedz spokojnie: „Lepiej cię słyszę, kiedy mówisz swoim normalnym głosem.” Kiedy powie to normalnie, odpowiedz od razu i z zapałem.',
+      'W ciągu dnia zrób pierwszy krok: często dawaj krótką uwagę bez powodu — kontakt wzrokowy, przytulenie, „widzę cię”.',
+    ],
+    mistakes: [
+      'Najpierw powiedzieć „nie”, a gdy marudzenie się przeciąga, „dobrze, masz”. To najskuteczniejszy sposób, by nauczyć marudzenia.',
+      'Wyśmiewanie marudzenia albo przedrzeźnianie go, żeby zawstydzić.',
+    ],
+    specialist: [
+      'Jeśli oprócz marudzenia dziecko często wygląda na zmęczone i blade albo ma mniejszy apetyt — zgłoś się do lekarza, żeby sprawdzić przyczyny medyczne.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Pozytywna dyscyplina: granice i ciepło razem',
+    summary: 'Najlepsze rezultaty osiągają nie rodzice surowi ani nie ci, którzy pozwalają na wszystko, lecz ci, którzy są jednocześnie ciepli i jasni.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'W latach 60. psycholożka Diana Baumrind opisała style rodzicielskie w dwóch wymiarach: ciepło (miłość, uwaga, responsywność) i wymagania/struktura (jasne oczekiwania, granice). Styl „autorytatywny”, wysoki w obu wymiarach, okazał się związany z najlepszymi wynikami: dzieci bardziej samodzielne, pewne siebie i z mniejszą liczbą problemów z zachowaniem.',
+      'W kolejnych dekadach metaanalizy łączące setki badań potwierdziły ten wniosek: ciepła relacja i granice stawiane z wyjaśnieniem wiążą się z mniejszą agresją i łamaniem zasad, a surowa kontrola i kary — przeciwnie, z większą liczbą problemów z zachowaniem.',
+      'Amerykańska Akademia Pediatrii (2018) i WHO (2022) zalecają rodzicom tę samą drogę: budowanie pozytywnej relacji, dostrzeganie i wzmacnianie dobrego zachowania, jasne oczekiwania i spokojne konsekwencje. Kary fizyczne i poniżające słowa nie są zalecane.',
+    ],
+    tryToday: [
+      'Wypowiedz jedną zasadę językiem pozytywnym: nie „nie biegaj”, tylko „w domu chodzimy”.',
+      'Powiedz z wyprzedzeniem, czego oczekujesz: „W sklepie trzymasz mnie za rękę, a do wózka wkładamy tylko to, co jest na liście.”',
+      'Dziś pięć razy zauważ dobre zachowanie i nazwij je konkretnie: „Sam powiesiłeś plecak, dziękuję!” Rośnie to zachowanie, na które kierujesz uwagę.',
+      'Stawiaj granicę spokojnym, krótkim i życzliwym głosem, a potem działaj. Bez powtarzanych ostrzeżeń.',
+    ],
+    mistakes: [
+      'Przeciwstawianie miłości i granic. „Kocham cię i dlatego ci nie pozwalam” — jedno i drugie może iść w parze.',
+      'Stosowanie zasady jednego dnia i zapominanie o niej następnego. Konsekwencja jest ważniejsza niż surowość.',
+      'Reagowanie tylko na błędy. Jeśli dziecko może zdobyć uwagę tylko trudnym zachowaniem, będzie je powtarzać.',
+    ],
+    byAge: {
+      '1-3': 'Bardziej otoczenie niż słowa: schowaj niebezpieczne przedmioty poza zasięg, zachowaj „nie” na naprawdę ważne sprawy.',
+      '3-6': 'Wystarczą 3–4 proste zasady rodzinne. Narysujcie je obrazkami i powieście w widocznym miejscu.',
+      '6-12': 'Omawiajcie zasady razem, ustalcie konsekwencje z góry. Dziecko chętniej przestrzega zasady, którą częściowo samo napisało.',
+    },
+    specialist: [
+      'Jeśli mimo wszelkich starań problemy z zachowaniem od miesięcy zaburzają życie rodziny, przedszkola lub szkoły — psycholog dziecięcy albo programy dla rodziców (np. PCIT, Triple P) są bardzo skuteczne.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Dlaczego bicie nie działa i co działa',
+    summary: 'Klaps może dać chwilowe posłuszeństwo, ale długofalowo pogarsza zachowanie. Dowody naukowe są w tej sprawie bardzo jednoznaczne.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'W 2016 roku Gershoff i Grogan-Kaylor połączyli 75 badań obejmujących ponad 160 tysięcy dzieci. Wynik: klapsy (bicie) nie wiążą się z żadnym pozytywnym długofalowym skutkiem u dziecka — przeciwnie, wiążą się z większą agresją, zachowaniami antyspołecznymi, problemami ze zdrowiem psychicznym i słabszą relacją z rodzicem. Ten związek widać także przy „lekkim” biciu czy klapsie „z miłości”.',
+      'Powód jest prosty: bicie nie uczy dziecka, co powinno zrobić, uczy tylko strachu. Do tego pokazuje, że problemy rozwiązuje się siłą. Krzyk, groźby i poniżanie działają podobnie: w badaniach surowa dyscyplina słowna wiązała się w kolejnych latach z większą liczbą problemów z zachowaniem i objawów depresyjnych.',
+      'Amerykańska Akademia Pediatrii (2018) i WHO nie zalecają kar fizycznych ani poniżających słów. Zamiast tego działają: ciepła relacja, jasne zasady, wzmacnianie dobrego zachowania, logiczne konsekwencje i czas na uspokojenie.',
+    ],
+    tryToday: [
+      'Wybierz dla siebie „sygnał stop”: gdy narasta złość, włóż rękę do kieszeni albo zrób krok do tyłu i policz do 10.',
+      'Niebezpieczne zachowanie zatrzymuj fizycznie, ale bez krzywdy: przytrzymaj rękę, weź dziecko na ręce, zabierz przedmiot.',
+      'Naucz, co zrobić następnym razem: „Kiedy brat zabiera ci zabawkę, możesz powiedzieć „oddaj!” albo przyjść do mnie.”',
+      'Jeśli już uderzyłaś/uderzyłeś: przeproś, weź odpowiedzialność za swoje zachowanie i powiedz, jaki masz plan. To uczy także dziecko, jak naprawiać błędy.',
+    ],
+    mistakes: [
+      'Myślenie „Mnie też bili i wyrosłem na normalnego człowieka”. Wielu ludzi wyrosło dobrze mimo to, ale badania pokazują, że średnio ryzyko rośnie.',
+      'Trzymanie bicia jako „ostatecznej metody”. Ostateczna metoda to przerwa na uspokojenie i poproszenie o pomoc.',
+      'Zastąpienie kary fizycznej inną poniżającą metodą (zawstydzanie, straszenie, wycofywanie miłości).',
+    ],
+    byAge: {
+      '1-3': 'Najskuteczniejsze w tym wieku: odwrócenie uwagi, zmiana otoczenia, spokojne zabranie dziecka z niebezpiecznego miejsca.',
+      '3-6': 'Dobrze działają logiczne konsekwencje i „time-in” (uspokajanie się przy tobie).',
+      '6-12': 'Krótkie ograniczenie przywileju (np. czasu przed ekranem) i wspólne rozwiązywanie problemu.',
+    },
+    specialist: [
+      'Jeśli czujesz, że w chwilach złości nie potrafisz się powstrzymać i możesz zrobić dziecku krzywdę — to mocny powód, by poprosić o pomoc. Psycholog lub program dla rodziców może to zmienić.',
+      'Jeśli dziecko lub ty jesteście w niebezpieczeństwie albo w domu dochodzi do przemocy, natychmiast dzwoń pod {emergency}.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Konsekwencja a kara: na czym polega różnica?',
+    summary: 'Kara ma zaboleć, konsekwencja ma nauczyć. Najlepsza konsekwencja jest związana z zachowaniem, pełna szacunku i znana z góry.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Psychologia zachowania pokazuje, że zachowanie najbardziej zmienia to, co następuje po nim. Ale kary (bicie, poniżanie, długie zakazy) budzą strach i żal, a dziecko myśli o tym, „jak nie dać się złapać”.',
+      'Logiczna konsekwencja jest bezpośrednio związana z zachowaniem, krótka i uczy: pomalowało ścianę farbami — razem ją myjemy; złamało zasadę jazdy na rowerze — dziś bez roweru. Naturalne konsekwencje (wyszło bez kurtki — zmarzło) są najsilniejszym nauczycielem, o ile są bezpieczne.',
+    ],
+    tryToday: [
+      'Sprawdzian „3 R”: czy konsekwencja jest związana z zachowaniem (Related), pełna szacunku (Respectful) i rozsądna (Reasonable)?',
+      'Zapowiedz konsekwencję z góry: „Jeśli nie posprzątasz zabawek, jutro odpoczną w pudełku.” Potem spokojnie działaj.',
+      'Niech konsekwencja będzie krótka: jeden dzień wystarczy. Miesięczny zakaz już nie uczy, tylko rani.',
+      'Po konsekwencji „czysta karta”: bez kazań, zaczynamy od nowa.',
+    ],
+    mistakes: [
+      'Wymyślanie konsekwencji w złości: „Rok bez roweru!” Potem nie da się tego wyegzekwować i słowa tracą wartość.',
+      'Kara niezwiązana z zachowaniem: nie odrobiło lekcji — nie idzie na urodziny.',
+      'Stosowanie konsekwencji z drwiną albo z „no i widzisz?”.',
+    ],
+    byAge: {
+      '3-6': 'Konsekwencja musi być natychmiastowa i bardzo krótka. Po kilku godzinach dziecko nie łączy jej już z zachowaniem.',
+      '6-12': 'Ustalajcie konsekwencje razem. Dziecko chętniej przestrzega zasady, którą uważa za sprawiedliwą.',
+    },
+    specialist: [
+      'Jeśli żadna konsekwencja nie działa, a zachowanie jest niebezpieczne albo tak nasilone, że wyczerpuje rodzinę — skonsultuj się z programem dla rodziców i psychologiem dziecięcym.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Jak rozmawiać bez krzyku',
+    summary: 'Krzyk przynosi chwilową ulgę, ale dziecko przyzwyczaja się do siły głosu i słyszy coraz mniej. Spokojne mówienie z bliska ma większą moc.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'W badaniach regularna dyscyplina oparta na krzyku, przekleństwach i poniżających słowach wiązała się w kolejnych latach z większą liczbą problemów z zachowaniem i objawów depresyjnych — nawet gdy relacja była ogólnie ciepła. Jeden z powodów: krzyk uruchamia układ stresu dziecka i zamiast słuchać, przechodzi ono do obrony.',
+      'Dobra wiadomość: samoregulacji rodzica można się nauczyć. Krzyk jest najczęściej sygnałem zmęczenia, głodu i przeciążenia rodzica, a nie tego, że jest „złym rodzicem”.',
+    ],
+    tryToday: [
+      'Zamiast krzyczeć z daleka, podejdź, zniż się do poziomu dziecka, nawiąż kontakt wzrokowy, powiedz jego imię i mów krótkim zdaniem.',
+      'Gdy masz ochotę podnieść głos, zrób odwrotnie: mów szeptem. Dzieci słuchają szeptu z ciekawością.',
+      'Zapisuj w ciągu dnia chwile, gdy krzyczysz. O jakiej porze najczęściej? Zrób plan na tę porę (np. przekąska, przygotowanie czegoś wcześniej).',
+      'Jeśli krzykniesz, napraw to: „Krzyknęłam, to nie było w porządku. Zdenerwowałam się, ale nie powinnam była podnosić głosu.”',
+    ],
+    mistakes: [
+      'Obwinianie się po każdym potknięciu. To tylko zwiększa napięcie następnym razem. Celem nie jest perfekcja, tylko częstotliwość i naprawianie.',
+      'Mówienie „Przez ciebie muszę krzyczeć”. To my odpowiadamy za swoje uczucia.',
+    ],
+    specialist: [
+      'Jeśli złość i rozdrażnienie niemal codziennie wymykają się spod kontroli, a towarzyszą im bezsenność, smutek lub beznadzieja — porozmawiaj z lekarzem lub psychologiem. Depresję i lęk u rodzica można leczyć.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out czy time-in?',
+    summary: 'Krótka przerwa na uspokojenie może działać, ale dla małych dzieci najważniejsza jest nie izolacja, tylko bliskość, która pomaga się uspokoić.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Klasyczny „time-out” (kilkuminutowa spokojna przerwa) był badany w niektórych programach dla rodziców i wykazano, że stosowany prawidłowo (krótko, spokojnie, bez poniżania, na tle ciepłej relacji) nie szkodzi. Nie oznacza to jednak zamykania dziecka w pokoju ani straszenia go.',
+      '„Time-in” to uspokajanie się dziecka przy tobie. Dla małych dzieci jest to lepsze, bo wciąż potrzebują koregulacji. W obu przypadkach celem nie jest kara, tylko uspokojenie i „zaczęcie od nowa”.',
+    ],
+    tryToday: [
+      'Zasada: mniej więcej minuta na każdy rok życia, maksymalnie 5 minut.',
+      'Miejsce ma być spokojne, ale nie straszne. Nigdy nie zamykaj dziecka w ciemnym pokoju.',
+      'Na time-in: „Chodź, usiądź przy mnie. Pooddychajmy razem.”',
+      'Po przerwie krótkie „zaczynamy od nowa”, bez kazań.',
+    ],
+    mistakes: [
+      'Stosowanie time-outu długo, często i z groźbami.',
+      'Łączenie przerwy z poniżaniem: „Idź stąd, nie chcę cię widzieć.”',
+    ],
+    specialist: [
+      'Jeśli przy każdej przerwie dziecko przeżywa ogromny strach lub panikę, a chwile rozłąki bardzo nim wstrząsają — porozmawiaj ze specjalistą.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Zasady rodzinne: niewiele, jasno, konsekwentnie',
+    summary: 'Dzieci testują granice, bo chcą wiedzieć, czy wciąż są na swoim miejscu. Stała granica daje poczucie bezpieczeństwa.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Przewidywalne otoczenie uspokaja układ stresu dziecka. W badaniach jasne zasady i codzienny rytm wiążą się z lepszym snem, mniejszą liczbą problemów z zachowaniem i silniejszą samokontrolą.',
+      'Najlepiej działają zasady nieliczne (3–5), zapisane pozytywnym językiem i stosowane tak samo przez oboje rodziców.',
+    ],
+    tryToday: [
+      'Zorganizujcie naradę rodzinną: każdy proponuje jedną zasadę, razem wybierzcie 3–5 najważniejszych.',
+      'Zapisz zasady pozytywnie: „Delikatne ręce”, „Kiedy ktoś mówi, słuchamy się nawzajem”, „Po jedzeniu talerz do kuchni”.',
+      'Razem z zasadami ustalcie też konsekwencje.',
+      'Dorośli też przestrzegają zasad. Dziecko patrzy bardziej na przykład niż na słowa.',
+    ],
+    mistakes: [
+      'Wymyślanie nowej zasady przy każdym nowym problemie. Za dużo zasad to tyle, co żadne.',
+      'U mamy jedna zasada, u taty czy babci inna. Dorośli muszą najpierw dogadać się między sobą.',
+    ],
+    specialist: [
+      'Jeśli w rodzinie trwają ciągłe, napięte konflikty o zasady, może pomóc doradca rodzinny.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: 'Dziecko, które mówi „Nie!”: jak radzić sobie z uporem',
+    summary: 'Etap „nie” to odkrycie dziecka, że „jestem osobnym człowiekiem”. Nie działa walka z tym, tylko dawanie wyboru.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'W drugim roku życia dziecko odkrywa, że ma własną wolę. Potrzeba autonomii należy do podstawowych potrzeb psychicznych: im większe poczucie kontroli ma dziecko, tym chętniej współpracuje.',
+      'Badania pokazują, że „kontrolujący” język („ubieraj się natychmiast!”) zwiększa opór, a wybór i wyjaśnienie — współpracę.',
+    ],
+    tryToday: [
+      'Daj dwie akceptowalne opcje: „Najpierw myjemy zęby czy piżama?”',
+      'Zamiast pytania „tak/nie” — zdanie oznajmujące: „Teraz czas się ubrać”, a nie „Ubierzemy się?”',
+      'Zamień to w zabawę: „Zobaczmy, kto szybciej założy skarpetki — ty czy miś?”',
+      'Odpuść nieważne bitwy: jeśli koszulka jest założona na lewą stronę, świat się nie zawali.',
+    ],
+    mistakes: [
+      'Zamienianie każdego „nie” w walkę o władzę.',
+      'Danie wyboru, a potem nieakceptowanie wyboru dziecka.',
+    ],
+    specialist: [
+      'Jeśli dziecko prawie nie reaguje na żadne prośby, nie odwraca się na swoje imię albo ma trudności w komunikacji — zgłoś się do lekarza na ocenę rozwoju.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

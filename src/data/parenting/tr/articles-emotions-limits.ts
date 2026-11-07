@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Öfke nöbeti: beyinde neler oluyor?',
+    summary: 'Öfke nöbeti kötü ebeveynliğin sonucu değildir. Büyük bir duygunun henüz küçük olan “fren sistemini” aştığı andır.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Beynin derin katmanlarındaki duygu sistemi doğuştan güçlüdür: tehlikeyi, hayal kırıklığını, öfkeyi bir anda hisseder. Bu duyguları tutan, “bekle, başka bir yol var” diyen ön alın korteksi ise 20’li yaşlara kadar olgunlaşır. Bu fark en çok 2–4 yaş arasındaki çocuklarda büyüktür. Bu yüzden öfke nöbeti sırasında çocuk seni duymaz, mantığa yanıt vermez: beyninin “düşünen” kısmı geçici olarak devre dışıdır.',
+      'Çocuk o anda kendi kendine sakinleşemez, sakinliği senin bedeninden, sesinden “ödünç alır”. Araştırmacılar buna birlikte düzenleme diyor. Ebeveyn sakin kaldıkça çocuğun stres sistemi daha çabuk normale döner; bu tekrarlandıkça çocuk sakinleşmenin yolunu öğrenip içselleştirir. Bağırmak ve cezalandırmak ise stres hormonlarını artırır, nöbeti uzatır.',
+      'Öfke nöbetleri çoğu zaman aynı anlarda gelir: yorgunluk, açlık, geçişler (oyundan eve, parktan çıkmak), “hayır” cevabı. Bu anları önceden görmek, nöbetlerin yarısından fazlasını önleyebilir.',
+    ],
+    tryToday: [
+      'Önce kendini sakinleştir: derin bir nefes al, omuzlarını gevşet, sesini alçalt. Sen sakin olmazsan o da sakinleşemez.',
+      'Az konuş. Bir iki kısa cümle yeter: “Çok kızgınsın. Ben buradayım.”',
+      'Güvenliği sağla: vuruyorsa elini yumuşakça tut, kendine zarar verebileceği eşyaları kenara koy.',
+      'Sakinleşince sarıl ve ancak sonra kısaca konuş: “Oyun bittiği için çok kızdın. Bir dahaki sefere “yardım et” diyebilirsin.”',
+      'Bu hafta öfke nöbetlerinin ne zaman olduğunu not et. Büyük ihtimalle yorgunluk ve açlık saatleriyle çakışacak.',
+    ],
+    mistakes: [
+      'Nöbet sırasında uzun açıklamalar yapmak ya da nasihat etmek. Beyin henüz dinleme modunda değil; önce sakinleşme, sonra sohbet.',
+      'Nöbeti durdurmak için istediğini vermek. Bu, bir dahaki sefere daha güçlü bir nöbet demektir. Duyguya empati göster, kararında ise kal.',
+      'Çocuğu utandırmak: “Ayıp, herkes sana bakıyor.” Utanç, duyguyu yönetmeyi öğretmez, sadece saklamayı öğretir.',
+      'Öfke nöbetini “manipülasyon” saymak. Küçük bir çocuk için bu çoğunlukla beceri eksikliğidir, kurnazlık değil.',
+    ],
+    byAge: {
+      '1-3': 'Kelime dağarcığı az, bu yüzden duyguyu sen adlandır ve basit bir alternatif göster: “Kızgınsın. Ayağını yere vur, işte böyle!” Bu yaşta dikkatini başka yöne çekmek çok iyi işe yarar.',
+      '3-6': 'Sakin bir anda bir “öfke planı” yapın: nefes almak, yastığı sıkmak, sakin köşeye gitmek. Resimlerle duvara asın ve nöbet başlayınca sadece işaret et.',
+    },
+    specialist: [
+      'Öfke nöbetleri düzenli olarak 25 dakikadan uzun sürüyorsa ya da günde beşten fazla oluyorsa.',
+      'Çocuk nöbet sırasında kendine ciddi zarar veriyorsa (başını vurmak, ısırmak) ya da nefesi kesilip bayılıyorsa — doktora göster.',
+      '4–5 yaşından sonra nöbetler azalacağına artıyorsa ya da konuşma, uyku, iletişimle ilgili başka endişeler de varsa.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Duygu koçluğu: duygulara isim vermek',
+    summary: 'Duyguları görmek ve adlandırmak çocuğun kendini yönetmesini güçlendirir. Bu, her şeye izin vermek demek değildir.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Psikolog John Gottman 1990’larda aileleri gözlemleyerek ebeveynlerin çocuğun duygularına dört farklı şekilde karşılık verdiğini belirledi: duyguyu geçiştiren (“Ağlama, ne var bunda”), cezalandıran, her şeye izin veren ve “duygu koçu”. Koç ebeveyn duyguyu ciddiye alır, adını koyar ve çocukla birlikte çözüm arar, ama davranışa sınır koyar.',
+      'Duygu koçu ebeveynlerin çocukları sonraki yıllarda dikkatini daha iyi sürdürüyor, arkadaşlarıyla daha az çatışma yaşıyor ve stresten daha çabuk toparlanıyordu. Sonraki programlar (örneğin “Tuning in to Kids”) bu becerinin her ebeveyn tarafından öğrenilebileceğini gösterdi.',
+      'Beyin araştırmaları da ilginç bir şey gösteriyor: duyguya isim vermek (“kızgınım”, “korkuyorum”) duygu merkezinin etkinliğini azaltıyor. Yani “adını koy, yatıştır” sadece güzel bir söz değil.',
+    ],
+    tryToday: [
+      'Bugün üç kez çocuğun duygusunu onun yerine tahmin ederek söyle: “Galiba çok hayal kırıklığına uğradın.” Yanlış tahmin etmekten korkma, seni düzeltir.',
+      'Duyguya izin ver, davranışa sınır koy: “Kızmak olur. Vurmak olmaz.”',
+      'Kitap okurken karakterlerin yüzlerine bakın: “Sence o şimdi ne hissediyor?”',
+      'Kendi duygularını da sakin bir dille söyle: “Biraz yorgunum, o yüzden sessizce çay içeceğim.” Çocuk en çok seni taklit eder.',
+    ],
+    mistakes: [
+      '“Ağlama”, “korkacak bir şey yok”, “boş ver” demek. Duygu yok olmaz, çocuk sadece onu sana göstermemeyi öğrenir.',
+      'Empatiyi “hayır”ı iptal etmek gibi anlamak. “Anlıyorum, çok istiyordun. Cevap yine de hayır” demek tamamen mümkün.',
+      'Duygular hakkında sadece zor anlarda konuşmak. En iyi alıştırma sakin anlarda, oyun ve kitaplarla olur.',
+    ],
+    byAge: {
+      '1-3': 'Basit kelimeler: sevinç, öfke, üzüntü, korku. Yüz ifadelerini aynada birlikte taklit edin.',
+      '3-6': 'Duygular için bir “termometre” çizin: yeşil — sakinim, sarı — sinirleniyorum, kırmızı — patlıyorum. Çocuk rengi göstersin.',
+      '6-12': 'Daha ince kelimeler öğretin: hayal kırıklığı, utanç, kıskançlık, kaygı. Duygunun bedende nerede olduğunu sorun.',
+    },
+    specialist: [
+      'Çocuk uzun süredir neredeyse hiç duygu göstermiyorsa ya da her küçük şey onu saatlerce sarsıyorsa.',
+      'Üzüntü, korku ya da öfke iki haftadan uzun sürüyor ve uykuyu, yemeği, okulu ve arkadaşlıkları etkiliyorsa — bir çocuk psikoloğuna başvur.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Sakinleşme köşesi ve nefes oyunları',
+    summary: 'Çocuğa sakinleşmeyi öğretmek mümkün, ama bu ceza köşesiyle değil, rahat bir yer ve oyunlarla olur.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Öz düzenleme becerisi önce ebeveynle birlikte, sonra yavaş yavaş tek başına gelişir. Çocuk sakin bir yetişkinle ne kadar çok sakinleştiyse, o yolu o kadar iyi öğrenir.',
+      'Yavaş, derin nefes (özellikle uzun nefes verme) kalp atışını yavaşlatır ve bedenin “tehlike” modunu kapatır. Çocuklar bunu talimatla değil, oyunla daha iyi öğrenir.',
+    ],
+    tryToday: [
+      'Çocukla birlikte evde küçük bir “rahatlama köşesi” hazırlayın: yastık, peluş oyuncak, bir iki kitap, duygu kartları. Burası ceza yeri değil, istediği zaman gidebileceği bir yerdir.',
+      '“Mum ve çiçek” oyunu: çiçeği kokla (burnundan nefes al), mumu söndür (ağzından yavaşça nefes ver). Beş kez.',
+      'Sakin bir anda birlikte çalışın: “Kızgınken bedenimiz nasıl oluyor? Gel, sakinken nefes alalım ki gerektiğinde aklımızda olsun.”',
+      'Küçük çocukla köşeye birlikte gidin: “Gel, birlikte rahatlama köşesine gidelim.”',
+    ],
+    mistakes: [
+      'Köşeyi ceza olarak kullanmak: “Git köşede dur!” O zaman çocuk oraya gitmekten kaçar.',
+      'Nefes egzersizini ilk kez bir öfke nöbetinin ortasında öğretmeye çalışmak. Beceri sakin zamanlarda öğrenilir.',
+      'Sakinleşmeyi “hemen” beklemek. Büyük bir duygunun sönmesi 10–20 dakika sürebilir.',
+    ],
+    byAge: {
+      '3-6': 'Karnının üstüne bir oyuncak koyup “oyuncağı nefesinle salla” oyunu çok işe yarar.',
+      '6-12': 'Çocuk kendi sakinleşme listesini yazsın: müzik, resim, yürüyüş, su içmek. Kendi seçtiği yöntemi daha çok uygular.',
+    },
+    specialist: [
+      'Çocuk neredeyse hiç sakinleşemiyorsa ya da öfke anlarında tehlikeli davranıyorsa — bir çocuk psikoloğuna başvur.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Okul çağındaki çocuğun büyük duyguları',
+    summary: 'Öfke, utanç, kıskançlık, hayal kırıklığı: okul çağında duygular daha karmaşık hale gelir, çocuğun onları anlamaya ihtiyacı vardır.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Okul çağındaki çocuk artık duygusunu saklamayı başarır, bu yüzden büyük duygular çoğu zaman evde, en güvendiği kişinin — senin yanında patlar. Okul sonrası huysuzluk çoğu zaman gün boyu “kendini tutmanın” yorgunluğudur.',
+      'Bu yaşta sosyal karşılaştırma başlar. Utanç ve “ben kötüyüm” duygusu öfke gibi görünebilir. Çocuk duygusunu adlandırabildikçe onu yönetmesi de kolaylaşır.',
+    ],
+    tryToday: [
+      'Okuldan hemen sonra soru yağmuruna tutma. Önce atıştırmalık, sessizlik ya da sarılma, sohbet sonra.',
+      '“Duygu + ihtiyaç” cümlesini birlikte çalışın: “… hissediyorum, çünkü … . … ihtiyacım var.”',
+      'Kendi çocukluğundan benzer bir hikâye anlat: “Ben de 9 yaşındayken böyle utanmıştım…”',
+      'Patlamadan sonra suçlamadan birlikte değerlendirin: “Ne oldu? Bedeninde ne hissettin? Bir dahaki sefere ne yardımcı olur?”',
+    ],
+    mistakes: [
+      'Duyguyu küçümsemek: “Bunun için ağlamaya değmez.” Onun için bu büyük bir şey.',
+      'Hemen çözüm önermek. Bazen çocuk sadece duyulmak ister.',
+      'Kızlarda öfkeyi, erkeklerde ise üzüntüyü “yakışmayan” duygu saymak. Her duygu her çocuk için normaldir.',
+    ],
+    specialist: [
+      'İki haftadan uzun süren üzüntü, ilgi kaybı, uyku ve iştah değişiklikleri, okula gitmeyi reddetme.',
+      'Kendine zarar verme ya da ölüm hakkında konuşma: hemen bir uzmana başvur, tehlike varsa {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Mızıldanma ve nazlanma',
+    summary: 'Mızıldanma sinir bozucudur, ama çoğu zaman yorgunluğun ya da ilgi ihtiyacının bir sinyalidir.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Çocuk hangi davranışın işe yaradığını çabuk öğrenir. Mızıldanmak sonunda istediğini kazandırıyorsa devam eder. İlgi — olumsuz ilgi bile — davranışı güçlendirir.',
+      'Aynı zamanda mızıldanma çoğu zaman açlığın, yorgunluğun ya da uzun süre ilgisiz kalmanın işaretidir. Nedene karşılık vermek davranışı çabuk azaltır.',
+    ],
+    tryToday: [
+      'Sakin bir anda “güçlü ses” oyunu oynayın: aynı isteği mızıldanarak ve normal sesle söyleyin, birlikte gülün.',
+      'Mızıldandığında sakince söyle: “Seni normal sesinle daha iyi duyuyorum.” Normal sesle söylediğinde hemen ve istekle karşılık ver.',
+      'Gün içinde ilk adımı sen at: sık sık kısa, sebepsiz ilgi — göz teması, sarılma, “seni görüyorum”.',
+    ],
+    mistakes: [
+      'Önce “hayır” deyip, mızıldanma uzayınca “tamam, al” demek. Bu, mızıldanmayı en güçlü şekilde öğretir.',
+      'Mızıldanmayla dalga geçmek ya da taklit edip utandırmak.',
+    ],
+    specialist: [
+      'Mızıldanmayla birlikte çocuk sık sık yorgun, solgun görünüyorsa, iştahı azaldıysa — tıbbi nedenleri kontrol ettirmek için doktora başvur.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Pozitif disiplin: sınır ve sıcaklık bir arada',
+    summary: 'En iyi sonucu ne sert ne de her şeye izin veren ebeveynler alır; hem sıcak hem de net olanlar alır.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '1960’larda psikolog Diana Baumrind ebeveynlik stillerini iki boyutla tanımladı: sıcaklık (sevgi, ilgi, karşılık vermek) ve talep/yapı (net beklentiler, sınırlar). İkisinin de yüksek olduğu “demokratik (yetkili)” stil en iyi sonuçlarla ilişkili bulundu: daha bağımsız, özgüvenli ve daha az davranış sorunu olan çocuklar.',
+      'Sonraki on yıllarda yüzlerce araştırmayı birleştiren meta-analizler bu sonucu doğruladı: sıcak bir ilişki ve açıklamayla konan sınırlar daha az saldırganlık ve kuralsızlıkla ilişkilidir; sert kontrol ve ceza ise tersine, daha fazla davranış sorunuyla.',
+      'Amerikan Pediatri Akademisi (2018) ve DSÖ (2022) ebeveynlere aynı yolu öneriyor: olumlu bir ilişki kurmak, iyi davranışı fark edip güçlendirmek, net beklentiler ve sakin sonuçlar. Fiziksel ceza ve aşağılayıcı sözler ise önerilmiyor.',
+    ],
+    tryToday: [
+      'Bir kuralı olumlu bir dille söyle: “Koşma” değil, “evde yürüyoruz”.',
+      'Beklentiyi önceden söyle: “Markette elimi tutuyorsun, sepete sadece listedekileri koyuyoruz.”',
+      'Bugün beş kez iyi davranışı tam olarak adlandırarak fark et: “Çantanı kendin astın, teşekkürler!” İlgi hangi davranışa giderse o büyür.',
+      'Sınırı sakin, kısa ve nazik bir sesle koy, sonra uygula. Tekrar tekrar uyarı yok.',
+    ],
+    mistakes: [
+      'Sevgiyle sınırı karşı karşıya koymak. “Seni seviyorum, o yüzden izin vermiyorum” — ikisi bir arada mümkün.',
+      'Aynı kuralı bir gün uygulayıp ertesi gün unutmak. Tutarlılık sertlikten daha önemlidir.',
+      'Sadece hatalara tepki vermek. Çocuk ancak sorunlu davranışla ilgi alabiliyorsa onu tekrarlar.',
+    ],
+    byAge: {
+      '1-3': 'Sözden çok ortam: tehlikeli eşyaları ulaşamayacağı yere koy, “hayır”ı sadece önemli şeyler için sakla.',
+      '3-6': '3–4 basit aile kuralı yeterli. Resimlerle çizip görünür bir yere asın.',
+      '6-12': 'Kuralları birlikte konuşun, sonuçlarda önceden anlaşın. Çocuk kuralın bir kısmını kendisi yazınca ona daha çok uyar.',
+    },
+    specialist: [
+      'Tüm çabalara rağmen davranış sorunları aile hayatını, anaokulunu ya da okulu aylardır bozuyorsa — çocuk psikoloğu ya da ebeveyn programları (örneğin PCIT, Triple P) çok etkilidir.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Vurmak neden işe yaramaz, ne işe yarar',
+    summary: 'Tokat anlık itaat sağlayabilir, ama uzun vadede davranışı kötüleştirir. Bilimsel kanıtlar bu konuda çok net.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '2016’da Gershoff ve Grogan-Kaylor 160 binden fazla çocuğu kapsayan 75 araştırmayı bir araya getirdi. Sonuç: tokat (vurmak) çocukta hiçbir olumlu uzun vadeli sonuçla ilişkili değil; tersine daha fazla saldırganlık, antisosyal davranış, ruh sağlığı sorunları ve ebeveynle zayıf bir ilişkiyle bağlantılı. Bu ilişki “hafif”, “sevgiyle” vurmada da görülüyor.',
+      'Nedeni basit: vurmak çocuğa ne yapması gerektiğini öğretmez, sadece korkmayı öğretir. Üstelik sorunların güçle çözüldüğünü gösterir. Bağırmak, tehdit etmek ve aşağılamak da benzer etki yapar: araştırmalarda sert sözlü disiplin sonraki yıllarda daha fazla davranış sorunu ve depresif belirtiyle ilişkilendirilmiştir.',
+      'Amerikan Pediatri Akademisi (2018) ve DSÖ fiziksel cezayı ve aşağılayıcı sözleri önermiyor. Bunun yerine işe yarayan yollar: sıcak bir ilişki, net kurallar, iyi davranışı güçlendirmek, mantıklı sonuçlar ve sakinleşme zamanı.',
+    ],
+    tryToday: [
+      'Kendin için bir “durma sinyali” seç: sinirin kabardığında elini cebine koy ya da bir adım geri at ve 10’a kadar say.',
+      'Tehlikeli davranışı fiziksel ama zararsız şekilde durdur: elini tut, çocuğu kucağına al, eşyayı al.',
+      'Bir dahaki sefere ne yapması gerektiğini öğret: “Kardeşin oyuncağı aldığında “ver!” diyebilirsin ya da bana gelebilirsin.”',
+      'Eğer zaten vurduysan: özür dile, kendi davranışının sorumluluğunu üstlen ve planını söyle. Bu, çocuğa da hatadan nasıl dönüleceğini öğretir.',
+    ],
+    mistakes: [
+      '“Ben de dayak yedim, normal büyüdüm” düşüncesi. Pek çok insan buna rağmen iyi büyüdü, ama araştırmalar ortalamada riskin arttığını gösteriyor.',
+      'Vurmayı “son çare” olarak saklamak. Son çare, sakinleşmek için ara vermek ve yardım istemektir.',
+      'Fiziksel cezayı başka bir aşağılayıcı yöntemle (utandırmak, tehdit etmek, sevgiyi geri çekmek) değiştirmek.',
+    ],
+    byAge: {
+      '1-3': 'Bu yaşta en etkili yöntemler: dikkatini başka yöne çekmek, ortamı değiştirmek, çocuğu tehlikeli yerden sakince almak.',
+      '3-6': 'Mantıklı sonuç ve “time-in” (senin yanında sakinleşme) iyi işe yarar.',
+      '6-12': 'Bir ayrıcalığın kısa süreliğine kısıtlanması (örneğin ekran süresi) ve sorunu birlikte çözmek.',
+    },
+    specialist: [
+      'Sinirli anlarda kendini tutamadığını, çocuğa zarar verebileceğini hissediyorsan — bu, yardım istemek için güçlü bir nedendir. Bir psikolog ya da ebeveyn programı bu durumu değiştirebilir.',
+      'Çocuk ya da sen tehlikedeyseniz, evde şiddet varsa hemen {emergency} numarasını ara.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Sonuç ve ceza: farkı ne?',
+    summary: 'Ceza acıtmaya, sonuç ise öğretmeye yöneliktir. En iyi sonuç, davranışla bağlantılı, saygılı ve önceden bilinen sonuçtur.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Davranış psikolojisi, davranışı en çok ardından gelen şeyin değiştirdiğini gösterir. Ama cezalar (vurmak, aşağılamak, uzun yasaklar) korku ve kırgınlık yaratır, çocuk da “nasıl yakalanmam” diye düşünmeye başlar.',
+      'Mantıklı sonuç ise davranışla doğrudan bağlantılı, kısa ve öğreticidir: boyalarla duvara çizdi — birlikte siliyoruz; bisiklet kuralını çiğnedi — bugün bisiklet yok. Doğal sonuçlar (montsuz çıktı — üşüdü) güvenli olduğunda en güçlü öğretmendir.',
+    ],
+    tryToday: [
+      '“3 R” kontrolü: sonuç davranışla bağlantılı mı (Related), saygılı mı (Respectful), makul mü (Reasonable)?',
+      'Sonucu önceden söyle: “Oyuncakları toplamazsan yarın kutuda dinlenecekler.” Sonra sakince uygula.',
+      'Sonucu kısa tut: bir gün yeterli. Bir aylık yasak artık öğretmez, sadece kırar.',
+      'Sonuçtan sonra “temiz sayfa”: nasihat yok, yeniden başlıyoruz.',
+    ],
+    mistakes: [
+      'Sinirliyken sonuç uydurmak: “Bir yıl bisiklet yok!” Sonra uygulamak mümkün olmaz ve sözün değeri kalmaz.',
+      'Davranışla ilgisi olmayan ceza: ödevini yapmadı — doğum günü partisine gitmiyor.',
+      'Sonucu alaycı bir şekilde ya da “gördün mü?” diyerek uygulamak.',
+    ],
+    byAge: {
+      '3-6': 'Sonuç hemen ve çok kısa olmalı. Saatler sonra çocuk onu davranışla ilişkilendirmez.',
+      '6-12': 'Sonuçları birlikte belirleyin. Çocuk adil bulduğu kurala daha çok uyar.',
+    },
+    specialist: [
+      'Hiçbir sonuç işe yaramıyorsa ve davranış tehlikeli ya da aileyi tüketecek kadar yoğunsa — ebeveyn programları ve bir çocuk psikoloğuyla görüş.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Bağırmadan nasıl konuşulur',
+    summary: 'Bağırmak anlık rahatlama sağlar, ama çocuk sesin şiddetine alışır ve daha az duyar. Sakin ve yakından konuşmak daha güçlüdür.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Araştırmalarda düzenli bağırma, küfür ve aşağılayıcı sözlerle disiplin, ilişki genel olarak sıcak olsa bile, sonraki yıllarda daha fazla davranış sorunu ve depresif belirtiyle ilişkilendirilmiştir. Nedenlerden biri: bağırmak çocuğun stres sistemini harekete geçirir ve çocuk dinlemek yerine savunmaya geçer.',
+      'İyi haber: ebeveynin öz düzenlemesi öğrenilebilen bir beceridir. Bağırmak çoğu zaman ebeveynin yorgunluğunun, açlığının ve aşırı yükünün sinyalidir, “kötü ebeveyn” olduğunun değil.',
+    ],
+    tryToday: [
+      'Uzaktan bağırmak yerine yaklaş, çocuğun seviyesine eğil, göz teması kur, adını söyle ve kısa bir cümleyle konuş.',
+      'Sesini yükseltmek istediğinde tersini yap: fısıldayarak konuş. Çocuklar fısıltıyı merakla dinler.',
+      'Gün içinde bağırdığın anları not et. En çok hangi saatte? O saat için bir plan yap (örneğin atıştırmalık, işleri önceden hazırlamak).',
+      'Bağırdıysan onar: “Bağırdım, bu doğru değildi. Sinirlendim, ama sesimi yükseltmemeliydim.”',
+    ],
+    mistakes: [
+      'Her hatadan sonra kendini suçlamak. Bu bir dahaki sefere daha fazla gerginlik yaratır. Amaç mükemmellik değil, sıklığı azaltmak ve onarmak.',
+      '“Beni bağırmaya sen zorluyorsun” demek. Duygularımızın sorumluluğunu biz taşırız.',
+    ],
+    specialist: [
+      'Öfke ve sinirlilik neredeyse her gün kontrolden çıkıyorsa, uykusuzluk, üzüntü ya da umutsuzlukla birlikteyse — bir doktor ya da psikologla konuş. Ebeveyn depresyonu ve kaygısı tedavi edilebilir.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out mu, time-in mi?',
+    summary: 'Kısa bir sakinleşme molası işe yarayabilir, ama küçük çocuklar için asıl olan yalnız bırakmak değil, sakinleşmeye yardım eden yakınlıktır.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Klasik “time-out” (birkaç dakikalık sakin mola) bazı ebeveyn programlarında araştırılmış ve doğru uygulandığında (kısa, sakin, aşağılamadan, sıcak bir ilişki zemininde) zararlı olmadığı gösterilmiştir. Ama bu, çocuğu odaya kilitlemek ya da korkutmak demek değildir.',
+      '“Time-in” ise çocuğun senin yanında sakinleşmesidir. Küçük çocuklar için bu daha uygundur, çünkü onlar hâlâ birlikte düzenlemeye ihtiyaç duyar. Her iki durumda da amaç ceza değil, sakinleşmek ve “yeniden başlamak”tır.',
+    ],
+    tryToday: [
+      'Kural: her yaş için yaklaşık bir dakika, en fazla 5 dakika.',
+      'Yer sakin olsun, ama korkutucu değil. Çocuğu asla karanlık bir odaya kilitleme.',
+      'Time-in için: “Gel, yanıma otur. Birlikte nefes alalım.”',
+      'Moladan sonra kısa bir “yeniden başlıyoruz”, nasihat yok.',
+    ],
+    mistakes: [
+      'Time-out’u uzun, sık ve tehditle kullanmak.',
+      'Molayı aşağılamayla birleştirmek: “Git, gözüm görmesin seni.”',
+    ],
+    specialist: [
+      'Çocuk her molada büyük bir korku ya da panik yaşıyorsa, ayrılık anları onu aşırı sarsıyorsa — bir uzmanla konuş.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Aile kuralları: az, net, tutarlı',
+    summary: 'Çocuklar sınırları sınar, çünkü yerinde durup durmadığını bilmek isterler. Sabit bir sınır güven duygusu verir.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Öngörülebilir bir ortam çocuğun stres sistemini sakinleştirir. Net kurallar ve günlük rutin, araştırmalarda daha iyi uyku, daha az davranış sorunu ve daha güçlü öz denetimle ilişkilendirilir.',
+      'En çok işe yarayan kurallar az sayıdadır (3–5), olumlu bir dille yazılmıştır ve her iki ebeveyn tarafından aynı şekilde uygulanır.',
+    ],
+    tryToday: [
+      'Bir aile toplantısı yapın: herkes bir kural önersin, birlikte 3–5 temel kural seçin.',
+      'Kuralları olumlu yazın: “Yumuşak eller”, “Biri konuşurken birbirimizi dinleriz”, “Yemekten sonra tabak mutfağa”.',
+      'Kuralların yanında sonuçlarda da anlaşın.',
+      'Yetişkinler de kurallara uysun. Çocuk sözden çok örneğe bakar.',
+    ],
+    mistakes: [
+      'Her yeni sorun için yeni bir kural icat etmek. Çok kural, hiç kural olmamasıyla aynıdır.',
+      'Annede bir kural, babada ya da babaannede başka. Yetişkinler önce kendi aralarında anlaşmalı.',
+    ],
+    specialist: [
+      'Ailede kurallar konusunda sürekli ve gergin çatışmalar varsa bir aile danışmanı yardımcı olabilir.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: '“Hayır!” diyen çocuk: inatla başa çıkmak',
+    summary: '“Hayır” dönemi, çocuğun “ben ayrı bir insanım” keşfidir. Onunla savaşmak değil, ona seçenek sunmak işe yarar.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'İkinci yılda çocuk kendi iradesi olduğunu keşfeder. Özerklik ihtiyacı temel psikolojik ihtiyaçlardandır: çocuk kontrol duygusu edindikçe iş birliğine daha hazır olur.',
+      'Araştırmalar “kontrol eden” dilin (“hemen giyin!”) direnci, seçenek sunmanın ve açıklamanın ise iş birliğini artırdığını gösteriyor.',
+    ],
+    tryToday: [
+      'Kabul edilebilir iki seçenek sun: “Önce diş fırçalama mı, yoksa pijama mı?”',
+      '“Evet/hayır” sorusu yerine bir bildirim cümlesi: “Şimdi giyinme zamanı”, “Giyinelim mi?” değil.',
+      'Oyuna çevir: “Bakalım çorabını kim daha çabuk giyecek — sen mi, ayıcık mı?”',
+      'Önemsiz savaşları bırak: tişört ters giyildiyse dünya yıkılmaz.',
+    ],
+    mistakes: [
+      'Her “hayır”ı bir güç savaşına çevirmek.',
+      'Seçenek sunup sonra çocuğun seçimini kabul etmemek.',
+    ],
+    specialist: [
+      'Çocuk neredeyse hiçbir isteğe karşılık vermiyorsa, adına tepki göstermiyorsa ya da iletişim kurmakta zorlanıyorsa — gelişim değerlendirmesi için doktora başvur.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

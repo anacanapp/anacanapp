@@ -1,0 +1,149 @@
+import type { BandOverview } from '../types';
+import { S } from './sources';
+
+export const BANDS: BandOverview[] = [
+  {
+    id: '0-1',
+    emoji: '👶',
+    title: 'Tahun pertama: fondasi rasa percaya',
+    lead: 'Tahun ini bayi belajar apakah dunia adalah tempat yang aman. Jawabannya ia dapat dari suaramu, pelukanmu, dan caramu menanggapinya.',
+    brain: [
+      'Di tahun-tahun pertama kehidupan, lebih dari satu juta koneksi saraf baru terbentuk di otak setiap detik. Jalur mana yang menguat ditentukan oleh pengalaman sehari-hari yang berulang: bayi bersuara, kamu menjawab; ia menangis, kamu mendekat.',
+      'Bagian otak bayi yang bertugas menenangkan diri masih sangat muda. Karena itu bayi belum bisa menenangkan dirinya sendiri, ia “meminjam” ketenangan dari tubuhmu yang tenang. Ini disebut ko-regulasi, dan inilah pelajaran pertama tentang mengelola diri di kemudian hari.',
+      'Sekitar usia 6–9 bulan, ingatan dan kelekatan menguat: bayi bisa mulai takut pada orang asing dan gelisah saat kamu keluar ruangan. Ini bukan kemunduran, justru tanda bahwa ia sudah lekat denganmu.',
+    ],
+    needs: [
+      'Tangisannya ditanggapi. Di usia ini bayi tidak bisa “jadi bau tangan” atau dimanja. Respons yang cepat dan hangat mengajarinya untuk percaya pada dunia.',
+      'Interaksi tatap muka: senyuman, lagu, menirukan suara-suaranya. Permainan “lempar dan tangkap” seperti ini membangun dasar otak bahasa dan emosi.',
+      'Hari yang bisa ditebak: makan, tidur, mandi kurang lebih dengan urutan yang sama. Yang penting bukan jam yang tepat, tapi ritme yang akrab.',
+      'Tidur yang aman dan lingkungan yang aman, ditambah orang tua yang cukup istirahat dan mendapat dukungan.',
+    ],
+    normal: [
+      'Tangisan panjang yang tampak tanpa sebab pada jam-jam tertentu, terutama sore menjelang malam (pada 3–4 bulan pertama).',
+      'Sering terbangun di malam hari. Tidur sepanjang malam di tahun pertama bukan hal yang wajar untuk semua bayi.',
+      'Memasukkan segala sesuatu ke mulut: itulah caranya mengenal dunia.',
+      'Takut pada orang asing dan menangis saat kamu tidak ada (sekitar setelah usia 8 bulan).',
+    ],
+    tryThis: [
+      'Beberapa kali sehari, 5 menit “waktu tatap muka”: ponsel disingkirkan, tirukan suara bayi, ucapkan dengan kata-kata apa yang sedang ia lakukan.',
+      'Lakukan rutinitas sambil bercerita: “Sekarang kita ganti popok. Angkat kakinya. Sudah selesai!”',
+      'Main cilukba: lewat permainan ini anak belajar bahwa “yang pergi akan kembali”, dan rasa takut berpisah pun melunak.',
+      'Saat tangisan berlangsung lama dan kesabaranmu habis, letakkan bayi di tempat yang aman — di boksnya — tarik napas beberapa menit, lalu kembali.',
+    ],
+    specialist: [
+      'Jika bayi tidak bereaksi terhadap suara, tidak menatap matamu, tidak tersenyum di usia 4 bulan, atau tidak menoleh saat dipanggil namanya di usia 9 bulan.',
+      'Jika ia kehilangan kemampuan yang sebelumnya sudah bisa (tersenyum, bersuara, duduk).',
+      'Jika tangisannya berbeda dari biasanya, disertai demam, muntah, lemas berlebihan, atau menolak menyusu/makan: hubungi dokter. Dalam kondisi serius, hubungi {emergency}.',
+      'Jika kamu sendiri berminggu-minggu merasa sedih, putus asa, atau takut menyakiti bayi: ini bisa jadi depresi pascamelahirkan, dan bisa diobati. Ceritakan pada dokter.',
+    ],
+    sources: [S.harvardServe, S.nurturingCare2018, S.ainsworth1978, S.healthyChildrenCrying, S.zubler2022],
+  },
+  {
+    id: '1-3',
+    emoji: '🧸',
+    title: '1–3 tahun: masa “Aku sendiri!”',
+    lead: 'Anak sudah berjalan, mulai bicara, dan ingin mandiri, tapi otak yang mengatur perasaannya masih sangat muda. Inilah penyebab tantrum.',
+    brain: [
+      'Pusat emosi di otak (amigdala) kuat dan cepat, sedangkan korteks prefrontal yang menjadi “remnya” masih akan berkembang selama bertahun-tahun. Karena itu anak dua tahun tidak bisa berhenti meski kamu bilang “berhenti”. Ini bukan keras kepala, tapi rem yang belum matang.',
+      'Bahasa berkembang pesat, tapi yang dipahami anak jauh melampaui yang bisa ia ucapkan. Tidak bisa mengatakan apa yang ia mau menimbulkan frustrasi besar, dan ini sering keluar lewat teriakan atau pukulan.',
+      'Di usia ini anak mempelajari sebab-akibat lewat percobaan: ia menjatuhkan sendok, melihat reaksimu, lalu menjatuhkannya lagi. Ini bukan “sengaja bikin kamu kesal”, tapi eksperimen seorang ilmuwan kecil.',
+    ],
+    needs: [
+      'Batasan yang tenang, jelas, dan konsisten: “Tidak boleh memukul. Aku pegang tanganmu.” Bukan penjelasan panjang, tapi kalimat singkat dan tindakan.',
+      'Kesempatan memilih: “Kaus merah atau biru?” Pilihan memenuhi kebutuhannya akan otonomi dan mengurangi dorongan untuk bilang “nggak”.',
+      'Menamai perasaannya: “Kamu marah karena mainannya selesai.” Perasaan yang diberi nama lebih cepat reda.',
+      'Beberapa menit sehari bermain dengan dia sebagai pemimpinnya, banyak gerak, dan udara segar.',
+    ],
+    normal: [
+      'Tantrum beberapa kali sehari, terutama saat lelah, lapar, atau di momen peralihan.',
+      'Sering mengucapkan “Nggak!”, meminta hal yang sama berulang-ulang.',
+      'Belum bisa berbagi. Kemampuan berbagi yang sesungguhnya baru terbentuk sekitar usia 3–4 tahun.',
+      'Sesekali menggigit atau memukul: di usia ini agresi fisik mencapai puncaknya, lalu berangsur berkurang.',
+    ],
+    tryThis: [
+      'Beri peringatan 5 menit sebelum peralihan: “Dua kali lagi meluncur, lalu kita pulang.”',
+      'Daripada bilang “jangan”, katakan apa yang boleh: “Jangan di tembok, gambar di kertas ini saja.”',
+      '10 menit sehari “permainannya”: apa yang ia lakukan, kamu ikut lakukan, tanpa kritik dan tanpa hujan pertanyaan.',
+      'Sepanjang hari, perhatikan perilaku baik dan sebutkan dengan spesifik: “Kamu kasih mainannya ke adik, lihat dia senang sekali!”',
+    ],
+    specialist: [
+      'Jika di usia 18 bulan belum menunjuk (dengan jari), di usia 2 tahun belum ada kalimat dua kata, tidak bereaksi saat dipanggil namanya, atau kontak matanya sangat sedikit.',
+      'Jika ia kehilangan kata atau kemampuan yang sebelumnya sudah dikuasai (di usia berapa pun).',
+      'Jika tantrum berlangsung lebih dari 25 menit, lebih dari 5 kali sehari, menyebabkan cedera serius pada dirinya atau orang lain, atau tidak berkurang setelah usia 4 tahun.',
+      'Jika masalah tidur, makan, atau perilaku mengganggu kehidupan sehari-hari keluarga selama berbulan-bulan.',
+    ],
+    sources: [S.harvardEF2011, S.healthyChildrenTantrums, S.cdcPositive, S.tremblay2004, S.zubler2022],
+  },
+  {
+    id: '3-6',
+    emoji: '🎨',
+    title: '3–6 tahun: imajinasi, pertanyaan, dan aturan',
+    lead: 'Anak bertanya “kenapa?”, membangun permainan peran, dan belajar berteman. Kemampuan mengendalikan diri tumbuh pesat, tapi ia masih butuh dukunganmu.',
+    brain: [
+      'Fungsi eksekutif — mempertahankan perhatian, menunggu giliran, mengingat aturan, mengubah cara berpikir — berkembang pesat antara usia 3–5 tahun. Permainan peran dan permainan dengan aturan adalah latihan terbaik untuk kemampuan ini.',
+      'Anak mulai memahami bahwa orang lain bisa berpikir berbeda. Karena itu, di usia ini kebohongan pertama muncul. Menariknya, ini justru tanda perkembangan kognitif.',
+      'Imajinasi menguat, sementara batas antara nyata dan khayalan masih kabur. Takut gelap, monster, atau mimpi adalah ketakutan khas usia ini.',
+    ],
+    needs: [
+      'Sedikit aturan keluarga yang jelas, dan diterapkan secara konsisten. Semakin aturan bisa ditebak, semakin sedikit perdebatan.',
+      'Konsekuensi logis, bukan hukuman: “Kalau bolanya dilempar di dalam rumah, bolanya masuk lemari.”',
+      'Obrolan tentang perasaan: lewat buku, main boneka, dan pertanyaan “kalau kamu, bakal merasa apa?”',
+      'Tanggung jawab kecil yang nyata: menata meja makan, membereskan mainan, menyiram tanaman.',
+    ],
+    normal: [
+      'Kadang berbohong, mencampuradukkan khayalan dengan kenyataan.',
+      'Menguji aturan dan bereaksi keras terhadap “ketidakadilan”.',
+      'Takut gelap atau situasi baru.',
+      'Masih sesekali tantrum, tapi lebih singkat dan lebih jarang dari sebelumnya.',
+    ],
+    tryThis: [
+      'Sekali sehari tanyakan “apa momen paling seru dan paling sulit hari ini?”, lalu dengarkan dengan sungguh-sungguh.',
+      'Gambar aturan-aturan bersama dalam bentuk gambar dan tempel di dinding.',
+      'Latih kemampuan menahan diri lewat permainan seperti “lampu merah, lampu hijau” atau “Simon berkata”.',
+      'Saat ia berbuat salah, cari solusinya bersama: “Airnya tumpah. Kita harus bagaimana?”',
+    ],
+    specialist: [
+      'Jika di usia 4 tahun belum bisa menyusun kalimat, bicaranya sulit dipahami orang lain, atau sama sekali tidak tertarik pada teman bermain.',
+      'Jika ketakutan atau kecemasan mengganggu kehidupan sehari-hari (TK, tidur, makan) selama berminggu-minggu.',
+      'Jika agresinya melukai orang lain secara serius atau makin meningkat; jika ada kekejaman terhadap hewan.',
+      'Jika setelah lama kering ia kembali mengompol di siang hari atau kehilangan kemampuan yang sebelumnya sudah dikuasai.',
+    ],
+    sources: [S.diamond2013, S.harvardEF2011, S.talwarLee2008, S.cdcPositive, S.zubler2022],
+  },
+  {
+    id: '6-12',
+    emoji: '🎒',
+    title: '6–12 tahun: keterampilan, persahabatan, percaya diri',
+    lead: 'Tahun-tahun sekolah adalah masa anak membangun perasaan “aku bisa”. Teman menjadi penting, tapi kamu tetap sandaran utamanya.',
+    brain: [
+      'Kemampuan merencanakan, fokus, dan mengendalikan diri sudah berkembang baik, tapi rasa lelah, lapar, dan stres mudah “mematikannya”. Anak yang rewel sepulang sekolah sering kali hanya anak yang kehabisan tenaga.',
+      'Anak mulai membandingkan dirinya dengan orang lain. Di masa ini, harga dirinya terutama dipupuk oleh usaha, keterampilan yang ia kuasai, dan rasa diterima.',
+      'Menjelang remaja (sekitar 9–12 tahun) perubahan hormonal bisa dimulai: suasana hati yang naik turun dan kebutuhan akan ruang pribadi yang lebih besar itu normal.',
+    ],
+    needs: [
+      'Dorongan yang melihat usaha dan strategi: “Kamu berusaha keras di soal ini, kamu coba cara lain.”',
+      'Tanggung jawab dan hak memilih yang makin bertambah, bersama aturan keluarga yang jelas.',
+      'Orang tua yang mendengarkan tanpa menghakimi. Kalau kamu mendengarkan hal-hal kecil, ia juga akan menceritakan hal-hal besar.',
+      'Waktu luang di luar layar dan PR: bermain, olahraga, teman, tidur.',
+    ],
+    normal: [
+      'Debat panjang soal keadilan, keinginan untuk menegosiasikan aturan.',
+      'Bertengkar dan berbaikan dengan teman, sedih karena “aku nggak diajak main”.',
+      'Menghindari PR, pelupa.',
+      'Kadang malu pada orang tua atau ingin lebih banyak waktu sendiri (terutama setelah usia 10 tahun).',
+    ],
+    tryThis: [
+      'Waktu “ngobrol tanpa interogasi” di mobil, saat makan, atau sebelum tidur: kamu juga ceritakan harimu.',
+      'Waktu dan tempat yang tetap untuk PR, tapi jangan kerjakan PR-nya untuk dia.',
+      'Tulis rencana layar keluarga bersama: di mana, kapan, dan berapa lama.',
+      'Seminggu sekali waktu berdua: hanya kamu dan dia, dengan kegiatan pilihannya.',
+    ],
+    specialist: [
+      'Kesedihan, hilangnya minat, atau perubahan besar pada tidur atau nafsu makan yang berlangsung lebih dari dua minggu.',
+      'Terus-menerus menolak pergi ke sekolah, sering mengeluh sakit perut dan sakit kepala (jika dokter tidak menemukan penyebabnya).',
+      'Tanda-tanda menjadi korban perundungan atau merundung orang lain; menarik diri sepenuhnya dari teman.',
+      'Menyakiti diri sendiri, berbicara tentang kematian atau bunuh diri: jangan pernah menganggapnya “cari perhatian”. Segera hubungi tenaga profesional, dan jika ada bahaya, hubungi {emergency}.',
+    ],
+    sources: [S.cdcPositive, S.aapMediaSchool2016, S.pomerantz2007, S.muellerDweck1998, S.unesco2019],
+  },
+];

@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Birra: o que acontece no cérebro?',
+    summary: 'A birra não é resultado de má criação. É o momento em que um sentimento grande atropela um “sistema de freios” que ainda é pequeno.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'O sistema emocional, que fica nas camadas mais profundas do cérebro, é forte desde o nascimento: sente perigo, frustração e raiva num instante. Já o córtex pré-frontal, que segura esses sentimentos e diz “espera, tem outro jeito”, só amadurece por volta dos 20 e poucos anos. Entre 2 e 4 anos essa diferença é a maior possível. Por isso, no meio da birra a criança não te escuta e não responde à lógica: a parte “pensante” do cérebro dela está temporariamente desligada.',
+      'Nesse momento ela não consegue se acalmar sozinha: “pega emprestada” a calma do seu corpo e da sua voz. Os pesquisadores chamam isso de corregulação. Enquanto você mantém a calma, o sistema de estresse dela volta ao normal mais depressa e, com a repetição, ela aprende e incorpora esse caminho de se acalmar. Gritar e castigar, ao contrário, aumentam os hormônios do estresse e prolongam a birra.',
+      'As birras costumam acontecer nos mesmos momentos: cansaço, fome, transições (sair da brincadeira, ir embora do parque) ou um “não” como resposta. Prever esses momentos pode evitar mais da metade das birras.',
+    ],
+    tryToday: [
+      'Primeiro acalme-se: respire fundo uma vez, solte os ombros, abaixe a voz. Se você não tiver calma, ela também não vai conseguir ficar.',
+      'Fale pouco. Uma ou duas frases curtas bastam: “Você está com muita raiva. Eu estou aqui.”',
+      'Garanta a segurança: se ela bater, segure a mão dela com delicadeza e afaste objetos com que possa se machucar.',
+      'Quando ela se acalmar, abrace e só depois fale, rapidamente: “Você ficou com muita raiva porque a brincadeira acabou. Da próxima vez você pode dizer “me ajuda”.”',
+      'Nesta semana, anote quando as birras acontecem. Muito provavelmente vão coincidir com os horários de cansaço e de fome.',
+    ],
+    mistakes: [
+      'Dar longas explicações ou sermões durante a birra. O cérebro ainda não está no modo de escuta: primeiro a calma, depois a conversa.',
+      'Dar o que ela quer para a birra parar. Isso significa uma birra mais forte da próxima vez. Tenha empatia pelo sentimento, mas mantenha sua decisão.',
+      'Envergonhar a criança: “Que vergonha, todo mundo está olhando.” A vergonha não ensina a lidar com o sentimento, só ensina a escondê-lo.',
+      'Achar que a birra é “manipulação”. Para uma criança pequena, é principalmente falta de habilidade, não estratégia.',
+    ],
+    byAge: {
+      '1-3': 'Ela ainda tem poucas palavras, então dê você o nome ao sentimento e mostre uma alternativa simples: “Você está bravo. Bate o pé no chão, assim!” Nessa idade, distrair funciona muito bem.',
+      '3-6': 'Num momento calmo, montem juntos um “plano para a raiva”: respirar, apertar uma almofada, ir para um cantinho tranquilo. Pendurem com desenhos na parede e, quando a birra começar, apenas aponte para ele.',
+    },
+    specialist: [
+      'Se as birras costumam durar mais de 25 minutos ou acontecem mais de cinco vezes por dia.',
+      'Se durante a birra a criança se machuca seriamente (bate a cabeça, se morde) ou prende a respiração até desmaiar: leve ao médico.',
+      'Se depois dos 4–5 anos as birras aumentam em vez de diminuir, ou se há outras preocupações com fala, sono ou comunicação.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Educação emocional: dar nome aos sentimentos',
+    summary: 'Enxergar os sentimentos e dar nome a eles fortalece o autocontrole da criança. Isso não significa permitir tudo.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Nos anos 1990, o psicólogo John Gottman acompanhou famílias e percebeu que os pais respondem aos sentimentos dos filhos de quatro jeitos diferentes: os que descartam o sentimento (“Não chora, isso não é nada”), os que punem, os que permitem tudo e os “treinadores emocionais”. O pai ou a mãe treinador leva o sentimento a sério, dá nome a ele e procura soluções junto com a criança, mas coloca limites no comportamento.',
+      'Os filhos de pais treinadores emocionais, nos anos seguintes, mantinham melhor a atenção, tinham menos conflitos com os amigos e se recuperavam mais rápido do estresse. Programas posteriores (por exemplo, o “Tuning in to Kids”) mostraram que qualquer mãe ou pai pode aprender essa habilidade.',
+      'Os estudos do cérebro também mostram algo interessante: dar nome a um sentimento (“estou com raiva”, “estou com medo”) reduz a atividade do centro emocional. Ou seja, “nomear para domar” não é só uma frase bonita.',
+    ],
+    tryToday: [
+      'Hoje, três vezes, diga o que você acha que a criança está sentindo, como se falasse por ela: “Parece que você ficou muito decepcionado.” Se errar, tudo bem: ela vai te corrigir.',
+      'Permita o sentimento, limite o comportamento: “Ficar com raiva pode. Bater não pode.”',
+      'Ao ler um livro, observem o rosto dos personagens: “O que você acha que ele está sentindo agora?”',
+      'Fale dos seus sentimentos com calma também: “Estou precisando de uma pausa, então vou tomar um chá em silêncio.” A criança imita você mais do que qualquer um.',
+    ],
+    mistakes: [
+      'Dizer “não chora”, “não tem nada para ter medo”, “isso é bobagem”. O sentimento não some: a criança só aprende a não mostrá-lo para você.',
+      'Achar que empatia anula o “não”. Dá perfeitamente para dizer: “Eu entendo, você queria muito. A resposta continua sendo não.”',
+      'Falar de sentimentos só nos momentos difíceis. O melhor treino acontece nos momentos calmos, com brincadeiras e livros.',
+    ],
+    byAge: {
+      '1-3': 'Palavras simples: alegria, raiva, tristeza, medo. Imitem juntos as expressões no espelho.',
+      '3-6': 'Desenhem um “termômetro” dos sentimentos: verde — estou calmo; amarelo — estou ficando nervoso; vermelho — vou explodir. A criança aponta a cor.',
+      '6-12': 'Ensine palavras mais precisas: decepção, vergonha, ciúme, preocupação. Pergunte em que parte do corpo ela sente aquilo.',
+    },
+    specialist: [
+      'Se por muito tempo a criança quase não demonstra nenhum sentimento, ou se qualquer coisinha a desestabiliza por horas.',
+      'Se tristeza, medo ou raiva duram mais de duas semanas e afetam sono, alimentação, escola e amizades: procure um psicólogo infantil.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Cantinho da calma e brincadeiras de respiração',
+    summary: 'Dá para ensinar a criança a se acalmar — não com um cantinho do castigo, mas com um lugar aconchegante e brincadeiras.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'A capacidade de autorregulação se forma primeiro junto com os pais e depois, aos poucos, de forma independente. Quanto mais vezes a criança se acalmou junto de um adulto calmo, melhor ela aprende esse caminho.',
+      'A respiração lenta e profunda (principalmente com expiração longa) desacelera os batimentos do coração e desliga o modo de “perigo” do corpo. As crianças aprendem isso muito melhor brincando do que com instruções.',
+    ],
+    tryToday: [
+      'Montem juntos em casa um pequeno “cantinho da calma”: almofada, bichinho de pelúcia, um ou dois livros, cartões de sentimentos. Não é lugar de castigo, e sim um lugar para onde se pode ir a qualquer hora.',
+      'Brincadeira da “flor e da vela”: cheire a flor (inspire pelo nariz) e apague a vela (solte o ar devagar pela boca). Cinco vezes.',
+      'Pratiquem juntos num momento calmo: “Como o nosso corpo fica quando estamos com raiva? Vamos respirar agora, que estamos calmos, para lembrar quando precisarmos.”',
+      'Com criança pequena, vão juntos ao cantinho: “Vem, vamos juntos para o cantinho da calma.”',
+    ],
+    mistakes: [
+      'Usar o cantinho como castigo: “Vai para o canto!” Aí a criança vai fugir de lá.',
+      'Tentar ensinar a respiração pela primeira vez no meio da birra. A habilidade se aprende na calma.',
+      'Esperar que ela se acalme “na hora”. Um sentimento grande pode levar 10–20 minutos para passar.',
+    ],
+    byAge: {
+      '3-6': 'Funciona muito bem colocar um bichinho de pelúcia na barriga dela e brincar de “embalar o bichinho com a respiração”.',
+      '6-12': 'Deixe a criança escrever a própria lista para se acalmar: música, desenho, caminhada, beber água. Ela segue mais o que ela mesma escolheu.',
+    },
+    specialist: [
+      'Se a criança quase nunca consegue se acalmar ou tem comportamentos perigosos nos momentos de raiva: procure um psicólogo infantil.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Os grandes sentimentos da criança em idade escolar',
+    summary: 'Raiva, vergonha, ciúme, decepção: na idade escolar os sentimentos ficam mais complexos, e a criança precisa entendê-los.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Na idade escolar a criança já sabe esconder o que sente, por isso os grandes sentimentos muitas vezes explodem em casa, perto da pessoa mais segura: você. A irritação depois da escola muitas vezes é o cansaço de ter “se segurado” o dia inteiro.',
+      'Nessa idade começa a comparação social. A vergonha e a sensação de “eu sou ruim” podem aparecer como raiva. Quanto mais a criança consegue nomear o que sente, mais fácil fica lidar com isso.',
+    ],
+    tryToday: [
+      'Logo depois da escola, não encha de perguntas. Primeiro um lanche, silêncio ou um abraço; a conversa vem depois.',
+      'Pratiquem juntos a frase “sentimento + necessidade”: “Eu me sinto … porque … . Eu preciso de … .”',
+      'Conte uma história parecida da sua infância: “Eu também morri de vergonha de uma coisa assim quando tinha 9 anos…”',
+      'Depois de uma explosão, conversem sem culpar: “O que aconteceu? O que você sentiu no corpo? O que pode ajudar da próxima vez?”',
+    ],
+    mistakes: [
+      'Diminuir o sentimento: “Não precisa chorar por isso.” Para ela, é algo grande.',
+      'Oferecer solução na hora. Às vezes a criança só quer ser ouvida.',
+      'Achar que raiva “não combina” com menina ou que tristeza “não combina” com menino. Todo sentimento é normal para qualquer criança.',
+    ],
+    specialist: [
+      'Mais de duas semanas de tristeza, perda de interesse, mudanças no sono e no apetite, recusa em ir à escola.',
+      'Autolesão ou falas sobre morte: procure um profissional imediatamente e, se houver perigo, ligue para o {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Manha e choramingo',
+    summary: 'A manha tira qualquer um do sério, mas muitas vezes é sinal de cansaço ou de necessidade de atenção.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'A criança aprende rápido qual comportamento funciona. Se choramingar acaba garantindo o que ela quer, ela vai continuar. A atenção — mesmo a atenção negativa — reforça o comportamento.',
+      'Ao mesmo tempo, a manha muitas vezes é sinal de fome, cansaço ou de ter passado muito tempo sem atenção. Responder à causa diminui o comportamento rapidinho.',
+    ],
+    tryToday: [
+      'Num momento calmo, brinquem da “voz forte”: digam o mesmo pedido com voz de manha e com voz normal, e riam juntos.',
+      'Quando ela choramingar, diga com calma: “Eu te escuto muito melhor com a sua voz normal.” Quando ela falar com a voz normal, responda na hora e com vontade.',
+      'Ao longo do dia, dê você o primeiro passo: momentos de atenção curtos, frequentes e sem motivo — olho no olho, um abraço, um “eu te vejo”.',
+    ],
+    mistakes: [
+      'Dizer “não” primeiro e, quando a manha se prolonga, “tá bom, toma”. Isso ensina a fazer manha da forma mais eficiente possível.',
+      'Zombar da manha ou imitá-la para envergonhar a criança.',
+    ],
+    specialist: [
+      'Se, junto com a manha, a criança parece cansada ou pálida com frequência, ou perdeu o apetite: procure o médico para investigar causas físicas.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Disciplina positiva: limite e afeto juntos',
+    summary: 'Os melhores resultados não vêm de pais rígidos nem de pais que permitem tudo, e sim dos que são ao mesmo tempo afetuosos e claros.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Nos anos 1960, a psicóloga Diana Baumrind descreveu os estilos parentais a partir de duas dimensões: afeto (amor, atenção, responsividade) e exigência/estrutura (expectativas claras, limites). O estilo “autoritativo”, alto nas duas, apareceu ligado aos melhores resultados: crianças mais independentes, mais autoconfiantes e com menos problemas de comportamento.',
+      'Nas décadas seguintes, meta-análises que reuniram centenas de estudos confirmaram esse resultado: uma relação afetuosa e limites explicados estão ligados a menos agressividade e desobediência, enquanto o controle rígido e o castigo, ao contrário, estão ligados a mais problemas de comportamento.',
+      'A Academia Americana de Pediatria (2018) e a OMS (2022) recomendam o mesmo caminho às famílias: construir uma relação positiva, perceber e reforçar o bom comportamento, expectativas claras e consequências calmas. Castigo físico e palavras humilhantes não são recomendados.',
+    ],
+    tryToday: [
+      'Diga uma regra de forma positiva: não “não corra”, mas “dentro de casa a gente anda”.',
+      'Diga antes o que você espera: “No mercado você segura a minha mão e no carrinho só vai o que está na lista.”',
+      'Hoje, cinco vezes, perceba e nomeie com precisão um bom comportamento: “Você pendurou a mochila sozinho, obrigado!” O comportamento que recebe atenção é o que cresce.',
+      'Coloque o limite com voz calma, curta e gentil — e depois cumpra. Sem avisos repetidos.',
+    ],
+    mistakes: [
+      'Colocar amor e limite um contra o outro. “Eu te amo, e é por isso que não deixo”: os dois cabem juntos.',
+      'Aplicar uma regra num dia e esquecê-la no outro. Constância é mais importante do que rigidez.',
+      'Reagir só aos erros. Se a criança só consegue atenção com o comportamento problemático, vai repeti-lo.',
+    ],
+    byAge: {
+      '1-3': 'Mais ambiente do que palavras: deixe objetos perigosos fora do alcance e guarde o “não” para as coisas importantes.',
+      '3-6': '3–4 regras simples da família bastam. Desenhem e pendurem num lugar bem visível.',
+      '6-12': 'Converse sobre as regras com a criança e combinem as consequências antes. Quando ela mesma escreve parte da regra, cumpre mais.',
+    },
+    specialist: [
+      'Se, apesar de todos os esforços, os problemas de comportamento atrapalham por meses a vida da família, a creche ou a escola: um psicólogo infantil ou programas para pais (por exemplo, PCIT ou Triple P) são muito eficazes.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Por que bater não funciona — e o que funciona',
+    summary: 'A palmada pode trazer obediência na hora, mas piora o comportamento a longo prazo. Nesse assunto, as evidências científicas são muito claras.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Em 2016, Gershoff e Grogan-Kaylor reuniram 75 estudos com mais de 160 mil crianças. Conclusão: a palmada (bater) não está ligada a nenhum resultado positivo a longo prazo; pelo contrário, está ligada a mais agressividade, comportamento antissocial, problemas de saúde mental e uma relação mais frágil com os pais. Essa ligação aparece até quando se bate “de leve” ou “com amor”.',
+      'O motivo é simples: bater não ensina a criança o que ela deve fazer, só ensina a ter medo. Além disso, mostra que os problemas se resolvem com força. Gritar, ameaçar e humilhar têm efeito parecido: em estudos, a disciplina verbal dura foi associada a mais problemas de comportamento e sintomas depressivos nos anos seguintes.',
+      'A Academia Americana de Pediatria (2018) e a OMS não recomendam castigo físico nem palavras humilhantes. O que funciona no lugar disso: relação afetuosa, regras claras, reforço do bom comportamento, consequências lógicas e tempo para se acalmar.',
+    ],
+    tryToday: [
+      'Escolha um “sinal de pare” para você: quando a raiva subir, coloque a mão no bolso ou dê um passo para trás e conte até 10.',
+      'Interrompa o comportamento perigoso de forma física, mas sem machucar: segure a mão, pegue a criança no colo, tire o objeto.',
+      'Ensine o que fazer da próxima vez: “Quando seu irmão pegar o seu brinquedo, você pode dizer “devolve!” ou vir me chamar.”',
+      'Se você já bateu: peça desculpas, assuma a responsabilidade pelo seu comportamento e conte qual é o seu plano. Isso também ensina a criança a sair de um erro.',
+    ],
+    mistakes: [
+      'Pensar “eu também apanhei e cresci normal”. Muita gente cresceu bem apesar disso, mas os estudos mostram que, em média, o risco aumenta.',
+      'Guardar o bater como “último recurso”. O último recurso é fazer uma pausa para se acalmar e pedir ajuda.',
+      'Trocar o castigo físico por outro método humilhante (envergonhar, ameaçar, retirar o afeto).',
+    ],
+    byAge: {
+      '1-3': 'Nessa idade, o que mais funciona é distrair, mudar o ambiente e tirar a criança do lugar perigoso com calma.',
+      '3-6': 'Consequências lógicas e o “time-in” (se acalmar ao seu lado) funcionam bem.',
+      '6-12': 'Limitar um privilégio por pouco tempo (por exemplo, o tempo de tela) e resolver o problema juntos.',
+    },
+    specialist: [
+      'Se você sente que, nos momentos de raiva, não consegue se controlar e poderia machucar a criança, esse é um motivo forte para pedir ajuda. Um psicólogo ou um programa para pais pode mudar essa situação.',
+      'Se a criança ou você estão em perigo, ou se há violência em casa, ligue imediatamente para o {emergency}.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Consequência e castigo: qual é a diferença?',
+    summary: 'O castigo quer fazer doer; a consequência quer ensinar. A melhor consequência tem a ver com o comportamento, é respeitosa e combinada antes.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'A psicologia comportamental mostra que o que mais muda um comportamento é o que vem depois dele. Mas os castigos (bater, humilhar, privações longas) geram medo e ressentimento, e a criança passa a pensar em “como não ser pega”.',
+      'A consequência lógica, por outro lado, está diretamente ligada ao comportamento, é curta e ensina: desenhou na parede com tinta — limpamos juntos; desrespeitou a regra da bicicleta — hoje não tem bicicleta. As consequências naturais (saiu sem casaco e sentiu frio), quando são seguras, são as melhores professoras.',
+    ],
+    tryToday: [
+      'Teste dos “3 R”: a consequência está Relacionada ao comportamento? É Respeitosa? É Razoável?',
+      'Diga a consequência antes: “Se você não guardar os brinquedos, amanhã eles vão descansar na caixa.” Depois, cumpra com calma.',
+      'Mantenha a consequência curta: um dia basta. Uma proibição de um mês não ensina mais nada, só magoa.',
+      'Depois da consequência, “página virada”: sem sermão, a gente recomeça.',
+    ],
+    mistakes: [
+      'Inventar uma consequência no meio da raiva: “Um ano sem bicicleta!” Depois não dá para cumprir, e a sua palavra perde o valor.',
+      'Um castigo que não tem nada a ver com o comportamento: não fez a lição de casa — não vai ao aniversário.',
+      'Aplicar a consequência com deboche ou com um “viu só?”.',
+    ],
+    byAge: {
+      '3-6': 'A consequência deve ser imediata e bem curta. Horas depois, a criança já não a liga ao comportamento.',
+      '6-12': 'Definam as consequências juntos. A criança cumpre mais a regra que considera justa.',
+    },
+    specialist: [
+      'Se nenhuma consequência funciona e o comportamento é perigoso ou tão intenso que esgota a família, converse com um psicólogo infantil e conheça os programas para pais.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Como falar sem gritar',
+    summary: 'Gritar traz alívio na hora, mas a criança se acostuma com o volume e passa a escutar menos. Falar com calma e de perto tem mais força.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Em estudos, a disciplina com gritos frequentes, xingamentos e palavras humilhantes foi associada a mais problemas de comportamento e sintomas depressivos nos anos seguintes, mesmo quando a relação era, no geral, afetuosa. Um dos motivos: o grito liga o sistema de estresse da criança e, em vez de escutar, ela entra na defensiva.',
+      'A boa notícia: a autorregulação dos pais é uma habilidade que se aprende. Gritar muitas vezes é sinal de cansaço, fome e sobrecarga — e não de ser “um pai ruim” ou “uma mãe ruim”.',
+    ],
+    tryToday: [
+      'Em vez de gritar de longe, chegue perto, abaixe-se até a altura da criança, olhe nos olhos dela, diga o nome dela e fale com uma frase curta.',
+      'Quando der vontade de levantar a voz, faça o contrário: fale sussurrando. As crianças escutam sussurros com curiosidade.',
+      'Anote os momentos do dia em que você grita. Em que horário acontece mais? Faça um plano para esse horário (por exemplo, um lanche, deixar as coisas prontas antes).',
+      'Se gritar, conserte: “Eu gritei, e isso não foi certo. Perdi a paciência, mas não devia ter levantado a voz.”',
+    ],
+    mistakes: [
+      'Se culpar depois de cada erro. Isso gera mais tensão na próxima vez. O objetivo não é a perfeição, e sim gritar menos e reparar.',
+      'Dizer “você me obriga a gritar”. Cada um é responsável pelos próprios sentimentos.',
+    ],
+    specialist: [
+      'Se a raiva e a irritação saem do controle quase todos os dias, ou vêm junto com insônia, tristeza ou desesperança, converse com um médico ou psicólogo. Depressão e ansiedade dos pais têm tratamento.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out ou time-in?',
+    summary: 'Uma pausa curta para se acalmar pode funcionar, mas para crianças pequenas o essencial não é o isolamento, e sim a proximidade que ajuda a acalmar.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'O “time-out” clássico (uma pausa calma de alguns minutos) foi estudado em alguns programas para pais e, quando bem aplicado (curto, calmo, sem humilhação, dentro de uma relação afetuosa), não se mostrou prejudicial. Mas isso não significa trancar a criança num quarto nem assustá-la.',
+      'Já o “time-in” é a criança se acalmar ao seu lado. Para crianças pequenas ele é mais adequado, porque elas ainda precisam de corregulação. Nos dois casos, o objetivo não é punir, e sim se acalmar e “recomeçar”.',
+    ],
+    tryToday: [
+      'Regra: mais ou menos um minuto por ano de idade, no máximo 5 minutos.',
+      'O lugar deve ser tranquilo, mas não assustador. Nunca tranque a criança num quarto escuro.',
+      'Para o time-in: “Vem, senta aqui do meu lado. Vamos respirar juntos.”',
+      'Depois da pausa, um curto “vamos recomeçar”, sem sermão.',
+    ],
+    mistakes: [
+      'Usar o time-out de forma longa, frequente e com ameaças.',
+      'Juntar a pausa com humilhação: “Sai daqui, não quero nem te ver.”',
+    ],
+    specialist: [
+      'Se a cada pausa a criança sente um medo terrível ou pânico, ou se os momentos de separação a abalam demais, converse com um especialista.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Regras da família: poucas, claras e constantes',
+    summary: 'As crianças testam os limites porque querem saber se eles continuam no lugar. Um limite estável dá sensação de segurança.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Um ambiente previsível acalma o sistema de estresse da criança. Em estudos, regras claras e rotina diária estão ligadas a sono melhor, menos problemas de comportamento e autocontrole mais forte.',
+      'As regras que mais funcionam são poucas (3–5), escritas de forma positiva e aplicadas do mesmo jeito pelos dois pais.',
+    ],
+    tryToday: [
+      'Façam uma reunião de família: cada um sugere uma regra e vocês escolhem juntos 3–5 regras principais.',
+      'Escreva as regras de forma positiva: “Mãos gentis”, “Quando alguém fala, a gente escuta”, “Depois de comer, o prato vai para a cozinha”.',
+      'Junto com as regras, combinem também as consequências.',
+      'Os adultos também seguem as regras. A criança olha mais para o exemplo do que para as palavras.',
+    ],
+    mistakes: [
+      'Inventar uma regra nova para cada problema novo. Regras demais é o mesmo que nenhuma regra.',
+      'Uma regra com a mãe e outra com o pai ou com a avó. Primeiro os adultos precisam se entender entre si.',
+    ],
+    specialist: [
+      'Se na família há conflitos constantes e tensos por causa das regras, um orientador familiar pode ajudar.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: 'A criança que diz “Não!”: lidando com a teimosia',
+    summary: 'A fase do “não” é a descoberta de “eu sou uma pessoa separada”. O que funciona não é brigar com ela, e sim oferecer escolhas.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'No segundo ano de vida, a criança descobre que tem vontade própria. A necessidade de autonomia é uma das necessidades psicológicas básicas: quanto mais sensação de controle ela tem, mais disposta fica a cooperar.',
+      'Estudos mostram que a linguagem “controladora” (“vista-se agora!”) aumenta a resistência, enquanto escolhas e explicações aumentam a cooperação.',
+    ],
+    tryToday: [
+      'Ofereça duas opções aceitáveis: “Primeiro escovar os dentes ou vestir o pijama?”',
+      'Em vez de uma pergunta de “sim ou não”, uma afirmação: “Agora é hora de se vestir”, e não “Vamos nos vestir?”.',
+      'Transforme em brincadeira: “Vamos ver quem calça a meia mais rápido — você ou o ursinho?”',
+      'Deixe de lado as batalhas que não importam: se a camiseta está do avesso, o mundo não acaba.',
+    ],
+    mistakes: [
+      'Transformar cada “não” numa disputa de poder.',
+      'Oferecer uma escolha e depois não aceitar o que a criança escolheu.',
+    ],
+    specialist: [
+      'Se a criança quase nunca responde aos pedidos, não reage ao próprio nome ou tem dificuldade para se comunicar: procure o médico para uma avaliação do desenvolvimento.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

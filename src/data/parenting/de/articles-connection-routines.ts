@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Bindung: der sichere Hafen deines Kindes',
+    summary: 'Sichere Bindung entsteht nicht durch perfekte Elternschaft, sondern durch „gut genuge“, feinfühlige und verlässliche Eltern.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby beschrieb Bindung als den Instinkt eines Kindes, bei Gefahr Nähe zu suchen. Mary Ainsworth beobachtete, dass Kinder mit feinfühligen und berechenbaren Eltern diese als „sichere Basis“ nutzen: Sie erkunden entspannt die Welt und kehren zurück, um sich zu beruhigen, wenn sie Angst haben.',
+      'Sichere Bindung geht in späteren Jahren mit besserer Gefühlsregulation, Freundschaftsfähigkeit und Selbstvertrauen einher. Wichtig: Dafür muss man nicht auf jedes Weinen sofort und perfekt reagieren. Studien zeigen, dass ein großer Teil der Interaktion aus „unpassenden“ Momenten besteht – entscheidend ist, dass diese Momente danach wieder repariert werden.',
+      'Bindung ist nicht einmal aufgebaut und dann fertig: Auch im Schulalter muss dein Kind wissen, dass es in schwierigen Momenten zu dir zurückkommen kann. Nur geschieht das jetzt weniger durch Umarmungen als durch Zuhören und das Gefühl „Ich bin auf deiner Seite“.',
+    ],
+    tryToday: [
+      'Wenn dein Kind zu dir kommt (froh oder traurig), schenk ihm für ein paar Sekunden deine volle Aufmerksamkeit: Leg das Handy weg, schau ihm in die Augen.',
+      'Führe vor einer Trennung ein kurzes, immer gleiches Abschiedsritual ein: Umarmung, „Wir sehen uns heute Abend“ – und dann geh wirklich. Sich heimlich davonzuschleichen beschädigt das Vertrauen.',
+      'Steig einmal am Tag in seine Interessen ein: Was es spielt, wovon es erzählt.',
+      'Mach einen Moment, in dem du gereizt warst, später wieder gut: „Heute Morgen war ich ungeduldig. Komm, wir fangen noch mal neu an.“',
+    ],
+    mistakes: [
+      'Ein Baby aus Angst, es „gewöhnt sich ans Tragen“, weinen lassen. Auf das Weinen zu reagieren verringert die Selbstständigkeit in den ersten Monaten nicht, sondern stärkt sie im Gegenteil.',
+      'Bindung so verstehen, als dürfe man sich nie vom Kind trennen. Auch zu Oma, Papa oder der Erzieherin entstehen sichere Bindungen, und das ist gut so.',
+      'Perfekt sein wollen. Dein Kind braucht keine idealen Eltern, sondern ehrliche, die Dinge wiedergutmachen können.',
+    ],
+    byAge: {
+      '0-1': 'Reagiere auf das Weinen, nimm Blickkontakt auf, sprich, sing. In diesem Alter gibt es kein Verwöhnen.',
+      '1-3': 'Dein Kind erkundet und kommt zurück. Auf dem Spielplatz zu sitzen und „Ich bin hier“ zu sagen, reicht völlig.',
+      '3-6': '10–15 Minuten besondere Spielzeit am Tag stärken die Bindung.',
+      '6-12': 'Hör zu, ohne zu urteilen. Wenn du bei den kleinen Problemen da bist, kommt es auch mit den großen zu dir.',
+    },
+    specialist: [
+      'Wenn dein Baby Blickkontakt vermeidet, kein Interesse an dir oder vertrauten Menschen zeigt oder sich fast gar nicht beruhigen lässt – wende dich an eine Ärztin oder einen Arzt.',
+      'Wenn sich dein Kind an alle, sogar an Fremde, gleich stark und wahllos bindet (besonders nach schwierigen ersten Lebensjahren) – wende dich an eine Kinderpsychologin oder einen Kinderpsychologen.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'Wenn das Baby weint: der Mythos vom Verwöhnen',
+    summary: 'Weinen ist die einzige Sprache deines Babys. Darauf zu reagieren verwöhnt nicht, sondern schafft Vertrauen.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'Die Amerikanische Akademie für Kinderheilkunde sagt es klar: In den ersten Monaten kann man ein Baby nicht verwöhnen. Liebevoll auf das Weinen zu reagieren beruhigt sein Stresssystem und baut das Vertrauen auf: „Die Welt ist sicher.“',
+      'Gleichzeitig ist es normal, dass auch gesunde Babys in den ersten Wochen viel weinen: Das Weinen nimmt ab etwa 2 Wochen zu, erreicht mit 6–8 Wochen seinen Höhepunkt und lässt mit 3–4 Monaten nach. Manchmal findet man einfach keinen Grund. Das ist nicht dein Versagen.',
+      'Die wichtigste Sicherheitsregel: Schüttle dein Baby niemals, auch wenn du am Ende deiner Kräfte bist. Schütteln kann Hirnverletzungen verursachen. Dein Baby auf den Rücken ins Bettchen zu legen und für ein paar Minuten den Raum zu verlassen, ist ein völlig richtiger Schritt.',
+    ],
+    tryToday: [
+      'Prüf die Grundbedürfnisse: Hunger, Windel, zu warm oder zu kalt, Bäuerchen, Müdigkeit.',
+      'Probier beruhigende Techniken aus: Pucken (Hüften frei beweglich), rhythmisches Wiegen, „Schhh“-Geräusche, im Gehen auf dem Arm tragen, Haut-zu-Haut-Kontakt.',
+      'Mach für die Schreistunden einen Helferplan: Wechselt euch mit Partner, Oma oder Nachbarin ab.',
+      'Wenn deine Geduld am Ende ist: Leg dein Baby an einen sicheren Ort, atme 5–10 Minuten durch, trink Wasser, ruf jemanden an und komm dann zurück.',
+    ],
+    mistakes: [
+      'Ein sehr kleines Baby lange allein lassen, weil „es sich daran gewöhnt, wenn man es weinen lässt“.',
+      'Viel Weinen auf deine „schlechte Elternschaft“ schieben. Diese Phase geht vorbei.',
+      'Sich schämen, um Hilfe zu bitten.',
+    ],
+    specialist: [
+      'Wenn zum Weinen Fieber (besonders bei Babys unter 3 Monaten), Erbrechen, Durchfall, Trinkverweigerung, Teilnahmslosigkeit oder ungewöhnlich schrilles Weinen dazukommen – geh sofort zur Ärztin oder zum Arzt. In ernsten Fällen ruf {emergency} an.',
+      'Wenn du den Gedanken hast, dein Baby zu schütteln oder ihm etwas anzutun, hol dir sofort Hilfe. Das macht dich nicht zu einem schlechten Menschen, es zeigt nur, dass deine Erschöpfung ihre Grenze erreicht hat.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: '10 Minuten am Tag: die besondere Zeit',
+    summary: 'Eine kurze tägliche Spielzeit, in der dein Kind bestimmt, gehört zu den wirksamsten Mitteln gegen Verhaltensprobleme.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Genau darauf beruht die erste Phase von PCIT (Eltern-Kind-Interaktionstherapie), einem der am besten untersuchten Elternprogramme: jeden Tag 5–10 Minuten Spiel, bei dem das Kind bestimmt, während die Eltern loben, beschreiben und nachahmen. Metaanalysen zeigen, dass diese Programme Verhaltensprobleme deutlich verringern.',
+      'Der Grund ist einfach: Wenn das Bedürfnis eines Kindes nach Aufmerksamkeit auf positive Weise gestillt wird, muss es sich Aufmerksamkeit nicht mehr durch negatives Verhalten „verdienen“.',
+    ],
+    tryToday: [
+      'Stell einen Timer: 10 Minuten. Das Handy bleibt in einem anderen Zimmer.',
+      'Dein Kind wählt das Spiel, du folgst. Keine Anweisungen, keine Fragenflut, keine Kritik.',
+      'Beschreibe, was es tut: „Du hast den roten Baustein ganz oben draufgesetzt.“ Mach es nach und lobe es: „Wie sorgfältig du baust!“',
+      'Sag zum Schluss: „Es hat mir so viel Spaß gemacht, mit dir zu spielen. Morgen wieder.“',
+    ],
+    mistakes: [
+      'Die besondere Zeit wegen schlechten Verhaltens streichen. Sie ist keine Strafe und keine Belohnung, sondern ein tägliches Vitamin.',
+      'Das Spiel in eine „Unterrichtsstunde“ verwandeln: „Welche Farbe ist das? Wie viele Bausteine sind das?“',
+    ],
+    byAge: {
+      '1-3': '5 Minuten reichen. Setz dich auf den Boden, auf seine Höhe.',
+      '6-12': 'Gebt ihr einen Namen: „Mama-Sohn-Zeit“. Das kann ein Kartenspiel sein, gemeinsames Kochen oder ein Spaziergang.',
+    },
+    specialist: [
+      'Wenn die besondere Zeit und andere Methoden über mehrere Wochen gar nichts verändern und die Verhaltensprobleme schwerwiegend sind – wende dich an eine Fachperson für PCIT oder ähnliche Programme.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Trennungsangst und Eingewöhnung in die Kita',
+    summary: 'Weinen beim Abschied ist ein Zeichen von Bindung. Ein kurzer, ehrlicher Abschied und eine vorhersehbare Rückkehr erleichtern die Eingewöhnung.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'Trennungsangst beginnt mit etwa 8–10 Monaten, erreicht mit 15–18 Monaten ihren Höhepunkt und lässt meist gegen 3 Jahre nach. In dieser Zeit versteht dein Kind noch nicht ganz, dass du nicht „verschwindest“.',
+      'Was die Angst eines Kindes am meisten verstärkt, ist Unvorhersehbarkeit. Heimliches Weggehen erspart vielleicht kurz die Tränen, führt aber langfristig dazu, dass dein Kind noch mehr klammert.',
+    ],
+    tryToday: [
+      'Führe ein kurzes, immer gleiches Abschiedsritual ein: Umarmung, Kuss, „Ich komme nach dem Mittagessen“ – dann geh.',
+      'Übt vor dem Kita-Start kurze Probetrennungen: 15 Minuten, dann 1 Stunde.',
+      'Verknüpfe die Rückkehr mit einem Ereignis, das dein Kind versteht: „Ich komme nach dem Mittagsschlaf, nach dem Snack.“',
+      'Ein „Übergangsobjekt“ von zu Hause – ein kleines Spielzeug, ein Foto von dir – kann trösten.',
+    ],
+    mistakes: [
+      'Sich lange nicht von dem weinenden Kind lösen können und an der Tür immer wieder umkehren.',
+      'Über die Angst lachen oder sagen: „Du bist doch schon groß, schäm dich.“',
+    ],
+    specialist: [
+      'Wenn die Trennungsangst für das Alter ungewöhnlich stark ist, wochenlang Schlaf, Essen und den Kita-Besuch durcheinanderbringt oder im Schulalter wieder auftritt – wende dich an eine Kinderpsychologin oder einen Kinderpsychologen.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Das Schlafritual: jeden Abend dieselben drei Schritte',
+    summary: 'Ein einfaches Ritual, das sich jeden Abend wiederholt, hilft deinem Kind, schneller einzuschlafen und nachts seltener aufzuwachen.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'In einer randomisierten Studie (Mindell und Kollegen, 2009) führte ein dreistufiges Abendritual – Baden, Massage oder Eincremen, eine ruhige Aktivität (Kuscheln, Schlaflied) – schon nach zwei Wochen dazu, dass die Kinder schneller einschliefen und nachts seltener aufwachten und sich die Stimmung der Mütter verbesserte. Spätere Übersichtsarbeiten zeigten, dass Abendroutinen auch mit Sprachentwicklung und Gefühlsregulation zusammenhängen.',
+      'Empfohlener Schlaf nach Alter (inklusive Tagschlaf): 4–12 Monate – 12–16 Stunden, 1–2 Jahre – 11–14 Stunden, 3–5 Jahre – 10–13 Stunden, 6–12 Jahre – 9–12 Stunden. Schlafmangel zeigt sich bei Kindern oft nicht als Müdigkeit, sondern als Gereiztheit und Hyperaktivität.',
+      'Für Babys sind die Regeln für sicheren Schlaf wichtig: auf dem Rücken, auf einer festen, flachen Matratze, ohne Kissen und Decke, idealerweise im selben Zimmer wie die Eltern, aber im eigenen Bett.',
+    ],
+    tryToday: [
+      'Führe ab heute Abend ein Ritual ein: zum Beispiel Baden → Schlafanzug und Zähneputzen → Buch und Schlaflied. Jeden Abend dieselbe Reihenfolge, ungefähr zur selben Uhrzeit.',
+      'Schalte eine Stunde vor dem Ritual die Bildschirme aus und dimme das Licht.',
+      'Erstellt gemeinsam einen Bilderplan für das Ritual, und dein Kind „hakt“ jeden Schritt selbst ab.',
+      'Das Ritual sollte nicht länger als 20–30 Minuten dauern. Je länger es wird, desto mehr wird dein Kind versuchen, es in die Länge zu ziehen.',
+    ],
+    mistakes: [
+      'Jeden Abend eine andere Uhrzeit und eine andere Reihenfolge. Das Gehirn sucht nach vorhersehbaren Signalen.',
+      'Aufregende Spiele, Bildschirme oder Geschrei vor dem Schlafengehen.',
+      'Schlafmethoden für „Pflicht“ halten. Neben dem Kind sitzen, gemeinsam schlafen oder nicht, sich nach und nach zurückziehen – wähle, was zu deiner Familie passt. Keine Methode ist für alle notwendig.',
+    ],
+    byAge: {
+      '0-1': 'Das Ritual sollte kurz sein: Baden, Füttern, Schlaflied. Du kannst versuchen, dein Baby schläfrig, aber wach ins Bett zu legen – und wenn es nicht klappt, keine Sorge.',
+      '1-3': 'Biete eine Wahl an: „Lesen wir dieses Buch oder das andere?“ Über die Schlafenszeit wird nicht verhandelt, über das Buch schon.',
+      '3-6': 'Die Fragen beginnen, um das Zubettgehen „hinauszuzögern“. Bau einen Moment für die „letzte Frage“ oder die „letzte Umarmung“ ins Ritual ein.',
+      '6-12': 'Handy, Tablet und Fernseher bleiben nicht im Kinderzimmer. Plant die Schlafenszeit gemeinsam, zusammen mit Hausaufgaben und Sport.',
+    },
+    specialist: [
+      'Wenn dein Kind im Schlaf schnarcht, Atemaussetzer hat oder mit offenem Mund atmet und tagsüber übermäßig schläfrig ist – wende dich an eine Ärztin oder einen Arzt.',
+      'Wenn Schlafprobleme länger als ein paar Wochen anhalten und den Familienalltag ernsthaft stören.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Nächtliches Aufwachen und Nachtschreck',
+    summary: 'Albtraum und Nachtschreck sind zwei verschiedene Dinge. Jedes braucht einen anderen Umgang.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Albträume kommen in der zweiten Nachthälfte vor, in der Traumschlafphase. Dein Kind wacht auf, sagt, dass es Angst hat, erkennt dich und braucht Trost.',
+      'Der Nachtschreck (Pavor nocturnus) tritt dagegen meist 1–3 Stunden nach dem Einschlafen im Tiefschlaf auf. Dein Kind kann schreien, die Augen offen haben, ist aber eigentlich nicht wach, erkennt dich nicht und erinnert sich am Morgen an nichts. Das ist zwischen 3 und 7 Jahren häufig und meist harmlos.',
+    ],
+    tryToday: [
+      'Nach einem Albtraum: Nimm dein Kind in den Arm, tröste es kurz, mach ein wenig Licht. Lass es den Albtraum nachts nicht in allen Einzelheiten erzählen, sprecht am nächsten Tag darüber.',
+      'Beim Nachtschreck: Versuch nicht, dein Kind zu wecken, sorg nur für seine Sicherheit und bleib ruhig bei ihm. Wenn die Episode vorbei ist, schläft es weiter.',
+      'Schlafmangel verstärkt den Nachtschreck: Versuch, die Schlafenszeit um 20–30 Minuten vorzuverlegen.',
+      'Sprecht tagsüber spielerisch über Ängste: Malt ein „Monsterbuch“ und macht die Monster lustig.',
+    ],
+    mistakes: [
+      'Dein Kind während eines Nachtschrecks schütteln, um es zu wecken.',
+      'Die Angst verspotten: „Es gibt keine Monster, sei nicht albern.“',
+    ],
+    specialist: [
+      'Wenn die Episoden sehr häufig sind (mehrmals pro Woche), länger als 30 Minuten dauern, ungewöhnliche Bewegungen (rhythmisches Zucken, Einnässen) auftreten oder sie tagsüber zu Schläfrigkeit führen – wende dich an eine Ärztin oder einen Arzt.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Wählerisches Essen: Wer ist wofür zuständig?',
+    summary: 'Die Eltern bestimmen, was, wann und wo gegessen wird; das Kind bestimmt, wie viel und ob es überhaupt isst. Diese Aufteilung beendet Kämpfe am Esstisch.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Die Scheu vor neuen Lebensmitteln (Neophobie) ist zwischen 2 und 6 Jahren sehr verbreitet und evolutionär sinnvoll: Sie schützt kleine Kinder vor unbekannten, möglicherweise gefährlichen Nahrungsmitteln. Meist ist es eine vorübergehende Phase.',
+      'Studien zeigen, dass Zwang zum Essen, ein „Noch einen Löffel“ und Belohnungen mit Süßigkeiten das Gegenteil bewirken: Sie verstärken die Abneigung gegen das Lebensmittel und schwächen die Fähigkeit des Kindes, seine Hunger- und Sättigungssignale wahrzunehmen. Wiederholtes Anbieten ohne Druck – oft 10–15 Mal – erhöht dagegen die Akzeptanz.',
+      'Das Modell der „Aufgabenteilung“ der Ernährungsberaterin Ellyn Satter macht daraus eine praktische Regel: Die Eltern bestimmen Speiseplan, Zeit und Ort, das Kind entscheidet, wie viel es isst.',
+    ],
+    tryToday: [
+      'Bei jeder Mahlzeit sollte mindestens ein „sicheres“ Lebensmittel dabei sein, das dein Kind mag, und daneben ein kleines Stück von etwas Neuem.',
+      'Stell das Neue ohne Kommentar hin. Wenn es nicht gegessen wird, sag nichts. Morgen und übermorgen wieder.',
+      'Esst als Familie zusammen und ohne Bildschirm. Dein Kind soll sehen, wie du mit Genuss isst.',
+      'Lass dein Kind in der Küche mitmachen: Gemüse waschen, Salat mischen. Was es selbst zubereitet hat, probiert es eher.',
+      'Leg feste Zeiten für Mahlzeiten und Snacks fest, ohne „Dauerknabbern“ dazwischen.',
+    ],
+    mistakes: [
+      'Zwingen, bestechen („Iss den Brokkoli, dann bekommst du Schokolade“) oder bestrafen.',
+      'Bei jeder Mahlzeit ein eigenes „Restaurantmenü“ für dein Kind kochen.',
+      'Verlangen, dass der Teller unbedingt leer gegessen wird. Dein Kind muss sein Sättigungsgefühl spüren lernen.',
+    ],
+    byAge: {
+      '1-3': 'Fingerfood, kleine Portionen, selbst essen lassen. Sich schmutzig zu machen gehört zum Lernen dazu.',
+      '3-6': 'Die „Probierregel“: Probieren ist keine Pflicht, aber ein neues Lebensmittel anzuschauen, daran zu riechen und es anzufassen, kann ein Spiel sein.',
+      '6-12': 'Bezieh dein Kind in die Essensplanung ein: Einmal pro Woche sucht es ein neues Gemüse aus.',
+    },
+    specialist: [
+      'Wenn dein Kind Gewicht verliert, auf der Wachstumskurve zurückfällt, nur sehr wenige Lebensmittel akzeptiert (zum Beispiel weniger als 15), beim Essen würgt, sich verschluckt oder Schmerzen hat – wende dich an eine Ärztin oder einen Arzt.',
+      'Wenn es beim Essen starke Panik, Erbrechen oder eine völlige Ablehnung bestimmter Konsistenzen gibt – kann eine Fachperson für Fütter- und Essstörungen helfen.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Bildschirmzeit: ein kluger Plan nach Alter',
+    summary: 'In jungen Jahren kann der Bildschirm echten Austausch nicht ersetzen. Mit zunehmendem Alter geht es nicht um Verbote, sondern um einen gemeinsam erstellten Familienplan.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Kleine Kinder lernen vom Bildschirm viel weniger als von einem echten Menschen: Sprache und soziale Fähigkeiten entstehen im „Hin und Her“ von Angesicht zu Angesicht. Selbst ein Fernseher, der im Hintergrund läuft, verringert, wie viel Eltern mit ihrem Kind sprechen.',
+      'WHO (2019): Für Kinder unter 1 Jahr wird keine Bildschirmzeit empfohlen; mit 2–4 Jahren nicht mehr als 1 Stunde am Tag, weniger ist besser. Amerikanische Akademie für Kinderheilkunde (2016): bis 18 Monate Bildschirme meiden (Videoanrufe ausgenommen), mit 2–5 Jahren bis zu 1 Stunde hochwertige Inhalte am Tag, möglichst gemeinsam mit den Eltern; ab 6 Jahren feste Regeln, die Schlaf, Bewegung und sozialen Kontakten nicht im Weg stehen.',
+      'Bildschirme vor dem Schlafengehen verzögern das Einschlafen. Bildschirme beim Essen schwächen die Fähigkeit deines Kindes, seine Sättigungssignale wahrzunehmen.',
+    ],
+    tryToday: [
+      'Leg bildschirmfreie Zonen fest: den Esstisch und das Schlafzimmer.',
+      'Schalte den Bildschirm eine Stunde vor dem Schlafen aus.',
+      'Kündige das Ende der Bildschirmzeit vorher an und nutze einen Timer: „Wenn der Timer klingelt, geht das Tablet schlafen.“',
+      'Schaut einmal gemeinsam und redet darüber: „Was meinst du, warum hat er das gemacht?“ So wird der Bildschirm zum Gesprächsanlass.',
+      'Beobachte auch dein eigenes Handy: Schalte die Benachrichtigungen aus, wenn dein Kind bei dir ist.',
+    ],
+    mistakes: [
+      'Den Bildschirm zum Hauptmittel gegen Wutanfälle machen. Dein Kind lernt so nicht, sich zu beruhigen.',
+      'Nur dem Kind Regeln setzen. Kinder übernehmen die Bildschirmgewohnheiten ihrer Eltern.',
+      'Alle Bildschirme für „schlecht“ halten. Videoanrufe, gemeinsam angeschaute Lerninhalte und kreative Apps sind etwas anderes.',
+    ],
+    byAge: {
+      '0-1': 'Kein Bildschirm, Videoanrufe ausgenommen. Der beste „Bildschirm“ für dein Baby ist dein Gesicht.',
+      '1-3': 'Bis 2 Jahre so wenig wie möglich. Wenn, dann kurz, in langsamem Tempo und mit dir zusammen.',
+      '3-6': 'Bis zu 1 Stunde am Tag, hochwertige, werbefreie Inhalte. Nicht beim Essen und nicht vor dem Schlafengehen.',
+      '6-12': 'Schreibt gemeinsam einen Familien-Medienplan: Schule, Schlaf, Sport und Freunde kommen zuerst. Halte dich bei Social-Media-Konten an die Altersgrenzen.',
+    },
+    specialist: [
+      'Wenn dein Kind übermäßig aggressiv wird, sobald man ihm den Bildschirm wegnimmt, sich für nichts anderes mehr interessiert oder Schlaf und Schule ernsthaft leiden – wende dich an eine Kinderpsychologin oder einen Kinderpsychologen.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Sauberwerden: ohne Eile',
+    summary: 'Der wichtigste Schritt beim Sauberwerden ist, auf die Zeichen der Bereitschaft zu warten. Die meisten Kinder sind zwischen 2 und 3 Jahren so weit.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'In den 1960er-Jahren schlug der Kinderarzt T. Berry Brazelton einen „kindzentrierten“ Ansatz vor: anfangen, wenn das Kind Zeichen der Bereitschaft zeigt, ohne Druck und ohne Strafen. Dieser Ansatz ist bis heute die Grundlage der Empfehlungen der Amerikanischen Akademie für Kinderheilkunde.',
+      'Zeichen der Bereitschaft: 2 Stunden oder länger trocken bleiben, sich an einer nassen Windel stören, einfache Aufforderungen verstehen, die Hose selbst runter- und hochziehen können, Interesse an der Toilette zeigen. Nachts trocken zu werden dauert länger: Bis 5–6 Jahre ist nächtliches Einnässen normal.',
+    ],
+    tryToday: [
+      'Prüf die Zeichen der Bereitschaft. Wenn sie noch fehlen, warte – das ist normal.',
+      'Lass dein Kind das Töpfchen oder den Toilettensitz selbst aussuchen. Am Anfang darf es sich angezogen draufsetzen und ein Buch anschauen.',
+      'Plane nach dem Essen und nach dem Schlafen eine kurze „Klo-Zeit“ ein und bedank dich, egal ob etwas kommt oder nicht.',
+      'Nimm Missgeschicke gelassen: „Das passiert. Komm, wir machen das zusammen sauber.“',
+    ],
+    mistakes: [
+      'Bestrafen, beschämen, mit anderen Kindern vergleichen. Das kann zu Verstopfung und Angst vor der Toilette führen.',
+      'In Zeiten großer Veränderungen (ein neues Geschwisterchen, ein Umzug, Kita-Start) anfangen.',
+      'Zum langen Sitzenbleiben zwingen.',
+    ],
+    byAge: {
+      '1-3': 'Spielt mit einer Puppe „aufs Klo gehen“, lest Bücher zum Thema. Mit dem Anfangen keine Eile.',
+      '3-6': 'Missgeschicke sind normal, besonders wenn dein Kind ins Spiel vertieft ist. Die Nachtwindel kann noch bleiben.',
+    },
+    specialist: [
+      'Schmerzhafter oder sehr seltener Stuhlgang (Verstopfung), Schmerzen oder Brennen beim Wasserlassen, häufige Missgeschicke tagsüber nach dem 4. Geburtstag.',
+      'Wenn nach längerer trockener Zeit tagsüber oder nachts wieder Einnässen beginnt – wende dich an eine Ärztin oder einen Arzt.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'Morgenhektik: ohne Geschrei aus dem Haus',
+    summary: 'Die meisten Konflikte am Morgen löst man am Abend vorher. Vorbereitung, ein Bilderplan und ein bisschen Pufferzeit wirken Wunder.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'In hektischen, angespannten Momenten werden die exekutiven Funktionen bei Eltern und Kind schwächer – Planen, Erinnern, Geduld. Deshalb funktionieren Regeln für den Morgen besser mit einem sichtbaren Plan als mit Worten.',
+      'Routinen, die einem Kind ein Gefühl von Kontrolle geben (Schritte, die es selbst abhakt), fördern die Kooperation und verringern ständige Erinnerungen.',
+    ],
+    tryToday: [
+      'Leg am Abend Kleidung, Tasche und Schuhe bereit. Dein Kind sucht seine Kleidung selbst aus.',
+      'Gestaltet eine Bilderkarte für die Morgenschritte: aufstehen → Toilette → anziehen → Frühstück → Zähne → Schuhe.',
+      'Plane 15 Minuten Puffer ein: Schreib dir selbst eine frühere Abfahrtszeit auf.',
+      'Der Morgen bleibt bildschirmfrei, zumindest bis alle fertig sind.',
+    ],
+    mistakes: [
+      'Dasselbe dutzende Male wiederholen. Sag es einmal und zeig dann auf die Karte.',
+      'Alles für dein Kind erledigen, weil „es so schneller geht“.',
+    ],
+    specialist: [
+      'Wenn dein Kind morgens jeden Tag über Bauch- oder Kopfschmerzen klagt und sich hartnäckig weigert, in die Kita oder Schule zu gehen – sprich mit einer Ärztin, einem Arzt oder einer psychologischen Fachperson.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '„Hin und her“: das Geheimnis von Sprache und Gehirn',
+    summary: 'Dein Kind „schlägt“ ein Signal auf – einen Blick, einen Laut, eine Geste – und du „spielst es zurück“. Dieses einfache Spiel baut die Architektur des Gehirns auf.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Das Center on the Developing Child der Harvard University vergleicht diesen wechselseitigen Austausch mit einem Tennisspiel: Das Baby macht einen Laut, schaut, zeigt; der Erwachsene antwortet. Wenn sich dieses „Hin und Her“ wiederholt, festigen sich die Nervenbahnen für Sprache, Aufmerksamkeit und soziale Fähigkeiten. Unbeantwortet zu bleiben erzeugt dagegen Stress.',
+      'Eine spannende Studie (Romeo und Kollegen, 2018) zeigte, dass die Aktivität der Sprachareale im Gehirn eines Kindes nicht so sehr durch die Zahl der gehörten Wörter erklärt wird, sondern besser durch die Zahl der Gesprächswechsel. Es geht also nicht darum, viel zu reden, sondern mit dem Kind zu reden.',
+    ],
+    tryToday: [
+      'Folge dem Blick deines Kindes und benenne, was es sieht: „Ja, ein Hund! Ein großer, brauner Hund.“',
+      'Warte auf die Antwort: 5 Sekunden Stille nach einer Frage geben deinem Kind Zeit, „dran“ zu sein.',
+      'Ahme die Laute deines Babys nach und erweitere sie ein wenig: Es sagt „ba“, du sagst „Ba-ba-Ball!“.',
+      'Kommentiere den Alltag wie ein Sportreporter: „Ich wasche die Kartoffeln, jetzt schneide ich sie …“',
+    ],
+    mistakes: [
+      'Das Sprechen zur „Unterrichtsstunde“ machen: „Sag: Apfel! Sag Apfel!“ Druck lässt das Sprechen eher versiegen.',
+      'Jedes falsche Wort sofort korrigieren. Wiederhole stattdessen einfach die richtige Form: „Puppa? Ja, die Puppe! Eine rote, weiche Puppe.“',
+      'Aufs Handy schauen, während du mit deinem Kind zusammen bist. Jede Benachrichtigung ist ein „nicht zurückgespielter Ball“.',
+    ],
+    byAge: {
+      '0-1': 'Von Angesicht zu Angesicht: Lächle, sing, antworte auf die Laute deines Babys.',
+      '1-3': 'Benenne, worauf dein Kind zeigt, stell einfache Fragen und mach aus einem Wort zwei.',
+      '3-6': 'Geht den „Warum?“-Fragen gemeinsam nach, stell offene Fragen: „Was glaubst du, was passiert als Nächstes?“',
+    },
+    specialist: [
+      'Wenn es mit 12 Monaten keine Gesten gibt (Winken, Zeigen), mit 16–18 Monaten keine Wörter oder mit 2 Jahren keine Zwei-Wort-Sätze – wende dich an eine Ärztin, einen Arzt oder eine Logopädin bzw. einen Logopäden.',
+      'Wenn dein Kind in irgendeinem Alter Wörter verloren hat, die es schon sagen konnte – warte nicht, wende dich an eine Ärztin oder einen Arzt.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'Die Kraft des Spiels: Warum Spielen keine „verlorene Zeit“ ist',
+    summary: 'Freies Spiel stärkt die exekutiven Funktionen, die Kreativität und die Stressresistenz deines Kindes.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Der Bericht der Amerikanischen Akademie für Kinderheilkunde von 2018 („The Power of Play“) bezeichnet Spielen nicht als „Luxus“, sondern als Notwendigkeit für die kindliche Entwicklung. Beim Spielen plant ein Kind, hält sich an Regeln, verhandelt mit anderen und lernt, Enttäuschungen auszuhalten.',
+      'Rollenspiele („Kaufladen“, „Arztpraxis“) trainieren besonders die exekutiven Funktionen: Das Kind muss in seiner Rolle bleiben, sich Regeln merken und eigene Wünsche zurückstellen.',
+    ],
+    tryToday: [
+      'Plane jeden Tag mindestens eine Stunde unstrukturierte Spielzeit ein (je nach Alter auch aufgeteilt).',
+      'Wähle einfaches, offenes Spielzeug: Bausteine, Kartons, Farben, Verkleidungen. Weniger Spielzeug bedeutet mehr Kreativität.',
+      'Einmal pro Woche freies Spiel draußen: Bäume, Sand, Wasser, Stöcke.',
+      'Spiel manchmal in einer „vertauschten“ Rolle mit: Du bist die Kundschaft, dein Kind verkauft.',
+    ],
+    mistakes: [
+      'Jede Minute mit Kursen und Aktivitäten füllen. Langeweile ist der Anfang von Kreativität.',
+      'Im Spiel immer gewinnen oder immer verlieren. Dein Kind muss beides lernen.',
+    ],
+    specialist: [
+      'Wenn dein Kind auch nach 2–3 Jahren keinerlei Interesse an Rollenspielen zeigt, seine Spiele sehr repetitiv und starr sind oder es sich nicht für das Spiel mit anderen Kindern interessiert – lass seine Entwicklung ärztlich überprüfen.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Gemeinsam lesen: vom ersten Tag an',
+    summary: 'Von klein auf gemeinsam Bücher anzuschauen ist eine der einfachsten und wirksamsten Gewohnheiten für Sprache, Aufmerksamkeit und Bindung.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Die Amerikanische Akademie für Kinderheilkunde (2014) rät Kinderärztinnen und Kinderärzten, Eltern bei jeder Vorsorgeuntersuchung zu empfehlen, schon ab dem Babyalter vorzulesen. Gemeinsames Lesen erweitert den Wortschatz, die Fähigkeit zuzuhören und den späteren Leseerfolg.',
+      'Den größten Nutzen bringt das „dialogische Lesen“: Die Eltern stellen Fragen, greifen die Antworten des Kindes auf und erweitern sie, sprechen über die Bilder. Auch ein Buch ist also ein Werkzeug für das „Hin und Her“.',
+    ],
+    tryToday: [
+      'Jeden Tag 10–15 Minuten gemeinsam mit einem Buch, idealerweise als Teil des Schlafrituals.',
+      'Stell auf jeder Seite eine Frage: „Was glaubst du, was macht die Katze jetzt?“',
+      'Wenn dein Kind dasselbe Buch 20-mal hören will – lies es vor. Wiederholung ist eine Art zu lernen.',
+      'Lest im Schulalter abwechselnd: eine Seite du, eine Seite dein Kind.',
+    ],
+    mistakes: [
+      'Lesen als Pflichtübung präsentieren.',
+      'Mit dem Vorlesen aufhören, sobald dein Kind selbst lesen kann. Vorlesen ist bis zum Alter von 10–12 Jahren wertvoll.',
+    ],
+    specialist: [
+      'Wenn Lesen deinem Kind im Schulalter viel schwerer fällt als Gleichaltrigen, es oft Buchstaben verwechselt oder trotz Anstrengung keine Fortschritte macht – sprich mit der Lehrkraft und einer Fachperson (Logopädie, Psychologie).',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

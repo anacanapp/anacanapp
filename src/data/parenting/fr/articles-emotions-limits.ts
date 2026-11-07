@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'La crise de colère : que se passe-t-il dans le cerveau ?',
+    summary: 'Une crise n’est pas le résultat d’une mauvaise éducation. C’est le moment où une grande émotion déborde un « système de freinage » encore tout petit.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Le système des émotions, situé dans les couches profondes du cerveau, est puissant dès la naissance : il ressent en un instant le danger, la déception, la colère. Le cortex préfrontal, qui retient ces émotions et dit « attends, il y a une autre solution », n’arrive à maturité que vers 20 ans. Chez un enfant de 2 à 4 ans, cet écart est à son maximum. C’est pourquoi, pendant une crise, ton enfant ne t’entend pas et ne réagit pas à la logique : la partie « qui réfléchit » de son cerveau est temporairement hors service.',
+      'À ce moment-là, ton enfant ne peut pas se calmer seul : il « emprunte » le calme à ton corps et à ta voix. Les chercheurs appellent cela la co-régulation. Plus tu restes calme, plus vite son système de stress revient à la normale, et à force de répétition, il apprend ce chemin vers l’apaisement et se l’approprie. Crier et punir, au contraire, augmentent les hormones du stress et prolongent la crise.',
+      'Les crises surviennent souvent aux mêmes moments : fatigue, faim, transitions (rentrer après avoir joué, quitter le parc), un « non ». Anticiper ces moments peut éviter plus de la moitié des crises.',
+    ],
+    tryToday: [
+      'Calme-toi d’abord : prends une grande inspiration, relâche les épaules, baisse la voix. Si tu n’es pas calme, il ne peut pas l’être non plus.',
+      'Parle peu. Une ou deux phrases courtes suffisent : « Tu es très en colère. Je suis là. »',
+      'Assure la sécurité : s’il tape, tiens doucement sa main, et éloigne les objets avec lesquels il pourrait se blesser.',
+      'Une fois qu’il est calmé, fais-lui un câlin, et seulement ensuite, parle brièvement : « Tu étais très en colère parce que le jeu était fini. La prochaine fois, tu peux dire « aide-moi ». »',
+      'Cette semaine, note à quels moments surviennent les crises. Il y a de fortes chances qu’elles coïncident avec les heures de fatigue et de faim.',
+    ],
+    mistakes: [
+      'Faire de longues explications ou la morale pendant la crise. Le cerveau n’est pas encore en mode écoute : d’abord l’apaisement, ensuite la discussion.',
+      'Lui donner ce qu’il veut pour arrêter la crise. Cela signifie une crise encore plus forte la prochaine fois. Montre de l’empathie pour l’émotion, mais tiens ta décision.',
+      'Faire honte à ton enfant : « Tu n’as pas honte, tout le monde te regarde. » La honte n’apprend pas à gérer ses émotions, seulement à les cacher.',
+      'Voir la crise comme une « manipulation ». Chez un jeune enfant, c’est surtout un manque de compétence, pas une ruse.',
+    ],
+    byAge: {
+      '1-3': 'Son vocabulaire est encore limité, alors nomme l’émotion à sa place et montre-lui une alternative simple : « Tu es en colère. Tape du pied, comme ça ! » La diversion marche très bien à cet âge.',
+      '3-6': 'Dans un moment calme, préparez ensemble un « plan colère » : respirer, serrer un coussin, aller dans le coin calme. Affichez-le en images au mur, et quand une crise commence, montre-le simplement du doigt.',
+    },
+    specialist: [
+      'Si les crises durent régulièrement plus de 25 minutes ou surviennent plus de cinq fois par jour.',
+      'Si ton enfant se blesse gravement pendant une crise (se cogner la tête, se mordre) ou s’il bloque sa respiration et perd connaissance – montre-le à un médecin.',
+      'Si, après 4–5 ans, les crises augmentent au lieu de diminuer, ou s’il y a d’autres inquiétudes liées au langage, au sommeil ou à la relation aux autres.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Le coaching émotionnel : nommer les émotions',
+    summary: 'Voir et nommer les émotions renforce la capacité de ton enfant à se réguler. Cela ne veut pas dire tout permettre.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Dans les années 1990, le psychologue John Gottman a observé des familles et constaté que les parents réagissent aux émotions de leur enfant de quatre façons différentes : en les rejetant (« Ne pleure pas, ce n’est rien »), en punissant, en laissant tout faire, ou en « coach émotionnel ». Le parent coach prend l’émotion au sérieux, la nomme et cherche une solution avec l’enfant, tout en posant des limites au comportement.',
+      'Les enfants de parents « coachs émotionnels » gardaient mieux leur attention les années suivantes, avaient moins de conflits avec leurs amis et se remettaient plus vite du stress. Des programmes ultérieurs (par exemple « Tuning in to Kids ») ont montré que tout parent peut apprendre cette compétence.',
+      'La recherche sur le cerveau montre aussi quelque chose d’intéressant : mettre un nom sur une émotion (« je suis en colère », « j’ai peur ») réduit l’activité du centre des émotions. Autrement dit, « nommer pour apprivoiser » n’est pas qu’une jolie formule.',
+    ],
+    tryToday: [
+      'Aujourd’hui, trois fois, dis l’émotion de ton enfant comme si tu étais à sa place : « On dirait que tu es très déçu. » N’aie pas peur de te tromper : il te corrigera.',
+      'Autorise l’émotion, pose une limite au comportement : « On a le droit d’être en colère. On n’a pas le droit de taper. »',
+      'Quand vous lisez un livre, regardez le visage des personnages : « À ton avis, qu’est-ce qu’il ressent maintenant ? »',
+      'Exprime aussi tes propres émotions calmement : « Je suis un peu fatigué(e), alors je vais boire un thé tranquillement. » Ton enfant t’imite avant tout.',
+    ],
+    mistakes: [
+      'Dire « Ne pleure pas », « Il n’y a pas de quoi avoir peur », « Ce n’est rien ». L’émotion ne disparaît pas, ton enfant apprend juste à ne plus te la montrer.',
+      'Croire que l’empathie annule le « non ». « Je comprends, tu en avais très envie. La réponse reste non » – c’est tout à fait possible.',
+      'Parler des émotions seulement dans les moments difficiles. Le meilleur entraînement se fait dans les moments calmes, par le jeu et les livres.',
+    ],
+    byAge: {
+      '1-3': 'Des mots simples : joie, colère, tristesse, peur. Imitez ensemble les expressions du visage devant le miroir.',
+      '3-6': 'Dessinez un « thermomètre des émotions » : vert – je suis calme, jaune – je m’énerve, rouge – j’explose. Ton enfant montre la couleur.',
+      '6-12': 'Apprenez des mots plus nuancés : déception, honte, jalousie, inquiétude. Demande-lui où l’émotion se trouve dans son corps.',
+    },
+    specialist: [
+      'Si ton enfant ne montre presque aucune émotion pendant longtemps, ou si la moindre chose le bouleverse pendant des heures.',
+      'Si la tristesse, la peur ou la colère durent plus de deux semaines et affectent le sommeil, l’alimentation, l’école et les amitiés – consulte un psychologue pour enfants.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Le coin calme et les jeux de respiration',
+    summary: 'On peut apprendre à un enfant à se calmer, mais pas avec un coin de punition : avec un endroit douillet et des jeux.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'La capacité à se réguler se construit d’abord avec le parent, puis peu à peu seul. Plus un enfant s’est calmé souvent aux côtés d’un adulte calme, mieux il apprend ce chemin.',
+      'Une respiration lente et profonde (surtout une expiration longue) ralentit le cœur et désactive le mode « danger » du corps. Les enfants l’apprennent mieux par le jeu que par des consignes.',
+    ],
+    tryToday: [
+      'Aménagez ensemble à la maison un petit « coin douillet » : coussin, doudou, un ou deux livres, des cartes des émotions. Ce n’est pas un lieu de punition, c’est un endroit où l’on peut aller à tout moment.',
+      'Le jeu « la bougie et la fleur » : sentir la fleur (inspirer par le nez), souffler la bougie (expirer lentement par la bouche). Cinq fois.',
+      'Entraînez-vous ensemble dans un moment calme : « Comment est notre corps quand on est en colère ? Viens, on respire maintenant, au calme, pour s’en souvenir quand on en aura besoin. »',
+      'Avec un petit, on va dans le coin ensemble : « Viens, on va tous les deux dans le coin douillet. »',
+    ],
+    mistakes: [
+      'Utiliser le coin comme une punition : « Va au coin ! » Ton enfant cherchera alors à l’éviter.',
+      'Essayer d’enseigner la respiration pour la première fois en pleine crise. Une compétence s’apprend dans les moments calmes.',
+      'Attendre un apaisement « immédiat ». Une grande émotion peut mettre 10 à 20 minutes à retomber.',
+    ],
+    byAge: {
+      '3-6': 'Le jeu qui consiste à poser une peluche sur son ventre et à la « bercer avec sa respiration » marche très bien.',
+      '6-12': 'Laisse ton enfant écrire sa propre liste pour se calmer : musique, dessin, balade, boire de l’eau. Il applique plus volontiers une méthode qu’il a choisie lui-même.',
+    },
+    specialist: [
+      'Si ton enfant n’arrive presque jamais à se calmer ou s’il a des comportements dangereux dans ses moments de colère – consulte un psychologue pour enfants.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Les grandes émotions de l’enfant d’âge scolaire',
+    summary: 'Colère, honte, jalousie, déception : à l’âge scolaire, les émotions se complexifient, et ton enfant a besoin d’aide pour les comprendre.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'À l’âge scolaire, l’enfant sait déjà cacher ses émotions : c’est pourquoi les grandes émotions explosent souvent à la maison, auprès de la personne la plus sûre – toi. L’irritabilité après l’école est souvent la fatigue d’avoir « pris sur soi » toute la journée.',
+      'À cet âge commence la comparaison sociale. La honte et le sentiment « je suis nul » peuvent ressembler à de la colère. Plus ton enfant sait nommer ce qu’il ressent, plus il lui est facile de le gérer.',
+    ],
+    tryToday: [
+      'Juste après l’école, ne l’assaille pas de questions. D’abord un goûter, du silence ou un câlin ; on parle ensuite.',
+      'Entraînez-vous ensemble à la phrase « émotion + besoin » : « Je me sens … parce que … . J’ai besoin de … »',
+      'Raconte une histoire semblable de ton enfance : « Moi aussi, à 9 ans, j’ai eu terriblement honte… »',
+      'Après une explosion, analysez sans accuser : « Que s’est-il passé ? Qu’as-tu ressenti dans ton corps ? Qu’est-ce qui t’aiderait la prochaine fois ? »',
+    ],
+    mistakes: [
+      'Minimiser l’émotion : « Ce n’est pas la peine de pleurer pour ça. » Pour lui, c’est énorme.',
+      'Proposer tout de suite une solution. Parfois, ton enfant veut juste être entendu.',
+      'Considérer la colère comme « inconvenante » chez les filles, et la tristesse chez les garçons. Chaque émotion est normale pour chaque enfant.',
+    ],
+    specialist: [
+      'Une tristesse, une perte d’intérêt, des changements de sommeil et d’appétit, un refus d’aller à l’école pendant plus de deux semaines.',
+      'S’il parle de se faire du mal ou de la mort : consulte immédiatement un professionnel ; en cas de danger, appelle le {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Pleurnicheries et caprices',
+    summary: 'Les pleurnicheries mettent les nerfs à rude épreuve, mais elles signalent souvent la fatigue ou un besoin d’attention.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Un enfant apprend vite quel comportement fonctionne. Si pleurnicher finit par lui apporter ce qu’il veut, il continuera. L’attention – même négative – renforce un comportement.',
+      'En même temps, pleurnicher est souvent un signe de faim, de fatigue ou d’un long moment sans attention. Répondre à la cause fait vite diminuer le comportement.',
+    ],
+    tryToday: [
+      'Dans un moment calme, jouez au jeu de la « voix forte » : dites la même demande avec une voix pleurnicharde, puis avec une voix normale, et riez-en.',
+      'Quand il pleurniche, dis calmement : « Je t’entends beaucoup mieux avec ta voix normale. » Quand il parle normalement, réponds tout de suite et avec enthousiasme.',
+      'Dans la journée, fais toi-même le premier pas : de courts moments d’attention fréquents, sans raison particulière – un regard, un câlin, « je te vois ».',
+    ],
+    mistakes: [
+      'Dire d’abord « non », puis, quand les pleurnicheries durent, « bon, tiens ». C’est la meilleure façon d’apprendre à pleurnicher.',
+      'Se moquer des pleurnicheries ou les imiter pour lui faire honte.',
+    ],
+    specialist: [
+      'Si, en plus des pleurnicheries, ton enfant semble souvent fatigué, pâle, ou s’il a moins d’appétit – consulte un médecin pour vérifier une éventuelle cause médicale.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'La discipline positive : limites et chaleur ensemble',
+    summary: 'Les meilleurs résultats ne viennent ni des parents sévères ni des parents qui permettent tout, mais de ceux qui sont à la fois chaleureux et clairs.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Dans les années 1960, la psychologue Diana Baumrind a décrit les styles parentaux selon deux dimensions : la chaleur (amour, attention, réponse aux besoins) et l’exigence/la structure (attentes claires, limites). Le style « démocratique » (authoritative), où les deux sont élevées, était associé aux meilleurs résultats : des enfants plus autonomes, plus confiants et avec moins de troubles du comportement.',
+      'Au cours des décennies suivantes, des méta-analyses regroupant des centaines d’études ont confirmé ce résultat : une relation chaleureuse et des limites expliquées sont liées à moins d’agressivité et de transgressions, alors qu’un contrôle sévère et les punitions sont au contraire liés à davantage de troubles du comportement.',
+      'L’Académie américaine de pédiatrie (2018) et l’OMS (2022) recommandent aux parents la même voie : construire une relation positive, remarquer et renforcer les bons comportements, des attentes claires et des conséquences posées calmement. Les punitions corporelles et les mots humiliants ne sont pas recommandés.',
+    ],
+    tryToday: [
+      'Formule une règle de façon positive : pas « Ne cours pas », mais « À la maison, on marche ».',
+      'Annonce tes attentes à l’avance : « Au magasin, tu me tiens la main, et on ne met dans le chariot que ce qui est sur la liste. »',
+      'Aujourd’hui, remarque cinq fois un bon comportement en le nommant précisément : « Tu as accroché ton sac tout seul, merci ! » Le comportement qui reçoit de l’attention grandit.',
+      'Pose la limite d’une voix calme, brève et bienveillante, puis agis. Pas d’avertissements à répétition.',
+    ],
+    mistakes: [
+      'Opposer l’amour et les limites. « Je t’aime, et c’est pour ça que je ne te le permets pas » – les deux vont ensemble.',
+      'Appliquer une règle un jour et l’oublier le lendemain. La constance est plus importante que la sévérité.',
+      'Ne réagir qu’aux erreurs. Si ton enfant n’obtient de l’attention que par un comportement difficile, il le répétera.',
+    ],
+    byAge: {
+      '1-3': 'L’environnement plus que les mots : mets les objets dangereux hors de portée et garde le « non » pour les choses vraiment importantes.',
+      '3-6': '3 ou 4 règles familiales simples suffisent. Dessinez-les et accrochez-les bien en vue.',
+      '6-12': 'Discutez des règles ensemble et convenez des conséquences à l’avance. Quand ton enfant écrit lui-même une partie des règles, il les respecte davantage.',
+    },
+    specialist: [
+      'Si, malgré tous tes efforts, les troubles du comportement perturbent la vie familiale, la crèche ou l’école pendant des mois – un psychologue pour enfants ou des programmes pour parents (par exemple PCIT, Triple P) sont très efficaces.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Pourquoi frapper ne marche pas, et ce qui marche',
+    summary: 'Une fessée peut obtenir une obéissance immédiate, mais elle aggrave le comportement à long terme. Les preuves scientifiques sont très claires sur ce point.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'En 2016, Gershoff et Grogan-Kaylor ont regroupé 75 études portant sur plus de 160 000 enfants. Résultat : la fessée (frapper) n’est associée à aucun effet positif à long terme ; au contraire, elle est liée à davantage d’agressivité, de comportements antisociaux, de problèmes de santé mentale et à une relation plus fragile avec les parents. Ce lien apparaît aussi pour les tapes « légères », données « par amour ».',
+      'La raison est simple : frapper n’apprend pas à l’enfant ce qu’il doit faire, seulement à avoir peur. De plus, cela montre que les problèmes se règlent par la force. Crier, menacer et humilier ont des effets similaires : dans les études, une discipline verbale dure a été associée à davantage de troubles du comportement et de symptômes dépressifs dans les années suivantes.',
+      'L’Académie américaine de pédiatrie (2018) et l’OMS déconseillent les punitions corporelles et les mots humiliants. Ce qui marche à la place : une relation chaleureuse, des règles claires, le renforcement des bons comportements, des conséquences logiques et du temps pour se calmer.',
+    ],
+    tryToday: [
+      'Choisis pour toi un « signal stop » : quand la colère monte, mets ta main dans ta poche, ou fais un pas en arrière et compte jusqu’à 10.',
+      'Arrête un comportement dangereux physiquement, mais sans faire mal : tiens sa main, prends ton enfant dans tes bras, retire l’objet.',
+      'Apprends-lui quoi faire la prochaine fois : « Quand ton frère te prend ton jouet, tu peux dire « rends-le-moi ! » ou venir me voir. »',
+      'Si tu as déjà frappé : excuse-toi, assume la responsabilité de ton comportement et dis ton plan. Cela apprend aussi à ton enfant comment se relever d’une erreur.',
+    ],
+    mistakes: [
+      'Penser « Moi aussi j’ai reçu des fessées, et je m’en suis bien sorti ». Beaucoup de gens ont bien grandi malgré cela, mais les études montrent qu’en moyenne, le risque augmente.',
+      'Garder la fessée comme « dernier recours ». Le dernier recours, c’est faire une pause pour se calmer et demander de l’aide.',
+      'Remplacer la punition physique par une autre méthode humiliante (faire honte, menacer, retirer son affection).',
+    ],
+    byAge: {
+      '1-3': 'Les méthodes les plus efficaces à cet âge : la diversion, changer l’environnement, éloigner calmement l’enfant d’un endroit dangereux.',
+      '3-6': 'Les conséquences logiques et le « time-in » (se calmer à tes côtés) marchent bien.',
+      '6-12': 'Limiter un privilège pour une courte durée (par exemple le temps d’écran) et résoudre le problème ensemble.',
+    },
+    specialist: [
+      'Si tu sens que, dans tes moments de colère, tu n’arrives pas à te retenir et que tu pourrais faire du mal à ton enfant – c’est une raison forte de demander de l’aide. Un psychologue ou un programme pour parents peut changer cette situation.',
+      'Si ton enfant ou toi êtes en danger, s’il y a de la violence à la maison, appelle immédiatement le {emergency}.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Conséquence ou punition : quelle différence ?',
+    summary: 'La punition vise à faire mal, la conséquence vise à apprendre. La meilleure conséquence est liée au comportement, respectueuse et connue à l’avance.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'La psychologie du comportement montre que ce qui modifie le plus un comportement, c’est ce qui le suit. Mais les punitions (frapper, humilier, privations longues) créent de la peur et de la rancœur, et l’enfant réfléchit surtout à « comment ne pas se faire prendre ».',
+      'La conséquence logique, elle, est directement liée au comportement, elle est courte et elle enseigne : il a dessiné sur le mur avec de la peinture – on nettoie ensemble ; il n’a pas respecté la règle du vélo – pas de vélo aujourd’hui. Les conséquences naturelles (sorti sans manteau – il a eu froid) sont les meilleures maîtresses, tant qu’elles sont sans danger.',
+    ],
+    tryToday: [
+      'La vérification des « 3 R » : la conséquence est-elle Reliée au comportement (Related), Respectueuse (Respectful), Raisonnable (Reasonable) ?',
+      'Annonce la conséquence à l’avance : « Si tu ne ranges pas tes jouets, demain ils se reposeront dans la boîte. » Puis applique-la calmement.',
+      'Garde la conséquence courte : un jour suffit. Une interdiction d’un mois n’apprend plus rien, elle blesse seulement.',
+      'Après la conséquence, « page blanche » : pas de sermon, on recommence.',
+    ],
+    mistakes: [
+      'Inventer une conséquence sous le coup de la colère : « Plus de vélo pendant un an ! » Ensuite, impossible de la tenir, et ta parole perd sa valeur.',
+      'Une punition sans lien avec le comportement : il n’a pas fait ses devoirs – il ne va pas à l’anniversaire.',
+      'Appliquer la conséquence avec ironie ou un « tu vois ? ».',
+    ],
+    byAge: {
+      '3-6': 'La conséquence doit être immédiate et très courte. Des heures plus tard, l’enfant ne la relie plus à son comportement.',
+      '6-12': 'Définissez les conséquences ensemble. Un enfant respecte mieux une règle qu’il trouve juste.',
+    },
+    specialist: [
+      'Si aucune conséquence ne fonctionne et que le comportement est dangereux ou épuise la famille – renseigne-toi sur les programmes pour parents et consulte un psychologue pour enfants.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Comment parler sans crier',
+    summary: 'Crier soulage sur le moment, mais l’enfant s’habitue au volume et écoute de moins en moins. Parler calmement et de près est plus efficace.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Dans les études, une discipline faite de cris réguliers, d’insultes et de mots humiliants a été associée à davantage de troubles du comportement et de symptômes dépressifs dans les années suivantes, même quand la relation était globalement chaleureuse. Une des raisons : crier active le système de stress de l’enfant, qui se met alors sur la défensive au lieu d’écouter.',
+      'La bonne nouvelle : l’autorégulation du parent est une compétence qui s’apprend. Crier est le plus souvent le signal de la fatigue, de la faim et de la surcharge du parent, pas le signe d’être un « mauvais parent ».',
+    ],
+    tryToday: [
+      'Au lieu de crier de loin, approche-toi, mets-toi à sa hauteur, établis le contact visuel, dis son prénom et parle en une phrase courte.',
+      'Quand tu as envie de hausser le ton, fais l’inverse : chuchote. Les enfants écoutent un chuchotement avec curiosité.',
+      'Note dans la journée les moments où tu cries. À quelle heure le plus souvent ? Prévois un plan pour ce moment-là (par exemple un goûter, préparer les choses à l’avance).',
+      'Si tu as crié, répare : « J’ai crié, ce n’était pas juste. J’étais énervé(e), mais je n’aurais pas dû hausser le ton. »',
+    ],
+    mistakes: [
+      'Te culpabiliser après chaque erreur. Cela crée encore plus de tension la fois suivante. Le but n’est pas la perfection, mais de crier moins souvent et de réparer.',
+      'Dire « C’est toi qui me fais crier ». Nous sommes responsables de nos propres émotions.',
+    ],
+    specialist: [
+      'Si la colère et l’irritabilité deviennent incontrôlables presque tous les jours et s’accompagnent d’insomnie, de tristesse ou de désespoir – parles-en à un médecin ou à un psychologue. La dépression et l’anxiété des parents se soignent.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out ou time-in ?',
+    summary: 'Une courte pause pour se calmer peut fonctionner, mais pour les jeunes enfants, l’essentiel n’est pas l’isolement : c’est une présence qui aide à s’apaiser.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Le « time-out » classique (une pause calme de quelques minutes) a été étudié dans certains programmes pour parents, et il a été montré qu’appliqué correctement (court, calme, sans humiliation, dans le cadre d’une relation chaleureuse), il n’est pas nocif. Mais cela ne veut pas dire enfermer l’enfant dans une pièce ou lui faire peur.',
+      'Le « time-in », lui, c’est quand l’enfant se calme à tes côtés. C’est plus adapté aux jeunes enfants, car ils ont encore besoin de co-régulation. Dans les deux cas, l’objectif n’est pas la punition, mais de se calmer et de « recommencer ».',
+    ],
+    tryToday: [
+      'Repère : environ une minute par année d’âge, 5 minutes maximum.',
+      'L’endroit doit être calme, mais pas effrayant. N’enferme jamais ton enfant dans une pièce sombre.',
+      'Pour un time-in : « Viens, assieds-toi près de moi. On respire ensemble. »',
+      'Après la pause, un bref « on recommence », pas de sermon.',
+    ],
+    mistakes: [
+      'Utiliser le time-out longtemps, souvent et avec des menaces.',
+      'Associer la pause à une humiliation : « Va-t’en, je ne veux plus te voir. »',
+    ],
+    specialist: [
+      'Si ton enfant vit une peur terrible ou une panique à chaque pause, ou si les moments de séparation le bouleversent de façon excessive – parles-en à un professionnel.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Les règles de la famille : peu nombreuses, claires, constantes',
+    summary: 'Les enfants testent les limites parce qu’ils veulent savoir si elles sont toujours là. Une limite stable leur donne un sentiment de sécurité.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Un environnement prévisible apaise le système de stress de l’enfant. Dans les études, des règles claires et un rythme quotidien sont associés à un meilleur sommeil, à moins de troubles du comportement et à une meilleure maîtrise de soi.',
+      'Les règles qui marchent le mieux sont peu nombreuses (3 à 5), formulées positivement et appliquées de la même façon par les deux parents.',
+    ],
+    tryToday: [
+      'Organisez un conseil de famille : chacun propose une règle, et ensemble vous choisissez 3 à 5 règles principales.',
+      'Écris les règles de façon positive : « Des mains douces », « Quand quelqu’un parle, on écoute », « Après le repas, l’assiette va à la cuisine ».',
+      'À côté des règles, convenez aussi des conséquences.',
+      'Les adultes aussi respectent les règles. Un enfant regarde l’exemple plus que les mots.',
+    ],
+    mistakes: [
+      'Inventer une nouvelle règle pour chaque nouveau problème. Trop de règles, c’est comme pas de règle du tout.',
+      'Une règle chez maman, une autre chez papa ou chez mamie. Les adultes doivent d’abord se mettre d’accord entre eux.',
+    ],
+    specialist: [
+      'S’il y a dans la famille des conflits constants et tendus au sujet des règles, un conseiller familial peut aider.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: 'L’enfant qui dit « Non ! » : faire face à l’opposition',
+    summary: 'La phase du « non », c’est ton enfant qui découvre « je suis une personne à part entière ». Ce qui marche, ce n’est pas de lutter contre, mais de lui donner des choix.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Pendant sa deuxième année, ton enfant découvre qu’il a sa propre volonté. Le besoin d’autonomie fait partie des besoins psychologiques fondamentaux : plus l’enfant a un sentiment de contrôle, plus il est prêt à coopérer.',
+      'Les études montrent qu’un langage « contrôlant » (« Habille-toi tout de suite ! ») augmente la résistance, alors que les choix et les explications augmentent la coopération.',
+    ],
+    tryToday: [
+      'Propose deux choix qui te conviennent tous les deux : « D’abord les dents ou d’abord le pyjama ? »',
+      'Plutôt qu’une question fermée, une affirmation : « Maintenant, c’est l’heure de s’habiller », et pas « On s’habille ? ».',
+      'Transforme-le en jeu : « Voyons qui mettra ses chaussettes le plus vite – toi ou le nounours ? »',
+      'Laisse tomber les batailles sans importance : si le t-shirt est mis à l’envers, ce n’est pas la fin du monde.',
+    ],
+    mistakes: [
+      'Transformer chaque « non » en lutte de pouvoir.',
+      'Proposer un choix puis ne pas accepter celui de l’enfant.',
+    ],
+    specialist: [
+      'Si ton enfant ne répond à presque aucune demande, ne réagit pas à son prénom ou a du mal à entrer en relation – consulte un médecin pour faire vérifier son développement.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

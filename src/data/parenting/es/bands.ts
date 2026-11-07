@@ -1,0 +1,149 @@
+import type { BandOverview } from '../types';
+import { S } from './sources';
+
+export const BANDS: BandOverview[] = [
+  {
+    id: '0-1',
+    emoji: '👶',
+    title: 'El primer año: la base de la confianza',
+    lead: 'Este año tu bebé aprende si el mundo es un lugar seguro. La respuesta la saca de tu voz, de tus brazos y de cómo respondes a lo que te pide.',
+    brain: [
+      'En los primeros años de vida se forman en el cerebro más de un millón de nuevas conexiones neuronales por segundo. Qué caminos se refuerzan lo decide la experiencia cotidiana que se repite: el bebé hace un sonido y tú respondes; llora y te acercas.',
+      'La parte del cerebro que ayuda a calmarse todavía es muy inmadura. Por eso el bebé aún no puede tranquilizarse solo: “toma prestada” la calma de tu cuerpo. A esto se le llama corregulación, y es la primera lección de autocontrol para el futuro.',
+      'Hacia los 6–9 meses se fortalecen la memoria y el apego: puede empezar a desconfiar de los desconocidos y a inquietarse cuando sales de la habitación. No es un retroceso; al contrario, es señal de que se ha apegado a ti.',
+    ],
+    needs: [
+      'Que respondas a su llanto. A esta edad es imposible “malacostumbrar” al bebé a los brazos o malcriarlo. Una respuesta rápida y cariñosa le enseña a confiar en el mundo.',
+      'Comunicación cara a cara: sonrisas, canciones, repetir sus sonidos. Estos juegos de “ida y vuelta” construyen la base del lenguaje y del cerebro emocional.',
+      'Un día predecible: comida, sueño y baño más o menos en el mismo orden. No importa la hora exacta, sino un ritmo conocido.',
+      'Sueño seguro y un entorno seguro, y también una madre o un padre descansados y con apoyo.',
+    ],
+    normal: [
+      'Llantos largos, aparentemente sin motivo, a ciertas horas del día, sobre todo al atardecer (en los primeros 3–4 meses).',
+      'Despertarse a menudo por la noche. Dormir toda la noche en el primer año no es lo normal para todos los bebés.',
+      'Llevárselo todo a la boca: es su manera de conocer el mundo.',
+      'Miedo a los extraños y llanto cuando no estás (más o menos a partir de los 8 meses).',
+    ],
+    tryThis: [
+      'Varias veces al día, 5 minutos de “tiempo cara a cara”: el teléfono lejos, repite sus sonidos y pon en palabras lo que hace.',
+      'Haz las tareas diarias hablando: “Ahora cambiamos el pañal. Levantamos la pierna. ¡Listo!”',
+      'Juega al cucú-tras: con este juego aprende que “lo que se va, vuelve”, y el miedo a la separación se suaviza.',
+      'Cuando el llanto se alarga y se te agota la paciencia, deja al bebé en un lugar seguro —la cuna—, respira unos minutos y luego vuelve.',
+    ],
+    specialist: [
+      'Si no reacciona a los sonidos, no te mira a los ojos, no sonríe a los 4 meses o no reacciona a su nombre a los 9 meses.',
+      'Si pierde habilidades que ya tenía (sonreír, balbucear, sentarse).',
+      'Si su llanto es distinto al habitual o viene con fiebre, vómitos, decaimiento o rechazo a comer: consulta al médico. Si es grave, llama al {emergency}.',
+      'Si llevas semanas sintiéndote triste, sin esperanza o con miedo a hacerle daño al bebé: puede ser depresión posparto, y tiene tratamiento. Díselo a tu médico.',
+    ],
+    sources: [S.harvardServe, S.nurturingCare2018, S.ainsworth1978, S.healthyChildrenCrying, S.zubler2022],
+  },
+  {
+    id: '1-3',
+    emoji: '🧸',
+    title: '1–3 años: la etapa del “¡Yo solo!”',
+    lead: 'Ya camina, empieza a hablar y quiere ser independiente, pero el cerebro que gestiona sus emociones todavía es muy inmaduro. Esa es la causa de las rabietas.',
+    brain: [
+      'El centro emocional del cerebro (la amígdala) es potente y rápido, mientras que la corteza prefrontal, que lo “frena”, seguirá desarrollándose durante muchos años. Por eso un niño de dos años no consigue pararse aunque le digas “para”. No es terquedad: es un freno que aún no ha madurado.',
+      'El lenguaje se desarrolla rápido, pero lo que entiende va muy por delante de lo que sabe decir. No poder expresar lo que quiere genera una gran frustración, que a menudo sale en forma de gritos o golpes.',
+      'A esta edad aprende causa y efecto experimentando: tira la cuchara al suelo, mira tu reacción y la vuelve a tirar. No es para “hacerte enojar”: es el experimento de un pequeño científico.',
+    ],
+    needs: [
+      'Límites tranquilos, claros y repetidos: “No se pega. Te sujeto las manos.” Nada de largas explicaciones: una frase corta y la acción.',
+      'Poder elegir: “¿La camiseta roja o la azul?” Elegir cubre su necesidad de autonomía y reduce las ganas de decir “no”.',
+      'Poner nombre a lo que siente: “Te enojaste porque se acabó el juego.” Una emoción con nombre se calma antes.',
+      'Unos minutos al día de juego dirigido por él, mucho movimiento y aire libre.',
+    ],
+    normal: [
+      'Varias rabietas al día, sobre todo cuando está cansado, tiene hambre o en los momentos de transición.',
+      'Decir mucho “¡No!” y pedir lo mismo una y otra vez.',
+      'No saber compartir. Compartir de verdad aparece más o menos a partir de los 3–4 años.',
+      'Morder o pegar de vez en cuando: a esta edad la agresividad física llega a su punto máximo y luego va disminuyendo poco a poco.',
+    ],
+    tryThis: [
+      'Avisa 5 minutos antes de los cambios de actividad: “Dos veces más por el tobogán y luego nos vamos a casa.”',
+      'En vez de “no”, di “qué sí se puede”: “En la pared no, pinta en este papel.”',
+      '10 minutos al día de “su juego”: haces lo que él hace, sin críticas y sin lluvia de preguntas.',
+      'A lo largo del día, fíjate en lo que hace bien y nómbralo con detalle: “Le diste el juguete a tu hermano, ¡qué contento se puso!”',
+    ],
+    specialist: [
+      'Si a los 18 meses no señala con el dedo, a los 2 años no forma frases de dos palabras, no reacciona a su nombre o casi no mira a los ojos.',
+      'Si pierde palabras o habilidades que ya tenía (a cualquier edad).',
+      'Si las rabietas duran más de 25 minutos, son más de 5 al día, se hace daño serio a sí mismo o a otros, o no disminuyen después de los 4 años.',
+      'Si los problemas de sueño, comida o conducta alteran la vida diaria de la familia durante meses.',
+    ],
+    sources: [S.harvardEF2011, S.healthyChildrenTantrums, S.cdcPositive, S.tremblay2004, S.zubler2022],
+  },
+  {
+    id: '3-6',
+    emoji: '🎨',
+    title: '3–6 años: fantasía, preguntas y normas',
+    lead: 'Pregunta “¿por qué?”, inventa juegos de roles y aprende a hacer amigos. Su autocontrol crece rápido, pero todavía necesita tu apoyo.',
+    brain: [
+      'Las funciones ejecutivas —mantener la atención, esperar el turno, recordar una norma, cambiar de idea— se desarrollan rápidamente entre los 3 y los 5 años. Los juegos de roles y los juegos con reglas son el mejor entrenamiento para estas habilidades.',
+      'Empieza a entender que otra persona puede pensar distinto. Por eso a esta edad aparecen las primeras mentiras. Curiosamente, es una señal de desarrollo mental.',
+      'La imaginación se dispara y la frontera entre lo real y lo inventado todavía es borrosa. El miedo a la oscuridad, a los monstruos o a los sueños es típico de esta edad.',
+    ],
+    needs: [
+      'Pocas normas familiares, claras, y aplicadas con constancia. Cuanto más predecibles son las normas, menos discusiones hay.',
+      'Consecuencias lógicas, no castigos: “Si tiras la pelota dentro de casa, la pelota se guarda en el armario.”',
+      'Hablar de emociones: con cuentos, jugando con muñecos y con preguntas como “¿tú cómo te sentirías?”.',
+      'Pequeñas responsabilidades reales: poner la mesa, recoger los juguetes, regar una planta.',
+    ],
+    normal: [
+      'Mentir a veces y mezclar la fantasía con la realidad.',
+      'Poner a prueba las normas y reaccionar con fuerza ante las “injusticias”.',
+      'Tener miedo a la oscuridad o a las situaciones nuevas.',
+      'Seguir teniendo rabietas de vez en cuando, pero más cortas y menos frecuentes que antes.',
+    ],
+    tryThis: [
+      'Una vez al día, pregúntale por “el mejor y el peor momento de su día” y escucha con atención.',
+      'Dibuja con él las normas, con imágenes, y cuélgalas en la pared.',
+      'Practica el autocontrol con juegos como “luz roja, luz verde” o “Simón dice”.',
+      'Cuando se equivoque, busca con él la solución: “Se derramó el agua. ¿Qué hacemos?”',
+    ],
+    specialist: [
+      'Si a los 4 años no forma frases, a los extraños les cuesta entender lo que dice o no muestra ningún interés por otros niños.',
+      'Si los miedos o la ansiedad alteran la vida diaria (escuela infantil, sueño, comida) durante semanas.',
+      'Si la agresividad hace daño serio a otros o va en aumento, o si hay crueldad con los animales.',
+      'Si, después de mucho tiempo sin escapes, vuelve a mojarse durante el día o pierde habilidades que ya tenía.',
+    ],
+    sources: [S.diamond2013, S.harvardEF2011, S.talwarLee2008, S.cdcPositive, S.zubler2022],
+  },
+  {
+    id: '6-12',
+    emoji: '🎒',
+    title: '6–12 años: habilidades, amistad y confianza en sí mismo',
+    lead: 'Los años de colegio son la etapa en la que construye su sensación de “yo puedo”. Los amigos ganan importancia, pero tú sigues siendo su principal apoyo.',
+    brain: [
+      'La planificación, la atención y el autocontrol ya están bastante desarrollados, pero el cansancio, el hambre y el estrés los “apagan” con facilidad. Un niño irritable después del colegio muchas veces es, simplemente, un niño agotado.',
+      'Empieza a compararse con los demás. En esta etapa la autoestima se alimenta sobre todo del esfuerzo, de ir adquiriendo habilidades y de sentirse aceptado.',
+      'Al acercarse la adolescencia (hacia los 9–12 años) pueden empezar los cambios hormonales: los cambios de humor y una mayor necesidad de espacio personal son normales.',
+    ],
+    needs: [
+      'Un reconocimiento que vea el esfuerzo y la estrategia: “Trabajaste mucho en este problema y probaste otro camino.”',
+      'Cada vez más responsabilidad y derecho a elegir, junto con normas familiares claras.',
+      'Una madre o un padre que escucha sin juzgar. Si escuchas las cosas pequeñas, te contará también las grandes.',
+      'Tiempo libre lejos de las pantallas y las tareas escolares: juego, deporte, amigos, sueño.',
+    ],
+    normal: [
+      'Largas discusiones sobre lo que es justo y ganas de negociar las normas.',
+      'Peleas y reconciliaciones con los amigos, y la pena de “no me dejaron jugar”.',
+      'Evitar las tareas escolares y olvidarse de las cosas.',
+      'Sentir a veces vergüenza de sus padres o querer más intimidad (sobre todo a partir de los 10 años).',
+    ],
+    tryThis: [
+      'Un rato de “charla sin interrogatorio” en el coche, en la comida o antes de dormir: cuéntale tú también cómo te ha ido el día.',
+      'Una hora y un lugar fijos para las tareas escolares, pero no las hagas por él.',
+      'Escribe con él un plan familiar de pantallas: dónde, cuándo y cuánto.',
+      'Una vez a la semana, tiempo a solas los dos: solo tú y él, con una actividad que elija él.',
+    ],
+    specialist: [
+      'Tristeza que dura más de dos semanas, pérdida de interés, o grandes cambios en el sueño o el apetito.',
+      'Si se niega insistentemente a ir al colegio o se queja a menudo de dolor de barriga o de cabeza (y el médico no encuentra una causa).',
+      'Señales de que sufre acoso escolar o de que acosa a otros; aislamiento total de los amigos.',
+      'Si se autolesiona o habla de la muerte o del suicidio: nunca lo tomes como “una forma de llamar la atención”. Busca ayuda profesional de inmediato y, si hay peligro, llama al {emergency}.',
+    ],
+    sources: [S.cdcPositive, S.aapMediaSchool2016, S.pomerantz2007, S.muellerDweck1998, S.unesco2019],
+  },
+];
