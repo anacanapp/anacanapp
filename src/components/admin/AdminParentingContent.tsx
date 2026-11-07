@@ -195,7 +195,7 @@ function Editor({ language, type, id, content, row, canSave, onSaved }: {
   const confirm = useAdminConfirm();
   const original = findParentingItem(content, type, id);
   // What the editor shows for "bundled": the item plus optional fields it may add.
-  const base = useMemo(() => (original ? { ...(OPTIONAL_BY_TYPE[type] ?? {}), ...original } : null), [original, type]);
+  const base = useMemo(() => (original ? { ...original, ...Object.fromEntries(Object.entries(OPTIONAL_BY_TYPE[type] ?? {}).filter(([k]) => !(k in original))) } as Record<string, unknown> : null), [original, type]);
   const [value, setValue] = useState<Record<string, unknown> | null>(() =>
     (base ? patchItem(base, row?.draft ?? row?.patch ?? {}) as Record<string, unknown> : null));
   const [busy, setBusy] = useState<string | null>(null);
