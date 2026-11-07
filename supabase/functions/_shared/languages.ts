@@ -14,7 +14,7 @@ export const LANGUAGE_NAMES: Record<string, string> = {
   ...EXPANDED_LANGUAGE_NAMES,
 };
 export const LANGUAGE_CODES = Object.keys(LANGUAGE_NAMES);
-export const isExpandedLanguage = (language: string) => Object.hasOwn(EXPANDED_LANGUAGE_NAMES, language);
+export const isExpandedLanguage = (language: string) => Object.prototype.hasOwnProperty.call(EXPANDED_LANGUAGE_NAMES, language);
 export function outputLanguageRule(language: string): string {
   if (!isExpandedLanguage(language)) return '';
   return `Write all user-visible text in ${EXPANDED_LANGUAGE_NAMES[language]}, including titles, labels, descriptions, explanations and recommendations. The language of these instructions does not determine the reply language. Keep JSON keys, enum/status codes, numbers, units, identifiers, names supplied by the user and URLs unchanged. Do not add medical claims or change the meaning.`;
