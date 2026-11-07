@@ -214,8 +214,7 @@
     } catch (e) {
       if (mine !== generation) return;
       if (e && e.code === 'unauthorized') { await A.signOut(); return; }
-      renderState(ICON_INFO, 'Məlumat yüklənmədi', 'Bağlantını yoxlayıb səhifəni yenilə.', '<button class="btn" type="button" id="retry">Yenidən yoxla</button>', true);
-      $('retry').addEventListener('click', load);
+      loadFailed(load);
     }
   }
 
@@ -248,9 +247,15 @@
 
   // ── Boot ──────────────────────────────────────────────────────────────────────────────
   async function boot() {
-    generation++;
+    var mine = ++generation;
     var s = null;
-    try { s = await A.session(); } catch (e) { s = null; }
+    try { s = await A.session(); } catch (e) {
+      // A hung or failed session read must never leave the card on its loading placeholder.
+      if (mine !== generation) return;
+      if (e && e.code === 'timeout') { loadFailed(boot); return; }
+      s = null;
+    }
+    if (mine !== generation) return;
     A.renderWho($('who'), s);
     if (!s) {
       $('cabinetLink').hidden = true;
@@ -259,7 +264,9 @@
       A.renderLogin(card, { title: 'Endirimi görmək üçün daxil ol', subtitle: 'Anacan hesabınla daxil ol: tətbiqdəki eyni hesab. Premium bu hesaba bağlanacaq.' });
       return;
     }
-    if (await A.needsVerification()) {
+    var verify = await A.needsVerification();
+    if (mine !== generation) return;
+    if (verify) {
       A.renderVerify(card, s.user && s.user.email, boot);
       return;
     }
@@ -267,6 +274,21 @@
     if (payment === 'xeta') { payment = null; A.toast('Ödəniş alınmadı. Kartı yoxlayıb yenidən cəhd et.', true); }
     await load();
   }
+
+  /** Error state with a retry button; the first failure also retries once by itself. */
+  var autoRetried = false;
+  function loadFailed(retry) {
+    renderState(ICON_INFO, 'Məlumat yüklənmədi', 'Bağlantını yoxlayıb yenidən cəhd et.', '<button class="btn" type="button" id="retry">Yenidən yoxla</button>', true);
+    $('retry').addEventListener('click', function () { card.innerHTML = '<div class="skeleton" aria-hidden="true"></div>'; retry(); });
+    if (!autoRetried) { autoRetried = true; setTimeout(function () { if ($('retry')) retry(); }, 2500); }
+  }
+
+  /** Safety net: if the card is still the placeholder (e.g. Safari froze a request while the tab was in the background), start again. */
+  function stillLoading() { return !!card.querySelector('.skeleton'); }
+  setTimeout(function () { if (stillLoading()) boot(); }, 25000);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden && stillLoading()) boot(); });
+  window.addEventListener('pageshow', function (e) { if (e.persisted && stillLoading()) boot(); });
+
   A.onChange(function () { boot(); });
   boot();
 })();

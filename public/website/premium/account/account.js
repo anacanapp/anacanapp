@@ -65,9 +65,18 @@
     } catch (e) { /* ignore */ }
   })();
 
+  /** Rejects with {code:'timeout'} when a request hangs (flaky mobile network, a stuck token refresh after the tab slept). */
+  function withTimeout(promise, ms) {
+    var timer;
+    return Promise.race([
+      promise,
+      new Promise(function (_, reject) { timer = setTimeout(function () { var e = new Error('timeout'); e.code = 'timeout'; reject(e); }, ms); }),
+    ]).finally(function () { clearTimeout(timer); });
+  }
+
   async function session() {
-    var c = await client();
-    var res = await c.auth.getSession();
+    var c = await withTimeout(client(), 10000);
+    var res = await withTimeout(c.auth.getSession(), 10000);
     cleanUrl();
     return res && res.data ? res.data.session : null;
   }
@@ -87,8 +96,8 @@
 
   /** web-premium function. Business outcomes come back as {ok:false, error}; transport problems throw {code}. */
   async function call(action, body) {
-    var c = await client();
-    var res = await c.functions.invoke('web-premium', { body: Object.assign({ action: action }, body || {}) });
+    var c = await withTimeout(client(), 10000);
+    var res = await withTimeout(c.functions.invoke('web-premium', { body: Object.assign({ action: action }, body || {}) }), 20000);
     if (res.error) {
       var status = res.error.context && res.error.context.status;
       var payload = null;
@@ -102,8 +111,8 @@
 
   async function needsVerification() {
     try {
-      var c = await client();
-      var res = await c.rpc('email_verification_state_v1');
+      var c = await withTimeout(client(), 10000);
+      var res = await withTimeout(c.rpc('email_verification_state_v1'), 8000);
       return !!(res.data && res.data.required === true);
     } catch (e) { return false; }
   }
@@ -304,7 +313,7 @@
   }
 
   window.AnacanAccount = {
-    API: API, SITE: SITE, client: client, session: session, onChange: onChange, signOut: signOut, call: call,
+    API: API, SITE: SITE, client: client, withTimeout: withTimeout, session: session, onChange: onChange, signOut: signOut, call: call,
     needsVerification: needsVerification, renderLogin: renderLogin, renderVerify: renderVerify, renderWho: renderWho,
     toast: toast, esc: esc, money: money, day: day,
     key: function () { return publishableKey; },
