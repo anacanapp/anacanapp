@@ -172,7 +172,7 @@ describe('Tərbiyə home card', () => {
   it('uses the tile rules and also hides for a disabled tool or the loss-recovery home', () => {
     expect(isParentingHomeCardVisible(base)).toBe(true);
     expect(isParentingHomeCardVisible({ ...base, setting: 'off' })).toBe(false);
-    expect(isParentingHomeCardVisible({ ...base, language: 'ru' })).toBe(false);
+    expect(isParentingHomeCardVisible({ ...base, language: 'xx' as never })).toBe(false);
     expect(isParentingHomeCardVisible({ ...base, lifeStage: 'flow' })).toBe(false);
     expect(isParentingHomeCardVisible({ ...base, birthDate: '2013-11-01' })).toBe(false);
     expect(isParentingHomeCardVisible({ ...base, toolDisabled: true })).toBe(false);

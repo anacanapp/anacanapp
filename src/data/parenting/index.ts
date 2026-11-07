@@ -15,9 +15,30 @@ export type ParentingContentModule = { default: ParentingContent };
 
 export const PARENTING_LANGUAGE_LOADERS: Record<string, () => Promise<ParentingContentModule>> = {
   az: () => import('./az'),
-  // ── Translated languages: register each finished folder here with ONE line, e.g.
-  //   en: () => import('./en'),
-  // The tile, home card, partner entry and Anacan.AI link appear for that app language automatically.
+  // Translated languages (each checked by scripts/parenting/check-translation.mjs).
+  // The tile, home card, partner entry and Anacan.AI link appear for these app languages automatically.
+  en: () => import('./en'),
+  ru: () => import('./ru'),
+  tr: () => import('./tr'),
+  kk: () => import('./kk'),
+  de: () => import('./de'),
+  ar: () => import('./ar'),
+  uz: () => import('./uz'),
+  ka: () => import('./ka'),
+  zh: () => import('./zh'),
+  id: () => import('./id'),
+  fr: () => import('./fr'),
+  es: () => import('./es'),
+  pt: () => import('./pt'),
+  vi: () => import('./vi'),
+  hi: () => import('./hi'),
+  ja: () => import('./ja'),
+  ko: () => import('./ko'),
+  pl: () => import('./pl'),
+  nl: () => import('./nl'),
+  sv: () => import('./sv'),
+  ky: () => import('./ky'),
+  et: () => import('./et'),
 };
 
 export const PARENTING_CONTENT_LANGUAGES = Object.keys(PARENTING_LANGUAGE_LOADERS);

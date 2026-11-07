@@ -119,7 +119,7 @@ describe('Tərbiyə in partner mode', () => {
     expect(isParentingPartnerVisible({ ...base, womanLifeStage: 'bump' })).toBe(false);
     expect(isParentingPartnerVisible({ ...base, womanLifeStage: null })).toBe(false);
     expect(isParentingPartnerVisible({ ...base, setting: 'off' })).toBe(false);
-    expect(isParentingPartnerVisible({ ...base, language: 'en' })).toBe(false);
+    expect(isParentingPartnerVisible({ ...base, language: 'xx' as never })).toBe(false);
     expect(isParentingPartnerVisible({ ...base, birthDate: '2012-01-01' })).toBe(false);
   });
 
