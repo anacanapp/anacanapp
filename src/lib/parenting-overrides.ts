@@ -48,8 +48,10 @@ function mergeValue(base: unknown, patch: unknown, key: string): Out {
     if (!Array.isArray(patch) || patch.length > MAX_ARRAY) return INVALID;
     const template = base[0];
     if (template === undefined || typeof template === 'string') {
-      const list = patch.filter((x): x is string => typeof x === 'string' && x.trim().length > 0 && x.length <= MAX_TEXT);
-      return list.length === patch.length ? list : INVALID;
+      if (patch.some((x) => typeof x !== 'string' || x.length > MAX_TEXT)) return INVALID;
+      // Blank lines are dropped; a list the bundled item has may not become empty.
+      const list = (patch as string[]).filter((x) => x.trim().length > 0);
+      return list.length || !base.length ? list : INVALID;
     }
     if (isObject(template) && !RESIZABLE.has(key) && patch.length !== base.length) return INVALID;
     const out: unknown[] = [];

@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import {
   Activity, AlertTriangle, Baby, BadgeCheck, Ban, BarChart3, Bell, BookOpen, Cake, Camera, CreditCard, Crown, Database, FileText, Flag,
-  Gift, Globe, Globe2, HeartPulse, Image, Images, KeyRound, Languages, LayoutDashboard, LifeBuoy, Link2, Map, Megaphone, MessageCircle,
+  Gift, Globe, Globe2, HeartHandshake, HeartPulse, Image, Images, KeyRound, Languages, LayoutDashboard, LifeBuoy, Link2, Map, Megaphone, MessageCircle,
   MessagesSquare, Package, Palette, PiggyBank, Pill, Rocket, Scale, Settings, ShieldCheck, ShoppingBag, ShoppingCart, Smartphone, Sparkles,
   Stethoscope, Store, Syringe, Tag, Ticket, Users, Utensils, Wallet, Wrench, Zap, LayoutGrid,
 } from 'lucide-react';
@@ -83,6 +83,7 @@ export const ADMIN_SECTIONS: AdminSection[] = [
   s('mental-health', 'Mental sağlamlıq', 'content', 'AdminMentalHealth', HeartPulse, 'mental health psixoloji'),
   s('first-aid', 'İlk yardım', 'content', 'AdminFirstAid', Stethoscope, 'first aid ilk yardım'),
   s('recipes', 'Reseptlər', 'content', 'AdminRecipes', Utensils, 'recipes resept yemək'),
+  s('parenting-content', 'Tərbiyə məzmunu', 'content', 'AdminParentingContent', HeartHandshake, 'parenting tərbiyə sos məqalə proqram cms mətn'),
   // Görünüş və onboarding
   s('banners', 'Bannerlər', 'design', 'AdminBanners', Image, 'banner reklam kampaniya'),
   s('premium-config', 'Premium səhifəsi', 'design', 'AdminPremiumConfig', Crown, 'premium config paywall səhifə'),

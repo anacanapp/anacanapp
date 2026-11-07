@@ -23,7 +23,7 @@ const LEGACY_IDS: Record<string, string> = {
   epoint: 'AdminEpoint', books: 'AdminBooks', qaygicash: 'AdminQaygiCash', 'force-update': 'AdminForceUpdate', security: 'AdminSecurity', languages: 'AdminLanguages',
   translations: 'AdminTranslations', 'content-i18n': 'AdminContentTranslations', deeplinks: 'AdminDeeplinks', 'crash-reports': 'AdminCrashReports',
   'partner-venues': 'AdminPartnerVenues', 'partner-redemptions': 'AdminPartnerRedemptions', vaccines: 'AdminVaccines', admob: 'AdminAdmob', ads: 'AdminAdmob',
-  'revenuecat-debug': 'RevenueCatDebug',
+  'revenuecat-debug': 'RevenueCatDebug', 'parenting-content': 'AdminParentingContent',
 };
 
 describe('admin section registry', () => {
