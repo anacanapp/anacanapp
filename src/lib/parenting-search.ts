@@ -32,6 +32,9 @@ export interface ParentingSearchResults {
 
 const MIN_QUERY = 2;
 
+/** A tag stem (4+ letters) that starts the query word: tag 'isterik' matches the query 'isterika'. */
+const tagStemOf = (tags: string, w: string) => tags.split(' ').some((t) => t.length >= 4 && w.startsWith(t));
+
 /** Score one item: 0 when a query word is missing anywhere; title > tags > body. */
 function scoreFields(words: string[], title: string, tags: string[] | undefined, body: string[]): number {
   const t = foldText(title);
@@ -42,7 +45,7 @@ function scoreFields(words: string[], title: string, tags: string[] | undefined,
     const inWord = (hay: string) => hay.split(' ').some((x) => x.startsWith(w));
     if (inWord(t)) score += 6;
     else if (t.includes(w)) score += 4;
-    else if (inWord(g) || g.includes(w)) score += 3;
+    else if (inWord(g) || g.includes(w) || tagStemOf(g, w)) score += 3;
     else if (inWord(b)) score += 2;
     else if (b.includes(w)) score += 1;
     else return 0;

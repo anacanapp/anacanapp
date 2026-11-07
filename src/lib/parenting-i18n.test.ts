@@ -13,7 +13,8 @@ const placeholders = (text: string) => (text.match(/\{\w+\}/g) || []).sort();
 
 describe('Tərbiyə UI copy in every app language', () => {
   it('uses only the shared copy keys in the tool source', () => {
-    const sources = ['components/tools/parenting/ParentingScreens.tsx', 'components/tools/parenting/ParentingTool.tsx', 'components/ToolsHub.tsx', 'lib/parenting-copy.ts']
+    const sources = ['components/tools/parenting/ParentingScreens.tsx', 'components/tools/parenting/ParentingTool.tsx', 'components/ToolsHub.tsx', 'lib/parenting-copy.ts',
+      'components/tools/parenting/ParentingEntry.tsx', 'components/tools/parenting/useParentingReminders.ts', 'components/partner/v2/PartnerTogetherScreen.tsx']
       .map((p) => readFileSync(resolve(process.cwd(), 'src', p), 'utf8')).join('\n');
     const used = [...sources.matchAll(/'(par_[a-z0-9_]+)'/g)].map((m) => m[1]).filter((k) => !k.endsWith('_'));
     expect(used.filter((k) => !(k in PARENTING_COPY))).toEqual([]);

@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({ premium: false, birth: '2024-07-07' as string | null, syncReminders: vi.fn() }));
@@ -45,6 +45,7 @@ vi.mock('@/components/tools/anacan/ToolKit', () => ({
 import ParentingTool from './ParentingTool';
 import content from '@/data/parenting/az';
 import { loadParentingContent } from '@/data/parenting';
+import { openParentingTool } from '@/lib/parenting-nav';
 
 beforeAll(async () => { await loadParentingContent('az', { overrides: false }); });
 
@@ -58,6 +59,7 @@ beforeEach(() => {
   localStorage.clear();
   mocks.premium = false;
   mocks.birth = '2024-07-07';
+  mocks.syncReminders.mockClear();
 });
 afterEach(cleanup);
 
@@ -199,4 +201,64 @@ describe('Tərbiyə tool', () => {
     expect(screen.getByText('Dəstəksiz yeriyir.')).toBeInTheDocument();
     expect(stored().quizzes.milestones.result).toBe('talk');
   });
+
+  it('opens directly on the item an Anacan.AI card points to; back returns to the tool home', () => {
+    openParentingTool({ kind: 'sos', id: 'shop-tantrum' });
+    open();
+    expect(screen.getByText('Əvvəlcə özünü sakitləşdir')).toBeInTheDocument();
+    click('back');
+    expect(screen.getByText('Günün məsləhəti')).toBeInTheDocument();
+  });
+
+  it('searches the library diacritic-insensitively with grouped results and lock state', () => {
+    open();
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Tərbiyədə axtar' }), { target: { value: 'yatmaq istemir' } });
+    expect(screen.getByText('SOS kartları')).toBeInTheDocument();
+    expect(screen.queryByText('Günün məsləhəti')).toBeNull();
+    const row = screen.getByRole('button', { name: /Yatmaq istəmir/ });
+    expect(row.querySelector('.lk')).not.toBeNull(); // Premium card keeps its lock
+    fireEvent.click(row);
+    expect(screen.getByTestId('premium-gate')).toBeInTheDocument();
+    click('back');
+    expect(screen.getByRole('searchbox', { name: 'Tərbiyədə axtar' })).toHaveValue('yatmaq istemir');
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Tərbiyədə axtar' }), { target: { value: 'zzqqxx' } });
+    expect(screen.getByText('Heç nə tapılmadı. Başqa sözlə yoxla.')).toBeInTheDocument();
+    click('Axtarışı təmizlə');
+    expect(screen.getByText('Günün məsləhəti')).toBeInTheDocument();
+  });
+
+  it('Premium: turns the daily programme reminder on (default 20:30), keeps it on the phone and pauses with the programme', () => {
+    mocks.premium = true;
+    const p = content.programmes[2];
+    localStorage.setItem(KEY, JSON.stringify({ v: 1, band: null, quizzes: {}, saved: [], programmes: { [p.id]: { startedAt: '2026-11-06', done: ['2026-11-06'], updatedAt: '2026-11-06T08:00:00.000Z' } } }));
+    open();
+    click(new RegExp(p.title));
+    const sw = screen.getByRole('switch', { name: 'Gündəlik xatırlatma' });
+    expect(sw).toHaveAttribute('aria-checked', 'false');
+    fireEvent.click(sw);
+    expect(stored().reminder).toEqual({ on: true, time: '20:30' });
+    expect(screen.getByDisplayValue('20:30')).toBeInTheDocument();
+    const last = () => mocks.syncReminders.mock.calls[mocks.syncReminders.mock.calls.length - 1][0] as { dayIndex: number; at: Date }[];
+    expect(last()[0]).toMatchObject({ dayIndex: 1, at: new Date(2026, 10, 7, 20, 30) });
+    fireEvent.change(screen.getByDisplayValue('20:30'), { target: { value: '21:15' } });
+    expect(stored().reminder.time).toBe('21:15');
+    expect(last()[0].at).toEqual(new Date(2026, 10, 7, 21, 15));
+    click('Fasilə ver');
+    expect(stored().programmes[p.id].paused).toBe(true);
+    expect(last()).toEqual([]);
+    expect(screen.getByText('Proqram fasilədədir — xatırlatma göndərilmir.')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Bunu etdim ✓' })).toBeNull();
+    click('Davam et');
+    expect(last().length).toBeGreaterThan(0);
+  });
+
+  it('free users see the reminder as a Premium feature', () => {
+    const p = content.programmes[2];
+    localStorage.setItem(KEY, JSON.stringify({ v: 1, band: null, quizzes: {}, saved: [], programmes: { [p.id]: { startedAt: '2026-11-07', done: [], updatedAt: '2026-11-07' } } }));
+    open();
+    click(new RegExp(p.title));
+    expect(screen.queryByRole('switch')).toBeNull();
+    expect(within(screen.getByTestId('parenting-reminder')).getByText('Xatırlatmalar Premium ilə')).toBeInTheDocument();
+  });
 });
+

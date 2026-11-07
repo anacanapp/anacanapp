@@ -5,6 +5,8 @@ import {
   startProgramme, storageKey, styleResult, styleScores, toggleSaved, undoLastDay, writeParenting,
 } from './parenting';
 import type { MilestoneCheckpoint, StyleDimension } from '@/data/parenting/types';
+import { PARENTING_CONTENT_LANGUAGES } from '@/data/parenting';
+import { APP_LANGUAGE_CODES } from './app-languages';
 
 const NOW = new Date(2026, 10, 7, 10);
 
@@ -21,10 +23,12 @@ describe('Tərbiyə tile visibility', () => {
     expect(isParentingTileVisible({ ...base, setting: true })).toBe(false);
   });
 
-  it('is shown only for the Azerbaijani app language (content is az only)', () => {
-    for (const language of ['en', 'tr', 'ru', 'ky', 'et', '', null]) {
-      expect(isParentingTileVisible({ ...base, language })).toBe(false);
+  it('is shown exactly for the app languages with registered content (az today; others as they are registered)', () => {
+    for (const language of APP_LANGUAGE_CODES) {
+      expect(isParentingTileVisible({ ...base, language }), language).toBe(PARENTING_CONTENT_LANGUAGES.includes(language));
     }
+    expect(isParentingTileVisible({ ...base, language: 'az' })).toBe(true);
+    for (const language of ['', null, 'xx', 'constructor']) expect(isParentingTileVisible({ ...base, language })).toBe(false);
   });
 
   it('is shown only in the Ana module, never in flow, bump or partner', () => {

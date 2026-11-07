@@ -1,7 +1,7 @@
 /**
  * Anacan.AI → Tərbiyə link: is the mother's (or father's) message about a parenting topic, and which SOS card or
  * article answers it best? Client-side, over the tool's own content in the app language: tags (author-written
- * stems, weight 3; multi-word tags 4) and title words (first five letters of words with 5+ letters, weight 1.5).
+ * stems, weight 3; multi-word tags 6 — a named situation is strong evidence) and title words (first five letters of words with 5+ letters, weight 1.5).
  * A topic needs a score of 3 (one tag, or two title words). Ties go to the article (the general explainer); a
  * card wins when the situation itself is named (e.g. "mağazada isterika").
  */
@@ -36,7 +36,7 @@ function tagHit(words: string[], tag: string): boolean {
 
 function score(words: string[], title: string, tags: string[] | undefined): number {
   let s = 0;
-  for (const tag of tags || []) if (tagHit(words, tag)) s += foldWords(tag).length > 1 ? 4 : 3;
+  for (const tag of tags || []) if (tagHit(words, tag)) s += foldWords(tag).length > 1 ? 6 : 3;
   const stems = [...new Set(foldWords(title).filter((w) => w.length >= STEM).map((w) => w.slice(0, STEM)))];
   for (const stem of stems) if (words.some((w) => w.startsWith(stem))) s += 1.5;
   return s;

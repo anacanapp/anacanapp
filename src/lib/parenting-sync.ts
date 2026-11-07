@@ -77,8 +77,14 @@ export function toServerState(s: ParentingLocal): Omit<ParentingLocal, 'dirty' |
   return rest;
 }
 
-export const sameServerState = (a: ParentingLocal, b: ParentingLocal) =>
-  JSON.stringify(toServerState(a)) === JSON.stringify(toServerState(b));
+/** JSON with sorted object keys (arrays keep their order), so equal states compare equal. */
+const canonical = (v: unknown): string => {
+  if (Array.isArray(v)) return `[${v.map(canonical).join(',')}]`;
+  if (v && typeof v === 'object') return `{${Object.keys(v).sort().map((k) => `${JSON.stringify(k)}:${canonical((v as Record<string, unknown>)[k])}`).join(',')}}`;
+  return JSON.stringify(v) ?? 'null';
+};
+
+export const sameServerState = (a: ParentingLocal, b: ParentingLocal) => canonical(toServerState(a)) === canonical(toServerState(b));
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- table newer than the generated types
 const db = supabase as unknown as { from: (table: string) => any };
