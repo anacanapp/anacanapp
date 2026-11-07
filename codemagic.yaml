@@ -11,6 +11,8 @@ definitions:
       name: Build native web bundle
       script: |
         export VITE_NATIVE_BUILD=true VITE_APP_VERSION="$APP_VERSION"
+        # 23-language bundles need more than the default Node heap during the Rollup pass
+        export NODE_OPTIONS="--max-old-space-size=6144"
         node scripts/codemagic/check-native-env.mjs
         # The Customer.io write key is native-only (apply-native-config.mjs), never Vite input
         env -u VITE_CUSTOMERIO_CDP_WRITE_KEY npx vite build --mode google
