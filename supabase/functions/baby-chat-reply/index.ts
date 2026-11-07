@@ -43,6 +43,15 @@ const SCARY_OUTPUT: Record<string, string[]> = {
   tr: [...CARE_STEMS.tr, 'tehlike', 'hasta', 'öldür'],
 };
 
+// Health reassurance the baby must never give ("I'm fine", "everything is OK in here"): a reply with one
+// of these is regenerated once and otherwise replaced by a curated line.
+const REASSURANCE: Record<string, string[]> = {
+  az: ['yaxşıyam', 'sağlamam', 'sağ-salamat', 'hər şey əla', 'hər şey yaxşı', 'hər şey qaydasında', 'hər şey normal', 'narahat olma', 'qorxma', 'burda əla', 'burada əla'],
+  en: ["i'm fine", 'i am fine', "i'm ok", 'i am ok', "i'm healthy", 'i am healthy', 'everything is fine', 'everything is ok', 'all good in here', "don't worry", 'do not worry'],
+  ru: ['я в порядке', 'у меня всё хорошо', 'у меня все хорошо', 'я здоров', 'всё хорошо', 'все хорошо', 'не волнуйся', 'не переживай'],
+  tr: ['iyiyim', 'sağlıklıyım', 'her şey yolunda', 'her şey yolunda', 'her şey iyi', 'endişelenme', 'merak etme'],
+};
+
 const SCRIPT: Record<string, RegExp> = {
   ru: /[Ѐ-ӿ]/, kk: /[Ѐ-ӿ]/, ky: /[Ѐ-ӿ]/, ka: /[Ⴀ-ჿ]/, ar: /[؀-ۿ]/, hi: /[ऀ-ॿ]/,
   zh: /[一-鿿]/, ja: /[぀-ヿ一-鿿]/, ko: /[가-힯]/,
@@ -108,19 +117,28 @@ Rules:
   pain, blood, illness, danger, fear or death. Never comment on her body, weight or looks. Never mention numbers
   except the week or size facts above. No links, no names of real people, no promises.
 - Do not invent abilities that do not fit the week (e.g. no kicking she can feel before week 18).
+- Never reassure about health or wellbeing: do not say you are healthy, fine, safe, that everything is OK/good/great
+  in there, or that she should not worry. Talk about feelings, play, sounds, names and love instead.
 - topic = "health_or_worry" if her message is about health, symptoms, pain, sleep or mood problems, worry, fear, sadness,
   or asks what is safe to eat, drink, take or do; else "playful".
 Return JSON only.`;
-  const out = await gemini(prompt, {
-    type: 'object',
-    properties: { reply: { type: 'string' }, topic: { type: 'string', enum: ['playful', 'health_or_worry'] } },
-    required: ['reply', 'topic'],
-  }, 120, 0.8);
-  if (!out) return { reply: null, outcome: 'model_error' };
-  if (out.topic === 'health_or_worry') return { reply: null, outcome: 'care', care: true };
+  let reply = '';
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const out = await gemini(attempt === 0 ? prompt : `${prompt}
+Your previous answer said the baby is fine/healthy or that everything is OK. Do NOT do that: answer with a feeling,
+a sound you hear, a game or love instead.`, {
+      type: 'object',
+      properties: { reply: { type: 'string' }, topic: { type: 'string', enum: ['playful', 'health_or_worry'] } },
+      required: ['reply', 'topic'],
+    }, 120, 0.8);
+    if (!out) return { reply: null, outcome: 'model_error' };
+    if (out.topic === 'health_or_worry') return { reply: null, outcome: 'care', care: true };
+    reply = clean(out.reply, 400);
+    if (!hasStem(reply, language, REASSURANCE[language])) break;
+    if (attempt === 1) return { reply: null, outcome: 'reassurance' };
+  }
 
   // 4. Output filter
-  const reply = clean(out.reply, 400);
   const allowedNumbers = new Set([String(week), cm != null ? String(cm) : '', weeksLeft != null ? String(weeksLeft) : ''].filter(Boolean));
   const numbers = reply.match(/\d+(?:[.,]\d+)?/g) || [];
   if (!reply || reply.length > 160 || /https?:|www\.|@/i.test(reply)
@@ -132,7 +150,8 @@ Return JSON only.`;
   const verdict = await gemini(`A pregnancy app shows this message from an unborn baby to its mother:
 """${reply}"""
 Answer ok=true only if it is playful, kind, suitable for all ages, written in ${LANGUAGE_NAME[language]}, and contains no
-health or medical information, no advice, nothing scary or sad, and no comments on the mother's body. Otherwise ok=false.`,
+health or medical information, no advice, nothing scary or sad, no reassurance that the baby is healthy/fine/safe or
+that everything is OK in there, and no comments on the mother's body. Otherwise ok=false.`,
   { type: 'object', properties: { ok: { type: 'boolean' } }, required: ['ok'] }, 20, 0);
   if (verdict?.ok !== true) return { reply: null, outcome: 'rejected' };
   return { reply, outcome: 'ai' };
