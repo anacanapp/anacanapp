@@ -103,6 +103,7 @@ const PartnerAppointmentsScreen = lazy(() => import('@/components/partner/v2/Par
 const PartnerBabyDayScreen = lazy(() => import('@/components/partner/v2/PartnerBabyDayScreen'));
 const PartnerWeeklyStatsScreen = lazy(() => import('@/components/partner/v2/PartnerWeeklyStatsScreen'));
 const PartnerSurprisesScreen = lazy(() => import('@/components/partner/v2/PartnerSurprisesScreen'));
+const PartnerParentingScreen = lazy(() => import('@/components/tools/parenting/PartnerParentingScreen'));
 const HospitalRunScreen = lazy(() => import('@/components/partner/v2/HospitalRunScreen'));
 const LiveContractionsScreen = lazy(() => import('@/components/partner/v2/LiveContractionsScreen'));
 const PartnerSharingScreen = lazy(() => import('@/components/partner/v2/PartnerSharingScreen'));
@@ -943,6 +944,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'partner-baby-day' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerBabyDayScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-weekly-stats' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerWeeklyStatsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-surprises' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSurprisesScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'partner-parenting' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerParentingScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'hospital-run' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HospitalRunScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} onOpenContractions={() => setActiveScreen('live-contractions')} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'live-contractions' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><LiveContractionsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-sharing' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSharingScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} /></ErrorBoundary></Suspense>;

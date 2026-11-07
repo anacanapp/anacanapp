@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import {
   ShoppingCart, Package, Vote, FileText, CalendarHeart,
-  Baby, BarChart3, Gift, ChevronRight, ClipboardList, Moon, HeartHandshake } from
+  Baby, BarChart3, Gift, ChevronRight, ClipboardList, Moon, HeartHandshake, Smile } from
 'lucide-react';
 import { feature37Text } from '@/lib/feature37-i18n';
 import { useUserStore } from '@/store/userStore';
@@ -13,6 +13,9 @@ import { useSurprises } from '@/hooks/useSurprises';
 import { useShoppingItems } from '@/hooks/useShoppingItems';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { tr } from '@/lib/tr';
+import { useAppSetting } from '@/hooks/useAppSettings';
+import { isParentingPartnerVisible, partnerParentingChild } from '@/lib/parenting';
+import { pt as parentingText } from '@/lib/parenting-copy';
 
 /**
  * "Birlikdə" hub — bütün sinxron funksiyaların vahid mərkəzi.
@@ -27,7 +30,14 @@ const MOOD_EMOJIS = ['😢', '😔', '😐', '🙂', '😊'];
 const PartnerTogetherScreen = ({ onNavigate }: Props) => {
   useScrollToTop();
 
-  const { partnerProfile, sharing, getBabyAgeDays } = usePartnerData();
+  const { partnerProfile, partnerChildren, sharing, getBabyAgeDays } = usePartnerData();
+  const language = useUserStore((s) => s.language);
+  const parentingSetting = useAppSetting('parenting_tool');
+  // Tərbiyə: same switch and content rules as the mother's tile; the child is hers (as far as she shares it).
+  const showParenting = isParentingPartnerVisible({
+    womanLifeStage: partnerProfile?.life_stage, language, setting: parentingSetting,
+    birthDate: partnerParentingChild(partnerChildren, partnerProfile)?.birth_date ?? null,
+  });
   const babyAgeDays = getBabyAgeDays();
   const postpartumText = usePostpartumPartnerText(useUserStore((s) => s.language) || 'az');
   const postpartumTitle = postpartumText?.ui.title || '';
@@ -108,6 +118,16 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
     icon: HeartHandshake,
     bg: 'var(--a-peach-1)', ink: 'var(--a-accent-ink)',
     visible: lifeStage === 'mommy' && babyAgeDays < 84
+  },
+  {
+    id: 'parenting',
+    group: 'daily',
+    screen: 'partner-parenting',
+    title: parentingText('par_tool_name'),
+    subtitle: parentingText('par_partner_sub'),
+    icon: Smile,
+    bg: 'var(--a-green-1)', ink: 'var(--a-green-ink)',
+    visible: showParenting
   },
   {
     id: 'night-shift',

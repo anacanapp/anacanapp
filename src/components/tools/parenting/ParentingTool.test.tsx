@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-const mocks = vi.hoisted(() => ({ premium: false, birth: '2024-07-07' as string | null }));
+const mocks = vi.hoisted(() => ({ premium: false, birth: '2024-07-07' as string | null, syncReminders: vi.fn() }));
 
 vi.mock('@/lib/tr', () => ({
   tr: (_k: string, fallback: string) => fallback,
@@ -10,7 +10,17 @@ vi.mock('@/lib/tr', () => ({
   getPersistedLanguage: () => 'az',
 }));
 vi.mock('@/hooks/useAuth', () => ({ useAuth: () => ({ user: { id: 'u1' }, isAdmin: false }) }));
-vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => ({ isPremium: mocks.premium }) }));
+vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => ({ isPremium: mocks.premium, loading: false }) }));
+vi.mock('@/hooks/useAppSettings', () => ({ useAppSetting: () => 'on' }));
+vi.mock('@/integrations/supabase/client', () => ({ supabase: {} }));
+vi.mock('@/lib/parenting-sync', async (orig) => ({
+  ...(await orig<typeof import('@/lib/parenting-sync')>()),
+  syncParenting: vi.fn(async (_uid: string, s: unknown) => ({ state: s, ok: false })),
+}));
+vi.mock('@/lib/parenting-reminders', async (orig) => ({
+  ...(await orig<typeof import('@/lib/parenting-reminders')>()),
+  syncParentingReminders: mocks.syncReminders,
+}));
 vi.mock('@/hooks/useEmergencyNumber', () => ({ useEmergencyNumber: () => '103' }));
 vi.mock('@/hooks/useScreenAnalytics', () => ({ useScreenAnalytics: vi.fn() }));
 vi.mock('@/store/userStore', () => ({ useUserStore: (sel: (s: { language: string }) => unknown) => sel({ language: 'az' }) }));
@@ -34,6 +44,9 @@ vi.mock('@/components/tools/anacan/ToolKit', () => ({
 
 import ParentingTool from './ParentingTool';
 import content from '@/data/parenting/az';
+import { loadParentingContent } from '@/data/parenting';
+
+beforeAll(async () => { await loadParentingContent('az', { overrides: false }); });
 
 const NOW = new Date(2026, 10, 7, 10); // Aysel is 2 years 4 months
 const KEY = 'anacan.parenting.v1.u1';

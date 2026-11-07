@@ -1,13 +1,15 @@
-import { useMemo, useState, type ReactNode } from 'react';
-import { Crown, Lock, Phone } from 'lucide-react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { Bell, Crown, Lock, Phone, Search, X } from 'lucide-react';
 import PremiumBlurGate from '@/components/premium/PremiumBlurGate';
 import { fillEmergencyNumber } from '@/lib/emergency';
 import { bandKey, pf, pt } from '@/lib/parenting-copy';
 import {
   type ParentingLocal, type ProgrammeProgress,
-  FREE_PROGRAMME_DAYS, canCompleteToday, checkpointFor, completeDay, isDayLocked, isFinished, milestoneResult, nextDayIndex,
-  progressPercent, readingMinutes, startProgramme, styleResult, styleScores, toggleSaved, undoLastDay,
+  DEFAULT_REMINDER_TIME, FREE_PROGRAMME_DAYS, canCompleteToday, checkpointFor, completeDay, isDayLocked, isFinished, milestoneResult,
+  nextDayIndex, progressPercent, readingMinutes, setBandState, setProgrammeState, startProgramme, styleResult, styleScores, toggleSaved,
+  undoLastDay,
 } from '@/lib/parenting';
+import { searchParenting } from '@/lib/parenting-search';
 import type {
   AgeBandId, Area, AreaId, Article, MilestoneAnswer, ParentingContent, Programme, SosCard, Source,
 } from '@/data/parenting/types';
@@ -36,9 +38,17 @@ export interface ParentingCtx {
   emergency: string;
   today: string;
   local: ParentingLocal;
+  /** Synced change (account copy). */
   update: (fn: (s: ParentingLocal) => ParentingLocal) => void;
+  /** Device-only change (reminder preference). */
+  updateLocal: (fn: (s: ParentingLocal) => ParentingLocal) => void;
   go: (r: Route) => void;
   track: (action: string) => void;
+  /** Home search text (kept while the parent opens a result and comes back). */
+  query: string;
+  setQuery: (q: string) => void;
+  /** Premium and the tool switch on: reminders can be turned on. */
+  reminderAllowed: boolean;
 }
 
 const LOCK = { title: () => pt('par_lock_title'), text: () => pt('par_lock_text'), cta: () => pt('par_lock_cta') };
@@ -150,11 +160,15 @@ export function HomeScreen({ ctx, tipIndex }: { ctx: ParentingCtx; tipIndex: num
   const sos = content.sos.filter((c) => c.bands.includes(band));
   const articles = content.articles.filter((a) => a.bands.includes(band));
   const areas = content.areas.filter((ar) => articles.some((a) => a.area === ar.id));
-  const setBand = (b: AgeBandId) => ctx.update((s) => ({ ...s, band: b === ctx.childBand ? null : b }));
+  const setBand = (b: AgeBandId) => ctx.update((s) => setBandState(s, b === ctx.childBand ? null : b));
   const overviewMin = readingMinutes([overview.lead, ...overview.brain, ...overview.needs, ...overview.normal, ...overview.tryThis]);
+  const searching = ctx.query.trim().length >= 2;
 
   return (
     <div className="a-par">
+      <SearchBox ctx={ctx} />
+      {searching ? <SearchResults ctx={ctx} /> : (
+      <>
       <section className="a-par-hero" aria-label={pt('par_tip_title')}>
         <div className="top">
           <small>{pt('par_tip_title')}</small>
@@ -189,6 +203,65 @@ export function HomeScreen({ ctx, tipIndex }: { ctx: ParentingCtx; tipIndex: num
 
       <EmergencyCard emergency={ctx.emergency} />
       <p className="a-par-small">{pt('par_disclaimer')}</p>
+      </>
+      )}
+    </div>
+  );
+}
+
+// ── Search ───────────────────────────────────────────────────────────────────────────────
+function SearchBox({ ctx }: { ctx: ParentingCtx }) {
+  return (
+    <div className="a-par-search" role="search">
+      <Search size={16} aria-hidden />
+      <input
+        type="search"
+        value={ctx.query}
+        onChange={(e) => ctx.setQuery(e.target.value)}
+        placeholder={pt('par_search_placeholder')}
+        aria-label={pt('par_search_label')}
+        enterKeyHint="search"
+        autoComplete="off"
+        maxLength={80}
+      />
+      {ctx.query && (
+        <button type="button" aria-label={pt('par_search_clear')} onClick={() => ctx.setQuery('')}><X size={15} /></button>
+      )}
+    </div>
+  );
+}
+
+function SearchResults({ ctx }: { ctx: ParentingCtx }) {
+  const res = useMemo(() => searchParenting(ctx.content, ctx.query), [ctx.content, ctx.query]);
+  useEffect(() => { if (res.total) ctx.track('search'); /* once per distinct query */ }, [ctx.query]); // eslint-disable-line react-hooks/exhaustive-deps
+  if (!res.total) return <p className="a-par-small" role="status">{pt('par_search_empty')}</p>;
+  return (
+    <div className="a-par-results" aria-live="polite">
+      <p className="a-par-small" role="status">{pf('par_search_results', { n: res.total })}</p>
+      {res.sos.length > 0 && (
+        <section>
+          <h3 className="a-par-rhead">{pt('par_search_sos')}</h3>
+          {res.sos.map(({ item: c }) => (
+            <button key={c.id} type="button" className="a-par-row" onClick={() => ctx.go({ s: 'sos', id: c.id })}>
+              <span className="ic">{c.emoji}</span>
+              <span className="tx"><b>{c.title}</b><small>{c.moment}</small></span>
+              {!canRead(c, ctx.isPremium) ? <Lock size={14} className="lk" aria-label={pt('par_premium')} /> : c.free && !ctx.isPremium ? <FreeBadge /> : null}
+            </button>
+          ))}
+        </section>
+      )}
+      {res.articles.length > 0 && (
+        <section>
+          <h3 className="a-par-rhead">{pt('par_search_articles')}</h3>
+          {res.articles.map(({ item: a }) => <ArticleRow key={a.id} a={a} ctx={ctx} />)}
+        </section>
+      )}
+      {res.programmes.length > 0 && (
+        <section>
+          <h3 className="a-par-rhead">{pt('par_search_programmes')}</h3>
+          {res.programmes.map(({ item: p }) => <ProgrammeRow key={p.id} p={p} ctx={ctx} />)}
+        </section>
+      )}
     </div>
   );
 }
@@ -400,9 +473,7 @@ export function ProgrammeScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) 
   const save = (fn: (cur: ProgrammeProgress) => ProgrammeProgress | null) => ctx.update((s) => {
     const cur = s.programmes[p.id] ?? startProgramme(ctx.today);
     const res = fn(cur);
-    const programmes = { ...s.programmes };
-    if (res) programmes[p.id] = res; else delete programmes[p.id];
-    return { ...s, programmes };
+    return res === cur ? s : setProgrammeState(s, p.id, res);
   });
 
   if (!prog) {
@@ -418,7 +489,7 @@ export function ProgrammeScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) 
   }
 
   const doneToday = prog.done[prog.done.length - 1] === ctx.today;
-  const canDo = sel === next && canCompleteToday(prog, total, ctx.today) && !locked;
+  const canDo = sel === next && canCompleteToday(prog, total, ctx.today) && !locked && !prog.paused;
   const task = (
     <div className="a-par-task">
       <small>{pf('par_prog_day', { n: sel + 1 })}</small>
@@ -438,6 +509,7 @@ export function ProgrammeScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) 
 
   return (
     <div className="a-par">
+      {prog.paused && !finished && <p className="a-par-small" role="status">{pt('par_prog_paused')}</p>}
       <div className="a-par-feature static">
         <Ring percent={progressPercent(prog, total)} label={`${prog.done.length}/${total}`} size={56} />
         <span>
@@ -458,12 +530,50 @@ export function ProgrammeScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) 
       {locked
         ? <PremiumBlurGate feature="parenting_programme" title={pt('par_prog_locked_title')} subtitle={ctx.content.programmes.map((x) => x.title).join(' · ')} cta={pt('par_prog_unlock')}>{task}</PremiumBlurGate>
         : task}
+      {!finished && <ReminderCard ctx={ctx} paused={!!prog.paused} />}
       <div className="a-par-row-btns">
         {prog.done.length > 0 && <button type="button" className="a-par-btn ghost small" onClick={() => save((cur) => undoLastDay(cur, ctx.today))}>{pt('par_prog_undo')}</button>}
+        {!finished && (
+          <button type="button" className="a-par-btn ghost small" aria-pressed={!!prog.paused}
+            onClick={() => { save((cur) => ({ ...cur, paused: !cur.paused })); ctx.track(prog.paused ? 'programme_resume' : 'programme_pause'); }}>
+            {pt(prog.paused ? 'par_prog_resume' : 'par_prog_pause')}
+          </button>
+        )}
         <button type="button" className="a-par-btn ghost small" onClick={() => { save(() => null); setPicked(null); }}>{pt('par_prog_restart')}</button>
       </div>
       <Sources sources={p.sources} />
     </div>
+  );
+}
+
+/** Daily programme reminder on this phone: on/off and the time (Premium). */
+function ReminderCard({ ctx, paused }: { ctx: ParentingCtx; paused: boolean }) {
+  const pref = ctx.local.reminder ?? { on: false, time: DEFAULT_REMINDER_TIME };
+  const on = ctx.reminderAllowed && pref.on;
+  const set = (patch: Partial<typeof pref>) => ctx.updateLocal((s) => ({ ...s, reminder: { ...pref, ...patch } }));
+  return (
+    <section className="a-par-remind" data-testid="parenting-reminder">
+      <div className="top">
+        <span className="ic" aria-hidden><Bell size={16} /></span>
+        <span className="tx">
+          <b id="par-reminder-label">{pt('par_reminder_title')}</b>
+          <small>{ctx.reminderAllowed ? (paused && on ? pt('par_reminder_paused') : pt('par_reminder_text')) : pt('par_reminder_premium')}</small>
+        </span>
+        {ctx.reminderAllowed ? (
+          <button type="button" role="switch" aria-checked={on} aria-labelledby="par-reminder-label" className="a-par-switch"
+            onClick={() => { set({ on: !pref.on }); ctx.track(pref.on ? 'reminder_off' : 'reminder_on'); }}>
+            <i />
+          </button>
+        ) : <PremiumBadge />}
+      </div>
+      {on && (
+        <label className="a-par-time">
+          <span>{pt('par_reminder_time')}</span>
+          <input type="time" value={pref.time} step={300}
+            onChange={(e) => { if (/^\d{2}:\d{2}$/.test(e.target.value)) set({ time: e.target.value }); }} />
+        </label>
+      )}
+    </section>
   );
 }
 

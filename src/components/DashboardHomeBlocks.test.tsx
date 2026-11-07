@@ -1,5 +1,5 @@
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({
   lifeStage: 'mommy' as string,
@@ -31,11 +31,18 @@ vi.mock('@/hooks/useChildren', () => ({
   },
 }));
 vi.mock('@/lib/analytics', () => ({ logEvent: mocks.logEvent }));
+vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => ({ isPremium: false, loading: false }) }));
+vi.mock('@/integrations/supabase/client', () => ({ supabase: {} }));
+vi.mock('@/lib/parenting-reminders', async (orig) => ({ ...(await orig<typeof import('@/lib/parenting-reminders')>()), syncParentingReminders: vi.fn() }));
 
 import ParentingHomeCard from './tools/parenting/ParentingHomeCard';
 import BooksHomeCarousel from './books/BooksHomeCarousel';
 import { TIPS } from '@/data/parenting/az/tips';
 import { BOOKS } from '@/lib/books/catalog';
+import { loadParentingContent } from '@/data/parenting';
+
+// The tool content is a lazy chunk: load it once so the card renders in the first pass, as after any earlier visit.
+beforeAll(async () => { await loadParentingContent('az', { overrides: false }); });
 
 const NOW = new Date(2026, 10, 7, 10); // Aysel (2024-07-07) is 2 years 4 months → band 1–3
 

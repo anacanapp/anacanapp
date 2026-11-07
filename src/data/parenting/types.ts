@@ -62,6 +62,8 @@ export interface Article {
   /** When to see a specialist. Always free (safety). May contain {emergency}. */
   specialist: string[];
   sources: Source[];
+  /** Optional search / Anacan.AI keywords (word stems in this language, e.g. 'isterik', 'yatmaq istəmir'). */
+  tags?: string[];
 }
 
 export interface SosStep {
@@ -86,6 +88,8 @@ export interface SosCard {
   byAge?: Partial<Record<AgeBandId, string>>;
   /** When this is more than an ordinary hard moment. Always free. May contain {emergency}. */
   redFlag?: string;
+  /** Optional search / Anacan.AI keywords (word stems in this language). */
+  tags?: string[];
 }
 
 export interface ProgrammeDay {
@@ -103,6 +107,8 @@ export interface Programme {
   intro: string[];
   days: ProgrammeDay[];
   sources: Source[];
+  /** Optional search keywords (word stems in this language). */
+  tags?: string[];
 }
 
 export type StyleDimension = 'warmth' | 'structure' | 'harsh' | 'giveIn';
@@ -161,3 +167,11 @@ export interface ParentingContent {
   milestoneQuiz: MilestoneQuiz;
   tips: Record<AgeBandId, Tip[]>;
 }
+
+/**
+ * Editable item kinds for the admin content overrides (public.parenting_content_overrides.item_type).
+ * Item ids: article / sos / programme / band / area → their id; programme_day → '<programmeId>:<day, 1-based>';
+ * tip → '<band>:<n, 1-based>'; quiz → 'style' | 'milestones'.
+ */
+export type ParentingItemType = 'article' | 'sos' | 'programme' | 'programme_day' | 'tip' | 'band' | 'area' | 'quiz';
+export const PARENTING_ITEM_TYPES: ParentingItemType[] = ['article', 'sos', 'programme', 'programme_day', 'tip', 'band', 'area', 'quiz'];

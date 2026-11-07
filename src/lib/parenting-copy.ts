@@ -109,6 +109,41 @@ export const PARENTING_COPY = {
   par_emergency_title: 'Təhlükə varsa, gözləmə',
   par_emergency_text: 'Uşaq və ya sən təhlükədəsənsə, zorakılıq, özünə zərər vermə və ya intihar fikri varsa, dərhal {emergency} nömrəsinə zəng et.',
   par_call: 'Zəng et: {emergency}',
+
+  // Loading and sync
+  par_loading: 'Yüklənir…',
+  par_load_failed: 'Məzmunu yükləmək alınmadı. İnternet bağlantısını yoxla və yenidən cəhd et.',
+  par_retry: 'Yenidən cəhd et',
+  par_offline: 'Oflayn: dəyişikliklər telefonda saxlanılır, internet gələndə hesabına sinxronlaşacaq.',
+
+  // Search
+  par_search_label: 'Tərbiyədə axtar',
+  par_search_placeholder: 'Axtar: isterika, yuxu, ekran…',
+  par_search_clear: 'Axtarışı təmizlə',
+  par_search_results: '{n} nəticə',
+  par_search_empty: 'Heç nə tapılmadı. Başqa sözlə yoxla.',
+  par_search_sos: 'SOS kartları',
+  par_search_articles: 'Məqalələr',
+  par_search_programmes: 'Proqramlar',
+
+  // Programme pause and reminders
+  par_prog_pause: 'Fasilə ver',
+  par_prog_resume: 'Davam et',
+  par_prog_paused: 'Proqram fasilədədir. Hazır olanda davam et.',
+  par_reminder_title: 'Gündəlik xatırlatma',
+  par_reminder_text: 'Günün addımını hər gün seçdiyin saatda xatırladaq.',
+  par_reminder_time: 'Saat',
+  par_reminder_premium: 'Xatırlatmalar Premium ilə',
+  par_reminder_paused: 'Proqram fasilədədir — xatırlatma göndərilmir.',
+  par_notif_title: 'Tərbiyə · {programme}',
+  par_notif_body: 'Gün {n}: {task}',
+
+  // Anacan.AI suggestion and partner entry
+  par_ai_kind_sos: 'Tərbiyə · SOS kartı',
+  par_ai_kind_article: 'Tərbiyə · Məqalə',
+  par_ai_text: 'Bu mövzuda addım-addım bələdçi',
+  par_ai_open: 'Aç',
+  par_partner_sub: 'Uşağın yaşına görə bələdçi və SOS',
 } as const;
 
 export type ParentingKey = keyof typeof PARENTING_COPY;

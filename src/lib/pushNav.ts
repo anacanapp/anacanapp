@@ -60,6 +60,9 @@ export function intentFromPushData(data: Record<string, any>): PushNavIntent | n
       };
     case 'shopping_list':
       return { shoppingList: true };
+    case 'parenting_programme':
+      // Local Tərbiyə programme reminder (src/lib/parenting-reminders.ts); the partner app has no Tools tab.
+      return data.partner === '1' ? { screen: 'partner-parenting' } : { tool: 'parenting' };
     case 'baby_chat':
       // Local notification from "Körpəmdən mesajlar" (src/lib/baby-chat-notifications.ts)
       return { screen: 'baby-chat' };

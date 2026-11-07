@@ -1,29 +1,32 @@
 /**
  * Tərbiyə (evidence-based positive parenting, children 0–12 years): pure rules for the tile, age bands, the daily
- * tip, programme progress and quiz scoring, plus the device-only progress store.
+ * tip, programme progress and quiz scoring, plus the device store.
  *
- * Programme progress and quiz results stay on this phone (localStorage per account). There is no server table:
- * nothing here is health data the family needs on another device, and a lost streak is easy to restart.
+ * The device copy (localStorage per account) is what the UI reads; it is merged with public.parenting_state in
+ * the background (src/lib/parenting-sync.ts) so progress, quiz results and bookmarks follow the account.
  */
 import type {
   AgeBandId, MilestoneAnswer, MilestoneCheckpoint, MilestoneResultId, StyleDimension, StyleResultId,
 } from '@/data/parenting/types';
+import { hasParentingContent, PARENTING_CONTENT_LANGUAGES } from '@/data/parenting';
 import { ageInMonths, isoDay } from './weaning';
 
 export { ageInMonths, isoDay };
 
-/** Content exists only in Azerbaijani for now; the tile is shown to Azerbaijani-language users only. */
-export const PARENTING_LANGUAGES = ['az'] as const;
+/** App languages with registered Tərbiyə content (src/data/parenting/index.ts). */
+export const PARENTING_LANGUAGES = PARENTING_CONTENT_LANGUAGES;
 /** Up to and including 12 years. */
 export const MAX_MONTHS = 13 * 12;
 
+/** Content is registered for this app language (az now; other languages as their folders are registered). */
 export function isParentingLanguage(language: string | null | undefined): boolean {
-  return (PARENTING_LANGUAGES as readonly string[]).includes(String(language || ''));
+  return hasParentingContent(language);
 }
 
 /**
- * Tile visibility: Ana (mommy) module, Azerbaijani app language, admin switch app_settings.parenting_tool = 'on',
- * and the active child (when known) is younger than 13. Without a birth date the parent picks the age band.
+ * Tile visibility: Ana (mommy) module, content registered for the app language, admin switch
+ * app_settings.parenting_tool = 'on', and the active child (when known) is younger than 13. Without a birth date
+ * the parent picks the age band.
  */
 export function isParentingTileVisible(o: {
   lifeStage: string | null | undefined;
@@ -35,6 +38,30 @@ export function isParentingTileVisible(o: {
   if (o.lifeStage !== 'mommy' || o.setting !== 'on' || !isParentingLanguage(o.language)) return false;
   const months = ageInMonths(o.birthDate, o.now);
   return months === null || months < MAX_MONTHS;
+}
+
+/**
+ * Partner (father) mode: the woman he is linked to is in the Ana module, content exists for his app language, the
+ * same admin switch is on and her active child (when known) is younger than 13.
+ */
+export function isParentingPartnerVisible(o: {
+  womanLifeStage: string | null | undefined;
+  language: string | null | undefined;
+  setting: unknown;
+  birthDate?: string | null;
+  now?: Date;
+}): boolean {
+  return isParentingTileVisible({ lifeStage: o.womanLifeStage, language: o.language, setting: o.setting, birthDate: o.birthDate, now: o.now });
+}
+
+/** The child the partner reads for: her current active child he can see, else her profile's baby. */
+export function partnerParentingChild(
+  children: { name: string; birth_date: string | null; is_current: boolean }[],
+  profile: { baby_name?: string | null; baby_birth_date?: string | null } | null,
+): { name: string | null; birth_date: string | null } | null {
+  const kid = children.find((c) => c.is_current) ?? children[0];
+  if (kid) return { name: kid.name, birth_date: kid.birth_date };
+  return profile ? { name: profile.baby_name ?? null, birth_date: profile.baby_birth_date ?? null } : null;
 }
 
 /** The age band for a child of this many months (null when unknown or 13+). */
@@ -92,7 +119,10 @@ export interface ProgrammeProgress {
   startedAt: string;
   /** Calendar day each programme day was checked off, in order (index 0 = day 1). */
   done: string[];
+  /** Last change: an ISO timestamp (older device data has a calendar day). Used by the sync merge. */
   updatedAt: string;
+  /** Paused by the parent: no reminders until resumed. */
+  paused?: boolean;
 }
 
 /** Free users can follow the first days of every programme; the rest is Premium. */
@@ -188,6 +218,13 @@ export function milestoneResult(
 }
 
 // ── Device store ────────────────────────────────────────────────────────────────────────
+export interface ReminderPref {
+  on: boolean;
+  /** Local time HH:MM. */
+  time: string;
+}
+export const DEFAULT_REMINDER_TIME = '20:30';
+
 export interface ParentingLocal {
   v: 1;
   /** Parent's manual age band (when there is no child or they read for a sibling). */
@@ -196,37 +233,79 @@ export interface ParentingLocal {
   quizzes: Record<string, { at: string; result: string }>;
   /** Bookmarks: 'a:<articleId>' or 's:<sosId>', newest first. */
   saved: string[];
+  /** When each bookmark was added (ISO); the sync merge keeps the newest of add / remove. */
+  savedAt?: Record<string, string>;
+  /** Tombstones (ISO): 's:<ref>' removed bookmark, 'p:<programmeId>' restarted programme. */
+  removed?: Record<string, string>;
+  /** When the band was chosen (ISO). */
+  bandAt?: string;
+  /** Local changes not yet on the server. */
+  dirty?: boolean;
+  /** Daily programme reminder on this phone (Premium). Never synced: notifications are per device. */
+  reminder?: ReminderPref;
 }
 
 export const EMPTY_PARENTING = (): ParentingLocal => ({ v: 1, band: null, programmes: {}, quizzes: {}, saved: [] });
 export const storageKey = (uid: string | null) => `anacan.parenting.v1.${uid || 'guest'}`;
 
 const BANDS: AgeBandId[] = ['0-1', '1-3', '3-6', '6-12'];
+const DAY = /^\d{4}-\d{2}-\d{2}$/;
+const STAMP = /^\d{4}-\d{2}-\d{2}(T[\d:.]+Z?)?$/;
+const REF = /^[as]:[a-z0-9-]{1,60}$/;
+const TIME = /^([01]\d|2[0-3]):[0-5]\d$/;
+const MAX_MARKS = 300;
+
+/** Keep the newest `max` entries of a timestamp map. */
+export function capMarks(marks: Record<string, string>, max = MAX_MARKS): Record<string, string> {
+  const entries = Object.entries(marks);
+  if (entries.length <= max) return marks;
+  return Object.fromEntries(entries.sort((a, b) => (a[1] < b[1] ? 1 : -1)).slice(0, max));
+}
+
+function cleanMarks(raw: unknown, key: RegExp): Record<string, string> | undefined {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return undefined;
+  const out: Record<string, string> = {};
+  for (const [k, v] of Object.entries(raw as Record<string, unknown>)) if (key.test(k) && typeof v === 'string' && STAMP.test(v)) out[k] = v;
+  return Object.keys(out).length ? capMarks(out) : undefined;
+}
+
+/** Sanitise any stored or server state; a bad shape yields an empty state. */
+export function sanitizeParenting(input: unknown): ParentingLocal {
+  const out = EMPTY_PARENTING();
+  if (!input || typeof input !== 'object') return out;
+  const data = input as Partial<ParentingLocal> & Record<string, unknown>;
+  if (data.band && BANDS.includes(data.band)) out.band = data.band;
+  if (typeof data.bandAt === 'string' && STAMP.test(data.bandAt)) out.bandAt = data.bandAt;
+  for (const [id, p] of Object.entries(data.programmes || {})) {
+    if (!/^[a-z0-9-]{1,60}$/.test(id) || !p || typeof p.startedAt !== 'string' || !Array.isArray(p.done)) continue;
+    out.programmes[id] = {
+      startedAt: p.startedAt,
+      done: p.done.filter((d) => typeof d === 'string' && DAY.test(d)).slice(0, 60),
+      updatedAt: typeof p.updatedAt === 'string' ? p.updatedAt : p.startedAt,
+      ...(p.paused === true ? { paused: true } : {}),
+    };
+  }
+  for (const [id, q] of Object.entries(data.quizzes || {})) {
+    if (q && typeof q.result === 'string' && typeof q.at === 'string') out.quizzes[id] = { at: q.at, result: q.result };
+  }
+  if (Array.isArray(data.saved)) {
+    out.saved = [...new Set(data.saved.filter((x) => typeof x === 'string' && REF.test(x)))].slice(0, 200);
+  }
+  const savedAt = cleanMarks(data.savedAt, REF);
+  if (savedAt) out.savedAt = savedAt;
+  const removed = cleanMarks(data.removed, /^(s:[as]:[a-z0-9-]{1,60}|p:[a-z0-9-]{1,60})$/);
+  if (removed) out.removed = removed;
+  if (data.dirty === true) out.dirty = true;
+  const r = data.reminder as Partial<ReminderPref> | undefined;
+  if (r && typeof r === 'object') out.reminder = { on: r.on === true, time: typeof r.time === 'string' && TIME.test(r.time) ? r.time : DEFAULT_REMINDER_TIME };
+  return out;
+}
 
 /** Read and sanitise the stored state; any storage error or bad shape yields an empty state. */
 export function readParenting(uid: string | null): ParentingLocal {
   try {
     const raw = typeof localStorage === 'undefined' ? null : localStorage.getItem(storageKey(uid));
-    if (!raw) return EMPTY_PARENTING();
-    const data = JSON.parse(raw) as Partial<ParentingLocal>;
-    const out = EMPTY_PARENTING();
-    if (data.band && BANDS.includes(data.band)) out.band = data.band;
-    const day = /^\d{4}-\d{2}-\d{2}$/;
-    for (const [id, p] of Object.entries(data.programmes || {})) {
-      if (!p || typeof p.startedAt !== 'string' || !Array.isArray(p.done)) continue;
-      out.programmes[id] = {
-        startedAt: p.startedAt,
-        done: p.done.filter((d) => typeof d === 'string' && day.test(d)).slice(0, 60),
-        updatedAt: typeof p.updatedAt === 'string' ? p.updatedAt : p.startedAt,
-      };
-    }
-    for (const [id, q] of Object.entries(data.quizzes || {})) {
-      if (q && typeof q.result === 'string' && typeof q.at === 'string') out.quizzes[id] = { at: q.at, result: q.result };
-    }
-    if (Array.isArray(data.saved)) {
-      out.saved = [...new Set(data.saved.filter((x) => typeof x === 'string' && /^[as]:[a-z0-9-]{1,60}$/.test(x)))].slice(0, 200);
-    }
-    return out;
+    return raw ? sanitizeParenting(JSON.parse(raw)) : EMPTY_PARENTING();
   } catch {
     return EMPTY_PARENTING();
   }
@@ -235,6 +314,32 @@ export function readParenting(uid: string | null): ParentingLocal {
 /** Add or remove a bookmark (newest first). */
 export function toggleSaved(saved: string[], ref: string): string[] {
   return saved.includes(ref) ? saved.filter((x) => x !== ref) : [ref, ...saved].slice(0, 200);
+}
+
+/** Toggle a bookmark in the full state, stamping the add / remove time for the sync merge. */
+export function toggleSavedState(s: ParentingLocal, ref: string, at = new Date().toISOString()): ParentingLocal {
+  const saved = toggleSaved(s.saved, ref);
+  const adding = saved.includes(ref);
+  const savedAt = { ...(s.savedAt || {}) };
+  const removed = { ...(s.removed || {}) };
+  if (adding) { savedAt[ref] = at; delete removed[`s:${ref}`]; } else { delete savedAt[ref]; removed[`s:${ref}`] = at; }
+  return { ...s, saved, savedAt, removed: capMarks(removed) };
+}
+
+/** Choose a band (null = follow the child), stamped for the merge. */
+export function setBandState(s: ParentingLocal, band: AgeBandId | null, at = new Date().toISOString()): ParentingLocal {
+  return { ...s, band, bandAt: at };
+}
+
+/**
+ * Write one programme's progress (null = restart / remove), stamping it for the merge; a removal leaves a
+ * tombstone so another device's older copy does not bring it back.
+ */
+export function setProgrammeState(s: ParentingLocal, id: string, p: ProgrammeProgress | null, at = new Date().toISOString()): ParentingLocal {
+  const programmes = { ...s.programmes };
+  const removed = { ...(s.removed || {}) };
+  if (p) { programmes[id] = { ...p, updatedAt: at }; delete removed[`p:${id}`]; } else { delete programmes[id]; removed[`p:${id}`] = at; }
+  return { ...s, programmes, removed: capMarks(removed) };
 }
 
 /** Rough reading time of a text block at ~180 words a minute (at least 1 minute). */

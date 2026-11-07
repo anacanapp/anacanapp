@@ -1,14 +1,32 @@
 import { describe, expect, it } from 'vitest';
-import { getParentingContent, PARENTING_CONTENT_LANGUAGES } from './index';
+import { hasParentingContent, loadBundledParentingContent, PARENTING_CONTENT_LANGUAGES, PARENTING_LANGUAGE_LOADERS } from './index';
+import azContent from './az';
 import { AGE_BANDS, type Source } from './types';
 
-const c = getParentingContent('az')!;
+const c = azContent;
 const allText = JSON.stringify(c);
 
 describe('Tərbiyə content (az)', () => {
+  it('loads lazily through the registry, the same object as the az chunk', async () => {
+    expect(await loadBundledParentingContent('az')).toBe(azContent);
+    expect(await loadBundledParentingContent('xx')).toBeNull();
+  });
+
+  it('carries search / Anacan.AI tags on SOS cards and articles (ids all exist)', async () => {
+    const { ARTICLE_TAGS, SOS_TAGS, PROGRAMME_TAGS } = await import('./az/tags');
+    for (const id of Object.keys(ARTICLE_TAGS)) expect(c.articles.some((a) => a.id === id), id).toBe(true);
+    for (const id of Object.keys(SOS_TAGS)) expect(c.sos.some((s) => s.id === id), id).toBe(true);
+    for (const id of Object.keys(PROGRAMME_TAGS)) expect(c.programmes.some((p) => p.id === id), id).toBe(true);
+    expect(c.sos.every((s) => (s.tags || []).length > 0)).toBe(true);
+  });
+
   it('exists only in Azerbaijani for now', () => {
-    expect(PARENTING_CONTENT_LANGUAGES).toEqual(['az']);
-    expect(getParentingContent('en')).toBeNull();
+    expect(PARENTING_CONTENT_LANGUAGES).toContain('az');
+    expect(PARENTING_CONTENT_LANGUAGES).toEqual(Object.keys(PARENTING_LANGUAGE_LOADERS));
+    expect(hasParentingContent('az')).toBe(true);
+    expect(hasParentingContent('xx')).toBe(false);
+    expect(hasParentingContent(null)).toBe(false);
+    expect(hasParentingContent('constructor')).toBe(false);
   });
 
   it('is a rich library: 4 bands, 40+ articles, 20+ SOS cards, 3 programmes, 2 quizzes, daily tips', () => {

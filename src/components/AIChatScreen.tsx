@@ -31,6 +31,7 @@ import { useSubscription } from '@/hooks/useSubscription';
 import PremiumModal from '@/components/PremiumModal';
 import { isWeaningQuestion } from '@/lib/weaning-entry';
 import { WeaningAiCard } from '@/components/tools/weaning/WeaningEntryCards';
+import { ParentingAiCard } from '@/components/tools/parenting/ParentingEntry';
 import MarkdownContent from './MarkdownContent';
 import { tr } from "@/lib/tr";
 import { fillEmergencyNumber } from '@/lib/emergency';
@@ -840,10 +841,16 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
                 message={message}
                 copied={copiedId === message.id}
                 onCopy={copyMessage} />;
+              const answered = message.role === 'assistant' && !message.isStreaming && !!message.content && messages[i - 1]?.role === 'user';
               // Süddən ayırma: tool card under the answer to a weaning question (mother persona only).
-              const asked = !partner && message.role === 'assistant' && !message.isStreaming && !!message.content &&
-              messages[i - 1]?.role === 'user' && isWeaningQuestion(messages[i - 1].content);
-              return asked ? [row, <WeaningAiCard key={`${message.id}-weaning`} />] : [row];
+              const asked = !partner && answered && isWeaningQuestion(messages[i - 1].content);
+              if (asked) return [row, <WeaningAiCard key={`${message.id}-weaning`} />];
+              // Tərbiyə: the best SOS card / article for a parenting question (mother, or the partner of an Ana-module mother).
+              if (answered) {
+                return [row, <ParentingAiCard key={`${message.id}-parenting`} question={messages[i - 1].content}
+                  partner={partner ? { lifeStage: partner.lifeStage, babyBirthDate: partner.babyBirthDate } : null} />];
+              }
+              return [row];
             })}
           </AnimatePresence>
         </div>

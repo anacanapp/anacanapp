@@ -232,7 +232,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   // Süddən ayırma: Ana module only, active child 9+ months, admin switch app_settings.weaning_tool = 'on'.
   const weaningSetting = useAppSetting('weaning_tool');
   const showWeaning = !disabledTools.includes('weaning') && isWeaningTileVisible({ lifeStage, birthDate: childBirthDate, setting: weaningSetting });
-  // Tərbiyə: Ana module, Azerbaijani app language (content is az only), child under 13, app_settings.parenting_tool = 'on'.
+  // Tərbiyə: Ana module, content registered for the app language, child under 13, app_settings.parenting_tool = 'on'.
   const parentingSetting = useAppSetting('parenting_tool');
   const showParenting = !disabledTools.includes('parenting') && isParentingTileVisible({ lifeStage, language, birthDate: childBirthDate, setting: parentingSetting });
   const tools: Tool[] = useMemo(() => {

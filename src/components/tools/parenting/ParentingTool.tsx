@@ -4,25 +4,30 @@ import { ToolPage, ToolHeader } from '@/components/tools/anacan/ToolKit';
 import { useAuth } from '@/hooks/useAuth';
 import { useChildren } from '@/hooks/useChildren';
 import { useSubscription } from '@/hooks/useSubscription';
+import { useAppSetting } from '@/hooks/useAppSettings';
 import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { useUserStore } from '@/store/userStore';
 import { pushBackHandler } from '@/lib/backButton';
 import { resetAppScrollPosition } from '@/lib/scroll';
-import { ageBandFor, ageInMonths, dailyTipIndex, isoDay, toggleSaved } from '@/lib/parenting';
+import { ageBandFor, ageInMonths, dailyTipIndex, isoDay, toggleSavedState } from '@/lib/parenting';
 import { bandKey, pf, pt } from '@/lib/parenting-copy';
-import { getParentingContent } from '@/data/parenting';
+import { clearParentingTarget, peekParentingTarget, type ParentingTarget } from '@/lib/parenting-nav';
+import { hasParentingContent } from '@/data/parenting';
 import { useParentingState } from './useParentingState';
+import { useParentingContent } from './useParentingContent';
+import { useParentingReminders } from './useParentingReminders';
 import {
   type ParentingCtx, type Route, ArticleScreen, BandScreen, HomeScreen, ProgrammeScreen, ProgrammesScreen, QuizScreen, SavedScreen,
   SosListScreen, SosScreen, TopicsScreen, savedRef,
 } from './ParentingScreens';
 
 /**
- * Tərbiyə — evidence-based positive parenting for children 0–12 (Ana module, Azerbaijani content).
+ * Tərbiyə — evidence-based positive parenting for children 0–12 (Ana module; the linked partner sees the same
+ * tool). Content is loaded per app language (lazy chunk + published editor overrides).
  * Free: age-band overviews, the daily tip, a free set of articles and SOS cards, quizzes' short results, the first
  * programme days and every safety / "see a specialist" signal. Premium: the full library, all SOS cards, full
- * programmes and detailed quiz results (PremiumBlurGate).
+ * programmes, detailed quiz results and programme reminders (PremiumBlurGate).
  */
 interface Props {
   onBack: () => void;
@@ -30,21 +35,37 @@ interface Props {
   now?: Date;
 }
 
+export interface ParentingChild {
+  name?: string | null;
+  birth_date?: string | null;
+}
+
 const track = (action: string) => {
   import('@/lib/analytics').then((m) => m.analytics.logToolUsed('parenting', action)).catch(() => {});
 };
 
+const routeFor = (t: ParentingTarget | null): Route[] => (t ? [{ s: t.kind, id: t.id } as Route] : []);
+
+/** Mother (Ana module): the active child from her own children. */
 export default function ParentingTool({ onBack, now }: Props) {
-  useScreenAnalytics('Parenting', 'Tools');
-  const { user } = useAuth();
-  const { isPremium } = useSubscription();
-  const emergency = useEmergencyNumber();
-  const language = useUserStore((s) => s.language);
   const { selectedChild, children } = useChildren();
   const child = selectedChild ?? children[0] ?? null;
-  const { state, update } = useParentingState(user?.id ?? null);
-  // Content exists in Azerbaijani only; the tile is shown to Azerbaijani users, deep links fall back to it.
-  const content = getParentingContent(language) ?? getParentingContent('az')!;
+  return <ParentingToolView onBack={onBack} now={now} child={child} />;
+}
+
+export function ParentingToolView({ onBack, now, child, partner = false }: Props & { child: ParentingChild | null; partner?: boolean }) {
+  useScreenAnalytics(partner ? 'ParentingPartner' : 'Parenting', 'Tools');
+  const { user } = useAuth();
+  const { isPremium, loading: premiumLoading } = useSubscription();
+  const emergency = useEmergencyNumber();
+  const language = useUserStore((s) => s.language);
+  const setting = useAppSetting('parenting_tool');
+  // Content of the app language; a deep link in a language without content falls back to Azerbaijani.
+  const lang = hasParentingContent(language) ? String(language) : 'az';
+  const { content, loading, retry } = useParentingContent(lang);
+  const { state, update, updateLocal, online, pending } = useParentingState(user?.id ?? null);
+  const allowed = setting === undefined || setting === null || premiumLoading ? null : setting === 'on' && !!isPremium;
+  useParentingReminders({ state, content, allowed, partner, now });
 
   const nowDate = useMemo(() => now ?? new Date(), [now]);
   const today = isoDay(nowDate);
@@ -57,7 +78,10 @@ export default function ParentingTool({ onBack, now }: Props) {
       : ageMonths % 12 === 0 || ageMonths >= 72 ? pf('par_age_years', { n: Math.floor(ageMonths / 12) })
         : pf('par_age_ym', { y: Math.floor(ageMonths / 12), m: ageMonths % 12 });
 
-  const [stack, setStack] = useState<Route[]>([]);
+  // Opened from Anacan.AI on one item: that item first, back returns to the tool home.
+  const [stack, setStack] = useState<Route[]>(() => routeFor(peekParentingTarget()));
+  useEffect(() => { clearParentingTarget(); }, []);
+  const [query, setQuery] = useState('');
   const route: Route = stack.length ? stack[stack.length - 1] : { s: 'home' };
   const go = useCallback((r: Route) => {
     setStack((prev) => [...prev, r]);
@@ -68,14 +92,38 @@ export default function ParentingTool({ onBack, now }: Props) {
     if (stack.length) { setStack((prev) => prev.slice(0, -1)); resetAppScrollPosition(); } else onBack();
   }, [stack.length, onBack]);
 
-  // Android back: inner screens first, then the tool closes (ToolsHub's own handler).
+  // Android back: inner screens first, then the tool closes (ToolsHub's / Index's own handler).
   useEffect(() => {
     if (!stack.length) return;
     return pushBackHandler(() => { setStack((prev) => prev.slice(0, -1)); return true; });
   }, [stack.length]);
 
+  if (!content) {
+    return (
+      <ToolPage>
+        <ToolHeader title={pt('par_tool_name')} onBack={onBack} />
+        <div className="a-par" role="status" aria-busy={loading}>
+          {loading ? (
+            <>
+              <div className="a-par-skel is-hero" />
+              <div className="a-par-skel" />
+              <div className="a-par-skel" />
+              <p className="a-par-small">{pt('par_loading')}</p>
+            </>
+          ) : (
+            <>
+              <p className="a-par-lead">{pt('par_load_failed')}</p>
+              <button type="button" className="a-par-btn" onClick={retry}>{pt('par_retry')}</button>
+            </>
+          )}
+        </div>
+      </ToolPage>
+    );
+  }
+
   const ctx: ParentingCtx = {
-    content, band, childBand, childName, childAgeLabel, ageMonths, isPremium, emergency, today, local: state, update, go, track,
+    content, band, childBand, childName, childAgeLabel, ageMonths, isPremium: !!isPremium, emergency, today, local: state, update,
+    updateLocal, go, track, query, setQuery, reminderAllowed: setting !== 'off' && !!isPremium,
   };
 
   const ref = savedRef(route);
@@ -85,7 +133,7 @@ export default function ParentingTool({ onBack, now }: Props) {
     : ref
       ? (
         <button type="button" className="a-icon-btn" aria-pressed={isSaved} aria-label={pt(isSaved ? 'par_unsave' : 'par_save')}
-          onClick={() => update((s) => ({ ...s, saved: toggleSaved(s.saved, ref) }))}>
+          onClick={() => update((s) => toggleSavedState(s, ref))}>
           {isSaved ? <BookmarkCheck size={16} color="var(--a-coral)" /> : <Bookmark size={16} />}
         </button>
       ) : undefined;
@@ -143,6 +191,7 @@ export default function ParentingTool({ onBack, now }: Props) {
   return (
     <ToolPage>
       <ToolHeader title={title} eyebrow={eyebrow} onBack={back} actions={actions} />
+      {pending && !online && <p className="a-par-small" role="status" style={{ marginBottom: 10 }}>{pt('par_offline')}</p>}
       {body}
     </ToolPage>
   );

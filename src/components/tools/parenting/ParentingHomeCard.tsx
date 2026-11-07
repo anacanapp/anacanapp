@@ -4,31 +4,38 @@ import { useAuth } from '@/hooks/useAuth';
 import { useChildren } from '@/hooks/useChildren';
 import { useAppSetting } from '@/hooks/useAppSettings';
 import { useDisabledTools } from '@/hooks/useDisabledTools';
+import { useSubscription } from '@/hooks/useSubscription';
 import { useUserStore } from '@/store/userStore';
 import { homeTipFor, isParentingHomeCardVisible } from '@/lib/parenting';
 import { bandKey, pt } from '@/lib/parenting-copy';
 import { tr } from '@/lib/tr';
-// Only the tips file: the dashboard must not pull the whole article/SOS library into its chunk.
-// Tərbiyə content is Azerbaijani only and the card is shown to Azerbaijani-language users only.
-import { TIPS } from '@/data/parenting/az/tips';
 import { useParentingState } from './useParentingState';
+import { useParentingContent } from './useParentingContent';
+import { useParentingReminders } from './useParentingReminders';
 
 /**
  * Ana home teaser for Tərbiyə: today's tip for the active child's age band (the same tip the tool's home shows) and
- * a way into the tool. Visible under the same rules as the Tools tile (switch on, az, Ana module, child under 13).
+ * a way into the tool. Visible under the same rules as the Tools tile (switch on, content for the app language,
+ * Ana module, child under 13). The content chunk loads lazily; nothing is shown until it is there.
+ * It also keeps the programme reminders in line (cancelled once the switch or Premium is gone).
  */
 export default function ParentingHomeCard({ onOpen, now }: { onOpen: () => void; now?: Date }) {
   const { user } = useAuth();
   const lifeStage = useUserStore((s) => s.lifeStage);
   const language = useUserStore((s) => s.language);
   const setting = useAppSetting('parenting_tool');
+  const { isPremium, loading: premiumLoading } = useSubscription();
   const { isToolDisabled } = useDisabledTools();
   const { selectedChild, children } = useChildren();
   const child = selectedChild ?? children[0] ?? null;
-  const { state } = useParentingState(user?.id ?? null);
+  const { state } = useParentingState(user?.id ?? null, { sync: false });
+  const visible = isParentingHomeCardVisible({ lifeStage, language, setting, birthDate: child?.birth_date ?? null, toolDisabled: isToolDisabled('parenting'), now });
+  const { content } = useParentingContent(language, visible);
+  const known = setting !== undefined && setting !== null && !premiumLoading;
+  useParentingReminders({ state, content, allowed: known ? visible && !!isPremium : null, now });
 
-  if (!isParentingHomeCardVisible({ lifeStage, language, setting, birthDate: child?.birth_date ?? null, toolDisabled: isToolDisabled('parenting'), now })) return null;
-  const today = homeTipFor(TIPS, { birthDate: child?.birth_date ?? null, chosenBand: state.band, now });
+  if (!visible || !content) return null;
+  const today = homeTipFor(content.tips, { birthDate: child?.birth_date ?? null, chosenBand: state.band, now });
   if (!today) return null;
 
   return (
