@@ -8,6 +8,7 @@ import { tr, formatTr } from '@/lib/tr';
 export const QC_COPY = {
   // Wallet
   qc_balance_ready: 'İstifadəyə hazır balans',
+  qc_profile_hint: 'Alışlarından bonus qazan, Premium və sifarişlərdə xərclə.',
   qc_pending_pill: '{amount} gözləmədə',
   qc_expiring_pill: '{amount} 30 günə bitir',
   qc_spend: 'Xərclə',

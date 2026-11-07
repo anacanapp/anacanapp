@@ -9385,6 +9385,7 @@
   "weaning_ai_title_active": "Sutdan ajratish rejangizga o'ting",
   "weaning_ai_text": "Bosqichma-bosqich, bolaga zararsiz reja, kundalik nazorat va ovqatlantirish qo'llanmasi.",
   "qc_balance_ready": "Foydalanishga tayyor balans",
+  "qc_profile_hint": "Xaridlardan bonus yig‘, uni Premium va buyurtmalarga sarfla.",
   "qc_pending_pill": "{amount} kutilmoqda",
   "qc_expiring_pill": "{amount} 30 kunda kuyadi",
   "qc_spend": "Sarflash",

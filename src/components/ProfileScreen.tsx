@@ -34,6 +34,7 @@ import { tr } from "@/lib/tr";
 import { lifeStageName } from '@/lib/stage-names';
 import ProfilePregnancyCard from '@/components/pregnancy-loss/ProfilePregnancyCard';
 import { moderatorText } from '@/lib/moderator-i18n';
+import QaygiCashProfileCard from '@/components/qaygicash/QaygiCashProfileCard';
 import ProfileTabs, { ProfileRows, type ProfileRow, type ProfileTab } from '@/components/profile/ProfileTabs';
 import { useAppSetting } from '@/hooks/useAppSettings';
 import { useQaygiCashWallet } from '@/hooks/useQaygiCash';
@@ -361,6 +362,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
       </motion.button>
 
 </>;
+  const block_qaygicash = <QaygiCashProfileCard onOpen={onNavigate ? () => onNavigate('qaygicash') : undefined} />;
   const block_partner = <>
       {/* Partner Code */}
       {role === 'woman' &&
@@ -878,13 +880,14 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         avatarUrl={profile?.avatar_url || null} emoji={stageInfo.emoji}
         badge={`${isPremium ? 'Premium · ' : ''}${stageInfo.name}`}
         onEdit={() => onNavigate?.('edit-profile')}
-        me={<>{block_premium}{block_pregnancy}<ProfileRows rows={meRows} onPick={pickRow} /></>}
+        me={<>{block_premium}{block_qaygicash}{block_pregnancy}<ProfileRows rows={meRows} onPick={pickRow} /></>}
         family={<>{lifeStage === 'mommy' ? block_children : null}{block_partner}</>}
         showFamily={lifeStage === 'mommy' || role === 'woman'}
         settings={<><ProfileRows rows={settingsRows} onPick={pickRow} />{block_language}<ProfileRows rows={legalRows} onPick={pickRow} compact title={tr("profilescreen_huquqi_ceb5d3", "Hüquqi")} />{block_logout}</>}
       /> : <>
       {block_hero}
       {block_premium}
+      {block_qaygicash}
       {block_partner}
       {block_partnerInfo}
       {block_pregnancy}

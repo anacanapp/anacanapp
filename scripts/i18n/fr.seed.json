@@ -11790,6 +11790,7 @@
   "weaning_ai_title_active": "Accéder à votre plan de sevrage",
   "weaning_ai_text": "Un plan étape par étape en douceur pour votre enfant, un suivi quotidien et un guide d'alimentation.",
   "qc_balance_ready": "Solde utilisable",
+  "qc_profile_hint": "Gagne des bonus sur tes achats et utilise-les pour Premium et tes commandes.",
   "qc_pending_pill": "{amount} en attente",
   "qc_expiring_pill": "{amount} expire dans 30 jours",
   "qc_spend": "Utiliser",

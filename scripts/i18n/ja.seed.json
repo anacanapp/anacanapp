@@ -11790,6 +11790,7 @@
   "weaning_ai_title_active": "卒乳プランへ進む",
   "weaning_ai_text": "お子様に負担のない段階的なプラン、毎日のチェックイン、お食事ガイド。",
   "qc_balance_ready": "すぐに使える残高",
+  "qc_profile_hint": "購入でボーナスを貯めて、Premium や注文に使えます。",
   "qc_pending_pill": "{amount} 保留中",
   "qc_expiring_pill": "{amount} が30日以内に失効",
   "qc_spend": "使う",

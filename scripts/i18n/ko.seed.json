@@ -11790,6 +11790,7 @@
   "weaning_ai_title_active": "나의 단유 계획으로 이동하기",
   "weaning_ai_text": "아이에게 무리가 가지 않는 단계별 계획, 매일의 체크인과 수유 가이드.",
   "qc_balance_ready": "바로 쓸 수 있는 잔액",
+  "qc_profile_hint": "구매로 보너스를 모으고 Premium과 주문에 사용하세요.",
   "qc_pending_pill": "{amount} 대기 중",
   "qc_expiring_pill": "{amount} 30일 내 소멸",
   "qc_spend": "사용하기",

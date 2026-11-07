@@ -11790,6 +11790,7 @@
   "weaning_ai_title_active": "进入您的断奶计划",
   "weaning_ai_text": "循序渐进、对宝宝温和无害的计划，包含每日打卡与喂养指南。",
   "qc_balance_ready": "可用余额",
+  "qc_profile_hint": "购物赚取奖励，可用于 Premium 和订单。",
   "qc_pending_pill": "{amount} 待到账",
   "qc_expiring_pill": "{amount} 将在 30 天内过期",
   "qc_spend": "去使用",

@@ -11871,6 +11871,7 @@
 "weaning_ai_title_active":"Avage oma võõrutamise plaan",
 "weaning_ai_text":"Samm-sammuline, lapsele ohutu plaan, igapäevane ülevaade ja toitumisjuhend.",
 "qc_balance_ready":"Kasutamiseks valmis saldo",
+"qc_profile_hint":"Kogu ostudelt boonust ja kasuta seda Premiumi ja tellimuste eest.",
 "qc_pending_pill":"{amount} ootel",
 "qc_expiring_pill":"{amount} aegub 30 päeva jooksul",
 "qc_spend":"Kasuta",

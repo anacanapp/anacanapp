@@ -9385,6 +9385,7 @@
   "weaning_ai_title_active": "انتقلي إلى خطة الفطام الخاصة بكِ",
   "weaning_ai_text": "خطة تدريجية وآمنة لطفلكِ، مع متابعة يومية ودليل للتغذية.",
   "qc_balance_ready": "رصيد جاهز للاستخدام",
+  "qc_profile_hint": "اكسب مكافآت من مشترياتك واستخدمها في Premium والطلبات.",
   "qc_pending_pill": "{amount} قيد الانتظار",
   "qc_expiring_pill": "{amount} ينتهي خلال 30 يومًا",
   "qc_spend": "استخدميه",

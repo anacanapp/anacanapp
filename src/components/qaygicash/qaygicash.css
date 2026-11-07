@@ -149,3 +149,13 @@
 .books .qc-sum-line { margin-top: 12px; font-size: 14px; }
 .books .qc-redeem, .bk-sheet .qc-redeem { box-shadow: none; border: 1px solid var(--a-line); }
 .ck-box .qc-sum-line { color: var(--a-coral-text); }
+
+/* Profile entry: same card, compact */
+.qc-card.qc-card-profile { display: block; width: 100%; text-align: start; border: 0; cursor: pointer; margin-top: 12px; padding: 14px 16px 13px; border-radius: 22px; font: inherit; }
+.qc-card-profile > span { display: block; }
+.qc-card-profile .qc-card-brand { display: flex; }
+.qc-card-profile .qc-card-flag { top: 13px; }
+.qc-card-profile .qc-card-amt { font-size: 32px; margin: 10px 0 2px; }
+.qc-card-hint { display: flex !important; align-items: center; gap: 4px; margin-top: 8px; font-size: 12px; font-weight: 600; line-height: 1.35; opacity: 0.9; }
+.qc-card-hint svg { flex: 0 0 auto; margin-inline-start: auto; }
+.qc-card-profile:active { transform: scale(0.985); }

@@ -11790,6 +11790,7 @@
   "weaning_ai_title_active": "Gå till din avvänjningsplan",
   "weaning_ai_text": "En skonsam steg-för-steg-plan för barnet, med dagliga incheckningar och matningsguide.",
   "qc_balance_ready": "Saldo att använda",
+  "qc_profile_hint": "Tjäna bonus på köp och använd den till Premium och beställningar.",
   "qc_pending_pill": "{amount} väntar",
   "qc_expiring_pill": "{amount} går ut inom 30 dagar",
   "qc_spend": "Använd",

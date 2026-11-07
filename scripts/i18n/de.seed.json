@@ -9385,6 +9385,7 @@
   "weaning_ai_title_active": "Zu Ihrem Abstillplan",
   "weaning_ai_text": "Ein sanfter, schrittweiser Plan, tägliche Check-ins und ein Ernährungsratgeber.",
   "qc_balance_ready": "Sofort einlösbar",
+  "qc_profile_hint": "Sammle Bonus bei Käufen und löse ihn für Premium und Bestellungen ein.",
   "qc_pending_pill": "{amount} ausstehend",
   "qc_expiring_pill": "{amount} verfällt in 30 Tagen",
   "qc_spend": "Einlösen",
