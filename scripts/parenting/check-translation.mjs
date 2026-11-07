@@ -9,6 +9,8 @@ const load = async (l) => (await import(pathToFileURL(resolve('src/data/parentin
 const az = await load('az'), tr = await load(lang);
 const errors = [];
 const walk = (a, b, path) => {
+  // Search keywords are language-specific: any non-empty list of strings is fine.
+  if (/\.tags$/.test(path)) { if (!Array.isArray(b) || !b.length || b.some((x) => typeof x !== 'string' || !x.trim())) errors.push(`${path}: tags must be a non-empty list of words`); return; }
   if (Array.isArray(a)) {
     if (!Array.isArray(b)) return errors.push(`${path}: expected array`);
     if (a.length !== b.length) errors.push(`${path}: length ${a.length} vs ${b.length}`);
@@ -18,7 +20,8 @@ const walk = (a, b, path) => {
     const ka = Object.keys(a).sort().join(','), kb = Object.keys(b).sort().join(',');
     if (ka !== kb) errors.push(`${path}: keys ${ka} vs ${kb}`);
     for (const k of Object.keys(a)) {
-      if (/^(id|band|bands|area|areas|emoji|premium|free|day|days|minAge|maxAge|kind|type|value|score|scores|weight|tags?)$/.test(k) && JSON.stringify(a[k]) !== JSON.stringify(b?.[k])) errors.push(`${path}.${k}: changed (${JSON.stringify(a[k])} -> ${JSON.stringify(b?.[k])})`);
+      const scalar = (v) => v === null || typeof v !== 'object' || (Array.isArray(v) && v.every((x) => x === null || typeof x !== 'object'));
+      if (/^(id|band|bands|area|areas|emoji|premium|free|day|minAge|maxAge|kind|type|value|score|scores|weight|ids?|key)$/.test(k) && scalar(a[k]) && !(typeof a[k] === 'string' && /\s/.test(a[k]) && k !== 'id') && JSON.stringify(a[k]) !== JSON.stringify(b?.[k])) errors.push(`${path}.${k}: changed (${JSON.stringify(a[k])} -> ${JSON.stringify(b?.[k])})`);
       walk(a[k], b?.[k], `${path}.${k}`);
     }
   } else if (typeof a === 'string') {
