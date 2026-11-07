@@ -59,6 +59,34 @@ export function dailyTipIndex(today: string, count: number): number {
   return ((dayNumber(today) % count) + count) % count;
 }
 
+/**
+ * Ana home teaser: same rules as the Tools tile plus the per-language tool switch (useDisabledTools), and never in
+ * the pregnancy-loss recovery home.
+ */
+export function isParentingHomeCardVisible(o: Parameters<typeof isParentingTileVisible>[0] & {
+  toolDisabled?: boolean;
+  recovering?: boolean;
+}): boolean {
+  if (o.toolDisabled || o.recovering) return false;
+  return isParentingTileVisible(o);
+}
+
+/**
+ * Today's tip exactly as the tool's home shows it: the parent's chosen band, else the child's band, else 1–3;
+ * the same tip all day.
+ */
+export function homeTipFor<T>(tips: Record<AgeBandId, T[]>, o: {
+  birthDate?: string | null;
+  chosenBand?: AgeBandId | null;
+  now?: Date;
+}): { band: AgeBandId; index: number; tip: T } | null {
+  const now = o.now ?? new Date();
+  const band = o.chosenBand ?? ageBandFor(ageInMonths(o.birthDate, now)) ?? '1-3';
+  const list = tips[band] ?? [];
+  const index = dailyTipIndex(isoDay(now), list.length);
+  return index < 0 ? null : { band, index, tip: list[index] };
+}
+
 // ── Programmes ──────────────────────────────────────────────────────────────────────────
 export interface ProgrammeProgress {
   startedAt: string;

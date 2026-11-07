@@ -19,6 +19,17 @@ export function bookAgeForMonths(months: number | null | undefined): BookAge | n
   return `${years}y` as BookAge;
 }
 
+/**
+ * Age group for the home carousel: the child's own group, or the youngest group (6+ ay) when there is no child or
+ * the baby is younger than 5 months (the first books to get ready for).
+ */
+export function homeBookAge(months: number | null | undefined): BookAge {
+  return bookAgeForMonths(months) ?? BOOK_AGES[0];
+}
+
+/** Books of one age group in catalogue order (10 per group). */
+export const booksForAge = (age: BookAge, limit = 10): Book[] => BOOKS.filter(book => book.age === age).slice(0, limit);
+
 /** Accent colours per age group, matched to the cover age badges. */
 export const AGE_TINT: Record<BookAge, { bg: string; ink: string; bgDark: string; inkDark: string }> = {
   '6m': { bg: '#EFE6FF', ink: '#6B4BC8', bgDark: '#2C2540', inkDark: '#C7B6FF' },
