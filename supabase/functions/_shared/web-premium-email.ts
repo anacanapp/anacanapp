@@ -34,13 +34,19 @@ export async function sendWebPremiumEmail(kind: WebPremiumEmail, input: {
   if (!key || !from || !input.to || input.to.endsWith('@users.anacan.az')) return false;
   const copy = webPremiumEmailCopy(kind, input);
   const cabinet = 'https://anacan.az/website/premium/hesab/index.html';
+  // Opens the app when installed (anacan:// / Android intent), otherwise the right store; the page reports clicks to GA4.
+  const openApp = 'https://anacan.az/website/premium/app/index.html?src=email_receipt';
+  const appStore = 'https://apps.apple.com/app/id6758301924';
+  const playStore = 'https://play.google.com/store/apps/details?id=com.atlasoon.anacan';
   const html = `<!doctype html><html lang="az"><body style="margin:0;background:#FFF7F3;font-family:Arial,sans-serif">
 <table role="presentation" width="100%" style="background:#FFF7F3;padding:24px 12px"><tr><td align="center">
 <table role="presentation" width="100%" style="max-width:500px;background:#fff;border-radius:20px;padding:28px">
 <tr><td style="font:800 20px Arial,sans-serif;color:#FF5A5F;padding-bottom:14px">Anacan</td></tr>
 <tr><td style="font:800 20px Arial,sans-serif;color:#333;padding-bottom:8px">${escapeHtml(copy.heading)}</td></tr>
 <tr><td style="font:15px/1.55 Arial,sans-serif;color:#555;padding-bottom:20px">${escapeHtml(copy.body)}</td></tr>
-<tr><td><a href="${cabinet}" style="display:inline-block;background:#FF5A5F;color:#fff;text-decoration:none;font:700 14px Arial,sans-serif;padding:12px 20px;border-radius:999px">Premium hesabım</a></td></tr>
+${kind === 'receipt' ? `<tr><td style="padding-bottom:12px"><a href="${openApp}" style="display:inline-block;background:#FF5A5F;color:#fff;text-decoration:none;font:700 14px Arial,sans-serif;padding:12px 20px;border-radius:999px">Tətbiqi aç</a></td></tr>
+<tr><td style="font:13px/1.5 Arial,sans-serif;color:#777;padding-bottom:16px">Tətbiq hələ yoxdur? <a href="${appStore}" style="color:#E2464B;font-weight:700">App Store</a> · <a href="${playStore}" style="color:#E2464B;font-weight:700">Google Play</a> — yüklə və eyni hesabla daxil ol, Premium avtomatik açılacaq.</td></tr>` : ''}
+<tr><td><a href="${cabinet}" style="display:inline-block;background:${kind === 'receipt' ? '#fff;color:#333;border:1px solid #e6dcd8' : '#FF5A5F;color:#fff'};text-decoration:none;font:700 14px Arial,sans-serif;padding:12px 20px;border-radius:999px">Premium hesabım</a></td></tr>
 <tr><td style="font:12px Arial,sans-serif;color:#aaa;border-top:1px solid #f1e6e2;padding-top:16px;margin-top:16px">Anacan · anacan.az</td></tr>
 </table></td></tr></table></body></html>`;
   try {
@@ -48,7 +54,7 @@ export async function sendWebPremiumEmail(kind: WebPremiumEmail, input: {
     const response = await fetch(`${host}/v1/send/email`, {
       method: 'POST', signal: AbortSignal.timeout(15_000),
       headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ to: input.to, from, subject: copy.subject, body: html, plaintext_body: `${copy.heading}\n\n${copy.body}\n\n${cabinet}`,
+      body: JSON.stringify({ to: input.to, from, subject: copy.subject, body: html, plaintext_body: `${copy.heading}\n\n${copy.body}\n\n${kind === 'receipt' ? `Tətbiqi aç: ${openApp}\nApp Store: ${appStore}\nGoogle Play: ${playStore}\n\n` : ''}Premium hesabım: ${cabinet}`,
         identifiers: { id: input.userId }, send_to_unsubscribed: true, tracked: false }),
     });
     if (!response.ok) console.error('[web-premium-email] send failed:', response.status);

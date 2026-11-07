@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Anacan tətbiqini aç</title>
+<style>
+:root{--coral:#ff5a5f;--ink:#333;--soft:#7a6e68;--bg:#fff7f3}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);padding:24px 16px}
+.card{width:100%;max-width:420px;background:#fff;border-radius:24px;padding:28px 24px;text-align:center;box-shadow:0 18px 40px -24px rgba(0,0,0,.25)}
+.logo{width:56px;height:56px;margin:0 auto 14px;display:block}
+h1{font-size:22px;margin:0 0 8px}
+p{margin:0 0 18px;color:var(--soft);font-size:15px;line-height:1.5}
+.btn{display:block;width:100%;padding:14px 18px;border-radius:999px;font-weight:800;font-size:15px;text-decoration:none;margin-top:10px}
+.primary{background:var(--coral);color:#fff}
+.ghost{background:#fff;color:var(--ink);border:1px solid rgba(51,51,51,.15)}
+.hide{display:none}
+small{display:block;margin-top:16px;color:#aaa;font-size:12px}
+</style>
+</head>
+<body>
+<main class="card">
+  <img class="logo" src="/website/premium/account/mark-coral.png" alt="Anacan">
+  <h1 id="title">Anacan tətbiqi açılır…</h1>
+  <p id="text">Tətbiq telefonunda varsa, avtomatik açılacaq. Yoxdursa, aşağıdan yüklə və eyni hesabla daxil ol — Premium avtomatik aktiv olacaq.</p>
+  <a class="btn primary" id="open" href="anacan:///">Tətbiqi aç</a>
+  <a class="btn ghost" id="ios" href="https://apps.apple.com/app/id6758301924">App Store-dan yüklə</a>
+  <a class="btn ghost" id="android" href="https://play.google.com/store/apps/details?id=com.atlasoon.anacan">Google Play-dən yüklə</a>
+  <small>Anacan · anacan.az</small>
+</main>
+<script src="/website/analytics.js" defer></script>
+<script>
+(function () {
+  'use strict';
+  var ua = navigator.userAgent || '';
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var IOS_STORE = 'https://apps.apple.com/app/id6758301924';
+  var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.atlasoon.anacan';
+  var open = document.getElementById('open');
+  var track = function (name, params) { try { window.anacanAnalytics && window.anacanAnalytics.track(name, params || {}); } catch (e) { /* never block */ } };
+  var src = new URLSearchParams(location.search).get('src') || 'direct';
+
+  // Android: an intent URL opens the app when installed, otherwise Chrome goes straight to Google Play.
+  if (isAndroid) {
+    open.href = 'intent:///#Intent;scheme=anacan;package=com.atlasoon.anacan;S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE) + ';end';
+    document.getElementById('ios').classList.add('hide');
+  } else if (isIOS) {
+    document.getElementById('android').classList.add('hide');
+  } else {
+    // Desktop: nothing to open here, show both stores.
+    open.classList.add('hide');
+    document.getElementById('title').textContent = 'Anacan tətbiqini yüklə';
+    document.getElementById('text').textContent = 'Telefonunda App Store və ya Google Play-dən Anacan-ı yüklə və eyni hesabla daxil ol — Premium avtomatik aktiv olacaq.';
+    return;
+  }
+
+  ['open', 'ios', 'android'].forEach(function (id) {
+    document.getElementById(id).addEventListener('click', function () { track('app_open_click', { button: id, src: src }); });
+  });
+
+  // Try to open the app automatically once; if the page is still visible after a moment, the app is not installed.
+  var left = false;
+  document.addEventListener('visibilitychange', function () { if (document.hidden) left = true; });
+  window.addEventListener('pagehide', function () { left = true; });
+  setTimeout(function () {
+    track('app_open_attempt', { platform: isAndroid ? 'android' : 'ios', src: src });
+    location.href = open.href;
+    setTimeout(function () {
+      if (left) return;
+      document.getElementById('title').textContent = 'Anacan tətbiqini yüklə';
+      // iOS may still be showing its "Open in Anacan?" prompt, so never jump to the store automatically there.
+      document.getElementById('text').textContent = 'Tətbiq açılmadısa, yəqin ki, hələ telefonunda yoxdur. Yüklə və eyni hesabla daxil ol — Premium avtomatik aktiv olacaq.';
+    }, 1600);
+  }, 300);
+})();
+</script>
+</body>
+</html>

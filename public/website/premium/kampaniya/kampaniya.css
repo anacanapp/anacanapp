@@ -108,3 +108,4 @@ footer a{color:inherit}
 .testbox>span{font-size:14px;font-weight:700}
 .saved-card{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;margin:0 0 14px;color:var(--ink2)}
 .saved-card .chip-card{width:26px;height:18px;border-radius:4px;background:linear-gradient(135deg,#ffb4a2,#ff5a5f);display:inline-block}
+.state .btn{display:block;margin-top:10px;text-align:center}
