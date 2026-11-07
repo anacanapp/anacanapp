@@ -109,3 +109,9 @@ footer a{color:inherit}
 .saved-card{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;margin:0 0 14px;color:var(--ink2)}
 .saved-card .chip-card{width:26px;height:18px;border-radius:4px;background:linear-gradient(135deg,#ffb4a2,#ff5a5f);display:inline-block}
 .state .btn{display:block;margin-top:10px;text-align:center}
+.stores{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.store{display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;border-radius:14px;background:#111;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.35);min-width:150px;transition:transform .15s ease}
+.store:hover{transform:translateY(-1px)}
+.store span{display:flex;flex-direction:column;font-weight:800;font-size:16px;line-height:1.1}
+.store small{font-weight:600;font-size:11px;opacity:.8}
+@media (max-width:420px){.store{flex:1 1 0;min-width:0}}

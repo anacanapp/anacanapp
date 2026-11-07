@@ -35,7 +35,6 @@ import { useNotifications } from '@/hooks/useNotifications';
 import { useFruitImages, getDynamicFruitData } from '@/hooks/useFruitData';
 import { useTrimesterTips } from '@/hooks/useTrimesterTips';
 import { useFlowSymptoms, useFlowPhaseTips, useFlowInsights } from '@/hooks/useFlowData';
-import { useBabyIllustrationByMonth } from '@/hooks/useBabyMonthIllustrations';
 import { useBabyDailyInfoByDay } from '@/hooks/useBabyDailyInfo';
 import { useMommyDailyMessageByDay } from '@/hooks/useMommyDailyMessages';
 import { useCurrentBabyCrisis, useUpcomingBabyCrises } from '@/hooks/useBabyCrisisPeriods';
@@ -840,7 +839,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
   // correctedMonths xronoloji ilə eynidir, heç nə dəyişmir.
   const babyAgeMonths = (childAge?.correctionApplied ? childAge.correctedMonths : childAge?.months) || 1;
   const contentDay = childAge ? (childAge.correctionApplied ? childAge.correctedDayNumber : childAge.dayNumber) : 0;
-  const { imageUrl: babyIllustration, title: illustrationTitle, description: illustrationDescription } = useBabyIllustrationByMonth(Math.max(1, Math.min(36, babyAgeMonths)));
   const { data: dailyInfo } = useBabyDailyInfoByDay(contentDay > 0 ? contentDay : null);
   const { data: mommyMessage } = useMommyDailyMessageByDay(contentDay > 0 ? contentDay : null);
 
@@ -1230,27 +1228,6 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
       <ParentingHomeCard onOpen={() => onNavigateToTool?.('parenting')} />
       {/* Printable books: the 10 books of the child's age group as a swipe row, opening the book store */}
       {(isAdmin || booksLanguageOk) && <BooksHomeCarousel childMonths={childAge?.months ?? null} onOpen={() => onNavigate?.('books')} />}
-
-      {/* Month illustration info */}
-      {illustrationTitle &&
-      <section className="a-section">
-          <div className="a-card a-fade-in">
-            <div className="a-list-row" style={{ padding: 0, borderTop: 'none', alignItems: 'flex-start' }}>
-              <span className="a-list-icon" style={{ background: 'var(--a-peach-1)', color: 'var(--a-accent-ink)' }}>
-                <Baby size={18} strokeWidth={2} />
-              </span>
-              <div style={{ minWidth: 0 }}>
-                <p className="a-list-title">{illustrationTitle}</p>
-                {illustrationDescription &&
-              <p className="a-list-sub" style={{ whiteSpace: 'normal', lineHeight: 1.6 }}>
-                    {illustrationDescription}
-                  </p>
-              }
-              </div>
-            </div>
-          </div>
-        </section>
-      }
 
       {/* Log today — water + trackers + summary */}
       <section className="a-section">
