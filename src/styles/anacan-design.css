@@ -3553,7 +3553,7 @@ html.a-lite .a3-mascot.bob { animation: none; }
 .a-par-home > * { position: relative; z-index: 1; }
 .a-par-home-top { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .a-par-home-icon { flex: none; width: 30px; height: 30px; border-radius: 10px; background: var(--a-coral-soft); display: inline-flex; align-items: center; justify-content: center; font-size: 16px; }
-.a-par-home-eyebrow { flex: 1; min-width: 0; font-size: 11.5px; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; color: var(--a-coral-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.a-par-home-eyebrow { flex: 1; min-width: 0; font-size: 11.5px; font-weight: 800; letter-spacing: 0.03em; line-height: 1.25; text-transform: uppercase; color: var(--a-coral-text); overflow-wrap: anywhere; }
 .a-par-home-tag { flex: none; font-size: 10.5px; font-weight: 800; padding: 3px 8px; border-radius: 999px; background: var(--a-surface); color: var(--a-ink-soft); box-shadow: inset 0 0 0 1px var(--a-line); white-space: nowrap; }
 .a-par-home-title { display: block; margin-top: 2px; font-size: 15px; line-height: 1.3; font-weight: 800; letter-spacing: -0.01em; color: var(--a-ink); }
 .a-par-home-text { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 12.5px; line-height: 1.45; color: var(--a-ink-soft); }
