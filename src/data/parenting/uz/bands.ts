@@ -46,7 +46,7 @@ export const BANDS: BandOverview[] = [
     brain: [
       'Miyaning hissiyot markazi (amigdala) kuchli va tez, uni “tormozlaydigan” peshona poʻstlogʻi esa hali uzoq yillar rivojlanadi. Shuning uchun ikki yoshli bola “toʻxta” desang ham toʻxtay olmaydi. Bu qaysarlik emas, pishib yetilmagan tormoz.',
       'Til tez rivojlanadi, lekin bola tushunadigan narsalar u ayta oladiganidan ancha oldinda. Xohlaganini ayta olmaslik katta alam tugʻdiradi va bu koʻpincha baqirish yoki urish bilan chiqadi.',
-      'Bu yoshda bola sabab va oqibatni sinab oʻrganadi: qoshiqni yerga tashlaydi, sening munosabatingga qaraydi, yana tashlaydi. Bu “jahlingni chiqarish uchun” emas, kichkina olimning tajribasi.',
+      'Bu yoshda bola sabab va oqibatni sinab oʻrganadi: qoshiqni yerga tashlaydi, sening munosabatingga qaraydi, yana tashlaydi. U buni jahlingni chiqarish uchun qilmayapti: bu kichkina olimning tajribasi.',
     ],
     needs: [
       'Xotirjam, aniq va takrorlanadigan chegaralar: “Urish mumkin emas. Qoʻllaringni ushlab turaman.” Uzun tushuntirish emas, qisqa gap va harakat.',
