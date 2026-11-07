@@ -11,6 +11,8 @@ export type PushEventData =
   | { type: 'diagnostic'; context: 'self' }
   | InteractionPushData<'direct_message', 'direct_message', { sender_id: string; messageId: string }>
   | InteractionPushData<'group_message', 'group_message', { groupId: string; messageId: string }>
+  /** Sent once by the sender (userId = sender); the server pushes to every current member. */
+  | InteractionPushData<'group_message_fanout', 'group_message_fanout', { groupId: string; messageId: string }>
   | InteractionPushData<'community_like', 'community_post', { postId: string; groupId?: string | null }>
   | InteractionPushData<'community_comment', 'community_post', { postId: string }>
   | InteractionPushData<'story_like', 'community_story', { storyId: string }>
@@ -37,8 +39,25 @@ export interface SendPushResult {
   ok: boolean;
   sent: number;
   skipped?: string;
+  /** group_message_fanout: per-reason recipient counts from the server. */
+  skippedCounts?: Record<string, number>;
+  /** Error code from a non-2xx response body (e.g. 'unsupported_context_or_type'), when readable. */
+  serverError?: string;
   data?: Record<string, unknown>;
   error?: unknown;
+}
+
+/** Recipient-side outcomes that are not failures: no device, notifications off, already sent, left the group. */
+export const EXPECTED_PUSH_SKIPS = ['no_device_tokens', 'preferences_disabled', 'duplicate', 'not_member'];
+
+async function serverErrorCode(error: unknown): Promise<string | undefined> {
+  try {
+    const body = await (error as { context?: { json?: () => Promise<unknown> } })?.context?.json?.();
+    const code = isRecord(body) ? body.error : undefined;
+    return typeof code === 'string' && code.length <= 100 ? code : undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -56,6 +75,7 @@ const contracts: Record<string, {
     interactionAlias: 'messageId'
   },
   group_message: { context: 'group_message', required: ['groupId', 'messageId'], interactionAlias: 'messageId' },
+  group_message_fanout: { context: 'group_message_fanout', required: ['groupId', 'messageId'], interactionAlias: 'messageId' },
   community_like: { context: 'community_post', required: ['postId'], optional: ['groupId'] },
   community_comment: { context: 'community_post', required: ['postId'] },
   story_like: { context: 'community_story', required: ['storyId'] },
@@ -145,12 +165,29 @@ export async function invokeSendPush(payload: SendPushPayload): Promise<SendPush
     });
 
     if (error) {
+      const serverError = await serverErrorCode(error);
+      // An older server without the fan-out contract answers 400 unsupported_context_or_type;
+      // the caller falls back to per-member pushes, so that is not a failure to report.
+      if (kind === 'group_message_fanout' && serverError === 'unsupported_context_or_type') {
+        return { ok: false, sent: 0, error, serverError };
+      }
       console.error('[Push] invoke error:', error);
-      report(`invoke error: ${(error as any)?.message || String(error)}`);
-      return { ok: false, sent: 0, error };
+      report(`invoke error: ${(error as any)?.message || String(error)}`, serverError ? { error: serverError } : undefined);
+      return { ok: false, sent: 0, error, serverError };
     }
 
     const sent = typeof data?.sent === 'number' ? data.sent : 0;
+    if (isRecord(data?.skipped)) {
+      // Fan-out summary: { ok, sent, skipped: { reason: count } }. Zero sent is normal when
+      // no member has a device or notifications on; only a server-flagged problem is reported.
+      const skippedCounts = data.skipped as Record<string, number>;
+      const ok = data.ok !== false;
+      if (!ok) {
+        console.warn('[Push] fan-out incomplete:', data);
+        report('fanout incomplete', { response: data });
+      }
+      return { ok, sent, skippedCounts, data };
+    }
     const skipped = data?.skipped as string | undefined;
 
     if (sent === 0) {
@@ -162,7 +199,7 @@ export async function invokeSendPush(payload: SendPushPayload): Promise<SendPush
       // Expected outcomes (recipient has no device, turned notifications off, or the same push was
       // already sent) are not failures. Reporting them filled crash_reports with ~15k rows a week
       // and hid real crashes; only unexpected reasons are reported.
-      if (!['no_device_tokens', 'preferences_disabled', 'duplicate'].includes(String(reason))) report(String(reason), { response: data });
+      if (!EXPECTED_PUSH_SKIPS.includes(String(reason))) report(String(reason), { response: data });
       return { ok: false, sent: 0, skipped: reason, data };
     }
 

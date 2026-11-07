@@ -54,6 +54,12 @@ export async function notifyChatMessage(kind: ChatKind, target: string, message:
   const title = tr('directmessages_yeni_mesaj', 'Yeni mesaj');
   const body = chatPreview(message).slice(0, 120) || title;
   if (kind === 'group') {
+    // One call: the server fans the push out to every current member (dedup-claimed per
+    // message + recipient). Only a server without that contract gets the per-member loop.
+    const fanout = await invokeSendPush({ userId: message.sender_id, title, body, kind: 'group_message_fanout', data: {
+      type: 'group_message_fanout', context: 'group_message_fanout', groupId: target, messageId: message.id, interactionId: message.id,
+    } });
+    if (fanout.serverError !== 'unsupported_context_or_type') return;
     const { data, error } = await (supabase as any).rpc('chat_group_members_v2', { p_group: target });
     if (error) return;
     const recipients = (data || []).filter((member: { user_id: string }) => member.user_id !== message.sender_id);

@@ -1,5 +1,6 @@
-import { createClient } from 'npm:@supabase/supabase-js@2';
-import { requireUser } from './auth.ts';
+// deno-lint-ignore-file no-explicit-any
+// No npm:/Deno globals here: send-push-notification/index.ts injects the Supabase client, auth
+// and env, so this module is importable by the Node test suite (src/lib/interaction-push.test.ts).
 import { getFirebaseAccessToken } from './fcm.ts';
 import { LANGUAGE_CODES } from './languages.ts';
 import { serverCopy } from './localized-copy.ts';
@@ -150,6 +151,9 @@ const contracts: Record<string, { context: string; title: keyof typeof messages;
   diagnostic: { context: 'self', title: 'diagnostic', fields: [] },
   direct_message: { context: 'direct_message', title: 'message', fields: ['sender_id', 'messageId'] },
   group_message: { context: 'group_message', title: 'message', fields: ['groupId', 'messageId'] },
+  // Sender-side request: the server fans one group message out to every current member,
+  // through the same per-recipient pipeline (and claim) as a single group_message push.
+  group_message_fanout: { context: 'group_message_fanout', title: 'message', fields: ['groupId', 'messageId'] },
   community_like: { context: 'community_post', title: 'like', fields: ['postId', 'groupId'] },
   community_comment: { context: 'community_post', title: 'comment', fields: ['postId'] },
   story_like: { context: 'community_story', title: 'like', fields: ['storyId'] },
@@ -164,12 +168,42 @@ const contracts: Record<string, { context: string; title: keyof typeof messages;
   birth_alert: { context: 'partner', title: 'birth', fields: ['alertId'] },
 };
 
+const GROUP_WINDOW_MS = 900_000;
+const GROUP_MESSAGE_TYPES = ['text', 'image', 'video', 'audio'];
+/** Parallel per-recipient deliveries in one fan-out. */
+export const FANOUT_CONCURRENCY = 8;
+/** Recipients not started within this budget are skipped ('deadline') so the request ends in time. */
+export const FANOUT_BUDGET_MS = 60_000;
+const FANOUT_PAGE = 1000;
+const FANOUT_MAX_PAGES = 20;
+
+type Db = any;
+type Outcome = { status: number; body: Record<string, unknown> };
+type Interaction = {
+  id: string; content?: string; message?: string; name?: string; message_type?: string; is_anonymous?: boolean; created_at?: string;
+};
+type FcmAccess = { accessToken: string; projectId: string };
+
+export interface InteractionPushDeps {
+  requireUser(req: Request): Promise<{ user: { id: string } | null; error: Response | null }>;
+  /** Service-role client (bypasses RLS); every row is verified here before use. */
+  serviceClient(): Db;
+  env(name: string): string | undefined;
+  firebaseAccessToken?(serviceAccountJson: string): Promise<FcmAccess>;
+  fetch?: typeof fetch;
+  now?(): number;
+}
+
 function json(status: number, body: Record<string, unknown>) {
   return new Response(JSON.stringify(body), { status, headers });
 }
 
 function object(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function own(value: object, key: string) {
+  return Object.prototype.hasOwnProperty.call(value, key);
 }
 
 async function checked<T>(query: PromiseLike<{ data: T; error: unknown }>): Promise<T> {
@@ -182,17 +216,248 @@ function preview(value: unknown, length = 200): string {
   if (typeof value !== 'string') return '';
   // Bound Unicode output and remove control/bidi characters used to spoof labels.
   return Array.from(value.slice(0, length * 2)
-    .replace(/[\u0000-\u001f\u007f-\u009f\u200e\u200f\u202a-\u202e\u2066-\u2069]/g, ' ')
+    .replace(/[\u0000-\u001f\u007f-\u009f‎‏‪-‮⁦-⁩]/g, ' ')
     .replace(/\s+/g, ' ').trim()).slice(0, length).join('');
 }
 
-export async function handleInteractionPush(req: Request) {
+function memo<T>(load: () => Promise<T>): () => Promise<T> {
+  let value: Promise<T> | undefined;
+  return () => (value ??= load());
+}
+
+/**
+ * Group, sender membership and message checks shared by group_message and group_message_fanout:
+ * an active group, the caller is a member, and the message is the caller's own recent
+ * (15 minutes, up to 1 s of clock skew) text/media message in that group.
+ */
+async function verifyGroupMessage(db: Db, callerId: string, groupId: string, messageId: string,
+  interactionId: string | null | undefined, nowMs: number) {
+  const group = await checked(db.from('community_groups').select('id,name').eq('id', groupId).eq('is_active', true).maybeSingle()) as { name?: string } | null;
+  const senderMember = await checked(db.from('group_memberships').select('user_id').eq('group_id', groupId).eq('user_id', callerId).maybeSingle());
+  if (!group || !senderMember) return null;
+  if (interactionId && interactionId !== messageId) return null;
+  const message = await checked(db.from('group_messages').select('id,content,message_type,created_at')
+    .eq('id', messageId).eq('sender_id', callerId).eq('group_id', groupId)
+    .gte('created_at', new Date(nowMs - GROUP_WINDOW_MS).toISOString())
+    .lte('created_at', new Date(nowMs + 1000).toISOString())
+    .in('message_type', GROUP_MESSAGE_TYPES).maybeSingle()) as Interaction | null;
+  if (!message || typeof message.id !== 'string' || !uuid.test(message.id)) return null;
+  return { group, message };
+}
+
+/** The recipient must have been a member when the message was written (created_at >= joined_at). */
+function memberAtMessage(member: { joined_at?: string } | null, message: Interaction) {
+  if (!member) return false;
+  return !(Date.parse(String(message.created_at)) < Date.parse(String(member.joined_at)));
+}
+
+interface Delivery {
+  db: Db;
+  deps: InteractionPushDeps;
+  callerId: string;
+  targetId: string;
+  kind: string;
+  context: string;
+  interaction: Interaction | null;
+  groupName: string;
+  action: Record<string, string>;
+  /** Raw profile name of the sender; memoized across a fan-out. */
+  senderName(): Promise<unknown>;
+  /** null when FCM is not configured; memoized across a fan-out. */
+  fcm(): Promise<FcmAccess | null>;
+}
+
+/**
+ * The per-recipient pipeline: localized copy, preferences, durable claim (dedup per
+ * interaction + recipient + kind), device tokens, FCM send and send log.
+ */
+async function deliver(d: Delivery): Promise<Outcome> {
+  const { db, targetId, kind, context, interaction } = d;
+  const action = { ...d.action };
+  const preferences = await checked(db.from('user_preferences')
+    .select('language,push_enabled,push_messages,push_likes,push_comments,push_community').eq('user_id', targetId).maybeSingle()) as Record<string, unknown> | null;
+  const language = typeof preferences?.language === 'string' && LANGUAGE_CODES.includes(preferences.language) ? preferences.language : 'az';
+  const translated = serverCopy<Record<string, string>>('push', language, {});
+  const text = (key: keyof typeof messages) => translated[key] || (messages[key] as Record<string, string>)[language] || messages[key].az;
+  let sender = text('anonymous');
+  if (interaction && !interaction.is_anonymous) sender = preview(await d.senderName(), 50) || text('user');
+  const format = (key: keyof typeof messages) => text(key).replace(/\{(sender|item)\}/g,
+    (_match, field: string) => field === 'sender' ? sender : preview(interaction?.name, 100));
+  let body = text('diagnosticBody');
+  if (interaction) {
+    if (kind.endsWith('_like')) {
+      body = format(kind === 'community_like' ? 'postLiked' : kind === 'story_like' ? 'storyLiked' : 'commentLiked');
+    } else if (kind === 'shopping_list') {
+      body = format('shoppingAdded');
+    } else if (kind === 'thank_you') {
+      body = format('thanks');
+    } else if (kind === 'contraction_511') {
+      body = format('contractionAlert');
+    } else {
+      const media = interaction.message_type;
+      // User-written message/comment/alert text stays in its original language.
+      const content = media === 'image' || media === 'video' || media === 'audio' || media === 'love'
+        ? text(media) : preview(interaction.content ?? interaction.message, 150);
+      body = `${sender}: ${content || text('openMessage')}`;
+    }
+    if (context === 'direct_message' || context === 'group_message' || kind === 'partner_message') {
+      action.sender_id = d.callerId;
+      action.messageId = interaction.id;
+    }
+  }
+  body = preview(body);
+  const title = kind === 'community_reply' ? preview(format('repliedToComment'), 60) : d.groupName || text(contracts[kind].title);
+  const social = ['community_post', 'community_story', 'post_comment', 'group_message'].includes(context);
+  const category = kind.endsWith('_like') ? 'push_likes'
+    : (context === 'direct_message' || context === 'group_message' || kind === 'partner_message') ? 'push_messages' : social ? 'push_comments' : null;
+  const enabled = preferences?.push_enabled !== false && (!social || preferences?.push_community !== false)
+    && (!category || preferences?.[category] !== false);
+
+  // The SQL RPC commits the durable claim and in-app notification together.
+  // Claims are never released after an uncertain FCM outcome. This prevents
+  // repeated attempts, not loss or duplication inside FCM/device delivery.
+  const claimed = await checked(db.rpc('claim_communication_notification_v2', {
+    p_interaction_id: interaction?.id ?? null, p_target_user_id: targetId, p_kind: kind,
+    p_title: title, p_body: body, p_data: action,
+  }));
+  if (claimed === false) return { status: 200, body: { success: true, sent: 0, skipped: 'duplicate' } };
+  if (claimed !== true) throw new Error('invalid_claim_result');
+  if (!enabled) return { status: 200, body: { success: true, sent: 0, skipped: 'preferences_disabled' } };
+
+  const tokens = await checked(db.from('device_tokens').select('token').eq('user_id', targetId)
+    .order('created_at', { ascending: false }).order('id', { ascending: false }).limit(10)) as { token: unknown }[] | null;
+  if (!tokens?.length) return { status: 200, body: { success: true, sent: 0, skipped: 'no_device_tokens' } };
+  if (tokens.some(({ token }) => typeof token !== 'string' || !token || token.length > 4096)) {
+    throw new Error('invalid_device_tokens');
+  }
+  const access = await d.fcm();
+  if (!access) return { status: 503, body: { error: 'fcm_not_configured' } };
+  const { accessToken, projectId } = access;
+  const send = d.deps.fetch ?? fetch;
+  let sent = 0;
+  let failed = 0;
+  for (const { token } of tokens as { token: string }[]) {
+    let success = false;
+    let dead = false;
+    let code = 'FCM_UNAVAILABLE';
+    try {
+      // Keep provider responses and token fragments out of both console and DB logs.
+      const response = await send(`https://fcm.googleapis.com/v1/projects/${encodeURIComponent(projectId)}/messages:send`, {
+        method: 'POST', redirect: 'error', signal: AbortSignal.timeout(10_000),
+        headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: {
+          token, notification: { title, body }, data: action,
+          android: { priority: 'HIGH', notification: { sound: 'default' } },
+          apns: { headers: { 'apns-priority': '10', 'apns-push-type': 'alert' }, payload: { aps: { sound: 'default', badge: 1 } } },
+        } }),
+      });
+      success = response.ok;
+      if (!success) {
+        const result = await response.json().catch(() => null);
+        const details = result?.error?.details;
+        const fcm = Array.isArray(details) ? details.find((detail) => detail?.['@type'] === 'type.googleapis.com/google.firebase.fcm.v1.FcmError') : null;
+        const errorCode = fcm?.errorCode ?? result?.error?.status;
+        code = ['UNREGISTERED', 'NOT_FOUND', 'INVALID_ARGUMENT', 'QUOTA_EXCEEDED', 'UNAVAILABLE', 'INTERNAL',
+          'SENDER_ID_MISMATCH', 'THIRD_PARTY_AUTH_ERROR', 'PERMISSION_DENIED', 'UNAUTHENTICATED'].includes(errorCode) ? errorCode : 'FCM_REJECTED';
+        dead = fcm?.errorCode === 'UNREGISTERED';
+      }
+    } catch { /* Delivery may be uncertain; retain the claim and token. */ }
+    if (success) sent++; else failed++;
+    const log = await checked(db.from('notification_send_log').insert({
+      user_id: targetId, title: '[redacted]', body: '[redacted]', source_type: 'dynamic',
+      source_notification_id: interaction?.id ?? null, notification_type: kind,
+      status: success ? 'sent' : 'failed', reason: success ? null : 'fcm_failed', error_code: success ? null : code,
+    }).select('id').single()) as { id?: string } | null;
+    if (!log?.id) throw new Error('send_log_write_failed');
+    if (dead) await checked(db.from('device_tokens').delete().eq('user_id', targetId).eq('token', token));
+  }
+  return { status: sent ? 200 : 502, body: { success: failed === 0, sent, failed } };
+}
+
+function fcmLoader(deps: InteractionPushDeps) {
+  return async (): Promise<FcmAccess | null> => {
+    const account = deps.env('FIREBASE_SERVICE_ACCOUNT_JSON');
+    if (!account) return null;
+    return (deps.firebaseAccessToken ?? getFirebaseAccessToken)(account);
+  };
+}
+
+function senderNameLoader(db: Db, callerId: string) {
+  return async () => (await checked(db.from('profiles').select('name').eq('user_id', callerId).maybeSingle()) as { name?: unknown } | null)?.name;
+}
+
+/**
+ * group_message_fanout: the sender asks once; the server pushes to every current member
+ * except the sender. Each recipient goes through deliver() with exactly the action a
+ * single group_message push builds, so the durable claim also dedups against parallel
+ * per-member calls from older app builds for the same message.
+ */
+async function fanOutGroupMessage(db: Db, deps: InteractionPushDeps, callerId: string, groupId: string,
+  messageId: string, interactionId: string | null | undefined): Promise<Outcome> {
+  const clock = deps.now ?? Date.now;
+  const started = clock();
+  const verified = await verifyGroupMessage(db, callerId, groupId, messageId, interactionId, started);
+  if (!verified) return { status: 403, body: { error: 'no_verified_interaction' } };
+  const { group, message } = verified;
+
+  const members: { user_id: string; joined_at?: string }[] = [];
+  const seen = new Set<string>();
+  for (let page = 0; page < FANOUT_MAX_PAGES; page++) {
+    const rows = await checked(db.from('group_memberships').select('user_id,joined_at').eq('group_id', groupId)
+      .neq('user_id', callerId).order('user_id', { ascending: true })
+      .range(page * FANOUT_PAGE, (page + 1) * FANOUT_PAGE - 1)) as { user_id?: unknown; joined_at?: string }[] | null;
+    for (const row of rows ?? []) {
+      const id = typeof row.user_id === 'string' ? row.user_id.toLowerCase() : '';
+      if (!uuid.test(id) || id === callerId || seen.has(id)) continue;
+      seen.add(id);
+      members.push({ user_id: id, joined_at: row.joined_at });
+    }
+    if (!rows || rows.length < FANOUT_PAGE) break;
+  }
+
+  const skipped: Record<string, number> = {};
+  const skip = (reason: string) => { skipped[reason] = (skipped[reason] ?? 0) + 1; };
+  const recipients = members.filter((member) => memberAtMessage(member, message) || (skip('not_member'), false));
+  const senderName = memo(senderNameLoader(db, callerId));
+  const fcm = memo(fcmLoader(deps));
+  const groupName = preview(group.name, 50);
+  let sent = 0;
+  let delivered = 0;
+  let next = 0;
+  const worker = async () => {
+    while (next < recipients.length) {
+      const recipient = recipients[next++];
+      if (clock() - started > FANOUT_BUDGET_MS) { skip('deadline'); continue; }
+      try {
+        const outcome = await deliver({
+          db, deps, callerId, targetId: recipient.user_id, kind: 'group_message', context: 'group_message',
+          interaction: message, groupName, senderName, fcm,
+          action: { context: 'group_message', type: 'group_message', groupId, interactionId: message.id },
+        });
+        const count = typeof outcome.body.sent === 'number' ? outcome.body.sent : 0;
+        sent += count;
+        if (count > 0) delivered++;
+        else skip(typeof outcome.body.skipped === 'string' ? outcome.body.skipped
+          : typeof outcome.body.error === 'string' ? outcome.body.error : 'fcm_failed');
+      } catch { skip('error'); }
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(FANOUT_CONCURRENCY, recipients.length) }, worker));
+  const ok = !['error', 'deadline', 'fcm_failed', 'fcm_not_configured'].some((reason) => skipped[reason]);
+  return { status: 200, body: { ok, success: ok, sent, recipients: members.length, delivered, skipped } };
+}
+
+export function createInteractionPushHandler(deps: InteractionPushDeps) {
+  return (req: Request) => handleInteractionPush(req, deps);
+}
+
+export async function handleInteractionPush(req: Request, deps: InteractionPushDeps) {
   if (req.method === 'OPTIONS') return new Response(null, { headers });
   if (req.method !== 'POST') return json(405, { error: 'method_not_allowed' });
 
   try {
-    const auth = await requireUser(req);
-    if (auth.error) return auth.error;
+    const auth = await deps.requireUser(req);
+    if (auth.error || !auth.user) return auth.error ?? json(401, { error: 'unauthorized' });
     const callerId = auth.user.id.toLowerCase();
     if (!uuid.test(callerId)) return json(401, { error: 'unauthorized' });
 
@@ -227,7 +492,7 @@ export async function handleInteractionPush(req: Request) {
     }
     const data = payload.data;
     const requestedKind = data.type;
-    if (typeof requestedKind !== 'string' || !Object.hasOwn(contracts, requestedKind) || data.context !== contracts[requestedKind].context) {
+    if (typeof requestedKind !== 'string' || !own(contracts, requestedKind) || data.context !== contracts[requestedKind].context) {
       return json(400, { error: 'unsupported_context_or_type' });
     }
     let kind = requestedKind;
@@ -245,30 +510,39 @@ export async function handleInteractionPush(req: Request) {
     const targetId = payload.userId.toLowerCase();
     const context = contract.context;
     const forbidden = () => json(403, { error: 'no_verified_interaction' });
+    const supabase = deps.serviceClient();
+    const nowMs = (deps.now ?? Date.now)();
+
+    if (kind === 'group_message_fanout') {
+      // userId names the sender (the caller), never a recipient.
+      if (targetId !== callerId) return forbidden();
+      if (!ids.groupId || !ids.messageId) return json(400, { error: 'missing_group_or_message_id' });
+      const outcome = await fanOutGroupMessage(supabase, deps, callerId, ids.groupId, ids.messageId, ids.interactionId);
+      return json(outcome.status, outcome.body);
+    }
+
     if ((context === 'self') !== (callerId === targetId)) return forbidden();
     if (ids.sender_id && ids.sender_id !== callerId) return forbidden();
 
-    const supabase = createClient(Deno.env.get('SUPABASE_URL') ?? '', Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '');
-    const now = new Date().toISOString();
-    // The app fans a group message out with one call per member (4 at a time), so in groups of
-    // 100+ members the last calls arrive minutes later. A 120 s window rejected them (403) and those
-    // members never got the push. Group messages get 15 minutes; the message must still exist, come
-    // from a member and postdate the recipient joining, and each push is claimed once (dedup).
-    const since = new Date(Date.parse(now) - (context === 'group_message' ? 900_000 : 120_000)).toISOString();
+    const now = new Date(nowMs).toISOString();
+    const since = new Date(nowMs - 120_000).toISOString();
     // PostgreSQL timestamps have finer precision; tolerate up to one second of clock skew.
-    const until = new Date(Date.parse(now) + 1000).toISOString();
+    const until = new Date(nowMs + 1000).toISOString();
     const recent = (table: string, columns: string) => supabase.from(table).select(`id,${columns}`)
       .gte('created_at', since).lte('created_at', until)
       .order('created_at', { ascending: false }).order('id', { ascending: false }).limit(1);
     let query: ReturnType<typeof recent> | undefined;
     let groupName = '';
     const action: Record<string, string> = { context, type: kind };
+    // Shipped callers omit row IDs. Resolve only the latest matching row, never
+    // the latest *unclaimed* row: a retry must not drain earlier interactions.
+    let interaction: Interaction | null = null;
 
     if (context === 'partner') {
-      const caller = await checked(supabase.from('profiles').select('id,linked_partner_id').eq('user_id', callerId).maybeSingle());
+      const caller = await checked(supabase.from('profiles').select('id,linked_partner_id').eq('user_id', callerId).maybeSingle()) as any;
       if (!caller?.linked_partner_id) return forbidden();
       const partner = await checked(supabase.from('profiles').select('user_id,linked_partner_id')
-        .eq('id', caller.linked_partner_id).maybeSingle());
+        .eq('id', caller.linked_partner_id).maybeSingle()) as any;
       if (partner?.user_id !== targetId || partner.linked_partner_id !== caller.id) return forbidden();
       if (kind === 'shopping_list') {
         query = recent('shopping_items', 'name').eq('user_id', callerId).eq('partner_id', targetId);
@@ -287,19 +561,26 @@ export async function handleInteractionPush(req: Request) {
         .in('message_type', ['text', 'image', 'video', 'audio']);
     } else if (context === 'group_message') {
       if (!ids.groupId || !ids.messageId) return json(400, { error: 'missing_group_or_message_id' });
-      const group = await checked(supabase.from('community_groups').select('id,name').eq('id', ids.groupId).eq('is_active', true).maybeSingle());
-      const senderMember = await checked(supabase.from('group_memberships').select('user_id').eq('group_id', ids.groupId).eq('user_id', callerId).maybeSingle());
-      const targetMember = await checked(supabase.from('group_memberships').select('user_id,joined_at').eq('group_id', ids.groupId).eq('user_id', targetId).maybeSingle());
-      if (!group || !senderMember || !targetMember) return forbidden();
-      groupName = preview(group.name, 50);
-      query = recent('group_messages', 'content,message_type').eq('sender_id', callerId).eq('group_id', ids.groupId)
-        .gte('created_at', targetMember.joined_at).in('message_type', ['text', 'image', 'video', 'audio']);
+      // Older apps fan a group message out themselves (one call per member, 4 at a time), so in
+      // big groups the last calls arrive minutes later: group messages get a 15-minute window.
+      // Unknown/inactive group, non-member sender, or a message that is not the caller's own
+      // recent group message stay 403.
+      const verified = await verifyGroupMessage(supabase, callerId, ids.groupId, ids.messageId, ids.interactionId, nowMs);
+      if (!verified) return forbidden();
+      const targetMember = await checked(supabase.from('group_memberships').select('user_id,joined_at')
+        .eq('group_id', ids.groupId).eq('user_id', targetId).maybeSingle()) as { joined_at?: string } | null;
+      // A recipient who left (or joined after the message) is an expected outcome of a
+      // client-side fan-out, not an error: answer 200 so old builds stop reporting failures.
+      if (!memberAtMessage(targetMember, verified.message)) return json(200, { success: true, sent: 0, skipped: 'not_member' });
+      groupName = preview(verified.group.name, 50);
+      interaction = verified.message;
       action.groupId = ids.groupId;
+      action.interactionId = interaction.id;
     } else if (context === 'community_post') {
       if (!ids.postId) return json(400, { error: 'missing_post_id' });
       const post = await checked(supabase.from('community_posts').select('user_id,group_id')
-        .eq('id', ids.postId).eq('is_active', true).maybeSingle());
-      if (!post || post.user_id !== targetId || (Object.hasOwn(ids, 'groupId') && ids.groupId !== post.group_id)) return forbidden();
+        .eq('id', ids.postId).eq('is_active', true).maybeSingle()) as any;
+      if (!post || post.user_id !== targetId || (own(ids, 'groupId') && ids.groupId !== post.group_id)) return forbidden();
       action.postId = ids.postId;
       if (post.group_id) action.groupId = post.group_id;
       query = kind === 'community_like'
@@ -309,7 +590,7 @@ export async function handleInteractionPush(req: Request) {
     } else if (context === 'community_story') {
       if (!ids.storyId) return json(400, { error: 'missing_story_id' });
       const story = await checked(supabase.from('community_stories').select('user_id')
-        .eq('id', ids.storyId).gt('expires_at', now).maybeSingle());
+        .eq('id', ids.storyId).gt('expires_at', now).maybeSingle()) as any;
       if (story?.user_id !== targetId) return forbidden();
       action.storyId = ids.storyId;
       query = kind === 'story_like'
@@ -318,7 +599,7 @@ export async function handleInteractionPush(req: Request) {
     } else if (context === 'post_comment') {
       if (!ids.commentId || !ids.postId) return json(400, { error: 'missing_comment_or_post_id' });
       const comment = await checked(supabase.from('post_comments').select('user_id,post_id')
-        .eq('id', ids.commentId).eq('is_active', true).maybeSingle());
+        .eq('id', ids.commentId).eq('is_active', true).maybeSingle()) as any;
       if (comment?.user_id !== targetId || comment.post_id !== ids.postId) return forbidden();
       const post = await checked(supabase.from('community_posts').select('id')
         .eq('id', comment.post_id).eq('is_active', true).maybeSingle());
@@ -331,121 +612,23 @@ export async function handleInteractionPush(req: Request) {
           .eq('post_id', comment.post_id).eq('user_id', callerId).eq('is_active', true);
     }
 
-    // Shipped callers omit row IDs. Resolve only the latest matching row, never
-    // the latest *unclaimed* row: a retry must not drain earlier interactions.
-    let interaction: { id: string; content?: string; message?: string; name?: string; message_type?: string; is_anonymous?: boolean } | null = null;
     if (query) {
       if (ids.interactionId) query = query.eq('id', ids.interactionId);
       if (ids.messageId) query = query.eq('id', ids.messageId);
-      interaction = await checked(query.maybeSingle());
+      interaction = await checked(query.maybeSingle()) as Interaction | null;
       if (!interaction || !uuid.test(interaction.id)) return forbidden();
       action.interactionId = interaction.id;
       // PartnerCareCard can persist a plain text fallback. It proves a message,
       // not a thank-you event; canonicalize copy, preferences, claims and logging.
       if (kind === 'thank_you' && interaction.message_type === 'text') kind = 'partner_message';
       action.type = kind;
-    } else if (kind !== 'diagnostic') return forbidden();
+    } else if (!interaction && kind !== 'diagnostic') return forbidden();
 
-    const preferences = await checked(supabase.from('user_preferences')
-      .select('language,push_enabled,push_messages,push_likes,push_comments,push_community').eq('user_id', targetId).maybeSingle());
-    const language = typeof preferences?.language === 'string' && LANGUAGE_CODES.includes(preferences.language) ? preferences.language : 'az';
-    const translated = serverCopy<Record<string, string>>('push', language, {});
-    const text = (key: keyof typeof messages) => translated[key] || (messages[key] as Record<string, string>)[language] || messages[key].az;
-    let sender = text('anonymous');
-    if (interaction && !interaction.is_anonymous) {
-      const profile = await checked(supabase.from('profiles').select('name').eq('user_id', callerId).maybeSingle());
-      sender = preview(profile?.name, 50) || text('user');
-    }
-    const format = (key: keyof typeof messages) => text(key).replace(/\{(sender|item)\}/g,
-      (_match, field: string) => field === 'sender' ? sender : preview(interaction?.name, 100));
-    let body = text('diagnosticBody');
-    if (interaction) {
-      if (kind.endsWith('_like')) {
-        body = format(kind === 'community_like' ? 'postLiked' : kind === 'story_like' ? 'storyLiked' : 'commentLiked');
-      } else if (kind === 'shopping_list') {
-        body = format('shoppingAdded');
-      } else if (kind === 'thank_you') {
-        body = format('thanks');
-      } else if (kind === 'contraction_511') {
-        body = format('contractionAlert');
-      } else {
-        const media = interaction.message_type;
-        // User-written message/comment/alert text stays in its original language.
-        const content = media === 'image' || media === 'video' || media === 'audio' || media === 'love'
-          ? text(media) : preview(interaction.content ?? interaction.message, 150);
-        body = `${sender}: ${content || text('openMessage')}`;
-      }
-      if (context === 'direct_message' || context === 'group_message' || kind === 'partner_message') {
-        action.sender_id = callerId;
-        action.messageId = interaction.id;
-      }
-    }
-    body = preview(body);
-    const title = kind === 'community_reply' ? preview(format('repliedToComment'), 60) : groupName || text(contracts[kind].title);
-    const social = ['community_post', 'community_story', 'post_comment', 'group_message'].includes(context);
-    const category = kind.endsWith('_like') ? 'push_likes'
-      : (context === 'direct_message' || context === 'group_message' || kind === 'partner_message') ? 'push_messages' : social ? 'push_comments' : null;
-    const enabled = preferences?.push_enabled !== false && (!social || preferences?.push_community !== false)
-      && (!category || preferences?.[category] !== false);
-
-    // The SQL RPC commits the durable claim and in-app notification together.
-    // Claims are never released after an uncertain FCM outcome. This prevents
-    // repeated attempts, not loss or duplication inside FCM/device delivery.
-    const claimed = await checked(supabase.rpc('claim_communication_notification_v2', {
-      p_interaction_id: interaction?.id ?? null, p_target_user_id: targetId, p_kind: kind,
-      p_title: title, p_body: body, p_data: action,
-    }));
-    if (claimed === false) return json(200, { success: true, sent: 0, skipped: 'duplicate' });
-    if (claimed !== true) throw new Error('invalid_claim_result');
-    if (!enabled) return json(200, { success: true, sent: 0, skipped: 'preferences_disabled' });
-
-    const tokens = await checked(supabase.from('device_tokens').select('token').eq('user_id', targetId)
-      .order('created_at', { ascending: false }).order('id', { ascending: false }).limit(10));
-    if (!tokens?.length) return json(200, { success: true, sent: 0, skipped: 'no_device_tokens' });
-    if (tokens.some(({ token }) => typeof token !== 'string' || !token || token.length > 4096)) {
-      throw new Error('invalid_device_tokens');
-    }
-    const account = Deno.env.get('FIREBASE_SERVICE_ACCOUNT_JSON');
-    if (!account) return json(503, { error: 'fcm_not_configured' });
-    const { accessToken, projectId } = await getFirebaseAccessToken(account);
-    let sent = 0;
-    let failed = 0;
-    for (const { token } of tokens) {
-      let success = false;
-      let dead = false;
-      let code = 'FCM_UNAVAILABLE';
-      try {
-        // Keep provider responses and token fragments out of both console and DB logs.
-        const response = await fetch(`https://fcm.googleapis.com/v1/projects/${encodeURIComponent(projectId)}/messages:send`, {
-          method: 'POST', redirect: 'error', signal: AbortSignal.timeout(10_000),
-          headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: {
-            token, notification: { title, body }, data: action,
-            android: { priority: 'HIGH', notification: { sound: 'default' } },
-            apns: { headers: { 'apns-priority': '10', 'apns-push-type': 'alert' }, payload: { aps: { sound: 'default', badge: 1 } } },
-          } }),
-        });
-        success = response.ok;
-        if (!success) {
-          const result = await response.json().catch(() => null);
-          const details = result?.error?.details;
-          const fcm = Array.isArray(details) ? details.find((detail) => detail?.['@type'] === 'type.googleapis.com/google.firebase.fcm.v1.FcmError') : null;
-          const errorCode = fcm?.errorCode ?? result?.error?.status;
-          code = ['UNREGISTERED', 'NOT_FOUND', 'INVALID_ARGUMENT', 'QUOTA_EXCEEDED', 'UNAVAILABLE', 'INTERNAL',
-            'SENDER_ID_MISMATCH', 'THIRD_PARTY_AUTH_ERROR', 'PERMISSION_DENIED', 'UNAUTHENTICATED'].includes(errorCode) ? errorCode : 'FCM_REJECTED';
-          dead = fcm?.errorCode === 'UNREGISTERED';
-        }
-      } catch { /* Delivery may be uncertain; retain the claim and token. */ }
-      if (success) sent++; else failed++;
-      const log = await checked(supabase.from('notification_send_log').insert({
-        user_id: targetId, title: '[redacted]', body: '[redacted]', source_type: 'dynamic',
-        source_notification_id: interaction?.id ?? null, notification_type: kind,
-        status: success ? 'sent' : 'failed', reason: success ? null : 'fcm_failed', error_code: success ? null : code,
-      }).select('id').single());
-      if (!log?.id) throw new Error('send_log_write_failed');
-      if (dead) await checked(supabase.from('device_tokens').delete().eq('user_id', targetId).eq('token', token));
-    }
-    return json(sent ? 200 : 502, { success: failed === 0, sent, failed });
+    const outcome = await deliver({
+      db: supabase, deps, callerId, targetId, kind, context, interaction, groupName, action,
+      senderName: senderNameLoader(supabase, callerId), fcm: fcmLoader(deps),
+    });
+    return json(outcome.status, outcome.body);
   } catch {
     console.error('[send-push-notification] operation_failed');
     return json(503, { error: 'push_operation_failed' });
