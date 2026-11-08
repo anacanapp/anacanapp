@@ -12402,5 +12402,14 @@
   "hub_tools_offline_title": "ツールを読み込めませんでした",
   "hub_tools_offline_sub": "インターネット接続を確認して、もう一度お試しください。",
   "hub_tools_retry": "再試行",
-  "hub_tools_free_limited": "無料 · 回数制限あり"
+  "hub_tools_free_limited": "無料 · 回数制限あり",
+  "marketinbox_loading": "メッセージを読み込み中",
+  "marketinbox_load_failed": "メッセージを読み込めませんでした。",
+  "marketinbox_empty_hint": "出品へのメッセージや、連絡した出品者とのやり取りがここに表示されます。",
+  "marketinbox_role_buyer": "購入者",
+  "marketinbox_role_seller": "出品者",
+  "marketinbox_unread_count": "未読 {n} 件",
+  "marketinbox_remove_image": "写真を削除",
+  "marketinbox_create_listing": "出品する",
+  "marketinbox_block_buyer": "購入者をブロック"
 }

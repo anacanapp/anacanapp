@@ -12402,5 +12402,14 @@
   "hub_tools_offline_title": "Nie udało się wczytać narzędzi",
   "hub_tools_offline_sub": "Sprawdź połączenie z internetem i spróbuj ponownie.",
   "hub_tools_retry": "Spróbuj ponownie",
-  "hub_tools_free_limited": "Za darmo · z limitem"
+  "hub_tools_free_limited": "Za darmo · z limitem",
+  "marketinbox_loading": "Ładowanie wiadomości",
+  "marketinbox_load_failed": "Nie udało się wczytać wiadomości.",
+  "marketinbox_empty_hint": "Tu pojawią się rozmowy o Twoich ogłoszeniach i ze sprzedającymi, do których piszesz.",
+  "marketinbox_role_buyer": "Kupujący",
+  "marketinbox_role_seller": "Sprzedający",
+  "marketinbox_unread_count": "Nieprzeczytane: {n}",
+  "marketinbox_remove_image": "Usuń zdjęcie",
+  "marketinbox_create_listing": "Utwórz ogłoszenie",
+  "marketinbox_block_buyer": "Zablokuj kupującego"
 }

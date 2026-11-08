@@ -10255,5 +10255,14 @@
   "hub_tools_offline_title": "Tools konnten nicht geladen werden",
   "hub_tools_offline_sub": "Prüfe deine Internetverbindung und versuche es erneut.",
   "hub_tools_retry": "Erneut versuchen",
-  "hub_tools_free_limited": "Kostenlos · begrenzt"
+  "hub_tools_free_limited": "Kostenlos · begrenzt",
+  "marketinbox_loading": "Nachrichten werden geladen",
+  "marketinbox_load_failed": "Nachrichten konnten nicht geladen werden.",
+  "marketinbox_empty_hint": "Hier erscheinen Chats zu deinen Anzeigen und mit Verkäufern, denen du schreibst.",
+  "marketinbox_role_buyer": "Käufer",
+  "marketinbox_role_seller": "Verkäufer",
+  "marketinbox_unread_count": "{n} ungelesen",
+  "marketinbox_remove_image": "Foto entfernen",
+  "marketinbox_create_listing": "Anzeige erstellen",
+  "marketinbox_block_buyer": "Käufer blockieren"
 }

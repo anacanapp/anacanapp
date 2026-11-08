@@ -12480,5 +12480,14 @@
   "hub_tools_offline_title": "Куралдар жүктөлгөн жок",
   "hub_tools_offline_sub": "Интернет байланышын текшерип, кайра аракет кылыңыз.",
   "hub_tools_retry": "Кайра аракет кылуу",
-  "hub_tools_free_limited": "Акысыз · чектелген"
+  "hub_tools_free_limited": "Акысыз · чектелген",
+  "marketinbox_loading": "Билдирүүлөр жүктөлүүдө",
+  "marketinbox_load_failed": "Билдирүүлөр жүктөлгөн жок.",
+  "marketinbox_empty_hint": "Жарыяларыңыз боюнча жана сиз жазган сатуучулар менен кат алышуулар ушул жерде көрүнөт.",
+  "marketinbox_role_buyer": "Сатып алуучу",
+  "marketinbox_role_seller": "Сатуучу",
+  "marketinbox_unread_count": "{n} окулбаган",
+  "marketinbox_remove_image": "Сүрөттү өчүрүү",
+  "marketinbox_create_listing": "Жарыя түзүү",
+  "marketinbox_block_buyer": "Сатып алуучуну бөгөттөө"
 }

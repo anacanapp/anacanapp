@@ -12402,5 +12402,14 @@
   "hub_tools_offline_title": "Alat tidak dapat dimuat",
   "hub_tools_offline_sub": "Periksa koneksi internet Anda lalu coba lagi.",
   "hub_tools_retry": "Coba lagi",
-  "hub_tools_free_limited": "Gratis · terbatas"
+  "hub_tools_free_limited": "Gratis · terbatas",
+  "marketinbox_loading": "Memuat pesan",
+  "marketinbox_load_failed": "Pesan tidak dapat dimuat.",
+  "marketinbox_empty_hint": "Obrolan tentang iklan Anda dan dengan penjual yang Anda hubungi akan muncul di sini.",
+  "marketinbox_role_buyer": "Pembeli",
+  "marketinbox_role_seller": "Penjual",
+  "marketinbox_unread_count": "{n} belum dibaca",
+  "marketinbox_remove_image": "Hapus foto",
+  "marketinbox_create_listing": "Buat iklan",
+  "marketinbox_block_buyer": "Blokir pembeli"
 }

@@ -10255,5 +10255,14 @@
   "hub_tools_offline_title": "ხელსაწყოები ვერ ჩაიტვირთა",
   "hub_tools_offline_sub": "შეამოწმეთ ინტერნეტთან კავშირი და სცადეთ თავიდან.",
   "hub_tools_retry": "თავიდან ცდა",
-  "hub_tools_free_limited": "უფასო · შეზღუდული"
+  "hub_tools_free_limited": "უფასო · შეზღუდული",
+  "marketinbox_loading": "შეტყობინებები იტვირთება",
+  "marketinbox_load_failed": "შეტყობინებები ვერ ჩაიტვირთა.",
+  "marketinbox_empty_hint": "აქ გამოჩნდება მიმოწერა თქვენს განცხადებებზე და გამყიდველებთან, ვისაც მისწერეთ.",
+  "marketinbox_role_buyer": "მყიდველი",
+  "marketinbox_role_seller": "გამყიდველი",
+  "marketinbox_unread_count": "{n} წაუკითხავი",
+  "marketinbox_remove_image": "ფოტოს წაშლა",
+  "marketinbox_create_listing": "განცხადების შექმნა",
+  "marketinbox_block_buyer": "მყიდველის დაბლოკვა"
 }

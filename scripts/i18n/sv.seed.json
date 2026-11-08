@@ -12402,5 +12402,14 @@
   "hub_tools_offline_title": "Verktygen kunde inte laddas",
   "hub_tools_offline_sub": "Kontrollera internetanslutningen och försök igen.",
   "hub_tools_retry": "Försök igen",
-  "hub_tools_free_limited": "Gratis · begränsat"
+  "hub_tools_free_limited": "Gratis · begränsat",
+  "marketinbox_loading": "Laddar meddelanden",
+  "marketinbox_load_failed": "Meddelandena kunde inte laddas.",
+  "marketinbox_empty_hint": "Chattar om dina annonser och med säljare du skriver till visas här.",
+  "marketinbox_role_buyer": "Köpare",
+  "marketinbox_role_seller": "Säljare",
+  "marketinbox_unread_count": "{n} olästa",
+  "marketinbox_remove_image": "Ta bort foto",
+  "marketinbox_create_listing": "Skapa annons",
+  "marketinbox_block_buyer": "Blockera köparen"
 }

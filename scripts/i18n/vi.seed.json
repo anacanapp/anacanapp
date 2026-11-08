@@ -12402,5 +12402,14 @@
   "hub_tools_offline_title": "Không tải được công cụ",
   "hub_tools_offline_sub": "Hãy kiểm tra kết nối internet và thử lại.",
   "hub_tools_retry": "Thử lại",
-  "hub_tools_free_limited": "Miễn phí · có giới hạn"
+  "hub_tools_free_limited": "Miễn phí · có giới hạn",
+  "marketinbox_loading": "Đang tải tin nhắn",
+  "marketinbox_load_failed": "Không thể tải tin nhắn.",
+  "marketinbox_empty_hint": "Các cuộc trò chuyện về tin đăng của bạn và với người bán bạn nhắn sẽ hiện ở đây.",
+  "marketinbox_role_buyer": "Người mua",
+  "marketinbox_role_seller": "Người bán",
+  "marketinbox_unread_count": "{n} chưa đọc",
+  "marketinbox_remove_image": "Xóa ảnh",
+  "marketinbox_create_listing": "Tạo tin đăng",
+  "marketinbox_block_buyer": "Chặn người mua"
 }

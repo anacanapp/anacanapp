@@ -10244,5 +10244,14 @@
   "hub_tools_offline_title": "Tools could not load",
   "hub_tools_offline_sub": "Check your internet connection and try again.",
   "hub_tools_retry": "Try again",
-  "hub_tools_free_limited": "Free · limited"
+  "hub_tools_free_limited": "Free · limited",
+  "marketinbox_loading": "Loading messages",
+  "marketinbox_load_failed": "Messages could not be loaded.",
+  "marketinbox_empty_hint": "Chats about your listings and with sellers you message will appear here.",
+  "marketinbox_role_buyer": "Buyer",
+  "marketinbox_role_seller": "Seller",
+  "marketinbox_unread_count": "{n} unread",
+  "marketinbox_remove_image": "Remove photo",
+  "marketinbox_create_listing": "Create listing",
+  "marketinbox_block_buyer": "Block buyer"
 }

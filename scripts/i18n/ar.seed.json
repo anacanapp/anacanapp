@@ -10255,5 +10255,14 @@
   "hub_tools_offline_title": "تعذّر تحميل الأدوات",
   "hub_tools_offline_sub": "تحقّقي من اتصال الإنترنت وحاولي مرة أخرى.",
   "hub_tools_retry": "حاولي مرة أخرى",
-  "hub_tools_free_limited": "مجاني · محدود"
+  "hub_tools_free_limited": "مجاني · محدود",
+  "marketinbox_loading": "جارٍ تحميل الرسائل",
+  "marketinbox_load_failed": "تعذّر تحميل الرسائل.",
+  "marketinbox_empty_hint": "ستظهر هنا المحادثات حول إعلاناتك ومع البائعين الذين راسلتهم.",
+  "marketinbox_role_buyer": "مشترٍ",
+  "marketinbox_role_seller": "بائع",
+  "marketinbox_unread_count": "{n} غير مقروءة",
+  "marketinbox_remove_image": "إزالة الصورة",
+  "marketinbox_create_listing": "إنشاء إعلان",
+  "marketinbox_block_buyer": "حظر المشتري"
 }

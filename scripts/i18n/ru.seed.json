@@ -10255,5 +10255,14 @@
   "hub_tools_offline_title": "Не удалось загрузить инструменты",
   "hub_tools_offline_sub": "Проверьте подключение к интернету и попробуйте ещё раз.",
   "hub_tools_retry": "Повторить",
-  "hub_tools_free_limited": "Бесплатно · с лимитом"
+  "hub_tools_free_limited": "Бесплатно · с лимитом",
+  "marketinbox_loading": "Загрузка сообщений",
+  "marketinbox_load_failed": "Не удалось загрузить сообщения.",
+  "marketinbox_empty_hint": "Здесь появится переписка по вашим объявлениям и с продавцами, которым вы написали.",
+  "marketinbox_role_buyer": "Покупатель",
+  "marketinbox_role_seller": "Продавец",
+  "marketinbox_unread_count": "Непрочитанных: {n}",
+  "marketinbox_remove_image": "Удалить фото",
+  "marketinbox_create_listing": "Создать объявление",
+  "marketinbox_block_buyer": "Заблокировать покупателя"
 }

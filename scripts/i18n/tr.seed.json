@@ -10255,5 +10255,14 @@
   "hub_tools_offline_title": "Araçlar yüklenemedi",
   "hub_tools_offline_sub": "İnternet bağlantınızı kontrol edip tekrar deneyin.",
   "hub_tools_retry": "Tekrar deneyin",
-  "hub_tools_free_limited": "Ücretsiz · sınırlı"
+  "hub_tools_free_limited": "Ücretsiz · sınırlı",
+  "marketinbox_loading": "Mesajlar yükleniyor",
+  "marketinbox_load_failed": "Mesajlar yüklenemedi.",
+  "marketinbox_empty_hint": "İlanlarınızla ilgili ve yazdığınız satıcılarla yazışmalarınız burada görünecek.",
+  "marketinbox_role_buyer": "Alıcı",
+  "marketinbox_role_seller": "Satıcı",
+  "marketinbox_unread_count": "{n} okunmamış",
+  "marketinbox_remove_image": "Fotoğrafı kaldır",
+  "marketinbox_create_listing": "İlan oluştur",
+  "marketinbox_block_buyer": "Alıcıyı engelle"
 }

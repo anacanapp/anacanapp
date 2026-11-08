@@ -12480,5 +12480,14 @@
   "hub_tools_offline_title": "Tööriistu ei õnnestunud laadida",
   "hub_tools_offline_sub": "Kontrollige internetiühendust ja proovige uuesti.",
   "hub_tools_retry": "Proovi uuesti",
-  "hub_tools_free_limited": "Tasuta · piiratud"
+  "hub_tools_free_limited": "Tasuta · piiratud",
+  "marketinbox_loading": "Sõnumite laadimine",
+  "marketinbox_load_failed": "Sõnumeid ei õnnestunud laadida.",
+  "marketinbox_empty_hint": "Siin kuvatakse vestlused sinu kuulutuste kohta ja müüjatega, kellele kirjutad.",
+  "marketinbox_role_buyer": "Ostja",
+  "marketinbox_role_seller": "Müüja",
+  "marketinbox_unread_count": "{n} lugemata",
+  "marketinbox_remove_image": "Eemalda foto",
+  "marketinbox_create_listing": "Loo kuulutus",
+  "marketinbox_block_buyer": "Blokeeri ostja"
 }

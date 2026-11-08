@@ -10255,5 +10255,14 @@
   "hub_tools_offline_title": "Құралдар жүктелмеді",
   "hub_tools_offline_sub": "Интернет байланысын тексеріп, қайта көріңіз.",
   "hub_tools_retry": "Қайталау",
-  "hub_tools_free_limited": "Тегін · шектеулі"
+  "hub_tools_free_limited": "Тегін · шектеулі",
+  "marketinbox_loading": "Хабарламалар жүктелуде",
+  "marketinbox_load_failed": "Хабарламалар жүктелмеді.",
+  "marketinbox_empty_hint": "Хабарландыруларыңыз бойынша және сіз жазған сатушылармен хат алмасу осында көрінеді.",
+  "marketinbox_role_buyer": "Сатып алушы",
+  "marketinbox_role_seller": "Сатушы",
+  "marketinbox_unread_count": "{n} оқылмаған",
+  "marketinbox_remove_image": "Суретті жою",
+  "marketinbox_create_listing": "Хабарландыру жасау",
+  "marketinbox_block_buyer": "Сатып алушыны бұғаттау"
 }

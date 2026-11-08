@@ -10255,5 +10255,14 @@
   "hub_tools_offline_title": "Vositalar yuklanmadi",
   "hub_tools_offline_sub": "Internet aloqasini tekshirib, qayta urinib koʻring.",
   "hub_tools_retry": "Qayta urinish",
-  "hub_tools_free_limited": "Bepul · cheklangan"
+  "hub_tools_free_limited": "Bepul · cheklangan",
+  "marketinbox_loading": "Xabarlar yuklanmoqda",
+  "marketinbox_load_failed": "Xabarlar yuklanmadi.",
+  "marketinbox_empty_hint": "E'lonlaringiz bo'yicha va siz yozgan sotuvchilar bilan yozishmalar shu yerda ko'rinadi.",
+  "marketinbox_role_buyer": "Xaridor",
+  "marketinbox_role_seller": "Sotuvchi",
+  "marketinbox_unread_count": "{n} ta o'qilmagan",
+  "marketinbox_remove_image": "Rasmni o'chirish",
+  "marketinbox_create_listing": "E'lon yaratish",
+  "marketinbox_block_buyer": "Xaridorni bloklash"
 }

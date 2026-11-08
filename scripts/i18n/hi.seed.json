@@ -12402,5 +12402,14 @@
   "hub_tools_offline_title": "टूल लोड नहीं हो सके",
   "hub_tools_offline_sub": "अपना इंटरनेट कनेक्शन जाँचें और फिर से कोशिश करें।",
   "hub_tools_retry": "फिर से कोशिश करें",
-  "hub_tools_free_limited": "मुफ़्त · सीमित"
+  "hub_tools_free_limited": "मुफ़्त · सीमित",
+  "marketinbox_loading": "संदेश लोड हो रहे हैं",
+  "marketinbox_load_failed": "संदेश लोड नहीं हो सके।",
+  "marketinbox_empty_hint": "आपके विज्ञापनों और जिन विक्रेताओं को आप लिखती हैं उनसे बातचीत यहाँ दिखेगी।",
+  "marketinbox_role_buyer": "खरीदार",
+  "marketinbox_role_seller": "विक्रेता",
+  "marketinbox_unread_count": "{n} अपठित",
+  "marketinbox_remove_image": "फ़ोटो हटाएँ",
+  "marketinbox_create_listing": "विज्ञापन बनाएँ",
+  "marketinbox_block_buyer": "खरीदार को ब्लॉक करें"
 }

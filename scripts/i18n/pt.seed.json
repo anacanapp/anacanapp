@@ -12402,5 +12402,14 @@
   "hub_tools_offline_title": "Não foi possível carregar as ferramentas",
   "hub_tools_offline_sub": "Verifique a sua ligação à internet e tente novamente.",
   "hub_tools_retry": "Tentar novamente",
-  "hub_tools_free_limited": "Grátis · limitado"
+  "hub_tools_free_limited": "Grátis · limitado",
+  "marketinbox_loading": "Carregando mensagens",
+  "marketinbox_load_failed": "Não foi possível carregar as mensagens.",
+  "marketinbox_empty_hint": "As conversas sobre seus anúncios e com vendedores que você contatar aparecerão aqui.",
+  "marketinbox_role_buyer": "Comprador",
+  "marketinbox_role_seller": "Vendedor",
+  "marketinbox_unread_count": "{n} não lida(s)",
+  "marketinbox_remove_image": "Remover foto",
+  "marketinbox_create_listing": "Criar anúncio",
+  "marketinbox_block_buyer": "Bloquear comprador"
 }

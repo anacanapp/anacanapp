@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
   Plus, Search, MessageCircle, MapPin,
-  X, Check, Loader2, Package, Tag, Clock, Send,
+  X, Check, Loader2, Package, Tag, Clock,
   Sparkles, ImagePlus, Image as ImageIcon, Flag, Ban } from
 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -14,7 +14,7 @@ import { getCurrentDateLocale } from '@/lib/date-utils';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
-import { tr } from "@/lib/tr";
+import { tr, formatTr } from "@/lib/tr";
 import { compressImageForUpload } from '@/lib/image-compress';
 import { getPublicProfileCards } from '@/lib/public-profile-cards';
 import {
@@ -22,6 +22,10 @@ import {
   unblockMarketUser, visibleListings, visibleMessages, type MarketReportReason, type MarketReportTarget } from
 '@/lib/marketSafety';
 import { MarketBlockDialog, MarketReportDialog } from './market/MarketSafetyDialogs';
+import { MarketInbox } from './market/MarketInbox';
+import { MarketThread } from './market/MarketThread';
+import { useMarketInbox } from './market/useMarketInbox';
+import { threadMessages, type MarketConversation } from '@/lib/marketInbox';
 interface SecondHandMarketProps {
   onBack: () => void;
 }
@@ -109,6 +113,24 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
   const [reportTarget, setReportTarget] = useState<{ target: MarketReportTarget; listingId: string | null; userId: string | null } | null>(null);
   const [blockTargetId, setBlockTargetId] = useState<string | null>(null);
 
+  // Inbox: conversations as buyer and as seller (src/lib/marketInbox.ts).
+  const [showInbox, setShowInbox] = useState(false);
+  const [openConv, setOpenConv] = useState<MarketConversation | null>(null);
+  const [threadText, setThreadText] = useState('');
+  const [threadSending, setThreadSending] = useState(false);
+  const inbox = useMarketInbox(profile?.user_id, blocked);
+  const openThread = openConv && profile?.user_id ?
+  threadMessages(inbox.messages, openConv.listingId, openConv.counterpartId, profile.user_id, blocked) :
+  [];
+  const openThreadLast = openThread[openThread.length - 1];
+  const openThreadHasUnread = !!openConv && openThread.some((m) => m.sender_id === openConv.counterpartId && m.is_read !== true);
+  const { markRead } = inbox;
+
+  // Opening a thread (and every new incoming message while it is open) marks it read.
+  useEffect(() => {
+    if (openConv && openThreadLast && openThreadHasUnread) markRead(openConv.listingId, openConv.counterpartId, openThreadLast.created_at);
+  }, [openConv, openThreadLast, openThreadHasUnread, markRead]);
+
   useEffect(() => {
     let alive = true;
     void loadMarketBlocks(supabase, profile?.user_id).then((set) => { if (alive) setBlocked(set); });
@@ -150,6 +172,7 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
     setBlockTargetId(null);
     setShowContactModal(false);
     setShowDetailModal(false);
+    setOpenConv(null);
     toast({ title: tr('market_blocked_done', 'İstifadəçi bloklandı') });
   };
 
@@ -324,7 +347,10 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
     eq('listing_id', listing.id).
     or(`sender_id.eq.${profile.user_id},receiver_id.eq.${profile.user_id}`).
     order('created_at', { ascending: true });
-    setContactMessages(data || []);
+    const rows = data || [];
+    setContactMessages(rows);
+    const lastFromSeller = [...rows].reverse().find((m) => m.sender_id === listing.user_id && m.receiver_id === profile.user_id);
+    if (lastFromSeller) markRead(listing.id, listing.user_id, lastFromSeller.created_at);
   };
 
   useEffect(() => {
@@ -354,6 +380,7 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
       }
       setContactMessage('');
       await loadContactMessages(contactListing);
+      void inbox.refresh();
     } catch (error) {
       toast({
         title: tr("secondhandmarket_xeta_3cdbb6", 'Xəta'),
@@ -362,6 +389,39 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
       });
     } finally {
       setSendingMessage(false);
+    }
+  };
+
+  const handleThreadSend = async () => {
+    const text = threadText.trim();
+    if (!text || !openConv || !profile?.user_id || threadSending) return;
+    setThreadSending(true);
+    try {
+      const { error } = await supabase.
+      from('marketplace_messages').
+      insert({
+        listing_id: openConv.listingId,
+        sender_id: profile.user_id,
+        receiver_id: openConv.counterpartId,
+        content: text
+      });
+      if (error) {
+        if (isMarketBlockedError(error)) {
+          toast({ title: tr('market_message_blocked', 'Bu istifadəçiyə mesaj göndərmək mümkün deyil.'), variant: 'destructive' });
+          return;
+        }
+        throw error;
+      }
+      setThreadText('');
+      await inbox.refresh();
+    } catch {
+      toast({
+        title: tr("secondhandmarket_xeta_3cdbb6", 'Xəta'),
+        description: tr("secondhandmarket_mesaj_gonderile_bilmedi_0cd095", 'Mesaj göndərilə bilmədi'),
+        variant: 'destructive'
+      });
+    } finally {
+      setThreadSending(false);
     }
   };
 
@@ -394,9 +454,10 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
         <motion.button
           onClick={() => setShowCreateModal(true)}
           className="a-cta-btn"
+          aria-label={tr("secondhandmarket_yeni_elan_yarat_3c7a2d", "Yeni elan yarat")}
           style={{ width: 38, height: 38, padding: 0, justifyContent: 'center' }}
           whileTap={{ scale: 0.95 }}>
-            <Plus size={16} strokeWidth={2.4} />
+            <Plus size={16} strokeWidth={2.4} aria-hidden="true" />
           </motion.button>
         } />
 
@@ -482,20 +543,41 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
         {/* Toggle My Listings */}
         <div className="a-tabs w-full" style={{ display: 'flex' }}>
           <button
-            className={`a-tab flex-1 ${!showMyListings ? 'active' : ''}`}
-            onClick={() => setShowMyListings(false)}>
+            className={`a-tab flex-1 ${!showMyListings && !showInbox ? 'active' : ''}`}
+            onClick={() => {setShowMyListings(false);setShowInbox(false);}}>
             {tr("secondhandmarket_butun_elanlar_033e6a", "B\xFCt\xFCn elanlar")}
           
           </button>
           <button
-            className={`a-tab flex-1 ${showMyListings ? 'active' : ''}`}
-            onClick={() => setShowMyListings(true)}>
+            className={`a-tab flex-1 ${showMyListings && !showInbox ? 'active' : ''}`}
+            onClick={() => {setShowMyListings(true);setShowInbox(false);}}>
             {tr("secondhandmarket_menim_elanlarim_cec2c2", "M\u0259nim elanlar\u0131m")}
           
           </button>
+          {profile?.user_id &&
+          <button
+            className={`a-tab flex-1 ${showInbox ? 'active' : ''}`}
+            onClick={() => {setShowInbox(true);void inbox.refresh();}}
+            aria-label={inbox.unread > 0 ?
+            `${tr('bottomnav_mesajlar', 'Mesajlar')}, ${formatTr('marketinbox_unread_count', '{n} oxunmamış', { n: inbox.unread })}` :
+            undefined}>
+              <span className="inline-flex items-center justify-center gap-1.5">
+                {tr('bottomnav_mesajlar', 'Mesajlar')}
+                {inbox.unread > 0 &&
+              <span
+                data-testid="market-inbox-badge"
+                aria-hidden="true"
+                className="rounded-full text-[11px] font-bold inline-flex items-center justify-center"
+                style={{ minWidth: 18, height: 18, padding: '0 5px', background: 'var(--a-green-2)', color: '#fff' }}>
+                    {inbox.unread > 99 ? '99+' : inbox.unread}
+                  </span>
+              }
+              </span>
+            </button>
+          }
         </div>
 
-        {showMyListings && blocked.size > 0 &&
+        {showMyListings && !showInbox && blocked.size > 0 &&
         <div className="a-card" style={{ padding: 12 }}>
             <p className="a-list-title" style={{ margin: '0 0 8px' }}>{tr('market_blocked_users', 'Bloklanmış istifadəçilər')}</p>
             <div className="space-y-2">
@@ -512,7 +594,17 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
         }
 
         {/* Listings */}
-        {isLoading ?
+        {showInbox ?
+        <MarketInbox
+          conversations={inbox.conversations}
+          listings={inbox.listings}
+          names={inbox.names}
+          myId={profile?.user_id}
+          loading={inbox.loading}
+          failed={inbox.failed}
+          onRetry={() => void inbox.refresh()}
+          onOpen={(conv) => {setThreadText('');setOpenConv(conv);}} /> :
+        isLoading ?
         <div className="grid grid-cols-2 gap-3">
             {[1, 2, 3, 4].map((i) =>
           <div key={i} className="a-card overflow-hidden animate-pulse" style={{ padding: 0 }}>
@@ -644,11 +736,12 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
                     <img src={img} alt="" className="w-full h-full object-cover" />
                     <motion.button
                     onClick={() => removeImage(index)}
-                    className="absolute top-1 end-1 w-6 h-6 rounded-full text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    aria-label={tr('marketinbox_remove_image', 'Şəkli sil')}
+                    className="absolute top-1 end-1 w-6 h-6 rounded-full text-white flex items-center justify-center opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
                     style={{ background: 'var(--a-pink-2)', border: 'none', cursor: 'pointer' }}
                     whileTap={{ scale: 0.9 }}>
                     
-                      <X className="w-3 h-3" />
+                      <X className="w-3 h-3" aria-hidden="true" />
                     </motion.button>
                   </div>
                 )}
@@ -820,7 +913,7 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
 
               <>
                   <Check size={15} strokeWidth={2.2} />
-                  Elan yarat
+                  {tr('marketinbox_create_listing', 'Elan yarat')}
                 </>
               }
             </button>
@@ -851,11 +944,12 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
                 
                 <motion.button
                 onClick={() => setShowDetailModal(false)}
+                aria-label={tr('common_close', 'Bağla')}
                 className="absolute top-3 end-3 w-8 h-8 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center"
                 style={{ border: 'none', cursor: 'pointer' }}
                 whileTap={{ scale: 0.95 }}>
                 
-                  <X className="w-4 h-4 text-white" />
+                  <X className="w-4 h-4 text-white" aria-hidden="true" />
                 </motion.button>
 
                 {/* Image thumbnails */}
@@ -1010,54 +1104,77 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
                 </div>
               }
 
-              {/* Messages */}
-              <div className="max-h-60 overflow-y-auto space-y-2 p-2">
-                {visibleMessages(contactMessages, blocked).length === 0 ?
-              <div className="text-center py-6">
-                    <MessageCircle className="w-10 h-10 mx-auto mb-2" style={{ color: 'var(--a-ink-faint)' }} />
-                    <p className="a-list-sub" style={{ margin: 0 }}>{tr("secondhandmarket_hele_mesaj_yoxdur_cf0b5e", "Hələ mesaj yoxdur")}</p>
-                    <p className="text-xs" style={{ margin: 0, color: 'var(--a-ink-faint)' }}>{tr("secondhandmarket_saticiya_mesaj_gonderin_ad78e2", "Satıcıya mesaj göndərin")}</p>
-                  </div> :
-
-              visibleMessages(contactMessages, blocked).map((msg) =>
-              <div
-                key={msg.id}
-                className={`flex ${msg.sender_id === profile?.user_id ? 'justify-end' : 'justify-start'}`}>
-                
-                      <div
-                  className={`max-w-[75%] px-3 py-2 text-sm ${
-                  msg.sender_id === profile?.user_id ? 'rounded-2xl rounded-ee-sm' : 'rounded-2xl rounded-es-sm'}`}
-                  style={msg.sender_id === profile?.user_id ?
-                  { background: 'var(--a-peach-1)', color: 'var(--a-accent-ink)' } :
-                  { background: 'var(--a-surface-soft)', color: 'var(--a-ink)' }}>
-                        <p style={{ margin: 0 }}>{msg.content}</p>
-                        <p className="text-[10px] mt-1" style={{ margin: '4px 0 0', opacity: 0.6 }}>
-                          {format(new Date(msg.created_at), 'HH:mm')}
-                        </p>
+              <MarketThread
+              messages={visibleMessages(contactMessages, blocked)}
+              myId={profile?.user_id}
+              value={contactMessage}
+              onChange={setContactMessage}
+              onSend={handleSendMessage}
+              sending={sendingMessage}
+              emptyHint={tr("secondhandmarket_saticiya_mesaj_gonderin_ad78e2", "Satıcıya mesaj göndərin")} />
+            </div>
+          }
+        </DialogContent>
+      </Dialog>
+      {/* Inbox conversation (buyer or seller side) */}
+      <Dialog open={!!openConv} onOpenChange={(open) => {if (!open) {setOpenConv(null);void inbox.refresh();}}}>
+        <DialogContent className="a-scope max-h-[90vh] overflow-y-auto rounded-[26px]" style={{ background: 'var(--a-surface)', border: '1px solid var(--a-line)' }}>
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 a-heading" style={{ color: 'var(--a-ink)' }}>
+              <MessageCircle className="w-5 h-5" style={{ color: 'var(--a-green-2)' }} aria-hidden="true" />
+              <span className="truncate">
+                {openConv && (inbox.names[openConv.counterpartId] || tr('market_user_fallback', 'İstifadəçi'))}
+              </span>
+            </DialogTitle>
+          </DialogHeader>
+          {openConv &&
+          <div className="space-y-4 mt-2">
+              {(() => {
+              const l = inbox.listings[openConv.listingId];
+              return (
+                <div className="flex items-center gap-3 p-3 rounded-2xl" style={{ background: 'var(--a-surface-soft)' }}>
+                    {l?.images?.[0] ?
+                  <img src={l.images[0]} alt="" className="w-12 h-12 rounded-lg object-cover" /> :
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ background: getCategoryInfo(l?.category ?? 'other').grad }}>
+                        <span className="text-xl">{getCategoryInfo(l?.category ?? 'other').emoji}</span>
                       </div>
+                  }
+                    <div className="flex-1 min-w-0">
+                      <p className="a-list-title truncate" style={{ margin: 0 }}>{l?.title || tr('untranslated_elan_voiz8p', 'Elan')}</p>
+                      <p className="a-list-sub" style={{ margin: 0 }}>
+                        {openConv.role === 'seller' ? tr('marketinbox_role_buyer', 'Alıcı') : tr('marketinbox_role_seller', 'Satıcı')}
+                        {l ? ` · ${l.is_free ? tr("secondhandmarket_pulsuz", 'Pulsuz') : `${l.price} ₼`}` : ''}
+                      </p>
                     </div>
-              )
-              }
-              </div>
+                  </div>);
+            })()}
 
-              {/* Message input */}
               <div className="flex gap-2">
-                <input
-                className="a-input flex-1"
-                placeholder={tr("secondhandmarket_mesajinizi_yazin_21d48f", "Mesajınızı yazın...")}
-                value={contactMessage}
-                onChange={(e) => setContactMessage(e.target.value)}
-                onKeyDown={(e) => {if (e.key === 'Enter' && !e.shiftKey) {e.preventDefault();handleSendMessage();}}} />
-              
                 <button
-                className="a-cta-btn"
-                style={{ width: 42, height: 42, padding: 0, justifyContent: 'center', background: 'var(--a-green-2)', opacity: !contactMessage.trim() || sendingMessage ? 0.5 : 1 }}
-                onClick={handleSendMessage}
-                disabled={!contactMessage.trim() || sendingMessage}>
-                
-                  {sendingMessage ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                type="button"
+                className="a-btn-soft flex-1"
+                style={{ minHeight: 40, justifyContent: 'center' }}
+                onClick={() => setReportTarget({ target: reportTargetForContact(openThread.length), listingId: openConv.listingId, userId: openConv.counterpartId })}>
+                  <Flag size={14} strokeWidth={2.2} />
+                  {tr('market_report', 'Şikayət et')}
+                </button>
+                <button
+                type="button"
+                className="a-btn-soft flex-1"
+                style={{ minHeight: 40, justifyContent: 'center' }}
+                onClick={() => setBlockTargetId(openConv.counterpartId)}>
+                  <Ban size={14} strokeWidth={2.2} />
+                  {openConv.role === 'seller' ? tr('marketinbox_block_buyer', 'Alıcını blokla') : tr('market_block_user', 'Satıcını blokla')}
                 </button>
               </div>
+
+              <MarketThread
+              messages={openThread}
+              myId={profile?.user_id}
+              value={threadText}
+              onChange={setThreadText}
+              onSend={handleThreadSend}
+              sending={threadSending} />
             </div>
           }
         </DialogContent>

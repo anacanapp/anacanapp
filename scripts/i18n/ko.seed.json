@@ -12402,5 +12402,14 @@
   "hub_tools_offline_title": "도구를 불러오지 못했습니다",
   "hub_tools_offline_sub": "인터넷 연결을 확인한 뒤 다시 시도하세요.",
   "hub_tools_retry": "다시 시도",
-  "hub_tools_free_limited": "무료 · 제한 있음"
+  "hub_tools_free_limited": "무료 · 제한 있음",
+  "marketinbox_loading": "메시지를 불러오는 중",
+  "marketinbox_load_failed": "메시지를 불러오지 못했습니다.",
+  "marketinbox_empty_hint": "내 판매글에 대한 대화와 내가 연락한 판매자와의 대화가 여기에 표시됩니다.",
+  "marketinbox_role_buyer": "구매자",
+  "marketinbox_role_seller": "판매자",
+  "marketinbox_unread_count": "읽지 않음 {n}개",
+  "marketinbox_remove_image": "사진 삭제",
+  "marketinbox_create_listing": "판매글 등록",
+  "marketinbox_block_buyer": "구매자 차단"
 }

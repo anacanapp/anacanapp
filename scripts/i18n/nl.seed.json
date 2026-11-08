@@ -12402,5 +12402,14 @@
   "hub_tools_offline_title": "Tools konden niet worden geladen",
   "hub_tools_offline_sub": "Controleer je internetverbinding en probeer het opnieuw.",
   "hub_tools_retry": "Opnieuw proberen",
-  "hub_tools_free_limited": "Gratis · beperkt"
+  "hub_tools_free_limited": "Gratis · beperkt",
+  "marketinbox_loading": "Berichten laden",
+  "marketinbox_load_failed": "Berichten konden niet worden geladen.",
+  "marketinbox_empty_hint": "Gesprekken over je advertenties en met verkopers die je een bericht stuurt, verschijnen hier.",
+  "marketinbox_role_buyer": "Koper",
+  "marketinbox_role_seller": "Verkoper",
+  "marketinbox_unread_count": "{n} ongelezen",
+  "marketinbox_remove_image": "Foto verwijderen",
+  "marketinbox_create_listing": "Advertentie plaatsen",
+  "marketinbox_block_buyer": "Koper blokkeren"
 }

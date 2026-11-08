@@ -8752,5 +8752,14 @@
   "hub_tools_offline_title": "Alətlər yüklənmədi",
   "hub_tools_offline_sub": "İnternet bağlantısını yoxlayın və yenidən cəhd edin.",
   "hub_tools_retry": "Yenidən cəhd edin",
-  "hub_tools_free_limited": "Pulsuz · limitli"
+  "hub_tools_free_limited": "Pulsuz · limitli",
+  "marketinbox_loading": "Mesajlar yüklənir",
+  "marketinbox_load_failed": "Mesajlar yüklənmədi.",
+  "marketinbox_empty_hint": "Elanlarınız və yazdığınız satıcılarla yazışmalar burada görünəcək.",
+  "marketinbox_role_buyer": "Alıcı",
+  "marketinbox_role_seller": "Satıcı",
+  "marketinbox_unread_count": "{n} oxunmamış",
+  "marketinbox_remove_image": "Şəkli sil",
+  "marketinbox_create_listing": "Elan yarat",
+  "marketinbox_block_buyer": "Alıcını blokla"
 }

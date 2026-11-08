@@ -12402,5 +12402,14 @@
   "hub_tools_offline_title": "无法加载工具",
   "hub_tools_offline_sub": "请检查网络连接后重试。",
   "hub_tools_retry": "重试",
-  "hub_tools_free_limited": "免费 · 有限额"
+  "hub_tools_free_limited": "免费 · 有限额",
+  "marketinbox_loading": "正在加载消息",
+  "marketinbox_load_failed": "无法加载消息。",
+  "marketinbox_empty_hint": "关于你的物品以及与你联系过的卖家的对话会显示在这里。",
+  "marketinbox_role_buyer": "买家",
+  "marketinbox_role_seller": "卖家",
+  "marketinbox_unread_count": "{n} 条未读",
+  "marketinbox_remove_image": "移除照片",
+  "marketinbox_create_listing": "发布物品",
+  "marketinbox_block_buyer": "屏蔽买家"
 }
