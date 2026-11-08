@@ -101,4 +101,66 @@ export const S = {
   purple: { who: 'National Center on Shaken Baby Syndrome', title: 'The Period of PURPLE Crying (körpə ağlaması haqqında proqram)' },
   healthyChildrenCrying: { who: 'AAP — HealthyChildren.org', title: 'Responding to Your Baby’s Cries (valideynlər üçün bələdçi)' },
   whoMentalHealthParents: { who: 'ÜST', title: 'Ana və valideyn psixi sağlamlığı (Maternal mental health) haqqında məlumat' },
+
+  // First year: colic, sleep, pacifier, first foods, stranger wariness
+  wessel1954: { who: 'Wessel M.A., Cobb J.C., Jackson E.B. və həmmüəllifləri', year: '1954', title: 'Paroxysmal fussing in infancy, sometimes called colic. Pediatrics, 14(5)' },
+  healthyChildrenColic: { who: 'AAP / HealthyChildren.org', title: 'Colic Relief Tips for Parents (valideynlər üçün bələdçi)' },
+  nhsColic: { who: 'Böyük Britaniya Səhiyyə Xidməti (NHS)', title: 'Colic (körpə koliki haqqında bələdçi)' },
+  barr2009: { who: 'Barr R.G. və həmmüəllifləri', year: '2009', title: 'Effectiveness of educational materials designed to change knowledge and behaviors regarding crying and shaken-baby syndrome in mothers of newborns: a randomized, controlled trial. Pediatrics, 123(3)' },
+  cdcAbusiveHeadTrauma: { who: 'CDC', title: 'Preventing Abusive Head Trauma in Children (silkələnmiş körpə sindromunun qarşısını almaq)' },
+  sroufe1977: { who: 'Sroufe L.A.', year: '1977', title: 'Wariness of strangers and the study of infant development. Child Development, 48(3)' },
+  zeroToThreeSeparation: { who: 'Zero to Three', title: 'Coping with separation anxiety (valideynlər üçün bələdçi)' },
+  galland2012: { who: 'Galland B.C., Taylor B.J., Elder D.E., Herbison P.', year: '2012', title: 'Normal sleep patterns in infants and children: A systematic review of observational studies. Sleep Medicine Reviews, 16(3)' },
+  henderson2010: { who: 'Henderson J.M.T., France K.G., Owens J.L., Blampied N.M.', year: '2010', title: 'Sleeping through the night: the consolidation of self-regulated sleep across the first year of life. Pediatrics, 126(5)' },
+  sexton2009: { who: 'Sexton S., Natale R.', year: '2009', title: 'Risks and benefits of pacifiers. American Family Physician, 79(8)' },
+  healthyChildrenPacifier: { who: 'AAP / HealthyChildren.org', title: 'Pacifiers and thumb sucking (valideynlər üçün bələdçi)' },
+  whoInfantFeeding: { who: 'ÜST', title: 'Infant and young child feeding (körpə və kiçik uşaq qidalanması haqqında məlumat)' },
+  healthyChildrenSolids: { who: 'AAP / HealthyChildren.org', title: 'Starting Solid Foods (bərk qidaya başlamaq bələdçisi)' },
+  fangupo2016: { who: 'Fangupo L.J. və həmmüəllifləri', year: '2016', title: 'A Baby-Led Approach to Eating Solids and Risk of Choking. Pediatrics, 138(4)' },
+
+  // Postpartum
+  acog2018: { who: 'Amerika Mama-Ginekoloqlar Kolleci (ACOG)', year: '2018', title: 'Optimizing Postpartum Care. Committee Opinion No. 736. Obstetrics & Gynecology, 131(5)' },
+  nhsPostnatalDepression: { who: 'NHS', title: 'Postnatal depression (doğuşdan sonrakı depressiya haqqında bələdçi)' },
+
+  // Body safety, online safety
+  whoSexualAbuse2017: { who: 'ÜST', year: '2017', title: 'Responding to children and adolescents who have been sexually abused: WHO clinical guidelines' },
+  walsh2015: { who: 'Walsh K., Zwi K., Woolfenden S., Shlonsky A.', year: '2015', title: 'School-based education programmes for the prevention of child sexual abuse. Cochrane Database of Systematic Reviews' },
+  cdcChildAbusePrevention: { who: 'CDC', title: 'Preventing Child Sexual Abuse (uşaqların cinsi istismarının qarşısını almaq)' },
+  unicefOnline: { who: 'UNICEF', title: 'Keeping children safe online (valideynlər üçün tövsiyələr)' },
+  euKidsOnline2020: { who: 'Smahel D. və həmmüəllifləri', year: '2020', title: 'EU Kids Online 2020: Survey results from 19 countries' },
+
+  // Family life: grandparents, divorce, grief, moving
+  sadruddin2019: { who: 'Sadruddin A.F.A. və həmmüəllifləri', year: '2019', title: 'How do grandparents influence child health and development? A systematic review. Social Science & Medicine, 239' },
+  amato2001: { who: 'Amato P.R.', year: '2001', title: 'Children of divorce in the 1990s: an update of the Amato and Keith (1991) meta-analysis. Journal of Family Psychology, 15(3)' },
+  cohenDivorce2016: { who: 'Cohen G.J., Weitzman C.C. / AAP', year: '2016', title: 'Helping Children and Families Deal With Divorce and Separation. Pediatrics, 138(6)' },
+  schonfeld2016: { who: 'Schonfeld D.J., Demaria T. / AAP', year: '2016', title: 'Supporting the Grieving Child and Family. Pediatrics, 138(3)' },
+  nctsnGrief: { who: 'National Child Traumatic Stress Network (NCTSN)', title: 'Childhood Traumatic Grief (valideynlər üçün bələdçi)' },
+  jelleyman2008: { who: 'Jelleyman T., Spencer N.', year: '2008', title: 'Residential mobility in childhood and health outcomes: a systematic review. Journal of Epidemiology & Community Health, 62(7)' },
+
+  // Language: bilingualism, stuttering
+  byersHeinlein2013: { who: 'Byers-Heinlein K., Lew-Williams C.', year: '2013', title: 'Bilingualism in the early years: What the science says. LEARNing Landscapes, 7(1)' },
+  hoff2012: { who: 'Hoff E. və həmmüəllifləri', year: '2012', title: 'Dual language exposure and early bilingual development. Journal of Child Language, 39(1)' },
+  ashaBilingual: { who: 'Amerika Nitq-Dil-Eşitmə Assosiasiyası (ASHA)', title: 'Learning Two Languages (iki dil öyrənən uşaqlar haqqında bələdçi)' },
+  yairi2013: { who: 'Yairi E., Ambrose N.', year: '2013', title: 'Epidemiology of stuttering: 21st century advances. Journal of Fluency Disorders, 38(2)' },
+  ashaStuttering: { who: 'ASHA', title: 'Stuttering (kəkələmə haqqında bələdçi)' },
+  nidcdStuttering: { who: 'ABŞ Milli Karlıq və Ünsiyyət Pozuntuları İnstitutu (NIDCD)', title: 'Stuttering (kəkələmə haqqında məlumat)' },
+
+  // Bedwetting
+  nice2010Bedwetting: { who: 'NICE (Böyük Britaniya)', year: '2010', title: 'Bedwetting in under 19s. Clinical guideline CG111' },
+  neveus2020: { who: 'Nevéus T. və həmmüəllifləri / Beynəlxalq Uşaq Kontinensiya Cəmiyyəti (ICCS)', year: '2020', title: 'Management and treatment of nocturnal enuresis: an updated standardization document from the International Children’s Continence Society. Journal of Pediatric Urology, 16(1)' },
+  nhsBedwetting: { who: 'NHS', title: 'Bedwetting in children (gecə sidik saxlamama haqqında bələdçi)' },
+
+  // Money, school readiness
+  whitebread2013: { who: 'Whitebread D., Bingham S. / Money Advice Service', year: '2013', title: 'Habit Formation and Learning in Young Children' },
+  cfpb2016: { who: 'ABŞ İstehlakçı Maliyyə Müdafiəsi Bürosu (CFPB)', year: '2016', title: 'Building blocks to help youth achieve financial capability' },
+  unicefSchoolReadiness2012: { who: 'UNICEF', year: '2012', title: 'School Readiness: A Conceptual Framework' },
+  williams2019: { who: 'Williams P.G., Lerner M.A. / AAP', year: '2019', title: 'School Readiness. Pediatrics, 144(2)' },
+  blairRaver2015: { who: 'Blair C., Raver C.C.', year: '2015', title: 'School readiness and self-regulation: a developmental psychobiological approach. Annual Review of Psychology, 66' },
+
+  // ADHD, autism
+  hyman2020: { who: 'Hyman S.L., Levy S.E., Myers S.M. / AAP', year: '2020', title: 'Identification, Evaluation, and Management of Children With Autism Spectrum Disorder. Pediatrics, 145(1)' },
+  wolraich2019: { who: 'Wolraich M.L. və həmmüəllifləri / AAP', year: '2019', title: 'Clinical Practice Guideline for the Diagnosis, Evaluation, and Treatment of Attention-Deficit/Hyperactivity Disorder in Children and Adolescents. Pediatrics, 144(4)' },
+
+  // Siblings programme
+  kennedyKramer2008: { who: 'Kennedy D.E., Kramer L.', year: '2008', title: 'Improving emotion regulation and sibling relationship quality: The More Fun With Sisters and Brothers Program. Family Relations, 57(5)' },
 } satisfies Record<string, Source>;

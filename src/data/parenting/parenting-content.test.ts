@@ -29,14 +29,14 @@ describe('Tərbiyə content (az)', () => {
     expect(hasParentingContent('constructor')).toBe(false);
   });
 
-  it('is a rich library: 4 bands, 40+ articles, 20+ SOS cards, 3 programmes, 2 quizzes, daily tips', () => {
+  it('is a rich library: 4 bands, 60+ articles, 25+ SOS cards, 6 programmes, 2 quizzes, 30 daily tips per band', () => {
     expect(c.bands.map((b) => b.id)).toEqual(AGE_BANDS);
-    expect(c.articles.length).toBeGreaterThanOrEqual(40);
-    expect(c.sos.length).toBeGreaterThanOrEqual(20);
-    expect(c.programmes.map((p) => [p.id, p.days.length])).toEqual([['no-shouting-21', 21], ['tantrums-14', 14], ['sleep-7', 7]]);
+    expect(c.articles.length).toBeGreaterThanOrEqual(60);
+    expect(c.sos.length).toBeGreaterThanOrEqual(25);
+    expect(c.programmes.map((p) => [p.id, p.days.length])).toEqual([['no-shouting-21', 21], ['tantrums-14', 14], ['sleep-7', 7], ['siblings-7', 7], ['screen-reset-7', 7], ['special-time-7', 7]]);
     expect(c.styleQuiz.items.length).toBeGreaterThanOrEqual(10);
     expect(c.milestoneQuiz.checkpoints.length).toBeGreaterThanOrEqual(5);
-    for (const band of AGE_BANDS) expect(c.tips[band].length).toBeGreaterThanOrEqual(7);
+    for (const band of AGE_BANDS) expect(c.tips[band].length).toBeGreaterThanOrEqual(30);
   });
 
   it('has unique ids and every age band is covered by articles and SOS cards', () => {

@@ -47,6 +47,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['dost', 'dostluq', 'tək oynayır'],
   bullying: ['bullinq', 'ələ sal', 'incidir', 'təhqir'],
   'after-school': ['məktəbdən sonra', 'məktəbdən gələndə'],
+  'crying-plan': ['ağlama plan', 'kolik', 'saatlarla ağla', 'axşamlar ağla'],
+  'stranger-anxiety': ['yad adam', 'yaddan qorx', 'nənənin qucağında ağla', 'qucağa getmir', 'ayrılıq'],
+  'sleep-regressions': ['reqressiya', 'yuxu reqress', 'gecə oyanır', 'tez-tez oyan', 'yuxusu pozuldu'],
+  'pacifier-thumb': ['əmzik', 'barmaq sor', 'barmağını sor', 'soska', 'pustışka'],
+  'first-foods': ['əlavə qida', 'ilk qida', 'bərk qida', 'qidanı tüpür'],
+  'fourth-trimester': ['doğuşdan sonra', 'postpartum', 'depressiya', 'ağlamaq istəyirəm', 'körpə hüznü'],
+  'body-safety': ['bədən təhlükəsiz', 'pis toxunuş', 'zorakılıq', 'istismar', 'pis sirr', 'şəxsi bölgə'],
+  'online-safety': ['onlayn', 'internet', 'sosial şəbəkə', 'yad adamla yazış', 'oyunda ödəniş', 'tiktok', 'roblox'],
+  grandparents: ['nənə', 'baba', 'qayınana', 'böyük ailə', 'nənə icazə', 'nənə evində', 'nənə korla', 'baba icazə'],
+  'bilingual-home': ['ikidilli', 'iki dil', 'rus dili', 'rusca', 'dilləri qarışdır'],
+  divorce: ['boşanma', 'boşanırıq', 'ayrıldıq', 'ayrı yaşayırıq', 'atası ilə görüş'],
+  grief: ['ölüm', 'öldü', 'vəfat', 'dəfn', 'ölümdən danış'],
+  'big-changes': ['köçmək', 'köçürük', 'köçdük', 'köçəcəyik', 'yeni şəhər', 'yeni bağça'],
+  bedwetting: ['gecə islad', 'yatağını islad', 'yataqda islad', 'enurez', 'gecə sidik'],
+  stuttering: ['kəkələ', 'kəkələyir', 'sözdə ilişir'],
+  'pocket-money': ['cib xərcliyi', 'cib pulu', 'pul ver', 'pul yığ'],
+  'school-readiness': ['birinci sinif', 'məktəbə hazır', 'məktəbə başla', 'hazırlıq qrupu'],
+  'adhd-autism-signs': ['autizm', 'autist', 'dçhs', 'dehb', 'hiperaktiv', 'diqqət çatışmaz', 'göz təması qurmur', 'adına reaksiya'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -74,11 +92,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['bullinq', 'ələ salır', 'incidirlər', 'döyürlər', 'ağlaya-ağlaya gəldi'],
   'hits-parent': ['məni vurur', 'məni vurdu', 'məni döyür', 'anasını vurur'],
   'not-listening': ['eşitmir', 'sözə baxmır', 'qulaq asmır', 'dinləmir', 'sözümə baxmır'],
-  'baby-bites-breast': ['döşü dişlə', 'əmərkən dişlə', 'saç çək'],
+  'baby-bites-breast': ['döşü dişlə', 'əmərkən dişlə', 'saç çək', 'əmizdirərkən dişlə', 'döş gilə'],
+  'baby-crying-different': ['fərqli ağla', 'tiz ağla', 'birdən ağla', 'qəribə ağla', 'zarıyır'],
+  'sleeps-only-on-me': ['qucağımda yat', 'qucaqda yat', 'beşikdə yatmır', 'yerə qoyan kimi oyan', 'beşiyə qoyanda ağla'],
+  'about-to-lose-it': ['dözə bilmirəm', 'özümü itir', 'özümü saxlaya bilmirəm', 'silkələ', 'səbrim tükən', 'əsəbim tükən'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['bağırmaq', 'qışqırmaq', 'səbr'],
   'tantrums-14': ['isterik', 'tantrum'],
   'sleep-7': ['yuxu', 'yatmaq', 'yatmır'],
+  'siblings-7': ['bacı-qardaş', 'qardaş', 'bacı', 'qısqanc', 'dalaşır'],
+  'screen-reset-7': ['ekran', 'telefon', 'planşet', 'multfilm'],
+  'special-time-7': ['xüsusi vaxt', 'diqqət istəyir', 'birlikdə oyna'],
 };
