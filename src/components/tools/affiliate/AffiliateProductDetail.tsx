@@ -108,7 +108,7 @@ const AffiliateProductDetail = ({ product, onBack }: AffiliateProductDetailProps
       {/* Header */}
       <header className="a-topbar">
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-          <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label="Back">
+          <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_back", "Geri")}>
             <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
           </motion.button>
           <div style={{ minWidth: 0 }}>

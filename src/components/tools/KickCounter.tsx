@@ -274,7 +274,7 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
       {sessions.length > 0 &&
       <section className="a-section pb-8">
           <div className="a-section-head">
-            <h2 className="a-section-title a-heading">{tr("untranslated_son_sessiyalar_dkgjsl", "Son sessiyalar")}</h2>
+            <h2 className="a-section-title a-heading">{tr("kick_recent_sessions", "Son sessiyalar")}</h2>
           </div>
           {(() => {
           // Group sessions by date

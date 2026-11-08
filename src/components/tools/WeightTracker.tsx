@@ -312,12 +312,12 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
                 tickLine={false}
                 axisLine={false}
                 width={46}
-                tickFormatter={(v) => `${v}kq`} />
+                tickFormatter={(v) => `${v}${tr('unit_kg', 'kq')}`} />
               
                 <Tooltip
                 formatter={(value: any, name: string) => {
-                  if (name === 'band') return [`${value[0]}–${value[1]} kq`, tr("weighttracker_tovsiye_araligi", "Tövsiyə aralığı")];
-                  return [`${value} kq`, tr("weighttracker_cekiniz", "Çəkiniz")];
+                  if (name === 'band') return [`${value[0]}–${value[1]} ${tr('unit_kg', 'kq')}`, tr("weighttracker_tovsiye_araligi", "Tövsiyə aralığı")];
+                  return [`${value} ${tr('unit_kg', 'kq')}`, tr("weighttracker_cekiniz", "Çəkiniz")];
                 }}
                 labelFormatter={(w) => `${w}. ${tr("weighttracker_ai_prompt_week", "həftə")}`}
                 contentStyle={{ borderRadius: 12, border: '1px solid var(--a-line)', fontSize: 12, background: 'var(--a-surface)' }} />

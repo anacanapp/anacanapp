@@ -341,7 +341,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       } else if (tool.stages) {
         toast({
           title: `${tool.name} ${tr("toolshub_not_available", "mövcud deyil")}`,
-          description: tr("toolshub_only_maternity_use", "Bu alət yalnız hamiləlik dövründə istifadə oluna bilər"),
+          description: tr("toolshub_not_for_stage", "Bu alət hazırkı mərhələ üçün nəzərdə tutulmayıb"),
           variant: 'destructive'
         });
       }
@@ -376,7 +376,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   // Inject virtual Cakes tool (moved here from bottom nav)
   const cakesVirtual: Tool = {
     id: 'cakes',
-    name: 'Tortlar',
+    name: tr('toolshub_cakes_name', 'Tortlar'),
     description: tr("toolshub_xususi_gunler_ucun_tortlar_8a2248", "X\xFCsusi g\xFCnl\u0259r \xFC\xE7\xFCn tortlar"),
     icon: Cake,
     color: 'pink',

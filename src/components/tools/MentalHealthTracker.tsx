@@ -26,7 +26,7 @@ import {
 import { format, subDays } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { toast } from 'sonner';
-import { tr } from "@/lib/tr";
+import { tr, formatTr } from "@/lib/tr";
 import { useIsRtl, rtlX } from '@/lib/rtl';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
@@ -708,7 +708,7 @@ const MentalHealthTracker = ({ onBack }: MentalHealthTrackerProps) => {
               )}
             </div>
             <p className="a-list-sub text-center" style={{ margin: 0 }}>
-              Sual {currentQuestion + 1} / {EPDS_QUESTIONS.length}
+              {formatTr("mental_question_progress", "Sual {n} / {total}", { n: currentQuestion + 1, total: EPDS_QUESTIONS.length })}
             </p>
             
             <AnimatePresence mode="wait">

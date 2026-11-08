@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { tr } from "@/lib/tr";
 
 /**
  * Anacan redesign — shared tool-screen primitives.
@@ -47,7 +48,7 @@ export const ToolHeader = ({ title, eyebrow, onBack, actions }: ToolHeaderProps)
   <header className="a-topbar">
     <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
       {onBack && (
-        <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label="Back">
+        <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_back", "Geri")}>
           <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
         </motion.button>
       )}

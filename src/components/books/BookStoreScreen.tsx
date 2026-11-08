@@ -16,6 +16,7 @@ import { QcEarnBox, QcProductBadge, QcRedeemRow, QcSummaryLine, qcTrack, useQcRe
 import { invalidateQaygiCash } from '@/hooks/useQaygiCash';
 import { availableFrom, earnPreview, formatQc, formatQcDate, qcErrorKey, rateOf, toAzn, toMinor } from '@/lib/qaygicash';
 import { qf, qk } from '@/lib/qaygicash-copy';
+import { tr } from "@/lib/tr";
 
 type Tab = 'store' | 'mine';
 const TIERS = [1, 3, 5, 10];
@@ -129,7 +130,7 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
       <div className="a-shell">
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label="Back">
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_back", "Geri")}>
               <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>

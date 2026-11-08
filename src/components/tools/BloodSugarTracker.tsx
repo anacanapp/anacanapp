@@ -227,7 +227,7 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
         <span>
           <strong>{tr("bloodsugartracker_hamilelik_zamani_normal_seviyyeler_458722", "Hamiləlik zamanı normal səviyyələr:")}</strong>
           <br />{tr("bloodsugartracker_acliq_70_95_mg_dl_d4ac37", "• Aclıq: 70-95 mg/dL")}
-          <br />{tr("bloodsugartracker_yemekden_2_saat_sonra_lt_140_mg_dl_8efae2", "• Yeməkdən 2 saat sonra: &lt;140 mg/dL")}
+          <br />{tr("bloodsugartracker_yemekden_2_saat_sonra_lt_140_mg_dl_8efae2", "• Yeməkdən 2 saat sonra: <140 mg/dL")}
         </span>
       </div>
 
