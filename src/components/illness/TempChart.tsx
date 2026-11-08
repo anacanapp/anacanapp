@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
-import { BAND_COLOR, tempBand, type IllnessEntry } from '@/lib/illness';
+import { BAND_COLOR, formatTemp, tempBand, type IllnessEntry, type TempUnit } from '@/lib/illness';
 
 /** Temperature line of the episode with medicine markers; tap a point to see its value and time. */
-export function TempChart({ entries, locale, feverLabel, emptyLabel }: { entries: IllnessEntry[]; locale: string; feverLabel: string; emptyLabel: string }) {
+export function TempChart({ entries, locale, unit = 'C', feverLabel, emptyLabel }: { entries: IllnessEntry[]; locale: string; unit?: TempUnit; feverLabel: string; emptyLabel: string }) {
   const [picked, setPicked] = useState<number | null>(null);
   const W = 330, H = 132, padX = 14, top = 14, bottom = 26;
   const temps = useMemo(() => entries.filter((e) => e.kind === 'temp' && e.temp_c != null).slice(0, 24).reverse(), [entries]);
@@ -49,7 +49,7 @@ export function TempChart({ entries, locale, feverLabel, emptyLabel }: { entries
       </svg>
       {sel &&
       <span className="cx-tip" style={{ left: `${sel.x / W * 100}%`, top: `${(sel.y + 10) / H * 100}%` }}>
-          {sel.e.temp_c!.toLocaleString(locale, { minimumFractionDigits: 1 })} °C · {new Date(sel.e.at).toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' })}
+          {formatTemp(sel.e.temp_c!, unit, locale)} · {new Date(sel.e.at).toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' })}
         </span>
       }
     </div>);

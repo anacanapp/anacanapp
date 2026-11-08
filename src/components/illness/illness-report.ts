@@ -1,9 +1,10 @@
 import type { DoctorReportData } from '@/lib/pdfReport';
 import type { IllnessText } from '@/data/illness';
-import type { IllnessEntry, IllnessEpisode } from '@/lib/illness';
+import { formatTemp, type IllnessEntry, type IllnessEpisode, type TempUnit } from '@/lib/illness';
 
 /** Doctor summary of one illness episode, rendered by the shared PDF report. */
-export function buildIllnessReport(t: IllnessText, episode: IllnessEpisode, entries: IllnessEntry[], opts: { childName: string; locale: string; userName: string }): DoctorReportData {
+export function buildIllnessReport(t: IllnessText, episode: IllnessEpisode, entries: IllnessEntry[], opts: { childName: string; locale: string; userName: string; unit?: TempUnit }): DoctorReportData {
+  const unit = opts.unit ?? 'C';
   const when = (iso: string) => new Date(iso).toLocaleString(opts.locale, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
   const chronological = [...entries].sort((a, b) => a.at.localeCompare(b.at));
   const temps = chronological.filter((e) => e.kind === 'temp');
@@ -17,7 +18,7 @@ export function buildIllnessReport(t: IllnessText, episode: IllnessEpisode, entr
   if (temps.length) historyTables.push({
     title: t.report_tables.temps,
     headers: [t.report_headers.time, t.report_headers.value, t.report_headers.method],
-    rows: temps.map((e) => [when(e.at), `${e.temp_c?.toFixed(1)} °C`, e.temp_method ? t.methods[e.temp_method] : '—'])
+    rows: temps.map((e) => [when(e.at), e.temp_c == null ? '—' : formatTemp(e.temp_c, unit, opts.locale), e.temp_method ? t.methods[e.temp_method] : '—'])
   });
   if (meds.length) historyTables.push({
     title: t.report_tables.meds,
@@ -37,7 +38,7 @@ export function buildIllnessReport(t: IllnessText, episode: IllnessEpisode, entr
       { label: t.report_rows.child, value: opts.childName || '—' },
       { label: t.report_rows.illness, value: t.kinds[episode.kind] },
       { label: t.report_rows.started, value: when(episode.started_at) },
-      { label: t.report_rows.max_temp, value: maxTemp ? `${maxTemp.toFixed(1)} °C` : '—' },
+      { label: t.report_rows.max_temp, value: maxTemp ? formatTemp(maxTemp, unit, opts.locale) : '—' },
       { label: t.report_rows.status, value: end ? `${t.ended} · ${end}` : t.active }
     ],
     trends: [],

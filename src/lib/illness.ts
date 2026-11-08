@@ -197,3 +197,55 @@ export async function syncDoseReminders(episode: IllnessEpisode, entries: Illnes
     });
   } catch {/* reminders are a convenience; the screen still shows the next time */}
 }
+
+// ── Temperature unit (°C / °F) ─────────────────────────────────────────────────────────
+// Readings are always stored and evaluated in °C (tempBand, illnessAlerts, the database column numeric(4,1)).
+// °F is only a display / input unit, chosen per device.
+export type TempUnit = 'C' | 'F';
+export const TEMP_UNIT_KEY = 'anacan.illness.temp-unit';
+export const TEMP_MIN_C = 35;
+export const TEMP_MAX_C = 42.5;
+
+export const cToF = (c: number): number => c * 9 / 5 + 32;
+export const fToC = (f: number): number => (f - 32) * 5 / 9;
+const round1 = (v: number) => Math.round(v * 10) / 10;
+
+/** A °C reading in the given unit, rounded to 0.1. */
+export const toUnit = (c: number, unit: TempUnit): number => round1(unit === 'F' ? cToF(c) : c);
+/** A value typed in the given unit back to °C, rounded to 0.1 (what the database keeps). */
+export const fromUnit = (value: number, unit: TempUnit): number => round1(unit === 'F' ? fToC(value) : value);
+
+/** "38.5 °C" / "101.3 °F" in the locale's number format. */
+export function formatTemp(c: number, unit: TempUnit, locale?: string, withUnit = true): string {
+  const text = toUnit(c, unit).toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  return withUnit ? `${text} °${unit}` : text;
+}
+
+/** °F only for devices set to US English; everyone else starts with °C. */
+export function defaultTempUnit(deviceLocale?: string | null): TempUnit {
+  return (deviceLocale ?? '').replace('_', '-').toLowerCase() === 'en-us' ? 'F' : 'C';
+}
+
+export function readTempUnit(): TempUnit {
+  try {
+    const stored = globalThis.localStorage?.getItem(TEMP_UNIT_KEY);
+    if (stored === 'C' || stored === 'F') return stored;
+  } catch {/* private mode / blocked storage */}
+  return defaultTempUnit(typeof navigator !== 'undefined' ? navigator.language : null);
+}
+
+export function saveTempUnit(unit: TempUnit): void {
+  try { globalThis.localStorage?.setItem(TEMP_UNIT_KEY, unit); } catch {/* the choice just is not remembered */}
+}
+
+/** Copy templates write "{temp} °C"; drop the unit so the caller passes a value formatted with formatTemp. */
+export const tempTemplate = (template: string): string => template.replace(/\{temp\}[\s\u00a0\u202f]*°\s*C/g, '{temp}');
+
+/**
+ * Static copy with °C numbers ("38,0 °C", "39 °C", "38.0°") shown in °F when that unit is chosen.
+ * The copy itself stays in °C; in °C mode the text is returned unchanged.
+ */
+export function localizeTempText(text: string, unit: TempUnit, locale?: string): string {
+  if (unit === 'C') return text;
+  return text.replace(/(\d{2}(?:[.,]\d)?)[\s\u00a0\u202f]*°\s*C?/g, (_m, num: string) => `${formatTemp(Number(num.replace(',', '.')), 'F', locale, false)} °F`);
+}

@@ -4,7 +4,9 @@ import { Sheet } from '@/components/anacan/Sheet';
 import { Switch } from '@/components/ui/switch';
 import { fill } from '@/lib/feature-text';
 import { hapticFeedback } from '@/lib/native';
-import { BAND_COLOR, SYMPTOMS, TEMP_METHODS, earlyDose, tempBand, type IllnessEntry, type NewIllnessEntry, type TempMethod } from '@/lib/illness';
+import { BAND_COLOR, SYMPTOMS, TEMP_MAX_C, TEMP_METHODS, TEMP_MIN_C, cToF, earlyDose, fToC, fromUnit, localizeTempText, tempBand, toUnit, type IllnessEntry, type NewIllnessEntry, type TempMethod, type TempUnit } from '@/lib/illness';
+import { tr } from '@/lib/tr';
+import { useTempUnit } from './useTempUnit';
 import type { IllnessText } from '@/data/illness';
 
 const SYMPTOM_EMOJI: Record<string, string> = {
@@ -37,30 +39,53 @@ function SaveBar({ label, busy, onClick, disabled }: { label: string; busy: bool
   return <button type="button" className="a3-btn accent cx-wide" disabled={busy || disabled} onClick={onClick}>{label}</button>;
 }
 
+/** °C / °F switch; the choice is remembered on this device. */
+export function TempUnitToggle({ unit, onChange }: { unit: TempUnit; onChange: (u: TempUnit) => void }) {
+  return (
+    <div className="cx-seg" role="group" aria-label={tr('p3b_temp_unit', 'Temperatur vahidi')} style={{ display: 'inline-flex', minWidth: 120, alignSelf: 'center', marginBottom: 6 }}>
+      {(['C', 'F'] as TempUnit[]).map((u) => <button key={u} type="button" aria-pressed={unit === u} onClick={() => onChange(u)}>°{u}</button>)}
+    </div>);
+}
+
+const SCALE_C = [35, 37, 38, 39, 40, 42];
+
 export function TempSheet({ t, open, onClose, onSave, locale }: { t: IllnessText; open: boolean; onClose: () => void; onSave: (e: NewIllnessEntry & { kind: 'temp' }) => Promise<void>; locale: string }) {
-  const [temp, setTemp] = useState(37.5);
+  const [unit, setUnit] = useTempUnit();
+  // The dial works in the chosen unit; the reading is saved in °C (rounded to 0.1 like the database column).
+  const [value, setValue] = useState(() => toUnit(37.5, unit));
   const [method, setMethod] = useState<TempMethod>('armpit');
   const [when, setWhen] = useState(localInput(new Date()));
   const [busy, setBusy] = useState(false);
   useEffect(() => {if (open) setWhen(localInput(new Date()));}, [open]);
-  const set = (v: number) => {setTemp(Math.round(Math.min(42.5, Math.max(35, v)) * 10) / 10);void hapticFeedback.light();};
-  const band = tempBand(temp);
+  const min = toUnit(TEMP_MIN_C, unit), max = toUnit(TEMP_MAX_C, unit);
+  const clamp = (v: number) => Math.round(Math.min(max, Math.max(min, v)) * 10) / 10;
+  const set = (v: number) => {setValue(clamp(v));void hapticFeedback.light();};
+  // Switching the unit (here or on another screen) converts the value on the dial.
+  const [valueUnit, setValueUnit] = useState(unit);
+  useEffect(() => {
+    if (valueUnit === unit) return;
+    setValue((v) => Math.round((unit === 'F' ? cToF(v) : fToC(v)) * 10) / 10);
+    setValueUnit(unit);
+  }, [unit, valueUnit]);
+  const celsius = unit === 'F' ? fToC(value) : value;
+  const band = tempBand(celsius);
   const save = async () => {
     setBusy(true);
-    try {await onSave({ kind: 'temp', at: fromLocalInput(when).toISOString(), temp_c: temp, temp_method: method });onClose();} catch {/* toast upstream */} finally {setBusy(false);}
+    try {await onSave({ kind: 'temp', at: fromLocalInput(when).toISOString(), temp_c: fromUnit(value, unit), temp_method: method });onClose();} catch {/* toast upstream */} finally {setBusy(false);}
   };
   return (
     <Sheet open={open} onClose={onClose} full={false} title={t.temp_title} footer={<SaveBar label={t.save} busy={busy} onClick={() => void save()} />}>
       <div className="cx-stack">
         <div className="cx-dial">
+          <TempUnitToggle unit={unit} onChange={setUnit} />
           <div className="cx-dial-value">
-            <button type="button" className="cx-step" aria-label="-0.1" onClick={() => set(temp - 0.1)}>−</button>
-            <strong style={{ color: BAND_COLOR[band] }}>{temp.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}°</strong>
-            <button type="button" className="cx-step" aria-label="+0.1" onClick={() => set(temp + 0.1)}>+</button>
+            <button type="button" className="cx-step" aria-label="-0.1" onClick={() => set(value - 0.1)}>−</button>
+            <strong style={{ color: BAND_COLOR[band] }}>{value.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}°</strong>
+            <button type="button" className="cx-step" aria-label="+0.1" onClick={() => set(value + 0.1)}>+</button>
           </div>
           <span className="cx-pill" style={{ marginTop: 6, background: `${BAND_COLOR[band]}1f`, color: BAND_COLOR[band] }}>{t.bands[band]}</span>
-          <input className="cx-range" type="range" min={35} max={42.5} step={0.1} value={temp} aria-label={t.temp_title} onChange={(e) => setTemp(Number(e.target.value))} />
-          <div className="cx-scale"><span>35°</span><span>37°</span><span>38°</span><span>39°</span><span>40°</span><span>42°</span></div>
+          <input className="cx-range" type="range" min={min} max={max} step={0.1} value={value} aria-label={t.temp_title} onChange={(e) => setValue(clamp(Number(e.target.value)))} />
+          <div className="cx-scale">{SCALE_C.map((c) => <span key={c}>{unit === 'F' ? Math.round(cToF(c)) : c}°</span>)}</div>
           <p className="cx-sub" style={{ marginTop: 4 }}>{t.temp_hint}</p>
         </div>
         <div className="cx-chips">
@@ -179,18 +204,20 @@ export function SymptomSheet({ t, open, onClose, onSave }: { t: IllnessText; ope
     </Sheet>);
 }
 
-export function FlagsSheet({ t, open, onClose, emergency }: { t: IllnessText; open: boolean; onClose: () => void; emergency: string }) {
+export function FlagsSheet({ t, open, onClose, emergency, locale }: { t: IllnessText; open: boolean; onClose: () => void; emergency: string; locale?: string }) {
+  const [unit] = useTempUnit();
+  const temp = (line: string) => localizeTempText(line, unit, locale);
   return (
     <Sheet open={open} onClose={onClose} title={t.flags_title}>
       <div className="cx-stack">
         <div className="cx-alert">
           <b>🚨 {fill(t.emergency_title, { number: emergency })}</b>
-          <ul style={{ margin: '6px 0 0', paddingInlineStart: 18 }}>{t.emergency.map((line) => <li key={line} style={{ marginTop: 4 }}>{line}</li>)}</ul>
+          <ul style={{ margin: '6px 0 0', paddingInlineStart: 18 }}>{t.emergency.map((line) => <li key={line} style={{ marginTop: 4 }}>{temp(line)}</li>)}</ul>
           <a className="cx-call" href={`tel:${emergency}`}><Phone size={17} />{fill(t.call, { number: emergency })}</a>
         </div>
         <div className="cx-card">
           <b style={{ fontSize: 14.5, color: 'var(--a-ink)' }}>🩺 {t.doctor_title}</b>
-          <ul className="cx-sub" style={{ margin: '8px 0 0', paddingInlineStart: 18, fontSize: 13.5 }}>{t.doctor.map((line) => <li key={line} style={{ marginTop: 4 }}>{line}</li>)}</ul>
+          <ul className="cx-sub" style={{ margin: '8px 0 0', paddingInlineStart: 18, fontSize: 13.5 }}>{t.doctor.map((line) => <li key={line} style={{ marginTop: 4 }}>{temp(line)}</li>)}</ul>
         </div>
         <p className="cx-disc">{t.disclaimer}</p>
       </div>

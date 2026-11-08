@@ -1,0 +1,22 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261108150000_hospital_bag_custom.sql",
+  "runtime": "google-hospital-bag",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; no new relation; hospital_bag_items must already be in guarded_relations with the three standard triggers, which are left as they are (no drop or recreate); the migration refuses otherwise and re-verifies 1 relation / 3 triggers before COMMIT",
+  "preserve": [
+    "cron0, no timer added",
+    "8 enabled business timers",
+    "owner RLS (own rows, all commands) and partner SELECT / INSERT / UPDATE policies of hospital_bag_items unchanged (20260813150038_hospital_bag_partner_rls_fix.sql)",
+    "hospital_bag_templates unchanged",
+    "anacan_recap_v1 bag count (is_checked rows) unchanged"
+  ],
+  "relations": [
+    { "relation": "public.hospital_bag_items", "change": "altered", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "columns_added": ["is_hidden"],
+      "constraints_changed": ["hospital_bag_items_category_check: category IN ('mom', 'baby', 'documents', 'partner')"],
+      "policies_added": ["Partners can delete custom hospital bag items"],
+      "realtime_publication": "added to supabase_realtime when missing",
+      "note": "is_hidden boolean NOT NULL DEFAULT false hides a default (template) item; own items use item_id custom:<category>:<uuid> (older partner-<ms>) and are deleted; partner DELETE only for those ids of the linked mother (IN-based partner match); the new column is captured by the existing row trigger" }
+  ],
+  "functions": []
+}

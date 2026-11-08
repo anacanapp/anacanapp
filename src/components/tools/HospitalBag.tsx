@@ -1,12 +1,14 @@
 import { useState, forwardRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, Info, ChevronDown, Package, Baby, FileText } from 'lucide-react';
+import { Check, Info, ChevronDown, Package, Baby, FileText, Plus, Trash2, EyeOff, Eye, User } from 'lucide-react';
+import { toast } from 'sonner';
 import { useHospitalBag } from '@/hooks/useHospitalBag';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { useAuth } from '@/hooks/useAuth';
 import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
-import { tr } from "@/lib/tr";
+import { tr, formatTr } from "@/lib/tr";
+import { CUSTOM_NAME_MAX, cleanItemName, type BagCategory } from '@/lib/hospital-bag';
 import { useUserStore } from '@/store/userStore';
 import ModuleArticles from '@/components/blog/ModuleArticles';
 
@@ -18,7 +20,10 @@ const categoryConfig = {
   documents: { label: tr("hospitalbag_senedler_d60b5e", 'Sənədlər'), emoji: '📄', icon: FileText },
   mom: { label: tr("hospitalbag_ana_ucun_8f885e", 'Ana üçün'), emoji: '👩', icon: Package },
   baby: { label: tr("hospitalbag_korpe_ucun_27c058", 'Körpə üçün'), emoji: '👶', icon: Baby },
+  partner: { label: tr("p3b_bag_cat_partner", 'Partnyor üçün'), emoji: '🧔', icon: User },
 };
+
+const CATEGORY_ORDER: BagCategory[] = ['documents', 'mom', 'baby', 'partner'];
 
 // Priority → anacan palette
 const priorityConfig = {
@@ -32,9 +37,41 @@ const HospitalBag = forwardRef<HTMLDivElement, HospitalBagProps>(({ onBack }, re
   useScrollToTop();
   useScreenAnalytics('HospitalBag', 'Tools');
   
-  const { items, loading, toggleItem, getProgress, checkedCount, totalCount } = useHospitalBag();
+  const { items, hiddenItems, loading, toggleItem, addItem, deleteItem, setHidden, getProgress, checkedCount, totalCount } = useHospitalBag();
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
+  const [adding, setAdding] = useState(false);
+  const [newName, setNewName] = useState('');
+  const [newCategory, setNewCategory] = useState<BagCategory>('mom');
+  const [saving, setSaving] = useState(false);
+  const [showHidden, setShowHidden] = useState(false);
+
+  const openAdd = () => {
+    setNewCategory(activeCategory !== 'all' && activeCategory in categoryConfig ? activeCategory as BagCategory : 'mom');
+    setAdding(true);
+  };
+  const submitAdd = async () => {
+    const name = cleanItemName(newName);
+    if (!name || saving) return;
+    setSaving(true);
+    const { error } = await addItem(name, newCategory);
+    setSaving(false);
+    if (error) {
+      toast.error(tr('p3b_bag_add_error', 'Əşya əlavə olunmadı. Yenidən cəhd edin.'));
+      return;
+    }
+    setNewName('');
+    setAdding(false);
+  };
+  const removeItem = async (item: { item_id: string; item_name: string }) => {
+    if (!window.confirm(tr('p3b_bag_delete_confirm', 'Bu əşya siyahıdan silinsin?'))) return;
+    const { error } = await deleteItem(item.item_id);
+    if (error) toast.error(tr('p3b_bag_delete_error', 'Əşya silinmədi. Yenidən cəhd edin.'));
+  };
+  const hideItem = async (itemId: string, hidden: boolean) => {
+    const { error } = await setHidden(itemId, hidden);
+    if (error) toast.error(tr('p3b_bag_hide_error', 'Dəyişiklik saxlanmadı. Yenidən cəhd edin.'));
+  };
   const { profile } = useAuth();
   // Siyahının özü (hospital_bag_items) hər istifadəçi üçün TƏK dəst şablon
   // sətirləridir — say sütunu yoxdur. Şablonu əkiz/çoxdöllüyə görə ikiqat/üçqat
@@ -49,6 +86,7 @@ const HospitalBag = forwardRef<HTMLDivElement, HospitalBagProps>(({ onBack }, re
     { id: 'documents', label: tr("hospitalbag_senedler_d60b5e", 'Sənədlər'), emoji: '📄' },
     { id: 'mom', label: tr("common_ana", 'Ana'), emoji: '👩' },
     { id: 'baby', label: tr("hospitalbag_korpe_fa2b51", 'Körpə'), emoji: '👶' },
+    { id: 'partner', label: tr("p3b_bag_tab_partner", 'Partnyor'), emoji: '🧔' },
   ];
 
   const language = useUserStore(state => state.language);
@@ -134,6 +172,11 @@ const HospitalBag = forwardRef<HTMLDivElement, HospitalBagProps>(({ onBack }, re
                 {item.notes}
               </p>
             )}
+            {item.custom && item.added_by === 'partner' && (
+              <span className="text-[10px] font-semibold block mt-0.5" style={{ color: 'var(--a-ink-faint)' }}>
+                {tr('p3b_bag_added_by_partner', 'Partnyor əlavə edib')}
+              </span>
+            )}
           </div>
 
           <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -150,6 +193,20 @@ const HospitalBag = forwardRef<HTMLDivElement, HospitalBagProps>(({ onBack }, re
                 <ChevronDown className="w-3.5 h-3.5" style={{ color: 'var(--a-ink-faint)' }} />
               </motion.div>
             )}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (item.custom) void removeItem(item);
+                else void hideItem(item.item_id, true);
+              }}
+              aria-label={item.custom ? tr('p3b_bag_delete', 'Sil') : tr('p3b_bag_hide', 'Gizlət')}
+              title={item.custom ? tr('p3b_bag_delete', 'Sil') : tr('p3b_bag_hide', 'Gizlət')}
+              className="w-7 h-7 rounded-lg flex items-center justify-center"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--a-ink-faint)' }}
+            >
+              {item.custom ? <Trash2 className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+            </button>
           </div>
         </div>
 
@@ -274,12 +331,89 @@ const HospitalBag = forwardRef<HTMLDivElement, HospitalBagProps>(({ onBack }, re
 
         {/* Items */}
         {activeCategory === 'all' && groupedItems ? (
-          ['documents', 'mom', 'baby'].map(catKey => 
+          CATEGORY_ORDER.map(catKey => 
             groupedItems[catKey] ? renderCategorySection(catKey, groupedItems[catKey]) : null
           )
         ) : (
           <div className="space-y-1.5">
             {sortedItems.map((item, i) => renderItem(item, i))}
+          </div>
+        )}
+
+        {/* Own item */}
+        {adding ? (
+          <div className="a-card mt-3" style={{ padding: '14px 16px' }}>
+            <form onSubmit={(e) => { e.preventDefault(); void submitAdd(); }}>
+              <label className="text-xs font-bold block mb-1.5" style={{ color: 'var(--a-ink-soft)' }} htmlFor="bag-new-item">
+                {tr('p3b_bag_new_item', 'Öz əşyanız')}
+              </label>
+              <input
+                id="bag-new-item"
+                className="a-input w-full"
+                value={newName}
+                maxLength={CUSTOM_NAME_MAX}
+                placeholder={tr('p3b_bag_new_item_ph', 'Məsələn: telefon şarj cihazı')}
+                onChange={(e) => setNewName(e.target.value)}
+                autoFocus
+              />
+              <div className="flex gap-1.5 mt-2.5 flex-wrap" role="group" aria-label={tr('p3b_bag_category', 'Kateqoriya')}>
+                {CATEGORY_ORDER.map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    aria-pressed={newCategory === cat}
+                    onClick={() => setNewCategory(cat)}
+                    className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold"
+                    style={newCategory === cat ?
+                    { background: 'var(--a-peach-1)', color: 'var(--a-accent-ink)', border: '1px solid transparent', cursor: 'pointer' } :
+                    { background: 'var(--a-surface)', color: 'var(--a-ink-soft)', border: '1px solid var(--a-line)', cursor: 'pointer' }}
+                  >
+                    <span>{categoryConfig[cat].emoji}</span>{categoryConfig[cat].label}
+                  </button>
+                ))}
+              </div>
+              <div className="flex gap-2 mt-3">
+                <button type="submit" className="a-btn-solid" disabled={!cleanItemName(newName) || saving} style={{ opacity: !cleanItemName(newName) || saving ? 0.6 : 1 }}>
+                  <Plus className="w-3.5 h-3.5" />{tr('p3b_bag_add', 'Əlavə et')}
+                </button>
+                <button type="button" className="a-btn-soft" onClick={() => { setAdding(false); setNewName(''); }}>
+                  {tr('p3b_bag_cancel', 'Ləğv et')}
+                </button>
+              </div>
+            </form>
+          </div>
+        ) : (
+          <button type="button" className="a-btn-soft w-full mt-3" style={{ justifyContent: 'center' }} onClick={openAdd}>
+            <Plus className="w-3.5 h-3.5" />{tr('p3b_bag_add_own', 'Öz əşyanızı əlavə edin')}
+          </button>
+        )}
+
+        {/* Hidden default items */}
+        {hiddenItems.length > 0 && (
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={() => setShowHidden((v) => !v)}
+              aria-expanded={showHidden}
+              className="text-xs font-bold flex items-center gap-1.5 px-1"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--a-on-bg-soft)' }}
+            >
+              <EyeOff className="w-3.5 h-3.5" />
+              {formatTr('p3b_bag_hidden_n', 'Gizlədilənlər ({n})', { n: hiddenItems.length })}
+              <ChevronDown className="w-3.5 h-3.5" style={{ transform: showHidden ? 'rotate(180deg)' : undefined }} />
+            </button>
+            {showHidden && (
+              <div className="space-y-1.5 mt-2">
+                {hiddenItems.map((item) => (
+                  <div key={item.id} className="rounded-2xl p-3 flex items-center gap-3" style={{ background: 'var(--a-surface-soft)', border: '1px solid var(--a-line)' }}>
+                    <span className="flex-1 min-w-0 text-sm font-semibold truncate" style={{ color: 'var(--a-ink-soft)' }}>{item.item_name}</span>
+                    <button type="button" className="a-btn-soft" style={{ padding: '6px 12px' }} onClick={() => void hideItem(item.item_id, false)}>
+                      <Eye className="w-3.5 h-3.5" />{tr('p3b_bag_show', 'Göstər')}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 

@@ -15,6 +15,7 @@ import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
 import { todayKey } from '@/lib/local-date';
 import { moodDiaryFormFromLog, moodDiaryPatch } from './mood-diary-form';
+import { moodTone, moodToneStyle } from './mood-colors';
 
 interface MoodDiaryProps {
   onBack: () => void;
@@ -44,18 +45,19 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
   const moodEmojis = useMemo(() => {
     if (!dbMoods || dbMoods.length === 0) {
       return [
-      { value: 1, emoji: '😢', label: tr("mooddiary_cox_pis_e041c5", 'Çox pis'), color: 'bg-red-100 border-red-300' },
-      { value: 2, emoji: '😔', label: tr("mooddiary_pis_3c7a2d", "Pis"), color: 'bg-orange-100 border-orange-300' },
-      { value: 3, emoji: '😐', label: tr("common_normal", "Normal"), color: 'bg-yellow-100 border-yellow-300' },
-      { value: 4, emoji: '🙂', label: tr("mooddiary_yaxsi_9d8595", 'Yaxşı'), color: 'bg-lime-100 border-lime-300' },
-      { value: 5, emoji: '😊', label: tr("mooddiary_ela_720a0e", 'Əla'), color: 'bg-green-100 border-green-300' }];
+      { value: 1, emoji: '😢', label: tr("mooddiary_cox_pis_e041c5", 'Çox pis'), tone: moodTone(1) },
+      { value: 2, emoji: '😔', label: tr("mooddiary_pis_3c7a2d", "Pis"), tone: moodTone(2) },
+      { value: 3, emoji: '😐', label: tr("common_normal", "Normal"), tone: moodTone(3) },
+      { value: 4, emoji: '🙂', label: tr("mooddiary_yaxsi_9d8595", 'Yaxşı'), tone: moodTone(4) },
+      { value: 5, emoji: '😊', label: tr("mooddiary_ela_720a0e", 'Əla'), tone: moodTone(5) }];
 
     }
     return dbMoods.map((m) => ({
       value: m.value,
       emoji: m.emoji,
       label: m.label,
-      color: m.color_class || 'bg-gray-100 border-gray-300'
+      // color_class (light-only Tailwind pastels) is mapped to theme tokens, see mood-colors.ts.
+      tone: moodTone(m.value, m.color_class)
     }));
   }, [dbMoods]);
 
@@ -217,10 +219,10 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
                   onClick={() => { edit(); setSelectedMood(mood.value); }}
                   className={`w-11 h-11 rounded-2xl flex items-center justify-center text-lg border-2 transition-all ${
                   selectedMood === mood.value ?
-                  `${mood.color} scale-110 shadow-lg` :
+                  'scale-110 shadow-lg' :
                   ''}`
                   }
-                  style={selectedMood === mood.value ? { cursor: 'pointer' } : { background: 'var(--a-surface-soft)', borderColor: 'transparent', cursor: 'pointer' }}
+                  style={selectedMood === mood.value ? { ...moodToneStyle(mood.tone), cursor: 'pointer' } : { background: 'var(--a-surface-soft)', borderColor: 'transparent', cursor: 'pointer' }}
                   whileTap={{ scale: 0.95 }}>
                   
                       {mood.emoji}

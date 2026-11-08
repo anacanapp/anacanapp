@@ -4,7 +4,8 @@ import { useUserStore } from '@/store/userStore';
 import { useIllnessEpisodes } from '@/hooks/useIllness';
 import { useIllnessText } from '@/data/illness';
 import { fill } from '@/lib/feature-text';
-import { BAND_COLOR, KIND_EMOJI, episodeDay, tempBand } from '@/lib/illness';
+import { BAND_COLOR, KIND_EMOJI, episodeDay, toUnit, tempBand } from '@/lib/illness';
+import { useTempUnit } from './useTempUnit';
 import '@/styles/care.css';
 
 /**
@@ -16,6 +17,7 @@ export default function IllnessHomeCard({ mode, onOpen }: { mode: 'active' | 'en
   const t = useIllnessText(language);
   const { data: episodes = [], isLoading } = useIllnessEpisodes();
   const active = episodes.find((e) => !e.ended_at) ?? null;
+  const [unit] = useTempUnit();
   if (!t || isLoading) return null;
   if (mode === 'active' && !active) return null;
   if (mode === 'entry' && active) return null;
@@ -34,7 +36,7 @@ export default function IllnessHomeCard({ mode, onOpen }: { mode: 'active' | 'en
           </span>
         </span>
         {active?.last_temp != null &&
-        <strong style={{ fontSize: 18, color: BAND_COLOR[tempBand(Number(active.last_temp))] }}>{Number(active.last_temp).toFixed(1)}°</strong>
+        <strong style={{ fontSize: 18, color: BAND_COLOR[tempBand(Number(active.last_temp))] }}>{toUnit(Number(active.last_temp), unit).toFixed(1)}°</strong>
         }
         <ChevronRight size={18} className="rtl:rotate-180" style={{ color: 'var(--a-ink-faint)' }} />
       </motion.button>

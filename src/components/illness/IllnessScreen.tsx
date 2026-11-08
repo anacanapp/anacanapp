@@ -16,10 +16,11 @@ import { getLocaleTag } from '@/lib/i18n';
 import { hapticFeedback } from '@/lib/native';
 import { sendPartnerMessage } from '@/lib/chat';
 import {
-  BAND_COLOR, ILLNESS_KINDS, KIND_EMOJI, episodeDay, illnessAlerts, medStatuses, syncDoseReminders, tempBand,
-  type IllnessEntry, type IllnessEpisode, type IllnessKind } from
+  BAND_COLOR, ILLNESS_KINDS, KIND_EMOJI, episodeDay, formatTemp, illnessAlerts, localizeTempText, medStatuses, syncDoseReminders, tempBand, tempTemplate,
+  type IllnessEntry, type IllnessEpisode, type IllnessKind, type TempUnit } from
 '@/lib/illness';
-import { TempSheet, MedSheet, SymptomSheet, FlagsSheet } from './IllnessSheets';
+import { TempSheet, MedSheet, SymptomSheet, FlagsSheet, TempUnitToggle } from './IllnessSheets';
+import { useTempUnit } from './useTempUnit';
 import { TempChart } from './TempChart';
 import { buildIllnessReport } from './illness-report';
 import PremiumModal from '@/components/PremiumModal';
@@ -53,6 +54,7 @@ function IllnessContent({ t, onBack }: { t: IllnessText; onBack: () => void }) {
   const { partnerProfile } = usePartnerData();
   const { isPremium } = useSubscription();
   const locale = getLocaleTag();
+  const [unit, setUnit] = useTempUnit();
   const emergency = getEmergencyNumber((profile as { country_code?: string | null } | null)?.country_code ?? null);
 
   const episodesQuery = useIllnessEpisodes();
@@ -119,7 +121,7 @@ function IllnessContent({ t, onBack }: { t: IllnessText; onBack: () => void }) {
     if (!isPremium) {setPaywall(true);return;}
     try {
       const { generateDoctorReportPdf, deliverPdf } = await import('@/lib/pdfReport');
-      const doc = await generateDoctorReportPdf(buildIllnessReport(t, viewing, entries, { childName, locale, userName: profile?.name || '' }));
+      const doc = await generateDoctorReportPdf(buildIllnessReport(t, viewing, entries, { childName, locale, userName: profile?.name || '', unit }));
       await deliverPdf(doc, `anacan-${viewing.kind}-${viewing.started_at.slice(0, 10)}.pdf`, 'share');
     } catch {
       toast.error(t.error);
@@ -150,8 +152,8 @@ function IllnessContent({ t, onBack }: { t: IllnessText; onBack: () => void }) {
         <>
             {alerts.map((alert, i) =>
           <motion.div key={i} className="cx-alert" style={{ marginBottom: 12 }} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-                <b>🚨 {alert.kind === 'infant' ? fill(t.alert_infant, { months: alert.months, temp: alert.temp.toFixed(1) }) :
-              alert.kind === 'high' ? fill(t.alert_high, { temp: alert.temp.toFixed(1), number: emergency }) :
+                <b>🚨 {alert.kind === 'infant' ? fill(tempTemplate(t.alert_infant), { months: alert.months, temp: formatTemp(alert.temp, unit, locale) }) :
+              alert.kind === 'high' ? fill(tempTemplate(t.alert_high), { temp: formatTemp(alert.temp, unit, locale), number: emergency }) :
               alert.kind === 'breathing' ? fill(t.alert_breathing, { number: emergency }) : t.alert_long}</b>
                 {alert.kind !== 'long' && <a className="cx-call" href={`tel:${emergency}`}><Phone size={17} />{fill(t.call, { number: emergency })}</a>}
               </motion.div>
@@ -163,13 +165,14 @@ function IllnessContent({ t, onBack }: { t: IllnessText; onBack: () => void }) {
                   <p className="cx-eyebrow">{latestTemp ? fill(t.last_reading, { time: dayTime(latestTemp.at) }) : t.no_reading}</p>
                   {latestTemp ?
                 <div className="cx-row" style={{ gap: 10, marginTop: 6 }}>
-                      <span className="cx-temp" style={{ color: BAND_COLOR[tempBand(latestTemp.temp_c!)] }}>{latestTemp.temp_c!.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} °C</span>
+                      <span className="cx-temp" style={{ color: BAND_COLOR[tempBand(latestTemp.temp_c!)] }}>{formatTemp(latestTemp.temp_c!, unit, locale)}</span>
                       <span className="cx-pill" style={{ background: `${BAND_COLOR[tempBand(latestTemp.temp_c!)]}1f`, color: BAND_COLOR[tempBand(latestTemp.temp_c!)] }}>{t.bands[tempBand(latestTemp.temp_c!)]}</span>
                     </div> :
                 <div className="cx-temp" style={{ color: 'var(--a-ink-faint)', marginTop: 6 }}>—</div>}
                 </div>
+                <TempUnitToggle unit={unit} onChange={setUnit} />
               </div>
-              <TempChart entries={entries} locale={locale} feverLabel={t.fever_line} emptyLabel={t.chart_empty} />
+              <TempChart entries={entries} locale={locale} unit={unit} feverLabel={localizeTempText(t.fever_line, unit, locale)} emptyLabel={t.chart_empty} />
             </motion.div>
 
             {!viewing.ended_at &&
@@ -187,7 +190,7 @@ function IllnessContent({ t, onBack }: { t: IllnessText; onBack: () => void }) {
               {entries.length === 0 ?
             <p className="cx-sub" style={{ padding: '12px 0' }}>{t.no_entries}</p> :
             <div className="cx-list">
-                  {entries.slice(0, showAll ? 60 : 6).map((entry) => <EntryRow key={entry.id} t={t} entry={entry} when={dayTime(entry.at)} locale={locale}
+                  {entries.slice(0, showAll ? 60 : 6).map((entry) => <EntryRow key={entry.id} t={t} entry={entry} when={dayTime(entry.at)} locale={locale} unit={unit}
               onDelete={() => actions.removeEntry.mutate(entry.id)} canDelete={!viewing.ended_at} />)}
                   {!showAll && entries.length > 6 &&
               <button type="button" className="cx-li" style={{ width: '100%', justifyContent: 'center', border: 0, background: 'none', cursor: 'pointer', color: 'var(--a-accent-ink)', fontWeight: 800 }} onClick={() => setShowAll(true)}>
@@ -238,7 +241,7 @@ function IllnessContent({ t, onBack }: { t: IllnessText; onBack: () => void }) {
             <p className="cx-section">{t.history}</p>
             <div className="cx-card" style={{ paddingTop: 4, paddingBottom: 4 }}>
               <div className="cx-list">
-                {history.map((e) => <HistoryRow key={e.id} t={t} episode={e} locale={locale} onOpen={() => setOpenId(e.id)} />)}
+                {history.map((e) => <HistoryRow key={e.id} t={t} episode={e} locale={locale} unit={unit} onOpen={() => setOpenId(e.id)} />)}
               </div>
             </div>
           </>
@@ -261,7 +264,7 @@ function IllnessContent({ t, onBack }: { t: IllnessText; onBack: () => void }) {
           onSave={async (entry) => {await actions.add.mutateAsync({ episodeId: viewing.id, entry });toast.success(t.saved);}} />
         </>
       }
-      <FlagsSheet t={t} open={sheet === 'flags'} onClose={() => setSheet(null)} emergency={emergency} />
+      <FlagsSheet t={t} open={sheet === 'flags'} onClose={() => setSheet(null)} emergency={emergency} locale={locale} />
       <PremiumModal isOpen={paywall} onClose={() => setPaywall(false)} feature={t.premium_pdf} />
     </div>);
 }
@@ -334,11 +337,11 @@ function DoseCard({ t, med, time, done }: { t: IllnessText; med: ReturnType<type
     </motion.div>);
 }
 
-function EntryRow({ t, entry, when, locale, onDelete, canDelete }: { t: IllnessText; entry: IllnessEntry; when: string; locale: string; onDelete: () => void; canDelete: boolean }) {
+function EntryRow({ t, entry, when, locale, unit, onDelete, canDelete }: { t: IllnessText; entry: IllnessEntry; when: string; locale: string; unit: TempUnit; onDelete: () => void; canDelete: boolean }) {
   const who = entry.by_me ? t.by_me : entry.by === 'mother' ? t.by_mother : entry.by === 'partner' ? t.by_partner : '';
   let icon = '🌡️', bg = 'var(--a-peach-1)', title = '', sub = when;
   if (entry.kind === 'temp') {
-    title = `${entry.temp_c!.toLocaleString(locale, { minimumFractionDigits: 1 })} °C`;
+    title = formatTemp(entry.temp_c!, unit, locale);
     if (entry.temp_method) sub += ` · ${t.methods[entry.temp_method]}`;
   } else if (entry.kind === 'med') {
     icon = '💊';bg = 'var(--a-green-1)';
@@ -360,7 +363,7 @@ function EntryRow({ t, entry, when, locale, onDelete, canDelete }: { t: IllnessT
     </div>);
 }
 
-function HistoryRow({ t, episode, locale, onOpen }: { t: IllnessText; episode: IllnessEpisode; locale: string; onOpen: () => void }) {
+function HistoryRow({ t, episode, locale, unit, onOpen }: { t: IllnessText; episode: IllnessEpisode; locale: string; unit: TempUnit; onOpen: () => void }) {
   const range = useMemo(() => {
     const s = new Date(episode.started_at).toLocaleDateString(locale, { day: 'numeric', month: 'short' });
     return episode.ended_at ? `${s} – ${new Date(episode.ended_at).toLocaleDateString(locale, { day: 'numeric', month: 'short' })}` : s;
@@ -370,7 +373,7 @@ function HistoryRow({ t, episode, locale, onOpen }: { t: IllnessText; episode: I
       <span className="cx-icon" style={{ background: 'var(--a-surface-soft)' }}>{KIND_EMOJI[episode.kind]}</span>
       <div style={{ flex: 1, minWidth: 0 }}>
         <b>{t.kinds[episode.kind]}{episode.child_name ? ` · ${episode.child_name}` : ''}</b>
-        <small>{range}{episode.max_temp ? ` · ${Number(episode.max_temp).toLocaleString(locale, { minimumFractionDigits: 1 })} °C` : ''}</small>
+        <small>{range}{episode.max_temp ? ` · ${formatTemp(Number(episode.max_temp), unit, locale)}` : ''}</small>
       </div>
       <span className="cx-pill">{episode.ended_at ? t.ended : t.active}</span>
     </button>);
