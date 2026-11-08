@@ -12429,5 +12429,7 @@
   "p3b_bag_cancel": "취소",
   "p3b_bag_add_own": "나만의 항목 추가",
   "p3b_bag_hidden_n": "숨긴 항목 ({n})",
-  "p3b_bag_show": "표시"
+  "p3b_bag_show": "표시",
+  "p3a_doctors_call": "전화하기",
+  "p3a_doctors_directions": "길찾기"
 }

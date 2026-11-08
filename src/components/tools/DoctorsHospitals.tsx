@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, Search, Star, MapPin, Phone, Globe, Clock,
   Stethoscope, Building2, User, ChevronRight, Filter, Heart,
-  Mail, DollarSign, Calendar, X, GraduationCap, Award, Briefcase, Languages } from
+  Mail, GraduationCap, Briefcase, Languages, Navigation } from
 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -14,6 +14,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useScreenAnalytics, trackEvent } from '@/hooks/useScreenAnalytics';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProviderReviews from './doctors/ProviderReviews';
+import { directionsUrl, parseProviderProfile, splitProfileList } from './doctors/providerProfile';
 import { tr, mapRowsTranslation } from "@/lib/tr";
 import { useUserStore } from '@/store/userStore';
 import { localizedCountryName } from '@/lib/app-languages';
@@ -87,52 +88,6 @@ const getDayLabels = (): Record<string, string> => ({
   sunday: tr("common_bazar", 'Bazar')
 });
 
-const parseDescription = (text: string) => {
-  if (!text) return { basicDescription: '' };
-  
-  const result: any = {
-    experience: '',
-    languages: '',
-    education: '',
-    master: '',
-    interests: '',
-    servicesList: '',
-    basicDescription: ''
-  };
-
-  const lines = text.split('\n');
-  const remainingLines: string[] = [];
-  
-  let parsingHeaders = true;
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-    if (parsingHeaders) {
-      if (line.startsWith('Təcrübə:')) result.experience = line.replace('Təcrübə:', '').trim();
-      else if (line.startsWith('Dillər:')) result.languages = line.replace('Dillər:', '').trim();
-      else if (line.startsWith('Təhsil:')) result.education = line.replace('Təhsil:', '').trim();
-      else if (line.startsWith('Magistr:')) result.master = line.replace('Magistr:', '').trim();
-      else if (line.startsWith('Maraq sahələri:')) result.interests = line.replace('Maraq sahələri:', '').trim();
-      else if (line.startsWith('Xidmətlər:')) result.servicesList = line.replace('Xidmətlər:', '').trim();
-      else if (line === '') {
-         // skip empty lines
-      } else {
-         parsingHeaders = false;
-         remainingLines.push(line);
-      }
-    } else {
-       remainingLines.push(line);
-    }
-  }
-  
-  result.basicDescription = remainingLines.join('\n').trim();
-  
-  if (!result.experience && !result.languages && !result.education && !result.interests && !result.servicesList) {
-    return { basicDescription: text };
-  }
-  
-  return result;
-};
-
 const DoctorsHospitals = ({ onBack }: DoctorsHospitalsProps) => {
   useScrollToTop();
   useScreenAnalytics('DoctorsHospitals', 'Tools');
@@ -140,7 +95,6 @@ const DoctorsHospitals = ({ onBack }: DoctorsHospitalsProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [selectedProvider, setSelectedProvider] = useState<HealthcareProvider | null>(null);
-  const [showReservationModal, setShowReservationModal] = useState(false);
   const language = useUserStore((state) => state.language);
   const providerTypeLabels = getProviderTypeLabels();
   const specialtyCategories = getSpecialtyCategories();
@@ -212,20 +166,12 @@ const DoctorsHospitals = ({ onBack }: DoctorsHospitalsProps) => {
     return matchesSearch && matchesFilter;
   });
 
-  // Reservation handler - prepared but not active
-  const handleReservation = (provider: HealthcareProvider) => {
-    // This function is ready but disabled
-    // setShowReservationModal(true);
-    console.log('Reservation feature is disabled');
-  };
-
   const selected = translatedProviders.find(provider => provider.id === selectedProvider?.id);
   if (selected) {
     return (
       <ProviderDetail
         provider={selected}
-        onBack={() => setSelectedProvider(null)}
-        onReserve={handleReservation} />);
+        onBack={() => setSelectedProvider(null)} />);
 
 
   }
@@ -373,10 +319,9 @@ const DoctorsHospitals = ({ onBack }: DoctorsHospitalsProps) => {
 interface ProviderDetailProps {
   provider: HealthcareProvider;
   onBack: () => void;
-  onReserve: (provider: HealthcareProvider) => void;
 }
 
-const ProviderDetail = ({ provider, onBack, onReserve }: ProviderDetailProps) => {
+const ProviderDetail = ({ provider, onBack }: ProviderDetailProps) => {
   const providerTypeLabels = getProviderTypeLabels();
   const dayLabels = getDayLabels();
   const TypeIcon = providerTypeLabels[provider.provider_type]?.icon || Building2;
@@ -424,7 +369,11 @@ const ProviderDetail = ({ provider, onBack, onReserve }: ProviderDetailProps) =>
   const currentRating = latestProvider?.rating ?? provider.rating;
   const currentReviewCount = latestProvider?.review_count ?? provider.review_count;
 
-  const parsedDesc = parseDescription(provider.description || '');
+  // Language-robust: translated profiles keep their "Header: value" lines (see doctors/providerProfile.ts).
+  const profile = parseProviderProfile(provider.description);
+  const parsedDesc = profile.fields;
+  const otherEntries = profile.entries.filter((e) => !e.field || e.field === 'master');
+  const mapsUrl = directionsUrl(provider);
 
   return (
     <div className="a-scope pb-24" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
@@ -506,8 +455,19 @@ const ProviderDetail = ({ provider, onBack, onReserve }: ProviderDetailProps) =>
           </div>
           }
 
-          {parsedDesc.basicDescription &&
-            <p className="a-cta-text" style={{ whiteSpace: 'pre-wrap' }}>{parsedDesc.basicDescription}</p>
+          {otherEntries.length > 0 &&
+          <dl data-testid="provider-profile-fields" style={{ margin: '0 0 12px', display: 'grid', gap: 6 }}>
+            {otherEntries.map((e, i) =>
+              <div key={i} style={{ minWidth: 0 }}>
+                <dt className="a-list-sub" style={{ margin: 0 }}>{e.label}</dt>
+                <dd className="a-list-title" style={{ margin: 0, whiteSpace: 'normal', overflowWrap: 'anywhere' }}>{e.value}</dd>
+              </div>
+            )}
+          </dl>
+          }
+
+          {profile.basicDescription &&
+            <p className="a-cta-text" style={{ whiteSpace: 'pre-wrap' }}>{profile.basicDescription}</p>
           }
         </div>
 
@@ -518,25 +478,25 @@ const ProviderDetail = ({ provider, onBack, onReserve }: ProviderDetailProps) =>
               <h2 className="a-card-title a-heading">❤️ {tr("doctorshospitals_maraq_saheleri", "Maraq sahələri")}</h2>
             </div>
             <div className="a-tag-row" style={{ marginBottom: 0 }}>
-              {parsedDesc.interests.split(',').map((interest: string, i: number) => (
+              {splitProfileList(parsedDesc.interests).map((interest: string, i: number) => (
                 <span key={i} className="a-tag" style={{ cursor: 'default' }}>
-                  {interest.trim()}
+                  {interest}
                 </span>
               ))}
             </div>
           </div>
         )}
 
-        {parsedDesc.servicesList && (
+        {parsedDesc.services && (
           <div className="a-card mb-3">
             <div className="a-card-head" style={{ marginBottom: 10 }}>
               <h2 className="a-card-title a-heading">🩺 {tr("doctorshospitals_xidmetler", "Xidmətlər")}</h2>
             </div>
             <ul className="space-y-2" style={{ margin: 0, padding: 0, listStyle: 'none' }}>
-              {parsedDesc.servicesList.split(',').map((service: string, i: number) => (
+              {splitProfileList(parsedDesc.services).map((service: string, i: number) => (
                 <li key={i} className="flex gap-2">
                   <span style={{ width: 6, height: 6, borderRadius: 999, background: 'var(--a-peach-2)', marginTop: 6, flexShrink: 0 }} />
-                  <span className="a-list-sub" style={{ margin: 0, whiteSpace: 'normal' }}>{service.trim()}</span>
+                  <span className="a-list-sub" style={{ margin: 0, whiteSpace: 'normal' }}>{service}</span>
                 </li>
               ))}
             </ul>
@@ -637,17 +597,22 @@ const ProviderDetail = ({ provider, onBack, onReserve }: ProviderDetailProps) =>
         {/* Reviews Section */}
         <ProviderReviews providerId={provider.id} providerName={provider.name} />
 
-        {/* Reserve Button - Disabled for now */}
-        {provider.accepts_reservations &&
-        <button
-          className="a-btn-solid w-full"
-          style={{ justifyContent: 'center', padding: '13px 18px', marginTop: 12, opacity: 0.5, cursor: 'not-allowed' }}
-          disabled={true}
-          onClick={() => onReserve(provider)}>
-          
-            <Calendar size={15} strokeWidth={2.2} />
-            {tr("doctorshospitals_rezervasiya_et_tezlikle_225276", "Rezervasiya et (Tezlikl\u0259)")}
-          </button>
+        {/* Online booking is not available, so the actions are a call and directions when we have them. */}
+        {(provider.phone || mapsUrl) &&
+        <div className="grid gap-2" style={{ gridTemplateColumns: provider.phone && mapsUrl ? '1fr 1fr' : '1fr', marginTop: 12 }} data-testid="provider-actions">
+            {provider.phone &&
+            <a href={`tel:${provider.phone}`} className="a-btn-solid" style={{ justifyContent: 'center', padding: '13px 18px', textDecoration: 'none' }}>
+                <Phone size={15} strokeWidth={2.2} aria-hidden="true" />
+                {tr('p3a_doctors_call', 'Zəng et')}
+              </a>
+            }
+            {mapsUrl &&
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="a-btn-soft" style={{ justifyContent: 'center', padding: '13px 18px', textDecoration: 'none' }}>
+                <Navigation size={15} strokeWidth={2.2} aria-hidden="true" />
+                {tr('p3a_doctors_directions', 'Yol tarifi')}
+              </a>
+            }
+          </div>
         }
       </div>
     </div>);

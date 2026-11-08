@@ -12429,5 +12429,7 @@
   "p3b_bag_cancel": "キャンセル",
   "p3b_bag_add_own": "自分のアイテムを追加",
   "p3b_bag_hidden_n": "非表示（{n}）",
-  "p3b_bag_show": "表示"
+  "p3b_bag_show": "表示",
+  "p3a_doctors_call": "電話する",
+  "p3a_doctors_directions": "経路"
 }

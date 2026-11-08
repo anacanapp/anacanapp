@@ -10282,5 +10282,7 @@
   "p3b_bag_cancel": "Бас тарту",
   "p3b_bag_add_own": "Өз затыңызды қосыңыз",
   "p3b_bag_hidden_n": "Жасырылғандар ({n})",
-  "p3b_bag_show": "Көрсету"
+  "p3b_bag_show": "Көрсету",
+  "p3a_doctors_call": "Қоңырау шалу",
+  "p3a_doctors_directions": "Бағыт"
 }

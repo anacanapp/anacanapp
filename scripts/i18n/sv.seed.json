@@ -12429,5 +12429,7 @@
   "p3b_bag_cancel": "Avbryt",
   "p3b_bag_add_own": "Lägg till en egen sak",
   "p3b_bag_hidden_n": "Dolda ({n})",
-  "p3b_bag_show": "Visa"
+  "p3b_bag_show": "Visa",
+  "p3a_doctors_call": "Ring",
+  "p3a_doctors_directions": "Vägbeskrivning"
 }

@@ -10282,5 +10282,7 @@
   "p3b_bag_cancel": "გაუქმება",
   "p3b_bag_add_own": "დაამატეთ თქვენი ნივთი",
   "p3b_bag_hidden_n": "დამალული ({n})",
-  "p3b_bag_show": "ჩვენება"
+  "p3b_bag_show": "ჩვენება",
+  "p3a_doctors_call": "დარეკვა",
+  "p3a_doctors_directions": "მარშრუტი"
 }

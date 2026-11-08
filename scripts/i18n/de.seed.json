@@ -10282,5 +10282,7 @@
   "p3b_bag_cancel": "Abbrechen",
   "p3b_bag_add_own": "Eigenen Gegenstand hinzufügen",
   "p3b_bag_hidden_n": "Ausgeblendet ({n})",
-  "p3b_bag_show": "Einblenden"
+  "p3b_bag_show": "Einblenden",
+  "p3a_doctors_call": "Anrufen",
+  "p3a_doctors_directions": "Route"
 }

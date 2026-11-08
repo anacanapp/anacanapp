@@ -12429,5 +12429,7 @@
   "p3b_bag_cancel": "Cancelar",
   "p3b_bag_add_own": "Añade tu propio artículo",
   "p3b_bag_hidden_n": "Ocultos ({n})",
-  "p3b_bag_show": "Mostrar"
+  "p3b_bag_show": "Mostrar",
+  "p3a_doctors_call": "Llamar",
+  "p3a_doctors_directions": "Cómo llegar"
 }

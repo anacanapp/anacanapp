@@ -12429,5 +12429,7 @@
   "p3b_bag_cancel": "रद्द करें",
   "p3b_bag_add_own": "अपना सामान जोड़ें",
   "p3b_bag_hidden_n": "छिपे हुए ({n})",
-  "p3b_bag_show": "दिखाएं"
+  "p3b_bag_show": "दिखाएं",
+  "p3a_doctors_call": "कॉल करें",
+  "p3a_doctors_directions": "रास्ता देखें"
 }

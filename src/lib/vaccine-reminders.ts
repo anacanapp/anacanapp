@@ -1,13 +1,16 @@
 /**
- * Vaccine reminders (this phone only, no server job): local notifications for the child selected in the
- * vaccine calendar.
+ * Vaccine reminders (this phone only, no server job): local notifications for every child of the signed-in
+ * user.
  *  - each upcoming dose due within the next 60 days: 10:00 three days before and 10:00 on the due day;
  *  - each overdue dose (up to 3, due within the last year): one gentle reminder at 10:00 on the next weekday
  *    of its due date, so it never comes more than once a week however often the calendar is opened;
  *  - done and skipped doses, conditional / seasonal doses and interval doses whose earlier dose is not logged
  *    get nothing.
- * The calendar cancels and reschedules the whole range whenever the plan changes; a tap opens the calendar
- * (anacan://tool/vaccine-calendar via pushNav). The on/off switch is stored per device (default on).
+ * Ids: each child gets its own block of VACCINE_CHILD_STRIDE ids (slot stored per device), so rescheduling one
+ * child never touches another child's reminders. The calendar reschedules the open child's block whenever the
+ * plan changes; the app refreshes all children once a day at start (refreshAllVaccineReminders), without ever
+ * asking for permission there. A tap opens the calendar (anacan://tool/vaccine-calendar via pushNav). The
+ * on/off switch is stored per device (default on); off cancels every block.
  */
 import { addDays, differenceInCalendarDays, isValid, parseISO, startOfDay } from 'date-fns';
 import { calendarOffsetDate, vaccineTiming, type VaccineStatus } from './vaccine-schedule';
@@ -19,7 +22,64 @@ export const UPCOMING_DAYS = 60;
 export const OVERDUE_LOOKBACK_DAYS = 365;
 export const REMINDER_HOUR = 10;
 export const VACCINE_DEEPLINK = 'anacan://tool/vaccine-calendar';
-const ALL_IDS = Array.from({ length: MAX_UPCOMING + MAX_OVERDUE }, (_, i) => ({ id: VACCINE_REMINDER_BASE_ID + i }));
+/** Ids per child block; the first MAX_UPCOMING + MAX_OVERDUE are used, the rest is headroom. */
+export const VACCINE_CHILD_STRIDE = 30;
+/** Per-child blocks start after the legacy single-child range (883_300..883_322, still cancelled for old installs). */
+export const VACCINE_CHILD_BASE_ID = 883_400;
+export const MAX_REMINDER_CHILDREN = 10;
+const PER_CHILD = MAX_UPCOMING + MAX_OVERDUE;
+const rangeIds = (base: number) => Array.from({ length: PER_CHILD }, (_, i) => ({ id: base + i }));
+const LEGACY_IDS = rangeIds(VACCINE_REMINDER_BASE_ID);
+const ALL_CHILD_IDS = Array.from({ length: MAX_REMINDER_CHILDREN }, (_, slot) => rangeIds(VACCINE_CHILD_BASE_ID + slot * VACCINE_CHILD_STRIDE)).flat();
+export const vaccineChildBlockBase = (slot: number) => VACCINE_CHILD_BASE_ID + slot * VACCINE_CHILD_STRIDE;
+
+export const VACCINE_CHILD_SLOTS_KEY = 'anacan.vaccineReminders.childSlots.v1';
+function readSlots(): Record<string, number> {
+  try {
+    const parsed = JSON.parse(window.localStorage.getItem(VACCINE_CHILD_SLOTS_KEY) || '{}');
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+    const out: Record<string, number> = {};
+    for (const [id, slot] of Object.entries(parsed)) {
+      if (Number.isInteger(slot) && (slot as number) >= 0 && (slot as number) < MAX_REMINDER_CHILDREN && !Object.values(out).includes(slot as number)) out[id] = slot as number;
+    }
+    return out;
+  } catch { return {}; }
+}
+function writeSlots(slots: Record<string, number>): void {
+  try { window.localStorage.setItem(VACCINE_CHILD_SLOTS_KEY, JSON.stringify(slots)); } catch { /* per-device bookkeeping */ }
+}
+/**
+ * The child's id block on this phone (stable once assigned; the lowest free slot otherwise). `keep` lists the
+ * children that must keep their slots; any other assignment may be reused when the blocks are full.
+ * Null when every block belongs to a child in `keep`.
+ */
+export function vaccineChildBase(childId: string, keep: string[] = []): number | null {
+  const slots = readSlots();
+  if (slots[childId] !== undefined) return vaccineChildBlockBase(slots[childId]);
+  const used = new Set(Object.values(slots));
+  let free = Array.from({ length: MAX_REMINDER_CHILDREN }, (_, i) => i).find((i) => !used.has(i));
+  if (free === undefined) {
+    const stale = Object.keys(slots).find((id) => id !== childId && !keep.includes(id));
+    if (stale === undefined) return null;
+    free = slots[stale];
+    delete slots[stale];
+  }
+  slots[childId] = free;
+  writeSlots(slots);
+  return vaccineChildBlockBase(free);
+}
+/** Forget every child not in `childIds`; returns the id blocks they held (to cancel). */
+function releaseOtherChildren(childIds: string[]): { id: number }[] {
+  const slots = readSlots();
+  const released: { id: number }[] = [];
+  for (const [id, slot] of Object.entries(slots)) {
+    if (childIds.includes(id)) continue;
+    released.push(...rangeIds(vaccineChildBlockBase(slot)));
+    delete slots[id];
+  }
+  writeSlots(slots);
+  return released;
+}
 
 export const VACCINE_REMINDERS_KEY = 'anacan.vaccineReminders.v1';
 
@@ -64,7 +124,7 @@ export interface VaccineReminderSlot { id: number; at: Date; doseId: string; kin
 const at10 = (day: Date) => new Date(day.getFullYear(), day.getMonth(), day.getDate(), REMINDER_HOUR, 0, 0, 0);
 
 /** Which reminders should exist now (pure; local time). */
-export function vaccineReminderSlots(doses: ReminderDose[], now: Date = new Date()): VaccineReminderSlot[] {
+export function vaccineReminderSlots(doses: ReminderDose[], now: Date = new Date(), baseId: number = VACCINE_REMINDER_BASE_ID): VaccineReminderSlot[] {
   const today = startOfDay(now);
   const upcoming: Omit<VaccineReminderSlot, 'id'>[] = [];
   for (const d of doses) {
@@ -94,7 +154,7 @@ export function vaccineReminderSlots(doses: ReminderDose[], now: Date = new Date
   }
 
   return [...upcoming.slice(0, MAX_UPCOMING), ...overdue]
-    .map((s, i) => ({ ...s, id: VACCINE_REMINDER_BASE_ID + i }));
+    .map((s, i) => ({ ...s, id: baseId + i }));
 }
 
 /** Stable key: reschedule only when the planned reminders (or their language) change. */
@@ -103,17 +163,23 @@ export const vaccineSlotsKey = (slots: VaccineReminderSlot[], extra = '') =>
 
 export type VaccineReminderResult = 'scheduled' | 'cleared' | 'denied' | 'unavailable';
 
-/** Replace this phone's vaccine reminders with `slots` (empty = cancel all). Never throws. */
+/**
+ * Replace this phone's vaccine reminders for one id block with `slots` (empty = cancel that block). `baseId`
+ * is the child's block (vaccineChildBase); `ask: false` never shows the permission prompt. Never throws.
+ */
 export async function syncVaccineReminders(
   slots: VaccineReminderSlot[],
   text: (slot: VaccineReminderSlot) => { title: string; body: string },
-  opts: { ask?: boolean } = {},
+  opts: { ask?: boolean; baseId?: number; cancelAll?: boolean } = {},
 ): Promise<VaccineReminderResult> {
   try {
     const { Capacitor } = await import('@capacitor/core');
     if (!Capacitor.isNativePlatform() || !Capacitor.isPluginAvailable('LocalNotifications')) return 'unavailable';
     const { LocalNotifications } = await import('@capacitor/local-notifications');
-    await LocalNotifications.cancel({ notifications: ALL_IDS });
+    // The legacy single-child range is always cleared: those ids predate per-child blocks.
+    const cancel = opts.cancelAll ? [...LEGACY_IDS, ...ALL_CHILD_IDS]
+      : [...LEGACY_IDS, ...(opts.baseId !== undefined ? rangeIds(opts.baseId) : [])];
+    await LocalNotifications.cancel({ notifications: cancel });
     if (!slots.length) return 'cleared';
     let perm = await LocalNotifications.checkPermissions();
     if (opts.ask !== false && (perm.display === 'prompt' || perm.display === 'prompt-with-rationale')) perm = await LocalNotifications.requestPermissions();
@@ -128,5 +194,52 @@ export async function syncVaccineReminders(
   } catch { return 'unavailable'; /* reminders are a convenience; the calendar still shows what is due */ }
 }
 
-/** Cancel every vaccine reminder on this phone (switch turned off). */
-export const cancelVaccineReminders = () => syncVaccineReminders([], () => ({ title: '', body: '' }));
+/** Cancel every vaccine reminder on this phone, for every child (switch turned off). */
+export const cancelVaccineReminders = () => syncVaccineReminders([], () => ({ title: '', body: '' }), { cancelAll: true });
+
+/** One child's input for the app-start refresh: the doses as the calendar computes them, plus a text builder. */
+export interface ChildReminderPlan {
+  childId: string;
+  doses: ReminderDose[];
+  text: (slot: VaccineReminderSlot) => { title: string; body: string };
+}
+
+/**
+ * App-start refresh for all children: never prompts for permission (asks nothing unless already granted),
+ * respects the per-device switch, gives each child its own id block and cancels blocks of children that are
+ * gone (deleted child, other account). Returns the overall result ('scheduled' if any child got reminders).
+ */
+export async function refreshAllVaccineReminders(plans: ChildReminderPlan[], now: Date = new Date()): Promise<VaccineReminderResult> {
+  if (!vaccineRemindersEnabled()) return cancelVaccineReminders();
+  const ids = plans.map((p) => p.childId);
+  const released = releaseOtherChildren(ids);
+  if (released.length) {
+    try {
+      const { Capacitor } = await import('@capacitor/core');
+      if (Capacitor.isNativePlatform() && Capacitor.isPluginAvailable('LocalNotifications')) {
+        const { LocalNotifications } = await import('@capacitor/local-notifications');
+        await LocalNotifications.cancel({ notifications: released });
+      }
+    } catch { /* best effort */ }
+  }
+  const results: VaccineReminderResult[] = [];
+  for (const plan of plans) {
+    const baseId = vaccineChildBase(plan.childId, ids);
+    if (baseId === null) continue; // more children than blocks: the calendar still shows what is due
+    const slots = vaccineReminderSlots(plan.doses, now, baseId);
+    results.push(await syncVaccineReminders(slots, plan.text, { ask: false, baseId }));
+  }
+  if (results.includes('scheduled')) return 'scheduled';
+  if (results.includes('denied')) return 'denied';
+  if (results.includes('unavailable')) return 'unavailable';
+  return 'cleared';
+}
+
+export const VACCINE_REFRESH_KEY = 'anacan.vaccineReminders.refreshedOn.v1';
+/** False when the app-start refresh already ran with this stamp (account + day + language) on this device. */
+export function vaccineRefreshDue(stamp: string): boolean {
+  try { return window.localStorage.getItem(VACCINE_REFRESH_KEY) !== stamp; } catch { return true; }
+}
+export function markVaccineRefresh(stamp: string): void {
+  try { window.localStorage.setItem(VACCINE_REFRESH_KEY, stamp); } catch { /* next start retries */ }
+}

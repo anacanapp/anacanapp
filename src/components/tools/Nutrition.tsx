@@ -132,7 +132,10 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
         let mealName = m.name;
         let mealTime = m.time_range || '';
 
-        // Fix for Nursing (it incorrectly comes as Nursing / Əlavə qida from db in some cases)
+        // Fallback for the nursing row, whose time_range (and on some copies name_az) was seeded with the
+        // snack category text "Əlavə qida". The data is fixed by
+        // supabase/migrations/20261108140000_nutrition_category_fix.sql; this patch only renders the same
+        // labels and is harmless after it is applied. Remove once the migration is live everywhere.
         if (m.meal_id === 'nursing') {
           mealName = language === 'en' ? 'Nursing' : language === 'ru' ? 'Грудное вскармливание' : language === 'tr' ? 'Emzirme' : language === 'kk' ? 'Емізу' : language === 'uz' ? 'Emizish' : language === 'ka' ? 'ძუძუთი კვება' : language === 'de' ? 'Stillen' : language === 'ar' ? 'رضاعة' : 'Əmizdirmə';
           mealTime = language === 'en' ? 'Anytime' : language === 'ru' ? 'В любое время' : language === 'tr' ? 'Her zaman' : language === 'kk' ? 'Кез келген уақытта' : language === 'uz' ? 'Istalgan vaqtda' : language === 'ka' ? 'ნებისმიერ დროს' : language === 'de' ? 'Jederzeit' : language === 'ar' ? 'في أي وقت' : 'İstənilən vaxt';

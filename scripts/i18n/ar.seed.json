@@ -10282,5 +10282,7 @@
   "p3b_bag_cancel": "إلغاء",
   "p3b_bag_add_own": "أضيفي غرضك الخاص",
   "p3b_bag_hidden_n": "المخفية ({n})",
-  "p3b_bag_show": "إظهار"
+  "p3b_bag_show": "إظهار",
+  "p3a_doctors_call": "اتصال",
+  "p3a_doctors_directions": "الاتجاهات"
 }

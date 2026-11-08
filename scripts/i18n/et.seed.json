@@ -12507,5 +12507,7 @@
   "p3b_bag_cancel": "Tühista",
   "p3b_bag_add_own": "Lisage oma asi",
   "p3b_bag_hidden_n": "Peidetud ({n})",
-  "p3b_bag_show": "Näita"
+  "p3b_bag_show": "Näita",
+  "p3a_doctors_call": "Helista",
+  "p3a_doctors_directions": "Teejuhised"
 }

@@ -3,7 +3,7 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import VaccineCalendar from './VaccineCalendar';
 
 const mocks = vi.hoisted(() => ({
-  native: false, ready: false, sync: vi.fn(),
+  native: false, ready: false, sync: vi.fn(), cancelAll: vi.fn(), rows: [] as any[],
   language: 'ja', accountCountry: 'AZ', storedCountry: null as string | null, selected: 0, from: vi.fn(), update: vi.fn(), eq: vi.fn(), select: vi.fn(), maybeSingle: vi.fn(), refetch: vi.fn(), toast: vi.fn(), schedule: vi.fn(),
   children: [
     { id: 'child-a', name: 'Child A', birth_date: '2025-01-01', gender: 'girl', country_code: 'AZ', vaccine_country_code: 'FR', avatar_emoji: '👧' },
@@ -15,14 +15,14 @@ vi.mock('@/store/userStore', () => ({ useUserStore: (select: any) => select({ la
 vi.mock('@/lib/tr', () => ({ tr: (_key: string, fallback: string) => fallback, getPersistedLanguage: () => mocks.language,
   formatTr: (_key: string, fallback: string, vars: Record<string, string>) => fallback.replace(/\{(\w+)\}/g, (_m, k) => vars[k] ?? '') }));
 vi.mock('@capacitor/core', () => ({ Capacitor: { isNativePlatform: () => mocks.native, isPluginAvailable: () => mocks.native } }));
-vi.mock('@/lib/vaccine-reminders', async (importOriginal) => ({ ...(await importOriginal<object>()), syncVaccineReminders: mocks.sync }));
+vi.mock('@/lib/vaccine-reminders', async (importOriginal) => ({ ...(await importOriginal<object>()), syncVaccineReminders: mocks.sync, cancelVaccineReminders: mocks.cancelAll }));
 vi.mock('@/hooks/use-toast', () => ({ useToast: () => ({ toast: mocks.toast }) }));
 vi.mock('@/hooks/useChildren', () => ({ useChildren: () => ({ children: mocks.children, selectedChild: mocks.children[mocks.selected],
   setSelectedChild: (child: any) => { mocks.selected = mocks.children.findIndex(c => c.id === child.id); },
   getChildAge: () => ({ days: 300, displayText: 'Age', isPremature: false }), refetch: mocks.refetch }) }));
 vi.mock('@/hooks/useVaccines', () => ({
   useVaccineCountries: () => ({ data: ['AZ','FR','NL','JP','SE'].map(code => ({ id: code, code, name: code, flag_emoji: '🌍' })) }),
-  useVaccineScheduleForCountry: (country: string) => { mocks.schedule(country); return { data: [], isLoading: false, isSuccess: mocks.ready }; },
+  useVaccineScheduleForCountry: (country: string) => { mocks.schedule(country); return { data: mocks.rows, isLoading: false, isSuccess: mocks.ready }; },
   useChildVaccinations: () => ({ data: [], isSuccess: mocks.ready }), useUpsertChildVaccination: () => ({ mutateAsync: vi.fn() }), useDeleteChildVaccination: () => ({ mutateAsync: vi.fn() }),
 }));
 vi.mock('@/integrations/supabase/client', () => ({ supabase: { from: mocks.from } }));
@@ -32,7 +32,7 @@ vi.mock('@/components/ui/dropdown-menu', () => ({
   DropdownMenuItem: ({ children, onClick, disabled }: any) => <button onClick={onClick} disabled={disabled}>{children}</button>,
 }));
 beforeEach(() => {
-  vi.clearAllMocks(); mocks.native = false; mocks.ready = false; mocks.sync.mockResolvedValue('scheduled'); localStorage.clear(); mocks.selected = 0; mocks.language = 'ja'; mocks.storedCountry = null; mocks.accountCountry = 'AZ';
+  vi.clearAllMocks(); mocks.rows = []; mocks.cancelAll.mockResolvedValue('cleared'); mocks.native = false; mocks.ready = false; mocks.sync.mockResolvedValue('scheduled'); localStorage.clear(); mocks.selected = 0; mocks.language = 'ja'; mocks.storedCountry = null; mocks.accountCountry = 'AZ';
   mocks.children[0].country_code = 'AZ'; mocks.children[1].country_code = 'AZ';
   mocks.children[0].vaccine_country_code = 'FR'; mocks.children[1].vaccine_country_code = 'NL';
   const q = { update: mocks.update, eq: mocks.eq, select: mocks.select, maybeSingle: mocks.maybeSingle };
@@ -102,8 +102,9 @@ it('waits for the schedule and logs, then reschedules on the phone and cancels w
   view.rerender(<VaccineCalendar onBack={() => {}} />);
   expect(mocks.sync).toHaveBeenCalledTimes(1);
   fireEvent.click(screen.getByTestId('vaccine-reminders'));
-  await waitFor(() => expect(mocks.sync).toHaveBeenCalledTimes(2));
-  expect(mocks.sync.mock.calls[1][0]).toEqual([]);
+  await waitFor(() => expect(mocks.cancelAll).toHaveBeenCalledTimes(1));
+  expect(mocks.sync).toHaveBeenCalledTimes(1);
+  expect(mocks.sync.mock.calls[0][2]).toEqual({ baseId: 883_400 });
   expect(screen.getByTestId('vaccine-reminders')).toHaveAttribute('aria-checked', 'false');
   expect(localStorage.getItem('anacan.vaccineReminders.v1')).toBe('0');
 });
@@ -111,4 +112,25 @@ it('says so when notifications are blocked', async () => {
   mocks.native = true; mocks.ready = true; mocks.sync.mockResolvedValue('denied');
   render(<VaccineCalendar onBack={() => {}} />);
   expect(await screen.findByText('Bildirişlər telefonun ayarlarında bağlıdır.')).toBeInTheDocument();
+});
+
+it('shows vaccine names and age groups in the app language, grouped by schedule age not by text', () => {
+  mocks.ready = true; mocks.language = 'ja';
+  const vaccine = (code: string, name: string) => ({ id: code, code, name, name_az: name, is_active: true, is_mandatory: true, color_hex: null });
+  const row = (id: string, days: number, age: string, v: any) => ({ id, vaccine_id: v.id, country_code: 'FR', dose_number: 1,
+    recommended_age_days: days, age_label: age, age_label_az: age, dose_label: '1-ci doza', dose_label_az: '1-ci doza',
+    min_age_days: null, max_age_days: null, notes: null, sort_order: 1, vaccine: v });
+  mocks.rows = [
+    row('m1', 365, '12 aylıq', vaccine('MMR', 'Qızılca, parotit, məxmərək')),
+    row('h1', 60, '2 aylıq', vaccine('HepB', 'Hepatit B')),
+    row('h2', 60, '8 həftə', vaccine('PCV', 'Pnevmokokk')),
+  ];
+  render(<VaccineCalendar onBack={() => {}} />);
+  fireEvent.click(screen.getByText('Tam qrafik'));
+  const groups = screen.getAllByTestId('vaccine-age-group');
+  expect(groups).toHaveLength(2);
+  expect(groups[0]).toHaveTextContent('B型肝炎 (HepB)');
+  expect(groups[0]).toHaveTextContent('肺炎球菌 (PCV)');
+  expect(groups[1]).toHaveTextContent('麻しん、おたふくかぜ、風しん (MMR)');
+  expect(document.body).not.toHaveTextContent('Hepatit B');
 });

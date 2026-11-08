@@ -10282,5 +10282,7 @@
   "p3b_bag_cancel": "Отмена",
   "p3b_bag_add_own": "Добавьте свою вещь",
   "p3b_bag_hidden_n": "Скрытые ({n})",
-  "p3b_bag_show": "Показать"
+  "p3b_bag_show": "Показать",
+  "p3a_doctors_call": "Позвонить",
+  "p3a_doctors_directions": "Маршрут"
 }

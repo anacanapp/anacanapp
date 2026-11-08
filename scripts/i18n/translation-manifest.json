@@ -26,10 +26,10 @@
       "language": "zh",
       "kind": "ui",
       "file": "scripts/i18n/zh.seed.json",
-      "count": 12431,
-      "bytes": 772926,
-      "sha256": "a1e1f79949b3aac3258c27a14e6b87c5b709f94bf5af9486b50490d824c3a04f",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 773002,
+      "sha256": "594d39756e667970560f1af9a851f026fe60e7339b7c649db02cad1d72ee2fa6",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "zh",
@@ -43,10 +43,10 @@
       "language": "id",
       "kind": "ui",
       "file": "scripts/i18n/id.seed.json",
-      "count": 12431,
-      "bytes": 808966,
-      "sha256": "b4cd7e03c534fff0c2da4458771c85d37a7d2ba1003397dd29f5fff521f91f71",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 809044,
+      "sha256": "892f7af888f68902988a602e5d19e8f016b19ea6312e5233c32a2ee62a892b9e",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "id",
@@ -60,10 +60,10 @@
       "language": "fr",
       "kind": "ui",
       "file": "scripts/i18n/fr.seed.json",
-      "count": 12431,
-      "bytes": 860272,
-      "sha256": "df10f160159d9e067085d42bd63cf11dc47c18f020af8dcbda69ecd9b36ab0ef",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 860348,
+      "sha256": "6847b2a29c1ceafc05482b19a2cd80ecdf64e95ff4f07c1cb216f59465f59125",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "fr",
@@ -77,10 +77,10 @@
       "language": "es",
       "kind": "ui",
       "file": "scripts/i18n/es.seed.json",
-      "count": 12431,
-      "bytes": 836604,
-      "sha256": "f418c9d7affd6f459b37a1f4faaa7d668f78846db5741748b86e64d53dcdecfd",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 836680,
+      "sha256": "f04e46d52c137e18f954407b23b7ba4f21f096d1cb00659d67cb2e1e70ae9ea5",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "es",
@@ -94,10 +94,10 @@
       "language": "pt",
       "kind": "ui",
       "file": "scripts/i18n/pt.seed.json",
-      "count": 12431,
-      "bytes": 837035,
-      "sha256": "0c6fa8de81d3d8377d975c15b5630d1205595d14aa3682abe90d0710f7fc6c31",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 837109,
+      "sha256": "b558af63c413d09ddae755e3b5085634670045edb2846902df8f6d2c63214f8a",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "pt",
@@ -111,10 +111,10 @@
       "language": "vi",
       "kind": "ui",
       "file": "scripts/i18n/vi.seed.json",
-      "count": 12431,
-      "bytes": 894074,
-      "sha256": "5b5910f17c691cc1b51396be5058a6c9bd9e0a4ed9b3bb42c26465ff062ea629",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 894160,
+      "sha256": "4cbc7fc2cc989b47f54bb689ea09e337bc2dd664bd7e64466f3d4f87788b3dff",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "vi",
@@ -128,10 +128,10 @@
       "language": "hi",
       "kind": "ui",
       "file": "scripts/i18n/hi.seed.json",
-      "count": 12431,
-      "bytes": 1192264,
-      "sha256": "ac1de247d27eedbf38113a499896aad37fdb81acec72f6d2314db08cc48c056e",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 1192378,
+      "sha256": "1c7ac2abb09c9d275f7177fa5200825a975acd8c96c91fd927503a2adc7b6282",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "hi",
@@ -145,10 +145,10 @@
       "language": "ja",
       "kind": "ui",
       "file": "scripts/i18n/ja.seed.json",
-      "count": 12431,
-      "bytes": 886477,
-      "sha256": "f21a6dfe867c6307754db789304ab26bfaab55c9cd0a4ef8d44366b3119effea",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 886553,
+      "sha256": "1fe7e944772631fe9eae24da3fe13e5fdd252c167caccd1521354a51ca4ce2c1",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "ja",
@@ -162,10 +162,10 @@
       "language": "ko",
       "kind": "ui",
       "file": "scripts/i18n/ko.seed.json",
-      "count": 12431,
-      "bytes": 840358,
-      "sha256": "86934b703abdf5669d7a52c9d101333a579418ec12ec0a2488252da94bbda828",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 840437,
+      "sha256": "d69580d990949307555f77c1a4784a2f0f327b845e4d8ebfcdaf3e4b8940ad79",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "ko",
@@ -179,10 +179,10 @@
       "language": "pl",
       "kind": "ui",
       "file": "scripts/i18n/pl.seed.json",
-      "count": 12431,
-      "bytes": 833291,
-      "sha256": "c6acef6da6980ce08a5203ac53ec6da2af2813b6b793a947b0f5c4da0cef7aa8",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 833362,
+      "sha256": "ef367857c2af85417fe6b68fae5491a2b5acf54cf7ca91543b34e1dce237305e",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "pl",
@@ -196,10 +196,10 @@
       "language": "nl",
       "kind": "ui",
       "file": "scripts/i18n/nl.seed.json",
-      "count": 12431,
-      "bytes": 820256,
-      "sha256": "3c603f76e037ce833fc43135b38db5698c1e0c3c5dd9ac8c5d4c8baaf5223e9e",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 820325,
+      "sha256": "bff5a244877fc5a6be501ba611f8c2ffe0965f0e422817e22328e0f70a10b023",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "nl",
@@ -213,10 +213,10 @@
       "language": "sv",
       "kind": "ui",
       "file": "scripts/i18n/sv.seed.json",
-      "count": 12431,
-      "bytes": 808511,
-      "sha256": "28e923c4cdeb14b778fc8cdf2d97e35d9fc41b092e923dde9f1dab73f4048cbf",
-      "keysHash": "fe89603ee36ca3969a9c35fad5fa053254789edf6a22f748d4599d96318fc659"
+      "count": 12433,
+      "bytes": 808588,
+      "sha256": "69cab7be2debf934a5c477513736fc6912a820073f6f159fe41fc8e15f656580",
+      "keysHash": "4dd68483765a8b0f3f764c25eb5efa22739816c761496056d54534ae3f042061"
     },
     {
       "language": "sv",
@@ -230,10 +230,10 @@
       "language": "ky",
       "kind": "ui",
       "file": "scripts/i18n/ky.seed.json",
-      "count": 12509,
-      "bytes": 1010469,
-      "sha256": "bdd5e273ab9c2345a882f1794232ddabaf7780ac08e51d2a29641281dc917cbb",
-      "keysHash": "ce4639d771f342cff4fc06706cff615c75b9602f29bc368c7b3a08279f846a56"
+      "count": 12511,
+      "bytes": 1010547,
+      "sha256": "4a04b53699e39185ae27449608f46b1dceb1b8a4e113d50802d81160e2b503ea",
+      "keysHash": "e3d9344da634635ba29812d1eeda13fd1571daed59bda4d2562a747fb360e716"
     },
     {
       "language": "ky",
@@ -249,10 +249,10 @@
       "language": "et",
       "kind": "ui",
       "file": "scripts/i18n/et.seed.json",
-      "count": 12509,
-      "bytes": 765561,
-      "sha256": "df1f8256aedd411a73e0e89e5b18609c58f901c2c86b7bc9755f67e5710a7693",
-      "keysHash": "ce4639d771f342cff4fc06706cff615c75b9602f29bc368c7b3a08279f846a56"
+      "count": 12511,
+      "bytes": 765636,
+      "sha256": "3c9689e25658a7907611c989e112dbad0052440dac056138391103829d38b555",
+      "keysHash": "e3d9344da634635ba29812d1eeda13fd1571daed59bda4d2562a747fb360e716"
     },
     {
       "language": "et",

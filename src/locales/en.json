@@ -10271,5 +10271,7 @@
   "p3b_bag_cancel": "Cancel",
   "p3b_bag_add_own": "Add your own item",
   "p3b_bag_hidden_n": "Hidden ({n})",
-  "p3b_bag_show": "Show"
+  "p3b_bag_show": "Show",
+  "p3a_doctors_call": "Call",
+  "p3a_doctors_directions": "Directions"
 }

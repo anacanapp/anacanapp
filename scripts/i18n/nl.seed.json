@@ -12429,5 +12429,7 @@
   "p3b_bag_cancel": "Annuleren",
   "p3b_bag_add_own": "Voeg je eigen item toe",
   "p3b_bag_hidden_n": "Verborgen ({n})",
-  "p3b_bag_show": "Tonen"
+  "p3b_bag_show": "Tonen",
+  "p3a_doctors_call": "Bellen",
+  "p3a_doctors_directions": "Route"
 }

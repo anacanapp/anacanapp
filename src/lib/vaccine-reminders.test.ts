@@ -1,10 +1,19 @@
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { parseDeeplink } from './deeplink';
 import { intentFromPushData } from './pushNav';
 import {
-  MAX_OVERDUE, MAX_UPCOMING, VACCINE_DEEPLINK, VACCINE_REMINDER_BASE_ID, vaccineDueDate, vaccineReminderSlots, vaccineSlotsKey,
-  type ReminderDose,
+  MAX_OVERDUE, MAX_REMINDER_CHILDREN, MAX_UPCOMING, VACCINE_CHILD_BASE_ID, VACCINE_CHILD_STRIDE, VACCINE_DEEPLINK, VACCINE_REMINDER_BASE_ID,
+  cancelVaccineReminders, refreshAllVaccineReminders, setVaccineRemindersEnabled, syncVaccineReminders, vaccineChildBase, vaccineDueDate,
+  vaccineRefreshDue, markVaccineRefresh, vaccineReminderSlots, vaccineSlotsKey, type ReminderDose,
 } from './vaccine-reminders';
+
+const ln = vi.hoisted(() => ({
+  native: true, perm: 'granted', cancel: vi.fn(), schedule: vi.fn(), checkPermissions: vi.fn(), requestPermissions: vi.fn(),
+}));
+vi.mock('@capacitor/core', () => ({ Capacitor: { isNativePlatform: () => ln.native, isPluginAvailable: () => ln.native } }));
+vi.mock('@capacitor/local-notifications', () => ({ LocalNotifications: {
+  cancel: ln.cancel, schedule: ln.schedule, checkPermissions: ln.checkPermissions, requestPermissions: ln.requestPermissions,
+} }));
 
 // Run with TZ=Asia/Baku: every expectation is in local wall-clock time.
 const local = (y: number, m: number, d: number, h = 0, mi = 0) => new Date(y, m - 1, d, h, mi);
@@ -114,5 +123,91 @@ describe('tap payload', () => {
     expect(parseDeeplink(VACCINE_DEEPLINK)).toMatchObject({ action: 'tool', params: { tool_id: 'vaccine-calendar' } });
     // The type alone is unknown to pushNav, so the deeplink is what routes the tap.
     expect(intentFromPushData({ type: 'vaccine_reminder' })).toBeNull();
+  });
+});
+
+describe('multi-child reminders', () => {
+  const text = () => ({ title: 't', body: 'b' });
+  const scheduledIds = () => ln.schedule.mock.calls.flatMap(([arg]) => arg.notifications.map((n: { id: number }) => n.id));
+  const cancelledIds = () => ln.cancel.mock.calls.flatMap(([arg]) => arg.notifications.map((n: { id: number }) => n.id));
+  beforeEach(() => {
+    vi.clearAllMocks(); localStorage.clear(); ln.native = true; ln.perm = 'granted';
+    ln.checkPermissions.mockImplementation(async () => ({ display: ln.perm }));
+    ln.requestPermissions.mockResolvedValue({ display: 'granted' });
+  });
+
+  it('gives every child a stable block that never overlaps another child or the legacy range', () => {
+    const a = vaccineChildBase('a'), b = vaccineChildBase('b');
+    expect(a).toBe(VACCINE_CHILD_BASE_ID);
+    expect(b).toBe(VACCINE_CHILD_BASE_ID + VACCINE_CHILD_STRIDE);
+    expect(vaccineChildBase('a')).toBe(a);
+    expect(VACCINE_CHILD_STRIDE).toBeGreaterThanOrEqual(MAX_UPCOMING + MAX_OVERDUE);
+    expect(VACCINE_CHILD_BASE_ID).toBeGreaterThanOrEqual(VACCINE_REMINDER_BASE_ID + MAX_UPCOMING + MAX_OVERDUE);
+    const many = Array.from({ length: 30 }, (_, i) => dose(`d${String(i).padStart(2, '0')}`, 'future', local(2026, 11, 15 + i)));
+    const sa = vaccineReminderSlots(many, NOW, a as number), sb = vaccineReminderSlots(many, NOW, b as number);
+    const ids = [...sa, ...sb].map((x) => x.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    expect(Math.max(...sa.map((x) => x.id))).toBeLessThan(b as number);
+  });
+
+  it('reuses a slot of a child that is no longer kept, and refuses when every block is taken', () => {
+    const ids = Array.from({ length: MAX_REMINDER_CHILDREN }, (_, i) => `c${i}`);
+    ids.forEach((id) => vaccineChildBase(id, ids));
+    expect(vaccineChildBase('extra', ids)).toBeNull();
+    expect(vaccineChildBase('extra', ids.slice(1))).toBe(VACCINE_CHILD_BASE_ID); // c0 left
+  });
+
+  it('schedules all children at app start without prompting, each in its own block', async () => {
+    const result = await refreshAllVaccineReminders([
+      { childId: 'a', doses: [dose('x', 'future', local(2026, 11, 20))], text },
+      { childId: 'b', doses: [dose('y', 'future', local(2026, 11, 21))], text },
+    ], NOW);
+    expect(result).toBe('scheduled');
+    expect(ln.requestPermissions).not.toHaveBeenCalled();
+    expect(scheduledIds()).toEqual([VACCINE_CHILD_BASE_ID, VACCINE_CHILD_BASE_ID + 1,
+      VACCINE_CHILD_BASE_ID + VACCINE_CHILD_STRIDE, VACCINE_CHILD_BASE_ID + VACCINE_CHILD_STRIDE + 1]);
+    expect(ln.schedule.mock.calls[0][0].notifications[0]).toMatchObject({ extra: { type: 'vaccine_reminder', deeplink: VACCINE_DEEPLINK, dose: 'x' } });
+    // Rescheduling child a from the calendar leaves child b alone.
+    ln.cancel.mockClear();
+    await syncVaccineReminders([], text, { baseId: vaccineChildBase('a') as number });
+    expect(cancelledIds()).not.toContain(VACCINE_CHILD_BASE_ID + VACCINE_CHILD_STRIDE);
+    expect(cancelledIds()).toContain(VACCINE_CHILD_BASE_ID);
+    expect(cancelledIds()).toContain(VACCINE_REMINDER_BASE_ID); // legacy single-child ids
+  });
+
+  it('does not ask for permission and schedules nothing when it is not granted', async () => {
+    ln.perm = 'prompt';
+    const result = await refreshAllVaccineReminders([{ childId: 'a', doses: [dose('x', 'future', local(2026, 11, 20))], text }], NOW);
+    expect(result).toBe('denied');
+    expect(ln.requestPermissions).not.toHaveBeenCalled();
+    expect(ln.schedule).not.toHaveBeenCalled();
+  });
+
+  it('cancels every block when the switch is off, and the blocks of children that are gone', async () => {
+    await refreshAllVaccineReminders([
+      { childId: 'a', doses: [dose('x', 'future', local(2026, 11, 20))], text },
+      { childId: 'b', doses: [dose('y', 'future', local(2026, 11, 21))], text },
+    ], NOW);
+    ln.cancel.mockClear(); ln.schedule.mockClear();
+    await refreshAllVaccineReminders([{ childId: 'a', doses: [dose('x', 'future', local(2026, 11, 20))], text }], NOW);
+    expect(cancelledIds()).toContain(VACCINE_CHILD_BASE_ID + VACCINE_CHILD_STRIDE); // b's block released
+    expect(scheduledIds()).toEqual([VACCINE_CHILD_BASE_ID, VACCINE_CHILD_BASE_ID + 1]);
+
+    ln.cancel.mockClear(); ln.schedule.mockClear();
+    setVaccineRemindersEnabled(false);
+    expect(await refreshAllVaccineReminders([{ childId: 'a', doses: [dose('x', 'future', local(2026, 11, 20))], text }], NOW)).toBe('cleared');
+    expect(ln.schedule).not.toHaveBeenCalled();
+    expect(cancelledIds()).toContain(VACCINE_CHILD_BASE_ID + (MAX_REMINDER_CHILDREN - 1) * VACCINE_CHILD_STRIDE);
+    ln.cancel.mockClear();
+    await cancelVaccineReminders();
+    expect(cancelledIds()).toHaveLength((MAX_REMINDER_CHILDREN + 1) * (MAX_UPCOMING + MAX_OVERDUE));
+  });
+
+  it('runs the app-start refresh once per stamp (account, day, language)', () => {
+    expect(vaccineRefreshDue('u:2026-11-08:az')).toBe(true);
+    markVaccineRefresh('u:2026-11-08:az');
+    expect(vaccineRefreshDue('u:2026-11-08:az')).toBe(false);
+    expect(vaccineRefreshDue('u:2026-11-09:az')).toBe(true);
+    expect(vaccineRefreshDue('other:2026-11-08:az')).toBe(true);
   });
 });

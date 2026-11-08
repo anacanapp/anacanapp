@@ -8779,5 +8779,7 @@
   "p3b_bag_cancel": "Ləğv et",
   "p3b_bag_add_own": "Öz əşyanızı əlavə edin",
   "p3b_bag_hidden_n": "Gizlədilənlər ({n})",
-  "p3b_bag_show": "Göstər"
+  "p3b_bag_show": "Göstər",
+  "p3a_doctors_call": "Zəng et",
+  "p3a_doctors_directions": "Yol tarifi"
 }

@@ -12429,5 +12429,7 @@
   "p3b_bag_cancel": "Hủy",
   "p3b_bag_add_own": "Thêm món đồ của bạn",
   "p3b_bag_hidden_n": "Đã ẩn ({n})",
-  "p3b_bag_show": "Hiện"
+  "p3b_bag_show": "Hiện",
+  "p3a_doctors_call": "Gọi điện",
+  "p3a_doctors_directions": "Chỉ đường"
 }

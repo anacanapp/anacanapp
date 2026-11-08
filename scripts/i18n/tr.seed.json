@@ -10282,5 +10282,7 @@
   "p3b_bag_cancel": "İptal",
   "p3b_bag_add_own": "Kendi eşyanızı ekleyin",
   "p3b_bag_hidden_n": "Gizlenenler ({n})",
-  "p3b_bag_show": "Göster"
+  "p3b_bag_show": "Göster",
+  "p3a_doctors_call": "Ara",
+  "p3a_doctors_directions": "Yol tarifi"
 }

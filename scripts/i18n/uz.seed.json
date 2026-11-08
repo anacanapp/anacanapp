@@ -10282,5 +10282,7 @@
   "p3b_bag_cancel": "Bekor qilish",
   "p3b_bag_add_own": "O‘z buyumingizni qo‘shing",
   "p3b_bag_hidden_n": "Yashirilganlar ({n})",
-  "p3b_bag_show": "Ko‘rsatish"
+  "p3b_bag_show": "Ko‘rsatish",
+  "p3a_doctors_call": "Qo'ng'iroq qilish",
+  "p3a_doctors_directions": "Yo'nalish"
 }

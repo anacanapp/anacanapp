@@ -48,6 +48,7 @@ import type { BlogModule } from '@/lib/blog-editorial';
 import { normalizeAppLanguage, isAppLanguage } from '@/lib/app-languages';
 import BlogLinkHost from '@/components/blog/BlogLinkHost';
 import { useConsentGate } from '@/hooks/useConsentGate';
+import { useVaccineRemindersAtStart } from '@/hooks/useVaccineRemindersAtStart';
 import { isKvkkUser } from '@/lib/consentGate';
 
 // PremiumOnboarding.PENDING_FUNNEL_KEY ilə sinxron saxlanmalıdır
@@ -414,6 +415,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   // yuxu/əmizdirmə taymerlərini baby_logs-a yaz — HƏMİŞƏ aktiv host (sub-ekranlar
   // açıq olanda da), auth/uşaq siyahısı hazır olmayana qədər təhlükəsiz gözləyir.
   usePendingTimerStops();
+  // Vaccine reminders for all children: once a day on the phone, never prompts for permission.
+  useVaccineRemindersAtStart({ userId: isAuthenticated ? user?.id : null, ready: profileLoaded, language, profileCountry: profile?.country_code, storedCountry: countryCode });
 
   // ─── Deeplink handler ───
   const handleDeeplink = useCallback((parsed: ParsedDeeplink) => {

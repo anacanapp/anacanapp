@@ -12429,5 +12429,7 @@
   "p3b_bag_cancel": "Batal",
   "p3b_bag_add_own": "Tambahkan barang Anda sendiri",
   "p3b_bag_hidden_n": "Disembunyikan ({n})",
-  "p3b_bag_show": "Tampilkan"
+  "p3b_bag_show": "Tampilkan",
+  "p3a_doctors_call": "Telepon",
+  "p3a_doctors_directions": "Petunjuk arah"
 }
