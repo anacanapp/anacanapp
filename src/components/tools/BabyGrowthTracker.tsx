@@ -20,6 +20,8 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale, formatDateAz } from '@/lib/date-utils';
 import { useScreenAnalytics, trackEvent } from '@/hooks/useScreenAnalytics';
 import { tr } from "@/lib/tr";
+import { todayKey } from '@/lib/local-date';
+import { SafetyStrip } from './anacan/SafetyStrip';
 
 interface BabyGrowthTrackerProps {
   onBack: () => void;
@@ -209,7 +211,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
     height_cm: '',
     head_cm: '',
     notes: '',
-    entry_date: new Date().toISOString().split('T')[0]
+    entry_date: todayKey()
   });
 
   useEffect(() => {
@@ -329,7 +331,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
       height_cm: '',
       head_cm: '',
       notes: '',
-      entry_date: new Date().toISOString().split('T')[0]
+      entry_date: todayKey()
     });
     setEditingEntry(null);
     setShowAddModal(false);
@@ -556,6 +558,8 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
             </div>
           }
         </motion.section>
+
+        <SafetyStrip signs={tr('safety_growth_signs', 'Zəng edin: yeməkdən imtina, az yaş bez, çox süstlük və ya çətin oyanma')} />
       </div>
 
       {/* Add/Edit Modal */}

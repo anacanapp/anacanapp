@@ -17,6 +17,7 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import VitaminsTab from './VitaminsTab';
 import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
+import { SafetyStrip } from './anacan/SafetyStrip';
 import { tr } from "@/lib/tr";
 import { NEW_LANGUAGE_CODES } from '@/lib/app-languages';
 import { useIsRtl, rtlX } from '@/lib/rtl';
@@ -650,6 +651,8 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
             }
           </AnimatePresence>
         </div>
+
+        <SafetyStrip signs={tr('safety_nutrition_signs', 'Zəng edin: dayanmayan qusma, maye saxlaya bilməmək, çox az sidik, başgicəllənmə')} />
       </ToolPage>
     </div>);
 

@@ -12,6 +12,7 @@ import { useExercises } from '@/hooks/useDynamicConfig';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
+import { SafetyMore, SafetyStrip } from './anacan/SafetyStrip';
 import { isHealthConnected } from '@/lib/health';
 import { useHealthWorkouts } from '@/hooks/useHealthData';
 
@@ -400,6 +401,15 @@ const Exercises = forwardRef<HTMLDivElement, ExercisesProps>(({ onBack }, ref) =
             </motion.div>
           }
         </AnimatePresence>
+
+        <SafetyStrip signs={isMommy ?
+          tr('safety_exercise_signs_postpartum', 'Dayanın, zəng edin: güclü qanaxma, döş ağrısı, təngnəfəslik, baldır ağrısı, başgicəllənmə') :
+          tr('safety_exercise_signs', 'Dayanın, zəng edin: qanaxma, su gəlməsi, başgicəllənmə, döş/baldır ağrısı, ağrılı sancılar')} />
+        {!isMommy &&
+        <SafetyMore
+          summary={tr('safety_exercise_check_title', 'Əvvəlcə həkimlə danışın, əgər:')}
+          text={tr('safety_exercise_check_text', 'plasenta previa, serklaj və ya uşaqlıq boynu çatışmazlığı, qanaxma, vaxtından əvvəl doğuş riski, ağır anemiya, preeklampsiya')} />
+        }
       </ToolPage>
     </div>);
 

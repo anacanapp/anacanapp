@@ -3597,3 +3597,16 @@ html.a-lite .a3-mascot.bob { animation: none; }
 .a-par-ai .tx b { font-size: 14px; line-height: 1.3; }
 .a-par-ai .tx span { font-size: 12px; color: var(--a-ink-soft); }
 .a-par-ai .cta { flex: none; font-size: 12.5px; font-weight: 800; color: var(--a-coral-text, var(--a-accent-ink)); display: inline-flex; align-items: center; gap: 2px; }
+
+/* ============================================================
+   GROUP safety: minimal "danger signs + call" strip (SafetyStrip.tsx).
+   One quiet row at the bottom of a tool; logical properties keep RTL right.
+   ============================================================ */
+.a-safety-strip { display: flex; align-items: center; gap: 8px; margin-top: 14px; padding-block: 6px; padding-inline: 12px 6px; border-radius: 14px; background: var(--a-surface); border: 1px solid var(--a-line); }
+.a-safety-strip-icon { flex: none; color: var(--a-coral-text, #c4262e); }
+.a-safety-strip-text { flex: 1; min-width: 0; margin: 0; font-size: 12px; line-height: 1.35; font-weight: 600; color: var(--a-body-text, var(--a-ink)); overflow-wrap: anywhere; }
+.a-safety-strip-call { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 44px; min-width: 44px; padding: 0 12px; border-radius: 999px; background: #c4262e; color: #ffffff; font-size: 12.5px; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.a-safety-strip-call:focus-visible { outline: 2px solid var(--a-coral, #ff5a5f); outline-offset: 2px; }
+.a-safety-more { margin-top: 6px; padding-inline: 12px; font-size: 12px; line-height: 1.4; color: var(--a-body-text, var(--a-ink)); }
+.a-safety-more summary { padding-block: 13px; font-weight: 700; cursor: pointer; }
+.a-safety-more p { margin: 0 0 4px; }

@@ -19,6 +19,8 @@ import {
 import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
+import { SafetyStrip } from './anacan/SafetyStrip';
+import { tr } from '@/lib/tr';
 import TrackerAIInsight, { useBabyInsight } from '@/components/baby/TrackerAIInsight';
 
 type Tab = 'feeding' | 'sleep' | 'diaper';
@@ -357,6 +359,7 @@ export default function BabyTracker({ onBack }: { onBack: () => void }) {
           <Card title={bc('babytracker_entries')}><Entries entries={diaperEntries} onDelete={(id) => void remove(id)} /></Card>
         </div>
       )}
+      <SafetyStrip signs={tr('safety_babytracker_signs', 'Zəng edin: yenidoğanda 6+ saat yaş bez yoxdur, yeməkdən imtina, 3 aya qədər 38°C+')} />
     </ToolPage>
   );
 }

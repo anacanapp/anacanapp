@@ -29,6 +29,7 @@ import {
 '@/components/ui/dropdown-menu';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { SafetyStrip } from './anacan/SafetyStrip';
 
 interface Props {
   onBack: () => void;
@@ -428,6 +429,8 @@ export default function VaccineCalendar({ onBack }: Props) {
 
           })}
         </div>
+
+        <SafetyStrip signs={tr('safety_vaccine_signs', 'Peyvənddən sonra zəng edin: nəfəs çətinliyi, üzdə şişkinlik, yüksək hərarət, qıcolma')} />
 
         {/* Source */}
         {country?.source_url &&

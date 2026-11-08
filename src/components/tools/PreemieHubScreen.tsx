@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Baby, HeartHandshake, Milk, ShieldCheck, Stethoscope, CalendarClock } from 'lucide-react';
 import { ToolPage, ToolHeader } from '@/components/tools/anacan/ToolKit';
+import { SafetyStrip } from '@/components/tools/anacan/SafetyStrip';
 import { useChildren } from '@/hooks/useChildren';
 import { hapticFeedback } from '@/lib/native';
 import { tr } from '@/lib/tr';
@@ -221,6 +222,8 @@ const PreemieHubScreen = ({ onBack }: Props) => {
             </div>);
 
         })}
+
+        <SafetyStrip signs={tr('safety_preemie_signs', 'Zəng edin: nəfəs çətinliyi, rəng dəyişməsi (göy/solğun), pis əmmə, hərarət və ya soyuqluq')} />
 
         {/* Disclaimer */}
         <div className="a-card" style={{ padding: 12, background: 'var(--a-surface-soft)', marginTop: 16 }}>

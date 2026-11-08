@@ -5,6 +5,8 @@ import { useUserStore } from '@/store/userStore';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
+import { SafetyStrip } from './anacan/SafetyStrip';
+import { tr } from '@/lib/tr';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { fillEmergencyNumber } from '@/lib/emergency';
@@ -222,6 +224,7 @@ export default function SolidFoodGuide({ onBack }: { onBack: () => void }) {
         </button>
       </div>}
 
+      <SafetyStrip signs={tr('safety_solids_signs', 'Zəng edin: boğulma, üz/dodaq şişməsi, səpgi, qusma, nəfəs çətinliyi')} />
       <p className="a3-meta sfg-disclaimer">{t.disclaimer}</p>
     </ToolPage>
   );

@@ -29,6 +29,8 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { Sheet } from '@/components/anacan/Sheet';
 import { ToolPage, ToolHeader, ToolEmpty } from './anacan/ToolKit';
+import { SafetyStrip } from './anacan/SafetyStrip';
+import { tr } from '@/lib/tr';
 import NextNapSection from '@/components/sleep/NextNapSection';
 import { predictNextNap } from '@/lib/sleep-predict';
 import { consumeWidgetAction } from '@/lib/widget-actions';
@@ -735,6 +737,8 @@ export default function SleepTraining({ onBack }: { onBack: () => void }) {
             onToggleStep={(st) => update((s) => toggleStep(s, st))} onRate={(d, r, clear) => update((s) => ratePlanDay(s, d, r, clear))} onReset={() => update(resetPlan)} />
         )}
         {tab === 'safety' && <Safety done={state.safetyDone} emergency={emergency} onToggle={(it) => update((s) => toggleSafety(s, it))} />}
+        {/* The safety tab already has its own call row; the other tabs get the one-line strip. */}
+        {tab !== 'safety' && <SafetyStrip signs={tr('safety_sleep_signs', 'Zəng edin: nəfəs dayanması, göyərmiş dodaqlar, hərarət, qeyri-adi yuxululuq')} />}
       </div>
     </ToolPage>
   );
