@@ -4,7 +4,9 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { useToast } from './use-toast';
 import { usePartnerNotifications } from './usePartnerNotifications';
+import { showToolLiveTimer, hideToolLiveTimer } from '@/lib/tool-live-timer';
 import {
+  contractionLivePhase,
   computeContractionStats,
   mergeWithQueue,
   parseQueue,
@@ -68,6 +70,46 @@ export function loadContractionTimerState(uid: string | null | undefined): Contr
 
 export function saveContractionTimerState(uid: string | null | undefined, state: ContractionTimerState) {
   try { localStorage.setItem(`${TIMER_PREFIX}:${uid || 'anon'}`, JSON.stringify(state)); } catch { /* storage blocked */ }
+}
+
+/**
+ * Lock-screen live timer for the contraction timer (iOS Live Activity / Android
+ * ongoing notification, through the same native plugin as feeding/sleep timers).
+ * "Sancı" counts up from the running contraction's stored start; between
+ * contractions "Son sancıdan bəri" counts up from the last end. Both come from the
+ * persisted timestamps, so a locked screen does not matter. Hidden when the
+ * history is cleared or the rest passes an hour. Pass enabled=false until the
+ * user is known so the anonymous placeholder state never hides a real timer.
+ */
+export function useContractionLiveTimer(timer: ContractionTimerState, enabled = true) {
+  const { activeStart, lastEnd } = timer;
+  const [expiredAt, setExpiredAt] = useState(0);
+  useEffect(() => {
+    if (!enabled) return;
+    const live = contractionLivePhase({ activeStart, lastEnd });
+    if (!live) {
+      void hideToolLiveTimer('contraction');
+      return;
+    }
+    if (live.phase === 'active') {
+      void showToolLiveTimer('contraction', {
+        type: 'contraction',
+        label: tr('livetimer_contraction_active', 'Sancı'),
+        subLabel: tr('livetimer_contraction_active_sub', 'Bitəndə tətbiqdə qeyd edin'),
+        startTime: live.startTime,
+      });
+      return;
+    }
+    void showToolLiveTimer('contraction', {
+      type: 'contraction',
+      label: tr('livetimer_contraction_rest', 'Son sancıdan bəri'),
+      subLabel: tr('livetimer_contraction_rest_sub', 'Növbəti sancı başlayanda qeyd edin'),
+      startTime: live.startTime,
+    });
+    // Re-check when the rest turns into a pause (an hour without contractions).
+    const id = setTimeout(() => setExpiredAt(Date.now()), Math.max(0, live.until - Date.now()) + 500);
+    return () => clearTimeout(id);
+  }, [activeStart, lastEnd, enabled, expiredAt]);
 }
 
 const newClientId = () => {

@@ -147,3 +147,31 @@ export function parseQueue(raw: string | null): QueuedContraction[] {
     return [];
   }
 }
+
+// ------------------------------------------------------------
+// Lock-screen live timer phase (see src/lib/tool-live-timer.ts).
+// ------------------------------------------------------------
+
+export type ContractionLivePhase =
+  | { phase: 'active'; startTime: number }
+  | { phase: 'rest'; startTime: number; until: number }
+  | null;
+
+/**
+ * What the lock-screen timer shows: the running contraction (counting up from its
+ * start), or the time since the last contraction ended. A rest longer than
+ * MAX_INTERVAL_SECONDS is a pause, so nothing is shown then.
+ */
+export function contractionLivePhase(
+  state: { activeStart: number | null; lastEnd: number | null },
+  now: number = Date.now()
+): ContractionLivePhase {
+  if (state.activeStart != null && Number.isFinite(state.activeStart)) {
+    return { phase: 'active', startTime: state.activeStart };
+  }
+  if (state.lastEnd != null && Number.isFinite(state.lastEnd)) {
+    const until = state.lastEnd + MAX_INTERVAL_SECONDS * 1000;
+    if (state.lastEnd <= now + 60_000 && now < until) return { phase: 'rest', startTime: state.lastEnd, until };
+  }
+  return null;
+}

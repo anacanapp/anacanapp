@@ -10208,5 +10208,14 @@
   "a11y_replace_photo": "Foto ersetzen",
   "a11y_save": "Merken",
   "a11y_share": "Teilen",
-  "a11y_star_n": "Bewertung: {n}/5"
+  "a11y_star_n": "Bewertung: {n}/5",
+  "livetimer_hide": "Ausblenden",
+  "livetimer_contraction_active": "Wehe",
+  "livetimer_contraction_active_sub": "Ende in der App markieren",
+  "livetimer_contraction_rest": "Seit der letzten Wehe",
+  "livetimer_contraction_rest_sub": "Nächste Wehe beim Beginn markieren",
+  "livetimer_kick_label": "Bewegungen · {count}",
+  "livetimer_kick_sub": "Bei jeder Bewegung in der App tippen",
+  "livetimer_kick_tap_aria": "Bewegung erfassen, bisher {count}",
+  "livetimer_kick_reset_aria": "Zähler zurücksetzen"
 }

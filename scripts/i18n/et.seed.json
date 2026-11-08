@@ -12433,5 +12433,14 @@
   "a11y_replace_photo": "Asenda foto",
   "a11y_save": "Salvesta",
   "a11y_share": "Jaga",
-  "a11y_star_n": "Hinne: {n}/5"
+  "a11y_star_n": "Hinne: {n}/5",
+  "livetimer_hide": "Peida",
+  "livetimer_contraction_active": "Tuhu",
+  "livetimer_contraction_active_sub": "Märgi lõpp rakenduses",
+  "livetimer_contraction_rest": "Viimasest tuhust",
+  "livetimer_contraction_rest_sub": "Märgi järgmine, kui see algab",
+  "livetimer_kick_label": "Liigutused · {count}",
+  "livetimer_kick_sub": "Puuduta rakenduses iga liigutuse korral",
+  "livetimer_kick_tap_aria": "Märgi liigutus, seni {count}",
+  "livetimer_kick_reset_aria": "Lähtesta loendur"
 }

@@ -12433,5 +12433,14 @@
   "a11y_replace_photo": "Сүрөттү алмаштыруу",
   "a11y_save": "Сактоо",
   "a11y_share": "Бөлүшүү",
-  "a11y_star_n": "Баа: {n}/5"
+  "a11y_star_n": "Баа: {n}/5",
+  "livetimer_hide": "Жашыруу",
+  "livetimer_contraction_active": "Толгоо",
+  "livetimer_contraction_active_sub": "Бүткөндө колдонмодо белгилеңиз",
+  "livetimer_contraction_rest": "Акыркы толгоодон бери",
+  "livetimer_contraction_rest_sub": "Кийинкиси башталганда белгилеңиз",
+  "livetimer_kick_label": "Кыймыл · {count}",
+  "livetimer_kick_sub": "Ар бир кыймылда колдонмодо басыңыз",
+  "livetimer_kick_tap_aria": "Кыймылды белгилөө, азырынча {count}",
+  "livetimer_kick_reset_aria": "Эсептегичти нөлдөө"
 }

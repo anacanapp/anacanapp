@@ -12355,5 +12355,14 @@
   "a11y_replace_photo": "Remplacer la photo",
   "a11y_save": "Enregistrer",
   "a11y_share": "Partager",
-  "a11y_star_n": "Note : {n}/5"
+  "a11y_star_n": "Note : {n}/5",
+  "livetimer_hide": "Masquer",
+  "livetimer_contraction_active": "Contraction",
+  "livetimer_contraction_active_sub": "Indiquez la fin dans l'app",
+  "livetimer_contraction_rest": "Depuis la dernière contraction",
+  "livetimer_contraction_rest_sub": "Indiquez la suivante dès qu'elle commence",
+  "livetimer_kick_label": "Mouvements · {count}",
+  "livetimer_kick_sub": "Touchez l'app à chaque mouvement",
+  "livetimer_kick_tap_aria": "Noter un mouvement, {count} pour l'instant",
+  "livetimer_kick_reset_aria": "Réinitialiser le compteur"
 }

@@ -10208,5 +10208,14 @@
   "a11y_replace_photo": "Fotoğrafı değiştir",
   "a11y_save": "Kaydet",
   "a11y_share": "Paylaş",
-  "a11y_star_n": "Puan: {n}/5"
+  "a11y_star_n": "Puan: {n}/5",
+  "livetimer_hide": "Gizle",
+  "livetimer_contraction_active": "Kasılma",
+  "livetimer_contraction_active_sub": "Bittiğinde uygulamada işaretleyin",
+  "livetimer_contraction_rest": "Son kasılmadan beri",
+  "livetimer_contraction_rest_sub": "Bir sonraki başladığında işaretleyin",
+  "livetimer_kick_label": "Hareket · {count}",
+  "livetimer_kick_sub": "Her harekette uygulamada dokunun",
+  "livetimer_kick_tap_aria": "Hareketi kaydet, şu ana kadar {count}",
+  "livetimer_kick_reset_aria": "Sayacı sıfırla"
 }

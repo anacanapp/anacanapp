@@ -14,7 +14,7 @@ import {
   saveActiveKickSession,
   kickSessionDayKey } from
 '@/lib/kickSession';
-import { useKickSessions } from '@/hooks/useKickSessions';
+import { useKickSessions, useKickLiveTimer } from '@/hooks/useKickSessions';
 import { useAuth } from '@/hooks/useAuth';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
@@ -57,6 +57,9 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
   const [selectedPosition, setSelectedPosition] = useState<'left' | 'right' | null>(() => session?.position ?? null);
 
   const { sessions, addSession, getTodayStats, loading } = useKickSessions();
+
+  // Lock-screen live timer (native only): count + clock from the stored start.
+  useKickLiveTimer(session, userId != null);
 
   // Restore the unfinished session once the signed-in user is known.
   useEffect(() => {
@@ -247,6 +250,7 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
         {/* Kick Button */}
         <motion.button
           onClick={handleKick}
+          aria-label={formatTr('livetimer_kick_tap_aria', 'Hərəkəti qeyd et, indiyədək {count}', { count: kicks })}
           className="w-36 h-36 mx-auto rounded-full flex flex-col items-center justify-center mb-4 relative overflow-hidden"
           style={{ background: 'var(--a-grad-peach)', border: 'none', cursor: 'pointer', boxShadow: '0 18px 32px -14px rgba(255, 157, 99, 0.7)' }}
           whileHover={{ scale: 1.02 }}
@@ -292,6 +296,8 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
           }
           <motion.button
             onClick={handleReset}
+            aria-label={tr('livetimer_kick_reset_aria', 'Sayğacı sıfırla')}
+            title={tr('livetimer_kick_reset_aria', 'Sayğacı sıfırla')}
             className="a-icon-btn"
             style={{ width: 46, height: 46 }}
             whileTap={{ scale: 0.9 }}>

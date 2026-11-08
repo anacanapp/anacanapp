@@ -10208,5 +10208,14 @@
   "a11y_replace_photo": "ფოტოს შეცვლა",
   "a11y_save": "შენახვა",
   "a11y_share": "გაზიარება",
-  "a11y_star_n": "შეფასება: {n}/5"
+  "a11y_star_n": "შეფასება: {n}/5",
+  "livetimer_hide": "დამალვა",
+  "livetimer_contraction_active": "შეტევა",
+  "livetimer_contraction_active_sub": "დასრულებისას მონიშნეთ აპში",
+  "livetimer_contraction_rest": "ბოლო შეტევიდან",
+  "livetimer_contraction_rest_sub": "მონიშნეთ შემდეგი, როცა დაიწყება",
+  "livetimer_kick_label": "მოძრაობა · {count}",
+  "livetimer_kick_sub": "ყოველ მოძრაობაზე შეეხეთ აპში",
+  "livetimer_kick_tap_aria": "მოძრაობის აღნიშვნა, ჯერჯერობით {count}",
+  "livetimer_kick_reset_aria": "მთვლელის განულება"
 }

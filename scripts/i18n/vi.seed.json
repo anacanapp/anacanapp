@@ -12355,5 +12355,14 @@
   "a11y_replace_photo": "Thay ảnh",
   "a11y_save": "Lưu",
   "a11y_share": "Chia sẻ",
-  "a11y_star_n": "Đánh giá: {n}/5"
+  "a11y_star_n": "Đánh giá: {n}/5",
+  "livetimer_hide": "Ẩn",
+  "livetimer_contraction_active": "Cơn co",
+  "livetimer_contraction_active_sub": "Đánh dấu khi kết thúc trong ứng dụng",
+  "livetimer_contraction_rest": "Từ cơn co gần nhất",
+  "livetimer_contraction_rest_sub": "Đánh dấu cơn tiếp theo khi bắt đầu",
+  "livetimer_kick_label": "Cử động · {count}",
+  "livetimer_kick_sub": "Chạm trong ứng dụng mỗi lần bé cử động",
+  "livetimer_kick_tap_aria": "Ghi một cử động, hiện có {count}",
+  "livetimer_kick_reset_aria": "Đặt lại bộ đếm"
 }

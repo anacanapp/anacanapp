@@ -12355,5 +12355,14 @@
   "a11y_replace_photo": "Ganti foto",
   "a11y_save": "Simpan",
   "a11y_share": "Bagikan",
-  "a11y_star_n": "Rating: {n}/5"
+  "a11y_star_n": "Rating: {n}/5",
+  "livetimer_hide": "Sembunyikan",
+  "livetimer_contraction_active": "Kontraksi",
+  "livetimer_contraction_active_sub": "Tandai saat selesai di aplikasi",
+  "livetimer_contraction_rest": "Sejak kontraksi terakhir",
+  "livetimer_contraction_rest_sub": "Tandai saat kontraksi berikutnya mulai",
+  "livetimer_kick_label": "Gerakan · {count}",
+  "livetimer_kick_sub": "Ketuk di aplikasi setiap ada gerakan",
+  "livetimer_kick_tap_aria": "Catat gerakan, sejauh ini {count}",
+  "livetimer_kick_reset_aria": "Atur ulang penghitung"
 }

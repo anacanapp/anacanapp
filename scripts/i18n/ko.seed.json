@@ -12355,5 +12355,14 @@
   "a11y_replace_photo": "사진 교체",
   "a11y_save": "저장",
   "a11y_share": "공유",
-  "a11y_star_n": "평점: {n}/5"
+  "a11y_star_n": "평점: {n}/5",
+  "livetimer_hide": "숨기기",
+  "livetimer_contraction_active": "진통",
+  "livetimer_contraction_active_sub": "끝나면 앱에서 기록하세요",
+  "livetimer_contraction_rest": "마지막 진통 이후",
+  "livetimer_contraction_rest_sub": "다음 진통이 시작되면 기록하세요",
+  "livetimer_kick_label": "태동 · {count}",
+  "livetimer_kick_sub": "태동마다 앱에서 탭하세요",
+  "livetimer_kick_tap_aria": "태동 기록, 지금까지 {count}",
+  "livetimer_kick_reset_aria": "카운터 초기화"
 }

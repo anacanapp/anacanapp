@@ -10208,5 +10208,14 @@
   "a11y_replace_photo": "استبدال الصورة",
   "a11y_save": "حفظ",
   "a11y_share": "مشاركة",
-  "a11y_star_n": "التقييم: {n}/5"
+  "a11y_star_n": "التقييم: {n}/5",
+  "livetimer_hide": "إخفاء",
+  "livetimer_contraction_active": "انقباض",
+  "livetimer_contraction_active_sub": "سجّلي النهاية في التطبيق",
+  "livetimer_contraction_rest": "منذ آخر انقباض",
+  "livetimer_contraction_rest_sub": "سجّلي الانقباض التالي عند بدئه",
+  "livetimer_kick_label": "الحركات · {count}",
+  "livetimer_kick_sub": "اضغطي في التطبيق عند كل حركة",
+  "livetimer_kick_tap_aria": "سجّلي حركة، حتى الآن {count}",
+  "livetimer_kick_reset_aria": "إعادة ضبط العداد"
 }

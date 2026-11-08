@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-import { tr } from '@/lib/tr';
+import { tr, formatTr } from '@/lib/tr';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { useToast } from './use-toast';
 import { usePartnerNotifications } from './usePartnerNotifications';
 import { localDateKey, todayKey } from '@/lib/local-date';
-import { kickSessionDayKey } from '@/lib/kickSession';
+import { kickSessionDayKey, kickLiveTimerState, type ActiveKickSession } from '@/lib/kickSession';
+import { showToolLiveTimer, hideToolLiveTimer } from '@/lib/tool-live-timer';
 
 // The partner "10 kicks" alert goes out once per local day; remembered across
 // screen visits (the old in-memory flag reset on every mount).
@@ -21,6 +22,32 @@ export interface KickSession {
   created_at: string;
   /** İxtiyari mövqe etiketi — əkiz/üçüz hamiləlikdə ana ayıra bilirsə ('left'/'right'). Kimlik deyil, mövqedir. */
   position?: 'left' | 'right' | null;
+}
+
+/**
+ * Lock-screen live timer for a running kick session (iOS Live Activity / Android
+ * ongoing notification, through the same native plugin as feeding/sleep timers):
+ * "Hərəkət · {count}" plus a clock counting up from the stored session start.
+ * The count updates on every tap; the timer goes away when the session stops or
+ * is reset. Pass enabled=false until the user is known.
+ */
+export function useKickLiveTimer(session: ActiveKickSession | null, enabled = true) {
+  const live = kickLiveTimerState(session);
+  const startTime = live?.startTime ?? null;
+  const count = live?.count ?? 0;
+  useEffect(() => {
+    if (!enabled) return;
+    if (startTime == null) {
+      void hideToolLiveTimer('kick');
+      return;
+    }
+    void showToolLiveTimer('kick', {
+      type: 'kick',
+      label: formatTr('livetimer_kick_label', 'Hərəkət · {count}', { count }),
+      subLabel: tr('livetimer_kick_sub', 'Hər hərəkətdə tətbiqdə toxunun'),
+      startTime,
+    });
+  }, [startTime, count, enabled]);
 }
 
 export const useKickSessions = () => {

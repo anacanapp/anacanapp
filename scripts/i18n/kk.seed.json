@@ -10208,5 +10208,14 @@
   "a11y_replace_photo": "Фотоны ауыстыру",
   "a11y_save": "Сақтау",
   "a11y_share": "Бөлісу",
-  "a11y_star_n": "Баға: {n}/5"
+  "a11y_star_n": "Баға: {n}/5",
+  "livetimer_hide": "Жасыру",
+  "livetimer_contraction_active": "Толғақ",
+  "livetimer_contraction_active_sub": "Біткенде қолданбада белгілеңіз",
+  "livetimer_contraction_rest": "Соңғы толғақтан бері",
+  "livetimer_contraction_rest_sub": "Келесісі басталғанда белгілеңіз",
+  "livetimer_kick_label": "Қимыл · {count}",
+  "livetimer_kick_sub": "Әр қимылда қолданбада басыңыз",
+  "livetimer_kick_tap_aria": "Қимылды белгілеу, әзірге {count}",
+  "livetimer_kick_reset_aria": "Санағышты нөлдеу"
 }

@@ -64,3 +64,7 @@ export const kickSessionDayKey = (s: { created_at: string; session_date?: string
   const d = new Date(s.created_at);
   return Number.isNaN(d.getTime()) ? (s.session_date || '') : localDateKey(d);
 };
+
+/** Lock-screen live timer content for a running session, or null when idle. */
+export const kickLiveTimerState = (session: ActiveKickSession | null) =>
+  session ? { startTime: session.startedAt, count: session.kicks } : null;

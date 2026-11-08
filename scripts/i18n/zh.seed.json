@@ -12355,5 +12355,14 @@
   "a11y_replace_photo": "更换照片",
   "a11y_save": "收藏",
   "a11y_share": "分享",
-  "a11y_star_n": "评分：{n}/5"
+  "a11y_star_n": "评分：{n}/5",
+  "livetimer_hide": "隐藏",
+  "livetimer_contraction_active": "宫缩",
+  "livetimer_contraction_active_sub": "结束时请在应用中标记",
+  "livetimer_contraction_rest": "距上次宫缩",
+  "livetimer_contraction_rest_sub": "下一次开始时请标记",
+  "livetimer_kick_label": "胎动 · {count}",
+  "livetimer_kick_sub": "每次胎动请在应用中点按",
+  "livetimer_kick_tap_aria": "记录一次胎动，目前 {count}",
+  "livetimer_kick_reset_aria": "重置计数器"
 }

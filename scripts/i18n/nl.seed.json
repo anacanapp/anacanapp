@@ -12355,5 +12355,14 @@
   "a11y_replace_photo": "Foto vervangen",
   "a11y_save": "Bewaren",
   "a11y_share": "Delen",
-  "a11y_star_n": "Beoordeling: {n}/5"
+  "a11y_star_n": "Beoordeling: {n}/5",
+  "livetimer_hide": "Verbergen",
+  "livetimer_contraction_active": "Wee",
+  "livetimer_contraction_active_sub": "Markeer het einde in de app",
+  "livetimer_contraction_rest": "Sinds de laatste wee",
+  "livetimer_contraction_rest_sub": "Markeer de volgende als die begint",
+  "livetimer_kick_label": "Bewegingen · {count}",
+  "livetimer_kick_sub": "Tik in de app bij elke beweging",
+  "livetimer_kick_tap_aria": "Beweging vastleggen, tot nu toe {count}",
+  "livetimer_kick_reset_aria": "Teller resetten"
 }

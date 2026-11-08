@@ -10208,5 +10208,14 @@
   "a11y_replace_photo": "Заменить фото",
   "a11y_save": "Сохранить",
   "a11y_share": "Поделиться",
-  "a11y_star_n": "Оценка: {n} из 5"
+  "a11y_star_n": "Оценка: {n} из 5",
+  "livetimer_hide": "Скрыть",
+  "livetimer_contraction_active": "Схватка",
+  "livetimer_contraction_active_sub": "Отметьте окончание в приложении",
+  "livetimer_contraction_rest": "С последней схватки",
+  "livetimer_contraction_rest_sub": "Отметьте следующую, когда она начнётся",
+  "livetimer_kick_label": "Шевеления · {count}",
+  "livetimer_kick_sub": "Нажимайте в приложении при каждом шевелении",
+  "livetimer_kick_tap_aria": "Отметить шевеление, пока {count}",
+  "livetimer_kick_reset_aria": "Сбросить счётчик"
 }

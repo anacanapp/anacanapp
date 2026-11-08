@@ -10197,5 +10197,14 @@
   "a11y_replace_photo": "Replace photo",
   "a11y_save": "Save",
   "a11y_share": "Share",
-  "a11y_star_n": "Rating: {n}/5"
+  "a11y_star_n": "Rating: {n}/5",
+  "livetimer_hide": "Hide",
+  "livetimer_contraction_active": "Contraction",
+  "livetimer_contraction_active_sub": "Mark the end in the app",
+  "livetimer_contraction_rest": "Since last contraction",
+  "livetimer_contraction_rest_sub": "Mark the next one when it starts",
+  "livetimer_kick_label": "Movements · {count}",
+  "livetimer_kick_sub": "Tap in the app for each movement",
+  "livetimer_kick_tap_aria": "Log a movement, {count} so far",
+  "livetimer_kick_reset_aria": "Reset counter"
 }

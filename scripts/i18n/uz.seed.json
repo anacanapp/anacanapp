@@ -10208,5 +10208,14 @@
   "a11y_replace_photo": "Rasmni almashtirish",
   "a11y_save": "Saqlash",
   "a11y_share": "Ulashish",
-  "a11y_star_n": "Baho: {n}/5"
+  "a11y_star_n": "Baho: {n}/5",
+  "livetimer_hide": "Yashirish",
+  "livetimer_contraction_active": "To'lg'oq",
+  "livetimer_contraction_active_sub": "Tugaganda ilovada belgilang",
+  "livetimer_contraction_rest": "Oxirgi to'lg'oqdan beri",
+  "livetimer_contraction_rest_sub": "Keyingisi boshlanganda belgilang",
+  "livetimer_kick_label": "Harakat · {count}",
+  "livetimer_kick_sub": "Har bir harakatda ilovada bosing",
+  "livetimer_kick_tap_aria": "Harakatni qayd etish, hozircha {count}",
+  "livetimer_kick_reset_aria": "Hisoblagichni nolga tushirish"
 }

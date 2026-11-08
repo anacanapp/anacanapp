@@ -8705,5 +8705,14 @@
   "a11y_replace_photo": "Şəkli dəyiş",
   "a11y_save": "Yadda saxla",
   "a11y_share": "Paylaş",
-  "a11y_star_n": "Qiymət: {n}/5"
+  "a11y_star_n": "Qiymət: {n}/5",
+  "livetimer_hide": "Gizlət",
+  "livetimer_contraction_active": "Sancı",
+  "livetimer_contraction_active_sub": "Bitəndə tətbiqdə qeyd edin",
+  "livetimer_contraction_rest": "Son sancıdan bəri",
+  "livetimer_contraction_rest_sub": "Növbəti sancı başlayanda qeyd edin",
+  "livetimer_kick_label": "Hərəkət · {count}",
+  "livetimer_kick_sub": "Hər hərəkətdə tətbiqdə toxunun",
+  "livetimer_kick_tap_aria": "Hərəkəti qeyd et, indiyədək {count}",
+  "livetimer_kick_reset_aria": "Sayğacı sıfırla"
 }

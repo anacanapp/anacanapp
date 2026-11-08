@@ -12355,5 +12355,14 @@
   "a11y_replace_photo": "Byt foto",
   "a11y_save": "Spara",
   "a11y_share": "Dela",
-  "a11y_star_n": "Betyg: {n}/5"
+  "a11y_star_n": "Betyg: {n}/5",
+  "livetimer_hide": "Dölj",
+  "livetimer_contraction_active": "Värk",
+  "livetimer_contraction_active_sub": "Markera slutet i appen",
+  "livetimer_contraction_rest": "Sedan senaste värken",
+  "livetimer_contraction_rest_sub": "Markera nästa när den börjar",
+  "livetimer_kick_label": "Rörelser · {count}",
+  "livetimer_kick_sub": "Tryck i appen vid varje rörelse",
+  "livetimer_kick_tap_aria": "Registrera en rörelse, hittills {count}",
+  "livetimer_kick_reset_aria": "Nollställ räknaren"
 }

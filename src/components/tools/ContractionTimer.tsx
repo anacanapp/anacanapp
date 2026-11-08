@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, forwardRef } from 'react';
 import { tr } from '@/lib/tr';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Square, AlertCircle, Trash2, Phone, CloudOff } from 'lucide-react';
-import { useContractions, loadContractionTimerState, saveContractionTimerState, type ContractionTimerState } from '@/hooks/useContractions';
+import { useContractions, useContractionLiveTimer, loadContractionTimerState, saveContractionTimerState, type ContractionTimerState } from '@/hooks/useContractions';
 import { useAuth } from '@/hooks/useAuth';
 import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { formatTr } from '@/lib/tr';
@@ -56,6 +56,9 @@ const ContractionTimer = forwardRef<HTMLDivElement, ContractionTimerProps>(({ on
   }, [userId]);
 
   const { contractions, addContraction, getStats, clearAll, loading } = useContractions();
+
+  // Lock-screen live timer (native only), from the same stored timestamps.
+  useContractionLiveTimer(timer, userId != null);
 
   // Display tick only; the duration itself is computed from activeStart.
   useEffect(() => {

@@ -12355,5 +12355,14 @@
   "a11y_replace_photo": "फ़ोटो बदलें",
   "a11y_save": "सहेजें",
   "a11y_share": "शेयर करें",
-  "a11y_star_n": "रेटिंग: {n}/5"
+  "a11y_star_n": "रेटिंग: {n}/5",
+  "livetimer_hide": "छिपाएँ",
+  "livetimer_contraction_active": "संकुचन",
+  "livetimer_contraction_active_sub": "खत्म होने पर ऐप में दर्ज करें",
+  "livetimer_contraction_rest": "पिछले संकुचन से",
+  "livetimer_contraction_rest_sub": "अगला शुरू होने पर दर्ज करें",
+  "livetimer_kick_label": "हलचल · {count}",
+  "livetimer_kick_sub": "हर हलचल पर ऐप में टैप करें",
+  "livetimer_kick_tap_aria": "हलचल दर्ज करें, अब तक {count}",
+  "livetimer_kick_reset_aria": "काउंटर रीसेट करें"
 }

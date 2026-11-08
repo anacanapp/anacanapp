@@ -12355,5 +12355,14 @@
   "a11y_replace_photo": "写真を差し替え",
   "a11y_save": "保存",
   "a11y_share": "共有",
-  "a11y_star_n": "評価：{n}/5"
+  "a11y_star_n": "評価：{n}/5",
+  "livetimer_hide": "非表示",
+  "livetimer_contraction_active": "陣痛",
+  "livetimer_contraction_active_sub": "終わったらアプリで記録してください",
+  "livetimer_contraction_rest": "前回の陣痛から",
+  "livetimer_contraction_rest_sub": "次が始まったら記録してください",
+  "livetimer_kick_label": "胎動 · {count}",
+  "livetimer_kick_sub": "胎動のたびにアプリでタップ",
+  "livetimer_kick_tap_aria": "胎動を記録、現在 {count}",
+  "livetimer_kick_reset_aria": "カウンターをリセット"
 }
