@@ -19,9 +19,13 @@ describe('freemium tool access', () => {
     expect(isLimitedPremiumType('limited_total')).toBe(true);
     expect(isLimitedPremiumType('limited_monthly')).toBe(true);
     expect(isLimitedPremiumType('premium_only')).toBe(false);
-    expect(toolAccess({ toolId: 'cry-translator', isPremiumFlag: true, premiumType: 'limited_total' })).toBe('limited');
+    // Admin "limited" only opens tools that enforce their own free limit; others stay Premium.
+    expect(toolAccess({ toolId: 'photoshoot', isPremiumFlag: true, premiumType: 'limited_total' })).toBe('limited');
+    expect(toolAccess({ toolId: 'cry-translator', isPremiumFlag: true, premiumType: 'limited_total' })).toBe('premium');
+    expect(toolAccess({ toolId: 'fairy-tale', isPremiumFlag: true, premiumType: 'limited_monthly' })).toBe('premium');
     expect(toolAccess({ toolId: 'cry-translator', isPremiumFlag: true, premiumType: 'none' })).toBe('premium');
-    expect(canOpenToolFree('cry-translator', 'limited_monthly')).toBe(true);
+    expect(canOpenToolFree('photoshoot', 'limited_monthly')).toBe(true);
+    expect(canOpenToolFree('cry-translator', 'limited_monthly')).toBe(false);
     expect(canOpenToolFree('cry-translator')).toBe(false);
   });
 

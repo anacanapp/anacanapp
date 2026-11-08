@@ -85,15 +85,18 @@ describe('ToolsHub free vs Premium gating', () => {
     Object.assign(mocks.query, { data: [
       cfg('recipes', 'Reseptlər', { premium_type: 'premium_only' }),
       cfg('cry-translator', 'Ağlama tərcüməçisi'),
+      cfg('photoshoot', 'Foto çəkiliş', { premium_type: 'limited_total', premium_limit: 3 }),
       cfg('poop-scanner', 'Nəcis skaneri', { premium_type: 'limited_total', premium_limit: 3 }),
     ] });
     render(<ToolsHub />);
-    // recipes (code list), poop-scanner (admin limited_total) and the virtual solid-food-guide tile.
+    // recipes (code list), photoshoot (admin limited_total, limits itself) and the virtual solid-food-guide tile;
+    // poop-scanner has no in-tool limit, so an admin limited_total keeps it Premium.
     expect(screen.getAllByText('Pulsuz · limitli')).toHaveLength(3);
     expect(screen.getByText('Ödənişsiz alətlər').closest('section')!.textContent).toContain('sfg_home_title');
     const free = screen.getByText('Ödənişsiz alətlər').closest('section')!;
     expect(free.textContent).toContain('Reseptlər');
-    expect(free.textContent).toContain('Nəcis skaneri');
+    expect(free.textContent).toContain('Foto çəkiliş');
+    expect(free.textContent).not.toContain('Nəcis skaneri');
     expect(free.textContent).not.toContain('babytracker_tool_name');
     const premium = screen.getByText('Premium alətlər').closest('section')!;
     expect(premium.textContent).toContain('Ağlama tərcüməçisi');
