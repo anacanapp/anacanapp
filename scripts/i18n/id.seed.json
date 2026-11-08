@@ -12338,5 +12338,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} belum ditandai sudah diberikan. Bicarakan tanggal baru dengan dokter Anda.",
   "sleepvax_vax_reminders_title": "Pengingat vaksin",
   "sleepvax_vax_reminders_sub": "3 hari sebelum setiap dosis dan pada harinya, pukul 10.00",
-  "sleepvax_vax_reminders_denied": "Notifikasi dimatikan di pengaturan ponsel."
+  "sleepvax_vax_reminders_denied": "Notifikasi dimatikan di pengaturan ponsel.",
+  "growthtz_who_head": "Lingkar kepala (cm)"
 }

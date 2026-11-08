@@ -10191,5 +10191,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} ещё не отмечена. Пожалуйста, обсудите новую дату с вашим врачом.",
   "sleepvax_vax_reminders_title": "Напоминания о прививках",
   "sleepvax_vax_reminders_sub": "За 3 дня до каждой дозы и в сам день, в 10:00",
-  "sleepvax_vax_reminders_denied": "Уведомления отключены в настройках телефона."
+  "sleepvax_vax_reminders_denied": "Уведомления отключены в настройках телефона.",
+  "growthtz_who_head": "Окружность головы (см)"
 }

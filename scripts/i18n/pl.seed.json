@@ -12338,5 +12338,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} nie jest jeszcze oznaczone jako podane. Porozmawiaj z lekarzem o nowym terminie.",
   "sleepvax_vax_reminders_title": "Przypomnienia o szczepieniach",
   "sleepvax_vax_reminders_sub": "3 dni przed każdą dawką i w dniu dawki, o 10:00",
-  "sleepvax_vax_reminders_denied": "Powiadomienia są wyłączone w ustawieniach telefonu."
+  "sleepvax_vax_reminders_denied": "Powiadomienia są wyłączone w ustawieniach telefonu.",
+  "growthtz_who_head": "Obwód głowy (cm)"
 }

@@ -10180,5 +10180,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} is not marked as given yet. Talk to your doctor about a new date.",
   "sleepvax_vax_reminders_title": "Vaccine reminders",
   "sleepvax_vax_reminders_sub": "3 days before each dose and on the day, at 10:00",
-  "sleepvax_vax_reminders_denied": "Notifications are turned off in your phone settings."
+  "sleepvax_vax_reminders_denied": "Notifications are turned off in your phone settings.",
+  "growthtz_who_head": "Head (cm)"
 }

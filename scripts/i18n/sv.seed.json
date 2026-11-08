@@ -12338,5 +12338,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} är inte markerad som given än. Prata med din läkare om ett nytt datum.",
   "sleepvax_vax_reminders_title": "Vaccinationspåminnelser",
   "sleepvax_vax_reminders_sub": "3 dagar före varje dos och samma dag, kl. 10:00",
-  "sleepvax_vax_reminders_denied": "Aviseringar är avstängda i telefonens inställningar."
+  "sleepvax_vax_reminders_denied": "Aviseringar är avstängda i telefonens inställningar.",
+  "growthtz_who_head": "Huvudomfång (cm)"
 }

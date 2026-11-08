@@ -12338,5 +12338,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} aún no está marcada como puesta. Habla con tu médico sobre una nueva fecha.",
   "sleepvax_vax_reminders_title": "Recordatorios de vacunas",
   "sleepvax_vax_reminders_sub": "3 días antes de cada dosis y el mismo día, a las 10:00",
-  "sleepvax_vax_reminders_denied": "Las notificaciones están desactivadas en los ajustes del teléfono."
+  "sleepvax_vax_reminders_denied": "Las notificaciones están desactivadas en los ajustes del teléfono.",
+  "growthtz_who_head": "Perímetro cefálico (cm)"
 }

@@ -12338,5 +12338,6 @@
   "sleepvax_vax_overdue_body": "{child}：{vaccine} 尚未标记为已接种。请与医生商定新的日期。",
   "sleepvax_vax_reminders_title": "疫苗接种提醒",
   "sleepvax_vax_reminders_sub": "每剂前 3 天和当天的 10:00",
-  "sleepvax_vax_reminders_denied": "手机设置中已关闭通知。"
+  "sleepvax_vax_reminders_denied": "手机设置中已关闭通知。",
+  "growthtz_who_head": "头围（cm）"
 }

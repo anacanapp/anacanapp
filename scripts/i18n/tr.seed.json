@@ -10191,5 +10191,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} henüz yapıldı olarak işaretlenmedi. Yeni bir tarih için lütfen doktorunuzla görüşün.",
   "sleepvax_vax_reminders_title": "Aşı hatırlatıcıları",
   "sleepvax_vax_reminders_sub": "Her dozdan 3 gün önce ve dozun günü, saat 10:00'da",
-  "sleepvax_vax_reminders_denied": "Bildirimler telefonunuzun ayarlarında kapalı."
+  "sleepvax_vax_reminders_denied": "Bildirimler telefonunuzun ayarlarında kapalı.",
+  "growthtz_who_head": "Baş çevresi (cm)"
 }

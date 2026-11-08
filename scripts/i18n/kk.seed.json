@@ -10191,5 +10191,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} әлі белгіленбеген. Жаңа күн туралы дәрігеріңізбен сөйлесіңіз.",
   "sleepvax_vax_reminders_title": "Екпе туралы еске салғыштар",
   "sleepvax_vax_reminders_sub": "Әр дозадан 3 күн бұрын және сол күні, сағат 10:00-де",
-  "sleepvax_vax_reminders_denied": "Хабарландырулар телефон баптауларында өшірулі."
+  "sleepvax_vax_reminders_denied": "Хабарландырулар телефон баптауларында өшірулі.",
+  "growthtz_who_head": "Бас шеңбері (см)"
 }

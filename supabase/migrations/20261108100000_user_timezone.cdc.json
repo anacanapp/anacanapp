@@ -1,0 +1,16 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261108100000_user_timezone.sql",
+  "runtime": "google-notifications",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; no new relation, user_preferences already carries the standard CDC/writer triggers (the migration refuses unless it is in guarded_relations with all 3 triggers and does not drop or recreate them)",
+  "preserve": [
+    "cron0, no timer added; the existing vitamin reminder timer reads the column once it exists (send-vitamin-reminders.mjs)",
+    "8 enabled business timers",
+    "user_preferences own-row RLS, grants and the three triggers unchanged (supabase/duzelis/Duzelis70.sql)"
+  ],
+  "relations": [
+    { "relation": "public.user_preferences", "change": "altered", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "columns_added": ["timezone"],
+      "note": "timezone text, nullable, check: NULL or 1-64 chars matching ^[A-Za-z_]+(/[A-Za-z0-9_+-]+){0,2}$ (IANA name); written by the app on login when it differs; NULL = Baku time" }
+  ]
+}

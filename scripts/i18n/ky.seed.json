@@ -12416,5 +12416,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} азырынча белгиленген жок. Жаңы күн боюнча дарыгериңиз менен сүйлөшүңүз.",
   "sleepvax_vax_reminders_title": "Эмдөө эскертмелери",
   "sleepvax_vax_reminders_sub": "Ар бир дозадан 3 күн мурун жана ошол күнү, саат 10:00дө",
-  "sleepvax_vax_reminders_denied": "Билдирмелер телефондун жөндөөлөрүндө өчүрүлгөн."
+  "sleepvax_vax_reminders_denied": "Билдирмелер телефондун жөндөөлөрүндө өчүрүлгөн.",
+  "growthtz_who_head": "Баштын айланасы (см)"
 }

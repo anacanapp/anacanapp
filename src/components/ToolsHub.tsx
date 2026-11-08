@@ -149,6 +149,7 @@ import { isWeaningTileVisible } from '@/lib/weaning';
 import { wt as weaningText } from '@/lib/weaning-copy';
 import { isParentingTileVisible } from '@/lib/parenting';
 import { pt as parentingText } from '@/lib/parenting-copy';
+import { usePrefetchFirstAid } from '@/hooks/useFirstAid';
 
 interface ToolsHubProps {
   initialTool?: string | null;
@@ -156,6 +157,8 @@ interface ToolsHubProps {
 }
 
 const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
+  // First aid must work offline: cache every scenario in the background while there is a connection.
+  usePrefetchFirstAid();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTool, setActiveTool] = useState<string | null>(initialTool);
   const [showPremiumModal, setShowPremiumModal] = useState(false);

@@ -2,6 +2,7 @@ import { tr } from "@/lib/tr";import React, { createContext, useContext, useEffe
 import { supabase } from '@/integrations/supabase/client';
 import { isAzureBackend } from '@/integrations/supabase/backend-config';
 import { readCache, writeCache, clearAllCaches } from '@/lib/offlineCache';
+import { syncUserTimeZone } from '@/lib/user-timezone';
 import { safeAppleWebError, signInWithAppleWeb, usesAzureAppleWebFlow } from '@/lib/apple-web-auth';
 const isCapacitorNative = typeof (window as any)?.Capacitor?.isNativePlatform === 'function' &&
   (window as any).Capacitor.isNativePlatform();
@@ -529,6 +530,8 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
         } else {
           Promise.resolve(supabase.from('user_preferences').upsert({ user_id: u.id, language: localLang }, { onConflict: 'user_id' })).catch(console.error);
         }
+        // Device time zone for server reminders (once per session, only when changed, quiet if the column is missing).
+        void syncUserTimeZone(u.id);
         setProfile(profileData);
         setUserRole(roleData);
 

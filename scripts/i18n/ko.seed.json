@@ -12338,5 +12338,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} 접종이 아직 기록되지 않았어요. 새 날짜는 의사와 상의해 주세요.",
   "sleepvax_vax_reminders_title": "예방접종 알림",
   "sleepvax_vax_reminders_sub": "각 접종 3일 전과 당일 오전 10:00",
-  "sleepvax_vax_reminders_denied": "휴대폰 설정에서 알림이 꺼져 있어요."
+  "sleepvax_vax_reminders_denied": "휴대폰 설정에서 알림이 꺼져 있어요.",
+  "growthtz_who_head": "머리둘레 (cm)"
 }

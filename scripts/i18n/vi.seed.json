@@ -12338,5 +12338,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} chưa được đánh dấu là đã tiêm. Hãy trao đổi với bác sĩ để hẹn ngày mới.",
   "sleepvax_vax_reminders_title": "Nhắc lịch tiêm",
   "sleepvax_vax_reminders_sub": "3 ngày trước mỗi mũi và vào ngày tiêm, lúc 10:00",
-  "sleepvax_vax_reminders_denied": "Thông báo đang tắt trong cài đặt điện thoại."
+  "sleepvax_vax_reminders_denied": "Thông báo đang tắt trong cài đặt điện thoại.",
+  "growthtz_who_head": "Vòng đầu (cm)"
 }

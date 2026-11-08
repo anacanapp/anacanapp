@@ -10191,5 +10191,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} hali belgilanmagan. Yangi sana haqida shifokoringiz bilan gaplashing.",
   "sleepvax_vax_reminders_title": "Emlash eslatmalari",
   "sleepvax_vax_reminders_sub": "Har bir dozadan 3 kun oldin va o‘sha kuni, soat 10:00 da",
-  "sleepvax_vax_reminders_denied": "Bildirishnomalar telefon sozlamalarida o‘chirilgan."
+  "sleepvax_vax_reminders_denied": "Bildirishnomalar telefon sozlamalarida o‘chirilgan.",
+  "growthtz_who_head": "Bosh aylanasi (sm)"
 }

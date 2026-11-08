@@ -10191,5 +10191,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} ჯერ არ არის მონიშნული. ახალ თარიღზე ესაუბრეთ თქვენს ექიმს.",
   "sleepvax_vax_reminders_title": "ვაქცინაციის შეხსენებები",
   "sleepvax_vax_reminders_sub": "ყოველი დოზიდან 3 დღით ადრე და იმავე დღეს, 10:00-ზე",
-  "sleepvax_vax_reminders_denied": "შეტყობინებები გამორთულია ტელეფონის პარამეტრებში."
+  "sleepvax_vax_reminders_denied": "შეტყობინებები გამორთულია ტელეფონის პარამეტრებში.",
+  "growthtz_who_head": "თავის გარშემოწერილობა (sm)"
 }

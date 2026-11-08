@@ -10191,5 +10191,6 @@
   "sleepvax_vax_overdue_body": "{child}: {vaccine} ist noch nicht als erledigt markiert. Sprechen Sie mit Ihrer Ärztin oder Ihrem Arzt über einen neuen Termin.",
   "sleepvax_vax_reminders_title": "Impferinnerungen",
   "sleepvax_vax_reminders_sub": "3 Tage vor jeder Dosis und am Tag selbst, um 10:00 Uhr",
-  "sleepvax_vax_reminders_denied": "Mitteilungen sind in den Telefoneinstellungen ausgeschaltet."
+  "sleepvax_vax_reminders_denied": "Mitteilungen sind in den Telefoneinstellungen ausgeschaltet.",
+  "growthtz_who_head": "Kopfumfang (cm)"
 }
