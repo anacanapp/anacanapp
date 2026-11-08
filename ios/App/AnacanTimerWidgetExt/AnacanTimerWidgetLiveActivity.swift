@@ -70,16 +70,17 @@ struct AnacanTimerWidgetLiveActivity: Widget {
                     .frame(maxWidth: 76, alignment: .trailing)
                     .minimumScaleFactor(0.8)
 
-                // Dayandır (iOS 17+; 16.x-də toxunuş tətbiqi açır)
+                // Dayandır / Gizlət (iOS 17+; 16.x-də toxunuş tətbiqi açır)
                 if #available(iOS 17.0, *) {
                     Button(intent: AnacanTimerStopIntent(timerId: context.attributes.id)) {
-                        Image(systemName: "stop.fill")
+                        Image(systemName: context.attributes.stopButtonSymbol)
                             .font(.system(size: 14, weight: .bold))
                             .foregroundColor(.white)
                             .frame(width: 34, height: 34)
                             .background(Circle().fill(Color.anacanPeach2))
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel(Text(context.attributes.stopButtonTitle))
                 }
             }
             .padding(14)
@@ -117,7 +118,7 @@ struct AnacanTimerWidgetLiveActivity: Widget {
                 DynamicIslandExpandedRegion(.bottom) {
                     if #available(iOS 17.0, *) {
                         Button(intent: AnacanTimerStopIntent(timerId: context.attributes.id)) {
-                            Label("Dayandır", systemImage: "stop.fill")
+                            Label(context.attributes.stopButtonTitle, systemImage: context.attributes.stopButtonSymbol)
                                 .font(.caption.bold())
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 7)

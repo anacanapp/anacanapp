@@ -4503,7 +4503,7 @@
   "liveactivitycard_water_drank": "+{diff}ml წყალი დალია ({total}ml)",
   "liveactivitycard_water_reached": "მიზანს მიაღწია! 🎉 დალია {amount}ml!",
   "liveactivitycard_yaxsi_9d8595": "კარგი",
-  "livetimer_channel_desc": "ძუძუთი კვების / ძილის აქტიური ტაიმერები",
+  "livetimer_channel_desc": "აქტიური ტაიმერები",
   "livetimer_channel_name": "ტაიმერები",
   "livetimer_davam_edir": "მიმდინარეობს — გასაჩერებლად დააჭირეთ ღილაკს",
   "livetimer_dayandir": "გაჩერება",

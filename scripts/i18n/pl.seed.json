@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "Wypito dodatkowo +{diff}ml wody (łącznie {total}ml)",
   "liveactivitycard_water_reached": "Cel osiągnięty! 🎉 Wypito {amount}ml!",
   "liveactivitycard_yaxsi_9d8595": "Dobrze",
-  "livetimer_channel_desc": "Aktywne minutniki karmienia / snu",
+  "livetimer_channel_desc": "Aktywne minutniki",
   "livetimer_channel_name": "Minutniki",
   "livetimer_davam_edir": "Minutnik działa — dotknij przycisku, aby go zatrzymać",
   "livetimer_dayandir": "Zatrzymaj",

@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "+{diff}ml air diminum ({total}ml)",
   "liveactivitycard_water_reached": "Target tercapai! 🎉 Sudah minum {amount}ml!",
   "liveactivitycard_yaxsi_9d8595": "Baik",
-  "livetimer_channel_desc": "Timer menyusui / tidur yang aktif",
+  "livetimer_channel_desc": "Pengatur waktu aktif",
   "livetimer_channel_name": "Timer",
   "livetimer_davam_edir": "Sedang berjalan—ketuk tombol untuk berhenti",
   "livetimer_dayandir": "Hentikan",

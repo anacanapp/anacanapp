@@ -4496,7 +4496,7 @@
   "liveactivitycard_water_drank": "+{diff} مل شربتِ ({total} مل)",
   "liveactivitycard_water_reached": "حققتِ هدفكِ! 🎉 شربتِ {amount} مل!",
   "liveactivitycard_yaxsi_9d8595": "جيد",
-  "livetimer_channel_desc": "مؤقتات الرضاعة الطبيعية / النوم النشطة",
+  "livetimer_channel_desc": "المؤقتات النشطة",
   "livetimer_channel_name": "المؤقتات",
   "livetimer_davam_edir": "جارٍ — اضغطي على الزر للإيقاف",
   "livetimer_dayandir": "إيقاف",

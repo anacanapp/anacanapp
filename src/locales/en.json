@@ -4663,7 +4663,7 @@
   "liveactivitycard_water_drank": "+{diff}ml water drank ({total}ml)",
   "liveactivitycard_water_reached": "Goal reached! 🎉 Drank {amount}ml!",
   "liveactivitycard_yaxsi_9d8595": "Good",
-  "livetimer_channel_desc": "Active feeding / sleep timers",
+  "livetimer_channel_desc": "Active timers",
   "livetimer_channel_name": "Timers",
   "livetimer_davam_edir": "Running — tap the button to stop",
   "livetimer_dayandir": "Stop",

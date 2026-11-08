@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "물 +{diff}ml 섭취(총 {total}ml)",
   "liveactivitycard_water_reached": "목표 달성! 🎉 {amount}ml를 마셨어요!",
   "liveactivitycard_yaxsi_9d8595": "좋음",
-  "livetimer_channel_desc": "진행 중인 수유·수면 타이머",
+  "livetimer_channel_desc": "진행 중인 타이머",
   "livetimer_channel_name": "타이머",
   "livetimer_davam_edir": "진행 중 — 중지하려면 버튼을 누르세요",
   "livetimer_dayandir": "중지",

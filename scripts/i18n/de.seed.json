@@ -4496,7 +4496,7 @@
   "liveactivitycard_water_drank": "+{diff}ml Wasser getrunken ({total}ml)",
   "liveactivitycard_water_reached": "Ziel erreicht! 🎉 {amount}ml getrunken!",
   "liveactivitycard_yaxsi_9d8595": "Gut",
-  "livetimer_channel_desc": "Aktive Still- / Schlaftimer",
+  "livetimer_channel_desc": "Aktive Timer",
   "livetimer_channel_name": "Timer",
   "livetimer_davam_edir": "Läuft — zum Beenden auf die Schaltfläche tippen",
   "livetimer_dayandir": "Beenden",

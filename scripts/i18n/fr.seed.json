@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "+{diff}ml d’eau bus ({total}ml)",
   "liveactivitycard_water_reached": "Objectif atteint ! 🎉 Vous avez bu {amount}ml !",
   "liveactivitycard_yaxsi_9d8595": "Bien",
-  "livetimer_channel_desc": "Minuteurs d’allaitement / de sommeil actifs",
+  "livetimer_channel_desc": "Minuteurs actifs",
   "livetimer_channel_name": "Minuteurs",
   "livetimer_davam_edir": "En cours — appuyez sur le bouton pour arrêter",
   "livetimer_dayandir": "Arrêter",

@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "水を+{diff}ml飲みました（合計{total}ml）",
   "liveactivitycard_water_reached": "目標達成！🎉 {amount}ml飲みました！",
   "liveactivitycard_yaxsi_9d8595": "良い",
-  "livetimer_channel_desc": "授乳・睡眠タイマーが作動中",
+  "livetimer_channel_desc": "作動中のタイマー",
   "livetimer_channel_name": "タイマー",
   "livetimer_davam_edir": "作動中 — ボタンをタップして停止",
   "livetimer_dayandir": "停止",

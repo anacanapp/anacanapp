@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "+{diff}ml vatten drucket ({total}ml)",
   "liveactivitycard_water_reached": "Målet är nått! 🎉 Du har druckit {amount}ml!",
   "liveactivitycard_yaxsi_9d8595": "Bra",
-  "livetimer_channel_desc": "Aktiva timers för matning och sömn",
+  "livetimer_channel_desc": "Aktiva timers",
   "livetimer_channel_name": "Timers",
   "livetimer_davam_edir": "Pågår – tryck på knappen för att stoppa",
   "livetimer_dayandir": "Stoppa",

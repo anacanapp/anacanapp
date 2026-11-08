@@ -96,7 +96,7 @@ async function apply(slot: ToolLiveTimerSlot, view: ToolLiveTimerView | null) {
       startTime: view.startTime,
       // Same channel as the feeding/sleep timers (passing the same name keeps it unchanged).
       channelName: tr('livetimer_channel_name', 'Taymerlər'),
-      channelDesc: tr('livetimer_channel_desc', 'Aktiv süd vermə / yuxu taymerləri'),
+      channelDesc: tr('livetimer_channel_desc', 'Aktiv taymerlər'),
     });
   } catch {
     // Live Activities off or unsupported: show nothing, drop the old one.

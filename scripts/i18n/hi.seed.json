@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "+{diff}ml पानी पिया ({total}ml)",
   "liveactivitycard_water_reached": "लक्ष्य पूरा हुआ! 🎉 आपने {amount}ml पानी पिया!",
   "liveactivitycard_yaxsi_9d8595": "अच्छा",
-  "livetimer_channel_desc": "स्तनपान / नींद के सक्रिय टाइमर",
+  "livetimer_channel_desc": "सक्रिय टाइमर",
   "livetimer_channel_name": "टाइमर",
   "livetimer_davam_edir": "चालू है — रोकने के लिए बटन पर टैप करें",
   "livetimer_dayandir": "रोकें",

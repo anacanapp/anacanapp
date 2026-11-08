@@ -4496,7 +4496,7 @@
   "liveactivitycard_water_drank": "+{diff}ml су ішті ({total}ml)",
   "liveactivitycard_water_reached": "Мақсатқа жетті! 🎉 {amount}ml ішті!",
   "liveactivitycard_yaxsi_9d8595": "Жақсы",
-  "livetimer_channel_desc": "Белсенді емізу / ұйқы таймерлері",
+  "livetimer_channel_desc": "Белсенді таймерлер",
   "livetimer_channel_name": "Таймерлер",
   "livetimer_davam_edir": "Жалғасуда — тоқтату үшін түймені басыңыз",
   "livetimer_dayandir": "Тоқтату",

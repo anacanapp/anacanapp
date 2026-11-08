@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "+{diff}ml de agua bebidos ({total}ml)",
   "liveactivitycard_water_reached": "¡Objetivo alcanzado! 🎉 ¡Has bebido {amount}ml!",
   "liveactivitycard_yaxsi_9d8595": "Bien",
-  "livetimer_channel_desc": "Temporizadores activos de alimentación/sueño",
+  "livetimer_channel_desc": "Temporizadores activos",
   "livetimer_channel_name": "Temporizadores",
   "livetimer_davam_edir": "En curso — toca el botón para detenerlo",
   "livetimer_dayandir": "Detener",

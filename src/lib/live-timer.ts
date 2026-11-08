@@ -41,7 +41,7 @@ export async function startNativeTimer(timer: ActiveTimer): Promise<void> {
       startTime: timer.startTime,
       feedType: timer.feedType,
       channelName: tr('livetimer_channel_name', 'Taymerlər'),
-      channelDesc: tr('livetimer_channel_desc', 'Aktiv süd vermə / yuxu taymerləri'),
+      channelDesc: tr('livetimer_channel_desc', 'Aktiv taymerlər'),
     });
     nativeActive.add(timer.id);
   } catch (e) {

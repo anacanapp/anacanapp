@@ -4496,7 +4496,7 @@
   "liveactivitycard_water_drank": "+{diff} мл воды (всего {total} мл)",
   "liveactivitycard_water_reached": "Цель достигнута! 🎉 Выпито {amount} мл!",
   "liveactivitycard_yaxsi_9d8595": "Хорошо",
-  "livetimer_channel_desc": "Активные таймеры кормления / сна",
+  "livetimer_channel_desc": "Активные таймеры",
   "livetimer_channel_name": "Таймеры",
   "livetimer_davam_edir": "Идёт — нажмите кнопку, чтобы остановить",
   "livetimer_dayandir": "Остановить",

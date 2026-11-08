@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "+{diff}ml water gedronken ({total}ml)",
   "liveactivitycard_water_reached": "Doel bereikt! 🎉 Je hebt {amount}ml gedronken!",
   "liveactivitycard_yaxsi_9d8595": "Goed",
-  "livetimer_channel_desc": "Actieve timers voor voeding/slaap",
+  "livetimer_channel_desc": "Actieve timers",
   "livetimer_channel_name": "Timers",
   "livetimer_davam_edir": "Actief — tik op de knop om te stoppen",
   "livetimer_dayandir": "Stoppen",

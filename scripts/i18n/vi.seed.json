@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "Đã uống thêm +{diff}ml nước ({total}ml)",
   "liveactivitycard_water_reached": "Đã đạt mục tiêu! 🎉 Đã uống {amount}ml!",
   "liveactivitycard_yaxsi_9d8595": "Tốt",
-  "livetimer_channel_desc": "Bộ hẹn giờ bú/ngủ đang hoạt động",
+  "livetimer_channel_desc": "Bộ hẹn giờ đang chạy",
   "livetimer_channel_name": "Bộ hẹn giờ",
   "livetimer_davam_edir": "Đang chạy — nhấn nút để dừng",
   "livetimer_dayandir": "Dừng",

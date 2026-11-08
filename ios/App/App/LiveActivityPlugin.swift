@@ -52,7 +52,8 @@ public class LiveActivityPlugin: CAPPlugin, CAPBridgedPlugin {
             label: label,
             feedType: call.getString("feedType"),
             startTime: Date(timeIntervalSince1970: startTimeMs / 1000),
-            subLabel: call.getString("subLabel")
+            subLabel: call.getString("subLabel"),
+            stopLabel: call.getString("stopLabel")
         )
         let contentState = AnacanTimerAttributes.ContentState(elapsedSeconds: 0, isActive: true)
 

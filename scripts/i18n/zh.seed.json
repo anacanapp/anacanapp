@@ -6427,7 +6427,7 @@
   "liveactivitycard_water_drank": "+{diff}ml 饮水量（共 {total}ml）",
   "liveactivitycard_water_reached": "目标已达成！🎉 已喝 {amount}ml！",
   "liveactivitycard_yaxsi_9d8595": "好",
-  "livetimer_channel_desc": "正在进行的喂养/睡眠计时",
+  "livetimer_channel_desc": "进行中的计时器",
   "livetimer_channel_name": "计时器",
   "livetimer_davam_edir": "计时中——点击按钮停止",
   "livetimer_dayandir": "停止",
