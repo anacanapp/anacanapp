@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback, CSSProperties } from 'react';
 import { getLocaleTag } from '@/lib/i18n';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mic, Square, AlertCircle, CheckCircle, Clock, Loader2, History, Info, AlertTriangle, XCircle } from 'lucide-react';
+import { Mic, Square, AlertCircle, CheckCircle, Clock, Loader2, History, Info, AlertTriangle, XCircle, Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -12,6 +12,7 @@ import { createAudioRecorder, getAudioErrorToast, openMicrophone, releaseAudioRe
 import { useScreenAnalytics, trackEvent } from '@/hooks/useScreenAnalytics';
 import { tr, getPersistedLanguage } from "@/lib/tr";
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 
 interface CryTranslatorProps {
@@ -56,6 +57,7 @@ const stageMessages: Record<AnalysisStage, string> = {
 
 const CryTranslator = ({ onBack }: CryTranslatorProps) => {
   useScreenAnalytics('CryTranslator', 'Tools');
+  const emergency = useEmergencyNumber();
   const [stage, setStage] = useState<AnalysisStage>('idle');
   const [recordingTime, setRecordingTime] = useState(0);
   const [analysis, setAnalysis] = useState<CryAnalysis | null>(null);
@@ -381,6 +383,22 @@ const CryTranslator = ({ onBack }: CryTranslatorProps) => {
       <div className="space-y-3">
         <MedicalDisclaimer variant="anacan" />
 
+        {/* Red flags: always visible, compact */}
+        <div className="a-card" role="note" style={{ padding: '10px 12px', background: 'var(--a-pink-1)' }}>
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 shrink-0" style={{ color: 'var(--a-alert-ink)' }} />
+            <p className="text-xs" style={{ margin: 0, flex: 1, color: 'var(--a-alert-ink)', lineHeight: 1.35 }}>
+              {tr("clinical_cry_red_flags", "3 aydan kiçik körpədə hərarət (38 °C və yuxarı), cingiltili və ya saatlarla dayanmayan ağlama, nəfəs çətinliyi, əmməmə: dərhal həkimə müraciət edin.")}
+            </p>
+            <a
+              href={`tel:${emergency}`}
+              className="inline-flex items-center gap-1 shrink-0"
+              style={{ background: 'var(--a-alert-ink)', color: '#fff', borderRadius: 999, padding: '6px 11px', fontSize: 12.5, fontWeight: 800 }}>
+              <Phone size={12} strokeWidth={2.4} />{emergency}
+            </a>
+          </div>
+        </div>
+
         {/* Info Card */}
         <div className="a-card" style={{ padding: '12px 14px' }}>
           <div className="flex items-start gap-2">
@@ -566,8 +584,9 @@ const CryTranslator = ({ onBack }: CryTranslatorProps) => {
                       <h3 className="a-heading" style={{ margin: 0, fontSize: 19, color: cryInfo.ink }}>{cryInfo.label}</h3>
                       <div className="flex items-center gap-2 mt-1">
                         <div className="w-2 h-2 rounded-full" style={{ background: getUrgencyColor(analysis.urgency) }} />
+                        {/* The model's confidence is not calibrated, so no percentage is shown. */}
                         <span className="a-list-sub" style={{ margin: 0 }}>
-                          {analysis.confidence}{tr("crytranslator_eminlik_5cf4fa", "% \u0259minlik")}
+                          {tr("clinical_cry_possible_reason", "Ehtimal olunan səbəb")}
                         </span>
                       </div>
                     </div>
@@ -635,9 +654,6 @@ const CryTranslator = ({ onBack }: CryTranslatorProps) => {
                         {new Date(item.created_at).toLocaleDateString(getLocaleTag())}
                       </p>
                     </div>
-                    <span className="a-list-time">
-                      {item.confidence_score}%
-                    </span>
                   </div>);
 
             })}

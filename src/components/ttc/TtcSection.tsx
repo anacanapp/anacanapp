@@ -15,9 +15,10 @@ import { getLocaleTag } from '@/lib/i18n';
 import { hapticFeedback } from '@/lib/native';
 import { calculateDueDate } from '@/lib/pregnancy-utils';
 import {
-  CHECKLIST_KEYS, bbtShift, chanceFor, dayDiff, doctorThreshold, monthsTrying, saveFlowGoal, saveTtcState, switchToPregnancy,
+  CHECKLIST_KEYS, MIN_BIRTH_YEAR, bbtShift, chanceFor, dayDiff, doctorThresholdFor, maxBirthYear, monthsTrying, validBirthYear, saveFlowGoal, saveTtcState, switchToPregnancy,
   type Chance, type ChecklistKey, type FlowGoal, type PregnancyTest, type TtcState } from
 '@/lib/ttc';
+import { tr, formatTr } from '@/lib/tr';
 import '@/styles/care.css';
 
 const CHANCE_COLOR: Record<Chance, string> = { low: 'var(--a-ink-soft)', medium: '#b07ad8', high: '#8b5cf6', peak: '#5b3aa5' };
@@ -82,8 +83,10 @@ function TtcHome({ t, lastPeriodDate, cycleLength, periodLength, ovulation, ovul
   const checklistDone = CHECKLIST_KEYS.filter((k) => state.checklist?.[k]).length;
   const lastTest = state.tests?.[state.tests.length - 1];
 
+  // 6 months from age 35, otherwise 12 (birth year is optional; unknown age keeps 12).
+  const threshold = doctorThresholdFor(state, today);
   const monthsText = months == null || months < 1 ? t.months_first :
-  months >= doctorThreshold(null) ? fill(t.months_doctor, { n: months }) : fill(t.months_normal, { n: months });
+  months >= threshold ? fill(t.months_doctor, { n: months }) : fill(t.months_normal, { n: months });
 
   return (
     <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
@@ -131,7 +134,7 @@ function TtcHome({ t, lastPeriodDate, cycleLength, periodLength, ovulation, ovul
 
       <BbtCard t={t} />
 
-      <div className={`cx-card cx-gap`} style={{ background: months != null && months >= doctorThreshold(null) ? 'var(--a-yellow-1)' : 'var(--a-surface)' }}>
+      <div className={`cx-card cx-gap`} style={{ background: months != null && months >= threshold ? 'var(--a-yellow-1)' : 'var(--a-surface)' }}>
         <div className="cx-row" style={{ alignItems: 'flex-start' }}>
           <span className="cx-icon" style={{ background: 'var(--a-lav-1)' }}>🤍</span>
           <div style={{ flex: 1, minWidth: 0 }}>
@@ -141,6 +144,11 @@ function TtcHome({ t, lastPeriodDate, cycleLength, periodLength, ovulation, ovul
               <input type="month" className="cx-input" style={{ minHeight: 36, width: 'auto', fontSize: 13, padding: '0 8px' }} value={(state.started_on ?? '').slice(0, 7)} max={ymd(today).slice(0, 7)}
               onChange={(e) => e.target.value && void onState({ ...state, started_on: `${e.target.value}-01` })} />
             </label>
+            <BirthYearField year={validBirthYear(state.birth_year, today)} max={maxBirthYear(today)}
+            onSave={(birth_year) => {const next = { ...state };if (birth_year == null) delete next.birth_year;else next.birth_year = birth_year;void onState(next);}} />
+            <p className="cx-sub" style={{ fontSize: 11.5, color: 'var(--a-ink-faint)', marginTop: 6 }}>
+              {formatTr('clinical_ttc_doctor_rule', '35 yaşdan kiçik: 12 ay, 35 və yuxarı: 6 ay cəhddən sonra həkimə müraciət edin. Sizin üçün: {n} ay.', { n: threshold })}
+            </p>
           </div>
         </div>
       </div>
@@ -172,6 +180,26 @@ function TtcHome({ t, lastPeriodDate, cycleLength, periodLength, ovulation, ovul
       <PositiveSheet t={t} open={positive} onClose={() => setPositive(false)} lastPeriodDate={lastPeriodDate}
       onLater={() => {const d = new Date();d.setDate(d.getDate() + 2);void onState({ ...state, snooze_until: ymd(d) });setPositive(false);}} />
     </motion.div>);
+}
+
+/** Optional birth year; saved on blur/Enter so typing does not write partial years. */
+function BirthYearField({ year, max, onSave }: { year: number | null; max: number; onSave: (year: number | null) => void }) {
+  const [draft, setDraft] = useState(year != null ? String(year) : '');
+  useEffect(() => {setDraft(year != null ? String(year) : '');}, [year]);
+  const commit = () => {
+    const trimmed = draft.trim();
+    if (!trimmed) {if (year != null) onSave(null);return;}
+    const next = validBirthYear(trimmed);
+    if (next == null) {setDraft(year != null ? String(year) : '');return;}
+    if (next !== year) onSave(next);
+  };
+  return (
+    <label className="cx-row" style={{ gap: 8, marginTop: 8 }}>
+      <span className="cx-sub">{tr('clinical_ttc_birth_year', 'Doğum iliniz')}</span>
+      <input type="number" inputMode="numeric" className="cx-input" min={MIN_BIRTH_YEAR} max={max} placeholder={String(max - 18)}
+      style={{ minHeight: 36, width: 96, fontSize: 13, padding: '0 8px' }} value={draft}
+      onChange={(e) => setDraft(e.target.value)} onBlur={commit} onKeyDown={(e) => {if (e.key === 'Enter') (e.target as HTMLInputElement).blur();}} />
+    </label>);
 }
 
 function FertilityRing({ cycleLength, periodLength, cycleDay, ovulationDay, picked, onPick, children }: {

@@ -10,7 +10,8 @@ import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { useToast } from '@/hooks/use-toast';
 import { format, isToday, isYesterday, subDays } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
-import { tr } from "@/lib/tr";
+import { tr, formatTr } from "@/lib/tr";
+import { AFTER_MEAL_1H, HYPO_MGDL, TARGETS_MGDL, formatGlucose, glucoseStatus, hasRepeatedHighs, loadGlucoseUnit, parseGlucoseInput, saveGlucoseUnit, thresholdText, unitLabel, type GlucoseUnit } from '@/lib/bloodSugar';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import { ToolPage, ToolHeader, ToolEmpty } from './anacan/ToolKit';
 
@@ -32,7 +33,9 @@ interface BloodSugarLog {
 const readingTypes = [
 { id: 'fasting', label: tr("bloodsugartracker_acliq_b6d5ee", 'Aclıq'), emoji: '🌅', description: tr("bloodsugartracker_seher_tezden_yemekden_evvel_3f58e4", 'Səhər tezdən, yeməkdən əvvəl') },
 { id: 'before_meal', label: tr("bloodsugartracker_yemekden_evvel_167a3d", 'Yeməkdən əvvəl'), emoji: '🍽️', description: tr("bloodsugartracker_yemekden_30_deq_evvel_266704", 'Yeməkdən 30 dəq əvvəl') },
-{ id: 'after_meal', label: tr("bloodsugartracker_yemekden_sonra_56238e", 'Yeməkdən sonra'), emoji: '⏰', description: tr("bloodsugartracker_yemekden_2_saat_sonra_c59165", 'Yeməkdən 2 saat sonra') },
+{ id: AFTER_MEAL_1H, label: tr("clinical_bs_after_1h", 'Yeməkdən 1 saat sonra'), emoji: '⏱️', description: tr("clinical_bs_after_1h", 'Yeməkdən 1 saat sonra') },
+// 'after_meal' keeps its original meaning: 2 hours after a meal (older rows stay valid).
+{ id: 'after_meal', label: tr("bloodsugartracker_yemekden_2_saat_sonra_c59165", 'Yeməkdən 2 saat sonra'), emoji: '⏰', description: tr("bloodsugartracker_yemekden_2_saat_sonra_c59165", 'Yeməkdən 2 saat sonra') },
 { id: 'bedtime', label: tr("bloodsugartracker_yatmazdan_evvel_a457fa", 'Yatmazdan əvvəl'), emoji: '🌙', description: tr("bloodsugartracker_gece_yatmaq_ucun_34ca83", 'Gecə yatmaq üçün') },
 { id: 'random', label: tr("bloodsugartracker_tesadufi_98c20c", 'Təsadüfi'), emoji: '📊', description: tr("bloodsugartracker_i_stenilen_vaxt_ec15be", 'İstənilən vaxt') }];
 
@@ -44,19 +47,12 @@ const mealContexts = [
 { id: 'snack', label: tr("bloodsugartracker_qelyanalti_42fb71", 'Qəlyanaltı'), emoji: '🍎' }];
 
 
-// Blood sugar level thresholds (mg/dL) → anacan design palette
+// Pregnancy (gestational diabetes) targets live in src/lib/bloodSugar.ts → anacan design palette
 const getReadingStatus = (value: number, type: string) => {
-  if (type === 'fasting') {
-    if (value < 70) return { status: 'low', label: tr("bloodsugartracker_asagi_1c27f1", 'Aşağı'), ink: 'var(--a-blue-ink)', bg: 'var(--a-blue-1)' };
-    if (value <= 95) return { status: 'normal', label: tr("common_normal", 'Normal'), ink: 'var(--a-green-ink)', bg: 'var(--a-green-1)' };
-    if (value <= 125) return { status: 'elevated', label: tr("bloodsugartracker_yukselmis_1fee34", 'Yüksəlmiş'), ink: 'var(--a-warn-ink)', bg: 'var(--a-yellow-1)' };
-    return { status: 'high', label: tr("bloodsugartracker_yuksek_492584", 'Yüksək'), ink: 'var(--a-pink-ink)', bg: 'var(--a-pink-1)' };
-  } else {
-    if (value < 70) return { status: 'low', label: tr("bloodsugartracker_asagi_1c27f1", 'Aşağı'), ink: 'var(--a-blue-ink)', bg: 'var(--a-blue-1)' };
-    if (value <= 140) return { status: 'normal', label: tr("common_normal", 'Normal'), ink: 'var(--a-green-ink)', bg: 'var(--a-green-1)' };
-    if (value <= 180) return { status: 'elevated', label: tr("bloodsugartracker_yukselmis_1fee34", 'Yüksəlmiş'), ink: 'var(--a-warn-ink)', bg: 'var(--a-yellow-1)' };
-    return { status: 'high', label: tr("bloodsugartracker_yuksek_492584", 'Yüksək'), ink: 'var(--a-pink-ink)', bg: 'var(--a-pink-1)' };
-  }
+  const status = glucoseStatus(value, type);
+  if (status === 'low') return { status, label: tr("bloodsugartracker_asagi_1c27f1", 'Aşağı'), ink: 'var(--a-blue-ink)', bg: 'var(--a-blue-1)' };
+  if (status === 'high') return { status, label: tr("clinical_bs_above_target", 'Hədəfdən yuxarı'), ink: 'var(--a-pink-ink)', bg: 'var(--a-pink-1)' };
+  return { status, label: tr("clinical_bs_in_target", 'Hədəfdə'), ink: 'var(--a-green-ink)', bg: 'var(--a-green-1)' };
 };
 
 // Small status pill using the design palette
@@ -82,6 +78,9 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
   const [selectedType, setSelectedType] = useState('random');
   const [selectedMeal, setSelectedMeal] = useState<string | null>(null);
   const [notes, setNotes] = useState('');
+  const [unit, setUnitState] = useState<GlucoseUnit>(loadGlucoseUnit);
+  const setUnit = (next: GlucoseUnit) => {setUnitState(next);saveGlucoseUnit(next);};
+  const parsedReading = parseGlucoseInput(newReading, unit);
 
   const { data: logs = [], isLoading } = useQuery({
     queryKey: ['blood-sugar-logs', user?.id],
@@ -101,13 +100,13 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
 
   const addLogMutation = useMutation({
     mutationFn: async () => {
-      if (!user?.id || !newReading) throw new Error(tr("bloodsugartracker_melumat_yoxdur_a3e271", "M\u0259lumat yoxdur"));
+      if (!user?.id || parsedReading == null) throw new Error(tr("bloodsugartracker_melumat_yoxdur_a3e271", "M\u0259lumat yoxdur"));
 
       const { error } = await supabase.
       from('blood_sugar_logs').
       insert({
         user_id: user.id,
-        reading_value: parseFloat(newReading),
+        reading_value: parsedReading, // always mg/dL
         reading_type: selectedType,
         meal_context: selectedMeal,
         notes: notes || null
@@ -157,6 +156,10 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
   Math.round(weekLogs.reduce((sum, log) => sum + log.reading_value, 0) / weekLogs.length) :
   null;
 
+  const latest = logs[0];
+  const latestLow = !!latest && Number(latest.reading_value) < HYPO_MGDL && Date.now() - new Date(latest.logged_at).getTime() < 6 * 3600_000;
+  const repeatedHighs = hasRepeatedHighs(logs);
+
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
     if (isToday(date)) return tr("bloodsugartracker_bu_gun_786fd4", "Bu g\xFCn");
@@ -196,9 +199,8 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
           <div>
             <p className="a-stat-tile-label">{tr("bloodsugartracker_bu_gun_orta_96f2fa", "Bu gün orta")}</p>
             <p className="a-stat-tile-value">
-              {avgToday ? `${avgToday} mg/dL` : '—'}
+              {avgToday ? `${formatGlucose(avgToday, unit)} ${unitLabel(unit)}` : '—'}
             </p>
-            {avgToday && <div style={{ marginTop: 3 }}><StatusTag value={avgToday} type="random" /></div>}
           </div>
         </motion.div>
 
@@ -214,20 +216,60 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
           <div>
             <p className="a-stat-tile-label">{tr("bloodsugartracker_heftelik_orta_f3a738", "Həftəlik orta")}</p>
             <p className="a-stat-tile-value">
-              {avgWeek ? `${avgWeek} mg/dL` : '—'}
+              {avgWeek ? `${formatGlucose(avgWeek, unit)} ${unitLabel(unit)}` : '—'}
             </p>
             <p className="a-stat-tile-label">{weekLogs.length} {tr("bloodsugartracker_olcme_6aff0d", "\xF6l\xE7m\u0259")}</p>
           </div>
         </motion.div>
       </div>
 
-      {/* Info Card */}
+      {/* Unit (per device; values are stored in mg/dL) */}
+      <div role="radiogroup" aria-label={tr("clinical_bs_unit", "Ölçü vahidi")} style={{ display: 'flex', gap: 6, marginTop: 12 }}>
+        {(['mgdl', 'mmol'] as const).map((u) =>
+        <button
+          key={u}
+          type="button"
+          role="radio"
+          aria-checked={unit === u}
+          onClick={() => setUnit(u)}
+          style={{
+            flex: 1, padding: '7px 10px', borderRadius: 999, fontSize: 12.5, fontWeight: 700, cursor: 'pointer',
+            border: unit === u ? '1.5px solid var(--a-peach-2)' : '1.5px solid var(--a-line)',
+            background: unit === u ? 'var(--a-tag-on-bg)' : 'var(--a-surface-soft)', color: 'var(--a-ink)'
+          }}>
+            {unitLabel(u)}
+          </button>
+        )}
+      </div>
+
+      {/* Low reading: act now */}
+      {latestLow &&
+      <div className="a-alert-card" role="alert" style={{ marginTop: 12 }}>
+          <AlertTriangle size={16} style={{ color: 'var(--a-alert-ink)', flexShrink: 0 }} />
+          <p className="a-alert-text" style={{ margin: 0 }}>
+            {formatTr("clinical_bs_hypo_advice", "{value}-dən aşağı (hipoqlikemiya): 15 q tez şəkər yeyin və ya için (məsələn, yarım stəkan meyvə şirəsi), 15 dəqiqə sonra yenidən ölçün. Yenə aşağıdırsa, təkrarlayın və həkiminizə müraciət edin.", { value: thresholdText(HYPO_MGDL, unit) })}
+          </p>
+        </div>
+      }
+
+      {/* Repeated readings above target */}
+      {repeatedHighs &&
+      <div className="a-today-info-tip" style={{ marginTop: 12, background: 'var(--a-yellow-1)', color: 'var(--a-warn-ink)' }}>
+          <AlertTriangle size={14} />
+          <span>{tr("clinical_bs_repeated_high", "Bir neçə ölçmə hədəfdən yuxarıdır. Həkiminizə müraciət edin.")}</span>
+        </div>
+      }
+
+      {/* Info Card: pregnancy targets */}
       <div className="a-today-info-tip" style={{ marginTop: 12 }}>
         <AlertTriangle size={14} />
         <span>
-          <strong>{tr("bloodsugartracker_hamilelik_zamani_normal_seviyyeler_458722", "Hamiləlik zamanı normal səviyyələr:")}</strong>
-          <br />{tr("bloodsugartracker_acliq_70_95_mg_dl_d4ac37", "• Aclıq: 70-95 mg/dL")}
-          <br />{tr("bloodsugartracker_yemekden_2_saat_sonra_lt_140_mg_dl_8efae2", "• Yeməkdən 2 saat sonra: <140 mg/dL")}
+          <strong>{tr("clinical_bs_targets_title", "Hamiləlikdə hədəflər:")}</strong>
+          <br />• {formatTr("clinical_bs_target_fasting", "Aclıq: {value}-dən aşağı", { value: thresholdText(TARGETS_MGDL.fasting, unit) })}
+          <br />• {formatTr("clinical_bs_target_1h", "Yeməkdən 1 saat sonra: {value}-dən aşağı", { value: thresholdText(TARGETS_MGDL.after1h, unit) })}
+          <br />• {formatTr("clinical_bs_target_2h", "Yeməkdən 2 saat sonra: {value}-dən aşağı", { value: thresholdText(TARGETS_MGDL.after2h, unit) })}
+          <br />• {formatTr("clinical_bs_hypo_short", "{value}-dən aşağı: 15 q tez şəkər, 15 dəqiqə sonra yenidən ölçün.", { value: thresholdText(HYPO_MGDL, unit) })}
+          <br />• {tr("clinical_bs_repeat_high_short", "Təkrarlanan yüksək nəticələr: həkiminizə müraciət edin.")}
         </span>
       </div>
 
@@ -255,7 +297,7 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
 
         <div className="a-list-card">
             {logs.map((log, index) => {
-            const status = getReadingStatus(log.reading_value, log.reading_type);
+            const status = getReadingStatus(Number(log.reading_value), log.reading_type);
             const typeInfo = readingTypes.find((t) => t.id === log.reading_type);
             const mealInfo = mealContexts.find((m) => m.id === log.meal_context);
 
@@ -275,8 +317,8 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
                       </span>
                       <div style={{ minWidth: 0 }}>
                         <p className="a-list-title" style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
-                          {log.reading_value} <span className="a-list-time" style={{ margin: 0 }}>mg/dL</span>
-                          <StatusTag value={log.reading_value} type={log.reading_type} />
+                          {formatGlucose(Number(log.reading_value), unit)} <span className="a-list-time" style={{ margin: 0 }}>{unitLabel(unit)}</span>
+                          <StatusTag value={Number(log.reading_value)} type={log.reading_type} />
                         </p>
                         <p className="a-list-sub">
                           {typeInfo?.label}
@@ -327,19 +369,20 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
 
             {/* Reading Value */}
             <div className="mb-3">
-              <label className="a-stat-tile-label" style={{ display: 'block', marginBottom: 6 }}>{tr("bloodsugartracker_qan_sekeri_seviyyesi_mg_dl_cb75a9", "Qan şəkəri səviyyəsi (mg/dL)")}</label>
+              <label className="a-stat-tile-label" style={{ display: 'block', marginBottom: 6 }}>{formatTr("clinical_bs_level_unit", "Qan şəkəri səviyyəsi ({unit})", { unit: unitLabel(unit) })}</label>
               <input
               type="number"
               inputMode="decimal"
               value={newReading}
               onChange={(e) => setNewReading(e.target.value)}
-              placeholder={tr("bloodsugartracker_meselen_95_23137b", "Məsələn: 95")}
+              step={unit === 'mmol' ? '0.1' : '1'}
+              placeholder={formatTr("clinical_bs_example", "Məsələn: {n}", { n: unit === 'mmol' ? '5.0' : '90' })}
               className="a-input w-full text-center"
               style={{ height: 52, fontSize: 22, fontWeight: 800 }} />
             
-              {newReading &&
+              {parsedReading != null &&
             <div className="mt-2 text-center">
-                  <StatusTag value={parseFloat(newReading)} type={selectedType} />
+                  <StatusTag value={parsedReading} type={selectedType} />
                 </div>
             }
             </div>
@@ -369,7 +412,7 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
             </div>
 
             {/* Meal Context (optional) */}
-            {(selectedType === 'before_meal' || selectedType === 'after_meal') &&
+            {(selectedType === 'before_meal' || selectedType === 'after_meal' || selectedType === AFTER_MEAL_1H) &&
           <div className="mb-3">
                 <label className="a-stat-tile-label" style={{ display: 'block', marginBottom: 6 }}>{tr("bloodsugartracker_yemek_b1fd56", "Yemək")}</label>
                 <div className="grid grid-cols-4 gap-1.5">
@@ -408,8 +451,8 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
 
             <button
             className="a-btn-solid w-full"
-            style={{ justifyContent: 'center', padding: '13px 18px', opacity: !newReading || addLogMutation.isPending ? 0.45 : 1 }}
-            disabled={!newReading || addLogMutation.isPending}
+            style={{ justifyContent: 'center', padding: '13px 18px', opacity: parsedReading == null || addLogMutation.isPending ? 0.45 : 1 }}
+            disabled={parsedReading == null || addLogMutation.isPending}
             onClick={() => addLogMutation.mutate()}>
             
               {addLogMutation.isPending ? tr("bloodsugartracker_elave_edilir_3c28b4", "Əlavə edilir...") : tr("bloodsugartracker_qeyd_et_3c7a2d", "Qeyd et")}

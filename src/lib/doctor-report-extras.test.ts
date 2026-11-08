@@ -4,12 +4,12 @@ vi.mock('@/lib/tr', () => ({ tr: (_key: string, fallback: string) => fallback, g
 vi.mock('@/lib/i18n', () => ({ getLocaleTag: () => 'en-US' }));
 
 import {
-  bloodSugarBand, buildBloodSugarSection, buildClinicalSections, buildContractionSection, buildEpdsSection, buildGrowthSection,
+  BLOOD_SUGAR_TARGETS, bloodSugarBand, buildBloodSugarSection, buildClinicalSections, buildContractionSection, buildEpdsSection, buildGrowthSection,
   buildKickSection, buildVaccineSection, clock, epdsBand, groupContractionSessions,
 } from './doctor-report-extras';
 import { buildDoctorReportData } from './doctor-report';
 import { getReportRange, type HealthReportSnapshot } from './health-report-data';
-import { percentile } from './whoGrowth';
+import { headCircumferencePercentile, percentile } from './whoGrowth';
 
 const now = new Date(2026, 10, 8, 12, 0); // 08.11.2026 12:00 local
 const month = getReportRange('1month', now);
@@ -17,10 +17,14 @@ const week = getReportRange('1week', now);
 const local = (d: number, h = 9, m = 0) => new Date(2026, 10, d, h, m).toISOString();
 
 describe('blood sugar', () => {
-  it('bands readings with the app targets (fasting 95, other 140, low 70)', () => {
-    expect(bloodSugarBand(95, 'fasting')).toBe('target');
-    expect(bloodSugarBand(96, 'fasting')).toBe('above');
-    expect(bloodSugarBand(140, 'after_meal')).toBe('target');
+  it('bands readings with the GDM targets (fasting <95, 1 h <140, 2 h <120, low <70)', () => {
+    expect(BLOOD_SUGAR_TARGETS).toEqual({ low: 70, fasting: 95, after1h: 140, after2h: 120 });
+    expect(bloodSugarBand(94, 'fasting')).toBe('target');
+    expect(bloodSugarBand(95, 'fasting')).toBe('above');
+    expect(bloodSugarBand(139, 'after_meal_1h')).toBe('target');
+    expect(bloodSugarBand(140, 'after_meal_1h')).toBe('above');
+    expect(bloodSugarBand(119, 'after_meal')).toBe('target');
+    expect(bloodSugarBand(120, 'after_meal')).toBe('above');
     expect(bloodSugarBand(141, 'random')).toBe('above');
     expect(bloodSugarBand(65, 'fasting')).toBe('low');
   });
@@ -41,9 +45,10 @@ describe('blood sugar', () => {
     ]);
     expect(section.note).toContain('95 mg/dL');
     expect(section.note).toContain('140 mg/dL');
+    expect(section.note).toContain('120 mg/dL');
     expect(section.table!.rows).toEqual([
       ['08.11.2026 07:00', 'Aclıq', '100 (5.6)', 'Hədəfdən yuxarı'],
-      ['07.11.2026 14:00', 'Yeməkdən sonra', '150 (8.3)', 'Hədəfdən yuxarı'],
+      ['07.11.2026 14:00', 'Yeməkdən 2 saat sonra', '150 (8.3)', 'Hədəfdən yuxarı'],
       ['06.11.2026 07:00', 'Aclıq', '90 (5)', 'Hədəfdə'],
     ]);
   });
@@ -193,6 +198,17 @@ describe('growth', () => {
     expect(section.table!.rows[0][1]).toBe((Math.round(corrected * 10) / 10).toString());
     expect(section.table!.rows[0][2]).toBe(`5.8 · P${percentile('weight', 'girl', corrected, 5.8)}`);
     expect(section.note).toContain('korreksiya');
+  });
+
+  it('adds the WHO head circumference percentile and covers ages up to 5 years', () => {
+    const child = { birth_date: '2023-11-01', gender: 'girl' };
+    const section = buildGrowthSection([{ id: 'h', entry_date: '2026-11-01', weight_kg: 14, height_cm: 96, head_cm: 48.5 }], child, month)!;
+    const months = (Date.parse('2026-11-01') - Date.parse('2023-11-01')) / (30.4375 * 86400000);
+    const hcp = headCircumferencePercentile('girl', months, 48.5);
+    expect(hcp).not.toBeNull();
+    expect(section.rows.map(r => r.label)).toEqual(['Çəki persentili (ÜST)', 'Boy persentili (ÜST)', 'Baş çevrəsi persentili (ÜST)']);
+    expect(section.table!.rows[0][4]).toBe(`48.5 · P${hcp}`);
+    expect(section.note).toContain('0-5');
   });
 
   it('omits percentiles when the sex is not recorded', () => {

@@ -10,6 +10,7 @@ import { runAppointmentReminders } from './send-appointment-reminders.mjs';
 import { vitaminSlices } from './vitamin-window.mjs';
 import { runNotificationTests } from './run-notification-tests.mjs';
 import { sliceKey, sliceAlreadySent } from './vitamin-guard.mjs';
+import { DEFAULT_TIME_ZONE, groupZonesBySlices, vitaminSlicesForZone } from './vitamin-zones.mjs';
 
 const TEST_USER_ID = process.env.TEST_USER_ID || null; // debug: yalnız bu istifadəçi üçün, vaxt pəncərəsi keçilir
 const SKIP_DEDUP = process.env.SKIP_DEDUP === 'true';
@@ -32,6 +33,29 @@ const VITAMIN_COPY = {
 };
 
 const manual = !!TEST_USER_ID;
+
+// Per-user local time (vitamin-zones.mjs). Used only once user_preferences has this column
+// (IANA name written by the app); until then every schedule runs in Baku time as before.
+const TZ_COLUMN = 'timezone';
+const SCHEDULE_FILTER = `s.is_active = true AND s.notification_enabled = true
+             AND s.scheduled_time >= $1::time AND s.scheduled_time < $2::time
+             AND s.days_of_week @> ARRAY[$3]::int[]`;
+
+async function hasUserTimeZones() {
+  const rows = await query(
+    `SELECT 1 FROM information_schema.columns WHERE table_schema = 'public' AND table_name = 'user_preferences' AND column_name = $1`,
+    [TZ_COLUMN]
+  );
+  return rows.length > 0;
+}
+
+async function storedTimeZone(userId) {
+  const rows = await query(
+    `SELECT ${TZ_COLUMN} AS tz FROM user_preferences WHERE user_id = $1 AND ${TZ_COLUMN} IS NOT NULL ORDER BY updated_at DESC LIMIT 1`,
+    [userId]
+  );
+  return rows[0]?.tz ?? null;
+}
 
 async function main() {
   let runId = null;
@@ -62,18 +86,43 @@ async function main() {
     }
 
     let schedules = [];
+    const perUserZones = await hasUserTimeZones();
     if (manual) {
+      // The test user's local date decides "taken today".
+      const zone = perUserZones ? await storedTimeZone(TEST_USER_ID) : DEFAULT_TIME_ZONE;
+      const date = vitaminSlicesForZone(now, zone)[0].date;
       schedules = (await query(
         `SELECT * FROM user_vitamin_schedules WHERE is_active = true AND notification_enabled = true AND user_id = $1`,
         [TEST_USER_ID]
-      )).map((row) => ({ ...row, _date: slices[0].date }));
+      )).map((row) => ({ ...row, _date: date }));
+    } else if (perUserZones) {
+      // One query per distinct local slice; users without a zone (or an invalid one) use Baku time.
+      const zoneRows = await query(`SELECT DISTINCT ${TZ_COLUMN} AS tz FROM user_preferences WHERE ${TZ_COLUMN} IS NOT NULL`);
+      const groups = groupZonesBySlices(zoneRows.map((r) => r.tz), now);
+      const seen = new Set();
+      for (const group of groups) {
+        for (const w of group.slices) {
+          const rows = await query(
+            `SELECT s.* FROM user_vitamin_schedules s
+             LEFT JOIN LATERAL (
+               SELECT p.${TZ_COLUMN} AS tz FROM user_preferences p WHERE p.user_id = s.user_id ORDER BY p.updated_at DESC LIMIT 1
+             ) p ON true
+             WHERE ${SCHEDULE_FILTER}
+               AND (p.tz = ANY($4::text[]) OR ($5::boolean AND p.tz IS NULL))`,
+            [w.from, w.to, w.dow, group.zones, group.includesDefault]
+          );
+          for (const row of rows) {
+            if (seen.has(row.id)) continue;
+            seen.add(row.id);
+            schedules.push({ ...row, _date: w.date });
+          }
+        }
+      }
     } else {
       for (const w of slices) {
         const rows = await query(
-          `SELECT * FROM user_vitamin_schedules
-           WHERE is_active = true AND notification_enabled = true
-             AND scheduled_time >= $1::time AND scheduled_time < $2::time
-             AND days_of_week @> ARRAY[$3]::int[]`,
+          `SELECT s.* FROM user_vitamin_schedules s
+           WHERE ${SCHEDULE_FILTER}`,
           [w.from, w.to, w.dow]
         );
         schedules.push(...rows.map((row) => ({ ...row, _date: w.date })));

@@ -9,6 +9,7 @@ import { tr } from '@/lib/tr';
 import { getLocaleTag } from '@/lib/i18n';
 import { localDateKey } from '@/lib/local-date';
 import { ageInMonths, percentile, type Sex } from '@/lib/whoGrowth';
+import { AFTER_MEAL_1H, HYPO_MGDL, TARGETS_MGDL, glucoseStatus } from '@/lib/bloodSugar';
 import { getPrematurityInfo } from '@/lib/pregnancy-utils';
 import { calendarOffsetDate, vaccineEligible, vaccineStatus, vaccineTiming } from '@/lib/vaccine-schedule';
 import type { ReportRange } from './health-report-data';
@@ -38,14 +39,15 @@ const dayInRange = (day: string, range: ReportRange) => day <= range.endDay && (
 // ── Blood sugar ────────────────────────────────────────────────────────────
 export interface ReportBloodSugar { id: string; reading_value: number | string; reading_type: string; meal_context?: string | null; logged_at: string | null; created_at: string | null; }
 /**
- * Pregnancy glucose targets the app uses in BloodSugarTracker (mg/dL): below 70 is low,
- * fasting up to 95 and other readings up to 140 are within target.
+ * Gestational diabetes targets shared with BloodSugarTracker (src/lib/bloodSugar.ts, mg/dL):
+ * below 70 is low; fasting below 95, 1 hour after a meal below 140, 2 hours after a meal below 120.
+ * Before-meal / bedtime readings use the fasting target, random readings the 1 hour target.
  */
-export const BLOOD_SUGAR_TARGETS = { low: 70, fasting: 95, other: 140 } as const;
+export const BLOOD_SUGAR_TARGETS = { low: HYPO_MGDL, fasting: TARGETS_MGDL.fasting, after1h: TARGETS_MGDL.after1h, after2h: TARGETS_MGDL.after2h } as const;
 export type SugarBand = 'low' | 'target' | 'above';
 export function bloodSugarBand(value: number, type: string): SugarBand {
-  if (value < BLOOD_SUGAR_TARGETS.low) return 'low';
-  return value <= (type === 'fasting' ? BLOOD_SUGAR_TARGETS.fasting : BLOOD_SUGAR_TARGETS.other) ? 'target' : 'above';
+  const status = glucoseStatus(value, type);
+  return status === 'low' ? 'low' : status === 'high' ? 'above' : 'target';
 }
 
 export function buildBloodSugarSection(logs: ReportBloodSugar[], range: ReportRange): ReportSection | null {
@@ -56,7 +58,8 @@ export function buildBloodSugarSection(logs: ReportBloodSugar[], range: ReportRa
   if (!readings.length) return null;
   const types: Record<string, string> = {
     fasting: tr('bloodsugartracker_acliq_b6d5ee', 'Aclıq'), before_meal: tr('bloodsugartracker_yemekden_evvel_167a3d', 'Yeməkdən əvvəl'),
-    after_meal: tr('bloodsugartracker_yemekden_sonra_56238e', 'Yeməkdən sonra'), bedtime: tr('bloodsugartracker_yatmazdan_evvel_a457fa', 'Yatmazdan əvvəl'),
+    [AFTER_MEAL_1H]: tr('clinical_bs_after_1h', 'Yeməkdən 1 saat sonra'),
+    after_meal: tr('bloodsugartracker_yemekden_2_saat_sonra_c59165', 'Yeməkdən 2 saat sonra'), bedtime: tr('bloodsugartracker_yatmazdan_evvel_a457fa', 'Yatmazdan əvvəl'),
     random: tr('bloodsugartracker_tesadufi_98c20c', 'Təsadüfi'),
   };
   const bands: Record<SugarBand, string> = {
@@ -74,8 +77,9 @@ export function buildBloodSugarSection(logs: ReportBloodSugar[], range: ReportRa
   ];
   return {
     id: 'blood_sugar', title: tr('report_sugar_title', 'Qan şəkəri'), rows,
-    note: tr('report_sugar_targets', 'Tətbiqdəki hədəflər: aclıq {fasting} mg/dL və ya aşağı, digər ölçmələr {other} mg/dL və ya aşağı; {low} mg/dL-dən aşağı dəyər aşağı sayılır.')
-      .replace('{fasting}', String(BLOOD_SUGAR_TARGETS.fasting)).replace('{other}', String(BLOOD_SUGAR_TARGETS.other)).replace('{low}', String(BLOOD_SUGAR_TARGETS.low)),
+    note: tr('clinical_report_sugar_targets', 'Hamiləlik hədəfləri: aclıq {fasting} mg/dL-dən aşağı, yeməkdən 1 saat sonra {after1h} mg/dL-dən aşağı, 2 saat sonra {after2h} mg/dL-dən aşağı; {low} mg/dL-dən aşağı dəyər aşağı sayılır.')
+      .replace('{fasting}', String(BLOOD_SUGAR_TARGETS.fasting)).replace('{after1h}', String(BLOOD_SUGAR_TARGETS.after1h))
+      .replace('{after2h}', String(BLOOD_SUGAR_TARGETS.after2h)).replace('{low}', String(BLOOD_SUGAR_TARGETS.low)),
     table: {
       headers: [tr('pdf_date_time', 'Tarix / saat'), tr('report_sugar_type', 'Ölçmə növü'), 'mg/dL (mmol/L)', tr('report_sugar_vs_target', 'Hədəfə görə')],
       rows: banded.map(item => [reportDate(new Date(item.at), true), types[item.log.reading_type] || item.log.reading_type || '—',
@@ -282,7 +286,7 @@ export function buildGrowthSection(entries: ReportGrowth[], child: ReportChild, 
   // Same reference as BabyGrowthTracker: corrected age (from the due date) for babies born preterm.
   const reference = prematurity.isPremature && child.due_date ? child.due_date : child.birth_date;
   const sex: Sex | null = child.gender === 'boy' || child.gender === 'girl' ? child.gender : null;
-  const pct = (measure: 'weight' | 'height', months: number, value: number | null) => {
+  const pct = (measure: 'weight' | 'height' | 'head', months: number, value: number | null) => {
     if (!sex || value === null || value <= 0) return null;
     return percentile(measure, sex, months, value);
   };
@@ -290,21 +294,22 @@ export function buildGrowthSection(entries: ReportGrowth[], child: ReportChild, 
   const rows = list.map(entry => {
     const months = ageInMonths(reference, entry.entry_date);
     const weight = finite(entry.weight_kg), height = finite(entry.height_cm), head = finite(entry.head_cm);
-    return { entry, months, weight, height, head, wp: pct('weight', months, weight), hp: pct('height', months, height) };
+    return { entry, months, weight, height, head, wp: pct('weight', months, weight), hp: pct('height', months, height), hcp: pct('head', months, head) };
   });
   const latest = rows[0];
   const cards: ReportRow[] = [
     ...(latest.wp !== null ? [{ label: tr('report_growth_weight_pct', 'Çəki persentili (ÜST)'), value: `P${latest.wp} · ${num(latest.weight, 2)} ${tr('report_kg', 'kq')}` }] : []),
     ...(latest.hp !== null ? [{ label: tr('report_growth_height_pct', 'Boy persentili (ÜST)'), value: `P${latest.hp} · ${num(latest.height, 1)} cm` }] : []),
+    ...(latest.hcp !== null ? [{ label: tr('clinical_report_growth_head_pct', 'Baş çevrəsi persentili (ÜST)'), value: `P${latest.hcp} · ${num(latest.head, 1)} cm` }] : []),
   ];
-  const notes = [tr('report_growth_note', 'Persentillər ÜST uşaq böyümə standartlarına əsaslanır (0-24 ay).')];
+  const notes = [tr('clinical_report_growth_note', 'Persentillər ÜST uşaq böyümə standartlarına əsaslanır (0-5 yaş).')];
   if (reference !== child.birth_date) notes.push(tr('report_growth_corrected', 'Vaxtından əvvəl doğulduğu üçün korreksiya olunmuş yaş istifadə edilib.'));
   if (!sex) notes.push(tr('report_growth_no_sex', 'Cinsiyyət qeyd edilmədiyi üçün persentil hesablanmayıb.'));
   return {
     id: 'growth', title: tr('report_growth_title', 'Böyümə (ÜST persentilləri)'), rows: cards, note: notes.join(' '),
     table: {
-      headers: [tr('pdf_date', 'Tarix'), tr('report_growth_age', 'Yaş (ay)'), tr('report_growth_weight', 'Çəki, kq (P)'), tr('report_growth_height', 'Boy, cm (P)'), tr('report_growth_head', 'Baş çevrəsi, cm')],
-      rows: rows.map(row => [reportDate(row.entry.entry_date.slice(0, 10)), row.months >= 0 ? num(row.months, 1) : '—', cell(row.weight, 2, row.wp), cell(row.height, 1, row.hp), row.head === null || row.head <= 0 ? '—' : num(row.head, 1)]),
+      headers: [tr('pdf_date', 'Tarix'), tr('report_growth_age', 'Yaş (ay)'), tr('report_growth_weight', 'Çəki, kq (P)'), tr('report_growth_height', 'Boy, cm (P)'), tr('clinical_report_growth_head', 'Baş çevrəsi, cm (P)')],
+      rows: rows.map(row => [reportDate(row.entry.entry_date.slice(0, 10)), row.months >= 0 ? num(row.months, 1) : '—', cell(row.weight, 2, row.wp), cell(row.height, 1, row.hp), cell(row.head, 1, row.hcp)]),
       widths: [1, 0.7, 1.1, 1.1, 0.9],
     },
   };

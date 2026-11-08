@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { percentile, zScore, percentileLabel, ageInMonths } from './whoGrowth';
+import { percentile, zScore, percentileLabel, ageInMonths, valueAtPercentile, buildCurveData, headCircumferencePercentile, headCircumferenceZScore } from './whoGrowth';
 
 // WHO böyümə faizi hesablaması — səhv olarsa, körpənin böyümə problemini
 // (failure-to-thrive) gizlədə və ya səhv həyəcan siqnalı verə bilər.
@@ -34,10 +34,11 @@ describe('whoGrowth.percentile / zScore', () => {
     expect((p as number) > 85).toBe(true);
   });
 
-  it('returns null for an age outside the supported 0-24 month range', () => {
+  it('returns null for an age outside the supported 0-60 month range', () => {
     expect(percentile('weight', 'boy', -1, 5)).toBeNull();
-    expect(percentile('weight', 'boy', 25, 5)).toBeNull();
-    expect(zScore('weight', 'boy', 30, 5)).toBeNull();
+    expect(percentile('weight', 'boy', 61, 15)).toBeNull();
+    expect(zScore('height', 'girl', 72, 110)).toBeNull();
+    expect(zScore('head', 'boy', Number.NaN, 45)).toBeNull();
   });
 
   it('returns null for a non-positive measured value (invalid input, not a real measurement)', () => {
@@ -87,5 +88,56 @@ describe('whoGrowth.ageInMonths', () => {
   it('returns 0 for the same date', () => {
     const d = '2026-06-15T00:00:00Z';
     expect(ageInMonths(d, d)).toBe(0);
+  });
+});
+
+// WHO Child Growth Standards z-score tables (-2 SD / median / +2 SD), rounded to 0.1 as published.
+describe('whoGrowth 2-5 years and head circumference (WHO reference points)', () => {
+  const sdValue = (measure: 'weight' | 'height' | 'head', sex: 'boy' | 'girl', age: number, z: number) => {
+    let lo = 1, hi = 200;
+    for (let i = 0; i < 60; i++) {
+      const mid = (lo + hi) / 2;
+      if ((zScore(measure, sex, age, mid) as number) < z) lo = mid; else hi = mid;
+    }
+    return Math.round(lo * 10) / 10;
+  };
+  const cases: [('weight' | 'height' | 'head'), ('boy' | 'girl'), number, number, number, number][] = [
+    ['weight', 'boy', 36, 11.3, 14.3, 18.3],
+    ['weight', 'boy', 60, 14.1, 18.3, 24.2],
+    ['weight', 'girl', 60, 13.7, 18.2, 24.9],
+    ['height', 'boy', 24, 81.0, 87.1, 93.2],
+    ['height', 'boy', 60, 100.7, 110.0, 119.2],
+    ['height', 'girl', 60, 99.9, 109.4, 118.9],
+    ['head', 'boy', 0, 31.9, 34.5, 37.0],
+    ['head', 'boy', 12, 43.5, 46.1, 48.6],
+    ['head', 'girl', 24, 44.4, 47.2, 50.0],
+    ['head', 'boy', 60, 47.7, 50.7, 53.7],
+    ['head', 'girl', 60, 47.1, 49.9, 52.8],
+  ];
+  it.each(cases)('%s %s %i months matches WHO -2SD/median/+2SD', (measure, sex, age, minus2, median, plus2) => {
+    expect(Math.round((valueAtPercentile(measure, sex, age, 50) as number) * 10) / 10).toBe(median);
+    expect(sdValue(measure, sex, age, -2)).toBe(minus2);
+    expect(sdValue(measure, sex, age, 2)).toBe(plus2);
+  });
+
+  it('uses recumbent length before 24 months and standing height from 24 months', () => {
+    // WHO: length-for-age median at 24 m boys 87.8 cm, height-for-age median 87.1 cm.
+    expect(Math.round((valueAtPercentile('height', 'boy', 23.999, 50) as number) * 10) / 10).toBe(87.8);
+    expect(valueAtPercentile('height', 'boy', 24, 50)).toBe(87.12);
+  });
+
+  it('keeps the 0-24 month values unchanged', () => {
+    expect(percentile('weight', 'boy', 0, 3.3464)).toBe(50);
+    expect(percentile('height', 'girl', 12, 74.015)).toBe(50);
+    expect(buildCurveData('weight', 'boy')).toHaveLength(25);
+    expect(buildCurveData('head', 'girl', 60)).toHaveLength(61);
+  });
+
+  it('head circumference helpers', () => {
+    expect(headCircumferencePercentile('boy', 0, 34.46)).toBe(50);
+    expect(headCircumferencePercentile('girl', 0, 33.88)).toBe(50);
+    expect(headCircumferenceZScore('boy', 12, 46.07)).toBeCloseTo(0, 2);
+    expect((headCircumferencePercentile('boy', 6, 40) as number) < 3).toBe(true);
+    expect(headCircumferencePercentile('boy', 6, 0)).toBeNull();
   });
 });

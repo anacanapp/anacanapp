@@ -1,13 +1,21 @@
 /**
- * WHO Child Growth Standards (0-24 ay) — LMS metodu.
- * Mənbə: WHO Child Growth Standards, weight-for-age & length/height-for-age.
+ * WHO Child Growth Standards (0-60 ay) — LMS metodu.
+ * Mənbə: WHO Child Growth Standards, weight-for-age, length/height-for-age (0-24 ay uzanmış
+ * boy, 24-60 ay ayaq üstə boy) və head circumference-for-age. 0-24 ay çəki/boy cədvəlləri
+ * aşağıdadır; 2-5 yaş və baş çevrəsi whoGrowthData.ts-dədir.
  *
  * z = ((X/M)^L − 1) / (L·S)   (L≠0)
  * percentil = Φ(z) × 100
  */
 
+import { HCFA_BOYS, HCFA_GIRLS, HFA_BOYS_24_60, HFA_GIRLS_24_60, WFA_BOYS_25_60, WFA_GIRLS_25_60 } from './whoGrowthData';
+
 export type Sex = 'boy' | 'girl';
-export type Measure = 'weight' | 'height';
+/** weight (kq), height (sm: <24 ay uzanmış, ≥24 ay ayaq üstə), head = baş çevrəsi (sm). */
+export type Measure = 'weight' | 'height' | 'head';
+
+/** Bütün ölçülər üçün dəstəklənən son yaş (ay). */
+export const MAX_AGE_MONTHS = 60;
 
 interface LMS {L: number;M: number;S: number;}
 
@@ -57,24 +65,31 @@ const LFA_GIRLS: [number, number][] = [
 [86.4153, 0.03734]];
 
 
-function getLMS(measure: Measure, sex: Sex, ageMonths: number): LMS | null {
-  if (ageMonths < 0 || ageMonths > 24) return null;
-  const lo = Math.floor(ageMonths);
-  const hi = Math.min(24, Math.ceil(ageMonths));
-  const t = ageMonths - lo;
-
-  const pick = (m: number): LMS => {
-    if (measure === 'weight') {
-      const row = (sex === 'boy' ? WFA_BOYS : WFA_GIRLS)[m];
-      return { L: row[0], M: row[1], S: row[2] };
-    }
-    const row = (sex === 'boy' ? LFA_BOYS : LFA_GIRLS)[m];
+function rowLMS(measure: Measure, sex: Sex, m: number, standing: boolean): LMS {
+  const boy = sex === 'boy';
+  if (measure === 'weight') {
+    const row = m <= 24 ? (boy ? WFA_BOYS : WFA_GIRLS)[m] : (boy ? WFA_BOYS_25_60 : WFA_GIRLS_25_60)[m - 25];
+    return { L: row[0], M: row[1], S: row[2] };
+  }
+  if (measure === 'head') {
+    const row = (boy ? HCFA_BOYS : HCFA_GIRLS)[m];
     return { L: 1, M: row[0], S: row[1] };
-  };
+  }
+  // 24 aydan əvvəl uzanmış boy (length), 24 aydan ayaq üstə boy (height) — WHO qaydası.
+  const row = standing ? (boy ? HFA_BOYS_24_60 : HFA_GIRLS_24_60)[m - 24] : (boy ? LFA_BOYS : LFA_GIRLS)[m];
+  return { L: 1, M: row[0], S: row[1] };
+}
 
-  const a = pick(lo);
+function getLMS(measure: Measure, sex: Sex, ageMonths: number): LMS | null {
+  if (!Number.isFinite(ageMonths) || ageMonths < 0 || ageMonths > MAX_AGE_MONTHS) return null;
+  const lo = Math.floor(ageMonths);
+  const hi = Math.min(MAX_AGE_MONTHS, Math.ceil(ageMonths));
+  const t = ageMonths - lo;
+  const standing = measure === 'height' && ageMonths >= 24;
+
+  const a = rowLMS(measure, sex, lo, standing);
   if (lo === hi) return a;
-  const b = pick(hi);
+  const b = rowLMS(measure, sex, hi, standing);
   // Xətti interpolasiya (aylar arası)
   return {
     L: a.L + t * (b.L - a.L),
@@ -99,7 +114,7 @@ export function ageInMonths(birthDate: string | Date, atDate: string | Date): nu
   return (a.getTime() - b.getTime()) / (30.4375 * 24 * 3600 * 1000);
 }
 
-/** Ölçünün z-score-u. null = yaş aralıqdan kənar. */
+/** Ölçünün z-score-u. null = yaş aralıqdan (0-60 ay) kənar. */
 export function zScore(measure: Measure, sex: Sex, ageMonths: number, value: number): number | null {
   const lms = getLMS(measure, sex, ageMonths);
   if (!lms || value <= 0) return null;
@@ -141,10 +156,11 @@ export interface GrowthCurvePoint {
   child?: number | null;
 }
 
-/** 0-24 ay əyri məlumatı (recharts üçün). */
-export function buildCurveData(measure: Measure, sex: Sex): GrowthCurvePoint[] {
+/** Əyri məlumatı (recharts üçün): standart 0-24 ay, maxMonth ilə 60 aya qədər. */
+export function buildCurveData(measure: Measure, sex: Sex, maxMonth = 24): GrowthCurvePoint[] {
   const data: GrowthCurvePoint[] = [];
-  for (let m = 0; m <= 24; m++) {
+  const last = Math.max(0, Math.min(MAX_AGE_MONTHS, Math.floor(maxMonth)));
+  for (let m = 0; m <= last; m++) {
     data.push({
       month: m,
       p3: valueAtPercentile(measure, sex, m, 3),
@@ -156,6 +172,12 @@ export function buildCurveData(measure: Measure, sex: Sex): GrowthCurvePoint[] {
   }
   return data;
 }
+
+/** Baş çevrəsi z-score-u (sm, 0-60 ay). */
+export const headCircumferenceZScore = (sex: Sex, ageMonths: number, cm: number) => zScore('head', sex, ageMonths, cm);
+
+/** Baş çevrəsi percentili (0-100, sm, 0-60 ay). null = hesablanmır. */
+export const headCircumferencePercentile = (sex: Sex, ageMonths: number, cm: number) => percentile('head', sex, ageMonths, cm);
 
 /** Percentil şərhi (UI çipi üçün). */
 export function percentileLabel(p: number): {tone: 'ok' | 'watch' | 'alert';} {

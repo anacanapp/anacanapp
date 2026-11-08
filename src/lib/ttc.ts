@@ -18,6 +18,11 @@ export interface TtcState {
   tests?: { date: string; result: PregnancyTest }[];
   /** Positive test was postponed ("remind me in 2 days") until this date. */
   snooze_until?: string;
+  /**
+   * Mother's birth year (optional, asked in the TTC card). Profiles store no birth date, so this
+   * is the only age source for the "see a doctor after 6 months from age 35" rule.
+   */
+  birth_year?: number;
 }
 
 export type Chance = 'low' | 'medium' | 'high' | 'peak';
@@ -48,6 +53,29 @@ export function monthsTrying(startedOn: string | undefined, now = new Date()): n
 /** See a doctor after 12 months, or 6 months from age 35. */
 export const doctorThreshold = (age: number | null) => (age != null && age >= 35 ? 6 : 12);
 
+export const MIN_BIRTH_YEAR = 1950;
+/** Youngest plausible birth year for someone trying to conceive (age 12). */
+export const maxBirthYear = (now = new Date()) => now.getFullYear() - 12;
+
+/** A valid stored birth year, or null. */
+export function validBirthYear(value: unknown, now = new Date()): number | null {
+  const year = typeof value === 'string' ? Number(value) : value;
+  return typeof year === 'number' && Number.isInteger(year) && year >= MIN_BIRTH_YEAR && year <= maxBirthYear(now) ? year : null;
+}
+
+/**
+ * Age from the birth year only (day and month are not stored). It can be at most one year too
+ * high before the birthday, which errs toward the earlier (6 month) doctor visit.
+ */
+export function ageFromBirthYear(value: unknown, now = new Date()): number | null {
+  const year = validBirthYear(value, now);
+  return year == null ? null : now.getFullYear() - year;
+}
+
+/** Months of trying after which a doctor visit is advised for this user. */
+export const doctorThresholdFor = (state: Pick<TtcState, 'birth_year'> | null | undefined, now = new Date()) =>
+  doctorThreshold(ageFromBirthYear(state?.birth_year, now));
+
 /**
  * A rise of at least 0.2 °C held for 3 days over the previous 6 days' highest value (the classic
  * "three over six" rule). Values are per day, oldest first; nulls are skipped.
@@ -73,6 +101,7 @@ export async function saveFlowGoal(userId: string, goal: FlowGoal, state?: TtcSt
 
 export async function saveTtcState(userId: string, state: TtcState): Promise<void> {
   const bounded: TtcState = { ...state, tests: (state.tests ?? []).slice(-30) };
+  if (state.birth_year != null && validBirthYear(state.birth_year) == null) delete bounded.birth_year;
   const { error } = await db.from('profiles').update({ ttc_state: bounded }).eq('user_id', userId);
   if (error) throw error;
 }
