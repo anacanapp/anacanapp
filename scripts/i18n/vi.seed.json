@@ -12206,5 +12206,9 @@
   "kick_recent_sessions": "Các phiên gần đây",
   "common_sm": "cm",
   "common_bagla": "Đóng",
-  "word_garden_language_pending": "Thư viện từ cho ngôn ngữ này đang được chuẩn bị."
+  "word_garden_language_pending": "Thư viện từ cho ngôn ngữ này đang được chuẩn bị.",
+  "firstaid_unavailable_title": "Không thể mở hướng dẫn",
+  "firstaid_unavailable_body": "Hãy kiểm tra kết nối internet và thử lại. Trong trường hợp khẩn cấp, đừng chờ đợi, hãy gọi ngay.",
+  "firstaid_retry": "Thử lại",
+  "firstaid_album_replace_failed": "Không thể thay ảnh. Ảnh trước đó vẫn được giữ lại."
 }

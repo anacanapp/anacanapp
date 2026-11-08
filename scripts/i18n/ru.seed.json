@@ -10059,5 +10059,9 @@
   "ads_metric_impression": "Показ",
   "ads_metric_skipped": "Пропущено",
   "ads_metric_reward": "Награда",
-  "ads_metric_failed": "Ошибка"
+  "ads_metric_failed": "Ошибка",
+  "firstaid_unavailable_title": "Не удалось открыть инструкции",
+  "firstaid_unavailable_body": "Проверьте подключение к интернету и попробуйте ещё раз. В экстренной ситуации не ждите, звоните сразу.",
+  "firstaid_retry": "Повторить",
+  "firstaid_album_replace_failed": "Не удалось заменить фото. Прежнее фото сохранено."
 }

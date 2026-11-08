@@ -10059,5 +10059,9 @@
   "ads_metric_impression": "ظهور",
   "ads_metric_skipped": "تم التخطي",
   "ads_metric_reward": "مكافأة",
-  "ads_metric_failed": "خطأ"
+  "ads_metric_failed": "خطأ",
+  "firstaid_unavailable_title": "تعذّر فتح التعليمات",
+  "firstaid_unavailable_body": "تحقّقي من اتصال الإنترنت وحاولي مرة أخرى. في حالة الطوارئ لا تنتظري، اتصلي فورًا.",
+  "firstaid_retry": "إعادة المحاولة",
+  "firstaid_album_replace_failed": "لم يتم استبدال الصورة. تم الاحتفاظ بصورتك السابقة."
 }

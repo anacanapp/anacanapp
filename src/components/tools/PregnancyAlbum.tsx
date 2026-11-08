@@ -18,6 +18,7 @@ import { getCurrentDateLocale } from '@/lib/date-utils';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 import { tr } from "@/lib/tr";
 import { compressImageForUpload } from '@/lib/image-compress';
+import { replaceRecordPhoto, storagePathFromUrl, type AlbumDbClient } from '@/lib/album-photo-replace';
 
 interface PregnancyAlbumProps {
   onBack: () => void;
@@ -29,6 +30,8 @@ interface AlbumPhoto {
   week_number: number;
   month_number: number;
   photo_url: string;
+  /** Object path in the pregnancy-album bucket (photo_url is replaced by a signed URL). */
+  storage_path: string;
   caption: string | null;
   photo_date: string;
   created_at: string;
@@ -93,23 +96,21 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
       order('month_number', { ascending: true });
       if (error) throw error;
       
-      const paths = data.map(p => {
-        const urlParts = p.photo_url.split('/pregnancy-album/');
-        return urlParts.length > 1 ? decodeURIComponent(urlParts[1]) : p.photo_url;
-      });
-      
+      const paths = data.map((p) => storagePathFromUrl(p.photo_url, 'pregnancy-album'));
+      const photos = data.map((p, i) => ({ ...p, storage_path: paths[i] })) as AlbumPhoto[];
+
       if (paths.length > 0) {
         const { data: signedUrls } = await supabase.storage.from('pregnancy-album').createSignedUrls(paths, 3600);
         if (signedUrls) {
-          data.forEach((p, i) => {
+          photos.forEach((p, i) => {
             if (signedUrls[i]?.signedUrl) {
               p.photo_url = signedUrls[i].signedUrl;
             }
           });
         }
       }
-      
-      return data as AlbumPhoto[];
+
+      return photos;
     },
     enabled: !!user?.id
   });
@@ -120,28 +121,34 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
 
       const monthToUpload = selectedMonth || currentMonth;
 
-      // If replacing, delete old photo first
-      if (replacePhoto) {
-        const oldPath = replacePhoto.photo_url.split('/pregnancy-album/')[1];
-        if (oldPath) {
-          await supabase.storage.from('pregnancy-album').remove([decodeURIComponent(oldPath)]);
-        }
-        await supabase.from('pregnancy_album_photos').delete().eq('id', replacePhoto.id);
-      }
-
       const upload = await compressImageForUpload(file);
       const fileExt = upload.name.split('.').pop();
       const fileName = `${user.id}/${monthToUpload}-${Date.now()}.${fileExt}`;
+
+      const { data: { publicUrl } } = supabase.storage.
+      from('pregnancy-album').
+      getPublicUrl(fileName);
+
+      // Replace safely: upload new -> point the row at it -> delete old object.
+      // On failure the original photo stays.
+      if (replacePhoto) {
+        await replaceRecordPhoto(supabase as unknown as AlbumDbClient, {
+          bucket: 'pregnancy-album',
+          table: 'pregnancy_album_photos',
+          recordId: replacePhoto.id,
+          oldPath: replacePhoto.storage_path || null,
+          newPath: fileName,
+          newUrl: publicUrl,
+          file: upload
+        });
+        return;
+      }
 
       const { error: uploadError } = await supabase.storage.
       from('pregnancy-album').
       upload(fileName, upload);
 
       if (uploadError) throw uploadError;
-
-      const { data: { publicUrl } } = supabase.storage.
-      from('pregnancy-album').
-      getPublicUrl(fileName);
 
       const weekForMonth = monthLabels.find((m) => m.month === monthToUpload);
       const weekNumber = parseInt(weekForMonth?.weeks.split('-')[0] || '1');
@@ -166,10 +173,16 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
       setViewingPhoto(null);
       toast({ title: tr("pregnancyalbum_sekil_elave_edildi_a2085a", 'Şəkil əlavə edildi'), description: tr("pregnancyalbum_hamilelik_albomuna_sekil_elave_edildi_bf00fa", 'Hamiləlik albomuna şəkil əlavə edildi') });
     },
-    onError: (error) => {
+    onError: (error, variables) => {
       console.error('Upload error:', error);
       setReplacingPhotoId(null);
-      toast({ title: tr("pregnancyalbum_xeta_3cdbb6", 'Xəta'), description: tr("pregnancyalbum_sekil_yuklene_bilmedi_3c275f", 'Şəkil yüklənə bilmədi'), variant: 'destructive' });
+      toast({
+        title: tr("pregnancyalbum_xeta_3cdbb6", 'Xəta'),
+        description: variables.replacePhoto ?
+        tr('firstaid_album_replace_failed', 'Şəkil dəyişdirilmədi. Əvvəlki şəkil saxlanıldı.') :
+        tr("pregnancyalbum_sekil_yuklene_bilmedi_3c275f", 'Şəkil yüklənə bilmədi'),
+        variant: 'destructive'
+      });
     },
     onSettled: () => {
       setUploading(false);
@@ -178,9 +191,8 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
 
   const deletePhotoMutation = useMutation({
     mutationFn: async (photo: AlbumPhoto) => {
-      const path = photo.photo_url.split('/pregnancy-album/')[1];
-      if (path) {
-        await supabase.storage.from('pregnancy-album').remove([decodeURIComponent(path)]);
+      if (photo.storage_path) {
+        await supabase.storage.from('pregnancy-album').remove([photo.storage_path]);
       }
       const { error } = await supabase.
       from('pregnancy_album_photos').

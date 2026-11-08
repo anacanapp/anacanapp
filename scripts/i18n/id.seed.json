@@ -12206,5 +12206,9 @@
   "kick_recent_sessions": "Sesi terakhir",
   "common_sm": "cm",
   "common_bagla": "Tutup",
-  "word_garden_language_pending": "Pustaka kata untuk bahasa ini sedang disiapkan."
+  "word_garden_language_pending": "Pustaka kata untuk bahasa ini sedang disiapkan.",
+  "firstaid_unavailable_title": "Petunjuk tidak dapat dibuka",
+  "firstaid_unavailable_body": "Periksa koneksi internet lalu coba lagi. Dalam keadaan darurat, jangan menunggu, segera telepon.",
+  "firstaid_retry": "Coba lagi",
+  "firstaid_album_replace_failed": "Foto tidak berhasil diganti. Foto sebelumnya tetap disimpan."
 }

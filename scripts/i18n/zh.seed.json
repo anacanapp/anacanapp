@@ -12206,5 +12206,9 @@
   "kick_recent_sessions": "最近记录",
   "common_sm": "厘米",
   "common_bagla": "关闭",
-  "word_garden_language_pending": "该语言的词库正在准备中。"
+  "word_garden_language_pending": "该语言的词库正在准备中。",
+  "firstaid_unavailable_title": "无法打开急救指引",
+  "firstaid_unavailable_body": "请检查网络连接后重试。遇到紧急情况请不要等待，立即拨打急救电话。",
+  "firstaid_retry": "重试",
+  "firstaid_album_replace_failed": "照片未能替换，原照片已保留。"
 }

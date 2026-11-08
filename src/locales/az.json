@@ -8556,5 +8556,9 @@
   "ads_metric_impression": "Göstərilmə",
   "ads_metric_skipped": "Buraxıldı",
   "ads_metric_reward": "Mükafat",
-  "ads_metric_failed": "Xəta"
+  "ads_metric_failed": "Xəta",
+  "firstaid_unavailable_title": "Təlimatları açmaq mümkün olmadı",
+  "firstaid_unavailable_body": "İnternet bağlantısını yoxlayıb yenidən cəhd edin. Təcili vəziyyətdə gözləməyin, dərhal zəng edin.",
+  "firstaid_retry": "Yenidən cəhd et",
+  "firstaid_album_replace_failed": "Şəkil dəyişdirilmədi. Əvvəlki şəkil saxlanıldı."
 }

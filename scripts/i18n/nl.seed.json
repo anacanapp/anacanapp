@@ -12206,5 +12206,9 @@
   "kick_recent_sessions": "Recente sessies",
   "common_sm": "cm",
   "common_bagla": "Sluiten",
-  "word_garden_language_pending": "De woordenbibliotheek voor deze taal wordt voorbereid."
+  "word_garden_language_pending": "De woordenbibliotheek voor deze taal wordt voorbereid.",
+  "firstaid_unavailable_title": "De instructies konden niet worden geopend",
+  "firstaid_unavailable_body": "Controleer je internetverbinding en probeer het opnieuw. Wacht in een noodgeval niet, bel meteen.",
+  "firstaid_retry": "Opnieuw proberen",
+  "firstaid_album_replace_failed": "De foto is niet vervangen. Je vorige foto blijft bewaard."
 }

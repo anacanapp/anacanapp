@@ -12206,5 +12206,9 @@
   "kick_recent_sessions": "최근 세션",
   "common_sm": "cm",
   "common_bagla": "닫기",
-  "word_garden_language_pending": "이 언어의 단어 라이브러리를 준비하고 있습니다."
+  "word_garden_language_pending": "이 언어의 단어 라이브러리를 준비하고 있습니다.",
+  "firstaid_unavailable_title": "안내를 열 수 없습니다",
+  "firstaid_unavailable_body": "인터넷 연결을 확인하고 다시 시도해 주세요. 응급 상황이라면 기다리지 말고 바로 전화하세요.",
+  "firstaid_retry": "다시 시도",
+  "firstaid_album_replace_failed": "사진을 교체하지 못했습니다. 이전 사진은 그대로 유지됩니다."
 }

@@ -10048,5 +10048,9 @@
   "ads_metric_impression": "Impression",
   "ads_metric_skipped": "Skipped",
   "ads_metric_reward": "Reward",
-  "ads_metric_failed": "Error"
+  "ads_metric_failed": "Error",
+  "firstaid_unavailable_title": "Could not open the instructions",
+  "firstaid_unavailable_body": "Check your internet connection and try again. In an emergency, do not wait: call right away.",
+  "firstaid_retry": "Try again",
+  "firstaid_album_replace_failed": "The photo was not replaced. Your previous photo is kept."
 }

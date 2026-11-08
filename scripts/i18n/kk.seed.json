@@ -10059,5 +10059,9 @@
   "ads_metric_impression": "Көрсетілім",
   "ads_metric_skipped": "Өткізілді",
   "ads_metric_reward": "Сыйақы",
-  "ads_metric_failed": "Қате"
+  "ads_metric_failed": "Қате",
+  "firstaid_unavailable_title": "Нұсқаулықтарды ашу мүмкін болмады",
+  "firstaid_unavailable_body": "Интернет байланысын тексеріп, қайталап көріңіз. Шұғыл жағдайда күтпеңіз, бірден қоңырау шалыңыз.",
+  "firstaid_retry": "Қайталау",
+  "firstaid_album_replace_failed": "Сурет ауыстырылмады. Алдыңғы сурет сақталды."
 }

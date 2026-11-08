@@ -12206,5 +12206,9 @@
   "kick_recent_sessions": "हाल के सत्र",
   "common_sm": "सेमी",
   "common_bagla": "बंद करें",
-  "word_garden_language_pending": "इस भाषा के लिए शब्द लाइब्रेरी तैयार की जा रही है।"
+  "word_garden_language_pending": "इस भाषा के लिए शब्द लाइब्रेरी तैयार की जा रही है।",
+  "firstaid_unavailable_title": "निर्देश नहीं खुल सके",
+  "firstaid_unavailable_body": "इंटरनेट कनेक्शन जाँचें और फिर से कोशिश करें। आपात स्थिति में इंतज़ार न करें, तुरंत कॉल करें।",
+  "firstaid_retry": "फिर से कोशिश करें",
+  "firstaid_album_replace_failed": "फ़ोटो नहीं बदली जा सकी। आपकी पिछली फ़ोटो सुरक्षित है।"
 }

@@ -10059,5 +10059,9 @@
   "ads_metric_impression": "ჩვენება",
   "ads_metric_skipped": "გამოტოვებულია",
   "ads_metric_reward": "ჯილდო",
-  "ads_metric_failed": "შეცდომა"
+  "ads_metric_failed": "შეცდომა",
+  "firstaid_unavailable_title": "ინსტრუქციების გახსნა ვერ მოხერხდა",
+  "firstaid_unavailable_body": "შეამოწმეთ ინტერნეტკავშირი და სცადეთ ხელახლა. გადაუდებელ შემთხვევაში ნუ დაელოდებით, დაურეკეთ დაუყოვნებლივ.",
+  "firstaid_retry": "ხელახლა ცდა",
+  "firstaid_album_replace_failed": "ფოტო ვერ შეიცვალა. წინა ფოტო შენახულია."
 }

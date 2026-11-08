@@ -3,8 +3,8 @@ import { tr } from '@/lib/tr';
 import { fillEmergencyNumber } from '@/lib/emergency';
 import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertTriangle, ChevronRight, ChevronLeft, Phone } from 'lucide-react';
-import { useFirstAidScenarios, useFirstAidSteps, FirstAidScenario } from '@/hooks/useFirstAid';
+import { AlertTriangle, ChevronRight, ChevronLeft, Phone, RefreshCw, WifiOff } from 'lucide-react';
+import { useFirstAidContent, FirstAidScenario, FirstAidStep } from '@/hooks/useFirstAid';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
@@ -24,8 +24,10 @@ const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
   const [selectedScenario, setSelectedScenario] = useState<FirstAidScenario | null>(null);
   const [currentStep, setCurrentStep] = useState(0);
 
-  const { data: scenarios = [], isLoading } = useFirstAidScenarios();
-  const { data: steps = [] } = useFirstAidSteps(selectedScenario?.id || '');
+  // All scenarios + steps come together (cache first) so every scenario works offline.
+  const { data: bundle, isLoading, isFetching, refetch } = useFirstAidContent();
+  const scenarios = bundle?.scenarios ?? [];
+  const steps: FirstAidStep[] = selectedScenario ? bundle?.stepsByScenario[selectedScenario.id] ?? [] : [];
 
   // TTS disabled - no auto-speaking
 
@@ -67,7 +69,7 @@ const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
       <ToolHeader
         onBack={handleBack}
         eyebrow={selectedScenario ? <>{tr("firstaidguide_addim_9346cd", "Add\u0131m")} {currentStep + 1} / {steps.length}</> : tr("firstaidguide_tecili_tibbi_yardim_b28b39", "Təcili Tibbi Yardım")}
-        title={selectedScenario ? selectedScenario.title_az : tr("firstaidguide_heyat_qurtaran_sos_2f76df", "H\u0259yat Qurtaran SOS")} />
+        title={selectedScenario ? selectedScenario.title : tr("firstaidguide_heyat_qurtaran_sos_2f76df", "H\u0259yat Qurtaran SOS")} />
 
       <AnimatePresence mode="wait">
         {!selectedScenario ?
@@ -120,6 +122,8 @@ const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
                   </div>
             )}
               </div> :
+          scenarios.length === 0 ?
+          <FirstAidUnavailable emergency={emergency} retrying={isFetching} onRetry={() => { void refetch(); }} /> :
 
           <div className="a-list-card pb-4">
                 {scenarios.map((scenario, index) => {
@@ -138,8 +142,8 @@ const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
                           {scenario.icon}
                         </span>
                         <div className="flex-1 min-w-0">
-                          <p className="a-list-title">{scenario.title_az}</p>
-                          <p className="a-list-sub" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{scenario.description_az}</p>
+                          <p className="a-list-title">{scenario.title}</p>
+                          <p className="a-list-sub" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{scenario.description}</p>
                         </div>
                         <span className="a-list-trail" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                           <span className="a-rank-tag" style={{ margin: 0, background: style.grad, color: style.ink }}>
@@ -171,6 +175,10 @@ const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
 
             )}
             </div>
+
+            {steps.length === 0 &&
+          <FirstAidUnavailable emergency={emergency} retrying={isFetching} onRetry={() => { void refetch(); }} />
+          }
 
             {/* Step Content */}
             <div className="flex flex-col items-center text-center">
@@ -206,9 +214,9 @@ const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
                     </div>
 
                     <div className="a-card text-start">
-                      <h2 className="a-card-title a-heading" style={{ marginBottom: 6 }}>{currentStepData.title_az}</h2>
+                      <h2 className="a-card-title a-heading" style={{ marginBottom: 6 }}>{currentStepData.title}</h2>
                       <p className="a-cta-text">
-                        {currentStepData.instruction_az}
+                        {currentStepData.instruction}
                       </p>
                     </div>
 
@@ -256,5 +264,43 @@ const FirstAidGuide = ({ onBack }: FirstAidGuideProps) => {
     </ToolPage>);
 
 };
+
+interface FirstAidUnavailableProps {
+  emergency: string;
+  retrying: boolean;
+  onRetry: () => void;
+}
+
+/** Shown when no first-aid content is available (offline before first load, or a failed load). Never a blank screen. */
+export const FirstAidUnavailable = ({ emergency, retrying, onRetry }: FirstAidUnavailableProps) =>
+<div className="a-card text-center" role="alert" style={{ padding: '18px 16px' }}>
+    <span className="a-list-icon" style={{ margin: '0 auto 8px', background: 'var(--a-grad-yellow)', color: 'var(--a-warn-ink)' }}>
+      <WifiOff size={17} strokeWidth={2.2} />
+    </span>
+    <h2 className="a-card-title a-heading" style={{ margin: '0 0 4px' }}>
+      {tr('firstaid_unavailable_title', 'Təlimatları açmaq mümkün olmadı')}
+    </h2>
+    <p className="a-list-sub" style={{ margin: '0 0 12px', whiteSpace: 'normal' }}>
+      {tr('firstaid_unavailable_body', 'İnternet bağlantısını yoxlayıb yenidən cəhd edin. Təcili vəziyyətdə gözləməyin, dərhal zəng edin.')}
+    </p>
+    <div className="flex flex-col gap-2">
+      <a
+      href={`tel:${emergency}`}
+      className="a-cta-btn w-full"
+      style={{ justifyContent: 'center', height: 44, background: 'var(--a-pink-2)', textDecoration: 'none' }}>
+        <Phone size={15} strokeWidth={2.2} />
+        {fillEmergencyNumber(tr("firstaidguide_103_zeng_et_52da85", "{emergency} Z\u0259ng Et"), emergency)}
+      </a>
+      <button
+      type="button"
+      className="a-btn-soft w-full"
+      style={{ justifyContent: 'center', height: 40, opacity: retrying ? 0.6 : 1 }}
+      disabled={retrying}
+      onClick={onRetry}>
+        <RefreshCw size={14} strokeWidth={2.2} className={retrying ? 'animate-spin' : undefined} />
+        {tr('firstaid_retry', 'Yenidən cəhd et')}
+      </button>
+    </div>
+  </div>;
 
 export default FirstAidGuide;

@@ -14,6 +14,7 @@ import { tr } from "@/lib/tr";
 import { getOrdinal } from "@/lib/utils";
 import { useUserStore } from "@/store/userStore";
 import { compressImageForUpload } from '@/lib/image-compress';
+import { replaceStoragePhoto, type AlbumStorageClient } from '@/lib/album-photo-replace';
 
 interface BabyMonthlyAlbumProps {
   onBack: () => void;
@@ -82,23 +83,38 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file || !user || !uploadMonth) return;
+    e.target.value = '';
+    const replacing = replacingPhoto;
     setUploading(true);
     try {
-      // If replacing, delete old photo first
-      if (replacingPhoto) {
-        await supabase.storage.from('baby-album').remove([`${user.id}/${replacingPhoto.name}`]);
-        setReplacingPhoto(null);
-      }
       const upload = await compressImageForUpload(file);
       const ext = upload.name.split('.').pop();
       const path = `${user.id}/month-${uploadMonth}-${Date.now()}.${ext}`;
-      const { error } = await supabase.storage.from('baby-album').upload(path, upload);
-      if (error) throw error;
+      if (replacing) {
+        // Upload new first, delete old only after success: a failed upload keeps the original.
+        await replaceStoragePhoto(supabase as unknown as AlbumStorageClient, {
+          bucket: 'baby-album',
+          oldPath: `${user.id}/${replacing.name}`,
+          newPath: path,
+          file: upload
+        });
+      } else {
+        const { error } = await supabase.storage.from('baby-album').upload(path, upload);
+        if (error) throw error;
+      }
       toast({ title: tr("babymonthlyalbum_sekil_yuklendi_0c2f85", 'Şəkil yükləndi!') });
       queryClient.invalidateQueries({ queryKey: ['baby-album-photos'] });
     } catch (err) {
-      toast({ title: tr("babymonthlyalbum_xeta_3cdbb6", 'Xəta'), description: tr("babymonthlyalbum_sekil_yuklene_bilmedi_3c275f", 'Şəkil yüklənə bilmədi'), variant: 'destructive' });
+      console.error('Upload error:', err);
+      toast({
+        title: tr("babymonthlyalbum_xeta_3cdbb6", 'Xəta'),
+        description: replacing ?
+        tr('firstaid_album_replace_failed', 'Şəkil dəyişdirilmədi. Əvvəlki şəkil saxlanıldı.') :
+        tr("babymonthlyalbum_sekil_yuklene_bilmedi_3c275f", 'Şəkil yüklənə bilmədi'),
+        variant: 'destructive'
+      });
     } finally {
+      setReplacingPhoto(null);
       setUploading(false);
       setUploadMonth(null);
       setViewingPhoto(null);
@@ -137,7 +153,8 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
 
       <div className="grid grid-cols-3 gap-3">
         {monthLabels.map(({ month, label, emoji }) => {
-          const photo = photos.find((p) => p.month === month);
+          // Newest upload wins if an old object was left behind by a failed delete.
+          const photo = photos.filter((p) => p.month === month).pop();
           return (
             <motion.button
               key={month}

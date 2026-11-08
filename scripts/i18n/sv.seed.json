@@ -12206,5 +12206,9 @@
   "kick_recent_sessions": "Senaste sessioner",
   "common_sm": "cm",
   "common_bagla": "Stäng",
-  "word_garden_language_pending": "Ordbiblioteket för det här språket håller på att förberedas."
+  "word_garden_language_pending": "Ordbiblioteket för det här språket håller på att förberedas.",
+  "firstaid_unavailable_title": "Det gick inte att öppna instruktionerna",
+  "firstaid_unavailable_body": "Kontrollera internetanslutningen och försök igen. Vänta inte i en nödsituation, ring direkt.",
+  "firstaid_retry": "Försök igen",
+  "firstaid_album_replace_failed": "Fotot kunde inte bytas. Ditt tidigare foto finns kvar."
 }

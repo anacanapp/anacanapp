@@ -10059,5 +10059,9 @@
   "ads_metric_impression": "Koʻrsatish",
   "ads_metric_skipped": "Oʻtkazib yuborildi",
   "ads_metric_reward": "Mukofot",
-  "ads_metric_failed": "Xato"
+  "ads_metric_failed": "Xato",
+  "firstaid_unavailable_title": "Ko'rsatmalarni ochib bo'lmadi",
+  "firstaid_unavailable_body": "Internet aloqasini tekshirib, qayta urinib ko'ring. Favqulodda holatda kutmang, darhol qo'ng'iroq qiling.",
+  "firstaid_retry": "Qayta urinish",
+  "firstaid_album_replace_failed": "Rasm almashtirilmadi. Avvalgi rasm saqlab qolindi."
 }

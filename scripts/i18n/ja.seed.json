@@ -12206,5 +12206,9 @@
   "kick_recent_sessions": "最近のセッション",
   "common_sm": "cm",
   "common_bagla": "閉じる",
-  "word_garden_language_pending": "この言語の単語ライブラリは準備中です。"
+  "word_garden_language_pending": "この言語の単語ライブラリは準備中です。",
+  "firstaid_unavailable_title": "手順を開けませんでした",
+  "firstaid_unavailable_body": "インターネット接続を確認して、もう一度お試しください。緊急時は待たずに、すぐに電話してください。",
+  "firstaid_retry": "再試行",
+  "firstaid_album_replace_failed": "写真を差し替えられませんでした。以前の写真はそのまま残っています。"
 }

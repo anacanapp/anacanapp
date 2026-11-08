@@ -10059,5 +10059,9 @@
   "ads_metric_impression": "Impression",
   "ads_metric_skipped": "Übersprungen",
   "ads_metric_reward": "Belohnung",
-  "ads_metric_failed": "Fehler"
+  "ads_metric_failed": "Fehler",
+  "firstaid_unavailable_title": "Die Anleitungen konnten nicht geöffnet werden",
+  "firstaid_unavailable_body": "Prüfe deine Internetverbindung und versuche es erneut. Im Notfall nicht warten, sofort anrufen.",
+  "firstaid_retry": "Erneut versuchen",
+  "firstaid_album_replace_failed": "Das Foto wurde nicht ersetzt. Dein bisheriges Foto bleibt erhalten."
 }

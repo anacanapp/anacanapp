@@ -12284,5 +12284,9 @@
   "toolshub_not_for_stage": "Бул курал азыркы этабыңыз үчүн арналган эмес",
   "toolshub_cakes_name": "Торттор",
   "mental_question_progress": "Суроо {n} / {total}",
-  "kick_recent_sessions": "Акыркы сеанстар"
+  "kick_recent_sessions": "Акыркы сеанстар",
+  "firstaid_unavailable_title": "Нускамаларды ачуу мүмкүн болгон жок",
+  "firstaid_unavailable_body": "Интернет байланышын текшерип, кайра аракет кылыңыз. Шашылыш учурда күтпөңүз, дароо чалыңыз.",
+  "firstaid_retry": "Кайра аракет кылуу",
+  "firstaid_album_replace_failed": "Сүрөт алмаштырылган жок. Мурунку сүрөт сакталды."
 }

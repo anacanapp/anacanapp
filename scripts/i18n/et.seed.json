@@ -12284,5 +12284,9 @@
   "toolshub_not_for_stage": "See tööriist pole mõeldud sinu praeguse etapi jaoks",
   "toolshub_cakes_name": "Koogid",
   "mental_question_progress": "Küsimus {n} / {total}",
-  "kick_recent_sessions": "Viimased seansid"
+  "kick_recent_sessions": "Viimased seansid",
+  "firstaid_unavailable_title": "Juhiseid ei saanud avada",
+  "firstaid_unavailable_body": "Kontrolli internetiühendust ja proovi uuesti. Hädaolukorras ära oota, helista kohe.",
+  "firstaid_retry": "Proovi uuesti",
+  "firstaid_album_replace_failed": "Fotot ei õnnestunud vahetada. Eelmine foto on alles."
 }

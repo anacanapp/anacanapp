@@ -10059,5 +10059,9 @@
   "ads_metric_impression": "Gösterim",
   "ads_metric_skipped": "Atlandı",
   "ads_metric_reward": "Ödül",
-  "ads_metric_failed": "Hata"
+  "ads_metric_failed": "Hata",
+  "firstaid_unavailable_title": "Talimatlar açılamadı",
+  "firstaid_unavailable_body": "İnternet bağlantınızı kontrol edip tekrar deneyin. Acil bir durumda beklemeyin, hemen arayın.",
+  "firstaid_retry": "Tekrar dene",
+  "firstaid_album_replace_failed": "Fotoğraf değiştirilemedi. Önceki fotoğrafınız korundu."
 }

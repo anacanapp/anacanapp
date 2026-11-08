@@ -12206,5 +12206,9 @@
   "kick_recent_sessions": "Ostatnie sesje",
   "common_sm": "cm",
   "common_bagla": "Zamknij",
-  "word_garden_language_pending": "Biblioteka słów dla tego języka jest w przygotowaniu."
+  "word_garden_language_pending": "Biblioteka słów dla tego języka jest w przygotowaniu.",
+  "firstaid_unavailable_title": "Nie udało się otworzyć instrukcji",
+  "firstaid_unavailable_body": "Sprawdź połączenie z internetem i spróbuj ponownie. W nagłym przypadku nie czekaj, zadzwoń od razu.",
+  "firstaid_retry": "Spróbuj ponownie",
+  "firstaid_album_replace_failed": "Nie udało się zamienić zdjęcia. Poprzednie zdjęcie zostało zachowane."
 }

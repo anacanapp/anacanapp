@@ -12206,5 +12206,9 @@
   "kick_recent_sessions": "Sesiones recientes",
   "common_sm": "cm",
   "common_bagla": "Cerrar",
-  "word_garden_language_pending": "Estamos preparando la biblioteca de palabras para este idioma."
+  "word_garden_language_pending": "Estamos preparando la biblioteca de palabras para este idioma.",
+  "firstaid_unavailable_title": "No se pudieron abrir las instrucciones",
+  "firstaid_unavailable_body": "Revisa tu conexión a internet e inténtalo de nuevo. En una emergencia, no esperes: llama de inmediato.",
+  "firstaid_retry": "Reintentar",
+  "firstaid_album_replace_failed": "No se pudo reemplazar la foto. Se conserva tu foto anterior."
 }
