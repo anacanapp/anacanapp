@@ -89,6 +89,8 @@ async function sendPush(admin: Admin, fcm: { accessToken: string; projectId: str
     const r = await sendFCMv1(fcm.accessToken, fcm.projectId, t.token, copy.pushTitle, copy.pushBody,
       { type: 'web_checkout', deeplink: nudgeLink('push') });
     if (r.success) sent += 1;
+    // Log only the provider code (never the token) so a failed reminder push can be diagnosed.
+    else console.error('[web-premium-nudge] push failed:', r.errorCode ?? r.httpStatus ?? 'unknown');
     if (r.unregistered) await admin.from('device_tokens').delete().eq('token', t.token);
   }
   return sent;
