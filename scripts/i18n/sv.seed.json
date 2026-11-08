@@ -12339,5 +12339,8 @@
   "sleepvax_vax_reminders_title": "Vaccinationspåminnelser",
   "sleepvax_vax_reminders_sub": "3 dagar före varje dos och samma dag, kl. 10:00",
   "sleepvax_vax_reminders_denied": "Aviseringar är avstängda i telefonens inställningar.",
-  "growthtz_who_head": "Huvudomfång (cm)"
+  "growthtz_who_head": "Huvudomfång (cm)",
+  "partnerv2_sleep_plan_title": "Sömnträningsplan",
+  "partnerv2_sleep_plan_day": "Dag {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Väckningstid: {time}"
 }

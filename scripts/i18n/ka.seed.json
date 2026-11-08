@@ -10192,5 +10192,8 @@
   "sleepvax_vax_reminders_title": "ვაქცინაციის შეხსენებები",
   "sleepvax_vax_reminders_sub": "ყოველი დოზიდან 3 დღით ადრე და იმავე დღეს, 10:00-ზე",
   "sleepvax_vax_reminders_denied": "შეტყობინებები გამორთულია ტელეფონის პარამეტრებში.",
-  "growthtz_who_head": "თავის გარშემოწერილობა (sm)"
+  "growthtz_who_head": "თავის გარშემოწერილობა (sm)",
+  "partnerv2_sleep_plan_title": "ძილის სწავლების გეგმა",
+  "partnerv2_sleep_plan_day": "დღე {n}/{total}",
+  "partnerv2_sleep_plan_wake": "გაღვიძების დრო: {time}"
 }

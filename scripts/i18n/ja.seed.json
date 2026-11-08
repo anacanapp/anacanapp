@@ -12339,5 +12339,8 @@
   "sleepvax_vax_reminders_title": "予防接種のリマインダー",
   "sleepvax_vax_reminders_sub": "各回の3日前と当日の10:00",
   "sleepvax_vax_reminders_denied": "スマートフォンの設定で通知がオフになっています。",
-  "growthtz_who_head": "頭囲（cm）"
+  "growthtz_who_head": "頭囲（cm）",
+  "partnerv2_sleep_plan_title": "ねんねトレーニング計画",
+  "partnerv2_sleep_plan_day": "{n}/{total}日目",
+  "partnerv2_sleep_plan_wake": "起床時間：{time}"
 }

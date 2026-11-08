@@ -10192,5 +10192,8 @@
   "sleepvax_vax_reminders_title": "Aşı hatırlatıcıları",
   "sleepvax_vax_reminders_sub": "Her dozdan 3 gün önce ve dozun günü, saat 10:00'da",
   "sleepvax_vax_reminders_denied": "Bildirimler telefonunuzun ayarlarında kapalı.",
-  "growthtz_who_head": "Baş çevresi (cm)"
+  "growthtz_who_head": "Baş çevresi (cm)",
+  "partnerv2_sleep_plan_title": "Uyku eğitimi planı",
+  "partnerv2_sleep_plan_day": "Gün {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Uyanma saati: {time}"
 }

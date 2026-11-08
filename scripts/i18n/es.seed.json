@@ -12339,5 +12339,8 @@
   "sleepvax_vax_reminders_title": "Recordatorios de vacunas",
   "sleepvax_vax_reminders_sub": "3 días antes de cada dosis y el mismo día, a las 10:00",
   "sleepvax_vax_reminders_denied": "Las notificaciones están desactivadas en los ajustes del teléfono.",
-  "growthtz_who_head": "Perímetro cefálico (cm)"
+  "growthtz_who_head": "Perímetro cefálico (cm)",
+  "partnerv2_sleep_plan_title": "Plan de entrenamiento del sueño",
+  "partnerv2_sleep_plan_day": "Día {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Hora de despertar: {time}"
 }

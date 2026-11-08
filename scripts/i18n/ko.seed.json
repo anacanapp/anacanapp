@@ -12339,5 +12339,8 @@
   "sleepvax_vax_reminders_title": "예방접종 알림",
   "sleepvax_vax_reminders_sub": "각 접종 3일 전과 당일 오전 10:00",
   "sleepvax_vax_reminders_denied": "휴대폰 설정에서 알림이 꺼져 있어요.",
-  "growthtz_who_head": "머리둘레 (cm)"
+  "growthtz_who_head": "머리둘레 (cm)",
+  "partnerv2_sleep_plan_title": "수면 교육 계획",
+  "partnerv2_sleep_plan_day": "{n}/{total}일차",
+  "partnerv2_sleep_plan_wake": "기상 시간: {time}"
 }

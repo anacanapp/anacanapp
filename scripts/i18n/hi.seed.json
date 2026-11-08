@@ -12339,5 +12339,8 @@
   "sleepvax_vax_reminders_title": "टीके के रिमाइंडर",
   "sleepvax_vax_reminders_sub": "हर खुराक से 3 दिन पहले और उसी दिन, सुबह 10:00 बजे",
   "sleepvax_vax_reminders_denied": "फ़ोन की सेटिंग में सूचनाएँ बंद हैं।",
-  "growthtz_who_head": "सिर की परिधि (cm)"
+  "growthtz_who_head": "सिर की परिधि (cm)",
+  "partnerv2_sleep_plan_title": "स्लीप ट्रेनिंग योजना",
+  "partnerv2_sleep_plan_day": "दिन {n}/{total}",
+  "partnerv2_sleep_plan_wake": "जागने का समय: {time}"
 }

@@ -12339,5 +12339,8 @@
   "sleepvax_vax_reminders_title": "Rappels de vaccins",
   "sleepvax_vax_reminders_sub": "3 jours avant chaque dose et le jour même, à 10 h",
   "sleepvax_vax_reminders_denied": "Les notifications sont désactivées dans les réglages du téléphone.",
-  "growthtz_who_head": "Périmètre crânien (cm)"
+  "growthtz_who_head": "Périmètre crânien (cm)",
+  "partnerv2_sleep_plan_title": "Plan d’apprentissage du sommeil",
+  "partnerv2_sleep_plan_day": "Jour {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Heure du réveil : {time}"
 }

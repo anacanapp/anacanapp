@@ -12339,5 +12339,8 @@
   "sleepvax_vax_reminders_title": "Pengingat vaksin",
   "sleepvax_vax_reminders_sub": "3 hari sebelum setiap dosis dan pada harinya, pukul 10.00",
   "sleepvax_vax_reminders_denied": "Notifikasi dimatikan di pengaturan ponsel.",
-  "growthtz_who_head": "Lingkar kepala (cm)"
+  "growthtz_who_head": "Lingkar kepala (cm)",
+  "partnerv2_sleep_plan_title": "Rencana latihan tidur",
+  "partnerv2_sleep_plan_day": "Hari {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Waktu bangun: {time}"
 }

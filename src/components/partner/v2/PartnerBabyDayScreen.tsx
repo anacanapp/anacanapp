@@ -5,7 +5,11 @@ import { ArrowLeft, Baby, Moon, Milk, Sparkles } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { usePartnerData } from '@/hooks/usePartnerData';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { tr } from '@/lib/tr';
+import { tr, formatTr } from '@/lib/tr';
+import { fetchSharedSleepPlan } from '@/lib/sleep-training-sync';
+import { PLAN_DAYS, planDayNumber, type PlanState } from '@/lib/sleep-training';
+import { todayKey } from '@/lib/local-date';
+import { bc, type BabycareKey } from '@/lib/babycare-i18n';
 
 /**
  * "Körpə Günü" — mommy mərhələsində partnyor körpənin bugünkü ritmini görür.
@@ -28,7 +32,19 @@ interface Props {
 
 const PartnerBabyDayScreen = ({ onBack }: Props) => {
   useScrollToTop();
-  const { partnerProfile, sharing } = usePartnerData();
+  const { partnerProfile, sharing, partnerChildren } = usePartnerData();
+  const [sleepPlan, setSleepPlan] = useState<PlanState | null>(null);
+  const planChild = partnerChildren.find((c) => c.is_current) ?? partnerChildren[0] ?? null;
+
+  // Her sleep-training plan for the current child (read-only; same sharing switch as baby logs).
+  useEffect(() => {
+    if (!partnerProfile?.user_id || !planChild?.id || !sharing.share_baby_logs) { setSleepPlan(null); return; }
+    let cancelled = false;
+    fetchSharedSleepPlan(partnerProfile.user_id, planChild.id, todayKey())
+      .then((r) => { if (!cancelled) setSleepPlan(r?.plan?.method && r.plan.planStartDate ? r.plan : null); })
+      .catch(() => { /* optional card */ });
+    return () => { cancelled = true; };
+  }, [partnerProfile?.user_id, planChild?.id, sharing.share_baby_logs]);
   const [logs, setLogs] = useState<BabyLogRow[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -162,6 +178,23 @@ const PartnerBabyDayScreen = ({ onBack }: Props) => {
                 </motion.div>
             )}
             </div>
+
+            {/* Yuxu təlimi planı (ana aktiv plan başladıbsa) */}
+            {sleepPlan?.method && sleepPlan.planStartDate &&
+          <div className="a-card flex items-center gap-3" data-testid="partner-sleep-plan">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ background: 'var(--a-lav-1)' }}>
+                  <Moon size={15} style={{ color: 'var(--a-lav-ink)' }} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="a-list-title">{tr('partnerv2_sleep_plan_title', 'Yuxu təlimi planı')} · {bc(`sleeptraining_method_${sleepPlan.method}` as BabycareKey)}</p>
+                  <p className="a-list-sub" style={{ whiteSpace: 'normal' }}>
+                    {formatTr('partnerv2_sleep_plan_day', 'Gün {n}/{total}', { n: Math.min(Math.max(planDayNumber(sleepPlan.planStartDate, todayKey()), 1), PLAN_DAYS), total: PLAN_DAYS })}
+                    {' · '}
+                    {formatTr('partnerv2_sleep_plan_wake', 'Oyanma vaxtı: {time}', { time: sleepPlan.wakeTime })}
+                  </p>
+                </div>
+              </div>
+          }
 
             {/* İpucu */}
             <div className="flex items-start gap-2.5" style={{ background: 'var(--a-disclaimer-bg)', border: '1px solid var(--a-disclaimer-border)', borderRadius: 16, padding: 13 }}>

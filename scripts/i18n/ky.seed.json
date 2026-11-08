@@ -12417,5 +12417,8 @@
   "sleepvax_vax_reminders_title": "Эмдөө эскертмелери",
   "sleepvax_vax_reminders_sub": "Ар бир дозадан 3 күн мурун жана ошол күнү, саат 10:00дө",
   "sleepvax_vax_reminders_denied": "Билдирмелер телефондун жөндөөлөрүндө өчүрүлгөн.",
-  "growthtz_who_head": "Баштын айланасы (см)"
+  "growthtz_who_head": "Баштын айланасы (см)",
+  "partnerv2_sleep_plan_title": "Уйкуга үйрөтүү планы",
+  "partnerv2_sleep_plan_day": "{n}/{total}-күн",
+  "partnerv2_sleep_plan_wake": "Ойгонуу убактысы: {time}"
 }

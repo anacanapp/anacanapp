@@ -10192,5 +10192,8 @@
   "sleepvax_vax_reminders_title": "Impferinnerungen",
   "sleepvax_vax_reminders_sub": "3 Tage vor jeder Dosis und am Tag selbst, um 10:00 Uhr",
   "sleepvax_vax_reminders_denied": "Mitteilungen sind in den Telefoneinstellungen ausgeschaltet.",
-  "growthtz_who_head": "Kopfumfang (cm)"
+  "growthtz_who_head": "Kopfumfang (cm)",
+  "partnerv2_sleep_plan_title": "Schlaftraining-Plan",
+  "partnerv2_sleep_plan_day": "Tag {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Aufwachzeit: {time}"
 }

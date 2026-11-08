@@ -10192,5 +10192,8 @@
   "sleepvax_vax_reminders_title": "Екпе туралы еске салғыштар",
   "sleepvax_vax_reminders_sub": "Әр дозадан 3 күн бұрын және сол күні, сағат 10:00-де",
   "sleepvax_vax_reminders_denied": "Хабарландырулар телефон баптауларында өшірулі.",
-  "growthtz_who_head": "Бас шеңбері (см)"
+  "growthtz_who_head": "Бас шеңбері (см)",
+  "partnerv2_sleep_plan_title": "Ұйқыға үйрету жоспары",
+  "partnerv2_sleep_plan_day": "{n}/{total}-күн",
+  "partnerv2_sleep_plan_wake": "Ояну уақыты: {time}"
 }

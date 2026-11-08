@@ -12417,5 +12417,8 @@
   "sleepvax_vax_reminders_title": "Vaktsineerimise meeldetuletused",
   "sleepvax_vax_reminders_sub": "3 päeva enne iga doosi ja samal päeval kell 10:00",
   "sleepvax_vax_reminders_denied": "Teavitused on telefoni seadetes välja lülitatud.",
-  "growthtz_who_head": "Peaümbermõõt (cm)"
+  "growthtz_who_head": "Peaümbermõõt (cm)",
+  "partnerv2_sleep_plan_title": "Unetreeningu kava",
+  "partnerv2_sleep_plan_day": "Päev {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Ärkamisaeg: {time}"
 }

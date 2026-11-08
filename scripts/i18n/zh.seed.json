@@ -12339,5 +12339,8 @@
   "sleepvax_vax_reminders_title": "疫苗接种提醒",
   "sleepvax_vax_reminders_sub": "每剂前 3 天和当天的 10:00",
   "sleepvax_vax_reminders_denied": "手机设置中已关闭通知。",
-  "growthtz_who_head": "头围（cm）"
+  "growthtz_who_head": "头围（cm）",
+  "partnerv2_sleep_plan_title": "睡眠训练计划",
+  "partnerv2_sleep_plan_day": "第 {n}/{total} 天",
+  "partnerv2_sleep_plan_wake": "起床时间：{time}"
 }

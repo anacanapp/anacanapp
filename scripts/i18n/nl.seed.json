@@ -12339,5 +12339,8 @@
   "sleepvax_vax_reminders_title": "Vaccinatieherinneringen",
   "sleepvax_vax_reminders_sub": "3 dagen voor elke dosis en op de dag zelf, om 10:00",
   "sleepvax_vax_reminders_denied": "Meldingen staan uit in de instellingen van je telefoon.",
-  "growthtz_who_head": "Hoofdomtrek (cm)"
+  "growthtz_who_head": "Hoofdomtrek (cm)",
+  "partnerv2_sleep_plan_title": "Slaaptrainingsplan",
+  "partnerv2_sleep_plan_day": "Dag {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Wektijd: {time}"
 }

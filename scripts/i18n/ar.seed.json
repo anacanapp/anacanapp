@@ -10192,5 +10192,8 @@
   "sleepvax_vax_reminders_title": "تذكيرات التطعيم",
   "sleepvax_vax_reminders_sub": "قبل كل جرعة بـ 3 أيام وفي يومها، الساعة 10:00",
   "sleepvax_vax_reminders_denied": "الإشعارات متوقفة في إعدادات الهاتف.",
-  "growthtz_who_head": "محيط الرأس (سم)"
+  "growthtz_who_head": "محيط الرأس (سم)",
+  "partnerv2_sleep_plan_title": "خطة تدريب النوم",
+  "partnerv2_sleep_plan_day": "اليوم {n}/{total}",
+  "partnerv2_sleep_plan_wake": "وقت الاستيقاظ: {time}"
 }

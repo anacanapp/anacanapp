@@ -12339,5 +12339,8 @@
   "sleepvax_vax_reminders_title": "Nhắc lịch tiêm",
   "sleepvax_vax_reminders_sub": "3 ngày trước mỗi mũi và vào ngày tiêm, lúc 10:00",
   "sleepvax_vax_reminders_denied": "Thông báo đang tắt trong cài đặt điện thoại.",
-  "growthtz_who_head": "Vòng đầu (cm)"
+  "growthtz_who_head": "Vòng đầu (cm)",
+  "partnerv2_sleep_plan_title": "Kế hoạch tập ngủ",
+  "partnerv2_sleep_plan_day": "Ngày {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Giờ thức dậy: {time}"
 }

@@ -8689,5 +8689,8 @@
   "sleepvax_vax_reminders_title": "Peyvənd xatırlatmaları",
   "sleepvax_vax_reminders_sub": "Doza tarixindən 3 gün əvvəl və həmin gün, saat 10:00-da",
   "sleepvax_vax_reminders_denied": "Bildirişlər telefonun ayarlarında bağlıdır.",
-  "growthtz_who_head": "Baş çevrəsi (sm)"
+  "growthtz_who_head": "Baş çevrəsi (sm)",
+  "partnerv2_sleep_plan_title": "Yuxu təlimi planı",
+  "partnerv2_sleep_plan_day": "Gün {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Oyanma vaxtı: {time}"
 }

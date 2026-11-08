@@ -10192,5 +10192,8 @@
   "sleepvax_vax_reminders_title": "Emlash eslatmalari",
   "sleepvax_vax_reminders_sub": "Har bir dozadan 3 kun oldin va o‘sha kuni, soat 10:00 da",
   "sleepvax_vax_reminders_denied": "Bildirishnomalar telefon sozlamalarida o‘chirilgan.",
-  "growthtz_who_head": "Bosh aylanasi (sm)"
+  "growthtz_who_head": "Bosh aylanasi (sm)",
+  "partnerv2_sleep_plan_title": "Uyquga oʻrgatish rejasi",
+  "partnerv2_sleep_plan_day": "{n}/{total}-kun",
+  "partnerv2_sleep_plan_wake": "Uygʻonish vaqti: {time}"
 }

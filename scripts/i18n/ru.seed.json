@@ -10192,5 +10192,8 @@
   "sleepvax_vax_reminders_title": "Напоминания о прививках",
   "sleepvax_vax_reminders_sub": "За 3 дня до каждой дозы и в сам день, в 10:00",
   "sleepvax_vax_reminders_denied": "Уведомления отключены в настройках телефона.",
-  "growthtz_who_head": "Окружность головы (см)"
+  "growthtz_who_head": "Окружность головы (см)",
+  "partnerv2_sleep_plan_title": "План обучения сну",
+  "partnerv2_sleep_plan_day": "День {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Время подъёма: {time}"
 }

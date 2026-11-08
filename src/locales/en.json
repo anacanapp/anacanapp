@@ -10181,5 +10181,8 @@
   "sleepvax_vax_reminders_title": "Vaccine reminders",
   "sleepvax_vax_reminders_sub": "3 days before each dose and on the day, at 10:00",
   "sleepvax_vax_reminders_denied": "Notifications are turned off in your phone settings.",
-  "growthtz_who_head": "Head (cm)"
+  "growthtz_who_head": "Head (cm)",
+  "partnerv2_sleep_plan_title": "Sleep training plan",
+  "partnerv2_sleep_plan_day": "Day {n}/{total}",
+  "partnerv2_sleep_plan_wake": "Wake-up time: {time}"
 }
