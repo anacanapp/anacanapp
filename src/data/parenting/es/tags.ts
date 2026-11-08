@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['amigo', 'amistad', 'juega solo'],
   bullying: ['acoso', 'bullying', 'se burlan', 'lo molestan', 'insultan'],
   'after-school': ['despues del colegio', 'cuando vuelve del colegio', 'despues de la escuela'],
+  'crying-plan': ['plan para el llanto', 'colico', 'llora horas', 'llora por la tarde', 'llora por la noche'],
+  'stranger-anxiety': ['miedo a extraños', 'extraños', 'llora con la abuela', 'no se va con nadie', 'ansiedad por separacion'],
+  'sleep-regressions': ['regresion del sueño', 'regresion', 'se despierta de noche', 'se despierta mucho', 'duerme peor'],
+  'pacifier-thumb': ['chupete', 'chupon', 'chupeta', 'se chupa el dedo', 'dejar el chupete'],
+  'first-foods': ['alimentacion complementaria', 'primeras comidas', 'papilla', 'solidos', 'escupe la comida', 'blw'],
+  'fourth-trimester': ['posparto', 'despues del parto', 'depresion posparto', 'baby blues', 'tengo ganas de llorar'],
+  'body-safety': ['seguridad del cuerpo', 'mi cuerpo', 'abuso sexual', 'tocamientos', 'secreto malo', 'partes intimas'],
+  'online-safety': ['internet', 'en linea', 'redes sociales', 'chatea con desconocidos', 'compras en juegos', 'tiktok', 'roblox'],
+  grandparents: ['abuela', 'abuelo', 'abuelos', 'suegra', 'la abuela lo deja', 'en casa de la abuela', 'la abuela lo consiente'],
+  'bilingual-home': ['bilingue', 'dos idiomas', 'ruso', 'mezcla idiomas', 'bilinguismo'],
+  divorce: ['divorcio', 'separacion', 'nos separamos', 'separados', 'visitas con papa'],
+  grief: ['muerte', 'murio', 'fallecio', 'duelo', 'funeral', 'hablar de la muerte'],
+  'big-changes': ['mudanza', 'nos mudamos', 'nos vamos a mudar', 'ciudad nueva', 'escuela infantil nueva', 'colegio nuevo'],
+  bedwetting: ['moja la cama', 'se hace pis en la cama', 'se orina en la cama', 'enuresis', 'pis de noche'],
+  stuttering: ['tartamudez', 'tartamudea', 'se traba al hablar'],
+  'pocket-money': ['dinero de bolsillo', 'paga', 'mesada', 'darle dinero', 'ahorrar'],
+  'school-readiness': ['primer grado', 'primero de primaria', 'preparado para la escuela', 'empezar el colegio', 'preescolar'],
+  'adhd-autism-signs': ['autismo', 'autista', 'tdah', 'hiperactivo', 'deficit de atencion', 'no mira a los ojos', 'no responde a su nombre'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['acoso', 'bullying', 'se burlan', 'le pegan', 'vuelve llorando'],
   'hits-parent': ['me pega', 'me pego', 'pega a su madre', 'pega a su mama'],
   'not-listening': ['no escucha', 'no hace caso', 'no obedece', 'me ignora'],
-  'baby-bites-breast': ['muerde el pecho', 'muerde al mamar', 'tira del pelo', 'lactancia'],
+  'baby-bites-breast': ['muerde el pecho', 'muerde al mamar', 'tira del pelo', 'lactancia', 'me muerde el pezon', 'grietas'],
+  'baby-crying-different': ['llora distinto', 'llanto agudo', 'llora de repente', 'llanto raro', 'se queja'],
+  'sleeps-only-on-me': ['solo duerme en brazos', 'duerme en brazos', 'no duerme en la cuna', 'se despierta al dejarlo', 'llora al acostarlo'],
+  'about-to-lose-it': ['ya no puedo mas', 'pierdo el control', 'no me controlo', 'sacudir', 'se me acaba la paciencia', 'estoy al limite'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['gritar', 'gritos', 'paciencia'],
   'tantrums-14': ['rabieta', 'berrinche', 'pataleta'],
   'sleep-7': ['sueño', 'dormir', 'no duerme'],
+  'siblings-7': ['hermanos', 'hermano', 'hermana', 'celos', 'se pelean'],
+  'screen-reset-7': ['pantalla', 'celular', 'movil', 'tablet', 'dibujos'],
+  'special-time-7': ['tiempo especial', 'pide atencion', 'jugar juntos'],
 };

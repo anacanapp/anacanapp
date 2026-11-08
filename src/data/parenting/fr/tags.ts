@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['ami', 'copain', 'amitié', 'joue seul'],
   bullying: ['harcèlement', 'harcelé', 'se moquent', 'embêté'],
   'after-school': ['après l’école', 'rentre de l’école'],
+  'crying-plan': ['plan anti-pleurs', 'coliques', 'pleure des heures', 'pleure le soir', 'pleurs du soir'],
+  'stranger-anxiety': ['peur des inconnus', 'peur des étrangers', 'pleure chez mamie', 'veut pas aller dans les bras', 'angoisse de séparation'],
+  'sleep-regressions': ['régression du sommeil', 'régression', 'se réveille la nuit', 'se réveille souvent', 'dort moins bien'],
+  'pacifier-thumb': ['tétine', 'sucette', 'suce son pouce', 'pouce', 'arrêter la tétine'],
+  'first-foods': ['diversification', 'premiers aliments', 'purée', 'aliments solides', 'recrache', 'dme'],
+  'fourth-trimester': ['post-partum', 'après l’accouchement', 'dépression post-partum', 'baby blues', 'envie de pleurer'],
+  'body-safety': ['sécurité du corps', 'mon corps', 'abus sexuel', 'attouchement', 'mauvais secret', 'parties intimes'],
+  'online-safety': ['internet', 'en ligne', 'réseaux sociaux', 'parle à des inconnus', 'achats dans les jeux', 'tiktok', 'roblox'],
+  grandparents: ['mamie', 'papi', 'grands-parents', 'belle-mère', 'mamie autorise', 'chez mamie', 'mamie gâte'],
+  'bilingual-home': ['bilingue', 'deux langues', 'russe', 'mélange les langues', 'bilinguisme'],
+  divorce: ['divorce', 'séparation', 'on se sépare', 'séparés', 'garde alternée'],
+  grief: ['mort', 'décès', 'deuil', 'enterrement', 'parler de la mort'],
+  'big-changes': ['déménagement', 'on déménage', 'déménagé', 'nouvelle ville', 'nouvelle crèche', 'nouvelle école'],
+  bedwetting: ['pipi au lit', 'mouille son lit', 'énurésie', 'pas propre la nuit'],
+  stuttering: ['bégaiement', 'bégaie', 'bloque sur les mots'],
+  'pocket-money': ['argent de poche', 'donner de l’argent', 'économiser', 'tirelire'],
+  'school-readiness': ['cp', 'entrée au cp', 'prêt pour l’école', 'rentrée', 'grande section'],
+  'adhd-autism-signs': ['autisme', 'autiste', 'tdah', 'hyperactif', 'trouble de l’attention', 'ne regarde pas dans les yeux', 'ne réagit pas à son prénom'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['harcèlement', 'harcelé', 'se moquent de lui', 'frappé à l’école', 'rentré en pleurant'],
   'hits-parent': ['me tape', 'm’a tapé', 'me frappe', 'tape maman'],
   'not-listening': ['écoute pas', 'n’obéit pas', 'm’ignore', 'désobéit'],
-  'baby-bites-breast': ['mord pendant la tétée', 'mord le sein', 'tire les cheveux'],
+  'baby-bites-breast': ['mord pendant la tétée', 'mord le sein', 'tire les cheveux', 'mord le mamelon', 'crevasse'],
+  'baby-crying-different': ['pleure différemment', 'pleurs aigus', 'pleure soudain', 'pleurs bizarres', 'gémit'],
+  'sleeps-only-on-me': ['dort que dans mes bras', 'dort dans les bras', 'dort pas dans son lit', 'se réveille quand je le pose', 'pleure quand je le couche'],
+  'about-to-lose-it': ['je n’en peux plus', 'je vais craquer', 'je perds le contrôle', 'secouer', 'à bout de nerfs', 'plus de patience'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['crier', 'hurler', 'patience'],
   'tantrums-14': ['crise de colère', 'caprice'],
   'sleep-7': ['sommeil', 'coucher', 'ne dort pas'],
+  'siblings-7': ['frères et sœurs', 'frère', 'sœur', 'jalousie', 'se disputent'],
+  'screen-reset-7': ['écran', 'téléphone', 'tablette', 'dessin animé'],
+  'special-time-7': ['moment spécial', 'veut de l’attention', 'jouer ensemble'],
 };

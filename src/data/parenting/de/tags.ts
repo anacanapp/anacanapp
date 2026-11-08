@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['freund', 'freundschaft', 'spielt allein'],
   bullying: ['mobbing', 'gemobbt', 'ausgelacht', 'gehänselt'],
   'after-school': ['nach der schule', 'kommt aus der schule'],
+  'crying-plan': ['schreiplan', 'dreimonatskolik', 'kolik', 'schreit stundenlang', 'schreit abends'],
+  'stranger-anxiety': ['fremdeln', 'fremdelt', 'angst vor fremden', 'weint bei oma', 'will nicht auf den arm'],
+  'sleep-regressions': ['schlafregression', 'regression', 'wacht nachts auf', 'wacht ständig auf', 'schläft schlechter'],
+  'pacifier-thumb': ['schnuller', 'nuckel', 'daumenlutschen', 'lutscht am daumen', 'schnuller abgewöhnen'],
+  'first-foods': ['beikost', 'brei', 'erste nahrung', 'feste nahrung', 'spuckt essen aus', 'baby led weaning'],
+  'fourth-trimester': ['wochenbett', 'nach der geburt', 'wochenbettdepression', 'baby blues', 'ich muss nur weinen'],
+  'body-safety': ['körpersicherheit', 'mein körper', 'missbrauch', 'übergriff', 'schlechtes geheimnis', 'intimbereich'],
+  'online-safety': ['internet', 'online', 'soziale medien', 'chattet mit fremden', 'in-app-kauf', 'tiktok', 'roblox'],
+  grandparents: ['oma', 'opa', 'großeltern', 'schwiegermutter', 'oma erlaubt', 'bei oma', 'oma verwöhnt'],
+  'bilingual-home': ['zweisprachig', 'mehrsprachig', 'zwei sprachen', 'russisch', 'mischt sprachen'],
+  divorce: ['scheidung', 'trennung', 'wir trennen uns', 'getrennt leben', 'umgang mit papa'],
+  grief: ['tod', 'gestorben', 'trauer', 'beerdigung', 'über den tod sprechen'],
+  'big-changes': ['umzug', 'wir ziehen um', 'umgezogen', 'neue stadt', 'neue kita', 'neue schule'],
+  bedwetting: ['bettnässen', 'nässt nachts ein', 'macht ins bett', 'enuresis', 'nachts nicht trocken'],
+  stuttering: ['stottern', 'stottert', 'bleibt an wörtern hängen'],
+  'pocket-money': ['taschengeld', 'geld geben', 'sparen', 'umgang mit geld'],
+  'school-readiness': ['erste klasse', 'schulreife', 'einschulung', 'vorschule', 'schulstart'],
+  'adhd-autism-signs': ['autismus', 'autistisch', 'adhs', 'ads', 'hyperaktiv', 'aufmerksamkeitsstörung', 'kein blickkontakt', 'reagiert nicht auf namen'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['mobbing', 'gemobbt', 'gehänselt', 'verprügelt', 'weinend nach hause'],
   'hits-parent': ['haut mich', 'hat mich geschlagen', 'schlägt mich', 'haut mama'],
   'not-listening': ['hört nicht', 'hört nicht zu', 'ignoriert mich', 'gehorcht nicht'],
-  'baby-bites-breast': ['beißt beim stillen', 'beißt in die brustwarze', 'zieht an den haaren'],
+  'baby-bites-breast': ['beißt beim stillen', 'beißt in die brustwarze', 'zieht an den haaren', 'beißt in die brust', 'wunde brustwarze'],
+  'baby-crying-different': ['weint anders', 'schrilles weinen', 'weint plötzlich', 'komisches weinen', 'wimmert'],
+  'sleeps-only-on-me': ['schläft nur auf dem arm', 'schläft nur auf mir', 'schläft nicht im bett', 'wacht beim ablegen auf', 'weint beim hinlegen'],
+  'about-to-lose-it': ['ich halte es nicht mehr aus', 'verliere die beherrschung', 'kann mich nicht beherrschen', 'schütteln', 'keine nerven mehr', 'am limit'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['schreien', 'anschreien', 'geduld'],
   'tantrums-14': ['wutanfall', 'trotzanfall'],
   'sleep-7': ['schlaf', 'schlafenszeit', 'schläft nicht'],
+  'siblings-7': ['geschwister', 'bruder', 'schwester', 'eifersucht', 'streiten'],
+  'screen-reset-7': ['bildschirm', 'handy', 'tablet', 'zeichentrick', 'medienzeit'],
+  'special-time-7': ['exklusivzeit', 'will aufmerksamkeit', 'zusammen spielen'],
 };
