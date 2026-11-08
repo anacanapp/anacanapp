@@ -12397,5 +12397,10 @@
   "market_admin_dismiss": "खारिज करें",
   "market_admin_hide_listing": "विज्ञापन छिपाएं",
   "market_admin_target_listing": "विज्ञापन",
-  "market_admin_target_conversation": "बातचीत"
+  "market_admin_target_conversation": "बातचीत",
+  "hub_tools_loading": "टूल लोड हो रहे हैं",
+  "hub_tools_offline_title": "टूल लोड नहीं हो सके",
+  "hub_tools_offline_sub": "अपना इंटरनेट कनेक्शन जाँचें और फिर से कोशिश करें।",
+  "hub_tools_retry": "फिर से कोशिश करें",
+  "hub_tools_free_limited": "मुफ़्त · सीमित"
 }

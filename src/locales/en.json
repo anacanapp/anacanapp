@@ -10239,5 +10239,10 @@
   "market_admin_dismiss": "Dismiss",
   "market_admin_hide_listing": "Hide listing",
   "market_admin_target_listing": "Listing",
-  "market_admin_target_conversation": "Conversation"
+  "market_admin_target_conversation": "Conversation",
+  "hub_tools_loading": "Loading tools",
+  "hub_tools_offline_title": "Tools could not load",
+  "hub_tools_offline_sub": "Check your internet connection and try again.",
+  "hub_tools_retry": "Try again",
+  "hub_tools_free_limited": "Free · limited"
 }

@@ -45,10 +45,42 @@ const FREE_TOOL_IDS = new Set<string>([
 // 2026-11-07: Tərbiyə — yaş dövrləri, günün məsləhəti, pulsuz məqalə/SOS dəsti pulsuz; qalanı alətin içində
 // Premium-dur (PremiumBlurGate).
 'parenting']
+// Qeyd: Körpə izləyicisi (baby-tracker) 2026-11-08 istifadəçi qərarı ilə TAM Premium qalır.
 );
 
 /** Alət free siyahısındadır? */
 export const isToolFree = (toolId: string): boolean => FREE_TOOL_IDS.has(toolId);
+
+/**
+ * 2026-11-08: "pulsuz · limitli" alətlər. Hamı aça bilər; alətin öz pulsuz limiti işləyir, qalanı alətin içindəki
+ * Premium qapısının arxasındadır (Ağ səs: gündəlik dəqiqə limiti, Reseptlər və Əlavə qida: hər kateqoriyadan 3
+ * resept, Bürc uyğunluğu: gündəlik analiz limiti).
+ */
+const FREE_LIMITED_TOOL_IDS = new Set<string>(['whitenoise', 'white-noise', 'recipes', 'solid-food-guide', 'horoscope']);
+
+/** Admin "Premium tipi" (tool_configs.premium_type) dəyərləri: none | limited_total | limited_monthly | premium_only | full. */
+export const isLimitedPremiumType = (premiumType?: string | null): boolean =>
+  premiumType === 'limited_total' || premiumType === 'limited_monthly';
+
+export type ToolAccess = 'free' | 'limited' | 'premium';
+
+/**
+ * Hub-da aləti pulsuz istifadəçinin aça bilib-bilməyəcəyi:
+ *  - mərhələ kilidi (flow/bump/mommy_locked) həmişə Premium;
+ *  - kod free siyahısı + DB is_premium=false → 'free';
+ *  - kod limitli siyahısı və ya admin premium_type limited_total/limited_monthly → 'limited' (alət açılır, limit içəridə);
+ *  - qalan hər şey → 'premium'.
+ */
+export function toolAccess(input: { toolId: string; isPremiumFlag?: boolean | null; premiumType?: string | null; stageLocked?: boolean | null }): ToolAccess {
+  if (input.stageLocked) return 'premium';
+  if (isToolFree(input.toolId) && !input.isPremiumFlag) return 'free';
+  if (FREE_LIMITED_TOOL_IDS.has(input.toolId) || isLimitedPremiumType(input.premiumType)) return 'limited';
+  return 'premium';
+}
+
+/** Pulsuz istifadəçi aləti aça bilər (tam pulsuz və ya alət daxilində limitli). Yalnız tool id məlumdursa. */
+export const canOpenToolFree = (toolId: string, premiumType?: string | null): boolean =>
+  isToolFree(toolId) || FREE_LIMITED_TOOL_IDS.has(toolId) || isLimitedPremiumType(premiumType);
 
 /**
  * Tortlar aləti yalnız Azərbaycan bazarı üçündür:

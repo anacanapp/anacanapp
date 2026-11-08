@@ -12397,5 +12397,10 @@
   "market_admin_dismiss": "Odrzuć",
   "market_admin_hide_listing": "Ukryj ogłoszenie",
   "market_admin_target_listing": "Ogłoszenie",
-  "market_admin_target_conversation": "Rozmowa"
+  "market_admin_target_conversation": "Rozmowa",
+  "hub_tools_loading": "Wczytywanie narzędzi",
+  "hub_tools_offline_title": "Nie udało się wczytać narzędzi",
+  "hub_tools_offline_sub": "Sprawdź połączenie z internetem i spróbuj ponownie.",
+  "hub_tools_retry": "Spróbuj ponownie",
+  "hub_tools_free_limited": "Za darmo · z limitem"
 }

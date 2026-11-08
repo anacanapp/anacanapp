@@ -10250,5 +10250,10 @@
   "market_admin_dismiss": "رفض",
   "market_admin_hide_listing": "إخفاء الإعلان",
   "market_admin_target_listing": "إعلان",
-  "market_admin_target_conversation": "محادثة"
+  "market_admin_target_conversation": "محادثة",
+  "hub_tools_loading": "جارٍ تحميل الأدوات",
+  "hub_tools_offline_title": "تعذّر تحميل الأدوات",
+  "hub_tools_offline_sub": "تحقّقي من اتصال الإنترنت وحاولي مرة أخرى.",
+  "hub_tools_retry": "حاولي مرة أخرى",
+  "hub_tools_free_limited": "مجاني · محدود"
 }

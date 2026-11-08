@@ -12397,5 +12397,10 @@
   "market_admin_dismiss": "Afwijzen",
   "market_admin_hide_listing": "Advertentie verbergen",
   "market_admin_target_listing": "Advertentie",
-  "market_admin_target_conversation": "Gesprek"
+  "market_admin_target_conversation": "Gesprek",
+  "hub_tools_loading": "Tools laden",
+  "hub_tools_offline_title": "Tools konden niet worden geladen",
+  "hub_tools_offline_sub": "Controleer je internetverbinding en probeer het opnieuw.",
+  "hub_tools_retry": "Opnieuw proberen",
+  "hub_tools_free_limited": "Gratis · beperkt"
 }

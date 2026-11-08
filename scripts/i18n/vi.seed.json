@@ -12397,5 +12397,10 @@
   "market_admin_dismiss": "Bỏ qua",
   "market_admin_hide_listing": "Ẩn tin đăng",
   "market_admin_target_listing": "Tin đăng",
-  "market_admin_target_conversation": "Cuộc trò chuyện"
+  "market_admin_target_conversation": "Cuộc trò chuyện",
+  "hub_tools_loading": "Đang tải công cụ",
+  "hub_tools_offline_title": "Không tải được công cụ",
+  "hub_tools_offline_sub": "Hãy kiểm tra kết nối internet và thử lại.",
+  "hub_tools_retry": "Thử lại",
+  "hub_tools_free_limited": "Miễn phí · có giới hạn"
 }

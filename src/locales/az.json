@@ -8747,5 +8747,10 @@
   "market_admin_dismiss": "Rədd et",
   "market_admin_hide_listing": "Elanı gizlət",
   "market_admin_target_listing": "Elan",
-  "market_admin_target_conversation": "Yazışma"
+  "market_admin_target_conversation": "Yazışma",
+  "hub_tools_loading": "Alətlər yüklənir",
+  "hub_tools_offline_title": "Alətlər yüklənmədi",
+  "hub_tools_offline_sub": "İnternet bağlantısını yoxlayın və yenidən cəhd edin.",
+  "hub_tools_retry": "Yenidən cəhd edin",
+  "hub_tools_free_limited": "Pulsuz · limitli"
 }

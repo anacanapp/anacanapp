@@ -12397,5 +12397,10 @@
   "market_admin_dismiss": "驳回",
   "market_admin_hide_listing": "隐藏商品",
   "market_admin_target_listing": "商品",
-  "market_admin_target_conversation": "对话"
+  "market_admin_target_conversation": "对话",
+  "hub_tools_loading": "正在加载工具",
+  "hub_tools_offline_title": "无法加载工具",
+  "hub_tools_offline_sub": "请检查网络连接后重试。",
+  "hub_tools_retry": "重试",
+  "hub_tools_free_limited": "免费 · 有限额"
 }

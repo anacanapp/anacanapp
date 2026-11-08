@@ -10250,5 +10250,10 @@
   "market_admin_dismiss": "Rad etish",
   "market_admin_hide_listing": "E’lonni yashirish",
   "market_admin_target_listing": "E’lon",
-  "market_admin_target_conversation": "Yozishma"
+  "market_admin_target_conversation": "Yozishma",
+  "hub_tools_loading": "Vositalar yuklanmoqda",
+  "hub_tools_offline_title": "Vositalar yuklanmadi",
+  "hub_tools_offline_sub": "Internet aloqasini tekshirib, qayta urinib koʻring.",
+  "hub_tools_retry": "Qayta urinish",
+  "hub_tools_free_limited": "Bepul · cheklangan"
 }

@@ -4,6 +4,7 @@ import { callGeminiSmart } from "../_shared/vertex-ai.ts";
 import { checkDailyLimit, limitExceededResponse, recordDailyUsage } from "../_shared/usage-limit.ts";
 import { EXPANDED_LANGUAGE_NAMES } from '../_shared/languages.ts';
 import { serverCopy } from '../_shared/localized-copy.ts';
+import { enforcePoopSafety } from './safety.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -514,6 +515,9 @@ Deno.serve(async (req) => {
         doctorUrgency: 'none'
       };
     }
+
+    // Safety floor in code: pale, black (after the meconium days) and red stool are always urgent, whatever the model said.
+    analysisResult = enforcePoopSafety(analysisResult, userContext, language);
 
     // Save analysis to database
     const { error: insertError } = await supabase

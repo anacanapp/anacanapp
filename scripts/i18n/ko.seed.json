@@ -12397,5 +12397,10 @@
   "market_admin_dismiss": "기각",
   "market_admin_hide_listing": "게시물 숨기기",
   "market_admin_target_listing": "게시물",
-  "market_admin_target_conversation": "대화"
+  "market_admin_target_conversation": "대화",
+  "hub_tools_loading": "도구를 불러오는 중",
+  "hub_tools_offline_title": "도구를 불러오지 못했습니다",
+  "hub_tools_offline_sub": "인터넷 연결을 확인한 뒤 다시 시도하세요.",
+  "hub_tools_retry": "다시 시도",
+  "hub_tools_free_limited": "무료 · 제한 있음"
 }

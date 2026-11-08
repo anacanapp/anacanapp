@@ -10250,5 +10250,10 @@
   "market_admin_dismiss": "Отклонить",
   "market_admin_hide_listing": "Скрыть объявление",
   "market_admin_target_listing": "Объявление",
-  "market_admin_target_conversation": "Переписка"
+  "market_admin_target_conversation": "Переписка",
+  "hub_tools_loading": "Загрузка инструментов",
+  "hub_tools_offline_title": "Не удалось загрузить инструменты",
+  "hub_tools_offline_sub": "Проверьте подключение к интернету и попробуйте ещё раз.",
+  "hub_tools_retry": "Повторить",
+  "hub_tools_free_limited": "Бесплатно · с лимитом"
 }

@@ -10250,5 +10250,10 @@
   "market_admin_dismiss": "Verwerfen",
   "market_admin_hide_listing": "Anzeige ausblenden",
   "market_admin_target_listing": "Anzeige",
-  "market_admin_target_conversation": "Unterhaltung"
+  "market_admin_target_conversation": "Unterhaltung",
+  "hub_tools_loading": "Tools werden geladen",
+  "hub_tools_offline_title": "Tools konnten nicht geladen werden",
+  "hub_tools_offline_sub": "Prüfe deine Internetverbindung und versuche es erneut.",
+  "hub_tools_retry": "Erneut versuchen",
+  "hub_tools_free_limited": "Kostenlos · begrenzt"
 }

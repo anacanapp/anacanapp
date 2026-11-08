@@ -12397,5 +12397,10 @@
   "market_admin_dismiss": "Abaikan",
   "market_admin_hide_listing": "Sembunyikan iklan",
   "market_admin_target_listing": "Iklan",
-  "market_admin_target_conversation": "Percakapan"
+  "market_admin_target_conversation": "Percakapan",
+  "hub_tools_loading": "Memuat alat",
+  "hub_tools_offline_title": "Alat tidak dapat dimuat",
+  "hub_tools_offline_sub": "Periksa koneksi internet Anda lalu coba lagi.",
+  "hub_tools_retry": "Coba lagi",
+  "hub_tools_free_limited": "Gratis · terbatas"
 }

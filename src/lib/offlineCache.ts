@@ -8,6 +8,7 @@
  */
 
 import { writeStorageCache } from './local-storage';
+import { clearPersistedQueryCache } from './query-persist-policy';
 
 const PREFIX = 'anacan_ocache_v1:';
 
@@ -51,13 +52,19 @@ export function clearCache(key: string): void {
   } catch {/* boş */}
 }
 
-/** Bütün offline cache-i sil (logout üçün). */
+// Logout-da silinən, serverdən yenidən alına bilən şəxsi sağlamlıq cache-ləri (AI körpə analizi mətni).
+// İlk yardım cache-i şəxsi deyil və offline lazımdır, ona toxunulmur; yalnız lokal saxlanan istifadəçi yazıları
+// (məs. məktub/qeydlər) data itkisi olmasın deyə burada silinmir, onlar user id ilə açarlanıb.
+const LOGOUT_CLEAR_PREFIXES = [PREFIX, 'anacan-baby-insight-v2:'];
+
+/** Bütün offline cache-i sil (logout / hesab dəyişmə üçün), React Query persist cache-i də daxil olmaqla. */
 export function clearAllCaches(): void {
+  clearPersistedQueryCache();
   try {
     const toRemove: string[] = [];
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
-      if (k && k.startsWith(PREFIX)) toRemove.push(k);
+      if (k && LOGOUT_CLEAR_PREFIXES.some((p) => k.startsWith(p))) toRemove.push(k);
     }
     toRemove.forEach((k) => localStorage.removeItem(k));
   } catch {/* boş */}

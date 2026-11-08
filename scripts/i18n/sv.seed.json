@@ -12397,5 +12397,10 @@
   "market_admin_dismiss": "Avvisa",
   "market_admin_hide_listing": "Dölj annonsen",
   "market_admin_target_listing": "Annons",
-  "market_admin_target_conversation": "Konversation"
+  "market_admin_target_conversation": "Konversation",
+  "hub_tools_loading": "Laddar verktyg",
+  "hub_tools_offline_title": "Verktygen kunde inte laddas",
+  "hub_tools_offline_sub": "Kontrollera internetanslutningen och försök igen.",
+  "hub_tools_retry": "Försök igen",
+  "hub_tools_free_limited": "Gratis · begränsat"
 }

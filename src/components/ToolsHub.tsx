@@ -2,7 +2,8 @@ import { useState, useEffect, useMemo, useRef, lazy, Suspense } from 'react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { saveScroll, restoreScroll } from '@/lib/scrollMemory';
 import { pushBackHandler } from '@/lib/backButton';
-import { isToolFree, isCakesAvailable } from '@/lib/freemium';
+import { isToolFree, isCakesAvailable, toolAccess, type ToolAccess } from '@/lib/freemium';
+import { foldText } from '@/lib/parenting-search';
 import { motion } from 'framer-motion';
 import {
   Search, Shield, Timer, Scale, Baby, Briefcase,
@@ -10,7 +11,7 @@ import {
   Utensils, Activity, ArrowLeft, Camera, Lock, ShoppingCart, LucideIcon, Wrench, BookOpen, ChefHat,
   Stethoscope, Droplet, ImagePlus, Package, Mic, Scan, CloudSun, Gauge, Store,
   MapPin, Gamepad2, ShieldAlert, BookHeart, Stars, Crown, Ruler, Sparkles, TrendingUp, Zap,
-  Pill, Cake, Syringe, Dumbbell, Brain, Sprout, HeartHandshake } from
+  Pill, Cake, Syringe, Dumbbell, Brain, Sprout, HeartHandshake, WifiOff, RefreshCw } from
 'lucide-react';
 import BlogScreen from '@/components/BlogScreen';
 import { useUserStore } from '@/store/userStore';
@@ -88,6 +89,8 @@ interface Tool {
   premiumType?: string;
   premiumLimit?: number;
   isLocked?: boolean;
+  /** Free users can open it; the tool enforces its own free limit (premium_type limited_* or code list). */
+  limited?: boolean;
 }
 
 // Icon mapping for dynamic tool configs
@@ -171,7 +174,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     if (prevToolRef.current && !activeTool) restoreScroll('toolshub');
     // One tool_opened per real open, whatever the entry point (hub, dashboard shortcut, deep link, push).
     // Premium tools a free user cannot open show the paywall instead and are logged as paywall views.
-    if (activeTool && activeTool !== prevToolRef.current && (isPremium || isToolFree(activeTool))) {
+    if (activeTool && activeTool !== prevToolRef.current && (isPremium || accessFor(activeTool) !== 'premium')) {
       import('@/lib/analytics').then((m) => m.analytics.logToolOpened(activeTool)).catch(() => {});
     }
     prevToolRef.current = activeTool;
@@ -198,7 +201,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
 
   // Freemium gate — hero/mini-games kimi birbaşa açılışlar üçün
   const gatedOpenTool = (toolId: string) => {
-    if (!isPremium && !isToolFree(toolId)) {
+    if (!isPremium && accessFor(toolId) === 'premium') {
       import('@/lib/analytics').then((m) => m.analytics.logPaywallShown(toolId)).catch(() => {});
       setShowPremiumModal(true);
       return;
@@ -217,7 +220,14 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const language = useUserStore((state) => state.language);
   const storeCountry = useUserStore(state => state.countryCode);
   // Admins see ALL tools regardless of life stage
-  const { data: toolConfigs = [], isLoading: toolsLoading } = useToolConfigs(isAdmin ? undefined : lifeStage || undefined);
+  const {
+    data: toolConfigs = [], isPending: toolsPending, isError: toolsError, fetchStatus: toolsFetchStatus, refetch: refetchTools,
+  } = useToolConfigs(isAdmin ? undefined : lifeStage || undefined);
+  // First launch / offline: no cached config yet. Show a skeleton while it loads and a retry card when it cannot load
+  // (error, or paused because the device is offline); "not found" is only for a real empty search.
+  const configsMissing = toolConfigs.length === 0;
+  const toolsLoadFailed = configsMissing && (toolsError || (toolsPending && toolsFetchStatus === 'paused'));
+  const toolsLoading = configsMissing && !toolsLoadFailed && (toolsPending || toolsFetchStatus === 'fetching');
 
   const hasPartner = !!profile?.linked_partner_id;
 
@@ -227,6 +237,14 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     if (lifeStage === 'bump') return config.bump_locked || false;
     if (lifeStage === 'mommy') return config.mommy_locked || false;
     return false;
+  };
+
+  // Free / limited / premium for one tool id; DB config (premium flag, admin premium_type, stage lock) when loaded.
+  const accessFor = (toolId: string): ToolAccess => {
+    const config = toolConfigs.find((c) => c.tool_id === toolId);
+    return config
+      ? toolAccess({ toolId, isPremiumFlag: config.is_premium, premiumType: config.premium_type, stageLocked: getLockedStatus(config) })
+      : toolAccess({ toolId });
   };
 
   // Build tools from DB configs
@@ -258,6 +276,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
 
       const isWeaning = config.tool_id === 'weaning';
       const isParenting = config.tool_id === 'parenting';
+      // Stage lock is tracked separately (isLocked), so access is computed without it here.
+      const access = toolAccess({ toolId: config.tool_id, isPremiumFlag: config.is_premium, premiumType: config.premium_type });
       return {
         id: config.tool_id,
         name: isWeaning ? weaningText('weaning_tool_name') : isParenting ? parentingText('par_tool_name') : name,
@@ -267,9 +287,11 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
         bgColor: config.bg_color,
         minWeek: config.min_week || undefined,
         stages: config.life_stages,
-        // Freemium siyasəti (yalnız bu build): free siyahısında olmayan HƏR alət premium.
+        // Freemium siyasəti (yalnız bu build): free siyahısında olmayan HƏR alət premium, "limitli" alətlər
+        // (kod siyahısı və ya admin premium_type limited_total/limited_monthly) açılır, limit alətin içindədir.
         // DB flag-larına toxunulmur → köhnə versiyalar təsirlənmir.
-        isPremium: (config.is_premium || false) || !isToolFree(config.tool_id),
+        isPremium: access === 'premium',
+        limited: access === 'limited',
         premiumType: config.premium_type || 'none',
         premiumLimit: config.premium_limit || 0,
         isLocked: getLockedStatus(config)
@@ -280,7 +302,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     // a DB row with the same id wins, and both respect disabled tools.
     const virtual = (id: string, name: string, description: string, icon: typeof Wrench): Tool => ({
       id, name, description, icon, color: 'pink', bgColor: 'pink', stages: ['mommy'],
-      isPremium: !isToolFree(id), premiumType: 'none', premiumLimit: 0, isLocked: false,
+      isPremium: toolAccess({ toolId: id }) === 'premium', limited: toolAccess({ toolId: id }) === 'limited',
+      premiumType: 'none', premiumLimit: 0, isLocked: false,
     });
     const extra: Tool[] = [];
     if (!fromDb.some((t) => t.id === 'baby-tracker') && !disabledTools.includes('baby-tracker')) {
@@ -306,7 +329,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   // Freemium: free olmayan alət premium-suz açılmır — paywall göstərilir.
   useEffect(() => {
     if (initialTool) {
-      if (!isPremium && !isToolFree(initialTool)) {
+      if (!isPremium && accessFor(initialTool) === 'premium') {
         import('@/lib/analytics').then((m) => m.analytics.logPaywallShown(initialTool)).catch(() => {});
         setShowPremiumModal(true);
         return;
@@ -369,12 +392,10 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   // Hero tools (admin "is_hero") lead their section in hero_order instead of a separate strip.
   const heroOrder = new Map(toolConfigs.filter((t) => t.is_hero).map((t) => [t.tool_id, t.hero_order || 0]));
 
-  // Filter by search
-  const filteredTools = tools.filter((tool) => {
-    const matchesSearch = tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    tool.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesSearch;
-  });
+  // Filter by search: accent-insensitive (ə/ı/ş/ç/ğ/ö/ü/İ and other diacritics fold to plain Latin).
+  const foldedQuery = foldText(searchQuery);
+  const matchesSearch = (...texts: string[]) => !foldedQuery || texts.some((t) => foldText(t).includes(foldedQuery));
+  const filteredTools = tools.filter((tool) => matchesSearch(tool.name, tool.description));
 
   // Inject virtual Cakes tool (moved here from bottom nav)
   const cakesVirtual: Tool = {
@@ -388,15 +409,14 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   };
   // Tortlar: yalnız AZ bazarı (dil az/ru + ölkə AZ) — admin istisna
   const cakesMarketOk = isAdmin || isCakesAvailable((profile as any)?.country_code, language);
-  const showCakes = !isToolDisabled('cakes') && cakesMarketOk && (lifeStage === 'bump' || lifeStage === 'mommy' || isAdmin) && (
-  cakesVirtual.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  cakesVirtual.description.toLowerCase().includes(searchQuery.toLowerCase()));
+  const showCakes = !isToolDisabled('cakes') && cakesMarketOk && (lifeStage === 'bump' || lifeStage === 'mommy' || isAdmin) &&
+  matchesSearch(cakesVirtual.name, cakesVirtual.description);
   const miniGamesVirtual: Tool = {
     id: 'mini-games', name: tr("toolshub_minigames_title", "Mini Oyunlar"), description: '', icon: Gamepad2,
     color: 'green', bgColor: 'green', stages: ['flow', 'bump', 'mommy'], isPremium: !isToolFree('mini-games'), isLocked: false
   };
   const showMiniGames = !isToolDisabled('mini-games') && !filteredTools.some((t) => t.id === 'mini-games') &&
-    miniGamesVirtual.name.toLowerCase().includes(searchQuery.toLowerCase());
+    matchesSearch(miniGamesVirtual.name);
   const displayedTools: Tool[] = [...(showCakes ? [cakesVirtual] : []), ...(showMiniGames ? [miniGamesVirtual] : []), ...filteredTools];
   // Free vs Premium sections: a tool is free only when no DB flag, stage lock or freemium rule gates it.
   const byHero = (a: Tool, b: Tool) => (heroOrder.has(a.id) ? 0 : 1) - (heroOrder.has(b.id) ? 0 : 1) || (heroOrder.get(a.id) ?? 0) - (heroOrder.get(b.id) ?? 0);
@@ -477,8 +497,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   })();
 
   if (toolComponent) {
-    const config = toolConfigs.find(config => config.tool_id === activeTool);
-    const protectedTool = !isToolFree(activeTool!) || !!config?.is_premium || !!config && getLockedStatus(config);
+    // Free and limited tools render directly (limited ones enforce their own free limit inside).
+    const protectedTool = accessFor(activeTool!) === 'premium';
     return (
       protectedTool ? <PremiumToolBoundary onClose={handleBack}><Suspense fallback={toolFallback}>{toolComponent}</Suspense></PremiumToolBoundary>
         : <Suspense fallback={toolFallback}>{toolComponent}</Suspense>);
@@ -530,7 +550,36 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
 
         {/* Tools: search results as one list, otherwise Ödənişsiz / Premium sections (compact 3-column tiles) */}
         <AdInlineAnchor id="tools_banner" />
-        {(searchQuery
+        {toolsLoading &&
+        <section className="a-section" aria-busy="true" aria-label={tr('hub_tools_loading', 'Alətlər yüklənir')}>
+            <div className="a-section-head">
+              <span className="animate-pulse" style={{ display: 'block', width: 120, height: 16, borderRadius: 8, background: 'var(--a-line)' }} />
+            </div>
+            <div className="a-tool-grid compact" aria-hidden="true">
+              {Array.from({ length: 9 }, (_, i) =>
+              <div key={i} className="a-tool-tile animate-pulse" style={{ cursor: 'default' }}>
+                  <span className="a-tool-icon" style={{ background: 'var(--a-line)' }} />
+                  <span style={{ display: 'block', width: '70%', height: 10, borderRadius: 5, background: 'var(--a-line)' }} />
+                </div>
+              )}
+            </div>
+          </section>
+        }
+
+        {toolsLoadFailed &&
+        <div className="a-card a-section" role="alert" style={{ textAlign: 'center', padding: '28px 18px' }}>
+            <WifiOff size={32} style={{ color: 'var(--a-ink-faint)', margin: '0 auto 10px' }} aria-hidden="true" />
+            <p className="a-list-title" style={{ marginBottom: 3 }}>{tr('hub_tools_offline_title', 'Alətlər yüklənmədi')}</p>
+            <p className="a-list-sub" style={{ margin: 0, whiteSpace: 'normal' }}>
+              {tr('hub_tools_offline_sub', 'İnternet bağlantısını yoxlayın və yenidən cəhd edin.')}
+            </p>
+            <button type="button" onClick={() => { void refetchTools(); }} className="a-btn-soft" style={{ marginTop: 14, display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              <RefreshCw size={14} aria-hidden="true" />{tr('hub_tools_retry', 'Yenidən cəhd edin')}
+            </button>
+          </div>
+        }
+
+        {!toolsLoading && (searchQuery.trim()
           ? [{ key: 'results', title: `${displayedTools.length} ${tr("toolshub_netice", "nəticə")}`, list: displayedTools, premiumSection: false }]
           : [{ key: 'free', title: tr("toolshub_free_tools", "Ödənişsiz alətlər"), list: freeTools, premiumSection: false },
              { key: 'premium', title: tr("toolshub_premium_tools", "Premium alətlər"), list: premiumTools, premiumSection: true }]
@@ -550,6 +599,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
                 const Icon = tool.icon;
                 const available = isToolAvailable(tool);
                 const needsPremium = (tool.isLocked || tool.isPremium) && !isPremium;
+                const limitedHint = !!tool.limited && !needsPremium && !isPremium;
                 return (
                   <motion.button
                     key={tool.id}
@@ -559,21 +609,26 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
                     transition={{ delay: Math.min(index * 0.012, 0.15) }}
                     onClick={() => tool.id === 'cakes' ? openTool('cakes') : tool.id === 'mini-games' ? gatedOpenTool('mini-games') : handleToolClick(tool)}
                     className={`a-tool-tile${needsPremium ? ' is-locked' : ''}`}
-                    aria-label={needsPremium ? `${tool.name} · Premium` : tool.name}
+                    aria-label={needsPremium ? `${tool.name} · Premium` : limitedHint ? `${tool.name} · ${tr('hub_tools_free_limited', 'Pulsuz · limitli')}` : tool.name}
                     style={!available ? { opacity: 0.4 } : undefined}>
                     {needsPremium && <span className="a-crown-chip"><Lock size={9} strokeWidth={2.8} /></span>}
                     <span className="a-tool-icon" style={{ background: TILE_GRADIENTS[index % TILE_GRADIENTS.length], color: TILE_INKS[index % TILE_INKS.length] }}>
                       <Icon size={17} strokeWidth={2} />
                     </span>
                     <p className="a-tool-title">{tool.name}</p>
+                    {limitedHint &&
+                    <span aria-hidden="true" style={{ marginTop: 3, fontSize: 9.5, fontWeight: 700, lineHeight: 1.2, color: 'var(--a-green-ink)' }}>
+                        {tr('hub_tools_free_limited', 'Pulsuz · limitli')}
+                      </span>
+                    }
                   </motion.button>);
               })}
             </div>
           </section>
         ))}
 
-        {/* Empty State */}
-        {displayedTools.length === 0 &&
+        {/* Empty State: a real empty search (or an empty, successfully loaded list); never while loading/failed */}
+        {displayedTools.length === 0 && !toolsLoading && !toolsLoadFailed &&
         <motion.div
           className="a-card a-section"
           style={{ textAlign: 'center', padding: '36px 18px' }}

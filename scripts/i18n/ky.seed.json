@@ -12475,5 +12475,10 @@
   "market_admin_dismiss": "Четке кагуу",
   "market_admin_hide_listing": "Жарнаманы жашыруу",
   "market_admin_target_listing": "Жарнама",
-  "market_admin_target_conversation": "Кат алышуу"
+  "market_admin_target_conversation": "Кат алышуу",
+  "hub_tools_loading": "Куралдар жүктөлүүдө",
+  "hub_tools_offline_title": "Куралдар жүктөлгөн жок",
+  "hub_tools_offline_sub": "Интернет байланышын текшерип, кайра аракет кылыңыз.",
+  "hub_tools_retry": "Кайра аракет кылуу",
+  "hub_tools_free_limited": "Акысыз · чектелген"
 }

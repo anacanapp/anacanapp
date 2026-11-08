@@ -10250,5 +10250,10 @@
   "market_admin_dismiss": "უარყოფა",
   "market_admin_hide_listing": "განცხადების დამალვა",
   "market_admin_target_listing": "განცხადება",
-  "market_admin_target_conversation": "მიმოწერა"
+  "market_admin_target_conversation": "მიმოწერა",
+  "hub_tools_loading": "ხელსაწყოები იტვირთება",
+  "hub_tools_offline_title": "ხელსაწყოები ვერ ჩაიტვირთა",
+  "hub_tools_offline_sub": "შეამოწმეთ ინტერნეტთან კავშირი და სცადეთ თავიდან.",
+  "hub_tools_retry": "თავიდან ცდა",
+  "hub_tools_free_limited": "უფასო · შეზღუდული"
 }

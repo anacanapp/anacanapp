@@ -10250,5 +10250,10 @@
   "market_admin_dismiss": "Reddet",
   "market_admin_hide_listing": "İlanı gizle",
   "market_admin_target_listing": "İlan",
-  "market_admin_target_conversation": "Yazışma"
+  "market_admin_target_conversation": "Yazışma",
+  "hub_tools_loading": "Araçlar yükleniyor",
+  "hub_tools_offline_title": "Araçlar yüklenemedi",
+  "hub_tools_offline_sub": "İnternet bağlantınızı kontrol edip tekrar deneyin.",
+  "hub_tools_retry": "Tekrar deneyin",
+  "hub_tools_free_limited": "Ücretsiz · sınırlı"
 }

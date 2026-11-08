@@ -12397,5 +12397,10 @@
   "market_admin_dismiss": "却下",
   "market_admin_hide_listing": "出品を非表示",
   "market_admin_target_listing": "出品",
-  "market_admin_target_conversation": "会話"
+  "market_admin_target_conversation": "会話",
+  "hub_tools_loading": "ツールを読み込み中",
+  "hub_tools_offline_title": "ツールを読み込めませんでした",
+  "hub_tools_offline_sub": "インターネット接続を確認して、もう一度お試しください。",
+  "hub_tools_retry": "再試行",
+  "hub_tools_free_limited": "無料 · 回数制限あり"
 }

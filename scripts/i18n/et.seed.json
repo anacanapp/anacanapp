@@ -12475,5 +12475,10 @@
   "market_admin_dismiss": "Lükka tagasi",
   "market_admin_hide_listing": "Peida kuulutus",
   "market_admin_target_listing": "Kuulutus",
-  "market_admin_target_conversation": "Vestlus"
+  "market_admin_target_conversation": "Vestlus",
+  "hub_tools_loading": "Tööriistade laadimine",
+  "hub_tools_offline_title": "Tööriistu ei õnnestunud laadida",
+  "hub_tools_offline_sub": "Kontrollige internetiühendust ja proovige uuesti.",
+  "hub_tools_retry": "Proovi uuesti",
+  "hub_tools_free_limited": "Tasuta · piiratud"
 }

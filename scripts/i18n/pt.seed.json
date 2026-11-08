@@ -12397,5 +12397,10 @@
   "market_admin_dismiss": "Descartar",
   "market_admin_hide_listing": "Ocultar anúncio",
   "market_admin_target_listing": "Anúncio",
-  "market_admin_target_conversation": "Conversa"
+  "market_admin_target_conversation": "Conversa",
+  "hub_tools_loading": "A carregar ferramentas",
+  "hub_tools_offline_title": "Não foi possível carregar as ferramentas",
+  "hub_tools_offline_sub": "Verifique a sua ligação à internet e tente novamente.",
+  "hub_tools_retry": "Tentar novamente",
+  "hub_tools_free_limited": "Grátis · limitado"
 }

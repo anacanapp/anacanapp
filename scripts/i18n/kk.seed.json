@@ -10250,5 +10250,10 @@
   "market_admin_dismiss": "Қабылдамау",
   "market_admin_hide_listing": "Хабарландыруды жасыру",
   "market_admin_target_listing": "Хабарландыру",
-  "market_admin_target_conversation": "Хат алмасу"
+  "market_admin_target_conversation": "Хат алмасу",
+  "hub_tools_loading": "Құралдар жүктелуде",
+  "hub_tools_offline_title": "Құралдар жүктелмеді",
+  "hub_tools_offline_sub": "Интернет байланысын тексеріп, қайта көріңіз.",
+  "hub_tools_retry": "Қайталау",
+  "hub_tools_free_limited": "Тегін · шектеулі"
 }
