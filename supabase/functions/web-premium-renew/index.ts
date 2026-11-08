@@ -1,4 +1,4 @@
-// web-premium-renew — daily timer for the anacan.az web subscriptions (POST, header x-cron-secret = CRON_SECRET).
+// web-premium-renew — daily timer (and, with {"mode":"nudge"}, the 15-minute abandoned-checkout reminder) for the anacan.az web subscriptions (POST, header x-cron-secret = CRON_SECRET).
 // 1. Housekeeping: cancelled subscriptions whose period ended expire; abandoned checkouts and card registrations close.
 // 2. Every subscription whose next_charge_at has come (one day before the period ends; failed renewals 24 h later),
 //    that is active / past_due and not cancelled, is charged on its saved card with Epoint execute-pay
@@ -11,6 +11,7 @@ import { createClient } from 'npm:@supabase/supabase-js@2';
 import { epointConfig } from '../_shared/epoint.ts';
 import { syncEntitlementForUser } from '../_shared/revenuecat-sync.ts';
 import { sendWebPremiumEmail } from '../_shared/web-premium-email.ts';
+import { runCheckoutNudges } from '../_shared/web-premium-nudge.ts';
 import { applyChargeResult, executeRenewal, isPlan } from '../_shared/web-premium-subscription.ts';
 
 const headers = { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' };
@@ -31,6 +32,13 @@ Deno.serve(async (req) => {
   if (!authorized(req)) return json(401, { error: 'unauthorized' });
   const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
     { auth: { persistSession: false, autoRefreshToken: false } });
+  // 15-minute timer: only the abandoned-checkout reminder (e-mail + push), no charging.
+  const body = await req.json().catch(() => ({}));
+  if (body && body.mode === 'nudge') {
+    const nudges = await runCheckoutNudges(admin);
+    console.log('[web-premium-renew] nudge', JSON.stringify(nudges));
+    return json(200, { mode: 'nudge', ...nudges });
+  }
   const config = await epointConfig(admin);
   if (!config.merchantLive) return json(503, { error: 'payment_merchant_not_live' });
 
