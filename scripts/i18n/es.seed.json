@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "Objetivos en el embarazo: en ayunas menos de {fasting} mg/dL, 1 hora después de comer menos de {after1h} mg/dL, 2 horas después menos de {after2h} mg/dL; menos de {low} mg/dL se considera bajo.",
   "clinical_report_growth_note": "Los percentiles se basan en los Patrones de Crecimiento Infantil de la OMS (0-5 años).",
   "clinical_report_growth_head_pct": "Percentil del perímetro cefálico (OMS)",
-  "clinical_report_growth_head": "Perímetro cefálico, cm (P)"
+  "clinical_report_growth_head": "Perímetro cefálico, cm (P)",
+  "sleepvax_vax_soon_title": "Se acerca una vacuna",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} toca en 3 días.",
+  "sleepvax_vax_today_title": "Hoy toca vacuna",
+  "sleepvax_vax_today_body": "{child}: {vaccine} está prevista para hoy.",
+  "sleepvax_vax_overdue_title": "Vacuna atrasada",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} aún no está marcada como puesta. Habla con tu médico sobre una nueva fecha.",
+  "sleepvax_vax_reminders_title": "Recordatorios de vacunas",
+  "sleepvax_vax_reminders_sub": "3 días antes de cada dosis y el mismo día, a las 10:00",
+  "sleepvax_vax_reminders_denied": "Las notificaciones están desactivadas en los ajustes del teléfono."
 }

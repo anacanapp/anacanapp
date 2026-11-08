@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "गर्भावस्था के लक्ष्य: खाली पेट {fasting} mg/dL से कम, भोजन के 1 घंटे बाद {after1h} mg/dL से कम, 2 घंटे बाद {after2h} mg/dL से कम; {low} mg/dL से कम को कम माना जाता है।",
   "clinical_report_growth_note": "पर्सेंटाइल WHO बाल वृद्धि मानकों (0-5 वर्ष) पर आधारित हैं।",
   "clinical_report_growth_head_pct": "सिर की परिधि का पर्सेंटाइल (WHO)",
-  "clinical_report_growth_head": "सिर की परिधि, सेमी (P)"
+  "clinical_report_growth_head": "सिर की परिधि, सेमी (P)",
+  "sleepvax_vax_soon_title": "टीका जल्द ही है",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} 3 दिन बाद है।",
+  "sleepvax_vax_today_title": "आज टीके का दिन है",
+  "sleepvax_vax_today_body": "{child}: {vaccine} आज के लिए तय है।",
+  "sleepvax_vax_overdue_title": "टीके का समय निकल गया",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} अभी तक दर्ज नहीं है। नई तारीख के लिए अपने डॉक्टर से बात करें।",
+  "sleepvax_vax_reminders_title": "टीके के रिमाइंडर",
+  "sleepvax_vax_reminders_sub": "हर खुराक से 3 दिन पहले और उसी दिन, सुबह 10:00 बजे",
+  "sleepvax_vax_reminders_denied": "फ़ोन की सेटिंग में सूचनाएँ बंद हैं।"
 }

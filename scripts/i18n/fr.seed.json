@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "Objectifs pendant la grossesse : à jeun moins de {fasting} mg/dL, 1 h après le repas moins de {after1h} mg/dL, 2 h après moins de {after2h} mg/dL ; moins de {low} mg/dL est considéré comme bas.",
   "clinical_report_growth_note": "Les percentiles reposent sur les normes de croissance de l’enfant de l’OMS (0-5 ans).",
   "clinical_report_growth_head_pct": "Percentile du périmètre crânien (OMS)",
-  "clinical_report_growth_head": "Périmètre crânien, cm (P)"
+  "clinical_report_growth_head": "Périmètre crânien, cm (P)",
+  "sleepvax_vax_soon_title": "Vaccin à venir",
+  "sleepvax_vax_soon_body": "{child} : {vaccine} est prévu dans 3 jours.",
+  "sleepvax_vax_today_title": "Aujourd'hui, c'est le jour du vaccin",
+  "sleepvax_vax_today_body": "{child} : {vaccine} est prévu aujourd'hui.",
+  "sleepvax_vax_overdue_title": "Vaccin en retard",
+  "sleepvax_vax_overdue_body": "{child} : {vaccine} n'est pas encore marqué comme fait. Parlez-en à votre médecin pour fixer une nouvelle date.",
+  "sleepvax_vax_reminders_title": "Rappels de vaccins",
+  "sleepvax_vax_reminders_sub": "3 jours avant chaque dose et le jour même, à 10 h",
+  "sleepvax_vax_reminders_denied": "Les notifications sont désactivées dans les réglages du téléphone."
 }

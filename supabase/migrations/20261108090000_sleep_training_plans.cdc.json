@@ -1,0 +1,16 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261108090000_sleep_training_plans.sql",
+  "runtime": "google-sleep-training",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the new relation is registered in guarded_relations with the three standard triggers (the migration refuses without the guard catalog, public.partner_can_see_v1(uuid, text) or public.user_children and verifies 1 relation / 3 triggers)",
+  "preserve": [
+    "cron0, no timer added: sleep-training sync runs from the app",
+    "8 enabled business timers",
+    "public.partner_can_see_v1 and partner_sharing_settings unchanged (read-only use of the baby_logs switch)"
+  ],
+  "relations": [
+    { "relation": "public.sleep_training_plans", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "one row per (owner user_id, child_id): sleep-training plan jsonb (wake time, method, 14-day ratings, routine and night wake-ups of 30 days, safety checklist, running timer), updated_at; RLS owner full access with child ownership check, linked partner SELECT via partner_can_see_v1(user_id, 'baby_logs'); device-first newest-wins sync in the app" }
+  ],
+  "functions": []
+}

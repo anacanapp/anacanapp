@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "임신 중 목표: 공복 {fasting} mg/dL 미만, 식후 1시간 {after1h} mg/dL 미만, 식후 2시간 {after2h} mg/dL 미만; {low} mg/dL 미만은 낮은 수치로 봅니다.",
   "clinical_report_growth_note": "백분위수는 WHO 아동 성장 표준(0-5세)을 기준으로 합니다.",
   "clinical_report_growth_head_pct": "머리둘레 백분위수 (WHO)",
-  "clinical_report_growth_head": "머리둘레, cm (P)"
+  "clinical_report_growth_head": "머리둘레, cm (P)",
+  "sleepvax_vax_soon_title": "예방접종이 다가와요",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} 접종이 3일 남았어요.",
+  "sleepvax_vax_today_title": "오늘은 예방접종 날이에요",
+  "sleepvax_vax_today_body": "{child}: {vaccine} 접종이 오늘 예정되어 있어요.",
+  "sleepvax_vax_overdue_title": "예방접종 시기가 지났어요",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} 접종이 아직 기록되지 않았어요. 새 날짜는 의사와 상의해 주세요.",
+  "sleepvax_vax_reminders_title": "예방접종 알림",
+  "sleepvax_vax_reminders_sub": "각 접종 3일 전과 당일 오전 10:00",
+  "sleepvax_vax_reminders_denied": "휴대폰 설정에서 알림이 꺼져 있어요."
 }

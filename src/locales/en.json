@@ -10171,5 +10171,14 @@
   "clinical_report_sugar_targets": "Pregnancy targets: fasting below {fasting} mg/dL, 1 hour after a meal below {after1h} mg/dL, 2 hours after below {after2h} mg/dL; below {low} mg/dL counts as low.",
   "clinical_report_growth_note": "Percentiles are based on the WHO Child Growth Standards (0-5 years).",
   "clinical_report_growth_head_pct": "Head circumference percentile (WHO)",
-  "clinical_report_growth_head": "Head circumference, cm (P)"
+  "clinical_report_growth_head": "Head circumference, cm (P)",
+  "sleepvax_vax_soon_title": "Vaccine coming up",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} is due in 3 days.",
+  "sleepvax_vax_today_title": "Vaccine day today",
+  "sleepvax_vax_today_body": "{child}: {vaccine} is planned for today.",
+  "sleepvax_vax_overdue_title": "Vaccine overdue",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} is not marked as given yet. Talk to your doctor about a new date.",
+  "sleepvax_vax_reminders_title": "Vaccine reminders",
+  "sleepvax_vax_reminders_sub": "3 days before each dose and on the day, at 10:00",
+  "sleepvax_vax_reminders_denied": "Notifications are turned off in your phone settings."
 }

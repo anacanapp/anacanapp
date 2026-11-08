@@ -10182,5 +10182,14 @@
   "clinical_report_sugar_targets": "Homiladorlikdagi maqsadlar: och qoringa {fasting} mg/dL dan past, ovqatdan 1 soat keyin {after1h} mg/dL dan past, 2 soat keyin {after2h} mg/dL dan past; {low} mg/dL dan past qiymat past hisoblanadi.",
   "clinical_report_growth_note": "Persentillar JSST bolalar o‘sish standartlariga asoslangan (0-5 yosh).",
   "clinical_report_growth_head_pct": "Bosh aylanasi persentili (JSST)",
-  "clinical_report_growth_head": "Bosh aylanasi, sm (P)"
+  "clinical_report_growth_head": "Bosh aylanasi, sm (P)",
+  "sleepvax_vax_soon_title": "Emlash yaqinlashmoqda",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} 3 kundan keyin.",
+  "sleepvax_vax_today_title": "Bugun emlash kuni",
+  "sleepvax_vax_today_body": "{child}: {vaccine} bugunga rejalashtirilgan.",
+  "sleepvax_vax_overdue_title": "Emlash muddati o‘tdi",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} hali belgilanmagan. Yangi sana haqida shifokoringiz bilan gaplashing.",
+  "sleepvax_vax_reminders_title": "Emlash eslatmalari",
+  "sleepvax_vax_reminders_sub": "Har bir dozadan 3 kun oldin va o‘sha kuni, soat 10:00 da",
+  "sleepvax_vax_reminders_denied": "Bildirishnomalar telefon sozlamalarida o‘chirilgan."
 }

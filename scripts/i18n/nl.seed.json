@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "Streefwaarden in de zwangerschap: nuchter onder {fasting} mg/dL, 1 uur na de maaltijd onder {after1h} mg/dL, 2 uur na de maaltijd onder {after2h} mg/dL; onder {low} mg/dL geldt als laag.",
   "clinical_report_growth_note": "Percentielen zijn gebaseerd op de WHO-groeistandaarden voor kinderen (0-5 jaar).",
   "clinical_report_growth_head_pct": "Percentiel hoofdomtrek (WHO)",
-  "clinical_report_growth_head": "Hoofdomtrek, cm (P)"
+  "clinical_report_growth_head": "Hoofdomtrek, cm (P)",
+  "sleepvax_vax_soon_title": "Vaccinatie komt eraan",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} staat over 3 dagen gepland.",
+  "sleepvax_vax_today_title": "Vandaag is het vaccinatiedag",
+  "sleepvax_vax_today_body": "{child}: {vaccine} staat voor vandaag gepland.",
+  "sleepvax_vax_overdue_title": "Vaccinatie is te laat",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} is nog niet als gegeven gemarkeerd. Overleg met je arts over een nieuwe datum.",
+  "sleepvax_vax_reminders_title": "Vaccinatieherinneringen",
+  "sleepvax_vax_reminders_sub": "3 dagen voor elke dosis en op de dag zelf, om 10:00",
+  "sleepvax_vax_reminders_denied": "Meldingen staan uit in de instellingen van je telefoon."
 }

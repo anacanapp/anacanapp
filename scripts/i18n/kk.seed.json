@@ -10182,5 +10182,14 @@
   "clinical_report_sugar_targets": "Жүктілік кезіндегі мақсаттар: аш қарынға {fasting} mg/dL төмен, тамақтан 1 сағат кейін {after1h} mg/dL төмен, 2 сағат кейін {after2h} mg/dL төмен; {low} mg/dL төмен мән төмен саналады.",
   "clinical_report_growth_note": "Перцентильдер ДДСҰ балалардың өсу стандарттарына негізделген (0-5 жас).",
   "clinical_report_growth_head_pct": "Бас шеңберінің перцентилі (ДДСҰ)",
-  "clinical_report_growth_head": "Бас шеңбері, см (P)"
+  "clinical_report_growth_head": "Бас шеңбері, см (P)",
+  "sleepvax_vax_soon_title": "Екпе жақындап келеді",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} 3 күннен кейін.",
+  "sleepvax_vax_today_title": "Бүгін екпе күні",
+  "sleepvax_vax_today_body": "{child}: {vaccine} бүгінге жоспарланған.",
+  "sleepvax_vax_overdue_title": "Екпе мерзімі өтіп кетті",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} әлі белгіленбеген. Жаңа күн туралы дәрігеріңізбен сөйлесіңіз.",
+  "sleepvax_vax_reminders_title": "Екпе туралы еске салғыштар",
+  "sleepvax_vax_reminders_sub": "Әр дозадан 3 күн бұрын және сол күні, сағат 10:00-де",
+  "sleepvax_vax_reminders_denied": "Хабарландырулар телефон баптауларында өшірулі."
 }

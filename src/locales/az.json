@@ -8679,5 +8679,14 @@
   "clinical_report_sugar_targets": "Hamiləlik hədəfləri: aclıq {fasting} mg/dL-dən aşağı, yeməkdən 1 saat sonra {after1h} mg/dL-dən aşağı, 2 saat sonra {after2h} mg/dL-dən aşağı; {low} mg/dL-dən aşağı dəyər aşağı sayılır.",
   "clinical_report_growth_note": "Persentillər ÜST uşaq böyümə standartlarına əsaslanır (0-5 yaş).",
   "clinical_report_growth_head_pct": "Baş çevrəsi persentili (ÜST)",
-  "clinical_report_growth_head": "Baş çevrəsi, cm (P)"
+  "clinical_report_growth_head": "Baş çevrəsi, cm (P)",
+  "sleepvax_vax_soon_title": "Peyvənd yaxınlaşır",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} 3 gün sonradır.",
+  "sleepvax_vax_today_title": "Bu gün peyvənd günüdür",
+  "sleepvax_vax_today_body": "{child}: {vaccine} bu gün üçün planlanıb.",
+  "sleepvax_vax_overdue_title": "Peyvənd vaxtı keçib",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} hələ qeyd olunmayıb. Yeni tarix üçün həkiminizlə danışın.",
+  "sleepvax_vax_reminders_title": "Peyvənd xatırlatmaları",
+  "sleepvax_vax_reminders_sub": "Doza tarixindən 3 gün əvvəl və həmin gün, saat 10:00-da",
+  "sleepvax_vax_reminders_denied": "Bildirişlər telefonun ayarlarında bağlıdır."
 }

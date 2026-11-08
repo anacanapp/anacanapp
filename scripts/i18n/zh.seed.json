@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "孕期目标：空腹低于{fasting} mg/dL，餐后1小时低于{after1h} mg/dL，餐后2小时低于{after2h} mg/dL；低于{low} mg/dL视为偏低。",
   "clinical_report_growth_note": "百分位数基于世界卫生组织儿童生长标准（0-5岁）。",
   "clinical_report_growth_head_pct": "头围百分位（WHO）",
-  "clinical_report_growth_head": "头围，cm（P）"
+  "clinical_report_growth_head": "头围，cm（P）",
+  "sleepvax_vax_soon_title": "疫苗接种临近",
+  "sleepvax_vax_soon_body": "{child}：{vaccine} 将在 3 天后接种。",
+  "sleepvax_vax_today_title": "今天是疫苗接种日",
+  "sleepvax_vax_today_body": "{child}：{vaccine} 安排在今天。",
+  "sleepvax_vax_overdue_title": "疫苗接种已逾期",
+  "sleepvax_vax_overdue_body": "{child}：{vaccine} 尚未标记为已接种。请与医生商定新的日期。",
+  "sleepvax_vax_reminders_title": "疫苗接种提醒",
+  "sleepvax_vax_reminders_sub": "每剂前 3 天和当天的 10:00",
+  "sleepvax_vax_reminders_denied": "手机设置中已关闭通知。"
 }

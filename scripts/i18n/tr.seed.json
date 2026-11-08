@@ -10182,5 +10182,14 @@
   "clinical_report_sugar_targets": "Gebelik hedefleri: açlık {fasting} mg/dL altı, yemekten 1 saat sonra {after1h} mg/dL altı, 2 saat sonra {after2h} mg/dL altı; {low} mg/dL altı düşük sayılır.",
   "clinical_report_growth_note": "Persentiller DSÖ Çocuk Büyüme Standartlarına dayanır (0-5 yaş).",
   "clinical_report_growth_head_pct": "Baş çevresi persentili (DSÖ)",
-  "clinical_report_growth_head": "Baş çevresi, cm (P)"
+  "clinical_report_growth_head": "Baş çevresi, cm (P)",
+  "sleepvax_vax_soon_title": "Aşı yaklaşıyor",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} 3 gün sonra.",
+  "sleepvax_vax_today_title": "Bugün aşı günü",
+  "sleepvax_vax_today_body": "{child}: {vaccine} bugün için planlandı.",
+  "sleepvax_vax_overdue_title": "Aşının zamanı geçti",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} henüz yapıldı olarak işaretlenmedi. Yeni bir tarih için lütfen doktorunuzla görüşün.",
+  "sleepvax_vax_reminders_title": "Aşı hatırlatıcıları",
+  "sleepvax_vax_reminders_sub": "Her dozdan 3 gün önce ve dozun günü, saat 10:00'da",
+  "sleepvax_vax_reminders_denied": "Bildirimler telefonunuzun ayarlarında kapalı."
 }

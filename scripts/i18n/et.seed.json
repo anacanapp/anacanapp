@@ -12407,5 +12407,14 @@
   "clinical_report_sugar_targets": "Sihtväärtused raseduse ajal: tühja kõhuga alla {fasting} mg/dL, 1 tund pärast sööki alla {after1h} mg/dL, 2 tundi pärast alla {after2h} mg/dL; alla {low} mg/dL loetakse madalaks.",
   "clinical_report_growth_note": "Protsentiilid põhinevad WHO laste kasvustandarditel (0-5 aastat).",
   "clinical_report_growth_head_pct": "Peaümbermõõdu protsentiil (WHO)",
-  "clinical_report_growth_head": "Peaümbermõõt, cm (P)"
+  "clinical_report_growth_head": "Peaümbermõõt, cm (P)",
+  "sleepvax_vax_soon_title": "Vaktsineerimine on tulekul",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} on 3 päeva pärast.",
+  "sleepvax_vax_today_title": "Täna on vaktsineerimise päev",
+  "sleepvax_vax_today_body": "{child}: {vaccine} on planeeritud tänaseks.",
+  "sleepvax_vax_overdue_title": "Vaktsineerimise aeg on möödas",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} pole veel tehtuks märgitud. Rääkige uue aja osas oma arstiga.",
+  "sleepvax_vax_reminders_title": "Vaktsineerimise meeldetuletused",
+  "sleepvax_vax_reminders_sub": "3 päeva enne iga doosi ja samal päeval kell 10:00",
+  "sleepvax_vax_reminders_denied": "Teavitused on telefoni seadetes välja lülitatud."
 }

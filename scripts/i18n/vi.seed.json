@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "Mục tiêu khi mang thai: lúc đói dưới {fasting} mg/dL, 1 giờ sau ăn dưới {after1h} mg/dL, 2 giờ sau ăn dưới {after2h} mg/dL; dưới {low} mg/dL được coi là thấp.",
   "clinical_report_growth_note": "Bách phân vị dựa trên Chuẩn tăng trưởng trẻ em của WHO (0-5 tuổi).",
   "clinical_report_growth_head_pct": "Bách phân vị vòng đầu (WHO)",
-  "clinical_report_growth_head": "Vòng đầu, cm (P)"
+  "clinical_report_growth_head": "Vòng đầu, cm (P)",
+  "sleepvax_vax_soon_title": "Sắp đến lịch tiêm",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} còn 3 ngày nữa.",
+  "sleepvax_vax_today_title": "Hôm nay là ngày tiêm",
+  "sleepvax_vax_today_body": "{child}: {vaccine} được lên lịch hôm nay.",
+  "sleepvax_vax_overdue_title": "Đã quá lịch tiêm",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} chưa được đánh dấu là đã tiêm. Hãy trao đổi với bác sĩ để hẹn ngày mới.",
+  "sleepvax_vax_reminders_title": "Nhắc lịch tiêm",
+  "sleepvax_vax_reminders_sub": "3 ngày trước mỗi mũi và vào ngày tiêm, lúc 10:00",
+  "sleepvax_vax_reminders_denied": "Thông báo đang tắt trong cài đặt điện thoại."
 }

@@ -12407,5 +12407,14 @@
   "clinical_report_sugar_targets": "Кош бойлуулуктагы максаттар: ач карынга {fasting} mg/dL төмөн, тамактан 1 саат кийин {after1h} mg/dL төмөн, 2 саат кийин {after2h} mg/dL төмөн; {low} mg/dL төмөн маани төмөн деп эсептелет.",
   "clinical_report_growth_note": "Перцентилдер ДССУнун балдардын өсүү стандарттарына негизделген (0-5 жаш).",
   "clinical_report_growth_head_pct": "Баш айланасынын перцентили (ДССУ)",
-  "clinical_report_growth_head": "Баш айланасы, см (P)"
+  "clinical_report_growth_head": "Баш айланасы, см (P)",
+  "sleepvax_vax_soon_title": "Эмдөө жакындап калды",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} 3 күндөн кийин.",
+  "sleepvax_vax_today_title": "Бүгүн эмдөө күнү",
+  "sleepvax_vax_today_body": "{child}: {vaccine} бүгүнгө пландалган.",
+  "sleepvax_vax_overdue_title": "Эмдөө мөөнөтү өтүп кетти",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} азырынча белгиленген жок. Жаңы күн боюнча дарыгериңиз менен сүйлөшүңүз.",
+  "sleepvax_vax_reminders_title": "Эмдөө эскертмелери",
+  "sleepvax_vax_reminders_sub": "Ар бир дозадан 3 күн мурун жана ошол күнү, саат 10:00дө",
+  "sleepvax_vax_reminders_denied": "Билдирмелер телефондун жөндөөлөрүндө өчүрүлгөн."
 }

@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "Wartości docelowe w ciąży: na czczo poniżej {fasting} mg/dL, 1 godzinę po posiłku poniżej {after1h} mg/dL, 2 godziny po posiłku poniżej {after2h} mg/dL; poniżej {low} mg/dL to wartość niska.",
   "clinical_report_growth_note": "Centyle opierają się na standardach wzrastania dzieci WHO (0-5 lat).",
   "clinical_report_growth_head_pct": "Centyl obwodu głowy (WHO)",
-  "clinical_report_growth_head": "Obwód głowy, cm (P)"
+  "clinical_report_growth_head": "Obwód głowy, cm (P)",
+  "sleepvax_vax_soon_title": "Zbliża się szczepienie",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} za 3 dni.",
+  "sleepvax_vax_today_title": "Dziś dzień szczepienia",
+  "sleepvax_vax_today_body": "{child}: {vaccine} zaplanowano na dziś.",
+  "sleepvax_vax_overdue_title": "Termin szczepienia minął",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} nie jest jeszcze oznaczone jako podane. Porozmawiaj z lekarzem o nowym terminie.",
+  "sleepvax_vax_reminders_title": "Przypomnienia o szczepieniach",
+  "sleepvax_vax_reminders_sub": "3 dni przed każdą dawką i w dniu dawki, o 10:00",
+  "sleepvax_vax_reminders_denied": "Powiadomienia są wyłączone w ustawieniach telefonu."
 }

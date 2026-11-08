@@ -10182,5 +10182,14 @@
   "clinical_report_sugar_targets": "أهداف الحمل: صائم أقل من {fasting} mg/dL، بعد ساعة من الوجبة أقل من {after1h} mg/dL، بعد ساعتين أقل من {after2h} mg/dL؛ ما دون {low} mg/dL يعد منخفضًا.",
   "clinical_report_growth_note": "تستند المئينات إلى معايير نمو الطفل لمنظمة الصحة العالمية (0-5 سنوات).",
   "clinical_report_growth_head_pct": "مئين محيط الرأس (منظمة الصحة العالمية)",
-  "clinical_report_growth_head": "محيط الرأس، سم (P)"
+  "clinical_report_growth_head": "محيط الرأس، سم (P)",
+  "sleepvax_vax_soon_title": "موعد التطعيم يقترب",
+  "sleepvax_vax_soon_body": "{child}: موعد {vaccine} بعد 3 أيام.",
+  "sleepvax_vax_today_title": "اليوم موعد التطعيم",
+  "sleepvax_vax_today_body": "{child}: {vaccine} مقرر لليوم.",
+  "sleepvax_vax_overdue_title": "فات موعد التطعيم",
+  "sleepvax_vax_overdue_body": "{child}: لم يُسجَّل {vaccine} بعد. تحدثي مع طبيبك لتحديد موعد جديد.",
+  "sleepvax_vax_reminders_title": "تذكيرات التطعيم",
+  "sleepvax_vax_reminders_sub": "قبل كل جرعة بـ 3 أيام وفي يومها، الساعة 10:00",
+  "sleepvax_vax_reminders_denied": "الإشعارات متوقفة في إعدادات الهاتف."
 }

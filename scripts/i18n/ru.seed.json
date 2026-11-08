@@ -10182,5 +10182,14 @@
   "clinical_report_sugar_targets": "Цели при беременности: натощак ниже {fasting} мг/дл, через 1 час после еды ниже {after1h} мг/дл, через 2 часа ниже {after2h} мг/дл; ниже {low} мг/дл считается низким.",
   "clinical_report_growth_note": "Перцентили основаны на стандартах роста детей ВОЗ (0-5 лет).",
   "clinical_report_growth_head_pct": "Перцентиль окружности головы (ВОЗ)",
-  "clinical_report_growth_head": "Окружность головы, см (P)"
+  "clinical_report_growth_head": "Окружность головы, см (P)",
+  "sleepvax_vax_soon_title": "Скоро прививка",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} через 3 дня.",
+  "sleepvax_vax_today_title": "Сегодня день прививки",
+  "sleepvax_vax_today_body": "{child}: {vaccine} запланирована на сегодня.",
+  "sleepvax_vax_overdue_title": "Срок прививки прошёл",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} ещё не отмечена. Пожалуйста, обсудите новую дату с вашим врачом.",
+  "sleepvax_vax_reminders_title": "Напоминания о прививках",
+  "sleepvax_vax_reminders_sub": "За 3 дня до каждой дозы и в сам день, в 10:00",
+  "sleepvax_vax_reminders_denied": "Уведомления отключены в настройках телефона."
 }

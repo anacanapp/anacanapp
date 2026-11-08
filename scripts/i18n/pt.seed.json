@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "Valores-alvo na gravidez: em jejum abaixo de {fasting} mg/dL, 1 hora após a refeição abaixo de {after1h} mg/dL, 2 horas após abaixo de {after2h} mg/dL; abaixo de {low} mg/dL é considerado baixo.",
   "clinical_report_growth_note": "Os percentis baseiam-se nos Padrões de Crescimento Infantil da OMS (0-5 anos).",
   "clinical_report_growth_head_pct": "Percentil do perímetro cefálico (OMS)",
-  "clinical_report_growth_head": "Perímetro cefálico, cm (P)"
+  "clinical_report_growth_head": "Perímetro cefálico, cm (P)",
+  "sleepvax_vax_soon_title": "Vacina se aproximando",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} está prevista para daqui a 3 dias.",
+  "sleepvax_vax_today_title": "Hoje é dia de vacina",
+  "sleepvax_vax_today_body": "{child}: {vaccine} está prevista para hoje.",
+  "sleepvax_vax_overdue_title": "Vacina em atraso",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} ainda não foi marcada como aplicada. Fale com o seu médico sobre uma nova data.",
+  "sleepvax_vax_reminders_title": "Lembretes de vacinas",
+  "sleepvax_vax_reminders_sub": "3 dias antes de cada dose e no próprio dia, às 10:00",
+  "sleepvax_vax_reminders_denied": "As notificações estão desativadas nas definições do telemóvel."
 }

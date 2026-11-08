@@ -10182,5 +10182,14 @@
   "clinical_report_sugar_targets": "ორსულობის მიზნები: უზმოზე {fasting} mg/dL-ზე ნაკლები, ჭამიდან 1 საათში {after1h} mg/dL-ზე ნაკლები, 2 საათში {after2h} mg/dL-ზე ნაკლები; {low} mg/dL-ზე ნაკლები დაბალად ითვლება.",
   "clinical_report_growth_note": "პერცენტილები ეფუძნება ჯანმოს ბავშვთა ზრდის სტანდარტებს (0-5 წელი).",
   "clinical_report_growth_head_pct": "თავის გარშემოწერილობის პერცენტილი (ჯანმო)",
-  "clinical_report_growth_head": "თავის გარშემოწერილობა, სმ (P)"
+  "clinical_report_growth_head": "თავის გარშემოწერილობა, სმ (P)",
+  "sleepvax_vax_soon_title": "ვაქცინაცია ახლოვდება",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} 3 დღეში.",
+  "sleepvax_vax_today_title": "დღეს ვაქცინაციის დღეა",
+  "sleepvax_vax_today_body": "{child}: {vaccine} დაგეგმილია დღეისთვის.",
+  "sleepvax_vax_overdue_title": "ვაქცინაციის ვადა გავიდა",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} ჯერ არ არის მონიშნული. ახალ თარიღზე ესაუბრეთ თქვენს ექიმს.",
+  "sleepvax_vax_reminders_title": "ვაქცინაციის შეხსენებები",
+  "sleepvax_vax_reminders_sub": "ყოველი დოზიდან 3 დღით ადრე და იმავე დღეს, 10:00-ზე",
+  "sleepvax_vax_reminders_denied": "შეტყობინებები გამორთულია ტელეფონის პარამეტრებში."
 }

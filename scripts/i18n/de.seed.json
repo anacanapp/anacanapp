@@ -10182,5 +10182,14 @@
   "clinical_report_sugar_targets": "Zielwerte in der Schwangerschaft: nüchtern unter {fasting} mg/dL, 1 Stunde nach dem Essen unter {after1h} mg/dL, nach 2 Stunden unter {after2h} mg/dL; unter {low} mg/dL gilt als niedrig.",
   "clinical_report_growth_note": "Die Perzentilen beruhen auf den WHO-Wachstumsstandards für Kinder (0-5 Jahre).",
   "clinical_report_growth_head_pct": "Kopfumfang-Perzentile (WHO)",
-  "clinical_report_growth_head": "Kopfumfang, cm (P)"
+  "clinical_report_growth_head": "Kopfumfang, cm (P)",
+  "sleepvax_vax_soon_title": "Impfung steht bald an",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} ist in 3 Tagen fällig.",
+  "sleepvax_vax_today_title": "Heute ist Impftag",
+  "sleepvax_vax_today_body": "{child}: {vaccine} ist für heute geplant.",
+  "sleepvax_vax_overdue_title": "Impfung überfällig",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} ist noch nicht als erledigt markiert. Sprechen Sie mit Ihrer Ärztin oder Ihrem Arzt über einen neuen Termin.",
+  "sleepvax_vax_reminders_title": "Impferinnerungen",
+  "sleepvax_vax_reminders_sub": "3 Tage vor jeder Dosis und am Tag selbst, um 10:00 Uhr",
+  "sleepvax_vax_reminders_denied": "Mitteilungen sind in den Telefoneinstellungen ausgeschaltet."
 }

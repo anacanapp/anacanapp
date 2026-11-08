@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "Målvärden under graviditeten: fastande under {fasting} mg/dL, 1 timme efter måltid under {after1h} mg/dL, 2 timmar efter under {after2h} mg/dL; under {low} mg/dL räknas som lågt.",
   "clinical_report_growth_note": "Percentilerna bygger på WHO:s tillväxtstandarder för barn (0-5 år).",
   "clinical_report_growth_head_pct": "Percentil huvudomfång (WHO)",
-  "clinical_report_growth_head": "Huvudomfång, cm (P)"
+  "clinical_report_growth_head": "Huvudomfång, cm (P)",
+  "sleepvax_vax_soon_title": "Vaccination snart",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} om 3 dagar.",
+  "sleepvax_vax_today_title": "Vaccinationsdag i dag",
+  "sleepvax_vax_today_body": "{child}: {vaccine} är planerad till i dag.",
+  "sleepvax_vax_overdue_title": "Vaccinationen är försenad",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} är inte markerad som given än. Prata med din läkare om ett nytt datum.",
+  "sleepvax_vax_reminders_title": "Vaccinationspåminnelser",
+  "sleepvax_vax_reminders_sub": "3 dagar före varje dos och samma dag, kl. 10:00",
+  "sleepvax_vax_reminders_denied": "Aviseringar är avstängda i telefonens inställningar."
 }

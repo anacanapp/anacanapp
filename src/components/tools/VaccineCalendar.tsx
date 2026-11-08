@@ -1,4 +1,4 @@
-import { tr, getPersistedLanguage } from "@/lib/tr";
+import { tr, formatTr, getPersistedLanguage } from "@/lib/tr";
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import { getLocaleTag } from '@/lib/i18n';
@@ -7,10 +7,14 @@ import { useAuth } from '@/hooks/useAuth';
 import { localizedCountryName } from '@/lib/app-languages';
 import { regionalText } from '@/lib/regional-i18n';
 import { regionalCountry, vaccineEligible, vaccineStatus, vaccineTiming } from '@/lib/vaccine-schedule';
+import { Capacitor } from '@capacitor/core';
+import {
+  setVaccineRemindersEnabled, syncVaccineReminders, vaccineDueDate, vaccineReminderSlots, vaccineRemindersEnabled,
+  vaccineSlotsKey, type VaccineReminderResult } from '@/lib/vaccine-reminders';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft, Syringe, CheckCircle2, Clock, AlertTriangle, Ban,
-  Info, Globe, ExternalLink, X, Calendar as CalendarIcon, Sparkles, ChevronDown } from
+  Info, Globe, ExternalLink, X, Calendar as CalendarIcon, Sparkles, ChevronDown, Bell } from
 'lucide-react';
 import { useChildren } from '@/hooks/useChildren';
 import {
@@ -143,8 +147,8 @@ export default function VaccineCalendar({ onBack }: Props) {
   const effectiveCountry = countryOverride && countryOverride.childId === selectedChild?.id ? countryOverride.code
     : regionalCountry(lang, selectedChild?.vaccine_country_code, profile?.country_code, storedCountry, selectedChild?.country_code);
 
-  const { data: schedule = [], isLoading: schedLoading, error: scheduleError, refetch: refetchSchedule } = useVaccineScheduleForCountry(effectiveCountry);
-  const { data: logs = [] } = useChildVaccinations(selectedChild?.id || null);
+  const { data: schedule = [], isLoading: schedLoading, error: scheduleError, refetch: refetchSchedule, isSuccess: scheduleReady } = useVaccineScheduleForCountry(effectiveCountry);
+  const { data: logs = [], isSuccess: logsReady } = useChildVaccinations(selectedChild?.id || null);
   const upsert = useUpsertChildVaccination();
   const del = useDeleteChildVaccination();
 
@@ -172,6 +176,37 @@ export default function VaccineCalendar({ onBack }: Props) {
     });
   }, [schedule, logs, selectedChild]);
   const detailRow = rowsWithStatus.find(item => item.row.id === detailRowId)?.row || null;
+
+  // Local reminders (native only) for the selected child's upcoming and overdue doses; rescheduled when the
+  // plan, the child, the language or the switch changes. Waits until both the schedule and the child's logs
+  // are loaded, so done doses are never reminded about.
+  const remindersSupported = Capacitor.isNativePlatform();
+  const [remindersOn, setRemindersOn] = useState(vaccineRemindersEnabled);
+  const [reminderResult, setReminderResult] = useState<VaccineReminderResult | null>(null);
+  const reminderKey = useRef('');
+  useEffect(() => {
+    if (!remindersSupported || !selectedChild || !scheduleReady || !logsReady) return;
+    const childName = selectedChild.name;
+    const logMap = new Map(logs.map((l) => [l.vaccine_schedule_id, l]));
+    const doses = rowsWithStatus.map(({ row, status }) => ({ id: row.id, status, due: vaccineDueDate(row, selectedChild.birth_date, logMap) }));
+    const slots = remindersOn ? vaccineReminderSlots(doses) : [];
+    const key = vaccineSlotsKey(slots, `${remindersOn}:${lang}:${selectedChild.id}:${childName}`);
+    if (reminderKey.current === key) return;
+    reminderKey.current = key;
+    const byId = new Map(rowsWithStatus.map(({ row }) => [row.id, row]));
+    void syncVaccineReminders(slots, (slot) => {
+      const row = byId.get(slot.doseId);
+      const vars = { child: childName, vaccine: row ? `${translateVaccineLabel(row.vaccine.name, lang)} (${translateVaccineLabel(row.dose_label, lang)})` : '' };
+      if (slot.kind === 'soon') return { title: tr('sleepvax_vax_soon_title', 'Peyvənd yaxınlaşır'), body: formatTr('sleepvax_vax_soon_body', '{child}: {vaccine} 3 gün sonradır.', vars) };
+      if (slot.kind === 'today') return { title: tr('sleepvax_vax_today_title', 'Bu gün peyvənd günüdür'), body: formatTr('sleepvax_vax_today_body', '{child}: {vaccine} bu gün üçün planlanıb.', vars) };
+      return { title: tr('sleepvax_vax_overdue_title', 'Peyvənd vaxtı keçib'), body: formatTr('sleepvax_vax_overdue_body', '{child}: {vaccine} hələ qeyd olunmayıb. Yeni tarix üçün həkiminizlə danışın.', vars) };
+    }).then(setReminderResult);
+  }, [remindersSupported, selectedChild, scheduleReady, logsReady, logs, rowsWithStatus, remindersOn, lang]);
+  const toggleReminders = () => {
+    const next = !remindersOn;
+    setVaccineRemindersEnabled(next);
+    setRemindersOn(next);
+  };
 
   const stats = useMemo(() => {
     const routine = rowsWithStatus.filter(x => !vaccineTiming(x.row) || vaccineTiming(x.row)?.kind === 'routine');
@@ -375,6 +410,23 @@ export default function VaccineCalendar({ onBack }: Props) {
             </p>
           }
         </div>
+
+        {remindersSupported &&
+        <div style={{ marginTop: 12 }}>
+            <button type="button" role="switch" aria-checked={remindersOn} className="a3-switch-row" data-testid="vaccine-reminders" onClick={toggleReminders}>
+              <Bell size={18} strokeWidth={2.2} aria-hidden="true" style={{ color: 'var(--a-peach-2)', flexShrink: 0 }} />
+              <span className="grow">
+                <span className="a3-switch-title" style={{ fontSize: 14 }}>{tr('sleepvax_vax_reminders_title', 'Peyvənd xatırlatmaları')}</span>
+                <span className="a-list-sub" style={{ margin: 0, whiteSpace: 'normal' }}>
+                  {remindersOn && reminderResult === 'denied'
+                    ? tr('sleepvax_vax_reminders_denied', 'Bildirişlər telefonun ayarlarında bağlıdır.')
+                    : tr('sleepvax_vax_reminders_sub', 'Doza tarixindən 3 gün əvvəl və həmin gün, saat 10:00-da')}
+                </span>
+              </span>
+              <span className="a3-switch" aria-hidden="true" />
+            </button>
+          </div>
+        }
 
         {/* Tabs */}
         <div className="a-tabs" style={{ display: 'flex', width: '100%', marginTop: 14 }}>

@@ -12329,5 +12329,14 @@
   "clinical_report_sugar_targets": "Target kehamilan: puasa di bawah {fasting} mg/dL, 1 jam setelah makan di bawah {after1h} mg/dL, 2 jam setelah makan di bawah {after2h} mg/dL; di bawah {low} mg/dL dianggap rendah.",
   "clinical_report_growth_note": "Persentil berdasarkan Standar Pertumbuhan Anak WHO (0-5 tahun).",
   "clinical_report_growth_head_pct": "Persentil lingkar kepala (WHO)",
-  "clinical_report_growth_head": "Lingkar kepala, cm (P)"
+  "clinical_report_growth_head": "Lingkar kepala, cm (P)",
+  "sleepvax_vax_soon_title": "Jadwal vaksin sudah dekat",
+  "sleepvax_vax_soon_body": "{child}: {vaccine} dijadwalkan 3 hari lagi.",
+  "sleepvax_vax_today_title": "Hari ini jadwal vaksin",
+  "sleepvax_vax_today_body": "{child}: {vaccine} dijadwalkan hari ini.",
+  "sleepvax_vax_overdue_title": "Vaksin sudah lewat jadwal",
+  "sleepvax_vax_overdue_body": "{child}: {vaccine} belum ditandai sudah diberikan. Bicarakan tanggal baru dengan dokter Anda.",
+  "sleepvax_vax_reminders_title": "Pengingat vaksin",
+  "sleepvax_vax_reminders_sub": "3 hari sebelum setiap dosis dan pada harinya, pukul 10.00",
+  "sleepvax_vax_reminders_denied": "Notifikasi dimatikan di pengaturan ponsel."
 }

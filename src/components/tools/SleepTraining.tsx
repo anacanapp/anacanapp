@@ -18,10 +18,10 @@ import { getEmergencyNumber } from '@/lib/emergency';
 import { bc, durationUnits, type BabycareKey } from '@/lib/babycare-i18n';
 import { formatClockSeconds, formatMinutes } from '@/lib/baby-logs-range';
 import {
-  BAND_NORMS, DEFAULT_PLAN_STATE, MAX_SLEEP_MINUTES, METHODS, METHOD_STEPS, MIN_SLEEP_MINUTES, PLAN_DAYS, RATINGS,
+  BAND_NORMS, MAX_SLEEP_MINUTES, METHODS, METHOD_STEPS, MIN_SLEEP_MINUTES, PLAN_DAYS, RATINGS,
   ROUTINE_STEPS, SAFETY_ITEMS, WAKE_MAX, WAKE_MIN, WAKE_PRESETS, adjustNightWakes, ageBand, averageNightWakes, blockMinutes,
-  buildSchedule, dayOffset, formatClock, localDateKey, minutesOfDay, monthsOld, nightKey, parseClock, parsePlanState, pickMethod,
-  planDayNumber, planProgress, planStorageKey, prunePlanState, ratePlanDay, resetPlan, routineStreak, scheduleStatus, setPendingSleep,
+  buildSchedule, dayOffset, formatClock, localDateKey, minutesOfDay, monthsOld, nightKey, parseClock, pickMethod,
+  planDayNumber, planProgress, ratePlanDay, resetPlan, routineStreak, scheduleStatus, setPendingSleep,
   setWake, shiftWake, sleepDays, sleepEntries, sleepSummary, timelineSegments, toggleRoutine, toggleSafety, toggleStep,
   type AgeBand, type Insight, type Method, type PlanState, type Rating, type ScheduleBlock, type SleepDay, type SleepSummary,
 } from '@/lib/sleep-training';
@@ -34,6 +34,7 @@ import { tr } from '@/lib/tr';
 import NextNapSection from '@/components/sleep/NextNapSection';
 import { predictNextNap } from '@/lib/sleep-predict';
 import { consumeWidgetAction } from '@/lib/widget-actions';
+import { useSleepTrainingPlan } from '@/hooks/useSleepTrainingPlan';
 
 type Tone = 'lav' | 'blue' | 'green' | 'peach' | 'yellow' | 'pink' | 'neutral';
 type Tab = 'today' | 'week' | 'plan' | 'safety';
@@ -577,26 +578,13 @@ export default function SleepTraining({ onBack }: { onBack: () => void }) {
   const child = selectedChild ?? children[0] ?? null;
   const { addLog, deleteLog } = useBabyLogs();
   const { logs } = useBabyLogsRange(14);
-  const storageKey = planStorageKey(user?.id ?? 'guest');
-  const [state, setState] = useState<PlanState>(DEFAULT_PLAN_STATE);
-  const [loaded, setLoaded] = useState(false);
+  // The plan is kept per child on the phone and synced with the account (shared with the linked partner).
+  const { state, loaded, update } = useSleepTrainingPlan(user?.id ?? null, child?.id ?? null);
   const [tab, setTab] = useState<Tab>('today');
   const [busy, setBusy] = useState(false);
   const lock = useRef(false);
   const now = useNow(30_000);
   const todayKey = localDateKey(now);
-
-  useEffect(() => {
-    try {
-      const raw = window.localStorage.getItem(storageKey);
-      setState(prunePlanState(parsePlanState(raw ? JSON.parse(raw) : null), localDateKey(new Date())));
-    } catch { setState(DEFAULT_PLAN_STATE); }
-    setLoaded(true);
-  }, [storageKey]);
-  useEffect(() => {
-    if (!loaded) return;
-    try { window.localStorage.setItem(storageKey, JSON.stringify(state)); } catch { /* storage optional */ }
-  }, [state, storageKey, loaded]);
 
   // A "Sleep" tap on the home-screen widget starts the sleep timer right away.
   const [initialWidgetAction] = useState(consumeWidgetAction);
@@ -608,7 +596,6 @@ export default function SleepTraining({ onBack }: { onBack: () => void }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded]);
 
-  const update = (fn: (s: PlanState) => PlanState) => setState((s) => prunePlanState(fn(s), localDateKey(new Date())));
   const birth = child?.birth_date ? new Date(child.birth_date) : null;
   const months = birth ? monthsOld(birth, now) : 0;
   const band = ageBand(months);
