@@ -9787,5 +9787,12 @@
   "par_ai_kind_article": "Тәрбие · Мақала",
   "par_ai_text": "Осы тақырып бойынша қадамдық нұсқаулық",
   "par_ai_open": "Ашу",
-  "par_partner_sub": "Бала жасына сай нұсқаулық және SOS"
+  "par_partner_sub": "Бала жасына сай нұсқаулық және SOS",
+  "pm_feat_par_article": "Тәрбие мақалалары",
+  "pm_feat_par_sos": "Барлық SOS карталары",
+  "pm_feat_par_programme": "Тәрбие бағдарламалары",
+  "pm_feat_par_quiz": "Тесттің толық нәтижесі",
+  "par_milestone_early": "Бұл тексеру {n} айдан басталады. Бұл жаста әр сәби өз қарқынымен дамиды. Сені бір нәрсе алаңдатса, дәрігермен сөйлес.",
+  "par_home_continue": "Жалғастыру: {title}",
+  "par_home_day": "{n}/{total}-күн"
 }

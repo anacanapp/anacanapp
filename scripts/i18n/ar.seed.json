@@ -9787,5 +9787,12 @@
   "par_ai_kind_article": "التربية · مقال",
   "par_ai_text": "دليل خطوة بخطوة حول هذا الموضوع",
   "par_ai_open": "فتح",
-  "par_partner_sub": "دليل حسب عمر طفلك ونجدة"
+  "par_partner_sub": "دليل حسب عمر طفلك ونجدة",
+  "pm_feat_par_article": "مقالات التربية",
+  "pm_feat_par_sos": "جميع بطاقات SOS",
+  "pm_feat_par_programme": "برامج التربية",
+  "pm_feat_par_quiz": "النتيجة المفصّلة للاختبار",
+  "par_milestone_early": "يبدأ هذا الفحص من عمر {n} أشهر. في هذا العمر ينمو كل طفل بإيقاعه الخاص. إذا كان هناك ما يقلقكِ، فتحدّثي مع الطبيب.",
+  "par_home_continue": "تابعي: {title}",
+  "par_home_day": "اليوم {n}/{total}"
 }

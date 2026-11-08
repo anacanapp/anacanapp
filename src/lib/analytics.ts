@@ -300,7 +300,8 @@ export const analytics = {
   
   // Tool events
   logToolOpened: (toolId: string, toolName?: string) => logEvent('tool_opened', { tool_id: toolId, tool_name: toolName }),
-  logToolUsed: (toolId: string, action: string) => logEvent('tool_used', { tool_id: toolId, action }),
+  logToolUsed: (toolId: string, action: string, itemId?: string) =>
+    logEvent('tool_used', itemId ? { tool_id: toolId, action, item_id: itemId } : { tool_id: toolId, action }),
   
   // Blog events
   logBlogRead: (postId: string, category: string) => logEvent('blog_read', { post_id: postId, category }),

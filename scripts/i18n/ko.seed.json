@@ -12192,5 +12192,12 @@
   "par_ai_kind_article": "양육 · 글",
   "par_ai_text": "이 주제의 단계별 가이드",
   "par_ai_open": "열기",
-  "par_partner_sub": "아이 연령별 가이드와 SOS"
+  "par_partner_sub": "아이 연령별 가이드와 SOS",
+  "pm_feat_par_article": "양육 아티클",
+  "pm_feat_par_sos": "모든 SOS 카드",
+  "pm_feat_par_programme": "양육 프로그램",
+  "pm_feat_par_quiz": "테스트 상세 결과",
+  "par_milestone_early": "이 체크는 생후 {n}개월부터 시작해요. 이 시기의 아기는 저마다의 속도로 자라요. 걱정되는 점이 있다면 의사와 상담해 주세요.",
+  "par_home_continue": "이어서 하기: {title}",
+  "par_home_day": "{n}/{total}일차"
 }

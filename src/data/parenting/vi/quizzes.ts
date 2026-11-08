@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Phong cách nuôi dạy của tôi',
-  intro: '12 câu ngắn. Hãy nghĩ về hai tuần vừa qua và trả lời thật lòng — ở đây không có câu trả lời đúng hay sai. Kết quả chỉ được lưu trên điện thoại của bạn.',
+  intro: '12 câu ngắn. Hãy nghĩ về hai tuần vừa qua và trả lời thật lòng — ở đây không có câu trả lời đúng hay sai. Kết quả được lưu trong tài khoản của bạn và chỉ bạn mới xem được.',
   scale: ['Hầu như không bao giờ', 'Thỉnh thoảng', 'Thường xuyên', 'Hầu như luôn luôn'],
   items: [
     { text: 'Khi con buồn hoặc giận, tôi gọi tên cảm xúc của con và ở bên con.', dim: 'warmth' },

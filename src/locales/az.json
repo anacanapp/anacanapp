@@ -8461,5 +8461,12 @@
   "par_ai_kind_article": "Tərbiyə · Məqalə",
   "par_ai_text": "Bu mövzuda addım-addım bələdçi",
   "par_ai_open": "Aç",
-  "par_partner_sub": "Uşağın yaşına görə bələdçi və SOS"
+  "par_partner_sub": "Uşağın yaşına görə bələdçi və SOS",
+  "pm_feat_par_article": "Tərbiyə məqalələri",
+  "pm_feat_par_sos": "Bütün SOS kartları",
+  "pm_feat_par_programme": "Tərbiyə proqramları",
+  "pm_feat_par_quiz": "Testin ətraflı nəticəsi",
+  "par_milestone_early": "Bu yoxlama {n} aylıqdan başlayır. Bu yaşda hər körpə öz tempi ilə inkişaf edir. Səni narahat edən bir şey varsa, həkimlə danış.",
+  "par_home_continue": "Davam et: {title}",
+  "par_home_day": "Gün {n}/{total}"
 }

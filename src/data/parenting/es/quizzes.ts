@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Mi estilo de crianza',
-  intro: '12 frases cortas. Piensa en las dos últimas semanas y responde con sinceridad: aquí no hay respuestas correctas ni incorrectas. El resultado se queda solo en tu teléfono.',
+  intro: '12 frases cortas. Piensa en las dos últimas semanas y responde con sinceridad: aquí no hay respuestas correctas ni incorrectas. El resultado se guarda en tu cuenta y solo tú puedes verlo.',
   scale: ['Casi nunca', 'A veces', 'A menudo', 'Casi siempre'],
   items: [
     { text: 'Cuando mi hijo está triste o enojado, le pongo nombre a lo que siente y me quedo a su lado.', dim: 'warmth' },

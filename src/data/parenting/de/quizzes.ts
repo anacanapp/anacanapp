@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Mein Erziehungsstil',
-  intro: '12 kurze Aussagen. Denk an die letzten zwei Wochen und antworte ehrlich – es gibt hier keine richtigen oder falschen Antworten. Das Ergebnis bleibt nur auf deinem Handy.',
+  intro: '12 kurze Aussagen. Denk an die letzten zwei Wochen und antworte ehrlich – es gibt hier keine richtigen oder falschen Antworten. Das Ergebnis wird in deinem Konto gespeichert und nur du siehst es.',
   scale: ['Fast nie', 'Manchmal', 'Oft', 'Fast immer'],
   items: [
     { text: 'Wenn mein Kind traurig oder wütend ist, benenne ich sein Gefühl und bleibe bei ihm.', dim: 'warmth' },

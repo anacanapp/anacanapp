@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Mijn opvoedstijl',
-  intro: '12 korte uitspraken. Denk aan de afgelopen twee weken en antwoord eerlijk — er zijn geen goede of foute antwoorden. De uitkomst blijft alleen op jouw telefoon.',
+  intro: '12 korte uitspraken. Denk aan de afgelopen twee weken en antwoord eerlijk — er zijn geen goede of foute antwoorden. De uitkomst wordt in je account bewaard en alleen jij kunt hem zien.',
   scale: ['Bijna nooit', 'Soms', 'Vaak', 'Bijna altijd'],
   items: [
     { text: 'Als mijn kind verdrietig of boos is, benoem ik het gevoel en blijf ik bij hem.', dim: 'warmth' },

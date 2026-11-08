@@ -9787,5 +9787,12 @@
   "par_ai_kind_article": "Erziehung · Artikel",
   "par_ai_text": "Eine Schritt-für-Schritt-Anleitung zu diesem Thema",
   "par_ai_open": "Öffnen",
-  "par_partner_sub": "Altersgerechter Leitfaden und SOS"
+  "par_partner_sub": "Altersgerechter Leitfaden und SOS",
+  "pm_feat_par_article": "Erziehungsartikel",
+  "pm_feat_par_sos": "Alle SOS-Karten",
+  "pm_feat_par_programme": "Erziehungsprogramme",
+  "pm_feat_par_quiz": "Ausführliches Testergebnis",
+  "par_milestone_early": "Dieser Check beginnt mit {n} Monaten. In diesem Alter entwickelt sich jedes Baby in seinem eigenen Tempo. Wenn dich etwas beunruhigt, sprich mit deiner Ärztin oder deinem Arzt.",
+  "par_home_continue": "Weiter: {title}",
+  "par_home_day": "Tag {n}/{total}"
 }

@@ -3,7 +3,7 @@ import { tr, formatTr } from '@/lib/tr';
 /**
  * Tərbiyə (positive parenting) — UI chrome strings with their Azerbaijani source text.
  * Translations live in src/locales/{az,en}.json and scripts/i18n/<lang>.seed.json under the same keys.
- * The long-form content is in src/data/parenting/<lang>/ (Azerbaijani only for now).
+ * The long-form content is in src/data/parenting/<lang>/ (all 23 app languages).
  * Emergency numbers are never written here: copy uses {emergency} and is filled per country.
  */
 export const PARENTING_COPY = {
@@ -36,6 +36,9 @@ export const PARENTING_COPY = {
   par_sec_programmes: 'Qısa proqramlar',
   par_sec_quizzes: 'Testlər',
   par_see_all: 'Hamısına bax',
+  par_home_continue: 'Davam et: {title}',
+  par_home_day: 'Gün {n}/{total}',
+  par_milestone_early: 'Bu yoxlama {n} aylıqdan başlayır. Bu yaşda hər körpə öz tempi ilə inkişaf edir. Səni narahat edən bir şey varsa, həkimlə danış.',
   par_band_open: 'Bu yaşda nə baş verir?',
 
   // Headings

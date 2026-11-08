@@ -61,7 +61,7 @@ describe('Tərbiyə home card', () => {
     expect(within(card).getByText('Tərbiyə · Günün məsləhəti')).toBeInTheDocument();
     expect(within(card).getByText('1–3 yaş')).toBeInTheDocument();
     expect(TIPS['1-3'].some((t) => within(card).queryByText(t.title))).toBe(true);
-    fireEvent.click(within(card).getByRole('button'));
+    fireEvent.click(within(card).getAllByRole('button').at(-1)!);
     expect(onOpen).toHaveBeenCalledTimes(1);
   });
 
@@ -70,6 +70,29 @@ describe('Tərbiyə home card', () => {
     render(<ParentingHomeCard onOpen={vi.fn()} now={NOW} />);
     expect(screen.getByText('6–12 yaş')).toBeInTheDocument();
     expect(TIPS['6-12'].some((t) => screen.queryByText(t.title))).toBe(true);
+  });
+
+  it('shows a "Continue" line for a running programme that opens that programme', async () => {
+    const { PROGRAMMES } = await import('@/data/parenting/az/programmes');
+    const { peekParentingTarget, clearParentingTarget } = await import('@/lib/parenting-target');
+    clearParentingTarget();
+    const p = PROGRAMMES[0];
+    localStorage.setItem('anacan.parenting.v1.u1', JSON.stringify({ v: 1, band: null, quizzes: {}, saved: [],
+      programmes: { [p.id]: { startedAt: '2026-11-05', done: ['2026-11-05', '2026-11-06'], updatedAt: '2026-11-06T09:00:00.000Z' } } }));
+    const onOpen = vi.fn();
+    render(<ParentingHomeCard onOpen={onOpen} now={NOW} />);
+    const row = screen.getByTestId('parenting-home-continue');
+    expect(row).toHaveTextContent(`Davam et: ${p.title}`);
+    expect(row).toHaveTextContent(`Gün 3/${p.days.length}`);
+    fireEvent.click(row);
+    expect(onOpen).toHaveBeenCalledTimes(1);
+    expect(peekParentingTarget()).toEqual({ kind: 'programme', id: p.id });
+    clearParentingTarget();
+  });
+
+  it('has no "Continue" line without a running programme', () => {
+    render(<ParentingHomeCard onOpen={vi.fn()} now={NOW} />);
+    expect(screen.queryByTestId('parenting-home-continue')).toBeNull();
   });
 
   it.each([

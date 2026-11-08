@@ -74,6 +74,14 @@ describe('Anacan.AI → Tərbiyə matcher', () => {
     expect(m(text)).toBeNull();
   });
 
+  it.each([
+    ['zh', '孩子在商场里哭闹打滚怎么办', 'shop-tantrum'],
+    ['ar', 'ابني لا يريد النوم في الليل', 'bedtime-refusal'],
+  ])('matches languages without spaces / with attached Arabic prefixes (%s)', async (lang, text, id) => {
+    const content = (await import(`@/data/parenting/${lang}/index.ts`)).default;
+    expect(matchParentingTopic(content, text)?.id).toBe(id);
+  });
+
   it('needs content (no match before the language chunk is loaded)', () => {
     expect(matchParentingTopic(null, 'isterika')).toBeNull();
   });

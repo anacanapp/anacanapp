@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Minu kasvatusstiil',
-  intro: '12 lühikest väidet. Mõtle viimasele kahele nädalale ja vasta ausalt — siin pole õigeid ega valesid vastuseid. Tulemus jääb ainult sinu telefoni.',
+  intro: '12 lühikest väidet. Mõtle viimasele kahele nädalale ja vasta ausalt — siin pole õigeid ega valesid vastuseid. Tulemus salvestatakse sinu kontole ja seda näed ainult sina.',
   scale: ['Peaaegu mitte kunagi', 'Mõnikord', 'Sageli', 'Peaaegu alati'],
   items: [
     { text: 'Kui mu laps on kurb või vihane, nimetan ma tema tunde ja olen tema kõrval.', dim: 'warmth' },

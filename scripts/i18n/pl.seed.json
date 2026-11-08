@@ -12192,5 +12192,12 @@
   "par_ai_kind_article": "Wychowanie · Artykuł",
   "par_ai_text": "Przewodnik krok po kroku w tym temacie",
   "par_ai_open": "Otwórz",
-  "par_partner_sub": "Przewodnik według wieku dziecka i SOS"
+  "par_partner_sub": "Przewodnik według wieku dziecka i SOS",
+  "pm_feat_par_article": "Artykuły o wychowaniu",
+  "pm_feat_par_sos": "Wszystkie karty SOS",
+  "pm_feat_par_programme": "Programy wychowawcze",
+  "pm_feat_par_quiz": "Szczegółowy wynik testu",
+  "par_milestone_early": "Ten test zaczyna się od {n}. miesiąca. W tym wieku każde dziecko rozwija się we własnym tempie. Jeśli coś cię niepokoi, porozmawiaj z lekarzem.",
+  "par_home_continue": "Kontynuuj: {title}",
+  "par_home_day": "Dzień {n}/{total}"
 }

@@ -12192,5 +12192,12 @@
   "par_ai_kind_article": "Föräldraskap · Artikel",
   "par_ai_text": "En steg-för-steg-guide om ämnet",
   "par_ai_open": "Öppna",
-  "par_partner_sub": "Åldersanpassad guide och SOS"
+  "par_partner_sub": "Åldersanpassad guide och SOS",
+  "pm_feat_par_article": "Artiklar om föräldraskap",
+  "pm_feat_par_sos": "Alla SOS-kort",
+  "pm_feat_par_programme": "Föräldraprogram",
+  "pm_feat_par_quiz": "Detaljerat testresultat",
+  "par_milestone_early": "Den här kollen börjar vid {n} månader. I den här åldern utvecklas varje bebis i sin egen takt. Om något oroar dig, prata med din läkare.",
+  "par_home_continue": "Fortsätt: {title}",
+  "par_home_day": "Dag {n}/{total}"
 }

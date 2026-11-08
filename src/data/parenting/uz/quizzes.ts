@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Mening tarbiya uslubim',
-  intro: '12 ta qisqa jumla. Oxirgi ikki haftani oʻylab koʻr va samimiy javob ber — bu yerda toʻgʻri yoki notoʻgʻri javob yoʻq. Natija faqat sening telefoningda qoladi.',
+  intro: '12 ta qisqa jumla. Oxirgi ikki haftani oʻylab koʻr va samimiy javob ber — bu yerda toʻgʻri yoki notoʻgʻri javob yoʻq. Natija hisobingda saqlanadi va uni faqat sen koʻrasan.',
   scale: ['Deyarli hech qachon', 'Baʼzan', 'Tez-tez', 'Deyarli har doim'],
   items: [
     { text: 'Bolam xafa yoki jahli chiqqan paytda hissiga nom berib, yonida boʻlaman.', dim: 'warmth' },

@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Meu estilo de criação',
-  intro: '12 frases curtas. Pense nas últimas duas semanas e responda com sinceridade — aqui não há resposta certa ou errada. O resultado fica só no seu celular.',
+  intro: '12 frases curtas. Pense nas últimas duas semanas e responda com sinceridade — aqui não há resposta certa ou errada. O resultado fica salvo na sua conta e só você pode vê-lo.',
   scale: ['Quase nunca', 'Às vezes', 'Com frequência', 'Quase sempre'],
   items: [
     { text: 'Quando meu filho está triste ou com raiva, eu dou nome ao que ele sente e fico ao lado dele.', dim: 'warmth' },

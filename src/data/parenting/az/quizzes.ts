@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Mənim tərbiyə üslubum',
-  intro: '12 qısa ifadə. Son iki həftəni düşün və səmimi cavab ver — burada düzgün və ya səhv cavab yoxdur. Nəticə yalnız sənin telefonunda qalır.',
+  intro: '12 qısa ifadə. Son iki həftəni düşün və səmimi cavab ver — burada düzgün və ya səhv cavab yoxdur. Nəticə hesabında saxlanılır və onu yalnız sən görürsən.',
   scale: ['Demək olar ki, heç vaxt', 'Bəzən', 'Tez-tez', 'Demək olar ki, həmişə'],
   items: [
     { text: 'Uşağım kədərli və ya qəzəbli olanda hissini adlandırıb yanında oluram.', dim: 'warmth' },

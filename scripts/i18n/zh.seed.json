@@ -12192,5 +12192,12 @@
   "par_ai_kind_article": "养育 · 文章",
   "par_ai_text": "关于这个话题的分步指南",
   "par_ai_open": "打开",
-  "par_partner_sub": "按孩子年龄的指南和 SOS"
+  "par_partner_sub": "按孩子年龄的指南和 SOS",
+  "pm_feat_par_article": "育儿文章",
+  "pm_feat_par_sos": "全部 SOS 卡片",
+  "pm_feat_par_programme": "育儿计划",
+  "pm_feat_par_quiz": "测试详细结果",
+  "par_milestone_early": "这项检查从 {n} 个月开始。这个年龄的每个宝宝都按自己的节奏发育。如果有让你担心的地方，请咨询医生。",
+  "par_home_continue": "继续：{title}",
+  "par_home_day": "第 {n}/{total} 天"
 }

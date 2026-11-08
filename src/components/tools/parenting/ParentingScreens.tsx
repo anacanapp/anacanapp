@@ -5,7 +5,7 @@ import { fillEmergencyNumber } from '@/lib/emergency';
 import { bandKey, pf, pt } from '@/lib/parenting-copy';
 import {
   type ParentingLocal, type ProgrammeProgress,
-  DEFAULT_REMINDER_TIME, FREE_PROGRAMME_DAYS, canCompleteToday, checkpointFor, completeDay, isDayLocked, isFinished, milestoneResult,
+  DEFAULT_REMINDER_TIME, FREE_PROGRAMME_DAYS, canCompleteToday, checkpointFor, completeDay, tooEarlyForMilestones, isDayLocked, isFinished, milestoneResult,
   nextDayIndex, progressPercent, readingMinutes, setBandState, setProgrammeState, startProgramme, styleResult, styleScores, toggleSaved,
   undoLastDay,
 } from '@/lib/parenting';
@@ -43,7 +43,7 @@ export interface ParentingCtx {
   /** Device-only change (reminder preference). */
   updateLocal: (fn: (s: ParentingLocal) => ParentingLocal) => void;
   go: (r: Route) => void;
-  track: (action: string) => void;
+  track: (action: string, itemId?: string) => void;
   /** Home search text (kept while the parent opens a result and comes back). */
   query: string;
   setQuery: (q: string) => void;
@@ -660,6 +660,18 @@ function MilestoneQuizScreen({ ctx }: { ctx: ParentingCtx }) {
   const [regression, setRegression] = useState<MilestoneAnswer | null>(null);
   const [started, setStarted] = useState(false);
   const total = cp.items.length + 1;
+  const earlyFrom = tooEarlyForMilestones(q.checkpoints, ctx.ageMonths);
+
+  if (earlyFrom !== null) {
+    // Newborns: a "not yet" on a 4-month red flag is normal, so the check is not offered before the first checkpoint.
+    return (
+      <div className="a-par" data-testid="par-milestone-early">
+        <h2 className="a-par-title">{q.emoji} {q.title}</h2>
+        <p className="a-par-lead">{pf('par_milestone_early', { n: earlyFrom })}</p>
+        <p className="a-par-small">{q.note}</p>
+      </div>
+    );
+  }
 
   const finish = (reg: MilestoneAnswer) => {
     setRegression(reg);

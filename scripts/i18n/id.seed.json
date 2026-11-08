@@ -12192,5 +12192,12 @@
   "par_ai_kind_article": "Pengasuhan · Artikel",
   "par_ai_text": "Panduan langkah demi langkah tentang topik ini",
   "par_ai_open": "Buka",
-  "par_partner_sub": "Panduan sesuai usia anak dan SOS"
+  "par_partner_sub": "Panduan sesuai usia anak dan SOS",
+  "pm_feat_par_article": "Artikel pengasuhan",
+  "pm_feat_par_sos": "Semua kartu SOS",
+  "pm_feat_par_programme": "Program pengasuhan",
+  "pm_feat_par_quiz": "Hasil tes lengkap",
+  "par_milestone_early": "Pemeriksaan ini dimulai pada usia {n} bulan. Di usia ini setiap bayi berkembang dengan iramanya sendiri. Jika ada yang membuatmu khawatir, bicarakan dengan dokter.",
+  "par_home_continue": "Lanjutkan: {title}",
+  "par_home_day": "Hari {n}/{total}"
 }

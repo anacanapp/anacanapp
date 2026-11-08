@@ -40,8 +40,9 @@ export interface ParentingChild {
   birth_date?: string | null;
 }
 
-const track = (action: string) => {
-  import('@/lib/analytics').then((m) => m.analytics.logToolUsed('parenting', action)).catch(() => {});
+/** Tool analytics; `itemId` names the article / SOS card / programme opened, so content popularity is measurable. */
+const track = (action: string, itemId?: string) => {
+  import('@/lib/analytics').then((m) => m.analytics.logToolUsed('parenting', action, itemId)).catch(() => {});
 };
 
 const routeFor = (t: ParentingTarget | null): Route[] => (t ? [{ s: t.kind, id: t.id } as Route] : []);
@@ -80,13 +81,18 @@ export function ParentingToolView({ onBack, now, child, partner = false }: Props
 
   // Opened from Anacan.AI on one item: that item first, back returns to the tool home.
   const [stack, setStack] = useState<Route[]>(() => routeFor(peekParentingTarget()));
-  useEffect(() => { clearParentingTarget(); }, []);
+  useEffect(() => {
+    // Opened on one item (Anacan.AI card, reminder tap, home "Continue"): count it like any other open.
+    const t = peekParentingTarget();
+    if (t) track(`open_${t.kind}`, t.id);
+    clearParentingTarget();
+  }, []);
   const [query, setQuery] = useState('');
   const route: Route = stack.length ? stack[stack.length - 1] : { s: 'home' };
   const go = useCallback((r: Route) => {
     setStack((prev) => [...prev, r]);
     resetAppScrollPosition();
-    if (r.s === 'article' || r.s === 'sos') track(`open_${r.s}`);
+    if (r.s === 'article' || r.s === 'sos' || r.s === 'programme') track(`open_${r.s}`, r.id);
   }, []);
   const back = useCallback(() => {
     if (stack.length) { setStack((prev) => prev.slice(0, -1)); resetAppScrollPosition(); } else onBack();

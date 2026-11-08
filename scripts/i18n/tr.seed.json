@@ -9787,5 +9787,12 @@
   "par_ai_kind_article": "Terbiye · Makale",
   "par_ai_text": "Bu konuda adım adım rehber",
   "par_ai_open": "Aç",
-  "par_partner_sub": "Çocuğun yaşına göre rehber ve SOS"
+  "par_partner_sub": "Çocuğun yaşına göre rehber ve SOS",
+  "pm_feat_par_article": "Ebeveynlik makaleleri",
+  "pm_feat_par_sos": "Tüm SOS kartları",
+  "pm_feat_par_programme": "Ebeveynlik programları",
+  "pm_feat_par_quiz": "Testin ayrıntılı sonucu",
+  "par_milestone_early": "Bu kontrol {n}. aydan itibaren başlar. Bu yaşta her bebek kendi hızında gelişir. Seni endişelendiren bir şey varsa doktorunla konuş.",
+  "par_home_continue": "Devam et: {title}",
+  "par_home_day": "Gün {n}/{total}"
 }

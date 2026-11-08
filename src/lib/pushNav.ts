@@ -22,6 +22,8 @@ import { validate as isUuid } from 'uuid';
 import { getBackendConfig } from '@/integrations/supabase/backend-config';
 import type { CommunityDeepLinkTarget } from '@/components/community/CommunityScreen';
 import { parseDeeplink, type ParsedDeeplink } from '@/lib/deeplink';
+import { setParentingTarget } from './parenting-target';
+
 
 export interface PushNavIntent {
   tab?: string;
@@ -61,7 +63,9 @@ export function intentFromPushData(data: Record<string, any>): PushNavIntent | n
     case 'shopping_list':
       return { shoppingList: true };
     case 'parenting_programme':
-      // Local Tərbiyə programme reminder (src/lib/parenting-reminders.ts); the partner app has no Tools tab.
+      // Local Tərbiyə programme reminder (src/lib/parenting-reminders.ts): open the running programme itself;
+      // the partner app has no Tools tab.
+      if (typeof data.programme === 'string') setParentingTarget({ kind: 'programme', id: data.programme });
       return data.partner === '1' ? { screen: 'partner-parenting' } : { tool: 'parenting' };
     case 'baby_chat':
       // Local notification from "Körpəmdən mesajlar" (src/lib/baby-chat-notifications.ts)

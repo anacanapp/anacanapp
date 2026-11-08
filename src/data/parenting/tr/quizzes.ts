@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Benim ebeveynlik tarzım',
-  intro: '12 kısa ifade. Son iki haftayı düşün ve içtenlikle cevap ver — burada doğru ya da yanlış cevap yok. Sonuç sadece senin telefonunda kalır.',
+  intro: '12 kısa ifade. Son iki haftayı düşün ve içtenlikle cevap ver — burada doğru ya da yanlış cevap yok. Sonuç hesabında saklanır ve onu yalnızca sen görürsün.',
   scale: ['Neredeyse hiçbir zaman', 'Bazen', 'Sık sık', 'Neredeyse her zaman'],
   items: [
     { text: 'Çocuğum üzgün ya da kızgın olduğunda duygusunu adlandırır ve yanında olurum.', dim: 'warmth' },

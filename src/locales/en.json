@@ -9953,5 +9953,12 @@
   "par_ai_kind_article": "Parenting · Article",
   "par_ai_text": "A step-by-step guide on this topic",
   "par_ai_open": "Open",
-  "par_partner_sub": "Age-based guide and SOS for your child"
+  "par_partner_sub": "Age-based guide and SOS for your child",
+  "pm_feat_par_article": "Parenting articles",
+  "pm_feat_par_sos": "All SOS cards",
+  "pm_feat_par_programme": "Parenting programmes",
+  "pm_feat_par_quiz": "Detailed quiz result",
+  "par_milestone_early": "This check starts at {n} months. At this age every baby develops at their own pace. If something worries you, talk to your doctor.",
+  "par_home_continue": "Continue: {title}",
+  "par_home_day": "Day {n}/{total}"
 }

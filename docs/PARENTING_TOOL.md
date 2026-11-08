@@ -1,7 +1,7 @@
 # Tərbiyə (positive parenting) tool
 
 - Ana module, tool id `parenting` (app-defined virtual tile, icon HeartHandshake). Visible when content is
-  **registered for the app language** (`src/data/parenting/index.ts`; az only today), the active child is under 13
+  **registered for the app language** (`src/data/parenting/index.ts`; all 23 app languages), the active child is under 13
   (or has no birth date: the parent picks the age band) and `app_settings.parenting_tool` = 'on' (Admin →
   Tənzimləmələr). Never in flow/bump. The linked **partner** of an Ana-module mother sees it too (below).
 - Code: `src/lib/parenting*.ts`, `src/components/tools/parenting/`, styles `.a-par-*`; content in
@@ -65,9 +65,22 @@ Free/Premium, scoring) cannot be overridden; `{emergency}` must stay and numbers
 ## Migrations
 
 - `20261107170000_parenting_tool.sql` (+ `.cdc.json`): app_settings row + public allowlist (applied; switch on).
-- `20261107200000_parenting_sync_cms.sql` (+ `.cdc.json`), **not applied**: `parenting_state`, `parenting_content_overrides`, three
-  admin RPCs; both relations enrolled in CDC + writer guard (refuses without the guard catalog). No cron/timer.
-  Until it is applied the app keeps working device-only (sync and override fetches fail quietly) and the admin
-  section shows a notice and disables saving.
+- `20261107200000_parenting_sync_cms.sql` (+ `.cdc.json`), applied on Google: `parenting_state`,
+  `parenting_content_overrides`, three admin RPCs; both relations enrolled in CDC + writer guard. No cron/timer.
 
-Needs pediatrician / child-psychologist copy review before switching on.
+Live (switch on). A pediatrician / child-psychologist copy review is still outstanding (deferred by the owner).
+
+## Behaviour notes (2026-11-08)
+
+- Sync merge: for the same programme run (same `startedAt`) the newest change wins, so "undo" on one phone is not
+  reverted by the other copy; runs started on different days keep the copy with more checked-off days.
+- Milestone self-check is not offered before the first checkpoint (4 months): a newborn's "not yet" on a 4-month
+  red-flag item is normal (`tooEarlyForMilestones`, copy `par_milestone_early`).
+- The style-quiz result is saved in the account (synced); the intro says so in all 23 languages.
+- Anacan.AI matcher: zh/ja tags match as substrings (no spaces between words); Arabic folds alef/taa marbuta and
+  strips attached ال / و / ب / ل / ف / ك prefixes.
+- Paywall labels `pm_feat_par_*`; an unknown feature id never shows raw (generic "Bu alət").
+- Analytics: `tool_used` with `item_id` for opened articles, SOS cards and programmes (also when opened directly),
+  `home_card_open`, `home_continue`.
+- Reminder taps carry the programme id and open that programme; the Ana home card shows "Davam et: <programme>
+  · Gün n/total" for the running programme (native: needs a new build for the reminder payload).

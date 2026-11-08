@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Mon style éducatif',
-  intro: '12 affirmations courtes. Pense aux deux dernières semaines et réponds sincèrement – il n’y a pas de bonne ou de mauvaise réponse. Le résultat reste uniquement sur ton téléphone.',
+  intro: '12 affirmations courtes. Pense aux deux dernières semaines et réponds sincèrement – il n’y a pas de bonne ou de mauvaise réponse. Le résultat est enregistré dans ton compte et toi seule peux le voir.',
   scale: ['Presque jamais', 'Parfois', 'Souvent', 'Presque toujours'],
   items: [
     { text: 'Quand mon enfant est triste ou en colère, je nomme ce qu’il ressent et je reste près de lui.', dim: 'warmth' },

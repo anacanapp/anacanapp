@@ -87,8 +87,12 @@ export function PremiumModal({ isOpen, onClose, feature }: PremiumModalProps) {
     flow_trend_chart: tr('pm_feat_flow_trend', 'Trend qrafiki'),
     flow_symptom_report: tr('pm_feat_flow_symptom', 'Simptom hesabatı'),
     flow_reminders: tr('pm_feat_flow_reminders', 'Xatırlatmalar'),
+    parenting_article: tr('pm_feat_par_article', 'Tərbiyə məqalələri'),
+    parenting_sos: tr('pm_feat_par_sos', 'Bütün SOS kartları'),
+    parenting_programme: tr('pm_feat_par_programme', 'Tərbiyə proqramları'),
+    parenting_quiz: tr('pm_feat_par_quiz', 'Testin ətraflı nəticəsi'),
   };
-  const featureLabel = feature ? (FEATURE_LABELS[feature] ?? feature) : '';
+  const featureLabel = feature ? (FEATURE_LABELS[feature] ?? tr('pm_feat_tool', 'Bu alət')) : '';
   const featureLockText = feature ? cfg.feature_lock_text.replace('{feature}', featureLabel) : '';
 
   // PORTAL: modal transform-lu kartların içindən çağırılır (stacking context tələsi)

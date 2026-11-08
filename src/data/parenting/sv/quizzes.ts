@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Min föräldrastil',
-  intro: '12 korta påståenden. Tänk på de senaste två veckorna och svara ärligt — det finns inga rätt eller fel svar. Resultatet stannar bara i din telefon.',
+  intro: '12 korta påståenden. Tänk på de senaste två veckorna och svara ärligt — det finns inga rätt eller fel svar. Resultatet sparas i ditt konto och bara du kan se det.',
   scale: ['Nästan aldrig', 'Ibland', 'Ofta', 'Nästan alltid'],
   items: [
     { text: 'När mitt barn är ledset eller argt sätter jag ord på känslan och finns där.', dim: 'warmth' },

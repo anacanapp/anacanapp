@@ -12192,5 +12192,12 @@
   "par_ai_kind_article": "Éducation · Article",
   "par_ai_text": "Un guide pas à pas sur ce sujet",
   "par_ai_open": "Ouvrir",
-  "par_partner_sub": "Guide selon l’âge de l’enfant et SOS"
+  "par_partner_sub": "Guide selon l’âge de l’enfant et SOS",
+  "pm_feat_par_article": "Articles sur l’éducation",
+  "pm_feat_par_sos": "Toutes les fiches SOS",
+  "pm_feat_par_programme": "Programmes d’éducation",
+  "pm_feat_par_quiz": "Résultat détaillé du test",
+  "par_milestone_early": "Ce bilan commence à {n} mois. À cet âge, chaque bébé se développe à son rythme. Si quelque chose t’inquiète, parles-en à ton médecin.",
+  "par_home_continue": "Continuer : {title}",
+  "par_home_day": "Jour {n}/{total}"
 }

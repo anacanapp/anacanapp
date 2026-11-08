@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Mój styl wychowania',
-  intro: '12 krótkich stwierdzeń. Pomyśl o ostatnich dwóch tygodniach i odpowiedz szczerze — nie ma tu dobrych ani złych odpowiedzi. Wynik zostaje tylko na twoim telefonie.',
+  intro: '12 krótkich stwierdzeń. Pomyśl o ostatnich dwóch tygodniach i odpowiedz szczerze — nie ma tu dobrych ani złych odpowiedzi. Wynik zapisuje się na twoim koncie i widzisz go tylko ty.',
   scale: ['Prawie nigdy', 'Czasami', 'Często', 'Prawie zawsze'],
   items: [
     { text: 'Gdy moje dziecko jest smutne albo złe, nazywam jego uczucie i jestem przy nim.', dim: 'warmth' },

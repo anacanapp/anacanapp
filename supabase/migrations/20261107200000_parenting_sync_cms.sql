@@ -14,7 +14,7 @@
 -- Applied by /home/anacan-runner/run-sql.py (psql as supabase_admin, ON_ERROR_STOP, one transaction).
 -- Both new relations are enrolled in CDC and writer guarding here (the migration refuses without the guard
 -- catalog). No cron or timer: programme reminders are local notifications on the phone.
--- NOT APPLIED YET.
+-- Applied on Google (2026-11-07).
 
 BEGIN;
 SET LOCAL lock_timeout = '5s';

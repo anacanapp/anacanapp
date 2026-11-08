@@ -9787,5 +9787,12 @@
   "par_ai_kind_article": "აღზრდა · სტატია",
   "par_ai_text": "ნაბიჯ-ნაბიჯ გზამკვლევი ამ თემაზე",
   "par_ai_open": "გახსნა",
-  "par_partner_sub": "ასაკის მიხედვით გზამკვლევი და SOS"
+  "par_partner_sub": "ასაკის მიხედვით გზამკვლევი და SOS",
+  "pm_feat_par_article": "აღზრდის სტატიები",
+  "pm_feat_par_sos": "ყველა SOS ბარათი",
+  "pm_feat_par_programme": "აღზრდის პროგრამები",
+  "pm_feat_par_quiz": "ტესტის დეტალური შედეგი",
+  "par_milestone_early": "ეს შემოწმება {n} თვიდან იწყება. ამ ასაკში ყველა ბავშვი საკუთარი ტემპით ვითარდება. თუ რამე გაწუხებს, ექიმს ესაუბრე.",
+  "par_home_continue": "გაგრძელება: {title}",
+  "par_home_day": "დღე {n}/{total}"
 }

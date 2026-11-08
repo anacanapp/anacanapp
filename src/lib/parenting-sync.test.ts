@@ -56,14 +56,25 @@ describe('Tərbiyə state merge', () => {
     expect(mergeParenting(removed, readded).saved).toEqual(['a:lying']);
   });
 
-  it('takes the programme copy with more checked-off days (max progress), the newer one on a tie', () => {
+  it('same run: the newest change wins, so an undo on one phone sticks; other runs keep max progress', () => {
     const a: ParentingLocal = { ...EMPTY_PARENTING(), programmes: { 'sleep-7': prog(['2026-11-01', '2026-11-02'], T1) } };
     const b: ParentingLocal = { ...EMPTY_PARENTING(), programmes: { 'sleep-7': prog(['2026-11-01'], T3), 'tantrums-14': prog([], T2) } };
     const m = mergeParenting(a, b);
-    expect(m.programmes['sleep-7'].done).toHaveLength(2);
+    expect(m.programmes['sleep-7'].done).toHaveLength(1);
+    expect(mergeParenting(b, a).programmes['sleep-7'].done).toHaveLength(1);
+    // Different start days: the copy with more checked-off days.
+    const other: ParentingLocal = { ...EMPTY_PARENTING(), programmes: { 'sleep-7': { ...prog(['2026-11-05'], T3), startedAt: '2026-11-05' } } };
+    expect(mergeParenting(a, other).programmes['sleep-7'].done).toHaveLength(2);
     expect(Object.keys(m.programmes).sort()).toEqual(['sleep-7', 'tantrums-14']);
     const paused = { ...EMPTY_PARENTING(), programmes: { 'sleep-7': prog(['2026-11-01', '2026-11-02'], T3, true) } };
     expect(mergeParenting(a, paused).programmes['sleep-7'].paused).toBe(true);
+  });
+
+  it('undo checked off on the server copy is not brought back by the next sync (regression)', () => {
+    const three: ParentingLocal = { ...EMPTY_PARENTING(), programmes: { 'sleep-7': prog(['2026-11-01', '2026-11-02', '2026-11-03'], T1) } };
+    const undone = setProgrammeState(three, 'sleep-7', { ...three.programmes['sleep-7'], done: ['2026-11-01', '2026-11-02'] }, T2);
+    expect(mergeParenting(undone, three).programmes['sleep-7'].done).toHaveLength(2);
+    expect(mergeParenting(three, undone).programmes['sleep-7'].done).toHaveLength(2);
   });
 
   it('a restart (tombstone) removes older progress from the other phone but not a newer start', () => {
@@ -71,7 +82,7 @@ describe('Tərbiyə state merge', () => {
     const restarted = setProgrammeState(old, 'sleep-7', null, T2);
     expect(mergeParenting(old, restarted).programmes['sleep-7']).toBeUndefined();
     const again = setProgrammeState(restarted, 'sleep-7', prog([], T3), T3);
-    expect(mergeParenting(again, old).programmes['sleep-7']).toMatchObject({ done: ['2026-11-01'] });
+    expect(mergeParenting(again, old).programmes['sleep-7']).toMatchObject({ done: [] });
     expect(mergeParenting(again, restarted).programmes['sleep-7']).toBeDefined();
   });
 

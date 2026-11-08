@@ -9787,5 +9787,12 @@
   "par_ai_kind_article": "Tarbiya · Maqola",
   "par_ai_text": "Ushbu mavzu bo‘yicha bosqichma-bosqich qo‘llanma",
   "par_ai_open": "Ochish",
-  "par_partner_sub": "Bola yoshiga mos qo‘llanma va SOS"
+  "par_partner_sub": "Bola yoshiga mos qo‘llanma va SOS",
+  "pm_feat_par_article": "Tarbiya maqolalari",
+  "pm_feat_par_sos": "Barcha SOS kartalari",
+  "pm_feat_par_programme": "Tarbiya dasturlari",
+  "pm_feat_par_quiz": "Testning batafsil natijasi",
+  "par_milestone_early": "Bu tekshiruv {n} oylikdan boshlanadi. Bu yoshda har bir chaqaloq oʻz surʼatida rivojlanadi. Seni biror narsa bezovta qilsa, shifokor bilan gaplash.",
+  "par_home_continue": "Davom etish: {title}",
+  "par_home_day": "{n}/{total}-kun"
 }

@@ -12273,5 +12273,12 @@
   "par_ai_kind_article": "Kasvatus · Artikkel",
   "par_ai_text": "Samm-sammuline juhend sellel teemal",
   "par_ai_open": "Ava",
-  "par_partner_sub": "Lapse vanusele vastav juhend ja SOS"
+  "par_partner_sub": "Lapse vanusele vastav juhend ja SOS",
+  "pm_feat_par_article": "Kasvatusartiklid",
+  "pm_feat_par_sos": "Kõik SOS-kaardid",
+  "pm_feat_par_programme": "Kasvatusprogrammid",
+  "pm_feat_par_quiz": "Testi üksikasjalik tulemus",
+  "par_milestone_early": "See kontroll algab {n} kuu vanuselt. Selles eas areneb iga beebi oma tempos. Kui miski sind muretsema paneb, räägi arstiga.",
+  "par_home_continue": "Jätka: {title}",
+  "par_home_day": "Päev {n}/{total}"
 }

@@ -12192,5 +12192,12 @@
   "par_ai_kind_article": "परवरिश · लेख",
   "par_ai_text": "इस विषय पर चरण-दर-चरण गाइड",
   "par_ai_open": "खोलें",
-  "par_partner_sub": "बच्चे की उम्र के अनुसार गाइड और SOS"
+  "par_partner_sub": "बच्चे की उम्र के अनुसार गाइड और SOS",
+  "pm_feat_par_article": "परवरिश के लेख",
+  "pm_feat_par_sos": "सभी SOS कार्ड",
+  "pm_feat_par_programme": "परवरिश कार्यक्रम",
+  "pm_feat_par_quiz": "टेस्ट का विस्तृत नतीजा",
+  "par_milestone_early": "यह जाँच {n} महीने से शुरू होती है। इस उम्र में हर बच्चा अपनी रफ़्तार से बढ़ता है। अगर कोई बात आपको परेशान करे, तो डॉक्टर से बात करें।",
+  "par_home_continue": "जारी रखें: {title}",
+  "par_home_day": "दिन {n}/{total}"
 }

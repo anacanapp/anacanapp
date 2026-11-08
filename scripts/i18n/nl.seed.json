@@ -12192,5 +12192,12 @@
   "par_ai_kind_article": "Opvoeding · Artikel",
   "par_ai_text": "Een stapsgewijze gids over dit onderwerp",
   "par_ai_open": "Openen",
-  "par_partner_sub": "Gids per leeftijd van je kind en SOS"
+  "par_partner_sub": "Gids per leeftijd van je kind en SOS",
+  "pm_feat_par_article": "Artikelen over opvoeding",
+  "pm_feat_par_sos": "Alle SOS-kaarten",
+  "pm_feat_par_programme": "Opvoedprogramma’s",
+  "pm_feat_par_quiz": "Uitgebreide testuitslag",
+  "par_milestone_early": "Deze check begint bij {n} maanden. Op deze leeftijd ontwikkelt elke baby zich in een eigen tempo. Maak je je ergens zorgen over, praat dan met je arts.",
+  "par_home_continue": "Verder: {title}",
+  "par_home_day": "Dag {n}/{total}"
 }

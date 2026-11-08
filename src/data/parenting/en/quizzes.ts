@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'My parenting style',
-  intro: '12 short statements. Think about the last two weeks and answer honestly — there are no right or wrong answers here. Your result stays only on your phone.',
+  intro: '12 short statements. Think about the last two weeks and answer honestly — there are no right or wrong answers here. Your result is saved in your account and only you can see it.',
   scale: ['Almost never', 'Sometimes', 'Often', 'Almost always'],
   items: [
     { text: 'When my child is sad or angry, I name the feeling and stay with them.', dim: 'warmth' },

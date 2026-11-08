@@ -187,6 +187,13 @@ export function styleResult(s: Record<StyleDimension, number>): StyleResultId {
   return clear ? 'strict' : 'stretched';
 }
 
+/** Too young for the milestone self-check: before the first checkpoint the items are not expected yet. */
+export function tooEarlyForMilestones(checkpoints: MilestoneCheckpoint[], months: number | null): number | null {
+  if (months === null || !checkpoints.length) return null;
+  const first = Math.min(...checkpoints.map((c) => c.fromMonths));
+  return months < first ? first : null;
+}
+
 /** The latest checkpoint the child has reached (the first one for very young babies). */
 export function checkpointFor(checkpoints: MilestoneCheckpoint[], months: number | null): MilestoneCheckpoint | null {
   if (!checkpoints.length) return null;

@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { consumePendingPushNav, intentFromPushData, navigateFromPush, PUSH_NAV_EVENT } from './pushNav';
+import { clearParentingTarget, peekParentingTarget } from './parenting-target';
 
 const SENDER = '01234567-89ab-4cde-8fab-0123456789ab';
 const CURRENT = 'https://current-app.example.test';
@@ -23,6 +24,15 @@ describe('push type mapping', () => {
   ])('falls back to conversations for an invalid sender (%j)', (sender_id) => {
     expect(intentFromPushData({ type: 'direct_message', sender_id, senderId: SENDER, user_id: SENDER }))
       .toEqual({ tab: 'community', communityTarget: { conversations: true } });
+  });
+
+  it('opens the running Tərbiyə programme from its reminder (and ignores a malformed id)', () => {
+    clearParentingTarget();
+    expect(intentFromPushData({ type: 'parenting_programme', partner: '0', programme: 'tantrums-14' })).toEqual({ tool: 'parenting' });
+    expect(peekParentingTarget()).toEqual({ kind: 'programme', id: 'tantrums-14' });
+    clearParentingTarget();
+    expect(intentFromPushData({ type: 'parenting_programme', partner: '1', programme: '../x' })).toEqual({ screen: 'partner-parenting' });
+    expect(peekParentingTarget()).toBeNull();
   });
 
   it('maps shopping without guessing the recipient role', () => {

@@ -12192,5 +12192,12 @@
   "par_ai_kind_article": "Crianza · Artículo",
   "par_ai_text": "Una guía paso a paso sobre este tema",
   "par_ai_open": "Abrir",
-  "par_partner_sub": "Guía según la edad del niño y SOS"
+  "par_partner_sub": "Guía según la edad del niño y SOS",
+  "pm_feat_par_article": "Artículos de crianza",
+  "pm_feat_par_sos": "Todas las tarjetas SOS",
+  "pm_feat_par_programme": "Programas de crianza",
+  "pm_feat_par_quiz": "Resultado detallado del test",
+  "par_milestone_early": "Esta revisión empieza a los {n} meses. A esta edad cada bebé se desarrolla a su propio ritmo. Si algo te preocupa, habla con tu médico.",
+  "par_home_continue": "Continuar: {title}",
+  "par_home_day": "Día {n}/{total}"
 }

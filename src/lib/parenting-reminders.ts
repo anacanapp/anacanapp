@@ -86,7 +86,7 @@ export async function syncParentingReminders(
     if (perm.display === 'prompt' || perm.display === 'prompt-with-rationale') perm = await LocalNotifications.requestPermissions();
     if (perm.display !== 'granted') return;
     await LocalNotifications.schedule({
-      notifications: slots.map((s) => ({ id: s.id, ...text(s), schedule: { at: s.at, allowWhileIdle: true }, extra: { type: 'parenting_programme', partner: opts.partner ? '1' : '0' } })),
+      notifications: slots.map((s) => ({ id: s.id, ...text(s), schedule: { at: s.at, allowWhileIdle: true }, extra: { type: 'parenting_programme', partner: opts.partner ? '1' : '0', programme: s.programmeId } })),
     });
   } catch { /* reminders are a convenience; the programme screen still shows today's step */ }
 }

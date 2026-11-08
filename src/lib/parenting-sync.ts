@@ -4,7 +4,8 @@
  *
  * Merge rules (commutative, so two phones converge):
  *  - band: the newest choice (bandAt);
- *  - programmes: per programme the copy with more checked-off days (max progress), on a tie the newer change;
+ *  - programmes: per programme the newest change of the same run (so an undo sticks); runs started on different
+ *    days keep the copy with more checked-off days, on a tie the newer change;
  *    a restart tombstone newer than the progress removes it;
  *  - quizzes: per quiz the newest result;
  *  - bookmarks: union, minus refs whose removal is newer than their add; newest first;
@@ -26,6 +27,8 @@ function maxMarks(a: Record<string, string> | undefined, b: Record<string, strin
 function betterProgress(a: ProgrammeProgress | undefined, b: ProgrammeProgress | undefined): ProgrammeProgress | undefined {
   if (!a) return b;
   if (!b) return a;
+  // Same run (same start day): the newest change wins, so an undo on one phone is not reverted by the other copy.
+  if (a.startedAt === b.startedAt && a.updatedAt !== b.updatedAt) return newer(a.updatedAt, b.updatedAt) ? a : b;
   if (a.done.length !== b.done.length) return a.done.length > b.done.length ? a : b;
   return newer(a.updatedAt, b.updatedAt) ? a : b;
 }

@@ -7,7 +7,9 @@ import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useUserStore } from '@/store/userStore';
 import { homeTipFor, isParentingHomeCardVisible } from '@/lib/parenting';
-import { bandKey, pt } from '@/lib/parenting-copy';
+import { bandKey, pf, pt } from '@/lib/parenting-copy';
+import { activeProgramme } from '@/lib/parenting-reminders';
+import { setParentingTarget } from '@/lib/parenting-target';
 import { tr } from '@/lib/tr';
 import { useParentingState } from './useParentingState';
 import { useParentingContent } from './useParentingContent';
@@ -38,9 +40,33 @@ export default function ParentingHomeCard({ onOpen, now }: { onOpen: () => void;
   const today = homeTipFor(content.tips, { birthDate: child?.birth_date ?? null, chosenBand: state.band, now });
   if (!today) return null;
 
+  // A running programme: a "Continue: <programme> · Day n/total" line that opens it directly.
+  const running = activeProgramme(state, content.programmes);
+  const track = (action: string, itemId?: string) => {
+    import('@/lib/analytics').then((m) => m.analytics.logToolUsed('parenting', action, itemId)).catch(() => {});
+  };
+  const openTip = () => { track('home_card_open'); onOpen(); };
+  const openProgramme = () => {
+    if (!running) return;
+    setParentingTarget({ kind: 'programme', id: running.programme.id });
+    track('home_continue', running.programme.id);
+    onOpen();
+  };
+
   return (
     <section className="a-section" data-testid="parenting-home-card">
-      <motion.button type="button" className="a-card a-fade-in a-par-home" whileTap={{ scale: 0.98 }} onClick={onOpen}>
+      {running && (
+        <motion.button type="button" className="a-card a-fade-in a-par-home-continue" whileTap={{ scale: 0.98 }} onClick={openProgramme}
+          data-testid="parenting-home-continue">
+          <span className="a-par-home-icon" aria-hidden>{running.programme.emoji}</span>
+          <span className="a-par-home-continue-text">
+            <b>{pf('par_home_continue', { title: running.programme.title })}</b>
+            <small>{pf('par_home_day', { n: Math.min(running.progress.done.length + 1, running.programme.days.length), total: running.programme.days.length })}</small>
+          </span>
+          <ChevronRight size={16} className="rtl:rotate-180" aria-hidden />
+        </motion.button>
+      )}
+      <motion.button type="button" className="a-card a-fade-in a-par-home" whileTap={{ scale: 0.98 }} onClick={openTip}>
         <span className="a-par-home-top">
           <span className="a-par-home-icon" aria-hidden>🤝</span>
           <span className="a-par-home-eyebrow">{tr('dash_parenting_eyebrow', 'Tərbiyə · Günün məsləhəti')}</span>

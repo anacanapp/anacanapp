@@ -12192,5 +12192,12 @@
   "par_ai_kind_article": "Nuôi dạy con · Bài viết",
   "par_ai_text": "Hướng dẫn từng bước về chủ đề này",
   "par_ai_open": "Mở",
-  "par_partner_sub": "Hướng dẫn theo tuổi của trẻ và SOS"
+  "par_partner_sub": "Hướng dẫn theo tuổi của trẻ và SOS",
+  "pm_feat_par_article": "Bài viết nuôi dạy con",
+  "pm_feat_par_sos": "Tất cả thẻ SOS",
+  "pm_feat_par_programme": "Chương trình nuôi dạy con",
+  "pm_feat_par_quiz": "Kết quả chi tiết của bài kiểm tra",
+  "par_milestone_early": "Bài kiểm tra này bắt đầu từ {n} tháng tuổi. Ở độ tuổi này mỗi bé phát triển theo nhịp riêng. Nếu có điều gì khiến bạn lo lắng, hãy trao đổi với bác sĩ.",
+  "par_home_continue": "Tiếp tục: {title}",
+  "par_home_day": "Ngày {n}/{total}"
 }

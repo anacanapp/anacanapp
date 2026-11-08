@@ -1,5 +1,4 @@
-// Deno edge helper; Deno.env is only read inside the senders, which these tests don't call.
-declare global { const Deno: { env: { get(name: string): string | undefined } } }
+// Deno edge helper; Deno.env is only read inside the senders, which these tests don't call (Deno is declared in web-premium-subscription.test.ts).
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { endsText, nudgeCopy, nudgeEmailHtml, nudgeLink } from '../../supabase/functions/_shared/web-premium-nudge';

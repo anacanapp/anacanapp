@@ -5,7 +5,7 @@ export const STYLE_QUIZ: StyleQuiz = {
   id: 'style',
   emoji: '🪞',
   title: 'Gaya pengasuhanku',
-  intro: '12 pernyataan singkat. Pikirkan dua minggu terakhir dan jawab dengan jujur — di sini tidak ada jawaban benar atau salah. Hasilnya hanya tersimpan di ponselmu.',
+  intro: '12 pernyataan singkat. Pikirkan dua minggu terakhir dan jawab dengan jujur — di sini tidak ada jawaban benar atau salah. Hasilnya disimpan di akunmu dan hanya kamu yang bisa melihatnya.',
   scale: ['Hampir tidak pernah', 'Kadang-kadang', 'Sering', 'Hampir selalu'],
   items: [
     { text: 'Saat anakku sedih atau marah, aku menamai perasaannya dan tetap ada di dekatnya.', dim: 'warmth' },

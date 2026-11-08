@@ -76,7 +76,7 @@ describe('Tərbiyə programme reminders: native scheduling', () => {
     expect(cap.cancel).toHaveBeenCalledTimes(1);
     const scheduled = (cap.schedule.mock.calls[0][0] as { notifications: { id: number; extra: Record<string, string> }[] }).notifications;
     expect(scheduled).toHaveLength(list.length);
-    expect(scheduled[0].extra).toEqual({ type: 'parenting_programme', partner: '1' });
+    expect(scheduled[0].extra).toEqual({ type: 'parenting_programme', partner: '1', programme: list[0].programmeId });
     expect(intentFromPushData(scheduled[0].extra)).toEqual({ screen: 'partner-parenting' });
     expect(intentFromPushData({ type: 'parenting_programme', partner: '0' })).toEqual({ tool: 'parenting' });
   });

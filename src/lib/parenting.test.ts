@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import {
-  EMPTY_PARENTING, FREE_PROGRAMME_DAYS, MAX_MONTHS, ageBandFor, canCompleteToday, checkpointFor, completeDay, dailyTipIndex,
+  EMPTY_PARENTING, FREE_PROGRAMME_DAYS, MAX_MONTHS, ageBandFor, canCompleteToday, checkpointFor, completeDay, tooEarlyForMilestones, dailyTipIndex,
   homeTipFor, isDayLocked, isFinished, isParentingHomeCardVisible, isParentingTileVisible, milestoneResult, nextDayIndex, progressPercent, readParenting, readingMinutes,
   startProgramme, storageKey, styleResult, styleScores, toggleSaved, undoLastDay, writeParenting,
 } from './parenting';
@@ -136,6 +136,15 @@ describe('quizzes', () => {
     expect(checkpointFor(cps, 12)?.id).toBe('b');
     expect(checkpointFor(cps, 40)?.id).toBe('c');
     expect(checkpointFor(cps, null)?.id).toBe('a');
+  });
+
+  it('is not offered before the first checkpoint (a 1-month-old would get a false "talk to a doctor")', () => {
+    const cps = [{ ...cp, id: 'a', fromMonths: 4 }, { ...cp, id: 'b', fromMonths: 9 }];
+    expect(tooEarlyForMilestones(cps, 1)).toBe(4);
+    expect(tooEarlyForMilestones(cps, 0)).toBe(4);
+    expect(tooEarlyForMilestones(cps, 4)).toBeNull();
+    expect(tooEarlyForMilestones(cps, null)).toBeNull();
+    expect(tooEarlyForMilestones([], 1)).toBeNull();
   });
 });
 
