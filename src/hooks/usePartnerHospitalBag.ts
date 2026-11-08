@@ -46,11 +46,14 @@ export const usePartnerHospitalBag = () => {
 
   const bag = useHospitalBagSync(partnerUserId, 'partner', templates, !resolving && !templatesLoading);
 
-  const items: PartnerHospitalBagItem[] = bag.items
-    .filter((i) => !i.hidden)
-    .map((i) => ({ ...i, bag_category: i.category, category: i.category === 'partner' ? 'mom' : i.category }));
+  const mapItem = (i: (typeof bag.items)[number]): PartnerHospitalBagItem =>
+    ({ ...i, bag_category: i.category, category: i.category === 'partner' ? 'mom' : i.category });
+  const items: PartnerHospitalBagItem[] = bag.items.filter((i) => !i.hidden).map(mapItem);
+  // Hidden default items, so the partner can show them again.
+  const hiddenItems: PartnerHospitalBagItem[] = bag.items.filter((i) => i.hidden).map(mapItem);
 
   return {
+    hiddenItems,
     items,
     loading: resolving || (!!partnerUserId && (bag.loading || templatesLoading)),
     toggleItem: bag.toggleItem,
