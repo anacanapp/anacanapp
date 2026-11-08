@@ -4,6 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuthContext } from '@/contexts/AuthContext';
 import { useUserStore } from '@/store/userStore';
 import { subDays, format } from 'date-fns';
+import { scoreEPDS, hasEPDSSelfHarm } from '@/lib/epdsScoring';
 
 export interface MoodCheckin {
   id: string;
@@ -23,7 +24,32 @@ export interface EPDSAssessment {
   risk_level: 'low' | 'moderate' | 'high';
   recommendation: string | null;
   completed_at: string;
+  /** Client-side only (not a DB column): question 10 (self-harm) answered above 0. */
+  self_harm?: boolean;
 }
+
+/**
+ * Scores the answers and picks the recommendation copy. A self-harm answer
+ * (question 10 above 0) always gives the urgent result, whatever the total.
+ */
+export function buildEPDSResult(answers: Record<string, number>) {
+  const { totalScore, riskLevel, selfHarm } = scoreEPDS(answers);
+  let recommendation: string;
+  if (selfHarm) {
+    recommendation = tr('epds_self_harm_recommendation', 'Özünüzə zərər vermək fikirlərini qeyd etdiniz. Bu barədə bu gün həkiminizlə və ya yardım xətti ilə danışın. Təhlükədəsinizsə, indi təcili yardıma zəng edin.');
+  } else if (riskLevel === 'high') {
+    recommendation = tr("usementalhealth_neticeleriniz_yuksek_risk_gost_55d3a7", "N\u0259tic\u0259l\u0259riniz y\xFCks\u0259k risk g\xF6st\u0259rir. Z\u0259hm\u0259t olmasa m\xFCt\u0259x\u0259ssisl\u0259 \u0259laq\u0259 saxlay\u0131n.");
+  } else if (riskLevel === 'moderate') {
+    recommendation = tr("usementalhealth_neticeleriniz_orta_seviyyede_r_c3cd4c", "N\u0259tic\u0259l\u0259riniz orta s\u0259viyy\u0259d\u0259 risk g\xF6st\u0259rir. H\u0259kiminizl\u0259 dan\u0131\u015Fma\u011F\u0131 t\xF6vsiy\u0259 edirik.");
+  } else {
+    recommendation = tr("usementalhealth_neticeleriniz_normal_seviyyede_cc8dde", "N\u0259tic\u0259l\u0259riniz normal s\u0259viyy\u0259d\u0259dir. \xD6z\xFCn\xFCz\u0259 qay\u011F\u0131 g\xF6st\u0259rm\u0259y\u0259 davam edin.");
+  }
+  return { totalScore, riskLevel, recommendation, self_harm: selfHarm };
+}
+
+/** Self-harm flag for a stored or fresh assessment (older rows: derived from answers). */
+export const isEPDSSelfHarm = (a: Pick<EPDSAssessment, 'answers'> & { self_harm?: boolean }) =>
+  a.self_harm === true || hasEPDSSelfHarm(a.answers);
 
 export interface MentalHealthResource {
   id: string;
@@ -255,20 +281,7 @@ export const useSubmitEPDS = () => {
     mutationFn: async (answers: Record<string, number>) => {
       if (!user?.id) throw new Error('User not authenticated');
 
-      const totalScore = Object.values(answers).reduce((sum, val) => sum + val, 0);
-
-      let riskLevel: 'low' | 'moderate' | 'high' = 'low';
-      let recommendation = '';
-
-      if (totalScore >= 13) {
-        riskLevel = 'high';
-        recommendation = tr("usementalhealth_neticeleriniz_yuksek_risk_gost_55d3a7", "N\u0259tic\u0259l\u0259riniz y\xFCks\u0259k risk g\xF6st\u0259rir. Z\u0259hm\u0259t olmasa m\xFCt\u0259x\u0259ssisl\u0259 \u0259laq\u0259 saxlay\u0131n.");
-      } else if (totalScore >= 10) {
-        riskLevel = 'moderate';
-        recommendation = tr("usementalhealth_neticeleriniz_orta_seviyyede_r_c3cd4c", "N\u0259tic\u0259l\u0259riniz orta s\u0259viyy\u0259d\u0259 risk g\xF6st\u0259rir. H\u0259kiminizl\u0259 dan\u0131\u015Fma\u011F\u0131 t\xF6vsiy\u0259 edirik.");
-      } else {
-        recommendation = tr("usementalhealth_neticeleriniz_normal_seviyyede_cc8dde", "N\u0259tic\u0259l\u0259riniz normal s\u0259viyy\u0259d\u0259dir. \xD6z\xFCn\xFCz\u0259 qay\u011F\u0131 g\xF6st\u0259rm\u0259y\u0259 davam edin.");
-      }
+      const { totalScore, riskLevel, recommendation, self_harm } = buildEPDSResult(answers);
 
       const { data, error } = await supabase.
       from('epds_assessments').
@@ -283,7 +296,7 @@ export const useSubmitEPDS = () => {
       single();
 
       if (error) throw error;
-      return data as EPDSAssessment;
+      return { ...(data as EPDSAssessment), self_harm } as EPDSAssessment;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['epds-assessments'] });

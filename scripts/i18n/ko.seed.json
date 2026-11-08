@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "안내를 열 수 없습니다",
   "firstaid_unavailable_body": "인터넷 연결을 확인하고 다시 시도해 주세요. 응급 상황이라면 기다리지 말고 바로 전화하세요.",
   "firstaid_retry": "다시 시도",
-  "firstaid_album_replace_failed": "사진을 교체하지 못했습니다. 이전 사진은 그대로 유지됩니다."
+  "firstaid_album_replace_failed": "사진을 교체하지 못했습니다. 이전 사진은 그대로 유지됩니다.",
+  "epds_self_harm_recommendation": "자신을 해치고 싶은 생각이 있다고 답하셨습니다. 오늘 의사나 상담 전화와 이야기해 주세요. 위험한 상황이라면 지금 바로 응급 번호로 전화하세요.",
+  "epds_self_harm_label": "긴급 지원",
+  "epds_self_harm_inline": "이런 생각은 힘들 수 있으며, 당신은 혼자가 아닙니다. 지금 누군가와 이야기하세요. 위험한 상황이라면 응급 번호로 전화하세요.",
+  "epds_self_harm_result_title": "자신을 해치려는 생각은 심각한 신호입니다. 지금 누군가와 이야기하세요:",
+  "kick_guidance_pattern": "아기의 평소 태동 패턴을 알아 두세요. 태동이 줄거나, 달라지거나, 멈추면 다음 날까지 기다리지 말고 바로 분만 병원이나 의사에게 연락하세요.",
+  "contraction_saved_offline_title": "이 기기에 저장됨",
+  "contraction_saved_offline_desc": "다시 온라인이 되면 자동으로 동기화됩니다.",
+  "contraction_clear_title": "모든 진통 기록을 삭제할까요?",
+  "contraction_clear_desc": "모든 진통 기록이 삭제됩니다. 되돌릴 수 없습니다.",
+  "contraction_call_now_guidance": "양수가 터지거나, 출혈이 있거나, 37주 전에 진통이 시작되거나, 태동이 줄거나, 심한 통증이 계속되면 바로 분만 병원에 전화하세요.",
+  "contraction_pending_sync": "동기화 대기 중"
 }

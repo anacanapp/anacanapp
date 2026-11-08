@@ -10063,5 +10063,16 @@
   "firstaid_unavailable_title": "Talimatlar açılamadı",
   "firstaid_unavailable_body": "İnternet bağlantınızı kontrol edip tekrar deneyin. Acil bir durumda beklemeyin, hemen arayın.",
   "firstaid_retry": "Tekrar dene",
-  "firstaid_album_replace_failed": "Fotoğraf değiştirilemedi. Önceki fotoğrafınız korundu."
+  "firstaid_album_replace_failed": "Fotoğraf değiştirilemedi. Önceki fotoğrafınız korundu.",
+  "epds_self_harm_recommendation": "Kendinize zarar verme düşüncelerini belirttiniz. Lütfen bugün bu konuyu doktorunuzla veya bir yardım hattıyla konuşun. Tehlikedeyseniz, hemen acil yardımı arayın.",
+  "epds_self_harm_label": "Acil destek",
+  "epds_self_harm_inline": "Bu düşünceler zor olabilir ve yalnız değilsiniz. Şimdi biriyle konuşun. Tehlikedeyseniz, acil yardımı arayın.",
+  "epds_self_harm_result_title": "Kendinize zarar verme düşünceleri ciddidir. Şimdi biriyle konuşun:",
+  "kick_guidance_pattern": "Bebeğinizin olağan hareket düzenini tanıyın. Hareketler azalırsa, değişirse veya durursa ertesi günü beklemeyin: hemen doğum servisinizle ya da doktorunuzla iletişime geçin.",
+  "contraction_saved_offline_title": "Bu cihazda kaydedildi",
+  "contraction_saved_offline_desc": "İnternet bağlantısı geri geldiğinde otomatik olarak eşitlenecek.",
+  "contraction_clear_title": "Tüm kasılmalar silinsin mi?",
+  "contraction_clear_desc": "Tüm kasılma geçmişiniz silinecek. Bu işlem geri alınamaz.",
+  "contraction_call_now_guidance": "Suyunuz gelirse, kanamanız olursa, kasılmalar 37. haftadan önce başlarsa, bebeğiniz daha az hareket ederse veya sürekli şiddetli ağrınız olursa hemen doğum servisinizi arayın.",
+  "contraction_pending_sync": "Eşitleme bekleniyor"
 }

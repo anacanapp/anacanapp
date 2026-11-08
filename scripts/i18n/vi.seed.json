@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "Không thể mở hướng dẫn",
   "firstaid_unavailable_body": "Hãy kiểm tra kết nối internet và thử lại. Trong trường hợp khẩn cấp, đừng chờ đợi, hãy gọi ngay.",
   "firstaid_retry": "Thử lại",
-  "firstaid_album_replace_failed": "Không thể thay ảnh. Ảnh trước đó vẫn được giữ lại."
+  "firstaid_album_replace_failed": "Không thể thay ảnh. Ảnh trước đó vẫn được giữ lại.",
+  "epds_self_harm_recommendation": "Bạn đã đánh dấu có ý nghĩ tự làm hại bản thân. Hãy nói chuyện với bác sĩ hoặc đường dây hỗ trợ ngay hôm nay. Nếu bạn đang gặp nguy hiểm, hãy gọi cấp cứu ngay.",
+  "epds_self_harm_label": "Hỗ trợ khẩn cấp",
+  "epds_self_harm_inline": "Những ý nghĩ này có thể rất nặng nề, và bạn không đơn độc. Hãy nói chuyện với ai đó ngay bây giờ. Nếu bạn đang gặp nguy hiểm, hãy gọi cấp cứu.",
+  "epds_self_harm_result_title": "Ý nghĩ tự làm hại bản thân là điều nghiêm trọng. Hãy nói chuyện với ai đó ngay bây giờ:",
+  "kick_guidance_pattern": "Hãy làm quen với nhịp cử động thường ngày của bé. Nếu cử động giảm, thay đổi hoặc ngừng, đừng đợi đến hôm sau: hãy liên hệ ngay với khoa sản hoặc bác sĩ của bạn.",
+  "contraction_saved_offline_title": "Đã lưu trên thiết bị này",
+  "contraction_saved_offline_desc": "Sẽ tự động đồng bộ khi có mạng trở lại.",
+  "contraction_clear_title": "Xóa tất cả các cơn co thắt?",
+  "contraction_clear_desc": "Toàn bộ lịch sử cơn co thắt sẽ bị xóa. Không thể hoàn tác.",
+  "contraction_call_now_guidance": "Hãy gọi ngay cho khoa sản nếu bạn vỡ ối, ra máu, có cơn co trước 37 tuần, bé cử động ít hơn hoặc đau dữ dội liên tục.",
+  "contraction_pending_sync": "Đang chờ đồng bộ"
 }

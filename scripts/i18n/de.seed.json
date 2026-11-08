@@ -10063,5 +10063,16 @@
   "firstaid_unavailable_title": "Die Anleitungen konnten nicht geöffnet werden",
   "firstaid_unavailable_body": "Prüfe deine Internetverbindung und versuche es erneut. Im Notfall nicht warten, sofort anrufen.",
   "firstaid_retry": "Erneut versuchen",
-  "firstaid_album_replace_failed": "Das Foto wurde nicht ersetzt. Dein bisheriges Foto bleibt erhalten."
+  "firstaid_album_replace_failed": "Das Foto wurde nicht ersetzt. Dein bisheriges Foto bleibt erhalten.",
+  "epds_self_harm_recommendation": "Sie haben Gedanken angegeben, sich selbst zu verletzen. Bitte sprechen Sie heute mit Ihrer Ärztin, Ihrem Arzt oder einer Hilfehotline darüber. Wenn Sie in Gefahr sind, rufen Sie jetzt den Notruf an.",
+  "epds_self_harm_label": "Dringende Unterstützung",
+  "epds_self_harm_inline": "Solche Gedanken können schwer sein, und Sie sind nicht allein. Sprechen Sie jetzt mit jemandem. Wenn Sie in Gefahr sind, rufen Sie den Notruf an.",
+  "epds_self_harm_result_title": "Gedanken, sich selbst zu verletzen, sind ernst zu nehmen. Sprechen Sie jetzt mit jemandem:",
+  "kick_guidance_pattern": "Lernen Sie das übliche Bewegungsmuster Ihres Babys kennen. Wenn die Bewegungen weniger werden, sich verändern oder aufhören, warten Sie nicht bis zum nächsten Tag: Melden Sie sich sofort bei Ihrer Geburtsklinik oder Ihrer Ärztin bzw. Ihrem Arzt.",
+  "contraction_saved_offline_title": "Auf diesem Gerät gespeichert",
+  "contraction_saved_offline_desc": "Wird automatisch synchronisiert, sobald Sie wieder online sind.",
+  "contraction_clear_title": "Alle Wehen löschen?",
+  "contraction_clear_desc": "Ihr gesamter Wehenverlauf wird gelöscht. Das kann nicht rückgängig gemacht werden.",
+  "contraction_call_now_guidance": "Rufen Sie sofort Ihre Geburtsklinik an, wenn die Fruchtblase platzt, Sie bluten, die Wehen vor der 37. Woche beginnen, Ihr Baby sich weniger bewegt oder Sie dauerhaft starke Schmerzen haben.",
+  "contraction_pending_sync": "Wartet auf Synchronisierung"
 }

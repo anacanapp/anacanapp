@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "Não foi possível abrir as instruções",
   "firstaid_unavailable_body": "Verifique a sua ligação à internet e tente novamente. Numa emergência, não espere: ligue de imediato.",
   "firstaid_retry": "Tentar novamente",
-  "firstaid_album_replace_failed": "A foto não foi substituída. A sua foto anterior foi mantida."
+  "firstaid_album_replace_failed": "A foto não foi substituída. A sua foto anterior foi mantida.",
+  "epds_self_harm_recommendation": "Você indicou pensamentos de se machucar. Fale sobre isso hoje com seu médico ou com uma linha de apoio. Se estiver em perigo, ligue agora para a emergência.",
+  "epds_self_harm_label": "Apoio urgente",
+  "epds_self_harm_inline": "Esses pensamentos podem ser difíceis, e você não está sozinha. Converse com alguém agora. Se estiver em perigo, ligue para a emergência.",
+  "epds_self_harm_result_title": "Pensamentos de se machucar são sérios. Converse com alguém agora:",
+  "kick_guidance_pattern": "Conheça o padrão habitual de movimentos do seu bebê. Se os movimentos diminuírem, mudarem ou pararem, não espere até o dia seguinte: entre em contato imediatamente com a maternidade ou seu médico.",
+  "contraction_saved_offline_title": "Salvo neste dispositivo",
+  "contraction_saved_offline_desc": "Será sincronizado automaticamente quando a conexão voltar.",
+  "contraction_clear_title": "Apagar todas as contrações?",
+  "contraction_clear_desc": "Todo o histórico de contrações será apagado. Isso não pode ser desfeito.",
+  "contraction_call_now_guidance": "Ligue já para a maternidade se a bolsa romper, houver sangramento, as contrações começarem antes de 37 semanas, o bebê se mexer menos ou houver dor forte e constante.",
+  "contraction_pending_sync": "Aguardando sincronização"
 }

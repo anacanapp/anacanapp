@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "Det gick inte att öppna instruktionerna",
   "firstaid_unavailable_body": "Kontrollera internetanslutningen och försök igen. Vänta inte i en nödsituation, ring direkt.",
   "firstaid_retry": "Försök igen",
-  "firstaid_album_replace_failed": "Fotot kunde inte bytas. Ditt tidigare foto finns kvar."
+  "firstaid_album_replace_failed": "Fotot kunde inte bytas. Ditt tidigare foto finns kvar.",
+  "epds_self_harm_recommendation": "Du har angett tankar på att skada dig själv. Prata om det med din läkare eller en stödlinje i dag. Om du är i fara, ring larmnumret nu.",
+  "epds_self_harm_label": "Akut stöd",
+  "epds_self_harm_inline": "Sådana tankar kan vara tunga, och du är inte ensam. Prata med någon nu. Om du är i fara, ring larmnumret.",
+  "epds_self_harm_result_title": "Tankar på att skada dig själv är allvarliga. Prata med någon nu:",
+  "kick_guidance_pattern": "Lär känna ditt barns vanliga rörelsemönster. Om rörelserna minskar, förändras eller upphör, vänta inte till nästa dag: kontakta din förlossningsavdelning eller läkare direkt.",
+  "contraction_saved_offline_title": "Sparat på den här enheten",
+  "contraction_saved_offline_desc": "Synkas automatiskt när du är online igen.",
+  "contraction_clear_title": "Radera alla värkar?",
+  "contraction_clear_desc": "Hela historiken över värkar raderas. Det går inte att ångra.",
+  "contraction_call_now_guidance": "Ring förlossningen direkt om vattnet går, du blöder, värkarna börjar före vecka 37, barnet rör sig mindre eller du har konstant svår smärta.",
+  "contraction_pending_sync": "Väntar på synk"
 }

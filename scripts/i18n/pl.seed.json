@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "Nie udało się otworzyć instrukcji",
   "firstaid_unavailable_body": "Sprawdź połączenie z internetem i spróbuj ponownie. W nagłym przypadku nie czekaj, zadzwoń od razu.",
   "firstaid_retry": "Spróbuj ponownie",
-  "firstaid_album_replace_failed": "Nie udało się zamienić zdjęcia. Poprzednie zdjęcie zostało zachowane."
+  "firstaid_album_replace_failed": "Nie udało się zamienić zdjęcia. Poprzednie zdjęcie zostało zachowane.",
+  "epds_self_harm_recommendation": "Zaznaczyłaś myśli o zrobieniu sobie krzywdy. Porozmawiaj o tym dziś z lekarzem lub z telefonem zaufania. Jeśli jesteś w niebezpieczeństwie, zadzwoń teraz na numer alarmowy.",
+  "epds_self_harm_label": "Pilne wsparcie",
+  "epds_self_harm_inline": "Takie myśli mogą być trudne i nie jesteś z tym sama. Porozmawiaj teraz z kimś. Jeśli jesteś w niebezpieczeństwie, zadzwoń na numer alarmowy.",
+  "epds_self_harm_result_title": "Myśli o zrobieniu sobie krzywdy są poważne. Porozmawiaj teraz z kimś:",
+  "kick_guidance_pattern": "Poznaj zwykły rytm ruchów swojego dziecka. Jeśli ruchy słabną, zmieniają się lub ustają, nie czekaj do następnego dnia: od razu skontaktuj się z oddziałem położniczym lub lekarzem.",
+  "contraction_saved_offline_title": "Zapisano na tym urządzeniu",
+  "contraction_saved_offline_desc": "Zsynchronizuje się automatycznie po przywróceniu internetu.",
+  "contraction_clear_title": "Usunąć wszystkie skurcze?",
+  "contraction_clear_desc": "Cała historia skurczów zostanie usunięta. Tego nie można cofnąć.",
+  "contraction_call_now_guidance": "Zadzwoń od razu na oddział położniczy, jeśli odejdą wody, pojawi się krwawienie, skurcze zaczną się przed 37. tygodniem, dziecko rusza się mniej lub masz stały silny ból.",
+  "contraction_pending_sync": "Czeka na synchronizację"
 }

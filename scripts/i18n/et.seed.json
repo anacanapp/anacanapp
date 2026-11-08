@@ -12288,5 +12288,16 @@
   "firstaid_unavailable_title": "Juhiseid ei saanud avada",
   "firstaid_unavailable_body": "Kontrolli internetiühendust ja proovi uuesti. Hädaolukorras ära oota, helista kohe.",
   "firstaid_retry": "Proovi uuesti",
-  "firstaid_album_replace_failed": "Fotot ei õnnestunud vahetada. Eelmine foto on alles."
+  "firstaid_album_replace_failed": "Fotot ei õnnestunud vahetada. Eelmine foto on alles.",
+  "epds_self_harm_recommendation": "Märkisid mõtteid endale haiget teha. Räägi sellest täna oma arsti või abitelefoniga. Kui oled ohus, helista kohe hädaabinumbrile.",
+  "epds_self_harm_label": "Kiire tugi",
+  "epds_self_harm_inline": "Sellised mõtted võivad olla rasked ja sa ei ole üksi. Räägi kellegagi kohe. Kui oled ohus, helista hädaabinumbrile.",
+  "epds_self_harm_result_title": "Mõtted endale haiget teha on tõsised. Räägi kellegagi kohe:",
+  "kick_guidance_pattern": "Õpi tundma oma beebi tavapärast liigutuste mustrit. Kui liigutused vähenevad, muutuvad või lakkavad, ära oota järgmise päevani: võta kohe ühendust oma sünnitusosakonna või arstiga.",
+  "contraction_saved_offline_title": "Salvestatud selles seadmes",
+  "contraction_saved_offline_desc": "Sünkroonitakse automaatselt, kui oled jälle võrgus.",
+  "contraction_clear_title": "Kas kustutada kõik tuhud?",
+  "contraction_clear_desc": "Kogu tuhude ajalugu kustutatakse. Seda ei saa tagasi võtta.",
+  "contraction_call_now_guidance": "Helista kohe oma sünnitusosakonda, kui lootevesi tuleb, tekib veritsus, tuhud algavad enne 37. nädalat, beebi liigutab vähem või on pidev tugev valu.",
+  "contraction_pending_sync": "Ootab sünkroonimist"
 }

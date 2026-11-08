@@ -1,8 +1,22 @@
 import { useState, useEffect, useRef, forwardRef } from 'react';
 import { tr } from '@/lib/tr';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Square, AlertCircle, Trash2 } from 'lucide-react';
-import { useContractions } from '@/hooks/useContractions';
+import { Play, Square, AlertCircle, Trash2, Phone, CloudOff } from 'lucide-react';
+import { useContractions, loadContractionTimerState, saveContractionTimerState, type ContractionTimerState } from '@/hooks/useContractions';
+import { useAuth } from '@/hooks/useAuth';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
+import { formatTr } from '@/lib/tr';
+import { startToStartSeconds } from '@/lib/laborUtils';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle } from
+'@/components/ui/alert-dialog';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { hapticFeedback } from '@/lib/native';
@@ -19,27 +33,40 @@ const ContractionTimer = forwardRef<HTMLDivElement, ContractionTimerProps>(({ on
   const isRtl = useIsRtl();
   useScreenAnalytics('ContractionTimer', 'Tools');
 
-  const [isActive, setIsActive] = useState(false);
-  const [currentDuration, setCurrentDuration] = useState(0);
-  const [lastEndTime, setLastEndTime] = useState<Date | null>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const { user } = useAuth();
+  const userId = user?.id ?? null;
+  const emergencyNumber = useEmergencyNumber();
+
+  // Timer state is timestamps (running start, previous start/end), persisted per user,
+  // so a locked screen or leaving the screen never breaks durations or intervals.
+  const [timer, setTimerState] = useState<ContractionTimerState>(() => loadContractionTimerState(userId));
+  const [now, setNow] = useState(() => Date.now());
+  const [confirmClear, setConfirmClear] = useState(false);
+  const stoppingRef = useRef(false);
+  const isActive = timer.activeStart != null;
+  const currentDuration = isActive ? Math.max(0, Math.floor((now - (timer.activeStart as number)) / 1000)) : 0;
+
+  const setTimer = (next: ContractionTimerState) => {
+    setTimerState(next);
+    saveContractionTimerState(userId, next);
+  };
+
+  useEffect(() => {
+    setTimerState(loadContractionTimerState(userId));
+  }, [userId]);
 
   const { contractions, addContraction, getStats, clearAll, loading } = useContractions();
 
+  // Display tick only; the duration itself is computed from activeStart.
   useEffect(() => {
-    if (isActive) {
-      intervalRef.current = setInterval(() => {
-        setCurrentDuration((prev) => prev + 1);
-      }, 1000);
-    } else {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    }
+    if (!isActive) return;
+    setNow(Date.now());
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    const onVisible = () => setNow(Date.now());
+    document.addEventListener('visibilitychange', onVisible);
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+      clearInterval(id);
+      document.removeEventListener('visibilitychange', onVisible);
     };
   }, [isActive]);
 
@@ -49,24 +76,32 @@ const ContractionTimer = forwardRef<HTMLDivElement, ContractionTimerProps>(({ on
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const handleStart = async () => {
-    await hapticFeedback.medium();
-    setIsActive(true);
-    setCurrentDuration(0);
+  const handleStart = () => {
+    void hapticFeedback.medium();
+    const at = Date.now();
+    setNow(at);
+    setTimer({ ...timer, activeStart: at });
   };
 
   const handleStop = async () => {
-    await hapticFeedback.heavy();
-    setIsActive(false);
-    const now = new Date();
+    if (timer.activeStart == null || stoppingRef.current) return;
+    void hapticFeedback.heavy();
+    const startedAt = timer.activeStart;
+    const endedAt = Date.now();
+    const duration = Math.max(0, Math.round((endedAt - startedAt) / 1000));
 
-    const interval = lastEndTime ?
-    Math.floor((now.getTime() - lastEndTime.getTime()) / 1000 - currentDuration) :
-    undefined;
+    // Previous start: the persisted one or the newest saved/queued contraction.
+    const newestListed = contractions.length ? new Date(contractions[0].start_time).getTime() : null;
+    const previousStart = Math.max(timer.lastStart ?? -Infinity, newestListed ?? -Infinity);
+    const interval = startToStartSeconds(Number.isFinite(previousStart) ? previousStart : null, startedAt);
 
-    await addContraction(currentDuration, interval);
-    setLastEndTime(now);
-    setCurrentDuration(0);
+    setTimer({ activeStart: null, lastStart: startedAt, lastEnd: endedAt });
+    stoppingRef.current = true;
+    try {
+      await addContraction(duration, interval, startedAt);
+    } finally {
+      stoppingRef.current = false;
+    }
   };
 
   const stats = getStats();
@@ -79,7 +114,8 @@ const ContractionTimer = forwardRef<HTMLDivElement, ContractionTimerProps>(({ on
         title={tr("contractiontimer_sanci_olcen_67d681", "Sancı Ölçən")}
         actions={contractions.length > 0 &&
         <motion.button
-          onClick={clearAll}
+          onClick={() => setConfirmClear(true)}
+          aria-label={tr('contraction_clear_title', 'Bütün sancılar silinsin?')}
           className="a-icon-btn"
           style={{ background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)', border: 'none' }}
           whileTap={{ scale: 0.9 }}>
@@ -199,6 +235,21 @@ const ContractionTimer = forwardRef<HTMLDivElement, ContractionTimerProps>(({ on
         </span>
       </motion.div>
 
+      {/* When to call now (NHS / ACOG style, compact) */}
+      <div className="a-card" style={{ marginTop: 12, padding: '12px 14px', display: 'flex', alignItems: 'center', gap: 10, background: 'var(--a-pink-1)', border: 'none' }}>
+        <p className="a-list-sub" style={{ margin: 0, flex: 1, whiteSpace: 'normal', color: 'var(--a-pink-ink)' }}>
+          {tr('contraction_call_now_guidance', 'Suyunuz gəlsə, qanaxma olsa, sancılar 37 həftədən əvvəl başlasa, körpə az hərəkət etsə və ya daimi şiddətli ağrı olsa, dərhal doğum evinizə zəng edin.')}
+        </p>
+        <a
+          href={`tel:${emergencyNumber}`}
+          className="a-cta-btn"
+          aria-label={formatTr('weaning_call_emergency', 'Təcili yardım: {emergency}', { emergency: emergencyNumber })}
+          style={{ flexShrink: 0, height: 34, padding: '0 12px', fontSize: 12, background: 'var(--a-pink-2)', color: '#fff', textDecoration: 'none' }}>
+          <Phone size={13} strokeWidth={2.2} />
+          {emergencyNumber}
+        </a>
+      </div>
+
       {/* Contractions List */}
       {contractions.length > 0 &&
       <section className="a-section pb-6">
@@ -218,12 +269,20 @@ const ContractionTimer = forwardRef<HTMLDivElement, ContractionTimerProps>(({ on
                   #{contractions.length - index}
                 </span>
                 <div>
-                  <p className="a-list-title">{formatTime(contraction.duration_seconds)} {tr("contractiontimer_muddet_a5b45d", "m\xFCdd\u0259t")}</p>
+                  <p className="a-list-title" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    {formatTime(contraction.duration_seconds)} {tr("contractiontimer_muddet_a5b45d", "m\xFCdd\u0259t")}
+                    {contraction.pending &&
+                <span className="a-rank-tag" title={tr('contraction_pending_sync', 'Sinxronlaşma gözlənilir')} style={{ margin: 0, background: 'var(--a-yellow-1)', color: 'var(--a-warn-ink)', fontSize: 10, display: 'inline-flex', alignItems: 'center', gap: 3 }}>
+                        <CloudOff size={10} strokeWidth={2.4} />
+                        {tr('contraction_pending_sync', 'Sinxronlaşma gözlənilir')}
+                      </span>
+                }
+                  </p>
                   <p className="a-list-sub">
                     {formatDateAz(contraction.start_time)}, {formatTimeAz(contraction.start_time)}
                   </p>
                 </div>
-                {contraction.interval_seconds &&
+                {!!contraction.interval_seconds &&
             <span className="a-list-trail">
                     <p className="a-list-value font-mono">{formatTime(contraction.interval_seconds)}</p>
                     <p className="a-list-time">{tr("contractiontimer_araliq_05bea1", "aralıq")}</p>
@@ -234,6 +293,28 @@ const ContractionTimer = forwardRef<HTMLDivElement, ContractionTimerProps>(({ on
           </div>
         </section>
       }
+      <AlertDialog open={confirmClear} onOpenChange={setConfirmClear}>
+        <AlertDialogContent className="max-w-sm">
+          <AlertDialogHeader>
+            <AlertDialogTitle>{tr('contraction_clear_title', 'Bütün sancılar silinsin?')}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {tr('contraction_clear_desc', 'Bütün sancı tarixçəsi silinəcək. Bunu geri qaytarmaq olmur.')}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{tr('common_legv_et', 'Ləğv et')}</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => {
+                setConfirmClear(false);
+                setTimer({ activeStart: timer.activeStart, lastStart: null, lastEnd: null });
+                void clearAll();
+              }}
+              className="bg-red-500 hover:bg-red-600">
+              {tr('common_sil', 'Sil')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </ToolPage>);
 
 });

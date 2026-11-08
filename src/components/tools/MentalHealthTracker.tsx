@@ -14,8 +14,12 @@ import {
   useMentalHealthResources,
   useShouldShowEPDSPrompt,
   EPDS_QUESTIONS as FALLBACK_EPDS_QUESTIONS,
-  EPDSAssessment } from
+  EPDSAssessment,
+  buildEPDSResult,
+  isEPDSSelfHarm } from
 '@/hooks/useMentalHealth';
+import { EPDS_SELF_HARM_QUESTION } from '@/lib/epdsScoring';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import {
   useMoodLevelsDB,
   useBreathingExercisesDB,
@@ -187,7 +191,25 @@ const MentalHealthTracker = ({ onBack }: MentalHealthTrackerProps) => {
       return;
     }
 
-    const result = await submitEPDS.mutateAsync(epdsAnswers);
+    let result: EPDSAssessment;
+    try {
+      result = await submitEPDS.mutateAsync(epdsAnswers);
+    } catch (error) {
+      // Saving failed (offline / server): still show the result on this device.
+      // Especially a self-harm answer must never end without the urgent help screen.
+      console.error('EPDS save failed:', error);
+      const local = buildEPDSResult(epdsAnswers);
+      result = {
+        id: `local-${Date.now()}`,
+        user_id: '',
+        total_score: local.totalScore,
+        answers: epdsAnswers,
+        risk_level: local.riskLevel,
+        recommendation: local.recommendation,
+        completed_at: new Date().toISOString(),
+        self_harm: local.self_harm
+      };
+    }
     setShowResult(result);
     setShowEPDS(false);
     setEpdsAnswers({});
@@ -232,6 +254,9 @@ const MentalHealthTracker = ({ onBack }: MentalHealthTrackerProps) => {
 
   const getRiskStyle = (level: string) => riskStyles[level] || riskStyles.low;
 
+  const getAssessmentLabel = (a: EPDSAssessment) =>
+  isEPDSSelfHarm(a) ? tr('epds_self_harm_label', 'Təcili dəstək') : getRiskLabel(a.risk_level);
+
   const getRiskLabel = (level: string) => {
     switch (level) {
       case 'high':return tr("mentalhealthtracker_yuksek_risk_29a5a3", "Y\xFCks\u0259k Risk");
@@ -251,7 +276,47 @@ const MentalHealthTracker = ({ onBack }: MentalHealthTrackerProps) => {
   });
 
   const emergencyResources = resources.filter((r) => r.is_emergency);
+  const emergencyPhoneResources = emergencyResources.filter((r) => !!r.phone);
+  // Country emergency number: always shown, so a number is never missing when the
+  // help-line list has no rows for this country.
+  const emergencyNumber = useEmergencyNumber();
+  const currentQuestionId = EPDS_QUESTIONS[currentQuestion]?.id;
+  const selfHarmAnsweredNow = currentQuestionId === EPDS_SELF_HARM_QUESTION && (epdsAnswers[EPDS_SELF_HARM_QUESTION] ?? 0) > 0;
+  const resultSelfHarm = !!showResult && isEPDSSelfHarm(showResult);
+  const emergencyCallButton = (height: number) =>
+  <a
+    href={`tel:${emergencyNumber}`}
+    className="a-cta-btn w-full"
+    style={{ justifyContent: 'center', height, background: 'var(--a-pink-2)', color: '#fff', textDecoration: 'none' }}>
+      <Phone size={15} strokeWidth={2.2} />
+      {formatTr('weaning_call_emergency', 'Təcili yardım: {emergency}', { emergency: emergencyNumber })}
+    </a>;
   const otherResources = resources.filter((r) => !r.is_emergency);
+
+  // Urgent help block of the result modal (self-harm answer or high score). For a
+  // self-harm answer it is shown first, right under the result badge.
+  const urgentHelp = showResult && (showResult.risk_level === 'high' || resultSelfHarm) ?
+              <div className="p-4 rounded-2xl" role="alert" style={{ background: 'var(--a-alert-bg)' }}>
+                    <p className="text-sm font-bold mb-3" style={{ margin: '0 0 12px', color: 'var(--a-alert-ink)' }}>
+                      {resultSelfHarm ?
+                  tr('epds_self_harm_result_title', 'Özünüzə zərər vermək fikirləri ciddidir. İndi kiminləsə danışın:') :
+                  tr("mentalhealthtracker_zehmet_olmasa_mutexessisle_ela_07b456", "🆘 Zəhmət olmasa mütəxəssislə əlaqə saxlayın:")}
+                    </p>
+                    <div className="space-y-2">
+                      {emergencyCallButton(44)}
+                      {emergencyPhoneResources.map((r) =>
+                  <a
+                    key={r.id}
+                    href={`tel:${r.phone}`}
+                    className="a-cta-btn w-full"
+                    style={{ justifyContent: 'center', height: 44, background: 'var(--a-pink-2)', color: '#fff', textDecoration: 'none' }}>
+                          <Phone size={15} strokeWidth={2.2} />
+                          {r.name}: {r.phone}
+                        </a>
+                  )}
+                    </div>
+                  </div>
+    : null;
 
   return (
     <ToolPage>
@@ -515,7 +580,7 @@ const MentalHealthTracker = ({ onBack }: MentalHealthTrackerProps) => {
                     <p className="a-list-sub">{tr('mentalhealthtracker_bal_label', 'Bal:')} {assessment.total_score}/30</p>
                   </div>
                   <span className="a-rank-tag" style={{ margin: 0, background: getRiskStyle(assessment.risk_level).bg, color: getRiskStyle(assessment.risk_level).ink }}>
-                    {getRiskLabel(assessment.risk_level)}
+                    {getAssessmentLabel(assessment)}
                   </span>
                 </motion.button>
             )}
@@ -524,7 +589,7 @@ const MentalHealthTracker = ({ onBack }: MentalHealthTrackerProps) => {
         }
 
         {/* Emergency Resources */}
-        {emergencyResources.length > 0 &&
+        {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -556,6 +621,7 @@ const MentalHealthTracker = ({ onBack }: MentalHealthTrackerProps) => {
                   </div>
                 </div>
             )}
+              {emergencyPhoneResources.length === 0 && emergencyCallButton(44)}
             </div>
           </motion.div>
         }
@@ -748,6 +814,15 @@ const MentalHealthTracker = ({ onBack }: MentalHealthTrackerProps) => {
               }
             </AnimatePresence>
 
+            {selfHarmAnsweredNow &&
+            <div className="p-4 rounded-2xl" role="alert" style={{ background: 'var(--a-alert-bg)' }}>
+                <p className="text-sm font-bold" style={{ margin: '0 0 10px', color: 'var(--a-alert-ink)' }}>
+                  {tr('epds_self_harm_inline', 'Bu fikirlər çətin ola bilər və siz tək deyilsiniz. İndi kiminləsə danışın. Təhlükədəsinizsə, təcili yardıma zəng edin.')}
+                </p>
+                {emergencyCallButton(42)}
+              </div>
+            }
+
             <div className="flex gap-2 pt-4">
               <button
                 className="a-btn-soft"
@@ -797,11 +872,13 @@ const MentalHealthTracker = ({ onBack }: MentalHealthTrackerProps) => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-lg font-bold"
-                style={{ background: getRiskStyle(showResult.risk_level).bg, color: getRiskStyle(showResult.risk_level).ink }}>
+                style={{ background: getRiskStyle(resultSelfHarm ? 'high' : showResult.risk_level).bg, color: getRiskStyle(resultSelfHarm ? 'high' : showResult.risk_level).ink }}>
                 
-                  {showResult.risk_level === 'low' ? <CheckCircle className="w-6 h-6" /> : <AlertTriangle className="w-6 h-6" />}
-                  {getRiskLabel(showResult.risk_level)}
+                  {showResult.risk_level === 'low' && !resultSelfHarm ? <CheckCircle className="w-6 h-6" /> : <AlertTriangle className="w-6 h-6" />}
+                  {getAssessmentLabel(showResult)}
                 </motion.div>
+
+                {resultSelfHarm && urgentHelp}
                 
                 <div>
                   <p className="a-heading" style={{ margin: 0, fontSize: 52, color: 'var(--a-ink)' }}>{showResult.total_score}</p>
@@ -810,25 +887,7 @@ const MentalHealthTracker = ({ onBack }: MentalHealthTrackerProps) => {
 
                 <p className="text-sm p-4 rounded-2xl" style={{ margin: 0, background: 'var(--a-surface-soft)', color: 'var(--a-body-text)' }}>{showResult.recommendation}</p>
 
-                {showResult.risk_level === 'high' && emergencyResources.length > 0 &&
-              <div className="p-4 rounded-2xl" style={{ background: 'var(--a-alert-bg)' }}>
-                    <p className="text-sm font-bold mb-3" style={{ margin: '0 0 12px', color: 'var(--a-alert-ink)' }}>
-                      {tr("mentalhealthtracker_zehmet_olmasa_mutexessisle_ela_07b456", "🆘 Zəhmət olmasa mütəxəssislə əlaqə saxlayın:")}
-                    </p>
-                    <div className="space-y-2">
-                      {emergencyResources.map((r) =>
-                  <a
-                    key={r.id}
-                    href={`tel:${r.phone}`}
-                    className="a-cta-btn w-full"
-                    style={{ justifyContent: 'center', height: 44, background: 'var(--a-pink-2)', color: '#fff', textDecoration: 'none' }}>
-                          <Phone size={15} strokeWidth={2.2} />
-                          {r.name}: {r.phone}
-                        </a>
-                  )}
-                    </div>
-                  </div>
-              }
+                {!resultSelfHarm && urgentHelp}
               </div>
             </>
           }

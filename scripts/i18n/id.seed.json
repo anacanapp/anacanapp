@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "Petunjuk tidak dapat dibuka",
   "firstaid_unavailable_body": "Periksa koneksi internet lalu coba lagi. Dalam keadaan darurat, jangan menunggu, segera telepon.",
   "firstaid_retry": "Coba lagi",
-  "firstaid_album_replace_failed": "Foto tidak berhasil diganti. Foto sebelumnya tetap disimpan."
+  "firstaid_album_replace_failed": "Foto tidak berhasil diganti. Foto sebelumnya tetap disimpan.",
+  "epds_self_harm_recommendation": "Anda menandai adanya pikiran untuk menyakiti diri sendiri. Bicarakan hal ini dengan dokter atau layanan bantuan hari ini. Jika Anda dalam bahaya, segera hubungi layanan darurat.",
+  "epds_self_harm_label": "Dukungan segera",
+  "epds_self_harm_inline": "Pikiran seperti ini bisa terasa berat, dan Anda tidak sendirian. Bicaralah dengan seseorang sekarang. Jika Anda dalam bahaya, hubungi layanan darurat.",
+  "epds_self_harm_result_title": "Pikiran untuk menyakiti diri sendiri itu serius. Bicaralah dengan seseorang sekarang:",
+  "kick_guidance_pattern": "Kenali pola gerakan bayi Anda yang biasa. Jika gerakan berkurang, berubah, atau berhenti, jangan tunggu sampai besok: segera hubungi unit bersalin atau dokter Anda.",
+  "contraction_saved_offline_title": "Disimpan di perangkat ini",
+  "contraction_saved_offline_desc": "Akan disinkronkan otomatis saat Anda kembali online.",
+  "contraction_clear_title": "Hapus semua kontraksi?",
+  "contraction_clear_desc": "Seluruh riwayat kontraksi akan dihapus. Tindakan ini tidak dapat dibatalkan.",
+  "contraction_call_now_guidance": "Segera hubungi unit bersalin jika ketuban pecah, terjadi perdarahan, kontraksi mulai sebelum 37 minggu, bayi kurang bergerak, atau Anda merasakan nyeri hebat yang terus-menerus.",
+  "contraction_pending_sync": "Menunggu sinkronisasi"
 }

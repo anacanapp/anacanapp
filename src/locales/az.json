@@ -8560,5 +8560,16 @@
   "firstaid_unavailable_title": "Təlimatları açmaq mümkün olmadı",
   "firstaid_unavailable_body": "İnternet bağlantısını yoxlayıb yenidən cəhd edin. Təcili vəziyyətdə gözləməyin, dərhal zəng edin.",
   "firstaid_retry": "Yenidən cəhd et",
-  "firstaid_album_replace_failed": "Şəkil dəyişdirilmədi. Əvvəlki şəkil saxlanıldı."
+  "firstaid_album_replace_failed": "Şəkil dəyişdirilmədi. Əvvəlki şəkil saxlanıldı.",
+  "epds_self_harm_recommendation": "Özünüzə zərər vermək fikirlərini qeyd etdiniz. Bu barədə bu gün həkiminizlə və ya yardım xətti ilə danışın. Təhlükədəsinizsə, indi təcili yardıma zəng edin.",
+  "epds_self_harm_label": "Təcili dəstək",
+  "epds_self_harm_inline": "Bu fikirlər çətin ola bilər və siz tək deyilsiniz. İndi kiminləsə danışın. Təhlükədəsinizsə, təcili yardıma zəng edin.",
+  "epds_self_harm_result_title": "Özünüzə zərər vermək fikirləri ciddidir. İndi kiminləsə danışın:",
+  "kick_guidance_pattern": "Körpənizin adi hərəkət ritmini tanıyın. Hərəkətlər azalsa, dəyişsə və ya dayansa, növbəti günü gözləməyin: dərhal doğum evinizlə və ya həkiminizlə əlaqə saxlayın.",
+  "contraction_saved_offline_title": "Bu cihazda saxlanıldı",
+  "contraction_saved_offline_desc": "İnternet bərpa olunanda avtomatik sinxronlaşacaq.",
+  "contraction_clear_title": "Bütün sancılar silinsin?",
+  "contraction_clear_desc": "Bütün sancı tarixçəsi silinəcək. Bunu geri qaytarmaq olmur.",
+  "contraction_call_now_guidance": "Suyunuz gəlsə, qanaxma olsa, sancılar 37 həftədən əvvəl başlasa, körpə az hərəkət etsə və ya daimi şiddətli ağrı olsa, dərhal doğum evinizə zəng edin.",
+  "contraction_pending_sync": "Sinxronlaşma gözlənilir"
 }

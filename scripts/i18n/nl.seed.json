@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "De instructies konden niet worden geopend",
   "firstaid_unavailable_body": "Controleer je internetverbinding en probeer het opnieuw. Wacht in een noodgeval niet, bel meteen.",
   "firstaid_retry": "Opnieuw proberen",
-  "firstaid_album_replace_failed": "De foto is niet vervangen. Je vorige foto blijft bewaard."
+  "firstaid_album_replace_failed": "De foto is niet vervangen. Je vorige foto blijft bewaard.",
+  "epds_self_harm_recommendation": "U gaf aan gedachten te hebben om uzelf iets aan te doen. Praat er vandaag over met uw arts of een hulplijn. Bent u in gevaar, bel dan nu het alarmnummer.",
+  "epds_self_harm_label": "Dringende steun",
+  "epds_self_harm_inline": "Zulke gedachten kunnen zwaar zijn, en u staat er niet alleen voor. Praat nu met iemand. Bent u in gevaar, bel dan het alarmnummer.",
+  "epds_self_harm_result_title": "Gedachten om uzelf iets aan te doen zijn ernstig. Praat nu met iemand:",
+  "kick_guidance_pattern": "Leer het gebruikelijke bewegingspatroon van uw baby kennen. Als de bewegingen minder worden, veranderen of stoppen, wacht dan niet tot de volgende dag: neem meteen contact op met uw verloskundige, kraamafdeling of arts.",
+  "contraction_saved_offline_title": "Opgeslagen op dit apparaat",
+  "contraction_saved_offline_desc": "Wordt automatisch gesynchroniseerd zodra u weer online bent.",
+  "contraction_clear_title": "Alle weeën verwijderen?",
+  "contraction_clear_desc": "Uw hele weeëngeschiedenis wordt verwijderd. Dit kan niet ongedaan worden gemaakt.",
+  "contraction_call_now_guidance": "Bel meteen uw verloskundige of kraamafdeling als uw vliezen breken, u bloedt, weeën vóór 37 weken beginnen, uw baby minder beweegt of u aanhoudend hevige pijn hebt.",
+  "contraction_pending_sync": "Wacht op synchronisatie"
 }

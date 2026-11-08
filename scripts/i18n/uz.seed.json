@@ -10063,5 +10063,16 @@
   "firstaid_unavailable_title": "Ko'rsatmalarni ochib bo'lmadi",
   "firstaid_unavailable_body": "Internet aloqasini tekshirib, qayta urinib ko'ring. Favqulodda holatda kutmang, darhol qo'ng'iroq qiling.",
   "firstaid_retry": "Qayta urinish",
-  "firstaid_album_replace_failed": "Rasm almashtirilmadi. Avvalgi rasm saqlab qolindi."
+  "firstaid_album_replace_failed": "Rasm almashtirilmadi. Avvalgi rasm saqlab qolindi.",
+  "epds_self_harm_recommendation": "Siz o'zingizga zarar yetkazish haqidagi fikrlarni belgiladingiz. Iltimos, bu haqda bugun shifokoringiz yoki yordam liniyasi bilan gaplashing. Xavf ostida bo'lsangiz, hoziroq tez yordamga qo'ng'iroq qiling.",
+  "epds_self_harm_label": "Shoshilinch yordam",
+  "epds_self_harm_inline": "Bunday fikrlar og'ir bo'lishi mumkin, siz yolg'iz emassiz. Hozir kim bilandir gaplashing. Xavf ostida bo'lsangiz, tez yordamga qo'ng'iroq qiling.",
+  "epds_self_harm_result_title": "O'zingizga zarar yetkazish haqidagi fikrlar jiddiy. Hozir kim bilandir gaplashing:",
+  "kick_guidance_pattern": "Chaqalog'ingizning odatdagi harakat tartibini bilib oling. Harakatlar kamaysa, o'zgarsa yoki to'xtasa, ertangi kunni kutmang: darhol tug'ruqxona yoki shifokoringizga murojaat qiling.",
+  "contraction_saved_offline_title": "Ushbu qurilmada saqlandi",
+  "contraction_saved_offline_desc": "Internet tiklanganda avtomatik sinxronlanadi.",
+  "contraction_clear_title": "Barcha to'lg'oqlar o'chirilsinmi?",
+  "contraction_clear_desc": "To'lg'oqlar tarixi to'liq o'chiriladi. Buni qaytarib bo'lmaydi.",
+  "contraction_call_now_guidance": "Suvingiz ketsa, qon ketsa, to'lg'oq 37 haftadan oldin boshlansa, chaqaloq kam harakat qilsa yoki doimiy kuchli og'riq bo'lsa, darhol tug'ruqxonaga qo'ng'iroq qiling.",
+  "contraction_pending_sync": "Sinxronlash kutilmoqda"
 }

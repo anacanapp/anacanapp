@@ -4,6 +4,14 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { useToast } from './use-toast';
 import { usePartnerNotifications } from './usePartnerNotifications';
+import { localDateKey, todayKey } from '@/lib/local-date';
+import { kickSessionDayKey } from '@/lib/kickSession';
+
+// The partner "10 kicks" alert goes out once per local day; remembered across
+// screen visits (the old in-memory flag reset on every mount).
+const TEN_KICKS_NOTIFIED_KEY = 'anacan_kick_ten_notified_day';
+const readNotifiedDay = () => { try { return localStorage.getItem(TEN_KICKS_NOTIFIED_KEY); } catch { return null; } };
+const writeNotifiedDay = (day: string) => { try { localStorage.setItem(TEN_KICKS_NOTIFIED_KEY, day); } catch { /* ignore */ } };
 export interface KickSession {
   id: string;
   user_id: string;
@@ -43,9 +51,9 @@ export const useKickSessions = () => {
       const typedData = (data || []) as KickSession[];
       setSessions(typedData);
       
-      // Filter today's sessions
-      const today = new Date().toISOString().split('T')[0];
-      setTodaySessions(typedData.filter(s => s.session_date === today));
+      // Today's sessions by the phone's local calendar day
+      const today = todayKey();
+      setTodaySessions(typedData.filter(s => kickSessionDayKey(s) === today));
     } catch (error: any) {
       console.error('Error fetching kick sessions:', error);
     } finally {
@@ -53,8 +61,13 @@ export const useKickSessions = () => {
     }
   };
 
-  const addSession = async (kickCount: number, durationSeconds: number, position?: 'left' | 'right' | null) => {
+  /**
+   * Saves ONE finished session. `startedAt` (epoch ms) gives the local session day;
+   * callers must pass only this session's own count, never a running total.
+   */
+  const addSession = async (kickCount: number, durationSeconds: number, position?: 'left' | 'right' | null, startedAt?: number) => {
     if (!user) return null;
+    const sessionDay = localDateKey(startedAt ? new Date(startedAt) : new Date());
 
     try {
       const { data, error } = await supabase
@@ -63,6 +76,7 @@ export const useKickSessions = () => {
           user_id: user.id,
           kick_count: kickCount,
           duration_seconds: durationSeconds,
+          session_date: sessionDay,
           ...(position ? { position } : {}),
         } as any)
         .select()
@@ -75,13 +89,18 @@ export const useKickSessions = () => {
         description: `${kickCount} ${tr("usekicksessions_tepik", "təpik")}, ${Math.floor(durationSeconds / 60)} ${tr("usekicksessions_deqiqe", "dəqiqə")}`,
       });
 
-      // Calculate total kicks today including new session
-      const today = new Date().toISOString().split('T')[0];
-      const todayTotal = todaySessions.reduce((sum, s) => sum + s.kick_count, 0) + kickCount;
-      
-      // Notify partner when reaching 10 kicks (only once per day)
-      if (todayTotal >= 10 && !notifiedForTenKicks.current) {
+      // Total kicks today (local day) including the new session. The new row's id is
+      // excluded in case realtime already merged it into state.
+      const today = todayKey();
+      const newId = (data as { id?: string } | null)?.id;
+      const todayTotal = sessions
+        .filter(s => s.id !== newId && kickSessionDayKey(s) === today)
+        .reduce((sum, s) => sum + s.kick_count, 0) + (sessionDay === today ? kickCount : 0);
+
+      // Notify partner when reaching 10 kicks (only once per local day)
+      if (todayTotal >= 10 && !notifiedForTenKicks.current && readNotifiedDay() !== today) {
         notifiedForTenKicks.current = true;
+        writeNotifiedDay(today);
         await notifyKickSession(todayTotal, durationSeconds);
       }
 

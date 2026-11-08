@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "手順を開けませんでした",
   "firstaid_unavailable_body": "インターネット接続を確認して、もう一度お試しください。緊急時は待たずに、すぐに電話してください。",
   "firstaid_retry": "再試行",
-  "firstaid_album_replace_failed": "写真を差し替えられませんでした。以前の写真はそのまま残っています。"
+  "firstaid_album_replace_failed": "写真を差し替えられませんでした。以前の写真はそのまま残っています。",
+  "epds_self_harm_recommendation": "自分を傷つける考えがあると回答されました。今日中に医師または相談窓口に話してください。危険な状態にある場合は、今すぐ救急に電話してください。",
+  "epds_self_harm_label": "緊急サポート",
+  "epds_self_harm_inline": "こうした考えはつらいものです。あなたは一人ではありません。今すぐ誰かに話してください。危険な状態なら救急に電話してください。",
+  "epds_self_harm_result_title": "自分を傷つける考えは深刻なサインです。今すぐ誰かに話してください：",
+  "kick_guidance_pattern": "赤ちゃんのいつもの胎動のパターンを知っておきましょう。胎動が減った、変わった、止まったと感じたら、翌日まで待たずにすぐ産院または医師に連絡してください。",
+  "contraction_saved_offline_title": "この端末に保存しました",
+  "contraction_saved_offline_desc": "オンラインに戻ると自動で同期されます。",
+  "contraction_clear_title": "すべての陣痛記録を削除しますか？",
+  "contraction_clear_desc": "陣痛の記録がすべて削除されます。元に戻すことはできません。",
+  "contraction_call_now_guidance": "破水した、出血がある、37週より前に陣痛が始まった、胎動が減った、強い痛みが続く場合は、すぐに産院に電話してください。",
+  "contraction_pending_sync": "同期待ち"
 }

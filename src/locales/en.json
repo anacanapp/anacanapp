@@ -10052,5 +10052,16 @@
   "firstaid_unavailable_title": "Could not open the instructions",
   "firstaid_unavailable_body": "Check your internet connection and try again. In an emergency, do not wait: call right away.",
   "firstaid_retry": "Try again",
-  "firstaid_album_replace_failed": "The photo was not replaced. Your previous photo is kept."
+  "firstaid_album_replace_failed": "The photo was not replaced. Your previous photo is kept.",
+  "epds_self_harm_recommendation": "You noted thoughts of harming yourself. Please talk to your doctor or a helpline about this today. If you are in danger, call emergency services now.",
+  "epds_self_harm_label": "Urgent support",
+  "epds_self_harm_inline": "These thoughts can be hard, and you are not alone. Talk to someone now. If you are in danger, call emergency services.",
+  "epds_self_harm_result_title": "Thoughts of harming yourself are serious. Talk to someone now:",
+  "kick_guidance_pattern": "Get to know your baby's usual pattern of movements. If movements slow down, change or stop, don't wait until the next day: contact your maternity unit or doctor straight away.",
+  "contraction_saved_offline_title": "Saved on this device",
+  "contraction_saved_offline_desc": "It will sync automatically when you are back online.",
+  "contraction_clear_title": "Delete all contractions?",
+  "contraction_clear_desc": "Your whole contraction history will be deleted. This cannot be undone.",
+  "contraction_call_now_guidance": "Call your maternity unit now if your waters break, you are bleeding, contractions start before 37 weeks, your baby is moving less, or you have constant severe pain.",
+  "contraction_pending_sync": "Waiting to sync"
 }

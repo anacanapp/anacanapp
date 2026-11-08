@@ -2,7 +2,18 @@ import { useState, useEffect, useRef, forwardRef } from 'react';
 import { getLocaleTag } from '@/lib/i18n';
 import { tr } from '@/lib/tr';
 import { motion } from 'framer-motion';
-import { Play, Pause, RotateCcw, Footprints, Info } from 'lucide-react';
+import { Play, Pause, RotateCcw, Footprints, Info, Phone } from 'lucide-react';
+import { formatTr } from '@/lib/tr';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
+import { todayKey, daysAgoKey } from '@/lib/local-date';
+import {
+  type ActiveKickSession,
+  newKickSession,
+  kickElapsedSeconds,
+  loadActiveKickSession,
+  saveActiveKickSession,
+  kickSessionDayKey } from
+'@/lib/kickSession';
 import { useKickSessions } from '@/hooks/useKickSessions';
 import { useAuth } from '@/hooks/useAuth';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
@@ -19,39 +30,64 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
   useScrollToTop();
   useScreenAnalytics('KickCounter', 'Tools');
 
-  const { profile } = useAuth();
+  const { profile, user } = useAuth();
+  const userId = user?.id ?? null;
+  const emergencyNumber = useEmergencyNumber();
   // Əkiz/üçüz/dördüz hamiləlikdə YALNIZI göstərilir — tək hamiləlikdə bu bölmə
   // heç görünmür, UI əvvəlki kimi tam eyni qalır.
   const isMultiple = !!profile?.multiples_type && profile.multiples_type !== 'single';
 
-  const [kicks, setKicks] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-  const [time, setTime] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  // The running session lives in ONE object timed from its start timestamp, so a
+  // locked screen does not stop the clock, and every start is a fresh session.
+  const [session, setSessionState] = useState<ActiveKickSession | null>(() => loadActiveKickSession(userId));
+  const [now, setNow] = useState(() => Date.now());
+  const savingRef = useRef(false);
+  const isActive = session !== null;
+  const kicks = session?.kicks ?? 0;
+  const time = kickElapsedSeconds(session, now);
+
+  const setSession = (next: ActiveKickSession | null) => {
+    setSessionState(next);
+    saveActiveKickSession(userId, next);
+  };
 
   // Mövqeyə-əsaslı İXTİYARİ ayırma (yalnız əkiz/üçüz) — kimlik deyil, mövqedir
   // (ana hansı körpənin təpik atdığını dəqiq bilə bilməz, yalnız tərəfi hiss edə bilər)
-  const [trackPosition, setTrackPosition] = useState(false);
-  const [selectedPosition, setSelectedPosition] = useState<'left' | 'right' | null>(null);
+  const [trackPosition, setTrackPosition] = useState(() => !!session?.position);
+  const [selectedPosition, setSelectedPosition] = useState<'left' | 'right' | null>(() => session?.position ?? null);
 
   const { sessions, addSession, getTodayStats, loading } = useKickSessions();
 
+  // Restore the unfinished session once the signed-in user is known.
   useEffect(() => {
-    if (isActive) {
-      intervalRef.current = setInterval(() => {
-        setTime((prev) => prev + 1);
-      }, 1000);
-    } else {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+    const restored = loadActiveKickSession(userId);
+    setSessionState(restored);
+    if (restored?.position) {
+      setTrackPosition(true);
+      setSelectedPosition(restored.position);
     }
+  }, [userId]);
+
+  // Display tick only; the elapsed time itself is computed from startedAt.
+  useEffect(() => {
+    if (!isActive) return;
+    setNow(Date.now());
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    const onVisible = () => setNow(Date.now());
+    document.addEventListener('visibilitychange', onVisible);
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+      clearInterval(id);
+      document.removeEventListener('visibilitychange', onVisible);
     };
   }, [isActive]);
+
+  // Keep the chosen side with the stored session.
+  useEffect(() => {
+    if (session && (session.position ?? null) !== (trackPosition ? selectedPosition : null)) {
+      setSession({ ...session, position: trackPosition ? selectedPosition : null });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [trackPosition, selectedPosition]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -60,25 +96,45 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
   };
 
   const handleKick = async () => {
-    await hapticFeedback.medium();
-    if (!isActive) {
-      setIsActive(true);
-    }
-    setKicks((prev) => prev + 1);
+    void hapticFeedback.medium();
+    const at = Date.now();
+    setNow(at);
+    const position = trackPosition ? selectedPosition : null;
+    // Functional update so fast taps are never lost. Tapping while idle starts a NEW
+    // session with this first kick.
+    setSessionState((prev) => {
+      const base = prev ?? { ...newKickSession(at), position };
+      const next = { ...base, kicks: base.kicks + 1 };
+      saveActiveKickSession(userId, next);
+      return next;
+    });
+  };
+
+  const handleStart = () => {
+    const at = Date.now();
+    setNow(at);
+    setSession({ ...newKickSession(at), position: trackPosition ? selectedPosition : null });
   };
 
   const handleStop = async () => {
-    setIsActive(false);
-    if (kicks > 0) {
-      await addSession(kicks, time, trackPosition ? selectedPosition : null);
-    }
+    if (!session || savingRef.current) return;
+    const finished = session;
+    const duration = kickElapsedSeconds(finished, Date.now());
+    // Clear first: the next start can never continue from (and re-save) this count.
+    setSession(null);
     setSelectedPosition(null);
+    if (finished.kicks > 0) {
+      savingRef.current = true;
+      try {
+        await addSession(finished.kicks, duration, trackPosition ? finished.position ?? null : null, finished.startedAt);
+      } finally {
+        savingRef.current = false;
+      }
+    }
   };
 
   const handleReset = () => {
-    setIsActive(false);
-    setKicks(0);
-    setTime(0);
+    setSession(null);
     setSelectedPosition(null);
   };
 
@@ -95,7 +151,7 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
     <ToolPage>
       <ToolHeader
         onBack={onBack}
-        eyebrow={<>{tr("kickcounter_bugunku_umumi_bc878f", "Bugünkü ümumi")}: {todayStats.totalKicks}{tr("kickcounter_10_tepik_c7e77f", "/10 t\u0259pik")}</>}
+        eyebrow={<>{tr("kickcounter_bugunku_umumi_bc878f", "Bugünkü ümumi")}: {todayStats.totalKicks} {tr("kickcounter_tepik_6483fe", "t\u0259pik")}</>}
         title={tr("kickcounter_tepik_saygaci_85e455", "Təpik Sayğacı")} />
 
       {/* Əkiz/üçüz üçün təhsil banneri — ÜMUMİ hərəkətə fikir vermək vacibdir,
@@ -225,7 +281,7 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
             </motion.button> :
 
           <motion.button
-            onClick={() => setIsActive(true)}
+            onClick={handleStart}
             className="a-cta-btn flex-1"
             style={{ justifyContent: 'center', height: 46 }}
             whileTap={{ scale: 0.98 }}>
@@ -255,19 +311,19 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
         
         <div className="a-card-head" style={{ marginBottom: 10 }}>
           <h3 className="a-card-title a-heading">{tr("kickcounter_bugunku_umumi_bc878f", "Bugünkü ümumi")}</h3>
-          <span className="a-section-link" style={{ color: 'var(--a-accent-ink)' }}>{todayStats.totalKicks}{tr("kickcounter_10_tepik_c7e77f", "/10 t\u0259pik")}</span>
+          <span className="a-section-link" style={{ color: 'var(--a-accent-ink)' }}>{todayStats.totalKicks} {tr("kickcounter_tepik_6483fe", "t\u0259pik")}</span>
         </div>
-        <div className="a-inline-bar" style={{ marginTop: 0 }}>
-          <motion.div
-            className="a-inline-bar-fill"
-            initial={{ width: 0 }}
-            animate={{ width: `${Math.min(todayStats.totalKicks / 10 * 100, 100)}%` }}
-            transition={{ duration: 0.5 }} />
-          
-        </div>
-        <p className="a-teaser">
-          {tr("kickcounter_hekimler_gunde_en_azi_10_herek_c80f9f", "H\u0259kiml\u0259r g\xFCnd\u0259 \u0259n az\u0131 10 h\u0259r\u0259k\u0259t hiss etm\u0259yi t\xF6vsiy\u0259 edirl\u0259r")}
+        {/* Current guidance (NHS/RCOG/ACOG): know the usual pattern, act on any change the same day */}
+        <p className="a-teaser" style={{ whiteSpace: 'normal' }}>
+          {tr("kick_guidance_pattern", "Körpənizin adi hərəkət ritmini tanıyın. Hərəkətlər azalsa, dəyişsə və ya dayansa, növbəti günü gözləməyin: dərhal doğum evinizlə və ya həkiminizlə əlaqə saxlayın.")}
         </p>
+        <a
+          href={`tel:${emergencyNumber}`}
+          className="a-btn-soft"
+          style={{ height: 34, padding: '0 14px', fontSize: 11.5, textDecoration: 'none', marginTop: 8, display: 'inline-flex' }}>
+          <Phone size={13} strokeWidth={2.2} />
+          {formatTr('weaning_call_emergency', 'Təcili yardım: {emergency}', { emergency: emergencyNumber })}
+        </a>
       </motion.div>
 
       {/* Recent Sessions - Grouped by Day */}
@@ -280,15 +336,16 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
           // Group sessions by date
           const grouped: {[date: string]: typeof sessions;} = {};
           sessions.forEach((session) => {
-            const date = session.session_date;
+            const date = kickSessionDayKey(session);
             if (!grouped[date]) grouped[date] = [];
             grouped[date].push(session);
           });
 
           const formatDateLabel = (dateStr: string) => {
-            const date = new Date(dateStr);
-            const today = new Date().toISOString().split('T')[0];
-            const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+            const [y, m, d] = dateStr.split('-').map(Number);
+            const date = new Date(y, (m || 1) - 1, d || 1);
+            const today = todayKey();
+            const yesterday = daysAgoKey(1);
 
             if (dateStr === today) return tr("kickcounter_bu_gun_786fd4", "Bu gün");
             if (dateStr === yesterday) return tr("kickcounter_dunen_52b701", "Dünən");

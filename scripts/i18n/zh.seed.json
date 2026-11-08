@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "无法打开急救指引",
   "firstaid_unavailable_body": "请检查网络连接后重试。遇到紧急情况请不要等待，立即拨打急救电话。",
   "firstaid_retry": "重试",
-  "firstaid_album_replace_failed": "照片未能替换，原照片已保留。"
+  "firstaid_album_replace_failed": "照片未能替换，原照片已保留。",
+  "epds_self_harm_recommendation": "您提到有伤害自己的想法。请今天就和医生或求助热线谈一谈。如果您处于危险之中，请立即拨打急救电话。",
+  "epds_self_harm_label": "紧急支持",
+  "epds_self_harm_inline": "这些想法可能让人很难受，您并不孤单。现在就找人聊一聊。如果您处于危险之中，请拨打急救电话。",
+  "epds_self_harm_result_title": "伤害自己的想法需要认真对待。现在就找人聊一聊：",
+  "kick_guidance_pattern": "了解宝宝平时的胎动规律。如果胎动减少、改变或停止，不要等到第二天：请立即联系您的产科病房或医生。",
+  "contraction_saved_offline_title": "已保存在此设备上",
+  "contraction_saved_offline_desc": "恢复联网后会自动同步。",
+  "contraction_clear_title": "删除所有宫缩记录？",
+  "contraction_clear_desc": "所有宫缩记录都将被删除，且无法恢复。",
+  "contraction_call_now_guidance": "如果破水、出血、37周前开始宫缩、胎动减少或持续剧烈疼痛，请立即致电您的产科病房。",
+  "contraction_pending_sync": "等待同步"
 }

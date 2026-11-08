@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "No se pudieron abrir las instrucciones",
   "firstaid_unavailable_body": "Revisa tu conexión a internet e inténtalo de nuevo. En una emergencia, no esperes: llama de inmediato.",
   "firstaid_retry": "Reintentar",
-  "firstaid_album_replace_failed": "No se pudo reemplazar la foto. Se conserva tu foto anterior."
+  "firstaid_album_replace_failed": "No se pudo reemplazar la foto. Se conserva tu foto anterior.",
+  "epds_self_harm_recommendation": "Ha indicado pensamientos de hacerse daño. Hable hoy de ello con su médico o con una línea de ayuda. Si está en peligro, llame ahora a emergencias.",
+  "epds_self_harm_label": "Apoyo urgente",
+  "epds_self_harm_inline": "Estos pensamientos pueden ser difíciles y no está sola. Hable con alguien ahora. Si está en peligro, llame a emergencias.",
+  "epds_self_harm_result_title": "Los pensamientos de hacerse daño son serios. Hable con alguien ahora:",
+  "kick_guidance_pattern": "Conozca el patrón habitual de movimientos de su bebé. Si los movimientos disminuyen, cambian o se detienen, no espere al día siguiente: contacte de inmediato con su maternidad o su médico.",
+  "contraction_saved_offline_title": "Guardado en este dispositivo",
+  "contraction_saved_offline_desc": "Se sincronizará automáticamente cuando vuelva a tener conexión.",
+  "contraction_clear_title": "¿Borrar todas las contracciones?",
+  "contraction_clear_desc": "Se borrará todo el historial de contracciones. No se puede deshacer.",
+  "contraction_call_now_guidance": "Llame ya a su maternidad si rompe aguas, tiene sangrado, las contracciones empiezan antes de la semana 37, su bebé se mueve menos o tiene un dolor intenso y constante.",
+  "contraction_pending_sync": "Pendiente de sincronizar"
 }

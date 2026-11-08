@@ -12210,5 +12210,16 @@
   "firstaid_unavailable_title": "Impossible d'ouvrir les instructions",
   "firstaid_unavailable_body": "Vérifiez votre connexion internet et réessayez. En cas d'urgence, n'attendez pas : appelez tout de suite.",
   "firstaid_retry": "Réessayer",
-  "firstaid_album_replace_failed": "La photo n'a pas été remplacée. Votre photo précédente est conservée."
+  "firstaid_album_replace_failed": "La photo n'a pas été remplacée. Votre photo précédente est conservée.",
+  "epds_self_harm_recommendation": "Vous avez indiqué avoir des pensées de vous faire du mal. Parlez-en aujourd'hui à votre médecin ou à une ligne d'écoute. Si vous êtes en danger, appelez les urgences maintenant.",
+  "epds_self_harm_label": "Soutien urgent",
+  "epds_self_harm_inline": "Ces pensées peuvent être difficiles, et vous n'êtes pas seule. Parlez à quelqu'un maintenant. Si vous êtes en danger, appelez les urgences.",
+  "epds_self_harm_result_title": "Les pensées de vous faire du mal sont à prendre au sérieux. Parlez à quelqu'un maintenant :",
+  "kick_guidance_pattern": "Apprenez à connaître le rythme habituel des mouvements de votre bébé. S'ils diminuent, changent ou s'arrêtent, n'attendez pas le lendemain : contactez tout de suite votre maternité ou votre médecin.",
+  "contraction_saved_offline_title": "Enregistré sur cet appareil",
+  "contraction_saved_offline_desc": "La synchronisation se fera automatiquement au retour de la connexion.",
+  "contraction_clear_title": "Supprimer toutes les contractions ?",
+  "contraction_clear_desc": "Tout l'historique des contractions sera supprimé. Cette action est irréversible.",
+  "contraction_call_now_guidance": "Appelez tout de suite votre maternité si vous perdez les eaux, si vous saignez, si les contractions commencent avant 37 semaines, si votre bébé bouge moins ou si vous avez une douleur intense et constante.",
+  "contraction_pending_sync": "En attente de synchronisation"
 }
