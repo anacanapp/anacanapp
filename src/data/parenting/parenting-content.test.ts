@@ -90,4 +90,27 @@ describe('Tərbiyə content (az)', () => {
     const sleep = c.articles.find((a) => a.id === 'sleep-routine')!;
     expect(sleep.mistakes.join(' ')).toMatch(/Heç bir üsul hamı üçün vacib deyil/);
   });
+
+  it('every SOS card cites 1–3 sources from the shared list; support cards sit on the safety content', async () => {
+    const { S } = await import('./az/sources');
+    for (const s of c.sos) {
+      expect(s.sources?.length, s.id).toBeGreaterThanOrEqual(1);
+      expect(s.sources!.length, s.id).toBeLessThanOrEqual(3);
+      for (const id of s.sources!) expect(Object.prototype.hasOwnProperty.call(S, id), `${s.id}: ${id}`).toBe(true);
+      expect(new Set(s.sources).size, s.id).toBe(s.sources!.length);
+    }
+    const support = (list: { id: string; support?: string }[]) => Object.fromEntries(list.filter((x) => x.support).map((x) => [x.id, x.support]));
+    expect(support(c.sos)).toEqual({ 'about-to-lose-it': 'mental-health', 'baby-crying': 'mental-health' });
+    expect(support(c.articles)).toMatchObject({ 'fourth-trimester': 'mental-health', 'body-safety': 'child-safety' });
+    expect(support(c.bands)).toEqual({ '0-1': 'mental-health', '6-12': 'child-safety' });
+  });
+
+  it('every language mirrors the SOS source ids and support kinds of az', async () => {
+    for (const lang of PARENTING_CONTENT_LANGUAGES) {
+      const other = await loadBundledParentingContent(lang);
+      expect(other!.sos.map((s) => [s.id, s.sources, s.support]), lang).toEqual(c.sos.map((s) => [s.id, s.sources, s.support]));
+      expect(other!.articles.map((a) => a.support), lang).toEqual(c.articles.map((a) => a.support));
+      expect(other!.bands.map((b) => b.support), lang).toEqual(c.bands.map((b) => b.support));
+    }
+  }, 60_000);
 });

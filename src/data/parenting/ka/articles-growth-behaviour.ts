@@ -358,6 +358,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
   // ── Parent ──────────────────────────────────────────────────────────────────────────────
   {
     id: 'parent-stress',
+    support: 'mental-health',
     area: 'parent',
     emoji: '🫖',
     title: 'მშობლის სტრესი: ჯერ საკუთარი ნიღაბი გაიკეთე',
@@ -512,6 +513,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
   },
   {
     id: 'bullying',
+    support: 'child-safety',
     area: 'school',
     emoji: '🛡️',
     title: 'ბულინგი: ნიშნები და ნაბიჯები',

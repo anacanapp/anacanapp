@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'The first year: a foundation of trust',
     lead: 'This year your baby learns whether the world is a safe place. The answer comes from your voice, your arms and the way you respond.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: 'Ages 6–12: skills, friendship, self-confidence',
     lead: 'The school years are when a child builds their sense of “I can do it”. Friends become important, but you are still their main anchor.',

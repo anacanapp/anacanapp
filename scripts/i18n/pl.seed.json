@@ -12448,5 +12448,21 @@
   "par_quiz_prev": "Poprzednie pytanie",
   "par_prog_summary_days": "Ukończone dni: {n}",
   "par_prog_next_title": "Co dalej",
-  "par_prog_next_open": "Zobacz program"
+  "par_prog_next_open": "Zobacz program",
+  "par_milestone_late": "Ten test jest dla dzieci do {n} lat. Jeśli niepokoi cię rozwój lub zachowanie starszego dziecka, porozmawiaj z lekarzem lub psychologiem dziecięcym.",
+  "par_milestone_corrected": "Dziecko urodziło się przedwcześnie, więc test używa wieku skorygowanego: {n} mies.",
+  "par_reminder_free": "Przypomnienia są bezpłatne przez pierwsze {n} dni.",
+  "par_share_partner": "Wyślij partnerowi",
+  "par_share": "Udostępnij",
+  "par_share_sent": "Wysłano partnerowi ✓",
+  "par_share_failed": "Nie udało się wysłać. Spróbuj ponownie.",
+  "par_share_hint": "Otwórz w Anacan: Razem → Wychowanie:",
+  "par_share_footer": "Aplikacja Anacan, sekcja Wychowanie",
+  "par_shared_title": "Wysłane do ciebie",
+  "par_tip_sources": "Źródła",
+  "par_support_mh_title": "Wsparcie jest też dla ciebie",
+  "par_support_mh_text": "Jeśli od dłuższego czasu czujesz smutek, lęk lub bezsilność, to nie słabość i jest pomoc. Zrób test nastroju i zobacz możliwości wsparcia. Jeśli masz myśli o skrzywdzeniu siebie lub dziecka, od razu zadzwoń pod {emergency}.",
+  "par_support_cs_title": "Bezpieczeństwo dziecka",
+  "par_support_cs_text": "Jeśli podejrzewasz, że dziecko doznaje przemocy lub może zrobić sobie krzywdę, nie zostawiaj go samego i od razu zadzwoń pod {emergency}. W tak trudnej chwili ty też możesz potrzebować wsparcia psychologicznego.",
+  "par_support_open": "Test nastroju i wsparcie"
 }

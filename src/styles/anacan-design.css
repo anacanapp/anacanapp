@@ -3636,3 +3636,17 @@ html.a-lite .a3-mascot.bob { animation: none; }
 .a-par-done > small { font-size: 12.5px; font-weight: 700; }
 .a-par-next { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; color: var(--a-ink); }
 .a-par-next > small { font-size: 11px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--a-green-ink); }
+
+/* ── par2: Tərbiyə support card, share row, tip sources link, partner's received items ── */
+.a-par-support { display: flex; flex-direction: column; gap: 8px; padding: 13px 14px; border-radius: 18px; background: var(--a-lav-1); color: var(--a-lav-ink); font-size: 13.5px; line-height: 1.55; }
+.a-par-support > b { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.a-par-support p { margin: 0; }
+.a-par-support-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.a-par-share { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.a-par-share .a-par-btn { display: inline-flex; align-items: center; gap: 6px; }
+.a-par-share > p { flex-basis: 100%; margin: 0; }
+.a-par-tip-src { align-self: flex-start; margin-top: 2px; padding: 0; border: 0; background: none; color: inherit; font: inherit; font-size: 12px; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; opacity: 0.92; cursor: pointer; }
+.a-par-shared { display: flex; flex-direction: column; gap: 8px; }
+.a-par-row.is-new { box-shadow: inset 3px 0 0 var(--a-coral); }
+[dir="rtl"] .a-par-row.is-new { box-shadow: inset -3px 0 0 var(--a-coral); }
+.a-par-support-actions .a-par-call { min-height: 38px; padding: 0 14px; }

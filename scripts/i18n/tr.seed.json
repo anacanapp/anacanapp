@@ -10301,5 +10301,21 @@
   "par_quiz_prev": "Önceki soru",
   "par_prog_summary_days": "{n} gün tamamlandı",
   "par_prog_next_title": "Sıradaki öneri",
-  "par_prog_next_open": "Programa göz atın"
+  "par_prog_next_open": "Programa göz atın",
+  "par_milestone_late": "Bu kontrol {n} yaşına kadar olan çocuklar içindir. Büyük çocuğunun gelişimi ya da davranışı seni endişelendiriyorsa bir doktorla veya çocuk psikoloğuyla konuş.",
+  "par_milestone_corrected": "Erken doğduğu için kontrol düzeltilmiş yaşa göre yapılır: {n} ay.",
+  "par_reminder_free": "İlk {n} gün için hatırlatma ücretsiz.",
+  "par_share_partner": "Partnerine gönder",
+  "par_share": "Paylaş",
+  "par_share_sent": "Partnerine gönderildi ✓",
+  "par_share_failed": "Gönderilemedi. Tekrar dene.",
+  "par_share_hint": "Anacan’da Birlikte → Terbiye bölümünde aç:",
+  "par_share_footer": "Anacan uygulaması, Terbiye bölümü",
+  "par_shared_title": "Sana gönderilenler",
+  "par_tip_sources": "Kaynaklar",
+  "par_support_mh_title": "Senin için de destek var",
+  "par_support_mh_text": "Uzun süredir üzgün, kaygılı ya da tükenmiş hissediyorsan bu bir zayıflık değil ve yardım var. Ruh hali testini yap ve destek seçeneklerine bak. Kendine ya da çocuğuna zarar verme düşüncen varsa hemen {emergency} numarasını ara.",
+  "par_support_cs_title": "Çocuğunun güvenliği",
+  "par_support_cs_text": "Çocuğunun şiddete maruz kaldığından ya da kendine zarar verebileceğinden şüpheleniyorsan onu yalnız bırakma ve hemen {emergency} numarasını ara. Bu zor anda senin de psikolojik desteğe ihtiyacın olabilir.",
+  "par_support_open": "Ruh hali testi ve destek"
 }

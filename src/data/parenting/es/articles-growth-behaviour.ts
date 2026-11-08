@@ -358,6 +358,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
   // ── Parent ──────────────────────────────────────────────────────────────────────────────
   {
     id: 'parent-stress',
+    support: 'mental-health',
     area: 'parent',
     emoji: '🫖',
     title: 'El estrés de los padres: primero ponte tu mascarilla',
@@ -512,6 +513,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
   },
   {
     id: 'bullying',
+    support: 'child-safety',
     area: 'school',
     emoji: '🛡️',
     title: 'Acoso escolar: señales y pasos a seguir',

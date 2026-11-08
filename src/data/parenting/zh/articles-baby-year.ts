@@ -5,6 +5,7 @@ import { S } from './sources';
 export const BABY_YEAR_ARTICLES: Article[] = [
   {
     id: 'crying-plan',
+    support: 'mental-health',
     area: 'connection',
     emoji: '📝',
     title: '肠绞痛与哭闹计划：度过最难熬的几周',
@@ -182,6 +183,7 @@ export const BABY_YEAR_ARTICLES: Article[] = [
   },
   {
     id: 'fourth-trimester',
+    support: 'mental-health',
     area: 'parent',
     emoji: '🌷',
     title: '“第四孕期”：产后的妈妈',

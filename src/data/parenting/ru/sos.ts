@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'Упал на пол в магазине и рыдает',
     moment: 'Попросил конфету, услышал «нет», и теперь на тебя смотрит весь магазин.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'Ударил брата (сестру)',
     moment: 'В одно мгновение игра превратилась в драку, и младший плачет.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'Не хочет спать',
     moment: 'Ещё водички, ещё в туалет, ещё один вопрос… а время уже позднее.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'Не хочет уходить с площадки',
     moment: 'Пора уходить, а он кричит «нет!» с верхушки горки.',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: 'Сказал: «Я тебя не люблю!»',
     moment: 'После запрета ребёнок в гневе бросает тебе в лицо «я тебя не люблю».',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'Укусил кого-то в садике',
     moment: 'Позвонила воспитательница: ребёнок кусается уже второй раз за неделю.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'Утром не хочет одеваться',
     moment: 'Вы опаздываете, а он в пижаме прячется на диване.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'Взрывается, когда забираешь планшет',
     moment: 'Время вышло, планшет пришлось забрать, и теперь крик и слёзы.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'Отказывается есть за столом',
     moment: 'Посмотрел на приготовленную тобой еду и сказал: «Фу, гадость!»',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'Малыш плачет уже несколько часов',
     moment: 'Покормили, переодели, покачали, а он всё плачет. Терпение на исходе.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'Цепляется за ногу у дверей садика',
     moment: 'Каждое утро одна и та же сцена: плачет, не отпускает, а ты опаздываешь.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'Откровенно соврал',
     moment: 'Обёртка от шоколадки у него в руке, а он говорит: «Я не ел».',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'Сказал плохое слово при гостях',
     moment: 'Все замолчали, а ребёнок доволен произведённым эффектом.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'Плачет над уроками: «У меня не получается!»',
     moment: 'Слёзы над тетрадью по математике и злые каракули на странице.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '«Ты любишь его больше, чем меня!»',
     moment: 'Немного внимания досталось младшему брату, а старший обиделся и ушёл в свою комнату.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'Проснулся ночью от кошмара',
     moment: '3 часа ночи, он с криком прибегает в твою комнату.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'Не хочет сидеть в автокресле',
     moment: 'Выгибается дугой, начинается крик, а ты торопишься.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'Бросает еду и игрушки',
     moment: 'Ложка снова на полу. А он смотрит на тебя и смеётся.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'Отбирает игрушку у друга',
     moment: 'В гостях началась драка из-за игрушки.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '«Я глупый, у меня ничего не получается»',
     moment: 'После ошибки он ругает себя.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'Голос сорвался на крик',
     moment: 'Голос поднялся, в глазах ребёнка — страх. Теперь тебе стыдно.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'Пришёл из школы в слезах',
     moment: 'Говорит: «Надо мной смеются, со мной никто не играет».',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'Ударил меня',
     moment: 'В ответ на запрет маленькая ладошка прилетела тебе по лицу.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '«Сто раз повторяю — не слышит!»',
     moment: 'Зовёшь из другой комнаты — ответа нет. Голос становится всё громче.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'Кусается или тянет за волосы во время кормления грудью',
     moment: 'Ты вздрогнула от боли, а малыш с любопытством смотрит на тебя.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'Малыш вдруг плачет не так, как обычно',
     moment: 'Этот плач незнакомый: пронзительнее, дольше, и ничего не помогает. Внутри тревога.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'Спит только у меня на руках',
     moment: 'Стоит положить в кроватку, открывает глаза и плачет. А ты уже несколько часов не можешь пошевелиться на диване.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'Больше не могу, срываюсь',
     moment: 'Малыш плачет, ты не спала, руки дрожат. Внутри злость и бессилие.',

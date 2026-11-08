@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'Ligt krijsend op de grond in de winkel',
     moment: 'Hij wilde snoep, jij zei “nee”, en nu kijkt de hele winkel naar je.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'Hij sloeg zijn broertje (of zusje)',
     moment: 'In een oogwenk werd spelen vechten, en de kleinste huilt.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'Wil niet gaan slapen',
     moment: 'Nog een slokje water, nog even naar de wc, nog één vraag… en het is al laat.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'Wil niet weg uit de speeltuin',
     moment: 'Je zei “we gaan”, en hij roept “nee!” boven op de glijbaan.',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: 'Hij zei: “Ik hou niet van jou!”',
     moment: 'Na een verbod roept je kind boos in je gezicht “ik hou niet van jou”.',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'Heeft gebeten op de opvang',
     moment: 'De leidster belde: je kind heeft deze week voor de tweede keer gebeten.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'Wil zich ’s ochtends niet aankleden',
     moment: 'Jullie zijn al laat, en hij verstopt zich in zijn pyjama op de bank.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'Ontploft als je de tablet afpakt',
     moment: 'De tijd is om, je pakte de tablet af, en nu is het gillen en huilen.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'Weigert te eten aan tafel',
     moment: 'Hij keek naar het eten dat je gekookt had en zei: “Vies!”',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'Je baby huilt al uren',
     moment: 'Je hebt gevoed, een schone luier gedaan, gewiegd, en hij huilt nog steeds. Je geduld raakt op.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'Klampt zich aan je been vast bij de opvang',
     moment: 'Elke ochtend hetzelfde: hij huilt, laat niet los, en jij komt te laat.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'Liegt overduidelijk',
     moment: 'Het chocoladepapiertje zit in zijn hand, en hij zegt: “Ik heb het niet opgegeten.”',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'Zei een lelijk woord waar het bezoek bij was',
     moment: 'Iedereen viel stil, en je kind is erg tevreden over het effect.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'Huilt bij het huiswerk: “Ik kan het niet!”',
     moment: 'Tranen boven het rekenschrift en krassen over de bladzijde.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '“Jij houdt meer van hem dan van mij!”',
     moment: 'Je gaf je jongste aandacht, en je oudste liep boos naar zijn kamer.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'Bang wakker geworden van een nachtmerrie',
     moment: 'Drie uur ’s nachts, en hij rent gillend je kamer in.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'Wil niet in het autostoeltje',
     moment: 'Zijn rug gaat hol, het gegil begint, en jij hebt haast.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'Gooit met eten en speelgoed',
     moment: 'De lepel ligt weer op de grond. En hij kijkt je lachend aan.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'Pakt het speelgoed van een vriendje af',
     moment: 'Op een feestje begint de ruzie om een speeltje.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '“Ik ben dom, ik kan niks”',
     moment: 'Na een fout zit hij zichzelf af te kraken.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'Ik heb tegen mijn kind geschreeuwd',
     moment: 'Je stem schoot omhoog en je zag angst in de ogen van je kind. Nu heb je spijt.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'Kwam huilend thuis van school',
     moment: 'Hij zegt: “Ze lachen me uit, niemand wil met me spelen.”',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'Hij sloeg mij',
     moment: 'Als reactie op een verbod kwam er een klein handje tegen je gezicht.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '“Ik heb het al honderd keer gezegd, hij luistert niet!”',
     moment: 'Je roept vanuit een andere kamer, geen antwoord. Je stem wordt steeds harder.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'Bijt of trekt aan je haar tijdens het voeden',
     moment: 'Je schrok van de pijn, en je baby kijkt je nieuwsgierig aan.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'Je baby huilt ineens anders dan anders',
     moment: 'Dit huilen ken je niet: scheller, langer, en niets helpt. Er zit onrust in je.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'Hij slaapt alleen in mijn armen',
     moment: 'Zodra je hem in zijn bedje legt, gaan zijn ogen open en huilt hij. En jij zit al uren op de bank en kunt je niet bewegen.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'Ik kan niet meer, ik verlies mezelf',
     moment: 'Je baby huilt, jij hebt niet geslapen, je handen trillen. Woede en machteloosheid hebben je helemaal gevuld.',

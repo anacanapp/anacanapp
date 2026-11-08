@@ -358,6 +358,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
   // ── Parent ──────────────────────────────────────────────────────────────────────────────
   {
     id: 'parent-stress',
+    support: 'mental-health',
     area: 'parent',
     emoji: '🫖',
     title: '부모의 스트레스: 내 산소마스크부터 먼저',
@@ -512,6 +513,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
   },
   {
     id: 'bullying',
+    support: 'child-safety',
     area: 'school',
     emoji: '🛡️',
     title: '괴롭힘: 신호와 대처 단계',

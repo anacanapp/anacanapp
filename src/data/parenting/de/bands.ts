@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'Das erste Jahr: das Fundament des Vertrauens',
     lead: 'In diesem Jahr lernt dein Baby, ob die Welt ein sicherer Ort ist. Die Antwort holt es sich aus deiner Stimme, deinen Armen und der Art, wie du auf es reagierst.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 Jahre: Können, Freundschaft, Selbstvertrauen',
     lead: 'In den Schuljahren baut dein Kind das Gefühl „Ich kann das“ auf. Freunde werden wichtig, aber du bleibst sein wichtigster Halt.',

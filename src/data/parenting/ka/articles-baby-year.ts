@@ -5,6 +5,7 @@ import { S } from './sources';
 export const BABY_YEAR_ARTICLES: Article[] = [
   {
     id: 'crying-plan',
+    support: 'mental-health',
     area: 'connection',
     emoji: '📝',
     title: 'კოლიკა და ტირილის გეგმა: ყველაზე რთული კვირებისთვის',
@@ -182,6 +183,7 @@ export const BABY_YEAR_ARTICLES: Article[] = [
   },
   {
     id: 'fourth-trimester',
+    support: 'mental-health',
     area: 'parent',
     emoji: '🌷',
     title: '„მეოთხე ტრიმესტრი“: დედა მშობიარობის შემდეგ',

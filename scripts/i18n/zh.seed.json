@@ -12448,5 +12448,21 @@
   "par_quiz_prev": "上一题",
   "par_prog_summary_days": "已完成 {n} 天",
   "par_prog_next_title": "接下来试试",
-  "par_prog_next_open": "查看计划"
+  "par_prog_next_open": "查看计划",
+  "par_milestone_late": "这项检查适用于{n}岁以下的孩子。如果你担心大一点孩子的发育或行为，请咨询医生或儿童心理师。",
+  "par_milestone_corrected": "因为早产，这项检查按矫正月龄进行：{n}个月。",
+  "par_reminder_free": "前{n}天的提醒免费。",
+  "par_share_partner": "发送给伴侣",
+  "par_share": "分享",
+  "par_share_sent": "已发送给伴侣 ✓",
+  "par_share_failed": "发送失败，请重试。",
+  "par_share_hint": "在 Anacan 的「一起 → 养育」中打开：",
+  "par_share_footer": "Anacan 应用，养育板块",
+  "par_shared_title": "发给你的",
+  "par_tip_sources": "来源",
+  "par_support_mh_title": "你也可以获得支持",
+  "par_support_mh_text": "如果你长时间感到难过、焦虑或筋疲力尽，这不是软弱，你可以得到帮助。做一下情绪测试，看看有哪些支持方式。如果你有伤害自己或孩子的念头，请立即拨打{emergency}。",
+  "par_support_cs_title": "孩子的安全",
+  "par_support_cs_text": "如果你怀疑孩子正遭受伤害，或可能伤害自己，不要让孩子独处，并立即拨打{emergency}。在这样艰难的时刻，你也可能需要心理支持。",
+  "par_support_open": "情绪测试与支持"
 }

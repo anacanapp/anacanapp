@@ -12448,5 +12448,21 @@
   "par_quiz_prev": "이전 질문",
   "par_prog_summary_days": "{n}일 완료",
   "par_prog_next_title": "다음 추천",
-  "par_prog_next_open": "프로그램 보기"
+  "par_prog_next_open": "프로그램 보기",
+  "par_milestone_late": "이 체크는 {n}세까지의 아이를 위한 것이에요. 더 큰 아이의 발달이나 행동이 걱정된다면 의사나 아동 심리 전문가와 상담해 주세요.",
+  "par_milestone_corrected": "일찍 태어나서 교정 연령으로 체크해요: {n}개월.",
+  "par_reminder_free": "처음 {n}일은 알림이 무료예요.",
+  "par_share_partner": "파트너에게 보내기",
+  "par_share": "공유",
+  "par_share_sent": "파트너에게 보냈어요 ✓",
+  "par_share_failed": "보내지 못했어요. 다시 시도해 주세요.",
+  "par_share_hint": "Anacan의 함께 → 양육에서 열어 보세요:",
+  "par_share_footer": "Anacan 앱, 양육 코너",
+  "par_shared_title": "나에게 온 항목",
+  "par_tip_sources": "출처",
+  "par_support_mh_title": "당신을 위한 도움도 있어요",
+  "par_support_mh_text": "오랫동안 슬프거나 불안하거나 무력하게 느껴진다면, 그것은 약함이 아니며 도움이 있어요. 기분 체크를 해 보고 지원 방법을 살펴보세요. 자신이나 아이를 해치고 싶은 생각이 든다면 즉시 {emergency}에 전화하세요.",
+  "par_support_cs_title": "아이의 안전",
+  "par_support_cs_text": "아이가 폭력을 겪고 있거나 스스로를 해칠 수 있다고 의심된다면, 아이를 혼자 두지 말고 즉시 {emergency}에 전화하세요. 이렇게 힘든 순간에는 당신에게도 심리적 지원이 필요할 수 있어요.",
+  "par_support_open": "기분 체크와 지원"
 }

@@ -20,6 +20,11 @@ const walk = (a, b, path) => {
     const ka = Object.keys(a).sort().join(','), kb = Object.keys(b).sort().join(',');
     if (ka !== kb) errors.push(`${path}: keys ${ka} vs ${kb}`);
     for (const k of Object.keys(a)) {
+      // SOS source ids (keys of the shared az/sources.ts list) and the support-card kind are not translated.
+      const idList = k === 'sources' && Array.isArray(a[k]) && a[k].every((x) => typeof x === 'string');
+      const supportKind = k === 'support' && ['mental-health', 'child-safety'].includes(a[k]);
+      if ((idList || supportKind) && JSON.stringify(a[k]) !== JSON.stringify(b?.[k])) errors.push(`${path}.${k}: changed (${JSON.stringify(a[k])} -> ${JSON.stringify(b?.[k])})`);
+      if (idList || supportKind) continue;
       const scalar = (v) => v === null || typeof v !== 'object' || (Array.isArray(v) && v.every((x) => x === null || typeof x !== 'object'));
       if (/^(id|band|bands|area|areas|emoji|premium|free|day|minAge|maxAge|kind|type|value|score|scores|weight|ids?|key)$/.test(k) && scalar(a[k]) && !(typeof a[k] === 'string' && /\s/.test(a[k]) && k !== 'id') && JSON.stringify(a[k]) !== JSON.stringify(b?.[k])) errors.push(`${path}.${k}: changed (${JSON.stringify(a[k])} -> ${JSON.stringify(b?.[k])})`);
       walk(a[k], b?.[k], `${path}.${k}`);

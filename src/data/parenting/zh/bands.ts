@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: '第一年：打下安全感的地基',
     lead: '这一年，宝宝在了解这个世界是否安全。答案就藏在你的声音、你的怀抱，以及你回应他的方式里。',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 岁：能力、友谊与自信',
     lead: '上学的这些年，是孩子建立“我能行”感受的时期。朋友变得重要了，但你依然是他最主要的依靠。',

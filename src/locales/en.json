@@ -10290,5 +10290,21 @@
   "par_quiz_prev": "Previous question",
   "par_prog_summary_days": "{n} days completed",
   "par_prog_next_title": "Try next",
-  "par_prog_next_open": "View programme"
+  "par_prog_next_open": "View programme",
+  "par_milestone_late": "This check is for children up to {n} years old. If an older child’s development or behaviour worries you, talk to a doctor or a child psychologist.",
+  "par_milestone_corrected": "Born early, so the check uses the corrected age: {n} months.",
+  "par_reminder_free": "Reminders are free for the first {n} days.",
+  "par_share_partner": "Send to partner",
+  "par_share": "Share",
+  "par_share_sent": "Sent to your partner ✓",
+  "par_share_failed": "Could not send. Try again.",
+  "par_share_hint": "Open it in Anacan under Together → Parenting:",
+  "par_share_footer": "Anacan app, Parenting section",
+  "par_shared_title": "Sent to you",
+  "par_tip_sources": "Sources",
+  "par_support_mh_title": "There is support for you too",
+  "par_support_mh_text": "If you have felt sad, anxious or drained for a long time, it is not a weakness and help exists. Take the mood check and look at the support options. If you have thoughts of harming yourself or your child, call {emergency} right away.",
+  "par_support_cs_title": "Your child’s safety",
+  "par_support_cs_text": "If you suspect your child is being harmed or might hurt themselves, do not leave them alone and call {emergency} right away. You may need emotional support in this hard moment too.",
+  "par_support_open": "Mood check and support"
 }

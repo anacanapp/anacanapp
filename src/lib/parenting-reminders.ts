@@ -1,11 +1,12 @@
 /**
- * Tərbiyə programme reminders (Premium, this phone only): one local notification a day at the parent's chosen
- * time (default 20:30) while a programme runs. Nothing is scheduled — and everything already scheduled is
- * cancelled — when the preference is off, the programme is finished or paused, or the admin switch / content
- * / Premium is gone. The next 7 days are scheduled and refreshed whenever the app opens the tool or home.
+ * Tərbiyə programme reminders (this phone only): one local notification a day at the parent's chosen time
+ * (default 20:30) while a programme runs. Free users get them for the free programme days (1–3) only; Premium
+ * for every day. Nothing is scheduled — and everything already scheduled is cancelled — when the preference is
+ * off, the programme is finished or paused, the admin switch / content is gone, or a free user has reached the
+ * Premium days. The next 7 days are scheduled and refreshed whenever the app opens the tool or home.
  */
 import type { Programme } from '@/data/parenting/types';
-import { DEFAULT_REMINDER_TIME, allSlots, isFinished, type ParentingLocal, type ProgrammeProgress } from './parenting';
+import { DEFAULT_REMINDER_TIME, FREE_PROGRAMME_DAYS, allSlots, isFinished, type ParentingLocal, type ProgrammeProgress } from './parenting';
 
 const BASE_ID = 882_200;
 export const REMINDER_DAYS = 7;
@@ -47,8 +48,10 @@ const atTime = (base: Date, time: string, addDays: number) => {
 export function reminderSlots(o: {
   state: ParentingLocal;
   programmes: Programme[];
-  /** Premium, admin switch on and content available for the app language. */
+  /** Admin switch on and content available for the app language. */
   allowed: boolean;
+  /** Premium: every programme day; otherwise only the free days (1–3). Omitted = Premium (older callers). */
+  isPremium?: boolean;
   now?: Date;
   today: string;
 }): ReminderSlot[] {
@@ -66,6 +69,7 @@ export function reminderSlots(o: {
   for (let k = 0; slots.length < REMINDER_DAYS; k++) {
     const dayIndex = next + k;
     if (dayIndex >= total) break;
+    if (o.isPremium === false && dayIndex >= FREE_PROGRAMME_DAYS) break; // free users: the free days only
     const at = atTime(now, time, startToday ? k : k + 1);
     slots.push({ id: BASE_ID + slots.length, at, programmeId: programme.id, dayIndex });
   }
@@ -74,6 +78,9 @@ export function reminderSlots(o: {
 
 /** Stable key: re-schedule only when the planned reminders change. */
 export const slotsKey = (slots: ReminderSlot[]) => slots.map((s) => `${s.programmeId}:${s.dayIndex}@${s.at.getTime()}`).join('|') || 'none';
+
+/** Whether the reminder switch is offered for a programme whose next step is `nextDay` (0-based). */
+export const canRemindDay = (nextDay: number, isPremium: boolean) => isPremium || nextDay < FREE_PROGRAMME_DAYS;
 
 /** Replace this phone's Tərbiyə reminders with `slots` (empty = cancel all). Never throws. */
 export async function syncParentingReminders(

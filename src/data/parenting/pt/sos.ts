@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'Se joga no chão chorando no mercado',
     moment: 'Ela queria bala, você disse “não”, e agora o mercado inteiro está olhando para você.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'Bateu no irmão (ou na irmã)',
     moment: 'Num instante a brincadeira virou briga, e o menor está chorando.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'Não quer dormir',
     moment: 'Mais uma água, mais um xixi, mais uma pergunta… e já está tarde.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'Não quer ir embora do parquinho',
     moment: 'Você disse “vamos embora”, e ela grita “não!” lá do alto do escorregador.',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: 'Disse “Eu não gosto de você!”',
     moment: 'Depois de um “não”, a criança grita com raiva na sua cara: “Eu não gosto de você!”',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'Mordeu um colega na creche',
     moment: 'A professora ligou: é a segunda vez nesta semana que a criança morde.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'De manhã, não quer se vestir',
     moment: 'Vocês estão atrasados, e ela se esconde de pijama atrás do sofá.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'Explode quando você tira o tablet',
     moment: 'O tempo acabou, você pegou o tablet, e agora é grito e choro.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'Recusa a comida na mesa',
     moment: 'Ela olhou para a comida que você fez e disse: “Que nojo!”',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'O bebê chora há horas',
     moment: 'Você deu de mamar, trocou a fralda, embalou… e ele continua chorando. Sua paciência está acabando.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'Agarra sua perna na porta da creche',
     moment: 'Toda manhã a mesma cena: ela chora, não solta, e você se atrasa.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'Mentiu descaradamente',
     moment: 'O papel do chocolate está na mão dela, e ela diz: “Não fui eu que comi.”',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'Falou um palavrão na frente das visitas',
     moment: 'Todo mundo ficou em silêncio, e a criança está toda satisfeita com o efeito.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'Chora na lição de casa: “Eu não consigo!”',
     moment: 'Lágrimas na frente do caderno de matemática e rabiscos na folha.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '“Você gosta mais dele do que de mim!”',
     moment: 'Você deu atenção ao irmão menor, e a mais velha foi emburrada para o quarto.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'Acordou assustado com um pesadelo',
     moment: 'São 3 da manhã, e ela corre gritando para o seu quarto.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'Não quer sentar na cadeirinha do carro',
     moment: 'Ela arqueia as costas, começa a gritaria, e você está com pressa.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'Joga comida e brinquedos',
     moment: 'A colher de novo no chão. E ele olha para você e ri.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'Toma o brinquedo da mão do amigo',
     moment: 'Numa visita, começou uma briga por causa de um brinquedo.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '“Eu sou burro, não sei fazer nada”',
     moment: 'Depois de um erro, a criança se xinga.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'Gritei com meu filho',
     moment: 'A voz subiu, e você viu medo nos olhos da criança. Agora vem o arrependimento.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'Voltou da escola chorando',
     moment: 'Ela diz: “Eles zombam de mim, ninguém brinca comigo.”',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'Me bateu',
     moment: 'Em resposta a um “não”, a mãozinha acertou o seu rosto.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '“Já falei cem vezes e ela não escuta!”',
     moment: 'Você chama do outro cômodo e não há resposta. Sua voz vai subindo cada vez mais.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'Morde ou puxa o cabelo durante a mamada',
     moment: 'Você se assustou com a dor, e o bebê olha para você com curiosidade.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'O bebê de repente chora diferente do normal',
     moment: 'Esse choro não é conhecido: mais agudo, mais longo, e nada ajuda. Bate uma preocupação.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'Só dorme no meu colo',
     moment: 'Assim que você o coloca no berço, ele abre os olhos e chora. E você já está há horas sem conseguir se mexer no sofá.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'Não aguento mais, estou perdendo o controle',
     moment: 'O bebê chora, você não dorme, as suas mãos tremem. A raiva e a impotência tomaram conta de você.',

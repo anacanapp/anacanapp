@@ -12448,5 +12448,21 @@
   "par_quiz_prev": "Câu hỏi trước",
   "par_prog_summary_days": "Đã hoàn thành {n} ngày",
   "par_prog_next_title": "Gợi ý tiếp theo",
-  "par_prog_next_open": "Xem chương trình"
+  "par_prog_next_open": "Xem chương trình",
+  "par_milestone_late": "Bài kiểm tra này dành cho trẻ đến {n} tuổi. Nếu bạn lo lắng về sự phát triển hoặc hành vi của trẻ lớn hơn, hãy nói chuyện với bác sĩ hoặc chuyên gia tâm lý trẻ em.",
+  "par_milestone_corrected": "Bé sinh non nên bài kiểm tra dùng tuổi hiệu chỉnh: {n} tháng.",
+  "par_reminder_free": "Nhắc nhở miễn phí trong {n} ngày đầu.",
+  "par_share_partner": "Gửi cho bạn đời",
+  "par_share": "Chia sẻ",
+  "par_share_sent": "Đã gửi cho bạn đời ✓",
+  "par_share_failed": "Không gửi được. Hãy thử lại.",
+  "par_share_hint": "Mở trong Anacan: Cùng nhau → Nuôi dạy con:",
+  "par_share_footer": "Ứng dụng Anacan, mục Nuôi dạy con",
+  "par_shared_title": "Đã gửi cho bạn",
+  "par_tip_sources": "Nguồn",
+  "par_support_mh_title": "Bạn cũng có thể nhận hỗ trợ",
+  "par_support_mh_text": "Nếu bạn buồn, lo âu hoặc kiệt sức trong thời gian dài, đó không phải là yếu đuối và luôn có sự giúp đỡ. Hãy làm bài kiểm tra tâm trạng và xem các lựa chọn hỗ trợ. Nếu bạn có ý nghĩ làm hại bản thân hoặc con, hãy gọi ngay {emergency}.",
+  "par_support_cs_title": "An toàn của con",
+  "par_support_cs_text": "Nếu bạn nghi ngờ con đang bị bạo hành hoặc có thể tự làm hại mình, đừng để con một mình và hãy gọi ngay {emergency}. Trong lúc khó khăn này, bạn cũng có thể cần hỗ trợ tâm lý.",
+  "par_support_open": "Kiểm tra tâm trạng và hỗ trợ"
 }

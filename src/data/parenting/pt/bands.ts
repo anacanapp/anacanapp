@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'O primeiro ano: a base da confiança',
     lead: 'Neste ano o bebê aprende se o mundo é um lugar seguro. A resposta vem da sua voz, do seu colo e de como você responde a ele.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 anos: habilidades, amizade e autoconfiança',
     lead: 'Os anos de escola são a fase em que a criança constrói a sensação de “eu consigo”. Os amigos ganham importância, mas você continua sendo o principal apoio dela.',

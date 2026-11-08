@@ -358,6 +358,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
   // ── Parent ──────────────────────────────────────────────────────────────────────────────
   {
     id: 'parent-stress',
+    support: 'mental-health',
     area: 'parent',
     emoji: '🫖',
     title: 'Parental stress: put your own oxygen mask on first',
@@ -512,6 +513,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
   },
   {
     id: 'bullying',
+    support: 'child-safety',
     area: 'school',
     emoji: '🛡️',
     title: 'Bullying: signs and steps',

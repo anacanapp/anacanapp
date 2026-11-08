@@ -8798,5 +8798,21 @@
   "par_quiz_prev": "Əvvəlki sual",
   "par_prog_summary_days": "{n} gün tamamlandı",
   "par_prog_next_title": "Növbəti üçün təklif",
-  "par_prog_next_open": "Proqrama bax"
+  "par_prog_next_open": "Proqrama bax",
+  "par_milestone_late": "Bu yoxlama {n} yaşa qədər olan uşaqlar üçündür. Böyük uşağın inkişafı və ya davranışı səni narahat edirsə, həkim və ya uşaq psixoloqu ilə danış.",
+  "par_milestone_corrected": "Vaxtından əvvəl doğulduğu üçün yoxlama düzəldilmiş yaşa görə aparılır: {n} ay.",
+  "par_reminder_free": "İlk {n} gün üçün xatırlatma pulsuzdur.",
+  "par_share_partner": "Partnyora göndər",
+  "par_share": "Paylaş",
+  "par_share_sent": "Partnyoruna göndərildi ✓",
+  "par_share_failed": "Göndərmək alınmadı. Yenidən cəhd et.",
+  "par_share_hint": "Anacan-da Birlikdə → Tərbiyə bölməsində aç:",
+  "par_share_footer": "Anacan tətbiqi, Tərbiyə bölməsi",
+  "par_shared_title": "Sənə göndərilənlər",
+  "par_tip_sources": "Mənbələr",
+  "par_support_mh_title": "Sənin üçün də dəstək var",
+  "par_support_mh_text": "Uzun müddət kədər, narahatlıq və ya gücsüzlük hiss edirsənsə, bu, zəiflik deyil və kömək var. Əhval testini keç və dəstək imkanlarına bax. Özünə və ya uşağa zərər vermək fikri varsa, dərhal {emergency} nömrəsinə zəng et.",
+  "par_support_cs_title": "Uşağın təhlükəsizliyi",
+  "par_support_cs_text": "Uşağın zorakılığa məruz qaldığından və ya özünə zərər verə biləcəyindən şübhələnirsənsə, onu tək qoyma və dərhal {emergency} nömrəsinə zəng et. Bu ağır anda sənə də psixoloji dəstək lazım ola bilər.",
+  "par_support_open": "Əhval testi və dəstək"
 }

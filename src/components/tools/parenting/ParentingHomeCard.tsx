@@ -12,14 +12,15 @@ import { activeProgramme } from '@/lib/parenting-reminders';
 import { setParentingTarget } from '@/lib/parenting-target';
 import { tr } from '@/lib/tr';
 import { useParentingState } from './useParentingState';
-import { useParentingContent } from './useParentingContent';
+import { useParentingTips } from './useParentingTips';
 import { useParentingReminders } from './useParentingReminders';
 
 /**
  * Ana home teaser for Tərbiyə: today's tip for the active child's age band (the same tip the tool's home shows) and
  * a way into the tool. Visible under the same rules as the Tools tile (switch on, content for the app language,
- * Ana module, child under 13). The content chunk loads lazily; nothing is shown until it is there.
- * It also keeps the programme reminders in line (cancelled once the switch or Premium is gone).
+ * Ana module, child under 13). Only the small tips + programmes chunk of the language loads here (never the whole
+ * content); nothing is shown until it is there. It also keeps the programme reminders in line (cancelled once the
+ * switch is gone; free users only for the free programme days).
  */
 export default function ParentingHomeCard({ onOpen, now }: { onOpen: () => void; now?: Date }) {
   const { user } = useAuth();
@@ -35,9 +36,9 @@ export default function ParentingHomeCard({ onOpen, now }: { onOpen: () => void;
   const visible = isParentingHomeCardVisible({
     lifeStage, language, setting, birthDate: child?.birth_date ?? null, birthDates: children.map((c) => c.birth_date), toolDisabled: isToolDisabled('parenting'), now,
   });
-  const { content } = useParentingContent(language, visible);
-  const known = setting !== undefined && setting !== null && !premiumLoading;
-  useParentingReminders({ state, content, allowed: known ? visible && !!isPremium : null, now });
+  const content = useParentingTips(language, visible);
+  const known = setting !== undefined && setting !== null;
+  useParentingReminders({ state, content, allowed: known ? visible : null, isPremium: premiumLoading ? null : !!isPremium, now });
 
   if (!visible || !content) return null;
   const today = homeTipFor(content.tips, { birthDate: child?.birth_date ?? null, slot: readSlot(state, child?.id ?? null), now });

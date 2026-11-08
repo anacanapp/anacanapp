@@ -11,7 +11,7 @@ import { useUserStore } from '@/store/userStore';
 import { pushBackHandler } from '@/lib/backButton';
 import { resetAppScrollPosition } from '@/lib/scroll';
 import {
-  type ChildSlot, ageBandFor, ageInMonths, childForProgramme, dailyTipIndex, effectiveBand, hasParentingActivity, isoDay, normalizeForChild,
+  type ChildSlot, ageBandFor, ageInMonths, childForProgramme, dailyTipIndex, effectiveBand, hasParentingActivity, isoDay, milestoneAge, normalizeForChild,
   parentingChildren, pickParentingChild, readSlot, setSlotBand, toggleSavedState, writeSlot,
 } from '@/lib/parenting';
 import type { AgeBandId } from '@/data/parenting/types';
@@ -45,6 +45,8 @@ export interface ParentingChild {
   id?: string | null;
   name?: string | null;
   birth_date?: string | null;
+  /** Original due date (user_children.due_date): a preterm baby's milestone check uses the corrected age. */
+  due_date?: string | null;
 }
 
 /** Tool analytics; `itemId` names the article / SOS card / programme opened, so content popularity is measurable. */
@@ -69,7 +71,7 @@ export function ParentingToolView({ onBack, now, child: preferred, kids, partner
   partner?: boolean;
 }) {
   useScreenAnalytics(partner ? 'ParentingPartner' : 'Parenting', 'Tools');
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
   const { isPremium, loading: premiumLoading } = useSubscription();
   const emergency = useEmergencyNumber();
   const language = useUserStore((s) => s.language);
@@ -78,8 +80,9 @@ export function ParentingToolView({ onBack, now, child: preferred, kids, partner
   const lang = hasParentingContent(language) ? String(language) : 'az';
   const { content, loading, retry } = useParentingContent(lang);
   const { state, update, updateLocal, online, pending } = useParentingState(user?.id ?? null);
-  const allowed = setting === undefined || setting === null || premiumLoading ? null : setting === 'on' && !!isPremium;
-  useParentingReminders({ state, content, allowed, partner, now });
+  // Reminders: switch on for everyone (free users get the free programme days); Premium for every day.
+  const allowed = setting === undefined || setting === null ? null : setting === 'on';
+  useParentingReminders({ state, content, allowed, isPremium: premiumLoading ? null : !!isPremium, partner, now });
 
   const nowDate = useMemo(() => now ?? new Date(), [now]);
   const today = isoDay(nowDate);
@@ -92,6 +95,7 @@ export function ParentingToolView({ onBack, now, child: preferred, kids, partner
   const childId = child?.id ?? null;
   const ageMonths = ageInMonths(child?.birth_date, nowDate);
   const childBand = ageBandFor(ageMonths);
+  const milestone = milestoneAge(child?.birth_date, child?.due_date, nowDate);
   const slot = readSlot(state, childId);
   const band = effectiveBand(slot, childBand) ?? '1-3';
   const updateSlot = useCallback((fn: (s: ChildSlot) => ChildSlot) => update((s) => writeSlot(s, childId, fn)), [update, childId]);
@@ -174,7 +178,10 @@ export function ParentingToolView({ onBack, now, child: preferred, kids, partner
 
   const ctx: ParentingCtx = {
     content, band, childBand, childName, childAgeLabel, ageMonths, isPremium: !!isPremium, emergency, today, locale: String(language || lang),
-    local: state, slot, updateSlot, update, updateLocal, go, track, query, setQuery, reminderAllowed: setting !== 'off' && !!isPremium,
+    local: state, slot, updateSlot, update, updateLocal, go, track, query, setQuery, reminderAllowed: setting !== 'off',
+    milestoneMonths: milestone.months, milestoneCorrected: milestone.corrected, partner, userId: user?.id ?? null,
+    // The mother can send an item to her linked partner (partner_messages); everyone can use the share sheet.
+    shareActor: !partner && user?.id && profile?.user_id === user.id && profile?.linked_partner_id ? { userId: user.id, partnerProfileId: profile.linked_partner_id } : null,
   };
 
   const ref = savedRef(route);
@@ -205,7 +212,7 @@ export function ParentingToolView({ onBack, now, child: preferred, kids, partner
       break;
     case 'band':
       eyebrow = pt('par_tool_name'); title = pt('par_band_open');
-      body = <BandScreen ctx={ctx} id={route.id} />;
+      body = <BandScreen ctx={ctx} id={route.id} focus={route.focus} />;
       break;
     case 'topics':
       eyebrow = pt('par_tool_name'); title = pt('par_topics_title');

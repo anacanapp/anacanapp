@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'Năm đầu đời: nền móng của niềm tin',
     lead: 'Trong năm này, bé học xem thế giới có an toàn hay không. Bé tìm câu trả lời qua giọng nói của bạn, vòng tay của bạn và cách bạn đáp lại bé.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 tuổi: kỹ năng, tình bạn, sự tự tin',
     lead: 'Những năm đi học là giai đoạn con xây dựng cảm giác “mình làm được”. Bạn bè trở nên quan trọng, nhưng bạn vẫn là chỗ dựa chính của con.',

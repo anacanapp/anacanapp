@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'La première année : les bases de la confiance',
     lead: 'Cette année, ton bébé découvre si le monde est un endroit sûr. La réponse, il la trouve dans ta voix, dans tes bras et dans ta façon de lui répondre.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 ans : compétences, amitié, confiance en soi',
     lead: 'Les années d’école sont la période où ton enfant construit son sentiment de « je suis capable ». Les amis prennent de l’importance, mais tu restes son principal point d’appui.',

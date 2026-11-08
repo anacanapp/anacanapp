@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'Birinchi yil: ishonch poydevori',
     lead: 'Bu yili chaqaloq dunyo xavfsizmi yoki yoʻqmi, shuni oʻrganadi. Javobni u sening ovozingdan, quchogʻingdan va unga qanday javob berishingdan oladi.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 yosh: koʻnikma, doʻstlik, oʻziga ishonch',
     lead: 'Maktab yillari bolaning “men uddalayman” hissini quradigan davr. Doʻstlar muhim boʻlib qoladi, lekin sen hali ham uning asosiy tayanchisan.',

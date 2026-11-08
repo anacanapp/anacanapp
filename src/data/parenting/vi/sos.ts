@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'Con nằm lăn ra sàn siêu thị khóc',
     moment: 'Con đòi kẹo, bạn nói “không”, và giờ cả siêu thị đang nhìn bạn.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'Con đánh anh/chị/em',
     moment: 'Chỉ trong tích tắc, trò chơi đã thành trận đánh nhau và đứa nhỏ đang khóc.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'Con không chịu đi ngủ',
     moment: 'Thêm một cốc nước, thêm một lần đi vệ sinh, thêm một câu hỏi… mà trời đã khuya rồi.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'Con không chịu rời công viên',
     moment: 'Bạn nói “Mình về thôi”, còn con thì đứng trên đỉnh cầu trượt hét “không!”.',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: 'Con nói: “Con không thương bố mẹ nữa!”',
     moment: 'Sau khi bị cấm, con giận dữ nói thẳng vào mặt bạn “con không thương bố mẹ”.',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'Con cắn bạn ở nhà trẻ',
     moment: 'Cô giáo gọi điện: tuần này con đã cắn bạn lần thứ hai.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'Buổi sáng con không chịu mặc quần áo',
     moment: 'Cả nhà đang trễ giờ, còn con mặc nguyên đồ ngủ trốn sau ghế sofa.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'Con bùng nổ khi bị lấy máy tính bảng',
     moment: 'Hết giờ, bạn lấy máy tính bảng, và giờ là la hét với nước mắt.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'Con không chịu ăn bên mâm cơm',
     moment: 'Con nhìn món bạn nấu và nói “Eo, kinh quá!”.',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'Bé khóc hàng giờ liền',
     moment: 'Bạn đã cho bú, thay tã, đung đưa, mà bé vẫn khóc. Sự kiên nhẫn của bạn đang cạn dần.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'Con bám chặt chân bạn ở cửa nhà trẻ',
     moment: 'Sáng nào cũng cùng một cảnh: con khóc, không buông, còn bạn thì trễ giờ.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'Con nói dối rõ rành rành',
     moment: 'Vỏ kẹo sô-cô-la còn trong tay, mà con nói “con không ăn”.',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'Con nói bậy trước mặt khách',
     moment: 'Mọi người im bặt, còn con thì có vẻ khoái chí với hiệu ứng mình vừa tạo ra.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'Con khóc khi làm bài tập: “Con không làm được!”',
     moment: 'Nước mắt trước cuốn vở toán, và những nét gạch xóa nguệch ngoạc trên trang giấy.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '“Bố mẹ thương em hơn con!”',
     moment: 'Bạn vừa quan tâm đến đứa nhỏ, thế là đứa lớn giận dỗi bỏ về phòng.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'Con gặp ác mộng và sợ hãi thức dậy',
     moment: '3 giờ sáng, con hét lên rồi chạy sang phòng bạn.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'Con không chịu ngồi ghế ô tô',
     moment: 'Con ưỡn lưng, bắt đầu gào khóc, còn bạn thì đang vội.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'Con ném đồ ăn và đồ chơi',
     moment: 'Cái thìa lại nằm dưới sàn. Còn con thì nhìn bạn và cười.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'Con giật đồ chơi của bạn',
     moment: 'Đang đi chơi nhà bạn thì cuộc giành giật đồ chơi nổ ra.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '“Con ngốc lắm, con chẳng làm được gì”',
     moment: 'Sau một lần mắc lỗi, con tự trách mắng bản thân.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'Mình đã quát con',
     moment: 'Giọng bạn vút cao, bạn thấy nỗi sợ trong mắt con. Giờ bạn thấy hối hận.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'Con khóc khi đi học về',
     moment: 'Con nói: “Các bạn chế giễu con, chẳng ai chơi với con cả.”',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'Con đánh bạn',
     moment: 'Đáp lại lời cấm, bàn tay nhỏ xíu vung vào mặt bạn.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '“Nói cả trăm lần mà con không nghe!”',
     moment: 'Bạn gọi từ phòng khác, không có tiếng trả lời. Giọng bạn mỗi lúc một to hơn.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'Bé cắn ti hoặc giật tóc khi bú',
     moment: 'Bạn giật mình vì đau, còn bé thì tò mò nhìn bạn.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'Bé bỗng khóc khác hẳn mọi khi',
     moment: 'Tiếng khóc này lạ lắm: chói hơn, dài hơn và không gì dỗ được. Trong lòng bạn thấy bất an.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'Bé chỉ chịu ngủ trên tay mình',
     moment: 'Vừa đặt xuống cũi là bé mở mắt và khóc. Còn bạn thì đã ngồi bất động trên sofa hàng giờ liền.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'Mình không chịu nổi nữa, sắp mất kiểm soát rồi',
     moment: 'Bé đang khóc, bạn thiếu ngủ, tay run lên. Giận dữ và bất lực dâng đầy trong lòng.',

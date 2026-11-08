@@ -10301,5 +10301,21 @@
   "par_quiz_prev": "Oldingi savol",
   "par_prog_summary_days": "{n} kun bajarildi",
   "par_prog_next_title": "Keyingi taklif",
-  "par_prog_next_open": "Dasturni ko'rish"
+  "par_prog_next_open": "Dasturni ko'rish",
+  "par_milestone_late": "Bu tekshiruv {n} yoshgacha bo‘lgan bolalar uchun. Katta bolangizning rivojlanishi yoki xulqi sizni xavotirga solsa, shifokor yoki bolalar psixologi bilan gaplashing.",
+  "par_milestone_corrected": "Muddatidan oldin tug‘ilgani uchun tekshiruv tuzatilgan yosh bo‘yicha o‘tkaziladi: {n} oy.",
+  "par_reminder_free": "Dastlabki {n} kun uchun eslatma bepul.",
+  "par_share_partner": "Hamkorga yuborish",
+  "par_share": "Ulashish",
+  "par_share_sent": "Hamkoringizga yuborildi ✓",
+  "par_share_failed": "Yuborib bo‘lmadi. Qayta urinib ko‘ring.",
+  "par_share_hint": "Anacan’da oching: Birgalikda → Tarbiya:",
+  "par_share_footer": "Anacan ilovasi, Tarbiya bo‘limi",
+  "par_shared_title": "Sizga yuborilganlar",
+  "par_tip_sources": "Manbalar",
+  "par_support_mh_title": "Siz uchun ham yordam bor",
+  "par_support_mh_text": "Uzoq vaqt qayg‘u, xavotir yoki holsizlik his qilsangiz, bu zaiflik emas va yordam bor. Kayfiyat testidan o‘ting va yordam imkoniyatlarini ko‘ring. O‘zingizga yoki bolangizga zarar yetkazish fikri bo‘lsa, darhol {emergency} raqamiga qo‘ng‘iroq qiling.",
+  "par_support_cs_title": "Bolaning xavfsizligi",
+  "par_support_cs_text": "Bolangiz zo‘ravonlikka uchrayotganidan yoki o‘ziga zarar yetkazishi mumkinligidan shubhalansangiz, uni yolg‘iz qoldirmang va darhol {emergency} raqamiga qo‘ng‘iroq qiling. Bu og‘ir damda sizga ham psixologik yordam kerak bo‘lishi mumkin.",
+  "par_support_open": "Kayfiyat testi va yordam"
 }

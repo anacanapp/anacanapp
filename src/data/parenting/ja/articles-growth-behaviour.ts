@@ -358,6 +358,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
   // ── Parent ──────────────────────────────────────────────────────────────────────────────
   {
     id: 'parent-stress',
+    support: 'mental-health',
     area: 'parent',
     emoji: '🫖',
     title: '親のストレス：まずは自分の酸素マスクを',
@@ -512,6 +513,7 @@ export const GROWTH_BEHAVIOUR_ARTICLES: Article[] = [
   },
   {
     id: 'bullying',
+    support: 'child-safety',
     area: 'school',
     emoji: '🛡️',
     title: 'いじめ：サインと対応のステップ',

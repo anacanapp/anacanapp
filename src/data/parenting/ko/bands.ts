@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: '첫 1년: 신뢰의 토대',
     lead: '이 시기에 아기는 세상이 안전한 곳인지 배워요. 그 답을 아기는 당신의 목소리, 품, 그리고 당신이 어떻게 반응하는지에서 얻어요.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6~12세: 능력, 우정, 자신감',
     lead: '학교에 다니는 시기는 아이가 “나는 할 수 있어”라는 감각을 쌓는 때예요. 친구가 중요해지지만, 당신은 여전히 아이의 가장 큰 버팀목이에요.',

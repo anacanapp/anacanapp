@@ -12448,5 +12448,21 @@
   "par_quiz_prev": "Question précédente",
   "par_prog_summary_days": "{n} jours terminés",
   "par_prog_next_title": "À essayer ensuite",
-  "par_prog_next_open": "Voir le programme"
+  "par_prog_next_open": "Voir le programme",
+  "par_milestone_late": "Ce bilan concerne les enfants jusqu’à {n} ans. Si le développement ou le comportement d’un enfant plus grand t’inquiète, parles-en à un médecin ou à un psychologue pour enfants.",
+  "par_milestone_corrected": "Né prématurément, le bilan utilise donc l’âge corrigé : {n} mois.",
+  "par_reminder_free": "Les rappels sont gratuits pendant les {n} premiers jours.",
+  "par_share_partner": "Envoyer au partenaire",
+  "par_share": "Partager",
+  "par_share_sent": "Envoyé à ton partenaire ✓",
+  "par_share_failed": "Envoi impossible. Réessaie.",
+  "par_share_hint": "Ouvre-le dans Anacan : Ensemble → Éducation :",
+  "par_share_footer": "Appli Anacan, rubrique Éducation",
+  "par_shared_title": "Envoyé pour toi",
+  "par_tip_sources": "Sources",
+  "par_support_mh_title": "Du soutien existe aussi pour toi",
+  "par_support_mh_text": "Si tu te sens triste, anxieuse ou épuisée depuis longtemps, ce n’est pas une faiblesse et de l’aide existe. Fais le test d’humeur et regarde les possibilités de soutien. Si tu as des pensées de te faire du mal ou de faire du mal à ton enfant, appelle tout de suite le {emergency}.",
+  "par_support_cs_title": "La sécurité de ton enfant",
+  "par_support_cs_text": "Si tu soupçonnes que ton enfant subit des violences ou pourrait se faire du mal, ne le laisse pas seul et appelle tout de suite le {emergency}. Dans ce moment difficile, tu peux toi aussi avoir besoin d’un soutien psychologique.",
+  "par_support_open": "Test d’humeur et soutien"
 }

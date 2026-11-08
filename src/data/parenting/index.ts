@@ -1,4 +1,4 @@
-import type { ParentingContent } from './types';
+import type { AgeBandId, ParentingContent, Programme, Tip } from './types';
 
 /**
  * Tərbiyə content per language — an async, lazy registry.
@@ -100,5 +100,87 @@ export function loadParentingContent(language: string, opts: { overrides?: boole
 
 /** Test / admin hook: forget the merged content so the next load re-reads overrides. */
 export function resetParentingContentCache(language?: string) {
-  if (language) merged.delete(language); else merged.clear();
+  if (language) { merged.delete(language); homeMerged.delete(language); } else { merged.clear(); homeMerged.clear(); }
+}
+
+// ── Dashboard home card: daily tip + running programme ──────────────────────────────────
+/** What the Ana home card needs: the daily tips and the programmes (titles, day titles for reminders). */
+export interface ParentingHomeContent {
+  tips: Record<AgeBandId, Tip[]>;
+  programmes: Programme[];
+}
+
+type HomeModules = [{ TIPS: Record<AgeBandId, Tip[]> }, { PROGRAMMES: Programme[] }];
+
+/**
+ * Small per-language chunks for the home card (tips.ts + programmes.ts, which every language folder has): the card
+ * never loads the whole content chunk (articles, SOS cards, quizzes); the full content still loads when the tool
+ * opens. Keep in step with PARENTING_LANGUAGE_LOADERS (a test checks the keys match).
+ */
+export const PARENTING_HOME_LOADERS: Record<string, () => Promise<HomeModules>> = {
+  az: () => Promise.all([import('./az/tips'), import('./az/programmes')]),
+  en: () => Promise.all([import('./en/tips'), import('./en/programmes')]),
+  ru: () => Promise.all([import('./ru/tips'), import('./ru/programmes')]),
+  tr: () => Promise.all([import('./tr/tips'), import('./tr/programmes')]),
+  kk: () => Promise.all([import('./kk/tips'), import('./kk/programmes')]),
+  de: () => Promise.all([import('./de/tips'), import('./de/programmes')]),
+  ar: () => Promise.all([import('./ar/tips'), import('./ar/programmes')]),
+  uz: () => Promise.all([import('./uz/tips'), import('./uz/programmes')]),
+  ka: () => Promise.all([import('./ka/tips'), import('./ka/programmes')]),
+  zh: () => Promise.all([import('./zh/tips'), import('./zh/programmes')]),
+  id: () => Promise.all([import('./id/tips'), import('./id/programmes')]),
+  fr: () => Promise.all([import('./fr/tips'), import('./fr/programmes')]),
+  es: () => Promise.all([import('./es/tips'), import('./es/programmes')]),
+  pt: () => Promise.all([import('./pt/tips'), import('./pt/programmes')]),
+  vi: () => Promise.all([import('./vi/tips'), import('./vi/programmes')]),
+  hi: () => Promise.all([import('./hi/tips'), import('./hi/programmes')]),
+  ja: () => Promise.all([import('./ja/tips'), import('./ja/programmes')]),
+  ko: () => Promise.all([import('./ko/tips'), import('./ko/programmes')]),
+  pl: () => Promise.all([import('./pl/tips'), import('./pl/programmes')]),
+  nl: () => Promise.all([import('./nl/tips'), import('./nl/programmes')]),
+  sv: () => Promise.all([import('./sv/tips'), import('./sv/programmes')]),
+  ky: () => Promise.all([import('./ky/tips'), import('./ky/programmes')]),
+  et: () => Promise.all([import('./et/tips'), import('./et/programmes')]),
+};
+
+const homeMerged = new Map<string, { at: number; content: ParentingHomeContent }>();
+const homeInflight = new Map<string, Promise<ParentingHomeContent | null>>();
+
+/** Last loaded home content: the full content when the tool already loaded it, else the small chunk. */
+export function peekParentingTips(language: string | null | undefined): ParentingHomeContent | null {
+  const lang = String(language || '');
+  const full = peekParentingContent(lang);
+  return full ? { tips: full.tips, programmes: full.programmes } : homeMerged.get(lang)?.content ?? null;
+}
+
+/**
+ * Tips + programmes of a language with the editors' published overrides for tips, programmes and programme days
+ * applied (as in the tool). Re-uses the full content when it is already in memory; null when not registered.
+ */
+export function loadParentingTips(language: string, opts: { overrides?: boolean; now?: number } = {}): Promise<ParentingHomeContent | null> {
+  if (!hasParentingContent(language) || !Object.prototype.hasOwnProperty.call(PARENTING_HOME_LOADERS, language)) return Promise.resolve(null);
+  const now = opts.now ?? Date.now();
+  const full = merged.get(language);
+  if (full && now - full.at < REFRESH_MS) return Promise.resolve({ tips: full.content.tips, programmes: full.content.programmes });
+  const hit = homeMerged.get(language);
+  if (hit && now - hit.at < REFRESH_MS) return Promise.resolve(hit.content);
+  const running = homeInflight.get(language);
+  if (running) return running;
+  const job = (async () => {
+    const [{ TIPS }, { PROGRAMMES }] = await PARENTING_HOME_LOADERS[language]();
+    let content: ParentingHomeContent = { tips: TIPS, programmes: PROGRAMMES };
+    if (opts.overrides !== false) {
+      try {
+        const { applyParentingOverrides, fetchPublishedOverrides } = await import('@/lib/parenting-overrides');
+        const rows = (await fetchPublishedOverrides(language, { now })).filter((r) => r && ['tip', 'programme', 'programme_day'].includes(r.item_type));
+        // Only tip / programme rows apply, so the other parts of this stand-in content are never read.
+        const patched = applyParentingOverrides({ tips: TIPS, programmes: PROGRAMMES, articles: [], sos: [], bands: [], areas: [] } as unknown as ParentingContent, rows);
+        content = { tips: patched.tips, programmes: patched.programmes };
+      } catch { /* overrides are optional */ }
+    }
+    homeMerged.set(language, { at: now, content });
+    return content;
+  })().finally(() => homeInflight.delete(language));
+  homeInflight.set(language, job);
+  return job;
 }

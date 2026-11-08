@@ -12448,5 +12448,21 @@
   "par_quiz_prev": "前の質問",
   "par_prog_summary_days": "{n}日間を達成",
   "par_prog_next_title": "次のおすすめ",
-  "par_prog_next_open": "プログラムを見る"
+  "par_prog_next_open": "プログラムを見る",
+  "par_milestone_late": "このチェックは{n}歳までの子ども向けです。年上のお子さんの発達や行動が気になる場合は、医師や子どもの心理士に相談してください。",
+  "par_milestone_corrected": "早産のため、修正月齢でチェックします：{n}か月。",
+  "par_reminder_free": "最初の{n}日間はリマインダーが無料です。",
+  "par_share_partner": "パートナーに送る",
+  "par_share": "共有",
+  "par_share_sent": "パートナーに送信しました ✓",
+  "par_share_failed": "送信できませんでした。もう一度お試しください。",
+  "par_share_hint": "Anacanの「一緒に → 子育て」で開いてください：",
+  "par_share_footer": "Anacanアプリ「子育て」より",
+  "par_shared_title": "あなたに送られたもの",
+  "par_tip_sources": "出典",
+  "par_support_mh_title": "あなたにもサポートがあります",
+  "par_support_mh_text": "長い間、悲しさや不安、無力感が続いているなら、それは弱さではなく、助けがあります。気分チェックを受けて、サポートの選択肢を見てみてください。自分や子どもを傷つけたいという考えがある場合は、すぐに{emergency}に電話してください。",
+  "par_support_cs_title": "お子さんの安全",
+  "par_support_cs_text": "お子さんが暴力を受けている、または自分を傷つけるおそれがあると感じたら、一人にせず、すぐに{emergency}に電話してください。このつらいときには、あなた自身も心のサポートが必要かもしれません。",
+  "par_support_open": "気分チェックとサポート"
 }

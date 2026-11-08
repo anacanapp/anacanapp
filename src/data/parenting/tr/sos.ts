@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'Markette yere yatıp ağlıyor',
     moment: 'Şeker istedi, “hayır” dedin, şimdi bütün market sana bakıyor.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'Kardeşine vurdu',
     moment: 'Bir anda oyun kavgaya döndü ve küçük olan ağlıyor.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'Uyumak istemiyor',
     moment: 'Bir su, bir tuvalet, bir soru daha… saat ise çoktan geç oldu.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'Parktan ayrılmak istemiyor',
     moment: '“Gidiyoruz” dedin, o ise kaydırağın tepesinde “hayır!” diye bağırıyor.',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: '“Seni sevmiyorum!” dedi',
     moment: 'Bir yasaktan sonra çocuk öfkeyle yüzüne “seni sevmiyorum” diyor.',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'Kreşte ısırmış',
     moment: 'Öğretmen aradı: çocuk bu hafta ikinci kez ısırmış.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'Sabah giyinmek istemiyor',
     moment: 'Geç kalıyorsunuz, o ise pijamalarıyla kanepede saklanıyor.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'Tableti alınca patlıyor',
     moment: 'Süre doldu, tableti aldın, şimdi çığlıklar ve gözyaşları.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'Sofrada yemeği reddediyor',
     moment: 'Pişirdiğin yemeğe bakıp “iğrenç!” dedi.',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'Bebek saatlerdir ağlıyor',
     moment: 'Besledin, bezini değiştirdin, salladın, o ise hâlâ ağlıyor. Sabrın tükeniyor.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'Kreşin kapısında bacağına yapışıyor',
     moment: 'Her sabah aynı sahne: ağlıyor, bırakmıyor, sen geç kalıyorsun.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'Açıkça yalan söyledi',
     moment: 'Çikolata ambalajı elinde, o ise “ben yemedim” diyor.',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'Misafirlerin yanında kötü bir söz söyledi',
     moment: 'Herkes sustu, çocuk ise yarattığı etkiden memnun.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'Ödevde ağlıyor: “Yapamıyorum!”',
     moment: 'Matematik defterinin başında gözyaşları ve deftere karalamalar.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '“Onu benden daha çok seviyorsun!”',
     moment: 'Küçük kardeşle ilgilendin, büyük olan küsüp odasına gitti.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'Gece kâbusla korkup uyandı',
     moment: 'Saat gece 3, çığlıkla odana koşuyor.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'Oto koltuğuna oturmak istemiyor',
     moment: 'Sırtını kamburlaştırıyor, çığlıklar başlıyor, sen ise acelen var.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'Yemeği ve oyuncakları atıyor',
     moment: 'Kaşık yine yerde. O ise sana bakıp gülüyor.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'Arkadaşının oyuncağını elinden alıyor',
     moment: 'Misafirlikte oyuncak yüzünden kavga çıktı.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '“Ben aptalım, hiçbir şey yapamıyorum”',
     moment: 'Bir hatadan sonra kendini azarlıyor.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'Çocuğa bağırdım',
     moment: 'Ses yükseldi, çocuğun gözlerinde korku gördün. Şimdi pişmansın.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'Okuldan ağlayarak geldi',
     moment: '“Benimle dalga geçiyorlar, kimse benimle oynamıyor” diyor.',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'Bana vurdu',
     moment: 'Bir yasağa karşılık küçük el yüzüne değdi.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '“Yüz kere söyledim, duymuyor!”',
     moment: 'Başka odadan sesleniyorsun, cevap yok. Ses giderek yükseliyor.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'Emzirirken ısırıyor ya da saç çekiyor',
     moment: 'Acıyla irkildin, bebek ise merakla sana bakıyor.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'Bebek birden her zamankinden farklı ağlıyor',
     moment: 'Bu ağlama tanıdık değil: daha tiz, daha uzun ve hiçbir şey işe yaramıyor. İçinde bir huzursuzluk var.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'Sadece kucağımda uyuyor',
     moment: 'Beşiğe koyar koymaz gözlerini açıp ağlıyor. Sen ise saatlerdir kanepede kımıldayamıyorsun.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'Artık dayanamıyorum, kendimi kaybediyorum',
     moment: 'Bebek ağlıyor, sen uykusuzsun, ellerin titriyor. İçini öfke ve çaresizlik kaplamış.',

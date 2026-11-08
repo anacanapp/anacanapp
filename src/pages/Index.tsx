@@ -50,6 +50,7 @@ import BlogLinkHost from '@/components/blog/BlogLinkHost';
 import { useConsentGate } from '@/hooks/useConsentGate';
 import { useVaccineRemindersAtStart } from '@/hooks/useVaccineRemindersAtStart';
 import { isKvkkUser } from '@/lib/consentGate';
+import { openParentingDeeplink } from '@/lib/parenting-nav';
 
 // PremiumOnboarding.PENDING_FUNNEL_KEY ilə sinxron saxlanmalıdır
 // (lazy chunk-u pozmamaq üçün static import edilmir)
@@ -435,6 +436,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         setActiveScreen(null);
         break;
       case 'tool':
+        // Tərbiyə item links (shared by the mother, e.g. /parenting/sos/<id>) open that item; partner app included.
+        if (parsed.params.tool_id === 'parenting' && openParentingDeeplink(parsed, { partner: role === 'partner' })) break;
         setPendingWidgetAction(parsed.params.widget_action);
         setActiveTab('tools');
         setActiveTool((current) => {

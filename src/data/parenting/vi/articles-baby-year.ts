@@ -5,6 +5,7 @@ import { S } from './sources';
 export const BABY_YEAR_ARTICLES: Article[] = [
   {
     id: 'crying-plan',
+    support: 'mental-health',
     area: 'connection',
     emoji: '📝',
     title: 'Khóc dạ đề (colic) và kế hoạch ứng phó: cho những tuần khó khăn nhất',
@@ -182,6 +183,7 @@ export const BABY_YEAR_ARTICLES: Article[] = [
   },
   {
     id: 'fourth-trimester',
+    support: 'mental-health',
     area: 'parent',
     emoji: '🌷',
     title: '“Tam cá nguyệt thứ tư”: người mẹ sau sinh',

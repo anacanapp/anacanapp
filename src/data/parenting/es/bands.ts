@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'El primer año: la base de la confianza',
     lead: 'Este año tu bebé aprende si el mundo es un lugar seguro. La respuesta la saca de tu voz, de tus brazos y de cómo respondes a lo que te pide.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 años: habilidades, amistad y confianza en sí mismo',
     lead: 'Los años de colegio son la etapa en la que construye su sensación de “yo puedo”. Los amigos ganan importancia, pero tú sigues siendo su principal apoyo.',

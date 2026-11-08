@@ -5,6 +5,7 @@ import { S } from './sources';
 export const BABY_YEAR_ARTICLES: Article[] = [
   {
     id: 'crying-plan',
+    support: 'mental-health',
     area: 'connection',
     emoji: '📝',
     title: 'Coliques et plan anti-pleurs : pour les semaines les plus dures',
@@ -182,6 +183,7 @@ export const BABY_YEAR_ARTICLES: Article[] = [
   },
   {
     id: 'fourth-trimester',
+    support: 'mental-health',
     area: 'parent',
     emoji: '🌷',
     title: 'Le « quatrième trimestre » : la mère après l’accouchement',

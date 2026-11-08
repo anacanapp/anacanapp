@@ -20,6 +20,15 @@ export interface ParentingOverrideRow {
 
 /** Never editable: identity, age bands, gating and scoring. */
 export const LOCKED_KEYS = new Set(['id', 'bands', 'area', 'free', 'fromMonths', 'dim', 'flag', 'days', 'v']);
+/**
+ * Structure that is not text although it sits in a text-shaped field: the support-card kind
+ * ('mental-health' / 'child-safety') and an SOS card's source ids (keys of the shared source list).
+ */
+export function isLockedField(key: string, base: unknown): boolean {
+  if (LOCKED_KEYS.has(key)) return true;
+  if (key === 'support' && (base === 'mental-health' || base === 'child-safety')) return true;
+  return key === 'sources' && Array.isArray(base) && base.length > 0 && base.every((x) => typeof x === 'string');
+}
 /** Optional fields an editor may add although the bundled item lacks them. */
 const OPTIONAL_TEMPLATES: Record<string, unknown> = {
   byAge: { '0-1': '', '1-3': '', '3-6': '', '6-12': '' },
@@ -70,7 +79,7 @@ function mergeObject(base: Record<string, unknown>, patch: unknown): Out {
   if (!isObject(patch)) return INVALID;
   const out: Record<string, unknown> = { ...base };
   for (const [k, v] of Object.entries(patch)) {
-    if (LOCKED_KEYS.has(k)) continue;
+    if (isLockedField(k, base[k])) continue;
     let b = base[k];
     if (k in OPTIONAL_TEMPLATES) b = b === undefined ? OPTIONAL_TEMPLATES[k] : isObject(b) ? { ...(OPTIONAL_TEMPLATES[k] as object), ...b } : b;
     if (b === undefined) continue; // unknown field
@@ -163,7 +172,7 @@ export function diffPatch(base: object, edited: object): Record<string, unknown>
   const out: Record<string, unknown> = {};
   const b = base as Record<string, unknown>;
   for (const [k, v] of Object.entries(edited as Record<string, unknown>)) {
-    if (LOCKED_KEYS.has(k)) continue;
+    if (isLockedField(k, b[k])) continue;
     if (JSON.stringify(v) !== JSON.stringify(b[k])) out[k] = v;
   }
   return out;

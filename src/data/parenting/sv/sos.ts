@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'Kastar sig på golvet och gråter i affären',
     moment: 'Barnet ville ha godis, du sa ”nej”, och nu tittar hela affären på dig.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'Slog sitt syskon',
     moment: 'På ett ögonblick blev leken slagsmål, och den minsta gråter.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'Vill inte sova',
     moment: 'Lite vatten till, ett toabesök till, en fråga till… och klockan är redan mycket.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'Vill inte gå hem från lekparken',
     moment: 'Du sa ”nu går vi”, och barnet skriker ”nej!” högst upp i rutschkanan.',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: 'Barnet sa: ”Jag älskar inte dig!”',
     moment: 'Efter ett förbud skriker barnet argt rakt i ansiktet på dig: ”jag älskar inte dig”.',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'Har bitit någon på förskolan',
     moment: 'Pedagogen ringde: barnet har bitits för andra gången den här veckan.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'Vill inte klä på sig på morgonen',
     moment: 'Ni är redan sena, och barnet gömmer sig i pyjamas i soffan.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'Exploderar när du tar surfplattan',
     moment: 'Tiden är slut, du tog surfplattan, och nu är det skrik och tårar.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'Vägrar äta vid bordet',
     moment: 'Barnet tittade på maten du lagat och sa: ”Äckligt!”',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'Bebisen har gråtit i flera timmar',
     moment: 'Du har matat, bytt blöja, vaggat, och bebisen gråter fortfarande. Tålamodet håller på att ta slut.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'Klamrar sig fast vid ditt ben vid förskolan',
     moment: 'Varje morgon samma scen: barnet gråter, släpper inte taget, och du blir sen.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'Ljuger helt uppenbart',
     moment: 'Chokladpappret är i handen, och barnet säger: ”Jag har inte ätit den.”',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'Sa ett fult ord när ni hade gäster',
     moment: 'Alla tystnade, och barnet är mycket nöjt med effekten.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'Gråter vid läxan: ”Jag kan inte!”',
     moment: 'Tårar över mattehäftet och kludd över sidan.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '”Du älskar honom mer än mig!”',
     moment: 'Du gav lillebror uppmärksamhet, och storasyskonet gick surt in på sitt rum.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'Vaknade rädd av en mardröm',
     moment: 'Klockan är 3 på natten, och barnet springer skrikande in i ditt rum.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'Vill inte sitta i bilbarnstolen',
     moment: 'Ryggen svankar, skriket börjar, och du har bråttom.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'Kastar mat och leksaker',
     moment: 'Skeden ligger på golvet igen. Och barnet tittar på dig och skrattar.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'Tar en kompis leksak',
     moment: 'På kalaset börjar bråket om en leksak.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '”Jag är dum, jag kan ingenting”',
     moment: 'Efter ett misstag sitter barnet och kritiserar sig själv.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'Jag skrek på mitt barn',
     moment: 'Rösten höjdes och du såg rädsla i barnets ögon. Nu ångrar du dig.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'Kom gråtande hem från skolan',
     moment: 'Barnet säger: ”De retar mig, ingen vill leka med mig.”',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'Barnet slog mig',
     moment: 'Som svar på ett förbud träffade en liten hand ditt ansikte.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '”Jag har sagt det hundra gånger, hen lyssnar inte!”',
     moment: 'Du ropar från ett annat rum, inget svar. Rösten blir allt högre.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'Biter eller drar i håret när du ammar',
     moment: 'Du ryckte till av smärta, och bebisen tittar nyfiket på dig.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'Bebisen gråter plötsligt annorlunda än vanligt',
     moment: 'Den här gråten är okänd: gällare, längre, och ingenting hjälper. Det känns oroligt inombords.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'Hen sover bara i min famn',
     moment: 'Så fort du lägger hen i sängen öppnar hen ögonen och gråter. Och du har suttit fast i soffan i flera timmar.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'Jag orkar inte mer, jag tappar fattningen',
     moment: 'Bebisen gråter, du har inte sovit, händerna darrar. Ilska och maktlöshet har fyllt dig.',

@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'İlk yıl: güvenin temeli',
     lead: 'Bebek bu yıl dünyanın güvenli bir yer olup olmadığını öğrenir. Cevabı senin sesinden, kucağından ve ona nasıl karşılık verdiğinden alır.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 yaş: beceri, arkadaşlık, özgüven',
     lead: 'Okul yılları, çocuğun “ben yapabilirim” duygusunu inşa ettiği dönemdir. Arkadaşlar önem kazanır, ama sen hâlâ onun en büyük dayanağısın.',

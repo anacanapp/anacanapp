@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'Pierwszy rok: fundament zaufania',
     lead: 'W tym roku niemowlę uczy się, czy świat jest bezpiecznym miejscem. Odpowiedź czerpie z twojego głosu, twoich ramion i z tego, jak na nie reagujesz.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 lat: umiejętności, przyjaźń, wiara w siebie',
     lead: 'Lata szkolne to czas, w którym dziecko buduje poczucie „potrafię”. Przyjaciele zyskują na znaczeniu, ale ty nadal jesteś jego główną podporą.',

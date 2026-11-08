@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'İlk il: güvən təməli',
     lead: 'Bu il körpə dünyanın təhlükəsiz olub-olmadığını öyrənir. Cavabı o, sənin səsindən, qucağından və ona necə cavab verdiyindən götürür.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 yaş: bacarıq, dostluq, özünəinam',
     lead: 'Məktəb illəri uşağın “mən bacarıram” hissini qurduğu dövrdür. Dostlar önəmli olur, amma sən hələ də onun əsas dayağısan.',

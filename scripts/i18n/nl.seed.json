@@ -12448,5 +12448,21 @@
   "par_quiz_prev": "Vorige vraag",
   "par_prog_summary_days": "{n} dagen voltooid",
   "par_prog_next_title": "Probeer hierna",
-  "par_prog_next_open": "Programma bekijken"
+  "par_prog_next_open": "Programma bekijken",
+  "par_milestone_late": "Deze check is voor kinderen tot {n} jaar. Maak je je zorgen over de ontwikkeling of het gedrag van een ouder kind, praat dan met een arts of een kinderpsycholoog.",
+  "par_milestone_corrected": "Te vroeg geboren, dus de check gebruikt de gecorrigeerde leeftijd: {n} maanden.",
+  "par_reminder_free": "Herinneringen zijn gratis voor de eerste {n} dagen.",
+  "par_share_partner": "Naar partner sturen",
+  "par_share": "Delen",
+  "par_share_sent": "Naar je partner gestuurd ✓",
+  "par_share_failed": "Versturen is mislukt. Probeer het opnieuw.",
+  "par_share_hint": "Open het in Anacan via Samen → Opvoeding:",
+  "par_share_footer": "Anacan-app, onderdeel Opvoeding",
+  "par_shared_title": "Naar jou gestuurd",
+  "par_tip_sources": "Bronnen",
+  "par_support_mh_title": "Er is ook steun voor jou",
+  "par_support_mh_text": "Voel je je al lange tijd somber, angstig of uitgeput, dan is dat geen zwakte en er is hulp. Doe de stemmingstest en bekijk de mogelijkheden voor steun. Heb je gedachten om jezelf of je kind iets aan te doen, bel dan meteen {emergency}.",
+  "par_support_cs_title": "De veiligheid van je kind",
+  "par_support_cs_text": "Vermoed je dat je kind geweld meemaakt of zichzelf iets kan aandoen, laat het dan niet alleen en bel meteen {emergency}. In zo’n zwaar moment heb jij misschien ook psychologische steun nodig.",
+  "par_support_open": "Stemmingstest en steun"
 }

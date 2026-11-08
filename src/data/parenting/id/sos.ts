@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'Menjatuhkan diri dan menangis di toko',
     moment: 'Ia minta permen, kamu bilang “tidak”, dan sekarang seisi toko melihat ke arahmu.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'Memukul kakak atau adiknya',
     moment: 'Dalam sekejap permainan berubah jadi perkelahian, dan yang kecil menangis.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'Tidak mau tidur',
     moment: 'Satu kali minum lagi, satu kali ke toilet lagi, satu pertanyaan lagi… padahal sudah larut.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'Tidak mau pulang dari taman',
     moment: 'Kamu bilang “ayo pulang”, dan ia berteriak “nggak!” dari atas perosotan.',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: 'Ia bilang “Aku nggak sayang kamu!”',
     moment: 'Setelah dilarang, anak dengan marah bilang di depan wajahmu “aku nggak sayang kamu”.',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'Menggigit di daycare',
     moment: 'Pengasuh menelepon: minggu ini anak sudah dua kali menggigit.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'Tidak mau pakai baju di pagi hari',
     moment: 'Kalian sudah telat, dan ia bersembunyi di sofa masih pakai piyama.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'Meledak saat tablet diambil',
     moment: 'Waktunya habis, kamu ambil tabletnya, sekarang teriakan dan air mata.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'Menolak makan di meja',
     moment: 'Ia melihat masakanmu dan bilang “ih, jijik!”.',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'Bayi menangis berjam-jam',
     moment: 'Sudah disusui, popok sudah diganti, sudah diayun, tapi ia masih menangis. Kesabaranmu menipis.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'Memeluk kakimu erat-erat di pintu daycare/TK',
     moment: 'Setiap pagi adegan yang sama: menangis, tidak mau melepas, dan kamu jadi telat.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'Berbohong terang-terangan',
     moment: 'Bungkus cokelat ada di tangannya, tapi ia bilang “aku nggak makan”.',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'Mengucapkan kata kasar di depan tamu',
     moment: 'Semua orang terdiam, dan anak terlihat puas dengan efeknya.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'Menangis saat PR: “Aku nggak bisa!”',
     moment: 'Air mata di depan buku matematika dan coretan-coretan di bukunya.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '“Kamu lebih sayang dia daripada aku!”',
     moment: 'Kamu memperhatikan adiknya, dan si kakak merajuk lalu masuk ke kamarnya.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'Terbangun ketakutan karena mimpi buruk',
     moment: 'Jam 3 pagi, ia lari ke kamarmu sambil berteriak.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'Tidak mau duduk di car seat',
     moment: 'Punggungnya melengkung, teriakan dimulai, dan kamu sedang buru-buru.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'Melempar makanan dan mainan',
     moment: 'Sendoknya jatuh ke lantai lagi. Dan ia menatapmu sambil tertawa.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'Merebut mainan temannya',
     moment: 'Saat main bersama, perebutan mainan dimulai.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '“Aku bodoh, aku nggak bisa apa-apa”',
     moment: 'Setelah satu kesalahan, ia memarahi dirinya sendiri.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'Aku membentak anakku',
     moment: 'Suaramu naik, kamu melihat takut di matanya. Sekarang kamu menyesal.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'Pulang sekolah sambil menangis',
     moment: 'Ia bilang “Mereka mengejekku, nggak ada yang mau main sama aku”.',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'Ia memukulku',
     moment: 'Sebagai jawaban atas larangan, tangan kecilnya mendarat di wajahmu.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '“Sudah seratus kali kubilang, dia nggak dengar!”',
     moment: 'Kamu memanggil dari ruangan lain, tidak ada jawaban. Suaramu makin lama makin keras.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'Menggigit atau menarik rambut saat menyusu',
     moment: 'Kamu tersentak kesakitan, dan bayi menatapmu dengan penasaran.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'Bayi tiba-tiba menangis tidak seperti biasanya',
     moment: 'Tangisan ini asing: lebih melengking, lebih lama, dan tidak ada yang membantu. Hatimu gelisah.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'Cuma mau tidur di gendonganku',
     moment: 'Begitu ditaruh di boks, matanya terbuka dan ia menangis. Sementara kamu sudah berjam-jam tidak bisa bergerak dari sofa.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'Aku sudah nggak tahan, aku hampir hilang kendali',
     moment: 'Bayi menangis, kamu kurang tidur, tanganmu gemetar. Rasa marah dan tak berdaya memenuhi dadamu.',

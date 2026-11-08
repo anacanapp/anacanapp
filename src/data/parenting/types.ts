@@ -14,6 +14,13 @@ export interface Source {
   title: string;
 }
 
+/**
+ * A small support card under safety content: 'mental-health' = the parent's own emotional support (mood / EPDS
+ * tool + emergency call), 'child-safety' = a child at risk (emergency call + psychological support).
+ */
+export type SupportKind = 'mental-health' | 'child-safety';
+export const SUPPORT_KINDS: SupportKind[] = ['mental-health', 'child-safety'];
+
 export interface BandOverview {
   id: AgeBandId;
   emoji: string;
@@ -30,6 +37,8 @@ export interface BandOverview {
   /** When to talk to a pediatrician / specialist. Always free. */
   specialist: string[];
   sources: Source[];
+  /** Optional support card (same value in every language). */
+  support?: SupportKind;
 }
 
 export type AreaId =
@@ -64,6 +73,8 @@ export interface Article {
   sources: Source[];
   /** Optional search / Anacan.AI keywords (word stems in this language, e.g. 'isterik', 'yatmaq istəmir'). */
   tags?: string[];
+  /** Optional support card (same value in every language). */
+  support?: SupportKind;
 }
 
 export interface SosStep {
@@ -90,6 +101,10 @@ export interface SosCard {
   redFlag?: string;
   /** Optional search / Anacan.AI keywords (word stems in this language). */
   tags?: string[];
+  /** Source ids (keys of the shared list in az/sources.ts), the same ids in every language. */
+  sources?: string[];
+  /** Optional support card (same value in every language). */
+  support?: SupportKind;
 }
 
 export interface ProgrammeDay {

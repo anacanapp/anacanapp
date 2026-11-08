@@ -6,7 +6,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { APP_LANGUAGES } from '@/lib/app-languages';
 import { loadBundledParentingContent, PARENTING_CONTENT_LANGUAGES, resetParentingContentCache } from '@/data/parenting';
 import type { ParentingContent, ParentingItemType } from '@/data/parenting/types';
-import { LOCKED_KEYS, diffPatch, findParentingItem, patchItem } from '@/lib/parenting-overrides';
+import { diffPatch, findParentingItem, isLockedField, patchItem } from '@/lib/parenting-overrides';
 import {
   Btn, EmptyState, ErrorState, Field, FilterChips, Notice, Page, PageHeader, SearchInput, Section, SelectFilter, SkeletonRows, StatusPill,
   Toolbar, foldText, fmtDateTime, useAdminConfirm,
@@ -400,7 +400,7 @@ const label = (key: string) => FIELD_LABELS[key] ?? key;
 function ObjectFields({ base, value, onChange, path }: { base: Record<string, unknown>; value: Record<string, unknown>; onChange: (v: Record<string, unknown>) => void; path: string }) {
   return (
     <>
-      {Object.keys(base).filter((k) => !LOCKED_KEYS.has(k) && typeof base[k] !== 'number' && typeof base[k] !== 'boolean').map((k) => (
+      {Object.keys(base).filter((k) => !isLockedField(k, base[k]) && typeof base[k] !== 'number' && typeof base[k] !== 'boolean').map((k) => (
         <ValueField key={k} name={k} base={base[k]} value={value[k] ?? base[k]} path={`${path}.${k}`}
           onChange={(v) => onChange({ ...value, [k]: v })} />
       ))}

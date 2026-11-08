@@ -12448,5 +12448,21 @@
   "par_quiz_prev": "Pregunta anterior",
   "par_prog_summary_days": "{n} días completados",
   "par_prog_next_title": "Para seguir",
-  "par_prog_next_open": "Ver programa"
+  "par_prog_next_open": "Ver programa",
+  "par_milestone_late": "Esta revisión es para niños de hasta {n} años. Si el desarrollo o el comportamiento de un niño mayor te preocupa, habla con un médico o con un psicólogo infantil.",
+  "par_milestone_corrected": "Nació antes de tiempo, así que la revisión usa la edad corregida: {n} meses.",
+  "par_reminder_free": "Los recordatorios son gratis los primeros {n} días.",
+  "par_share_partner": "Enviar a la pareja",
+  "par_share": "Compartir",
+  "par_share_sent": "Enviado a tu pareja ✓",
+  "par_share_failed": "No se pudo enviar. Inténtalo de nuevo.",
+  "par_share_hint": "Ábrelo en Anacan: Juntos → Crianza:",
+  "par_share_footer": "App Anacan, sección Crianza",
+  "par_shared_title": "Enviado para ti",
+  "par_tip_sources": "Fuentes",
+  "par_support_mh_title": "También hay apoyo para ti",
+  "par_support_mh_text": "Si llevas tiempo sintiéndote triste, ansiosa o agotada, no es debilidad y hay ayuda. Haz el test de ánimo y mira las opciones de apoyo. Si tienes pensamientos de hacerte daño o de hacer daño a tu hijo, llama de inmediato al {emergency}.",
+  "par_support_cs_title": "La seguridad de tu hijo",
+  "par_support_cs_text": "Si sospechas que tu hijo sufre violencia o podría hacerse daño, no lo dejes solo y llama de inmediato al {emergency}. En este momento difícil, tú también puedes necesitar apoyo psicológico.",
+  "par_support_open": "Test de ánimo y apoyo"
 }

@@ -12448,5 +12448,21 @@
   "par_quiz_prev": "Pergunta anterior",
   "par_prog_summary_days": "{n} dias concluídos",
   "par_prog_next_title": "A seguir",
-  "par_prog_next_open": "Ver programa"
+  "par_prog_next_open": "Ver programa",
+  "par_milestone_late": "Esta verificação é para crianças até {n} anos. Se o desenvolvimento ou o comportamento de uma criança mais velha te preocupa, fala com um médico ou um psicólogo infantil.",
+  "par_milestone_corrected": "Nasceu antes do tempo, por isso a verificação usa a idade corrigida: {n} meses.",
+  "par_reminder_free": "Os lembretes são grátis nos primeiros {n} dias.",
+  "par_share_partner": "Enviar ao parceiro",
+  "par_share": "Partilhar",
+  "par_share_sent": "Enviado ao teu parceiro ✓",
+  "par_share_failed": "Não foi possível enviar. Tenta de novo.",
+  "par_share_hint": "Abre na Anacan: Juntos → Educação:",
+  "par_share_footer": "App Anacan, secção Educação",
+  "par_shared_title": "Enviado para ti",
+  "par_tip_sources": "Fontes",
+  "par_support_mh_title": "Também há apoio para ti",
+  "par_support_mh_text": "Se há muito tempo te sentes triste, ansiosa ou esgotada, isso não é fraqueza e há ajuda. Faz o teste de humor e vê as opções de apoio. Se tiveres pensamentos de te magoar ou de magoar o teu filho, liga já para o {emergency}.",
+  "par_support_cs_title": "A segurança do teu filho",
+  "par_support_cs_text": "Se suspeitas que o teu filho está a sofrer violência ou se pode magoar, não o deixes sozinho e liga já para o {emergency}. Neste momento difícil, também tu podes precisar de apoio psicológico.",
+  "par_support_open": "Teste de humor e apoio"
 }

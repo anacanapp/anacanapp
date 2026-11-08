@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'Tahun pertama: fondasi rasa percaya',
     lead: 'Tahun ini bayi belajar apakah dunia adalah tempat yang aman. Jawabannya ia dapat dari suaramu, pelukanmu, dan caramu menanggapinya.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 tahun: keterampilan, persahabatan, percaya diri',
     lead: 'Tahun-tahun sekolah adalah masa anak membangun perasaan “aku bisa”. Teman menjadi penting, tapi kamu tetap sandaran utamanya.',

@@ -18,15 +18,15 @@ vi.mock('@capacitor/local-notifications', () => ({
 
 import az from '@/data/parenting/az';
 import { EMPTY_PARENTING, type ParentingLocal } from './parenting';
-import { activeProgramme, reminderSlots, slotsKey, syncParentingReminders } from './parenting-reminders';
+import { activeProgramme, canRemindDay, reminderSlots, slotsKey, syncParentingReminders } from './parenting-reminders';
 import { intentFromPushData } from './pushNav';
 
 const NOW = new Date(2026, 10, 7, 10, 0); // Saturday 10:00 local
 const TODAY = '2026-11-07';
 const state = (patch: Partial<ParentingLocal>): ParentingLocal => ({ ...EMPTY_PARENTING(), reminder: { on: true, time: '20:30' }, ...patch });
 const running = (done: string[], extra: object = {}) => ({ 'sleep-7': { startedAt: '2026-11-05', done, updatedAt: '2026-11-06T09:00:00.000Z', ...extra } });
-const slots = (s: ParentingLocal, o: { allowed?: boolean; now?: Date } = {}) =>
-  reminderSlots({ state: s, programmes: az.programmes, allowed: o.allowed ?? true, now: o.now ?? NOW, today: TODAY });
+const slots = (s: ParentingLocal, o: { allowed?: boolean; now?: Date; isPremium?: boolean } = {}) =>
+  reminderSlots({ state: s, programmes: az.programmes, allowed: o.allowed ?? true, isPremium: o.isPremium ?? true, now: o.now ?? NOW, today: TODAY });
 
 beforeEach(() => { cap.native = true; cap.display = 'granted'; cap.cancel.mockClear(); cap.schedule.mockClear(); });
 
@@ -64,6 +64,27 @@ describe('Tərbiyə programme reminders: what to schedule', () => {
     expect(slots(s).every((x) => x.programmeId === 'tantrums-14')).toBe(true);
     expect(slots(s)).toHaveLength(7);
     expect(slotsKey([])).toBe('none');
+  });
+});
+
+describe('Tərbiyə programme reminders: free users get the free days', () => {
+  it('schedules only the free days (1–3) for a free user and stops after them', () => {
+    expect(slots(state({ programmes: running([]) }), { isPremium: false }).map((s) => s.dayIndex)).toEqual([0, 1, 2]);
+    expect(slots(state({ programmes: running(['2026-11-05']) }), { isPremium: false }).map((s) => s.dayIndex)).toEqual([1, 2]);
+    expect(slots(state({ programmes: running(['2026-11-05', '2026-11-06']) }), { isPremium: false }).map((s) => s.dayIndex)).toEqual([2]);
+    // Day 3 checked off: the next step is a Premium day → nothing is scheduled (and the old list is cancelled).
+    expect(slots(state({ programmes: running(['2026-11-04', '2026-11-05', '2026-11-06']) }), { isPremium: false })).toEqual([]);
+  });
+
+  it('keeps every day for Premium and nothing when the switch is off or the preference is off', () => {
+    expect(slots(state({ programmes: running([]) }), { isPremium: true }).map((s) => s.dayIndex)).toEqual([0, 1, 2, 3, 4, 5, 6]);
+    expect(slots(state({ programmes: running([]) }), { isPremium: false, allowed: false })).toEqual([]);
+    expect(slots(state({ programmes: running([]), reminder: { on: false, time: '20:30' } }), { isPremium: false })).toEqual([]);
+  });
+
+  it('offers the reminder switch to free users while the next step is a free day', () => {
+    expect([0, 1, 2, 3].map((d) => canRemindDay(d, false))).toEqual([true, true, true, false]);
+    expect(canRemindDay(10, true)).toBe(true);
   });
 });
 

@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'お店で床に寝転んで泣いている',
     moment: 'お菓子をほしがって、あなたが「ダメ」と言ったら、お店中の人がこちらを見ている。',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'きょうだいを叩いた',
     moment: 'あっという間に遊びがけんかになって、下の子が泣いている。',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: '寝たがらない',
     moment: 'お水をもう一杯、トイレにもう一回、質問をもうひとつ…。気づけばもう遅い時間。',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: '公園から帰りたがらない',
     moment: '「帰るよ」と言ったら、すべり台の上で「イヤ！」と叫んでいる。',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: '「ママ（パパ）なんか嫌い！」と言われた',
     moment: 'ダメと言ったら、子どもが怒って「嫌い！」と言ってきた。',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: '保育園で噛んでしまった',
     moment: '先生から電話：今週2回目の噛みつきだそうです。',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: '朝、着替えたがらない',
     moment: '遅刻しそうなのに、パジャマのままソファに隠れている。',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'タブレットを取り上げると大爆発',
     moment: '時間になってタブレットを取り上げたら、叫び声と涙。',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: '食卓でごはんを拒否する',
     moment: 'あなたがつくったごはんを見て「まずそう！」と言った。',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: '赤ちゃんが何時間も泣いている',
     moment: '授乳もした、おむつも替えた、ゆらゆらもした。それでも泣き止まない。もう限界。',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: '園の入口で足にしがみついて離れない',
     moment: '毎朝同じ光景：泣いて、離れなくて、あなたは遅刻しそう。',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: '明らかなうそをついた',
     moment: 'チョコレートの包み紙を手に持ったまま、「食べてない」と言っている。',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'お客さんの前で悪いことばを言った',
     moment: 'みんなが静まり返って、子どもは自分の言ったことの効果に満足げ。',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: '宿題で泣いて「できない！」',
     moment: '算数のノートを前に涙、ノートにはぐしゃぐしゃの線。',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '「わたしより、あの子のほうが好きなんでしょ！」',
     moment: '下の子をかまっていたら、上の子がすねて自分の部屋に行ってしまった。',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: '夜中に怖い夢で目を覚ました',
     moment: '夜中の3時、叫びながらあなたの部屋に駆けこんでくる。',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'チャイルドシートに座りたがらない',
     moment: '体をそらして叫び始めた。あなたは急いでいるのに。',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: '食べものやおもちゃを投げる',
     moment: 'スプーンがまた床に。子どもはあなたを見てにこにこしている。',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: '友だちのおもちゃを取ってしまう',
     moment: '遊びに行った先で、おもちゃの取り合いが始まった。',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '「ぼくはバカだ、何もできない」',
     moment: 'ひとつ失敗したあと、自分を責めている。',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: '子どもを怒鳴ってしまった',
     moment: '声が大きくなって、子どもの目に怖さが見えた。今、後悔している。',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: '学校から泣きながら帰ってきた',
     moment: '「からかわれる。誰も一緒に遊んでくれない」と言っている。',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: '親を叩いた',
     moment: 'ダメと言ったら、小さな手があなたの顔に当たった。',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '「何回言ったら聞くの！」',
     moment: '別の部屋から呼んでも返事がない。声がだんだん大きくなる。',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: '授乳中に噛む、髪を引っぱる',
     moment: '痛くてびくっとしたのに、赤ちゃんは興味しんしんであなたを見ている。',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: '赤ちゃんが急にいつもとちがう泣き方をする',
     moment: '聞いたことのない泣き方。いつもより甲高く、長く、何をしても効かない。胸がざわざわする。',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: '抱っこでしか寝てくれない',
     moment: 'ベビーベッドに置いたとたん目を開けて泣く。あなたはもう何時間もソファから動けない。',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'もう限界、自分を見失いそう',
     moment: '赤ちゃんは泣いていて、あなたは寝不足で、手がふるえている。怒りと無力感でいっぱいになっている。',

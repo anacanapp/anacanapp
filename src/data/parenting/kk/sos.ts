@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'Дүкенде жерге құлап жылап жатыр',
     moment: 'Кәмпит сұрады, сен «жоқ» дедің, енді бүкіл дүкен саған қарап тұр.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'Бауырын ұрды',
     moment: 'Бір сәтте ойын төбелеске айналды, кішісі жылап жатыр.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'Ұйықтағысы келмейді',
     moment: 'Тағы су, тағы дәретхана, тағы бір сұрақ… ал уақыт әлдеқашан кеш.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'Саябақтан кеткісі келмейді',
     moment: '«Кеттік» дедің, ал ол сырғанақтың басында «жоқ!» деп айқайлап тұр.',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: '«Мен сені жақсы көрмеймін!» деді',
     moment: 'Тыйымнан кейін бала ашумен бетіңе «сені жақсы көрмеймін» дейді.',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'Балабақшада тістеп алыпты',
     moment: 'Тәрбиеші қоңырау шалды: бала осы аптада екінші рет тістеп алыпты.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'Таңертең киінгісі келмейді',
     moment: 'Кешігіп жатырсыңдар, ал ол пижамамен диванның артына тығылып жатыр.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'Планшетті алғанда жарылып кетеді',
     moment: 'Уақыт бітті, планшетті алдың, енді айқай мен көз жас.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'Дастарқанда тамақтан бас тартады',
     moment: 'Сен пісірген тамаққа қарап «жиіркенішті!» деді.',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'Сәби сағаттап жылап жатыр',
     moment: 'Тамақтандырдың, жөргегін ауыстырдың, тербеттің, ол әлі жылап жатыр. Шыдамың таусылып барады.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'Балабақшаның есігінде аяғыңа жабысады',
     moment: 'Күнде таңертең бір көрініс: жылайды, жібермейді, сен кешігесің.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'Ашықтан-ашық өтірік айтты',
     moment: 'Шоколадтың қағазы қолында, ал ол «мен жеген жоқпын» дейді.',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'Қонақтардың алдында жаман сөз айтты',
     moment: 'Бәрі үнсіз қалды, ал бала өз әсеріне риза.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'Үй тапсырмасында жылайды: «Қолымнан келмейді!»',
     moment: 'Математика дәптерінің алдында көз жас және дәптерге сызғыланған сызықтар.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '«Сен оны менен көбірек жақсы көресің!»',
     moment: 'Кіші бауырына назар аудардың, ал үлкені өкпелеп бөлмесіне кетті.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'Түнде қорқынышты түстен шошып оянды',
     moment: 'Түнгі сағат 3, айқайлап бөлмеңе жүгіріп келеді.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'Автоорындыққа отырғысы келмейді',
     moment: 'Белін иіп, айқайлай бастайды, ал сен асығып тұрсың.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'Тамақ пен ойыншықтарды лақтырады',
     moment: 'Қасық тағы еденде. Ал ол саған қарап күліп отыр.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'Досының ойыншығын қолынан тартып алады',
     moment: 'Қонақта ойыншық үшін төбелес басталды.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '«Мен ақымақпын, ештеңе қолымнан келмейді»',
     moment: 'Бір қателіктен кейін өзін-өзі сөгіп жатыр.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'Балаға айқайлап қойдым',
     moment: 'Дауыс көтерілді, баланың көзінен қорқынышты көрдің. Енді өкініп тұрсың.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'Мектептен жылап келді',
     moment: '«Мені мазақтайды, ешкім менімен ойнамайды» дейді.',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'Мені ұрды',
     moment: 'Тыйымға жауап ретінде кішкентай қол бетіңе тиді.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '«Жүз рет айттым, естімейді!»',
     moment: 'Басқа бөлмеден шақырасың, жауап жоқ. Дауыс біртіндеп көтеріліп барады.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'Емізгенде тістейді немесе шашыңды тартады',
     moment: 'Ауырғаннан селк ете қалдың, ал сәби саған қызыға қарап жатыр.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'Сәби кенеттен әдеттегіден басқаша жылап жатыр',
     moment: 'Бұл жылау таныс емес: ащырақ, ұзағырақ және ештеңе көмектеспейді. Ішіңде алаңдаушылық бар.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'Тек менің қолымда ұйықтайды',
     moment: 'Бесікке жатқызған бойда көзін ашып, жылайды. Ал сен бірнеше сағаттан бері диванда қозғала алмай отырсың.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'Енді шыдай алмаймын, өзімді жоғалтып барамын',
     moment: 'Сәби жылап жатыр, сен ұйықтамағансың, қолың дірілдеп тұр. Ішіңді ашу мен дәрменсіздік кернеп тұр.',

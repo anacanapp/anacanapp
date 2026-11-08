@@ -10,6 +10,7 @@ import type {
 } from '@/data/parenting/types';
 import { hasParentingContent, PARENTING_CONTENT_LANGUAGES } from '@/data/parenting';
 import { ageInMonths, isoDay } from './weaning';
+import { CORRECTION_MAX_MONTHS, PREMATURE_GESTATION_LIMIT_DAYS } from './pregnancy-utils';
 
 export { ageInMonths, isoDay };
 
@@ -256,6 +257,46 @@ export function styleResult(s: Record<StyleDimension, number>): StyleResultId {
   if (warm && clear) return 'balanced';
   if (warm) return 'gentle';
   return clear ? 'strict' : 'stretched';
+}
+
+const PREGNANCY_DAYS = 280;
+/** Due dates outside 20–44 weeks of gestation are treated as typing errors (same window as pregnancy-utils). */
+const MIN_GESTATION_DAYS = 140;
+const MAX_GESTATION_DAYS = 310;
+
+/**
+ * The age the milestone self-check uses: for a preterm baby (born before 37 weeks, known from the child's original
+ * due date) the corrected age (months since the due date) until 24 corrected months, as everywhere else in the app
+ * (useChildren.getChildAge); otherwise the calendar age. Null without a birth date.
+ */
+export function milestoneAge(birthDate: string | null | undefined, dueDate: string | null | undefined, now = new Date()): { months: number | null; corrected: boolean } {
+  const months = ageInMonths(birthDate, now);
+  if (months === null || !birthDate || !dueDate || !/^\d{4}-\d{2}-\d{2}/.test(dueDate)) return { months, corrected: false };
+  const gestation = PREGNANCY_DAYS - (dayNumber(dueDate) - dayNumber(birthDate));
+  if (gestation < MIN_GESTATION_DAYS || gestation > MAX_GESTATION_DAYS || gestation >= PREMATURE_GESTATION_LIMIT_DAYS) return { months, corrected: false };
+  const corrected = ageInMonths(dueDate, now) ?? 0; // before the due date: 0 months
+  return corrected < CORRECTION_MAX_MONTHS ? { months: corrected, corrected: true } : { months, corrected: false };
+}
+
+/** The self-check is offered up to this many months after the last checkpoint (6 years → until the 7th birthday). */
+export const MILESTONE_AFTER_LAST_MONTHS = 12;
+
+/** First age (months) the milestone self-check is no longer offered; null without checkpoints. */
+export function milestoneCheckEnd(checkpoints: MilestoneCheckpoint[]): number | null {
+  return checkpoints.length ? Math.max(...checkpoints.map((c) => c.fromMonths)) + MILESTONE_AFTER_LAST_MONTHS : null;
+}
+
+/**
+ * Whether the milestone self-check is offered: there is no checkpoint after 6 years, so a child older than the last
+ * checkpoint + 12 months gets no quiz, and the 6–12 band (6 years and older) never gets it.
+ */
+const SIX_YEARS_MONTHS = 72;
+
+export function milestoneCheckOffered(checkpoints: MilestoneCheckpoint[], months: number | null, band: AgeBandId): boolean {
+  const end = milestoneCheckEnd(checkpoints);
+  if (end === null) return false;
+  // Owner decision 2026-11-08: no milestone self-check for the 6–12 band (6 years and older) at all.
+  return months === null ? band !== '6-12' : months < Math.min(end, SIX_YEARS_MONTHS);
 }
 
 /** Too young for the milestone self-check: before the first checkpoint the items are not expected yet. */

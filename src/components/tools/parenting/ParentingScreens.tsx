@@ -1,23 +1,30 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
-import { Bell, ChevronLeft, Crown, Lock, Phone, Search, X } from 'lucide-react';
+import { Bell, ChevronLeft, Crown, HeartHandshake, Lock, Phone, Search, Send, Share2, X } from 'lucide-react';
 import PremiumBlurGate from '@/components/premium/PremiumBlurGate';
 import { fillEmergencyNumber } from '@/lib/emergency';
 import { bandKey, pf, pt } from '@/lib/parenting-copy';
 import {
   type ChildSlot, type ParentingLocal, type ProgrammeProgress, type QuizNav,
   DEFAULT_REMINDER_TIME, FREE_PROGRAMME_DAYS, canCompleteToday, checkpointFor, completeDay, tooEarlyForMilestones, isDayLocked, isFinished, milestoneResult,
+  milestoneCheckEnd, milestoneCheckOffered,
   nextDayIndex, programmeSummary, progressPercent, quizAnswer, quizBack, quizDone, readingMinutes, setProgrammeState, setSlotBand, startProgramme,
   startQuiz, styleResult, styleScores, suggestNextProgramme, toggleSaved, undoLastDay,
 } from '@/lib/parenting';
 import { searchParenting } from '@/lib/parenting-search';
+import { canRemindDay } from '@/lib/parenting-reminders';
+import { openMentalHealthTool } from '@/lib/parenting-nav';
+import {
+  type PartnerShare, type ShareItem, markPartnerShareRead, partnerShareText, plainShareText, readPartnerShares, sendParentingToPartner, shareParentingItem,
+} from '@/lib/parenting-share';
+import { S } from '@/data/parenting/az/sources';
 import type {
-  AgeBandId, Area, AreaId, Article, MilestoneAnswer, ParentingContent, Programme, SosCard, Source,
+  AgeBandId, Area, AreaId, Article, MilestoneAnswer, ParentingContent, Programme, SosCard, Source, SupportKind,
 } from '@/data/parenting/types';
 import { AGE_BANDS } from '@/data/parenting/types';
 
 export type Route =
   | { s: 'home' }
-  | { s: 'band'; id: AgeBandId }
+  | { s: 'band'; id: AgeBandId; /** Scroll to the sources (the daily tip's "Mənbələr" link). */ focus?: 'sources' }
   | { s: 'topics'; area?: AreaId }
   | { s: 'article'; id: string }
   | { s: 'sosList' }
@@ -53,8 +60,17 @@ export interface ParentingCtx {
   /** Home search text (kept while the parent opens a result and comes back). */
   query: string;
   setQuery: (q: string) => void;
-  /** Premium and the tool switch on: reminders can be turned on. */
+  /** The tool switch is on: reminders can be turned on (free users for the free programme days). */
   reminderAllowed: boolean;
+  /** Age for the milestone check: corrected for a preterm baby until 24 corrected months. */
+  milestoneMonths?: number | null;
+  milestoneCorrected?: boolean;
+  /** The partner (father) app: no Tools tab, items come from the mother. */
+  partner?: boolean;
+  /** Signed-in user (the partner's received items). */
+  userId?: string | null;
+  /** The mother with a linked partner: "Send to partner" is offered. */
+  shareActor?: { userId: string; partnerProfileId: string } | null;
 }
 
 const LOCK = { title: () => pt('par_lock_title'), text: () => pt('par_lock_text'), cta: () => pt('par_lock_cta') };
@@ -106,6 +122,95 @@ function Sources({ sources }: { sources: Source[] }) {
       <b>{pt('par_h_sources')}</b>
       <ol>{sources.map((s) => <li key={`${s.who}${s.title}`}>{s.who}{s.year ? ` (${s.year})` : ''}. <i>{s.title}</i></li>)}</ol>
     </footer>
+  );
+}
+
+/** SOS source ids → the shared reference list (unknown ids are skipped). */
+export function sourcesFor(ids: string[] | undefined): Source[] {
+  const list = S as Record<string, Source>;
+  return (ids ?? []).filter((id) => Object.prototype.hasOwnProperty.call(list, id)).map((id) => list[id]);
+}
+
+/** Small support card under safety content: the app's mood / support tool (not in the partner app) + emergency call. */
+function SupportCard({ kind, ctx }: { kind: SupportKind | undefined; ctx: ParentingCtx }) {
+  if (kind !== 'mental-health' && kind !== 'child-safety') return null;
+  const mh = kind === 'mental-health';
+  return (
+    <section className="a-par-support" data-testid={`par-support-${kind}`}>
+      <b><HeartHandshake size={15} aria-hidden />{pt(mh ? 'par_support_mh_title' : 'par_support_cs_title')}</b>
+      <p>{pf(mh ? 'par_support_mh_text' : 'par_support_cs_text', { emergency: ctx.emergency })}</p>
+      <div className="a-par-support-actions">
+        {!ctx.partner && (
+          <button type="button" className="a-par-btn ghost small" onClick={() => { ctx.track(`support_open_${kind}`); openMentalHealthTool(); }}>
+            {pt('par_support_open')}
+          </button>
+        )}
+        <CallButton emergency={ctx.emergency} />
+      </div>
+    </section>
+  );
+}
+
+/** "Send to partner" (the mother with a linked partner) and the phone's share sheet. */
+function ShareRow({ ctx, item }: { ctx: ParentingCtx; item: ShareItem }) {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'failed'>('idle');
+  const actor = ctx.shareActor;
+  const send = async () => {
+    if (!actor || status === 'sending') return;
+    setStatus('sending');
+    try {
+      const ok = await sendParentingToPartner(actor, partnerShareText(item, pt('par_share_hint')));
+      setStatus(ok ? 'sent' : 'failed');
+      if (ok) ctx.track(`share_partner_${item.kind}`, item.id);
+    } catch {
+      setStatus('failed');
+    }
+  };
+  const share = () => {
+    ctx.track(`share_${item.kind}`, item.id);
+    void shareParentingItem(plainShareText(item, pt('par_share_footer')), item.title);
+  };
+  return (
+    <div className="a-par-share" data-testid="par-share">
+      {actor && (
+        <button type="button" className="a-par-btn small" onClick={send} disabled={status === 'sending' || status === 'sent'}>
+          <Send size={14} aria-hidden />{pt('par_share_partner')}
+        </button>
+      )}
+      <button type="button" className="a-par-btn ghost small" onClick={share}><Share2 size={14} aria-hidden />{pt('par_share')}</button>
+      {(status === 'sent' || status === 'failed') && (
+        <p className="a-par-small" role="status">{pt(status === 'sent' ? 'par_share_sent' : 'par_share_failed')}</p>
+      )}
+    </div>
+  );
+}
+
+/** Partner app: the items the mother sent him (newest first); tapping opens the item. */
+function PartnerShares({ ctx }: { ctx: ParentingCtx }) {
+  const [shares, setShares] = useState<PartnerShare[]>([]);
+  const uid = ctx.partner ? ctx.userId ?? null : null;
+  useEffect(() => {
+    if (!uid) return;
+    let alive = true;
+    readPartnerShares(uid).then((list) => { if (alive) setShares(list); }).catch(() => {});
+    return () => { alive = false; };
+  }, [uid]);
+  const rows = shares.map((s) => {
+    const item = s.kind === 'sos' ? ctx.content.sos.find((c) => c.id === s.id) : ctx.content.articles.find((a) => a.id === s.id);
+    return item ? { s, item } : null;
+  }).filter(Boolean) as { s: PartnerShare; item: SosCard | Article }[];
+  if (!uid || !rows.length) return null;
+  return (
+    <section className="a-par-shared" data-testid="par-partner-shares">
+      <Sec title={pt('par_shared_title')} />
+      {rows.map(({ s, item }) => (
+        <button key={`${s.kind}:${s.id}`} type="button" className={s.read ? 'a-par-row' : 'a-par-row is-new'}
+          onClick={() => { if (!s.read) void markPartnerShareRead(uid, s.messageId); ctx.track('partner_share_open', s.id); ctx.go({ s: s.kind, id: s.id } as Route); }}>
+          <span className="ic">{item.emoji}</span>
+          <span className="tx"><b>{item.title}</b><small>{'moment' in item ? item.moment : item.summary}</small></span>
+        </button>
+      ))}
+    </section>
   );
 }
 
@@ -182,7 +287,10 @@ export function HomeScreen({ ctx, tipIndex }: { ctx: ParentingCtx; tipIndex: num
         </div>
         <h2>{tip.title}</h2>
         <p>{tip.text}</p>
+        <button type="button" className="a-par-tip-src" onClick={() => ctx.go({ s: 'band', id: band, focus: 'sources' })}>{pt('par_tip_sources')}</button>
       </section>
+
+      <PartnerShares ctx={ctx} />
 
       <BandChips value={band} bands={AGE_BANDS} onChange={setBand} />
       {ctx.childBand && band === ctx.childBand && <p className="a-par-small">{pf('par_band_from_child', { name: ctx.childName })}</p>}
@@ -304,7 +412,7 @@ function QuizRows({ ctx }: { ctx: ParentingCtx }) {
   const { styleQuiz, milestoneQuiz } = ctx.content;
   return (
     <>
-      {[styleQuiz, milestoneQuiz].map((q) => {
+      {[styleQuiz, milestoneQuiz].filter((q) => q.id !== 'milestones' || milestoneCheckOffered(milestoneQuiz.checkpoints, milestoneMonthsOf(ctx), ctx.band)).map((q) => {
         const last = ctx.slot.quizzes[q.id];
         const lastTitle = last ? (q.id === 'style' ? styleQuiz.results[last.result as keyof typeof styleQuiz.results]?.title : milestoneQuiz.results[last.result as keyof typeof milestoneQuiz.results]?.title) : null;
         return (
@@ -319,8 +427,13 @@ function QuizRows({ ctx }: { ctx: ParentingCtx }) {
 }
 
 // ── Age band overview ────────────────────────────────────────────────────────────────────
-export function BandScreen({ ctx, id }: { ctx: ParentingCtx; id: AgeBandId }) {
+export function BandScreen({ ctx, id, focus }: { ctx: ParentingCtx; id: AgeBandId; focus?: 'sources' }) {
   const b = ctx.content.bands.find((x) => x.id === id)!;
+  useEffect(() => {
+    if (focus !== 'sources') return;
+    const el = typeof document !== 'undefined' ? document.getElementById('par-band-sources') : null;
+    el?.scrollIntoView?.({ block: 'start' });
+  }, [focus]);
   return (
     <div className="a-par">
       <p className="a-par-meta">{bandLabel(b.id)}</p>
@@ -334,7 +447,8 @@ export function BandScreen({ ctx, id }: { ctx: ParentingCtx; id: AgeBandId }) {
         <Bullets items={b.specialist} emergency={ctx.emergency} />
         {hasEmergency(b.specialist) && <CallButton emergency={ctx.emergency} />}
       </Box>
-      <Sources sources={b.sources} />
+      <SupportCard kind={b.support} ctx={ctx} />
+      <div id="par-band-sources"><Sources sources={b.sources} /></div>
     </div>
   );
 }
@@ -396,6 +510,8 @@ export function ArticleScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) {
         <Bullets items={a.specialist} emergency={ctx.emergency} />
         {hasEmergency(a.specialist) && <CallButton emergency={ctx.emergency} />}
       </Box>
+      <SupportCard kind={a.support} ctx={ctx} />
+      <ShareRow ctx={ctx} item={{ kind: 'article', id: a.id, emoji: a.emoji, title: a.title, summary: a.summary }} />
       <Sources sources={a.sources} />
     </article>
   );
@@ -420,6 +536,7 @@ export function SosScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) {
   if (!c) return null;
   const active = band ?? (c.bands.includes(ctx.band) ? ctx.band : c.bands[0]);
   const open = canRead(c, ctx.isPremium);
+  const sources = sourcesFor(c.sources);
   const step = (i: number) => (
     <div className="a-par-step" key={i}>
       <i>{i + 1}</i>
@@ -447,6 +564,9 @@ export function SosScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) {
           {hasEmergency([c.redFlag]) && <CallButton emergency={ctx.emergency} />}
         </Box>
       )}
+      <SupportCard kind={c.support} ctx={ctx} />
+      <ShareRow ctx={ctx} item={{ kind: 'sos', id: c.id, emoji: c.emoji, title: c.title, summary: c.moment }} />
+      {sources.length > 0 && <Sources sources={sources} />}
     </div>
   );
 }
@@ -537,7 +657,7 @@ export function ProgrammeScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) 
       {locked
         ? <PremiumBlurGate feature="parenting_programme" title={pt('par_prog_locked_title')} subtitle={ctx.content.programmes.map((x) => x.title).join(' · ')} cta={pt('par_prog_unlock')}>{task}</PremiumBlurGate>
         : task}
-      {!finished && <ReminderCard ctx={ctx} paused={!!prog.paused} />}
+      {!finished && <ReminderCard ctx={ctx} paused={!!prog.paused} nextDay={next} />}
       <div className="a-par-row-btns">
         {prog.done.length > 0 && <button type="button" className="a-par-btn ghost small" onClick={() => save((cur) => undoLastDay(cur, ctx.today))}>{pt('par_prog_undo')}</button>}
         {!finished && (
@@ -588,10 +708,12 @@ function ProgrammeDone({ ctx, p, prog }: { ctx: ParentingCtx; p: Programme; prog
   );
 }
 
-/** Daily programme reminder on this phone: on/off and the time (Premium). */
-function ReminderCard({ ctx, paused }: { ctx: ParentingCtx; paused: boolean }) {
+/** Daily programme reminder on this phone: on/off and the time (free users for the free days, Premium for all). */
+function ReminderCard({ ctx, paused, nextDay }: { ctx: ParentingCtx; paused: boolean; nextDay: number }) {
   const pref = ctx.local.reminder ?? { on: false, time: DEFAULT_REMINDER_TIME };
-  const on = ctx.reminderAllowed && pref.on;
+  const allowed = ctx.reminderAllowed && canRemindDay(nextDay, ctx.isPremium);
+  const freeOnly = allowed && !ctx.isPremium;
+  const on = allowed && pref.on;
   const set = (patch: Partial<typeof pref>) => ctx.updateLocal((s) => ({ ...s, reminder: { ...pref, ...patch } }));
   return (
     <section className="a-par-remind" data-testid="parenting-reminder">
@@ -599,9 +721,10 @@ function ReminderCard({ ctx, paused }: { ctx: ParentingCtx; paused: boolean }) {
         <span className="ic" aria-hidden><Bell size={16} /></span>
         <span className="tx">
           <b id="par-reminder-label">{pt('par_reminder_title')}</b>
-          <small>{ctx.reminderAllowed ? (paused && on ? pt('par_reminder_paused') : pt('par_reminder_text')) : pt('par_reminder_premium')}</small>
+          <small>{allowed ? (paused && on ? pt('par_reminder_paused') : pt('par_reminder_text')) : pt('par_reminder_premium')}</small>
+          {freeOnly && <small>{pf('par_reminder_free', { n: FREE_PROGRAMME_DAYS })}</small>}
         </span>
-        {ctx.reminderAllowed ? (
+        {allowed ? (
           <button type="button" role="switch" aria-checked={on} aria-labelledby="par-reminder-label" className="a-par-switch"
             onClick={() => { set({ on: !pref.on }); ctx.track(pref.on ? 'reminder_off' : 'reminder_on'); }}>
             <i />
@@ -702,14 +825,31 @@ function StyleQuizScreen({ ctx }: { ctx: ParentingCtx }) {
   );
 }
 
+/** The milestone check's age: corrected for a preterm baby (until 24 corrected months), else the calendar age. */
+const milestoneMonthsOf = (ctx: ParentingCtx) => (ctx.milestoneMonths !== undefined ? ctx.milestoneMonths : ctx.ageMonths);
+
 function MilestoneQuizScreen({ ctx }: { ctx: ParentingCtx }) {
   const q = ctx.content.milestoneQuiz;
-  const cp = checkpointFor(q.checkpoints, ctx.ageMonths ?? BAND_MONTHS[ctx.band])!;
+  const months = milestoneMonthsOf(ctx);
+  const cp = checkpointFor(q.checkpoints, months ?? BAND_MONTHS[ctx.band])!;
   // Items first, the regression question last; answers stay when the parent steps back.
   const [nav, setNav] = useState<QuizNav<MilestoneAnswer>>(startQuiz);
   const [started, setStarted] = useState(false);
   const total = cp.items.length + 1;
-  const earlyFrom = tooEarlyForMilestones(q.checkpoints, ctx.ageMonths);
+  const earlyFrom = tooEarlyForMilestones(q.checkpoints, months);
+  const corrected = ctx.milestoneCorrected && months !== null
+    ? <p className="a-par-small" data-testid="par-milestone-corrected">{pf('par_milestone_corrected', { n: months })}</p> : null;
+
+  if (!milestoneCheckOffered(q.checkpoints, months, ctx.band)) {
+    // No checkpoint after 6 years: older children (or the 6–12 band without a birth date) get a short note instead.
+    return (
+      <div className="a-par" data-testid="par-milestone-late">
+        <h2 className="a-par-title">{q.emoji} {q.title}</h2>
+        <p className="a-par-lead">{pf('par_milestone_late', { n: Math.round((milestoneCheckEnd(q.checkpoints) ?? 84) / 12) })}</p>
+        <p className="a-par-small">{q.note}</p>
+      </div>
+    );
+  }
 
   if (earlyFrom !== null) {
     // Newborns: a "not yet" on a 4-month red flag is normal, so the check is not offered before the first checkpoint.
@@ -717,6 +857,7 @@ function MilestoneQuizScreen({ ctx }: { ctx: ParentingCtx }) {
       <div className="a-par" data-testid="par-milestone-early">
         <h2 className="a-par-title">{q.emoji} {q.title}</h2>
         <p className="a-par-lead">{pf('par_milestone_early', { n: earlyFrom })}</p>
+        {corrected}
         <p className="a-par-small">{q.note}</p>
       </div>
     );
@@ -737,6 +878,7 @@ function MilestoneQuizScreen({ ctx }: { ctx: ParentingCtx }) {
       <div className="a-par">
         <h2 className="a-par-title">{q.emoji} {q.title}</h2>
         <p className="a-par-meta">{cp.title}</p>
+        {corrected}
         <p className="a-par-lead">{q.intro}</p>
         <button type="button" className="a-par-btn" onClick={() => setStarted(true)}>{pt('par_quiz_start')}</button>
         <p className="a-par-small">{q.note}</p>

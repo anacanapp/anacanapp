@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'მაღაზიაში იატაკზე წვება და ტირის',
     moment: 'კანფეტი მოინდომა, შენ უთხარი „არა“, ახლა კი მთელი მაღაზია შენ გიყურებს.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'ძმას (დას) დაარტყა',
     moment: 'წამში თამაში ჩხუბად იქცა და პატარა ტირის.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'არ უნდა დაძინება',
     moment: 'კიდევ ერთი წყალი, კიდევ ერთი ტუალეტი, კიდევ ერთი კითხვა… საათი კი უკვე გვიანია.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'პარკიდან წასვლა არ უნდა',
     moment: 'უთხარი „მივდივართ“, ის კი სრიალას თავზე ყვირის „არა!“',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: 'თქვა: „არ მიყვარხარ!“',
     moment: 'აკრძალვის შემდეგ ბავშვი ბრაზით პირში გეუბნება „არ მიყვარხარ“.',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'ბაღში უკბენია',
     moment: 'აღმზრდელმა დარეკა: ბავშვმა ამ კვირაში მეორედ უკბინა ვიღაცას.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'დილით ჩაცმა არ უნდა',
     moment: 'გაგვიანდათ, ის კი პიჟამოთი დივანზე იმალება.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'პლანშეტის აღებისას ფეთქდება',
     moment: 'დრო ამოიწურა, პლანშეტი აიღე, ახლა კი ყვირილი და ცრემლები.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'სუფრასთან ჭამაზე უარს ამბობს',
     moment: 'შენ მიერ მომზადებულ საჭმელს შეხედა და თქვა „საზიზღარია!“',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'ჩვილი საათობით ტირის',
     moment: 'აჭამე, საფენი გამოუცვალე, არწიე, ის კი მაინც ტირის. მოთმინება გელევა.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'ბაღის კართან ფეხზე გეკვრის',
     moment: 'ყოველ დილით ერთი და იგივე სცენა: ტირის, არ გიშვებს, შენ კი გაგვიანდება.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'აშკარად მოიტყუა',
     moment: 'შოკოლადის ქაღალდი ხელში უჭირავს, თან ამბობს „მე არ შემიჭამია“.',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'სტუმრების თვალწინ ცუდი სიტყვა თქვა',
     moment: 'ყველა გაჩუმდა, ბავშვი კი საკუთარი ეფექტით კმაყოფილია.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'საშინაო დავალებაზე ტირის: „ვერ ვახერხებ!“',
     moment: 'მათემატიკის რვეულის წინ ცრემლები და რვეულში ჩამოჯღაბნილი ხაზები.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '„ის ჩემზე მეტად გიყვარს!“',
     moment: 'უმცროს ძმას ყურადღება მიაქციე, უფროსს კი ეწყინა და თავის ოთახში წავიდა.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'ღამით კოშმარისგან შეშინებული გაიღვიძა',
     moment: 'ღამის 3 საათია, ყვირილით შენს ოთახში შემორბის.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'ავტოსავარძელში ჯდომა არ უნდა',
     moment: 'წელში იღუნება, ყვირილი იწყება, შენ კი გეჩქარება.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'საჭმელსა და სათამაშოებს ისვრის',
     moment: 'კოვზი ისევ იატაკზეა. ის კი გიყურებს და იცინის.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'მეგობარს სათამაშოს ართმევს',
     moment: 'სტუმრობისას სათამაშოს გამო ჩხუბი დაიწყო.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '„სულელი ვარ, არაფერი შემიძლია“',
     moment: 'ერთი შეცდომის შემდეგ საკუთარ თავს ლანძღავს.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'ბავშვს ვუყვირე',
     moment: 'ხმა აიწია, ბავშვის თვალებში შიში დაინახე. ახლა ნანობ.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'სკოლიდან ტირილით მოვიდა',
     moment: 'ამბობს: „დამცინიან, არავინ მეთამაშება“.',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'დამარტყა',
     moment: 'აკრძალვის საპასუხოდ პატარა ხელი სახეში მოგხვდა.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '„ასჯერ ვუთხარი, არ ესმის!“',
     moment: 'სხვა ოთახიდან უძახი, პასუხი არ არის. ხმა სულ უფრო მაღლა იწევს.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'ძუძუს წოვისას იკბინება ან თმას გქაჩავს',
     moment: 'ტკივილისგან შეკრთი, ჩვილი კი ინტერესით გიყურებს.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'ჩვილი მოულოდნელად ჩვეულებრივზე სხვანაირად ტირის',
     moment: 'ეს ტირილი ნაცნობი არ არის: უფრო წვრილი, უფრო ხანგრძლივი და ვერაფერი შველის. შიგნით შფოთვა გაქვს.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'მხოლოდ ხელში მძინავს',
     moment: 'საწოლში ჩაწვენისთანავე თვალებს ახელს და ტირის. შენ კი საათობით ვერ ინძრევი დივანზე.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'აღარ შემიძლია, თავს ვკარგავ',
     moment: 'ჩვილი ტირის, შენ უძილო ხარ, ხელები გიკანკალებს. ბრაზი და უმწეობა გავსებს.',

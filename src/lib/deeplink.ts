@@ -31,6 +31,8 @@ export const DEEPLINK_ROUTES: DeeplinkRoute[] = [
 // ─── Tools ───
 { key: 'tool', label: 'Specific Tool', label_az: tr("deeplink_spesifik_alet_3c4b49", "Spesifik Al\u0259t"), pattern: '/tool/{tool_id}', example: '/tool/names', category: tr("deeplink_aletler_4778b4", "Al\u0259tl\u0259r"), description_az: tr("deeplink_mueyyen_bir_aleti_acir_c91de9", "M\xFC\u0259yy\u0259n bir al\u0259ti a\xE7\u0131r") },
 
+{ key: 'parenting-item', label: 'Parenting item', label_az: 'Tərbiyə: SOS / məqalə', pattern: '/parenting/{kind}/{id}', example: '/parenting/sos/shop-tantrum', category: 'Alətlər', description_az: 'Tərbiyə alətini SOS kartı, məqalə və ya proqramın üzərində açır' },
+
 // ─── Screens ───
 { key: 'premium', label: 'Premium', label_az: 'Premium', pattern: '/premium', example: '/premium', category: 'Ekranlar', description_az: tr("deeplink_premium_paywall_u_acir_a7d504", "Premium paywall-u a\xE7\u0131r") },
 { key: 'settings', label: 'Settings', label_az: tr("deeplink_tenzimlemeler_085659", "T\u0259nziml\u0259m\u0259l\u0259r"), pattern: '/settings', example: '/settings', category: 'Ekranlar', description_az: tr("deeplink_tenzimlemeleri_acir_f49067", "T\u0259nziml\u0259m\u0259l\u0259ri a\xE7\u0131r") },
@@ -123,6 +125,10 @@ function parseDeeplinkRoute(url: string): ParsedDeeplink | null {
     const widgetAction = parameters.get('widget_action');
     return { action: 'tool', params: { tool_id: toolMatch[1], ...(widgetAction ? { widget_action: widgetAction } : {}) } };
   }
+
+  // Tərbiyə item (an SOS card / article / programme a mother sent to her partner): the parenting tool, opened on it.
+  const parentingMatch = path.match(/^\/parenting\/(sos|article|programme)\/([a-z0-9-]{1,60})$/);
+  if (parentingMatch) return { action: 'tool', params: { tool_id: 'parenting', parenting_kind: parentingMatch[1], parenting_id: parentingMatch[2] } };
 
   // Screens
   if (path === '/premium') return { action: 'screen', params: { screen: 'billing' } };

@@ -6,6 +6,7 @@ export const FAMILY_LIFE_ARTICLES: Article[] = [
   // ── Safety ──────────────────────────────────────────────────────────────────────────────
   {
     id: 'body-safety',
+    support: 'child-safety',
     area: 'behaviour',
     emoji: '🛡️',
     title: 'शरीर की सुरक्षा: “मेरा शरीर मेरा है”',

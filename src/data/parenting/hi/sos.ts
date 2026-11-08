@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'दुकान में ज़मीन पर लोटकर रो रहा है',
     moment: 'उसने टॉफ़ी माँगी, आपने “नहीं” कहा, और अब पूरी दुकान आपको देख रही है।',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'भाई (या बहन) को मार दिया',
     moment: 'पल भर में खेल लड़ाई में बदल गया और छोटा रो रहा है।',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'सोना नहीं चाहता',
     moment: 'एक बार पानी, एक बार टॉयलेट, एक और सवाल… और रात काफ़ी हो चुकी है।',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'पार्क से जाना नहीं चाहता',
     moment: 'आपने कहा “चलो चलें”, और वह स्लाइड के ऊपर से “नहीं!” चिल्ला रहा है।',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: 'उसने कहा, “मैं तुमसे प्यार नहीं करता!”',
     moment: 'मना करने के बाद बच्चा ग़ुस्से में आपके मुँह पर कहता है, “मैं तुमसे प्यार नहीं करता।”',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'डे-केयर में किसी को काट लिया',
     moment: 'केयरटेकर का फ़ोन आया: बच्चे ने इस हफ़्ते दूसरी बार काटा है।',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'सुबह कपड़े नहीं पहनना चाहता',
     moment: 'देर हो रही है, और वह पजामे में सोफ़े पर छिपा बैठा है।',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'टैबलेट लेते ही भड़क उठता है',
     moment: 'समय ख़त्म हुआ, आपने टैबलेट ले लिया, और अब चीख़ें और आँसू।',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'खाने की मेज़ पर खाने से इनकार',
     moment: 'आपका बनाया खाना देखकर बोला, “छी!”',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'शिशु घंटों से रो रहा है',
     moment: 'दूध पिलाया, डायपर बदला, झुलाया, फिर भी वह रो रहा है। आपका सब्र जवाब दे रहा है।',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'डे-केयर के दरवाज़े पर पैरों से लिपट जाता है',
     moment: 'हर सुबह वही दृश्य: रोता है, छोड़ता नहीं, और आपको देर हो रही है।',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'साफ़-साफ़ झूठ बोला',
     moment: 'चॉकलेट का रैपर उसके हाथ में है, और वह कह रहा है, “मैंने नहीं खाई।”',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'मेहमानों के सामने गाली दे दी',
     moment: 'सब चुप हो गए, और बच्चा अपने असर से ख़ुश है।',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'होमवर्क करते हुए रो रहा है: “मुझसे नहीं होगा!”',
     moment: 'गणित की कॉपी के सामने आँसू और पन्ने पर खींची लकीरें।',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '“तुम उसे मुझसे ज़्यादा प्यार करती हो!”',
     moment: 'आपने छोटे भाई पर ध्यान दिया, और बड़ा रूठकर अपने कमरे में चला गया।',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'रात में बुरे सपने से डरकर जाग गया',
     moment: 'रात के 3 बजे, चीख़ते हुए आपके कमरे में भागा आता है।',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'कार सीट में बैठना नहीं चाहता',
     moment: 'कमर अकड़ जाती है, चीख़ शुरू हो जाती है, और आप जल्दी में हैं।',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'खाना और खिलौने फेंकता है',
     moment: 'चम्मच फिर से ज़मीन पर। और वह आपको देखकर हँस रहा है।',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'दोस्त के हाथ से खिलौना छीन लेता है',
     moment: 'मिलने-जुलने के दौरान खिलौने पर झगड़ा शुरू हो गया।',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '“मैं बेवकूफ़ हूँ, मुझसे कुछ नहीं होता”',
     moment: 'एक ग़लती के बाद ख़ुद को कोस रहा है।',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'मैं बच्चे पर चिल्ला दी',
     moment: 'आवाज़ ऊँची हो गई, आपने बच्चे की आँखों में डर देखा। अब आपको पछतावा है।',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'स्कूल से रोता हुआ आया',
     moment: 'कहता है, “सब मेरा मज़ाक़ उड़ाते हैं, कोई मेरे साथ नहीं खेलता।”',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'उसने मुझे मारा',
     moment: 'मना करने के जवाब में नन्हा हाथ आपके चेहरे पर लगा।',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '“सौ बार कहा, सुनता ही नहीं!”',
     moment: 'आप दूसरे कमरे से पुकारती हैं, कोई जवाब नहीं। आवाज़ धीरे-धीरे ऊँची होती जाती है।',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'दूध पिलाते समय काटता है या बाल खींचता है',
     moment: 'दर्द से आप चौंक गईं, और शिशु जिज्ञासा से आपको देख रहा है।',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'शिशु अचानक हमेशा से अलग तरह रो रहा है',
     moment: 'यह रोना जाना-पहचाना नहीं: ज़्यादा तीखा, ज़्यादा लंबा, और कुछ भी काम नहीं कर रहा। मन में बेचैनी है।',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'सिर्फ़ मेरी गोद में सोता है',
     moment: 'पालने में लिटाते ही आँखें खोलकर रोने लगता है। और आप घंटों से सोफ़े पर हिल भी नहीं पा रहीं।',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'अब और नहीं सह सकती, ख़ुद पर से क़ाबू खो रही हूँ',
     moment: 'शिशु रो रहा है, आप नींद से बेहाल हैं, हाथ काँप रहे हैं। ग़ुस्सा और बेबसी अंदर भर गई है।',

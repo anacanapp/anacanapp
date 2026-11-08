@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'Het eerste jaar: een basis van vertrouwen',
     lead: 'Dit jaar leert je baby of de wereld veilig is. Het antwoord haalt hij uit je stem, je armen en de manier waarop je op hem reageert.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 jaar: kunnen, vriendschap, zelfvertrouwen',
     lead: 'In de schooljaren bouwt je kind het gevoel “ik kan het” op. Vrienden worden belangrijk, maar jij blijft zijn belangrijkste steunpunt.',

@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: '最初の1年：安心感の土台づくり',
     lead: 'この1年、赤ちゃんは「世界は安全な場所なのか」を学んでいます。その答えは、あなたの声や抱っこ、そしてあなたがどう応えてくれるかから受け取っています。',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6〜12歳：できる力、友情、自信',
     lead: '学校に通う時期は、子どもが「自分はできる」という感覚を育てる時期です。友だちが大切になりますが、あなたは今も子どもにとっていちばんの支えです。',

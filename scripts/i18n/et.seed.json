@@ -12526,5 +12526,21 @@
   "par_quiz_prev": "Eelmine küsimus",
   "par_prog_summary_days": "{n} päeva tehtud",
   "par_prog_next_title": "Proovi järgmisena",
-  "par_prog_next_open": "Vaata programmi"
+  "par_prog_next_open": "Vaata programmi",
+  "par_milestone_late": "See kontroll on kuni {n}-aastastele lastele. Kui vanema lapse areng või käitumine sind muretsema paneb, räägi arsti või lastepsühholoogiga.",
+  "par_milestone_corrected": "Sündis enneaegselt, seega kasutab kontroll korrigeeritud vanust: {n} kuud.",
+  "par_reminder_free": "Meeldetuletused on esimesel {n} päeval tasuta.",
+  "par_share_partner": "Saada partnerile",
+  "par_share": "Jaga",
+  "par_share_sent": "Partnerile saadetud ✓",
+  "par_share_failed": "Saatmine ebaõnnestus. Proovi uuesti.",
+  "par_share_hint": "Ava Anacanis: Koos → Kasvatus:",
+  "par_share_footer": "Anacani rakendus, jaotis Kasvatus",
+  "par_shared_title": "Sulle saadetud",
+  "par_tip_sources": "Allikad",
+  "par_support_mh_title": "Tuge on ka sinule",
+  "par_support_mh_text": "Kui oled pikka aega tundnud kurbust, ärevust või jõuetust, pole see nõrkus ja abi on olemas. Tee meeleolutest ja vaata tugivõimalusi. Kui sul on mõtteid endale või lapsele haiget teha, helista kohe {emergency}.",
+  "par_support_cs_title": "Lapse turvalisus",
+  "par_support_cs_text": "Kui kahtlustad, et laps kogeb vägivalda või võib endale haiget teha, ära jäta teda üksi ja helista kohe {emergency}. Sellisel raskel hetkel võid ka sina vajada psühholoogilist tuge.",
+  "par_support_open": "Meeleolutest ja tugi"
 }

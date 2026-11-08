@@ -26,7 +26,7 @@ vi.mock('@/integrations/supabase/client', () => ({
 import az from '@/data/parenting/az';
 import { loadParentingContent, resetParentingContentCache } from '@/data/parenting';
 import {
-  OVERRIDES_FRESH_MS, applyParentingOverrides, diffPatch, fetchPublishedOverrides, findParentingItem, patchItem, type ParentingOverrideRow,
+  OVERRIDES_FRESH_MS, applyParentingOverrides, diffPatch, fetchPublishedOverrides, findParentingItem, isLockedField, patchItem, type ParentingOverrideRow,
 } from './parenting-overrides';
 
 const row = (item_type: ParentingOverrideRow['item_type'], item_id: string, patch: Record<string, unknown>): ParentingOverrideRow => ({ item_type, item_id, patch });
@@ -99,6 +99,26 @@ describe('Tərbiyə content overrides merge', () => {
     expect(out.styleQuiz.results.balanced.detail).toEqual(az.styleQuiz.results.balanced.detail);
     expect(out.milestoneQuiz.checkpoints.map((c) => [c.id, c.fromMonths])).toEqual(az.milestoneQuiz.checkpoints.map((c) => [c.id, c.fromMonths]));
     expect(az.tips['1-3'][0].title).not.toBe('Yeni məsləhət');
+  });
+
+  it('never lets an editor change the support kind or an SOS card’s source ids; milestone support text stays editable', () => {
+    const out = applyParentingOverrides(az, [
+      row('sos', 'about-to-lose-it', { support: 'child-safety', sources: ['nope'], title: 'Yeni ad' }),
+      row('article', 'body-safety', { support: 'x' }),
+      row('quiz', 'milestones', { checkpoints: az.milestoneQuiz.checkpoints.map((cp) => ({ items: cp.items.map(() => ({ support: 'Yeni dəstək' })) })) }),
+    ]);
+    const card = out.sos.find((s) => s.id === 'about-to-lose-it')!;
+    expect(card.title).toBe('Yeni ad');
+    expect(card.support).toBe('mental-health');
+    expect(card.sources).toEqual(az.sos.find((s) => s.id === 'about-to-lose-it')!.sources);
+    expect(out.articles.find((x) => x.id === 'body-safety')!.support).toBe('child-safety');
+    expect(out.milestoneQuiz.checkpoints[0].items[0].support).toBe('Yeni dəstək');
+    expect(isLockedField('support', 'mental-health')).toBe(true);
+    expect(isLockedField('support', 'Bu bacarığı dəstəkləyin')).toBe(false);
+    expect(isLockedField('sources', ['purple'])).toBe(true);
+    expect(isLockedField('sources', [{ who: 'x', title: 'y' }])).toBe(false);
+    const sos = az.sos.find((s) => s.id === 'about-to-lose-it')!;
+    expect(diffPatch(sos, { ...sos, support: 'child-safety', sources: [] })).toEqual({});
   });
 
   it('finds items and diffs an edited copy by top-level field', () => {

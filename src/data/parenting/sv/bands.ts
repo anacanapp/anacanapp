@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'Första året: en grund av trygghet',
     lead: 'Under det här året lär sig bebisen om världen är en trygg plats. Svaret får hen från din röst, din famn och hur du svarar på hen.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 år: förmåga, vänskap, självförtroende',
     lead: 'Skolåren är tiden då barnet bygger upp känslan av ”jag kan”. Kompisar blir viktiga, men du är fortfarande hens viktigaste trygghet.',

@@ -12448,5 +12448,21 @@
   "par_quiz_prev": "Föregående fråga",
   "par_prog_summary_days": "{n} dagar klara",
   "par_prog_next_title": "Prova härnäst",
-  "par_prog_next_open": "Visa programmet"
+  "par_prog_next_open": "Visa programmet",
+  "par_milestone_late": "Den här kollen gäller barn upp till {n} år. Om ett äldre barns utveckling eller beteende oroar dig, prata med en läkare eller en barnpsykolog.",
+  "par_milestone_corrected": "Född för tidigt, så kollen utgår från korrigerad ålder: {n} månader.",
+  "par_reminder_free": "Påminnelser är gratis de första {n} dagarna.",
+  "par_share_partner": "Skicka till partnern",
+  "par_share": "Dela",
+  "par_share_sent": "Skickat till din partner ✓",
+  "par_share_failed": "Det gick inte att skicka. Försök igen.",
+  "par_share_hint": "Öppna i Anacan under Tillsammans → Föräldraskap:",
+  "par_share_footer": "Anacan-appen, avsnittet Föräldraskap",
+  "par_shared_title": "Skickat till dig",
+  "par_tip_sources": "Källor",
+  "par_support_mh_title": "Det finns stöd för dig också",
+  "par_support_mh_text": "Om du länge har känt dig ledsen, orolig eller utmattad är det ingen svaghet, och det finns hjälp. Gör humörtestet och titta på stödet som finns. Om du har tankar på att skada dig själv eller ditt barn, ring {emergency} direkt.",
+  "par_support_cs_title": "Ditt barns säkerhet",
+  "par_support_cs_text": "Om du misstänker att ditt barn utsätts för våld eller kan skada sig själv, lämna inte barnet ensamt och ring {emergency} direkt. I ett så svårt läge kan du också behöva psykologiskt stöd.",
+  "par_support_open": "Humörtest och stöd"
 }

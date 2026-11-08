@@ -4,6 +4,7 @@ import { S } from './sources';
 export const BANDS: BandOverview[] = [
   {
     id: '0-1',
+    support: 'mental-health',
     emoji: '👶',
     title: 'Esimene aasta: usalduse vundament',
     lead: 'Sel aastal õpib beebi, kas maailm on turvaline. Vastuse saab ta sinu häälest, sinu sülest ja sellest, kuidas sa talle reageerid.',
@@ -112,6 +113,7 @@ export const BANDS: BandOverview[] = [
   },
   {
     id: '6-12',
+    support: 'child-safety',
     emoji: '🎒',
     title: '6–12 aastat: oskused, sõprus, enesekindlus',
     lead: 'Kooliaastad on aeg, mil laps ehitab üles tunde „ma oskan“. Sõbrad muutuvad oluliseks, kuid sina oled endiselt tema peamine tugi.',

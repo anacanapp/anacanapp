@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: '마트 바닥에 드러누워 울어요',
     moment: '사탕을 사 달라고 했는데 “안 돼”라고 했더니, 이제 마트 안 사람들이 다 당신을 쳐다봐요.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: '동생(형제)을 때렸어요',
     moment: '눈 깜짝할 새에 놀이가 싸움이 됐고, 작은아이가 울고 있어요.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: '자기 싫대요',
     moment: '물 한 번 더, 화장실 한 번 더, 질문 하나 더… 시간은 벌써 늦었어요.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: '놀이터에서 안 가려고 해요',
     moment: '“이제 가자”고 했더니 미끄럼틀 꼭대기에서 “싫어!”라고 소리쳐요.',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: '“엄마(아빠) 싫어!”라고 했어요',
     moment: '안 된다고 했더니 아이가 화가 나서 대놓고 “싫어, 안 사랑해”라고 말해요.',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: '어린이집에서 친구를 물었어요',
     moment: '선생님에게서 전화가 왔어요: 이번 주에만 두 번째로 친구를 물었대요.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: '아침에 옷을 안 입으려고 해요',
     moment: '늦었는데, 아이는 잠옷 차림으로 소파 뒤에 숨어 있어요.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: '태블릿을 가져가면 폭발해요',
     moment: '시간이 다 돼서 태블릿을 가져갔더니, 이제 고함과 눈물이 쏟아져요.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: '식탁에서 밥을 안 먹으려 해요',
     moment: '당신이 만든 음식을 보더니 “우웩, 맛없어!”라고 해요.',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: '아기가 몇 시간째 울어요',
     moment: '먹이고, 기저귀 갈고, 흔들어 줬는데도 아기는 계속 울어요. 인내심이 바닥나고 있어요.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: '어린이집 문 앞에서 다리에 매달려요',
     moment: '매일 아침 같은 장면: 울고, 놓아주지 않고, 당신은 늦어요.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: '뻔한 거짓말을 했어요',
     moment: '손에 초콜릿 껍질을 들고 있으면서 “나 안 먹었어”라고 해요.',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: '손님들 앞에서 나쁜 말을 했어요',
     moment: '모두가 조용해졌는데, 아이는 자기가 만든 효과에 만족한 얼굴이에요.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: '숙제하다 울어요: “못 하겠어!”',
     moment: '수학 공책 앞에 눈물, 그리고 공책 위의 낙서.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '“엄마(아빠)는 동생을 나보다 더 좋아해!”',
     moment: '동생을 챙겼더니, 큰아이가 토라져서 방으로 들어가 버렸어요.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: '밤에 악몽을 꾸고 무서워서 깼어요',
     moment: '새벽 3시, 소리를 지르며 당신 방으로 달려와요.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: '카시트에 안 앉으려고 해요',
     moment: '허리를 활처럼 휘고 울기 시작하는데, 당신은 바빠요.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: '음식과 장난감을 던져요',
     moment: '숟가락이 또 바닥에 있어요. 그런데 아이는 당신을 보며 웃어요.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: '친구 장난감을 빼앗아요',
     moment: '친구 집에 놀러 갔는데 장난감을 두고 싸움이 시작됐어요.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '“난 바보야, 아무것도 못 해”',
     moment: '실수 하나 뒤에 스스로를 몰아세워요.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: '아이에게 소리를 질렀어요',
     moment: '목소리가 높아졌고, 아이 눈에서 두려움을 봤어요. 이제 후회가 밀려와요.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: '학교에서 울면서 돌아왔어요',
     moment: '“애들이 나를 놀리고, 아무도 나랑 안 놀아”라고 말해요.',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: '아이가 나를 때렸어요',
     moment: '안 된다고 했더니, 작은 손이 당신 얼굴을 쳤어요.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '“백 번을 말해도 안 들어요!”',
     moment: '다른 방에서 불러도 대답이 없어요. 목소리가 점점 커져요.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: '수유 중에 깨물거나 머리카락을 잡아당겨요',
     moment: '아파서 깜짝 놀랐는데, 아기는 신기한 듯 당신을 쳐다봐요.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: '아기가 갑자기 평소와 다르게 울어요',
     moment: '처음 듣는 울음이에요. 더 날카롭고, 더 길고, 아무것도 소용이 없어요. 마음이 불안해요.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: '내 품에서만 자요',
     moment: '아기 침대에 눕히자마자 눈을 뜨고 울어요. 당신은 몇 시간째 소파에서 꼼짝도 못 하고 있어요.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: '더는 못 견디겠어요, 이성을 잃을 것 같아요',
     moment: '아기는 울고, 당신은 잠을 못 잤고, 손이 떨려요. 분노와 무력감이 가득 차올라요.',

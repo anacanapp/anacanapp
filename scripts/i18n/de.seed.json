@@ -10301,5 +10301,21 @@
   "par_quiz_prev": "Vorherige Frage",
   "par_prog_summary_days": "{n} Tage geschafft",
   "par_prog_next_title": "Als Nächstes",
-  "par_prog_next_open": "Programm ansehen"
+  "par_prog_next_open": "Programm ansehen",
+  "par_milestone_late": "Dieser Check ist für Kinder bis {n} Jahre. Wenn dich die Entwicklung oder das Verhalten eines älteren Kindes beunruhigt, sprich mit einer Ärztin, einem Arzt oder einer Kinderpsychologin.",
+  "par_milestone_corrected": "Zu früh geboren, daher nutzt der Check das korrigierte Alter: {n} Monate.",
+  "par_reminder_free": "Erinnerungen sind für die ersten {n} Tage kostenlos.",
+  "par_share_partner": "An Partner senden",
+  "par_share": "Teilen",
+  "par_share_sent": "An deinen Partner gesendet ✓",
+  "par_share_failed": "Senden fehlgeschlagen. Versuch es noch einmal.",
+  "par_share_hint": "Öffne es in Anacan unter Gemeinsam → Erziehung:",
+  "par_share_footer": "Anacan-App, Bereich Erziehung",
+  "par_shared_title": "An dich gesendet",
+  "par_tip_sources": "Quellen",
+  "par_support_mh_title": "Auch für dich gibt es Unterstützung",
+  "par_support_mh_text": "Wenn du dich schon lange traurig, ängstlich oder erschöpft fühlst, ist das keine Schwäche, und es gibt Hilfe. Mach den Stimmungstest und schau dir die Unterstützungsangebote an. Wenn du Gedanken hast, dir oder deinem Kind zu schaden, ruf sofort {emergency} an.",
+  "par_support_cs_title": "Die Sicherheit deines Kindes",
+  "par_support_cs_text": "Wenn du vermutest, dass deinem Kind Gewalt angetan wird oder es sich selbst verletzen könnte, lass es nicht allein und ruf sofort {emergency} an. In diesem schweren Moment brauchst vielleicht auch du psychologische Unterstützung.",
+  "par_support_open": "Stimmungstest und Hilfe"
 }

@@ -3,6 +3,7 @@ import type { SosCard } from '../types';
 export const SOS_CARDS: SosCard[] = [
   {
     id: 'shop-tantrum',
+    sources: ['healthyChildrenTantrums', 'harvardEF2011', 'cdcEssentials'],
     emoji: '🛒',
     title: 'Viskab end poes põrandale ja nutab',
     moment: 'Ta tahtis kommi, sina ütlesid „ei“ ja nüüd vaatab kogu pood sind.',
@@ -22,6 +23,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hit-sibling',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'aapDiscipline2018'],
     emoji: '✋',
     title: 'Lõi venda (õde)',
     moment: 'Hetkega muutus mäng kakluseks ja väiksem nutab.',
@@ -43,6 +45,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bedtime-refusal',
+    sources: ['mindell2009', 'aasm2016', 'mindell2018'],
     emoji: '🌙',
     title: 'Ei taha magama minna',
     moment: 'Veel üks lonks vett, veel üks vetsuskäik, veel üks küsimus… ja kell on juba palju.',
@@ -63,6 +66,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'leave-playground',
+    sources: ['healthyChildrenTantrums', 'cdcEssentials', 'harvardEF2011'],
     emoji: '🛝',
     title: 'Ei taha mänguväljakult lahkuda',
     moment: 'Ütlesid „läheme“, tema aga karjub liumäe tipus „ei!“.',
@@ -82,6 +86,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-dont-love-you',
+    sources: ['gottman1996', 'havighurst2010', 'cdcPositive'],
     emoji: '💔',
     title: 'Ütles: „Ma ei armasta sind!“',
     moment: 'Pärast keeldu ütleb laps sulle vihaselt näkku „ma ei armasta sind“.',
@@ -101,6 +106,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'biting-daycare',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'cdcEssentials'],
     emoji: '🦷',
     title: 'Hammustas lasteaias',
     moment: 'Kasvataja helistas: laps on sel nädalal juba teist korda hammustanud.',
@@ -117,6 +123,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'wont-dress',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'diamond2013'],
     emoji: '👕',
     title: 'Ei taha hommikul riidesse panna',
     moment: 'Te jääte hiljaks, tema aga peidab end pidžaamas diivani taha.',
@@ -132,6 +139,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'screen-off',
+    sources: ['aapMedia2016', 'aapFamilyMediaPlan', 'healthyChildrenTantrums'],
     emoji: '📱',
     title: 'Plahvatab, kui tahvel ära võetakse',
     moment: 'Aeg sai läbi, sa võtsid tahvli ära ja nüüd on karjumine ja pisarad.',
@@ -151,6 +159,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'food-refusal',
+    sources: ['satter', 'birchFisher1998', 'wardle2003'],
     emoji: '🍽️',
     title: 'Keeldub laua taga söömast',
     moment: 'Vaatas sinu tehtud toitu ja ütles „vastik!“.',
@@ -167,6 +176,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying',
+    support: 'mental-health',
+    sources: ['healthyChildrenCrying', 'purple', 'healthyChildrenColic'],
     emoji: '👶',
     title: 'Beebi on juba tunde nutnud',
     moment: 'Sa söötsid, vahetasid mähkme, kiigutasid, aga ta nutab ikka. Kannatus hakkab otsa saama.',
@@ -183,6 +194,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'daycare-door',
+    sources: ['ainsworth1978', 'healthyChildrenAnxiety', 'zeroToThreeSeparation'],
     emoji: '🚪',
     title: 'Klammerdub lasteaia ukse taga su jala külge',
     moment: 'Igal hommikul sama stseen: nutab, ei lase lahti ja sina jääd hiljaks.',
@@ -199,6 +211,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'caught-lying',
+    sources: ['talwarLee2008', 'talwar2015'],
     emoji: '🤥',
     title: 'Valetas silmnähtavalt',
     moment: 'Šokolaadipaber on tal käes, aga ta ütleb „mina ei söönud“.',
@@ -214,6 +227,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'swearing-public',
+    sources: ['cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🤐',
     title: 'Ütles külaliste ees inetu sõna',
     moment: 'Kõik jäid vait, laps aga on oma efektiga rahul.',
@@ -229,6 +243,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'homework-meltdown',
+    sources: ['cooper2006', 'pomerantz2007', 'muellerDweck1998'],
     emoji: '📝',
     title: 'Nutab kodutöö kallal: „Ma ei oska!“',
     moment: 'Matemaatikavihiku ees pisarad ja vihikusse kritseldatud kriipsud.',
@@ -245,6 +260,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'you-love-him-more',
+    sources: ['kramerKowal2005', 'healthyChildrenSiblings', 'kennedyKramer2008'],
     emoji: '⚖️',
     title: '„Sa armastad teda rohkem kui mind!“',
     moment: 'Sa pöörasid tähelepanu nooremale ja vanem läks solvunult oma tuppa.',
@@ -260,6 +276,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'nightmare',
+    sources: ['aasm2016', 'mindell2018', 'healthyChildrenAnxiety'],
     emoji: '😱',
     title: 'Ärkas öösel õudusunenäo peale',
     moment: 'Kell on 3 öösel ja ta jookseb karjudes sinu tuppa.',
@@ -276,6 +293,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'car-seat',
+    sources: ['cdcEssentials', 'healthyChildrenDiscipline', 'harvardEF2011'],
     emoji: '🚗',
     title: 'Ei taha turvatooli istuda',
     moment: 'Selg läheb kaarde, karjumine algab ja sul on kiire.',
@@ -291,6 +309,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'throwing',
+    sources: ['yogman2018', 'cdcPositive', 'healthyChildrenDiscipline'],
     emoji: '🥄',
     title: 'Loobib toitu ja mänguasju',
     moment: 'Lusikas on jälle põrandal. Ja ta vaatab sind ning naerab.',
@@ -306,6 +325,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'grabbing-toy',
+    sources: ['tremblay2004', 'cdcEssentials', 'yogman2018'],
     emoji: '🧸',
     title: 'Kisub sõbra käest mänguasja',
     moment: 'Külas puhkes mänguasja pärast tüli.',
@@ -321,6 +341,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'im-stupid',
+    sources: ['muellerDweck1998', 'gunderson2013', 'gottman1996'],
     emoji: '😞',
     title: '„Ma olen loll, ma ei oska midagi“',
     moment: 'Pärast üht viga sõimab ta iseennast.',
@@ -337,6 +358,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'i-shouted',
+    sources: ['wangKenny2014', 'tronick1989', 'aapDiscipline2018'],
     emoji: '🩹',
     title: 'Ma karjusin lapse peale',
     moment: 'Hääl tõusis ja sa nägid lapse silmis hirmu. Nüüd sa kahetsed.',
@@ -353,6 +375,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'bullied',
+    sources: ['unesco2019', 'stopBullying', 'cdcPositive'],
     emoji: '🛡️',
     title: 'Tuli koolist nuttes koju',
     moment: 'Ütleb: „Nad narrivad mind ja keegi ei mängi minuga.“',
@@ -369,6 +392,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'hits-parent',
+    sources: ['tremblay2004', 'aapDiscipline2018', 'gershoff2016'],
     emoji: '🤚',
     title: 'Ta lõi mind',
     moment: 'Vastuseks keelule tabas väike käsi sind näkku.',
@@ -384,6 +408,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'not-listening',
+    sources: ['cdcEssentials', 'aapDiscipline2018', 'pcitMeta2007'],
     emoji: '🙉',
     title: '„Ütlesin sada korda, ta ei kuula!“',
     moment: 'Kutsud teisest toast, vastust pole. Hääl läheb aina valjemaks.',
@@ -400,6 +425,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-bites-breast',
+    sources: ['whoInfantFeeding', 'cdcPositive'],
     emoji: '🤱',
     title: 'Hammustab rinnaga toitmise ajal või kisub juustest',
     moment: 'Sa võpatasid valust, beebi aga vaatab sind uudishimulikult.',
@@ -416,6 +442,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'baby-crying-different',
+    sources: ['healthyChildrenCrying', 'nhsColic', 'healthyChildrenColic'],
     emoji: '🚨',
     title: 'Beebi nutab äkki teistmoodi kui tavaliselt',
     moment: 'See nutt ei ole tuttav: kõrgem, pikem ja miski ei aita. Sees on mure.',
@@ -432,6 +459,7 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'sleeps-only-on-me',
+    sources: ['aapSafeSleep2022', 'mindell2018', 'henderson2010'],
     emoji: '🫂',
     title: 'Magab ainult minu süles',
     moment: 'Niipea kui paned ta võrevoodisse, avab ta silmad ja nutab. Ja sina ei ole saanud tunde diivanil liigutada.',
@@ -451,6 +479,8 @@ export const SOS_CARDS: SosCard[] = [
   },
   {
     id: 'about-to-lose-it',
+    support: 'mental-health',
+    sources: ['purple', 'cdcAbusiveHeadTrauma', 'whoMentalHealthParents'],
     emoji: '🫧',
     title: 'Ma ei pea enam vastu, kaotan enesevalitsuse',
     moment: 'Beebi nutab, sa oled magamata, käed värisevad. Viha ja abitus on sind täitnud.',
