@@ -122,7 +122,7 @@ BEGIN
     ELSIF TG_OP = 'UPDATE' AND NEW.draft IS NOT DISTINCT FROM OLD.draft AND NEW.patch IS NOT DISTINCT FROM OLD.patch
           AND NEW.published = OLD.published THEN
       RETURN NULL; -- nothing an editor would call a version changed
-    ELSIF NEW.draft IS DISTINCT FROM CASE WHEN TG_OP = 'UPDATE' THEN OLD.draft END THEN
+    ELSIF NEW.draft IS DISTINCT FROM (CASE WHEN TG_OP = 'UPDATE' THEN OLD.draft END) THEN
       v_action := 'draft';
     ELSE
       v_action := 'edit';
