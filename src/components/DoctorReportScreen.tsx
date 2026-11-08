@@ -5,6 +5,10 @@ import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
 import { useChildren } from '@/hooks/useChildren';
 import { useHealthReport } from '@/hooks/useHealthReport';
+import { useDoctorReportExtras } from '@/hooks/useDoctorReportExtras';
+import { useChildVaccinations, useVaccineScheduleForCountry } from '@/hooks/useVaccines';
+import { regionalCountry } from '@/lib/vaccine-schedule';
+import { todayKey } from '@/lib/local-date';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useToast } from '@/hooks/use-toast';
@@ -18,8 +22,8 @@ interface DoctorReportScreenProps { onBack: () => void; }
 
 export default function DoctorReportScreen({ onBack }: DoctorReportScreenProps) {
   useScrollToTop();
-  const { lifeStage, getCycleData, getPregnancyData, language } = useUserStore(useShallow(state => ({
-    lifeStage: state.lifeStage, getCycleData: state.getCycleData, getPregnancyData: state.getPregnancyData, language: state.language,
+  const { lifeStage, getCycleData, getPregnancyData, language, storedCountry } = useUserStore(useShallow(state => ({
+    lifeStage: state.lifeStage, getCycleData: state.getCycleData, getPregnancyData: state.getPregnancyData, language: state.language, storedCountry: state.countryCode,
   })));
   const { user, profile } = useAuth();
   const { children, selectedChild, setSelectedChild, getChildAge, loading: childrenLoading } = useChildren();
@@ -27,6 +31,8 @@ export default function DoctorReportScreen({ onBack }: DoctorReportScreenProps) 
   const { toast } = useToast();
   const [period, setPeriod] = useState<ReportPeriod>('1month');
   const [notes, setNotes] = useState('');
+  // EPDS answers are sensitive; the parent decides whether this copy carries them (for example, not for a paediatrician).
+  const [includeEpds, setIncludeEpds] = useState(true);
   const [generating, setGenerating] = useState(false);
   const generatingRef = useRef(false);
   const mounted = useRef(true);
@@ -36,6 +42,11 @@ export default function DoctorReportScreen({ onBack }: DoctorReportScreenProps) 
   const [showPremium, setShowPremium] = useState(false);
   const child = selectedChild?.user_id === user?.id ? selectedChild : null;
   const report = useHealthReport(period, child?.id ?? null, lifeStage || 'flow');
+  const extras = useDoctorReportExtras(period, child?.id ?? null, lifeStage || 'flow');
+  const vaccineChild = lifeStage === 'mommy' ? child : null;
+  const vaccineCountry = vaccineChild ? regionalCountry(language, vaccineChild.vaccine_country_code, profile?.country_code, storedCountry, vaccineChild.country_code) : null;
+  const vaccineSchedule = useVaccineScheduleForCountry(vaccineCountry);
+  const vaccineLogs = useChildVaccinations(vaccineChild?.id ?? null);
   const periods: { id: ReportPeriod; label: string }[] = [
     { id: '1week', label: tr('doctorreportscreen_1_hefte_6d1cb4', '1 Həftə') },
     { id: '1month', label: tr('doctorreport_1_ay', '1 Ay') },
@@ -81,12 +92,19 @@ export default function DoctorReportScreen({ onBack }: DoctorReportScreenProps) 
       { label: tr('doctorreportscreen_dovrenin_gunu_7549f2', 'Dövrənin günü'), value: String(cycle.currentDay) },
     ];
   }, [lifeStage, child, getChildAge, getPregnancyData, getCycleData, language]);
-  const presentation = useMemo(() => report.data ? buildDoctorReportData(report.data, {
+  const vaccineData = useMemo(() => vaccineChild && vaccineSchedule.data && vaccineLogs.data ? { schedule: vaccineSchedule.data, logs: vaccineLogs.data } : undefined,
+    [vaccineChild, vaccineSchedule.data, vaccineLogs.data]);
+  const presentation = useMemo(() => report.data && extras.data ? buildDoctorReportData(report.data, {
     userName, stage: lifeStage || 'flow', stageTitle, stageRows, notes,
     periodLabel: periods.find(item => item.id === period)!.label,
-  }) : null, [report.data, userName, lifeStage, stageTitle, stageRows, notes, period, language]);
-  const loading = report.isPending || report.isFetching || (lifeStage === 'mommy' && childrenLoading);
-  const canExport = !!presentation && !loading && !report.isError && !!user;
+    extras: { ...extras.data, vaccines: vaccineData }, child: vaccineChild, includeEpds,
+  }) : null, [report.data, extras.data, vaccineData, vaccineChild, includeEpds, userName, lifeStage, stageTitle, stageRows, notes, period, language]);
+  const vaccinesLoading = !!vaccineChild && (vaccineSchedule.isPending || vaccineLogs.isPending);
+  const loading = report.isPending || report.isFetching || extras.isPending || extras.isFetching || vaccinesLoading || (lifeStage === 'mommy' && childrenLoading);
+  // A failed tracker read must not silently produce a report without that section.
+  const dataError = report.isError || extras.isError || (!!vaccineChild && (vaccineSchedule.isError || vaccineLogs.isError));
+  const hasEpds = (lifeStage === 'bump' || lifeStage === 'mommy') && !!extras.data?.epds?.length;
+  const canExport = !!presentation && !loading && !dataError && !!user;
 
   const exportReport = async (mode: 'download' | 'share') => {
     if (!isPremium) { setShowPremium(true); return; }
@@ -97,7 +115,7 @@ export default function DoctorReportScreen({ onBack }: DoctorReportScreenProps) 
       const { generateDoctorReportPdf, deliverPdf } = await import('@/lib/pdfReport');
       const doc = await generateDoctorReportPdf(presentation);
       if (!mounted.current || actor !== actorRef.current) return;
-      const fileName = `anacan-hesabat-${new Date().toISOString().slice(0, 10)}.pdf`;
+      const fileName = `anacan-hesabat-${todayKey()}.pdf`;
       const result = await deliverPdf(doc, fileName, mode);
       if (!mounted.current || actor !== actorRef.current || result === 'cancelled') return;
       toast({ title: result === 'shared' ? tr('pdf_shared_toast', 'Hesabat paylaşıldı') : tr('pdf_downloaded_toast', 'PDF yükləndi'), description: fileName });
@@ -140,21 +158,34 @@ export default function DoctorReportScreen({ onBack }: DoctorReportScreenProps) 
           </div>
           <p className="text-xs mt-3 leading-relaxed" style={{ color: 'var(--a-ink-soft)' }}>{tr('report_export_hint', 'PDF-ni yükləyin və ya paylaşım menyusu ilə həkiminizə göndərin.')}{!isPremium && <strong className="ms-1">Premium</strong>}</p>
         </section>
-        {report.isError && <section className="a-card" role="alert"><p className="text-sm">{tr('report_data_error', 'Məlumatlar tam yüklənmədi. Natamam hesabat yaratmamaq üçün yenidən yoxlayın.')}</p><button className="a-btn-soft mt-3" onClick={() => void report.refetch()}><RefreshCw size={16} />{tr('community_retry', 'Yenidən yoxla')}</button></section>}
+        {dataError && <section className="a-card" role="alert"><p className="text-sm">{tr('report_data_error', 'Məlumatlar tam yüklənmədi. Natamam hesabat yaratmamaq üçün yenidən yoxlayın.')}</p><button className="a-btn-soft mt-3" onClick={() => {
+          if (report.isError) void report.refetch();
+          if (extras.isError) void extras.refetch();
+          if (vaccineSchedule.isError) void vaccineSchedule.refetch();
+          if (vaccineLogs.isError) void vaccineLogs.refetch();
+        }}><RefreshCw size={16} />{tr('community_retry', 'Yenidən yoxla')}</button></section>}
         {loading && <div className="a-card flex justify-center gap-2 text-sm" role="status"><Loader2 size={20} className="animate-spin" />{tr('report_loading_data', 'Qeydlər hazırlanır...')}</div>}
         {!!stageRows.length && <section className="a-card"><h3 className="a-card-title mb-4">{tr('pdf_section_basics', 'Cari məlumatlar')}</h3>{rows(stageRows)}</section>}
-        {presentation && !report.isError && <>
+        {presentation && !dataError && <>
           <section className="a-card"><h3 className="a-card-title mb-3">{tr('pdf_section_trends', 'Sağlamlıq göstəriciləri')}</h3>
             <p className="text-xs mb-4" style={{ color: 'var(--a-ink-soft)' }}>{presentation.coverage?.records} {tr('report_records', 'qeyd')} · {presentation.coverage?.recordedDays} {tr('report_days_recorded', 'qeydli gün')}</p>
             <div className="space-y-2">{presentation.trends.map(item => <div key={item.label} className="rounded-xl p-3" style={{ background: 'var(--a-surface-soft)' }}><p className="text-xs" style={{ color: 'var(--a-ink-soft)' }}>{item.label}</p><div className="flex flex-wrap justify-between gap-2 mt-1"><strong className="text-sm">{item.value}</strong><span className="text-xs" style={{ color: 'var(--a-ink-soft)' }}>{item.trend}</span></div></div>)}</div>
           </section>
           {!!presentation.babyCareRows?.length && <section className="a-card"><h3 className="a-card-title mb-3">{tr('pdf_section_babycare', 'Körpə qulluğu')}</h3><p className="text-xs mb-4 leading-relaxed" style={{ color: 'var(--a-ink-soft)' }}>{tr('pdf_logged_days_note', 'Ortalamalar yalnız müvafiq qeydin olduğu günlərə əsaslanır. Davam edən yuxu intervalları yuxu müddətinə daxil edilmir.')}</p>{rows(presentation.babyCareRows)}</section>}
+          {presentation.sections?.find(item => item.flag) && <section className="a-card" role="note" style={{ border: '1.5px solid var(--a-pink-ink)', background: 'var(--a-pink-1)' }}>
+            {presentation.sections.filter(item => item.flag).map(item => <p key={item.id} className="text-sm font-bold" style={{ color: 'var(--a-pink-ink)' }}>{item.flag}</p>)}
+          </section>}
           <section className="a-card"><h3 className="a-card-title mb-3">{tr('report_pdf_contents', 'PDF-yə daxil ediləcək cədvəllər')}</h3>
             {rows([
               { label: tr('pdf_weight_history', 'Çəki qeydləri'), value: String(presentation.weightSeries?.length || 0) },
               { label: tr('pdf_section_bp_period', 'Qan təzyiqi'), value: String(presentation.bpRows?.length || 0) },
+              ...(presentation.sections || []).map(item => ({ label: item.title, value: String(item.table?.rows.length || item.rows?.length || 0) })),
               ...(presentation.historyTables || []).filter(table => table.rows.length).map(table => ({ label: table.title, value: String(table.rows.length) })),
             ])}
+            {hasEpds && <label className="flex items-start gap-3 mt-4 text-sm">
+              <input type="checkbox" className="mt-0.5 h-5 w-5 shrink-0" checked={includeEpds} disabled={generating} onChange={event => setIncludeEpds(event.target.checked)} />
+              <span>{tr('report_include_epds', 'EPDS (əhval skrininqi) nəticələrini PDF-ə daxil et')}</span>
+            </label>}
           </section>
         </>}
         <section className="a-card"><h3 className="a-card-title mb-3">{tr('doctorreportscreen_hekim_ucun_qeydler_052b91', 'Həkim üçün Qeydlər')}</h3><textarea className="a-input w-full min-h-[120px] text-base resize-y" value={notes} disabled={generating}

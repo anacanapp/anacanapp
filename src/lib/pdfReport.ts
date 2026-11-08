@@ -8,6 +8,8 @@ import { APP_LANGUAGE_CODES } from '@/lib/app-languages';
 
 export interface ReportRow { label: string; value: string; }
 export interface ReportTable { title: string; headers: string[]; rows: string[][]; widths?: number[]; }
+/** A clinical section (blood sugar, kicks, contractions, EPDS, vaccines, growth). Omitted when it has no data. */
+export interface ReportSection { id: string; title: string; flag?: string; rows?: ReportRow[]; note?: string; table?: Omit<ReportTable, 'title'>; }
 export interface DoctorReportData {
   userName: string;
   stageTitle: string;
@@ -20,6 +22,7 @@ export interface DoctorReportData {
   babyCareRows?: ReportRow[];
   fetalGrowthRows?: ReportRow[];
   historyTables?: ReportTable[];
+  sections?: ReportSection[];
   weightSeries?: { date: string; weight: number }[];
   coverage?: { records: number; recordedDays: number };
   notes?: string;
@@ -30,6 +33,8 @@ const MUTED: [number, number, number] = [91, 107, 119];
 const ACCENT: [number, number, number] = [188, 94, 70];
 const SOFT: [number, number, number] = [246, 248, 250];
 const LINE: [number, number, number] = [221, 228, 234];
+const ALERT: [number, number, number] = [158, 32, 32];
+const ALERT_BG: [number, number, number] = [253, 236, 236];
 const PT = 25.4 / 72;
 const ARABIC = /[\u0600-\u06ff\u0750-\u077f]/;
 const fontCache = new Map<string, Promise<string>>();
@@ -184,6 +189,16 @@ export async function generateDoctorReportPdf(data: DoctorReportData): Promise<j
       y += lineHeight(size);
     }
   };
+  // Clinician-facing flag (for example EPDS question 10): a tinted box with bold dark-red text.
+  const alertBox = (text: string) => {
+    const size = 10, lines = wrap(text, width - 12, size, 'bold');
+    const height = lines.length * lineHeight(size) + 8;
+    ensureSpace(height + 4);
+    doc.setFillColor(...ALERT_BG); doc.setDrawColor(...ALERT); doc.setLineWidth(0.5);
+    doc.roundedRect(margin, y, width, height, 2, 2, 'FD');
+    lines.forEach((line, n) => write(line, rtl ? pageW - margin - 6 : margin + 6, y + 4 + size * PT + n * lineHeight(size), size, 'bold', ALERT, rtl ? 'right' : 'left'));
+    y += height + 4;
+  };
   const runningHeader = () => {
     doc.setFillColor(...INK); doc.rect(0, 0, pageW, 2, 'F');
     write('Anacan', rtl ? pageW - margin : margin, 13, 12, 'bold', INK, rtl ? 'right' : 'left');
@@ -298,11 +313,19 @@ export async function generateDoctorReportPdf(data: DoctorReportData): Promise<j
     section(tr('pdf_section_bp_period', 'Dövr üzrə qan təzyiqi'));
     table([tr('pdf_date_time', 'Tarix / saat'), tr('pdf_bp_mmhg', 'Təzyiq (mmHg)'), tr('pdf_pulse', 'Nəbz'), tr('pdf_reading_range', 'Ölçmə aralığı')], data.bpRows.map(row => [row.date, row.reading, row.pulse || '—', row.category]), [1.15, 1, 0.55, 1.5]);
   }
+  for (const item of data.sections || []) {
+    if (!item.flag && !item.rows?.length && !item.table?.rows.length) continue;
+    section(item.title);
+    if (item.flag) alertBox(item.flag);
+    if (item.rows?.length) cards(item.rows);
+    if (item.note) { paragraph(item.note, 8.5, MUTED); y += 3; }
+    if (item.table?.rows.length) table(item.table.headers, item.table.rows, item.table.widths);
+  }
   for (const history of data.historyTables || []) {
     if (history.rows.length) { section(history.title); table(history.headers, history.rows, history.widths); }
   }
   if (data.notes?.trim()) { section(tr('pdf_section_notes', 'Həkim üçün qeydlər')); paragraph(data.notes.trim(), 10); y += 5; }
-  if (data.coverage?.records === 0) { section(tr('pdf_no_observations', 'Müşahidələr')); paragraph(tr('pdf_no_records_period', 'Seçilmiş dövr üçün sağlamlıq qeydi yoxdur.'), 10, MUTED); }
+  if (data.coverage?.records === 0 && !data.sections?.length) { section(tr('pdf_no_observations', 'Müşahidələr')); paragraph(tr('pdf_no_records_period', 'Seçilmiş dövr üçün sağlamlıq qeydi yoxdur.'), 10, MUTED); }
 
   const count = doc.getNumberOfPages();
   const footer = wrap(tr('pdf_footer', 'Anacan tətbiqi ilə yaradılıb · Bu hesabat tibbi sənəd deyil, məlumat xarakterlidir.'), width - 20, 7);

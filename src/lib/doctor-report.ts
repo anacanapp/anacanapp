@@ -1,17 +1,19 @@
-import { format, parseISO } from 'date-fns';
 import { tr } from '@/lib/tr';
 import { getLocaleTag } from '@/lib/i18n';
 import { classifyBp } from '@/lib/bloodPressure';
 import { finiteMeasurement, meanRecorded, reportCoverage, summarizeBabyCare, type HealthReportSnapshot } from './health-report-data';
+import { buildClinicalSections, reportDate, type DoctorReportExtras, type ReportChild } from './doctor-report-extras';
 import type { DoctorReportData, ReportRow } from './pdfReport';
 
-export const reportDate = (date: Date | string, time = false) => format(typeof date === 'string' ? parseISO(date) : date, time ? 'dd.MM.yyyy HH:mm' : 'dd.MM.yyyy');
+export { reportDate };
 const number = (value: number | null, digits = 1) => value === null ? '—' : value.toLocaleString(getLocaleTag(), { minimumFractionDigits: 0, maximumFractionDigits: digits });
 const recorded = (count: number) => tr('report_recorded_days', '{n} qeydli gün').replace('{n}', String(count));
 const minutes = (value: number | null) => value === null ? '—' : `${Math.floor(Math.round(value) / 60)} ${tr('report_hours', 'saat')} ${Math.round(value) % 60} ${tr('report_minutes', 'dəq')}`;
 
 export function buildDoctorReportData(snapshot: HealthReportSnapshot, context: {
   userName: string; stageTitle: string; stage: string; periodLabel: string; stageRows: ReportRow[]; notes: string;
+  /** Tracker data for the clinical sections; each section appears only for its life stage and when it has data. */
+  extras?: DoctorReportExtras; child?: ReportChild | null; includeEpds?: boolean; today?: Date;
 }): DoctorReportData {
   const coverage = reportCoverage(snapshot);
   const { weights, daily, exercises, bloodPressure, fetal, periodDays, baby, range } = snapshot;
@@ -56,6 +58,7 @@ export function buildDoctorReportData(snapshot: HealthReportSnapshot, context: {
       pulse: log.pulse == null ? '—' : String(log.pulse), category: classifyBp(log.systolic, log.diastolic, context.stage === 'bump').label,
     })),
     babyCareRows,
+    sections: context.extras ? buildClinicalSections(context.extras, { stage: context.stage, range, child: context.child, includeEpds: context.includeEpds, today: context.today }) : [],
     historyTables: [
       { title: tr('report_fetal_history', 'USM / fetal böyümə qeydləri'),
         headers: [tr('pdf_date', 'Tarix'), tr('report_baby_label', 'Körpə'), tr('report_efw_grams', 'Təxmini çəki (q)')],
