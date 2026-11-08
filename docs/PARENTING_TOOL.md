@@ -84,3 +84,19 @@ Live (switch on). A pediatrician / child-psychologist copy review is still outst
   `home_card_open`, `home_continue`.
 - Reminder taps carry the programme id and open that programme; the Ana home card shows "Davam et: <programme>
   · Gün n/total" for the running programme (native: needs a new build for the reminder payload).
+
+## Update 2026-11-08 (content + UX)
+
+- Content (all 23 languages, same ids/order as az): 61 articles (24 free), 28 SOS cards (10 free), 6 programmes
+  (`no-shouting-21`, `tantrums-14`, `sleep-7`, `siblings-7`, `screen-reset-7`, `special-time-7`), 30 daily tips per band.
+  New 0–1 articles and family topics are in `articles-baby-year.ts` / `articles-family-life.ts`. Specialist review of
+  the new medical/psychological copy is still outstanding (deferred by the owner).
+- Per-child state: band, programme progress and quiz results are stored per child (`children` map next to the old
+  account-level fields, which older app versions keep reading); a manual band expires when the child moves to another
+  band. Child switcher in the tool header for 2+ children under 13; the tile/home card stays while any child is under 13.
+- First-run intro (3 steps, asks for the age band when there is no birth date); quizzes have a back button; finished
+  programmes show a summary and a next suggestion; free users see "İlk 3 gün pulsuz" on programme rows.
+- CMS history: `20261108160000_parenting_cms_history.sql` (applied) adds `parenting_content_override_history` (trigger on
+  overrides, admin-only read, list/restore RPCs, CDC + writer guard). CDC replay must run with
+  `session_replication_role = replica` so history rows are not written twice. Admin shows history, preview and
+  stale-translation badges.
