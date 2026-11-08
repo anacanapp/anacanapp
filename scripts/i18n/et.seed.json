@@ -12280,5 +12280,9 @@
   "pm_feat_par_quiz": "Testi üksikasjalik tulemus",
   "par_milestone_early": "See kontroll algab {n} kuu vanuselt. Selles eas areneb iga beebi oma tempos. Kui miski sind muretsema paneb, räägi arstiga.",
   "par_home_continue": "Jätka: {title}",
-  "par_home_day": "Päev {n}/{total}"
+  "par_home_day": "Päev {n}/{total}",
+  "toolshub_not_for_stage": "See tööriist pole mõeldud sinu praeguse etapi jaoks",
+  "toolshub_cakes_name": "Koogid",
+  "mental_question_progress": "Küsimus {n} / {total}",
+  "kick_recent_sessions": "Viimased seansid"
 }

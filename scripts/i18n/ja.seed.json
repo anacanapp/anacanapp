@@ -12199,5 +12199,12 @@
   "pm_feat_par_quiz": "テストの詳しい結果",
   "par_milestone_early": "このチェックは生後{n}か月から始まります。この時期の赤ちゃんはそれぞれのペースで成長します。気になることがあれば、医師に相談してください。",
   "par_home_continue": "続ける：{title}",
-  "par_home_day": "{n}/{total}日目"
+  "par_home_day": "{n}/{total}日目",
+  "toolshub_not_for_stage": "このツールは現在のステージ向けではありません",
+  "toolshub_cakes_name": "ケーキ",
+  "mental_question_progress": "質問 {n} / {total}",
+  "kick_recent_sessions": "最近のセッション",
+  "common_sm": "cm",
+  "common_bagla": "閉じる",
+  "word_garden_language_pending": "この言語の単語ライブラリは準備中です。"
 }

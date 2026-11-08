@@ -12199,5 +12199,12 @@
   "pm_feat_par_quiz": "测试详细结果",
   "par_milestone_early": "这项检查从 {n} 个月开始。这个年龄的每个宝宝都按自己的节奏发育。如果有让你担心的地方，请咨询医生。",
   "par_home_continue": "继续：{title}",
-  "par_home_day": "第 {n}/{total} 天"
+  "par_home_day": "第 {n}/{total} 天",
+  "toolshub_not_for_stage": "此工具不适用于您当前的阶段",
+  "toolshub_cakes_name": "蛋糕",
+  "mental_question_progress": "第 {n} 题 / 共 {total} 题",
+  "kick_recent_sessions": "最近记录",
+  "common_sm": "厘米",
+  "common_bagla": "关闭",
+  "word_garden_language_pending": "该语言的词库正在准备中。"
 }

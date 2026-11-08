@@ -12199,5 +12199,12 @@
   "pm_feat_par_quiz": "Uitgebreide testuitslag",
   "par_milestone_early": "Deze check begint bij {n} maanden. Op deze leeftijd ontwikkelt elke baby zich in een eigen tempo. Maak je je ergens zorgen over, praat dan met je arts.",
   "par_home_continue": "Verder: {title}",
-  "par_home_day": "Dag {n}/{total}"
+  "par_home_day": "Dag {n}/{total}",
+  "toolshub_not_for_stage": "Deze tool is niet bedoeld voor je huidige fase",
+  "toolshub_cakes_name": "Taarten",
+  "mental_question_progress": "Vraag {n} / {total}",
+  "kick_recent_sessions": "Recente sessies",
+  "common_sm": "cm",
+  "common_bagla": "Sluiten",
+  "word_garden_language_pending": "De woordenbibliotheek voor deze taal wordt voorbereid."
 }

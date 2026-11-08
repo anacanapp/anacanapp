@@ -12199,5 +12199,12 @@
   "pm_feat_par_quiz": "Detaljerat testresultat",
   "par_milestone_early": "Den här kollen börjar vid {n} månader. I den här åldern utvecklas varje bebis i sin egen takt. Om något oroar dig, prata med din läkare.",
   "par_home_continue": "Fortsätt: {title}",
-  "par_home_day": "Dag {n}/{total}"
+  "par_home_day": "Dag {n}/{total}",
+  "toolshub_not_for_stage": "Det här verktyget är inte avsett för din nuvarande fas",
+  "toolshub_cakes_name": "Tårtor",
+  "mental_question_progress": "Fråga {n} / {total}",
+  "kick_recent_sessions": "Senaste sessioner",
+  "common_sm": "cm",
+  "common_bagla": "Stäng",
+  "word_garden_language_pending": "Ordbiblioteket för det här språket håller på att förberedas."
 }

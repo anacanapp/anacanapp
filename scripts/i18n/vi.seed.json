@@ -12199,5 +12199,12 @@
   "pm_feat_par_quiz": "Kết quả chi tiết của bài kiểm tra",
   "par_milestone_early": "Bài kiểm tra này bắt đầu từ {n} tháng tuổi. Ở độ tuổi này mỗi bé phát triển theo nhịp riêng. Nếu có điều gì khiến bạn lo lắng, hãy trao đổi với bác sĩ.",
   "par_home_continue": "Tiếp tục: {title}",
-  "par_home_day": "Ngày {n}/{total}"
+  "par_home_day": "Ngày {n}/{total}",
+  "toolshub_not_for_stage": "Công cụ này không dành cho giai đoạn hiện tại của bạn",
+  "toolshub_cakes_name": "Bánh kem",
+  "mental_question_progress": "Câu hỏi {n} / {total}",
+  "kick_recent_sessions": "Các phiên gần đây",
+  "common_sm": "cm",
+  "common_bagla": "Đóng",
+  "word_garden_language_pending": "Thư viện từ cho ngôn ngữ này đang được chuẩn bị."
 }

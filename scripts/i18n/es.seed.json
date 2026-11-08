@@ -12199,5 +12199,12 @@
   "pm_feat_par_quiz": "Resultado detallado del test",
   "par_milestone_early": "Esta revisión empieza a los {n} meses. A esta edad cada bebé se desarrolla a su propio ritmo. Si algo te preocupa, habla con tu médico.",
   "par_home_continue": "Continuar: {title}",
-  "par_home_day": "Día {n}/{total}"
+  "par_home_day": "Día {n}/{total}",
+  "toolshub_not_for_stage": "Esta herramienta no está pensada para tu etapa actual",
+  "toolshub_cakes_name": "Tartas",
+  "mental_question_progress": "Pregunta {n} / {total}",
+  "kick_recent_sessions": "Sesiones recientes",
+  "common_sm": "cm",
+  "common_bagla": "Cerrar",
+  "word_garden_language_pending": "Estamos preparando la biblioteca de palabras para este idioma."
 }

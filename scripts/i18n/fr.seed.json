@@ -12199,5 +12199,12 @@
   "pm_feat_par_quiz": "Résultat détaillé du test",
   "par_milestone_early": "Ce bilan commence à {n} mois. À cet âge, chaque bébé se développe à son rythme. Si quelque chose t’inquiète, parles-en à ton médecin.",
   "par_home_continue": "Continuer : {title}",
-  "par_home_day": "Jour {n}/{total}"
+  "par_home_day": "Jour {n}/{total}",
+  "toolshub_not_for_stage": "Cet outil n'est pas prévu pour votre étape actuelle",
+  "toolshub_cakes_name": "Gâteaux",
+  "mental_question_progress": "Question {n} / {total}",
+  "kick_recent_sessions": "Sessions récentes",
+  "common_sm": "cm",
+  "common_bagla": "Fermer",
+  "word_garden_language_pending": "La bibliothèque de mots pour cette langue est en préparation."
 }

@@ -12199,5 +12199,12 @@
   "pm_feat_par_quiz": "테스트 상세 결과",
   "par_milestone_early": "이 체크는 생후 {n}개월부터 시작해요. 이 시기의 아기는 저마다의 속도로 자라요. 걱정되는 점이 있다면 의사와 상담해 주세요.",
   "par_home_continue": "이어서 하기: {title}",
-  "par_home_day": "{n}/{total}일차"
+  "par_home_day": "{n}/{total}일차",
+  "toolshub_not_for_stage": "이 도구는 현재 단계에 맞지 않습니다",
+  "toolshub_cakes_name": "케이크",
+  "mental_question_progress": "질문 {n} / {total}",
+  "kick_recent_sessions": "최근 세션",
+  "common_sm": "cm",
+  "common_bagla": "닫기",
+  "word_garden_language_pending": "이 언어의 단어 라이브러리를 준비하고 있습니다."
 }

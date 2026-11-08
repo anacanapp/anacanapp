@@ -12280,5 +12280,9 @@
   "pm_feat_par_quiz": "Тесттин толук жыйынтыгы",
   "par_milestone_early": "Бул текшерүү {n} айдан башталат. Бул куракта ар бир бөбөк өз темпинде өнүгөт. Сени бир нерсе тынчсыздандырса, дарыгер менен сүйлөш.",
   "par_home_continue": "Улантуу: {title}",
-  "par_home_day": "{n}/{total}-күн"
+  "par_home_day": "{n}/{total}-күн",
+  "toolshub_not_for_stage": "Бул курал азыркы этабыңыз үчүн арналган эмес",
+  "toolshub_cakes_name": "Торттор",
+  "mental_question_progress": "Суроо {n} / {total}",
+  "kick_recent_sessions": "Акыркы сеанстар"
 }

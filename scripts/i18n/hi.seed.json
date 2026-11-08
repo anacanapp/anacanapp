@@ -12199,5 +12199,12 @@
   "pm_feat_par_quiz": "टेस्ट का विस्तृत नतीजा",
   "par_milestone_early": "यह जाँच {n} महीने से शुरू होती है। इस उम्र में हर बच्चा अपनी रफ़्तार से बढ़ता है। अगर कोई बात आपको परेशान करे, तो डॉक्टर से बात करें।",
   "par_home_continue": "जारी रखें: {title}",
-  "par_home_day": "दिन {n}/{total}"
+  "par_home_day": "दिन {n}/{total}",
+  "toolshub_not_for_stage": "यह टूल आपके वर्तमान चरण के लिए नहीं है",
+  "toolshub_cakes_name": "केक",
+  "mental_question_progress": "प्रश्न {n} / {total}",
+  "kick_recent_sessions": "हाल के सत्र",
+  "common_sm": "सेमी",
+  "common_bagla": "बंद करें",
+  "word_garden_language_pending": "इस भाषा के लिए शब्द लाइब्रेरी तैयार की जा रही है।"
 }

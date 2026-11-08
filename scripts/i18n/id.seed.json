@@ -12199,5 +12199,12 @@
   "pm_feat_par_quiz": "Hasil tes lengkap",
   "par_milestone_early": "Pemeriksaan ini dimulai pada usia {n} bulan. Di usia ini setiap bayi berkembang dengan iramanya sendiri. Jika ada yang membuatmu khawatir, bicarakan dengan dokter.",
   "par_home_continue": "Lanjutkan: {title}",
-  "par_home_day": "Hari {n}/{total}"
+  "par_home_day": "Hari {n}/{total}",
+  "toolshub_not_for_stage": "Alat ini tidak ditujukan untuk tahap Anda saat ini",
+  "toolshub_cakes_name": "Kue",
+  "mental_question_progress": "Pertanyaan {n} / {total}",
+  "kick_recent_sessions": "Sesi terakhir",
+  "common_sm": "cm",
+  "common_bagla": "Tutup",
+  "word_garden_language_pending": "Pustaka kata untuk bahasa ini sedang disiapkan."
 }
