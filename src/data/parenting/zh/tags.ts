@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['朋友', '交朋友', '一个人玩'],
   bullying: ['霸凌', '欺负', '嘲笑', '排挤'],
   'after-school': ['放学后', '放学回家'],
+  'crying-plan': ['哭闹计划', '肠绞痛', '哭好几个小时', '傍晚哭', '黄昏闹'],
+  'stranger-anxiety': ['认生', '怕生人', '奶奶抱就哭', '不让别人抱', '分离焦虑'],
+  'sleep-regressions': ['睡眠倒退', '夜醒', '频繁夜醒', '突然睡不好', '4个月'],
+  'pacifier-thumb': ['安抚奶嘴', '奶嘴', '吃手', '吃手指', '戒奶嘴'],
+  'first-foods': ['辅食', '添加辅食', '第一口辅食', '吐饭', '手指食物'],
+  'fourth-trimester': ['产后', '坐月子', '产后抑郁', '想哭', '产后忧郁'],
+  'body-safety': ['身体安全', '性教育', '不当触碰', '性侵', '坏秘密', '隐私部位'],
+  'online-safety': ['网络安全', '上网', '社交软件', '网友', '游戏充值', '抖音', '短视频'],
+  grandparents: ['奶奶', '爷爷', '外婆', '婆婆', '老人带娃', '隔代', '惯孩子', '老人宠'],
+  'bilingual-home': ['双语', '两种语言', '俄语', '学外语', '混着说'],
+  divorce: ['离婚', '分居', '父母分开', '单亲', '探视'],
+  grief: ['去世', '死亡', '死了', '葬礼', '谈死亡'],
+  'big-changes': ['搬家', '转学', '新城市', '换幼儿园', '新环境'],
+  bedwetting: ['尿床', '夜里尿', '遗尿', '晚上尿裤子'],
+  stuttering: ['口吃', '结巴', '说话卡'],
+  'pocket-money': ['零花钱', '零用钱', '给钱', '存钱', '压岁钱'],
+  'school-readiness': ['幼小衔接', '上小学', '一年级', '入学准备', '大班'],
+  'adhd-autism-signs': ['自闭症', '孤独症', '多动症', 'ADHD', '注意力不集中', '没有眼神交流', '叫名字不理'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['霸凌', '欺负', '嘲笑', '哭着回家'],
   'hits-parent': ['打我', '打妈妈', '打爸爸'],
   'not-listening': ['不听话', '叫不应', '说了不听', '不理我'],
-  'baby-bites-breast': ['咬乳头', '喂奶咬', '扯头发'],
+  'baby-bites-breast': ['咬乳头', '喂奶咬', '扯头发', '吃奶时咬', '乳头疼'],
+  'baby-crying-different': ['哭得不一样', '尖叫哭', '突然哭', '哭声奇怪', '哼哼'],
+  'sleeps-only-on-me': ['抱着睡', '只能抱睡', '放下就醒', '不睡小床', '落地醒'],
+  'about-to-lose-it': ['受不了了', '要崩溃', '控制不住', '想摇晃', '没耐心了', '快疯了'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['吼', '不吼', '耐心'],
   'tantrums-14': ['发脾气', '哭闹'],
   'sleep-7': ['睡眠', '睡觉', '不睡'],
+  'siblings-7': ['兄弟姐妹', '兄弟', '姐妹', '嫉妒', '打架'],
+  'screen-reset-7': ['屏幕', '手机', '平板', '动画片'],
+  'special-time-7': ['专属时光', '要关注', '一起玩'],
 };

@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['teman', 'berteman', 'main sendiri'],
   bullying: ['bullying', 'perundungan', 'dirundung', 'diejek', 'dibully'],
   'after-school': ['pulang sekolah', 'sepulang sekolah'],
+  'crying-plan': ['rencana tangisan', 'kolik', 'menangis berjam-jam', 'nangis tiap sore', 'nangis malam'],
+  'stranger-anxiety': ['takut orang asing', 'orang asing', 'nangis digendong nenek', 'nggak mau digendong', 'cemas berpisah'],
+  'sleep-regressions': ['regresi tidur', 'sleep regression', 'bangun malam', 'sering terbangun', 'tidurnya kacau'],
+  'pacifier-thumb': ['empeng', 'dot empeng', 'isap jempol', 'mengisap jari', 'ngempeng'],
+  'first-foods': ['mpasi', 'makanan padat', 'makanan pertama', 'melepeh', 'blw'],
+  'fourth-trimester': ['setelah melahirkan', 'pascapersalinan', 'depresi', 'ingin menangis', 'baby blues'],
+  'body-safety': ['keamanan tubuh', 'sentuhan buruk', 'pelecehan', 'kekerasan seksual', 'rahasia buruk', 'bagian pribadi'],
+  'online-safety': ['online', 'internet', 'media sosial', 'chat orang asing', 'top up game', 'tiktok', 'roblox'],
+  grandparents: ['nenek', 'kakek', 'mertua', 'keluarga besar', 'nenek mengizinkan', 'rumah nenek', 'dimanja nenek', 'oma'],
+  'bilingual-home': ['dwibahasa', 'bilingual', 'dua bahasa', 'bahasa rusia', 'campur bahasa'],
+  divorce: ['cerai', 'perceraian', 'orang tua berpisah', 'tinggal terpisah', 'ketemu ayah'],
+  grief: ['kematian', 'meninggal', 'wafat', 'pemakaman', 'bicara soal kematian'],
+  'big-changes': ['pindah rumah', 'pindahan', 'pindah sekolah', 'kota baru', 'penitipan baru'],
+  bedwetting: ['mengompol', 'ngompol', 'kasur basah', 'enuresis', 'pipis malam'],
+  stuttering: ['gagap', 'tergagap', 'kata tersangkut'],
+  'pocket-money': ['uang saku', 'uang jajan', 'kasih uang', 'menabung'],
+  'school-readiness': ['kelas 1', 'masuk sd', 'siap sekolah', 'mulai sekolah', 'tk b'],
+  'adhd-autism-signs': ['autis', 'autisme', 'adhd', 'hiperaktif', 'kurang fokus', 'tidak ada kontak mata', 'dipanggil nama'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['bullying', 'diejek', 'dibully', 'dipukul teman', 'pulang menangis'],
   'hits-parent': ['memukulku', 'pukul mama', 'pukul ibu', 'memukul orang tua'],
   'not-listening': ['tidak mendengar', 'nggak dengar', 'tidak nurut', 'nggak nurut', 'cuek'],
-  'baby-bites-breast': ['gigit payudara', 'gigit saat menyusu', 'tarik rambut'],
+  'baby-bites-breast': ['gigit payudara', 'gigit saat menyusu', 'tarik rambut', 'menggigit puting', 'puting sakit'],
+  'baby-crying-different': ['tangisan berbeda', 'nangis melengking', 'tiba-tiba menangis', 'tangisan aneh', 'merintih'],
+  'sleeps-only-on-me': ['tidur di gendongan', 'harus digendong', 'ditaruh bangun', 'nggak mau tidur di boks', 'bau tangan'],
+  'about-to-lose-it': ['nggak tahan', 'hilang kendali', 'tidak bisa menahan diri', 'mengguncang', 'kesabaran habis', 'mau meledak'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['membentak', 'teriak', 'sabar'],
   'tantrums-14': ['tantrum', 'ngamuk'],
   'sleep-7': ['tidur', 'susah tidur', 'jam tidur'],
+  'siblings-7': ['kakak adik', 'saudara kandung', 'kakak', 'adik', 'cemburu', 'bertengkar'],
+  'screen-reset-7': ['layar', 'ponsel', 'hp', 'tablet', 'kartun'],
+  'special-time-7': ['waktu khusus', 'minta perhatian', 'main bersama'],
 };

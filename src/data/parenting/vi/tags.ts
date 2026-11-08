@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['bạn bè', 'kết bạn', 'chơi một mình'],
   bullying: ['bắt nạt', 'trêu chọc', 'bị cô lập', 'bạo lực học đường'],
   'after-school': ['sau giờ học', 'đi học về'],
+  'crying-plan': ['kế hoạch khóc', 'khóc dạ đề', 'colic', 'khóc hàng giờ', 'khóc buổi tối'],
+  'stranger-anxiety': ['sợ người lạ', 'lạ người', 'bà bế cũng khóc', 'không cho ai bế', 'lo xa cách'],
+  'sleep-regressions': ['thoái lui giấc ngủ', 'khủng hoảng ngủ', 'thức đêm', 'thức giấc liên tục', 'ngủ không ngon'],
+  'pacifier-thumb': ['ti giả', 'núm vú giả', 'mút tay', 'mút ngón tay', 'cai ti giả'],
+  'first-foods': ['ăn dặm', 'món ăn dặm', 'ăn dặm tự chỉ huy', 'nhè đồ ăn', 'blw'],
+  'fourth-trimester': ['sau sinh', 'ở cữ', 'trầm cảm sau sinh', 'muốn khóc', 'baby blues'],
+  'body-safety': ['an toàn cơ thể', 'giáo dục giới tính', 'đụng chạm', 'xâm hại', 'bí mật xấu', 'vùng kín'],
+  'online-safety': ['trên mạng', 'internet', 'mạng xã hội', 'nhắn tin người lạ', 'nạp tiền game', 'tiktok', 'roblox'],
+  grandparents: ['ông bà', 'bà nội', 'bà ngoại', 'mẹ chồng', 'đại gia đình', 'bà cho phép', 'nhà bà', 'bà chiều'],
+  'bilingual-home': ['song ngữ', 'hai ngôn ngữ', 'tiếng nga', 'tiếng anh', 'trộn ngôn ngữ'],
+  divorce: ['ly hôn', 'ly thân', 'bố mẹ chia tay', 'sống riêng', 'gặp bố'],
+  grief: ['cái chết', 'qua đời', 'mất rồi', 'đám tang', 'nói về cái chết'],
+  'big-changes': ['chuyển nhà', 'dọn nhà', 'chuyển trường', 'thành phố mới', 'nhà trẻ mới'],
+  bedwetting: ['tè dầm', 'đái dầm', 'ướt giường', 'tiểu đêm'],
+  stuttering: ['nói lắp', 'cà lăm', 'nói vấp'],
+  'pocket-money': ['tiền tiêu vặt', 'tiền túi', 'cho tiền', 'tiết kiệm tiền'],
+  'school-readiness': ['vào lớp 1', 'chuẩn bị vào lớp 1', 'đi học', 'tiền tiểu học', 'mẫu giáo lớn'],
+  'adhd-autism-signs': ['tự kỷ', 'adhd', 'tăng động', 'giảm chú ý', 'không tập trung', 'không giao tiếp mắt', 'gọi tên không'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['bắt nạt', 'trêu chọc', 'bị trêu', 'bị đánh', 'khóc khi đi học về'],
   'hits-parent': ['đánh mẹ', 'đánh bố', 'con đánh', 'đánh bố mẹ'],
   'not-listening': ['không nghe lời', 'không vâng lời', 'không nghe', 'lờ đi', 'cãi lời'],
-  'baby-bites-breast': ['cắn ti', 'cắn khi bú', 'giật tóc'],
+  'baby-bites-breast': ['cắn ti', 'cắn khi bú', 'giật tóc', 'cắn đầu ti', 'đau đầu ti'],
+  'baby-crying-different': ['khóc khác thường', 'khóc thét', 'đột nhiên khóc', 'khóc lạ', 'rên rỉ'],
+  'sleeps-only-on-me': ['chỉ ngủ trên tay', 'ngủ trên tay', 'đặt xuống là dậy', 'không ngủ cũi', 'bế mới ngủ'],
+  'about-to-lose-it': ['không chịu nổi', 'mất kiểm soát', 'không kiềm chế được', 'muốn lắc', 'hết kiên nhẫn', 'phát điên'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['quát', 'la mắng', 'kiên nhẫn'],
   'tantrums-14': ['ăn vạ', 'gào khóc'],
   'sleep-7': ['giấc ngủ', 'đi ngủ', 'không ngủ'],
+  'siblings-7': ['anh chị em', 'anh em', 'chị em', 'ganh tị', 'đánh nhau'],
+  'screen-reset-7': ['màn hình', 'điện thoại', 'máy tính bảng', 'hoạt hình'],
+  'special-time-7': ['thời gian đặc biệt', 'đòi chú ý', 'chơi cùng'],
 };
