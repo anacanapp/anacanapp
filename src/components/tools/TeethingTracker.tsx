@@ -125,6 +125,8 @@ const TeethingTracker = ({ onBack }: TeethingTrackerProps) => {
               whileHover={{ scale: 1.1, y: position === 'upper' ? 2 : -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleToothClick(tooth)}
+              aria-label={tr("tooth_name_" + tooth.tooth_code, tooth.name)}
+              aria-pressed={emerged}
               className={`relative transition-all duration-200 ${baseSize} ${
               position === 'upper' ? 'rounded-t-lg rounded-b-[40%]' : 'rounded-b-lg rounded-t-[40%]'}`}
               style={{

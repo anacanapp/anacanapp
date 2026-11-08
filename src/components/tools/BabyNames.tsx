@@ -119,7 +119,7 @@ const BabyNames = forwardRef<HTMLDivElement, BabyNamesProps>(({ onBack }, ref) =
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }}>
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_back", "Geri")}>
               <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
@@ -130,6 +130,7 @@ const BabyNames = forwardRef<HTMLDivElement, BabyNamesProps>(({ onBack }, ref) =
           <div className="a-topbar-actions">
             <motion.button
               onClick={getRandomName}
+              aria-label={tr("a11y_random_name", "Təsadüfi ad seç")}
               className="a-icon-btn"
               style={{ background: 'var(--a-peach-2)', color: '#fff', border: 'none' }}
               whileHover={{ rotate: 180 }}
@@ -253,6 +254,8 @@ const BabyNames = forwardRef<HTMLDivElement, BabyNamesProps>(({ onBack }, ref) =
                       e.stopPropagation();
                       handleToggleFavorite(name);
                     }}
+                    aria-label={tr("a11y_favorite", "Sevimlilərə əlavə et")}
+                    aria-pressed={isFavorite(name.name)}
                     className="a-icon-btn"
                     style={{ width: 30, height: 30, ...(isFavorite(name.name) ? { background: 'var(--a-pink-1)', border: 'none' } : {}) }}
                     whileTap={{ scale: 0.85 }}>
@@ -338,6 +341,7 @@ const BabyNames = forwardRef<HTMLDivElement, BabyNamesProps>(({ onBack }, ref) =
                     <>
                       <button
                         onClick={() => setSelectedName(null)}
+                        aria-label={tr("common_close", "Bağla")}
                         className="absolute top-3 end-3 w-8 h-8 rounded-full flex items-center justify-center"
                         style={{ background: 'rgba(255,255,255,0.5)', border: 'none', cursor: 'pointer' }}>
 

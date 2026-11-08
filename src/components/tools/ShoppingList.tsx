@@ -127,6 +127,7 @@ const ShoppingList = ({ onBack }: ShoppingListProps) => {
           
           <button
             onClick={handleAddItem}
+            aria-label={tr("a11y_add", "Əlavə et")}
             disabled={submitting || !newItemName.trim()}
             className="a-cta-btn shrink-0"
             style={{ width: 42, height: 42, padding: 0, justifyContent: 'center', opacity: submitting || !newItemName.trim() ? 0.5 : 1 }}>
@@ -214,6 +215,8 @@ const ShoppingList = ({ onBack }: ShoppingListProps) => {
             
               <button
               onClick={() => toggleItem(item.id)}
+              aria-label={item.name}
+              aria-pressed={false}
               className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
               style={{ border: '2px solid var(--a-peach-2)', background: 'none', cursor: 'pointer' }}>
               
@@ -234,6 +237,7 @@ const ShoppingList = ({ onBack }: ShoppingListProps) => {
               </div>
               <button
               onClick={() => deleteItem(item.id)}
+              aria-label={tr("common_sil", "Sil")}
               className="w-7 h-7 rounded-full flex items-center justify-center"
               style={{ background: 'var(--a-pink-1)', border: 'none', cursor: 'pointer' }}>
               
@@ -280,6 +284,8 @@ const ShoppingList = ({ onBack }: ShoppingListProps) => {
                 
                       <button
                   onClick={() => toggleItem(item.id)}
+                  aria-label={item.name}
+                  aria-pressed={true}
                   className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
                   style={{ background: 'var(--a-green-2)', border: 'none', cursor: 'pointer' }}>
                   
@@ -288,6 +294,7 @@ const ShoppingList = ({ onBack }: ShoppingListProps) => {
                       <p className="flex-1 font-semibold line-through" style={{ margin: 0, color: 'var(--a-ink-soft)' }}>{item.name}</p>
                       <button
                   onClick={() => deleteItem(item.id)}
+                  aria-label={tr("common_sil", "Sil")}
                   className="w-8 h-8 rounded-full flex items-center justify-center"
                   style={{ background: 'var(--a-pink-1)', border: 'none', cursor: 'pointer' }}>
                   

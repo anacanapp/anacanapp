@@ -12342,5 +12342,18 @@
   "growthtz_who_head": "Hoofdomtrek (cm)",
   "partnerv2_sleep_plan_title": "Slaaptrainingsplan",
   "partnerv2_sleep_plan_day": "Dag {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Wektijd: {time}"
+  "partnerv2_sleep_plan_wake": "Wektijd: {time}",
+  "a11y_add": "Toevoegen",
+  "a11y_edit": "Bewerken",
+  "a11y_favorite": "Toevoegen aan favorieten",
+  "a11y_filter": "Filteren",
+  "a11y_history": "Geschiedenis",
+  "a11y_image_n": "Afbeelding {n}",
+  "a11y_random_name": "Kies een willekeurige naam",
+  "a11y_refresh": "Vernieuwen",
+  "a11y_remove_photo": "Foto verwijderen",
+  "a11y_replace_photo": "Foto vervangen",
+  "a11y_save": "Bewaren",
+  "a11y_share": "Delen",
+  "a11y_star_n": "Beoordeling: {n}/5"
 }

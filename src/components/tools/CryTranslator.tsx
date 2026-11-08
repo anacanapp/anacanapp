@@ -375,7 +375,7 @@ const CryTranslator = ({ onBack }: CryTranslatorProps) => {
         eyebrow={tr("crytranslator_ai_ile_korpe_aglamasini_analiz_edin_e2e23c", "AI ilə körpə ağlamasını analiz edin")}
         title={tr("adminanalytics_aglama_analizi_0713b3", "Ağlama Analizi")}
         actions={
-        <button className="a-icon-btn" onClick={() => setShowHistory(!showHistory)} aria-label="History">
+        <button className="a-icon-btn" onClick={() => setShowHistory(!showHistory)} aria-label={tr("a11y_history", "Tarixçə")} aria-pressed={showHistory}>
             <History size={16} strokeWidth={2} />
           </button>
         } />

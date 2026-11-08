@@ -11,7 +11,7 @@ import { nativeShare } from '@/lib/native';
 import { useToast } from '@/hooks/use-toast';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { ToolPage } from '../anacan/ToolKit';
-import { tr } from "@/lib/tr";
+import { tr, formatTr } from "@/lib/tr";
 import {
   Carousel,
   CarouselContent,
@@ -119,13 +119,14 @@ const AffiliateProductDetail = ({ product, onBack }: AffiliateProductDetailProps
           </div>
         </div>
         <div className="a-topbar-actions">
-          <button className="a-icon-btn" onClick={handleShare} aria-label="Share">
+          <button className="a-icon-btn" onClick={handleShare} aria-label={tr("a11y_share", "Paylaş")}>
             <Share2 size={16} strokeWidth={2} />
           </button>
           <button
             className="a-icon-btn"
             onClick={handleSaveToggle}
-            aria-label="Save"
+            aria-label={tr("a11y_save", "Yadda saxla")}
+            aria-pressed={!!isSaved}
             style={isSaved ? { color: 'var(--a-pink-2)' } : undefined}>
             
             <Heart size={16} strokeWidth={2} className={isSaved ? 'fill-current' : ''} />
@@ -204,6 +205,8 @@ const AffiliateProductDetail = ({ product, onBack }: AffiliateProductDetailProps
             <button
               key={idx}
               onClick={() => scrollToImage(idx)}
+              aria-label={formatTr("a11y_image_n", "Şəkil {n}", { n: idx + 1 })}
+              aria-pressed={idx === currentImageIndex}
               className="shrink-0 w-14 h-14 rounded-xl overflow-hidden transition-all"
               style={idx === currentImageIndex ?
               { border: '2px solid var(--a-peach-2)', boxShadow: 'var(--a-card-shadow)', transform: 'scale(1.05)', cursor: 'pointer' } :
@@ -446,7 +449,8 @@ const AffiliateProductDetail = ({ product, onBack }: AffiliateProductDetailProps
             <button
             className="absolute end-4 w-10 h-10 rounded-full flex items-center justify-center text-white"
             style={{ top: 'calc(env(safe-area-inset-top, 0px) + 16px)', background: 'rgba(255,255,255,0.15)', border: 'none', cursor: 'pointer' }}
-            onClick={() => setShowVideo(false)}>
+            onClick={() => setShowVideo(false)}
+            aria-label={tr("common_close", "Bağla")}>
             
               <X className="w-6 h-6" />
             </button>

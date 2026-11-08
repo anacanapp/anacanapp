@@ -10195,5 +10195,18 @@
   "growthtz_who_head": "Baş çevresi (cm)",
   "partnerv2_sleep_plan_title": "Uyku eğitimi planı",
   "partnerv2_sleep_plan_day": "Gün {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Uyanma saati: {time}"
+  "partnerv2_sleep_plan_wake": "Uyanma saati: {time}",
+  "a11y_add": "Ekle",
+  "a11y_edit": "Düzenle",
+  "a11y_favorite": "Favorilere ekle",
+  "a11y_filter": "Filtrele",
+  "a11y_history": "Geçmiş",
+  "a11y_image_n": "Görsel {n}",
+  "a11y_random_name": "Rastgele isim seç",
+  "a11y_refresh": "Yenile",
+  "a11y_remove_photo": "Fotoğrafı kaldır",
+  "a11y_replace_photo": "Fotoğrafı değiştir",
+  "a11y_save": "Kaydet",
+  "a11y_share": "Paylaş",
+  "a11y_star_n": "Puan: {n}/5"
 }

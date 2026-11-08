@@ -133,6 +133,7 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
             setScanDate(todayKey());
             setShowAddForm(true);
           }}
+          aria-label={tr("a11y_add", "Əlavə et")}
           className="a-icon-btn"
           style={{ background: 'var(--a-peach-2)', color: '#fff', border: 'none' }}
           whileTap={{ scale: 0.9 }}>
@@ -351,6 +352,7 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
                   <button
                 className="a-icon-btn"
                 style={{ width: 30, height: 30 }}
+                aria-label={tr("common_sil", "Sil")}
                 onClick={() => setDeleteConfirmId(scan.id)}>
                 
                     <Trash2 size={13} strokeWidth={2} />

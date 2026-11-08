@@ -12342,5 +12342,18 @@
   "growthtz_who_head": "頭囲（cm）",
   "partnerv2_sleep_plan_title": "ねんねトレーニング計画",
   "partnerv2_sleep_plan_day": "{n}/{total}日目",
-  "partnerv2_sleep_plan_wake": "起床時間：{time}"
+  "partnerv2_sleep_plan_wake": "起床時間：{time}",
+  "a11y_add": "追加",
+  "a11y_edit": "編集",
+  "a11y_favorite": "お気に入りに追加",
+  "a11y_filter": "絞り込み",
+  "a11y_history": "履歴",
+  "a11y_image_n": "画像 {n}",
+  "a11y_random_name": "ランダムに名前を選ぶ",
+  "a11y_refresh": "更新",
+  "a11y_remove_photo": "写真を削除",
+  "a11y_replace_photo": "写真を差し替え",
+  "a11y_save": "保存",
+  "a11y_share": "共有",
+  "a11y_star_n": "評価：{n}/5"
 }

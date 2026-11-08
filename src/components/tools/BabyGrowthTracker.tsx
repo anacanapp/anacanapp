@@ -373,7 +373,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }}>
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_back", "Geri")}>
               <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
@@ -384,6 +384,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
           <div className="a-topbar-actions">
             <motion.button
               onClick={() => setShowAddModal(true)}
+              aria-label={tr("a11y_add", "Əlavə et")}
               className="a-icon-btn"
               style={{ background: 'var(--a-peach-2)', color: '#fff', border: 'none' }}
               whileTap={{ scale: 0.9 }}>
@@ -553,6 +554,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
                   <span className="a-list-trail" style={{ display: 'flex', gap: 6 }}>
                     <motion.button
                   onClick={() => openEditModal(entry)}
+                  aria-label={tr("a11y_edit", "Redaktə et")}
                   className="a-icon-btn"
                   style={{ width: 30, height: 30 }}
                   whileTap={{ scale: 0.9 }}>
@@ -561,6 +563,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
                     </motion.button>
                     <motion.button
                   onClick={() => handleDelete(entry.id)}
+                  aria-label={tr("common_sil", "Sil")}
                   className="a-icon-btn"
                   style={{ width: 30, height: 30, background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)', border: 'none' }}
                   whileTap={{ scale: 0.9 }}>

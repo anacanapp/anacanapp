@@ -589,6 +589,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
                 setViewingPhoto(null);
                 setEditingCaption(false);
               }}
+              aria-label={tr("common_close", "Bağla")}
               className="w-10 h-10 rounded-full flex items-center justify-center text-white"
               style={{ background: 'rgba(255,255,255,0.15)', border: 'none', cursor: 'pointer' }}>
               
@@ -604,6 +605,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
                 <button
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white"
                 style={{ background: 'rgba(255,255,255,0.15)', border: 'none', cursor: 'pointer' }}
+                aria-label={tr("a11y_replace_photo", "Şəkli dəyiş")}
                 onClick={() => handleReplace(viewingPhoto)}>
                 
                   <RefreshCw className="w-5 h-5" />
@@ -611,6 +613,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
                 <button
                 className="w-10 h-10 rounded-full flex items-center justify-center"
                 style={{ background: 'rgba(255,255,255,0.15)', border: 'none', cursor: 'pointer', color: 'var(--a-pink-2)' }}
+                aria-label={tr("common_sil", "Sil")}
                 onClick={() => handleDelete(viewingPhoto)}>
                 
                   <Trash2 className="w-5 h-5" />
@@ -640,6 +643,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
                   <button
                 className="a-cta-btn"
                 style={{ width: 42, height: 42, padding: 0, justifyContent: 'center' }}
+                aria-label={tr("common_saxla", "Saxla")}
                 onClick={() => updateCaptionMutation.mutate({ id: viewingPhoto.id, newCaption: caption })}>
                 
                     <Save className="w-4 h-4" />

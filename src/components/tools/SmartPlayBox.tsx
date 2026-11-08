@@ -234,7 +234,7 @@ const SmartPlayBox = ({ onBack }: SmartPlayBoxProps) => {
         eyebrow={babyInfo.label ? `${tr("smartplaybox_korpeniz_da99de", "K\xF6rp\u0259niz")} ${babyInfo.label}` : tr("smartplaybox_bugunku_tovsiye_ec6c3a", "Bugünkü Tövsiyə")}
         title={tr("smartplaybox_agilli_oyun_qutusu_db6ef9", "A\u011F\u0131ll\u0131 Oyun Qutusu")}
         actions={
-        <button className="a-icon-btn relative" onClick={() => setShowInventory(true)} aria-label="Inventory">
+        <button className="a-icon-btn relative" onClick={() => setShowInventory(true)} aria-label={tr("smartplaybox_evde_olan_esyalar_382e9a", "Evdə Olan Əşyalar")}>
             <Package size={16} strokeWidth={2} />
             {userInventory.length > 0 &&
           <span

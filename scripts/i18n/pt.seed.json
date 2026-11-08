@@ -12342,5 +12342,18 @@
   "growthtz_who_head": "Perímetro cefálico (cm)",
   "partnerv2_sleep_plan_title": "Plano de treino de sono",
   "partnerv2_sleep_plan_day": "Dia {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Hora de acordar: {time}"
+  "partnerv2_sleep_plan_wake": "Hora de acordar: {time}",
+  "a11y_add": "Adicionar",
+  "a11y_edit": "Editar",
+  "a11y_favorite": "Adicionar aos favoritos",
+  "a11y_filter": "Filtrar",
+  "a11y_history": "Histórico",
+  "a11y_image_n": "Imagem {n}",
+  "a11y_random_name": "Escolher um nome aleatório",
+  "a11y_refresh": "Atualizar",
+  "a11y_remove_photo": "Remover foto",
+  "a11y_replace_photo": "Substituir foto",
+  "a11y_save": "Salvar",
+  "a11y_share": "Compartilhar",
+  "a11y_star_n": "Avaliação: {n}/5"
 }

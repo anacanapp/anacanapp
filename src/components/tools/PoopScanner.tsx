@@ -246,7 +246,7 @@ const PoopScanner = ({ onBack }: PoopScannerProps) => {
         eyebrow={tr("poopscanner_ai_ile_korpe_necisini_analiz_edin_06fb84", "AI ilə körpə nəcisini analiz edin")}
         title={tr("poopscanner_necis_skaneri_dadd90", "Nəcis Skaneri")}
         actions={
-        <button className="a-icon-btn" onClick={() => setShowHistory(!showHistory)} aria-label="History">
+        <button className="a-icon-btn" onClick={() => setShowHistory(!showHistory)} aria-label={tr("a11y_history", "Tarixçə")} aria-pressed={showHistory}>
             <History size={16} strokeWidth={2} />
           </button>
         } />

@@ -10195,5 +10195,18 @@
   "growthtz_who_head": "Окружность головы (см)",
   "partnerv2_sleep_plan_title": "План обучения сну",
   "partnerv2_sleep_plan_day": "День {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Время подъёма: {time}"
+  "partnerv2_sleep_plan_wake": "Время подъёма: {time}",
+  "a11y_add": "Добавить",
+  "a11y_edit": "Редактировать",
+  "a11y_favorite": "Добавить в избранное",
+  "a11y_filter": "Фильтр",
+  "a11y_history": "История",
+  "a11y_image_n": "Изображение {n}",
+  "a11y_random_name": "Выбрать случайное имя",
+  "a11y_refresh": "Обновить",
+  "a11y_remove_photo": "Удалить фото",
+  "a11y_replace_photo": "Заменить фото",
+  "a11y_save": "Сохранить",
+  "a11y_share": "Поделиться",
+  "a11y_star_n": "Оценка: {n} из 5"
 }

@@ -10195,5 +10195,18 @@
   "growthtz_who_head": "თავის გარშემოწერილობა (sm)",
   "partnerv2_sleep_plan_title": "ძილის სწავლების გეგმა",
   "partnerv2_sleep_plan_day": "დღე {n}/{total}",
-  "partnerv2_sleep_plan_wake": "გაღვიძების დრო: {time}"
+  "partnerv2_sleep_plan_wake": "გაღვიძების დრო: {time}",
+  "a11y_add": "დამატება",
+  "a11y_edit": "რედაქტირება",
+  "a11y_favorite": "რჩეულებში დამატება",
+  "a11y_filter": "ფილტრი",
+  "a11y_history": "ისტორია",
+  "a11y_image_n": "სურათი {n}",
+  "a11y_random_name": "შემთხვევითი სახელის არჩევა",
+  "a11y_refresh": "განახლება",
+  "a11y_remove_photo": "ფოტოს წაშლა",
+  "a11y_replace_photo": "ფოტოს შეცვლა",
+  "a11y_save": "შენახვა",
+  "a11y_share": "გაზიარება",
+  "a11y_star_n": "შეფასება: {n}/5"
 }

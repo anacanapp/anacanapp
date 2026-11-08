@@ -12342,5 +12342,18 @@
   "growthtz_who_head": "सिर की परिधि (cm)",
   "partnerv2_sleep_plan_title": "स्लीप ट्रेनिंग योजना",
   "partnerv2_sleep_plan_day": "दिन {n}/{total}",
-  "partnerv2_sleep_plan_wake": "जागने का समय: {time}"
+  "partnerv2_sleep_plan_wake": "जागने का समय: {time}",
+  "a11y_add": "जोड़ें",
+  "a11y_edit": "संपादित करें",
+  "a11y_favorite": "पसंदीदा में जोड़ें",
+  "a11y_filter": "फ़िल्टर",
+  "a11y_history": "इतिहास",
+  "a11y_image_n": "चित्र {n}",
+  "a11y_random_name": "कोई भी नाम चुनें",
+  "a11y_refresh": "रीफ़्रेश करें",
+  "a11y_remove_photo": "फ़ोटो हटाएँ",
+  "a11y_replace_photo": "फ़ोटो बदलें",
+  "a11y_save": "सहेजें",
+  "a11y_share": "शेयर करें",
+  "a11y_star_n": "रेटिंग: {n}/5"
 }

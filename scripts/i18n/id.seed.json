@@ -12342,5 +12342,18 @@
   "growthtz_who_head": "Lingkar kepala (cm)",
   "partnerv2_sleep_plan_title": "Rencana latihan tidur",
   "partnerv2_sleep_plan_day": "Hari {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Waktu bangun: {time}"
+  "partnerv2_sleep_plan_wake": "Waktu bangun: {time}",
+  "a11y_add": "Tambah",
+  "a11y_edit": "Edit",
+  "a11y_favorite": "Tambahkan ke favorit",
+  "a11y_filter": "Filter",
+  "a11y_history": "Riwayat",
+  "a11y_image_n": "Gambar {n}",
+  "a11y_random_name": "Pilih nama acak",
+  "a11y_refresh": "Muat ulang",
+  "a11y_remove_photo": "Hapus foto",
+  "a11y_replace_photo": "Ganti foto",
+  "a11y_save": "Simpan",
+  "a11y_share": "Bagikan",
+  "a11y_star_n": "Rating: {n}/5"
 }

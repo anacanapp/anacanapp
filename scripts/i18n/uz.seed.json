@@ -10195,5 +10195,18 @@
   "growthtz_who_head": "Bosh aylanasi (sm)",
   "partnerv2_sleep_plan_title": "Uyquga oʻrgatish rejasi",
   "partnerv2_sleep_plan_day": "{n}/{total}-kun",
-  "partnerv2_sleep_plan_wake": "Uygʻonish vaqti: {time}"
+  "partnerv2_sleep_plan_wake": "Uygʻonish vaqti: {time}",
+  "a11y_add": "Qo‘shish",
+  "a11y_edit": "Tahrirlash",
+  "a11y_favorite": "Sevimlilarga qo‘shish",
+  "a11y_filter": "Filtr",
+  "a11y_history": "Tarix",
+  "a11y_image_n": "Rasm {n}",
+  "a11y_random_name": "Tasodifiy ism tanlash",
+  "a11y_refresh": "Yangilash",
+  "a11y_remove_photo": "Rasmni o‘chirish",
+  "a11y_replace_photo": "Rasmni almashtirish",
+  "a11y_save": "Saqlash",
+  "a11y_share": "Ulashish",
+  "a11y_star_n": "Baho: {n}/5"
 }

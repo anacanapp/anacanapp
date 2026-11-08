@@ -175,7 +175,7 @@ const WeatherClothing = ({ onBack }: WeatherClothingProps) => {
         }
         title={tr("weatherclothing_title", "Hava & Geyim")}
         actions={
-        <button className="a-icon-btn" onClick={fetchWeather} disabled={isLoading} aria-label="Refresh">
+        <button className="a-icon-btn" onClick={fetchWeather} disabled={isLoading} aria-label={tr("a11y_refresh", "Yenilə")}>
             <RefreshCw size={16} strokeWidth={2} className={isLoading ? 'animate-spin' : ''} />
           </button>
         } />

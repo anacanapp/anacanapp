@@ -500,6 +500,7 @@ const BabyPhotoshoot = forwardRef<HTMLDivElement, BabyPhotoshootProps>(({ onBack
                 
                   <motion.button
                   onClick={handleRemoveImage}
+                  aria-label={tr("a11y_remove_photo", "Şəkli sil")}
                   className="absolute top-3 end-3 w-10 h-10 rounded-full flex items-center justify-center shadow-lg"
                   style={{ background: 'var(--a-pink-2)' }}
                   whileTap={{ scale: 0.9 }}>

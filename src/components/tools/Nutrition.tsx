@@ -289,6 +289,7 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
                       </div>
                       <motion.button
                         onClick={() => handleDeleteMeal(log.id)}
+                        aria-label={tr("common_sil", "Sil")}
                         className="w-7 h-7 rounded-full flex items-center justify-center"
                         style={{ background: 'var(--a-pink-1)' }}
                         whileTap={{ scale: 0.9 }}>
@@ -356,7 +357,7 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
                 
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="a-heading" style={{ margin: 0, fontSize: 16, color: 'var(--a-ink)' }}>{tr("nutrition_xususi_qida_elave_et_2a3838", "Xüsusi qida əlavə et")}</h2>
-                    <button className="a-icon-btn" onClick={() => setShowAddModal(false)} aria-label="Close">
+                    <button className="a-icon-btn" onClick={() => setShowAddModal(false)} aria-label={tr("common_close", "Bağla")}>
                       <X size={15} />
                     </button>
                   </div>

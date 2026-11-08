@@ -10195,5 +10195,18 @@
   "growthtz_who_head": "Бас шеңбері (см)",
   "partnerv2_sleep_plan_title": "Ұйқыға үйрету жоспары",
   "partnerv2_sleep_plan_day": "{n}/{total}-күн",
-  "partnerv2_sleep_plan_wake": "Ояну уақыты: {time}"
+  "partnerv2_sleep_plan_wake": "Ояну уақыты: {time}",
+  "a11y_add": "Қосу",
+  "a11y_edit": "Өңдеу",
+  "a11y_favorite": "Таңдаулыларға қосу",
+  "a11y_filter": "Сүзгі",
+  "a11y_history": "Тарих",
+  "a11y_image_n": "Сурет {n}",
+  "a11y_random_name": "Кездейсоқ есім таңдау",
+  "a11y_refresh": "Жаңарту",
+  "a11y_remove_photo": "Фотоны жою",
+  "a11y_replace_photo": "Фотоны ауыстыру",
+  "a11y_save": "Сақтау",
+  "a11y_share": "Бөлісу",
+  "a11y_star_n": "Баға: {n}/5"
 }

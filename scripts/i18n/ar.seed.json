@@ -10195,5 +10195,18 @@
   "growthtz_who_head": "محيط الرأس (سم)",
   "partnerv2_sleep_plan_title": "خطة تدريب النوم",
   "partnerv2_sleep_plan_day": "اليوم {n}/{total}",
-  "partnerv2_sleep_plan_wake": "وقت الاستيقاظ: {time}"
+  "partnerv2_sleep_plan_wake": "وقت الاستيقاظ: {time}",
+  "a11y_add": "إضافة",
+  "a11y_edit": "تعديل",
+  "a11y_favorite": "إضافة إلى المفضلة",
+  "a11y_filter": "تصفية",
+  "a11y_history": "السجل",
+  "a11y_image_n": "الصورة {n}",
+  "a11y_random_name": "اختيار اسم عشوائي",
+  "a11y_refresh": "تحديث",
+  "a11y_remove_photo": "إزالة الصورة",
+  "a11y_replace_photo": "استبدال الصورة",
+  "a11y_save": "حفظ",
+  "a11y_share": "مشاركة",
+  "a11y_star_n": "التقييم: {n}/5"
 }

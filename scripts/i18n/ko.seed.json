@@ -12342,5 +12342,18 @@
   "growthtz_who_head": "머리둘레 (cm)",
   "partnerv2_sleep_plan_title": "수면 교육 계획",
   "partnerv2_sleep_plan_day": "{n}/{total}일차",
-  "partnerv2_sleep_plan_wake": "기상 시간: {time}"
+  "partnerv2_sleep_plan_wake": "기상 시간: {time}",
+  "a11y_add": "추가",
+  "a11y_edit": "편집",
+  "a11y_favorite": "즐겨찾기에 추가",
+  "a11y_filter": "필터",
+  "a11y_history": "기록",
+  "a11y_image_n": "이미지 {n}",
+  "a11y_random_name": "무작위 이름 선택",
+  "a11y_refresh": "새로고침",
+  "a11y_remove_photo": "사진 삭제",
+  "a11y_replace_photo": "사진 교체",
+  "a11y_save": "저장",
+  "a11y_share": "공유",
+  "a11y_star_n": "평점: {n}/5"
 }

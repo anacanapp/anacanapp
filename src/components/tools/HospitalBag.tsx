@@ -110,6 +110,8 @@ const HospitalBag = forwardRef<HTMLDivElement, HospitalBagProps>(({ onBack }, re
               e.stopPropagation();
               toggleItem(item.item_id);
             }}
+            aria-label={item.item_name}
+            aria-pressed={item.is_checked}
             className="w-6 h-6 rounded-lg flex items-center justify-center transition-all flex-shrink-0"
             style={item.is_checked ?
             { background: 'var(--a-green-2)', border: 'none', cursor: 'pointer' } :

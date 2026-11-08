@@ -12420,5 +12420,18 @@
   "growthtz_who_head": "Peaümbermõõt (cm)",
   "partnerv2_sleep_plan_title": "Unetreeningu kava",
   "partnerv2_sleep_plan_day": "Päev {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Ärkamisaeg: {time}"
+  "partnerv2_sleep_plan_wake": "Ärkamisaeg: {time}",
+  "a11y_add": "Lisa",
+  "a11y_edit": "Muuda",
+  "a11y_favorite": "Lisa lemmikutesse",
+  "a11y_filter": "Filtreeri",
+  "a11y_history": "Ajalugu",
+  "a11y_image_n": "Pilt {n}",
+  "a11y_random_name": "Vali juhuslik nimi",
+  "a11y_refresh": "Värskenda",
+  "a11y_remove_photo": "Eemalda foto",
+  "a11y_replace_photo": "Asenda foto",
+  "a11y_save": "Salvesta",
+  "a11y_share": "Jaga",
+  "a11y_star_n": "Hinne: {n}/5"
 }

@@ -8692,5 +8692,18 @@
   "growthtz_who_head": "Baş çevrəsi (sm)",
   "partnerv2_sleep_plan_title": "Yuxu təlimi planı",
   "partnerv2_sleep_plan_day": "Gün {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Oyanma vaxtı: {time}"
+  "partnerv2_sleep_plan_wake": "Oyanma vaxtı: {time}",
+  "a11y_add": "Əlavə et",
+  "a11y_edit": "Redaktə et",
+  "a11y_favorite": "Sevimlilərə əlavə et",
+  "a11y_filter": "Filtr",
+  "a11y_history": "Tarixçə",
+  "a11y_image_n": "Şəkil {n}",
+  "a11y_random_name": "Təsadüfi ad seç",
+  "a11y_refresh": "Yenilə",
+  "a11y_remove_photo": "Şəkli sil",
+  "a11y_replace_photo": "Şəkli dəyiş",
+  "a11y_save": "Yadda saxla",
+  "a11y_share": "Paylaş",
+  "a11y_star_n": "Qiymət: {n}/5"
 }

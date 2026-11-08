@@ -236,7 +236,7 @@ const DoctorsHospitals = ({ onBack }: DoctorsHospitalsProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }}>
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_back", "Geri")}>
               <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
@@ -441,6 +441,7 @@ const ProviderDetail = ({ provider, onBack, onReserve }: ProviderDetailProps) =>
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--a-bg), transparent 60%)' }} />
         <button
           onClick={onBack}
+          aria-label={tr("common_back", "Geri")}
           className="a-icon-btn absolute top-4 start-4">
           
           <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />

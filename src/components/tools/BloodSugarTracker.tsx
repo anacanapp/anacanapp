@@ -176,6 +176,7 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
         actions={
         <motion.button
           onClick={() => setShowAddModal(true)}
+          aria-label={tr("a11y_add", "Əlavə et")}
           className="a-icon-btn"
           style={{ background: 'var(--a-peach-2)', color: '#fff', border: 'none' }}
           whileTap={{ scale: 0.9 }}>
@@ -334,6 +335,7 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
                       <button
                       className="a-icon-btn"
                       style={{ width: 30, height: 30 }}
+                      aria-label={tr("common_sil", "Sil")}
                       onClick={() => deleteLogMutation.mutate(log.id)}>
                       
                         <Trash2 size={13} strokeWidth={2} />
@@ -362,7 +364,7 @@ const BloodSugarTracker = ({ onBack }: BloodSugarTrackerProps) => {
           
             <div className="a-card-head">
               <h2 className="a-card-title a-heading" style={{ fontSize: 16 }}>{tr("bloodsugartracker_yeni_olcme_cc2042", "Yeni ölçmə")}</h2>
-              <button className="a-icon-btn" style={{ width: 32, height: 32 }} onClick={() => setShowAddModal(false)}>
+              <button className="a-icon-btn" style={{ width: 32, height: 32 }} onClick={() => setShowAddModal(false)} aria-label={tr("common_close", "Bağla")}>
                 <X size={15} />
               </button>
             </div>

@@ -12420,5 +12420,18 @@
   "growthtz_who_head": "Баштын айланасы (см)",
   "partnerv2_sleep_plan_title": "Уйкуга үйрөтүү планы",
   "partnerv2_sleep_plan_day": "{n}/{total}-күн",
-  "partnerv2_sleep_plan_wake": "Ойгонуу убактысы: {time}"
+  "partnerv2_sleep_plan_wake": "Ойгонуу убактысы: {time}",
+  "a11y_add": "Кошуу",
+  "a11y_edit": "Түзөтүү",
+  "a11y_favorite": "Тандалмаларга кошуу",
+  "a11y_filter": "Чыпка",
+  "a11y_history": "Тарых",
+  "a11y_image_n": "Сүрөт {n}",
+  "a11y_random_name": "Кокустан ысым тандоо",
+  "a11y_refresh": "Жаңылоо",
+  "a11y_remove_photo": "Сүрөттү өчүрүү",
+  "a11y_replace_photo": "Сүрөттү алмаштыруу",
+  "a11y_save": "Сактоо",
+  "a11y_share": "Бөлүшүү",
+  "a11y_star_n": "Баа: {n}/5"
 }

@@ -12342,5 +12342,18 @@
   "growthtz_who_head": "Vòng đầu (cm)",
   "partnerv2_sleep_plan_title": "Kế hoạch tập ngủ",
   "partnerv2_sleep_plan_day": "Ngày {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Giờ thức dậy: {time}"
+  "partnerv2_sleep_plan_wake": "Giờ thức dậy: {time}",
+  "a11y_add": "Thêm",
+  "a11y_edit": "Chỉnh sửa",
+  "a11y_favorite": "Thêm vào yêu thích",
+  "a11y_filter": "Lọc",
+  "a11y_history": "Lịch sử",
+  "a11y_image_n": "Ảnh {n}",
+  "a11y_random_name": "Chọn tên ngẫu nhiên",
+  "a11y_refresh": "Làm mới",
+  "a11y_remove_photo": "Xóa ảnh",
+  "a11y_replace_photo": "Thay ảnh",
+  "a11y_save": "Lưu",
+  "a11y_share": "Chia sẻ",
+  "a11y_star_n": "Đánh giá: {n}/5"
 }

@@ -10184,5 +10184,18 @@
   "growthtz_who_head": "Head (cm)",
   "partnerv2_sleep_plan_title": "Sleep training plan",
   "partnerv2_sleep_plan_day": "Day {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Wake-up time: {time}"
+  "partnerv2_sleep_plan_wake": "Wake-up time: {time}",
+  "a11y_add": "Add",
+  "a11y_edit": "Edit",
+  "a11y_favorite": "Add to favourites",
+  "a11y_filter": "Filter",
+  "a11y_history": "History",
+  "a11y_image_n": "Image {n}",
+  "a11y_random_name": "Pick a random name",
+  "a11y_refresh": "Refresh",
+  "a11y_remove_photo": "Remove photo",
+  "a11y_replace_photo": "Replace photo",
+  "a11y_save": "Save",
+  "a11y_share": "Share",
+  "a11y_star_n": "Rating: {n}/5"
 }

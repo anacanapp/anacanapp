@@ -12342,5 +12342,18 @@
   "growthtz_who_head": "头围（cm）",
   "partnerv2_sleep_plan_title": "睡眠训练计划",
   "partnerv2_sleep_plan_day": "第 {n}/{total} 天",
-  "partnerv2_sleep_plan_wake": "起床时间：{time}"
+  "partnerv2_sleep_plan_wake": "起床时间：{time}",
+  "a11y_add": "添加",
+  "a11y_edit": "编辑",
+  "a11y_favorite": "加入收藏",
+  "a11y_filter": "筛选",
+  "a11y_history": "历史记录",
+  "a11y_image_n": "图片 {n}",
+  "a11y_random_name": "随机选一个名字",
+  "a11y_refresh": "刷新",
+  "a11y_remove_photo": "移除照片",
+  "a11y_replace_photo": "更换照片",
+  "a11y_save": "收藏",
+  "a11y_share": "分享",
+  "a11y_star_n": "评分：{n}/5"
 }

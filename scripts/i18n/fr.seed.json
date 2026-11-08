@@ -12342,5 +12342,18 @@
   "growthtz_who_head": "Périmètre crânien (cm)",
   "partnerv2_sleep_plan_title": "Plan d’apprentissage du sommeil",
   "partnerv2_sleep_plan_day": "Jour {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Heure du réveil : {time}"
+  "partnerv2_sleep_plan_wake": "Heure du réveil : {time}",
+  "a11y_add": "Ajouter",
+  "a11y_edit": "Modifier",
+  "a11y_favorite": "Ajouter aux favoris",
+  "a11y_filter": "Filtrer",
+  "a11y_history": "Historique",
+  "a11y_image_n": "Image {n}",
+  "a11y_random_name": "Choisir un prénom au hasard",
+  "a11y_refresh": "Actualiser",
+  "a11y_remove_photo": "Retirer la photo",
+  "a11y_replace_photo": "Remplacer la photo",
+  "a11y_save": "Enregistrer",
+  "a11y_share": "Partager",
+  "a11y_star_n": "Note : {n}/5"
 }

@@ -12342,5 +12342,18 @@
   "growthtz_who_head": "Huvudomfång (cm)",
   "partnerv2_sleep_plan_title": "Sömnträningsplan",
   "partnerv2_sleep_plan_day": "Dag {n}/{total}",
-  "partnerv2_sleep_plan_wake": "Väckningstid: {time}"
+  "partnerv2_sleep_plan_wake": "Väckningstid: {time}",
+  "a11y_add": "Lägg till",
+  "a11y_edit": "Redigera",
+  "a11y_favorite": "Lägg till i favoriter",
+  "a11y_filter": "Filtrera",
+  "a11y_history": "Historik",
+  "a11y_image_n": "Bild {n}",
+  "a11y_random_name": "Välj ett slumpmässigt namn",
+  "a11y_refresh": "Uppdatera",
+  "a11y_remove_photo": "Ta bort foto",
+  "a11y_replace_photo": "Byt foto",
+  "a11y_save": "Spara",
+  "a11y_share": "Dela",
+  "a11y_star_n": "Betyg: {n}/5"
 }
