@@ -14,6 +14,8 @@ import { useParentingContent } from './useParentingContent';
 export interface ParentingPartnerContext {
   lifeStage: string | null | undefined;
   babyBirthDate?: string | null;
+  /** Her children he can see (a younger sibling keeps the tool when the current child is 13+). */
+  birthDates?: (string | null)[] | null;
 }
 
 /**
@@ -26,9 +28,9 @@ export function useParentingAvailable(partner?: ParentingPartnerContext | null):
   const setting = useAppSetting('parenting_tool');
   const { isToolDisabled } = useDisabledTools();
   const { selectedChild, children } = useChildren();
-  if (partner) return isParentingPartnerVisible({ womanLifeStage: partner.lifeStage, language, setting, birthDate: partner.babyBirthDate ?? null });
+  if (partner) return isParentingPartnerVisible({ womanLifeStage: partner.lifeStage, language, setting, birthDate: partner.babyBirthDate ?? null, birthDates: partner.birthDates });
   const child = selectedChild ?? children[0] ?? null;
-  return !isToolDisabled('parenting') && isParentingTileVisible({ lifeStage, language, setting, birthDate: child?.birth_date ?? null });
+  return !isToolDisabled('parenting') && isParentingTileVisible({ lifeStage, language, setting, birthDate: child?.birth_date ?? null, birthDates: children.map((c) => c.birth_date) });
 }
 
 /**

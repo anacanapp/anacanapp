@@ -10273,5 +10273,22 @@
   "p3b_bag_hidden_n": "Hidden ({n})",
   "p3b_bag_show": "Show",
   "p3a_doctors_call": "Call",
-  "p3a_doctors_directions": "Directions"
+  "p3a_doctors_directions": "Directions",
+  "par_child_switch": "Choose child",
+  "par_intro_skip": "Skip",
+  "par_intro_next": "Next",
+  "par_intro_start": "Start",
+  "par_intro_step": "Step {n}/{total}",
+  "par_intro_title_1": "A guide for every age",
+  "par_intro_text_1": "What is happening in your child's brain at this age, what they need from you, and a short tip every day.",
+  "par_intro_title_2": "SOS for hard moments",
+  "par_intro_text_2": "For tantrums, hitting or bedtime battles: 3 calm steps and words you can say.",
+  "par_intro_title_3": "Short programmes and quizzes",
+  "par_intro_text_3": "Short programmes with one small step a day, a parenting style quiz and a development check.",
+  "par_intro_band_title": "How old is your child?",
+  "par_intro_band_text": "We will match the tips to this age. You can change it any time.",
+  "par_quiz_prev": "Previous question",
+  "par_prog_summary_days": "{n} days completed",
+  "par_prog_next_title": "Try next",
+  "par_prog_next_open": "View programme"
 }

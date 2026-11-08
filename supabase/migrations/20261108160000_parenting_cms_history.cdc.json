@@ -1,0 +1,22 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261108160000_parenting_cms_history.sql",
+  "runtime": "google-parenting",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the new history relation is registered in guarded_relations with the three standard triggers (the migration refuses without the guard catalog or the 20261107200000 Tərbiyə CMS objects and verifies 2 relations / 6 guard triggers together with parenting_content_overrides)",
+  "preserve": [
+    "cron0, no timer added",
+    "8 enabled business timers",
+    "parenting_state and parenting_content_overrides enrollment, grants and RPCs from 20261107200000_parenting_sync_cms.sql unchanged (only an extra AFTER ROW history trigger on parenting_content_overrides)"
+  ],
+  "relations": [
+    { "relation": "public.parenting_content_override_history", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "append-only version history of Tərbiyə editor overrides (override key, patch, draft, published, action, edited_by, created_at); filled by the SECURITY DEFINER trigger parenting_override_history on parenting_content_overrides plus one 'baseline' row per existing override; RLS admin read only (has_role(auth.uid(), 'admin')); no direct writes for anon/authenticated" },
+    { "relation": "public.parenting_content_overrides", "change": "trigger_added", "cdc": true, "writer_guard": true, "private": false, "pii": false, "primary_key": ["id"],
+      "note": "already enrolled by 20261107200000; gains the AFTER INSERT OR UPDATE OR DELETE row trigger parenting_override_history (a CDC applier must replay with session_replication_role = replica so the history row is not written twice)" }
+  ],
+  "functions": [
+    { "name": "public.parenting_override_history_capture()", "security": "definer", "grant": [], "note": "trigger function; EXECUTE revoked from PUBLIC, anon, authenticated" },
+    { "name": "public.admin_parenting_override_history_v1(text, text, text, integer)", "security": "definer", "grant": ["authenticated"], "note": "has_role(auth.uid(), 'admin') or ADMIN_REQUIRED; one item's versions, newest first (max 200)" },
+    { "name": "public.admin_parenting_override_restore_v1(uuid, text)", "security": "definer", "grant": ["authenticated"], "note": "admin only; restores a version as draft or publishes it through admin_parenting_override_save_v1; history entry marked 'restore'" }
+  ]
+}

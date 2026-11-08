@@ -10284,5 +10284,22 @@
   "p3b_bag_hidden_n": "Yashirilganlar ({n})",
   "p3b_bag_show": "Ko‘rsatish",
   "p3a_doctors_call": "Qo'ng'iroq qilish",
-  "p3a_doctors_directions": "Yo'nalish"
+  "p3a_doctors_directions": "Yo'nalish",
+  "par_child_switch": "Bolani tanlang",
+  "par_intro_skip": "O'tkazish",
+  "par_intro_next": "Keyingi",
+  "par_intro_start": "Boshlash",
+  "par_intro_step": "{n}/{total}-qadam",
+  "par_intro_title_1": "Yoshga mos qo'llanma",
+  "par_intro_text_1": "Bu yoshda bolangiz miyasida nima bo'lyapti, unga sizdan nima kerak va har kunga qisqa maslahat.",
+  "par_intro_title_2": "Qiyin damlar uchun SOS",
+  "par_intro_text_2": "Jahl chiqishi, urish, uxlashni xohlamaslik kabi damlarda 3 ta xotirjam qadam va aytish mumkin bo'lgan so'zlar.",
+  "par_intro_title_3": "Qisqa dasturlar va testlar",
+  "par_intro_text_3": "Har kuni bitta kichik qadam bilan qisqa dasturlar, tarbiya uslubi testi va rivojlanish tekshiruvi.",
+  "par_intro_band_title": "Bolangiz necha yoshda?",
+  "par_intro_band_text": "Maslahatlarni shu yoshga moslaymiz. Istalgan vaqtda o'zgartirishingiz mumkin.",
+  "par_quiz_prev": "Oldingi savol",
+  "par_prog_summary_days": "{n} kun bajarildi",
+  "par_prog_next_title": "Keyingi taklif",
+  "par_prog_next_open": "Dasturni ko'rish"
 }

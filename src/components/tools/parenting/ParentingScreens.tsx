@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
-import { Bell, Crown, Lock, Phone, Search, X } from 'lucide-react';
+import { Bell, ChevronLeft, Crown, Lock, Phone, Search, X } from 'lucide-react';
 import PremiumBlurGate from '@/components/premium/PremiumBlurGate';
 import { fillEmergencyNumber } from '@/lib/emergency';
 import { bandKey, pf, pt } from '@/lib/parenting-copy';
 import {
-  type ParentingLocal, type ProgrammeProgress,
+  type ChildSlot, type ParentingLocal, type ProgrammeProgress, type QuizNav,
   DEFAULT_REMINDER_TIME, FREE_PROGRAMME_DAYS, canCompleteToday, checkpointFor, completeDay, tooEarlyForMilestones, isDayLocked, isFinished, milestoneResult,
-  nextDayIndex, progressPercent, readingMinutes, setBandState, setProgrammeState, startProgramme, styleResult, styleScores, toggleSaved,
-  undoLastDay,
+  nextDayIndex, programmeSummary, progressPercent, quizAnswer, quizBack, quizDone, readingMinutes, setProgrammeState, setSlotBand, startProgramme,
+  startQuiz, styleResult, styleScores, suggestNextProgramme, toggleSaved, undoLastDay,
 } from '@/lib/parenting';
 import { searchParenting } from '@/lib/parenting-search';
 import type {
@@ -37,7 +37,13 @@ export interface ParentingCtx {
   isPremium: boolean;
   emergency: string;
   today: string;
+  /** App language (dates in the programme summary). */
+  locale?: string;
   local: ParentingLocal;
+  /** The selected child's band choice, programme progress and quiz results. */
+  slot: ChildSlot;
+  /** Synced change of the selected child's slot. */
+  updateSlot: (fn: (slot: ChildSlot) => ChildSlot) => void;
   /** Synced change (account copy). */
   update: (fn: (s: ParentingLocal) => ParentingLocal) => void;
   /** Device-only change (reminder preference). */
@@ -160,7 +166,7 @@ export function HomeScreen({ ctx, tipIndex }: { ctx: ParentingCtx; tipIndex: num
   const sos = content.sos.filter((c) => c.bands.includes(band));
   const articles = content.articles.filter((a) => a.bands.includes(band));
   const areas = content.areas.filter((ar) => articles.some((a) => a.area === ar.id));
-  const setBand = (b: AgeBandId) => ctx.update((s) => setBandState(s, b === ctx.childBand ? null : b));
+  const setBand = (b: AgeBandId) => ctx.updateSlot((slot) => setSlotBand(slot, b, ctx.childBand));
   const overviewMin = readingMinutes([overview.lead, ...overview.brain, ...overview.needs, ...overview.normal, ...overview.tryThis]);
   const searching = ctx.query.trim().length >= 2;
 
@@ -279,7 +285,7 @@ function AreaTile({ area, articles, ctx }: { area: Area; articles: Article[]; ct
 }
 
 function ProgrammeRow({ p, ctx }: { p: Programme; ctx: ParentingCtx }) {
-  const prog = ctx.local.programmes[p.id];
+  const prog = ctx.slot.programmes[p.id];
   const done = prog ? prog.done.length : 0;
   return (
     <button type="button" className="a-par-feature" onClick={() => ctx.go({ s: 'programme', id: p.id })}>
@@ -288,7 +294,8 @@ function ProgrammeRow({ p, ctx }: { p: Programme; ctx: ParentingCtx }) {
         <b>{p.title}</b>
         <small>{prog ? pf('par_prog_progress', { done, total: p.days.length }) : `${pf('par_prog_days', { n: p.days.length })} · ${pt('par_prog_daily')}`}</small>
       </span>
-      {!ctx.isPremium && <PremiumBadge />}
+      {/* Free users can follow the first days of every programme: say so instead of a bare "Premium". */}
+      {!ctx.isPremium && <span className="a-par-badge is-free">{pf('par_prog_free_days', { n: FREE_PROGRAMME_DAYS })}</span>}
     </button>
   );
 }
@@ -298,7 +305,7 @@ function QuizRows({ ctx }: { ctx: ParentingCtx }) {
   return (
     <>
       {[styleQuiz, milestoneQuiz].map((q) => {
-        const last = ctx.local.quizzes[q.id];
+        const last = ctx.slot.quizzes[q.id];
         const lastTitle = last ? (q.id === 'style' ? styleQuiz.results[last.result as keyof typeof styleQuiz.results]?.title : milestoneQuiz.results[last.result as keyof typeof milestoneQuiz.results]?.title) : null;
         return (
           <button key={q.id} type="button" className="a-par-feature" onClick={() => ctx.go({ s: 'quiz', id: q.id })}>
@@ -448,7 +455,6 @@ export function SosScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) {
 export function ProgrammesScreen({ ctx }: { ctx: ParentingCtx }) {
   return (
     <div className="a-par">
-      {!ctx.isPremium && <p className="a-par-small">{pf('par_prog_free_days', { n: FREE_PROGRAMME_DAYS })}</p>}
       {ctx.content.programmes.map((p) => (
         <div key={p.id} className="a-par-card">
           <ProgrammeRow p={p} ctx={ctx} />
@@ -461,7 +467,7 @@ export function ProgrammesScreen({ ctx }: { ctx: ParentingCtx }) {
 
 export function ProgrammeScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) {
   const p = ctx.content.programmes.find((x) => x.id === id);
-  const prog: ProgrammeProgress | undefined = p ? ctx.local.programmes[p.id] : undefined;
+  const prog: ProgrammeProgress | undefined = p ? ctx.slot.programmes[p.id] : undefined;
   const next = nextDayIndex(prog);
   const [picked, setPicked] = useState<number | null>(null);
   if (!p) return null;
@@ -470,10 +476,10 @@ export function ProgrammeScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) 
   const sel = Math.min(picked ?? Math.min(next, total - 1), total - 1);
   const day = p.days[sel];
   const locked = isDayLocked(sel, ctx.isPremium);
-  const save = (fn: (cur: ProgrammeProgress) => ProgrammeProgress | null) => ctx.update((s) => {
-    const cur = s.programmes[p.id] ?? startProgramme(ctx.today);
+  const save = (fn: (cur: ProgrammeProgress) => ProgrammeProgress | null) => ctx.updateSlot((slot) => {
+    const cur = slot.programmes[p.id] ?? startProgramme(ctx.today);
     const res = fn(cur);
-    return res === cur ? s : setProgrammeState(s, p.id, res);
+    return res === cur ? slot : setProgrammeState(slot, p.id, res);
   });
 
   if (!prog) {
@@ -517,6 +523,7 @@ export function ProgrammeScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) 
           <small>{prog.done.length ? pf('par_prog_steps_done', { n: prog.done.length }) : pt('par_prog_daily')}</small>
         </span>
       </div>
+      {finished && <ProgrammeDone ctx={ctx} p={p} prog={prog} />}
       <div className="a-par-days" role="group" aria-label={pt('par_prog_all_days')}>
         {p.days.map((_, i) => {
           const cls = [i < prog.done.length ? 'done' : '', i === next && !finished ? 'now' : '', isDayLocked(i, ctx.isPremium) ? 'locked' : '', i === sel ? 'sel' : ''].filter(Boolean).join(' ');
@@ -543,6 +550,41 @@ export function ProgrammeScreen({ ctx, id }: { ctx: ParentingCtx; id: string }) 
       </div>
       <Sources sources={p.sources} />
     </div>
+  );
+}
+
+/** A local calendar day ('YYYY-MM-DD') in the app language; the key itself when Intl cannot format it. */
+export function formatParentingDay(day: string, locale?: string): string {
+  const [y, m, d] = day.split('-').map(Number);
+  if (!y || !m || !d) return day;
+  try {
+    return new Date(y, m - 1, d).toLocaleDateString(locale || undefined, { day: 'numeric', month: 'long', year: 'numeric' });
+  } catch {
+    return day;
+  }
+}
+
+/** Finished programme: days done, the dates, and another programme for the band to try next. */
+function ProgrammeDone({ ctx, p, prog }: { ctx: ParentingCtx; p: Programme; prog: ProgrammeProgress }) {
+  const sum = programmeSummary(prog, p.days.length);
+  const next = suggestNextProgramme(ctx.content.programmes, ctx.slot.programmes, ctx.band, p.id);
+  if (!sum) return null;
+  const from = formatParentingDay(sum.from, ctx.locale);
+  const to = formatParentingDay(sum.to, ctx.locale);
+  return (
+    <section className="a-par-done" data-testid="par-programme-summary">
+      <b>{pf('par_prog_summary_days', { n: sum.days })}</b>
+      <small>{from === to ? from : `${from} – ${to}`}</small>
+      {next && (
+        <div className="a-par-next">
+          <small>{pt('par_prog_next_title')}</small>
+          <button type="button" className="a-par-feature" onClick={() => { ctx.track('programme_next', next.id); ctx.go({ s: 'programme', id: next.id }); }}>
+            <span className="a-par-emoji">{next.emoji}</span>
+            <span><b>{next.title}</b><small>{`${pf('par_prog_days', { n: next.days.length })} · ${pt('par_prog_next_open')}`}</small></span>
+          </button>
+        </div>
+      )}
+    </section>
   );
 }
 
@@ -591,19 +633,25 @@ function QuizProgress({ n, total }: { n: number; total: number }) {
   );
 }
 
+function QuizBack({ onBack }: { onBack: () => void }) {
+  return <button type="button" className="a-par-btn ghost small a-par-qback" onClick={onBack}><ChevronLeft size={14} className="rtl:rotate-180" aria-hidden />{pt('par_quiz_prev')}</button>;
+}
+
 function StyleQuizScreen({ ctx }: { ctx: ParentingCtx }) {
   const q = ctx.content.styleQuiz;
-  const [answers, setAnswers] = useState<number[]>([]);
+  const total = q.items.length;
+  const [nav, setNav] = useState<QuizNav<number>>(startQuiz);
   const [started, setStarted] = useState(false);
-  const done = answers.length >= q.items.length;
+  const done = quizDone(nav, total);
+  const answers = nav.answers as number[];
   const resultId = useMemo(() => (done ? styleResult(styleScores(q.items, answers)) : null), [done, answers, q.items]);
 
   const answer = (v: number) => {
-    const next = [...answers, v];
-    setAnswers(next);
-    if (next.length >= q.items.length) {
-      const r = styleResult(styleScores(q.items, next));
-      ctx.update((s) => ({ ...s, quizzes: { ...s.quizzes, style: { at: ctx.today, result: r } } }));
+    const next = quizAnswer(nav, v, total);
+    setNav(next);
+    if (quizDone(next, total)) {
+      const r = styleResult(styleScores(q.items, next.answers as number[]));
+      ctx.updateSlot((slot) => ({ ...slot, quizzes: { ...slot.quizzes, style: { at: ctx.today, result: r } } }));
       ctx.track('quiz_style_done');
     }
   };
@@ -619,14 +667,15 @@ function StyleQuizScreen({ ctx }: { ctx: ParentingCtx }) {
     );
   }
   if (!done || !resultId) {
-    const i = answers.length;
+    const i = nav.pos;
     return (
       <div className="a-par">
-        <QuizProgress n={i + 1} total={q.items.length} />
+        <QuizProgress n={i + 1} total={total} />
         <div className="a-par-card"><h3>{q.items[i].text}</h3></div>
         <div className="a-par-answers">
-          {q.scale.map((label, v) => <button key={label} type="button" onClick={() => answer(v)}>{label}</button>)}
+          {q.scale.map((label, v) => <button key={label} type="button" aria-pressed={nav.answers[i] === v} onClick={() => answer(v)}>{label}</button>)}
         </div>
+        {i > 0 && <QuizBack onBack={() => setNav(quizBack)} />}
       </div>
     );
   }
@@ -646,7 +695,7 @@ function StyleQuizScreen({ ctx }: { ctx: ParentingCtx }) {
         <p>{r.short}</p>
       </section>
       {ctx.isPremium ? detail : <PremiumBlurGate feature="parenting_quiz" title={LOCK.title()} subtitle={LOCK.text()} cta={LOCK.cta()}>{detail}</PremiumBlurGate>}
-      <button type="button" className="a-par-btn ghost" onClick={() => { setAnswers([]); setStarted(true); }}>{pt('par_quiz_retake')}</button>
+      <button type="button" className="a-par-btn ghost" onClick={() => { setNav(startQuiz()); setStarted(true); }}>{pt('par_quiz_retake')}</button>
       <p className="a-par-small">{q.note}</p>
       <Sources sources={q.sources} />
     </div>
@@ -656,8 +705,8 @@ function StyleQuizScreen({ ctx }: { ctx: ParentingCtx }) {
 function MilestoneQuizScreen({ ctx }: { ctx: ParentingCtx }) {
   const q = ctx.content.milestoneQuiz;
   const cp = checkpointFor(q.checkpoints, ctx.ageMonths ?? BAND_MONTHS[ctx.band])!;
-  const [answers, setAnswers] = useState<MilestoneAnswer[]>([]);
-  const [regression, setRegression] = useState<MilestoneAnswer | null>(null);
+  // Items first, the regression question last; answers stay when the parent steps back.
+  const [nav, setNav] = useState<QuizNav<MilestoneAnswer>>(startQuiz);
   const [started, setStarted] = useState(false);
   const total = cp.items.length + 1;
   const earlyFrom = tooEarlyForMilestones(q.checkpoints, ctx.ageMonths);
@@ -673,11 +722,14 @@ function MilestoneQuizScreen({ ctx }: { ctx: ParentingCtx }) {
     );
   }
 
-  const finish = (reg: MilestoneAnswer) => {
-    setRegression(reg);
-    const r = milestoneResult(cp, answers, reg);
-    ctx.update((s) => ({ ...s, quizzes: { ...s.quizzes, milestones: { at: ctx.today, result: r.id } } }));
-    ctx.track('quiz_milestones_done');
+  const answer = (a: MilestoneAnswer) => {
+    const next = quizAnswer(nav, a, total);
+    setNav(next);
+    if (quizDone(next, total)) {
+      const r = milestoneResult(cp, next.answers.slice(0, cp.items.length), next.answers[cp.items.length]);
+      ctx.updateSlot((slot) => ({ ...slot, quizzes: { ...slot.quizzes, milestones: { at: ctx.today, result: r.id } } }));
+      ctx.track('quiz_milestones_done');
+    }
   };
 
   if (!started) {
@@ -691,32 +743,35 @@ function MilestoneQuizScreen({ ctx }: { ctx: ParentingCtx }) {
       </div>
     );
   }
-  if (answers.length < cp.items.length) {
-    const i = answers.length;
+  if (nav.pos < cp.items.length) {
+    const i = nav.pos;
     return (
       <div className="a-par">
         <QuizProgress n={i + 1} total={total} />
         <p className="a-par-meta">{cp.title}</p>
         <div className="a-par-card"><h3>{cp.items[i].text}</h3></div>
         <div className="a-par-answers">
-          {(['yes', 'no', 'unsure'] as MilestoneAnswer[]).map((k) => <button key={k} type="button" onClick={() => setAnswers([...answers, k])}>{q.answers[k]}</button>)}
+          {(['yes', 'no', 'unsure'] as MilestoneAnswer[]).map((k) => <button key={k} type="button" aria-pressed={nav.answers[i] === k} onClick={() => answer(k)}>{q.answers[k]}</button>)}
         </div>
+        {i > 0 && <QuizBack onBack={() => setNav(quizBack)} />}
       </div>
     );
   }
-  if (!regression) {
+  if (!quizDone(nav, total)) {
+    const reg = nav.answers[cp.items.length];
     return (
       <div className="a-par">
         <QuizProgress n={total} total={total} />
         <div className="a-par-card"><h3>{q.regression}</h3></div>
         <div className="a-par-answers">
-          <button type="button" onClick={() => finish('yes')}>{q.answers.yes}</button>
-          <button type="button" onClick={() => finish('no')}>{q.answers.no}</button>
+          <button type="button" aria-pressed={reg === 'yes'} onClick={() => answer('yes')}>{q.answers.yes}</button>
+          <button type="button" aria-pressed={reg === 'no'} onClick={() => answer('no')}>{q.answers.no}</button>
         </div>
+        <QuizBack onBack={() => setNav(quizBack)} />
       </div>
     );
   }
-  const res = milestoneResult(cp, answers, regression);
+  const res = milestoneResult(cp, nav.answers.slice(0, cp.items.length), nav.answers[cp.items.length]);
   const r = q.results[res.id];
   const support = (
     <div className="a-par-card">
@@ -740,7 +795,7 @@ function MilestoneQuizScreen({ ctx }: { ctx: ParentingCtx }) {
       )}
       {res.id === 'ontrack' && <div className="a-par-card">{r.detail.map((t) => <p key={t}>{t}</p>)}</div>}
       {res.notYet.length > 0 && (ctx.isPremium ? support : <PremiumBlurGate feature="parenting_quiz" title={LOCK.title()} subtitle={LOCK.text()} cta={LOCK.cta()}>{support}</PremiumBlurGate>)}
-      <button type="button" className="a-par-btn ghost" onClick={() => { setAnswers([]); setRegression(null); }}>{pt('par_quiz_retake')}</button>
+      <button type="button" className="a-par-btn ghost" onClick={() => setNav(startQuiz())}>{pt('par_quiz_retake')}</button>
       <p className="a-par-small">{q.note}</p>
       <Sources sources={q.sources} />
     </div>

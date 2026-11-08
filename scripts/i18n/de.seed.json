@@ -10284,5 +10284,22 @@
   "p3b_bag_hidden_n": "Ausgeblendet ({n})",
   "p3b_bag_show": "Einblenden",
   "p3a_doctors_call": "Anrufen",
-  "p3a_doctors_directions": "Route"
+  "p3a_doctors_directions": "Route",
+  "par_child_switch": "Kind auswählen",
+  "par_intro_skip": "Überspringen",
+  "par_intro_next": "Weiter",
+  "par_intro_start": "Los geht's",
+  "par_intro_step": "Schritt {n}/{total}",
+  "par_intro_title_1": "Begleiter nach Alter",
+  "par_intro_text_1": "Was im Gehirn deines Kindes in diesem Alter passiert, was es von dir braucht, und jeden Tag ein kurzer Tipp.",
+  "par_intro_title_2": "SOS für schwierige Momente",
+  "par_intro_text_2": "Bei Wutanfällen, Hauen oder Streit ums Schlafengehen: 3 ruhige Schritte und Sätze, die du sagen kannst.",
+  "par_intro_title_3": "Kurze Programme und Tests",
+  "par_intro_text_3": "Kurze Programme mit einem kleinen Schritt pro Tag, ein Test zum Erziehungsstil und ein Entwicklungscheck.",
+  "par_intro_band_title": "Wie alt ist dein Kind?",
+  "par_intro_band_text": "Wir passen die Tipps an dieses Alter an. Du kannst es jederzeit ändern.",
+  "par_quiz_prev": "Vorherige Frage",
+  "par_prog_summary_days": "{n} Tage geschafft",
+  "par_prog_next_title": "Als Nächstes",
+  "par_prog_next_open": "Programm ansehen"
 }

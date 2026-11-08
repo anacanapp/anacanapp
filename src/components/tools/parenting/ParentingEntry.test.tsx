@@ -139,6 +139,6 @@ describe('Tərbiyə in partner mode', () => {
     mocks.partnerChildren = [{ id: 'k', name: 'Aysel', birth_date: '2024-07-07', is_current: true, gender: null, avatar_emoji: null }];
     render(<PartnerParentingScreen onBack={vi.fn()} />);
     expect(screen.getByTestId('tool-view')).toBeInTheDocument();
-    expect(mocks.view).toHaveBeenCalledWith(expect.objectContaining({ partner: true, child: { name: 'Aysel', birth_date: '2024-07-07' } }));
+    expect(mocks.view).toHaveBeenCalledWith(expect.objectContaining({ partner: true, child: { id: 'k', name: 'Aysel', birth_date: '2024-07-07' }, kids: mocks.partnerChildren }));
   });
 });

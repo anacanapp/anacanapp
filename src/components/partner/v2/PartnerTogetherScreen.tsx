@@ -37,6 +37,7 @@ const PartnerTogetherScreen = ({ onNavigate }: Props) => {
   const showParenting = isParentingPartnerVisible({
     womanLifeStage: partnerProfile?.life_stage, language, setting: parentingSetting,
     birthDate: partnerParentingChild(partnerChildren, partnerProfile)?.birth_date ?? null,
+    birthDates: partnerChildren.map((c) => c.birth_date),
   });
   const babyAgeDays = getBabyAgeDays();
   const postpartumText = usePostpartumPartnerText(useUserStore((s) => s.language) || 'az');

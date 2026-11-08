@@ -5,7 +5,7 @@
  * / Premium is gone. The next 7 days are scheduled and refreshed whenever the app opens the tool or home.
  */
 import type { Programme } from '@/data/parenting/types';
-import { DEFAULT_REMINDER_TIME, isFinished, type ParentingLocal, type ProgrammeProgress } from './parenting';
+import { DEFAULT_REMINDER_TIME, allSlots, isFinished, type ParentingLocal, type ProgrammeProgress } from './parenting';
 
 const BASE_ID = 882_200;
 export const REMINDER_DAYS = 7;
@@ -19,13 +19,18 @@ export interface ReminderSlot {
   dayIndex: number;
 }
 
-/** The running programme reminders follow: not finished, not paused; the most recently changed one. */
-export function activeProgramme(state: ParentingLocal, programmes: Programme[]): { programme: Programme; progress: ProgrammeProgress } | null {
-  let best: { programme: Programme; progress: ProgrammeProgress } | null = null;
-  for (const programme of programmes) {
-    const progress = state.programmes[programme.id];
-    if (!progress || progress.paused || isFinished(progress, programme.days.length)) continue;
-    if (!best || progress.updatedAt > best.progress.updatedAt) best = { programme, progress };
+/**
+ * The running programme reminders follow: not finished, not paused; the most recently changed one over every
+ * child's programmes. `childId` is the child it runs for (null = the account-level slot before any child claimed it).
+ */
+export function activeProgramme(state: ParentingLocal, programmes: Programme[]): { programme: Programme; progress: ProgrammeProgress; childId: string | null } | null {
+  let best: { programme: Programme; progress: ProgrammeProgress; childId: string | null } | null = null;
+  for (const { childId, slot } of allSlots(state)) {
+    for (const programme of programmes) {
+      const progress = slot.programmes[programme.id];
+      if (!progress || progress.paused || isFinished(progress, programme.days.length)) continue;
+      if (!best || progress.updatedAt > best.progress.updatedAt) best = { programme, progress, childId };
+    }
   }
   return best;
 }

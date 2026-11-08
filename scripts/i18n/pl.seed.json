@@ -12431,5 +12431,22 @@
   "p3b_bag_hidden_n": "Ukryte ({n})",
   "p3b_bag_show": "Pokaż",
   "p3a_doctors_call": "Zadzwoń",
-  "p3a_doctors_directions": "Trasa"
+  "p3a_doctors_directions": "Trasa",
+  "par_child_switch": "Wybierz dziecko",
+  "par_intro_skip": "Pomiń",
+  "par_intro_next": "Dalej",
+  "par_intro_start": "Zacznij",
+  "par_intro_step": "Krok {n}/{total}",
+  "par_intro_title_1": "Przewodnik według wieku",
+  "par_intro_text_1": "Co dzieje się w mózgu dziecka w tym wieku, czego potrzebuje od ciebie i krótka wskazówka na każdy dzień.",
+  "par_intro_title_2": "SOS na trudne chwile",
+  "par_intro_text_2": "Napady złości, bicie, walka o zasypianie: 3 spokojne kroki i słowa, które możesz powiedzieć.",
+  "par_intro_title_3": "Krótkie programy i testy",
+  "par_intro_text_3": "Krótkie programy z jednym małym krokiem dziennie, test stylu wychowania i sprawdzenie rozwoju.",
+  "par_intro_band_title": "Ile lat ma twoje dziecko?",
+  "par_intro_band_text": "Dopasujemy wskazówki do tego wieku. Możesz to zmienić w każdej chwili.",
+  "par_quiz_prev": "Poprzednie pytanie",
+  "par_prog_summary_days": "Ukończone dni: {n}",
+  "par_prog_next_title": "Co dalej",
+  "par_prog_next_open": "Zobacz program"
 }

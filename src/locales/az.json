@@ -8781,5 +8781,22 @@
   "p3b_bag_hidden_n": "Gizlədilənlər ({n})",
   "p3b_bag_show": "Göstər",
   "p3a_doctors_call": "Zəng et",
-  "p3a_doctors_directions": "Yol tarifi"
+  "p3a_doctors_directions": "Yol tarifi",
+  "par_child_switch": "Uşağı seç",
+  "par_intro_skip": "Keç",
+  "par_intro_next": "Növbəti",
+  "par_intro_start": "Başla",
+  "par_intro_step": "Addım {n}/{total}",
+  "par_intro_title_1": "Yaşa görə bələdçi",
+  "par_intro_text_1": "Uşağının yaşında beyində nə baş verir, ona nə lazımdır və hər gün üçün qısa məsləhət.",
+  "par_intro_title_2": "Çətin anlar üçün SOS",
+  "par_intro_text_2": "İsterika, vurma, yatmaq istəməmək kimi anlarda 3 sakit addım və deyə biləcəyin sözlər.",
+  "par_intro_title_3": "Qısa proqramlar və testlər",
+  "par_intro_text_3": "Hər gün bir kiçik addımla qısa proqramlar, tərbiyə üslubu testi və inkişaf yoxlaması.",
+  "par_intro_band_title": "Uşağın neçə yaşındadır?",
+  "par_intro_band_text": "Məsləhətləri bu yaşa uyğunlaşdıraq. Sonra istənilən vaxt dəyişə bilərsən.",
+  "par_quiz_prev": "Əvvəlki sual",
+  "par_prog_summary_days": "{n} gün tamamlandı",
+  "par_prog_next_title": "Növbəti üçün təklif",
+  "par_prog_next_open": "Proqrama bax"
 }

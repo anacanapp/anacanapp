@@ -12431,5 +12431,22 @@
   "p3b_bag_hidden_n": "छिपे हुए ({n})",
   "p3b_bag_show": "दिखाएं",
   "p3a_doctors_call": "कॉल करें",
-  "p3a_doctors_directions": "रास्ता देखें"
+  "p3a_doctors_directions": "रास्ता देखें",
+  "par_child_switch": "बच्चा चुनें",
+  "par_intro_skip": "छोड़ें",
+  "par_intro_next": "आगे",
+  "par_intro_start": "शुरू करें",
+  "par_intro_step": "चरण {n}/{total}",
+  "par_intro_title_1": "उम्र के अनुसार गाइड",
+  "par_intro_text_1": "इस उम्र में बच्चे के दिमाग में क्या हो रहा है, उसे आपसे क्या चाहिए, और हर दिन एक छोटा सुझाव।",
+  "par_intro_title_2": "मुश्किल पलों के लिए SOS",
+  "par_intro_text_2": "गुस्से के दौरे, मारने या सोने से इनकार के समय: 3 शांत कदम और कहने लायक शब्द।",
+  "par_intro_title_3": "छोटे कार्यक्रम और क्विज़",
+  "par_intro_text_3": "हर दिन एक छोटे कदम वाले छोटे कार्यक्रम, पेरेंटिंग शैली क्विज़ और विकास जाँच।",
+  "par_intro_band_title": "आपका बच्चा कितने साल का है?",
+  "par_intro_band_text": "हम सुझाव इसी उम्र के अनुसार देंगे। आप इसे कभी भी बदल सकती हैं।",
+  "par_quiz_prev": "पिछला प्रश्न",
+  "par_prog_summary_days": "{n} दिन पूरे हुए",
+  "par_prog_next_title": "आगे के लिए सुझाव",
+  "par_prog_next_open": "कार्यक्रम देखें"
 }

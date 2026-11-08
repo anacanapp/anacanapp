@@ -147,6 +147,25 @@ export const PARENTING_COPY = {
   par_ai_text: 'Bu mövzuda addım-addım bələdçi',
   par_ai_open: 'Aç',
   par_partner_sub: 'Uşağın yaşına görə bələdçi və SOS',
+
+  // Several children, first-run intro, quiz back, programme summary
+  par_child_switch: 'Uşağı seç',
+  par_intro_skip: 'Keç',
+  par_intro_next: 'Növbəti',
+  par_intro_start: 'Başla',
+  par_intro_step: 'Addım {n}/{total}',
+  par_intro_title_1: 'Yaşa görə bələdçi',
+  par_intro_text_1: 'Uşağının yaşında beyində nə baş verir, ona nə lazımdır və hər gün üçün qısa məsləhət.',
+  par_intro_title_2: 'Çətin anlar üçün SOS',
+  par_intro_text_2: 'İsterika, vurma, yatmaq istəməmək kimi anlarda 3 sakit addım və deyə biləcəyin sözlər.',
+  par_intro_title_3: 'Qısa proqramlar və testlər',
+  par_intro_text_3: 'Hər gün bir kiçik addımla qısa proqramlar, tərbiyə üslubu testi və inkişaf yoxlaması.',
+  par_intro_band_title: 'Uşağın neçə yaşındadır?',
+  par_intro_band_text: 'Məsləhətləri bu yaşa uyğunlaşdıraq. Sonra istənilən vaxt dəyişə bilərsən.',
+  par_quiz_prev: 'Əvvəlki sual',
+  par_prog_summary_days: '{n} gün tamamlandı',
+  par_prog_next_title: 'Növbəti üçün təklif',
+  par_prog_next_open: 'Proqrama bax',
 } as const;
 
 export type ParentingKey = keyof typeof PARENTING_COPY;

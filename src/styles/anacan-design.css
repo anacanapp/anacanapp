@@ -3610,3 +3610,29 @@ html.a-lite .a3-mascot.bob { animation: none; }
 .a-safety-more { margin-top: 6px; padding-inline: 12px; font-size: 12px; line-height: 1.4; color: var(--a-body-text, var(--a-ink)); }
 .a-safety-more summary { padding-block: 13px; font-weight: 700; cursor: pointer; }
 .a-safety-more p { margin: 0 0 4px; }
+
+/* ============================================================
+   GROUP parux: Tərbiyə child switcher, first-run intro, quiz back,
+   programme completion summary (src/components/tools/parenting/).
+   ============================================================ */
+.a-par-kid { max-width: 132px; min-height: 36px; padding-block: 6px; padding-inline: 12px 26px; border: 1px solid var(--a-line); border-radius: 999px; background: var(--a-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23999' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center; color: var(--a-ink); font: inherit; font-size: 13px; font-weight: 800; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; appearance: none; -webkit-appearance: none; box-shadow: var(--a-card-shadow); cursor: pointer; }
+[dir="rtl"] .a-par-kid { background-position: left 10px center; }
+.a-par-answers button[aria-pressed="true"] { border-color: var(--a-coral); background: var(--a-peach-1); }
+.a-par-qback { align-self: flex-start; margin-top: 4px; }
+.a-par-intro { height: auto; }
+.a-par-intro-body { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 8px 20px calc(24px + env(safe-area-inset-bottom, 0px)); text-align: center; overflow-y: auto; }
+.a-par-intro-top { display: flex; align-items: center; justify-content: space-between; width: 100%; font-size: 12px; font-weight: 700; color: var(--a-ink-soft); }
+.a-par-intro-skip { min-height: 40px; padding: 0 12px; border: 0; background: none; color: var(--a-ink-soft); font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; }
+.a-par-intro-emoji { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 24px; background: var(--a-peach-1); font-size: 36px; }
+.a-par-intro h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; outline: none; }
+.a-par-intro p { margin: 0; max-width: 340px; font-size: 14px; line-height: 1.45; color: var(--a-ink-soft); }
+.a-par-intro-bands { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; }
+.a-par-intro-bands button { min-height: 48px; border: 1.5px solid var(--a-line-strong); border-radius: 16px; background: var(--a-surface); color: var(--a-ink); font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; }
+.a-par-intro-dots { display: flex; gap: 6px; }
+.a-par-intro-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--a-line-strong); }
+.a-par-intro-dots i.on { width: 18px; border-radius: 99px; background: var(--a-coral); }
+.a-par-done { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 18px; background: var(--a-green-1); color: var(--a-green-ink); }
+.a-par-done > b { font-size: 15px; }
+.a-par-done > small { font-size: 12.5px; font-weight: 700; }
+.a-par-next { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; color: var(--a-ink); }
+.a-par-next > small { font-size: 11px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--a-green-ink); }

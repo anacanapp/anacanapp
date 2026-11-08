@@ -1,7 +1,13 @@
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-const mocks = vi.hoisted(() => ({ premium: false, birth: '2024-07-07' as string | null, syncReminders: vi.fn() }));
+const mocks = vi.hoisted(() => ({
+  premium: false,
+  birth: '2024-07-07' as string | null,
+  kids: null as { id: string; name: string; birth_date: string }[] | null,
+  selected: null as string | null,
+  syncReminders: vi.fn(),
+}));
 
 vi.mock('@/lib/tr', () => ({
   tr: (_k: string, fallback: string) => fallback,
@@ -26,6 +32,7 @@ vi.mock('@/hooks/useScreenAnalytics', () => ({ useScreenAnalytics: vi.fn() }));
 vi.mock('@/store/userStore', () => ({ useUserStore: (sel: (s: { language: string }) => unknown) => sel({ language: 'az' }) }));
 vi.mock('@/hooks/useChildren', () => ({
   useChildren: () => {
+    if (mocks.kids) return { selectedChild: mocks.kids.find((k) => k.id === mocks.selected) ?? mocks.kids[0], children: mocks.kids };
     const child = mocks.birth ? { id: 'c1', name: 'Aysel', birth_date: mocks.birth, gender: 'girl' } : null;
     return { selectedChild: child, children: child ? [child] : [] };
   },
@@ -55,10 +62,14 @@ const stored = () => JSON.parse(localStorage.getItem(KEY) || 'null');
 const open = () => render(<ParentingTool onBack={vi.fn()} now={NOW} />);
 const click = (name: string | RegExp) => fireEvent.click(screen.getByRole('button', { name }));
 
+const INTRO = 'anacan.parenting.intro.v1.u1';
 beforeEach(() => {
   localStorage.clear();
+  localStorage.setItem(INTRO, '1'); // the first-run intro has its own tests below
   mocks.premium = false;
   mocks.birth = '2024-07-07';
+  mocks.kids = null;
+  mocks.selected = null;
   mocks.syncReminders.mockClear();
 });
 afterEach(cleanup);
@@ -262,3 +273,157 @@ describe('Tərbiyə tool', () => {
   });
 });
 
+describe('Tərbiyə first-run intro', () => {
+  it('shows a skippable 3-step intro once per device and account', () => {
+    localStorage.removeItem(INTRO);
+    open();
+    const intro = screen.getByTestId('parenting-intro');
+    expect(within(intro).getByText('Yaşa görə bələdçi')).toBeInTheDocument();
+    expect(within(intro).getByText('Addım 1/3')).toBeInTheDocument();
+    fireEvent.click(within(intro).getByRole('button', { name: 'Növbəti' }));
+    expect(within(intro).getByText('Çətin anlar üçün SOS')).toBeInTheDocument();
+    fireEvent.click(within(intro).getByRole('button', { name: 'Növbəti' }));
+    expect(within(intro).getByText('Qısa proqramlar və testlər')).toBeInTheDocument();
+    fireEvent.click(within(intro).getByRole('button', { name: 'Başla' }));
+    expect(screen.queryByTestId('parenting-intro')).toBeNull();
+    expect(localStorage.getItem(INTRO)).toBe('1');
+    cleanup();
+    open();
+    expect(screen.queryByTestId('parenting-intro')).toBeNull();
+  });
+
+  it('asks for the age band when there is no birth date instead of defaulting to 1–3', () => {
+    localStorage.removeItem(INTRO);
+    mocks.birth = null;
+    open();
+    const intro = screen.getByTestId('parenting-intro');
+    fireEvent.click(within(intro).getByRole('button', { name: 'Növbəti' }));
+    fireEvent.click(within(intro).getByRole('button', { name: 'Növbəti' }));
+    fireEvent.click(within(intro).getByRole('button', { name: 'Növbəti' }));
+    expect(within(intro).getByText('Uşağın neçə yaşındadır?')).toBeInTheDocument();
+    fireEvent.click(within(intro).getByRole('button', { name: '3–6 yaş' }));
+    expect(screen.queryByTestId('parenting-intro')).toBeNull();
+    expect(stored().band).toBe('3-6');
+    expect(screen.getByRole('button', { name: '3–6 yaş' })).toHaveAttribute('aria-pressed', 'true');
+  });
+
+  it('can be skipped at once; never shown to a parent who already used the tool or on a deep link', () => {
+    localStorage.removeItem(INTRO);
+    open();
+    fireEvent.click(within(screen.getByTestId('parenting-intro')).getByRole('button', { name: 'Keç' }));
+    expect(screen.queryByTestId('parenting-intro')).toBeNull();
+    expect(localStorage.getItem(INTRO)).toBe('1');
+    cleanup();
+    localStorage.clear();
+    localStorage.setItem(KEY, JSON.stringify({ v: 1, band: null, quizzes: {}, saved: ['a:lying'], programmes: {} }));
+    open();
+    expect(screen.queryByTestId('parenting-intro')).toBeNull();
+    expect(localStorage.getItem(INTRO)).toBe('1');
+    cleanup();
+    localStorage.clear();
+    openParentingTool({ kind: 'sos', id: 'shop-tantrum' });
+    open();
+    expect(screen.queryByTestId('parenting-intro')).toBeNull();
+  });
+});
+
+describe('Tərbiyə with several children', () => {
+  const KIDS = [
+    { id: 'teen', name: 'Ali', birth_date: '2010-02-01' },
+    { id: 'kid-a', name: 'Aysel', birth_date: '2024-07-07' },
+    { id: 'kid-b', name: 'Nur', birth_date: '2020-03-01' },
+  ];
+
+  it('offers a switcher for the children under 13 and follows the selected child’s band', () => {
+    mocks.kids = KIDS;
+    mocks.selected = 'teen'; // 13+: the tool starts on the first younger sibling
+    open();
+    const sw = screen.getByTestId('parenting-child-switch') as HTMLSelectElement;
+    expect([...sw.options].map((o) => o.textContent)).toEqual(['Aysel', 'Nur']);
+    expect(sw.value).toBe('kid-a');
+    expect(screen.getByRole('button', { name: '1–3 yaş' })).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.change(sw, { target: { value: 'kid-b' } });
+    expect(screen.getByRole('button', { name: '6–12 yaş' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getAllByText('Nur · 6 yaş').length).toBeGreaterThan(0);
+  });
+
+  it('keeps quiz results and programme progress per child; old account data becomes the first child’s', () => {
+    mocks.kids = KIDS.slice(1);
+    const p = content.programmes[0];
+    localStorage.setItem(KEY, JSON.stringify({ v: 1, band: null, saved: [], quizzes: { style: { at: '2026-11-01', result: 'gentle' } },
+      programmes: { [p.id]: { startedAt: '2026-11-01', done: ['2026-11-01'], updatedAt: '2026-11-01' } } }));
+    open();
+    expect(stored().rootChild).toBe('kid-a');
+    expect(screen.getByText(/Son nəticə:/)).toBeInTheDocument();
+    fireEvent.change(screen.getByTestId('parenting-child-switch'), { target: { value: 'kid-b' } });
+    expect(screen.queryByText(/Son nəticə:/)).toBeNull();
+    click(/Mənim tərbiyə üslubum/);
+    click('Testə başla');
+    content.styleQuiz.items.forEach(() => click('Bəzən'));
+    expect(stored().children['kid-b'].quizzes.style).toBeDefined();
+    expect(stored().quizzes.style.result).toBe('gentle'); // the first child's result is untouched
+  });
+
+  it('a manual band chosen for a child expires when the child has moved to another band', () => {
+    mocks.kids = [KIDS[1]];
+    localStorage.setItem(KEY, JSON.stringify({ v: 1, band: '6-12', bandAt: '2026-01-01T00:00:00.000Z', bandFor: '0-1', saved: [], quizzes: {}, programmes: {} }));
+    open();
+    expect(screen.getByRole('button', { name: '1–3 yaş' })).toHaveAttribute('aria-pressed', 'true');
+    expect(stored()).toMatchObject({ band: null, bandFor: '1-3' });
+  });
+});
+
+describe('Tərbiyə quiz back and programme completion', () => {
+  it('style quiz: the previous question keeps the answers', () => {
+    open();
+    click(/Mənim tərbiyə üslubum/);
+    click('Testə başla');
+    expect(screen.queryByRole('button', { name: 'Əvvəlki sual' })).toBeNull();
+    click('Demək olar ki, həmişə');
+    expect(screen.getByText(`Sual 2/${content.styleQuiz.items.length}`)).toBeInTheDocument();
+    click('Əvvəlki sual');
+    expect(screen.getByText(`Sual 1/${content.styleQuiz.items.length}`)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Demək olar ki, həmişə' })).toHaveAttribute('aria-pressed', 'true');
+  });
+
+  it('milestone check: back from the regression question returns to the last item with its answer', () => {
+    open();
+    click(/Uşağım bu yaşda nə bacarmalıdır\?/);
+    click('Testə başla');
+    const cp = content.milestoneQuiz.checkpoints.find((x) => x.id === 'm18')!;
+    cp.items.forEach(() => click('Bəli'));
+    expect(screen.getByText(content.milestoneQuiz.regression)).toBeInTheDocument();
+    click('Əvvəlki sual');
+    expect(screen.getByText(cp.items[cp.items.length - 1].text)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Bəli' })).toHaveAttribute('aria-pressed', 'true');
+    click('Hələ yox');
+    click('Hələ yox');
+    expect(stored().quizzes.milestones).toBeDefined();
+  });
+
+  it('free users see "first days free" on programme rows instead of a bare Premium badge', () => {
+    open();
+    const rows = content.programmes.filter((p) => p.bands.includes('1-3'));
+    expect(rows.length).toBeGreaterThan(0);
+    for (const p of rows) {
+      const row = screen.getByRole('button', { name: new RegExp(p.title) });
+      expect(row).toHaveTextContent('İlk 3 gün pulsuz');
+      expect(row).not.toHaveTextContent('Premium');
+    }
+  });
+
+  it('a finished programme shows a summary with the days and a next programme suggestion', () => {
+    mocks.premium = true;
+    const p = content.programmes[2];
+    const done = Array.from({ length: p.days.length }, (_, i) => `2026-10-${String(10 + i).padStart(2, '0')}`);
+    localStorage.setItem(KEY, JSON.stringify({ v: 1, band: null, quizzes: {}, saved: [], programmes: { [p.id]: { startedAt: done[0], done, updatedAt: '2026-10-20' } } }));
+    open();
+    click(new RegExp(p.title));
+    const sum = screen.getByTestId('par-programme-summary');
+    expect(sum).toHaveTextContent(`${p.days.length} gün tamamlandı`);
+    const next = within(sum).getByRole('button');
+    expect(content.programmes.some((x) => x.id !== p.id && next.textContent?.includes(x.title))).toBe(true);
+    fireEvent.click(next);
+    expect(screen.getByRole('button', { name: 'Proqrama başla' })).toBeInTheDocument();
+  });
+});

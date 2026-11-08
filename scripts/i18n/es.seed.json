@@ -12431,5 +12431,22 @@
   "p3b_bag_hidden_n": "Ocultos ({n})",
   "p3b_bag_show": "Mostrar",
   "p3a_doctors_call": "Llamar",
-  "p3a_doctors_directions": "Cómo llegar"
+  "p3a_doctors_directions": "Cómo llegar",
+  "par_child_switch": "Elegir hijo",
+  "par_intro_skip": "Omitir",
+  "par_intro_next": "Siguiente",
+  "par_intro_start": "Empezar",
+  "par_intro_step": "Paso {n}/{total}",
+  "par_intro_title_1": "Guía según la edad",
+  "par_intro_text_1": "Qué pasa en el cerebro de tu hijo a esta edad, qué necesita de ti y un consejo breve cada día.",
+  "par_intro_title_2": "SOS para momentos difíciles",
+  "par_intro_text_2": "Rabietas, golpes o peleas a la hora de dormir: 3 pasos tranquilos y frases que puedes decir.",
+  "par_intro_title_3": "Programas cortos y cuestionarios",
+  "par_intro_text_3": "Programas cortos con un pequeño paso al día, un cuestionario de estilo de crianza y una revisión del desarrollo.",
+  "par_intro_band_title": "¿Cuántos años tiene tu hijo?",
+  "par_intro_band_text": "Adaptaremos los consejos a esta edad. Puedes cambiarla cuando quieras.",
+  "par_quiz_prev": "Pregunta anterior",
+  "par_prog_summary_days": "{n} días completados",
+  "par_prog_next_title": "Para seguir",
+  "par_prog_next_open": "Ver programa"
 }

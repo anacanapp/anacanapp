@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { Suspense, lazy, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { HeartHandshake, Plus, RotateCcw, Trash2, Undo2 } from 'lucide-react';
+import { Eye, HeartHandshake, History, Plus, RotateCcw, Trash2, Undo2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { APP_LANGUAGES } from '@/lib/app-languages';
@@ -12,6 +12,9 @@ import {
   Toolbar, foldText, fmtDateTime, useAdminConfirm,
 } from './kit';
 import { RPC_MISSING, optionalRpc } from './data/rpc';
+
+/** The item as the app renders it (lazy: pulls in the tool's screens only when an editor opens the preview). */
+const ParentingPreview = lazy(() => import('@/components/tools/parenting/ParentingPreview'));
 
 /**
  * Admin → Tərbiyə məzmunu: editors change the tool's texts without an app release. Pick a language → item type →
@@ -83,6 +86,43 @@ export function overrideProblems(base: object, edited: object): string[] {
   return problems;
 }
 
+/** One saved version of an item (public.parenting_content_override_history). */
+export interface OverrideHistoryRow {
+  id: string;
+  patch: Record<string, unknown>;
+  draft: Record<string, unknown> | null;
+  published: boolean;
+  action: string;
+  edited_by: string | null;
+  created_at: string;
+}
+
+const ACTION_LABELS: Record<string, string> = {
+  baseline: 'İlkin vəziyyət', draft: 'Qaralama', publish: 'Dərc', unpublish: 'Dərcdən çıxarılma', revert: 'Orijinala qaytarılma',
+  restore: 'Bərpa', edit: 'Dəyişiklik',
+};
+
+/** The text a version stands for: the live patch when it was published, else its draft. */
+export const versionPatch = (h: Pick<OverrideHistoryRow, 'patch' | 'draft' | 'published'>): Record<string, unknown> =>
+  (h.published ? h.patch : h.draft ?? h.patch) ?? {};
+
+/**
+ * Translations that may be stale: the Azerbaijani override of an item was published after this language's row
+ * changed (or this language has no row). Keys are `${item_type}|${item_id}`.
+ */
+export function staleTranslations(language: string, rows: OverrideAdminRow[] | null | undefined, azRows: OverrideAdminRow[] | null | undefined): Set<string> {
+  const out = new Set<string>();
+  if (language === 'az' || !azRows) return out;
+  const mine = new Map((rows ?? []).map((r) => [`${r.item_type}|${r.item_id}`, r]));
+  for (const az of azRows) {
+    if (!az.published || !az.published_at) continue;
+    const key = `${az.item_type}|${az.item_id}`;
+    const row = mine.get(key);
+    if (!row || row.updated_at < az.published_at) out.add(key);
+  }
+  return out;
+}
+
 type Status = 'bundled' | 'draft' | 'published' | 'published_draft';
 const statusOf = (row: OverrideAdminRow | undefined): Status =>
   !row ? 'bundled' : row.published ? (row.draft ? 'published_draft' : 'published') : 'draft';
@@ -110,6 +150,16 @@ export default function AdminParentingContent() {
     },
   });
   const byKey = useMemo(() => new Map((rows.data ?? []).map((r) => [`${r.item_type}|${r.item_id}`, r])), [rows.data]);
+  // Azerbaijani is the source language: a newer published az override flags the other languages' text as possibly stale.
+  const azRows = useQuery({
+    queryKey: ['admin-parenting-overrides', 'az'],
+    enabled: language !== 'az',
+    queryFn: async () => {
+      const res = await optionalRpc<OverrideAdminRow[]>('admin_parenting_overrides_v1', { p_language: 'az' });
+      return res === RPC_MISSING ? null : (res ?? []);
+    },
+  });
+  const stale = useMemo(() => staleTranslations(language, rows.data, azRows.data), [language, rows.data, azRows.data]);
 
   const items = useMemo(() => {
     if (!bundled.data) return [];
@@ -166,6 +216,7 @@ export default function AdminParentingContent() {
                               <strong style={{ display: 'block', fontSize: 13 }}>{it.label}</strong>
                               {it.sub && <span style={{ display: 'block', fontSize: 12, color: 'var(--ad-text-3)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{it.sub}</span>}
                             </span>
+                            {stale.has(`${type}|${it.id}`) && <StatusPill tone="warning" dot={false}>Tərcümə köhnə ola bilər</StatusPill>}
                             {st !== 'bundled' && <StatusPill tone={STATUS_PILL[st].tone}>{STATUS_PILL[st].label}</StatusPill>}
                           </button>
                         </li>
@@ -177,7 +228,8 @@ export default function AdminParentingContent() {
         <div ref={editorRef}>
           {selected && bundled.data ? (
             <Editor key={`${language}|${type}|${selected}`} language={language} type={type} id={selected} content={bundled.data}
-              row={byKey.get(`${type}|${selected}`)} canSave={rows.data !== null && !rows.isError} onSaved={refresh} />
+              row={byKey.get(`${type}|${selected}`)} canSave={rows.data !== null && !rows.isError} onSaved={refresh}
+              stale={stale.has(`${type}|${selected}`)} />
           ) : (
             <Section><EmptyState title="Element seç" description="Soldan bir məqalə, SOS kartı, proqram günü və s. seç — orijinal mətn və redaktə forması burada açılacaq." compact /></Section>
           )}
@@ -188,10 +240,11 @@ export default function AdminParentingContent() {
   );
 }
 
-function Editor({ language, type, id, content, row, canSave, onSaved }: {
+function Editor({ language, type, id, content, row, canSave, onSaved, stale }: {
   language: string; type: ParentingItemType; id: string; content: ParentingContent; row: OverrideAdminRow | undefined;
-  canSave: boolean; onSaved: () => Promise<void>;
+  canSave: boolean; onSaved: () => Promise<void>; stale?: boolean;
 }) {
+  const [panel, setPanel] = useState<'none' | 'preview' | 'history'>('none');
   const confirm = useAdminConfirm();
   const original = findParentingItem(content, type, id);
   // What the editor shows for "bundled": the item plus optional fields it may add.
@@ -239,7 +292,28 @@ function Editor({ language, type, id, content, row, canSave, onSaved }: {
       actions={changed.length ? <StatusPill tone="info" dot={false}>{`${changed.length} sahə dəyişib`}</StatusPill> : undefined}
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {stale && <Notice tone="warning">Azərbaycan dilindəki mətn bu dildəki mətndən sonra dərc olunub: tərcüməni yoxla.</Notice>}
         {problems.map((p) => <Notice key={p} tone="warning">{p}</Notice>)}
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <Btn size="sm" variant={panel === 'preview' ? 'primary' : undefined} aria-pressed={panel === 'preview'} onClick={() => setPanel(panel === 'preview' ? 'none' : 'preview')}>
+            <Eye size={13} /> Önizləmə
+          </Btn>
+          <Btn size="sm" variant={panel === 'history' ? 'primary' : undefined} aria-pressed={panel === 'history'} onClick={() => setPanel(panel === 'history' ? 'none' : 'history')}>
+            <History size={13} /> Tarixçə
+          </Btn>
+        </div>
+        {panel === 'preview' && (
+          <div style={{ border: '1px dashed var(--ad-border)', borderRadius: 12, padding: 12, background: 'var(--a-bg, transparent)' }}>
+            <p style={{ margin: '0 0 8px', fontSize: 12, color: 'var(--ad-text-3)' }}>Formdakı mətn tətbiqdə belə görünəcək (Premium istifadəçi kimi).</p>
+            <Suspense fallback={<SkeletonRows rows={3} columns={1} />}>
+              <ParentingPreview content={content} type={type} id={id} patch={patch} />
+            </Suspense>
+          </div>
+        )}
+        {panel === 'history' && (
+          <HistoryPanel language={language} type={type} id={id} canSave={canSave}
+            onLoad={(p) => { setValue(patchItem(base, p) as Record<string, unknown>); setPanel('none'); }} onRestored={onSaved} />
+        )}
         <ObjectFields base={base} value={value} onChange={(v) => setValue(v)} path={id} />
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', position: 'sticky', bottom: 0, background: 'var(--ad-surface)', padding: '10px 0 2px', borderTop: '1px solid var(--ad-border)' }}>
           <Btn variant="primary" disabled={!canSave || !!busy || !changed.length || !!problems.length || live} onClick={() => call('publish')}>
@@ -252,6 +326,72 @@ function Editor({ language, type, id, content, row, canSave, onSaved }: {
         </div>
       </div>
     </Section>
+  );
+}
+
+/** An item's saved versions with "load into form" and restore (as draft or published) via the history RPCs. */
+function HistoryPanel({ language, type, id, canSave, onLoad, onRestored }: {
+  language: string; type: ParentingItemType; id: string; canSave: boolean;
+  onLoad: (patch: Record<string, unknown>) => void; onRestored: () => Promise<void>;
+}) {
+  const confirm = useAdminConfirm();
+  const qc = useQueryClient();
+  const [busy, setBusy] = useState<string | null>(null);
+  const history = useQuery({
+    queryKey: ['admin-parenting-history', language, type, id],
+    queryFn: async () => {
+      const res = await optionalRpc<OverrideHistoryRow[]>('admin_parenting_override_history_v1', { p_language: language, p_item_type: type, p_item_id: id, p_limit: 50 });
+      return res === RPC_MISSING ? null : Array.isArray(res) ? res : [];
+    },
+  });
+
+  const restore = async (h: OverrideHistoryRow, action: 'draft' | 'publish') => {
+    if (!(await confirm({
+      title: action === 'publish' ? 'Bu versiya dərc edilsin?' : 'Bu versiya qaralama kimi bərpa edilsin?',
+      description: action === 'publish' ? 'İstifadəçilər bu mətni növbəti açılışda görəcək (keş ən çox 10 dəqiqə).' : 'Dərc olunmuş mətn dəyişmir; versiya qaralamaya yazılır.',
+      confirmLabel: action === 'publish' ? 'Dərc et' : 'Bərpa et',
+    }))) return;
+    setBusy(`${h.id}|${action}`);
+    try {
+      const { error } = await rpc('admin_parenting_override_restore_v1', { p_history_id: h.id, p_action: action });
+      if (error) throw new Error(error.message || 'error');
+      toast.success(action === 'publish' ? 'Versiya dərc olundu' : 'Versiya qaralama kimi bərpa olundu');
+      await onRestored();
+      await qc.invalidateQueries({ queryKey: ['admin-parenting-history', language, type, id] });
+    } catch (e) {
+      toast.error(`Alınmadı: ${e instanceof Error ? e.message : 'xəta'}`);
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  if (history.isLoading) return <SkeletonRows rows={3} columns={1} />;
+  if (history.isError) return <ErrorState onRetry={() => history.refetch()} compact />;
+  if (history.data === null) {
+    return <Notice tone="info">Versiya tarixçəsi hələ serverdə yoxdur (miqrasiya 20261108160000_parenting_cms_history tətbiq olunmayıb).</Notice>;
+  }
+  if (!history.data?.length) return <EmptyState title="Hələ versiya yoxdur" description="Qaralama saxlayanda və ya dərc edəndə burada görünəcək." compact />;
+  return (
+    <ol data-testid="admin-parenting-history" style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
+      {history.data.map((h) => {
+        const fields = Object.keys(versionPatch(h));
+        return (
+          <li key={h.id} style={{ border: '1px solid var(--ad-border)', borderRadius: 10, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <span style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', fontSize: 12.5 }}>
+              <strong>{ACTION_LABELS[h.action] ?? h.action}</strong>
+              {h.published && <StatusPill tone="success" dot={false}>dərc olunmuşdu</StatusPill>}
+              <span style={{ color: 'var(--ad-text-3)' }}>{fmtDateTime(h.created_at)}</span>
+              <span style={{ color: 'var(--ad-text-3)' }}>{fields.length ? fields.map(label).join(', ') : 'orijinal mətn'}</span>
+            </span>
+            <span style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+              <Btn size="sm" variant="ghost" onClick={() => onLoad(versionPatch(h))}>Formaya yüklə</Btn>
+              <Btn size="sm" disabled={!canSave || !!busy} onClick={() => restore(h, 'draft')}>{busy === `${h.id}|draft` ? 'Bərpa olunur…' : 'Qaralama kimi bərpa et'}</Btn>
+              <Btn size="sm" disabled={!canSave || !!busy} onClick={() => restore(h, 'publish')}>{busy === `${h.id}|publish` ? 'Dərc olunur…' : 'Bu versiyanı dərc et'}</Btn>
+            </span>
+          </li>
+        );
+      })}
+    </ol>
   );
 }
 

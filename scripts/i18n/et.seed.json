@@ -12509,5 +12509,22 @@
   "p3b_bag_hidden_n": "Peidetud ({n})",
   "p3b_bag_show": "Näita",
   "p3a_doctors_call": "Helista",
-  "p3a_doctors_directions": "Teejuhised"
+  "p3a_doctors_directions": "Teejuhised",
+  "par_child_switch": "Vali laps",
+  "par_intro_skip": "Jäta vahele",
+  "par_intro_next": "Edasi",
+  "par_intro_start": "Alusta",
+  "par_intro_step": "Samm {n}/{total}",
+  "par_intro_title_1": "Juhend vanuse järgi",
+  "par_intro_text_1": "Mis toimub lapse ajus selles vanuses, mida ta sinult vajab, ja iga päev üks lühike nõuanne.",
+  "par_intro_title_2": "SOS rasketeks hetkedeks",
+  "par_intro_text_2": "Jonnihoogude, löömise või magamaminekuga jonnimise korral: 3 rahulikku sammu ja sõnad, mida öelda.",
+  "par_intro_title_3": "Lühikesed programmid ja testid",
+  "par_intro_text_3": "Lühikesed programmid ühe väikese sammuga päevas, kasvatusstiili test ja arengu kontroll.",
+  "par_intro_band_title": "Kui vana on su laps?",
+  "par_intro_band_text": "Sobitame nõuanded selle vanusega. Saad seda igal ajal muuta.",
+  "par_quiz_prev": "Eelmine küsimus",
+  "par_prog_summary_days": "{n} päeva tehtud",
+  "par_prog_next_title": "Proovi järgmisena",
+  "par_prog_next_open": "Vaata programmi"
 }

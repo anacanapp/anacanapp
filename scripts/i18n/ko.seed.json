@@ -12431,5 +12431,22 @@
   "p3b_bag_hidden_n": "숨긴 항목 ({n})",
   "p3b_bag_show": "표시",
   "p3a_doctors_call": "전화하기",
-  "p3a_doctors_directions": "길찾기"
+  "p3a_doctors_directions": "길찾기",
+  "par_child_switch": "아이 선택",
+  "par_intro_skip": "건너뛰기",
+  "par_intro_next": "다음",
+  "par_intro_start": "시작하기",
+  "par_intro_step": "{n}/{total} 단계",
+  "par_intro_title_1": "나이별 가이드",
+  "par_intro_text_1": "이 나이의 아이 뇌에서 일어나는 일, 아이에게 필요한 것, 그리고 매일 짧은 팁.",
+  "par_intro_title_2": "힘든 순간을 위한 SOS",
+  "par_intro_text_2": "떼쓰기, 때리기, 잠자기 싫어할 때: 차분한 3단계와 해 줄 수 있는 말.",
+  "par_intro_title_3": "짧은 프로그램과 테스트",
+  "par_intro_text_3": "하루 한 걸음씩 하는 짧은 프로그램, 양육 스타일 테스트, 발달 체크.",
+  "par_intro_band_title": "아이가 몇 살인가요?",
+  "par_intro_band_text": "이 나이에 맞춰 팁을 보여 드릴게요. 언제든지 바꿀 수 있어요.",
+  "par_quiz_prev": "이전 질문",
+  "par_prog_summary_days": "{n}일 완료",
+  "par_prog_next_title": "다음 추천",
+  "par_prog_next_open": "프로그램 보기"
 }

@@ -10284,5 +10284,22 @@
   "p3b_bag_hidden_n": "Gizlenenler ({n})",
   "p3b_bag_show": "Göster",
   "p3a_doctors_call": "Ara",
-  "p3a_doctors_directions": "Yol tarifi"
+  "p3a_doctors_directions": "Yol tarifi",
+  "par_child_switch": "Çocuğu seçin",
+  "par_intro_skip": "Atla",
+  "par_intro_next": "İleri",
+  "par_intro_start": "Başlayın",
+  "par_intro_step": "Adım {n}/{total}",
+  "par_intro_title_1": "Yaşa göre rehber",
+  "par_intro_text_1": "Bu yaşta çocuğunuzun beyninde neler oluyor, sizden neye ihtiyacı var ve her gün için kısa bir öneri.",
+  "par_intro_title_2": "Zor anlar için SOS",
+  "par_intro_text_2": "Öfke nöbeti, vurma ya da uyumak istememe gibi anlarda 3 sakin adım ve söyleyebileceğiniz sözler.",
+  "par_intro_title_3": "Kısa programlar ve testler",
+  "par_intro_text_3": "Her gün küçük bir adımla kısa programlar, ebeveynlik tarzı testi ve gelişim kontrolü.",
+  "par_intro_band_title": "Çocuğunuz kaç yaşında?",
+  "par_intro_band_text": "Önerileri bu yaşa göre ayarlayalım. İstediğiniz zaman değiştirebilirsiniz.",
+  "par_quiz_prev": "Önceki soru",
+  "par_prog_summary_days": "{n} gün tamamlandı",
+  "par_prog_next_title": "Sıradaki öneri",
+  "par_prog_next_open": "Programa göz atın"
 }

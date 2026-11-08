@@ -12431,5 +12431,22 @@
   "p3b_bag_hidden_n": "Đã ẩn ({n})",
   "p3b_bag_show": "Hiện",
   "p3a_doctors_call": "Gọi điện",
-  "p3a_doctors_directions": "Chỉ đường"
+  "p3a_doctors_directions": "Chỉ đường",
+  "par_child_switch": "Chọn con",
+  "par_intro_skip": "Bỏ qua",
+  "par_intro_next": "Tiếp",
+  "par_intro_start": "Bắt đầu",
+  "par_intro_step": "Bước {n}/{total}",
+  "par_intro_title_1": "Hướng dẫn theo độ tuổi",
+  "par_intro_text_1": "Điều gì đang diễn ra trong não con ở độ tuổi này, con cần gì ở bạn, và một mẹo ngắn mỗi ngày.",
+  "par_intro_title_2": "SOS cho những lúc khó khăn",
+  "par_intro_text_2": "Khi con ăn vạ, đánh người hay không chịu ngủ: 3 bước bình tĩnh và những câu bạn có thể nói.",
+  "par_intro_title_3": "Chương trình ngắn và bài trắc nghiệm",
+  "par_intro_text_3": "Chương trình ngắn với một bước nhỏ mỗi ngày, trắc nghiệm phong cách nuôi dạy và kiểm tra sự phát triển.",
+  "par_intro_band_title": "Con bạn bao nhiêu tuổi?",
+  "par_intro_band_text": "Chúng tôi sẽ điều chỉnh gợi ý theo độ tuổi này. Bạn có thể đổi bất cứ lúc nào.",
+  "par_quiz_prev": "Câu hỏi trước",
+  "par_prog_summary_days": "Đã hoàn thành {n} ngày",
+  "par_prog_next_title": "Gợi ý tiếp theo",
+  "par_prog_next_open": "Xem chương trình"
 }

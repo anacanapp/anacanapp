@@ -6,7 +6,7 @@ import { useAppSetting } from '@/hooks/useAppSettings';
 import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useUserStore } from '@/store/userStore';
-import { homeTipFor, isParentingHomeCardVisible } from '@/lib/parenting';
+import { homeTipFor, isParentingHomeCardVisible, pickParentingChild, readSlot } from '@/lib/parenting';
 import { bandKey, pf, pt } from '@/lib/parenting-copy';
 import { activeProgramme } from '@/lib/parenting-reminders';
 import { setParentingTarget } from '@/lib/parenting-target';
@@ -29,15 +29,18 @@ export default function ParentingHomeCard({ onOpen, now }: { onOpen: () => void;
   const { isPremium, loading: premiumLoading } = useSubscription();
   const { isToolDisabled } = useDisabledTools();
   const { selectedChild, children } = useChildren();
-  const child = selectedChild ?? children[0] ?? null;
+  // The selected child when under 13, else the first younger sibling: a 13+ child does not hide the card.
+  const child = pickParentingChild(children, { preferred: selectedChild?.id, now }) ?? selectedChild ?? children[0] ?? null;
   const { state } = useParentingState(user?.id ?? null, { sync: false });
-  const visible = isParentingHomeCardVisible({ lifeStage, language, setting, birthDate: child?.birth_date ?? null, toolDisabled: isToolDisabled('parenting'), now });
+  const visible = isParentingHomeCardVisible({
+    lifeStage, language, setting, birthDate: child?.birth_date ?? null, birthDates: children.map((c) => c.birth_date), toolDisabled: isToolDisabled('parenting'), now,
+  });
   const { content } = useParentingContent(language, visible);
   const known = setting !== undefined && setting !== null && !premiumLoading;
   useParentingReminders({ state, content, allowed: known ? visible && !!isPremium : null, now });
 
   if (!visible || !content) return null;
-  const today = homeTipFor(content.tips, { birthDate: child?.birth_date ?? null, chosenBand: state.band, now });
+  const today = homeTipFor(content.tips, { birthDate: child?.birth_date ?? null, slot: readSlot(state, child?.id ?? null), now });
   if (!today) return null;
 
   // A running programme: a "Continue: <programme> · Day n/total" line that opens it directly.
@@ -48,7 +51,7 @@ export default function ParentingHomeCard({ onOpen, now }: { onOpen: () => void;
   const openTip = () => { track('home_card_open'); onOpen(); };
   const openProgramme = () => {
     if (!running) return;
-    setParentingTarget({ kind: 'programme', id: running.programme.id });
+    setParentingTarget({ kind: 'programme', id: running.programme.id, ...(running.childId ? { child: running.childId } : {}) });
     track('home_continue', running.programme.id);
     onOpen();
   };

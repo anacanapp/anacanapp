@@ -10284,5 +10284,22 @@
   "p3b_bag_hidden_n": "المخفية ({n})",
   "p3b_bag_show": "إظهار",
   "p3a_doctors_call": "اتصال",
-  "p3a_doctors_directions": "الاتجاهات"
+  "p3a_doctors_directions": "الاتجاهات",
+  "par_child_switch": "اختاري الطفل",
+  "par_intro_skip": "تخطي",
+  "par_intro_next": "التالي",
+  "par_intro_start": "ابدئي",
+  "par_intro_step": "الخطوة {n}/{total}",
+  "par_intro_title_1": "دليل حسب العمر",
+  "par_intro_text_1": "ما الذي يحدث في دماغ طفلك في هذا العمر، وما الذي يحتاجه منك، ونصيحة قصيرة كل يوم.",
+  "par_intro_title_2": "طوارئ للّحظات الصعبة",
+  "par_intro_text_2": "عند نوبات الغضب أو الضرب أو رفض النوم: 3 خطوات هادئة وكلمات يمكنك قولها.",
+  "par_intro_title_3": "برامج قصيرة واختبارات",
+  "par_intro_text_3": "برامج قصيرة بخطوة صغيرة كل يوم، واختبار لأسلوب التربية، وفحص للنمو.",
+  "par_intro_band_title": "كم عمر طفلك؟",
+  "par_intro_band_text": "سنناسب النصائح مع هذا العمر. يمكنك تغييره في أي وقت.",
+  "par_quiz_prev": "السؤال السابق",
+  "par_prog_summary_days": "اكتمل {n} يومًا",
+  "par_prog_next_title": "اقتراح تالٍ",
+  "par_prog_next_open": "عرض البرنامج"
 }

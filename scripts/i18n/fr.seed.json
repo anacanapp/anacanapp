@@ -12431,5 +12431,22 @@
   "p3b_bag_hidden_n": "Masqués ({n})",
   "p3b_bag_show": "Afficher",
   "p3a_doctors_call": "Appeler",
-  "p3a_doctors_directions": "Itinéraire"
+  "p3a_doctors_directions": "Itinéraire",
+  "par_child_switch": "Choisir l'enfant",
+  "par_intro_skip": "Passer",
+  "par_intro_next": "Suivant",
+  "par_intro_start": "Commencer",
+  "par_intro_step": "Étape {n}/{total}",
+  "par_intro_title_1": "Un guide selon l'âge",
+  "par_intro_text_1": "Ce qui se passe dans le cerveau de votre enfant à cet âge, ce dont il a besoin et un conseil court chaque jour.",
+  "par_intro_title_2": "SOS pour les moments difficiles",
+  "par_intro_text_2": "Crises, coups, refus d'aller au lit : 3 étapes calmes et des phrases que vous pouvez dire.",
+  "par_intro_title_3": "Programmes courts et quiz",
+  "par_intro_text_3": "Des programmes courts avec un petit pas par jour, un quiz sur votre style éducatif et un point sur le développement.",
+  "par_intro_band_title": "Quel âge a votre enfant ?",
+  "par_intro_band_text": "Nous adapterons les conseils à cet âge. Vous pourrez le changer à tout moment.",
+  "par_quiz_prev": "Question précédente",
+  "par_prog_summary_days": "{n} jours terminés",
+  "par_prog_next_title": "À essayer ensuite",
+  "par_prog_next_open": "Voir le programme"
 }

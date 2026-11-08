@@ -12431,5 +12431,22 @@
   "p3b_bag_hidden_n": "Verborgen ({n})",
   "p3b_bag_show": "Tonen",
   "p3a_doctors_call": "Bellen",
-  "p3a_doctors_directions": "Route"
+  "p3a_doctors_directions": "Route",
+  "par_child_switch": "Kind kiezen",
+  "par_intro_skip": "Overslaan",
+  "par_intro_next": "Volgende",
+  "par_intro_start": "Beginnen",
+  "par_intro_step": "Stap {n}/{total}",
+  "par_intro_title_1": "Gids per leeftijd",
+  "par_intro_text_1": "Wat er op deze leeftijd in het brein van je kind gebeurt, wat het van je nodig heeft en elke dag een korte tip.",
+  "par_intro_title_2": "SOS voor moeilijke momenten",
+  "par_intro_text_2": "Bij driftbuien, slaan of strijd rond bedtijd: 3 rustige stappen en woorden die je kunt zeggen.",
+  "par_intro_title_3": "Korte programma's en tests",
+  "par_intro_text_3": "Korte programma's met elke dag één kleine stap, een test over je opvoedstijl en een ontwikkelingscheck.",
+  "par_intro_band_title": "Hoe oud is je kind?",
+  "par_intro_band_text": "We stemmen de tips af op deze leeftijd. Je kunt dit altijd wijzigen.",
+  "par_quiz_prev": "Vorige vraag",
+  "par_prog_summary_days": "{n} dagen voltooid",
+  "par_prog_next_title": "Probeer hierna",
+  "par_prog_next_open": "Programma bekijken"
 }

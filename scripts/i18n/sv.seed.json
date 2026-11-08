@@ -12431,5 +12431,22 @@
   "p3b_bag_hidden_n": "Dolda ({n})",
   "p3b_bag_show": "Visa",
   "p3a_doctors_call": "Ring",
-  "p3a_doctors_directions": "Vägbeskrivning"
+  "p3a_doctors_directions": "Vägbeskrivning",
+  "par_child_switch": "Välj barn",
+  "par_intro_skip": "Hoppa över",
+  "par_intro_next": "Nästa",
+  "par_intro_start": "Börja",
+  "par_intro_step": "Steg {n}/{total}",
+  "par_intro_title_1": "Guide efter ålder",
+  "par_intro_text_1": "Vad som händer i barnets hjärna i den här åldern, vad barnet behöver av dig och ett kort tips varje dag.",
+  "par_intro_title_2": "SOS för svåra stunder",
+  "par_intro_text_2": "Vid utbrott, slag eller bråk vid läggdags: 3 lugna steg och ord du kan säga.",
+  "par_intro_title_3": "Korta program och tester",
+  "par_intro_text_3": "Korta program med ett litet steg om dagen, ett test om din föräldrastil och en utvecklingskoll.",
+  "par_intro_band_title": "Hur gammalt är ditt barn?",
+  "par_intro_band_text": "Vi anpassar tipsen efter den här åldern. Du kan ändra det när som helst.",
+  "par_quiz_prev": "Föregående fråga",
+  "par_prog_summary_days": "{n} dagar klara",
+  "par_prog_next_title": "Prova härnäst",
+  "par_prog_next_open": "Visa programmet"
 }

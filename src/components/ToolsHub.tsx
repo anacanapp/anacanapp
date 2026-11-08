@@ -255,7 +255,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const showWeaning = !disabledTools.includes('weaning') && isWeaningTileVisible({ lifeStage, birthDate: childBirthDate, setting: weaningSetting });
   // Tərbiyə: Ana module, content registered for the app language, child under 13, app_settings.parenting_tool = 'on'.
   const parentingSetting = useAppSetting('parenting_tool');
-  const showParenting = !disabledTools.includes('parenting') && isParentingTileVisible({ lifeStage, language, birthDate: childBirthDate, setting: parentingSetting });
+  const showParenting = !disabledTools.includes('parenting') && isParentingTileVisible({ lifeStage, language, birthDate: childBirthDate, birthDates: (childrenInfo.children ?? []).map((c) => c.birth_date), setting: parentingSetting });
   const tools: Tool[] = useMemo(() => {
     if (toolConfigs.length === 0) {
       return [];

@@ -10,13 +10,18 @@ import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { useUserStore } from '@/store/userStore';
 import { pushBackHandler } from '@/lib/backButton';
 import { resetAppScrollPosition } from '@/lib/scroll';
-import { ageBandFor, ageInMonths, dailyTipIndex, isoDay, toggleSavedState } from '@/lib/parenting';
+import {
+  type ChildSlot, ageBandFor, ageInMonths, childForProgramme, dailyTipIndex, effectiveBand, hasParentingActivity, isoDay, normalizeForChild,
+  parentingChildren, pickParentingChild, readSlot, setSlotBand, toggleSavedState, writeSlot,
+} from '@/lib/parenting';
+import type { AgeBandId } from '@/data/parenting/types';
 import { bandKey, pf, pt } from '@/lib/parenting-copy';
 import { clearParentingTarget, peekParentingTarget, type ParentingTarget } from '@/lib/parenting-nav';
 import { hasParentingContent } from '@/data/parenting';
 import { useParentingState } from './useParentingState';
 import { useParentingContent } from './useParentingContent';
 import { useParentingReminders } from './useParentingReminders';
+import { ParentingIntro, introSeen, markIntroSeen } from './ParentingIntro';
 import {
   type ParentingCtx, type Route, ArticleScreen, BandScreen, HomeScreen, ProgrammeScreen, ProgrammesScreen, QuizScreen, SavedScreen,
   SosListScreen, SosScreen, TopicsScreen, savedRef,
@@ -36,6 +41,8 @@ interface Props {
 }
 
 export interface ParentingChild {
+  /** Child id (user_children / partner_children_v1); null for a profile-only baby. */
+  id?: string | null;
   name?: string | null;
   birth_date?: string | null;
 }
@@ -47,14 +54,20 @@ const track = (action: string, itemId?: string) => {
 
 const routeFor = (t: ParentingTarget | null): Route[] => (t ? [{ s: t.kind, id: t.id } as Route] : []);
 
-/** Mother (Ana module): the active child from her own children. */
+/** Mother (Ana module): her children, starting on the app's selected child when it is under 13. */
 export default function ParentingTool({ onBack, now }: Props) {
   const { selectedChild, children } = useChildren();
   const child = selectedChild ?? children[0] ?? null;
-  return <ParentingToolView onBack={onBack} now={now} child={child} />;
+  return <ParentingToolView onBack={onBack} now={now} child={child} kids={children} />;
 }
 
-export function ParentingToolView({ onBack, now, child, partner = false }: Props & { child: ParentingChild | null; partner?: boolean }) {
+export function ParentingToolView({ onBack, now, child: preferred, kids, partner = false }: Props & {
+  /** The preferred child (the app's selected child / her current child). */
+  child: ParentingChild | null;
+  /** Every child the parent can switch between (only those under 13 or without a birth date are offered). */
+  kids?: ParentingChild[];
+  partner?: boolean;
+}) {
   useScreenAnalytics(partner ? 'ParentingPartner' : 'Parenting', 'Tools');
   const { user } = useAuth();
   const { isPremium, loading: premiumLoading } = useSubscription();
@@ -70,9 +83,24 @@ export function ParentingToolView({ onBack, now, child, partner = false }: Props
 
   const nowDate = useMemo(() => now ?? new Date(), [now]);
   const today = isoDay(nowDate);
+
+  // Several children: a compact switcher; the band, programmes and quiz results follow the selected child.
+  const [pickedId, setPickedId] = useState<string | null>(() => peekParentingTarget()?.child ?? null);
+  const kidList = useMemo(() => (kids?.length ? kids : preferred ? [preferred] : []), [kids, preferred]);
+  const eligible = useMemo(() => parentingChildren(kidList, nowDate), [kidList, nowDate]);
+  const child = pickParentingChild(kidList, { picked: pickedId, preferred: preferred?.id, now: nowDate });
+  const childId = child?.id ?? null;
   const ageMonths = ageInMonths(child?.birth_date, nowDate);
   const childBand = ageBandFor(ageMonths);
-  const band = state.band ?? childBand ?? '1-3';
+  const slot = readSlot(state, childId);
+  const band = effectiveBand(slot, childBand) ?? '1-3';
+  const updateSlot = useCallback((fn: (s: ChildSlot) => ChildSlot) => update((s) => writeSlot(s, childId, fn)), [update, childId]);
+
+  // Account-level data from before multi-child support becomes this child's; an outgrown manual band is dropped.
+  const stamp = useMemo(() => new Date(nowDate.getTime()).toISOString(), [nowDate]);
+  useEffect(() => {
+    if (normalizeForChild(state, childId, childBand, stamp) !== state) update((s) => normalizeForChild(s, childId, childBand, stamp));
+  }, [state, childId, childBand, stamp, update]);
   const childName = child?.name || pt('par_child_fallback');
   const childAgeLabel = ageMonths === null || childBand === null ? null
     : ageMonths < 12 ? pf('par_age_months', { n: ageMonths })
@@ -85,8 +113,25 @@ export function ParentingToolView({ onBack, now, child, partner = false }: Props
     // Opened on one item (Anacan.AI card, reminder tap, home "Continue"): count it like any other open.
     const t = peekParentingTarget();
     if (t) track(`open_${t.kind}`, t.id);
+    // A reminder tap names only the programme: open it for the child it runs for.
+    if (t?.kind === 'programme' && !t.child) {
+      const owner = childForProgramme(state, t.id);
+      if (owner) setPickedId(owner);
+    }
     clearParentingTarget();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps -- once, on mount
+
+  // First-run intro (once per device + account), only on the tool home and for a parent who has not used the tool.
+  const uid = user?.id ?? null;
+  const [intro, setIntro] = useState(() => !introSeen(uid) && !peekParentingTarget() && !hasParentingActivity(state));
+  // A parent who already used the tool (before this intro existed) never sees it.
+  useEffect(() => { if (!intro && !introSeen(uid) && hasParentingActivity(state)) markIntroSeen(uid); }, [intro, uid, state]);
+  const finishIntro = useCallback((picked: AgeBandId | null) => {
+    markIntroSeen(uid);
+    setIntro(false);
+    if (picked) updateSlot((s) => setSlotBand(s, picked, childBand));
+    track(picked ? 'intro_band' : 'intro_done');
+  }, [uid, updateSlot, childBand]);
   const [query, setQuery] = useState('');
   const route: Route = stack.length ? stack[stack.length - 1] : { s: 'home' };
   const go = useCallback((r: Route) => {
@@ -128,14 +173,20 @@ export function ParentingToolView({ onBack, now, child, partner = false }: Props
   }
 
   const ctx: ParentingCtx = {
-    content, band, childBand, childName, childAgeLabel, ageMonths, isPremium: !!isPremium, emergency, today, local: state, update,
-    updateLocal, go, track, query, setQuery, reminderAllowed: setting !== 'off' && !!isPremium,
+    content, band, childBand, childName, childAgeLabel, ageMonths, isPremium: !!isPremium, emergency, today, locale: String(language || lang),
+    local: state, slot, updateSlot, update, updateLocal, go, track, query, setQuery, reminderAllowed: setting !== 'off' && !!isPremium,
   };
 
   const ref = savedRef(route);
   const isSaved = !!ref && state.saved.includes(ref);
+  const switcher = route.s === 'home' && eligible.length > 1 ? (
+    <select className="a-par-kid" aria-label={pt('par_child_switch')} value={childId ?? ''} data-testid="parenting-child-switch"
+      onChange={(e) => { setPickedId(e.target.value || null); track('child_switch'); }}>
+      {eligible.map((k) => <option key={k.id ?? 'none'} value={k.id ?? ''}>{k.name || pt('par_child_fallback')}</option>)}
+    </select>
+  ) : null;
   const actions = route.s === 'home'
-    ? <button type="button" className="a-icon-btn" aria-label={pt('par_saved_title')} onClick={() => go({ s: 'saved' })}><Bookmark size={16} /></button>
+    ? <>{switcher}<button type="button" className="a-icon-btn" aria-label={pt('par_saved_title')} onClick={() => go({ s: 'saved' })}><Bookmark size={16} /></button></>
     : ref
       ? (
         <button type="button" className="a-icon-btn" aria-pressed={isSaved} aria-label={pt(isSaved ? 'par_unsave' : 'par_save')}
@@ -199,6 +250,7 @@ export function ParentingToolView({ onBack, now, child, partner = false }: Props
       <ToolHeader title={title} eyebrow={eyebrow} onBack={back} actions={actions} />
       {pending && !online && <p className="a-par-small" role="status" style={{ marginBottom: 10 }}>{pt('par_offline')}</p>}
       {body}
+      {intro && route.s === 'home' && <ParentingIntro askBand={childBand === null && !slot.band} onDone={finishIntro} />}
     </ToolPage>
   );
 }

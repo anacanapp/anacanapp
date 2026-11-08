@@ -12431,5 +12431,22 @@
   "p3b_bag_hidden_n": "Disembunyikan ({n})",
   "p3b_bag_show": "Tampilkan",
   "p3a_doctors_call": "Telepon",
-  "p3a_doctors_directions": "Petunjuk arah"
+  "p3a_doctors_directions": "Petunjuk arah",
+  "par_child_switch": "Pilih anak",
+  "par_intro_skip": "Lewati",
+  "par_intro_next": "Berikutnya",
+  "par_intro_start": "Mulai",
+  "par_intro_step": "Langkah {n}/{total}",
+  "par_intro_title_1": "Panduan sesuai usia",
+  "par_intro_text_1": "Apa yang terjadi di otak anak pada usia ini, apa yang ia butuhkan darimu, dan tips singkat setiap hari.",
+  "par_intro_title_2": "SOS untuk momen sulit",
+  "par_intro_text_2": "Saat tantrum, memukul, atau tidak mau tidur: 3 langkah tenang dan kata-kata yang bisa kamu ucapkan.",
+  "par_intro_title_3": "Program singkat dan kuis",
+  "par_intro_text_3": "Program singkat dengan satu langkah kecil setiap hari, kuis gaya pengasuhan, dan cek perkembangan.",
+  "par_intro_band_title": "Berapa usia anakmu?",
+  "par_intro_band_text": "Kami akan menyesuaikan tips dengan usia ini. Kamu bisa mengubahnya kapan saja.",
+  "par_quiz_prev": "Pertanyaan sebelumnya",
+  "par_prog_summary_days": "{n} hari selesai",
+  "par_prog_next_title": "Coba berikutnya",
+  "par_prog_next_open": "Lihat program"
 }
