@@ -4,6 +4,7 @@
  * no AI, nothing medical, nothing frightening. The thread lives on the device only.
  */
 import type az from '@/data/baby-chat/az.json';
+import { localDateKey } from '@/lib/local-date';
 
 export type BabyChatText = typeof az;
 export type BabyIntent = keyof BabyChatText['keywords'];
@@ -22,10 +23,7 @@ const hash = (value: string) => {
 };
 const pick = <T,>(items: T[], seed: string): T => items[hash(seed) % items.length];
 
-export const dayKey = (date: Date) => {
-  const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
-  return local.toISOString().slice(0, 10);
-};
+export const dayKey = (date: Date) => localDateKey(date);
 
 /** Today's message arrives at a different time each day: 09:00–20:30, stable per user and date. */
 export function dailyArrival(date: Date, userId: string): Date {

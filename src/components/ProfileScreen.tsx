@@ -41,6 +41,7 @@ import { useQaygiCashWallet } from '@/hooks/useQaygiCash';
 import { useRecapProfileRow } from '@/components/recap/RecapEntry';
 import { QC_BRAND, formatQc } from '@/lib/qaygicash';
 import { qf } from '@/lib/qaygicash-copy';
+import { todayKey } from '@/lib/local-date';
 
 interface ProfileScreenProps {
   onNavigate?: (screen: string) => void;
@@ -656,7 +657,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
               <DateField
                 value={childForm.birth_date}
                 onChange={(v) => setChildForm((p) => ({ ...p, birth_date: v }))}
-                max={new Date().toISOString().split('T')[0]} />
+                max={todayKey()} />
               
             </div>
             <div>

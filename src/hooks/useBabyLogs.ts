@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
+import { localDateKey, daysAgoKey } from '@/lib/local-date';
 import { useChildren } from './useChildren';
 
 export interface BabyLog {
@@ -190,16 +191,14 @@ export const useBabyLogs = () => {
     // Get date strings for last N days
     const dates: string[] = [];
     for (let i = 0; i < days; i++) {
-      const date = new Date();
-      date.setDate(date.getDate() - i);
-      dates.push(date.toISOString().split('T')[0]);
+      dates.push(daysAgoKey(i));
     }
     
     // Initialize map with empty arrays
     dates.forEach(date => historyMap.set(date, []));
     
     feedingLogs.forEach(log => {
-      const dateStr = log.start_time.split('T')[0];
+      const dateStr = localDateKey(new Date(log.start_time));
       if (!dates.includes(dateStr)) return;
       
       const startTime = new Date(log.start_time);

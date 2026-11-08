@@ -30,6 +30,7 @@ import {
 import AppLockSetupSheet from '@/components/security/AppLockSetupSheet';
 import { isLockEnabled } from '@/lib/appLock';
 import { usePrivacyText } from '@/components/privacy/privacyCopy';
+import { todayKey } from '@/lib/local-date';
 
 interface SettingsScreenProps {
   onBack: () => void;
@@ -111,7 +112,7 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `anacan-data-${new Date().toISOString().split('T')[0]}.json`;
+      link.download = `anacan-data-${todayKey()}.json`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

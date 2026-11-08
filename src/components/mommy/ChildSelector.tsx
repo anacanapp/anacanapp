@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { useChildren, Child } from '@/hooks/useChildren';
 import { toast } from 'sonner';
 import { tr } from "@/lib/tr";
+import { todayKey } from '@/lib/local-date';
 
 interface ChildSelectorProps {
   compact?: boolean;
@@ -116,7 +117,7 @@ const ChildSelector = ({ compact = false }: ChildSelectorProps) => {
             type="date"
             value={formData.birth_date}
             onChange={(e) => setFormData((p) => ({ ...p, birth_date: e.target.value }))}
-            max={new Date().toISOString().split('T')[0]} />
+            max={todayKey()} />
           
           </div>
           <div>
@@ -283,7 +284,7 @@ const ChildSelector = ({ compact = false }: ChildSelectorProps) => {
                 type="date"
                 value={formData.birth_date}
                 onChange={(e) => setFormData((p) => ({ ...p, birth_date: e.target.value }))}
-                max={new Date().toISOString().split('T')[0]} />
+                max={todayKey()} />
               
             </div>
             <div>

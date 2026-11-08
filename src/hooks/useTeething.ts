@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { useChildren } from './useChildren';
+import { todayKey } from '@/lib/local-date';
 import { useUserStore } from '@/store/userStore';
 import { mapRowsTranslation } from '@/lib/tr';
 
@@ -155,7 +156,7 @@ export const useTeething = () => {
           user_id: user.id,
           child_id: selectedChild?.id || null,
           tooth_id: toothId,
-          emerged_date: date || new Date().toISOString().split('T')[0],
+          emerged_date: date || todayKey(),
         }, { onConflict: 'user_id,child_id,tooth_id' });
 
       if (!error) {

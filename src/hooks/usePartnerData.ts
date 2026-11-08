@@ -5,6 +5,7 @@ import { getPregnancyWeek, getDaysUntilDue as calcDaysUntilDue, getDaysElapsed, 
 import { getPhaseInfoForDate, type CyclePhaseInfo } from '@/lib/cycle-utils';
 import { usePartnerSharedSettings } from './usePartnerSharing';
 import { readCache, writeCache } from '@/lib/offlineCache';
+import { todayKey } from '@/lib/local-date';
 
 const PARTNER_PROFILE_CACHE = 'partner_profile';
 const PARTNER_DAILYLOG_CACHE = 'partner_dailylog';
@@ -66,7 +67,7 @@ export const usePartnerData = () => {
     setPartnerProfile(cachedProfile);
     // Gündəlik log yalnız bu günə aiddirsə göstərilsin (dünənki əhval "bu gün" kimi görünməsin)
     const cachedLog = readCache<PartnerDailyLog>(PARTNER_DAILYLOG_CACHE, profile.user_id);
-    const today = new Date().toISOString().split('T')[0];
+    const today = todayKey();
     if (cachedLog?.log_date === today) setPartnerDailyLog(cachedLog);
     return true;
   };
@@ -100,7 +101,7 @@ export const usePartnerData = () => {
         if (profile?.user_id) writeCache(PARTNER_PROFILE_CACHE, profile.user_id, partnerData);
 
         // Fetch today's daily log for the partner
-        const today = new Date().toISOString().split('T')[0];
+        const today = todayKey();
         // Masked by her sharing settings on the server (Duzelis68); no direct daily_logs access.
         const { data: logRows, error: logError } = await (supabase as any).rpc('partner_daily_logs_v1', { p_from: today, p_to: today });
         const logData = (logRows as PartnerDailyLog[] | null)?.[0] ?? null;

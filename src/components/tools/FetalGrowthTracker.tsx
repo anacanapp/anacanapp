@@ -17,6 +17,7 @@ import { formatDateAz } from '@/lib/date-utils';
 import { tr } from '@/lib/tr';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
+import { todayKey } from '@/lib/local-date';
 
 interface FetalGrowthTrackerProps {
   onBack: () => void;
@@ -48,7 +49,7 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [selectedLabel, setSelectedLabel] = useState<string>('A');
-  const [scanDate, setScanDate] = useState(new Date().toISOString().split('T')[0]);
+  const [scanDate, setScanDate] = useState(todayKey);
   const [efwInput, setEfwInput] = useState('');
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
 
@@ -129,7 +130,7 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
         <motion.button
           onClick={() => {
             setSelectedLabel('A');
-            setScanDate(new Date().toISOString().split('T')[0]);
+            setScanDate(todayKey());
             setShowAddForm(true);
           }}
           className="a-icon-btn"
@@ -477,7 +478,7 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
                   type="date"
                   value={scanDate}
                   onChange={(e) => setScanDate(e.target.value)}
-                  max={new Date().toISOString().split('T')[0]}
+                  max={todayKey()}
                   className="a-input a-date-input" />
                 
                 </div>

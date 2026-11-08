@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
+import { todayKey, localDateKey } from '@/lib/local-date';
 
 export interface ExerciseLog {
   id: string;
@@ -22,7 +23,7 @@ export const useExerciseLogs = () => {
     if (!user) return;
     
     try {
-      const today = new Date().toISOString().split('T')[0];
+      const today = todayKey();
       
       const { data, error } = await supabase
         .from('exercise_logs')
@@ -38,7 +39,7 @@ export const useExerciseLogs = () => {
       
       // Filter today's logs
       const todaysLogs = allLogs.filter(log => 
-        log.completed_at.startsWith(today)
+        localDateKey(new Date(log.completed_at)) === today
       );
       setTodayLogs(todaysLogs);
     } catch (error) {

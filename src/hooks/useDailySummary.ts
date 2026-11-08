@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { tr } from '@/lib/tr';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
+import { todayKey, daysAgoKey } from '@/lib/local-date';
+import { localDayStartIso } from '@/lib/local-day-range';
 
 export interface DailySummary {
   id: string;
@@ -57,7 +59,7 @@ export const useDailySummary = () => {
       if (error) throw error;
       setSummaries((data || []) as DailySummary[]);
 
-      const today = new Date().toISOString().split('T')[0];
+      const today = todayKey();
       const todayData = data?.find(s => s.summary_date === today) || null;
       setTodaySummary(todayData as DailySummary | null);
     } catch (error) {
@@ -75,7 +77,7 @@ export const useDailySummary = () => {
       const partnerUserId = await getPartnerUserId();
       if (!partnerUserId) return;
 
-      const today = new Date().toISOString().split('T')[0];
+      const today = todayKey();
 
       const [dailyLogRes, kicksRes, contractionsRes] = await Promise.all([
         supabase
@@ -88,14 +90,14 @@ export const useDailySummary = () => {
           .from('kick_sessions')
           .select('kick_count')
           .eq('user_id', user.id)
-          .gte('created_at', `${today}T00:00:00`)
-          .lte('created_at', `${today}T23:59:59`),
+          .gte('created_at', localDayStartIso(today))
+          .lt('created_at', localDayStartIso(daysAgoKey(-1))),
         supabase
           .from('contractions')
           .select('id')
           .eq('user_id', user.id)
-          .gte('start_time', `${today}T00:00:00`)
-          .lte('start_time', `${today}T23:59:59`),
+          .gte('start_time', localDayStartIso(today))
+          .lt('start_time', localDayStartIso(daysAgoKey(-1))),
       ]);
 
       const dailyLog = dailyLogRes.data;
@@ -139,7 +141,7 @@ export const useDailySummary = () => {
       const partnerUserId = await getPartnerUserId();
       if (!partnerUserId) return { error: 'No partner linked' };
 
-      const today = new Date().toISOString().split('T')[0];
+      const today = todayKey();
 
       const [dailyLogRes, kicksRes, contractionsRes] = await Promise.all([
         supabase
@@ -152,14 +154,14 @@ export const useDailySummary = () => {
           .from('kick_sessions')
           .select('kick_count')
           .eq('user_id', user.id)
-          .gte('created_at', `${today}T00:00:00`)
-          .lte('created_at', `${today}T23:59:59`),
+          .gte('created_at', localDayStartIso(today))
+          .lt('created_at', localDayStartIso(daysAgoKey(-1))),
         supabase
           .from('contractions')
           .select('id')
           .eq('user_id', user.id)
-          .gte('start_time', `${today}T00:00:00`)
-          .lte('start_time', `${today}T23:59:59`),
+          .gte('start_time', localDayStartIso(today))
+          .lt('start_time', localDayStartIso(daysAgoKey(-1))),
       ]);
 
       const dailyLog = dailyLogRes.data;

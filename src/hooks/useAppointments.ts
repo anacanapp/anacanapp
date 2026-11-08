@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { tr } from '@/lib/tr';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
+import { localDateKey, todayKey, daysAgoKey } from '@/lib/local-date';
 import { useToast } from './use-toast';
 import { clearLegacyAppointmentNotifications } from '@/lib/native';
 
@@ -136,17 +137,14 @@ export const useAppointments = () => {
   }, [user, deleteMutation.mutateAsync]);
 
   const getUpcoming = (days: number = 7) => {
-    const today = new Date();
-    const endDate = new Date();
-    endDate.setDate(today.getDate() + days);
-    return appointments.filter((apt) => {
-      const aptDate = new Date(apt.event_date);
-      return aptDate >= today && aptDate <= endDate;
-    });
+    // event_date is a local calendar day: compare day keys, not instants (UTC midnight hid today's visits).
+    const from = todayKey();
+    const to = daysAgoKey(-days);
+    return appointments.filter((apt) => apt.event_date >= from && apt.event_date <= to);
   };
 
   const getByDate = (date: Date) => {
-    const dateStr = date.toISOString().split('T')[0];
+    const dateStr = localDateKey(date);
     return appointments.filter((apt) => apt.event_date === dateStr);
   };
 

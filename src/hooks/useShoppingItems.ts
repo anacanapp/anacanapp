@@ -3,6 +3,7 @@ import { tr } from '@/lib/tr';
 import { supabase } from '@/integrations/supabase/client';
 import type { PushEventData } from '@/lib/push';
 import { useAuth } from './useAuth';
+import { todayKey } from '@/lib/local-date';
 
 export interface ShoppingItem {
   id: string;
@@ -95,7 +96,7 @@ export const useShoppingItems = () => {
   const notifyPartnerAboutShopping = async (partnerUserId: string, itemName: string, interactionId: string) => {
     try {
       // Check if we already sent a shopping notification today
-      const today = new Date().toISOString().split('T')[0];
+      const today = todayKey();
       const storageKey = `shopping_notif_${today}`;
       
       if (localStorage.getItem(storageKey)) {

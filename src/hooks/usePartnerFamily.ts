@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
+import { localDateKey } from '@/lib/local-date';
 
 /**
  * Shared family tools of a mother and her mutually linked partner (Duzelis69):
@@ -21,10 +22,8 @@ export interface NightShift {
 // Keep the call on the client object: a detached supabase.rpc loses `this`.
 const rpc = (name: string, args?: Record<string, unknown>): Promise<{ data: any; error: any }> => (supabase.rpc as any)(name, args);
 
-export const isoDay = (date: Date) => {
-  const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
-  return local.toISOString().slice(0, 10);
-};
+/** Local calendar day of `date` (the offset trick it replaced could slip a day around a DST change). */
+export const isoDay = (date: Date) => localDateKey(date);
 export const addDays = (date: Date, days: number) => {
   const next = new Date(date);
   next.setDate(next.getDate() + days);

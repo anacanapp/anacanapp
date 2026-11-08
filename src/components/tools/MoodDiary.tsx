@@ -1,4 +1,4 @@
-import { useState, forwardRef, useMemo } from 'react';
+import { useState, forwardRef, useMemo, useEffect, useRef } from 'react';
 import { getLocaleTag } from '@/lib/i18n';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Calendar, Plus, Sparkles, TrendingUp } from 'lucide-react';
@@ -13,6 +13,8 @@ import { tr } from "@/lib/tr";
 import { useIsRtl, rtlX } from '@/lib/rtl';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
+import { todayKey } from '@/lib/local-date';
+import { moodDiaryFormFromLog, moodDiaryPatch } from './mood-diary-form';
 
 interface MoodDiaryProps {
   onBack: () => void;
@@ -72,15 +74,20 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
     }));
   }, [dbSymptoms]);
 
-  // Initialize from today's log if exists
-  useState(() => {
-    if (todayLog) {
-      setSelectedMood(todayLog.mood || null);
-      setSelectedSymptoms(todayLog.symptoms || []);
-      setSelectedBleeding(todayLog.bleeding || null);
-      setNotes(todayLog.notes || '');
-    }
-  });
+  // Fill the form from today's saved entry once it has loaded. `dirty` keeps a later refetch from overwriting
+  // what the user is entering; `filledFor` makes it happen once per day's row.
+  const dirty = useRef(false);
+  const filledFor = useRef<string | null>(null);
+  useEffect(() => {
+    if (!todayLog || dirty.current || filledFor.current === todayLog.log_date) return;
+    filledFor.current = todayLog.log_date;
+    const form = moodDiaryFormFromLog(todayLog);
+    setSelectedMood(form.mood);
+    setSelectedSymptoms(form.symptoms);
+    setSelectedBleeding(form.bleeding);
+    setNotes(form.notes);
+  }, [todayLog]);
+  const edit = () => { dirty.current = true; };
 
   // Qanaxma yalnız bump (hamiləlikdə ləkələnmə) və mommy (doğuşdan sonra lokia izləmə) üçün
   // mənalıdır — flow-da artıq ayrıca period-axını (flow_daily_logs.flow_intensity) var
@@ -94,6 +101,7 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
 
   const toggleSymptom = async (symptomId: string) => {
     await hapticFeedback.light();
+    edit();
     setSelectedSymptoms((prev) =>
     prev.includes(symptomId) ?
     prev.filter((s) => s !== symptomId) :
@@ -105,15 +113,17 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
     if (selectedMood === null) return;
 
     await hapticFeedback.medium();
-    await addLog({
-      log_date: new Date().toISOString().split('T')[0],
-      mood: selectedMood,
-      symptoms: selectedSymptoms,
-      notes: notes || null,
-      water_intake: todayLog?.water_intake || null,
-      temperature: todayLog?.temperature || null,
-      bleeding: showBleedingTracker ? selectedBleeding : todayLog?.bleeding || null
-    });
+    const today = todayKey();
+    // Merge: only the diary's own fields are sent, so water/sleep/temperature saved elsewhere stay.
+    const result = await addLog(moodDiaryPatch(
+      { mood: selectedMood, symptoms: selectedSymptoms, bleeding: selectedBleeding, notes },
+      today,
+      showBleedingTracker
+    ));
+    if (result && !result.error) {
+      dirty.current = false;
+      filledFor.current = today;
+    }
 
     setActiveTab('history');
   };
@@ -204,7 +214,7 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: index * 0.08 }}
-                  onClick={() => setSelectedMood(mood.value)}
+                  onClick={() => { edit(); setSelectedMood(mood.value); }}
                   className={`w-11 h-11 rounded-2xl flex items-center justify-center text-lg border-2 transition-all ${
                   selectedMood === mood.value ?
                   `${mood.color} scale-110 shadow-lg` :
@@ -257,7 +267,7 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
                     return (
                       <motion.button
                         key={opt.id}
-                        onClick={() => setSelectedBleeding(opt.id === 'none' ? null : opt.id)}
+                        onClick={() => { edit(); setSelectedBleeding(opt.id === 'none' ? null : opt.id); }}
                         className={`a-tag${isSelected ? ' on' : ''}`}
                         whileTap={{ scale: 0.95 }}>
                         
@@ -287,7 +297,7 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
                 <h2 className="a-card-title a-heading" style={{ marginBottom: 10 }}>{tr("mooddiary_qeydler_a7a98b", "Qeydlər")}</h2>
                 <textarea
                 value={notes}
-                onChange={(e) => setNotes(e.target.value)}
+                onChange={(e) => { edit(); setNotes(e.target.value); }}
                 placeholder={tr("mooddiary_bu_gun_haqqinda_yazmaq_istedikleriniz_1e2d2d", "Bu gün haqqında yazmaq istədikləriniz...")}
                   className="a-input w-full resize-none"
                   rows={2} />

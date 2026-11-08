@@ -20,6 +20,7 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { calculateDueDate, calculateLMPFromDueDate, getPregnancyWeek, getDayInWeek } from '@/lib/pregnancy-utils';
 import type { LifeStage } from '@/types/anacan';
 import { tr } from "@/lib/tr";
+import { storedDateKey } from '@/lib/stored-date-key';
 
 interface ProfileEditScreenProps {
   onBack: () => void;
@@ -84,10 +85,10 @@ const ProfileEditScreen = ({ onBack }: ProfileEditScreenProps) => {
     // köhnəlmiş ola bilər, yalnız hələ heç bir user_children sətri yoxdursa
     // fallback kimi istifadə olunur.
     baby_name: selectedChild?.name || babyName || '',
-    due_date: dueDate ? new Date(dueDate).toISOString().split('T')[0] : '',
-    last_period_date: lastPeriodDate ? new Date(lastPeriodDate).toISOString().split('T')[0] : '',
+    due_date: storedDateKey(dueDate) ?? '',
+    last_period_date: storedDateKey(lastPeriodDate) ?? '',
     cycle_length: cycleLength || 28,
-    baby_birth_date: selectedChild?.birth_date || (babyBirthDate ? new Date(babyBirthDate).toISOString().split('T')[0] : ''),
+    baby_birth_date: selectedChild?.birth_date || (storedDateKey(babyBirthDate) ?? ''),
     baby_gender: (selectedChild?.gender === 'girl' ? 'girl' : selectedChild?.gender === 'boy' ? 'boy' : babyGender) || '' as 'boy' | 'girl' | '',
     country_code: (profile as any)?.country_code || countryCode || '',
     // Çoxdöllü hamiləlik (əkiz/üçüz/dördüz) — onboarding-də yazılır, amma

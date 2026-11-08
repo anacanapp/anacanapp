@@ -1,5 +1,6 @@
 import { tr } from '@/lib/tr';
 import { useBabyLogs } from '@/hooks/useBabyLogs';
+import { localDateKey } from '@/lib/local-date';
 
 interface DayStats {
   date: string;
@@ -22,9 +23,9 @@ const QuickStatsWidget = () => {
     for (let i = 6; i >= 0; i--) {
       const date = new Date();
       date.setDate(date.getDate() - i);
-      const dateStr = date.toISOString().split('T')[0];
+      const dateStr = localDateKey(date);
 
-      const dayLogs = logs.filter((log) => log.start_time.startsWith(dateStr));
+      const dayLogs = logs.filter((log) => localDateKey(new Date(log.start_time)) === dateStr);
       const feedingLogs = dayLogs.filter((l) => l.log_type === 'feeding');
       const sleepLogs = dayLogs.filter((l) => l.log_type === 'sleep');
       const diaperLogs = dayLogs.filter((l) => l.log_type === 'diaper');

@@ -13,6 +13,7 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useToast } from '@/hooks/use-toast';
 import { usePrivacyPreferences, type PrivacyPrefs } from '@/hooks/usePrivacyPreferences';
 import { tr } from "@/lib/tr";
+import { todayKey } from '@/lib/local-date';
 
 interface PartnerPrivacyScreenProps {
   onBack: () => void;
@@ -79,7 +80,7 @@ const PartnerPrivacyScreen = ({ onBack }: PartnerPrivacyScreenProps) => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `anacan-partner-data-${new Date().toISOString().split('T')[0]}.json`;
+      a.download = `anacan-partner-data-${todayKey()}.json`;
       a.click();
       URL.revokeObjectURL(url);
 

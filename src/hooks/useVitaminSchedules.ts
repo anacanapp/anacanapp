@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
+// "Taken today" uses the phone's local day. The reminder job (scripts/notification-jobs/send-vitamin-reminders.mjs
+// with vitamin-window.mjs) checks vitamin_intake_logs.log_date against the Baku (UTC+4) day, which is the same
+// day for users in Azerbaijan; the old UTC key logged 00:00-04:00 intakes on yesterday.
+import { todayKey } from '@/lib/local-date';
 
 export interface VitaminSchedule {
   id: string;
@@ -46,10 +50,10 @@ export const useVitaminSchedules = () => {
   });
 
   const todayLogsQuery = useQuery({
-    queryKey: ['vitamin-logs-today', user?.id],
+    queryKey: ['vitamin-logs-today', user?.id, todayKey()],
     queryFn: async () => {
       if (!user) return [];
-      const today = new Date().toISOString().split('T')[0];
+      const today = todayKey();
       const { data, error } = await supabase
         .from('vitamin_intake_logs')
         .select('*')
@@ -121,7 +125,7 @@ export const useVitaminSchedules = () => {
           user_id: user.id,
           schedule_id: schedule.id,
           vitamin_name: schedule.vitamin_name,
-          log_date: new Date().toISOString().split('T')[0],
+          log_date: todayKey(),
         })
         .select()
         .single();

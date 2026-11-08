@@ -6,6 +6,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { usePartnerData } from '@/hooks/usePartnerData';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { tr } from '@/lib/tr';
+import { todayKey, daysAgoKey } from '@/lib/local-date';
 
 /**
  * Ananın randevuları — partnyor görünüşü (read-only).
@@ -46,7 +47,7 @@ const PartnerAppointmentsScreen = ({ onBack }: Props) => {
     let cancelled = false;
     (async () => {
       try {
-        const from = new Date(Date.now() - 30 * 86400000).toISOString().split('T')[0];
+        const from = daysAgoKey(30);
         const { data, error } = await supabase.
         from('appointments').
         select('id, title, description, event_date, event_time, event_type').
@@ -63,12 +64,12 @@ const PartnerAppointmentsScreen = ({ onBack }: Props) => {
     return () => {cancelled = true;};
   }, [partnerProfile?.user_id, sharing.share_appointments]);
 
-  const today = new Date().toISOString().split('T')[0];
+  const today = todayKey();
   const upcoming = appointments.filter((a) => a.event_date >= today);
   const past = appointments.filter((a) => a.event_date < today).reverse();
 
   const formatDate = (d: string) =>
-  new Date(d).toLocaleDateString(getLocaleTag(), { day: 'numeric', month: 'long', weekday: 'long' });
+  new Date(`${d}T00:00:00`).toLocaleDateString(getLocaleTag(), { day: 'numeric', month: 'long', weekday: 'long' });
 
   const renderRow = (apt: AppointmentRow, highlight: boolean, idx: number) => {
     const meta = TYPE_META[apt.event_type || 'appointment'] || TYPE_META.appointment;

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
+import { todayKey, localDateKey, daysAgoKey } from '@/lib/local-date';
+import { localDayStartIso } from '@/lib/local-day-range';
 
 interface DailyMoodEntry {
   date: string;
@@ -51,12 +53,9 @@ export const usePartnerWeeklyStats = () => {
       const partnerId = partnerData.user_id;
 
       // Calculate date range (last 7 days)
-      const today = new Date();
-      const weekAgo = new Date(today);
-      weekAgo.setDate(weekAgo.getDate() - 6);
-      
-      const startDate = weekAgo.toISOString().split('T')[0];
-      const endDate = today.toISOString().split('T')[0];
+      const startDate = daysAgoKey(6);
+      const endDate = todayKey();
+      const weekDays = Array.from({ length: 7 }, (_, i) => daysAgoKey(6 - i));
 
       // Fetch daily logs for the week
       // Masked by her sharing settings on the server (Duzelis68).
@@ -68,16 +67,12 @@ export const usePartnerWeeklyStats = () => {
         .from('exercise_logs')
         .select('completed_at, duration_minutes, calories_burned')
         .eq('user_id', partnerId)
-        .gte('completed_at', `${startDate}T00:00:00`)
-        .lte('completed_at', `${endDate}T23:59:59`);
+        .gte('completed_at', localDayStartIso(startDate))
+        .lt('completed_at', localDayStartIso(daysAgoKey(-1)));
 
       // Process daily moods (fill in missing days)
       const dailyMoods: DailyMoodEntry[] = [];
-      for (let i = 0; i < 7; i++) {
-        const date = new Date(weekAgo);
-        date.setDate(date.getDate() + i);
-        const dateStr = date.toISOString().split('T')[0];
-        
+      for (const dateStr of weekDays) {
         const log = dailyLogs?.find(l => l.log_date === dateStr);
         dailyMoods.push({
           date: dateStr,
@@ -89,7 +84,7 @@ export const usePartnerWeeklyStats = () => {
       // Process exercise data by day
       const exerciseByDay: Record<string, { count: number; minutes: number; calories: number }> = {};
       exerciseLogs?.forEach(log => {
-        const date = log.completed_at.split('T')[0];
+        const date = localDateKey(new Date(log.completed_at));
         if (!exerciseByDay[date]) {
           exerciseByDay[date] = { count: 0, minutes: 0, calories: 0 };
         }
@@ -99,11 +94,7 @@ export const usePartnerWeeklyStats = () => {
       });
 
       const exerciseData: ExerciseEntry[] = [];
-      for (let i = 0; i < 7; i++) {
-        const date = new Date(weekAgo);
-        date.setDate(date.getDate() + i);
-        const dateStr = date.toISOString().split('T')[0];
-        
+      for (const dateStr of weekDays) {
         const dayData = exerciseByDay[dateStr] || { count: 0, minutes: 0, calories: 0 };
         exerciseData.push({
           date: dateStr,

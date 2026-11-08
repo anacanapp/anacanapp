@@ -17,6 +17,7 @@ import ConsentControls from '@/components/privacy/ConsentControls';
 import ConsentSettings from '@/components/privacy/ConsentSettings';
 import { usePrivacyText } from '@/components/privacy/privacyCopy';
 import { setPrivacyConsent, usePrivacyConsent } from '@/lib/privacyConsent';
+import { todayKey } from '@/lib/local-date';
 
 interface PrivacyScreenProps {
   onBack: () => void;
@@ -75,7 +76,7 @@ const PrivacyScreen = ({ onBack, onOpenAdSettings, onOpenLegal }: PrivacyScreenP
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `anacan-data-export-${new Date().toISOString().split('T')[0]}.json`;
+      a.download = `anacan-data-export-${todayKey()}.json`;
       a.click();
       URL.revokeObjectURL(url);
 

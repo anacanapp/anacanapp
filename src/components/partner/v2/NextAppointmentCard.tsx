@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { CalendarHeart, ChevronRight } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { tr } from '@/lib/tr';
+import { todayKey, daysAgoKey } from '@/lib/local-date';
 
 /**
  * Ananın növbəti randevusu — partnyor "onu apar" xatırlatması.
@@ -32,7 +33,7 @@ const NextAppointmentCard = ({ motherUserId, onOpen }: Props) => {
     let cancelled = false;
     (async () => {
       try {
-        const today = new Date().toISOString().split('T')[0];
+        const today = todayKey();
         const { data, error } = await supabase.
         from('appointments').
         select('id, title, event_date, event_time, event_type').
@@ -54,8 +55,8 @@ const NextAppointmentCard = ({ motherUserId, onOpen }: Props) => {
 
   if (!appointment) return null;
 
-  const today = new Date().toISOString().split('T')[0];
-  const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+  const today = todayKey();
+  const tomorrow = daysAgoKey(-1);
   const isToday = appointment.event_date === today;
   const isTomorrow = appointment.event_date === tomorrow;
 
@@ -63,7 +64,7 @@ const NextAppointmentCard = ({ motherUserId, onOpen }: Props) => {
   tr('partnerv2_bu_gun', 'Bu gün') :
   isTomorrow ?
   tr('partnerv2_sabah', 'Sabah') :
-  new Date(appointment.event_date).toLocaleDateString(getLocaleTag(), { day: 'numeric', month: 'long' });
+  new Date(`${appointment.event_date}T00:00:00`).toLocaleDateString(getLocaleTag(), { day: 'numeric', month: 'long' });
 
   return (
     <motion.button

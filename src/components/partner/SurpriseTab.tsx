@@ -16,6 +16,7 @@ import { useSurpriseIdeas } from '@/hooks/useDynamicConfig';
 import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { tr } from "@/lib/tr";
+import { todayKey } from '@/lib/local-date';
 
 interface SurpriseIdea {
   id: string;
@@ -476,7 +477,7 @@ const SurpriseTab = () => {
                   type="date"
                   value={planningDate}
                   onChange={(e) => setPlanningDate(e.target.value)}
-                  min={new Date().toISOString().split('T')[0]}
+                  min={todayKey()}
                   className="w-full h-12 px-4 rounded-xl bg-muted/50 border-2 border-transparent focus:border-partner/30 outline-none" />
                 
                 </div>

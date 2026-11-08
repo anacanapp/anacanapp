@@ -28,6 +28,7 @@ import { REGIONAL_MATERNITY_COUNTRIES, isRegionalMaternityCountry } from '@/lib/
 import { localizedCountryName } from '@/lib/app-languages';
 import { regionalCountry } from '@/lib/vaccine-schedule';
 import RegionalMaternityCalculator from './RegionalMaternityCalculator';
+import { storedDateKey } from '@/lib/stored-date-key';
 
 const maternityCountryCodes = [...new Set([...maternityRules.map(rule => rule.code), ...REGIONAL_MATERNITY_COUNTRIES])];
 
@@ -71,9 +72,9 @@ const MaternityCalculator = ({ onBack }: MaternityCalculatorProps) => {
   useEffect(() => {
     if (eddDate) return;
     const knownDueDate = (profile as any)?.due_date;
-    if (knownDueDate) {
-      setEddDate(new Date(knownDueDate).toISOString().split('T')[0]);
-    }
+    // Stored YYYY-MM-DD: keep the day as written (storedDateKey also avoids a RangeError on a bad value).
+    const known = storedDateKey(knownDueDate);
+    if (known) setEddDate(known);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profile?.id]);
 

@@ -6,6 +6,7 @@ import { format, isToday, isYesterday } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { useToast } from '@/hooks/use-toast';
 import { tr } from "@/lib/tr";
+import { localDateKey, daysAgoKey } from '@/lib/local-date';
 
 const formatDuration = (minutes: number): string => {
   if (minutes <= 0) return '-';
@@ -60,14 +61,12 @@ const SleepHistoryPanel = ({ isExpanded: externalExpanded, onToggle, defaultExpa
     const historyMap = new Map<string, typeof sleepLogs>();
     const dates: string[] = [];
     for (let i = 0; i < 3; i++) {
-      const date = new Date();
-      date.setDate(date.getDate() - i);
-      const dateStr = date.toISOString().split('T')[0];
+      const dateStr = daysAgoKey(i);
       dates.push(dateStr);
       historyMap.set(dateStr, []);
     }
     sleepLogs.forEach(log => {
-      const dateStr = log.start_time.split('T')[0];
+      const dateStr = localDateKey(new Date(log.start_time));
       if (dates.includes(dateStr)) {
         const existing = historyMap.get(dateStr) || [];
         existing.push(log);

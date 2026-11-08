@@ -36,6 +36,7 @@ import MarkdownContent from './MarkdownContent';
 import { tr } from "@/lib/tr";
 import { fillEmergencyNumber } from '@/lib/emergency';
 import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
+import { storedDateKey } from '@/lib/stored-date-key';
 
 interface Message {
   id: string;
@@ -328,10 +329,10 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
   // Create profile object from store data
   const userProfile = {
     name: name || undefined,
-    due_date: dueDate ? new Date(dueDate).toISOString().split('T')[0] : undefined,
+    due_date: storedDateKey(dueDate),
     baby_name: babyName || undefined,
-    baby_birth_date: babyBirthDate ? new Date(babyBirthDate).toISOString().split('T')[0] : undefined,
-    last_period_date: lastPeriodDate ? new Date(lastPeriodDate).toISOString().split('T')[0] : undefined,
+    baby_birth_date: storedDateKey(babyBirthDate),
+    last_period_date: storedDateKey(lastPeriodDate),
     cycle_length: cycleLength,
     // Əkiz/üçüz və s. — Dr. Anacan-a göndərilir ki, cavablarında "körpəniz" əvəzinə
     // "körpələriniz" kimi düzgün say-uzlaşmalı danışsın (bax prompts.ts)

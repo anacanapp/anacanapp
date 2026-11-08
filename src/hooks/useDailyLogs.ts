@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { usePartnerNotifications } from './usePartnerNotifications';
+import { todayKey } from '@/lib/local-date';
 
 export interface DailyLog {
   id: string;
@@ -18,6 +19,21 @@ export interface DailyLog {
   sleep_hours?: number | null;
   /** Ananın öz yuxu keyfiyyəti (1-5) — flow_daily_logs.sleep_quality ilə eyni miqyas */
   sleep_quality?: number | null;
+}
+
+/** Fields a caller may write for one day. Only the keys present are saved; the rest of the row is kept. */
+export type DailyLogPatch = Partial<Omit<DailyLog, 'id' | 'user_id' | 'created_at'>>;
+
+/**
+ * Row for the `daily_logs` upsert (on user_id,log_date). PostgREST merge-duplicates updates only the columns in the
+ * payload, so leaving a field out keeps what is already stored for that day (water from the home screen, sleep,
+ * symptoms and notes from the diary). Undefined values are dropped; an explicit null still clears a field.
+ * `log_date` defaults to the phone's local day, so 00:00-04:00 in Baku is not saved on yesterday.
+ */
+export function dailyLogUpsertRow(userId: string, patch: DailyLogPatch, today: string = todayKey()): DailyLogPatch & { user_id: string; log_date: string } {
+  const row: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(patch)) if (value !== undefined) row[key] = value;
+  return { ...(row as DailyLogPatch), user_id: userId, log_date: patch.log_date || today };
 }
 
 export const useDailyLogs = () => {
@@ -42,8 +58,8 @@ export const useDailyLogs = () => {
       
       setLogs(data || []);
       
-      // Check for today's log
-      const today = new Date().toISOString().split('T')[0];
+      // Check for today's log (local calendar day)
+      const today = todayKey();
       const todayData = data?.find(log => log.log_date === today) || null;
       setTodayLog(todayData);
     } catch (error) {
@@ -53,17 +69,14 @@ export const useDailyLogs = () => {
     }
   };
 
-  const addLog = async (log: Omit<DailyLog, 'id' | 'user_id' | 'created_at'>) => {
+  /** Saves only the given fields for the day (see dailyLogUpsertRow); other columns of an existing row are kept. */
+  const addLog = async (log: DailyLogPatch) => {
     if (!user) return { error: 'No user logged in' };
 
     try {
       const { data, error } = await supabase
         .from('daily_logs')
-        .upsert({
-          ...log,
-          user_id: user.id,
-          log_date: log.log_date || new Date().toISOString().split('T')[0]
-        }, {
+        .upsert(dailyLogUpsertRow(user.id, log), {
           onConflict: 'user_id,log_date'
         })
         .select()
@@ -80,19 +93,10 @@ export const useDailyLogs = () => {
   };
 
   const updateWaterIntake = async (amount: number) => {
-    const today = new Date().toISOString().split('T')[0];
     const currentIntake = todayLog?.water_intake || 0;
     const newIntake = currentIntake + amount;
     
-    const result = await addLog({
-      log_date: today,
-      water_intake: newIntake,
-      mood: todayLog?.mood || null,
-      symptoms: todayLog?.symptoms || null,
-      temperature: todayLog?.temperature || null,
-      bleeding: todayLog?.bleeding || null,
-      notes: todayLog?.notes || null
-    });
+    const result = await addLog({ log_date: todayKey(), water_intake: newIntake });
 
     // Notify partner when water goal reached (8 glasses = 2000ml)
     if (newIntake >= 2000 && currentIntake < 2000) {
@@ -103,17 +107,7 @@ export const useDailyLogs = () => {
   };
 
   const updateMood = useCallback(async (mood: number) => {
-    const today = new Date().toISOString().split('T')[0];
-    
-    const result = await addLog({
-      log_date: today,
-      mood,
-      water_intake: todayLog?.water_intake || 0,
-      symptoms: todayLog?.symptoms || null,
-      temperature: todayLog?.temperature || null,
-      bleeding: todayLog?.bleeding || null,
-      notes: todayLog?.notes || null
-    });
+    const result = await addLog({ log_date: todayKey(), mood });
 
     // Notify partner about mood update
     if (result.data) {
@@ -121,53 +115,17 @@ export const useDailyLogs = () => {
     }
 
     return result;
-  }, [todayLog, addLog, notifyMoodUpdate]);
+  }, [addLog, notifyMoodUpdate]);
 
-  const updateSymptoms = async (symptoms: string[]) => {
-    const today = new Date().toISOString().split('T')[0];
-    
-    return addLog({
-      log_date: today,
-      symptoms,
-      mood: todayLog?.mood || null,
-      water_intake: todayLog?.water_intake || 0,
-      temperature: todayLog?.temperature || null,
-      bleeding: todayLog?.bleeding || null,
-      notes: todayLog?.notes || null
-    });
-  };
+  const updateSymptoms = async (symptoms: string[]) => addLog({ log_date: todayKey(), symptoms });
 
   /** Qanaxma/ləkələnmə qeydi (bump: hamiləlik dövründə ləkələnmə, mommy: doğuşdan sonra lokia izləmə) */
-  const updateBleeding = async (bleeding: 'light' | 'medium' | 'heavy' | 'spotting' | null) => {
-    const today = new Date().toISOString().split('T')[0];
-
-    return addLog({
-      log_date: today,
-      bleeding,
-      mood: todayLog?.mood || null,
-      water_intake: todayLog?.water_intake || 0,
-      symptoms: todayLog?.symptoms || null,
-      temperature: todayLog?.temperature || null,
-      notes: todayLog?.notes || null
-    });
-  };
+  const updateBleeding = async (bleeding: 'light' | 'medium' | 'heavy' | 'spotting' | null) =>
+    addLog({ log_date: todayKey(), bleeding });
 
   /** Ananın öz yuxusunu qeyd et (Mommy/Bump — Flow-da bunun ekvivalenti flow_daily_logs-dadır) */
-  const updateSleep = async (sleepHours: number, sleepQuality: number | null) => {
-    const today = new Date().toISOString().split('T')[0];
-
-    return addLog({
-      log_date: today,
-      sleep_hours: sleepHours,
-      sleep_quality: sleepQuality,
-      mood: todayLog?.mood || null,
-      water_intake: todayLog?.water_intake || 0,
-      symptoms: todayLog?.symptoms || null,
-      temperature: todayLog?.temperature || null,
-      bleeding: todayLog?.bleeding || null,
-      notes: todayLog?.notes || null
-    });
-  };
+  const updateSleep = async (sleepHours: number, sleepQuality: number | null) =>
+    addLog({ log_date: todayKey(), sleep_hours: sleepHours, sleep_quality: sleepQuality });
 
   useEffect(() => {
     fetchLogs();
