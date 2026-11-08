@@ -20,9 +20,11 @@ interface PremiumModalProps {
   isOpen: boolean;
   onClose: () => void;
   feature?: string;
+  /** What opened the paywall for analytics (e.g. the tool id); `feature` only picks the label. */
+  analyticsSource?: string;
 }
 
-export function PremiumModal({ isOpen, onClose, feature }: PremiumModalProps) {
+export function PremiumModal({ isOpen, onClose, feature, analyticsSource }: PremiumModalProps) {
   useAdSafetyBlock(isOpen);
   const cfg = usePaywallConfig();
   const language = useUserStore(state => state.language);
@@ -42,7 +44,7 @@ export function PremiumModal({ isOpen, onClose, feature }: PremiumModalProps) {
   // Analytics + focus + esc
   useEffect(() => {
     if (!isOpen) return;
-    import('@/lib/analytics').then((m) => m.analytics.logPaywallShown(feature || 'general')).catch(() => {});
+    import('@/lib/analytics').then((m) => m.analytics.logPaywallShown(analyticsSource || feature || 'general')).catch(() => {});
     setTimeout(() => closeButtonRef.current?.focus(), 100);
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -190,7 +192,7 @@ export function PremiumModal({ isOpen, onClose, feature }: PremiumModalProps) {
             <div
             className="flex-1 overflow-y-auto overscroll-contain px-5 min-h-0 relative"
             style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)' }}>
-              <PaywallCore feature={feature} onPurchased={() => onClose()} />
+              <PaywallCore feature={feature} analyticsSource={analyticsSource} onPurchased={() => onClose()} />
             </div>
           </motion.div>
         </motion.div>

@@ -300,6 +300,9 @@ export const analytics = {
   
   // Tool events
   logToolOpened: (toolId: string, toolName?: string) => logEvent('tool_opened', { tool_id: toolId, tool_name: toolName }),
+  /** One 'session' per tool visit with the time spent (seconds, capped at 1 h) — real usage, not just opens. */
+  logToolSession: (toolId: string, seconds: number) =>
+    logEvent('tool_used', { tool_id: toolId, action: 'session', duration_s: Math.min(3600, Math.max(0, Math.round(seconds))) }),
   logToolUsed: (toolId: string, action: string, itemId?: string) =>
     logEvent('tool_used', itemId ? { tool_id: toolId, action, item_id: itemId } : { tool_id: toolId, action }),
   

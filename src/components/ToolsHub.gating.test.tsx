@@ -34,7 +34,7 @@ vi.mock('@/hooks/useChildren', () => ({ useChildren: () => ({ selectedChild: nul
 vi.mock('@/hooks/useDisabledTools', () => ({ useDisabledTools: () => ({ disabledTools: ['cakes', 'mini-games'], isToolDisabled: () => true }) }));
 vi.mock('@/hooks/useAppSettings', () => ({ useAppSetting: () => null }));
 vi.mock('@/hooks/useFirstAid', () => ({ usePrefetchFirstAid: vi.fn() }));
-vi.mock('./PremiumModal', () => ({ PremiumModal: ({ isOpen }: { isOpen: boolean }) => (isOpen ? <div data-testid="paywall" /> : null) }));
+vi.mock('./PremiumModal', () => ({ PremiumModal: ({ isOpen, analyticsSource }: { isOpen: boolean; analyticsSource?: string }) => (isOpen ? <div data-testid="paywall" data-source={analyticsSource} /> : null) }));
 vi.mock('./premium/PremiumToolBoundary', () => ({ default: ({ children }: { children: React.ReactNode }) => <>{children}</> }));
 vi.mock('./aptek/AptekEntry', () => ({ AptekSearchResults: () => null }));
 
@@ -105,6 +105,8 @@ describe('ToolsHub free vs Premium gating', () => {
 
     fireEvent.click(screen.getByText('Ağlama tərcüməçisi'));
     expect(screen.getByTestId('paywall')).toBeTruthy();
+    // The paywall view is attributed to the tool, not the generic 'tool' source.
+    expect(screen.getByTestId('paywall').getAttribute('data-source')).toBe('cry-translator');
   });
 
   it('a free user can open a limited tool without the paywall', () => {

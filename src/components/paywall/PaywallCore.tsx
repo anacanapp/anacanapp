@@ -28,6 +28,8 @@ import { QaygiCashPremiumOption, QcPremiumEarnLine } from '@/components/qaygicas
 type PlanKey = 'yearly' | 'monthly' | 'lifetime';
 
 interface PaywallCoreProps {
+  /** Analytics source (e.g. tool id) for the click event; falls back to `feature`. */
+  analyticsSource?: string;
   feature?: string;
   /** Uğurlu alışdan sonra çağırılır */
   onPurchased: (planId: string) => void;
@@ -40,7 +42,7 @@ interface PaywallCoreProps {
 const currencySign = (code?: string) =>
 code === 'AZN' ? '₼' : code === 'USD' ? '$' : code === 'EUR' ? '€' : code ? `${code} ` : '$';
 
-const PaywallCore = ({ feature, onPurchased, onNonNativeCta, compact = false }: PaywallCoreProps) => {
+const PaywallCore = ({ feature, analyticsSource, onPurchased, onNonNativeCta, compact = false }: PaywallCoreProps) => {
   const { toast } = useToast();
   const cfg = usePaywallConfig();
   const language = useUserStore(state => state.language);
@@ -128,7 +130,7 @@ const PaywallCore = ({ feature, onPurchased, onNonNativeCta, compact = false }: 
       return;
     }
 
-    import('@/lib/analytics').then((m) => m.analytics.logPaywallClicked(feature || 'general', selected)).catch(() => {});
+    import('@/lib/analytics').then((m) => m.analytics.logPaywallClicked(analyticsSource || feature || 'general', selected)).catch(() => {});
     const ok = plan ? await purchaseExact(plan.pkg, plan.request) : await purchaseByIdentifier(pkg.identifier);
     if (ok) {
       toast({

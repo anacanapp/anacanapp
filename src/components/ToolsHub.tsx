@@ -165,11 +165,35 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTool, setActiveTool] = useState<string | null>(initialTool);
   const [showPremiumModal, setShowPremiumModal] = useState(false);
+  /** Which tool opened the paywall (analytics source; before 2026-11-08 every hub paywall was logged as 'tool'). */
+  const [paywallTool, setPaywallTool] = useState<string | null>(null);
 
   // Alət açılanda yuxarıdan başla; siyahıya QAYIDANDA isə əvvəlki
   // pozisiya bərpa olunur (restoreScroll useScrollToTop resetindən sonra qalib gəlir).
   useScrollToTop([activeTool]);
   const prevToolRef = useRef<string | null>(null);
+  // Tool session length: a visit of 5 s or more is logged as tool_used/session when the tool closes or the hub unmounts.
+  const toolSessionRef = useRef<{ id: string; start: number } | null>(null);
+  useEffect(() => {
+    const flush = () => {
+      const s = toolSessionRef.current;
+      toolSessionRef.current = null;
+      if (!s) return;
+      const seconds = (Date.now() - s.start) / 1000;
+      if (seconds >= 5) import('@/lib/analytics').then((m) => m.analytics.logToolSession(s.id, seconds)).catch(() => {});
+    };
+    flush();
+    if (activeTool && (isPremium || accessFor(activeTool) !== 'premium')) toolSessionRef.current = { id: activeTool, start: Date.now() };
+    return undefined;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTool]);
+  useEffect(() => () => {
+    const s = toolSessionRef.current;
+    if (s && (Date.now() - s.start) / 1000 >= 5) {
+      const seconds = (Date.now() - s.start) / 1000;
+      import('@/lib/analytics').then((m) => m.analytics.logToolSession(s.id, seconds)).catch(() => {});
+    }
+  }, []);
   useEffect(() => {
     if (prevToolRef.current && !activeTool) restoreScroll('toolshub');
     // One tool_opened per real open, whatever the entry point (hub, dashboard shortcut, deep link, push).
@@ -202,7 +226,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   // Freemium gate — hero/mini-games kimi birbaşa açılışlar üçün
   const gatedOpenTool = (toolId: string) => {
     if (!isPremium && accessFor(toolId) === 'premium') {
-      import('@/lib/analytics').then((m) => m.analytics.logPaywallShown(toolId)).catch(() => {});
+      setPaywallTool(toolId); // the modal logs the paywall view with this tool id
       setShowPremiumModal(true);
       return;
     }
@@ -330,7 +354,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   useEffect(() => {
     if (initialTool) {
       if (!isPremium && accessFor(initialTool) === 'premium') {
-        import('@/lib/analytics').then((m) => m.analytics.logPaywallShown(initialTool)).catch(() => {});
+        setPaywallTool(initialTool); // the modal logs the paywall view with this tool id
         setShowPremiumModal(true);
         return;
       }
@@ -375,13 +399,13 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     }
 
     if (tool.isLocked && !isPremium) {
-      import('@/lib/analytics').then((m) => m.analytics.logPaywallShown(tool.id)).catch(() => {});
+      setPaywallTool(tool.id); // the modal logs the paywall view with this tool id
       setShowPremiumModal(true);
       return;
     }
 
     if (tool.isPremium && !isPremium) {
-      import('@/lib/analytics').then((m) => m.analytics.logPaywallShown(tool.id)).catch(() => {});
+      setPaywallTool(tool.id); // the modal logs the paywall view with this tool id
       setShowPremiumModal(true);
       return;
     }
@@ -659,7 +683,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       <PremiumModal
         isOpen={showPremiumModal}
         onClose={() => setShowPremiumModal(false)}
-        feature="tool" />
+        feature="tool"
+        analyticsSource={paywallTool ?? 'tool'} />
       
     </div>);
 
