@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['amigo', 'amizade', 'brinca sozinho'],
   bullying: ['bullying', 'zoam', 'zombam', 'implicam', 'xingam'],
   'after-school': ['depois da escola', 'quando volta da escola', 'chega da escola'],
+  'crying-plan': ['colica', 'chora horas', 'chora sem parar', 'chora a noite', 'plano choro'],
+  'stranger-anxiety': ['estranhos', 'medo de estranho', 'chora no colo da avo', 'nao vai no colo', 'ansiedade de separacao'],
+  'sleep-regressions': ['regressao', 'regressao do sono', 'acorda a noite', 'acorda toda hora', 'sono piorou'],
+  'pacifier-thumb': ['chupeta', 'chupa o dedo', 'chupar dedo', 'bico', 'tirar a chupeta'],
+  'first-foods': ['introducao alimentar', 'papinha', 'primeiros alimentos', 'blw', 'cospe a comida'],
+  'fourth-trimester': ['pos-parto', 'puerperio', 'depressao pos-parto', 'baby blues', 'quero chorar'],
+  'body-safety': ['seguranca do corpo', 'toque ruim', 'abuso', 'abuso sexual', 'segredo ruim', 'partes intimas'],
+  'online-safety': ['internet', 'online', 'redes sociais', 'conversa com estranho', 'compra no jogo', 'tiktok', 'roblox'],
+  grandparents: ['avo', 'avos', 'sogra', 'familia', 'avo deixa', 'casa da avo', 'avo mima'],
+  'bilingual-home': ['bilingue', 'duas linguas', 'dois idiomas', 'russo', 'mistura as linguas'],
+  divorce: ['divorcio', 'separacao', 'nos separamos', 'pais separados', 'visita do pai'],
+  grief: ['morte', 'morreu', 'luto', 'faleceu', 'enterro', 'falar sobre morte'],
+  'big-changes': ['mudanca de casa', 'mudar de casa', 'vamos mudar', 'cidade nova', 'creche nova', 'escola nova'],
+  bedwetting: ['xixi na cama', 'molha a cama', 'faz xixi dormindo', 'enurese', 'xixi a noite'],
+  stuttering: ['gagueira', 'gagueja', 'trava nas palavras', 'repete silabas'],
+  'pocket-money': ['mesada', 'dinheiro', 'dar dinheiro', 'cofrinho', 'economizar'],
+  'school-readiness': ['primeiro ano', 'pronto para a escola', 'comecar a escola', 'alfabetizacao', 'pre-escola'],
+  'adhd-autism-signs': ['autismo', 'autista', 'tdah', 'hiperativo', 'deficit de atencao', 'nao olha nos olhos', 'nao atende pelo nome'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['bullying', 'zoam', 'zombam', 'batem nele', 'voltou chorando'],
   'hits-parent': ['me bate', 'me bateu', 'bate na mae', 'bate na mamae'],
   'not-listening': ['nao escuta', 'nao obedece', 'nao me ouve', 'me ignora'],
-  'baby-bites-breast': ['morde o peito', 'morde na mamada', 'puxa o cabelo', 'amamentacao'],
+  'baby-bites-breast': ['morde o peito', 'morde na mamada', 'puxa o cabelo', 'amamentacao', 'bico rachado', 'mamilo machucado'],
+  'baby-crying-different': ['choro diferente', 'choro agudo', 'chora de repente', 'choro estranho', 'gemendo'],
+  'sleeps-only-on-me': ['so dorme no colo', 'dorme no colo', 'nao dorme no berco', 'acorda quando coloco', 'chora no berco'],
+  'about-to-lose-it': ['nao aguento mais', 'vou perder o controle', 'perdendo o controle', 'sacudir', 'sem paciencia', 'no limite'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['gritar', 'gritos', 'paciencia'],
   'tantrums-14': ['birra', 'manha', 'chilique'],
   'sleep-7': ['sono', 'dormir', 'nao dorme'],
+  'siblings-7': ['irmaos', 'irmao', 'irma', 'ciume', 'brigam'],
+  'screen-reset-7': ['tela', 'celular', 'tablet', 'desenho'],
+  'special-time-7': ['tempo especial', 'quer atencao', 'brincar junto'],
 };

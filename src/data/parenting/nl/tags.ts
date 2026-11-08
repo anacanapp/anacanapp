@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['vriendjes', 'vriendschap', 'speelt alleen', 'vrienden'],
   bullying: ['pesten', 'gepest', 'uitgelachen', 'buitengesloten'],
   'after-school': ['na school', 'uit school', 'thuiskomen'],
+  'crying-plan': ['krampjes', 'koliek', 'huilbaby', 'urenlang huilen', 'huilt elke avond'],
+  'stranger-anxiety': ['eenkennig', 'bang voor vreemden', 'huilt bij oma', 'wil niet bij anderen', 'scheidingsangst'],
+  'sleep-regressions': ['slaapregressie', 'regressie', 'wordt wakker', 'vaak wakker', 'slaapt slechter'],
+  'pacifier-thumb': ['speen', 'fopspeen', 'duimen', 'duimzuigen', 'speen afleren'],
+  'first-foods': ['eerste hapjes', 'vaste voeding', 'oefenhapjes', 'spuugt eten uit', 'hapjes'],
+  'fourth-trimester': ['na de bevalling', 'kraamtijd', 'postnatale depressie', 'babyblues', 'wil huilen'],
+  'body-safety': ['lichaamsveiligheid', 'ongewenste aanraking', 'misbruik', 'seksueel misbruik', 'slecht geheim', 'privé plekjes'],
+  'online-safety': ['online', 'internet', 'sociale media', 'chatten met vreemden', 'betalen in game', 'tiktok', 'roblox'],
+  grandparents: ['oma', 'opa', 'schoonmoeder', 'familie', 'oma vindt het goed', 'bij oma', 'oma verwent'],
+  'bilingual-home': ['tweetalig', 'twee talen', 'russisch', 'meertalig', 'talen mengen'],
+  divorce: ['scheiding', 'gaan scheiden', 'uit elkaar', 'gescheiden ouders', 'omgangsregeling'],
+  grief: ['dood', 'overleden', 'rouw', 'begrafenis', 'praten over de dood'],
+  'big-changes': ['verhuizen', 'verhuizing', 'we verhuizen', 'nieuwe stad', 'nieuwe opvang', 'nieuwe school'],
+  bedwetting: ['bedplassen', 'plast in bed', 'nat bed', 'enuresis', 'nachts nat'],
+  stuttering: ['stotteren', 'stottert', 'blijft hangen in woorden', 'hakkelen'],
+  'pocket-money': ['zakgeld', 'geld', 'geld geven', 'spaarpot', 'sparen'],
+  'school-readiness': ['groep 3', 'schoolrijp', 'naar school', 'naar de basisschool', 'klaar voor school'],
+  'adhd-autism-signs': ['autisme', 'autistisch', 'adhd', 'add', 'hyperactief', 'concentratieproblemen', 'geen oogcontact', 'reageert niet op naam'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['pesten', 'gepest', 'uitgelachen', 'huilend uit school'],
   'hits-parent': ['slaat mij', 'sloeg mij', 'slaat zijn moeder', 'slaat mama'],
   'not-listening': ['luistert niet', 'hoort niet', 'gehoorzaamt niet', 'negeert'],
-  'baby-bites-breast': ['bijt in borst', 'bijt tijdens voeden', 'borstvoeding bijten', 'trekt aan haar'],
+  'baby-bites-breast': ['bijt in borst', 'bijt tijdens voeden', 'borstvoeding bijten', 'trekt aan haar', 'kloven', 'pijnlijke tepel'],
+  'baby-crying-different': ['huilt anders', 'schel huilen', 'huilt ineens', 'vreemd huilen', 'kreunt'],
+  'sleeps-only-on-me': ['slaapt alleen op mij', 'slaapt alleen in armen', 'slaapt niet in bedje', 'wordt wakker bij neerleggen', 'huilt in bedje'],
+  'about-to-lose-it': ['ik kan niet meer', 'verlies mezelf', 'ik word gek', 'door elkaar schudden', 'geduld op', 'op het randje'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['schreeuwen', 'schreeuw', 'geduld'],
   'tantrums-14': ['driftbui', 'woedeaanval'],
   'sleep-7': ['slapen', 'slaap', 'slaapt niet'],
+  'siblings-7': ['broers en zussen', 'broer', 'zus', 'jaloers', 'ruzie'],
+  'screen-reset-7': ['scherm', 'telefoon', 'tablet', 'tekenfilm'],
+  'special-time-7': ['speciale tijd', 'wil aandacht', 'samen spelen'],
 };

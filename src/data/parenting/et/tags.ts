@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['sõber', 'sõprus', 'mängib üksi'],
   bullying: ['kiusamine', 'kiusa', 'narri', 'solva'],
   'after-school': ['pärast kooli', 'koolist tulles'],
+  'crying-plan': ['koolikud', 'nutab tunde', 'nutab õhtuti', 'ei lõpeta nutmist', 'nutuplaan'],
+  'stranger-anxiety': ['võõrastab', 'kardab võõraid', 'nutab vanaema süles', 'ei lähe sülle', 'eraldumisärevus'],
+  'sleep-regressions': ['unetaandumine', 'une regressioon', 'ärkab öösel', 'ärkab tihti', 'magab halvemini'],
+  'pacifier-thumb': ['lutt', 'imeb pöialt', 'pöidla imemine', 'lutist loobumine', 'luti'],
+  'first-foods': ['lisatoit', 'esimesed toidud', 'tahke toit', 'blw', 'sülitab toidu välja'],
+  'fourth-trimester': ['pärast sünnitust', 'sünnitusjärgne', 'sünnitusjärgne depressioon', 'beebibluus', 'tahan nutta'],
+  'body-safety': ['keha turvalisus', 'halb puudutus', 'väärkohtlemine', 'seksuaalne väärkohtlemine', 'halb saladus', 'intiimsed kohad'],
+  'online-safety': ['internet', 'veebis', 'sotsiaalmeedia', 'suhtleb võõraga', 'mängus maksmine', 'tiktok', 'roblox'],
+  grandparents: ['vanaema', 'vanaisa', 'ämm', 'vanavanemad', 'vanaema lubab', 'vanaema juures', 'vanaema hellitab'],
+  'bilingual-home': ['kakskeelne', 'kaks keelt', 'vene keel', 'mitmekeelne', 'segab keeli'],
+  divorce: ['lahutus', 'lahutame', 'lahkuminek', 'lahus elavad vanemad', 'kohtumine isaga'],
+  grief: ['surm', 'suri', 'lein', 'matused', 'surmast rääkimine'],
+  'big-changes': ['kolimine', 'kolime', 'kolisime', 'uus linn', 'uus lasteaed', 'uus kool'],
+  bedwetting: ['voodimärgamine', 'pissib voodisse', 'märg voodi', 'enurees', 'öine pissimine'],
+  stuttering: ['kogelemine', 'kogeleb', 'jääb sõnadesse kinni', 'kordab silpe'],
+  'pocket-money': ['taskuraha', 'raha', 'raha andmine', 'rahakassa', 'kogumine'],
+  'school-readiness': ['esimene klass', 'koolivalmidus', 'kooli minek', 'kooliks valmis', 'eelkool'],
+  'adhd-autism-signs': ['autism', 'autist', 'ath', 'adhd', 'hüperaktiivne', 'tähelepanuhäire', 'ei vaata silma', 'ei reageeri nimele'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['kiusamine', 'narrivad', 'kiusavad', 'löövad', 'tuli nuttes'],
   'hits-parent': ['lööb mind', 'lõi mind', 'lööb ema', 'lööb isa'],
   'not-listening': ['ei kuula', 'ei allu', 'ei kuuletu', 'ei kuula sõna'],
-  'baby-bites-breast': ['hammustab rinda', 'imetamisel hammust', 'kisub juustest'],
+  'baby-bites-breast': ['hammustab rinda', 'imetamisel hammust', 'kisub juustest', 'nibu lõhe', 'valus nibu'],
+  'baby-crying-different': ['nutab teisiti', 'kõrge nutt', 'nutab äkki', 'imelik nutt', 'oigab'],
+  'sleeps-only-on-me': ['magab ainult süles', 'magab minu peal', 'ei maga voodis', 'ärkab maha pannes', 'nutab voodis'],
+  'about-to-lose-it': ['ei pea vastu', 'kaotan enesevalitsuse', 'ei jaksa enam', 'raputada', 'kannatus otsas', 'närvid läbi'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['karjumine', 'karjun', 'kannatus'],
   'tantrums-14': ['jonn', 'jonnihoog'],
   'sleep-7': ['uni', 'magama', 'ei maga'],
+  'siblings-7': ['õed-vennad', 'vend', 'õde', 'armukadedus', 'tülitsevad'],
+  'screen-reset-7': ['ekraan', 'telefon', 'tahvelarvuti', 'multikad'],
+  'special-time-7': ['eriaeg', 'tahab tähelepanu', 'koos mängimine'],
 };

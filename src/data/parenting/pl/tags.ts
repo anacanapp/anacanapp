@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['przyjaci', 'kolega', 'koleżank', 'bawi się sam'],
   bullying: ['przemoc rówieśnicza', 'bullying', 'dokuczają', 'wyśmiewają', 'nękani'],
   'after-school': ['po szkole', 'po przedszkolu', 'wraca ze szkoły'],
+  'crying-plan': ['kolka', 'kolki', 'płacze godzinami', 'płacze wieczorami', 'plan na płacz'],
+  'stranger-anxiety': ['obcy', 'boi się obcych', 'płacze u babci', 'nie chce iść na ręce', 'lęk separacyjny'],
+  'sleep-regressions': ['regres snu', 'regres', 'budzi się w nocy', 'często się budzi', 'gorzej śpi'],
+  'pacifier-thumb': ['smoczek', 'ssie kciuk', 'ssanie kciuka', 'odstawić smoczek', 'ssie palec'],
+  'first-foods': ['rozszerzanie diety', 'pierwsze posiłki', 'stałe pokarmy', 'blw', 'wypluwa jedzenie'],
+  'fourth-trimester': ['po porodzie', 'połóg', 'depresja poporodowa', 'baby blues', 'chce mi się płakać'],
+  'body-safety': ['bezpieczeństwo ciała', 'zły dotyk', 'molestowanie', 'wykorzystywanie', 'zły sekret', 'miejsca intymne'],
+  'online-safety': ['internet', 'w sieci', 'media społecznościowe', 'pisze z obcymi', 'płatności w grze', 'tiktok', 'roblox'],
+  grandparents: ['babcia', 'dziadek', 'teściowa', 'dziadkowie', 'babcia pozwala', 'u babci', 'babcia rozpieszcza'],
+  'bilingual-home': ['dwujęzyczność', 'dwa języki', 'rosyjski', 'dwujęzyczne dziecko', 'miesza języki'],
+  divorce: ['rozwód', 'rozwodzimy się', 'rozstanie', 'rozstaliśmy się', 'kontakty z ojcem'],
+  grief: ['śmierć', 'umarł', 'umarła', 'żałoba', 'pogrzeb', 'rozmowa o śmierci'],
+  'big-changes': ['przeprowadzka', 'przeprowadzamy się', 'przeprowadziliśmy się', 'nowe miasto', 'nowe przedszkole', 'nowa szkoła'],
+  bedwetting: ['moczenie nocne', 'moczy się w nocy', 'sika w łóżko', 'mokre łóżko', 'enureza'],
+  stuttering: ['jąkanie', 'jąka się', 'zacina się', 'powtarza sylaby'],
+  'pocket-money': ['kieszonkowe', 'pieniądze', 'dawać pieniądze', 'skarbonka', 'oszczędzanie'],
+  'school-readiness': ['pierwsza klasa', 'gotowość szkolna', 'do szkoły', 'zerówka', 'pójście do szkoły'],
+  'adhd-autism-signs': ['autyzm', 'autystyczne', 'adhd', 'nadpobudliwy', 'zaburzenia uwagi', 'nie patrzy w oczy', 'nie reaguje na imię'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['przemoc rówieśnicza', 'wyśmiewają', 'dokuczają', 'biją go', 'wróciło z płaczem'],
   'hits-parent': ['bije mnie', 'uderzył mnie', 'uderzyła mnie', 'bije mamę'],
   'not-listening': ['nie słucha', 'nie słyszy', 'nie reaguje', 'ignoruje mnie'],
-  'baby-bites-breast': ['gryzie pierś', 'gryzie przy karmieniu', 'ciągnie za włosy'],
+  'baby-bites-breast': ['gryzie pierś', 'gryzie przy karmieniu', 'ciągnie za włosy', 'pęknięta brodawka', 'boli brodawka'],
+  'baby-crying-different': ['płacze inaczej', 'przenikliwy płacz', 'nagle płacze', 'dziwny płacz', 'kwili'],
+  'sleeps-only-on-me': ['śpi tylko na rękach', 'śpi na mnie', 'nie śpi w łóżeczku', 'budzi się po odłożeniu', 'płacze w łóżeczku'],
+  'about-to-lose-it': ['nie wytrzymuję', 'tracę panowanie', 'nie daję rady', 'potrząsnąć', 'kończy mi się cierpliwość', 'puszczają mi nerwy'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['krzyk', 'krzyczeć', 'cierpliwoś'],
   'tantrums-14': ['histeri', 'napad złości'],
   'sleep-7': ['sen', 'spać', 'nie chce spać'],
+  'siblings-7': ['rodzeństwo', 'brat', 'siostra', 'zazdrość', 'kłócą się'],
+  'screen-reset-7': ['ekran', 'telefon', 'tablet', 'bajki'],
+  'special-time-7': ['specjalny czas', 'chce uwagi', 'wspólna zabawa'],
 };

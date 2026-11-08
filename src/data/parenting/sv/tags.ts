@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['kompisar', 'vänner', 'vänskap', 'leker ensam'],
   bullying: ['mobbning', 'mobbad', 'retas', 'utfrysning', 'utfryst'],
   'after-school': ['efter skolan', 'kommer hem från skolan'],
+  'crying-plan': ['kolik', 'gråter i timmar', 'skrikbebis', 'gråter på kvällen', 'gråtplan'],
+  'stranger-anxiety': ['främlingsrädsla', 'rädd för främlingar', 'gråter hos mormor', 'vill inte till andra', 'separationsångest'],
+  'sleep-regressions': ['sömnregression', 'regression', 'vaknar på natten', 'vaknar ofta', 'sover sämre'],
+  'pacifier-thumb': ['napp', 'suger på tummen', 'tumsugning', 'sluta med napp', 'nappen'],
+  'first-foods': ['smakportioner', 'första maten', 'fast föda', 'blw', 'spottar ut maten'],
+  'fourth-trimester': ['efter förlossningen', 'förlossningsdepression', 'baby blues', 'vill gråta', 'nyförlöst'],
+  'body-safety': ['kroppssäkerhet', 'dålig beröring', 'övergrepp', 'sexuella övergrepp', 'dålig hemlighet', 'privata delar'],
+  'online-safety': ['nätet', 'internet', 'sociala medier', 'chattar med främlingar', 'köp i spel', 'tiktok', 'roblox'],
+  grandparents: ['mormor', 'farmor', 'morfar', 'farfar', 'svärmor', 'mormor låter', 'hos mormor', 'skämmer bort'],
+  'bilingual-home': ['tvåspråkig', 'två språk', 'ryska', 'flerspråkig', 'blandar språk'],
+  divorce: ['skilsmässa', 'skiljer oss', 'separation', 'separerade', 'umgänge med pappa'],
+  grief: ['död', 'dog', 'sorg', 'begravning', 'prata om döden'],
+  'big-changes': ['flytt', 'flytta', 'vi flyttar', 'ny stad', 'ny förskola', 'ny skola'],
+  bedwetting: ['sängvätning', 'kissar i sängen', 'blöt säng', 'enures', 'kissar på natten'],
+  stuttering: ['stamning', 'stammar', 'fastnar i orden', 'upprepar stavelser'],
+  'pocket-money': ['veckopeng', 'månadspeng', 'pengar', 'sparbössa', 'spara'],
+  'school-readiness': ['första klass', 'ettan', 'skolmogen', 'börja skolan', 'förskoleklass'],
+  'adhd-autism-signs': ['autism', 'autistisk', 'adhd', 'add', 'hyperaktiv', 'koncentrationssvårigheter', 'ingen ögonkontakt', 'reagerar inte på namnet'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['mobbning', 'mobbad', 'retar', 'gråtande från skolan'],
   'hits-parent': ['slår mig', 'slog mig', 'slår mamma', 'slår sin mamma'],
   'not-listening': ['lyssnar inte', 'hör inte', 'lyder inte', 'struntar i'],
-  'baby-bites-breast': ['biter i bröstet', 'biter vid amning', 'amning bits', 'drar i håret'],
+  'baby-bites-breast': ['biter i bröstet', 'biter vid amning', 'amning bits', 'drar i håret', 'såriga bröstvårtor', 'ont i bröstvårtan'],
+  'baby-crying-different': ['gråter annorlunda', 'gäll gråt', 'gråter plötsligt', 'konstig gråt', 'gnyr'],
+  'sleeps-only-on-me': ['sover bara på mig', 'sover bara i famnen', 'sover inte i sängen', 'vaknar när jag lägger ner', 'gråter i sängen'],
+  'about-to-lose-it': ['orkar inte mer', 'tappar fattningen', 'tappar kontrollen', 'skaka', 'tålamodet tar slut', 'på gränsen'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['skrika', 'skriker', 'tålamod'],
   'tantrums-14': ['utbrott', 'raseriutbrott'],
   'sleep-7': ['sömn', 'sova', 'sover inte'],
+  'siblings-7': ['syskon', 'bror', 'syster', 'svartsjuka', 'bråkar'],
+  'screen-reset-7': ['skärm', 'mobil', 'surfplatta', 'tecknat'],
+  'special-time-7': ['specialtid', 'vill ha uppmärksamhet', 'leka tillsammans'],
 };
