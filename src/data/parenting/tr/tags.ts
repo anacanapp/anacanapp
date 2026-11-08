@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['arkadaş', 'arkadaşlık', 'yalnız oynuyor'],
   bullying: ['zorbalık', 'akran zorbalığı', 'dalga geç', 'alay', 'hakaret'],
   'after-school': ['okuldan sonra', 'okuldan gelince'],
+  'crying-plan': ['ağlama planı', 'kolik', 'saatlerce ağl', 'akşamları ağl', 'gaz sancısı'],
+  'stranger-anxiety': ['yabancı korku', 'yabancılardan kork', 'babaannenin kucağında ağl', 'anneannenin kucağında ağl', 'kucağa gitmiyor', 'ayrılık kaygısı'],
+  'sleep-regressions': ['uyku gerilemesi', 'regresyon', 'gece uyanıyor', 'sık uyan', 'uykusu bozuldu'],
+  'pacifier-thumb': ['emzik', 'parmak em', 'parmağını em', 'emzik bırak'],
+  'first-foods': ['ek gıda', 'ilk besin', 'katı gıda', 'blw', 'yemeği tükür'],
+  'fourth-trimester': ['doğum sonrası', 'lohusa', 'depresyon', 'ağlamak istiyorum', 'lohusa hüznü'],
+  'body-safety': ['beden güvenliği', 'kötü dokunuş', 'istismar', 'taciz', 'kötü sır', 'mahrem bölge'],
+  'online-safety': ['internet', 'çevrim içi', 'sosyal medya', 'yabancıyla yazış', 'oyunda ödeme', 'tiktok', 'roblox'],
+  grandparents: ['babaanne', 'anneanne', 'dede', 'kayınvalide', 'geniş aile', 'babaanne izin', 'anneanne izin', 'şımartıyor'],
+  'bilingual-home': ['iki dilli', 'iki dil', 'rusça', 'azerice', 'dilleri karıştır'],
+  divorce: ['boşanma', 'boşanıyoruz', 'ayrıldık', 'ayrı yaşıyoruz', 'babasıyla görüşme'],
+  grief: ['ölüm', 'öldü', 'vefat', 'cenaze', 'ölümü anlatmak', 'yas'],
+  'big-changes': ['taşınma', 'taşınıyoruz', 'taşındık', 'yeni şehir', 'yeni kreş', 'yeni okul'],
+  bedwetting: ['altını ıslat', 'yatağını ıslat', 'gece ıslat', 'enürezis', 'gece kaçır'],
+  stuttering: ['kekeme', 'kekeliyor', 'kelimede takıl'],
+  'pocket-money': ['harçlık', 'cep harçlığı', 'para vermek', 'para biriktir'],
+  'school-readiness': ['birinci sınıf', 'okula hazır', 'okula başla', 'okul öncesi hazırlık'],
+  'adhd-autism-signs': ['otizm', 'otistik', 'dehb', 'hiperaktif', 'dikkat eksikliği', 'göz teması kurmuyor', 'adına tepki'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['zorbalık', 'dalga geçiyor', 'alay ediyor', 'dövüyorlar', 'ağlayarak geldi'],
   'hits-parent': ['bana vuruyor', 'bana vurdu', 'annesine vuruyor', 'babasına vuruyor'],
   'not-listening': ['duymuyor', 'söz dinlemiyor', 'dinlemiyor', 'sözümü dinlemiyor'],
-  'baby-bites-breast': ['memeyi ısır', 'emerken ısır', 'saç çek'],
+  'baby-bites-breast': ['memeyi ısır', 'emerken ısır', 'saç çek', 'emzirirken ısır', 'meme ucu'],
+  'baby-crying-different': ['farklı ağl', 'tiz ağl', 'birden ağl', 'garip ağl', 'inliyor'],
+  'sleeps-only-on-me': ['kucağımda uyu', 'kucakta uyu', 'beşikte uyumuyor', 'yatırınca uyan', 'beşiğe koyunca ağl'],
+  'about-to-lose-it': ['dayanamıyorum', 'kendimi kaybed', 'kendimi tutamıyorum', 'sarsmak', 'sabrım tükendi', 'sinirlerim bozuldu'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['bağırmak', 'bağırma', 'sabır'],
   'tantrums-14': ['öfke nöbet', 'tantrum', 'kriz'],
   'sleep-7': ['uyku', 'uyumak', 'uyumuyor'],
+  'siblings-7': ['kardeş', 'kardeşler', 'abla', 'kıskanç', 'kavga ediyor'],
+  'screen-reset-7': ['ekran', 'telefon', 'tablet', 'çizgi film'],
+  'special-time-7': ['özel zaman', 'ilgi istiyor', 'birlikte oyna'],
 };

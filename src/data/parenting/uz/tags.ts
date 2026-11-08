@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['doʻst', 'doʻstlik', 'yolgʻiz oʻynaydi'],
   bullying: ['bulling', 'masxara', 'xafa qilishadi', 'haqorat'],
   'after-school': ['maktabdan keyin', 'maktabdan kelganda'],
+  'crying-plan': ['yigʻlash rejasi', 'kolika', 'soatlab yigʻla', 'kechqurun yigʻla', 'qorni ogʻriydi'],
+  'stranger-anxiety': ['begonadan qoʻrq', 'notanish odam', 'buvisining quchogʻida yigʻla', 'quchoqqa bormaydi', 'ajralish xavotiri'],
+  'sleep-regressions': ['uyqu regressiya', 'regressiya', 'tunda uygʻonadi', 'tez-tez uygʻon', 'uyqusi buzildi'],
+  'pacifier-thumb': ['soʻrgʻich', 'barmoq soʻr', 'barmogʻini soʻr', 'pustishka', 'soska'],
+  'first-foods': ['qoʻshimcha ovqat', 'birinchi ovqat', 'qattiq ovqat', 'prikorm', 'ovqatni tupur'],
+  'fourth-trimester': ['tugʻruqdan keyin', 'chilla', 'depressiya', 'yigʻlagim keladi', 'chaqaloq gʻamgini'],
+  'body-safety': ['tana xavfsizligi', 'yomon tegish', 'zoʻravonlik', 'tajovuz', 'yomon sir', 'intim joy'],
+  'online-safety': ['internet', 'onlayn', 'ijtimoiy tarmoq', 'begona bilan yozish', 'oʻyinda toʻlov', 'tiktok', 'roblox'],
+  grandparents: ['buvi', 'bobo', 'qaynona', 'katta oila', 'buvisi ruxsat', 'buvining uyida', 'buvisi erkalat'],
+  'bilingual-home': ['ikki tilli', 'ikki til', 'rus tili', 'ruscha', 'tillarni aralashtir'],
+  divorce: ['ajralish', 'ajrashyapmiz', 'ajrashdik', 'alohida yashaymiz', 'otasi bilan uchrashuv'],
+  grief: ['oʻlim', 'vafot', 'oʻldi', 'dafn', 'oʻlim haqida gapir', 'motam'],
+  'big-changes': ['koʻchish', 'koʻchyapmiz', 'koʻchdik', 'koʻchamiz', 'yangi shahar', 'yangi bogʻcha'],
+  bedwetting: ['tunda siydik', 'oʻrnini hoʻlla', 'oʻringa siy', 'enurez', 'tunda hoʻlla'],
+  stuttering: ['duduq', 'duduqlanadi', 'soʻzda tutil'],
+  'pocket-money': ['choʻntak puli', 'pul berish', 'pul yigʻ', 'bolaga pul'],
+  'school-readiness': ['birinchi sinf', 'maktabga tayyor', 'maktabga bor', 'tayyorlov guruhi'],
+  'adhd-autism-signs': ['autizm', 'autist', 'degs', 'sdvg', 'giperaktiv', 'diqqat yetishmas', 'koʻzga qaramaydi', 'ismiga javob'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['bulling', 'masxara qilishadi', 'xafa qilishadi', 'urishadi', 'yigʻlab keldi'],
   'hits-parent': ['meni uradi', 'meni urdi', 'onasini uradi'],
   'not-listening': ['eshitmaydi', 'gapga kirmaydi', 'quloq solmaydi', 'tinglamaydi', 'gapimga kirmaydi'],
-  'baby-bites-breast': ['koʻkrakni tishla', 'emayotganda tishla', 'soch tort'],
+  'baby-bites-breast': ['koʻkrakni tishla', 'emayotganda tishla', 'soch tort', 'emizayotganda tishla', 'koʻkrak uchi'],
+  'baby-crying-different': ['boshqacha yigʻla', 'chinqirib yigʻla', 'birdan yigʻla', 'gʻalati yigʻla', 'ingrayapti'],
+  'sleeps-only-on-me': ['quchogʻimda uxla', 'quchoqda uxla', 'beshikda uxlamaydi', 'yotqizsam uygʻonadi', 'beshikka qoʻysam yigʻla'],
+  'about-to-lose-it': ['chiday olmayapman', 'oʻzimni yoʻqot', 'oʻzimni tuta olmayapman', 'silkit', 'sabrim tugadi', 'asabim tugadi'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['baqirish', 'qichqirish', 'sabr'],
   'tantrums-14': ['isterika', 'tantrum', 'jazava'],
   'sleep-7': ['uyqu', 'uxlash', 'uxlamaydi'],
+  'siblings-7': ['aka-uka', 'opa-singil', 'akasi', 'rashk', 'urishadi'],
+  'screen-reset-7': ['ekran', 'telefon', 'planshet', 'multfilm'],
+  'special-time-7': ['maxsus vaqt', 'eʼtibor talab', 'birga oʻyna'],
 };

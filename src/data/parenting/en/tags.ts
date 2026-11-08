@@ -48,6 +48,24 @@ export const ARTICLE_TAGS: Record<string, string[]> = {
   friendships: ['friend', 'friendship', 'plays alone'],
   bullying: ['bullying', 'bullied', 'teasing', 'picked on'],
   'after-school': ['after school', 'comes home from school'],
+  'crying-plan': ['crying plan', 'colic', 'cries for hours', 'evening crying', 'purple crying'],
+  'stranger-anxiety': ['stranger anxiety', 'scared of strangers', 'cries with grandma', 'won\'t go to anyone', 'separation anxiety'],
+  'sleep-regressions': ['sleep regression', '4 month regression', 'waking at night', 'wakes up often', 'sleep got worse'],
+  'pacifier-thumb': ['dummy', 'pacifier', 'thumb sucking', 'sucks thumb', 'soother'],
+  'first-foods': ['first foods', 'weaning', 'solids', 'baby led weaning', 'spits out food'],
+  'fourth-trimester': ['after birth', 'postpartum', 'postnatal depression', 'baby blues', 'i want to cry'],
+  'body-safety': ['body safety', 'bad touch', 'abuse', 'private parts', 'bad secret', 'underwear rule'],
+  'online-safety': ['online safety', 'internet', 'social media', 'chatting with strangers', 'in-game purchases', 'tiktok', 'roblox'],
+  grandparents: ['grandma', 'grandpa', 'grandparents', 'mother-in-law', 'extended family', 'grandma lets him', 'spoils', 'at grandma\'s'],
+  'bilingual-home': ['bilingual', 'two languages', 'russian', 'mixes languages', 'second language'],
+  divorce: ['divorce', 'getting divorced', 'separated', 'living apart', 'contact with dad', 'co-parenting'],
+  grief: ['death', 'died', 'passed away', 'funeral', 'talk about death', 'grief'],
+  'big-changes': ['moving house', 'we\'re moving', 'we moved', 'relocation', 'new city', 'new nursery'],
+  bedwetting: ['bedwetting', 'wets the bed', 'wet at night', 'enuresis', 'night wetting'],
+  stuttering: ['stutter', 'stuttering', 'stammer', 'gets stuck on words'],
+  'pocket-money': ['pocket money', 'allowance', 'giving money', 'saving money'],
+  'school-readiness': ['first grade', 'school ready', 'starting school', 'preschool prep'],
+  'adhd-autism-signs': ['autism', 'autistic', 'adhd', 'hyperactive', 'attention deficit', 'no eye contact', 'doesn\'t respond to name'],
 };
 
 export const SOS_TAGS: Record<string, string[]> = {
@@ -75,11 +93,17 @@ export const SOS_TAGS: Record<string, string[]> = {
   bullied: ['bullying', 'bullied', 'teased', 'beat him up', 'came home crying'],
   'hits-parent': ['hits me', 'hit me', 'hits mum', 'hits mom'],
   'not-listening': ['doesn\'t listen', 'won\'t listen', 'ignores me', 'not listening'],
-  'baby-bites-breast': ['bites while breastfeeding', 'bites nipple', 'pulls hair'],
+  'baby-bites-breast': ['bites while breastfeeding', 'bites nipple', 'pulls hair', 'sore nipple', 'bites when feeding'],
+  'baby-crying-different': ['crying differently', 'high-pitched cry', 'suddenly crying', 'strange cry', 'whimpering'],
+  'sleeps-only-on-me': ['only sleeps on me', 'contact naps', 'won\'t sleep in cot', 'wakes when put down', 'cries in the cot'],
+  'about-to-lose-it': ['can\'t take it', 'losing it', 'can\'t cope', 'shake the baby', 'at the end of my rope', 'snapping'],
 };
 
 export const PROGRAMME_TAGS: Record<string, string[]> = {
   'no-shouting-21': ['shouting', 'yelling', 'patience'],
   'tantrums-14': ['tantrum', 'meltdown'],
   'sleep-7': ['sleep', 'bedtime', 'won\'t sleep'],
+  'siblings-7': ['siblings', 'brother', 'sister', 'sibling rivalry', 'fighting'],
+  'screen-reset-7': ['screen time', 'phone', 'tablet', 'cartoons'],
+  'special-time-7': ['special time', 'wants attention', 'play together'],
 };
