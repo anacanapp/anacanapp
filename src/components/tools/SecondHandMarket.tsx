@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import {
   Plus, Search, MessageCircle, MapPin,
   X, Check, Loader2, Package, Tag, Clock, Send,
-  Sparkles, ImagePlus, Image as ImageIcon } from
+  Sparkles, ImagePlus, Image as ImageIcon, Flag, Ban } from
 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
@@ -16,6 +16,12 @@ import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 import { tr } from "@/lib/tr";
 import { compressImageForUpload } from '@/lib/image-compress';
+import { getPublicProfileCards } from '@/lib/public-profile-cards';
+import {
+  blockMarketUser, isMarketBlockedError, loadMarketBlocks, reportTargetForContact, submitMarketReport,
+  unblockMarketUser, visibleListings, visibleMessages, type MarketReportReason, type MarketReportTarget } from
+'@/lib/marketSafety';
+import { MarketBlockDialog, MarketReportDialog } from './market/MarketSafetyDialogs';
 interface SecondHandMarketProps {
   onBack: () => void;
 }
@@ -96,6 +102,63 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
 
   const { toast } = useToast();
   const { profile, user } = useAuth();
+
+  // Safety (App Store 1.2): report listing/user/conversation and block a user (src/lib/marketSafety.ts).
+  const [blocked, setBlocked] = useState<Set<string>>(new Set());
+  const [blockedNames, setBlockedNames] = useState<Record<string, string>>({});
+  const [reportTarget, setReportTarget] = useState<{ target: MarketReportTarget; listingId: string | null; userId: string | null } | null>(null);
+  const [blockTargetId, setBlockTargetId] = useState<string | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    void loadMarketBlocks(supabase, profile?.user_id).then((set) => { if (alive) setBlocked(set); });
+    return () => { alive = false; };
+  }, [profile?.user_id]);
+
+  useEffect(() => {
+    if (!showMyListings || blocked.size === 0) return;
+    let alive = true;
+    getPublicProfileCards([...blocked]).
+    then((cards) => { if (alive) setBlockedNames(Object.fromEntries(Object.entries(cards).map(([id, c]) => [id, c.name || '']))); }).
+    catch(() => {});
+    return () => { alive = false; };
+  }, [showMyListings, blocked]);
+
+  const handleReport = async (reason: MarketReportReason, note: string) => {
+    if (!reportTarget || !profile?.user_id) return;
+    const outcome = await submitMarketReport(supabase, profile.user_id, {
+      target: reportTarget.target, listingId: reportTarget.listingId, reportedUserId: reportTarget.userId, reason, note
+    });
+    if (outcome === 'sent' || outcome === 'duplicate') {
+      toast({ title: outcome === 'sent' ?
+        tr('market_report_sent', 'Şikayətiniz göndərildi. Moderatorlar baxacaq.') :
+        tr('market_report_duplicate', 'Bu barədə şikayətiniz artıq qəbul edilib.') });
+      setReportTarget(null);
+    } else {
+      toast({ title: tr('secondhandmarket_xeta_3cdbb6', 'Xəta'), description: tr('market_report_failed', 'Şikayət göndərilmədi. Yenidən cəhd edin.'), variant: 'destructive' });
+    }
+  };
+
+  const handleBlock = async () => {
+    if (!blockTargetId || !profile?.user_id) return;
+    const ok = await blockMarketUser(supabase, profile.user_id, blockTargetId);
+    if (!ok) {
+      toast({ title: tr('secondhandmarket_xeta_3cdbb6', 'Xəta'), description: tr('market_block_failed', 'Bloklamaq alınmadı. Yenidən cəhd edin.'), variant: 'destructive' });
+      return;
+    }
+    setBlocked((prev) => new Set(prev).add(blockTargetId));
+    setBlockTargetId(null);
+    setShowContactModal(false);
+    setShowDetailModal(false);
+    toast({ title: tr('market_blocked_done', 'İstifadəçi bloklandı') });
+  };
+
+  const handleUnblock = async (id: string) => {
+    if (!profile?.user_id) return;
+    if (await unblockMarketUser(supabase, profile.user_id, id)) {
+      setBlocked((prev) => {const next = new Set(prev);next.delete(id);return next;});
+    }
+  };
 
   useEffect(() => {
     loadListings();
@@ -282,7 +345,13 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
         receiver_id: contactListing.user_id,
         content: contactMessage.trim()
       });
-      if (error) throw error;
+      if (error) {
+        if (isMarketBlockedError(error)) {
+          toast({ title: tr('market_message_blocked', 'Bu istifadəçiyə mesaj göndərmək mümkün deyil.'), variant: 'destructive' });
+          return;
+        }
+        throw error;
+      }
       setContactMessage('');
       await loadContactMessages(contactListing);
     } catch (error) {
@@ -304,7 +373,7 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
     return conditions.find((c) => c.id === condId) || conditions[2];
   };
 
-  const filteredListings = listings.filter((listing) =>
+  const filteredListings = visibleListings(listings, blocked, profile?.user_id).filter((listing) =>
   listing.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
   listing.description?.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -425,6 +494,22 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
           
           </button>
         </div>
+
+        {showMyListings && blocked.size > 0 &&
+        <div className="a-card" style={{ padding: 12 }}>
+            <p className="a-list-title" style={{ margin: '0 0 8px' }}>{tr('market_blocked_users', 'Bloklanmış istifadəçilər')}</p>
+            <div className="space-y-2">
+              {[...blocked].map((id) =>
+            <div key={id} className="flex items-center justify-between gap-2">
+                  <span className="a-list-sub truncate" style={{ margin: 0 }}>{blockedNames[id] || tr('market_user_fallback', 'İstifadəçi')}</span>
+                  <button type="button" className="a-btn-soft" style={{ minHeight: 40 }} onClick={() => handleUnblock(id)}>
+                    {tr('market_unblock', 'Blokdan çıxar')}
+                  </button>
+                </div>
+            )}
+            </div>
+          </div>
+        }
 
         {/* Listings */}
         {isLoading ?
@@ -849,6 +934,26 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
                 <MessageCircle size={16} strokeWidth={2.2} />
                 {selectedListing?.user_id === profile?.user_id ? tr("secondhandmarket_oz_elaninizdir_4cfb3d", "\xD6z elan\u0131n\u0131zd\u0131r") : tr("secondhandmarket_satici_ile_elaqe_a7f3e8", "Sat\u0131c\u0131 il\u0259 \u0259laq\u0259")}
               </button>
+              {profile?.user_id && selectedListing.user_id !== profile.user_id &&
+              <div className="flex gap-2">
+                  <button
+                  type="button"
+                  className="a-btn-soft flex-1"
+                  style={{ minHeight: 44, justifyContent: 'center' }}
+                  onClick={() => setReportTarget({ target: 'listing', listingId: selectedListing.id, userId: selectedListing.user_id })}>
+                    <Flag size={15} strokeWidth={2.2} />
+                    {tr('market_report', 'Şikayət et')}
+                  </button>
+                  <button
+                  type="button"
+                  className="a-btn-soft flex-1"
+                  style={{ minHeight: 44, justifyContent: 'center' }}
+                  onClick={() => setBlockTargetId(selectedListing.user_id)}>
+                    <Ban size={15} strokeWidth={2.2} />
+                    {tr('market_block_user', 'Satıcını blokla')}
+                  </button>
+                </div>
+              }
               </div>
             </>
           }
@@ -884,16 +989,37 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
                 </div>
               </div>
 
+              {profile?.user_id && contactListing.user_id !== profile.user_id &&
+              <div className="flex gap-2">
+                  <button
+                  type="button"
+                  className="a-btn-soft flex-1"
+                  style={{ minHeight: 40, justifyContent: 'center' }}
+                  onClick={() => setReportTarget({ target: reportTargetForContact(contactMessages.length), listingId: contactListing.id, userId: contactListing.user_id })}>
+                    <Flag size={14} strokeWidth={2.2} />
+                    {tr('market_report', 'Şikayət et')}
+                  </button>
+                  <button
+                  type="button"
+                  className="a-btn-soft flex-1"
+                  style={{ minHeight: 40, justifyContent: 'center' }}
+                  onClick={() => setBlockTargetId(contactListing.user_id)}>
+                    <Ban size={14} strokeWidth={2.2} />
+                    {tr('market_block_user', 'Satıcını blokla')}
+                  </button>
+                </div>
+              }
+
               {/* Messages */}
               <div className="max-h-60 overflow-y-auto space-y-2 p-2">
-                {contactMessages.length === 0 ?
+                {visibleMessages(contactMessages, blocked).length === 0 ?
               <div className="text-center py-6">
                     <MessageCircle className="w-10 h-10 mx-auto mb-2" style={{ color: 'var(--a-ink-faint)' }} />
                     <p className="a-list-sub" style={{ margin: 0 }}>{tr("secondhandmarket_hele_mesaj_yoxdur_cf0b5e", "Hələ mesaj yoxdur")}</p>
                     <p className="text-xs" style={{ margin: 0, color: 'var(--a-ink-faint)' }}>{tr("secondhandmarket_saticiya_mesaj_gonderin_ad78e2", "Satıcıya mesaj göndərin")}</p>
                   </div> :
 
-              contactMessages.map((msg) =>
+              visibleMessages(contactMessages, blocked).map((msg) =>
               <div
                 key={msg.id}
                 className={`flex ${msg.sender_id === profile?.user_id ? 'justify-end' : 'justify-start'}`}>
@@ -936,6 +1062,15 @@ const SecondHandMarket = ({ onBack }: SecondHandMarketProps) => {
           }
         </DialogContent>
       </Dialog>
+      <MarketReportDialog
+        open={!!reportTarget}
+        target={reportTarget?.target ?? 'listing'}
+        onOpenChange={(open) => {if (!open) setReportTarget(null);}}
+        onSubmit={handleReport} />
+      <MarketBlockDialog
+        open={!!blockTargetId}
+        onOpenChange={(open) => {if (!open) setBlockTargetId(null);}}
+        onConfirm={handleBlock} />
     </ToolPage>);
 
 };

@@ -25,15 +25,8 @@ import { MULTIPLE_GAIN_ANCHORS, interpolateGain } from '@/lib/pregnancyWeightGai
 // IOM 2009 single-pregnancy range by PRE-PREGNANCY BMI (under/normal/over/obese); chart band and status pill share it.
 import { bmiCategory, computeBmi, isValidHeightCm, isValidWeightKg, parseDecimal, singleGainAnchors } from '@/lib/pregnancyWeightBmi';
 
-/** Mother's height is not a profile column yet; it is asked once inline and kept on this device per user. */
-const heightStorageKey = (userId: string | undefined) => `anacan:weight-tracker:height-cm:${userId ?? 'anon'}`;
-const readStoredHeight = (userId: string | undefined): number | null => {
-  try {
-    const raw = localStorage.getItem(heightStorageKey(userId));
-    const h = raw ? Number(raw) : NaN;
-    return isValidHeightCm(h) ? h : null;
-  } catch { return null; }
-};
+// Mother's height: profiles.height_cm with a device copy as fallback (see src/lib/profileHeight.ts).
+import { isHeightSynced, markHeightSynced, planHeight, profileHasHeightColumn, readLocalHeight, saveProfileHeight, writeLocalHeight } from '@/lib/profileHeight';
 
 interface WeightTrackerProps {
   onBack: () => void;
@@ -52,10 +45,22 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
   const [aiAdvice, setAiAdvice] = useState<string | null>(null);
   const [aiLoading, setAiLoading] = useState(false);
   const [weightError, setWeightError] = useState<string | null>(null);
-  const [heightCm, setHeightCm] = useState<number | null>(() => readStoredHeight(user?.id));
+  const [heightCm, setHeightCm] = useState<number | null>(() => planHeight(profile, readLocalHeight(user?.id), isHeightSynced(user?.id)).height);
   const [heightInput, setHeightInput] = useState('');
   const [heightError, setHeightError] = useState<string | null>(null);
-  useEffect(() => { setHeightCm(readStoredHeight(user?.id)); }, [user?.id]);
+  const profileHeight = (profile as { height_cm?: unknown } | null)?.height_cm;
+  const heightColumn = profileHasHeightColumn(profile);
+  useEffect(() => {
+    // Profile value wins; a device-only value is uploaded once. A missing column (migration not applied yet) stays local.
+    const uid = user?.id;
+    const plan = planHeight(profile, readLocalHeight(uid), isHeightSynced(uid));
+    setHeightCm(plan.height);
+    if (plan.writeLocal != null) { writeLocalHeight(uid, plan.writeLocal); markHeightSynced(uid); }
+    if (plan.upload != null && uid) {
+      void saveProfileHeight(supabase, uid, plan.upload).then((ok) => { if (ok) markHeightSynced(uid); });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id, profileHeight, heightColumn]);
 
   // Əkiz/çoxdöllü hamiləlikdə İOM çəki artım tövsiyəsi tək hamiləlikdən DAHA
   // YÜKSƏKDİR — bunu nəzərə almasaq, əkiz ana normal artımla belə "Çox artırırsınız"
@@ -94,7 +99,11 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
       setHeightError(tr('safety_weight_height_invalid', 'Boyu sm ilə daxil edin (120-220)'));
       return;
     }
-    try { localStorage.setItem(heightStorageKey(user?.id), String(h)); } catch { /* still used for this session */ }
+    writeLocalHeight(user?.id, h);
+    if (user?.id && profileHasHeightColumn(profile)) {
+      const uid = user.id;
+      void saveProfileHeight(supabase, uid, h).then((ok) => { if (ok) markHeightSynced(uid); });
+    }
     setHeightCm(h);
     setHeightInput('');
     setHeightError(null);

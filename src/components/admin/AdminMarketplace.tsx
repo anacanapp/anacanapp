@@ -38,6 +38,7 @@ import { fetchAllRows } from '@/lib/supabaseFetchAll';
 import { useAuth } from '@/hooks/useAuth';
 import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
+import MarketReportsPanel from './MarketReportsPanel';
 
 interface Listing {
   id: string;
@@ -386,6 +387,9 @@ const AdminMarketplace = () => {
           </div>
         </div>
       </div>
+
+      {/* Market reports (listing / user / conversation), see MarketReportsPanel */}
+      <MarketReportsPanel onListingHidden={loadListings} />
 
       {/* Stats Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
