@@ -176,8 +176,8 @@ const AdminTools = () => {
   const heroFirst = (list: ToolConfig[]) => [...list].sort((a, b) => (a.is_hero ? 0 : 1) - (b.is_hero ? 0 : 1) || (a.is_hero && b.is_hero ? (a.hero_order || 0) - (b.hero_order || 0) : 0));
   const visibleInStage = categoryTools.filter((t) => isToolRowLive(t) && !!t[stageActiveField]);
   const sections: Array<{ key: SectionKey; title: string; list: ToolConfig[] }> = [
-    { key: 'free', title: 'Ödənişsiz alətlər', list: heroFirst(visibleInStage.filter((t) => accessOf(t) !== 'premium')) },
-    { key: 'premium', title: 'Premium alətlər', list: heroFirst(visibleInStage.filter((t) => accessOf(t) === 'premium')) },
+    { key: 'free', title: 'Ödənişsiz alətlər', list: heroFirst(visibleInStage.filter((t) => accessOf(t) !== 'premium' && accessOf(t) !== 'preview')) },
+    { key: 'premium', title: 'Premium alətlər', list: heroFirst(visibleInStage.filter((t) => accessOf(t) === 'premium' || accessOf(t) === 'preview')) },
     { key: 'hidden', title: 'Bu mərhələdə görünmür', list: categoryTools.filter((t) => !(isToolRowLive(t) && !!t[stageActiveField])) },
   ];
   // Toggle phase-specific active status
@@ -427,6 +427,9 @@ const AdminTools = () => {
                               </p>
                               {tool.is_premium &&
                           <Crown className="w-4 h-4 text-amber-500" />
+                          }
+                              {accessOf(tool) === 'preview' &&
+                          <Badge variant="outline" className="text-[9px] px-1.5 py-0 h-4">Baxış açıq</Badge>
                           }
                               {accessOf(tool) === 'limited' &&
                           <Badge variant="outline" className="text-[9px] px-1.5 py-0 h-4">Limitli</Badge>

@@ -56,19 +56,26 @@ export const isToolFree = (toolId: string): boolean => FREE_TOOL_IDS.has(toolId)
  * Premium qapısının arxasındadır (Ağ səs: gündəlik dəqiqə limiti, Reseptlər və Əlavə qida: hər kateqoriyadan 3
  * resept, Bürc uyğunluğu: gündəlik analiz limiti).
  */
-const FREE_LIMITED_TOOL_IDS = new Set<string>(['whitenoise', 'white-noise', 'recipes', 'horoscope']);
+const FREE_LIMITED_TOOL_IDS = new Set<string>(['recipes', 'horoscope']);
+/**
+ * 2026-11-09: "Premium · baxış" alətləri (istifadəçi qərarı). Premium bölməsində durur, amma hamı açıb içinə baxa
+ * bilir; səsi başlatmaq (Ağ səs) və ya foto yaratmaq (Fotosessiya) Premium tələb edir və paywall açır.
+ */
+const PREVIEW_TOOL_IDS = new Set<string>(['whitenoise', 'white-noise', 'photoshoot', 'baby-photoshoot']);
+export const isPreviewTool = (toolId: string): boolean => PREVIEW_TOOL_IDS.has(toolId);
 /**
  * Admin "limited_*" opens a tool for free users ONLY when the tool enforces its own free limit in code; otherwise a
  * limited setting would make it fully free (e.g. fairy-tale, noise-meter, weather-clothing, safety have no limit).
  */
-const SELF_LIMITING_TOOL_IDS = new Set<string>([...FREE_LIMITED_TOOL_IDS, 'photoshoot', 'baby-photoshoot']);
+const SELF_LIMITING_TOOL_IDS = new Set<string>([...FREE_LIMITED_TOOL_IDS]);
 const adminLimited = (toolId: string, premiumType?: string | null) => isLimitedPremiumType(premiumType) && SELF_LIMITING_TOOL_IDS.has(toolId);
 
 /** Admin "Premium tipi" (tool_configs.premium_type) dəyərləri: none | limited_total | limited_monthly | premium_only | full. */
 export const isLimitedPremiumType = (premiumType?: string | null): boolean =>
   premiumType === 'limited_total' || premiumType === 'limited_monthly';
 
-export type ToolAccess = 'free' | 'limited' | 'premium';
+/** preview = Premium tool that free users may open and look at; its main action opens the paywall. */
+export type ToolAccess = 'free' | 'limited' | 'preview' | 'premium';
 
 /**
  * Hub-da aləti pulsuz istifadəçinin aça bilib-bilməyəcəyi:
@@ -80,13 +87,14 @@ export type ToolAccess = 'free' | 'limited' | 'premium';
 export function toolAccess(input: { toolId: string; isPremiumFlag?: boolean | null; premiumType?: string | null; stageLocked?: boolean | null }): ToolAccess {
   if (input.stageLocked) return 'premium';
   if (isToolFree(input.toolId) && !input.isPremiumFlag) return 'free';
+  if (PREVIEW_TOOL_IDS.has(input.toolId)) return 'preview';
   if (FREE_LIMITED_TOOL_IDS.has(input.toolId) || adminLimited(input.toolId, input.premiumType)) return 'limited';
   return 'premium';
 }
 
 /** Pulsuz istifadəçi aləti aça bilər (tam pulsuz və ya alət daxilində limitli). Yalnız tool id məlumdursa. */
 export const canOpenToolFree = (toolId: string, premiumType?: string | null): boolean =>
-  isToolFree(toolId) || FREE_LIMITED_TOOL_IDS.has(toolId) || adminLimited(toolId, premiumType);
+  isToolFree(toolId) || FREE_LIMITED_TOOL_IDS.has(toolId) || PREVIEW_TOOL_IDS.has(toolId) || adminLimited(toolId, premiumType);
 
 /**
  * Tortlar aləti yalnız Azərbaycan bazarı üçündür:

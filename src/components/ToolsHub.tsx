@@ -91,6 +91,7 @@ interface Tool {
   isLocked?: boolean;
   /** Free users can open it; the tool enforces its own free limit (premium_type limited_* or code list). */
   limited?: boolean;
+  preview?: boolean;
 }
 
 // Icon mapping for dynamic tool configs
@@ -331,7 +332,9 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
         // Freemium siyasəti (yalnız bu build): free siyahısında olmayan HƏR alət premium, "limitli" alətlər
         // (kod siyahısı və ya admin premium_type limited_total/limited_monthly) açılır, limit alətin içindədir.
         // DB flag-larına toxunulmur → köhnə versiyalar təsirlənmir.
-        isPremium: access === 'premium',
+        // preview tools (Ağ səs, Fotosessiya) sit in the Premium section but open for everyone; play/generate gates.
+        isPremium: access === 'premium' || access === 'preview',
+        preview: access === 'preview',
         limited: access === 'limited',
         premiumType: config.premium_type || 'none',
         premiumLimit: config.premium_limit || 0,
@@ -400,6 +403,11 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
           variant: 'destructive'
         });
       }
+      return;
+    }
+
+    if (tool.preview && !tool.isLocked) {
+      openTool(tool.id);
       return;
     }
 

@@ -92,18 +92,19 @@ describe('ToolsHub free vs Premium gating', () => {
       cfg('baby-tracker', 'Körpə izləyicisi (row)', { is_premium: false, is_active: false }),
     ] });
     render(<ToolsHub />);
-    // recipes (code list) and photoshoot (admin limited_total, limits itself);
-    // poop-scanner has no in-tool limit, so an admin limited_total keeps it Premium.
-    expect(screen.getAllByText('Pulsuz · limitli')).toHaveLength(2);
+    // recipes (code list); poop-scanner has no in-tool limit, so an admin limited_total keeps it Premium.
+    expect(screen.getAllByText('Pulsuz · limitli')).toHaveLength(1);
     // 2026-11-09: Əlavə qida bələdçisi is Premium-only.
     expect(screen.getByText('Premium alətlər').closest('section')!.textContent).toContain('sfg_home_title');
     const free = screen.getByText('Ödənişsiz alətlər').closest('section')!;
     expect(free.textContent).toContain('Reseptlər');
-    expect(free.textContent).toContain('Foto çəkiliş');
+    expect(free.textContent).not.toContain('Foto çəkiliş');
     expect(free.textContent).not.toContain('Nəcis skaneri');
     expect(free.textContent).not.toContain('babytracker_tool_name');
     const premium = screen.getByText('Premium alətlər').closest('section')!;
     expect(premium.textContent).toContain('Ağlama tərcüməçisi');
+    // Fotosessiya: Premium section, but it opens for a free user (no paywall on the tile).
+    expect(premium.textContent).toContain('Foto çəkiliş');
     // Baby tracker stays fully Premium (owner decision 2026-11-08).
     expect(premium.textContent).toContain('babytracker_tool_name');
 

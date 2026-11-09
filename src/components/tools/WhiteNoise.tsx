@@ -145,8 +145,8 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
       whiteNoise.setVolume(preferences.white_noise_volume || 70);
       setTimer(preferences.white_noise_timer);
       if (preferences.last_white_noise_sound && !whiteNoise.isPlaying) {
-        const { allowed } = canUseWhiteNoise();
-        if (allowed || isPremium) {
+        // 2026-11-09: listening is Premium-only (free users can browse the sounds).
+        if (isPremium) {
           // Find and auto-play last sound
           const sound = sounds.find((s) => s.id === preferences.last_white_noise_sound);
           if (sound) {
@@ -207,8 +207,9 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
       setTimeRemaining(null);
       await updateLastWhiteNoiseSound(null);
     } else {
-      const { allowed, remainingSeconds } = canUseWhiteNoise();
-      if (!allowed && !isPremium) {setShowPremiumModal(true);return;}
+      // 2026-11-09: free users can browse the sounds; starting one opens the paywall.
+      if (!isPremium) {setShowPremiumModal(true);return;}
+      const { remainingSeconds } = canUseWhiteNoise();
       lastTrackTimeRef.current = Date.now();
       const sound = sounds.find((s) => s.id === soundId);
       if (!sound) return;
@@ -272,13 +273,13 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
           title={tr("whitenoise_yuxu_sesleri_4b518b", "Yuxu Səsləri")} />
 
         {/* Free tier usage banner */}
-        {!isPremium && remainingMinutes !== null &&
+        {!isPremium &&
         <motion.div
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className="a-card mb-4"
           style={{
-            background: usageInfo.remainingSeconds < 300 ? 'var(--a-alert-bg)' : 'var(--a-surface)',
+            background: 'var(--a-surface)',
             border: 'none'
           }}>
           
@@ -286,18 +287,14 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
               <span
               className="a-list-icon"
               style={{ background: usageInfo.remainingSeconds < 300 ? 'var(--a-grad-pink)' : 'var(--a-grad-peach)' }}>
-                {usageInfo.remainingSeconds < 300 ?
-              <Lock size={17} strokeWidth={2.2} style={{ color: 'var(--a-alert-ink)' }} /> :
-
-              <Timer size={17} strokeWidth={2.2} style={{ color: 'var(--a-accent-ink)' }} />
-              }
+                <Lock size={17} strokeWidth={2.2} style={{ color: 'var(--a-accent-ink)' }} />
               </span>
               <div className="flex-1 min-w-0">
-                <p className="a-list-title" style={{ margin: 0, color: usageInfo.remainingSeconds < 300 ? 'var(--a-alert-ink)' : 'var(--a-ink)' }}>
-                  {remainingMinutes} {tr("whitenoise_deqiqe_qalib_da6009", "d\u0259qiq\u0259 qal\u0131b")}
+                <p className="a-list-title" style={{ margin: 0, color: 'var(--a-ink)' }}>
+                  {tr('premiumgate_default_title', 'Bu bölmə Premium-dadır')}
                 </p>
-                <p className="a-list-sub" style={{ margin: 0, color: usageInfo.remainingSeconds < 300 ? 'var(--a-alert-soft)' : undefined }}>
-                  {tr("whitenoise_limitsiz_dinleme_ucun_premium_0f0575", "Limitsiz dinl\u0259m\u0259 \xFC\xE7\xFCn Premium")}
+                <p className="a-list-sub" style={{ margin: 0 }}>
+                  {tr('pgate_default_desc', 'Premium ilə açılır — 3 gün pulsuz sınayın')}
                 </p>
               </div>
               <motion.button

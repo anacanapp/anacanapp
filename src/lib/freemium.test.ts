@@ -9,7 +9,7 @@ describe('freemium tool access', () => {
   });
 
   it('opens tools with an in-tool free limit for free users', () => {
-    for (const id of ['whitenoise', 'white-noise', 'recipes', 'horoscope']) {
+    for (const id of ['recipes', 'horoscope']) {
       expect(toolAccess({ toolId: id, isPremiumFlag: true, premiumType: 'premium_only' })).toBe('limited');
       expect(canOpenToolFree(id)).toBe(true);
     }
@@ -20,7 +20,10 @@ describe('freemium tool access', () => {
     expect(isLimitedPremiumType('limited_monthly')).toBe(true);
     expect(isLimitedPremiumType('premium_only')).toBe(false);
     // Admin "limited" only opens tools that enforce their own free limit; others stay Premium.
-    expect(toolAccess({ toolId: 'photoshoot', isPremiumFlag: true, premiumType: 'limited_total' })).toBe('limited');
+    // 2026-11-09: Fotosessiya and Ağ səs are Premium preview tools (open to look at, action needs Premium).
+    expect(toolAccess({ toolId: 'photoshoot', isPremiumFlag: true, premiumType: 'limited_total' })).toBe('preview');
+    expect(toolAccess({ toolId: 'whitenoise' })).toBe('preview');
+    expect(toolAccess({ toolId: 'photoshoot', stageLocked: true })).toBe('premium');
     expect(toolAccess({ toolId: 'cry-translator', isPremiumFlag: true, premiumType: 'limited_total' })).toBe('premium');
     expect(toolAccess({ toolId: 'fairy-tale', isPremiumFlag: true, premiumType: 'limited_monthly' })).toBe('premium');
     expect(toolAccess({ toolId: 'cry-translator', isPremiumFlag: true, premiumType: 'none' })).toBe('premium');

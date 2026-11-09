@@ -322,6 +322,12 @@ const BabyPhotoshoot = forwardRef<HTMLDivElement, BabyPhotoshootProps>(({ onBack
   };
 
   const handleGenerate = async () => {
+    // 2026-11-09: Fotosessiya is Premium-only. Free users can browse styles; creating a photo opens the paywall.
+    if (!isPremium) {
+      setPremiumFeature(tr("babyphotoshoot_daha_cox_foto_yaratmaq_a5deeb", "Daha \xE7ox foto yaratmaq"));
+      setShowPremiumModal(true);
+      return;
+    }
     if (!customization.background) {
       toast({
         title: tr("babyphotoshoot_fon_secin_4449cc", 'Fon seçin'),
@@ -556,10 +562,10 @@ const BabyPhotoshoot = forwardRef<HTMLDivElement, BabyPhotoshootProps>(({ onBack
                 <Crown className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--a-warn-ink)' }} />
                 <div>
                   <p className="text-sm font-bold" style={{ margin: 0, color: 'var(--a-warn-ink)' }}>
-                    {tr("babyphotoshoot_pulsuz_ilk_foto_3c7a2d", "Pulsuz: ilk")} {freeLimits.baby_photoshoot_count} {tr("babyphotoshoot_foto_suffix_3c7a2d", "foto")}
+                    {tr('premiumgate_default_title', 'Bu bölmə Premium-dadır')}
                   </p>
                   <p className="text-xs mt-1" style={{ margin: 0, color: 'var(--a-warn-ink)', opacity: 0.85 }}>
-                    {tr("babyphotoshoot_limitsiz_foto_ucun_premium_a_k_965e5c", "Limitsiz foto \xFC\xE7\xFCn Premium-a ke\xE7in")}
+                    {tr('pgate_default_desc', 'Premium ilə açılır — 3 gün pulsuz sınayın')}
                   </p>
                 </div>
               </div>
