@@ -18,8 +18,23 @@
   var ICON_INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>';
   var ICON_WAIT = '<span class="spinner" style="width:26px;height:26px"></span>';
 
+  // ── Campaign window known without login (the page is public). After it ends the whole page says so. ──────
+  var CAMPAIGN_ENDS_AT = Date.parse(document.body.getAttribute('data-campaign-ends') || '');
+  var ended = isFinite(CAMPAIGN_ENDS_AT) && Date.now() >= CAMPAIGN_ENDS_AT;
+  function showEnded() {
+    document.body.classList.add('no-sell', 'campaign-ended');
+    $('liveText').textContent = 'Kampaniya bitdi';
+    $('heroPct').textContent = 'endirimi bitdi';
+    $('heroSub').textContent = 'Həftəsonu kampaniyası başa çatdı';
+    $('timer').hidden = true;
+    if ($('finalText')) $('finalText').textContent = 'Növbəti endirimlər üçün Anacan tətbiqini izlə';
+    card.innerHTML = '';
+    renderState(ICON_INFO, 'Kampaniya bitdi', 'Bu kampaniya artıq bitib. Premium-u tətbiqdən ala bilərsən. Növbəti endirimləri qaçırmamaq üçün tətbiqdə bildirişləri aç.',
+      '<a class="cta" href="/website/premium/app/index.html?src=campaign_ended">Tətbiqi aç <span class="arr">→</span></a>', true);
+  }
+
   // ── Countdown (campaign end from the server; before login the coming Sunday 23:59:59 Baku) ───────────────
-  var target = (function () {
+  var target = isFinite(CAMPAIGN_ENDS_AT) ? CAMPAIGN_ENDS_AT : (function () {
     var nowBaku = new Date(Date.now() + 4 * 3600e3);
     var end = new Date(Date.UTC(nowBaku.getUTCFullYear(), nowBaku.getUTCMonth(), nowBaku.getUTCDate(), 23, 59, 59));
     end.setUTCDate(end.getUTCDate() + (7 - nowBaku.getUTCDay()) % 7);
@@ -289,8 +304,14 @@
   document.addEventListener('visibilitychange', function () { if (!document.hidden && stillLoading()) boot(); });
   window.addEventListener('pageshow', function (e) { if (e.persisted && stillLoading()) boot(); });
 
-  A.onChange(function () { boot(); });
-  boot();
+  if (ended) {
+    // Ended: no login, no plans; the account chip still works for subscribers.
+    A.session().then(function (s) { A.renderWho($('who'), s); }).catch(function () {});
+    showEnded();
+  } else {
+    A.onChange(function () { boot(); });
+    boot();
+  }
 })();
 
 // Hero store buttons: report the click to GA4 (the page keeps working without analytics).
