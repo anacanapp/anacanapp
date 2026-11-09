@@ -7,7 +7,7 @@
 
     <string name="health_permissions_title">Anacan and Health Connect</string>
     <string name="health_permissions_rationale">Anacan reads your daily steps and workouts from Health Connect only to show them on its Health screen. This data stays on your phone and is not sent to Anacan servers.\n\nIf you turn them on, Anacan also copies the period, weight, blood-pressure and blood-glucose records you save in Anacan to Health Connect.\n\nYou can turn these off at any time in Anacan and manage permissions and copied records in Health Connect settings. Health records you enter in Anacan are saved to your account separately. Read our full privacy policy:</string>
-    <string name="privacy_policy_url" translatable="false">https://anacanapp.lovable.app/legal/privacy_policy</string>
+    <string name="privacy_policy_url" translatable="false">https://anacan.az/en/privacy-policy/</string>
 
     <!-- Facebook / Meta SDK -->
     <string name="facebook_app_id">927014948766655</string>

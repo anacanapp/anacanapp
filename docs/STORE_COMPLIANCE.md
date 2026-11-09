@@ -102,7 +102,7 @@ Play Console → App content → Data safety → yenilə:
 
 ### Native rationale check before submission
 - Both Android permission-rationale entry points target the app's `HealthPermissionsActivity`.
-- The rationale explains the Android reads (steps, exercise; on-device only) and optional writes offline and links to `https://anacanapp.lovable.app/legal/privacy_policy`, the same public policy used by the app. It replaces the dependency activity that required a missing resource and attempted to render a web page without JavaScript. Test both the Android 13-and-below and Android 14+ entry points.
+- The rationale explains the Android reads (steps, exercise; on-device only) and optional writes offline and links to `https://anacan.az/en/privacy-policy/`, the same public policy used by the app. It replaces the dependency activity that required a missing resource and attempted to render a web page without JavaScript. Test both the Android 13-and-below and Android 14+ entry points.
 - The public policy must also describe actual health-data handling. It was reachable during this release check, but its current text does not explicitly describe Health Connect; update it through the existing legal-content administration before resubmitting.
 - Complete these device checks and the final manifest/artifact inspection with the release build. Source changes and unit tests alone do not verify native permission dialogs or store approval.
 
