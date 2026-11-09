@@ -53,6 +53,10 @@ describe('story audience', () => {
     expect(pick({ stage: 'mommy', babyMonths: 3, isPremium: true })).not.toContain('all-premium');
     expect(pick({ stage: 'mommy', babyMonths: 3, isPremium: false })).toContain('all-premium');
   });
+  it('uses the exact fruit size for the week when the app has it', () => {
+    const v = storyVars({ stage: 'bump', week: 26, fruit: { name: 'Gül kələm', lengthCm: 35.6, weightG: 760 } }, tables);
+    expect([v.weekLabel, v.fruit, v.lengthCm, v.weightG]).toEqual(['26-cı həftə', 'gül kələm', '36', '760']);
+  });
   it('fills the week story from the table', () => {
     const v = storyVars({ stage: 'bump', week: 24 }, tables);
     expect(v.weekLabel).toBe('24-cü həftə');

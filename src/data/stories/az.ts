@@ -36,7 +36,7 @@ export const STORIES_AZ: Story[] = [
  { id:'bump-this-week', module:'bump', title:'Bu həftə', theme:'coral', illus:'fruit',
    audience:{ stage:'bump', weekFrom:12, weekTo:40 }, schedule:{ refresh:'weekly', day:'mon' }, source:'ACOG, NHS',
    slides:[
-     { t:'cover', kicker:'{weekLabel}', title:'Körpən indi =={fruit}== boydadır', illus:'fruit' },
+     { t:'cover', kicker:'{weekLabel}', title:'Körpən indi =={fruit}== boydadır', mascot:'bump' },
      { t:'fact', kicker:'Təxmini ölçü', value:'{lengthCm}', unit:'sm', body:'Çəkisi təxminən {weightG} qram. Hər körpə öz tempində böyüyür.' },
      { t:'cover', kicker:'Bu həftə', title:'{weekNote}', size:'m', illus:'blob' },
      { t:'cta', kicker:'Daha ətraflı', title:'Həftəlik inkişafa bax', body:'Döl inkişafı alətində bu həftənin bütün dəyişiklikləri.', cta:{ label:'Döl inkişafı', nav:{ tool:'fetal-growth' } }, illus:'heart' } ] },

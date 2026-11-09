@@ -15,6 +15,8 @@ export interface StorySlide {
   body?: string;
   size?: 'm' | 'l' | 'xl';
   illus?: string;
+  /** Brand companion instead of a drawn illustration (Tumurcuq / Qucaq / Ritm). */
+  mascot?: StoryStage;
   value?: string;
   unit?: string;
   items?: string[];
@@ -74,6 +76,8 @@ export function azOrdinal(n: number): string {
 export interface StoryContext {
   stage: StoryStage;
   week?: number | null;
+  /** Exact size for this pregnancy day/week (daily content, else the app's fruit table). */
+  fruit?: { name: string; lengthCm: number; weightG: number } | null;
   babyMonths?: number | null;
   babyName?: string | null;
   cycleDay?: number | null;
@@ -85,8 +89,10 @@ export function storyVars(ctx: StoryContext, tables: StoryTables): Record<string
   const out: Record<string, string> = {};
   if (ctx.week) {
     const w = [...tables.weeks].reverse().find((x) => ctx.week! >= x[0]) ?? tables.weeks[0];
-    Object.assign(out, { week: String(ctx.week), weekLabel: `${ctx.week}${azOrdinal(ctx.week)} həftə`, fruit: w[1], lengthCm: String(w[2]),
-      weightG: w[3].toLocaleString('az-AZ'), weekNote: w[4] });
+    const f = ctx.fruit;
+    const num = (n: number) => n.toLocaleString('az-AZ', { maximumFractionDigits: n < 10 ? 1 : 0 });
+    Object.assign(out, { week: String(ctx.week), weekLabel: `${ctx.week}${azOrdinal(ctx.week)} həftə`,
+      fruit: (f?.name || w[1]).toLocaleLowerCase('az-AZ'), lengthCm: num(f?.lengthCm || w[2]), weightG: num(f?.weightG || w[3]), weekNote: w[4] });
   }
   if (ctx.babyMonths != null) {
     const m = [...tables.months].reverse().find((x) => ctx.babyMonths! >= x[0]) ?? tables.months[0];

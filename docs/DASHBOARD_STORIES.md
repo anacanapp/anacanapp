@@ -14,8 +14,12 @@ Instagram-style story row at the top of the home screen (Hamiləlik, Analıq, D�
 - **UI:** `src/components/stories/` (row, full-screen viewer, code-drawn SVG illustrations, `stories.css`).
   Tap right/left, swipe, hold to pause, swipe down / × / Android back to close. Unseen stories first; seen state is
   per user in localStorage. CTAs open tools, tabs or screens through `PUSH_NAV_EVENT`, so Premium gates apply.
+- **Mascot and exact size:** the week cover shows Tumurcuq (no per-fruit images in `fruit_size_images`); fruit name,
+  length and weight come from the day's pregnancy content, else `FRUIT_SIZES` (nearest week).
+- **Download:** "Yüklə" in the viewer renders the current slide to a 1080x1920 JPG on a canvas (`src/lib/story-export.ts`)
+  and opens the share sheet (save to Photos / post as a story) on the phone, or downloads it on the web.
 - **Analytics:** `tool_used` with `tool_id = 'stories'`, actions `story_open`, `story_complete`, `story_cta`,
-  `story_quiz_ok` / `story_quiz_no`, `item_id` = story id.
+  `story_quiz_ok` / `story_quiz_no`, `story_download`, `item_id` = story id.
 - **Fonts:** Plus Jakarta Sans (headlines, numbers) and Inter (text); offline falls back to Inter.
 - **Before `on`:** medical copy needs a clinician review; adding a language needs its own `src/data/stories/<lang>.ts`.
 - Prototype: `docs/prototypes/dashboard-stories.html`.

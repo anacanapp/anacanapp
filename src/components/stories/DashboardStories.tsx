@@ -7,6 +7,9 @@ import { useSubscription } from '@/hooks/useSubscription';
 import { useChildren } from '@/hooks/useChildren';
 import { useEffectiveCycleLength } from '@/hooks/useCycleHistory';
 import { getCycleDayForDate } from '@/lib/cycle-utils';
+import { getPregnancyDay } from '@/lib/pregnancy-utils';
+import { usePregnancyContentByDay } from '@/hooks/usePregnancyContent';
+import { FRUIT_SIZES } from '@/types/anacan';
 import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
 import { STORY_THEMES, fillStory, storiesEnabledFor, storyMatches, storyVars, type Story, type StorySlide, type StoryStage } from '@/lib/stories';
 import { STORIES_AZ, WEEKS, MONTHS, PHASES } from '@/data/stories/az';
@@ -47,11 +50,24 @@ export default function DashboardStories({ stage }: { stage: StoryStage }) {
   const uid = user?.id ?? '';
   const enabled = storiesEnabledFor(setting, { isAdmin: !!isAdmin, language, role });
 
-  const week = stage === 'bump' ? getPregnancyData()?.currentWeek ?? null : null;
+  const preg = stage === 'bump' ? getPregnancyData() : null;
+  const week = preg?.currentWeek ?? null;
+  // Exact baby size: the day's pregnancy content first, else the app's fruit table (nearest week at or below).
+  const pregnancyDay = preg?.lastPeriodDate ? getPregnancyDay(preg.lastPeriodDate) : undefined;
+  const { data: dayContent } = usePregnancyContentByDay(stage === 'bump' ? pregnancyDay : undefined);
+  const fruit = useMemo(() => {
+    if (!week) return null;
+    const dc = dayContent as { baby_size_fruit?: string | null; baby_size_cm?: number | null; baby_weight_gram?: number | null } | null | undefined;
+    const key = Object.keys(FRUIT_SIZES).map(Number).filter((k) => k <= week).sort((a, b) => b - a)[0];
+    const st = key ? FRUIT_SIZES[key] : undefined;
+    const name = dc?.baby_size_fruit || st?.fruit;
+    if (!name) return null;
+    return { name, lengthCm: dc?.baby_size_cm ?? st?.lengthCm ?? 0, weightG: dc?.baby_weight_gram ?? st?.weightG ?? 0 };
+  }, [week, dayContent]);
   const babyMonths = stage === 'mommy' ? monthsSince(selectedChild?.birth_date) : null;
   const cycleDay = stage === 'flow' && lastPeriodDate ? getCycleDayForDate(new Date(), new Date(lastPeriodDate), cycleLength || 28) : null;
-  const ctx = useMemo(() => ({ stage, week, babyMonths, babyName: selectedChild?.name ?? null, cycleDay, isPremium: !!isPremium }),
-    [stage, week, babyMonths, selectedChild?.name, cycleDay, isPremium]);
+  const ctx = useMemo(() => ({ stage, week, fruit, babyMonths, babyName: selectedChild?.name ?? null, cycleDay, isPremium: !!isPremium }),
+    [stage, week, fruit, babyMonths, selectedChild?.name, cycleDay, isPremium]);
   const vars = useMemo(() => storyVars(ctx, { weeks: WEEKS, months: MONTHS, phases: PHASES }), [ctx]);
 
   const [seen, setSeen] = useState<Set<string>>(() => readSeen(uid));

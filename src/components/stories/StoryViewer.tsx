@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Crown, ChevronRight } from 'lucide-react';
+import { X, Crown, ChevronRight, Download, Loader2 } from 'lucide-react';
+import { companionSrc } from '@/components/onboarding/OnboardingCompanion';
+import { renderStorySlide } from '@/lib/story-export';
 import { STORY_MODULE_LABEL, STORY_THEMES, fillStory, parseStoryText, type Story, type StorySlide } from '@/lib/stories';
 import { illustration } from './illustrations';
 import { pushBackHandler } from '@/lib/backButton';
@@ -34,6 +36,7 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
   const [slide, setSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const [answer, setAnswer] = useState<number | null>(null);
+  const [saving, setSaving] = useState<'idle' | 'busy' | 'done' | 'error'>('idle');
   const paused = useRef(false);
   const elapsed = useRef(0);
   const last = useRef<number | null>(null);
@@ -42,7 +45,7 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
   const sl = story?.slides[slide];
 
   useEffect(() => { if (story) onEvent?.('story_open', story.id); }, [story?.id]); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect(() => { elapsed.current = 0; setProgress(0); setAnswer(null); }, [si, slide]);
+  useEffect(() => { elapsed.current = 0; setProgress(0); setAnswer(null); setSaving('idle'); }, [si, slide]);
 
   // Lock page scroll while the viewer is open.
   useEffect(() => {
@@ -91,6 +94,25 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
   }, [next, prev, onClose]);
 
   if (!story || !sl) return null;
+  const mascot = sl.mascot ? companionSrc(sl.mascot, 'success') : undefined;
+
+  // Saves the current slide as a 1080x1920 story image (share sheet on the phone, download on the web).
+  const save = async () => {
+    if (saving === 'busy') return;
+    paused.current = true;
+    setSaving('busy');
+    onEvent?.('story_download', story.id);
+    try {
+      const blob = await renderStorySlide(story, slide, vars, { mascotSrc: mascot });
+      const { shareMedia } = await import('@/lib/baby-chat-share');
+      await shareMedia(blob, `anacan-story-${story.id}-${slide + 1}`, 'Anacan');
+      setSaving('done');
+    } catch {
+      setSaving('error');
+    } finally {
+      paused.current = false;
+    }
+  };
   const th = STORY_THEMES[story.theme] ?? STORY_THEMES.coral;
   const artInk = th.light ? th.ink : '#fff';
   const style = { background: th.bg, color: th.ink, '--as-pop': th.pop, '--as-pop-ink': th.popInk, '--as-chip': th.chip, '--as-ink2': th.ink2, '--as-bg2': th.bg2 } as CSSProperties;
@@ -123,7 +145,8 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
   let body: JSX.Element;
   switch (sl.t) {
     case 'cover':
-      body = <>{kick}{title}{sl.illus && <Art name={sl.illus} c={th.pop} a={artInk} className="as-art as-art-peek" />}</>;
+      body = <>{kick}{title}{mascot ? <div className="as-mascot" aria-hidden="true"><img src={mascot} alt="" draggable={false} /></div>
+        : sl.illus && <Art name={sl.illus} c={th.pop} a={artInk} className="as-art as-art-peek" />}</>;
       break;
     case 'fact':
       body = <>{kick}<div className="as-num-row"><span className="as-num">{fillStory(sl.value, vars)}</span>{sl.unit && <span className="as-unit">{fillStory(sl.unit, vars)}</span>}</div>
@@ -173,6 +196,10 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
           <i key={i}><b style={{ width: `${i < slide ? 100 : i === slide ? progress * 100 : 0}%` }} /></i>)}</div>
         <div className="as-who">
           <span className="as-av">A</span><span className="as-name">Anacan</span><span className="as-tag">· {STORY_MODULE_LABEL[story.module]}</span>
+          <button type="button" className="as-dl" aria-label="Story-ni yüklə" onClick={save} disabled={saving === 'busy'}>
+            {saving === 'busy' ? <Loader2 size={18} strokeWidth={2.4} className="as-spin" /> : <Download size={18} strokeWidth={2.4} />}
+            <span>{saving === 'done' ? 'Hazırdır' : saving === 'error' ? 'Alınmadı' : 'Yüklə'}</span>
+          </button>
           <button type="button" className="as-x" aria-label="Bağla" onClick={onClose}><X size={22} strokeWidth={2.4} /></button>
         </div>
         <div className="as-slide" key={`${story.id}-${slide}`}>{body}</div>
