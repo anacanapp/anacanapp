@@ -24,6 +24,7 @@ import AdminUsageStats from './AdminUsageStats';
 import { LocalizedInput } from "./ui/LocalizedInput";
 import { LocalizedTextarea } from "./ui/LocalizedTextarea";
 import { useAdminLocalize } from "@/contexts/AdminLanguageContext";
+import { toolAccess } from '@/lib/freemium';
 
 interface ToolConfig {
   id: string;
@@ -82,6 +83,8 @@ const DragRow = ({ value, disabled, className, children }: { value: ToolConfig; 
     </Reorder.Item>
   );
 };
+
+type SectionKey = 'free' | 'premium' | 'hidden';
 
 const AdminTools = () => {
     const localize = useAdminLocalize();
@@ -164,15 +167,18 @@ const AdminTools = () => {
     setLocalTools((prev) => prev.map((t) => pos.has(t.id) && t[orderField] !== pos.get(t.id) ? { ...t, [orderField]: pos.get(t.id)! } : t));
     setHasChanges(true);
   };
-  const moveBy = (tool: ToolConfig, delta: number) => {
-    const list = [...categoryTools];
-    const from = list.findIndex((t) => t.id === tool.id);
-    const to = from + delta;
-    if (from < 0 || to < 0 || to >= list.length) return;
-    list.splice(to, 0, list.splice(from, 1)[0]);
-    applyOrder(list);
-  };
-
+  // Same split and order as the app's Tools page (ToolsHub): visible in this stage, free (incl. limited) vs Premium
+  // (DB flag, freemium rule or stage lock), hero tools first in hero_order; hidden tools listed last.
+  const stageActiveField = getActiveField(activeCategory);
+  const stageLockedField = getLockedField(activeCategory);
+  const accessOf = (t: ToolConfig) => toolAccess({ toolId: t.tool_id, isPremiumFlag: t.is_premium, premiumType: t.premium_type, stageLocked: !!t[stageLockedField] });
+  const heroFirst = (list: ToolConfig[]) => [...list].sort((a, b) => (a.is_hero ? 0 : 1) - (b.is_hero ? 0 : 1) || (a.is_hero && b.is_hero ? (a.hero_order || 0) - (b.hero_order || 0) : 0));
+  const visibleInStage = categoryTools.filter((t) => t.is_active && !!t[stageActiveField]);
+  const sections: Array<{ key: SectionKey; title: string; list: ToolConfig[] }> = [
+    { key: 'free', title: 'Ödənişsiz alətlər', list: heroFirst(visibleInStage.filter((t) => accessOf(t) !== 'premium')) },
+    { key: 'premium', title: 'Premium alətlər', list: heroFirst(visibleInStage.filter((t) => accessOf(t) === 'premium')) },
+    { key: 'hidden', title: 'Bu mərhələdə görünmür', list: categoryTools.filter((t) => !(t.is_active && !!t[stageActiveField])) },
+  ];
   // Toggle phase-specific active status
   const togglePhaseActive = (tool: ToolConfig) => {
     const activeField = getActiveField(activeCategory);
@@ -218,8 +224,15 @@ const AdminTools = () => {
     setHasChanges(true);
   };
 
-  const moveUp = (tool: ToolConfig) => moveBy(tool, -1);
-  const moveDown = (tool: ToolConfig) => moveBy(tool, 1);
+  const applySection = (key: SectionKey, next: ToolConfig[]) => applyOrder(sections.flatMap((sec) => sec.key === key ? next : sec.list));
+  const moveBy = (tool: ToolConfig, delta: number, key: SectionKey, list: ToolConfig[]) => {
+    const next = [...list];
+    const from = next.findIndex((t) => t.id === tool.id);
+    const to = from + delta;
+    if (from < 0 || to < 0 || to >= next.length) return;
+    next.splice(to, 0, next.splice(from, 1)[0]);
+    applySection(key, next);
+  };
 
   // Update premium settings
   const updatePremiumSettings = (isPremium: boolean, premiumType: string, premiumLimit: number) => {
@@ -354,89 +367,14 @@ const AdminTools = () => {
   const activeField = getActiveField(activeCategory);
   const lockedField = getLockedField(activeCategory);
 
-  return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-xl font-bold flex items-center gap-2">
-            <Wrench className="w-5 h-5" />
-            {tr("admintools_aletler_i_daresi_affdd0", "Al\u0259tl\u0259r \u0130dar\u0259si")}
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            {tr("admintools_aletleri_siralayin_kilidleyin__0ce74a", "Al\u0259tl\u0259ri s\u0131ralay\u0131n, kilidl\u0259yin, premium edin")}
-          </p>
-        </div>
-        <div className="flex gap-2">
-          {hasChanges &&
-          <>
-              <Button variant="outline" size="sm" onClick={resetChanges}>
-                <RefreshCw className="w-4 h-4 me-1" />
-                {tr("admintools_legv_et_b5e49c", "L\u0259\u011Fv et")}
-              </Button>
-              <Button
-              size="sm"
-              onClick={() => saveMutation.mutate()}
-              disabled={saveMutation.isPending}>
-              
-                <Save className="w-4 h-4 me-1" />
-                {saveMutation.isPending ? tr("admintools_saxlanir_9ea540", "Saxlan\u0131r...") : 'Yadda saxla'}
-              </Button>
-            </>
-          }
-        </div>
-      </div>
-
-      <div className="relative">
-        <Search className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-        <Input
-          placeholder={tr("admintools_alet_axtar_1f976c", "Alət axtar...")}
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="ps-9" />
-        
-      </div>
-
-      <Tabs value={activeCategory} onValueChange={(v) => setActiveCategory(v as any)}>
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="flow">Flow</TabsTrigger>
-          <TabsTrigger value="bump">Bump</TabsTrigger>
-          <TabsTrigger value="mommy">Mommy</TabsTrigger>
-        </TabsList>
-
-        {['flow', 'bump', 'mommy'].map((category) =>
-        <TabsContent key={category} value={category} className="mt-4">
-            <Card>
-              <CardHeader className="pb-3">
-                <CardTitle className="text-sm font-medium flex items-center justify-between">
-                  <span>{categoryLabels[category]}</span>
-                  <div className="flex items-center gap-2">
-                    <Badge variant="secondary">
-                      {categoryTools.filter((t) => t[activeField as keyof ToolConfig]).length} aktiv
-                    </Badge>
-                    <Badge variant="outline">{categoryTools.length} {tr("admintools_alet_9a099a", "al\u0259t")}</Badge>
-                  </div>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {isLoading ?
-              <div className="text-center py-8 text-muted-foreground">{tr("admintools_yuklenir_5557de", "Yüklənir...")}</div> :
-              categoryTools.length === 0 ?
-              <div className="text-center py-8 text-muted-foreground">
-                    {tr("admintools_bu_kateqoriyada_alet_yoxdur_6c04fc", "Bu kateqoriyada al\u0259t yoxdur")}
-                  </div> :
-
-              <>
-                  {dragDisabled && <p className="text-xs text-muted-foreground mb-2">Sıranı dəyişmək üçün axtarışı təmizləyin.</p>}
-                  {!dragDisabled && <p className="text-xs text-muted-foreground mb-2">Sol tərəfdəki ⋮⋮ tutacağından tutub sürüşdürün. Sonra "Yadda saxla".</p>}
-                  <Reorder.Group as="div" axis="y" values={categoryTools} onReorder={applyOrder} className="space-y-2">
-                    {categoryTools.map((tool, index) => {
+  const renderRow = (tool: ToolConfig, index: number, list: ToolConfig[], sectionKey: SectionKey, canDrag: boolean) => {
                   const isPhaseActive = tool[activeField as keyof ToolConfig] as boolean;
                   const isPhaseLocked = tool[lockedField as keyof ToolConfig] as boolean;
                   return (
                     <DragRow
                       key={tool.id}
                       value={tool}
-                      disabled={dragDisabled}
+                      disabled={!canDrag}
                       className={`flex items-center gap-3 p-3 rounded-lg border transition-colors select-none ${
                       !tool.is_active ?
                       'bg-muted/30 border-border/30 opacity-50' :
@@ -447,7 +385,7 @@ const AdminTools = () => {
                       {(startDrag) => <>
                           {/* Drag handle */}
                           <button type="button" aria-label="Sürüşdür" title="Tut və sürüşdür"
-                            onPointerDown={startDrag} disabled={dragDisabled}
+                            onPointerDown={startDrag} disabled={!canDrag}
                             className="h-9 w-7 -ms-1 flex items-center justify-center rounded-md text-muted-foreground hover:bg-muted cursor-grab active:cursor-grabbing disabled:opacity-30 disabled:cursor-not-allowed"
                             style={{ touchAction: 'none' }}>
                             <GripVertical className="w-4 h-4" />
@@ -459,8 +397,8 @@ const AdminTools = () => {
                           variant="ghost"
                           size="icon"
                           className="h-6 w-6"
-                          onClick={() => moveUp(tool)}
-                          disabled={dragDisabled || index === 0}>
+                          onClick={() => moveBy(tool, -1, sectionKey, list)}
+                          disabled={!canDrag || index === 0}>
                           
                               <ChevronUp className="w-4 h-4" />
                             </Button>
@@ -468,8 +406,8 @@ const AdminTools = () => {
                           variant="ghost"
                           size="icon"
                           className="h-6 w-6"
-                          onClick={() => moveDown(tool)}
-                          disabled={dragDisabled || index === categoryTools.length - 1}>
+                          onClick={() => moveBy(tool, 1, sectionKey, list)}
+                          disabled={!canDrag || index === list.length - 1}>
                           
                               <ChevronDown className="w-4 h-4" />
                             </Button>
@@ -488,6 +426,9 @@ const AdminTools = () => {
                               </p>
                               {tool.is_premium &&
                           <Crown className="w-4 h-4 text-amber-500" />
+                          }
+                              {accessOf(tool) === 'limited' &&
+                          <Badge variant="outline" className="text-[9px] px-1.5 py-0 h-4">Limitli</Badge>
                           }
                               {tool.is_hero &&
                           <Badge variant="outline" className="text-[9px] px-1.5 py-0 h-4 bg-violet-50 text-violet-600 border-violet-200">Hero</Badge>
@@ -599,9 +540,97 @@ const AdminTools = () => {
                           </div>
                       </>}
                         </DragRow>);
+  };
 
-                })}
-                  </Reorder.Group>
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-xl font-bold flex items-center gap-2">
+            <Wrench className="w-5 h-5" />
+            {tr("admintools_aletler_i_daresi_affdd0", "Al\u0259tl\u0259r \u0130dar\u0259si")}
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            {tr("admintools_aletleri_siralayin_kilidleyin__0ce74a", "Al\u0259tl\u0259ri s\u0131ralay\u0131n, kilidl\u0259yin, premium edin")}
+          </p>
+        </div>
+        <div className="flex gap-2">
+          {hasChanges &&
+          <>
+              <Button variant="outline" size="sm" onClick={resetChanges}>
+                <RefreshCw className="w-4 h-4 me-1" />
+                {tr("admintools_legv_et_b5e49c", "L\u0259\u011Fv et")}
+              </Button>
+              <Button
+              size="sm"
+              onClick={() => saveMutation.mutate()}
+              disabled={saveMutation.isPending}>
+              
+                <Save className="w-4 h-4 me-1" />
+                {saveMutation.isPending ? tr("admintools_saxlanir_9ea540", "Saxlan\u0131r...") : 'Yadda saxla'}
+              </Button>
+            </>
+          }
+        </div>
+      </div>
+
+      <div className="relative">
+        <Search className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+        <Input
+          placeholder={tr("admintools_alet_axtar_1f976c", "Alət axtar...")}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="ps-9" />
+        
+      </div>
+
+      <Tabs value={activeCategory} onValueChange={(v) => setActiveCategory(v as any)}>
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="flow">Flow</TabsTrigger>
+          <TabsTrigger value="bump">Bump</TabsTrigger>
+          <TabsTrigger value="mommy">Mommy</TabsTrigger>
+        </TabsList>
+
+        {['flow', 'bump', 'mommy'].map((category) =>
+        <TabsContent key={category} value={category} className="mt-4">
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-sm font-medium flex items-center justify-between">
+                  <span>{categoryLabels[category]}</span>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary">
+                      {categoryTools.filter((t) => t[activeField as keyof ToolConfig]).length} aktiv
+                    </Badge>
+                    <Badge variant="outline">{categoryTools.length} {tr("admintools_alet_9a099a", "al\u0259t")}</Badge>
+                  </div>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {isLoading ?
+              <div className="text-center py-8 text-muted-foreground">{tr("admintools_yuklenir_5557de", "Yüklənir...")}</div> :
+              categoryTools.length === 0 ?
+              <div className="text-center py-8 text-muted-foreground">
+                    {tr("admintools_bu_kateqoriyada_alet_yoxdur_6c04fc", "Bu kateqoriyada al\u0259t yoxdur")}
+                  </div> :
+
+              <>
+                  {dragDisabled && <p className="text-xs text-muted-foreground mb-2">Sıranı dəyişmək üçün axtarışı təmizləyin.</p>}
+                  {!dragDisabled && <p className="text-xs text-muted-foreground mb-2">Sol tərəfdəki ⋮⋮ tutacağından tutub sürüşdürün. Sonra "Yadda saxla".</p>}
+                  <p className="text-xs text-muted-foreground mb-3">Sıra tətbiqdəki Alətlər səhifəsi ilə eynidir. Hero alətlər öz bölməsində həmişə yuxarıda durur (onların sırası Hero redaktəsindədir). Kodla əlavə olunan alətlər (məs. Tortlar) burada görünmür.</p>
+                  {sections.map((section) => section.list.length === 0 ? null :
+                  <div key={section.key} className="mb-5 last:mb-0">
+                      <div className="flex items-center gap-2 mb-2">
+                        {section.key === 'premium' && <Crown className="w-4 h-4 text-amber-500" />}
+                        {section.key === 'hidden' && <EyeOff className="w-4 h-4 text-muted-foreground" />}
+                        <h3 className="text-sm font-semibold">{section.title}</h3>
+                        <Badge variant="outline" className="text-[10px]">{section.list.length}</Badge>
+                      </div>
+                      {section.key === 'hidden' && <p className="text-xs text-muted-foreground mb-2">Deaktiv və ya bu mərhələdə söndürülmüş alətlər. Tətbiqdə görünmür.</p>}
+                      <Reorder.Group as="div" axis="y" values={section.list} onReorder={(next: ToolConfig[]) => applySection(section.key, next)} className="space-y-2">
+                        {section.list.map((tool, index) => renderRow(tool, index, section.list, section.key, !dragDisabled && section.key !== 'hidden' && !tool.is_hero))}
+                      </Reorder.Group>
+                    </div>
+                  )}
                 </>
               }
               </CardContent>
