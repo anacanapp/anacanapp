@@ -14,7 +14,7 @@ interface AppSetting { id: string; key: string; value: any; description: string 
 // geri yazırdı — nəticədə başqa admin ekranlarının dəyişiklikləri köhnə keşlənmiş dəyərə sıfırlanırdı və `force_update`
 // ikiqat JSON-encode olunurdu. İndi YALNIZ bu ekranın özünün idarə etdiyi açarlar yazılır.
 const MANAGED_SETTING_KEYS = [
-  'flow_mode_enabled', 'bump_mode_enabled', 'mommy_mode_enabled', 'mommy_hero_variant', 'bottom_nav_style', 'profile_layout', 'inapp_onboarding', 'weaning_tool', 'parenting_tool',
+  'flow_mode_enabled', 'bump_mode_enabled', 'mommy_mode_enabled', 'mommy_hero_variant', 'bottom_nav_style', 'profile_layout', 'inapp_onboarding', 'weaning_tool', 'parenting_tool', 'dashboard_stories',
   'dark_mode_enabled', 'ai_model', 'app_version', 'maintenance_mode', 'max_daily_logs',
 ] as const;
 
@@ -119,6 +119,8 @@ const AdminSettings = () => {
                 <SettingRow title="Profil görünüşü" control={select('profile_layout', 'tabs', [['tabs', 'Tablı: Mən · Ailə · Ayarlar'], ['classic', 'Klassik (əvvəlki uzun səhifə)']], 'Profil görünüşü')} />
                 <SettingRow title="Tətbiqdaxili onboarding turu (Glass)" description="Yalnız funksiya əlavə olunandan sonra qeydiyyatdan keçən, hesabı 14 gündən gənc hesablar görür. Hər istifadəçi turu bir dəfə görür."
                   control={select('inapp_onboarding', 'off', [['on', 'Aktiv: yeni istifadəçilərə ilk açılışda'], ['off', 'Söndürülüb']], 'Onboarding turu')} />
+                <SettingRow title="Story-lər (ana səhifə)" description="Instagram tipli qısa hekayələr, Azərbaycan dilində. 'Yalnız admin' rejimində yalnız admin hesabları görür; 'Hamıya' seçəndə bütün az dilli istifadəçilərə açılır."
+                  control={select('dashboard_stories', 'admin', [['admin', 'Yalnız admin (test)'], ['on', 'Hamıya açıq'], ['off', 'Söndürülüb']], 'Story-lər')} />
                 <SettingRow title="Turu sınaqla (yalnız admin)" description="Turu indi bu hesabda açır. Açardan, hesabın yaşından və 'artıq görüb' qeydindən asılı deyil, heç nə yadda saxlanmır. İstədiyiniz qədər təkrarlaya bilərsiniz."
                   control={<div className="flex gap-2">
                     <Btn size="sm" onClick={() => requestTourPreview(false)}>Free kimi</Btn>

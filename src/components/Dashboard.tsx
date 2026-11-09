@@ -40,6 +40,7 @@ import { useMommyDailyMessageByDay } from '@/hooks/useMommyDailyMessages';
 import { useCurrentBabyCrisis, useUpcomingBabyCrises } from '@/hooks/useBabyCrisisPeriods';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useChildren } from '@/hooks/useChildren';
+import DashboardStories from '@/components/stories/DashboardStories';
 import { useSubscription } from '@/hooks/useSubscription';
 import { usePregnancyDayNavigation } from '@/hooks/usePregnancyDayNavigation';
 import { formatDateAz } from '@/lib/date-utils';
@@ -1955,6 +1956,8 @@ const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate, onOpenAssistant }
           {recovering ?
             <RecoveryHome onNavigate={onNavigate} onNavigateToTool={onNavigateToTool} onOpenAssistant={onOpenAssistant} /> :
             <>
+              {/* Story row (az; app_settings.dashboard_stories off / admin / on) */}
+              <DashboardStories stage={lifeStage} />
               {/* Top Banner Slot */}
               <BannerSlot placement="home_top" onNavigate={() => {}} onToolOpen={onNavigateToTool} className="mb-2" />
               <AdFreePremiumOffer position="top" />

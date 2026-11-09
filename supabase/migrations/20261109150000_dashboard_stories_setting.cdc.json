@@ -1,0 +1,14 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261109150000_dashboard_stories_setting.sql",
+  "runtime": "google-web",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; refuses unless public.app_settings is a guarded relation",
+  "preserve": ["cron0 and the 8 enabled timers unchanged", "get_public_app_setting keeps every live key and only adds dashboard_stories"],
+  "relations": [
+    { "relation": "public.app_settings", "change": "row inserted", "cdc": true, "writer_guard": true, "private": false, "pii": false, "primary_key": ["id"],
+      "note": "dashboard_stories = \"admin\" (off / admin / on)" }
+  ],
+  "functions": [
+    { "name": "public.get_public_app_setting(text)", "security": "definer", "grant": "unchanged", "note": "allowlist + dashboard_stories" }
+  ]
+}
