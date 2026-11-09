@@ -5,7 +5,7 @@ import SplashScreen, { needsBrandSplash } from '@/components/SplashScreen';
 import StartupScreen from '@/components/StartupScreen';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import AppIntroduction from '@/components/AppIntroduction';
-import type { TourNav } from '@/lib/onboardingTour';
+import { TOUR_PREVIEW_EVENT, type TourNav } from '@/lib/onboardingTour';
 import InitialLanguageScreen from '@/components/InitialLanguageScreen';
 import AuthScreen from '@/components/AuthScreen';
 import { fetchEmailVerificationState } from '@/lib/email-verification';
@@ -470,6 +470,12 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     const cleanup = initDeeplinkListener(handleDeeplink);
     return cleanup;
   }, [handleDeeplink]);
+  // Admin "Turu sınaqla": leave the admin panel and go home; OnboardingTourHost starts the preview once unblocked.
+  useEffect(() => {
+    const onPreview = () => { setShowAdmin(false); setActiveScreen(null); setActiveTab('home'); };
+    window.addEventListener(TOUR_PREVIEW_EVENT, onPreview);
+    return () => window.removeEventListener(TOUR_PREVIEW_EVENT, onPreview);
+  }, [setActiveScreen]);
   // In-app deeplinks (banners): same routing as external links, no app reload.
   useEffect(() => {
     const onAppDeeplink = (event: Event) => { const parsed = (event as CustomEvent<ParsedDeeplink>).detail; if (parsed) handleDeeplink(parsed); };

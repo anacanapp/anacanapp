@@ -6,6 +6,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { AdminTabs, Btn, Field, Notice, Page, PageHeader, Section, SettingRow, SkeletonRows, StatusPill } from './kit';
 import AdminAptekSettings from './AdminAptekSettings';
+import { requestTourPreview } from '@/lib/onboardingTour';
 
 interface AppSetting { id: string; key: string; value: any; description: string | null }
 
@@ -118,6 +119,11 @@ const AdminSettings = () => {
                 <SettingRow title="Profil görünüşü" control={select('profile_layout', 'tabs', [['tabs', 'Tablı: Mən · Ailə · Ayarlar'], ['classic', 'Klassik (əvvəlki uzun səhifə)']], 'Profil görünüşü')} />
                 <SettingRow title="Tətbiqdaxili onboarding turu (Glass)" description="Yalnız funksiya əlavə olunandan sonra qeydiyyatdan keçən, hesabı 14 gündən gənc hesablar görür. Hər istifadəçi turu bir dəfə görür."
                   control={select('inapp_onboarding', 'off', [['on', 'Aktiv: yeni istifadəçilərə ilk açılışda'], ['off', 'Söndürülüb']], 'Onboarding turu')} />
+                <SettingRow title="Turu sınaqla (yalnız admin)" description="Turu indi bu hesabda açır. Açardan, hesabın yaşından və 'artıq görüb' qeydindən asılı deyil, heç nə yadda saxlanmır. İstədiyiniz qədər təkrarlaya bilərsiniz."
+                  control={<div className="flex gap-2">
+                    <Btn size="sm" onClick={() => requestTourPreview(false)}>Free kimi</Btn>
+                    <Btn size="sm" variant="primary" onClick={() => requestTourPreview(true)}>Premium kimi</Btn>
+                  </div>} />
                 <SettingRow title="Süddən ayırma aləti" description="Plan yalnız 12+ aylıq uşaq üçün qurulur. Bələdçi və check-in pulsuz, fərdi təqvim və xatırlatmalar Premium-dur."
                   control={select('weaning_tool', 'off', [['on', 'Aktiv: Ana modulunda, 9+ ay'], ['off', 'Söndürülüb']], 'Süddən ayırma')} />
                 <SettingRow title="Tərbiyə aləti" description="Elmə əsaslanan pozitiv tərbiyə (0–12 yaş). Yalnız Azərbaycan dilində və Ana modulunda görünür. Yaş dövrləri, günün məsləhəti, pulsuz məqalə və SOS kartları hamıya, tam kitabxana, proqramlar və testlərin ətraflı nəticələri Premium-dur."

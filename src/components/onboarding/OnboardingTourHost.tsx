@@ -9,7 +9,7 @@ import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
 import { usePrivacyConsent } from '@/lib/privacyConsent';
-import { buildTourPlan, isToolOpenForUser, isTourEligible, PUSH_GRANTED_EVENT, TOUR_VERSION, type TourNav, type TourPush, type TourStage, type TourTool } from '@/lib/onboardingTour';
+import { buildTourPlan, isToolOpenForUser, isTourEligible, PUSH_GRANTED_EVENT, TOUR_PREVIEW_EVENT, TOUR_VERSION, takePendingTourPreview, type TourPreviewDetail, type TourNav, type TourPush, type TourStage, type TourTool } from '@/lib/onboardingTour';
 import GlassTour from './GlassTour';
 
 const localKey = (uid: string) => `anacan_tour_v${TOUR_VERSION}_${uid}`;
@@ -47,6 +47,9 @@ export default function OnboardingTourHost({ blocked, onNavigate, onRunningChang
   // The plan is frozen when the tour starts, so a refetch (tools, subscription) cannot shift the steps mid-tour.
   const [plan, setPlan] = useState<ReturnType<typeof buildTourPlan>>([]);
   const [closed, setClosed] = useState(false);
+  // Admin preview: ignores eligibility and the switch, writes nothing; premium = which variant to show.
+  const [preview, setPreview] = useState<TourPreviewDetail | null>(() => takePendingTourPreview());
+  const [previewRunning, setPreviewRunning] = useState(false);
   const started = useRef(false);
   const uid = user?.id || '';
   const journey = (profile as { onboarding_journey?: unknown } | null)?.onboarding_journey;
@@ -56,7 +59,18 @@ export default function OnboardingTourHost({ blocked, onNavigate, onRunningChang
     lossRecoveryActive: (profile as { loss_recovery_active?: boolean } | null)?.loss_recovery_active, onboarded: isOnboarded,
   });
 
-  useEffect(() => { if (eligible && push === null) void readPush().then(setPush); }, [eligible, push]);
+  useEffect(() => { if ((eligible || preview) && push === null) void readPush().then(setPush); }, [eligible, preview, push]);
+  useEffect(() => {
+    const onPreview = (e: Event) => {
+      const premium = (e as CustomEvent<TourPreviewDetail>).detail?.premium === true;
+      setRunning(false); setPreviewRunning(false); setPlan([]);
+      takePendingTourPreview();
+      setPreview({ premium });
+    };
+    window.addEventListener(TOUR_PREVIEW_EVENT, onPreview);
+    return () => window.removeEventListener(TOUR_PREVIEW_EVENT, onPreview);
+  }, []);
+  const tourPremium = preview ? preview.premium : isPremium;
 
   const tools: TourTool[] = useMemo(() => {
     if (!stage || !configs) return [];
@@ -65,11 +79,11 @@ export default function OnboardingTourHost({ blocked, onNavigate, onRunningChang
       id: c.tool_id,
       name: ((c as { display_name?: string | null }).display_name || c.name) as string,
       description: c.description,
-      open: isToolOpenForUser(c, locked(c), isPremium),
+      open: isToolOpenForUser(c, locked(c), tourPremium),
     }));
-  }, [configs, stage, disabledTools, isPremium]);
+  }, [configs, stage, disabledTools, tourPremium]);
 
-  const ready = eligible && !blocked && consent.decidedAt !== null && stage !== null && configsReady && push !== null && !subLoading && entitlementReady !== false;
+  const ready = !preview && eligible && !blocked && consent.decidedAt !== null && stage !== null && configsReady && push !== null && !subLoading && entitlementReady !== false;
   useEffect(() => {
     if (!ready || started.current) return;
     const timer = window.setTimeout(() => {
@@ -84,12 +98,28 @@ export default function OnboardingTourHost({ blocked, onNavigate, onRunningChang
     return () => window.clearTimeout(timer);
   }, [ready, uid, stage, isPremium, push, tools, onRunningChange]);
 
+  // Preview start: same plan builder, nothing recorded.
+  useEffect(() => {
+    if (!preview || previewRunning || blocked || !stage || !configsReady || push === null) return;
+    const timer = window.setTimeout(() => {
+      setPlan(buildTourPlan({ stage, isPremium: preview.premium, push, tools }));
+      setPreviewRunning(true); setRunning(true);
+      onRunningChange?.(true);
+    }, 600);
+    return () => window.clearTimeout(timer);
+  }, [preview, previewRunning, blocked, stage, configsReady, push, tools, onRunningChange]);
+
   const finish = useCallback((status: 'done' | 'skipped', step: string) => {
+    if (preview) {
+      setRunning(false); setPreviewRunning(false); setPreview(null); setPlan([]); onRunningChange?.(false);
+      onNavigate({ tab: 'home' });
+      return;
+    }
     writeLocal(uid, status);
     setRunning(false); setClosed(true); onRunningChange?.(false);
     void supabase.from('profiles').update({ onboarding_journey: { version: TOUR_VERSION, status, step, at: new Date().toISOString() } } as never).eq('user_id', uid);
     onNavigate({ tab: 'home' });
-  }, [uid, onNavigate, onRunningChange]);
+  }, [uid, preview, onNavigate, onRunningChange]);
 
   const askPush = useCallback(async () => {
     try {
@@ -106,6 +136,6 @@ export default function OnboardingTourHost({ blocked, onNavigate, onRunningChang
   useEffect(() => () => onRunningChange?.(false), [onRunningChange]);
   if (!running || plan.length === 0 || !stage) return null;
   const aiFreePerDay = Number((freeLimits as { ai_chat_count_per_day?: number } | undefined)?.ai_chat_count_per_day) || 10;
-  return <GlassTour plan={plan} name={(profile as { name?: string } | null)?.name || ''} stage={stage} isPremium={isPremium} aiFreePerDay={aiFreePerDay}
+  return <GlassTour key={preview ? `preview-${preview.premium}` : 'tour'} plan={plan} name={(profile as { name?: string } | null)?.name || ''} stage={stage} isPremium={tourPremium} aiFreePerDay={aiFreePerDay}
     tools={tools} onNavigate={onNavigate} onPush={askPush} onPremium={openPremium} onFinish={finish} />;
 }

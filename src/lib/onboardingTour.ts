@@ -8,6 +8,19 @@ import { isToolFree } from '@/lib/freemium';
 export const TOUR_VERSION = 1;
 /** Fired after the tour's push permission request is granted; useDeviceToken registers the device. */
 export const PUSH_GRANTED_EVENT = 'anacan:push-granted';
+/** Admin-only preview (Admin → Tənzimləmələr → "Turu sınaqla"): runs the tour ignoring eligibility, writes nothing. detail: { premium: boolean } */
+export const TOUR_PREVIEW_EVENT = 'anacan:tour-preview';
+export interface TourPreviewDetail { premium: boolean }
+// The admin panel replaces the main screen, so the tour host is not mounted when the button is pressed:
+// the request is kept here and picked up when the host mounts (or live through the event if it is mounted).
+let pendingPreview: TourPreviewDetail | null = null;
+export function requestTourPreview(premium: boolean) {
+  pendingPreview = { premium };
+  if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent<TourPreviewDetail>(TOUR_PREVIEW_EVENT, { detail: { premium } }));
+}
+export function takePendingTourPreview(): TourPreviewDetail | null {
+  const p = pendingPreview; pendingPreview = null; return p;
+}
 export const TOUR_MAX_ACCOUNT_AGE_DAYS = 14;
 export type TourStage = 'mommy' | 'bump' | 'flow';
 /** Push permission as the OS reports it; 'unsupported' = web / no messaging plugin. */
