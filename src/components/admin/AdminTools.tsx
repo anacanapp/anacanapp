@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { tr } from '@/lib/tr';
-import { motion } from 'framer-motion';
+import { Reorder, useDragControls } from 'framer-motion';
+import type { PointerEvent as ReactPointerEvent, ReactNode } from 'react';
 import {
   Wrench, Search, Save, RefreshCw, ChevronDown, ChevronUp,
   Power, PowerOff, Eye, EyeOff, Lock, Unlock, Crown, Edit2, X, Check,
-  Star, Zap } from
+  Star, Zap, GripVertical } from
 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -68,6 +69,18 @@ const premiumTypeLabels: Record<string, string> = {
   limited_total: tr("admintools_i_lk_x_istifade_ca2621", "\u0130lk X istifad\u0259"),
   limited_monthly: tr("admintools_ayliq_x_limit_908d8f", "Ayl\u0131q X limit"),
   premium_only: tr("admintools_yalniz_premium_bde702", "Yaln\u0131z Premium")
+};
+
+/** One draggable row: only the grip starts a drag, so the page still scrolls normally on touch. */
+const DragRow = ({ value, disabled, className, children }: { value: ToolConfig; disabled: boolean; className: string; children: (startDrag: (e: ReactPointerEvent) => void) => ReactNode }) => {
+  const controls = useDragControls();
+  return (
+    <Reorder.Item value={value} dragListener={false} dragControls={controls} className={className}
+      style={{ position: 'relative' }} whileDrag={{ scale: 1.02, zIndex: 20, boxShadow: '0 10px 28px rgba(0,0,0,0.18)' }}
+      transition={{ type: 'spring', stiffness: 600, damping: 40 }}>
+      {children((e) => { if (!disabled) { e.preventDefault(); controls.start(e); } })}
+    </Reorder.Item>
+  );
 };
 
 const AdminTools = () => {
@@ -139,8 +152,26 @@ const AdminTools = () => {
   ).
   sort((a, b) => {
     const orderField = getOrderField(activeCategory);
-    return (a[orderField] as number) - (b[orderField] as number);
+    return ((a[orderField] as number) - (b[orderField] as number)) || (a.sort_order - b.sort_order) || a.tool_id.localeCompare(b.tool_id);
   });
+  const dragDisabled = search.trim() !== '';
+
+  // Writes the visible order back as 10, 20, 30… for the current stage. Renumbering (instead of swapping two
+  // values) means tools that shared the same number can never get stuck.
+  const applyOrder = (ordered: ToolConfig[]) => {
+    const orderField = getOrderField(activeCategory);
+    const pos = new Map(ordered.map((t, i) => [t.id, (i + 1) * 10]));
+    setLocalTools((prev) => prev.map((t) => pos.has(t.id) && t[orderField] !== pos.get(t.id) ? { ...t, [orderField]: pos.get(t.id)! } : t));
+    setHasChanges(true);
+  };
+  const moveBy = (tool: ToolConfig, delta: number) => {
+    const list = [...categoryTools];
+    const from = list.findIndex((t) => t.id === tool.id);
+    const to = from + delta;
+    if (from < 0 || to < 0 || to >= list.length) return;
+    list.splice(to, 0, list.splice(from, 1)[0]);
+    applyOrder(list);
+  };
 
   // Toggle phase-specific active status
   const togglePhaseActive = (tool: ToolConfig) => {
@@ -187,47 +218,8 @@ const AdminTools = () => {
     setHasChanges(true);
   };
 
-  // Move tool up
-  const moveUp = (tool: ToolConfig) => {
-    const orderField = getOrderField(activeCategory);
-    const currentIndex = categoryTools.findIndex((t) => t.id === tool.id);
-    if (currentIndex <= 0) return;
-
-    const prevTool = categoryTools[currentIndex - 1];
-    const newTools = localTools.map((t) => {
-      if (t.id === tool.id) {
-        return { ...t, [orderField]: prevTool[orderField] as number };
-      }
-      if (t.id === prevTool.id) {
-        return { ...t, [orderField]: tool[orderField] as number };
-      }
-      return t;
-    });
-
-    setLocalTools(newTools);
-    setHasChanges(true);
-  };
-
-  // Move tool down
-  const moveDown = (tool: ToolConfig) => {
-    const orderField = getOrderField(activeCategory);
-    const currentIndex = categoryTools.findIndex((t) => t.id === tool.id);
-    if (currentIndex >= categoryTools.length - 1) return;
-
-    const nextTool = categoryTools[currentIndex + 1];
-    const newTools = localTools.map((t) => {
-      if (t.id === tool.id) {
-        return { ...t, [orderField]: nextTool[orderField] as number };
-      }
-      if (t.id === nextTool.id) {
-        return { ...t, [orderField]: tool[orderField] as number };
-      }
-      return t;
-    });
-
-    setLocalTools(newTools);
-    setHasChanges(true);
-  };
+  const moveUp = (tool: ToolConfig) => moveBy(tool, -1);
+  const moveDown = (tool: ToolConfig) => moveBy(tool, 1);
 
   // Update premium settings
   const updatePremiumSettings = (isPremium: boolean, premiumType: string, premiumLimit: number) => {
@@ -433,24 +425,34 @@ const AdminTools = () => {
                     {tr("admintools_bu_kateqoriyada_alet_yoxdur_6c04fc", "Bu kateqoriyada al\u0259t yoxdur")}
                   </div> :
 
-              <div className="space-y-2">
+              <>
+                  {dragDisabled && <p className="text-xs text-muted-foreground mb-2">Sıranı dəyişmək üçün axtarışı təmizləyin.</p>}
+                  {!dragDisabled && <p className="text-xs text-muted-foreground mb-2">Sol tərəfdəki ⋮⋮ tutacağından tutub sürüşdürün. Sonra "Yadda saxla".</p>}
+                  <Reorder.Group as="div" axis="y" values={categoryTools} onReorder={applyOrder} className="space-y-2">
                     {categoryTools.map((tool, index) => {
                   const isPhaseActive = tool[activeField as keyof ToolConfig] as boolean;
                   const isPhaseLocked = tool[lockedField as keyof ToolConfig] as boolean;
                   return (
-                    <motion.div
+                    <DragRow
                       key={tool.id}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.02 }}
-                      className={`flex items-center gap-3 p-3 rounded-lg border transition-colors ${
+                      value={tool}
+                      disabled={dragDisabled}
+                      className={`flex items-center gap-3 p-3 rounded-lg border transition-colors select-none ${
                       !tool.is_active ?
                       'bg-muted/30 border-border/30 opacity-50' :
                       !isPhaseActive ?
                       'bg-muted/50 border-border/50' :
                       'bg-card border-border'}`
                       }>
-                      
+                      {(startDrag) => <>
+                          {/* Drag handle */}
+                          <button type="button" aria-label="Sürüşdür" title="Tut və sürüşdür"
+                            onPointerDown={startDrag} disabled={dragDisabled}
+                            className="h-9 w-7 -ms-1 flex items-center justify-center rounded-md text-muted-foreground hover:bg-muted cursor-grab active:cursor-grabbing disabled:opacity-30 disabled:cursor-not-allowed"
+                            style={{ touchAction: 'none' }}>
+                            <GripVertical className="w-4 h-4" />
+                          </button>
+
                           {/* Order controls */}
                           <div className="flex flex-col gap-1">
                             <Button
@@ -458,7 +460,7 @@ const AdminTools = () => {
                           size="icon"
                           className="h-6 w-6"
                           onClick={() => moveUp(tool)}
-                          disabled={index === 0}>
+                          disabled={dragDisabled || index === 0}>
                           
                               <ChevronUp className="w-4 h-4" />
                             </Button>
@@ -467,7 +469,7 @@ const AdminTools = () => {
                           size="icon"
                           className="h-6 w-6"
                           onClick={() => moveDown(tool)}
-                          disabled={index === categoryTools.length - 1}>
+                          disabled={dragDisabled || index === categoryTools.length - 1}>
                           
                               <ChevronDown className="w-4 h-4" />
                             </Button>
@@ -595,10 +597,12 @@ const AdminTools = () => {
                           }
                             </Button>
                           </div>
-                        </motion.div>);
+                      </>}
+                        </DragRow>);
 
                 })}
-                  </div>
+                  </Reorder.Group>
+                </>
               }
               </CardContent>
             </Card>
