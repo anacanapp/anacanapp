@@ -62,3 +62,13 @@ branded. A branded banner with `audience_tiers = NULL` is shown to **free users 
 promo that everyone in the audience should see (e.g. PDF books for all az moms), set
 `audience_tiers = {free,premium}` explicitly; keep `{free}` for Premium upsell banners.
 Example: `kitab-2-sira` on home_top, tools_top, community_top, profile_top (az + mommy, `/books`).
+
+## 6. Platform targeting is enforced on the server too (2026-11-09)
+`target_platforms` used to be filtered only in the app (BannerSlot, builds from 2026-11-05). Migration
+`20261109170000_banner_platform_server_guard.sql` adds `request_client_platform_v1()` (User-Agent: Android →
+`android`, iPhone/iPad/iPod → `ios`, else unknown) and withholds a platform-targeted banner from a known platform it
+does not list on every read path: inventory v3, inventory v2 and direct table reads (restrictive RLS, admins exempt).
+So an iOS-only banner never reaches Android, old builds included. Unknown user agents (e.g. iOS native HTTP
+"CFNetwork/Darwin") fall back to the app's own filter.
+Note: on the old v2 path (builds before inventory v3) own branded banners are hidden from Premium users regardless of
+`audience_tiers`; v3 builds honour `audience_tiers`.

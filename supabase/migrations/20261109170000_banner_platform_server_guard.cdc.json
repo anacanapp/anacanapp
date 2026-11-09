@@ -1,0 +1,17 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261109170000_banner_platform_server_guard.sql",
+  "runtime": "google-api",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; refuses unless public.banners is a guarded relation",
+  "preserve": ["cron0 and the 8 enabled timers unchanged", "brand ads eligibility unchanged apart from the added platform condition", "banners without target_platforms unaffected"],
+  "relations": [
+    { "relation": "public.banners", "change": "restrictive SELECT policy banners_platform_server_guard_v1 added", "cdc": true, "writer_guard": true, "private": false, "pii": false, "primary_key": ["id"],
+      "note": "platform-targeted banners withheld from requests whose User-Agent is a known non-target platform; admins exempt" }
+  ],
+  "functions": [
+    { "name": "public.request_client_platform_v1()", "security": "invoker", "grant": ["anon", "authenticated", "service_role"], "note": "android / ios / NULL from request.headers user-agent" },
+    { "name": "public.banner_platform_allowed_v1(text[])", "security": "invoker", "grant": ["anon", "authenticated", "service_role"], "note": "no targets, unknown platform, or platform listed" },
+    { "name": "public.get_banner_inventory_v3(uuid,text,text)", "security": "definer", "grant": "unchanged", "note": "+ platform condition" },
+    { "name": "public.get_banner_inventory_v2(uuid,text,text)", "security": "definer", "grant": "unchanged", "note": "+ platform condition" }
+  ]
+}
