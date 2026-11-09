@@ -286,7 +286,23 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     }
 
     // Filter out tools disabled for the current language
-    const activeConfigs = toolConfigs.filter((config) => !disabledTools.includes(config.tool_id) && (config.tool_id !== 'weaning' || showWeaning) && (config.tool_id !== 'parenting' || showParenting));
+    const activeConfigs = toolConfigs.filter((config) => !disabledTools.includes(config.tool_id) && (config.tool_id !== 'weaning' || showWeaning) && (config.tool_id !== 'parenting' || showParenting)
+      // Code tools keep their own eligibility; their rows only carry order and per-stage visibility (src/lib/code-tools.ts).
+      && (config.tool_id !== 'cakes' || ((isAdmin || isCakesAvailable((profile as any)?.country_code, language)) && (lifeStage === 'bump' || lifeStage === 'mommy' || isAdmin)))
+      && (config.tool_id !== 'solid-food-guide' || lifeStage === 'mommy')
+      && (config.tool_id !== 'sleep-training' || sleepTrainingEligible({ lifeStage, birthDate: childBirthDate ? new Date(childBirthDate) : null, now: new Date() })));
+    // Name, description and icon of code tools come from code translations (all 23 languages), not from the row.
+    const codeMeta = (id: string): { name: string; description: string; icon: typeof Wrench } | null => {
+      switch (id) {
+        case 'cakes': return { name: tr('toolshub_cakes_name', 'Tortlar'), description: tr("toolshub_xususi_gunler_ucun_tortlar_8a2248", "X\xFCsusi g\xFCnl\u0259r \xFC\xE7\xFCn tortlar"), icon: Cake };
+        case 'mini-games': return { name: tr("toolshub_minigames_title", "Mini Oyunlar"), description: '', icon: Gamepad2 };
+        case 'baby-tracker': return { name: bc('babytracker_tool_name'), description: bc('babytracker_tool_desc'), icon: Baby };
+        case 'sleep-training': return { name: bc('sleeptraining_title'), description: bc('sleeptraining_tool_desc'), icon: MoonStar };
+        case 'solid-food-guide': return { name: feature37Text('sfg_home_title', language), description: feature37Text('sfg_tool_desc', language), icon: Salad };
+        case 'parenting': return { name: parentingText('par_tool_name'), description: parentingText('par_tool_desc'), icon: HeartHandshake };
+        default: return null;
+      }
+    };
 
     const fromDb: Tool[] = activeConfigs.map((config) => {
       const name = hasPartner && config.requires_partner && config.partner_name ?
@@ -298,15 +314,16 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       config.description || '';
 
 
+      const meta = codeMeta(config.tool_id);
       const isWeaning = config.tool_id === 'weaning';
       const isParenting = config.tool_id === 'parenting';
       // Stage lock is tracked separately (isLocked), so access is computed without it here.
       const access = toolAccess({ toolId: config.tool_id, isPremiumFlag: config.is_premium, premiumType: config.premium_type });
       return {
         id: config.tool_id,
-        name: isWeaning ? weaningText('weaning_tool_name') : isParenting ? parentingText('par_tool_name') : name,
-        description: isWeaning ? weaningText('weaning_tool_desc') : isParenting ? parentingText('par_tool_desc') : description,
-        icon: iconMap[config.icon] || Wrench,
+        name: meta ? meta.name : isWeaning ? weaningText('weaning_tool_name') : isParenting ? parentingText('par_tool_name') : name,
+        description: meta ? meta.description : isWeaning ? weaningText('weaning_tool_desc') : isParenting ? parentingText('par_tool_desc') : description,
+        icon: meta ? meta.icon : iconMap[config.icon] || Wrench,
         color: config.color,
         bgColor: config.bg_color,
         minWeek: config.min_week || undefined,
@@ -330,24 +347,12 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       premiumType: 'none', premiumLimit: 0, isLocked: false,
     });
     const extra: Tool[] = [];
-    if (!fromDb.some((t) => t.id === 'baby-tracker') && !disabledTools.includes('baby-tracker')) {
-      extra.push(virtual('baby-tracker', bc('babytracker_tool_name'), bc('babytracker_tool_desc'), Baby));
-    }
-    if (!fromDb.some((t) => t.id === 'sleep-training') && !disabledTools.includes('sleep-training')
-      && sleepTrainingEligible({ lifeStage, birthDate: childBirthDate ? new Date(childBirthDate) : null, now: new Date() })) {
-      extra.push(virtual('sleep-training', bc('sleeptraining_title'), bc('sleeptraining_tool_desc'), MoonStar));
-    }
-    if (lifeStage === 'mommy' && !disabledTools.includes('solid-food-guide')) {
-      extra.push(virtual('solid-food-guide', feature37Text('sfg_home_title', language), feature37Text('sfg_tool_desc', language), Salad));
-    }
+    // Körpə izləyicisi, Yuxu təlimi, Əlavə qida, Tərbiyə, Tortlar, Mini oyunlar: tool_configs rows (code tools).
     if (showWeaning && !fromDb.some((t) => t.id === 'weaning')) {
       extra.push(virtual('weaning', weaningText('weaning_tool_name'), weaningText('weaning_tool_desc'), Sprout));
     }
-    if (showParenting && !fromDb.some((t) => t.id === 'parenting')) {
-      extra.push(virtual('parenting', parentingText('par_tool_name'), parentingText('par_tool_desc'), HeartHandshake));
-    }
     return [...fromDb, ...extra];
-  }, [toolConfigs, hasPartner, lifeStage, language, isNonAz, disabledTools, profile?.country_code, storeCountry, childBirthDate, showWeaning, showParenting]);
+  }, [toolConfigs, hasPartner, lifeStage, language, isNonAz, disabledTools, profile?.country_code, storeCountry, childBirthDate, showWeaning, showParenting, isAdmin]);
 
   // Set initial tool from props on mount (Dashboard qısayolları / banner deeplink-ləri)
   // Freemium: free olmayan alət premium-suz açılmır — paywall göstərilir.
@@ -421,27 +426,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const matchesSearch = (...texts: string[]) => !foldedQuery || texts.some((t) => foldText(t).includes(foldedQuery));
   const filteredTools = tools.filter((tool) => matchesSearch(tool.name, tool.description));
 
-  // Inject virtual Cakes tool (moved here from bottom nav)
-  const cakesVirtual: Tool = {
-    id: 'cakes',
-    name: tr('toolshub_cakes_name', 'Tortlar'),
-    description: tr("toolshub_xususi_gunler_ucun_tortlar_8a2248", "X\xFCsusi g\xFCnl\u0259r \xFC\xE7\xFCn tortlar"),
-    icon: Cake,
-    color: 'pink',
-    bgColor: 'pink',
-    stages: ['bump', 'mommy']
-  };
-  // Tortlar: yalnız AZ bazarı (dil az/ru + ölkə AZ) — admin istisna
-  const cakesMarketOk = isAdmin || isCakesAvailable((profile as any)?.country_code, language);
-  const showCakes = !isToolDisabled('cakes') && cakesMarketOk && (lifeStage === 'bump' || lifeStage === 'mommy' || isAdmin) &&
-  matchesSearch(cakesVirtual.name, cakesVirtual.description);
-  const miniGamesVirtual: Tool = {
-    id: 'mini-games', name: tr("toolshub_minigames_title", "Mini Oyunlar"), description: '', icon: Gamepad2,
-    color: 'green', bgColor: 'green', stages: ['flow', 'bump', 'mommy'], isPremium: !isToolFree('mini-games'), isLocked: false
-  };
-  const showMiniGames = !isToolDisabled('mini-games') && !filteredTools.some((t) => t.id === 'mini-games') &&
-    matchesSearch(miniGamesVirtual.name);
-  const displayedTools: Tool[] = [...(showCakes ? [cakesVirtual] : []), ...(showMiniGames ? [miniGamesVirtual] : []), ...filteredTools];
+  // Tortlar and Mini oyunlar are tool_configs rows now (code tools, src/lib/code-tools.ts): ordered like every other tool.
+  const displayedTools: Tool[] = filteredTools;
   // Free vs Premium sections: a tool is free only when no DB flag, stage lock or freemium rule gates it.
   const byHero = (a: Tool, b: Tool) => (heroOrder.has(a.id) ? 0 : 1) - (heroOrder.has(b.id) ? 0 : 1) || (heroOrder.get(a.id) ?? 0) - (heroOrder.get(b.id) ?? 0);
   const freeTools = displayedTools.filter((t) => !t.isPremium && !t.isLocked).sort(byHero);

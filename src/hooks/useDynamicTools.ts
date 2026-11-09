@@ -1,3 +1,4 @@
+import { CODE_TOOL_IDS, isToolRowLive } from '@/lib/code-tools';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useUserStore } from '@/store/userStore';
@@ -415,10 +416,10 @@ export const useToolConfigs = (lifeStage?: string) => {
       const { data, error } = await supabase
         .from('tool_configs')
         .select('*')
-        .eq('is_active', true);
+        .or(`is_active.eq.true,tool_id.in.(${[...CODE_TOOL_IDS].join(',')})`);
       if (error) throw error;
       
-      const mapped = mapRowsTranslation(data, language, [
+      const mapped = mapRowsTranslation((data ?? []).filter(isToolRowLive), language, [
         'name',
         'description',
         'partner_name',

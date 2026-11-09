@@ -87,9 +87,12 @@ describe('ToolsHub free vs Premium gating', () => {
       cfg('cry-translator', 'Ağlama tərcüməçisi'),
       cfg('photoshoot', 'Foto çəkiliş', { premium_type: 'limited_total', premium_limit: 3 }),
       cfg('poop-scanner', 'Nəcis skaneri', { premium_type: 'limited_total', premium_limit: 3 }),
+      // Code tools: rows carry order/stage only (is_active false for old builds); name and access come from code.
+      cfg('solid-food-guide', 'Əlavə qida (row)', { is_premium: false, is_active: false }),
+      cfg('baby-tracker', 'Körpə izləyicisi (row)', { is_premium: false, is_active: false }),
     ] });
     render(<ToolsHub />);
-    // recipes (code list), photoshoot (admin limited_total, limits itself) and the virtual solid-food-guide tile;
+    // recipes (code list), photoshoot (admin limited_total, limits itself) and the solid-food-guide code tool;
     // poop-scanner has no in-tool limit, so an admin limited_total keeps it Premium.
     expect(screen.getAllByText('Pulsuz · limitli')).toHaveLength(3);
     expect(screen.getByText('Ödənişsiz alətlər').closest('section')!.textContent).toContain('sfg_home_title');

@@ -1,0 +1,12 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261109120000_code_tool_rows.sql",
+  "runtime": "google-web",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; data only, refuses unless public.tool_configs is already a guarded relation",
+  "preserve": ["cron0 and the 8 enabled timers unchanged", "existing tool_configs rows unchanged"],
+  "relations": [
+    { "relation": "public.tool_configs", "change": "rows inserted", "cdc": true, "writer_guard": true, "private": false, "pii": false, "primary_key": ["id"],
+      "note": "6 code-tool rows (cakes, mini-games, baby-tracker, sleep-training, solid-food-guide, parenting) with is_active=false so old native builds ignore them; new builds read them by tool_id (src/lib/code-tools.ts)" }
+  ],
+  "functions": []
+}

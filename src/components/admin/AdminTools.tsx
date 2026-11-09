@@ -25,6 +25,7 @@ import { LocalizedInput } from "./ui/LocalizedInput";
 import { LocalizedTextarea } from "./ui/LocalizedTextarea";
 import { useAdminLocalize } from "@/contexts/AdminLanguageContext";
 import { toolAccess } from '@/lib/freemium';
+import { isCodeTool, isToolRowLive } from '@/lib/code-tools';
 
 interface ToolConfig {
   id: string;
@@ -173,11 +174,11 @@ const AdminTools = () => {
   const stageLockedField = getLockedField(activeCategory);
   const accessOf = (t: ToolConfig) => toolAccess({ toolId: t.tool_id, isPremiumFlag: t.is_premium, premiumType: t.premium_type, stageLocked: !!t[stageLockedField] });
   const heroFirst = (list: ToolConfig[]) => [...list].sort((a, b) => (a.is_hero ? 0 : 1) - (b.is_hero ? 0 : 1) || (a.is_hero && b.is_hero ? (a.hero_order || 0) - (b.hero_order || 0) : 0));
-  const visibleInStage = categoryTools.filter((t) => t.is_active && !!t[stageActiveField]);
+  const visibleInStage = categoryTools.filter((t) => isToolRowLive(t) && !!t[stageActiveField]);
   const sections: Array<{ key: SectionKey; title: string; list: ToolConfig[] }> = [
     { key: 'free', title: 'Ödənişsiz alətlər', list: heroFirst(visibleInStage.filter((t) => accessOf(t) !== 'premium')) },
     { key: 'premium', title: 'Premium alətlər', list: heroFirst(visibleInStage.filter((t) => accessOf(t) === 'premium')) },
-    { key: 'hidden', title: 'Bu mərhələdə görünmür', list: categoryTools.filter((t) => !(t.is_active && !!t[stageActiveField])) },
+    { key: 'hidden', title: 'Bu mərhələdə görünmür', list: categoryTools.filter((t) => !(isToolRowLive(t) && !!t[stageActiveField])) },
   ];
   // Toggle phase-specific active status
   const togglePhaseActive = (tool: ToolConfig) => {
@@ -376,7 +377,7 @@ const AdminTools = () => {
                       value={tool}
                       disabled={!canDrag}
                       className={`flex items-center gap-3 p-3 rounded-lg border transition-colors select-none ${
-                      !tool.is_active ?
+                      !isToolRowLive(tool) ?
                       'bg-muted/30 border-border/30 opacity-50' :
                       !isPhaseActive ?
                       'bg-muted/50 border-border/50' :
@@ -500,7 +501,7 @@ const AdminTools = () => {
                           size="icon"
                           className="h-8 w-8"
                           onClick={() => togglePhaseLocked(tool)}
-                          disabled={!tool.is_active}>
+                          disabled={!isToolRowLive(tool)}>
                           
                               {isPhaseLocked ?
                           <Lock className="w-4 h-4" /> :
@@ -514,11 +515,13 @@ const AdminTools = () => {
                               <Switch
                             checked={isPhaseActive}
                             onCheckedChange={() => togglePhaseActive(tool)}
-                            disabled={!tool.is_active} />
+                            disabled={!isToolRowLive(tool)} />
                           
                             </div>
                             
-                            {/* Global toggle */}
+                            {/* Global toggle (code tools: visibility is the stage switch only; is_active stays false for old builds) */}
+                            {isCodeTool(tool.tool_id) ?
+                          <Badge variant="outline" className="h-8 px-2 text-[10px]" title="Ad, mətn və giriş qaydası kodda. Görünmə mərhələ açarı ilədir.">Kod aləti</Badge> :
                             <Button
                           variant={tool.is_active ? 'default' : 'secondary'}
                           size="sm"
@@ -536,7 +539,7 @@ const AdminTools = () => {
                                   <span className="text-xs">Deaktiv</span>
                                 </>
                           }
-                            </Button>
+                            </Button>}
                           </div>
                       </>}
                         </DragRow>);
@@ -616,7 +619,7 @@ const AdminTools = () => {
               <>
                   {dragDisabled && <p className="text-xs text-muted-foreground mb-2">Sıranı dəyişmək üçün axtarışı təmizləyin.</p>}
                   {!dragDisabled && <p className="text-xs text-muted-foreground mb-2">Sol tərəfdəki ⋮⋮ tutacağından tutub sürüşdürün. Sonra "Yadda saxla".</p>}
-                  <p className="text-xs text-muted-foreground mb-3">Sıra tətbiqdəki Alətlər səhifəsi ilə eynidir. Hero alətlər öz bölməsində həmişə yuxarıda durur (onların sırası Hero redaktəsindədir). Kodla əlavə olunan alətlər (məs. Tortlar) burada görünmür.</p>
+                  <p className="text-xs text-muted-foreground mb-3">Sıra tətbiqdəki Alətlər səhifəsi ilə eynidir. Hero alətlər öz bölməsində həmişə yuxarıda durur (onların sırası Hero redaktəsindədir). "Kod aləti" nişanlıların (Tortlar, Mini oyunlar, Körpə izləyicisi, Yuxu təlimi, Əlavə qida, Tərbiyə) adı və giriş qaydası kodda, burada sırası və mərhələdə görünməsi idarə olunur.</p>
                   {sections.map((section) => section.list.length === 0 ? null :
                   <div key={section.key} className="mb-5 last:mb-0">
                       <div className="flex items-center gap-2 mb-2">
