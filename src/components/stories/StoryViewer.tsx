@@ -34,18 +34,30 @@ interface Props {
 export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen, onCta, onEvent }: Props) {
   const [si, setSi] = useState(startIndex);
   const [slide, setSlide] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const [restart, setRestart] = useState(0);
   const [answer, setAnswer] = useState<number | null>(null);
   const [saving, setSaving] = useState<'idle' | 'busy' | 'done' | 'error'>('idle');
-  const paused = useRef(false);
-  const elapsed = useRef(0);
-  const last = useRef<number | null>(null);
+  // The progress bar is a CSS animation (no per-frame React renders); its end advances the story once.
+  // Pausing toggles a class on the story element, so holding, quizzes and saving never re-render the slide.
+  const storyEl = useRef<HTMLDivElement | null>(null);
+  const holds = useRef(new Set<string>());
+  const setPaused = useCallback((reason: string, on: boolean) => {
+    if (on) holds.current.add(reason); else holds.current.delete(reason);
+    storyEl.current?.classList.toggle('is-paused', holds.current.size > 0);
+  }, []);
+  const lastNav = useRef(0);
+  const navAllowed = () => { const now = performance.now(); if (now - lastNav.current < 300) return false; lastNav.current = now; return true; };
   const downAt = useRef<{ x: number; y: number; t: number } | null>(null);
   const story = stories[si];
   const sl = story?.slides[slide];
 
   useEffect(() => { if (story) onEvent?.('story_open', story.id); }, [story?.id]); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect(() => { elapsed.current = 0; setProgress(0); setAnswer(null); setSaving('idle'); }, [si, slide]);
+  useEffect(() => { setAnswer(null); setSaving('idle'); setPaused('hold', false); setPaused('quiz', false); }, [si, slide, setPaused]);
+  useEffect(() => {
+    const onVis = () => setPaused('hidden', document.visibilityState !== 'visible');
+    document.addEventListener('visibilitychange', onVis);
+    return () => document.removeEventListener('visibilitychange', onVis);
+  }, [setPaused]);
 
   // Lock page scroll while the viewer is open.
   useEffect(() => {
@@ -63,22 +75,8 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
   }, [story, slide, si, stories.length, onSeen, onClose, onEvent]);
   const prev = useCallback(() => {
     if (slide > 0) { setSlide((s) => s - 1); return; }
-    if (si > 0) { setSi((i) => i - 1); setSlide(0); } else { elapsed.current = 0; setProgress(0); }
+    if (si > 0) { setSi((i) => i - 1); setSlide(0); } else setRestart((r) => r + 1);
   }, [slide, si]);
-
-  useEffect(() => {
-    let raf = 0;
-    const tick = (t: number) => {
-      if (last.current !== null && !paused.current && document.visibilityState === 'visible') elapsed.current += t - last.current;
-      last.current = t;
-      const p = Math.min(1, elapsed.current / SLIDE_MS);
-      setProgress(p);
-      if (p >= 1) { last.current = null; next(); return; }
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => { cancelAnimationFrame(raf); last.current = null; };
-  }, [next]);
 
   // Android hardware back closes the viewer first.
   useEffect(() => pushBackHandler(() => { onClose(); return true; }), [onClose]);
@@ -86,8 +84,8 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
-      else if (e.key === 'ArrowRight') next();
-      else if (e.key === 'ArrowLeft') prev();
+      else if (e.key === 'ArrowRight' && navAllowed()) next();
+      else if (e.key === 'ArrowLeft' && navAllowed()) prev();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -99,7 +97,7 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
   // Saves the current slide as a 1080x1920 story image (share sheet on the phone, download on the web).
   const save = async () => {
     if (saving === 'busy') return;
-    paused.current = true;
+    setPaused('save', true);
     setSaving('busy');
     onEvent?.('story_download', story.id);
     try {
@@ -110,7 +108,7 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
     } catch {
       setSaving('error');
     } finally {
-      paused.current = false;
+      setPaused('save', false);
     }
   };
   const th = STORY_THEMES[story.theme] ?? STORY_THEMES.coral;
@@ -121,16 +119,17 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
   const onDown = (e: ReactPointerEvent) => {
     if ((e.target as HTMLElement).closest('button')) return;
     downAt.current = { x: e.clientX, y: e.clientY, t: Date.now() };
-    paused.current = true;
+    setPaused('hold', true);
   };
   const onUp = (e: ReactPointerEvent) => {
     const d = downAt.current;
     downAt.current = null;
     if (!d) return;
-    if (answer === null || sl.t !== 'quiz') paused.current = false;
+    setPaused('hold', false);
     const dy = e.clientY - d.y;
     const dx = e.clientX - d.x;
     if (dy > 90 && Math.abs(dy) > Math.abs(dx)) { onClose(); return; }
+    if (!navAllowed()) return; // one step per tap, even when the device is slow
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) { if (dx < 0) next(); else prev(); return; }
     if (Date.now() - d.t > 250) return; // a hold, not a tap
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
@@ -164,8 +163,8 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
       body = <>{kick}{title}<div className="as-quiz">{(sl.options ?? []).map((o, i) => {
         const state = answer === null ? '' : i === sl.correct ? ' is-ok' : ' is-no';
         return <button key={i} type="button" className={`as-opt${state}`} disabled={answer !== null}
-          onClick={() => { setAnswer(i); paused.current = true; onEvent?.(i === sl.correct ? 'story_quiz_ok' : 'story_quiz_no', story.id);
-            window.setTimeout(() => { paused.current = false; }, 2600); }}>
+          onClick={() => { setAnswer(i); setPaused('quiz', true); onEvent?.(i === sl.correct ? 'story_quiz_ok' : 'story_quiz_no', story.id);
+            window.setTimeout(() => setPaused('quiz', false), 2600); }}>
           <span><Rich text={o} vars={vars} /></span>{answer !== null && i === sl.correct && <span aria-hidden>✓</span>}
         </button>;
       })}</div>
@@ -191,9 +190,10 @@ export default function StoryViewer({ stories, startIndex, vars, onClose, onSeen
 
   return createPortal(
     <div className={`as-viewer${th.light ? ' is-light' : ''}`} role="dialog" aria-modal="true" aria-label={fillStory(story.title, vars)}>
-      <div className="as-story" style={style} onPointerDown={onDown} onPointerUp={onUp} onPointerCancel={() => { paused.current = false; downAt.current = null; }}>
+      <div className="as-story" ref={storyEl} style={style} onPointerDown={onDown} onPointerUp={onUp} onPointerCancel={() => { setPaused('hold', false); downAt.current = null; }}>
         <div className="as-bars" aria-hidden="true">{story.slides.map((_, i) =>
-          <i key={i}><b style={{ width: `${i < slide ? 100 : i === slide ? progress * 100 : 0}%` }} /></i>)}</div>
+          <i key={i}>{i < slide ? <b className="is-done" /> : i === slide
+            ? <b key={`${story.id}-${slide}-${restart}`} className="as-run" style={{ animationDuration: `${SLIDE_MS}ms` }} onAnimationEnd={next} /> : <b />}</i>)}</div>
         <div className="as-who">
           <span className="as-av">A</span><span className="as-name">Anacan</span><span className="as-tag">· {STORY_MODULE_LABEL[story.module]}</span>
           <button type="button" className="as-dl" aria-label="Story-ni yüklə" onClick={save} disabled={saving === 'busy'}>
