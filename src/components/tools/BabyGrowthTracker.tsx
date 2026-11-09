@@ -1,3 +1,4 @@
+import { ToolSectionsBar } from './anacan/ToolKit';
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ComposedChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
@@ -393,6 +394,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
             </motion.button>
           </div>
         </header>
+        <ToolSectionsBar />
 
         {/* Current Stats */}
         <div className="a-trio" style={{ marginTop: 6 }}>

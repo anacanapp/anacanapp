@@ -26,6 +26,7 @@ import { LocalizedTextarea } from "./ui/LocalizedTextarea";
 import { useAdminLocalize } from "@/contexts/AdminLanguageContext";
 import { toolAccess } from '@/lib/freemium';
 import { isCodeTool, isToolRowLive } from '@/lib/code-tools';
+import { TOOL_HOST, canonicalToolId, isMergedAway } from '@/lib/merged-tools';
 
 interface ToolConfig {
   id: string;
@@ -174,11 +175,15 @@ const AdminTools = () => {
   const stageLockedField = getLockedField(activeCategory);
   const accessOf = (t: ToolConfig) => toolAccess({ toolId: t.tool_id, isPremiumFlag: t.is_premium, premiumType: t.premium_type, stageLocked: !!t[stageLockedField] });
   const heroFirst = (list: ToolConfig[]) => [...list].sort((a, b) => (a.is_hero ? 0 : 1) - (b.is_hero ? 0 : 1) || (a.is_hero && b.is_hero ? (a.hero_order || 0) - (b.hero_order || 0) : 0));
-  const visibleInStage = categoryTools.filter((t) => isToolRowLive(t) && !!t[stageActiveField]);
+  const liveInStage = (t: ToolConfig) => isToolRowLive(t) && !!t[stageActiveField];
+  const hostLive = (id: string) => categoryTools.some((x) => canonicalToolId(x.tool_id) === id && liveInStage(x));
+  // Tools that now open as a section of another tool are not tiles in the app (src/lib/merged-tools.ts).
+  const mergedInto = (t: ToolConfig) => (isMergedAway(t.tool_id, hostLive) ? TOOL_HOST[t.tool_id] ?? TOOL_HOST[canonicalToolId(t.tool_id)] : null);
+  const visibleInStage = categoryTools.filter((t) => liveInStage(t) && !mergedInto(t));
   const sections: Array<{ key: SectionKey; title: string; list: ToolConfig[] }> = [
     { key: 'free', title: 'Ödənişsiz alətlər', list: heroFirst(visibleInStage.filter((t) => accessOf(t) !== 'premium' && accessOf(t) !== 'preview')) },
     { key: 'premium', title: 'Premium alətlər', list: heroFirst(visibleInStage.filter((t) => accessOf(t) === 'premium' || accessOf(t) === 'preview')) },
-    { key: 'hidden', title: 'Bu mərhələdə görünmür', list: categoryTools.filter((t) => !(isToolRowLive(t) && !!t[stageActiveField])) },
+    { key: 'hidden', title: 'Bu mərhələdə görünmür', list: categoryTools.filter((t) => !(liveInStage(t) && !mergedInto(t))) },
   ];
   // Toggle phase-specific active status
   const togglePhaseActive = (tool: ToolConfig) => {
@@ -428,6 +433,9 @@ const AdminTools = () => {
                               {tool.is_premium &&
                           <Crown className="w-4 h-4 text-amber-500" />
                           }
+                              {mergedInto(tool) &&
+                          <Badge variant="outline" className="text-[9px] px-1.5 py-0 h-4">İçində: {(() => { const h = categoryTools.find((x) => canonicalToolId(x.tool_id) === mergedInto(tool)); return h ? (h.display_name_az || h.name_az || h.name) : mergedInto(tool); })()}</Badge>
+                          }
                               {accessOf(tool) === 'preview' &&
                           <Badge variant="outline" className="text-[9px] px-1.5 py-0 h-4">Baxış açıq</Badge>
                           }
@@ -631,7 +639,7 @@ const AdminTools = () => {
                         <h3 className="text-sm font-semibold">{section.title}</h3>
                         <Badge variant="outline" className="text-[10px]">{section.list.length}</Badge>
                       </div>
-                      {section.key === 'hidden' && <p className="text-xs text-muted-foreground mb-2">Deaktiv və ya bu mərhələdə söndürülmüş alətlər. Tətbiqdə görünmür.</p>}
+                      {section.key === 'hidden' && <p className="text-xs text-muted-foreground mb-2">Deaktiv, bu mərhələdə söndürülmüş və ya başqa alətin içinə köçürülmüş ("İçində") alətlər. Ayrıca kafel kimi görünmür.</p>}
                       <Reorder.Group as="div" axis="y" values={section.list} onReorder={(next: ToolConfig[]) => applySection(section.key, next)} className="space-y-2">
                         {section.list.map((tool, index) => renderRow(tool, index, section.list, section.key, !dragDisabled && section.key !== 'hidden' && !tool.is_hero))}
                       </Reorder.Group>

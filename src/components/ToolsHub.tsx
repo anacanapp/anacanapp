@@ -70,6 +70,8 @@ const openAptek = (screen: string) =>
 const foldQuery = (v: string) => v.trim().toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 import { PremiumModal } from './PremiumModal';
 import PremiumToolBoundary from './premium/PremiumToolBoundary';
+import { ToolSectionsContext, type ToolSectionsValue } from './tools/anacan/ToolKit';
+import { HOST_SECTIONS, TOOL_COMPANION, canonicalToolId, isMergedAway, resolveToolTarget } from '@/lib/merged-tools';
 
 import { useToast } from '@/hooks/use-toast';
 import { useToolConfigs, ToolConfig } from '@/hooks/useDynamicTools';
@@ -165,6 +167,9 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   usePrefetchFirstAid();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTool, setActiveTool] = useState<string | null>(initialTool);
+  // Section of a merged tool (src/lib/merged-tools.ts); reset whenever another tool opens.
+  const [toolSection, setToolSection] = useState<string | null>(null);
+  useEffect(() => { setToolSection(null); }, [activeTool]);
   const [showPremiumModal, setShowPremiumModal] = useState(false);
   /** Which tool opened the paywall (analytics source; before 2026-11-08 every hub paywall was logged as 'tool'). */
   const [paywallTool, setPaywallTool] = useState<string | null>(null);
@@ -435,7 +440,8 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const filteredTools = tools.filter((tool) => matchesSearch(tool.name, tool.description));
 
   // Tortlar and Mini oyunlar are tool_configs rows now (code tools, src/lib/code-tools.ts): ordered like every other tool.
-  const displayedTools: Tool[] = filteredTools;
+  // Tiles of tools that now live inside another tool are hidden where that host is available.
+  const displayedTools: Tool[] = filteredTools.filter((t) => !isMergedAway(t.id, (id) => tools.some((x) => canonicalToolId(x.id) === id)));
   // Free vs Premium sections: a tool is free only when no DB flag, stage lock or freemium rule gates it.
   const byHero = (a: Tool, b: Tool) => (heroOrder.has(a.id) ? 0 : 1) - (heroOrder.has(b.id) ? 0 : 1) || (heroOrder.get(a.id) ?? 0) - (heroOrder.get(b.id) ?? 0);
   const freeTools = displayedTools.filter((t) => !t.isPremium && !t.isLocked).sort(byHero);
@@ -461,9 +467,9 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     </div>;
 
 
-  // Render active tool
-  const toolComponent = (() => {
-    switch (activeTool) {
+  // Render a tool by id
+  const renderToolById = (toolId: string | null) => {
+    switch (toolId) {
       case 'photoshoot':return <BabyPhotoshoot onBack={handleBack} />;
       case 'nutrition':return <Nutrition onBack={handleBack} />;
       case 'shopping':return <ShoppingList onBack={handleBack} />;
@@ -512,15 +518,39 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       case 'mini-games':return <MiniGamesHub onBack={handleBack} />;
       default:return null;
     }
-  })();
+  };
 
-  if (toolComponent) {
-    // Free and limited tools render directly (limited ones enforce their own free limit inside).
-    const protectedTool = accessFor(activeTool!) === 'premium';
+  // Merged tools: a child id opens its host on that section; the host shows its sections as tabs under the
+  // header, and the sleep pair links to each other with the tool's own (translated) description as a short intro.
+  const toolAvailable = (id: string) => isAdmin || tools.some((t) => canonicalToolId(t.id) === id);
+  const toolMeta = (id: string) => tools.find((t) => canonicalToolId(t.id) === id);
+  const target = activeTool ? resolveToolTarget(activeTool, toolAvailable) : null;
+  const hostSections = target ? (HOST_SECTIONS[target.host] ?? [target.host]).filter((id) => id === target.host || toolAvailable(id)) : [];
+  const shownTool = target ? (toolSection && hostSections.includes(toolSection) ? toolSection : target.section) : null;
+  const toolComponent = shownTool ? renderToolById(shownTool) : null;
+
+  if (toolComponent && target && shownTool) {
+    const companion = TOOL_COMPANION[shownTool];
+    const companionOk = !!companion && toolAvailable(companion);
+    const sectionCtx: ToolSectionsValue = {
+      sections: hostSections.length > 1 ? hostSections.map((id) => ({ id, label: toolMeta(id)?.name ?? id, locked: !isPremium && accessFor(id) === 'premium' })) : undefined,
+      active: shownTool,
+      onSelect: (id) => {
+        setToolSection(id);
+        import('@/lib/analytics').then((m) => m.analytics.logToolUsed(target.host, 'section', id)).catch(() => {});
+      },
+      intro: companionOk ? toolMeta(shownTool)?.description || undefined : undefined,
+      link: companionOk ? { label: toolMeta(companion)?.name ?? companion, onOpen: () => openTool(companion) } : undefined,
+    };
+    // Free and limited tools render directly (limited ones enforce their own free limit inside). A Premium
+    // section of a free host shows the paywall and returns to the host when closed.
+    const protectedTool = accessFor(shownTool) === 'premium';
+    const closeGate = shownTool !== target.host ? () => setToolSection(target.host) : handleBack;
     return (
-      protectedTool ? <PremiumToolBoundary onClose={handleBack}><Suspense fallback={toolFallback}>{toolComponent}</Suspense></PremiumToolBoundary>
-        : <Suspense fallback={toolFallback}>{toolComponent}</Suspense>);
-
+      <ToolSectionsContext.Provider value={sectionCtx}>
+        {protectedTool ? <PremiumToolBoundary onClose={closeGate}><Suspense fallback={toolFallback}>{toolComponent}</Suspense></PremiumToolBoundary>
+          : <Suspense fallback={toolFallback}>{toolComponent}</Suspense>}
+      </ToolSectionsContext.Provider>);
   }
 
   const getLifeStageInfo = () => {
