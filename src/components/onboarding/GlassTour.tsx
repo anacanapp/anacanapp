@@ -124,7 +124,7 @@ export default function GlassTour(props: GlassTourProps) {
   if (sub.kind === 'card') {
     if (sub.copy === 'welcome') {
       body = <div className="gt-card-wrap" role="dialog" aria-modal="true" aria-label={tr('obtour_welcome_kick', 'Planın hazırdır')}>
-        <div className="gt-art" aria-hidden="true">🌷</div>
+        <div className="gt-art" aria-hidden="true" />
         <div className="gt-card gt-glass">
           <div className="gt-kick">{tr('obtour_welcome_kick', 'Planın hazırdır')}</div>
           <h2>{fill(tr('obtour_welcome_title', 'Xoş gəldin, {name}!'), { name })}</h2>
