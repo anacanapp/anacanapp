@@ -55,3 +55,10 @@ Banners use `link_type = 'internal'` with an app deeplink path. `BannerSlot` par
   banner in Admin → Bannerlər; nothing goes live without that switch.
 - `banners` is a Google relation; writes go through the existing admin/CDC-guarded path
   (`run-sql.py` on the VM), never directly against Source.
+
+## 5. Gotcha: own banners and Premium users (2026-11-09)
+Every banner gets an "Anacan" brand creative (`ad_brand_creatives`), so `brand_banner_eligible_v3` treats it as
+branded. A branded banner with `audience_tiers = NULL` is shown to **free users only** (Premium is ad-free). For a
+promo that everyone in the audience should see (e.g. PDF books for all az moms), set
+`audience_tiers = {free,premium}` explicitly; keep `{free}` for Premium upsell banners.
+Example: `kitab-2-sira` on home_top, tools_top, community_top, profile_top (az + mommy, `/books`).
