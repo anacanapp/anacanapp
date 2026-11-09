@@ -51,6 +51,8 @@ it('source-first uses the source URL/key/namespace and leaves destination creden
   const config = await import('./backend-config');
   expect(mocks.createClient).toHaveBeenCalledExactlyOnceWith(SOURCE_AUTH_REALM, 'synthetic-source-public', {
     auth: { storage: localStorage, storageKey: LEGACY, persistSession: true, autoRefreshToken: true },
+    // Native builds send their version (src/integrations/supabase/client.ts).
+    ...(mocks.native() ? { global: { headers: { 'X-Anacan-Version': '28.0' } } } : {}),
   });
   expect(authStorage).toMatchObject({ realm: SOURCE_AUTH_REALM, allowLegacyFallback: true });
   expect(config.isAzureBackend()).toBe(false);
@@ -74,6 +76,8 @@ it('pins a verified target decision before constructing the SDK and preserves th
   expect(writes).toEqual(['pin', 'client']);
   expect(mocks.createClient.mock.calls[0]).toEqual([AZURE, 'synthetic-target-public', {
     auth: { storage: localStorage, storageKey: LEGACY, persistSession: true, autoRefreshToken: true },
+    // Native builds send their version (src/integrations/supabase/client.ts).
+    ...(mocks.native() ? { global: { headers: { 'X-Anacan-Version': '28.0' } } } : {}),
   }]);
   expect((await import('./backend-config')).isAzurePairingBackend()).toBe(true);
 });

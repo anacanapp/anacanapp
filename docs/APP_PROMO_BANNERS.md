@@ -72,3 +72,10 @@ So an iOS-only banner never reaches Android, old builds included. Unknown user a
 "CFNetwork/Darwin") fall back to the app's own filter.
 Note: on the old v2 path (builds before inventory v3) own branded banners are hidden from Premium users regardless of
 `audience_tiers`; v3 builds honour `audience_tiers`.
+
+## 7. Minimum app version (2026-11-09)
+`creative_options.min_app_version` (e.g. `"49"`) hides a banner from older app builds on the server
+(`20261109180000_banner_min_app_version.sql`, `banner_client_allowed_v1`). The version comes from the
+`X-Anacan-Version` header that native builds send from 50.0.2 on (`src/integrations/supabase/client.ts`), else from
+the newest `user_consents.app_version` (the consent screen ships with 49.0, so users without a record are on older
+builds). Admins are exempt. The PDF book banner uses `min_app_version = 49` (books and `/books` exist from 49.0).

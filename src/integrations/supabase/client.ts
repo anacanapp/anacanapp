@@ -1,3 +1,4 @@
+import { Capacitor } from '@capacitor/core';
 // Application-owned backend-aware SDK factory.
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './database-types';
@@ -20,11 +21,19 @@ export const authStorage = {
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
+// Native builds tell the server their version (X-Anacan-Version) so banners and features can be targeted by
+// app version on the server (public.request_app_version_v1). Native only: requests go through the native HTTP
+// layer there (no CORS); the web app is always current and edge functions keep their fixed CORS header list.
+const appVersion = import.meta.env.VITE_APP_VERSION as string | undefined;
+const versionHeaders: Record<string, string> =
+  appVersion && Capacitor.isNativePlatform() ? { 'X-Anacan-Version': String(appVersion) } : {};
+
 export const supabase = createClient<Database>(backend.url, backend.publishableKey, {
   auth: {
     storage: authStorage.storage,
     storageKey: authStorage.storageKey,
     persistSession: true,
     autoRefreshToken: true,
-  }
+  },
+  ...(Object.keys(versionHeaders).length ? { global: { headers: versionHeaders } } : {}),
 });
