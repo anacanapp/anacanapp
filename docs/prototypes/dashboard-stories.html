@@ -6,7 +6,7 @@
 <title>Anacan Stories</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* Anacan dashboard stories prototype (2026-11-09).
    Every story is plain data (StoryJson, see STORIES below). One renderer draws all templates and all
@@ -24,7 +24,7 @@
 html,body{margin:0}
 body{background:var(--page);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1180px;margin:0 auto;padding:28px 16px 60px}
-header.top h1{font-family:'Nunito','Inter',sans-serif;font-size:32px;line-height:1.05;margin:0 0 6px;font-weight:900;letter-spacing:-.01em}
+header.top h1{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:32px;line-height:1.05;margin:0 0 6px;font-weight:800;letter-spacing:-.01em}
 header.top p{margin:0;color:var(--soft);font-size:15px;max-width:720px}
 .layout{display:grid;grid-template-columns:380px 1fr;gap:28px;margin-top:24px;align-items:start}
 @media (max-width:900px){.layout{grid-template-columns:1fr}}
@@ -41,7 +41,7 @@ header.top p{margin:0;color:var(--soft);font-size:15px;max-width:720px}
 .screen{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#FFF8F4;color:#24181A}
 .dash{height:100%;overflow:auto;padding:18px 0 20px}
 .dash .hello{padding:8px 18px 4px;font-size:13px;color:#8A7C76}
-.dash .hello b{display:block;font-family:'Nunito','Inter',sans-serif;font-weight:900;font-size:22px;color:#24181A;letter-spacing:-.01em}
+.dash .hello b{display:block;font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;font-size:22px;color:#24181A;letter-spacing:-.01em}
 .rings{display:flex;gap:12px;overflow-x:auto;padding:12px 18px 14px;scrollbar-width:none}
 .rings::-webkit-scrollbar{display:none}
 .ring{flex:0 0 auto;width:72px;text-align:center;cursor:pointer;border:0;background:none;padding:0;font:inherit;color:inherit}
@@ -72,16 +72,16 @@ header.top p{margin:0;color:var(--soft);font-size:15px;max-width:720px}
 .tapL{left:0;width:32%} .tapR{right:0;width:68%}
 .slide{position:absolute;inset:0;padding:74px 22px 24px;display:flex;flex-direction:column}
 .kick{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:10px}
-.h{font-family:'Nunito','Inter',sans-serif;font-weight:900;letter-spacing:-.02em;line-height:1.04;margin:0}
+.h{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.04;margin:0}
 .h.xl{font-size:40px}.h.l{font-size:33px}.h.m{font-size:27px}
-.serif .h{font-weight:900}
+.serif .h{font-weight:800}
 .body{font-size:16px;line-height:1.38;margin-top:12px;opacity:.92}
 .hl{color:var(--pop)}
 .mark{background:var(--pop);color:var(--popInk);border-radius:10px;padding:0 6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .art{margin-top:auto;position:relative}
 .art svg{display:block;width:100%;height:auto}
 .peek{margin:auto -22px -24px}
-.num{font-family:'Nunito','Inter',sans-serif;font-size:92px;font-weight:900;letter-spacing:-.03em;line-height:.9}
+.num{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:92px;font-weight:800;letter-spacing:-.03em;line-height:.9}
 .unit{font-size:22px;font-weight:700;margin-left:6px}
 .list{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:10px}
 .list li{display:flex;gap:12px;align-items:flex-start;background:var(--chipBg);border-radius:18px;padding:12px 14px;font-size:15.5px;line-height:1.3;font-weight:600}
@@ -101,7 +101,7 @@ header.top p{margin:0;color:var(--soft);font-size:15px;max-width:720px}
 .cta{position:relative;z-index:4;margin-top:16px;align-self:flex-start;border:0;border-radius:999px;padding:14px 20px;font:800 15px 'Inter';background:var(--ink2);color:var(--bg2);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
 .src{font-size:11px;opacity:.65;margin-top:10px;font-weight:600}
 .badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:6px 10px;border-radius:999px;background:var(--chipBg);margin-bottom:12px;align-self:flex-start}
-.quote{font-family:'Nunito','Inter',sans-serif;font-size:26px;line-height:1.18;font-weight:800;margin:0}
+.quote{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:26px;line-height:1.18;font-weight:800;margin:0}
 .quote::before{content:'\201C';display:block;font-size:70px;line-height:.6;color:var(--pop);margin-bottom:8px}
 .toast{position:absolute;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#24181A;color:#fff;padding:10px 14px;border-radius:14px;font-size:13px;font-weight:600;opacity:0;transition:.25s;z-index:9;white-space:nowrap}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -112,7 +112,7 @@ header.top p{margin:0;color:var(--soft);font-size:15px;max-width:720px}
 .thumb{border:0;padding:0;cursor:pointer;border-radius:20px;overflow:hidden;aspect-ratio:9/14;position:relative;text-align:left;font:inherit;box-shadow:0 4px 14px rgba(0,0,0,.08)}
 .thumb .tt{position:absolute;inset:0;padding:14px;display:flex;flex-direction:column}
 .thumb .mod{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
-.thumb .nm{font-family:'Nunito','Inter',sans-serif;font-size:17px;font-weight:900;line-height:1.05;margin-top:6px;letter-spacing:-.02em}
+.thumb .nm{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:17px;font-weight:800;line-height:1.05;margin-top:6px;letter-spacing:-.02em}
 .thumb .n{font-size:11px;font-weight:700;opacity:.7;margin-top:4px}
 .thumb svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto}
 .tabs2{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 10px}
