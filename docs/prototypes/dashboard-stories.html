@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anacan Stories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+/* Anacan dashboard stories prototype (2026-11-09).
+   Every story is plain data (StoryJson, see STORIES below). One renderer draws all templates and all
+   illustrations in code (SVG), so stories can be generated and scheduled automatically: variables such as
+   {week}, {fruit}, {babyMonths}, {cycleDay} are filled from the user's own data at render time. */
+:root{
+  --page:#F6F1EC; --panel:#FFFFFF; --ink:#24181A; --soft:#7A6E68; --line:#E8DED8; --chip:#F1E9E4; --accent:#FF5A5F;
+  --shadow:0 20px 50px rgba(36,24,26,.14);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --page:#141012; --panel:#1E191B; --ink:#F4ECE8; --soft:#A99C96; --line:#2E2729; --chip:#2A2325; --accent:#FF7A7E; --shadow:0 20px 50px rgba(0,0,0,.5);
+}}
+:root[data-theme="dark"]{ --page:#141012; --panel:#1E191B; --ink:#F4ECE8; --soft:#A99C96; --line:#2E2729; --chip:#2A2325; --accent:#FF7A7E; --shadow:0 20px 50px rgba(0,0,0,.5); }
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 60px}
+header.top h1{font-size:30px;line-height:1.05;margin:0 0 6px;font-weight:800;letter-spacing:-.02em}
+header.top p{margin:0;color:var(--soft);font-size:15px;max-width:720px}
+.layout{display:grid;grid-template-columns:380px 1fr;gap:28px;margin-top:24px;align-items:start}
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.seg{display:inline-flex;background:var(--chip);border-radius:999px;padding:4px}
+.seg button{border:0;background:transparent;color:var(--ink);font:600 14px 'Bricolage Grotesque';padding:8px 14px;border-radius:999px;cursor:pointer}
+.seg button.on{background:var(--panel);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.ctx{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--soft);background:var(--chip);border-radius:999px;padding:6px 14px}
+.ctx input{accent-color:var(--accent);width:130px}
+.ctx b{color:var(--ink);min-width:66px}
+
+/* phone */
+.phone{width:100%;max-width:380px;margin:0 auto;aspect-ratio:380/780;background:#111;border-radius:46px;padding:12px;box-shadow:var(--shadow);position:relative}
+.screen{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#FFF8F4;color:#24181A}
+.dash{height:100%;overflow:auto;padding:18px 0 20px}
+.dash .hello{padding:8px 18px 4px;font-size:13px;color:#8A7C76}
+.dash .hello b{display:block;font-size:22px;color:#24181A;letter-spacing:-.01em}
+.rings{display:flex;gap:12px;overflow-x:auto;padding:12px 18px 14px;scrollbar-width:none}
+.rings::-webkit-scrollbar{display:none}
+.ring{flex:0 0 auto;width:72px;text-align:center;cursor:pointer;border:0;background:none;padding:0;font:inherit;color:inherit}
+.ring .r{width:68px;height:68px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,#FF5A5F,#FFB37A,#FFD84D,#FF5A5F)}
+.ring.seen .r{background:#E4D9D4}
+.ring .r i{display:block;width:100%;height:100%;border-radius:50%;border:3px solid #FFF8F4;overflow:hidden}
+.ring .r svg{width:100%;height:100%;display:block}
+.ring span{display:block;font-size:11px;font-weight:600;margin-top:5px;line-height:1.15;color:#3A2C2A}
+.card{margin:6px 18px 12px;background:#fff;border-radius:22px;padding:16px;box-shadow:0 2px 10px rgba(36,24,26,.05)}
+.card h4{margin:0 0 4px;font-size:15px}
+.card p{margin:0;color:#8A7C76;font-size:13px}
+.ghost{height:84px;background:linear-gradient(90deg,#F3EAE6,#FAF4F1);border-radius:18px;margin:10px 18px}
+
+/* story viewer */
+.viewer{position:absolute;inset:0;z-index:5;display:none;background:#000}
+.viewer.open{display:block}
+.story{position:absolute;inset:0;overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.bars{position:absolute;top:12px;left:12px;right:12px;display:flex;gap:4px;z-index:4}
+.bars i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}
+.bars i b{display:block;height:100%;width:0;background:#fff;border-radius:3px}
+.story.light .bars i{background:rgba(0,0,0,.15)} .story.light .bars i b{background:currentColor}
+.who{position:absolute;top:24px;left:14px;right:14px;display:flex;align-items:center;gap:8px;z-index:4;font-size:12.5px;font-weight:600}
+.who .av{width:28px;height:28px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#FF5A5F;font-weight:800;font-size:13px;box-shadow:0 0 0 2px rgba(0,0,0,.08)}
+.art.small{max-width:230px;align-self:center;width:72%}
+.who .tag{opacity:.7;font-weight:500}
+.who .x{margin-left:auto;width:30px;height:30px;border:0;background:transparent;color:inherit;font-size:22px;cursor:pointer;line-height:1}
+.tapL,.tapR{position:absolute;top:60px;bottom:90px;z-index:3}
+.tapL{left:0;width:32%} .tapR{right:0;width:68%}
+.slide{position:absolute;inset:0;padding:74px 22px 24px;display:flex;flex-direction:column}
+.kick{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:10px}
+.h{font-weight:800;letter-spacing:-.025em;line-height:1.02;margin:0}
+.h.xl{font-size:40px}.h.l{font-size:33px}.h.m{font-size:27px}
+.serif .h{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.06}
+.body{font-size:16px;line-height:1.38;margin-top:12px;opacity:.92}
+.hl{color:var(--pop)}
+.mark{background:var(--pop);color:var(--popInk);border-radius:10px;padding:0 6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.art{margin-top:auto;position:relative}
+.art svg{display:block;width:100%;height:auto}
+.peek{margin:auto -22px -24px}
+.num{font-size:96px;font-weight:800;letter-spacing:-.04em;line-height:.9}
+.unit{font-size:22px;font-weight:700;margin-left:6px}
+.list{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:10px}
+.list li{display:flex;gap:12px;align-items:flex-start;background:var(--chipBg);border-radius:18px;padding:12px 14px;font-size:15.5px;line-height:1.3;font-weight:600}
+.list li em{font-style:normal;flex:0 0 28px;height:28px;border-radius:50%;background:var(--pop);color:var(--popInk);display:grid;place-items:center;font-weight:800;font-size:14px}
+.myth{margin-top:18px;border-radius:24px;padding:18px;background:var(--chipBg)}
+.myth .lbl{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.08em;padding:4px 10px;border-radius:999px;background:var(--ink2);color:var(--bg2);margin-bottom:10px}
+.myth p{margin:0;font-size:19px;font-weight:700;line-height:1.25}
+.myth.fact .lbl{background:var(--pop);color:var(--popInk)}
+.quiz{display:flex;flex-direction:column;gap:10px;margin-top:20px;position:relative;z-index:4}
+.quiz button{border:2px solid currentColor;background:transparent;color:inherit;border-radius:18px;padding:14px 16px;text-align:left;font:700 16px 'Bricolage Grotesque';cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.quiz button.ok{background:var(--pop);color:var(--popInk);border-color:var(--pop)}
+.quiz button.no{opacity:.45}
+.reveal{margin-top:12px;font-size:15px;line-height:1.35;font-weight:600;min-height:44px}
+.alert{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.alert div{display:flex;gap:10px;align-items:center;font-size:16px;font-weight:700;padding:11px 14px;border-radius:16px;background:var(--chipBg)}
+.alert div::before{content:'';flex:0 0 10px;height:10px;border-radius:50%;background:var(--pop)}
+.cta{position:relative;z-index:4;margin-top:16px;align-self:flex-start;border:0;border-radius:999px;padding:14px 20px;font:800 15px 'Bricolage Grotesque';background:var(--ink2);color:var(--bg2);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.src{font-size:11px;opacity:.65;margin-top:10px;font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:6px 10px;border-radius:999px;background:var(--chipBg);margin-bottom:12px;align-self:flex-start}
+.quote{font-family:'Fraunces',Georgia,serif;font-size:27px;line-height:1.15;font-weight:600;margin:0}
+.quote::before{content:'\201C';display:block;font-size:70px;line-height:.6;color:var(--pop);margin-bottom:8px}
+.toast{position:absolute;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#24181A;color:#fff;padding:10px 14px;border-radius:14px;font-size:13px;font-weight:600;opacity:0;transition:.25s;z-index:9;white-space:nowrap}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* right side */
+.side h2{font-size:20px;margin:4px 0 10px;letter-spacing:-.01em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.thumb{border:0;padding:0;cursor:pointer;border-radius:20px;overflow:hidden;aspect-ratio:9/14;position:relative;text-align:left;font:inherit;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.thumb .tt{position:absolute;inset:0;padding:14px;display:flex;flex-direction:column}
+.thumb .mod{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.thumb .nm{font-size:17px;font-weight:800;line-height:1.05;margin-top:6px;letter-spacing:-.02em}
+.thumb .n{font-size:11px;font-weight:700;opacity:.7;margin-top:4px}
+.thumb svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto}
+.tabs2{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 10px}
+.tabs2 button{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:7px 12px;font:600 13px 'Bricolage Grotesque';cursor:pointer}
+.tabs2 button.on{background:var(--ink);color:var(--page);border-color:var(--ink)}
+pre.json{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;overflow:auto;max-height:420px;color:var(--ink);white-space:pre}
+.notes{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px 18px;font-size:14px;line-height:1.5;color:var(--ink)}
+.notes ul{margin:6px 0 0;padding-left:18px} .notes li{margin:4px 0}
+.notes b{font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>Anacan Stories</h1>
+    <p>Dashboard üçün Instagram tipli qısa hekayələr. Hər story JSON-dur: şablon, rənglər, mətn və şəkil kodla çəkilir, dəyişənlər istifadəçinin öz məlumatından dolur. Mərhələni dəyişin, slayderlə həftəni, körpənin yaşını və ya tsikl gününü dəyişin: story-lər avtomatik yenilənir.</p>
+  </header>
+
+  <div class="controls">
+    <div class="seg" id="stageSeg">
+      <button data-s="bump" class="on">Hamiləlik</button>
+      <button data-s="mommy">Analıq</button>
+      <button data-s="flow">Dövr</button>
+    </div>
+    <label class="ctx" id="ctxBox"><span id="ctxLabel">Həftə</span><input id="ctxRange" type="range"><b id="ctxVal"></b></label>
+  </div>
+
+  <div class="layout">
+    <div>
+      <div class="phone"><div class="screen" id="screen">
+        <div class="dash">
+          <div class="hello">Sabahın xeyir,<b>Aysel 💛</b></div>
+          <div class="rings" id="rings"></div>
+          <div class="card"><h4 id="dashTitle">24-cü həftə</h4><p id="dashSub">Bu günün kartları burada qalır</p></div>
+          <div class="ghost"></div><div class="ghost"></div><div class="ghost"></div>
+        </div>
+        <div class="viewer" id="viewer"></div>
+        <div class="toast" id="toast"></div>
+      </div></div>
+    </div>
+
+    <div class="side">
+      <h2>Bütün story-lər (16)</h2>
+      <div class="grid" id="grid"></div>
+      <div class="tabs2" id="jsonTabs"><button class="on" data-v="json">StoryJson</button><button data-v="auto">Avtomatlaşdırma</button></div>
+      <pre class="json" id="json"></pre>
+      <div class="notes" id="auto" hidden>
+        <b>Necə avtomatlaşır</b>
+        <ul>
+          <li><b>Mənbə:</b> story-lər <code>dashboard_stories</code> cədvəlində JSON kimi saxlanılır, admin paneldən əlavə olunur və ya AI ilə hazırlanıb redaktor təsdiqindən keçir.</li>
+          <li><b>Hədəf:</b> <code>audience</code> mərhələni, həftə və ya yaş aralığını, Premium və ya pulsuz statusu, dili seçir. Hər istifadəçi yalnız ona uyğun story-ləri görür.</li>
+          <li><b>Dəyişənlər:</b> <code>{week}</code>, <code>{fruit}</code>, <code>{babyName}</code>, <code>{babyMonths}</code>, <code>{cycleDay}</code>, <code>{phase}</code> istifadəçinin öz məlumatından cihazda doldurulur, serverə şəxsi məlumat getmir.</li>
+          <li><b>Cədvəl:</b> <code>schedule</code> göstərmə günlərini təyin edir: həftəlik story hər bazar ertəsi yenilənir, "Bu həftə" story-si həftə dəyişəndə özü dəyişir.</li>
+          <li><b>Ölçmə:</b> hər slaydın baxışı, quiz cavabı və CTA kliki <code>story_view</code>, <code>story_quiz</code>, <code>story_cta</code> hadisələri kimi yazılır.</li>
+          <li><b>Tərcümə:</b> mətnlər 23 dil üçün JSON-da saxlanılır. Tibbi mətnlər mütəxəssis yoxlamasından keçir, mənbə hər story-də göstərilir.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+/* ---------- palette ---------- */
+const T = {
+  coral:  { bg:'#FF5A5F', ink:'#FFFFFF', pop:'#FFE66B', popInk:'#3B1A10', chip:'rgba(255,255,255,.16)', ink2:'#FFFFFF', bg2:'#FF5A5F' },
+  lime:   { bg:'#1F9D55', ink:'#FFFFFF', pop:'#C8F560', popInk:'#123526', chip:'rgba(255,255,255,.14)', ink2:'#C8F560', bg2:'#123526' },
+  violet: { bg:'#5B4BDB', ink:'#FFFFFF', pop:'#FFD84D', popInk:'#2A2060', chip:'rgba(255,255,255,.14)', ink2:'#FFFFFF', bg2:'#5B4BDB' },
+  peach:  { bg:'#FFB199', ink:'#2B1B17', pop:'#FF5A5F', popInk:'#FFFFFF', chip:'rgba(43,27,23,.08)', ink2:'#2B1B17', bg2:'#FFB199', light:true },
+  cream:  { bg:'#FFF6EC', ink:'#22181A', pop:'#FF5A5F', popInk:'#FFFFFF', chip:'rgba(34,24,26,.06)', ink2:'#22181A', bg2:'#FFF6EC', light:true, serif:true },
+  navy:   { bg:'#2E2A7A', ink:'#FFFFFF', pop:'#7FE0FF', popInk:'#16133F', chip:'rgba(255,255,255,.12)', ink2:'#7FE0FF', bg2:'#16133F' },
+  lilac:  { bg:'#CDB8FF', ink:'#1E1838', pop:'#FF6B3D', popInk:'#FFFFFF', chip:'rgba(30,24,56,.08)', ink2:'#1E1838', bg2:'#CDB8FF', light:true, serif:true },
+  yellow: { bg:'#FFD84D', ink:'#2B1B17', pop:'#5B4BDB', popInk:'#FFFFFF', chip:'rgba(43,27,23,.08)', ink2:'#2B1B17', bg2:'#FFD84D', light:true },
+  mint:   { bg:'#BFF0D4', ink:'#123526', pop:'#FF5A5F', popInk:'#FFFFFF', chip:'rgba(18,53,38,.08)', ink2:'#123526', bg2:'#BFF0D4', light:true },
+  forest: { bg:'#0F4D32', ink:'#EFFFF5', pop:'#C8F560', popInk:'#0F4D32', chip:'rgba(239,255,245,.10)', ink2:'#C8F560', bg2:'#0F4D32' },
+};
+
+/* ---------- illustrations (all code, colour-parametrised) ---------- */
+const eyes = (cx, cy, gap = 70, s = 1, look = 6) => [cx - gap / 2, cx + gap / 2].map(x =>
+  `<ellipse cx="${x}" cy="${cy}" rx="${28*s}" ry="${17*s}" fill="#fff"/><ellipse cx="${x + look}" cy="${cy + 2}" rx="${12*s}" ry="${13*s}" fill="#111"/>`).join('');
+const spark = (x, y, r, c) => `<path d="M${x} ${y-r}C${x+r*.18} ${y-r*.18} ${x+r*.18} ${y-r*.18} ${x+r} ${y}C${x+r*.18} ${y+r*.18} ${x+r*.18} ${y+r*.18} ${x} ${y+r}C${x-r*.18} ${y+r*.18} ${x-r*.18} ${y+r*.18} ${x-r} ${y}C${x-r*.18} ${y-r*.18} ${x-r*.18} ${y-r*.18} ${x} ${y-r}Z" fill="${c}"/>`;
+const ILL = {
+  blob: (c, a) => `<svg viewBox="0 0 360 230">${spark(60,40,14,a)}${spark(300,70,9,a)}${spark(270,24,6,a)}
+    <path d="M40 230C40 140 100 92 180 92S320 140 320 230Z" fill="${c}"/><path d="M150 100C138 60 160 40 178 62C186 30 222 38 210 84Z" fill="${c}"/>${eyes(180,168,92,1.1)}</svg>`,
+  fruit: (c, a) => `<svg viewBox="0 0 360 250">${spark(56,70,13,a)}${spark(310,40,9,a)}
+    <circle cx="180" cy="150" r="96" fill="${c}"/><circle cx="148" cy="118" r="22" fill="#fff" opacity=".25"/>
+    <path d="M182 56C184 34 196 22 214 18C212 38 202 52 182 56Z" fill="${a}"/><rect x="176" y="40" width="8" height="24" rx="4" fill="#2B1B17"/>${eyes(180,160,64,.8)}</svg>`,
+  moon: (c, a) => `<svg viewBox="0 0 360 250">${spark(70,60,12,a)}${spark(290,40,8,a)}${spark(300,150,6,a)}${spark(48,170,7,a)}
+    <path d="M220 40A110 110 0 1 0 290 200A90 90 0 1 1 220 40Z" fill="${c}"/>
+    <path d="M140 150q14 12 28 0M188 150q14 12 28 0" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
+  heart: (c, a) => `<svg viewBox="0 0 360 250">${spark(60,56,12,a)}${spark(304,72,9,a)}
+    <path d="M180 226C80 160 60 118 60 90C60 56 86 34 118 34C146 34 166 50 180 72C194 50 214 34 242 34C274 34 300 56 300 90C300 118 280 160 180 226Z" fill="${c}"/>
+    <path d="M78 120H140L156 92L178 150L196 110L210 120H282" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  drop: (c, a) => `<svg viewBox="0 0 360 250">${spark(70,80,12,a)}${spark(296,52,9,a)}
+    <path d="M180 20C180 20 96 116 96 168C96 214 134 246 180 246S264 214 264 168C264 116 180 20 180 20Z" fill="${c}"/>
+    <path d="M136 168c0 20 12 34 30 40" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" opacity=".55"/>${eyes(180,178,60,.75,0)}</svg>`,
+  cycle: (c, a) => { const seg = Array.from({length: 28}, (_, i) => { const ang = (i / 28) * Math.PI * 2 - Math.PI / 2, r = 92;
+      const x = 180 + Math.cos(ang) * r, y = 140 + Math.sin(ang) * r;
+      return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i < 5 ? 11 : 7}" fill="${i < 5 ? c : a}" opacity="${i < 5 ? 1 : (i > 11 && i < 17 ? 1 : .45)}"/>`; }).join('');
+    return `<svg viewBox="0 0 360 250">${seg}<circle cx="180" cy="140" r="54" fill="${c}"/>${eyes(180,140,42,.55,0)}</svg>`; },
+  bowl: (c, a) => `<svg viewBox="0 0 360 250">${spark(64,58,12,a)}${spark(300,44,9,a)}
+    <circle cx="150" cy="104" r="26" fill="${a}"/><circle cx="196" cy="96" r="30" fill="#FFB199"/><circle cx="226" cy="118" r="20" fill="${a}" opacity=".7"/>
+    <path d="M70 120H290C290 186 240 226 180 226S70 186 70 120Z" fill="${c}"/><rect x="60" y="112" width="240" height="18" rx="9" fill="${c}"/>${eyes(180,172,66,.7)}</svg>`,
+  shield: (c, a) => `<svg viewBox="0 0 360 250">${spark(70,64,12,a)}${spark(292,48,9,a)}
+    <path d="M180 18L282 56V122C282 182 236 222 180 240C124 222 78 182 78 122V56Z" fill="${c}"/>
+    <rect x="170" y="70" width="20" height="86" rx="10" fill="#fff"/><circle cx="180" cy="186" r="12" fill="#fff"/></svg>`,
+  chat: (c, a) => `<svg viewBox="0 0 360 250">${spark(52,48,11,a)}${spark(312,140,8,a)}
+    <rect x="44" y="40" width="200" height="110" rx="38" fill="${c}"/><path d="M90 140L76 186L130 148Z" fill="${c}"/>
+    <rect x="150" y="120" width="170" height="92" rx="34" fill="${a}"/><path d="M280 200L300 236L250 206Z" fill="${a}"/>
+    <circle cx="104" cy="96" r="10" fill="#fff"/><circle cx="144" cy="96" r="10" fill="#fff"/><circle cx="184" cy="96" r="10" fill="#fff"/></svg>`,
+  doc: (c, a) => `<svg viewBox="0 0 360 250">${spark(62,60,12,a)}${spark(300,70,9,a)}
+    <rect x="104" y="24" width="152" height="206" rx="20" fill="#fff"/><rect x="104" y="24" width="152" height="54" rx="20" fill="${c}"/>
+    <rect x="128" y="100" width="104" height="12" rx="6" fill="${c}" opacity=".35"/><rect x="128" y="126" width="80" height="12" rx="6" fill="${c}" opacity=".35"/>
+    <path d="M128 174l18 18 34-36" stroke="${c}" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  feet: (c, a) => `<svg viewBox="0 0 360 250">${spark(300,50,11,a)}${spark(50,190,8,a)}
+    <g transform="rotate(-14 130 140)"><ellipse cx="130" cy="150" rx="40" ry="62" fill="${c}"/>${[0,1,2,3,4].map(i=>`<circle cx="${100+i*15}" cy="${78-Math.abs(2-i)*4}" r="${10-i*.8}" fill="${c}"/>`).join('')}</g>
+    <g transform="rotate(14 240 120)"><ellipse cx="240" cy="130" rx="34" ry="54" fill="${a}"/>${[0,1,2,3,4].map(i=>`<circle cx="${214+i*13}" cy="${68-Math.abs(2-i)*3.5}" r="${8.5-i*.7}" fill="${a}"/>`).join('')}</g></svg>`,
+  baby: (c, a) => `<svg viewBox="0 0 360 250">${spark(60,52,12,a)}${spark(304,60,9,a)}
+    <circle cx="180" cy="150" r="98" fill="${c}"/><path d="M164 56c4-22 30-26 34-6" stroke="${c}" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <circle cx="130" cy="176" r="16" fill="#FF9AA2" opacity=".7"/><circle cx="230" cy="176" r="16" fill="#FF9AA2" opacity=".7"/>
+    <path d="M150 146q10-12 20 0M190 146q10-12 20 0" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M164 184q16 14 32 0" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
+};
+const illus = (name, c, a) => (ILL[name] || ILL.blob)(c, a);
+
+/* ---------- personal data (filled on the device in the app) ---------- */
+const WEEKS = [
+  [12,'laym',5,14,'Barmaqları ayrılır, refleksləri yaranır.'],
+  [16,'avokado',12,100,'Üz əzələləri işləyir, mimika yaranır.'],
+  [20,'banan',25,300,'Səsləri eşitməyə başlayır.'],
+  [24,'qarğıdalı',30,600,'Ağciyərlər nəfəsə hazırlaşır, yuxu ritmi yaranır.'],
+  [28,'badımcan',37,1000,'Gözlərini açıb-yumur, beyni sürətlə böyüyür.'],
+  [32,'ananas',42,1700,'Dərialtı piy yığır, hərəkətləri güclənir.'],
+  [36,'yemiş',47,2600,'Başı aşağı dönməyə hazırlaşır.'],
+  [40,'qarpız',51,3400,'Dünyaya gəlməyə hazırdır.'],
+];
+const MONTHS = [
+  [1,'Üzlərə baxır, səsə dönür.','Səsinə sakitləşir'],
+  [2,'Güləndə cavab verir, başını qaldırır.','İlk sosial təbəssüm'],
+  [4,'Başını dik saxlayır, "agu" deyir, əllərini ağzına aparır.','Səslərlə "danışır"'],
+  [6,'Dəstəklə oturur, adına reaksiya verir, oyuncağı əldən-ələ ötürür.','Əlavə qidaya hazırlıq'],
+  [9,'Dəstəksiz oturur, gizlənən oyuncağı axtarır, "bay-bay" edir.','Yad adamdan çəkinə bilər'],
+  [12,'Dəstəklə addımlayır, "ana" deyir, barmaqla göstərir.','İlk sözlər'],
+];
+const PHASES = [
+  [1,5,'menstruasiya','Bədən dincəlmək istəyir. Yüngül gəzinti və isti kompres sancını azalda bilər.'],
+  [6,12,'follikulyar faza','Estrogen artır, enerji və əhval adətən yaxşılaşır. Yeni vərdiş üçün yaxşı vaxtdır.'],
+  [13,16,'ovulyasiya pəncərəsi','Mayalanma ehtimalının ən yüksək olduğu günlər. Bu, kontrasepsiya üsulu deyil.'],
+  [17,35,'lüteal faza','Progesteron artır. Yuxu, su və duz balansına diqqət PMS əlamətlərini yüngülləşdirə bilər.'],
+];
+// Azerbaijani ordinal suffix: by the last non-zero digit, or by the tens when the number ends in 0.
+function ord(n) {
+  const d = n % 10, t = Math.floor(n / 10) % 10;
+  if (d) return { 1:'-ci', 2:'-ci', 5:'-ci', 7:'-ci', 8:'-ci', 3:'-cü', 4:'-cü', 6:'-cı', 9:'-cu' }[d];
+  if (n % 100 === 0) return '-cü';
+  return { 1:'-cu', 2:'-ci', 3:'-cu', 4:'-cı', 5:'-ci', 6:'-cı', 7:'-ci', 8:'-ci', 9:'-cı' }[t];
+}
+const ctx = { stage:'bump', week:24, babyMonths:4, cycleDay:12, name:'Aysel', babyName:'Nuray' };
+function vars() {
+  const w = [...WEEKS].reverse().find(x => ctx.week >= x[0]) || WEEKS[0];
+  const m = [...MONTHS].reverse().find(x => ctx.babyMonths >= x[0]) || MONTHS[0];
+  const p = PHASES.find(x => ctx.cycleDay >= x[0] && ctx.cycleDay <= x[1]) || PHASES[3];
+  return { week: ctx.week, fruit: w[1], lengthCm: w[2], weightG: w[3].toLocaleString('az'), weekNote: w[4], name: ctx.name, babyName: ctx.babyName,
+    babyMonths: ctx.babyMonths, milestone: m[1], milestoneShort: m[2], cycleDay: ctx.cycleDay, phase: p[2], phaseTip: p[3],
+    weekLabel: `${ctx.week}${ord(ctx.week)} həftə`, cycleLabel: `${ctx.cycleDay}${ord(ctx.cycleDay)} gün` };
+}
+const fill = s => typeof s === 'string' ? s.replace(/\{(\w+)\}/g, (_, k) => { const v = vars()[k]; return v === undefined ? `{${k}}` : String(v); }) : s;
+
+/* ---------- STORIES (StoryJson) ---------- */
+const STORIES = [
+ // ---- Hamiləlik ----
+ { id:'bump-this-week', module:'bump', title:'Bu həftə', theme:'coral', illus:'fruit',
+   audience:{ stage:'bump', weekFrom:12, weekTo:40 }, schedule:{ refresh:'weekly', day:'mon' }, source:'ACOG, NHS',
+   slides:[
+     { t:'cover', kicker:'{weekLabel}', title:'Körpən indi <span class="mark">{fruit}</span> boydadır', illus:'fruit' },
+     { t:'fact', kicker:'Təxmini ölçü', value:'{lengthCm}', unit:'sm', body:'Çəkisi təxminən {weightG} qram. Hər körpə öz tempində böyüyür.' },
+     { t:'cover', kicker:'Bu həftə', title:'{weekNote}', size:'m', illus:'blob' },
+     { t:'cta', kicker:'Daha ətraflı', title:'Həftəlik inkişafa bax', body:'Döl inkişafı alətində bu həftənin bütün dəyişiklikləri.', cta:{ label:'Döl inkişafı', tool:'fetal-growth' }, illus:'heart' } ] },
+ { id:'bump-kicks', module:'bump', title:'Hərəkətlər', theme:'violet', illus:'feet',
+   audience:{ stage:'bump', weekFrom:24 }, schedule:{ refresh:'once' }, source:'RCOG, NHS',
+   slides:[
+     { t:'cover', kicker:'Ekspert məsləhəti', title:'Körpənin <span class="hl">hərəkət ritmini</span> tanıyırsan?', illus:'feet' },
+     { t:'list', title:'Hər gün eyni vaxtda say', items:['Yemək yedikdən sonra rahat otur və ya sol böyrü üstə uzan.','Təpik, dönmə, itələmə: hamısı sayılır.','Öz körpənin normal ritmini öyrən.'] },
+     { t:'alert', kicker:'Vacib', title:'Hərəkətlər azalıbsa, səhəri gözləmə', items:['Doğum evinə və ya həkiminə zəng et','Saymağı başqa günə saxlama'], illus:'shield' },
+     { t:'cta', title:'Hərəkət sayğacını aç', body:'Bir toxunuşla say, ritmini qrafikdə gör.', cta:{ label:'Hərəkət sayğacı', tool:'kick' }, illus:'feet' } ] },
+ { id:'bump-eat-for-two', module:'bump', title:'Mif və fakt', theme:'cream', illus:'bowl',
+   audience:{ stage:'bump' }, schedule:{ refresh:'once' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Mif yoxsa fakt?', title:'Hamilə qadın <span class="hl">iki nəfərlik</span> yeməlidir.', illus:'bowl' },
+     { t:'myth', myth:'İki nəfərlik ye.', fact:'İlk trimestrdə əlavə kalori lazım deyil. İkinci trimestrdə gündə təxminən 340, üçüncüdə 450 kkal əlavə kifayətdir.' },
+     { t:'list', title:'Bir boşqab üçün sadə qayda', items:['Yarısı tərəvəz və meyvə','Dörddə biri zülal: ət, balıq, paxlalı','Dörddə biri tam taxıl'] },
+     { t:'cta', title:'Sənə uyğun qidalanma planı', body:'Trimestrə görə menyu və vacib vitaminlər.', cta:{ label:'Qidalanma', tool:'nutrition' }, illus:'bowl' } ] },
+ { id:'bump-danger', module:'bump', title:'Təcili əlamətlər', theme:'navy', illus:'shield',
+   audience:{ stage:'bump' }, schedule:{ refresh:'monthly' }, source:'ÜST, NHS',
+   slides:[
+     { t:'cover', kicker:'Təhlükəsizlik', title:'Bu əlamətlərdə <span class="hl">dərhal</span> həkimə', illus:'shield' },
+     { t:'alert', items:['Qanaxma və ya maye axması','Güclü baş ağrısı, görmənin bulanması','Üzdə, əllərdə qəfil şişkinlik','Hərəkətlərin azalması','Qızdırma və ya güclü qarın ağrısı'] },
+     { t:'cta', title:'Siyahını əlində saxla', body:'Təhlükəli əlamətlər bələdçisi oflayn da açılır.', cta:{ label:'Təhlükəli əlamətlər', tool:'danger-signs' }, illus:'shield' } ] },
+
+ // ---- Analıq ----
+ { id:'mom-this-month', module:'mommy', title:'{babyMonths} aylıq', theme:'peach', illus:'baby',
+   audience:{ stage:'mommy', monthsFrom:1, monthsTo:12 }, schedule:{ refresh:'monthly' }, source:'CDC, ÜST',
+   slides:[
+     { t:'cover', kicker:'{babyName} {babyMonths} aylıqdır', title:'<span class="mark">{milestoneShort}</span>', illus:'baby' },
+     { t:'cover', kicker:'Bu ayın yenilikləri', title:'{milestone}', size:'m', illus:'blob' },
+     { t:'quote', badge:'Ekspert məsləhəti', quote:'Hər körpə öz tempində inkişaf edir. Narahatlığın varsa, növbəti müayinəni gözləmədən pediatrla danış.', src:'CDC tövsiyəsi əsasında' },
+     { t:'cta', title:'İnkişaf mərhələlərini izlə', body:'Boy, çəki və mərhələlər bir yerdə.', cta:{ label:'Boy-çəki', tool:'baby-growth' }, illus:'baby' } ] },
+ { id:'mom-safe-sleep', module:'mommy', title:'Təhlükəsiz yuxu', theme:'navy', illus:'moon',
+   audience:{ stage:'mommy', monthsTo:12 }, schedule:{ refresh:'once' }, source:'AAP',
+   slides:[
+     { t:'cover', kicker:'Ekspert məsləhəti', title:'Təhlükəsiz yuxunun <span class="hl">ABC</span>-si', illus:'moon' },
+     { t:'list', title:'Hər yuxuda, hər dəfə', items:['<b>A</b>: tək, öz yatağında','<b>B</b>: arxası üstə','<b>C</b>: bərk döşək, boş yataq'] },
+     { t:'quiz', title:'Körpənin yatağına yastıq qoymaq olar?', options:['Bəli, rahat olsun','Xeyr, 1 yaşa qədər yox'], correct:1, explain:'1 yaşa qədər yataqda yastıq, yorğan və oyuncaq olmamalıdır.' },
+     { t:'cta', title:'Yuxu ritmini qur', body:'Növbəti yuxu vaxtı və ağ səs bir yerdə.', cta:{ label:'Yuxu', tool:'whitenoise' }, illus:'moon' } ] },
+ { id:'mom-solids-quiz', module:'mommy', title:'Əlavə qida', theme:'yellow', illus:'bowl',
+   audience:{ stage:'mommy', monthsFrom:4, monthsTo:8 }, schedule:{ refresh:'once' }, source:'ÜST',
+   slides:[
+     { t:'quiz', kicker:'Quiz', title:'Əlavə qidaya nə vaxt başlamaq tövsiyə olunur?', options:['3 ayda','Təxminən 6 ayda','9 ayda'], correct:1, explain:'ÜST ilk 6 ayda yalnız ana südü, sonra əlavə qida tövsiyə edir.' },
+     { t:'list', title:'Hazırlıq əlamətləri', items:['Başını dik saxlayır','Dəstəklə oturur','Yeməyə maraq göstərir','Qaşığı dili ilə itələmir'] },
+     { t:'cta', title:'Addım-addım bələdçi', body:'İlk qidalar, porsiyalar və allergen planı.', cta:{ label:'Əlavə qida bələdçisi', tool:'solid-food-guide', premium:true }, illus:'bowl' } ] },
+ { id:'mom-feelings', module:'mommy', title:'Sən necəsən?', theme:'lilac', illus:'heart',
+   audience:{ stage:'mommy', monthsTo:12 }, schedule:{ refresh:'monthly' }, source:'ÜST, ACOG',
+   slides:[
+     { t:'cover', kicker:'Sənin üçün', title:'Ana olmaq <span class="hl">yorur</span>. Bu normaldır.', illus:'heart' },
+     { t:'fact', kicker:'Doğuşdan sonra', value:'1/7', unit:'ana', body:'Hər 7 anadan biri doğuşdan sonrakı depressiya yaşayır. Kömək istəmək güclü olmaqdır.' },
+     { t:'list', title:'Bu hisslər 2 həftədən çox çəkirsə', items:['Həkiminlə danış','Yaxınına söylə','2 dəqiqəlik testi et'] },
+     { t:'cta', title:'Özünü yoxla', body:'Anonim test, nəticə yalnız sənə görünür.', cta:{ label:'Psixoloji sağlamlıq', tool:'mental-health' }, illus:'heart' } ] },
+
+ // ---- Dövr ----
+ { id:'flow-today', module:'flow', title:'{cycleLabel}', theme:'mint', illus:'cycle',
+   audience:{ stage:'flow' }, schedule:{ refresh:'daily' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Tsiklinin {cycleLabel}ü', title:'İndi <span class="mark">{phase}</span>', illus:'cycle' },
+     { t:'cover', kicker:'Bu günlər üçün', title:'{phaseTip}', size:'m', illus:'blob' },
+     { t:'cta', title:'Bugünkü hissini qeyd et', body:'Əlamətlərin növbəti tsikldə proqnozu daha dəqiq edir.', cta:{ label:'Dövr təqvimi', tool:'flow-home' }, illus:'cycle' } ] },
+ { id:'flow-sport', module:'flow', title:'Mif və fakt', theme:'forest', illus:'blob',
+   audience:{ stage:'flow' }, schedule:{ refresh:'once' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Mif yoxsa fakt?', title:'Dövr zamanı <span class="hl">idman olmaz</span>.', illus:'blob' },
+     { t:'myth', myth:'Menstruasiya vaxtı hərəkət etmə.', fact:'Yüngül hərəkət, məsələn gəzinti, yoqa və ya üzgüçülük, sancını və əhval dəyişkənliyini azalda bilər.' },
+     { t:'cta', title:'Sənə uyğun məşqlər', body:'Tsikl fazasına görə yüngül proqramlar.', cta:{ label:'Məşqlər', tool:'exercise' }, illus:'heart' } ] },
+ { id:'flow-pms', module:'flow', title:'PMS', theme:'peach', illus:'drop',
+   audience:{ stage:'flow' }, schedule:{ refresh:'monthly', phase:'luteal' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Ekspert məsləhəti', title:'PMS günlərini <span class="mark">yüngülləşdir</span>', illus:'drop' },
+     { t:'list', items:['Qarına isti kompres','Gündə 20 dəqiqə gəzinti','Duzu və kofeini azalt','7 ilə 9 saat yuxu'] },
+     { t:'alert', kicker:'Həkimə nə vaxt', title:'Ağrı gündəlik həyatını dayandırırsa', items:['Ağrıkəsici kömək etmirsə','Qanaxma çox güclüdürsə'], illus:'shield' } ] },
+ { id:'flow-normal', module:'flow', title:'Normal tsikl', theme:'coral', illus:'cycle',
+   audience:{ stage:'flow' }, schedule:{ refresh:'once' }, source:'ACOG',
+   slides:[
+     { t:'fact', kicker:'Bilirsən?', value:'21-35', unit:'gün', body:'Böyüklərdə normal tsikl bu aralıqdadır. Hər ay bir neçə gün fərq normaldır.' },
+     { t:'list', title:'Həkimlə danış, əgər', items:['Tsikl 21 gündən qısa və ya 35 gündən uzundursa','3 ay ardıcıl dövr gəlmirsə','Dövr 7 gündən çox çəkirsə'] },
+     { t:'cta', title:'Tsiklini izlə', body:'Qeyri-müntəzəmliyi Anacan özü göstərəcək.', cta:{ label:'Dövr təqvimi', tool:'flow-home' }, illus:'cycle' } ] },
+
+ // ---- Hamı üçün ----
+ { id:'all-water', module:'all', title:'Su', theme:'navy', illus:'drop',
+   audience:{ stage:['bump','mommy','flow'] }, schedule:{ refresh:'weekly' }, source:'ÜST, EFSA',
+   slides:[
+     { t:'cover', kicker:'Kiçik vərdiş', title:'Susuzluğu <span class="hl">gözləmə</span>', illus:'drop' },
+     { t:'fact', kicker:'Gündəlik maye', value:'2-3', unit:'litr', body:'Hamiləlikdə və əmizdirmədə ehtiyac artır. Sidiyin açıq rəngdə olması yaxşı göstəricidir.' },
+     { t:'list', title:'Asan yollar', items:['Hər yeməkdə bir stəkan','Əmizdirəndə yanında su','Telefonunda xatırlatma'] } ] },
+ { id:'all-ai', module:'all', title:'Anacan AI', theme:'violet', illus:'chat',
+   audience:{ stage:['bump','mommy','flow'] }, schedule:{ refresh:'once' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Gecə saat 3-dür', title:'Sualın var? <span class="mark">Anacan AI</span> oyaqdır.', illus:'chat' },
+     { t:'list', title:'Analar ən çox nə soruşur', items:['Körpə niyə gecə oyanır?','Bu səpgi normaldırmı?','Hansı vitaminləri içim?'] },
+     { t:'cta', title:'İlk sualını ver', body:'Təcili hallarda həkimə və ya 103-ə zəng et.', cta:{ label:'Anacan AI', tool:'ai' }, illus:'chat' } ] },
+ { id:'all-community', module:'all', title:'İcma', theme:'lime', illus:'chat',
+   audience:{ stage:['bump','mommy','flow'] }, schedule:{ refresh:'weekly', data:'community_top_topics' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Bu həftə icmada', title:'Analar ən çox <span class="hl">bunları</span> müzakirə etdi', illus:'chat' },
+     { t:'list', items:['Diş çıxarma gecələri','Hamiləlikdə ürək yanması','Bağçaya hazırlıq'] },
+     { t:'cta', title:'Söhbətə qoşul', body:'Sualını yaz, təcrübəni bölüş.', cta:{ label:'İcma', tool:'community' }, illus:'chat' } ] },
+ { id:'all-doctor-pdf', module:'all', title:'Həkimə hazır', theme:'cream', illus:'doc',
+   audience:{ stage:['bump','mommy'] }, schedule:{ refresh:'once' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Müayinədən əvvəl', title:'Həkimə <span class="hl">hazır</span> get', illus:'doc' },
+     { t:'list', title:'Özünlə götür', items:['Təzyiq və çəki qeydləri','Sualların siyahısı','Son analizlərin nəticəsi'] },
+     { t:'cta', title:'Bir toxunuşla PDF', body:'Bütün qeydlərin həkim üçün səliqəli hesabatda.', cta:{ label:'Həkim hesabatı', tool:'doctor-report', premium:true }, illus:'doc' } ] },
+];
+const MOD = { bump:'Hamiləlik', mommy:'Analıq', flow:'Dövr', all:'Hamı üçün' };
+
+/* ---------- renderer ---------- */
+const $ = s => document.querySelector(s);
+let seen = new Set();
+try { seen = new Set(JSON.parse(localStorage.getItem('anacan-stories-seen') || '[]')); } catch {}
+const saveSeen = () => { try { localStorage.setItem('anacan-stories-seen', JSON.stringify([...seen])); } catch {} };
+
+const visible = () => STORIES.filter(s => s.module === ctx.stage || s.module === 'all');
+
+function slideHTML(story, sl) {
+  const th = T[story.theme];
+  const ill = sl.illus ? `<div class="art ${sl.t === 'cover' ? 'peek' : ''}">${illus(sl.illus, th.light ? th.pop : th.pop, th.light ? th.ink : '#fff')}</div>` : '';
+  const small = `<div class="art small">${illus(story.illus, th.pop, th.light ? th.ink : '#fff')}</div>`;
+  const kick = sl.kicker ? `<div class="kick">${fill(sl.kicker)}</div>` : '';
+  const title = sl.title ? `<h2 class="h ${sl.size || (sl.t === 'cover' ? 'xl' : 'l')}">${fill(sl.title)}</h2>` : '';
+  const src = story.source && (sl.t === 'list' || sl.t === 'alert' || sl.t === 'myth' || sl.t === 'fact') ? `<div class="src">Mənbə: ${story.source}</div>` : '';
+  switch (sl.t) {
+    case 'cover': return kick + title + ill;
+    case 'fact': return kick + `<div><span class="num">${fill(sl.value)}</span><span class="unit">${fill(sl.unit || '')}</span></div><p class="body">${fill(sl.body)}</p>` + src + (sl.illus ? ill : `<div class="art">${illus(story.illus, th.pop, th.light ? th.ink : '#fff')}</div>`);
+    case 'list': return kick + title + `<ul class="list">${sl.items.map((x, i) => `<li><em>${i + 1}</em><span>${fill(x)}</span></li>`).join('')}</ul>` + src + (sl.items.length <= 3 ? small : '');
+    case 'myth': return `<div class="kick">Mif və fakt</div><div class="myth"><span class="lbl">MİF</span><p>${fill(sl.myth)}</p></div><div class="myth fact"><span class="lbl">FAKT</span><p>${fill(sl.fact)}</p></div>` + src + small;
+    case 'quiz': return kick + title + `<div class="quiz">${sl.options.map((o, i) => `<button data-q="${i}"><span>${fill(o)}</span><span></span></button>`).join('')}</div><div class="reveal" data-reveal></div>`;
+    case 'alert': return kick + title + `<div class="alert">${sl.items.map(x => `<div>${fill(x)}</div>`).join('')}</div>` + src + (sl.illus ? ill : '');
+    case 'quote': return (sl.badge ? `<span class="badge">✦ ${sl.badge}</span>` : '') + `<p class="quote">${fill(sl.quote)}</p>` + (sl.src ? `<div class="src">${sl.src}</div>` : '') + `<div class="art">${illus('blob', th.pop, th.light ? th.ink : '#fff')}</div>`;
+    case 'cta': return kick + title + `<p class="body">${fill(sl.body)}</p><button class="cta" data-cta="${sl.cta.tool}">${sl.cta.premium ? '👑 ' : ''}${sl.cta.label} →</button>` + ill;
+  }
+  return '';
+}
+
+let cur = null, si = 0, timer = null, start = 0, elapsed = 0, paused = false;
+const DUR = 6500;
+const viewer = $('#viewer');
+
+function open(id) {
+  const list = visible();
+  cur = list.find(s => s.id === id) || STORIES.find(s => s.id === id);
+  if (!cur) return;
+  if (cur.module !== 'all' && cur.module !== ctx.stage) setStage(cur.module, false);
+  si = 0; viewer.classList.add('open'); render(); showJson(cur);
+}
+function close() { viewer.classList.remove('open'); cancelAnimationFrame(timer); cur = null; drawRings(); }
+function render() {
+  const th = T[cur.theme];
+  const sl = cur.slides[si];
+  viewer.innerHTML = `<div class="story ${th.light ? 'light' : ''} ${th.serif ? 'serif' : ''}" style="background:${th.bg};color:${th.ink};--pop:${th.pop};--popInk:${th.popInk};--chipBg:${th.chip};--ink2:${th.ink2};--bg2:${th.bg2}">
+    <div class="bars">${cur.slides.map((_, i) => `<i><b style="width:${i < si ? 100 : 0}%"></b></i>`).join('')}</div>
+    <div class="who"><span class="av">A</span><span>Anacan</span><span class="tag">· ${MOD[cur.module]}</span><button class="x" aria-label="Bağla">×</button></div>
+    <div class="slide">${slideHTML(cur, sl)}</div>
+    <div class="tapL"></div><div class="tapR"></div></div>`;
+  viewer.querySelector('.x').onclick = close;
+  viewer.querySelector('.tapL').onclick = prev;
+  viewer.querySelector('.tapR').onclick = next;
+  const hold = viewer.querySelector('.story');
+  hold.onpointerdown = e => { if (e.target.closest('button')) return; paused = true; };
+  hold.onpointerup = hold.onpointerleave = () => { if (paused) { paused = false; start = performance.now() - elapsed; } };
+  viewer.querySelectorAll('[data-q]').forEach(b => b.onclick = e => {
+    e.stopPropagation();
+    const ok = Number(b.dataset.q) === sl.correct;
+    viewer.querySelectorAll('[data-q]').forEach(x => { const c = Number(x.dataset.q) === sl.correct; x.classList.add(c ? 'ok' : 'no'); x.lastElementChild.textContent = c ? '✓' : ''; x.disabled = true; });
+    viewer.querySelector('[data-reveal]').textContent = (ok ? 'Düzdür! ' : 'Əslində: ') + sl.explain;
+    paused = true; setTimeout(() => { paused = false; start = performance.now() - elapsed; }, 2500);
+  });
+  viewer.querySelectorAll('[data-cta]').forEach(b => b.onclick = e => { e.stopPropagation(); toast(`→ ${b.textContent.replace(' →','')} açılır (tool: ${b.dataset.cta})`); });
+  start = performance.now(); elapsed = 0; paused = false;
+  cancelAnimationFrame(timer); tick();
+}
+function tick() {
+  timer = requestAnimationFrame(t => {
+    if (!cur) return;
+    if (!paused) elapsed = t - start;
+    const bar = viewer.querySelectorAll('.bars b')[si];
+    if (bar) bar.style.width = Math.min(100, elapsed / DUR * 100) + '%';
+    if (elapsed >= DUR) next(); else tick();
+  });
+}
+function next() {
+  if (si < cur.slides.length - 1) { si++; render(); return; }
+  seen.add(cur.id); saveSeen();
+  const list = visible(); const i = list.findIndex(s => s.id === cur.id);
+  if (i >= 0 && i < list.length - 1) { cur = list[i + 1]; si = 0; render(); showJson(cur); } else close();
+}
+function prev() {
+  if (si > 0) { si--; render(); return; }
+  const list = visible(); const i = list.findIndex(s => s.id === cur.id);
+  if (i > 0) { cur = list[i - 1]; si = 0; render(); showJson(cur); } else render();
+}
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); setTimeout(() => t.classList.remove('on'), 1800); }
+
+function ringSVG(s) { const th = T[s.theme]; return `<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="${th.bg}"/><g transform="translate(-30 22) scale(.45)">${illus(s.illus, th.pop, th.light ? th.ink : '#fff').replace(/^<svg[^>]*>|<\/svg>$/g, '')}</g></svg>`; }
+function drawRings() {
+  $('#rings').innerHTML = visible().sort((a, b) => seen.has(a.id) - seen.has(b.id))
+    .map(s => `<button class="ring ${seen.has(s.id) ? 'seen' : ''}" data-id="${s.id}"><div class="r"><i>${ringSVG(s)}</i></div><span>${fill(s.title)}</span></button>`).join('');
+  document.querySelectorAll('.ring').forEach(b => b.onclick = () => open(b.dataset.id));
+}
+function drawGrid() {
+  $('#grid').innerHTML = STORIES.map(s => { const th = T[s.theme], c = s.slides[0];
+    const head = (c.title || c.kicker || '').replace(/<[^>]+>/g, '');
+    return `<button class="thumb ${th.serif ? 'serif' : ''}" data-id="${s.id}" style="background:${th.bg};color:${th.ink}"><div class="tt"><span class="mod">${MOD[s.module]}</span><span class="nm">${fill(head)}</span><span class="n">${s.slides.length} slayd · ${s.slides.map(x => x.t).filter((v, i, a) => a.indexOf(v) === i).join(', ')}</span></div>${illus(s.illus, th.pop, th.light ? th.ink : '#fff')}</button>`; }).join('');
+  document.querySelectorAll('.thumb').forEach(b => b.onclick = () => open(b.dataset.id));
+}
+function showJson(s) { $('#json').textContent = JSON.stringify(s, null, 2); }
+
+/* ---------- controls ---------- */
+const CTX = {
+  bump: { label:'Həftə', min:12, max:40, key:'week', fmt: v => `${v}${ord(v)} həftə` },
+  mommy: { label:'Körpənin yaşı', min:1, max:12, key:'babyMonths', fmt: v => `${v} ay` },
+  flow: { label:'Tsikl günü', min:1, max:35, key:'cycleDay', fmt: v => `${v}${ord(v)} gün` },
+};
+function setStage(s, redraw = true) {
+  ctx.stage = s;
+  document.querySelectorAll('#stageSeg button').forEach(b => b.classList.toggle('on', b.dataset.s === s));
+  const c = CTX[s], r = $('#ctxRange');
+  $('#ctxLabel').textContent = c.label; r.min = c.min; r.max = c.max; r.value = ctx[c.key];
+  updateCtx(); if (redraw) drawRings();
+}
+function updateCtx() {
+  const c = CTX[ctx.stage]; ctx[c.key] = Number($('#ctxRange').value);
+  $('#ctxVal').textContent = c.fmt(ctx[c.key]);
+  $('#dashTitle').textContent = ctx.stage === 'bump' ? vars().weekLabel : ctx.stage === 'mommy' ? `${ctx.babyName} ${ctx.babyMonths} aylıqdır` : `Tsiklin ${vars().cycleLabel}ü`;
+  drawRings(); drawGrid();
+}
+document.querySelectorAll('#stageSeg button').forEach(b => b.onclick = () => setStage(b.dataset.s));
+$('#ctxRange').oninput = updateCtx;
+document.querySelectorAll('#jsonTabs button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('#jsonTabs button').forEach(x => x.classList.toggle('on', x === b));
+  $('#json').hidden = b.dataset.v !== 'json'; $('#auto').hidden = b.dataset.v !== 'auto';
+});
+setStage('bump'); showJson(STORIES[0]);
+})();
+</script>
+</body>
+</html>
