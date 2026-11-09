@@ -22,7 +22,8 @@ vi.mock('@/hooks/useChildren', () => ({
   useChildren: () => ({ selectedChild: mocks.kids.find((k) => k.id === mocks.selected) ?? mocks.kids[0] ?? null, children: mocks.kids }),
 }));
 vi.mock('@/lib/analytics', () => ({ analytics: { logToolUsed: vi.fn() } }));
-vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => ({ isPremium: false, loading: false }) }));
+const subMock = vi.hoisted(() => ({ isPremium: true }));
+vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => ({ isPremium: subMock.isPremium, loading: false }) }));
 vi.mock('@/integrations/supabase/client', () => ({ supabase: {} }));
 vi.mock('@/lib/parenting-reminders', async (orig) => ({ ...(await orig<typeof import('@/lib/parenting-reminders')>()), syncParentingReminders: vi.fn() }));
 
@@ -38,6 +39,16 @@ const KID = { id: 'kid-b', name: 'Nur', birth_date: '2020-03-01' }; // 6 years �
 
 beforeEach(() => { localStorage.clear(); mocks.kids = []; mocks.selected = null; clearParentingTarget(); });
 afterEach(cleanup);
+
+describe('Tərbiyə home card is Premium-only', () => {
+  it('renders nothing for a free user', () => {
+    subMock.isPremium = false;
+    try {
+      render(<ParentingHomeCard onOpen={() => {}} />);
+      expect(screen.queryByTestId('parenting-home-card')).toBeNull();
+    } finally { subMock.isPremium = true; }
+  });
+});
 
 describe('Tərbiyə home card with several children', () => {
   it('stays when the selected child is 13+ but a younger sibling exists, with the sibling’s band', () => {

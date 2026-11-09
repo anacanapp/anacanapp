@@ -17,6 +17,7 @@
  *    (mərhələ aktivliyi tool_configs-də olduğu kimi qalır; DB is_premium da false edildi).
  *  - 2026-11-06: Süddən ayırma (weaning) pulsuz alətdir; içində yalnız fərdi plan təqvimi və
  *    xatırlatmalar Premium-dur.
+ *  - 2026-11-09: Tərbiyə və Əlavə qida bələdçisi tam Premium-dur (aşağıdakı 2026-11-07 qeydi köhnədir).
  *  - 2026-11-07: Tərbiyə (parenting) pulsuz alətdir; içində tam kitabxana, bütün SOS kartları, proqramların
  *    4-cü günündən sonrası və testlərin ətraflı nəticələri Premium-dur (təhlükəsizlik siqnalları hamıya açıq).
  *  - mental-health (EPDS/əhval) free saxlanılıb — postpartum depressiya riski
@@ -42,9 +43,8 @@ const FREE_TOOL_IDS = new Set<string>([
 // 2026-11-06: Süddən ayırma — bələdçi, check-in və qırmızı bayraqlar pulsuz; fərdi plan təqvimi və
 // xatırlatmalar alətin içində Premium-dur (PremiumBlurGate).
 'weaning',
-// 2026-11-07: Tərbiyə — yaş dövrləri, günün məsləhəti, pulsuz məqalə/SOS dəsti pulsuz; qalanı alətin içində
-// Premium-dur (PremiumBlurGate).
-'parenting']
+// 2026-11-09: Tərbiyə və Əlavə qida bələdçisi TAM Premium-dur (istifadəçi qərarı): free siyahıda deyil.
+]
 // Qeyd: Körpə izləyicisi (baby-tracker) 2026-11-08 istifadəçi qərarı ilə TAM Premium qalır.
 );
 
@@ -56,7 +56,7 @@ export const isToolFree = (toolId: string): boolean => FREE_TOOL_IDS.has(toolId)
  * Premium qapısının arxasındadır (Ağ səs: gündəlik dəqiqə limiti, Reseptlər və Əlavə qida: hər kateqoriyadan 3
  * resept, Bürc uyğunluğu: gündəlik analiz limiti).
  */
-const FREE_LIMITED_TOOL_IDS = new Set<string>(['whitenoise', 'white-noise', 'recipes', 'solid-food-guide', 'horoscope']);
+const FREE_LIMITED_TOOL_IDS = new Set<string>(['whitenoise', 'white-noise', 'recipes', 'horoscope']);
 /**
  * Admin "limited_*" opens a tool for free users ONLY when the tool enforces its own free limit in code; otherwise a
  * limited setting would make it fully free (e.g. fairy-tale, noise-meter, weather-clothing, safety have no limit).

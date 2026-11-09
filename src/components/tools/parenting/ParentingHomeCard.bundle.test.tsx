@@ -26,7 +26,8 @@ vi.mock('@/hooks/useChildren', () => ({
   useChildren: () => ({ selectedChild: { id: 'c1', name: 'Aysel', birth_date: '2024-07-07' }, children: [{ id: 'c1', name: 'Aysel', birth_date: '2024-07-07' }] }),
 }));
 vi.mock('@/lib/analytics', () => ({ analytics: { logToolUsed: vi.fn() } }));
-vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => ({ isPremium: false, loading: false }) }));
+const subMock = vi.hoisted(() => ({ isPremium: true }));
+vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => ({ isPremium: subMock.isPremium, loading: false }) }));
 vi.mock('@/integrations/supabase/client', () => ({ supabase: {} }));
 vi.mock('@/lib/parenting-reminders', async (orig) => ({ ...(await orig<typeof import('@/lib/parenting-reminders')>()), syncParentingReminders: vi.fn() }));
 

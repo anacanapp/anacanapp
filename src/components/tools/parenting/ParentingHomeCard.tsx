@@ -38,9 +38,10 @@ export default function ParentingHomeCard({ onOpen, now }: { onOpen: () => void;
   });
   const content = useParentingTips(language, visible);
   const known = setting !== undefined && setting !== null;
-  useParentingReminders({ state, content, allowed: known ? visible : null, isPremium: premiumLoading ? null : !!isPremium, now });
+  // 2026-11-09: Tərbiyə is Premium-only: no home card and no reminders for free users.
+  useParentingReminders({ state, content, allowed: known && !premiumLoading ? visible && !!isPremium : null, isPremium: premiumLoading ? null : !!isPremium, now });
 
-  if (!visible || !content) return null;
+  if (!visible || !content || !isPremium) return null;
   const today = homeTipFor(content.tips, { birthDate: child?.birth_date ?? null, slot: readSlot(state, child?.id ?? null), now });
   if (!today) return null;
 

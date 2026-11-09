@@ -126,7 +126,7 @@ const AdminSettings = () => {
                   </div>} />
                 <SettingRow title="Süddən ayırma aləti" description="Plan yalnız 12+ aylıq uşaq üçün qurulur. Bələdçi və check-in pulsuz, fərdi təqvim və xatırlatmalar Premium-dur."
                   control={select('weaning_tool', 'off', [['on', 'Aktiv: Ana modulunda, 9+ ay'], ['off', 'Söndürülüb']], 'Süddən ayırma')} />
-                <SettingRow title="Tərbiyə aləti" description="Elmə əsaslanan pozitiv tərbiyə (0–12 yaş). Yalnız Azərbaycan dilində və Ana modulunda görünür. Yaş dövrləri, günün məsləhəti, pulsuz məqalə və SOS kartları hamıya, tam kitabxana, proqramlar və testlərin ətraflı nəticələri Premium-dur."
+                <SettingRow title="Tərbiyə aləti" description="Elmə əsaslanan pozitiv tərbiyə (0–12 yaş). Yalnız Azərbaycan dilində və Ana modulunda görünür. 2026-11-09-dan tam Premium-dur: yalnız Premium istifadəçilər (və Premium ailənin partnyoru) açır, ana səhifə kartı və xatırlatmalar da yalnız Premium-dadır."
                   control={select('parenting_tool', 'off', [['on', 'Aktiv: Ana modulunda, az dili'], ['off', 'Söndürülüb']], 'Tərbiyə')} />
                 <SettingRow icon={<Moon size={16} />} title={tr('adminsettings_qaranliq_rejim_29c427', 'Qaranlıq Rejim')} description={tr('adminsettings_i_stifadeciler_qaranliq_rejimi_3acc5d', 'İstifadəçilər qaranlıq rejimi aktiv edə bilsin')} control={toggle('dark_mode_enabled', true, 'Qaranlıq rejim')} />
               </Section>

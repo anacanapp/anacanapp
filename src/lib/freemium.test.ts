@@ -9,7 +9,7 @@ describe('freemium tool access', () => {
   });
 
   it('opens tools with an in-tool free limit for free users', () => {
-    for (const id of ['whitenoise', 'white-noise', 'recipes', 'solid-food-guide', 'horoscope']) {
+    for (const id of ['whitenoise', 'white-noise', 'recipes', 'horoscope']) {
       expect(toolAccess({ toolId: id, isPremiumFlag: true, premiumType: 'premium_only' })).toBe('limited');
       expect(canOpenToolFree(id)).toBe(true);
     }
@@ -33,5 +33,13 @@ describe('freemium tool access', () => {
     expect(toolAccess({ toolId: 'first-aid' })).toBe('free');
     expect(toolAccess({ toolId: 'first-aid', isPremiumFlag: true })).toBe('premium');
     expect(toolAccess({ toolId: 'recipes', stageLocked: true })).toBe('premium');
+  });
+});
+
+describe('Premium-only tools (2026-11-09)', () => {
+  it('Tərbiyə and Əlavə qida bələdçisi need Premium', async () => {
+    const { toolAccess } = await import('./freemium');
+    expect(toolAccess({ toolId: 'parenting' })).toBe('premium');
+    expect(toolAccess({ toolId: 'solid-food-guide' })).toBe('premium');
   });
 });

@@ -31,7 +31,8 @@ vi.mock('@/hooks/useChildren', () => ({
   },
 }));
 vi.mock('@/lib/analytics', () => ({ logEvent: mocks.logEvent }));
-vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => ({ isPremium: false, loading: false }) }));
+const subMock = vi.hoisted(() => ({ isPremium: false }));
+vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => ({ isPremium: subMock.isPremium, loading: false }) }));
 vi.mock('@/integrations/supabase/client', () => ({ supabase: {} }));
 vi.mock('@/lib/parenting-reminders', async (orig) => ({ ...(await orig<typeof import('@/lib/parenting-reminders')>()), syncParentingReminders: vi.fn() }));
 
@@ -54,6 +55,9 @@ beforeEach(() => {
 afterEach(cleanup);
 
 describe('Tərbiyə home card', () => {
+  // 2026-11-09: Tərbiyə is Premium-only, so these cases run as a Premium user.
+  beforeEach(() => { subMock.isPremium = true; });
+  afterEach(() => { subMock.isPremium = false; });
   it('shows today’s 1–3 tip for the active child and opens the tool', () => {
     const onOpen = vi.fn();
     render(<ParentingHomeCard onOpen={onOpen} now={NOW} />);

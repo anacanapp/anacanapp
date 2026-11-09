@@ -126,3 +126,10 @@ Live (switch on). A pediatrician / child-psychologist copy review is still outst
   (function only, not applied yet); without it the partner gets calendar age.
 - **Home card:** the Ana home card loads only the small tips + programmes chunk of the language
   (`PARENTING_HOME_LOADERS`), never the whole content.
+
+## Update 2026-11-09: Premium-only
+- Tərbiyə is fully Premium (owner decision): removed from the free list in `src/lib/freemium.ts`, so the tile,
+  deeplinks, push links and the dashboard "Davam et" line open the paywall for free users (ToolsHub
+  `PremiumToolBoundary`). The partner screen `partner-parenting` is wrapped in the same boundary (household
+  Premium counts). The dashboard home card and the tip/programme reminders run only for Premium users.
+- Əlavə qida bələdçisi (`solid-food-guide`) is Premium-only too (no longer "free · limited").

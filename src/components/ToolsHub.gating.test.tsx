@@ -92,10 +92,11 @@ describe('ToolsHub free vs Premium gating', () => {
       cfg('baby-tracker', 'Körpə izləyicisi (row)', { is_premium: false, is_active: false }),
     ] });
     render(<ToolsHub />);
-    // recipes (code list), photoshoot (admin limited_total, limits itself) and the solid-food-guide code tool;
+    // recipes (code list) and photoshoot (admin limited_total, limits itself);
     // poop-scanner has no in-tool limit, so an admin limited_total keeps it Premium.
-    expect(screen.getAllByText('Pulsuz · limitli')).toHaveLength(3);
-    expect(screen.getByText('Ödənişsiz alətlər').closest('section')!.textContent).toContain('sfg_home_title');
+    expect(screen.getAllByText('Pulsuz · limitli')).toHaveLength(2);
+    // 2026-11-09: Əlavə qida bələdçisi is Premium-only.
+    expect(screen.getByText('Premium alətlər').closest('section')!.textContent).toContain('sfg_home_title');
     const free = screen.getByText('Ödənişsiz alətlər').closest('section')!;
     expect(free.textContent).toContain('Reseptlər');
     expect(free.textContent).toContain('Foto çəkiliş');
