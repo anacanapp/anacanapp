@@ -100,3 +100,29 @@ Live (switch on). A pediatrician / child-psychologist copy review is still outst
   overrides, admin-only read, list/restore RPCs, CDC + writer guard). CDC replay must run with
   `session_replication_role = replica` so history rows are not written twice. Admin shows history, preview and
   stale-translation badges.
+
+## Update 2026-11-09 (sharing, reminders, sources, support, milestones)
+
+- **Send to partner** (SOS cards and articles; the mother with a linked partner): `src/lib/parenting-share.ts` sends an
+  ordinary partner chat message (`partner_messages`, type `text`, same RPC and push as the chat): emoji + title, a
+  one-line summary, a hint and the link `https://app.anacan.az/parenting/<kind>/<id>` (`kind` = `sos` | `article`;
+  `parseDeeplink` also accepts `programme` and `anacan://parenting/…`). No new message type, table or push contract.
+  In the chat such app links open in the app (`CommentText` → `anacan:deeplink`, Index routes it: mother to the tool,
+  partner to `partner-parenting`, on that item); other links still open in the browser. The partner's Tərbiyə home
+  lists **"Sənə göndərilənlər"** (her shares of the last 60 days, one row per item, unread marked; opening marks the
+  message read). A second button opens the phone's share sheet (title, summary, footer; no link).
+- **Free-day reminders:** free users can turn on programme reminders for the free days (days 1–3,
+  `canRemindDay`); later days need Premium. The reminder card says so (`par_reminder_free`).
+- **SOS sources:** each SOS card has `sources: string[]`, ids into the shared list `az/sources.ts` (1–3 per card).
+  The ids are the same in every language; `scripts/parenting/check-translation.mjs` compares them and does not treat
+  them as translatable text. The daily tip has a "Mənbələr" link to the band overview's sources.
+- **Support cards:** band overviews, articles and SOS cards may carry `support: 'mental-health' | 'child-safety'`
+  (same value in every language). The card opens the app's mental-health tool (mood / EPDS test) and offers the
+  emergency call (country helper, never hard-coded). The partner sees only the call button.
+- **Milestone check:** not offered in the 6–12 band (6 years and older) nor after the last checkpoint + 12 months;
+  not before the first checkpoint. A preterm baby (born before 37 weeks, from the child's due date) gets the
+  corrected age until 24 corrected months (`milestoneAge`). Mother side: `user_children.due_date`. Partner side:
+  `partner_children_v1` returns `due_date` after migration `20261109090000_partner_children_due_date.sql`
+  (function only, not applied yet); without it the partner gets calendar age.
+- **Home card:** the Ana home card loads only the small tips + programmes chunk of the language
+  (`PARENTING_HOME_LOADERS`), never the whole content.

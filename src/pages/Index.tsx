@@ -437,7 +437,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         break;
       case 'tool':
         // Tərbiyə item links (shared by the mother, e.g. /parenting/sos/<id>) open that item; partner app included.
-        if (parsed.params.tool_id === 'parenting' && openParentingDeeplink(parsed, { partner: role === 'partner' })) break;
+        if (parsed.params.tool_id === 'parenting' && openParentingDeeplink(parsed, { partner: useUserStore.getState().role === 'partner' })) break;
         setPendingWidgetAction(parsed.params.widget_action);
         setActiveTab('tools');
         setActiveTool((current) => {

@@ -41,6 +41,14 @@ export interface PartnerChild {
   gender: 'boy' | 'girl' | null;
   avatar_emoji: string | null;
   is_current: boolean;
+  /** Original due date (migration 20261109090000): a preterm baby's Tərbiyə milestone check uses corrected age. */
+  due_date: string | null;
+}
+
+/** Rows of partner_children_v1; an older function without due_date gives null (calendar age). */
+export function normalizePartnerChildren(rows: unknown[]): PartnerChild[] {
+  return rows.filter((r): r is PartnerChild => !!r && typeof r === 'object' && typeof (r as PartnerChild).id === 'string')
+    .map((r) => ({ ...r, due_date: typeof r.due_date === 'string' && /^\d{4}-\d{2}-\d{2}/.test(r.due_date) ? r.due_date.slice(0, 10) : null }));
 }
 
 export interface PartnerDailyLog {
@@ -113,7 +121,7 @@ export const usePartnerData = () => {
 
         // All of her active children (a missing RPC on an older backend just leaves the list empty).
         const { data: kids, error: kidsError } = await (supabase as any).rpc('partner_children_v1');
-        if (!kidsError && Array.isArray(kids)) setPartnerChildren(kids as PartnerChild[]);
+        if (!kidsError && Array.isArray(kids)) setPartnerChildren(normalizePartnerChildren(kids));
       }
     } catch (err) {
       console.error('Error in fetchPartnerData:', err);
