@@ -6,7 +6,7 @@
   var LANGS = ['az', 'en', 'tr', 'ru', 'kk', 'uz', 'ka', 'de', 'ar', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'];
   var API = 'https://api.anacan.az/functions/v1/dodo-checkout';
   var WEB_SHOP = 'https://api.anacan.az/functions/v1/web-shop';
-  var PRICES = { monthly: 2.22, yearly: 15.55 };
+  var PRICES = { monthly: 3.99, yearly: 29.99 };  // Dodo live products (USD)
   var CURRENCY = 'USD';
   var provider = 'dodo'; // 'epoint' when web-shop reports the AZN passes as ready
   var APP_STORE = 'https://apps.apple.com/app/anacan/id6758301924';
