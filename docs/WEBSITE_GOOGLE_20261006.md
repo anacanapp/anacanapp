@@ -198,3 +198,10 @@ handoff-a daxil edilmir.
   carries website assets/az shell and `/usr/share/nginx/website/website/partners/`.
 - Facts in news are limited to owner-confirmed items and the The Tech article (22.10.2026); program acceptance dates
   and the Inmerge/Anthropic relationship still need owner confirmation before any news mentions them.
+- 2026-11-10 (later): owner-confirmed dates (Microsoft 3 Jul, Google 5 Jul, Anthropic 1 Sep), AWS Activate and Inmerge
+  summit items; minimal 1200x630 covers from `scripts/website/news-covers.mjs` (`public/website/news/<slug>.jpg`, also
+  og:image). Never show the Anacan logo inside a circle on the website: use `/website/brand-glyph-coral.png`.
+  Compact scale tokens live on `.anacan-public-website` (`--site-section-gap`, `--site-card-pad`, `--site-control-h`…).
+  Live: website `832ce991…` (rollback `website-runtime-plan.before-compact.json`), gateway `0cff031c…`
+  (plan `compact-web-plan.json`, rollback `rollback-compact-web-plan.json`). Gateway copies only `website/news`,
+  `website/partners` and `brand-glyph-coral.png` into `/usr/share/nginx/website/website/`.
