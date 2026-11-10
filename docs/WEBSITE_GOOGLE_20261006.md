@@ -249,3 +249,8 @@ handoff-a daxil edilmir.
   `campaign-before-1111.json`). Page `/website/premium/1111/` shows USD at 1 USD = 1.70 AZN ($11.11 / $29.99) and states
   the AZN charge; `kampaniya.js?v=7` forwards to it on 11.11 (Baku) and for bank returns. Gateway `9001e19b…` (plan
   `c1111-web-plan.json`, rollback `rollback-c1111-web-plan.json` → `6fe1793d…`). Poz-Aç redesign (scratch card, 11 reasons, yearly only): gateway `6edca313…` (plan `c1111poz-web-plan.json`, rollback `rollback-c1111poz-web-plan.json` → `9001e19b…`).
+- 2026-11-10: 11.11 page in en/tr/kk/uz (Dodo, USD; `?lang=` switcher; Asia/Baku timezone or -AZ locale stays az/Epoint).
+  dodo-checkout applies `app_settings.dodo_campaign` {code 1111, yearly, 11 Nov Baku} when the page sends
+  `campaign:'1111'` (functions image `ba6d3524…`, script `functions-dodo-campaign.py`, env unchanged). Dodo funnel
+  shows live prices $3.99/$29.99. Gateway `6518f8cb…` (plan `c1111i18n-web-plan.json`, rollback
+  `rollback-c1111i18n-web-plan.json` → `6edca313…`).
