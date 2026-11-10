@@ -11,6 +11,8 @@ const SHOP_META={
 /** Azerbaijani-only news list; detail pages use the item title and lead. */
 const NEWS_META=['Anacan xəbərləri','Anacan-dan son yeniliklər: dəstək proqramları, tərəfdaşlıqlar, yeni dillər və yeni funksiyalar.'] as const;
 import { discoveryLinks, markdownPath } from './discovery';
+import { isToolPage, toolAlternateLanguages, toolMeta, toolXDefaultPath } from './tools/tool-routes';
+import { toolSchemaNodes } from './tools/tool-schema';
 
 const ORGANIZATION_ID=WEBSITE_ORIGIN+'/#organization';
 const WEBSITE_ID=WEBSITE_ORIGIN+'/#website';
@@ -26,21 +28,23 @@ export function websiteMeta(boot:WebsiteBoot) {
   const labels=keys[kind]||keys.home!,copy={...boot.copy,...boot.details};
   const detail=(DETAIL_PAGES as readonly string[]).includes(kind);
   const news=kind==='newsArticle'?findNews(boot.route.slug):undefined;
-  const shop=isShopPage(kind)?SHOP_META[kind]:kind==='news'?NEWS_META:news?[news.title,news.lead] as const:undefined;
+  const tool=toolMeta(boot.route,{home:boot.copy.home,tools:boot.copy.tools});
+  const shop=isShopPage(kind)?SHOP_META[kind]:kind==='news'?NEWS_META:news?[news.title,news.lead] as const:tool?[tool.title,tool.description] as const:undefined;
   const title=shop?shop[0]:kind==='article'?boot.article?.seoTitle||copy.notFound:detail?copy[`${kind}Title` as WebsiteCopyKey]:copy[labels[0]];
   const description=shop?shop[1]:kind==='article'?boot.article?.seoDescription||copy.notFoundDescription:detail?copy[`${kind}Description` as WebsiteCopyKey]:copy[labels[1]];
   const suffix=boot.route.kind==='journal'&&(boot.route.page||1)>1?` — ${boot.copy.page.replace('{count}',String(boot.route.page))}`:'';
   const canonical=WEBSITE_ORIGIN+routePath(boot.route);
   const image=new URL(boot.article?.cover||(news?newsCover(news).src:'/website/og-cover.jpg'),WEBSITE_ORIGIN).href;
-  const available=boot.route.kind==='article'?WEBSITE_LANGUAGES.filter(item=>boot.article?.slugs[item.code]):isAzOnlyPage(kind)?WEBSITE_LANGUAGES.filter(item=>item.code==='az'):WEBSITE_LANGUAGES;
+  const available=boot.route.kind==='article'?WEBSITE_LANGUAGES.filter(item=>boot.article?.slugs[item.code]):isAzOnlyPage(kind)?WEBSITE_LANGUAGES.filter(item=>item.code==='az'):isToolPage(kind)?WEBSITE_LANGUAGES.filter(item=>toolAlternateLanguages(boot.route).includes(item.code)):WEBSITE_LANGUAGES;
   const alternates=available.map(({code,locale})=>({code,locale,url:WEBSITE_ORIGIN+alternateRoute(boot.route,code,boot.article)}));
-  alternates.push({code:'x-default' as WebsiteLanguageCode,locale:'az-AZ',url:WEBSITE_ORIGIN+(alternateRoute(boot.route,'az',boot.article)||sitePath('az'))});
+  alternates.push({code:'x-default' as WebsiteLanguageCode,locale:'az-AZ',url:WEBSITE_ORIGIN+((isToolPage(kind)?toolXDefaultPath(boot.route):undefined)||alternateRoute(boot.route,'az',boot.article)||sitePath('az'))});
   return {title:(title+suffix).includes('Anacan')?title+suffix:title+suffix+' | Anacan',description,canonical,image,
     imageAlt:boot.article?.coverAlt||news?.title||'Anacan',locale:WEBSITE_LANGUAGES.find(item=>item.code===boot.route.language)!.locale.replace('-','_'),alternates};
 }
 function faqs(boot:WebsiteBoot) {
   const {kind}=boot.route;
   if(kind==='article')return boot.article?.faq||[];
+  if(isToolPage(kind))return toolMeta(boot.route,{home:boot.copy.home,tools:boot.copy.tools})?.faq||[];
   const prefix=kind==='ovulation'?'ovulationFaq':kind==='dueDate'?'dueDateFaq':kind==='symptoms'?'symptomsFaq':'faq';
   const numbers=kind==='home'?[1,2,3,4,5]:kind==='faq'?[1,2,3,4,5,6,7,8]:kind==='ovulation'?[1,2,3,4]:kind==='dueDate'||kind==='symptoms'?[1,2]:kind==='tools'?[5,4]:[];
   return numbers.map(number=>({question:boot.copy[`${prefix}${number}Question` as WebsiteCopyKey],answer:boot.copy[`${prefix}${number}Answer` as WebsiteCopyKey]}));
@@ -50,10 +54,12 @@ export function websiteSchema(boot:WebsiteBoot) {
   graph.push({'@type':'Organization','@id':ORGANIZATION_ID,name:'Anacan',url:WEBSITE_ORIGIN,logo:{'@type':'ImageObject',url:WEBSITE_ORIGIN+'/website/brand-mark-coral.png'},legalName:'ANACAN, MMC',
     email:'info@anacan.az',sameAs:['https://instagram.com/anacanapp','https://facebook.com/anacanapp','https://youtube.com/@anacanapp']});
   graph.push({'@type':'WebSite','@id':WEBSITE_ID,name:'Anacan',url:WEBSITE_ORIGIN,publisher:{'@id':ORGANIZATION_ID},inLanguage:WEBSITE_LANGUAGES.map(item=>item.code)});
-  graph.push({'@type':boot.route.kind==='journal'||boot.route.kind==='news'?'CollectionPage':boot.route.kind==='contact'?'ContactPage':'WebPage','@id':meta.canonical+'#webpage',url:meta.canonical,
+  const tool=toolMeta(boot.route,{home:boot.copy.home,tools:boot.copy.tools});
+  graph.push({'@type':tool?tool.pageType:boot.route.kind==='journal'||boot.route.kind==='news'?'CollectionPage':boot.route.kind==='contact'?'ContactPage':'WebPage','@id':meta.canonical+'#webpage',url:meta.canonical,
     name:meta.title,description:meta.description,inLanguage:language,isPartOf:{'@id':WEBSITE_ID},publisher:{'@id':ORGANIZATION_ID},isAccessibleForFree:true,
     about:{'@id':APP_ID},encoding:{'@type':'MediaObject',encodingFormat:'text/markdown',contentUrl:WEBSITE_ORIGIN+markdownPath(boot.route),inLanguage:language}});
-  if(boot.route.kind!=='home'&&boot.route.kind!=='notFound'){
+  if(tool)graph.push(...toolSchemaNodes(boot.route,tool,meta.canonical));
+  else if(boot.route.kind!=='home'&&boot.route.kind!=='notFound'){
     const items=[{'@type':'ListItem',position:1,name:boot.copy.home,item:WEBSITE_ORIGIN+sitePath(language)}];
     if(boot.route.kind==='article')items.push({'@type':'ListItem',position:2,name:boot.copy.journal,item:WEBSITE_ORIGIN+sitePath(language,'journal')});
     if(boot.route.kind==='newsArticle')items.push({'@type':'ListItem',position:2,name:'Xəbərlər',item:WEBSITE_ORIGIN+sitePath('az','news')});

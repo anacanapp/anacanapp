@@ -2,7 +2,7 @@ import {createServer} from 'node:http';
 import {readFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import * as renderer from './renderer.mjs';
-import {renderWebsite,renderArticleContent,resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE_ORIGIN,APP_LANGUAGES,renderLlmDocument,renderLlmIndex,renderLlmHub,renderLlmManifest,renderLlmJournal,discoveryLinks,discoveryLinkHeader,markdownPath,NEWS} from './renderer.mjs';
+import {renderWebsite,renderArticleContent,resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE_ORIGIN,APP_LANGUAGES,renderLlmDocument,renderLlmIndex,renderLlmHub,renderLlmManifest,renderLlmJournal,discoveryLinks,discoveryLinkHeader,markdownPath,NEWS,toolSitemapEntries} from './renderer.mjs';
 import {renderWebsiteHtml} from './prerender.mjs';
 import {websiteRobots,sitemapIndex,sitemapEntries} from './llm-policy.mjs';
 import {createLlmRuntime} from './llm-runtime.mjs';
@@ -89,6 +89,8 @@ async function articleFor(summary,language) {
   if(articles.size>128)articles.delete(articles.keys().next().value);
   return value;
 }
+// Tool pages (names az/ka, AZ dekret calculator) with their own hreflang alternates, from the renderer.
+const toolEntries=toolSitemapEntries();
 // Azerbaijani-only news pages (no other-language alternates), data from src/website/news.ts.
 const newsEntries=generatedAt=>[{path:sitePath('az','news'),updated:NEWS[0]?.date||generatedAt},...NEWS.map(item=>({path:sitePath('az','newsArticle',item.slug),updated:item.date}))];
 const escape=value=>String(value).replace(/[&<>"']/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
@@ -98,9 +100,10 @@ async function sitemap(kind) {
     if(kind==='articles')for(const article of data.articles)entries.push({path:sitePath(code,'article',article.slug),updated:article.updatedAt,slugs:article.slugs,kind:'article'});
     else{for(const type of ['home',...Object.keys(PAGE_SLUGS[code])])entries.push({path:sitePath(code,type),updated:data.generatedAt,kind:type});
       for(let page=2;page<=Math.ceil(data.articles.length/12);page++)entries.push({path:sitePath(code,'journal',undefined,page),updated:data.generatedAt,kind:'journal',page});
-      if(code==='az')for(const item of newsEntries(data.generatedAt))entries.push({...item,azOnly:true});}
+      if(code==='az')for(const item of newsEntries(data.generatedAt))entries.push({...item,azOnly:true});
+      for(const item of toolEntries.filter(entry=>entry.language===code))entries.push({path:item.path,updated:item.updated,alternates:item.alternates});}
   }
-  return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${entries.map(item=>`<url><loc>${escape(WEBSITE_ORIGIN+item.path)}</loc><lastmod>${item.updated.slice(0,10)}</lastmod>${[...APP_LANGUAGES.map(value=>value.code),'x-default'].flatMap(code=>{const lang=code==='x-default'?'az':code,url=item.azOnly?(lang==='az'?item.path:undefined):item.kind==='article'?item.slugs[lang]&&sitePath(lang,'article',item.slugs[lang]):sitePath(lang,item.kind,undefined,item.page);return url?[`<xhtml:link rel="alternate" hreflang="${code}" href="${escape(WEBSITE_ORIGIN+url)}"/>`]:[];}).join('')}</url>`).join('')}</urlset>`;
+  return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${entries.map(item=>`<url><loc>${escape(WEBSITE_ORIGIN+item.path)}</loc><lastmod>${item.updated.slice(0,10)}</lastmod>${item.alternates?item.alternates.map(link=>`<xhtml:link rel="alternate" hreflang="${link.code}" href="${escape(WEBSITE_ORIGIN+link.path)}"/>`).join(''):[...APP_LANGUAGES.map(value=>value.code),'x-default'].flatMap(code=>{const lang=code==='x-default'?'az':code,url=item.azOnly?(lang==='az'?item.path:undefined):item.kind==='article'?item.slugs[lang]&&sitePath(lang,'article',item.slugs[lang]):sitePath(lang,item.kind,undefined,item.page);return url?[`<xhtml:link rel="alternate" hreflang="${code}" href="${escape(WEBSITE_ORIGIN+url)}"/>`]:[];}).join('')}</url>`).join('')}</urlset>`;
 }
 function reply(response,status,body,type='text/html; charset=utf-8',headers={}) {response.writeHead(status,{'Content-Type':type,'Cache-Control':'public, max-age=0, must-revalidate',...headers});response.end(body);}
 const publishedPageKinds=['home',...Object.keys(PAGE_SLUGS.az)];
@@ -112,6 +115,8 @@ async function localeSitemap(language) {
     alternates:[...APP_LANGUAGES.map(({code})=>({code,url:WEBSITE_ORIGIN+sitePath(code,'journal',undefined,page)})),{code:'x-default',url:WEBSITE_ORIGIN+sitePath('az','journal',undefined,page)}]});
   if(language==='az')for(const item of newsEntries(data.generatedAt))entries.push({url:WEBSITE_ORIGIN+item.path,updatedAt:item.updated,
     alternates:[{code:'az',url:WEBSITE_ORIGIN+item.path},{code:'x-default',url:WEBSITE_ORIGIN+item.path}]});
+  for(const item of toolEntries.filter(entry=>entry.language===language))entries.push({url:WEBSITE_ORIGIN+item.path,updatedAt:item.updated,
+    alternates:item.alternates.map(link=>({code:link.code,url:WEBSITE_ORIGIN+link.path}))});
   for(const article of data.articles)entries.push({url:WEBSITE_ORIGIN+sitePath(language,'article',article.slug),updatedAt:article.updatedAt,
     alternates:[...APP_LANGUAGES.filter(item=>article.slugs[item.code]).map(({code})=>({code,url:WEBSITE_ORIGIN+sitePath(code,'article',article.slugs[code])})),{code:'x-default',url:WEBSITE_ORIGIN+sitePath('az','article',article.slugs.az)}]});
   return sitemapEntries(entries);

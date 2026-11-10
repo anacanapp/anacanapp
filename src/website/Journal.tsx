@@ -9,6 +9,7 @@ import { WEBSITE_ORIGIN, sitePath } from './routes';
 import { refreshGoogleArticles } from './api';
 import {siteDate} from './dates';
 import {renderArticleContent} from './article-content';
+import { ArticleToolLink } from './tools/ToolLinks';
 
 export const JOURNAL_PAGE_SIZE=12;
 function queryState() {
@@ -69,6 +70,7 @@ export function ArticlePage() {
       {article.cover&&<img className="site-article-cover" src={article.cover} width="1200" height="630" alt={article.coverAlt} fetchPriority="high" decoding="async"/>}
       <div className="site-article-reader"><aside><nav className="site-toc" aria-label={t('toc')}><h2>{t('toc')}</h2><ol>{rendered.headings.map(heading=><li key={heading.id}><a href={`#${heading.id}`}>{heading.title}</a></li>)}</ol></nav></aside><div>
         <BlogContent content={rendered.content} prepared className="site-prose"/>
+        <ArticleToolLink articleId={article.id}/>
         {!!article.faq.length&&<section className="site-article-section"><h2>{t('faq')}</h2><div className="site-faq-list">{article.faq.map(faq=><details key={faq.question}><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></section>}
         {!!article.modules.length&&<section className="site-article-section"><h2>{t('modules')}</h2><div className="site-article-tags">{article.modules.map(module=><a key={module} className="site-outline-button" href={`https://app.anacan.az/?blog_module=${encodeURIComponent(module)}&blog_language=${route.language}`}>{t(module as WebsiteCopyKey)}<Arrow diagonal/></a>)}</div></section>}
         {!!article.references.length&&<section className="site-article-section site-references"><h2>{t('references')}</h2><ul>{article.references.map(reference=><li key={reference.url}><a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.title}<Arrow diagonal/></a></li>)}</ul></section>}

@@ -4,6 +4,7 @@ import type { WebsiteBoot, WebsiteCopy } from './model';
 import { previewPrefix, resolveWebsiteRoute } from './routes';
 import { readWebsiteArticle, readWebsiteCatalog } from './api';
 import { updateWebsiteHead } from './seo';
+import { preloadToolData } from './tools/tool-data-client';
 import './website.css';
 
 const copies=import.meta.glob('./copy/*.json',{import:'default'});
@@ -14,6 +15,8 @@ export async function startWebsite() {
   const container=document.getElementById('root')!;
   let boot:WebsiteBoot|undefined;
   try{const parsed=JSON.parse(document.getElementById('anacan-website-boot')?.textContent||'null');if(parsed?.schema==='anacan-website-boot-v1')boot=parsed;}catch{/* The public fallback below reads only published data. */}
+  // Tool pages (names, dekret) keep their data in lazy chunks; load the one this URL needs before routing.
+  try{await preloadToolData(window.location.pathname);}catch{/* the route then resolves to the 404 page */}
   const knownArticles=boot?.article?[boot.article]:boot?[]:(await import('./article-routes.json')).default;
   const resolved=resolveWebsiteRoute(window.location.pathname,knownArticles);
   if(resolved.redirect){window.location.replace(previewPrefix(window.location.pathname)+resolved.redirect+window.location.search+window.location.hash);return;}

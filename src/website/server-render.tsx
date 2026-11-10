@@ -1,3 +1,4 @@
+import './tools/tool-data-server';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import Website from './Website';
@@ -15,6 +16,9 @@ export {prepareBlogContent};
 /** Azerbaijani-only news (/az/xeberler/…): listed in the pages and az sitemaps with az-only hreflang. */
 export {NEWS} from './news';
 export {renderArticleContent} from './article-content';
+/** Tool pages (baby names az/ka, AZ dekret calculator) for the pages and locale sitemaps; each entry
+ * carries its own hreflang alternates (names details and letters are single-language). */
+export {toolSitemapEntries} from './tools/tool-routes';
 export {LLM_COPY,LLM_FORMAT_VERSION,LLM_PAGE_KINDS,llmLanguageName,renderLlmDocument,renderLlmFullHeader,renderLlmHub,renderLlmIndex,renderLlmJournal,renderLlmManifest} from './llm-content';
 export {discoveryLinkHeader,discoveryLinks,llmFullPath,llmIndexPath,localeSitemapPath,markdownPath} from './discovery';
 export function renderWebsite(boot:WebsiteBoot) {

@@ -1,6 +1,7 @@
 import { WEBSITE_LANGUAGE_CODES_ALL, isWebsiteLanguage, type WebsiteLanguageCode } from '../lib/app-languages.ts';
 import detailRoutes from './detail-routes.json' with {type:'json'};
 import { findNews } from './news';
+import { isToolPage, resolveToolRoute, toolAlternatePath, toolSitePath, type ToolPage } from './tools/tool-routes';
 
 export const WEBSITE_ORIGIN = 'https://anacan.az';
 export const WEBSITE_PREVIEW_PREFIX = '/site';
@@ -19,8 +20,10 @@ export type NewsPage='news'|'newsArticle';
 export const isNewsPage=(kind:string):kind is NewsPage=>kind==='news'||kind==='newsArticle';
 /** Pages that exist only under /az/ (no other-language alternates). */
 export const isAzOnlyPage=(kind:string)=>isShopPage(kind)||isNewsPage(kind);
-export type WebsitePage = ShopPage | NewsPage | 'home' | 'journal' | 'tools' | 'ovulation' | 'dueDate' | 'symptoms' | 'features' | 'faq' | 'contact' | 'download' | 'privacy' | 'terms' | 'simulator' | 'article' | 'notFound' | DetailPage;
-export type StaticPage = Exclude<WebsitePage, 'home' | 'article' | 'notFound' | ShopPage | NewsPage>;
+/** Tool pages (baby names in enabled languages, AZ dekret calculator): see tools/tool-routes.ts. */
+export { isToolPage, type ToolPage };
+export type WebsitePage = ShopPage | NewsPage | ToolPage | 'home' | 'journal' | 'tools' | 'ovulation' | 'dueDate' | 'symptoms' | 'features' | 'faq' | 'contact' | 'download' | 'privacy' | 'terms' | 'simulator' | 'article' | 'notFound' | DetailPage;
+export type StaticPage = Exclude<WebsitePage, 'home' | 'article' | 'notFound' | ShopPage | NewsPage | ToolPage>;
 type CoreStaticPage=Exclude<StaticPage,DetailPage>;
 
 /** Public URLs are a published contract, independent of translated UI copy. */
@@ -64,6 +67,7 @@ export function sitePath(language: WebsiteLanguageCode, kind: WebsitePage = 'hom
     if (!validWebsiteSlug(slug)) throw new Error('WEBSITE_NEWS_SLUG_REQUIRED');
     return `/az/${NEWS_SLUG}/${encodeURIComponent(slug)}/`;
   }
+  if (isToolPage(kind)) return toolSitePath(language, kind, slug);
   const segment = encodeURIComponent(PAGE_SLUGS[language][kind]);
   return `/${language}/${segment}/${kind === 'journal' && page > 1 ? page + '/' : ''}`;
 }
@@ -84,6 +88,7 @@ export function routePath(route: WebsiteRoute) { return sitePath(route.language,
 export function alternateRoute(route: WebsiteRoute, language: WebsiteLanguageCode, article?: ArticleRoute): string | undefined {
   if (route.kind === 'article') return article?.slugs[language] ? sitePath(language, 'article', article.slugs[language]) : undefined;
   if (isAzOnlyPage(route.kind)) return language === 'az' ? sitePath('az', route.kind, route.slug) : undefined;
+  if (isToolPage(route.kind)) return toolAlternatePath(route, language);
   return sitePath(language, route.kind, undefined, route.page);
 }
 export function previewPrefix(pathname: string): string { return /^\/site(?:\/|$)/.test(pathname) ? WEBSITE_PREVIEW_PREFIX : ''; }
@@ -123,6 +128,9 @@ export function resolveWebsiteRoute(pathname: string, articles: readonly Article
     if (!item) return {route:{language,kind:'notFound'}};
     return {route:{language,kind:'newsArticle',slug:item.slug},...(!raw.endsWith('/') ? {redirect:sitePath('az','newsArticle',item.slug)} : {})};
   }
+  const tool = resolveToolRoute(language, rest);
+  if (tool) return tool.kind === 'notFound' ? {route:{language,kind:'notFound'}}
+    : {route:{language,kind:tool.kind,...(tool.slug ? {slug:tool.slug} : {})},...(!raw.endsWith('/') ? {redirect:sitePath(language,tool.kind,tool.slug)} : {})};
   const kind = (Object.entries(PAGE_SLUGS[language]) as Array<[StaticPage,string]>).find(([, slug]) => slug === rest[0])?.[0];
   if (kind && (rest.length === 1 || kind === 'journal' && rest.length === 2 && /^[1-9]\d*$/.test(rest[1]))) {
     const page = kind === 'journal' && rest[1] ? Number(rest[1]) : 1;

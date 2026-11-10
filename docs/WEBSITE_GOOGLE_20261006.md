@@ -205,3 +205,20 @@ handoff-a daxil edilmir.
   Live: website `832ce991…` (rollback `website-runtime-plan.before-compact.json`), gateway `0cff031c…`
   (plan `compact-web-plan.json`, rollback `rollback-compact-web-plan.json`). Gateway copies only `website/news`,
   `website/partners` and `brand-glyph-coral.png` into `/usr/share/nginx/website/website/`.
+
+## Uşaq adları and dekret pulu kalkulyatoru (2026-11-10, not deployed)
+
+- Code: `src/website/tools/` (texts inline, no copy keys). Names data are bundled snapshots of the app's
+  `baby_names_db` (`tools/data/names-<lang>.json`, rows with a meaning only; Dəniz/Ülvi duplicates merged, origin
+  `Yun`→`Yunan`, long dashes in ka meanings → comma). The browser loads the data chunk before hydration
+  (`tool-data-client.ts`); the SSR renderer registers everything at import (`tool-data-server.ts`).
+- Names: enabled languages `NAMES_ENABLED = ['az','ka']` (tr/ru/kk/en prepared, 404 until enabled). az: `/az/usaq-adlari/`,
+  `qiz-adlari/`, `oglan-adlari/`, `herf/<letter>/` (letters with ≥5 names), `/<name-slug>/`; ka: `/ka/ბავშვის-სახელები/…`
+  (`გოგოს-სახელები`, `ბიჭის-სახელები`, `ასო/<letter>/`). az letter slugs keep every letter distinct: ç→ch, ə→ae, ğ→gh,
+  ı→ii, ö→oe, ş→sh, ü→ue. hreflang only hub↔hub and gender list↔gender list.
+- Dekret: `/az/dekret-pulu-kalkulyatoru/`, days/percentage from `src/data/maternityRules.ts` (AZ). Multiple births use
+  70 + 70 per Əmək Məcəlləsi 125.1 (`MULTIPLE_BIRTH_BASIS` in `tools/dekret.ts`); the AZ rule's 84 + 110 needs review.
+- Sitemaps: `toolSitemapEntries()` from the renderer feeds `sitemap-pages.xml` and `sitemap-az/ka.xml` (server.mjs).
+  The static prerender does not emit these pages (SSR only, like news). Runtime image must ship server and renderer together.
+- "Tətbiqdə aç": iOS `anacan://tool/<id>?src=…`, Android `intent://…;package=com.atlasoon.anacan;S.browser_fallback_url=<Play>`,
+  desktop/no-JS → `/<lang>/yukle/`. Tool ids `names`, `maternity-calculator`.

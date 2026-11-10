@@ -6,9 +6,10 @@ import { Arrow, DownloadCard, FaqList, Intro, StoreLinks, ToolCards, SectionHead
 import { FeatureGrid, StageCards } from './Home';
 import { WEBSITE_ORIGIN, sitePath } from './routes';
 import type { WebsiteCopyKey } from './model';
+import { ToolPageLinks } from './tools/ToolLinks';
 
 export function ToolsPage() {
-  return <><Intro title="toolsTitle" description="toolsDescription" eyebrow="toolsEyebrow"/><ToolCards/><section className="site-section site-faq-section"><SectionHeading title="faq" description="faqDescription"/><FaqList keys={[5,4]}/></section><DownloadCard/></>;
+  return <><Intro title="toolsTitle" description="toolsDescription" eyebrow="toolsEyebrow"/><ToolCards/><ToolPageLinks/><section className="site-section site-faq-section"><SectionHeading title="faq" description="faqDescription"/><FaqList keys={[5,4]}/></section><DownloadCard/></>;
 }
 export function FeaturesPage() {
   return <><Intro title="featuresTitle" description="featuresIntro" eyebrow="featureEyebrow"/><StageCards/><section className="site-section"><SectionHeading title="featureTitle" description="featureDescription"/><FeatureGrid/></section><DownloadCard/></>;
