@@ -12,14 +12,16 @@ import { useWebsite } from '../context';
 import { Arrow, Eyebrow } from '../components';
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from '../routes';
 
-export type AppToolId = 'names' | 'maternity-calculator';
-const LABELS = {
-  az: { eyebrow: 'Anacan tətbiqi', open: 'Tətbiqdə aç', fallback: 'Tətbiq açılmadısa, yəqin ki, hələ telefonunuzda yoxdur. Yükləyin:', store: 'Yüklə' },
-  ka: { eyebrow: 'Anacan აპლიკაცია', open: 'აპლიკაციაში გახსნა', fallback: 'თუ აპლიკაცია არ გაიხსნა, ალბათ ჯერ არ გაქვთ დაინსტალირებული. ჩამოტვირთეთ:', store: 'ჩამოტვირთვა' },
-} as const;
+/** App tools (anacan://tool/<id>) plus the calendar screen (anacan://calendar), which has no tool id. */
+export type AppToolId = 'names' | 'maternity-calculator' | 'weight' | 'baby-growth' | 'calendar';
+export interface AppOpenLabels { eyebrow: string; open: string; fallback: string }
+const LABELS: Record<'az' | 'ka', AppOpenLabels> = {
+  az: { eyebrow: 'Anacan tətbiqi', open: 'Tətbiqdə aç', fallback: 'Tətbiq açılmadısa, yəqin ki, hələ telefonunuzda yoxdur. Yükləyin:' },
+  ka: { eyebrow: 'Anacan აპლიკაცია', open: 'აპლიკაციაში გახსნა', fallback: 'თუ აპლიკაცია არ გაიხსნა, ალბათ ჯერ არ გაქვთ დაინსტალირებული. ჩამოტვირთეთ:' },
+};
 
 export function appDeepLinks(tool: AppToolId, src: string) {
-  const path = `tool/${tool}?src=${encodeURIComponent(src)}`;
+  const path = `${tool === 'calendar' ? 'calendar' : `tool/${tool}`}?src=${encodeURIComponent(src)}`;
   return {
     scheme: `anacan://${path}`,
     intent: `intent://${path}#Intent;scheme=anacan;package=com.atlasoon.anacan;S.browser_fallback_url=${encodeURIComponent(GOOGLE_PLAY_URL)};end`,
@@ -32,9 +34,10 @@ function platform(): 'ios' | 'android' | 'desktop' {
   return 'desktop';
 }
 
-export function AppToolCard({ tool, src, title, text, features }: { tool: AppToolId; src: string; title: string; text: string; features: string[] }) {
+/** `labels` lets pages in other languages pass their own button texts (az/ka are built in). */
+export function AppToolCard({ tool, src, title, text, features, labels: custom }: { tool: AppToolId; src: string; title: string; text: string; features: string[]; labels?: AppOpenLabels }) {
   const { href, route } = useWebsite();
-  const labels = route.language === 'ka' ? LABELS.ka : LABELS.az;
+  const labels = custom || (route.language === 'ka' ? LABELS.ka : LABELS.az);
   const [fallback, setFallback] = useState<'ios' | 'android' | null>(null);
   const open = (event: React.MouseEvent<HTMLAnchorElement>) => {
     const device = platform();

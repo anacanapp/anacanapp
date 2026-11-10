@@ -1,6 +1,6 @@
 import { WEBSITE_LANGUAGES, type WebsiteLanguageCode } from '../lib/app-languages';
 import type { WebsiteBoot, WebsiteCopyKey } from './model';
-import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN,DETAIL_PAGES,type DetailPage,isShopPage,isAzOnlyPage } from './routes';
+import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN,DETAIL_PAGES,type DetailPage,isShopPage,isAzOnlyPage,isCalcPage } from './routes';
 import { findNews, NEWS, newsCover } from './news';
 
 /** Azerbaijani-only shop pages (Kitablar, Tortlar): their own copy, no other-language alternates. */
@@ -13,6 +13,7 @@ const NEWS_META=['Anacan xəbərləri','Anacan-dan son yeniliklər: dəstək pro
 import { discoveryLinks, markdownPath } from './discovery';
 import { isToolPage, toolAlternateLanguages, toolMeta, toolXDefaultPath } from './tools/tool-routes';
 import { toolSchemaNodes } from './tools/tool-schema';
+import { calcContent } from './calc-content';
 
 const ORGANIZATION_ID=WEBSITE_ORIGIN+'/#organization';
 const WEBSITE_ID=WEBSITE_ORIGIN+'/#website';
@@ -29,7 +30,8 @@ export function websiteMeta(boot:WebsiteBoot) {
   const detail=(DETAIL_PAGES as readonly string[]).includes(kind);
   const news=kind==='newsArticle'?findNews(boot.route.slug):undefined;
   const tool=toolMeta(boot.route,{home:boot.copy.home,tools:boot.copy.tools});
-  const shop=isShopPage(kind)?SHOP_META[kind]:kind==='news'?NEWS_META:news?[news.title,news.lead] as const:tool?[tool.title,tool.description] as const:undefined;
+  const calc=isCalcPage(kind)?calcContent(boot.route.language)[kind]:undefined;
+  const shop=isShopPage(kind)?SHOP_META[kind]:kind==='news'?NEWS_META:news?[news.title,news.lead] as const:tool?[tool.title,tool.description] as const:calc?[calc.title,calc.description] as const:undefined;
   const title=shop?shop[0]:kind==='article'?boot.article?.seoTitle||copy.notFound:detail?copy[`${kind}Title` as WebsiteCopyKey]:copy[labels[0]];
   const description=shop?shop[1]:kind==='article'?boot.article?.seoDescription||copy.notFoundDescription:detail?copy[`${kind}Description` as WebsiteCopyKey]:copy[labels[1]];
   const suffix=boot.route.kind==='journal'&&(boot.route.page||1)>1?` — ${boot.copy.page.replace('{count}',String(boot.route.page))}`:'';
@@ -45,6 +47,7 @@ function faqs(boot:WebsiteBoot) {
   const {kind}=boot.route;
   if(kind==='article')return boot.article?.faq||[];
   if(isToolPage(kind))return toolMeta(boot.route,{home:boot.copy.home,tools:boot.copy.tools})?.faq||[];
+  if(isCalcPage(kind))return calcContent(boot.route.language)[kind].faq.map(item=>({question:item.q,answer:item.a}));
   const prefix=kind==='ovulation'?'ovulationFaq':kind==='dueDate'?'dueDateFaq':kind==='symptoms'?'symptomsFaq':'faq';
   const numbers=kind==='home'?[1,2,3,4,5]:kind==='faq'?[1,2,3,4,5,6,7,8]:kind==='ovulation'?[1,2,3,4]:kind==='dueDate'||kind==='symptoms'?[1,2]:kind==='tools'?[5,4]:[];
   return numbers.map(number=>({question:boot.copy[`${prefix}${number}Question` as WebsiteCopyKey],answer:boot.copy[`${prefix}${number}Answer` as WebsiteCopyKey]}));
@@ -63,7 +66,9 @@ export function websiteSchema(boot:WebsiteBoot) {
     const items=[{'@type':'ListItem',position:1,name:boot.copy.home,item:WEBSITE_ORIGIN+sitePath(language)}];
     if(boot.route.kind==='article')items.push({'@type':'ListItem',position:2,name:boot.copy.journal,item:WEBSITE_ORIGIN+sitePath(language,'journal')});
     if(boot.route.kind==='newsArticle')items.push({'@type':'ListItem',position:2,name:'Xəbərlər',item:WEBSITE_ORIGIN+sitePath('az','news')});
-    items.push({'@type':'ListItem',position:items.length+1,name:boot.article?.title||meta.title,item:meta.canonical});
+    const calc=isCalcPage(boot.route.kind)?calcContent(language)[boot.route.kind]:undefined;
+    if(calc)items.push({'@type':'ListItem',position:2,name:boot.copy.tools,item:WEBSITE_ORIGIN+sitePath(language,'tools')});
+    items.push({'@type':'ListItem',position:items.length+1,name:calc?.name||boot.article?.title||meta.title,item:meta.canonical});
     graph.push({'@type':'BreadcrumbList','@id':meta.canonical+'#breadcrumb',itemListElement:items});
   }
   if(boot.route.kind==='article'&&boot.article){
@@ -89,6 +94,9 @@ export function websiteSchema(boot:WebsiteBoot) {
   if(questions.length)graph.push({'@type':'FAQPage','@id':meta.canonical+'#faq',inLanguage:language,mainEntity:questions.map(item=>({'@type':'Question',name:item.question,acceptedAnswer:{'@type':'Answer',text:item.answer}}))});
   if(['ovulation','dueDate'].includes(boot.route.kind))graph.push({'@type':'WebApplication','@id':meta.canonical+'#calculator',name:boot.copy[boot.route.kind==='ovulation'?'ovulation':'dueDate'],
     url:meta.canonical,applicationCategory:'HealthApplication',operatingSystem:'Any',inLanguage:language,isAccessibleForFree:true,offers:{'@type':'Offer',price:'0',priceCurrency:'USD'}});
+  if(isCalcPage(boot.route.kind))graph.push({'@type':'WebApplication','@id':meta.canonical+'#calculator',name:calcContent(language)[boot.route.kind].name,description:meta.description,
+    url:meta.canonical,applicationCategory:'HealthApplication',operatingSystem:'Any',browserRequirements:'Requires JavaScript',inLanguage:language,isAccessibleForFree:true,
+    offers:{'@type':'Offer',price:'0',priceCurrency:'USD'},publisher:{'@id':ORGANIZATION_ID}});
   graph.push({'@type':'MobileApplication','@id':APP_ID,name:'Anacan',alternateName:'Anacan: Flow, Pregnancy & Baby',description:boot.copy.faq1Answer,
     applicationCategory:'HealthApplication',operatingSystem:['iOS','Android'],url:WEBSITE_ORIGIN+sitePath(language,'features'),downloadUrl:[APP_STORE_URL,GOOGLE_PLAY_URL],
     sameAs:[APP_STORE_URL,GOOGLE_PLAY_URL],

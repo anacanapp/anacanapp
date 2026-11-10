@@ -7,9 +7,10 @@ import { FeatureGrid, StageCards } from './Home';
 import { WEBSITE_ORIGIN, sitePath } from './routes';
 import type { WebsiteCopyKey } from './model';
 import { ToolPageLinks } from './tools/ToolLinks';
+import { CalcHubCards } from './CalcPages';
 
 export function ToolsPage() {
-  return <><Intro title="toolsTitle" description="toolsDescription" eyebrow="toolsEyebrow"/><ToolCards/><ToolPageLinks/><section className="site-section site-faq-section"><SectionHeading title="faq" description="faqDescription"/><FaqList keys={[5,4]}/></section><DownloadCard/></>;
+  return <><Intro title="toolsTitle" description="toolsDescription" eyebrow="toolsEyebrow"/><ToolCards/><CalcHubCards/><ToolPageLinks/><section className="site-section site-faq-section"><SectionHeading title="faq" description="faqDescription"/><FaqList keys={[5,4]}/></section><DownloadCard/></>;
 }
 export function FeaturesPage() {
   return <><Intro title="featuresTitle" description="featuresIntro" eyebrow="featureEyebrow"/><StageCards/><section className="site-section"><SectionHeading title="featureTitle" description="featureDescription"/><FeatureGrid/></section><DownloadCard/></>;

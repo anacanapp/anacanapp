@@ -6,7 +6,8 @@ import Journal, { ArticlePage } from './Journal';
 import CalculatorPage from './CalculatorPages';
 import { ContactPage, DownloadPage, FaqPage, FeaturesPage, LegalPage, NotFoundPage, SimulatorPage, SymptomsPage, ToolsPage } from './Pages';
 import DetailPageView from './DetailPage';
-import {DETAIL_PAGES,type DetailPage,isShopPage} from './routes';
+import {DETAIL_PAGES,type DetailPage,isShopPage,isCalcPage} from './routes';
+import CalcPageView from './CalcPages';
 import ShopPage from './Shop';
 import { NewsArticlePage, NewsListPage } from './News';
 import { isToolPage } from './tools/tool-routes';
@@ -15,7 +16,7 @@ import ToolPageView from './tools/ToolPages';
 export default function Website({boot}:{boot:WebsiteBoot}) {
   const page=boot.route.kind;
   return <WebsiteContext.Provider value={boot}><div className="anacan-website" lang={boot.route.language} dir={boot.route.language==='ar'?'rtl':'ltr'}><WebsiteHeader/><main id="main" className={`site-main site-page-${page}`}>
-    {(DETAIL_PAGES as readonly string[]).includes(page)?<DetailPageView kind={page as DetailPage}/>:isShopPage(page)?<ShopPage kind={page}/>:isToolPage(page)?<ToolPageView kind={page}/>:page==='news'?<NewsListPage/>:page==='newsArticle'?<NewsArticlePage/>:page==='home'?<Home/>:page==='journal'?<Journal/>:page==='article'?<ArticlePage/>:page==='ovulation'||page==='dueDate'?<CalculatorPage kind={page}/>:page==='tools'?<ToolsPage/>:page==='features'?<FeaturesPage/>:page==='faq'?<FaqPage/>:page==='contact'?<ContactPage/>:page==='download'?<DownloadPage/>:page==='privacy'||page==='terms'?<LegalPage kind={page}/>:page==='symptoms'?<SymptomsPage/>:page==='simulator'?<SimulatorPage/>:<NotFoundPage/>}
+    {(DETAIL_PAGES as readonly string[]).includes(page)?<DetailPageView kind={page as DetailPage}/>:isShopPage(page)?<ShopPage kind={page}/>:isToolPage(page)?<ToolPageView kind={page}/>:isCalcPage(page)?<CalcPageView kind={page}/>:page==='news'?<NewsListPage/>:page==='newsArticle'?<NewsArticlePage/>:page==='home'?<Home/>:page==='journal'?<Journal/>:page==='article'?<ArticlePage/>:page==='ovulation'||page==='dueDate'?<CalculatorPage kind={page}/>:page==='tools'?<ToolsPage/>:page==='features'?<FeaturesPage/>:page==='faq'?<FaqPage/>:page==='contact'?<ContactPage/>:page==='download'?<DownloadPage/>:page==='privacy'||page==='terms'?<LegalPage kind={page}/>:page==='symptoms'?<SymptomsPage/>:page==='simulator'?<SimulatorPage/>:<NotFoundPage/>}
     <LanguageLinks/>
   </main><WebsiteFooter/></div></WebsiteContext.Provider>;
 }
