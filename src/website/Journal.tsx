@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import Campaign1111Banner from './Campaign1111';
 import { Search, X, Link2 } from 'lucide-react';
 import BlogContent from '../components/blog/BlogContent';
 import { WEBSITE_LANGUAGES } from '../lib/app-languages';
@@ -41,7 +42,7 @@ export default function Journal() {
     for(const[name,item]of Object.entries(next))if(item)params.set(name,item);
     window.history.replaceState(null,'',href('journal')+(params.size?'?'+params.toString():''));
   };
-  return <><Intro title="journalTitle" description="journalDescription" eyebrow="journalEyebrow"/>
+  return <><Campaign1111Banner slot="journal" variant={2}/><Intro title="journalTitle" description="journalDescription" eyebrow="journalEyebrow"/>
     <form className="site-search" action={href('journal')} method="get" onSubmit={event=>event.preventDefault()}><Search size={21} strokeWidth={1.5} aria-hidden="true"/><label className="site-sr" htmlFor="journal-search">{t('search')}</label><input type="search" id="journal-search" name="q" value={filters.q} placeholder={t('searchPlaceholder')} onChange={event=>setFilter('q',event.target.value)}/>{filters.q&&<button type="button" onClick={()=>setFilter('q','')} aria-label={t('clearSearch')}><X size={18}/></button>}<button type="submit" className="site-outline-button">{t('searchAction')}<Arrow/></button></form>
     <div className="site-journal-filters"><div className="site-filter-tabs" aria-label={t('category')}><button onClick={()=>setFilter('category','')} aria-pressed={!filters.category}>{t('all')}</button>{[...new Set(articles.map(article=>article.category))].map(category=><button key={category} aria-pressed={filters.category===category} onClick={()=>setFilter('category',category)}>{t(categoryKey(category))}</button>)}</div><label className="site-stage-filter"><span className="site-sr">{t('stageTitle')}</span><select value={filters.stage} onChange={event=>setFilter('stage',event.target.value)} aria-label={t('stageTitle')}><option value="">{t('all')}</option>{(['flow','bump','mommy'] as const).map(stage=><option key={stage} value={stage}>{t(stage)}</option>)}</select></label></div>
     <p className="site-results-count" role="status">{t('results',{count:all.length})}</p>
@@ -77,6 +78,6 @@ export function ArticlePage() {
         {!!article.references.length&&<section className="site-article-section site-references"><h2>{t('references')}</h2><ul>{article.references.map(reference=><li key={reference.url}><a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.title}<Arrow diagonal/></a></li>)}</ul></section>}
         {!!article.tags.length&&<div className="site-article-tags">{[...new Set(article.tags)].map(tag=><a key={tag} href={`${href('journal')}?q=${encodeURIComponent(tag)}`}>{tag}</a>)}</div>}
       </div></div>
-    </article><section className="site-section"><h2>{t('related')}</h2><div className="site-article-grid">{related.map(item=><ArticleCard article={item} key={item.id}/>)}</div></section><DownloadCard/>
+    </article><Campaign1111Banner slot="article" variant={1}/><section className="site-section"><h2>{t('related')}</h2><div className="site-article-grid">{related.map(item=><ArticleCard article={item} key={item.id}/>)}</div></section><DownloadCard/>
   </>;
 }

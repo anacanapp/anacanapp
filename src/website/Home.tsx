@@ -6,6 +6,7 @@ import { Character,CharacterFamily } from './Characters';
 import { Heart } from 'lucide-react';
 import HomeShop from './HomeShop';
 import PremiumStrip from './PremiumStrip';
+import Campaign1111Banner from './Campaign1111';
 import { HomeNews, PartnerStrip } from './News';
 import { isNewsLanguage } from './news';
 
@@ -34,6 +35,7 @@ export default function Home() {
   const {href,t,articles,route}=useWebsite();
   return <>
     {route.language==='az'&&<PremiumStrip/>}
+    <Campaign1111Banner slot="home" variant={3}/>
     <section className="site-hero site-hero-anacan">
       <div className="site-hero-copy"><Eyebrow>{t('heroEyebrow')}</Eyebrow><h1>{t('heroPrefix')}<br/><em>{t('heroEmphasis')}</em></h1><p className="site-hero-description">{t('heroDescription')}</p>
         <div className="site-hero-actions"><a className="site-primary-button" href={href('download')}>{t('heroAction')}<Arrow diagonal/></a><a href="#stages" className="site-ghost-button">{t('heroSecondary')}<Arrow/></a></div><p className="site-hero-footnote">{t('heroTrust')}</p>

@@ -1,0 +1,11 @@
+/* 11.11 campaign banners (src/website/Campaign1111.tsx). The creative is full-bleed 1200×500; never cropped. */
+.c1111-banner { display: block; max-width: 1120px; margin: 12px auto 0; border-radius: 22px; overflow: hidden;
+  box-shadow: 0 14px 32px -22px rgba(140,30,40,.55); transition: transform .18s ease, box-shadow .18s ease; }
+.c1111-banner img { display: block; width: 100%; height: auto; }
+.c1111-banner:hover { transform: translateY(-1px); box-shadow: 0 18px 36px -22px rgba(140,30,40,.65); }
+.c1111-banner:focus-visible { outline: 3px solid #ffd9cf; outline-offset: 3px; }
+.c1111-home { max-width: 760px; }
+.c1111-journal { max-width: 760px; margin-bottom: 18px; }
+.c1111-article { max-width: 680px; margin: 28px auto 8px; }
+.c1111-banner { width: calc(100% - 32px); }
+@media (max-width: 760px) { .c1111-banner { border-radius: 16px; } }

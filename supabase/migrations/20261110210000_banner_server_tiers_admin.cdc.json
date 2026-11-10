@@ -1,0 +1,10 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261110210000_banner_server_tiers_admin.sql",
+  "runtime": "google-banner-server-tiers",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; function replacement plus a row update on an already enrolled relation",
+  "relations": [
+    { "relation": "public.banners", "change": "rows updated (25 11.11 banners: audience_tiers, creative_options.server_tiers); schema unchanged", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "banner_client_allowed_v1 now honours creative_options.server_tiers for non-admins" }
+  ]
+}
