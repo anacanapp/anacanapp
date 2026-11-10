@@ -1,0 +1,38 @@
+/* Pregnancy week by week pages (az). Prefix: pw- (builds on the tl- tool page styles). */
+.pw-jump { margin-top:4px; }
+.pw-trimester { scroll-margin-top:90px; }
+.pw-trimester h2 { font-size:24px; margin-bottom:14px; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; }
+.pw-trimester h2 small { font:400 14px var(--site-body); letter-spacing:0; color:var(--site-muted); }
+.pw-week-grid { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+.pw-week-grid a { display:flex; flex-direction:column; gap:4px; height:100%; padding:14px; border:1px solid var(--site-line); border-radius:var(--site-radius-sm); min-width:0; }
+.pw-week-grid a:hover { background:var(--site-mint); border-color:transparent; }
+.pw-week-grid strong { font-size:16px; font-weight:600; }
+.pw-week-grid span { font-size:13px; line-height:1.45; color:var(--site-muted); overflow-wrap:anywhere; }
+.pw-facts { max-width:860px; }
+.pw-table { min-width:0; }
+.pw-table th { width:42%; color:var(--site-muted); font-weight:500; }
+.pw-table td { font-weight:500; overflow-wrap:anywhere; }
+.pw-facts .tl-note { margin-top:10px; }
+.pw-checklist { list-style:none; padding:0!important; }
+.pw-checklist li { display:flex; gap:10px; align-items:flex-start; }
+.pw-checklist svg { flex:none; margin-top:4px; color:var(--site-accent-dark); }
+.pw-warning { padding:20px 22px; border-radius:var(--site-radius); background:#fff4f1; border:1px solid #f6d3cb; max-width:860px; }
+.pw-warning h2 { display:flex; align-items:center; gap:10px; }
+.pw-warning h2 svg { flex:none; color:#b2382f; }
+.pw-warning p { margin-bottom:10px; }
+.pw-due,.pw-inbound { margin-top:var(--site-section-gap); }
+.pw-pager { margin-top:var(--site-section-gap); display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:stretch; }
+.pw-pager a { display:flex; align-items:center; gap:8px; padding:12px 14px; border:1px solid var(--site-line); border-radius:var(--site-radius-sm); min-width:0; }
+.pw-pager a:hover { background:var(--site-mint); }
+.pw-pager a[rel=next] { justify-content:flex-end; text-align:right; }
+.pw-pager span { display:flex; flex-direction:column; font-weight:600; }
+.pw-pager small { font-size:12px; font-weight:400; color:var(--site-muted); }
+.pw-pager .pw-pager-hub { justify-content:center; font-size:14px; }
+@media(max-width:850px) { .pw-week-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media(max-width:600px) {
+  .pw-week-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .pw-table th { width:46%; }
+  .pw-warning { padding:16px; }
+  .pw-pager { grid-template-columns:1fr 1fr; }
+  .pw-pager .pw-pager-hub { grid-column:1 / -1; grid-row:2; }
+}

@@ -46,7 +46,7 @@ export const FONT_PRELOADS=['/website/fonts/switzer-400.woff2'];
 export function renderWebsiteHtml({shell,body,boot,meta,schema,preload=[],discovery=[]}) {
   const head=[];
   const setMeta=(key,value,property=false)=>head.push(`<meta ${property?'property':'name'}="${key}" content="${escape(value)}">`);
-  setMeta('description',meta.description);setMeta('robots',boot.route.kind==='notFound'?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1');
+  setMeta('description',meta.description);setMeta('robots',meta.robots||(boot.route.kind==='notFound'?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1'));
   for(const[key,value]of Object.entries({'og:title':meta.title,'og:description':meta.description,'og:url':meta.canonical,'og:type':boot.article?'article':'website','og:image':meta.image,'og:image:alt':meta.imageAlt,'og:site_name':'Anacan','og:locale':meta.locale,...(meta.imageSize?{'og:image:width':String(meta.imageSize[0]),'og:image:height':String(meta.imageSize[1])}:{})}))setMeta(key,value,true);
   for(const[key,value]of Object.entries({'twitter:title':meta.title,'twitter:description':meta.description,'twitter:image':meta.image,'twitter:image:alt':meta.imageAlt,'twitter:card':'summary_large_image'}))setMeta(key,value);
   if(boot.article){setMeta('article:published_time',boot.article.publishedAt,true);setMeta('article:modified_time',boot.article.updatedAt,true);}

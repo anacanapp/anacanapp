@@ -13,7 +13,7 @@ const SHOP_META={
 /** Azerbaijani-only news list; detail pages use the item title and lead. */
 const NEWS_META=['Anacan xəbərləri','Anacan-dan son yeniliklər: dəstək proqramları, tərəfdaşlıqlar, yeni dillər və yeni funksiyalar.'] as const;
 import { discoveryLinks, markdownPath } from './discovery';
-import { isToolPage, toolAlternateLanguages, toolMeta, toolXDefaultPath } from './tools/tool-routes';
+import { isToolPage, toolAlternateLanguages, toolMeta, toolRobots, toolXDefaultPath } from './tools/tool-routes';
 import { toolSchemaNodes } from './tools/tool-schema';
 
 /** Search snippet limits (docs/seo/TECHNICAL_SEO.md), measured as display width: East Asian wide
@@ -77,6 +77,7 @@ export function websiteMeta(boot:WebsiteBoot) {
   alternates.push({code:'x-default' as WebsiteLanguageCode,locale:'az-AZ',url:WEBSITE_ORIGIN+((isToolPage(kind)?toolXDefaultPath(boot.route):undefined)||alternateRoute(boot.route,'az',boot.article)||sitePath('az'))});
   return {title:brandTitle(title+suffix),description,canonical,image,
     imageAlt:boot.article?.coverAlt||news?.title||'Anacan',
+    robots:toolRobots(boot.route)||(kind==='notFound'?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1'),
     /** og:image size; the default cover and news covers are 1200x630, article covers come from cover-sizes.json. */
     imageSize:(boot.article?coverSize(boot.article.cover):[1200,630]) as [number,number]|undefined,
     locale:WEBSITE_LANGUAGES.find(item=>item.code===boot.route.language)!.locale.replace('-','_'),alternates};
@@ -147,7 +148,7 @@ export function updateWebsiteHead(boot:WebsiteBoot) {
     const attr=property?'property':'name',node=document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`)||document.createElement('meta');
     node.setAttribute(attr,key);node.content=value;if(!node.parentNode)document.head.append(node);
   };
-  setMeta('description',meta.description);setMeta('robots',boot.route.kind==='notFound'?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1');
+  setMeta('description',meta.description);setMeta('robots',meta.robots);
   setMeta('theme-color','#ffe7e1');
   for(const[key,value]of Object.entries({'og:title':meta.title,'og:description':meta.description,'og:url':meta.canonical,'og:type':boot.article?'article':'website','og:image':meta.image,'og:image:alt':meta.imageAlt,'og:site_name':'Anacan','og:locale':meta.locale}))setMeta(key,value,true);
   document.head.querySelectorAll('meta[property="og:image:width"],meta[property="og:image:height"]').forEach(node=>node.remove());
