@@ -222,3 +222,7 @@ handoff-a daxil edilmir.
   The static prerender does not emit these pages (SSR only, like news). Runtime image must ship server and renderer together.
 - "Tətbiqdə aç": iOS `anacan://tool/<id>?src=…`, Android `intent://…;package=com.atlasoon.anacan;S.browser_fallback_url=<Play>`,
   desktop/no-JS → `/<lang>/yukle/`. Tool ids `names`, `maternity-calculator`.
+- 2026-11-10: baby names (az 329 + ka 80 name pages, gender/letter lists) and the AZ dekret pulu calculator
+  (src/website/tools/) live. Website `55d9d58c…` (rollback `website-runtime-plan.before-names.json`), gateway
+  `4202d187…` (plan `names-web-plan.json`, rollback `rollback-names-web-plan.json`). Sitemaps resubmitted in
+  Search Console (service account anacan-search-console@…, keyless, impersonated by info@anacan.az).
