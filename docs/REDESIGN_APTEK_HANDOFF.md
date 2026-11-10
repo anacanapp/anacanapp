@@ -1080,3 +1080,13 @@ App (native 48 / next web deploy):
   language names, server push/error copy, e-mail verification copy, fairy-tale titles, weather labels.
 - Jobs: flow `b61f6ad85498…`, vitamin `fb5dfe4c7e54…` (both ran exitCode 0), daily slots/halfhour `ccaa7bf6683f…`
   (`shared/language.mjs` with ky/et; backups `*.json.before-kyet`).
+
+## Dodo Payments — LIVE mode (2026-11-10)
+- Owner confirmed the live account. Live products (USD, recurring, 20-year term): monthly `pdt_0Nrf0TB1EiUkAln6aHlXO`
+  $2.22, yearly `pdt_0Nrf0TFDtU5fXf60OKcI6` $15.55 (same settings as test). Live webhook `ep_3LvSlqQ2laCsz7Tfb8kOSlyAggX`
+  → `https://api.anacan.az/functions/v1/dodo-webhook`. API key IP allowlist: 35.240.81.111 (server egress).
+- 11.11 discount: code `1111`, 28.55% off yearly only ($15.55 → $11.11), every renewal, expires 2026-11-11T19:59:59Z
+  (`dsc_0Nrf0j7MzFUrjSkFv4kzy`).
+- Functions container recreated with the same image `cf1f70f6…`; only the four DODO_* env values changed
+  (`/home/anacan-runner/functions-dodo-live.py`, backup `runtime/secrets/functions.env.before-dodo-live`; rollback =
+  restore that env file and recreate). Unsigned webhook still 401. Live key never in Git/logs.
