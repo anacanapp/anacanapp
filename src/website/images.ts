@@ -1,3 +1,5 @@
+/** LCP image hint. React 18 only passes the lowercase DOM attribute through (camelCase `fetchPriority` warns). */
+export const HIGH_PRIORITY = { fetchpriority: 'high' } as Record<string, string>;
 export const WEBSITE_IMAGES = {
   woman:'/website/images/woman.webp',
   mother:'/blog-covers/ana-sudu-kolostrum-kecid-yetkin-sud-88b8241c890d.webp',

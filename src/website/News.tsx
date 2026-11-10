@@ -6,6 +6,7 @@ import { useWebsite } from './context';
 import { Arrow, DownloadCard, Eyebrow } from './components';
 import { siteDate } from './dates';
 import { NEWS, PARTNER_IDS, PARTNERS, findNews, type NewsBlock, type NewsItem, type PartnerId, newsCover } from './news';
+import { HIGH_PRIORITY } from './images';
 import './news.css';
 
 const newsDate = (value: string) => siteDate(value, 'az').toLocaleLowerCase('az');
@@ -82,7 +83,7 @@ export function NewsArticlePage() {
     <nav className="site-breadcrumb" aria-label={t('home')}><a href={href()}>{t('home')}</a><span aria-hidden="true">/</span><a href={href('news')}>Xəbərlər</a><span aria-hidden="true">/</span><span>{item.title}</span></nav>
     <article className="nw-article" data-news={item.slug}>
       <header className="nw-article-header">
-        <img className="nw-cover nw-article-cover" src={newsCover(item).src} alt={item.title} width="1200" height="630" decoding="async" fetchPriority="high" />
+        <img className="nw-cover nw-article-cover" src={newsCover(item).src} alt={item.title} width="1200" height="630" {...HIGH_PRIORITY} />
         <div className="nw-article-meta"><span className="nw-chip">{item.tag}</span><time dateTime={item.date}>{newsDate(item.date)}</time><span>{item.readMinutes} dəq oxu</span></div>
         <h1>{item.title}</h1>
         <p className="nw-article-lead">{item.lead}</p>
