@@ -1,3 +1,4 @@
+-- ky/et live in scripts/i18n/{ky,et}.seed.json (not in app_languages).
 -- Baby size table: week 12 plum (was a duplicate lemon), week 32 squash (was strawberry), week 36 romaine lettuce (was coriander).
 INSERT INTO public.translations (key, lang, value, namespace) VALUES
   ('anacan_gavali_wk12', 'en', 'Plum', 'common'),
@@ -20,8 +21,6 @@ INSERT INTO public.translations (key, lang, value, namespace) VALUES
   ('anacan_gavali_wk12', 'pl', 'Śliwka', 'common'),
   ('anacan_gavali_wk12', 'nl', 'Pruim', 'common'),
   ('anacan_gavali_wk12', 'sv', 'Plommon', 'common'),
-  ('anacan_gavali_wk12', 'ky', 'Кара өрүк', 'common'),
-  ('anacan_gavali_wk12', 'et', 'Ploom', 'common'),
   ('anacan_qabaq_wk32', 'en', 'Squash', 'common'),
   ('anacan_qabaq_wk32', 'ru', 'Тыква', 'common'),
   ('anacan_qabaq_wk32', 'tr', 'Kabak', 'common'),
@@ -42,8 +41,6 @@ INSERT INTO public.translations (key, lang, value, namespace) VALUES
   ('anacan_qabaq_wk32', 'pl', 'Dynia', 'common'),
   ('anacan_qabaq_wk32', 'nl', 'Pompoen', 'common'),
   ('anacan_qabaq_wk32', 'sv', 'Pumpa', 'common'),
-  ('anacan_qabaq_wk32', 'ky', 'Ашкабак', 'common'),
-  ('anacan_qabaq_wk32', 'et', 'Kõrvits', 'common'),
   ('anacan_kahi_wk36', 'en', 'Romaine lettuce', 'common'),
   ('anacan_kahi_wk36', 'ru', 'Салат романо', 'common'),
   ('anacan_kahi_wk36', 'tr', 'Marul', 'common'),
@@ -63,7 +60,5 @@ INSERT INTO public.translations (key, lang, value, namespace) VALUES
   ('anacan_kahi_wk36', 'ko', '로메인 상추', 'common'),
   ('anacan_kahi_wk36', 'pl', 'Sałata rzymska', 'common'),
   ('anacan_kahi_wk36', 'nl', 'Romeinse sla', 'common'),
-  ('anacan_kahi_wk36', 'sv', 'Romansallad', 'common'),
-  ('anacan_kahi_wk36', 'ky', 'Романо салаты', 'common'),
-  ('anacan_kahi_wk36', 'et', 'Rooma salat', 'common')
+  ('anacan_kahi_wk36', 'sv', 'Romansallad', 'common')
 ON CONFLICT (key, lang) DO UPDATE SET value = EXCLUDED.value;
