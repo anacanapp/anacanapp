@@ -93,8 +93,9 @@ async function articleFor(summary,language) {
 const toolEntries=toolSitemapEntries();
 // Azerbaijani-only news pages (no other-language alternates), data from src/website/news.ts.
 const newsEntries=generatedAt=>[{path:sitePath('az','news'),updated:NEWS[0]?.date||generatedAt},...NEWS.map(item=>({path:sitePath('az','newsArticle',item.slug),updated:item.date}))];
-// Azerbaijani-only shop pages (/az/kitablar/, /az/tortlar/): indexable, az-only hreflang like news.
-const shopEntries=generatedAt=>(renderer.SHOP_PAGES||[]).map(kind=>({path:sitePath('az',kind),updated:generatedAt}));
+// Azerbaijani-only shop pages (/az/kitablar/, /az/tortlar/): kept out of sitemaps until the owner opens them globally.
+const SHOP_IN_SITEMAP=false;
+const shopEntries=generatedAt=>SHOP_IN_SITEMAP?(renderer.SHOP_PAGES||[]).map(kind=>({path:sitePath('az',kind),updated:generatedAt})):[];
 const escape=value=>String(value).replace(/[&<>"']/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 async function sitemap(kind) {
   const entries=[];
