@@ -232,3 +232,6 @@ handoff-a daxil edilmir.
   sitemaps). Shop pages stay out of sitemaps (`SHOP_IN_SITEMAP=false` in server.mjs). Website `26e3c904…`
   (rollback `website-runtime-plan.before-seo1.json`), gateway `5b09d9aa…` (plan `seo1-web-plan.json`, rollback
   `rollback-seo1-web-plan.json`). Runtime also ships prerender.mjs and llm-policy.mjs now.
+- 2026-11-10: owner switched the pregnancy week pages off (`PREGNANCY_WEEKS_ENABLED=false`, all week URLs 404;
+  week content lives in the app). Website `32ddac1f…` (rollback `website-runtime-plan.before-weeksoff.json`),
+  gateway `132dd27d…` (plan `weeksoff-web-plan.json`, rollback `rollback-weeksoff-web-plan.json`).
