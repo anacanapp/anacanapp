@@ -415,7 +415,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
   },
   {
     week: 12,
-    description: 'Hamiləliyin 12-ci həftəsi: birinci trimestr skrininqi, NT ultrasəsi, limon boyda körpə və toksikozun azalması. Bu həftənin əlamətləri və vacib məsləhətlər.',
+    description: 'Hamiləliyin 12-ci həftəsi: birinci trimestr skrininqi, NT ultrasəsi, gavalı boyda körpə və toksikozun azalması. Bu həftənin əlamətləri və vacib məsləhətlər.',
     quick: 'Hamiləliyin 12-ci həftəsi birinci trimestrin sonuna yaxındır: körpənin orqanları formalaşıb və o, reflekslər göstərməyə başlayır. Körpəniz {size}. Bu həftə birinci trimestr skrininqi (NT ultrasəsi və qan analizi) üçün ən çox seçilən vaxtdır.',
     baby: [
       'Körpə barmaqlarını yumub aça, əmmə və udqunma hərəkətləri edə bilir. Toxunuşa cavab olaraq qıvrılır, amma bu hərəkətlər hələ hiss olunmur.',
@@ -1187,7 +1187,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
   },
   {
     week: 32,
-    description: 'Hamiləliyin 32-ci həftəsi: körpə başı aşağı vəziyyətə keçməyə başlayır, dırnaqları uzanır. Çiyələk müqayisəsi, ölçü və çəki, əlamətlər və bu həftə nə etməli.',
+    description: 'Hamiləliyin 32-ci həftəsi: körpə başı aşağı vəziyyətə keçməyə başlayır, dırnaqları uzanır. Qabaq müqayisəsi, ölçü və çəki, əlamətlər və bu həftə nə etməli.',
     quick: 'Hamiləliyin 32-ci həftəsində bir çox körpə başı aşağı vəziyyətə keçməyə başlayır, dırnaqları barmaq uclarına çatır. Körpəniz {size}. Nəfəs darlığı, ürəkyanma və məşq sancıları bu həftə tez-tez olur.',
     baby: [
       'Körpə nəfəs hərəkətlərini, əmməyi və udqunmanı məşq edir. Ağciyərlər hələ yetişir, amma bu həftə doğulan körpələrin çoxu xüsusi qayğı ilə yaxşı inkişaf edir.',

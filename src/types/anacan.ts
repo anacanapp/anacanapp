@@ -130,7 +130,7 @@ export const FRUIT_SIZES: Record<number, {fruit: string;emoji: string;lengthCm: 
   9: { fruit: 'Gilas', emoji: '🍒', lengthCm: 2.3, weightG: 4 },
   10: { fruit: 'Qoz', emoji: '🌰', lengthCm: 3.1, weightG: 7 },
   11: { fruit: tr("anacan_encir_2bf440", "\u018Fncir"), emoji: '🫒', lengthCm: 4.1, weightG: 10 },
-  12: { fruit: 'Limon', emoji: '🍋', lengthCm: 5.4, weightG: 14 },
+  12: { fruit: tr("anacan_gavali_wk12", "Gaval\u0131"), emoji: '🟣', lengthCm: 5.4, weightG: 14 },
   13: { fruit: tr("anacan_saftali_24c015", "\u015Eaftal\u0131"), emoji: '🍑', lengthCm: 7.4, weightG: 23 },
   14: { fruit: 'Limon', emoji: '🍋', lengthCm: 8.7, weightG: 43 },
   15: { fruit: 'Alma', emoji: '🍎', lengthCm: 10.1, weightG: 70 },
@@ -141,7 +141,7 @@ export const FRUIT_SIZES: Record<number, {fruit: string;emoji: string;lengthCm: 
   20: { fruit: 'Banan', emoji: '🍌', lengthCm: 16.4, weightG: 300 },
   24: { fruit: tr("anacan_qargidali_c6cab2", "Qar\u011F\u0131dal\u0131"), emoji: '🌽', lengthCm: 21.3, weightG: 600 },
   28: { fruit: tr("anacan_badimcan_376039", "Bad\u0131mcan"), emoji: '🍆', lengthCm: 25.4, weightG: 1000 },
-  32: { fruit: tr("anacan_ciyelek_fff292", "\xC7iy\u0259l\u0259k"), emoji: '🍓', lengthCm: 27.4, weightG: 1700 },
-  36: { fruit: tr("anacan_kesnis_a9eb3e", "K\u0259\u015Fni\u015F"), emoji: '🥬', lengthCm: 34, weightG: 2600 },
+  32: { fruit: tr("anacan_qabaq_wk32", "Qabaq"), emoji: '🎃', lengthCm: 27.4, weightG: 1700 },
+  36: { fruit: tr("anacan_kahi_wk36", "Kah\u0131"), emoji: '🥬', lengthCm: 34, weightG: 2600 },
   40: { fruit: tr("anacan_qarpiz_517288", "Qarp\u0131z"), emoji: '🍉', lengthCm: 36, weightG: 3400 }
 };

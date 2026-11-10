@@ -74,7 +74,7 @@ export const APP_FRUIT_SIZES: Record<number, { fruit: string; lengthCm: number; 
   9: { fruit: 'Gilas', lengthCm: 2.3, weightG: 4 },
   10: { fruit: 'Qoz', lengthCm: 3.1, weightG: 7 },
   11: { fruit: 'Əncir', lengthCm: 4.1, weightG: 10 },
-  12: { fruit: 'Limon', lengthCm: 5.4, weightG: 14 },
+  12: { fruit: 'Gavalı', lengthCm: 5.4, weightG: 14 },
   13: { fruit: 'Şaftalı', lengthCm: 7.4, weightG: 23 },
   14: { fruit: 'Limon', lengthCm: 8.7, weightG: 43 },
   15: { fruit: 'Alma', lengthCm: 10.1, weightG: 70 },
@@ -85,8 +85,8 @@ export const APP_FRUIT_SIZES: Record<number, { fruit: string; lengthCm: number; 
   20: { fruit: 'Banan', lengthCm: 16.4, weightG: 300 },
   24: { fruit: 'Qarğıdalı', lengthCm: 21.3, weightG: 600 },
   28: { fruit: 'Badımcan', lengthCm: 25.4, weightG: 1000 },
-  32: { fruit: 'Çiyələk', lengthCm: 27.4, weightG: 1700 },
-  36: { fruit: 'Kəşniş', lengthCm: 34, weightG: 2600 },
+  32: { fruit: 'Qabaq', lengthCm: 27.4, weightG: 1700 },
+  36: { fruit: 'Kahı', lengthCm: 34, weightG: 2600 },
   40: { fruit: 'Qarpız', lengthCm: 36, weightG: 3400 },
 };
 /** Copy of the app's median estimated fetal weight for weeks 20-40 (src/lib/fetalGrowth.ts, asserted in tests). */

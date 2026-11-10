@@ -8814,5 +8814,8 @@
   "par_support_mh_text": "Uzun müddət kədər, narahatlıq və ya gücsüzlük hiss edirsənsə, bu, zəiflik deyil və kömək var. Əhval testini keç və dəstək imkanlarına bax. Özünə və ya uşağa zərər vermək fikri varsa, dərhal {emergency} nömrəsinə zəng et.",
   "par_support_cs_title": "Uşağın təhlükəsizliyi",
   "par_support_cs_text": "Uşağın zorakılığa məruz qaldığından və ya özünə zərər verə biləcəyindən şübhələnirsənsə, onu tək qoyma və dərhal {emergency} nömrəsinə zəng et. Bu ağır anda sənə də psixoloji dəstək lazım ola bilər.",
-  "par_support_open": "Əhval testi və dəstək"
+  "par_support_open": "Əhval testi və dəstək",
+  "anacan_gavali_wk12": "Gavalı",
+  "anacan_qabaq_wk32": "Qabaq",
+  "anacan_kahi_wk36": "Kahı"
 }
