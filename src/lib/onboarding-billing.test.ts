@@ -43,15 +43,25 @@ describe('paid annual store contract', () => {
     expect(standardStorePlan(trial, 'ios', 'yearly', 2)).toBeNull();
     expect(standardStorePlan(trial, 'ios', 'yearly', 1)?.price).toBe(29.99);
   });
-  it('rejects incompatible renewal, duration and live USD configuration', () => {
+  it('rejects incompatible duration configuration', () => {
     const { normal, offer } = iosPackages();
     const standard = standardStorePlan(normal, 'ios', 'yearly');
     for (const product of [
-      { ...offer.product, price: 39.99 },
       { ...offer.product, introPrice: { ...offer.product.introPrice, cycles: 2 } },
       { ...offer.product, introPrice: { ...offer.product.introPrice, period: 'P1M' } },
-      { ...offer.product, introPrice: { ...offer.product.introPrice, price: 9.99 } },
     ]) expect(annualStorePlan({ ...offer, product }, 'ios', 2)).toBeNull();
+  });
+  it('shows any store first-year price below the renewal (one-day 11.11 offer) on iOS and Android', () => {
+    const { offer } = iosPackages();
+    offer.product.introPrice = { ...offer.product.introPrice, price: 11.11, priceString: '$11.11' };
+    expect(annualStorePlan(offer, 'ios', 2)).toMatchObject({ price: 11.11, priceString: '$11.11', renewalPrice: 29.99,
+      request: { price: 11.11, paidIntro: true } });
+    offer.product.introPrice = { ...offer.product.introPrice, price: 29.99, priceString: '$29.99' };
+    expect(annualStorePlan(offer, 'ios', 2)?.request).toBeUndefined();
+    const android = androidPackages().offer;
+    const option = android.product.subscriptionOptions[1];
+    option.pricingPhases = [phase(11.11, 2, 1), option.pricingPhases[1]];
+    expect(annualStorePlan(android, 'android')).toMatchObject({ price: 11.11, renewalPrice: 29.99, request: { price: 11.11, optionId: ONBOARDING_OFFER_OPTION } });
   });
   it('uses localized store prices for non-USD storefronts', () => {
     const { normal, offer } = iosPackages();

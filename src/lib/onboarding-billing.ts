@@ -6,6 +6,7 @@ export const ONBOARDING_OFFERING = 'onboarding_last_chance_2026';
 export const ONBOARDING_OFFER_PRODUCT = 'com.atlasoon.anacan.premium.yearly.onboarding';
 export const ONBOARDING_ANNUAL_PRODUCT = 'com.atlasoon.anacan.premium.yearly';
 export const ONBOARDING_OFFER_OPTION = 'yearly-plan:onboarding-first-year';
+/** Reference prices of the standing offer (docs/ONBOARDING_STORE_OFFER.md); not enforced at runtime. */
 export const ONBOARDING_USD_PRICES = { annual: 29.99, firstYear: 19.99 } as const;
 
 export interface PaidPurchaseRequest {
@@ -81,8 +82,8 @@ export function annualStorePlan(pkg: any, platform: 'ios' | 'android' | 'web', e
   if (!validMoney(first.price, first.priceString, first.currency) || !validMoney(renewal.price, renewal.priceString, renewal.currency)
     || first.currency !== renewal.currency || first.price >= renewal.price
     || standard && (standard.currency !== renewal.currency || Math.abs(renewal.price - standard.price) > 0.000001)) return standard;
-  if (first.currency === 'USD' && (Math.abs(renewal.price - ONBOARDING_USD_PRICES.annual) > .000001
-    || Math.abs(first.price - ONBOARDING_USD_PRICES.firstYear) > .000001)) return standard;
+  // Any store-configured first-year price below the renewal price is shown as is (e.g. a one-day 11.11 offer);
+  // the store remains the source of truth, so campaigns need only a store change, no app release.
   return { pkg, ...first, kind: 'yearly', renewalPrice: renewal.price, renewalPriceString: renewal.priceString,
     request: { productId: product.identifier, optionId, price: first.price, currency: first.currency, paidIntro: platform === 'ios' } };
 }
