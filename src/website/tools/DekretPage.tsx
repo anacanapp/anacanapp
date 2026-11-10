@@ -59,12 +59,12 @@ export default function DekretPage() {
           <h2>{formatAzn(result.benefit)} AZN</h2><p>Təxmini ümumi dekret pulu, {result.total} gün</p>
           <dl className="site-result-details">
             <div><dt>Məzuniyyət</dt><dd>{result.total} gün: doğuşdan əvvəl {result.before}, doğuşdan sonra {result.after}</dd></div>
-            <div><dt>Gündəlik məbləğ</dt><dd>{formatAzn(result.daily)} AZN ({formatAzn(result.salary)} × 12 / 365 × {result.percentage}%)</dd></div>
+            <div><dt>Gündəlik məbləğ</dt><dd>{formatAzn(result.daily)} AZN ({result.capped ? `yuxarı hədd: ${formatAzn(result.monthlyCap ?? 0)} × 12 / 365` : `${formatAzn(result.salary)} × 12 / 365 × ${result.percentage}%`})</dd></div>
             {result.start && <div><dt>Məzuniyyətin başlanğıcı</dt><dd><time dateTime={result.start}>{date(result.start)}</time></dd></div>}
             {result.end && <div><dt>Məzuniyyətin sonu</dt><dd><time dateTime={result.end}>{date(result.end)}</time></dd></div>}
             {result.returnDate && <div><dt>İşə qayıdış</dt><dd><time dateTime={result.returnDate}>{date(result.returnDate)}</time></dd></div>}
           </dl>
-          <p className="site-calculator-note">{result.start ? 'Tarixlər təxmini doğuş tarixinə görə hesablanıb; faktiki doğuş tarixi fərqli olduqda dəyişə bilər. ' : ''}Aylıq müavinət minimum aylıq əmək pensiyasının 25 mislindən çox ola bilməz.</p>
+          <p className="site-calculator-note">{result.start ? 'Tarixlər təxmini doğuş tarixinə görə hesablanıb; faktiki doğuş tarixi fərqli olduqda dəyişə bilər. ' : ''}{result.capped ? `Maaşınız yuxarı həddi keçdiyi üçün müavinət ayda ${formatAzn(result.monthlyCap ?? 0)} AZN həddinə görə hesablanıb. ` : ''}Aylıq müavinət minimum aylıq əmək pensiyasının (320 AZN) 25 mislindən, yəni 8 000 AZN-dən çox ola bilməz.</p>
           <div className="site-result-actions"><button className="site-ghost-button" type="button" onClick={() => { setResult(null); document.getElementById('dekret-salary')?.focus(); }}>Yenidən hesabla</button></div>
         </section> : <div className="site-calculator-explainer"><Eyebrow mint>Nümunə</Eyebrow><h2>{formatAzn(SAMPLE_SALARY)} AZN maaşla</h2>
           <p>Normal doğuşda {sample.total} gün üçün gündəlik {formatAzn(sample.daily)} AZN, cəmi təxminən <strong>{formatAzn(sample.benefit)} AZN</strong>.</p></div>}
@@ -75,7 +75,7 @@ export default function DekretPage() {
         {BIRTH_TYPES.map(item => { const days = leaveDays(rule, item); return <tr key={item}><th scope="row">{BIRTH_LABELS[item]}</th><td>{days.before} gün</td><td>{days.after} gün</td><td>{days.total} gün</td></tr>; })}
         {AGRICULTURE_DAYS.map(item => <tr key={item.label}><th scope="row">{item.label}</th><td>{item.before} gün</td><td>{item.after} gün</td><td>{item.before + item.after} gün</td></tr>)}
       </tbody></table></div>
-      <ul className="tl-facts-list"><li>Ödəniş: orta günlük qazancın {percentage}%-i, hər təqvim günü üçün.</li><li>Staj: ən azı {tenure} ay sosial sığorta stajı.</li><li>Yuxarı hədd: ayda minimum aylıq əmək pensiyasının 25 misli.</li></ul>
+      <ul className="tl-facts-list"><li>Ödəniş: orta günlük qazancın {percentage}%-i, hər təqvim günü üçün.</li><li>Staj: ən azı {tenure} ay sosial sığorta stajı.</li><li>Yuxarı hədd: ayda 8 000 AZN (minimum aylıq əmək pensiyası 320 AZN × 25).</li></ul>
     </section>
     <section className="site-section tl-prose"><h2>Dekret pulu necə hesablanır</h2>
       <p>Hamiləliyə və doğuşa görə müavinətin ümumi məbləği orta günlük qazancın məzuniyyətin təqvim günlərinin sayına vurulması ilə tapılır. Orta günlük qazanc məzuniyyətin başladığı aydan əvvəlki dörd ardıcıl rübdəki (12 ay) ümumi qazancın həmin dövrün nəzərə alınan təqvim günlərinə bölünməsi ilə hesablanır. Əvvəlki əmək qabiliyyətsizliyi, analıq məzuniyyəti və qismən ödənişli sosial məzuniyyət günləri bu günlərdən çıxılır.</p>

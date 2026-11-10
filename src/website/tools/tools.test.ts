@@ -138,6 +138,9 @@ describe('dekret pulu calculator', () => {
     expect(estimateDekret(rule, { salary: 1000, type: 'complicated' })).toMatchObject({ total: 140, benefit: 4602.74 });
     expect(estimateDekret(rule, { salary: 1000, type: 'multiple' })).toMatchObject({ total: 140, benefit: 4602.74 });
     expect(estimateDekret(rule, { salary: 730, type: 'normal' }).benefit).toBe(3024);
+    // Ceiling: 25 × minimum monthly labour pension (320 AZN) = 8 000 AZN a month.
+    expect(estimateDekret(rule, { salary: 10000, type: 'normal' })).toMatchObject({ capped: true, daily: 263.01, benefit: 33139.73 });
+    expect(estimateDekret(rule, { salary: 8000, type: 'normal' }).capped).toBe(false);
     expect(formatAzn(4142.47)).toBe('4 142,47');
     expect(() => estimateDekret(rule, { salary: 0, type: 'normal' })).toThrow(DekretInputError);
     expect(() => estimateDekret(rule, { salary: 1000, type: 'normal', dueDate: '2027-02-30' })).toThrow(DekretInputError);

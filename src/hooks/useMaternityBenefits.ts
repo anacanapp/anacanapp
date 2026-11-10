@@ -37,6 +37,8 @@ export interface MaternityConfig {
   multipleDaysBefore: number;
   multipleDaysAfter: number;
   minSalary: number;
+  /** Minimum monthly labour pension; the monthly benefit is capped at 25 times this amount. */
+  minPension: number;
 }
 
 export const useMaternityBenefits = () => {
@@ -77,6 +79,7 @@ export const useMaternityBenefits = () => {
         multipleDaysBefore: configMap['multiple_leave_days_before'] || 70,
         multipleDaysAfter: configMap['multiple_leave_days_after'] || 70,
         minSalary: configMap['min_salary'] || 400,
+        minPension: configMap['min_monthly_pension'] || 320,
       });
 
       const translatedGuidelines = mapRowsTranslation(guidelinesRes.data, language, ['title', 'content']) as MaternityGuideline[];
@@ -103,7 +106,9 @@ export const useMaternityBenefits = () => {
     const validSalary = Math.max(monthlySalary, config.minSalary);
 
     // Calculate average daily salary
-    const dailySalary = (validSalary * 12) / 365;
+    // Monthly benefit ceiling: 25 × minimum monthly labour pension (sosial.gov.az).
+    const dailyCap = (25 * config.minPension * 12) / 365;
+    const dailySalary = Math.min((validSalary * 12) / 365, dailyCap);
 
     // Determine leave days based on pregnancy type
     let daysBefore: number;

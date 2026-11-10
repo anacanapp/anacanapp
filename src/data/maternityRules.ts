@@ -18,6 +18,8 @@ export interface CompensationRule {
   percentage?: number;
   maxCapDaily?: number;
   maxCapTotal?: number;
+  /** Monthly benefit ceiling in `currency` (AZ: 25 × minimum monthly labour pension). */
+  maxCapMonthly?: number;
   minCapDaily?: number;
   flatRateDaily?: number;
   formulaDescription_az: string;
@@ -75,11 +77,13 @@ export const maternityRules: MaternityRule[] = [
       payDescription_en: 'Partially paid social leave: AZN 44 a month until 1.5 years, AZN 28 a month from 1.5 to 3 years'
     },
     compensation: {
-      "type": "PERCENTAGE_UNCAPPED",
+      "type": "PERCENTAGE_CAPPED",
       "currency": "AZN",
       "percentage": 100,
-      "formulaDescription_az": "Gündəlik maaşın 100%-i",
-      "formulaDescription_en": "100% of daily salary"
+      // sosial.gov.az: aylıq müavinət minimum aylıq əmək pensiyasının (320 AZN) 25 mislindən çox ola bilməz.
+      "maxCapMonthly": 8000,
+      "formulaDescription_az": "Gündəlik maaşın 100%-i (ayda ən çox 8 000 AZN)",
+      "formulaDescription_en": "100% of daily salary (at most AZN 8,000 a month)"
     },
     payDescription_en: '100% of salary is paid',
     guidelines_az: [
