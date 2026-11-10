@@ -1,94 +1,94 @@
 /* anacan.az shop pages (/az/kitablar/, /az/tortlar/), part of the website bundle.
    Minimal layout on the site tokens (--site-*): body font Switzer, headings Plus Jakarta Sans 600,
    thin lines instead of shadows, pill buttons like the rest of anacan.az. */
-.anacan-website .shop { padding-bottom: 140px; }
+.anacan-website .shop { padding-bottom: 88px; }
 
 /* intro */
-.anacan-website .shop-intro { max-width: 760px; padding-top: 72px; }
-.anacan-website .shop-intro h1 { font-size: clamp(36px, 5vw, 60px); line-height: 1.1; letter-spacing: -.047em; color: var(--site-ink); }
+.anacan-website .shop-intro { max-width: 760px; padding-top: 40px; }
+.anacan-website .shop-intro h1 { font-size: clamp(28px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -.047em; color: var(--site-ink); }
 .anacan-website .shop-intro h1 em { font-style: normal; color: var(--site-accent-dark); }
-.anacan-website .shop-intro > p:not(.site-eyebrow) { margin-top: 20px; font-size: 17px; line-height: 1.6; color: var(--site-muted); max-width: 620px; }
-.anacan-website .shop-tiers { display: flex; flex-wrap: wrap; margin: 28px 0 0; padding: 0; border: 1px solid var(--site-line); border-radius: 20px; width: fit-content; max-width: 100%; }
-.anacan-website .shop-tiers > div { padding: 12px 22px; border-inline-start: 1px solid var(--site-line); }
+.anacan-website .shop-intro > p:not(.site-eyebrow) { margin-top: 10px; font-size: 15.5px; line-height: 1.55; color: var(--site-muted); max-width: 620px; }
+.anacan-website .shop-tiers { display: flex; flex-wrap: wrap; margin: 18px 0 0; padding: 0; border: 1px solid var(--site-line); border-radius: 14px; width: fit-content; max-width: 100%; }
+.anacan-website .shop-tiers > div { padding: 8px 16px; border-inline-start: 1px solid var(--site-line); }
 .anacan-website .shop-tiers > div:first-child { border-inline-start: 0; }
 .anacan-website .shop-tiers dt { font-size: 12px; color: var(--site-muted); }
-.anacan-website .shop-tiers dd { margin: 2px 0 0; font-size: 18px; font-weight: 500; letter-spacing: -.02em; color: var(--site-ink); white-space: nowrap; }
+.anacan-website .shop-tiers dd { margin: 1px 0 0; font-size: 16px; font-weight: 500; letter-spacing: -.02em; color: var(--site-ink); white-space: nowrap; }
 .anacan-website .shop-tiers dd small { font-size: 12px; font-weight: 400; color: var(--site-muted); letter-spacing: 0; }
 .anacan-website .shop-tiers > div:last-child dd { color: var(--site-accent-dark); }
-.anacan-website .shop-facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 22px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--site-muted); }
+.anacan-website .shop-facts { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 14px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--site-muted); }
 .anacan-website .shop-facts li::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--site-accent); margin-inline-end: 8px; vertical-align: 2px; }
 
 /* filter bar */
-.anacan-website .shop-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin: 56px 0 28px; padding-top: 28px; border-top: 1px solid var(--site-line); }
+.anacan-website .shop-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: 32px 0 18px; padding-top: 18px; border-top: 1px solid var(--site-line); }
 .anacan-website .shop-count { font-size: 13px; color: var(--site-muted); }
-.anacan-website .shop-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.anacan-website .shop-chip { border: 1px solid var(--site-line); border-radius: 999px; padding: 9px 15px; background: #fff; font-size: 13px; line-height: 1.3; min-height: 40px; color: var(--site-ink); }
+.anacan-website .shop-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.anacan-website .shop-chip { border: 1px solid var(--site-line); border-radius: 999px; padding: 5px 13px; background: #fff; font-size: 13px; line-height: 1.3; min-height: 32px; color: var(--site-ink); }
 .anacan-website .shop-chip:hover { background: var(--site-sky); }
 .anacan-website .shop-chip.on { background: var(--site-ink); border-color: var(--site-ink); color: #fff; }
 
 /* grid: five per row on desktop */
-.anacan-website .shop-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 40px 24px; }
-@media (max-width: 1100px) { .anacan-website .shop-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@media (max-width: 860px) { .anacan-website .shop-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 18px; } }
-@media (max-width: 580px) { .anacan-website .shop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; } }
+.anacan-website .shop-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px 16px; }
+@media (max-width: 1100px) { .anacan-website .shop-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .anacan-website .shop-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px 14px; } }
+@media (max-width: 580px) { .anacan-website .shop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; } }
 .anacan-website .shop-card { display: flex; flex-direction: column; min-width: 0; }
-.anacan-website .shop-media { display: block; width: 100%; padding: 0; border: 0; border-radius: 18px; overflow: hidden; background: #faf5f3; aspect-ratio: 1 / 1; }
+.anacan-website .shop-media { display: block; width: 100%; padding: 0; border: 0; border-radius: 12px; overflow: hidden; background: #faf5f3; aspect-ratio: 1 / 1; }
 .anacan-website .shop-card.book .shop-media { aspect-ratio: 3 / 4; }
 .anacan-website .shop-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
 @media (hover: hover) { .anacan-website .shop-media:hover img { transform: scale(1.03); } }
-.anacan-website .shop-card-body { display: flex; flex-direction: column; flex: 1; padding: 14px 2px 0; }
+.anacan-website .shop-card-body { display: flex; flex-direction: column; flex: 1; padding: 8px 2px 0; }
 .anacan-website .shop-meta { font-size: 12px; color: var(--site-muted); }
-.anacan-website .shop-card h3 { margin-top: 4px; font-size: 15px; line-height: 1.35; letter-spacing: -.01em; font-weight: 500; }
+.anacan-website .shop-card h3 { margin-top: 2px; font-size: 14px; line-height: 1.35; letter-spacing: -.01em; font-weight: 500; }
 .anacan-website .shop-card h3 button { all: unset; cursor: pointer; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .anacan-website .shop-card h3 button:focus-visible { outline: 2px solid var(--site-teal); outline-offset: 3px; border-radius: 4px; }
-.anacan-website .shop-card-foot { margin-top: auto; padding-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.anacan-website .shop-price { font-size: 15px; font-weight: 500; color: var(--site-ink); letter-spacing: -.01em; }
-.anacan-website .shop-add { width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--site-line); background: #fff; color: var(--site-ink); display: grid; place-items: center; padding: 0; transition: background .15s, border-color .15s; }
+.anacan-website .shop-card-foot { margin-top: auto; padding-top: 8px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.anacan-website .shop-price { font-size: 14px; font-weight: 500; color: var(--site-ink); letter-spacing: -.01em; }
+.anacan-website .shop-add { width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--site-line); background: #fff; color: var(--site-ink); display: grid; place-items: center; padding: 0; transition: background .15s, border-color .15s; }
 .anacan-website .shop-add:hover { border-color: var(--site-ink); }
 .anacan-website .shop-add.on { background: var(--site-ink); border-color: var(--site-ink); color: #fff; }
-.anacan-website .shop-skeleton { border-radius: 18px; aspect-ratio: 3 / 4; background: linear-gradient(90deg, #faf5f3 0%, #f4ebe7 50%, #faf5f3 100%); background-size: 200% 100%; }
+.anacan-website .shop-skeleton { border-radius: 12px; aspect-ratio: 3 / 4; background: linear-gradient(90deg, #faf5f3 0%, #f4ebe7 50%, #faf5f3 100%); background-size: 200% 100%; }
 @media (prefers-reduced-motion: no-preference) { .anacan-website .shop-skeleton { animation: shop-shine 1.4s linear infinite; } }
 @keyframes shop-shine { to { background-position: -200% 0; } }
 
 /* buttons */
-.anacan-website .shop-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 22px; border-radius: 28px; border: 1px solid var(--site-accent); background: var(--site-accent); color: #331719; font-size: 15px; font-weight: 500; line-height: 1.3; }
+.anacan-website .shop-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 8px 18px; border-radius: 20px; border: 1px solid var(--site-accent); background: var(--site-accent); color: #331719; font-size: 14px; font-weight: 500; line-height: 1.3; }
 .anacan-website .shop-btn:hover { background: #ff7072; }
 .anacan-website .shop-btn.ghost { background: #fff; border-color: var(--site-line); color: var(--site-ink); }
 .anacan-website .shop-btn.ghost:hover { background: var(--site-sky); }
 .anacan-website .shop-btn.on { background: #fff; border-color: rgba(51, 51, 51, .24); color: var(--site-ink); }
-.anacan-website .shop-btn.wide { width: 100%; min-height: 52px; }
-.anacan-website .shop-collection { margin: -12px 0 28px; }
-.anacan-website .shop-collection .shop-btn { min-height: 40px; padding: 8px 16px; font-size: 13px; }
+.anacan-website .shop-btn.wide { width: 100%; min-height: 44px; }
+.anacan-website .shop-collection { margin: -6px 0 18px; }
+.anacan-website .shop-collection .shop-btn { min-height: 34px; padding: 6px 14px; font-size: 13px; }
 
 /* notes */
-.anacan-website .shop-note { margin-top: 22px; padding: 14px 18px; border-radius: 16px; background: var(--site-sky); color: var(--site-ink); font-size: 14px; line-height: 1.5; }
+.anacan-website .shop-note { margin-top: 16px; padding: 10px 14px; border-radius: 12px; background: var(--site-sky); color: var(--site-ink); font-size: 14px; line-height: 1.5; }
 .anacan-website .shop-note.ok { background: #eef6f0; color: #1c5a3a; }
 .anacan-website .shop-note.bad { background: #fdf0ee; color: #9e2b2e; }
 
 /* cart bar: a floating pill like the header */
 .anacan-website .shop-cartbar { position: fixed; inset-inline: 0; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 30; padding: 0 16px; pointer-events: none; }
-.anacan-website .shop-cartbar > div { pointer-events: auto; max-width: 640px; margin: 0 auto; display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 22px; background: rgba(255, 255, 255, .97); border: 1px solid rgba(8, 48, 76, .08); border-radius: 32px; box-shadow: var(--site-shadow), 0 18px 40px -18px rgba(0, 0, 0, .18); }
+.anacan-website .shop-cartbar > div { pointer-events: auto; max-width: 640px; margin: 0 auto; display: flex; align-items: center; gap: 12px; padding: 6px 6px 6px 18px; background: rgba(255, 255, 255, .97); border: 1px solid rgba(8, 48, 76, .08); border-radius: 26px; box-shadow: var(--site-shadow), 0 18px 40px -18px rgba(0, 0, 0, .18); }
 .anacan-website .shop-cartbar .sum { flex: 1; min-width: 0; font-size: 14px; color: var(--site-ink); }
 .anacan-website .shop-cartbar .sum b { font-weight: 500; }
 .anacan-website .shop-cartbar .sum small { display: block; font-size: 12px; color: var(--site-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* sheets */
 .anacan-website .shop-overlay { position: fixed; inset: 0; z-index: 40; background: rgba(20, 12, 10, .42); display: flex; align-items: flex-end; justify-content: center; }
-.anacan-website .shop-sheet { width: min(760px, 100%); max-height: 92vh; overflow-y: auto; background: #fff; border-radius: 28px 28px 0 0; padding: 24px max(24px, env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); }
-@media (min-width: 900px) { .anacan-website .shop-overlay { align-items: center; } .anacan-website .shop-sheet { border-radius: 28px; max-height: 88vh; padding: 28px 32px 32px; } }
-.anacan-website .shop-sheet-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
-.anacan-website .shop-sheet-head h2 { font-size: 26px; line-height: 1.2; letter-spacing: -.035em; }
-.anacan-website .shop-x { width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--site-line); background: #fff; display: grid; place-items: center; padding: 0; color: var(--site-ink); }
+.anacan-website .shop-sheet { width: min(760px, 100%); max-height: 92vh; overflow-y: auto; background: #fff; border-radius: 20px 20px 0 0; padding: 20px max(20px, env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)); }
+@media (min-width: 900px) { .anacan-website .shop-overlay { align-items: center; } .anacan-website .shop-sheet { border-radius: 20px; max-height: 88vh; padding: 22px 24px 24px; } }
+.anacan-website .shop-sheet-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 14px; }
+.anacan-website .shop-sheet-head h2 { font-size: 21px; line-height: 1.2; letter-spacing: -.035em; }
+.anacan-website .shop-x { width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--site-line); background: #fff; display: grid; place-items: center; padding: 0; color: var(--site-ink); }
 .anacan-website .shop-x:hover { background: var(--site-sky); }
-.anacan-website .shop-detail { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 28px; }
-.anacan-website .shop-detail > img { width: 100%; border-radius: 18px; background: #faf5f3; }
+.anacan-website .shop-detail { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 20px; }
+.anacan-website .shop-detail > img { width: 100%; border-radius: 12px; background: #faf5f3; }
 .anacan-website .shop-detail > div { display: flex; flex-direction: column; }
-.anacan-website .shop-detail .shop-price { font-size: 22px; letter-spacing: -.02em; }
+.anacan-website .shop-detail .shop-price { font-size: 19px; letter-spacing: -.02em; }
 .anacan-website .shop-specs { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0 14px; }
-.anacan-website .shop-specs span { border: 1px solid var(--site-line); border-radius: 999px; padding: 6px 12px; font-size: 12px; color: var(--site-muted); }
+.anacan-website .shop-specs span { border: 1px solid var(--site-line); border-radius: 999px; padding: 4px 10px; font-size: 12px; color: var(--site-muted); }
 .anacan-website .shop-specs b { font-weight: 500; color: var(--site-ink); }
 .anacan-website .shop-muted { color: var(--site-muted); font-size: 14px; }
-.anacan-website .shop-about { font-size: 15px; line-height: 1.65; margin: 0 0 16px; }
+.anacan-website .shop-about { font-size: 14.5px; line-height: 1.55; margin: 0 0 12px; }
 .anacan-website .shop-skills { margin-bottom: 20px; }
 .anacan-website .shop-skills .shop-chip { cursor: default; min-height: 0; padding: 6px 12px; font-size: 12px; }
 .anacan-website .shop-skills .shop-chip:hover { background: #fff; }
@@ -96,12 +96,12 @@
 .anacan-website .shop-label { margin-top: 18px; }
 .anacan-website .shop-label, .anacan-website .shop-field label { display: block; font-size: 13px; font-weight: 500; color: var(--site-ink); margin-bottom: 8px; }
 .anacan-website .shop-field { margin-top: 16px; }
-.anacan-website .shop-input { width: 100%; height: 48px; padding: 0 16px; border-radius: 14px; border: 1px solid rgba(51, 51, 51, .14); background: #fff; font-size: 15px; color: var(--site-ink); }
+.anacan-website .shop-input { width: 100%; height: 42px; padding: 0 14px; border-radius: 12px; border: 1px solid rgba(51, 51, 51, .14); background: #fff; font-size: 15px; color: var(--site-ink); }
 textarea.shop-input { height: auto; min-height: 84px; padding: 12px 16px; resize: vertical; }
 .anacan-website .shop-input:focus { outline: none; border-color: var(--site-ink); }
-.anacan-website .shop-upsell { display: flex; gap: 14px; align-items: center; width: 100%; margin-top: 18px; padding: 10px 16px 10px 10px; border-radius: 18px; border: 1px solid var(--site-line); background: #fff; text-align: start; color: var(--site-ink); }
+.anacan-website .shop-upsell { display: flex; gap: 12px; align-items: center; width: 100%; margin-top: 14px; padding: 8px 14px 8px 8px; border-radius: 14px; border: 1px solid var(--site-line); background: #fff; text-align: start; color: var(--site-ink); }
 .anacan-website .shop-upsell.on { border-color: var(--site-accent); background: var(--site-mint); }
-.anacan-website .shop-upsell img { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; }
+.anacan-website .shop-upsell img { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; }
 .anacan-website .shop-upsell > b { font-weight: 500; font-size: 14px; }
 .anacan-website .shop-upsell-text { flex: 1; min-width: 0; }
 .anacan-website .shop-upsell-text b { display: block; font-weight: 500; font-size: 14px; }
@@ -110,8 +110,8 @@ textarea.shop-input { height: auto; min-height: 84px; padding: 12px 16px; resize
 .anacan-website .shop-qty .shop-label { flex: 1; margin: 0; }
 .anacan-website .shop-qty .shop-btn { width: 40px; min-height: 40px; padding: 0; font-size: 18px; }
 .anacan-website .shop-qty > b { min-width: 24px; text-align: center; font-weight: 500; }
-.anacan-website .shop-row { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--site-line); }
-.anacan-website .shop-row img { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; flex-shrink: 0; background: #faf5f3; }
+.anacan-website .shop-row { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--site-line); }
+.anacan-website .shop-row img { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; flex-shrink: 0; background: #faf5f3; }
 .anacan-website .shop-row .t { flex: 1; min-width: 0; }
 .anacan-website .shop-row .t b { display: block; font-size: 14px; font-weight: 500; }
 .anacan-website .shop-row .t span { display: block; font-size: 12px; color: var(--site-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -119,27 +119,27 @@ textarea.shop-input { height: auto; min-height: 84px; padding: 12px 16px; resize
 .anacan-website .shop-row .shop-x { width: 32px; height: 32px; border: 0; }
 .anacan-website .shop-when { margin: 22px 0 10px; }
 .anacan-website .shop-days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
-.anacan-website .shop-day { flex-shrink: 0; width: 58px; padding: 9px 0; border-radius: 16px; border: 1px solid var(--site-line); background: #fff; text-align: center; font-size: 11px; color: var(--site-muted); }
-.anacan-website .shop-day b { display: block; font-size: 17px; font-weight: 500; color: var(--site-ink); }
+.anacan-website .shop-day { flex-shrink: 0; width: 54px; padding: 7px 0; border-radius: 12px; border: 1px solid var(--site-line); background: #fff; text-align: center; font-size: 11px; color: var(--site-muted); }
+.anacan-website .shop-day b { display: block; font-size: 16px; font-weight: 500; color: var(--site-ink); }
 .anacan-website .shop-day.on { background: var(--site-ink); border-color: var(--site-ink); color: rgba(255, 255, 255, .75); }
 .anacan-website .shop-day.on b { color: #fff; }
 .anacan-website .shop-slot { margin-top: 10px; }
-.anacan-website .shop-total { display: flex; justify-content: space-between; align-items: baseline; margin: 22px 0 14px; padding-top: 16px; border-top: 1px solid var(--site-line); font-size: 15px; }
-.anacan-website .shop-total span:last-child { font-family: var(--site-display); font-size: 22px; font-weight: 600; letter-spacing: -.03em; }
+.anacan-website .shop-total { display: flex; justify-content: space-between; align-items: baseline; margin: 16px 0 12px; padding-top: 12px; border-top: 1px solid var(--site-line); font-size: 15px; }
+.anacan-website .shop-total span:last-child { font-family: var(--site-display); font-size: 20px; font-weight: 600; letter-spacing: -.03em; }
 .anacan-website .shop-fine { font-size: 12px; line-height: 1.55; color: var(--site-muted); text-align: center; margin-top: 12px; }
 
 @media (max-width: 640px) {
-  .anacan-website .shop-intro { padding-top: 48px; }
-  .anacan-website .shop-intro > p:not(.site-eyebrow) { font-size: 15px; }
+  .anacan-website .shop-intro { padding-top: 24px; }
+  .anacan-website .shop-intro > p:not(.site-eyebrow) { font-size: 14.5px; }
   .anacan-website .shop-tiers { width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
-  .anacan-website .shop-tiers > div { padding: 10px 16px; border-inline-start: 0; }
+  .anacan-website .shop-tiers > div { padding: 8px 12px; border-inline-start: 0; }
   .anacan-website .shop-tiers > div:nth-child(even) { border-inline-start: 1px solid var(--site-line); }
   .anacan-website .shop-tiers > div:nth-child(n+3) { border-top: 1px solid var(--site-line); }
-  .anacan-website .shop-bar { margin-top: 40px; }
+  .anacan-website .shop-bar { margin-top: 24px; }
   .anacan-website .shop-chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -16px; padding-inline: 16px; }
   .anacan-website .shop-chip { flex-shrink: 0; }
   .anacan-website .shop-count { display: none; }
   .anacan-website .shop-detail { grid-template-columns: 1fr; gap: 18px; }
-  .anacan-website .shop-detail > img { max-height: 340px; object-fit: cover; }
+  .anacan-website .shop-detail > img { max-height: 260px; object-fit: cover; }
   .anacan-website .shop-card h3 { font-size: 14px; }
 }

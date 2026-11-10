@@ -10,7 +10,7 @@ import { llmFullPath, llmIndexPath, markdownPath } from './discovery';
 export function Arrow({ diagonal = false }: { diagonal?:boolean }) { return diagonal ? <ArrowUpRight aria-hidden="true" size={18} strokeWidth={1.6}/> : <ArrowRight aria-hidden="true" size={18} strokeWidth={1.6}/>; }
 export function Brand() {
   const { href } = useWebsite();
-  return <a className="site-brand" href={href()} aria-label="Anacan"><img src="/website/brand-mark-coral.png" width="36" height="36" alt=""/><span>anacan</span><i aria-hidden="true"/></a>;
+  return <a className="site-brand" href={href()} aria-label="Anacan"><img src="/website/brand-glyph-coral.png" width="30" height="30" alt=""/><span>anacan</span><i aria-hidden="true"/></a>;
 }
 /** Azerbaijani-only shop links; the products are sold in Azerbaijan only. */
 const SHOP_LINKS=[['books','Kitablar'],['cakes','Tortlar']] as const;
@@ -93,7 +93,7 @@ export function StoreLinks() {
 }
 export function DownloadCard() {
   const {href,t}=useWebsite();
-  return <section className="site-download-card"><div className="site-download-mark"><img src="/website/brand-mark-coral.png" width="72" height="72" alt=""/></div><div><Eyebrow mint>{t('downloadEyebrow')}</Eyebrow><h2>{t('downloadTitle')}</h2><p>{t('downloadDescription')}</p></div><a href={href('download')} className="site-outline-button">{t('download')}<Arrow diagonal/></a></section>;
+  return <section className="site-download-card"><div className="site-download-mark"><img src="/website/brand-glyph-coral.png" width="40" height="40" alt=""/></div><div><Eyebrow mint>{t('downloadEyebrow')}</Eyebrow><h2>{t('downloadTitle')}</h2><p>{t('downloadDescription')}</p></div><a href={href('download')} className="site-outline-button">{t('download')}<Arrow diagonal/></a></section>;
 }
 export function ArticleCard({article,featured=false}: {article:WebsiteArticle;featured?:boolean}) {
   const {href,t,route}=useWebsite();

@@ -16,7 +16,7 @@ export function FeaturesPage() {
 export function FaqPage() { return <><Intro title="faq" description="faqDescription"/><div className="site-narrow"><FaqList/></div><DownloadCard/></>; }
 export function DownloadPage() {
   const {t,route}=useWebsite();
-  return <><Intro title="downloadTitle" description="downloadDescription" eyebrow="downloadEyebrow"/><div className="site-download-page"><div className="site-download-app-icon"><img src="/website/brand-mark-coral.png" width="112" height="112" alt="Anacan"/></div><StoreLinks/><p>{t('downloadNote')}</p><div className="site-qr-card"><QRCodeSVG value={WEBSITE_ORIGIN+sitePath(route.language,'download')} size={144} bgColor="#ffffff" fgColor="#333333" level="M" title={t('qrLabel')}/><div><h2>{t('qrLabel')}</h2><p>{t('qrDescription')}</p></div></div></div><section className="site-section"><SectionHeading title="stageTitle" description="stageDescription"/><StageCards/></section></>;
+  return <><Intro title="downloadTitle" description="downloadDescription" eyebrow="downloadEyebrow"/><div className="site-download-page"><div className="site-download-app-icon"><img src="/website/brand-glyph-coral.png" width="64" height="64" alt="Anacan"/></div><StoreLinks/><p>{t('downloadNote')}</p><div className="site-qr-card"><QRCodeSVG value={WEBSITE_ORIGIN+sitePath(route.language,'download')} size={144} bgColor="#ffffff" fgColor="#333333" level="M" title={t('qrLabel')}/><div><h2>{t('qrLabel')}</h2><p>{t('qrDescription')}</p></div></div></div><section className="site-section"><SectionHeading title="stageTitle" description="stageDescription"/><StageCards/></section></>;
 }
 export function ContactPage() {
   const {t}=useWebsite();
