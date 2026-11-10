@@ -241,3 +241,6 @@ handoff-a daxil edilmir.
 - 2026-11-10: owner switched the pregnancy week pages off (`PREGNANCY_WEEKS_ENABLED=false`, all week URLs 404;
   week content lives in the app). Website `32ddac1f…` (rollback `website-runtime-plan.before-weeksoff.json`),
   gateway `132dd27d…` (plan `weeksoff-web-plan.json`, rollback `rollback-weeksoff-web-plan.json`).
+- 2026-11-10: English news `/en/news/` (7 items; the PDF books item stays az-only). Website `0c464bbb…`
+  (rollback `website-runtime-plan.before-newsen.json`), gateway `6fe1793d…` (plan `newsen-web-plan.json`, rollback
+  `rollback-newsen-web-plan.json`; adds `website/news/en/`).
