@@ -2,8 +2,10 @@
 // Run: PW_CHROMIUM=/opt/pw-browsers/chromium npx tsx scripts/website/news-covers.mjs  (re-run after adding news).
 import {chromium} from 'playwright';
 import {readFile,mkdir} from 'node:fs/promises';
-import {join} from 'node:path';
-import {NEWS,PARTNERS,newsCover} from '../../src/website/news.ts';
+import {dirname,join} from 'node:path';
+// Partner covers (logos only) are shared by all languages; art covers carry a caption, so translated items also
+// get public/website/news/<lang>/<localized-slug>.jpg (see newsCover in news.ts).
+import {NEWS,NEWS_LANGUAGES,PARTNERS,newsCover} from '../../src/website/news.ts';
 
 const root=join(import.meta.dirname,'../..');
 const pub=join(root,'public');
@@ -30,8 +32,8 @@ const css=`*{margin:0;box-sizing:border-box}body{width:1200px;height:630px;overf
 .sub{font-weight:700;font-size:34px;color:#333;line-height:1.15}
 .char{height:250px}`;
 
-const html=async(item)=>{
-  const c=newsCover(item);let inner='';
+const html=async(c)=>{
+  let inner='';
   if(c.kind==='partner'){const p=PARTNERS[c.partner];const src=await dataUri(p.src.replace(/^\//,''));
     inner=`${glyph('mk')}<span class="x">×</span><span class="logo ${p.shape}"><img src="${src}">${p.shape==='icon'?`<span>${p.name}</span>`:''}</span>`;}
   else{const ch=await dataUri(`website/characters/${c.character}.webp`);
@@ -40,8 +42,9 @@ const html=async(item)=>{
   return `<!doctype html><meta charset="utf-8"><style>${css}</style><div class="card">${inner}</div>`;
 };
 
-await mkdir(join(pub,'website/news'),{recursive:true});
+const covers=new Map();
+for(const item of NEWS)for(const language of NEWS_LANGUAGES)if(language==='az'||item[language]){const c=newsCover(item,language);covers.set(c.src,c);}
 const browser=await chromium.launch(process.env.PW_CHROMIUM?{executablePath:process.env.PW_CHROMIUM}:{});const page=await browser.newPage({viewport:{width:1200,height:630}});
-for(const item of NEWS){await page.setContent(await html(item),{waitUntil:'load'});
-  const out=join(pub,newsCover(item).src.replace(/^\//,''));await page.screenshot({path:out,type:'jpeg',quality:86});console.log(out);}
+for(const c of covers.values()){await page.setContent(await html(c),{waitUntil:'load'});
+  const out=join(pub,c.src.replace(/^\//,''));await mkdir(dirname(out),{recursive:true});await page.screenshot({path:out,type:'jpeg',quality:86});console.log(out);}
 await browser.close();

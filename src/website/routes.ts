@@ -1,6 +1,6 @@
 import { WEBSITE_LANGUAGE_CODES_ALL, isWebsiteLanguage, type WebsiteLanguageCode } from '../lib/app-languages.ts';
 import detailRoutes from './detail-routes.json' with {type:'json'};
-import { findNews } from './news';
+import { findNews, isNewsLanguage, NEWS_LANGUAGES, newsIn, newsTranslation, type NewsLanguage } from './news';
 import { isToolPage, resolveToolRoute, toolAlternatePath, toolSitePath, type ToolPage } from './tools/tool-routes';
 
 export const WEBSITE_ORIGIN = 'https://anacan.az';
@@ -14,12 +14,39 @@ export const SHOP_PAGES=['books','cakes'] as const;
 export type ShopPage=typeof SHOP_PAGES[number];
 export const SHOP_SLUGS: Record<ShopPage,string> = { books:'kitablar', cakes:'tortlar' };
 export const isShopPage=(kind:string):kind is ShopPage=>(SHOP_PAGES as readonly string[]).includes(kind);
-/** Azerbaijani-only news: list /az/xeberler/ and detail /az/xeberler/<slug>/ (data in news.ts). */
+/** News in az and en (data in news.ts): list /az/xeberler/ and /en/news/, detail /<lang>/<list>/<localized-slug>/.
+ * Other languages have no news pages; an item without a translation exists only in Azerbaijani. */
 export const NEWS_SLUG='xeberler';
+export const NEWS_SLUGS: Record<NewsLanguage,string> = { az:NEWS_SLUG, en:'news' };
 export type NewsPage='news'|'newsArticle';
 export const isNewsPage=(kind:string):kind is NewsPage=>kind==='news'||kind==='newsArticle';
-/** Pages that exist only under /az/ (no other-language alternates). */
-export const isAzOnlyPage=(kind:string)=>isShopPage(kind)||isNewsPage(kind);
+/** Pages that exist only under /az/ (no other-language alternates): the shop. */
+export const isAzOnlyPage=(kind:string)=>isShopPage(kind);
+const newsLanguage=(language:WebsiteLanguageCode):NewsLanguage=>isNewsLanguage(language)?language:'az';
+/** News alternates: the list in every news language, an item only in the languages it is translated into. */
+function newsAlternate(route: WebsiteRoute, language: WebsiteLanguageCode): string | undefined {
+  if (!isNewsLanguage(language)) return undefined;
+  if (route.kind === 'news') return sitePath(language, 'news');
+  const item = isNewsLanguage(route.language) ? findNews(route.slug, route.language) : undefined;
+  const target = item && newsTranslation(item, language);
+  return target ? sitePath(language, 'newsArticle', target.slug) : undefined;
+}
+/** Sitemap rows for the news pages, shaped like toolSitemapEntries(); x-default is the Azerbaijani page. */
+export function newsSitemapEntries() {
+  const entries: Array<{language:NewsLanguage;path:string;updated:string;alternates:Array<{code:string;path:string}>}> = [];
+  const add = (route: WebsiteRoute, updated: string) => {
+    const alternates = NEWS_LANGUAGES.flatMap(code => { const path = newsAlternate(route, code); return path ? [{code, path}] : []; });
+    const xDefault = alternates.find(item => item.code === 'az');
+    entries.push({language:route.language as NewsLanguage, path:routePath(route), updated, alternates:[...alternates, ...(xDefault ? [{code:'x-default', path:xDefault.path}] : [])]});
+  };
+  for (const language of NEWS_LANGUAGES) {
+    const items = newsIn(language);
+    if (!items.length) continue;
+    add({language, kind:'news'}, items[0].date);
+    for (const item of items) add({language, kind:'newsArticle', slug:item.slug}, item.date);
+  }
+  return entries;
+}
 /** Tool pages (baby names in enabled languages, AZ dekret calculator): see tools/tool-routes.ts. */
 export { isToolPage, type ToolPage };
 /** Free health calculators in every website language (texts in calc-content/, never copy JSON keys). */
@@ -90,10 +117,11 @@ export function sitePath(language: WebsiteLanguageCode, kind: WebsitePage = 'hom
   }
   if (kind === 'notFound') return `/${language}/404/`;
   if (isShopPage(kind)) return `/az/${SHOP_SLUGS[kind]}/`;
-  if (kind === 'news') return `/az/${NEWS_SLUG}/`;
+  if (kind === 'news') { const code = newsLanguage(language); return `/${code}/${NEWS_SLUGS[code]}/`; }
   if (kind === 'newsArticle') {
     if (!validWebsiteSlug(slug)) throw new Error('WEBSITE_NEWS_SLUG_REQUIRED');
-    return `/az/${NEWS_SLUG}/${encodeURIComponent(slug)}/`;
+    const code = newsLanguage(language);
+    return `/${code}/${NEWS_SLUGS[code]}/${encodeURIComponent(slug)}/`;
   }
   if (isToolPage(kind)) return toolSitePath(language, kind, slug);
   const segment = encodeURIComponent(PAGE_SLUGS[language][kind]);
@@ -115,6 +143,7 @@ export function localizedSlug(title: string): string {
 export function routePath(route: WebsiteRoute) { return sitePath(route.language, route.kind, route.slug, route.page); }
 export function alternateRoute(route: WebsiteRoute, language: WebsiteLanguageCode, article?: ArticleRoute): string | undefined {
   if (route.kind === 'article') return article?.slugs[language] ? sitePath(language, 'article', article.slugs[language]) : undefined;
+  if (isNewsPage(route.kind)) return newsAlternate(route, language);
   if (isAzOnlyPage(route.kind)) return language === 'az' ? sitePath('az', route.kind, route.slug) : undefined;
   if (isToolPage(route.kind)) return toolAlternatePath(route, language);
   return sitePath(language, route.kind, undefined, route.page);
@@ -150,11 +179,11 @@ export function resolveWebsiteRoute(pathname: string, articles: readonly Article
   if (!rest.length) return { route:{language,kind:'home'}, ...(!raw.endsWith('/') ? {redirect:sitePath(language)} : {}) };
   const shop = language === 'az' && rest.length === 1 ? SHOP_PAGES.find(item => SHOP_SLUGS[item] === rest[0]) : undefined;
   if (shop) return {route:{language,kind:shop},...(!raw.endsWith('/') ? {redirect:sitePath('az',shop)} : {})};
-  if (language === 'az' && rest[0] === NEWS_SLUG && rest.length <= 2) {
-    if (rest.length === 1) return {route:{language,kind:'news'},...(!raw.endsWith('/') ? {redirect:sitePath('az','news')} : {})};
-    const item = findNews(rest[1]);
+  if (isNewsLanguage(language) && rest[0] === NEWS_SLUGS[language] && rest.length <= 2) {
+    if (rest.length === 1) return {route:{language,kind:'news'},...(!raw.endsWith('/') ? {redirect:sitePath(language,'news')} : {})};
+    const item = findNews(rest[1], language);
     if (!item) return {route:{language,kind:'notFound'}};
-    return {route:{language,kind:'newsArticle',slug:item.slug},...(!raw.endsWith('/') ? {redirect:sitePath('az','newsArticle',item.slug)} : {})};
+    return {route:{language,kind:'newsArticle',slug:item.slug},...(!raw.endsWith('/') ? {redirect:sitePath(language,'newsArticle',item.slug)} : {})};
   }
   const tool = resolveToolRoute(language, rest);
   if (tool) return tool.kind === 'notFound' ? {route:{language,kind:'notFound'}}

@@ -1,15 +1,20 @@
-/** Azerbaijani-only news ("Xəbərlər": home section, list and detail pages) and the partner logo strip
- * shown on the home page of every language. Texts are inline (no copy keys), data lives in news.ts. */
+/** News in Azerbaijani and English ("Xəbərlər" / "News": home section, list and detail pages) and the partner
+ * logo strip shown on the home page of every language. Texts are inline (no copy keys), data lives in news.ts. */
 import { useEffect, useRef, useState } from 'react';
 import type { WebsiteLanguageCode } from '../lib/app-languages';
 import { useWebsite } from './context';
 import { Arrow, DownloadCard, Eyebrow } from './components';
 import { siteDate } from './dates';
-import { NEWS, PARTNER_IDS, PARTNERS, findNews, type NewsBlock, type NewsItem, type PartnerId, newsCover } from './news';
+import { PARTNER_IDS, PARTNERS, findNews, isNewsLanguage, newsIn, NEWS_LABELS, type LocalNews, type NewsBlock, type NewsLanguage, type PartnerId } from './news';
 import { HIGH_PRIORITY } from './images';
 import './news.css';
 
-const newsDate = (value: string) => siteDate(value, 'az').toLocaleLowerCase('az');
+const newsDate = (value: string, language: NewsLanguage) => language === 'az' ? siteDate(value, 'az').toLocaleLowerCase('az') : siteDate(value, language);
+/** News language of the current page (only az and en pages render news). */
+function useNewsLanguage(): NewsLanguage {
+  const { route } = useWebsite();
+  return isNewsLanguage(route.language) ? route.language : 'az';
+}
 
 /** Partner logo (file path per partner in news.ts); a text wordmark replaces a missing or broken file.
  * Square `icon` marks are followed by the name. SSR always outputs the <img>; an error that happened
@@ -29,40 +34,42 @@ export function PartnerLogo({ id, className = '' }: { id: PartnerId; className?:
   return <img ref={image} className={`nw-logo nw-logo-wide ${className}`} src={src} alt={name} loading="lazy" decoding="async" onError={() => setFailed(true)} />;
 }
 
-function NewsMeta({ item }: { item: NewsItem }) {
+function NewsMeta({ item }: { item: LocalNews }) {
   return <div className="nw-meta">
     {item.partner ? <span className="nw-meta-logo"><PartnerLogo id={item.partner} /></span> : <span className="nw-chip">{item.tag}</span>}
-    <time dateTime={item.date}>{newsDate(item.date)}</time>
+    <time dateTime={item.date}>{newsDate(item.date, item.language)}</time>
   </div>;
 }
 
-function NewsCard({ item }: { item: NewsItem }) {
+function NewsCard({ item }: { item: LocalNews }) {
   const { href } = useWebsite();
   return <article className="nw-card"><a href={href('newsArticle', item.slug)}>
-    <img className="nw-cover" src={newsCover(item).src} alt="" width="1200" height="630" loading="lazy" decoding="async" />
+    <img className="nw-cover" src={item.cover.src} alt="" width="1200" height="630" loading="lazy" decoding="async" />
     <div className="nw-card-body"><NewsMeta item={item} />
     <h3>{item.title}</h3>
     <p>{item.lead}</p>
-    <span className="site-text-link">Oxu<Arrow diagonal /></span></div>
+    <span className="site-text-link">{NEWS_LABELS[item.language].read}<Arrow diagonal /></span></div>
   </a></article>;
 }
 
-/** Home page (az): the three newest items. */
+/** Home page (az, en): the three newest items in that language. */
 export function HomeNews() {
   const { href } = useWebsite();
+  const language = useNewsLanguage(), labels = NEWS_LABELS[language];
   return <section className="site-section nw-home" id="news" aria-labelledby="news-heading">
-    <div className="site-section-heading"><div><Eyebrow>Yeniliklər</Eyebrow><h2 id="news-heading">Xəbərlər</h2><p>Anacan-dan son yeniliklər: dəstək proqramları, tərəfdaşlıqlar və yeni funksiyalar.</p></div>
-      <a className="site-text-link" href={href('news')}>Bütün xəbərlər<Arrow diagonal /></a></div>
-    <div className="nw-grid nw-grid-3">{NEWS.slice(0, 3).map((item) => <NewsCard item={item} key={item.slug} />)}</div>
+    <div className="site-section-heading"><div><Eyebrow>{labels.eyebrow}</Eyebrow><h2 id="news-heading">{labels.news}</h2><p>{labels.homeIntro}</p></div>
+      <a className="site-text-link" href={href('news')}>{labels.all}<Arrow diagonal /></a></div>
+    <div className="nw-grid nw-grid-3">{newsIn(language).slice(0, 3).map((item) => <NewsCard item={item} key={item.id} />)}</div>
   </section>;
 }
 
 export function NewsListPage() {
   const { href, t } = useWebsite();
+  const language = useNewsLanguage(), labels = NEWS_LABELS[language];
   return <>
-    <nav className="site-breadcrumb" aria-label={t('home')}><a href={href()}>{t('home')}</a><span aria-hidden="true">/</span><span>Xəbərlər</span></nav>
-    <div className="site-page-intro nw-intro"><Eyebrow>Yeniliklər</Eyebrow><h1>Xəbərlər</h1><p>Anacan-dan son yeniliklər: dəstək proqramları, tərəfdaşlıqlar, yeni dillər və yeni funksiyalar.</p></div>
-    <div className="nw-grid nw-grid-3">{NEWS.map((item) => <NewsCard item={item} key={item.slug} />)}</div>
+    <nav className="site-breadcrumb" aria-label={t('home')}><a href={href()}>{t('home')}</a><span aria-hidden="true">/</span><span>{labels.news}</span></nav>
+    <div className="site-page-intro nw-intro"><Eyebrow>{labels.eyebrow}</Eyebrow><h1>{labels.news}</h1><p>{labels.listIntro}</p></div>
+    <div className="nw-grid nw-grid-3">{newsIn(language).map((item) => <NewsCard item={item} key={item.id} />)}</div>
     <DownloadCard />
   </>;
 }
@@ -76,15 +83,16 @@ function Block({ block }: { block: NewsBlock }) {
 
 export function NewsArticlePage() {
   const { href, t, route } = useWebsite();
-  const item = findNews(route.slug);
+  const language = useNewsLanguage(), labels = NEWS_LABELS[language];
+  const item = findNews(route.slug, language);
   if (!item) return null;
-  const others = NEWS.filter((other) => other.slug !== item.slug).slice(0, 2);
+  const others = newsIn(language).filter((other) => other.id !== item.id).slice(0, 2);
   return <>
-    <nav className="site-breadcrumb" aria-label={t('home')}><a href={href()}>{t('home')}</a><span aria-hidden="true">/</span><a href={href('news')}>Xəbərlər</a><span aria-hidden="true">/</span><span>{item.title}</span></nav>
-    <article className="nw-article" data-news={item.slug}>
+    <nav className="site-breadcrumb" aria-label={t('home')}><a href={href()}>{t('home')}</a><span aria-hidden="true">/</span><a href={href('news')}>{labels.news}</a><span aria-hidden="true">/</span><span>{item.title}</span></nav>
+    <article className="nw-article" data-news={item.id}>
       <header className="nw-article-header">
-        <img className="nw-cover nw-article-cover" src={newsCover(item).src} alt={item.title} width="1200" height="630" {...HIGH_PRIORITY} />
-        <div className="nw-article-meta"><span className="nw-chip">{item.tag}</span><time dateTime={item.date}>{newsDate(item.date)}</time><span>{item.readMinutes} dəq oxu</span></div>
+        <img className="nw-cover nw-article-cover" src={item.cover.src} alt={item.title} width="1200" height="630" {...HIGH_PRIORITY} />
+        <div className="nw-article-meta"><span className="nw-chip">{item.tag}</span><time dateTime={item.date}>{newsDate(item.date, language)}</time><span>{labels.minutes(item.readMinutes)}</span></div>
         <h1>{item.title}</h1>
         <p className="nw-article-lead">{item.lead}</p>
       </header>
@@ -95,8 +103,8 @@ export function NewsArticlePage() {
       </p>}
     </article>
     {!!others.length && <section className="site-section nw-others" aria-labelledby="news-others">
-      <div className="site-section-heading"><div><h2 id="news-others">Digər xəbərlər</h2></div><a className="site-text-link" href={href('news')}>Bütün xəbərlər<Arrow diagonal /></a></div>
-      <div className="nw-grid nw-grid-2">{others.map((other) => <NewsCard item={other} key={other.slug} />)}</div>
+      <div className="site-section-heading"><div><h2 id="news-others">{labels.others}</h2></div><a className="site-text-link" href={href('news')}>{labels.all}<Arrow diagonal /></a></div>
+      <div className="nw-grid nw-grid-2">{others.map((other) => <NewsCard item={other} key={other.id} />)}</div>
     </section>}
     <DownloadCard />
   </>;

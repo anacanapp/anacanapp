@@ -206,6 +206,12 @@ handoff-a daxil edilmir.
   (plan `compact-web-plan.json`, rollback `rollback-compact-web-plan.json`). Gateway copies only `website/news`,
   `website/partners` and `brand-glyph-coral.png` into `/usr/share/nginx/website/website/`.
 
+- 2026-11-10 (not deployed): English news `/en/news/` and `/en/news/<en-slug>/` (data in `NewsItem.en`, labels in
+  `NEWS_LABELS`, routes `NEWS_SLUGS`). Every item except the PDF books item is translated; the books item stays
+  az-only (shop not promoted outside AZ). hreflang az↔en + x-default→az; sitemaps from `newsSitemapEntries()`.
+  Partner covers are shared; art covers with text get `public/website/news/en/<en-slug>.jpg`. /en/ home shows the
+  three newest English items; footer/mobile menu "News" on en. Other languages still 404.
+
 ## Uşaq adları and dekret pulu kalkulyatoru (2026-11-10, not deployed)
 
 - Code: `src/website/tools/` (texts inline, no copy keys). Names data are bundled snapshots of the app's
