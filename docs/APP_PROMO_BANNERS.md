@@ -79,3 +79,13 @@ Note: on the old v2 path (builds before inventory v3) own branded banners are hi
 `X-Anacan-Version` header that native builds send from 50.0.2 on (`src/integrations/supabase/client.ts`), else from
 the newest `user_consents.app_version` (the consent screen ships with 49.0, so users without a record are on older
 builds). Admins are exempt. The PDF book banner uses `min_app_version = 49` (books and `/books` exist from 49.0).
+
+## 8. 11.11 Poz-Aç campaign banners (2026-11-10)
+- Three designs × five languages (az, en, tr, kk, uz), `assets/banners/promo/1111-<lang>-<n>-20261110.jpg`.
+  Banner 3 → `home_top`; banner 2 → `tools_top`, `community_top`; banner 1 → `profile_top`, `ai_chat_top`.
+- Each links (external) to `https://anacan.az/website/premium/1111/index.html?lang=<lang>&utm_…&utm_content=<placement>`.
+  `audience_tiers={free}`, `sort_order=-10`, window now → 2026-11-11T19:59:59Z.
+- az: `target_languages={az}`, `target_countries={AZ}`, active. tr/kk/uz: own language; en: the 19 other app
+  languages; created **inactive** until the owner approves after the az test (switch in Admin → Bannerlər).
+- Kazakh needs Cyrillic: Plus Jakarta Sans has none, so the renderer falls back to Manrope (cyrillic subsets) for it.
+- Live check: simulated 200 AZ users; every free user had the az home banner in `get_banner_inventory_v3`.
