@@ -7,7 +7,7 @@ import type { ToolMeta } from '../tools/tool-routes';
 import { pregnancyWeekContent } from './registry';
 import {
   PREGNANCY_WEEK_NUMBERS, PREGNANCY_WEEKS_HUB, PREGNANCY_WEEKS_HUB_SLUG, PREGNANCY_WEEKS_PARENT, PREGNANCY_WEEKS_ROBOTS, PREGNANCY_WEEKS_UPDATED,
-  pregnancyWeekFromSlug, pregnancyWeekLabel, pregnancyWeekPath, pregnancyWeekSlug, pregnancyWeekTitle, pregnancyWeeksHubPath, pregnancyWeeksPublished,
+  pregnancyWeekFromSlug, pregnancyWeekLabel, pregnancyWeekPath, pregnancyWeekSlug, pregnancyWeekTitle, pregnancyWeeksHubPath, pregnancyWeeksPublished, pregnancyWeeksEnabled,
 } from './weeks';
 
 export const PREGNANCY_WEEK_PAGES = ['pregnancyWeeks', 'pregnancyWeek'] as const;
@@ -25,7 +25,7 @@ export function pregnancyWeekSitePath(kind: PregnancyWeekPage, slug?: string): s
 /** `rest` = decoded segments after the language. undefined: not one of these URLs (e.g. /az/hamilelik/ itself). */
 export function resolvePregnancyWeekRoute(language: WebsiteLanguageCode, rest: string[]): { kind: PregnancyWeekPage | 'notFound'; slug?: string } | undefined {
   if (language !== 'az' || rest[0] !== PREGNANCY_WEEKS_PARENT || rest.length < 2) return undefined;
-  if (rest.length > 2) return { kind: 'notFound' };
+  if (rest.length > 2 || !pregnancyWeeksEnabled()) return { kind: 'notFound' };
   if (rest[1] === PREGNANCY_WEEKS_HUB_SLUG) return { kind: 'pregnancyWeeks' };
   const week = pregnancyWeekFromSlug(rest[1]);
   return week ? { kind: 'pregnancyWeek', slug: pregnancyWeekSlug(week) } : { kind: 'notFound' };

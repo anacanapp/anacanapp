@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import '../tools/tool-data-server';
@@ -18,7 +18,7 @@ import azDetails from '../details/az.json';
 import type { WebsiteBoot, WebsiteCopy } from '../model';
 import { PREGNANCY_WEEKS_AZ } from './az';
 import {
-  APP_FRUIT_SIZES, APP_MEDIAN_WEIGHT_G, PREGNANCY_SOURCES, PREGNANCY_WEEKS_PUBLISHED, PREGNANCY_WEEK_NUMBERS, azOrdinal, overridePregnancyWeeksPublished,
+  APP_FRUIT_SIZES, APP_MEDIAN_WEIGHT_G, PREGNANCY_SOURCES, PREGNANCY_WEEKS_PUBLISHED, PREGNANCY_WEEK_NUMBERS, azOrdinal, overridePregnancyWeeksPublished, overridePregnancyWeeksEnabled, PREGNANCY_WEEKS_ENABLED,
   pregnancyTrimester, pregnancyWeekFacts, pregnancyWeekFromSlug, pregnancyWeekNextTest, pregnancyWeekPath, pregnancyWeekQuick, pregnancyWeekSharedTodo,
   pregnancyWeekSharedWarnings, pregnancyWeekSize, pregnancyWeekSlug, pregnancyWeekTests,
 } from './weeks';
@@ -27,6 +27,21 @@ const boot = (path: string, language: 'az' | 'en' = 'az'): WebsiteBoot => ({ sch
   copy: (language === 'az' ? azCopy : enCopy) as WebsiteCopy, details: azDetails as WebsiteBoot['details'], articles: [], generatedAt: '2026-11-10T00:00:00Z', basePath: '' });
 const html = (path: string) => renderToString(createElement(Website, { boot: boot(path) }));
 const HUB = '/az/hamilelik/heftelik/';
+
+describe('PREGNANCY_WEEKS_ENABLED switch (owner: content lives in the app)', () => {
+  it('is off: hub and week URLs answer 404 and nothing is published', () => {
+    expect(PREGNANCY_WEEKS_ENABLED).toBe(false);
+    overridePregnancyWeeksEnabled();
+    expect(resolveWebsiteRoute(HUB).route.kind).toBe('notFound');
+    expect(resolveWebsiteRoute('/az/hamilelik/12-ci-hefte/').route.kind).toBe('notFound');
+    expect(resolveWebsiteRoute('/az/hamilelik/').route.kind).not.toBe('notFound');
+    expect(toolSitemapEntries().some(entry => entry.path.includes('-hefte/') || entry.path.includes('heftelik'))).toBe(false);
+    overridePregnancyWeeksEnabled(true);
+  });
+});
+// The page tests below exercise the switched-off pages so they can be brought back safely.
+beforeAll(() => overridePregnancyWeeksEnabled(true));
+afterAll(() => overridePregnancyWeeksEnabled());
 const words = (text: string) => text.split(/\s+/).filter(Boolean).length;
 /** Every text a reader sees for the week, in page order (facts table excluded). */
 function visibleText(week: number) {
