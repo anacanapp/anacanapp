@@ -6,6 +6,7 @@ import { Character,CharacterFamily } from './Characters';
 import { Heart } from 'lucide-react';
 import HomeShop from './HomeShop';
 import PremiumStrip from './PremiumStrip';
+import { HomeNews, PartnerStrip } from './News';
 
 export function FeatureGrid() {
   const {t,href}=useWebsite();
@@ -45,6 +46,8 @@ export default function Home() {
     <section className="site-section" id="features"><SectionHeading eyebrow="featureEyebrow" title="featureTitle" description="featureDescription"/><FeatureGrid/></section>
     <section className="site-section" id="tools"><SectionHeading eyebrow="toolsEyebrow" title="toolsTitle" description="toolsDescription"/><ToolCards compact/></section>
     <section className="site-section" id="journal"><SectionHeading eyebrow="journalEyebrow" title="journalTitle" description="journalDescription" action={<a className="site-text-link" href={href('journal')}>{t('allArticles')}<Arrow diagonal/></a>}/><div className="site-article-grid">{articles.slice(0,3).map(article=><ArticleCard article={article} key={article.id}/>)}</div></section>
+    {route.language==='az'&&<HomeNews/>}
+    <PartnerStrip/>
     <section className="site-section site-faq-section"><SectionHeading title="faq" description="faqDescription"/><FaqList keys={[1,2,3,4,5]}/></section>
     <DownloadCard/>
   </>;

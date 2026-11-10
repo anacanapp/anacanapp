@@ -12,6 +12,8 @@ export {resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE_
  * website language list (app-only ky/et are excluded) under that published export name. */
 export {WEBSITE_LANGUAGES as APP_LANGUAGES};
 export {prepareBlogContent};
+/** Azerbaijani-only news (/az/xeberler/…): listed in the pages and az sitemaps with az-only hreflang. */
+export {NEWS} from './news';
 export {renderArticleContent} from './article-content';
 export {LLM_COPY,LLM_FORMAT_VERSION,LLM_PAGE_KINDS,llmLanguageName,renderLlmDocument,renderLlmFullHeader,renderLlmHub,renderLlmIndex,renderLlmJournal,renderLlmManifest} from './llm-content';
 export {discoveryLinkHeader,discoveryLinks,llmFullPath,llmIndexPath,localeSitemapPath,markdownPath} from './discovery';

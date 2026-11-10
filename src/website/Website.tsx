@@ -8,11 +8,12 @@ import { ContactPage, DownloadPage, FaqPage, FeaturesPage, LegalPage, NotFoundPa
 import DetailPageView from './DetailPage';
 import {DETAIL_PAGES,type DetailPage,isShopPage} from './routes';
 import ShopPage from './Shop';
+import { NewsArticlePage, NewsListPage } from './News';
 
 export default function Website({boot}:{boot:WebsiteBoot}) {
   const page=boot.route.kind;
   return <WebsiteContext.Provider value={boot}><div className="anacan-website" lang={boot.route.language} dir={boot.route.language==='ar'?'rtl':'ltr'}><WebsiteHeader/><main id="main" className={`site-main site-page-${page}`}>
-    {(DETAIL_PAGES as readonly string[]).includes(page)?<DetailPageView kind={page as DetailPage}/>:isShopPage(page)?<ShopPage kind={page}/>:page==='home'?<Home/>:page==='journal'?<Journal/>:page==='article'?<ArticlePage/>:page==='ovulation'||page==='dueDate'?<CalculatorPage kind={page}/>:page==='tools'?<ToolsPage/>:page==='features'?<FeaturesPage/>:page==='faq'?<FaqPage/>:page==='contact'?<ContactPage/>:page==='download'?<DownloadPage/>:page==='privacy'||page==='terms'?<LegalPage kind={page}/>:page==='symptoms'?<SymptomsPage/>:page==='simulator'?<SimulatorPage/>:<NotFoundPage/>}
+    {(DETAIL_PAGES as readonly string[]).includes(page)?<DetailPageView kind={page as DetailPage}/>:isShopPage(page)?<ShopPage kind={page}/>:page==='news'?<NewsListPage/>:page==='newsArticle'?<NewsArticlePage/>:page==='home'?<Home/>:page==='journal'?<Journal/>:page==='article'?<ArticlePage/>:page==='ovulation'||page==='dueDate'?<CalculatorPage kind={page}/>:page==='tools'?<ToolsPage/>:page==='features'?<FeaturesPage/>:page==='faq'?<FaqPage/>:page==='contact'?<ContactPage/>:page==='download'?<DownloadPage/>:page==='privacy'||page==='terms'?<LegalPage kind={page}/>:page==='symptoms'?<SymptomsPage/>:page==='simulator'?<SimulatorPage/>:<NotFoundPage/>}
     <LanguageLinks/>
   </main><WebsiteFooter/></div></WebsiteContext.Provider>;
 }

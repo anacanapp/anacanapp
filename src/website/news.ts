@@ -1,0 +1,230 @@
+// DATES/DETAILS FOR a,b TO BE CONFIRMED BY THE OWNER BEFORE PUBLISHING
+/**
+ * Anacan news ("Xəbərlər"), Azerbaijani only: /az/xeberler/ and /az/xeberler/<slug>/.
+ * Edit this array to add, change or remove a news item (newest first). Texts are plain
+ * strings (no HTML, no Markdown); the slug is the published URL, keep it stable once live.
+ * No copy keys: the website copy-key guard stays untouched.
+ */
+export type NewsBlock =
+  | { type: 'p'; text: string }
+  | { type: 'h2'; text: string }
+  | { type: 'list'; items: string[] }
+  | { type: 'quote'; text: string };
+
+export const PARTNER_IDS = ['google', 'microsoft', 'aws', 'nvidia', 'anthropic', 'idda', 'epoint', 'inmerge', 'thetech'] as const;
+export type PartnerId = typeof PARTNER_IDS[number];
+/** Logo file under public/, its display name and shape: `icon` marks (square symbols) are shown with
+ * the name next to them, `wide` logos already contain the name. */
+export const PARTNERS: Record<PartnerId, { name: string; src: string; shape: 'icon' | 'wide' }> = {
+  google: { name: 'Google', src: '/website/partners/google.svg', shape: 'icon' },
+  microsoft: { name: 'Microsoft', src: '/website/partners/microsoft.svg', shape: 'icon' },
+  aws: { name: 'AWS', src: '/website/partners/aws.svg', shape: 'wide' },
+  nvidia: { name: 'NVIDIA', src: '/website/partners/nvidia.svg', shape: 'icon' },
+  anthropic: { name: 'Anthropic', src: '/website/partners/anthropic.svg', shape: 'icon' },
+  idda: { name: 'İDDA', src: '/website/partners/idda.svg', shape: 'wide' },
+  epoint: { name: 'Epoint', src: '/website/partners/epoint.svg', shape: 'wide' },
+  inmerge: { name: 'Inmerge', src: '/website/partners/inmerge.svg', shape: 'wide' },
+  thetech: { name: 'The Tech', src: '/website/partners/thetech.png', shape: 'icon' },
+};
+
+export interface NewsItem {
+  slug: string;
+  /** ISO date, yyyy-mm-dd. */
+  date: string;
+  title: string;
+  /** One or two sentences: used on cards, as the page lead and as the meta description. */
+  lead: string;
+  tag: string;
+  partner?: PartnerId;
+  readMinutes: number;
+  body: NewsBlock[];
+  /** Optional button after the text that opens an Azerbaijani shop page. */
+  link?: { kind: 'books' | 'cakes'; label: string };
+  /** Optional external source (media mention), opened in a new tab. */
+  source?: { href: string; label: string };
+}
+
+export const NEWS: NewsItem[] = [
+  {
+    slug: 'anacan-google-for-startups-cloud-proqramina-qebul-olundu',
+    date: '2026-11-10',
+    title: 'Anacan Google for Startups Cloud proqramına qəbul olundu',
+    lead: 'Anacan Google for Startups Cloud proqramına qəbul olundu. Bu addım tətbiqin sürətini, sabitliyini və süni intellekt funksiyalarını gücləndirmək üçün bizə yeni imkanlar açır.',
+    tag: 'Dəstək',
+    partner: 'google',
+    readMinutes: 4,
+    body: [
+      { type: 'p', text: 'Anacan komandası üçün sevindirici xəbərimiz var: tətbiqimiz Google for Startups Cloud proqramına qəbul olundu. Anacan hamiləlik, analıq və menstrual dövr üçün yaradılmış, iOS və Android cihazlarında işləyən yoldaş tətbiqdir. Onu Azərbaycanda, Anacan MMC komandası hazırlayır. Bu proqram bizim kimi gənc texnologiya şirkətlərinə daha etibarlı və daha sürətli məhsul qurmaqda kömək edir, biz də bu imkandan ilk növbədə istifadəçilərimizin xeyrinə yararlanmaq istəyirik.' },
+      { type: 'h2', text: 'Google for Startups Cloud proqramı nədir?' },
+      { type: 'p', text: 'Google for Startups Cloud proqramı Google-un erkən və inkişaf mərhələsindəki startaplar üçün hazırladığı dəstək proqramıdır. Onun hamıya məlum olan əsas imkanları bunlardır:' },
+      { type: 'list', items: [
+        'Google Cloud xidmətlərində istifadə üçün bulud kreditləri;',
+        'Google Cloud mütəxəssislərindən texniki məsləhət və arxitektura üzrə yönləndirmə;',
+        'təlim materiallarına və öyrənmə resurslarına çıxış;',
+        'tərəfdaş təkliflərinə və startap icmasına qoşulmaq imkanı.',
+      ] },
+      { type: 'p', text: 'Anacan həm Google for Startups, həm də Microsoft for Startups proqramlarının iştirakçısıdır. Google Cloud, NVIDIA və AWS ilə birlikdə Anacan-ın infrastruktur tərəfdaşları sırasındadır, bu tərəfdaşların təqdim etdiyi kreditlərin ümumi dəyəri 705 000 ABŞ dollarıdır.' },
+      { type: 'p', text: 'Kiçik komanda üçün bu dəstək xüsusilə dəyərlidir. İnfrastruktur xərcləri azaldıqca resursları daha çox məhsulun özünə, yəni istifadəçinin hər gün gördüyü və istifadə etdiyi funksiyalara yönəltmək mümkün olur.' },
+      { type: 'h2', text: 'Bu, Anacan üçün niyə vacibdir?' },
+      { type: 'p', text: 'Anacan-ın backend xidmətləri, verilənlər bazası və rəsmi saytı artıq Google Cloud üzərində, Avropa İttifaqında yerləşən europe-west1 (Belçika) regionunda işləyir. Proqrama qəbul olunmaq bu yolu davam etdirmək və gücləndirmək üçün bizə əlavə imkan verir. Bizim üçün dörd istiqamət xüsusilə önəmlidir:' },
+      { type: 'list', items: [
+        'Etibarlılıq: hamiləlik həftələri, körpə qeydləri və dövr təqvimi istədiyiniz anda əlçatan olmalıdır. Güclü bulud infrastrukturu kəsintisiz işin əsasıdır.',
+        'Məlumatların AB regionunda saxlanması: xidmətlərimiz Belçikadakı Google Cloud regionunda işləyir. Bu, məxfiliyə verdiyimiz önəmin bir hissəsidir.',
+        'Daha sürətli süni intellekt funksiyaları: Anacan AI köməkçisi gündəlik suallara cavab verir. Əlavə bulud resursları onu daha sürətli və daha faydalı etmək üzərində işləməyə imkan yaradır.',
+        'Yeni ölkələrə genişlənmə: tətbiq artıq 23 dildə mövcuddur. Daha çox ölkədə ailələrə xidmət etmək üçün infrastrukturun rahat böyüyə bilməsi vacibdir.',
+      ] },
+      { type: 'p', text: 'Anacan bir neçə xidmətin birləşməsidir: həftə-həftə hamiləlik, körpə izləyicisi, dövr təqvimi, icma, partnyor hesabı və həkim üçün PDF hesabatı. Bütün bu bölmələrin bir-biri ilə ahəngdar işləməsi üçün etibarlı backend və düzgün qurulmuş verilənlər bazası lazımdır. Proqram çərçivəsindəki texniki məsləhətlər bu sistemi daha sadə, daha qənaətcil və daha dayanıqlı etməyə kömək edəcək.' },
+      { type: 'h2', text: 'İstifadəçilər nə qazanır?' },
+      { type: 'p', text: 'Bu xəbər bir qədər texniki səslənə bilər, amma onun nəticəsini gündəlik təcrübənizdə hiss edəcəksiniz. Məqsədimiz tətbiqin daha tez açılması, məlumatların daha sürətlə sinxronlaşması və ən yoğun saatlarda belə sabit işləməsidir. Gecə saat üçdə körpənin qidalanmasını qeyd edən ana üçün hər saniyə önəmlidir.' },
+      { type: 'p', text: 'Məxfilik də bizim üçün əsas prinsipdir. Sağlamlıq və ailə məlumatları həssasdır, ona görə də infrastrukturu qurarkən təhlükəsizliyi və məlumatların AB regionunda emal olunmasını ön planda tuturuq. Yeni imkanlar bu yanaşmanı dəyişmir, əksinə, onu daha da möhkəmləndirir.' },
+      { type: 'quote', text: 'Güclü infrastruktur görünməz olmalıdır: istifadəçi onu yalnız tətbiqin hər dəfə sakit, sürətli və etibarlı işləməsindən hiss etməlidir.' },
+      { type: 'h2', text: 'Növbəti addımlar' },
+      { type: 'p', text: 'Qarşıdakı aylarda proqramın imkanlarından istifadə edərək bir neçə istiqamətdə işləyəcəyik: tətbiqin performansını ölçmək və yaxşılaşdırmaq, ehtiyat nüsxə və bərpa proseslərini gücləndirmək, Anacan AI köməkçisinin cavab sürətini artırmaq və yeni dillərdə xidmətə hazırlaşmaq. Görülən işlərin nəticələrini bu bölmədə və sosial şəbəkələrimizdə paylaşacağıq.' },
+      { type: 'p', text: 'Anacan-ı hələ yükləməmisinizsə, tətbiqi App Store və Google Play-dən yükləyə bilərsiniz. Bizə inanan və dəstək olan hər kəsə təşəkkür edirik.' },
+    ],
+  },
+  {
+    slug: 'anacan-microsoft-for-startups-proqramindan-destek-aldi',
+    date: '2026-11-10',
+    title: 'Anacan Microsoft for Startups proqramından dəstək aldı',
+    lead: 'Anacan Microsoft for Startups proqramından dəstək aldı. Proqramın mentorluq, süni intellekt alətləri və bulud imkanları yeni funksiyaları daha tez hazırlamağa kömək edəcək.',
+    tag: 'Dəstək',
+    partner: 'microsoft',
+    readMinutes: 4,
+    body: [
+      { type: 'p', text: 'Daha bir xoş xəbər paylaşırıq: Anacan Microsoft for Startups proqramından dəstək aldı. Founders Hub adı ilə də tanınan bu proqram dünyanın müxtəlif ölkələrindən olan startaplara bulud infrastrukturu, süni intellekt alətləri və təcrübəli mütəxəssislərin məsləhətləri ilə kömək edir. Azərbaycanda yaradılmış bir ailə tətbiqi kimi bu dəstəyi həm böyük fürsət, həm də məsuliyyət hesab edirik.' },
+      { type: 'h2', text: 'Microsoft for Startups nə təklif edir?' },
+      { type: 'p', text: 'Proqram startaplara məhsul qurmaq və onu böyütmək üçün lazım olan alətləri bir yerdə təqdim edir. Onun ümumi tanınan imkanları bunlardır:' },
+      { type: 'list', items: [
+        'Microsoft Azure xidmətlərində istifadə üçün bulud kreditləri;',
+        'Azure üzərindəki süni intellekt xidmətlərinə çıxış;',
+        'texniki və biznes mövzularında mentorluq və mütəxəssis məsləhətləri;',
+        'proqram çərçivəsində təqdim olunan tərəfdaş alətləri və təkliflər.',
+      ] },
+      { type: 'p', text: 'Bu imkanlar kiçik komandalar üçün xüsusilə vacibdir. Yeni ideyanı sınamaq, onu real ehtiyaclarla yoxlamaq və uğurlu olanı genişləndirmək daha az vaxt və xərc tələb edir.' },
+      { type: 'p', text: 'Anacan Microsoft for Startups proqramının iştirakçısıdır və eyni zamanda Google for Startups proqramında da iştirak edir. Bundan əlavə, NVIDIA, AWS və Google Cloud Anacan-ın infrastruktur tərəfdaşlarıdır: onların təqdim etdiyi kreditlərin ümumi dəyəri 705 000 ABŞ dollarıdır. Microsoft for Startups bu bazanı mentorluq və süni intellekt alətləri ilə tamamlayır.' },
+      { type: 'p', text: 'Startap üçün mentorluq bəzən kreditlər qədər dəyərli olur. Təcrübəli mütəxəssislərlə söhbət komandaya səhvləri erkən görməyə, arxitektura qərarlarını yoxlamağa və prioritetləri düzgün seçməyə kömək edir. Biz bu məsləhətlərdən xüsusilə süni intellekt funksiyalarının keyfiyyətinə və təhlükəsizliyinə nəzarət, eləcə də xərclərin səmərəli idarə olunması istiqamətində yararlanmaq istəyirik.' },
+      { type: 'h2', text: 'Süni intellekt funksiyalarına təsiri' },
+      { type: 'p', text: 'Anacan AI köməkçisi hamiləlik, körpə baxımı və dövr sağlamlığı ilə bağlı gündəlik suallarda yanınızda olmaq üçün yaradılıb. Azure üzərindəki süni intellekt xidmətlərinə çıxış bizə müxtəlif yanaşmaları sınamağa, cavabların keyfiyyətini və sürətini müqayisə etməyə və ən uyğun həlli seçməyə imkan verir. Məqsəd sadədir: cavablar aydın, mehriban və tətbiqin dəstəklədiyi dillərdə rahat oxunan olsun.' },
+      { type: 'p', text: 'Bir məqamı xüsusi vurğulayırıq: Anacan AI həkim məsləhətini əvəz etmir. Narahatedici əlamətlər olduqda həmişə həkimə müraciət etməyi tövsiyə edirik. Tətbiqdəki həkim üçün PDF hesabatı da məhz bu görüşlərə hazırlaşmağı asanlaşdırmaq üçün hazırlanıb.' },
+      { type: 'h2', text: 'Dayanıqlılıq və yeni bazarlar' },
+      { type: 'p', text: 'Anacan-ın əsas infrastrukturu Google Cloud-da, europe-west1 (Belçika) regionunda işləyir. Microsoft-un dəstəyi isə bizə ehtiyat həllərini araşdırmaq və bəzi xidmətləri ikinci bulud platformasında sınaqdan keçirmək imkanı verir. Bir platformada problem yaranarsa belə, xidmətin işləməyə davam etməsi üçün düşünülmüş arxitektura istifadəçi üçün rahatlıq və güvən deməkdir.' },
+      { type: 'p', text: 'Tətbiq artıq 23 dildə mövcuddur. Yeni bazarlara çıxarkən hər ölkənin öz ehtiyaclarını, dilini və gözləntilərini nəzərə almaq lazımdır. Mentorluq və mütəxəssis məsləhətləri bu addımları daha düşünülmüş və daha əmin şəkildə atmağa kömək edəcək.' },
+      { type: 'h2', text: 'Bu sizə nə verir?' },
+      { type: 'p', text: 'Bütün bu işlərin məqsədi bir sualın cavabıdır: Anacan ananın gündəlik həyatını necə daha da asanlaşdıra bilər? Qarşıdakı dövrdə bunları gözləyə bilərsiniz:' },
+      { type: 'list', items: [
+        'Anacan AI köməkçisindən daha sürətli və daha keyfiyyətli cavablar;',
+        'tətbiqin daha dayanıqlı və fasiləsiz işləməsi;',
+        'yeni dillər və yeni ölkələr üçün daha tez hazırlanan funksiyalar;',
+        'məxfiliyə və təhlükəsizliyə əvvəlki kimi ciddi diqqət.',
+      ] },
+      { type: 'quote', text: 'Texnologiya ailəyə xidmət etməlidir: hər yeni imkanı ilk növbədə ananın vaxtına, rahatlığına və sakitliyinə nə qatdığı ilə ölçürük.' },
+      { type: 'p', text: 'Microsoft for Startups proqramına bu imkan üçün təşəkkür edirik. Gördüyümüz işlərin nəticələrini bu bölmədə mütəmadi paylaşacağıq, çünki bu yolu istifadəçilərimizlə birlikdə keçmək istəyirik. Sualınız və ya təklifiniz varsa, bizə info@anacan.az ünvanına yaza bilərsiniz.' },
+    ],
+  },
+  {
+    slug: 'anacan-artiq-23-dilde',
+    date: '2026-11-08',
+    title: 'Anacan artıq 23 dildə',
+    lead: 'Anacan tətbiqi artıq 23 dildə, rəsmi sayt 21 dildə, App Store səhifəsi isə 17 dildə mövcuddur. Ana dilində məlumat almaq hər ana üçün rahatlıq və güvən deməkdir.',
+    tag: 'Məhsul',
+    readMinutes: 3,
+    body: [
+      { type: 'p', text: 'Hamiləlik və körpə baxımı ilə bağlı məlumatı ana dilində oxumaq tamamilə fərqli hissdir. Hər termin aydın olur, hər tövsiyə daha rahat başa düşülür, narahatlıq azalır. Bu səbəbdən Anacan-ı ilk gündən çoxdilli məhsul kimi qurmağa çalışdıq. Bu gün sevinclə deyə bilərik: Anacan tətbiqi artıq 23 dildə mövcuddur.' },
+      { type: 'h2', text: 'Rəqəmlərlə Anacan-ın dilləri' },
+      { type: 'list', items: [
+        'Tətbiq: 23 dil. Tətbiqin interfeysi və bölmələri seçdiyiniz dildə göstərilir.',
+        'Sayt: anacan.az 21 dildə açılır, hər dilin öz ünvanı və tərcümə olunmuş məqalələri var.',
+        'App Store səhifəsi: 17 dildə lokallaşdırılıb, yəni tətbiqi yükləməzdən əvvəl də onun haqqında öz dilinizdə oxuya bilərsiniz.',
+      ] },
+      { type: 'p', text: 'Bu yol bir gündə qət edilmədi. Hər yeni dil ilə birlikdə tətbiqdəki mətnlər, düymələr və izahatlar yenidən nəzərdən keçirilir, ekranlarda düzgün yerləşdiyi yoxlanılır. Daha çox dil daha çox ailə deməkdir və biz bu işi davam etdirəcəyik.' },
+      { type: 'h2', text: 'Niyə bu qədər dil?' },
+      { type: 'p', text: 'Azərbaycanlı ailələr dünyanın bir çox ölkəsində yaşayır. Almaniyada, Türkiyədə və ya Böyük Britaniyada yaşayan ana həkimlə yerli dildə danışır, evdə isə Azərbaycan dilində düşünür. Bəzi ailələrdə valideynlər fərqli dillərdə danışır, nənə və babalar isə başqa bir dili daha rahat başa düşür. Belə ailələrdə hər kəsin eyni məlumata öz dilində çata bilməsi çox dəyərlidir.' },
+      { type: 'p', text: 'Partnyor hesabı bu baxımdan xüsusilə faydalıdır: ana və partnyor eyni hamiləlik səyahətini izləyir, amma hər biri tətbiqi özünə doğma olan dildə istifadə edə bilər. Beləliklə, heç kim tərcümə axtarmağa vaxt itirmir və vacib məqamlar diqqətdən yayınmır.' },
+      { type: 'p', text: 'Diaspora ilə yanaşı, Anacan-ı başqa ölkələrdən olan analar da istifadə edə bilər. Mərkəzi Asiyadan Avropaya, Yaxın Şərqdən Şərqi Asiyaya qədər müxtəlif dillərdə danışan ailələr üçün tətbiqi əlçatan etmək istəyirik. Həftə-həftə hamiləlik məlumatı, körpə izləyicisi, dövr təqvimi və Anacan AI köməkçisi hər dildə eyni qayğı ilə işləməlidir.' },
+      { type: 'h2', text: 'Tərcümə sadəcə sözlərin dəyişdirilməsi deyil' },
+      { type: 'p', text: 'Lokallaşdırma zamanı təkcə mətnləri deyil, tarix formatlarını, sağdan sola yazılan dilləri və hər dilin öz ifadə tərzini nəzərə alırıq. Məsələn, ərəb dilində sayt sağdan sola göstərilir, Çin, Yapon və Koreya dillərində isə tarixlər həmin dillərin qaydası ilə yazılır. Saytda hər dilin öz səhifə ünvanları var, buna görə də axtarış sistemləri məqalələri istifadəçiyə öz dilində təqdim edə bilir.' },
+      { type: 'p', text: 'Sağlamlıq mövzusunda dəqiqlik xüsusilə vacibdir. Ona görə də tərcümələri yoxlamağa və istifadəçilərin rəylərinə əsasən yaxşılaşdırmağa davam edirik. Bir sözün səhv seçilməsi bəzən bütün tövsiyənin mənasını dəyişə bilər, biz isə buna yol vermək istəmirik.' },
+      { type: 'quote', text: 'Ana dilində verilən məlumat daha tez başa düşülür, daha uzun yadda qalır və daha çox güvən yaradır.' },
+      { type: 'h2', text: 'Dilinizi necə seçmək olar?' },
+      { type: 'p', text: 'Saytda yuxarı menyudakı dil seçimindən istifadə edin: hər səhifənin tərcüməsi öz ünvanında açılır. Tətbiqdə isə dili parametrlərdən dəyişmək mümkündür.' },
+      { type: 'p', text: 'Sizin dilinizdə nəsə səhv və ya qeyri-təbii səslənirsə, bizə info@anacan.az ünvanına yazın. Hər rəy Anacan-ı bir az daha yaxşı edir və növbəti dillər üzərində işləyərkən bizə yol göstərir. Hansı dili növbəti görmək istədiyinizi də bizə yaza bilərsiniz.' },
+    ],
+  },
+  {
+    slug: 'usaqlar-ucun-pdf-cap-kitablari-70-kitab-evde-cap',
+    date: '2026-11-06',
+    title: 'Uşaqlar üçün PDF çap kitabları: 70 kitab, evdə çap',
+    lead: '6 aydan 6 yaşa qədər uşaqlar üçün 70 PDF çap kitabı: boyama, say, hərflər və məntiq. Kitab e-poçtla gəlir, siz onu evdə A4 kağıza çap edirsiniz.',
+    tag: 'Məhsul',
+    readMinutes: 3,
+    link: { kind: 'books', label: 'Kitablara bax' },
+    body: [
+      { type: 'p', text: 'Uşaqla birlikdə keçirilən sakit vaxt çox dəyərlidir. Bir vərəq kağız, bir neçə karandaş və maraqlı tapşırıq kiçik uşaq üçün bütöv bir oyun dünyasına çevrilə bilər. Bu fikirlə Anacan-da yeni bölmə hazırladıq: uşaqlar üçün PDF çap kitabları. Kolleksiyada 6 aydan 6 yaşa qədər uşaqlar üçün 70 kitab var.' },
+      { type: 'h2', text: 'Kitablarda nələr var?' },
+      { type: 'p', text: 'Kitablar yaşa görə qruplaşdırılıb və hər birində uşağın inkişaf mərhələsinə uyğun tapşırıqlar yer alır:' },
+      { type: 'list', items: [
+        'Boyama: kiçik yaş üçün sadə şəkillər, böyük uşaqlar üçün daha detallı səhifələr;',
+        'Say: əşyaları saymaq, rəqəmləri tanımaq və müqayisə etmək;',
+        'Hərflər: hərfləri tanımaq, onları izləyərək yazmaq və ilk sözlərlə tanış olmaq;',
+        'Məntiq: oxşarını tap, fərqi tap, ardıcıllığı davam etdir kimi tapşırıqlar.',
+      ] },
+      { type: 'p', text: 'Tapşırıqların çətinliyi yaşla birlikdə tədricən artır. Ən kiçiklər üçün sadə şəkillər, rənglər və formalarla tanışlıq əsas yer tutur. Məktəbəqədər yaşda isə hərflər, rəqəmlər və məntiq tapşırıqları çoxalır ki, uşaq məktəbə rahat və həvəslə hazırlaşsın.' },
+      { type: 'p', text: 'Tapşırıqlar qısa və aydındır ki, uşaq yorulmadan, oyun kimi öyrənsin. Valideyn isə yanında oturub kömək edə, birlikdə danışa və uşağın kiçik uğurlarını sevinclə qeyd edə bilər.' },
+      { type: 'h2', text: 'Necə işləyir?' },
+      { type: 'list', items: [
+        'Kitablar səhifəsində uşağın yaşına uyğun kitabları seçin.',
+        'Ödənişi kartla edin: saytda ödənişlər Azərbaycan ödəniş xidməti Epoint vasitəsilə qəbul olunur.',
+        'PDF fayl e-poçtunuza göndərilir.',
+        'Kitabı evdə adi A4 kağıza çap edin və uşağınızla birlikdə başlayın.',
+      ] },
+      { type: 'p', text: 'Çatdırılma gözləmək lazım deyil: ödənişdən sonra fayl e-poçtla gəlir. Bir səhifə cırılsa və ya eyni tapşırığı bir daha etmək istəsəniz, sadəcə həmin səhifəni yenidən çap edirsiniz.' },
+      { type: 'p', text: 'Çap üçün xüsusi printer və ya kağız lazım deyil: evdəki adi printer və standart A4 vərəq kifayətdir. Rəngli printeriniz yoxdursa, narahat olmayın: boyama səhifələri onsuz da uşağın öz rəngləri ilə canlanır.' },
+      { type: 'h2', text: 'Niyə məhz çap kitabı?' },
+      { type: 'p', text: 'Ekran qarşısında keçirilən vaxtı azaltmaq bir çox valideynin məqsədidir. Kağız üzərində işləmək uşağın əl hərəkətlərini, diqqətini və səbrini inkişaf etdirməyə kömək edir. Karandaşı düzgün tutmaq, xəttin içində qalmaq, şəkli axıra qədər rəngləmək kiçik, amma çox vacib bacarıqlardır. Üstəlik, çap edilmiş səhifə uşağın öz əsərinə çevrilir: onu soyuducunun qapısına yapışdırmaq, nənəyə göstərmək və ya xatirə qovluğunda saxlamaq olar.' },
+      { type: 'p', text: 'Çap kitabları səfərdə, həkim növbəsində, xəstəlik günlərində və ya sadəcə yağışlı bir axşamda əla köməkçidir. Bir neçə vərəqi çantaya qoyun, uşağın harada olursa olsun maraqlı bir məşğuliyyəti olacaq. Uzun yolda, qonaqlıqda və ya kiçik qardaşı yatarkən belə sakit və faydalı bir oyun hər zaman əlinizin altında olacaq.' },
+      { type: 'quote', text: 'Ən yaxşı oyuncaq bəzən sadə bir vərəq, rəngli karandaşlar və yanında oturan valideyndir.' },
+      { type: 'h2', text: 'Anacan ailəsinin bir parçası' },
+      { type: 'p', text: 'PDF kitablar Anacan-ın əsas məqsədinə xidmət edir: hamiləlikdən başlayaraq uşağın ilk illərinə qədər ailənin yanında olmaq. Tətbiqdə həftə-həftə hamiləlik, körpə izləyicisi, dövr təqvimi və Anacan AI köməkçisi var, kitablar isə bu qayğını kağız üzərinə, evinizin masasına gətirir.' },
+      { type: 'p', text: 'Kolleksiyaya baxmaq və uşağınızın yaşına uyğun kitabları seçmək üçün Kitablar səhifəsinə keçin.' },
+    ],
+  },
+  {
+    slug: 'qazaxistanin-the-tech-nesri-anacan-haqqinda-yazdi',
+    date: '2026-10-22',
+    title: 'Qazaxıstanın The Tech nəşri Anacan haqqında yazdı',
+    lead: 'Qazaxıstanın The Tech nəşri Bakıdan çıxan Anacan startapı haqqında məqalə dərc etdi. Yazıda tətbiqin analar üçün 30-dan çox süni intellekt alətini bir yerdə necə birləşdirdiyindən danışılır.',
+    tag: 'Media',
+    partner: 'thetech',
+    readMinutes: 3,
+    source: { href: 'https://the-tech.kz/kak-startap-iz-baku-obedinil-bolshe-30-ii-instrumentov-dlya-mam-v-odnom-prilozhenii/', label: 'Məqaləni The Tech saytında oxu' },
+    body: [
+      { type: 'p', text: 'Qazaxıstanın texnologiya nəşri The Tech Anacan haqqında geniş məqalə dərc etdi. Yazıda Bakıdan çıxan startapın analar üçün 30-dan çox süni intellekt alətini bir tətbiqdə necə birləşdirdiyi danışılır. Bu diqqət bizim üçün çox qiymətlidir: Anacan-ı artıq Azərbaycandan kənarda da tanıyır və izləyirlər.' },
+      { type: 'h2', text: 'Məqalədə nələr deyilir?' },
+      { type: 'p', text: 'Yazıda Anacan-ın yaranma hekayəsi, komandası və ilk aylarda əldə etdiyi nəticələr təqdim olunur. Tətbiq 1 mart 2026-cı ildə istifadəyə verilib. Anacan-ı Türkan Sultanlı (CEO, məhsul və strategiya) və Camil Sultanlı (CTO və CMO) qurub. Anacan hamiləlik, analıq və menstrual dövr üçün yaradılmış, iOS və Android-də işləyən yoldaş tətbiqdir.' },
+      { type: 'p', text: 'Xatırladaq ki, tətbiqdə həftə-həftə hamiləlik, körpə izləyicisi, dövr təqvimi, Anacan AI köməkçisi, icma, partnyor hesabı və həkim üçün PDF hesabatı kimi bölmələr var. Anacan 23 dildə mövcuddur, backend xidmətləri və verilənlər bazası isə Google Cloud-un europe-west1 (Belçika) regionunda işləyir.' },
+      { type: 'h2', text: 'Rəqəmlərlə ilk yeddi ay' },
+      { type: 'p', text: 'Məqalədə qeyd olunan nəticələr bunlardır:' },
+      { type: 'list', items: [
+        '7 ayda 35 000-dən çox yükləmə;',
+        'ayda təxminən 30 000 aktiv istifadəçi;',
+        '54-dən çox ölkədən istifadəçilər, o cümlədən Qazaxıstan və Özbəkistandan minlərlə ana;',
+        'App Store-da 500-dən çox qiymətləndirmə əsasında 4,84 reytinq;',
+        '7 ölkədə ödənişli abunəçilər;',
+        'aylıq 10 000-dən çox aktiv istifadəçisi olan icma;',
+        '30-dan çox süni intellekt aləti.',
+      ] },
+      { type: 'p', text: 'Bu rəqəmlərin arxasında hər gün tətbiqi açan, sual verən, qeyd aparan və bir-birinə dəstək olan analar dayanır. Onların etimadı bizim üçün ən böyük motivasiyadır.' },
+      { type: 'p', text: 'Qazaxıstan və Özbəkistandan olan istifadəçilərin çoxluğu bizi xüsusilə sevindirir. Tətbiq qazax və özbək dillərində də mövcuddur, bu da həmin ölkələrdəki analara məlumatı öz ana dillərində almaq imkanı verir.' },
+      { type: 'h2', text: 'Ekosistem və dəstək' },
+      { type: 'p', text: 'Məqalədə Anacan-ın Microsoft for Startups və Google for Startups proqramlarının iştirakçısı olduğu da qeyd edilir. NVIDIA, AWS və Google Cloud infrastruktur tərəfdaşları kimi çıxış edir, onların təqdim etdiyi kreditlərin ümumi dəyəri 705 000 ABŞ dollarıdır. Anacan Azərbaycanda rəsmi startap şəhadətnaməsinə malikdir.' },
+      { type: 'p', text: 'Ekosistemə verdiyi dəstəyə görə İDDA-ya, eləcə də Azerbaijan Startup Community-yə təşəkkür edirik. Belə dəstək gənc komandaya daha cəsarətli addımlar atmağa imkan verir.' },
+      { type: 'h2', text: 'Növbəti mərhələ' },
+      { type: 'p', text: 'Hazırda Anacan seed investisiya raunduna hazırlaşır. Məqsədimiz tətbiqi daha çox ölkədə daha çox ailəyə çatdırmaq, süni intellekt alətlərini təkmilləşdirmək və məxfiliyə verdiyimiz önəmi qoruyaraq böyüməkdir.' },
+      { type: 'quote', text: 'Hər yeni ölkə və hər yeni istifadəçi bizim üçün məsuliyyətdir: ana dəstəyi öz dilində və öz ritmində almalıdır.' },
+      { type: 'p', text: 'The Tech komandasına Anacan-a göstərdiyi diqqət üçün təşəkkür edirik. Məqalənin tam mətni rus dilindədir və onu aşağıdakı keçiddən oxuya bilərsiniz.' },
+    ],
+  },
+];
+
+export const findNews = (slug: string | undefined) => NEWS.find((item) => item.slug === slug);

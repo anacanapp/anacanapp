@@ -1,5 +1,6 @@
 import { WEBSITE_LANGUAGE_CODES_ALL, isWebsiteLanguage, type WebsiteLanguageCode } from '../lib/app-languages.ts';
 import detailRoutes from './detail-routes.json' with {type:'json'};
+import { findNews } from './news';
 
 export const WEBSITE_ORIGIN = 'https://anacan.az';
 export const WEBSITE_PREVIEW_PREFIX = '/site';
@@ -12,8 +13,14 @@ export const SHOP_PAGES=['books','cakes'] as const;
 export type ShopPage=typeof SHOP_PAGES[number];
 export const SHOP_SLUGS: Record<ShopPage,string> = { books:'kitablar', cakes:'tortlar' };
 export const isShopPage=(kind:string):kind is ShopPage=>(SHOP_PAGES as readonly string[]).includes(kind);
-export type WebsitePage = ShopPage | 'home' | 'journal' | 'tools' | 'ovulation' | 'dueDate' | 'symptoms' | 'features' | 'faq' | 'contact' | 'download' | 'privacy' | 'terms' | 'simulator' | 'article' | 'notFound' | DetailPage;
-export type StaticPage = Exclude<WebsitePage, 'home' | 'article' | 'notFound' | ShopPage>;
+/** Azerbaijani-only news: list /az/xeberler/ and detail /az/xeberler/<slug>/ (data in news.ts). */
+export const NEWS_SLUG='xeberler';
+export type NewsPage='news'|'newsArticle';
+export const isNewsPage=(kind:string):kind is NewsPage=>kind==='news'||kind==='newsArticle';
+/** Pages that exist only under /az/ (no other-language alternates). */
+export const isAzOnlyPage=(kind:string)=>isShopPage(kind)||isNewsPage(kind);
+export type WebsitePage = ShopPage | NewsPage | 'home' | 'journal' | 'tools' | 'ovulation' | 'dueDate' | 'symptoms' | 'features' | 'faq' | 'contact' | 'download' | 'privacy' | 'terms' | 'simulator' | 'article' | 'notFound' | DetailPage;
+export type StaticPage = Exclude<WebsitePage, 'home' | 'article' | 'notFound' | ShopPage | NewsPage>;
 type CoreStaticPage=Exclude<StaticPage,DetailPage>;
 
 /** Public URLs are a published contract, independent of translated UI copy. */
@@ -52,6 +59,11 @@ export function sitePath(language: WebsiteLanguageCode, kind: WebsitePage = 'hom
   }
   if (kind === 'notFound') return `/${language}/404/`;
   if (isShopPage(kind)) return `/az/${SHOP_SLUGS[kind]}/`;
+  if (kind === 'news') return `/az/${NEWS_SLUG}/`;
+  if (kind === 'newsArticle') {
+    if (!validWebsiteSlug(slug)) throw new Error('WEBSITE_NEWS_SLUG_REQUIRED');
+    return `/az/${NEWS_SLUG}/${encodeURIComponent(slug)}/`;
+  }
   const segment = encodeURIComponent(PAGE_SLUGS[language][kind]);
   return `/${language}/${segment}/${kind === 'journal' && page > 1 ? page + '/' : ''}`;
 }
@@ -71,7 +83,7 @@ export function localizedSlug(title: string): string {
 export function routePath(route: WebsiteRoute) { return sitePath(route.language, route.kind, route.slug, route.page); }
 export function alternateRoute(route: WebsiteRoute, language: WebsiteLanguageCode, article?: ArticleRoute): string | undefined {
   if (route.kind === 'article') return article?.slugs[language] ? sitePath(language, 'article', article.slugs[language]) : undefined;
-  if (isShopPage(route.kind)) return language === 'az' ? sitePath('az', route.kind) : undefined;
+  if (isAzOnlyPage(route.kind)) return language === 'az' ? sitePath('az', route.kind, route.slug) : undefined;
   return sitePath(language, route.kind, undefined, route.page);
 }
 export function previewPrefix(pathname: string): string { return /^\/site(?:\/|$)/.test(pathname) ? WEBSITE_PREVIEW_PREFIX : ''; }
@@ -105,6 +117,12 @@ export function resolveWebsiteRoute(pathname: string, articles: readonly Article
   if (!rest.length) return { route:{language,kind:'home'}, ...(!raw.endsWith('/') ? {redirect:sitePath(language)} : {}) };
   const shop = language === 'az' && rest.length === 1 ? SHOP_PAGES.find(item => SHOP_SLUGS[item] === rest[0]) : undefined;
   if (shop) return {route:{language,kind:shop},...(!raw.endsWith('/') ? {redirect:sitePath('az',shop)} : {})};
+  if (language === 'az' && rest[0] === NEWS_SLUG && rest.length <= 2) {
+    if (rest.length === 1) return {route:{language,kind:'news'},...(!raw.endsWith('/') ? {redirect:sitePath('az','news')} : {})};
+    const item = findNews(rest[1]);
+    if (!item) return {route:{language,kind:'notFound'}};
+    return {route:{language,kind:'newsArticle',slug:item.slug},...(!raw.endsWith('/') ? {redirect:sitePath('az','newsArticle',item.slug)} : {})};
+  }
   const kind = (Object.entries(PAGE_SLUGS[language]) as Array<[StaticPage,string]>).find(([, slug]) => slug === rest[0])?.[0];
   if (kind && (rest.length === 1 || kind === 'journal' && rest.length === 2 && /^[1-9]\d*$/.test(rest[1]))) {
     const page = kind === 'journal' && rest[1] ? Number(rest[1]) : 1;

@@ -41,3 +41,41 @@ describe('shop pages (Azerbaijani only)', () => {
     expect(alternateRoute({ language: 'az', kind: 'cakes' }, 'en')).toBeUndefined();
   });
 });
+
+describe('news pages (Azerbaijani only)', () => {
+  it('resolves the list and detail pages, redirects without a trailing slash and keeps them az-only', async () => {
+    const { resolveWebsiteRoute, sitePath, alternateRoute } = await import('./routes');
+    const { NEWS } = await import('./news');
+    const slug = NEWS[0].slug;
+    expect(resolveWebsiteRoute('/az/xeberler/').route).toMatchObject({ language: 'az', kind: 'news' });
+    expect(resolveWebsiteRoute('/az/xeberler/').redirect).toBeUndefined();
+    expect(resolveWebsiteRoute('/az/xeberler').redirect).toBe('/az/xeberler/');
+    expect(resolveWebsiteRoute(`/az/xeberler/${slug}/`).route).toMatchObject({ language: 'az', kind: 'newsArticle', slug });
+    expect(resolveWebsiteRoute(`/az/xeberler/${slug}`).redirect).toBe(`/az/xeberler/${slug}/`);
+    expect(sitePath('az', 'news')).toBe('/az/xeberler/');
+    expect(sitePath('az', 'newsArticle', slug)).toBe(`/az/xeberler/${slug}/`);
+    expect(alternateRoute({ language: 'az', kind: 'news' }, 'en')).toBeUndefined();
+    expect(alternateRoute({ language: 'az', kind: 'newsArticle', slug }, 'az')).toBe(`/az/xeberler/${slug}/`);
+  });
+  it('answers notFound for other languages and unknown slugs', async () => {
+    const { resolveWebsiteRoute } = await import('./routes');
+    const { NEWS } = await import('./news');
+    expect(resolveWebsiteRoute('/en/xeberler/').route.kind).toBe('notFound');
+    expect(resolveWebsiteRoute(`/ru/xeberler/${NEWS[0].slug}/`).route.kind).toBe('notFound');
+    expect(resolveWebsiteRoute('/az/xeberler/x/').route.kind).toBe('notFound');
+    expect(resolveWebsiteRoute('/az/xeberler/x').redirect).toBeUndefined();
+    expect(resolveWebsiteRoute(`/az/xeberler/${NEWS[0].slug}/extra/`).route.kind).toBe('notFound');
+  });
+  it('keeps news data well formed: unique slugs, newest first, plain text without long dashes', async () => {
+    const { NEWS } = await import('./news');
+    const { validWebsiteSlug } = await import('./routes');
+    expect(new Set(NEWS.map((item) => item.slug)).size).toBe(NEWS.length);
+    for (let i = 1; i < NEWS.length; i++) expect(NEWS[i - 1].date >= NEWS[i].date).toBe(true);
+    for (const item of NEWS) {
+      expect(validWebsiteSlug(item.slug) && /^[a-z0-9-]+$/.test(item.slug)).toBe(true);
+      expect(item.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      const text = JSON.stringify(item);
+      expect(text).not.toMatch(/[—–<>]/);
+    }
+  });
+});

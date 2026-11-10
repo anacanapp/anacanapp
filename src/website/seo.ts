@@ -1,12 +1,15 @@
 import { WEBSITE_LANGUAGES, type WebsiteLanguageCode } from '../lib/app-languages';
 import type { WebsiteBoot, WebsiteCopyKey } from './model';
-import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN,DETAIL_PAGES,type DetailPage,isShopPage } from './routes';
+import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN,DETAIL_PAGES,type DetailPage,isShopPage,isAzOnlyPage } from './routes';
+import { findNews, NEWS } from './news';
 
 /** Azerbaijani-only shop pages (Kitablar, Tortlar): their own copy, no other-language alternates. */
 const SHOP_META={
   books:['PDF çap kitabları uşaqlar üçün','6 aydan 6 yaşa qədər 70 çap kitabı: boyama, say, hərflər, məntiq. PDF e-poçtla gəlir, evdə A4 çap edin. 1 kitab 4 ₼, 10 kitabdan 2 ₼.'],
   cakes:['Uşaq və ana tortları, bento tortlar','Aylıq bento tortlar, 1 yaş paketi, hamiləlik və ailə tortları. Bakıda çatdırılma və ya götürmə, sifariş 48 saat əvvəldən.'],
 } as const;
+/** Azerbaijani-only news list; detail pages use the item title and lead. */
+const NEWS_META=['Anacan xəbərləri','Anacan-dan son yeniliklər: dəstək proqramları, tərəfdaşlıqlar, yeni dillər və yeni funksiyalar.'] as const;
 import { discoveryLinks, markdownPath } from './discovery';
 
 const ORGANIZATION_ID=WEBSITE_ORIGIN+'/#organization';
@@ -22,13 +25,14 @@ export function websiteMeta(boot:WebsiteBoot) {
   };
   const labels=keys[kind]||keys.home!,copy={...boot.copy,...boot.details};
   const detail=(DETAIL_PAGES as readonly string[]).includes(kind);
-  const shop=isShopPage(kind)?SHOP_META[kind]:undefined;
+  const news=kind==='newsArticle'?findNews(boot.route.slug):undefined;
+  const shop=isShopPage(kind)?SHOP_META[kind]:kind==='news'?NEWS_META:news?[news.title,news.lead] as const:undefined;
   const title=shop?shop[0]:kind==='article'?boot.article?.seoTitle||copy.notFound:detail?copy[`${kind}Title` as WebsiteCopyKey]:copy[labels[0]];
   const description=shop?shop[1]:kind==='article'?boot.article?.seoDescription||copy.notFoundDescription:detail?copy[`${kind}Description` as WebsiteCopyKey]:copy[labels[1]];
   const suffix=boot.route.kind==='journal'&&(boot.route.page||1)>1?` — ${boot.copy.page.replace('{count}',String(boot.route.page))}`:'';
   const canonical=WEBSITE_ORIGIN+routePath(boot.route);
   const image=new URL(boot.article?.cover||'/website/og-cover.jpg',WEBSITE_ORIGIN).href;
-  const available=boot.route.kind==='article'?WEBSITE_LANGUAGES.filter(item=>boot.article?.slugs[item.code]):shop?WEBSITE_LANGUAGES.filter(item=>item.code==='az'):WEBSITE_LANGUAGES;
+  const available=boot.route.kind==='article'?WEBSITE_LANGUAGES.filter(item=>boot.article?.slugs[item.code]):isAzOnlyPage(kind)?WEBSITE_LANGUAGES.filter(item=>item.code==='az'):WEBSITE_LANGUAGES;
   const alternates=available.map(({code,locale})=>({code,locale,url:WEBSITE_ORIGIN+alternateRoute(boot.route,code,boot.article)}));
   alternates.push({code:'x-default' as WebsiteLanguageCode,locale:'az-AZ',url:WEBSITE_ORIGIN+(alternateRoute(boot.route,'az',boot.article)||sitePath('az'))});
   return {title:(title+suffix).includes('Anacan')?title+suffix:title+suffix+' | Anacan',description,canonical,image,
@@ -46,12 +50,13 @@ export function websiteSchema(boot:WebsiteBoot) {
   graph.push({'@type':'Organization','@id':ORGANIZATION_ID,name:'Anacan',url:WEBSITE_ORIGIN,logo:{'@type':'ImageObject',url:WEBSITE_ORIGIN+'/website/brand-mark-coral.png'},legalName:'ANACAN, MMC',
     email:'info@anacan.az',sameAs:['https://instagram.com/anacanapp','https://facebook.com/anacanapp','https://youtube.com/@anacanapp']});
   graph.push({'@type':'WebSite','@id':WEBSITE_ID,name:'Anacan',url:WEBSITE_ORIGIN,publisher:{'@id':ORGANIZATION_ID},inLanguage:WEBSITE_LANGUAGES.map(item=>item.code)});
-  graph.push({'@type':boot.route.kind==='journal'?'CollectionPage':boot.route.kind==='contact'?'ContactPage':'WebPage','@id':meta.canonical+'#webpage',url:meta.canonical,
+  graph.push({'@type':boot.route.kind==='journal'||boot.route.kind==='news'?'CollectionPage':boot.route.kind==='contact'?'ContactPage':'WebPage','@id':meta.canonical+'#webpage',url:meta.canonical,
     name:meta.title,description:meta.description,inLanguage:language,isPartOf:{'@id':WEBSITE_ID},publisher:{'@id':ORGANIZATION_ID},isAccessibleForFree:true,
     about:{'@id':APP_ID},encoding:{'@type':'MediaObject',encodingFormat:'text/markdown',contentUrl:WEBSITE_ORIGIN+markdownPath(boot.route),inLanguage:language}});
   if(boot.route.kind!=='home'&&boot.route.kind!=='notFound'){
     const items=[{'@type':'ListItem',position:1,name:boot.copy.home,item:WEBSITE_ORIGIN+sitePath(language)}];
     if(boot.route.kind==='article')items.push({'@type':'ListItem',position:2,name:boot.copy.journal,item:WEBSITE_ORIGIN+sitePath(language,'journal')});
+    if(boot.route.kind==='newsArticle')items.push({'@type':'ListItem',position:2,name:'Xəbərlər',item:WEBSITE_ORIGIN+sitePath('az','news')});
     items.push({'@type':'ListItem',position:items.length+1,name:boot.article?.title||meta.title,item:meta.canonical});
     graph.push({'@type':'BreadcrumbList','@id':meta.canonical+'#breadcrumb',itemListElement:items});
   }
@@ -65,6 +70,11 @@ export function websiteSchema(boot:WebsiteBoot) {
         'saglamliq':'categoryHealth','psixologiya':'categoryPsychology','motivasiya':'categoryMotivation','məşqlər':'categoryExercise'} as Record<string,WebsiteCopyKey>)[article.category]||'categoryOther')],isAccessibleForFree:true,
       encoding:{'@type':'MediaObject',encodingFormat:'text/markdown',contentUrl:WEBSITE_ORIGIN+markdownPath(boot.route),inLanguage:language}});
   }
+  const news=boot.route.kind==='newsArticle'?findNews(boot.route.slug):undefined;
+  if(news)graph.push({'@type':'NewsArticle','@id':meta.canonical+'#article',headline:news.title,description:news.lead,inLanguage:'az',
+    mainEntityOfPage:{'@id':meta.canonical+'#webpage'},datePublished:news.date,dateModified:news.date,author:{'@id':ORGANIZATION_ID},publisher:{'@id':ORGANIZATION_ID},
+    image:{'@type':'ImageObject',url:meta.image,width:1200,height:630},articleSection:news.tag,isAccessibleForFree:true});
+  if(boot.route.kind==='news')graph.push({'@type':'ItemList','@id':meta.canonical+'#news',itemListElement:NEWS.map((item,index)=>({'@type':'ListItem',position:index+1,name:item.title,url:WEBSITE_ORIGIN+sitePath('az','newsArticle',item.slug)}))});
   if(boot.route.kind==='journal'){
     const start=((boot.route.page||1)-1)*12;
     graph.push({'@type':'ItemList','@id':meta.canonical+'#articles',itemListElement:boot.articles.slice(start,start+12).map((article,index)=>({'@type':'ListItem',position:start+index+1,name:article.title,url:WEBSITE_ORIGIN+sitePath(language,'article',article.slug)}))});

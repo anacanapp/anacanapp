@@ -1,0 +1,74 @@
+/* News ("Xəbərlər", AZ only) and partner logo strip. Site tokens only. */
+.anacan-website .nw-grid { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+.anacan-website .nw-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.anacan-website .nw-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.anacan-website .nw-card { border: 1px solid var(--site-line); border-radius: 24px; background: #fff; transition: transform .2s, box-shadow .2s; min-width: 0; }
+.anacan-website .nw-card:hover { transform: translateY(-3px); box-shadow: var(--site-shadow); }
+.anacan-website .nw-card > a { height: 100%; display: flex; flex-direction: column; padding: 24px; }
+.anacan-website .nw-card h3 { margin-top: 18px; font-size: 19px; line-height: 1.4; }
+.anacan-website .nw-card p { margin: 10px 0 18px; font-size: 14px; line-height: 1.55; color: var(--site-muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.anacan-website .nw-card .site-text-link { margin-top: auto; font-size: 13px; color: var(--site-accent-dark); }
+
+.anacan-website .nw-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; min-height: 28px; font-size: 12px; color: var(--site-muted); }
+.anacan-website .nw-meta-logo { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px; background: var(--site-peach); }
+.anacan-website .nw-mark { display: inline-flex; align-items: center; gap: 8px; min-width: 0; max-width: 100%; }
+.anacan-website .nw-logo-icon { aspect-ratio: 1; }
+.anacan-website .nw-meta-logo .nw-logo { height: 16px; width: auto; max-width: 96px; object-fit: contain; }
+.anacan-website .nw-meta-logo .nw-mark { gap: 6px; }
+.anacan-website .nw-meta-logo .nw-wordmark { font-size: 12px; color: var(--site-ink); }
+.anacan-website .nw-chip { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px; background: var(--site-peach); color: var(--site-accent-dark); font-size: 12px; font-weight: 500; line-height: 1; }
+.anacan-website .nw-wordmark { display: inline-flex; align-items: center; justify-content: center; font-family: var(--site-display); font-weight: 700; letter-spacing: -.02em; line-height: 1; white-space: nowrap; color: var(--site-ink); }
+
+/* List page */
+.anacan-website .nw-intro { padding-top: 40px; }
+
+/* Detail page */
+.anacan-website .nw-article { max-width: 760px; margin: 0 auto; }
+.anacan-website .nw-article-header { padding: 40px 0 28px; border-bottom: 1px solid var(--site-line); margin-bottom: 32px; }
+.anacan-website .nw-article-partner { display: inline-flex; align-items: center; height: 52px; padding: 0 20px; margin-bottom: 22px; border: 1px solid var(--site-line); border-radius: 16px; background: #fff; }
+.anacan-website .nw-article-partner .nw-logo { height: 26px; width: auto; max-width: 160px; object-fit: contain; }
+.anacan-website .nw-article-partner .nw-wordmark { font-size: 18px; }
+.anacan-website .nw-article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 13px; color: var(--site-muted); }
+.anacan-website .nw-article-header h1 { margin-top: 18px; font-size: clamp(30px, 4.2vw, 48px); line-height: 1.15; }
+.anacan-website .nw-article-lead { margin-top: 20px; font-size: 18px; line-height: 1.6; color: var(--site-muted); }
+.anacan-website .nw-prose { font-size: 17px; line-height: 1.8; }
+.anacan-website .nw-prose p { margin: 0 0 20px; }
+.anacan-website .nw-prose h2 { font-size: 26px; margin: 40px 0 16px; }
+.anacan-website .nw-prose blockquote p { margin: 0; font-style: italic; }
+.anacan-website .nw-article-link { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Partner strip */
+.anacan-website .nw-partners { text-align: center; }
+.anacan-website .nw-partners-title { font-family: var(--site-body); font-size: 13px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--site-muted); margin-bottom: 24px; }
+.anacan-website .nw-partner-grid { list-style: none; margin: 0 auto; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 1040px; }
+.anacan-website .nw-partner-grid li { flex: 0 0 calc((100% - 48px) / 5); display: flex; align-items: center; justify-content: center; height: 72px; padding: 0 12px; border: 1px solid var(--site-line); border-radius: 18px; background: #fff; min-width: 0; }
+.anacan-website .nw-partner-grid .nw-logo { max-height: 30px; max-width: 100%; width: auto; height: 30px; object-fit: contain; filter: grayscale(1); opacity: .6; transition: filter .2s, opacity .2s; }
+.anacan-website .nw-partner-grid .nw-logo-icon { height: 26px; }
+.anacan-website .nw-partner-grid .nw-wordmark { font-size: 15px; color: var(--site-muted); opacity: .85; max-width: 100%; overflow: hidden; text-overflow: ellipsis; transition: color .2s, opacity .2s; }
+.anacan-website .nw-partner-grid li:hover .nw-logo, .anacan-website .nw-partner-grid li:focus-within .nw-logo { filter: none; opacity: 1; }
+.anacan-website .nw-partner-grid li:hover .nw-wordmark, .anacan-website .nw-partner-grid li:focus-within .nw-wordmark { color: var(--site-ink); opacity: 1; }
+
+@media (max-width: 850px) {
+  .anacan-website .nw-partner-grid li { flex-basis: calc((100% - 24px) / 3); }
+}
+@media (max-width: 850px) {
+  .anacan-website .nw-grid-3, .anacan-website .nw-grid-2 { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+}
+@media (max-width: 600px) {
+  .anacan-website .nw-card > a { padding: 20px; }
+  .anacan-website .nw-card h3 { font-size: 18px; margin-top: 14px; }
+  .anacan-website .nw-intro { padding-top: 30px; }
+  .anacan-website .nw-article-header { padding: 28px 0 22px; margin-bottom: 24px; }
+  .anacan-website .nw-article-header h1 { font-size: 30px; }
+  .anacan-website .nw-article-lead { font-size: 16px; }
+  .anacan-website .nw-prose { font-size: 16px; }
+  .anacan-website .nw-prose h2 { font-size: 23px; margin: 32px 0 14px; }
+  .anacan-website .nw-partner-grid { gap: 8px; }
+  .anacan-website .nw-partner-grid li { height: 60px; padding: 0 8px; border-radius: 14px; }
+  .anacan-website .nw-partner-grid li { flex-basis: calc((100% - 16px) / 3); }
+  .anacan-website .nw-partner-grid .nw-logo { height: 24px; }
+  .anacan-website .nw-partner-grid .nw-logo-icon { height: 18px; }
+  .anacan-website .nw-partner-grid .nw-mark { gap: 5px; }
+  .anacan-website .nw-partner-grid .nw-wordmark { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .anacan-website .nw-card:hover { transform: none; } }
