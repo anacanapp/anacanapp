@@ -20,7 +20,7 @@ const css=`*{margin:0;box-sizing:border-box}body{width:1200px;height:630px;overf
 .tag{position:absolute;left:64px;top:60px;padding:10px 20px;border-radius:999px;background:#fff;color:#BD353D;font-weight:700;font-size:22px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 2px 10px rgba(158,43,46,.06)}
 .brand{position:absolute;left:64px;bottom:56px;display:flex;align-items:center;gap:12px;color:#333;font-weight:800;font-size:26px;letter-spacing:-.01em}
 .brand .g{width:40px;height:40px;background:#FF5A5F;display:inline-block}
-.card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border-radius:44px;box-shadow:0 24px 60px rgba(158,43,46,.10);display:flex;align-items:center;justify-content:center;gap:44px;padding:56px 72px;min-width:560px}
+.card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(1.35);display:flex;align-items:center;justify-content:center;gap:44px;padding:56px 72px;min-width:560px}
 .card .mk{width:120px;height:120px;background:#FF5A5F;display:inline-block;flex:none}
 .x{font-size:44px;color:#C9B8B1;font-weight:300}
 .logo{display:flex;align-items:center;gap:18px;font-weight:700;font-size:44px;color:#2b2b2b}
@@ -36,9 +36,8 @@ const html=async(item)=>{
     inner=`${glyph('mk')}<span class="x">×</span><span class="logo ${p.shape}"><img src="${src}">${p.shape==='icon'?`<span>${p.name}</span>`:''}</span>`;}
   else{const ch=await dataUri(`website/characters/${c.character}.webp`);
     inner=`<img class="char" src="${ch}"><div><div class="big">${c.big}</div><div class="sub">${c.sub}</div></div>`;}
-  return `<!doctype html><meta charset="utf-8"><style>${css}</style><div class="c1"></div><div class="c2"></div>
-  <span class="dot" style="right:120px;bottom:90px"></span><span class="dot" style="left:300px;top:120px;width:10px;height:10px;opacity:.5"></span>
-  <span class="tag">${item.tag}</span><div class="card">${inner}</div><div class="brand">${glyph('g')}Anacan</div>`;
+  // Plain cover: only the logos (or character + number) on a flat soft background, nothing else.
+  return `<!doctype html><meta charset="utf-8"><style>${css}</style><div class="card">${inner}</div>`;
 };
 
 await mkdir(join(pub,'website/news'),{recursive:true});
