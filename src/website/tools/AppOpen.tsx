@@ -5,6 +5,8 @@
  * public/website/premium/app/). If the page is still visible after a moment, store buttons are offered.
  * Without JavaScript and on desktop the button is a plain link to the download page with its QR code.
  * The `src` query is ignored by parseDeeplink for /tool/<id> (only widget_action is read).
+ * `pregnancy` opens the app's home tab (anacan://?src=…, parseDeeplink path "/"), which is the pregnancy
+ * tracker (Dashboard: week, baby size) for pregnant users.
  */
 import { useState } from 'react';
 import { Check, Smartphone } from 'lucide-react';
@@ -12,14 +14,14 @@ import { useWebsite } from '../context';
 import { Arrow, Eyebrow } from '../components';
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from '../routes';
 
-export type AppToolId = 'names' | 'maternity-calculator';
+export type AppToolId = 'names' | 'maternity-calculator' | 'pregnancy';
 const LABELS = {
   az: { eyebrow: 'Anacan tətbiqi', open: 'Tətbiqdə aç', fallback: 'Tətbiq açılmadısa, yəqin ki, hələ telefonunuzda yoxdur. Yükləyin:', store: 'Yüklə' },
   ka: { eyebrow: 'Anacan აპლიკაცია', open: 'აპლიკაციაში გახსნა', fallback: 'თუ აპლიკაცია არ გაიხსნა, ალბათ ჯერ არ გაქვთ დაინსტალირებული. ჩამოტვირთეთ:', store: 'ჩამოტვირთვა' },
 } as const;
 
 export function appDeepLinks(tool: AppToolId, src: string) {
-  const path = `tool/${tool}?src=${encodeURIComponent(src)}`;
+  const path = `${tool === 'pregnancy' ? '' : `tool/${tool}`}?src=${encodeURIComponent(src)}`;
   return {
     scheme: `anacan://${path}`,
     intent: `intent://${path}#Intent;scheme=anacan;package=com.atlasoon.anacan;S.browser_fallback_url=${encodeURIComponent(GOOGLE_PLAY_URL)};end`,

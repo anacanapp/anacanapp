@@ -11,7 +11,7 @@ const SHOP_META={
 /** Azerbaijani-only news list; detail pages use the item title and lead. */
 const NEWS_META=['Anacan xəbərləri','Anacan-dan son yeniliklər: dəstək proqramları, tərəfdaşlıqlar, yeni dillər və yeni funksiyalar.'] as const;
 import { discoveryLinks, markdownPath } from './discovery';
-import { isToolPage, toolAlternateLanguages, toolMeta, toolXDefaultPath } from './tools/tool-routes';
+import { isToolPage, toolAlternateLanguages, toolMeta, toolRobots, toolXDefaultPath } from './tools/tool-routes';
 import { toolSchemaNodes } from './tools/tool-schema';
 
 const ORGANIZATION_ID=WEBSITE_ORIGIN+'/#organization';
@@ -39,7 +39,7 @@ export function websiteMeta(boot:WebsiteBoot) {
   const alternates=available.map(({code,locale})=>({code,locale,url:WEBSITE_ORIGIN+alternateRoute(boot.route,code,boot.article)}));
   alternates.push({code:'x-default' as WebsiteLanguageCode,locale:'az-AZ',url:WEBSITE_ORIGIN+((isToolPage(kind)?toolXDefaultPath(boot.route):undefined)||alternateRoute(boot.route,'az',boot.article)||sitePath('az'))});
   return {title:(title+suffix).includes('Anacan')?title+suffix:title+suffix+' | Anacan',description,canonical,image,
-    imageAlt:boot.article?.coverAlt||news?.title||'Anacan',locale:WEBSITE_LANGUAGES.find(item=>item.code===boot.route.language)!.locale.replace('-','_'),alternates};
+    imageAlt:boot.article?.coverAlt||news?.title||'Anacan',robots:toolRobots(boot.route)||(kind==='notFound'?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1'),locale:WEBSITE_LANGUAGES.find(item=>item.code===boot.route.language)!.locale.replace('-','_'),alternates};
 }
 function faqs(boot:WebsiteBoot) {
   const {kind}=boot.route;
@@ -104,7 +104,7 @@ export function updateWebsiteHead(boot:WebsiteBoot) {
     const attr=property?'property':'name',node=document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`)||document.createElement('meta');
     node.setAttribute(attr,key);node.content=value;if(!node.parentNode)document.head.append(node);
   };
-  setMeta('description',meta.description);setMeta('robots',boot.route.kind==='notFound'?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1');
+  setMeta('description',meta.description);setMeta('robots',meta.robots);
   setMeta('theme-color','#ffe7e1');
   for(const[key,value]of Object.entries({'og:title':meta.title,'og:description':meta.description,'og:url':meta.canonical,'og:type':boot.article?'article':'website','og:image':meta.image,'og:image:alt':meta.imageAlt,'og:site_name':'Anacan','og:locale':meta.locale,'og:image:width':'1200','og:image:height':'630'}))setMeta(key,value,true);
   for(const[key,value]of Object.entries({'twitter:card':'summary_large_image','twitter:title':meta.title,'twitter:description':meta.description,'twitter:image':meta.image,'twitter:image:alt':meta.imageAlt}))setMeta(key,value);

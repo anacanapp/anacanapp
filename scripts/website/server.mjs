@@ -2,7 +2,7 @@ import {createServer} from 'node:http';
 import {readFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import * as renderer from './renderer.mjs';
-import {renderWebsite,renderArticleContent,resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE_ORIGIN,APP_LANGUAGES,renderLlmDocument,renderLlmIndex,renderLlmHub,renderLlmManifest,renderLlmJournal,discoveryLinks,discoveryLinkHeader,markdownPath,NEWS,toolSitemapEntries} from './renderer.mjs';
+import {renderWebsite,renderArticleContent,resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE_ORIGIN,APP_LANGUAGES,renderLlmDocument,renderLlmIndex,renderLlmHub,renderLlmManifest,renderLlmJournal,discoveryLinks,discoveryLinkHeader,markdownPath,NEWS,toolSitemapEntries,toolRobots} from './renderer.mjs';
 import {renderWebsiteHtml} from './prerender.mjs';
 import {websiteRobots,sitemapIndex,sitemapEntries} from './llm-policy.mjs';
 import {createLlmRuntime} from './llm-runtime.mjs';
@@ -165,15 +165,17 @@ createServer(async(request,response)=>{
     const detail=['cycle','pregnancy','motherhood','partner','memories','ai','community','health'].includes(route.kind);
     const boot={schema:'anacan-website-boot-v1',route,copy:copies[route.language],details:details[route.language],articles:route.kind==='journal'||detail?activeData.articles:route.kind==='home'?activeData.articles.slice(0,3):related,article,
       legalContent:activeData.legal[route.kind]?.content,legalUpdated:activeData.legal[route.kind]?.updatedAt,basePath:prefix,generatedAt:activeData.generatedAt};
+    // Unpublished pages (pregnancy weeks while PREGNANCY_WEEKS_PUBLISHED is false): noindex for the HTML and its Markdown twin.
+    const robotsHeader=toolRobots?.(route)?{'X-Robots-Tag':toolRobots(route).replace(',',', ')}:{};
     if(markdown){
       if(route.kind==='notFound'){reply(response,404,'Anacan','text/markdown; charset=utf-8',{'X-Robots-Tag':'noindex'});return;}
       if(url.pathname!==markdownPath(route)){reply(response,301,'','text/plain',{Location:markdownPath(route)});return;}
       const content=route.kind==='journal'?renderLlmJournal(activeData,copies[route.language],route.page):renderLlmDocument(boot);
-      reply(response,200,request.method==='HEAD'?'':content,'text/markdown; charset=utf-8',{'Content-Language':route.language,
+      reply(response,200,request.method==='HEAD'?'':content,'text/markdown; charset=utf-8',{...robotsHeader,'Content-Language':route.language,
         Link:`<${WEBSITE_ORIGIN+routePath(route)}>; rel="canonical", ${discoveryLinkHeader(route)}`});return;
     }
     const rendered=renderWebsite(boot),html=renderWebsiteHtml({shell:llmCleanShell,boot,...rendered,discovery:discoveryLinks(route),preload:article?.cover?[article.cover]:[]});
-    reply(response,route.kind==='notFound'?404:200,request.method==='HEAD'?'':html,'text/html; charset=utf-8',route.kind==='notFound'?{'X-Robots-Tag':'noindex'}:{'Content-Language':route.language,Link:discoveryLinkHeader(route)});
+    reply(response,route.kind==='notFound'?404:200,request.method==='HEAD'?'':html,'text/html; charset=utf-8',route.kind==='notFound'?{'X-Robots-Tag':'noindex'}:{...robotsHeader,'Content-Language':route.language,Link:discoveryLinkHeader(route)});
   }catch{if(response.headersSent)response.destroy();else reply(response,503,'Anacan','text/plain; charset=utf-8',{'Retry-After':'30'});}
 }).listen(port,'0.0.0.0',()=>console.log(JSON.stringify({status:'ready',service:'anacan-website',backend:'google'})));
 void publicMetadata();

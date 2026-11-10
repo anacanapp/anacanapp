@@ -4,6 +4,7 @@ import {Arrow,ArticleCard,DownloadCard,Eyebrow,SectionHeading} from './component
 import {Character,CharacterFamily} from './Characters';
 import type {DetailPage} from './routes';
 import type {WebsiteCopyKey} from './model';
+import { PregnancyWeeksLink } from './pregnancy-weeks/PregnancyWeekPages';
 
 const companions:Record<DetailPage,'cycle'|'pregnancy'|'motherhood'>={cycle:'cycle',pregnancy:'pregnancy',motherhood:'motherhood',partner:'pregnancy',memories:'motherhood',ai:'pregnancy',community:'motherhood',health:'cycle'};
 const pageTools:Record<DetailPage,Array<'ovulation'|'dueDate'|'symptoms'|'simulator'>>={cycle:['ovulation'],pregnancy:['dueDate','symptoms'],motherhood:['simulator'],partner:['simulator'],memories:[],ai:[],community:[],health:['ovulation','dueDate']};
@@ -21,6 +22,7 @@ export default function DetailPageView({kind}:{kind:DetailPage}) {
     <section className="site-section" id="detail-benefits"><SectionHeading title="detailBenefitsTitle"/><div className="site-detail-benefits">{[1,2,3,4].map((number)=><article key={number}><span className="site-detail-number">0{number}</span><h2>{t(`${kind}Benefit${number}Title` as WebsiteCopyKey)}</h2><p>{t(`${kind}Benefit${number}Text` as WebsiteCopyKey)}</p></article>)}</div></section>
     <section className="site-section"><SectionHeading title="detailHowTitle"/><ol className="site-detail-steps">{[1,2,3].map(number=><li key={number}><span>{number}</span><h3>{t(`${kind}Step${number}Title` as WebsiteCopyKey)}</h3><p>{t(`${kind}Step${number}Text` as WebsiteCopyKey)}</p></li>)}</ol></section>
     {!!pageTools[kind].length&&<section className="site-section"><SectionHeading title="detailToolsTitle"/><div className="site-detail-tool-links">{pageTools[kind].map(tool=><a key={tool} href={href(tool)}><CalendarDays size={23} strokeWidth={1.5}/><div><h3>{t(tool)}</h3><p>{t(`${tool}Description`)}</p></div><Arrow diagonal/></a>)}</div></section>}
+    {kind==='pregnancy'&&<PregnancyWeeksLink/>}
     <section className="site-section"><SectionHeading title="detailMoreTitle"/><div className="site-detail-connected">{connected[kind].map(page=><a key={page} href={href(page)}><strong>{t(`${page}Label`)}</strong><p>{t(`${page}Description`)}</p><span className="site-text-link">{t('explore')}<Arrow diagonal/></span></a>)}</div></section>
     {!!related.length&&<section className="site-section"><SectionHeading title="detailRelatedTitle" action={<a href={href('journal')} className="site-text-link">{t('allArticles')}<Arrow diagonal/></a>}/><div className="site-article-grid">{related.map(article=><ArticleCard key={article.id} article={article}/>)}</div></section>}
     <DownloadCard/>
