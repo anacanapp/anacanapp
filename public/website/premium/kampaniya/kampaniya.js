@@ -1,8 +1,28 @@
 /* Weekend campaign: login first (app's methods), then the plans at the server's campaign prices; an account with
    Premium (store or web) sees that instead. Subscribing opens Epoint's bank page (card saved for renewals); the
    result is confirmed by the signed Epoint callback, the page only polls the status after the redirect back. */
+/* 11.11 (2026-11-11 Baku) has its own page. The server's payment redirects (?odenis=…) and reminder links keep
+   pointing here, so forward them there with the query and hash intact. Before the status loads this is decided by
+   the Baku date (plus the morning after for a payment that returns after midnight); once loaded, by the server's
+   campaign name. The 1111 page never redirects back, so there is no loop. */
+var ANACAN_1111_PAGE = '/website/premium/1111/index.html';
+function anacanGo1111() {
+  if (location.pathname.indexOf('/premium/1111/') !== -1) return false;
+  try { location.replace(ANACAN_1111_PAGE + location.search + location.hash); } catch (e) { return false; }
+  return true;
+}
+var anacanForwarded = (function () {
+  try {
+    var bakuDay = new Date(Date.now() + 4 * 3600e3).toISOString().slice(0, 10); // Baku is UTC+4, no DST
+    var returning = /[?&]odenis=/.test(location.search);
+    if (bakuDay === '2026-11-11' || (returning && bakuDay === '2026-11-12')) return anacanGo1111();
+  } catch (e) { /* stay on this page */ }
+  return false;
+})();
+
 (function () {
   'use strict';
+  if (anacanForwarded) return;
   var A = window.AnacanAccount;
   var $ = function (id) { return document.getElementById(id); };
   var card = $('plans');
@@ -207,6 +227,11 @@
     return '<p class="saved-card"><span class="chip-card" aria-hidden="true"></span>Kart yadda saxlandı: <b>' + A.esc(mask) + '</b></p>';
   }
 
+  function is1111(s) {
+    var name = s && s.campaign && s.campaign.name;
+    return typeof name === 'string' && name.indexOf('1111') === 0;
+  }
+
   function renderStatus() {
     $('cabinetLink').hidden = false;
     if (status.premium && status.premium.active) { renderPremium(status.premium); appendTest(); return; }
@@ -225,6 +250,7 @@
       status = await A.call('status');
       if (mine !== generation) return;
       if (!status.ok) throw new Error(status.error || 'status');
+      if (is1111(status) && anacanGo1111()) return;
       renderStatus();
     } catch (e) {
       if (mine !== generation) return;
