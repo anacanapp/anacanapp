@@ -22,9 +22,13 @@ export const isNewsPage=(kind:string):kind is NewsPage=>kind==='news'||kind==='n
 export const isAzOnlyPage=(kind:string)=>isShopPage(kind)||isNewsPage(kind);
 /** Tool pages (baby names in enabled languages, AZ dekret calculator): see tools/tool-routes.ts. */
 export { isToolPage, type ToolPage };
-export type WebsitePage = ShopPage | NewsPage | ToolPage | 'home' | 'journal' | 'tools' | 'ovulation' | 'dueDate' | 'symptoms' | 'features' | 'faq' | 'contact' | 'download' | 'privacy' | 'terms' | 'simulator' | 'article' | 'notFound' | DetailPage;
+/** Free health calculators in every website language (texts in calc-content/, never copy JSON keys). */
+export const CALC_PAGES=['pregnancyWeight','conception','periodCalendar','babyGrowth'] as const;
+export type CalcPage=typeof CALC_PAGES[number];
+export const isCalcPage=(kind:string):kind is CalcPage=>(CALC_PAGES as readonly string[]).includes(kind);
+export type WebsitePage = ShopPage | NewsPage | ToolPage | CalcPage | 'home' | 'journal' | 'tools' | 'ovulation' | 'dueDate' | 'symptoms' | 'features' | 'faq' | 'contact' | 'download' | 'privacy' | 'terms' | 'simulator' | 'article' | 'notFound' | DetailPage;
 export type StaticPage = Exclude<WebsitePage, 'home' | 'article' | 'notFound' | ShopPage | NewsPage | ToolPage>;
-type CoreStaticPage=Exclude<StaticPage,DetailPage>;
+type CoreStaticPage=Exclude<StaticPage,DetailPage|CalcPage>;
 
 /** Public URLs are a published contract, independent of translated UI copy. */
 const CORE_PAGE_SLUGS: Record<WebsiteLanguageCode, Record<CoreStaticPage, string>> = {
@@ -50,7 +54,31 @@ const CORE_PAGE_SLUGS: Record<WebsiteLanguageCode, Record<CoreStaticPage, string
   nl: { journal:'magazine',tools:'rekentools',ovulation:'ovulatiecalculator',dueDate:'uitgerekende-datum-berekenen',symptoms:'zwangerschapssymptomen',features:'anacan-applicatie',faq:'veelgestelde-vragen',contact:'contact',download:'downloaden',privacy:'privacybeleid',terms:'gebruiksvoorwaarden',simulator:'partner-voorbereidingsquiz' },
   sv: { journal:'magasin',tools:'kalkylatorer',ovulation:'agglossningskalkylator',dueDate:'berakna-forlossningsdatum',symptoms:'graviditetssymtom',features:'anacan-appen',faq:'vanliga-fragor',contact:'kontakt',download:'ladda-ner',privacy:'integritetspolicy',terms:'anvandarvillkor',simulator:'partnerforberedelse-test' },
 };
-export const PAGE_SLUGS=Object.fromEntries(WEBSITE_LANGUAGE_CODES_ALL.map(code=>[code,{...CORE_PAGE_SLUGS[code],...detailRoutes[code]}])) as Record<WebsiteLanguageCode,Record<StaticPage,string>>;
+/** Published ASCII URLs of the free calculators added on 2026-11-10; keep them stable. */
+const CALC_PAGE_SLUGS: Record<WebsiteLanguageCode, Record<CalcPage, string>> = {
+  az: { pregnancyWeight:'hamilelikde-ceki-artimi-kalkulyatoru',conception:'mayalanma-tarixi-kalkulyatoru',periodCalendar:'aybasi-teqvimi',babyGrowth:'korpe-boy-ceki-persentili' },
+  en: { pregnancyWeight:'pregnancy-weight-gain-calculator',conception:'conception-date-calculator',periodCalendar:'period-calendar',babyGrowth:'baby-growth-percentile-calculator' },
+  tr: { pregnancyWeight:'hamilelikte-kilo-alma-hesaplayici',conception:'dollenme-tarihi-hesaplayici',periodCalendar:'adet-takvimi',babyGrowth:'bebek-persentil-hesaplayici' },
+  ru: { pregnancyWeight:'kalkulyator-nabora-vesa-pri-beremennosti',conception:'kalkulyator-daty-zachatiya',periodCalendar:'kalendar-menstruatsiy',babyGrowth:'kalkulyator-percentiley-rebenka' },
+  de: { pregnancyWeight:'gewichtszunahme-schwangerschaft-rechner',conception:'empfaengnisrechner',periodCalendar:'periodenkalender',babyGrowth:'perzentilenrechner-baby' },
+  ar: { pregnancyWeight:'hasibat-ziyadat-alwazn-fi-alhaml',conception:'hasibat-tarikh-alikhsab',periodCalendar:'taqwim-aldawra-alshahriya',babyGrowth:'hasibat-numuw-altifl' },
+  ka: { pregnancyWeight:'orsulobisas-tsonis-matebis-kalkulatori',conception:'chasakhvis-tarighis-kalkulatori',periodCalendar:'menstruatsiis-kalendari',babyGrowth:'bavshvis-zrdis-pertsentili' },
+  kk: { pregnancyWeight:'zhuktilik-kezindegi-salmak-kalkulyatory',conception:'uryktanu-kunin-kalkulyatory',periodCalendar:'etekkir-kuntizbesi',babyGrowth:'bala-osuinin-percentil-kalkulyatory' },
+  uz: { pregnancyWeight:'homiladorlikda-vazn-ortishi-kalkulyatori',conception:'uruglanish-sanasi-kalkulyatori',periodCalendar:'hayz-taqvimi',babyGrowth:'chaqaloq-osish-persentili-kalkulyatori' },
+  zh: { pregnancyWeight:'yunqi-tizhong-zengzhang-jisuanqi',conception:'shouyun-riqi-jisuanqi',periodCalendar:'yuejing-zhouqi-rili',babyGrowth:'yinger-shengzhang-baifenwei-jisuanqi' },
+  id: { pregnancyWeight:'kalkulator-kenaikan-berat-badan-hamil',conception:'kalkulator-tanggal-pembuahan',periodCalendar:'kalender-menstruasi',babyGrowth:'kalkulator-persentil-pertumbuhan-bayi' },
+  fr: { pregnancyWeight:'calculateur-prise-de-poids-grossesse',conception:'calculateur-date-conception',periodCalendar:'calendrier-regles',babyGrowth:'calculateur-percentile-croissance-bebe' },
+  es: { pregnancyWeight:'calculadora-aumento-peso-embarazo',conception:'calculadora-fecha-concepcion',periodCalendar:'calendario-menstrual',babyGrowth:'calculadora-percentiles-bebe' },
+  pt: { pregnancyWeight:'calculadora-aumento-peso-gravidez',conception:'calculadora-data-concecao',periodCalendar:'calendario-menstrual',babyGrowth:'calculadora-percentis-bebe' },
+  vi: { pregnancyWeight:'tinh-tang-can-khi-mang-thai',conception:'tinh-ngay-thu-thai',periodCalendar:'lich-kinh-nguyet',babyGrowth:'tinh-bach-phan-vi-tang-truong-cua-be' },
+  hi: { pregnancyWeight:'garbhavastha-vajan-badhne-ka-calculator',conception:'garbhadharan-tithi-calculator',periodCalendar:'period-calendar',babyGrowth:'shishu-vikas-percentile-calculator' },
+  ja: { pregnancyWeight:'ninshin-taiju-zoka-keisan',conception:'jutaibi-keisan',periodCalendar:'seiribi-calendar',babyGrowth:'akachan-seicho-percentile-keisan' },
+  ko: { pregnancyWeight:'imsin-chejung-jeungga-gyesangi',conception:'sujeongil-gyesangi',periodCalendar:'saengri-jugi-dallyeok',babyGrowth:'agi-seongjang-baekbunwi-gyesangi' },
+  pl: { pregnancyWeight:'kalkulator-przyrostu-masy-ciala-w-ciazy',conception:'kalkulator-daty-poczecia',periodCalendar:'kalendarz-miesiaczkowy',babyGrowth:'kalkulator-centyli-dziecka' },
+  nl: { pregnancyWeight:'gewichtstoename-zwangerschap-berekenen',conception:'conceptiedatum-berekenen',periodCalendar:'menstruatiekalender',babyGrowth:'groeipercentiel-baby-berekenen' },
+  sv: { pregnancyWeight:'viktokning-graviditet-kalkylator',conception:'befruktningsdatum-kalkylator',periodCalendar:'menskalender',babyGrowth:'tillvaxtpercentil-barn-kalkylator' },
+};
+export const PAGE_SLUGS=Object.fromEntries(WEBSITE_LANGUAGE_CODES_ALL.map(code=>[code,{...CORE_PAGE_SLUGS[code],...detailRoutes[code],...CALC_PAGE_SLUGS[code]}])) as Record<WebsiteLanguageCode,Record<StaticPage,string>>;
 
 export interface ArticleRoute { id: string; legacySlug: string; slugs: Partial<Record<WebsiteLanguageCode, string>> }
 export interface WebsiteRoute { language: WebsiteLanguageCode; kind: WebsitePage; articleId?: string; slug?: string; page?: number }

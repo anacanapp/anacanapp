@@ -1,7 +1,8 @@
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import Website from './Website';
 import type { WebsiteBoot, WebsiteCopy } from './model';
-import { previewPrefix, resolveWebsiteRoute } from './routes';
+import { isCalcPage, previewPrefix, resolveWebsiteRoute } from './routes';
+import { hasCalcContent, registerCalcContent, type CalcContent } from './calc-content';
 import { readWebsiteArticle, readWebsiteCatalog } from './api';
 import { updateWebsiteHead } from './seo';
 import { preloadToolData } from './tools/tool-data-client';
@@ -9,6 +10,7 @@ import './website.css';
 
 const copies=import.meta.glob('./copy/*.json',{import:'default'});
 const detailCopies=import.meta.glob('./details/*.json',{import:'default'});
+const calcContents=import.meta.glob('./calc-content/locales/*.ts',{import:'default'});
 export async function startWebsite() {
   document.documentElement.classList.add('anacan-public-website');
   document.querySelector('meta[name="viewport"]')?.setAttribute('content','width=device-width, initial-scale=1');
@@ -20,6 +22,11 @@ export async function startWebsite() {
   const knownArticles=boot?.article?[boot.article]:boot?[]:(await import('./article-routes.json')).default;
   const resolved=resolveWebsiteRoute(window.location.pathname,knownArticles);
   if(resolved.redirect){window.location.replace(previewPrefix(window.location.pathname)+resolved.redirect+window.location.search+window.location.hash);return;}
+  // Calculator texts ship as one small chunk per language, loaded before render/hydration.
+  if(isCalcPage(resolved.route.kind)||resolved.route.kind==='tools'){
+    const {language}=resolved.route;
+    if(!hasCalcContent(language))registerCalcContent(language,await calcContents[`./calc-content/locales/${language}.ts`]() as CalcContent);
+  }
   if(!boot||boot.route.language!==resolved.route.language||boot.route.kind!==resolved.route.kind||boot.route.slug!==resolved.route.slug){
     const {language}=resolved.route;
     const copy=await copies[`./copy/${language}.json`]() as WebsiteCopy;

@@ -15,6 +15,7 @@ import {PAGE_SLUGS,SHOP_PAGES,resolveWebsiteRoute,routePath,WEBSITE_ORIGIN,type 
 import {websiteMeta,websiteSchema,seoTextWidth,SEO_TITLE_MAX,SEO_DESCRIPTION_MIN,SEO_DESCRIPTION_MAX} from './seo';
 import {NEWS} from './news';
 import './tools/tool-data-server';
+import './calc-content/all';
 import {toolSitemapEntries} from './tools/tool-routes';
 import type {WebsiteArticle,WebsiteBoot,WebsiteCopy} from './model';
 

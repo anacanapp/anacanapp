@@ -1,4 +1,6 @@
 import './tools/tool-data-server';
+// Calculator page texts for all 21 languages are bundled into the renderer (no runtime copy files).
+import './calc-content/all';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import Website from './Website';

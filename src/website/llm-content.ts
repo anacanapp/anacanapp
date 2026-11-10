@@ -8,7 +8,10 @@ import remarkGfm from 'remark-gfm';
 import remarkStringify from 'remark-stringify';
 import { WEBSITE_LANGUAGES, type WebsiteLanguageCode } from '../lib/app-languages';
 import type { WebsiteBoot, WebsiteCatalog, WebsiteCopy, WebsiteCopyKey } from './model';
-import { APP_STORE_URL, DETAIL_PAGES, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN, type StaticPage } from './routes';
+import { APP_STORE_URL, DETAIL_PAGES, GOOGLE_PLAY_URL, isCalcPage, routePath, sitePath, CALC_PAGES, WEBSITE_ORIGIN, type StaticPage } from './routes';
+import { calcContent } from './calc-content';
+// Server-side renderers (SSR runtime, prerender and LLM twins) need every language's tool texts.
+import './calc-content/all';
 import { llmFullPath, llmIndexPath, localeSitemapPath, markdownPath } from './discovery';
 import { websiteMeta } from './seo';
 import Website from './Website';
@@ -20,7 +23,7 @@ import llmCopy from './llm-copy.json' with {type:'json'};
 export type LlmCopy = typeof llmCopy.az;
 export const LLM_COPY = llmCopy as Record<WebsiteLanguageCode, LlmCopy>;
 export type LlmPageKind = 'home' | StaticPage;
-export const LLM_PAGE_KINDS: LlmPageKind[] = ['home','features','download',...DETAIL_PAGES,'tools','ovulation','dueDate','symptoms','simulator','faq','contact','privacy','terms','journal'];
+export const LLM_PAGE_KINDS: LlmPageKind[] = ['home','features','download',...DETAIL_PAGES,'tools','ovulation','dueDate',...CALC_PAGES,'symptoms','simulator','faq','contact','privacy','terms','journal'];
 export const LLM_FORMAT_VERSION = 'anacan-public-knowledge-v1';
 type DetailCopy = WebsiteBoot['details'];
 
@@ -30,6 +33,7 @@ export function llmLanguageName(language: WebsiteLanguageCode): string {
 function llmPageLabel(language: WebsiteLanguageCode, kind: LlmPageKind, copy: WebsiteCopy, details?: DetailCopy): string {
   if (kind === 'home') return copy.home;
   if ((DETAIL_PAGES as readonly string[]).includes(kind)) return details?.[`${kind}Label` as keyof NonNullable<DetailCopy>] || kind;
+  if (isCalcPage(kind)) return calcContent(language)[kind].name;
   return copy[kind as WebsiteCopyKey] || kind;
 }
 const markdownText = (value: unknown) => String(value ?? '').replace(/([\\`*_[\]<>])/g, '\\$1').replace(/\s*\n\s*/g, ' ').trim();
@@ -134,7 +138,7 @@ export function renderLlmDocument(boot: WebsiteBoot): string {
 /** `/<lang>/llms.txt`: the per-locale index of every page and article. */
 export function renderLlmIndex(data: WebsiteCatalog, copy: WebsiteCopy, details?: DetailCopy): string {
   const language = data.language, labels = LLM_COPY[language];
-  const pages = LLM_PAGE_KINDS.filter(kind => !['tools','ovulation','dueDate','symptoms','simulator','contact','privacy','terms','faq','journal'].includes(kind));
+  const pages = LLM_PAGE_KINDS.filter(kind => !['tools','ovulation','dueDate',...CALC_PAGES,'symptoms','simulator','contact','privacy','terms','faq','journal'].includes(kind));
   const section = (title: string, kinds: LlmPageKind[]) => [`## ${title}`, '', ...kinds.map(kind => llmLink(
     llmPageLabel(language, kind, copy, details), WEBSITE_ORIGIN + markdownPath({language, kind}),
     websiteMeta({schema:'anacan-website-boot-v1', route:{language, kind}, copy, details, articles:[], generatedAt:data.generatedAt, basePath:''}).description,
@@ -151,7 +155,7 @@ export function renderLlmIndex(data: WebsiteCatalog, copy: WebsiteCopy, details?
     llmLink(labels.manifestLabel, WEBSITE_ORIGIN + '/llms-manifest.json'),
     llmLink(labels.sitemapLabel, WEBSITE_ORIGIN + localeSitemapPath(language)), '',
     ...section(labels.documentsHeading, pages),
-    ...section(copy.tools, ['tools','ovulation','dueDate','symptoms','simulator']),
+    ...section(copy.tools, ['tools','ovulation','dueDate',...CALC_PAGES,'symptoms','simulator']),
     `## ${copy.allArticles}`, '',
     llmLink(copy.journal, WEBSITE_ORIGIN + markdownPath({language, kind:'journal'}), copy.journalDescription),
     ...data.articles.map(article => llmLink(article.title, WEBSITE_ORIGIN + markdownPath({language, kind:'article', slug:article.slug}), article.excerpt)), '',
