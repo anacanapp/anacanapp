@@ -95,6 +95,8 @@ builds). Admins are exempt. The PDF book banner uses `min_app_version = 49` (boo
   PDF book banners paused by `start_date = 2026-11-11T20:00Z` (12 Nov 00:00 Baku): they return by themselves.
 - Website: `src/website/Campaign1111.tsx` shows the same creatives (`public/website/premium/1111/banners/<lang>-<n>.webp`):
   banner 3 above the home hero, 2 above the journal, 1 after each article; hides itself after 2026-11-11T19:59:59Z.
+  Web sizes: `<lang>-<n>-wide.webp` 2240×320 (shown 1120×160) from 720 px up via <picture>; phones keep 1200×500.
+  Live: gateway `a0b7e6d8…` (plan `web1111w-web-plan.json`), runtime `513b028a…` (rollback `website-runtime-plan.before-web1111w.json`).
   Deployed: gateway `85d65dca…` (plan `web1111-web-plan.json`), runtime `04b4840f…`
   (rollback: `website-runtime-plan.before-web1111.json`). Note: a web plan's `indexSha256` is the app `/index.html`
   hash, keep the inherited value.

@@ -38,7 +38,11 @@ export default function Campaign1111Banner({ slot, variant }: { slot: 'home' | '
   const lang = campaign1111Language(route.language);
   const href = `/website/premium/1111/index.html?lang=${lang}&utm_source=website&utm_medium=banner&utm_campaign=1111&utm_content=${slot}`;
   return <a className={`c1111-banner c1111-${slot}`} href={href} onClick={() => track(slot, route.language)}>
-    <img src={`/website/premium/1111/banners/${lang}-${variant}.webp`} width="1200" height="500" alt={ALT[lang]}
-      loading={slot === 'home' ? 'eager' : 'lazy'} decoding="async" lang={lang}/>
+    {/* Wide web creative (1120×160, 2× file) from 720 px up; the app creative (1200×500) on phones. */}
+    <picture>
+      <source media="(min-width: 720px)" srcSet={`/website/premium/1111/banners/${lang}-${variant}-wide.webp`} width="2240" height="320"/>
+      <img src={`/website/premium/1111/banners/${lang}-${variant}.webp`} width="1200" height="500" alt={ALT[lang]}
+        loading={slot === 'home' ? 'eager' : 'lazy'} decoding="async" lang={lang}/>
+    </picture>
   </a>;
 }
