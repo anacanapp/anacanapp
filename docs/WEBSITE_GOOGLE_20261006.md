@@ -244,3 +244,8 @@ handoff-a daxil edilmir.
 - 2026-11-10: English news `/en/news/` (7 items; the PDF books item stays az-only). Website `0c464bbb…`
   (rollback `website-runtime-plan.before-newsen.json`), gateway `6fe1793d…` (plan `newsen-web-plan.json`, rollback
   `rollback-newsen-web-plan.json`; adds `website/news/en/`).
+- 2026-11-10: 11.11 web Premium campaign. app_settings.web_premium_campaign = name `1111-2026`, 2026-11-11
+  00:00–23:59:59 (+04), yearly 18.89 AZN (was 50.98), monthly 3.99 (previous value saved on the server as
+  `campaign-before-1111.json`). Page `/website/premium/1111/` shows USD at 1 USD = 1.70 AZN ($11.11 / $29.99) and states
+  the AZN charge; `kampaniya.js?v=7` forwards to it on 11.11 (Baku) and for bank returns. Gateway `9001e19b…` (plan
+  `c1111-web-plan.json`, rollback `rollback-c1111-web-plan.json` → `6fe1793d…`).
