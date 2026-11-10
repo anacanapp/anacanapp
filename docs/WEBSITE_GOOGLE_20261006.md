@@ -248,4 +248,4 @@ handoff-a daxil edilmir.
   00:00–23:59:59 (+04), yearly 18.89 AZN (was 50.98), monthly 3.99 (previous value saved on the server as
   `campaign-before-1111.json`). Page `/website/premium/1111/` shows USD at 1 USD = 1.70 AZN ($11.11 / $29.99) and states
   the AZN charge; `kampaniya.js?v=7` forwards to it on 11.11 (Baku) and for bank returns. Gateway `9001e19b…` (plan
-  `c1111-web-plan.json`, rollback `rollback-c1111-web-plan.json` → `6fe1793d…`).
+  `c1111-web-plan.json`, rollback `rollback-c1111-web-plan.json` → `6fe1793d…`). Poz-Aç redesign (scratch card, 11 reasons, yearly only): gateway `6edca313…` (plan `c1111poz-web-plan.json`, rollback `rollback-c1111poz-web-plan.json` → `9001e19b…`).
