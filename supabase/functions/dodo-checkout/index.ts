@@ -79,6 +79,18 @@ Deno.serve(async (req) => {
 
   const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
 
+  // Campaign discount (e.g. 11.11): app_settings.dodo_campaign = {code, plan, starts_at, ends_at}. Applied only when the
+  // page asks for it ({campaign: code}), for that plan and inside the window; the server decides, never the browser.
+  let discountCode: string | null = null;
+  if (typeof body.campaign === 'string' && /^[A-Za-z0-9_-]{2,32}$/.test(body.campaign)) {
+    const { data: row } = await admin.from('app_settings').select('value').eq('key', 'dodo_campaign').maybeSingle();
+    let c = (row as { value?: unknown } | null)?.value as Record<string, unknown> | string | null | undefined;
+    if (typeof c === 'string') { try { c = JSON.parse(c); } catch { c = null; } }
+    const now = Date.now();
+    if (c && typeof c === 'object' && c.code === body.campaign && c.plan === plan
+      && now >= Date.parse(String(c.starts_at)) && now < Date.parse(String(c.ends_at))) discountCode = String(c.code);
+  }
+
   // A sponsor link must exist and still be valid before we let anyone pay against it.
   if (sponsorToken) {
     const { data: info } = await admin.rpc('premium_sponsor_link_info_v1', { p_token: sponsorToken });
@@ -102,13 +114,14 @@ Deno.serve(async (req) => {
       method: 'POST',
       body: {
         product_cart: [{ product_id: productId, quantity: 1 }],
+        ...(discountCode ? { discount_code: discountCode } : {}),
         customer: { email },
         return_url: sponsorToken ? `https://anacan.az/${language}/p/?t=${sponsorToken}&done=1` : `${FUNNEL_URL}?lang=${language}&done=1`,
         customization: { theme: 'light', show_order_details: true, force_language: checkoutLanguage, theme_config: themeConfig(payLabel) },
         // Digital product: collect as little as possible. Dodo (Merchant of Record) may still require a
         // billing country for tax; we never ask for a full address, phone or tax id.
         feature_flags: { allow_discount_code: true, allow_phone_number_collection: false, require_phone_number: false, allow_tax_id: false },
-        metadata: { anacan_checkout: checkout.id, anacan_plan: plan, anacan_source: sponsorToken ? 'sponsor' : 'anacan.az', ...(sponsorToken ? { anacan_sponsor_token: sponsorToken } : {}) },
+        metadata: { anacan_checkout: checkout.id, anacan_plan: plan, anacan_source: sponsorToken ? 'sponsor' : discountCode ? 'campaign-' + discountCode : 'anacan.az', ...(sponsorToken ? { anacan_sponsor_token: sponsorToken } : {}) },
       },
     });
     if (!session?.checkout_url || !session.session_id) throw new Error('dodo_no_url');

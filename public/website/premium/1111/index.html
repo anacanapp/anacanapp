@@ -13,13 +13,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/website/premium/account/account.css?v=1">
-  <link rel="stylesheet" href="/website/premium/1111/1111.css?v=2">
+  <link rel="stylesheet" href="/website/premium/1111/1111.css?v=4">
+  <script>
+    /* Page language before anything else reads <html lang> (analytics consent bar, 1111.js): ?lang wins, then the
+       browser's first supported language; anything else is English. A bank return (?odenis) is always Azerbaijani. */
+    (function () {
+      var ok = ['az', 'en', 'tr', 'kk', 'uz'], q = new URLSearchParams(location.search), l = (q.get('lang') || '').toLowerCase();
+      if (q.get('odenis')) l = 'az';
+      if (ok.indexOf(l) < 0) {
+        l = 'en';
+        // Visitors in Azerbaijan stay on the Azerbaijani (Epoint) page whatever their browser language.
+        var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+        var azRegion = (navigator.languages || [navigator.language || '']).some(function (x) { return /[-_]az$/i.test(String(x || '')); });
+        if (tz === 'Asia/Baku' || azRegion) { l = 'az'; }
+        var list = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']);
+        if (l !== 'az') for (var i = 0; i < list.length; i++) {
+          var tag = String(list[i] || '').toLowerCase().split(/[-_]/), m = tag[0];
+          if (m === 'ru' && (tag[1] === 'kz' || tag[1] === 'uz')) m = tag[1] === 'kz' ? 'kk' : 'uz';
+          if (ok.indexOf(m) >= 0) { l = m; break; }
+        }
+      }
+      window.ANACAN_1111_LANG = l;
+      document.documentElement.lang = l;
+    })();
+  </script>
   <script src="/website/analytics.js" async></script>
 </head>
 <body data-campaign-starts="2026-11-10T20:00:00Z" data-campaign-ends="2026-11-11T19:59:59Z">
 <div class="wrap">
   <header class="nav">
     <a class="brand" href="https://anacan.az/" aria-label="Anacan"><img src="/website/brand-glyph-coral.png" alt="" width="26" height="26">anacan</a>
+    <nav class="langs" id="langs" aria-label="Dil">
+      <a href="?lang=az" hreflang="az" lang="az">AZ</a><a href="?lang=en" hreflang="en" lang="en">EN</a><a href="?lang=tr" hreflang="tr" lang="tr">TR</a><a href="?lang=kk" hreflang="kk" lang="kk">KK</a><a href="?lang=uz" hreflang="uz" lang="uz">UZ</a>
+    </nav>
     <div class="nav-right">
       <div class="who" id="who" hidden></div>
       <a class="acc" id="cabinetLink" href="/website/premium/hesab/index.html" hidden>Premium hesabım</a>
@@ -101,7 +127,7 @@
     </a>
   </div>
 
-  <footer>© 2026 Anacan · anacan.az · <a href="https://anacan.az/terms" target="_blank" rel="noopener">İstifadə şərtləri</a> · <a href="https://anacan.az/privacy" target="_blank" rel="noopener">Məxfilik siyasəti</a></footer>
+  <footer id="foot">© 2026 Anacan · anacan.az · <a href="https://anacan.az/terms" target="_blank" rel="noopener">İstifadə şərtləri</a> · <a href="https://anacan.az/privacy" target="_blank" rel="noopener">Məxfilik siyasəti</a></footer>
 </div>
 
 <div class="sticky" id="sticky"><div class="sticky-p"><b id="sPrice">Poz, aç</b><s id="sWas"></s><small id="sSub">11.11 · yalnız bu gün</small></div><a class="pbtn" href="#scratch" id="sBtn">Kartı poz</a></div>
@@ -110,6 +136,6 @@
 
 <script src="/website/premium/vendor/supabase-js-2.90.1.js"></script>
 <script src="/website/premium/account/account.js?v=2"></script>
-<script src="/website/premium/1111/1111.js?v=2"></script>
+<script src="/website/premium/1111/1111.js?v=4"></script>
 </body>
 </html>

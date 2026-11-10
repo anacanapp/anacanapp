@@ -8,7 +8,7 @@
 var ANACAN_1111_PAGE = '/website/premium/1111/index.html';
 function anacanGo1111() {
   if (location.pathname.indexOf('/premium/1111/') !== -1) return false;
-  try { location.replace(ANACAN_1111_PAGE + location.search + location.hash); } catch (e) { return false; }
+  try { location.replace(ANACAN_1111_PAGE + (location.search ? location.search + '&' : '?') + 'lang=az' + location.hash); } catch (e) { return false; }
   return true;
 }
 var anacanForwarded = (function () {
