@@ -185,3 +185,16 @@ handoff-a daxil edilmir.
   the browser after hydration, SSR keeps texts and links.
 - Live: website runtime `949bdabe…` (rollback plan `website-runtime-plan.before-hshop.json`), gateway `453d6d8a…`
   (plan `home-shop-web-plan.json`, rollback `rollback-home-shop-web-plan.json` → `5c180b47…`).
+
+## Xəbərlər (news) and partner strip (2026-11-10)
+
+- AZ-only `/az/xeberler/` list and `/az/xeberler/<slug>/` detail pages (other languages 404). Content lives in
+  `src/website/news.ts` (`NEWS`, newest first; plain text blocks, optional `link`/`source`), partner logos in `PARTNERS`
+  (files under `public/website/partners/`, served by the gateway at `/website/partners/`). No copy keys added.
+- Home: news cards after the journal on `/az/`; ecosystem/partner strip after the journal on every language.
+- `scripts/website/server.mjs` imports `NEWS` from the renderer for sitemaps, so server and renderer ship together.
+- Live: website runtime `55cc80ab…` (FROM `61dbffa2…`, rollback `website-runtime-plan.before-news.json`); gateway
+  `10d00b14…` (FROM `a2abead9…`, plan `news-web-plan.json`, rollback `rollback-news-web-plan.json`). The gateway also
+  carries website assets/az shell and `/usr/share/nginx/website/website/partners/`.
+- Facts in news are limited to owner-confirmed items and the The Tech article (22.10.2026); program acceptance dates
+  and the Inmerge/Anthropic relationship still need owner confirmation before any news mentions them.
