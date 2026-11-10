@@ -10,6 +10,7 @@ import { refreshGoogleArticles } from './api';
 import {siteDate} from './dates';
 import {renderArticleContent} from './article-content';
 import { ArticleToolLink } from './tools/ToolLinks';
+import {HIGH_PRIORITY} from './images';
 
 export const JOURNAL_PAGE_SIZE=12;
 function queryState() {
@@ -67,7 +68,7 @@ export function ArticlePage() {
   return <><nav className="site-breadcrumb" aria-label={t('home')}><a href={href()}>{t('home')}</a><span aria-hidden="true">/</span><a href={href('journal')}>{t('journal')}</a><span aria-hidden="true">/</span><span>{article.title}</span></nav>
     <article className="site-article" data-website-article={article.id}>
       <header className="site-article-header"><Eyebrow>{t(categoryKey(article.category))}</Eyebrow><h1>{article.title}</h1><p className="site-article-summary">{article.excerpt}</p><div className="site-article-meta"><span>{article.author==='Anacan'?t('author'):article.author}</span><span>{t('readMinutes',{count:article.minutes})}</span><span>{t('updated')} <time dateTime={article.updatedAt}>{siteDate(article.updatedAt,route.language)}</time></span><button type="button" onClick={()=>void share()}><Link2 size={16}/>{t('share')}</button></div><span role="status">{shareStatus}</span></header>
-      {article.cover&&<img className="site-article-cover" src={article.cover} width="1200" height="630" alt={article.coverAlt} fetchPriority="high" decoding="async"/>}
+      {article.cover&&<img className="site-article-cover" src={article.cover} width="1200" height="630" alt={article.coverAlt} {...HIGH_PRIORITY}/>}
       <div className="site-article-reader"><aside><nav className="site-toc" aria-label={t('toc')}><h2>{t('toc')}</h2><ol>{rendered.headings.map(heading=><li key={heading.id}><a href={`#${heading.id}`}>{heading.title}</a></li>)}</ol></nav></aside><div>
         <BlogContent content={rendered.content} prepared className="site-prose"/>
         <ArticleToolLink articleId={article.id}/>

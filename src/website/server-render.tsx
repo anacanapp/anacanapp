@@ -15,6 +15,8 @@ export {WEBSITE_LANGUAGES as APP_LANGUAGES};
 export {prepareBlogContent};
 /** Azerbaijani-only news (/az/xeberler/…): listed in the pages and az sitemaps with az-only hreflang. */
 export {NEWS} from './news';
+/** Azerbaijani-only shop pages (/az/kitablar/, /az/tortlar/): listed in the pages and az sitemaps. */
+export {SHOP_PAGES} from './routes';
 export {renderArticleContent} from './article-content';
 /** Tool pages (baby names az/ka, AZ dekret calculator) for the pages and locale sitemaps; each entry
  * carries its own hreflang alternates (names details and letters are single-language). */

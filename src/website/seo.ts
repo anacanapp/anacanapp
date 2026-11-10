@@ -1,5 +1,7 @@
 import { WEBSITE_LANGUAGES, type WebsiteLanguageCode } from '../lib/app-languages';
-import type { WebsiteBoot, WebsiteCopyKey } from './model';
+import type { WebsiteArticle, WebsiteBoot, WebsiteCopyKey } from './model';
+import COVER_SIZES from './cover-sizes.json';
+const coverSize=(cover?:string|null)=>cover?(COVER_SIZES as unknown as Record<string,[number,number]|undefined>)[cover]:undefined;
 import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN,DETAIL_PAGES,type DetailPage,isShopPage,isAzOnlyPage } from './routes';
 import { findNews, NEWS, newsCover } from './news';
 
@@ -14,6 +16,38 @@ import { discoveryLinks, markdownPath } from './discovery';
 import { isToolPage, toolAlternateLanguages, toolMeta, toolXDefaultPath } from './tools/tool-routes';
 import { toolSchemaNodes } from './tools/tool-schema';
 
+/** Search snippet limits (docs/seo/TECHNICAL_SEO.md), measured as display width: East Asian wide
+ * characters (Han, Kana, Hangul) count as two, everything else as one. */
+export const SEO_TITLE_MAX=60,SEO_DESCRIPTION_MIN=70,SEO_DESCRIPTION_MAX=160;
+const WIDE=/[ᄀ-ᅟ⺀-〾ぁ-㏿㐀-䶿一-鿿ꥠ-꥿가-힣豈-﫿︰-﹏＀-｠￠-￦]/u;
+export const seoTextWidth=(value:string)=>[...value].reduce((sum,character)=>sum+(WIDE.test(character)?2:1),0);
+/** Brand suffix only when it still fits; search engines show the site name separately anyway. */
+const brandTitle=(value:string)=>value.includes('Anacan')||seoTextWidth(value+' | Anacan')>SEO_TITLE_MAX?value:value+' | Anacan';
+/** Fit a long lead into a snippet: whole sentences first, otherwise cut at a word with an ellipsis. */
+function fitDescription(value:string,max=SEO_DESCRIPTION_MAX) {
+  if(seoTextWidth(value)<=max)return value;
+  let result='';
+  for(const sentence of value.match(/[^.!?。！？]+[.!?。！？]+(\s|$)/g)||[]){if(seoTextWidth(result+sentence)>max)break;result+=sentence;}
+  result=result.trim();
+  if(seoTextWidth(result)>=SEO_DESCRIPTION_MIN)return result;
+  const words=value.split(/\s+/);result='';
+  for(const word of words){if(seoTextWidth(result+' '+word+'…')>max)break;result=result?result+' '+word:word;}
+  return result.replace(/[,;:]$/,'')+'…';
+}
+/** News headlines are written for the page; the search title keeps the part before a colon when too long. */
+const fitNewsTitle=(value:string)=>seoTextWidth(value)>SEO_TITLE_MAX&&value.includes(':')?value.slice(0,value.indexOf(':')).trim():value;
+const FOUNDERS=['Türkan Sultanlı','Camil Sultanlı'];
+/** Cover pixel size from src/website/cover-sizes.json (scripts/website/cover-sizes.mjs); unknown covers get no size. */
+function articleImage(article:WebsiteArticle,url:string) {
+  const size=article.cover?coverSize(article.cover):undefined;
+  return {'@type':'ImageObject',url,...(size?{width:size[0],height:size[1]}:{}),...(article.coverAlt?{caption:article.coverAlt}:{})};
+}
+/** Word count from the rendered body (server pages only); skipped for scripts written without spaces. */
+function wordCount(article:WebsiteArticle,language:string) {
+  if(!article.content||['zh','ja'].includes(language))return {};
+  const words=article.content.replace(/<[^>]+>/g,' ').replace(/&[a-z#0-9]+;/gi,' ').split(/\s+/).filter(word=>/[\p{L}\p{N}]/u.test(word)).length;
+  return words?{wordCount:words}:{};
+}
 const ORGANIZATION_ID=WEBSITE_ORIGIN+'/#organization';
 const WEBSITE_ID=WEBSITE_ORIGIN+'/#website';
 const APP_ID=WEBSITE_ORIGIN+'/#app';
@@ -29,17 +63,23 @@ export function websiteMeta(boot:WebsiteBoot) {
   const detail=(DETAIL_PAGES as readonly string[]).includes(kind);
   const news=kind==='newsArticle'?findNews(boot.route.slug):undefined;
   const tool=toolMeta(boot.route,{home:boot.copy.home,tools:boot.copy.tools});
-  const shop=isShopPage(kind)?SHOP_META[kind]:kind==='news'?NEWS_META:news?[news.title,news.lead] as const:tool?[tool.title,tool.description] as const:undefined;
+  const shop=isShopPage(kind)?SHOP_META[kind]:kind==='news'?NEWS_META:news?[fitNewsTitle(news.title),fitDescription(news.lead)] as const:tool?[tool.title,tool.description] as const:undefined;
   const title=shop?shop[0]:kind==='article'?boot.article?.seoTitle||copy.notFound:detail?copy[`${kind}Title` as WebsiteCopyKey]:copy[labels[0]];
-  const description=shop?shop[1]:kind==='article'?boot.article?.seoDescription||copy.notFoundDescription:detail?copy[`${kind}Description` as WebsiteCopyKey]:copy[labels[1]];
-  const suffix=boot.route.kind==='journal'&&(boot.route.page||1)>1?` — ${boot.copy.page.replace('{count}',String(boot.route.page))}`:'';
+  const baseDescription=shop?shop[1]:kind==='article'?boot.article?.seoDescription||copy.notFoundDescription:detail?copy[`${kind}Description` as WebsiteCopyKey]:copy[labels[1]];
+  // Journal page 2+ is indexable with its own title and description ("… – Səhifə 2").
+  const pageLabel=boot.route.kind==='journal'&&(boot.route.page||1)>1?boot.copy.page.replace('{count}',String(boot.route.page)):'';
+  const suffix=pageLabel?` – ${pageLabel}`:'';
+  const description=pageLabel?`${pageLabel} · ${fitDescription(baseDescription,SEO_DESCRIPTION_MAX-seoTextWidth(pageLabel)-3)}`:baseDescription;
   const canonical=WEBSITE_ORIGIN+routePath(boot.route);
   const image=new URL(boot.article?.cover||(news?newsCover(news).src:'/website/og-cover.jpg'),WEBSITE_ORIGIN).href;
   const available=boot.route.kind==='article'?WEBSITE_LANGUAGES.filter(item=>boot.article?.slugs[item.code]):isAzOnlyPage(kind)?WEBSITE_LANGUAGES.filter(item=>item.code==='az'):isToolPage(kind)?WEBSITE_LANGUAGES.filter(item=>toolAlternateLanguages(boot.route).includes(item.code)):WEBSITE_LANGUAGES;
   const alternates=available.map(({code,locale})=>({code,locale,url:WEBSITE_ORIGIN+alternateRoute(boot.route,code,boot.article)}));
   alternates.push({code:'x-default' as WebsiteLanguageCode,locale:'az-AZ',url:WEBSITE_ORIGIN+((isToolPage(kind)?toolXDefaultPath(boot.route):undefined)||alternateRoute(boot.route,'az',boot.article)||sitePath('az'))});
-  return {title:(title+suffix).includes('Anacan')?title+suffix:title+suffix+' | Anacan',description,canonical,image,
-    imageAlt:boot.article?.coverAlt||news?.title||'Anacan',locale:WEBSITE_LANGUAGES.find(item=>item.code===boot.route.language)!.locale.replace('-','_'),alternates};
+  return {title:brandTitle(title+suffix),description,canonical,image,
+    imageAlt:boot.article?.coverAlt||news?.title||'Anacan',
+    /** og:image size; the default cover and news covers are 1200x630, article covers come from cover-sizes.json. */
+    imageSize:(boot.article?coverSize(boot.article.cover):[1200,630]) as [number,number]|undefined,
+    locale:WEBSITE_LANGUAGES.find(item=>item.code===boot.route.language)!.locale.replace('-','_'),alternates};
 }
 function faqs(boot:WebsiteBoot) {
   const {kind}=boot.route;
@@ -51,8 +91,10 @@ function faqs(boot:WebsiteBoot) {
 }
 export function websiteSchema(boot:WebsiteBoot) {
   const meta=websiteMeta(boot),language=boot.route.language,graph:Record<string,unknown>[]=[];
-  graph.push({'@type':'Organization','@id':ORGANIZATION_ID,name:'Anacan',url:WEBSITE_ORIGIN,logo:{'@type':'ImageObject',url:WEBSITE_ORIGIN+'/website/brand-mark-coral.png'},legalName:'ANACAN, MMC',
-    email:'info@anacan.az',sameAs:['https://instagram.com/anacanapp','https://facebook.com/anacanapp','https://youtube.com/@anacanapp']});
+  graph.push({'@type':'Organization','@id':ORGANIZATION_ID,name:'Anacan',url:WEBSITE_ORIGIN,logo:{'@type':'ImageObject',url:WEBSITE_ORIGIN+'/website/brand-mark-coral.png',width:512,height:512},legalName:'ANACAN, MMC',
+    email:'info@anacan.az',foundingDate:'2026-03-01',founder:FOUNDERS.map(name=>({'@type':'Person',name})),address:{'@type':'PostalAddress',addressCountry:'AZ'},
+    // Only profiles the site itself links to (footer) and the two store listings.
+    sameAs:['https://instagram.com/anacanapp','https://facebook.com/anacanapp',APP_STORE_URL,GOOGLE_PLAY_URL]});
   graph.push({'@type':'WebSite','@id':WEBSITE_ID,name:'Anacan',url:WEBSITE_ORIGIN,publisher:{'@id':ORGANIZATION_ID},inLanguage:WEBSITE_LANGUAGES.map(item=>item.code)});
   const tool=toolMeta(boot.route,{home:boot.copy.home,tools:boot.copy.tools});
   graph.push({'@type':tool?tool.pageType:boot.route.kind==='journal'||boot.route.kind==='news'?'CollectionPage':boot.route.kind==='contact'?'ContactPage':'WebPage','@id':meta.canonical+'#webpage',url:meta.canonical,
@@ -71,7 +113,8 @@ export function websiteSchema(boot:WebsiteBoot) {
     graph.push({'@type':'BlogPosting','@id':meta.canonical+'#article',headline:article.title,description:meta.description,inLanguage:language,
       mainEntityOfPage:{'@id':meta.canonical+'#webpage'},datePublished:article.publishedAt,dateModified:article.updatedAt,
       author:article.author==='Anacan'?{'@id':ORGANIZATION_ID}:{'@type':'Person',name:article.author},publisher:{'@id':ORGANIZATION_ID},
-      image:{'@type':'ImageObject',url:meta.image,width:1200,height:630},keywords:article.tags.join(', '),citation:article.references.map(reference=>reference.url),
+      image:articleImage(article,meta.image),keywords:article.tags.join(', '),about:article.tags.map(name=>({'@type':'Thing',name})),
+      isPartOf:{'@id':WEBSITE_ID},...wordCount(article,language),citation:article.references.map(reference=>reference.url),
       articleSection:boot.copy[(({'korpe-baximi':'categoryBaby','hamiləlik':'categoryPregnancy','menstrual-sağlamlıq':'categoryCycle','qidalanma':'categoryNutrition',
         'saglamliq':'categoryHealth','psixologiya':'categoryPsychology','motivasiya':'categoryMotivation','məşqlər':'categoryExercise'} as Record<string,WebsiteCopyKey>)[article.category]||'categoryOther')],isAccessibleForFree:true,
       encoding:{'@type':'MediaObject',encodingFormat:'text/markdown',contentUrl:WEBSITE_ORIGIN+markdownPath(boot.route),inLanguage:language}});
@@ -106,7 +149,9 @@ export function updateWebsiteHead(boot:WebsiteBoot) {
   };
   setMeta('description',meta.description);setMeta('robots',boot.route.kind==='notFound'?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1');
   setMeta('theme-color','#ffe7e1');
-  for(const[key,value]of Object.entries({'og:title':meta.title,'og:description':meta.description,'og:url':meta.canonical,'og:type':boot.article?'article':'website','og:image':meta.image,'og:image:alt':meta.imageAlt,'og:site_name':'Anacan','og:locale':meta.locale,'og:image:width':'1200','og:image:height':'630'}))setMeta(key,value,true);
+  for(const[key,value]of Object.entries({'og:title':meta.title,'og:description':meta.description,'og:url':meta.canonical,'og:type':boot.article?'article':'website','og:image':meta.image,'og:image:alt':meta.imageAlt,'og:site_name':'Anacan','og:locale':meta.locale}))setMeta(key,value,true);
+  document.head.querySelectorAll('meta[property="og:image:width"],meta[property="og:image:height"]').forEach(node=>node.remove());
+  if(meta.imageSize){setMeta('og:image:width',String(meta.imageSize[0]),true);setMeta('og:image:height',String(meta.imageSize[1]),true);}
   for(const[key,value]of Object.entries({'twitter:card':'summary_large_image','twitter:title':meta.title,'twitter:description':meta.description,'twitter:image':meta.image,'twitter:image:alt':meta.imageAlt}))setMeta(key,value);
   document.head.querySelectorAll('link[rel="canonical"],link[hreflang],meta[property="article:published_time"],meta[property="article:modified_time"]').forEach(node=>node.remove());
   const canonical=document.createElement('link');canonical.rel='canonical';canonical.href=meta.canonical;document.head.append(canonical);

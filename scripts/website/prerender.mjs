@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
-import {websiteRobots,sitemapIndex} from './llm-policy.mjs';
+import {websiteRobots,sitemapIndex,SITEMAP_NAMESPACES,sitemapImages,coverImages} from './llm-policy.mjs';
 
 const escape=value=>String(value??'').replace(/[&<>"']/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 const safeJson=value=>JSON.stringify(value).replace(/[<>&\u2028\u2029]/g,character=>`\\u${character.charCodeAt(0).toString(16).padStart(4,'0')}`);
@@ -38,13 +38,16 @@ export function redirectsFor({routes,articles,prefix=''}) {
   return Object.fromEntries(result);
 }
 function xmlSitemap(entries,origin) {
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.map(entry=>`<url><loc>${escape(origin+entry.path)}</loc><lastmod>${entry.updated.slice(0,10)}</lastmod>${entry.alternates.map(item=>`<xhtml:link rel="alternate" hreflang="${item.code}" href="${escape(item.url)}"/>`).join('')}</url>`).join('\n')}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset ${SITEMAP_NAMESPACES}>\n${entries.map(entry=>`<url><loc>${escape(origin+entry.path)}</loc><lastmod>${entry.updated.slice(0,10)}</lastmod>${entry.alternates.map(item=>`<xhtml:link rel="alternate" hreflang="${item.code}" href="${escape(item.url)}"/>`).join('')}${sitemapImages(entry.images)}</url>`).join('\n')}\n</urlset>\n`;
 }
+/** Body font (Switzer 400) preloaded so it arrives with the stylesheet: its late swap moved the /en/ hero
+ * (mobile CLS 0.11 -> 0.001). Only this one face: preloading all four (82 KB) delayed LCP by ~400 ms on slow 4G. */
+export const FONT_PRELOADS=['/website/fonts/switzer-400.woff2'];
 export function renderWebsiteHtml({shell,body,boot,meta,schema,preload=[],discovery=[]}) {
   const head=[];
   const setMeta=(key,value,property=false)=>head.push(`<meta ${property?'property':'name'}="${key}" content="${escape(value)}">`);
   setMeta('description',meta.description);setMeta('robots',boot.route.kind==='notFound'?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1');
-  for(const[key,value]of Object.entries({'og:title':meta.title,'og:description':meta.description,'og:url':meta.canonical,'og:type':boot.article?'article':'website','og:image':meta.image,'og:image:alt':meta.imageAlt,'og:site_name':'Anacan','og:locale':meta.locale,'og:image:width':'1200','og:image:height':'630'}))setMeta(key,value,true);
+  for(const[key,value]of Object.entries({'og:title':meta.title,'og:description':meta.description,'og:url':meta.canonical,'og:type':boot.article?'article':'website','og:image':meta.image,'og:image:alt':meta.imageAlt,'og:site_name':'Anacan','og:locale':meta.locale,...(meta.imageSize?{'og:image:width':String(meta.imageSize[0]),'og:image:height':String(meta.imageSize[1])}:{})}))setMeta(key,value,true);
   for(const[key,value]of Object.entries({'twitter:title':meta.title,'twitter:description':meta.description,'twitter:image':meta.image,'twitter:image:alt':meta.imageAlt,'twitter:card':'summary_large_image'}))setMeta(key,value);
   if(boot.article){setMeta('article:published_time',boot.article.publishedAt,true);setMeta('article:modified_time',boot.article.updatedAt,true);}
   head.push(`<link rel="canonical" href="${escape(meta.canonical)}">`);
@@ -52,7 +55,8 @@ export function renderWebsiteHtml({shell,body,boot,meta,schema,preload=[],discov
   setMeta('apple-itunes-app','app-id=6758301924');
   for(const item of meta.alternates.filter(item=>item.code!=='x-default'&&item.code!==boot.route.language))setMeta('og:locale:alternate',item.locale.replace('-','_'),true);
   for(const item of discovery)head.push(`<link rel="${item.rel}" type="${item.type}" href="${escape(item.href)}" data-llm-discovery>`);
-  for(const href of preload)head.push(`<link rel="preload" as="image" href="${escape(href)}">`);
+  for(const href of FONT_PRELOADS)head.push(`<link rel="preload" as="font" type="font/woff2" href="${href}" crossorigin>`);
+  for(const href of preload)head.push(`<link rel="preload" as="image" href="${escape(href)}" fetchpriority="high">`);
   if(boot.route.kind!=='notFound')head.push(`<script type="application/ld+json" data-website-schema>${safeJson(schema)}</script>`);
   return shell.replace(/<html[^>]*>/,`<html lang="${boot.route.language}" dir="${boot.route.language==='ar'?'rtl':'ltr'}" class="anacan-public-website">`)
     .replace(/<title>[\s\S]*?<\/title>/,()=>`<title>${escape(meta.title)}</title>`)
@@ -105,7 +109,7 @@ export function websitePrerenderPlugin({standalone=false,root,catalogDir=join(ro
             const markdown=route.kind==='journal'?llm.renderLlmJournal(data,copy,route.page):llm.renderLlmDocument(boot);
             this.emitFile({type:'asset',fileName:decodeURIComponent(prefix+discovery.markdownPath(route)).slice(1),source:markdown});
             if(route.kind!=='journal'||(route.page||1)===1)localeDocuments.set(article?'article:'+article.id:route.kind,markdown);
-            const entry={path,updated:article?.updatedAt||catalog.generatedAt,alternates:meta.alternates};
+            const entry={path,updated:article?.updatedAt||catalog.generatedAt,alternates:meta.alternates,images:article?coverImages(article,routes.WEBSITE_ORIGIN):[]};
             localeEntries.push(entry);
             (article?articleEntries:staticEntries).push(entry);
           }
