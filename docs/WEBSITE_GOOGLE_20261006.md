@@ -226,3 +226,9 @@ handoff-a daxil edilmir.
   (src/website/tools/) live. Website `55d9d58c…` (rollback `website-runtime-plan.before-names.json`), gateway
   `4202d187…` (plan `names-web-plan.json`, rollback `rollback-names-web-plan.json`). Sitemaps resubmitted in
   Search Console (service account anacan-search-console@…, keyless, impersonated by info@anacan.az).
+- 2026-11-10 (SEO 1): four calculators in 21 languages (pregnancy weight, conception, period calendar, WHO baby
+  growth), technical SEO (audits, Organization/BlogPosting schema, journal pagination, image sitemaps, sitemap index,
+  font preload), hidden AZ pregnancy weeks 1–42 (`PREGNANCY_WEEKS_PUBLISHED=false`, noindex + X-Robots-Tag, out of
+  sitemaps). Shop pages stay out of sitemaps (`SHOP_IN_SITEMAP=false` in server.mjs). Website `26e3c904…`
+  (rollback `website-runtime-plan.before-seo1.json`), gateway `5b09d9aa…` (plan `seo1-web-plan.json`, rollback
+  `rollback-seo1-web-plan.json`). Runtime also ships prerender.mjs and llm-policy.mjs now.
