@@ -13,7 +13,7 @@ import {join} from 'node:path';
 import {WEBSITE_LANGUAGES,type WebsiteLanguageCode} from '../lib/app-languages';
 import {PAGE_SLUGS,SHOP_PAGES,resolveWebsiteRoute,routePath,WEBSITE_ORIGIN,type WebsiteRoute,type StaticPage} from './routes';
 import {websiteMeta,websiteSchema,seoTextWidth,SEO_TITLE_MAX,SEO_DESCRIPTION_MIN,SEO_DESCRIPTION_MAX} from './seo';
-import {NEWS} from './news';
+import {findNews,isNewsLanguage,newsIn} from './news';
 import './tools/tool-data-server';
 import './calc-content/all';
 import {toolSitemapEntries} from './tools/tool-routes';
@@ -51,10 +51,12 @@ function toolRoutes(code:WebsiteLanguageCode):WebsiteRoute[] {
 function staticRoutes(code:WebsiteLanguageCode):WebsiteRoute[] {
   const routes:WebsiteRoute[]=[{language:code,kind:'home'},...(Object.keys(PAGE_SLUGS[code]) as StaticPage[]).map(kind=>({language:code,kind,page:1}))];
   for(let page=2;page<=pageCount(code);page++)routes.push({language:code,kind:'journal',page});
-  if(code==='az')routes.push(...SHOP_PAGES.map(kind=>({language:code,kind})),{language:code,kind:'news'},...NEWS.map(item=>({language:code,kind:'newsArticle' as const,slug:item.slug})));
+  if(code==='az')routes.push(...SHOP_PAGES.map(kind=>({language:code,kind})));
+  if(isNewsLanguage(code))routes.push({language:code,kind:'news'},...newsIn(code).map(item=>({language:code,kind:'newsArticle' as const,slug:item.slug})));
   routes.push(...toolRoutes(code));
   return routes;
 }
+const newsItemId=(route:WebsiteRoute)=>isNewsLanguage(route.language)?findNews(route.slug,route.language)?.id:undefined;
 const articleRoutes=(code:WebsiteLanguageCode):WebsiteRoute[]=>catalogs[code].articles.map(article=>({language:code,kind:'article',articleId:article.id,slug:article.slug}));
 const label=(route:WebsiteRoute)=>`${route.language} ${route.kind}${route.page&&route.page>1?' p'+route.page:''}${route.slug?' '+route.slug:''}`;
 /** Resolve a published absolute URL back to a route the same way the server does. */
@@ -148,7 +150,9 @@ describe('canonical and hreflang',()=>{
         expect(target.kind,`${label(route)} -> ${alternate.url}`).toBe(route.kind);
         if(route.kind==='article')expect(target.articleId).toBe(route.articleId);
         if(route.kind==='journal'){expect(target.page||1).toBe(route.page||1);expect(target.page||1).toBeLessThanOrEqual(pageCount(target.language));}
-        if(['newsArticle','namesGender','namesLetter','nameDetail'].includes(route.kind))expect(target.slug).toBe(route.slug);
+        if(['namesGender','namesLetter','nameDetail'].includes(route.kind))expect(target.slug).toBe(route.slug);
+        // News slugs are localized: the alternate must be the same item (same Azerbaijani id).
+        if(route.kind==='newsArticle')expect(newsItemId(target)).toBe(newsItemId(route));
         if(route.kind==='article')expect(catalogs[target.language].articles.some(item=>item.id===route.articleId)).toBe(true);
         if((alternate.code as string)==='x-default')continue;
         expect(target.language).toBe(alternate.code);
@@ -186,6 +190,39 @@ describe('structured data',()=>{
       expect(post).toMatchObject({inLanguage:code,isPartOf:{'@id':WEBSITE_ORIGIN+'/#website'},image:{width:expect.any(Number),height:expect.any(Number)}});
       expect(post.dateModified).toBeTruthy();expect(post.datePublished).toBeTruthy();
       expect(post).not.toHaveProperty('reviewedBy');
+    }
+  });
+});
+
+describe('news (az, en)',()=>{
+  const graphOf=(route:WebsiteRoute)=>websiteSchema(boot(route))['@graph'] as Array<Record<string,unknown>>;
+  it('marks English news as NewsArticle in English with English breadcrumbs and the cover as og:image',()=>{
+    for(const item of newsIn('en')){
+      const route:WebsiteRoute={language:'en',kind:'newsArticle',slug:item.slug},meta=websiteMeta(boot(route)),graph=graphOf(route);
+      expect(graph.find(node=>node['@type']==='NewsArticle')).toMatchObject({inLanguage:'en',headline:item.title,datePublished:item.date});
+      const crumbs=(graph.find(node=>node['@type']==='BreadcrumbList')!.itemListElement as Array<{name:string;item:string}>);
+      expect(crumbs.slice(0,2).map(crumb=>crumb.name)).toEqual(['Home','News']);
+      expect(crumbs[1].item).toBe(WEBSITE_ORIGIN+'/en/news/');
+      expect(meta.image).toBe(WEBSITE_ORIGIN+item.cover.src);
+      expect(meta.alternates.map(alternate=>alternate.code).sort()).toEqual(['az','en','x-default']);
+      expect(meta.alternates.find(alternate=>(alternate.code as string)==='x-default')!.url).toBe(WEBSITE_ORIGIN+`/az/xeberler/${item.id}/`);
+    }
+  });
+  it('lists only English items on /en/news/ (CollectionPage + ItemList) and keeps the books item az-only',()=>{
+    const graph=graphOf({language:'en',kind:'news'});
+    expect(graph.find(node=>node['@id']===WEBSITE_ORIGIN+'/en/news/#webpage')).toMatchObject({'@type':'CollectionPage',inLanguage:'en'});
+    const list=graph.find(node=>node['@type']==='ItemList')!.itemListElement as Array<{url:string}>;
+    expect(list.map(entry=>entry.url)).toEqual(newsIn('en').map(item=>WEBSITE_ORIGIN+`/en/news/${item.slug}/`));
+    const books=websiteMeta(boot({language:'az',kind:'newsArticle',slug:'usaqlar-ucun-pdf-cap-kitablari-70-kitab-evde-cap'}));
+    expect(books.alternates.map(alternate=>alternate.code).sort()).toEqual(['az','x-default']);
+  });
+  it('publishes news sitemap rows with matching alternates',async()=>{
+    const {newsSitemapEntries}=await import('./routes');
+    const rows=newsSitemapEntries();
+    expect(rows.filter(row=>row.language==='en')).toHaveLength(newsIn('en').length+1);
+    for(const row of rows){
+      const meta=websiteMeta(boot(resolveWebsiteRoute(row.path).route));
+      expect(row.alternates.map(link=>WEBSITE_ORIGIN+link.path).sort()).toEqual(meta.alternates.map(link=>link.url).sort());
     }
   });
 });

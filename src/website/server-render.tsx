@@ -15,8 +15,10 @@ export {resolveWebsiteRoute,routePath,PAGE_SLUGS,sitePath,localizedSlug,WEBSITE_
  * website language list (app-only ky/et are excluded) under that published export name. */
 export {WEBSITE_LANGUAGES as APP_LANGUAGES};
 export {prepareBlogContent};
-/** Azerbaijani-only news (/az/xeberler/…): listed in the pages and az sitemaps with az-only hreflang. */
+/** News (/az/xeberler/…, /en/news/…): newsSitemapEntries() feeds the pages and az/en sitemaps; each entry carries
+ * its hreflang alternates (az-only items list az + x-default only). */
 export {NEWS} from './news';
+export {newsSitemapEntries} from './routes';
 /** Azerbaijani-only shop pages (/az/kitablar/, /az/tortlar/): listed in the pages and az sitemaps. */
 export {SHOP_PAGES} from './routes';
 export {renderArticleContent} from './article-content';
