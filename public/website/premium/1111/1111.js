@@ -1,8 +1,10 @@
-/* 11.11 campaign (one day, 2026-11-11 Baku): same flow as the weekend page (kampaniya.js): login first, then the
-   plans at the server's campaign prices; an account with Premium sees that instead. Subscribing opens Epoint's bank
-   page; the result is confirmed by the signed Epoint callback, the page only polls the status after the redirect back.
+/* 11.11 campaign "Poz-Aç" (one day, 2026-11-11 Baku). The visitor scratches the card (or presses "Birdən aç") to see the
+   yearly price; the subscribe block then opens directly under the card. Same account flow as the weekend page
+   (kampaniya.js): login first, then the yearly plan at the server's campaign price; an account with Premium sees that
+   instead. Subscribing opens Epoint's bank page; the result is confirmed by the signed Epoint callback, the page only
+   polls the status after the redirect back.
    Prices are SHOWN in USD (owner decision, fixed display rate 1 USD = 1.70 AZN) converted from the server's AZN
-   prices; the charge is always the server's AZN price, which is stated next to the button.
+   prices; the charge is always the server's AZN price, which is stated under the button. Yearly plan only.
    The server's payment redirects and reminder links point to the kampaniya page, which forwards here during 11.11;
    this page never redirects back. */
 (function () {
@@ -14,18 +16,26 @@
   var payment = params.get('odenis'); // 'ugurlu' | 'xeta' (redirect back from the bank page; never proof of payment)
   if (payment) { params.delete('odenis'); history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : '') + location.hash); }
   var CABINET = '/website/premium/hesab/index.html';
-  var selected = 'yearly';
+  var PLAN = 'yearly';
   var status = null;
   var generation = 0;
+  var signedIn = false;
+  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var USD_RATE = 1.70; // display only
   function usdValue(azn) { var n = Number(azn); return isFinite(n) ? Math.round(n / USD_RATE * 100) / 100 : NaN; }
   function usd(azn) { var v = usdValue(azn); return isFinite(v) ? '$' + v.toFixed(2) : ''; }
   function usdPerMonth(azn) { var v = usdValue(azn); return isFinite(v) ? '$' + (Math.round(v / 12 * 100) / 100).toFixed(2) : ''; }
+  function centsPerDay(azn) { var v = usdValue(azn); return isFinite(v) ? Math.max(1, Math.round(v / 365 * 100)) : NaN; }
 
   var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
   var ICON_INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>';
   var ICON_WAIT = '<span class="spinner" style="width:26px;height:26px"></span>';
+
+  // Display fallback before the server status is loaded (the page is public; prices need a session).
+  var FALLBACK = { price: 18.89, was: 50.98, pct: 63 };
+  function yearly() { var p = status && status.campaign && status.campaign.plans; return (p && p.yearly) || null; }
+  function shownPlan() { return yearly() || FALLBACK; }
 
   // ── Campaign window known without login (the page is public). ──────────────────────────
   var CAMPAIGN_STARTS_AT = Date.parse(document.body.getAttribute('data-campaign-starts') || '');
@@ -33,75 +43,84 @@
   var ended = isFinite(CAMPAIGN_ENDS_AT) && Date.now() >= CAMPAIGN_ENDS_AT;
   function notStarted() { return isFinite(CAMPAIGN_STARTS_AT) && Date.now() < CAMPAIGN_STARTS_AT; }
 
+  // ── Panel under the scratch card ──────────────────────────────────────────────────────
+  // 'gate': shown only after the card is revealed (plans, login, pre-start, retry).
+  // 'state': no card to scratch (Premium active, payment result, campaign over): shown at once, card hidden.
+  var panelMode = 'gate';
+  var revealed = false;
+  function setPanel(mode) {
+    panelMode = mode;
+    document.body.classList.toggle('no-scratch', mode === 'state');
+    card.hidden = !(mode === 'state' || revealed);
+  }
+
   function endedHero() {
     document.body.classList.add('campaign-ended');
     $('liveText').textContent = 'Kampaniya bitdi';
-    $('offer').hidden = true;
+    $('heroTitle').textContent = '11.11 kampaniyası bitdi.';
+    $('heroLead').textContent = 'Növbəti endirimlər üçün Anacan tətbiqini izlə və bildirişləri aç.';
     $('timer').hidden = true;
-    if ($('finalText')) $('finalText').textContent = 'Növbəti endirimlər üçün Anacan tətbiqini izlə';
   }
   function endedCard(text) {
     renderState(ICON_INFO, 'Kampaniya bitdi', text || '11.11 kampaniyası artıq bitib. Premium-u tətbiqdən ala bilərsən. Növbəti endirimləri qaçırmamaq üçün tətbiqdə bildirişləri aç.',
       '<a class="cta" href="/website/premium/app/index.html?src=campaign_ended">Tətbiqi aç <span class="arr">→</span></a>' +
       '<a class="btn" href="' + CABINET + '">Premium hesabım</a>', true);
   }
-  function showEnded() { endedHero(); card.innerHTML = ''; endedCard(); }
+  function showEnded() { endedHero(); endedCard(); }
 
   // ── Countdown: to the start before 11.11, then to the end (server ends_at once loaded). ───
   var target = isFinite(CAMPAIGN_ENDS_AT) ? CAMPAIGN_ENDS_AT : Date.now();
   var pad = function (n) { return String(n).padStart(2, '0'); };
+  var wasPre = notStarted();
   function tick() {
     var pre = notStarted();
+    var over = document.body.classList.contains('campaign-ended');
     var to = pre ? CAMPAIGN_STARTS_AT : target;
     $('timerLabel').textContent = pre ? 'Kampaniya başlayanadək' : 'Kampaniya bitənədək';
     if (pre) $('liveText').textContent = 'Tezliklə · 11 noyabr';
-    else if (!document.body.classList.contains('campaign-ended')) $('liveText').textContent = 'Yalnız bu gün · 11 noyabr';
-    var s = Math.max(0, Math.floor((to - Date.now()) / 1000));
+    else if (!over) $('liveText').textContent = 'Yalnız bu gün · 11 noyabr';
+    var ms = Math.max(0, to - Date.now());
+    var s = Math.floor(ms / 1000);
     var d = Math.floor(s / 86400);
     $('tD').textContent = d; $('tDBox').hidden = d === 0; s %= 86400;
     $('tH').textContent = pad(Math.floor(s / 3600)); s %= 3600;
     $('tM').textContent = pad(Math.floor(s / 60)); $('tS').textContent = pad(s % 60);
-    if (!pre && !document.body.classList.contains('campaign-ended') && Date.now() >= target && status && !(status.premium && status.premium.active)) {
+    var urgent = !pre && !over && ms > 0 && ms < 3600000;
+    $('timer').classList.toggle('urgent', urgent);
+    $('cdHint').textContent = pre ? '11.11 tezliklə başlayır.' : over || ms === 0 ? 'Kampaniya bitdi.' : urgent ? 'Son saat! Endirim tezliklə bitir.' : '';
+    if (wasPre && !pre) { wasPre = false; if (signedIn && !over) load(); }
+    if (!pre && !over && Date.now() >= target && status && !(status.premium && status.premium.active)) {
       endedHero(); endedCard();
     }
   }
   tick(); setInterval(tick, 1000);
 
-  // ── Sticky bar and scroll buttons ─────────────────────────────────────────────────────
-  var sticky = $('sticky');
-  if ('IntersectionObserver' in window) new IntersectionObserver(function (entries) {
-    var e = entries[0];
-    var on = !e.isIntersecting && e.boundingClientRect.top < 0;
-    sticky.classList.toggle('on', on); sticky.setAttribute('aria-hidden', String(!on));
-  }).observe(card);
-  document.querySelectorAll('[data-scroll]').forEach(function (b) {
-    b.addEventListener('click', function () { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
-  });
-
-  // ── Rendering ─────────────────────────────────────────────────────────────────────────
-  function plans() { return status && status.campaign && status.campaign.plans; }
+  // ── Prices on the scratch prize, the subscribe row and the sticky bar ─────────────────
   function pctText(p) { return p && p.pct ? '−' + p.pct + '%' : ''; }
-  function updateHero() {
-    var p = plans();
-    if (!p) return;
-    var y = p.yearly, m = p.monthly, v = selected === 'yearly' ? y : m;
-    $('heroSub').textContent = selected === 'yearly' ? 'İllik Premium' : 'Aylıq Premium';
-    $('heroPct').textContent = usd(v.price);
-    $('heroWas').textContent = v.was ? usd(v.was) : ''; $('heroWas').hidden = !v.was;
-    $('heroBadge').textContent = pctText(v); $('heroBadge').hidden = !pctText(v);
-    $('finalPrice').textContent = usd(y.price);
-    $('finalText').textContent = 'Ayda cəmi ≈ ' + usdPerMonth(y.price) + (y.was ? ', ' + usd(y.was) + ' əvəzinə' : '') + '. Yalnız bu gün.';
-    $('stickyText').innerHTML = '<b>' + usd(v.price) + '</b>' + (v.was ? '<s>' + usd(v.was) + '</s>' : '') +
-      '<small>' + A.esc((selected === 'yearly' ? 'İllik' : 'Aylıq') + ' Premium' + (pctText(v) ? ' · ' + pctText(v) : '')) + '</small>';
-    if (status.campaign.ends_at && isFinite(Date.parse(status.campaign.ends_at))) target = Date.parse(status.campaign.ends_at);
+  function updatePrices() {
+    var y = shownPlan();
+    $('prizePrice').textContent = usd(y.price);
+    $('prizeWas').textContent = y.was ? usd(y.was) : ''; $('prizeWas').hidden = !y.was;
+    $('prizeOff').textContent = (pctText(y) ? pctText(y) + ' · ' : '') + 'yalnız bu gün';
+    var c = centsPerDay(y.price);
+    $('prizeSub').textContent = 'ayda ≈ ' + usdPerMonth(y.price) + (isFinite(c) ? ' · gündə cəmi ' + c + ' sent' : '');
+    if (revealed) {
+      $('sPrice').textContent = usd(y.price);
+      $('sWas').textContent = y.was ? usd(y.was) : '';
+      $('sSub').textContent = 'İllik Premium' + (pctText(y) ? ' · ' + pctText(y) : '');
+      $('scratchHint').textContent = 'Endirim açıldı: illik Premium ' + usd(y.price);
+    }
+    var yy = yearly();
+    if (yy && status.campaign.ends_at && isFinite(Date.parse(status.campaign.ends_at))) target = Date.parse(status.campaign.ends_at);
   }
 
-  /** No selling (sticky bar, final CTA) once the account has Premium or the campaign is over. */
+  /** No selling (sticky bar) once the account has Premium or the campaign is over. */
   function selling(on) { document.body.classList.toggle('no-sell', !on); }
-  function renderState(icon, title, text, actionsHtml, soft) {
-    selling(false);
+  function renderState(icon, title, text, actionsHtml, soft, gate) {
+    if (!gate) selling(false);
     card.innerHTML = '<div class="state"><div class="big' + (soft ? ' soft' : '') + '">' + icon + '</div><h2>' + A.esc(title) + '</h2>' +
       '<p>' + text + '</p>' + (actionsHtml || '') + '</div>';
+    setPanel(gate ? 'gate' : 'state');
   }
 
   function storeName(store) {
@@ -126,38 +145,40 @@
     }
   }
 
+  function subRowHtml(y) {
+    return '<div class="sub-row"><div><b>İllik Premium</b><small>12 ay · ayda ≈ ' + usdPerMonth(y.price) + ' · hər il bu qiymətlə yenilənir</small></div>' +
+      '<div class="sub-price">' + (y.was ? '<s>' + usd(y.was) + '</s>' : '') + usd(y.price) + '</div></div>';
+  }
+  function aznNote(y) { return '<p class="note">Ödəniş Azərbaycan manatı ilə alınır: <b>' + A.esc(A.money(y.price)) + '</b></p>'; }
+  var FINE = '<p class="fine">Avtomatik yenilənir, istədiyin vaxt ləğv edə bilərsən. Endirimli qiymət ləğv edənə qədər hər yenilənmədə qorunur. Kartla, manatla (Epoint). Dollar qiymətləri məlumat üçündür (1 USD = 1,70 ₼). <a href="https://anacan.az/terms" target="_blank" rel="noopener">İstifadə şərtləri</a></p>';
+
   function renderPlans(message) {
     selling(true);
-    var p = plans();
-    var y = p.yearly, m = p.monthly;
-    var v = selected === 'yearly' ? y : m;
-    var save = v.was ? Math.round((usdValue(v.was) - usdValue(v.price)) * 100) / 100 : 0;
+    var y = yearly();
+    var ready = !!status.payments_ready;
     card.innerHTML =
-      '<div class="card-head"><h2>Planını seç</h2><span class="card-tag">11.11</span></div>' +
       (message ? '<p class="msg err" role="alert">' + A.esc(message) + '</p>' : '') +
-      '<div role="radiogroup" aria-label="Plan">' +
-      '<button type="button" class="plan" role="radio" aria-checked="' + (selected === 'yearly') + '" data-plan="yearly">' +
-      '<span class="radio" aria-hidden="true"></span>' +
-      '<span><span class="pname">İllik ' + (y.pct ? '<span class="badge">−' + y.pct + '%</span>' : '') + '<span class="badge ghost">Ən sərfəli</span></span>' +
-      '<span class="psub">ayda ≈ ' + usdPerMonth(y.price) + ' · 12 ay</span></span>' +
-      '<span class="price">' + (y.was ? '<s>' + usd(y.was) + '</s>' : '') + '<b>' + usd(y.price) + '</b></span></button>' +
-      '<button type="button" class="plan" role="radio" aria-checked="' + (selected === 'monthly') + '" data-plan="monthly">' +
-      '<span class="radio" aria-hidden="true"></span>' +
-      '<span><span class="pname">Aylıq ' + (m.pct ? '<span class="badge">−' + m.pct + '%</span>' : '') + '</span><span class="psub">hər ay</span></span>' +
-      '<span class="price">' + (m.was ? '<s>' + usd(m.was) + '</s>' : '') + '<b>' + usd(m.price) + '</b></span></button>' +
-      '</div>' +
-      (save > 0 ? '<div class="save"><span>Qənaətin</span><span>$' + save.toFixed(2) + '</span></div>' : '') +
-      (status.payments_ready ? consentHtml('consent') : '') +
-      '<button class="cta" type="button" id="cta"' + (status.payments_ready ? '' : ' disabled') + '>' +
-      (status.payments_ready ? 'Endirimi əldə et <span class="arr">→</span>' : 'Ödəniş sistemi hələ aktiv deyil') + '</button>' +
-      '<p class="azn-note">Ödəniş Azərbaycan manatı ilə alınır: <b>' + A.esc(A.money(v.price)) + '</b></p>' +
-      '<p class="fine">Avtomatik yenilənir, istədiyin vaxt ləğv edə bilərsən. Endirimli qiymət ləğv edənə qədər hər yenilənmədə qorunur. Kartla, manatla (Epoint). Dollar qiymətləri məlumat üçündür (1 USD = 1,70 ₼).</p>' +
+      subRowHtml(y) +
+      (ready ? consentHtml('consent') : '') +
+      '<button class="pbtn btn-full" type="button" id="cta"' + (ready ? '' : ' disabled') + '>' +
+      (ready ? 'Abunə ol · ' + A.esc(usd(y.price)) : 'Ödəniş sistemi hələ aktiv deyil') + '</button>' +
+      aznNote(y) + FINE +
       (status.email ? '<p class="acct">Hesab: ' + A.esc(status.email) + '</p>' : '');
-    card.querySelectorAll('.plan').forEach(function (b) {
-      b.addEventListener('click', function () { selected = b.getAttribute('data-plan'); renderPlans(); updateHero(); });
-    });
+    setPanel('gate');
     var cta = $('cta');
-    if (cta && status.payments_ready) { cta.addEventListener('click', function () { subscribe(false); }); bindConsent('consent', cta); }
+    if (cta && ready) { cta.addEventListener('click', function () { subscribe(false); }); bindConsent('consent', cta); }
+    appendTest();
+  }
+
+  /** Logged in before 11.11 starts: the offer is visible, the button opens at the start. */
+  function renderPrestart() {
+    selling(true);
+    var y = shownPlan();
+    card.innerHTML = subRowHtml(y) +
+      '<button class="pbtn btn-full" type="button" id="cta" disabled>11.11 tezliklə başlayır</button>' +
+      '<p class="sub-wait">Kampaniya 11 noyabr saat 00:00-da (Bakı vaxtı) başlayır. Abunə düyməsi o zaman açılacaq.</p>' +
+      aznNote(y) + (status && status.email ? '<p class="acct">Hesab: ' + A.esc(status.email) + '</p>' : '');
+    setPanel('gate');
     appendTest();
   }
 
@@ -202,7 +223,7 @@
     var cta = $(test ? 'ctaTest' : 'cta');
     cta.disabled = true; cta.innerHTML = '<span class="spinner"></span>';
     try {
-      var d = await A.call('subscribe', test ? { plan: status.test_offer.plan, test: true } : { plan: selected });
+      var d = await A.call('subscribe', test ? { plan: status.test_offer.plan, test: true } : { plan: PLAN });
       if (d.ok && typeof d.redirect_url === 'string' && /^https:\/\/([a-z0-9-]+\.)+az(:443)?\//i.test(d.redirect_url)) {
         location.href = d.redirect_url; // Epoint / bank card page; it returns to the kampaniya page, which forwards here
         return;
@@ -216,7 +237,7 @@
   }
 
   function failed(message) {
-    if (plans() && status.campaign.active && !(status.premium && status.premium.active)) renderPlans(message);
+    if (yearly() && status.campaign.active && !(status.premium && status.premium.active)) renderPlans(message);
     else { A.toast(message, true); renderStatus(); }
   }
 
@@ -231,18 +252,14 @@
 
   function renderStatus() {
     $('cabinetLink').hidden = false;
+    updatePrices();
     if (status.premium && status.premium.active) { renderPremium(status.premium); appendTest(); return; }
-    if (!status.campaign || !status.campaign.active || !plans()) {
-      if (notStarted()) {
-        renderState(ICON_INFO, '11.11 tezliklə başlayır', 'Kampaniya 11 noyabr saat 00:00-da (Bakı vaxtı) başlayır. O zaman bu səhifədə endirimli planlar açılacaq.', '', true);
-        appendTest();
-        return;
-      }
+    if (!status.campaign || !status.campaign.active || !yearly()) {
+      if (notStarted()) { renderPrestart(); return; }
       endedHero();
       endedCard();
       return;
     }
-    updateHero();
     renderPlans();
   }
 
@@ -277,6 +294,7 @@
             savedCardLine(d) + '<a class="cta" href="/website/premium/app/index.html?src=web_success">Tətbiqi aç <span class="arr">→</span></a>' +
             '<a class="btn app-store-link" href="/website/premium/app/index.html?src=web_success_download">Tətbiqi endir</a>' +
             '<a class="btn" href="' + CABINET + '">Premium hesabım</a>');
+          confetti();
           return;
         }
       } catch (e) { if (e && e.code === 'unauthorized') { await A.signOut(); return; } }
@@ -292,29 +310,32 @@
     var mine = ++generation;
     var s = null;
     try { s = await A.session(); } catch (e) {
-      // A hung or failed session read must never leave the card on its loading placeholder.
+      // A hung or failed session read must never leave the panel on its loading placeholder.
       if (mine !== generation) return;
       if (e && e.code === 'timeout') { loadFailed(boot); return; }
       s = null;
     }
     if (mine !== generation) return;
+    signedIn = !!s;
     A.renderWho($('who'), s);
     if (!s) {
       $('cabinetLink').hidden = true;
       if (ended) { showEnded(); return; }
       selling(true);
       card.innerHTML = '';
-      A.renderLogin(card, { title: 'Endirimi görmək üçün daxil ol', subtitle: 'Anacan hesabınla daxil ol: tətbiqdəki eyni hesab. Premium bu hesaba bağlanacaq.' });
+      A.renderLogin(card, { title: 'Endirimi almaq üçün daxil ol', subtitle: 'Anacan hesabınla daxil ol: tətbiqdəki eyni hesab. Premium bu hesaba bağlanacaq.' });
+      setPanel('gate');
       return;
     }
     var verify = await A.needsVerification();
     if (mine !== generation) return;
     if (verify) {
       A.renderVerify(card, s.user && s.user.email, boot);
+      setPanel('gate');
       return;
     }
     if (payment === 'ugurlu') { payment = null; await waitForPayment(); return; }
-    if (payment === 'xeta') { payment = null; A.toast('Ödəniş alınmadı. Kartı yoxlayıb yenidən cəhd et.', true); }
+    if (payment === 'xeta') { payment = null; A.toast('Ödəniş alınmadı. Kartı yoxlayıb yenidən cəhd et.', true); reveal(true); }
     if (ended) { $('cabinetLink').hidden = false; showEnded(); return; }
     await load();
   }
@@ -322,17 +343,120 @@
   /** Error state with a retry button; the first failure also retries once by itself. */
   var autoRetried = false;
   function loadFailed(retry) {
-    renderState(ICON_INFO, 'Məlumat yüklənmədi', 'Bağlantını yoxlayıb yenidən cəhd et.', '<button class="btn" type="button" id="retry">Yenidən yoxla</button>', true);
+    renderState(ICON_INFO, 'Məlumat yüklənmədi', 'Bağlantını yoxlayıb yenidən cəhd et.', '<button class="btn" type="button" id="retry">Yenidən yoxla</button>', true, true);
     $('retry').addEventListener('click', function () { card.innerHTML = '<div class="skeleton" aria-hidden="true"></div>'; retry(); });
     if (!autoRetried) { autoRetried = true; setTimeout(function () { if ($('retry')) retry(); }, 2500); }
   }
 
-  /** Safety net: if the card is still the placeholder (e.g. Safari froze a request while the tab was in the background), start again. */
+  /** Safety net: if the panel is still the placeholder (e.g. Safari froze a request while the tab was in the background), start again. */
   function stillLoading() { return !!card.querySelector('.skeleton'); }
   setTimeout(function () { if (stillLoading()) boot(); }, 25000);
   document.addEventListener('visibilitychange', function () { if (!document.hidden && stillLoading()) boot(); });
   window.addEventListener('pageshow', function (e) { if (e.persisted && stillLoading()) boot(); });
 
+  // ── Scratch card ──────────────────────────────────────────────────────────────────────
+  var box = $('scratch'), cv = $('foil'), ctx = cv.getContext('2d');
+  var pctEl = $('pct');
+  var drawing = false, last = null, dpr = Math.max(1, window.devicePixelRatio || 1);
+  function paintFoil() {
+    var r = box.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr);
+    var g = ctx.createLinearGradient(0, 0, cv.width, cv.height);
+    var cs = getComputedStyle(document.documentElement);
+    g.addColorStop(0, cs.getPropertyValue('--foil-a').trim() || '#FF7A73');
+    g.addColorStop(1, cs.getPropertyValue('--foil-b').trim() || '#FF5A5F');
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = g; ctx.fillRect(0, 0, cv.width, cv.height);
+    // repeating "11.11" pattern
+    ctx.save(); ctx.globalAlpha = 0.16; ctx.fillStyle = '#fff';
+    ctx.font = '800 ' + (28 * dpr) + 'px "Plus Jakarta Sans", Inter, sans-serif';
+    ctx.rotate(-0.18);
+    for (var y = -cv.height; y < cv.height * 2; y += 46 * dpr) for (var x = -cv.width; x < cv.width * 2; x += 110 * dpr) ctx.fillText('11.11', x + (Math.round(y / (46 * dpr)) % 2) * 55 * dpr, y);
+    ctx.restore();
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'center';
+    ctx.font = '800 ' + Math.round(cv.width / 7) + 'px "Plus Jakarta Sans", Inter, sans-serif';
+    ctx.fillText('11.11', cv.width / 2, cv.height / 2 + cv.width / 40);
+    ctx.font = '600 ' + (15 * dpr) + 'px Inter, sans-serif';
+    ctx.fillText('Barmağınla poz', cv.width / 2, cv.height / 2 + cv.width / 7.5);
+  }
+  function pos(e) { var r = cv.getBoundingClientRect(); return { x: (e.clientX - r.left) * dpr, y: (e.clientY - r.top) * dpr }; }
+  function scratchAt(p) {
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.lineWidth = 46 * dpr; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo((last || p).x, (last || p).y); ctx.lineTo(p.x, p.y); ctx.stroke();
+    last = p;
+  }
+  var checkT = 0;
+  function measure() {
+    if (!cv.width || !cv.height) return;
+    var step = 12 * dpr, data = ctx.getImageData(0, 0, cv.width, cv.height).data;
+    var clear = 0, total = 0;
+    for (var y = 0; y < cv.height; y += step) for (var x = 0; x < cv.width; x += step) { total++; if (data[(Math.floor(y) * cv.width + Math.floor(x)) * 4 + 3] < 40) clear++; }
+    if (!total) return;
+    var pct = Math.round(clear / total * 100); pctEl.textContent = pct;
+    if (pct >= 45) reveal();
+  }
+  cv.addEventListener('pointerdown', function (e) { if (revealed) return; drawing = true; last = null; try { cv.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ } scratchAt(pos(e)); });
+  cv.addEventListener('pointermove', function (e) { if (!drawing) return; scratchAt(pos(e)); var now = Date.now(); if (now - checkT > 120) { checkT = now; measure(); } });
+  var stop = function () { if (drawing) { drawing = false; measure(); } };
+  cv.addEventListener('pointerup', stop); cv.addEventListener('pointercancel', stop);
+  $('reveal').addEventListener('click', function () { reveal(); });
+  window.addEventListener('resize', function () { if (!revealed) paintFoil(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (!revealed) paintFoil(); });
+  paintFoil();
+
+  /** quiet: returning from the bank page (no confetti, no scroll). */
+  function reveal(quiet) {
+    if (revealed) return; revealed = true;
+    cv.classList.add('done'); box.classList.add('done'); pctEl.textContent = '100';
+    var hadFocus = document.activeElement === $('reveal');
+    $('reveal').hidden = true;
+    $('sBtn').textContent = 'Abunə ol'; $('sBtn').setAttribute('href', '#plans');
+    updatePrices();
+    if (panelMode === 'gate') card.hidden = false;
+    if (quiet) return;
+    if (hadFocus) { try { card.focus({ preventScroll: true }); } catch (e) { card.focus(); } }
+    setTimeout(function () { card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' }); }, 350);
+    confetti();
+    try { window.anacanAnalytics && window.anacanAnalytics.track('scratch_reveal', { placement: 'kampaniya_1111' }); } catch (e) { /* ignore */ }
+  }
+  $('sBtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    var el = revealed && !card.hidden ? card : $('scratchArea');
+    el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+  });
+
+  // ── 11 reasons light up as they scroll into view (resting state is fully readable). ───
+  var items = [].slice.call(document.querySelectorAll('#reasons li')), bar = $('rBar'), cnt = $('rCount');
+  var seen = [];
+  function showSeen() { cnt.textContent = seen.length + ' / ' + items.length; bar.style.width = (seen.length / items.length * 100) + '%'; }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting && en.intersectionRatio > 0.6 && seen.indexOf(en.target) < 0) { seen.push(en.target); en.target.classList.add('on'); io.unobserve(en.target); } });
+      showSeen();
+    }, { threshold: [0, 0.6, 1] });
+    items.forEach(function (li) { io.observe(li); });
+  } else { seen = items.slice(); items.forEach(function (li) { li.classList.add('on'); }); showSeen(); }
+
+  // ── Light confetti ────────────────────────────────────────────────────────────────────
+  function confetti() {
+    if (reduceMotion) return;
+    var c = $('conf'), g = c.getContext('2d');
+    c.width = innerWidth * dpr; c.height = innerHeight * dpr;
+    var cols = ['#FF5A5F', '#FFB37A', '#FFD84D', '#7BC8A4', '#9C7BD8'];
+    var ps = [];
+    for (var i = 0; i < 90; i++) ps.push({ x: c.width / 2, y: c.height * 0.35, vx: (Math.random() - 0.5) * 14 * dpr, vy: (-Math.random() * 12 - 4) * dpr, s: (4 + Math.random() * 5) * dpr, c: cols[Math.floor(Math.random() * cols.length)], r: Math.random() * 6 });
+    var t = 0;
+    (function frame() {
+      g.clearRect(0, 0, c.width, c.height);
+      ps.forEach(function (p) { p.vy += 0.35 * dpr; p.x += p.vx; p.y += p.vy; p.r += 0.2; g.save(); g.translate(p.x, p.y); g.rotate(p.r); g.fillStyle = p.c; g.fillRect(-p.s / 2, -p.s / 2, p.s, p.s * 0.6); g.restore(); });
+      if (++t < 110) requestAnimationFrame(frame); else g.clearRect(0, 0, c.width, c.height);
+    })();
+  }
+
+  // ── Start ─────────────────────────────────────────────────────────────────────────────
+  updatePrices();
   if (ended && payment !== 'ugurlu') {
     // Ended: no login, no plans; the account chip and the cabinet link still work for subscribers.
     showEnded();
@@ -345,7 +469,7 @@
   }
 })();
 
-// Hero store buttons: report the click to GA4 (the page keeps working without analytics).
+// Store buttons: report the click to GA4 (the page keeps working without analytics).
 ['storeIos', 'storeAndroid'].forEach(function (id) {
   var el = document.getElementById(id);
   if (el) el.addEventListener('click', function () {
