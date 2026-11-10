@@ -1,6 +1,7 @@
 // dodo-webhook — Dodo Payments events for web Premium. The Standard Webhooks signature is verified on
 // the raw body; each webhook-id is applied once; the subscription is re-read from the Dodo API (event
-// order does not matter), stored, linked to an account with a Google/Apple-verified matching email, and
+// order does not matter), stored, linked to the account that started the checkout signed in (or else to an
+// account with a Google/Apple-verified matching email), and
 // the shared entitlement sync merges it into subscriptions/profiles.
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.1';
 import { dodoConfig, dodoRequest, verifyStandardWebhook, type DodoSubscription } from '../_shared/dodo.ts';
@@ -63,9 +64,18 @@ Deno.serve(async (req) => {
       // "Someone else pays" (anacan.az/p/<token>): grant Premium to the link's requester, not the payer.
       const sponsorToken = typeof sub.metadata?.anacan_sponsor_token === 'string'
         && /^[A-Za-z0-9_-]{16,64}$/.test(sub.metadata.anacan_sponsor_token) ? sub.metadata.anacan_sponsor_token : null;
-      const { data: userId } = sponsorToken
-        ? await admin.rpc('web_subscription_link_sponsor_v1', { p_subscription_id: sub.subscription_id, p_token: sponsorToken })
-        : await admin.rpc('web_subscription_link_email_v1', { p_subscription_id: sub.subscription_id });
+      // Otherwise the account that started the checkout signed in (web_checkouts.user_id), then the email fallback.
+      let userId: unknown = null;
+      if (sponsorToken) {
+        ({ data: userId } = await admin.rpc('web_subscription_link_sponsor_v1', { p_subscription_id: sub.subscription_id, p_token: sponsorToken }));
+      } else {
+        if (checkoutId) {
+          const linked = await admin.rpc('web_subscription_link_checkout_v1', { p_subscription_id: sub.subscription_id });
+          if (linked.error) console.error('[dodo-webhook] checkout link failed');
+          userId = linked.data;
+        }
+        if (typeof userId !== 'string' || !userId) ({ data: userId } = await admin.rpc('web_subscription_link_email_v1', { p_subscription_id: sub.subscription_id }));
+      }
       if (typeof userId === 'string' && userId) {
         const result = await syncEntitlementForUser(userId);
         if (!result.ok) console.error('[dodo-webhook] entitlement sync failed:', result.reason);

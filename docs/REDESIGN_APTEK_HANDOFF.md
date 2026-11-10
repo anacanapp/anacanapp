@@ -1090,3 +1090,25 @@ App (native 48 / next web deploy):
 - Functions container recreated with the same image `cf1f70f6…`; only the four DODO_* env values changed
   (`/home/anacan-runner/functions-dodo-live.py`, backup `runtime/secrets/functions.env.before-dodo-live`; rollback =
   restore that env file and recreate). Unsigned webhook still 401. Live key never in Git/logs.
+
+### 11.11 started early + foreign sign-in before payment (2026-11-10, owner request)
+
+- Campaign window now starts 2026-11-10T18:15:00Z (owner: "start now"); end unchanged 2026-11-11T19:59:59Z.
+  `app_settings.web_premium_campaign` / `dodo_campaign` `starts_at` updated; page `data-campaign-starts` matches.
+- Foreign 1111 pages (en/tr/kk/uz) now require the Anacan sign-in (same Google/Apple/email login as the az page) before
+  Dodo. `dodo-checkout` verifies the session token with the auth server, requires it for campaign checkouts
+  (401 otherwise), uses the account's own email for Dodo, refuses a second live web subscription (409) and stores
+  `web_checkouts.user_id`. `dodo-webhook` links by checkout first (`web_subscription_link_checkout_v1`, service role),
+  email matching stays only as the fallback (sponsor links, older funnels). Dodo returns to the 1111 page (`?done=1`),
+  which waits for Premium on that account.
+- SQL: `supabase/migrations/20261110190000_web_checkout_account_link.sql` (+ `.cdc.json`): nullable column on the
+  already guarded `web_checkouts`, partial index, one function. Applied after a rolled-back dry run; live link test
+  (rolled back) passed; live checkout with the QA account linked the checkout row.
+- `account.js` texts have en/tr/kk/uz versions (`AnacanAccount.setLang`); Azerbaijani output is unchanged.
+- The functions router replaces non-2xx bodies with a code per HTTP status (401 `unauthorized`, 409
+  `function_rejected`, 429 `rate_limit`), so pages must read the status, not `error`.
+- Images: gateway and functions images had reached 124 layers ("max depth exceeded" on the next COPY). Both were
+  flattened (`FROM scratch` + `COPY --from=live / /`, then the same ENV/EXPOSE/WORKDIR/ENTRYPOINT/CMD/STOPSIGNAL).
+  Live: gateway `61b9d46f…` (plan `c1111login2-web-plan.json`, rollback `rollback-c1111login2-web-plan.json`),
+  functions `7ce98857…` (`/home/anacan-runner/functions-dodo-login.py`, previous image `ba6d3524…`).
+  Build the next image FROM these (few layers now).

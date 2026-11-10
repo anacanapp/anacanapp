@@ -1,6 +1,8 @@
 // dodo-checkout — starts a Dodo Payments hosted checkout for Anacan Premium from the anacan.az website.
-// Public (no Anacan session): only anacan.az may call it from a browser, the plan maps to a configured
-// product id, and the return URL is always built here. Access is granted only by the signed webhook.
+// Only anacan.az may call it from a browser, the plan maps to a configured product id, and the return URL is
+// always built here. Access is granted only by the signed webhook. A signed-in Anacan session (Authorization:
+// Bearer <access token>) is required for campaign checkouts and optional otherwise; when present the checkout
+// records that account (web_checkouts.user_id) and the webhook links the subscription to it, not by email.
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.1';
 import { dodoConfig, dodoRequest, WEBSITE_ORIGINS, type DodoPlan } from '../_shared/dodo.ts';
 import { LANGUAGE_CODES } from '../_shared/languages.ts';
@@ -9,6 +11,7 @@ import { LANGUAGE_CODES } from '../_shared/languages.ts';
 const CHECKOUT_LANGUAGE: Record<string, string> = { az: 'tr', kk: 'ru', uz: 'ru', hi: 'en', vi: 'en' };
 const DODO_LANGUAGES = new Set(['ar', 'de', 'en', 'es', 'fr', 'id', 'ja', 'ka', 'ko', 'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'zh']);
 export const FUNNEL_URL = 'https://anacan.az/website/premium/index.html';
+export const CAMPAIGN_URL = 'https://anacan.az/website/premium/1111/index.html';
 
 // Anacan look for hosted, overlay and inline checkout (coral #FF5A5F on warm peach, Inter, soft corners).
 function themeConfig(payLabel: string | null) {
@@ -66,23 +69,40 @@ Deno.serve(async (req) => {
     return reply(400, { error: 'invalid_payload' });
   }
   const plan = body.plan === 'yearly' ? 'yearly' : body.plan === 'monthly' ? 'monthly' : null;
-  const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
+  let email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
   const language = typeof body.language === 'string' && (LANGUAGE_CODES as readonly string[]).includes(body.language) ? body.language : 'az';
   // Optional: a "someone else pays" sponsor link (anacan.az/p/<token>). When present the purchase grants
   // Premium to the link's requester (set in the webhook), not to the paying e-mail.
   const sponsorToken = typeof body.sponsor_token === 'string' && /^[A-Za-z0-9_-]{16,64}$/.test(body.sponsor_token) ? body.sponsor_token : null;
   if (!plan) return reply(400, { error: 'invalid_plan' });
+  const campaignRequested = typeof body.campaign === 'string' && /^[A-Za-z0-9_-]{2,32}$/.test(body.campaign);
+
+  const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
+
+  // Signed-in account, verified by the auth server (an anon key or a bad token simply means "no account").
+  let accountId: string | null = null;
+  const bearer = /^Bearer\s+([A-Za-z0-9._-]{20,4096})$/i.exec(req.headers.get('authorization') || '')?.[1] ?? null;
+  if (bearer && bearer.split('.').length === 3) {
+    try {
+      const { data: who } = await admin.auth.getUser(bearer);
+      const u = who?.user as { id?: string; email?: string | null; is_anonymous?: boolean } | undefined;
+      if (u?.id && !u.is_anonymous) {
+        accountId = u.id;
+        const own = (u.email || '').trim().toLowerCase();
+        if (own && own.length <= 254 && EMAIL.test(own)) email = own; // the receipt goes to the account's own email
+      }
+    } catch { accountId = null; }
+  }
+  if (campaignRequested && !sponsorToken && !accountId) return reply(401, { error: 'login_required' });
   if (email.length > 254 || !EMAIL.test(email)) return reply(400, { error: 'invalid_email' });
   const productId = config.products[plan as DodoPlan]!;
   const payLabel = typeof body.pay_label === 'string' ? body.pay_label.replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 40) || null : null;
   const checkoutLanguage = CHECKOUT_LANGUAGE[language] ?? (DODO_LANGUAGES.has(language) ? language : 'en');
 
-  const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
-
   // Campaign discount (e.g. 11.11): app_settings.dodo_campaign = {code, plan, starts_at, ends_at}. Applied only when the
   // page asks for it ({campaign: code}), for that plan and inside the window; the server decides, never the browser.
   let discountCode: string | null = null;
-  if (typeof body.campaign === 'string' && /^[A-Za-z0-9_-]{2,32}$/.test(body.campaign)) {
+  if (campaignRequested) {
     const { data: row } = await admin.from('app_settings').select('value').eq('key', 'dodo_campaign').maybeSingle();
     let c = (row as { value?: unknown } | null)?.value as Record<string, unknown> | string | null | undefined;
     if (typeof c === 'string') { try { c = JSON.parse(c); } catch { c = null; } }
@@ -99,13 +119,24 @@ Deno.serve(async (req) => {
     if (!link.valid) return reply(410, { error: 'link_expired' });
   }
 
-  // Light abuse limit: at most 5 checkouts per email in 10 minutes.
+  // One live web subscription per account: a second purchase would charge twice for the same Premium.
+  if (accountId && !sponsorToken) {
+    const { count: live } = await admin.from('web_subscriptions').select('id', { count: 'exact', head: true })
+      .eq('user_id', accountId).in('status', ['active', 'past_due']);
+    if ((live ?? 0) > 0) return reply(409, { error: 'already_subscribed' });
+  }
+
+  // Light abuse limit: at most 5 checkouts per email (and per account) in 10 minutes.
   const since = new Date(Date.now() - 10 * 60_000).toISOString();
   const { count } = await admin.from('web_checkouts').select('id', { count: 'exact', head: true }).eq('email', email).gte('created_at', since);
   if ((count ?? 0) >= 5) return reply(429, { error: 'too_many_requests' });
+  if (accountId) {
+    const { count: mine } = await admin.from('web_checkouts').select('id', { count: 'exact', head: true }).eq('user_id', accountId).gte('created_at', since);
+    if ((mine ?? 0) >= 5) return reply(429, { error: 'too_many_requests' });
+  }
 
   const { data: checkout, error } = await admin.from('web_checkouts')
-    .insert({ email, plan, product_id: productId, language, test_mode: config.testMode })
+    .insert({ email, plan, product_id: productId, language, test_mode: config.testMode, ...(accountId && !sponsorToken ? { user_id: accountId } : {}) })
     .select('id').single();
   if (error || !checkout) return reply(500, { error: 'checkout_not_saved' });
 
@@ -116,12 +147,13 @@ Deno.serve(async (req) => {
         product_cart: [{ product_id: productId, quantity: 1 }],
         ...(discountCode ? { discount_code: discountCode } : {}),
         customer: { email },
-        return_url: sponsorToken ? `https://anacan.az/${language}/p/?t=${sponsorToken}&done=1` : `${FUNNEL_URL}?lang=${language}&done=1`,
+        return_url: sponsorToken ? `https://anacan.az/${language}/p/?t=${sponsorToken}&done=1`
+          : campaignRequested ? `${CAMPAIGN_URL}?lang=${language}&done=1` : `${FUNNEL_URL}?lang=${language}&done=1`,
         customization: { theme: 'light', show_order_details: true, force_language: checkoutLanguage, theme_config: themeConfig(payLabel) },
         // Digital product: collect as little as possible. Dodo (Merchant of Record) may still require a
         // billing country for tax; we never ask for a full address, phone or tax id.
         feature_flags: { allow_discount_code: true, allow_phone_number_collection: false, require_phone_number: false, allow_tax_id: false },
-        metadata: { anacan_checkout: checkout.id, anacan_plan: plan, anacan_source: sponsorToken ? 'sponsor' : discountCode ? 'campaign-' + discountCode : 'anacan.az', ...(sponsorToken ? { anacan_sponsor_token: sponsorToken } : {}) },
+        metadata: { anacan_checkout: checkout.id, anacan_plan: plan, anacan_source: sponsorToken ? 'sponsor' : discountCode ? 'campaign-' + discountCode : 'anacan.az', ...(sponsorToken ? { anacan_sponsor_token: sponsorToken } : {}), ...(accountId && !sponsorToken ? { anacan_account: '1' } : {}) },
       },
     });
     if (!session?.checkout_url || !session.session_id) throw new Error('dodo_no_url');

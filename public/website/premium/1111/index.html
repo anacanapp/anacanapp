@@ -20,6 +20,8 @@
     (function () {
       var ok = ['az', 'en', 'tr', 'kk', 'uz'], q = new URLSearchParams(location.search), l = (q.get('lang') || '').toLowerCase();
       if (q.get('odenis')) l = 'az';
+      // The language survives the Google/Apple sign-in round trip (it returns without ?lang) in this tab.
+      try { if (ok.indexOf(l) >= 0) sessionStorage.setItem('anacan1111_lang', l); else if (!q.get('done')) l = sessionStorage.getItem('anacan1111_lang') || ''; } catch (e) {}
       if (ok.indexOf(l) < 0) {
         l = 'en';
         // Visitors in Azerbaijan stay on the Azerbaijani (Epoint) page whatever their browser language.
@@ -135,7 +137,7 @@
 <div class="toast" id="toast" role="status"></div>
 
 <script src="/website/premium/vendor/supabase-js-2.90.1.js"></script>
-<script src="/website/premium/account/account.js?v=2"></script>
-<script src="/website/premium/1111/1111.js?v=5"></script>
+<script src="/website/premium/account/account.js?v=3"></script>
+<script src="/website/premium/1111/1111.js?v=7"></script>
 </body>
 </html>

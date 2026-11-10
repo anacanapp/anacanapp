@@ -45,7 +45,7 @@
         ['Why is the price in US dollars?', 'Payment is taken in US dollars. If your card uses another currency, your bank converts the amount at its own rate.'],
         ['Does it renew automatically?', 'Yes. The yearly subscription renews every year at the same campaign price. Dodo Payments emails you a receipt for every charge.'],
         ['How can I cancel?', 'Anytime, with the subscription link in the email from Dodo Payments. No new charge is taken, and Premium stays on until the end of the paid period.'],
-        ['How do I get Premium in the app?', 'Sign in to the app with the same email you paid with (Google, Apple or email), and Premium opens automatically.'],
+        ['How do I get Premium in the app?', 'Premium is linked to the Anacan account you sign in with on this page. Sign in to the app with the same account (Google, Apple or email), and Premium opens automatically.'],
         ['Is the payment secure?', 'Payment is processed by Dodo Payments, our Merchant of Record. You enter your card details on Dodo’s secure checkout page; Anacan never sees your card number.'],
       ],
       stores_label: 'Download the Anacan app', ios: ['Download on the', 'App Store'], android: ['Get it on', 'Google Play'],
@@ -60,6 +60,13 @@
       starts_soon: '11.11 starts soon', ended_btn: 'Campaign ended',
       prestart_wait: 'The campaign starts on November 11 at 00:00 Baku time (UTC+4). The button opens then.',
       ended_text: 'The 11.11 campaign is over. You can still get Premium in the app.', open_app: 'Open the app',
+      login_title: 'Sign in to get the offer', login_sub: 'Use your Anacan account, the same one as in the app. Premium will be linked to it.',
+      signed_as: 'Premium will be linked to {e}',
+      has_title: 'Your Premium is already active', has_text: 'This account already has Premium, so you don’t need a new subscription.',
+      wait_title: 'Confirming your payment…', wait_text: 'This usually takes a few seconds.',
+      ok_title: 'Premium is active!', ok_text: 'Your yearly subscription has started. Sign in to the app with the same account and Premium opens automatically.',
+      late_title: 'Payment not confirmed yet', late_text: 'Confirmation is taking longer than usual. If you were charged, Premium opens on this account automatically within a few minutes. Dodo Payments also emails you a receipt.',
+      err_login: 'Your session has expired. Please sign in again.', err_has: 'This account already has an active web subscription.',
       err_email: 'Please enter a valid email.', err_rate: 'Too many attempts. Please try again in a minute.',
       err_generic: 'The payment page couldn’t open. Please try again in a moment.',
     },
@@ -94,7 +101,7 @@
         ['Fiyat neden dolarla gösteriliyor?', 'Ödeme ABD doları ile alınır. Kartın başka bir para birimindeyse bankan tutarı kendi kuruyla çevirir.'],
         ['Otomatik yenileniyor mu?', 'Evet. Yıllık abonelik her yıl aynı kampanya fiyatıyla otomatik yenilenir. Her ödemede Dodo Payments sana e-postayla makbuz gönderir.'],
         ['Nasıl iptal edebilirim?', 'İstediğin zaman, Dodo Payments’tan gelen e-postadaki abonelik bağlantısıyla. Yeni ödeme alınmaz, Premium ödenen sürenin sonuna kadar açık kalır.'],
-        ['Premium uygulamada nasıl açılır?', 'Uygulamaya ödeme yaptığın e-postayla (Google, Apple veya e-posta) giriş yap, Premium otomatik açılır.'],
+        ['Premium uygulamada nasıl açılır?', 'Premium, bu sayfada giriş yaptığın Anacan hesabına bağlanır. Uygulamaya aynı hesapla (Google, Apple veya e-posta) giriş yap, Premium otomatik açılır.'],
         ['Ödeme güvenli mi?', 'Ödemeyi satıcı kaydı (Merchant of Record) olan Dodo Payments alır. Kart bilgilerini Dodo’nun güvenli ödeme sayfasında girersin; Anacan kart numaranı görmez.'],
       ],
       stores_label: 'Anacan uygulamasını indir', ios: ['App Store’dan', 'İndir'], android: ['Google Play’den', 'İndir'],
@@ -109,6 +116,13 @@
       starts_soon: '11.11 çok yakında başlıyor', ended_btn: 'Kampanya sona erdi',
       prestart_wait: 'Kampanya 11 Kasım saat 00:00’da (Bakü saati, UTC+4) başlıyor. Düğme o zaman açılacak.',
       ended_text: '11.11 kampanyası sona erdi. Premium’u uygulamadan alabilirsin.', open_app: 'Uygulamayı aç',
+      login_title: 'İndirimi almak için giriş yap', login_sub: 'Anacan hesabınla giriş yap: uygulamadaki aynı hesap. Premium bu hesaba bağlanacak.',
+      signed_as: 'Premium {e} hesabına bağlanacak',
+      has_title: 'Premium’un zaten aktif', has_text: 'Bu hesapta Premium zaten açık, yeni bir aboneliğe gerek yok.',
+      wait_title: 'Ödeme kontrol ediliyor…', wait_text: 'Bu genelde birkaç saniye sürer.',
+      ok_title: 'Premium aktif!', ok_text: 'Yıllık aboneliğin başladı. Uygulamaya aynı hesapla giriş yap, Premium otomatik açılır.',
+      late_title: 'Ödeme henüz onaylanmadı', late_text: 'Onay normalden uzun sürüyor. Ödeme alındıysa Premium birkaç dakika içinde bu hesapta otomatik açılır. Dodo Payments e-postana makbuz da gönderir.',
+      err_login: 'Oturumun sona erdi. Lütfen tekrar giriş yap.', err_has: 'Bu hesapta zaten aktif bir web aboneliği var.',
       err_email: 'Geçerli bir e-posta gir.', err_rate: 'Çok fazla deneme yapıldı. Bir dakika sonra tekrar dene.',
       err_generic: 'Ödeme sayfası açılamadı. Biraz sonra tekrar dene.',
     },
@@ -143,7 +157,7 @@
         ['Баға неге долларда көрсетілген?', 'Төлем АҚШ долларымен алынады. Картаң басқа валютада болса, банкің соманы өз бағамымен айырбастайды.'],
         ['Жазылым автоматты түрде жаңара ма?', 'Иә. Жылдық жазылым жыл сайын сол акциялық бағамен автоматты түрде жаңарады. Әр төлем туралы Dodo Payments e-mail арқылы түбіртек жібереді.'],
         ['Жазылымды қалай тоқтатамын?', 'Кез келген уақытта, Dodo Payments хатындағы жазылым сілтемесі арқылы. Жаңа төлем алынбайды, Premium төленген мерзімнің соңына дейін ашық қалады.'],
-        ['Premium қолданбада қалай ашылады?', 'Қолданбаға төлем жасаған e-mail-мен (Google, Apple немесе e-mail) кір, Premium автоматты түрде ашылады.'],
+        ['Premium қолданбада қалай ашылады?', 'Premium осы бетте кірген Anacan аккаунтыңа байланады. Қолданбаға сол аккаунтпен (Google, Apple немесе e-mail) кір, Premium автоматты түрде ашылады.'],
         ['Төлем қауіпсіз бе?', 'Төлемді Merchant of Record ретінде Dodo Payments қабылдайды. Карта деректерін Dodo-ның қауіпсіз төлем бетінде енгізесің; Anacan карта нөміріңді көрмейді.'],
       ],
       stores_label: 'Anacan қолданбасын жүктеу', ios: ['App Store-дан', 'Жүктеу'], android: ['Google Play-ден', 'Жүктеу'],
@@ -158,6 +172,13 @@
       starts_soon: '11.11 жақында басталады', ended_btn: 'Акция аяқталды',
       prestart_wait: 'Акция 11 қарашада сағат 00:00-де (Баку уақыты, UTC+4) басталады. Түйме сонда ашылады.',
       ended_text: '11.11 акциясы аяқталды. Premium-ды қолданбадан алуға болады.', open_app: 'Қолданбаны ашу',
+      login_title: 'Жеңілдікті алу үшін кір', login_sub: 'Anacan аккаунтыңмен кір: қолданбадағы сол аккаунт. Premium осы аккаунтқа байланады.',
+      signed_as: 'Premium {e} аккаунтына байланады',
+      has_title: 'Premium әлдеқашан қосулы', has_text: 'Бұл аккаунтта Premium қосулы, жаңа жазылым қажет емес.',
+      wait_title: 'Төлем тексерілуде…', wait_text: 'Бұл әдетте бірнеше секунд алады.',
+      ok_title: 'Premium қосылды!', ok_text: 'Жылдық жазылым басталды. Қолданбаға сол аккаунтпен кір, Premium автоматты түрде ашылады.',
+      late_title: 'Төлем әлі расталмады', late_text: 'Растау әдеттегіден ұзаққа созылып жатыр. Төлем алынса, Premium бірнеше минут ішінде осы аккаунтта автоматты түрде ашылады. Dodo Payments поштаңа түбіртек те жібереді.',
+      err_login: 'Сессия аяқталды. Қайта кір.', err_has: 'Бұл аккаунтта белсенді веб-жазылым бар.',
       err_email: 'Дұрыс e-mail енгіз.', err_rate: 'Тым көп әрекет жасалды. Бір минуттан соң қайталап көр.',
       err_generic: 'Төлем беті ашылмады. Біраздан соң қайталап көр.',
     },
@@ -192,7 +213,7 @@
         ['Nega narx dollarda ko‘rsatilgan?', 'To‘lov AQSh dollarida olinadi. Kartangiz boshqa valyutada bo‘lsa, bankingiz summani o‘z kursi bo‘yicha konvertatsiya qiladi.'],
         ['Obuna avtomatik yangilanadimi?', 'Ha. Yillik obuna har yili aynan shu aksiya narxida avtomatik yangilanadi. Har bir to‘lov uchun Dodo Payments e-pochtangizga chek yuboradi.'],
         ['Qanday bekor qilaman?', 'Istalgan vaqtda, Dodo Payments xatidagi obuna havolasi orqali. Yangi to‘lov olinmaydi, Premium to‘langan muddat oxirigacha ochiq qoladi.'],
-        ['Premium ilovada qanday ochiladi?', 'Ilovaga to‘lov qilgan e-pochtangiz bilan (Google, Apple yoki e-pochta) kiring, Premium avtomatik ochiladi.'],
+        ['Premium ilovada qanday ochiladi?', 'Premium shu sahifada kirgan Anacan hisobingizga bog‘lanadi. Ilovaga o‘sha hisob bilan (Google, Apple yoki e-pochta) kiring, Premium avtomatik ochiladi.'],
         ['To‘lov xavfsizmi?', 'To‘lovni Merchant of Record sifatida Dodo Payments qabul qiladi. Karta ma’lumotlarini Dodo’ning xavfsiz to‘lov sahifasida kiritasiz; Anacan karta raqamingizni ko‘rmaydi.'],
       ],
       stores_label: 'Anacan ilovasini yuklab oling', ios: ['App Store’dan', 'Yuklab olish'], android: ['Google Play’dan', 'Yuklab olish'],
@@ -207,6 +228,13 @@
       starts_soon: '11.11 tez orada boshlanadi', ended_btn: 'Aksiya tugadi',
       prestart_wait: 'Aksiya 11-noyabr soat 00:00 da (Boku vaqti, UTC+4) boshlanadi. Tugma o‘shanda ochiladi.',
       ended_text: '11.11 aksiyasi tugadi. Premium’ni ilovadan olishingiz mumkin.', open_app: 'Ilovani ochish',
+      login_title: 'Chegirmani olish uchun kiring', login_sub: 'Anacan hisobingiz bilan kiring: ilovadagi o‘sha hisob. Premium shu hisobga bog‘lanadi.',
+      signed_as: 'Premium {e} hisobiga bog‘lanadi',
+      has_title: 'Premium allaqachon faol', has_text: 'Bu hisobda Premium allaqachon ochiq, yangi obuna kerak emas.',
+      wait_title: 'To‘lov tekshirilmoqda…', wait_text: 'Bu odatda bir necha soniya davom etadi.',
+      ok_title: 'Premium faol!', ok_text: 'Yillik obunangiz boshlandi. Ilovaga o‘sha hisob bilan kiring, Premium avtomatik ochiladi.',
+      late_title: 'To‘lov hali tasdiqlanmadi', late_text: 'Tasdiqlash odatdagidan uzoqroq davom etmoqda. To‘lov olingan bo‘lsa, Premium bir necha daqiqada shu hisobda avtomatik ochiladi. Dodo Payments pochtangizga kvitansiya ham yuboradi.',
+      err_login: 'Sessiya tugadi. Qayta kiring.', err_has: 'Bu hisobda faol veb-obuna allaqachon bor.',
       err_email: 'To‘g‘ri e-pochta manzilini kiriting.', err_rate: 'Juda ko‘p urinish bo‘ldi. Bir daqiqadan so‘ng qayta urinib ko‘ring.',
       err_generic: 'To‘lov sahifasi ochilmadi. Birozdan so‘ng qayta urinib ko‘ring.',
     },
@@ -707,13 +735,78 @@
     })();
   }
 
-  // ── Foreign checkout (en/tr/kk/uz): Dodo Payments, price set by discount code 1111 at checkout. ────────────────
+  // ── Foreign checkout (en/tr/kk/uz): sign in first (same Anacan account as the app), then Dodo Payments. ──────
+  // The server links the purchase to the signed-in account (no email matching); the $11.11 price is applied
+  // automatically by the campaign discount (code 1111 is shown as a fallback).
   var DODO = 'https://api.anacan.az/functions/v1/dodo-checkout';
   var fPhase = null;
+  var fEmailShown = '';
+  var paidReturn = params.get('done') === '1'; // back from Dodo (never proof of payment)
+  if (paidReturn) { params.delete('done'); history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : '') + location.hash); }
   function phase() { return notStarted() ? 'pre' : isFinite(CAMPAIGN_ENDS_AT) && Date.now() >= CAMPAIGN_ENDS_AT ? 'over' : 'on'; }
+  function appActions(src) {
+    return '<a class="cta" href="/website/premium/app/index.html?src=' + src + '">' + escH(t.open_app) + ' <span class="arr">→</span></a>';
+  }
+  async function foreignBoot() {
+    var mine = ++generation;
+    if (phase() === 'over' && !paidReturn) { renderForeign(); return; }
+    var s = null;
+    try { s = await A.session(); } catch (e) {
+      if (mine !== generation) return;
+      if (e && e.code === 'timeout') { foreignFailed(); return; }
+      s = null;
+    }
+    if (mine !== generation) return;
+    signedIn = !!s;
+    A.renderWho($('who'), s);
+    if (!s) {
+      selling(phase() !== 'over');
+      card.innerHTML = '';
+      A.renderLogin(card, { title: t.login_title, subtitle: t.login_sub });
+      setPanel('gate');
+      return;
+    }
+    fEmailShown = (s.user && s.user.email) || '';
+    var verify = await A.needsVerification();
+    if (mine !== generation) return;
+    if (verify) { A.renderVerify(card, s.user && s.user.email, foreignBoot); setPanel('gate'); return; }
+    if (paidReturn) { paidReturn = false; await foreignWait(); return; }
+    try {
+      var st = await A.call('status');
+      if (mine !== generation) return;
+      if (st && st.ok && st.premium && st.premium.active) { renderState(ICON_OK, t.has_title, escH(t.has_text), appActions('web_active')); return; }
+    } catch (e) {
+      if (mine !== generation) return;
+      if (e && e.code === 'unauthorized') { await A.signOut(); return; }
+      // Status unavailable: still let the account buy; the server refuses a second web subscription.
+    }
+    renderForeign();
+  }
+  function foreignFailed() {
+    renderState(ICON_INFO, t.err_generic, '', '<button class="btn" type="button" id="retry">↻</button>', true, true);
+    $('retry').addEventListener('click', function () { card.innerHTML = '<div class="skeleton" aria-hidden="true"></div>'; foreignBoot(); });
+  }
+  /** Back from Dodo: wait for the signed webhook to open Premium on this account (up to ~1 minute). */
+  async function foreignWait() {
+    var mine = ++generation;
+    renderState(ICON_WAIT, t.wait_title, escH(t.wait_text), '', true);
+    for (var i = 0; i < 20; i++) {
+      try {
+        var d = await A.call('status');
+        if (mine !== generation) return;
+        if (d && d.ok && d.premium && d.premium.active) {
+          renderState(ICON_OK, t.ok_title, escH(t.ok_text), appActions('web_success'));
+          confetti();
+          return;
+        }
+      } catch (e) { if (e && e.code === 'unauthorized') { await A.signOut(); return; } }
+      await new Promise(function (r) { setTimeout(r, 3000); });
+    }
+    if (mine !== generation) return;
+    renderState(ICON_INFO, t.late_title, escH(t.late_text), appActions('web_pending'), true);
+  }
   function renderForeign() {
     var ph = fPhase = phase();
-    var prevEmail = $('fEmail') ? $('fEmail').value : '';
     var prevConsent = $('fConsent') ? $('fConsent').checked : false;
     var y = shownPlan();
     if (ph === 'over') endedHero();
@@ -731,21 +824,17 @@
       '<div class="code-box"><span class="code-title">' + escH(t.code_title) + '</span>' +
       '<div class="code-line"><b class="code" id="fCode">1111</b><button class="code-copy" type="button" id="fCopy">' + escH(t.copy) + '</button></div>' +
       '<p class="code-hint">' + escH(t.code_hint) + '</p></div>' +
-      '<label class="f-label" for="fEmail">' + escH(t.email_label) + '</label>' +
-      '<input class="f-input" id="fEmail" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="' + escH(t.email_ph) + '">' +
-      '<p class="f-hint">' + escH(t.email_hint) + '</p>' +
+      (fEmailShown ? '<p class="f-hint">' + escH(fmt(t.signed_as, { e: fEmailShown })) + '</p>' : '') +
       '<label class="consent"><input type="checkbox" id="fConsent"><span>' + t.consent + '</span></label>' +
       '<button class="pbtn btn-full" type="button" id="fPay" disabled>' + escH(ph === 'pre' ? t.starts_soon : fmt(t.subscribe, { p: usd(y.price) })) + '</button>' +
       '<p class="msg err f-err" id="fErr" role="alert" hidden></p>' +
       (ph === 'pre' ? '<p class="sub-wait">' + escH(t.prestart_wait) + '</p>' : '') +
       '<p class="fine">' + escH(t.dodo_note) + '</p>';
     setPanel('gate');
-    var email = $('fEmail'), consent = $('fConsent'), pay = $('fPay');
-    email.value = prevEmail; consent.checked = prevConsent;
+    var consent = $('fConsent'), pay = $('fPay');
+    consent.checked = prevConsent;
     var sync = function () { pay.disabled = ph !== 'on' || !consent.checked; };
     consent.addEventListener('change', sync); sync();
-    email.addEventListener('input', function () { $('fErr').hidden = true; });
-    email.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !pay.disabled) startDodo(); });
     pay.addEventListener('click', startDodo);
     $('fCopy').addEventListener('click', copyCode);
   }
@@ -758,25 +847,31 @@
     } catch (e) { select(); }
   }
   function fError(text) { var e = $('fErr'); if (e) { e.textContent = text; e.hidden = false; } }
-  function startDodo() {
-    var input = $('fEmail'), pay = $('fPay');
+  async function startDodo() {
+    var pay = $('fPay');
     if (phase() !== 'on') { renderForeign(); return; }
-    var email = (input.value || '').trim().toLowerCase();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { fError(t.err_email); input.focus(); return; }
     $('fErr').hidden = true;
     var label = pay.textContent;
     pay.disabled = true; pay.innerHTML = '<span class="spinner"></span>';
+    var restore = function () { if ($('fPay') === pay) { pay.textContent = label; pay.disabled = !$('fConsent').checked; } };
+    var s = null;
+    try { s = await A.session(); } catch (e) { s = null; }
+    if (!s || !s.access_token) { restore(); A.toast(t.err_login, true); foreignBoot(); return; }
     try { window.anacanAnalytics && window.anacanAnalytics.track('checkout_start', { plan: PLAN, provider: 'dodo', placement: 'kampaniya_1111', lang: LANG }); } catch (e) { /* ignore */ }
-    fetch(DODO, { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ plan: PLAN, email: email, language: LANG, pay_label: 'Anacan Premium 11.11', campaign: '1111' }) })
-      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }, function () { return { ok: false, d: {} }; }); })
+    fetch(DODO, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + s.access_token },
+      body: JSON.stringify({ plan: PLAN, email: (s.user && s.user.email) || '', language: LANG, pay_label: 'Anacan Premium 11.11', campaign: '1111' }) })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, status: r.status, d: d }; }, function () { return { ok: false, status: r.status, d: {} }; }); })
       .then(function (res) {
         var url = res.d && res.d.checkout_url;
-        if (!res.ok || typeof url !== 'string' || !/^https:\/\//.test(url)) throw (res.d && res.d.error) || 'checkout';
-        location.href = url; // Dodo hosted checkout; it returns to the Premium funnel (?done=1)
+        // The functions router replaces error bodies with a code per HTTP status, so read the status.
+        if (!res.ok) throw res.status === 401 ? 'login_required' : res.status === 409 ? 'already_subscribed' : res.status === 429 ? 'too_many_requests' : 'checkout';
+        if (typeof url !== 'string' || !/^https:\/\//.test(url)) throw 'checkout';
+        location.href = url; // Dodo hosted checkout; it returns here with ?done=1
       })
       .catch(function (code) {
-        pay.textContent = label; pay.disabled = !$('fConsent').checked;
+        restore();
+        if (code === 'login_required') { A.toast(t.err_login, true); A.signOut(); return; }
+        if (code === 'already_subscribed') { renderState(ICON_OK, t.has_title, escH(t.err_has), appActions('web_active')); return; }
         fError(code === 'invalid_email' ? t.err_email : code === 'too_many_requests' ? t.err_rate : t.err_generic);
       });
   }
@@ -784,7 +879,10 @@
   // ── Start ─────────────────────────────────────────────────────────────────────────────
   updatePrices();
   if (FOREIGN) {
-    renderForeign();
+    // Signed-in flow like the Azerbaijani page: the purchase is linked to this account on the server.
+    A.setLang(LANG);
+    if (phase() === 'over' && !paidReturn) renderForeign();
+    else { A.onChange(function () { foreignBoot(); }); foreignBoot(); }
   } else if (ended && payment !== 'ugurlu') {
     // Ended: no login, no plans; the account chip and the cabinet link still work for subscribers.
     showEnded();
