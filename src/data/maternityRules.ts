@@ -57,8 +57,9 @@ export const maternityRules: MaternityRule[] = [
     normalDaysBefore: 70,
     normalDaysAfter: 56,
     complicatedDaysAfter: 70,
-    multipleDaysBefore: 84,
-    multipleDaysAfter: 110,
+    // Əmək Məcəlləsi 125.1: ağır doğuş və ya iki və daha çox uşaq doğulduqda doğuşdan sonra 70 gün (cəmi 140).
+    multipleDaysBefore: 70,
+    multipleDaysAfter: 70,
     payPercentage: 100,
     payDescription_az: '100% əmək haqqı ödənilir',
 
@@ -70,8 +71,8 @@ export const maternityRules: MaternityRule[] = [
     },
     parental: {
       months: 36,
-      payDescription_az: 'Qismən ödənişli (1.5 yaşa qədər sabit məbləğ)',
-      payDescription_en: 'Partially paid (fixed amount until 1.5 years)'
+      payDescription_az: 'Qismən ödənişli sosial məzuniyyət: 1,5 yaşa qədər ayda 44 AZN, 1,5–3 yaş arası ayda 28 AZN',
+      payDescription_en: 'Partially paid social leave: AZN 44 a month until 1.5 years, AZN 28 a month from 1.5 to 3 years'
     },
     compensation: {
       "type": "PERCENTAGE_UNCAPPED",

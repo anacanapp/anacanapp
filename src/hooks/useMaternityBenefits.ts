@@ -74,9 +74,9 @@ export const useMaternityBenefits = () => {
         normalDaysBefore: configMap['normal_leave_days_before'] || 70,
         normalDaysAfter: configMap['normal_leave_days_after'] || 56,
         complicatedDaysAfter: configMap['complicated_leave_days_after'] || 70,
-        multipleDaysBefore: configMap['multiple_leave_days_before'] || 84,
-        multipleDaysAfter: configMap['multiple_leave_days_after'] || 110,
-        minSalary: configMap['min_salary'] || 345,
+        multipleDaysBefore: configMap['multiple_leave_days_before'] || 70,
+        multipleDaysAfter: configMap['multiple_leave_days_after'] || 70,
+        minSalary: configMap['min_salary'] || 400,
       });
 
       const translatedGuidelines = mapRowsTranslation(guidelinesRes.data, language, ['title', 'content']) as MaternityGuideline[];
