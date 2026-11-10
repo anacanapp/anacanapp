@@ -1,7 +1,7 @@
 import { WEBSITE_LANGUAGES, type WebsiteLanguageCode } from '../lib/app-languages';
 import type { WebsiteBoot, WebsiteCopyKey } from './model';
 import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, routePath, sitePath, WEBSITE_ORIGIN,DETAIL_PAGES,type DetailPage,isShopPage,isAzOnlyPage } from './routes';
-import { findNews, NEWS } from './news';
+import { findNews, NEWS, newsCover } from './news';
 
 /** Azerbaijani-only shop pages (Kitablar, Tortlar): their own copy, no other-language alternates. */
 const SHOP_META={
@@ -31,12 +31,12 @@ export function websiteMeta(boot:WebsiteBoot) {
   const description=shop?shop[1]:kind==='article'?boot.article?.seoDescription||copy.notFoundDescription:detail?copy[`${kind}Description` as WebsiteCopyKey]:copy[labels[1]];
   const suffix=boot.route.kind==='journal'&&(boot.route.page||1)>1?` — ${boot.copy.page.replace('{count}',String(boot.route.page))}`:'';
   const canonical=WEBSITE_ORIGIN+routePath(boot.route);
-  const image=new URL(boot.article?.cover||'/website/og-cover.jpg',WEBSITE_ORIGIN).href;
+  const image=new URL(boot.article?.cover||(news?newsCover(news).src:'/website/og-cover.jpg'),WEBSITE_ORIGIN).href;
   const available=boot.route.kind==='article'?WEBSITE_LANGUAGES.filter(item=>boot.article?.slugs[item.code]):isAzOnlyPage(kind)?WEBSITE_LANGUAGES.filter(item=>item.code==='az'):WEBSITE_LANGUAGES;
   const alternates=available.map(({code,locale})=>({code,locale,url:WEBSITE_ORIGIN+alternateRoute(boot.route,code,boot.article)}));
   alternates.push({code:'x-default' as WebsiteLanguageCode,locale:'az-AZ',url:WEBSITE_ORIGIN+(alternateRoute(boot.route,'az',boot.article)||sitePath('az'))});
   return {title:(title+suffix).includes('Anacan')?title+suffix:title+suffix+' | Anacan',description,canonical,image,
-    imageAlt:boot.article?.coverAlt||'Anacan',locale:WEBSITE_LANGUAGES.find(item=>item.code===boot.route.language)!.locale.replace('-','_'),alternates};
+    imageAlt:boot.article?.coverAlt||news?.title||'Anacan',locale:WEBSITE_LANGUAGES.find(item=>item.code===boot.route.language)!.locale.replace('-','_'),alternates};
 }
 function faqs(boot:WebsiteBoot) {
   const {kind}=boot.route;

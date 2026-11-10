@@ -5,7 +5,7 @@ import type { WebsiteLanguageCode } from '../lib/app-languages';
 import { useWebsite } from './context';
 import { Arrow, DownloadCard, Eyebrow } from './components';
 import { siteDate } from './dates';
-import { NEWS, PARTNER_IDS, PARTNERS, findNews, type NewsBlock, type NewsItem, type PartnerId } from './news';
+import { NEWS, PARTNER_IDS, PARTNERS, findNews, type NewsBlock, type NewsItem, type PartnerId, newsCover } from './news';
 import './news.css';
 
 const newsDate = (value: string) => siteDate(value, 'az').toLocaleLowerCase('az');
@@ -38,10 +38,11 @@ function NewsMeta({ item }: { item: NewsItem }) {
 function NewsCard({ item }: { item: NewsItem }) {
   const { href } = useWebsite();
   return <article className="nw-card"><a href={href('newsArticle', item.slug)}>
-    <NewsMeta item={item} />
+    <img className="nw-cover" src={newsCover(item).src} alt="" width="1200" height="630" loading="lazy" decoding="async" />
+    <div className="nw-card-body"><NewsMeta item={item} />
     <h3>{item.title}</h3>
     <p>{item.lead}</p>
-    <span className="site-text-link">Oxu<Arrow diagonal /></span>
+    <span className="site-text-link">Oxu<Arrow diagonal /></span></div>
   </a></article>;
 }
 
@@ -60,7 +61,7 @@ export function NewsListPage() {
   return <>
     <nav className="site-breadcrumb" aria-label={t('home')}><a href={href()}>{t('home')}</a><span aria-hidden="true">/</span><span>Xəbərlər</span></nav>
     <div className="site-page-intro nw-intro"><Eyebrow>Yeniliklər</Eyebrow><h1>Xəbərlər</h1><p>Anacan-dan son yeniliklər: dəstək proqramları, tərəfdaşlıqlar, yeni dillər və yeni funksiyalar.</p></div>
-    <div className="nw-grid nw-grid-2">{NEWS.map((item) => <NewsCard item={item} key={item.slug} />)}</div>
+    <div className="nw-grid nw-grid-3">{NEWS.map((item) => <NewsCard item={item} key={item.slug} />)}</div>
     <DownloadCard />
   </>;
 }
@@ -81,7 +82,7 @@ export function NewsArticlePage() {
     <nav className="site-breadcrumb" aria-label={t('home')}><a href={href()}>{t('home')}</a><span aria-hidden="true">/</span><a href={href('news')}>Xəbərlər</a><span aria-hidden="true">/</span><span>{item.title}</span></nav>
     <article className="nw-article" data-news={item.slug}>
       <header className="nw-article-header">
-        {item.partner && <div className="nw-article-partner"><PartnerLogo id={item.partner} /></div>}
+        <img className="nw-cover nw-article-cover" src={newsCover(item).src} alt={item.title} width="1200" height="630" decoding="async" fetchPriority="high" />
         <div className="nw-article-meta"><span className="nw-chip">{item.tag}</span><time dateTime={item.date}>{newsDate(item.date)}</time><span>{item.readMinutes} dəq oxu</span></div>
         <h1>{item.title}</h1>
         <p className="nw-article-lead">{item.lead}</p>
