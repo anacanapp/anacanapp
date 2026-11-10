@@ -60,7 +60,6 @@ import TeethingWidget from '@/components/mommy/TeethingWidget';
 import BannerSlot from '@/components/banners/BannerSlot';
 import { AdInlineAnchor } from '@/components/ads/AdExperienceProvider';
 import { AptekHomeCard } from '@/components/aptek/AptekEntry';
-import QaygiCashHomeCard from '@/components/qaygicash/QaygiCashHomeCard';
 import { RecapHomeCard } from '@/components/recap/RecapEntry';
 import { solidFoodGuideRelevant } from '@/lib/solid-food-guide-entry';
 import { feature37Text } from '@/lib/feature37-i18n';
@@ -1963,8 +1962,7 @@ const Dashboard = ({ onOpenChat, onNavigateToTool, onNavigate, onOpenAssistant }
               <AdFreePremiumOffer position="top" />
               {/* Anacan Recap 2026: only while anacan_recap_v1 says available (admins now, everyone from 10 Dec) */}
               <RecapHomeCard onOpen={onNavigate ? () => onNavigate('recap') : undefined} />
-              {/* QayğıCash: balance card once there is bonus activity, else a one-time intro (only where the programme is on) */}
-              <QaygiCashHomeCard onOpen={onNavigate ? () => onNavigate('qaygicash') : undefined} />
+              {/* QayğıCash lives on the Profile screen only (owner 2026-11-10: not on the dashboard). */}
 
               {lifeStage === 'mommy' && <MommyDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}
               {lifeStage === 'bump' && <BumpDashboard onNavigateToTool={onNavigateToTool} onNavigate={onNavigate} />}
