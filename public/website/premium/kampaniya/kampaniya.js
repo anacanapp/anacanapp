@@ -15,7 +15,7 @@ var anacanForwarded = (function () {
   try {
     var bakuDay = new Date(Date.now() + 4 * 3600e3).toISOString().slice(0, 10); // Baku is UTC+4, no DST
     var returning = /[?&]odenis=/.test(location.search);
-    if (bakuDay === '2026-11-11' || (returning && bakuDay === '2026-11-12')) return anacanGo1111();
+    if (bakuDay === '2026-11-10' || bakuDay === '2026-11-11' || (returning && bakuDay === '2026-11-12')) return anacanGo1111();
   } catch (e) { /* stay on this page */ }
   return false;
 })();
