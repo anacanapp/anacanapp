@@ -322,6 +322,8 @@ function BookDetail({ book, owned, inCart, price, onToggle, onClose, onMine }: {
 }
 
 function CartSheet({ cart, ready, adminTest, busy, qc, qcEarn, onRemove, onClose, onCheckout }: { cart: string[]; ready: boolean; adminTest: boolean; busy: boolean; qc: QcRedeemState | null; qcEarn: number; onRemove: (id: string) => void; onClose: () => void; onCheckout: () => void }) {
+  // Digital content (Terms 6.6, Epoint compliance): consent before paying; startBookCheckout sends its version.
+  const [consent, setConsent] = useState(false);
   const { t } = useBooksText();
   const count = cart.length, total = bookOrderTotal(count), saved = Math.round((count * BOOK_BASE_PRICE - total) * 100) / 100;
   const next = nextBookTier(count);
@@ -350,7 +352,9 @@ function CartSheet({ cart, ready, adminTest, busy, qc, qcEarn, onRemove, onClose
         <div><span>{t('cart_total')}</span><b>{formatAzn(toAzn(toMinor(total) - (qc?.amount ?? 0)))}</b></div>
       </div>
       {count > 0 && <QcEarnBox amount={qcEarn} digital style={{ marginTop: 10 }} />}
-      <button className="bk-primary" disabled={!count || busy} onClick={onCheckout}>{busy ? <Loader2 className="animate-spin" size={16} /> : <ShoppingBag size={16} />}{t('checkout')}</button>
+      {count > 0 && !adminTest && <label className="bk-consent"><input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} />
+        <span>{tr('books_consent_digital', 'PDF kitabların ödənişdən dərhal sonra çatdırılmasına razıyam və bununla 14 günlük imtina hüququmu itirdiyimi təsdiqləyirəm. İstifadə şərtləri ilə razıyam.')}</span></label>}
+      <button className="bk-primary" disabled={!count || busy || (!adminTest && !consent)} onClick={onCheckout}>{busy ? <Loader2 className="animate-spin" size={16} /> : <ShoppingBag size={16} />}{t('checkout')}</button>
       <p className="bk-paynote">{adminTest ? 'Admin test rejimi: ödəniş qoşulmayıb, kitablar pulsuz sizin hesaba əlavə olunacaq.' : t('pay_note')}</p>
     </Sheet>
   );

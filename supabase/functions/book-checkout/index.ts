@@ -61,7 +61,9 @@ Deno.serve(async (req) => {
   if (wanted !== 0 && cashbackMinor === 0) return json(400, { error: 'invalid_cashback' });
   const amount = (totalMinor - cashbackMinor) / 100;
   const { data: order, error } = await admin.from('book_orders')
-    .insert({ user_id: userId, email, book_ids: ids, unit_price: unit, amount, cashback_used: cashbackMinor / 100, language })
+    .insert({ user_id: userId, email, book_ids: ids, unit_price: unit, amount, cashback_used: cashbackMinor / 100, language,
+      // Builds with the consent checkbox send it; older builds do not (recorded when present).
+      ...(body.consent === 'digital-delivery-v1' ? { consent_at: new Date().toISOString(), consent_version: 'digital-delivery-v1' } : {}) })
     .select('id').single();
   if (error || !order) return json(500, { error: 'order_not_saved' });
   if (cashbackMinor > 0) {

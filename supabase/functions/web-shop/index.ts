@@ -43,6 +43,9 @@ function headersFor(origin: string | null) {
 const text = (value: unknown, max: number) => typeof value === 'string' ? value.trim().slice(0, max) : '';
 const bakuDate = (offsetDays: number) => new Date(Date.now() + 4 * 3600_000 + offsetDays * 86400_000).toISOString().slice(0, 10);
 
+/** Text version of the digital-delivery consent shown at checkout (src/website/Shop.tsx, src/lib/books). */
+export const DIGITAL_CONSENT_VERSION = 'digital-delivery-v1';
+
 Deno.serve(async (req) => {
   const origin = req.headers.get('origin');
   const headers = headersFor(origin);
@@ -98,6 +101,9 @@ Deno.serve(async (req) => {
   const since = new Date(Date.now() - 60 * 60_000).toISOString();
 
   if (kind === 'books') {
+    // Digital content: the buyer must consent to immediate delivery (and the resulting loss of the withdrawal
+    // right) and to the terms before paying (Terms 6.6; Epoint compliance). The version is stored with the order.
+    if (body.consent !== DIGITAL_CONSENT_VERSION) return reply(400, { error: 'consent_required' });
     const ids = Array.isArray(body.book_ids) ? [...new Set(body.book_ids.filter((id): id is string => typeof id === 'string' && /^[0-9]m?_[0-9]{2}$/.test(id)))] : [];
     if (ids.length < 1 || ids.length > MAX_BOOKS_PER_ORDER || ids.length !== (body.book_ids as unknown[]).length) return reply(400, { error: 'invalid_books' });
     const { data: books } = await admin.from('book_catalog').select('id').in('id', ids).eq('active', true);
@@ -107,6 +113,7 @@ Deno.serve(async (req) => {
     const unit = bookUnitPrice(ids.length), amount = bookOrderTotal(ids.length);
     const { data: order, error } = await admin.from('book_orders').insert({
       user_id: userId, email, book_ids: ids, unit_price: unit, amount, language: 'az', channel: 'web', customer_name: name, customer_phone: phone || null,
+      consent_at: new Date().toISOString(), consent_version: DIGITAL_CONSENT_VERSION,
     }).select('id').single();
     if (error || !order) return reply(500, { error: 'order_not_saved' });
     return await startPayment('book_orders', order.id, amount, `Anacan — ${ids.length} PDF kitab`, 'kitablar', { unit_price: unit });

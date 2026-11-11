@@ -219,6 +219,9 @@ function Checkout({ kind, ready, total, rows, payload, onClose }: { kind: ShopKi
   const [form, setForm] = useState({ name: '', email: '', phone: '', address: '', notes: '', mode: 'delivery', slot: '10:00–13:00', date: days[0] });
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
+  // Digital content (Terms 6.6): consent to immediate delivery, loss of the withdrawal right and the terms. Sent as a
+  // version string and stored with the order (web-shop DIGITAL_CONSENT_VERSION); the server refuses books without it.
+  const [consent, setConsent] = useState(false);
   const set = (key: keyof typeof form) => (value: string) => setForm({ ...form, [key]: value });
   useEffect(() => { if (!rows.length) onClose(); }, [rows.length, onClose]);
   const pay = async () => {
@@ -227,8 +230,10 @@ function Checkout({ kind, ready, total, rows, payload, onClose }: { kind: ShopKi
     const problem = form.name.trim().length < 2 ? 'Adınızı yazın.' : !EMAIL.test(form.email.trim()) ? 'E-poçt ünvanını düzgün yazın.'
       : kind === 'cakes' && !PHONE.test(form.phone.trim()) ? 'Telefon nömrəsini yazın.' : kind === 'cakes' && form.mode === 'delivery' && form.address.trim().length < 5 ? 'Çatdırılma ünvanını yazın.' : '';
     if (problem) { setError(problem); return; }
+    if (kind === 'books' && !consent) { setError('Davam etmək üçün razılıq qutusunu işarələyin.'); return; }
     setBusy(true);
     const body: Record<string, unknown> = { kind, name: form.name, email: form.email, phone: form.phone, ...payload() };
+    if (kind === 'books') body.consent = 'digital-delivery-v1';
     if (kind === 'cakes') Object.assign(body, { delivery_date: form.date, slot: form.slot, mode: form.mode, address: form.address, notes: form.notes });
     const result = await startShopCheckout(body);
     if (result.url) { window.location.href = result.url; return; }
@@ -250,7 +255,9 @@ function Checkout({ kind, ready, total, rows, payload, onClose }: { kind: ShopKi
     {kind === 'cakes' && <Field id="shop-notes" label="Qeyd (allergiya, xüsusi istək)" value={form.notes} onChange={set('notes')} type="textarea" maxLength={500} />}
     <div className="shop-total"><span>Cəmi</span><span>{money(total)}</span></div>
     {error && <div className="shop-note bad" role="alert">{error}</div>}
-    <button type="button" className="shop-btn wide" disabled={busy} onClick={pay}>{busy ? 'Ödəniş səhifəsi açılır…' : `Kartla ödə · ${money(total)}`}</button>
+    {kind === 'books' && <label className="shop-consent"><input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} />
+      <span>PDF kitabların ödənişdən dərhal sonra çatdırılmasına razıyam və bununla 14 günlük imtina hüququmu itirdiyimi təsdiqləyirəm. <a href="/az/istifade-sertleri/" target="_blank" rel="noopener">İstifadə şərtləri</a> ilə razıyam.</span></label>}
+    <button type="button" className="shop-btn wide" disabled={busy || (kind === 'books' && !consent)} onClick={pay}>{busy ? 'Ödəniş səhifəsi açılır…' : `Kartla ödə · ${money(total)}`}</button>
     <p className="shop-fine">{kind === 'books'
       ? 'Ödəniş Epoint vasitəsilə. PDF-lər yalnız şəxsi istifadə üçündür. Eyni e-poçtla Anacan hesabınız varsa, kitablar tətbiqdə "Kitablarım"da da görünəcək.'
       : 'Ödəniş Epoint vasitəsilə. Ödənişdən sonra qənnadı sifarişi təsdiqləyib sizə zəng edəcək. 48 saatdan əvvəl ləğv pulsuzdur.'}</p>

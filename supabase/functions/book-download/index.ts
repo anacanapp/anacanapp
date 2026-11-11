@@ -38,6 +38,19 @@ async function signedUrl(admin: ReturnType<typeof createClient>, bookId: string)
   return data?.signedUrl ?? null;
 }
 
+// Compliance evidence (Epoint): every PDF hand-out is logged with time, channel, IP and user agent. Logging never
+// blocks the download.
+function clientIp(req: Request): string | null {
+  const raw = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || '';
+  const ip = raw.split(',')[0].trim();
+  return /^[0-9a-fA-F:.]{3,64}$/.test(ip) ? ip : null;
+}
+async function logDownload(admin: ReturnType<typeof createClient>, req: Request, row: { order_id: string | null; book_id: string; user_id: string | null; via: 'email_link' | 'account' }) {
+  try {
+    await admin.from('book_download_events').insert({ ...row, ip: clientIp(req), user_agent: (req.headers.get('user-agent') || '').slice(0, 300) || null });
+  } catch { /* evidence logging is best effort */ }
+}
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers });
   const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
@@ -45,11 +58,12 @@ Deno.serve(async (req) => {
     const url = new URL(req.url);
     const orderId = url.searchParams.get('o') || '', token = url.searchParams.get('t') || '', bookId = url.searchParams.get('b') || '';
     if (!/^[0-9a-f-]{36}$/.test(orderId) || token.length < 20 || token.length > 128 || !BOOK_ID.test(bookId)) return json(400, { error: 'invalid_link' });
-    const { data: order } = await admin.from('book_orders').select('status,book_ids,download_token_hash').eq('id', orderId).maybeSingle();
+    const { data: order } = await admin.from('book_orders').select('status,book_ids,download_token_hash,user_id').eq('id', orderId).maybeSingle();
     if (!order || order.status !== 'paid' || !order.download_token_hash || order.download_token_hash !== await sha256(token)
       || !(order.book_ids as string[]).includes(bookId)) return json(404, { error: 'not_found' });
     const target = await signedUrl(admin, bookId);
     if (!target) return json(503, { error: 'file_unavailable' });
+    await logDownload(admin, req, { order_id: orderId, book_id: bookId, user_id: (order.user_id as string | null) ?? null, via: 'email_link' });
     // The functions router passes only 2xx responses through, so the e-mail link answers with a tiny
     // page that moves straight on to the short-lived signed PDF URL (with a button as a fallback).
     const { data: book } = await admin.from('book_catalog').select('title').eq('id', bookId).maybeSingle();
@@ -66,5 +80,6 @@ Deno.serve(async (req) => {
   const { data: owned } = await admin.from('book_entitlements').select('book_id').eq('user_id', auth.user.id).eq('book_id', bookId).maybeSingle();
   if (!owned) return json(403, { error: 'not_owned' });
   const target = await signedUrl(admin, bookId);
+  if (target) await logDownload(admin, req, { order_id: null, book_id: bookId, user_id: auth.user.id, via: 'account' });
   return target ? json(200, { url: target, expires_in: SIGNED_SECONDS }) : json(503, { error: 'file_unavailable' });
 });

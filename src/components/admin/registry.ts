@@ -63,6 +63,7 @@ export const ADMIN_SECTIONS: AdminSection[] = [
   s('books', 'PDF kitablar', 'commerce', 'AdminBooks', BookOpen, 'books kitab pdf satış'),
   s('qaygicash', 'QayğıCash', 'commerce', 'AdminQaygiCash', PiggyBank, 'qaygicash cashback bonus keşbek'),
   s('epoint', 'Epoint ödəniş', 'commerce', 'AdminEpoint', CreditCard, 'epoint payment ödəniş kart əməliyyat'),
+  s('epoint-evidence', 'Epoint sübutu', 'commerce', 'AdminEpointEvidence', FileText, 'epoint sübut compliance chargeback transaction əməliyyat'),
   s('coupons', 'Kuponlar', 'commerce', 'AdminCoupons', Ticket, 'coupon kupon endirim promo kod'),
   s('products', 'Məhsullar', 'commerce', 'AdminProducts', Store, 'products məhsul aptek mağaza'),
   s('admob', 'AdMob reklamları', 'commerce', 'AdminAdmob', Megaphone, 'admob ads reklam banner'),

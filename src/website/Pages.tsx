@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import { Mail, MapPin, ShieldCheck } from 'lucide-react';
+import { SITE_PHONE, SITE_PHONE_HREF } from './components';
 import { useWebsite } from './context';
 import { Arrow, DownloadCard, FaqList, Intro, StoreLinks, ToolCards, SectionHeading } from './components';
 import { FeatureGrid, StageCards } from './Home';
@@ -37,7 +38,7 @@ export function ContactPage() {
     <label htmlFor="contact-subject">{t('subject')}</label><input id="contact-subject" name="subject" maxLength={150} required/>
     <label htmlFor="contact-message">{t('message')}</label><textarea id="contact-message" name="message" rows={6} maxLength={3000} required/>
     <button type="submit" className="site-rainbow-button">{t('sendEmail')}<Arrow diagonal/></button><p className="site-input-help">{t('emailComposeNote')}</p><p role="status">{status}</p>
-  </form><div className="site-contact-info"><article><Mail size={24} strokeWidth={1.5}/><h2>{t('generalSupport')}</h2><a href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a><p>{t('supportNote')}</p></article><article><ShieldCheck size={24} strokeWidth={1.5}/><h2>{t('privacySupport')}</h2><a href="mailto:privacy@anacan.az">privacy@anacan.az<Arrow diagonal/></a></article><article><MapPin size={24} strokeWidth={1.5}/><p>{t('contactLocation')}</p><div className="site-social-links"><a href="https://instagram.com/anacanapp" target="_blank" rel="noopener noreferrer">Instagram<Arrow diagonal/></a><a href="https://facebook.com/anacanapp" target="_blank" rel="noopener noreferrer">Facebook<Arrow diagonal/></a></div></article></div></div></>;
+  </form><div className="site-contact-info"><article><Mail size={24} strokeWidth={1.5}/><h2>{t('generalSupport')}</h2><a href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a><a href={SITE_PHONE_HREF}>{SITE_PHONE}<Arrow diagonal/></a><p>{t('supportNote')}</p></article><article><ShieldCheck size={24} strokeWidth={1.5}/><h2>{t('privacySupport')}</h2><a href="mailto:privacy@anacan.az">privacy@anacan.az<Arrow diagonal/></a></article><article><MapPin size={24} strokeWidth={1.5}/><p>{t('contactLocation')}</p><div className="site-social-links"><a href="https://instagram.com/anacanapp" target="_blank" rel="noopener noreferrer">Instagram<Arrow diagonal/></a><a href="https://facebook.com/anacanapp" target="_blank" rel="noopener noreferrer">Facebook<Arrow diagonal/></a></div></article></div></div></>;
 }
 export function LegalPage({kind}:{kind:'privacy'|'terms'}) {
   const {t,legalContent,legalUpdated}=useWebsite();

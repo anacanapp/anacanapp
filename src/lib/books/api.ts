@@ -22,7 +22,8 @@ export type CheckoutResult =
 /** cashback: QayğıCash bonus in AZN (optional); the card is charged `amount`, already net of it. */
 export async function startBookCheckout(bookIds: string[], language: string, cashback?: number): Promise<CheckoutResult> {
   const { data, error } = await supabase.functions.invoke('book-checkout', {
-    body: { book_ids: bookIds, language, ...(cashback && cashback > 0 ? { cashback } : {}) },
+    // The cart only enables the pay button after the digital-delivery consent (CartSheet), so it is always sent.
+    body: { book_ids: bookIds, language, consent: 'digital-delivery-v1', ...(cashback && cashback > 0 ? { cashback } : {}) },
   });
   if (!error && typeof data?.checkout_url === 'string') {
     return { ok: true, url: data.checkout_url, orderId: data.order_id,

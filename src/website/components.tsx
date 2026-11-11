@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { ArrowUpRight, ArrowRight, Menu, X, Globe2, ChevronDown, Smartphone, Heart, CalendarDays, BookOpen, Leaf, UserRound } from 'lucide-react';
+/** Company phone (owner, 2026-11-11); language-neutral, so not a copy key. */
+export const SITE_PHONE = '+994 10 321 65 07';
+export const SITE_PHONE_HREF = 'tel:+994103216507';
 import { WEBSITE_LANGUAGES } from '../lib/app-languages';
 import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, sitePath } from './routes';
 import type { WebsiteCopyKey, WebsiteArticle } from './model';
@@ -64,7 +67,7 @@ export function WebsiteFooter() {
   return <footer className="site-footer">
     <div className="site-footer-top"><div><Brand/><p>{t('footerDescription')}</p></div>
       <nav aria-label={t('home')}><a href={href('journal')}>{t('journal')}</a><a href={href('tools')}>{t('tools')}</a><a href={href('faq')}>{t('faq')}</a><a href={href('contact')}>{t('contact')}</a>{localLinks(route.language).map(([kind,label])=><a key={kind} href={href(kind)}>{label}</a>)}</nav>
-      <div className="site-footer-contact"><a href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a><span>{t('madeIn')}</span><div><a href="https://instagram.com/anacanapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://facebook.com/anacanapp" target="_blank" rel="noopener noreferrer">Facebook</a></div></div>
+      <div className="site-footer-contact"><a href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a><a href={SITE_PHONE_HREF}>{SITE_PHONE}<Arrow diagonal/></a><span>{t('madeIn')}</span><div><a href="https://instagram.com/anacanapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://facebook.com/anacanapp" target="_blank" rel="noopener noreferrer">Facebook</a></div></div>
     </div>
     <div className="site-footer-bottom"><span>© {new Date(generatedAt).getUTCFullYear()} Anacan. {t('rights')}</span><MilliNetBadge/><nav aria-label={t('privacy')}><a href={href('privacy')}>{t('privacy')}</a><a href={href('terms')}>{t('terms')}</a><button type="button" className="site-cookie-settings" onClick={()=>(window as unknown as {anacanAnalytics?:{reopen:()=>void}}).anacanAnalytics?.reopen()}>{t('cookieSettings')}</button></nav></div>
     <nav className="site-machine-links" aria-label={llmCopy[route.language].formatsHeading}>

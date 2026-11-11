@@ -154,6 +154,12 @@ Deno.serve(async (req) => {
           : await admin.rpc('web_premium_subscribe_start_v1', { p_user: userId, p_plan: plan });
         if (error || !start?.charge_id) return fail(rpcErrorCode(error) ?? 'database_unavailable');
         chargeId = start.charge_id as string;
+        // Compliance evidence: the page sends the consent it showed (auto-renew + saved card + terms) next to the button.
+        if (body.consent === 'premium-autorenew-v1') {
+          const { data: ch } = await admin.from('web_premium_charges').select('subscription_id').eq('id', chargeId).maybeSingle();
+          if (ch?.subscription_id) await admin.from('web_premium_subscriptions')
+            .update({ consent_at: new Date().toISOString(), consent_version: 'premium-autorenew-v1' }).eq('id', ch.subscription_id).is('consent_at', null);
+        }
         payload = {
           language: 'az', amount: epointAmount(Number(start.amount)), currency: 'AZN', order_id: chargeId,
           description: `Anacan Premium — ${start.plan === 'monthly' ? 'aylıq' : 'illik'} abunəlik${test ? ' (test)' : ''}`,

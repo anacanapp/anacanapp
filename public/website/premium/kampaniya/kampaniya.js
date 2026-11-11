@@ -200,7 +200,7 @@ var anacanForwarded = (function () {
     var cta = $(test ? 'ctaTest' : 'cta');
     cta.disabled = true; cta.innerHTML = '<span class="spinner"></span>';
     try {
-      var d = await A.call('subscribe', test ? { plan: status.test_offer.plan, test: true } : { plan: selected });
+      var d = await A.call('subscribe', test ? { plan: status.test_offer.plan, test: true, consent: 'premium-autorenew-v1' } : { consent: 'premium-autorenew-v1', plan: selected });
       if (d.ok && typeof d.redirect_url === 'string' && /^https:\/\/([a-z0-9-]+\.)+az(:443)?\//i.test(d.redirect_url)) {
         location.href = d.redirect_url; // Epoint / bank card page; it returns to this page
         return;
