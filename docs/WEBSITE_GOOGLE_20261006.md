@@ -266,3 +266,7 @@ handoff-a daxil edilmir.
 - Live: website runtime `98bd1884…`, gateway (site + app) `c4f8372e…` (plan `appev-web-plan.json`, rollbacks
   `rollback-appev-web-plan.json`, `rollback-compl-web-plan.json`, `website-runtime-plan.before-compl.json`),
   functions `2d74b24b…` (`functions-compliance.py`, previous `7ce98857…`).
+- Evidence archive (`20261111110000_epoint_evidence_archive.sql`): `epoint_evidence_archive` keeps a SHA-256-stamped
+  snapshot of every Epoint payment, taken by row triggers when `paid_at` is set (book_orders, web_premium_charges,
+  cake_orders) and when a PDF order's `email_sent_at` is set; past payments back-filled (2 books, 4 Premium).
+  Trigger errors only raise a warning. Admin card shows the snapshots. App gateway `3a9ce7b0…` (plan `apparch-web-plan.json`).
