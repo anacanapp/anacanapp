@@ -88,6 +88,22 @@ export function localizeBlogPost(post: BlogPost, language: string): BlogPost {
     view_count: post.view_count || 0, cover_image_url: blogCoverUrl(post.cover_image_url) || null };
 }
 
+const TRANSLATION_COLUMN = /^(?:content|title|excerpt)_[a-z]{2}$/;
+/** After localizing, the per-language columns (and other locales' editorial data) are never read again. Dropping
+ *  them keeps the cached list ~10x smaller: the full 23-language list was ~16 MB, overflowed localStorage and froze
+ *  mid-range Android phones while the cache tried to save it. */
+export function compactBlogPost<T extends Record<string, unknown>>(post: T, language: string): T {
+  const out: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(post)) if (!TRANSLATION_COLUMN.test(key)) out[key] = value;
+  const meta = post.editorial_metadata as { locales?: Record<string, unknown> } | null | undefined;
+  if (meta && typeof meta === 'object' && meta.locales && typeof meta.locales === 'object') {
+    const locales: Record<string, unknown> = {};
+    for (const code of [language, 'az']) if (code in meta.locales) locales[code] = meta.locales[code];
+    out.editorial_metadata = { ...meta, locales };
+  }
+  return out as T;
+}
+
 export const useBlog = () => {
   const { language } = useLanguage();
   const countryCode = useUserStore((s) => s.countryCode);
@@ -118,8 +134,8 @@ export const useBlog = () => {
       // REGISTRY-də tərcümə üçün qeydiyyatdan keçməyib (yalnız title/content/excerpt var);
       // əvvəllər 'category' burda verildikdə mövcud olan stray category_en sütunu post-un
       // slug-ını əvəz edirdi (yalnız EN istifadəçiləri üçün) və kateqoriya filtri/uyğunlaşması sınırdı.
-      return typedPosts.map(post => ({ ...localizeBlogPost(post, language),
-        category_slugs: [...new Set([post.category, ...((post as any).blog_post_categories || []).map((item: any) => item.blog_categories?.slug).filter(Boolean)])] }));
+      return typedPosts.map(post => compactBlogPost({ ...localizeBlogPost(post, language),
+        category_slugs: [...new Set([post.category, ...((post as any).blog_post_categories || []).map((item: any) => item.blog_categories?.slug).filter(Boolean)])] }, language));
     },
   });
   const categoryQuery = useQuery({
