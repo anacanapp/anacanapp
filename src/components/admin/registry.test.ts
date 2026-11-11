@@ -20,7 +20,7 @@ const LEGACY_IDS: Record<string, string> = {
   'fetus-illustrations': 'AdminFetusIllustrations', 'crisis-calendar': 'AdminBabyCrisisCalendar', 'phase-tips': 'AdminPhaseTips', teething: 'AdminTeething',
   'healthcare-reviews': 'AdminHealthcareReviews', cakes: 'AdminCakes', 'baby-daily-info': 'AdminBabyDailyInfo', 'mommy-daily-messages': 'AdminMommyDailyMessages',
   'intro-slides': 'AdminIntroSlides', 'album-orders': 'AdminAlbumOrders', coupons: 'AdminCoupons', analytics: 'AdminAnalytics', 'country-stats': 'AdminCountryStats',
-  epoint: 'AdminEpoint', 'epoint-evidence': 'AdminEpointEvidence', books: 'AdminBooks', qaygicash: 'AdminQaygiCash', 'force-update': 'AdminForceUpdate', security: 'AdminSecurity', languages: 'AdminLanguages',
+  epoint: 'AdminEpoint', 'epoint-evidence': 'AdminEpointEvidence', books: 'AdminBooks', qaygicash: 'AdminQaygiCash', 'force-update': 'AdminForceUpdate', 'app-updates': 'AdminAppUpdates', security: 'AdminSecurity', languages: 'AdminLanguages',
   translations: 'AdminTranslations', 'content-i18n': 'AdminContentTranslations', deeplinks: 'AdminDeeplinks', 'crash-reports': 'AdminCrashReports',
   'partner-venues': 'AdminPartnerVenues', 'partner-redemptions': 'AdminPartnerRedemptions', vaccines: 'AdminVaccines', admob: 'AdminAdmob', ads: 'AdminAdmob',
   'revenuecat-debug': 'RevenueCatDebug', 'parenting-content': 'AdminParentingContent',

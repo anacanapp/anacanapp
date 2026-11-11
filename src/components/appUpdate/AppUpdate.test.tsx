@@ -11,7 +11,7 @@ vi.mock('@capacitor/app', () => ({ App: { getInfo: vi.fn(), addListener: vi.fn()
 vi.mock('@/integrations/supabase/client', () => ({ supabase: { rpc: vi.fn() } }));
 vi.mock('framer-motion', async () => {
   const { createElement, forwardRef } = await import('react');
-  return { motion: { div: forwardRef((props: any, ref) => { const { initial, animate, transition, ...rest } = props; return createElement('div', { ...rest, ref }); }) } };
+  return { motion: { div: forwardRef((props: Record<string, unknown>, ref) => { const { initial: _i, animate: _a, transition: _t, ...rest } = props; return createElement('div', { ...rest, ref }); }) } };
 });
 afterEach(cleanup);
 
