@@ -43,12 +43,10 @@ describe('GlassTour', () => {
     expect(screen.queryByText('Bəli, xatırlat')).toBeNull();
   });
 
-  it('shows the free AI limit and finishes as done on the last card', () => {
+  it('skips the Premium-only AI screen for free users and finishes as done on the last card', () => {
     const p = setup('granted');
     const subs = p.plan.flatMap((s) => s.subs);
-    const aiAt = subs.findIndex((s) => s.copy === 'ai_screen_free');
-    for (let i = 0; i < aiAt; i++) next();
-    expect(screen.getByText(/Gündə 3 sual ödənişsizdir/)).toBeTruthy();
+    expect(subs.some((s) => s.copy === 'ai_tab' || s.copy === 'ai_screen_free' || s.nav.tab === 'ai')).toBe(false);
     while (!screen.queryByText('Daha çoxunu açın')) next();
     fireEvent.click(screen.getByText('Ödənişsiz davam et'));
     fireEvent.click(screen.getByText('Başla'));

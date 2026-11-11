@@ -89,10 +89,13 @@ export function buildTourPlan(input: TourInput): TourStep[] {
   for (const id of featured) toolsSubs.push({ kind: 'coach', nav: { tab: 'tools', tool: id }, copy: 'tool_page', toolId: id });
   steps.push({ id: 'tools', subs: toolsSubs });
 
+  // Anacan AI is Premium only (2026-11-11): free users would land on its paywall, so their tour skips it.
   steps.push({ id: 'ai', subs: [
-    { kind: 'spot', nav: { tab: 'tools', tool: null }, target: 'tab-ai', copy: 'ai_tab' },
-    { kind: 'coach', nav: { tab: 'ai' }, copy: input.isPremium ? 'ai_screen_premium' : 'ai_screen_free' },
-    { kind: 'spot', nav: { tab: 'ai' }, target: 'tab-community', copy: 'community_tab' },
+    ...(input.isPremium ? [
+      { kind: 'spot', nav: { tab: 'tools', tool: null }, target: 'tab-ai', copy: 'ai_tab' },
+      { kind: 'coach', nav: { tab: 'ai' }, copy: 'ai_screen_premium' },
+    ] satisfies TourSub[] : []),
+    { kind: 'spot', nav: input.isPremium ? { tab: 'ai' } : { tab: 'tools', tool: null }, target: 'tab-community', copy: 'community_tab' },
     { kind: 'coach', nav: { tab: 'community' }, copy: 'community_screen' },
     ...pushSub({ tab: 'community' }),
   ] });

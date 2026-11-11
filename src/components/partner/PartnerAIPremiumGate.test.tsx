@@ -47,3 +47,19 @@ it('gives Ata AI the woman\'s stage but not unshared cycle dates', async () => {
   expect(chat).toHaveAttribute('data-stage', 'flow');
   expect(chat).toHaveAttribute('data-lmp', 'null');
 });
+
+it('woman\'s Anacan.AI: a free user gets the paywall on entry and never the chat', () => {
+  render(<PartnerAIPremiumGate self><div>Own chat</div></PartnerAIPremiumGate>);
+  expect(screen.queryByText('Own chat')).not.toBeInTheDocument();
+  expect(screen.getByRole('dialog')).toHaveTextContent('Standard Premium paywall');
+  fireEvent.click(screen.getByRole('button', { name: 'Standard Premium paywall' }));
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  expect(screen.queryByText('Own chat')).not.toBeInTheDocument();
+});
+
+it('woman\'s Anacan.AI: a Premium user goes straight to the chat', () => {
+  state.isPremium = true;
+  render(<PartnerAIPremiumGate self><div>Own chat</div></PartnerAIPremiumGate>);
+  expect(screen.getByText('Own chat')).toBeInTheDocument();
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+});

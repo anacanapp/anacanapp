@@ -739,9 +739,12 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       case 'ai':
         return (
           <motion.div key="ai" variants={pageVariants} initial="initial" animate="animate" exit="exit" className="h-full">
-            <Suspense fallback={suspenseFallback}><AiConsentGate userId={user?.id} backend={consentBackend} kvkk={consentKvkk} onDecline={() => setActiveTab('home')}>
-              <AIChatScreen />
-            </AiConsentGate></Suspense>
+            {/* Anacan.AI is Premium only: the paywall comes first, the AI consent only for Premium users. */}
+            <Suspense fallback={suspenseFallback}><PartnerAIPremiumGate self>
+              <AiConsentGate userId={user?.id} backend={consentBackend} kvkk={consentKvkk} onDecline={() => setActiveTab('home')}>
+                <AIChatScreen />
+              </AiConsentGate>
+            </PartnerAIPremiumGate></Suspense>
           </motion.div>
         );
       // Blog is now accessed via Tools, remove from nav tabs

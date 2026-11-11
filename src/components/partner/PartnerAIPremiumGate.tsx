@@ -1,4 +1,4 @@
-import { tr } from "@/lib/tr";import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { tr } from "@/lib/tr";import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Crown, Sparkles, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -15,7 +15,11 @@ const fallback =
   </div>;
 
 
-const PartnerAIPremiumGate = () => {
+/**
+ * Anacan.AI is Premium only. `self` is the woman's own assistant (no partner context); without it this is
+ * Ata AI for the partner. A free user who opens the tab sees the locked screen and the paywall opens at once.
+ */
+const PartnerAIPremiumGate = ({ self = false, children }: { self?: boolean; children?: ReactNode }) => {
   const { isPremium, loading } = useSubscription();
   const { partnerProfile, sharing, getPregnancyWeek } = usePartnerData();
   const stage = partnerProfile?.life_stage;
@@ -32,6 +36,13 @@ const PartnerAIPremiumGate = () => {
   };
   const [showModal, setShowModal] = useState(false);
   const hadPremium = useRef(false);
+  const autoOpened = useRef(false);
+
+  useEffect(() => {
+    if (!self || loading || isPremium || autoOpened.current) return;
+    autoOpened.current = true;
+    setShowModal(true);
+  }, [self, loading, isPremium]);
 
   useEffect(() => {
     if (isPremium) { hadPremium.current = true; return; }
@@ -44,9 +55,10 @@ const PartnerAIPremiumGate = () => {
   if (loading) return fallback;
 
   if (isPremium) {
+    if (children) return <>{children}</>;
     return (
       <Suspense fallback={fallback}>
-        <AIChatScreen partner={partnerContext} />
+        <AIChatScreen partner={self ? undefined : partnerContext} />
       </Suspense>);
 
   }
@@ -129,7 +141,7 @@ const PartnerAIPremiumGate = () => {
         </p>
       </motion.div>
 
-      <PremiumModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      <PremiumModal isOpen={showModal} onClose={() => setShowModal(false)} feature="ai_chat" analyticsSource={self ? 'ai_tab' : 'partner_ai_tab'} />
     </div>);
 
 };
