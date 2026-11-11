@@ -100,3 +100,10 @@ builds). Admins are exempt. The PDF book banner uses `min_app_version = 49` (boo
   Deployed: gateway `85d65dca…` (plan `web1111-web-plan.json`), runtime `04b4840f…`
   (rollback: `website-runtime-plan.before-web1111.json`). Note: a web plan's `indexSha256` is the app `/index.html`
   hash, keep the inherited value.
+- Fix (2026-11-11): `requires_v3` is generated and turns true when `audience_tiers` contains `premium`, which hid the
+  11.11 banners from older builds (Android, v2 feed). They now use `audience_tiers = NULL` + `server_tiers=["free"]`:
+  every build renders them, the server still withholds them from Premium non-admins. Never put `premium` in
+  `audience_tiers` for a banner that must reach older builds.
+- Pushes: campaign links may be `https://anacan.az/…` (`20261111073000_campaign_deeplink_website.sql`); the push
+  runner `/home/anacan-runner/push1111.py` sends one group at a time (flock) with retries, since parallel audience
+  previews hit the statement timeout.
