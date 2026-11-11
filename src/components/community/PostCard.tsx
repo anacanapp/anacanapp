@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect, memo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { createPortal } from 'react-dom';
+import { motion, AnimatePresence, useDragControls } from 'framer-motion';
 import { Heart, MessageCircle, Share2, MoreHorizontal, Send, Trash2, Flag, Pencil, EyeOff, Languages, Pin, PinOff, ImagePlus, X, Loader2, Ban, Bookmark, Sticker } from 'lucide-react';
 import StickerPicker from '@/components/stickers/StickerPicker';
 import { STICKER_STORAGE_PATH, stickerText } from '@/lib/stickers';
@@ -80,6 +81,9 @@ const avatarGradFor = (seed: string) => {
 // istənilən re-render-i bütün görünən postları yenidən render edirdi.
 // Effektiv olması üçün onUserClick CommunityScreen-də useCallback ilə sabitlənib,
 // post obyekt referansı isə react-query-nin struktur paylaşımı ilə sabitdir.
+// Instagram's quick-reaction row above the comment field.
+const QUICK_EMOJI = ['❤️', '🙌', '🔥', '👏', '😢', '😍', '😮', '😂'];
+
 const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highlightCommentId }: PostCardProps) => {
   const [showComments, setShowComments] = useState(!!forceShowComments);
 
@@ -90,6 +94,17 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
     if (forceShowComments) setShowComments(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [forceShowComments]);
+  const sheetDrag = useDragControls();
+  const closeComments = useCallback(() => { setShowComments(false); setShowStickers(false); }, []);
+  // The sheet covers the page: lock the feed's scroll and close on Escape while it is open.
+  useEffect(() => {
+    if (!showComments) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') closeComments(); };
+    window.addEventListener('keydown', onKey);
+    return () => { document.body.style.overflow = prev; window.removeEventListener('keydown', onKey); };
+  }, [showComments, closeComments]);
   const [commentText, setCommentText] = useState('');
   const [showStickers, setShowStickers] = useState(false);
   const { ref: commentTextareaRef } = useAutoGrowTextarea(commentText, 180);
@@ -454,7 +469,6 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
         {/* Content */}
         {post.moderation_edited_at && <p className="text-xs text-muted-foreground mb-2">{moderatorText('edited_marker', uiLang)}</p>}
         {post.comments_locked && <p className="rounded-xl bg-muted/50 p-3 mb-3 text-xs">{moderatorText('comments_closed', uiLang)}</p>}
-        {showComments && <RestrictionNote scope="comment" />}
         {isEditing ?
         <div className="space-y-2" style={{ paddingBottom: 4 }}>
             <Textarea value={editContent} onChange={(e) => setEditContent(e.target.value)} className="min-h-[70px] rounded-xl resize-none text-[13px]" style={{ background: 'var(--a-surface-soft)', border: '1px solid var(--a-line-strong)', color: 'var(--a-ink)' }} autoFocus />
@@ -524,7 +538,7 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
             </motion.span>
             {post.likes_count > 0 && <span>{post.likes_count}</span>}
           </motion.button>
-          <motion.button onClick={() => setShowComments(!showComments)} aria-label={tr('community_comments', 'Şərhlər')} aria-expanded={showComments} className="a-post-action" style={showComments ? { color: 'var(--a-accent-ink)' } : undefined} whileTap={{ scale: 0.8 }}>
+          <motion.button onClick={() => setShowComments(true)} aria-label={tr('community_comments', 'Şərhlər')} aria-expanded={showComments} className="a-post-action" style={showComments ? { color: 'var(--a-accent-ink)' } : undefined} whileTap={{ scale: 0.8 }}>
             <MessageCircle size={19} strokeWidth={2} />
             {post.comments_count > 0 && <span>{post.comments_count}</span>}
           </motion.button>
@@ -540,90 +554,107 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
           </motion.button>
         </div>
 
-        {/* Comments section */}
-        <AnimatePresence>
-          {showComments &&
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="overflow-hidden"
-            style={{ borderTop: '1px solid var(--a-line)', marginTop: 12 }}>
-            
-              <div className="space-y-4" style={{ paddingTop: 12 }}>
+        {/* Comments: an Instagram-style bottom sheet over the feed (owner request 2026-11-11) */}
+        {showComments && typeof document !== 'undefined' && createPortal(
+          <div className="ig-sheet-backdrop" onClick={closeComments}>
+            <motion.div
+              className="ig-sheet"
+              role="dialog"
+              aria-modal="true"
+              aria-label={tr('community_comments', 'Şərhlər')}
+              onClick={(e) => e.stopPropagation()}
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              transition={{ type: 'spring', damping: 32, stiffness: 340 }}
+              drag="y"
+              dragListener={false}
+              dragControls={sheetDrag}
+              dragConstraints={{ top: 0, bottom: 0 }}
+              dragElastic={{ top: 0, bottom: 0.6 }}
+              onDragEnd={(_, info) => { if (info.offset.y > 110 || info.velocity.y > 600) closeComments(); }}>
+              <div className="ig-sheet-grab" onPointerDown={(e) => sheetDrag.start(e)}>
+                <span className="ig-sheet-handle" />
+                <h2 className="ig-sheet-title">{tr('community_comments', 'Şərhlər')}</h2>
+              </div>
+
+              <div className="ig-sheet-list">
+                <RestrictionNote scope="comment" />
                 {commentsLoading ?
-              <div className="text-center py-4">
+                <div className="text-center py-6">
                     <div className="w-5 h-5 rounded-full animate-spin mx-auto" style={{ border: '2px solid var(--a-peach-2)', borderTopColor: 'transparent' }} />
                   </div> :
-              topLevelComments.length === 0 ?
-              <p className="a-list-sub text-center" style={{ padding: '16px 0', margin: 0 }}>{tr("postcard_hele_serh_yoxdur_89ce09", "Hələ şərh yoxdur 💭")}</p> :
-
-              <div className="space-y-4">
-                    {topLevelComments.map((comment) =>
+                topLevelComments.length === 0 ?
+                <p className="ig-sheet-empty">{tr("postcard_hele_serh_yoxdur_89ce09", "Hələ şərh yoxdur 💭")}</p> :
+                topLevelComments.map((comment) =>
                 <CommentReply key={comment.id} comment={comment} postId={post.id} allComments={comments} onReply={handleReply} onRefetch={refetchComments} onUserClick={onUserClick} highlightCommentId={highlightCommentId} />
                 )}
-                  </div>
-              }
-                <div ref={composerRef} className="community-comment-composer" data-reply-to={replyTo?.id || ''}>
-                  {replyTo && <div className="community-reply-target">
-                    <span>{tr('community_replying_to', '{name} üçün cavab').replace('{name}', replyTo.name)}</span>
-                    <button type="button" onClick={() => setReplyTo(null)} disabled={createComment.isPending || uploadingCommentImage} aria-label={tr('community_cancel_reply', 'Cavabı ləğv et')}><X size={16} /></button>
-                  </div>}
-                {commentImagePreview &&
-              <div style={{ position: 'relative', width: 64, height: 64 }}>
-                    <img src={commentImagePreview} alt="" decoding="async" style={{ width: 64, height: 64, borderRadius: 12, objectFit: 'cover' }} />
-                    <button
-                  type="button"
-                  onClick={() => { setCommentImageFile(null); setCommentImagePreview(null); }}
-                  style={{ position: 'absolute', top: -6, insetInlineEnd: -6, width: 20, height: 20, borderRadius: 999, background: 'var(--a-ink)', color: 'var(--a-bg)', display: 'grid', placeItems: 'center', border: 'none', cursor: 'pointer' }}>
-                      <X size={11} />
-                    </button>
-                  </div>
-              }
-                  <textarea
-                  ref={commentTextareaRef}
-                  value={commentText}
-                  onChange={(e) => setCommentText(e.target.value)}
-                  aria-label={tr('community_comment_text', 'Şərh və ya cavab yaz')}
-                  disabled={createComment.isPending || uploadingCommentImage}
-                  placeholder={replyTo ? tr('community_reply_placeholder', 'Cavabınızı yazın...') : commentAnonymous ? tr("postcard_anonim_serh_yaz_9af1ca", "Anonim \u015F\u0259rh yaz...") : tr("postcard_serh_yaz_54a89a", "Şərh yaz...")}
-                  className="a-input"
-                   rows={1}
-                  dir="auto"
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey) && !e.nativeEvent.isComposing) {
-                      e.preventDefault();
-                      handleComment();
-                    }
-                  }} />
-                
-                <div className="community-composer-actions">
-                  <input type="file" accept="image/*" ref={commentFileInputRef} onChange={handleCommentImageSelect} style={{ display: 'none' }} />
-                  <button type="button" onClick={() => commentFileInputRef.current?.click()} disabled={uploadingCommentImage || createComment.isPending} className="a-icon-btn" aria-label={tr('postcard_sekil_elave_et', 'Şəkil əlavə et')}>
-                    <ImagePlus size={18} />
-                  </button>
-                  <button type="button" onClick={() => setShowStickers((v) => !v)} disabled={uploadingCommentImage || createComment.isPending} className="a-icon-btn" aria-pressed={showStickers} aria-label={stickerText('stickers')}>
-                    <Sticker size={18} />
-                  </button>
-                  <button type="button" onClick={() => setCommentAnonymous((v) => !v)} disabled={uploadingCommentImage || createComment.isPending} aria-pressed={commentAnonymous} className={`a-tag${commentAnonymous ? ' on' : ''}`}>
-                    <EyeOff size={14} /><span className="community-anon-label">{tr('postcard_anonim_olaraq_yaz_abc123', 'Anonim olaraq yaz')}</span>
-                  </button>
-                  <button
-                  onClick={handleComment}
-                  aria-label={tr('postcard_gonder_3f11bd', 'Göndər')}
-                  disabled={(!commentText.trim() && !commentImageFile) || createComment.isPending || uploadingCommentImage}
-                  className="a-icon-btn ms-auto disabled:opacity-40"
-                  style={{ background: 'var(--a-accent-ink)', color: 'var(--a-bg)' }}>
-                    {uploadingCommentImage || createComment.isPending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
-                  </button>
-                </div>
+              </div>
+
+              <div ref={composerRef} className="ig-sheet-foot" data-reply-to={replyTo?.id || ''}>
+                {replyTo && <div className="ig-reply-target">
+                  <span>{tr('community_replying_to', '{name} üçün cavab').replace('{name}', replyTo.name)}</span>
+                  <button type="button" onClick={() => setReplyTo(null)} disabled={createComment.isPending || uploadingCommentImage} aria-label={tr('community_cancel_reply', 'Cavabı ləğv et')}><X size={16} /></button>
+                </div>}
                 {showStickers && <StickerPicker onPick={(id) => void handleSticker(id)} onClose={() => setShowStickers(false)} disabled={createComment.isPending} />}
+                <div className="ig-emoji-row">
+                  {QUICK_EMOJI.map((emoji) =>
+                  <button key={emoji} type="button" onClick={() => { setCommentText((t) => t + emoji); commentTextareaRef.current?.focus({ preventScroll: true }); }}
+                    disabled={createComment.isPending || uploadingCommentImage}>{emoji}</button>
+                  )}
                 </div>
+                {commentImagePreview &&
+                <div className="ig-attach">
+                    <img src={commentImagePreview} alt="" decoding="async" />
+                    <button type="button" onClick={() => { setCommentImageFile(null); setCommentImagePreview(null); }} aria-label={tr('postcard_legv_et_b5e49c', 'Ləğv et')}><X size={11} /></button>
+                  </div>
+                }
+                <div className="ig-composer">
+                  <Avatar className="w-8 h-8 flex-shrink-0">
+                    <AvatarImage src={profile?.avatar_url || undefined} />
+                    <AvatarFallback className="bg-primary/10 text-primary font-bold text-[11px]">{(profile?.name || '?').charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  <div className="ig-composer-pill">
+                    <textarea
+                      ref={commentTextareaRef}
+                      value={commentText}
+                      onChange={(e) => setCommentText(e.target.value)}
+                      aria-label={tr('community_comment_text', 'Şərh və ya cavab yaz')}
+                      disabled={createComment.isPending || uploadingCommentImage}
+                      placeholder={replyTo ? tr('community_reply_placeholder', 'Cavabınızı yazın...') : commentAnonymous ? tr("postcard_anonim_serh_yaz_9af1ca", "Anonim şərh yaz...") : tr("postcard_serh_yaz_54a89a", "Şərh yaz...")}
+                      rows={1}
+                      dir="auto"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey) && !e.nativeEvent.isComposing) {
+                          e.preventDefault();
+                          handleComment();
+                        }
+                      }} />
+                    <input type="file" accept="image/*" ref={commentFileInputRef} onChange={handleCommentImageSelect} style={{ display: 'none' }} />
+                    <span className="ig-composer-tools">
+                      <button type="button" onClick={() => setCommentAnonymous((v) => !v)} disabled={uploadingCommentImage || createComment.isPending} aria-pressed={commentAnonymous}
+                        aria-label={tr('postcard_anonim_olaraq_yaz_abc123', 'Anonim olaraq yaz')} className={commentAnonymous ? 'on' : undefined}>
+                        <EyeOff size={19} />
+                      </button>
+                      <button type="button" onClick={() => setShowStickers((v) => !v)} disabled={uploadingCommentImage || createComment.isPending} aria-pressed={showStickers} aria-label={stickerText('stickers')}>
+                        <Sticker size={19} />
+                      </button>
+                      <button type="button" onClick={() => commentFileInputRef.current?.click()} disabled={uploadingCommentImage || createComment.isPending} aria-label={tr('postcard_sekil_elave_et', 'Şəkil əlavə et')}>
+                        <ImagePlus size={19} />
+                      </button>
+                    </span>
+                  </div>
+                  <button
+                    onClick={handleComment}
+                    aria-label={tr('postcard_gonder_3f11bd', 'Göndər')}
+                    disabled={(!commentText.trim() && !commentImageFile) || createComment.isPending || uploadingCommentImage}
+                    className="ig-send">
+                    {uploadingCommentImage || createComment.isPending ? <Loader2 size={20} className="animate-spin" /> : <Send size={20} />}
+                  </button>
+                </div>
+                {commentAnonymous && <p className="ig-anon-note"><EyeOff size={12} />{tr('postcard_anonim_olaraq_yaz_abc123', 'Anonim olaraq yaz')}</p>}
               </div>
             </motion.div>
-          }
-        </AnimatePresence>
+          </div>, document.body)}
       </motion.article>
 
       {/* Report Dialog */}

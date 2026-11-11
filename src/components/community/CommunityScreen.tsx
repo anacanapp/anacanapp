@@ -2,8 +2,8 @@ import { useState, forwardRef, useCallback, useEffect, useRef } from 'react';
 import { validate as isUuid } from 'uuid';
 import { getPublicProfileCard } from '@/lib/public-profile-cards';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Users, Plus, Search, TrendingUp, Compass, Sparkles, X, Pen, MessageCircle, Bell, UserRound } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowLeft, Users, Plus, TrendingUp, Compass, Sparkles, Pen, MessageCircle, Bell, UserRound } from 'lucide-react';
 import { useCommunityGroups, useUserMemberships } from '@/hooks/useCommunity';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
@@ -71,12 +71,12 @@ const CommunityScreen = forwardRef<HTMLDivElement, CommunityScreenProps>(({ onBa
   const [openStoryId, setOpenStoryId] = useState<string | null>(null);
   const [showCreatePost, setShowCreatePost] = useState(false);
   const [initialSharedBlog, setInitialSharedBlog] = useState<SharedBlog | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  // Search was removed from Community (owner request 2026-11-11); feeds and groups get no filter.
+  const searchQuery = '';
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const [profileTrail, setProfileTrail] = useState<string[]>([]);
   const [feedView, setFeedView] = useState<FeedTab>('recent');
   const [createReturnUserId, setCreateReturnUserId] = useState<string | null>(null);
-  const [searchFocused, setSearchFocused] = useState(false);
   const [showConversations, setShowConversations] = useState(false);
   const [dmChat, setDmChat] = useState<{userId: string;name: string;avatar: string | null;} | null>(null);
   const [resolvingDm, setResolvingDm] = useState(false);
@@ -112,8 +112,6 @@ const CommunityScreen = forwardRef<HTMLDivElement, CommunityScreenProps>(({ onBa
     setOpenCommentId(null);
     setOpenStoryId(null);
     setActiveTab('feed');
-    setSearchQuery('');
-    setSearchFocused(false);
 
     if (validSharedBlog(deepLinkTarget.composeBlog)) {
       setInitialSharedBlog(deepLinkTarget.composeBlog); setShowCreatePost(true);
@@ -327,32 +325,6 @@ const CommunityScreen = forwardRef<HTMLDivElement, CommunityScreenProps>(({ onBa
           {tabs.map(tab => <button key={tab.id} type="button" role="tab" aria-selected={activeTab === tab.id}
             onClick={() => setActiveTab(tab.id)} className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-xs font-bold ${activeTab === tab.id ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground'}`}><tab.icon size={15} />{tab.label}</button>)}
         </div>
-
-        {/* Search */}
-        <motion.div animate={{ scale: searchFocused ? 1.01 : 1 }} transition={{ duration: 0.2 }}>
-          <div className="a-search">
-            <Search size={15} strokeWidth={2} color={searchFocused ? 'var(--a-peach-2)' : 'var(--a-ink-faint)'} />
-            <input
-              type="text"
-              maxLength={200}
-              placeholder={tr("untranslated_axtar_92w4nn", "Axtar...")}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => setSearchFocused(true)}
-              onBlur={() => setSearchFocused(false)} />
-            
-            <AnimatePresence>
-              {searchQuery &&
-              <motion.button
-                initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
-                onClick={() => setSearchQuery('')}
-                style={{ width: 20, height: 20, borderRadius: 999, background: 'var(--a-surface-soft)', display: 'grid', placeItems: 'center', border: 'none', cursor: 'pointer', flexShrink: 0 }}>
-                  <X size={11} style={{ color: 'var(--a-ink-soft)' }} />
-                </motion.button>
-              }
-            </AnimatePresence>
-          </div>
-        </motion.div>
 
         {activeTab === 'groups' ? <ChatGroupsPanel search={searchQuery} onOpen={setSelectedGroupId} /> : <>
         <BannerSlot placement="community_top" className="mt-4" />

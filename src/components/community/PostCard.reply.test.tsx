@@ -32,10 +32,11 @@ vi.mock('framer-motion', async () => {
   const { createElement, forwardRef } = await import('react');
   return {
     motion: Object.fromEntries(['article', 'div', 'button', 'span'].map((tag) => [tag, forwardRef((props: any, ref) => {
-      const { initial, animate, exit, transition, whileTap, ...rest } = props;
+      const { initial, animate, exit, transition, whileTap, drag, dragListener, dragControls, dragConstraints, dragElastic, onDragEnd, ...rest } = props;
       return createElement(tag, { ...rest, ref });
     })])),
     AnimatePresence: ({ children }: any) => children,
+    useDragControls: () => ({ start: vi.fn() }),
   };
 });
 
@@ -51,7 +52,14 @@ const comment = (index: number): PostComment => ({
   author: { name: `Author ${index}`, avatar_url: null },
 });
 const input = () => screen.getByRole('textbox', { name: 'Şərh və ya cavab yaz' });
-const reply = (index: number) => fireEvent.click(within(document.querySelector(`[data-comment-id="comment-${index}"]`) as HTMLElement).getAllByRole('button', { name: 'Cavab' })[0]);
+// Replies start folded (Instagram); open the thread before replying to a nested comment.
+const reply = (index: number) => {
+  if (!document.querySelector(`[data-comment-id="comment-${index}"]`)) {
+    const toggle = screen.queryByRole('button', { name: /cavab göstər/ });
+    if (toggle) fireEvent.click(toggle);
+  }
+  fireEvent.click(within(document.querySelector(`[data-comment-id="comment-${index}"]`) as HTMLElement).getAllByRole('button', { name: 'Cavab' })[0]);
+};
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -63,6 +71,15 @@ beforeEach(() => {
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
 
 describe('shared full-width comment composer', () => {
+  it('opens comments as a sheet with replies folded until "N cavab göstər" is tapped', () => {
+    render(<PostCard post={post} groupId={null} forceShowComments />);
+    expect(screen.getByRole('dialog', { name: 'Şərhlər' })).toBeInTheDocument();
+    expect(screen.getByText('Reply 0')).toBeInTheDocument();
+    expect(screen.queryByText('Reply 3')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: '6 cavab göstər' }));
+    expect(screen.getByText('Reply 3')).toBeInTheDocument();
+  });
+
   it('uses the same editor through six reply levels and sends the exact selected parent', async () => {
     render(<PostCard post={post} groupId={null} forceShowComments />);
     const editor = input();

@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { StickerImage } from '@/components/stickers/StickerPicker';
 import { stickerFromImageUrl } from '@/lib/stickers';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Heart, Trash2, Pencil, Pin, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { X, Heart, Trash2, Pencil, Pin, MoreHorizontal } from 'lucide-react';
+import { createPortal } from 'react-dom';
 import { formatDistanceToNowStrict } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { PostComment, useToggleCommentLike, useEditComment, useDeleteComment } from '@/hooks/useCommunity';
@@ -12,7 +13,6 @@ import { hapticFeedback } from '@/lib/native';
 import { useAuth } from '@/hooks/useAuth';
 import PhotoGalleryViewer from '@/components/PhotoGalleryViewer';
 import { UserBadge, VerifiedTick, isVerifiedActive } from './UserBadge';
-import { getLifeStageMeta } from '@/lib/lifeStageLabel';
 import { tr } from "@/lib/tr";
 import CommentText from './CommentText';
 import { useAutoGrowTextarea } from '@/hooks/useAutoGrowTextarea';
@@ -64,7 +64,10 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
       return () => clearTimeout(t);
     }
   }, [isHighlighted]);
-  const [showReplies, setShowReplies] = useState(true);
+  // Instagram: replies start folded ("N cavaba bax"); a deep-linked reply opens its thread.
+  const [showReplies, setShowReplies] = useState(() => !!highlightCommentId && allComments.some((c) => c.id === highlightCommentId && !!c.parent_comment_id));
+  const [actionsOpen, setActionsOpen] = useState(false);
+  const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   // Şərh şəkli in-app lightbox-da açılır (əvvəl window.open ilə brauzerə çıxırdı)
   const [imageViewerOpen, setImageViewerOpen] = useState(false);
   // Öz şərhini redaktə etmə — PostCard.tsx-in post-redaktə pattern-i ilə eyni
@@ -81,6 +84,15 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
 
   const isOwnComment = user?.id === comment.user_id;
   const effectiveRootId = rootId ?? comment.id;
+  const canManage = isAdmin || isOwnComment;
+  const cancelPress = () => { if (pressTimer.current) { clearTimeout(pressTimer.current); pressTimer.current = null; } };
+  // Long press (touch) opens the actions sheet, like Instagram; right-click does the same on desktop.
+  const startPress = (e: React.PointerEvent) => {
+    if (!canManage || e.pointerType === 'mouse' || isEditing) return;
+    cancelPress();
+    pressTimer.current = setTimeout(() => { hapticFeedback.light(); setActionsOpen(true); }, 480);
+  };
+  useEffect(() => cancelPress, []);
 
   // Kökün bütün nəsli (istənilən dərinlikdə) — TƏK düzləşdirilmiş siyahı, vaxta görə sıralı
   const replies = useMemo(() => {
@@ -140,11 +152,10 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
   const handleAvatarClick = () => {
     if (comment.user_id && onUserClick && (!comment.is_anonymous || isAdmin)) onUserClick(comment.user_id);
   };
-  const timeAgo = formatDistanceToNowStrict(new Date(comment.created_at), { addSuffix: true, locale: getCurrentDateLocale() });
+  // Instagram shows a bare short distance ("3 saat", "2 gün") without "əvvəl".
+  const timeAgo = formatDistanceToNowStrict(new Date(comment.created_at), { locale: getCurrentDateLocale() });
   const authorBadge = (comment.author?.badge_type as 'admin' | 'premium' | 'moderator' | null) || null;
   const authorVerified = isVerifiedActive(comment.author?.is_verified, comment.author?.verified_until);
-  const authorLifeStage = comment.is_anonymous ? null : getLifeStageMeta(comment.author?.life_stage);
-  const avatarSize = isReply ? 'w-7 h-7' : 'w-9 h-9';
 
   return (
     <div
@@ -159,42 +170,31 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
         transition: 'background 1.5s ease-out',
       } : undefined}
     >
-      {/* Thread layout (owner choice, variant 3): avatar column with a visible thread line down to the replies,
-          header (name · badges · time · moderator), stage, text, then icon actions. */}
-      <div className="community-cmt">
-        <motion.button onClick={handleAvatarClick} disabled={comment.is_anonymous && !isAdmin} whileTap={{ scale: 0.94 }} className="community-cmt-avatar">
-          <Avatar className={`${avatarSize} cursor-pointer`}>
+      {/* Instagram comment row (owner request 2026-11-11): avatar · [name time] / text / "Cavab ver" · heart+count on
+          the right. Own/admin edit and delete sit behind a long press or the small "…", not in the row. */}
+      <div className="ig-cmt" onContextMenu={(e) => { if (canManage) { e.preventDefault(); setActionsOpen(true); } }}
+        onPointerDown={startPress} onPointerUp={cancelPress} onPointerLeave={cancelPress} onPointerCancel={cancelPress}>
+        <motion.button onClick={handleAvatarClick} disabled={comment.is_anonymous && !isAdmin} whileTap={{ scale: 0.94 }} className="ig-cmt-avatar" tabIndex={-1} aria-hidden>
+          <Avatar className={isReply ? 'w-6 h-6' : 'w-8 h-8'}>
             <AvatarImage src={comment.author?.avatar_url || undefined} />
-            <AvatarFallback className={`bg-primary/10 text-primary font-bold ${isReply ? 'text-[10px]' : 'text-[12px]'}`}>
+            <AvatarFallback className={`bg-primary/10 text-primary font-bold ${isReply ? 'text-[9px]' : 'text-[11px]'}`}>
               {comment.author?.name?.charAt(0) || tr("common_initial_i", "İ")}
             </AvatarFallback>
           </Avatar>
         </motion.button>
 
-        <div className="flex-1 min-w-0">
-          {comment.is_pinned && <p className="community-cmt-pinned"><Pin size={11} />{moderatorText('pinned_comment', language)}</p>}
-          <div className="community-cmt-head">
-            <span className="community-cmt-who">
-            <motion.button
-              onClick={handleAvatarClick}
-              disabled={comment.is_anonymous && !isAdmin}
-              whileTap={{ scale: 0.98 }}
-              className="community-cmt-name">
-              {comment.author?.name || tr("commentreply_i_stifadeci_b6bdd6", "\u0130stifad\u0259\xE7i")}
+        <div className="ig-cmt-body">
+          <div className="ig-cmt-head">
+            <motion.button onClick={handleAvatarClick} disabled={comment.is_anonymous && !isAdmin} whileTap={{ scale: 0.98 }} className="ig-cmt-name">
+              {comment.author?.name || tr("commentreply_i_stifadeci_b6bdd6", "İstifadə\xE7i")}
             </motion.button>
-            {authorVerified && <span className="inline-flex"><VerifiedTick size={12} /></span>}
+            {authorVerified && <span className="inline-flex"><VerifiedTick size={11} /></span>}
             {!comment.is_anonymous && (authorBadge || comment.author?.is_premium) &&
-            <span className="inline-flex"><UserBadge type={authorBadge} premium={comment.author?.is_premium} /></span>
-            }
-            <span className="community-cmt-time">{timeAgo}</span>
-            </span>
-            <span className="community-comment-tools">
-              <ModeratorActionMenu target={{ kind: 'comment', id: comment.id, userId: comment.user_id, name: comment.author?.name, content: comment.content,
-                version: comment.moderation_version || 0, isPinned: !!comment.is_pinned, removed: !!comment.moderation_removed_at }} onDone={onRefetch} />
-            </span>
+            <span className="inline-flex ig-cmt-badge"><UserBadge type={authorBadge} premium={comment.author?.is_premium} /></span>}
+            <span className="ig-cmt-time">{timeAgo}</span>
+            {comment.is_pinned && <span className="ig-cmt-pinned"><Pin size={10} />{moderatorText('pinned_comment', language)}</span>}
+            {comment.moderation_edited_at && <span className="ig-cmt-time">· {moderatorText('edited_marker', language)}</span>}
           </div>
-          {authorLifeStage && <p className="community-cmt-stage" style={{ color: authorLifeStage.ink }}>{authorLifeStage.label}</p>}
-          {comment.moderation_edited_at && <p className="text-[11px] text-muted-foreground mt-0.5">{moderatorText('edited_marker', language)}</p>}
           {isEditing ?
           <div className="space-y-1.5 mt-1">
               {editImageUrl &&
@@ -228,56 +228,41 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
 
           <>
               {(comment.content || repliedToName) &&
-              <p className="community-comment-text" dir="auto">
-                {repliedToName && <span className="text-primary font-semibold">@{repliedToName} </span>}
+              <p className="ig-cmt-text" dir="auto">
+                {repliedToName && <span className="ig-cmt-mention">@{repliedToName} </span>}
                 <CommentText content={comment.content} allowLinks={comment.author?.can_share_links === true || ['admin', 'moderator'].includes(authorBadge || '')} />
               </p>
               }
               {comment.image_url && stickerFromImageUrl(comment.image_url) ?
-            <div style={{ marginTop: 4 }}><StickerImage id={stickerFromImageUrl(comment.image_url)!} size={108} /></div> :
+            <div style={{ marginTop: 4 }}><StickerImage id={stickerFromImageUrl(comment.image_url)!} size={96} /></div> :
             comment.image_url &&
-            <img loading="lazy" decoding="async"
-              src={comment.image_url}
-              alt=""
-              className="community-cmt-photo"
-              onClick={() => setImageViewerOpen(true)} />
+            <img loading="lazy" decoding="async" src={comment.image_url} alt="" className="ig-cmt-photo" onClick={() => setImageViewerOpen(true)} />
             }
+              <div className="ig-cmt-meta">
+                <button onClick={() => onReply(comment)} disabled={comment.id.startsWith('optimistic-')} aria-label={tr("commentreply_action_reply", "Cavab")} className="disabled:opacity-50">
+                  {tr("commentreply_action_reply", "Cavab")}
+                </button>
+                {canManage &&
+                <button onClick={() => setActionsOpen(true)} aria-label={tr('adminepoint_emeliyyatlar_54d70c', 'Əməliyyatlar')} className="ig-cmt-more"><MoreHorizontal size={15} /></button>}
+                <span className="ig-cmt-mod">
+                  <ModeratorActionMenu target={{ kind: 'comment', id: comment.id, userId: comment.user_id, name: comment.author?.name, content: comment.content,
+                    version: comment.moderation_version || 0, isPinned: !!comment.is_pinned, removed: !!comment.moderation_removed_at }} onDone={onRefetch} />
+                </span>
+              </div>
             </>
           }
-
-          {/* Actions: like · reply (with reply count on the root) · own edit … delete */}
-          {!isEditing &&
-          <div className="community-cmt-actions">
-              <motion.button onClick={handleLikeComment} whileTap={{ scale: 0.8 }} aria-label={tr("commentreply_beyen", "Bəyən")} aria-pressed={!!comment.is_liked}
-                className={comment.is_liked ? 'liked' : undefined}>
-                <Heart size={17} fill={comment.is_liked ? 'currentColor' : 'none'} />
-                {(comment.likes_count || 0) > 0 && <span>{comment.likes_count}</span>}
-              </motion.button>
-              <button onClick={() => onReply(comment)} disabled={comment.id.startsWith('optimistic-')} className="disabled:opacity-50">
-                <MessageCircle size={16} />
-                {!isReply && replies.length > 0 && <span>{replies.length}</span>}
-                <span className="community-cmt-reply">{tr("commentreply_action_reply", "Cavab")}</span>
-              </button>
-              {isOwnComment && !stickerFromImageUrl(comment.image_url) &&
-            <button
-              onClick={() => { setEditContent(comment.content); setEditImageUrl(comment.image_url); setIsEditing(true); }}
-              aria-label={tr('postcard_redakte_et_66cf3b', 'Redaktə et')}>
-                  <Pencil size={14} />
-                </button>
-            }
-              {(isAdmin || isOwnComment) &&
-            <button onClick={handleDelete} aria-label={tr('untranslated_sil_zwa7lz', 'Sil')} className="community-cmt-delete">
-                  <Trash2 size={14} />
-                </button>
-            }
-            </div>
-          }
         </div>
+
+        <motion.button onClick={handleLikeComment} whileTap={{ scale: 0.75 }} className={`ig-cmt-like${comment.is_liked ? ' on' : ''}`}
+          aria-label={tr("commentreply_beyen", "Bəyən")} aria-pressed={!!comment.is_liked}>
+          <Heart size={14} fill={comment.is_liked ? 'currentColor' : 'none'} strokeWidth={2} />
+          {(comment.likes_count || 0) > 0 && <span>{comment.likes_count}</span>}
+        </motion.button>
       </div>
 
-      {/* "N cavab göstər/gizlə" — once, for the root comment */}
+      {/* "—— N cavaba bax" / "—— Cavabları gizlə" */}
       {!isReply && replies.length > 0 &&
-      <button onClick={() => setShowReplies(!showReplies)} className="community-cmt-toggle">
+      <button onClick={() => setShowReplies(!showReplies)} className="ig-cmt-toggle">
           <span aria-hidden />
           {showReplies ?
         tr("commentreply_cavablari_gizle", "Cavabları gizlə") :
@@ -288,18 +273,28 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
 
       {moderatorRemove && <ModeratorActionDialog target={{ kind: 'comment', id: comment.id, userId: comment.user_id, name: comment.author?.name, content: comment.content }}
         action="remove" onClose={() => setModeratorRemove(false)} onDone={onRefetch} />}
-      <AnimatePresence>
-        {!isReply && showReplies && replies.length > 0 &&
-        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
-            {/* The thread line: a thick rail under the root avatar that runs past every reply */}
-            <div className="community-cmt-thread">
-              {replies.map((reply) =>
-            <CommentReply key={reply.id} comment={reply} postId={postId} allComments={allComments} onReply={onReply} onRefetch={onRefetch} onUserClick={onUserClick} isReply rootId={effectiveRootId} highlightCommentId={highlightCommentId} />
-            )}
-            </div>
-          </motion.div>
-        }
-      </AnimatePresence>
+      {!isReply && showReplies && replies.length > 0 &&
+      <div className="ig-cmt-replies">
+          {replies.map((reply) =>
+        <CommentReply key={reply.id} comment={reply} postId={postId} allComments={allComments} onReply={onReply} onRefetch={onRefetch} onUserClick={onUserClick} isReply rootId={effectiveRootId} highlightCommentId={highlightCommentId} />
+        )}
+        </div>
+      }
+
+      {/* Long-press actions: own comment edit/delete; admin delete */}
+      {actionsOpen && createPortal(
+        <div className="ig-actions-backdrop" onClick={() => setActionsOpen(false)}>
+          <div className="ig-actions" role="menu" onClick={(e) => e.stopPropagation()}>
+            {isOwnComment && !stickerFromImageUrl(comment.image_url) &&
+            <button role="menuitem" onClick={() => { setActionsOpen(false); setEditContent(comment.content); setEditImageUrl(comment.image_url); setIsEditing(true); }}>
+                <Pencil size={18} />{tr('postcard_redakte_et_66cf3b', 'Redaktə et')}
+              </button>}
+            <button role="menuitem" className="danger" onClick={() => { setActionsOpen(false); void handleDelete(); }}>
+              <Trash2 size={18} />{tr('untranslated_sil_zwa7lz', 'Sil')}
+            </button>
+            <button role="menuitem" className="cancel" onClick={() => setActionsOpen(false)}>{tr('postcard_legv_et_b5e49c', 'Ləğv et')}</button>
+          </div>
+        </div>, document.body)}
 
       {/* Şərh şəkli — in-app lightbox */}
       {imageViewerOpen && comment.image_url && !stickerFromImageUrl(comment.image_url) &&

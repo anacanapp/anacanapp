@@ -1937,103 +1937,68 @@
   color: #e05575;
 }
 
-.community-comment-text {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--a-ink);
-  overflow-wrap: anywhere;
-  white-space: pre-wrap;
-}
+/* ── Post comments: Instagram pattern (owner request 2026-11-11) ──────────────────────────────────
+   Bottom sheet with a grab handle and centred title; rows are avatar · [name time] / text / "Cavab" with
+   the heart and count on the right; replies fold under "—— N cavab"; emoji row + pill composer at the foot. */
+.ig-sheet-backdrop { position: fixed; inset: 0; z-index: 300; background: rgba(0, 0, 0, .45); display: flex; align-items: flex-end; justify-content: center; }
+.ig-sheet { width: 100%; max-width: 640px; height: min(88dvh, 88vh); background: var(--a-surface); color: var(--a-ink); border-radius: 16px 16px 0 0; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 -10px 40px -20px rgba(0, 0, 0, .5); }
+.ig-sheet-grab { flex-shrink: 0; padding: 8px 0 10px; border-bottom: 1px solid var(--a-line); touch-action: none; cursor: grab; }
+.ig-sheet-handle { display: block; width: 40px; height: 4px; border-radius: 4px; background: var(--a-ink-faint); margin: 0 auto 10px; opacity: .7; }
+.ig-sheet-title { text-align: center; font-size: 15px; font-weight: 700; margin: 0; }
+.ig-sheet-list { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 14px 16px 8px; display: flex; flex-direction: column; gap: 18px; -webkit-overflow-scrolling: touch; }
+.ig-sheet-empty { margin: auto; text-align: center; font-size: 14px; color: var(--a-ink-soft); }
+.ig-sheet-foot { flex-shrink: 0; border-top: 1px solid var(--a-line); padding: 6px 12px calc(10px + env(safe-area-inset-bottom)); background: var(--a-surface); }
 
-/* Comment thread (variant 3): avatar · header · stage · text · icon actions; replies hang off a thick rail. */
-.community-cmt { display: flex; gap: 10px; align-items: flex-start; min-width: 0; }
-.community-cmt-avatar { flex-shrink: 0; }
-.community-cmt-pinned { display: flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 800; color: var(--a-accent-ink); margin-bottom: 2px; }
-.community-cmt-head { display: flex; align-items: flex-start; gap: 6px; min-width: 0; }
-.community-cmt-who { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 5px; min-width: 0; flex: 1; padding-top: 2px; }
-.community-cmt-name { font-weight: 800; font-size: 14px; line-height: 1.35; color: var(--a-ink); min-width: 0; text-align: start; overflow-wrap: anywhere; }
-.community-cmt-time { font-size: 12.5px; color: var(--a-ink-faint); white-space: nowrap; flex-shrink: 0; }
-.community-cmt-stage { font-size: 11.5px; font-weight: 700; line-height: 1.3; }
-.community-cmt .community-comment-text { margin-top: 3px; font-size: 14.5px; line-height: 1.5; }
-.community-cmt-photo { display: block; margin-top: 8px; width: min(220px, 100%); aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; cursor: pointer; }
-.community-cmt-actions { display: flex; align-items: center; gap: 4px 16px; margin-top: 4px; color: var(--a-ink-soft); font-size: 12.5px; font-weight: 700; }
-.community-cmt-actions button { display: inline-flex; align-items: center; gap: 5px; min-height: 32px; white-space: nowrap; }
-.community-cmt-actions button.liked { color: #e05575; }
-.community-cmt-delete { margin-inline-start: auto; color: var(--a-ink-faint); }
-.community-cmt-delete:active { color: hsl(var(--destructive)); }
-.community-comment-tools { display: inline-flex; align-items: center; margin-inline-start: auto; flex-shrink: 0; }
-.community-comment-tools button { min-width: 32px !important; min-height: 32px !important; }
-.community-cmt-toggle { display: flex; align-items: center; gap: 10px; margin: 2px 0 0 46px; min-height: 30px; font-size: 12.5px; font-weight: 700; color: var(--a-ink-soft); }
-.community-cmt-toggle > span { width: 24px; height: 2px; border-radius: 2px; background: var(--a-thread-line, #eaa99b); }
-/* The rail starts under the 36px root avatar (centre 18px) and runs past every reply. */
-.community-cmt-thread { margin: 6px 0 0 16px; padding: 4px 0 2px 16px; border-inline-start: 3px solid var(--a-thread-line, #eaa99b); border-radius: 0 0 0 10px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-[dir="rtl"] .community-cmt-thread, [dir="rtl"] .community-cmt-toggle { margin-left: 0; }
-[dir="rtl"] .community-cmt-thread { margin-right: 16px; border-radius: 0 0 10px 0; }
-[dir="rtl"] .community-cmt-toggle { margin-right: 46px; }
-.dark .community-cmt-thread, .dark .community-cmt-toggle > span { --a-thread-line: rgba(255, 140, 120, .35); }
+.ig-cmt { display: flex; gap: 12px; align-items: flex-start; min-width: 0; -webkit-touch-callout: none; }
+.ig-cmt-avatar { flex-shrink: 0; }
+.ig-cmt-body { flex: 1; min-width: 0; }
+.ig-cmt-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; font-size: 12.5px; line-height: 1.35; }
+.ig-cmt-name { font-weight: 600; color: var(--a-ink); font-size: 12.5px; text-align: start; overflow-wrap: anywhere; }
+.ig-cmt-badge { transform: scale(.85); transform-origin: left center; }
+.ig-cmt-time { color: var(--a-ink-soft); white-space: nowrap; }
+.ig-cmt-pinned { display: inline-flex; align-items: center; gap: 3px; color: var(--a-ink-soft); white-space: nowrap; }
+.ig-cmt-text { margin: 1px 0 0; font-size: 14px; line-height: 1.42; color: var(--a-ink); overflow-wrap: anywhere; white-space: pre-wrap; }
+.ig-cmt-mention { color: var(--a-accent-ink); font-weight: 600; }
+.ig-cmt-photo { display: block; margin-top: 6px; width: min(200px, 100%); aspect-ratio: 4 / 5; object-fit: cover; border-radius: 10px; cursor: pointer; }
+.ig-cmt-meta { display: flex; align-items: center; gap: 14px; margin-top: 4px; font-size: 12px; font-weight: 600; color: var(--a-ink-soft); }
+.ig-cmt-meta > button { min-height: 24px; }
+.ig-cmt-more { display: inline-flex; align-items: center; color: var(--a-ink-faint); }
+.ig-cmt-mod button { min-width: 24px !important; min-height: 24px !important; }
+.ig-cmt-mod svg { width: 14px; height: 14px; }
+.ig-cmt-like { flex-shrink: 0; width: 28px; display: flex; flex-direction: column; align-items: center; gap: 2px; padding-top: 6px; color: var(--a-ink-soft); font-size: 11px; font-weight: 600; }
+.ig-cmt-like.on { color: #ff3040; }
+.ig-cmt-toggle { display: flex; align-items: center; gap: 12px; margin: 10px 0 0 44px; font-size: 12px; font-weight: 600; color: var(--a-ink-soft); }
+.ig-cmt-toggle > span { width: 24px; height: 1px; background: var(--a-ink-faint); }
+.ig-cmt-replies { margin: 14px 0 0 44px; display: flex; flex-direction: column; gap: 16px; }
+[dir="rtl"] .ig-cmt-toggle { margin: 10px 44px 0 0; }
+[dir="rtl"] .ig-cmt-replies { margin: 14px 44px 0 0; }
 
-.community-comment-composer {
-  width: 100%;
-  min-width: 0;
-  padding: 6px 8px 8px;
-  border: 1.5px solid var(--a-composer-frame, #f3b8ad);
-  border-radius: 20px;
-  background: var(--a-surface);
-  box-shadow: 0 6px 18px -14px rgba(158, 43, 46, .45);
-  scroll-margin-block: 90px;
-  transition: border-color .15s ease, box-shadow .15s ease;
-}
-.community-comment-composer:focus-within { border-color: var(--a-peach-2); box-shadow: 0 0 0 3px rgba(255, 90, 95, .14); }
-.dark .community-comment-composer { --a-composer-frame: rgba(255, 140, 120, .45); }
+.ig-emoji-row { display: flex; justify-content: space-between; padding: 4px 6px 8px; }
+.ig-emoji-row button { font-size: 24px; line-height: 1; padding: 4px; border-radius: 10px; }
+.ig-emoji-row button:active { transform: scale(.85); }
+.ig-reply-target { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 -12px 6px; padding: 8px 16px; background: var(--a-surface-soft); font-size: 13px; color: var(--a-ink-soft); }
+.ig-reply-target span { overflow-wrap: anywhere; min-width: 0; }
+.ig-reply-target button { flex-shrink: 0; padding: 4px; color: var(--a-ink-soft); }
+.ig-attach { position: relative; width: 56px; height: 56px; margin: 0 0 8px 44px; }
+.ig-attach img { width: 56px; height: 56px; border-radius: 10px; object-fit: cover; }
+.ig-attach button { position: absolute; top: -6px; inset-inline-end: -6px; width: 20px; height: 20px; border-radius: 999px; background: var(--a-ink); color: var(--a-bg); display: grid; place-items: center; }
+.ig-composer { display: flex; align-items: flex-end; gap: 10px; }
+.ig-composer-pill { flex: 1; min-width: 0; display: flex; align-items: flex-end; gap: 4px; border: 1px solid var(--a-line-strong); border-radius: 22px; padding: 2px 6px 2px 14px; background: var(--a-surface); }
+.ig-composer-pill:focus-within { border-color: var(--a-ink-faint); }
+.ig-composer-pill textarea { flex: 1; min-width: 0; min-height: 40px; max-height: 140px; padding: 9px 0; font-size: 16px; line-height: 1.4; border: 0; outline: none; resize: none; background: transparent; color: var(--a-ink); }
+.ig-composer-pill textarea::placeholder { color: var(--a-ink-soft); }
+.ig-composer-tools { display: flex; align-items: center; flex-shrink: 0; color: var(--a-ink); padding-bottom: 2px; }
+.ig-composer-tools button { width: 34px; height: 36px; display: grid; place-items: center; border-radius: 999px; }
+.ig-composer-tools button.on, .ig-composer-tools button[aria-pressed="true"] { color: var(--a-peach-2); }
+.ig-send { flex-shrink: 0; width: 40px; height: 40px; border-radius: 999px; display: grid; place-items: center; background: var(--a-peach-2); color: #fff; margin-bottom: 2px; }
+.ig-send:disabled { opacity: .35; }
+.ig-anon-note { display: flex; align-items: center; gap: 5px; margin: 6px 0 0 44px; font-size: 11.5px; color: var(--a-ink-soft); }
 
-.community-comment-composer textarea {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  min-height: 44px;
-  max-height: 180px;
-  font-size: 16px;
-  line-height: 1.5;
-  padding: 9px 10px;
-  resize: none;
-  border-radius: 12px;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  outline: none;
-}
-
-.community-composer-actions,
-.community-reply-target {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-}
-
-.community-composer-actions {
-  /* image · sticker · anonymous toggle (takes the rest, one line) · send */
-  display: grid;
-  grid-template-columns: 36px 36px minmax(0, 1fr) 36px;
-  align-items: center;
-  gap: 6px;
-  margin-top: 8px;
-}
-.community-composer-actions .a-tag {
-  justify-self: start;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 36px;
-  padding: 6px 12px;
-  white-space: nowrap;
-  font-size: 12px;
-  cursor: pointer;
-}
-.community-anon-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-.community-reply-target { justify-content: space-between; margin-bottom: 8px; font-size: 13px; color: var(--a-accent-ink); }
-.community-reply-target span { overflow-wrap: anywhere; min-width: 0; }
-.community-reply-target button { flex-shrink: 0; padding: 6px; }
+.ig-actions-backdrop { position: fixed; inset: 0; z-index: 340; background: rgba(0, 0, 0, .4); display: flex; align-items: flex-end; justify-content: center; }
+.ig-actions { width: 100%; max-width: 640px; background: var(--a-surface); border-radius: 16px 16px 0 0; padding: 8px 0 calc(10px + env(safe-area-inset-bottom)); }
+.ig-actions button { width: 100%; display: flex; align-items: center; gap: 14px; padding: 14px 20px; font-size: 15px; font-weight: 500; color: var(--a-ink); text-align: start; }
+.ig-actions button.danger { color: #ed4956; }
+.ig-actions button.cancel { justify-content: center; border-top: 1px solid var(--a-line); margin-top: 4px; color: var(--a-ink-soft); }
 
 .community-count-badge {
   position: absolute;
