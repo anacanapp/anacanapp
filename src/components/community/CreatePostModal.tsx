@@ -270,7 +270,7 @@ const CreatePostModal = ({ isOpen, onClose, groupId, groups }: CreatePostModalPr
                     {suggestions.map((suggestion, index) =>
                 <button key={`${suggestion.type}-${suggestion.value}-${index}`} onClick={() => applySuggestion(suggestion)}
                 className="w-full px-4 py-2.5 flex items-center gap-3 hover:bg-muted/50 transition-colors text-start">
-                        <div className="w-7 h-7 rounded-full bg-primary/8 flex items-center justify-center overflow-hidden">
+                        <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
                           {suggestion.type === 'user' && suggestion.avatar ?
                     <img src={suggestion.avatar} alt="" className="w-full h-full object-cover" /> :
                     suggestion.type === 'user' ?

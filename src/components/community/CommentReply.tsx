@@ -164,7 +164,7 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
         <motion.button onClick={handleAvatarClick} disabled={comment.is_anonymous && !isAdmin} whileTap={{ scale: 0.94 }} className="flex-shrink-0">
           <Avatar className={`${avatarSize} cursor-pointer`}>
             <AvatarImage src={comment.author?.avatar_url || undefined} />
-            <AvatarFallback className={`bg-primary/8 text-primary font-bold ${isReply ? 'text-[9px]' : 'text-[11px]'}`}>
+            <AvatarFallback className={`bg-primary/10 text-primary font-bold ${isReply ? 'text-[9px]' : 'text-[11px]'}`}>
               {comment.author?.name?.charAt(0) || tr("common_initial_i", "İ")}
             </AvatarFallback>
           </Avatar>
@@ -245,14 +245,15 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
           {/* Meta row: time · likes · reply · (own) edit · (admin/own) delete */}
           {!isEditing &&
           <div className="community-comment-meta">
-              <ModeratorActionMenu target={{ kind: 'comment', id: comment.id, userId: comment.user_id, name: comment.author?.name, content: comment.content,
-                version: comment.moderation_version || 0, isPinned: !!comment.is_pinned, removed: !!comment.moderation_removed_at }} onDone={onRefetch} />
-              {authorLifeStage &&
-              <span className="font-semibold" style={{ color: authorLifeStage.ink }}>
-                  {authorLifeStage.label}
-                </span>
-              }
-              <span>{timeAgo}</span>
+              {/* Line 1: who/when; line 2: likes · reply · edit … moderator + delete (same shape for every comment) */}
+              <span className="community-comment-when">
+                {authorLifeStage &&
+                <span className="font-semibold" style={{ color: authorLifeStage.ink }}>
+                    {authorLifeStage.label}
+                  </span>
+                }
+                <span>{timeAgo}</span>
+              </span>
               {(comment.likes_count || 0) > 0 &&
             <span className="font-semibold">
                   {comment.likes_count} {tr("commentreply_beyenme_sayi", "bəyənmə")}
@@ -269,11 +270,15 @@ const CommentReply = ({ comment, postId, allComments, onReply, onRefetch, onUser
                   <Pencil size={13} />
                 </button>
             }
-              {(isAdmin || isOwnComment) &&
-            <button onClick={handleDelete} aria-label={tr('untranslated_sil_zwa7lz', 'Sil')} className="text-destructive font-bold ms-auto flex items-center gap-1">
-                  <Trash2 size={13} />
-                </button>
-            }
+              <span className="community-comment-tools">
+                <ModeratorActionMenu target={{ kind: 'comment', id: comment.id, userId: comment.user_id, name: comment.author?.name, content: comment.content,
+                  version: comment.moderation_version || 0, isPinned: !!comment.is_pinned, removed: !!comment.moderation_removed_at }} onDone={onRefetch} />
+                {(isAdmin || isOwnComment) &&
+                <button onClick={handleDelete} aria-label={tr('untranslated_sil_zwa7lz', 'Sil')} className="text-destructive font-bold flex items-center gap-1">
+                    <Trash2 size={14} />
+                  </button>
+                }
+              </span>
             </div>
           }
 

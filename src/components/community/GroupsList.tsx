@@ -94,7 +94,7 @@ const GroupsList = ({ groups, memberGroupIds, onSelectGroup, searchQuery, isLoad
                     <div className="flex-shrink-0">
                       {isMember ?
                     <div className="flex items-center gap-1.5">
-                          <span className="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-primary/8 text-primary text-[10px] font-bold">
+                          <span className="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold">
                             <Check className="w-3 h-3" /> {tr("groupslist_uzv_6aa4f8", "\xDCzv")}
                           </span>
                           <ChevronRight className="rtl:rotate-180 w-4 h-4 text-muted-foreground/20" />

@@ -1956,6 +1956,12 @@
 }
 
 .community-comment-meta button { min-height: 30px; }
+.community-comment-meta > * { white-space: nowrap; }
+.community-comment-when { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; flex-basis: 100%; min-width: 0; }
+.community-comment-when > span { white-space: nowrap; }
+/* Moderator shield + delete stay together at the end of the footer, compact. */
+.community-comment-tools { display: inline-flex; align-items: center; gap: 2px; margin-inline-start: auto; }
+.community-comment-tools button { min-width: 32px; min-height: 32px; justify-content: center; }
 
 .community-comment-composer {
   width: 100%;
@@ -1991,20 +1997,24 @@
 }
 
 .community-composer-actions {
+  /* image · sticker · anonymous toggle (takes the rest, one line) · send */
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  grid-template-columns: 36px 36px minmax(0, 1fr) 36px;
+  align-items: center;
   gap: 6px;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 .community-composer-actions .a-tag {
+  justify-self: start;
+  max-width: 100%;
   min-width: 0;
   min-height: 36px;
-  justify-content: center;
-  padding: 6px;
-  white-space: normal;
+  padding: 6px 12px;
+  white-space: nowrap;
   font-size: 12px;
   cursor: pointer;
 }
+.community-anon-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .community-reply-target { justify-content: space-between; margin-bottom: 8px; font-size: 13px; color: var(--a-accent-ink); }
 .community-reply-target span { overflow-wrap: anywhere; min-width: 0; }
 .community-reply-target button { flex-shrink: 0; padding: 6px; }

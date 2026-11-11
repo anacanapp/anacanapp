@@ -255,7 +255,7 @@ const StoriesBar = ({ groupId, autoOpenStoryId, onAutoOpenConsumed }: StoriesBar
                   className="flex flex-col items-center gap-3 p-6 bg-gradient-to-br from-primary/5 to-accent/3 rounded-2xl border border-primary/8 active:border-primary/20 transition-all"
                   whileTap={{ scale: 0.96 }}>
                   
-                    <div className="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                       <ImageIcon className="w-5 h-5 text-primary/60" />
                     </div>
                     <span className="font-bold text-[12px] text-foreground">{tr("untranslated_qalereyadan_w37f0m", "Qalereyadan")}</span>

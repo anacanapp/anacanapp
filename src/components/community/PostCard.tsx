@@ -594,7 +594,7 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
                     <Sticker size={18} />
                   </button>
                   <button type="button" onClick={() => setCommentAnonymous((v) => !v)} disabled={uploadingCommentImage || createComment.isPending} aria-pressed={commentAnonymous} className={`a-tag${commentAnonymous ? ' on' : ''}`}>
-                    <EyeOff size={14} />{tr('postcard_anonim_olaraq_yaz_abc123', 'Anonim olaraq yaz')}
+                    <EyeOff size={14} /><span className="community-anon-label">{tr('postcard_anonim_olaraq_yaz_abc123', 'Anonim olaraq yaz')}</span>
                   </button>
                   <button
                   onClick={handleComment}
