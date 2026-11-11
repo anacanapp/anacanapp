@@ -1,0 +1,12 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261111140000_app_client_seen.sql",
+  "runtime": "google-app-update-centre",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls app_client_seen and checks its three triggers",
+  "relations": [
+    { "relation": "public.app_client_seen", "change": "created", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "one row per signed-in user: platform, reported app version (X-Anacan-Version or none), OS version, user agent; no IP; service role only" },
+    { "relation": "public.app_settings", "change": "row force_update reset to a clean disabled config", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "the live value was a character-spread object; already guarded" }
+  ]
+}
