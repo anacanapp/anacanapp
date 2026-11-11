@@ -1,0 +1,13 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261111110000_epoint_evidence_archive.sql",
+  "runtime": "google-epoint-evidence-archive",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls epoint_evidence_archive, adds capture triggers, back-fills paid payments",
+  "relations": [
+    { "relation": "public.epoint_evidence_archive", "change": "created", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "immutable evidence snapshot per Epoint payment (order, payment, delivery, consent) with SHA-256; service role only" },
+    { "relation": "public.book_orders", "change": "row trigger added (epoint_evidence_capture); schema unchanged", "cdc": true, "writer_guard": true, "pii": false, "note": "snapshot on paid_at / email_sent_at" },
+    { "relation": "public.web_premium_charges", "change": "row trigger added (epoint_evidence_capture); schema unchanged", "cdc": true, "writer_guard": true, "pii": false, "note": "snapshot on paid_at" },
+    { "relation": "public.cake_orders", "change": "row trigger added (epoint_evidence_capture); schema unchanged", "cdc": true, "writer_guard": true, "pii": false, "note": "snapshot on paid_at for card payments" }
+  ]
+}

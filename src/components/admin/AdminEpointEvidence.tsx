@@ -17,7 +17,10 @@ export interface Evidence {
   kind?: string; plan?: string; error?: string | null; period_start?: string | null; period_end?: string | null; subscription_status?: string;
   cancel_at_period_end?: boolean; cancelled_at?: string | null; ended_at?: string | null; card_mask?: string | null; card_saved_at?: string | null;
   payment_status?: string | null; delivery_date?: string | null; delivery_address?: string | null;
+  /** Saved snapshots (epoint_evidence_archive): taken automatically on payment and on PDF delivery. */
+  archive?: Array<{ captured_at: string; reason: 'paid' | 'delivered' | 'backfill'; sha256: string }>;
 }
+const ARCHIVE_REASON: Record<string, string> = { paid: 'ödəniş təsdiqi', delivered: 'PDF çatdırılması', backfill: 'ilkin arxiv' };
 
 const TYPE: Record<Evidence['type'], string> = { book: 'PDF kitab', premium: 'Premium abunəlik', cake: 'Tort sifarişi' };
 const STATUS: Record<string, [string, Tone]> = {
@@ -51,6 +54,8 @@ export function evidenceRows(e: Evidence): Array<[string, string]> {
       ['Abunəliyin statusu', (SUB[e.subscription_status ?? ''] ?? e.subscription_status ?? '—') + (e.cancelled_at ? ` · ləğv: ${dt(e.cancelled_at)}` : '')]);
   }
   if (e.type === 'cake') rows.push(['Ödəniş statusu', e.payment_status || '—'], ['Çatdırılma tarixi', e.delivery_date || '—'], ['Ünvan', e.delivery_address || '—']);
+  rows.push(['Saxlanmış sübut (arxiv)', e.archive?.length
+    ? e.archive.map((a) => `${dt(a.captured_at)} · ${ARCHIVE_REASON[a.reason] ?? a.reason} · SHA-256 ${a.sha256.slice(0, 16)}…`).join('\n') : 'Hələ yoxdur']);
   if (e.type !== 'cake') rows.push(['Alıcının razılığı', e.consent_at ? `${dt(e.consent_at)} · ${CONSENT[e.consent_version ?? ''] ?? e.consent_version}` : 'Qeyd yoxdur (razılıq qeydi 11.11.2026-dan saxlanır)']);
   return rows;
 }
@@ -59,7 +64,7 @@ const esc = (value: string) => value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;',
 
 /** Printable evidence page (one transaction), opened in a new window; the admin saves it as PDF. */
 export function evidenceHtml(e: Evidence): string {
-  const rows = evidenceRows(e).map(([k, v]) => `<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join('');
+  const rows = evidenceRows(e).map(([k, v]) => `<tr><th>${esc(k)}</th><td>${esc(v).replace(/\n/g, '<br>')}</td></tr>`).join('');
   const dl = e.downloads?.length ? `<h2>PDF yükləmələri</h2><table><tr><th>Vaxt</th><td><b>Kitab · kanal · IP · cihaz</b></td></tr>${e.downloads.map((d) =>
     `<tr><th>${esc(dt(d.at))}</th><td>${esc(`${d.book_id} · ${d.via === 'email_link' ? 'e-poçt linki' : 'hesabdan'} · ${d.ip ?? '—'} · ${(d.user_agent ?? '—').slice(0, 120)}`)}</td></tr>`).join('')}</table>` : '';
   return `<!doctype html><html lang="az"><meta charset="utf-8"><title>Epoint sübutu ${esc(e.provider_transaction || e.order_id)}</title><style>
@@ -79,7 +84,7 @@ function EvidenceCard({ e }: { e: Evidence }) {
   };
   return <Section title={`${TYPE[e.type]} · ${e.provider_transaction || e.order_id}`} actions={<><StatusPill tone={tone}>{label}</StatusPill>
     <Btn size="sm" onClick={print}><Printer size={14} />Sübut PDF</Btn></>} testId="epoint-evidence-card">
-    <DescriptionList items={evidenceRows(e)} />
+    <DescriptionList items={evidenceRows(e).map(([k, v]) => [k, <span key={k} className="whitespace-pre-line break-words">{v}</span>])} />
     {!!e.downloads?.length && <div className="mt-3 text-xs text-muted-foreground">
       {e.downloads.map((d) => <div key={d.at + d.book_id}>{dt(d.at)} · {d.book_id} · {d.via === 'email_link' ? 'e-poçt linki' : 'hesabdan'} · {d.ip ?? '—'}</div>)}
     </div>}

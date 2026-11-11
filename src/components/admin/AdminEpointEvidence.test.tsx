@@ -10,6 +10,7 @@ const book: Evidence = {
   created_at: '2026-11-05T12:01:00Z', paid_at: '2026-11-05T12:02:49Z', email: 'ana@example.com', name: 'Ana', user_id: 'u1', product: 'Fermada',
   channel: 'web', granted_at: '2026-11-05T12:02:49Z', email_sent_at: '2026-11-05T12:02:50Z', consent_at: '2026-11-05T12:01:00Z', consent_version: 'digital-delivery-v1',
   downloads: [{ at: '2026-11-05T12:05:00Z', book_id: '1_01', via: 'email_link', ip: '5.191.0.1', user_agent: 'Safari' }],
+  archive: [{ captured_at: '2026-11-05T12:02:49Z', reason: 'paid', sha256: 'a'.repeat(64) }],
 };
 
 describe('AdminEpointEvidence', () => {
@@ -19,6 +20,7 @@ describe('AdminEpointEvidence', () => {
     expect(rows['Status']).toBe('Ödənilib');
     expect(rows['PDF yükləmələri']).toMatch(/^1 dəfə/);
     expect(rows['Alıcının razılığı']).toMatch(/dərhal çatdırılmasına/);
+    expect(rows['Saxlanmış sübut (arxiv)']).toMatch(/ödəniş təsdiqi · SHA-256 aaaaaaaaaaaaaaaa/);
   });
   it('escapes buyer data in the printable page', () => {
     const html = evidenceHtml({ ...book, name: '<script>x</script>' });
