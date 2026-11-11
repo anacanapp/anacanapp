@@ -254,3 +254,15 @@ handoff-a daxil edilmir.
   `campaign:'1111'` (functions image `ba6d3524…`, script `functions-dodo-campaign.py`, env unchanged). Dodo funnel
   shows live prices $3.99/$29.99. Gateway `6518f8cb…` (plan `c1111i18n-web-plan.json`, rollback
   `rollback-c1111i18n-web-plan.json` → `6edca313…`).
+
+## Epoint compliance evidence (2026-11-11)
+- Book checkout (website `src/website/Shop.tsx`, app `BookStoreScreen` CartSheet) requires the digital-delivery
+  consent (`digital-delivery-v1`, Terms 6.6); `web-shop` refuses website book orders without it and stores
+  `book_orders.consent_at/consent_version`. Premium pages send `premium-autorenew-v1`, stored on the subscription.
+- `book-download` logs every PDF hand-out in `book_download_events` (time, email link or account, IP, user agent).
+- Admin → "Epoint sübutu" (`AdminEpointEvidence`, RPC `admin_epoint_evidence_v1`): search by Epoint transaction,
+  order ID or e-mail; "Sübut PDF" prints one transaction's evidence. Migration `20261111090000_epoint_evidence.sql`.
+- Site phone +994 10 321 65 07 (`SITE_PHONE` in `src/website/components.tsx`): contact page and footer.
+- Live: website runtime `98bd1884…`, gateway (site + app) `c4f8372e…` (plan `appev-web-plan.json`, rollbacks
+  `rollback-appev-web-plan.json`, `rollback-compl-web-plan.json`, `website-runtime-plan.before-compl.json`),
+  functions `2d74b24b…` (`functions-compliance.py`, previous `7ce98857…`).
