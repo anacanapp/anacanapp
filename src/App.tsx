@@ -92,6 +92,9 @@ const persistOptions = {
 // transform/layout animasiyalarını atlayır. Digər cihazlarda sistem "reduce motion" ayarına hörmət edilir.
 const LITE_DEVICE = isLowEndDevice();
 if (LITE_DEVICE && typeof document !== 'undefined') document.documentElement.classList.add('a-lite');
+// Android WebView repaints backdrop-filter under fixed bars on every scroll frame; mid-range phones (e.g. Samsung A51,
+// 8 cores, so not "lite") froze with the glass nav. Fixed glass surfaces get a solid fill on Android instead.
+if (typeof document !== 'undefined' && /Android/i.test(navigator.userAgent)) document.documentElement.classList.add('a-noblur');
 
 // Initialize RevenueCat on app startup
 initRevenueCat().catch(console.error);

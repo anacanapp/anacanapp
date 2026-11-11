@@ -24,10 +24,10 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
   const { unreadCount } = useUnreadMessages();
   const { unreadCount: communityUnread } = useUnreadCommunityPosts();
   const hiddenForChat = useChatChromeHidden();
-  // Test: floating dark capsule. app_settings.bottom_nav_style = 'classic' brings back the previous pill
-  // without a new build.
+  // Test: floating glass capsule, only when app_settings.bottom_nav_style is 'capsule'. The default (also while
+  // settings load) is the classic pill, which has no backdrop blur.
   const navStyle = useAppSetting('bottom_nav_style');
-  const capsule = navStyle !== 'classic';
+  const capsule = navStyle === 'capsule';
   const { profile } = useAuth();
   const avatarUrl = (profile as { avatar_url?: string | null } | null)?.avatar_url || null;
   const initial = ((profile as { name?: string | null } | null)?.name || '').trim().charAt(0).toUpperCase();

@@ -2540,6 +2540,15 @@ html.a-lite *, html.a-lite *::before, html.a-lite *::after {
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }
+/* Android: no backdrop blur anywhere (repaint cost on every scroll frame); glass surfaces become near-opaque. */
+html.a-noblur *, html.a-noblur *::before, html.a-noblur *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html.a-noblur .a-nav.capsule { --nav-glass: rgba(255, 255, 255, 0.96); }
+html.a-noblur.dark .a-nav.capsule, html.a-noblur .dark .a-nav.capsule { --nav-glass: rgba(28, 26, 30, 0.96); }
+html.a-noblur .glass { background: rgba(255, 255, 255, 0.97); }
+html.a-noblur .dark .glass, html.a-noblur.dark .glass { background: rgba(59, 60, 65, 0.97); }
 html.a-lite .animate-pulse, html.a-lite .animate-ping, html.a-lite .animate-bounce, html.a-lite .animate-shimmer {
   animation-iteration-count: 3 !important;
 }
