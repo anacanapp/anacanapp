@@ -551,7 +551,20 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
             className="overflow-hidden"
             style={{ borderTop: '1px solid var(--a-line)', marginTop: 12 }}>
             
-              <div className="space-y-3" style={{ paddingTop: 12 }}>
+              <div className="space-y-4" style={{ paddingTop: 12 }}>
+                {commentsLoading ?
+              <div className="text-center py-4">
+                    <div className="w-5 h-5 rounded-full animate-spin mx-auto" style={{ border: '2px solid var(--a-peach-2)', borderTopColor: 'transparent' }} />
+                  </div> :
+              topLevelComments.length === 0 ?
+              <p className="a-list-sub text-center" style={{ padding: '16px 0', margin: 0 }}>{tr("postcard_hele_serh_yoxdur_89ce09", "Hələ şərh yoxdur 💭")}</p> :
+
+              <div className="space-y-4">
+                    {topLevelComments.map((comment) =>
+                <CommentReply key={comment.id} comment={comment} postId={post.id} allComments={comments} onReply={handleReply} onRefetch={refetchComments} onUserClick={onUserClick} highlightCommentId={highlightCommentId} />
+                )}
+                  </div>
+              }
                 <div ref={composerRef} className="community-comment-composer" data-reply-to={replyTo?.id || ''}>
                   {replyTo && <div className="community-reply-target">
                     <span>{tr('community_replying_to', '{name} üçün cavab').replace('{name}', replyTo.name)}</span>
@@ -607,19 +620,6 @@ const PostCard = memo(({ post, groupId, onUserClick, forceShowComments, highligh
                 </div>
                 {showStickers && <StickerPicker onPick={(id) => void handleSticker(id)} onClose={() => setShowStickers(false)} disabled={createComment.isPending} />}
                 </div>
-                {commentsLoading ?
-              <div className="text-center py-4">
-                    <div className="w-5 h-5 rounded-full animate-spin mx-auto" style={{ border: '2px solid var(--a-peach-2)', borderTopColor: 'transparent' }} />
-                  </div> :
-              topLevelComments.length === 0 ?
-              <p className="a-list-sub text-center" style={{ padding: '16px 0', margin: 0 }}>{tr("postcard_hele_serh_yoxdur_89ce09", "Hələ şərh yoxdur 💭")}</p> :
-
-              <div className="space-y-2">
-                    {topLevelComments.map((comment) =>
-                <CommentReply key={comment.id} comment={comment} postId={post.id} allComments={comments} onReply={handleReply} onRefetch={refetchComments} onUserClick={onUserClick} highlightCommentId={highlightCommentId} />
-                )}
-                  </div>
-              }
               </div>
             </motion.div>
           }

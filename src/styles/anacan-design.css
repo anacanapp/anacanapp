@@ -1945,33 +1945,46 @@
   white-space: pre-wrap;
 }
 
-.community-comment-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 12px;
-  margin-top: 5px;
-  font-size: 12px;
-  color: var(--a-ink-soft);
-}
-
-.community-comment-meta button { min-height: 30px; }
-.community-comment-meta > * { white-space: nowrap; }
-.community-comment-when { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; flex-basis: 100%; min-width: 0; }
-.community-comment-when > span { white-space: nowrap; }
-/* Moderator shield + delete stay together at the end of the footer, compact. */
-.community-comment-tools { display: inline-flex; align-items: center; gap: 2px; margin-inline-start: auto; }
-.community-comment-tools button { min-width: 32px; min-height: 32px; justify-content: center; }
+/* Comment thread (variant 3): avatar · header · stage · text · icon actions; replies hang off a thick rail. */
+.community-cmt { display: flex; gap: 10px; align-items: flex-start; min-width: 0; }
+.community-cmt-avatar { flex-shrink: 0; }
+.community-cmt-pinned { display: flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 800; color: var(--a-accent-ink); margin-bottom: 2px; }
+.community-cmt-head { display: flex; align-items: flex-start; gap: 6px; min-width: 0; }
+.community-cmt-who { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 5px; min-width: 0; flex: 1; padding-top: 2px; }
+.community-cmt-name { font-weight: 800; font-size: 14px; line-height: 1.35; color: var(--a-ink); min-width: 0; text-align: start; overflow-wrap: anywhere; }
+.community-cmt-time { font-size: 12.5px; color: var(--a-ink-faint); white-space: nowrap; flex-shrink: 0; }
+.community-cmt-stage { font-size: 11.5px; font-weight: 700; line-height: 1.3; }
+.community-cmt .community-comment-text { margin-top: 3px; font-size: 14.5px; line-height: 1.5; }
+.community-cmt-photo { display: block; margin-top: 8px; width: min(220px, 100%); aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; cursor: pointer; }
+.community-cmt-actions { display: flex; align-items: center; gap: 4px 16px; margin-top: 4px; color: var(--a-ink-soft); font-size: 12.5px; font-weight: 700; }
+.community-cmt-actions button { display: inline-flex; align-items: center; gap: 5px; min-height: 32px; white-space: nowrap; }
+.community-cmt-actions button.liked { color: #e05575; }
+.community-cmt-delete { margin-inline-start: auto; color: var(--a-ink-faint); }
+.community-cmt-delete:active { color: hsl(var(--destructive)); }
+.community-comment-tools { display: inline-flex; align-items: center; margin-inline-start: auto; flex-shrink: 0; }
+.community-comment-tools button { min-width: 32px !important; min-height: 32px !important; }
+.community-cmt-toggle { display: flex; align-items: center; gap: 10px; margin: 2px 0 0 46px; min-height: 30px; font-size: 12.5px; font-weight: 700; color: var(--a-ink-soft); }
+.community-cmt-toggle > span { width: 24px; height: 2px; border-radius: 2px; background: var(--a-thread-line, #eaa99b); }
+/* The rail starts under the 36px root avatar (centre 18px) and runs past every reply. */
+.community-cmt-thread { margin: 6px 0 0 16px; padding: 4px 0 2px 16px; border-inline-start: 3px solid var(--a-thread-line, #eaa99b); border-radius: 0 0 0 10px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+[dir="rtl"] .community-cmt-thread, [dir="rtl"] .community-cmt-toggle { margin-left: 0; }
+[dir="rtl"] .community-cmt-thread { margin-right: 16px; border-radius: 0 0 10px 0; }
+[dir="rtl"] .community-cmt-toggle { margin-right: 46px; }
+.dark .community-cmt-thread, .dark .community-cmt-toggle > span { --a-thread-line: rgba(255, 140, 120, .35); }
 
 .community-comment-composer {
   width: 100%;
   min-width: 0;
-  padding: 8px;
-  border: 1px solid var(--a-line-strong);
-  border-radius: 18px;
-  background: var(--a-surface-soft);
+  padding: 6px 8px 8px;
+  border: 1.5px solid var(--a-composer-frame, #f3b8ad);
+  border-radius: 20px;
+  background: var(--a-surface);
+  box-shadow: 0 6px 18px -14px rgba(158, 43, 46, .45);
   scroll-margin-block: 90px;
+  transition: border-color .15s ease, box-shadow .15s ease;
 }
+.community-comment-composer:focus-within { border-color: var(--a-peach-2); box-shadow: 0 0 0 3px rgba(255, 90, 95, .14); }
+.dark .community-comment-composer { --a-composer-frame: rgba(255, 140, 120, .45); }
 
 .community-comment-composer textarea {
   display: block;
@@ -1985,7 +1998,10 @@
   padding: 9px 10px;
   resize: none;
   border-radius: 12px;
-  background: var(--a-surface);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  outline: none;
 }
 
 .community-composer-actions,
