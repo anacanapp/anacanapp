@@ -270,3 +270,6 @@ handoff-a daxil edilmir.
   snapshot of every Epoint payment, taken by row triggers when `paid_at` is set (book_orders, web_premium_charges,
   cake_orders) and when a PDF order's `email_sent_at` is set; past payments back-filled (2 books, 4 Premium).
   Trigger errors only raise a warning. Admin card shows the snapshots. App gateway `3a9ce7b0…` (plan `apparch-web-plan.json`).
+- 2026-11-11: Anacan AI Premium-only (`free_limits.ai_chat_count_per_day` = 0; paywall on entry), Instagram-style
+  comment sheet, Community search removed. App gateway `b2c2256d…` (plan `appig-web-plan.json`, rollback
+  `rollback-appig-web-plan.json` to `3a9ce7b0…`).
