@@ -95,10 +95,10 @@ App-in bloq siyahısı (`select=*`, 200 post) bütün 23 dilin mətnini qaytarı
 cache-ə yazmağa çalışırdı; localStorage limiti (~5 MB) aşılırdı və sync persister hər sorğunu bir-bir silib bütün
 cache-i yenidən serializasiya edirdi: Samsung A51-də 24 saniyəyə qədər donma (ölçülüb: Chromium, CPU 6x).
 
-- `anacan-blog-projection` (image `21aa6aae…`, əvvəlki `bd71760c…`; plan `blog-langtrim-plan.json`, rollback
-  `rollback-blog-langtrim-plan.json`): çağıranın JWT-si ilə `user_preferences.language` oxunur (RLS PostgREST-də
-  qalır, 60 s cache) və yalnız app-in həmin dil üçün fallback zənciri saxlanılır (`content/title/excerpt_<dil>`,
-  `editorial_metadata.locales`). az: 16.7 → 1.6 MB. Token/dil yoxdursa (sayt, admin `source-v1`) cavab dəyişmir.
+- `anacan-blog-projection` (image `1d4521cd…`, əvvəlki `21aa6aae…`/`bd71760c…`; plan `blog-langtrim2-plan.json`, rollback
+  `rollback-blog-langtrim2-plan.json`): çağıranın JWT-si ilə `user_preferences.language` oxunur (RLS PostgREST-də
+  qalır, 60 s cache) və hər sətirdə app-in göstərəcəyi tək sütun (zəncirdə ilk dolu olan) + baza sahə saxlanılır (`content/title/excerpt_<dil>`,
+  `editorial_metadata.locales`: dil + az). Bütün 23 dil: 16.6 → 1.4–2.0 M simvol; app-in göstərdiyi mətn eynidir (mapRowTranslation ilə yoxlanılıb). Token/dil yoxdursa (sayt, admin `source-v1`) cavab dəyişmir.
   Mənbə: `ops/blog-projection/language-trim.mjs`, `proxy.mjs`.
 - App (növbəti build): `compactBlogPost` cache-də yalnız aktiv dili saxlayır; cache arxa fona keçəndə yazılır
   (`src/lib/deferred-persister.ts`).

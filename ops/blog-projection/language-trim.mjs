@@ -18,18 +18,36 @@ export function keepLanguages(language) {
   return new Set([language, 'az']);
 }
 
+// The app's fallback order per language (src/lib/tr.ts mapRowTranslation). For the "new" languages the app may
+// use a bundled client-side translation between the own column and English; that comes from the app, not this row.
+function chain(field, language) {
+  const f = (code) => code ? `${field}_${code}` : field;
+  if (language === 'az') return [f('az'), f()];
+  if (NEW_LANGS.has(language)) return [f(language), f('en'), f('az'), f()];
+  if (language === 'kk' || language === 'uz' || language === 'ka') return [f(language), f('ru'), f(), f('az')];
+  if (language === 'de' || language === 'ar') return [f(language), f('en'), f(), f('az')];
+  return [f(language), f(), f('az')];
+}
+
+/** Keeps, per row and field, only the column the app will display (first non-null in its chain) plus the base
+ *  field. Other translation columns and other editorial locales are dropped. */
 export function trimRow(row, keep, language) {
   if (!keep || !row || typeof row !== 'object' || Array.isArray(row)) return row;
+  const chosen = new Set();
+  for (const field of ['content', 'title', 'excerpt']) {
+    const key = chain(field, language).find((k) => Object.prototype.hasOwnProperty.call(row, k) && row[k] !== null && row[k] !== undefined);
+    if (key) chosen.add(key);
+  }
   const out = {};
   for (const [key, value] of Object.entries(row)) {
     const m = TRANSLATED.exec(key);
-    if (m && LANGS.includes(m[2]) && !keep.has(m[2])) continue;
+    if (m && LANGS.includes(m[2]) && !chosen.has(key)) continue;
     out[key] = value;
   }
   const meta = row.editorial_metadata;
   if (meta && typeof meta === 'object' && !Array.isArray(meta) && meta.locales && typeof meta.locales === 'object') {
     const locales = {};
-    for (const [code, value] of Object.entries(meta.locales)) if (code === language || code === 'az' || keep.has(code)) locales[code] = value;
+    for (const [code, value] of Object.entries(meta.locales)) if (code === language || code === 'az') locales[code] = value;
     out.editorial_metadata = { ...meta, locales };
   }
   return out;
