@@ -38,6 +38,9 @@ export function clearPersistedQueryCache(storage?: Pick<Storage, 'removeItem'> |
   } catch { /* private mode / bloklanmış storage */ }
 }
 
+/** When the cache was last cleared (logout/account switch); deferred writes captured before this are dropped. */
+export function getPersistClearedAt(): number { return clearedAt; }
+
 /** Testlər üçün. */
 export function resetPersistClearMarkForTests(): void { clearedAt = 0; }
 

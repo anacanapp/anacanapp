@@ -5,8 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient } from "@tanstack/react-query";
-import { PersistQueryClientProvider, removeOldestQuery } from "@tanstack/react-query-persist-client";
-import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
+import { createDeferredStoragePersister } from "@/lib/deferred-persister";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "next-themes";
@@ -65,13 +65,11 @@ const queryClient = new QueryClient({
   }
 });
 
-const persister = createSyncStoragePersister({
+// Cache is written when the app goes to the background (and at most every 2 min when idle), never while the user
+// scrolls or navigates: serialising a multi-MB cache every 10 s froze mid-range Android phones.
+const persister = createDeferredStoragePersister({
   storage: typeof window !== 'undefined' ? window.localStorage : undefined,
   key: 'anacan-rq-cache',
-  // Böyük cache-in tez-tez serializasiyası zəif cihazlarda main thread-i bloklayır
-  throttleTime: 10_000,
-  // localStorage dolarsa ən köhnə sorğunu silib yenidən cəhd et
-  retry: removeOldestQuery
 });
 
 const persistOptions = {
@@ -90,11 +88,14 @@ const persistOptions = {
 // Zəif cihazlarda (≤4 nüvə / ≤4GB RAM) ağır effektlər söndürülür: CSS `html.a-lite`
 // qaydaları backdrop-filter/sonsuz CSS animasiyaları dayandırır, framer-motion isə
 // transform/layout animasiyalarını atlayır. Digər cihazlarda sistem "reduce motion" ayarına hörmət edilir.
-const LITE_DEVICE = isLowEndDevice();
+// Android phones also get the light mode (no endless animations or blur, simpler transitions): a mid-range Samsung
+// A51 (8 cores, so not 'low end' by the numbers) stuttered on scroll and screen changes.
+const IS_ANDROID = typeof navigator !== 'undefined' && /Android/i.test(navigator.userAgent);
+const LITE_DEVICE = isLowEndDevice() || IS_ANDROID;
 if (LITE_DEVICE && typeof document !== 'undefined') document.documentElement.classList.add('a-lite');
 // Android WebView repaints backdrop-filter under fixed bars on every scroll frame; mid-range phones (e.g. Samsung A51,
 // 8 cores, so not "lite") froze with the glass nav. Fixed glass surfaces get a solid fill on Android instead.
-if (typeof document !== 'undefined' && /Android/i.test(navigator.userAgent)) document.documentElement.classList.add('a-noblur');
+if (IS_ANDROID && typeof document !== 'undefined') document.documentElement.classList.add('a-noblur');
 
 // Initialize RevenueCat on app startup
 initRevenueCat().catch(console.error);
