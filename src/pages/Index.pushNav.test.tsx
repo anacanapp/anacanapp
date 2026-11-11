@@ -26,6 +26,7 @@ vi.mock('@/hooks/useAppSettings', () => ({ useAppSetting: () => false }));
 vi.mock('@/hooks/useDeviceToken', () => ({ useDeviceToken: () => {} }));
 vi.mock('@/hooks/usePendingTimerStops', () => ({ usePendingTimerStops: () => {} }));
 vi.mock('@/hooks/useForceUpdate', () => ({ useForceUpdate: () => ({ forceUpdate: null, isLoading: false }) }));
+vi.mock('@/hooks/useAppUpdate', () => ({ useAppUpdate: () => ({ decision: null, currentVersion: null, forceRequired: false, showSheet: false, showBanner: false, later: () => {}, openStore: () => {} }) }));
 vi.mock('@/hooks/useUserBlock', () => ({ useActiveBlock: () => ({ data: null }) }));
 vi.mock('@/hooks/useConsentGate', () => ({ useConsentGate: () => ({ status: 'skip', consent: null, markAccepted: () => {} }) }));
 vi.mock('@/components/consent/AiConsentGate', () => ({ default: ({ children }: any) => children }));

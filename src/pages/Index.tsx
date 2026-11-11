@@ -28,6 +28,7 @@ import { useAppSetting } from '@/hooks/useAppSettings';
 import { useDeviceToken } from '@/hooks/useDeviceToken';
 import { usePendingTimerStops } from '@/hooks/usePendingTimerStops';
 import { useForceUpdate } from '@/hooks/useForceUpdate';
+import { useAppUpdate } from '@/hooks/useAppUpdate';
 import { useActiveBlock } from '@/hooks/useUserBlock';
 import BlockedScreen from '@/components/BlockedScreen';
 import CountryGate from '@/components/CountryGate';
@@ -126,6 +127,8 @@ const QaygiCashScreen = lazy(() => import('@/components/qaygicash/QaygiCashScree
 const RecapScreen = lazy(() => import('@/components/recap/RecapScreen'));
 // Module scope: a lazy() created during render is a new component type every render.
 const ForceUpdateScreen = lazy(() => import('@/components/ForceUpdateScreen'));
+const AppUpdateSheet = lazy(() => import('@/components/appUpdate/AppUpdateSheet'));
+const AppUpdateBanner = lazy(() => import('@/components/appUpdate/AppUpdateBanner'));
 const ConsentGateScreen = lazy(() => import('@/components/consent/ConsentGateScreen'));
 const AiConsentGate = lazy(() => import('@/components/consent/AiConsentGate'));
 
@@ -277,6 +280,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     else if (screen === 'ad_preferences') setActiveScreen('ad-preferences');
   }, [isAdmin, profileLoaded, setActiveScreen]);
   const { forceUpdate, updateRequired, isLoading: forceUpdateLoading } = useForceUpdate();
+  // Update centre (rules per platform, version and language): force screen, soft sheet or home banner.
+  const appUpdate = useAppUpdate((profile as { country_code?: string | null } | null)?.country_code);
   // Moderasiya: tam blok (block_type='full') → tətbiq əvəzinə blok ekranı
   const { data: activeBlock } = useActiveBlock();
   // Premium onboarding (funnel ilə) — app_settings ilə idarə olunur; setting yoxdursa AKTİVDİR
@@ -705,6 +710,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         return (
           <motion.div key="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <AdSurface id="home_banner" />
+            {appUpdate.showBanner && appUpdate.decision && <div className="px-4 pt-2"><Suspense fallback={null}><AppUpdateBanner decision={appUpdate.decision} onUpdate={appUpdate.openStore} /></Suspense></div>}
             <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={navigateScreen} onOpenAssistant={() => setActiveTab('ai')} />
           </motion.div>
         );
@@ -798,7 +804,18 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     return <StartupScreen />;
   }
 
-  // Force Update check
+  // Update centre: a forced rule blocks the app (texts in the user's language).
+  if (appUpdate.forceRequired && appUpdate.decision) {
+    const d = appUpdate.decision;
+    return (
+      <Suspense fallback={suspenseFallback}><ErrorBoundary key="app-update-force">
+        <ForceUpdateScreen title={d.title} message={d.body} buttonLabel={d.button} currentVersion={appUpdate.currentVersion}
+          androidUrl={d.store_url} iosUrl={d.store_url} />
+      </ErrorBoundary></Suspense>
+    );
+  }
+
+  // Legacy force_update (manual admin switch; also what builds before the update centre read)
   if (!forceUpdateLoading && updateRequired && forceUpdate) {
     return (
       <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}>
@@ -1008,6 +1025,11 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     >
       {/* App Rating Prompt */}
       <AppRatingPrompt />
+
+      {/* Update centre: soft update sheet (once per its frequency; "Later" leaves a home banner) */}
+      {appUpdate.showSheet && appUpdate.decision &&
+        <Suspense fallback={null}><AppUpdateSheet decision={appUpdate.decision} currentVersion={appUpdate.currentVersion}
+          onUpdate={() => { appUpdate.later(); appUpdate.openStore(); }} onLater={appUpdate.later} /></Suspense>}
       
       {/* SOS / Doğuş siqnalı qəbuledicisi — bağlı olan HƏR İKİ tərəf üçün */}
       {profile?.linked_partner_id &&
