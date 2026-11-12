@@ -148,6 +148,7 @@ export default function RecapScreen({ onBack }: { onBack: () => void }) {
     else if (clock.current.playing) { try { audio.currentTime = now(); } catch { /* ignore */ } void audio.play().catch(() => setMuted(true)); }
   };
 
+  const canRecord = recordingSupported();
   const brandLabel = ['Anacan Recap', model?.year ?? RECAP_YEAR].join(' ');
   const baseName = `anacan-recap-${model?.year ?? RECAP_YEAR}`;
   const shareText = fillRecap(rt('recap_share_text'), { year: model?.year ?? RECAP_YEAR });
@@ -168,7 +169,9 @@ export default function RecapScreen({ onBack }: { onBack: () => void }) {
       if (outcome !== 'cancelled') { setNotice(rt('recap_saved')); void logEvent('recap_shared', { year: model.year, kind: 'video', outcome }); }
     } catch (error) {
       setBusy(null);
-      if ((error as { code?: string })?.code !== 'ABORTED') setNotice(rt('recap_error'));
+      const code = (error as { code?: string })?.code;
+      if (code === 'INTERRUPTED') setNotice(rt('recap_rendering_hint'));
+      else if (code !== 'ABORTED') setNotice(rt('recap_error'));
     } finally { abortRef.current = null; }
   };
 
@@ -216,15 +219,16 @@ export default function RecapScreen({ onBack }: { onBack: () => void }) {
       {model && (
         <div style={{ width: '100%', maxWidth: 520, padding: '10px 14px 12px', display: 'flex', flexDirection: 'column', gap: 8 }}>
           {notice && <div role="status" style={{ color: '#fff', fontSize: 13, textAlign: 'center', opacity: 0.9 }}>{notice}</div>}
-          <div style={{ display: 'flex', gap: 8 }}>
+          {canRecord && <div style={{ display: 'flex', gap: 8 }}>
             <button type="button" style={{ ...btn, flex: 1, background: '#FF5A5F', color: '#fff' }} disabled={!ready || !!busy} onClick={() => void exportVideo('download')}>
               <Download size={18} />{rt('recap_download')}
             </button>
             <button type="button" style={{ ...btn, flex: 1, background: '#fff', color: '#E63E4B' }} disabled={!ready || !!busy} onClick={() => void exportVideo('share')}>
               <Share2 size={18} />{rt('recap_share')}
             </button>
-          </div>
-          <button type="button" style={{ ...btn, minHeight: 38, background: 'transparent', color: 'rgba(255,255,255,0.85)', fontSize: 13 }} disabled={!ready || !!busy} onClick={() => void exportImage()}>
+          </div>}
+          {/* Phones that cannot record video (old iOS without MediaRecorder) still share the summary card. */}
+          <button type="button" style={canRecord ? { ...btn, minHeight: 38, background: 'transparent', color: 'rgba(255,255,255,0.85)', fontSize: 13 } : { ...btn, background: '#FF5A5F', color: '#fff' }} disabled={!ready || !!busy} onClick={() => void exportImage()}>
             <ImageIcon size={16} />{rt('recap_share_image')}
           </button>
         </div>

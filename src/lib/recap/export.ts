@@ -101,7 +101,7 @@ export async function recordRecapVideo(model: RecapModel, assets: RecapAssets, o
     const source = withAudio ? stream : new MediaStream(stream.getVideoTracks());
     for (const type of types) {
       try {
-        const candidate = new MediaRecorder(source, { ...(type ? { mimeType: type } : {}), videoBitsPerSecond: 8_000_000, audioBitsPerSecond: 160_000 });
+        const candidate = new MediaRecorder(source, { ...(type ? { mimeType: type } : {}), videoBitsPerSecond: 4_000_000, audioBitsPerSecond: 160_000 });
         candidate.ondataavailable = (e) => { if (e.data.size) chunks.push(e.data); };
         candidate.start(500);
         recorder = candidate;
@@ -131,9 +131,13 @@ export async function recordRecapVideo(model: RecapModel, assets: RecapAssets, o
   }
   const clock = () => (audio && audio.state === 'running' ? audio.currentTime - t0 : (performance.now() - p0) / 1000);
   let aborted = false;
+  let interrupted = false;
+  const onHidden = () => { if (document.visibilityState === 'hidden') interrupted = true; };
+  document.addEventListener('visibilitychange', onHidden);
   await new Promise<void>((resolve) => {
     const tick = () => {
       if (opts.signal?.aborted) { aborted = true; resolve(); return; }
+      if (interrupted) { resolve(); return; }
       const t = clock();
       if (t >= model.duration) { renderRecapFrame(ctx, model.duration, model, assets); resolve(); return; }
       renderRecapFrame(ctx, Math.max(0, t), model, assets);
@@ -142,11 +146,13 @@ export async function recordRecapVideo(model: RecapModel, assets: RecapAssets, o
     };
     requestAnimationFrame(tick);
   });
+  document.removeEventListener('visibilitychange', onHidden);
   await new Promise((r) => setTimeout(r, 250));
   active.stop();
   const blob = await done;
   cleanup();
   if (aborted) throw new RecapExportError('ABORTED');
+  if (interrupted) throw new RecapExportError('INTERRUPTED');
   if (!blob.size) throw new RecapExportError('EMPTY');
   return blob;
 }
@@ -166,6 +172,13 @@ const isCancelled = (error: unknown) => {
   return value?.name === 'AbortError' || /cancel/i.test(value?.message || '');
 };
 
+const base64Of = (part: Blob) => new Promise<string>((resolve, reject) => {
+  const reader = new FileReader();
+  reader.onloadend = () => resolve(String(reader.result).split(',')[1] || '');
+  reader.onerror = () => reject(reader.error);
+  reader.readAsDataURL(part);
+});
+
 export function downloadRecap(blob: Blob, baseName: string) {
   const url = URL.createObjectURL(blob);
   const a = Object.assign(document.createElement('a'), { href: url, download: `${baseName}.${extOf(blob)}` });
@@ -179,19 +192,24 @@ export function downloadRecap(blob: Blob, baseName: string) {
  */
 export async function shareRecap(blob: Blob, baseName: string, text: string, mode: 'share' | 'download' = 'share'): Promise<'shared' | 'downloaded' | 'cancelled'> {
   const name = `${baseName}.${extOf(blob)}`;
-  if (Capacitor.isNativePlatform() && Capacitor.isPluginAvailable('Share')) {
+  if (Capacitor.isNativePlatform() && Capacitor.isPluginAvailable('Share') && Capacitor.isPluginAvailable('Filesystem')) {
     const [{ Filesystem, Directory }, { Share }] = await Promise.all([import('@capacitor/filesystem'), import('@capacitor/share')]);
-    const data = await new Promise<string>((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(String(reader.result).split(',')[1] || '');
-      reader.onerror = reject;
-      reader.readAsDataURL(blob);
-    });
-    let uri: string;
-    try { uri = (await Filesystem.writeFile({ path: `recap/${name}`, directory: Directory.Cache, data, recursive: true })).uri; } catch (error) { throw new RecapExportError('SAVE_FILE', error); }
-    try { await Share.share({ title: name, text, files: [uri] }); return 'shared'; } catch (error) {
-      if (isCancelled(error)) return 'cancelled';
-      throw new RecapExportError('SHARE_SHEET', error);
+    let uri: string | null = null;
+    try {
+      // Written in 3 MB pieces: one base64 string of the whole video can exhaust memory on older phones.
+      const path = `recap/${name}`;
+      const CHUNK = 3 * 1024 * 1024;
+      for (let offset = 0; offset < blob.size; offset += CHUNK) {
+        const data = await base64Of(blob.slice(offset, offset + CHUNK));
+        if (offset === 0) uri = (await Filesystem.writeFile({ path, directory: Directory.Cache, data, recursive: true })).uri;
+        else await Filesystem.appendFile({ path, directory: Directory.Cache, data });
+      }
+    } catch (error) { console.warn('[recap-export] native save failed, using the web fallback', error); uri = null; }
+    if (uri) {
+      try { await Share.share({ title: name, text, files: [uri] }); return 'shared'; } catch (error) {
+        if (isCancelled(error)) return 'cancelled';
+        throw new RecapExportError('SHARE_SHEET', error);
+      }
     }
   }
   if (mode === 'share') {
