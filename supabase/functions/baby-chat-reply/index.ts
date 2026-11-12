@@ -1,5 +1,3 @@
-/// <reference types="https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts" />
-
 // baby-chat-reply: "Körpəmdən mesajlar" — the unborn baby's playful answer to the mother.
 //
 // Layers, in order (any failure → { reply: null } and the app shows a curated line):

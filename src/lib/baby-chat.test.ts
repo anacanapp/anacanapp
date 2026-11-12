@@ -114,6 +114,11 @@ describe('baby chat safety', () => {
     expect(serverStems.sort()).toEqual(Object.values(CARE_STEMS).flat().sort());
   });
 
+  it('server function has no unpinned remote type references (they broke the worker boot on 2026-11-12)', () => {
+    const server = readFileSync(join(__dirname, '../../supabase/functions/baby-chat-reply/index.ts'), 'utf8');
+    expect(server).not.toMatch(/\/\/\/\s*<reference types="https?:/);
+  });
+
   it('spots health and worry topics without false alarms', async () => {
     const { hasCareTopic } = await import('./baby-chat-safety');
     expect(hasCareTopic('Bu gün qarnımda ağrı var', 'az')).toBe(true);
