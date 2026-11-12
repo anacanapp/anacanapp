@@ -38,7 +38,15 @@ export default function BookStoreScreen({ onBack, initialTab = 'store' }: { onBa
   const [age, setAge] = useState<BookAge | 'all'>(childAge ?? 'all');
   const [topic, setTopic] = useState<BookTopic | 'all'>('all');
   const [cart, setCart] = useState<string[]>(() => readCart());
-  const [detail, setDetail] = useState<Book | null>(null);
+  // "Uşaqla oyun" opens the store on one book (sessionStorage key, read once).
+  const [detail, setDetail] = useState<Book | null>(() => {
+    try {
+      const id = sessionStorage.getItem('anacan_books_open_v1');
+      if (!id) return null;
+      sessionStorage.removeItem('anacan_books_open_v1');
+      return findBook(id) ?? null;
+    } catch { return null; }
+  });
   const [cartOpen, setCartOpen] = useState(false);
   const [busy, setBusy] = useState(false);
   // QayğıCash: up to max % of the order (min 1 ₼); books earn on what the card is charged, spendable after the digital hold.

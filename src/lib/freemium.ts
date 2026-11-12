@@ -44,6 +44,8 @@ const FREE_TOOL_IDS = new Set<string>([
 // xatırlatmalar alətin içində Premium-dur (PremiumBlurGate).
 'weaning',
 // 2026-11-09: Tərbiyə və Əlavə qida bələdçisi TAM Premium-dur (istifadəçi qərarı): free siyahıda deyil.
+// 2026-11-12: Uşaqla oyun pulsuzdur (PDF kitablara yönləndirir); admin tool_configs.is_premium ilə Premium edə bilər.
+'play-together',
 ]
 // Qeyd: Körpə izləyicisi (baby-tracker) 2026-11-08 istifadəçi qərarı ilə TAM Premium qalır.
 );

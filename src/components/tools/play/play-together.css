@@ -1,0 +1,89 @@
+/* Uşaqla oyun: uses the Anacan design tokens only, so light and dark themes follow automatically. */
+.pt-wrap { display: flex; flex-direction: column; gap: 10px; padding-bottom: 24px; }
+.pt-h2 { font-size: 16px; font-weight: 800; color: var(--a-ink); margin: 14px 0 0; }
+.pt-sub { font-size: 12.5px; color: var(--a-ink-soft); margin: -6px 0 2px; line-height: 1.4; }
+.pt-eyebrow { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--a-ink-soft); margin: 0 0 6px; }
+.pt-p { font-size: 14px; line-height: 1.5; color: var(--a-body-text, var(--a-ink)); margin: 0; }
+.pt-card { background: var(--a-surface); border: 1px solid var(--a-line); border-radius: var(--a-radius-lg); padding: 14px; }
+
+.pt-ages, .pt-cats { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 4px; scrollbar-width: none; }
+.pt-ages::-webkit-scrollbar, .pt-cats::-webkit-scrollbar { display: none; }
+.pt-chip { flex: none; display: inline-flex; align-items: center; gap: 4px; padding: 7px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700;
+  background: var(--a-surface); color: var(--a-ink); border: 1px solid var(--a-line); white-space: nowrap; }
+.pt-chip.on { background: var(--a-coral); color: var(--a-on-coral); border-color: var(--a-coral); }
+
+.pt-today-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pt-big { font-size: 26px; font-weight: 900; color: var(--a-coral-text, var(--a-coral)); margin: 0; line-height: 1; }
+.pt-week { display: flex; gap: 6px; }
+.pt-dot { width: 12px; height: 12px; border-radius: 999px; background: var(--a-surface-soft); border: 1px solid var(--a-line); }
+.pt-dot.on { background: var(--a-coral); border-color: var(--a-coral); }
+.pt-dot.today { outline: 2px solid var(--a-coral-soft); outline-offset: 1px; }
+.pt-guide { font-size: 13px; line-height: 1.45; color: var(--a-ink); margin: 12px 0 0; padding: 10px 12px; border-radius: var(--a-radius-md); background: var(--a-surface-soft); }
+.pt-src { font-size: 10.5px; color: var(--a-ink-faint); margin: 6px 0 0; }
+
+.pt-picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.pt-pick { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; text-align: start; padding: 12px 10px; border-radius: var(--a-radius-lg); min-height: 128px; color: var(--pt-ink); background: var(--pt-bg); border: 0; }
+.pt-pick-emoji { font-size: 28px; line-height: 1; }
+.pt-pick-title { font-size: 13px; font-weight: 800; line-height: 1.25; flex: 1; }
+.pt-pick-meta { display: flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 700; opacity: .85; }
+
+.pt-list { display: flex; flex-direction: column; gap: 8px; }
+.pt-row { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--a-radius-lg); background: var(--a-surface); border: 1px solid var(--a-line); text-align: start; color: var(--a-ink); }
+.pt-row-emoji { flex: none; width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; font-size: 22px; background: var(--pt-bg); }
+.pt-row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.pt-row-title { font-size: 14px; font-weight: 800; }
+.pt-row-sub { font-size: 12px; color: var(--a-ink-soft); display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
+.pt-empty { font-size: 13px; color: var(--a-ink-soft); text-align: center; padding: 18px 8px; margin: 0; }
+.pt-ok { color: var(--a-ok); flex: none; }
+.pt-heart { color: var(--a-coral); }
+
+.pt-books { display: flex; gap: 10px; overflow-x: auto; padding: 2px 0 6px; scrollbar-width: none; }
+.pt-books::-webkit-scrollbar { display: none; }
+.pt-book { flex: none; width: 112px; display: flex; flex-direction: column; gap: 5px; text-align: start; background: none; border: 0; padding: 0; color: var(--a-ink); }
+.pt-book-cover { width: 112px; height: 150px; object-fit: cover; border-radius: 12px; background: var(--a-surface-soft); box-shadow: var(--a-card-shadow); }
+.pt-book-title { font-size: 12.5px; font-weight: 800; line-height: 1.25; }
+.pt-book-tags { font-size: 11px; color: var(--a-ink-soft); line-height: 1.3; }
+
+/* Game screen */
+.pt-hero { border-radius: var(--a-radius-xl); padding: 18px 16px; background: var(--pt-bg); color: var(--pt-ink); }
+.pt-hero-emoji { font-size: 44px; line-height: 1; display: block; }
+.pt-hero-title { font-size: 22px; font-weight: 900; margin: 10px 0 6px; line-height: 1.2; }
+.pt-hero-meta { display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; margin: 0; opacity: .9; }
+.pt-materials { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.pt-have { display: flex; align-items: center; gap: 10px; width: 100%; text-align: start; background: none; border: 0; padding: 4px 0; font-size: 14px; color: var(--a-ink); }
+.pt-have.on { color: var(--a-ink-soft); text-decoration: line-through; }
+.pt-box { flex: none; width: 20px; height: 20px; border-radius: 6px; border: 2px solid var(--a-line-strong); display: grid; place-items: center; color: var(--a-on-coral); }
+.pt-have.on .pt-box { background: var(--a-ok); border-color: var(--a-ok); }
+.pt-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.pt-steps li { display: flex; gap: 10px; font-size: 14px; line-height: 1.45; color: var(--a-ink); }
+.pt-num { flex: none; width: 24px; height: 24px; border-radius: 999px; display: grid; place-items: center; font-size: 12px; font-weight: 900; background: var(--a-coral-soft); color: var(--a-coral-text, var(--a-coral)); }
+.pt-tip { background: var(--a-yellow-1); border-color: transparent; }
+.pt-tip .pt-p, .pt-tip .pt-eyebrow { color: var(--a-yellow-ink); }
+.pt-safety { background: var(--a-coral-soft); border-color: transparent; }
+.pt-safety .pt-p, .pt-safety .pt-eyebrow { color: var(--a-coral-text, var(--a-coral)); }
+.pt-cta-bar { position: sticky; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); padding-top: 6px; }
+.pt-cta { width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.pt-cta.done { background: var(--a-ok); }
+
+/* Book sheet */
+.pt-sheet-back { position: fixed; inset: 0; z-index: 300; background: rgba(0, 0, 0, .45); display: flex; align-items: flex-end; justify-content: center; }
+.pt-sheet { position: relative; width: 100%; max-width: 520px; max-height: 86vh; overflow-y: auto; background: var(--a-bg); border-radius: 24px 24px 0 0;
+  padding: 18px 16px calc(18px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 12px; }
+.pt-sheet-x { position: absolute; top: 12px; inset-inline-end: 12px; }
+.pt-sheet-head { display: flex; gap: 14px; align-items: flex-end; padding-inline-end: 40px; }
+.pt-sheet-cover { width: 96px; height: 128px; object-fit: cover; border-radius: 12px; flex: none; box-shadow: var(--a-card-shadow); }
+.pt-sheet-title { font-size: 18px; font-weight: 900; color: var(--a-ink); margin: 0 0 4px; line-height: 1.2; }
+.pt-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.pt-tag { font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: var(--a-surface); color: var(--a-coral-text, var(--a-coral)); border: 1px solid var(--a-line); }
+.pt-tag.soft { background: var(--a-surface-soft); color: var(--a-ink-soft); }
+
+/* Category tints */
+.pt-cat-craft { --pt-bg: var(--a-pink-1); --pt-ink: var(--a-pink-ink); }
+.pt-cat-move { --pt-bg: var(--a-blue-1); --pt-ink: var(--a-blue-ink); }
+.pt-cat-pretend { --pt-bg: var(--a-lav-1); --pt-ink: var(--a-lav-ink); }
+.pt-cat-kitchen { --pt-bg: var(--a-yellow-1); --pt-ink: var(--a-yellow-ink); }
+.pt-cat-calm { --pt-bg: var(--a-coral-soft); --pt-ink: var(--a-coral-text, var(--a-coral)); }
+.pt-cat-outdoor { --pt-bg: var(--a-green-1); --pt-ink: var(--a-green-ink); }
+.pt-cat-words { --pt-bg: var(--a-surface-soft); --pt-ink: var(--a-ink); }
+
+@media (max-width: 360px) { .pt-picks { grid-template-columns: 1fr; } .pt-pick { min-height: 0; flex-direction: row; align-items: center; } }
