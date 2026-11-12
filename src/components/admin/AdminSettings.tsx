@@ -7,6 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import { AdminTabs, Btn, Field, Notice, Page, PageHeader, Section, SettingRow, SkeletonRows, StatusPill } from './kit';
 import AdminAptekSettings from './AdminAptekSettings';
 import { requestTourPreview } from '@/lib/onboardingTour';
+import { fromBakuInput, parseRecapConfig, recapOpen, toBakuInput, type RecapConfig } from '@/lib/recap/window';
 
 interface AppSetting { id: string; key: string; value: any; description: string | null }
 
@@ -14,7 +15,7 @@ interface AppSetting { id: string; key: string; value: any; description: string 
 // geri yazırdı — nəticədə başqa admin ekranlarının dəyişiklikləri köhnə keşlənmiş dəyərə sıfırlanırdı və `force_update`
 // ikiqat JSON-encode olunurdu. İndi YALNIZ bu ekranın özünün idarə etdiyi açarlar yazılır.
 const MANAGED_SETTING_KEYS = [
-  'flow_mode_enabled', 'bump_mode_enabled', 'mommy_mode_enabled', 'mommy_hero_variant', 'bottom_nav_style', 'profile_layout', 'inapp_onboarding', 'weaning_tool', 'parenting_tool', 'dashboard_stories',
+  'flow_mode_enabled', 'bump_mode_enabled', 'mommy_mode_enabled', 'mommy_hero_variant', 'bottom_nav_style', 'profile_layout', 'inapp_onboarding', 'weaning_tool', 'parenting_tool', 'dashboard_stories', 'recap_2026',
   'dark_mode_enabled', 'ai_model', 'app_version', 'maintenance_mode', 'max_daily_logs',
 ] as const;
 
@@ -111,6 +112,30 @@ const AdminSettings = () => {
                 <SettingRow icon="🌸" title={tr('adminsettings_flow_dovr_izleme_92cd60', 'Flow - Dövr İzləmə')} description={tr('adminsettings_menstruasiya_izleme_rejimi_ee4973', 'Menstruasiya izləmə rejimi')} control={toggle('flow_mode_enabled', true, 'Flow')} />
                 <SettingRow icon="🤰" title={tr('adminsettings_bump_hamilelik_de436a', 'Bump - Hamiləlik')} description={tr('adminsettings_hamilelik_izleme_rejimi_9a1d2f', 'Hamiləlik izləmə rejimi')} control={toggle('bump_mode_enabled', true, 'Bump')} />
                 <SettingRow icon="👶" title={tr('adminsettings_mommy_analiq_4d3d41', 'Mommy - Analıq')} description={tr('adminsettings_korpe_izleme_rejimi_af82ab', 'Körpə izləmə rejimi')} control={toggle('mommy_mode_enabled', true, 'Mommy')} />
+              </Section>
+              <Section title={<span className="flex items-center gap-2"><Sparkles size={15} />Anacan Recap 2026</span>} description="Tarixlər Bakı vaxtı ilədir. Adminlər də hamı ilə eyni tarixdə görür; adminlər üçün ayrıca tarix yazsanız, adminlər o tarixlə görür.">
+                {(() => {
+                  const cfg = parseRecapConfig(getSettingValue('recap_2026', {}));
+                  const set = (patch: Partial<RecapConfig>) => updateSetting('recap_2026', { ...cfg, ...patch });
+                  const date = (key: keyof RecapConfig, label: string, hint?: string) => (
+                    <Field label={label} hint={hint}>{id => (
+                      <div className="flex gap-2">
+                        <input id={id} type="datetime-local" className="ak-input w-full" value={toBakuInput(cfg[key] as string | null)}
+                          onChange={event => set({ [key]: fromBakuInput(event.target.value) } as Partial<RecapConfig>)} />
+                        {cfg[key] && key.startsWith('admin_') && <Btn size="sm" onClick={() => set({ [key]: null } as Partial<RecapConfig>)}>Sil</Btn>}
+                      </div>)}</Field>
+                  );
+                  return (
+                    <div className="grid gap-3">
+                      <SettingRow title="Recap aktivdir" description="Söndürülsə, heç kim (adminlər də) görmür." control={<Switch checked={!!cfg.enabled} onCheckedChange={checked => set({ enabled: checked })} aria-label="Recap aktiv" />} />
+                      {date('start_at', 'Hamı üçün: başlama')}
+                      {date('end_at', 'Hamı üçün: bitmə')}
+                      {date('admin_start_at', 'Adminlər üçün: başlama', 'Boş qalsa, adminlər hamı ilə eyni tarixdə görür.')}
+                      {date('admin_end_at', 'Adminlər üçün: bitmə', 'Boş qalsa, hamı üçün olan bitmə tarixi işləyir.')}
+                      <Notice tone="info">İndi: istifadəçilər üçün {recapOpen(cfg, false) ? 'açıqdır' : 'bağlıdır'}, adminlər üçün {recapOpen(cfg, true) ? 'açıqdır' : 'bağlıdır'}.</Notice>
+                    </div>
+                  );
+                })()}
               </Section>
               <Section title={<span className="flex items-center gap-2"><Smartphone size={15} />Görünüş və təcrübələr</span>} description="Yadda saxlayandan sonra istifadəçilərdə tətbiq yenidən açılanda və ya 5 dəqiqə ərzində dəyişir.">
                 <SettingRow icon={<Baby size={16} />} title={tr('adminsettings_mommy_hero_dizayni_603f42', 'Mommy Hero Dizaynı')} description={tr('adminsettings_deyisiklik_butun_istifadeciler_198453', 'Dəyişiklik bütün istifadəçilər üçün dərhal tətbiq olunur.')}
