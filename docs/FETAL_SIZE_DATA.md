@@ -20,6 +20,9 @@ Length is crown-rump until week 20 and crown-heel after, so it jumps at week 20;
 (`src/lib/fetal-size-copy.ts`, 23 languages). Week numbers: the hero shows completed weeks; content is keyed by
 pregnancy day, so `week_number` in the table (1-based) does not affect the numbers.
 
-## Known open item
-`baby_daily_info` day 246: 13 translations (en, zh, ja, ko, fr, es, pt, id, vi, hi, pl, nl, sv) hold another day's
-(20-month) text; it needs re-translation, not a number fix.
+## Translation alignment audit (2026-11-12)
+All 1457 `baby_daily_info` days × 21 languages were checked (numbers vs the Azerbaijani text and every other day,
+meaning of en/ar vs az, failure markers). Fixed in `20261112160000_baby_text_translation_fix.sql`:
+- days 1096-1100: "[[TRANSLATION FAILED]]" placeholders in every language; new Azerbaijani texts + 20 translations;
+- days 246 and 387: en, zh, id, fr, es, pt, vi, hi, ja, ko, pl, nl, sv held days 606 / 462; re-translated.
+No other misaligned day was found.

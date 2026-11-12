@@ -1,0 +1,10 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261112160000_baby_text_translation_fix.sql",
+  "runtime": "google-baby-text-translation-fix",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; data only, md5-guarded and verified",
+  "relations": [
+    { "relation": "public.baby_daily_info", "change": "days 1096-1100 (all 21 text columns) and 246, 387 (13 translations)", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "broken placeholders replaced, misaligned translations re-translated; already guarded" }
+  ]
+}
