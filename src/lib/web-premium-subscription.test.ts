@@ -150,3 +150,13 @@ describe('migration contract', () => {
 });
 
 export {};
+
+describe('standard offer view', () => {
+  it('marks the standard price and the campaign', async () => {
+    const { offerView } = await import('../../supabase/functions/_shared/web-premium-subscription.ts');
+    const standard = offerView({ active: true, kind: 'standard', name: 'standard', plans: { monthly: { price: 3.99, was: null }, yearly: { price: 26.99, was: null } } });
+    expect(standard).toMatchObject({ active: true, kind: 'standard', plans: { yearly: { price: 26.99, per_month: 2.24, pct: null }, monthly: { price: 3.99 } } });
+    expect(offerView({ active: true, name: '1111', plans: { monthly: { price: 3.99, was: null }, yearly: { price: 18.89, was: 50.98 } } }).kind).toBe('campaign');
+    expect(offerView(null)).toMatchObject({ active: false, kind: null, plans: null });
+  });
+});

@@ -6,7 +6,7 @@
   var A = window.AnacanAccount;
   var $ = function (id) { return document.getElementById(id); };
   var app = $('app');
-  var CAMPAIGN = '/website/premium/kampaniya/index.html';
+  var CAMPAIGN = '/website/premium/abune/index.html';
   var params = new URLSearchParams(location.search);
   var cardReturn = params.get('kart'); // 'ok' | 'xeta' after Epoint card registration (never proof by itself)
   if (cardReturn) { params.delete('kart'); history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : '')); }
@@ -50,10 +50,10 @@
       } else if (premium.active) {
         body = '<p class="empty">Premium-un ' + (premium.expires_at ? A.esc(A.day(premium.expires_at)) + ' tarixinə qədər ' : '') + 'açıqdır' +
           (premium.source === 'web_pass' ? ' (birdəfəlik keçid, avtomatik yenilənmir)' : '') + '.</p>' +
-          '<div class="note-box soft">Bu Premium üçün idarə ediləcək abunəlik yoxdur. Müddət bitəndə kampaniya səhifəsində abunə ola bilərsən.</div>';
+          '<div class="note-box soft">Bu Premium üçün idarə ediləcək abunəlik yoxdur. Müddət bitəndə abunəlik səhifəsində abunə ola bilərsən.</div>';
       } else {
         body = '<p class="empty">Hazırda anacan.az-da aktiv abunəliyin yoxdur.</p>' +
-          '<div class="actions"><a class="cta" href="' + CAMPAIGN + '">Kampaniya qiymətlərinə bax <span class="arr">→</span></a></div>';
+          '<div class="actions"><a class="cta" href="' + CAMPAIGN + '">Abunə ol <span class="arr">→</span></a></div>';
       }
       return '<section class="panel"><h2>Abunəlik</h2>' + body + '</section>';
     }

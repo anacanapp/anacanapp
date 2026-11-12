@@ -98,7 +98,9 @@
       '<button type="button" class="cta" id="pay">' + esc(t.pay) + '</button>' +
       '<p class="secure">🔒 ' + esc(provider === 'epoint' ? t.secure.split(' · ')[0] : t.secure) + '</p>' +
       '<p class="fine">' + esc(provider === 'epoint' ? (t.epoint_note || t.renew_note) : t.renew_note) + ' ' + esc(t.legal).replace(esc(t.terms), '<a href="https://anacan.az/terms" target="_blank" rel="noopener">' + esc(t.terms) + '</a>')
-        .replace(esc(t.privacy), '<a href="https://anacan.az/privacy" target="_blank" rel="noopener">' + esc(t.privacy) + '</a>') + '</p>';
+        .replace(esc(t.privacy), '<a href="https://anacan.az/privacy" target="_blank" rel="noopener">' + esc(t.privacy) + '</a>') + '</p>' +
+      // Azerbaijani visitors paying in AZN can also subscribe with their Anacan account (saved card, renewals, cabinet).
+      (provider === 'epoint' && lang === 'az' ? '<p class="fine"><a href="/website/premium/abune/index.html">Anacan hesabınla daxil olub avtomatik yenilənən abunəlik al →</a></p>' : '');
     view.querySelectorAll('.plan').forEach(function (b) {
       b.onclick = function () {
         state.plan = b.dataset.plan;

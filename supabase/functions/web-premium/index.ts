@@ -17,7 +17,7 @@ import { WEBSITE_ORIGINS } from '../_shared/dodo.ts';
 import { EPOINT_CARD_ID, epointAmount, epointConfig, epointRequest, isCheckoutUrl } from '../_shared/epoint.ts';
 import { ENTITLEMENT_ID, fetchRevenueCatSubscriber, syncEntitlementForUser } from '../_shared/revenuecat-sync.ts';
 import { sendWebPremiumEmail } from '../_shared/web-premium-email.ts';
-import { CABINET_PAGE, CAMPAIGN_PAGE, campaignView, isPlan, rpcErrorCode, type Campaign } from '../_shared/web-premium-subscription.ts';
+import { CABINET_PAGE, CAMPAIGN_PAGE, STANDARD_PAGE, campaignView, isPlan, offerView, rpcErrorCode, type Campaign } from '../_shared/web-premium-subscription.ts';
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const ACTIONS = ['status', 'subscribe', 'add_card', 'remove_card', 'set_default_card', 'cancel', 'resume', 'change_plan', 'charges'] as const;
@@ -112,13 +112,15 @@ Deno.serve(async (req) => {
 
   try {
     if (action === 'status') {
-      const [{ data: campaign }, { data: account, error }, { data: testOffer }] = await Promise.all([
-        admin.rpc('web_premium_campaign_v1'), admin.rpc('web_premium_account_v1', { p_user: userId }),
+      const [{ data: campaign }, { data: offer }, { data: account, error }, { data: testOffer }] = await Promise.all([
+        admin.rpc('web_premium_campaign_v1'), admin.rpc('web_premium_offer_v1'), admin.rpc('web_premium_account_v1', { p_user: userId }),
         admin.rpc('web_premium_test_offer_v1', { p_user: userId })]);
       if (error || !account) return reply(503, { error: 'database_unavailable' });
       const config = await epointConfig(admin);
       return ok({
         campaign: campaignView((campaign ?? { active: false }) as Campaign), payments_ready: config.merchantLive,
+        // What subscribing buys right now: the campaign while it runs, otherwise the standard price (kind 'standard').
+        offer: offerView(offer as (Campaign & { kind?: string }) | null),
         // Admin-only tiny-price offer for end-to-end card tests (null for everyone else).
         test_offer: testOffer && typeof testOffer === 'object' ? testOffer : null,
         premium: await premiumState(admin, userId, account.subscription), subscription: account.subscription,
@@ -163,7 +165,9 @@ Deno.serve(async (req) => {
         payload = {
           language: 'az', amount: epointAmount(Number(start.amount)), currency: 'AZN', order_id: chargeId,
           description: `Anacan Premium — ${start.plan === 'monthly' ? 'aylıq' : 'illik'} abunəlik${test ? ' (test)' : ''}`,
-          success_redirect_url: `${CAMPAIGN_PAGE}?odenis=ugurlu`, error_redirect_url: `${CAMPAIGN_PAGE}?odenis=xeta`,
+          // Standard-price signups come back to the standard page, campaign signups to the campaign page.
+          success_redirect_url: `${body.page === 'standard' && !test ? STANDARD_PAGE : CAMPAIGN_PAGE}?odenis=ugurlu`,
+          error_redirect_url: `${body.page === 'standard' && !test ? STANDARD_PAGE : CAMPAIGN_PAGE}?odenis=xeta`,
         };
       } else {
         payload = { language: 'az', description: 'Anacan Premium — kartın yadda saxlanması',

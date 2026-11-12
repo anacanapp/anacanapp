@@ -9,6 +9,8 @@ const ORDER_ID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$
 export const SITE = 'https://anacan.az';
 export const CAMPAIGN_PAGE = `${SITE}/website/premium/kampaniya/index.html`;
 export const CABINET_PAGE = `${SITE}/website/premium/hesab/index.html`;
+/** Subscription at the normal price (outside campaigns). */
+export const STANDARD_PAGE = `${SITE}/website/premium/abune/index.html`;
 export const MAX_RENEWAL_ATTEMPTS = 3;
 
 export type Plan = 'monthly' | 'yearly';
@@ -88,6 +90,12 @@ export function campaignView(campaign: Campaign) {
   };
   return { active: campaign.active === true, name: campaign.name ?? null, starts_at: campaign.starts_at ?? null, ends_at: campaign.ends_at ?? null,
     currency: 'AZN', plans: campaign.plans ? { monthly: plan('monthly'), yearly: plan('yearly') } : null };
+}
+
+/** The offer the page sells now (web_premium_offer_v1): campaign or standard price, in the campaign shape plus kind. */
+export function offerView(offer: (Campaign & { kind?: string }) | null | undefined) {
+  const value = offer ?? { active: false };
+  return { ...campaignView(value), kind: value.active ? (value.kind === 'standard' ? 'standard' : 'campaign') : null };
 }
 
 /** Maps a database exception (RAISE 'WEB_PREMIUM_…') to a stable error code for the page. */
