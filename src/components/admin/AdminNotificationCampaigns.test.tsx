@@ -1,12 +1,12 @@
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { afterEach, beforeEach, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const fixture = vi.hoisted(() => ({ rpc: vi.fn(), invoke: vi.fn() }));
 vi.mock('@/lib/admin-insights', async importOriginal => ({ ...await importOriginal<typeof import('@/lib/admin-insights')>(), adminRpc: fixture.rpc }));
 vi.mock('@/integrations/supabase/client', () => ({ supabase: { functions: { invoke: fixture.invoke } } }));
 vi.mock('@/integrations/supabase/backend-config', () => ({ getBackendConfig: () => ({ azure: true, url: 'https://api.anacan.az' }) }));
 vi.mock('@/hooks/useAuth', () => ({ useAuth: () => ({ user: { id: 'fixture-admin' }, isAdmin: true }) }));
-import AdminNotificationCampaigns from './AdminNotificationCampaigns';
+import AdminNotificationCampaigns, { APP_VERSION_RE } from './AdminNotificationCampaigns';
 let client: QueryClient;
 beforeEach(() => {
   fixture.rpc.mockReset(); fixture.invoke.mockReset();
@@ -49,4 +49,11 @@ it('keeps one campaign ID after an interrupted send so retry does not create a s
   expect(fixture.rpc.mock.calls.filter(([name]) => name === 'admin_notification_create_v1')).toHaveLength(1);
   expect(fixture.invoke).toHaveBeenCalledWith('admin-notification-dispatch', { body: { contract: 'anacan-admin-campaign-v1', notificationId: campaign.id } });
   expect(screen.getByLabelText('Kampaniya başlığı')).toBeDisabled();
+});
+
+describe('app version filter input', () => {
+  it('accepts versions the server accepts', () => {
+    for (const v of ['50', '50.0', '49.0.19', '1.2.3.4']) expect(APP_VERSION_RE.test(v)).toBe(true);
+    for (const v of ['', '50.', '.5', 'v50', '1.2.3.4.5']) expect(APP_VERSION_RE.test(v)).toBe(false);
+  });
 });

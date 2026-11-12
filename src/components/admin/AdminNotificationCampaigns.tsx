@@ -14,7 +14,7 @@ import { APP_LANGUAGES, localizedCountryName } from '@/lib/app-languages';
 import { getLocaleTag } from '@/lib/i18n';
 import { getPersistedLanguage, tr } from '@/lib/tr';
 
-interface Segment { languages: string[]; modules: string[]; countries: string[]; platforms: string[]; access: string; joinedFrom: string | null; joinedTo: string | null }
+interface Segment { languages: string[]; modules: string[]; countries: string[]; platforms: string[]; access: string; joinedFrom: string | null; joinedTo: string | null; appVersionBelow?: string | null }
 interface Preview { schema: string; fingerprint: string; users: number; eligibleUsers: number; devices: number; optedOut: number; quietHours: number; noDevice: number; quietTimezone: string }
 interface Campaign { id: string; title: string; body: string; segment: Segment; createdAt: string; total: number; pending: number; claimed: number; sent: number; failed: number; skipped: number; unknown: number; cancelled: boolean; snapshot?: { deeplink?: string } }
 /** Where a tap on the push opens. Same in-app links the app already handles (src/lib/deeplink.ts). */
@@ -40,7 +40,9 @@ const CAMPAIGN_LINKS: Array<{ value: string; label: string }> = [
 ];
 const isCampaignLink = (value: string) => /^(?:(?:anacan|com\.atlasoon\.anacan):\/\/|https:\/\/(?:www\.|app\.)?anacan\.az\/)[A-Za-z0-9/_?=&.%#-]{0,180}$/.test(value);
 const linkLabel = (value?: string) => !value ? '' : CAMPAIGN_LINKS.find(item => item.value === value)?.label || value;
-const emptySegment = (): Segment => ({ languages: [], modules: [], countries: [], platforms: [], access: 'all', joinedFrom: null, joinedTo: null });
+const emptySegment = (): Segment => ({ languages: [], modules: [], countries: [], platforms: [], access: 'all', joinedFrom: null, joinedTo: null, appVersionBelow: null });
+// "App version below" accepts 50, 50.0, 49.0.19 (the version the user's app last reported).
+export const APP_VERSION_RE = /^\d{1,4}(\.\d{1,4}){0,3}$/;
 const number = (value: number) => Number(value || 0).toLocaleString(getLocaleTag());
 const countryOptions = (countriesData as Array<{ isoAlpha2: string; name: string }>).map(item => ({ value: item.isoAlpha2, label: `${countryFlag(item.isoAlpha2)} ${localizedCountryName(item.isoAlpha2, getPersistedLanguage(), item.name)}` }));
 const languages = APP_LANGUAGES.map(language => ({ value: language.code, label: language.native_name }));
@@ -65,6 +67,7 @@ function Status({ campaign }: { campaign: Campaign }) {
 }
 export default function AdminNotificationCampaigns() {
   const { user, isAdmin } = useAuth(), backend = getBackendConfig(), client = useQueryClient();
+  const [versionText, setVersionText] = useState('');
   const [segment, setSegment] = useState<Segment>(emptySegment), [title, setTitle] = useState(''), [body, setBody] = useState('');
   const [preview, setPreview] = useState<{ value: Preview; key: string } | null>(null), [previewing, setPreviewing] = useState(false);
   const [campaign, setCampaign] = useState<Campaign | null>(null), [sending, setSending] = useState(false), [error, setError] = useState('');
@@ -144,8 +147,11 @@ export default function AdminNotificationCampaigns() {
       <label>Qeydiyyat · başlanğıc<Input aria-label="Auditoriya qeydiyyat başlanğıcı" type="date" value={segment.joinedFrom || ''} disabled={sending || !!campaign} onChange={event => setField('joinedFrom', event.target.value || null)} /></label>
       <label>Qeydiyyat · son gün<Input aria-label="Auditoriya qeydiyyat sonu" type="date" value={segment.joinedTo || ''} disabled={sending || !!campaign} onChange={event => setField('joinedTo', event.target.value || null)} /></label>
       <MultiFilter label="Platforma" options={[{ value: 'ios', label: 'iOS' }, { value: 'android', label: 'Android' }]} values={segment.platforms} onChange={value => setField('platforms', value)} disabled={sending || !!campaign} />
+      <label>App versiyası · bundan aşağı<Input aria-label="App versiyası bundan aşağı" placeholder="məs. 50.0" inputMode="decimal" value={versionText} disabled={sending || !!campaign}
+        onChange={event => { const value = event.target.value.replace(/[^\d.]/g, '').slice(0, 19); setVersionText(value); setField('appVersionBelow', APP_VERSION_RE.test(value) ? value : null); }} />
+        <span className="text-xs text-muted-foreground">Yalnız app-i bu versiyadan köhnə olanlar. Versiyası bilinməyənlər daxil edilmir.</span></label>
     </div><div className="rounded-xl bg-muted/50 p-3 text-xs leading-6"><strong>Seçilmiş auditoriya: </strong>
-      {segment.languages.length ? segment.languages.join(', ').toUpperCase() : 'Bütün dillər'} ∩ {segment.modules.length ? segment.modules.map(module => MODULE_LABELS[module]).join(', ') : 'Bütün modullar'} ∩ {segment.countries.length ? segment.countries.join(', ') : 'Bütün ölkələr'} · {ACCESS_LABELS[segment.access]}
+      {segment.languages.length ? segment.languages.join(', ').toUpperCase() : 'Bütün dillər'} ∩ {segment.modules.length ? segment.modules.map(module => MODULE_LABELS[module]).join(', ') : 'Bütün modullar'} ∩ {segment.countries.length ? segment.countries.join(', ') : 'Bütün ölkələr'} · {ACCESS_LABELS[segment.access]}{segment.appVersionBelow ? ` · app < ${segment.appVersionBelow}` : ''}
     </div><Button variant="outline" onClick={() => void checkAudience()} disabled={previewing || sending || !!campaign}>{previewing ? <Loader2 size={16} className="me-2 animate-spin" /> : <Users size={16} className="me-2" />}Auditoriyanı yoxla</Button>
       {preview?.key === key && <div data-testid="admin-audience-preview"><div className="admin-kpis">{[[tr('admin_audience_users', 'Uyğun istifadəçi'), preview.value.users], [tr('admin_audience_eligible', 'Göndərişə uyğun istifadəçi'), preview.value.eligibleUsers], [tr('admin_audience_devices', 'Cihaz'), preview.value.devices], [tr('admin_audience_opted_out', 'Bildirişi bağlayan'), preview.value.optedOut], [tr('admin_audience_quiet', 'Səssiz saat'), preview.value.quietHours], [tr('admin_audience_no_device', 'Uyğun cihazı olmayan'), preview.value.noDevice]].map(([label, count]) => <div className="admin-kpi" key={String(label)}><span className="metric-label">{label}</span><strong>{number(Number(count))}</strong></div>)}</div><p className="admin-panel-note mt-3">Bildiriş və gündəlik push seçimini bağlayanlar, səssiz saatda olanlar və cihazı olmayanlar göndərişdən çıxarılır. Səssiz saat zonası: {preview.value.quietTimezone}.</p></div>}
     </section>
