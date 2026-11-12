@@ -1,0 +1,12 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261112140000_hero_growth_data_fix.sql",
+  "runtime": "google-hero-growth-data-fix",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; data only, checks both guards and verifies every changed row",
+  "relations": [
+    { "relation": "public.pregnancy_daily_content", "change": "baby_size_cm / baby_weight_gram / baby_size_fruit(+20 translations) of 269 active days", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "fetal size per WHO/Hadlock references; already guarded" },
+    { "relation": "public.baby_daily_info", "change": "growth figures in 17 rows (az + translations)", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "numbers aligned with WHO Child Growth Standards; already guarded" }
+  ]
+}
