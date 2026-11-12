@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { BookOpen, Check, Clock, Heart, ShieldAlert, Sparkles, X } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
@@ -6,68 +6,39 @@ import { useChildren } from '@/hooks/useChildren';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { logEvent } from '@/lib/analytics';
 import { bookCover, type Book } from '@/lib/books/catalog';
-import { PLAY_GAMES_AZ } from '@/data/play-together/az';
+import { useUserStore } from '@/store/userStore';
+import { hasPlayContent, loadPlayContent, mergePlayLocale, type PlayContent } from '@/data/play-together';
+import { PLAY_UI_AZ } from '@/data/play-together/ui-az';
+import type { PlayUiText } from '@/data/play-together/types';
 import {
   PLAY_AGE_BANDS, PLAY_CATEGORIES, bandForMonths, booksForAgeGroup, booksForGame, dayKey, gamesForAge, handsOnSkills,
   logPlayed, minutesOn, monthsForBand, playedOn, readPlayState, screenGuideFor, todaysPicks, toggleFav, unlogPlayed,
   weekStrip, writePlayState, type PlayAgeBand, type PlayCategory, type PlayGame, type PlayState,
 } from '@/lib/play-together';
-import { ToolHeader, ToolPage } from '../anacan/ToolKit';
+import { ToolHeader, ToolLoading, ToolPage } from '../anacan/ToolKit';
 import './play-together.css';
 
-// Azerbaijani only for now (the tile shows for az); strings live here until the content is translated.
-const T = {
-  title: 'Uşaqla oyun',
-  eyebrow: 'Ekransız vaxt',
-  today: 'Bu gün birlikdə',
-  minutes: (n: number) => `${n} dəq`,
-  weekHint: 'Son 7 gün: hər nöqtə birlikdə oynadığınız bir gündür.',
-  picksTitle: 'Bu günün oyunları',
-  picksSub: 'Hər gün yeni üç oyun, fərqli növlərdən.',
-  allGames: 'Bütün oyunlar',
-  all: 'Hamısı',
-  favs: 'Sevimlilər',
-  noFavs: 'Ürəyə toxunub oyunları sevimlilərə əlavə edin.',
-  noGames: 'Bu yaş üçün bu növdə oyun yoxdur, başqa növə baxın.',
-  booksTitle: 'Kitablarda davamı',
-  booksSub: 'Kəs-yapışdır, rənglə, labirint: Anacan PDF kitablarındakı oyunlar.',
-  ageFor: (name: string) => `${name} üçün`,
-  ageLabel: { '6m': '6-12 ay', '1y': '1 yaş', '2y': '2 yaş', '3y': '3 yaş', '4y': '4 yaş', '5y': '5 yaş', '6y': '6+ yaş' } as Record<PlayAgeBand, string>,
-  cats: {
-    craft: 'Kəs, yapışdır, rənglə', move: 'Hərəkətli', pretend: 'Rollu oyun', kitchen: 'Mətbəxdə',
-    calm: 'Sakit oyun', outdoor: 'Çöldə', words: 'Söz və mahnı',
-  } as Record<PlayCategory, string>,
-  catEmoji: { craft: '✂️', move: '🤸', pretend: '🎭', kitchen: '🥣', calm: '🧩', outdoor: '🌳', words: '🎵' } as Record<PlayCategory, string>,
-  guide: {
-    none: '2 yaşa qədər ekran tövsiyə olunmur (video zəng istisnadır). Ən yaxşı inkişaf: oyun, söhbət, kitab.',
-    hour: 'Gündə 1 saatdan çox ekran olmasın, az olsa daha yaxşıdır. Baxanda yanında olun və danışın.',
-    family: 'Ailədə ekran qaydası qoyun: yemək, yuxu və hərəkət vaxtını ekran almasın, yatmazdan 1 saat əvvəl ekran olmasın.',
-  },
-  guideSource: 'Mənbə: ÜST (2019), Amerika Pediatriya Akademiyası',
-  why: 'Nə inkişaf edir',
-  materials: 'Lazım olanlar',
-  steps: 'Necə oynayaq',
-  tip: 'Kiçik məsləhət',
-  safety: 'Təhlükəsizlik',
-  continueInBook: 'Kitabda davam edin',
-  continueInBookSub: 'Bu oyunun davamı bu kitabların səhifələrindədir.',
-  played: 'Oynadıq',
-  playedDone: 'Bu gün oynadıq',
-  ageRange: (a: number, b: number) => `${fmtAge(a)} - ${fmtAge(b)}`,
-  pages: (n: number) => `${n} səhifə`,
-  insideBook: 'İçində',
-  openStore: 'Kitab mağazasında bax',
-  close: 'Bağla',
-  fav: 'Sevimlilərə əlavə et',
-  unfav: 'Sevimlilərdən çıxar',
-};
+const CAT_EMOJI: Record<PlayCategory, string> = { craft: '✂️', move: '🤸', pretend: '🎭', kitchen: '🥣', calm: '🧩', outdoor: '🌳', words: '🎵' };
 
-function fmtAge(months: number): string {
-  if (months < 24 && months % 12 !== 0) return `${months} ay`;
-  const years = months / 12;
-  const rounded = Math.round(years * 2) / 2;
-  return `${String(rounded).replace('.', ',')} yaş`;
+const fill = (template: string, vars: Record<string, string | number>) => template.replace(/\{([a-z]+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
+
+/** UI strings of the loaded language, with the few formatted ones as functions. */
+function makeT(ui: PlayUiText, language: string) {
+  const num = (n: number) => { try { return new Intl.NumberFormat(language).format(n); } catch { return String(n); } };
+  const fmtAge = (months: number) => (months < 24 && months % 12 !== 0
+    ? fill(ui.ageMonths, { n: num(months) })
+    : fill(ui.ageYears, { n: num(Math.round((months / 12) * 2) / 2) }));
+  return {
+    ...ui,
+    minutes: (n: number) => fill(ui.minutes, { n: num(n) }),
+    ageFor: (name: string) => fill(ui.ageFor, { name }),
+    pages: (n: number) => fill(ui.pages, { n: num(n) }),
+    ageRange: (a: number, b: number) => `${fmtAge(a)} - ${fmtAge(b)}`,
+  };
 }
+type PlayT = ReturnType<typeof makeT>;
+const PlayTextContext = createContext<PlayT>(makeT(PLAY_UI_AZ, 'az'));
+const useT = () => useContext(PlayTextContext);
 
 const BOOKS_OPEN_KEY = 'anacan_books_open_v1';
 
@@ -79,6 +50,25 @@ function openBookInStore(book: Book) {
 
 export default function PlayTogetherTool({ onBack }: { onBack: () => void }) {
   useScreenAnalytics('PlayTogether', 'Tools');
+  const appLanguage = useUserStore((s) => s.language);
+  const language = hasPlayContent(appLanguage) ? appLanguage : 'az';
+  const [content, setContent] = useState<PlayContent | null>(() => (language === 'az' ? mergePlayLocale('az', { ui: PLAY_UI_AZ, games: {} }) : null));
+  useEffect(() => {
+    let alive = true;
+    if (content?.language !== language) void loadPlayContent(language).then((c) => { if (alive) setContent(c); });
+    return () => { alive = false; };
+  }, [language]); // eslint-disable-line react-hooks/exhaustive-deps
+  if (!content) return <ToolLoading />;
+  return (
+    <PlayTextContext.Provider value={makeT(content.ui, content.language)}>
+      <PlayHome onBack={onBack} games={content.games} showBooks={content.language === 'az'} />
+    </PlayTextContext.Provider>
+  );
+}
+
+/** Book links point to the PDF store, which is Azerbaijani only. */
+function PlayHome({ onBack, games: allGames, showBooks }: { onBack: () => void; games: PlayGame[]; showBooks: boolean }) {
+  const T = useT();
   const { user } = useAuth();
   const userId = user?.id ?? null;
   const { selectedChild, getChildAge } = useChildren();
@@ -98,13 +88,13 @@ export default function PlayTogetherTool({ onBack }: { onBack: () => void }) {
 
   const now = new Date();
   const today = dayKey(now);
-  const games = useMemo(() => gamesForAge(PLAY_GAMES_AZ, months), [months]);
+  const games = useMemo(() => gamesForAge(allGames, months), [allGames, months]);
   const done = playedOn(state, today);
   const picks = useMemo(() => todaysPicks(games, `${today}|${selectedChild?.id ?? 'x'}|${band}`, new Set()), [games, today, selectedChild?.id, band]);
-  const list = cat === 'all' ? games : cat === 'favs' ? PLAY_GAMES_AZ.filter((g) => state.favs.includes(g.id)) : games.filter((g) => g.cat === cat);
+  const list = cat === 'all' ? games : cat === 'favs' ? allGames.filter((g) => state.favs.includes(g.id)) : games.filter((g) => g.cat === cat);
   const cats = PLAY_CATEGORIES.filter((c) => games.some((g) => g.cat === c));
   const week = weekStrip(state, now);
-  const ageBooks = useMemo(() => booksForAgeGroup(months).slice(0, 10), [months]);
+  const ageBooks = useMemo(() => (showBooks ? booksForAgeGroup(months).slice(0, 10) : []), [months, showBooks]);
   const guide = screenGuideFor(months);
 
   const pickBand = (value: PlayAgeBand) => save({ ...state, band: value === childBand ? null : value });
@@ -120,7 +110,7 @@ export default function PlayTogetherTool({ onBack }: { onBack: () => void }) {
     return (
       <PlayGameScreen game={open} played={done.has(open.id)} fav={state.favs.includes(open.id)}
         onBack={() => setOpen(null)} onPlayed={() => togglePlayed(open)} onFav={() => save(toggleFav(state, open.id))}
-        onBook={(b) => showBook(b, 'game')} book={book} onCloseBook={() => setBook(null)} />
+        onBook={(b) => showBook(b, 'game')} book={book} onCloseBook={() => setBook(null)} showBooks={showBooks} />
     );
   }
 
@@ -166,7 +156,7 @@ export default function PlayTogetherTool({ onBack }: { onBack: () => void }) {
         <div className="pt-cats">
           <button type="button" className={`pt-chip${cat === 'all' ? ' on' : ''}`} onClick={() => setCat('all')}>{T.all} · {games.length}</button>
           {cats.map((c) => (
-            <button key={c} type="button" className={`pt-chip${cat === c ? ' on' : ''}`} onClick={() => setCat(c)}>{T.catEmoji[c]} {T.cats[c]}</button>
+            <button key={c} type="button" className={`pt-chip${cat === c ? ' on' : ''}`} onClick={() => setCat(c)}>{CAT_EMOJI[c]} {T.cats[c]}</button>
           ))}
           <button type="button" className={`pt-chip${cat === 'favs' ? ' on' : ''}`} onClick={() => setCat('favs')}><Heart size={12} aria-hidden /> {T.favs}</button>
         </div>
@@ -177,7 +167,7 @@ export default function PlayTogetherTool({ onBack }: { onBack: () => void }) {
               <span className={`pt-row-emoji pt-cat-${g.cat}`} aria-hidden>{g.emoji}</span>
               <span className="pt-row-text">
                 <span className="pt-row-title">{g.title}</span>
-                <span className="pt-row-sub">{T.catEmoji[g.cat]} {T.cats[g.cat]} · {T.minutes(g.minutes)}{g.books.length > 0 && <> · <BookOpen size={11} aria-hidden /> {g.books.length}</>}</span>
+                <span className="pt-row-sub">{CAT_EMOJI[g.cat]} {T.cats[g.cat]} · {T.minutes(g.minutes)}{showBooks && g.books.length > 0 && <> · <BookOpen size={11} aria-hidden /> {g.books.length}</>}</span>
               </span>
               {done.has(g.id) ? <Check size={16} className="pt-ok" aria-label={T.playedDone} /> : state.favs.includes(g.id) ? <Heart size={14} className="pt-heart" aria-label={T.favs} /> : null}
             </button>
@@ -203,13 +193,14 @@ export default function PlayTogetherTool({ onBack }: { onBack: () => void }) {
   );
 }
 
-function PlayGameScreen({ game, played, fav, onBack, onPlayed, onFav, onBook, book, onCloseBook }: {
+function PlayGameScreen({ game, played, fav, onBack, onPlayed, onFav, onBook, book, onCloseBook, showBooks }: {
   game: PlayGame; played: boolean; fav: boolean; onBack: () => void; onPlayed: () => void; onFav: () => void;
-  onBook: (b: Book) => void; book: Book | null; onCloseBook: () => void;
+  onBook: (b: Book) => void; book: Book | null; onCloseBook: () => void; showBooks: boolean;
 }) {
+  const T = useT();
   const [have, setHave] = useState<Set<number>>(new Set());
   useEffect(() => { try { window.scrollTo(0, 0); } catch { /* ignore */ } }, [game.id]);
-  const books = booksForGame(game);
+  const books = showBooks ? booksForGame(game) : [];
   return (
     <ToolPage>
       <ToolHeader title={T.title} eyebrow={T.cats[game.cat]} onBack={onBack}
@@ -277,6 +268,7 @@ function PlayGameScreen({ game, played, fav, onBack, onPlayed, onFav, onBook, bo
 }
 
 function BookSheet({ book, onClose }: { book: Book; onClose: () => void }) {
+  const T = useT();
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', onKey);

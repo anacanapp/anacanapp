@@ -77,10 +77,10 @@ describe('play-together logic', () => {
     expect(books.every((b) => b.age === '3y')).toBe(true);
   });
 
-  it('shows the tile for Azerbaijani mothers only', () => {
-    expect(isPlayTileVisible({ lifeStage: 'mommy', language: 'az' })).toBe(true);
-    expect(isPlayTileVisible({ lifeStage: 'mommy', language: 'ru' })).toBe(false);
-    expect(isPlayTileVisible({ lifeStage: 'bump', language: 'az' })).toBe(false);
-    expect(isPlayTileVisible({ lifeStage: 'bump', language: 'az', isAdmin: true })).toBe(true);
+  it('shows the tile for mothers whose app language has content', () => {
+    expect(isPlayTileVisible({ lifeStage: 'mommy', hasContent: true })).toBe(true);
+    expect(isPlayTileVisible({ lifeStage: 'mommy', hasContent: false })).toBe(false);
+    expect(isPlayTileVisible({ lifeStage: 'bump', hasContent: true })).toBe(false);
+    expect(isPlayTileVisible({ lifeStage: 'bump', hasContent: true, isAdmin: true })).toBe(true);
   });
 });

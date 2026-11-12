@@ -149,6 +149,6 @@ export function weekStrip(state: PlayState, now: Date): { day: string; minutes: 
   return out;
 }
 
-/** Tile rule: Ana module, Azerbaijani content only (content exists for az), not disabled by the admin. */
-export const isPlayTileVisible = (input: { lifeStage?: string | null; language?: string | null; disabled?: boolean; isAdmin?: boolean }): boolean =>
-  !input.disabled && input.language === 'az' && (input.lifeStage === 'mommy' || !!input.isAdmin);
+/** Tile rule: Ana module, content registered for the app language (src/data/play-together/index.ts), not disabled. */
+export const isPlayTileVisible = (input: { lifeStage?: string | null; hasContent: boolean; disabled?: boolean; isAdmin?: boolean }): boolean =>
+  !input.disabled && input.hasContent && (input.lifeStage === 'mommy' || !!input.isAdmin);

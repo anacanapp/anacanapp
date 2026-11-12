@@ -4,6 +4,7 @@ import { saveScroll, restoreScroll } from '@/lib/scrollMemory';
 import { pushBackHandler } from '@/lib/backButton';
 import { isToolFree, isCakesAvailable, toolAccess, type ToolAccess } from '@/lib/freemium';
 import { isPlayTileVisible } from '@/lib/play-together';
+import { hasPlayContent, playTileText } from '@/data/play-together/tile';
 import { foldText } from '@/lib/parenting-search';
 import { motion } from 'framer-motion';
 import {
@@ -298,7 +299,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       // Code tools keep their own eligibility; their rows only carry order and per-stage visibility (src/lib/code-tools.ts).
       && (config.tool_id !== 'cakes' || ((isAdmin || isCakesAvailable((profile as any)?.country_code, language)) && (lifeStage === 'bump' || lifeStage === 'mommy' || isAdmin)))
       && (config.tool_id !== 'solid-food-guide' || lifeStage === 'mommy')
-      && (config.tool_id !== 'play-together' || isPlayTileVisible({ lifeStage, language, isAdmin }))
+      && (config.tool_id !== 'play-together' || isPlayTileVisible({ lifeStage, hasContent: hasPlayContent(language), isAdmin }))
       && (config.tool_id !== 'sleep-training' || sleepTrainingEligible({ lifeStage, birthDate: childBirthDate ? new Date(childBirthDate) : null, now: new Date() })));
     // Name, description and icon of code tools come from code translations (all 23 languages), not from the row.
     const codeMeta = (id: string): { name: string; description: string; icon: typeof Wrench } | null => {
@@ -309,8 +310,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
         case 'sleep-training': return { name: bc('sleeptraining_title'), description: bc('sleeptraining_tool_desc'), icon: MoonStar };
         case 'solid-food-guide': return { name: feature37Text('sfg_home_title', language), description: feature37Text('sfg_tool_desc', language), icon: Salad };
         case 'parenting': return { name: parentingText('par_tool_name'), description: parentingText('par_tool_desc'), icon: HeartHandshake };
-        // Azerbaijani only (isPlayTileVisible), so the name stays in code like the content.
-        case 'play-together': return { name: 'Uşaqla oyun', description: 'Ekransız oyunlar və kitablar', icon: Puzzle };
+        case 'play-together': { const t = playTileText(language); return { name: t.name, description: t.description, icon: Puzzle }; }
         default: return null;
       }
     };
