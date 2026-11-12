@@ -15,6 +15,7 @@
  * 0 days to N weeks 6 days. Trimesters follow the app's getTrimester (src/lib/pregnancy-utils.ts).
  */
 import { azOrdinal } from '../tools/names';
+import { FETAL_SIZE_BY_WEEK, HADLOCK_EFW } from '../../lib/fetal-size';
 
 /**
  * Publication switch (owner decision). While false the pages render at their live URLs so the owner
@@ -62,38 +63,16 @@ export const pregnancyWeekPath = (week: number) => `/az/${PREGNANCY_WEEKS_PARENT
 export const pregnancyTrimester = (week: number): 1 | 2 | 3 => (week < 13 ? 1 : week < 27 ? 2 : 3);
 
 /**
- * Copy of the app's FRUIT_SIZES (src/types/anacan.ts; that module pulls in the consumer i18n runtime,
- * which stays out of the website). pregnancy-weeks.test.ts asserts both stay identical.
+ * Fetal size per completed week, the same source as the app's FRUIT_SIZES (src/lib/fetal-size.ts: Hadlock 1991,
+ * CRL until 20 weeks, crown-heel after). pregnancy-weeks.test.ts asserts both stay identical.
  */
-export const APP_FRUIT_SIZES: Record<number, { fruit: string; lengthCm: number; weightG: number }> = {
-  4: { fruit: 'Xaşxaş toxumu', lengthCm: 0.1, weightG: 0.04 },
-  5: { fruit: 'Susam', lengthCm: 0.2, weightG: 0.1 },
-  6: { fruit: 'Mərci', lengthCm: 0.4, weightG: 0.2 },
-  7: { fruit: 'Moruq', lengthCm: 1.0, weightG: 1 },
-  8: { fruit: 'Noxud', lengthCm: 1.6, weightG: 2 },
-  9: { fruit: 'Gilas', lengthCm: 2.3, weightG: 4 },
-  10: { fruit: 'Qoz', lengthCm: 3.1, weightG: 7 },
-  11: { fruit: 'Əncir', lengthCm: 4.1, weightG: 10 },
-  12: { fruit: 'Gavalı', lengthCm: 5.4, weightG: 14 },
-  13: { fruit: 'Şaftalı', lengthCm: 7.4, weightG: 23 },
-  14: { fruit: 'Limon', lengthCm: 8.7, weightG: 43 },
-  15: { fruit: 'Alma', lengthCm: 10.1, weightG: 70 },
-  16: { fruit: 'Avokado', lengthCm: 11.6, weightG: 100 },
-  17: { fruit: 'Armud', lengthCm: 13, weightG: 140 },
-  18: { fruit: 'Bibər', lengthCm: 14.2, weightG: 190 },
-  19: { fruit: 'Pomidor', lengthCm: 15.3, weightG: 240 },
-  20: { fruit: 'Banan', lengthCm: 16.4, weightG: 300 },
-  24: { fruit: 'Qarğıdalı', lengthCm: 21.3, weightG: 600 },
-  28: { fruit: 'Badımcan', lengthCm: 25.4, weightG: 1000 },
-  32: { fruit: 'Qabaq', lengthCm: 27.4, weightG: 1700 },
-  36: { fruit: 'Kahı', lengthCm: 34, weightG: 2600 },
-  40: { fruit: 'Qarpız', lengthCm: 36, weightG: 3400 },
-};
-/** Copy of the app's median estimated fetal weight for weeks 20-40 (src/lib/fetalGrowth.ts, asserted in tests). */
-export const APP_MEDIAN_WEIGHT_G: Record<number, number> = {
-  20: 300, 21: 350, 22: 410, 23: 480, 24: 600, 25: 660, 26: 760, 27: 875, 28: 1000, 29: 1150, 30: 1320,
-  31: 1500, 32: 1700, 33: 1920, 34: 2150, 35: 2380, 36: 2600, 37: 2850, 38: 3080, 39: 3250, 40: 3400,
-};
+export const APP_FRUIT_SIZES: Record<number, { fruit: string; lengthCm: number; weightG: number }> = Object.fromEntries(
+  Object.entries(FETAL_SIZE_BY_WEEK).map(([week, row]) => [Number(week), { fruit: row.fruit, lengthCm: row.lengthCm, weightG: row.weightG }]),
+);
+/** Median estimated fetal weight for weeks 20-40 (Hadlock 1991, as the app's ultrasound tool src/lib/fetalGrowth.ts). */
+export const APP_MEDIAN_WEIGHT_G: Record<number, number> = Object.fromEntries(
+  Object.entries(HADLOCK_EFW).filter(([week]) => Number(week) >= 20).map(([week, row]) => [Number(week), row[2]]),
+);
 
 export type PregnancyWeekSize =
   | { kind: 'none'; text: string }
@@ -124,7 +103,7 @@ export function pregnancyWeekSize(week: number): PregnancyWeekSize {
 
 const decimal = (value: number) => String(value).replace('.', ',');
 export const formatLength = (cm: number) => `${decimal(cm)} sm`;
-export const formatWeight = (grams: number) => (grams >= 1000 ? `${decimal(Math.round(grams / 100) / 10)} kq` : `${decimal(grams)} q`);
+export const formatWeight = (grams: number) => (grams >= 1000 ? `${decimal(Math.round(grams / 100) / 10)} kq` : grams < 0.1 ? '0,1 q-dan az' : `${decimal(grams)} q`);
 const lower = (value: string) => value.toLocaleLowerCase('az');
 
 /** Short size line for the hub tiles. */

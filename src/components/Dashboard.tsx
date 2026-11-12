@@ -89,6 +89,7 @@ import FetusMonth7 from '@/assets/fetus/month-7.svg';
 import FetusMonth8 from '@/assets/fetus/month-8.svg';
 import FetusMonth9 from '@/assets/fetus/month-9.svg';
 import { tr } from "@/lib/tr";
+import { fetalLengthNote, formatFetalWeight } from "@/lib/fetal-size-copy";
 import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { useFetusIllustrationByMonth } from '@/hooks/useFetusIllustrations';
 import FetusHeroImage from '@/components/bump/FetusHeroImage';
@@ -408,10 +409,12 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
 
         <div className="a-tag-row" style={{ justifyContent: 'center', marginTop: 12, marginBottom: 0 }}>
           <span className="a-tag" style={{ cursor: 'default' }}>{pregnancyDay}{tr("dashboard_gun_d96b5d", ". g\xFCn")}</span>
-          <span className="a-tag" style={{ cursor: 'default' }}>{weekData.lengthCm} {tr("dashboard_sm", "sm")}</span>
-          <span className="a-tag" style={{ cursor: 'default' }}>{weekData.weightG} {tr("dashboard_qr", "qr")}</span>
+          <span className="a-tag" style={{ cursor: 'default' }} title={fetalLengthNote(language)}>{weekData.lengthCm} {tr("dashboard_sm", "sm")}</span>
+          <span className="a-tag" style={{ cursor: 'default' }}>{formatFetalWeight(weekData.weightG)} {tr("dashboard_qr", "qr")}</span>
           <span className="a-tag" style={{ cursor: 'default' }}>{daysLeft} {tr("dashboard_gun_qaldi_993281", "g\xFCn qald\u0131")}</span>
         </div>
+        {/* Length is crown-rump until week 20 and crown-heel after (src/lib/fetal-size.ts): explains the jump. */}
+        <p style={{ fontSize: 11, lineHeight: 1.35, opacity: 0.75, color: 'inherit', marginTop: 6, marginBottom: 0, textAlign: 'center' }}>{fetalLengthNote(language)}</p>
 
         {/* Progress Bar */}
         <div className="a-pbar">

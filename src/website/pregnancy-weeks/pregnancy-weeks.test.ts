@@ -87,13 +87,13 @@ describe('pregnancy week numbers match the app', () => {
     for (const [week, grams] of Object.entries(APP_MEDIAN_WEIGHT_G)) expect(getFetalWeightBand(Number(week)).p50).toBe(grams);
   });
   it('uses the app row, the app fruit and the app median in between and the app trimesters', () => {
-    expect(pregnancyWeekSize(12)).toEqual({ kind: 'table', fruit: 'Gavalı', lengthCm: 5.4, weightG: 14 });
-    expect(pregnancyWeekSize(22)).toMatchObject({ kind: 'between', fruit: 'Banan', next: 'Qarğıdalı', nextWeek: 24, weightG: 410 });
-    expect(pregnancyWeekSize(41)).toMatchObject({ kind: 'term', fruit: 'Qarpız', lengthCm: 36, weightG: 3400 });
+    expect(pregnancyWeekSize(12)).toEqual({ kind: 'table', fruit: 'Laym', lengthCm: 5.6, weightG: 14 });
+    expect(pregnancyWeekSize(22)).toMatchObject({ kind: 'table', fruit: 'Qreypfrut', lengthCm: 27.8, weightG: 478 });
+    expect(pregnancyWeekSize(41)).toMatchObject({ kind: 'table', fruit: 'Böyük qarpız', lengthCm: 51.7, weightG: 3787 });
     for (const week of PREGNANCY_WEEK_NUMBERS) expect(pregnancyTrimester(week)).toBe(getTrimester(week));
-    expect(pregnancyWeekFacts(20).map(fact => fact.value)).toEqual(expect.arrayContaining(['2-ci trimestr', 'təxminən 16,4 sm', 'təxminən 300 q', 'Banan boyda']));
-    expect(pregnancyWeekFacts(40).map(fact => fact.value)).toEqual(expect.arrayContaining(['3-cü trimestr', 'təxminən 36 sm', 'təxminən 3,4 kq', 'Qarpız boyda']));
-    expect(pregnancyWeekQuick(PREGNANCY_WEEKS_AZ[11])).toContain('təxminən gavalı boydadır (5,4 sm, 14 q)');
+    expect(pregnancyWeekFacts(20).map(fact => fact.value)).toEqual(expect.arrayContaining(['2-ci trimestr', 'təxminən 25,6 sm', 'təxminən 331 q', 'Banan boyda']));
+    expect(pregnancyWeekFacts(40).map(fact => fact.value)).toEqual(expect.arrayContaining(['3-cü trimestr', 'təxminən 51,2 sm', 'təxminən 3,6 kq', 'Qarpız boyda']));
+    expect(pregnancyWeekQuick(PREGNANCY_WEEKS_AZ[11])).toContain('təxminən laym boydadır (5,6 sm, 14 q)');
   });
 });
 
@@ -160,7 +160,7 @@ describe('pregnancy week pages', () => {
     expect(page).toContain('href="/az/hamilelik/11-ci-hefte/"');
     expect(page).toContain('href="/az/hamilelik/13-cu-hefte/"');
     expect(page).toContain('https://www.nhs.uk/best-start-in-life/pregnancy/week-by-week-guide-to-pregnancy/1st-trimester/week-12/');
-    expect(page).toContain('5,4 sm');
+    expect(page).toContain('5,6 sm');
     const hub = html(HUB);
     for (const week of PREGNANCY_WEEK_NUMBERS) expect(hub).toContain(`href="${pregnancyWeekPath(week)}"`);
     expect(hub).toContain('1-ci trimestr');

@@ -789,7 +789,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
       'Bir ayaqda ağrı, qızartı və şişkinlik qan laxtası əlaməti ola bilər; nəfəs darlığı və ya sinə ağrısı ilə birlikdə isə təcili yardım çağırın.',
     ],
     faq: [
-      { question: 'Hamiləliyin 21-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə bu həftə orta çəki təxminən 350 qramdır. Hər körpə fərqlidir; dəqiq ölçünü ultrasəs müayinəsi göstərir.' },
+      { question: 'Hamiləliyin 21-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə bu həftə orta çəki təxminən 400 qramdır. Hər körpə fərqlidir; dəqiq ölçünü ultrasəs müayinəsi göstərir.' },
       { question: 'Hamiləlikdə varikozun qarşısını almaq olarmı?', answer: 'Tam önləmək həmişə mümkün deyil, amma müntəzəm gəzinti, ayaqları qaldırıb istirahət, uzun müddət eyni vəziyyətdə qalmamaq və həkimin tövsiyəsi ilə kompressiya corabları kömək edə bilər.' },
       { question: 'Hamiləlikdə hemorroy necə yüngülləşdirilə bilər?', answer: 'Qəbizliyin qarşısını almaq, tualetdə çox güc verməmək və gigiyenaya diqqət etmək əsas yollardır. Hamiləlikdə istifadə edilə bilən məlhəm və ya şamı həkim məsləhət görə bilər.' },
       { question: 'Körpə niyə bəzən uzun müddət hərəkət etmir?', answer: 'Körpənin yuxu dövrləri var və bu həftələrdə hərəkətlər hələ müntəzəm deyil. Siz hərəkət edəndə körpə çox vaxt sakitləşir, istirahət edəndə isə fəallaşır. Hərəkətlər hiss olunmağa başladıqdan sonra onların aydın azalması həkimə müraciət səbəbidir.' },
@@ -828,7 +828,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
     ],
     faq: [
       { question: 'Brekston-Hiks sancıları nədir?', answer: 'Bu, uşaqlığın doğuşa hazırlıq üçün etdiyi məşq yığılmalarıdır. Adətən ağrısız və ya az ağrılıdır, nizamsız gəlir və vəziyyəti dəyişəndə və ya istirahət edəndə keçir. Əsl doğuş sancıları isə müntəzəm, güclənən və tezləşən olur.' },
-      { question: 'Hamiləliyin 22-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 410 qramdır. Ultrasəsdə ölçülən çəki bundan bir qədər fərqli ola bilər; həkim körpənin böyümə əyrisinə baxır.' },
+      { question: 'Hamiləliyin 22-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 480 qramdır. Ultrasəsdə ölçülən çəki bundan bir qədər fərqli ola bilər; həkim körpənin böyümə əyrisinə baxır.' },
       { question: 'Vaxtından əvvəl doğuşun əlamətləri hansılardır?', answer: 'Müntəzəm sancılar, beldə küt ağrı, çanaqda təzyiq hissi, uşaqlıq yolundan su kimi və ya qanlı ifrazat. 37-ci həftədən əvvəl bu əlamətlər olarsa, gözləmədən həkimə müraciət etmək lazımdır.' },
       { question: 'Bu həftə səyahət etmək olarmı?', answer: 'Ağırlaşma yoxdursa, əksər hallarda bəli. Uzun səyahətdən əvvəl həkimlə danışın, hamiləlik sənədlərinizi yanınızda saxlayın və yolda tez-tez hərəkət edin.' },
       { question: 'Hamiləliyin 22-ci həftəsində cinsi əlaqə məşq sancılarına səbəb olurmu?', answer: 'Orqazmdan sonra uşaqlığın qısa müddətə bərkiməsi normaldır və ağırlaşmasız hamiləlikdə zərərsizdir. Bərkimə ritmik davam edirsə, ağrı və ya qanaxma olarsa, həkimə müraciət edin.' },
@@ -1025,7 +1025,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
       { question: 'Üçüncü trimestr nə vaxt başlayır?', answer: 'Bəzi mənbələr 27-ci, bəziləri 28-ci həftəni göstərir. Anacan tətbiqi 27-ci həftədən üçüncü trimestri hesablayır. Bu, şərti bölgüdür; müşahidə planını həkim müəyyən edir.' },
       { question: 'Hərəkətlərin azalması nə deməkdir?', answer: 'Körpənin hərəkətlərinin azalması bəzən onun problem yaşadığının ilk əlamətidir. Hamiləliyin sonuna qədər körpə daha az hərəkət etmir, sadəcə hərəkətlərin xarakteri dəyişir. Azalma hiss etsəniz, gözləmədən müraciət edin.' },
       { question: 'Narahat ayaq sindromu üçün nə etmək olar?', answer: 'Axşam yüngül gəzinti, ayaqların masajı, isti duş və kofeini azaltmaq kömək edə bilər. Dəmir göstəricilərini yoxlatdırın; lazım olsa, həkim müalicə təyin edər.' },
-      { question: 'Hamiləliyin 27-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 875 qramdır və növbəti həftə 1 kiloqrama çatır. Ultrasəsdə ölçülən çəki bundan fərqli ola bilər; həkim körpənin öz böyümə əyrisinə baxır.' },
+      { question: 'Hamiləliyin 27-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 1,1 kiloqramdır (1055 q) və növbəti həftə 1,2 kiloqrama çatır. Ultrasəsdə ölçülən çəki bundan fərqli ola bilər; həkim körpənin öz böyümə əyrisinə baxır.' },
     ],
     sources: ['nhsMovements', 'nhsGdm', 'acogGdm'],
   },
@@ -1099,7 +1099,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
       'Güclü qarın ağrısı ilə birlikdə qarnın bərk qalması və ya qanaxma plasentanın vaxtından əvvəl ayrılması əlaməti ola bilər: təcili yardım çağırın.',
     ],
     faq: [
-      { question: 'Hamiləliyin 29-cu həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 1,2 kiloqramdır (1150 q). Bundan sonra körpə doğuşa qədər çəkisini təxminən üç dəfə artıracaq.' },
+      { question: 'Hamiləliyin 29-cu həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 1,4 kiloqramdır (1379 q). Bundan sonra körpə doğuşa qədər çəkisini təxminən iki yarım dəfə artıracaq.' },
       { question: 'Təpiklər ağrılıdırsa, nə etmək olar?', answer: 'Vəziyyətinizi dəyişin, yan üstə uzanın və ya bir az gəzin; körpə çox vaxt vəziyyətini dəyişir. Güclü təpiklər adətən körpənin sağlam və fəal olduğunu göstərir.' },
       { question: 'Hamiləlikdə qəbizlik üçün dərman qəbul etmək olarmı?', answer: 'Əvvəlcə qidalanma və su ilə kömək etməyə çalışın. Bunlar kifayət etmirsə, hamiləlikdə istifadə edilə bilən yumşaq vasitəni həkim və ya əczaçı məsləhət görə bilər. Özbaşına güclü işlətmə dərmanı qəbul etməyin.' },
       { question: 'Bu həftədən sonra həkim görüşləri nə qədər tez-tez olur?', answer: 'Çox klinikada üçüncü trimestrdə görüşlər 2-3 həftədən bir, 36-cı həftədən sonra isə hər həftə olur. Ağırlaşma olan hamiləliklərdə həkim daha tez-tez görüş təyin edə bilər.' },
@@ -1142,7 +1142,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
       { question: 'Hamiləlikdə depressiya olurmu?', answer: 'Bəli, hamiləlik zamanı da depressiya və narahatlıq pozğunluqları ola bilər və müalicə olunur. Davamlı kədər, maraq itkisi, yuxu və iştah dəyişiklikləri barədə həkiminizə deyin; kömək istəmək zəiflik deyil.' },
       { question: 'Doğum çantasına nələr qoymaq lazımdır?', answer: 'Sənədlər, hamiləlik kartı, rahat geyim, gecə köynəyi, gigiyena vasitələri, doğuşdan sonrakı bezlər, əmizdirmə büstqalteri, körpə üçün paltar, papaq, bələk və bezlər. Anacan tətbiqindəki doğum çantası siyahısı kömək edir.' },
       { question: 'Bu həftə nə qədər çəki artımı gözlənilir?', answer: 'Üçüncü trimestrdə çəki adətən həftədə təxminən yarım kiloqram artır, amma bu, qadına görə dəyişir. Bir neçə gündə qəfil çox çəki artımı və şişkinlik isə təzyiqin yoxlanılmasını tələb edir.' },
-      { question: 'Hamiləliyin 30-cu həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 1,3 kiloqramdır (1320 q). Bu həftələrdə körpə hər həftə 150-200 qram ətrafında çəki toplayır, əsasən piy və əzələ hesabına.' },
+      { question: 'Hamiləliyin 30-cu həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 1,6 kiloqramdır (1559 q). Bu həftələrdə körpə hər həftə 180-200 qram ətrafında çəki toplayır, əsasən piy və əzələ hesabına.' },
     ],
     sources: ['nhsMovements', 'nhsAppointments', 'acogPreeclampsia'],
   },
@@ -1179,7 +1179,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
     faq: [
       { question: 'Doğuş sancılarını məşq sancılarından necə ayırmaq olar?', answer: 'Məşq sancıları nizamsız olur, güclənmir və vəziyyət dəyişəndə keçir. Doğuş sancıları müntəzəm gəlir, getdikcə güclənir, tezləşir və istirahətlə keçmir. Şübhə olarsa, həkimə və ya doğum evinə zəng edin.' },
       { question: 'Hamiləlikdə kolostrumu sağmaq lazımdırmı?', answer: 'Hər qadına lazım deyil. Bəzi hallarda, məsələn, ana diabetlidirsə, həkim 36-cı həftədən sonra kolostrumu əvvəlcədən toplamağı məsləhət görə bilər. Bunu həkimlə razılaşdırmadan etməyin.' },
-      { question: 'Hamiləliyin 31-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 1,5 kiloqramdır. Bu həftələrdə körpə həftədə təxminən 200 qram artır.' },
+      { question: 'Hamiləliyin 31-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 1,8 kiloqramdır (1751 q). Bu həftələrdə körpə həftədə təxminən 200 qram artır.' },
       { question: 'Bu həftə doğulan körpə necə olur?', answer: 'Bu həftə doğulan körpələr vaxtından əvvəl doğulmuş sayılır və bir müddət xüsusi qayğıya ehtiyac duyur, amma onların əksəriyyəti yaxşı inkişaf edir. Buna görə doğuş əlamətlərində tez müraciət etmək vacibdir.' },
       { question: 'Hamiləlikdə unutqanlıq niyə olur?', answer: 'Yuxusuzluq, yorğunluq, hormonal dəyişikliklər və doğuşla bağlı fikirlər diqqəti dağıda bilər. Bu, adətən müvəqqətidir. Siyahılar, telefon xatırlatmaları və işləri bölmək kömək edir; çox güclü yaddaş problemi və ya çaşqınlıq olarsa, həkimə deyin.' },
     ],
@@ -1217,7 +1217,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
     ],
     faq: [
       { question: 'Hamiləliyin 32-ci həftəsində körpə başı aşağı deyilsə, narahat olmalıyammı?', answer: 'Xeyr. Bu həftə körpələrin bir hissəsi hələ çanaqla aşağı və ya köndələn vəziyyətdədir və çoxu sonrakı həftələrdə dönür. 36-cı həftədə körpə hələ başı yuxarıdırsa, həkim seçimləri izah edəcək.' },
-      { question: 'Hamiləliyin 32-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinə görə bu həftə körpənin çəkisi təxminən 1,7 kiloqram, təpədən oturağa qədər uzunluğu isə təxminən 27,4 santimetrdir. Ultrasəsdə ölçülən rəqəmlər bundan fərqli ola bilər; həkim körpənin öz böyümə əyrisinə baxır.' },
+      { question: 'Hamiləliyin 32-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinə görə bu həftə körpənin çəkisi təxminən 2 kiloqram (1953 q), təpədən dabana qədər uzunluğu isə təxminən 42,4 santimetrdir. Ultrasəsdə ölçülən rəqəmlər bundan fərqli ola bilər; həkim körpənin öz böyümə əyrisinə baxır.' },
       { question: 'Bu həftə hansı müayinələr edilir?', answer: 'Standart görüşdə təzyiq, sidik, qarnın ölçüsü və körpənin ürək döyüntüsü yoxlanılır. Böyümə ilə bağlı narahatlıq olarsa, həkim əlavə ultrasəs təyin edə bilər.' },
       { question: 'Körpənin ürək döyüntüsü nə qədər olmalıdır?', answer: 'Normal ürək döyüntüsü adətən dəqiqədə təxminən 110-160 arasında olur. Bunu həkim və ya mama müayinədə yoxlayır; evdə aparatla özbaşına dinləmək bəzən yanlış rahatlıq verə bilər.' },
       { question: 'Qabırğaların altında ağrı nə vaxt təhlükəlidir?', answer: 'Körpənin ayaqlarının qabırğalara dirənməsindən olan ağrı vəziyyəti dəyişəndə yüngülləşir. Sağ qabırğanın altında güclü, davamlı ağrı, xüsusən baş ağrısı, ürəkbulanma və ya şişkinliklə birlikdə isə preeklampsiya əlaməti ola bilər və dərhal yoxlanmalıdır.' },
@@ -1255,7 +1255,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
       'Yıxılma və ya qarına zərbədən sonra ağrı, qanaxma, maye axması olmasa belə həkimə müraciət edib yoxlanmaq lazımdır.',
     ],
     faq: [
-      { question: 'Hamiləliyin 33-cü həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 1,9 kiloqramdır (1920 q). Hər körpə fərqlidir; həkim böyüməni ultrasəs və qarnın ölçüsü ilə izləyir.' },
+      { question: 'Hamiləliyin 33-cü həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 2,2 kiloqramdır (2162 q). Hər körpə fərqlidir; həkim böyüməni ultrasəs və qarnın ölçüsü ilə izləyir.' },
       { question: 'Doğuşda hansı ağrı kəsilməsi üsulları var?', answer: 'Nəfəs texnikaları, hərəkət, isti su, masaj, inhalyasiya üsulları və epidural anesteziya. Hansının mövcud və sizə uyğun olduğunu doğum evi və həkiminiz izah edəcək.' },
       { question: 'Yıxılsam, körpəyə zərər dəyə bilərmi?', answer: 'Körpə döl suyu və uşaqlıq divarı ilə yaxşı qorunur və yüngül yıxılmalar çox vaxt zərər vermir. Amma qarına zərbə, ağrı, qanaxma və ya hərəkətlərin azalması olarsa, mütləq yoxlanmaq lazımdır.' },
       { question: 'Bu həftə nə yemək daha faydalıdır?', answer: 'Zülal, dəmir, kalsium və omeqa-3 mənbələri: ət, yumurta, paxlalılar, süd məhsulları, civəsi az balıq, tərəvəz və meyvə. Ürəkyanma varsa, az-az və tez-tez yeyin.' },
@@ -1296,7 +1296,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
     faq: [
       { question: 'Hamiləliyin 34-cü həftəsində doğulan körpə sağlam olurmu?', answer: 'Bu həftə doğulan körpələr gec vaxtından əvvəl doğulmuş sayılır. Onların çoxu yaxşı inkişaf edir, amma qidalanma, bədən istiliyi və sarılıqla bağlı əlavə izləməyə ehtiyac ola bilər.' },
       { question: 'Döl suyunun axdığını necə bilmək olar?', answer: 'Döl suyu adətən şəffaf və ya açıq sarımtıl olur, qoxusuz və ya şirintəhər qoxulu olur və davamlı və ya hərəkətlə axır. Sidikdən fərqli olaraq onu saxlamaq olmur. Şübhə olarsa, müayinə üçün doğum evinə gedin.' },
-      { question: 'Hamiləliyin 34-cü həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 2,2 kiloqramdır (2150 q).' },
+      { question: 'Hamiləliyin 34-cü həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 2,4 kiloqramdır (2377 q).' },
       { question: 'Bu həftə işləməyə davam etmək olarmı?', answer: 'Ağırlaşma yoxdursa və iş fiziki cəhətdən ağır deyilsə, bir çox qadın işləməyə davam edir. Analıq məzuniyyətinin başlanğıcı ölkənin qanunlarına bağlıdır; Azərbaycanda Anacan saytındakı dekret kalkulyatoru tarixləri göstərir.' },
       { question: 'B qrup streptokok nədir?', answer: 'Bu, çox insanın bağırsağında və uşaqlıq yolunda əlamətsiz yaşayan bakteriyadır. Adətən zərərsizdir, amma nadir hallarda doğuş zamanı körpəyə keçib ciddi infeksiyaya səbəb ola bilər. Buna görə 36-37-ci həftələrdə yoxlanılır və lazım olarsa doğuşda antibiotik verilir.' },
     ],
@@ -1334,7 +1334,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
       'Körpənin hərəkətləri azalıbsa, uşaqlıq yolundan qanaxma və ya maye axması varsa, gözləmədən doğum evinə müraciət edin.',
     ],
     faq: [
-      { question: 'Hamiləliyin 35-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 2,4 kiloqramdır (2380 q). Qalan həftələrdə körpə çəki toplamağa davam edir.' },
+      { question: 'Hamiləliyin 35-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 2,6 kiloqramdır (2595 q). Qalan həftələrdə körpə çəki toplamağa davam edir.' },
       { question: 'Qarın nə vaxt aşağı düşür?', answer: 'İlk hamiləlikdə körpənin başı çox vaxt doğuşdan 2-4 həftə əvvəl çanağa enir, təkrar hamiləliklərdə isə bu, doğuşa yaxın və ya doğuş başlayanda olur. Bu, doğuşun dərhal başlayacağı demək deyil.' },
       { question: 'Körpə çanaqla aşağıdırsa, nə edilir?', answer: 'Həkim 36-cı həftə ətrafında vəziyyəti yoxlayır. Körpə hələ çanaqla aşağıdırsa, xaricdən çevirmə (ECV), çanaq gəlişi ilə doğuş və ya planlı qeysəriyyə kimi seçimlər müzakirə olunur.' },
       { question: 'Selikli tıxac nədir və onun çıxması nə deməkdir?', answer: 'Hamiləlik boyu uşaqlıq boynunu bağlayan qatı selikdir. Doğuşdan bir neçə gün və ya saat əvvəl çəhrayı və ya qəhvəyi zolaqlı selik şəklində çıxa bilər. Bu, doğuşun yaxınlaşdığını göstərir, amma tək başına dərhal doğum evinə getmək səbəbi deyil, əgər sancı, su və ya qanaxma yoxdursa.' },
@@ -1375,7 +1375,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
       { question: 'Hamiləliyin 36-cı həftəsində doğuş normaldırmı?', answer: '37-ci həftədən əvvəlki doğuş vaxtından əvvəl sayılır, amma 36-cı həftədə doğulan körpələrin əksəriyyəti yaxşı uyğunlaşır. Bəzilərinə qidalanma, istilik və sarılıq üçün əlavə izləmə lazım ola bilər.' },
       { question: 'GBS yoxlaması necə edilir?', answer: 'Uşaqlıq yolunun aşağı hissəsindən və düz bağırsaqdan pambıq çubuqla yaxma götürülür. Bu, qısa və ağrısız müayinədir. Nəticə müsbət olarsa, doğuşda damardan antibiotik verilir.' },
       { question: 'Körpə başı aşağı dönməsə, nə olur?', answer: 'Həkim xaricdən çevirmə (ECV) üsulunu təklif edə bilər: qarnın üstündən körpə ehtiyatla çevrilir. Alınmazsa və ya uyğun deyilsə, planlı qeysəriyyə və ya bəzi hallarda çanaq gəlişi ilə təbii doğuş müzakirə olunur.' },
-      { question: 'Hamiləliyin 36-cı həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinə görə bu həftə orta çəki təxminən 2,6 kiloqram, təpədən oturağa qədər uzunluq təxminən 34 santimetrdir. Hər körpə fərqlidir; həkim böyüməni müayinədə izləyir.' },
+      { question: 'Hamiləliyin 36-cı həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinə görə bu həftə orta çəki təxminən 2,8 kiloqram (2813 q), təpədən dabana qədər uzunluq təxminən 47,4 santimetrdir. Hər körpə fərqlidir; həkim böyüməni müayinədə izləyir.' },
     ],
     sources: ['nhsGbs', 'acogGbs', 'nhsLabourSigns'],
   },
@@ -1449,7 +1449,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
       'Qəfil güclü baş ağrısı, görmədə dəyişiklik, üzün və əllərin şişməsi və ya qabırğaların altında ağrı olarsa, dərhal müraciət edin.',
     ],
     faq: [
-      { question: 'Hamiləliyin 38-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 3,1 kiloqramdır (3080 q). Doğuş zamanı çəki adətən 2,5 ilə 4 kiloqram arasında olur.' },
+      { question: 'Hamiləliyin 38-ci həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 3,2 kiloqramdır (3236 q). Doğuş zamanı çəki adətən 2,5 ilə 4 kiloqram arasında olur.' },
       { question: 'Su gəlsə, amma sancı yoxdursa, nə etməliyəm?', answer: 'Doğum evinə zəng edin və ya müraciət edin. Suyun rəngini və gəldiyi vaxtı qeyd edin. Həkim müayinədən sonra gözləmə və ya doğuşun stimullaşdırılması barədə qərar verəcək.' },
       { question: 'Doğuşun başlanğıcı necə olur?', answer: 'Çox vaxt nizamsız sancılar tədricən müntəzəm olur, güclənir və tezləşir. Bəzən doğuş suyun gəlməsi ilə başlayır. Belində ağrı, selikli tıxacın çıxması da ola bilər.' },
       { question: 'Bu həftə körpə az hərəkət edirsə, normaldırmı?', answer: 'Xeyr. Yer daralsa da, körpə doğuşa qədər müntəzəm hərəkət etməlidir. Hərəkətlərin azaldığını hiss etsəniz, gözləməyin və evdə yoxlamağa çalışmayın, dərhal doğum evinə müraciət edin.' },
@@ -1490,7 +1490,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
     faq: [
       { question: 'Hamiləliyin 39-cu həftəsində doğuşun stimullaşdırılması təklif olunurmu?', answer: 'Ağırlaşma yoxdursa, bir çox ölkədə doğuşun özbaşına başlaması gözlənilir. Bəzi ölkələrdə 39-cu həftədə planlı stimullaşdırma seçim kimi müzakirə olunur. Ana və ya körpə ilə bağlı tibbi səbəb olarsa, həkim stimullaşdırmanı daha tez təklif edə bilər.' },
       { question: 'Sancılar neçə dəqiqədən bir olanda doğum evinə getmək lazımdır?', answer: 'Bu, ilk və ya təkrar doğuşdan və doğum evinə olan məsafədən asılıdır. Çox vaxt ilk doğuşda sancılar müntəzəm, güclü və təxminən 5 dəqiqədən bir olduqda müraciət edilir. Həkiminizin verdiyi qaydaya əməl edin.' },
-      { question: 'Hamiləliyin 39-cu həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 3,3 kiloqramdır (3250 q).' },
+      { question: 'Hamiləliyin 39-cu həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinin fetal böyümə cədvəlinə görə orta çəki təxminən 3,4 kiloqramdır (3435 q).' },
       { question: 'Doğuşdan əvvəl nə yemək olar?', answer: 'Doğuşun erkən mərhələsində yüngül, asan həzm olunan qidalar (çörək, qatıq, meyvə, şorba) və su enerji verir. Doğum evində nə yemək və içmək olarlığı barədə həkimin göstərişinə əməl edin.' },
       { question: 'Doğuşdan sonra körpəni dərhal sinəmə qoya bilərəmmi?', answer: 'Ana və körpənin vəziyyəti yaxşıdırsa, bəli. Doğuşdan dərhal sonra dəri-dəriyə təmas körpənin istiliyini, nəfəsini və qan şəkərini sabitləşdirir, ilk əmizdirməni asanlaşdırır. Bu istəyinizi əvvəlcədən doğum evinə deyin.' },
     ],
@@ -1529,7 +1529,7 @@ export const PREGNANCY_WEEKS_AZ: PregnancyWeekContent[] = [
     faq: [
       { question: 'Doğuş təxmini tarixdə başlamasa, nə olur?', answer: 'Bu, çox tez-tez olur və adətən narahatlıq doğurmur. Həkim sizi və körpəni yoxlayır, membran svipi təklif edə bilər və 41-ci həftədən sonra doğuşun stimullaşdırılmasını müzakirə edir.' },
       { question: 'Membran svipi nədir?', answer: 'Bu, vaginal müayinə zamanı həkimin və ya mamanın barmaqla döl pərdələrini uşaqlıq boynundan yüngülcə ayırmasıdır. Bu, doğuşun özbaşına başlama ehtimalını bir qədər artıra bilər. Narahatlıq və az ləkələnmə verə bilər.' },
-      { question: 'Hamiləliyin 40-cı həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinə görə bu həftə orta çəki təxminən 3,4 kiloqram, təpədən oturağa qədər uzunluq isə təxminən 36 santimetrdir. Doğulandan sonra ölçülən təpədən dabana qədər boy adətən təxminən 50 santimetr olur.' },
+      { question: 'Hamiləliyin 40-cı həftəsində körpə nə qədər ağırdır?', answer: 'Anacan tətbiqinə görə bu həftə orta çəki təxminən 3,6 kiloqram (3619 q), təpədən dabana qədər uzunluq isə təxminən 51 santimetrdir. Doğulandan sonra ölçülən boy adətən 46-54 santimetr arasında olur.' },
       { question: 'Doğuşu evdə sürətləndirməyə çalışmaq olarmı?', answer: 'Gəzinti və aktiv qalmaq zərərsizdir, amma bitki çayları, yağlar, işlətmə dərmanları və ya digər "üsullar" təhlükəli ola bilər. Doğuşun stimullaşdırılması yalnız həkim nəzarəti ilə edilməlidir.' },
       { question: 'Doğuş tarixi keçəndə hansı müayinələr edilir?', answer: 'Həkim təzyiqinizi, sidiyi, körpənin vəziyyətini və ürək döyüntüsünü yoxlayır, uşaqlıq boynunun vəziyyətini qiymətləndirə bilər. Lazım olarsa, kardiotokoqrafiya (KTQ) və döl suyunun ultrasəslə yoxlanılması təyin olunur.' },
     ],
