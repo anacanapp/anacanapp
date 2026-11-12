@@ -74,6 +74,7 @@ export const ADMIN_SECTIONS: AdminSection[] = [
   s('photoshoot', 'Fotosessiya', 'commerce', 'AdminPhotoshoot', Camera, 'photoshoot fotosessiya ai foto'),
   // Məzmun
   s('blog', 'Bloq', 'content', 'AdminBlog', FileText, 'blog məqalə yazı seo'),
+  s('stories', 'Story-lər', 'content', 'AdminStories', Sparkles, 'story stories hekayə yeni əlavə gizlət server'),
   s('story-stats', 'Story statistikası', 'content', 'AdminStoryStats', Eye, 'story stories hekayə baxış statistika'),
   s('dynamic-content', 'Dinamik məzmun', 'content', 'AdminDynamicContent', Sparkles, 'dynamic content dinamik'),
   s('content', 'Digər kontent', 'content', 'AdminContentManager', FileText, 'content kontent'),

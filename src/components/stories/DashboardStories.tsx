@@ -13,6 +13,8 @@ import { FRUIT_SIZES } from '@/types/anacan';
 import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
 import { STORY_THEMES, fillStory, storiesEnabledFor, storyMatches, storyVars, type Story, type StorySlide, type StoryStage } from '@/lib/stories';
 import { STORIES_AZ, WEEKS, MONTHS, PHASES } from '@/data/stories/az';
+import { mergeStories } from '@/lib/server-stories';
+import { useServerStories } from '@/hooks/useServerStories';
 import { illustration } from './illustrations';
 import StoryViewer from './StoryViewer';
 import './stories.css';
@@ -49,6 +51,9 @@ export default function DashboardStories({ stage }: { stage: StoryStage }) {
   const cycleLength = useEffectiveCycleLength();
   const uid = user?.id ?? '';
   const enabled = storiesEnabledFor(setting, { isAdmin: !!isAdmin, language, role });
+  // Admin-added stories (Admin → Story-lər) merged with the bundled ones; cached on the device for offline use.
+  const server = useServerStories('az', enabled);
+  const allStories = useMemo(() => mergeStories(STORIES_AZ, server), [server]);
 
   const preg = stage === 'bump' ? getPregnancyData() : null;
   const week = preg?.currentWeek ?? null;
@@ -77,9 +82,9 @@ export default function DashboardStories({ stage }: { stage: StoryStage }) {
 
   const list = useMemo(() => {
     if (!enabled) return [];
-    const fit = STORIES_AZ.filter((s) => storyMatches(s, ctx, vars));
+    const fit = allStories.filter((s) => storyMatches(s, ctx, vars));
     return [...fit.filter((s) => !seen.has(s.id)), ...fit.filter((s) => seen.has(s.id))];
-  }, [enabled, ctx, vars, seen]);
+  }, [enabled, allStories, ctx, vars, seen]);
 
   const log = useCallback((action: string, id: string) => {
     import('@/lib/analytics').then((m) => m.analytics.logToolUsed('stories', action, id)).catch(() => {});

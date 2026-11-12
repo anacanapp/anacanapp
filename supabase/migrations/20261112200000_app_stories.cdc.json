@@ -1,0 +1,10 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261112200000_app_stories.sql",
+  "runtime": "google-server-stories",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls app_stories and checks its three triggers",
+  "relations": [
+    { "relation": "public.app_stories", "change": "created", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "admin-authored dashboard stories (StoryJson), show/hide per id, audience test/all, schedule window; admins only via RLS, apps read through get_app_stories_v1" }
+  ]
+}
