@@ -8,7 +8,7 @@ const MIN_BYTES = 300 * 1024;
 const PASS_THROUGH = /^image\/(gif|svg\+xml)$/i;
 const EXT: Record<string, string> = { 'image/jpeg': 'jpg', 'image/webp': 'webp', 'image/png': 'png' };
 
-export interface CompressOptions { maxDimension?: number; quality?: number; minBytes?: number }
+export interface CompressOptions { maxDimension?: number; quality?: number; minBytes?: number; /** Always JPEG (photos without transparency, e.g. recipe pictures). */ jpeg?: boolean }
 
 function renamed(name: string, type: string): string {
   const ext = EXT[type];
@@ -19,7 +19,7 @@ function renamed(name: string, type: string): string {
 
 /** Returns a smaller image File, or the original when compression would not help. */
 export async function compressImageForUpload<T extends Blob>(file: T, options: CompressOptions = {}): Promise<T | File> {
-  const { maxDimension = MAX_DIMENSION, quality = QUALITY, minBytes = MIN_BYTES } = options;
+  const { maxDimension = MAX_DIMENSION, quality = QUALITY, minBytes = MIN_BYTES, jpeg = false } = options;
   const type = (file.type || '').toLowerCase();
   if (!type.startsWith('image/') || PASS_THROUGH.test(type) || file.size < minBytes) return file;
   if (typeof createImageBitmap !== 'function' || typeof document === 'undefined') return file;
@@ -35,7 +35,7 @@ export async function compressImageForUpload<T extends Blob>(file: T, options: C
     const ctx = canvas.getContext('2d');
     if (!ctx) return file;
     // PNG may carry transparency: ask for WebP (keeps alpha). Everything else becomes JPEG.
-    const target = type === 'image/png' ? 'image/webp' : 'image/jpeg';
+    const target = type === 'image/png' && !jpeg ? 'image/webp' : 'image/jpeg';
     if (target === 'image/jpeg') { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, width, height); }
     ctx.drawImage(bitmap, 0, 0, width, height);
     const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, target, quality));
