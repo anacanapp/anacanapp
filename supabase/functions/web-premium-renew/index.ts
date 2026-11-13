@@ -13,6 +13,7 @@ import { syncEntitlementForUser } from '../_shared/revenuecat-sync.ts';
 import { sendWebPremiumEmail } from '../_shared/web-premium-email.ts';
 import { checkReminderPush, runCheckoutNudges } from '../_shared/web-premium-nudge.ts';
 import { runBookCheckoutNudges } from '../_shared/book-nudge.ts';
+import { fcmFromEnv, runStoreExpiringPushes, sendWebRenewalPush } from '../_shared/premium-lifecycle-push.ts';
 import { applyChargeResult, executeRenewal, isPlan } from '../_shared/web-premium-subscription.ts';
 
 const headers = { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' };
@@ -43,13 +44,15 @@ Deno.serve(async (req) => {
     const nudges = await runCheckoutNudges(admin);
     // 2026-11-13: the same timer also reminds abandoned PDF book checkouts (push only, ~1 hour later).
     const books = await runBookCheckoutNudges(admin).catch(() => ({ due: 0, push: 0, errors: 1, push_issues: {} }));
-    console.log('[web-premium-renew] nudge', JSON.stringify({ ...nudges, books }));
-    return json(200, { mode: 'nudge', ...nudges, books });
+    // 2026-11-13: App Store / Google Play Premium ending soon with auto-renew off (23 languages, user local daytime).
+    const store_expiring = await runStoreExpiringPushes(admin).catch(() => ({ due: 0, push: 0, errors: 1, push_issues: {} }));
+    console.log('[web-premium-renew] nudge', JSON.stringify({ ...nudges, books, store_expiring }));
+    return json(200, { mode: 'nudge', ...nudges, books, store_expiring });
   }
   const config = await epointConfig(admin);
   if (!config.merchantLive) return json(503, { error: 'payment_merchant_not_live' });
 
-  const summary = { due: 0, paid: 0, failed: 0, expired: 0, pending: 0, skipped: 0, errors: 0, housekeeping: null as unknown };
+  const summary = { due: 0, paid: 0, failed: 0, expired: 0, pending: 0, skipped: 0, errors: 0, pushes: 0, housekeeping: null as unknown };
   const { data: housekeeping, error: houseError } = await admin.rpc('web_premium_housekeeping_v1');
   summary.housekeeping = houseError ? 'error' : housekeeping;
 
@@ -58,6 +61,8 @@ Deno.serve(async (req) => {
   const ids: string[] = (Array.isArray(due) ? due : []).map((row: unknown) => typeof row === 'string' ? row : (row as Record<string, string>)?.web_premium_renewals_due_v1).filter(Boolean);
   summary.due = ids.length;
   const deadline = Date.now() + 100_000;
+  let fcm: Awaited<ReturnType<typeof fcmFromEnv>> | undefined;
+  const pushIssues: Record<string, number> = {};
   const users = new Map<string, string | null>();
   const emailOf = async (userId: string) => {
     if (!users.has(userId)) {
@@ -105,6 +110,10 @@ Deno.serve(async (req) => {
         if (outcome.detail?.outcome === 'retry' || expired) {
           await sendWebPremiumEmail(expired ? 'expired' : 'renewal_failed', { userId, to: await emailOf(userId), plan,
             amount: Number(claim.amount), periodEnd: outcome.detail?.period_end as string });
+          // 2026-11-13: one push per failed/expired charge next to the e-mail.
+          if (fcm === undefined) fcm = await fcmFromEnv();
+          summary.pushes += await sendWebRenewalPush(admin, fcm, userId, expired ? 'web_expired' : 'web_renewal_failed',
+            String(claim.charge_id), pushIssues);
         }
       } else {
         summary.pending += 1;
@@ -115,5 +124,5 @@ Deno.serve(async (req) => {
     }
   }
   console.log('[web-premium-renew]', JSON.stringify(summary));
-  return json(200, summary);
+  return json(200, { ...summary, push_issues: pushIssues });
 });

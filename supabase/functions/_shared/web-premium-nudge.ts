@@ -1,18 +1,20 @@
 // Abandoned web checkout reminder: one e-mail (Customer.io transactional) + one push (FCM) to a buyer who opened the
-// Epoint bank page and left without paying, while the campaign is open. Claimed by
+// Epoint bank page and left without paying, at the campaign price while one runs, otherwise at the standard price
+// (2026-11-13). Claimed by
 // web_premium_checkout_nudges_due_v1 (20261108070000_web_premium_checkout_nudge.sql); called from web-premium-renew
 // with {"mode":"nudge"} by a 15-minute timer. Never logs addresses, tokens or user ids.
 import { getFirebaseAccessToken, sendFCMv1 } from './fcm.ts';
-import { CAMPAIGN_PAGE } from './web-premium-subscription.ts';
+import { CAMPAIGN_PAGE, STANDARD_PAGE } from './web-premium-subscription.ts';
 
 // deno-lint-ignore no-explicit-any
 type Admin = any;
 type Plan = 'monthly' | 'yearly';
+export type OfferKind = 'campaign' | 'standard';
 
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]!));
 
-export function nudgeLink(channel: 'email' | 'push') {
-  return `${CAMPAIGN_PAGE}?utm_source=${channel}&utm_medium=reminder&utm_campaign=checkout_nudge`;
+export function nudgeLink(channel: 'email' | 'push', kind: OfferKind = 'campaign') {
+  return `${kind === 'standard' ? STANDARD_PAGE : CAMPAIGN_PAGE}?utm_source=${channel}&utm_medium=reminder&utm_campaign=checkout_nudge`;
 }
 
 /** "bu gün saat 23:59-da" when the offer ends today in Baku, otherwise "8 noyabr saat 23:59-da". */
@@ -29,10 +31,11 @@ export function endsText(endsAt: string | null | undefined, now = new Date()): s
 }
 
 /** Plain, short copy (no dashes). */
-export function nudgeCopy(plan: Plan, endsAt: string | null | undefined, now = new Date()) {
-  const ends = endsText(endsAt, now);
+export function nudgeCopy(plan: Plan, endsAt: string | null | undefined, now = new Date(), kind: OfferKind = 'campaign') {
+  const standard = kind === 'standard';
+  const ends = standard ? null : endsText(endsAt, now);
   const planText = plan === 'yearly' ? 'illik' : 'aylıq';
-  const endLine = ends ? `Endirimli qiymət ${ends} bitir.` : 'Endirimli qiymət hələ qüvvədədir.';
+  const endLine = standard ? 'Seçdiyin plan səni gözləyir.' : ends ? `Endirimli qiymət ${ends} bitir.` : 'Endirimli qiymət hələ qüvvədədir.';
   return {
     subject: 'Premium ödənişin yarımçıq qaldı',
     heading: 'Ödənişi tamamlamaq istəyirsən?',
@@ -41,7 +44,8 @@ export function nudgeCopy(plan: Plan, endsAt: string | null | undefined, now = n
     help: 'Ödənişdə problem yarandısa, support@anacan.az ünvanına yaz, kömək edək.',
     cta: 'Ödənişi tamamla',
     pushTitle: 'Premium ödənişin yarımçıq qaldı',
-    pushBody: ends ? `Endirim ${ends} bitir. Ödənişi bir dəqiqəyə tamamla.` : 'Endirimli qiymət hələ qüvvədədir. Ödənişi bir dəqiqəyə tamamla.',
+    pushBody: standard ? 'Premium bir addım uzaqlıqdadır. Ödənişi bir dəqiqəyə tamamla.'
+      : ends ? `Endirim ${ends} bitir. Ödənişi bir dəqiqəyə tamamla.` : 'Endirimli qiymət hələ qüvvədədir. Ödənişi bir dəqiqəyə tamamla.',
   };
 }
 
@@ -59,11 +63,11 @@ export function nudgeEmailHtml(copy: ReturnType<typeof nudgeCopy>, link: string)
 </table></td></tr></table></body></html>`;
 }
 
-async function sendEmail(userId: string, to: string | null, copy: ReturnType<typeof nudgeCopy>): Promise<boolean> {
+async function sendEmail(userId: string, to: string | null, copy: ReturnType<typeof nudgeCopy>, kind: OfferKind): Promise<boolean> {
   const key = Deno.env.get('CUSTOMERIO_APP_API_KEY');
   const from = Deno.env.get('WEB_PREMIUM_EMAIL_FROM') || Deno.env.get('BOOKS_EMAIL_FROM') || Deno.env.get('EMAIL_VERIFICATION_FROM');
   if (!key || !from || !to || to.endsWith('@users.anacan.az')) return false;
-  const link = nudgeLink('email');
+  const link = nudgeLink('email', kind);
   try {
     const host = Deno.env.get('CUSTOMERIO_REGION') === 'us' ? 'https://api.customer.io' : 'https://api-eu.customer.io';
     const response = await fetch(`${host}/v1/send/email`, {
@@ -81,7 +85,7 @@ async function sendEmail(userId: string, to: string | null, copy: ReturnType<typ
   }
 }
 
-async function sendPush(admin: Admin, fcm: { accessToken: string; projectId: string } | null, userId: string, copy: ReturnType<typeof nudgeCopy>, codes: Record<string, number>): Promise<number> {
+async function sendPush(admin: Admin, fcm: { accessToken: string; projectId: string } | null, userId: string, copy: ReturnType<typeof nudgeCopy>, codes: Record<string, number>, kind: OfferKind): Promise<number> {
   const note = (code: string) => { codes[code] = (codes[code] ?? 0) + 1; };
   if (!fcm) { note('fcm_unavailable'); return 0; }
   const { data: tokens, error } = await admin.from('device_tokens').select('token').eq('user_id', userId);
@@ -90,7 +94,7 @@ async function sendPush(admin: Admin, fcm: { accessToken: string; projectId: str
   let sent = 0;
   for (const t of (tokens ?? []).slice(0, 10)) {
     const r = await sendFCMv1(fcm.accessToken, fcm.projectId, t.token, copy.pushTitle, copy.pushBody,
-      { type: 'web_checkout', deeplink: nudgeLink('push') });
+      { type: 'web_checkout', deeplink: nudgeLink('push', kind) });
     if (r.success) sent += 1;
     // Log only the provider code (never the token) so a failed reminder push can be diagnosed.
     else { note(String(r.errorCode || r.httpStatus || 'unknown')); console.error('[web-premium-nudge] push failed:', r.errorCode ?? r.httpStatus ?? 'unknown'); }
@@ -101,10 +105,12 @@ async function sendPush(admin: Admin, fcm: { accessToken: string; projectId: str
 
 /** Claims due reminders and sends them. Returns counts only. */
 export async function runCheckoutNudges(admin: Admin) {
-  const summary = { campaign_active: false, due: 0, email: 0, push: 0, errors: 0, push_issues: {} as Record<string, number> };
+  const summary = { campaign_active: false, kind: null as OfferKind | null, due: 0, email: 0, push: 0, errors: 0, push_issues: {} as Record<string, number> };
   const { data, error } = await admin.rpc('web_premium_checkout_nudges_due_v1', { p_limit: 50 });
   if (error) { summary.errors += 1; return summary; }
   summary.campaign_active = data?.campaign_active === true;
+  const kind: OfferKind = data?.kind === 'standard' ? 'standard' : 'campaign';
+  summary.kind = data?.campaign_active === true ? kind : null;
   const due: { nudge_id: string; user_id: string; plan: Plan }[] = Array.isArray(data?.due) ? data.due : [];
   summary.due = due.length;
   if (!due.length) return summary;
@@ -115,10 +121,10 @@ export async function runCheckoutNudges(admin: Admin) {
 
   for (const row of due) {
     try {
-      const copy = nudgeCopy(row.plan === 'yearly' ? 'yearly' : 'monthly', data?.ends_at ?? null);
+      const copy = nudgeCopy(row.plan === 'yearly' ? 'yearly' : 'monthly', data?.ends_at ?? null, new Date(), kind);
       const { data: user } = await admin.auth.admin.getUserById(row.user_id).catch(() => ({ data: null }));
-      const emailOk = await sendEmail(row.user_id, user?.user?.email ?? null, copy);
-      const pushCount = await sendPush(admin, fcm, row.user_id, copy, summary.push_issues);
+      const emailOk = await sendEmail(row.user_id, user?.user?.email ?? null, copy, kind);
+      const pushCount = await sendPush(admin, fcm, row.user_id, copy, summary.push_issues, kind);
       if (emailOk) summary.email += 1;
       summary.push += pushCount;
       await admin.rpc('web_premium_checkout_nudge_sent_v1', { p_nudge: row.nudge_id, p_email: emailOk, p_push: pushCount });
