@@ -90,9 +90,9 @@ Bu dəyərlər heç vaxt Git-ə, loglara və ya chat-ə yazılmır.
 ## Build başlatmaq
 
 **Start new build** → branch → workflow. Versiya `codemagic.yaml`-dadır (`APP_VERSION`
-`49.0`, Android `ANDROID_VERSION_CODE` `49`). Eyni versiyanı Play-ə ikinci dəfə yükləmək
+`51.0`, Android `versionCode` = 5100 + `ANDROID_BUILD_SEQ`; buraxılış: `docs/RELEASE_51_CODEMAGIC.md`). Eyni versiyanı Play-ə ikinci dəfə yükləmək
 üçün build başlatarkən `ANDROID_BUILD_SEQ`-i bir artırın (Play eyni versionCode-u rədd edir).
-iOS build nömrəsi App Store Connect-dən avtomatik hesablanır (50.0.0-dan).
+iOS build nömrəsi App Store Connect-dən avtomatik hesablanır (51.0.0-dan).
 
 ## Məhdudiyyətlər
 
