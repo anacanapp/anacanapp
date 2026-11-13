@@ -14,3 +14,14 @@ Change (functions image `sha256:8fec82f3…`, env unchanged, recreate with autom
 
 Local burst test (40 simultaneous push calls, 300 ms each): before 6 × 200 and 34 × 429; after 40 × 200 in about
 2.2 s with at most 6 running at once. Previous image for rollback: `sha256:d73c6611…`.
+
+## Route env allowlist: web-premium-renew Firebase (2026-11-13)
+
+The router (`/home/deno/functions/main/catalog.mjs`, image-only) hands each route only the env names listed in its
+`route(...)` entry. `web-premium-renew` sends the abandoned-checkout reminder pushes (Premium and, since 2026-11-13,
+PDF books) but its entry lacked `FIREBASE_SERVICE_ACCOUNT_JSON`, so `getFirebaseAccessToken` never ran and every
+reminder push was skipped silently (7 Premium reminders 8–11 Nov: e-mail sent, push 0). Image `4ea8d426` adds the
+name to that entry (env file unchanged). The nudge summary now carries `push_issues` codes, and
+`POST web-premium-renew {"mode":"push-check"}` (cron secret) validates the reminder push with FCM `validate_only`
+for recent reminded buyers' devices without delivering anything. Verified: `fcm_auth: ok`, 3/3 tokens valid.
+When a new route sends push, list `FIREBASE_SERVICE_ACCOUNT_JSON` in its catalog entry.

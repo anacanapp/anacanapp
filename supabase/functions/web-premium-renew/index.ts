@@ -11,7 +11,7 @@ import { createClient } from 'npm:@supabase/supabase-js@2';
 import { epointConfig } from '../_shared/epoint.ts';
 import { syncEntitlementForUser } from '../_shared/revenuecat-sync.ts';
 import { sendWebPremiumEmail } from '../_shared/web-premium-email.ts';
-import { runCheckoutNudges } from '../_shared/web-premium-nudge.ts';
+import { checkReminderPush, runCheckoutNudges } from '../_shared/web-premium-nudge.ts';
 import { runBookCheckoutNudges } from '../_shared/book-nudge.ts';
 import { applyChargeResult, executeRenewal, isPlan } from '../_shared/web-premium-subscription.ts';
 
@@ -35,10 +35,14 @@ Deno.serve(async (req) => {
     { auth: { persistSession: false, autoRefreshToken: false } });
   // 15-minute timer: only the abandoned-checkout reminder (e-mail + push), no charging.
   const body = await req.json().catch(() => ({}));
+  if (body && body.mode === 'push-check') {
+    // Diagnostics only: validate_only FCM requests, nothing is delivered.
+    return json(200, { mode: 'push-check', ...(await checkReminderPush(admin)) });
+  }
   if (body && body.mode === 'nudge') {
     const nudges = await runCheckoutNudges(admin);
     // 2026-11-13: the same timer also reminds abandoned PDF book checkouts (push only, ~1 hour later).
-    const books = await runBookCheckoutNudges(admin).catch(() => ({ due: 0, push: 0, errors: 1 }));
+    const books = await runBookCheckoutNudges(admin).catch(() => ({ due: 0, push: 0, errors: 1, push_issues: {} }));
     console.log('[web-premium-renew] nudge', JSON.stringify({ ...nudges, books }));
     return json(200, { mode: 'nudge', ...nudges, books });
   }
