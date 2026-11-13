@@ -528,6 +528,11 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
 
   // Merged tools: a child id opens its host on that section; the host shows its sections as tabs under the
   // header, and the sleep pair links to each other with the tool's own (translated) description as a short intro.
+  // Code tools are not always in the tile list (e.g. outside their age window); their tab still needs a real name, never the id.
+  const CODE_SECTION_LABEL: Record<string, () => string> = {
+    'baby-tracker': () => bc('babytracker_tool_name'),
+    'sleep-training': () => bc('sleeptraining_title'),
+  };
   const toolAvailable = (id: string) => isAdmin || tools.some((t) => canonicalToolId(t.id) === id);
   const toolMeta = (id: string) => tools.find((t) => canonicalToolId(t.id) === id);
   const target = activeTool ? resolveToolTarget(activeTool, toolAvailable) : null;
@@ -539,7 +544,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     const companion = TOOL_COMPANION[shownTool];
     const companionOk = !!companion && toolAvailable(companion);
     const sectionCtx: ToolSectionsValue = {
-      sections: hostSections.length > 1 ? hostSections.map((id) => ({ id, label: toolMeta(id)?.name ?? id, locked: !isPremium && accessFor(id) === 'premium' })) : undefined,
+      sections: hostSections.length > 1 ? hostSections.map((id) => ({ id, label: toolMeta(id)?.name ?? CODE_SECTION_LABEL[id]?.() ?? id, locked: !isPremium && accessFor(id) === 'premium' })) : undefined,
       active: shownTool,
       onSelect: (id) => {
         setToolSection(id);
