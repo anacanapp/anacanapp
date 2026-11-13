@@ -3,7 +3,7 @@ import {
   Activity, AlertTriangle, Baby, Eye, BadgeCheck, Ban, BarChart3, Bell, BookOpen, Cake, Camera, CreditCard, Crown, Database, FileText, Flag,
   Gift, Globe, Globe2, HeartHandshake, HeartPulse, Image, Images, KeyRound, Languages, LayoutDashboard, LifeBuoy, Link2, Map, Megaphone, MessageCircle,
   MessagesSquare, Package, Palette, PiggyBank, Pill, Rocket, Scale, Settings, ShieldCheck, ShoppingBag, ShoppingCart, Smartphone, Sparkles,
-  Stethoscope, Store, Syringe, Tag, Ticket, Users, Utensils, Wallet, Wrench, Zap, LayoutGrid,
+  Stethoscope, Store, Syringe, Tag, Ticket, Users, Utensils, Wallet, Wrench, Zap, LayoutGrid, Lightbulb,
 } from 'lucide-react';
 
 /**
@@ -76,6 +76,7 @@ export const ADMIN_SECTIONS: AdminSection[] = [
   s('blog', 'Bloq', 'content', 'AdminBlog', FileText, 'blog məqalə yazı seo'),
   s('stories', 'Story-lər', 'content', 'AdminStories', Sparkles, 'story stories hekayə yeni əlavə gizlət server'),
   s('story-stats', 'Story statistikası', 'content', 'AdminStoryStats', Eye, 'story stories hekayə baxış statistika'),
+  s('daily-quiz', 'Bilik Yarışı', 'content', 'AdminDailyQuiz', Lightbulb, 'quiz viktorina bilik yarışı sual cavab reytinq liqa oyun'),
   s('dynamic-content', 'Dinamik məzmun', 'content', 'AdminDynamicContent', Sparkles, 'dynamic content dinamik'),
   s('content', 'Digər kontent', 'content', 'AdminContentManager', FileText, 'content kontent'),
   s('data', 'Məlumatlar', 'content', 'AdminData', Database, 'data məlumat'),

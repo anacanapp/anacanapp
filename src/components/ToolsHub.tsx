@@ -4,6 +4,8 @@ import { saveScroll, restoreScroll } from '@/lib/scrollMemory';
 import { pushBackHandler } from '@/lib/backButton';
 import { isToolFree, isCakesAvailable, toolAccess, type ToolAccess } from '@/lib/freemium';
 import { isPlayTileVisible } from '@/lib/play-together';
+import { isQuizTileVisible } from '@/lib/daily-quiz/visibility';
+import { quizCopy } from '@/lib/daily-quiz/copy';
 import { hasPlayContent, playTileText } from '@/data/play-together/tile';
 import { foldText } from '@/lib/parenting-search';
 import { motion } from 'framer-motion';
@@ -13,7 +15,7 @@ import {
   Utensils, Activity, ArrowLeft, Camera, Lock, ShoppingCart, LucideIcon, Wrench, BookOpen, ChefHat,
   Stethoscope, Droplet, ImagePlus, Package, Mic, Scan, CloudSun, Gauge, Store,
   MapPin, Gamepad2, ShieldAlert, BookHeart, Stars, Crown, Ruler, Sparkles, TrendingUp, Zap,
-  Pill, Cake, Syringe, Dumbbell, Brain, Sprout, HeartHandshake, WifiOff, RefreshCw } from
+  Pill, Cake, Syringe, Dumbbell, Brain, Sprout, HeartHandshake, WifiOff, RefreshCw, Lightbulb } from
 'lucide-react';
 import BlogScreen from '@/components/BlogScreen';
 import { useUserStore } from '@/store/userStore';
@@ -48,6 +50,7 @@ const SecondHandMarket = lazy(() => import('./tools/SecondHandMarket'));
 const MomFriendlyMap = lazy(() => import('./tools/MomFriendlyMap'));
 const SmartPlayBox = lazy(() => import('./tools/SmartPlayBox'));
 const PlayTogetherTool = lazy(() => import('./tools/play/PlayTogetherTool'));
+const DailyQuizTool = lazy(() => import('./tools/quiz/DailyQuizTool'));
 const MentalHealthTracker = lazy(() => import('./tools/MentalHealthTracker'));
 const FirstAidGuide = lazy(() => import('./tools/FirstAidGuide'));
 const FairyTaleGenerator = lazy(() => import('./tools/FairyTaleGenerator'));
@@ -288,6 +291,9 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
   const showWeaning = !disabledTools.includes('weaning') && isWeaningTileVisible({ lifeStage, birthDate: childBirthDate, setting: weaningSetting });
   // Tərbiyə: Ana module, content registered for the app language, child under 13, app_settings.parenting_tool = 'on'.
   const parentingSetting = useAppSetting('parenting_tool');
+  // Gündəlik Bilik Yarışı: languages enabled in Admin (app_settings.daily_quiz); admins see it to test.
+  const quizSetting = useAppSetting('daily_quiz');
+  const showQuiz = isQuizTileVisible({ setting: quizSetting, language, isAdmin });
   const showParenting = !disabledTools.includes('parenting') && isParentingTileVisible({ lifeStage, language, birthDate: childBirthDate, birthDates: (childrenInfo.children ?? []).map((c) => c.birth_date), setting: parentingSetting });
   const tools: Tool[] = useMemo(() => {
     if (toolConfigs.length === 0) {
@@ -300,6 +306,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       && (config.tool_id !== 'cakes' || ((isAdmin || isCakesAvailable((profile as any)?.country_code, language)) && (lifeStage === 'bump' || lifeStage === 'mommy' || isAdmin)))
       && (config.tool_id !== 'solid-food-guide' || lifeStage === 'mommy')
       && (config.tool_id !== 'play-together' || isPlayTileVisible({ lifeStage, hasContent: hasPlayContent(language), isAdmin }))
+      && (config.tool_id !== 'daily-quiz' || showQuiz)
       && (config.tool_id !== 'sleep-training' || sleepTrainingEligible({ lifeStage, birthDate: childBirthDate ? new Date(childBirthDate) : null, now: new Date() })));
     // Name, description and icon of code tools come from code translations (all 23 languages), not from the row.
     const codeMeta = (id: string): { name: string; description: string; icon: typeof Wrench } | null => {
@@ -311,6 +318,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
         case 'solid-food-guide': return { name: feature37Text('sfg_home_title', language), description: feature37Text('sfg_tool_desc', language), icon: Salad };
         case 'parenting': return { name: parentingText('par_tool_name'), description: parentingText('par_tool_desc'), icon: HeartHandshake };
         case 'play-together': { const t = playTileText(language); return { name: t.name, description: t.description, icon: Puzzle }; }
+        case 'daily-quiz': { const q = quizCopy(language); return { name: q.tileName, description: q.tileDesc, icon: Lightbulb }; }
         default: return null;
       }
     };
@@ -365,7 +373,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       extra.push(virtual('weaning', weaningText('weaning_tool_name'), weaningText('weaning_tool_desc'), Sprout));
     }
     return [...fromDb, ...extra];
-  }, [toolConfigs, hasPartner, lifeStage, language, isNonAz, disabledTools, profile?.country_code, storeCountry, childBirthDate, showWeaning, showParenting, isAdmin]);
+  }, [toolConfigs, hasPartner, lifeStage, language, isNonAz, disabledTools, profile?.country_code, storeCountry, childBirthDate, showWeaning, showParenting, showQuiz, isAdmin]);
 
   // Set initial tool from props on mount (Dashboard qısayolları / banner deeplink-ləri)
   // Freemium: free olmayan alət premium-suz açılmır — paywall göstərilir.
@@ -504,6 +512,7 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
       case 'mom-friendly-map':return <MomFriendlyMap onBack={handleBack} />;
       case 'smart-play-box':return <SmartPlayBox onBack={handleBack} />;
       case 'play-together':return <PlayTogetherTool onBack={handleBack} />;
+      case 'daily-quiz':return <DailyQuizTool onBack={handleBack} />;
       case 'mental-health':return <MentalHealthTracker onBack={handleBack} />;
       case 'first-aid':return <FirstAidGuide onBack={handleBack} />;
       case 'fairy-tale':return <FairyTaleGenerator onBack={handleBack} />;

@@ -5,7 +5,7 @@
  * themselves) never show a duplicate. Visibility for these rows = the stage flag (flow/bump/mommy_active).
  * Migration: supabase/migrations/20261109120000_code_tool_rows.sql.
  */
-export const CODE_TOOL_IDS = new Set<string>(['cakes', 'mini-games', 'baby-tracker', 'sleep-training', 'solid-food-guide', 'parenting', 'play-together']);
+export const CODE_TOOL_IDS = new Set<string>(['cakes', 'mini-games', 'baby-tracker', 'sleep-training', 'solid-food-guide', 'parenting', 'play-together', 'daily-quiz']);
 export const isCodeTool = (toolId: string) => CODE_TOOL_IDS.has(toolId);
 
 /** Row is part of the app's tool list (before the stage filter): normal rows need is_active, code rows do not. */

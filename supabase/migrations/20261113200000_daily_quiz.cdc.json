@@ -1,0 +1,18 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261113200000_daily_quiz.sql",
+  "runtime": "google-daily-quiz",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls quiz_questions and quiz_attempts and checks their three triggers",
+  "preserve": ["app_settings gains key daily_quiz (insert only when missing)"],
+  "relations": [
+    { "relation": "public.quiz_questions", "change": "created", "cdc": true, "writer_guard": true, "pii": false, "primary_key": ["id"],
+      "note": "admin-authored quiz questions per language (group_id links translations); admins only via RLS; apps read through daily_quiz_start_v1 without answers" },
+    { "relation": "public.quiz_attempts", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "one round per user per Baku day (question ids, answers, correct, score); no client grants, written only by the SECURITY DEFINER RPCs" }
+  ],
+  "functions": [
+    "daily_quiz_state_v1(text)", "daily_quiz_start_v1(text)", "daily_quiz_submit_v1(integer[])",
+    "admin_daily_quiz_stats_v1(text, integer)", "admin_daily_quiz_settings_v1(jsonb)",
+    "daily_quiz_summary_v1(uuid, text) (service_role only)", "daily_quiz_config_v1()", "daily_quiz_today_v1()", "daily_quiz_league_v1(integer)"
+  ]
+}
