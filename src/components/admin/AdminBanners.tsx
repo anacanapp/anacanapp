@@ -1,4 +1,6 @@
 import { useMemo, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '@/integrations/supabase/client';
 import { tr } from '@/lib/tr';
 import { useAllBanners, useCreateBanner, useUpdateBanner, useDeleteBanner, Banner, BannerPlacement, BannerType, LinkType, LifeStageTarget, BannerPlatform } from '@/hooks/useBanners';
 import { Input } from '@/components/ui/input';
@@ -45,6 +47,23 @@ const AdminBanners = () => {
   const localize = useAdminLocalize();
   const confirm = useAdminConfirm();
   const { data: banners, isLoading, isError, refetch } = useAllBanners();
+  // Brand-measured banners (ad_brand_creatives, e.g. the "Anacan" PDF book banners) count impressions and clicks in
+  // ad_metrics_daily, not in the legacy view_count/click_count; show those real numbers when a banner has them.
+  const { data: measured } = useQuery({
+    queryKey: ['admin-banner-measured-stats'],
+    queryFn: async () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- RPC not in generated types
+      const { data, error } = await (supabase as any).rpc('admin_banner_measured_stats_v1');
+      if (error) throw error;
+      return (data ?? {}) as Record<string, { impressions: number; clicks: number }>;
+    },
+    staleTime: 60_000,
+  });
+  const statsOf = (banner: Banner) => {
+    const m = measured?.[banner.id];
+    return m ? { views: Number(m.impressions) || 0, clicks: Number(m.clicks) || 0, measured: true }
+      : { views: banner.view_count || 0, clicks: banner.click_count || 0, measured: false };
+  };
   const createBanner = useCreateBanner(), updateBanner = useUpdateBanner(), deleteBanner = useDeleteBanner();
   const [isDialogOpen, setIsDialogOpen] = useState(false), [editingBanner, setEditingBanner] = useState<Banner | null>(null);
   const [activeTab, setActiveTab] = useState<string>('all'), [countrySearch, setCountrySearch] = useState('');
@@ -105,10 +124,10 @@ const AdminBanners = () => {
       ].filter(Boolean);
       return chips.length ? <span className="flex flex-wrap gap-1">{chips}</span> : <span className="ak-cell-sub">Hamı</span>;
     } },
-    { key: 'clicks', header: 'Klik / göstərilmə', align: 'end', sortable: true, sortValue: banner => banner.click_count || 0, cell: banner => (
-      <span className="ak-num"><strong>{fmtNumber(banner.click_count || 0)}</strong><span className="ak-cell-sub">{fmtNumber(banner.view_count || 0)} {tr('adminbanners_gorunme_qisa', 'göstərilmə')}{banner.view_count ? ` · ${((100 * (banner.click_count || 0)) / banner.view_count).toFixed(1)}%` : ''}</span></span>) },
+    { key: 'clicks', header: 'Klik / göstərilmə', align: 'end', sortable: true, sortValue: banner => statsOf(banner).clicks, cell: banner => { const st = statsOf(banner); return (
+      <span className="ak-num" title={st.measured ? tr('adminbanners_olculmus_reklam', 'Reklam ölçməsi: real göstərilmə və kliklər') : undefined}><strong>{fmtNumber(st.clicks)}</strong><span className="ak-cell-sub">{fmtNumber(st.views)} {tr('adminbanners_gorunme_qisa', 'göstərilmə')}{st.views ? ` · ${((100 * st.clicks) / st.views).toFixed(1)}%` : ''}</span></span>); } },
     { key: 'active', header: 'Aktiv', align: 'center', cell: banner => <span onClick={event => event.stopPropagation()}><Switch checked={banner.is_active} onCheckedChange={() => void handleToggleActive(banner)} aria-label="Aktiv" /></span> },
-  ], [localize]); // eslint-disable-line react-hooks/exhaustive-deps
+  ], [localize, measured]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Page testId="admin-banners">
@@ -117,7 +136,7 @@ const AdminBanners = () => {
       <KpiRow columns={4}>
         <StatTile label={tr('adminbanners_umumi_banner_4d2adc', 'Ümumi Banner')} icon={<Layout size={13} />} loading={isLoading} value={fmtNumber(all.length)} />
         <StatTile label="Aktiv" tone="success" icon={<Eye size={13} />} loading={isLoading} value={fmtNumber(all.filter(banner => banner.is_active).length)} />
-        <StatTile label={tr('adminbanners_umumi_klik_504648', 'Ümumi Klik')} icon={<MousePointer size={13} />} loading={isLoading} value={fmtNumber(all.reduce((sum, banner) => sum + (banner.click_count || 0), 0))} />
+        <StatTile label={tr('adminbanners_umumi_klik_504648', 'Ümumi Klik')} icon={<MousePointer size={13} />} loading={isLoading} value={fmtNumber(all.reduce((sum, banner) => sum + statsOf(banner).clicks, 0))} />
         <StatTile label={tr('adminbanners_yerlesdirme_6c3e92', 'Yerləşdirmə')} icon={<BarChart3 size={13} />} loading={isLoading} value={fmtNumber(PLACEMENTS.length)} />
       </KpiRow>
       <Section flush>

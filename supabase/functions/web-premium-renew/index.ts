@@ -12,6 +12,7 @@ import { epointConfig } from '../_shared/epoint.ts';
 import { syncEntitlementForUser } from '../_shared/revenuecat-sync.ts';
 import { sendWebPremiumEmail } from '../_shared/web-premium-email.ts';
 import { runCheckoutNudges } from '../_shared/web-premium-nudge.ts';
+import { runBookCheckoutNudges } from '../_shared/book-nudge.ts';
 import { applyChargeResult, executeRenewal, isPlan } from '../_shared/web-premium-subscription.ts';
 
 const headers = { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' };
@@ -36,8 +37,10 @@ Deno.serve(async (req) => {
   const body = await req.json().catch(() => ({}));
   if (body && body.mode === 'nudge') {
     const nudges = await runCheckoutNudges(admin);
-    console.log('[web-premium-renew] nudge', JSON.stringify(nudges));
-    return json(200, { mode: 'nudge', ...nudges });
+    // 2026-11-13: the same timer also reminds abandoned PDF book checkouts (push only, ~1 hour later).
+    const books = await runBookCheckoutNudges(admin).catch(() => ({ due: 0, push: 0, errors: 1 }));
+    console.log('[web-premium-renew] nudge', JSON.stringify({ ...nudges, books }));
+    return json(200, { mode: 'nudge', ...nudges, books });
   }
   const config = await epointConfig(admin);
   if (!config.merchantLive) return json(503, { error: 'payment_merchant_not_live' });
