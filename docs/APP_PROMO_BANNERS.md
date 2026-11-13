@@ -107,3 +107,12 @@ builds). Admins are exempt. The PDF book banner uses `min_app_version = 49` (boo
 - Pushes: campaign links may be `https://anacan.az/…` (`20261111073000_campaign_deeplink_website.sql`); the push
   runner `/home/anacan-runner/push1111.py` sends one group at a time (flock) with retries, since parallel audience
   previews hit the statement timeout.
+
+## Live set (2026-11-13)
+- PDF kitablar (`kitab-2-sira-20261109`): Ana səhifə and İcma (Alətlər/Profil switched off: 0 clicks in 9-13 Nov).
+- Tortlar (`tort-1-foto`, `tort-2-uclu`, `tort-3-bir-yas`, `-20261113.jpg`): İcma, Alətlər, Profil; az + AZ,
+  bump/mommy, min app version 49, assigned to the "Anacan" brand so impressions and clicks are measured
+  (`ad_metrics_daily`, shown in Admin → Bannerlər). Migration `20261113180000_cake_promo_banners.sql`; the brand
+  assignment runs `admin_brand_action_v1('assign_banner', …)` as an admin.
+- `banners.requires_v3` is a generated column (true when audience_tiers includes premium, or week/child-age/lead-form
+  targeting): never list it in an INSERT.
