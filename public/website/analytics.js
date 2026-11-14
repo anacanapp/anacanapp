@@ -1,7 +1,7 @@
 /* Google Analytics 4 for anacan.az (G-QR8KPLJFBE) with Google Consent Mode v2.
    Owner decision 2026-11-14: website analytics is on by default (legitimate interest, opt-out), so every visit and
-   App Store / Google Play click is counted. Visitors in the EEA, UK and Switzerland still need consent: a
-   region-specific default keeps analytics_storage denied there until they press "Accept" (privacy policy §5, v1.1).
+   App Store / Google Play click is counted. Visitors in the EEA, UK and Switzerland (by device time zone) still need
+   consent: analytics_storage stays denied there until they press "Accept" (privacy policy §5, v1.1).
    "Only necessary" (or the Global Privacy Control signal) turns analytics off; the choice is shared by every
    anacan.az page via localStorage. Advertising storage is always denied (no ads on the website).
    window.anacanAnalytics.track(name, params) is the single entry point for events. */
@@ -26,16 +26,20 @@
   function gtag() { window.dataLayer.push(arguments); }
   window.gtag = window.gtag || gtag;
   var choice = read();
-  // EEA (EU + IS, LI, NO), United Kingdom and Switzerland: consent first. Region defaults must come before the global one.
-  var CONSENT_FIRST = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU',
-    'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'];
-  if (choice !== 'granted') {
-    gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
-      analytics_storage: 'denied', region: CONSENT_FIRST, wait_for_update: 500 });
-  }
+  // EEA (EU + IS, LI, NO), United Kingdom and Switzerland: consent first. Detected from the device time zone, because
+  // gtag's region-specific consent defaults were applied to every visitor in testing (2026-11-14).
+  var CONSENT_FIRST_TZ = ['Europe/Vienna', 'Europe/Brussels', 'Europe/Sofia', 'Europe/Zagreb', 'Asia/Nicosia', 'Asia/Famagusta',
+    'Europe/Nicosia', 'Europe/Prague', 'Europe/Copenhagen', 'Europe/Tallinn', 'Europe/Helsinki', 'Europe/Mariehamn', 'Europe/Paris',
+    'Europe/Berlin', 'Europe/Busingen', 'Europe/Athens', 'Europe/Budapest', 'Europe/Dublin', 'Europe/Rome', 'Europe/Riga',
+    'Europe/Vilnius', 'Europe/Luxembourg', 'Europe/Malta', 'Europe/Amsterdam', 'Europe/Warsaw', 'Europe/Lisbon', 'Atlantic/Madeira',
+    'Atlantic/Azores', 'Europe/Bucharest', 'Europe/Bratislava', 'Europe/Ljubljana', 'Europe/Madrid', 'Africa/Ceuta',
+    'Atlantic/Canary', 'Europe/Stockholm', 'Atlantic/Reykjavik', 'Europe/Vaduz', 'Europe/Oslo', 'Arctic/Longyearbyen',
+    'Europe/London', 'Europe/Belfast', 'Europe/Guernsey', 'Europe/Jersey', 'Europe/Isle_of_Man', 'Europe/Zurich'];
+  var zone = ''; try { zone = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { /* old browser */ }
+  var consentFirst = CONSENT_FIRST_TZ.indexOf(zone) !== -1;
   gtag('consent', 'default', {
     ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
-    analytics_storage: choice === 'denied' ? 'denied' : 'granted',
+    analytics_storage: choice === 'granted' ? 'granted' : choice === 'denied' || consentFirst ? 'denied' : 'granted',
     functionality_storage: 'granted', security_storage: 'granted', wait_for_update: 500,
   });
   gtag('set', 'ads_data_redaction', true);
