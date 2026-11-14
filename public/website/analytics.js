@@ -1,8 +1,10 @@
 /* Google Analytics 4 for anacan.az (G-QR8KPLJFBE) with Google Consent Mode v2.
-   Privacy policy + "Fərdi məlumatlar" compliance: analytics cookies only after the visitor accepts; until then
-   GA receives cookieless, anonymous pings. Advertising storage is always denied (no ads on the website).
-   The choice is shared by every anacan.az page (website, Premium campaign and cabinet) via localStorage.
-   window.anacanAnalytics.track(name, params) is the single entry point for events (e-commerce comes next). */
+   Owner decision 2026-11-14: website analytics is on by default (legitimate interest, opt-out), so every visit and
+   App Store / Google Play click is counted. Visitors in the EEA, UK and Switzerland still need consent: a
+   region-specific default keeps analytics_storage denied there until they press "Accept" (privacy policy §5, v1.1).
+   "Only necessary" (or the Global Privacy Control signal) turns analytics off; the choice is shared by every
+   anacan.az page via localStorage. Advertising storage is always denied (no ads on the website).
+   window.anacanAnalytics.track(name, params) is the single entry point for events. */
 (function () {
   'use strict';
   if (window.anacanAnalytics) return;
@@ -24,9 +26,16 @@
   function gtag() { window.dataLayer.push(arguments); }
   window.gtag = window.gtag || gtag;
   var choice = read();
+  // EEA (EU + IS, LI, NO), United Kingdom and Switzerland: consent first. Region defaults must come before the global one.
+  var CONSENT_FIRST = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU',
+    'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'];
+  if (choice !== 'granted') {
+    gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', region: CONSENT_FIRST, wait_for_update: 500 });
+  }
   gtag('consent', 'default', {
     ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
-    analytics_storage: choice === 'granted' ? 'granted' : 'denied',
+    analytics_storage: choice === 'denied' ? 'denied' : 'granted',
     functionality_storage: 'granted', security_storage: 'granted', wait_for_update: 500,
   });
   gtag('set', 'ads_data_redaction', true);
