@@ -1,0 +1,18 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261114140000_bubble_pop_weekly.sql",
+  "runtime": "google-games",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the new relation is registered in guarded_relations with the three standard triggers (the migration refuses without the guard catalog and verifies 1 relation / 3 triggers)",
+  "preserve": [
+    "game_scores / game_score_receipts unchanged; submit_game_score_v1 keeps its signature and receipt (older builds unaffected)"
+  ],
+  "relations": [
+    { "relation": "public.game_weekly_scores", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "best score per user + game + week (Monday Asia/Baku), plays, updated_at; unique (user_id, game_id, week_start); RLS on, no client grants" }
+  ],
+  "functions": [
+    { "name": "public.submit_game_score_v1(uuid, text, uuid, integer, integer)", "change": "replaced", "security": "definer", "grant": ["authenticated", "service_role"], "note": "accepts 'qabarciq' (score <= 300000, level 1); also upserts the weekly best" },
+    { "name": "public.game_weekly_leaderboard_v1(text, integer)", "security": "definer", "grant": ["authenticated", "service_role"], "note": "top rows of this week + caller rank" },
+    { "name": "public.game_week_start_v1()", "security": "invoker", "grant": ["authenticated", "service_role"] }
+  ]
+}

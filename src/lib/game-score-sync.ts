@@ -16,7 +16,8 @@ export function createGameScoreSubmission(input: GameScoreInput, userId: string 
 export async function submitGameScore(client: Client, submission: GameScoreSubmission, stillCurrent: () => boolean): Promise<GameScoreReceipt> {
   if (!submission.userId) throw new GameScoreSyncError('signin');
   if (!stillCurrent()) throw new GameScoreSyncError('account_changed');
-  if (!['saglam-sebet', 'birlesdir', 'color-sort'].includes(submission.gameId)
+  if (!['saglam-sebet', 'birlesdir', 'color-sort', 'qabarciq'].includes(submission.gameId)
+    || (submission.gameId === 'qabarciq' && (submission.score > 300_000 || submission.level !== 1))
     || !Number.isSafeInteger(submission.score) || submission.score < 0 || submission.score > 10_000_000
     || !Number.isSafeInteger(submission.level) || submission.level < 1 || submission.level > 10_000) throw new GameScoreSyncError('invalid_result');
   const session = await client.getSession();

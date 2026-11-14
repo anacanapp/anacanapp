@@ -30,17 +30,20 @@ import { casualText } from './casual/messages';
 import { CASUAL_ART } from './casual/art';
 import { LEAF_FLIGHT_ID, LEAF_FLIGHT_LEVELS } from './leaf-flight/model';
 import { PARKING_ID, PARKING_LEVELS } from './parking/model';
+import { BUBBLE_ID } from './qabarciq/engine';
+import { bubbleText } from './qabarciq/messages';
 
 const WordGarden = lazy(() => import('./word-garden/WordGarden'));
 const TwoFriends = lazy(() => import('./iki-dost/TwoFriends'));
 const LeafFlight = lazy(() => import('./leaf-flight/LeafFlight'));
 const ClearTheWay = lazy(() => import('./parking/ClearTheWay'));
+const BubblePop = lazy(() => import('./qabarciq/BubblePop'));
 
 interface MiniGamesHubProps {
   onBack: () => void;
 }
 
-type View = 'hub' | 'levels' | 'game' | 'word-garden' | 'iki-dost' | 'leaf-flight' | 'clear-the-way';
+type View = 'hub' | 'levels' | 'game' | 'word-garden' | 'iki-dost' | 'leaf-flight' | 'clear-the-way' | 'qabarciq';
 type Tab = 'games' | 'leaderboard';
 
 const SAGLAM_SEBET_ID = 'saglam-sebet';
@@ -170,6 +173,12 @@ const MiniGamesHub = ({ onBack }: MiniGamesHubProps) => {
     <TwoFriends onBack={() => setView('hub')} />
   </Suspense></ErrorBoundary>;
 
+  if (view === 'qabarciq') return <ErrorBoundary fallback={<div className="a-scope p-6">
+    <button type="button" className="a-btn" onClick={() => setView('hub')}>{bubbleText(language, 'back')}</button>
+  </div>}><Suspense fallback={<div className="a-scope p-6" role="status">{bubbleText(language, 'title')}</div>}>
+    <BubblePop onBack={() => setView('hub')} />
+  </Suspense></ErrorBoundary>;
+
   if (view === 'leaf-flight' || view === 'clear-the-way') return <ErrorBoundary fallback={<div className="a-scope p-6">
     <button type="button" className="a-btn" onClick={() => setView('hub')}>{casualText(language, 'back')}</button>
   </div>}><Suspense fallback={<div className="a-scope p-6" role="status">{casualText(language, 'hintBusy')}</div>}>
@@ -295,6 +304,26 @@ const MiniGamesHub = ({ onBack }: MiniGamesHubProps) => {
         <AnimatePresence mode="wait">
           {activeTab === 'games' ? (
             <motion.div key="games" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+              <motion.button type="button" data-game-id={BUBBLE_ID} whileTap={{ scale: 0.98 }}
+                onClick={() => setView('qabarciq')} className="w-full relative overflow-hidden rounded-3xl p-4 text-start mb-4"
+                style={{ background: 'linear-gradient(125deg,#ffe3d8,#fff3e6 55%,#efe6fb)', border: '1px solid #f6d6c9', color: '#7a3f3a', boxShadow: '0 10px 25px -15px #ff5a5f55' }}>
+                <div className="relative flex items-center gap-3">
+                  <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true" className="flex-shrink-0">
+                    {([[22, 24, 14, '#f47c7c'], [42, 20, 10, '#b49bea'], [44, 40, 13, '#78b5f0'], [22, 46, 11, '#f5d061'], [33, 33, 9, '#6fcd9e']] as const).map(([x, y, r, c], i) =>
+                      <g key={i}><circle cx={x} cy={y} r={r} fill={c} /><circle cx={x - r * 0.35} cy={y - r * 0.4} r={r * 0.22} fill="#fff" opacity=".85" /></g>)}
+                  </svg>
+                  <div className="flex-1 min-w-0">
+                    <span className="px-2 py-0.5 rounded-full text-[9px] font-bold" style={{ background: '#ff5a5f', color: '#fff' }}>{tr('minigames_badge_new', 'Yeni')}</span>
+                    <h3 className="font-extrabold text-lg mt-1">{bubbleText(language, 'title')}</h3>
+                    <p className="text-xs mt-0.5 leading-relaxed" style={{ color: '#9a6a62' }}>{bubbleText(language, 'card')}</p>
+                  </div>
+                  <ChevronRight size={18} className="rtl:rotate-180" />
+                </div>
+                <div className="relative flex items-center justify-between gap-3 mt-3 text-[10px] font-semibold">
+                  <span>{bubbleText(language, 'tagline')}</span>
+                  <span className="px-2 py-1 rounded-full flex items-center gap-1" style={{ background: '#ffffffa8' }}><Trophy size={11} />{bubbleText(language, 'weeklyTitle')}</span>
+                </div>
+              </motion.button>
               {(['leaf-flight', 'clear-the-way'] as const).map(game => {
                 const flight = game === 'leaf-flight', Icon = flight ? Leaf : CarFront;
                 return <motion.button type="button" key={game} data-game-id={flight ? LEAF_FLIGHT_ID : PARKING_ID} whileTap={{ scale: 0.98 }}
@@ -417,6 +446,15 @@ const MiniGamesHub = ({ onBack }: MiniGamesHubProps) => {
                     {game.id === COLOR_SORT_ID ? t('title') : tr(game.titleKey, game.title)}
                   </button>
                 ))}
+                <button
+                  onClick={() => setLeaderboardGameId(BUBBLE_ID)}
+                  className={`flex-1 min-w-0 px-2 py-2 rounded-2xl text-xs font-bold transition-all break-words ${leaderboardGameId === BUBBLE_ID ? 'text-white shadow-button' : ''}`}
+                  style={leaderboardGameId === BUBBLE_ID
+                    ? { background: 'linear-gradient(90deg,#ff7a6b,#ff5a5f)', border: 'none', cursor: 'pointer' }
+                    : { background: 'var(--a-surface)', color: 'var(--a-ink-soft)', border: '1px solid var(--a-line)', cursor: 'pointer' }}
+                >
+                  {bubbleText(language, 'title')}
+                </button>
               </div>
               <Leaderboard gameId={leaderboardGameId} />
             </motion.div>

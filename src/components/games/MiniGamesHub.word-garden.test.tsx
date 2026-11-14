@@ -24,7 +24,7 @@ beforeEach(() => { fixture.language = 'az'; });
 afterEach(cleanup);
 it('opens the Azerbaijani game through its own lazy screen and returns to the existing hub', async () => {
   render(<MiniGamesHub onBack={vi.fn()} />);
-  expect(document.querySelectorAll('[data-game-id]')).toHaveLength(7);
+  expect(document.querySelectorAll('[data-game-id]')).toHaveLength(8);
   fireEvent.click(screen.getByRole('button', { name: /Söz bağı/ }));
   fireEvent.click(await screen.findByRole('button', { name: 'Bağa qayıt' }));
   expect(await screen.findByRole('button', { name: /Söz bağı/ })).toBeInTheDocument();
@@ -35,5 +35,5 @@ it.each(['en', 'tr', 'ar'])('preserves the other games and hides the unavailable
   fixture.language = language;
   render(<MiniGamesHub onBack={vi.fn()} />);
   expect(screen.queryByRole('button', { name: /Söz bağı/ })).toBeNull();
-  expect(document.querySelectorAll('[data-game-id]')).toHaveLength(6);
+  expect(document.querySelectorAll('[data-game-id]')).toHaveLength(7);
 });
