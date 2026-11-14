@@ -1,0 +1,24 @@
+{
+ "_note": "Rendered by scripts/banners/render-promo-banners.mjs; see docs/APP_PROMO_BANNERS.md. link = banners.link_type/link_url.",
+ "banners": [
+  {
+   "id": "kitab-oxu-oyna",
+   "layout": "row",
+   "bg": "#f1f6f2",
+   "accent": "#2f7a55",
+   "eyebrow": "Nağıl · boyama · hərflər",
+   "title": "Çap et, *oxuyun və oynayın*",
+   "sub": "10+ kitab seçəndə hər biri 2 ₼",
+   "cta": "Kitab seç",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/4_08_dostluq-hekayesi.jpg",
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/6m_06_gecen-xeyre-balaca.jpg",
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/2_06_ailemle-bir-gun.jpg"
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/books"
+   }
+  }
+ ]
+}
