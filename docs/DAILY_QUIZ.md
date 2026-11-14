@@ -46,3 +46,11 @@ Migrations `20261113200000_daily_quiz.sql`, `…210000_daily_quiz_seed_az.sql`, 
 - **Ayarlar:** turn the quiz on or off, questions per day, seconds per question.
 
 Translations are made by people or Claude, never by Gemini (owner rule).
+
+## Switched off and removed (2026-11-14)
+On the owner's request the quiz is off and its code is gone from the app and Admin. The migration is
+`20261114080000_daily_quiz_off.sql`.
+- `app_settings.daily_quiz.enabled` is `false`.
+- The `tool_configs` row `daily-quiz` is deleted.
+- `quiz_questions` (300 Azerbaijani questions) and `quiz_attempts` are still in the database.
+- To bring the quiz back, restore the removed files from commit 6229683 and set `enabled` back to true.
