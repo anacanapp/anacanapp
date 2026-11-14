@@ -314,10 +314,4 @@
   }
 })();
 
-// Hero store buttons: report the click to GA4 (the page keeps working without analytics).
-['storeIos', 'storeAndroid'].forEach(function (id) {
-  var el = document.getElementById(id);
-  if (el) el.addEventListener('click', function () {
-    try { window.anacanAnalytics && window.anacanAnalytics.track('app_store_click', { store: id === 'storeIos' ? 'app_store' : 'google_play', placement: 'kampaniya_hero' }); } catch (e) { /* ignore */ }
-  });
-});
+// Store buttons: links and GA4 `store_click` are handled by /website/analytics.js (data-store-placement).

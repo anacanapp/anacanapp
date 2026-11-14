@@ -12,7 +12,7 @@ import { useState } from 'react';
 import { Check, Smartphone } from 'lucide-react';
 import { useWebsite } from '../context';
 import { Arrow, Eyebrow } from '../components';
-import { APP_STORE_URL, GOOGLE_PLAY_URL } from '../routes';
+import { storeUrl, trackStoreClick } from '../store-links';
 
 /** App tools (anacan://tool/<id>), the calendar screen (anacan://calendar) and the home tab ('pregnancy'). */
 export type AppToolId = 'names' | 'maternity-calculator' | 'weight' | 'baby-growth' | 'calendar' | 'pregnancy';
@@ -22,11 +22,11 @@ const LABELS: Record<'az' | 'ka', AppOpenLabels> = {
   ka: { eyebrow: 'Anacan აპლიკაცია', open: 'აპლიკაციაში გახსნა', fallback: 'თუ აპლიკაცია არ გაიხსნა, ალბათ ჯერ არ გაქვთ დაინსტალირებული. ჩამოტვირთეთ:', store: 'ჩამოტვირთვა' },
 };
 
-export function appDeepLinks(tool: AppToolId, src: string) {
+export function appDeepLinks(tool: AppToolId, src: string, language = 'az') {
   const path = `${tool === 'pregnancy' ? '' : tool === 'calendar' ? 'calendar' : `tool/${tool}`}?src=${encodeURIComponent(src)}`;
   return {
     scheme: `anacan://${path}`,
-    intent: `intent://${path}#Intent;scheme=anacan;package=com.atlasoon.anacan;S.browser_fallback_url=${encodeURIComponent(GOOGLE_PLAY_URL)};end`,
+    intent: `intent://${path}#Intent;scheme=anacan;package=com.atlasoon.anacan;S.browser_fallback_url=${encodeURIComponent(storeUrl('android', `tool_${tool}_open`, language))};end`,
   };
 }
 function platform(): 'ios' | 'android' | 'desktop' {
@@ -50,7 +50,7 @@ export function AppToolCard({ tool, src, title, text, features, labels: custom }
     const hide = () => { left = true; };
     document.addEventListener('visibilitychange', hide, { once: true });
     window.addEventListener('pagehide', hide, { once: true });
-    const links = appDeepLinks(tool, src);
+    const links = appDeepLinks(tool, src, route.language);
     window.location.href = device === 'android' ? links.intent : links.scheme;
     // iOS may still show its "Open in Anacan?" prompt, so the store is offered, never opened automatically.
     window.setTimeout(() => { if (!left && !document.hidden) setFallback(device); }, 1600);
@@ -67,8 +67,8 @@ export function AppToolCard({ tool, src, title, text, features, labels: custom }
       <a className="site-primary-button" href={href('download')} onClick={open} data-app-tool={tool}>{labels.open}<Arrow diagonal/></a>
       {fallback && <p className="tl-app-fallback" role="status">{labels.fallback}</p>}
       <div className="tl-app-stores">
-        {fallback !== 'android' && <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer"><Smartphone aria-hidden="true" size={15}/>App Store</a>}
-        {fallback !== 'ios' && <a href={GOOGLE_PLAY_URL} target="_blank" rel="noopener noreferrer"><Smartphone aria-hidden="true" size={15}/>Google Play</a>}
+        {fallback !== 'android' && <a href={storeUrl('ios', `tool_${tool}`, route.language)} onClick={() => trackStoreClick('ios', `tool_${tool}`, route.kind, route.language, storeUrl('ios', `tool_${tool}`, route.language))} data-store="ios" target="_blank" rel="noopener noreferrer"><Smartphone aria-hidden="true" size={15}/>App Store</a>}
+        {fallback !== 'ios' && <a href={storeUrl('android', `tool_${tool}`, route.language)} onClick={() => trackStoreClick('android', `tool_${tool}`, route.kind, route.language, storeUrl('android', `tool_${tool}`, route.language))} data-store="android" target="_blank" rel="noopener noreferrer"><Smartphone aria-hidden="true" size={15}/>Google Play</a>}
       </div>
     </div>
   </section>;

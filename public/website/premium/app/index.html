@@ -26,8 +26,8 @@ small{display:block;margin-top:16px;color:#aaa;font-size:12px}
   <h1 id="title">Anacan tətbiqi açılır…</h1>
   <p id="text">Tətbiq telefonunda varsa, avtomatik açılacaq. Yoxdursa, aşağıdan yüklə və eyni hesabla daxil ol — Premium avtomatik aktiv olacaq.</p>
   <a class="btn primary" id="open" href="anacan:///">Tətbiqi aç</a>
-  <a class="btn ghost" id="ios" href="https://apps.apple.com/app/id6758301924">App Store-dan yüklə</a>
-  <a class="btn ghost" id="android" href="https://play.google.com/store/apps/details?id=com.atlasoon.anacan">Google Play-dən yüklə</a>
+  <a class="btn ghost" id="ios" data-store="ios" data-store-placement="premium_app_page" href="https://apps.apple.com/app/id6758301924">App Store-dan yüklə</a>
+  <a class="btn ghost" id="android" data-store="android" data-store-placement="premium_app_page" href="https://play.google.com/store/apps/details?id=com.atlasoon.anacan">Google Play-dən yüklə</a>
   <small>Anacan · anacan.az</small>
 </main>
 <script src="/website/analytics.js" defer></script>
@@ -39,13 +39,15 @@ small{display:block;margin-top:16px;color:#aaa;font-size:12px}
   var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   var IOS_STORE = 'https://apps.apple.com/app/id6758301924';
   var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.atlasoon.anacan';
+  // Same campaign scheme as /website/analytics.js storeUrl('android', 'premium_app_page_open').
+  var PLAY_STORE_TRACKED = PLAY_STORE + '&referrer=' + encodeURIComponent('utm_source=anacan.az&utm_medium=website&utm_campaign=web_premium_app_page_open&utm_content=az');
   var open = document.getElementById('open');
   var track = function (name, params) { try { window.anacanAnalytics && window.anacanAnalytics.track(name, params || {}); } catch (e) { /* never block */ } };
   var src = new URLSearchParams(location.search).get('src') || 'direct';
 
   // Android: an intent URL opens the app when installed, otherwise Chrome goes straight to Google Play.
   if (isAndroid) {
-    open.href = 'intent:///#Intent;scheme=anacan;package=com.atlasoon.anacan;S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE) + ';end';
+    open.href = 'intent:///#Intent;scheme=anacan;package=com.atlasoon.anacan;S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE_TRACKED) + ';end';
     document.getElementById('ios').classList.add('hide');
   } else if (isIOS) {
     document.getElementById('android').classList.add('hide');

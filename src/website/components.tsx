@@ -4,7 +4,8 @@ import { ArrowUpRight, ArrowRight, Menu, X, Globe2, ChevronDown, Smartphone, Hea
 export const SITE_PHONE = '+994 10 321 65 07';
 export const SITE_PHONE_HREF = 'tel:+994103216507';
 import { WEBSITE_LANGUAGES } from '../lib/app-languages';
-import { alternateRoute, APP_STORE_URL, GOOGLE_PLAY_URL, sitePath } from './routes';
+import { alternateRoute, sitePath } from './routes';
+import { downloadSource, storeUrl, trackStoreClick, type StorePlatform } from './store-links';
 import type { WebsiteCopyKey, WebsiteArticle } from './model';
 import { useWebsite } from './context';
 import llmCopy from './llm-copy.json' with {type:'json'};
@@ -93,8 +94,13 @@ export function FaqList({keys=[1,2,3,4,5,6,7,8],prefix='faq'}: {keys?:number[];p
   return <div className="site-faq-list">{keys.map(number=><details key={number}><summary>{t(`${prefix}${number}Question` as WebsiteCopyKey)}<span aria-hidden="true">+</span></summary><p>{t(`${prefix}${number}Answer` as WebsiteCopyKey)}</p></details>)}</div>;
 }
 export function StoreLinks() {
-  const {t}=useWebsite();
-  return <div className="site-store-links"><a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer"><Smartphone size={23} strokeWidth={1.5}/><span><small>{t('appStore')}</small><strong>App Store</strong></span><Arrow diagonal/></a><a href={GOOGLE_PLAY_URL} target="_blank" rel="noopener noreferrer"><Smartphone size={23} strokeWidth={1.5}/><span><small>{t('googlePlay')}</small><strong>Google Play</strong></span><Arrow diagonal/></a></div>;
+  const {t,route}=useWebsite();
+  const go=(store:StorePlatform)=>(event:React.MouseEvent<HTMLAnchorElement>)=>{
+    const from=downloadSource(), placement=from?`download_page_from_${from}`:'download_page', url=storeUrl(store,placement,route.language);
+    event.currentTarget.href=url;
+    trackStoreClick(store,placement,route.kind,route.language,url);
+  };
+  return <div className="site-store-links"><a href={storeUrl('ios','download_page',route.language)} onClick={go('ios')} data-store="ios" target="_blank" rel="noopener noreferrer"><Smartphone size={23} strokeWidth={1.5}/><span><small>{t('appStore')}</small><strong>App Store</strong></span><Arrow diagonal/></a><a href={storeUrl('android','download_page',route.language)} onClick={go('android')} data-store="android" target="_blank" rel="noopener noreferrer"><Smartphone size={23} strokeWidth={1.5}/><span><small>{t('googlePlay')}</small><strong>Google Play</strong></span><Arrow diagonal/></a></div>;
 }
 export function DownloadCard() {
   const {href,t}=useWebsite();

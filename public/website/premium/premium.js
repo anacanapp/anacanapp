@@ -9,8 +9,9 @@
   var PRICES = { monthly: 3.99, yearly: 29.99 };  // Dodo live products (USD)
   var CURRENCY = 'USD';
   var provider = 'dodo'; // 'epoint' when web-shop reports the AZN passes as ready
-  var APP_STORE = 'https://apps.apple.com/app/anacan/id6758301924';
-  var GOOGLE_PLAY = 'https://play.google.com/store/apps/details?id=com.atlasoon.anacan';
+  // Campaign-tagged store links (same scheme as /website/analytics.js; this funnel does not load it).
+  var APP_STORE = 'https://apps.apple.com/app/anacan/id6758301924?ct=web_premium_checkout_done&mt=8';
+  var GOOGLE_PLAY = 'https://play.google.com/store/apps/details?id=com.atlasoon.anacan&referrer=' + encodeURIComponent('utm_source=anacan.az&utm_medium=website&utm_campaign=web_premium_checkout_done');
   var CHARACTERS = { flow: 'ritm', bump: 'tumurcuq', mommy: 'qucaq' };
   var params = new URLSearchParams(location.search);
   var store = {
@@ -175,7 +176,7 @@
     view.innerHTML = '<img class="hero" src="/website/characters/' + (CHARACTERS[state.stage] || 'tumurcuq') + '-success.webp" alt="" width="150" height="150">' +
       '<h1>' + esc(t.done_title) + '</h1><p class="sub">' + esc(t.done_body).replace(esc('{email}'), '<b dir="ltr">' + esc(email) + '</b>') + '</p>' +
       '<div class="card"><ol class="steps"><li>' + esc(t.done_step1) + '</li><li>' + esc(t.done_step2) + '</li><li>' + esc(t.done_step3) + '</li></ol>' +
-      '<div class="stores"><a href="' + APP_STORE + '" rel="noopener">App Store</a><a href="' + GOOGLE_PLAY + '" rel="noopener">Google Play</a></div></div>';
+      '<div class="stores"><a href="' + APP_STORE + '" data-store="ios" data-store-placement="premium_checkout_done" rel="noopener">App Store</a><a href="' + GOOGLE_PLAY + '" data-store="android" data-store-placement="premium_checkout_done" rel="noopener">Google Play</a></div></div>';
   }
 
   function go(step) {

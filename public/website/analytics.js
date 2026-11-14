@@ -113,7 +113,42 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { setTimeout(banner, 600); });
   else setTimeout(banner, 600);
 
+  // Store links with install attribution (2026-11-14). Static pages mark links with data-store="ios|android" and
+  // data-store-placement="<where>"; the href gets the App Store campaign (ct, pt) or Google Play referrer (utm_*),
+  // and every click sends GA4 `store_click`. Same scheme as src/website/store-links.ts.
+  var APPLE_PROVIDER_TOKEN = '';
+  var storeCampaign = function (placement) {
+    var slug = String(placement || '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'unknown';
+    return ('web_' + slug).slice(0, 80);
+  };
+  var storeLang = function () { return (document.documentElement.lang || 'az').slice(0, 2); };
+  var storeUrl = function (store, placement, lang) {
+    var campaign = storeCampaign(placement);
+    if (store === 'ios') return 'https://apps.apple.com/app/anacan/id6758301924?' + (APPLE_PROVIDER_TOKEN ? 'pt=' + APPLE_PROVIDER_TOKEN + '&' : '') + 'ct=' + campaign + '&mt=8';
+    var ref = 'utm_source=anacan.az&utm_medium=website&utm_campaign=' + campaign + '&utm_content=' + encodeURIComponent(lang || storeLang());
+    return 'https://play.google.com/store/apps/details?id=com.atlasoon.anacan&referrer=' + encodeURIComponent(ref);
+  };
+  var decorate = function (link) {
+    var store = link.getAttribute('data-store'), placement = link.getAttribute('data-store-placement');
+    if ((store !== 'ios' && store !== 'android') || !placement) return null;
+    link.href = storeUrl(store, placement);
+    return { store: store, placement: placement };
+  };
+  var decorateAll = function () { try { Array.prototype.forEach.call(document.querySelectorAll('a[data-store][data-store-placement]'), decorate); } catch (e) { /* old browser */ } };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', decorateAll); else decorateAll();
+  var onStoreClick = function (event) {
+    var link = event.target && event.target.closest ? event.target.closest('a[data-store][data-store-placement]') : null;
+    if (!link) return;
+    var info = decorate(link); if (!info) return;
+    gtag('event', 'store_click', { store: info.store, link_campaign: storeCampaign(info.placement), placement: info.placement,
+      page_type: 'static', language: storeLang(), link_url: link.href, transport_type: 'beacon' });
+  };
+  document.addEventListener('click', onStoreClick, true);
+  document.addEventListener('auxclick', onStoreClick, true);
+
   window.anacanAnalytics = {
+    storeUrl: storeUrl,
+    decorateStoreLinks: decorateAll,
     track: function (name, params) { try { gtag('event', name, params || {}); } catch (e) { /* never break the page */ } },
     consent: function () { return read(); },
     reopen: function () { try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ } banner(); },
