@@ -111,9 +111,8 @@ builds). Admins are exempt. The PDF book banner uses `min_app_version = 49` (boo
 ## Live set (2026-11-14)
 - PDF kitablar: four Azerbaijani family scene creatives (`kitab-a1-korpe`, `kitab-a6-printer`, `kitab-a2-boya`,
   `kitab-a5-herf`, `-20261114.jpg`, spec `scripts/banners/specs/books-family-20261114.json`) on Ana səhifə and İcma,
-  az + AZ + mommy, targeted by youngest child age (180–540, 540–2190, 1095–2190, 1460–2190 days), "Anacan" brand.
-  Every older `/books` row is off. Migration `20261114120000_book_banners_family_by_age.sql`. Mothers of babies under
-  6 months get no book banner.
+  az + AZ + mommy, targeted by youngest child age (0–540 since `20261114130000`, 540–2190, 1095–2190, 1460–2190 days), "Anacan" brand.
+  Every older `/books` row is off. Migration `20261114120000_book_banners_family_by_age.sql`.
 - Tortlar (off since 2026-11-13; `tort-1-foto`, `tort-2-uclu`, `tort-3-bir-yas`, `-20261113.jpg`): İcma, Alətlər, Profil; az + AZ,
   bump/mommy, min app version 49, assigned to the "Anacan" brand so impressions and clicks are measured
   (`ad_metrics_daily`, shown in Admin → Bannerlər). Migration `20261113180000_cake_promo_banners.sql`; the brand
