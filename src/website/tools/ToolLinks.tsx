@@ -5,7 +5,7 @@ import { Arrow } from '../components';
 import { sitePath } from '../routes';
 import { namesCopy } from './names';
 import { DEKRET_COPY } from './dekret-copy';
-import { PregnancyWeeksLink } from '../pregnancy-weeks/PregnancyWeekPages';
+import { SeoHubLinks } from '../seo-hubs/HubLinks';
 import './tools.css';
 
 /** Journal article id → the tool page it leads to (az only: the dekret calculator and the az names). */
@@ -29,7 +29,7 @@ export function ToolPageLinks() {
     ...(route.language === 'az' ? [{ path: sitePath('az', 'maternityBenefit'), title: DEKRET_COPY.label, text: 'Analıq məzuniyyətinin günləri, gündəlik və ümumi müavinət.', Icon: Banknote, action: 'Hesabla' }] : []),
     ...(names ? [{ path: sitePath(route.language, 'names'), title: names.hubLabel, text: names.hubTitle, Icon: Baby, action: route.language === 'ka' ? 'გახსნა' : 'Bax' }] : []),
   ];
-  if (!cards.length) return null;
+  if (!cards.length) return <SeoHubLinks place="tools"/>;
   return <><div className="site-tool-grid tl-tool-grid">{cards.map(({ path, title, text, Icon, action }) => <a className="site-tool-card" href={basePath + path} key={path}>
-    <span className="site-icon-wash site-wash-peach"><Icon size={23} strokeWidth={1.5}/></span><h3>{title}</h3><p>{text}</p><span className="site-text-link">{action}<Arrow/></span></a>)}</div><PregnancyWeeksLink/></>;
+    <span className="site-icon-wash site-wash-peach"><Icon size={23} strokeWidth={1.5}/></span><h3>{title}</h3><p>{text}</p><span className="site-text-link">{action}<Arrow/></span></a>)}</div><SeoHubLinks place="tools"/></>;
 }

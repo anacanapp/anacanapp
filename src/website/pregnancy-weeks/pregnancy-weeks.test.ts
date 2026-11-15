@@ -28,14 +28,19 @@ const boot = (path: string, language: 'az' | 'en' = 'az'): WebsiteBoot => ({ sch
 const html = (path: string) => renderToString(createElement(Website, { boot: boot(path) }));
 const HUB = '/az/hamilelik/heftelik/';
 
-describe('PREGNANCY_WEEKS_ENABLED switch (owner: content lives in the app)', () => {
-  it('is off: hub and week URLs answer 404 and nothing is published', () => {
-    expect(PREGNANCY_WEEKS_ENABLED).toBe(false);
+describe('PREGNANCY_WEEKS_ENABLED switch (owner 2026-11-15: short teaser pages, the rest in the app)', () => {
+  it('is on and published: the hub and 42 weeks are in the sitemaps', () => {
+    expect(PREGNANCY_WEEKS_ENABLED).toBe(true);
     overridePregnancyWeeksEnabled();
+    expect(resolveWebsiteRoute(HUB).route.kind).toBe('pregnancyWeeks');
+    expect(resolveWebsiteRoute('/az/hamilelik/12-ci-hefte/').route.kind).toBe('pregnancyWeek');
+    expect(toolSitemapEntries().filter(entry => entry.path.includes('-hefte/') || entry.path.includes('heftelik')).length).toBe(43);
+  });
+  it('switched off, every URL answers 404', () => {
+    overridePregnancyWeeksEnabled(false);
     expect(resolveWebsiteRoute(HUB).route.kind).toBe('notFound');
     expect(resolveWebsiteRoute('/az/hamilelik/12-ci-hefte/').route.kind).toBe('notFound');
     expect(resolveWebsiteRoute('/az/hamilelik/').route.kind).not.toBe('notFound');
-    expect(toolSitemapEntries().some(entry => entry.path.includes('-hefte/') || entry.path.includes('heftelik'))).toBe(false);
     overridePregnancyWeeksEnabled(true);
   });
 });
@@ -150,12 +155,14 @@ describe('pregnancy week texts', () => {
 });
 
 describe('pregnancy week pages', () => {
-  it('renders the week anatomy, the app card and the due date link', () => {
+  it('renders the short week page, the app gate, the danger signs and the due date link', () => {
     const page = html('/az/hamilelik/12-ci-hefte/');
     expect(page).toContain('Hamiləliyin 12-ci həftəsi: körpənin ölçüsü, əlamətlər və məsləhətlər</h1>');
-    for (const heading of ['Qısa cavab', 'Əsas göstəricilər', 'Körpənin inkişafı', 'Sizin bədəninizdə nələr dəyişir', 'Bu həftənin əlamətləri', 'Müayinələr və testlər',
-      'Bu həftə nə etməli', 'Nə vaxt həkimə müraciət etməli', 'Tez-tez verilən suallar', 'Mənbələr', 'Hər həftəni Anacan-da izlə'])
+    for (const heading of ['Qısa cavab', 'Əsas göstəricilər', 'Körpənin inkişafı', 'Nə vaxt həkimə müraciət etməli', 'Tez-tez verilən suallar', 'Mənbələr',
+      '12-ci həftə: davamı Anacan tətbiqində', 'Bədəninizdə nələr dəyişir', 'web_seo_week_12_gate'])
       expect(page, heading).toContain(heading);
+    // The full sections live in the app only.
+    expect(page).not.toContain('<h2>Sizin bədəninizdə nələr dəyişir</h2>');
     expect(page).toContain('href="/az/dogus-tarixi-kalkulyatoru/"');
     expect(page).toContain('href="/az/hamilelik/11-ci-hefte/"');
     expect(page).toContain('href="/az/hamilelik/13-cu-hefte/"');
@@ -189,7 +196,7 @@ describe('pregnancy week pages', () => {
 
 describe('PREGNANCY_WEEKS_PUBLISHED gate', () => {
   const linked = () => [html('/az/hamilelik/'), html('/az/kalkulyatorlar/')].map(page => page.includes(`href="${HUB}"`));
-  it('ships unpublished', () => expect(PREGNANCY_WEEKS_PUBLISHED).toBe(false));
+  it('ships published (owner approval 2026-11-15)', () => expect(PREGNANCY_WEEKS_PUBLISHED).toBe(true));
   it('false: pages render with noindex,nofollow, outside sitemaps and llms, linked from nowhere', () => {
     overridePregnancyWeeksPublished(false);
     for (const path of [HUB, '/az/hamilelik/1-ci-hefte/', '/az/hamilelik/40-ci-hefte/']) {

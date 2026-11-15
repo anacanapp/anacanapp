@@ -14,6 +14,8 @@ export function redirectsFor({routes,articles,prefix=''}) {
   const languages=Object.keys(routes.PAGE_SLUGS);
   add('/',routes.sitePath('az'));
   add('/index',routes.sitePath('az'));add('/index.html',routes.sitePath('az'));add('/index.php',routes.sitePath('az'));
+  // Other words people search for periods (owner 2026-11-15): one page, /az/aybasi/.
+  for(const word of['menstruasiya','period','regl'])add('/az/'+word,'/az/aybasi/'),add('/az/'+word+'/','/az/aybasi/');
   for(const code of languages){
     add('/'+code,routes.sitePath(code));
     for(const[kind,slug]of Object.entries(routes.PAGE_SLUGS[code])){

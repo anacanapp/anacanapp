@@ -23,21 +23,23 @@ import { FETAL_SIZE_BY_WEEK, HADLOCK_EFW } from '../../lib/fetal-size';
  * sitemap and llms file, and no other page links to them. When true they are indexable, listed in
  * sitemap-pages.xml/sitemap-az.xml and linked from the pregnancy detail page and the calculators page.
  */
-/** Owner decision 2026-11-10: week-by-week content stays in the Anacan app only; the website pages are switched off
- * (every /az/hamilelik/<…>/ week URL answers 404). Set to true to bring the hidden pages back. */
-export const PREGNANCY_WEEKS_ENABLED = false;
+/** Owner decision 2026-11-10: week-by-week content stays in the Anacan app only (pages switched off).
+ * Owner decision 2026-11-15: the pages come back as short teasers (key facts, quick answer, danger signs) that send the
+ * reader to the app for the rest; demo first, still unpublished (noindex, no sitemap) until the owner approves. */
+export const PREGNANCY_WEEKS_ENABLED = true;
 let enabled: boolean = PREGNANCY_WEEKS_ENABLED;
 export const pregnancyWeeksEnabled = () => enabled;
 /** Tests only. */
 export function overridePregnancyWeeksEnabled(value?: boolean) { enabled = value ?? PREGNANCY_WEEKS_ENABLED; }
-export const PREGNANCY_WEEKS_PUBLISHED = false;
+/** Owner approved the teaser pages 2026-11-15: published. */
+export const PREGNANCY_WEEKS_PUBLISHED = true;
 let published: boolean = PREGNANCY_WEEKS_PUBLISHED;
 /** Every gate (robots, sitemaps, inbound links) reads the flag through this function. */
 export const pregnancyWeeksPublished = () => published && enabled;
 /** Tests only: render both states without editing the constant. No argument restores the constant. */
 export function overridePregnancyWeeksPublished(value?: boolean) { published = value ?? PREGNANCY_WEEKS_PUBLISHED; }
 /** Sitemap lastmod once published (update when the texts change). */
-export const PREGNANCY_WEEKS_UPDATED = '2026-11-10';
+export const PREGNANCY_WEEKS_UPDATED = '2026-11-15';
 export const PREGNANCY_WEEKS_ROBOTS = 'noindex,nofollow';
 
 export const PREGNANCY_WEEK_LAST = 42;

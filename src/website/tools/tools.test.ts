@@ -116,7 +116,8 @@ describe('names language gating and routes', () => {
     const entries = toolSitemapEntries();
     const count = (language: string) => entries.filter(entry => entry.language === language).length;
     const pages = (language: 'az' | 'ka') => 3 + namesIndex(language)!.letters.filter(letter => letter.page).length + namesIndex(language)!.names.length;
-    expect(count('az')).toBe(pages('az') + 1);
+    // +1 dekret calculator, +43 pregnancy week pages, +32 SEO content pages (2026-11-15).
+    expect(count('az')).toBe(pages('az') + 1 + 43 + 32);
     expect(count('ka')).toBe(pages('ka'));
     expect(entries.find(entry => entry.path === '/az/usaq-adlari/')!.alternates.map(item => item.code)).toEqual(['az', 'ka', 'x-default']);
   });

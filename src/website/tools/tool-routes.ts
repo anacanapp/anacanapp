@@ -10,8 +10,9 @@ import { maternityData, namesIndex } from './tool-data';
 import { leaveDays } from './dekret';
 import { DEKRET_COPY, DEKRET_SLUG, DEKRET_UPDATED, dekretFaq } from './dekret-copy';
 import { PREGNANCY_WEEK_PAGES, isPregnancyWeekPage, pregnancyWeekMeta, pregnancyWeekRobots, pregnancyWeekSitePath, pregnancyWeekSitemapRows, resolvePregnancyWeekRoute } from '../pregnancy-weeks/routes';
+import { SEO_HUB_PAGES, isSeoHubPage, resolveSeoHubRoute, seoHubMeta, seoHubRobots, seoHubSitePath, seoHubSitemapRows } from '../seo-hubs/routes';
 
-export const TOOL_PAGES = ['names', 'namesGender', 'namesLetter', 'nameDetail', 'maternityBenefit', ...PREGNANCY_WEEK_PAGES] as const;
+export const TOOL_PAGES = ['names', 'namesGender', 'namesLetter', 'nameDetail', 'maternityBenefit', ...PREGNANCY_WEEK_PAGES, ...SEO_HUB_PAGES] as const;
 export type ToolPage = typeof TOOL_PAGES[number];
 export const isToolPage = (kind: string): kind is ToolPage => (TOOL_PAGES as readonly string[]).includes(kind);
 interface ToolRoute { language: WebsiteLanguageCode; kind: string; slug?: string }
@@ -20,6 +21,7 @@ const encode = (value: string) => encodeURIComponent(value);
 export function toolSitePath(language: WebsiteLanguageCode, kind: ToolPage, slug?: string): string {
   if (kind === 'maternityBenefit') return `/az/${DEKRET_SLUG}/`;
   if (isPregnancyWeekPage(kind)) return pregnancyWeekSitePath(kind, slug);
+  if (isSeoHubPage(kind)) return seoHubSitePath(kind, slug);
   const copy = isNamesLanguage(language) ? NAMES_COPY[language]! : undefined;
   if (!copy) throw new Error('WEBSITE_NAMES_LANGUAGE_DISABLED');
   const hub = `/${language}/${encode(copy.hubSlug)}/`;
@@ -38,6 +40,8 @@ export function resolveToolRoute(language: WebsiteLanguageCode, rest: string[]):
   if (language === 'az' && rest[0] === DEKRET_SLUG) return rest.length === 1 ? { kind: 'maternityBenefit' } : { kind: 'notFound' };
   const pregnancy = resolvePregnancyWeekRoute(language, rest);
   if (pregnancy) return pregnancy;
+  const hub = resolveSeoHubRoute(language, rest);
+  if (hub) return hub;
   if (!isNamesLanguage(language) || rest[0] !== NAMES_COPY[language]!.hubSlug) return undefined;
   const copy = NAMES_COPY[language]!, index = namesIndex(language);
   if (!index) return { kind: 'notFound' };
@@ -73,11 +77,12 @@ export interface ToolMeta {
   robots?: string;
 }
 /** robots override of a tool page (undefined: the site default). */
-export const toolRobots = (route: { kind: string }) => pregnancyWeekRobots(route.kind);
+export const toolRobots = (route: { kind: string }) => pregnancyWeekRobots(route.kind) || seoHubRobots(route.kind);
 /** `labels.home`/`labels.tools` come from the page copy so breadcrumbs match the visible ones. */
 export function toolMeta(route: ToolRoute, labels: { home: string; tools: string }): ToolMeta | undefined {
   if (!isToolPage(route.kind)) return undefined;
   if (isPregnancyWeekPage(route.kind)) return pregnancyWeekMeta(route, labels);
+  if (isSeoHubPage(route.kind)) return seoHubMeta(route, labels);
   const home = { name: labels.home, path: `/${route.language}/` };
   if (route.kind === 'maternityBenefit') {
     const data = maternityData();
@@ -116,7 +121,7 @@ export function toolSitemapEntries(): ToolSitemapEntry[] {
   };
   if (maternityData()) add({ language: 'az', kind: 'maternityBenefit' }, DEKRET_UPDATED);
   // Pregnancy weeks: only once PREGNANCY_WEEKS_PUBLISHED (az-only, no other-language alternates).
-  for (const row of pregnancyWeekSitemapRows()) entries.push({ language: 'az', path: row.path, updated: row.updated, alternates: [{ code: 'az', path: row.path }, { code: 'x-default', path: row.path }] });
+  for (const row of [...pregnancyWeekSitemapRows(), ...seoHubSitemapRows()]) entries.push({ language: 'az', path: row.path, updated: row.updated, alternates: [{ code: 'az', path: row.path }, { code: 'x-default', path: row.path }] });
   for (const language of NAMES_ENABLED) {
     const index = namesIndex(language);
     if (!index || !NAMES_COPY[language]) continue;

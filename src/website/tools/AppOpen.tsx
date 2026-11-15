@@ -15,7 +15,8 @@ import { Arrow, Eyebrow } from '../components';
 import { storeUrl, trackStoreClick } from '../store-links';
 
 /** App tools (anacan://tool/<id>), the calendar screen (anacan://calendar) and the home tab ('pregnancy'). */
-export type AppToolId = 'names' | 'maternity-calculator' | 'weight' | 'baby-growth' | 'calendar' | 'pregnancy';
+export type AppToolId = 'names' | 'maternity-calculator' | 'weight' | 'baby-growth' | 'calendar' | 'pregnancy'
+  | 'safety' | 'solid-food-guide' | 'first-aid' | 'baby-tracker';
 export interface AppOpenLabels { eyebrow: string; open: string; fallback: string; store?: string }
 const LABELS: Record<'az' | 'ka', AppOpenLabels> = {
   az: { eyebrow: 'Anacan tətbiqi', open: 'Tətbiqdə aç', fallback: 'Tətbiq açılmadısa, yəqin ki, hələ telefonunuzda yoxdur. Yükləyin:', store: 'Yüklə' },
