@@ -306,5 +306,22 @@
   "sourcesNote": "Quellen für allgemeine Gesundheitsinformationen",
   "privacyCalculatorNote": "Die Rechnerdaten werden im Browser verarbeitet.",
   "featuresTitle": "Anacan – Die App für die tägliche Fürsorge",
-  "featuresIntro": "Menstruation, Schwangerschaft und Babypflege. Ein täglicher Helfer, der sich mit Ihren Bedürfnissen ändert."
+  "featuresIntro": "Menstruation, Schwangerschaft und Babypflege. Ein täglicher Helfer, der sich mit Ihren Bedürfnissen ändert.",
+  "editorialTitle": "Anacan Redaktion und Quellen",
+  "editorialDescription": "Wer die Artikel von Anacan schreibt, auf welche Quellen wir uns stützen (WHO, UNICEF, ACOG, NHS, CDC) und wie wir Fakten prüfen und aktuell halten.",
+  "editorialNav": "Redaktion und Quellen",
+  "editorialIntro": "Jeder Artikel bei Anacan soll verlässliche, einfache und lokal passende Informationen zu Schwangerschaft, Babypflege und Elternschaft bieten. Auf dieser Seite erklären wir offen, wie wir arbeiten.",
+  "editorialWhoTitle": "Wer wir sind",
+  "editorialWhoText": "Die Anacan Redaktion ist das Content-Team der App. Unsere Redakteurinnen und Redakteure schreiben die Artikel, stützen Gesundheitsthemen auf internationale Empfehlungen und passen sie in 21 Sprachen für Leserinnen und Leser vor Ort an. Die Autorenangabe „Anacan Redaktion“ unter den Artikeln bezieht sich auf dieses Team.",
+  "editorialSourcesTitle": "Auf welche Quellen wir uns stützen",
+  "editorialSourcesText": "An erster Stelle stützen wir uns auf die Empfehlungen der Weltgesundheitsorganisation (WHO). Darüber hinaus nutzen wir Informationen offizieller Stellen wie UNICEF, ACOG, NHS, CDC, der American Academy of Pediatrics (AAP), NICE und RCOG. Bei rechtlichen und sozialen Themen zu Aserbaidschan verweisen wir auf offizielle staatliche Quellen. Am Ende jedes Artikels finden Sie eine Liste der verwendeten Quellen mit Links.",
+  "editorialProcessTitle": "Wie unsere Artikel entstehen",
+  "editorialProcessText": "Zu jedem Thema recherchieren wir zuerst die offiziellen Empfehlungen und schreiben den Text dann in verständlicher Sprache. Zahlen, Dosierungen und Zeitangaben prüfen wir gesondert anhand der Quellen. Übersetzungen werden auf Bedeutung und Fachbegriffe geprüft. Ändern sich Empfehlungen, aktualisieren wir den Artikel und zeigen das Aktualisierungsdatum oben im Artikel an.",
+  "editorialMedicalTitle": "Keine medizinische Beratung",
+  "editorialMedicalText": "Die Artikel von Anacan dienen der allgemeinen Information und ersetzen keine ärztliche Untersuchung. Wenden Sie sich bei besorgniserregenden Anzeichen an Ihre Ärztin oder Ihren Arzt; rufen Sie im Notfall sofort die örtliche Notrufnummer an.",
+  "editorialCorrectionsTitle": "Wenn Sie einen Fehler entdecken",
+  "editorialCorrectionsText": "Wenn Sie in einem Artikel einen Fehler oder veraltete Informationen finden, schreiben Sie an info@anacan.az. Wir prüfen jede Nachricht, korrigieren den Artikel bei Bedarf und passen sein Aktualisierungsdatum an.",
+  "editorialIndependenceTitle": "Unabhängigkeit",
+  "editorialIndependenceText": "Medizinische Inhalte sind unabhängig von Werbekunden und Partnern. Werbung und Partnerinhalte werden gesondert gekennzeichnet und haben keinen Einfluss auf die Empfehlungen in unseren Artikeln.",
+  "editorialSourcesListTitle": "Unsere wichtigsten Quellen"
 }

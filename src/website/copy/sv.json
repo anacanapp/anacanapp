@@ -306,5 +306,22 @@
   "sourcesNote": "Källor för allmän hälsoinformation",
   "privacyCalculatorNote": "Kalkylatorns datum behandlas i webbläsaren.",
   "featuresTitle": "Anacan — Appen för daglig omsorg",
-  "featuresIntro": "Menstruation, graviditet och barnomsorg. En daglig hjälpreda som förändras med dig när dina behov förändras."
+  "featuresIntro": "Menstruation, graviditet och barnomsorg. En daglig hjälpreda som förändras med dig när dina behov förändras.",
+  "editorialTitle": "Anacan redaktion och källor",
+  "editorialDescription": "Vem som skriver Anacans artiklar, vilka källor vi bygger på (WHO, UNICEF, ACOG, NHS, CDC) och hur vi faktagranskar och håller informationen aktuell.",
+  "editorialNav": "Redaktion och källor",
+  "editorialIntro": "Varje artikel på Anacan skrivs för att ge tillförlitlig, enkel och lokalt relevant information om graviditet, babyvård och föräldraskap. På den här sidan berättar vi öppet hur vi arbetar.",
+  "editorialWhoTitle": "Vilka vi är",
+  "editorialWhoText": "Anacan redaktion är appens innehållsteam. Våra redaktörer skriver artiklarna, grundar hälsoämnen på internationella rekommendationer och anpassar dem för lokala läsare på 21 språk. Signaturen ”Anacan redaktion” i artiklarna syftar på detta team.",
+  "editorialSourcesTitle": "Källorna vi bygger på",
+  "editorialSourcesText": "Vi utgår i första hand från Världshälsoorganisationens (WHO) rekommendationer. Därefter använder vi information från officiella organ som UNICEF, ACOG, NHS, CDC, American Academy of Pediatrics (AAP), NICE och RCOG. I juridiska och sociala frågor som rör Azerbajdzjan hänvisar vi till officiella myndighetskällor. Varje artikel avslutas med en lista över de källor som använts, med länkar.",
+  "editorialProcessTitle": "Så skriver vi våra artiklar",
+  "editorialProcessText": "För varje ämne går vi först igenom de officiella rekommendationerna och skriver sedan texten på ett enkelt språk. Siffror, doser och tidpunkter kontrolleras separat mot källorna. Översättningar granskas med avseende på betydelse och terminologi. När rekommendationer ändras uppdaterar vi artikeln och visar uppdateringsdatumet högst upp i artikeln.",
+  "editorialMedicalTitle": "Inte medicinsk rådgivning",
+  "editorialMedicalText": "Anacans artiklar är allmän information och ersätter inte en undersökning hos läkare. Kontakta din läkare om du märker oroande symtom; ring det lokala nödnumret direkt vid en nödsituation.",
+  "editorialCorrectionsTitle": "Om du hittar ett fel",
+  "editorialCorrectionsText": "Om du ser ett fel eller inaktuell information i en artikel, skriv till info@anacan.az. Vi går igenom varje meddelande och rättar vid behov artikeln och ändrar dess uppdateringsdatum.",
+  "editorialIndependenceTitle": "Oberoende",
+  "editorialIndependenceText": "Det medicinska innehållet är oberoende av annonsörer och partner. Annonser och partnermaterial märks ut separat och påverkar inte rekommendationerna i våra artiklar.",
+  "editorialSourcesListTitle": "Våra viktigaste källor"
 }

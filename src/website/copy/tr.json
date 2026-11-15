@@ -306,5 +306,22 @@
   "sourcesNote": "Genel sağlık bilgisi için kaynaklar",
   "privacyCalculatorNote": "Hesaplayıcı tarihleri tarayıcıda işlenir.",
   "featuresTitle": "Anacan — Günlük Bakım Uygulaması",
-  "featuresIntro": "Adet, hamilelik ve bebek bakımı. İhtiyaçların değiştikçe seninle değişen bir günlük yardımcı."
+  "featuresIntro": "Adet, hamilelik ve bebek bakımı. İhtiyaçların değiştikçe seninle değişen bir günlük yardımcı.",
+  "editorialTitle": "Anacan redaksiyonu ve kaynaklarımız",
+  "editorialDescription": "Anacan makalelerini kim yazıyor, hangi kaynaklara dayanıyoruz (DSÖ, UNICEF, ACOG, NHS, CDC) ve bilgileri nasıl doğrulayıp güncel tutuyoruz.",
+  "editorialNav": "Redaksiyon ve kaynaklar",
+  "editorialIntro": "Anacan'daki her makale hamilelik, bebek bakımı ve ebeveynlik hakkında güvenilir, sade ve yerel koşullara uygun bilgi sunmak için hazırlanır. Bu sayfada nasıl çalıştığımızı açıkça anlatıyoruz.",
+  "editorialWhoTitle": "Biz kimiz",
+  "editorialWhoText": "Anacan redaksiyonu, uygulamanın içerik ekibidir. Editörlerimiz makaleleri yazar, sağlık konularında uluslararası önerilere dayanır ve içerikleri 21 dilde yerel okurlar için uyarlar. Makalelerdeki “Anacan redaksiyonu” imzası bu ekibi ifade eder.",
+  "editorialSourcesTitle": "Hangi kaynaklara dayanıyoruz",
+  "editorialSourcesText": "Öncelikle Dünya Sağlık Örgütü'nün (DSÖ, WHO) önerilerine dayanıyoruz. Ardından UNICEF, ACOG, NHS, CDC, Amerikan Pediatri Akademisi (AAP), NICE ve RCOG gibi resmi kuruluşların bilgilerinden yararlanıyoruz. Azerbaycan'a özgü hukuki ve sosyal konularda resmi devlet kaynaklarına başvuruyoruz. Her makalenin sonunda kullanılan kaynakların listesi bağlantılarıyla birlikte yer alır.",
+  "editorialProcessTitle": "Makalelerimizi nasıl hazırlıyoruz",
+  "editorialProcessText": "Her konu için önce resmi önerileri araştırıyor, ardından metni sade bir dille yazıyoruz. Sayıları, dozları ve tarihleri kaynaklarla ayrıca kontrol ediyoruz. Çeviriler anlam ve terminoloji açısından gözden geçirilir. Öneriler değiştiğinde makaleyi güncelliyor ve güncelleme tarihini makalenin en üstünde gösteriyoruz.",
+  "editorialMedicalTitle": "Tıbbi tavsiye değildir",
+  "editorialMedicalText": "Anacan makaleleri genel bilgi niteliğindedir ve doktor muayenesinin yerini tutmaz. Endişe verici belirtiler fark edersen doktoruna başvur; acil durumlarda hemen 112'yi ara.",
+  "editorialCorrectionsTitle": "Bir hata görürsen",
+  "editorialCorrectionsText": "Bir makalede hata ya da güncelliğini yitirmiş bilgi görürsen info@anacan.az adresine yaz. Her mesajı inceliyor, gerektiğinde makaleyi düzeltip güncelleme tarihini değiştiriyoruz.",
+  "editorialIndependenceTitle": "Bağımsızlık",
+  "editorialIndependenceText": "Tıbbi içerik reklamverenlere ve iş ortaklarına bağlı değildir. Reklam ve iş ortağı içerikleri ayrıca işaretlenir ve makalelerimizdeki önerileri etkilemez.",
+  "editorialSourcesListTitle": "Başlıca kaynaklarımız"
 }

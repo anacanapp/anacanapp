@@ -306,5 +306,22 @@
   "sourcesNote": "一般健康信息来源",
   "privacyCalculatorNote": "计算器日期在浏览器中处理。",
   "featuresTitle": "Anacan — 日常护理应用",
-  "featuresIntro": "月经、怀孕和婴儿护理。一个日常助手，随着您的需求和人生阶段的变化而一起成长和变化。"
+  "featuresIntro": "月经、怀孕和婴儿护理。一个日常助手，随着您的需求和人生阶段的变化而一起成长和变化。",
+  "editorialTitle": "Anacan 编辑团队与信息来源",
+  "editorialDescription": "了解谁在撰写 Anacan 的文章、我们依据哪些来源（WHO、UNICEF、ACOG、NHS、CDC），以及我们如何核实事实并让信息保持最新。",
+  "editorialNav": "编辑团队与信息来源",
+  "editorialIntro": "Anacan 的每篇文章都旨在提供关于孕期、婴儿护理和育儿的可靠、易懂且贴合当地情况的信息。本页将公开说明我们的工作方式。",
+  "editorialWhoTitle": "我们是谁",
+  "editorialWhoText": "Anacan 编辑团队是本应用的内容团队。我们的编辑负责撰写文章，健康类话题以国际权威建议为依据，并以 21 种语言为各地读者进行本地化调整。文章中的“Anacan 编辑团队”署名即指这个团队。",
+  "editorialSourcesTitle": "我们依据的信息来源",
+  "editorialSourcesText": "我们首先以世界卫生组织（WHO）的建议为依据，其次参考 UNICEF、ACOG、NHS、CDC、美国儿科学会（AAP）、NICE 和 RCOG 等官方机构的信息。涉及阿塞拜疆的法律和社会话题时，我们引用政府官方来源。每篇文章末尾都附有所用来源的列表及链接。",
+  "editorialProcessTitle": "我们如何撰写文章",
+  "editorialProcessText": "针对每个话题，我们先研究官方建议，再用通俗易懂的语言撰写正文。数字、剂量和时间节点会单独对照来源进行核查。译文会从含义和术语两方面进行审校。当相关建议发生变化时，我们会更新文章，并在文章顶部显示更新日期。",
+  "editorialMedicalTitle": "非医疗建议",
+  "editorialMedicalText": "Anacan 的文章仅提供一般性信息，不能替代医生的检查。如出现令人担忧的症状，请联系您的医生；遇到紧急情况，请立即拨打当地急救电话。",
+  "editorialCorrectionsTitle": "如果您发现错误",
+  "editorialCorrectionsText": "如果您在文章中发现错误或过时的信息，请发送邮件至 info@anacan.az。我们会核查每一条反馈，必要时更正文章并更新其修改日期。",
+  "editorialIndependenceTitle": "独立性",
+  "editorialIndependenceText": "医疗内容不受广告商或合作伙伴的影响。广告和合作伙伴内容均有单独标注，不会影响我们文章中的建议。",
+  "editorialSourcesListTitle": "我们的主要来源"
 }

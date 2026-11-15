@@ -306,5 +306,22 @@
   "sourcesNote": "Sumber untuk informasi kesehatan umum",
   "privacyCalculatorNote": "Tanggal kalkulator diproses di browser.",
   "featuresTitle": "Anacan — Aplikasi untuk perawatan harian",
-  "featuresIntro": "Menstruasi, kehamilan, dan perawatan bayi. Asisten harian yang berubah bersama Anda seiring kebutuhan Anda berubah."
+  "featuresIntro": "Menstruasi, kehamilan, dan perawatan bayi. Asisten harian yang berubah bersama Anda seiring kebutuhan Anda berubah.",
+  "editorialTitle": "Redaksi Anacan dan sumber kami",
+  "editorialDescription": "Siapa yang menulis artikel Anacan, sumber apa yang kami jadikan acuan (WHO, UNICEF, ACOG, NHS, CDC), dan cara kami memeriksa serta memperbarui informasi.",
+  "editorialNav": "Redaksi dan sumber",
+  "editorialIntro": "Setiap artikel di Anacan ditulis untuk memberikan informasi yang tepercaya, sederhana, dan sesuai konteks lokal tentang kehamilan, perawatan bayi, dan pengasuhan. Halaman ini menjelaskan secara terbuka cara kami bekerja.",
+  "editorialWhoTitle": "Siapa kami",
+  "editorialWhoText": "Redaksi Anacan adalah tim konten aplikasi ini. Editor kami menulis artikel, mendasarkan topik kesehatan pada rekomendasi internasional, dan menyesuaikannya untuk pembaca lokal dalam 21 bahasa. Nama penulis “Redaksi Anacan” pada artikel merujuk pada tim ini.",
+  "editorialSourcesTitle": "Sumber yang kami jadikan acuan",
+  "editorialSourcesText": "Kami terutama berpedoman pada rekomendasi Organisasi Kesehatan Dunia (WHO). Selain itu, kami menggunakan informasi dari lembaga resmi seperti UNICEF, ACOG, NHS, CDC, American Academy of Pediatrics (AAP), NICE, dan RCOG. Untuk topik hukum dan sosial terkait Azerbaijan, kami merujuk pada sumber resmi pemerintah. Setiap artikel diakhiri dengan daftar sumber yang digunakan beserta tautannya.",
+  "editorialProcessTitle": "Cara kami menyusun artikel",
+  "editorialProcessText": "Untuk setiap topik, kami terlebih dahulu mempelajari rekomendasi resmi, lalu menulis teks dengan bahasa yang mudah dipahami. Angka, dosis, dan waktu diperiksa secara terpisah berdasarkan sumbernya. Terjemahan ditinjau dari segi makna dan terminologi. Saat rekomendasi berubah, kami memperbarui artikel dan menampilkan tanggal pembaruan di bagian atas artikel.",
+  "editorialMedicalTitle": "Bukan nasihat medis",
+  "editorialMedicalText": "Artikel Anacan bersifat informasi umum dan tidak menggantikan pemeriksaan oleh dokter. Jika Anda melihat gejala yang mengkhawatirkan, hubungi dokter Anda; dalam keadaan darurat, segera hubungi nomor darurat setempat.",
+  "editorialCorrectionsTitle": "Jika Anda menemukan kesalahan",
+  "editorialCorrectionsText": "Jika Anda melihat kesalahan atau informasi yang sudah usang dalam artikel, kirim email ke info@anacan.az. Kami memeriksa setiap pesan dan, bila perlu, memperbaiki artikel serta mengubah tanggal pembaruannya.",
+  "editorialIndependenceTitle": "Independensi",
+  "editorialIndependenceText": "Konten medis tidak bergantung pada pengiklan atau mitra. Iklan dan materi mitra diberi tanda tersendiri dan tidak memengaruhi rekomendasi dalam artikel kami.",
+  "editorialSourcesListTitle": "Sumber utama kami"
 }

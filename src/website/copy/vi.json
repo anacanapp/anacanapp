@@ -306,5 +306,22 @@
   "sourcesNote": "Nguồn thông tin sức khỏe chung",
   "privacyCalculatorNote": "Ngày tính toán được xử lý trong trình duyệt.",
   "featuresTitle": "Anacan — Ứng dụng chăm sóc hàng ngày",
-  "featuresIntro": "Kinh nguyệt, mang thai và chăm sóc em bé. Một trợ lý hàng ngày thay đổi cùng bạn khi nhu cầu của bạn thay đổi."
+  "featuresIntro": "Kinh nguyệt, mang thai và chăm sóc em bé. Một trợ lý hàng ngày thay đổi cùng bạn khi nhu cầu của bạn thay đổi.",
+  "editorialTitle": "Ban biên tập Anacan và nguồn tham khảo",
+  "editorialDescription": "Ai viết các bài của Anacan, chúng tôi dựa vào nguồn nào (WHO, UNICEF, ACOG, NHS, CDC) và cách chúng tôi kiểm chứng, cập nhật thông tin thường xuyên.",
+  "editorialNav": "Ban biên tập và nguồn tham khảo",
+  "editorialIntro": "Mỗi bài viết trên Anacan đều nhằm cung cấp thông tin đáng tin cậy, dễ hiểu và phù hợp với điều kiện địa phương về thai kỳ, chăm sóc em bé và nuôi dạy con. Trang này giải thích rõ ràng cách chúng tôi làm việc.",
+  "editorialWhoTitle": "Chúng tôi là ai",
+  "editorialWhoText": "Ban biên tập Anacan là đội ngũ nội dung của ứng dụng. Các biên tập viên của chúng tôi viết bài, dựa trên các khuyến nghị quốc tế cho chủ đề sức khỏe và điều chỉnh nội dung cho độc giả địa phương bằng 21 ngôn ngữ. Dòng ký tên “Ban biên tập Anacan” trên các bài viết chính là đội ngũ này.",
+  "editorialSourcesTitle": "Nguồn chúng tôi dựa vào",
+  "editorialSourcesText": "Trước hết, chúng tôi dựa vào các khuyến nghị của Tổ chức Y tế Thế giới (WHO). Tiếp theo, chúng tôi sử dụng thông tin từ các cơ quan chính thức như UNICEF, ACOG, NHS, CDC, Viện Hàn lâm Nhi khoa Hoa Kỳ (AAP), NICE và RCOG. Với các chủ đề pháp lý và xã hội liên quan đến Azerbaijan, chúng tôi trích dẫn nguồn chính thức của nhà nước. Cuối mỗi bài viết đều có danh sách nguồn đã sử dụng kèm đường dẫn.",
+  "editorialProcessTitle": "Cách chúng tôi viết bài",
+  "editorialProcessText": "Với mỗi chủ đề, trước tiên chúng tôi tìm hiểu các khuyến nghị chính thức, sau đó viết nội dung bằng ngôn ngữ đơn giản. Số liệu, liều lượng và mốc thời gian được đối chiếu riêng với nguồn. Bản dịch được rà soát về ý nghĩa và thuật ngữ. Khi khuyến nghị thay đổi, chúng tôi cập nhật bài viết và hiển thị ngày cập nhật ở đầu bài.",
+  "editorialMedicalTitle": "Không phải lời khuyên y tế",
+  "editorialMedicalText": "Các bài viết của Anacan mang tính thông tin chung và không thay thế việc thăm khám của bác sĩ. Nếu bạn nhận thấy triệu chứng đáng lo ngại, hãy liên hệ với bác sĩ; trong trường hợp khẩn cấp, hãy gọi ngay số cấp cứu tại địa phương.",
+  "editorialCorrectionsTitle": "Nếu bạn phát hiện sai sót",
+  "editorialCorrectionsText": "Nếu bạn thấy sai sót hoặc thông tin đã lỗi thời trong bài viết, hãy gửi email đến info@anacan.az. Chúng tôi xem xét mọi phản hồi và khi cần sẽ chỉnh sửa bài viết, đồng thời thay đổi ngày cập nhật.",
+  "editorialIndependenceTitle": "Tính độc lập",
+  "editorialIndependenceText": "Nội dung y khoa không phụ thuộc vào nhà quảng cáo hay đối tác. Quảng cáo và tài liệu của đối tác được đánh dấu riêng và không ảnh hưởng đến các khuyến nghị trong bài viết của chúng tôi.",
+  "editorialSourcesListTitle": "Các nguồn chính của chúng tôi"
 }

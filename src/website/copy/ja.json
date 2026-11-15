@@ -306,5 +306,22 @@
   "sourcesNote": "一般的な健康情報源",
   "privacyCalculatorNote": "計算機のデータはブラウザで処理されます。",
   "featuresTitle": "Anacan — 日常のケアのためのアプリ",
-  "featuresIntro": "月経、妊娠、そして赤ちゃんのケア。あなたのニーズが変わるにつれて、あなたと共に変化する毎日のアシスタント。"
+  "featuresIntro": "月経、妊娠、そして赤ちゃんのケア。あなたのニーズが変わるにつれて、あなたと共に変化する毎日のアシスタント。",
+  "editorialTitle": "Anacan編集部と情報源",
+  "editorialDescription": "Anacanの記事の書き手、基づいている情報源（WHO、UNICEF、ACOG、NHS、CDC）、そして情報を確認し最新に保つ方法をご紹介します。",
+  "editorialNav": "編集部と情報源",
+  "editorialIntro": "Anacanのすべての記事は、妊娠、赤ちゃんのケア、子育てについて、信頼でき、わかりやすく、地域の実情に合った情報をお届けするために作成されています。このページでは、私たちの取り組みを率直にご説明します。",
+  "editorialWhoTitle": "私たちについて",
+  "editorialWhoText": "Anacan編集部は、アプリのコンテンツチームです。編集者が記事を執筆し、健康に関するテーマは国際的な推奨事項に基づいて作成し、21の言語で各地域の読者向けに調整しています。記事に表示される「Anacan編集部」という署名は、このチームを指します。",
+  "editorialSourcesTitle": "私たちが基づいている情報源",
+  "editorialSourcesText": "まず第一に、世界保健機関（WHO）の推奨事項に基づいています。そのうえで、UNICEF、ACOG、NHS、CDC、米国小児科学会（AAP）、NICE、RCOGなどの公的機関の情報を活用しています。アゼルバイジャンに関する法律や社会的なテーマについては、政府の公式情報源を参照しています。各記事の最後には、使用した情報源の一覧をリンク付きで掲載しています。",
+  "editorialProcessTitle": "記事の作り方",
+  "editorialProcessText": "各テーマについて、まず公的な推奨事項を調べ、そのうえでわかりやすい言葉で文章を書きます。数値、用量、時期は情報源と照らし合わせて個別に確認します。翻訳は意味と用語の両面から見直しています。推奨事項が変更された場合は記事を更新し、記事の冒頭に更新日を表示します。",
+  "editorialMedicalTitle": "医療アドバイスではありません",
+  "editorialMedicalText": "Anacanの記事は一般的な情報であり、医師による診察に代わるものではありません。気になる症状がある場合はかかりつけの医師にご相談ください。緊急の場合は、すぐにお住まいの地域の緊急通報番号に電話してください。",
+  "editorialCorrectionsTitle": "誤りを見つけたら",
+  "editorialCorrectionsText": "記事に誤りや古い情報を見つけた場合は、info@anacan.az までご連絡ください。いただいたご連絡はすべて確認し、必要に応じて記事を修正して更新日を変更します。",
+  "editorialIndependenceTitle": "独立性",
+  "editorialIndependenceText": "医療に関するコンテンツは、広告主やパートナーの影響を受けません。広告やパートナーのコンテンツは区別して表示しており、記事内の推奨事項に影響を与えることはありません。",
+  "editorialSourcesListTitle": "主な情報源"
 }

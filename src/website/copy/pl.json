@@ -306,5 +306,22 @@
   "sourcesNote": "Źródła ogólnych informacji zdrowotnych",
   "privacyCalculatorNote": "Daty kalkulatora są przetwarzane w przeglądarce.",
   "featuresTitle": "Anacan — Aplikacja do codziennej opieki",
-  "featuresIntro": "Miesiączka, ciąża i opieka nad dzieckiem. Codzienny pomocnik, który zmienia się wraz z Twoimi potrzebami."
+  "featuresIntro": "Miesiączka, ciąża i opieka nad dzieckiem. Codzienny pomocnik, który zmienia się wraz z Twoimi potrzebami.",
+  "editorialTitle": "Redakcja Anacan i źródła",
+  "editorialDescription": "Kto pisze artykuły Anacan, na jakich źródłach się opieramy (WHO, UNICEF, ACOG, NHS, CDC) oraz jak sprawdzamy fakty i dbamy o aktualność informacji.",
+  "editorialNav": "Redakcja i źródła",
+  "editorialIntro": "Każdy artykuł w Anacan powstaje po to, by przekazywać rzetelne, proste i dopasowane do lokalnych warunków informacje o ciąży, opiece nad dzieckiem i rodzicielstwie. Na tej stronie otwarcie wyjaśniamy, jak pracujemy.",
+  "editorialWhoTitle": "Kim jesteśmy",
+  "editorialWhoText": "Redakcja Anacan to zespół odpowiedzialny za treści w aplikacji. Nasi redaktorzy piszą artykuły, opierają tematy zdrowotne na międzynarodowych zaleceniach i dostosowują je do lokalnych czytelników w 21 językach. Podpis „Redakcja Anacan” pod artykułami oznacza właśnie ten zespół.",
+  "editorialSourcesTitle": "Na jakich źródłach się opieramy",
+  "editorialSourcesText": "Przede wszystkim opieramy się na zaleceniach Światowej Organizacji Zdrowia (WHO). Korzystamy też z informacji oficjalnych instytucji, takich jak UNICEF, ACOG, NHS, CDC, Amerykańska Akademia Pediatrii (AAP), NICE i RCOG. W kwestiach prawnych i społecznych dotyczących Azerbejdżanu powołujemy się na oficjalne źródła rządowe. Na końcu każdego artykułu znajduje się lista wykorzystanych źródeł wraz z linkami.",
+  "editorialProcessTitle": "Jak przygotowujemy artykuły",
+  "editorialProcessText": "Przy każdym temacie najpierw analizujemy oficjalne zalecenia, a potem piszemy tekst prostym językiem. Liczby, dawki i terminy sprawdzamy osobno w źródłach. Tłumaczenia są weryfikowane pod kątem znaczenia i terminologii. Gdy zalecenia się zmieniają, aktualizujemy artykuł i podajemy datę aktualizacji na jego początku.",
+  "editorialMedicalTitle": "To nie jest porada medyczna",
+  "editorialMedicalText": "Artykuły Anacan mają charakter ogólnoinformacyjny i nie zastępują badania przez lekarza. Jeśli zauważysz niepokojące objawy, skontaktuj się z lekarzem; w nagłym przypadku natychmiast zadzwoń na lokalny numer alarmowy.",
+  "editorialCorrectionsTitle": "Jeśli zauważysz błąd",
+  "editorialCorrectionsText": "Jeśli zauważysz w artykule błąd lub nieaktualne informacje, napisz na adres info@anacan.az. Sprawdzamy każdą wiadomość i w razie potrzeby poprawiamy artykuł oraz zmieniamy datę jego aktualizacji.",
+  "editorialIndependenceTitle": "Niezależność",
+  "editorialIndependenceText": "Treści medyczne nie zależą od reklamodawców ani partnerów. Reklamy i materiały partnerów są oddzielnie oznaczone i nie wpływają na zalecenia w naszych artykułach.",
+  "editorialSourcesListTitle": "Nasze główne źródła"
 }

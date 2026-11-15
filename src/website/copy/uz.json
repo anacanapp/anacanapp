@@ -306,5 +306,22 @@
   "sourcesNote": "Umumiy sog'liq ma'lumotlari uchun manbalar",
   "privacyCalculatorNote": "Kalkulyator sanalari brauzerda qayta ishlanadi.",
   "featuresTitle": "Anacan — Kundalik g'amxo'rlik uchun ilova",
-  "featuresIntro": "Menstruatsiya, homiladorlik va chaqaloqqa g'amxo'rlik. Ehtiyojingiz o'zgarganda siz bilan birga o'zgaradigan kundalik yordamchi."
+  "featuresIntro": "Menstruatsiya, homiladorlik va chaqaloqqa g'amxo'rlik. Ehtiyojingiz o'zgarganda siz bilan birga o'zgaradigan kundalik yordamchi.",
+  "editorialTitle": "Anacan tahririyati va manbalar",
+  "editorialDescription": "Anacan maqolalarini kim yozadi, qaysi manbalarga tayanamiz (JSST, UNICEF, ACOG, NHS, CDC) va ma'lumotlarni qanday tekshirib, yangilab boramiz.",
+  "editorialNav": "Tahririyat va manbalar",
+  "editorialIntro": "Anacan-dagi har bir maqola homiladorlik, chaqaloq parvarishi va ota-onalik haqida ishonchli, sodda va mahalliy sharoitga mos ma'lumot berish uchun tayyorlanadi. Ushbu sahifada qanday ishlashimizni ochiq aytib beramiz.",
+  "editorialWhoTitle": "Biz kimmiz",
+  "editorialWhoText": "Anacan tahririyati ilovaning kontent jamoasidir. Muharrirlarimiz maqolalarni yozadi, sog'liq mavzularida xalqaro tavsiyalarga tayanadi va ularni 21 tilda mahalliy o'quvchilar uchun moslashtiradi. Maqolalar ostidagi “Anacan tahririyati” imzosi aynan shu jamoani bildiradi.",
+  "editorialSourcesTitle": "Qaysi manbalarga tayanamiz",
+  "editorialSourcesText": "Avvalo Jahon sog'liqni saqlash tashkiloti (JSST, WHO) tavsiyalariga tayanamiz. Shuningdek, UNICEF, ACOG, NHS, CDC, Amerika Pediatriya Akademiyasi (AAP), NICE va RCOG kabi rasmiy tashkilotlar ma'lumotlaridan foydalanamiz. Ozarbayjonga oid huquqiy va ijtimoiy mavzularda rasmiy davlat manbalariga havola qilamiz. Har bir maqola oxirida foydalanilgan manbalar ro'yxati havolalari bilan beriladi.",
+  "editorialProcessTitle": "Maqolalarni qanday tayyorlaymiz",
+  "editorialProcessText": "Har bir mavzu bo'yicha avval rasmiy tavsiyalarni o'rganamiz, so'ng matnni sodda tilda yozamiz. Raqamlar, dozalar va muddatlarni manbalar bilan alohida tekshiramiz. Tarjimalar ma'no va atamalar jihatidan tekshiriladi. Tavsiyalar o'zgarganda maqolani yangilaymiz va yangilangan sanani maqola tepasida ko'rsatamiz.",
+  "editorialMedicalTitle": "Tibbiy maslahat emas",
+  "editorialMedicalText": "Anacan maqolalari umumiy ma'lumot berish uchun mo'ljallangan va shifokor ko'rigining o'rnini bosmaydi. Xavotirli belgilar paydo bo'lsa, shifokoringizga murojaat qiling, shoshilinch holatlarda esa darhol 103 yoki 112 raqamiga qo'ng'iroq qiling.",
+  "editorialCorrectionsTitle": "Xato ko'rsangiz",
+  "editorialCorrectionsText": "Maqolada xato yoki eskirgan ma'lumot ko'rsangiz, info@anacan.az manziliga yozing. Har bir murojaatni tekshiramiz va zarur bo'lsa, maqolani tuzatib, yangilangan sanasini o'zgartiramiz.",
+  "editorialIndependenceTitle": "Mustaqillik",
+  "editorialIndependenceText": "Tibbiy kontent reklama beruvchilar va hamkorlarga bog'liq emas. Reklama va hamkor materiallari alohida belgilanadi va maqolalardagi tavsiyalarga ta'sir qilmaydi.",
+  "editorialSourcesListTitle": "Asosiy manbalarimiz"
 }

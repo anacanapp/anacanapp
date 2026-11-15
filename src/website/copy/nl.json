@@ -306,5 +306,22 @@
   "sourcesNote": "Bronnen voor algemene gezondheidsinformatie",
   "privacyCalculatorNote": "Rekenmachine data wordt in de browser verwerkt.",
   "featuresTitle": "Anacan — De app voor dagelijkse zorg",
-  "featuresIntro": "Menstruatie, zwangerschap en babyverzorging. Een dagelijkse assistent die met je meegroeit naarmate je behoeften veranderen."
+  "featuresIntro": "Menstruatie, zwangerschap en babyverzorging. Een dagelijkse assistent die met je meegroeit naarmate je behoeften veranderen.",
+  "editorialTitle": "Anacan redactie en bronnen",
+  "editorialDescription": "Wie de artikelen van Anacan schrijft, op welke bronnen we ons baseren (WHO, UNICEF, ACOG, NHS, CDC) en hoe we feiten controleren en informatie actueel houden.",
+  "editorialNav": "Redactie en bronnen",
+  "editorialIntro": "Elk artikel op Anacan is bedoeld om betrouwbare, eenvoudige en lokaal relevante informatie te geven over zwangerschap, babyverzorging en ouderschap. Op deze pagina leggen we open uit hoe we werken.",
+  "editorialWhoTitle": "Wie we zijn",
+  "editorialWhoText": "De Anacan redactie is het contentteam van de app. Onze redacteuren schrijven de artikelen, baseren gezondheidsonderwerpen op internationale aanbevelingen en passen ze in 21 talen aan voor lokale lezers. De auteursvermelding “Anacan redactie” bij artikelen verwijst naar dit team.",
+  "editorialSourcesTitle": "Op welke bronnen we ons baseren",
+  "editorialSourcesText": "We baseren ons in de eerste plaats op de aanbevelingen van de Wereldgezondheidsorganisatie (WHO). Daarnaast gebruiken we informatie van officiële instanties zoals UNICEF, ACOG, de NHS, de CDC, de American Academy of Pediatrics (AAP), NICE en het RCOG. Voor juridische en sociale onderwerpen over Azerbeidzjan verwijzen we naar officiële overheidsbronnen. Elk artikel eindigt met een lijst van de gebruikte bronnen, met links.",
+  "editorialProcessTitle": "Hoe we artikelen schrijven",
+  "editorialProcessText": "Voor elk onderwerp onderzoeken we eerst de officiële aanbevelingen en schrijven we daarna de tekst in eenvoudige taal. Cijfers, doseringen en termijnen controleren we apart aan de hand van de bronnen. Vertalingen worden gecontroleerd op betekenis en terminologie. Als aanbevelingen veranderen, werken we het artikel bij en tonen we de bijwerkdatum bovenaan het artikel.",
+  "editorialMedicalTitle": "Geen medisch advies",
+  "editorialMedicalText": "De artikelen van Anacan bevatten algemene informatie en vervangen geen onderzoek door een arts. Neem bij zorgwekkende klachten contact op met je arts; bel in een noodgeval direct het lokale alarmnummer.",
+  "editorialCorrectionsTitle": "Zie je een fout?",
+  "editorialCorrectionsText": "Zie je een fout of verouderde informatie in een artikel? Mail dan naar info@anacan.az. We bekijken elk bericht en verbeteren het artikel zo nodig, waarbij we ook de bijwerkdatum aanpassen.",
+  "editorialIndependenceTitle": "Onafhankelijkheid",
+  "editorialIndependenceText": "Medische inhoud is niet afhankelijk van adverteerders of partners. Advertenties en partnermateriaal worden apart gemarkeerd en hebben geen invloed op de aanbevelingen in onze artikelen.",
+  "editorialSourcesListTitle": "Onze belangrijkste bronnen"
 }
