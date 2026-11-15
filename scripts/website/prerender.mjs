@@ -13,6 +13,7 @@ export function redirectsFor({routes,articles,prefix=''}) {
     'ovulyasiya-kalkulyatoru':'ovulation','hamilelik-elamtleri':'symptoms','hamilelik-elametleri':'symptoms','ata-simulyatoru':'simulator'};
   const languages=Object.keys(routes.PAGE_SLUGS);
   add('/',routes.sitePath('az'));
+  add('/index',routes.sitePath('az'));add('/index.html',routes.sitePath('az'));add('/index.php',routes.sitePath('az'));
   for(const code of languages){
     add('/'+code,routes.sitePath(code));
     for(const[kind,slug]of Object.entries(routes.PAGE_SLUGS[code])){
