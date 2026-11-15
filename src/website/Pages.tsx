@@ -16,6 +16,27 @@ export function ToolsPage() {
 export function FeaturesPage() {
   return <><Intro title="featuresTitle" description="featuresIntro" eyebrow="featureEyebrow"/><StageCards/><section className="site-section"><SectionHeading title="featureTitle" description="featureDescription"/><FeatureGrid/></section><DownloadCard/></>;
 }
+/** Editorial team / author page (E-E-A-T): who writes Anacan articles, which sources we rely on, how we check and update. */
+const EDITORIAL_SOURCES: Array<[string, string]> = [
+  ['World Health Organization (WHO)', 'https://www.who.int/'],
+  ['UNICEF', 'https://www.unicef.org/'],
+  ['American College of Obstetricians and Gynecologists (ACOG)', 'https://www.acog.org/'],
+  ['NHS (UK National Health Service)', 'https://www.nhs.uk/'],
+  ['Centers for Disease Control and Prevention (CDC)', 'https://www.cdc.gov/'],
+  ['American Academy of Pediatrics (AAP), HealthyChildren.org', 'https://www.healthychildren.org/'],
+  ['National Institute for Health and Care Excellence (NICE)', 'https://www.nice.org.uk/'],
+  ['Royal College of Obstetricians and Gynaecologists (RCOG)', 'https://www.rcog.org.uk/'],
+];
+export function EditorialPage() {
+  const {t}=useWebsite();
+  const sections=[['editorialWhoTitle','editorialWhoText'],['editorialSourcesTitle','editorialSourcesText'],['editorialProcessTitle','editorialProcessText'],
+    ['editorialMedicalTitle','editorialMedicalText'],['editorialCorrectionsTitle','editorialCorrectionsText'],['editorialIndependenceTitle','editorialIndependenceText']] as const;
+  return <><Intro title="editorialTitle" description="editorialIntro" eyebrow="author"/><div className="site-narrow site-prose site-editorial">
+    {sections.map(([title,text])=><section key={title} id={title.replace('editorial','').replace('Title','').toLowerCase()}><h2>{t(title)}</h2><p>{t(text)}</p></section>)}
+    <section id="sources"><h2>{t('editorialSourcesListTitle')}</h2><ul>{EDITORIAL_SOURCES.map(([name,url])=><li key={url}><a href={url} target="_blank" rel="noopener noreferrer">{name}</a></li>)}</ul></section>
+    <p><a className="site-text-link" href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a></p>
+  </div><DownloadCard/></>;
+}
 export function FaqPage() { return <><Intro title="faq" description="faqDescription"/><div className="site-narrow"><FaqList/></div><DownloadCard/></>; }
 export function DownloadPage() {
   const {t,route}=useWebsite();

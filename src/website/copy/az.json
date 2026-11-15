@@ -306,5 +306,22 @@
   "sourcesNote": "Ümumi sağlamlıq məlumatı üçün mənbələr",
   "privacyCalculatorNote": "Kalkulyator tarixləri brauzerdə emal olunur.",
   "featuresTitle": "Anacan — Gündəlik qayğı üçün tətbiq",
-  "featuresIntro": "Menstruasiya, hamiləlik və körpəyə qayğı. Ehtiyacın dəyişdikcə səninlə dəyişən bir gündəlik köməkçi."
+  "featuresIntro": "Menstruasiya, hamiləlik və körpəyə qayğı. Ehtiyacın dəyişdikcə səninlə dəyişən bir gündəlik köməkçi.",
+  "editorialTitle": "Anacan redaksiyası və mənbələrimiz",
+  "editorialDescription": "Anacan məqalələrini kim hazırlayır, hansı mənbələrə əsaslanırıq (ÜST, UNICEF, ACOG, NHS, CDC) və məlumatları necə yoxlayıb yeniləyirik.",
+  "editorialNav": "Redaksiya və mənbələr",
+  "editorialIntro": "Anacan-dakı hər məqalə hamiləlik, körpə baxımı və valideynlik haqqında etibarlı, sadə və yerli şəraitə uyğun məlumat vermək üçün hazırlanır. Bu səhifədə necə işlədiyimizi açıq yazırıq.",
+  "editorialWhoTitle": "Biz kimik",
+  "editorialWhoText": "Anacan redaksiyası tətbiqin məzmun komandasıdır. Məqalələri redaktorlarımız hazırlayır, səhiyyə mövzularında beynəlxalq tövsiyələrə əsaslanır və 21 dildə yerli oxucular üçün uyğunlaşdırır. Məqalələrin altında \"Anacan redaksiyası\" imzası bu komandanı bildirir.",
+  "editorialSourcesTitle": "Hansı mənbələrə əsaslanırıq",
+  "editorialSourcesText": "İlk növbədə Ümumdünya Səhiyyə Təşkilatının (ÜST, WHO) tövsiyələrinə əsaslanırıq. Bundan sonra UNICEF, ACOG, NHS, CDC, Amerika Pediatriya Akademiyası (AAP), NICE və RCOG kimi rəsmi qurumların məlumatlarından istifadə edirik. Azərbaycana aid hüquqi və sosial mövzularda rəsmi dövlət mənbələrinə istinad edirik. Hər məqalənin sonunda istifadə olunan mənbələrin siyahısı və keçidləri verilir.",
+  "editorialProcessTitle": "Məqalələri necə hazırlayırıq",
+  "editorialProcessText": "Hər mövzu üçün əvvəlcə rəsmi tövsiyələri araşdırırıq, sonra mətni sadə dildə yazırıq. Rəqəmləri, dozaları və tarixləri mənbələrlə ayrıca yoxlayırıq. Tərcümələr məna və terminologiya baxımından yoxlanılır. Tövsiyələr dəyişdikdə məqaləni yeniləyirik və yenilənmə tarixini məqalənin yuxarısında göstəririk.",
+  "editorialMedicalTitle": "Tibbi məsləhət deyil",
+  "editorialMedicalText": "Anacan məqalələri ümumi məlumat xarakteri daşıyır və həkim müayinəsini əvəz etmir. Narahatedici əlamətlər olduqda həkiminizə müraciət edin, təcili hallarda dərhal 103 və ya 112 nömrəsinə zəng edin.",
+  "editorialCorrectionsTitle": "Səhv görsəniz",
+  "editorialCorrectionsText": "Məqalədə səhv və ya köhnəlmiş məlumat görsəniz, info@anacan.az ünvanına yazın. Hər müraciəti yoxlayırıq və lazım olduqda məqaləni düzəldib yenilənmə tarixini dəyişirik.",
+  "editorialIndependenceTitle": "Müstəqillik",
+  "editorialIndependenceText": "Tibbi məzmun reklamçılardan və tərəfdaşlardan asılı deyil. Reklam və tərəfdaş materialları ayrıca işarələnir və məqalələrin tövsiyələrinə təsir etmir.",
+  "editorialSourcesListTitle": "Əsas mənbələrimiz"
 }

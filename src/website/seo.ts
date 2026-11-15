@@ -58,7 +58,7 @@ export function websiteMeta(boot:WebsiteBoot) {
   const keys:Partial<Record<typeof kind,[WebsiteCopyKey,WebsiteCopyKey]>>={
     home:['homeTitle','homeDescription'],journal:['journalTitle','journalDescription'],tools:['toolsTitle','toolsDescription'],
     ovulation:['ovulationTitle','ovulationDescription'],dueDate:['dueDateTitle','dueDateDescription'],symptoms:['symptomsTitle','symptomsDescription'],
-    features:['featuresTitle','featuresIntro'],faq:['faq','faqDescription'],contact:['contactTitle','contactDescription'],download:['downloadTitle','downloadDescription'],
+    features:['featuresTitle','featuresIntro'],faq:['faq','faqDescription'],editorial:['editorialTitle','editorialDescription'],contact:['contactTitle','contactDescription'],download:['downloadTitle','downloadDescription'],
     privacy:['privacy','privacyDescription'],terms:['terms','termsDescription'],simulator:['simulatorTitle','simulatorIntro'],notFound:['notFound','notFoundDescription'],
   };
   const labels=keys[kind]||keys.home!,copy={...boot.copy,...boot.details};
@@ -96,7 +96,7 @@ function faqs(boot:WebsiteBoot) {
 }
 export function websiteSchema(boot:WebsiteBoot) {
   const meta=websiteMeta(boot),language=boot.route.language,graph:Record<string,unknown>[]=[];
-  graph.push({'@type':'Organization','@id':ORGANIZATION_ID,name:'Anacan',url:WEBSITE_ORIGIN,logo:{'@type':'ImageObject',url:WEBSITE_ORIGIN+'/website/brand-mark-coral.png',width:512,height:512},legalName:'ANACAN, MMC',
+  graph.push({'@type':'Organization','@id':ORGANIZATION_ID,name:'Anacan',url:WEBSITE_ORIGIN,publishingPrinciples:WEBSITE_ORIGIN+sitePath(language,'editorial'),logo:{'@type':'ImageObject',url:WEBSITE_ORIGIN+'/website/brand-mark-coral.png',width:512,height:512},legalName:'ANACAN, MMC',
     email:'info@anacan.az',foundingDate:'2026-03-01',founder:FOUNDERS.map(name=>({'@type':'Person',name})),address:{'@type':'PostalAddress',addressCountry:'AZ'},
     // Only profiles the site itself links to (footer) and the two store listings.
     sameAs:['https://instagram.com/anacanapp','https://facebook.com/anacanapp',APP_STORE_URL,GOOGLE_PLAY_URL]});
