@@ -27,3 +27,14 @@ Each click sends `store_click` with `store` (ios/android), `link_campaign`, `pla
 ## Deploy
 Gateway `sha256:2717cb92…` (plan `storelinks-web-plan.json`, rollback `rollback-storelinks-web-plan.json`), website
 `sha256:d844a5da…` (backup plan `website-runtime-plan.before-storelinks.json`).
+
+# SEO weeks 1-2 (2026-11-15)
+- Week 1: question-style seoTitle/seoDescription for the 30 pages with the largest Search Console click gap
+  (`20261115100000_seo_week1_titles.sql`), names pages 2026-2027, calculator meta in 21 languages, `/index` 301.
+- Week 2 (E-E-A-T): verified WHO-first source lists for all 93 articles (`20261115120000_eeat_article_sources.sql`,
+  63 cite WHO, every URL opened on 2026-11-15) and the editorial team page (`editorial` route, 21 localized slugs,
+  linked from the article byline with rel=author, footer and Organization `publishingPrinciples`).
+- The website image was flattened (it had reached Docker's layer limit, 124 layers): website `sha256:e3bce6ba…`
+  is built `FROM scratch` + `COPY --from=<previous> / /` with the same ENV/WORKDIR/USER/ENTRYPOINT/CMD/label.
+  Gateway `sha256:dc91e65a…`. Plans: `eeat-web-plan.json` / `rollback-eeat-web-plan.json`,
+  `website-runtime-plan.before-eeat.json`.
