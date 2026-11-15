@@ -38,3 +38,19 @@ Gateway `sha256:2717cb92…` (plan `storelinks-web-plan.json`, rollback `rollbac
   is built `FROM scratch` + `COPY --from=<previous> / /` with the same ENV/WORKDIR/USER/ENTRYPOINT/CMD/label.
   Gateway `sha256:dc91e65a…`. Plans: `eeat-web-plan.json` / `rollback-eeat-web-plan.json`,
   `website-runtime-plan.before-eeat.json`.
+
+# SEO content pages (2026-11-15)
+- Owner request: short answer on the website, the full guide in the app. Code `src/website/seo-hubs/` (texts `content-az.ts`,
+  routes `routes.ts`, conversion blocks `AppConvert.tsx`), az only, published (`SEO_HUBS_PUBLISHED`):
+  `/az/usaqda-qizdirma/`, `/az/elave-qida/` + `6-ay`..`12-ay`, `/az/hamilelikde-olar-olmaz/` + 20 answers,
+  `/az/ana-sudu-saxlama/`, `/az/aybasi/` (also 301 from `/az/menstruasiya/`, `/az/period/`, `/az/regl/`).
+- Pregnancy week pages are back as teasers (`PREGNANCY_WEEKS_ENABLED`/`PUBLISHED` true): quick answer, facts, one baby
+  paragraph, danger signs, 2 FAQ; the rest is listed as locked sections in the app.
+- Every page: app pill under the heading, dark inline banner, locked-section gate, sticky bottom bar. Store campaigns
+  `web_seo_<area>_<pill|inline|gate|sticky>` (e.g. `web_seo_week_12_gate`, `web_seo_fever_gate`, `web_seo_solid_6_gate`).
+  Safety content (fever decision, danger signs) is never gated.
+- Every medical number checked on the cited NHS/ACOG/AAP/WHO/NICE/CDC page on 2026-11-15.
+- Deploy: gateway `sha256:a888241d…` (plan `hubs-web-plan.json`, rollback `rollback-hubs-web-plan.json`), website
+  `sha256:924304ab…` (backup plan `website-runtime-plan.before-hubs.json`). After the website container is recreated, run
+  `docker exec anacan-gateway nginx -s reload`: the gateway kept the old container address and answered 502 for about
+  4 minutes until reloaded.
