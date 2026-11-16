@@ -4,7 +4,7 @@
  * (`tools/data/names-<lang>.json`, only rows with a meaning in that language). Texts live here, not in
  * `copy/*.json` (copy-key runtime rule in docs/WEBSITE_GOOGLE_20261006.md).
  *
- * Adding a language later (tr/ru/kk/en are planned): add `data/names-<lang>.json`, a `NAMES_COPY`
+ * Languages: az, ka (2026-11-10), ru, tr, uz, kk, es (2026-11-16, own national name lists, never the az list). Adding a language: add `data/names-<lang>.json`, a `NAMES_COPY`
  * entry, a loader line in `tool-data-client.ts` / `tool-data-server.ts`, then add the code to
  * `NAMES_ENABLED`. Only enabled languages resolve; every other language answers 404.
  *
@@ -32,12 +32,13 @@ export interface NamesIndex {
 }
 
 /** Languages with a names snapshot planned. Only NAMES_ENABLED are published. */
-export const NAMES_LANGUAGES = ['az', 'ka', 'tr', 'ru', 'kk', 'en'] as const;
+export const NAMES_LANGUAGES = ['az', 'ka', 'tr', 'ru', 'kk', 'uz', 'es', 'en'] as const;
 export type NamesLanguage = typeof NAMES_LANGUAGES[number];
-export const NAMES_ENABLED: readonly NamesLanguage[] = ['az', 'ka'];
+/** Owner request 2026-11-16: every language shows its own names (not the Azerbaijani list). */
+export const NAMES_ENABLED: readonly NamesLanguage[] = ['az', 'ka', 'ru', 'tr', 'uz', 'kk', 'es'];
 export const LETTER_PAGE_MIN = 5;
 /** Snapshot date of the bundled data (sitemap lastmod). */
-export const NAMES_UPDATED = '2026-11-10';
+export const NAMES_UPDATED = '2026-11-16';
 export const isNamesLanguage = (language: string): language is NamesLanguage =>
   (NAMES_ENABLED as readonly string[]).includes(language) && !!NAMES_COPY[language as NamesLanguage];
 
@@ -152,6 +153,166 @@ export const NAMES_COPY: Partial<Record<NamesLanguage, NamesCopy>> = {
     dataNote: 'მნიშვნელობები Anacan აპლიკაციის სახელების ბაზიდანაა. პოპულარობა Anacan-ის რეიტინგია (0-100) და არა ოფიციალური სტატისტიკა.',
   },
 };
+
+
+/** Gender sentence and generic copy for the languages added 2026-11-16 (ru, tr, uz, kk, es). */
+interface SimpleNamesText {
+  slugs: [hub: string, girl: string, boy: string, letter: string];
+  labels: [hub: string, girl: string, boy: string];
+  year: string;
+  hubH1: string; girlH1: string; boyH1: string; hubTitle: string; girlTitle: string; boyTitle: string;
+  hubDescription: (count: number) => string; hubIntro: (count: number) => string;
+  listDescription: (gender: 'girl' | 'boy', count: number) => string;
+  letterTitle: (letter: string) => string; letterH1: (letter: string) => string; letterDescription: (letter: string, count: number) => string;
+  detailTitle: (name: string) => string; detailH1: (name: string) => string;
+  detail: (entry: NameEntry, genderLabel: string) => string;
+  gender: Record<NameGender, string>; genderShort: Record<NameGender, string>; genderSentence: Record<NameGender, (name: string) => string>;
+  words: [meaning: string, origin: string, gender: string, popularity: string];
+  rank: (rank: number, total: number) => string;
+  ui: [similar: string, popularGirls: string, popularBoys: string, byLetter: string, allNames: string, searchLabel: string, searchPlaceholder: string, noResults: string, backToHub: string, faqTitle: string];
+  count: (count: number) => string; letterLink: (letter: string) => string; listLink: [girls: string, boys: string];
+  faqQ: [meaning: (name: string) => string, gender: (name: string) => string, origin: (name: string) => string];
+  faqOrigin: (name: string, origin: string) => string; faqMeaning: (name: string, meaning: string) => string;
+  app: [title: string, text: string, features: string[]]; dataNote: string;
+}
+function simpleCopy(t: SimpleNamesText): NamesCopy {
+  return {
+    hubSlug: t.slugs[0], girlSlug: t.slugs[1], boySlug: t.slugs[2], letterSlug: t.slugs[3],
+    hubLabel: t.labels[0], girlLabel: t.labels[1], boyLabel: t.labels[2],
+    hubTitle: t.hubTitle, hubH1: t.hubH1, hubDescription: t.hubDescription, hubIntro: t.hubIntro,
+    girlTitle: t.girlTitle, girlH1: t.girlH1, boyTitle: t.boyTitle, boyH1: t.boyH1, listDescription: t.listDescription,
+    letterTitle: t.letterTitle, letterH1: t.letterH1, letterDescription: t.letterDescription,
+    detailTitle: t.detailTitle, detailH1: t.detailH1, detailDescription: entry => clip(t.detail(entry, t.gender[entry.gender])),
+    gender: t.gender, genderShort: t.genderShort,
+    meaning: t.words[0], origin: t.words[1], genderLabel: t.words[2], popularity: t.words[3],
+    popularityValue: (entry, total) => `${entry.popularity}/100 · ${t.rank(entry.rank, total)}`,
+    similar: t.ui[0], popularGirls: t.ui[1], popularBoys: t.ui[2], byLetter: t.ui[3], allNames: t.ui[4],
+    searchLabel: t.ui[5], searchPlaceholder: t.ui[6], searchCount: t.count, noResults: t.ui[7],
+    letterLink: t.letterLink, listLink: gender => gender === 'girl' ? t.listLink[0] : t.listLink[1], backToHub: t.ui[8],
+    faqTitle: t.ui[9],
+    faq: entry => [
+      { question: t.faqQ[0](entry.name), answer: t.faqMeaning(entry.name, entry.meaning) },
+      { question: t.faqQ[1](entry.name), answer: t.genderSentence[entry.gender](entry.name) },
+      ...(entry.origin ? [{ question: t.faqQ[2](entry.name), answer: t.faqOrigin(entry.name, entry.origin) }] : []),
+    ],
+    appTitle: t.app[0], appText: t.app[1], appFeatures: t.app[2], dataNote: t.dataNote,
+  };
+}
+const ruPlural = (n: number, one: string, few: string, many: string) => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many; };
+const ruNames = (n: number) => `${n} ${ruPlural(n, 'имя', 'имени', 'имен')}`;
+const kkGender: Record<NameGender, string> = { girl: 'Қыз есімі', boy: 'Ұл есімі', unisex: 'Қызға да, ұлға да қойылады' };
+
+const RU = simpleCopy({
+  slugs: ['детские-имена', 'имена-для-девочек', 'имена-для-мальчиков', 'буква'], labels: ['Детские имена', 'Имена для девочек', 'Имена для мальчиков'], year: '2026-2027',
+  hubTitle: 'Имена для детей 2026-2027: значение и происхождение', hubH1: 'Имена для детей 2026-2027: имена для девочек и мальчиков со значением',
+  girlTitle: 'Имена для девочек 2026-2027: значение и происхождение', girlH1: 'Имена для девочек 2026-2027 со значением',
+  boyTitle: 'Имена для мальчиков 2026-2027: значение и происхождение', boyH1: 'Имена для мальчиков 2026-2027 со значением',
+  hubDescription: count => `${ruNames(count)} со значением и происхождением: русские, мусульманские и азербайджанские имена для девочек и мальчиков, популярные имена и список по алфавиту.`,
+  hubIntro: count => `Выбираете имя для малыша? Здесь значение, происхождение и популярность ${ruPlural(count, 'имени', 'имен', 'имен')}: ${count}. Найдите имя или выберите по первой букве.`,
+  listDescription: (gender, count) => `${ruNames(count)} для ${gender === 'girl' ? 'девочек' : 'мальчиков'} со значением и происхождением: русские, мусульманские и азербайджанские, современные и классические.`,
+  letterTitle: letter => `Имена на букву ${letter}: для девочек и мальчиков`, letterH1: letter => `Имена на букву ${letter}`,
+  letterDescription: (letter, count) => `${ruNames(count)} на букву ${letter} со значением и происхождением: имена для девочек и мальчиков.`,
+  detailTitle: name => `Имя ${name}: значение и происхождение`, detailH1: name => `Значение имени ${name}`,
+  detail: (entry, gender) => `Что означает имя ${entry.name}: ${entry.meaning}. ${entry.origin ? `Происхождение: ${entry.origin}. ` : ''}${gender}. Похожие имена и выбор имени в приложении Anacan.`,
+  gender: { girl: 'Имя для девочки', boy: 'Имя для мальчика', unisex: 'Подходит и девочке, и мальчику' }, genderShort: { girl: 'Девочка', boy: 'Мальчик', unisex: 'Оба' },
+  genderSentence: { girl: name => `${name} женское имя.`, boy: name => `${name} мужское имя.`, unisex: name => `Имя ${name} дают и девочкам, и мальчикам.` },
+  words: ['Значение', 'Происхождение', 'Пол', 'Популярность'], rank: (rank, total) => `${rank}-е место из ${total}`,
+  ui: ['Похожие имена', 'Популярные имена для девочек', 'Популярные имена для мальчиков', 'Имена по алфавиту', 'Все имена', 'Найдите имя или значение', 'Например: Алиса или «свет»', 'Имя не найдено. В приложении Anacan можно узнать значение любого имени с помощью ИИ.', 'Все детские имена', 'Частые вопросы'],
+  count: ruNames, letterLink: letter => `Буква ${letter}`, listLink: ['Все имена для девочек', 'Все имена для мальчиков'],
+  faqQ: [name => `Что означает имя ${name}?`, name => `${name} это имя для девочки или для мальчика?`, name => `Какое происхождение у имени ${name}?`],
+  faqMeaning: (name, meaning) => `Имя ${name} означает «${meaning}».`, faqOrigin: (name, origin) => `По базе имен Anacan происхождение имени ${name}: ${origin}.`,
+  app: ['Больше в приложении Anacan', 'Сохраняйте понравившиеся имена, выбирайте вместе с партнером и узнавайте значение любого имени, которого нет в списке.', ['Поиск значения любого имени с помощью ИИ', 'Список избранных имен', 'Выбор имени вместе с партнером: имена, которые нравятся обоим, отмечаются совпадением']],
+  dataNote: 'Значения взяты из базы имен приложения Anacan. Популярность это рейтинг Anacan (0-100), а не официальная статистика.',
+});
+const TR = simpleCopy({
+  slugs: ['bebek-isimleri', 'kiz-bebek-isimleri', 'erkek-bebek-isimleri', 'harf'], labels: ['Bebek isimleri', 'Kız bebek isimleri', 'Erkek bebek isimleri'], year: '2026-2027',
+  hubTitle: 'Bebek isimleri 2026-2027: anlamları ve kökenleri', hubH1: 'Bebek isimleri 2026-2027: anlamlarıyla kız ve erkek isimleri',
+  girlTitle: 'Kız bebek isimleri 2026-2027 ve anlamları', girlH1: 'Kız bebek isimleri 2026-2027 ve anlamları',
+  boyTitle: 'Erkek bebek isimleri 2026-2027 ve anlamları', boyH1: 'Erkek bebek isimleri 2026-2027 ve anlamları',
+  hubDescription: count => `Anlamı ve kökeniyle ${count} bebek ismi: modern ve Kuranda geçen kız isimleri, erkek isimleri, en popüler isimler ve harf harf liste.`,
+  hubIntro: count => `Bebeğiniz için isim mi arıyorsunuz? Burada ${count} ismin anlamı, kökeni ve popülerliği var. İsmi arayın veya ilk harfe göre seçin.`,
+  listDescription: (gender, count) => `Anlamı ve kökeniyle ${count} ${gender === 'girl' ? 'kız' : 'erkek'} bebek ismi: modern, klasik ve dini isimler, en popüler seçenekler.`,
+  letterTitle: letter => `${letter} harfiyle başlayan kız ve erkek isimleri`, letterH1: letter => `${letter} harfiyle başlayan isimler`,
+  letterDescription: (letter, count) => `${letter} harfiyle başlayan ${count} isim, anlamı ve kökeniyle: kız ve erkek bebek isimleri.`,
+  detailTitle: name => `${name} isminin anlamı nedir? Kökeni`, detailH1: name => `${name} isminin anlamı`,
+  detail: (entry, gender) => `${entry.name} isminin anlamı: ${entry.meaning}. ${entry.origin ? `Kökeni: ${entry.origin}. ` : ''}${gender}. Benzer isimler ve Anacan uygulamasında isim seçimi.`,
+  gender: { girl: 'Kız ismi', boy: 'Erkek ismi', unisex: 'Hem kız hem erkek ismi' }, genderShort: { girl: 'Kız', boy: 'Erkek', unisex: 'Her ikisi' },
+  genderSentence: { girl: name => `${name} bir kız ismidir.`, boy: name => `${name} bir erkek ismidir.`, unisex: name => `${name} hem kızlara hem erkeklere verilen bir isimdir.` },
+  words: ['Anlamı', 'Kökeni', 'Cinsiyet', 'Popülerlik'], rank: (rank, total) => `${total} isim arasında ${rank}. sırada`,
+  ui: ['Benzer isimler', 'En popüler kız isimleri', 'En popüler erkek isimleri', 'Harflere göre isimler', 'Tüm isimler', 'İsim veya anlam arayın', 'Örneğin: Zeynep veya “ışık”', 'İsim bulunamadı. Anacan uygulamasında herhangi bir ismin anlamını yapay zekâ ile arayabilirsiniz.', 'Tüm bebek isimleri', 'Sıkça sorulan sorular'],
+  count: count => `${count} isim`, letterLink: letter => `${letter} harfi`, listLink: ['Tüm kız isimleri', 'Tüm erkek isimleri'],
+  faqQ: [name => `${name} ne demek?`, name => `${name} kız ismi mi, erkek ismi mi?`, name => `${name} isminin kökeni nedir?`],
+  faqMeaning: (name, meaning) => `${name} ismi «${meaning}» anlamına gelir.`, faqOrigin: (name, origin) => `Anacan isim veri tabanına göre ${name} isminin kökeni: ${origin}.`,
+  app: ['Anacan uygulamasında daha fazlası', 'Beğendiğiniz isimleri kaydedin, eşinizle birlikte seçin ve listede olmayan bir ismin anlamını da bulun.', ['Yapay zekâ ile her ismin anlamını arama', 'Favori isimler listesi', 'Eşinizle isim oylaması: ikinizin de beğendiği isimler eşleşme olarak görünür']],
+  dataNote: 'Anlamlar Anacan uygulamasının isim veri tabanındandır. Popülerlik Anacan puanıdır (0-100), resmi istatistik değildir.',
+});
+const UZ = simpleCopy({
+  slugs: ['bolalar-ismlari', 'qiz-bola-ismlari', 'ogil-bola-ismlari', 'harf'], labels: ['Bolalar ismlari', 'Qiz bola ismlari', 'Oʻgʻil bola ismlari'], year: '2026-2027',
+  hubTitle: 'Bolalar ismlari 2026-2027: maʼnosi va kelib chiqishi', hubH1: 'Bolalar ismlari 2026-2027: maʼnosi bilan qiz va oʻgʻil bola ismlari',
+  girlTitle: 'Qiz bola ismlari 2026-2027: maʼnosi bilan', girlH1: 'Qiz bola ismlari 2026-2027: maʼnosi bilan',
+  boyTitle: 'Oʻgʻil bola ismlari 2026-2027: maʼnosi bilan', boyH1: 'Oʻgʻil bola ismlari 2026-2027: maʼnosi bilan',
+  hubDescription: count => `${count} ism maʼnosi va kelib chiqishi bilan: zamonaviy va islomiy qiz bola ismlari, oʻgʻil bola ismlari, eng mashhur ismlar va harflar boʻyicha roʻyxat.`,
+  hubIntro: count => `Farzandingiz uchun ism tanlayapsizmi? Bu yerda ${count} ismning maʼnosi, kelib chiqishi va mashhurligi bor. Ismni qidiring yoki harf boʻyicha tanlang.`,
+  listDescription: (gender, count) => `${count} ta ${gender === 'girl' ? 'qiz bola' : 'oʻgʻil bola'} ismi maʼnosi va kelib chiqishi bilan: zamonaviy, klassik va islomiy ismlar.`,
+  letterTitle: letter => `${letter} harfi bilan boshlanadigan ismlar`, letterH1: letter => `${letter} harfi bilan boshlanadigan ismlar`,
+  letterDescription: (letter, count) => `${letter} harfi bilan boshlanadigan ${count} ta ism maʼnosi va kelib chiqishi bilan: qiz va oʻgʻil bola ismlari.`,
+  detailTitle: name => `${name} ismining maʼnosi va kelib chiqishi`, detailH1: name => `${name} ismining maʼnosi`,
+  detail: (entry, gender) => `${entry.name} ismining maʼnosi: ${entry.meaning}. ${entry.origin ? `Kelib chiqishi: ${entry.origin}. ` : ''}${gender}. Oʻxshash ismlar va Anacan ilovasida ism tanlash.`,
+  gender: { girl: 'Qiz bola ismi', boy: 'Oʻgʻil bola ismi', unisex: 'Qiz va oʻgʻil bolaga qoʻyiladi' }, genderShort: { girl: 'Qiz', boy: 'Oʻgʻil', unisex: 'Ikkalasi' },
+  genderSentence: { girl: name => `${name} qiz bola ismi.`, boy: name => `${name} oʻgʻil bola ismi.`, unisex: name => `${name} ismi qizlarga ham, oʻgʻil bolalarga ham qoʻyiladi.` },
+  words: ['Maʼnosi', 'Kelib chiqishi', 'Jinsi', 'Mashhurligi'], rank: (rank, total) => `${total} ta ism orasida ${rank}-oʻrin`,
+  ui: ['Oʻxshash ismlar', 'Eng mashhur qiz bola ismlari', 'Eng mashhur oʻgʻil bola ismlari', 'Harflar boʻyicha ismlar', 'Barcha ismlar', 'Ism yoki maʼno qidiring', 'Masalan: Madina yoki “nur”', 'Ism topilmadi. Anacan ilovasida istalgan ismning maʼnosini sunʼiy intellekt yordamida topishingiz mumkin.', 'Barcha bolalar ismlari', 'Koʻp beriladigan savollar'],
+  count: count => `${count} ta ism`, letterLink: letter => `${letter} harfi`, listLink: ['Barcha qiz bola ismlari', 'Barcha oʻgʻil bola ismlari'],
+  faqQ: [name => `${name} ismi nimani anglatadi?`, name => `${name} qiz bola ismimi yoki oʻgʻil bola ismimi?`, name => `${name} ismining kelib chiqishi qanday?`],
+  faqMeaning: (name, meaning) => `${name} ismi «${meaning}» degan maʼnoni anglatadi.`, faqOrigin: (name, origin) => `Anacan ismlar bazasiga koʻra ${name} ismining kelib chiqishi: ${origin}.`,
+  app: ['Anacan ilovasida koʻproq', 'Yoqqan ismlarni saqlang, turmush oʻrtogʻingiz bilan birga tanlang va roʻyxatda yoʻq ismning maʼnosini ham toping.', ['Istalgan ism maʼnosini sunʼiy intellekt bilan qidirish', 'Tanlangan ismlar roʻyxati', 'Turmush oʻrtoq bilan ism tanlash: ikkalangizga yoqqan ismlar moslik sifatida koʻrinadi']],
+  dataNote: 'Maʼnolar Anacan ilovasining ismlar bazasidan olingan. Mashhurlik Anacan reytingi (0-100), rasmiy statistika emas.',
+});
+const KK = simpleCopy({
+  slugs: ['балалар-есімдері', 'қыз-балаларға-есімдер', 'ұл-балаларға-есімдер', 'әріп'], labels: ['Балалар есімдері', 'Қыз балаларға есімдер', 'Ұл балаларға есімдер'], year: '2026-2027',
+  hubTitle: 'Балалар есімдері 2026-2027: мағынасы мен шығу тегі', hubH1: 'Балалар есімдері 2026-2027: мағынасымен қыз және ұл есімдері',
+  girlTitle: 'Қыз балаларға есімдер 2026-2027: мағынасымен', girlH1: 'Қыз балаларға есімдер 2026-2027: мағынасымен',
+  boyTitle: 'Ұл балаларға есімдер 2026-2027: мағынасымен', boyH1: 'Ұл балаларға есімдер 2026-2027: мағынасымен',
+  hubDescription: count => `Мағынасы мен шығу тегі көрсетілген ${count} есім: қазақша және мұсылманша қыз есімдері, ұл есімдері, ең танымал есімдер және әріп бойынша тізім.`,
+  hubIntro: count => `Балаңызға есім таңдап жүрсіз бе? Мұнда ${count} есімнің мағынасы, шығу тегі және танымалдығы бар. Есімді іздеңіз немесе әріп бойынша таңдаңыз.`,
+  listDescription: (gender, count) => `Мағынасы мен шығу тегі көрсетілген ${count} ${gender === 'girl' ? 'қыз' : 'ұл'} есімі: заманауи, классикалық және мұсылманша есімдер.`,
+  letterTitle: letter => `${letter} әрпінен басталатын есімдер`, letterH1: letter => `${letter} әрпінен басталатын есімдер`,
+  letterDescription: (letter, count) => `${letter} әрпінен басталатын ${count} есім мағынасымен: қыз және ұл балаларға есімдер.`,
+  detailTitle: name => `${name} есімінің мағынасы мен шығу тегі`, detailH1: name => `${name} есімінің мағынасы`,
+  detail: (entry, gender) => `${entry.name} есімінің мағынасы: ${entry.meaning}. ${entry.origin ? `Шығу тегі: ${entry.origin}. ` : ''}${gender}. Ұқсас есімдер және Anacan қосымшасында есім таңдау.`,
+  gender: kkGender, genderShort: { girl: 'Қыз', boy: 'Ұл', unisex: 'Екеуі де' },
+  genderSentence: { girl: name => `${name} қыз есімі.`, boy: name => `${name} ұл есімі.`, unisex: name => `${name} есімі қызға да, ұлға да қойылады.` },
+  words: ['Мағынасы', 'Шығу тегі', 'Жынысы', 'Танымалдығы'], rank: (rank, total) => `${total} есімнің ішінде ${rank}-орын`,
+  ui: ['Ұқсас есімдер', 'Ең танымал қыз есімдері', 'Ең танымал ұл есімдері', 'Әріптер бойынша есімдер', 'Барлық есімдер', 'Есімді немесе мағынаны іздеңіз', 'Мысалы: Айару немесе «нұр»', 'Есім табылмады. Anacan қосымшасында кез келген есімнің мағынасын жасанды интеллект арқылы табуға болады.', 'Барлық балалар есімдері', 'Жиі қойылатын сұрақтар'],
+  count: count => `${count} есім`, letterLink: letter => `${letter} әрпі`, listLink: ['Барлық қыз есімдері', 'Барлық ұл есімдері'],
+  faqQ: [name => `${name} есімі нені білдіреді?`, name => `${name} қыз есімі ме, әлде ұл есімі ме?`, name => `${name} есімінің шығу тегі қандай?`],
+  faqMeaning: (name, meaning) => `${name} есімі «${meaning}» дегенді білдіреді.`, faqOrigin: (name, origin) => `Anacan есімдер базасы бойынша ${name} есімінің шығу тегі: ${origin}.`,
+  app: ['Anacan қосымшасында көбірек', 'Ұнаған есімдерді сақтаңыз, жұбайыңызбен бірге таңдаңыз және тізімде жоқ есімнің мағынасын да табыңыз.', ['Кез келген есімнің мағынасын жасанды интеллектпен іздеу', 'Таңдаулы есімдер тізімі', 'Жұбайыңызбен бірге таңдау: екеуіңізге де ұнаған есімдер сәйкестік ретінде көрінеді']],
+  dataNote: 'Мағыналар Anacan қосымшасының есімдер базасынан алынған. Танымалдық Anacan рейтингі (0-100), ресми статистика емес.',
+});
+const ES = simpleCopy({
+  slugs: ['nombres-de-bebe', 'nombres-de-nina', 'nombres-de-nino', 'letra'], labels: ['Nombres de bebé', 'Nombres de niña', 'Nombres de niño'], year: '2026-2027',
+  hubTitle: 'Nombres de bebé 2026-2027: significado y origen', hubH1: 'Nombres de bebé 2026-2027: nombres de niña y niño con significado',
+  girlTitle: 'Nombres de niña 2026-2027 y su significado', girlH1: 'Nombres de niña 2026-2027 con significado',
+  boyTitle: 'Nombres de niño 2026-2027 y su significado', boyH1: 'Nombres de niño 2026-2027 con significado',
+  hubDescription: count => `${count} nombres con significado y origen: nombres de niña, nombres de niño, los más populares y una lista por letra. Busca un nombre y descubre qué significa.`,
+  hubIntro: count => `¿Buscas nombre para tu bebé? Aquí tienes el significado, el origen y la popularidad de ${count} nombres. Busca un nombre o elige por la primera letra.`,
+  listDescription: (gender, count) => `${count} nombres de ${gender === 'girl' ? 'niña' : 'niño'} con significado y origen: modernos, clásicos y los más populares en España y Latinoamérica.`,
+  letterTitle: letter => `Nombres que empiezan por ${letter}: niña y niño`, letterH1: letter => `Nombres que empiezan por ${letter}`,
+  letterDescription: (letter, count) => `${count} nombres que empiezan por ${letter} con significado y origen: nombres de niña y de niño.`,
+  detailTitle: name => `${name}: significado y origen del nombre`, detailH1: name => `Significado del nombre ${name}`,
+  detail: (entry, gender) => `Qué significa ${entry.name}: ${entry.meaning}. ${entry.origin ? `Origen: ${entry.origin}. ` : ''}${gender}. Nombres parecidos y elección de nombre en la app Anacan.`,
+  gender: { girl: 'Nombre de niña', boy: 'Nombre de niño', unisex: 'Nombre de niña y de niño' }, genderShort: { girl: 'Niña', boy: 'Niño', unisex: 'Ambos' },
+  genderSentence: { girl: name => `${name} es un nombre de niña.`, boy: name => `${name} es un nombre de niño.`, unisex: name => `${name} se usa tanto para niñas como para niños.` },
+  words: ['Significado', 'Origen', 'Género', 'Popularidad'], rank: (rank, total) => `puesto ${rank} de ${total}`,
+  ui: ['Nombres parecidos', 'Nombres de niña más populares', 'Nombres de niño más populares', 'Nombres por letra', 'Todos los nombres', 'Busca un nombre o un significado', 'Por ejemplo: Lucía o «luz»', 'No encontramos el nombre. En la app Anacan puedes buscar el significado de cualquier nombre con IA.', 'Todos los nombres de bebé', 'Preguntas frecuentes'],
+  count: count => `${count} nombres`, letterLink: letter => `Letra ${letter}`, listLink: ['Todos los nombres de niña', 'Todos los nombres de niño'],
+  faqQ: [name => `¿Qué significa el nombre ${name}?`, name => `¿${name} es nombre de niña o de niño?`, name => `¿Cuál es el origen del nombre ${name}?`],
+  faqMeaning: (name, meaning) => `El nombre ${name} significa «${meaning}».`, faqOrigin: (name, origin) => `Según la base de nombres de Anacan, el origen de ${name} es: ${origin}.`,
+  app: ['Más en la app Anacan', 'Guarda los nombres que te gustan, elige junto a tu pareja y descubre el significado de cualquier nombre que no esté en la lista.', ['Búsqueda del significado de cualquier nombre con IA', 'Lista de nombres favoritos', 'Elegir nombre en pareja: los nombres que os gustan a los dos aparecen como coincidencia']],
+  dataNote: 'Los significados proceden de la base de nombres de Anacan. La popularidad es la puntuación de Anacan (0-100), no una estadística oficial.',
+});
+Object.assign(NAMES_COPY, { ru: RU, tr: TR, uz: UZ, kk: KK, es: ES });
 
 /** Azerbaijani ASCII letter scheme: every letter of the alphabet keeps a distinct slug. */
 const AZ_LETTER_SLUGS: Record<string, string> = {

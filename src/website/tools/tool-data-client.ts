@@ -10,6 +10,11 @@ import { registerSeoHubContent, seoHubContentLoaded } from '../seo-hubs/registry
 const NAME_LOADERS: Partial<Record<NamesLanguage, () => Promise<{ default: unknown }>>> = {
   az: () => import('./data/names-az.json'),
   ka: () => import('./data/names-ka.json'),
+  ru: () => import('./data/names-ru.json'),
+  tr: () => import('./data/names-tr.json'),
+  uz: () => import('./data/names-uz.json'),
+  kk: () => import('./data/names-kk.json'),
+  es: () => import('./data/names-es.json'),
 };
 export async function preloadToolData(pathname: string): Promise<void> {
   let segments: string[];

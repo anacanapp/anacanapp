@@ -27,7 +27,7 @@ export function ToolPageLinks() {
   const names = namesCopy(route.language);
   const cards = [
     ...(route.language === 'az' ? [{ path: sitePath('az', 'maternityBenefit'), title: DEKRET_COPY.label, text: 'Analıq məzuniyyətinin günləri, gündəlik və ümumi müavinət.', Icon: Banknote, action: 'Hesabla' }] : []),
-    ...(names ? [{ path: sitePath(route.language, 'names'), title: names.hubLabel, text: names.hubTitle, Icon: Baby, action: route.language === 'ka' ? 'გახსნა' : 'Bax' }] : []),
+    ...(names ? [{ path: sitePath(route.language, 'names'), title: names.hubLabel, text: names.hubTitle, Icon: Baby, action: names.allNames }] : []),
   ];
   if (!cards.length) return <SeoHubLinks place="tools"/>;
   return <><div className="site-tool-grid tl-tool-grid">{cards.map(({ path, title, text, Icon, action }) => <a className="site-tool-card" href={basePath + path} key={path}>

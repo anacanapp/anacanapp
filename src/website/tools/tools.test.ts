@@ -66,7 +66,7 @@ describe('baby names slug and letter scheme', () => {
 
 describe('names language gating and routes', () => {
   it('publishes only the enabled languages', () => {
-    expect(NAMES_ENABLED).toEqual(['az', 'ka']);
+    expect(NAMES_ENABLED).toEqual(['az', 'ka', 'ru', 'tr', 'uz', 'kk', 'es']);
     expect(resolveWebsiteRoute('/az/usaq-adlari/').route.kind).toBe('names');
     expect(resolveWebsiteRoute('/az/usaq-adlari/qiz-adlari/').route).toMatchObject({ kind: 'namesGender', slug: 'girl' });
     expect(resolveWebsiteRoute('/az/usaq-adlari/oglan-adlari/').route).toMatchObject({ kind: 'namesGender', slug: 'boy' });
@@ -79,7 +79,7 @@ describe('names language gating and routes', () => {
     expect(resolveWebsiteRoute(sitePath('ka', 'nameDetail', 'ნინო')).route).toMatchObject({ kind: 'nameDetail', slug: 'ნინო' });
   });
   it('answers 404 for disabled languages', () => {
-    for (const language of ['tr', 'ru', 'kk', 'en', 'de']) {
+    for (const language of ['en', 'de', 'fr']) {
       expect(resolveWebsiteRoute(`/${language}/usaq-adlari/`).route.kind).toBe('notFound');
       expect(resolveWebsiteRoute(`/${language}/${encodeURIComponent('ბავშვის-სახელები')}/`).route.kind).toBe('notFound');
       expect(() => sitePath(language as 'tr', 'names')).toThrow();
@@ -90,14 +90,15 @@ describe('names language gating and routes', () => {
   it('links hreflang only between corresponding pages', () => {
     const hub = resolveWebsiteRoute('/az/usaq-adlari/').route;
     expect(alternateRoute(hub, 'ka')).toBe(sitePath('ka', 'names'));
-    expect(alternateRoute(hub, 'tr')).toBeUndefined();
+    expect(alternateRoute(hub, 'tr')).toBe('/tr/bebek-isimleri/');
+    expect(alternateRoute(hub, 'en')).toBeUndefined();
     const girls = resolveWebsiteRoute('/az/usaq-adlari/qiz-adlari/').route;
     expect(alternateRoute(girls, 'ka')).toBe(sitePath('ka', 'namesGender', 'girl'));
     const detail = resolveWebsiteRoute('/az/usaq-adlari/adem/').route;
     expect(alternateRoute(detail, 'ka')).toBeUndefined();
     const kaDetail = boot('ka', sitePath('ka', 'nameDetail', 'ნინო'));
     expect(websiteMeta(kaDetail).alternates.map(item => item.code)).toEqual(['ka', 'x-default']);
-    expect(websiteMeta(boot('az', '/az/usaq-adlari/')).alternates.map(item => item.code)).toEqual(['az', 'ka', 'x-default']);
+    expect(websiteMeta(boot('az', '/az/usaq-adlari/')).alternates.map(item => item.code).sort()).toEqual(['az', 'es', 'ka', 'kk', 'ru', 'tr', 'uz', 'x-default']);
   });
   it('keeps titles within 60 characters and emits the expected JSON-LD', () => {
     for (const entry of toolSitemapEntries()) {
@@ -119,7 +120,7 @@ describe('names language gating and routes', () => {
     // +1 dekret calculator, +43 pregnancy week pages, +32 SEO content pages (2026-11-15).
     expect(count('az')).toBe(pages('az') + 1 + 43 + 32);
     expect(count('ka')).toBe(pages('ka'));
-    expect(entries.find(entry => entry.path === '/az/usaq-adlari/')!.alternates.map(item => item.code)).toEqual(['az', 'ka', 'x-default']);
+    expect(entries.find(entry => entry.path === '/az/usaq-adlari/')!.alternates.map(item => item.code)).toEqual(['az', 'ka', 'ru', 'tr', 'uz', 'kk', 'es', 'x-default']);
   });
 });
 

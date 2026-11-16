@@ -18,9 +18,14 @@ import { storeUrl, trackStoreClick } from '../store-links';
 export type AppToolId = 'names' | 'maternity-calculator' | 'weight' | 'baby-growth' | 'calendar' | 'pregnancy'
   | 'safety' | 'solid-food-guide' | 'first-aid' | 'baby-tracker';
 export interface AppOpenLabels { eyebrow: string; open: string; fallback: string; store?: string }
-const LABELS: Record<'az' | 'ka', AppOpenLabels> = {
+const LABELS: Record<'az' | 'ka' | 'ru' | 'tr' | 'uz' | 'kk' | 'es', AppOpenLabels> = {
   az: { eyebrow: 'Anacan tətbiqi', open: 'Tətbiqdə aç', fallback: 'Tətbiq açılmadısa, yəqin ki, hələ telefonunuzda yoxdur. Yükləyin:', store: 'Yüklə' },
   ka: { eyebrow: 'Anacan აპლიკაცია', open: 'აპლიკაციაში გახსნა', fallback: 'თუ აპლიკაცია არ გაიხსნა, ალბათ ჯერ არ გაქვთ დაინსტალირებული. ჩამოტვირთეთ:', store: 'ჩამოტვირთვა' },
+  ru: { eyebrow: 'Приложение Anacan', open: 'Открыть в приложении', fallback: 'Если приложение не открылось, его, скорее всего, еще нет на телефоне. Скачайте:', store: 'Скачать' },
+  tr: { eyebrow: 'Anacan uygulaması', open: 'Uygulamada aç', fallback: 'Uygulama açılmadıysa muhtemelen telefonunuzda yüklü değil. İndirin:', store: 'İndir' },
+  uz: { eyebrow: 'Anacan ilovasi', open: 'Ilovada ochish', fallback: 'Ilova ochilmagan boʻlsa, ehtimol u telefoningizda hali yoʻq. Yuklab oling:', store: 'Yuklab olish' },
+  kk: { eyebrow: 'Anacan қосымшасы', open: 'Қосымшада ашу', fallback: 'Қосымша ашылмаса, ол әлі телефоныңызда жоқ шығар. Жүктеп алыңыз:', store: 'Жүктеу' },
+  es: { eyebrow: 'App Anacan', open: 'Abrir en la app', fallback: 'Si la app no se abrió, probablemente aún no la tienes. Descárgala:', store: 'Descargar' },
 };
 
 export function appDeepLinks(tool: AppToolId, src: string, language = 'az') {
@@ -40,7 +45,7 @@ function platform(): 'ios' | 'android' | 'desktop' {
 /** `labels` lets pages in other languages pass their own button texts (az/ka are built in). */
 export function AppToolCard({ tool, src, title, text, features, labels: custom }: { tool: AppToolId; src: string; title: string; text: string; features: string[]; labels?: AppOpenLabels }) {
   const { href, route } = useWebsite();
-  const labels = custom || (route.language === 'ka' ? LABELS.ka : LABELS.az);
+  const labels = custom || LABELS[route.language as keyof typeof LABELS] || LABELS.az;
   const [fallback, setFallback] = useState<'ios' | 'android' | null>(null);
   const open = (event: React.MouseEvent<HTMLAnchorElement>) => {
     const device = platform();

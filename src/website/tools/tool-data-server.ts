@@ -1,6 +1,11 @@
 /** SSR renderer and tests: register every tool data set synchronously at import. */
 import namesAz from './data/names-az.json' with { type: 'json' };
 import namesKa from './data/names-ka.json' with { type: 'json' };
+import namesRu from './data/names-ru.json' with { type: 'json' };
+import namesTr from './data/names-tr.json' with { type: 'json' };
+import namesUz from './data/names-uz.json' with { type: 'json' };
+import namesKk from './data/names-kk.json' with { type: 'json' };
+import namesEs from './data/names-es.json' with { type: 'json' };
 import regional from '../../data/maternity-regional.json' with { type: 'json' };
 import { maternityRules } from '../../data/maternityRules';
 import type { NameRow } from './names';
@@ -14,6 +19,11 @@ import { registerSeoHubContent } from '../seo-hubs/registry';
 
 registerNames('az', namesAz as NameRow[]);
 registerNames('ka', namesKa as NameRow[]);
+registerNames('ru', namesRu as NameRow[]);
+registerNames('tr', namesTr as NameRow[]);
+registerNames('uz', namesUz as NameRow[]);
+registerNames('kk', namesKk as NameRow[]);
+registerNames('es', namesEs as NameRow[]);
 registerMaternity(maternityRules, Object.keys(regional.countries));
 registerPregnancyWeeks(PREGNANCY_WEEKS_AZ, 'az');
 registerPregnancyWeeks(PREGNANCY_WEEKS_RU, 'ru');
