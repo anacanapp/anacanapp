@@ -2,9 +2,9 @@
 import { NAMES_COPY, isNamesLanguage, type NameRow, type NamesLanguage } from './names';
 import { maternityData, namesIndex, registerMaternity, registerNames } from './tool-data';
 import { DEKRET_SLUG } from './dekret-copy';
-import { PREGNANCY_WEEKS_PARENT } from '../pregnancy-weeks/weeks';
+import { isPregnancyWeekLanguage, weekLocale } from '../pregnancy-weeks/locale';
 import { pregnancyWeeksLoaded, registerPregnancyWeeks } from '../pregnancy-weeks/registry';
-import { SEO_HUB_SLUGS } from '../seo-hubs/routes';
+import { SEO_HUB_SLUGS, isSeoHubLanguage } from '../seo-hubs/routes';
 import { registerSeoHubContent, seoHubContentLoaded } from '../seo-hubs/registry';
 
 const NAME_LOADERS: Partial<Record<NamesLanguage, () => Promise<{ default: unknown }>>> = {
@@ -21,11 +21,12 @@ export async function preloadToolData(pathname: string): Promise<void> {
   if (language === 'az' && first === DEKRET_SLUG && !maternityData())
     tasks.push(Promise.all([import('../../data/maternityRules'), import('../../data/maternity-regional.json')])
       .then(([rules, regional]) => registerMaternity(rules.maternityRules, Object.keys(regional.default.countries))));
-  // Pregnancy week texts (/az/hamilelik/<n>-ci-hefte/): one chunk with all 42 weeks.
-  if (language === 'az' && first === PREGNANCY_WEEKS_PARENT && segments.length === 3 && !pregnancyWeeksLoaded())
-    tasks.push(import('../pregnancy-weeks/az').then(module => registerPregnancyWeeks(module.PREGNANCY_WEEKS_AZ)));
-  // SEO content pages (fever, solid foods, pregnancy can/can't, milk storage, periods): one chunk.
-  if (language === 'az' && (Object.values(SEO_HUB_SLUGS) as string[]).includes(first) && !seoHubContentLoaded())
-    tasks.push(import('../seo-hubs/content-az').then(module => registerSeoHubContent(module)));
+  // Pregnancy week texts (/az/hamilelik/<n>-ci-hefte/, /ru/беременность/<n>-неделя/): one chunk per language with all 42 weeks.
+  if (language && isPregnancyWeekLanguage(language) && first === weekLocale(language).parent && segments.length === 3 && !pregnancyWeeksLoaded(language))
+    tasks.push((language === 'ru' ? import('../pregnancy-weeks/ru').then(module => module.PREGNANCY_WEEKS_RU) : import('../pregnancy-weeks/az').then(module => module.PREGNANCY_WEEKS_AZ))
+      .then(rows => registerPregnancyWeeks(rows, language)));
+  // SEO content pages (fever, solid foods, pregnancy can/can't, milk storage, periods): one chunk per language.
+  if (language && isSeoHubLanguage(language) && (Object.values(SEO_HUB_SLUGS[language]) as string[]).includes(first) && !seoHubContentLoaded(language))
+    tasks.push((language === 'ru' ? import('../seo-hubs/content-ru') : import('../seo-hubs/content-az')).then(module => registerSeoHubContent(language, module)));
   await Promise.all(tasks);
 }

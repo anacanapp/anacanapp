@@ -3,6 +3,9 @@
  * Every medical number was checked on the cited page on 2026-11-15 (NHS, ACOG, AAP/HealthyChildren, WHO, NICE, CDC).
  * The website gives the short answer; the "locked" lists name what the Anacan app adds (only features the app has).
  */
+import { FEVER_CASE_LEVEL, feverCase, type FeverAge, type FeverCase, type FeverInput, type FeverLevel } from './fever-logic';
+export type { FeverAge };
+
 export interface HubSource { label: string; url: string }
 export interface HubFaq { question: string; answer: string }
 export type Verdict = 'yes' | 'care' | 'no';
@@ -217,7 +220,6 @@ export const FEVER = {
   locked: ['Temperatur jurnalı və qrafik', 'Dərman və doza qeydləri, xatırlatmalar', 'Simptomlar gündəliyi', 'Həkim üçün PDF hesabat', 'Partnyorla birgə izləmə', 'İlk yardım bələdçisi'],
   sources: [S.nhsFever, S.niceFever, S.aapFever, S.nhsDehydration],
 };
-export type FeverAge = 0 | 1 | 2 | 3;
 export const FEVER_AGES: Array<{ value: FeverAge; label: string }> = [
   { value: 0, label: '3 aydan kiçik' }, { value: 1, label: '3-6 ay' }, { value: 2, label: '6 ay - 5 yaş' }, { value: 3, label: '5 yaşdan böyük' },
 ];
@@ -229,19 +231,20 @@ export const FEVER_RED_FLAGS = [
   { id: 'skin', label: 'Dəri, dodaqlar və ya dil göyümtül, solğun, ləkəli' },
   { id: 'neck', label: 'Boyun sərtliyi, işığa baxa bilməmə' },
 ] as const;
-export interface FeverInput { age: FeverAge; temp: number; days: number; redFlag: boolean; dehydrated: boolean }
-export type FeverLevel = 'emergency' | 'doctor' | 'home' | 'normal' | 'low';
-/** NHS "High temperature (fever) in children" (checked 2026-11-15): when to call 999/111/GP. */
+export const FEVER_ADVICE: Record<FeverCase, { title: string; text: string }> = {
+  redFlag: { title: 'Dərhal 103-ə zəng edin', text: 'Seçdiyiniz əlamət ciddi xəstəliyin göstəricisi ola bilər. Temperaturdan asılı olmayaraq təcili yardım çağırın.' },
+  under3m: { title: 'Bu gün həkimə müraciət edin', text: '3 aydan kiçik körpədə 38 °C və yuxarı temperatur, körpə özünü yaxşı hiss etsə belə, həkim müayinəsi tələb edir.' },
+  m3to6: { title: 'Həkimlə əlaqə saxlayın', text: '3-6 aylıq körpədə 39 °C və yuxarı temperatur üçün həkim məsləhəti lazımdır.' },
+  fiveDays: { title: 'Uşağı həkimə göstərin', text: 'Qızdırma 5 gün və daha uzun davam edirsə, səbəbini həkim yoxlamalıdır.' },
+  dehydrated: { title: 'Həkimə zəng edin', text: 'Susuzlaşma əlamətləri var. Tez-tez az-az maye verin və həkimə məlumat verin.' },
+  home: { title: 'Evdə izləyə bilərsiniz', text: 'Uşaq maye içirsə, oyanırsa və təhlükə əlaməti yoxdursa, evdə izləmək olar. Vəziyyət pisləşərsə və ya narahatsınızsa, həkimə müraciət edin.' },
+  low: { title: 'Temperatur aşağıdır', text: 'Ölçməni təkrarlayın. Temperatur aşağı qalırsa, xüsusən körpədə, həkimə müraciət edin.' },
+  raised: { title: 'Hələ qızdırma deyil', text: 'Qızdırma 38 °C-dən başlayır. Uşağı izləyin və bir neçə saatdan sonra yenidən ölçün.' },
+  normal: { title: 'Normal temperatur', text: 'Bu göstərici normal hesab olunur. Uşağın ümumi vəziyyətini izləyin.' },
+};
 export function feverAdvice(input: FeverInput): { level: FeverLevel; title: string; text: string } {
-  if (input.redFlag) return { level: 'emergency', title: 'Dərhal 103-ə zəng edin', text: 'Seçdiyiniz əlamət ciddi xəstəliyin göstəricisi ola bilər. Temperaturdan asılı olmayaraq təcili yardım çağırın.' };
-  if (input.temp >= 38 && input.age === 0) return { level: 'doctor', title: 'Bu gün həkimə müraciət edin', text: '3 aydan kiçik körpədə 38 °C və yuxarı temperatur, körpə özünü yaxşı hiss etsə belə, həkim müayinəsi tələb edir.' };
-  if (input.temp >= 39 && input.age === 1) return { level: 'doctor', title: 'Həkimlə əlaqə saxlayın', text: '3-6 aylıq körpədə 39 °C və yuxarı temperatur üçün həkim məsləhəti lazımdır.' };
-  if (input.temp >= 38 && input.days >= 5) return { level: 'doctor', title: 'Uşağı həkimə göstərin', text: 'Qızdırma 5 gün və daha uzun davam edirsə, səbəbini həkim yoxlamalıdır.' };
-  if (input.dehydrated) return { level: 'doctor', title: 'Həkimə zəng edin', text: 'Susuzlaşma əlamətləri var. Tez-tez az-az maye verin və həkimə məlumat verin.' };
-  if (input.temp >= 38) return { level: 'home', title: 'Evdə izləyə bilərsiniz', text: 'Uşaq maye içirsə, oyanırsa və təhlükə əlaməti yoxdursa, evdə izləmək olar. Vəziyyət pisləşərsə və ya narahatsınızsa, həkimə müraciət edin.' };
-  if (input.temp < 36) return { level: 'low', title: 'Temperatur aşağıdır', text: 'Ölçməni təkrarlayın. Temperatur aşağı qalırsa, xüsusən körpədə, həkimə müraciət edin.' };
-  if (input.temp >= 37.6) return { level: 'normal', title: 'Hələ qızdırma deyil', text: 'Qızdırma 38 °C-dən başlayır. Uşağı izləyin və bir neçə saatdan sonra yenidən ölçün.' };
-  return { level: 'normal', title: 'Normal temperatur', text: 'Bu göstərici normal hesab olunur. Uşağın ümumi vəziyyətini izləyin.' };
+  const key = feverCase(input);
+  return { level: FEVER_CASE_LEVEL[key], ...FEVER_ADVICE[key] };
 }
 
 /* ---------------- Əlavə qida ay-ay ---------------- */
@@ -358,4 +361,37 @@ export const PERIOD = {
   ],
   locked: ['Aybaşı və ovulyasiya proqnozu', 'Gecikmə və nizamsız dövr xəbərdarlığı', 'Dövr statistikası və trend qrafiki', 'Simptom və əhval gündəliyi', 'Növbəti aybaşı xatırlatması', 'Hamilə qalmaq rejimi: məhsuldar günlər'],
   sources: [S.nhsPeriods, S.nhsLate, S.nhsPain, S.nhsHeavy, S.acogHeavy, S.acogDysmenorrhea, S.nhsBleedingPregnancy],
+};
+
+/* ---------------- Page texts (labels, app blocks) ---------------- */
+export const UI = {
+  shortAnswer: 'Qısa cavab', sources: 'Mənbələr', faq: 'Tez-tez verilən suallar', readMore: 'Ətraflı oxuyun', why: 'Niyə?', tips: 'Faydalı məsləhətlər',
+  disclaimer: 'Bu səhifə ümumi maarifləndirmə məqsədi daşıyır və həkim müayinəsini və ya məsləhətini əvəz etmir. Sizə aid suallar üçün həkiminizə müraciət edin.',
+  prev: 'Əvvəlki', next: 'Növbəti', whenDoctor: 'Nə vaxt həkimə müraciət etməli',
+  fever: { eyebrow: 'Pulsuz yoxlama aləti', pill: 'Temperatur jurnalı və qrafik Anacan tətbiqindədir', age: 'Uşağın yaşı', temp: 'Temperatur', days: 'Qızdırma neçə gündür?',
+    dayOptions: ['1 gündən az', '1-4 gün', '5 gün və daha çox'], flags: 'Bu əlamətlərdən biri varmı?', dry: 'Sidik az, ağız quru, ağlayanda göz yaşı yoxdur', result: 'Nəticə',
+    emergency: 'Təcili tibbi yardım:', log: 'Qızdırmanın gedişini izləmək üçün temperaturu hər ölçəndə qeyd edin: həkim ilk olaraq bunu soruşacaq.',
+    inline: 'Hər ölçməni Anacan-da qeyd edin: temperatur qrafiki, verilən dərmanlar və saatlar bir yerdə.', homeTitle: 'Evdə nə etmək olar?', measureTitle: 'Temperaturu necə ölçmək lazımdır?',
+    measureAge: 'Yaş', measureHow: 'Necə ölçmək', gateTitle: 'Xəstəlik günlərini Anacan-da izləyin',
+    gateText: 'Saytda ilk qərarı verdiniz. Qızdırmanın gedişini, dərmanları və simptomları tətbiqdə qeyd edin, həkimə göstərmək üçün hazır hesabat alın.', sticky: 'Temperatur jurnalı Anacan-da' },
+  solid: { eyebrow: 'Körpə qidalanması', pill: 'Ay-ay menyu və reseptlər Anacan tətbiqində', tableTitle: 'Ay-ay cədvəl', colAge: 'Yaş', colTexture: 'Konsistensiya', colMeals: 'Gündə',
+    month: (n: number) => `${n} ay`, inline: 'Körpənizin yaşına uyğun gündəlik menyu, reseptlər və allergen planı Anacan-dadır.', readyTitle: 'Körpə əlavə qidaya hazırdırmı?', pick: 'Ay seçin',
+    gateTitle: 'Tam əlavə qida bələdçisi Anacan-da', gateText: 'Saytda ümumi cədvəli gördünüz. Körpənizin yaşına görə nə, nə qədər və necə veriləcəyi, reseptlər və qaydalar tətbiqdədir.', sticky: 'Ay-ay menyu Anacan-da',
+    monthEyebrow: (n: number) => `Əlavə qida · ${n} ay`, monthPill: (n: number) => `${n} aylıq menyu və reseptlər tətbiqdə`, texture: 'Konsistensiya', meals: 'Gündə neçə dəfə', base: 'Əsas qida',
+    baseMilk: 'Ana südü və ya süd qarışığı', baseFamily: 'Ailə yeməyi; ana südü davam edə bilər', foodsTitle: 'Bu ayda nə vermək olar?', watchTitle: 'Diqqət edin',
+    monthGateTitle: (n: number) => `${n} aylıq körpə üçün tam plan tətbiqdədir`, monthGateText: 'Saytda qısa siyahını gördünüz. Gündəlik menyu, porsiyalar, reseptlər və yeni qidaların qeydi Anacan-dadır.',
+    months: 'Aylar', allMonths: 'Bütün aylar', monthSticky: (n: number) => `${n} aylıq menyu Anacan-da` },
+  safe: { eyebrow: 'Hamiləlik', itemEyebrow: 'Hamiləlikdə olar və olmaz', pill: 'İstənilən qidanı və fəaliyyəti Anacan-da yoxlayın',
+    gateTitle: 'Sualınız siyahıda yoxdur? Anacan-da yoxlayın', gateText: 'Qida, dərman, gözəllik vasitəsi və ya fəaliyyətin adını yazın: Anacan dərhal olar, ehtiyatla və ya olmaz cavabını göstərir.',
+    locked: ['Qida və fəaliyyət axtarışı', 'Kateqoriyalar: qida, dərman, gözəllik, fəaliyyət', 'Süni intellektlə sual-cavab', 'Həftənizə uyğun gündəlik məsləhət'],
+    sticky: 'Olar və olmaz yoxlayıcısı Anacan-da', inline: 'Başqa qida və ya fəaliyyət haqqında sualınız var? Anacan-da adını yazın, cavabı dərhal görün.',
+    itemGateTitle: 'Hər gün yeni sual yaranır. Cavablar Anacan-dadır', itemGateText: 'Anacan-ın olar və olmaz yoxlayıcısı hamiləlikdə qida, dərman və fəaliyyətlər üçün qısa, mənbəli cavab verir.',
+    others: 'Digər suallar', all: 'Bütün 20 sual' },
+  milk: { eyebrow: 'Ana südü', pill: 'Qidalanma qeydləri Anacan tətbiqində', tableTitle: 'Saxlama cədvəli', colPlace: 'Harada', colFresh: 'Təzə sağılmış süd', colThawed: 'Əridilmiş süd',
+    print: 'Cədvəli çap et', inline: 'Hər qidalanmanı bir toxunuşla qeyd edin: sol və sağ döş, şüşə, miqdar və vaxt.', rulesTitle: 'Qaydalar', gateTitle: 'Qidalanmanı Anacan-da izləyin',
+    gateText: 'Saxlama qaydalarını öyrəndiniz. Əmizdirmə, şüşə ilə qidalanma və gündəlik statistika üçün Anacan-ı yükləyin.', sticky: 'Qidalanma izləyicisi Anacan-da' },
+  period: { eyebrow: 'Qadın sağlamlığı', pill: 'Aybaşı təqvimi Anacan tətbiqində', namesTitle: 'Aybaşı, menstruasiya, period, regl: fərq var?', topics: 'Mövzular',
+    inline: 'Anacan dövrünüzü öyrənir: növbəti aybaşını, ovulyasiyanı və gecikməni əvvəlcədən göstərir.', calcTitle: 'Növbəti aybaşınız nə vaxtdır?',
+    calcText: 'Son aybaşı tarixinə görə növbəti 3 dövrü hesablayın.', calcButton: 'Aybaşı təqvimi', gateTitle: 'Dövrünüzü Anacan-da izləyin',
+    gateText: 'Bir dəfə qeyd edin, qalanını Anacan hesablayır: proqnozlar, xatırlatmalar və nizamsızlıq barədə xəbərdarlıq.', sticky: 'Aybaşı təqvimi Anacan-da' },
 };

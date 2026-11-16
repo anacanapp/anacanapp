@@ -1,82 +1,77 @@
-/** /az/hamilelik/heftelik/ (hub) and /az/hamilelik/<n>-ci-hefte/ (week): Azerbaijani only, texts in az.ts. */
-import { AlertTriangle, CalendarDays, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+/** Hub and week pages in Azerbaijani (/az/hamilelik/…) and Russian (/ru/беременность/…); strings in locale.ts, texts in az.ts/ru.ts. */
+import { AlertTriangle, CalendarDays, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useWebsite } from '../context';
 import { Arrow, Eyebrow } from '../components';
 import { AppGate, AppInline, AppPill, AppSticky } from '../seo-hubs/AppConvert';
 import { ToolBreadcrumb } from '../tools/NamesPages';
 import { pregnancyWeekContent } from './registry';
-import {
-  PREGNANCY_TRIMESTERS, PREGNANCY_WEEK_LAST, PREGNANCY_WEEKS_HUB, azOrdinal, pregnancyWeekFacts, pregnancyWeekFromSlug, pregnancyWeekHeading,
-  pregnancyWeekLabel, pregnancyWeekNextTest, pregnancyWeekPath, pregnancyWeekQuick, pregnancyWeekSharedTodo, pregnancyWeekSharedWarnings,
-  pregnancyWeekSizeShort, pregnancyWeekSources, pregnancyWeekTests, pregnancyWeeksHubPath, pregnancyWeeksPublished, pregnancyTrimester,
-} from './weeks';
+import { PREGNANCY_WEEKS_HUB, PREGNANCY_WEEK_LAST, pregnancyWeekFromSlug, pregnancyWeekSources, pregnancyWeeksHubPath, pregnancyWeeksPublished } from './weeks';
+import { weekLocale } from './locale';
+import { localizedWeekHubPath, localizedWeekPath } from './routes';
 import '../tools/tools.css';
 import './pregnancy-weeks.css';
 
-/** What the app adds to the short website page (owner request 2026-11-15: little on the site, the rest in the app). */
-const WEEK_LOCKED = ['Körpənin inkişafı: tam mətn', 'Bədəninizdə nələr dəyişir', 'Bu həftənin əlamətləri', 'Bu həftə nə etməli: yoxlama siyahısı',
-  'Müayinələr və testlər', 'Gündəlik məsləhət və bildirişlər', 'Təpik sayğacı və sancı taymeri', 'Doğum çantası siyahısı'];
+function useWeekLocale() { const { route } = useWebsite(); return weekLocale(route.language); }
 function DueDateLink() {
-  const { href } = useWebsite();
+  const { href } = useWebsite(), u = useWeekLocale().ui;
   return <aside className="tl-article-tool pw-due"><span className="site-icon-wash site-wash-mint"><CalendarDays size={22} strokeWidth={1.5}/></span>
-    <div><strong>Neçənci həftədəsiniz?</strong><p>Son menstruasiya tarixinə görə hamiləlik həftəsini və təxmini doğuş tarixini hesablayın.</p></div>
-    <a className="site-outline-button" href={href('dueDate')}>Doğuş tarixi kalkulyatoru<Arrow/></a></aside>;
+    <div><strong>{u.dueTitle}</strong><p>{u.dueText}</p></div>
+    <a className="site-outline-button" href={href('dueDate')}>{u.dueButton}<Arrow/></a></aside>;
 }
-const Disclaimer = () => <p className="tl-note tl-disclaimer">Bu səhifə ümumi maarifləndirmə məqsədi daşıyır və həkim müayinəsini və ya məsləhətini əvəz etmir. Hər hamiləlik fərqlidir; sizə aid suallar üçün həkiminizə müraciət edin.</p>;
+const Disclaimer = () => <p className="tl-note tl-disclaimer">{useWeekLocale().ui.disclaimer}</p>;
 
 export function PregnancyWeeksHubPage() {
-  const { basePath } = useWebsite();
+  const { basePath, route } = useWebsite(), l = useWeekLocale(), u = l.ui;
   return <>
     <ToolBreadcrumb/>
-    <div className="site-page-intro tl-intro"><Eyebrow>Hamiləlik</Eyebrow><h1>{PREGNANCY_WEEKS_HUB.heading}</h1><p>{PREGNANCY_WEEKS_HUB.intro}</p></div>
-    <AppPill tool="pregnancy" area="weeks" text="Öz həftənizi gün-gün Anacan tətbiqində izləyin"/>
-    <nav className="tl-links pw-jump" aria-label="Trimestrlər">{PREGNANCY_TRIMESTERS.map(item => <a key={item.trimester} className="site-outline-button" href={`#trimestr-${item.trimester}`}>{item.title}</a>)}</nav>
-    {PREGNANCY_TRIMESTERS.map(item => <section className="site-section pw-trimester" id={`trimestr-${item.trimester}`} key={item.trimester} aria-labelledby={`pw-t${item.trimester}`}>
+    <div className="site-page-intro tl-intro"><Eyebrow>{u.eyebrow}</Eyebrow><h1>{l.hub.heading}</h1><p>{l.hub.intro}</p></div>
+    <AppPill tool="pregnancy" area="weeks" text={u.hubPill}/>
+    <nav className="tl-links pw-jump" aria-label={u.trimesters}>{l.trimesters.map(item => <a key={item.trimester} className="site-outline-button" href={`#trimestr-${item.trimester}`}>{item.title}</a>)}</nav>
+    {l.trimesters.map(item => <section className="site-section pw-trimester" id={`trimestr-${item.trimester}`} key={item.trimester} aria-labelledby={`pw-t${item.trimester}`}>
       <h2 id={`pw-t${item.trimester}`}>{item.title} <small>{item.range}</small></h2>
-      <ol className="pw-week-grid">{item.weeks.map(week => <li key={week}><a href={basePath + pregnancyWeekPath(week)}>
-        <strong>{pregnancyWeekLabel(week)}</strong><span>{pregnancyWeekSizeShort(week)}</span></a></li>)}</ol>
+      <ol className="pw-week-grid">{item.weeks.map(week => <li key={week}><a href={basePath + localizedWeekPath(week, route.language)}>
+        <strong>{l.label(week)}</strong><span>{l.sizeShort(week)}</span></a></li>)}</ol>
     </section>)}
     <DueDateLink/>
-    <AppGate tool="pregnancy" area="weeks" title="Hər həftənin tam bələdçisi Anacan-dadır" text="Saytda hər həftənin qısa xülasəsi var. Anacan son aybaşı tarixinizə görə həftənizi hesablayır və hər gün sizə aid məsləhət göstərir." locked={WEEK_LOCKED}/>
+    <AppGate tool="pregnancy" area="weeks" title={u.hubGateTitle} text={u.hubGateText} locked={u.locked}/>
     <Disclaimer/>
-    <AppSticky tool="pregnancy" area="weeks" text="Hamiləlik təqvimi Anacan-da"/>
+    <AppSticky tool="pregnancy" area="weeks" text={u.sticky}/>
   </>;
 }
 
 export function PregnancyWeekPage() {
-  const { route, basePath } = useWebsite();
-  const week = pregnancyWeekFromSlug(route.slug), content = week ? pregnancyWeekContent(week) : undefined;
+  const { route, basePath } = useWebsite(), l = useWeekLocale(), u = l.ui;
+  const week = pregnancyWeekFromSlug(route.slug), content = week ? pregnancyWeekContent(week, route.language) : undefined;
   if (!week || !content) return null;
   const sources = pregnancyWeekSources(week, content.sources);
-  const warning = [...content.warning, ...pregnancyWeekSharedWarnings(week)];
-  const link = (target: number) => basePath + pregnancyWeekPath(target);
+  const warning = [...content.warning, ...l.sharedWarnings(week)];
+  const link = (target: number) => basePath + localizedWeekPath(target, route.language);
   const area = `week_${week}`;
   return <>
     <ToolBreadcrumb/>
-    <div className="site-page-intro tl-intro"><Eyebrow>{azOrdinal(pregnancyTrimester(week))} trimestr · {pregnancyWeekLabel(week)}</Eyebrow><h1>{pregnancyWeekHeading(week)}</h1></div>
-    <AppPill tool="pregnancy" area={area} text={`${pregnancyWeekLabel(week)}: tam bələdçi Anacan tətbiqindədir`}/>
-    <aside className="tl-answer" aria-label="Qısa cavab"><strong>Qısa cavab</strong><p>{pregnancyWeekQuick(content)}</p></aside>
-    <section className="tl-prose pw-facts" aria-labelledby="pw-facts"><h2 id="pw-facts">Əsas göstəricilər</h2>
-      <div className="tl-table-wrap"><table className="tl-table pw-table"><tbody>{pregnancyWeekFacts(week).map(fact => <tr key={fact.label}><th scope="row">{fact.label}</th><td>{fact.value}</td></tr>)}</tbody></table></div>
-      <p className="tl-note">Ölçülər Anacan tətbiqindəki həftəlik cədvələ əsaslanır və orta göstəricidir; ultrasəsdə ölçülən rəqəmlər fərqli ola bilər.</p>
+    <div className="site-page-intro tl-intro"><Eyebrow>{l.eyebrow(week)}</Eyebrow><h1>{l.heading(week)}</h1></div>
+    <AppPill tool="pregnancy" area={area} text={u.pill(week)}/>
+    <aside className="tl-answer" aria-label={u.shortAnswer}><strong>{u.shortAnswer}</strong><p>{l.quick(content)}</p></aside>
+    <section className="tl-prose pw-facts" aria-labelledby="pw-facts"><h2 id="pw-facts">{u.factsTitle}</h2>
+      <div className="tl-table-wrap"><table className="tl-table pw-table"><tbody>{l.facts(week).map(fact => <tr key={fact.label}><th scope="row">{fact.label}</th><td>{fact.value}</td></tr>)}</tbody></table></div>
+      <p className="tl-note">{u.factsNote}</p>
     </section>
-    <section className="site-section tl-prose"><h2>Körpənin inkişafı</h2><p>{content.baby[0]}</p></section>
-    <AppGate tool="pregnancy" area={area} title={`${pregnancyWeekLabel(week)}: davamı Anacan tətbiqində`}
-      text="Saytda bu həftənin qısa xülasəsini oxudunuz. Bədəninizdəki dəyişikliklər, əlamətlər, müayinələr, yoxlama siyahısı və gündəlik məsləhətlər tətbiqdədir. Pulsuz yükləyin, son aybaşı tarixinizi daxil edin." locked={WEEK_LOCKED}/>
-    <section className="site-section tl-prose pw-warning" aria-labelledby="pw-warning"><h2 id="pw-warning"><AlertTriangle aria-hidden="true" size={22} strokeWidth={1.8}/>Nə vaxt həkimə müraciət etməli</h2>
-      <p>Aşağıdakılardan hər hansı biri olarsa, gözləmədən həkiminizə və ya doğum evinə müraciət edin; vəziyyət ağırdırsa, 103 təcili tibbi yardım nömrəsinə zəng edin.</p>
+    <section className="site-section tl-prose"><h2>{u.babyTitle}</h2><p>{content.baby[0]}</p></section>
+    <AppGate tool="pregnancy" area={area} title={u.gateTitle(week)} text={u.gateText} locked={u.locked}/>
+    <section className="site-section tl-prose pw-warning" aria-labelledby="pw-warning"><h2 id="pw-warning"><AlertTriangle aria-hidden="true" size={22} strokeWidth={1.8}/>{u.warningTitle}</h2>
+      <p>{u.warningIntro}</p>
       <ul>{warning.map(text => <li key={text}>{text}</li>)}</ul></section>
-    <AppInline tool="pregnancy" area={area} text={`${pregnancyWeekLabel(week)} və sonrakı hər həftə: Anacan sizə gün-gün nə gözlədiyinizi göstərir.`}/>
+    <AppInline tool="pregnancy" area={area} text={u.inline(week)}/>
     <DueDateLink/>
-    <section className="site-section site-faq-section"><h2>Tez-tez verilən suallar</h2><div className="site-faq-list">{content.faq.slice(0, 2).map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
-    <section className="site-section tl-prose"><h2>Mənbələr</h2><ul className="tl-sources">{sources.map(item => <li key={item.url}><a href={item.url} target="_blank" rel="noopener noreferrer">{item.label}<Arrow diagonal/></a></li>)}</ul></section>
-    <nav className="pw-pager" aria-label="Həftələr">
-      {week > 1 ? <a href={link(week - 1)} rel="prev"><ChevronLeft aria-hidden="true" size={18}/><span><small>Əvvəlki</small>{pregnancyWeekLabel(week - 1)}</span></a> : <span/>}
-      <a className="pw-pager-hub" href={basePath + pregnancyWeeksHubPath()}>Bütün həftələr</a>
-      {week < PREGNANCY_WEEK_LAST ? <a href={link(week + 1)} rel="next"><span><small>Növbəti</small>{pregnancyWeekLabel(week + 1)}</span><ChevronRight aria-hidden="true" size={18}/></a> : <span/>}
+    <section className="site-section site-faq-section"><h2>{u.faq}</h2><div className="site-faq-list">{content.faq.slice(0, 2).map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
+    <section className="site-section tl-prose"><h2>{u.sources}</h2><ul className="tl-sources">{sources.map(item => <li key={item.url}><a href={item.url} target="_blank" rel="noopener noreferrer">{item.label}<Arrow diagonal/></a></li>)}</ul></section>
+    <nav className="pw-pager" aria-label={u.weeks}>
+      {week > 1 ? <a href={link(week - 1)} rel="prev"><ChevronLeft aria-hidden="true" size={18}/><span><small>{u.prev}</small>{l.label(week - 1)}</span></a> : <span/>}
+      <a className="pw-pager-hub" href={basePath + localizedWeekHubPath(route.language)}>{u.allWeeks}</a>
+      {week < PREGNANCY_WEEK_LAST ? <a href={link(week + 1)} rel="next"><span><small>{u.next}</small>{l.label(week + 1)}</span><ChevronRight aria-hidden="true" size={18}/></a> : <span/>}
     </nav>
     <Disclaimer/>
-    <AppSticky tool="pregnancy" area={area} text="Hamiləlik təqvimi Anacan-da"/>
+    <AppSticky tool="pregnancy" area={area} text={u.sticky}/>
   </>;
 }
 

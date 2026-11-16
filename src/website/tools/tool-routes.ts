@@ -9,8 +9,8 @@ import { NAMES_COPY, NAMES_ENABLED, NAMES_UPDATED, genderNames, isNamesLanguage,
 import { maternityData, namesIndex } from './tool-data';
 import { leaveDays } from './dekret';
 import { DEKRET_COPY, DEKRET_SLUG, DEKRET_UPDATED, dekretFaq } from './dekret-copy';
-import { PREGNANCY_WEEK_PAGES, isPregnancyWeekPage, pregnancyWeekMeta, pregnancyWeekRobots, pregnancyWeekSitePath, pregnancyWeekSitemapRows, resolvePregnancyWeekRoute } from '../pregnancy-weeks/routes';
-import { SEO_HUB_PAGES, isSeoHubPage, resolveSeoHubRoute, seoHubMeta, seoHubRobots, seoHubSitePath, seoHubSitemapRows } from '../seo-hubs/routes';
+import { PREGNANCY_WEEK_PAGES, isPregnancyWeekPage, pregnancyWeekAlternateLanguages, pregnancyWeekMeta, pregnancyWeekRobots, pregnancyWeekSitePath, pregnancyWeekSitemapRows, resolvePregnancyWeekRoute } from '../pregnancy-weeks/routes';
+import { SEO_HUB_PAGES, isSeoHubPage, resolveSeoHubRoute, seoHubAlternateLanguages, seoHubMeta, seoHubRobots, seoHubSitePath, seoHubSitemapRows } from '../seo-hubs/routes';
 
 export const TOOL_PAGES = ['names', 'namesGender', 'namesLetter', 'nameDetail', 'maternityBenefit', ...PREGNANCY_WEEK_PAGES, ...SEO_HUB_PAGES] as const;
 export type ToolPage = typeof TOOL_PAGES[number];
@@ -20,8 +20,8 @@ const encode = (value: string) => encodeURIComponent(value);
 
 export function toolSitePath(language: WebsiteLanguageCode, kind: ToolPage, slug?: string): string {
   if (kind === 'maternityBenefit') return `/az/${DEKRET_SLUG}/`;
-  if (isPregnancyWeekPage(kind)) return pregnancyWeekSitePath(kind, slug);
-  if (isSeoHubPage(kind)) return seoHubSitePath(kind, slug);
+  if (isPregnancyWeekPage(kind)) return pregnancyWeekSitePath(kind, slug, language);
+  if (isSeoHubPage(kind)) return seoHubSitePath(kind, slug, language);
   const copy = isNamesLanguage(language) ? NAMES_COPY[language]! : undefined;
   if (!copy) throw new Error('WEBSITE_NAMES_LANGUAGE_DISABLED');
   const hub = `/${language}/${encode(copy.hubSlug)}/`;
@@ -57,11 +57,15 @@ export function resolveToolRoute(language: WebsiteLanguageCode, rest: string[]):
  * languages; letters, names and the dekret page are single-language. */
 export function toolAlternateLanguages(route: ToolRoute): WebsiteLanguageCode[] {
   if (route.kind === 'names' || route.kind === 'namesGender') return NAMES_ENABLED.filter(code => !!NAMES_COPY[code]) as WebsiteLanguageCode[];
+  // Pregnancy weeks and SEO content pages: az and ru with a language independent route.slug.
+  if (isPregnancyWeekPage(route.kind)) return pregnancyWeekAlternateLanguages();
+  if (isSeoHubPage(route.kind)) return seoHubAlternateLanguages();
   return [route.language];
 }
 export function toolAlternatePath(route: ToolRoute, language: WebsiteLanguageCode): string | undefined {
   if (!isToolPage(route.kind) || !toolAlternateLanguages(route).includes(language)) return undefined;
-  return toolSitePath(language, route.kind, route.kind === 'namesGender' || language === route.language ? route.slug : undefined);
+  const sharedSlug = route.kind === 'namesGender' || isPregnancyWeekPage(route.kind) || isSeoHubPage(route.kind);
+  return toolSitePath(language, route.kind, sharedSlug || language === route.language ? route.slug : undefined);
 }
 export function toolXDefaultPath(route: ToolRoute): string | undefined {
   const languages = toolAlternateLanguages(route);
@@ -120,8 +124,8 @@ export function toolSitemapEntries(): ToolSitemapEntry[] {
     entries.push({ language: route.language, path, updated, alternates: [...toolAlternateLanguages(route).map(code => ({ code, path: toolAlternatePath(route, code)! })), ...(xDefault ? [{ code: 'x-default', path: xDefault }] : [])] });
   };
   if (maternityData()) add({ language: 'az', kind: 'maternityBenefit' }, DEKRET_UPDATED);
-  // Pregnancy weeks: only once PREGNANCY_WEEKS_PUBLISHED (az-only, no other-language alternates).
-  for (const row of [...pregnancyWeekSitemapRows(), ...seoHubSitemapRows()]) entries.push({ language: 'az', path: row.path, updated: row.updated, alternates: [{ code: 'az', path: row.path }, { code: 'x-default', path: row.path }] });
+  // Pregnancy weeks and SEO content pages: only once published, az and ru (hreflang pairs + x-default to az).
+  for (const row of [...pregnancyWeekSitemapRows(), ...seoHubSitemapRows()]) add({ language: row.language, kind: row.kind, slug: row.slug }, row.updated);
   for (const language of NAMES_ENABLED) {
     const index = namesIndex(language);
     if (!index || !NAMES_COPY[language]) continue;

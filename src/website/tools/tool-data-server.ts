@@ -6,12 +6,16 @@ import { maternityRules } from '../../data/maternityRules';
 import type { NameRow } from './names';
 import { registerMaternity, registerNames } from './tool-data';
 import { PREGNANCY_WEEKS_AZ } from '../pregnancy-weeks/az';
+import { PREGNANCY_WEEKS_RU } from '../pregnancy-weeks/ru';
 import { registerPregnancyWeeks } from '../pregnancy-weeks/registry';
 import * as seoHubContent from '../seo-hubs/content-az';
+import * as seoHubContentRu from '../seo-hubs/content-ru';
 import { registerSeoHubContent } from '../seo-hubs/registry';
 
 registerNames('az', namesAz as NameRow[]);
 registerNames('ka', namesKa as NameRow[]);
 registerMaternity(maternityRules, Object.keys(regional.countries));
-registerPregnancyWeeks(PREGNANCY_WEEKS_AZ);
-registerSeoHubContent(seoHubContent);
+registerPregnancyWeeks(PREGNANCY_WEEKS_AZ, 'az');
+registerPregnancyWeeks(PREGNANCY_WEEKS_RU, 'ru');
+registerSeoHubContent('az', seoHubContent);
+registerSeoHubContent('ru', seoHubContentRu);

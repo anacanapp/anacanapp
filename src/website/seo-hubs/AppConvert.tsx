@@ -15,6 +15,19 @@ import { appDeepLinks, type AppToolId } from '../tools/AppOpen';
 import { storeUrl, trackStoreClick } from '../store-links';
 import './seo-hubs.css';
 
+/** Button texts of the conversion blocks per page language (az, ru). */
+const COPY = {
+  az: { open: 'Tətbiqdə davam et', kickerPremium: 'Anacan tətbiqində · Premium bələdçi', kickerFree: 'Anacan tətbiqində · Pulsuz', fallback: 'Tətbiq açılmadısa, hələ telefonunuzda yoxdur. Pulsuz yükləyin:',
+    trust: 'Hamiləlik, körpə və aybaşı izləmə bir tətbiqdə · 23 dil', download: 'Tətbiqi yüklə', pillCta: 'Pulsuz yüklə', pillText: 'Tam bələdçi Anacan tətbiqindədir',
+    stickySub: 'Pulsuz · iOS və Android', stickyCta: 'Yüklə', close: 'Bağla', region: 'Anacan tətbiqi' },
+  ru: { open: 'Продолжить в приложении', kickerPremium: 'В приложении Anacan · Premium-гид', kickerFree: 'В приложении Anacan · Бесплатно', fallback: 'Если приложение не открылось, его еще нет на телефоне. Скачайте бесплатно:',
+    trust: 'Беременность, малыш и цикл в одном приложении · 23 языка', download: 'Скачать приложение', pillCta: 'Скачать бесплатно', pillText: 'Полный гид в приложении Anacan',
+    stickySub: 'Бесплатно · iOS и Android', stickyCta: 'Скачать', close: 'Закрыть', region: 'Приложение Anacan' },
+};
+function useCopy() { const { route } = useWebsite(); return route.language === 'ru' ? COPY.ru : COPY.az; }
+/** Campaign part of a block: az keeps `<area>`, other languages get `<lang>_<area>` (App Store campaigns carry no language). */
+function useArea(area: string) { const { route } = useWebsite(); return route.language === 'az' ? area : `${route.language}_${area}`; }
+
 type Device = 'ios' | 'android' | 'desktop';
 function device(): Device {
   const ua = navigator.userAgent || '';
@@ -66,8 +79,8 @@ export interface AppGateProps {
   premium?: boolean;
 }
 /** Main block after the short answer: what the website does not show, and the button to get it. */
-export function AppGate({ tool, area, title, text, locked, premium }: AppGateProps) {
-  const { href } = useWebsite();
+export function AppGate({ tool, area: pageArea, title, text, locked, premium }: AppGateProps) {
+  const { href } = useWebsite(), t = useCopy(), area = useArea(pageArea);
   const src = `web-seo-${area}`, placement = `seo_${area}_gate`;
   const { open, fallback } = useAppOpen(tool, src);
   return <section className="sh-gate" aria-labelledby={`sh-gate-${area}`}>
@@ -75,45 +88,45 @@ export function AppGate({ tool, area, title, text, locked, premium }: AppGatePro
     <div className="sh-gate-card">
       <div className="sh-gate-head">
         <img src="/website/brand-glyph-coral.png" width="44" height="44" alt=""/>
-        <div><p className="sh-gate-kicker">{premium ? 'Anacan tətbiqində · Premium bələdçi' : 'Anacan tətbiqində · Pulsuz'}</p>
+        <div><p className="sh-gate-kicker">{premium ? t.kickerPremium : t.kickerFree}</p>
           <h2 id={`sh-gate-${area}`}>{title}</h2></div>
       </div>
       <p className="sh-gate-text">{text}</p>
       <ul className="sh-locked">{locked.map(item => <li key={item}><Lock aria-hidden="true" size={15} strokeWidth={2}/>{item}</li>)}</ul>
       <div className="sh-gate-actions">
-        <a className="site-primary-button sh-gate-open" href={href('download')} onClick={event => open(event, 'gate')} data-app-tool={tool}>Tətbiqdə davam et<Arrow diagonal/></a>
-        {fallback && <p className="sh-fallback" role="status">Tətbiq açılmadısa, hələ telefonunuzda yoxdur. Pulsuz yükləyin:</p>}
+        <a className="site-primary-button sh-gate-open" href={href('download')} onClick={event => open(event, 'gate')} data-app-tool={tool}>{t.open}<Arrow diagonal/></a>
+        {fallback && <p className="sh-fallback" role="status">{t.fallback}</p>}
         <StoreButtons placement={placement} only={fallback}/>
       </div>
-      <p className="sh-gate-trust"><Star aria-hidden="true" size={14}/>Hamiləlik, körpə və aybaşı izləmə bir tətbiqdə · 23 dil</p>
+      <p className="sh-gate-trust"><Star aria-hidden="true" size={14}/>{t.trust}</p>
     </div>
   </section>;
 }
 
 /** Thin banner between sections. */
-export function AppInline({ tool, area, text, cta = 'Tətbiqi yüklə' }: { tool: AppToolId; area: string; text: string; cta?: string }) {
-  const { href } = useWebsite();
+export function AppInline({ tool, area: pageArea, text, cta }: { tool: AppToolId; area: string; text: string; cta?: string }) {
+  const { href } = useWebsite(), t = useCopy(), area = useArea(pageArea);
   const { open, fallback } = useAppOpen(tool, `web-seo-${area}-inline`);
   return <aside className="sh-inline">
     <img src="/website/brand-glyph-coral.png" width="32" height="32" alt=""/>
     <p>{text}</p>
     {fallback ? <StoreButtons placement={`seo_${area}_inline`} only={fallback}/> :
-      <a className="sh-inline-btn" href={href('download')} onClick={event => open(event, 'inline')}>{cta}<Arrow diagonal/></a>}
+      <a className="sh-inline-btn" href={href('download')} onClick={event => open(event, 'inline')}>{cta || t.download}<Arrow diagonal/></a>}
   </aside>;
 }
 
 /** Small pill under the page heading: tells the reader at once that the full version is in the app. */
-export function AppPill({ tool, area, text = 'Tam bələdçi Anacan tətbiqindədir' }: { tool: AppToolId; area: string; text?: string }) {
-  const { href } = useWebsite();
+export function AppPill({ tool, area: pageArea, text }: { tool: AppToolId; area: string; text?: string }) {
+  const { href } = useWebsite(), t = useCopy(), area = useArea(pageArea);
   const { open } = useAppOpen(tool, `web-seo-${area}-pill`);
   return <a className="sh-pill" href={href('download')} onClick={event => open(event, 'pill')}>
-    <img src="/website/brand-glyph-coral.png" width="20" height="20" alt=""/>{text}<span>Pulsuz yüklə</span></a>;
+    <img src="/website/brand-glyph-coral.png" width="20" height="20" alt=""/>{text || t.pillText}<span>{t.pillCta}</span></a>;
 }
 
 const STICKY_KEY = 'anacan_sh_sticky_closed';
 /** Bar fixed to the bottom of the screen after the first scroll; closing it hides it for the session. */
-export function AppSticky({ tool, area, text }: { tool: AppToolId; area: string; text: string }) {
-  const { href } = useWebsite();
+export function AppSticky({ tool, area: pageArea, text }: { tool: AppToolId; area: string; text: string }) {
+  const { href } = useWebsite(), t = useCopy(), area = useArea(pageArea);
   const { open, fallback } = useAppOpen(tool, `web-seo-${area}-sticky`);
   const [shown, setShown] = useState(false), [closed, setClosed] = useState(false);
   useEffect(() => {
@@ -125,11 +138,11 @@ export function AppSticky({ tool, area, text }: { tool: AppToolId; area: string;
   }, []);
   if (closed) return null;
   const close = () => { setClosed(true); try { sessionStorage.setItem(STICKY_KEY, '1'); } catch { /* storage unavailable */ } track('app_sticky_close', { area }); };
-  return <div className={`sh-sticky${shown ? ' is-shown' : ''}`} role="region" aria-label="Anacan tətbiqi">
+  return <div className={`sh-sticky${shown ? ' is-shown' : ''}`} role="region" aria-label={t.region}>
     <img src="/website/brand-glyph-coral.png" width="36" height="36" alt=""/>
-    <p><strong>{text}</strong><span>Pulsuz · iOS və Android</span></p>
+    <p><strong>{text}</strong><span>{t.stickySub}</span></p>
     {fallback ? <StoreButtons placement={`seo_${area}_sticky`} only={fallback}/> :
-      <a className="site-primary-button sh-sticky-btn" href={href('download')} onClick={event => open(event, 'sticky')}>Yüklə</a>}
-    <button type="button" className="sh-sticky-close" onClick={close} aria-label="Bağla"><X size={16}/></button>
+      <a className="site-primary-button sh-sticky-btn" href={href('download')} onClick={event => open(event, 'sticky')}>{t.stickyCta}</a>}
+    <button type="button" className="sh-sticky-close" onClick={close} aria-label={t.close}><X size={16}/></button>
   </div>;
 }
