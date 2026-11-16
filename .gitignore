@@ -77,3 +77,6 @@ scripts/store-screenshots/real-app/scenarios/
 
 # Gradle output of local native plugin packages
 packages/*/android/build/
+scripts/store-screenshots/v2/out/
+scripts/store-screenshots/v2/out-android/
+scripts/store-screenshots/v2/.render-*.html
