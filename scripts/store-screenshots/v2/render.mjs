@@ -16,12 +16,14 @@ import { createRequire } from 'node:module';
 const here = dirname(fileURLToPath(import.meta.url));
 const lang = process.argv[2] || 'az';
 const android = process.env.FORMAT === 'android';
-const copy = JSON.parse(await readFile(join(here, 'copy', `${lang}.json`), 'utf8'));
+/* COPY=cpp-pregnancy reads copy/<lang>-cpp-pregnancy.json (custom product pages) and writes out/<lang>-cpp-pregnancy/. */
+const variant = process.env.COPY ? `${lang}-${process.env.COPY}` : lang;
+const copy = JSON.parse(await readFile(join(here, 'copy', `${variant}.json`), 'utf8'));
 const shots = process.env.SHOTS_DIR || join(here, '..', 'shots', lang);
 const theme = process.env.THEME || 'coral';
 /* Hero image: 'photo' (default, Nano Banana Pro photograph) or 'illustration'. */
 const heroKind = process.env.HERO || 'photo';
-const heroFile = heroKind === 'illustration' ? 'hero.jpg' : theme === 'cream' ? 'hero-photo-cream.jpg' : 'hero-photo-coral.jpg';
+const heroFile = copy.hero ? copy.hero : heroKind === 'illustration' ? 'hero.jpg' : theme === 'cream' ? 'hero-photo-cream.jpg' : 'hero-photo-coral.jpg';
 const W = android ? 432 : 430, H = android ? 768 : 932, SCALE = android ? 2.5 : 3, N = copy.slides.length;
 const url = p => pathToFileURL(p).href;
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
@@ -119,13 +121,13 @@ const require = createRequire(join(here, '..', '..', '..', 'package.json'));
 const { chromium } = require('playwright');
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium' });
 const page = await browser.newPage({ viewport: { width: W * N, height: H }, deviceScaleFactor: SCALE });
-const htmlFile = join(here, `.render-${lang}${android ? '-android' : ''}.html`);
+const htmlFile = join(here, `.render-${variant}${android ? '-android' : ''}.html`);
 await writeFile(htmlFile, html);
 await page.goto(url(htmlFile), { waitUntil: 'load' });
 // Fit each headline line to the slide width.
 await page.evaluate(() => { for (const h of document.querySelectorAll('h1')) { let size = parseFloat(getComputedStyle(h).fontSize); while ([...h.children].some(c => c.scrollWidth > h.clientWidth) && size > 30) { size -= 1; h.style.fontSize = size + 'px'; } } });
 await page.evaluate(() => document.fonts.ready);
-const outDir = join(here, (android ? 'out-android' : 'out') + (theme === 'cream' ? '-cream' : ''), lang);
+const outDir = join(here, (android ? 'out-android' : 'out') + (theme === 'cream' ? '-cream' : ''), variant);
 await mkdir(outDir, { recursive: true });
 for (let i = 0; i < N; i++) {
   const file = join(outDir, `${String(i + 1).padStart(2, '0')}-${copy.slides[i].key}.png`);

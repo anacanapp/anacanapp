@@ -1,0 +1,77 @@
+{
+ "lang": "az",
+ "badge": "Pulsuz · 23 dil",
+ "hero": "hero-photo-cycle.jpg",
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Dövr və ovulyasiya",
+   "title": [
+    "dövrünü tanı,"
+   ],
+   "hl": "planını qur",
+   "sub": "Aybaşı, ovulyasiya və məhsuldar günlərin proqnozu bir tətbiqdə",
+   "cta": "Pulsuz yüklə",
+   "ctaSub": "iOS və Android"
+  },
+  {
+   "key": "cycle",
+   "shot": "flow-top",
+   "eyebrow": "Dövr izləmə",
+   "title": [
+    "dövrünü"
+   ],
+   "hl": "dəqiq bil",
+   "sub": "Növbəti aybaşı, simptomlar və gündəlik məsləhətlər"
+  },
+  {
+   "key": "ttc",
+   "shot": "ttc",
+   "eyebrow": "Hamilə qalmaq",
+   "title": [
+    "hamilə qalmaq"
+   ],
+   "hl": "istəyirsən?",
+   "sub": "Məhsuldar günlər, ovulyasiya testi və hamiləlik şansı bir ekranda"
+  },
+  {
+   "key": "ai",
+   "shot": "ai-flow",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "sualın var?"
+   ],
+   "hl": "cavab burada",
+   "sub": "Dövr, ovulyasiya və sağlamlıq sualların üçün 7/24 köməkçi",
+   "chips": [
+    [
+     "7/24",
+     "hər sual"
+    ]
+   ]
+  },
+  {
+   "key": "calendar",
+   "shot": "flow-cal",
+   "eyebrow": "Ovulyasiya təqvimi",
+   "title": [
+    "ovulyasiya"
+   ],
+   "hl": "təqvimdə",
+   "sub": "Period, proqnoz və məhsuldar günlər rəngli təqvimdə"
+  },
+  {
+   "key": "pregnant",
+   "shot": "bump-home",
+   "eyebrow": "Müsbət test?",
+   "title": [
+    "hamilə olanda da"
+   ],
+   "hl": "səninləyik",
+   "sub": "Bir toxunuşla hamiləlik rejiminə keç, həftə-həftə izlə",
+   "cta": "Pulsuz yüklə",
+   "ctaSub": "iOS və Android"
+  }
+ ]
+}

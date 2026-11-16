@@ -8,7 +8,7 @@ Q=$(python3 -c "import json,sys;print(json.load(open('$H/demo/$L.json'))['ai_que
 NAV='.a-nav-item'
 run() { NODE_PATH=$(npm root -g) timeout 300 node "$H/shoot.cjs" "$SC/$1" "$OUT/tmp" "$2" | grep -E "shot|pageerror" || true; }
 run bump.json '[{"wait":2500,"shot":"hero"},{"scroll":880,"shot":"pregnancy"}]'
-run bump.json "$(python3 -c "import json;print(json.dumps([{'css':'$NAV:nth-of-type(4)','wait':2500},{'fill':'textarea','text':'''$Q'''},{'press':'Enter','wait':5000,'shot':'ai'},{'css':'$NAV:nth-of-type(3)','wait':3500,'shot':'community'}]))")"
+run bump.json "$(python3 -c "import json;print(json.dumps([{'css':'$NAV:nth-of-type(4)','wait':2500},{'click':'Razıyam','optional':True,'wait':2000},{'fill':'textarea','text':'''$Q'''},{'press':'Enter','wait':5000,'shot':'ai'},{'css':'$NAV:nth-of-type(3)','wait':3500,'shot':'community'}]))")"
 run flow.json '[{"wait":2000},{"scroll":470,"shot":"flow"}]'
 run mommy.json '[{"wait":2500,"shot":"mommy"},{"css":".a-nav-item:nth-of-type(2)","wait":2500,"shot":"toolsGrid"},{"css":".a-tool-tile:has(.lucide-mic)","wait":3500,"shot":"tools"}]'
 run partner.json '[{"wait":3000,"shot":"partner"}]'

@@ -1,0 +1,109 @@
+{
+ "lang": "az",
+ "badge": "Pulsuz · 23 dil",
+ "hero": "hero-photo-coral.jpg",
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Körpə izləyici",
+   "title": [
+    "körpənin yuxusu,"
+   ],
+   "hl": "qidası bir yerdə",
+   "sub": "Qidalanma, yuxu, bez və inkişaf: hamısı bir tətbiqdə",
+   "cta": "Pulsuz yüklə",
+   "ctaSub": "iOS və Android"
+  },
+  {
+   "key": "tracker",
+   "shot": "tracker",
+   "eyebrow": "Körpə izləyici",
+   "title": [
+    "qidalanma və yuxu"
+   ],
+   "hl": "bir toxunuşla",
+   "sub": "Sol və sağ döş, şüşə, yuxu və bez qeydləri",
+   "chips": [
+    [
+     "3",
+     "qidalanma bu gün"
+    ],
+    [
+     "2:25",
+     "saat yuxu"
+    ]
+   ]
+  },
+  {
+   "key": "cry",
+   "shot": "cry",
+   "eyebrow": "Ağlama analizi",
+   "title": [
+    "körpə niyə"
+   ],
+   "hl": "ağlayır?",
+   "sub": "Ağlamanı bir neçə saniyə yaz, AI ehtimal olunan səbəbi göstərsin",
+   "chips": [
+    [
+     "10 san",
+     "səs yazısı"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-mommy",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "gecə oyanmaları?"
+   ],
+   "hl": "cavab var",
+   "sub": "Körpə baxımı, əmizdirmə və yuxu sualların üçün 7/24 köməkçi",
+   "chips": [
+    [
+     "7/24",
+     "hər sual"
+    ]
+   ]
+  },
+  {
+   "key": "sleep",
+   "shot": "sleep",
+   "eyebrow": "Yuxu proqnozu",
+   "title": [
+    "növbəti yuxu"
+   ],
+   "hl": "nə vaxt?",
+   "sub": "Oyaqlıq pəncərəsinə görə yuxu proqnozu və xatırlatma",
+   "chips": [
+    [
+     "16:30",
+     "yuxu pəncərəsi"
+    ]
+   ]
+  },
+  {
+   "key": "day",
+   "shot": "mommy-home",
+   "eyebrow": "Hər gün",
+   "title": [
+    "körpənin hər günü"
+   ],
+   "hl": "bir yerdə",
+   "sub": "Gündəlik məlumat, inkişaf və həkim xatırlatmaları",
+   "chips": [
+    [
+     "245",
+     "gün birlikdə"
+    ],
+    [
+     "7 ay",
+     "30 gün"
+    ]
+   ],
+   "cta": "Pulsuz yüklə",
+   "ctaSub": "iOS və Android"
+  }
+ ]
+}
