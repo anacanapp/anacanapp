@@ -20,8 +20,9 @@ function Sources({ items }: { items: HubSource[] }) {
   return <section className="site-section tl-prose"><h2>{useHub().UI.sources}</h2><ul className="tl-sources">{unique.map(item => <li key={item.url}><a href={item.url} target="_blank" rel="noopener noreferrer">{item.label}<Arrow diagonal/></a></li>)}</ul></section>;
 }
 function Faq({ items }: { items: HubFaq[] }) {
+  const label = useHub().UI.faq;
   if (!items.length) return null;
-  return <section className="site-section site-faq-section"><h2>{useHub().UI.faq}</h2><div className="site-faq-list">{items.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>;
+  return <section className="site-section site-faq-section"><h2>{label}</h2><div className="site-faq-list">{items.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>;
 }
 function Answer({ text }: { text: string }) { const label = useHub().UI.shortAnswer; return <aside className="tl-answer" aria-label={label}><strong>{label}</strong><p>{text}</p></aside>; }
 const VerdictChip = ({ verdict, label }: { verdict: Verdict; label: string }) => <span className={`sh-verdict sh-v-${verdict}`}>{label}</span>;

@@ -223,14 +223,14 @@ export const FEVER = {
 export const FEVER_AGES: Array<{ value: FeverAge; label: string }> = [
   { value: 0, label: '3 aydan kiçik' }, { value: 1, label: '3-6 ay' }, { value: 2, label: '6 ay - 5 yaş' }, { value: 3, label: '5 yaşdan böyük' },
 ];
-export const FEVER_RED_FLAGS = [
+export const FEVER_RED_FLAGS: ReadonlyArray<{ id: 'rash' | 'breath' | 'drowsy' | 'fit' | 'skin' | 'neck'; label: string }> = [
   { id: 'rash', label: 'Stəkanla basanda solmayan səpgi' },
   { id: 'breath', label: 'Nəfəs almaqda çətinlik, xırıltı, döş qəfəsinin içəri çəkilməsi' },
   { id: 'drowsy', label: 'Çox süst, oyanmaqda çətinlik, zəif və ya qeyri-adi ağlama' },
   { id: 'fit', label: 'Qıcolma (tutma)' },
   { id: 'skin', label: 'Dəri, dodaqlar və ya dil göyümtül, solğun, ləkəli' },
   { id: 'neck', label: 'Boyun sərtliyi, işığa baxa bilməmə' },
-] as const;
+];
 export const FEVER_ADVICE: Record<FeverCase, { title: string; text: string }> = {
   redFlag: { title: 'Dərhal 103-ə zəng edin', text: 'Seçdiyiniz əlamət ciddi xəstəliyin göstəricisi ola bilər. Temperaturdan asılı olmayaraq təcili yardım çağırın.' },
   under3m: { title: 'Bu gün həkimə müraciət edin', text: '3 aydan kiçik körpədə 38 °C və yuxarı temperatur, körpə özünü yaxşı hiss etsə belə, həkim müayinəsi tələb edir.' },

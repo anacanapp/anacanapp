@@ -50,10 +50,11 @@ const HUB_LABELS: Record<SeoHubLanguage, Record<HubKind, string>> = {
 const hubOf = (kind: SeoHubPage): HubKind => kind === 'solidFoodMonth' ? 'solidFoods' : kind === 'pregnancySafeItem' ? 'pregnancySafe' : kind;
 
 export function seoHubSitePath(kind: SeoHubPage, slug?: string, language: string = 'az'): string {
-  const lang: SeoHubLanguage = isSeoHubLanguage(language) ? language : 'az', slugs = SEO_HUB_SLUGS[lang];
-  if (kind === 'solidFoodMonth') return `/${lang}/${slugs.solidFoods}/${MONTH_SLUG[lang](Number(slug))}/`;
-  if (kind === 'pregnancySafeItem') return `/${lang}/${slugs.pregnancySafe}/${safeUrlSlug(lang, slug || '')}/`;
-  return `/${lang}/${slugs[kind]}/`;
+  // Segments are percent-encoded like every other site path (Russian slugs are Cyrillic).
+  const lang: SeoHubLanguage = isSeoHubLanguage(language) ? language : 'az', slugs = SEO_HUB_SLUGS[lang], e = encodeURIComponent;
+  if (kind === 'solidFoodMonth') return `/${lang}/${e(slugs.solidFoods)}/${e(MONTH_SLUG[lang](Number(slug)))}/`;
+  if (kind === 'pregnancySafeItem') return `/${lang}/${e(slugs.pregnancySafe)}/${e(safeUrlSlug(lang, slug || ''))}/`;
+  return `/${lang}/${e(slugs[kind])}/`;
 }
 export function resolveSeoHubRoute(language: WebsiteLanguageCode, rest: string[]): { kind: SeoHubPage | 'notFound'; slug?: string } | undefined {
   if (!isSeoHubLanguage(language)) return undefined;

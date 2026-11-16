@@ -183,7 +183,7 @@ describe('pregnancy week pages', () => {
       const meta = websiteMeta(boot(path));
       expect(meta.title.length, meta.title).toBeLessThanOrEqual(60);
       expect(meta.canonical).toBe('https://anacan.az' + path);
-      expect(meta.alternates.map(item => item.code)).toEqual(['az', 'x-default']);
+      expect(meta.alternates.map(item => item.code)).toEqual(['az', 'ru', 'x-default']);
     }
     expect(websiteMeta(boot('/az/hamilelik/3-cu-hefte/')).title).toBe('Hamiləliyin 3-cü həftəsi: körpə və əlamətlər | Anacan');
     const graph = websiteSchema(boot('/az/hamilelik/20-ci-hefte/'))['@graph'] as Array<Record<string, unknown>>;
@@ -217,7 +217,7 @@ describe('PREGNANCY_WEEKS_PUBLISHED gate', () => {
     expect(toolRobots(boot(HUB).route)).toBeUndefined();
     const paths = toolSitemapEntries().filter(entry => entry.path.startsWith('/az/hamilelik/'));
     expect(paths.map(entry => entry.path)).toEqual([HUB, ...PREGNANCY_WEEK_NUMBERS.map(pregnancyWeekPath)]);
-    expect(paths[0].alternates.map(item => item.code)).toEqual(['az', 'x-default']);
+    expect(paths[0].alternates.map(item => item.code)).toEqual(['az', 'ru', 'x-default']);
     expect(linked()).toEqual([true, true]);
     expect(renderToString(createElement(Website, { boot: boot('/en/pregnancy/', 'en') }))).not.toContain('heftelik');
   });

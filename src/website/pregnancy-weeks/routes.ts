@@ -16,8 +16,8 @@ export const PREGNANCY_WEEK_PAGES = ['pregnancyWeeks', 'pregnancyWeek'] as const
 export type PregnancyWeekPage = typeof PREGNANCY_WEEK_PAGES[number];
 export const isPregnancyWeekPage = (kind: string): kind is PregnancyWeekPage => (PREGNANCY_WEEK_PAGES as readonly string[]).includes(kind);
 
-export function localizedWeekHubPath(language: string) { const l = weekLocale(language); return `/${isPregnancyWeekLanguage(language) ? language : 'az'}/${l.parent}/${l.hubSlug}/`; }
-export function localizedWeekPath(week: number, language: string) { const l = weekLocale(language); return `/${isPregnancyWeekLanguage(language) ? language : 'az'}/${l.parent}/${l.weekSlug(week)}/`; }
+export function localizedWeekHubPath(language: string) { const l = weekLocale(language); return `/${isPregnancyWeekLanguage(language) ? language : 'az'}/${encodeURIComponent(l.parent)}/${encodeURIComponent(l.hubSlug)}/`; }
+export function localizedWeekPath(week: number, language: string) { const l = weekLocale(language); return `/${isPregnancyWeekLanguage(language) ? language : 'az'}/${encodeURIComponent(l.parent)}/${encodeURIComponent(l.weekSlug(week))}/`; }
 
 export function pregnancyWeekSitePath(kind: PregnancyWeekPage, slug?: string, language = 'az'): string {
   if (kind === 'pregnancyWeeks') return localizedWeekHubPath(language);
@@ -42,7 +42,7 @@ export const pregnancyWeekAlternateLanguages = (): WebsiteLanguageCode[] => [...
 export function pregnancyWeekMeta(route: { language: WebsiteLanguageCode; kind: string; slug?: string }, labels: { home: string }): ToolMeta | undefined {
   if (!isPregnancyWeekPage(route.kind) || !isPregnancyWeekLanguage(route.language)) return undefined;
   const lang = route.language, l = weekLocale(lang);
-  const crumbs = [{ name: labels.home, path: `/${lang}/` }, { name: l.parentLabel, path: `/${lang}/${l.parent}/` }, { name: l.hub.label, path: localizedWeekHubPath(lang) }];
+  const crumbs = [{ name: labels.home, path: `/${lang}/` }, { name: l.parentLabel, path: `/${lang}/${encodeURIComponent(l.parent)}/` }, { name: l.hub.label, path: localizedWeekHubPath(lang) }];
   const robots = pregnancyWeekRobots(route.kind);
   if (route.kind === 'pregnancyWeeks') return { title: l.hub.title, description: l.hub.description, pageType: 'CollectionPage', breadcrumb: crumbs, faq: [],
     items: PREGNANCY_WEEK_NUMBERS.map(week => ({ name: l.label(week), path: localizedWeekPath(week, lang) })), ...(robots ? { robots } : {}) };
