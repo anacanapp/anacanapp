@@ -54,3 +54,14 @@ Gateway `sha256:2717cb92…` (plan `storelinks-web-plan.json`, rollback `rollbac
   `sha256:924304ab…` (backup plan `website-runtime-plan.before-hubs.json`). After the website container is recreated, run
   `docker exec anacan-gateway nginx -s reload`: the gateway kept the old container address and answered 502 for about
   4 minutes until reloaded.
+
+# Russian SEO pages and names in 7 languages (2026-11-16)
+- Russian versions of every SEO content page and of the 42 pregnancy weeks (`content-ru.ts`, `pregnancy-weeks/ru.ts`,
+  `pregnancy-weeks/locale.ts`), hreflang az↔ru, campaigns `web_seo_ru_<area>_<block>`, `/ru/менструация/` and
+  `/ru/критические-дни/` 301 to `/ru/месячные/`. Paths are percent-encoded (a raw Cyrillic path broke the server header).
+- Baby names: each language shows its own names (ru 342, tr 331, kk 215, ka 169, uz 233, es 222, az 329), meanings and
+  origins in that language. ru/tr/kk/ka start from the app `baby_names_db` snapshot; uz and es lists and the additions
+  were written by Claude and are website-only until added to the app database.
+- Deploys: ru gateway `sha256:6b086632…` / website `sha256:c1a9e550…` (plans `ru-web-plan.json`, `website-runtime-plan.before-ru.json`);
+  names gateway `sha256:0c625fcc…` / website `sha256:847c4621…` (plans `names-web-plan.json`, `rollback-names-web-plan.json`,
+  `website-runtime-plan.before-names.json`). Gateway nginx reloaded right after each website switch (no downtime).
