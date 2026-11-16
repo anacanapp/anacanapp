@@ -18,6 +18,10 @@ const lang = process.argv[2] || 'az';
 const android = process.env.FORMAT === 'android';
 const copy = JSON.parse(await readFile(join(here, 'copy', `${lang}.json`), 'utf8'));
 const shots = process.env.SHOTS_DIR || join(here, '..', 'shots', lang);
+const theme = process.env.THEME || 'coral';
+/* Hero image: 'photo' (default, Nano Banana Pro photograph) or 'illustration'. */
+const heroKind = process.env.HERO || 'photo';
+const heroFile = heroKind === 'illustration' ? 'hero.jpg' : theme === 'cream' ? 'hero-photo-cream.jpg' : 'hero-photo-coral.jpg';
 const W = android ? 432 : 430, H = android ? 768 : 932, SCALE = android ? 2.5 : 3, N = copy.slides.length;
 const url = p => pathToFileURL(p).href;
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
@@ -30,14 +34,14 @@ const OBJECTS = [['obj-heart.png', 0.88, 0, 470, 80, -12], ['obj-moon.png', 1.97
 
 const phone = (shot, tilt) => `<div class="phone" style="transform:rotate(${tilt}deg)"><div class="screen"><img src="${url(join(shots, shot + '.png'))}" alt=""></div><span class="island"></span></div>`;
 function slide(s, i) {
-  const tilt = [0, -4, 3, -3, 4, -3, 3, -4, 0][i] || 0;
+  const tilt = theme === 'cream' ? 0 : [0, -4, 3, -3, 4, -3, 3, -4, 0][i] || 0;
   const title = `${s.title.map(t => `<span>${esc(t)}</span>`).join('')}<span class="hl">${esc(s.hl)}</span>`;
   const chips = (s.chips || []).map((c, j) => `<div class="chip chip${j}"><b>${esc(c[0])}</b><span>${esc(c[1])}</span></div>`).join('');
   const cta = s.cta ? `<div class="cta"><div class="cta-btn">${esc(s.cta)}</div><span>${esc(s.ctaSub)}</span></div>` : '';
   if (!s.shot) return `<section class="slide hero" style="left:${i * W}px">
     <div class="brand"><img src="${url(join(here, '..', '..', '..', 'public', 'website', 'brand-glyph-coral.png'))}" alt=""><span>anacan</span></div>
     <p class="eyebrow">${esc(s.eyebrow)}</p><h1>${title}</h1><p class="sub">${esc(s.sub)}</p>
-    <img class="mother" src="${art('hero.jpg')}" alt="">${cta}<p class="badge">${esc(copy.badge)}</p></section>`;
+    <img class="mother${heroKind === 'photo' ? ' photo' : ''}" src="${art(heroFile)}" alt="">${cta}<p class="badge">${esc(copy.badge)}</p></section>`;
   return `<section class="slide" style="left:${i * W}px"><p class="eyebrow">${esc(s.eyebrow)}</p><h1>${title}</h1><p class="sub">${esc(s.sub)}</p>
     <div class="stage">${phone(s.shot, tilt)}${chips}</div>${cta}</section>`;
 }
@@ -85,6 +89,20 @@ h1 .hl{color:var(--butter);font-style:italic}
 .brand img{width:34px;height:34px;border-radius:10px;background:#fff;padding:4px}
 .badge{position:absolute;right:30px;top:${android ? 36 : 62}px;font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px;background:var(--butter);color:var(--ink)}
 
+
+.hero .mother.photo{left:0;width:${W}px;bottom:${android ? 70 : 96}px;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 22%,#000 78%,transparent 100%),linear-gradient(to right,transparent 0%,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0%,#000 22%,#000 78%,transparent 100%),linear-gradient(to right,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-composite:intersect}
+${theme === 'cream' ? `
+body{color:var(--ink);background:linear-gradient(180deg,#fff6f2 0%,#fff1ea 45%,#ffe4dc 100%)}
+.eyebrow{background:#ffe1d9;border-color:#ffc9bb;color:var(--deep)}
+h1 .hl{color:var(--deep)}
+.sub{color:#6b5652}
+.skyline{opacity:.16!important}
+.ribbon path:first-child{stroke:#ffb8a3;opacity:.45}.ribbon path:last-child{stroke:#ff8a7a}
+.phone{box-shadow:0 40px 60px -24px rgba(150,50,40,.35)}
+.chip{box-shadow:0 18px 30px -14px rgba(150,50,40,.35);border:1px solid #ffe1d9}
+.cta{background:var(--deep)}.cta span{color:#fff}
+.badge{background:var(--deep);color:#fff}
+.brand{color:var(--ink)}.brand img{box-shadow:0 4px 10px rgba(150,50,40,.2)}` : ''}
 </style></head><body><div class="pano">
 <img class="skyline" src="${art('skyline.jpg')}" alt=""><img class="skyline r" src="${art('skyline.jpg')}" alt="">
 <svg class="ribbon" viewBox="0 0 ${W * N} ${H}" preserveAspectRatio="none" aria-hidden="true">
@@ -107,7 +125,7 @@ await page.goto(url(htmlFile), { waitUntil: 'load' });
 // Fit each headline line to the slide width.
 await page.evaluate(() => { for (const h of document.querySelectorAll('h1')) { let size = parseFloat(getComputedStyle(h).fontSize); while ([...h.children].some(c => c.scrollWidth > h.clientWidth) && size > 30) { size -= 1; h.style.fontSize = size + 'px'; } } });
 await page.evaluate(() => document.fonts.ready);
-const outDir = join(here, android ? 'out-android' : 'out', lang);
+const outDir = join(here, (android ? 'out-android' : 'out') + (theme === 'cream' ? '-cream' : ''), lang);
 await mkdir(outDir, { recursive: true });
 for (let i = 0; i < N; i++) {
   const file = join(outDir, `${String(i + 1).padStart(2, '0')}-${copy.slides[i].key}.png`);
