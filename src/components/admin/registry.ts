@@ -66,6 +66,7 @@ export const ADMIN_SECTIONS: AdminSection[] = [
   s('epoint-evidence', 'Epoint sübutu', 'commerce', 'AdminEpointEvidence', FileText, 'epoint sübut compliance chargeback transaction əməliyyat'),
   s('coupons', 'Kuponlar', 'commerce', 'AdminCoupons', Ticket, 'coupon kupon endirim promo kod'),
   s('products', 'Məhsullar', 'commerce', 'AdminProducts', Store, 'products məhsul aptek mağaza'),
+  s('olivia', 'Olivia mağazası', 'commerce', 'AdminOliviaShop', ShoppingBag, 'olivia mağaza partner tərəfdaş məhsul shop'),
   s('admob', 'AdMob reklamları', 'commerce', 'AdminAdmob', Megaphone, 'admob ads reklam banner'),
   s('affiliate', 'Affiliate məhsullar', 'commerce', 'AdminAffiliateProducts', Link2, 'affiliate məhsul link'),
   s('marketplace', 'İkinci əl bazarı', 'commerce', 'AdminMarketplace', ShoppingCart, 'marketplace ikinci əl bazar elan'),
