@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Tutgaýlar: beýnide näme bolup geçýär?',
+    summary: 'Tutgaý erbet terbiýäniň netijesi däldir. Bu uly duýgynyň entek kiçijik “tormoz ulgamyny” basyp geçýän pursatydyr.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Beýniniň çuňlugyndaky duýgy ulgamy dogluşdan güýçlüdir: ol howpy, nägileligi we gahary bada-bat duýýar. Bu duýgulary saklaýan we “dur, başga ýol hem bar” diýýän bölek — prefrontal gabyk — takmynan 20 ýaşa çenli ösmegini dowam edýär. 2–4 ýaşly çagalarda bu tapawut iň uludyr. Şonuň üçin tutgaýyň ortasynda çagaňyz Sizi eşidip bilmeýär we düşündirişe jogap bermeýär: beýniniň “pikirlenýän” bölegi wagtlaýyn öçýär.',
+      'Şol pursatda çagaňyz ýeke özi köşeşip bilmeýär; ol asudalygy Siziň bedeniňizden we sesiňizden “karz alýar”. Alymlar muňa bilelikdäki düzgünleşdirme diýýärler. Ene-ata näçe asuda galsa, çaganyň stres ulgamy şonça çalt kadasyna gaýdyp gelýär — we gaýtalandygyça çaga köşeşmegiň bu usulyny öwrenýär we özüne siňdirýär. Gygyrmak we jezalandyrmak bolsa stres gormonlaryny ýokarlandyrýar we tutgaýy uzaldýar.',
+      'Tutgaýlar köplenç şol bir pursatlarda bolýar: ýadawlyk, açlyk, geçişler (oýundan öýe, seýilgähden gitmek), “ýok” diýen sözi eşitmek. Bu pursatlary öňünden görmek tutgaýlaryň ýarysyndan köpüsiniň öňüni alyp biler.',
+    ],
+    tryToday: [
+      'Ilki özüňizi köşeşdiriň: bir gezek çuň dem alyň, egniňizi gowşadyň, sesiňizi peseldiň. Eger Siz asuda bolmasaňyz, ol hem asuda bolup bilmez.',
+      'Az gürläň. Bir-iki gysga sözlem ýeterlik: “Sen gaty gaharlandyň. Men şu ýerde.”',
+      'Hemmeleriň howpsuzlygyny üpjün ediň: eger urýan bolsa, ellerini mylaýymlyk bilen saklaň we özüne zyýan ýetirip biljek zatlary aýyryň.',
+      'Köşeşenden soň ony gujaklaň — diňe şondan soň gysgaça gürleşiň: “Oýun gutardy, şonuň üçin gaty gaharlandyň. Indiki gezek ‘kömek et’ diýip bilersiň.”',
+      'Şu hepde tutgaýlaryň haçan bolýandygyny belläň. Ähtimal, olar ýadaw we aç wagtlara gabat geler.',
+    ],
+    mistakes: [
+      'Tutgaý wagtynda uzyn düşündirişler ýa-da wagyz bermek. Beýni entek diňlemäge taýýar däl — ilki köşeşmek, soňra gürleşmek.',
+      'Tutgaýy togtatmak üçin ýol bermek. Bu indiki gezek has uly tutgaý diýmekdir. Duýga duýgudaşlyk bildiriň, ýöne kararyňyzda durnukly boluň.',
+      'Çagaňyzy utandyrmak: “Utan, hemmeler saňa seredýär.” Utanç duýgulary dolandyrmagy däl — diňe olary gizlemegi öwredýär.',
+      'Tutgaýy “manipulýasiýa” hasaplamak. Kiçi çaga üçin bu köplenç hile däl, eýsem başarnygyň ýetmezçiligidir.',
+    ],
+    byAge: {
+      '1-3': 'Söz baýlygy az, şonuň üçin duýgyny Siz atlandyryň we ýönekeý başga ýoly görkeziň: “Sen gaharlandyň. Aýagyňy ýere dep — ine şeýle!” Bu ýaşda ünsi sowmak gaty gowy netije berýär.',
+      '3-6': 'Asuda pursatda bilelikde “gahar meýilnamasyny” düzüň: dem almak, ýassygy gysmak, ümsüm burça gitmek. Ony suratlar bilen diwara asyň we tutgaý başlanda diňe şoňa görkeziň.',
+    },
+    specialist: [
+      'Eger tutgaýlar yzygiderli 25 minutdan uzak dowam edýän bolsa ýa-da günde bäş gezekden köp bolýan bolsa.',
+      'Eger çagaňyz tutgaý wagtynda özüne çynlakaý zyýan ýetirýän bolsa (kellesini urmak, dişlemek) ýa-da huşuny ýitirýänçä demini saklaýan bolsa — lukmana görkeziň.',
+      'Eger 4–5 ýaşdan soň tutgaýlar azalmagyň ýerine köpelýän bolsa ýa-da sözleýiş, uky ýa-da jemgyýetçilik gatnaşygy barada başga aladalar bar bolsa.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Duýgy tälimçiligi: duýgulary atlandyrmak',
+    summary: 'Duýgulary görmek we atlandyrmak çaganyň öz-özüni dolandyrmagyny berkidýär. Bu hemme zada rugsat bermegi aňlatmaýar.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '1990-njy ýyllarda psiholog Jon Gotman maşgalalary synlap, ene-atalaryň çagalarynyň duýgularyna dört dürli görnüşde jogap berýändigini anyklady: äsgermezlik etmek (“Aglama, hiç zat bolmady”), ýazgarmak, hemme zada ýol bermek we “duýgy tälimçiligi”. Tälimçi ene-ata duýgyny çynlakaý kabul edýär, ony atlandyrýar we çaga bilen bilelikde çözgüt gözleýär — şol bir wagtda hereketlere çäk goýýar.',
+      'Duýgy tälimçiligini ulanýan ene-atalaryň çagalary soňra ünsüni has gowy jemläpdirler, dostlary bilen az dawa edipdirler we stresden has çalt dikelipdirler. Soňky maksatnamalar (meselem, “Tuning in to Kids”) islendik ene-atanyň bu başarnygy öwrenip biljekdigini görkezdi.',
+      'Beýni barlaglary hem gyzykly zady görkezýär: duýgyny sözlere geçirmek (“Men gaharly”, “Men gorkýaryn”) duýgy merkeziniň işjeňligini azaldýar. Diýmek, “atlandyr — köşeşdir” diňe owadan söz däl.',
+    ],
+    tryToday: [
+      'Şu gün üç gezek çagaňyzyň duýgusyny onuň ornunda “ýaly” bolup aýdyň: “Gaty lapykeç bolana meňzeýärsiň.” Ýalňyşsaňyz alada etmäň — ol Sizi düzeder.',
+      'Duýga rugsat beriň, hereketi çäklendiriň: “Gaharlanmak bolýar. Urmak bolmaýar.”',
+      'Okaňyzda gahrymanlaryň ýüzlerine serediň: “Seniň pikiriňçe, ol häzir özüni nähili duýýar?”',
+      'Öz duýgularyňyzy hem asuda sözler bilen aýdyň: “Men birneme ýadadym, şonuň üçin asuda bir käse çaý içjek.” Çagaňyz Size hemmelerden köp öýkünýär.',
+    ],
+    mistakes: [
+      '“Aglama”, “Gorkar ýaly zat ýok”, “Hiç zat bolmady” diýmek. Duýgy ýitmeýär — çagaňyz diňe ony Size görkezmezligi öwrenýär.',
+      'Duýgudaşlygy “ýok” sözüni ýatyrýar öýtmek. Siz doly “Düşünýärin, sen muny gaty isleýärdiň. Ýöne jogap ýene-de ýok” diýip bilersiňiz.',
+      'Duýgular barada diňe kyn pursatlarda gürleşmek. Iň gowy türgenleşik asuda pursatlarda, oýun we kitaplar arkaly bolýar.',
+    ],
+    byAge: {
+      '1-3': 'Ýönekeý sözler: şat, gaharly, gamgyn, gorkan. Aýnada bilelikde ýüz keşplerine öýkünüň.',
+      '3-6': 'Duýgy “termometrini” çekiň: ýaşyl — men asuda, sary — men biynjalyk bolup başlaýaryn, gyzyl — men partlajak. Goý, çagaňyz reňki görkezsin.',
+      '6-12': 'Has inçe sözleri öwrediň: lapykeçlik, utanç, gabanjaňlyk, alada. Muny bedeniniň haýsy ýerinde duýýandygyny soraň.',
+    },
+    specialist: [
+      'Eger çagaňyz uzak wagtlap düýbünden diýen ýaly duýgy görkezmeýän bolsa ýa-da her ownuk zat ony sagatlap biynjalyk edýän bolsa.',
+      'Eger gamgynlyk, gorky ýa-da gahar iki hepdeden köp dowam edip, uka, iýmitlenmäge, mekdebe we dostluga täsir edýän bolsa — çaga psihologyna ýüz tutuň.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Köşeşmek burçy we dem alyş oýunlary',
+    summary: 'Çaga köşeşmegi öwredip bolýar — jeza burçy bilen däl, eýsem rahat ýer we oýunlar bilen.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Öz-özüňi düzgünleşdirmek ilki ene-ata bilen bilelikde, soňra kem-kemden özbaşdak ösýär. Çaga asuda uly adamyň ýanynda näçe köp köşeşse, bu ýoly şonça gowy öwrenýär.',
+      'Haýal, çuň dem almak (esasan-da uzyn dem çykarmak) ýürek urşuny haýalladýar we bedeniň “howp” tertibini öçürýär. Çagalar muny görkezmelerden has gowy oýun arkaly öwrenýärler.',
+    ],
+    tryToday: [
+      'Öýde bilelikde kiçijik “rahat burç” dörediň: ýassyk, ýumşak oýnawaç, bir-iki kitap, duýgy kartlary. Bu jeza ýeri däl — islendik wagt gidip boljak ýer.',
+      '“Gül we şem” oýny: güli ysgaň (burnuňyz bilen dem alyň), şemi öçüriň (agzyňyz bilen haýal dem çykaryň). Bäş gezek.',
+      'Ýagdaý asuda wagty bilelikde türgenleşiň: “Gaharlananymyzda bedenimiz özüni nähili duýýar? Gel, gerek wagty ýadymyza düşer ýaly, häzir asuda wagtymyz dem almagy türgenleşeli.”',
+      'Kiçi çaga bilen burça bilelikde gidiň: “Gel, rahat burça bile gideli.”',
+    ],
+    mistakes: [
+      'Burçy jeza hökmünde ulanmak: “Bar, burçda dur!” Şonda çagaňyz ol ýere gitmekden gaça durar.',
+      'Dem almagy ilkinji gezek tutgaýyň ortasynda öwretjek bolmak. Başarnyklar asuda wagtlarda öwrenilýär.',
+      'Asudalyga “edil häzir” garaşmak. Uly duýgynyň gowşamagy üçin 10–20 minut gerek bolup biler.',
+    ],
+    byAge: {
+      '3-6': 'Garnynyň üstüne oýnawaç goýup, “oýnawajy demiň bilen yraňla” diýmek gaty gowy netije berýär.',
+      '6-12': 'Goý, çagaňyz özüniň köşeşiş sanawyny ýazsyn: aýdym-saz, surat çekmek, gezelenç, bir käse suw. Ol özi saýlan usulyny has köp ulanar.',
+    },
+    specialist: [
+      'Eger çagaňyz köşeşmegi düýbünden diýen ýaly başarmaýan bolsa ýa-da gaharlananda özüni howply alyp barýan bolsa — çaga psihologyna ýüz tutuň.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Mekdep ýaşly çagalarda uly duýgular',
+    summary: 'Gahar, utanç, gabanjaňlyk, lapykeçlik: mekdep ýaşynda duýgular çylşyrymlaşýar we çagalara olara düşünmekde kömek gerek.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Mekdep ýaşyna çenli çagalar duýgularyny gizläp bilýärler, şonuň üçin uly duýgular köplenç öýde — iň ygtybarly adamynyň, ýagny Siziň ýanyňyzda partlaýar. Mekdepden soňky gaharjaňlyk köplenç bütin gün “özüňi saklamagyň” ýadawlygydyr.',
+      'Bu ýaşda özüňi beýlekiler bilen deňeşdirmek başlaýar. Utanç we “men erbet” duýgusy gahar ýaly görünip biler. Çagaňyz duýgyny näçe gowy atlandyryp bilse, ony dolandyrmak şonça aňsatlaşýar.',
+    ],
+    tryToday: [
+      'Mekdepden soň derrew soraglary ýagdyrmaň. Ilki ýeňil nahar, asudalyk ýa-da gujaklamak — soňra gürrüň.',
+      'Bilelikde “duýgy + zerurlyk” sözlemini türgenleşiň: “Men … duýýaryn, sebäbi … . Maňa … gerek.”',
+      'Öz çagalygyňyzdan meňzeş bir wakany gürrüň beriň: “Men 9 ýaşymda menem şeýle utanypdym…”',
+      'Tutgaýdan soň aýyplamazdan seljeriň: “Näme boldy? Bedeniňde näme duýduň? Indiki gezek näme kömek eder?”',
+    ],
+    mistakes: [
+      'Duýgyny kiçeltmek: “Munuň üçin aglamaga degmez.” Onuň üçin bu uly zat.',
+      'Derrew çözgüt bilen ara goşulmak. Käwagt çaga diňe diňlenilmegini isleýär.',
+      'Gahary gyzlara, gamgynlygy bolsa oglanlara “ýaraşmaýar” hasaplamak. Her duýgy her çaga üçin adatydyr.',
+    ],
+    specialist: [
+      'Iki hepdeden köp dowam edýän gamgynlyk, gyzyklanmanyň ýitmegi, uky we işdäniň üýtgemegi ýa-da mekdebe gitmekden ýüz öwürmek.',
+      'Özüne zyýan ýetirmek ýa-da ölüm barada gürlemek: derrew hünärmen kömegini alyň, eger gönüden-göni howp bar bolsa, {emergency} belgä jaň ediň.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Zeýrenip aglamak we ýapyşmak',
+    summary: 'Zeýrenip aglamak nerwleriňize degýär, ýöne bu köplenç ýadawlygyň ýa-da üns isleginiň alamatydyr.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Çagalar haýsy hereketiň netije berýändigini çalt öwrenýärler. Eger zeýrenip aglamak ahyrsoňy isleýän zadyny getirse, ol muny dowam etdirer. Üns — hatda negatiw üns hem — hereketi berkidýär.',
+      'Şol bir wagtda zeýrenip aglamak köplenç açlygyň, ýadawlygyň ýa-da uzak wagtlap ünssüz galmagyň alamatydyr. Sebäbe jogap bermek bu hereketi çalt azaldýar.',
+    ],
+    tryToday: [
+      'Asuda pursatda “güýçli ses” oýnuny oýnaň: şol bir haýyşy zeýrenýän ses bilen we adaty ses bilen aýdyň we bilelikde güläň.',
+      'Zeýrenende asuda aýdyň: “Seni adaty sesiň bilen has gowy eşidýärin.” Adaty sesi bilen gürlände derrew we höwes bilen jogap beriň.',
+      'Gündiz öňünden hereket ediň: sebäpsiz ýygy, gysga üns — göz gatnaşygy, gujaklamak, “Men seni görýärin”.',
+    ],
+    mistakes: [
+      'Ilki “ýok” diýip, zeýrenmek uzaga çekende “bolýar, al” diýmek. Hiç zat zeýrenip aglamagy mundan güýçli öwretmeýär.',
+      'Utandyrmak üçin zeýrenmegi masgaralamak ýa-da oňa öýkünmek.',
+    ],
+    specialist: [
+      'Eger zeýrenip aglamak bilen bilelikde çagaňyz köplenç ýadaw ýa-da reňksiz görünýän bolsa ýa-da işdäsini ýitiren bolsa — lukmançylyk sebäplerini barlamak üçin lukmana görkeziň.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Oňyn düzgün-tertip: çäkler we mähir bilelikde',
+    summary: 'Iň gowy netijeler berk ene-atalardan ýa-da hemme zada rugsat berýän ene-atalardan däl-de, hem mähirli, hem aýdyň ene-atalardan gelýär.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '1960-njy ýyllarda psiholog Diana Baumrind terbiýe stillerini iki ölçeg boýunça suratlandyrdy: mähir (söýgi, üns, jogap bermek) we talaplar/düzüm (aýdyň garaşmalar, çäkler). Ikisi hem ýokary bolan “abraýly” stil iň gowy netijeler bilen baglanyşyklydy: has garaşsyz, özüne has ynamly we özüni alyp barşynda az kynçylygy bolan çagalar.',
+      'Soňraky onýyllyklarda ýüzlerçe barlagy birleşdirýän meta-analizler muny tassyklady: mähirli gatnaşyk we düşündiriş bilen goýlan çäkler az agressiýa we düzgün bozmak bilen, berk gözegçilik we jeza bolsa has köp problemaly hereket bilen baglanyşyklydyr.',
+      'Amerikan Pediatriýa Akademiýasy (2018) we BSGG (2022) ene-atalara şol bir çemeleşmäni maslahat berýär: oňyn gatnaşyk guruň, gowy hereketi görüň we berkidiň, aýdyň garaşmalary goýuň we asuda netijeleri ulanyň. Beden jezasy we kemsidiji sözler maslahat berilmeýär.',
+    ],
+    tryToday: [
+      'Bir düzgüni oňyn görnüşde aýdyň: “Ylgama” däl-de, “Öýde ýöräp gezýäris”.',
+      'Garaşmany öňünden aýdyň: “Dükanda sen meniň elimden tutýarsyň we arabajyga diňe sanawdaky zatlary salýarys.”',
+      'Şu gün gowy hereketi bäş gezek görüň we takyk atlandyryň: “Sumkaňy özüň asdyň — sag bol!” Haýsy hereket üns alýan bolsa, şol ösýär.',
+      'Çägi asuda, gysga, mylaýym ses bilen goýuň, soňra ony ýerine ýetiriň. Gaýtalanýan duýduryşlar bolmasyn.',
+    ],
+    mistakes: [
+      'Söýgini we çäkleri biri-birine garşy goýmak. “Men seni söýýärin, şonuň üçin muňa rugsat bermeýärin” — ikisi bilelikde bolup biler.',
+      'Düzgüni bir gün berjaý etdirip, ertesi ony unutmak. Yzygiderlilik berklikden has möhümdir.',
+      'Diňe ýalňyşlyklara jogap bermek. Eger problemaly hereket çagaňyzyň üns almagynyň ýeke-täk ýoly bolsa, ol ony gaýtalar.',
+    ],
+    byAge: {
+      '1-3': 'Sözlerden has köp gurşaw: howply zatlary elýetmez ýere goýuň we “ýok” sözüni hakykatdan hem möhüm zatlar üçin saklaň.',
+      '3-6': '3–4 sany ýönekeý maşgala düzgüni ýeterlik. Olary suratlar bilen çekiň we görünýän ýere goýuň.',
+      '6-12': 'Düzgünleri bilelikde ara alyp maslahatlaşyň we netijeler barada öňünden ylalaşyň. Çaga düzgüniň bir bölegini özi ýazanda, ony has köp berjaý edýär.',
+    },
+    specialist: [
+      'Eger ähli tagallalaryňyza garamazdan özüni alyp barşyndaky kynçylyklar aýlap maşgala durmuşyny, çagalar bagyny ýa-da mekdebi bozýan bolsa — çaga psihology ýa-da terbiýe maksatnamalary (meselem, PCIT, Triple P) gaty netijelidir.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Urmak näme üçin netije bermeýär — we näme netije berýär',
+    summary: 'Şarpyk derrew boýun egdirip biler, ýöne uzak möhletde hereketi erbetleşdirýär. Bu barada ylmy subutnamalar gaty aýdyňdyr.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '2016-njy ýylda Gerşoff we Grogan-Keýlor 160 000-den gowrak çagany öz içine alýan 75 barlagy birleşdirdiler. Netije: urmak uzak möhletli ýekeje-de oňyn netije bilen baglanyşykly däl — tersine, has köp agressiýa, antisosial hereket, ruhy saglyk problemalary we ene-ata bilen gowşak gatnaşyk bilen baglanyşyklydyr. Bu baglanyşyk hatda “ýeňil” ýa-da “söýgüden” urlanda hem ýüze çykýar.',
+      'Sebäbi ýönekeý: urmak çaga näme etmelidigini öwretmeýär, diňe gorkyny öwredýär. Şeýle hem meseleleriň güýç bilen çözülýändigini görkezýär. Gygyrmak, haýbat atmak we kemsitmek hem meňzeş täsir edýär: barlaglarda berk sözli düzgün-tertip soňky ýyllarda özüni alyp barşyndaky has köp kynçylyk we depressiýa alamatlary bilen baglanyşdyryldy.',
+      'Amerikan Pediatriýa Akademiýasy (2018) we BSGG beden jezasyny ýa-da kemsidiji sözleri maslahat bermeýär. Munuň ýerine netije berýän zatlar: mähirli gatnaşyk, aýdyň düzgünler, gowy hereketi berkitmek, logiki netijeler we köşeşmek üçin wagt.',
+    ],
+    tryToday: [
+      'Özüňiz üçin “dur alamatyny” saýlaň: gaharyňyz gelende elleriňizi jübüňize salyň ýa-da bir ädim yza çekilip, 10-a çenli sanaň.',
+      'Howply hereketi fiziki taýdan, ýöne zyýan ýetirmän togtadyň: elinden tutuň, çagaňyzy göteriň, zady alyň.',
+      'Indiki gezek näme etmelidigini öwrediň: “Doganyň oýnawajyňy alanda, ‘yzyna ber!’ diýip bilersiň — ýa-da meniň ýanyma gel.”',
+      'Eger eýýäm uran bolsaňyz: ötünç soraň, öz hereketiňiz üçin jogapkärçiligi öz üstüňize alyň we meýilnamaňyzyň näme bolandygyny aýdyň. Bu çagaňyza ýalňyşlykdan nähili dikelmelidigini hem öwredýär.',
+    ],
+    mistakes: [
+      '“Meni hem urdular, ýöne men gowy adam bolup ýetişdim” diýip pikir etmek. Köp adam muňa garamazdan gowy ýetişdi, ýöne barlaglar ortaça howpuň ýokarlanýandygyny görkezýär.',
+      'Urmagy “iň soňky çäre” hökmünde saklamak. Hakyky iň soňky çäre köşeşmek üçin arakesme etmek we kömek soramakdyr.',
+      'Beden jezasyny başga bir kemsidiji usul (utandyrmak, haýbat atmak, söýgini gaýgyrmak) bilen çalyşmak.',
+    ],
+    byAge: {
+      '1-3': 'Bu ýaşda iň netijeli usullar: ünsi sowmak, gurşawy üýtgetmek, çagaňyzy howpdan asudalyk bilen daşlaşdyrmak.',
+      '3-6': 'Logiki netijeler we “time-in” (Siziň ýanyňyzda köşeşmek) gowy netije berýär.',
+      '6-12': 'Haýsydyr bir artykmaçlygy (meselem, ekran wagtyny) gysga wagtlyk çäklendirmek we meseläni bilelikde çözmek.',
+    },
+    specialist: [
+      'Eger gaharlananyňyzda özüňizi saklap bilmeýändigiňizi ýa-da çagaňyza zyýan ýetirip biljekdigiňizi duýýan bolsaňyz — bu kömek soramak üçin güýçli sebäpdir. Psiholog ýa-da terbiýe maksatnamasy ýagdaýy üýtgedip biler.',
+      'Eger çagaňyz ýa-da Siz howp astynda bolsaňyz ýa-da öýde zorluk bar bolsa, derrew {emergency} belgä jaň ediň.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Netije we jeza: tapawudy näme?',
+    summary: 'Jezanyň maksady agyrtmak; netijäniň maksady öwretmek. Iň gowy netije hereket bilen baglanyşykly, hormatly we öňünden belli bolýar.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Özüňi alyp barş psihologiýasy hereketi iň köp üýtgedýän zadyň ondan soň bolýan zatdygyny görkezýär. Emma jezalar (urmak, kemsitmek, uzak gadaganlyklar) gorky we öýke döredýär we çaga “nädip tutulmazlyk” barada pikirlenip başlaýar.',
+      'Logiki netije bolsa göni hereket bilen baglanyşykly, gysga we öwrediji bolýar: diwara boýag bilen surat çekdi — bilelikde arassalaýarys; welosiped düzgünini bozdy — şu gün welosiped ýok. Tebigy netijeler (penjeksiz daşaryk çykdy — üşedi) iň güýçli mugallymdyr, ýöne howpsuz bolsalar.',
+    ],
+    tryToday: [
+      '“3 Ş” barlagy: netije hereket bilen baglanyşyklymy, hormatlymy we parasatlymy?',
+      'Netijäni öňünden aýdyň: “Oýnawaçlary ýygnamasaň, ertir olar gutuda dynç alarlar.” Soňra asudalyk bilen ýerine ýetiriň.',
+      'Netijäni gysga saklaň: bir gün ýeterlik. Bir aýlyk gadaganlyk köp zat öwretmeýär — diňe agyrdýar.',
+      '“Arassa sahypa” netijeden soň: wagyz ýok, täzeden başlaýarys.',
+    ],
+    mistakes: [
+      'Gaharlanyp otyrka netije oýlap tapmak: “Bir ýyl welosiped ýok!” Soňra muny ýerine ýetirip bilmeýärsiňiz we sözüňiziň gadyry gaçýar.',
+      'Hereket bilen baglanyşyksyz jeza: öý işini etmedi — doglan gün toýuna gidip bilmeýär.',
+      'Netijäni masgaralamak ýa-da “Men saňa aýdypdym” bilen ulanmak.',
+    ],
+    byAge: {
+      '3-6': 'Netije derrew we gaty gysga bolmaly. Birnäçe sagatdan soň çagaňyz ony hereket bilen baglanyşdyrmaz.',
+      '6-12': 'Netijeleri bilelikde kesgitläň. Çagalar adalatly hasaplaýan düzgünlerini has köp berjaý edýärler.',
+    },
+    specialist: [
+      'Eger hiç bir netije işlemeýän bolsa we hereket howply ýa-da maşgalany ýadatjak derejede güýçli bolsa — çaga psihology bilen gürleşiň we terbiýe maksatnamalaryny öwreniň.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Gygyrman nädip gürleşmeli',
+    summary: 'Gygyrmak derrew ýeňillik berýär, ýöne çagaňyz ses güýjüne öwrenişýär we Sizi az eşidýär. Asuda we ýakyndan gürlemek has güýçlidir.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Barlaglarda yzygiderli gygyrmak, sögünmek we kemsidiji sözler bilen düzgün-tertip soňky ýyllarda özüni alyp barşyndaky has köp kynçylyk we depressiýa alamatlary bilen baglanyşdyryldy — hatda gatnaşyk umuman mähirli bolanda-da. Sebäpleriň biri: gygyrmak çaganyň stres ulgamyny işe girizýär we ol diňlemegiň ýerine özüni goramaga geçýär.',
+      'Gowy habar: ene-atanyň öz-özüni düzgünleşdirmegi öwrenip bolýan başarnykdyr. Gygyrmak köplenç “erbet ene-ata” bolmagyň däl-de, ene-atanyň ýadawlygynyň, açlygynyň we aşa ýüklenmeginiň alamatydyr.',
+    ],
+    tryToday: [
+      'Otagyň beýleki ujundan gygyrmagyň ýerine ýakyn geliň, çagaňyzyň derejesine düşüň, göz gatnaşygyny guruň, adyny tutuň we gysga sözlem bilen gürläň.',
+      'Sesiňizi ýokarlandyrasyňyz geläýende, tersini ediň: pyşyrdaň. Çagalar pyşyrdyny gyzyklanma bilen diňleýärler.',
+      'Gün dowamynda gygyrýan pursatlaryňyzy belläň. Köplenç sagat näçede bolýar? Şol wagt üçin meýilnama düzüň (meselem, ýeňil nahar, zatlary öňünden taýýarlamak).',
+      'Eger gygyran bolsaňyz, düzediň: “Men gygyrdym, bu dogry däldi. Men biynjalykdym, ýöne sesimi ýokarlandyrmaly däldim.”',
+    ],
+    mistakes: [
+      'Her ýalňyşlykdan soň özüňizi ýazgarmak. Bu diňe indiki gezek has köp dartgynlyk döredýär. Maksat kämillik däl, eýsem az gygyrmak we düzetmekdir.',
+      '“Sen meni gygyrmaga mejbur edýärsiň” diýmek. Biz öz duýgularymyz üçin özümiz jogapkär.',
+    ],
+    specialist: [
+      'Eger gahar we gaharjaňlyk her gün diýen ýaly gözegçilikden çykýan bolsa ýa-da ukusyzlyk, gamgynlyk ýa-da umytsyzlyk bilen bilelikde bolýan bolsa — lukman ýa-da psiholog bilen gürleşiň. Ene-atanyň depressiýasy we aladasy bejerilip bilner.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out ýa-da time-in?',
+    summary: 'Köşeşmek üçin gysga arakesme netije berip biler, ýöne kiçi çagalara esasan ýekelik däl — köşeşmäge kömek edýän ýakynlyk gerek.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Nusgawy “time-out” (birnäçe minutlyk asuda arakesme) käbir terbiýe maksatnamalarynyň çäginde öwrenildi we dogry ulanylanda (gysga, asuda, kemsitmesiz, mähirli gatnaşygyň içinde) zyýanly däldigi görkezildi. Ýöne bu çagany otaga gulplamagy ýa-da gorkuzmagy aňlatmaýar.',
+      '“Time-in” çagaňyzyň Siziň ýanyňyzda köşeşmegini aňladýar. Bu kiçi çagalar üçin has laýyk, sebäbi olara entek bilelikdäki düzgünleşdirme gerek. Islendik ýagdaýda maksat jeza däl, eýsem köşeşmek we “täzeden başlamak”.',
+    ],
+    tryToday: [
+      'Ýönekeý düzgün: ýaşynyň her ýyly üçin takmynan bir minut, iň köp 5 minut.',
+      'Ýer ümsüm bolmaly, ýöne gorkunç däl. Çagany hiç haçan garaňky otaga gulplamaň.',
+      'Time-in üçin: “Gel, meniň ýanymda otur. Bilelikde dem alalyň.”',
+      'Arakesmeden soň gysgaça “gel, täzeden başlalyň” — wagyz ýok.',
+    ],
+    mistakes: [
+      'Time-out-y uzak wagtlap, ýygy-ýygydan we haýbat bilen ulanmak.',
+      'Arakesmäni kemsitme bilen birleşdirmek: “Git, seni görmek islemeýärin.”',
+    ],
+    specialist: [
+      'Eger çagaňyz her arakesmede aşa gorky ýa-da howsala başdan geçirýän bolsa ýa-da aýrylyş pursatlary ony basyp alýan bolsa — hünärmen bilen gürleşiň.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Maşgala düzgünleri: az, aýdyň, yzygiderli',
+    summary: 'Çagalar çäkleri barlaýarlar, sebäbi olaryň henizem bardygyny bilmek isleýärler. Durnukly çäk howpsuzlyk duýgusyny berýär.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Öňünden bilinýän gurşaw çaganyň stres ulgamyny köşeşdirýär. Barlaglarda aýdyň düzgünler we gündelik tertip has gowy uky, özüni alyp barşyndaky az kynçylyk we has güýçli öz-özüňi dolandyrmak bilen baglanyşyklydyr.',
+      'Iň gowy işleýän düzgünler az (3–5), oňyn dilde ýazylan we iki ene-ata tarapyndan birmeňzeş ulanylýan düzgünlerdir.',
+    ],
+    tryToday: [
+      'Maşgala ýygnagyny geçiriň: her kim bir düzgün teklip edýär we bilelikde 3–5 esasy düzgüni saýlaýarsyňyz.',
+      'Düzgünleri oňyn ýazyň: “Mylaýym eller”, “Kimdir biri gürlände biri-birimizi diňleýäris”, “Nahardan soň tabaklar aşhana gidýär”.',
+      'Düzgünler bilen bilelikde netijeler barada hem ylalaşyň.',
+      'Uly adamlar hem düzgünleri berjaý edýärler. Çagalar Siziň sözleriňizden has köp mysalyňyza seredýärler.',
+    ],
+    mistakes: [
+      'Her täze mesele üçin täze düzgün oýlap tapmak. Aşa köp düzgün düzgünsizlik bilen deňdir.',
+      'Ejesi bilen bir düzgün, kakasy ýa-da mamasy bilen başga düzgün. Ilki uly adamlar öz aralarynda ylalaşmaly.',
+    ],
+    specialist: [
+      'Eger maşgalada düzgünler barada yzygiderli, dartgynly dawalar bar bolsa, maşgala maslahatçysy kömek edip biler.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: '“Ýok!” diýýän çaga: injiklik bilen nädip başa çykmaly',
+    summary: '“Ýok” döwri çagaňyzyň “Men aýratyn adam” diýip açyş edýän döwrüdir. Oňa garşy göreşmek netije bermeýär — saýlaw bermek netije berýär.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Ikinji ýaşynda çagalar öz erkiniň bardygyny açýarlar. Garaşsyzlyk zerurlygy esasy psihologik zerurlyklaryň biridir: çaga näçe köp gözegçilik duýgusyny alsa, hyzmatdaşlyga şonça taýýar bolýar.',
+      'Barlaglar “gözegçilik edýän” diliň (“Edil häzir geýin!”) garşylygy artdyrýandygyny, saýlawlaryň we düşündirişleriň bolsa hyzmatdaşlygy artdyrýandygyny görkezýär.',
+    ],
+    tryToday: [
+      'Iki kabul ederlikli saýlaw hödürläň: “Ilki dişlermi ýa-da pižamamy?”',
+      '“Hawa/ýok” soragynyň ýerine tassyklama ulanyň: “Indi geýinmegiň wagty” — “Geýineliňmi?” däl.',
+      'Muny oýna öwüriň: “Göreli, kim joraby has çalt geýer — senmi ýa-da aýyjykmy?”',
+      'Möhüm bolmadyk söweşlerden el çekiň: futbolka tersine geýlen bolsa, dünýä ýumrulmaz.',
+    ],
+    mistakes: [
+      'Her “ýok” sözüni güýç göreşine öwürmek.',
+      'Saýlaw hödürläp, soňra çagaňyzyň saýlan zadyny kabul etmezlik.',
+    ],
+    specialist: [
+      'Eger çagaňyz haýyşlaryň hiç birine diýen ýaly jogap bermeýän bolsa, adyna seslenmeýän bolsa ýa-da beýlekiler bilen aragatnaşyk gurmak oňa kyn bolsa — ösüşini barlatmak üçin lukmana görkeziň.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

@@ -1,5 +1,5 @@
 /**
- * Vaccine names, ages, doses and routes in the app language (all 23), derived from stable schedule data:
+ * Vaccine names, ages, doses and routes in the app language (all 25), derived from stable schedule data:
  *  - the vaccine `code` (BCG, HepB, MMR...) picks a translated description; the abbreviation stays as is;
  *  - the age is parsed from the Azerbaijani source label (`age_label_az`: "2 aylıq", "4-6 yaş", "Doğulanda")
  *    and formatted with Intl units, so ranges survive; the dose from `dose_label_az` / `dose_number`;
@@ -10,6 +10,7 @@
 import { appLanguageLocale, normalizeAppLanguage } from './app-languages';
 import { vaccineTiming } from './vaccine-schedule';
 import { formatTr, tr } from './tr';
+import { turkmenOrdinalSuffix } from './utils';
 
 type Term = 'tb' | 'hepB' | 'hepA' | 'diph' | 'tet' | 'pert' | 'hib' | 'polio' | 'pneumo' | 'rota' | 'measles' | 'mumps'
   | 'rubella' | 'varicella' | 'mening' | 'je' | 'yf' | 'hpv' | 'flu';
@@ -76,6 +77,11 @@ export const VACCINE_LABEL_PACKS: Record<string, LangPack> = {
     'Төрөлгөндө|{n}-доза|Ревакцинация|Экинчи ревакцинация|Ревакцинация|Булчунга|Ооз аркылуу|Тери астына|Тери ичине'),
   et: P('tuberkuloos|B-hepatiit|A-hepatiit|difteeria|teetanus|läkaköha|Haemophilus influenzae tüüp b|lastehalvatus|pneumokokk|rotaviirus|leetrid|mumps|punetised|tuulerõuged|meningokokk|Jaapani entsefaliit|kollapalavik|inimese papilloomiviirus|gripp',
     'Sündimisel|{n}. annus|Tõhustusannus|Teine tõhustusannus|Tõhustusannus|Lihasesse|Suu kaudu|Naha alla|Nahasiseselt'),
+  // Turkmen ordinals follow vowel harmony after digits (1-nji, 6-njy): {ord} is filled per dose number.
+  tk: P('inçekesel|B gepatiti|A gepatiti|difteriýa|tetanus|göküşük|gemofil ýokançlygy (b görnüşi)|poliomiýelit|pnewmokokk ýokançlygy|rotawirus|gyzamyk|parotit|gyzamyjyk|suwçiçek|meningokokk ýokançlygy|Ýapon ensefaliti|sary gyzzyrma|adamyň papilloma wirusy|dümew',
+    'Doglanda|{n}-{ord} doza|Rewaksinasiýa|Ikinji rewaksinasiýa|Rewaksinasiýa|Myşsa içine|Agyz arkaly|Deri astyna|Deri içine'),
+  uk: P('туберкульоз|гепатит B|гепатит A|дифтерія|правець|кашлюк|гемофільна інфекція типу b|поліомієліт|пневмококова інфекція|ротавірус|кір|паротит|краснуха|вітряна віспа|менінгококова інфекція|японський енцефаліт|жовта гарячка|вірус папіломи людини|грип',
+    'При народженні|Доза {n}|Ревакцинація|Друга ревакцинація|Ревакцинація|Внутрішньом’язово|Перорально|Підшкірно|Внутрішньошкірно'),
 };
 
 /** Vaccine code (upper-cased) → descriptive terms + the abbreviation that stays untranslated. */
@@ -191,7 +197,7 @@ export function vaccineDoseLabel(row: RowLike, language: string): string {
   if (/^bustər$/i.test(source)) return p.booster;
   const dose = /^(\d+)\s*-\s*(?:ci|cı|cu|cü|ncı|nci|ncu|ncü)\s+doza(?:\s*\((.+)\))?$/i.exec(source);
   if (!dose) return fallback;
-  const label = p.dose.replace('{n}', dose[1]);
+  const label = p.dose.replace('{n}', dose[1]).replace('{ord}', turkmenOrdinalSuffix(Number(dose[1])));
   if (!dose[2]) return label;
   if (/^doğulanda$/i.test(dose[2].trim())) return `${label} (${p.birth.charAt(0).toLocaleLowerCase(appLanguageLocale(lang)) + p.birth.slice(1)})`;
   return fallback;
