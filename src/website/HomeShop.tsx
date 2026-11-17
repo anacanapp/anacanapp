@@ -76,7 +76,7 @@ function BookGrid({ books }: { books: ShopBook[] | null }) {
         </a>
         : <span key={i} className="hs-book hs-skel" aria-hidden="true"><span className="hs-cover" /></span>)}
     </div>}
-    <p className="hs-note">1 kitab 4 ₼, 10+ kitab hər biri 2 ₼. Ödənişdən sonra PDF e-poçtla gəlir.</p>
+    <p className="hs-note">1 kitab 2,99 ₼, 10+ kitab hər biri 1,50 ₼. Ödənişdən sonra PDF e-poçtla gəlir.</p>
   </div>;
 }
 

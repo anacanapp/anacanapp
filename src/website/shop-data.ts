@@ -60,7 +60,7 @@ export async function startShopCheckout(body: Record<string, unknown>): Promise<
 }
 
 // ---------- pricing previews (server is authoritative) ----------
-export const bookUnit = (n: number) => n >= 10 ? 2 : n >= 5 ? 2.6 : n >= 3 ? 3 : 4;
+export const bookUnit = (n: number) => n >= 10 ? 1.5 : n >= 5 ? 2 : n >= 3 ? 2.5 : 2.99;
 export const bookTotal = (n: number) => Math.round(bookUnit(n) * n * 100) / 100;
 export const nextTier = (n: number) => [3, 5, 10].find((tier) => n < tier) ?? null;
 export const PHOTO_BOX = { extra: 18, image: 'https://api.anacan.az/storage/v1/object/public/assets/cakes/cake-1793813000-pkg-foto-qutusu.jpg' };

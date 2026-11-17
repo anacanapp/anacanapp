@@ -257,8 +257,8 @@ function Guide() {
       'Kitablarım: alınmış kitablar və "PDF yüklə" düyməsi.',
     ]],
     ['Qiymət və paketlər', [
-      'Qiyməti səbətdəki kitab sayı müəyyən edir: 1–2 kitab 4 ₼, 3–4 kitab 3 ₼, 5–9 kitab 2,60 ₼, 10+ kitab 2 ₼ (hər kitab üçün).',
-      'Məsələn: 1 kitab 4 ₼, 3 kitab 9 ₼, 5 kitab 13 ₼, 10 kitab 20 ₼. Səbət növbəti pilləyə nə qədər kitab qaldığını göstərir.',
+      'Qiyməti səbətdəki kitab sayı müəyyən edir: 1–2 kitab 2,99 ₼, 3–4 kitab 2,50 ₼, 5–9 kitab 2 ₼, 10+ kitab 1,50 ₼ (hər kitab üçün).',
+      'Məsələn: 1 kitab 2,99 ₼, 3 kitab 7,50 ₼, 5 kitab 10 ₼, 10 kitab 15 ₼. Səbət növbəti pilləyə nə qədər kitab qaldığını göstərir.',
       'Məbləği həmişə server hesablayır; tətbiqdən gələn qiymət nəzərə alınmır.',
     ]],
     ['Ödəniş axını (Epoint)', [

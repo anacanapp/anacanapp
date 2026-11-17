@@ -97,7 +97,7 @@ function BooksShop() {
       <h1>Uşağınızın yaşına uyğun <em>çap kitabları</em></h1>
       <p>6 aydan 6 yaşa qədər {books?.length || 70} kitab: boyama, say, hərflər, məntiq və nitq oyunları. Ödənişdən sonra PDF linkləri e-poçtunuza gəlir, evdə A4 vərəqə çap edirsiniz.</p>
       <dl className="shop-tiers">
-        {[['1 kitab', '4 ₼'], ['3+ kitab', '3 ₼'], ['5+ kitab', '2,60 ₼'], ['10+ kitab', '2 ₼']].map(([a, b]) => <div key={a}><dt>{a}</dt><dd>{b}<small>{a === '1 kitab' ? '' : ' / kitab'}</small></dd></div>)}
+        {[['1 kitab', '2,99 ₼'], ['3+ kitab', '2,50 ₼'], ['5+ kitab', '2 ₼'], ['10+ kitab', '1,50 ₼']].map(([a, b]) => <div key={a}><dt>{a}</dt><dd>{b}<small>{a === '1 kitab' ? '' : ' / kitab'}</small></dd></div>)}
       </dl>
       <ul className="shop-facts"><li>A4, rəngli və ya ağ-qara</li><li>Dərhal e-poçtla</li><li>Kartla təhlükəsiz ödəniş</li></ul>
       <Banner status={status} kind="books" />
@@ -119,7 +119,7 @@ function BooksShop() {
             </div>
           </article>;
         })}</div>}
-    {items.length > 0 && <CartBar summary={`${items.length} kitab · ${money(bookTotal(items.length))}`} hint={tier ? `${tier - items.length} kitab da əlavə edin, hər biri ${money(bookUnit(tier))} olsun` : 'Ən sərfəli qiymət: kitabı 2 ₼'} onOpen={() => setCheckout(true)} />}
+    {items.length > 0 && <CartBar summary={`${items.length} kitab · ${money(bookTotal(items.length))}`} hint={tier ? `${tier - items.length} kitab da əlavə edin, hər biri ${money(bookUnit(tier))} olsun` : 'Ən sərfəli qiymət: kitabı 1,50 ₼'} onOpen={() => setCheckout(true)} />}
     {open && <Sheet title={open.title} onClose={() => setOpen(null)}>
       <div className="shop-detail"><img src={coverUrl(open)} alt={open.title} />
         <div>

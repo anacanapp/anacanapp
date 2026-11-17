@@ -4,13 +4,13 @@ import { bookOrderTotal, bookUnitPrice, nextBookTier } from './pricing';
 import { BOOKS, bookAgeForMonths } from './catalog';
 
 describe('printable book pricing', () => {
-  it('lowers the price per book with the bundle size (4 → 2 AZN)', () => {
-    expect([1, 2, 3, 4, 5, 9, 10, 70].map(bookUnitPrice)).toEqual([4, 4, 3, 3, 2.6, 2.6, 2, 2]);
-    expect([1, 3, 5, 10].map(bookOrderTotal)).toEqual([4, 9, 13, 20]);
+  it('lowers the price per book with the bundle size (2.99 → 1.50 AZN)', () => {
+    expect([1, 2, 3, 4, 5, 9, 10, 70].map(bookUnitPrice)).toEqual([2.99, 2.99, 2.5, 2.5, 2, 2, 1.5, 1.5]);
+    expect([1, 3, 5, 10].map(bookOrderTotal)).toEqual([2.99, 7.5, 10, 15]);
   });
   it('nudges to the next cheaper tier', () => {
-    expect(nextBookTier(1)).toEqual({ add: 2, unit: 3 });
-    expect(nextBookTier(4)).toEqual({ add: 1, unit: 2.6 });
+    expect(nextBookTier(1)).toEqual({ add: 2, unit: 2.5 });
+    expect(nextBookTier(4)).toEqual({ add: 1, unit: 2 });
     expect(nextBookTier(10)).toBeNull();
   });
   it('is identical to the server copy', () => {

@@ -7,7 +7,7 @@ import { findNews, isNewsLanguage, NEWS_LABELS, newsIn } from './news';
 
 /** Azerbaijani-only shop pages (Kitablar, Tortlar): their own copy, no other-language alternates. */
 const SHOP_META={
-  books:['PDF çap kitabları uşaqlar üçün','6 aydan 6 yaşa qədər 70 çap kitabı: boyama, say, hərflər, məntiq. PDF e-poçtla gəlir, evdə A4 çap edin. 1 kitab 4 ₼, 10 kitabdan 2 ₼.'],
+  books:['PDF çap kitabları uşaqlar üçün','6 aydan 6 yaşa qədər 70 çap kitabı: boyama, say, hərflər, məntiq. PDF e-poçtla gəlir, evdə A4 çap edin. 1 kitab 2,99 ₼, 10 kitabdan 1,50 ₼.'],
   cakes:['Uşaq və ana tortları, bento tortlar','Aylıq bento tortlar, 1 yaş paketi, hamiləlik və ailə tortları. Bakıda çatdırılma və ya götürmə, sifariş 48 saat əvvəldən.'],
 } as const;
 /** News (az, en): the list uses NEWS_LABELS, detail pages use the item title and lead. */
