@@ -12,5 +12,7 @@
   "nl": {"locale": "nl-NL", "description": "Dutch (nl-NL), fluent Netherlands Dutch, friendly je/jij form, concise conventional app terminology and accurate parenting/medical language."},
   "sv": {"locale": "sv-SE", "description": "Swedish (sv-SE), fluent modern Swedish, warm du form, concise natural UI labels and accurate parenting/medical terms."},
   "ky": {"locale": "ky-KG", "description": "Kyrgyz (ky-KG) in Cyrillic script, fluent modern literary Kyrgyz as used in Kyrgyzstan; warm respectful Сиз form and natural parenting-app terminology."},
-  "et": {"locale": "et-EE", "description": "Estonian (et-EE), fluent modern Estonian with correct diacritics and grammatical cases; warm informal sina form, concise natural UI labels and accurate parenting/medical terms."}
+  "et": {"locale": "et-EE", "description": "Estonian (et-EE), fluent modern Estonian with correct diacritics and grammatical cases; warm informal sina form, concise natural UI labels and accurate parenting/medical terms."},
+  "tk": {"locale": "tk-TM", "description": "Turkmen (tk-TM) in the official Latin alphabet, fluent modern standard Turkmen; warm respectful Siz form and natural parenting-app terminology."},
+  "uk": {"locale": "uk-UA", "description": "Ukrainian (uk-UA), fluent modern standard Ukrainian without Russianisms or surzhyk; warm respectful ви form (lowercase), concise natural UI labels and accurate medical terms."}
 }
