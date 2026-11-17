@@ -108,12 +108,21 @@ export const shopDiscount = (p: Pick<PartnerProduct, 'price' | 'originalPrice'>)
 export const formatManat = (n: number) => `${n.toFixed(2).replace('.', ',')} ₼`;
 
 /** Partner product link with Anacan attribution (phase 1: the sale happens on the partner's site). */
-export function partnerLink(url: string, campaign: string) {
+/** Random click token for sales tracking (anacan_click), made on the device and registered with shop_partner_click_v1. */
+export function newClickToken(): string {
+  const bytes = new Uint8Array(18);
+  if (typeof crypto !== 'undefined' && crypto.getRandomValues) crypto.getRandomValues(bytes);
+  else for (let i = 0; i < bytes.length; i++) bytes[i] = Math.floor(Math.random() * 256);
+  return btoa(String.fromCharCode(...bytes)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+export function partnerLink(url: string, campaign: string, click?: string) {
   try {
     const u = new URL(url);
     u.searchParams.set('utm_source', 'anacan');
     u.searchParams.set('utm_medium', 'app');
     u.searchParams.set('utm_campaign', campaign.replace(/[^a-z0-9_-]/gi, '_').slice(0, 60) || 'shop');
+    if (click && /^[A-Za-z0-9_-]{20,64}$/.test(click)) u.searchParams.set('anacan_click', click);
     return u.toString();
   } catch {
     return 'https://anacan.az/';

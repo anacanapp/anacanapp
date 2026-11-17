@@ -3,7 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { getBackendConfig } from '@/integrations/supabase/backend-config';
 import { useAuth } from '@/hooks/useAuth';
-import { storefrontFromRpc, type ShopCollection, type Storefront } from '@/lib/partner-shop';
+import { newClickToken, partnerLink, storefrontFromRpc, type ShopCollection, type Storefront } from '@/lib/partner-shop';
 
 // The partner RPCs are newer than the generated types.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -55,6 +55,18 @@ export function trackShopImpressions(ids: string[], placement: string) {
 }
 export const trackShopEvent = (id: string | string[], event: Exclude<ShopEvent, 'impression'>, placement: string) =>
   send(Array.isArray(id) ? id : [id], event, placement);
+
+/**
+ * Outbound visit to a partner's site: records the 'site' event, registers a click token for sales tracking
+ * (the partner's Anacan SDK reports the order with it) and returns the link to open. Opening is not delayed
+ * by the registration, so popup blockers and the native in-app browser keep working.
+ */
+export function partnerVisitLink(productId: string, url: string, placement: string, campaign: string) {
+  const click = newClickToken();
+  send([productId], 'site', placement);
+  try { void db.rpc('shop_partner_click_v1', { p_product: productId, p_token: click, p_placement: placement }).then(() => undefined, () => undefined); } catch { /* never blocks */ }
+  return partnerLink(url, campaign, click);
+}
 
 /* Basket: kept on the device (phase 1 checks out on the partner's site, nothing is ordered through Anacan yet). */
 const BASKET_KEY = 'anacan_partner_basket_v1';

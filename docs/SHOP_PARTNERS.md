@@ -60,3 +60,11 @@ partnyorun kiçik ikonu, məhsul səhifəsində "by <loqo>" var.
 ## Hamıya açmaq
 
 Admin › Partnyor mağazaları › Ayarlar › Status "Canlı". Kod dəyişikliyi lazım deyil. UI mətnləri hazırda Azərbaycancadır.
+
+## Satışların ölçülməsi (partnyor saytında sifariş, model V2)
+
+Partnyorun öz saytında tamamlanan sifarişlər Anacan SDK ilə avtomatik ölçülür. Ətraflı: `docs/PARTNER_TRACKING_SDK.md`.
+- Tətbiqdən hər keçidə `anacan_click` kodu əlavə olunur.
+- Partnyorun saytına `https://app.anacan.az/sdk/anacan-partner.js` qoyulur, server bildirişləri `partner-conversion` funksiyasına gəlir.
+- Paneldə **İnteqrasiya** bölməsi var: açıq açar, server açarı (bir dəfə göstərilir), quraşdırma kodu, kuponlar, izlənən sifarişlər və komissiya.
+- Komissiya yalnız təsdiqlənmiş və çatdırılmış sifarişlərdən hesablanır.

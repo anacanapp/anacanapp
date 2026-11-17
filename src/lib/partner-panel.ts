@@ -40,6 +40,51 @@ export interface PanelTeam {
   members: Array<{ user_id: string; email: string | null; role: Exclude<PartnerRole, 'admin'>; created_at: string; me: boolean }>;
   invites: Array<{ id: string; email: string; role: Exclude<PartnerRole, 'admin'>; expires_at: string; created_at: string }>;
 }
+export type TrackedStatus = 'pending' | 'confirmed' | 'delivered' | 'cancelled' | 'returned';
+export interface TrackedOrder {
+  id: string; order_id: string; amount: number; currency: string; status: TrackedStatus; source: 'pixel' | 'server' | 'manual';
+  verified: boolean; by: 'click' | 'coupon'; coupon: string | null; commission: number; product_name: string | null; placement: string | null;
+  items: Array<{ sku?: string; name?: string; quantity?: number; price?: number }>; ordered_at: string; updated_at: string;
+}
+export interface PanelTracking {
+  from: string; to: string; test: boolean; key: string | null; has_secret: boolean; secret_set_at: string | null; attribution_days: number;
+  coupons: string[]; website_url: string | null; commission_pct: number | null;
+  last_order_at: string | null; last_pixel_at: string | null; last_server_at: string | null;
+  summary: { clicks: number; orders: number; amount: number; pending: number; confirmed: number; delivered: number; cancelled: number; returned: number;
+    payable_amount: number; commission: number; expected_commission: number; by_click: number; by_coupon: number; verified: number };
+  orders: TrackedOrder[];
+}
+export const TRACKED_STATUS_LABEL: Record<TrackedStatus, string> = {
+  pending: 'Gözləyir', confirmed: 'Təsdiqlənib', delivered: 'Çatdırılıb', cancelled: 'Ləğv edilib', returned: 'Qaytarılıb',
+};
+export const TRACKED_SOURCE_LABEL: Record<TrackedOrder['source'], string> = { pixel: 'Sayt kodu', server: 'Server', manual: 'Əl ilə' };
+/** Public endpoint and script the partner installs (docs/PARTNER_TRACKING_SDK.md). */
+export const TRACKING_ENDPOINT = 'https://api.anacan.az/functions/v1/partner-conversion';
+export const TRACKING_SCRIPT = 'https://app.anacan.az/sdk/anacan-partner.js';
+
+/** Install snippets shown in the panel for a partner's public key. */
+export function trackingSnippets(pk: string) {
+  const head = `<script async src="${TRACKING_SCRIPT}" data-key="${pk}"></script>`;
+  const order = [
+    '<script>',
+    '  window.anacan = window.anacan || function () { (anacan.q = anacan.q || []).push(arguments); };',
+    "  anacan('order', {",
+    "    order_id: '{{SİFARİŞ_NÖMRƏSİ}}',",
+    '    total: {{ÜMUMİ_MƏBLƏĞ}},',
+    "    currency: 'AZN',",
+    "    items: [{ sku: '{{SKU}}', name: '{{AD}}', quantity: {{SAY}}, price: {{QİYMƏT}} }]",
+    '  });',
+    '</script>',
+  ].join('\n');
+  const server = [
+    `curl -X POST ${TRACKING_ENDPOINT} \\`,
+    "  -H 'Authorization: Bearer sk_…' -H 'Content-Type: application/json' \\",
+    `  -d '{"key":"${pk}","order":{"order_id":"100045","total":31.98,"currency":"AZN","status":"delivered","click":"<anacan_click>"}}'`,
+  ].join('\n');
+  return { head, order, server };
+}
+
+
 export interface PanelAudit { id: string; action: string; target: string | null; payload: Record<string, unknown>; created_at: string; actor_email: string | null }
 
 const ERRORS: Record<string, string> = {
@@ -71,6 +116,10 @@ const ERRORS: Record<string, string> = {
   INVITE_EMAIL_MISMATCH: 'Dəvət başqa e-poçt ünvanı üçündür. Həmin ünvanla daxil olun.',
   MEMBER_SELF: 'Öz rolunuzu dəyişə və ya özünüzü silə bilməzsiniz.',
   ADMIN_ONLY: 'Yalnız Anacan adminləri üçün.',
+  TRACKING_COUPONS: 'Kuponlar 3-40 simvol (hərf, rəqəm, - və _) olmalıdır, ən çox 20 kupon.',
+  TRACKING_DAYS: 'Atribusiya müddəti 1 ilə 90 gün arasında olmalıdır.',
+  ORDER_STATUS: 'Status düzgün deyil.',
+  ORDER_NOT_FOUND: 'Sifariş tapılmadı.',
   AUTH_REQUIRED: 'Daxil olun.',
 };
 
@@ -109,6 +158,7 @@ const AUDIT: Record<string, string> = {
   campaign_approved: 'Kampaniya təsdiqləndi', campaign_rejected: 'Kampaniya rədd edildi', sale_added: 'Satış əlavə olundu', sale_updated: 'Satış dəyişdi',
   sale_deleted: 'Satış silindi', invite_created: 'Dəvət göndərildi', invite_revoked: 'Dəvət ləğv olundu', member_joined: 'Komandaya qoşuldu',
   member_removed: 'Üzv silindi', member_role: 'Rol dəyişdi', partner_created: 'Mağaza yaradıldı', partner_updated: 'Mağaza ayarları dəyişdi',
+  tracking_secret: 'Server açarı yaradıldı', tracking_settings: 'İzləmə ayarları dəyişdi', order_status: 'Sifariş statusu dəyişdi',
 };
 export const auditLabel = (a: string) => AUDIT[a] || a;
 

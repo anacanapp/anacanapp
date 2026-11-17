@@ -4,7 +4,7 @@
  */
 import { useMemo, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { BarChart3, Eye, EyeOff, ExternalLink, History, Megaphone, MousePointerClick, Package, Plus, Receipt, ShoppingBag, Trash2, Users } from 'lucide-react';
+import { BarChart3, Eye, EyeOff, ExternalLink, History, Megaphone, MousePointerClick, Package, PlugZap, Plus, Receipt, ShoppingBag, Trash2, Users } from 'lucide-react';
 import { toast } from 'sonner';
 import { Switch } from '@/components/ui/switch';
 import {
@@ -17,8 +17,9 @@ import {
 } from '@/lib/partner-panel';
 import { SHOP_COLLECTIONS, SHOP_COLLECTION_LABEL, type ShopCollection } from '@/lib/partner-shop';
 import { PartnerAudit, PartnerSales, PartnerTeam } from './PartnerOps';
+import { PartnerTracking } from './PartnerTracking';
 
-type Tab = 'overview' | 'products' | 'campaigns' | 'sales' | 'team' | 'audit';
+type Tab = 'overview' | 'products' | 'campaigns' | 'sales' | 'tracking' | 'team' | 'audit';
 const key = (...parts: unknown[]) => ['partner-panel', ...parts];
 
 export function PartnerWorkspace({ partner }: { partner: PanelPartner }) {
@@ -37,6 +38,7 @@ export function PartnerWorkspace({ partner }: { partner: PanelPartner }) {
         { value: 'products', label: 'Məhsullar', icon: <Package size={15} /> },
         { value: 'campaigns', label: 'Kampaniyalar', icon: <Megaphone size={15} /> },
         { value: 'sales', label: 'Satışlar', icon: <Receipt size={15} /> },
+        { value: 'tracking', label: 'İnteqrasiya', icon: <PlugZap size={15} /> },
         { value: 'team', label: 'Komanda', icon: <Users size={15} /> },
         { value: 'audit', label: 'Tarixçə', icon: <History size={15} /> },
       ]} />
@@ -44,6 +46,7 @@ export function PartnerWorkspace({ partner }: { partner: PanelPartner }) {
       {tab === 'products' && <Products partner={partner} />}
       {tab === 'campaigns' && <Campaigns partner={partner} />}
       {tab === 'sales' && <PartnerSales partner={partner} />}
+      {tab === 'tracking' && <PartnerTracking partner={partner} />}
       {tab === 'team' && <PartnerTeam partner={partner} />}
       {tab === 'audit' && <PartnerAudit partner={partner} />}
     </div>

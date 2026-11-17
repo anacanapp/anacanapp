@@ -685,7 +685,8 @@ BEGIN
     EXECUTE format('GRANT EXECUTE ON FUNCTION %s TO service_role', f);
   END LOOP;
   FOR f IN SELECT p.oid::regprocedure FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace
-           WHERE n.nspname = 'public' AND (p.proname LIKE 'shop\_partner\_%' OR p.proname = 'shop_storefront_v1') LOOP
+           WHERE n.nspname = 'public' AND (p.proname LIKE 'shop\_partner\_%' OR p.proname = 'shop_storefront_v1')
+             AND p.proname <> 'shop_partner_conversion_v1' LOOP  -- service_role only (20261117150000_shop_partner_tracking.sql)
     EXECUTE format('GRANT EXECUTE ON FUNCTION %s TO authenticated', f);
   END LOOP;
   GRANT EXECUTE ON FUNCTION public.shop_storefront_v1() TO anon;
@@ -704,7 +705,8 @@ BEGIN
   IF (SELECT count(*) FROM _anacan_gcp_migration.guarded_relations WHERE schema_name = 'public' AND table_name IN
        ('shop_partners', 'shop_partner_members', 'shop_partner_invites', 'shop_partner_events', 'shop_partner_campaigns', 'shop_partner_sales', 'shop_partner_audit')) <> 7
      OR (SELECT count(*) FROM pg_trigger tg JOIN pg_class c ON c.oid = tg.tgrelid JOIN pg_namespace n ON n.oid = c.relnamespace
-          WHERE n.nspname = 'public' AND c.relname LIKE 'shop\_partner%'
+          WHERE n.nspname = 'public' AND c.relname IN ('shop_partners', 'shop_partner_members', 'shop_partner_invites', 'shop_partner_events',
+                                                       'shop_partner_campaigns', 'shop_partner_sales', 'shop_partner_audit')
             AND tg.tgname IN ('anacan_gcp_writer_guard', 'anacan_gcp_change', 'anacan_gcp_truncate')) <> 21 THEN
     RAISE EXCEPTION 'SHOP_PARTNERS_GUARD_ENROLLMENT_INCOMPLETE';
   END IF;

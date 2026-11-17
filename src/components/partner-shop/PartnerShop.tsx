@@ -14,10 +14,10 @@ import { useUserStore } from '@/store/userStore';
 import { useChildren } from '@/hooks/useChildren';
 import { getNextPeriodDate } from '@/lib/cycle-utils';
 import {
-  usePartnerBasket, usePartnerStorefront, requestShopCollection, takeShopCollection, trackShopEvent, trackShopImpressions,
+  partnerVisitLink, usePartnerBasket, usePartnerStorefront, requestShopCollection, takeShopCollection, trackShopEvent, trackShopImpressions,
 } from '@/hooks/usePartnerShop';
 import {
-  SHOP_COLLECTIONS, SHOP_COLLECTION_LABEL, formatManat, partnerLink, shopDiscount, shopPlan,
+  SHOP_COLLECTIONS, SHOP_COLLECTION_LABEL, formatManat, shopDiscount, shopPlan,
   type PartnerProduct, type ShopCollection, type ShopPartner, type ShopStageInput,
 } from '@/lib/partner-shop';
 import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
@@ -176,7 +176,7 @@ function ProductSheet({ p, partner, col, placement, onClose }: { p: PartnerProdu
           {q ? `Səbətdə ${q} ədəd · bir dənə də at` : 'Səbətə at'}
         </button>
         <button type="button" className="w-full rounded-2xl border border-border bg-card py-3 text-sm font-bold flex items-center justify-center gap-2"
-          onClick={() => { trackShopEvent(p.id, 'site', placement); openExternal(partnerLink(p.url, `${placement}_${col || 'product'}`)); }}>
+          onClick={() => openExternal(partnerVisitLink(p.id, p.url, placement, `${placement}_${col || 'product'}`))}>
           {partner ? `${partner.name} saytında bax` : 'Saytda bax'} <ExternalLink className="w-4 h-4" />
         </button>
       </div>
@@ -206,7 +206,7 @@ function BasketSheet({ products, partners, onClose }: { products: PartnerProduct
                   <span className="flex-1 min-w-0">
                     <span className="block text-xs font-bold leading-tight line-clamp-2">{p.name}</span>
                     <button type="button" className="mt-0.5 text-[11px] font-bold text-primary inline-flex items-center gap-1"
-                      onClick={() => { trackShopEvent(p.id, 'site', 'basket'); openExternal(partnerLink(p.url, 'basket')); }}>
+                      onClick={() => openExternal(partnerVisitLink(p.id, p.url, 'basket', 'basket'))}>
                       {formatManat(p.price)} · {partner?.name || 'Partnyor'} saytında al <ExternalLink className="w-3 h-3" />
                     </button>
                   </span>
