@@ -6,10 +6,15 @@
 
 | Səbətdə | Kitabı | Cəmi (nümunə) |
 | --- | --- | --- |
-| 1–2 | 4,00 ₼ | 1 → 4 ₼ |
-| 3–4 | 3,00 ₼ | 3 → 9 ₼ |
-| 5–9 | 2,60 ₼ | 5 → 13 ₼ |
-| 10+ | 2,00 ₼ | 10 → 20 ₼ |
+| 1–2 | 2,99 ₼ | 1 → 2,99 ₼ |
+| 3–4 | 2,50 ₼ | 3 → 7,50 ₼ |
+| 5–9 | 2,00 ₼ | 5 → 10 ₼ |
+| 10+ | 1,50 ₼ | 10 → 15 ₼ |
+
+2026-11-17-dən (əvvəl 4 / 3 / 2,60 / 2 ₼). Canlıda: functions `be5745262761…`, anacan.az website
+`fc6675b3ebcf…`, app gateway `b89beb090b1a…`. Qiymət yazılan iki banner (`kitab-a6-printer`, `kitab-oxu-oyna`)
+`-150-20261117.jpg` şəkilləri ilə əvəz olunub (spec: `scripts/banners/specs/books-price-150-20261117.json`).
+Köhnə native build-lər səbətdə köhnə qiyməti göstərir, ödəniş isə server qiyməti ilə alınır.
 
 `supabase/functions/_shared/book-pricing.ts` = `src/lib/books/pricing.ts` (test bərabərliyi yoxlayır).
 
