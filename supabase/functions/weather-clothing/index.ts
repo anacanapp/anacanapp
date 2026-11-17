@@ -96,6 +96,8 @@ Deno.serve(async (req) => {
       sv: { geo: 'sv', unknown: 'Okänd', outLang: EXPANDED_LANGUAGE_NAMES.sv },
       ky: { geo: 'ky', unknown: 'Белгисиз', outLang: EXPANDED_LANGUAGE_NAMES.ky },
       et: { geo: 'et', unknown: 'Teadmata', outLang: EXPANDED_LANGUAGE_NAMES.et },
+      tk: { geo: 'tk', unknown: 'Näbelli', outLang: EXPANDED_LANGUAGE_NAMES.tk },
+      uk: { geo: 'uk', unknown: 'Невідомо', outLang: EXPANDED_LANGUAGE_NAMES.uk },
     };
     const langConf = LANG_CONF[language] ?? LANG_CONF.az;
 

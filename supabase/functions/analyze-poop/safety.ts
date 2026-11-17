@@ -56,7 +56,7 @@ export function knownAgeDays(age?: PoopAgeContext | null): number | null {
 
 type Advice = Record<RedFlagColour, string>;
 
-/** Server-side advice line (all 23 app languages). Calm, short, never stronger than NHS/AAP guidance. */
+/** Server-side advice line (all 25 app languages). Calm, short, never stronger than NHS/AAP guidance. */
 export const RED_FLAG_ADVICE: Record<string, Advice> = {
   az: {
     pale: 'Ağ, boz və ya gil rəngli nəcis qaraciyər problemi (məsələn, öd yollarının atreziyası) əlaməti ola bilər. İndi həkimə müraciət edin.',
@@ -172,6 +172,16 @@ export const RED_FLAG_ADVICE: Record<string, Advice> = {
     pale: 'Valge, hall või savikarva väljaheide võib olla maksaprobleemi, näiteks sapiteede atreesia märk. Võtke kohe ühendust arstiga.',
     black: 'Must väljaheide pärast esimesi elupäevi võib olla soolestiku verejooksu märk. Võtke kohe ühendust arstiga.',
     red: 'Punane väljaheide või veri väljaheites vajab arsti hinnangut. Võtke kohe ühendust arstiga.',
+  },
+  tk: {
+    pale: 'Ak, çal ýa-da palçyk reňkli täret bagyr keseliniň, meselem, öt ýollarynyň atreziýasynyň alamaty bolup biler. Häzir lukmana ýüz tutuň.',
+    black: 'Ömrüň ilkinji günlerinden soňky gara täret içegedäki gan akmanyň alamaty bolup biler. Häzir lukmana ýüz tutuň.',
+    red: 'Gyzyl täret ýa-da täretde gan bolsa, lukman barlamaly. Häzir lukmana ýüz tutuň.',
+  },
+  uk: {
+    pale: 'Білі, сірі або глинисті випорожнення можуть бути ознакою проблеми з печінкою, наприклад атрезії жовчних шляхів. Негайно зверніться до лікаря.',
+    black: 'Чорні випорожнення після перших днів життя можуть бути ознакою кровотечі в кишківнику. Негайно зверніться до лікаря.',
+    red: 'Червоні випорожнення або кров у випорожненнях потребують огляду лікаря. Негайно зверніться до лікаря.',
   },
 };
 

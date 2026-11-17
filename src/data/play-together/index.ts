@@ -21,7 +21,7 @@ export const PLAY_LANGUAGE_LOADERS: Record<string, () => Promise<LocaleModule>> 
   zh: () => import('./zh'), id: () => import('./id'), fr: () => import('./fr'), es: () => import('./es'),
   pt: () => import('./pt'), vi: () => import('./vi'), hi: () => import('./hi'), ja: () => import('./ja'),
   ko: () => import('./ko'), pl: () => import('./pl'), nl: () => import('./nl'), sv: () => import('./sv'),
-  ky: () => import('./ky'), et: () => import('./et'),
+  ky: () => import('./ky'), et: () => import('./et'), tk: () => import('./tk'), uk: () => import('./uk'),
 };
 
 

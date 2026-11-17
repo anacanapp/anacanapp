@@ -172,6 +172,15 @@ export const EMAIL_VERIFICATION_COPY: Record<string, EmailVerificationCopy> = {
     "ignore": "Om det inte var du som begärde detta kan du ignorera mejlet — inget ändras på ditt konto.",
     "footer": "Anacan — vid din sida i varje skede"
   },
+  "tk": {
+    "subject": "{code} — Siziň Anacan tassyklama koduňyz",
+    "preheader": "Hasabyňyzy tassyklamak üçin şu kody giriziň.",
+    "heading": "Siziň tassyklama koduňyz",
+    "intro": "Anacan hasabyňyzy tassyklamak üçin programmada şu kody giriziň:",
+    "expires": "Kod 15 minutlap hereket edýär.",
+    "ignore": "Eger bu kody Siz soramadyk bolsaňyz, bu haty äsgermezlik ediň — hasabyňyzda hiç zat üýtgemez.",
+    "footer": "Anacan — her tapgyrda Siziň bilen"
+  },
   "tr": {
     "subject": "{code} — Anacan doğrulama kodun",
     "preheader": "Hesabını doğrulamak için bu kodu gir.",
@@ -180,6 +189,15 @@ export const EMAIL_VERIFICATION_COPY: Record<string, EmailVerificationCopy> = {
     "expires": "Kod 15 dakika geçerlidir.",
     "ignore": "Bu isteği sen yapmadıysan bu e-postayı yok say — hesabında hiçbir şey değişmeyecek.",
     "footer": "Anacan — her aşamada yanında"
+  },
+  "uk": {
+    "subject": "{code} — ваш код підтвердження Anacan",
+    "preheader": "Введіть цей код, щоб підтвердити свій акаунт.",
+    "heading": "Ваш код підтвердження",
+    "intro": "Введіть цей код у застосунку, щоб підтвердити свій акаунт Anacan:",
+    "expires": "Код дійсний протягом 15 хвилин.",
+    "ignore": "Якщо ви не надсилали цей запит, просто проігноруйте цей лист — у вашому акаунті нічого не зміниться.",
+    "footer": "Anacan — поруч із вами на кожному етапі"
   },
   "uz": {
     "subject": "{code} — Anacan tasdiqlash koding",

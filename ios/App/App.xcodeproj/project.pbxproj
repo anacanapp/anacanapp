@@ -110,6 +110,8 @@
 		55535FB1E529ED90B3E8BCA9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4B79F0C21A2E4C8D9E0F1A21 /* ky */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ky; path = ky.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4B79F0C21A2E4C8D9E0F1A22 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = et.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B79F0C21A2E4C8D9E0F1A23 /* tk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tk; path = tk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B79F0C21A2E4C8D9E0F1A24 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		958DCC722DB07C7200EA8C5F /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../debug.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -349,6 +351,8 @@
 				sv,
 				ky,
 				et,
+				tk,
+				uk,
 				Base,
 			);
 			mainGroup = 504EC2FB1FED79650016851F;
@@ -487,6 +491,8 @@
 				55535FB1E529ED90B3E8BCA9 /* sv */,
 				4B79F0C21A2E4C8D9E0F1A21 /* ky */,
 				4B79F0C21A2E4C8D9E0F1A22 /* et */,
+				4B79F0C21A2E4C8D9E0F1A23 /* tk */,
+				4B79F0C21A2E4C8D9E0F1A24 /* uk */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

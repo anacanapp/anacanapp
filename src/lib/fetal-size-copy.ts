@@ -1,5 +1,5 @@
 // Hero note under the baby size tags (2026-11-12): why the length jumps around week 20 (crown-rump -> crown-heel).
-// All 23 app languages inline (like appUpdate-i18n.ts); unknown languages fall back to English.
+// All 25 app languages inline (like appUpdate-i18n.ts); unknown languages fall back to English.
 const NOTE: Record<string, string> = {
   az: 'Boy 20 həftəyə qədər başdan oturağa, sonra başdan dabana qədər ölçülür.',
   en: 'Length is measured head to bottom until week 20, then head to heel.',
@@ -24,6 +24,8 @@ const NOTE: Record<string, string> = {
   sv: 'Fram till vecka 20 mäts längden från hjässa till säte, därefter från hjässa till häl.',
   ky: 'Бою 20-жумага чейин баштан куймулчакка чейин, андан кийин баштан согончокко чейин өлчөнөт.',
   et: 'Pikkust mõõdetakse 20. nädalani pealaest istmikuni, seejärel pealaest kandadeni.',
+  tk: 'Boý 20-nji hepdä çenli kelleden guýruk süňküne çenli, soňra kelleden dabana çenli ölçülýär.',
+  uk: 'До 20-го тижня довжину вимірюють від тім’я до куприка, потім — від тім’я до п’ят.',
 };
 export const fetalLengthNote = (language: string | null | undefined): string => NOTE[String(language || '')] ?? NOTE.en;
 export const FETAL_LENGTH_NOTE_LANGUAGES = Object.keys(NOTE);

@@ -7,6 +7,7 @@ export const EXPANDED_LANGUAGE_NAMES: Record<string, string> = {
   ja: 'Japanese (ja-JP, natural Japanese with kanji and kana)', ko: 'Korean (ko-KR, Hangul)',
   pl: 'Polish (pl-PL)', nl: 'Dutch (Netherlands, nl-NL)', sv: 'Swedish (sv-SE)',
   ky: 'Kyrgyz (ky-KG, Cyrillic script)', et: 'Estonian (et-EE)',
+  tk: 'Turkmen (tk-TM, official Latin alphabet; never Cyrillic, never Turkish or Azerbaijani spelling)', uk: 'Ukrainian (uk-UA, Ukrainian Cyrillic; never Russian)',
 };
 export const LANGUAGE_NAMES: Record<string, string> = {
   az: 'Azerbaijani', en: 'English', tr: 'Turkish', ru: 'Russian', de: 'German',

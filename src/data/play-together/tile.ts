@@ -24,10 +24,12 @@ export const PLAY_TILE_TEXT: Record<string, { name: string; description: string 
   sv: { name: "Lek tillsammans", description: "Lekar utan skärm" },
   ky: { name: "Бала менен оюн", description: "Бала менен экрансыз оюндар" },
   et: { name: "Mängime koos", description: "Ekraanivabad mängud lapsega" },
+  tk: { name: "Çaga bilen oýun", description: "Ekransyz oýunlar we kitaplar" },
+  uk: { name: "Граємо разом", description: "Ігри з дитиною без екрана" },
 };
 
 /** App languages with Uşaqla oyun content (same keys as PLAY_LANGUAGE_LOADERS in ./index.ts; checked by the test). */
-export const PLAY_CONTENT_LANGUAGES = ['az', 'en', 'ru', 'tr', 'kk', 'de', 'ar', 'uz', 'ka', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv', 'ky', 'et'];
+export const PLAY_CONTENT_LANGUAGES = ['az', 'en', 'ru', 'tr', 'kk', 'de', 'ar', 'uz', 'ka', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv', 'ky', 'et', 'tk', 'uk'];
 
 export const hasPlayContent = (language: string | null | undefined): boolean => PLAY_CONTENT_LANGUAGES.includes(String(language || ''));
 

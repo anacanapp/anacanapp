@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan profil suratlary, göwrelilik albomy we täret skaneri üçin kamera rugsadyny soraýar.";
+"NSPhotoLibraryUsageDescription" = "Anacan profil suratlary we göwrelilik albomy üçin suratlaryňyzy ulanýar.";
+"NSPhotoLibraryAddUsageDescription" = "Döredilen bäbek suratlaryny we albom ýatlamalaryny galereýaňyza ýazdyrmak üçin rugsat gerek.";
+"NSMicrophoneUsageDescription" = "Mikrofon bäbegiň aglamasyny seljermek we sesli ýazgylar üçin ulanylýar.";
+"NSLocationWhenInUseUsageDescription" = "Howa ýagdaýyna laýyk eşik maslahatlaryny we golaýdaky enelere amatly ýerleri görkezmek üçin ýerleşýän ýeriňiz gerek.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Howa ýagdaýyna laýyk eşik maslahatlaryny we golaýdaky enelere amatly ýerleri görkezmek üçin ýerleşýän ýeriňiz gerek.";
+"NSFaceIDUsageDescription" = "Face ID programma howpsuz girmek üçin ulanylýar.";
+"NSContactsUsageDescription" = "Ýoldaşyňyzy çagyrmak üçin kontaktlaryňyz ulanylýar.";
+"NSCalendarsUsageDescription" = "Lukmana barmak wagtlaryny we ýatlatmalary senenamaňyza goşmak üçin rugsat gerek.";
+"NSMotionUsageDescription" = "Hereket datçigi gündelik işjeňligi we ädim sanyny hasaplamak üçin ulanylýar.";
+"NSBluetoothAlwaysUsageDescription" = "Anacan akylly enjamlara (meselem, bäbek monitorlaryna) birikmek üçin Bluetooth ulanyp biler.";
+"NSLocalNetworkUsageDescription" = "Programma ýerli toruňyzdaky enjamlara birikmek üçin rugsat talap edýär.";
+"NSUserTrackingUsageDescription" = "Siziň rugsadyňyz mahabatlarymyzyň netijeliligini ölçemäge we size has laýyk mazmuny görkezmäge kömek edýär. Şahsy maglumatlaryňyz üçünji taraplar bilen paýlaşylmaýar.";

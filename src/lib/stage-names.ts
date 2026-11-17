@@ -26,6 +26,8 @@ export const STAGE_NAMES = {
   sv: ['Mens', 'Graviditet', 'Moderskap'],
   ky: ['Этек кир', 'Кош бойлуулук', 'Энелик'],
   et: ['Menstruatsioon', 'Rasedus', 'Emadus'],
+  tk: ['Aýbaşy', 'Göwrelilik', 'Enelik'],
+  uk: ['Менструація', 'Вагітність', 'Материнство'],
 } as const;
 
 export function lifeStageName(stage: 'flow' | 'bump' | 'mommy', language: string = readAppLanguage()): string {

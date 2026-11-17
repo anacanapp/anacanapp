@@ -97,7 +97,7 @@ export async function epointRequest(config: EpointConfig, path: EpointPath, payl
 }
 
 /** Epoint checkout languages: az, en, ru. */
-export const epointLanguage = (language: string) => (language === 'az' || language === 'ru' ? language : language === 'kk' || language === 'ky' || language === 'uz' ? 'ru' : 'en');
+export const epointLanguage = (language: string) => (language === 'az' || language === 'ru' ? language : language === 'kk' || language === 'ky' || language === 'tk' || language === 'uz' ? 'ru' : 'en');
 
 /** Epoint saved-card id (card-registration answer and callbacks). Opaque provider reference; never sent to a browser. */
 export const EPOINT_CARD_ID = /^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/;

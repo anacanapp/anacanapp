@@ -123,6 +123,7 @@ Deno.serve(async (req) => {
       ja: '(日本語だけで、自然で丁寧に回答してください。)', ko: '(한국어로만 정중하게 답변해 주세요.)',
       pl: '(Odpowiadaj wyłącznie po polsku.)', nl: '(Antwoord uitsluitend in het Nederlands.)', sv: '(Svara endast på svenska.)',
       ky: '(Жоопту кыргыз тилинде гана, кирилл арибинде бериңиз.)', et: '(Vasta ainult eesti keeles.)',
+      tk: '(Diňe türkmen dilinde, latyn elipbiýinde jogap beriň.)', uk: '(Відповідайте лише українською мовою.)',
     };
     const nativeDirective = NATIVE_DIRECTIVE[language] ?? "";
 

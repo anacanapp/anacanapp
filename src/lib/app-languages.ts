@@ -24,17 +24,22 @@ export const APP_LANGUAGES = [
   { code: 'sv', name: 'Swedish', native_name: 'Svenska', locale: 'sv-SE', flag: 'se' },
   { code: 'ky', name: 'Kyrgyz', native_name: 'Кыргызча', locale: 'ky-KG', flag: 'kg' },
   { code: 'et', name: 'Estonian', native_name: 'Eesti', locale: 'et-EE', flag: 'ee' },
+  { code: 'tk', name: 'Turkmen', native_name: 'Türkmençe', locale: 'tk-TM', flag: 'tm' },
+  { code: 'uk', name: 'Ukrainian', native_name: 'Українська', locale: 'uk-UA', flag: 'ua' },
 ] as const;
 export type AppLanguageCode = typeof APP_LANGUAGES[number]['code'];
 export const APP_LANGUAGE_CODES = APP_LANGUAGES.map(language => language.code);
-export const NEW_LANGUAGE_CODES = ['zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv', 'ky', 'et'] as const;
+export const NEW_LANGUAGE_CODES = ['zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv', 'ky', 'et', 'tk', 'uk'] as const;
 export const LANGUAGE_EXPANSION_21 = ['vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'] as const;
 /** 2026-11 expansion: Kyrgyz (Cyrillic) and Estonian. */
 export const LANGUAGE_EXPANSION_23 = ['ky', 'et'] as const;
+/** 2026-11 expansion: Turkmen (Latin) and Ukrainian. */
+export const LANGUAGE_EXPANSION_25 = ['tk', 'uk'] as const;
 export const isAppLanguage = (code: string): code is AppLanguageCode => APP_LANGUAGES.some(language => language.code === code);
 /** The public website keeps its published 21-locale URL contract; app-only languages are excluded. */
-export const WEBSITE_LANGUAGES = APP_LANGUAGES.filter((language): language is Exclude<typeof APP_LANGUAGES[number], { code: 'ky' | 'et' }> => language.code !== 'ky' && language.code !== 'et');
-export type WebsiteLanguageCode = Exclude<AppLanguageCode, 'ky' | 'et'>;
+export const WEBSITE_LANGUAGES = APP_LANGUAGES.filter((language): language is Exclude<typeof APP_LANGUAGES[number], { code: 'ky' | 'et' | 'tk' | 'uk' }> =>
+  language.code !== 'ky' && language.code !== 'et' && language.code !== 'tk' && language.code !== 'uk');
+export type WebsiteLanguageCode = Exclude<AppLanguageCode, 'ky' | 'et' | 'tk' | 'uk'>;
 export const WEBSITE_LANGUAGE_CODES_ALL = WEBSITE_LANGUAGES.map(language => language.code) as WebsiteLanguageCode[];
 export const isWebsiteLanguage = (code: string): code is WebsiteLanguageCode => WEBSITE_LANGUAGES.some(language => language.code === code);
 export function normalizeAppLanguage(value: unknown): AppLanguageCode {

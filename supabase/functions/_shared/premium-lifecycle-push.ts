@@ -1,6 +1,6 @@
 // Premium lifecycle pushes (2026-11-13, 20261113150000_premium_lifecycle_pushes.sql). Never logs tokens or user ids.
 //  * store_expiring: App Store / Google Play Premium with auto-renew off, ending in 24-72 h. One push per period end in
-//    the user's app language (23 languages), 10:00-20:00 their local time. Opens the in-app Premium screen.
+//    the user's app language (25 languages), 10:00-20:00 their local time. Opens the in-app Premium screen.
 //  * web_renewal_failed / web_expired: anacan.az saved-card subscription (Azerbaijani only), next to the e-mail.
 import { getFirebaseAccessToken, sendFCMv1 } from './fcm.ts';
 import { CABINET_PAGE, STANDARD_PAGE } from './web-premium-subscription.ts';
@@ -36,6 +36,8 @@ export const STORE_EXPIRING: Record<string, Copy> = {
   sv: { title: 'Ditt Premium tar snart slut', body: 'Automatisk förnyelse är avstängd. Aktivera prenumerationen igen för att behålla Premium-funktionerna.' },
   ky: { title: 'Premium жакында бүтөт', body: 'Автоматтык жаңылоо өчүрүлгөн. Premium мүмкүнчүлүктөрүн сактап калуу үчүн жазылууну кайра күйгүз.' },
   et: { title: 'Sinu Premium lõpeb varsti', body: 'Automaatne pikendamine on välja lülitatud. Lülita tellimus uuesti sisse, et Premiumi funktsioonid alles jääksid.' },
+  tk: { title: 'Premium ýakyn wagtda tamamlanýar', body: 'Awtomatik täzelenme öçürilen. Premium mümkinçiliklerini saklamak üçin abunany täzeden işlediň.' },
+  uk: { title: 'Ваш Premium незабаром завершиться', body: 'Автоподовження вимкнено. Увімкніть підписку знову, щоб зберегти функції Premium.' },
 };
 export const storeExpiringCopy = (language: string | null | undefined): Copy =>
   STORE_EXPIRING[String(language || '').toLowerCase().split(/[-_]/)[0]] ?? STORE_EXPIRING.en;

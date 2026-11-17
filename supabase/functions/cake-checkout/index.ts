@@ -25,7 +25,7 @@ const PHOTO_BOX_EXTRA = 18;
 const text = (value: unknown, max: number) => typeof value === 'string' ? value.trim().slice(0, max) : '';
 const bakuDate = (offsetDays: number) => new Date(Date.now() + 4 * 3600_000 + offsetDays * 86400_000).toISOString().slice(0, 10);
 // Epoint's payment page speaks az, en and ru.
-const epointLanguage = (lang: string) => lang === 'az' ? 'az' : ['ru', 'kk', 'uz', 'ky'].includes(lang) ? 'ru' : 'en';
+const epointLanguage = (lang: string) => lang === 'az' ? 'az' : ['ru', 'kk', 'uz', 'ky', 'tk'].includes(lang) ? 'ru' : 'en';
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers });

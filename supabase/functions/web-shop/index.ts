@@ -20,7 +20,7 @@ const SLOTS = ['10:00–13:00', '14:00–18:00'];
 const PHOTO_BOX_EXTRA = 18;
 const FUNNEL_LANGS = ['az', 'en', 'tr', 'ru', 'kk', 'uz', 'ka', 'de', 'ar', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'];
 // Epoint's payment page speaks az, en and ru.
-const epointLanguage = (lang: string) => lang === 'az' ? 'az' : ['ru', 'kk', 'uz', 'ky'].includes(lang) ? 'ru' : 'en';
+const epointLanguage = (lang: string) => lang === 'az' ? 'az' : ['ru', 'kk', 'uz', 'ky', 'tk'].includes(lang) ? 'ru' : 'en';
 
 function premiumSetting(value: unknown): { enabled: boolean; prices: { monthly: number; yearly: number } | null } {
   let v: unknown = value;
