@@ -55,3 +55,16 @@ hərflə `ви`, rusizm/surjik yoxdur.
 
 Türkmən tibbi terminlər (peyvənd adları, SOS kartları) və Ukrayna dilində valideynə müraciətdə
 qadın cinsi formaları üçün doğma dil daşıyıcısının baxışı tövsiyə olunur.
+
+## Canlı məzmun yenilənməsi (2026-11-17)
+
+- 2026-11-03 ixracından sonra dəyişən 538 canlı sətir (meyvə adları, gündəlik məlumat, ana/körpə
+  mesajları, reseptlər, vitaminlər, analıq qaydaları, məxfilik siyasəti v1, 2 blog yazısı) ky/et/tk/uk
+  paketlərinə canlı sətrin açarı ilə əlavə edildi (birbaşa tərcümə).
+- Tətbiq blog yazılarını projection vasitəsilə oxuyur (HTML `blog-native-content` ilə sarılır), ona görə
+  açar xam mənbədən fərqlənir. 91 yazının projection açarı bütün 16 paket dilində xam açarın mövcud
+  tərcüməsinə bağlandı. Projection çıxışı dəyişərsə bu alias-lar yenilənməlidir.
+- Yoxlama: anon REST ilə 12 440 canlı sətir oxunur, `contentTranslationKey` hesablanır; uk paketində
+  çatışmayan açar 0.
+- `useBabyDailyInfoByDay` artıq `mapRowTranslation` istifadə edir (əvvəl paket dillərində Azərbaycanca
+  göstərirdi).
