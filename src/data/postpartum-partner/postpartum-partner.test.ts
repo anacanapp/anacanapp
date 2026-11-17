@@ -13,7 +13,7 @@ const strings = (x: unknown): string[] => Array.isArray(x) ? x.flatMap(strings)
 
 describe('postpartum partner guide', () => {
   it('has the same complete text in all 21 languages', () => {
-    expect(languages).toHaveLength(23);
+    expect(languages).toHaveLength(25);
     const az = read('az');
     expect(az.weeks).toHaveLength(POSTPARTUM_WEEKS);
     for (const lang of languages) {

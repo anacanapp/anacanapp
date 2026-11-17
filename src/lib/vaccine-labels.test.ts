@@ -14,7 +14,7 @@ const row = (over: Record<string, unknown> = {}, vaccine: Record<string, unknown
 });
 
 describe('vaccine label packs', () => {
-  it('cover all 23 app languages with every term filled', () => {
+  it('cover all 25 app languages with every term filled', () => {
     expect(Object.keys(VACCINE_LABEL_PACKS).sort()).toEqual(APP_LANGUAGES.map((l) => l.code).sort());
     for (const pack of Object.values(VACCINE_LABEL_PACKS)) {
       for (const value of [...Object.values(pack.terms), ...Object.values(pack.phrases)]) expect(value.trim()).not.toBe('');

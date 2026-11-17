@@ -13,9 +13,9 @@ import { getOrdinal } from './utils';
 beforeEach(() => { localStorage.clear(); setCachedAppLanguage(null); });
 describe('twenty-one-language selection', () => {
   it('keeps bundled choices offline and recognizes inactive legacy-list rows without losing tool restrictions', () => {
-    expect(APP_LANGUAGE_CODES).toHaveLength(23);
-    expect(new Set(APP_LANGUAGE_CODES).size).toBe(23);
-    expect(APP_LANGUAGE_CODES.slice(-2)).toEqual(['ky', 'et']);
+    expect(APP_LANGUAGE_CODES).toHaveLength(25);
+    expect(new Set(APP_LANGUAGE_CODES).size).toBe(25);
+    expect(APP_LANGUAGE_CODES.slice(-4)).toEqual(['ky', 'et', 'tk', 'uk']);
     expect(resolveAppLanguages().map(item => item.code)).toEqual(APP_LANGUAGE_CODES);
     const result = resolveAppLanguages([
       { code: 'en', name: 'English', native_name: 'English', disabled_tools: ['cakes'] },
@@ -30,7 +30,7 @@ describe('twenty-one-language selection', () => {
     expect(result.find(item => item.code === 'ky')?.disabled_tools).toEqual(['cakes']);
   });
   it.each([['zh-CN','zh'], ['zh_Hans','zh'], ['id-ID','id'], ['fr-FR','fr'], ['es-ES','es'], ['pt-PT','pt'],
-    ['vi-VN','vi'], ['hi-IN','hi'], ['ja-JP','ja'], ['ko-KR','ko'], ['pl-PL','pl'], ['nl-NL','nl'], ['sv-SE','sv'], ['ky-KG','ky'], ['et-EE','et']])('normalizes %s without assigning an account country', (input, expected) => {
+    ['vi-VN','vi'], ['hi-IN','hi'], ['ja-JP','ja'], ['ko-KR','ko'], ['pl-PL','pl'], ['nl-NL','nl'], ['sv-SE','sv'], ['ky-KG','ky'], ['et-EE','et'], ['tk-TM','tk'], ['uk-UA','uk']])('normalizes %s without assigning an account country', (input, expected) => {
     localStorage.setItem('anacan-user-store', JSON.stringify({ state: { language: input, countryCode: 'AZ' } }));
     expect(normalizeAppLanguage(input)).toBe(expected); expect(readAppLanguage()).toBe(expected);
     expect(JSON.parse(localStorage.getItem('anacan-user-store')!).state.countryCode).toBe('AZ');

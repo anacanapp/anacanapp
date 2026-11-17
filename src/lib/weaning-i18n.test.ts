@@ -12,8 +12,8 @@ const file = (lang: string) => (['az', 'en'].includes(lang)
 const placeholders = (text: string) => (text.match(/\{\w+\}/g) || []).sort();
 
 describe('weaning tool copy in every app language', () => {
-  it('covers all 23 app languages', () => {
-    expect(APP_LANGUAGE_CODES).toHaveLength(23);
+  it('covers all 25 app languages', () => {
+    expect(APP_LANGUAGE_CODES).toHaveLength(25);
   });
 
   it('uses only the shared copy keys in the tool source', () => {

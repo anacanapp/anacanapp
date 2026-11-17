@@ -10,8 +10,8 @@ const file = (lang: string) => (['az', 'en'].includes(lang)
 const placeholders = (text: string) => (text.match(/\{\w+\}/g) || []).sort();
 
 describe('Anacan Recap copy in every app language', () => {
-  it('covers all 23 app languages', () => {
-    expect(APP_LANGUAGE_CODES).toHaveLength(23);
+  it('covers all 25 app languages', () => {
+    expect(APP_LANGUAGE_CODES).toHaveLength(25);
   });
 
   it('uses only known copy keys in the sources (computed persona keys included)', () => {

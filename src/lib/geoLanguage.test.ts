@@ -12,6 +12,8 @@ describe('languageForCountry', () => {
     expect(languageForCountry('KZ', ALL)).toBe('kk');
     expect(languageForCountry('KG', ALL)).toBe('ky');
     expect(languageForCountry('EE', ALL)).toBe('et');
+    expect(languageForCountry('TM', ALL)).toBe('tk');
+    expect(languageForCountry('UA', ALL)).toBe('uk');
     expect(languageForCountry('BR', ALL)).toBe('pt');
     expect(languageForCountry('MX', ALL)).toBe('es');
     expect(languageForCountry('AT', ALL)).toBe('de');
@@ -19,7 +21,7 @@ describe('languageForCountry', () => {
     expect(languageForCountry('jp', ALL)).toBe('ja');
   });
   it('falls back to English for countries without an app language', () => {
-    for (const c of ['GB', 'US', 'IT', 'UA', 'IL', 'AM', 'GR']) expect(languageForCountry(c, ALL)).toBe('en');
+    for (const c of ['GB', 'US', 'IT', 'IL', 'AM', 'GR']) expect(languageForCountry(c, ALL)).toBe('en');
   });
   it('falls back to English when unknown or missing', () => {
     expect(languageForCountry(null, ALL)).toBe('en');
@@ -31,7 +33,7 @@ describe('languageForCountry', () => {
   });
   it('every mapped language is an app language', () => {
     const codes = new Set<string>(ALL);
-    const countries = ['AZ','TR','RU','BY','TJ','TM','KZ','KG','UZ','GE','EE','DE','FR','NL','ES','PT','PL','SE','JP','KR','CN','VN','ID','IN','SA'];
+    const countries = ['AZ','TR','RU','BY','TJ','TM','KZ','KG','UZ','GE','EE','UA','DE','FR','NL','ES','PT','PL','SE','JP','KR','CN','VN','ID','IN','SA'];
     for (const c of countries) expect(codes.has(languageForCountry(c, ALL))).toBe(true);
   });
 });

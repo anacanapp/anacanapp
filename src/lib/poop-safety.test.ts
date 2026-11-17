@@ -88,8 +88,8 @@ describe('enforcePoopSafety', () => {
     expect(twice.recommendations).toEqual([RED_FLAG_ADVICE.en.pale]);
   });
 
-  it('has advice for all 23 app languages and falls back to Azerbaijani', () => {
-    const langs = ['az', 'en', 'tr', 'ru', 'kk', 'uz', 'ka', 'de', 'ar', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv', 'ky', 'et'];
+  it('has advice for all 25 app languages and falls back to Azerbaijani', () => {
+    const langs = ['az', 'en', 'tr', 'ru', 'kk', 'uz', 'ka', 'de', 'ar', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv', 'ky', 'et', 'tk', 'uk'];
     expect(Object.keys(RED_FLAG_ADVICE).sort()).toEqual([...langs].sort());
     for (const l of langs) for (const c of ['pale', 'black', 'red'] as const) {
       expect(RED_FLAG_ADVICE[l][c].length).toBeGreaterThan(10);

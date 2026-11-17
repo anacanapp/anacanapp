@@ -9,7 +9,7 @@ const read = (lang: string) => JSON.parse(readFileSync(join(dir, `${lang}.json`)
 
 describe('partner missions', () => {
   it('has text for every mission in all 21 languages', () => {
-    expect(languages.sort()).toHaveLength(23);
+    expect(languages.sort()).toHaveLength(25);
     const keys = PARTNER_MISSIONS.map((m) => m.key).sort();
     for (const lang of languages) {
       const text = read(lang);

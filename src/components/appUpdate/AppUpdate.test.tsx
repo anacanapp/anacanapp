@@ -38,7 +38,7 @@ describe('update frequency', () => {
 });
 
 describe('update texts', () => {
-  it('has fixed labels in all 23 app languages', () => {
+  it('has fixed labels in all 25 app languages', () => {
     expect(APP_UPDATE_TEXT_LANGUAGES.sort()).toEqual([...APP_LANGUAGE_CODES].sort());
     expect(updateText('later', 'ru')).toBe('Позже');
     expect(updateText('update', 'xx')).toBe('Yenilə'); // unknown codes normalise to the app default (az)
