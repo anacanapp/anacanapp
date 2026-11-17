@@ -34,8 +34,9 @@ community/localization/moderator/ad-moderation contract-ları, admin insight fil
 yoxdur (mövcud funksiyalar yenidən yazılır, CDC-yə təsir etmir). Push şablonları üçün
 `title_tk/body_tk/title_uk/body_uk` Duzelis87-dədir. **2026-11-17 canlı Google bazasına tətbiq
 olunub** (supabase_admin, bir tranzaksiya): `community_language_valid_v1('tk'/'uk') = true`; push
-şablonları 294 + 4370 + 20 sətir. Notification-job image-ləri yenidən build olunana qədər gündəlik push
-tk/uk sütunlarını oxumur (bax `scripts/notification-jobs/README.md`).
+şablonları 294 + 4370 + 20 sətir. Notification-job image-ləri (flow, vitamin, daily slots/halfhour) eyni gün yenidən
+build olunub (bax `scripts/notification-jobs/README.md`). Functions image `8233e6b62bf1…` (tk/uk server copy +
+partner-conversion) və gateway `6fcfab9698dd…` (plan `tkuk-web-plan.json`, rollback `rollback-tkuk-web-plan.json`) canlıdır.
 
 ## Tərcümə
 

@@ -104,6 +104,11 @@ modul və ya mövcud webhook mexanizmi ilə etmək olar.
 
 ## İşə salma (Google)
 
+**Vəziyyət 2026-11-17:** 1–3-cü addımlar canlıdadır. Hər iki miqrasiya tətbiq olunub, canlı bazada
+rollback testi `PARTNER_TRACKING_OK` qaytarıb. Functions image `8233e6b62bf1…` `partner-conversion` route-u ilə
+işləyir, deploy skripti `/root/functions-tkuk-partner.py`, env backup `functions.env.before-tkuk-partner`.
+Gateway `6fcfab9698dd…` `/sdk/anacan-partner.js` faylını verir. 4–5-ci addımlar sahibin işidir.
+
 1. SQL: əvvəl `20261117090000_shop_partners.sql`, sonra `20261117150000_shop_partner_tracking.sql`, hər ikisi `run-sql.py` ilə. Ardınca `supabase/tests/shop_partner_tracking.sql` (rollback) işlədilir.
 2. Functions image:
    - `partner-conversion` qovluğu image-ə əlavə olunur;
