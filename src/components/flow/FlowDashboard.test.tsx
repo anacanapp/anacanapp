@@ -8,6 +8,7 @@ vi.mock('@/lib/tip-translations', () => ({ getTranslatedTip: value => value }));
 vi.mock('@/lib/date-utils', () => ({ getCurrentDateLocale: () => undefined }));
 vi.mock('@/integrations/supabase/client', () => ({ supabase: {} }));
 vi.mock('@tanstack/react-query', () => ({ useQuery: () => ({ data: {} }) }));
+vi.mock('@/components/partner-shop/PartnerShop', () => ({ PartnerHomeCard: () => null }));
 vi.mock('@/store/userStore', () => ({ useUserStore: selector => selector({ cycleLength: 28, periodLength: 5, language: 'az',
   getCycleData: () => ({ lastPeriodDate: new Date(2026, 8, 10) }) }) }));
 vi.mock('@/hooks/usePeriodDayLogs', () => ({ useRecordPeriodDays: () => ({ mutateAsync: mocks.record }), usePeriodDayLogs: () => ({ data: mocks.periodDays }) }));

@@ -11,7 +11,7 @@ import CartDrawer from '@/components/shop/CartDrawer';
 import CheckoutScreen from '@/components/shop/CheckoutScreen';
 import OrderSuccessScreen from '@/components/shop/OrderSuccessScreen';
 import { tr } from "@/lib/tr";
-import { OliviaShopSection } from '@/components/olivia/OliviaShop';
+import { PartnerShopSection } from '@/components/partner-shop/PartnerShop';
 
 interface ShopScreenProps {
   onBack?: () => void;
@@ -254,8 +254,8 @@ const ShopScreen = ({ onBack }: ShopScreenProps) => {
         </motion.button>
       </div>
 
-      {/* Olivia.az partner storefront (admin-only; renders nothing without Olivia rows) */}
-      <OliviaShopSection />
+      {/* Partner stores (Olivia.az first); the server decides who sees which partner */}
+      <PartnerShopSection />
 
       {/* Search - compact */}
       <div className="relative mb-3">

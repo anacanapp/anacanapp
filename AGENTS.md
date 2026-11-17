@@ -59,6 +59,8 @@ backend, native or deployment work. Their detailed continuity rules still apply.
   deterministic generation, bounded saves and one-time hint/bonus/win rewards.
 - QayğıCash cashback is live for AZ (`docs/QAYGICASH.md`): keep the qaygicash-premium and cake-checkout catalog
   routes and ENABLED_FUNCTIONS entries on functions deploys; in-app cakes are Epoint card only; Premium-with-bonus stays off until the owner enables it.
+- Partner stores (`docs/SHOP_PARTNERS.md`): partner data only via server-scoped `shop_partner_*` RPCs; partner products stay
+  is_active=false and reach the app through `shop_storefront_v1`. Olivia is `admin_only` until the owner sets it live.
 - Source Auth-hook binding/IP enforcement and RevenueCat v2 metrics permission
   remain operator dependencies; require live proof before claiming activation.
 - Keep private inputs, signing material, sessions and ignored migration helpers

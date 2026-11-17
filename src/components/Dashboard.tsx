@@ -60,7 +60,7 @@ import TeethingWidget from '@/components/mommy/TeethingWidget';
 import BannerSlot from '@/components/banners/BannerSlot';
 import { AdInlineAnchor } from '@/components/ads/AdExperienceProvider';
 import { AptekHomeCard } from '@/components/aptek/AptekEntry';
-import { OliviaHomeCard } from '@/components/olivia/OliviaShop';
+import { PartnerHomeCard } from '@/components/partner-shop/PartnerShop';
 import { RecapHomeCard } from '@/components/recap/RecapEntry';
 import { solidFoodGuideRelevant } from '@/lib/solid-food-guide-entry';
 import { feature37Text } from '@/lib/feature37-i18n';
@@ -710,8 +710,8 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
       {/* Anacan Aptek: pregnancy offer or store banner (hidden while the store is off) */}
       <AptekHomeCard stage="bump" />
 
-      {/* Olivia.az partner promo (admin-only while the partnership is negotiated) */}
-      <OliviaHomeCard lifeStage="bump" pregnancyWeek={pregData?.currentWeek ?? null} onOpen={onNavigate} />
+      {/* Partner store promo (Olivia.az; admin-only while the partner is not live) */}
+      <PartnerHomeCard lifeStage="bump" pregnancyWeek={pregData?.currentWeek ?? null} onOpen={onNavigate} />
 
       {/* "I Gave Birth" Button - Shown from week 27+ */}
       {showBirthButton &&
@@ -1788,8 +1788,8 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
       {/* Anacan Aptek: age-based offer or store banner (hidden while the store is off) */}
       <AptekHomeCard stage="mommy" babyMonths={exactMonths} babyName={babyData.name} onOpen={onNavigate} />
 
-      {/* Olivia.az partner promo (admin-only) */}
-      <OliviaHomeCard lifeStage="mommy" babyMonths={exactMonths} onOpen={onNavigate} />
+      {/* Partner store promo (admin-only while the partner is not live) */}
+      <PartnerHomeCard lifeStage="mommy" babyMonths={exactMonths} onOpen={onNavigate} />
 
       {/* Cakes cross-sell — yalnız AZ bazarı (dil az/ru + ölkə AZ), 12 aydan sonra gizli */}
       {!isToolDisabled('cakes') && isCakesAvailable((mommyProfile as any)?.country_code, language) && babyData.ageInMonths < 12 &&

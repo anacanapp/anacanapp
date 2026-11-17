@@ -1,0 +1,40 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261117090000_shop_partners.sql",
+  "runtime": "google-shop-partners",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls the seven shop_partner relations in guarded_relations with the three standard triggers (the migration refuses without the guard catalog and verifies 7 relations / 21 triggers)",
+  "preserve": [
+    "products keeps its CDC/writer guard and every existing column; two columns are added (partner_id, partner_listed default true), aptek rows are untouched",
+    "Olivia rows (store='olivia', is_active=false) are linked to the seeded 'olivia' partner; nothing else changes visibility"
+  ],
+  "relations": [
+    { "relation": "public.products", "change": "altered", "cdc": true, "writer_guard": true, "pii": false, "primary_key": ["id"],
+      "note": "+ partner_id uuid (FK shop_partners, on delete set null), + partner_listed boolean not null default true, index on partner_id" },
+    { "relation": "public.shop_partners", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "partner store (slug, name, logo, website, status admin_only|live|paused, commission); RLS on, no client grants" },
+    { "relation": "public.shop_partner_members", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "user ↔ partner role owner|manager|viewer; written by the invite/admin RPCs only" },
+    { "relation": "public.shop_partner_invites", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": true, "primary_key": ["id"],
+      "note": "invited e-mail, role, sha256 of the one-time token (token itself never stored), expiry" },
+    { "relation": "public.shop_partner_events", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "storefront measurements per user/product (impression deduped per Baku day); partners only see aggregates" },
+    { "relation": "public.shop_partner_campaigns", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "discount campaigns pending → approved/rejected by admins, cancelled by partners" },
+    { "relation": "public.shop_partner_sales", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "sales entered by the partner (date, product, quantity, revenue, channel)" },
+    { "relation": "public.shop_partner_audit", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "actor, action, target and change payload for every partner write" }
+  ],
+  "functions": [
+    "shop_storefront_v1() (anon, authenticated)", "shop_partner_track_v1(uuid[], text, text)",
+    "shop_partner_me_v1()", "shop_partner_accept_invite_v1(text)", "shop_partner_dashboard_v1(uuid, date, date, boolean)",
+    "shop_partner_products_v1(uuid)", "shop_partner_product_save_v1(uuid, uuid, jsonb)", "shop_partner_products_bulk_v1(uuid, uuid[], text, numeric)",
+    "shop_partner_campaigns_v1(uuid)", "shop_partner_campaign_save_v1(uuid, uuid, jsonb)", "shop_partner_campaign_cancel_v1(uuid, uuid)",
+    "shop_partner_sales_v1(uuid, date, date)", "shop_partner_sale_save_v1(uuid, uuid, jsonb)", "shop_partner_sale_delete_v1(uuid, uuid)",
+    "shop_partner_team_v1(uuid)", "shop_partner_invite_v1(uuid, text, text)", "shop_partner_invite_revoke_v1(uuid, uuid)", "shop_partner_member_set_v1(uuid, uuid, text)",
+    "shop_partner_audit_v1(uuid)", "shop_partner_admin_list_v1()", "shop_partner_admin_save_v1(uuid, jsonb)", "shop_partner_campaign_review_v1(uuid, text, text)",
+    "shop_partner_admin_pending_v1()", "shop_partner_admin_clear_v1(uuid)", "shop_partner_admin_import_v1(uuid, jsonb)",
+    "_shop_partner_role/_shop_partner_need/_shop_partner_log/_shop_visible_partners (service_role only)"
+  ],
+  "tests": "supabase/tests/shop_partners_isolation.sql (transaction, rolled back)"
+}

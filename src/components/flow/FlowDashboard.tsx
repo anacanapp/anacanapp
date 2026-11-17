@@ -36,7 +36,7 @@ import SymptomPatternReport from './SymptomPatternReport';
 import DailyStoryCards from './DailyStoryCards';
 
 import WaterWidget from '@/components/dashboard/WaterWidget';
-import { OliviaHomeCard } from '@/components/olivia/OliviaShop';
+import { PartnerHomeCard } from '@/components/partner-shop/PartnerShop';
 import { getPhaseInfoForDate, getNextPeriodDate, getFertileWindow } from '@/lib/cycle-utils';
 import { useCycleHistory, useEffectiveCycleLength } from '@/hooks/useCycleHistory';
 import { computeAdaptiveCycleStats, refineOvulation } from '@/lib/cycle-predictions';
@@ -342,8 +342,8 @@ const FlowDashboard = () => {
         </motion.div>
       </section>
 
-      {/* Olivia.az partner promo (admin-only): pads before the predicted period */}
-      <OliviaHomeCard lifeStage="flow" daysUntilPeriod={daysUntilPeriod} />
+      {/* Partner store promo: pads before the predicted period (admin-only while the partner is not live) */}
+      <PartnerHomeCard lifeStage="flow" daysUntilPeriod={daysUntilPeriod} />
 
       {/* Interactive Period Calendar (Apple Health style) */}
       <div className="a-section">
