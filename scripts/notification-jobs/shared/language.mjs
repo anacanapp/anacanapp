@@ -1,4 +1,4 @@
-export const NOTIFICATION_LANGUAGES = Object.freeze(['az','en','tr','ru','de','ar','ka','kk','uz','zh','id','fr','es','pt','vi','hi','ja','ko','pl','nl','sv','ky','et']);
+export const NOTIFICATION_LANGUAGES = Object.freeze(['az','en','tr','ru','de','ar','ka','kk','uz','zh','id','fr','es','pt','vi','hi','ja','ko','pl','nl','sv','ky','et','tk','uk']);
 export function notificationLanguage(value) {
   const language = typeof value === 'string' ? value.trim().toLowerCase().replaceAll('_', '-').split('-')[0] : '';
   return NOTIFICATION_LANGUAGES.includes(language) ? language : 'az';

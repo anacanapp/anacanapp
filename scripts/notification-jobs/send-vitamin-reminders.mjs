@@ -30,6 +30,8 @@ const VITAMIN_COPY = {
   sv: { title: '💊 Dags för dina vitaminer!', test: '[TEST] 💊 Vitaminpåminnelse', one: (n) => `Dags att ta ${n}`, many: (c, l) => `Dags att ta ${c} vitaminer: ${l}` },
   ky: { title: '💊 Витаминдерди ичүү убактысы келди!', test: '[TEST] 💊 Витамин эскертмеси', one: (n) => `${n} ичүү убактысы келди`, many: (c, l) => `${c} витаминди ичүү убактысы келди: ${l}` },
   et: { title: '💊 Aeg vitamiinide jaoks!', test: '[TEST] 💊 Vitamiinide meeldetuletus', one: (n) => `Aeg võtta ${n}`, many: (c, l) => `Aeg võtta ${c} vitamiini: ${l}` },
+  tk: { title: '💊 Witaminleri içmegiň wagty geldi!', test: '[TEST] 💊 Witamin ýatlatmasy', one: (n) => `${n} içmegiň wagty geldi`, many: (c, l) => `${c} witamini içmegiň wagty geldi: ${l}` },
+  uk: { title: '💊 Час прийняти вітаміни!', test: '[TEST] 💊 Нагадування про вітаміни', one: (n) => `Час прийняти ${n}`, many: (c, l) => `Час прийняти вітаміни (${c}): ${l}` },
 };
 
 const manual = !!TEST_USER_ID;

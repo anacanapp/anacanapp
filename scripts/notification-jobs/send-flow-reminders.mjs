@@ -215,6 +215,24 @@ const DEFAULTS = {
     pms: { title: () => 'PMS-i periood ⚡', body: () => 'PMS läheneb – hoia ennast!' },
     pill: { title: () => 'Tableti aeg 💊', body: () => 'Ära unusta oma igapäevast tabletti!' },
   },
+  tk: {
+    period_start: { title: () => 'Aýbaşy ýakynlaşýar 🔴', body: (d) => `Aýbaşyňyza ${d} gün galdy!` },
+    period_end: { title: () => 'Aýbaşy tamamlandy ✅', body: () => 'Aýbaşyňyz tamamlandy!' },
+    ovulation: { title: () => 'Ovulýasiýa güni 🌸', body: (d) => `Ovulýasiýa çenli ${d} gün galdy!` },
+    fertile_start: { title: () => 'Göwreli bolmak üçin amatly günler 💕', body: () => 'Göwreli bolmak üçin amatly günleriňiz başlandy!' },
+    fertile_end: { title: () => 'Amatly günler tamamlanýar 📅', body: () => 'Göwreli bolmak üçin amatly günleriňiz tamamlanyp barýar.' },
+    pms: { title: () => 'PMS döwri ⚡', body: () => 'PMS ýakynlaşýar, özüňize ideg ediň!' },
+    pill: { title: () => 'Tabletka wagty 💊', body: () => 'Gündelik tabletkaňyzy içmegi ýatdan çykarmaň!' },
+  },
+  uk: {
+    period_start: { title: () => 'Менструація наближається 🔴', body: (d) => `До менструації залишилося днів: ${d}!` },
+    period_end: { title: () => 'Менструація закінчилася ✅', body: () => 'Ваша менструація завершилася!' },
+    ovulation: { title: () => 'День овуляції 🌸', body: (d) => `До овуляції залишилося днів: ${d}!` },
+    fertile_start: { title: () => 'Фертильні дні 💕', body: () => 'Ваші фертильні дні починаються!' },
+    fertile_end: { title: () => 'Фертильні дні закінчуються 📅', body: () => 'Ваші фертильні дні добігають кінця.' },
+    pms: { title: () => 'Період ПМС ⚡', body: () => 'ПМС наближається — подбайте про себе!' },
+    pill: { title: () => 'Час прийняти таблетку 💊', body: () => 'Не забудьте прийняти щоденну таблетку!' },
+  },
 };
 
 function pickLang(value, valueEn, lang) {

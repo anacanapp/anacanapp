@@ -1882,15 +1882,15 @@ export const EXPANDED_SERVER_COPY = {
     },
     "babyFallback": {
       "sleep": {
-        "status": "нормалдуу",
+        "status": "normal",
         "note": "Уйку боюнча маалыматтар чогултулууда – күн бою каттоону улантыңыз."
       },
       "feeding": {
-        "status": "нормалдуу",
+        "status": "normal",
         "note": "Тамактандыруу боюнча маалыматтар чогултулууда – ар бир тамактандырууну каттоого аракет кылыңыз."
       },
       "diaper": {
-        "status": "нормалдуу",
+        "status": "normal",
         "note": "Жалаяк боюнча маалыматтар чогултулууда – сууланган жалаяктар баланын курсагы тоюп жатканынын жакшы белгиси."
       }
     },
@@ -2034,15 +2034,15 @@ export const EXPANDED_SERVER_COPY = {
     },
     "babyFallback": {
       "sleep": {
-        "status": "normaalne",
+        "status": "normal",
         "note": "Uneandmeid kogutakse – jätka sisestamist päeva jooksul."
       },
       "feeding": {
-        "status": "normaalne",
+        "status": "normal",
         "note": "Toitmisandmeid kogutakse – proovi sisestada iga toitmine."
       },
       "diaper": {
-        "status": "normaalne",
+        "status": "normal",
         "note": "Mähkmeandmeid kogutakse – märjad mähkmed on hea märk sellest, et laps saab piisavalt süüa."
       }
     },
@@ -2125,6 +2125,310 @@ export const EXPANDED_SERVER_COPY = {
         "Kontrolli lapse üldseisundit",
         "Kontrolli mähkmeid",
         "Kontrolli, kas laps on näljane"
+      ]
+    }
+  },
+  "tk": {
+    "push": {
+      "message": "Täze habar",
+      "like": "Täze halanma",
+      "comment": "Täze teswir",
+      "reply": "Täze jogap",
+      "repliedToComment": "{sender} siziň teswiriňize jogap berdi",
+      "commentLike": "Siziň teswiriňiz halandy",
+      "thankYou": "Size minnetdarlyk bildirildi!",
+      "contraction": "Tolgak duýduryşy",
+      "shopping": "Satyn alyş sanawy täzelendi",
+      "sos": "Ýoldaşyňyzdan gyssagly duýduryş",
+      "birth": "Dogluş duýduryşy",
+      "diagnostic": "Anacan synag bildirişi",
+      "diagnosticBody": "Bu siziň hasabyňyz üçin synag bildirişi.",
+      "user": "Ulanyjy",
+      "anonymous": "Anonim",
+      "postLiked": "{sender} siziň ýazgyňyzy halady.",
+      "storyLiked": "{sender} siziň storiňizi halady.",
+      "commentLiked": "{sender} siziň teswiriňizi halady.",
+      "shoppingAdded": "{sender} satyn alyş sanawyna {item} goşdy.",
+      "thanks": "{sender} size minnetdarlyk iberdi.",
+      "contractionAlert": "{sender} tolgak duýduryşyny iberdi. Jikme-jiklikleri görmek üçin Anacan programmasyny açyň.",
+      "image": "Surat iberdi.",
+      "video": "Wideo iberdi.",
+      "audio": "Sesli habar iberdi.",
+      "love": "Size söýgüsini iberdi.",
+      "openMessage": "Habary görmek üçin Anacan programmasyny açyň."
+    },
+    "chatErrors": {
+      "unavailable": "Hyzmat wagtlaýyn elýeterli däl. Biraz wagtdan soň gaýtadan synanyşyň.",
+      "noAnswer": "Gynansak-da, jogap alyp bolmady. Gaýtadan synanyşyň."
+    },
+    "poopValidation": {
+      "success": "Surat seljerildi",
+      "diaper_empty": "Bez boş, täret görünmeýär. Täretli bezi surata düşüriň.",
+      "baby_photo": "Bu bäbegiň suraty. Bezi surata düşüriň.",
+      "adult_content": "Suratda bäbegiň bezi görünmeýär. Degişli suraty saýlaň.",
+      "food": "Bu iýmitiň suraty. Bezi surata düşüriň.",
+      "animal": "Bu haýwanyň suraty. Bezi surata düşüriň.",
+      "screenshot": "Bu ekranyň suraty. Beziň hakyky suratyny düşüriň.",
+      "landscape": "Bu peýzažyň suraty. Bezi surata düşüriň.",
+      "object": "Bu bir zadyň suraty. Bezi surata düşüriň.",
+      "other": "Surat seljermek üçin ýaramly däl. Bezdäki täreti surata düşüriň.",
+      "unknown": "Suraty tanap bolmady. Has aýdyň surat düşüriň.",
+      "valid": "Surat talaplara laýyk",
+      "failed": "Suraty barlap bolmady. Gaýtadan synanyşyň."
+    },
+    "poopFallback": {
+      "colorNameAz": "Näbelli",
+      "explanation": "Surat seljerildi. Has aýdyň surat düşürmäge synanyşyň.",
+      "recommendations": [
+        "Bäbegiň umumy ýagdaýyna gözegçilik ediň",
+        "Aladalanýan bolsaňyz, lukmana ýüz tutuň"
+      ]
+    },
+    "babyFallback": {
+      "sleep": {
+        "status": "normal",
+        "note": "Uky boýunça maglumatlar toplanýar – gün dowamynda bellige almagy dowam ediň."
+      },
+      "feeding": {
+        "status": "normal",
+        "note": "Iýmitlendiriş boýunça maglumatlar toplanýar – her iýmitlendirişi bellige almaga çalyşyň."
+      },
+      "diaper": {
+        "status": "normal",
+        "note": "Bez boýunça maglumatlar toplanýar – öl bezler bäbegiň ýeterlik iýmitlenýändiginiň gowy alamatydyr."
+      }
+    },
+    "weatherFallback": {
+      "hot": {
+        "weatherDescription": "Yssy howa",
+        "clothingAdvice": "Bäbegi ýeňil, ýuka we howa geçirýän pagta eşiklerde geýindiriň. Papak we ellik ýaly gyşky eşikler gerek däl – günden goramak üçin diňe ýuka gün papagyny geýdiriň.",
+        "clothingItems": [
+          "Ýeňil pagta bodi",
+          "Ýuka şortik/ýuka ýubka",
+          "Gün papagy"
+        ],
+        "indoorClothingAdvice": "Öýde hem ýeňil, ýuka pagta eşikler ýeterlikdir.",
+        "indoorClothingItems": [
+          "Ýeňil pagta bodi",
+          "Ýalaňaýak/ýuka jorap"
+        ],
+        "roomTemperatureAdvice": "Otagyň temperaturasyny 20-22°C aralygynda saklaň we gerek bolsa kondisioner ýa-da wentilýator ulanyň.",
+        "outdoorAdvice": "Iň yssy wagtda (12:00-dan 16:00-a çenli) daşaryk çykmazlyga çalyşyň"
+      },
+      "cold": {
+        "weatherDescription": "Sowuk howa",
+        "clothingAdvice": "Bäbegi gat-gat edip ýyly geýindiriň: içinden pagta eşik, daşyndan ýyly gat.",
+        "clothingItems": [
+          "Ýyly kombinezon",
+          "Ýyly papak",
+          "Ellik"
+        ],
+        "indoorClothingAdvice": "Öýde bäbegi amatly pagta eşiklerde geýindiriň.",
+        "indoorClothingItems": [
+          "Pagta bodi",
+          "Jorap"
+        ],
+        "roomTemperatureAdvice": "Otagyň temperaturasyny 20-22°C aralygynda saklaň.",
+        "outdoorAdvice": "Daşarda bolýan wagtyňyzy çäklendiriň, bäbegiň ellerini we kellesini ýyly saklaň"
+      },
+      "mild": {
+        "weatherDescription": "Mylaýym howa",
+        "clothingAdvice": "Bäbegi gaty gyzdyrman, ortaça geýindiriň we artykmaç gatlardan gaça duruň.",
+        "clothingItems": [
+          "Uzyn ýeňli bodi",
+          "Ýuka balak",
+          "Ýuka kurtka"
+        ],
+        "indoorClothingAdvice": "Öýde bäbegi amatly pagta eşiklerde geýindiriň.",
+        "indoorClothingItems": [
+          "Pagta bodi",
+          "Jorap"
+        ],
+        "roomTemperatureAdvice": "Otagyň temperaturasyny 20-22°C aralygynda saklaň.",
+        "outdoorAdvice": "Howa ýagdaýyny yzarlap duruň"
+      }
+    },
+    "crySounds": {
+      "cough": "Bu bäbegiň aglamasy däl, üsgülewük.",
+      "sneeze": "Bu bäbegiň aglamasy däl, asgyrma.",
+      "adult_voice": "Bu bäbegiň aglamasy däl, uly adamyň sesine meňzeýär.",
+      "scream": "Bu bäbegiň aglamasy hökmünde tanalmadyk gykylyk ýa-da gaty ses.",
+      "bang": "Bu bäbegiň aglamasy däl, bir zadyň kakylan ýa-da urlan sesi.",
+      "music_tv": "Bu bäbegiň aglamasy däl, telewizoryň, sazyň ýa-da başga medianyň sesi.",
+      "animal": "Bu bäbegiň aglamasy däl, haýwanyň sesi bolmagy mümkin.",
+      "silence": "Ýazgyda hiç hili ses diýen ýaly ýok.",
+      "noise": "Bu bäbegiň aglamasy däl, daş-töweregiň galmagaly.",
+      "baby_cooing": "Bäbek aglamaýar, şatlykly sesler çykarýar.",
+      "unknown": "Bäbegiň aglamasy anyklanmady."
+    },
+    "cryFallback": {
+      "shortExplanation": "Ýazgy gaty gysga. Dogry seljerme üçin azyndan 3 sekuntlyk ses gerek.",
+      "shortRecommendations": [
+        "Azyndan 3 sekuntlyk ses ýazdyryň",
+        "Mikrofony bäbege ýakyn saklaň"
+      ],
+      "noCryRecommendations": [
+        "Bäbek aglanda gaýtadan synanyşyň",
+        "Mikrofony bäbege has ýakynlaşdyryň",
+        "Daş-töweregiň galmagalyny azaldyň"
+      ],
+      "classificationExplanation": "Bäbegiň aglaýandygy anyklandy, ýöne aglamagyň takyk sebäbini kesgitläp bolmady.",
+      "classificationRecommendations": [
+        "Bäbegiň umumy ýagdaýyny barlaň",
+        "Bezini barlaň",
+        "Bäbegiň aç däldigini barlaň"
+      ]
+    }
+  },
+  "uk": {
+    "push": {
+      "message": "Нове повідомлення",
+      "like": "Нове вподобання",
+      "comment": "Новий коментар",
+      "reply": "Нова відповідь",
+      "repliedToComment": "{sender} відповів(-ла) на ваш коментар",
+      "commentLike": "Ваш коментар вподобали",
+      "thankYou": "Вам надіслали подяку!",
+      "contraction": "Сповіщення про перейми",
+      "shopping": "Оновлення списку покупок",
+      "sos": "Термінове сповіщення від партнера",
+      "birth": "Сповіщення про пологи",
+      "diagnostic": "Тестове сповіщення Anacan",
+      "diagnosticBody": "Це тестове сповіщення для вашого акаунта.",
+      "user": "Користувач",
+      "anonymous": "Анонім",
+      "postLiked": "{sender} вподобав(-ла) ваш допис.",
+      "storyLiked": "{sender} вподобав(-ла) вашу сторіз.",
+      "commentLiked": "{sender} вподобав(-ла) ваш коментар.",
+      "shoppingAdded": "{sender} додав(-ла) {item} до списку покупок.",
+      "thanks": "{sender} надіслав(-ла) вам подяку.",
+      "contractionAlert": "{sender} надіслав(-ла) сповіщення про перейми. Відкрийте Anacan, щоб дізнатися більше.",
+      "image": "Надіслав(-ла) фото.",
+      "video": "Надіслав(-ла) відео.",
+      "audio": "Надіслав(-ла) голосове повідомлення.",
+      "love": "Надіслав(-ла) вам свою любов.",
+      "openMessage": "Відкрийте Anacan, щоб переглянути повідомлення."
+    },
+    "chatErrors": {
+      "unavailable": "Сервіс тимчасово недоступний. Спробуйте трохи пізніше.",
+      "noAnswer": "На жаль, не вдалося отримати відповідь. Спробуйте ще раз."
+    },
+    "poopValidation": {
+      "success": "Фото проаналізовано",
+      "diaper_empty": "Підгузок порожній, випорожнень не видно. Сфотографуйте підгузок із випорожненнями.",
+      "baby_photo": "Це фото малюка. Сфотографуйте підгузок.",
+      "adult_content": "На фото немає дитячого підгузка. Виберіть відповідне фото.",
+      "food": "Це фото їжі. Сфотографуйте підгузок.",
+      "animal": "Це фото тварини. Сфотографуйте підгузок.",
+      "screenshot": "Це знімок екрана. Сфотографуйте справжній підгузок.",
+      "landscape": "Це фото пейзажу. Сфотографуйте підгузок.",
+      "object": "Це фото предмета. Сфотографуйте підгузок.",
+      "other": "Це фото не підходить для аналізу. Сфотографуйте випорожнення в підгузку.",
+      "unknown": "Не вдалося розпізнати фото. Зробіть чіткіше фото.",
+      "valid": "Фото відповідає вимогам",
+      "failed": "Не вдалося перевірити фото. Спробуйте ще раз."
+    },
+    "poopFallback": {
+      "colorNameAz": "Невідомо",
+      "explanation": "Фото проаналізовано. Спробуйте зробити чіткіше фото.",
+      "recommendations": [
+        "Стежте за загальним станом малюка",
+        "Якщо щось турбує, зверніться до лікаря"
+      ]
+    },
+    "babyFallback": {
+      "sleep": {
+        "status": "normal",
+        "note": "Збираємо дані про сон — продовжуйте записувати сон малюка протягом дня."
+      },
+      "feeding": {
+        "status": "normal",
+        "note": "Збираємо дані про годування — намагайтеся записувати кожне годування."
+      },
+      "diaper": {
+        "status": "normal",
+        "note": "Збираємо дані про підгузки — мокрі підгузки зазвичай свідчать, що малюк достатньо їсть."
+      }
+    },
+    "weatherFallback": {
+      "hot": {
+        "weatherDescription": "Спекотна погода",
+        "clothingAdvice": "Одягніть малюка в легкий, тонкий бавовняний одяг, що добре пропускає повітря. Шапка, рукавички та інший зимовий одяг не потрібні — для захисту від сонця достатньо легкої панамки.",
+        "clothingItems": [
+          "Легке бавовняне боді",
+          "Тонкі шорти/легка спідничка",
+          "Панамка"
+        ],
+        "indoorClothingAdvice": "Удома теж достатньо легкого, тонкого бавовняного одягу.",
+        "indoorClothingItems": [
+          "Легке бавовняне боді",
+          "Босоніж/тонкі шкарпетки"
+        ],
+        "roomTemperatureAdvice": "Підтримуйте в кімнаті температуру 20-22°C і за потреби вмикайте кондиціонер або вентилятор.",
+        "outdoorAdvice": "Намагайтеся не виходити надвір у найспекотніші години (з 12:00 до 16:00)"
+      },
+      "cold": {
+        "weatherDescription": "Холодна погода",
+        "clothingAdvice": "Одягніть малюка тепло, шарами: бавовняний одяг усередині й теплий шар зверху.",
+        "clothingItems": [
+          "Теплий комбінезон",
+          "Тепла шапка",
+          "Рукавички"
+        ],
+        "indoorClothingAdvice": "Удома одягайте малюка у зручний бавовняний одяг.",
+        "indoorClothingItems": [
+          "Бавовняне боді",
+          "Шкарпетки"
+        ],
+        "roomTemperatureAdvice": "Підтримуйте в кімнаті температуру 20-22°C.",
+        "outdoorAdvice": "Обмежте час надворі, тримайте руки й голову малюка в теплі"
+      },
+      "mild": {
+        "weatherDescription": "Помірна погода",
+        "clothingAdvice": "Одягніть малюка помірно, щоб він не перегрівався, і уникайте надто багатьох шарів.",
+        "clothingItems": [
+          "Боді з довгим рукавом",
+          "Тонкі штанці",
+          "Легка курточка"
+        ],
+        "indoorClothingAdvice": "Удома одягайте малюка у зручний бавовняний одяг.",
+        "indoorClothingItems": [
+          "Бавовняне боді",
+          "Шкарпетки"
+        ],
+        "roomTemperatureAdvice": "Підтримуйте в кімнаті температуру 20-22°C.",
+        "outdoorAdvice": "Стежте за прогнозом погоди"
+      }
+    },
+    "crySounds": {
+      "cough": "Це не плач малюка, а кашель.",
+      "sneeze": "Це не плач малюка, а чхання.",
+      "adult_voice": "Це не плач малюка, звук схожий на голос дорослого.",
+      "scream": "Це крик або гучний звук, який не розпізнано як плач малюка.",
+      "bang": "Це не плач малюка, а звук удару чи стуку.",
+      "music_tv": "Це не плач малюка, а звук телевізора, музики чи інших медіа.",
+      "animal": "Це не плач малюка, можливо, це звук тварини.",
+      "silence": "У записі майже немає звуку.",
+      "noise": "Це не плач малюка, а навколишній шум.",
+      "baby_cooing": "Малюк не плаче, а радісно гулить.",
+      "unknown": "Плач малюка не виявлено."
+    },
+    "cryFallback": {
+      "shortExplanation": "Запис надто короткий. Для точного аналізу потрібно щонайменше 3 секунди звуку.",
+      "shortRecommendations": [
+        "Запишіть щонайменше 3 секунди звуку",
+        "Тримайте мікрофон ближче до малюка"
+      ],
+      "noCryRecommendations": [
+        "Спробуйте ще раз, коли малюк плаче",
+        "Піднесіть мікрофон ближче до малюка",
+        "Зменште фоновий шум"
+      ],
+      "classificationExplanation": "Плач малюка виявлено, але точну причину плачу визначити не вдалося.",
+      "classificationRecommendations": [
+        "Перевірте загальний стан малюка",
+        "Перевірте підгузок",
+        "Перевірте, чи малюк не голодний"
       ]
     }
   }

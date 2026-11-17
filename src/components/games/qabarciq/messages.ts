@@ -1,6 +1,6 @@
 import { normalizeAppLanguage } from '@/lib/app-languages';
 
-// Offline UI copy for Qabarcıq partlat in all 23 app languages (written by Claude, not machine-translated by Gemini).
+// Offline UI copy for Qabarcıq partlat in all 25 app languages (written by Claude, not machine-translated by Gemini).
 const KEYS = ['title', 'tagline', 'card', 'best', 'play', 'weekly', 'you', 'howTo', 'combo', 'wand', 'rainbow', 'pickWand',
   'pickRainbow', 'paused', 'resume', 'quit', 'great', 'good', 'newRecord', 'popped', 'bestCombo', 'time', 'seconds', 'again',
   'share', 'weeklyTitle', 'empty', 'signIn', 'players', 'resets', 'loadError', 'retry', 'sound', 'back', 'shareText', 'timeUp', 'player'] as const;
@@ -122,6 +122,8 @@ const COPY: Record<string, string[]> = {
     'Puuduta värvi, et see eemaldada', 'Paus', 'Jätka', 'Välju', 'Suurepärane tulemus!', 'Hea mäng!', 'Uus rekord', 'Lõhutud', 'Pikim kombo', 'Aeg', '{n} s', 'Mängi uuesti',
     'Jaga', 'Nädala edetabel', 'Sel nädalal pole veel keegi mänginud. Ole esimene!', 'Logi sisse, et edetabelis näha olla', '{n} mängijat', 'Lähtestub igal esmaspäeval', 'Edetabelit ei õnnestunud laadida', 'Proovi uuesti', 'Heli', 'Tagasi',
     'Sain Anacani Mullipaugus {score} punkti! Mitu sina saad?', 'Aeg on läbi!', 'Anacani kasutaja'],
+  tk: ["Köpürjik partlat", "Stresi aýyryň, dynç alyň", "Bir reňkli köpürjikleri partladyň, kombo ýygnaň we hepdelik reýtinge giriň.", "Iň gowy netijäňiz", "Oýna", "Şu hepdäniň reýtingi", "Siz", "Bir reňkli 2 ýa-da has köp goňşy köpürjige basyň. Kombo ýygnamak üçin çalt partladyň. Siziň 90 sekundyňyz bar.", "Kombo x{n}!", "Jadyly taýajyk", "Älemgoşar", "Partlatmak üçin islendik köpürjige basyň", "Aýyrmak üçin bir reňke basyň", "Arakesme", "Dowam et", "Çyk", "Ajaýyp netije!", "Gowy oýun!", "Täze rekord", "Partladylan", "Iň uzyn kombo", "Wagt", "{n} sek", "Ýene oýna", "Paýlaş", "Hepdelik reýting", "Şu hepde entek hiç kim oýnamady. Birinji bolup oýnaň!", "Reýtingde görünmek üçin hasabyňyza giriň", "{n} oýunçy", "Her duşenbe täzelenýär", "Reýting ýüklenmedi", "Gaýtadan synanyş", "Ses", "Yza", "Anacandaky «Köpürjik partlat» oýnunda {score} bal topladym! Siz näçe toplap bilersiňiz?", "Wagt gutardy!", "Anacan ulanyjysy"],
+  uk: ["Лусни бульбашку", "Зніміть стрес, розслабтеся", "Лускайте бульбашки одного кольору, збирайте комбо й потрапте до тижневого рейтингу.", "Ваш найкращий рахунок", "Грати", "Рейтинг цього тижня", "Ви", "Торкайтеся 2 і більше сусідніх бульбашок одного кольору. Лускайте швидко, щоб зібрати комбо. У вас 90 секунд.", "Комбо x{n}!", "Чарівна паличка", "Веселка", "Торкніться будь-якої бульбашки, щоб луснути її", "Торкніться кольору, щоб прибрати його", "Пауза", "Продовжити", "Вийти", "Чудовий результат!", "Гарна гра!", "Новий рекорд", "Луснуто", "Найдовше комбо", "Час", "{n} с", "Грати знову", "Поділитися", "Тижневий рейтинг", "Цього тижня ще ніхто не грав. Будьте першими!", "Увійдіть, щоб потрапити в рейтинг", "Гравців: {n}", "Оновлюється щопонеділка", "Не вдалося завантажити рейтинг", "Повторити", "Звук", "Назад", "Мій результат у грі «Лусни бульбашку» в Anacan — {score}! А який буде ваш?", "Час вийшов!", "Користувач Anacan"],
 };
 
 export const BUBBLE_MESSAGES = Object.fromEntries(Object.entries(COPY).map(([language, values]) => {
