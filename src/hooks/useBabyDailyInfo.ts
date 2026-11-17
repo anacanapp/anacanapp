@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useUserStore } from '@/store/userStore';
+import { mapRowTranslation } from '@/lib/tr';
 
 export interface BabyDailyInfo {
   id: string;
@@ -31,13 +32,9 @@ export const useBabyDailyInfoByDay = (dayNumber: number | null) => {
         return null;
       }
       if (!data) return null;
-      if (language !== 'az') {
-        const langField = (data as any)[`info_${language}`];
-        if (langField) {
-          return { ...data, info: langField } as BabyDailyInfo;
-        }
-      }
-      return data as BabyDailyInfo;
+      // Shared row localization: info_<lang> column, else the source-bound bundle for bundle
+      // languages (ky/et/tk/uk, zh…), else the English or Azerbaijani source.
+      return mapRowTranslation(data as BabyDailyInfo, language, ['info']);
     },
     enabled: !!dayNumber && dayNumber >= 1 && dayNumber <= 1460,
     staleTime: 1000 * 60 * 5,

@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 import { Ruler, Weight, ChevronDown, ChevronUp } from 'lucide-react';
 import { tr } from '@/lib/tr';
 
+/** "19. hefte — …"; languages whose label is an ordinal suffix ("-й тиждень", "-я неделя") attach it to the number. */
+const weekHeading = (week: number, label: string) => label.startsWith('-') ? `${week}${label}` : `${week}. ${label}`;
+
 /**
  * Bump: "Bu həftə körpəniz" — partnyor üçün həftəlik inkişaf kartı.
  * Mənbə: pregnancy_daily_content (baby_development) + fruit data.
@@ -52,7 +55,7 @@ const PartnerWeekInfoCard = ({ currentWeek, weekData, dayContent, language, isMu
         </div>
         <div className="flex-1 min-w-0">
           <h3 style={{ fontSize: 14.5, fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--a-ink)' }}>
-            {currentWeek}. {isMultiple ? tr('partnerv2_hefte_korpeleriniz', 'həftə — körpələriniz') : tr('partnerv2_hefte_korpeniz', 'həftə — körpəniz')}
+            {weekHeading(currentWeek, isMultiple ? tr('partnerv2_hefte_korpeleriniz', 'həftə — körpələriniz') : tr('partnerv2_hefte_korpeniz', 'həftə — körpəniz'))}
           </h3>
           {weekData?.fruit &&
           <p style={{ fontSize: 11.5, color: 'var(--a-ink-soft)' }}>
