@@ -1,0 +1,202 @@
+{
+ "any_drink": [
+  "Oňa ýyly içgi taýýarlaň",
+  "Soramazdan, edil onuň halaýşy ýaly: çaý, kakao ýa-da süýt"
+ ],
+ "any_dishes": [
+  "Şu agşam gap-gaç ýuwuň",
+  "Dynç alyp bilmegi üçin aşhanany arassa goýuň"
+ ],
+ "any_compliment": [
+  "Ýürekden öwgi aýdyň",
+  "Daş keşbi barada däl: onuň güýji we aladasy barada"
+ ],
+ "any_listen": [
+  "Telefonyňyzy aýryp, 15 minut diňläň",
+  "Maslahat bermän, diňe ýanynda boluň"
+ ],
+ "any_walk": [
+  "Bile gezelenç ediň",
+  "Arassa howa we 20 minutlyk söhbet"
+ ],
+ "any_love_note": [
+  "Garaşylmadyk söýgi belligini galdyryň",
+  "Aýnada, sumkasynda ýa-da telefonynda"
+ ],
+ "any_cook": [
+  "Şu agşam nahar bişiriň",
+  "Ýönekeý, ýyly we onuň halaýan zady"
+ ],
+ "any_errand": [
+  "Onuň sanawyndan bir işi öz üstüňize alyň",
+  "Dermanhana, azyk önümleri ýa-da hasap tölemek"
+ ],
+ "any_flowers": [
+  "Gül ýa-da onuň halaýan süýjüsini getiriň",
+  "Sebäpsiz kiçijik şatlyk"
+ ],
+ "flow_heat": [
+  "Gyzgyn suwly grelka taýýarlaň",
+  "Ýylylyk sanjylary ýeňilleşdirýär"
+ ],
+ "flow_supplies": [
+  "Onuň aýbaşy serişdelerini barlaň",
+  "Azalan bolsa, soramazdan ýene satyn alyň"
+ ],
+ "flow_iron_meal": [
+  "Demre baý nahar bişiriň",
+  "Et, merjimek ýa-da ysmanak"
+ ],
+ "flow_patience": [
+  "Onuň keýpine sabyrly boluň",
+  "Gormon üýtgeşmeleri adaty zat; islendik jedeli soňa goýuň"
+ ],
+ "flow_rest": [
+  "Oňa dynç almak üçin bir sagat beriň",
+  "Şol sagat öý işlerini öz üstüňize alyň"
+ ],
+ "flow_massage": [
+  "Oňa arka massažyny ediň",
+  "Ol bilin aşaky agyrysyny ýeňilleşdirýär"
+ ],
+ "flow_movie": [
+  "Rahat film agşamyny guraň",
+  "Ýorgan, ýyly içgi we onuň halaýan filmi"
+ ],
+ "flow_active": [
+  "Onuň energiýaly güni üçin işjeň bir zat meýilleşdiriň",
+  "Welosiped, tans ýa-da uzak gezelenç"
+ ],
+ "bump_vitamins": [
+  "Oňa witaminlerini ýatladyň",
+  "Lukmanynyň belleýänlerini wagtynda içer ýaly"
+ ],
+ "bump_water": [
+  "Onuň suw çüýşesini dolduryň",
+  "Gün boýy suw onuň ýanynda bolsun"
+ ],
+ "bump_feet": [
+  "Oňa aýak massažyny ediň",
+  "Ol agşamky çişleri azaldýar"
+ ],
+ "bump_talk_baby": [
+  "Çaga bilen gürleşiň",
+  "Çaga sesiňizi öwrener ýaly garna gürläň"
+ ],
+ "bump_appointment": [
+  "Indiki barlaga bile gidiň",
+  "Soraglaryňyzy öňünden bile ýazyň"
+ ],
+ "bump_read": [
+  "Bu hepdäniň ösüşi barada bile okaň",
+  "Çaga bu hepde näme öwrenýär?"
+ ],
+ "bump_heavy": [
+  "Agyr zatlary siz göteriň",
+  "Ol agyr zat götermeli däl we köp egilmeli däl"
+ ],
+ "bump_photo": [
+  "Garnynyň suratyny alyň",
+  "Bu hepdeden ýadygärlik"
+ ],
+ "bump_snack": [
+  "Peýdaly ýeňil nahar taýýarlaň",
+  "Miwe, hoz ýa-da ýogurt"
+ ],
+ "bump_pillows": [
+  "Has gowy uky üçin ýassyklary ýerleşdiriň",
+  "Gapdalyna ýatanda dyzlarynyň arasyna ýassyk"
+ ],
+ "late_bag": [
+  "Hassahana sumkasyny barlaň",
+  "Resminamalar, çaga eşikleri, zarýad beriji"
+ ],
+ "late_route": [
+  "Hassahana barýan ýoly synap görüň",
+  "Gündiz we gije näçe minut?"
+ ],
+ "late_fuel": [
+  "Awtoulaga ýangyç guýuň",
+  "Bagy azyndan ýarysyna çenli doly saklaň"
+ ],
+ "late_car_seat": [
+  "Çaganyň awtoulag oturgyjyny oturdyň",
+  "Çaga öýe howpsuz gelsin"
+ ],
+ "late_contractions": [
+  "Tolgak taýmerini öwreniň",
+  "5-1-1 düzgünini biliň: 5 minut, 1 minut, 1 sagat"
+ ],
+ "late_phone": [
+  "Möhüm belgileri ýatda saklaň",
+  "Lukman, hassahana we maşgala"
+ ],
+ "late_birth_plan": [
+  "Dogluş meýilnamasyny bile okaň",
+  "Onuň isleglerini biliň we olary goraň"
+ ],
+ "nb_night_feed": [
+  "Bir gijeki iýmitlendirmäni öz üstüňize alyň",
+  "Sagylan süýt ýa-da garyndy bilen, ol ýatyp bilsin"
+ ],
+ "nb_diapers": [
+  "Indiki üç bezi siz çalşyň",
+  "Ejesi biraz dynç alsyn"
+ ],
+ "nb_bath": [
+  "Çagany suwa düşüriň",
+  "Ýyly suw, ýumşak süpürgiç we sabyr"
+ ],
+ "nb_skin": [
+  "Çaga bilen 20 minut deri-derä degmek",
+  "Bu baglanyşygy we rahatlygy berkidýär"
+ ],
+ "nb_visitors": [
+  "Myhmanlary dolandyryň",
+  "Ejesi dynç alyp bilmegi üçin myhmançylygy gysga saklaň"
+ ],
+ "nb_meal": [
+  "Ejesiniň naharyny we suwuny taýýarlaň",
+  "Emdirmek köp suw talap edýär"
+ ],
+ "nb_feelings": [
+  "Onuň özüni nähili duýýandygyny soraň",
+  "Dogluşdan soň keýpiň peselmegi bolup biler; üns beriň"
+ ],
+ "nb_nap": [
+  "Oňa iki sagat ýatmaga mümkinçilik beriň",
+  "Çagany gezelenje çykaryň ýa-da oňa özüňiz seretjek boluň"
+ ],
+ "mm_play": [
+  "Çaga bilen 20 minut oýnaň",
+  "Telefonsyz, ýerde, göz-göze"
+ ],
+ "mm_bedtime": [
+  "Şu gije çagany siz ýatyryň",
+  "Suwa düşürmek, erteki ýa-da hüwdi"
+ ],
+ "mm_stroll": [
+  "Çagany gezelenje çykaryň",
+  "Ejesine özi üçin bir sagat beriň"
+ ],
+ "mm_baby_food": [
+  "Çaganyň naharyny taýýarlaň",
+  "Onuň ýaşyna laýyk ýönekeý resept"
+ ],
+ "mm_me_time": [
+  "Oňa özi üçin wagt beriň",
+  "Maşk, dostlar ýa-da diňe dynç almak"
+ ],
+ "mm_photo": [
+  "Maşgala suratyny alyň",
+  "Üçüňiziň bile bolan pursady"
+ ],
+ "mm_read": [
+  "Çaga kitap okap beriň",
+  "Siziň sesiňiz onuň iň halaýan sesi"
+ ],
+ "mm_date": [
+  "Kiçijik duşuşyk meýilleşdiriň",
+  "Çaga ýatyrka öýde hem bolup biler"
+ ]
+}

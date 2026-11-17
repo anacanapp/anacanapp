@@ -1,0 +1,13 @@
+{
+ "title": "Maglumatlaryňyzy goraň",
+ "subtitle": "Göwreliligiňiz, saglygyňyz we çagaňyz baradaky bellikler şahsy. Programmany diňe siziň açyp bilmegiňizi üpjün ediň.",
+ "bio_ios": "Face ID",
+ "bio_android": "Barmak yzy ýa-da ýüz bilen açmak",
+ "bio_line": "Bir seretmek ýa-da degmek bilen açylýar",
+ "pin_title": "4 sanly PIN",
+ "pin_line": "Ätiýaçlyk: PIN bilen hemişe açyp bilersiňiz",
+ "settings_title": "Islän wagtyňyz öçüriň",
+ "settings_line": "Ony {where} bölüminde öçürip ýa-da PIN-iňizi üýtgedip bilersiňiz",
+ "enable": "Goragy açmak",
+ "later": "Häzir däl"
+}

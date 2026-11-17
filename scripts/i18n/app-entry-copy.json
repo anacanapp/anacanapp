@@ -413,6 +413,24 @@
     "legal": "Juriidilised dokumendid",
     "checking": "Kontrollin ligipääsuõigusi…"
   },
+  "tk": {
+    "opening": "Anacan programmasy açylýar…",
+    "openApp": "Programmany açmak",
+    "storeFallback": "Programma açylmasa, ony degişli dükandan ýükläp alyp bilersiňiz.",
+    "adminLogin": "Administrator hökmünde giriş",
+    "adminOnly": "Web arkaly giriş diňe serwerde tassyklanan administrator hasaby üçin açyk.",
+    "email": "E-poçta",
+    "password": "Parol",
+    "signIn": "Giriş",
+    "signOut": "Çykmak",
+    "accessDenied": "Bu hasabyň administrator hukugy ýok.",
+    "loginFailed": "Giriş şowsuz boldy. E-poçtany we açar sözi barlaň.",
+    "connectionError": "Baglanyşyk şowsuz boldy. Gaýtadan synanyşyň.",
+    "adminPanel": "Administrator paneli",
+    "webPreview": "Web görnüşi",
+    "legal": "Hukuk resminamalary",
+    "checking": "Giriş hukuklary barlanýar…"
+  },
   "uk": {
     "opening": "Відкриваємо застосунок Anacan…",
     "openApp": "Відкрити застосунок",

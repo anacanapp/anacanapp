@@ -1,0 +1,13 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261117200000_turkmen_ukrainian_languages.sql",
+  "runtime": "google-tk-uk-languages",
+  "install": "pending: apply in one transaction as supabase_admin on anacan-gcp-candidate, then Duzelis87 the same way",
+  "preserve": ["cron0", "8 enabled business timers", "Source sealed; no new relation"],
+  "relations": [
+    { "relation": "public.community_post_translations", "change": "constraint", "cdc": true, "writer_guard": true, "note": "lang check accepts tk, uk" },
+    { "relation": "public.pregnancy_day_notifications", "change": "columns", "cdc": true, "writer_guard": true, "note": "Duzelis87: nullable title_tk, body_tk, title_uk, body_uk" },
+    { "relation": "public.mommy_day_notifications", "change": "columns", "cdc": true, "writer_guard": true, "note": "Duzelis87: nullable title_tk, body_tk, title_uk, body_uk" },
+    { "relation": "public.scheduled_notifications", "change": "columns", "cdc": true, "writer_guard": true, "note": "Duzelis87: nullable title_tk, body_tk, title_uk, body_uk" }
+  ]
+}

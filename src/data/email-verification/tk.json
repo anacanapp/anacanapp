@@ -1,0 +1,29 @@
+{
+ "ui": {
+  "title": "E-poçtaňyzy tassyklaň",
+  "subtitle": "{email} salgysyna 6 sanly kod iberdik. Ony aşakda giriziň.",
+  "why": "Bu hasabyňyzy goraýar we alýan Premium-yňyzyň hasabyňyza baglanmagyny üpjün edýär.",
+  "code_label": "Tassyklama kody",
+  "confirm": "Tassyklamak",
+  "resend": "Kody gaýtadan ibermek",
+  "resend_in": "{s} sek soň gaýtadan ibermek",
+  "sent": "Kod iberildi",
+  "spam_hint": "Hat gelmedimi? Spam ýa-da Mahabat bukjalaryny hem barlaň.",
+  "wrong_code": "Nädogry kod. Barlap, gaýtadan synanyşyň.",
+  "expired": "Bu kodyň möhleti gutardy. Täzesini iberiň.",
+  "too_many": "Synanyşyklar örän köp. Täze kod iberiň.",
+  "rate_limited": "Biraz garaşyň we gaýtadan synanyşyň.",
+  "send_failed": "Kody iberip bolmady. Internet baglanyşygyňyzy barlap, gaýtadan synanyşyň.",
+  "verified": "E-poçtaňyz tassyklandy 🎉",
+  "wrong_email": "E-poçta nädogrumy? Çykyň we täzeden hasaba duruň"
+ },
+ "email": {
+  "subject": "{code} — siziň Anacan tassyklama kodyňyz",
+  "preheader": "Hasabyňyzy tassyklamak üçin bu kody giriziň.",
+  "heading": "Tassyklama kodyňyz",
+  "intro": "Anacan hasabyňyzy tassyklamak üçin bu kody programmada giriziň:",
+  "expires": "Kod 15 minutlap hereket edýär.",
+  "ignore": "Eger muny siz soramadyk bolsaňyz, bu haty ünsden düşüriň — hasabyňyzda hiç zat üýtgemez.",
+  "footer": "Anacan — her tapgyrda ýanyňyzda"
+ }
+}

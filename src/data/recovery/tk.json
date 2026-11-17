@@ -1,0 +1,220 @@
+{
+ "title": "Dogluşdan soňky dikeliş",
+ "eyebrow_vaginal": "Dogluşdan soňky dikeliş · tebigy dogluş",
+ "eyebrow_cesarean": "Dogluşdan soňky dikeliş · kesar kesimi",
+ "week_title": "Dogluşdan soňky {n}-nji hepde",
+ "after_title": "Dikeliş dowam edýär",
+ "after_body": "Ilkinji 6 hepde yzda galdy. Bedeniňiz henizem bitişýär — çanak düýbi maşklaryny dowam ediň we özüňize mylaýym boluň.",
+ "choose_title": "Siz nähili dogurdyňyz?",
+ "choose_desc": "Dikeliş meýilnamaňyzy size laýyklaşdyralyň. Muny soňra üýtgedip bilersiňiz.",
+ "vaginal": "Wagina arkaly dogluş",
+ "cesarean": "Kesar kesişi",
+ "change_type": "Dogluş görnüşini üýtgetmek",
+ "focus": "Bu hepdäniň esasy ünsi",
+ "tips": "Bu hepde",
+ "weeks": {
+  "vaginal": [
+   {
+    "title": "Dynç alyş we jynsy agzalaryň daş-töweregine ideg",
+    "body": "Gan gelme (lohiýa) ilkinji günlerde iň köp bolýar. Mümkin boldugyça köp ýatyň we çagaňyz ýatanda ýatyň.",
+    "tips": [
+     "Hajathana her gidenden soň ýyly suw bilen çaýkaň we öňden yza tarap süpürip guradyň",
+     "Sowuk kompres çişi azaldýar",
+     "Köp suw içiň — bu süýt we dikeliş üçin möhüm"
+    ]
+   },
+   {
+    "title": "Ýumşak hereket",
+    "body": "Gysga gezelençler gan aýlanyşyna kömek edýär we içgatama garşy durýar. Agyr zat götermäň.",
+    "tips": [
+     "Günde 2–3 gezek 5–10 minut ýöräň",
+     "Çanak düýbi maşklaryna haýal başlaň",
+     "Süýümlere baý iýmit iýiň we suw içiň"
+    ]
+   },
+   {
+    "title": "Bedeniňizi diňlemek",
+    "body": "Gan gelme azalmaly we reňki açylmaly. Birden köpelse, bu özüňizi aşa ýadadýandygyňyzyň alamaty bolup biler.",
+    "tips": [
+     "Gezelençleri ýuwaş-ýuwaşdan 15–20 minuda ýetiriň",
+     "Kömek tekliplerini kabul ediň",
+     "Gündizki uky üçin wagt meýilleşdiriň"
+    ]
+   },
+   {
+    "title": "Keýp we güýç",
+    "body": "Ukusyzlyk we gormon üýtgeşmeleri keýpiňize täsir edýär. 2 hepdeden köp dowam edýän gussa adaty däl — biri bilen gürleşiň.",
+    "tips": [
+     "Her gün biraz arassa howa alyň",
+     "Gijeki nobatlary ýoldaşyňyz bilen paýlaşyň",
+     "Keýp testini geçiň"
+    ]
+   },
+   {
+    "title": "Güýji dikeltmek",
+    "body": "Garyn myşsalaryňyz haýal dikelýär. Garyn maşklaryna entek howlukmaň.",
+    "tips": [
+     "Esasan emdirýän wagtyňyz durkuňyza üns beriň",
+     "Çanak düýbi maşklaryny günde 3 gezek ediň",
+     "Demre baý iýmitleri iýiň"
+    ]
+   },
+   {
+    "title": "6-njy hepdäniň barlagy",
+    "body": "Lukman barlagy dikelişiňiziň nähili barýandygyny görkezýär. Soraglaryňyzy öňünden ýazyň.",
+    "tips": [
+     "Göwreliligiň öňüni alyş serişdeleri barada soraň",
+     "Peşew saklap bilmezlik bar bolsa aýdyň",
+     "Maşklara dolanmak üçin rugsat alyň"
+    ]
+   }
+  ],
+  "cesarean": [
+   {
+    "title": "Ýara ideg we dynç alyş",
+    "body": "Kesar kesimi uly operasiýadyr. Birinji hepdede esasy wezipeleriňiz dynç almak, agyryny dolandyrmak we kesigi arassa hem gury saklamak.",
+    "tips": [
+     "Agyry aýyryjyny lukmanyňyzyň maslahat berşi ýaly içiň",
+     "Üsgürenňizde garnyňyzy ýassyk bilen goldaň",
+     "Çagaňyzdan agyr zat götermäň"
+    ]
+   },
+   {
+    "title": "Ýara ideg we ýeňil gezelençler",
+    "body": "Günde 2–3 gezek 5–10 minut ýöremek gan aýlanyşyna kömek edýär. Çagaňyzdan agyr zat götermäň.",
+    "tips": [
+     "Kesigiňizi her gün barlaň: gyzarma, iriň, açylma",
+     "Düşekden turmak üçin gapdalyňyza öwrüliň",
+     "Köp suw we süýümlere baý iýmit"
+    ]
+   },
+   {
+    "title": "Kem-kemden köpräk hereket",
+    "body": "Agyry azaldygyça, birneme uzagrak ýöräň. Basgançaklar bolýar, ýöne olardan haýal çykyň.",
+    "tips": [
+     "Gezelençleri ýuwaş-ýuwaşdan 15 minuda ýetiriň",
+     "Ulag sürmezden öň lukmanyňyzdan soraň",
+     "Çuňňur dem alyş maşklaryny ediň"
+    ]
+   },
+   {
+    "title": "Keýp we uky",
+    "body": "Operasiýa we ukusyz gijeler bilelikde agyr degip biler. Kömek soramak güýçlüligiň alamatydyr.",
+    "tips": [
+     "Gijeki iýmitlendirmeleri paýlaşyň",
+     "Keýp testini geçiň",
+     "Az-azdan, ýygy-ýygydan iýmitlenmek"
+    ]
+   },
+   {
+    "title": "Garyn myşsalary",
+    "body": "Kesik bitişýär, ýöne içindäki dokumalar henizem bitişýär. Garyn maşklary üçin entek ir.",
+    "tips": [
+     "Çanak düýbi maşklaryny dowam ediň",
+     "Diňe ýeňil öý işleri",
+     "Durkuňyza üns beriň"
+    ]
+   },
+   {
+    "title": "6-njy hepdäniň barlagy",
+    "body": "Lukmanyňyz kesigiňizi we umumy dikelişiňizi barlar. Geljekki göwrelilikler we maşklar barada soraň.",
+    "tips": [
+     "Tyrtygyň töwereginde duýgurlygyň azalmagy köp duş gelýär — bu barada soraň",
+     "Göwreliligiň öňüni alyş serişdelerini ara alyp maslahatlaşyň",
+     "Maşklara haçan dolanyp boljakdygyny anyklaň"
+    ]
+   }
+  ]
+ },
+ "checkin_title": "Şu gün özüňizi nähili duýýarsyňyz?",
+ "checkin_saved": "Şu günki barlag saklandy",
+ "checkin_edit": "Üýtgetmek",
+ "bleeding": "Gan akma",
+ "bleeding_levels": [
+  "Ýok",
+  "Ýeňil",
+  "Orta",
+  "Köp"
+ ],
+ "pain": "Agyry",
+ "stitches": "Tikinler",
+ "stitches_levels": {
+  "fine": "Gowy",
+  "sore": "Agyrýar",
+  "red": "Gyzyl",
+  "none": "Tikin ýok"
+ },
+ "mood": "Keýp",
+ "mood_levels": [
+  "Örän erbet",
+  "Erbet",
+  "Bolýar",
+  "Gowy",
+  "Ajaýyp"
+ ],
+ "signs_question": "Sizde bularyň haýsydyr biri barmy?",
+ "flags": {
+  "heavy_bleeding": "Bir sagatda arassalyk ýassygyny ezýän gan gelme ýa-da uly lagtalar",
+  "fever": "38 °C-dan ýokary gyzzyrma, titreme",
+  "wound": "Tikinlerde gyzarma, iriň ýa-da açylma",
+  "leg": "Bir aýakda çiş, gyzarma we agyry",
+  "chest": "Dem gysma ýa-da döş agyrysy",
+  "headache": "Geçmeýän güýçli kelle agyrysy, görejiň üýtgemegi",
+  "smell": "Ýakymsyz ysly bölünip çykmalar",
+  "breast": "Döşde gyzarýan, gyzgyn, agyryly ýer",
+  "harm": "Özüme ýa-da çagama zyýan bermek barada pikirler",
+  "sad": "2 hepdeden köp dowam edýän gussa ýa-da umytsyzlyk"
+ },
+ "urgent_title": "Bu gyssagly alamat",
+ "urgent_body": "Garaşmaň — häzir {number} belgä jaň ediň ýa-da iň ýakyn hassahana gidiň.",
+ "doctor_alert_title": "Şu gün lukmanyňyz bilen habarlaşyň",
+ "doctor_alert_body": "Bu alamaty barlatmaly. Lukmanyňyza ýa-da göbekeneňize jaň ediň.",
+ "harm_body": "Bu pikirler siziň günäňiz däl we olary bejerip bolýar. Häzir {number} belgä jaň ediň ýa-da ýakyn biriňize aýdyň.",
+ "call": "{number} belgä jaň et",
+ "tell_partner": "Ýoldaşyma habar bermek",
+ "partner_told": "Hyzmatdaşyňyza habar berildi",
+ "partner_alert_msg": "Dikeliş döwrümde aladalandyrýan alamaty belledim. Ýanymda bol / maňa jaň et.",
+ "save_checkin": "Saklamak",
+ "kegel_title": "Çanak düýbi maşky",
+ "kegel_today": "Şu gün {done} / {goal} · {min} min",
+ "kegel_start": "Başlamak",
+ "kegel_level": [
+  "Ýumşak başlangyç",
+  "Berkitmek",
+  "Çydamlylyk"
+ ],
+ "squeeze": "Gysyň",
+ "relax": "Gowşadyň",
+ "seconds": "sekunt",
+ "rep": "Gaýtalama {n} / {total}",
+ "rhythm": "{hold} sek gysyň, {rest} sek gowşadyň",
+ "kegel_howto": "Peşewi saklaýan ýaly ýuwaşlyk bilen gysyň. Demiňizi saklamaň, garnyňyzy ýa-da budlaryňyzy dartmaň.",
+ "pause": "Arakesme",
+ "resume": "Dowam et",
+ "finish": "Tamamla",
+ "kegel_done": "Ajaýyp! Şu günki {n}-nji maşk tamamlandy 💜",
+ "kegel_note_cesarean": "Kesar kesiminden soň diňe lukmanyňyzyň rugsady bilen başlaň. Agyry duýsaňyz, togtadyň.",
+ "kegel_note": "Agyry ýa-da oňaýsyzlyk duýsaňyz, togtadyň.",
+ "kegel_premium": "Gündelik çanak düýbi programmasy Premium-da",
+ "checkup_title": "6-njy hepdäniň barlagy",
+ "checkup_desc": "~ {date} · soraglaryňyzy taýýarlaň",
+ "checkup_questions": [
+  "Gan gelmäm adatymy?",
+  "Göwreliligiň öňüni almak üçin näme maslahat berýärsiňiz?",
+  "Maşklara haçan dolanyp bilerin?",
+  "Peşewi saklamakda kynçylyk çekmek adatymy?",
+  "Keýpim barada gürleşesim gelýär"
+ ],
+ "add_to_calendar": "Senenama goşmak",
+ "added_calendar": "Senenama goşuldy",
+ "mood_test": "Keýp testi (Edinburg)",
+ "history": "Soňky 7 gün",
+ "tabs": {
+  "week": "Bu hepde",
+  "checkin": "Gündelik barlag",
+  "kegel": "Maşk",
+  "signs": "Alamatlar"
+ },
+ "home_card_desc": "Bu hepde: {focus}",
+ "disclaimer": "Bu gollanma lukmançylyk maslahatynyň ornuny tutmaýar."
+}

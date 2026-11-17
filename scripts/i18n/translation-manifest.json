@@ -1,6 +1,6 @@
 {
   "schema": "anacan-translation-bundles-v1",
-  "at": "2026-11-03T19:19:14.000Z",
+  "at": "2026-11-17T10:57:40.000Z",
   "languages": [
     "zh",
     "id",
@@ -15,7 +15,9 @@
     "nl",
     "sv",
     "ky",
-    "et"
+    "et",
+    "tk",
+    "uk"
   ],
   "uiSourceHash": "5217894a62fa59b1b39bf0cc19e95dcab11d5d1805833e473bc8a77c7d53fad8",
   "contentSourceHash": "acb69e8c504923bc3171713ad1a20ad26f2b4141691f565d1ceb987f1f6876df",
@@ -263,12 +265,50 @@
       "sha256": "427db41f19538b4961805ed2bee63488d8ad5de66e2f54342ae38d9cdd738dbe",
       "keysHash": "ac236bfc56eea30edc34f835f90dabdec8ae3b1019b1a3c3edb32c73976f922a",
       "sourceHash": "acb69e8c504923bc3171713ad1a20ad26f2b4141691f565d1ceb987f1f6876df"
+    },
+    {
+      "language": "tk",
+      "kind": "ui",
+      "file": "scripts/i18n/tk.seed.json",
+      "count": 12547,
+      "bytes": 795157,
+      "sha256": "3a445dca8ce9a94aca0a42eb58ce355e3d44c6fbd82d917efe506399a94fcb6b",
+      "keysHash": "87a7d477416dcdb0b1b4b1a9e4dd2df038b44f4cd106de85105d69ebdf3e2226"
+    },
+    {
+      "language": "tk",
+      "kind": "content",
+      "file": "scripts/i18n/content/tk.json",
+      "count": 24543,
+      "bytes": 7902381,
+      "sha256": "6a58afc268f0368d8cfc677946e86e06b6e9827f653e1cbd0c36fa8397439729",
+      "keysHash": "ac236bfc56eea30edc34f835f90dabdec8ae3b1019b1a3c3edb32c73976f922a",
+      "sourceHash": "acb69e8c504923bc3171713ad1a20ad26f2b4141691f565d1ceb987f1f6876df"
+    },
+    {
+      "language": "uk",
+      "kind": "ui",
+      "file": "scripts/i18n/uk.seed.json",
+      "count": 12547,
+      "bytes": 1001209,
+      "sha256": "2e1fc43636ec2a43ef2004e725aeb3b8a6fb886aa8eec4d67c69e64ed193b44a",
+      "keysHash": "87a7d477416dcdb0b1b4b1a9e4dd2df038b44f4cd106de85105d69ebdf3e2226"
+    },
+    {
+      "language": "uk",
+      "kind": "content",
+      "file": "scripts/i18n/content/uk.json",
+      "count": 24543,
+      "bytes": 10582544,
+      "sha256": "7abf85f92f83e002f25408662c60478756bfa9b395a336b445b072e3308255ae",
+      "keysHash": "ac236bfc56eea30edc34f835f90dabdec8ae3b1019b1a3c3edb32c73976f922a",
+      "sourceHash": "acb69e8c504923bc3171713ad1a20ad26f2b4141691f565d1ceb987f1f6876df"
     }
   ],
   "publicPremiumCopy": {
     "file": "scripts/i18n/premium-copy.json",
-    "bytes": 33115,
-    "sha256": "a9cb5676d8c240d1f4bc3c0da903a4752a04fa50ceb45bfb2d9c9866d9df6972",
+    "bytes": 35713,
+    "sha256": "1ba16f55913616ec011581f9ce80e57d37d9538e363e95105278fe94fef91606",
     "bindings": 36
   },
   "publicRegionalCopy": {
@@ -295,11 +335,13 @@
       "nl",
       "sv",
       "ky",
-      "et"
+      "et",
+      "tk",
+      "uk"
     ],
     "keys": 9,
-    "bytes": 15244,
-    "sha256": "414909f058d7605fb8c05d5fc670a5794a99cc7c0a043ce80633159c01726112"
+    "bytes": 16583,
+    "sha256": "7bd91219a137c6d178b548cc9b384d91625939d34eb903fa52fb6c7fa6133d90"
   },
   "publicFollowupCopy": {
     "languages": [
@@ -325,11 +367,13 @@
       "nl",
       "sv",
       "ky",
-      "et"
+      "et",
+      "tk",
+      "uk"
     ],
     "keys": 41,
-    "bytes": 70333,
-    "sha256": "4a118da8571c482d5c1e7b427c480883cc874e9e02b99b11b716e86969507874"
+    "bytes": 76803,
+    "sha256": "fffdd4cd8d759a83d8b70d6b498fa3bf366e21dee9bc97d5cd6634995fd10a0d"
   },
   "publicFollowupContent": {
     "languages": [
@@ -355,11 +399,13 @@
       "nl",
       "sv",
       "ky",
-      "et"
+      "et",
+      "tk",
+      "uk"
     ],
     "bindings": 95,
-    "bytes": 432336,
-    "sha256": "f41b9971cb2a7355e3b4c193993f75c4fa6ae61b1e2e780defaac7a2dfd1d137"
+    "bytes": 471484,
+    "sha256": "084a9c1e91a7ece86679e4ef22893fd757025e651bf53e5b44b0dfbb6888f672"
   },
   "publicMaternityCopy": {
     "languages": [
@@ -385,11 +431,13 @@
       "nl",
       "sv",
       "ky",
-      "et"
+      "et",
+      "tk",
+      "uk"
     ],
     "keys": 96,
-    "bytes": 603452,
-    "sha256": "0794cbc089aec93c460e7a2a71ca5a5635c865b5fe746abf0a3a67e678fb6454",
+    "bytes": 657113,
+    "sha256": "96a846a2b115f551afbb6b76ab9f282497d0e263c5c57b431297137af2d35c89",
     "policySha256": "6fd7e67ec2fc8180e4d9be1d273bdb0195ba47fcf5525f0638323448c7e2ded6"
   },
   "publicFeature37Copy": {
@@ -416,10 +464,12 @@
       "nl",
       "sv",
       "ky",
-      "et"
+      "et",
+      "tk",
+      "uk"
     ],
     "keys": 218,
-    "bytes": 309552,
-    "sha256": "04935ee45084041f36b520ff1d9f13a6102a7025dc26352ee4297c3ef1646578"
+    "bytes": 338252,
+    "sha256": "77f55046d2956c12a8e3c272568a50c1860f7f2ed9c559e8e9473104b7f16640"
   }
 }

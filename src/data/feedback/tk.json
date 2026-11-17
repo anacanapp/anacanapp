@@ -1,0 +1,46 @@
+{
+ "menu": "Pikiriňizi iberiň",
+ "title": "Anacan size nähili?",
+ "subtitle": "Pikiriňiz programmany her ene üçin has gowulandyrmaga kömek edýär.",
+ "stars": [
+  "Örän erbet",
+  "Erbet",
+  "Bolýar",
+  "Gowy",
+  "Örän gowy"
+ ],
+ "low_title": "Size näme ýaramady?",
+ "low_sub": "Birnäçesini saýlaň — biz her birini okaýarys.",
+ "high_title": "Size iň köp näme ýaraýar?",
+ "high_sub": "Ony has-da gowulandyrmagymyz üçin saýlaň.",
+ "low_reasons": {
+  "crash": "Programma ýapylýar / doňýar",
+  "bug": "Bir zat işlemeýär",
+  "slow": "Haýal işleýär",
+  "missing": "Maňa gerek funksiýa ýok",
+  "content": "Maglumat takyk däl",
+  "ads": "Mahabat örän köp",
+  "price": "Premium gymmat",
+  "hard": "Ulanmak kyn",
+  "other": "Beýlekiler"
+ },
+ "high_reasons": {
+  "tracking": "Yzarlaýjylar",
+  "content": "Gündelik maglumat",
+  "ai": "AI kömekçi",
+  "community": "Jemgyýet",
+  "partner": "Ýoldaş tertibi",
+  "design": "Dizaýn",
+  "other": "Beýlekiler"
+ },
+ "message_low": "Näme boldy? Näme üýtgetmeli?",
+ "message_high": "Goşmak isleýän zadyňyz barmy? (hökmany däl)",
+ "send": "Ugrat",
+ "sending": "Iberilýär...",
+ "thanks_low": "Sag boluň. Toparymyz muny okar we düzetmek üçin işlär 💛",
+ "thanks_high": "Köp sag boluň! Bu toparymyz üçin uly höwes 💛",
+ "close": "Ýapmak",
+ "later": "Soňra",
+ "error": "Iberip bolmady. Internetiňizi barlap, gaýtadan synanyşyň.",
+ "subject": "Programma barada pikir"
+}

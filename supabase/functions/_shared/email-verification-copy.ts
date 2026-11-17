@@ -173,13 +173,13 @@ export const EMAIL_VERIFICATION_COPY: Record<string, EmailVerificationCopy> = {
     "footer": "Anacan — vid din sida i varje skede"
   },
   "tk": {
-    "subject": "{code} — siziň Anacan tassyklama koduňyz",
-    "preheader": "Hasabyňyzy tassyklamak üçin şu kody giriziň.",
-    "heading": "Siziň tassyklama koduňyz",
-    "intro": "Anacan hasabyňyzy tassyklamak üçin programmada şu kody giriziň:",
+    "subject": "{code} — siziň Anacan tassyklama kodyňyz",
+    "preheader": "Hasabyňyzy tassyklamak üçin bu kody giriziň.",
+    "heading": "Tassyklama kodyňyz",
+    "intro": "Anacan hasabyňyzy tassyklamak üçin bu kody programmada giriziň:",
     "expires": "Kod 15 minutlap hereket edýär.",
-    "ignore": "Eger bu kody siz soramadyk bolsaňyz, bu haty äsgermezlik ediň — hasabyňyzda hiç zat üýtgemez.",
-    "footer": "Anacan — her tapgyrda siziň bilen"
+    "ignore": "Eger muny siz soramadyk bolsaňyz, bu haty ünsden düşüriň — hasabyňyzda hiç zat üýtgemez.",
+    "footer": "Anacan — her tapgyrda ýanyňyzda"
   },
   "tr": {
     "subject": "{code} — Anacan doğrulama kodun",
@@ -192,11 +192,11 @@ export const EMAIL_VERIFICATION_COPY: Record<string, EmailVerificationCopy> = {
   },
   "uk": {
     "subject": "{code} — ваш код підтвердження Anacan",
-    "preheader": "Введіть цей код, щоб підтвердити свій акаунт.",
+    "preheader": "Введіть цей код, щоб підтвердити свій обліковий запис.",
     "heading": "Ваш код підтвердження",
-    "intro": "Введіть цей код у застосунку, щоб підтвердити свій акаунт Anacan:",
+    "intro": "Введіть цей код у застосунку, щоб підтвердити свій обліковий запис Anacan:",
     "expires": "Код дійсний протягом 15 хвилин.",
-    "ignore": "Якщо ви не надсилали цей запит, просто проігноруйте цей лист — у вашому акаунті нічого не зміниться.",
+    "ignore": "Якщо ви цього не запитували, просто проігноруйте цей лист — у вашому обліковому записі нічого не зміниться.",
     "footer": "Anacan — поруч із вами на кожному етапі"
   },
   "uz": {

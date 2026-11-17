@@ -254,6 +254,17 @@
       "retry": "Proovi uuesti",
       "referenceNote": "Seotud programm määratleb toote, riskirühma ja järelevaktsineerimise erandid."
     },
+    "tk": {
+      "conditional": "Aýratyn tertip",
+      "seasonal": "Möwsümleýin tertip",
+      "routine": "Adaty tertip",
+      "interval": "Öňki dozanyň senesi gerek",
+      "source": "Çeşme",
+      "countrySaveFailed": "Ýurdy saklap bolmady. Gaýtadan synanyşyň.",
+      "scheduleError": "Sanjym tertibini ýükläp bolmady. Gaýtadan synanyşyň.",
+      "retry": "Gaýtadan synanyşmak",
+      "referenceNote": "Baglanyşykly programma önüm, töwekgelçilik topary we yzyny tutmak boýunça kadadan çykmalary kesgitleýär."
+    },
     "uk": {
       "conditional": "Особливий графік",
       "seasonal": "Сезонний графік",
