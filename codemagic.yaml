@@ -68,7 +68,23 @@ workflows:
             app-store-connect fetch-signing-files "$BUNDLE_ID" --type IOS_APP_STORE --create
           done
           keychain add-certificates
+          echo "Signing identities in the build keychain:"; security find-identity -v -p codesigning || true
           xcode-project use-profiles --project ios/App/App.xcodeproj
+          # Fail here (not later in archive) when a target got no App Store profile. That happens when the fetched
+          # profiles belong to a distribution certificate that is not in the keychain, e.g. an expired/revoked one,
+          # or when CERTIFICATE_PRIVATE_KEY does not match any active Apple Distribution certificate.
+          SETTINGS=$(xcodebuild -project ios/App/App.xcodeproj -alltargets -configuration Release -showBuildSettings 2>/dev/null)
+          MISSING=0
+          for T in App AnacanTimerWidgetExtExtension AnacanNotificationService; do
+            SPEC=$(echo "$SETTINGS" | awk -v t="$T" '/^Build settings for action build and target /{cur=$NF; sub(/:$/,"",cur)} cur==t && $1=="PROVISIONING_PROFILE_SPECIFIER"{print $3; exit}')
+            echo "$T -> profile: ${SPEC:-<none>}"
+            [ -n "$SPEC" ] || MISSING=1
+          done
+          if [ "$MISSING" = 1 ]; then
+            echo "No App Store provisioning profile was applied. Check that CERTIFICATE_PRIVATE_KEY in anacan_ios_signing"
+            echo "belongs to an active Apple Distribution certificate (App Store Connect > Certificates) for team 8B6976J8H7."
+            exit 1
+          fi
       - name: Resolve Swift packages
         script: |
           # build-ipa only prints "Failed to show build settings" when Swift Package resolution fails
