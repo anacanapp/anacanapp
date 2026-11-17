@@ -39,6 +39,8 @@ export const PARENTING_LANGUAGE_LOADERS: Record<string, () => Promise<ParentingC
   sv: () => import('./sv'),
   ky: () => import('./ky'),
   et: () => import('./et'),
+  tk: () => import('./tk'),
+  uk: () => import('./uk'),
 };
 
 export const PARENTING_CONTENT_LANGUAGES = Object.keys(PARENTING_LANGUAGE_LOADERS);
@@ -141,6 +143,8 @@ export const PARENTING_HOME_LOADERS: Record<string, () => Promise<HomeModules>> 
   sv: () => Promise.all([import('./sv/tips'), import('./sv/programmes')]),
   ky: () => Promise.all([import('./ky/tips'), import('./ky/programmes')]),
   et: () => Promise.all([import('./et/tips'), import('./et/programmes')]),
+  tk: () => Promise.all([import('./tk/tips'), import('./tk/programmes')]),
+  uk: () => Promise.all([import('./uk/tips'), import('./uk/programmes')]),
 };
 
 const homeMerged = new Map<string, { at: number; content: ParentingHomeContent }>();
