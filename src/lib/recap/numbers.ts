@@ -1,5 +1,5 @@
 /**
- * Deterministic number, percent and unit formatting for the 23 app languages.
+ * Deterministic number, percent and unit formatting for the 25 app languages.
  * Intl is not used on purpose: Chromium (and Android WebView) ship reduced ICU data without, e.g.,
  * Azerbaijani or Kyrgyz, which would turn "1.505 gün" into "1,505 days" on some devices and make
  * frames differ between devices. CLDR separators and plural rules are reproduced here for what the video needs.
@@ -15,6 +15,7 @@ const SEPS: Record<string, Seps> = {
   es: { group: '.', decimal: ',', minGroup: 2 }, pt: { group: NB, decimal: ',', minGroup: 2 }, vi: { group: '.', decimal: ',' },
   hi: { group: ',', decimal: '.' }, ja: { group: ',', decimal: '.' }, ko: { group: ',', decimal: '.' }, pl: { group: NB, decimal: ',', minGroup: 2 },
   nl: { group: '.', decimal: ',' }, sv: { group: NB, decimal: ',' }, ky: { group: NB, decimal: ',' }, et: { group: NB, decimal: ',', minGroup: 2 },
+  tk: { group: NB, decimal: ',' }, uk: { group: NB, decimal: ',' },
 };
 
 export function formatNumber(lang: string, n: number, decimals = 0): string {
@@ -29,7 +30,7 @@ export function formatNumber(lang: string, n: number, decimals = 0): string {
 export function formatPercent(lang: string, n: number): string {
   const v = formatNumber(lang, Math.round(n));
   if (lang === 'tr') return `%${v}`;
-  if (['de', 'ru', 'fr', 'sv', 'pl', 'et', 'kk', 'ky', 'uz', 'ka', 'nl', 'es', 'pt'].includes(lang)) return `${v}${lang === 'fr' ? NNB : NB}%`;
+  if (['de', 'ru', 'fr', 'sv', 'pl', 'et', 'kk', 'ky', 'tk', 'uz', 'ka', 'nl', 'es', 'pt'].includes(lang)) return `${v}${lang === 'fr' ? NNB : NB}%`;
   return `${v}%`;
 }
 
@@ -42,7 +43,7 @@ export function pluralOf(lang: string, n: number): Plural {
   switch (lang) {
     case 'en': case 'de': case 'nl': case 'sv': case 'es': case 'et': return int && i === 1 ? 'one' : 'other';
     case 'pt': case 'fr': case 'hi': return i <= 1 ? 'one' : 'other';
-    case 'ru':
+    case 'ru': case 'uk':
       if (!int) return 'other';
       if (m10 === 1 && m100 !== 11) return 'one';
       if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return 'few';
@@ -72,7 +73,7 @@ const DAY: Record<string, Forms> = {
   kk: { other: 'күн' }, uz: { other: 'kun' }, zh: { other: '天' }, id: { other: 'hari' }, fr: { one: 'jour', other: 'jours' },
   es: { one: 'día', other: 'días' }, pt: { one: 'dia', other: 'dias' }, vi: { other: 'ngày' }, hi: { one: 'दिन', other: 'दिन' }, ja: { other: '日' },
   ko: { other: '일' }, pl: { one: 'dzień', few: 'dni', many: 'dni', other: 'dnia' }, nl: { one: 'dag', other: 'dagen' }, sv: { one: 'dag', other: 'dagar' },
-  ky: { other: 'күн' }, et: { one: 'päev', other: 'päeva' },
+  ky: { other: 'күн' }, et: { one: 'päev', other: 'päeva' }, tk: { other: 'gün' }, uk: { one: 'день', few: 'дні', many: 'днів', other: 'дня' },
 };
 const HOUR: Record<string, Forms> = {
   az: { other: 'saat' }, en: { one: 'hour', other: 'hours' }, tr: { other: 'saat' }, ru: { one: 'час', few: 'часа', many: 'часов', other: 'часа' },
@@ -80,10 +81,10 @@ const HOUR: Record<string, Forms> = {
   kk: { other: 'сағат' }, uz: { other: 'soat' }, zh: { other: '小时' }, id: { other: 'jam' }, fr: { one: 'heure', other: 'heures' },
   es: { one: 'hora', other: 'horas' }, pt: { one: 'hora', other: 'horas' }, vi: { other: 'giờ' }, hi: { one: 'घंटा', other: 'घंटे' }, ja: { other: '時間' },
   ko: { other: '시간' }, pl: { one: 'godzina', few: 'godziny', many: 'godzin', other: 'godziny' }, nl: { one: 'uur', other: 'uur' }, sv: { one: 'timme', other: 'timmar' },
-  ky: { other: 'саат' }, et: { one: 'tund', other: 'tundi' },
+  ky: { other: 'саат' }, et: { one: 'tund', other: 'tundi' }, tk: { other: 'sagat' }, uk: { one: 'година', few: 'години', many: 'годин', other: 'години' },
 };
 const KG: Record<string, string> = {
-  az: 'kq', ru: 'кг', kk: 'кг', ky: 'кг', ka: 'კგ', ar: 'كغ', hi: 'कि.ग्रा.', zh: '公斤', ja: 'kg', ko: 'kg',
+  az: 'kq', ru: 'кг', kk: 'кг', ky: 'кг', uk: 'кг', ka: 'კგ', ar: 'كغ', hi: 'कि.ग्रा.', zh: '公斤', ja: 'kg', ko: 'kg',
 };
 
 export type RecapUnit = 'day' | 'hour' | 'kilogram';

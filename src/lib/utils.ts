@@ -51,6 +51,8 @@ export function getOrdinal(num: number, lang: string): string {
     const suffix = num % 10 ? units[num % 10] : num % 100 ? tens[Math.floor((num % 100) / 10)] : 'чү';
     return `${num}-${suffix}`;
   }
+  if (lang === 'tk') return `${num}-${turkmenOrdinalSuffix(num)}`;
+  if (lang === 'uk') return `${num}-й`;
   
   // AZ by default
   const lastDigit = num % 10;
@@ -68,4 +70,12 @@ export function getOrdinal(num: number, lang: string): string {
   if (lastDigit === 9) return `${num}-cu`;
   
   return `${num}-ci`; // fallback
+}
+
+/** Turkmen ordinal suffix after digits (1-nji, 6-njy, 9-njy, 10-njy, 20-nji, 100-nji): vowel harmony of the
+ *  number's last spoken word (alty, dokuz, on, otuz, kyrk, altmyş, togsan are back-vowel words). */
+export function turkmenOrdinalSuffix(num: number): string {
+  const n = Math.abs(Math.trunc(num));
+  const back = n % 10 ? [6, 9].includes(n % 10) : n % 100 ? [1, 3, 4, 6, 9].includes(Math.floor((n % 100) / 10)) : n === 0;
+  return back ? 'njy' : 'nji';
 }

@@ -1,8 +1,9 @@
 import { tr } from "@/lib/tr";import { format } from 'date-fns';
-import { az, enUS, ru, tr as trLocale, kk, de, ar, uz, ka, zhCN, id, fr, es, pt, vi, hi, ja, ko, pl, nl, sv, et } from 'date-fns/locale';
+import { az, enUS, ru, tr as trLocale, kk, de, ar, uz, ka, zhCN, id, fr, es, pt, vi, hi, ja, ko, pl, nl, sv, et, uk } from 'date-fns/locale';
 import type { Locale } from 'date-fns';
 import { getPersistedLanguage } from './tr';
 import { NEW_LANGUAGE_CODES, appLanguageLocale } from './app-languages';
+import { turkmenOrdinalSuffix } from './utils';
 
 /** Sunday-first labels for weekly grids; the date stays in UTC. */
 export function weekdayLabels(language: string): string[] {
@@ -34,6 +35,8 @@ export const getCurrentDateLocale = () => {
   if (lang === 'sv') return sv;
   if (lang === 'et') return et;
   if (lang === 'ky') return kyrgyzLocale();
+  if (lang === 'uk') return uk;
+  if (lang === 'tk') return turkmenLocale();
   return az;
 };
 
@@ -52,6 +55,47 @@ function kyrgyzLocale(): Locale {
     day: (index: number, options?: { width?: string }) => ((options?.width === 'short' || options?.width === 'abbreviated') ? shortDays : days)?.[index] ?? ru.localize!.day(index as never, options as never),
   } } as Locale;
   return kyLocale;
+}
+
+// date-fns ships no Turkmen locale and reduced ICU builds (Android WebView) may lack tk-TM: reuse the Turkish
+// date patterns (d MMMM y, Monday week start) with fixed Turkmen month/weekday names, distances and relative days.
+const TK_MONTHS = ['ýanwar', 'fewral', 'mart', 'aprel', 'maý', 'iýun', 'iýul', 'awgust', 'sentýabr', 'oktýabr', 'noýabr', 'dekabr'];
+const TK_MONTHS_SHORT = ['ýan', 'few', 'mar', 'apr', 'maý', 'iýun', 'iýul', 'awg', 'sen', 'okt', 'noý', 'dek'];
+const TK_DAYS = ['ýekşenbe', 'duşenbe', 'sişenbe', 'çarşenbe', 'penşenbe', 'anna', 'şenbe'];
+const TK_DAYS_SHORT = ['ýek', 'duş', 'siş', 'çar', 'pen', 'ann', 'şen'];
+const TK_DISTANCE: Record<string, string> = {
+  lessThanXSeconds: '{{count}} sekuntdan az', xSeconds: '{{count}} sekunt', halfAMinute: 'ýarym minut',
+  lessThanXMinutes: '{{count}} minutdan az', xMinutes: '{{count}} minut', aboutXHours: 'takmynan {{count}} sagat',
+  xHours: '{{count}} sagat', xDays: '{{count}} gün', aboutXWeeks: 'takmynan {{count}} hepde', xWeeks: '{{count}} hepde',
+  aboutXMonths: 'takmynan {{count}} aý', xMonths: '{{count}} aý', aboutXYears: 'takmynan {{count}} ýyl', xYears: '{{count}} ýyl',
+  overXYears: '{{count}} ýyldan gowrak', almostXYears: '{{count}} ýyla golaý',
+};
+const TK_RELATIVE: Record<string, string> = {
+  lastWeek: "'geçen' eeee 'sagat' p", yesterday: "'düýn sagat' p", today: "'şu gün sagat' p",
+  tomorrow: "'ertir sagat' p", nextWeek: "eeee 'sagat' p", other: 'P',
+};
+let tkLocale: Locale | null = null;
+function turkmenLocale(): Locale {
+  if (tkLocale) return tkLocale;
+  const capital = (value: string) => value.charAt(0).toLocaleUpperCase('tr') + value.slice(1);
+  const pick = (wide: string[], short: string[], options?: { width?: string; context?: string }) => {
+    const width = options?.width;
+    const list = width === 'narrow' ? wide.map(value => value.charAt(0)) : width === 'abbreviated' || width === 'short' ? short : wide;
+    return options?.context === 'standalone' || width === 'narrow' ? list.map(capital) : list;
+  };
+  tkLocale = { ...trLocale, code: 'tk',
+    formatDistance: (token: string, count: number, options?: { addSuffix?: boolean; comparison?: -1 | 0 | 1 }) => {
+      const text = (TK_DISTANCE[token] ?? '{{count}}').replace('{{count}}', String(count));
+      if (!options?.addSuffix) return text;
+      return options.comparison && options.comparison > 0 ? `${text} geçenden soň` : `${text} öň`;
+    },
+    formatRelative: (token: string) => TK_RELATIVE[token] ?? TK_RELATIVE.other,
+    localize: { ...trLocale.localize!,
+      ordinalNumber: (value: unknown) => `${Number(value)}-${turkmenOrdinalSuffix(Number(value))}`,
+      month: (index: number, options?: { width?: string; context?: string }) => pick(TK_MONTHS, TK_MONTHS_SHORT, options)[index] ?? TK_MONTHS[index],
+      day: (index: number, options?: { width?: string; context?: string }) => pick(TK_DAYS, TK_DAYS_SHORT, options)[index] ?? TK_DAYS[index],
+    } } as Locale;
+  return tkLocale;
 }
 /**
  * Format date to Azerbaijani format: "18 Fevral" or "18 Fevral 2025"

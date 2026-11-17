@@ -1,6 +1,6 @@
 import { normalizeAppLanguage, readAppLanguage } from './app-languages';
 
-/** Fixed labels of the update screens in all 23 app languages. Rule texts (title, body, what's new) come from the
+/** Fixed labels of the update screens in all 25 app languages. Rule texts (title, body, what's new) come from the
  *  server per language; these fill in buttons and any text a rule leaves out. */
 type Key = 'update' | 'later' | 'newVersion' | 'whatsNew' | 'yourVersion' | 'required' | 'requiredBody' | 'banner';
 const S: Record<string, Record<Key, string>> = {
@@ -27,6 +27,8 @@ const S: Record<string, Record<Key, string>> = {
   sv: { update: 'Uppdatera', later: 'Senare', newVersion: 'En ny version finns', whatsNew: 'Nyheter', yourVersion: 'Din version', required: 'Uppdatering krävs', requiredBody: 'Den här versionen av Anacan stöds inte längre. Uppdatera appen för att fortsätta. Dina data finns kvar.', banner: 'En ny version av Anacan finns' },
   ky: { update: 'Жаңыртуу', later: 'Кийинчерээк', newVersion: 'Жаңы версия даяр', whatsNew: 'Эмне жаңы', yourVersion: 'Сиздеги версия', required: 'Жаңыртуу талап кылынат', requiredBody: "Anacan'дын бул версиясы мындан ары колдоого алынбайт. Улантуу үчүн колдонмону жаңыртыңыз. Маалыматтарыңыз сакталат.", banner: "Anacan'дын жаңы версиясы чыкты" },
   et: { update: 'Uuenda', later: 'Hiljem', newVersion: 'Uus versioon on valmis', whatsNew: 'Mis on uut', yourVersion: 'Sinu versioon', required: 'Uuendus on vajalik', requiredBody: 'Seda Anacani versiooni enam ei toetata. Jätkamiseks uuenda rakendust. Sinu andmed jäävad alles.', banner: 'Anacani uus versioon on saadaval' },
+  tk: { update: 'Täzele', later: 'Soňra', newVersion: 'Täze wersiýa taýýar', whatsNew: 'Näme täzelik bar', yourVersion: 'Siziň wersiýaňyz', required: 'Täzelemek zerur', requiredBody: 'Anacan-yň bu wersiýasy indi goldanylmaýar. Dowam etmek üçin programmany täzeläň. Maglumatlaryňyz saklanýar.', banner: 'Anacan-yň täze wersiýasy çykdy' },
+  uk: { update: 'Оновити', later: 'Пізніше', newVersion: 'Нова версія вже готова', whatsNew: 'Що нового', yourVersion: 'Ваша версія', required: 'Потрібне оновлення', requiredBody: 'Ця версія Anacan більше не підтримується. Оновіть застосунок, щоб продовжити. Ваші дані збережуться.', banner: 'Вийшла нова версія Anacan' },
 };
 
 export const APP_UPDATE_TEXT_LANGUAGES = Object.keys(S);

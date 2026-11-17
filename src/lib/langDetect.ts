@@ -1,5 +1,5 @@
 // ============================================================
-// langDetect — cəmiyyət postları üçün yüngül dil aşkarlama (az/en/ru/tr/kk/uz/ka/de).
+// langDetect — cəmiyyət postları üçün yüngül dil aşkarlama (az/en/ru/tr/kk/uz/ka/de, uk/tk və s.).
 // Prinsip:
 //   1. Kiril mətnində özbək-spesifik hərflər (ў/ҳ) varsa → uz;
 //      qazax-spesifik hərflər (ә/ғ/қ/ң/ө/ұ/ү/һ/і) varsa → kk
@@ -59,7 +59,13 @@ const EXPANDED_STOPWORDS: Partial<Record<FeedLang, Set<string>>> = {
   nl: new Set(['de', 'het', 'een', 'en', 'ik', 'mijn', 'je', 'jij', 'wij', 'zwanger', 'baby', 'borstvoeding', 'vandaag', 'goed', 'hoe', 'voor', 'met', 'niet', 'dat', 'heb']),
   sv: new Set(['och', 'att', 'är', 'jag', 'min', 'mitt', 'barn', 'bebis', 'gravid', 'för', 'inte', 'det', 'du', 'vi', 'med', 'har', 'som', 'vad', 'hur', 'bra']),
   et: new Set(['ja', 'on', 'ei', 'ma', 'mina', 'sa', 'sina', 'minu', 'laps', 'beebi', 'rase', 'raseduse', 'kuidas', 'täna', 'väga', 'aga', 'see', 'kas', 'oli', 'olen']),
+  tk: new Set(['bilen', 'üçin', 'men', 'meniň', 'siz', 'siziň', 'näme', 'nähili', 'çaga', 'çagam', 'göwreli', 'göwrelilik', 'gaty', 'hem', 'däl', 'eje', 'bäbek', 'indi', 'näçe', 'ýaly', 'ýok', 'şu', 'hepde', 'aýbaşy']),
 };
+/** Common Ukrainian words that Russian spells differently (як/как, що/что, дуже/очень). */
+const UK_STOPWORDS = new Set([
+  'що', 'як', 'це', 'та', 'чи', 'й', 'мене', 'мені', 'дуже', 'також', 'але', 'вже', 'ще', 'або', 'коли', 'щоб', 'тому',
+  'мій', 'моя', 'моє', 'дитина', 'дитини', 'вагітна', 'вагітність', 'тижнів', 'місяців', 'привіт', 'дякую', 'немає', 'зараз', 'сьогодні',
+]);
 
 export function detectLang(text: string, fallback: FeedLang = 'az'): FeedLang {
   // URL, @mention və #hashtag-ları aşkarlamadan çıxar (onlar dil daşımır)
@@ -69,12 +75,12 @@ export function detectLang(text: string, fallback: FeedLang = 'az'): FeedLang {
   const arb = (t.match(/[\u0600-\u06FF\u0750-\u077F]/g) || []).length;
   // Gürcü (Mkhedruli) qrafikası — ərəb kimi unikal markerdir
   const geo = (t.match(/[\u10D0-\u10FF]/g) || []).length;
-  const cyr = (t.match(/[А-Яа-яЁёӘәҒғҚқҢңӨөҰұҮүҺһІіЎўҲҳ]/g) || []).length;
+  const cyr = (t.match(/[А-Яа-яЁёӘәҒғҚқҢңӨөҰұҮүҺһІіЇїЄєҐґЎўҲҳ]/g) || []).length;
   const han = (t.match(/\p{Script=Han}/gu) || []).length;
   const kana = (t.match(/[\p{Script=Hiragana}\p{Script=Katakana}]/gu) || []).length;
   const hangul = (t.match(/\p{Script=Hangul}/gu) || []).length;
   const devanagari = (t.match(/\p{Script=Devanagari}/gu) || []).length;
-  const lat = (t.match(/[A-Za-zÀ-ÖØ-öø-ÿƏəĞğIıİŞşŒœ]/g) || []).length;
+  const lat = (t.match(/[A-Za-zÀ-ÖØ-öø-ÿƏəĞğIıİŞşŒœŇňŽž]/g) || []).length;
   const totalLetters = arb + geo + cyr + lat + han + kana + hangul + devanagari;
   if (kana >= 1 && kana + han >= 3 && kana + han > totalLetters * 0.3) return 'ja';
   if (hangul >= 2 && hangul > totalLetters * 0.3) return 'ko';
@@ -93,6 +99,14 @@ export function detectLang(text: string, fallback: FeedLang = 'az'): FeedLang {
   if (cyr > totalLetters * 0.4) {
     // ў ҳ — rus/qazax əlifbasında yoxdur, özbək kiril mətninin etibarlı göstəricisidir
     if (/[ЎўҲҳ]/.test(t)) return 'uz';
+    // ї є ґ are Ukrainian-only; і without Kazakh letters (ә ғ қ ң ө ұ ү һ) is Ukrainian too, and so are
+    // Ukrainian-only words in a text without the Russian-only letters ы э ъ ё.
+    const kazakhLetters = /[ӘәҒғҚқҢңӨөҰұҮүҺһ]/.test(t);
+    if (!kazakhLetters && /[ЇїЄєҐґІі]/.test(t)) return 'uk';
+    if (!kazakhLetters && !/[ЫыЭэЪъЁё]/.test(t)) {
+      const ukHits = t.toLowerCase().split(/[^\p{L}]+/u).filter(word => UK_STOPWORDS.has(word)).length;
+      if (ukHits >= 2) return 'uk';
+    }
     const evidence = cyrillicLanguageEvidence(t);
     if (evidence.uz >= 2 && evidence.uz > evidence.kk && evidence.uz > evidence.ru) return 'uz';
     if (evidence.kk >= 2 && evidence.kk > evidence.uz && evidence.kk > evidence.ru) return 'kk';
@@ -104,6 +118,9 @@ export function detectLang(text: string, fallback: FeedLang = 'az'): FeedLang {
 
   // 2) "ə" → az (praktikada hər az cümləsində var: və, mən, gələcək...)
   if (/[Əə]/.test(t)) return 'az';
+
+  // 2b) Türkmən latın: ň/ý yalnız türkməncədədir; ä + ş/ž birləşməsi də (alman/eston/türk dillərində yoxdur)
+  if (/[ŇňÝý]/.test(t) || (/[Ää]/.test(t) && /[ŞşŽž]/.test(t))) return 'tk';
 
   // 2a) Özbək latın markeri: oʻ/gʻ digrafları (apostrof variantları ilə) —
   //     az/tr/en/de-də bu ardıcıllıq işlənmir; yalnız ilkin təxmindir, çiplə düzəldilə bilər
@@ -129,6 +146,9 @@ export function detectLang(text: string, fallback: FeedLang = 'az'): FeedLang {
   //    ö/ü almanda da olduğu üçün tək başına türk sayılmır — ğ/ş/ı/ç/İ tələb olunur.
   // Ç is also French/Portuguese; it is no longer a uniquely Turkic marker.
   const hasStrongTurkic = /[ĞğıİŞş]/.test(t);
+  const lowerWords = t.toLowerCase().split(/[^\p{L}]+/u).filter(Boolean);
+  const tkHits = lowerWords.filter(word => EXPANDED_STOPWORDS.tk!.has(word)).length;
+  if (hasStrongTurkic && !/[ĞğıİQqXx]/.test(t) && tkHits >= 2 && tkHits > lowerWords.filter(word => TR_STOPWORDS.has(word)).length) return 'tk';
   const hasQX = /[QqXx]/.test(t.replace(/[^A-Za-z]/g, ''));
   if (hasStrongTurkic) {
     // q/x türk əlifbasında yoxdur → az yazısıdır (ə-siz qısa az mətni)

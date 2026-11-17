@@ -173,13 +173,13 @@ export const EMAIL_VERIFICATION_COPY: Record<string, EmailVerificationCopy> = {
     "footer": "Anacan — vid din sida i varje skede"
   },
   "tk": {
-    "subject": "{code} — Siziň Anacan tassyklama koduňyz",
+    "subject": "{code} — siziň Anacan tassyklama koduňyz",
     "preheader": "Hasabyňyzy tassyklamak üçin şu kody giriziň.",
     "heading": "Siziň tassyklama koduňyz",
     "intro": "Anacan hasabyňyzy tassyklamak üçin programmada şu kody giriziň:",
     "expires": "Kod 15 minutlap hereket edýär.",
-    "ignore": "Eger bu kody Siz soramadyk bolsaňyz, bu haty äsgermezlik ediň — hasabyňyzda hiç zat üýtgemez.",
-    "footer": "Anacan — her tapgyrda Siziň bilen"
+    "ignore": "Eger bu kody siz soramadyk bolsaňyz, bu haty äsgermezlik ediň — hasabyňyzda hiç zat üýtgemez.",
+    "footer": "Anacan — her tapgyrda siziň bilen"
   },
   "tr": {
     "subject": "{code} — Anacan doğrulama kodun",

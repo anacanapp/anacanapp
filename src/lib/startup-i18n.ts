@@ -50,6 +50,16 @@ const COPY: Record<string, Partial<Record<StartupKey, string>>> = {
     continue: 'Jätka', languageHint: 'Keelt saad hiljem seadetes muuta', back: 'Tagasi',
     updateRequired: 'Jätkamiseks uuenda Anacan rakendustepoes.', connectionPending: 'Ühendust valmistatakse ette. Proovi hetke pärast uuesti.', retry: 'Proovi uuesti',
   },
+  tk: {
+    selectLanguage: 'Dili saýlaň', selectCountry: 'Ýurdy saýlaň', searchPlaceholder: 'Gözleg', noneFound: 'Ýurt tapylmady',
+    continue: 'Dowam et', languageHint: 'Dili soňra sazlamalardan üýtgedip bilersiňiz', back: 'Yza',
+    updateRequired: 'Dowam etmek üçin Anacan programmasyny dükandan täzeläň.', connectionPending: 'Baglanyşyk taýýarlanýar. Biraz wagtdan soň gaýtadan synanyşyň.', retry: 'Gaýtadan synanyş',
+  },
+  uk: {
+    selectLanguage: 'Оберіть мову', selectCountry: 'Оберіть країну', searchPlaceholder: 'Пошук', noneFound: 'Країну не знайдено',
+    continue: 'Продовжити', languageHint: 'Мову можна змінити пізніше в налаштуваннях', back: 'Назад',
+    updateRequired: 'Щоб продовжити, оновіть Anacan у магазині застосунків.', connectionPending: 'Готуємо з’єднання. Спробуйте ще раз за мить.', retry: 'Спробувати ще раз',
+  },
   zh: {
     selectLanguage: '选择语言', selectCountry: '选择国家或地区', searchPlaceholder: '搜索', noneFound: '未找到国家或地区',
     continue: '继续', languageHint: '您可以稍后在设置中更改语言', back: '返回',
