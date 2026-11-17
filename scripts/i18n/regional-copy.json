@@ -253,6 +253,17 @@
       "scheduleError": "Vaktsineerimisgraafikut ei õnnestunud laadida. Palun proovi uuesti.",
       "retry": "Proovi uuesti",
       "referenceNote": "Seotud programm määratleb toote, riskirühma ja järelevaktsineerimise erandid."
+    },
+    "uk": {
+      "conditional": "Особливий графік",
+      "seasonal": "Сезонний графік",
+      "routine": "Плановий графік",
+      "interval": "Потрібна дата попередньої дози",
+      "source": "Джерело",
+      "countrySaveFailed": "Не вдалося зберегти країну. Спробуйте ще раз.",
+      "scheduleError": "Не вдалося завантажити графік щеплень. Спробуйте ще раз.",
+      "retry": "Спробувати ще раз",
+      "referenceNote": "Пов’язана програма визначає винятки щодо препаратів, груп ризику та наздоганяльної вакцинації."
     }
   }
 }

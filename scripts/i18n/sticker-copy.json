@@ -137,6 +137,12 @@
    "sticker": "Kleebis",
    "all": "Kõik",
    "send": "Saada kleebis"
+  },
+  "uk": {
+   "stickers": "Стікери",
+   "sticker": "Стікер",
+   "all": "Усі",
+   "send": "Надіслати стікер"
   }
  }
 }

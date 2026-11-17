@@ -23,7 +23,8 @@
     "nl",
     "sv",
     "ky",
-    "et"
+    "et",
+    "uk"
   ],
   "values": {
     "22ebc0af-bddb-4234-a525-709bf9af630b:name:cd16a180102296c4bb35daf98a4a1ff2a5081ff5b357523973dc73115e89eeb7": {
@@ -49,7 +50,8 @@
       "nl": "Wandelen",
       "sv": "Promenad",
       "ky": "Жөө басуу",
-      "et": "Kõndimine"
+      "et": "Kõndimine",
+      "uk": "Ходьба"
     },
     "22ebc0af-bddb-4234-a525-709bf9af630b:description:5c1e6a4a430d293d66c362a33f294e0a4266f37c22dc6694597da58e91607265": {
       "az": "Ürək-damar sağlamlığı üçün",
@@ -74,7 +76,8 @@
       "nl": "Voor een gezond hart en gezonde bloedvaten",
       "sv": "För hjärt-kärlhälsan",
       "ky": "Жүрөк-кан тамыр ден соолугу үчүн",
-      "et": "Südame-veresoonkonna terviseks"
+      "et": "Südame-veresoonkonna terviseks",
+      "uk": "Для здоров’я серцево-судинної системи"
     },
     "22ebc0af-bddb-4234-a525-709bf9af630b:steps:66dab13d95f2fff06e1bcbdecaedfe3dc7b61db559f8376421bc52b56f80d710": {
       "az": [
@@ -237,6 +240,13 @@
         "Hoia pea püsti ja vaata ette",
         "Lase kätel vabalt liikuda",
         "Lõpu poole võta tempot maha"
+      ],
+      "uk": [
+        "Оберіть зручне спортивне взуття",
+        "Почніть ходити в повільному темпі",
+        "Тримайте голову рівно й дивіться вперед",
+        "Дозвольте рукам вільно рухатися",
+        "Під кінець сповільніть темп"
       ]
     },
     "27e47d5a-a4fb-429c-ae73-00756305adfb:name:e155f2464feb66ea313f93855ef325c2d8569dd8292dfcc70d2df7813f818875": {
@@ -262,7 +272,8 @@
       "nl": "Rustig herstel van de buikspieren",
       "sv": "Skonsam återträning av magmusklerna",
       "ky": "Ич булчуңдарын акырындык менен иштетүү",
-      "et": "Õrn kerelihaste aktiveerimine"
+      "et": "Õrn kerelihaste aktiveerimine",
+      "uk": "М’яка активація м’язів кору"
     },
     "27e47d5a-a4fb-429c-ae73-00756305adfb:description:cdc364dda085daf79039151c59ae032b96e5e38f6f5852830b3ccdc66e4143c5": {
       "az": "Doğuşdan sonra qarının dərin (köndələn qarın) əzələlərini təhlükəsiz şəkildə yenidən aktivləşdirir",
@@ -287,7 +298,8 @@
       "nl": "Activeert na de bevalling veilig de diepe rompspieren (dwarse buikspieren) opnieuw",
       "sv": "Återaktiverar på ett säkert sätt de djupa bålmusklerna (transversus abdominis) efter förlossningen",
       "ky": "Төрөттөн кийин ичтин терең булчуңдарын (туурасынан кеткен булчуңдарды) коопсуз калыбына келтирет",
-      "et": "Aktiveerib ohutult süvad kerelihased (kõhuristselihased) pärast sünnitust"
+      "et": "Aktiveerib ohutult süvad kerelihased (kõhuristselihased) pärast sünnitust",
+      "uk": "Безпечно відновлює роботу глибоких м’язів кору (поперечного м’яза живота) після пологів"
     },
     "27e47d5a-a4fb-429c-ae73-00756305adfb:steps:df0894e312d2df34d60533b2673d567dc8e26044608e70a9220c29e86b048bdc": {
       "az": [
@@ -473,6 +485,14 @@
         "Välja hingates tõmba alumised kõhulihased õrnalt sisse ja üles, justkui tõmbaksid jope lukku kinni. Ära pinguta liiga tugevalt; peaksid tundma vaid kerget pinget.",
         "Hoia 5–10 sekundit, seejärel lõdvesta. Korda 10 korda.",
         "ETTEVAATUST: Kui märkad kõhu keskjoonel kühmu või \"katust\", lõpeta harjutus ja räägi sellest oma arstile või vaagnapõhja füsioterapeudile – see võib viidata diastaasile (kõhulihaste lahknevus)."
+      ],
+      "uk": [
+        "Ляжте на спину або сядьте в зручному положенні, розслабивши плечі.",
+        "Покладіть руки нижче пупка.",
+        "Глибоко вдихніть, дозволивши животу розширитися.",
+        "На видиху м’яко втягніть м’язи нижньої частини живота всередину й угору, ніби застібаєте блискавку на куртці. Не напружуйтеся сильно — ви маєте відчувати лише легке напруження.",
+        "Утримуйте 5–10 секунд, потім розслабтеся. Повторіть 10 разів.",
+        "УВАГА: якщо ви помітите випинання або «гребінь» уздовж середньої лінії живота, зупиніться й повідомте лікаря або фізичного терапевта з тазового дна — це може бути ознакою діастазу прямих м’язів живота (розходження м’язів живота)."
       ]
     },
     "4cc80a24-3b16-46a1-bc30-9e0d6283d28d:name:065bff6a42999b5f5cd4279cde34d624faf829b4474cdf81f9c18b809b9fb0aa": {
@@ -498,7 +518,8 @@
       "nl": "Squatoefening",
       "sv": "Knäböj",
       "ky": "Отуруп-туруу",
-      "et": "Kükid"
+      "et": "Kükid",
+      "uk": "Присідання"
     },
     "4cc80a24-3b16-46a1-bc30-9e0d6283d28d:description:fb848044eb5173b500ed702cf0b7ce37c9322998339066366cb9ac2f7e487439": {
       "az": "Ayaq əzələlərini gücləndirmək",
@@ -523,7 +544,8 @@
       "nl": "De beenspieren versterken",
       "sv": "Stärker benmusklerna",
       "ky": "Бут булчуңдарын чыңдоо",
-      "et": "Jalalihaste tugevdamine"
+      "et": "Jalalihaste tugevdamine",
+      "uk": "Зміцнення м’язів ніг"
     },
     "4cc80a24-3b16-46a1-bc30-9e0d6283d28d:steps:3dd1d0acd4e5c0a580d3d897e6e614fcdf141d5829ded15ccf7c5b2cf604ec8c": {
       "az": [
@@ -847,6 +869,20 @@
         "3. Hingamistehnika",
         "Laskudes: hinga sügavalt nina kaudu sisse.",
         "Tõustes: hinga suu kaudu välja."
+      ],
+      "uk": [
+        "1. Вихідне положення",
+        "Поставте стопи на ширині плечей або трохи ширше.",
+        "Носки можуть бути трохи розвернуті назовні — під час вагітності так часто зручніше.",
+        "Тримайте спину рівно, відведіть плечі назад і дивіться вперед.",
+        "2. Виконання руху",
+        "Опустіться в присід: повільно опускайтеся, відводячи стегна назад. Уявіть, що позаду вас невидимий стілець і ви намагаєтеся на нього сісти.",
+        "Стежте за колінами: коліна мають дивитися в тому ж напрямку, що й носки. Не дозволяйте їм заходити всередину, утворюючи форму «Х».",
+        "Глибина: намагайтеся опуститися, доки стегна не стануть паралельними підлозі. Якщо ви вагітні або маєте проблеми з колінами, вони не обов’язково мають бути повністю паралельними — опускайтеся лише настільки, наскільки вам комфортно.",
+        "Підйом: відштовхуйтеся п’ятами (а не носками), щоб повернутися у вихідне положення. Під час підйому напружуйте сідничні м’язи.",
+        "3. Техніка дихання",
+        "Під час опускання: глибоко вдихайте носом.",
+        "Під час підйому: видихайте ротом."
       ]
     },
     "6bdbbe33-fb8e-4c6e-9e9b-197c591fa8b6:name:5913a85d41488b8ba2a59a586e1aa000d6d2ce645123df52176cc34b3b09ddb0": {
@@ -872,7 +908,8 @@
       "nl": "Nek- en schouderontspanning",
       "sv": "Avslappning för nacke och axlar",
       "ky": "Моюн жана ийинди чоюу",
-      "et": "Kaela- ja õlavenitus"
+      "et": "Kaela- ja õlavenitus",
+      "uk": "Розтяжка шиї та плечей"
     },
     "6bdbbe33-fb8e-4c6e-9e9b-197c591fa8b6:description:3f7e90a547843e7e26d4bbaec6aaea9dcf88bf1c6aa0900b716a42db042016b6": {
       "az": "Körpənizi qucaqda saxlamaq və əmizdirməkdən yaranan boyun və çiyin gərginliyini azaldır",
@@ -897,7 +934,8 @@
       "nl": "Verlicht spanning in de nek en schouders door het dragen en voeden van je baby",
       "sv": "Lindrar spänningar i nacke och axlar efter att du burit och ammat ditt barn",
       "ky": "Баланы көтөрүүдөн жана эмизүүдөн улам пайда болгон моюн жана ийиндеги чыңалууну жазат",
-      "et": "Leevendab lapse hoidmisest ja imetamisest tingitud pingeid kaelas ja õlgades"
+      "et": "Leevendab lapse hoidmisest ja imetamisest tingitud pingeid kaelas ja õlgades",
+      "uk": "Знімає напругу в шиї та плечах від носіння й годування малюка"
     },
     "6bdbbe33-fb8e-4c6e-9e9b-197c591fa8b6:steps:22895e8f014f3bf4ce803da16eb009a1df10a355db0fe637c0c188761ea2aeb4": {
       "az": [
@@ -1060,6 +1098,13 @@
         "Korda sama liigutust vasakul pool.",
         "Tõsta õlad kõrvade suunas, hoia 5 sekundit ja seejärel lõdvesta. Korda 5 korda.",
         "Pane käed selja taga lukku ja ava rinnakut ettepoole (vastupidine asend imetamisasendile)."
+      ],
+      "uk": [
+        "Сядьте зручно, опустивши й розслабивши плечі.",
+        "Повільно нахиліть голову до правого плеча, доки не відчуєте легке розтягування в лівій частині шиї. Утримуйте 15–20 секунд.",
+        "Повторіть той самий рух на лівий бік.",
+        "Підніміть плечі до вух, утримуйте 5 секунд, потім опустіть. Повторіть 5 разів.",
+        "Зчепіть руки за спиною й м’яко розкрийте грудну клітку вперед (протилежно до пози під час годування грудьми)."
       ]
     },
     "c9a1584b-bd60-43c1-b01e-a29d10abd6c3:name:911d207883d0efb3796902aa4f2f14f6348a00359d0c5911519943aeb282cb73": {
@@ -1085,7 +1130,8 @@
       "nl": "Bekkenkanteling",
       "sv": "Bäckentippning",
       "ky": "Жамбашты кышайтуу",
-      "et": "Vaagnakallutus"
+      "et": "Vaagnakallutus",
+      "uk": "Нахил таза"
     },
     "c9a1584b-bd60-43c1-b01e-a29d10abd6c3:description:f91bc34c6cee5c08dc83e6318376f1fc3faeaf22e87d109e2cbcf7d961699410": {
       "az": "Bel ağrısını azaldır və qarın əzələlərinin yenidən aktivləşməsinə yumşaq şəkildə kömək edir",
@@ -1110,7 +1156,8 @@
       "nl": "Vermindert lage rugpijn en helpt de rompspieren voorzichtig opnieuw te activeren",
       "sv": "Minskar smärta i ländryggen och hjälper varsamt till att återaktivera bålmusklerna",
       "ky": "Белдин оорушун азайтат жана ич булчуңдарын акырындык менен ишке киргизүүгө жардам берет",
-      "et": "Vähendab alaseljavalu ja aitab õrnalt kerelihaseid uuesti aktiveerida"
+      "et": "Vähendab alaseljavalu ja aitab õrnalt kerelihaseid uuesti aktiveerida",
+      "uk": "Зменшує біль у попереку та м’яко допомагає знову задіяти м’язи кору"
     },
     "c9a1584b-bd60-43c1-b01e-a29d10abd6c3:steps:ad74991b3b81d67ff90e594d398eab02cfe346312ac92fe7f21a788a341b260a": {
       "az": [
@@ -1273,6 +1320,13 @@
         "Hoia 3–5 sekundit, seejärel hinga sisse ja naase aeglaselt algasendisse.",
         "Korda 8–12 korda. Valu korral lõpeta.",
         "Märkus: Kui sulle on tehtud keisrilõige, soorita seda harjutust väga ettevaatlikult, kuni haav on täielikult paranenud, ja konsulteeri oma arstiga."
+      ],
+      "uk": [
+        "Ляжте на спину, зігніть коліна, стопи рівно на підлозі.",
+        "На видиху напружте м’язи живота й м’яко притисніть поперек до підлоги (нахиліть таз угору).",
+        "Утримуйте 3–5 секунд, потім на вдиху повільно поверніться у вихідне положення.",
+        "Повторіть 8–12 разів. Якщо відчуєте біль, зупиніться.",
+        "Примітка: якщо у вас був кесарів розтин, виконуйте цю вправу дуже обережно, доки ділянка розрізу повністю не загоїться, і порадьтеся з лікарем."
       ]
     },
     "d64a9d01-c6f1-4f18-a93c-c781920c14f9:name:2af3e86c9fd8bafbed23b4dd94eb359624d2b1b27b08223c6058ae36bfdea69d": {
@@ -1298,7 +1352,8 @@
       "nl": "Kegeloefeningen",
       "sv": "Knipövningar",
       "ky": "Кегель көнүгүүлөрү",
-      "et": "Kegeli harjutused"
+      "et": "Kegeli harjutused",
+      "uk": "Вправи Кегеля"
     },
     "d64a9d01-c6f1-4f18-a93c-c781920c14f9:description:a505a8f843b7c19531ac7ade566ce72646f465485c3e3df7caacf99af6b2b41c": {
       "az": "Kegel məşqləri çanaq dibi əzələlərini gücləndirməyin ən təsirli üsuludur. Bu məşqlər hamiləlik dövründə, doğuşdan sonrakı bərpa, sidik qaçırma problemləri və cinsi sağlamlıq üçün çox faydalıdır.",
@@ -1323,7 +1378,8 @@
       "nl": "Kegeloefeningen zijn de effectiefste manier om de bekkenbodemspieren te versterken. Ze helpen tijdens de zwangerschap, bij het herstel na de bevalling, urine-incontinentie en de seksuele gezondheid.",
       "sv": "Knipövningar är det mest effektiva sättet att stärka bäckenbottenmusklerna. De är till stor hjälp under graviditeten, för återhämtning efter förlossningen, vid urininkontinens och för den sexuella hälsan.",
       "ky": "Кегель көнүгүүлөрү — жамбаш булчуңдарын чыңдоонун эң натыйжалуу жолу. Алар кош бойлуу кезде, төрөттөн кийин калыбына келүүдө, заараны кармай албоо көйгөйлөрүндө жана сексуалдык ден соолук үчүн абдан пайдалуу.",
-      "et": "Kegeli harjutused on kõige tõhusam viis vaagnapõhjalihaste tugevdamiseks. Need on suureks abiks raseduse ajal, sünnitusjärgseks taastumiseks, pidamatuse korral ja seksuaaltervise toetamiseks."
+      "et": "Kegeli harjutused on kõige tõhusam viis vaagnapõhjalihaste tugevdamiseks. Need on suureks abiks raseduse ajal, sünnitusjärgseks taastumiseks, pidamatuse korral ja seksuaaltervise toetamiseks.",
+      "uk": "Вправи Кегеля — найефективніший спосіб зміцнити м’язи тазового дна. Вони дуже корисні під час вагітності, для відновлення після пологів, при нетриманні сечі та для сексуального здоров’я."
     },
     "d64a9d01-c6f1-4f18-a93c-c781920c14f9:steps:7d4425b2c48a88fd52e9909300fe42fde2e61be704d08c80d0a9673ce28c6c89": {
       "az": [
@@ -1486,6 +1542,13 @@
         "Pinguta: pinguta õrnalt vaagnapõhjalihaseid, justkui püüaksid takistada gaaside väljumist või hoida kinni uriini.",
         "Hoia: hoia lihaseid pinges 3–5 sekundit.",
         "Lõdvesta: lõdvesta lihased aeglaselt ja puhka 3–5 sekundit."
+      ],
+      "uk": [
+        "Оберіть зручне положення: починати легше лежачи, але коли звикнете, можна виконувати вправу сидячи або стоячи.",
+        "Виконання руху",
+        "Стисніть: м’яко напружте м’язи тазового дна, ніби намагаєтеся стримати гази або сечу.",
+        "Утримуйте: тримайте м’язи напруженими 3–5 секунд.",
+        "Розслабте: повільно розслабте м’язи й відпочиньте 3–5 секунд."
       ]
     },
     "da9c9ebf-19ec-409f-bf83-37679d679447:name:cf6344c4a628a24d4724684bfac1294863230c6cc3087fdae2d7c7057f54b09c": {
@@ -1511,7 +1574,8 @@
       "nl": "Zwangerschapsyoga",
       "sv": "Gravidyoga",
       "ky": "Кош бойлуулар үчүн йога",
-      "et": "Rasedate jooga"
+      "et": "Rasedate jooga",
+      "uk": "Йога для вагітних"
     },
     "da9c9ebf-19ec-409f-bf83-37679d679447:description:4020a9d5d0c052b5ed818fdba2c6a925902a354584fde681d3748da4ef523dd6": {
       "az": "Rahatlama və çeviklik",
@@ -1536,7 +1600,8 @@
       "nl": "Ontspanning en flexibiliteit",
       "sv": "Avslappning och smidighet",
       "ky": "Эс алуу жана ийкемдүүлүк",
-      "et": "Lõõgastus ja painduvus"
+      "et": "Lõõgastus ja painduvus",
+      "uk": "Розслаблення та гнучкість"
     },
     "da9c9ebf-19ec-409f-bf83-37679d679447:steps:28862f90a976e8f1251ad51b5d5f47c2ed61214b92d9e84ea9cf8eb88edc6f88": {
       "az": [
@@ -2274,6 +2339,38 @@
         "Kõverda paremat põlve (põlv ei tohi ulatuda pahkluust kaugemale).",
         "Siruta käed külgedele ja hoia asendit 3–5 hingamistõmmet.",
         "Tasakaalu hoidmiseks võid kasutada seina tuge."
+      ],
+      "uk": [
+        "1. Правильна техніка дихання (пранаяма)",
+        "Це найважливіша частина того, як упоратися з переймами під час пологів.",
+        "Як виконувати: сядьте в зручному положенні (схрестивши ноги або на стільці). Покладіть одну руку на груди, а іншу — на нижню частину живота. Глибоко вдихніть носом: вперед має розширюватися живіт, а не груди. Повільно видихніть ротом, ніби задуваєте свічку.",
+        "Користь: максимально збільшує надходження кисню до малюка й допомагає мамі залишатися спокійною.",
+        "2. Вправа «Кішка-корова»",
+        "Це одна з найкращих вправ при болю в попереку та спині. Вона допомагає малюкові зайняти правильне положення.",
+        "Техніка: станьте на четвереньки, руки під плечима, коліна під стегнами.",
+        "На вдиху: повільно підніміть голову й м’яко прогніть хребет, але не прогинайте поперек надто сильно.",
+        "На видиху: притисніть підборіддя до грудей і округліть спину, як кішка.",
+        "Плавно повторіть 5–10 разів.",
+        "3. Поза метелика (Поза зв’язаного кута / Баддха Конасана)",
+        "Ця вправа розкриває м’язи тазового дна та підвищує еластичність родових шляхів.",
+        "Техніка: сядьте на підлогу й тримайте спину рівно.",
+        "З’єднайте підошви стоп і підтягніть їх до себе.",
+        "Дозвольте колінам вільно опуститися в боки до підлоги; не тисніть на них силою.",
+        "Тримайте стопи руками й залишайтеся в цьому положенні 1–2 хвилини, глибоко дихаючи.",
+        "Можна підкласти подушки під коліна.",
+        "4. Поза дитини з широко розведеними колінами",
+        "Цю позу використовують для відпочинку та розслаблення пахової ділянки.",
+        "Техніка: сядьте на п’яти, стоячи на колінах.",
+        "Розведіть коліна достатньо широко, щоб між ними помістився живіт.",
+        "Витягніть руки вперед і покладіть лоб на підлогу (або на подушку).",
+        "Дозвольте тілу повністю розслабитися.",
+        "5. Воїн II з опорою",
+        "Для зміцнення ніг і розвитку витривалості.",
+        "Техніка: станьте рівно, широко розставивши ноги.",
+        "Розверніть праву стопу на 90 градусів назовні, ліву стопу тримайте прямо.",
+        "Зігніть праве коліно (коліно не має виходити за щиколотку).",
+        "Розведіть руки в боки й утримуйте це положення 3–5 вдихів.",
+        "Щоб утримати рівновагу, можна спертися на стіну."
       ]
     },
     "dda0e0da-1048-498d-a3a1-4358713e2e96:name:1d4de92d26b47143cd69a98708338a4f3cbcb7d4baff335d08607e3be59785df": {
@@ -2299,7 +2396,8 @@
       "nl": "Zwemmen",
       "sv": "Simning",
       "ky": "Сууда сүзүү",
-      "et": "Ujumine"
+      "et": "Ujumine",
+      "uk": "Плавання"
     },
     "dda0e0da-1048-498d-a3a1-4358713e2e96:description:ee7c8010769bbfef60121c2302dba709dfcd45518d25b7e914736383e931c87e": {
       "az": "Bütün bədən üçün məşq",
@@ -2324,7 +2422,8 @@
       "nl": "Training voor het hele lichaam",
       "sv": "Helkroppsträning",
       "ky": "Бүткүл дене үчүн машыгуу",
-      "et": "Kogu keha treening"
+      "et": "Kogu keha treening",
+      "uk": "Тренування всього тіла"
     },
     "dda0e0da-1048-498d-a3a1-4358713e2e96:steps:33fad5354b043514c895a08595ba3d207907839afe7bb33c4190052078d572b9": {
       "az": [
@@ -2694,6 +2793,22 @@
         "Vee temperatuur: Vesi ei tohiks olla liiga külm ega liiga kuum (nagu mullivannis). Ideaalne temperatuur on 27–30 °C.",
         "Hingamise kinnipidamine: Ära hoia vee all hinge kinni pikka aega. See võib põhjustada peapööritust. Hoia ühtlast rütmi: hinga vee all välja ja sisse siis, kui tõstad pea veest välja.",
         "Vedeliku tarbimine: Sa ei pruugi vees higistamist tunda, kuid su keha kaotab siiski vedelikku. Joo kindlasti vett enne ja pärast treeningut."
+      ],
+      "uk": [
+        "1. Користь",
+        "Захищає суглоби: на відміну від таких вправ, як біг чи стрибки, заняття у воді не створюють ударного навантаження на коліна й поперек.",
+        "Зменшує набряки: тиск води покращує лімфообіг, що допомагає зменшити набряки ніг і рук (особливо корисно під час вагітності).",
+        "Розвантажує поперек: зменшує навантаження на хребет, одразу полегшуючи біль у попереку.",
+        "Охолоджувальний ефект: це один із найкращих способів охолонути в спеку або коли підвищується температура тіла.",
+        "2. Рекомендовані стилі плавання",
+        "Кожен стиль задіює різні м’язи, але ось найкомфортніші варіанти для вашого здоров’я:",
+        "Брас: це найрекомендованіший стиль. Оскільки шия й голова залишаються над водою, легко дихати й добре бачити все довкола. Він розкриває м’язи грудей.",
+        "На спині: плавання на спині випрямляє хребет і ідеально підходить для розслаблення. Однак через те, що важко бачити, куди ви пливете, його радять, коли в басейні менше людей.",
+        "3. На що звернути увагу",
+        "Слизька підлога: біля басейну може бути дуже слизько. Завжди взувайте нековзні сандалі на гумовій підошві й ходіть повільно.",
+        "Температура води: вода не має бути ні надто холодною, ні надто гарячою (як у гідромасажній ванні). Ідеальна температура — 27–30°C.",
+        "Затримка дихання: не затримуйте дихання під водою надовго. Це може спричинити запаморочення. Підтримуйте рівний ритм: видихайте під водою й вдихайте, коли піднімаєте голову.",
+        "Пиття: у воді ви можете не відчувати, що пітнієте, але організм усе одно втрачає рідину. Обов’язково пийте воду до й після занять."
       ]
     },
     "e32f03c4-350a-455b-b70d-ff659812a45e:name:f210a2448943288052a34bb8c9cd69e045a79f5cabc324e4b2846a204d3ea702": {
@@ -2719,7 +2834,8 @@
       "nl": "Ademhalingsoefeningen",
       "sv": "Andningsövningar",
       "ky": "Дем алуу көнүгүүлөрү",
-      "et": "Hingamisharjutused"
+      "et": "Hingamisharjutused",
+      "uk": "Дихальні вправи"
     },
     "e32f03c4-350a-455b-b70d-ff659812a45e:description:0b7413772a723a266c7e7a5327c22820acb3744257a71201f6f1214d10c5085a": {
       "az": "Rahatlama və stressin azaldılması",
@@ -2744,7 +2860,8 @@
       "nl": "Ontspanning en stressverlichting",
       "sv": "Avslappning och stresslindring",
       "ky": "Эс алуу жана стресстен арылуу",
-      "et": "Lõõgastumine ja stressi leevendamine"
+      "et": "Lõõgastumine ja stressi leevendamine",
+      "uk": "Розслаблення та зняття стресу"
     },
     "e32f03c4-350a-455b-b70d-ff659812a45e:steps:faa8711b29e861388c5f498fc7731040037876659443dc967a3c33c5ecc27b6a": {
       "az": [
@@ -2884,6 +3001,12 @@
         "Sissehingamisel peaks su kõht – mitte rindkere – ettepoole paisuma (kontrollimiseks võid asetada käe kõhule).",
         "Hinga aeglaselt suu kaudu välja, justkui paneksid küünlaleeki värelema ilma seda kustutamata (6 sekundit).",
         "Lõdvesta kogu keha, sealhulgas õlad, nägu ja lõualuu."
+      ],
+      "uk": [
+        "Повільно й глибоко вдихайте носом (4 секунди).",
+        "На вдиху вперед має розширюватися живіт, а не груди (щоб перевірити, можна покласти руку на живіт).",
+        "Повільно видихайте ротом, ніби змушуєте полум’я свічки тремтіти, не задуваючи його (6 секунд).",
+        "Розслабте все тіло, зокрема плечі, обличчя та щелепу."
       ]
     },
     "003bed47-bde1-443e-9b45-79e0d60d609f:title:5260c8ef529dd387e3ff5bd7210ad69bcaec3968e11fd4b3909476d29012b625": {
@@ -2909,7 +3032,8 @@
       "nl": "IJzerrijke voeding",
       "sv": "Järnrik mat",
       "ky": "Темирге бай азыктар",
-      "et": "Rauarikkad toidud"
+      "et": "Rauarikkad toidud",
+      "uk": "Продукти, багаті на залізо"
     },
     "003bed47-bde1-443e-9b45-79e0d60d609f:content:bddcb36c59a025ae59c280c43fea51ff0cac78f5b3402b210fc06e60d48de3fb": {
       "az": "Yorğunluqla mübarizə üçün ispanaq, mərcimək, qırmızı ət və tünd şokolad kimi dəmirlə zəngin qidalar yeyin.",
@@ -2934,7 +3058,8 @@
       "nl": "Ga vermoeidheid tegen met ijzerrijke voeding, zoals spinazie, linzen, rood vlees en pure chocolade.",
       "sv": "Motverka trötthet med järnrik mat som spenat, linser, rött kött och mörk choklad.",
       "ky": "Чарчоо менен күрөшүү үчүн шпинат, жасмык, кызыл эт жана кара шоколад сыяктуу темирге бай азыктарды жеңиз.",
-      "et": "Võitle väsimusega, süües rauarikkaid toite, nagu spinat, läätsed, punane liha ja tume šokolaad."
+      "et": "Võitle väsimusega, süües rauarikkaid toite, nagu spinat, läätsed, punane liha ja tume šokolaad.",
+      "uk": "Долайте втому, вживаючи продукти, багаті на залізо: шпинат, сочевицю, червоне м’ясо й чорний шоколад."
     },
     "1154102c-a3d0-4026-b540-8a6fb7b272f0:title:32abf5932db90d1c3aa57c5c560dd8025dab791a27ffd4e22600cd7990276e83": {
       "az": "Antioksidant Qidalar",
@@ -2959,7 +3084,8 @@
       "nl": "Antioxidantrijke voeding",
       "sv": "Antioxidantrik mat",
       "ky": "Антиоксиданттуу азыктар",
-      "et": "Antioksüdantsed toidud"
+      "et": "Antioksüdantsed toidud",
+      "uk": "Продукти з антиоксидантами"
     },
     "1154102c-a3d0-4026-b540-8a6fb7b272f0:content:493d35aa23dd57be471733bba6e498e5347f14781086e38d74c111bc10087f21": {
       "az": "Yumurta sağlamlığı üçün antioksidant qəbul edin: giləmeyvələr, göyərti və rəngarəng tərəvəzlər.",
@@ -2984,7 +3110,8 @@
       "nl": "Ondersteun de gezondheid van je eicellen met antioxidantrijke voeding: bessen, bladgroenten en kleurrijke groenten.",
       "sv": "Stöd äggens hälsa med antioxidantrik mat: bär, bladgrönsaker och färgstarka grönsaker.",
       "ky": "Жумуртка клеткасынын ден соолугун колдоо үчүн антиоксидантка бай азыктарды: мөмө-жемиштерди, жашылча-чөптөрдү жана түстүү жашылчаларды колдонуңуз.",
-      "et": "Toeta munarakkude tervist antioksüdantiderikaste toitudega: marjad, lehtköögiviljad ja värvilised köögiviljad."
+      "et": "Toeta munarakkude tervist antioksüdantiderikaste toitudega: marjad, lehtköögiviljad ja värvilised köögiviljad.",
+      "uk": "Підтримуйте здоров’я яйцеклітин продуктами, багатими на антиоксиданти: ягодами, листовою зеленню й різнокольоровими овочами."
     },
     "179abf2c-3369-4e48-99af-eeca41c63966:title:f24846e97dfe3705e23dc19aacf0ec1b5e3ff46c5911763e1572bedd0368a9fb": {
       "az": "Maqnezium Artırın",
@@ -3009,7 +3136,8 @@
       "nl": "Extra magnesium",
       "sv": "Extra magnesium",
       "ky": "Магнийдин пайдасы",
-      "et": "Magneesiumilaks"
+      "et": "Magneesiumilaks",
+      "uk": "Заряд магнію"
     },
     "179abf2c-3369-4e48-99af-eeca41c63966:content:bafc6070da7b33241a9347e7623069cb120b82a3f0b54b62c1f029eadadd7024": {
       "az": "Maqnezium sancıları azaltmağa kömək edir. Banan, badam, avokado yeyin və ya əlavə qəbul edin.",
@@ -3034,7 +3162,8 @@
       "nl": "Magnesium helpt tegen krampen. Eet bananen, amandelen of avocado's, of neem een supplement.",
       "sv": "Magnesium hjälper mot mensvärk. Ät bananer, mandlar eller avokado, eller ta ett tillskott.",
       "ky": "Магний булчуңдардын тырышуусуна жардам берет. Банан, бадам, авокадо жеңиз же кошумча катары кабыл алыңыз.",
-      "et": "Magneesium aitab krampide vastu. Söö banaane, mandleid, avokaadosid või võta toidulisandit."
+      "et": "Magneesium aitab krampide vastu. Söö banaane, mandleid, avokaadosid või võta toidulisandit.",
+      "uk": "Магній допомагає при судомах. Їжте банани, мигдаль, авокадо або приймайте добавку."
     },
     "18d97298-bf07-46ec-9bc4-c0b5c73f7f3b:title:f3cc0700ae29f4a2c2465744c465226b5db13b12c93cbd12fc898b8a0c82455d": {
       "az": "PMS Məlumatlılığı",
@@ -3059,7 +3188,8 @@
       "nl": "Wees alert op PMS",
       "sv": "Var uppmärksam på PMS",
       "ky": "ПМС (Этек кир алдындагы синдром) тууралуу маалымат",
-      "et": "PMS-i teadlikkus"
+      "et": "PMS-i teadlikkus",
+      "uk": "Усвідомлення ПМС"
     },
     "18d97298-bf07-46ec-9bc4-c0b5c73f7f3b:content:243cdcde4dcf01808ba0dfcef6a9537a49910f037b2ec023220ae9653344e85f": {
       "az": "Progesteron yüksəlir, bu da əhval dəyişkənliyinə səbəb ola bilər. Bunu nəzərə alın və özünüzə daha çox qayğı göstərin.",
@@ -3084,7 +3214,8 @@
       "nl": "Je progesteron stijgt, wat stemmingswisselingen kan veroorzaken. Houd hier rekening mee en zorg extra goed voor jezelf.",
       "sv": "Progesteronet stiger, vilket kan påverka humöret. Var uppmärksam och ta extra hand om dig själv.",
       "ky": "Прогестерон көтөрүлөт, бул маанайдын өзгөрүшүнө алып келиши мүмкүн. Муну эске алып, өзүңүзгө көбүрөөк кам көрүңүз.",
-      "et": "Progesterooni tase tõuseb, mis võib põhjustada meeleolumuutusi. Ole sellest teadlik ja pööra endale tavapärasest rohkem tähelepanu."
+      "et": "Progesterooni tase tõuseb, mis võib põhjustada meeleolumuutusi. Ole sellest teadlik ja pööra endale tavapärasest rohkem tähelepanu.",
+      "uk": "Рівень прогестерону зростає, що може спричиняти перепади настрою. Будьте уважні до себе й приділіть більше часу турботі про себе."
     },
     "207f37d6-46e3-4b26-ac0f-5414965615d5:title:1e88ae0bede8604b19ff97a6a79ceffaa6439218ba79072a728e9ad6240bfb46": {
       "az": "Yüngül Hərəkət",
@@ -3109,7 +3240,8 @@
       "nl": "Rustig bewegen",
       "sv": "Mjuk rörelse",
       "ky": "Жеңил кыймыл-аракет",
-      "et": "Õrn liikumine"
+      "et": "Õrn liikumine",
+      "uk": "М’який рух"
     },
     "207f37d6-46e3-4b26-ac0f-5414965615d5:content:19d32f7a656e5310d5ce97a2dc92122cc8f26a72bc3d5d9618ce4b5da7773e73": {
       "az": "Yüngül yoga, gəzinti və ya gərilmə əslində sancıları yüngülləşdirir və əhvalı yaxşılaşdırır.",
@@ -3134,7 +3266,8 @@
       "nl": "Rustige yoga, wandelen of stretchen kan juist helpen om krampen te verlichten en je stemming te verbeteren.",
       "sv": "Lugn yoga, promenader eller stretching kan faktiskt lindra mensvärk och förbättra humöret.",
       "ky": "Жеңил йога, сейилдөө же чоюлуу көнүгүүлөрү булчуңдардын тырышуусун басаңдатып, маанайды көтөрүүгө жардам берет.",
-      "et": "Kerge jooga, kõndimine või venitamine võivad aidata krampe leevendada ja tuju parandada."
+      "et": "Kerge jooga, kõndimine või venitamine võivad aidata krampe leevendada ja tuju parandada.",
+      "uk": "Легка йога, ходьба чи розтяжка справді можуть допомогти полегшити спазми та покращити настрій."
     },
     "27ea4cb6-02ed-49b7-a7fa-9e5d6a34dd5f:title:87617cd4d17ad3bb587af7cb7da25ddb89fc8a837d800a23d3b1f7379cfab80e": {
       "az": "Enerji Yüksəlir",
@@ -3159,7 +3292,8 @@
       "nl": "Toenemende energie",
       "sv": "Stigande energi",
       "ky": "Энергиянын көтөрүлүшү",
-      "et": "Energia tõus"
+      "et": "Energia tõus",
+      "uk": "Енергія зростає"
     },
     "27ea4cb6-02ed-49b7-a7fa-9e5d6a34dd5f:content:accac2c394712c1dda8cf4f225bfd065a39432b92e7aaefb217fbbad8b8acf76": {
       "az": "Estrogen səviyyəsi yüksəlir! Yeni layihələrə başlamaq və çətin işlərin öhdəsindən gəlmək üçün əla zamandır.",
@@ -3184,7 +3318,8 @@
       "nl": "Je oestrogeen stijgt! Dit is een goed moment om nieuwe projecten te starten en uitdagende taken aan te pakken.",
       "sv": "Östrogenet stiger! Det här är en bra tid att starta nya projekt och ta itu med utmanande uppgifter.",
       "ky": "Эстроген көтөрүлүп жатат! Бул жаңы долбоорлорду баштоо жана татаал тапшырмаларды аткаруу үчүн эң сонун убакыт.",
-      "et": "Östrogeenitase tõuseb! See on suurepärane aeg uute projektidega alustamiseks ja keeruliste ülesannete lahendamiseks."
+      "et": "Östrogeenitase tõuseb! See on suurepärane aeg uute projektidega alustamiseks ja keeruliste ülesannete lahendamiseks.",
+      "uk": "Рівень естрогену зростає! Чудовий час, щоб починати нові проєкти й братися за складні завдання."
     },
     "297deed2-d938-48ee-9861-f26d1b25641e:title:297b298109eb22572dd4bb8e0b5ebf7b51556fa16b789b43cf7832a7bc1bad3b": {
       "az": "Ən Yüksək Fertillik",
@@ -3209,7 +3344,8 @@
       "nl": "Hoogste vruchtbaarheid",
       "sv": "Högsta fertilitet",
       "ky": "Овуляциянын туу чокусу",
-      "et": "Viljakuse tipp"
+      "et": "Viljakuse tipp",
+      "uk": "Пік фертильності"
     },
     "297deed2-d938-48ee-9861-f26d1b25641e:content:f4ba353f8d9a946a005b309ae1847f1892fd29b2b29c719cefbb4823bbc18dbd": {
       "az": "Bu ən məhsuldar dövrünüzdür. Ana olmaq istəyirsinizsə, bu optimal mərhələdir.",
@@ -3234,7 +3370,8 @@
       "nl": "Dit is je vruchtbaarste periode. Als je zwanger wilt worden, is dit het optimale moment.",
       "sv": "Det här är din mest fertila period. Om du försöker bli gravid är detta den optimala tiden.",
       "ky": "Бул сиздин боюңузга бүтүүгө эң ыңгайлуу учуруңуз. Эгер балалуу болууну пландап жатсаңыз, бул эң оптималдуу убакыт.",
-      "et": "See on sinu kõige viljakam aeg. Kui soovid rasestuda, on see optimaalne aken."
+      "et": "See on sinu kõige viljakam aeg. Kui soovid rasestuda, on see optimaalne aken.",
+      "uk": "Це ваш найфертильніший час. Якщо ви плануєте вагітність, це оптимальне вікно."
     },
     "37af0e3a-ca24-4172-b150-2e6f7d0332cc:title:402ba74daf6577ac3272a811ab0accae507fc385b12d0faf93439251912713ce": {
       "az": "Yeni Məşqlər Sınayın",
@@ -3259,7 +3396,8 @@
       "nl": "Probeer nieuwe work-outs",
       "sv": "Prova nya träningsformer",
       "ky": "Жаңы көнүгүүлөрдү сынап көрүңүз",
-      "et": "Proovi uusi treeninguid"
+      "et": "Proovi uusi treeninguid",
+      "uk": "Спробуйте нові тренування"
     },
     "37af0e3a-ca24-4172-b150-2e6f7d0332cc:content:56131b85978699cdaad746def3824fcae1d90b6510fd5761691e1beb3adeb542": {
       "az": "Bədəniniz indi daha intensiv məşqlərə hazırdır. HIIT, qaçış və ya ağırlıq məşqlərini sınayın.",
@@ -3284,7 +3422,8 @@
       "nl": "Je lichaam kan nu intensievere trainingen aan. Probeer HIIT, hardlopen of krachttraining.",
       "sv": "Din kropp klarar intensivare träning nu. Prova HIIT, löpning eller styrketräning.",
       "ky": "Денеңиз азыр интенсивдүү көнүгүүлөрдү көтөрө алат. HIIT, чуркоо же оордуктар менен машыгууну сынап көрүңүз.",
-      "et": "Su keha talub nüüd intensiivsemat koormust. Proovi HIIT-i, jooksmist või jõutreeningut."
+      "et": "Su keha talub nüüd intensiivsemat koormust. Proovi HIIT-i, jooksmist või jõutreeningut.",
+      "uk": "Зараз ваш організм може впоратися з інтенсивнішими тренуваннями. Спробуйте HIIT, біг або силові тренування."
     },
     "39b82687-e047-4cc0-9a2a-0a7c9f5f6db5:title:b52a664a47da472bc0d10184af78b0638d26ec8241a734e8167a5baa725da068": {
       "az": "B6 Vitamini",
@@ -3309,7 +3448,8 @@
       "nl": "Vitamine B6",
       "sv": "Vitamin B6",
       "ky": "В6 витамини",
-      "et": "B6-vitamiin"
+      "et": "B6-vitamiin",
+      "uk": "Вітамін B6"
     },
     "39b82687-e047-4cc0-9a2a-0a7c9f5f6db5:content:887bc3605c5847df1981656e5ec9c9dc60e709c491a0ae455778c006cacea8a0": {
       "az": "PMS üçün Vitamin B6 qəbul edin: Banan, noxud, kartof və quş əti.",
@@ -3334,7 +3474,8 @@
       "nl": "Vitamine B6 helpt bij PMS-klachten. Je vindt deze vitamine in bananen, kikkererwten, aardappelen en gevogelte.",
       "sv": "Vitamin B6 hjälper mot PMS-symtom. Det finns i bananer, kikärter, potatis och fågelkött.",
       "ky": "В6 витамини ПМС белгилерин басаңдатууга жардам берет. Аны банан, нокот, картошка жана канаттуулардын этинен таба аласыз.",
-      "et": "B6-vitamiin aitab PMS-i sümptomite korral. Seda leidub banaanides, kikerhernestes, kartulites ja linnulihas."
+      "et": "B6-vitamiin aitab PMS-i sümptomite korral. Seda leidub banaanides, kikerhernestes, kartulites ja linnulihas.",
+      "uk": "Вітамін B6 допомагає при симптомах ПМС. Він міститься в бананах, нуті, картоплі та м’ясі птиці."
     },
     "3f34eb4c-27d8-4049-bc4a-8a2df68d2e81:title:5fe7c6baea9b70551b2ddae71df774a210b06f869943f6b8bd6e0464d6474ee4": {
       "az": "Ünsiyyət Bacarıqları",
@@ -3359,7 +3500,8 @@
       "nl": "Communicatieve vaardigheden",
       "sv": "Kommunikationsförmåga",
       "ky": "Баарлашуу жөндөмү",
-      "et": "Suhtlemisoskused"
+      "et": "Suhtlemisoskused",
+      "uk": "Комунікативні навички"
     },
     "3f34eb4c-27d8-4049-bc4a-8a2df68d2e81:content:f8f13566d93289dc1a5c9e85292913fcc21a051722eaffba860a67193babc2e4": {
       "az": "Natiqlik qabiliyyətiniz yüksəkdir. Təqdimatlar, danışıqlar və çətin söhbətlər üçün əla fürsətdir.",
@@ -3384,7 +3526,8 @@
       "nl": "Je verbale vaardigheden zijn sterker. Ideaal voor presentaties, onderhandelingen en moeilijke gesprekken.",
       "sv": "Din verbala förmåga är bättre. Perfekt för presentationer, förhandlingar och svåra samtal.",
       "ky": "Сүйлөө жөндөмүңүз жогорулайт. Презентациялар, сүйлөшүүлөр жана олуттуу маектер үчүн эң ыңгайлуу учур.",
-      "et": "Verbaalsed oskused on teravamad. Ideaalne aeg esitlusteks, läbirääkimisteks ja keerulisteks vestlusteks."
+      "et": "Verbaalsed oskused on teravamad. Ideaalne aeg esitlusteks, läbirääkimisteks ja keerulisteks vestlusteks.",
+      "uk": "Вербальні навички посилюються. Ідеальний час для презентацій, переговорів і складних розмов."
     },
     "56dee5f7-7810-4438-aa5a-ab1810e52b6c:title:535e8c0fb9230f50ac63ab1910a6bd060cca9c90ea73c8557f0c3b65f0ce2cb9": {
       "az": "Su Balansını Qoruyun",
@@ -3409,7 +3552,8 @@
       "nl": "Drink voldoende",
       "sv": "Drick tillräckligt",
       "ky": "Суу ичүүнү унутпаңыз",
-      "et": "Joo piisavalt vett"
+      "et": "Joo piisavalt vett",
+      "uk": "Пийте достатньо води"
     },
     "56dee5f7-7810-4438-aa5a-ab1810e52b6c:content:9b763cfa1e8d2182bb0eabf2cc7d6dfb57e67f5782510b4886c61ada783aba7f": {
       "az": "Bol su içmək şişkinliyi və sancıları azaldır. Gündə 8-10 stəkan su içməyə çalışın.",
@@ -3434,7 +3578,8 @@
       "nl": "Veel water drinken helpt een opgeblazen gevoel en krampen te verminderen. Streef naar 8-10 glazen per dag.",
       "sv": "Att dricka mycket vatten hjälper mot svullen mage och mensvärk. Sikta på 8–10 glas om dagen.",
       "ky": "Көп суу ичүү шишикти жана булчуңдардын тырышуусун азайтат. Күнүнө 8-10 стакан суу ичүүгө аракет кылыңыз.",
-      "et": "Rohke vee joomine aitab vähendada puhitust ja krampe. Püüa juua 8–10 klaasi päevas."
+      "et": "Rohke vee joomine aitab vähendada puhitust ja krampe. Püüa juua 8–10 klaasi päevas.",
+      "uk": "Достатня кількість води допомагає зменшити здуття й спазми. Намагайтеся випивати 8–10 склянок на день."
     },
     "586726b9-960a-4a76-bc3e-67dfcbbe1949:title:b7e71e29ece9e2bd393af99722721b851c8cd41672af8a06cd736121be06bfde": {
       "az": "Yüngül Sancı Normaldır",
@@ -3459,7 +3604,8 @@
       "nl": "Lichte krampen zijn normaal",
       "sv": "Mild mensvärk är normalt",
       "ky": "Жеңил ооруу кадимки көрүнүш",
-      "et": "Kerge krambitamine on normaalne"
+      "et": "Kerge krambitamine on normaalne",
+      "uk": "Легкі спазми — це нормально"
     },
     "586726b9-960a-4a76-bc3e-67dfcbbe1949:content:ff028027b1539210021493a9ff2bc5435f66a9eaa3b30cf7b75b25c1fe90a0b5": {
       "az": "Yüngül ovulyasiya ağrısı normaldır. Əgər ağrı şiddətlidirsə, həkiminizlə məsləhətləşin.",
@@ -3484,7 +3630,8 @@
       "nl": "Lichte ovulatiepijn (middenpijn) is normaal. Raadpleeg je arts bij hevige pijn.",
       "sv": "Lätt ovulationssmärta (mittelschmerz) är normalt. Kontakta läkare om smärtan är svår.",
       "ky": "Овуляция учурундагы жеңил ооруу (mittelschmerz) кадимки көрүнүш. Эгер катуу ооруса, дарыгериңизге кайрылыңыз.",
-      "et": "Kerge ovulatsioonivalu (mittelschmerz) on normaalne. Kui valu on tugev, konsulteeri arstiga."
+      "et": "Kerge ovulatsioonivalu (mittelschmerz) on normaalne. Kui valu on tugev, konsulteeri arstiga.",
+      "uk": "Легкий овуляторний біль (міттельшмерц) — це нормально. Якщо біль сильний, зверніться до лікаря."
     },
     "62415d54-7f54-4f1d-a33f-13bba59fa2f0:title:f73ba3d639fddaabe5ea6983b5162933a9d3430bc8aa41de1a5f203c87014d29": {
       "az": "Duzu Azaldın",
@@ -3509,7 +3656,8 @@
       "nl": "Minder zout",
       "sv": "Minska på saltet",
       "ky": "Тузду азайтыңыз",
-      "et": "Vähenda soola"
+      "et": "Vähenda soola",
+      "uk": "Зменште сіль"
     },
     "62415d54-7f54-4f1d-a33f-13bba59fa2f0:content:ff381b0f32a52d8de0e277802e3df19da26e0fe05e28b728677d64c047b4f8a5": {
       "az": "Şişkinlik və su tutulmasını azaltmaq üçün natrium qəbulunu məhdudlaşdırın.",
@@ -3534,7 +3682,8 @@
       "nl": "Beperk je zoutinname om het opgeblazen gevoel en de vochtophoping die vaak bij deze fase horen te verminderen.",
       "sv": "Begränsa saltintaget för att minska svullen mage och vätskeansamling, som är vanligt i den här fasen.",
       "ky": "Бул фазада көп кездешүүчү шишикти жана суюктуктун топтолушун азайтуу үчүн тузду аз колдонуңуз.",
-      "et": "Piira naatriumi tarbimist, et vähendada selles faasis tavapärast puhitust ja vedelikupeetust."
+      "et": "Piira naatriumi tarbimist, et vähendada selles faasis tavapärast puhitust ja vedelikupeetust.",
+      "uk": "Обмежте споживання натрію, щоб зменшити здуття та затримку рідини, типові для цієї фази."
     },
     "6d6694a8-7170-43c0-a593-1b8166f83b35:title:d2a5d7fb57f12d23c77c90bafee8f8da9200e6c1a35bacd3efdb026262cff420": {
       "az": "Gündəlik Köməyi",
@@ -3559,7 +3708,8 @@
       "nl": "Een dagboek helpt",
       "sv": "Skriv dagbok",
       "ky": "Күндөлүк жазуунун пайдасы",
-      "et": "Päeviku pidamine"
+      "et": "Päeviku pidamine",
+      "uk": "Допомога з щоденником"
     },
     "6d6694a8-7170-43c0-a593-1b8166f83b35:content:c05390e46aa9e3daaeb82778cc202ecc2ebb48a7e58c09657d498b39023f3fe4": {
       "az": "Düşüncə və hisslərinizi yazmaq bu həssas dövrdə emosiyalarınızı nizamlamağa kömək edə bilər.",
@@ -3584,7 +3734,8 @@
       "nl": "Je gedachten en gevoelens opschrijven kan helpen om emoties in deze gevoelige periode te verwerken.",
       "sv": "Att skriva ner tankar och känslor kan hjälpa dig att bearbeta dem under den här känsliga tiden.",
       "ky": "Ой-сезимдериңизди кагазга түшүрүү бул сезимтал мезгилде эмоцияларды жөнгө салууга жардам берет.",
-      "et": "Mõtete ja tunnete kirjapanemine aitab sellel tundlikul ajal emotsioone läbi töötada."
+      "et": "Mõtete ja tunnete kirjapanemine aitab sellel tundlikul ajal emotsioone läbi töötada.",
+      "uk": "Записування думок і почуттів може допомогти прожити емоції в цей чутливий період."
     },
     "6e4e2308-e3d0-4383-97d6-f6663eba5f4c:title:b92a459ed5517f43bd58734e4932772dd0984ab3f921f33bab529c6b1569b049": {
       "az": "Nəmləndirmə Fokus",
@@ -3609,7 +3760,8 @@
       "nl": "Focus op voldoende drinken",
       "sv": "Fokusera på vätska",
       "ky": "Суу балансына көңүл буруңуз",
-      "et": "Vedeliku tarbimise fookus"
+      "et": "Vedeliku tarbimise fookus",
+      "uk": "Увага до питного режиму"
     },
     "6e4e2308-e3d0-4383-97d6-f6663eba5f4c:content:358e95f79c0c7c2b508ae949f45442217d88bc07224af4e126b0d57a14991e61": {
       "az": "Su içməyə davam edin, intensiv məşq edirsinizsə elektrolitlər əlavə edin.",
@@ -3634,7 +3786,8 @@
       "nl": "Blijf water drinken en vul dit aan met elektrolyten als je intensief sport.",
       "sv": "Fortsätt dricka vatten och fyll på med elektrolyter om du tränar intensivt.",
       "ky": "Суу ичүүнү улантыңыз жана эгер интенсивдүү машыгып жатсаңыз, электролиттерди кошуңуз.",
-      "et": "Jätka vee joomist ja lisa elektrolüüte, kui treenid intensiivselt."
+      "et": "Jätka vee joomist ja lisa elektrolüüte, kui treenid intensiivselt.",
+      "uk": "Продовжуйте пити воду й додавайте електроліти, якщо тренуєтеся інтенсивно."
     },
     "7d44caa7-a394-483d-ad87-5fefe2486f95:title:e96eeb450ed12cdf419335b09dde95cc16b8b75f47b393045319a94fbbc50b39": {
       "az": "Sosial Enerji",
@@ -3659,7 +3812,8 @@
       "nl": "Sociale energie",
       "sv": "Social energi",
       "ky": "Жыныстык каалоонун табигый жогорулашы кадимки көрүнүш. Денеңиздин сигналдарын угуп, өнөктөшүңүз менен ачык баарлашыңыз.",
-      "et": "Sotsiaalne energia"
+      "et": "Sotsiaalne energia",
+      "uk": "Соціальна енергія"
     },
     "7d44caa7-a394-483d-ad87-5fefe2486f95:content:b91338ed985baaf2dcc50de11e89beaf53c9f4d5f9d050714b4f6c80f02c711b": {
       "az": "Özünüzü daha sosial və ünsiyyətcil hiss edə bilərsiniz. Sosiallaşmaq və yeni əlaqələr qurmaq üçün əla zamandır.",
@@ -3684,7 +3838,8 @@
       "nl": "Je bent mogelijk socialer en praat makkelijker. Een goed moment voor sociale activiteiten en netwerken.",
       "sv": "Du kan känna dig mer utåtriktad och pratsam. En bra tid för sociala aktiviteter och nätverkande.",
       "ky": "Өзүңүздү ачык жана баарлашууга даяр сезишиңиз мүмкүн. Социалдык иш-чаралар жана жаңы таанышуулар үчүн сонун убакыт.",
-      "et": "Võid tunda end avatuma ja suhtlemisaltimana. Suurepärane aeg sotsiaalseteks tegevusteks ja võrgustumiseks."
+      "et": "Võid tunda end avatuma ja suhtlemisaltimana. Suurepärane aeg sotsiaalseteks tegevusteks ja võrgustumiseks.",
+      "uk": "Ви можете почуватися більш товариською та відкритою до спілкування. Чудовий час для соціальної активності та нових знайомств."
     },
     "834fd4e8-3dbc-429f-8947-3db24a1be46e:title:286d96e7d4496077eff25ab7221e2baf91d4c88f33145829252c512ac3dbc0bf": {
       "az": "Maksimum Enerji",
@@ -3709,7 +3864,8 @@
       "nl": "Maximale energie",
       "sv": "Maximal energi",
       "ky": "Энергиянын туу чокусу",
-      "et": "Maksimaalne energia"
+      "et": "Maksimaalne energia",
+      "uk": "Максимум енергії"
     },
     "834fd4e8-3dbc-429f-8947-3db24a1be46e:content:fb446a36022d53bc380dc9d219159094394e9de5e6bb56cd1d285899a4ba38f2": {
       "az": "Enerji və özgüvəniniz zirvədədir. Çətin işləri və vacib görüşləri həll etmək üçün ideal zamandır.",
@@ -3734,7 +3890,8 @@
       "nl": "Je energie en zelfvertrouwen zijn op hun hoogtepunt. Pak uitdagende taken en belangrijke vergaderingen aan.",
       "sv": "Energin och självförtroendet är på topp. Ta dig an utmanande uppgifter och viktiga möten.",
       "ky": "Энергияңыз жана ишенимиңиз эң жогорку деңгээлде. Татаал иштерди жана маанилүү жолугушууларды пландаңыз.",
-      "et": "Energia ja enesekindlus on tipus. Võta ette keerulised ülesanded ja tähtsad kohtumised."
+      "et": "Energia ja enesekindlus on tipus. Võta ette keerulised ülesanded ja tähtsad kohtumised.",
+      "uk": "Енергія та впевненість на піку. Беріться за складні завдання й важливі зустрічі."
     },
     "858fc921-c88d-4bc5-9861-126abdc96a57:title:19938ecb59cbdc248e1150680989a975e3bb214b168451ffa22dc397f0671fbb": {
       "az": "Alkoqolu Məhdudlaşdırın",
@@ -3759,7 +3916,8 @@
       "nl": "Beperk alcohol",
       "sv": "Begränsa alkohol",
       "ky": "Алкоголду чектеңиз",
-      "et": "Piira alkoholi"
+      "et": "Piira alkoholi",
+      "uk": "Обмежте алкоголь"
     },
     "858fc921-c88d-4bc5-9861-126abdc96a57:content:ec7c9c6acf960d5f2021d196b44684809e0b048e4f9ccae7b55a4041873130be": {
       "az": "Alkoqol PMS simptomlarını kəskinləşdirə və yuxunu poza bilər. Qəbulunu azaltmağı və ya tamamilə imtina etməyi nəzərə alın.",
@@ -3784,7 +3942,8 @@
       "nl": "Alcohol kan PMS-klachten verergeren en je slaap verstoren. Overweeg minder of geen alcohol te drinken.",
       "sv": "Alkohol kan förvärra PMS-symtom och störa sömnen. Överväg att dra ner på eller undvika alkohol.",
       "ky": "Алкоголь ПМС белгилерин күчөтүп, уйкуну бузушу мүмкүн. Аны азайтууну же толугу менен баш тартууну ойлонуп көрүңүз.",
-      "et": "Alkohol võib PMS-i sümptomeid halvendada ja und häirida. Kaalu selle vähendamist või vältimist."
+      "et": "Alkohol võib PMS-i sümptomeid halvendada ja und häirida. Kaalu selle vähendamist või vältimist.",
+      "uk": "Алкоголь може посилювати симптоми ПМС і порушувати сон. Подумайте, чи не варто зменшити його кількість або відмовитися від нього."
     },
     "905059dd-9edd-41c0-beab-84b185d7a8b0:title:93fc2a166ef474ce5b1a3e24c87547ad7051336f66adeb6da1d6e0f6fb082ee2": {
       "az": "Kofeini Azaldın",
@@ -3809,7 +3968,8 @@
       "nl": "Vermijd cafeïne",
       "sv": "Undvik koffein",
       "ky": "Кофеинден алыс болуңуз",
-      "et": "Väldi kofeiini"
+      "et": "Väldi kofeiini",
+      "uk": "Уникайте кофеїну"
     },
     "905059dd-9edd-41c0-beab-84b185d7a8b0:content:9f25610e79b0abb1776aeedf604efa0c8dd3686ba595ed21fd1fb2e16dccd84f": {
       "az": "Kofein sancıları və narahatlığı artıra bilər. Əvəzinə çobanyastığı və ya zəncəfil çayı için.",
@@ -3834,7 +3994,8 @@
       "nl": "Cafeïne kan krampen en angst verergeren. Probeer in plaats daarvan kruidenthee, zoals kamille- of gemberthee.",
       "sv": "Koffein kan förvärra mensvärk och oro. Prova örtteer som kamomill- eller ingefärste i stället.",
       "ky": "Кофеин булчуңдардын тырышуусун жана тынчсызданууну күчөтүшү мүмкүн. Анын ордуна ромашка же имбирь сыяктуу чөп чайларын ичип көрүңүз.",
-      "et": "Kofeiin võib krampe ja ärevust süvendada. Proovi selle asemel taimeteesid, nagu kummel või ingver."
+      "et": "Kofeiin võib krampe ja ärevust süvendada. Proovi selle asemel taimeteesid, nagu kummel või ingver.",
+      "uk": "Кофеїн може посилювати спазми й тривожність. Натомість спробуйте трав’яні чаї, наприклад ромашковий чи імбирний."
     },
     "94e682fe-2fc7-438c-adb3-79e9bfd3ba0d:title:ba295c96f52f3185794b4e724bac3fccea55749e6ea29afc0c0054285fc9eb48": {
       "az": "Orta Səviyyəli Məşq",
@@ -3859,7 +4020,8 @@
       "nl": "Matig intensief bewegen",
       "sv": "Måttlig träning",
       "ky": "Орточо көнүгүүлөр",
-      "et": "Mõõdukas treening"
+      "et": "Mõõdukas treening",
+      "uk": "Помірні фізичні навантаження"
     },
     "94e682fe-2fc7-438c-adb3-79e9bfd3ba0d:content:fbb75801053176ceff24664e59b3b1dddba58566415b191b1aa88c279f86a1f2": {
       "az": "Enerji azaldıqca üzmə, velosiped və ya pilates kimi orta səviyyəli fəaliyyətlərə keçin.",
@@ -3884,7 +4046,8 @@
       "nl": "Schakel als je energie afneemt over op matig intensieve activiteiten, zoals zwemmen, fietsen of pilates.",
       "sv": "Byt till måttlig aktivitet som simning, cykling eller pilates när energin minskar.",
       "ky": "Энергияңыз азайганда сүзүү, велосипед тебүү же пилатес сыяктуу орточо көнүгүүлөргө өтүңүз.",
-      "et": "Kui energiatase langeb, lülitu mõõdukamatele tegevustele, nagu ujumine, jalgrattasõit või pilates."
+      "et": "Kui energiatase langeb, lülitu mõõdukamatele tegevustele, nagu ujumine, jalgrattasõit või pilates.",
+      "uk": "Коли енергії стає менше, переходьте на помірні навантаження, як-от плавання, їзда на велосипеді чи пілатес."
     },
     "99cae289-1465-4a9e-bc82-e0419cab8838:title:2049b6bfdfbef3c5ebf797f213e2f03eea0a43bf68b897719ebe3411fffa7f91": {
       "az": "Yüksək İntensivlik OK",
@@ -3909,7 +4072,8 @@
       "nl": "Hoge intensiteit is oké",
       "sv": "Högintensiv träning går bra",
       "ky": "Жогорку интенсивдүүлүккө уруксат",
-      "et": "Kõrge intensiivsus on OK"
+      "et": "Kõrge intensiivsus on OK",
+      "uk": "Можна інтенсивні навантаження"
     },
     "99cae289-1465-4a9e-bc82-e0419cab8838:content:9c2dbd1fde3b731227720d189ddbdabe0eaf4d027cc69da34dd93e6211b263fc": {
       "az": "Bədəniniz ən ağır məşqlərin öhdəsindən gəlməyə hazırdır. Yarışlar və şəxsi rekordlar üçün ideal zamandır.",
@@ -3934,7 +4098,8 @@
       "nl": "Je lichaam kan de zwaarste trainingen aan. Een goed moment voor wedstrijden of persoonlijke records.",
       "sv": "Din kropp klarar de mest krävande träningspassen. En bra tid för tävlingar eller personliga rekord.",
       "ky": "Денеңиз эң оор машыгууларды көтөрө алат. Жарыштар же жеке рекорддорду коюу үчүн эң сонун убакыт.",
-      "et": "Su keha talub kõige nõudlikumaid treeninguid. Suurepärane aeg võistlusteks või isiklike rekordite püstitamiseks."
+      "et": "Su keha talub kõige nõudlikumaid treeninguid. Suurepärane aeg võistlusteks või isiklike rekordite püstitamiseks.",
+      "uk": "Ваш організм готовий до найінтенсивніших тренувань. Чудовий час для змагань або особистих рекордів."
     },
     "a79419dc-2ba3-4b60-931b-31a3400d5721:title:cb7669e1b59c5624d350c573feadf2937be8a746beb901be969451286c63dc8d": {
       "az": "İstirahət Vacibdir",
@@ -3959,7 +4124,8 @@
       "nl": "Rust is essentieel",
       "sv": "Vila är viktigt",
       "ky": "Эс алуу маанилүү",
-      "et": "Puhkus on hädavajalik"
+      "et": "Puhkus on hädavajalik",
+      "uk": "Відпочинок необхідний"
     },
     "a79419dc-2ba3-4b60-931b-31a3400d5721:content:aa33f9ae6f5d3ab92206671e588c0878b609f8bad76d4d572add3059568d10b3": {
       "az": "Bədəniniz intensiv işləyir. İlk günlərdə özünüzə əlavə istirahət imkanı verin və bədəninizi dinləyin.",
@@ -3984,7 +4150,8 @@
       "nl": "Je lichaam werkt hard. Luister ernaar en gun jezelf tijdens de eerste paar dagen extra rust.",
       "sv": "Din kropp arbetar hårt. Lyssna på den och tillåt dig att vila extra under de första dagarna.",
       "ky": "Денеңиз катуу иштеп жатат. Аны угуп, алгачкы күндөрү өзүңүзгө көбүрөөк эс алууга уруксат бериңиз.",
-      "et": "Su keha teeb rasket tööd. Kuula seda ja luba endale esimestel päevadel lisapuhkust."
+      "et": "Su keha teeb rasket tööd. Kuula seda ja luba endale esimestel päevadel lisapuhkust.",
+      "uk": "Ваше тіло старанно працює. Прислухайтеся до нього й дозвольте собі більше відпочивати в перші дні."
     },
     "a7ff1aa2-b7c6-4c0d-8891-42e69c021f25:title:5a01b834209b3b4a53bc93b7d20073c145ee77a5bb655861caab63b0bb0d3be4": {
       "az": "Dəri Baxımı",
@@ -4009,7 +4176,8 @@
       "nl": "Huidverzorging",
       "sv": "Hudvård",
       "ky": "Териге кам көрүү",
-      "et": "Nahahooldus"
+      "et": "Nahahooldus",
+      "uk": "Догляд за шкірою"
     },
     "a7ff1aa2-b7c6-4c0d-8891-42e69c021f25:content:4af1f72c3d67ce9fb2adda05a30a779c479b13d3b6087932b09daa97dd03c1ad": {
       "az": "Estrogen dərini parıldadır! Yeni dəri baxımı məhsullarını sınamaq və ya üz prosedurları üçün yaxşı vaxtdır.",
@@ -4034,7 +4202,8 @@
       "nl": "Oestrogeen laat je huid stralen! Een goed moment om nieuwe huidverzorgingsproducten of gezichtsbehandelingen te proberen.",
       "sv": "Östrogen får huden att stråla! En bra tid att prova nya hudvårdsprodukter eller boka en ansiktsbehandling.",
       "ky": "Эстроген териңизди жаркыратат! Жаңы косметикалык каражаттарды сынап көрүү же бетке кам көрүү процедураларын жасоо үчүн жакшы убакыт.",
-      "et": "Östrogeen paneb naha särama! Hea aeg uute nahahooldustoodete proovimiseks või näohoolduseks."
+      "et": "Östrogeen paneb naha särama! Hea aeg uute nahahooldustoodete proovimiseks või näohoolduseks.",
+      "uk": "Естроген надає шкірі сяйва! Гарний час, щоб спробувати нові засоби догляду за шкірою або зробити процедури для обличчя."
     },
     "a875dc15-f821-40e3-a1f8-5e489767e136:title:bd970fe15ac217d74365be02cf53fb77b801f9de66782de0a71842393796d96f": {
       "az": "Yaradıcılıq Zirvəsi",
@@ -4059,7 +4228,8 @@
       "nl": "Creativiteit op haar hoogtepunt",
       "sv": "Kreativiteten är på topp",
       "ky": "Чыгармачылыктын туу чокусу",
-      "et": "Loovuse tipp"
+      "et": "Loovuse tipp",
+      "uk": "Пік креативності"
     },
     "a875dc15-f821-40e3-a1f8-5e489767e136:content:14bf0d625ea24ad4511aa073bf3d488022ca88d8a670bebb0795f7d8eb1505f7": {
       "az": "Zehni fəaliyyətiniz güclənib. Bu vaxtı beyin fırtınası, öyrənmək və yaradıcı işlər üçün dəyərləndirin.",
@@ -4084,7 +4254,8 @@
       "nl": "Je hersenen werken beter. Benut deze periode om te brainstormen, leren en creatief te werken.",
       "sv": "Hjärnan arbetar effektivare. Använd tiden till idéarbete, lärande och kreativa uppgifter.",
       "ky": "Мээнин иштеши жогорулайт. Бул убакытты идеяларды иштеп чыгуу, окуу жана чыгармачыл иштер үчүн колдонуңуз.",
-      "et": "Ajutegevus on tõhustatud. Kasuta seda aega ajurünnakuteks, õppimiseks ja loovtööks."
+      "et": "Ajutegevus on tõhustatud. Kasuta seda aega ajurünnakuteks, õppimiseks ja loovtööks.",
+      "uk": "Мозок працює краще. Використайте цей час для мозкових штурмів, навчання та творчої роботи."
     },
     "af156cb3-6771-406d-a5ba-119fa06514b0:title:2ee15dbf6efe79d44f10be597033c333b24abe4e6de1bcf9c94e52129ab3185c": {
       "az": "Protein Gücü",
@@ -4109,7 +4280,8 @@
       "nl": "Eiwitrijke voeding",
       "sv": "Proteinrik mat",
       "ky": "Белоктун күчү",
-      "et": "Valgu jõud"
+      "et": "Valgu jõud",
+      "uk": "Сила білка"
     },
     "af156cb3-6771-406d-a5ba-119fa06514b0:content:8ea0461b85a61c2603d4b733d04a0ac56a550f07d0ab06725666d16a6c9cb9aa": {
       "az": "Əzələ inkişafını toyuq, balıq, yumurta və paxlalılar kimi yağsız proteinlərlə dəstəkləyin.",
@@ -4134,7 +4306,8 @@
       "nl": "Ondersteun je spieropbouw met magere eiwitbronnen zoals kip, vis, eieren en peulvruchten.",
       "sv": "Stöd muskeluppbyggnaden med magra proteinkällor som kyckling, fisk, ägg och baljväxter.",
       "ky": "Булчуңдарды куруу үчүн тоок эти, балык, жумуртка жана буурчак өсүмдүктөрү сыяктуу майсыз белокторду колдонуңуз.",
-      "et": "Toeta lihaste arengut lahja valguga, nagu kana, kala, munad ja kaunviljad."
+      "et": "Toeta lihaste arengut lahja valguga, nagu kana, kala, munad ja kaunviljad.",
+      "uk": "Підтримуйте нарощування м’язів пісними білками: куркою, рибою, яйцями та бобовими."
     },
     "b3959838-1f31-4556-b9bb-43c52418ddc0:title:ca6454a6b383f87e94a73b93d3b4f5cd84b248867150ab1f0a49951227c312c3": {
       "az": "Kalsium Qəbulu",
@@ -4159,7 +4332,8 @@
       "nl": "Calciuminname",
       "sv": "Kalciumintag",
       "ky": "Кальцийди кабыл алуу",
-      "et": "Kaltsiumi tarbimine"
+      "et": "Kaltsiumi tarbimine",
+      "uk": "Споживання кальцію"
     },
     "b3959838-1f31-4556-b9bb-43c52418ddc0:content:cd1b27679fa8a830480414dff69222fabec55db7da108c57b8d0a57c690f2fb5": {
       "az": "Araşdırmalar kalsiumun PMS əlamətlərini azaltdığını göstərir. Süd məhsulları, yaşıl yarpaqlar yeyin.",
@@ -4184,7 +4358,8 @@
       "nl": "Onderzoek toont aan dat calcium PMS-klachten kan verminderen. Kies voor zuivel, bladgroenten of supplementen.",
       "sv": "Studier visar att kalcium kan lindra PMS-symtom. Ät mejeriprodukter och bladgrönsaker eller ta tillskott.",
       "ky": "Изилдөөлөр көрсөткөндөй, кальций ПМС белгилерин азайтышы мүмкүн. Сүт азыктарын, жашылча-чөптөрдү же кошумчаларды колдонуңуз.",
-      "et": "Uuringud näitavad, et kaltsium võib vähendada PMS-i sümptomeid. Söö piimatooteid, lehtköögivilju või võta toidulisandeid."
+      "et": "Uuringud näitavad, et kaltsium võib vähendada PMS-i sümptomeid. Söö piimatooteid, lehtköögivilju või võta toidulisandeid.",
+      "uk": "Дослідження показують, що кальцій може зменшувати симптоми ПМС. Їжте молочні продукти, листову зелень або приймайте добавки."
     },
     "c95f20da-f7b4-4e90-8e29-50fe44e8ddf6:title:e37f8ebfab6cb5904f81cd544b7d1dedfcbd5618bc2008e4bad9fda099146618": {
       "az": "Tünd Şokolad",
@@ -4209,7 +4384,8 @@
       "nl": "Pure chocolade",
       "sv": "Mörk choklad",
       "ky": "Кара шоколад",
-      "et": "Tume šokolaad"
+      "et": "Tume šokolaad",
+      "uk": "Чорний шоколад"
     },
     "c95f20da-f7b4-4e90-8e29-50fe44e8ddf6:content:27764cecd9d312dd470e8803c206aaaf1e7c8bb4693c6ac86f36cf671554c079": {
       "az": "Az miqdarda tünd şokolad əhvalı yüksəldir və maqneziumla təmin edir. Qədərində yeyin!",
@@ -4234,7 +4410,8 @@
       "nl": "Een klein beetje pure chocolade kan je stemming verbeteren en levert magnesium. Geniet met mate!",
       "sv": "En liten mängd mörk choklad kan höja humöret och ge magnesium. Njut med måtta!",
       "ky": "Бир аз кара шоколад маанайды көтөрүп, магний менен камсыз кылат. Ченеми менен ырахат алыңыз!",
-      "et": "Väike kogus tumedat šokolaadi võib tuju tõsta ja pakkuda magneesiumi. Naudi mõõdukalt!"
+      "et": "Väike kogus tumedat šokolaadi võib tuju tõsta ja pakkuda magneesiumi. Naudi mõõdukalt!",
+      "uk": "Невеликий шматочок чорного шоколаду може покращити настрій і забезпечити магній. Насолоджуйтеся в міру!"
     },
     "c9cec764-068d-4cdf-ab7b-a5ae634021ff:title:a01d9f9f518696c6635a1a46ce5758ad812aa15c46b3c4b8b55e018e775e21de": {
       "az": "Yuxu Prioriteti",
@@ -4259,7 +4436,8 @@
       "nl": "Geef slaap prioriteit",
       "sv": "Prioritera sömnen",
       "ky": "Уйкуга артыкчылык бериңиз",
-      "et": "Une prioriteet"
+      "et": "Une prioriteet",
+      "uk": "Сон — пріоритет"
     },
     "c9cec764-068d-4cdf-ab7b-a5ae634021ff:content:062f79d7182ef9cfa4c67c210b2b5549b566ab3b87bff18cbb07b9be6d7d159e": {
       "az": "Daha çox yuxuya ehtiyacınız ola bilər. Bədəninizi dinləyin və gecə ərzində 8-9 saat yatmağa çalışın.",
@@ -4284,7 +4462,8 @@
       "nl": "Je hebt mogelijk meer slaap nodig. Geef hieraan toe en streef naar 8-9 uur per nacht.",
       "sv": "Du kan behöva mer sömn. Lyssna på behovet och sikta på 8–9 timmar per natt.",
       "ky": "Сизге көбүрөөк уйку керек болушу мүмкүн. Бул муктаждыкты сыйлап, түнкүсүн 8-9 саат уктоого аракет кылыңыз.",
-      "et": "Võid vajada rohkem und. Austa seda vajadust ja püüa magada 8–9 tundi öösel."
+      "et": "Võid vajada rohkem und. Austa seda vajadust ja püüa magada 8–9 tundi öösel.",
+      "uk": "Можливо, вам потрібно більше сну. Прислухайтеся до цієї потреби й намагайтеся спати 8–9 годин на ніч."
     },
     "cd8f542f-367c-4e21-ae33-e868cd3cb175:title:26f75ee20e221cac72dbdf7b8c49e946058ed7352d62d11c7dc0625566e3c2c5": {
       "az": "Mürəkkəb Karbohidratlar",
@@ -4309,7 +4488,8 @@
       "nl": "Complexe koolhydraten",
       "sv": "Komplexa kolhydrater",
       "ky": "Татаал углеводдор",
-      "et": "Komplekssed süsivesikud"
+      "et": "Komplekssed süsivesikud",
+      "uk": "Складні вуглеводи"
     },
     "cd8f542f-367c-4e21-ae33-e868cd3cb175:content:d7c7d5003eef9103a745bbe536749ab9d5f91de4c59459922b7042d6c6749f90": {
       "az": "İştah artımı normaldır! Tam taxıl, şirin kartof və yulaf kimi mürəkkəb karbohidratlar seçin.",
@@ -4334,7 +4514,8 @@
       "nl": "Trek is normaal! Kies complexe koolhydraten, zoals volkorenproducten, zoete aardappelen en havermout.",
       "sv": "Sötsug och andra begär är normala! Välj komplexa kolhydrater som fullkorn, sötpotatis och havre.",
       "ky": "Тамакка болгон каалоонун өзгөрүшү кадимки көрүнүш! Дан азыктары, таттуу картошка жана сулу сыяктуу татаал углеводдорду тандаңыз.",
-      "et": "Isu on normaalne! Vali komplekssed süsivesikud, nagu täisteratooted, bataat ja kaerahelbed."
+      "et": "Isu on normaalne! Vali komplekssed süsivesikud, nagu täisteratooted, bataat ja kaerahelbed.",
+      "uk": "Харчові забаганки — це нормально! Обирайте складні вуглеводи: цільнозернові продукти, батат і вівсянку."
     },
     "d2e9d59c-44a5-4404-a19f-ac4856a006b5:title:210743dae00d5ce2e2f02c214a2c010a26d063ee494399678b23d26f4b34c8a0": {
       "az": "Libido Artımı",
@@ -4359,7 +4540,8 @@
       "nl": "Meer zin in seks",
       "sv": "Ökad sexlust",
       "ky": "Либидонун жогорулашы",
-      "et": "Libiido tõus"
+      "et": "Libiido tõus",
+      "uk": "Посилення лібідо"
     },
     "d2e9d59c-44a5-4404-a19f-ac4856a006b5:content:335e98e4b06a498a09a354ba9d8b5e8a7a613f74d5ecc4c15d65beb41858c2b7": {
       "az": "Libidonun yüksəlməsi normal haldır. Bədəninizin siqnallarına qulaq asın və partnyorunuzla ünsiyyət qurun",
@@ -4384,7 +4566,8 @@
       "nl": "Een natuurlijke toename van je libido is normaal. Luister naar de signalen van je lichaam en bespreek ze met je partner.",
       "sv": "En naturligt ökad sexlust är normalt. Lyssna på kroppens signaler och prata med din partner.",
       "ky": "Каалоонун табигый түрдө күчөшү — кадимки көрүнүш. Денеңиздин белгилерине маани бериңиз жана өнөктөшүңүз менен баарлашыңыз.",
-      "et": "Loomulik seksuaalse soovi suurenemine on normaalne. Austa oma keha signaale ja suhtle partneriga."
+      "et": "Loomulik seksuaalse soovi suurenemine on normaalne. Austa oma keha signaale ja suhtle partneriga.",
+      "uk": "Природне посилення бажання — це нормально. Прислухайтеся до сигналів свого тіла й говоріть із партнером."
     },
     "d3ebd14b-d8bd-4ebc-b6bf-b7b9829c360c:title:5b21bdc7994db6fbcb5a08851c419a6d8862d7b95371ca7d33db2525bb57b2da": {
       "az": "İsti Kompres",
@@ -4409,7 +4592,8 @@
       "nl": "Warm kompres",
       "sv": "Värmande kompress",
       "ky": "Жылуу компресс",
-      "et": "Soe kompress"
+      "et": "Soe kompress",
+      "uk": "Теплий компрес"
     },
     "d3ebd14b-d8bd-4ebc-b6bf-b7b9829c360c:content:db2f01546cabcb8c36aa3a8d46d434aeddb36a7a9a5ec9020834c10a0be1be8b": {
       "az": "Menstrual sancıları yüngülləşdirmək üçün qarnınızın alt hissəsinə istilik yastığı və ya isti su şüşəsi qoyun.",
@@ -4434,7 +4618,8 @@
       "nl": "Leg een warmtekussen of kruik op je onderbuik om menstruatiekrampen te verlichten.",
       "sv": "Lägg en värmedyna eller varmvattenflaska på nedre delen av magen för att lindra mensvärk.",
       "ky": "Этек кир учурундагы ооруну басаңдатуу үчүн ичиңиздин төмөн жагына жылыткыч же жылуу суу куюлган бөтөлкө коюңуз.",
-      "et": "Aseta alakõhule soojenduskott või soojaveepudel, et leevendada menstruatsioonivalusid."
+      "et": "Aseta alakõhule soojenduskott või soojaveepudel, et leevendada menstruatsioonivalusid.",
+      "uk": "Щоб полегшити менструальні спазми, прикладіть до низу живота грілку або пляшку з теплою водою."
     },
     "da23fe5a-c574-4029-8ed3-96134a706cd1:title:1ea36a0fd2836c99f37b5262aa212327623719fab8e5e05fa9aaad1d107a99e0": {
       "az": "Təzə Qidalar",
@@ -4459,7 +4644,8 @@
       "nl": "Verse voeding",
       "sv": "Färska livsmedel",
       "ky": "Сергек тамактануу",
-      "et": "Värske toit"
+      "et": "Värske toit",
+      "uk": "Свіжі продукти"
     },
     "da23fe5a-c574-4029-8ed3-96134a706cd1:content:16f40699d9d5f11e3ab385448ae9eff1546ca6da1ba2f4108376c54d7f8d4ba2": {
       "az": "Bu fazanı salatlar, fermentə olunmuş tərəvəzlər və sitrus meyvələri kimi yüngül, təzə qidalarla dəstəkləyin.",
@@ -4484,7 +4670,8 @@
       "nl": "Lichte, verse voeding, zoals salades, gefermenteerde groenten en citrusvruchten, ondersteunt je lichaam in deze fase.",
       "sv": "Lätt och fräsch mat som sallader, fermenterade grönsaker och citrusfrukter passar bra under den här fasen.",
       "ky": "Салаттар, ачытылган жашылчалар жана цитрус жемиштери сыяктуу жеңил, сергек азыктар бул фазада денеңизди колдойт.",
-      "et": "Kerge ja värske toit, nagu salatid, fermenteeritud köögiviljad ja tsitruselised, toetavad seda faasi."
+      "et": "Kerge ja värske toit, nagu salatid, fermenteeritud köögiviljad ja tsitruselised, toetavad seda faasi.",
+      "uk": "Легка свіжа їжа, як-от салати, ферментовані овочі та цитрусові, підтримує організм у цій фазі."
     },
     "fda2ecdf-1ca3-418d-aab9-c4ca370581b2:title:88ab3b7af1f7e2286dbd4ce50cd4de074a93b9309f7e2d7da3a9198a93aef303": {
       "az": "Omega-3 Yağ Turşuları",
@@ -4509,7 +4696,8 @@
       "nl": "Omega-3-vetzuren",
       "sv": "Omega-3-fettsyror",
       "ky": "Омега-3 май кислоталары",
-      "et": "Omega-3 rasvhapped"
+      "et": "Omega-3 rasvhapped",
+      "uk": "Омега-3 жирні кислоти"
     },
     "fda2ecdf-1ca3-418d-aab9-c4ca370581b2:content:8fb49121314a4a6875ba9624b2f61d13e5305e0da5ae1e0b69a66dd560f7b20e": {
       "az": "Hormon istehsalını qızılbalıq, qoz, çia və kətan toxumu ilə dəstəkləyin.",
@@ -4534,7 +4722,8 @@
       "nl": "Ondersteun je hormoonproductie met zalm, walnoten, chiazaad en lijnzaad.",
       "sv": "Stöd hormonproduktionen med lax, valnötter, chiafrön och linfrön.",
       "ky": "Гормондордун өндүрүлүшүн колдоо үчүн лосось, жаңгак, чиа уруктары жана зыгыр уруктарын колдонуңуз.",
-      "et": "Toeta hormoonide tootmist lõhe, kreeka pähklite, chia-seemnete ja linaseemnetega."
+      "et": "Toeta hormoonide tootmist lõhe, kreeka pähklite, chia-seemnete ja linaseemnetega.",
+      "uk": "Підтримуйте вироблення гормонів за допомогою лосося, волоських горіхів, насіння чіа та льону."
     },
     "ffb37116-e486-4f9a-9ddb-340456a05883:title:c311a3b60b37881d7b8cac4115965fc596de9adfd6ef005a9adb370b95e7b87a": {
       "az": "Əhval Dəstəyi",
@@ -4559,7 +4748,8 @@
       "nl": "Ondersteun je stemming",
       "sv": "Stöd för humöret",
       "ky": "Эмоционалдык колдоо",
-      "et": "Emotsionaalne tugi"
+      "et": "Emotsionaalne tugi",
+      "uk": "Підтримка настрою"
     },
     "ffb37116-e486-4f9a-9ddb-340456a05883:content:6caa6b1036cca9987ba3107a8384e84df8a04ef488ae7d7e88572aada877c1b2": {
       "az": "Emosional hiss etmək normaldır. Bu dövrdə özünüzə qarşı sərt olmayın və özünüzə qayğı göstərin.",
@@ -4584,7 +4774,8 @@
       "nl": "Je emotioneel voelen is normaal. Wees mild voor jezelf en leg de lat in deze periode niet te hoog.",
       "sv": "Det är normalt att känna sig känslosam. Visa dig själv medkänsla och var inte för hård mot dig själv under den här tiden.",
       "ky": "Эмоционалдуу болуу кадимки көрүнүш. Өзүңүзгө боорукер болуңуз жана бул мезгилде өзүңүздү катуу сындабаңыз.",
-      "et": "Emotsionaalsus on normaalne. Ole enda vastu leebe ja ära ole sel ajal enda suhtes liiga nõudlik."
+      "et": "Emotsionaalsus on normaalne. Ole enda vastu leebe ja ära ole sel ajal enda suhtes liiga nõudlik.",
+      "uk": "Підвищена емоційність — це нормально. Будьте до себе співчутливими й не будьте надто суворими до себе в цей час."
     }
   }
 }

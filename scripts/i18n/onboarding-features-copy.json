@@ -598,6 +598,32 @@
       "mental_fitness": "Vaimne heaolu ja treeningud",
       "mood_journal": "Meeleolupäevik",
       "vitamin_tracker": "Vitamiinide jälgija"
+    },
+    "uk": {
+      "sleep_tracking": "Відстеження режиму сну",
+      "feeding_tracking": "Трекер годувань",
+      "milestones": "Етапи розвитку",
+      "cry_analysis": "Аналіз плачу",
+      "weather_clothing": "Погода й одяг",
+      "anacan_ai": "Anacan AI",
+      "doctor_pdf": "PDF для лікаря",
+      "partner_account": "Обліковий запис партнера",
+      "sounds_stories": "Білий шум і розумні казки",
+      "vaccine_calendar": "Календар щеплень",
+      "healthy_recipes": "Корисні рецепти",
+      "teething_tracker": "Трекер прорізування зубів",
+      "mental_exercises": "Психічне благополуччя та вправи",
+      "ad_free": "Без реклами",
+      "fetal_growth": "Трекер росту плода",
+      "nutrition_control": "Відстеження харчування",
+      "safety_lookup": "Перевірка безпеки",
+      "kicks_contractions": "Лічильник поштовхів і перейм",
+      "body_measurements": "Відстеження ваги, тиску та глюкози",
+      "hospital_bag_shopping": "Сумка в пологовий і спільні покупки",
+      "pregnancy_album_vitamins": "Альбом вагітності та трекер вітамінів",
+      "mental_fitness": "Психічне благополуччя та фітнес",
+      "mood_journal": "Щоденник настрою",
+      "vitamin_tracker": "Трекер вітамінів"
     }
   }
 }
