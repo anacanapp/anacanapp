@@ -8,25 +8,30 @@ import { newClickToken, partnerLink, storefrontFromRpc, type ShopCollection, typ
 // The partner RPCs are newer than the generated types.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const db = supabase as any;
-const EMPTY: Storefront = { partners: new Map(), products: [] };
+const EMPTY_RAW = { partners: [], products: [] };
 
 /**
  * Partner products the server lets this user see (shop_storefront_v1): live partners for everyone,
  * admin_only/paused partners for admins and the partner's own members. Missing RPC → empty storefront.
+ *
+ * The cached value is the plain RPC JSON: the query cache is persisted to storage, and a Map does not survive
+ * JSON (it comes back as {} and `partners.get` throws). The Map is built in `select`, after restore.
+ * 'v2' in the key drops caches written by the earlier Map-valued version.
  */
 export function usePartnerStorefront() {
   const { user } = useAuth();
   return useQuery({
-    queryKey: ['partner-storefront', getBackendConfig().url, user?.id],
+    queryKey: ['partner-storefront', 'v2', getBackendConfig().url, user?.id],
     enabled: !!user,
     staleTime: 5 * 60_000,
-    queryFn: async (): Promise<Storefront> => {
+    queryFn: async (): Promise<unknown> => {
       const { data, error } = await db.rpc('shop_storefront_v1');
-      if (error) return EMPTY;
-      return storefrontFromRpc(data);
+      return error ? EMPTY_RAW : (data ?? EMPTY_RAW);
     },
+    select: selectStorefront,
   });
 }
+const selectStorefront = (data: unknown): Storefront => storefrontFromRpc(data);
 
 export function useInvalidateStorefront() {
   const qc = useQueryClient();

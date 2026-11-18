@@ -92,10 +92,11 @@ export function productFromRow(r: Record<string, unknown>, partner?: ShopPartner
 }
 
 export function storefrontFromRpc(data: unknown): Storefront {
-  const d = (data && typeof data === 'object' ? data : {}) as { partners?: unknown[]; products?: unknown[] };
+  const d = (data && typeof data === 'object' ? data : {}) as { partners?: unknown; products?: unknown };
   const partners = new Map<string, ShopPartner>();
-  (d.partners || []).forEach((p) => { const x = partnerFromRow(p as Record<string, unknown>); partners.set(x.id, x); });
-  const products = (d.products || []).map((p) => {
+  const rows = (v: unknown) => (Array.isArray(v) ? v : []);
+  rows(d.partners).forEach((p) => { const x = partnerFromRow(p as Record<string, unknown>); partners.set(x.id, x); });
+  const products = rows(d.products).map((p) => {
     const row = p as Record<string, unknown>;
     return productFromRow(row, partners.get(String(row.partner_id)));
   }).filter((p) => partners.has(p.partnerId));

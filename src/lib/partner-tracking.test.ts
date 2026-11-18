@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { newClickToken, partnerLink } from './partner-shop';
+import { newClickToken, partnerLink, storefrontFromRpc } from './partner-shop';
 import { TRACKING_ENDPOINT, trackingSnippets } from './partner-panel';
 
 const SDK = readFileSync(resolve(__dirname, '../../public/sdk/anacan-partner.js'), 'utf8');
@@ -93,5 +93,21 @@ describe('partner-site SDK', () => {
     loadSdk({ search: `?anacan_click=${CLICK}`, test: true });
     w.anacan('order', { order_id: 'T-1', total: 1 });
     expect(JSON.parse(String((fetchMock.mock.calls[0] as [string, RequestInit])[1].body)).order.test).toBe(true);
+  });
+});
+
+describe('storefront cache safety', () => {
+  const raw = { partners: [{ id: 'p1', slug: 'olivia', name: 'Olivia', status: 'live' }], products: [{ id: 'x1', partner_id: 'p1', name: 'Siveno', price: 10 }] };
+  it('rebuilds the partner Map from JSON-restored data', () => {
+    const restored = JSON.parse(JSON.stringify(raw));
+    const s = storefrontFromRpc(restored);
+    expect(s.partners.get('p1')?.name).toBe('Olivia');
+    expect(s.products).toHaveLength(1);
+  });
+  it('does not throw on the shape a persisted Map left behind ({} instead of an array)', () => {
+    const broken = JSON.parse(JSON.stringify({ partners: new Map([['p1', {}]]), products: [{ id: 'x1', partnerId: 'p1' }] }));
+    const s = storefrontFromRpc(broken);
+    expect(typeof s.partners.get).toBe('function');
+    expect(s.products).toEqual([]);
   });
 });
