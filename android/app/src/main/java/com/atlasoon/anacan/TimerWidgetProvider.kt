@@ -79,21 +79,23 @@ class TimerWidgetProvider : AppWidgetProvider() {
             val views = RemoteViews(context.packageName, R.layout.widget_timer)
             
             if (isActive) {
-                val label = prefs.getString(KEY_TIMER_LABEL, "Timer") ?: "Timer"
+                // Texts come from the app (its own language), via the home-widget snapshot labels.
+                val snap = AnacanWidgets.snapshot(context)
+                val label = prefs.getString(KEY_TIMER_LABEL, null) ?: AnacanWidgets.label(snap, "btnFeed", "Timer")
                 val startTime = prefs.getLong(KEY_START_TIME, System.currentTimeMillis())
                 val elapsed = (System.currentTimeMillis() - startTime) / 1000
                 val feedType = prefs.getString(KEY_FEED_TYPE, null)
                 
                 val feedSuffix = when (feedType) {
-                    "left" -> " (Sol)"
-                    "right" -> " (Sağ)"
+                    "left" -> " (${AnacanWidgets.label(snap, "sideLeft", "L")})"
+                    "right" -> " (${AnacanWidgets.label(snap, "sideRight", "R")})"
                     else -> ""
                 }
                 
                 views.setTextViewText(R.id.widget_timer_label, "$label$feedSuffix")
                 views.setTextViewText(R.id.widget_timer_time, formatTime(elapsed))
             } else {
-                views.setTextViewText(R.id.widget_timer_label, "Timer aktiv deyil")
+                views.setTextViewText(R.id.widget_timer_label, AnacanWidgets.label(AnacanWidgets.snapshot(context), "timerIdle", "No timer running"))
                 views.setTextViewText(R.id.widget_timer_time, "0:00")
             }
             

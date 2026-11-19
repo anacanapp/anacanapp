@@ -29,6 +29,20 @@ struct HWCare: Codable {
     let todayFeeds: Int
     let todaySleep: String
     let todayDiapers: Int
+    /// Local midnight (ms) of the day the today* totals were counted for. Older snapshots have none.
+    let dayStart: Double?
+
+    /// The totals only describe the day they were counted on: after midnight (app not opened yet) show zeros.
+    func todayIsCurrent(at date: Date) -> Bool {
+        guard let start = hwDate(dayStart) else { return true }
+        return Calendar.current.isDate(start, inSameDayAs: date)
+    }
+
+    /// "🍼 4 · 😴 2s 10d · 🧷 3" for the current day; zeros once the counted day is over.
+    func todayLine(at date: Date, zeroSleep: String) -> String {
+        let current = todayIsCurrent(at: date)
+        return "🍼 \(current ? todayFeeds : 0)  ·  😴 \(current ? todaySleep : zeroSleep)  ·  🧷 \(current ? todayDiapers : 0)"
+    }
 }
 
 struct HWWord: Codable {
@@ -39,6 +53,8 @@ struct HWWord: Codable {
 struct HWSnapshot: Codable {
     let v: Int
     let updatedAt: Double
+    /// App language locale ("az-AZ"); time and relative texts follow the app, not the device.
+    let locale: String?
     let premium: Bool
     let privacy: Bool
     let showActions: Bool
@@ -98,6 +114,13 @@ private extension View {
     }
 }
 
+private extension View {
+    /// Dates, times and timers in the app's language (Text(date, style: .relative/.time/.timer)).
+    @ViewBuilder func hwLocale(_ snap: HWSnapshot?) -> some View {
+        if let id = snap?.locale, !id.isEmpty { self.environment(\.locale, Locale(identifier: id)) } else { self }
+    }
+}
+
 // MARK: - Timeline
 
 struct HWEntry: TimelineEntry {
@@ -119,6 +142,8 @@ struct HWProvider: TimelineProvider {
         // Redraw when the nap window opens / closes so the label and colors stay right.
         if let start = hwDate(snap?.care?.nextNapStart), start > now { dates.append(start) }
         if let end = hwDate(snap?.care?.nextNapEnd), end > now { dates.append(end) }
+        // Redraw at midnight so yesterday's "today" totals turn into zeros without opening the app.
+        if let midnight = Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: now)) { dates.append(midnight) }
         let entries = dates.sorted().map { HWEntry(date: $0, snapshot: snap) }
         completion(Timeline(entries: entries, policy: .after(now.addingTimeInterval(30 * 60))))
     }
@@ -201,10 +226,10 @@ struct HWRing: View {
 struct AnacanJourneyWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "AnacanJourneyWidget", provider: HWProvider()) { entry in
-            HWJourneyView(entry: entry)
+            HWJourneyView(entry: entry).hwLocale(entry.snapshot)
         }
-        .configurationDisplayName("Anacan")
-        .description("Pregnancy week · baby's age")
+        .configurationDisplayName("Anacan · Journey")
+        .description("Pregnancy week and baby size, or your baby's age")
         .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular, .accessoryRectangular])
     }
 }
@@ -354,7 +379,7 @@ struct HWCareView: View {
                     HStack {
                         Text(snap.label("today", "Today").uppercased()).font(.system(size: 10, weight: .heavy)).foregroundColor(.hwInkSoft)
                         Spacer()
-                        Text("🍼 \(care.todayFeeds)  ·  😴 \(care.todaySleep)  ·  🧷 \(care.todayDiapers)").font(.system(size: 12, weight: .bold)).foregroundColor(.hwInk)
+                        Text(care.todayLine(at: entry.date, zeroSleep: snap.label("todayZeroSleep", "0"))).font(.system(size: 12, weight: .bold)).foregroundColor(.hwInk)
                     }
                     .padding(10).background(RoundedRectangle(cornerRadius: 14).fill(Color.white))
                     Spacer(minLength: 0)
@@ -385,10 +410,10 @@ struct HWCareView: View {
 struct AnacanCareWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "AnacanCareWidget", provider: HWProvider()) { entry in
-            HWCareView(entry: entry)
+            HWCareView(entry: entry).hwLocale(entry.snapshot)
         }
-        .configurationDisplayName("Anacan · Premium")
-        .description("Last feed · next nap · quick buttons")
+        .configurationDisplayName("Anacan · Feeding and sleep")
+        .description("Last feed, next nap and quick buttons (Premium)")
         .supportedFamilies([.systemMedium, .systemLarge, .accessoryRectangular, .accessoryCircular])
     }
 }
@@ -432,7 +457,7 @@ struct HWWordView: View {
 struct AnacanWordWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "AnacanWordWidget", provider: HWProvider()) { entry in
-            HWWordView(entry: entry)
+            HWWordView(entry: entry).hwLocale(entry.snapshot)
         }
         .configurationDisplayName("Anacan · Word of the day")
         .description("A gentle daily affirmation")

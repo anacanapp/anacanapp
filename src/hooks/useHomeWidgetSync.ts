@@ -8,6 +8,7 @@ import { useBabyLogsRange } from './useBabyLogsRange';
 import { useFruitDataForWeek } from './useFruitData';
 import { useWidgetText, type WidgetText } from '@/data/widgets';
 import { fill } from '@/lib/feature-text';
+import { appLanguageLocale } from '@/lib/app-languages';
 import { feedKind, feedingStats, diaperStats, logsOfDay, sleepStats, type BabyLogRow } from '@/lib/baby-logs-range';
 import { ageBand, monthsOld, parsePlanState, planStorageKey, sleepEntries, parseClock } from '@/lib/sleep-training';
 import { predictNextNap } from '@/lib/sleep-predict';
@@ -110,9 +111,9 @@ export function useHomeWidgetSync(): void {
         todayDiapers: diaperStats(today).total
       };
     }
-    return buildWidgetSnapshot({ text: t, premium: isPremium, settings: readWidgetSettings(), journey, care: careData, now });
+    return buildWidgetSnapshot({ text: t, premium: isPremium, settings: readWidgetSettings(), journey, care: careData, now, locale: appLanguageLocale(language) });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [native, t, user?.id, lifeStage, p?.last_period_date, p?.due_date, p?.baby_birth_date, selectedChild?.id, selectedChild?.birth_date, logs, isPremium, fruit.fruit, fruit.emoji, tick]);
+  }, [native, t, user?.id, lifeStage, p?.last_period_date, p?.due_date, p?.baby_birth_date, selectedChild?.id, selectedChild?.birth_date, logs, isPremium, fruit.fruit, fruit.emoji, tick, language]);
 
   useEffect(() => {if (snapshot) void pushWidgetSnapshot(snapshot);}, [snapshot]);
 }

@@ -49,11 +49,15 @@ export interface WidgetCare {
   todayFeeds: number;
   todaySleep: string;
   todayDiapers: number;
+  /** Local midnight (epoch ms) of the day the today* totals belong to; native widgets show 0 once that day is over. */
+  dayStart?: number;
 }
 export interface WidgetWord { eyebrow: string; text: string }
 export interface WidgetSnapshot {
   v: 1;
   updatedAt: number;
+  /** App language locale (e.g. "az-AZ") so native time / relative texts follow the app, not the device. */
+  locale?: string;
   premium: boolean;
   privacy: boolean;
   showActions: boolean;
@@ -110,16 +114,19 @@ export function widgetLabels(t: WidgetText): Record<string, string> {
     feeds: t.feeds, sleep: t.sleep, diapers: t.diapers, btnFeed: t.btn_feed, btnSleep: t.btn_sleep, btnDiaper: t.btn_diaper,
     btnWoke: t.btn_woke, premiumTitle: t.premium_title, premiumBody: t.premium_body, noData: t.no_data, openApp: t.open_app,
     hidden: t.hidden, hoursMinutes: t.hours_minutes, minutes: t.minutes,
-    premiumBadge: t.premium_badge, premiumLocked: t.premium_locked_title, wordEyebrow: t.word_eyebrow
+    premiumBadge: t.premium_badge, premiumLocked: t.premium_locked_title, wordEyebrow: t.word_eyebrow,
+    timerIdle: t.timer_idle, sideLeft: t.sides.left, sideRight: t.sides.right, todayZeroSleep: fill(t.minutes, { n: 0 })
   };
 }
 
 export function buildWidgetSnapshot(o: {
-  text: WidgetText; premium: boolean; settings: WidgetSettings; journey: WidgetJourney | null; care: WidgetCare | null; now?: Date;
+  text: WidgetText; premium: boolean; settings: WidgetSettings; journey: WidgetJourney | null; care: WidgetCare | null; now?: Date; locale?: string;
 }): WidgetSnapshot {
   const now = o.now ?? new Date();
+  const dayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
   const applySettings = (c: WidgetCare): WidgetCare => ({
     ...c,
+    dayStart,
     lastFeedAt: o.settings.showFeed ? c.lastFeedAt : null,
     lastFeedText: o.settings.showFeed ? c.lastFeedText : '',
     nextNapStart: o.settings.showNap ? c.nextNapStart : null,
@@ -130,7 +137,7 @@ export function buildWidgetSnapshot(o: {
   const careLocked = !o.premium;
   const care = o.premium ? (o.care ? applySettings(o.care) : null) : applySettings(sampleCare(o.text, now));
   return {
-    v: 1, updatedAt: now.getTime(), premium: o.premium, privacy: o.settings.privacy, showActions: o.settings.showActions,
+    v: 1, updatedAt: now.getTime(), locale: o.locale, premium: o.premium, privacy: o.settings.privacy, showActions: o.settings.showActions,
     journey: o.journey,
     care,
     careLocked,

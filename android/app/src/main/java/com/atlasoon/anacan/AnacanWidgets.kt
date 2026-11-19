@@ -62,6 +62,14 @@ object AnacanWidgets {
     }
 
     fun clock(context: Context, ms: Long): String = DateFormat.getTimeInstance(DateFormat.SHORT).format(Date(ms))
+
+    /** True when [dayStart] (local midnight in ms; 0 = unknown, older snapshots) is today's date. */
+    fun isToday(dayStart: Long, now: Long): Boolean {
+        if (dayStart <= 0L) return true
+        val a = java.util.Calendar.getInstance().apply { timeInMillis = dayStart }
+        val b = java.util.Calendar.getInstance().apply { timeInMillis = now }
+        return a.get(java.util.Calendar.YEAR) == b.get(java.util.Calendar.YEAR) && a.get(java.util.Calendar.DAY_OF_YEAR) == b.get(java.util.Calendar.DAY_OF_YEAR)
+    }
 }
 
 class AnacanJourneyWidget : AppWidgetProvider() {
@@ -159,7 +167,12 @@ class AnacanCareWidget : AppWidgetProvider() {
             }
         }
 
-        v.setTextViewText(R.id.wc_today, "${AnacanWidgets.label(s, "today", "Today").uppercase()}  ·  🍼 ${care.optInt("todayFeeds")}  ·  😴 ${care.optString("todaySleep")}  ·  🧷 ${care.optInt("todayDiapers")}")
+        // The totals belong to the day they were counted on; after midnight (app not opened yet) they read 0.
+        val current = AnacanWidgets.isToday(care.optLong("dayStart", 0L), now)
+        val feeds = if (current) care.optInt("todayFeeds") else 0
+        val sleep = if (current) care.optString("todaySleep") else AnacanWidgets.label(s, "todayZeroSleep", "0")
+        val diapers = if (current) care.optInt("todayDiapers") else 0
+        v.setTextViewText(R.id.wc_today, "${AnacanWidgets.label(s, "today", "Today").uppercase()}  ·  🍼 $feeds  ·  😴 $sleep  ·  🧷 $diapers")
 
         if (locked) {
             // Sample preview: no quick actions; a single "Premium required" CTA, everything → paywall.

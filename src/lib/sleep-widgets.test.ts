@@ -94,6 +94,24 @@ describe('home widgets', () => {
     expect(paid.care?.nextNapStart).toBe(2);
   });
 
+  it('stamps the day the today-totals belong to, the app locale and native-only labels', () => {
+    const care = { name: 'Murad', age: '3', emoji: '👶', lastFeedAt: 1, lastFeedText: 'x', nextNapStart: 2, nextNapEnd: 3, nextNapIsBedtime: false, sleepingSince: null, todayFeeds: 4, todaySleep: '2s 10d', todayDiapers: 3 };
+    const snap = buildWidgetSnapshot({ text: az, premium: true, settings: DEFAULT_WIDGET_SETTINGS, journey: null, care, now: at(15, 30), locale: 'az-AZ' });
+    expect(snap.care?.dayStart).toBe(new Date(2026, 10, 10).getTime());
+    expect(snap.locale).toBe('az-AZ');
+    expect(snap.labels.timerIdle).toBe(az.timer_idle);
+    expect(snap.labels.sideLeft).toBe(az.sides.left);
+    expect(snap.labels.todayZeroSleep).toBe('0 dəq');
+  });
+
+  it('has every widget text, incl. the timer idle text, in all 25 languages', async () => {
+    const files = import.meta.glob<{ default: Record<string, unknown> }>('@/data/widgets/*.json', { eager: true });
+    expect(Object.keys(files)).toHaveLength(25);
+    for (const [path, mod] of Object.entries(files)) {
+      for (const key of Object.keys(az)) expect(mod.default[key], `${path} ${key}`).toBeTruthy();
+    }
+  });
+
   it('formats age, durations and the last feed', () => {
     expect(babyAgeText(az, new Date(2026, 6, 29), new Date(2026, 10, 10))).toBe('3 ay 12 gün');
     expect(babyAgeText(az, new Date(2026, 10, 1), new Date(2026, 10, 10))).toBe('9 gün');
