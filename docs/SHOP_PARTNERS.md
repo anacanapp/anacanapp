@@ -57,6 +57,17 @@ partnyorun kiçik ikonu, məhsul səhifəsində "by <loqo>" var.
 - İstənilən partnyorun panelini admin kimi açmaq.
 - Olivia kataloqunu bir kliklə yükləmək və bütün məhsulları bir kliklə silmək. Başqa partnyorlarda silmə təsdiq istəyir.
 
+## Rossmann kataloqu (2026-11-20)
+
+- `src/data/rossmann-products.json` + `public/rossmann/<kod>.webp`: rossmann.az API-dən 188 ana/körpə/gigiyena məhsulu
+  (Babydream, Mamas Babydream, Bübchen, Chicco, Always, Penaten, Dove Baby, Johnson's, NUK, Lansinoh), 7 kolleksiya, hər
+  kolleksiya üçün "niyə" sətri. Yeniləmək: `python3 scripts/partners/rossmann-catalog.py` (qiymətləri yenidən çəkir).
+- `src/lib/rossmann-catalog.ts` → `rossmannImportRows()`; Admin › Partnyor mağazaları-da slug `rossmann` olan partnyorda
+  "Kataloqu yüklə" düyməsi görünür (Olivia kimi bir klik). Vitrin kurasiya olunmuş "niyə" sətirlərini slug üzrə saxlayır.
+- Partnyoru admin paneldə yaradın: slug `rossmann`, loqo `/partners/rossmann/logo.png`, ikon `/partners/rossmann/icon.png`,
+  sayt `https://rossmann.az`, rəng `#C3002D`, status `admin_only` (razılaşmaya qədər yalnız admin görür).
+- Məhsul linkləri `https://rossmann.az/mehsullar/mehsul-<category_id>/<slug>` formatındadır (sayt kateqoriya adını yox, id-ni yoxlayır).
+
 ## Hamıya açmaq
 
 Admin › Partnyor mağazaları › Ayarlar › Status "Canlı". Kod dəyişikliyi lazım deyil. UI mətnləri hazırda Azərbaycancadır.

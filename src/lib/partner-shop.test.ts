@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { OLIVIA_CATALOG, oliviaImportRows } from './olivia-catalog';
+import { ROSSMANN_CATALOG, rossmannImportRows } from './rossmann-catalog';
 import { partnerLink, productFromRow, shopPlan, storefrontFromRpc, SHOP_COLLECTIONS } from './partner-shop';
 
 const olivia = { id: 'p1', slug: 'olivia', name: 'Olivia', logo_url: '/partners/olivia/logo.png', icon_url: '/partners/olivia/icon.png', website_url: 'https://olivia.az', brand_color: '#9B16D9', status: 'admin_only' };
@@ -17,6 +18,30 @@ describe('partner shop', () => {
     expect(new Set(rows.map((r) => r.sku)).size).toBe(rows.length);
     const skus = new Set(rows.map((r) => r.sku));
     Object.values(OLIVIA_CATALOG.collections).forEach((list) => list.forEach((s) => expect(skus.has(s)).toBe(true)));
+  });
+  it('imports the Rossmann catalog within the product form limits', () => {
+    const rows = rossmannImportRows();
+    expect(rows.length).toBe(ROSSMANN_CATALOG.products.length);
+    expect(rows.length).toBeGreaterThan(150);
+    for (const r of rows) {
+      expect(r.name.length).toBeGreaterThanOrEqual(2);
+      expect(r.name.length).toBeLessThanOrEqual(160);
+      expect(Number(r.price)).toBeGreaterThan(0);
+      if (r.original_price) expect(Number(r.original_price)).toBeGreaterThan(Number(r.price));
+      expect(r.image_url).toMatch(/^\/rossmann\/\d+\.webp$/);
+      expect(r.source_url).toMatch(/^https:\/\/rossmann\.az\/mehsullar\//);
+      expect(r.tags.length).toBeGreaterThan(0);
+      expect(r.tags.every((t) => (SHOP_COLLECTIONS as string[]).includes(t))).toBe(true);
+    }
+    expect(new Set(rows.map((r) => r.sku)).size).toBe(rows.length);
+    SHOP_COLLECTIONS.forEach((c) => expect(ROSSMANN_CATALOG.collections[c].length).toBeGreaterThan(0));
+  });
+  it('keeps the curated Rossmann lines per collection', () => {
+    const rossmann = { ...olivia, id: 'p2', slug: 'rossmann', name: 'Rossmann', website_url: 'https://rossmann.az' };
+    const item = ROSSMANN_CATALOG.products.find((p) => p.collections.length > 1)!;
+    const row = rossmannImportRows().find((r) => r.sku === item.sku)!;
+    const s = storefrontFromRpc({ partners: [rossmann], products: [{ ...row, id: 'r1', partner_id: 'p2', sales_count: 1 }] });
+    expect(s.products[0].why).toEqual(item.why);
   });
   it('picks the hero by stage and hides everything in loss recovery', () => {
     expect(shopPlan({ lifeStage: 'bump', pregnancyWeek: 35 })?.hero.collection).toBe('bag');

@@ -16,6 +16,7 @@ import {
 import { ADMIN_QUERY } from './data/rpc';
 import { STATUS_LABEL, prpc, type PanelPartner, type PartnerStatus } from '@/lib/partner-panel';
 import { OLIVIA_CATALOG, oliviaImportRows } from '@/lib/olivia-catalog';
+import { ROSSMANN_CATALOG, rossmannImportRows } from '@/lib/rossmann-catalog';
 import { PartnerWorkspace } from '@/components/partner-shop/panel/PartnerWorkspace';
 
 interface AdminPartner {
@@ -28,7 +29,10 @@ interface PartnerForm { slug: string; name: string; logo_url: string; icon_url: 
 const emptyForm: PartnerForm = { slug: '', name: '', logo_url: '', icon_url: '', website_url: 'https://', brand_color: '#8A2BE2', status: 'admin_only', commission_pct: '', contact_email: '', notes: '' };
 const statusTone = (s: PartnerStatus) => (s === 'live' ? 'success' : s === 'paused' ? 'danger' : 'warning');
 /** Partners whose catalog ships with the app and can be re-imported in one click. */
-const BUNDLED: Record<string, { count: number; rows: () => unknown[] }> = { olivia: { count: OLIVIA_CATALOG.products.length, rows: oliviaImportRows } };
+const BUNDLED: Record<string, { count: number; rows: () => unknown[] }> = {
+  olivia: { count: OLIVIA_CATALOG.products.length, rows: oliviaImportRows },
+  rossmann: { count: ROSSMANN_CATALOG.products.length, rows: rossmannImportRows },
+};
 
 const AdminShopPartners = () => {
   const { toast } = useToast();
@@ -68,7 +72,7 @@ const AdminShopPartners = () => {
   };
   const set = <K extends keyof PartnerForm>(k: K, v: PartnerForm[K]) => setForm((f) => ({ ...f, [k]: v }));
   const removeAll = async (p: AdminPartner) => {
-    // Olivia comes back with one more click (bundled catalog); other partners' own products would be lost, so they confirm.
+    // Bundled catalogs (Olivia, Rossmann) come back with one more click; other partners' own products would be lost, so they confirm.
     if (BUNDLED[p.slug] || await confirm({ title: `${p.name}: ${p.products} məhsul silinsin?`, description: 'Partnyorun əlavə etdiyi məhsullar geri qaytarılmır.', confirmLabel: 'Hamısını sil', danger: true }))
       clear.mutate(p);
   };

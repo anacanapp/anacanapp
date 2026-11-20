@@ -9,6 +9,7 @@
  */
 import { azOrdinal } from '@/lib/stories';
 import { OLIVIA_CATALOG } from '@/lib/olivia-catalog';
+import { ROSSMANN_CATALOG } from '@/lib/rossmann-catalog';
 
 export type ShopCollection = 'bag' | 'pregnant' | 'newmom' | 'baby' | 'kid' | 'cycle' | 'gift';
 export const SHOP_COLLECTIONS: ShopCollection[] = ['bag', 'pregnant', 'newmom', 'baby', 'kid', 'cycle', 'gift'];
@@ -57,7 +58,11 @@ export interface PartnerProduct {
 export interface Storefront { partners: Map<string, ShopPartner>; products: PartnerProduct[] }
 
 const num = (v: unknown) => (v == null || v === '' ? null : Number(v));
-const oliviaBySku = new Map(OLIVIA_CATALOG.products.map((p) => [p.sku, p]));
+/** Bundled catalogs whose per-collection "why" lines the storefront keeps (keyed by partner slug). */
+const curatedBySlug: Record<string, Map<string, (typeof OLIVIA_CATALOG.products)[number]>> = {
+  olivia: new Map(OLIVIA_CATALOG.products.map((p) => [p.sku, p])),
+  rossmann: new Map(ROSSMANN_CATALOG.products.map((p) => [p.sku, p])),
+};
 
 export function partnerFromRow(r: Record<string, unknown>): ShopPartner {
   return {
@@ -78,8 +83,8 @@ export function productFromRow(r: Record<string, unknown>, partner?: ShopPartner
   const price = campaign && c?.price != null ? Number(c.price) : base;
   const strike = campaign ? Math.max(base, listedOld ?? 0) : listedOld;
   const description = typeof r.description === 'string' && r.description ? r.description : null;
-  // Curated Olivia rows keep their per-collection "why" lines until the partner rewrites the description.
-  const known = partner?.slug === 'olivia' && typeof r.sku === 'string' ? oliviaBySku.get(r.sku) : undefined;
+  // Curated (bundled) rows keep their per-collection "why" lines until the partner rewrites the description.
+  const known = partner && typeof r.sku === 'string' ? curatedBySlug[partner.slug]?.get(r.sku) : undefined;
   const why = known && (!description || description === known.why[known.collections[0]])
     ? known.why
     : description ? Object.fromEntries((collections.length ? collections : (['baby'] as ShopCollection[])).map((k) => [k, description])) : {};
