@@ -24,7 +24,8 @@
           "/messages",
           "/messages/*",
           "/user/*",
-          "/legal/*"
+          "/legal/*",
+          "/h/*"
         ]
       }
     ]

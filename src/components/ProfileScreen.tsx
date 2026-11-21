@@ -8,7 +8,7 @@ import {
   ChevronRight, Crown, Copy, Share2,
   Heart, Calendar, Palette, ShieldCheck, Edit, CreditCard, Info, ArrowLeft, X,
   MessageCircle, Baby, ShoppingCart, TrendingUp, Gift, Plus, Trash2, Users,
-  FileText, Scale, AlertCircle, RotateCcw, Database, Sparkles, HeartPulse , LayoutGrid, Coins, Clapperboard } from
+  FileText, Scale, AlertCircle, RotateCcw, Database, Sparkles, HeartPulse , LayoutGrid, Coins, Clapperboard, Ticket } from
 'lucide-react';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
@@ -35,6 +35,8 @@ import { lifeStageName } from '@/lib/stage-names';
 import ProfilePregnancyCard from '@/components/pregnancy-loss/ProfilePregnancyCard';
 import { moderatorText } from '@/lib/moderator-i18n';
 import QaygiCashProfileCard from '@/components/qaygicash/QaygiCashProfileCard';
+import PromoCodeDialog from '@/components/promo/PromoCodeDialog';
+import { usePromoText } from '@/data/promo';
 import ProfileTabs, { ProfileRows, type ProfileRow, type ProfileTab } from '@/components/profile/ProfileTabs';
 import { useAppSetting } from '@/hooks/useAppSettings';
 import { useQaygiCashWallet } from '@/hooks/useQaygiCash';
@@ -73,6 +75,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   const widgetText = useWidgetText(language);
   const feedbackText = useFeedbackText(language);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const promoText = usePromoText(language);
+  const [promoOpen, setPromoOpen] = useState(false);
   // Profile layout: 'tabs' (Mən · Ailə · Ayarlar, default) or 'classic' (previous long page), from app_settings.
   const tabsLayout = useAppSetting('profile_layout') !== 'classic';
   const [profileTab, setProfileTab] = useState<ProfileTab>(() => {
@@ -158,6 +162,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   ...(recapRow ? [{ id: recapRow.id, icon: Clapperboard, label: recapRow.label, badge: '✨' }] : []),
   ...(qcWallet ? [{ id: 'qaygicash', icon: Coins, label: QC_BRAND, badge: formatQc(qcWallet.available_minor, language) }] : []),
   { id: 'referral', icon: Gift, label: tr("profilescreen_referral", 'Dostunu dəvət et'), badge: tr("profilescreen_referral_badge", '+7 gün') },
+  ...(promoText ? [{ id: 'gift-code', icon: Ticket, label: promoText.profile_title }] : []),
   { id: 'partners', icon: Sparkles, label: tr("profilescreen_partnyor_endirimleri_e44036", "Partnyor Endirimləri"), badge: tr("profilescreen_badge_yeni", "Yeni") },
   { id: 'doctor-report', icon: FileText, label: tr("profilescreen_hekim_hesabati", 'Həkim Hesabatı (PDF)') },
   { id: 'health-sync', icon: HeartPulse, label: tr("settingsscreen_health_sync", "Sağlamlıq inteqrasiyası") },
@@ -181,6 +186,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   ...(recapRow ? [{ id: recapRow.id, icon: Clapperboard, label: recapRow.label, sub: recapRow.sub, tint: T('var(--a-pink-1)', 'var(--a-pink-ink)') }] : []),
   ...(qcWallet ? [{ id: 'qaygicash', icon: Coins, label: QC_BRAND, sub: qf('qc_profile_sub', { amount: formatQc(qcWallet.available_minor, language) }), tint: T('var(--a-peach-1)', 'var(--a-accent-ink)') }] : []),
   { id: 'referral', icon: Gift, label: tr("profilescreen_referral", 'Dostunu dəvət et'), badge: tr("profilescreen_referral_badge", '+7 gün'), tint: T('var(--a-green-1)', 'var(--a-green-ink)') },
+  ...(promoText ? [{ id: 'gift-code', icon: Ticket, label: promoText.profile_title, sub: promoText.profile_sub, tint: T('var(--a-peach-1)', 'var(--a-accent-ink)') }] : []),
   { id: 'partners', icon: Sparkles, label: tr("profilescreen_partnyor_endirimleri_e44036", "Partnyor Endirimləri"), badge: tr("profilescreen_badge_yeni", "Yeni"), tint: T('var(--a-pink-1)', 'var(--a-pink-ink)') },
   { id: 'doctor-report', icon: FileText, label: tr("profilescreen_hekim_hesabati", 'Həkim Hesabatı (PDF)'), tint: T('var(--a-blue-1)', 'var(--a-blue-ink)') }];
   const settingsRows: ProfileRow[] = [
@@ -203,7 +209,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   { id: 'legal/refund_policy', icon: RotateCcw, label: tr("profilescreen_geri_qaytarma_siyaseti_767324", 'Geri Qaytarma Siyasəti') },
   { id: 'legal/gdpr_ccpa', icon: Shield, label: 'GDPR / CCPA' },
   { id: 'legal/data_usage', icon: Database, label: tr("profilescreen_melumat_i_stifadesi_af1211", 'Məlumat İstifadəsi') }];
-  const pickRow = (id: string) => id === 'feedback' ? setFeedbackOpen(true) : onNavigate?.(id);
+  const pickRow = (id: string) => id === 'feedback' ? setFeedbackOpen(true) : id === 'gift-code' ? setPromoOpen(true) : onNavigate?.(id);
 
   const copyPartnerCode = async () => {
     let code = partnerCode;
@@ -750,7 +756,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
             <motion.button
               key={item.id}
               variants={itemVariants}
-              onClick={() => item.id === 'feedback' ? setFeedbackOpen(true) : onNavigate?.(item.id)}
+              onClick={() => pickRow(item.id)}
               className="a-list-row w-full"
               style={{ width: '100%', textAlign: 'start', background: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: 'none', cursor: 'pointer' }}>
               
@@ -772,6 +778,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
 </>;
   const block_feedback = <>
       <FeedbackSheet open={feedbackOpen} onClose={() => setFeedbackOpen(false)} />
+      <PromoCodeDialog open={promoOpen} onClose={() => setPromoOpen(false)} />
 
 </>;
   const block_language = <>

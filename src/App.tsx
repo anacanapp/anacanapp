@@ -45,7 +45,9 @@ import StartupScreen from '@/components/StartupScreen';
 const AdmobAdminPage = lazy(() => import('./pages/AdmobAdminPage'));
 const AdminPage = lazy(() => import('./pages/AdminPage'));
 const ModeratorPage = lazy(() => import('./pages/ModeratorPage'));
+import { PromoRedeemer } from './components/promo/PromoRedeemer';
 const PartnerPage = lazy(() => import('./pages/PartnerPage'));
+const PromoLanding = lazy(() => import('./pages/PromoLanding'));
 const PublicBlogPage = lazy(() => import('./public-blog/BlogPage'));
 
 // Offline-first: sorğu cache-i localStorage-da saxlanılır ki, şəbəkəsiz açılışda
@@ -148,6 +150,7 @@ const App = () => {
             <CustomerIoSession />
             <PrivacyConsentSheet />
             <PremiumEntitlementMonitor />
+            <PromoRedeemer />
             <TooltipProvider>
               <Toaster />
               <Sonner />
@@ -173,6 +176,7 @@ const App = () => {
                   <Route path="/admin/ads" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdmobAdminPage /></Suspense>} />
                   <Route path="/admin" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdminPage /></Suspense>} />
                   <Route path="/admin/:section" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdminPage /></Suspense>} />
+                  <Route path="/h/:code" element={<Suspense fallback={<StartupScreen />}><PromoLanding /></Suspense>} />
                   <Route path="/partner" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><PartnerPage /></Suspense>} />
                   <Route path="/moderator" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><ModeratorPage /></Suspense>} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -3,7 +3,7 @@ import {
   Activity, AlertTriangle, Baby, Eye, BadgeCheck, Ban, BarChart3, Bell, BookOpen, Cake, Camera, CreditCard, Crown, Database, FileText, Flag,
   Gift, Globe, Globe2, HeartHandshake, HeartPulse, Image, Images, KeyRound, Languages, LayoutDashboard, LifeBuoy, Link2, Map, Megaphone, MessageCircle,
   MessagesSquare, Package, Palette, PiggyBank, Pill, Rocket, Scale, Settings, ShieldCheck, ShoppingBag, ShoppingCart, Smartphone, Sparkles,
-  Stethoscope, Store, Syringe, Tag, Ticket, Users, Utensils, Wallet, Wrench, Zap, LayoutGrid,
+  Stethoscope, Store, Syringe, Tag, Ticket, QrCode, Users, Utensils, Wallet, Wrench, Zap, LayoutGrid,
 } from 'lucide-react';
 
 /**
@@ -65,6 +65,7 @@ export const ADMIN_SECTIONS: AdminSection[] = [
   s('epoint', 'Epoint ödəniş', 'commerce', 'AdminEpoint', CreditCard, 'epoint payment ödəniş kart əməliyyat'),
   s('epoint-evidence', 'Epoint sübutu', 'commerce', 'AdminEpointEvidence', FileText, 'epoint sübut compliance chargeback transaction əməliyyat'),
   s('coupons', 'Kuponlar', 'commerce', 'AdminCoupons', Ticket, 'coupon kupon endirim promo kod'),
+  s('promo-qr', 'QR kampaniyalar', 'commerce', 'AdminPromoQr', QrCode, 'qr kod promo hədiyyə premium kampaniya gift code qeydiyyat'),
   s('products', 'Məhsullar', 'commerce', 'AdminProducts', Store, 'products məhsul aptek mağaza'),
   s('shop-partners', 'Partnyor mağazaları', 'commerce', 'AdminShopPartners', ShoppingBag, 'olivia partnyor tərəfdaş mağaza brend məhsul kampaniya shop partner'),
   s('admob', 'AdMob reklamları', 'commerce', 'AdminAdmob', Megaphone, 'admob ads reklam banner'),

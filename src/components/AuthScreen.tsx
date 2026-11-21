@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Lock, User, ArrowRight, Users, Eye, EyeOff, Sparkles, ArrowLeft, Heart } from 'lucide-react';
+import { Mail, Lock, User, ArrowRight, Users, Eye, EyeOff, Sparkles, ArrowLeft, Heart, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -20,6 +20,8 @@ import CountrySelect from '@/components/CountrySelect';
 import { getPartnerLinkErrorMessage, isAzurePartnerPairingEnabled, linkPartnerByCode, normalizeSecurePartnerCode, PartnerLinkError } from '@/lib/partner-link';
 import { APPLE_WEB_ORIGIN, appleWebErrorMessage, cancelAppleWebSignIn, isAppleWebCancelled, prepareAppleWebSignIn, usesAzureAppleWebFlow } from '@/lib/apple-web-auth';
 import { isModeratorSignupError, moderatorError } from '@/lib/moderator';
+import { normalizePromoCode, readPendingPromo, savePendingPromo } from '@/lib/promo';
+import { usePromoText } from '@/data/promo';
 
 type AuthMode = 'login' | 'register' | 'forgot-password';
 type PartnerAuthMode = 'login' | 'register';
@@ -124,6 +126,8 @@ const AuthScreen = () => {
   const [name, setName] = useState('');
   const nameInputRef = useRef<HTMLInputElement>(null);
   const [partnerCode, setPartnerCode] = useState('');
+  const [promoCode, setPromoCode] = useState(() => readPendingPromo() ?? '');
+  const promoText = usePromoText(useUserStore((state) => state.language) || 'az');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const pendingPartnerRegistration = useRef<{ email: string; userId: string } | null>(null);
@@ -370,7 +374,14 @@ const AuthScreen = () => {
         }
 
         const finalName = nameInputRef.current?.value || name || email.split('@')[0];
+        if (promoCode.trim() && !normalizePromoCode(promoCode)) {
+          toast({ title: promoText?.err_not_found ?? 'Kod tapılmadı.', variant: 'destructive' });
+          setIsLoading(false);
+          return;
+        }
         const { error } = await signUp(email, password, finalName.trim(), countryCode);
+        // The gift code waits on the device; PromoRedeemer grants it as soon as the session exists.
+        if (!error && promoCode.trim()) savePendingPromo(promoCode);
         if (error) {
           toast({
             title: tr("authscreen_qeydiyyat_alinmadi_982f04", "Qeydiyyat alınmadı"),
@@ -862,6 +873,22 @@ const AuthScreen = () => {
                         </button>
                       </div>
                     </motion.div>
+
+                    {mode === 'register' && promoText && (
+                      <motion.div variants={itemVariants}>
+                        <div className="relative group">
+                          <Gift className="absolute start-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors group-focus-within:text-[var(--a-peach-2)]" style={{ color: 'var(--a-ink-faint)' }} />
+                          <Input
+                          value={promoCode}
+                          onChange={(e) => setPromoCode(e.target.value.toUpperCase().replace(/[^A-Z0-9-]/g, '').slice(0, 32))}
+                          placeholder={promoText.field_placeholder}
+                          aria-label={promoText.profile_title}
+                          autoCapitalize="characters"
+                          autoComplete="off"
+                          className={fieldCls} />
+                        </div>
+                      </motion.div>
+                    )}
 
                     {mode === 'login' &&
                   <motion.div variants={itemVariants} className="text-end">

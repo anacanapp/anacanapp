@@ -1,0 +1,13 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261121090000_promo_qr_campaigns.sql",
+  "runtime": "google-promo-qr",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls the two promo relations in guarded_relations with the three standard triggers (the migration refuses without the guard catalog and verifies 2 relations / 6 triggers)",
+  "preserve": ["cron0", "8 enabled business timers", "Source sealed; new Google-only relations"],
+  "relations": [
+    { "relation": "public.promo_campaigns", "change": "created", "cdc": true, "writer_guard": true, "pii": false, "primary_key": ["id"],
+      "note": "QR Premium campaign: code, title, RevenueCat promotional duration, eligibility (new_users within N days | everyone), max uses, date window, active switch" },
+    { "relation": "public.promo_redemptions", "change": "created", "cdc": true, "writer_guard": true, "pii": true, "primary_key": ["id"],
+      "note": "user ↔ campaign redemption, reserved → granted | failed; one granted campaign per user" }
+  ]
+}

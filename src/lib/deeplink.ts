@@ -1,3 +1,4 @@
+import { promoCodeFromUrl, savePendingPromo } from './promo';
 import { tr } from "@/lib/tr";import { Capacitor } from '@capacitor/core';
 import { appLaunchDestination, APP_ENTRY_HOSTS } from '@/web-entry/policy.mjs';
 import { isAppLanguage } from '@/lib/app-languages';
@@ -208,6 +209,9 @@ export function initDeeplinkListener(handler: (parsed: ParsedDeeplink) => void) 
   import('@capacitor/app').then(async ({ App }) => {
     // Handle app opened via URL (cold start or background)
     const listener = App.addListener('appUrlOpen', (event) => {
+      // QR gift link (/h/<CODE>): keep the code; PromoRedeemer grants it once signed in.
+      const promo = promoCodeFromUrl(event.url);
+      if (promo) { savePendingPromo(promo); return; }
       const parsed = parseDeeplink(event.url);
       if (parsed && !cancelled) {
         handler(parsed);
@@ -221,7 +225,9 @@ export function initDeeplinkListener(handler: (parsed: ParsedDeeplink) => void) 
     if (!launchLinkChecked) {
       launchLinkChecked = true;
       const launch = await App.getLaunchUrl().catch(() => undefined);
-      if (launch?.url && !cancelled) { const parsed = parseDeeplink(launch.url); if (parsed) handler(parsed); }
+      const launchPromo = launch?.url ? promoCodeFromUrl(launch.url) : null;
+      if (launchPromo && !cancelled) savePendingPromo(launchPromo);
+      else if (launch?.url && !cancelled) { const parsed = parseDeeplink(launch.url); if (parsed) handler(parsed); }
     }
   }).catch((err) => {
     console.warn('[Deeplink] Failed to init listener:', err);
