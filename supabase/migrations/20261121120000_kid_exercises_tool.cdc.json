@@ -1,0 +1,10 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261121120000_kid_exercises_tool.sql",
+  "runtime": "google-kid-exercises-tool",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; data + read policy only, checks the tool_configs guard",
+  "relations": [
+    { "relation": "public.tool_configs", "change": "row kid-exercises added (is_active=false, code tool); code-tools read policy lists it", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "ordering/stage row for the Uşaq məşqləri code tool; already guarded" }
+  ]
+}
