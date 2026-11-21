@@ -4,7 +4,7 @@ import { join } from 'node:path';
 
 vi.mock('@/integrations/supabase/client', () => ({ supabase: { rpc: vi.fn(), functions: { invoke: vi.fn() } } }));
 import { supabase } from '@/integrations/supabase/client';
-import { clearPendingPromo, FINAL_ERRORS, normalizePromoCode, promoCodeFromUrl, promoDurationLabel, promoErrorCode, promoErrorText,
+import { clearPendingPromo, fetchPromoCampaign, FINAL_ERRORS, normalizePromoCode, promoCodeFromUrl, promoDurationLabel, promoErrorCode, promoErrorText,
   readPendingPromo, redeemPromo, savePendingPromo, PROMO_DURATIONS } from './promo';
 
 const dir = join(__dirname, '../data/promo');
@@ -48,6 +48,15 @@ describe('promo codes', () => {
     vi.mocked(supabase.functions.invoke).mockRejectedValueOnce(new Error('network'));
     expect(await redeemPromo('EXPO26')).toEqual({ ok: false, code: 'grant_failed' });
     expect(promoErrorCode({ message: 'x PROMO_NOT_NEW_USER y' })).toBe('PROMO_NOT_NEW_USER');
+  });
+
+  it('reads the public campaign card in the server shape', async () => {
+    vi.mocked(supabase.rpc).mockResolvedValueOnce({ data: { state: 'not_found' }, error: null } as never);
+    expect(await fetchPromoCampaign('NOPE-1')).toEqual({ state: 'not_found' });
+    vi.mocked(supabase.rpc).mockResolvedValueOnce({ data: { state: 'active', code: 'EXPO26', title: 'Expo', duration: 'monthly', eligibility: 'new_users', ends_at: null }, error: null } as never);
+    expect((await fetchPromoCampaign('EXPO26')).state).toBe('active');
+    vi.mocked(supabase.rpc).mockResolvedValueOnce({ data: null, error: null } as never);
+    expect(await fetchPromoCampaign('X-1')).toEqual({ state: 'not_found' });
   });
 
   it('retries only failures that can change', () => {

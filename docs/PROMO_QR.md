@@ -11,10 +11,9 @@ Admins manage campaigns in **Admin › Kommersiya › QR kampaniyalar** (`/admin
 ## Flow
 
 1. The QR opens `https://app.anacan.az/h/<CODE>`.
-   - On the web (app not installed), `PromoLanding` shows:
-     - the gift and the three steps;
-     - the code;
-     - App Store / Google Play links and "Vebdə davam et".
+   - On the web (app not installed), `PromoLanding` shows the gift, the three steps, the code and the App Store / Google Play
+     links. `/h/<CODE>` is a `system` exception in the browser launcher (`src/web-entry/policy.mjs`), so the page renders
+     instead of jumping straight to a store; any other path still goes through the launcher.
    - In the installed app, the universal link (`/h/*` in `apple-app-site-association`) or `anacan://h/<CODE>` is caught by the `appUrlOpen` listener in `src/lib/deeplink.ts`.
 2. The code is saved on the device (`localStorage` `anacan:promo-code`, 30 days).
 3. `PromoRedeemer` (mounted in `App.tsx`) calls the `promo-redeem` function as soon as a session exists. That covers signup, login, Google or Apple sign-in, and the next app start.
@@ -40,6 +39,15 @@ Admins manage campaigns in **Admin › Kommersiya › QR kampaniyalar** (`/admin
   2. Extends a running promotional, one-time or web pass, so the gift starts when that pass ends.
   3. Grants the RevenueCat promotional entitlement for the campaign duration (`weekly` … `lifetime`). These map to `rc_promo_Anacan LLC Pro_<duration>` in `REVENUECAT_PRODUCT_PLANS_JSON`. Never use a custom `end_time_ms` grant: it creates an unmapped `_custom` product.
   4. Finishes the redemption and runs `syncEntitlementForUser`, so the gift survives every later RevenueCat sync, exactly like a purchase.
+
+## Deployed 2026-11-21
+
+- Migration applied in one transaction; 2 relations / 6 guard triggers verified.
+- Functions image `sha256:85d6cc10…` (recreate script `/root/functions-promoqr.py`, previous image `sha256:be574526…`),
+  `ENABLED_FUNCTIONS` gained `promo-redeem`.
+- Gateway `sha256:5b73a2d2…` (plan `promoqr2-web-plan.json`, rollback `rollback-promoqr2-web-plan.json`).
+- Live checks: anonymous `promo-redeem` 401; anon cannot read `promo_campaigns`, call the admin list or `promo_reserve_v1`;
+  `promo_campaign_public_v1` answers `{"state":"not_found"}`; `/h/<unknown>` renders the "no longer valid" card; AASA lists `/h/*`.
 
 ## Deploy checklist (Google)
 

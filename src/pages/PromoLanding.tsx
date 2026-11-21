@@ -25,7 +25,7 @@ export default function PromoLanding() {
     queryKey: ['promo-campaign', code], enabled: !!code, staleTime: 60_000, retry: 1,
     queryFn: () => fetchPromoCampaign(code!),
   });
-  const valid = campaign.data?.found === true && campaign.data.state === 'active';
+  const valid = campaign.data?.state === 'active';
 
   useEffect(() => {
     if (!valid || !code) return;
@@ -87,7 +87,6 @@ export default function PromoLanding() {
               <a href={APP_STORE} className="h-12 rounded-2xl bg-[#1F1A17] text-white font-semibold flex items-center justify-center">App Store</a>
               <a href={PLAY_STORE} className="h-12 rounded-2xl bg-[#1F1A17] text-white font-semibold flex items-center justify-center">Google Play</a>
             </div>
-            <button type="button" onClick={() => navigate('/')} className="h-12 rounded-2xl bg-[#D92D3F] text-white font-bold">{text.web_signup}</button>
           </>
         )}
       </div>

@@ -7,7 +7,8 @@ export const PROMO_CODE_RE = /^[A-Z0-9][A-Z0-9-]{2,31}$/;
 export const PROMO_DURATIONS = ['weekly', 'monthly', 'two_month', 'three_month', 'six_month', 'yearly', 'lifetime'] as const;
 export type PromoDuration = typeof PROMO_DURATIONS[number];
 export type PromoState = 'active' | 'inactive' | 'not_started' | 'expired' | 'full';
-export interface PromoCampaignPublic { found: boolean; code?: string; title?: string; duration?: PromoDuration; eligibility?: 'new_users' | 'everyone'; state?: PromoState }
+/** Shape of promo_campaign_public_v1: `state` is 'not_found' for an unknown code, else the campaign's live state. */
+export interface PromoCampaignPublic { state: PromoState | 'not_found'; code?: string; title?: string; duration?: PromoDuration; eligibility?: 'new_users' | 'everyone'; ends_at?: string | null }
 
 export type PromoErrorCode = 'PROMO_NOT_FOUND' | 'PROMO_INACTIVE' | 'PROMO_NOT_STARTED' | 'PROMO_EXPIRED' | 'PROMO_FULL'
   | 'PROMO_ALREADY_USED' | 'PROMO_NOT_NEW_USER' | 'PROMO_IN_PROGRESS' | 'premium_store_subscription_active' | 'grant_failed';
@@ -67,7 +68,8 @@ export const promoRpc = (fn: string, args?: Record<string, unknown>) =>
 export async function fetchPromoCampaign(code: string): Promise<PromoCampaignPublic> {
   const { data, error } = await promoRpc('promo_campaign_public_v1', { p_code: code });
   if (error) throw error;
-  return (data ?? { found: false }) as PromoCampaignPublic;
+  const value = data as PromoCampaignPublic | null;
+  return value && typeof value.state === 'string' ? value : { state: 'not_found' };
 }
 
 export async function redeemPromo(code: string): Promise<PromoResult> {
