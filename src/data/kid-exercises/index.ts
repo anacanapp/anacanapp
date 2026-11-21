@@ -35,6 +35,9 @@ export const KIDEX_LANGUAGE_LOADERS: Record<string, () => Promise<Json<KidExLoca
   de: () => json(import('./de.json')),
   kk: () => json(import('./kk.json')),
   ar: () => json(import('./ar.json')),
+  uz: () => json(import('./uz.json')),
+  ka: () => json(import('./ka.json')),
+  zh: () => json(import('./zh.json')),
 };
 
 export interface KidExContent { language: string; ui: KidExUiText; sets: KidExerciseSet[]; exercises: KidExercise[] }

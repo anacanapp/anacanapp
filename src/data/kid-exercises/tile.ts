@@ -20,10 +20,13 @@ export const KIDEX_TILE_TEXT: Record<string, { name: string; description: string
   de: { name: "Bewegung für Kinder", description: "Bewegungsübungen mit Bildern für 0–5 Jahre" },
   kk: { name: "Балаларға арналған жаттығулар", description: "0–5 жасқа арналған суретті қимыл жаттығулары" },
   ar: { name: "تمارين الأطفال", description: "تمارين حركية مصوّرة للأعمار من 0 إلى 5 سنوات" },
+  uz: { name: "Bola mashqlari", description: "0–5 yosh uchun rasmli harakat mashqlari" },
+  ka: { name: "ბავშვის ვარჯიშები", description: "სურათებიანი მოძრაობის ვარჯიშები 0–5 წლის ბავშვებისთვის" },
+  zh: { name: "宝宝运动", description: "0–5 岁图解运动练习" },
 };
 
 /** App languages with Uşaq məşqləri content (same keys as KIDEX_LANGUAGE_LOADERS in ./index.ts; checked by the test). */
-export const KIDEX_CONTENT_LANGUAGES = ['az', 'en', 'ru', 'tr', 'fr', 'es', 'id', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv', 'et', 'de', 'kk', 'ar'];
+export const KIDEX_CONTENT_LANGUAGES = ['az', 'en', 'ru', 'tr', 'fr', 'es', 'id', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv', 'et', 'de', 'kk', 'ar', 'uz', 'ka', 'zh'];
 
 export const hasKidExContent = (language: string | null | undefined): boolean => KIDEX_CONTENT_LANGUAGES.includes(String(language || ''));
 
