@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Ćwiczenia dla dzieci",
+    "tileDesc": "Ilustrowane ćwiczenia ruchowe dla dzieci 0–5 lat",
+    "title": "Ćwiczenia dla dzieci",
+    "eyebrow": "Ruch i rozwój",
+    "ageFor": "Dla: {name}",
+    "today": "Dziś",
+    "doneCount": "Ćwiczenia: {n}",
+    "weekHint": "Ostatnie 7 dni: każda kropka to dzień, w którym ćwiczyliście.",
+    "picksTitle": "Ćwiczenia na dziś",
+    "picksSub": "Codziennie trzy nowe ćwiczenia dopasowane do wieku.",
+    "allTitle": "Wszystkie ćwiczenia",
+    "count": "Ćwiczenia: {n}",
+    "nowBadge": "Obecny wiek",
+    "search": "Szukaj ćwiczenia",
+    "all": "Wszystkie",
+    "favs": "Ulubione",
+    "noFavs": "Dotknij serca, aby dodać ćwiczenie do ulubionych.",
+    "noResults": "Nie znaleziono pasujących ćwiczeń.",
+    "rules": "Zasady ogólne",
+    "safetyNote": "Te ćwiczenia to ogólne informacje i nie zastępują badania lekarskiego. Jeśli dziecko urodziło się przedwcześnie, ma problemy zdrowotne albo niepokoi Cię jego rozwój, najpierw skonsultuj się z pediatrą lub fizjoterapeutą dziecięcym.",
+    "age": "Wiek",
+    "duration": "Czas",
+    "how": "Jak to zrobić",
+    "benefit": "Korzyści",
+    "caution": "Uwaga",
+    "timer": "Stoper",
+    "start": "Start",
+    "pause": "Pauza",
+    "reset": "Zeruj",
+    "done": "Zrobione",
+    "doneToday": "Zrobione dziś",
+    "prev": "Poprzednie",
+    "next": "Następne",
+    "fav": "Dodaj do ulubionych",
+    "unfav": "Usuń z ulubionych",
+    "close": "Zamknij"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 rok",
+      "months": "0–12 mies.",
+      "rules": [
+        "Ćwicz, gdy maluszek nie śpi, jest spokojny i nie jest najedzony (co najmniej 30–40 minut po karmieniu).",
+        "Ćwicz na twardej, płaskiej i czystej powierzchni (na dywanie lub macie na podłodze); nie zostawiaj maluszka samego na wysokości.",
+        "Ruchy mają być powolne i łagodne. Nigdy nie używaj siły i nie ciągnij za rączki ani nóżki.",
+        "Jeśli maluszek płacze, jest niespokojny albo zmęczony, od razu przestań.",
+        "Przedziały wieku są orientacyjne; każde dziecko rozwija się we własnym tempie.",
+        "W przypadku wcześniaków i dzieci z problemami zdrowotnymi najpierw skonsultuj się z pediatrą."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 lata",
+      "months": "12–24 mies.",
+      "rules": [
+        "W tym wieku ćwiczenia to zabawa: nie zmuszaj dziecka, najpierw pokaż ruch i róbcie go razem.",
+        "Zaleca się co najmniej 30 minut zabaw ruchowych prowadzonych przez dorosłego i co najmniej 1 godzinę swobodnego ruchu dziennie.",
+        "Zadbaj o bezpieczny pokój: bez ostrych narożników, śliskich dywaników i mebli, które mogą się przewrócić. Najlepiej ćwiczyć boso lub w skarpetkach antypoślizgowych.",
+        "Przy schodach, zjeżdżalni, wspinaniu i skakaniu zawsze bądź na wyciągnięcie ręki.",
+        "Bawiąc się małymi przedmiotami (piłki, klocki), zwracaj uwagę na ich rozmiar: nie wolno dawać dziecku niczego, co zmieści się w jego buzi.",
+        "Przedziały wieku są orientacyjne. Jeśli dziecko do 18. miesiąca nie chodzi samodzielnie, zgłoś się do pediatry."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 lata",
+      "months": "24–36 mies.",
+      "rules": [
+        "W tym wieku ćwiczenia to zabawa: pokaż ruch, róbcie go razem, dodajcie piosenkę lub bajkę.",
+        "Zaleca się co najmniej 1 godzinę zabaw ruchowych prowadzonych przez dorosłego i co najmniej 2 godziny swobodnego ruchu dziennie.",
+        "Zadbaj o bezpieczny pokój i podwórko: bez śliskiej podłogi, ostrych narożników i przedmiotów, które mogą się przewrócić.",
+        "Przy skakaniu, wspinaniu, zwisaniu i zjeżdżaniu bądź na wyciągnięcie ręki; wybieraj miękkie podłoże.",
+        "Nie przemęczaj dziecka: krótkie zabawy, częste przerwy i woda.",
+        "Przedziały wieku są orientacyjne; każde dziecko rozwija się we własnym tempie. Jeśli coś Cię niepokoi, zgłoś się do pediatry."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 lata",
+      "months": "36–48 mies.",
+      "rules": [
+        "Ćwiczenia to wciąż zabawa: pokaż ruch, róbcie go razem, dodajcie elementy wyścigu i bajki.",
+        "Zaleca się co najmniej 1 godzinę zabaw ruchowych prowadzonych przez dorosłego i co najmniej 2 godziny swobodnego ruchu dziennie, w miarę możliwości na świeżym powietrzu.",
+        "Wybierz bezpieczne miejsce: antypoślizgowa podłoga, miękka mata, żadnych ostrych narożników w pobliżu.",
+        "Na pojazdach z kółkami (hulajnoga, rower) dziecko zawsze musi mieć kask.",
+        "Przy przewrotach, równoważni i wspinaniu bądź obok dziecka.",
+        "Nie przemęczaj dziecka: krótkie zabawy, częste przerwy i woda.",
+        "Przedziały wieku są orientacyjne; każde dziecko rozwija się we własnym tempie. Jeśli coś Cię niepokoi, zgłoś się do pediatry."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 lat",
+      "months": "48–60 mies.",
+      "rules": [
+        "Ćwiczenia powinny być zabawą: pokaż ruch, róbcie go razem, dodajcie małe zawody i „rekordy”.",
+        "Zaleca się co najmniej 1 godzinę zabaw ruchowych prowadzonych przez dorosłego i co najmniej 2 godziny swobodnego ruchu dziennie, w miarę możliwości na świeżym powietrzu.",
+        "Wybierz bezpieczne miejsce: antypoślizgowa podłoga, miękka mata, żadnych ostrych narożników w pobliżu.",
+        "Na rowerze i hulajnodze dziecko zawsze musi mieć kask i pełne buty.",
+        "Przy przewrotach, skokach z wysokości, wspinaniu i zwisaniu bądź obok dziecka.",
+        "W ćwiczeniach siłowych (deska, przysiady) liczy się jakość, nie czas: gdy technika się psuje, przerwijcie.",
+        "Przedziały wieku są orientacyjne; każde dziecko rozwija się we własnym tempie. Jeśli coś Cię niepokoi, zgłoś się do pediatry."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 mies.",
+    "3–6 ay": "3–6 mies.",
+    "6–9 ay": "6–9 mies.",
+    "9–12 ay": "9–12 mies.",
+    "12–15 ay": "12–15 mies.",
+    "15–18 ay": "15–18 mies.",
+    "18–24 ay": "18–24 mies.",
+    "Hoppanma və tarazlıq": "Skoki i równowaga",
+    "Yerimə, qaçış və dırmaşma": "Chodzenie, bieganie i wspinanie",
+    "Topla oyunlar": "Zabawy z piłką",
+    "Gimnastika və təqlid oyunları": "Gimnastyka i zabawy w naśladowanie",
+    "Hoppanma": "Skoki",
+    "Tarazlıq": "Równowaga",
+    "Təkərli vasitələr və qaçış": "Pojazdy i bieganie",
+    "Güc və gimnastika": "Siła i gimnastyka",
+    "Ritm və koordinasiya": "Rytm i koordynacja",
+    "Hoppanma və tullanma": "Skoki i wyskoki",
+    "Qaçış, velosiped və ritm oyunları": "Bieganie, rower i zabawy rytmiczne"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Leżenie na brzuszku",
+      "age": "od urodzenia",
+      "how": "Połóż maluszka na brzuszku na macie, ugnij mu rączki w łokciach i ułóż je przy głowie. Jedną dłoń połóż delikatnie na jego plecach, drugą na pupie. Mów do niego, żeby próbował unieść główkę.",
+      "duration": "2–3 razy dziennie po 1–3 minuty; stopniowo wydłużaj.",
+      "benefit": "Wzmacnia mięśnie szyi, barków i pleców, zapobiega spłaszczeniu tyłu główki.",
+      "caution": "Tylko gdy dziecko nie śpi i pod Twoim nadzorem. Do snu zawsze kładź maluszka na plecach."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Na brzuszku na piersi rodzica",
+      "age": "0–2 mies.",
+      "how": "Usiądź półleżąco, opierając się o poduszkę. Połóż maluszka na brzuszku na swojej piersi, jedną ręką podtrzymuj jego plecy, drugą pupę. Mów do niego, żeby patrzył na Twoją twarz.",
+      "duration": "Kilka razy dziennie po 2–5 minut.",
+      "benefit": "To najłagodniejszy sposób oswajania z pozycją na brzuchu; zachęca do unoszenia główki i wzmacnia więź.",
+      "caution": "Nie rób tego ćwiczenia, gdy chce Ci się spać."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Na brzuszku na kolanach",
+      "age": "0–3 mies.",
+      "how": "Usiądź i połóż maluszka w poprzek na swoich udach, na brzuszku. Jedna dłoń na jego plecach, druga na pupie. Możesz delikatnie gładzić go po plecach.",
+      "duration": "2–3 minuty.",
+      "benefit": "Angażuje mięśnie szyi, pomaga w odejściu gazów i uspokaja maluszka."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Wodzenie wzrokiem za zabawką",
+      "age": "0–3 mies.",
+      "how": "Maluszek leży na plecach. Trzymaj kolorową zabawkę 20–30 cm od jego twarzy i powoli przesuwaj ją w prawo i w lewo. Poczekaj, aż będzie podążał za nią oczami i główką.",
+      "duration": "1–2 minuty, 4–5 razy w każdą stronę.",
+      "benefit": "Rozwija uwagę wzrokową, koordynację oczu i głowy oraz obracanie szyi w obie strony."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Chwytanie palca",
+      "age": "0–4 mies.",
+      "how": "Włóż palec wskazujący w dłoń maluszka i poczekaj, aż go ściśnie. Lekko poruszaj palcem w górę i w dół. Powtórz z obiema rączkami.",
+      "duration": "3–5 razy na każdą rączkę.",
+      "benefit": "Wzmacnia odruch chwytania i mięśnie dłoni, rozwija zmysł dotyku.",
+      "caution": "Nie podnoś maluszka, gdy trzyma Cię za palec."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Kolanka do brzuszka",
+      "age": "0–6 mies.",
+      "how": "Maluszek leży na plecach. Chwyć obie łydki, powoli zegnij razem kolanka w stronę brzuszka, przytrzymaj 3–5 sekund i rozluźnij.",
+      "duration": "5–8 powtórzeń.",
+      "benefit": "Łagodzi gazy i kolki, zwiększa ruchomość stawów biodrowych.",
+      "caution": "Nie dociskaj; jeśli poczujesz opór, przestań."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "„Rowerek”",
+      "age": "1–6 mies.",
+      "how": "Maluszek leży na plecach. Trzymając go za łydki, poruszaj nóżkami na zmianę, jak przy jeździe na rowerze: jedno kolanko do brzuszka, druga nóżka do przodu.",
+      "duration": "10–15 obrotów z przerwami.",
+      "benefit": "Angażuje mięśnie nóg i brzucha, wspiera pracę jelit, uczy koordynacji ruchów naprzemiennych."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Rozkładanie i krzyżowanie rączek",
+      "age": "1–6 mies.",
+      "how": "Maluszek leży na plecach. Włóż kciuki w jego dłonie albo delikatnie chwyć go za nadgarstki. Rozłóż rączki na boki, a potem skrzyżuj je na piersi (jakby sam się przytulał).",
+      "duration": "5–8 powtórzeń.",
+      "benefit": "Rozluźnia mięśnie klatki piersiowej i barków, uczy sprowadzania rąk do linii środkowej ciała.",
+      "caution": "Nie ciągnij za rączki; rozkładaj je tylko tak daleko, jak maluszek pozwala."
+    },
+    "0-1/09_kicking": {
+      "title": "Kopanie w dłonie",
+      "age": "1–4 mies.",
+      "how": "Maluszek leży na plecach. Przyłóż dłonie do jego stópek i stawiaj lekki opór; maluszek będzie odpychał się nóżkami.",
+      "duration": "1–2 minuty.",
+      "benefit": "Wzmacnia mięśnie nóg, przygotowuje do odpychania się (później przy raczkowaniu i staniu)."
+    },
+    "0-1/10_side_lying": {
+      "title": "Zabawa na boku",
+      "age": "1–4 mies.",
+      "how": "Połóż maluszka na boku, a za plecami podłóż zwinięty ręcznik. Obie rączki niech będą z przodu; przed nim połóż zabawkę. Potem obróć go na drugi bok.",
+      "duration": "2–3 minuty na każdy bok.",
+      "benefit": "Ułatwia łączenie rączek, przygotowuje do obracania się, zapobiega przechylaniu głowy na jedną stronę.",
+      "caution": "Tylko gdy dziecko nie śpi i pod Twoim nadzorem; nie zostawiaj maluszka do snu w tej pozycji."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Na brzuszku z wałkiem z ręcznika",
+      "age": "2–4 mies.",
+      "how": "Podłóż zwinięty ręcznik pod klatkę piersiową maluszka (na linii pach), z rączkami przed ręcznikiem. Połóż przed nim zabawkę, żeby uniósł główkę i patrzył.",
+      "duration": "3–5 minut, kilka razy dziennie.",
+      "benefit": "Ułatwia unoszenie główki, przygotowuje do podpierania się na łokciach."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Podciąganie do siadu",
+      "age": "3–5 mies. (gdy maluszek już trzyma główkę)",
+      "how": "Maluszek leży na plecach. Daj mu chwycić Twoje kciuki, przytrzymaj nadgarstki i powoli unoś go w stronę siadu, a potem równie powoli połóż z powrotem.",
+      "duration": "3–5 powtórzeń.",
+      "benefit": "Wzmacnia mięśnie brzucha, szyi i rąk.",
+      "caution": "Jeśli główka opada do tyłu, odłóż to ćwiczenie na później. Nie ciągnij gwałtownie."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Sięganie po zabawkę",
+      "age": "3–5 mies.",
+      "how": "Maluszek leży na plecach. Trzymaj zabawkę nad jego klatką piersiową, w zasięgu rączki, i poczekaj, aż po nią sięgnie i ją chwyci. Przesuwaj zabawkę raz w prawo, raz w lewo.",
+      "duration": "2–3 minuty.",
+      "benefit": "Rozwija koordynację oko–ręka, mięśnie barków i celowe chwytanie."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Sięganie w podporze na łokciach",
+      "age": "4–6 mies.",
+      "how": "Maluszek leży na brzuszku, oparty na łokciach. Połóż zabawkę trochę z przodu i z boku, żeby sięgnął po nią jedną rączką. Możesz lekko stabilizować mu miednicę dłońmi.",
+      "duration": "3–5 minut.",
+      "benefit": "Uczy przenoszenia ciężaru z jednej ręki na drugą, wzmacnia plecy i obręcz barkową, przygotowuje do raczkowania."
+    },
+    "0-1/15_rolling": {
+      "title": "Pomoc w obracaniu się",
+      "age": "4–6 mies.",
+      "how": "Maluszek leży na plecach. Połóż zabawkę z boku. Jedną ręką chwyć udo, drugą miednicę i przełóż górną nóżkę na przeciwną stronę; tułów sam pójdzie za nią. Ćwicz w obie strony.",
+      "duration": "3–4 razy w każdą stronę.",
+      "benefit": "Rozwija mięśnie tułowia i ruch skrętny ciała, uczy samodzielnego obracania się.",
+      "caution": "Nie obracaj maluszka, ciągnąc go za rączkę."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Łapanie stópek",
+      "age": "4–6 mies.",
+      "how": "Maluszek leży na plecach. Ugnij mu kolanka i zbliż stópki do rączek, żeby mógł je złapać. Gdy złapie, pozwól mu się lekko pobujać na boki.",
+      "duration": "1–2 minuty.",
+      "benefit": "Wzmacnia mięśnie brzucha, rozwija czucie własnego ciała i elastyczność bioder."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Siedzenie z podparciem",
+      "age": "5–7 mies.",
+      "how": "Posadź maluszka na macie i przytrzymaj go od tyłu za miednicę lub w talii. Daj mu do rączki zabawkę. W miarę jak równowaga się poprawia, zmniejszaj podparcie.",
+      "duration": "3–5 minut.",
+      "benefit": "Rozwija mięśnie tułowia i równowagę w siadzie, uwalnia rączki do zabawy.",
+      "caution": "Gdy plecy się zaokrąglają i maluszek się męczy, połóż go; nie sadzaj go na siłę, obkładając poduszkami."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Sprężynowanie na nóżkach z podparciem",
+      "age": "5–8 mies.",
+      "how": "Trzymaj maluszka pewnie pod pachami, za tułów, i postaw jego stópki na twardej powierzchni. Pozwól mu przenieść część ciężaru na nóżki i sprężynować, uginając i prostując kolanka.",
+      "duration": "1–2 minuty.",
+      "benefit": "Wzmacnia mięśnie nóg, przygotowuje do stania.",
+      "caution": "Większość ciężaru trzymaj Ty; nie zostawiaj maluszka samego na nóżkach."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Sięganie po zabawkę w siadzie",
+      "age": "6–8 mies.",
+      "how": "Maluszek siedzi sam, podpierając się jedną rączką o podłogę. Kładź zabawkę z przodu i po bokach, trochę dalej, żeby sięgnął, wziął ją i znowu się wyprostował. Rozłóż wokół poduszki.",
+      "duration": "5 minut.",
+      "benefit": "Rozwija równowagę w siadzie, skręt tułowia i odruch podpierania się rękami przy upadku."
+    },
+    "0-1/20_peekaboo": {
+      "title": "„A kuku!”",
+      "age": "4–12 mies.",
+      "how": "Maluszek siedzi. Trzymaj lekką chusteczkę przed swoją (albo jego) twarzą, a potem opuść ją i powiedz „a kuku!”. Gdy podrośnie, pozwól mu samemu ściągać chusteczkę.",
+      "duration": "Tak długo, jak maluszek jest zainteresowany.",
+      "benefit": "Rozwija rozumienie stałości przedmiotu, uwagę, kontakt i śmiech; zachęca do aktywnego ruszania rączkami."
+    },
+    "0-1/21_patty_cake": {
+      "title": "Klaskanie w rączki",
+      "age": "7–12 mies.",
+      "how": "Usiądź naprzeciwko maluszka. Przy piosence albo odliczance przykładaj swoje dłonie do jego dłoni, a potem pokaż, jak samemu klaskać.",
+      "duration": "2–3 minuty.",
+      "benefit": "Rozwija współpracę obu rąk, poczucie rytmu, naśladowanie i kontakt."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Pomoc w raczkowaniu",
+      "age": "7–9 mies.",
+      "how": "Maluszek jest w podporze na rączkach i kolanach, przed nim leży zabawka. Przyłóż dłonie do jego stópek, żeby mógł się od nich odepchnąć i ruszyć do przodu.",
+      "duration": "3–5 minut.",
+      "benefit": "Rozwija raczkowanie, koordynację rąk i nóg oraz siłę tułowia.",
+      "caution": "Nie popychaj maluszka, dawaj tylko oparcie."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Raczkowanie przez przeszkodę",
+      "age": "8–10 mies.",
+      "how": "Połóż na macie niską poduszkę lub zwinięty kocyk, a po drugiej stronie zabawkę. Pozwól maluszkowi przejść przez przeszkodę.",
+      "duration": "5 minut.",
+      "benefit": "Rozwija siłę, równowagę i planowanie ruchu, przygotowuje do wspinania się."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Turlanie piłki",
+      "age": "8–12 mies.",
+      "how": "Maluszek siedzi z rozstawionymi nóżkami. Turlaj do niego miękką piłkę i poczekaj, aż ją złapie i odepchnie z powrotem.",
+      "duration": "5 minut.",
+      "benefit": "Rozwija równowagę w siadzie, koordynację oko–ręka i zabawę na zmianę."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Wstawanie z podciąganiem się",
+      "age": "8–10 mies.",
+      "how": "Połóż zabawkę na niskiej, stabilnej kanapie. Maluszek uklęknie i, stawiając jedną stópkę na podłodze, spróbuje wstać. W razie potrzeby lekko podtrzymaj go za miednicę.",
+      "duration": "3–5 prób.",
+      "benefit": "Wzmacnia mięśnie nóg i pośladków, uczy samodzielnego wstawania.",
+      "caution": "Upewnij się, że mebel się nie przewróci i nie ma ostrych narożników."
+    },
+    "0-1/26_cruising": {
+      "title": "Chodzenie bokiem przy meblach",
+      "age": "9–11 mies.",
+      "how": "Maluszek stoi, trzymając się kanapy. Połóż zabawkę trochę dalej, żeby dotarł do niej krokami w bok. Ćwicz w obu kierunkach.",
+      "duration": "5 minut.",
+      "benefit": "Uczy przenoszenia ciężaru z nogi na nogę i równowagi; to bezpośrednie przygotowanie do chodzenia."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Kucanie po zabawkę",
+      "age": "10–12 mies.",
+      "how": "Maluszek stoi, trzymając się jedną rączką kanapy. Połóż zabawkę na podłodze obok jego stópki. Poczekaj, aż kucnie, podniesie ją i znowu wstanie.",
+      "duration": "5–6 powtórzeń.",
+      "benefit": "Wzmacnia mięśnie nóg i równowagę, uczy kontroli przy siadaniu i wstawaniu."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Chodzenie z podparciem",
+      "age": "10–12 mies.",
+      "how": "Stań za maluszkiem i trzymaj go za tułów (na wysokości klatki piersiowej). Pozwól mu stawiać kroki; w miarę jak równowaga się poprawia, zmniejszaj podparcie.",
+      "duration": "3–5 minut.",
+      "benefit": "Rozwija stawianie kroków i równowagę.",
+      "caution": "Trzymanie za tułów jest bezpieczniejsze dla barków niż prowadzenie za rączki uniesione do góry."
+    },
+    "0-1/29_push_walker": {
+      "title": "Chodzenie z pchaczem",
+      "age": "11–12 mies.",
+      "how": "Daj maluszkowi stabilny, ciężki pchacz. Niech trzyma rączkę obiema dłońmi i idzie do przodu. Bądź obok.",
+      "duration": "5–10 minut.",
+      "benefit": "Daje pewność siebie przed samodzielnym chodzeniem, ćwiczy długość kroku i kierowanie.",
+      "caution": "Pchacz nie może jechać za szybko; chodzik z siedziskiem nie jest zalecany."
+    },
+    "1-2/01_first_steps": {
+      "title": "Pierwsze samodzielne kroki",
+      "age": "12–15 mies.",
+      "how": "Postaw dziecko, a Ty uklęknij 2–3 kroki dalej, rozłóż ręce i zawołaj je. Gdy mu się udaje, zwiększaj odległość.",
+      "duration": "5–10 prób.",
+      "benefit": "Buduje pewność siebie przy samodzielnym chodzeniu i równowagę."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Chodzenie za jedną rączkę",
+      "age": "12–15 mies.",
+      "how": "Trzymaj dziecko tylko za jedną rączkę i idź w jego tempie. Trzymaj dłoń na wysokości jego barku, nie ciągnij w górę. Zmieniaj rączki.",
+      "duration": "5–10 minut.",
+      "benefit": "To przejście od chodzenia za obie rączki do samodzielnego; wzmacnia równowagę."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Wstawanie z podłogi bez podparcia",
+      "age": "12–15 mies.",
+      "how": "Gdy dziecko siedzi na środku pokoju, pokaż mu ciekawą zabawkę na wysokości jego głowy. Poczekaj, aż oprze ręce i stopy o podłogę, uniesie pupę i samo się wyprostuje.",
+      "duration": "5–6 powtórzeń.",
+      "benefit": "Wzmacnia mięśnie nóg, pośladków i tułowia; uczy wstawania bez pomocy mebli."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Kucanie bez podparcia",
+      "age": "13–18 mies.",
+      "how": "Połóż na podłodze piłkę lub zabawkę. Zachęcaj dziecko, żeby nie trzymając się niczego, kucnęło, podniosło ją i znowu wstało.",
+      "duration": "6–8 powtórzeń.",
+      "benefit": "Rozwija siłę nóg, równowagę i kontrolę ruchu."
+    },
+    "1-2/07_push_basket": {
+      "title": "Pchanie koszyka",
+      "age": "12–18 mies.",
+      "how": "Włóż kilka zabawek do lekkiego kosza na pranie. Dziecko pcha kosz obiema rękami przez cały pokój.",
+      "duration": "5–10 minut.",
+      "benefit": "Wzmacnia mięśnie nóg i tułowia, stabilizuje chód."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Wspinanie się na niską kanapę lub poduszkę",
+      "age": "12–18 mies.",
+      "how": "Wybierz twardą poduszkę lub niską kanapę na wysokość kolan. Dziecko opiera się brzuchem i wchodzi, podciągając jedno kolano. Trzymaj dłonie w gotowości za jego pupą. Naucz też schodzenia: na brzuchu, nogami w dół.",
+      "duration": "4–5 powtórzeń.",
+      "benefit": "Rozwija siłę całego ciała i planowanie ruchu.",
+      "caution": "Nie zostawiaj dziecka samego na wysokości."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Wchodzenie na czworakach po schodach",
+      "age": "12–18 mies.",
+      "how": "Na 2–3 niskich stopniach dziecko kładzie ręce na wyższym stopniu i wchodzi. Stój za nim, z dłońmi przy jego pupie. Naucz schodzenia tyłem, nogami w dół.",
+      "duration": "3–4 razy w górę i w dół.",
+      "benefit": "Kształtuje siłę nóg, koordynację i nawyk bezpiecznego korzystania ze schodów.",
+      "caution": "Tylko pod Twoim nadzorem; poza tym bramka na schodach musi być zamknięta."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Turlanie piłki",
+      "age": "12–18 mies.",
+      "how": "Usiądźcie lub kucnijcie naprzeciwko siebie. Turlajcie piłkę do siebie; dziecko łapie ją obiema rękami i odpycha z powrotem.",
+      "duration": "5 minut.",
+      "benefit": "Rozwija koordynację oko–ręka, zabawę na zmianę i równowagę tułowia."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Wieża z klocków",
+      "age": "12–18 mies.",
+      "how": "Daj dziecku duże drewniane klocki i pokaż, jak zbudować wieżę z 2–4 klocków. Gdy się przewróci, budujcie od nowa.",
+      "duration": "5–10 minut.",
+      "benefit": "Rozwija motorykę małą, precyzję dłoni i cierpliwość."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Wrzucanie piłek do pudełka",
+      "age": "12–18 mies.",
+      "how": "Dziecko na klęczkach lub na siedząco bierze piłki jedną po drugiej i wkłada do pudełka. Potem opróżnijcie pudełko i zacznijcie od nowa.",
+      "duration": "5 minut.",
+      "benefit": "Rozwija chwytanie i puszczanie, koordynację oko–ręka i równowagę w klęku."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Chodzenie z zabawką w rękach",
+      "age": "15–18 mies.",
+      "how": "Daj dziecku dużą, lekką zabawkę i poproś, żeby zaniosło ją na drugi koniec pokoju.",
+      "duration": "5 minut.",
+      "benefit": "Uczy utrzymywania równowagi, gdy ręce są zajęte, wzmacnia mięśnie tułowia."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Ciągnięcie zabawki na sznurku",
+      "age": "15–20 mies.",
+      "how": "Daj dziecku do ręki zabawkę na kółkach na krótkim sznurku. Idąc, ciągnie ją za sobą i odwraca się, żeby na nią spojrzeć.",
+      "duration": "5–10 minut.",
+      "benefit": "Uczy obracania głowy i tułowia podczas chodzenia oraz dzielenia uwagi.",
+      "caution": "Sznurek ma być krótki (około 30 cm); nie zostawiaj dziecka samego ze sznurkiem."
+    },
+    "1-2/10_tunnel": {
+      "title": "Raczkowanie przez tunel",
+      "age": "12–24 mies.",
+      "how": "Otwórz dwa końce dużego kartonu i zrób z niego tunel. Zawołaj dziecko z drugiego końca albo połóż tam zabawkę.",
+      "duration": "5–10 minut.",
+      "benefit": "Rozwija siłę barków i tułowia oraz orientację w przestrzeni."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Ścieżka z poduszek",
+      "age": "15–20 mies.",
+      "how": "Ułóż na podłodze kilka płaskich poduszek. Dziecko idzie po nich, trzymając Cię za jedną rękę.",
+      "duration": "3–5 przejść.",
+      "benefit": "Wzmacnia równowagę na niestabilnym podłożu i mięśnie stawów skokowych."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Rzucanie piłki do kosza",
+      "age": "15–24 mies.",
+      "how": "Postaw kosz 1 krok od dziecka. Pokaż, jak wrzucić do niego miękką piłkę; gdy się udaje, zwiększaj odległość.",
+      "duration": "8–10 rzutów.",
+      "benefit": "Rozwija rzucanie, koordynację oko–ręka i siłę barków."
+    },
+    "1-2/15_dance": {
+      "title": "Taniec przy muzyce",
+      "age": "12–24 mies.",
+      "how": "Włącz rytmiczną muzykę i tańczcie razem: sprężynujcie na ugiętych kolanach, klaszczcie, kręćcie się.",
+      "duration": "5–10 minut.",
+      "benefit": "Rozwija poczucie rytmu, równowagę i wytrzymałość, poprawia nastrój."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Sprzątanie zabawek",
+      "age": "15–24 mies.",
+      "how": "Rozrzuć zabawki po podłodze. Dziecko schyla się lub kuca, podnosi je po kolei i wkłada do kosza.",
+      "duration": "Aż skończą się zabawki.",
+      "benefit": "Powtarzane schylanie się i prostowanie wzmacnia mięśnie nóg i pleców; uczy porządku."
+    },
+    "1-2/24_ride_on": {
+      "title": "Jeździk odpychany nogami",
+      "age": "15–24 mies.",
+      "how": "Posadź dziecko na niskim jeździku bez pedałów; stopy muszą całe dotykać podłogi. Niech jedzie do przodu, odpychając się nogami.",
+      "duration": "10 minut.",
+      "benefit": "Rozwija siłę nóg, koordynację obu stron ciała i kierowanie."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Kopanie piłki",
+      "age": "18–24 mies.",
+      "how": "Połóż lekką piłkę przed stopą dziecka i pokaż, jak ją kopnąć. Na początku możesz trzymać je za jedną rękę.",
+      "duration": "8–10 kopnięć.",
+      "benefit": "Rozwija krótką równowagę na jednej nodze i koordynację stopy z okiem."
+    },
+    "1-2/16_bubbles": {
+      "title": "Łapanie baniek mydlanych",
+      "age": "18–24 mies.",
+      "how": "Puszczaj bańki mydlane. Dziecko przebija je, stając na palcach, sięgając w górę i biegając.",
+      "duration": "5–10 minut.",
+      "benefit": "Ćwiczy stawanie na palcach, sięganie w górę i koordynację oko–ręka."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Wchodzenie po schodach za rękę",
+      "age": "18–24 mies.",
+      "how": "Dziecko w pozycji stojącej wchodzi po schodach, trzymając Cię za jedną rękę (albo trzymając się poręczy). To normalne, że na każdy stopień najpierw stawia jedną stopę, a potem dostawia drugą.",
+      "duration": "2–3 razy w górę i w dół.",
+      "benefit": "Zwiększa siłę nóg i równowagę na jednej nodze.",
+      "caution": "Przy schodzeniu zawsze stój jeden stopień niżej niż dziecko."
+    },
+    "1-2/21_jump": {
+      "title": "Podskoki w miejscu",
+      "age": "20–24 mies.",
+      "how": "Najpierw pokaż, jak się skacze: ugnij kolana i oderwij się od podłogi obiema nogami. Na początku możesz trzymać dziecko za ręce albo pozwolić mu zeskakiwać z niskiej poduszki.",
+      "duration": "5–8 podskoków.",
+      "benefit": "Wzmacnia siłę eksplozywną nóg, kości i koordynację.",
+      "caution": "Ćwicz na miękkim podłożu; skok obunóż zwykle udaje się dopiero około 2. roku życia."
+    },
+    "1-2/22_run": {
+      "title": "Bieganie",
+      "age": "18–24 mies.",
+      "how": "Na dużej, wolnej od przeszkód przestrzeni bawcie się w berka albo wołaj dziecko z daleka.",
+      "duration": "5–10 minut z krótkimi przerwami.",
+      "benefit": "Rozwija wytrzymałość, szybkość i układ krążenia."
+    },
+    "1-2/23_balance_line": {
+      "title": "Chodzenie po linii",
+      "age": "20–24 mies.",
+      "how": "Przyklej na podłodze szeroką kolorową taśmę. Dziecko idzie, trzymając Cię za jedną rękę i stawiając stopy na taśmie.",
+      "duration": "3–5 przejść.",
+      "benefit": "Rozwija równowagę i chodzenie po wąskim podłożu."
+    },
+    "1-2/25_bear_walk": {
+      "title": "„Chód niedźwiadka”",
+      "age": "18–24 mies.",
+      "how": "Pokaż, jak iść do przodu z rękami i stopami na podłodze, kolanami nad ziemią i pupą w górze. Chodźcie razem „jak niedźwiedzie”.",
+      "duration": "2–3 przejścia przez pokój.",
+      "benefit": "Wzmacnia mięśnie barków, rąk i tułowia, poprawia koordynację."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Sięgnij w górę, dotknij palców",
+      "age": "18–24 mies.",
+      "how": "Stańcie naprzeciwko siebie. Najpierw wspnijcie się na palce i wyciągnijcie ręce w górę, potem zróbcie skłon i dotknijcie palców stóp. Śpiewajcie przy tym piosenkę.",
+      "duration": "5–6 powtórzeń.",
+      "benefit": "Rozwija gibkość, równowagę i naśladowanie ruchu; uczy nazw części ciała."
+    },
+    "1-2/27_slide": {
+      "title": "Niska zjeżdżalnia",
+      "age": "18–24 mies.",
+      "how": "Dziecko siada na górze niskiej zjeżdżalni i zjeżdża nogami do przodu. Trzymaj je rękami za tułów, potem zmniejszaj podparcie.",
+      "duration": "5–6 razy.",
+      "benefit": "Rozwija wspinanie się, równowagę w siadzie i odwagę.",
+      "caution": "Nie zjeżdżaj z dzieckiem na kolanach; jego noga może się zaklinować i ulec urazowi."
+    },
+    "1-2/28_back_walk": {
+      "title": "Chodzenie tyłem",
+      "age": "18–24 mies.",
+      "how": "Dziecko idzie do tyłu, ciągnąc do siebie pchacz albo zabawkę na sznurku. Na początku trzymaj je za ręce i chodźcie tyłem razem.",
+      "duration": "3–4 przejścia.",
+      "benefit": "Uczy równowagi, czucia ciała i zmiany kierunku ruchu.",
+      "caution": "Upewnij się, że z tyłu nie ma przeszkód."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Skoki obunóż do przodu",
+      "age": "24–30 mies.",
+      "how": "Przyklej na podłodze kolorową taśmę. Dziecko ugina kolana i przeskakuje przez taśmę obiema nogami naraz. Najpierw Ty pokaż, jak to zrobić.",
+      "duration": "6–8 skoków.",
+      "benefit": "Rozwija siłę nóg, współpracę obu nóg i miękkie lądowanie."
+    },
+    "2-3/02_jump_down": {
+      "title": "Zeskok z niskiego stopnia",
+      "age": "24–30 mies.",
+      "how": "Dziecko, trzymając Cię za jedną rękę, zeskakuje ze stabilnego stopnia o wysokości 10–15 cm na miękką matę. Pokaż, jak lądować na ugiętych kolanach.",
+      "duration": "5–6 razy.",
+      "benefit": "Rozwija odwagę, siłę nóg i równowagę przy lądowaniu.",
+      "caution": "Nie zwiększaj wysokości; stopień nie może się przesuwać."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Stanie na jednej nodze",
+      "age": "30–36 mies.",
+      "how": "Powiedz: „Stań jak bocian”. Dziecko, trzymając Cię za jedną rękę, unosi jedną nogę i stoi tak 2–3 sekundy. Zmieńcie nogi, potem spróbujcie bez podparcia.",
+      "duration": "3–4 razy na każdą nogę.",
+      "benefit": "Wzmacnia równowagę i mięśnie stawów skokowych."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Chodzenie na palcach",
+      "age": "24–36 mies.",
+      "how": "Powiedz: „Chodźmy cicho jak kotki” i przejdźcie na palcach przez pokój.",
+      "duration": "2–3 przejścia.",
+      "benefit": "Wzmacnia mięśnie łydek, sklepienie stopy i równowagę.",
+      "caution": "Jeśli dziecko stale chodzi na palcach, powiedz o tym pediatrze."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Chodzenie po desce",
+      "age": "24–36 mies.",
+      "how": "Połóż na podłodze szeroką, niską deskę. Dziecko idzie po niej, trzymając Cię za jedną rękę; gdy sobie radzi, puść je.",
+      "duration": "4–5 przejść.",
+      "benefit": "Rozwija równowagę, skupienie i stawianie stóp w jednej linii."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Chodzenie z woreczkiem na głowie",
+      "age": "30–36 mies.",
+      "how": "Połóż dziecku na głowie mały woreczek z materiału (wypełniony ryżem lub grochem). Niech idzie powoli i prosto, żeby go nie upuścić.",
+      "duration": "3–4 przejścia.",
+      "benefit": "Rozwija postawę, równowagę i skupienie."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Skoki z kółka na kółko",
+      "age": "30–36 mies.",
+      "how": "Rozłóż na podłodze kolorowe kółka (gumowe znaczniki, kartki, poduszki). Dziecko przeskakuje z jednego na drugie albo stawia duże kroki.",
+      "duration": "3–4 przejścia.",
+      "benefit": "Rozwija precyzję skoku, równowagę i planowanie ruchu.",
+      "caution": "Kółka nie mogą się ślizgać."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Wchodzenie po schodach naprzemiennie",
+      "age": "30–36 mies.",
+      "how": "Dziecko, trzymając się poręczy, wchodzi, stawiając na każdym stopniu jedną stopę. Przy schodzeniu to wciąż normalne, że stawia na każdym stopniu obie stopy.",
+      "duration": "2–3 razy w górę i w dół.",
+      "benefit": "Zwiększa siłę nóg i równowagę na jednej nodze.",
+      "caution": "Przy schodzeniu stój jeden stopień niżej niż dziecko."
+    },
+    "2-3/14_marching": {
+      "title": "Maszerowanie",
+      "age": "24–36 mies.",
+      "how": "Włącz muzykę i zróbcie „paradę”: maszerujcie, wysoko unosząc kolana i machając rękami. Co jakiś czas wydawaj polecenia, np. „obróć się”, „podskocz”, „stop”.",
+      "duration": "5 minut.",
+      "benefit": "Rozwija koordynację, poczucie rytmu i wykonywanie poleceń."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Biegnij i stój",
+      "age": "24–36 mies.",
+      "how": "Na hasło „zielone światło” dziecko biegnie, na „czerwone światło” zastyga w miejscu. Możesz też narysować linię i poprosić, żeby zatrzymało się przed nią.",
+      "duration": "5–10 minut.",
+      "benefit": "Rozwija szybkość, hamowanie, kontrolę ciała i uwagę."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Ciągnięcie wózka",
+      "age": "24–36 mies.",
+      "how": "Załaduj zabawki do wózka; dziecko ciągnie go za rączkę i pokonuje zakręty.",
+      "duration": "5–10 minut.",
+      "benefit": "Wzmacnia mięśnie tułowia i nóg, uczy kierowania."
+    },
+    "2-3/07_tricycle": {
+      "title": "Rowerek trójkołowy",
+      "age": "30–36 mies.",
+      "how": "Posadź dziecko na rowerku trójkołowym i postaw jego stopy na pedałach. Na początku lekko popychaj od tyłu, żeby poczuło ruch pedałów.",
+      "duration": "10–15 minut.",
+      "benefit": "Rozwija naprzemienną pracę nóg, siłę i kierowanie.",
+      "caution": "Załóż dziecku kask; jeździjcie po płaskiej powierzchni, z dala od ulicy."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Raczkowanie pod stołem",
+      "age": "24–36 mies.",
+      "how": "Zbuduj „tunel” z niskiego stolika, krzeseł lub kartonu. Dziecko schyla głowę i przechodzi pod spodem na czworakach.",
+      "duration": "4–5 przejść.",
+      "benefit": "Rozwija siłę barków i tułowia oraz wyczucie rozmiarów własnego ciała."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Drabinka do wspinania",
+      "age": "24–36 mies.",
+      "how": "Na niskim trójkącie do wspinania lub na placu zabaw dziecko trzyma się rękami i wchodzi, stawiając stopy szczebel po szczeblu. Trzymaj dłonie w gotowości za jego pupą.",
+      "duration": "4–5 razy.",
+      "benefit": "Rozwija siłę całego ciała, siłę chwytu i odwagę.",
+      "caution": "Pod spodem ma być miękkie podłoże; nie zostawiaj dziecka samego."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Samodzielne zjeżdżanie",
+      "age": "24–36 mies.",
+      "how": "Dziecko samo wchodzi po drabince i zjeżdża na siedząco, nogami do przodu. Ty czekaj na dole.",
+      "duration": "6–8 razy.",
+      "benefit": "Rozwija wspinanie się, równowagę w siadzie i samodzielność.",
+      "caution": "Nie pozwalaj zjeżdżać głową w dół ani na brzuchu."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Zwis na drążku",
+      "age": "30–36 mies.",
+      "how": "Dziecko chwyta oburącz niski drążek (stopy kilka centymetrów nad ziemią) i wisi 3–5 sekund. Trzymaj je rękami w talii.",
+      "duration": "3–4 razy.",
+      "benefit": "Wzmacnia siłę rąk i barków oraz chwyt.",
+      "caution": "Nie podnoś dziecka za ręce i nie huśtaj go; pod spodem połóż matę."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Rzut znad głowy",
+      "age": "24–36 mies.",
+      "how": "Stańcie 1–2 m od siebie. Dziecko rzuca do Ciebie małą miękką piłkę znad barku.",
+      "duration": "8–10 rzutów.",
+      "benefit": "Rozwija technikę rzutu, siłę barków i celowanie."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Łapanie piłki",
+      "age": "30–36 mies.",
+      "how": "Z odległości 1 m delikatnie rzucaj dużą, lekką piłkę w stronę klatki piersiowej dziecka. Niech wyciągnie ręce do przodu i złapie piłkę, przyciskając ją do piersi.",
+      "duration": "8–10 razy.",
+      "benefit": "Rozwija koordynację oko–ręka i refleks."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Kopanie piłki z rozbiegu",
+      "age": "24–36 mies.",
+      "how": "Zrób „bramkę” z dwóch pachołków lub pudełek. Dziecko robi krok czy dwa w stronę piłki i ją kopie.",
+      "duration": "8–10 kopnięć.",
+      "benefit": "Rozwija równowagę na jednej nodze, koordynację stopy z okiem i siłę."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Rzucanie woreczkiem do obręczy",
+      "age": "24–36 mies.",
+      "how": "Połóż na podłodze obręcz lub miskę. Dziecko z odległości 1 kroku wrzuca do środka woreczki rzutem dołem; gdy się udaje, zwiększaj odległość.",
+      "duration": "8–10 rzutów.",
+      "benefit": "Uczy celnego rzucania i dozowania siły."
+    },
+    "2-3/27_bowling": {
+      "title": "Domowe kręgle",
+      "age": "24–36 mies.",
+      "how": "Ustaw 6 pustych plastikowych butelek w trójkąt. Dziecko kuca i turla piłkę oburącz, żeby je przewrócić.",
+      "duration": "5–6 rund.",
+      "benefit": "Rozwija celowanie, siłę w przysiadzie i czekanie na swoją kolej."
+    },
+    "2-3/24_balloon": {
+      "title": "Balon w powietrzu",
+      "age": "24–36 mies.",
+      "how": "Podrzuć balon. Dziecko odbija go ręką, nie pozwalając mu spaść na podłogę.",
+      "duration": "5–10 minut.",
+      "benefit": "Rozwija koordynację oko–ręka, sięganie w górę i refleks.",
+      "caution": "Kawałki pękniętego balonu od razu zbierz (ryzyko zadławienia)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "„Głowa, ramiona, kolana, pięty”",
+      "age": "24–36 mies.",
+      "how": "Przy piosence dotykajcie po kolei głowy, ramion, kolan i palców stóp. Stopniowo przyspieszajcie.",
+      "duration": "3–4 razy.",
+      "benefit": "Rozwija gibkość, koordynację i znajomość części ciała."
+    },
+    "2-3/15_spin": {
+      "title": "Kręcenie się",
+      "age": "24–36 mies.",
+      "how": "Dziecko rozkłada ręce na boki i powoli obraca się w miejscu; potem w przeciwną stronę.",
+      "duration": "2–3 obroty w każdą stronę.",
+      "benefit": "Rozwija zmysł równowagi (układ przedsionkowy) i kontrolę ciała.",
+      "caution": "Wokół nie może być przeszkód; gdy zakręci się w głowie, niech przestanie."
+    },
+    "2-3/17_frog_jump": {
+      "title": "Skoki „żabki”",
+      "age": "30–36 mies.",
+      "how": "Dziecko robi głęboki przysiad, kładzie ręce na podłodze między kolanami i skacze do przodu jak żabka.",
+      "duration": "5–6 skoków.",
+      "benefit": "Zwiększa siłę mięśni nóg i pośladków oraz ruchomość bioder."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "„Taczka”",
+      "age": "30–36 mies.",
+      "how": "Dziecko opiera ręce o podłogę. Chwyć je za uda (powyżej kolan) i unieś jego nogi; niech zrobi kilka „kroków” na rękach.",
+      "duration": "3–5 kroków, 2–3 razy.",
+      "benefit": "Wzmacnia mięśnie rąk, barków i tułowia.",
+      "caution": "Trzymaj za uda, nie za kostki; jeśli plecy się zapadają albo dziecko się męczy, przestańcie."
+    },
+    "2-3/21_log_roll": {
+      "title": "Turlanie się jak „kłoda”",
+      "age": "24–36 mies.",
+      "how": "Dziecko leży prosto na macie, wyciąga ręce nad głowę i turla się na bok; potem w drugą stronę.",
+      "duration": "3–4 obroty w każdą stronę.",
+      "benefit": "Rozwija mięśnie tułowia, czucie ciała i zmysł równowagi."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "Rozciąganie „motylek”",
+      "age": "24–36 mies.",
+      "how": "Dziecko siada, łączy stopy podeszwami, trzyma je rękami i lekko porusza kolanami w górę i w dół jak „skrzydłami”.",
+      "duration": "20–30 sekund.",
+      "benefit": "Zwiększa elastyczność bioder, wycisza po ćwiczeniach.",
+      "caution": "Nie dociskaj kolan rękami."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Skoki na jednej nodze",
+      "age": "3,5–4 lata",
+      "how": "Dziecko zgina jedną nogę do tyłu i skacze na drugiej w miejscu albo do przodu. Na początku trzymaj je za rękę. Zmieniajcie nogi.",
+      "duration": "3–5 skoków na każdej nodze.",
+      "benefit": "Rozwija siłę nóg, równowagę i koordynację."
+    },
+    "3-4/02_long_jump": {
+      "title": "Skok w dal z miejsca",
+      "age": "3–4 lata",
+      "how": "Narysuj linię na podłodze. Dziecko ugina kolana, wymachuje rękami i skacze obunóż jak najdalej. Zaznaczcie miejsce lądowania i bijcie „rekord”.",
+      "duration": "5–6 prób.",
+      "benefit": "Zwiększa siłę eksplozywną nóg i współpracę rąk z nogami."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Skoki przez przeszkodę",
+      "age": "3–4 lata",
+      "how": "Ustaw miękką przeszkodę o wysokości 10–15 cm (piankowy wałek, zwinięty ręcznik). Dziecko przeskakuje przez nią obunóż.",
+      "duration": "6–8 razy.",
+      "benefit": "Rozwija wysokość skoku, odwagę i miękkie lądowanie.",
+      "caution": "Przeszkoda musi łatwo się przewracać, gdy dziecko o nią zahaczy."
+    },
+    "3-4/04_hopscotch": {
+      "title": "„Klasy”",
+      "age": "3,5–4 lata",
+      "how": "Narysuj kredą pola na ziemi: jedno pole, potem dwa obok siebie. Na pojedyncze pole dziecko skacze na jednej nodze, na podwójne obunóż. Na początku może wszystko skakać obunóż.",
+      "duration": "4–5 przejść.",
+      "benefit": "Uczy równowagi, rytmu i zmiany nóg."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Skoki z obręczy do obręczy",
+      "age": "3–4 lata",
+      "how": "Rozłóż na podłodze 3–5 obręczy. Dziecko skacze obunóż z jednej do drugiej.",
+      "duration": "4–5 przejść.",
+      "benefit": "Rozwija skoki seriami, precyzję i wytrzymałość."
+    },
+    "3-4/19_leap_river": {
+      "title": "Skok przez „rzekę”",
+      "age": "3–4 lata",
+      "how": "Połóż na podłodze niebieski materiał albo dwa sznurki i zrób z nich „rzekę”. Dziecko z rozbiegu odbija się jedną nogą i ląduje na drugiej, przeskakując ją. Stopniowo poszerzajcie „rzekę”.",
+      "duration": "6–8 razy.",
+      "benefit": "Rozwija skok w dużym kroku, siłę i ocenę odległości."
+    },
+    "3-4/25_star_jump": {
+      "title": "Skok „gwiazda”",
+      "age": "3,5–4 lata",
+      "how": "Dziecko podskakuje, w powietrzu rozkłada ręce i nogi na boki („gwiazda”), a potem ląduje ze złączonymi nogami.",
+      "duration": "5–8 razy.",
+      "benefit": "Rozwija jednoczesną pracę rąk i nóg oraz wytrzymałość."
+    },
+    "3-4/05_gallop": {
+      "title": "„Galop koników”",
+      "age": "3–4 lata",
+      "how": "Jedna noga zawsze z przodu, druga ją dogania: „galopujemy jak koniki”. Potem zmieńcie nogę prowadzącą.",
+      "duration": "3–4 przejścia przez pokój.",
+      "benefit": "Rozwija rytm, koordynację i wytrzymałość."
+    },
+    "3-4/06_tree_balance": {
+      "title": "Pozycja „drzewo”",
+      "age": "3–4 lata",
+      "how": "Dziecko opiera podeszwę jednej stopy o łydkę drugiej nogi, rozkłada ręce na boki i stoi tak 3–5 sekund. Zmieńcie nogi.",
+      "duration": "3 razy na każdą nogę.",
+      "benefit": "Wzmacnia równowagę, skupienie i mięśnie stawów skokowych."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Chodzenie po linii pięta–palce",
+      "age": "3,5–4 lata",
+      "how": "Przyklej taśmę na podłodze. Dziecko idzie po taśmie, dotykając piętą przedniej stopy palców tylnej stopy.",
+      "duration": "3–4 przejścia.",
+      "benefit": "Rozwija precyzyjną równowagę i kontrolę ciała."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Równoważnia",
+      "age": "3–4 lata",
+      "how": "Dziecko samodzielnie idzie z rozłożonymi rękami po szerokiej belce na wysokości 10 cm nad podłogą. Idź obok niego.",
+      "duration": "4–5 przejść.",
+      "benefit": "Rozwija równowagę, odwagę i skupienie.",
+      "caution": "Pod spodem ma leżeć miękka mata."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Schodzenie po schodach naprzemiennie",
+      "age": "3,5–4 lata",
+      "how": "Dziecko, trzymając się poręczy, schodzi, stawiając na każdym stopniu jedną stopę.",
+      "duration": "2–3 razy.",
+      "benefit": "Rozwija siłę nóg, równowagę i kontrolowane schodzenie.",
+      "caution": "Stój jeden stopień niżej niż dziecko."
+    },
+    "3-4/10_scooter": {
+      "title": "Hulajnoga",
+      "age": "3–4 lata",
+      "how": "Na trójkołowej hulajnodze dziecko stawia jedną stopę na podeście, a drugą odpycha się od ziemi. Naucz je zmieniać nogi.",
+      "duration": "10–15 minut.",
+      "benefit": "Rozwija równowagę, siłę nóg i kierowanie.",
+      "caution": "Kask i pełne buty to podstawa; jeździjcie po płaskiej powierzchni, z dala od ulicy."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Rowerek biegowy",
+      "age": "3–4 lata",
+      "how": "Dziecko siedzi na rowerku bez pedałów i jedzie, odpychając się nogami od ziemi. Gdy nabierze prędkości, niech unosi nogi i próbuje utrzymać równowagę.",
+      "duration": "10–15 minut.",
+      "benefit": "Rozwija równowagę, ułatwia przejście na rower z pedałami.",
+      "caution": "Kask i pełne buty to podstawa; siodełko ustaw tak, żeby stopy całe dotykały ziemi."
+    },
+    "3-4/17_tag": {
+      "title": "Berek",
+      "age": "3–4 lata",
+      "how": "Goń dziecko i lekko je dotknij; potem niech ono goni Ciebie. Często zmieniajcie kierunek.",
+      "duration": "5–10 minut z przerwami.",
+      "benefit": "Rozwija szybkość, zwinność, wytrzymałość i refleks."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Łapanie piłki po odbiciu",
+      "age": "3–4 lata",
+      "how": "Odbij piłkę od podłogi przed dzieckiem tak, żeby po jednym odbiciu trafiła mu do rąk. Dziecko łapie ją obiema rękami.",
+      "duration": "8–10 razy.",
+      "benefit": "Rozwija koordynację oko–ręka i przewidywanie toru piłki."
+    },
+    "3-4/13_target_throw": {
+      "title": "Rzut do celu",
+      "age": "3–4 lata",
+      "how": "Powieś na ścianie lub stojaku kolorową okrągłą tarczę. Dziecko rzuca w nią miękką piłką z odległości 1,5–2 m.",
+      "duration": "8–10 rzutów.",
+      "benefit": "Rozwija celność rzutu, siłę barków i skupienie."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Prowadzenie piłki slalomem",
+      "age": "3,5–4 lata",
+      "how": "Ustaw w rzędzie 3–4 pachołki (albo butelki). Dziecko lekko kopie piłkę i prowadzi ją między nimi slalomem.",
+      "duration": "3–4 przejścia.",
+      "benefit": "Rozwija koordynację stopy z okiem, kontrolę piłki i zmianę kierunku."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Odbij i złap",
+      "age": "3,5–4 lata",
+      "how": "Dziecko odbija oburącz średnią piłkę od podłogi i łapie ją, gdy podskoczy.",
+      "duration": "8–10 razy.",
+      "benefit": "Rozwija dozowanie siły rąk, rytm i koordynację oko–ręka."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Balon i papierowy talerzyk",
+      "age": "3–4 lata",
+      "how": "Dziecko trzyma papierowy talerzyk jak rakietkę, odbija nim balon w górę i nie pozwala mu spaść. Potem odbijajcie go do siebie.",
+      "duration": "5–10 minut.",
+      "benefit": "Rozwija uderzanie przyborem, koordynację oko–ręka i refleks.",
+      "caution": "Kawałki pękniętego balonu od razu zbierz."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Przewrót w przód z asekuracją",
+      "age": "3,5–4 lata",
+      "how": "Na grubej macie dziecko kuca, kładzie ręce na podłodze, przyciska brodę do klatki piersiowej i unosi pupę. Jedną ręką chroń jego kark, a drugą lekko przetocz je za pupę, żeby przeturlało się po plecach.",
+      "duration": "3–4 razy.",
+      "benefit": "Rozwija czucie ciała, odwagę i mięśnie tułowia.",
+      "caution": "Ciężar ciała nie może spocząć na czubku głowy; broda zawsze przy klatce piersiowej. Tylko na miękkiej macie i z asekuracją."
+    },
+    "3-4/21_crab_walk": {
+      "title": "Chód „kraba”",
+      "age": "3,5–4 lata",
+      "how": "Dziecko siada, opiera ręce na podłodze z tyłu, a stopy z przodu, unosi pupę i w tej pozycji idzie do przodu i do tyłu.",
+      "duration": "2–3 krótkie przejścia.",
+      "benefit": "Wzmacnia mięśnie rąk, barków, pośladków i tułowia."
+    },
+    "3-4/22_bridge": {
+      "title": "„Mostek”",
+      "age": "3–4 lata",
+      "how": "Dziecko leży na plecach, ugina kolana, opiera stopy o podłogę i unosi pupę, utrzymując ją w górze 3–5 sekund. Możesz przejechać pod spodem autkiem.",
+      "duration": "5–6 powtórzeń.",
+      "benefit": "Wzmacnia mięśnie pośladków, odcinka lędźwiowego i tylnej strony ud."
+    },
+    "3-4/23_superman": {
+      "title": "„Superman”",
+      "age": "3–4 lata",
+      "how": "Dziecko leży na brzuchu z rękami wyciągniętymi do przodu, potem jednocześnie unosi lekko ręce i nogi i „leci” przez 3 sekundy.",
+      "duration": "4–5 powtórzeń.",
+      "benefit": "Wzmacnia mięśnie pleców, wspiera prawidłową postawę."
+    },
+    "3-4/24_downward_dog": {
+      "title": "Pozycja „pies z głową w dół”",
+      "age": "3–4 lata",
+      "how": "Dziecko opiera ręce i stopy o podłogę i unosi pupę wysoko („góra” albo „przeciągamy się jak piesek”). Utrzymuje pozycję 5 sekund.",
+      "duration": "3–4 powtórzenia.",
+      "benefit": "Wzmacnia ręce i barki, rozciąga mięśnie tylnej strony nóg."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Przeciąganie liny",
+      "age": "3–4 lata",
+      "how": "Dziecko trzyma jeden koniec miękkiej liny, Ty drugi. Dziecko ugina kolana, odchyla się do tyłu i ciągnie; dopasuj swoją siłę do jego siły.",
+      "duration": "3–4 rundy.",
+      "benefit": "Wzmacnia mięśnie rąk, pleców, tułowia i nóg.",
+      "caution": "Nie puszczaj liny nagle i nie owijajcie jej wokół dłoni."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "Klaśnij, tupnij",
+      "age": "3–4 lata",
+      "how": "Ruszajcie się przy piosence: „Jeśli szczęśliwy jesteś, klaśnij w dłonie”, „tupnij nogą”, „obróć się”, „podskocz”. Zmieniajcie ruchy po kolei.",
+      "duration": "5 minut.",
+      "benefit": "Rozwija poczucie rytmu, wykonywanie poleceń i koordynację."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Kółka wstążką",
+      "age": "3–4 lata",
+      "how": "Dziecko trzyma w ręce długą wstążkę przywiązaną do patyczka i rysuje w powietrzu duże koła, fale i „ósemki”. Zmieniajcie ręce.",
+      "duration": "3–5 minut.",
+      "benefit": "Rozwija ruchomość barków, kontrolę nadgarstka i koordynację obu stron ciała."
+    },
+    "4-5/01_skipping": {
+      "title": "Krok podskokowy",
+      "age": "4,5–5 lat",
+      "how": "Pokaż rytm „krok i hop”: zrób krok jedną nogą i podskocz na tej samej nodze, potem to samo drugą nogą. Złapcie się za ręce i róbcie to razem.",
+      "duration": "3–4 przejścia przez pokój lub podwórko.",
+      "benefit": "Rozwija rytm, naprzemienną pracę obu stron ciała i koordynację."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Skakanka",
+      "age": "4,5–5 lat",
+      "how": "Najpierw naucz przeskakiwania przez skakankę leżącą na ziemi, potem przerzucania jej nad głową do przodu i przechodzenia nad nią. Skakanie seriami przychodzi stopniowo.",
+      "duration": "5–10 prób.",
+      "benefit": "Rozwija rytm, współpracę rąk i nóg oraz wytrzymałość.",
+      "caution": "Długość skakanki ma pasować do dziecka (gdy stanie na jej środku, rączki powinny sięgać pach)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Skoki bokiem przez linię",
+      "age": "4–5 lat",
+      "how": "Przyklej taśmę na podłodze. Dziecko skacze obunóż raz na jedną, raz na drugą stronę taśmy, bez przerwy.",
+      "duration": "8–10 skoków.",
+      "benefit": "Rozwija zwinność w bok, siłę stawów skokowych i rytm."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Skoki na jednej nodze przez obręcze",
+      "age": "4–5 lat",
+      "how": "Ułóż w rzędzie 4–5 obręczy. Dziecko skacze na jednej nodze z obręczy do obręczy; wracając, zmienia nogę.",
+      "duration": "2–3 przejścia na każdej nodze.",
+      "benefit": "Rozwija siłę jednej nogi, równowagę i precyzję."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Zeskok ze skrzyni i miękkie lądowanie",
+      "age": "4–5 lat",
+      "how": "Dziecko zeskakuje ze stabilnej skrzyni na wysokość kolan na grubą matę i ląduje „cicho” na obu nogach, uginając kolana. Ręce z przodu.",
+      "duration": "5–6 razy.",
+      "benefit": "Rozwija prawidłową technikę lądowania, siłę nóg i odwagę.",
+      "caution": "Skrzynia nie może się przesuwać; nie zwiększaj wysokości."
+    },
+    "4-5/06_bicycle": {
+      "title": "Rower z bocznymi kółkami",
+      "age": "4–5 lat",
+      "how": "Dziecko jedzie, kręcąc pedałami, i uczy się skręcać oraz hamować. Gdy równowaga się poprawi, można zdjąć boczne kółka.",
+      "duration": "15–20 minut.",
+      "benefit": "Rozwija siłę nóg, wytrzymałość, równowagę i wyczucie drogi.",
+      "caution": "Kask i pełne buty to podstawa; jeździjcie po płaskiej powierzchni, z dala od ulicy."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Bieg wahadłowy",
+      "age": "4–5 lat",
+      "how": "W odległości 4–5 m postaw wiaderko i kilka woreczków. Dziecko biegnie, bierze jeden woreczek, wraca biegiem, wrzuca go do wiaderka i powtarza, aż przeniesie wszystkie.",
+      "duration": "2–3 rundy.",
+      "benefit": "Rozwija szybkość, szybką zmianę kierunku, schylanie się i wstawanie oraz wytrzymałość."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "Zabawa w „posągi”",
+      "age": "4–5 lat",
+      "how": "Gdy gra muzyka, dziecko tańczy lub biega; gdy muzyka cichnie, zastyga jak posąg i stara się nie ruszać.",
+      "duration": "5–10 minut.",
+      "benefit": "Rozwija kontrolę ciała, równowagę, uwagę i panowanie nad sobą."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "„Nogę w środek, nogę w bok”",
+      "age": "4–5 lat",
+      "how": "Połóż na podłodze obręcz. Przy piosence dziecko po kolei wkłada do obręczy i wyjmuje jedną nogę, rękę, głowę, a potem się obraca.",
+      "duration": "5 minut.",
+      "benefit": "Rozwija równowagę na jednej nodze, rozróżnianie prawej i lewej strony oraz wykonywanie poleceń."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Łapanie małej piłki dłońmi",
+      "age": "4–5 lat",
+      "how": "Z odległości 1,5–2 m delikatnie rzucaj małą miękką piłkę. Dziecko łapie ją samymi dłońmi, nie przyciskając do piersi.",
+      "duration": "10 razy.",
+      "benefit": "Rozwija koordynację oko–ręka i zręczność palców."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Podrzuć i złap",
+      "age": "4–5 lat",
+      "how": "Dziecko samo podrzuca woreczek lub miękką piłkę i łapie oburącz. Potem dodajcie jedno klaśnięcie w trakcie lotu.",
+      "duration": "10 razy.",
+      "benefit": "Rozwija dozowanie siły, śledzenie wzrokiem i refleks."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Kozłowanie piłki",
+      "age": "4,5–5 lat",
+      "how": "Dziecko lekko ugina kolana i odbija piłkę od podłogi jedną ręką, raz za razem. Najpierw 2–3 razy, potem więcej. Zmieniajcie ręce.",
+      "duration": "3–4 próby każdą ręką.",
+      "benefit": "Rozwija rytm, kontrolę siły dłoni i koordynację oko–ręka."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Strzał na bramkę",
+      "age": "4–5 lat",
+      "how": "Zrób małą bramkę (albo połóż dwa przedmioty). Dziecko kopie piłkę do bramki z odległości 2–3 m; potem spróbujcie kopać toczącą się piłkę.",
+      "duration": "10 strzałów.",
+      "benefit": "Rozwija koordynację stopy z okiem, równowagę i celność strzału."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Uderzanie piłki na stojaku",
+      "age": "4–5 lat",
+      "how": "Połóż miękką piłkę na niskim stojaku. Dziecko staje bokiem, trzyma lekki plastikowy kij oburącz i uderza w piłkę.",
+      "duration": "8–10 uderzeń.",
+      "benefit": "Rozwija skręt tułowia, koordynację oko–ręka i uderzanie przyborem.",
+      "caution": "W pobliżu nie może być innych dzieci; tylko miękka piłka i plastikowy kij."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Rzut do kosza",
+      "age": "4–5 lat",
+      "how": "Dziecko rzuca oburącz lekką piłkę do kosza zawieszonego trochę wyżej niż jego wzrost. Gdy się udaje, niech cofnie się o krok.",
+      "duration": "10 rzutów.",
+      "benefit": "Rozwija siłę rzutu w górę, celność i współpracę nóg z rękami."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Rzut kółkami",
+      "age": "4–5 lat",
+      "how": "Dziecko z odległości 1–1,5 m próbuje narzucić kółka na pionowy palik.",
+      "duration": "2–3 rundy.",
+      "benefit": "Rozwija precyzję, kontrolę nadgarstka i cierpliwość."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "Pozycja „samolot”",
+      "age": "4–5 lat",
+      "how": "Dziecko staje na jednej nodze, pochyla tułów do przodu, drugą nogę wyciąga do tyłu, a ręce rozkłada jak skrzydła. Utrzymuje 3–5 sekund i zmienia nogę.",
+      "duration": "3 razy na każdą nogę.",
+      "benefit": "Wzmacnia równowagę oraz mięśnie tułowia i pośladków."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Przeszkoda na równoważni",
+      "age": "4–5 lat",
+      "how": "Połóż woreczek na niskiej równoważni. Dziecko idzie po belce i przekracza woreczek.",
+      "duration": "4–5 przejść.",
+      "benefit": "Rozwija równowagę w ruchu, skupienie i wysokie unoszenie nogi.",
+      "caution": "Pod spodem ma leżeć miękka mata; idź obok dziecka."
+    },
+    "4-5/19_stork_stand": {
+      "title": "Pozycja „bocian”",
+      "age": "4–5 lat",
+      "how": "Dziecko kładzie ręce na biodrach, staje na jednej nodze, a drugą unosi przed kolano. Spróbujcie razem policzyć do 8–10 sekund.",
+      "duration": "2–3 razy na każdą nogę.",
+      "benefit": "Rozwija równowagę statyczną i skupienie."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Kręcenie hula-hop w talii",
+      "age": "4,5–5 lat",
+      "how": "Dziecko opiera obręcz o talię, wprawia ją w ruch i stara się utrzymać ją w obrocie, poruszając biodrami w przód i w tył. Na początek wystarczy kilka obrotów.",
+      "duration": "5 minut.",
+      "benefit": "Rozwija mięśnie tułowia, rytm i koordynację."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Samodzielny przewrót w przód",
+      "age": "4–5 lat",
+      "how": "Na grubej macie dziecko kuca, kładzie ręce na podłodze, przyciska brodę do klatki piersiowej, odpycha się nogami, przetacza się po zaokrąglonych plecach i wstaje do przysiadu.",
+      "duration": "3–5 razy.",
+      "benefit": "Rozwija czucie ciała, zwinność i mięśnie tułowia.",
+      "caution": "Ciężar ciała nie może spocząć na czubku głowy; broda zawsze przy klatce piersiowej. Na początku ucz z asekuracją."
+    },
+    "4-5/21_plank": {
+      "title": "Deska",
+      "age": "4–5 lat",
+      "how": "Dziecko opiera się na łokciach i palcach stóp, a ciało od głowy do pięt tworzy prostą linię. Utrzymuje pozycję 5–10 sekund.",
+      "duration": "2–3 razy.",
+      "benefit": "Wzmacnia mięśnie brzucha, pleców i barków.",
+      "caution": "Gdy plecy się zapadają, niech przestanie."
+    },
+    "4-5/22_chair_squat": {
+      "title": "Przysiad na „niewidzialnym krześle”",
+      "age": "4–5 lat",
+      "how": "Dziecko staje w rozkroku na szerokość barków, wyciąga ręce do przodu, kuca, jakby siadało na krześle, i wstaje. Pięty zostają na podłodze.",
+      "duration": "6–8 powtórzeń.",
+      "benefit": "Wzmacnia mięśnie nóg i pośladków."
+    },
+    "4-5/23_boat_pose": {
+      "title": "Pozycja „łódka”",
+      "age": "4–5 lat",
+      "how": "Dziecko siada, lekko odchyla się do tyłu, ugina kolana i unosi stopy nad podłogę, wyciągając ręce do przodu. Utrzymuje równowagę 5 sekund.",
+      "duration": "3–4 powtórzenia.",
+      "benefit": "Wzmacnia mięśnie brzucha i równowagę."
+    },
+    "4-5/24_cobra": {
+      "title": "Rozciąganie „kobra”",
+      "age": "4–5 lat",
+      "how": "Dziecko leży na brzuchu, kładzie dłonie pod barkami i unosi klatkę piersiową; biodra zostają na podłodze. Utrzymuje 5 sekund.",
+      "duration": "3–4 powtórzenia.",
+      "benefit": "Wzmacnia mięśnie pleców, rozciąga brzuch i klatkę piersiową.",
+      "caution": "Nie wyginaj pleców na siłę."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Skłon w siadzie rozkrocznym",
+      "age": "4–5 lat",
+      "how": "Dziecko siada z szeroko rozstawionymi nogami i sięga do przodu, przesuwając dłonie po podłodze. Utrzymuje 10 sekund, bez sprężynowania.",
+      "duration": "3 powtórzenia.",
+      "benefit": "Zwiększa elastyczność mięśni wewnętrznej i tylnej strony ud."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Przechodzenie po drabince poziomej",
+      "age": "4,5–5 lat",
+      "how": "Dziecko zwisa na niskiej drabince poziomej i na zmianę przekłada ręce na kolejny szczebel. Trzymaj je w talii i przejmij część jego ciężaru.",
+      "duration": "2–3 próby.",
+      "benefit": "Rozwija siłę dłoni, rąk i barków oraz chwyt.",
+      "caution": "Pod spodem ma być miękkie podłoże; dłonie nie mogą być mokre."
+    },
+    "4-5/27_climbing_net": {
+      "title": "Wspinanie się po siatce linowej",
+      "age": "4–5 lat",
+      "how": "Na placu zabaw albo w domu, na niskiej siatce, dziecko chwyta się rękami wyżej, na zmianę stawia stopy, wspina się i schodzi tą samą drogą.",
+      "duration": "3–4 razy.",
+      "benefit": "Rozwija siłę całego ciała, koordynację i odwagę.",
+      "caution": "Pod spodem ma być miękkie podłoże; stój obok."
+    }
+  }
+}

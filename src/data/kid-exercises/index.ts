@@ -17,8 +17,25 @@ const json = (p: Promise<unknown>) => p as Promise<Json<KidExLocale>>;
 
 export const KIDEX_LANGUAGE_LOADERS: Record<string, () => Promise<Json<KidExLocale>>> = {
   az: async () => ({ default: { ui: KIDEX_UI_AZ, sets: {}, groups: {}, exercises: {} } }),
+  en: () => json(import('./en.json')),
+  ru: () => json(import('./ru.json')),
+  tr: () => json(import('./tr.json')),
+  fr: () => json(import('./fr.json')),
+  es: () => json(import('./es.json')),
+  id: () => json(import('./id.json')),
+  pt: () => json(import('./pt.json')),
+  vi: () => json(import('./vi.json')),
+  hi: () => json(import('./hi.json')),
+  ja: () => json(import('./ja.json')),
+  ko: () => json(import('./ko.json')),
+  pl: () => json(import('./pl.json')),
+  nl: () => json(import('./nl.json')),
+  sv: () => json(import('./sv.json')),
+  et: () => json(import('./et.json')),
+  de: () => json(import('./de.json')),
+  kk: () => json(import('./kk.json')),
+  ar: () => json(import('./ar.json')),
 };
-void json;
 
 export interface KidExContent { language: string; ui: KidExUiText; sets: KidExerciseSet[]; exercises: KidExercise[] }
 

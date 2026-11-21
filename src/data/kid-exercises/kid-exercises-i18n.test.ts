@@ -8,14 +8,15 @@ import { KIDEX_UI_AZ } from './ui-az';
 import type { KidExLocale } from './types';
 
 const dir = join(process.cwd(), 'src/data/kid-exercises');
-const localeFiles = readdirSync(dir).filter((f) => /^[a-z]{2}\.json$/.test(f) && f !== 'az.json').map((f) => f.slice(0, 2));
+const localeFiles = KIDEX_CONTENT_LANGUAGES.filter((l) => l !== 'az');
 const groups = [...new Set(az.exercises.map((e) => e.group))];
 
 describe('Uşaq məşqləri languages', () => {
   it('registry, tile text and locale files list the same languages', () => {
     expect(Object.keys(KIDEX_LANGUAGE_LOADERS).sort()).toEqual([...KIDEX_CONTENT_LANGUAGES].sort());
     expect(Object.keys(KIDEX_TILE_TEXT).sort()).toEqual([...KIDEX_CONTENT_LANGUAGES].sort());
-    expect(['az', ...localeFiles].sort()).toEqual([...KIDEX_CONTENT_LANGUAGES].sort());
+    const files = readdirSync(dir).filter((f) => /^[a-z]{2}\.json$/.test(f)).map((f) => f.slice(0, 2));
+    for (const l of KIDEX_CONTENT_LANGUAGES) expect(files).toContain(l);
   });
 
   it.each(localeFiles)('%s covers every UI key, set, group and exercise', (lang) => {

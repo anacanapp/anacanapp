@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Ejercicios para niños",
+    "tileDesc": "Ejercicios de movimiento ilustrados de 0 a 5 años",
+    "title": "Ejercicios para niños",
+    "eyebrow": "Movimiento y desarrollo",
+    "ageFor": "Para {name}",
+    "today": "Hoy",
+    "doneCount": "{n} ejercicios",
+    "weekHint": "Últimos 7 días: cada punto es un día en que hicieron ejercicios.",
+    "picksTitle": "Ejercicios de hoy",
+    "picksSub": "Cada día, tres ejercicios nuevos adecuados a su edad.",
+    "allTitle": "Todos los ejercicios",
+    "count": "{n} ejercicios",
+    "nowBadge": "Edad actual",
+    "search": "Buscar ejercicio",
+    "all": "Todos",
+    "favs": "Favoritos",
+    "noFavs": "Toca el corazón para añadir ejercicios a favoritos.",
+    "noResults": "No se encontraron ejercicios.",
+    "rules": "Normas generales",
+    "safetyNote": "Estos ejercicios son información general y no sustituyen la consulta médica. Si tu hijo nació prematuro, tiene algún problema de salud o te preocupa su desarrollo, consulta primero con el pediatra o con un fisioterapeuta infantil.",
+    "age": "Edad",
+    "duration": "Duración",
+    "how": "Cómo se hace",
+    "benefit": "Beneficios",
+    "caution": "Atención",
+    "timer": "Cronómetro",
+    "start": "Iniciar",
+    "pause": "Pausa",
+    "reset": "Reiniciar",
+    "done": "¡Hecho!",
+    "doneToday": "Hecho hoy",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "fav": "Añadir a favoritos",
+    "unfav": "Quitar de favoritos",
+    "close": "Cerrar"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 año",
+      "months": "0–12 meses",
+      "rules": [
+        "Haz los ejercicios cuando el bebé esté despierto, tranquilo y sin la barriga llena (al menos 30–40 minutos después de comer).",
+        "Practica sobre una superficie firme, plana y limpia (una alfombra o colchoneta en el suelo); nunca dejes al bebé solo en un lugar alto.",
+        "Los movimientos deben ser lentos y suaves. Nunca uses la fuerza ni tires de sus brazos o piernas.",
+        "Si el bebé llora, está inquieto o cansado, para de inmediato.",
+        "Los rangos de edad son orientativos; cada bebé se desarrolla a su propio ritmo.",
+        "Si el bebé nació prematuro o tiene algún problema de salud, consulta primero con el pediatra."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 años",
+      "months": "12–24 meses",
+      "rules": [
+        "A esta edad, hacer ejercicio es jugar: no obligues a tu hijo, muéstrale tú el movimiento y háganlo juntos.",
+        "Se recomiendan al día al menos 30 minutos de actividad física guiada y 1 hora o más de juego libre en movimiento.",
+        "Haz la habitación segura: sin esquinas afiladas, alfombras que resbalen ni muebles que puedan volcarse. Mejor descalzo o con calcetines antideslizantes.",
+        "En escaleras y toboganes, y cuando trepe o salte, quédate siempre al alcance de la mano.",
+        "Cuando juegue con objetos pequeños (pelotas, cubos), fíjate en su tamaño: nunca le des nada que le quepa en la boca.",
+        "Los rangos de edad son orientativos. Si a los 18 meses tu hijo todavía no camina solo, consulta al pediatra."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 años",
+      "months": "24–36 meses",
+      "rules": [
+        "A esta edad, el ejercicio es juego: muéstrale tú el movimiento, háganlo juntos y acompáñenlo con canciones y cuentos.",
+        "Se recomiendan al día al menos 1 hora de actividad física guiada y 2 horas o más de juego libre en movimiento.",
+        "Haz segura la casa y el patio: sin suelos resbaladizos, esquinas afiladas ni objetos que puedan volcarse.",
+        "Cuando salte, trepe, se cuelgue o se tire por el tobogán, quédate al alcance de la mano; elige una superficie blanda.",
+        "No lo agotes: juegos cortos, pausas frecuentes y agua.",
+        "Los rangos de edad son orientativos; cada niño se desarrolla a su propio ritmo. Si algo te preocupa, consulta al pediatra."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 años",
+      "months": "36–48 meses",
+      "rules": [
+        "El ejercicio sigue siendo juego: muéstrale tú el movimiento, háganlo juntos y añadan retos y cuentos.",
+        "Se recomiendan al día al menos 1 hora de actividad física guiada y 2 horas o más de juego libre en movimiento, al aire libre siempre que se pueda.",
+        "Elige un lugar seguro: suelo antideslizante, colchoneta blanda y sin esquinas afiladas alrededor.",
+        "En cualquier vehículo con ruedas (patinete, bicicleta), ponle siempre casco.",
+        "En volteretas, barra de equilibrio y trepa, quédate a su lado.",
+        "No lo agotes: juegos cortos, pausas frecuentes y agua.",
+        "Los rangos de edad son orientativos; cada niño se desarrolla a su propio ritmo. Si algo te preocupa, consulta al pediatra."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 años",
+      "months": "48–60 meses",
+      "rules": [
+        "El ejercicio debe ser un juego: muéstrale tú el movimiento, háganlo juntos y añadan pequeñas competiciones y “récords”.",
+        "Se recomiendan al día al menos 1 hora de actividad física guiada y 2 horas o más de juego libre en movimiento, al aire libre siempre que se pueda.",
+        "Elige un lugar seguro: suelo antideslizante, colchoneta blanda y sin esquinas afiladas alrededor.",
+        "En bicicleta y patinete, ponle siempre casco y calzado cerrado.",
+        "Durante las volteretas, los saltos desde altura, la trepa y al colgarse, quédate a su lado.",
+        "En los ejercicios de fuerza (plancha, sentadillas) importa la calidad, no la duración: para en cuanto se pierda la postura correcta.",
+        "Los rangos de edad son orientativos; cada niño se desarrolla a su propio ritmo. Si algo te preocupa, consulta al pediatra."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 meses",
+    "3–6 ay": "3–6 meses",
+    "6–9 ay": "6–9 meses",
+    "9–12 ay": "9–12 meses",
+    "12–15 ay": "12–15 meses",
+    "15–18 ay": "15–18 meses",
+    "18–24 ay": "18–24 meses",
+    "Hoppanma və tarazlıq": "Saltos y equilibrio",
+    "Yerimə, qaçış və dırmaşma": "Caminar, correr y trepar",
+    "Topla oyunlar": "Juegos de pelota",
+    "Gimnastika və təqlid oyunları": "Gimnasia y juegos de imitación",
+    "Hoppanma": "Saltos",
+    "Tarazlıq": "Equilibrio",
+    "Təkərli vasitələr və qaçış": "Vehículos con ruedas y carrera",
+    "Güc və gimnastika": "Fuerza y gimnasia",
+    "Ritm və koordinasiya": "Ritmo y coordinación",
+    "Hoppanma və tullanma": "Saltos y brincos",
+    "Qaçış, velosiped və ritm oyunları": "Carrera, bicicleta y juegos de ritmo"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Boca abajo",
+      "age": "desde el nacimiento",
+      "how": "Acuesta al bebé boca abajo sobre una colchoneta, con los codos doblados y los brazos junto a la cabeza. Pon con suavidad una mano en su espalda y la otra en sus nalgas. Háblale para animarlo a levantar la cabeza.",
+      "duration": "2–3 veces al día, 1–3 minutos; ve aumentando poco a poco.",
+      "benefit": "Fortalece los músculos del cuello, los hombros y la espalda, y evita que la parte posterior de la cabeza se aplane.",
+      "caution": "Solo mientras está despierto y bajo vigilancia. Para dormir, acuesta siempre al bebé boca arriba."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Boca abajo sobre tu pecho",
+      "age": "0–2 meses",
+      "how": "Recuéstate en posición semiacostada, apoyándote en un cojín. Coloca al bebé boca abajo sobre tu pecho, con una mano en su espalda y la otra en sus nalgas. Háblale para que mire tu cara.",
+      "duration": "Varias veces al día, 2–5 minutos.",
+      "benefit": "Es la forma más suave de acostumbrarlo a estar boca abajo; lo anima a levantar la cabeza y refuerza el vínculo.",
+      "caution": "No hagas este ejercicio si tienes sueño."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Boca abajo sobre tus rodillas",
+      "age": "0–3 meses",
+      "how": "Siéntate y acuesta al bebé boca abajo, atravesado sobre tus muslos. Mantén una mano en su espalda y la otra en sus nalgas. Puedes acariciarle la espalda con suavidad.",
+      "duration": "2–3 minutos.",
+      "benefit": "Trabaja los músculos del cuello, ayuda a expulsar los gases y calma al bebé."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Seguir un juguete con la mirada",
+      "age": "0–3 meses",
+      "how": "El bebé está boca arriba. Sostén un juguete de colores vivos a 20–30 cm de su cara y muévelo despacio de un lado a otro. Dale tiempo para que lo siga con los ojos y la cabeza.",
+      "duration": "1–2 minutos, 4–5 veces hacia cada lado.",
+      "benefit": "Desarrolla la atención visual, la coordinación ojo-cabeza y el giro del cuello hacia ambos lados."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Agarrar el dedo",
+      "age": "0–4 meses",
+      "how": "Pon tu dedo índice en la palma del bebé y espera a que lo apriete. Mueve un poco el dedo arriba y abajo. Repite con la otra mano.",
+      "duration": "3–5 veces con cada mano.",
+      "benefit": "Refuerza el reflejo de prensión y los músculos de la mano, y desarrolla el sentido del tacto.",
+      "caution": "No levantes al bebé sujetándolo de tus dedos."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Rodillas a la barriga",
+      "age": "0–6 meses",
+      "how": "El bebé está boca arriba. Sujétalo por las pantorrillas, dobla despacio las dos rodillas juntas hacia la barriga, mantén 3–5 segundos y suelta.",
+      "duration": "5–8 repeticiones.",
+      "benefit": "Alivia los gases y los cólicos, y mejora la movilidad de las caderas.",
+      "caution": "No presiones; si notas resistencia, para."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "“La bicicleta”",
+      "age": "1–6 meses",
+      "how": "El bebé está boca arriba. Sujétalo por las pantorrillas y mueve sus piernas por turnos, como si pedaleara: una rodilla hacia la barriga y la otra pierna estirada hacia delante.",
+      "duration": "10–15 vueltas, con pausas.",
+      "benefit": "Trabaja los músculos de las piernas y del abdomen, ayuda al tránsito intestinal y enseña la coordinación de movimientos alternos."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Abrir y cerrar los brazos",
+      "age": "1–6 meses",
+      "how": "El bebé está boca arriba. Pon tus pulgares en sus palmas o sujeta con suavidad sus muñecas. Abre sus brazos hacia los lados y luego crúzalos sobre su pecho (como si se abrazara a sí mismo).",
+      "duration": "5–8 repeticiones.",
+      "benefit": "Abre los músculos del pecho y de los hombros, y le enseña a llevar las manos a la línea media del cuerpo.",
+      "caution": "No tires de sus brazos; ábrelos solo hasta donde el bebé lo permita."
+    },
+    "0-1/09_kicking": {
+      "title": "Patadas contra tus palmas",
+      "age": "1–4 meses",
+      "how": "El bebé está boca arriba. Apoya tus palmas en las plantas de sus pies y ofrece una ligera resistencia; el bebé empujará con las piernas.",
+      "duration": "1–2 minutos.",
+      "benefit": "Fortalece los músculos de las piernas y prepara el movimiento de empuje (para gatear y ponerse de pie más adelante)."
+    },
+    "0-1/10_side_lying": {
+      "title": "Juego de lado",
+      "age": "1–4 meses",
+      "how": "Acuesta al bebé de lado, con una toalla enrollada detrás de su espalda. Que tenga las dos manos delante; pon un juguete frente a él. Luego gíralo hacia el otro lado.",
+      "duration": "2–3 minutos de cada lado.",
+      "benefit": "Facilita que las manos se junten, prepara para darse la vuelta y evita que la cabeza se incline siempre hacia el mismo lado.",
+      "caution": "Solo mientras está despierto y bajo vigilancia; no lo dejes dormir en esta posición."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Boca abajo con toalla de apoyo",
+      "age": "2–4 meses",
+      "how": "Coloca una toalla enrollada bajo el pecho del bebé (a la altura de las axilas), con los brazos por delante de la toalla. Pon un juguete delante para que levante la cabeza y lo mire.",
+      "duration": "3–5 minutos, varias veces al día.",
+      "benefit": "Le facilita levantar la cabeza y lo prepara para apoyarse en los antebrazos."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Incorporarlo hasta sentado",
+      "age": "3–5 meses (cuando ya sostiene la cabeza)",
+      "how": "El bebé está boca arriba. Deja que agarre tus pulgares, sujeta sus muñecas y levántalo despacio hacia la posición sentada; luego vuelve a acostarlo con la misma lentitud.",
+      "duration": "3–5 repeticiones.",
+      "benefit": "Fortalece los músculos del abdomen, del cuello y de los brazos.",
+      "caution": "Si la cabeza se le va hacia atrás, deja el ejercicio para más adelante. No tires con rapidez."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Alcanzar un juguete",
+      "age": "3–5 meses",
+      "how": "El bebé está boca arriba. Sostén un juguete sobre su pecho, al alcance de su mano, y espera a que estire el brazo para agarrarlo. Mueve el juguete unas veces a la derecha y otras a la izquierda.",
+      "duration": "2–3 minutos.",
+      "benefit": "Desarrolla la coordinación ojo-mano, los músculos de los hombros y el agarre intencionado."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Alcanzar apoyado en los antebrazos",
+      "age": "4–6 meses",
+      "how": "El bebé está boca abajo, apoyado en los antebrazos. Pon un juguete un poco por delante y hacia un lado para que estire un brazo. Puedes estabilizar suavemente su pelvis con las manos.",
+      "duration": "3–5 minutos.",
+      "benefit": "Le enseña a pasar el peso de un brazo al otro, fortalece la espalda y la cintura escapular, y lo prepara para gatear."
+    },
+    "0-1/15_rolling": {
+      "title": "Ayudar a darse la vuelta",
+      "age": "4–6 meses",
+      "how": "El bebé está boca arriba. Pon un juguete a un lado. Con una mano en su muslo y la otra en su pelvis, pasa la pierna de arriba hacia el otro lado; el tronco girará solo detrás. Hazlo hacia ambos lados.",
+      "duration": "3–4 veces hacia cada lado.",
+      "benefit": "Desarrolla los músculos del tronco y la rotación del cuerpo, y le enseña a darse la vuelta solo.",
+      "caution": "No le des la vuelta tirando de su brazo."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Agarrarse los pies",
+      "age": "4–6 meses",
+      "how": "El bebé está boca arriba. Dobla sus rodillas y acerca sus pies a sus manos para que los agarre. Cuando los tenga, déjalo balancearse suavemente de un lado a otro.",
+      "duration": "1–2 minutos.",
+      "benefit": "Fortalece los músculos del abdomen y mejora la conciencia corporal y la flexibilidad de las caderas."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Sentado con apoyo",
+      "age": "5–7 meses",
+      "how": "Sienta al bebé sobre una colchoneta y sujétalo por detrás a la altura de la pelvis o de la cintura. Dale un juguete. Reduce el apoyo a medida que mejore su equilibrio.",
+      "duration": "3–5 minutos.",
+      "benefit": "Desarrolla los músculos del tronco y el equilibrio sentado, y deja sus manos libres para jugar.",
+      "caution": "Cuando la espalda se le encorve y se canse, acuéstalo; no lo obligues a estar sentado sujeto con cojines."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Rebotes de pie con apoyo",
+      "age": "5–8 meses",
+      "how": "Sujeta al bebé con firmeza por debajo de las axilas, por el tronco, y apoya sus pies en una superficie firme. Deja que cargue parte de su peso en las piernas y que rebote doblando y estirando las rodillas.",
+      "duration": "1–2 minutos.",
+      "benefit": "Fortalece los músculos de las piernas y lo prepara para estar de pie.",
+      "caution": "Sostén tú la mayor parte de su peso; no lo sueltes sobre sus piernas."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Sentado, alcanzar un juguete",
+      "age": "6–8 meses",
+      "how": "El bebé se sienta solo, apoyando una mano en el suelo. Pon un juguete delante y a los lados, un poco lejos, para que se estire, lo tome y vuelva a enderezarse. Pon cojines a su alrededor.",
+      "duration": "5 minutos.",
+      "benefit": "Desarrolla el equilibrio sentado, el giro del tronco y la reacción de apoyar las manos al caerse."
+    },
+    "0-1/20_peekaboo": {
+      "title": "“¡Cucú, aquí está!”",
+      "age": "4–12 meses",
+      "how": "El bebé está sentado. Sostén una tela ligera delante de tu cara (o de la suya) y luego bájala diciendo “¡Cucú!”. Cuando sea más grande, deja que tire él mismo de la tela.",
+      "duration": "Mientras el bebé muestre interés.",
+      "benefit": "Desarrolla la noción de permanencia del objeto, la atención, la comunicación y la risa; fomenta el movimiento activo de los brazos."
+    },
+    "0-1/21_patty_cake": {
+      "title": "Juego de palmas",
+      "age": "7–12 meses",
+      "how": "Siéntate frente al bebé. Al ritmo de una canción o contando, choca tus palmas con las suyas y luego enséñale a dar palmas él solo.",
+      "duration": "2–3 minutos.",
+      "benefit": "Desarrolla el trabajo conjunto de ambas manos, el sentido del ritmo, la imitación y la comunicación."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Ayudar a gatear",
+      "age": "7–9 meses",
+      "how": "El bebé está a cuatro patas, con un juguete delante. Apoya tus palmas en las plantas de sus pies para que pueda impulsarse y avanzar.",
+      "duration": "3–5 minutos.",
+      "benefit": "Desarrolla el gateo, la coordinación brazos-piernas y la fuerza del tronco.",
+      "caution": "No empujes al bebé, solo dale un punto de apoyo."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Gatear sobre un obstáculo",
+      "age": "8–10 meses",
+      "how": "Pon un cojín bajo o una manta enrollada sobre la colchoneta y coloca un juguete al otro lado. Deja que el bebé pase por encima del obstáculo.",
+      "duration": "5 minutos.",
+      "benefit": "Desarrolla la fuerza, el equilibrio y la planificación del movimiento, y lo prepara para trepar."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Rodar la pelota",
+      "age": "8–12 meses",
+      "how": "El bebé está sentado con las piernas separadas. Rueda una pelota blanda hacia él y espera a que la atrape y te la devuelva.",
+      "duration": "5 minutos.",
+      "benefit": "Desarrolla el equilibrio sentado, la coordinación ojo-mano y el hábito de jugar por turnos."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Ponerse de pie agarrándose",
+      "age": "8–10 meses",
+      "how": "Pon un juguete sobre un sofá bajo y estable. El bebé se pondrá de rodillas, apoyará un pie en el suelo e intentará levantarse. Si hace falta, sostén ligeramente su pelvis.",
+      "duration": "3–5 intentos.",
+      "benefit": "Fortalece los músculos de las piernas y los glúteos, y le enseña a levantarse solo.",
+      "caution": "Asegúrate de que el mueble no pueda volcarse y no tenga esquinas afiladas."
+    },
+    "0-1/26_cruising": {
+      "title": "Pasos laterales junto a los muebles",
+      "age": "9–11 meses",
+      "how": "El bebé está de pie agarrado al sofá. Pon un juguete un poco apartado para que llegue a él con pasos laterales. Hazlo hacia ambos lados.",
+      "duration": "5 minutos.",
+      "benefit": "Le enseña a pasar el peso de una pierna a otra y a mantener el equilibrio; es la preparación directa para caminar."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Agacharse a recoger un juguete",
+      "age": "10–12 meses",
+      "how": "El bebé está de pie, agarrado al sofá con una mano. Pon un juguete en el suelo, junto a su pie. Espera a que se agache, lo recoja y vuelva a levantarse.",
+      "duration": "5–6 repeticiones.",
+      "benefit": "Fortalece los músculos de las piernas y el equilibrio, y le enseña a controlar el paso de agachado a de pie."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Caminar con apoyo",
+      "age": "10–12 meses",
+      "how": "Ponte detrás del bebé y sujétalo por el tronco (a la altura del pecho). Deja que dé pasos; reduce el apoyo a medida que mejore su equilibrio.",
+      "duration": "3–5 minutos.",
+      "benefit": "Desarrolla la marcha y el equilibrio.",
+      "caution": "Sujetarlo por el tronco es más seguro para sus hombros que hacerlo caminar tirando de sus brazos hacia arriba."
+    },
+    "0-1/29_push_walker": {
+      "title": "Caminar empujando un carrito",
+      "age": "11–12 meses",
+      "how": "Dale al bebé un carrito de empuje estable y pesado. Que se agarre al asa con las dos manos y avance paso a paso. Quédate a su lado.",
+      "duration": "5–10 minutos.",
+      "benefit": "Le da confianza para caminar solo y entrena la longitud del paso y la dirección.",
+      "caution": "El carrito no debe rodar demasiado rápido; no se recomienda el andador con asiento (tacatá)."
+    },
+    "1-2/01_first_steps": {
+      "title": "Primeros pasos solo",
+      "age": "12–15 meses",
+      "how": "Pon al niño de pie, arrodíllate a 2–3 pasos de él, abre los brazos y llámalo. Aumenta la distancia a medida que lo consiga.",
+      "duration": "5–10 intentos.",
+      "benefit": "Le da confianza y equilibrio para caminar solo."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Caminar de una mano",
+      "age": "12–15 meses",
+      "how": "Toma al niño de una sola mano y camina a su ritmo. Mantén tu mano a la altura de su hombro, sin tirar hacia arriba. Cambia de mano.",
+      "duration": "5–10 minutos.",
+      "benefit": "Es el paso del apoyo con las dos manos a la marcha independiente; refuerza el equilibrio."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Levantarse del suelo sin apoyo",
+      "age": "12–15 meses",
+      "how": "Cuando el niño esté sentado en medio de la habitación, sostén un juguete llamativo a la altura de su cabeza. Espera a que se incorpore solo apoyando manos y pies en el suelo y levantando el trasero.",
+      "duration": "5–6 repeticiones.",
+      "benefit": "Fortalece los músculos de las piernas, los glúteos y el tronco; le enseña a levantarse sin ayudarse de los muebles."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Agacharse sin apoyo",
+      "age": "13–18 meses",
+      "how": "Pon una pelota o un juguete en el suelo. Anima al niño a agacharse sin agarrarse a nada para recogerlo y volver a levantarse.",
+      "duration": "6–8 repeticiones.",
+      "benefit": "Desarrolla la fuerza de las piernas, el equilibrio y el control del movimiento."
+    },
+    "1-2/07_push_basket": {
+      "title": "Empujar el cesto",
+      "age": "12–18 meses",
+      "how": "Mete algunos juguetes en un cesto de ropa ligero. Que el niño empuje el cesto con las dos manos de un lado a otro de la habitación.",
+      "duration": "5–10 minutos.",
+      "benefit": "Fortalece los músculos de las piernas y del tronco, y da estabilidad a la marcha."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Trepar a un sofá bajo o un cojín",
+      "age": "12–18 meses",
+      "how": "Elige un cojín firme o un sofá bajo a la altura de sus rodillas. Que suba apoyando la barriga y subiendo una rodilla. Ten las manos preparadas detrás de su trasero. Enséñale también a bajar: boca abajo y con los pies primero.",
+      "duration": "4–5 repeticiones.",
+      "benefit": "Desarrolla la fuerza de todo el cuerpo y la planificación del movimiento.",
+      "caution": "No dejes al niño solo en un lugar alto."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Subir escaleras a gatas",
+      "age": "12–18 meses",
+      "how": "En 2–3 escalones bajos, que el niño ponga las manos en el escalón de arriba y suba. Colócate detrás de él, con las manos junto a su trasero. Para bajar, enséñale a hacerlo de espaldas y con los pies primero.",
+      "duration": "3–4 veces arriba y abajo.",
+      "benefit": "Desarrolla la fuerza de las piernas, la coordinación y hábitos seguros en la escalera.",
+      "caution": "Solo bajo vigilancia; el resto del tiempo, la barrera de la escalera debe estar cerrada."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Rodar la pelota",
+      "age": "12–18 meses",
+      "how": "Siéntense o agáchense uno frente al otro. Rueden la pelota de uno a otro; el niño la atrapa con las dos manos y te la devuelve.",
+      "duration": "5 minutos.",
+      "benefit": "Desarrolla la coordinación ojo-mano, el juego por turnos y el equilibrio del tronco."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Torre de cubos",
+      "age": "12–18 meses",
+      "how": "Dale al niño cubos grandes de madera y enséñale a construir una torre de 2–4 cubos. Cuando se caiga, vuelvan a construirla.",
+      "duration": "5–10 minutos.",
+      "benefit": "Desarrolla la motricidad fina, la precisión de las manos y la paciencia."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Echar pelotas en la caja",
+      "age": "12–18 meses",
+      "how": "De rodillas o sentado, el niño toma las pelotas una a una y las mete en una caja. Luego vacíen la caja y empiecen de nuevo.",
+      "duration": "5 minutos.",
+      "benefit": "Desarrolla el gesto de agarrar y soltar, la coordinación ojo-mano y el equilibrio de rodillas."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Caminar llevando un juguete",
+      "age": "15–18 meses",
+      "how": "Dale al niño un juguete grande y ligero y pídele que lo lleve al otro extremo de la habitación.",
+      "duration": "5 minutos.",
+      "benefit": "Le enseña a mantener el equilibrio con las manos ocupadas y fortalece los músculos del tronco."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Arrastrar un juguete con cuerda",
+      "age": "15–20 meses",
+      "how": "Dale al niño un juguete con ruedas y una cuerda corta. Mientras camina, que lo arrastre detrás y se gire para mirarlo.",
+      "duration": "5–10 minutos.",
+      "benefit": "Le enseña a girar la cabeza y el tronco mientras camina, y a repartir la atención.",
+      "caution": "La cuerda debe ser corta (unos 30 cm); no lo dejes solo con la cuerda."
+    },
+    "1-2/10_tunnel": {
+      "title": "Gatear por un túnel",
+      "age": "12–24 meses",
+      "how": "Abre los dos extremos de una caja de cartón grande para hacer un túnel. Llama al niño desde el otro lado o pon allí un juguete.",
+      "duration": "5–10 minutos.",
+      "benefit": "Desarrolla la fuerza de los hombros y del tronco, y la orientación espacial."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Camino de cojines",
+      "age": "15–20 meses",
+      "how": "Coloca varios cojines planos en el suelo. Que el niño camine sobre ellos agarrado de una de tus manos.",
+      "duration": "3–5 pasadas.",
+      "benefit": "Fortalece el equilibrio sobre una superficie inestable y los músculos de los tobillos."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Lanzar la pelota al cesto",
+      "age": "15–24 meses",
+      "how": "Pon un cesto a 1 paso del niño. Enséñale a lanzar dentro una pelota blanda; aumenta la distancia a medida que lo consiga.",
+      "duration": "8–10 lanzamientos.",
+      "benefit": "Desarrolla el gesto de lanzar, la coordinación ojo-mano y la fuerza de los hombros."
+    },
+    "1-2/15_dance": {
+      "title": "Bailar con música",
+      "age": "12–24 meses",
+      "how": "Pon música con ritmo y bailen juntos: reboten doblando las rodillas, den palmas, giren.",
+      "duration": "5–10 minutos.",
+      "benefit": "Mejora el sentido del ritmo, el equilibrio y la resistencia, y levanta el ánimo."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Recoger los juguetes",
+      "age": "15–24 meses",
+      "how": "Esparce juguetes por el suelo. Que el niño se incline o se agache para recogerlos uno a uno y meterlos en un cesto.",
+      "duration": "Hasta que no queden juguetes.",
+      "benefit": "Agacharse y levantarse una y otra vez fortalece las piernas y la zona lumbar; además crea el hábito de ordenar."
+    },
+    "1-2/24_ride_on": {
+      "title": "Correpasillos de empujar con los pies",
+      "age": "15–24 meses",
+      "how": "Sienta al niño en un correpasillos bajo y sin pedales; sus pies deben llegar bien al suelo. Que avance impulsándose con los pies.",
+      "duration": "10 minutos.",
+      "benefit": "Desarrolla la fuerza de las piernas, la coordinación de ambos lados del cuerpo y el control de la dirección."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Patear la pelota",
+      "age": "18–24 meses",
+      "how": "Pon una pelota ligera delante del pie del niño y enséñale a darle una patada. Al principio puedes sujetarlo de una mano.",
+      "duration": "8–10 patadas.",
+      "benefit": "Desarrolla el equilibrio breve sobre un pie y la coordinación ojo-pie."
+    },
+    "1-2/16_bubbles": {
+      "title": "Atrapar burbujas",
+      "age": "18–24 meses",
+      "how": "Sopla pompas de jabón. Que el niño las explote poniéndose de puntillas, estirándose o corriendo.",
+      "duration": "5–10 minutos.",
+      "benefit": "Entrena el ponerse de puntillas, estirarse hacia arriba y la coordinación ojo-mano."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Subir escaleras de la mano",
+      "age": "18–24 meses",
+      "how": "Erguido, el niño sube los escalones agarrado de una de tus manos (o del pasamanos). Es normal que en cada escalón ponga primero un pie y luego el otro.",
+      "duration": "2–3 veces arriba y abajo.",
+      "benefit": "Aumenta la fuerza de las piernas y el equilibrio sobre un pie.",
+      "caution": "Al bajar, colócate siempre un escalón por debajo del niño."
+    },
+    "1-2/21_jump": {
+      "title": "Saltar en el sitio",
+      "age": "20–24 meses",
+      "how": "Enséñale tú a saltar: dobla las rodillas y despega del suelo con los dos pies. Al principio puedes sujetarlo de las manos o dejar que salte desde un cojín bajo.",
+      "duration": "5–8 saltos.",
+      "benefit": "Refuerza la potencia de las piernas, los huesos y la coordinación.",
+      "caution": "Hazlo sobre una superficie blanda; el salto con los dos pies suele salir hacia los 2 años."
+    },
+    "1-2/22_run": {
+      "title": "Correr",
+      "age": "18–24 meses",
+      "how": "En un espacio amplio y sin obstáculos, jueguen a “¡Atrápame!” o llama al niño desde lejos.",
+      "duration": "5–10 minutos, con pausas cortas.",
+      "benefit": "Desarrolla la resistencia, la velocidad y el sistema cardiovascular."
+    },
+    "1-2/23_balance_line": {
+      "title": "Caminar sobre una línea",
+      "age": "20–24 meses",
+      "how": "Pega en el suelo una cinta adhesiva ancha de color. Agarrado de una de tus manos, el niño camina poniendo los pies sobre la cinta.",
+      "duration": "3–5 pasadas.",
+      "benefit": "Desarrolla el equilibrio y la marcha sobre una base estrecha."
+    },
+    "1-2/25_bear_walk": {
+      "title": "“El paso del oso”",
+      "age": "18–24 meses",
+      "how": "Enséñale a avanzar con manos y pies en el suelo, sin apoyar las rodillas y con el trasero en alto. Caminen juntos “como osos”.",
+      "duration": "2–3 pasadas a lo largo de la habitación.",
+      "benefit": "Fortalece los músculos de los hombros, los brazos y el tronco, y mejora la coordinación."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Estírate arriba, toca los pies",
+      "age": "18–24 meses",
+      "how": "Ponte frente al niño. Primero suban de puntillas y estiren los brazos hacia arriba; luego inclínense y tóquense los dedos de los pies. Acompáñenlo con una canción.",
+      "duration": "5–6 repeticiones.",
+      "benefit": "Desarrolla la flexibilidad, el equilibrio y la imitación de movimientos; le enseña las partes del cuerpo."
+    },
+    "1-2/27_slide": {
+      "title": "Tobogán bajo",
+      "age": "18–24 meses",
+      "how": "El niño se sienta arriba de un tobogán bajo y se desliza con los pies por delante. Sujétalo por el tronco y luego ve reduciendo el apoyo.",
+      "duration": "5–6 veces.",
+      "benefit": "Desarrolla la trepa, el equilibrio sentado y la valentía.",
+      "caution": "No te tires por el tobogán con el niño en el regazo: se le puede enganchar el pie y lesionarse."
+    },
+    "1-2/28_back_walk": {
+      "title": "Caminar hacia atrás",
+      "age": "18–24 meses",
+      "how": "El niño camina hacia atrás tirando hacia sí de un carrito o de un juguete con cuerda. Al principio, tómalo de las manos y caminen juntos hacia atrás.",
+      "duration": "3–4 pasadas.",
+      "benefit": "Desarrolla el equilibrio, la conciencia corporal y la capacidad de cambiar de dirección.",
+      "caution": "Asegúrate de que no haya obstáculos detrás."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Saltar hacia delante con los dos pies",
+      "age": "24–30 meses",
+      "how": "Pega una cinta de color en el suelo. El niño dobla las rodillas y salta por encima de la cinta con los dos pies juntos. Primero enséñaselo tú.",
+      "duration": "6–8 saltos.",
+      "benefit": "Desarrolla la fuerza de las piernas, el trabajo conjunto de ambos pies y el aterrizaje suave."
+    },
+    "2-3/02_jump_down": {
+      "title": "Saltar desde un escalón bajo",
+      "age": "24–30 meses",
+      "how": "Desde un escalón firme de 10–15 cm de altura, el niño salta a una colchoneta blanda agarrado de una de tus manos. Enséñale a aterrizar doblando las rodillas.",
+      "duration": "5–6 veces.",
+      "benefit": "Desarrolla la valentía, la fuerza de las piernas y el equilibrio al aterrizar.",
+      "caution": "No aumentes la altura; el escalón no debe resbalar."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Sostenerse en un pie",
+      "age": "30–36 meses",
+      "how": "Dile: “Ponte como una cigüeña”. Agarrado de una de tus manos, el niño levanta un pie y aguanta 2–3 segundos. Cambien de pie y luego prueben sin apoyo.",
+      "duration": "3–4 veces con cada pie.",
+      "benefit": "Fortalece el equilibrio y los músculos de los tobillos."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Caminar de puntillas",
+      "age": "24–36 meses",
+      "how": "Di: “Caminemos como un gato silencioso” y crucen la habitación de puntillas.",
+      "duration": "2–3 pasadas.",
+      "benefit": "Fortalece las pantorrillas, el arco del pie y el equilibrio.",
+      "caution": "Si el niño camina siempre de puntillas, coméntaselo al pediatra."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Caminar sobre una tabla",
+      "age": "24–36 meses",
+      "how": "Pon en el suelo una tabla ancha y baja. El niño camina sobre ella agarrado de una de tus manos; ve soltándolo a medida que lo consiga.",
+      "duration": "4–5 pasadas.",
+      "benefit": "Desarrolla el equilibrio, la concentración y la capacidad de poner los pies en línea."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Caminar con una bolsita en la cabeza",
+      "age": "30–36 meses",
+      "how": "Ponle en la cabeza una bolsita pequeña de tela (rellena de arroz o garbanzos). Que camine despacio y erguido para que no se caiga.",
+      "duration": "3–4 pasadas.",
+      "benefit": "Desarrolla la postura, el equilibrio y la concentración."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Saltar de círculo en círculo",
+      "age": "30–36 meses",
+      "how": "Coloca en el suelo círculos de colores (discos de goma, papel, cojines). El niño salta de uno a otro o da pasos largos.",
+      "duration": "3–4 pasadas.",
+      "benefit": "Desarrolla la precisión del salto, el equilibrio y la planificación del movimiento.",
+      "caution": "Los círculos no deben resbalar."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Subir escaleras alternando los pies",
+      "age": "30–36 meses",
+      "how": "Agarrado al pasamanos, el niño sube poniendo un solo pie en cada escalón. Al bajar, todavía es normal que ponga los dos pies en cada escalón.",
+      "duration": "2–3 veces arriba y abajo.",
+      "benefit": "Aumenta la fuerza de las piernas y el equilibrio sobre un pie.",
+      "caution": "Al bajar, colócate un escalón por debajo del niño."
+    },
+    "2-3/14_marching": {
+      "title": "Marchar",
+      "age": "24–36 meses",
+      "how": "Pon música y organicen un “desfile”: caminen levantando mucho las rodillas y balanceando los brazos. De vez en cuando, da órdenes como “¡Gira!”, “¡Salta!”, “¡Alto!”.",
+      "duration": "5 minutos.",
+      "benefit": "Desarrolla la coordinación, el sentido del ritmo y la capacidad de seguir instrucciones."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Corre y para",
+      "age": "24–36 meses",
+      "how": "Cuando dices “Luz verde”, el niño corre; cuando dices “Luz roja”, se queda congelado en su sitio. También puedes trazar una línea y pedirle que se detenga justo delante.",
+      "duration": "5–10 minutos.",
+      "benefit": "Desarrolla la velocidad, el frenado, el control del cuerpo y la atención."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Tirar del carrito",
+      "age": "24–36 meses",
+      "how": "Carga juguetes en un carrito; el niño tira de él por el asa y lo lleva por las curvas.",
+      "duration": "5–10 minutos.",
+      "benefit": "Fortalece los músculos del tronco y de las piernas, y le enseña a dirigir."
+    },
+    "2-3/07_tricycle": {
+      "title": "El triciclo",
+      "age": "30–36 meses",
+      "how": "Sienta al niño en un triciclo y pon sus pies en los pedales. Al principio, empújalo suavemente desde atrás para que sienta el movimiento de los pedales.",
+      "duration": "10–15 minutos.",
+      "benefit": "Desarrolla el trabajo alterno de las piernas, la fuerza y el manejo del manillar.",
+      "caution": "Ponle casco; circulen por una superficie llana, lejos de la calzada."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Gatear bajo la mesa",
+      "age": "24–36 meses",
+      "how": "Construye un “túnel” con una mesa baja, sillas o una caja de cartón. El niño agacha la cabeza y pasa por debajo a gatas.",
+      "duration": "4–5 pasadas.",
+      "benefit": "Desarrolla la fuerza de los hombros y del tronco, y la percepción del tamaño de su cuerpo."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Escalera para trepar",
+      "age": "24–36 meses",
+      "how": "En un triángulo de escalada bajo o en el parque infantil, el niño sube agarrándose con las manos y poniendo los pies peldaño a peldaño. Ten las manos preparadas detrás de su trasero.",
+      "duration": "4–5 veces.",
+      "benefit": "Desarrolla la fuerza de todo el cuerpo, la fuerza de agarre y la valentía.",
+      "caution": "Debajo debe haber una superficie blanda; no dejes al niño solo."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Tirarse solo por el tobogán",
+      "age": "24–36 meses",
+      "how": "El niño sube solo por la escalera y se desliza sentado, con los pies por delante. Espéralo abajo.",
+      "duration": "6–8 veces.",
+      "benefit": "Desarrolla la trepa, el equilibrio sentado y la autonomía.",
+      "caution": "No le permitas tirarse de cabeza ni boca abajo."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Colgarse de una barra",
+      "age": "30–36 meses",
+      "how": "El niño se cuelga con las dos manos de una barra baja (con los pies a unos centímetros del suelo) durante 3–5 segundos. Sujétalo por la cintura.",
+      "duration": "3–4 veces.",
+      "benefit": "Refuerza la fuerza de las manos y los hombros, y el agarre.",
+      "caution": "No lo levantes tirando de sus manos ni lo balancees; pon una colchoneta debajo."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Lanzar por encima del hombro",
+      "age": "24–36 meses",
+      "how": "Ponte a 1–2 metros. El niño te lanza una pelota pequeña y blanda por encima del hombro.",
+      "duration": "8–10 lanzamientos.",
+      "benefit": "Desarrolla la técnica de lanzamiento, la fuerza de los hombros y la puntería."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Atrapar la pelota",
+      "age": "30–36 meses",
+      "how": "Desde 1 metro de distancia, lanza despacio una pelota grande y ligera hacia el pecho del niño. Que estire los brazos hacia delante y atrape la pelota apretándola contra el pecho.",
+      "duration": "8–10 veces.",
+      "benefit": "Desarrolla la coordinación ojo-mano y los reflejos."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Correr y patear la pelota",
+      "age": "24–36 meses",
+      "how": "Haz una “portería” con dos conos o dos cajas. El niño da uno o dos pasos hacia la pelota y le da una patada.",
+      "duration": "8–10 patadas.",
+      "benefit": "Desarrolla el equilibrio sobre un pie, la coordinación ojo-pie y la fuerza."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Lanzar la bolsita al aro",
+      "age": "24–36 meses",
+      "how": "Pon un aro o un barreño en el suelo. Desde 1 paso de distancia, el niño lanza las bolsitas por debajo del hombro para meterlas dentro; aumenta la distancia a medida que lo consiga.",
+      "duration": "8–10 lanzamientos.",
+      "benefit": "Le enseña a apuntar con precisión y a medir la fuerza."
+    },
+    "2-3/27_bowling": {
+      "title": "Bolos en casa",
+      "age": "24–36 meses",
+      "how": "Coloca 6 botellas de plástico vacías en forma de triángulo. El niño se agacha y rueda la pelota con las dos manos para derribarlas.",
+      "duration": "5–6 rondas.",
+      "benefit": "Desarrolla la puntería, la fuerza en cuclillas y la paciencia para esperar su turno."
+    },
+    "2-3/24_balloon": {
+      "title": "Mantener el globo en el aire",
+      "age": "24–36 meses",
+      "how": "Lanza un globo al aire. El niño lo golpea con la mano para que no toque el suelo.",
+      "duration": "5–10 minutos.",
+      "benefit": "Desarrolla la coordinación ojo-mano, el estiramiento hacia arriba y los reflejos.",
+      "caution": "Recoge enseguida los trozos de un globo reventado (riesgo de asfixia)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "“Cabeza, hombros, rodillas y pies”",
+      "age": "24–36 meses",
+      "how": "Con la canción, toquen por turnos la cabeza, los hombros, las rodillas y los dedos de los pies. Aumenten poco a poco la velocidad.",
+      "duration": "3–4 veces.",
+      "benefit": "Desarrolla la flexibilidad, la coordinación y el conocimiento de las partes del cuerpo."
+    },
+    "2-3/15_spin": {
+      "title": "Girar",
+      "age": "24–36 meses",
+      "how": "Con los brazos abiertos a los lados, el niño gira despacio sobre sí mismo; luego en sentido contrario.",
+      "duration": "2–3 vueltas hacia cada lado.",
+      "benefit": "Desarrolla el sistema del equilibrio (vestibular) y el control del cuerpo.",
+      "caution": "Que no haya obstáculos alrededor; que pare en cuanto se maree."
+    },
+    "2-3/17_frog_jump": {
+      "title": "Salto de rana",
+      "age": "30–36 meses",
+      "how": "El niño se pone en cuclillas profundas, apoya las manos en el suelo entre las rodillas y salta hacia delante como una rana.",
+      "duration": "5–6 saltos.",
+      "benefit": "Aumenta la fuerza de las piernas y los glúteos, y la movilidad de las caderas."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "“La carretilla”",
+      "age": "30–36 meses",
+      "how": "El niño apoya las manos en el suelo. Sujétalo por los muslos (por encima de las rodillas) y levanta sus piernas; que dé unos cuantos “pasos” con las manos.",
+      "duration": "3–5 pasos, 2–3 veces.",
+      "benefit": "Fortalece los músculos de los brazos, los hombros y el tronco.",
+      "caution": "Sujétalo por los muslos, no por los tobillos; si se le hunde la espalda o se cansa, para."
+    },
+    "2-3/21_log_roll": {
+      "title": "Rodar como un tronco",
+      "age": "24–36 meses",
+      "how": "El niño se tumba recto sobre una colchoneta, con los brazos estirados por encima de la cabeza, y rueda de lado; luego hacia el otro lado.",
+      "duration": "3–4 vueltas hacia cada lado.",
+      "benefit": "Desarrolla los músculos del tronco, la conciencia corporal y el sistema del equilibrio."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "Estiramiento de la mariposa",
+      "age": "24–36 meses",
+      "how": "Sentado, el niño junta las plantas de los pies, se las sujeta con las manos y mueve suavemente las rodillas arriba y abajo como si fueran “alas”.",
+      "duration": "20–30 segundos.",
+      "benefit": "Aumenta la flexibilidad de las caderas y ayuda a calmarse después del ejercicio.",
+      "caution": "No presiones sus rodillas con las manos."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Saltar a la pata coja",
+      "age": "3,5–4 años",
+      "how": "El niño dobla una pierna hacia atrás y salta sobre el otro pie, en el sitio o avanzando. Al principio, tómalo de la mano. Cambien de pie.",
+      "duration": "3–5 saltos con cada pie.",
+      "benefit": "Desarrolla la fuerza de las piernas, el equilibrio y la coordinación."
+    },
+    "3-4/02_long_jump": {
+      "title": "Salto de longitud sin carrera",
+      "age": "3–4 años",
+      "how": "Traza una línea en el suelo. El niño dobla las rodillas, balancea los brazos y salta con los dos pies lo más lejos que pueda. Marca dónde cae y que intente batir su “récord”.",
+      "duration": "5–6 intentos.",
+      "benefit": "Aumenta la potencia de las piernas y la coordinación brazos-piernas."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Saltar un obstáculo",
+      "age": "3–4 años",
+      "how": "Pon un obstáculo blando de 10–15 cm de altura (churro de espuma, toalla enrollada). El niño lo salta con los dos pies.",
+      "duration": "6–8 veces.",
+      "benefit": "Desarrolla la altura del salto, la valentía y el aterrizaje suave.",
+      "caution": "El obstáculo debe caerse con facilidad si el pie se engancha."
+    },
+    "3-4/04_hopscotch": {
+      "title": "La rayuela",
+      "age": "3,5–4 años",
+      "how": "Dibuja casillas en el suelo con tiza: una casilla y luego dos casillas una al lado de la otra. El niño salta con un pie en las casillas sueltas y con los dos pies en las dobles. Al principio puede hacerlo todo con los dos pies.",
+      "duration": "4–5 pasadas.",
+      "benefit": "Le enseña equilibrio, ritmo y a cambiar de pie."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Saltar de aro en aro",
+      "age": "3–4 años",
+      "how": "Coloca 3–5 aros en el suelo. El niño salta con los dos pies de uno a otro.",
+      "duration": "4–5 pasadas.",
+      "benefit": "Desarrolla los saltos encadenados, la precisión y la resistencia."
+    },
+    "3-4/19_leap_river": {
+      "title": "Saltar el “río”",
+      "age": "3–4 años",
+      "how": "Haz un “río” en el suelo con una tela azul o dos cuerdas. El niño toma carrerilla, se impulsa con un pie y cae sobre el otro al otro lado. Ensancha el “río” poco a poco.",
+      "duration": "6–8 veces.",
+      "benefit": "Desarrolla el salto con zancada larga, la fuerza y el cálculo de distancias."
+    },
+    "3-4/25_star_jump": {
+      "title": "El salto de la estrella",
+      "age": "3,5–4 años",
+      "how": "El niño salta y en el aire abre brazos y piernas hacia los lados (“la estrella”), y luego aterriza con los pies juntos.",
+      "duration": "5–8 veces.",
+      "benefit": "Desarrolla el trabajo simultáneo de brazos y piernas, y la resistencia."
+    },
+    "3-4/05_gallop": {
+      "title": "El galope",
+      "age": "3–4 años",
+      "how": "Un pie siempre delante y el otro detrás, siguiéndolo: “¡Galopamos como caballos!”. Luego cambien el pie de delante.",
+      "duration": "3–4 pasadas a lo largo de la habitación.",
+      "benefit": "Desarrolla el ritmo, la coordinación y la resistencia."
+    },
+    "3-4/06_tree_balance": {
+      "title": "La postura del árbol",
+      "age": "3–4 años",
+      "how": "El niño apoya la planta de un pie en la pantorrilla de la otra pierna, abre los brazos a los lados y aguanta 3–5 segundos. Cambien de pierna.",
+      "duration": "3 veces con cada pierna.",
+      "benefit": "Fortalece el equilibrio, la concentración y los músculos de los tobillos."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Caminar talón-punta sobre una línea",
+      "age": "3,5–4 años",
+      "how": "Pega una cinta en el suelo. El niño camina sobre la cinta tocando con el talón del pie de delante los dedos del pie de atrás en cada paso.",
+      "duration": "3–4 pasadas.",
+      "benefit": "Desarrolla el equilibrio fino y el control del cuerpo."
+    },
+    "3-4/08_balance_beam": {
+      "title": "La barra de equilibrio",
+      "age": "3–4 años",
+      "how": "El niño camina solo, con los brazos abiertos, sobre una barra ancha a 10 cm del suelo. Camina a su lado.",
+      "duration": "4–5 pasadas.",
+      "benefit": "Desarrolla el equilibrio, la valentía y la concentración.",
+      "caution": "Debajo debe haber una colchoneta blanda."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Bajar escaleras alternando los pies",
+      "age": "3,5–4 años",
+      "how": "Agarrado al pasamanos, el niño baja poniendo un solo pie en cada escalón.",
+      "duration": "2–3 veces.",
+      "benefit": "Desarrolla la fuerza de las piernas, el equilibrio y el descenso controlado.",
+      "caution": "Colócate un escalón por debajo de él."
+    },
+    "3-4/10_scooter": {
+      "title": "El patinete",
+      "age": "3–4 años",
+      "how": "En un patinete de tres ruedas, el niño pone un pie en la plataforma y se impulsa con el otro en el suelo. Enséñale a cambiar de pie.",
+      "duration": "10–15 minutos.",
+      "benefit": "Desarrolla el equilibrio, la fuerza de las piernas y el control de la dirección.",
+      "caution": "El casco y el calzado cerrado son imprescindibles; que circule por una superficie llana, lejos de la calzada."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Bicicleta sin pedales",
+      "age": "3–4 años",
+      "how": "Sentado en una bicicleta sin pedales, el niño avanza impulsándose con los pies en el suelo. Cuando tome velocidad, que intente levantar los pies y mantener el equilibrio.",
+      "duration": "10–15 minutos.",
+      "benefit": "Desarrolla el equilibrio y facilita el paso a la bicicleta con pedales.",
+      "caution": "El casco y el calzado cerrado son imprescindibles; ajusta el sillín para que sus pies lleguen bien al suelo."
+    },
+    "3-4/17_tag": {
+      "title": "Pilla-pilla (la mancha)",
+      "age": "3–4 años",
+      "how": "Persigue al niño y tócalo suavemente; luego le toca a él perseguirte. Cambien de dirección a menudo.",
+      "duration": "5–10 minutos, con pausas.",
+      "benefit": "Desarrolla la velocidad, la agilidad, la resistencia y los reflejos."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Atrapar la pelota tras un bote",
+      "age": "3–4 años",
+      "how": "Bota la pelota en el suelo delante del niño para que llegue a sus manos tras un bote. Que la atrape con las dos manos.",
+      "duration": "8–10 veces.",
+      "benefit": "Desarrolla la coordinación ojo-mano y la anticipación de la trayectoria de la pelota."
+    },
+    "3-4/13_target_throw": {
+      "title": "Lanzar a una diana",
+      "age": "3–4 años",
+      "how": "Cuelga en la pared o en un soporte una diana redonda de colores. El niño lanza una pelota blanda a la diana desde 1,5–2 metros.",
+      "duration": "8–10 lanzamientos.",
+      "benefit": "Desarrolla la precisión del lanzamiento, la fuerza de los hombros y la concentración."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Llevar la pelota entre conos",
+      "age": "3,5–4 años",
+      "how": "Coloca 3–4 conos (o botellas) en fila. El niño conduce la pelota con toques suaves del pie, haciendo zigzag entre ellos.",
+      "duration": "3–4 pasadas.",
+      "benefit": "Desarrolla la coordinación ojo-pie, el control de la pelota y los cambios de dirección."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Botar y atrapar",
+      "age": "3,5–4 años",
+      "how": "El niño bota una pelota mediana contra el suelo con las dos manos y la atrapa cuando rebota.",
+      "duration": "8–10 veces.",
+      "benefit": "Le enseña a medir la fuerza de las manos y desarrolla el ritmo y la coordinación ojo-mano."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Globo y plato",
+      "age": "3–4 años",
+      "how": "El niño sostiene un plato de cartón como si fuera una raqueta y golpea el globo hacia arriba sin dejar que caiga. Luego pásense el globo el uno al otro.",
+      "duration": "5–10 minutos.",
+      "benefit": "Desarrolla el golpeo con un objeto, la coordinación ojo-mano y los reflejos.",
+      "caution": "Recoge enseguida los trozos de un globo reventado."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Voltereta hacia delante con ayuda",
+      "age": "3,5–4 años",
+      "how": "Sobre una colchoneta gruesa, el niño se pone en cuclillas, apoya las manos en el suelo, pega la barbilla al pecho y levanta el trasero. Con una mano protege la parte de atrás de su cuello; con la otra, empújalo suavemente por el trasero para que ruede sobre la espalda.",
+      "duration": "3–4 veces.",
+      "benefit": "Desarrolla la conciencia corporal, la valentía y los músculos del tronco.",
+      "caution": "El peso nunca debe caer sobre la coronilla; la barbilla siempre pegada al pecho. Solo sobre una colchoneta blanda y con ayuda."
+    },
+    "3-4/21_crab_walk": {
+      "title": "El paso del cangrejo",
+      "age": "3,5–4 años",
+      "how": "Sentado, el niño apoya las manos en el suelo por detrás y los pies por delante, levanta el trasero y avanza y retrocede en esta postura.",
+      "duration": "2–3 pasadas cortas.",
+      "benefit": "Fortalece los músculos de los brazos, los hombros, los glúteos y el tronco."
+    },
+    "3-4/22_bridge": {
+      "title": "El puente",
+      "age": "3–4 años",
+      "how": "Tumbado boca arriba, el niño dobla las rodillas, apoya los pies en el suelo, levanta el trasero y aguanta 3–5 segundos. Puedes pasar un cochecito de juguete por debajo.",
+      "duration": "5–6 repeticiones.",
+      "benefit": "Fortalece los glúteos, la zona lumbar y la parte posterior de los muslos."
+    },
+    "3-4/23_superman": {
+      "title": "“Superman”",
+      "age": "3–4 años",
+      "how": "Tumbado boca abajo, el niño estira los brazos hacia delante y luego levanta un poco del suelo brazos y piernas a la vez, y “vuela” durante 3 segundos.",
+      "duration": "4–5 repeticiones.",
+      "benefit": "Fortalece los músculos de la espalda y favorece una buena postura."
+    },
+    "3-4/24_downward_dog": {
+      "title": "El perro boca abajo",
+      "age": "3–4 años",
+      "how": "El niño apoya manos y pies en el suelo y levanta el trasero hacia arriba (“la montaña” o “nos estiramos como un perro”). Que aguante 5 segundos.",
+      "duration": "3–4 repeticiones.",
+      "benefit": "Fortalece los brazos y los hombros, y estira la parte posterior de las piernas."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Tirar de la cuerda",
+      "age": "3–4 años",
+      "how": "El niño sujeta un extremo de una cuerda blanda y tú el otro. Que tire doblando las rodillas e inclinándose hacia atrás; adapta tu fuerza a la suya.",
+      "duration": "3–4 rondas.",
+      "benefit": "Fortalece los músculos de los brazos, la espalda, el tronco y las piernas.",
+      "caution": "No sueltes la cuerda de golpe ni la enrolles en las manos."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "Palmas y pisotones",
+      "age": "3–4 años",
+      "how": "Muévanse al ritmo de una canción: “Si estás contento, da palmas”, “da un pisotón”, “gira”, “salta”. Vayan cambiando de movimiento por turnos.",
+      "duration": "5 minutos.",
+      "benefit": "Desarrolla el sentido del ritmo, la capacidad de seguir instrucciones y la coordinación."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Círculos con cinta",
+      "age": "3–4 años",
+      "how": "El niño sostiene en la mano una cinta larga atada a un palito y dibuja en el aire grandes círculos, olas y “ochos”. Cambien de mano.",
+      "duration": "3–5 minutos.",
+      "benefit": "Desarrolla la movilidad de los hombros, el control de la muñeca y la coordinación de ambos lados del cuerpo."
+    },
+    "4-5/01_skipping": {
+      "title": "Caminar dando saltitos",
+      "age": "4,5–5 años",
+      "how": "Muéstrale el ritmo “paso y saltito”: da un paso con un pie y haz un saltito sobre ese mismo pie, luego con el otro. Háganlo juntos, de la mano.",
+      "duration": "3–4 pasadas a lo largo de la habitación o el patio.",
+      "benefit": "Desarrolla el ritmo, la alternancia de ambos lados del cuerpo y la coordinación."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Saltar a la comba",
+      "age": "4,5–5 años",
+      "how": "Primero enséñale a saltar por encima de la comba puesta en el suelo; luego, a pasarla por encima de la cabeza hacia delante y saltarla. Los saltos seguidos salen poco a poco.",
+      "duration": "5–10 intentos.",
+      "benefit": "Desarrolla el ritmo, la coordinación brazos-piernas y la resistencia.",
+      "caution": "La comba debe tener la longitud adecuada para el niño (al pisarla por el centro, los mangos deben llegarle a las axilas)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Saltos laterales sobre una línea",
+      "age": "4–5 años",
+      "how": "Pega una cinta en el suelo. El niño salta con los dos pies juntos de un lado a otro de la cinta, sin parar.",
+      "duration": "8–10 saltos.",
+      "benefit": "Desarrolla la agilidad lateral, la fuerza de los tobillos y el ritmo."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "A la pata coja por los aros",
+      "age": "4–5 años",
+      "how": "Coloca 4–5 aros en fila. El niño salta a la pata coja de aro en aro; a la vuelta, cambia de pie.",
+      "duration": "2–3 pasadas con cada pie.",
+      "benefit": "Desarrolla la fuerza sobre un pie, el equilibrio y la precisión."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Saltar desde un cajón y aterrizar suave",
+      "age": "4–5 años",
+      "how": "Desde un cajón firme a la altura de la rodilla, el niño salta a una colchoneta gruesa y aterriza “en silencio” sobre los dos pies, doblando las rodillas. Los brazos hacia delante.",
+      "duration": "5–6 veces.",
+      "benefit": "Desarrolla una buena técnica de aterrizaje, la fuerza de las piernas y la valentía.",
+      "caution": "El cajón no debe resbalar; no aumentes la altura."
+    },
+    "4-5/06_bicycle": {
+      "title": "Bicicleta con ruedines",
+      "age": "4–5 años",
+      "how": "El niño pedalea y aprende a tomar las curvas y a frenar. Cuando mejore su equilibrio, se pueden quitar los ruedines.",
+      "duration": "15–20 minutos.",
+      "benefit": "Desarrolla la fuerza de las piernas, la resistencia, el equilibrio y la noción de circulación.",
+      "caution": "El casco y el calzado cerrado son imprescindibles; que circule por una superficie llana, lejos de la calzada."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Carrera de ida y vuelta",
+      "age": "4–5 años",
+      "how": "Pon un cubo y algunas bolsitas a 4–5 metros de distancia entre sí. El niño corre a buscar una bolsita, vuelve corriendo a echarla en el cubo y sigue hasta que no quede ninguna.",
+      "duration": "2–3 rondas.",
+      "benefit": "Desarrolla la velocidad, los cambios rápidos de dirección, el agacharse y levantarse, y la resistencia."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "Las estatuas",
+      "age": "4–5 años",
+      "how": "Mientras suena la música, el niño baila o corre; cuando la música se para, se queda quieto como una estatua e intenta no moverse.",
+      "duration": "5–10 minutos.",
+      "benefit": "Desarrolla el control del cuerpo, el equilibrio, la atención y el autocontrol."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "“Pie adentro, pie afuera”",
+      "age": "4–5 años",
+      "how": "Pon un aro en el suelo. Al ritmo de una canción, el niño mete por turnos un pie, una mano y la cabeza dentro del aro y los vuelve a sacar; luego da una vuelta.",
+      "duration": "5 minutos.",
+      "benefit": "Desarrolla el equilibrio sobre un pie, la noción de derecha e izquierda y la capacidad de seguir instrucciones."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Atrapar una pelota pequeña con las manos",
+      "age": "4–5 años",
+      "how": "Desde 1,5–2 metros, lanza despacio una pelota pequeña y blanda. Que el niño la atrape solo con las manos, sin apretarla contra el pecho.",
+      "duration": "10 veces.",
+      "benefit": "Desarrolla la coordinación ojo-mano y la agilidad de los dedos."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Lanzar hacia arriba y atrapar",
+      "age": "4–5 años",
+      "how": "El niño lanza él mismo una bolsita o una pelota blanda hacia arriba y la atrapa con las dos manos. Después, añadan una palmada entre el lanzamiento y la recepción.",
+      "duration": "10 veces.",
+      "benefit": "Desarrolla el control de la fuerza, el seguimiento visual y los reflejos."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Botar la pelota con la mano",
+      "age": "4,5–5 años",
+      "how": "Con las rodillas un poco dobladas, el niño bota la pelota contra el suelo con una mano varias veces seguidas. Primero 2–3 veces, luego más. Cambien de mano.",
+      "duration": "3–4 intentos con cada mano.",
+      "benefit": "Desarrolla el ritmo, el control de la fuerza de la mano y la coordinación ojo-mano."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Tiro a portería",
+      "age": "4–5 años",
+      "how": "Monta una portería pequeña (o pon dos objetos). El niño chuta la pelota a la portería desde 2–3 metros; luego prueben a chutar una pelota en movimiento.",
+      "duration": "10 tiros.",
+      "benefit": "Desarrolla la coordinación ojo-pie, el equilibrio y la precisión del tiro."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Golpear la pelota en un soporte",
+      "age": "4–5 años",
+      "how": "Pon una pelota blanda sobre un soporte bajo. De lado, el niño sujeta con las dos manos un bate ligero de plástico y golpea la pelota.",
+      "duration": "8–10 golpes.",
+      "benefit": "Desarrolla la rotación del tronco, la coordinación ojo-mano y el golpeo con un objeto.",
+      "caution": "Que no haya otros niños cerca; solo pelota blanda y bate de plástico."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Encestar la pelota",
+      "age": "4–5 años",
+      "how": "El niño lanza con las dos manos una pelota ligera a una canasta un poco más alta que él. Cuando lo consiga, que dé un paso atrás.",
+      "duration": "10 lanzamientos.",
+      "benefit": "Desarrolla la fuerza del lanzamiento hacia arriba, la precisión y la coordinación piernas-brazos."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Lanzar aros",
+      "age": "4–5 años",
+      "how": "Desde 1–1,5 metros, el niño intenta ensartar aros en un palo vertical.",
+      "duration": "2–3 rondas.",
+      "benefit": "Desarrolla la precisión fina, el control de la muñeca y la paciencia."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "La postura del avión",
+      "age": "4–5 años",
+      "how": "De pie sobre un pie, el niño inclina el tronco hacia delante, estira la otra pierna hacia atrás y abre los brazos como alas. Que aguante 3–5 segundos y cambie de pierna.",
+      "duration": "3 veces con cada pierna.",
+      "benefit": "Fortalece el equilibrio y los músculos del tronco y los glúteos."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Pasar un obstáculo sobre la barra",
+      "age": "4–5 años",
+      "how": "Pon una bolsita sobre una barra de equilibrio baja. El niño camina por la barra y pasa por encima de la bolsita.",
+      "duration": "4–5 pasadas.",
+      "benefit": "Desarrolla el equilibrio en movimiento, la concentración y la capacidad de levantar bien el pie.",
+      "caution": "Debajo debe haber una colchoneta blanda; camina a su lado."
+    },
+    "4-5/19_stork_stand": {
+      "title": "La postura de la cigüeña",
+      "age": "4–5 años",
+      "how": "Con las manos en la cintura, el niño se sostiene sobre un pie y sube el otro pie por delante de la rodilla. Intenten contar 8–10 segundos.",
+      "duration": "2–3 veces con cada pierna.",
+      "benefit": "Desarrolla el equilibrio estático y la concentración."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Girar el aro en la cintura",
+      "age": "4,5–5 años",
+      "how": "El niño apoya el aro en la cintura, lo hace girar e intenta mantenerlo moviendo la cadera adelante y atrás. Al principio bastan unas pocas vueltas.",
+      "duration": "5 minutos.",
+      "benefit": "Desarrolla los músculos del tronco, el ritmo y la coordinación."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Voltereta hacia delante solo",
+      "age": "4–5 años",
+      "how": "Sobre una colchoneta gruesa, el niño se pone en cuclillas, apoya las manos en el suelo, pega la barbilla al pecho, se impulsa con las piernas, rueda sobre la espalda redondeada y se levanta en cuclillas.",
+      "duration": "3–5 veces.",
+      "benefit": "Desarrolla la conciencia corporal, la agilidad y los músculos del tronco.",
+      "caution": "El peso nunca debe caer sobre la coronilla; la barbilla siempre pegada al pecho. Enséñasela primero con ayuda."
+    },
+    "4-5/21_plank": {
+      "title": "La plancha",
+      "age": "4–5 años",
+      "how": "El niño se apoya sobre los antebrazos y las puntas de los pies, con el cuerpo en línea recta de la cabeza a los talones. Que aguante 5–10 segundos.",
+      "duration": "2–3 veces.",
+      "benefit": "Fortalece los músculos del abdomen, la espalda y los hombros.",
+      "caution": "Que pare en cuanto se le hunda la espalda."
+    },
+    "4-5/22_chair_squat": {
+      "title": "La silla invisible",
+      "age": "4–5 años",
+      "how": "Con los pies separados al ancho de los hombros y los brazos estirados hacia delante, el niño se agacha como si se sentara en una silla y vuelve a subir. Los talones se quedan en el suelo.",
+      "duration": "6–8 repeticiones.",
+      "benefit": "Fortalece los músculos de las piernas y los glúteos."
+    },
+    "4-5/23_boat_pose": {
+      "title": "La postura del barco",
+      "age": "4–5 años",
+      "how": "Sentado, el niño se inclina un poco hacia atrás, dobla las rodillas, levanta los pies del suelo y estira los brazos hacia delante. Que mantenga el equilibrio 5 segundos.",
+      "duration": "3–4 repeticiones.",
+      "benefit": "Fortalece los abdominales y el equilibrio."
+    },
+    "4-5/24_cobra": {
+      "title": "Estiramiento de la cobra",
+      "age": "4–5 años",
+      "how": "Tumbado boca abajo, el niño pone las manos bajo los hombros y levanta el pecho; la cadera se queda en el suelo. Que aguante 5 segundos.",
+      "duration": "3–4 repeticiones.",
+      "benefit": "Fortalece los músculos de la espalda y estira el abdomen y el pecho.",
+      "caution": "No fuerces el arco de la espalda."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Sentado con piernas abiertas, estirarse hacia delante",
+      "age": "4–5 años",
+      "how": "El niño se sienta con las piernas bien abiertas y se estira hacia delante deslizando las manos por el suelo. Que aguante 10 segundos, sin rebotes.",
+      "duration": "3 repeticiones.",
+      "benefit": "Aumenta la flexibilidad de la cara interna y posterior de los muslos."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Avanzar colgado de la escalera horizontal",
+      "age": "4,5–5 años",
+      "how": "Colgado de una escalera horizontal baja, el niño avanza pasando las manos por turnos al siguiente peldaño. Sujétalo por la cintura y carga con parte de su peso.",
+      "duration": "2–3 intentos.",
+      "benefit": "Desarrolla la fuerza de las manos, los brazos y los hombros, y el agarre.",
+      "caution": "Debajo debe haber una superficie blanda; sus manos no deben estar mojadas."
+    },
+    "4-5/27_climbing_net": {
+      "title": "Trepar por la red de cuerdas",
+      "age": "4–5 años",
+      "how": "En el parque infantil o en casa, sobre una red baja, el niño se agarra con las manos por arriba, pone los pies por turnos para trepar y baja de la misma manera.",
+      "duration": "3–4 veces.",
+      "benefit": "Desarrolla la fuerza de todo el cuerpo, la coordinación y la valentía.",
+      "caution": "Debajo debe haber una superficie blanda; quédate a su lado."
+    }
+  }
+}
