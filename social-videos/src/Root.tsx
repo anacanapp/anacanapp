@@ -728,7 +728,7 @@ export const RemotionRoot = () => {
           day: "çərşənbə",
           endLine1: "Ananı da",
           endLine2: "soruşan olsun.",
-          endChip: "Bu gün bir anaya yaz.",
+          endChip: "Bəs sən bu gün necəsən?",
           notifications: [
             {
               from: "Qayınana",
@@ -757,7 +757,7 @@ export const RemotionRoot = () => {
             {
               from: "Anam",
               time: "19:38",
-              text: "Zəng edirəm, niyə götürmürsən?",
+              text: "Uşağın bugünkü şəklini at, darıxmışam.",
               tint: color.alliq,
             },
             {
