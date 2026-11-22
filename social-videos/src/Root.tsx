@@ -1,6 +1,7 @@
 import { Composition, Folder } from "remotion";
 import { color } from "./brand";
 import { BuSaniye } from "./bu-saniye/BuSaniye";
+import { NenemDeyirdi } from "./nenem-deyirdi/NenemDeyirdi";
 import { HecKimDemedi } from "./hec-kim-demedi/HecKimDemedi";
 
 export const RemotionRoot = () => {
@@ -435,6 +436,88 @@ export const RemotionRoot = () => {
               lines: 2,
               side: "right",
               fill: color.alliq,
+            },
+          ],
+        }}
+      />
+      <Composition
+        id="NenemDeyirdi10"
+        component={NenemDeyirdi}
+        durationInFrames={705}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "HAMİLƏLİK",
+          number: "10",
+          endLine1: "Nənəni sev,",
+          endLine2: "həkimdən soruş.",
+          endChip: "Sənin nənən nə deyirdi?",
+          sayings: [
+            {
+              quote: "Qarın sivridirsə, oğlandır.",
+              verdict: "mif",
+              note: "Forma bədən quruluşundan və\nkörpənin duruşundan asılıdır.",
+              fill: color.alliq,
+            },
+            {
+              quote: "İndi iki nəfərlik yeməlisən.",
+              verdict: "mif",
+              note: "İki dəfə çox yox,\niki dəfə keyfiyyətli.",
+              fill: color.seftali,
+            },
+            {
+              quote: "Qıcqırman çoxdursa, körpə saçlı doğulacaq.",
+              verdict: "belke",
+              note: "Kiçik bir araşdırma həqiqətən\nbelə bir əlaqə tapıb.",
+              fill: color.pembe,
+            },
+            {
+              quote: "Hamilə qadın çox gəzməlidir.",
+              verdict: "dogru",
+              note: "Həkimin qadağan etməyibsə,\nhərəkət ikinizə də xeyirdir.",
+              fill: color.alliq,
+            },
+          ],
+        }}
+      />
+      <Composition
+        id="NenemDeyirdi11"
+        component={NenemDeyirdi}
+        durationInFrames={705}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "ANALIQ",
+          number: "11",
+          endLine1: "Nənəni sev,",
+          endLine2: "həkimdən soruş.",
+          endChip: "Sənin nənən nə deyirdi?",
+          sayings: [
+            {
+              quote: "Uşağı qucağa öyrətmə.",
+              verdict: "mif",
+              note: "Yenidoğulmuşu qucaqla ərköyün etmək\nolmur. Qucaq ona güvən verir.",
+              fill: color.pembe,
+            },
+            {
+              quote: "Diş çıxarır, ona görə qızdırması var.",
+              verdict: "mif",
+              note: "Diş yüngül narahatlıq verə bilər.\nYüksək qızdırmada həkimə göstər.",
+              fill: color.alliq,
+            },
+            {
+              quote: "Su ver, uşaq susayıb.",
+              verdict: "mif",
+              note: "İlk 6 ayda ana südü və ya\nqarışıq suyu da əvəz edir.",
+              fill: color.seftali,
+            },
+            {
+              quote: "Uşaq yatanda sən də yat.",
+              verdict: "dogru",
+              note: "Nənə burada haqlıdır.\nQab-qacaq gözləyə bilər.",
+              fill: color.pembe,
             },
           ],
         }}
