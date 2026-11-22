@@ -1,4 +1,5 @@
 import { Composition, Folder } from "remotion";
+import { AdHekayesi } from "./ad-hekayesi/AdHekayesi";
 import { AnaLugeti } from "./ana-lugeti/AnaLugeti";
 import { Axtaris } from "./axtaris/Axtaris";
 import { Bildiris } from "./bildiris/Bildiris";
@@ -877,6 +878,75 @@ export const RemotionRoot = () => {
               tint: color.mercan,
             },
           ],
+        }}
+      />
+      <Composition
+        id="AdHekayesi21"
+        component={AdHekayesi}
+        durationInFrames={555}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "AD HEKAYƏSİ",
+          number: "21",
+          name: "Aylin",
+          fill: color.seftali,
+          origin: "TÜRK MƏNŞƏLİ",
+          root: "ay",
+          rootMeaning: "qədim türk sözü:\ngöydəki Ay",
+          meaning: "ay haləsi",
+          note: "Ayın ətrafında görünən\nişıq dairəsinin adıdır.",
+          picture: "halo",
+          endLine1: "Bəs sənin",
+          endLine2: "adın nədir?",
+          endChip: "Şərhdə yaz, hekayəsini danışaq.",
+        }}
+      />
+      <Composition
+        id="AdHekayesi22"
+        component={AdHekayesi}
+        durationInFrames={555}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "AD HEKAYƏSİ",
+          number: "22",
+          name: "Leyla",
+          fill: color.pembe,
+          origin: "ƏRƏB MƏNŞƏLİ",
+          root: "ləyl",
+          rootMeaning: "ərəbcə:\ngecə",
+          meaning: "gecə",
+          note: "Füzulinin “Leyli və Məcnun”u\nonu sevginin adına çevirdi.",
+          picture: "night",
+          endLine1: "Bəs sənin",
+          endLine2: "adın nədir?",
+          endChip: "Şərhdə yaz, hekayəsini danışaq.",
+        }}
+      />
+      <Composition
+        id="AdHekayesi23"
+        component={AdHekayesi}
+        durationInFrames={555}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "AD HEKAYƏSİ",
+          number: "23",
+          name: "Əli",
+          fill: color.alliq,
+          origin: "ƏRƏB MƏNŞƏLİ",
+          root: "əliyy",
+          rootMeaning: "ərəbcə:\nuca olan",
+          meaning: "uca, yüksək",
+          note: "“Ali” sözü ilə eyni kökdəndir:\nali məktəb, ali məqsəd.",
+          picture: "peak",
+          endLine1: "Bəs sənin",
+          endLine2: "adın nədir?",
+          endChip: "Şərhdə yaz, hekayəsini danışaq.",
         }}
       />
     </Folder>
