@@ -23,6 +23,7 @@ export type Bubble = {
 };
 
 export type HecKimDemediProps = {
+  readonly label: string;
   readonly number: string;
   readonly endLine1: string;
   readonly endLine2: string;
@@ -157,6 +158,7 @@ const BubbleStack = ({ bubbles }: Pick<HecKimDemediProps, "bubbles">) => {
 };
 
 const Ending = ({
+  label,
   number,
   endLine1,
   endLine2,
@@ -183,7 +185,7 @@ const Ending = ({
     <AbsoluteFill
       style={{ backgroundColor: color.mercan, translate: `0% ${cover}%` }}
     >
-      <TopBar label="ANALIQ" number={number} onMercan />
+      <TopBar label={label} number={number} onMercan />
       <div
         style={{
           position: "absolute",
@@ -244,12 +246,12 @@ const Ending = ({
 };
 
 export const HecKimDemedi = ({ bubbles, ...ending }: HecKimDemediProps) => {
-  const { number } = ending;
+  const { label, number } = ending;
   return (
     <AbsoluteFill style={{ backgroundColor: color.krem }}>
       <BubbleStack bubbles={bubbles} />
       <Headline />
-      <TopBar label="ANALIQ" number={number} />
+      <TopBar label={label} number={number} />
       <Ending {...ending} />
     </AbsoluteFill>
   );
