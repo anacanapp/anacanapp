@@ -898,8 +898,8 @@ export const RemotionRoot = () => {
           meaning: "ay haləsi",
           note: "Ayın ətrafında görünən\nişıq dairəsinin adıdır.",
           picture: "halo",
-          endLine1: "Bəs sənin",
-          endLine2: "adın nədir?",
+          endLine1: "Sən hansı adın",
+          endLine2: "mənasını bilmək istəyirsən?",
           endChip: "Şərhdə yaz, hekayəsini danışaq.",
         }}
       />
@@ -921,8 +921,8 @@ export const RemotionRoot = () => {
           meaning: "gecə",
           note: "Füzulinin “Leyli və Məcnun”u\nonu sevginin adına çevirdi.",
           picture: "night",
-          endLine1: "Bəs sənin",
-          endLine2: "adın nədir?",
+          endLine1: "Sən hansı adın",
+          endLine2: "mənasını bilmək istəyirsən?",
           endChip: "Şərhdə yaz, hekayəsini danışaq.",
         }}
       />
@@ -944,8 +944,8 @@ export const RemotionRoot = () => {
           meaning: "uca, yüksək",
           note: "“Ali” sözü ilə eyni kökdəndir:\nali məktəb, ali məqsəd.",
           picture: "peak",
-          endLine1: "Bəs sənin",
-          endLine2: "adın nədir?",
+          endLine1: "Sən hansı adın",
+          endLine2: "mənasını bilmək istəyirsən?",
           endChip: "Şərhdə yaz, hekayəsini danışaq.",
         }}
       />
