@@ -1,4 +1,7 @@
 import { Composition, Folder } from "remotion";
+import { AnaLugeti } from "./ana-lugeti/AnaLugeti";
+import { Axtaris } from "./axtaris/Axtaris";
+import { Bildiris } from "./bildiris/Bildiris";
 import { color } from "./brand";
 import { BuSaniye } from "./bu-saniye/BuSaniye";
 import { NenemDeyirdi } from "./nenem-deyirdi/NenemDeyirdi";
@@ -518,6 +521,244 @@ export const RemotionRoot = () => {
               verdict: "dogru",
               note: "Nənə burada haqlıdır.\nQab-qacaq gözləyə bilər.",
               fill: color.pembe,
+            },
+          ],
+        }}
+      />
+      <Composition
+        id="AnaLugeti12"
+        component={AnaLugeti}
+        durationInFrames={705}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "ANALIQ",
+          number: "12",
+          endLine1: "analıq (isim):",
+          endLine2: "dünyanın ən yorucu sevgisi.",
+          endChip: "Sənin lüğətində hansı söz var?",
+          entries: [
+            {
+              word: "yuxu",
+              meta: "[yu-xu] · isim",
+              definition: "Əvvəllər gecə etdiyim\nşey. İndi şayiə.",
+              fill: color.alliq,
+            },
+            {
+              word: "isti çay",
+              meta: "[is-ti çay] · isim",
+              definition: "Əfsanəvi içki. Görən\nolub, içən olmayıb.",
+              fill: color.seftali,
+            },
+            {
+              word: "beş dəqiqə",
+              meta: "[beş də-qi-qə] · zaman",
+              definition: "Duş, yemək və istirahət\nüçün ayrılan ümumi vaxt.",
+              fill: color.pembe,
+            },
+            {
+              word: "sakitlik",
+              meta: "[sa-kit-lik] · isim",
+              definition: "Şübhəli vəziyyət.\nDərhal yoxlanmalıdır.",
+              fill: color.alliq,
+            },
+          ],
+        }}
+      />
+      <Composition
+        id="AnaLugeti13"
+        component={AnaLugeti}
+        durationInFrames={705}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "HAMİLƏLİK",
+          number: "13",
+          endLine1: "hamilə (sifət):",
+          endLine2: "iki ürəkli.",
+          endChip: "Sənin lüğətində hansı söz var?",
+          entries: [
+            {
+              word: "istək",
+              meta: "[is-tək] · isim",
+              definition: "Gecə saat 3-də nar.\nMüzakirə olunmur.",
+              fill: color.seftali,
+            },
+            {
+              word: "yastıq",
+              meta: "[yas-tıq] · isim",
+              definition: "Biri azdır.\nDördü də azdır.",
+              fill: color.pembe,
+            },
+            {
+              word: "“yaxşıyam”",
+              meta: "[yax-şı-yam] · ifadə",
+              definition: "Yorğunam, acam, ağlamaq\nistəyirəm. Amma yaxşıyam.",
+              fill: color.alliq,
+            },
+            {
+              word: "təpik",
+              meta: "[tə-pik] · isim",
+              definition: "Dünyanın ən gözəl\noyadıcı zəngi.",
+              fill: color.seftali,
+            },
+          ],
+        }}
+      />
+      <Composition
+        id="AnaLugeti14"
+        component={AnaLugeti}
+        durationInFrames={705}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "ANALIQ",
+          number: "14",
+          endLine1: "ana (isim):",
+          endLine2: "hər şeyə çatan ürək.",
+          endChip: "Sənin lüğətində hansı söz var?",
+          entries: [
+            {
+              word: "bircə dəqiqə",
+              meta: "[bir-cə də-qi-qə] · ifadə",
+              definition: "Ananın dilində:\niyirmi dəqiqə.",
+              fill: color.pembe,
+            },
+            {
+              word: "çanta",
+              meta: "[çan-ta] · isim",
+              definition: "Evin yarısı.\nHər ehtimala qarşı.",
+              fill: color.alliq,
+            },
+            {
+              word: "foto",
+              meta: "[fo-to] · isim",
+              definition: "Telefonda 4.000 ədəd.\nHamısı eyni, hamısı lazım.",
+              fill: color.seftali,
+            },
+            {
+              word: "qucaq",
+              meta: "[qu-caq] · isim",
+              definition: "Hər dərdin dərmanı.\nReseptsiz.",
+              fill: color.pembe,
+            },
+          ],
+        }}
+      />
+      <Composition
+        id="Axtaris15"
+        component={Axtaris}
+        durationInFrames={735}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "ANALIQ",
+          number: "15",
+          endLine1: "Bunu soruşan",
+          endLine2: "hər ana yaxşı anadır.",
+          endChip: "Sən gecə nə axtarırsan?",
+          queries: [
+            { time: "23:10", text: "körpə neçə saat yatmalıdır" },
+            { time: "00:42", text: "körpə niyə yatmır" },
+            { time: "01:57", text: "körpə hıçqırır normaldır" },
+            { time: "03:05", text: "yuxusuz neçə gün yaşamaq olar" },
+            { time: "03:41", text: "mən yaxşı anayam?" },
+          ],
+        }}
+      />
+      <Composition
+        id="Axtaris16"
+        component={Axtaris}
+        durationInFrames={735}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "HAMİLƏLİK",
+          number: "16",
+          endLine1: "Bunu soruşan",
+          endLine2: "artıq yaxşı anadır.",
+          endChip: "Sən ilk nəyi axtardın?",
+          queries: [
+            { time: "09:12", text: "test iki xətt, biri solğun" },
+            { time: "09:13", text: "solğun xətt də sayılır?" },
+            { time: "14:30", text: "hamiləlikdə qəhvə olar" },
+            { time: "22:48", text: "körpə nə vaxt təpik vurur" },
+            { time: "02:16", text: "yaxşı ana ola biləcəm?" },
+          ],
+        }}
+      />
+      <Composition
+        id="Axtaris17"
+        component={Axtaris}
+        durationInFrames={735}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "ANALIQ",
+          number: "17",
+          endLine1: "Vaxt tez keçir.",
+          endLine2: "Bu günü saxla.",
+          endChip: "Sən bu gün nə axtardın?",
+          queries: [
+            { time: "10:05", text: "körpə nə vaxt oturur" },
+            { time: "10:06", text: "qonşunun uşağı artıq oturur" },
+            { time: "15:20", text: "uşaq hər şeyi ağzına aparır" },
+            { time: "19:44", text: "uşaq torpaq yedi nə etməli" },
+            { time: "23:58", text: "niyə bu qədər tez böyüyür" },
+          ],
+        }}
+      />
+      <Composition
+        id="Bildiris18"
+        component={Bildiris}
+        durationInFrames={570}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "ANALIQ",
+          number: "18",
+          clock: "03:07",
+          day: "çərşənbə gecəsi",
+          endLine1: "Bəzən bir mesaj",
+          endLine2: "hər şeyi dəyişir.",
+          endChip: "Bu videonu ona göndər.",
+          notifications: [
+            {
+              from: "Qayınana",
+              text: "Uşağa papaq geyindir, soyuqdur.",
+              tint: color.pembe,
+            },
+            {
+              from: "Analar qrupu",
+              text: "Kimin uşağı gecə yatır? Heç kimin?",
+              tint: color.seftali,
+            },
+            {
+              from: "Xatırlatma",
+              text: "Bu gün cəmi 2 stəkan su içmisən.",
+              tint: color.alliq,
+            },
+            {
+              from: "Bacım",
+              text: "Yatmısan? Zarafat edirəm, bilirəm.",
+              tint: color.pembe,
+            },
+            {
+              from: "Həkim",
+              text: "Sabah saat 10:00-da müayinəniz var.",
+              tint: color.alliq,
+            },
+            {
+              from: "Yoldaşım",
+              text: "Sən yat. Bu gecə mən baxaram.",
+              tint: color.mercan,
             },
           ],
         }}
