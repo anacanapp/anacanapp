@@ -28,3 +28,12 @@ a caution. Source: the owner's "Uşaq məşqləri kitabxanası" artifact (data.j
 - Analytics: `kid_exercises_opened`, `kid_exercise_viewed`, `kid_exercise_done`.
 - Content review: the source texts were not checked by a specialist. A paediatrician or a children's
   physiotherapist should review them (Azerbaijani first) before wide promotion.
+
+## Deploy (2026-11-22)
+
+- Migration `20261121120000_kid_exercises_tool.sql` applied on `anacan` (row `kid-exercises`: is_active=false,
+  mommy_active=true, is_premium=false, order 936; code-tools read policy lists it).
+- Web: gateway `sha256:f84ddd27…` (tag `gw-kidex-202611220634`, index `index-ChUR7vEQ.js`), plan
+  `/home/anacan-runner/kidex-web-plan.json`; rollback: `sudo python3 /home/anacan-runner/deploy-current-web.py
+  /home/anacan-runner/rollback-kidex-web-plan.json` (back to `sha256:5b73a2d2…`).
+- Native apps need a new build to show the tool.
