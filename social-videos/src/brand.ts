@@ -22,6 +22,7 @@ export const color = {
   cizgi: "#F0DED3",
   murekkep: "#262220",
   kahveGri: "#6B5E57",
+  koyuKahve: "#1D1512",
   beyaz: "#FFFFFF",
 } as const;
 

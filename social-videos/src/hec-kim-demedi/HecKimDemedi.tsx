@@ -6,7 +6,13 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { color, gentleEase, headlineFont, softSpring, textFont } from "../brand";
+import {
+  color,
+  gentleEase,
+  headlineFont,
+  softSpring,
+  textFont,
+} from "../brand";
 import { TopBar } from "../TopBar";
 
 export type Bubble = {
@@ -18,6 +24,9 @@ export type Bubble = {
 
 export type HecKimDemediProps = {
   readonly number: string;
+  readonly endLine1: string;
+  readonly endLine2: string;
+  readonly endChip: string;
   // Written by the brand as shared experiences. They are not quotes from
   // real users, so they carry no names, avatars or attribution.
   readonly bubbles: readonly Bubble[];
@@ -147,7 +156,12 @@ const BubbleStack = ({ bubbles }: Pick<HecKimDemediProps, "bubbles">) => {
   );
 };
 
-const Ending = ({ number }: Pick<HecKimDemediProps, "number">) => {
+const Ending = ({
+  number,
+  endLine1,
+  endLine2,
+  endChip,
+}: Omit<HecKimDemediProps, "bubbles">) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const local = frame - END_START * fps;
@@ -190,7 +204,7 @@ const Ending = ({ number }: Pick<HecKimDemediProps, "number">) => {
             translate: `0px ${(1 - line1) * 40}px`,
           }}
         >
-          Biz deyirik:
+          {endLine1}
         </div>
         <div
           style={{
@@ -199,7 +213,7 @@ const Ending = ({ number }: Pick<HecKimDemediProps, "number">) => {
             translate: `0px ${(1 - line2) * 40}px`,
           }}
         >
-          tək deyilsən.
+          {endLine2}
         </div>
       </div>
       <div
@@ -222,19 +236,20 @@ const Ending = ({ number }: Pick<HecKimDemediProps, "number">) => {
           transformOrigin: "0% 50%",
         }}
       >
-        Bəs sənə nəyi demədilər?
+        {endChip}
       </div>
     </AbsoluteFill>
   );
 };
 
-export const HecKimDemedi = ({ number, bubbles }: HecKimDemediProps) => {
+export const HecKimDemedi = ({ bubbles, ...ending }: HecKimDemediProps) => {
+  const { number } = ending;
   return (
     <AbsoluteFill style={{ backgroundColor: color.krem }}>
       <BubbleStack bubbles={bubbles} />
       <Headline />
       <TopBar label="ANALIQ" number={number} />
-      <Ending number={number} />
+      <Ending {...ending} />
     </AbsoluteFill>
   );
 };

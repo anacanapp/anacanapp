@@ -4,10 +4,17 @@ type Props = {
   readonly label: string;
   readonly number: string;
   readonly onMercan?: boolean;
+  readonly onDark?: boolean;
 };
 
 // Top bar: label chip left, numbered "Anacan" wordmark right.
-export const TopBar = ({ label, number, onMercan = false }: Props) => {
+export const TopBar = ({
+  label,
+  number,
+  onMercan = false,
+  onDark = false,
+}: Props) => {
+  const onColour = onMercan || onDark;
   return (
     <div
       style={{
@@ -44,7 +51,7 @@ export const TopBar = ({ label, number, onMercan = false }: Props) => {
             fontSize: 50,
             fontWeight: 800,
             letterSpacing: "-0.05em",
-            color: onMercan ? color.beyaz : color.murekkep,
+            color: onColour ? color.beyaz : color.murekkep,
           }}
         >
           Anacan
@@ -59,8 +66,8 @@ export const TopBar = ({ label, number, onMercan = false }: Props) => {
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: color.beyaz,
-            border: onMercan ? "none" : `3px solid ${color.cizgi}`,
-            color: onMercan ? color.mercan : color.kahveGri,
+            border: onColour ? "none" : `3px solid ${color.cizgi}`,
+            color: onColour ? color.mercan : color.kahveGri,
             fontFamily: textFont,
             fontSize: 22,
             fontWeight: 600,
