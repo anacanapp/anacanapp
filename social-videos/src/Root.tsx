@@ -6,6 +6,7 @@ import { Bildiris } from "./bildiris/Bildiris";
 import { color } from "./brand";
 import { BuSaniye } from "./bu-saniye/BuSaniye";
 import { NenemDeyirdi } from "./nenem-deyirdi/NenemDeyirdi";
+import { Sakitlik } from "./sakitlik/Sakitlik";
 import { HecKimDemedi } from "./hec-kim-demedi/HecKimDemedi";
 
 export const RemotionRoot = () => {
@@ -947,6 +948,73 @@ export const RemotionRoot = () => {
           endLine1: "Sən hansı adın",
           endLine2: "mənasını bilmək istəyirsən?",
           endChip: "Şərhdə yaz, hekayəsini danışaq.",
+        }}
+      />
+      <Composition
+        id="Sakitlik24"
+        component={Sakitlik}
+        durationInFrames={450}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          number: "24",
+          clip: "sakitlik/01-cay.mp4",
+          captionAt: "top",
+          musicFrom: 20,
+          lines: [
+            { text: "Bu 15 saniyə", accent: "sənindir.", from: 0.8, to: 5.6 },
+            { text: "Çayın", accent: "soyumasın.", from: 6.0, to: 10.4 },
+            { text: "Qalanı", accent: "gözləyər.", from: 10.8, to: 15.0 },
+          ],
+        }}
+      />
+      <Composition
+        id="Sakitlik25"
+        component={Sakitlik}
+        durationInFrames={450}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          number: "25",
+          clip: "sakitlik/02-yagis.mp4",
+          captionAt: "top",
+          musicFrom: 44,
+          lines: [
+            { text: "Bu 15 saniyə", accent: "sənindir.", from: 0.8, to: 5.6 },
+            {
+              text: "Heç nə etmə.",
+              accent: "Sadəcə bax.",
+              from: 6.0,
+              to: 10.4,
+            },
+            { text: "Hər şey", accent: "yerindədir.", from: 10.8, to: 15.0 },
+          ],
+        }}
+      />
+      <Composition
+        id="Sakitlik26"
+        component={Sakitlik}
+        durationInFrames={450}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          number: "26",
+          clip: "sakitlik/03-el.mp4",
+          captionAt: "bottom",
+          musicFrom: 82,
+          lines: [
+            { text: "Bu 15 saniyə", accent: "sənindir.", from: 0.8, to: 5.6 },
+            { text: "Dərindən", accent: "nəfəs al.", from: 6.0, to: 10.4 },
+            {
+              text: "O, səninlədir.",
+              accent: "Sən də özünlə ol.",
+              from: 10.8,
+              to: 15.0,
+            },
+          ],
         }}
       />
     </Folder>
