@@ -215,28 +215,29 @@ const Ending = ({
         >
           {endLine2}
         </div>
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          left: 80,
-          top: 1040,
-          height: 96,
-          padding: "0 44px",
-          borderRadius: 48,
-          display: "flex",
-          alignItems: "center",
-          backgroundColor: color.beyaz,
-          color: color.murekkep,
-          fontFamily: textFont,
-          fontWeight: 600,
-          fontSize: 40,
-          opacity: chip,
-          scale: interpolate(chip, [0, 1], [0.86, 1]),
-          transformOrigin: "0% 50%",
-        }}
-      >
-        {endChip}
+        <div
+          style={{
+            marginTop: 70,
+            width: "fit-content",
+            letterSpacing: "0em",
+            lineHeight: 1,
+            height: 96,
+            padding: "0 44px",
+            borderRadius: 48,
+            display: "flex",
+            alignItems: "center",
+            backgroundColor: color.beyaz,
+            color: color.murekkep,
+            fontFamily: textFont,
+            fontWeight: 600,
+            fontSize: 40,
+            opacity: chip,
+            scale: interpolate(chip, [0, 1], [0.86, 1]),
+            transformOrigin: "0% 50%",
+          }}
+        >
+          {endChip}
+        </div>
       </div>
     </AbsoluteFill>
   );
