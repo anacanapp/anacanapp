@@ -769,6 +769,116 @@ export const RemotionRoot = () => {
           ],
         }}
       />
+      <Composition
+        id="Bildiris19"
+        component={Bildiris}
+        durationInFrames={570}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "HAMİLƏLİK",
+          number: "19",
+          clock: "08:00",
+          day: "cümə",
+          endLine1: "Körpədən əvvəl",
+          endLine2: "ananı soruş.",
+          endChip: "Səndən bu gün kim soruşdu?",
+          notifications: [
+            {
+              from: "Anam",
+              time: "08:30",
+              text: "Səhər yeməyini yemisən? Uşaq ac qalmasın.",
+              tint: color.pembe,
+            },
+            {
+              from: "Qayınana",
+              time: "11:15",
+              text: "Cinsi bilindi? Mən deyirəm oğlandır.",
+              tint: color.alliq,
+            },
+            {
+              from: "Rəfiqələr",
+              time: "13:40",
+              text: "Adını seçdiniz? Bizə niyə demirsən?",
+              tint: color.seftali,
+            },
+            {
+              from: "Yoldaşım",
+              time: "16:20",
+              text: "Bu gün təpik vurdu? Videosunu at.",
+              tint: color.pembe,
+            },
+            {
+              from: "Xalam",
+              time: "19:05",
+              text: "Qarnın böyüyüb? Şəkil göndər görək.",
+              tint: color.alliq,
+            },
+            {
+              from: "Anacan",
+              time: "21:45",
+              text: "Bu gün hamı körpəni soruşdu.\nBəs sən necəsən?",
+              tint: color.mercan,
+            },
+          ],
+        }}
+      />
+      <Composition
+        id="Bildiris20"
+        component={Bildiris}
+        durationInFrames={570}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          label: "ANALIQ",
+          number: "20",
+          clock: "09:00",
+          day: "bazar ertəsi",
+          endLine1: "Söz çoxdur.",
+          endLine2: "Dəstək də olsun.",
+          endChip: "Sənə ən çox nə deyirlər?",
+          notifications: [
+            {
+              from: "Qonşu",
+              time: "09:05",
+              text: "Uşaq gecə yaman ağlayırdı. Nəsə olub?",
+              tint: color.pembe,
+            },
+            {
+              from: "Qayınana",
+              time: "11:30",
+              text: "Günorta gəlirik. Zəhmət çəkmə, çay bəsdir.",
+              tint: color.alliq,
+            },
+            {
+              from: "Rəfiqəm",
+              time: "14:10",
+              text: "Hələ də evdəsən? Çıx bir az gəz.",
+              tint: color.seftali,
+            },
+            {
+              from: "Bibim",
+              time: "16:45",
+              text: "Uşağı niyə belə nazik geyindirmisən?",
+              tint: color.pembe,
+            },
+            {
+              from: "Yoldaşım",
+              time: "20:20",
+              text: "Gecikirəm. Məni gözləmə, yat.",
+              tint: color.alliq,
+            },
+            {
+              from: "Anacan",
+              time: "23:10",
+              text: "Bu gün çox söz eşitdin.\nBunu da eşit: sən yaxşı anasan.",
+              tint: color.mercan,
+            },
+          ],
+        }}
+      />
     </Folder>
   );
 };
