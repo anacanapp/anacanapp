@@ -1,7 +1,11 @@
+import { Audio } from "@remotion/media";
 import {
   AbsoluteFill,
+  Img,
   interpolate,
+  Sequence,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -11,6 +15,7 @@ import { TopBar } from "../TopBar";
 
 export type Notification = {
   readonly from: string;
+  readonly time: string;
   readonly text: string;
   readonly tint: string;
 };
@@ -24,7 +29,7 @@ export type BildirisProps = EndingCopy & {
 const FIRST = 1.6; // seconds
 const EVERY = 2.0; // seconds
 const HOLD = 3.2; // seconds on the last notification
-const CARD = 178;
+const CARD = 190;
 const GAP = 18;
 
 const LockScreen = ({
@@ -36,6 +41,10 @@ const LockScreen = ({
   const { fps } = useVideoConfig();
   const last = notifications.length - 1;
   const clockIn = spring({ frame, fps, config: softSpring });
+  // The clock shows the time of the newest notification on screen.
+  const arrived = Math.floor((frame / fps - FIRST) / EVERY);
+  const shown =
+    arrived < 0 ? clock : notifications[Math.min(last, arrived)].time;
   const progress = notifications.map((_, i) =>
     spring({
       frame: frame - (FIRST + i * EVERY) * fps,
@@ -71,7 +80,7 @@ const LockScreen = ({
             color: color.beyaz,
           }}
         >
-          {clock}
+          {shown}
         </div>
         <div
           style={{
@@ -109,6 +118,7 @@ const LockScreen = ({
               alignItems: "center",
               gap: 30,
               backgroundColor: isLast ? color.seftali : color.krem,
+              whiteSpace: "pre-line",
               opacity:
                 Math.min(1, p * 1.4) * fade * (isLast ? 1 : 1 - focus * 0.72),
               scale:
@@ -117,24 +127,37 @@ const LockScreen = ({
               translate: `0px ${(1 - p) * -60}px`,
             }}
           >
-            <div
-              style={{
-                flexShrink: 0,
-                width: 92,
-                height: 92,
-                borderRadius: 46,
-                backgroundColor: n.tint,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontFamily: headlineFont,
-                fontWeight: 800,
-                fontSize: 46,
-                color: isLast ? color.beyaz : color.murekkep,
-              }}
-            >
-              {n.from.slice(0, 1)}
-            </div>
+            {isLast ? (
+              <Img
+                src={staticFile("anacan-icon.png")}
+                style={{
+                  flexShrink: 0,
+                  width: 96,
+                  height: 96,
+                  borderRadius: 24,
+                  backgroundColor: color.beyaz,
+                }}
+              />
+            ) : (
+              <div
+                style={{
+                  flexShrink: 0,
+                  width: 92,
+                  height: 92,
+                  borderRadius: 46,
+                  backgroundColor: n.tint,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: headlineFont,
+                  fontWeight: 800,
+                  fontSize: 46,
+                  color: color.murekkep,
+                }}
+              >
+                {n.from.slice(0, 1)}
+              </div>
+            )}
             <div style={{ flex: 1, minWidth: 0 }}>
               <div
                 style={{
@@ -155,7 +178,7 @@ const LockScreen = ({
                     color: color.kahveGri,
                   }}
                 >
-                  indi
+                  {n.time}
                 </span>
               </div>
               <div
@@ -184,9 +207,26 @@ export const Bildiris = ({
   notifications,
   ...ending
 }: BildirisProps) => {
+  const { fps } = useVideoConfig();
   return (
     <AbsoluteFill style={{ backgroundColor: color.koyuKahve }}>
       <LockScreen clock={clock} day={day} notifications={notifications} />
+      {notifications.map((n, i) => (
+        <Sequence
+          key={n.from}
+          from={Math.round((FIRST + i * EVERY) * fps)}
+          layout="none"
+        >
+          <Audio
+            src={staticFile(
+              i === notifications.length - 1
+                ? "sfx/notify-warm.wav"
+                : "sfx/notify-soft.wav",
+            )}
+            volume={0.7}
+          />
+        </Sequence>
+      ))}
       <TopBar label={ending.label} number={ending.number} onDark />
       <MercanEnding
         start={FIRST + (notifications.length - 1) * EVERY + HOLD}
