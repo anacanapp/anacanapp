@@ -9,53 +9,19 @@ import {
 import { color, gentleEase, headlineFont, softSpring, textFont } from "../brand";
 import { TopBar } from "../TopBar";
 
-type Bubble = {
+export type Bubble = {
   readonly text: string;
   readonly lines: number;
   readonly side: "left" | "right";
   readonly fill: string;
 };
 
-// Written by the brand as shared experiences. They are not quotes from
-// real users, so they carry no names, avatars or attribution.
-const bubbles: readonly Bubble[] = [
-  {
-    text: "…doğuşdan sonra da\n6 aylıq hamilə kimi\ngörünəcəm.",
-    lines: 3,
-    side: "left",
-    fill: color.alliq,
-  },
-  {
-    text: "…duşa girmək günün\nən böyük uğuru olacaq.",
-    lines: 2,
-    side: "right",
-    fill: color.seftali,
-  },
-  {
-    text: "…əmizdirmək təbiidir,\namma asan deyil.",
-    lines: 2,
-    side: "left",
-    fill: color.pembe,
-  },
-  {
-    text: "…gecə saat 3-də ağlayan\ntəkcə körpə olmayacaq.",
-    lines: 2,
-    side: "right",
-    fill: color.alliq,
-  },
-  {
-    text: "…sevgi bəzən dərhal yox,\nyavaş-yavaş gəlir.",
-    lines: 2,
-    side: "left",
-    fill: color.seftali,
-  },
-  {
-    text: "…anamı bu qədər\nbaşa düşəcəm.",
-    lines: 2,
-    side: "right",
-    fill: color.pembe,
-  },
-];
+export type HecKimDemediProps = {
+  readonly number: string;
+  // Written by the brand as shared experiences. They are not quotes from
+  // real users, so they carry no names, avatars or attribution.
+  readonly bubbles: readonly Bubble[];
+};
 
 const FONT_SIZE = 46;
 const LINE_HEIGHT = 1.3;
@@ -113,7 +79,7 @@ const Headline = () => {
   );
 };
 
-const BubbleStack = () => {
+const BubbleStack = ({ bubbles }: Pick<HecKimDemediProps, "bubbles">) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -181,7 +147,7 @@ const BubbleStack = () => {
   );
 };
 
-const Ending = () => {
+const Ending = ({ number }: Pick<HecKimDemediProps, "number">) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const local = frame - END_START * fps;
@@ -203,7 +169,7 @@ const Ending = () => {
     <AbsoluteFill
       style={{ backgroundColor: color.mercan, translate: `0% ${cover}%` }}
     >
-      <TopBar label="ANALIQ" number="01" onMercan />
+      <TopBar label="ANALIQ" number={number} onMercan />
       <div
         style={{
           position: "absolute",
@@ -262,13 +228,13 @@ const Ending = () => {
   );
 };
 
-export const HecKimDemedi = () => {
+export const HecKimDemedi = ({ number, bubbles }: HecKimDemediProps) => {
   return (
     <AbsoluteFill style={{ backgroundColor: color.krem }}>
-      <BubbleStack />
+      <BubbleStack bubbles={bubbles} />
       <Headline />
-      <TopBar label="ANALIQ" number="01" />
-      <Ending />
+      <TopBar label="ANALIQ" number={number} />
+      <Ending number={number} />
     </AbsoluteFill>
   );
 };
