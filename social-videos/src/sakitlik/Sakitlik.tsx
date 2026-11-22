@@ -2,6 +2,7 @@ import { Audio, Video } from "@remotion/media";
 import {
   AbsoluteFill,
   Easing,
+  Img,
   interpolate,
   staticFile,
   useCurrentFrame,
@@ -9,7 +10,6 @@ import {
 } from "remotion";
 import { color, gentleEase, headlineFont } from "../brand";
 import { clamp } from "../shared";
-import { TopBar } from "../TopBar";
 
 type Line = {
   readonly text: string;
@@ -20,7 +20,6 @@ type Line = {
 };
 
 export type SakitlikProps = {
-  readonly number: string;
   readonly clip: string;
   /** Where the captions sit, so they never cover the subject. */
   readonly captionAt: "top" | "bottom";
@@ -80,7 +79,6 @@ const Caption = ({
 };
 
 export const Sakitlik = ({
-  number,
   clip,
   captionAt,
   musicFrom,
@@ -126,7 +124,17 @@ export const Sakitlik = ({
       {lines.map((line) => (
         <Caption key={line.from} line={line} at={captionAt} />
       ))}
-      <TopBar label="SAKİTLİK" number={number} onDark />
+      {/* The white brand mark alone: no chip, wordmark or number. */}
+      <Img
+        src={staticFile("anacan-mark-white.png")}
+        style={{
+          position: "absolute",
+          top: 104,
+          right: 80,
+          width: 76,
+          height: 76,
+        }}
+      />
       <Audio
         src={staticFile("sakitlik/music.mp3")}
         trimBefore={musicFrom * fps}

@@ -958,7 +958,6 @@ export const RemotionRoot = () => {
         width={1080}
         height={1920}
         defaultProps={{
-          number: "24",
           clip: "sakitlik/01-cay.mp4",
           captionAt: "top",
           musicFrom: 20,
@@ -977,7 +976,6 @@ export const RemotionRoot = () => {
         width={1080}
         height={1920}
         defaultProps={{
-          number: "25",
           clip: "sakitlik/02-yagis.mp4",
           captionAt: "top",
           musicFrom: 44,
@@ -1001,7 +999,6 @@ export const RemotionRoot = () => {
         width={1080}
         height={1920}
         defaultProps={{
-          number: "26",
           clip: "sakitlik/03-el.mp4",
           captionAt: "bottom",
           musicFrom: 82,
