@@ -48,3 +48,8 @@ campaign needs it (`web_premium_campaign_before_mercan`).
   8 book banners start 2026-11-30T20:00Z. Simulated inventory: 20/20 recent users get the banner (az, ru, en).
 - Open: Dodo codes `MERCAN` / `MERCANAY` must exist in the Dodo dashboard (until then foreign checkouts show an error);
   website (SSR) banner component not deployed yet (the website build could not run in this session).
+- Gateway `sha256:d5f9844f…` (tag `gw-mercan2-202611231201`, plan `mercan2-web-plan.json`, rollback
+  `rollback-mercan2-web-plan.json` → `e90f867d…`): page stays light in dark mode, white logo on coral; the short links
+  `/website/premium/mercan` and `/website/premium/mercan/` 301 to `index.html` (query kept). The redirect is two exact
+  `location =` lines added to the anacan.az server block of the gateway `nginx.conf` inside the image (after the
+  website `/healthz`); later gateway builds FROM this digest keep them.
