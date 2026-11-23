@@ -58,6 +58,40 @@
     var one = T.marquee.map(function (x) { return '<span>' + esc(x) + '</span><i>✦</i>'; }).join('');
     return '<div class="mq" aria-hidden="true"><div>' + one + one + one + one + '</div></div>';
   }
+  /** Longest word (in characters) of the headline: the hero sizes its h1 so that word always fits one line. */
+  function longest(t) {
+    // Width in Latin-character units: CJK and Hangul glyphs are about 1.6 times as wide (and must not break inside a word).
+    var L = 4; String(t).split(/\s+/).forEach(function (w) {
+      var n = 0; Array.from(w).forEach(function (ch) { n += /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(ch) ? 1.6 : 1; });
+      L = Math.max(L, n);
+    }); return Math.round(L * 10) / 10;
+  }
+  /** Line icons for the 16 Premium features (same order in every copy file); they replace the emoji of the hand-off. */
+  var ICONS = [
+    'M12 3l1.8 4.6L18.4 9.4l-4.6 1.8L12 15.8l-1.8-4.6L5.6 9.4l4.6-1.8z|M18.5 15l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z',
+    'M4 9.5v5h3.5L12 18V6L7.5 9.5z|M15.5 9a4 4 0 0 1 0 6|M18 6.5a7.5 7.5 0 0 1 0 11',
+    'M4 8.5h3.2L9 6h6l1.8 2.5H20V19H4z|C12 13.5 3.5',
+    'M3 5.5h6a3 3 0 0 1 3 3V19a2.5 2.5 0 0 0-2.5-2H3z|M21 5.5h-6a3 3 0 0 0-3 3V19a2.5 2.5 0 0 1 2.5-2H21z',
+    'M3 12h1.5|M7 8.5v7|M10.5 5v14|M14 8v8|M17.5 10v4|M21 12h-.5',
+    'M4 19.5h16|M5.5 15l4-4 3 3L19 7.5|M15 7.5h4v4',
+    'M3.5 11.5h17a8.5 8.5 0 0 1-17 0z|M9 8c0-1.6 1.6-1.9 1.6-3.5|M13.4 8c0-1.6 1.6-1.9 1.6-3.5',
+    'M12 20s-7-4.3-7-9.8A4 4 0 0 1 12 7.6a4 4 0 0 1 7 2.6C19 15.7 12 20 12 20z',
+    'M12 21s-6-5.4-6-10.8a6 6 0 0 1 12 0C18 15.6 12 21 12 21z|C12 10.2 2.2',
+    'M4 5h16v14H4z|M4 15.5l4.5-4.5 4 4 2.5-2.5 5 5|C15.5 9 1.5',
+    'M7 3v8|M5 3v5a2 2 0 0 0 4 0V3|M7 11v10|M17 21V3c-2.2 1-3.5 4-3.5 7.5H17',
+    'C9 8 3|M3.5 20a5.5 5.5 0 0 1 11 0|C17 9 2.5|M15.6 14.3A4.8 4.8 0 0 1 20.5 19',
+    'M6 3h8.5L19 7.5V21H6z|M14 3v5h5|M9 13h7|M9 17h5',
+    'M6 16.5V11a6 6 0 0 1 12 0v5.5l1.8 1.8H4.2z|M10 21h4',
+    'C12 12 9|M5.7 5.7l12.6 12.6',
+    'M4 5h16v11.5H9.5L4 20.5z|M8 9.5h8|M8 12.5h5'
+  ];
+  function icon(i) {
+    var d = ICONS[i % ICONS.length].split('|').map(function (p) {
+      if (p.charAt(0) === 'C') { var c = p.slice(1).trim().split(/\s+/); return '<circle cx="' + c[0] + '" cy="' + c[1] + '" r="' + c[2] + '"/>'; }
+      return '<path d="' + p + '"/>';
+    }).join('');
+    return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>';
+  }
   function planName(p) { return p === 'yearly' ? T.yearly : T.monthly; }
   function render() {
     document.title = T.meta_title;
@@ -71,14 +105,14 @@
       '<div class="stage"><div class="w">' +
         '<div class="nav"><a class="brand" href="https://anacan.az/' + (LANG === 'az' ? '' : LANG + '/') + '" aria-label="Anacan"><img src="/website/brand-glyph-coral.png" alt="" width="26" height="26">anacan</a>' +
         '<div class="nav-r">' + langSel + '<button class="pill" type="button" data-go>' + esc(T.nav_cta) + '</button></div></div>' +
-        '<div class="hero">' +
+        '<div class="hero"><div class="hero-txt">' +
           '<span class="tag">' + esc(T.tag) + '</span>' +
-          '<h1>' + esc(T.h1_a) + (LANG === 'nl' || LANG === 'sv' ? '' : ' ') + '<em>' + esc(T.h1_b) + '</em></h1>' +
+          '<h1 style="--L:' + longest(T.h1_a + ' ' + T.h1_b) + '">' + esc(T.h1_a) + (LANG === 'nl' || LANG === 'sv' ? '' : ' ') + '<em>' + esc(T.h1_b) + '</em></h1>' +
           '<p class="lead">' + fill(T.lead) + '</p>' + cd('cd1') +
-          '<button class="cta" type="button" data-go data-hero>' + esc(fill(T.cta_year)) + ' <s>' + usd(y.was) + '</s></button>' +
-          '<button class="sub-cta" type="button" data-pick="monthly">' + esc(fill(T.sub_cta)) + '</button>' +
-          '<div class="trio"><div class="stick"><div><b>−67%</b><span>' + esc(T.sticker) + '</span></div></div>' +
-            '<img src="' + CH + 'ritm-success.webp" alt="Ritm" width="512" height="512"><img src="' + CH + 'qucaq-success.webp" alt="Qucaq" width="512" height="512"><img src="' + CH + 'tumurcuq-success.webp" alt="Tumurcuq" width="512" height="512"></div>' +
+          '<div class="hero-go"><button class="cta" type="button" data-go data-hero><span>' + esc(fill(T.cta_year)) + '</span> <s>' + usd(y.was) + '</s></button>' +
+          '<button class="sub-cta" type="button" data-pick="monthly">' + esc(fill(T.sub_cta)) + '</button></div></div>' +
+          '<div class="hero-art"><div class="stick"><div><b>−67%</b><span>' + esc(T.sticker) + '</span></div></div>' +
+            '<img src="' + CH + 'ritm-success.webp" alt="Ritm" width="512" height="512"><img src="' + CH + 'tumurcuq-success.webp" alt="Tumurcuq" width="512" height="512"><img src="' + CH + 'qucaq-success.webp" alt="Qucaq" width="512" height="512"></div>' +
         '</div></div></div>' +
       marquee() +
       '<section class="sec" id="plans"><div class="w">' +
@@ -94,11 +128,11 @@
       '<section class="sec math"><div class="w"><h2>' + T.math_h + '</h2><div class="row num">' +
         T.math.map(function (r) { return '<div><b>' + esc(fill(r[0])) + '</b><span>' + esc(fill(r[1])) + '</span></div>'; }).join('') + '</div></div></section>' +
       '<section class="sec"><div class="w"><h2>' + T.feat_h + '</h2><p class="intro">' + esc(T.feat_intro) + '</p><ul class="feat">' +
-        T.features.map(function (f) { return '<li><span aria-hidden="true">' + f[0] + '</span><b>' + esc(f[1]) + '</b><small>' + esc(f[2]) + '</small></li>'; }).join('') + '</ul></div></section>' +
+        T.features.map(function (f, i) { return '<li><span class="ic" aria-hidden="true">' + icon(i) + '</span><b>' + esc(f[1]) + '</b><small>' + esc(f[2]) + '</small></li>'; }).join('') + '</ul></div></section>' +
       '<section class="sec" style="padding-top:0"><div class="w"><h2>' + T.stages_h + '</h2><div class="stages">' +
-        [['var(--ritm)', 'ritm'], ['var(--tumurcuq)', 'tumurcuq'], ['var(--qucaq)', 'qucaq']].map(function (c, i) {
+        [['s-ritm', 'ritm'], ['s-tum', 'tumurcuq'], ['s-qucaq', 'qucaq']].map(function (c, i) {
           var s = T.stages[i];
-          return '<div class="stg" style="background:' + c[0] + '"><div><small>' + esc(s[0]) + '</small><h3>' + esc(s[1]) + '</h3><p>' + esc(s[2]) + '</p></div><img src="' + CH + c[1] + '-welcome.webp" alt="" width="333" height="512"></div>';
+          return '<div class="stg ' + c[0] + '"><div><small>' + esc(s[0]) + '</small><h3>' + esc(s[1]) + '</h3><p>' + esc(s[2]) + '</p></div><img src="' + CH + c[1] + '-welcome.webp" alt="" width="333" height="512"></div>';
         }).join('') + '</div></div></section>' +
       '<section class="sec" style="padding-top:0"><div class="w"><h2>' + esc(T.faq_h) + '</h2><div class="faq">' +
         T.faq.map(function (q) { return '<details><summary>' + esc(q[0]) + '</summary><p>' + esc(fill(q[1])) + '</p></details>'; }).join('') + '</div></div></section>' +
