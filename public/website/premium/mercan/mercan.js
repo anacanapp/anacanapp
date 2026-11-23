@@ -69,7 +69,7 @@
     var html =
       '<div class="ann"><div class="w"><span>' + fill(T.ann) + '</span><span class="num" id="ann-t"></span></div></div>' +
       '<div class="stage"><div class="w">' +
-        '<div class="nav"><a class="brand" href="https://anacan.az/' + (LANG === 'az' ? '' : LANG + '/') + '" aria-label="Anacan"><img src="/website/brand-glyph-coral.png" alt="" width="26" height="26" style="filter:brightness(0)">anacan</a>' +
+        '<div class="nav"><a class="brand" href="https://anacan.az/' + (LANG === 'az' ? '' : LANG + '/') + '" aria-label="Anacan"><img src="/website/brand-glyph-coral.png" alt="" width="26" height="26">anacan</a>' +
         '<div class="nav-r">' + langSel + '<button class="pill" type="button" data-go>' + esc(T.nav_cta) + '</button></div></div>' +
         '<div class="hero">' +
           '<span class="tag">' + esc(T.tag) + '</span>' +

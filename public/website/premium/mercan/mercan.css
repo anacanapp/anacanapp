@@ -7,6 +7,7 @@
   --display: 'Plus Jakarta Sans', 'Noto Sans', 'Noto Sans Arabic', 'Noto Sans Georgian', 'Noto Sans Devanagari', 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', system-ui, sans-serif;
   color-scheme: light;
 }
+/* Light only: data-theme="light" on <html> keeps the shared account.css from switching these variables to its dark values. */
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.5 var(--display); -webkit-font-smoothing: antialiased; }
@@ -30,8 +31,8 @@ a { color: inherit; }
 /* Stage */
 .stage { background: var(--stage); color: var(--night); overflow: hidden; position: relative; }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-block: 16px; }
-.brand { display: inline-flex; align-items: center; gap: 8px; font-size: 22px; font-weight: 700; letter-spacing: -.05em; text-decoration: none; color: var(--night); }
-.brand img { width: 26px; height: 26px; }
+.brand { display: inline-flex; align-items: center; gap: 8px; font-size: 22px; font-weight: 700; letter-spacing: -.05em; text-decoration: none; color: #fff; }
+.brand img { width: 26px; height: 26px; filter: brightness(0) invert(1); }
 .nav-r { display: flex; align-items: center; gap: 8px; }
 .nav .pill { min-height: 44px; padding: 0 16px; border-radius: 999px; box-shadow: inset 0 0 0 1.5px var(--night); font-size: 14px; font-weight: 700; display: inline-flex; align-items: center; text-decoration: none; }
 .lang { position: relative; }
