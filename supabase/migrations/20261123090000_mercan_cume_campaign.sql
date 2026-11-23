@@ -8,7 +8,7 @@
 --   * In-app banners: 3 designs × 21 page languages on 5 placements (home_top coral; tools_top + community_top peach;
 --     profile_top + ai_chat_top light), external link to the Mərcan page in the banner's language. English also
 --     serves ky, et, tk and uk. Free users only (server_tiers; audience_tiers NULL so every build renders them),
---     window now → 2026-11-30T19:59:59Z. PDF book banners on the same placements pause until the campaign ends.
+--     window now → 2026-11-30T19:59:59Z. Images ship with the website (anacan.az/website/premium/mercan/banners/). PDF book banners on the same placements pause until the campaign ends.
 -- app_settings and banners are CDC enrolled and writer guarded; data only.
 BEGIN;
 SET LOCAL lock_timeout = '5s';
@@ -53,7 +53,7 @@ UPDATE public.banners
 INSERT INTO public.banners (title, title_az, image_url, link_type, link_url, placement, banner_type, is_active, sort_order,
                             target_languages, audience_tiers, creative_options, start_date, end_date)
 SELECT 'Mərcan Cümə ' || l.lang || ' ' || p.placement, 'Mərcan Cümə',
-       'https://api.anacan.az/storage/v1/object/public/assets/banners/promo/mercan-' || p.design || '-' || l.lang || '-20261123.jpg',
+       'https://anacan.az/website/premium/mercan/banners/' || p.design || '-' || l.lang || '.webp',
        'external',
        'https://anacan.az/website/premium/mercan/index.html?lang=' || l.lang
          || '&utm_source=app&utm_medium=banner&utm_campaign=mercan&utm_content=' || p.placement,
@@ -65,7 +65,7 @@ SELECT 'Mərcan Cümə ' || l.lang || ' ' || p.placement, 'Mərcan Cümə',
  CROSS JOIN (VALUES ('home_top', 'coral'), ('tools_top', 'peach'), ('community_top', 'peach'),
                     ('profile_top', 'light'), ('ai_chat_top', 'light')) AS p(placement, design)
  WHERE NOT EXISTS (SELECT 1 FROM public.banners b
-                    WHERE b.image_url LIKE '%/promo/mercan-' || p.design || '-' || l.lang || '-20261123.jpg' AND b.placement = p.placement);
+                    WHERE b.image_url LIKE '%/mercan/banners/' || p.design || '-' || l.lang || '.webp' AND b.placement = p.placement);
 
 DO $$
 BEGIN
@@ -74,7 +74,7 @@ BEGIN
      OR coalesce((public.web_premium_campaign_v1()->>'active')::boolean, false) IS NOT TRUE THEN
     RAISE EXCEPTION 'MERCAN_CAMPAIGN_NOT_ACTIVE';
   END IF;
-  IF (SELECT count(*) FROM public.banners WHERE image_url LIKE '%/promo/mercan-%-20261123.jpg') <> 105 THEN
+  IF (SELECT count(*) FROM public.banners WHERE image_url LIKE '%/premium/mercan/banners/%') <> 105 THEN
     RAISE EXCEPTION 'MERCAN_BANNERS_COUNT';
   END IF;
 END $$;

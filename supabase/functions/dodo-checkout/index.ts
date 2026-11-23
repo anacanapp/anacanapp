@@ -114,6 +114,8 @@ Deno.serve(async (req) => {
     discountCode = campaignDiscount(c, String(body.campaign), plan, Date.now());
     if (discountCode && c && typeof c === 'object') campaignPage = campaignReturnPage(c.page);
   }
+  // A campaign page shows the discounted price: never start a full-price checkout from it (window over, code missing).
+  if (campaignRequested && !sponsorToken && !discountCode) return reply(410, { error: 'campaign_inactive' });
 
   // A sponsor link must exist and still be valid before we let anyone pay against it.
   if (sponsorToken) {

@@ -269,6 +269,7 @@
       if (r.status === 401) { await A.signOut(); step = 2; accountStep(); return; }
       if (r.status === 409) { showState('has'); return; }
       if (r.status === 429) { payError(T.err_rate, pay, label); return; }
+      if (r.status === 410) { showState(ended() ? 'ended' : 'err_generic'); return; }
       if (!r.ok || typeof d.checkout_url !== 'string' || !/^https:\/\//.test(d.checkout_url)) { payError(T.err_generic, pay, label); return; }
       location.href = d.checkout_url;
     } catch (e) { payError(T.err_generic, pay, label); }
