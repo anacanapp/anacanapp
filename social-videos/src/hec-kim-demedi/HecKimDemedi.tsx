@@ -136,7 +136,7 @@ const BubbleStack = ({ bubbles }: Pick<HecKimDemediProps, "bubbles">) => {
               borderBottomLeftRadius: isLeft ? 10 : 40,
               borderBottomRightRadius: isLeft ? 40 : 10,
               backgroundColor: b.fill,
-              color: color.murekkep,
+              color: b.fill === color.mercan ? color.beyaz : color.murekkep,
               fontFamily: textFont,
               fontWeight: 500,
               fontSize: FONT_SIZE,
