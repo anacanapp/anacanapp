@@ -273,3 +273,11 @@ handoff-a daxil edilmir.
 - 2026-11-11: Anacan AI Premium-only (`free_limits.ai_chat_count_per_day` = 0; paywall on entry), Instagram-style
   comment sheet, Community search removed. App gateway `b2c2256d…` (plan `appig-web-plan.json`, rollback
   `rollback-appig-web-plan.json` to `3a9ce7b0…`).
+
+## Client bundle on the gateway (2026-11-23)
+- The SSR shell (`az/index.html` in the runtime) names the client bundle `/assets/index-<hash>.js`; on anacan.az the
+  gateway serves `/assets/` from `/usr/share/nginx/website/assets/`, not the runtime. Every runtime deploy with a new
+  shell must ship `dist/assets/` in a gateway image too, gateway first. From 2026-11-17 to 2026-11-23 this was missed
+  (bundle 404, no hydration); fixed with website `01c0c0c7…` + gateway `ae0a13bc…` (Mərcan banners, docs/MERCAN_CUME.md).
+- Smoke tests that render with the prerendered `az/index.html` must first empty `<div id="root">` like server.mjs does,
+  otherwise every language shows the Azerbaijani body.

@@ -46,8 +46,7 @@ campaign needs it (`web_premium_campaign_before_mercan`).
   per-plan codes; a campaign checkout without a valid code is refused (410), never sold at full price.
 - Migration applied 11:28Z: campaign `mercan-2026` active (16.99 / 3.39 AZN), `dodo_campaign` set, 105 banners live,
   8 book banners start 2026-11-30T20:00Z. Simulated inventory: 20/20 recent users get the banner (az, ru, en).
-- Open: Dodo codes `MERCAN` / `MERCANAY` must exist in the Dodo dashboard (until then foreign checkouts show an error);
-  website (SSR) banner component not deployed yet (the website build could not run in this session).
+- Open: Dodo codes `MERCAN` / `MERCANAY` must exist in the Dodo dashboard (until then foreign checkouts show an error).
 - Gateway `sha256:d5f9844f…` (tag `gw-mercan2-202611231201`, plan `mercan2-web-plan.json`, rollback
   `rollback-mercan2-web-plan.json` → `e90f867d…`): page stays light in dark mode, white logo on coral; the short links
   `/website/premium/mercan` and `/website/premium/mercan/` 301 to `index.html` (query kept). The redirect is two exact
@@ -56,3 +55,12 @@ campaign needs it (`web_premium_campaign_before_mercan`).
 - Redesign live: gateway `sha256:87aee7f0…` (tag `gw-mercan3-202611231304`, FROM `d5f9844f…` so the short-link
   redirect stays; plan `mercan3-web-plan.json`, rollback `rollback-mercan3-web-plan.json` → `d5f9844f…`). Coral hero
   with white type, no black fields, line icons, tinted stage cards; `mercan.css?v=3` / `mercan.js?v=3`.
+- Website banners live (2026-11-23): website runtime `sha256:01c0c0c7…` (FROM `fc6675b3…`, rollback plan
+  `website-runtime-plan.before-mercan.json`), gateway `sha256:ae0a13bc…` (FROM `87aee7f0…`, plan `mercanweb-web-plan.json`,
+  rollback `rollback-mercanweb-web-plan.json`). Coral above the home hero, peach above the journal, light after articles,
+  in every site language. Image smoke test renders 7 languages with the server's empty-shell cleanup; canary on
+  127.0.0.1:9299 before the swap.
+- Found and fixed in the same deploy: since the 2026-11-17 runtime (`fc6675b3…`) the site's client bundle
+  (`/assets/index-C78EyuDH.js`) was missing from the gateway, so pages rendered but did not hydrate (404). Rule: a website
+  runtime deploy that changes the shell's bundle must also copy `dist/assets/` into the gateway at
+  `/usr/share/nginx/website/assets/` (deploy the gateway first).
