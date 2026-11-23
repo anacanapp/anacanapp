@@ -53,3 +53,6 @@ campaign needs it (`web_premium_campaign_before_mercan`).
   `/website/premium/mercan` and `/website/premium/mercan/` 301 to `index.html` (query kept). The redirect is two exact
   `location =` lines added to the anacan.az server block of the gateway `nginx.conf` inside the image (after the
   website `/healthz`); later gateway builds FROM this digest keep them.
+- Redesign live: gateway `sha256:87aee7f0…` (tag `gw-mercan3-202611231304`, FROM `d5f9844f…` so the short-link
+  redirect stays; plan `mercan3-web-plan.json`, rollback `rollback-mercan3-web-plan.json` → `d5f9844f…`). Coral hero
+  with white type, no black fields, line icons, tinted stage cards; `mercan.css?v=3` / `mercan.js?v=3`.
