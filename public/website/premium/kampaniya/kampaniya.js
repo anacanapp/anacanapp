@@ -1,7 +1,21 @@
 /* Weekend campaign: login first (app's methods), then the plans at the server's campaign prices; an account with
    Premium (store or web) sees that instead. Subscribing opens Epoint's bank page (card saved for renewals); the
    result is confirmed by the signed Epoint callback, the page only polls the status after the redirect back. */
-(function () {
+/* Mərcan Cümə (2026-11-23 → 30 Nov, Baku) has its own page. The server's payment redirects (?odenis=…) and reminder
+   links point here, so forward them there with the query and hash intact (plus the morning after for a payment that
+   returns after midnight). The Mərcan page never redirects back, so there is no loop. Language stays the tab's own. */
+var anacanForwarded = (function () {
+  try {
+    var bakuDay = new Date(Date.now() + 4 * 3600e3).toISOString().slice(0, 10); // Baku is UTC+4, no DST
+    var returning = /[?&]odenis=/.test(location.search);
+    if ((bakuDay >= '2026-11-23' && bakuDay <= '2026-11-30') || (returning && bakuDay === '2026-12-01')) {
+      location.replace('/website/premium/mercan/index.html' + location.search + location.hash);
+      return true;
+    }
+  } catch (e) { /* stay on this page */ }
+  return false;
+})();
+if (!anacanForwarded) (function () {
   'use strict';
   var A = window.AnacanAccount;
   var $ = function (id) { return document.getElementById(id); };

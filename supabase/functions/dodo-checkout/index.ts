@@ -6,12 +6,14 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.1';
 import { dodoConfig, dodoRequest, WEBSITE_ORIGINS, type DodoPlan } from '../_shared/dodo.ts';
 import { LANGUAGE_CODES } from '../_shared/languages.ts';
+import { campaignDiscount, campaignReturnPage } from '../_shared/dodo-campaign.ts';
 
 // Dodo checkout languages; the closest one for app languages it does not offer.
 const CHECKOUT_LANGUAGE: Record<string, string> = { az: 'tr', kk: 'ru', uz: 'ru', hi: 'en', vi: 'en' };
 const DODO_LANGUAGES = new Set(['ar', 'de', 'en', 'es', 'fr', 'id', 'ja', 'ka', 'ko', 'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'zh']);
 export const FUNNEL_URL = 'https://anacan.az/website/premium/index.html';
 export const CAMPAIGN_URL = 'https://anacan.az/website/premium/1111/index.html';
+
 
 // Anacan look for hosted, overlay and inline checkout (coral #FF5A5F on warm peach, Inter, soft corners).
 function themeConfig(payLabel: string | null) {
@@ -99,16 +101,18 @@ Deno.serve(async (req) => {
   const payLabel = typeof body.pay_label === 'string' ? body.pay_label.replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 40) || null : null;
   const checkoutLanguage = CHECKOUT_LANGUAGE[language] ?? (DODO_LANGUAGES.has(language) ? language : 'en');
 
-  // Campaign discount (e.g. 11.11): app_settings.dodo_campaign = {code, plan, starts_at, ends_at}. Applied only when the
-  // page asks for it ({campaign: code}), for that plan and inside the window; the server decides, never the browser.
+  // Campaign discount: app_settings.dodo_campaign. Applied only when the page asks for it, for that plan and inside the
+  // window; the server decides, never the browser. Two shapes:
+  //   11.11:        {code, plan, starts_at, ends_at}                       page sends {campaign: code}
+  //   Mərcan Cümə:  {campaign, codes: {yearly, monthly}, page, starts_at, ends_at}   page sends {campaign: campaign}
   let discountCode: string | null = null;
+  let campaignPage: string | null = null;
   if (campaignRequested) {
     const { data: row } = await admin.from('app_settings').select('value').eq('key', 'dodo_campaign').maybeSingle();
     let c = (row as { value?: unknown } | null)?.value as Record<string, unknown> | string | null | undefined;
     if (typeof c === 'string') { try { c = JSON.parse(c); } catch { c = null; } }
-    const now = Date.now();
-    if (c && typeof c === 'object' && c.code === body.campaign && c.plan === plan
-      && now >= Date.parse(String(c.starts_at)) && now < Date.parse(String(c.ends_at))) discountCode = String(c.code);
+    discountCode = campaignDiscount(c, String(body.campaign), plan, Date.now());
+    if (discountCode && c && typeof c === 'object') campaignPage = campaignReturnPage(c.page);
   }
 
   // A sponsor link must exist and still be valid before we let anyone pay against it.
@@ -148,7 +152,7 @@ Deno.serve(async (req) => {
         ...(discountCode ? { discount_code: discountCode } : {}),
         customer: { email },
         return_url: sponsorToken ? `https://anacan.az/${language}/p/?t=${sponsorToken}&done=1`
-          : campaignRequested ? `${CAMPAIGN_URL}?lang=${language}&done=1` : `${FUNNEL_URL}?lang=${language}&done=1`,
+          : campaignRequested ? `${campaignPage ?? CAMPAIGN_URL}?lang=${language}&done=1` : `${FUNNEL_URL}?lang=${language}&done=1`,
         customization: { theme: 'light', show_order_details: true, force_language: checkoutLanguage, theme_config: themeConfig(payLabel) },
         // Digital product: collect as little as possible. Dodo (Merchant of Record) may still require a
         // billing country for tax; we never ask for a full address, phone or tax id.
