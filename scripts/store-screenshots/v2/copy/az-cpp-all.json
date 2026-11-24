@@ -1,0 +1,13 @@
+{
+ "lang": "az",
+ "badge": "Pulsuz · 25 dil",
+ "hero": "hero-photo-coral.jpg",
+ "slides": [
+  {"key": "hero", "shot": null, "eyebrow": "Dövr · Hamiləlik · Analıq", "title": ["dövrdən körpəyə"], "hl": "bir tətbiq", "sub": "Aybaşı təqvimi, hamiləlik həftə-həftə və körpə izləyicisi bir yerdə", "cta": "Pulsuz yüklə", "ctaSub": "iOS və Android"},
+  {"key": "cycle", "shot": "flow-top", "eyebrow": "Dövr izləmə", "title": ["dövrünü"], "hl": "dəqiq bil", "sub": "Növbəti aybaşı, ovulyasiya və məhsuldar günlərin proqnozu"},
+  {"key": "week", "shot": "bump-home", "eyebrow": "Hamiləlik", "title": ["körpən bu gün"], "hl": "pomidor boyda", "sub": "Hamiləliyini həftə-həftə izlə: ölçü, çəki və doğuşa qalan günlər", "chips": [["142", "gün qaldı"], ["19", "həftə, 4 gün"]]},
+  {"key": "tracker", "shot": "tracker", "eyebrow": "Analıq", "title": ["qidalanma və yuxu"], "hl": "bir toxunuşla", "sub": "Döş, şüşə, yuxu və bez qeydləri, yuxu proqnozu ilə", "chips": [["3", "qidalanma bu gün"], ["2:25", "saat yuxu"]]},
+  {"key": "ai", "shot": "ai-bump", "eyebrow": "Anacan.AI", "title": ["sualın var?"], "hl": "cavab burada", "sub": "Dövr, hamiləlik və körpə sualların üçün 7/24 köməkçi", "chips": [["7/24", "hər sual"]]},
+  {"key": "day", "shot": "mommy-home", "eyebrow": "Hər mərhələdə", "title": ["hər gün"], "hl": "yanındayıq", "sub": "Mərhələ dəyişəndə tətbiq də səninlə dəyişir: bir toxunuşla keçid", "chips": [["245", "gün birlikdə"]], "cta": "Pulsuz yüklə", "ctaSub": "iOS və Android"}
+ ]
+}
