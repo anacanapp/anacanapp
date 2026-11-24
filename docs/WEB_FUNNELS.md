@@ -97,3 +97,5 @@ two agree statements → partner → minutes a day → loader with one question 
   (all with `funnel_id: 'plan'`). Saving answers to the profile is a later step (needs a column + RPC).
 - The cookie banner no longer covers the main button: the button bar sits above it until it is accepted.
 - Ad links: `https://anacan.az/website/premium/plan/index.html?lang=az&utm_source=meta&utm_medium=paid&utm_campaign=plan`.
+- Deployed 2026-11-24: gateway `sha256:a96bf697…` (tag `gw-plan-…`, FROM `ae0a13bc…`, plan `plan-web-plan.json`,
+  rollback `rollback-plan-web-plan.json` → `ae0a13bc…`). Live walk in az, ru, en to the account step: no errors.
