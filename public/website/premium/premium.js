@@ -3,6 +3,7 @@
    otherwise Dodo (dodo-checkout). Premium is granted only by the signed provider callback/webhook, never by this page. */
 (function () {
   'use strict';
+  if (window.ANACAN_FUNNEL_FWD) return; // the personal-plan funnel takes this return (see index.html)
   var LANGS = ['az', 'en', 'tr', 'ru', 'kk', 'uz', 'ka', 'de', 'ar', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'];
   var API = 'https://api.anacan.az/functions/v1/dodo-checkout';
   var WEB_SHOP = 'https://api.anacan.az/functions/v1/web-shop';

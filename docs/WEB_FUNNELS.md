@@ -78,3 +78,22 @@ per-day price, trial toggle and reminder, seasonal offer banner, exit/bonus offe
 Rules: no fake timers (the 15-minute reservation must really end, or show no timer), no invented numbers (46,000+
 downloads and 4.84 ★ are the deck figures), annual pre-selected with the per-day price, discounts only in dated
 campaigns or one-time personal offers, "discount kept on every renewal" stays for campaign prices.
+
+## Live funnel: personal plan + Mərcan Cümə (2026-11-24)
+`/website/premium/plan/` (`index.html`, `plan.css` on top of `mercan.css`, `plan.js`), az / en / ru (other
+languages fall back to en). Steps: intro → stage → week / baby age / own age → worries (multi) → social proof →
+two agree statements → partner → minutes a day → loader with one question → personal plan → account (shared
+`account.js`, same account as the app) → paywall → Epoint (AZN) or Dodo (USD).
+- Prices: the server's current offer (`web-premium` status `offer`): Mərcan Cümə 16.99 / 3.39 ₼ while it runs,
+  the standard 50.98 / 6.78 ₼ after; Dodo $9.99 / $1.99 with the `mercan` campaign codes while it runs, $29.99 /
+  $3.99 after. Before sign-in the page shows the same prices from the campaign window. No backend change.
+- Campaign only: real countdown (ends 2026-11-30T19:59:59Z), "price kept on every renewal" line, one-time
+  downsell on ✕ (monthly 3.39 ₼ / $1.99, an existing price, no new offer).
+- Returns: Epoint comes back to `kampaniya/`, Dodo to `mercan/` or `premium/`; each has a head script that sends a tab
+  marked `sessionStorage.anacan_funnel = 'plan'` back to the funnel (and sets `ANACAN_FUNNEL_FWD` so `kampaniya.js`
+  and `premium.js` do not redirect elsewhere). The funnel then polls `status` until Premium is on.
+- Answers live in this tab only (sessionStorage) and go to analytics: `funnel_view`, `funnel_start`, `funnel_step`,
+  `plan_view`, `lead`, `paywall_view`, `downsell_view`, `downsell_take`, `checkout_start`, `purchase_confirmed`
+  (all with `funnel_id: 'plan'`). Saving answers to the profile is a later step (needs a column + RPC).
+- The cookie banner no longer covers the main button: the button bar sits above it until it is accepted.
+- Ad links: `https://anacan.az/website/premium/plan/index.html?lang=az&utm_source=meta&utm_medium=paid&utm_campaign=plan`.

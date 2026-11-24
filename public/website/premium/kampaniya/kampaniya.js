@@ -5,6 +5,7 @@
    links point here, so forward them there with the query and hash intact (plus the morning after for a payment that
    returns after midnight). The Mərcan page never redirects back, so there is no loop. Language stays the tab's own. */
 var anacanForwarded = (function () {
+  if (window.ANACAN_FUNNEL_FWD) return true; // the personal-plan funnel takes this return (see index.html)
   try {
     var bakuDay = new Date(Date.now() + 4 * 3600e3).toISOString().slice(0, 10); // Baku is UTC+4, no DST
     var returning = /[?&]odenis=/.test(location.search);
