@@ -187,7 +187,7 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
   // Əkiz/üçüz və s. — hero başlığı və digər "körpəniz" mətnləri buna görə uyğunlaşır
   const isMultiple = !!(profile as any)?.multiples_type && (profile as any).multiples_type !== 'single';
   const pregData = getPregnancyData();
-  const { todayLog, updateWaterIntake, updateMood } = useDailyLogs();
+  const { todayLog, waterToday, updateWaterIntake, updateMood } = useDailyLogs();
   const { getTodayStats, addSession } = useKickSessions();
   const { entries: weightEntries } = useWeightEntries();
   const { data: fruitImages = [] } = useFruitImages();
@@ -225,7 +225,7 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
 
   const todayStats = getTodayStats();
   const kickCount = todayStats.totalKicks;
-  const waterCount = todayLog?.water_intake || 0;
+  const waterCount = waterToday;
   const currentMood = todayLog?.mood || 0;
 
   // Calculate weight gain from first entry

@@ -93,7 +93,7 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
     }
   };
 
-  const { todayLog, loading: logsLoading, updateWaterIntake } = useDailyLogs();
+  const { waterToday, loading: logsLoading, updateWaterIntake } = useDailyLogs();
   const { loading: mealLoading, addMealLog, deleteMealLog, getTodayStats, getMealsByType } = useMealLogs();
   const { data: nutritionTips = [], isLoading: tipsLoading } = useNutritionTips();
   const { data: dbFoods = [], isLoading: foodsLoading } = useCommonFoods();
@@ -201,7 +201,7 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
     return { calories: fallback.calories + extraKcalForMultiples, water: fallback.water_glasses, description: fallback.description };
   }, [dbTargets, lifeStage, extraKcalForMultiples]);
 
-  const waterGlasses = todayLog?.water_intake || 0;
+  const waterGlasses = waterToday;
   const stats = getTodayStats();
   const todayCalories = stats.totalCalories;
 

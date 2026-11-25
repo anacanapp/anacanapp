@@ -1,15 +1,19 @@
 import { tr } from '@/lib/tr';
-import { addMonths, differenceInCalendarDays, isValid, parseISO } from 'date-fns';
+import { addDays, addMonths, differenceInCalendarDays, isValid } from 'date-fns';
+import { storedCalendarDate } from '@/lib/stored-date-key';
 /**
  * Centralized pregnancy & baby age calculation utilities
  * All pregnancy-related date calculations should use these functions
  * to ensure consistency across the entire platform.
  */
 
-const MS_PER_DAY = 1000 * 60 * 60 * 24;
-
-const toLocalCalendarDate = (value: Date | string) =>
-  startOfDay(typeof value === 'string' ? parseISO(value) : value);
+// Stored dates (LMP, due date, birth date) are calendar days: read them as local midnight and count calendar days,
+// never milliseconds / 86400000, so DST days (23/25 h) and UTC-midnight parsing cannot shift results by a day.
+const toLocalCalendarDate = (value: Date | string) => storedCalendarDate(value) ?? new Date(NaN);
+const todayLocal = () => startOfDay(new Date());
+/** Calendar days from the stored date `from` to today (or `to`), DST-safe. */
+const calendarDaysSince = (from: Date | string, to: Date = todayLocal()) =>
+  differenceInCalendarDays(to, toLocalCalendarDate(from));
 
 /** Day-of-life/content index. Completed days/months remain zero-based ages. */
 export const getBabyDayNumber = (elapsedDays: number): number =>
@@ -161,7 +165,7 @@ export const getEffectiveDueDate = (
   explicitDueDate?: Date | string | null
 ): Date | null => {
   if (lastPeriodDate) return calculateDueDate(lastPeriodDate);
-  if (explicitDueDate) return startOfDay(new Date(explicitDueDate));
+  if (explicitDueDate) return toLocalCalendarDate(explicitDueDate);
   return null;
 };
 
@@ -172,14 +176,7 @@ export const getEffectiveDueDate = (
 export const getPregnancyDay = (lastPeriodDate: Date | string | null): number => {
   if (!lastPeriodDate) return 0;
   
-  const lmp = new Date(lastPeriodDate);
-  const today = new Date();
-  
-  // Reset time to start of day for accurate day calculation
-  lmp.setHours(0, 0, 0, 0);
-  today.setHours(0, 0, 0, 0);
-  
-  const daysSinceLMP = Math.floor((today.getTime() - lmp.getTime()) / MS_PER_DAY);
+  const daysSinceLMP = calendarDaysSince(lastPeriodDate);
   
   // Pregnancy day is 1-indexed (day 1 = first day of LMP)
   // Clamp between 1 and 280
@@ -192,13 +189,7 @@ export const getPregnancyDay = (lastPeriodDate: Date | string | null): number =>
 export const getPregnancyWeek = (lastPeriodDate: Date | string | null): number => {
   if (!lastPeriodDate) return 0;
   
-  const lmp = new Date(lastPeriodDate);
-  const today = new Date();
-  
-  lmp.setHours(0, 0, 0, 0);
-  today.setHours(0, 0, 0, 0);
-  
-  const daysSinceLMP = Math.floor((today.getTime() - lmp.getTime()) / MS_PER_DAY);
+  const daysSinceLMP = calendarDaysSince(lastPeriodDate);
   
   return Math.max(0, Math.min(40, Math.floor(daysSinceLMP / 7)));
 };
@@ -214,10 +205,7 @@ export const getPregnancyWeekAtDate = (
 ): number => {
   if (!lastPeriodDate) return 0;
 
-  const lmp = startOfDay(new Date(lastPeriodDate));
-  const target = startOfDay(new Date(atDate));
-
-  const daysSinceLMP = Math.floor((target.getTime() - lmp.getTime()) / MS_PER_DAY);
+  const daysSinceLMP = calendarDaysSince(lastPeriodDate, toLocalCalendarDate(atDate));
 
   return Math.max(0, Math.min(42, Math.floor(daysSinceLMP / 7)));
 };
@@ -228,13 +216,7 @@ export const getPregnancyWeekAtDate = (
 export const getDayInWeek = (lastPeriodDate: Date | string | null): number => {
   if (!lastPeriodDate) return 0;
   
-  const lmp = new Date(lastPeriodDate);
-  const today = new Date();
-  
-  lmp.setHours(0, 0, 0, 0);
-  today.setHours(0, 0, 0, 0);
-  
-  const daysSinceLMP = Math.floor((today.getTime() - lmp.getTime()) / MS_PER_DAY);
+  const daysSinceLMP = calendarDaysSince(lastPeriodDate);
   
   return daysSinceLMP % 7;
 };
@@ -246,11 +228,10 @@ export const getDaysUntilDue = (
   lastPeriodDate: Date | string | null, 
   dueDate?: Date | string | null
 ): number => {
-  const today = startOfDay(new Date());
   const effectiveDueDate = getEffectiveDueDate(lastPeriodDate, dueDate);
   if (!effectiveDueDate) return 0;
 
-  const daysLeft = Math.ceil((effectiveDueDate.getTime() - today.getTime()) / MS_PER_DAY);
+  const daysLeft = differenceInCalendarDays(effectiveDueDate, todayLocal());
   return Math.max(0, daysLeft);
 };
 
@@ -260,10 +241,7 @@ export const getDaysUntilDue = (
 export const calculateDueDate = (lastPeriodDate: Date | string | null): Date | null => {
   if (!lastPeriodDate) return null;
   
-  const lmp = new Date(lastPeriodDate);
-  lmp.setHours(0, 0, 0, 0);
-  
-  return new Date(lmp.getTime() + PREGNANCY_DURATION_DAYS * MS_PER_DAY);
+  return addDays(toLocalCalendarDate(lastPeriodDate), PREGNANCY_DURATION_DAYS);
 };
 
 /**
@@ -273,10 +251,7 @@ export const calculateDueDate = (lastPeriodDate: Date | string | null): Date | n
 export const calculateLMPFromDueDate = (dueDate: Date | string | null): Date | null => {
   if (!dueDate) return null;
   
-  const dd = new Date(dueDate);
-  dd.setHours(0, 0, 0, 0);
-  
-  return new Date(dd.getTime() - PREGNANCY_DURATION_DAYS * MS_PER_DAY);
+  return addDays(toLocalCalendarDate(dueDate), -PREGNANCY_DURATION_DAYS);
 };
 
 /**
@@ -294,13 +269,7 @@ export const getTrimester = (weekNumber: number): 1 | 2 | 3 => {
 export const getDaysElapsed = (lastPeriodDate: Date | string | null): number => {
   if (!lastPeriodDate) return 0;
   
-  const lmp = new Date(lastPeriodDate);
-  const today = new Date();
-  
-  lmp.setHours(0, 0, 0, 0);
-  today.setHours(0, 0, 0, 0);
-  
-  const daysSinceLMP = Math.floor((today.getTime() - lmp.getTime()) / MS_PER_DAY);
+  const daysSinceLMP = calendarDaysSince(lastPeriodDate);
   
   return Math.max(0, Math.min(PREGNANCY_DURATION_DAYS, daysSinceLMP));
 };

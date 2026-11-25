@@ -16,3 +16,20 @@ export function storedDateKey(value: Date | string | number | null | undefined):
   const utcMidnight = date.getUTCHours() === 0 && date.getUTCMinutes() === 0 && date.getUTCSeconds() === 0 && date.getUTCMilliseconds() === 0;
   return utcMidnight ? date.toISOString().slice(0, 10) : localDateKey(date);
 }
+
+/**
+ * Local-midnight Date for a stored calendar date (due date, last period, birth date, log_date).
+ *
+ * `new Date('2026-03-01')` is UTC midnight, which is still 28 February west of UTC, so day/week maths done on it
+ * was one day late in the Americas. This reads the value with the same rules as `storedDateKey` (a YYYY-MM-DD
+ * string or a UTC-midnight Date keeps that calendar day, anything else uses its local day) and returns that day at
+ * local midnight. East of UTC (Baku, Istanbul, Moscow) the result is the same day the old parsing gave.
+ * Returns null for empty or invalid values.
+ */
+export function storedCalendarDate(value: Date | string | number | null | undefined): Date | null {
+  const key = storedDateKey(value);
+  if (!key) return null;
+  const [y, m, d] = key.split('-').map(Number);
+  const date = new Date(y, m - 1, d);
+  return Number.isNaN(date.getTime()) ? null : date;
+}

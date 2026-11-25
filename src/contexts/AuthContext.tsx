@@ -11,6 +11,7 @@ import { safeAppleWebError, signInWithAppleWeb, usesAzureAppleWebFlow } from '@/
 const isCapacitorNative = typeof (window as any)?.Capacitor?.isNativePlatform === 'function' &&
   (window as any).Capacitor.isNativePlatform();
 import { useUserStore } from '@/store/userStore';
+import { storedCalendarDate } from '@/lib/stored-date-key';
 import { useShallow } from 'zustand/react/shallow';
 import type { User, Session } from '@supabase/supabase-js';
 import type { Json } from '@/integrations/supabase/types';
@@ -43,7 +44,10 @@ const sameSession = (a: Session | null, b: Session | null) => a === b || !!a && 
   && a.access_token === b.access_token && a.refresh_token === b.refresh_token && a.expires_at === b.expires_at;
 const dateMs = (value: unknown): number | null => {
   if (value === null || value === undefined || value === '') return null;
-  const ms = value instanceof Date ? value.getTime() : new Date(value as string).getTime();
+  // A YYYY-MM-DD profile column is a local calendar day (see storedCalendarDate), not UTC midnight.
+  const ms = value instanceof Date ? value.getTime()
+    : typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) ? storedCalendarDate(value)?.getTime() ?? NaN
+    : new Date(value as string).getTime();
   return Number.isFinite(ms) ? ms : null;
 };
 const sameDate = (a: unknown, b: unknown) => dateMs(a) === dateMs(b);
@@ -261,9 +265,9 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       const current = useUserStore.getState() as Partial<{ lastPeriodDate: unknown; dueDate: unknown; babyBirthDate: unknown;
         babyName: unknown; babyGender: unknown; babyCount: unknown; multiplesType: unknown }>;
       if (!sameDate(current.lastPeriodDate, profileData.last_period_date)) {
-        setLastPeriodDate(profileData.last_period_date ? new Date(profileData.last_period_date) : null);
+        setLastPeriodDate(profileData.last_period_date ? storedCalendarDate(profileData.last_period_date) : null);
       }
-      if (!sameDate(current.dueDate, profileData.due_date)) setDueDate(profileData.due_date ? new Date(profileData.due_date) : null);
+      if (!sameDate(current.dueDate, profileData.due_date)) setDueDate(profileData.due_date ? storedCalendarDate(profileData.due_date) : null);
       if (profileData.cycle_length) setCycleLength(profileData.cycle_length);
       if (profileData.period_length) setPeriodLength(profileData.period_length);
 
@@ -279,7 +283,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       if (profileData.baby_birth_date && profileData.baby_name && profileData.baby_gender && (
         !sameDate(current.babyBirthDate, profileData.baby_birth_date) || current.babyName !== profileData.baby_name
         || current.babyGender !== profileData.baby_gender || current.babyCount !== babyCount || current.multiplesType !== multipleType)) {
-        setBabyData(new Date(profileData.baby_birth_date), profileData.baby_name, profileData.baby_gender,
+        setBabyData(storedCalendarDate(profileData.baby_birth_date) ?? new Date(profileData.baby_birth_date), profileData.baby_name, profileData.baby_gender,
           babyCount, multipleType);
       }
 

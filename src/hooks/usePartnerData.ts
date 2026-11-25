@@ -6,6 +6,8 @@ import { getPhaseInfoForDate, type CyclePhaseInfo } from '@/lib/cycle-utils';
 import { usePartnerSharedSettings } from './usePartnerSharing';
 import { readCache, writeCache } from '@/lib/offlineCache';
 import { todayKey } from '@/lib/local-date';
+import { storedCalendarDate } from '@/lib/stored-date-key';
+import { differenceInCalendarDays } from 'date-fns';
 
 const PARTNER_PROFILE_CACHE = 'partner_profile';
 const PARTNER_DAILYLOG_CACHE = 'partner_dailylog';
@@ -178,7 +180,7 @@ export const usePartnerData = () => {
     }
     return getPhaseInfoForDate(
       new Date(),
-      new Date(partnerProfile.last_period_date),
+      storedCalendarDate(partnerProfile.last_period_date) ?? new Date(partnerProfile.last_period_date),
       partnerProfile.cycle_length || 28,
       partnerProfile.period_length || 5
     );
@@ -191,9 +193,8 @@ export const usePartnerData = () => {
       return 0;
     }
     const cycleLength = partnerProfile.cycle_length || 28;
-    const lmp = new Date(partnerProfile.last_period_date);
-    const today = new Date();
-    const daysSince = Math.floor((today.getTime() - lmp.getTime()) / (1000 * 60 * 60 * 24));
+    const lmp = storedCalendarDate(partnerProfile.last_period_date) ?? new Date(partnerProfile.last_period_date);
+    const daysSince = differenceInCalendarDays(new Date(), lmp);
     const daysIntoCycle = (daysSince % cycleLength + cycleLength) % cycleLength;
     return Math.max(0, cycleLength - daysIntoCycle);
   };

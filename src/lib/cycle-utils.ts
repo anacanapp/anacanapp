@@ -1,4 +1,5 @@
 // Cycle calculation utilities for accurate menstrual tracking
+import { differenceInCalendarDays } from 'date-fns';
 
 export interface CyclePhaseInfo {
   phase: 'menstrual' | 'follicular' | 'ovulation' | 'luteal';
@@ -22,7 +23,8 @@ export function getCycleDayForDate(
   const dateOnly = new Date(date.getFullYear(), date.getMonth(), date.getDate());
   const lastPeriodOnly = new Date(lastPeriodDate.getFullYear(), lastPeriodDate.getMonth(), lastPeriodDate.getDate());
   
-  const daysDiff = Math.floor((dateOnly.getTime() - lastPeriodOnly.getTime()) / (1000 * 60 * 60 * 24));
+  // Round, not floor: a DST day is 23/25 h, so local midnights are not always a whole multiple of 24 h apart.
+  const daysDiff = Math.round((dateOnly.getTime() - lastPeriodOnly.getTime()) / (1000 * 60 * 60 * 24));
   
   // Handle dates before the last period
   if (daysDiff < 0) {
@@ -100,11 +102,10 @@ export function getPhaseInfoForDate(
 export function getNextPeriodDate(lastPeriodDate: Date, cycleLength: number): Date {
   const today = new Date();
   const lastPeriod = new Date(lastPeriodDate);
+  lastPeriod.setHours(0, 0, 0, 0);
   
-  // Calculate days since last period
-  const daysSincePeriod = Math.floor(
-    (today.getTime() - lastPeriod.getTime()) / (1000 * 60 * 60 * 24)
-  );
+  // Calculate days since last period (calendar days, DST-safe)
+  const daysSincePeriod = differenceInCalendarDays(today, lastPeriod);
   
   // Calculate how many complete cycles have passed
   const cyclesPassed = Math.floor(daysSincePeriod / cycleLength);

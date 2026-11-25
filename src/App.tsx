@@ -17,7 +17,7 @@ import Index from "./pages/Index";
 import BlogLink from './pages/BlogLink';
 import ResetPassword from "./pages/ResetPassword";
 import LegalPage from "./pages/LegalPage";
-import NotFound from "./pages/NotFound";
+import AppPathLink, { PendingAppLink } from "./pages/AppPathLink";
 import PaymentSuccess from "./components/payment/PaymentSuccess";
 import PaymentError from "./components/payment/PaymentError";
 import RevenueCatDebug from "./pages/RevenueCatDebug";
@@ -172,6 +172,7 @@ const App = () => {
               <BrowserRouter>
                 <AdExperienceProvider>
                 <ModeratorEnforcement>
+                <PendingAppLink />
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/blog/:slug" element={<BlogLink />} />
@@ -192,7 +193,7 @@ const App = () => {
                   <Route path="/partner" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><PartnerPage /></Suspense>} />
                   <Route path="/moderator" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><ModeratorPage /></Suspense>} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                  <Route path="*" element={<NotFound />} />
+                  <Route path="*" element={<AppPathLink />} />
                 </Routes>
                 </ModeratorEnforcement>
                 </AdExperienceProvider>

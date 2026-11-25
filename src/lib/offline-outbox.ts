@@ -20,8 +20,10 @@
 import { App as CapApp } from '@capacitor/app';
 import { supabase } from '@/integrations/supabase/client';
 import { writeStorageItem } from './local-storage';
+import { WATER_OUTBOX_TABLE, sendWaterDelta } from './water-intake-rpc';
 
-export type OutboxTable = 'baby_logs' | 'kick_sessions';
+/** Row tables, plus `water_intake`: a water delta sent through increment_water_intake_v1 (entry id = op id). */
+export type OutboxTable = 'baby_logs' | 'kick_sessions' | typeof WATER_OUTBOX_TABLE;
 
 export interface OutboxEntry {
   /** Client generated UUID, also the row's primary key. */
@@ -65,7 +67,7 @@ export const OUTBOX_SEND_TIMEOUT_MS = 15_000;
 
 const KEY_PREFIX = 'anacan_outbox_v1:';
 const keyFor = (userId: string) => `${KEY_PREFIX}${userId}`;
-const TABLES: OutboxTable[] = ['baby_logs', 'kick_sessions'];
+const TABLES: OutboxTable[] = ['baby_logs', 'kick_sessions', WATER_OUTBOX_TABLE];
 
 export function newClientId(): string {
   try {
@@ -169,6 +171,7 @@ export function isTransientError(error: unknown, status?: number): boolean {
 // ---- sending --------------------------------------------------------------
 /** Idempotent insert: an already stored id is ignored rather than duplicated. */
 export const sendRow: OutboxSender = async (table, row) => {
+  if (table === WATER_OUTBOX_TABLE) return sendWaterDelta(row);
   const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
   const timer = controller ? setTimeout(() => controller.abort(), OUTBOX_SEND_TIMEOUT_MS) : null;
   try {

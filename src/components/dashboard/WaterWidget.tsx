@@ -18,11 +18,11 @@ interface WaterWidgetProps {
 }
 
 export default function WaterWidget({ variant = 'default' }: WaterWidgetProps) {
-  const { todayLog, updateWaterIntake } = useDailyLogs();
+  const { waterToday, updateWaterIntake } = useDailyLogs();
   const lifeStage = useUserStore((s) => s.lifeStage);
   const language = useUserStore((s) => s.language);
   
-  const waterGlasses = todayLog?.water_intake || 0;
+  const waterGlasses = waterToday;
   const stage = lifeStage || 'flow';
   const target = fallbackTargets[stage as keyof typeof fallbackTargets]?.water_glasses || 8;
   

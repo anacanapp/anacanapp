@@ -1,8 +1,10 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { usePartnerNotifications } from './usePartnerNotifications';
 import { todayKey } from '@/lib/local-date';
+import { retainOutboxUser, subscribeOutbox } from '@/lib/offline-outbox';
+import { WATER_OUTBOX_TABLE, addWater, displayedWater } from '@/lib/water-intake';
 
 export interface DailyLog {
   id: string;
@@ -42,9 +44,14 @@ export const useDailyLogs = () => {
   const [logs, setLogs] = useState<DailyLog[]>([]);
   const [todayLog, setTodayLog] = useState<DailyLog | null>(null);
   const [loading, setLoading] = useState(true);
+  const [, setOutboxVersion] = useState(0);
+  /** Bumped by every confirmed water total, so an older in-flight fetch cannot overwrite it. */
+  const waterGeneration = useRef(0);
+  const userId = user?.id ?? null;
 
   const fetchLogs = async () => {
     if (!user) return;
+    const generation = waterGeneration.current;
 
     try {
       const { data, error } = await supabase
@@ -61,7 +68,13 @@ export const useDailyLogs = () => {
       // Check for today's log (local calendar day)
       const today = todayKey();
       const todayData = data?.find(log => log.log_date === today) || null;
-      setTodayLog(todayData);
+      setTodayLog((previous) => {
+        // A water tap was confirmed while this read was in flight: keep its newer total.
+        if (generation !== waterGeneration.current && previous?.log_date === today) {
+          return todayData ? { ...todayData, water_intake: previous.water_intake } : previous;
+        }
+        return todayData;
+      });
     } catch (error) {
       console.error('Error fetching daily logs:', error);
     } finally {
@@ -92,18 +105,30 @@ export const useDailyLogs = () => {
     }
   };
 
+  /**
+   * Adds `amount` glasses to the phone's current local day as an atomic server delta (see
+   * lib/water-intake). Shown at once (queued taps count), kept offline and replayed once.
+   */
   const updateWaterIntake = async (amount: number) => {
-    const currentIntake = todayLog?.water_intake || 0;
-    const newIntake = currentIntake + amount;
-    
-    const result = await addLog({ log_date: todayKey(), water_intake: newIntake });
-
-    // Notify partner when water goal reached (8 glasses = 2000ml)
-    if (newIntake >= 2000 && currentIntake < 2000) {
-      notifyWaterGoal();
+    if (!user) return { data: null, error: 'No user logged in' };
+    const day = todayKey();
+    const outcome = await addWater(user.id, amount, {
+      day,
+      onServerTotal: (total, totalDay, applied) => {
+        waterGeneration.current++;
+        setTodayLog((previous) => previous?.log_date === totalDay
+          ? { ...previous, water_intake: total }
+          : { id: '', user_id: user.id, log_date: totalDay, mood: null, symptoms: null, water_intake: total,
+              temperature: null, bleeding: null, notes: null, created_at: new Date().toISOString() });
+        // Notify partner when water goal reached (8 glasses = 2000ml)
+        if (applied && total >= 2000 && total - amount < 2000) notifyWaterGoal();
+      },
+    });
+    if (outcome.status === 'error') {
+      console.error('Error adding water:', outcome.error);
+      return { data: null, error: outcome.error };
     }
-
-    return result;
+    return { data: outcome.data, error: null };
   };
 
   const updateMood = useCallback(async (mood: number) => {
@@ -131,9 +156,29 @@ export const useDailyLogs = () => {
     fetchLogs();
   }, [user?.id]);
 
+  // Offline outbox: flush queued water taps (mount, online, resume), re-render when the queue
+  // changes, reload the day after a background flush delivered water.
+  useEffect(() => {
+    if (!userId) return;
+    const unsubscribe = subscribeOutbox((event) => {
+      if (event.userId !== userId) return;
+      setOutboxVersion((v) => v + 1);
+      if (event.sentTables.includes(WATER_OUTBOX_TABLE)) void fetchLogs();
+    });
+    const release = retainOutboxUser(userId);
+    return () => { unsubscribe(); release(); };
+  }, [userId]);
+
+  // "Today" is evaluated on every render: a row loaded before midnight is not today's row.
+  const today = todayKey();
+  const waterToday = displayedWater(userId, todayLog, today);
+  const visibleTodayLog = todayLog?.log_date === today ? { ...todayLog, water_intake: waterToday } : null;
+
   return {
     logs,
-    todayLog,
+    todayLog: visibleTodayLog,
+    /** Glasses for the phone's current local day, including taps still queued offline. */
+    waterToday,
     loading,
     addLog,
     updateWaterIntake,

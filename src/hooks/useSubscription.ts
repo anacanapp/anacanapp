@@ -5,6 +5,8 @@ import { useAuth } from './useAuth';
 import { useAppSetting } from './useAppSettings';
 import { readCache, writeCache } from '@/lib/offlineCache';
 import { usePremiumEntitlement } from './usePremiumEntitlement';
+import { todayKey } from '@/lib/local-date';
+import { isMissingRpc } from '@/lib/water-intake-rpc';
 
 const SUBSCRIPTION_CACHE = 'subscription';
 const HOUSEHOLD_PREMIUM_CACHE = 'household_premium';
@@ -57,13 +59,31 @@ const DAILY_LIMIT_KEYS: Record<DailyFeature, keyof typeof DEFAULT_FREE_LIMITS> =
   baby_insight: 'baby_insight_count_per_day',
 };
 
+/** The phone's IANA time zone (the server validates it and falls back to Asia/Baku). */
+export function deviceTimeZone(): string {
+  try {
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (typeof zone === 'string' && zone.length > 0 && zone.length <= 64) return zone;
+  } catch { /* very old WebView */ }
+  return 'Asia/Baku';
+}
+
+/**
+ * Atomic usage RPCs (usage_consume_v1 / usage_add_seconds_v1). Set once an old backend answered
+ * "no such function", so this session goes straight to the legacy table path.
+ */
+const legacyUsage = { consume: false, seconds: false };
+/** Test helper. */
+export function __resetUsageRpcForTests() { legacyUsage.consume = false; legacyUsage.seconds = false; }
+
 export function useSubscription() {
   const access = usePremiumEntitlement();
   const { user, profile: authProfile } = useAuth();
   const userId = user?.id ?? null;
   const profile = authProfile?.user_id === userId ? authProfile : null;
   const linkedPartnerId = profile?.linked_partner_id ?? null;
-  const today = new Date().toISOString().split('T')[0];
+  // Local calendar day: in Baku the free limits reset at local midnight, not 04:00 (UTC midnight).
+  const today = todayKey();
   const householdCacheKey = `${HOUSEHOLD_PREMIUM_CACHE}:${linkedPartnerId}`;
 
   // Read free limits from DB (app_settings -> free_limits)
@@ -172,8 +192,9 @@ export function useSubscription() {
 
   /**
    * Gündəlik say limiti: yoxla və İSTİFADƏ ET (premium → limitsiz).
-   * usage_tracking-də (user_id, feature_type, usage_date) UNIQUE olduğundan
-   * upsert təhlükəsizdir. İcazə yoxdursa sayğac artırılmır.
+   * Server usage_consume_v1 yoxlamanı və artımı TƏK əməliyyatda edir (paralel çağırışlar limiti
+   * keçə bilmir) və günü telefonun saat qurşağına görə hesablayır. Köhnə serverdə (RPC yoxdur)
+   * əvvəlki oxu-sonra-yaz yolu yerli günlə işləyir. İcazə yoxdursa sayğac artırılmır.
    */
   const checkAndConsume = useCallback(async (
     feature: DailyFeature
@@ -182,7 +203,29 @@ export function useSubscription() {
     if (isPremium) return { allowed: true, remaining: Infinity, limit };
     if (!userId) return { allowed: false, remaining: 0, limit };
 
-    const today = new Date().toISOString().split('T')[0];
+    if (!legacyUsage.consume) {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const { data, error, status } = await (supabase.rpc as any)('usage_consume_v1', { p_feature: feature, p_time_zone: deviceTimeZone() });
+        if (!error && data && typeof data === 'object' && typeof data.allowed === 'boolean') {
+          const serverLimit = Number.isFinite(Number(data.limit)) ? Number(data.limit) : limit;
+          const used = Number(data.used) || 0;
+          void refetchUsage({ cancelRefetch: false });
+          return { allowed: data.allowed, remaining: Math.max(0, serverLimit - used), limit: serverLimit };
+        }
+        if (!isMissingRpc(error, status)) {
+          // Şəbəkə xətasında istifadəçini bloklamırıq (limit "best effort"-dur; server AI funksiyaları özü də yoxlayır)
+          console.error('checkAndConsume failed:', error);
+          return { allowed: true, remaining: 0, limit };
+        }
+        legacyUsage.consume = true;
+      } catch (e) {
+        console.error('checkAndConsume failed:', e);
+        return { allowed: true, remaining: 0, limit };
+      }
+    }
+
+    const today = todayKey();
     try {
       const { data: row } = await supabase
         .from('usage_tracking')
@@ -211,7 +254,7 @@ export function useSubscription() {
       console.error('checkAndConsume failed:', e);
       return { allowed: true, remaining: 0, limit };
     }
-  }, [isPremium, userId, freeLimits]);
+  }, [isPremium, userId, freeLimits, refetchUsage]);
 
   /** Gündəlik limitdən nə qədər qalıb — YALNIZ oxuyur (UI sayğacları üçün). */
   const peekRemainingDaily = useCallback(async (
@@ -220,7 +263,7 @@ export function useSubscription() {
     const limit = Number(freeLimits[DAILY_LIMIT_KEYS[feature]] ?? 0);
     if (isPremium) return { remaining: Infinity, limit };
     if (!userId) return { remaining: 0, limit };
-    const today = new Date().toISOString().split('T')[0];
+    const today = todayKey();
     try {
       const { data: row } = await supabase
         .from('usage_tracking')
@@ -276,7 +319,20 @@ export function useSubscription() {
   const trackWhiteNoiseUsage = useCallback(async (seconds: number) => {
     if (!userId || isPremium) return;
 
-    const today = new Date().toISOString().split('T')[0];
+    if (!legacyUsage.seconds) {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const { error, status } = await (supabase.rpc as any)('usage_add_seconds_v1', { p_seconds: Math.round(seconds), p_time_zone: deviceTimeZone() });
+        if (!error) { await refetchUsage({ cancelRefetch: false }); return; }
+        if (!isMissingRpc(error, status)) { console.error('trackWhiteNoiseUsage failed:', error); return; }
+        legacyUsage.seconds = true;
+      } catch (e) {
+        console.error('trackWhiteNoiseUsage failed:', e);
+        return;
+      }
+    }
+
+    const today = todayKey();
     const existingUsage = getUsageForFeature('white_noise');
 
     if (existingUsage) {

@@ -1,0 +1,29 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261125190000_water_and_limits_atomic.sql",
+  "runtime": "google-water-and-limits-atomic",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; refuses without the guard catalog, unless public.daily_logs and public.usage_tracking are guarded (catalog row + anacan_gcp_writer_guard) and have their unique (user_id, log_date) / (user_id, feature_type, usage_date) indexes; enrolls the one new relation with the three standard triggers",
+  "preserve": [
+    "cron0, no timer added",
+    "8 enabled business timers",
+    "Source sealed; the new relation is Google-only",
+    "existing daily_logs / usage_tracking rows, RLS policies (own rows; partner read on daily_logs), realtime publication and grants",
+    "old app builds keep their direct daily_logs / usage_tracking writes (unchanged policies)"
+  ],
+  "relations": [
+    { "relation": "public.water_intake_ops", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false,
+      "primary_key": ["op_id"],
+      "note": "processed client water operation ids (user, local day, delta) so a retried or replayed tap is applied once; written only by increment_water_intake_v1; rows older than 40 days are deleted on the user's next tap; no client grants" },
+    { "relation": "public.daily_logs", "change": "new writer function (increment_water_intake_v1); no schema change", "cdc": true, "writer_guard": true, "pii": true,
+      "primary_key": ["id"], "note": "already guarded; upsert on unique (user_id, log_date), water_intake only" },
+    { "relation": "public.usage_tracking", "change": "new writer functions (usage_consume_v1, usage_add_seconds_v1); no schema change", "cdc": true, "writer_guard": true, "pii": false,
+      "primary_key": ["id"], "note": "already guarded; upsert on unique (user_id, feature_type, usage_date) for the local day of the caller's IANA zone" }
+  ],
+  "functions": [
+    { "name": "public._anacan_local_day(text)", "security": "invoker", "grant": "service_role" },
+    { "name": "public._anacan_free_daily_limit(text)", "security": "invoker", "grant": "service_role" },
+    { "name": "public.increment_water_intake_v1(date,integer,uuid)", "security": "definer", "grant": "authenticated" },
+    { "name": "public.usage_consume_v1(text,text)", "security": "definer", "grant": "authenticated" },
+    { "name": "public.usage_add_seconds_v1(integer,text)", "security": "definer", "grant": "authenticated" }
+  ]
+}
