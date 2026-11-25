@@ -725,8 +725,6 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
           transition={{ delay: 0.6 }}
           whileTap={{ scale: 0.98 }}>
           
-            <span className="a-cta-shape" style={{ width: 140, height: 140, top: -50, insetInlineEnd: -40, background: 'var(--a-pink-1)' }} />
-            <span className="a-cta-shape" style={{ width: 90, height: 90, bottom: -30, insetInlineStart: -20, background: 'var(--a-pink-1)' }} />
             <div className="a-cta-top">
               <span className="a-cta-badge" style={{ background: 'var(--a-pink-1)', color: 'var(--a-berry-ink)' }}>
                 {tr("dashboard_hefte_3aa886", "H\u0259ft\u0259")} {selectedWeek} 🎉

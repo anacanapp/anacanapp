@@ -196,7 +196,6 @@ const VitaminTracker = ({ onBack }: VitaminTrackerProps) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}>
         
-        <span className="a-cta-shape" style={{ width: 110, height: 110, top: -40, insetInlineEnd: -30, background: 'rgba(255,255,255,0.35)' }} />
         <div className="a-cta-top">
           <span className="a-cta-badge" style={{ background: 'var(--a-chip-overlay)', color: 'var(--a-green-ink)' }}>
             💊 {tr("vitamintracker_bugunku_qebul_ae152d", "Bugünkü qəbul")}

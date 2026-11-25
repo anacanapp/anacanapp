@@ -300,7 +300,6 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.1 }}>
         
-        <span className="a-cta-shape" style={{ width: 140, height: 140, top: -50, insetInlineEnd: -40, background: 'rgba(255,255,255,0.35)' }} />
         <div className="relative z-10 flex items-center gap-3">
           <div
             className="w-14 h-14 flex items-center justify-center text-3xl overflow-hidden flex-shrink-0"

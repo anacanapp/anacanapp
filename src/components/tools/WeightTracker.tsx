@@ -334,7 +334,6 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}>
         
-        <span className="a-cta-shape" style={{ width: 110, height: 110, top: -40, right: -30, background: 'rgba(255,255,255,0.35)' }} />
         <div className="a-cta-top">
           {/* Dark mode düzəlişi: #14532d/rgba(20,83,45,x) dark modda
               --a-grad-green-in tünd tint-inə qarşı oxunmurdu. */}

@@ -459,7 +459,6 @@ const MaternityCalculator = ({ onBack }: MaternityCalculatorProps) => {
                 
                   {/* Total Result Card (anacan-demo CTA) */}
                   <div className="a-cta" style={{ background: 'var(--a-grad-green)' }}>
-                    <span className="a-cta-shape" style={{ width: 120, height: 120, top: -40, insetInlineEnd: -30, background: 'rgba(255,255,255,0.35)' }} />
                     <div className="a-cta-top">
                       <span className="a-cta-badge" style={{ background: 'var(--a-chip-overlay)', color: 'var(--a-green-ink)' }}>
                         {result.rule.flag} {isAZ ? result.rule.name_az : result.rule.name_en} · {tr("maternitycalculator_cemi_mezuniyyet_93196a", "Cəmi məzuniyyət")}
