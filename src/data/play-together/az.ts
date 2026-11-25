@@ -66,7 +66,7 @@ export const PLAY_GAMES_AZ: PlayGame[] = [
     why: 'Toxunma hissi, əl-göz koordinasiyası, "dolu, boş" anlayışı. Çoxu uşağı sakitləşdirir.',
     materials: ['Ləyən və ya vanna', 'Plastik stəkanlar', 'Süngər', 'İlıq su'],
     steps: [
-      'Ləyənə bir az ılıq su tökün, döşəmənin altına dəsmal sərin.',
+      'Ləyənə bir az ilıq su tökün, ləyənin altına dəsmal sərin.',
       'Stəkanla su töküb doldurmağı göstərin: "Dolu! Boş!"',
       'Süngəri suya batırıb sıxmağı birlikdə edin.',
       'Sonda oyuncaqları "çimizdirin" və qurulayın.',

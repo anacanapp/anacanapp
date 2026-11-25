@@ -83,7 +83,7 @@ export const BABY_YEAR_ARTICLES: Article[] = [
     free: false,
     science: [
       'Təxminən 3–4 aylıqda körpənin yuxusu dəyişir: yeni doğulmuşun sadə yuxusu böyüklərin yuxusuna bənzər mərhələlərə bölünür. Hər yuxu dövrünün sonunda körpə yüngülcə oyanır. Əgər o, yuxuya yalnız qucaqda və ya əmərkən gedirsə, gecə də hər oyanışda eyni köməyi axtarır.',
-      'Təxminən 8–10 aylıqda başqa böyük dəyişikliklər üst-üstə düşür: emekləmə, ayağa qalxma, ayrılıq narahatlığı, diş çıxarma. Körpə yeni bacarığını gecə də “məşq edir”, səni axtarır.',
+      'Təxminən 8–10 aylıqda başqa böyük dəyişikliklər üst-üstə düşür: iməkləmə, ayağa qalxma, ayrılıq narahatlığı, diş çıxarma. Körpə yeni bacarığını gecə də “məşq edir”, səni axtarır.',
       'Sistematik icmallar göstərir ki, ilk ildə gecə oyanmaları çox geniş yayılıb və normallığın sərhədləri genişdir. Bir çox körpə ilin sonunda belə gecə bir-iki dəfə oyanır. “Reqressiya” sözü qorxutsa da, adətən 2–6 həftəlik keçid dövrü deməkdir.',
     ],
     tryToday: [

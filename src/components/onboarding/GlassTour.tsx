@@ -144,7 +144,7 @@ export default function GlassTour(props: GlassTourProps) {
         <div className="gt-card gt-glass">
           <span className="gt-badge">👑 {tr('obtour_premium_badge', 'Anacan Premium')}</span>
           <h2>{tr('obtour_premium_title', 'Daha çoxunu açın')}</h2>
-          <p className="gt-text">{tr('obtour_premium_text', 'Ödənişsiz plan sizində qalır. Premium ilə əlavə olaraq:')}</p>
+          <p className="gt-text">{tr('obtour_premium_text', 'Ödənişsiz plan sizdə qalır. Premium ilə əlavə olaraq:')}</p>
           <ul className="gt-items">{items.map(([icon, text]) => <li key={text}><i aria-hidden="true">{icon}</i><span>{text}</span></li>)}</ul>
           <button type="button" className="gt-btn gold full" onClick={() => { finish('done'); onPremium(); }}>{tr('obtour_premium_cta', 'Premium-a bax')}</button>
           <button type="button" className="gt-link" onClick={next}>{tr('obtour_premium_free', 'Ödənişsiz davam et')}</button>

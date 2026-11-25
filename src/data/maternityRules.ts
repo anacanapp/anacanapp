@@ -451,16 +451,16 @@ export const maternityRules: MaternityRule[] = [
     name_en: 'Spain',
     flag: '🇪🇸',
     normalDaysBefore: 28, // 4 weeks voluntarily before
-    normalDaysAfter: 84, // 12 weeks
-    complicatedDaysAfter: 84,
+    normalDaysAfter: 105, // 15 weeks (19 weeks in total since 31.07.2025, RDL 9/2025)
+    complicatedDaysAfter: 105,
     multipleDaysBefore: 28,
-    multipleDaysAfter: 98, // +1 week per extra child for each parent
+    multipleDaysAfter: 119, // +1 week per extra child for each parent
     payPercentage: 100,
     payDescription_az: '100% Sosial Təminat tərəfindən ödənilir',
 
     tenureRequirementMonths: 6,
     paternity: {
-      days: 112,
+      days: 133,
       payDescription_az: 'Ödənişli (100% - analıq ilə eyni)',
       payDescription_en: 'Paid (100% - same as maternity)'
     },
@@ -481,14 +481,14 @@ export const maternityRules: MaternityRule[] = [
     guidelines_az: [
       {
         title: 'Qanunvericilik',
-        content: 'İspaniyada analar üçün 16 həftə ödənişli məzuniyyət nəzərdə tutulur (doğuşdan sonra ilk 6 həftə məcburidir).',
+        content: 'İspaniyada 31.07.2025-dən hər valideynə 19 həftə ödənişli doğuş məzuniyyəti verilir (doğuşdan sonra ilk 6 həftə məcburidir).',
         icon: '⚖️'
       }
     ],
     guidelines_en: [
       {
         title: 'Legislation',
-        content: 'In Spain, mothers get 16 weeks of paid leave (the first 6 weeks after birth are compulsory).',
+        content: 'Since 31 July 2025 each parent in Spain gets 19 weeks of paid birth leave (the first 6 weeks after birth are compulsory).',
         icon: '⚖️'
       }
     ]
@@ -1132,9 +1132,9 @@ export const maternityRules: MaternityRule[] = [
       payDescription_en: '100% paid'
     },
     parental: {
-      months: 41,
-      payDescription_az: '70% ödənişli',
-      payDescription_en: '70% paid'
+      months: 9, // 41 weeks for one child
+      payDescription_az: '41 həftə, 70% ödənişli',
+      payDescription_en: '41 weeks, 70% paid'
     },
     compensation: {
       "type": "PERCENTAGE_UNCAPPED",
