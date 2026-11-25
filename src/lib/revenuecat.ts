@@ -94,6 +94,16 @@ export const getPlatform = (): 'ios' | 'android' | 'web' => {
 };
 
 /**
+ * Apple Ads attribution (AdServices). iOS only: RevenueCat fetches the AdServices attribution token after configure and
+ * resolves campaign / ad group / keyword for the subscriber, so Apple Ads installs can be tied to trials and purchases.
+ * AdServices is Apple's own attribution, works without the ATT prompt and sends no device identifiers.
+ */
+async function enableAppleAdsAttribution(Purchases: { enableAdServicesAttributionTokenCollection: () => Promise<void> }): Promise<void> {
+  if (Capacitor.getPlatform() !== 'ios') return;
+  try { await Purchases.enableAdServicesAttributionTokenCollection(); } catch { /* older native plugin: skip */ }
+}
+
+/**
  * Initialize RevenueCat SDK. Call once at app startup on native platforms.
  */
 export async function initRevenueCat(appUserID?: string): Promise<void> {
@@ -109,6 +119,7 @@ export async function initRevenueCat(appUserID?: string): Promise<void> {
         await Purchases.setLogLevel({ level: LOG_LEVEL.WARN });
         await Purchases.configure({ apiKey: getApiKey(), appUserID });
         azureConfigured = true;
+        await enableAppleAdsAttribution(Purchases);
       } else await Purchases.logIn({ appUserID });
       if (epoch === azureEpoch) azureUserId = appUserID;
     });
@@ -125,6 +136,7 @@ export async function initRevenueCat(appUserID?: string): Promise<void> {
       apiKey: getApiKey(),
       appUserID: appUserID || undefined,
     });
+    await enableAppleAdsAttribution(Purchases);
 
     console.log('[RevenueCat] SDK configured successfully on', Capacitor.getPlatform());
   } catch (err) {
