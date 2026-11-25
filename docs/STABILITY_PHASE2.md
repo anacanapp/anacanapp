@@ -33,3 +33,9 @@
 - Bütün test dəsti: 349 fayl, 3 480 test keçdi (2 skip).
 - `tsc` təmiz; `npm run build` (veb) və `VITE_NATIVE_BUILD=true` build exit 0, `verify-bundle` keçir.
 - Brauzer smoke testi: veb build xətasız açılır.
+
+## Əlavə düzəlişlər (2026-11-25, canlı)
+Audit 16 (su sayğacı, atomik server artımı, `water_intake_ops` CDC/guard ilə), 17 (pulsuz limitlər istifadəçinin yerli günü ilə,
+atomik `usage_consume_v1`), 18 (DST-safe təqvim tarixləri), 25 (məlum tətbiq yolları 404 əvəzinə ekranı açır).
+Migration `20261125190000_water_and_limits_atomic.sql` canlı bazaya tətbiq olundu, SQL testi canlıda keçdi (rollback).
+Gateway `cd76bcc75fbf…` (plan `p3-web-plan.json`, rollback `rollback-p3-web-plan.json`).
