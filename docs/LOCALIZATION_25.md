@@ -71,3 +71,28 @@ qadın cinsi formaları üçün doğma dil daşıyıcısının baxışı tövsiy
   çatışmayan açar 0.
 - `useBabyDailyInfoByDay` artıq `mapRowTranslation` istifadə edir (əvvəl paket dillərində Azərbaycanca
   göstərirdi).
+
+## Məzmun paketləri (content packs, növbəti native build)
+
+16 paket dilinin (`NEW_LANGUAGE_CODES`) məzmun tərcümələri (`scripts/i18n/content/<lang>.json`, ~108 MB)
+artıq tətbiq bundle-ına daxil edilmir. az/en/ru/tr/kk/uz/de/ar/ka DB sütunlarından gəlir, dəyişməyib.
+
+- **Build**: `scripts/i18n/content-packs.mjs` (Vite plugin `contentPacksPlugin`) veb build-də
+  `dist/content-packs/<lang>/manifest.json` və `dist/content-packs/<lang>/<shard>.<sha256[0:16]>.json`
+  yaradır. Shard açarın sahəsinə (`<id>:<field>:<hash>` → `field`) görədir; böyük sahələr açar hash-inə
+  görə 2–32 hissəyə bölünür, kiçik sahələr `_misc.N`-də birləşir (~256 KB). Hash kanonik JSON-un
+  (açarlar sıralı) sha256-sıdır. `VITE_NATIVE_BUILD=true` olduqda heç nə yaradılmır; `verify:bundle`
+  native build-də `content-packs/` və ya məzmun lüğəti tapsa xəta verir (codemagic əlavə olaraq
+  `dist/content-packs`-ı silir). Ayrıca: `node scripts/i18n/content-packs.mjs <outDir>`.
+- **Runtime** (`src/lib/content-packs.ts`, `content-i18n.ts`): native `https://app.anacan.az/content-packs/`
+  ünvanından `CapacitorHttp` ilə (Android WebView host-u da `app.anacan.az` olduğu üçün `fetch` yerli
+  faylı oxuyardı), veb eyni origin-dən `fetch` ilə yükləyir. Əvvəlcə manifest, sonra yalnız ekranın
+  soruşduğu shard-lar; hamısı IndexedDB-də (`anacan-content-packs`) saxlanılır, oflayn yenidən istifadə
+  olunur, hash/sxem yoxlanılır, köhnə shard-lar silinir. İlk render gözləmir: shard hazır olana qədər
+  ky/tk → ru, digərləri → en göstərilir; shard gələndə `App.tsx` dil açarlı sorğuları yeniləyir və
+  yenidən render edir. Son istifadə olunan shard-lar növbəti açılışda keşdən əvvəlcədən yüklənir.
+- **Deploy (gateway)**: gateway image-i `dist/content-packs/` qovluğunu da kopyalamalıdır (indi yalnız
+  `index.html`, `assets/`, `app-entry-*`). `manifest.json` üçün `Cache-Control: no-cache`, shard-lar
+  üçün `public, max-age=31536000, immutable`; `application/json` gzip/brotli ilə. Köhnə native
+  build-lər manifest-i hər açılışda yoxlayır; shard tapılmasa (404) manifest yenilənir. Məzmun açarları
+  mənbə mətnə bağlı olduğundan yeni paket köhnə build üçün də düzgündür.

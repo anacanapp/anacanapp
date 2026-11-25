@@ -1,11 +1,16 @@
 import * as SheetPrimitive from "@radix-ui/react-dialog";
+import { useBackClosableRoot } from "@/hooks/useOverlayBackHandler";
 import { cva, type VariantProps } from "class-variance-authority";
 import { X } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-const Sheet = SheetPrimitive.Root;
+// Android back closes the top-most open sheet before any screen navigation.
+const Sheet = (props: React.ComponentProps<typeof SheetPrimitive.Root>) => (
+  <SheetPrimitive.Root {...useBackClosableRoot(props)} />
+);
+Sheet.displayName = "Sheet";
 
 const SheetTrigger = SheetPrimitive.Trigger;
 

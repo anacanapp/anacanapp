@@ -1,7 +1,9 @@
 import { tr } from "@/lib/tr";import React, { createContext, useContext, useEffect, useState, useCallback, useMemo, useRef } from 'react';
 import { QueryClientContext } from '@tanstack/react-query';
 import { runLogoutCleanup } from '@/lib/logout-cleanup';
-import { supabase } from '@/integrations/supabase/client';
+import { supabase, authStorage } from '@/integrations/supabase/client';
+import { setRequestTimeoutMessage } from '@/lib/network-timeout';
+import { OFFLINE_RESTORE_GRACE_MS, isSessionExpired, readStoredSession, type StoredSession } from '@/lib/offline-session';
 import { isAzureBackend } from '@/integrations/supabase/backend-config';
 import { readCache, writeCache, clearAllCaches } from '@/lib/offlineCache';
 import { syncUserTimeZone } from '@/lib/user-timezone';
@@ -12,6 +14,14 @@ import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
 import type { User, Session } from '@supabase/supabase-js';
 import type { Json } from '@/integrations/supabase/types';
+
+// Clear, localized retry text for SDK request timeouts (the client cannot import i18n itself).
+setRequestTimeoutMessage(() => tr('netsync_timeout_retry', 'Bağlantı zəifdir, cavab gecikdi. Yenidən cəhd edin.'));
+
+/** The persisted SDK session (null when Auth removed it, i.e. after a real sign-out/invalid token). */
+const readPersistedSession = (): Promise<StoredSession | null> => {
+  try { return readStoredSession(authStorage?.storage, authStorage?.storageKey); } catch { return Promise.resolve(null); }
+};
 
 const PROFILE_CACHE_KEY = 'profile';
 const ROLE_CACHE_KEY = 'role';
@@ -125,6 +135,8 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
   userRef.current = user;
   const profileRef = useRef<Profile | null>(null);
   profileRef.current = profile;
+  /** Opened on the stored account while the token could not be refreshed (offline). */
+  const offlineSessionRef = useRef(false);
 
   // Stable references: ~40 hooks depend on [user]/[profile]; a resume must not replace
   // equal objects and re-run every effect/query in the tree.
@@ -359,10 +371,24 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
   const signInWithGoogle = useCallback(async () => {
     try {
       if (isCapacitorNative) {
-        const { signInWithGoogleNative } = await import('@/lib/native-auth');
-        const data = await signInWithGoogleNative();
-        import('@/lib/analytics').then((m) => m.analytics.logLogin('google')).catch(() => {});
-        return { data, error: null };
+        const nativeAuth = await import('@/lib/native-auth');
+        try {
+          const data = await nativeAuth.signInWithGoogleNative();
+          import('@/lib/analytics').then((m) => m.analytics.logLogin('google')).catch(() => {});
+          return { data, error: null };
+        } catch (error) {
+          if (!(error instanceof nativeAuth.GoogleNativePickerError)) throw error;
+          const { resolveGoogleNativeFailure } = await import('@/lib/social-auth-errors');
+          const outcome = resolveGoogleNativeFailure(error, (window as any)?.Capacitor?.getPlatform?.());
+          if (outcome.report) import('@/lib/crashReporter').then((m) => m.reportAuthError('google', error)).catch(() => {});
+          if (outcome.action === 'silent') return { data: null, error: null };
+          if (outcome.action === 'browser') {
+            // Old Android (no Credential Manager / Play Services, DEVELOPER_ERROR 10, 12500): browser OAuth.
+            await nativeAuth.signInWithGoogleBrowserFallback();
+            return { data: null, error: null };
+          }
+          return { data: null, error: outcome.action === 'error' ? outcome.error : error };
+        }
       }
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
@@ -395,7 +421,17 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       const platform = (window as any)?.Capacitor?.getPlatform?.();
       if (isCapacitorNative && platform === 'ios') {
         const { signInWithAppleNative } = await import('@/lib/native-auth');
-        const data = await signInWithAppleNative();
+        let data;
+        try {
+          data = await signInWithAppleNative();
+        } catch (error) {
+          // ASAuthorizationError 1001 (sheet closed) = silent; 1000 = clear message, never the raw code.
+          const { resolveAppleNativeFailure } = await import('@/lib/social-auth-errors');
+          const outcome = resolveAppleNativeFailure(error);
+          if (outcome.action === 'rethrow') throw error;
+          if (outcome.report) import('@/lib/crashReporter').then((m) => m.reportAuthError('apple', error)).catch(() => {});
+          return { data: null, error: outcome.action === 'error' ? outcome.error : null };
+        }
         import('@/lib/analytics').then((m) => m.analytics.logLogin('apple')).catch(() => {});
         return { data, error: null };
       }
@@ -643,6 +679,56 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       void hydrateUser(u);
     };
 
+    let initialHandled = false;
+    /** Read-only open on the stored account: cached profile/role, no network, no logout. */
+    const restoreOfflineSession = (stored: StoredSession) => {
+      if (!mounted) return;
+      const u = stored.user;
+      const alreadyRestored = offlineSessionRef.current && userRef.current?.id === u.id;
+      offlineSessionRef.current = true;
+      if (alreadyRestored) { finishLoading(); return; }
+      // at: 0 → the first real session triggers a fresh server read.
+      hydratedRef.current = { userId: u.id, at: 0 };
+      applySession(stored);
+      applyUser(u);
+      setAuth(true, u.id, u.email || '', u.user_metadata?.name || tr("authcontext_i_stifadeci_b6bdd6", "\u0130stifad\u0259\xE7i"));
+      const cachedProfile = readCache<Profile>(PROFILE_CACHE_KEY, u.id);
+      const cachedRole = readCache<UserRole>(ROLE_CACHE_KEY, u.id);
+      if (cachedProfile) {
+        applyProfile(cachedProfile);
+        syncProfileToStore(cachedProfile, u.id);
+      }
+      // No cached profile: the persisted store state stays as it was (offline-first).
+      if (cachedRole) applyRole(cachedRole);
+      setProfileLoaded(true);
+      finishLoading();
+    };
+
+    /** The token was refreshed after an offline open: full server read, then send queued writes. */
+    const leaveOfflineSession = (u: User) => {
+      if (!offlineSessionRef.current) return false;
+      offlineSessionRef.current = false;
+      beginHydration(u);
+      import('@/lib/offline-outbox').then((m) => m.flushOutbox(u.id)).catch(() => {});
+      return true;
+    };
+
+    // Expired stored token: do not wait for the SDK's refresh retries (~25 s offline).
+    let restoreTimer: ReturnType<typeof setTimeout> | null = null;
+    void readPersistedSession().then((stored) => {
+      if (!mounted || initialHandled || !stored || !isSessionExpired(stored)) return;
+      const restore = () => { if (mounted && !initialHandled) restoreOfflineSession(stored); };
+      if (typeof navigator !== 'undefined' && navigator.onLine === false) restore();
+      else restoreTimer = setTimeout(restore, OFFLINE_RESTORE_GRACE_MS);
+    });
+
+    // Network back while opened offline: refresh now (getSession refreshes an expired token;
+    // success arrives as TOKEN_REFRESHED, a real invalid token as SIGNED_OUT).
+    const onOnline = () => {
+      if (offlineSessionRef.current) void supabase.auth.getSession().catch(() => {});
+    };
+    if (typeof window !== 'undefined') window.addEventListener('online', onOnline);
+
     // Single source of truth: only onAuthStateChange handles auth state.
     // No separate initializeAuth / getSession call to avoid race conditions.
     const {
@@ -652,6 +738,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       if (!mounted) return;
 
       if (event === 'SIGNED_OUT') {
+        offlineSessionRef.current = false;
         hydratedRef.current = null;
         setSession(null);
         setUser(null);
@@ -667,7 +754,20 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       }
 
       if (event === 'INITIAL_SESSION') {
+        initialHandled = true;
+        if (restoreTimer) { clearTimeout(restoreTimer); restoreTimer = null; }
+        if (!currentSession?.user) {
+          // Auth keeps the stored session only when the refresh failed for a network reason
+          // (offline, timeout, captive portal). That is not a logout: open read-only.
+          const stored = await readPersistedSession();
+          if (!mounted) return;
+          if (stored) {
+            restoreOfflineSession(stored);
+            return;
+          }
+        }
         if (currentSession?.user) {
+          offlineSessionRef.current = false;
           applySession(currentSession);
           applyUser(currentSession.user);
           setAuth(
@@ -696,6 +796,13 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
         if (currentSession?.user) {
           const u = currentSession.user;
           const hydrated = hydratedRef.current;
+          if (offlineSessionRef.current && hydrated?.userId === u.id) {
+            applySession(currentSession);
+            applyUser(u);
+            finishLoading();
+            leaveOfflineSession(u);
+            return;
+          }
           if (hydrated?.userId === u.id) {
             // Same account (visibility return / duplicate after INITIAL_SESSION): keep the
             // user/session references when nothing changed and skip the full hydration.
@@ -728,6 +835,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
           // object keeps its reference unless a field actually changed.
           applySession(currentSession);
           applyUser(currentSession.user);
+          leaveOfflineSession(currentSession.user);
         }
         // Do NOT call storeLogout if token refresh comes back without a session
         // The session might still be recoverable
@@ -746,6 +854,8 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
     return () => {
       mounted = false;
       clearBootstrapTimeout();
+      if (restoreTimer) clearTimeout(restoreTimer);
+      if (typeof window !== 'undefined') window.removeEventListener('online', onOnline);
       subscription.unsubscribe();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

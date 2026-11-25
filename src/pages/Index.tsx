@@ -37,7 +37,8 @@ import { resetAppScrollPosition } from '@/lib/scroll';
 import { initDeeplinkListener, ParsedDeeplink } from '@/lib/deeplink';
 import { setPendingWidgetAction } from '@/lib/widget-actions';
 import { pushBackHandler } from '@/lib/backButton';
-import { PUSH_NAV_EVENT, consumePendingPushNav, type PushNavIntent } from '@/lib/pushNav';
+import { PUSH_NAV_EVENT, consumePendingPushNav, navigateFromPush, type PushNavIntent } from '@/lib/pushNav';
+import { attachNotificationTapHandler } from '@/lib/notification-taps';
 import { isCakesAvailable } from '@/lib/freemium';
 import type { CommunityDeepLinkTarget } from '@/components/community/CommunityScreen';
 import { AdSurface } from '@/components/ads/AdExperienceProvider';
@@ -400,7 +401,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       if (activeTool) {setActiveTool(null);setToolsResetKey((k) => k + 1);return true;}
       if (activeTab !== 'home') {setActiveTab('home');return true;}
       return false; // kök: backButton.ts "yenidən bas" göstərəcək
-    });
+    }, 'root'); // ən alt qat: açıq dialoq/sheet və ekran daxili naviqasiya əvvəl
   }, [showAdmin, viewingUserId, showMotherChat, activeScreen, activeTool, activeTab]);
 
   useEffect(() => {
@@ -415,8 +416,9 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
 
   // Initialize push notification token registration for native apps
   useDeviceToken();
-  // Taps on on-device notifications (e.g. Körpəmdən mesajlar) use the same push routing.
-  useEffect(() => { void import('@/lib/baby-chat-notifications').then((m) => m.registerLocalNotificationTaps()); }, []);
+  // Push and on-device reminder taps: the listeners are registered at boot (main.tsx → notification-taps.ts)
+  // and queue the tap until this router attaches; navigateFromPush waits for auth/profile before applying it.
+  useEffect(() => attachNotificationTapHandler((data) => navigateFromPush(data)), []);
 
   // Kilid ekranı widget-indən (iOS Live Activity / Android bildiriş) dayandırılan
   // yuxu/əmizdirmə taymerlərini baby_logs-a yaz — HƏMİŞƏ aktiv host (sub-ekranlar

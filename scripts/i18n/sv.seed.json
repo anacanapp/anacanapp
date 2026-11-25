@@ -12534,5 +12534,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "Nuvarande BMI {bmi} ({category})",
   "weighttracker_height_for_bmi": "Ange din längd för att räkna ut ditt BMI.",
-  "weighttracker_postpartum_note": "Efter förlossningen minskar vikten oftast gradvis under flera månader. Undvik strikta dieter när du ammar och prata med din läkare om du har frågor."
+  "weighttracker_postpartum_note": "Efter förlossningen minskar vikten oftast gradvis under flera månader. Undvik strikta dieter när du ammar och prata med din läkare om du har frågor.",
+  "netsync_timeout_retry": "Svag anslutning, svaret kom inte i tid. Försök igen.",
+  "netsync_offline_indicator": "Offline · synkas när du är online igen",
+  "pushperm_reason": "Tillåt aviseringar för att få vaccinations- och andra påminnelser och nya meddelanden i tid.",
+  "pushperm_allow": "Tillåt",
+  "socialauth_google_network": "Kontrollera internetanslutningen och försök igen.",
+  "socialauth_google_failed": "Inloggningen med Google slutfördes inte. Försök igen eller logga in med e-post.",
+  "socialauth_apple_unknown": "Det gick inte att logga in med Apple. Kontrollera i Inställningar att du är inloggad med ditt Apple-ID (iCloud) och försök igen.",
+  "socialauth_apple_failed": "Inloggningen med Apple slutfördes inte. Försök igen."
 }

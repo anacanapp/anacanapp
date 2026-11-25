@@ -52,7 +52,7 @@ it('source-first uses the source URL/key/namespace and leaves destination creden
   expect(mocks.createClient).toHaveBeenCalledExactlyOnceWith(SOURCE_AUTH_REALM, 'synthetic-source-public', {
     auth: { storage: localStorage, storageKey: LEGACY, persistSession: true, autoRefreshToken: true },
     // Native builds send their version (src/integrations/supabase/client.ts).
-    ...(mocks.native() ? { global: { headers: { 'X-Anacan-Version': '28.0' } } } : {}),
+    global: { fetch: expect.any(Function), ...(mocks.native() ? { headers: { 'X-Anacan-Version': '28.0' } } : {}) },
   });
   expect(authStorage).toMatchObject({ realm: SOURCE_AUTH_REALM, allowLegacyFallback: true });
   expect(config.isAzureBackend()).toBe(false);
@@ -77,7 +77,7 @@ it('pins a verified target decision before constructing the SDK and preserves th
   expect(mocks.createClient.mock.calls[0]).toEqual([AZURE, 'synthetic-target-public', {
     auth: { storage: localStorage, storageKey: LEGACY, persistSession: true, autoRefreshToken: true },
     // Native builds send their version (src/integrations/supabase/client.ts).
-    ...(mocks.native() ? { global: { headers: { 'X-Anacan-Version': '28.0' } } } : {}),
+    global: { fetch: expect.any(Function), ...(mocks.native() ? { headers: { 'X-Anacan-Version': '28.0' } } : {}) },
   }]);
   expect((await import('./backend-config')).isAzurePairingBackend()).toBe(true);
 });
@@ -191,14 +191,21 @@ it.each(['corrupt-native', 'corrupt-browser', 'native-read', 'native-write', 'br
     expect(localStorage.getItem(LEGACY)).toBe('unchanged-session');
   });
 
-it.each([
-  response({ ...azure, handoffSha256: null }), response(SOURCE, 200, { 'content-type': 'text/html', 'cache-control': 'no-store' }),
-  response(SOURCE, 200, { 'content-type': 'application/json', 'cache-control': 'public' }), response(SOURCE, 302),
-])('refuses invalid published decisions without persisting them', async reply => {
-  mocks.fetch.mockResolvedValue(reply);
+it('refuses an invalid published decision without persisting it', async () => {
+  mocks.fetch.mockResolvedValue(response({ ...azure, handoffSha256: null }));
   await expect(boot()).rejects.toThrow('ADMISSION_INVALID');
   expect(mocks.set).not.toHaveBeenCalled();
   expect(mocks.createClient).not.toHaveBeenCalled();
+});
+it.each([
+  response(azure, 200, { 'content-type': 'text/html', 'cache-control': 'no-store' }),
+  response(azure, 200, { 'content-type': 'application/json', 'cache-control': 'public' }), response(azure, 302),
+])('treats a non-control answer like offline: no new decision, pinned authority kept', async reply => {
+  mocks.fetch.mockResolvedValue(reply);
+  await boot(); await import('./client');
+  // A Source installation is not moved to the azure document the portal/proxy carried.
+  expect(mocks.createClient.mock.calls[0][0]).toBe(SOURCE_AUTH_REALM);
+  expect(JSON.parse(prefs.get(PIN)!).authority).toBe('source');
 });
 
 it('coalesces concurrent startup and performs only one authority selection', async () => {
@@ -303,8 +310,18 @@ it('restarts once a JSON no-store control document fails validation on two conse
   } finally { stop(); }
 });
 
-it('startup still refuses a captive portal page as an unverifiable decision', async () => {
+it('native startup behind a captive portal opens on the pinned authority (like offline), without a restart loop', async () => {
+  prefs.set(PIN, JSON.stringify(advanceAdmission(null, azure)));
   mocks.fetch.mockResolvedValue(htmlPortal());
-  await expect(boot()).rejects.toThrow('ADMISSION_INVALID');
-  expect(mocks.createClient).not.toHaveBeenCalled();
+  await boot(); await import('./client');
+  expect(mocks.createClient.mock.calls[0][0]).toBe(AZURE);
+  expect(JSON.parse(prefs.get(PIN)!).policy).toMatchObject({ phase: 'azure', generation: 2 });
+  vi.useFakeTimers();
+  vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('visible');
+  const restart = vi.fn();
+  const stop = (await import('./backend-bootstrap')).watchBackendAdmission(restart);
+  try {
+    await vi.advanceTimersByTimeAsync(60_000 * 3);
+    expect(restart).not.toHaveBeenCalled();
+  } finally { stop(); }
 });

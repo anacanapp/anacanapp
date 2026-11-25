@@ -45,7 +45,8 @@ export function writeStorageItem(storage: Storage, key: string, value: string): 
 
 /** Optional cache writes share a bounded budget and leave headroom for sessions. */
 export function writeStorageCache(storage: Storage, key: string, value: string): boolean {
-  if (cachePriority(key) < 0) throw new Error('NOT_A_DISPOSABLE_STORAGE_CACHE');
+  const priority = cachePriority(key);
+  if (priority < 0) throw new Error('NOT_A_DISPOSABLE_STORAGE_CACHE');
   try {
     const size = bytes(key, value);
     if (size > CACHE_BUDGET_BYTES) return false;
@@ -54,10 +55,13 @@ export function writeStorageCache(storage: Storage, key: string, value: string):
     let cached = items.filter(item => item.priority >= 0).reduce((sum, item) => sum + item.bytes, size);
     const essential = items.filter(item => item.priority < 0).reduce((sum, item) => sum + item.bytes, 0);
     if (essential + size > CACHE_STORAGE_CEILING_BYTES) return false;
-    for (const item of disposable(items, key)) {
+    // A translation cache (re-downloadable, bundled seeds on native) never evicts the
+    // offline user data cache (children, profile): that is what an offline open shows.
+    for (const item of disposable(items, key).filter(item => item.priority <= priority)) {
       if (total <= CACHE_STORAGE_CEILING_BYTES && cached <= CACHE_BUDGET_BYTES) break;
       storage.removeItem(item.key); total -= item.bytes; cached -= item.bytes;
     }
+    if (total > CACHE_STORAGE_CEILING_BYTES || cached > CACHE_BUDGET_BYTES) return false;
     storage.setItem(key, value);
     return true;
   } catch { return false; }

@@ -12534,5 +12534,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "当前 BMI {bmi}（{category}）",
   "weighttracker_height_for_bmi": "填写身高即可计算 BMI。",
-  "weighttracker_postpartum_note": "产后体重通常会在几个月内逐渐下降。哺乳期间请避免严格节食，如有疑问请咨询医生。"
+  "weighttracker_postpartum_note": "产后体重通常会在几个月内逐渐下降。哺乳期间请避免严格节食，如有疑问请咨询医生。",
+  "netsync_timeout_retry": "网络较弱，未能及时收到响应。请重试。",
+  "netsync_offline_indicator": "离线 · 联网后将自动同步",
+  "pushperm_reason": "允许通知，以便按时收到疫苗接种及其他提醒和新消息。",
+  "pushperm_allow": "允许",
+  "socialauth_google_network": "请检查网络连接后重试。",
+  "socialauth_google_failed": "Google 登录未完成。请重试，或使用电子邮件登录。",
+  "socialauth_apple_unknown": "无法通过 Apple 登录。请在“设置”中确认已登录 Apple ID（iCloud），然后重试。",
+  "socialauth_apple_failed": "Apple 登录未完成，请重试。"
 }

@@ -3,7 +3,8 @@ import { APP_LANGUAGES, APP_LANGUAGE_CODES, NEW_LANGUAGE_CODES, appLanguageLocal
 import { startupText } from './startup-i18n';
 import { detectLang } from './langDetect';
 import { defaultFeedLanguages } from '@/hooks/useFeedLanguages';
-import { createContentTranslationCache, type ContentBundle } from './content-i18n';
+import { createContentPackLoader, createMemoryStore } from './content-packs';
+import { buildLanguagePacks } from '../../scripts/i18n/content-packs.mjs';
 import { contentTranslationKey } from '../../scripts/i18n/content-translation-core.mjs';
 import { formatCountUnit } from './count-format';
 import { getOrdinal } from './utils';
@@ -86,27 +87,30 @@ describe('new-language count grammar', () => {
   });
 });
 
-describe('source-bound public content bundles', () => {
+describe('source-bound public content packs', () => {
   const row = { id: 'public-fixture', description: 'Source text: 3 mg', description_en: 'Source text: 3 mg' };
   const key = contentTranslationKey(row, 'description')!;
-  const fixture = (): ContentBundle => ({ schema: 'anacan-content-translations-v1', language: 'fr', sourceHash: 'a'.repeat(64), values: { [key]: 'Texte source : 3 mg' } });
-  it('coalesces offline loads, translates exact public rows and refuses an edited source', async () => {
-    const loader = vi.fn(async () => fixture());
-    const cache = createContentTranslationCache({ '../../scripts/i18n/content/fr.json': loader });
-    await Promise.all([cache.ensure('fr'), cache.ensure('fr-FR')]);
-    expect(loader).toHaveBeenCalledTimes(1);
+  const files = buildLanguagePacks({ schema: 'anacan-content-translations-v1', language: 'fr', sourceHash: 'a'.repeat(64), values: { [key]: 'Texte source : 3 mg' } }).files;
+  const loader = () => {
+    const fetchPack = vi.fn(async (url: string) => files.find(file => url.endsWith(`/content-packs/${file.path}`))?.text ?? Promise.reject(new Error('404')));
+    const sha256Hex = async (text: string) => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)))).map(byte => byte.toString(16).padStart(2, '0')).join('');
+    return { fetchPack, cache: createContentPackLoader({ baseUrl: '', languages: NEW_LANGUAGE_CODES, fetchPack, store: createMemoryStore(), sha256Hex }) };
+  };
+  it('coalesces loads, translates exact public rows and refuses an edited source', async () => {
+    const { fetchPack, cache } = loader();
+    await Promise.all([cache.prepare('fr'), cache.prepare('fr')]);
+    cache.lookup(row, 'description', 'fr'); cache.lookup(row, 'description', 'fr'); await cache.settled('fr');
+    expect(fetchPack).toHaveBeenCalledTimes(2); // manifest + one shard
     expect(cache.lookup(row, 'description', 'fr')).toBe('Texte source : 3 mg');
     expect(cache.lookup({ ...row, description: 'Source text: 30 mg' }, 'description', 'fr')).toBeUndefined();
     expect(cache.lookup({ ...row, id: 'another-row' }, 'description', 'fr')).toBeUndefined();
     expect(cache.lookup({ ...row, description_en: 'Edited' }, 'description', 'fr')).toBeUndefined();
     expect(row.description).toBe('Source text: 3 mg');
   });
-  it('rejects mismatched bundles and allows a clean retry', async () => {
-    const loader = vi.fn().mockResolvedValueOnce({ ...fixture(), language: 'es' }).mockResolvedValueOnce(fixture());
-    const cache = createContentTranslationCache({ '../../scripts/i18n/content/fr.json': loader });
-    await expect(cache.ensure('fr')).rejects.toThrow('BUNDLED_CONTENT_LANGUAGE_INVALID');
-    await cache.ensure('fr'); expect(cache.lookup(row, 'description', 'fr')).toBeTruthy();
-    await expect(cache.ensure('zh')).rejects.toThrow('BUNDLED_CONTENT_LANGUAGE_MISSING');
-    await expect(cache.ensure('az')).resolves.toBeUndefined();
+  it('ignores languages without packs and missing languages on the server', async () => {
+    const { cache } = loader();
+    await expect(cache.prepare('az')).resolves.toBeUndefined();
+    await expect(cache.prepare('zh')).resolves.toBeUndefined();
+    expect(cache.lookup(row, 'description', 'zh')).toBeUndefined();
   });
 });

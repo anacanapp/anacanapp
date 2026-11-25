@@ -12534,5 +12534,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "현재 BMI {bmi}({category})",
   "weighttracker_height_for_bmi": "BMI를 계산하려면 키를 입력하세요.",
-  "weighttracker_postpartum_note": "출산 후 체중은 보통 몇 달에 걸쳐 서서히 줄어듭니다. 모유 수유 중에는 엄격한 다이어트를 피하고, 궁금한 점은 의사와 상담하세요."
+  "weighttracker_postpartum_note": "출산 후 체중은 보통 몇 달에 걸쳐 서서히 줄어듭니다. 모유 수유 중에는 엄격한 다이어트를 피하고, 궁금한 점은 의사와 상담하세요.",
+  "netsync_timeout_retry": "연결이 약해 응답이 제때 오지 않았어요. 다시 시도해 주세요.",
+  "netsync_offline_indicator": "오프라인 · 인터넷이 연결되면 동기화돼요",
+  "pushperm_reason": "예방접종 및 기타 알림과 새 메시지를 제때 받으려면 알림을 허용해 주세요.",
+  "pushperm_allow": "허용",
+  "socialauth_google_network": "인터넷 연결을 확인한 뒤 다시 시도하세요.",
+  "socialauth_google_failed": "Google 로그인이 완료되지 않았습니다. 다시 시도하거나 이메일로 로그인하세요.",
+  "socialauth_apple_unknown": "Apple로 로그인할 수 없습니다. 설정에서 Apple ID(iCloud)에 로그인되어 있는지 확인한 뒤 다시 시도하세요.",
+  "socialauth_apple_failed": "Apple 로그인이 완료되지 않았습니다. 다시 시도하세요."
 }

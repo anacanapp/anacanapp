@@ -10384,5 +10384,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "Güncel BMI {bmi} ({category})",
   "weighttracker_height_for_bmi": "BMI hesaplamak için boyunuzu girin.",
-  "weighttracker_postpartum_note": "Doğumdan sonra kilo genellikle birkaç ay içinde yavaş yavaş azalır. Emzirirken sıkı diyetlerden kaçının, sorularınız varsa doktorunuzla konuşun."
+  "weighttracker_postpartum_note": "Doğumdan sonra kilo genellikle birkaç ay içinde yavaş yavaş azalır. Emzirirken sıkı diyetlerden kaçının, sorularınız varsa doktorunuzla konuşun.",
+  "netsync_timeout_retry": "Bağlantı zayıf, yanıt gecikti. Lütfen tekrar deneyin.",
+  "netsync_offline_indicator": "Çevrimdışı · internet gelince eşitlenecek",
+  "pushperm_reason": "Aşı ve diğer hatırlatmaları, yeni mesajları zamanında almak için bildirimlere izin verin.",
+  "pushperm_allow": "İzin ver",
+  "socialauth_google_network": "İnternet bağlantınızı kontrol edip tekrar deneyin.",
+  "socialauth_google_failed": "Google ile giriş tamamlanamadı. Tekrar deneyin veya e-posta ile giriş yapın.",
+  "socialauth_apple_unknown": "Apple ile giriş yapılamadı. Ayarlar'da Apple Kimliğinize (iCloud) giriş yaptığınızdan emin olun ve tekrar deneyin.",
+  "socialauth_apple_failed": "Apple ile giriş tamamlanamadı. Lütfen tekrar deneyin."
 }

@@ -38,6 +38,7 @@ import { fillEmergencyNumber } from '@/lib/emergency';
 import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { storedDateKey } from '@/lib/stored-date-key';
 import { useOnlineStatus } from '@/hooks/useOnlineStatus';
+import { AI_STREAM_IDLE_TIMEOUT_MS, fetchStreaming, isRequestTimeoutError } from '@/lib/network-timeout';
 
 interface Message {
   id: string;
@@ -499,6 +500,14 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
       if (!streamFlushTimer) streamFlushTimer = setTimeout(flushStream, 80);
     };
     abortRef.current = controller;
+    // Weak network: a stream that goes silent is stopped (the partial answer stays).
+    let streamTimedOut = false;
+    let idleTimer: ReturnType<typeof setTimeout> | null = null;
+    const clearIdleTimer = () => { if (idleTimer) clearTimeout(idleTimer); idleTimer = null; };
+    const armIdleTimer = () => {
+      clearIdleTimer();
+      idleTimer = setTimeout(() => { streamTimedOut = true; controller.abort(); }, AI_STREAM_IDLE_TIMEOUT_MS);
+    };
 
     try {
       const conversationHistory = messages.
@@ -518,7 +527,9 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
       if (!session?.access_token) {
         throw new Error(tr("aichatscreen_sessiya_tapilmadi_yeniden_daxi_455503", "Sessiya tap\u0131lmad\u0131. Yenid\u0259n daxil olun."));
       }
-      const response = await fetch(`${getBackendConfig().url}/functions/v1/dr-anacan-chat`, {
+      // WebView fetch even on native: the CapacitorHttp bridge buffers the whole answer and
+      // ignores Stop; this path streams progressively and aborts. Bounded until the headers.
+      const response = await fetchStreaming(`${getBackendConfig().url}/functions/v1/dr-anacan-chat`, {
         method: 'POST',
         signal: controller.signal,
         headers: {
@@ -608,9 +619,11 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
         let fullContent = '';
         let buffer = '';
 
+        armIdleTimer();
         while (true) {
           const { done, value } = await reader.read();
           if (done) break;
+          armIdleTimer();
 
           buffer += decoder.decode(value, { stream: true });
           const lines = buffer.split('\n');
@@ -654,6 +667,7 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
         }
 
         // Mark streaming as complete and save to database
+        clearIdleTimer();
         cancelStreamFlush();
         const finalContent = fullContent || tr("aichatscreen_bagislayin_cavab_ala_bilmedim_4078bf", "Ba\u011F\u0131\u015Flay\u0131n, cavab ala bilm\u0259dim.");
         setMessages((prev) => prev.map((m) =>
@@ -679,8 +693,17 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
         }
       }
     } catch (error: any) {
-      // Stop düyməsi ilə dayandırıldı — qismən cavabı saxla, xəta göstərmə
-      if (error?.name === 'AbortError') {
+      // Stop düyməsi ilə dayandırıldı — qismən cavabı saxla, xəta göstərmə.
+      // Timeout (no headers in time / silent stream): keep the partial answer and say why.
+      const timedOut = streamTimedOut || isRequestTimeoutError(error);
+      if (timedOut) {
+        toast({
+          title: tr("aichatscreen_xeta_3cdbb6", 'Xəta'),
+          description: tr('netsync_timeout_retry', 'Bağlantı zəifdir, cavab gecikdi. Yenidən cəhd edin.'),
+          variant: 'destructive'
+        });
+      }
+      if (error?.name === 'AbortError' || timedOut) {
         // Buferdə qalan mətni əvvəlcə state-ə yaz ki, qismən cavab itməsin
         flushStream();
         setMessages((prev) => {
@@ -690,7 +713,11 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
             void addMessage('assistant', partial).catch(() => {});
             return prev.map((m) => m.id === assistantMessageId ? { ...m, isStreaming: false } : m);
           }
-          // Heç nə gəlməmişdisə boş bubble-ı sil
+          // Heç nə gəlməmişdisə boş bubble-ı sil (timeout: retry mətni göstər)
+          if (timedOut) {
+            return prev.map((m) => m.id === assistantMessageId ?
+              { ...m, isStreaming: false, content: tr('netsync_timeout_retry', 'Bağlantı zəifdir, cavab gecikdi. Yenidən cəhd edin.') } : m);
+          }
           return prev.filter((m) => m.id !== assistantMessageId);
         });
       } else {
@@ -709,6 +736,7 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
         ));
       }
     } finally {
+      clearIdleTimer();
       cancelStreamFlush();
       abortRef.current = null;
       setIsLoading(false);

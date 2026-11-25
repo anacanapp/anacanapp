@@ -55,9 +55,19 @@ try {
   process.exit(1);
 }
 
+// Native packages download the 16 content-pack languages from https://app.anacan.az/content-packs/
+// (scripts/i18n/content-packs.mjs); shipping them again would add ~100 MB to the app.
+const NATIVE = process.env.VITE_NATIVE_BUILD === 'true';
+// Matches the data files themselves ("schema":"…", also JSON-escaped inside a JS chunk), not runtime constants.
+const CONTENT_BUNDLE_SCHEMAS = /\\?"schema\\?"\s*:\s*\\?"anacan-content-(?:translations|pack-shard)-v1/;
+
 for (const p of files) {
   const rel = relative(DIST, p);
   const name = basename(p);
+  if (NATIVE && rel.split(/[\\/]/)[0] === 'content-packs') {
+    problems.push(`content pack in native bundle: ${rel}`);
+    continue;
+  }
   if (FORBIDDEN_NAME.some((re) => re.test(name) || re.test(rel)) || isRootMarkdown(rel)) {
     problems.push(`forbidden file in bundle: ${rel}`);
     continue;
@@ -68,6 +78,7 @@ for (const p of files) {
     for (const { re, what } of SECRET_CONTENT) {
       if (re.test(text)) problems.push(`possible ${what} in: ${rel}`);
     }
+    if (NATIVE && CONTENT_BUNDLE_SCHEMAS.test(text)) problems.push(`content translation bundle in native bundle: ${rel}`);
   }
 }
 

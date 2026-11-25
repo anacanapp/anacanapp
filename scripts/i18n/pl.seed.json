@@ -12534,5 +12534,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "Obecne BMI {bmi} ({category})",
   "weighttracker_height_for_bmi": "Podaj wzrost, aby obliczyć BMI.",
-  "weighttracker_postpartum_note": "Po porodzie masa ciała zwykle spada stopniowo przez kilka miesięcy. W czasie karmienia piersią unikaj restrykcyjnych diet, a w razie pytań porozmawiaj z lekarzem."
+  "weighttracker_postpartum_note": "Po porodzie masa ciała zwykle spada stopniowo przez kilka miesięcy. W czasie karmienia piersią unikaj restrykcyjnych diet, a w razie pytań porozmawiaj z lekarzem.",
+  "netsync_timeout_retry": "Słabe połączenie, odpowiedź nie dotarła na czas. Spróbuj ponownie.",
+  "netsync_offline_indicator": "Offline · zsynchronizuje się po powrocie internetu",
+  "pushperm_reason": "Zezwól na powiadomienia, aby na czas otrzymywać przypomnienia o szczepieniach i inne oraz nowe wiadomości.",
+  "pushperm_allow": "Zezwól",
+  "socialauth_google_network": "Sprawdź połączenie z internetem i spróbuj ponownie.",
+  "socialauth_google_failed": "Logowanie przez Google nie zostało zakończone. Spróbuj ponownie lub zaloguj się e-mailem.",
+  "socialauth_apple_unknown": "Nie udało się zalogować przez Apple. Sprawdź w Ustawieniach, czy jesteś zalogowana na swoje Apple ID (iCloud), i spróbuj ponownie.",
+  "socialauth_apple_failed": "Logowanie przez Apple nie zostało zakończone. Spróbuj ponownie."
 }

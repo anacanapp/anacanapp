@@ -12534,5 +12534,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "Huidige BMI {bmi} ({category})",
   "weighttracker_height_for_bmi": "Vul je lengte in om je BMI te berekenen.",
-  "weighttracker_postpartum_note": "Na de bevalling daalt het gewicht meestal geleidelijk over een aantal maanden. Vermijd strenge diëten tijdens het geven van borstvoeding en overleg met je arts als je vragen hebt."
+  "weighttracker_postpartum_note": "Na de bevalling daalt het gewicht meestal geleidelijk over een aantal maanden. Vermijd strenge diëten tijdens het geven van borstvoeding en overleg met je arts als je vragen hebt.",
+  "netsync_timeout_retry": "Zwakke verbinding, het antwoord kwam niet op tijd. Probeer het opnieuw.",
+  "netsync_offline_indicator": "Offline · wordt gesynchroniseerd zodra je weer online bent",
+  "pushperm_reason": "Sta meldingen toe om vaccinatie- en andere herinneringen en nieuwe berichten op tijd te ontvangen.",
+  "pushperm_allow": "Toestaan",
+  "socialauth_google_network": "Controleer je internetverbinding en probeer het opnieuw.",
+  "socialauth_google_failed": "Inloggen met Google is niet afgerond. Probeer het opnieuw of log in met e-mail.",
+  "socialauth_apple_unknown": "Inloggen met Apple is mislukt. Controleer in Instellingen of je bent ingelogd met je Apple ID (iCloud) en probeer het opnieuw.",
+  "socialauth_apple_failed": "Inloggen met Apple is niet afgerond. Probeer het opnieuw."
 }

@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { parseDeeplink } from './deeplink';
 import { intentFromPushData } from './pushNav';
 import {
@@ -131,10 +131,13 @@ describe('multi-child reminders', () => {
   const scheduledIds = () => ln.schedule.mock.calls.flatMap(([arg]) => arg.notifications.map((n: { id: number }) => n.id));
   const cancelledIds = () => ln.cancel.mock.calls.flatMap(([arg]) => arg.notifications.map((n: { id: number }) => n.id));
   beforeEach(() => {
+    // The central scheduler drops reminders already in the past, so the clock is the fixture's NOW.
+    vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(NOW);
     vi.clearAllMocks(); localStorage.clear(); ln.native = true; ln.perm = 'granted';
     ln.checkPermissions.mockImplementation(async () => ({ display: ln.perm }));
     ln.requestPermissions.mockResolvedValue({ display: 'granted' });
   });
+  afterEach(() => { vi.useRealTimers(); });
 
   it('gives every child a stable block that never overlaps another child or the legacy range', () => {
     const a = vaccineChildBase('a'), b = vaccineChildBase('b');
@@ -191,7 +194,9 @@ describe('multi-child reminders', () => {
     ln.cancel.mockClear(); ln.schedule.mockClear();
     await refreshAllVaccineReminders([{ childId: 'a', doses: [dose('x', 'future', local(2026, 11, 20))], text }], NOW);
     expect(cancelledIds()).toContain(VACCINE_CHILD_BASE_ID + VACCINE_CHILD_STRIDE); // b's block released
-    expect(scheduledIds()).toEqual([VACCINE_CHILD_BASE_ID, VACCINE_CHILD_BASE_ID + 1]);
+    // a's reminders are unchanged and still pending: the scheduler keeps them (same ids), nothing is re-sent.
+    expect(scheduledIds()).toEqual([]);
+    expect(cancelledIds()).not.toContain(VACCINE_CHILD_BASE_ID);
 
     ln.cancel.mockClear(); ln.schedule.mockClear();
     setVaccineRemindersEnabled(false);

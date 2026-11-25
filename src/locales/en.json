@@ -10377,5 +10377,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "Current BMI {bmi} ({category})",
   "weighttracker_height_for_bmi": "Add your height to calculate your BMI.",
-  "weighttracker_postpartum_note": "After birth, weight usually comes down gradually over several months. Avoid strict diets while breastfeeding and talk to your doctor if you have questions."
+  "weighttracker_postpartum_note": "After birth, weight usually comes down gradually over several months. Avoid strict diets while breastfeeding and talk to your doctor if you have questions.",
+  "netsync_timeout_retry": "Slow connection, no response in time. Please try again.",
+  "netsync_offline_indicator": "Offline · will sync when you're back online",
+  "pushperm_reason": "Allow notifications to get vaccine and other reminders and new messages on time.",
+  "pushperm_allow": "Allow",
+  "socialauth_google_network": "Check your internet connection and try again.",
+  "socialauth_google_failed": "Google sign-in didn't finish. Try again or sign in with email.",
+  "socialauth_apple_unknown": "Couldn't sign in with Apple. Make sure you're signed in to your Apple ID (iCloud) in Settings, then try again.",
+  "socialauth_apple_failed": "Apple sign-in didn't finish. Please try again."
 }

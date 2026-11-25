@@ -3,7 +3,7 @@ import azStatic from '@/locales/az.json';
 import { ensureCopyLanguage } from './ui-copy';
 import { writeStorageCache } from './local-storage';
 import { APP_LANGUAGE_CODES, appLanguageLocale, normalizeAppLanguage, readAppLanguage, resolveAppLanguages, type AppLanguage } from './app-languages';
-import { ensureContentLanguageReady } from './content-i18n';
+import { prepareContentLanguage } from './content-i18n';
 export type { AppLanguage } from './app-languages';
 
 // In-memory translation cache: { [lang]: { [key]: value } }
@@ -123,7 +123,10 @@ export async function ensureLanguageReady(lang: string): Promise<void> {
   if (!SEED_LANGS.has(lang)) { await copyReady; return; }
   // A previous release's cache can be large but still miss newly added screens.
   // Merge this release's local seed once before the first translated render.
-  await Promise.all([loadLocalSeed(lang), ensureContentLanguageReady(lang), copyReady]);
+  // Catalog content packs (16 languages) download in the background and never hold
+  // the first render; rows show en/ru until their shard is cached (content-i18n.ts).
+  void prepareContentLanguage(lang);
+  await Promise.all([loadLocalSeed(lang), copyReady]);
   persistSoon(lang); // növbəti açılış sinxron olsun
 }
 

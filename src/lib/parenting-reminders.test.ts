@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const cap = vi.hoisted(() => ({
   native: true,
@@ -28,7 +28,12 @@ const running = (done: string[], extra: object = {}) => ({ 'sleep-7': { startedA
 const slots = (s: ParentingLocal, o: { allowed?: boolean; now?: Date; isPremium?: boolean } = {}) =>
   reminderSlots({ state: s, programmes: az.programmes, allowed: o.allowed ?? true, isPremium: o.isPremium ?? true, now: o.now ?? NOW, today: TODAY });
 
-beforeEach(() => { cap.native = true; cap.display = 'granted'; cap.cancel.mockClear(); cap.schedule.mockClear(); });
+beforeEach(() => {
+  cap.native = true; cap.display = 'granted'; cap.cancel.mockClear(); cap.schedule.mockClear();
+  // The central scheduler drops reminders already in the past, so the clock is the fixture's NOW.
+  vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(NOW); localStorage.clear();
+});
+afterEach(() => { vi.useRealTimers(); });
 
 describe('Tərbiyə programme reminders: what to schedule', () => {
   it('schedules today at the chosen time and the next days, one step a day, up to the end of the programme', () => {

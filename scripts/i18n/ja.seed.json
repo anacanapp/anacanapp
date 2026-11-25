@@ -12534,5 +12534,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "現在のBMI {bmi}（{category}）",
   "weighttracker_height_for_bmi": "BMIを計算するには身長を入力してください。",
-  "weighttracker_postpartum_note": "産後の体重は通常、数か月かけて少しずつ戻っていきます。授乳中は厳しい食事制限を避け、気になることがあれば医師に相談してください。"
+  "weighttracker_postpartum_note": "産後の体重は通常、数か月かけて少しずつ戻っていきます。授乳中は厳しい食事制限を避け、気になることがあれば医師に相談してください。",
+  "netsync_timeout_retry": "接続が不安定で、応答が時間内に届きませんでした。もう一度お試しください。",
+  "netsync_offline_indicator": "オフライン · インターネット接続後に同期されます",
+  "pushperm_reason": "予防接種などのリマインダーや新しいメッセージを時間どおりに受け取るには、通知を許可してください。",
+  "pushperm_allow": "許可する",
+  "socialauth_google_network": "インターネット接続を確認してもう一度お試しください。",
+  "socialauth_google_failed": "Googleでのサインインが完了しませんでした。もう一度お試しいただくか、メールでサインインしてください。",
+  "socialauth_apple_unknown": "Appleでサインインできませんでした。設定でApple ID（iCloud）にサインインしているか確認して、もう一度お試しください。",
+  "socialauth_apple_failed": "Appleでのサインインが完了しませんでした。もう一度お試しください。"
 }

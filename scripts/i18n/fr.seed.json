@@ -12534,5 +12534,13 @@
   "weighttracker_bmi_label": "IMC",
   "weighttracker_bmi_now": "IMC actuel {bmi} ({category})",
   "weighttracker_height_for_bmi": "Indiquez votre taille pour calculer votre IMC.",
-  "weighttracker_postpartum_note": "Après la naissance, le poids diminue généralement peu à peu sur plusieurs mois. Évitez les régimes stricts pendant l'allaitement et parlez-en à votre médecin si vous avez des questions."
+  "weighttracker_postpartum_note": "Après la naissance, le poids diminue généralement peu à peu sur plusieurs mois. Évitez les régimes stricts pendant l'allaitement et parlez-en à votre médecin si vous avez des questions.",
+  "netsync_timeout_retry": "Connexion faible, la réponse n’est pas arrivée à temps. Réessayez.",
+  "netsync_offline_indicator": "Hors ligne · synchronisation au retour d’internet",
+  "pushperm_reason": "Autorisez les notifications pour recevoir à temps les rappels de vaccins et autres, ainsi que les nouveaux messages.",
+  "pushperm_allow": "Autoriser",
+  "socialauth_google_network": "Vérifiez votre connexion internet et réessayez.",
+  "socialauth_google_failed": "La connexion avec Google n'a pas abouti. Réessayez ou connectez-vous par e-mail.",
+  "socialauth_apple_unknown": "Impossible de se connecter avec Apple. Vérifiez dans Réglages que vous êtes connectée à votre identifiant Apple (iCloud), puis réessayez.",
+  "socialauth_apple_failed": "La connexion avec Apple n'a pas abouti. Réessayez."
 }

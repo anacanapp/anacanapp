@@ -10384,5 +10384,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "Joriy BMI {bmi} ({category})",
   "weighttracker_height_for_bmi": "BMI ni hisoblash uchun boʻyingizni kiriting.",
-  "weighttracker_postpartum_note": "Tugʻruqdan keyin vazn odatda bir necha oy davomida asta-sekin kamayadi. Emizish davrida qattiq parhezdan saqlaning, savollaringiz boʻlsa shifokoringiz bilan maslahatlashing."
+  "weighttracker_postpartum_note": "Tugʻruqdan keyin vazn odatda bir necha oy davomida asta-sekin kamayadi. Emizish davrida qattiq parhezdan saqlaning, savollaringiz boʻlsa shifokoringiz bilan maslahatlashing.",
+  "netsync_timeout_retry": "Aloqa zaif, javob o‘z vaqtida kelmadi. Qaytadan urinib ko‘ring.",
+  "netsync_offline_indicator": "Oflayn · internet qaytganda sinxronlanadi",
+  "pushperm_reason": "Emlash va boshqa eslatmalarni, yangi xabarlarni o‘z vaqtida olish uchun bildirishnomalarga ruxsat bering.",
+  "pushperm_allow": "Ruxsat berish",
+  "socialauth_google_network": "Internet aloqasini tekshirib, qayta urinib koʻring.",
+  "socialauth_google_failed": "Google orqali kirish yakunlanmadi. Qayta urinib koʻring yoki email orqali kiring.",
+  "socialauth_apple_unknown": "Apple orqali kirib boʻlmadi. Sozlamalarda Apple ID (iCloud) hisobiga kirganingizni tekshirib, qayta urinib koʻring.",
+  "socialauth_apple_failed": "Apple orqali kirish yakunlanmadi. Qayta urinib koʻring."
 }

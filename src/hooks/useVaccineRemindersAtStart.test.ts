@@ -23,7 +23,10 @@ describe('runVaccineReminderRefresh', () => {
   beforeEach(() => {
     vi.clearAllMocks(); localStorage.clear(); ln.native = true;
     ln.checkPermissions.mockResolvedValue({ display: 'granted' });
+    // The central scheduler drops reminders already in the past, so the clock is the fixture's NOW.
+    vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(NOW);
   });
+  afterEach(() => { vi.useRealTimers(); });
 
   it('schedules reminders for every child, each with its own country plan, name and id block', async () => {
     const deps: VaccineRefreshDeps = {

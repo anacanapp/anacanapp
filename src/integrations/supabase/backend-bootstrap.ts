@@ -44,11 +44,15 @@ export async function probeBackendAdmission(): Promise<AdmissionProbe> {
   } finally { clearTimeout(timeout); }
 }
 
-/** Startup read: an unverifiable answer blocks startup (ADMISSION_INVALID), unchanged. */
+/** Startup read. A control document that fails validation blocks startup (ADMISSION_INVALID).
+ * Something that is not the control document at all (captive portal / proxy HTML, a redirect,
+ * a cacheable or unparseable body) carries no decision: it is handled exactly like offline,
+ * so the device keeps its pinned authority and opens instead of stopping on the retry screen.
+ * It can never select or advance an authority. */
 export async function fetchBackendAdmission(): Promise<BackendAdmission | null> {
   const probe = await probeBackendAdmission();
   if (probe.kind === 'policy') return probe.policy;
-  if (probe.kind === 'unavailable') return null;
+  if (probe.kind === 'unavailable' || probe.kind === 'malformed') return null;
   throw new BackendAdmissionError('ADMISSION_INVALID');
 }
 

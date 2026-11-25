@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { inlineLocalizationPlugin } from './scripts/i18n/inline-localization.mjs';
-import { publicContentAssetsPlugin } from './scripts/i18n/public-content-assets.mjs';
+import { contentPacksPlugin } from './scripts/i18n/content-packs.mjs';
 import { blogPrerenderPlugin } from './scripts/blog/prerender.mjs';
 import { appEntryPlugin } from './scripts/app-entry/plugin.mjs';
 
@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [appEntryPlugin(), publicContentAssetsPlugin(), inlineLocalizationPlugin(), react(), blogPrerenderPlugin(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [appEntryPlugin(), contentPacksPlugin(), inlineLocalizationPlugin(), react(), blogPrerenderPlugin(), mode === "development" && componentTagger()].filter(Boolean),
   // Public locale catalogs are read as complete dictionaries. JSON.parse keeps
   // their thousands of entries out of Rollup's per-property AST/tree shaking.
   json: { stringify: true, namedExports: false },

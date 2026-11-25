@@ -10,7 +10,7 @@ import { DEFAULT_REMINDER_TIME, FREE_PROGRAMME_DAYS, allSlots, isFinished, type 
 
 const BASE_ID = 882_200;
 export const REMINDER_DAYS = 7;
-const ALL_IDS = Array.from({ length: REMINDER_DAYS + 1 }, (_, i) => ({ id: BASE_ID + i }));
+const ALL_IDS = Array.from({ length: REMINDER_DAYS + 1 }, (_, i) => BASE_ID + i);
 
 export interface ReminderSlot {
   id: number;
@@ -89,16 +89,9 @@ export async function syncParentingReminders(
   opts: { partner?: boolean } = {},
 ): Promise<void> {
   try {
-    const { Capacitor } = await import('@capacitor/core');
-    if (!Capacitor.isNativePlatform()) return;
-    const { LocalNotifications } = await import('@capacitor/local-notifications');
-    await LocalNotifications.cancel({ notifications: ALL_IDS });
-    if (!slots.length) return;
-    let perm = await LocalNotifications.checkPermissions();
-    if (perm.display === 'prompt' || perm.display === 'prompt-with-rationale') perm = await LocalNotifications.requestPermissions();
-    if (perm.display !== 'granted') return;
-    await LocalNotifications.schedule({
-      notifications: slots.map((s) => ({ id: s.id, ...text(s), schedule: { at: s.at, allowWhileIdle: true }, extra: { type: 'parenting_programme', partner: opts.partner ? '1' : '0', programme: s.programmeId } })),
-    });
+    const { setLocalNotifications } = await import('./local-notification-scheduler');
+    await setLocalNotifications('parenting', slots.map((s) => ({
+      id: s.id, ...text(s), at: s.at, extra: { type: 'parenting_programme', partner: opts.partner ? '1' : '0', programme: s.programmeId },
+    })), { ask: true, cancelIds: ALL_IDS });
   } catch { /* reminders are a convenience; the programme screen still shows today's step */ }
 }

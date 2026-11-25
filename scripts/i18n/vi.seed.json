@@ -12534,5 +12534,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "BMI hiện tại {bmi} ({category})",
   "weighttracker_height_for_bmi": "Nhập chiều cao để tính BMI.",
-  "weighttracker_postpartum_note": "Sau sinh, cân nặng thường giảm dần trong vài tháng. Tránh ăn kiêng khắt khe khi cho con bú và hỏi bác sĩ nếu bạn có thắc mắc."
+  "weighttracker_postpartum_note": "Sau sinh, cân nặng thường giảm dần trong vài tháng. Tránh ăn kiêng khắt khe khi cho con bú và hỏi bác sĩ nếu bạn có thắc mắc.",
+  "netsync_timeout_retry": "Kết nối yếu, phản hồi không đến kịp. Vui lòng thử lại.",
+  "netsync_offline_indicator": "Ngoại tuyến · sẽ đồng bộ khi có mạng trở lại",
+  "pushperm_reason": "Cho phép thông báo để nhận đúng giờ lời nhắc tiêm chủng và các lời nhắc khác cùng tin nhắn mới.",
+  "pushperm_allow": "Cho phép",
+  "socialauth_google_network": "Hãy kiểm tra kết nối internet và thử lại.",
+  "socialauth_google_failed": "Đăng nhập bằng Google chưa hoàn tất. Hãy thử lại hoặc đăng nhập bằng email.",
+  "socialauth_apple_unknown": "Không thể đăng nhập bằng Apple. Hãy kiểm tra trong Cài đặt rằng bạn đã đăng nhập Apple ID (iCloud), rồi thử lại.",
+  "socialauth_apple_failed": "Đăng nhập bằng Apple chưa hoàn tất. Hãy thử lại."
 }

@@ -10384,5 +10384,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "Aktueller BMI {bmi} ({category})",
   "weighttracker_height_for_bmi": "Gib deine Größe ein, um deinen BMI zu berechnen.",
-  "weighttracker_postpartum_note": "Nach der Geburt sinkt das Gewicht meist allmählich über mehrere Monate. Verzichte in der Stillzeit auf strenge Diäten und sprich bei Fragen mit deiner Ärztin oder deinem Arzt."
+  "weighttracker_postpartum_note": "Nach der Geburt sinkt das Gewicht meist allmählich über mehrere Monate. Verzichte in der Stillzeit auf strenge Diäten und sprich bei Fragen mit deiner Ärztin oder deinem Arzt.",
+  "netsync_timeout_retry": "Schwache Verbindung, keine rechtzeitige Antwort. Bitte versuche es erneut.",
+  "netsync_offline_indicator": "Offline · wird synchronisiert, sobald du wieder online bist",
+  "pushperm_reason": "Erlaube Benachrichtigungen, um Impf- und andere Erinnerungen sowie neue Nachrichten rechtzeitig zu erhalten.",
+  "pushperm_allow": "Erlauben",
+  "socialauth_google_network": "Prüfe deine Internetverbindung und versuche es erneut.",
+  "socialauth_google_failed": "Die Anmeldung mit Google wurde nicht abgeschlossen. Versuche es erneut oder melde dich mit E-Mail an.",
+  "socialauth_apple_unknown": "Die Anmeldung mit Apple hat nicht geklappt. Prüfe in den Einstellungen, ob du mit deiner Apple-ID (iCloud) angemeldet bist, und versuche es erneut.",
+  "socialauth_apple_failed": "Die Anmeldung mit Apple wurde nicht abgeschlossen. Versuche es erneut."
 }

@@ -33,6 +33,9 @@ const LEGACY_IDS = rangeIds(VACCINE_REMINDER_BASE_ID);
 const ALL_CHILD_IDS = Array.from({ length: MAX_REMINDER_CHILDREN }, (_, slot) => rangeIds(VACCINE_CHILD_BASE_ID + slot * VACCINE_CHILD_STRIDE)).flat();
 export const vaccineChildBlockBase = (slot: number) => VACCINE_CHILD_BASE_ID + slot * VACCINE_CHILD_STRIDE;
 
+/** Scheduler namespace prefix; one namespace per child block. */
+const VACCINE_NAMESPACE = 'vaccine:';
+
 export const VACCINE_CHILD_SLOTS_KEY = 'anacan.vaccineReminders.childSlots.v1';
 function readSlots(): Record<string, number> {
   try {
@@ -173,24 +176,22 @@ export async function syncVaccineReminders(
   opts: { ask?: boolean; baseId?: number; cancelAll?: boolean } = {},
 ): Promise<VaccineReminderResult> {
   try {
-    const { Capacitor } = await import('@capacitor/core');
-    if (!Capacitor.isNativePlatform() || !Capacitor.isPluginAvailable('LocalNotifications')) return 'unavailable';
-    const { LocalNotifications } = await import('@capacitor/local-notifications');
+    const sched = await import('./local-notification-scheduler');
     // The legacy single-child range is always cleared: those ids predate per-child blocks.
-    const cancel = opts.cancelAll ? [...LEGACY_IDS, ...ALL_CHILD_IDS]
-      : [...LEGACY_IDS, ...(opts.baseId !== undefined ? rangeIds(opts.baseId) : [])];
-    await LocalNotifications.cancel({ notifications: cancel });
-    if (!slots.length) return 'cleared';
-    let perm = await LocalNotifications.checkPermissions();
-    if (opts.ask !== false && (perm.display === 'prompt' || perm.display === 'prompt-with-rationale')) perm = await LocalNotifications.requestPermissions();
-    if (perm.display !== 'granted') return 'denied';
-    await LocalNotifications.schedule({
-      notifications: slots.map((s) => ({
-        id: s.id, ...text(s), schedule: { at: s.at, allowWhileIdle: true },
-        extra: { type: 'vaccine_reminder', deeplink: VACCINE_DEEPLINK, dose: s.doseId },
-      })),
-    });
-    return 'scheduled';
+    const legacy = LEGACY_IDS.map((n) => n.id);
+    if (opts.cancelAll) {
+      await sched.clearLocalNotificationNamespaces(VACCINE_NAMESPACE, [...legacy, ...ALL_CHILD_IDS.map((n) => n.id)]);
+      const { Capacitor } = await import('@capacitor/core');
+      return Capacitor.isNativePlatform() ? 'cleared' : 'unavailable';
+    }
+    const block = opts.baseId !== undefined ? rangeIds(opts.baseId).map((n) => n.id) : [];
+    // One namespace per child block (each child keeps its own reminders; the scheduler keeps the nearest 60
+    // over every child and feature, so iOS never drops any silently).
+    const namespace = `${VACCINE_NAMESPACE}${opts.baseId ?? VACCINE_REMINDER_BASE_ID}`;
+    return await sched.setLocalNotifications(namespace, slots.map((s) => ({
+      id: s.id, ...text(s), at: s.at,
+      extra: { type: 'vaccine_reminder', deeplink: VACCINE_DEEPLINK, dose: s.doseId },
+    })), { ask: opts.ask !== false, cancelIds: [...legacy, ...block] });
   } catch { return 'unavailable'; /* reminders are a convenience; the calendar still shows what is due */ }
 }
 
@@ -215,10 +216,9 @@ export async function refreshAllVaccineReminders(plans: ChildReminderPlan[], now
   const released = releaseOtherChildren(ids);
   if (released.length) {
     try {
-      const { Capacitor } = await import('@capacitor/core');
-      if (Capacitor.isNativePlatform() && Capacitor.isPluginAvailable('LocalNotifications')) {
-        const { LocalNotifications } = await import('@capacitor/local-notifications');
-        await LocalNotifications.cancel({ notifications: released });
+      const { clearLocalNotificationNamespaces } = await import('./local-notification-scheduler');
+      for (const base of new Set(released.map((n) => n.id - ((n.id - VACCINE_CHILD_BASE_ID) % VACCINE_CHILD_STRIDE)))) {
+        await clearLocalNotificationNamespaces(`${VACCINE_NAMESPACE}${base}`, rangeIds(base).map((n) => n.id));
       }
     } catch { /* best effort */ }
   }

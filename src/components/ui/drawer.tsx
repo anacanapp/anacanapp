@@ -1,11 +1,13 @@
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
 import { useDrawerPointerGuard } from "@/lib/drawer-pointer-guard";
+import { useBackClosableRoot } from "@/hooks/useOverlayBackHandler";
 
 import { cn } from "@/lib/utils";
 
+// Android back closes the top-most open drawer (swallowed when not dismissible).
 const Drawer = ({ shouldScaleBackground = true, ...props }: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
-  <DrawerPrimitive.Root shouldScaleBackground={shouldScaleBackground} {...props} />
+  <DrawerPrimitive.Root shouldScaleBackground={shouldScaleBackground} {...useBackClosableRoot(props, props.dismissible !== false)} />
 );
 Drawer.displayName = "Drawer";
 

@@ -18,6 +18,8 @@ definitions:
         env -u VITE_CUSTOMERIO_CDP_WRITE_KEY npx vite build --mode google
         # Marketing website files stay out of native packages
         rm -rf dist/website dist/anacan-pitch-deck.html dist/anacan-pitch-deck.md
+        # Content packs are downloaded from https://app.anacan.az/content-packs/ (never shipped natively)
+        rm -rf dist/content-packs
 
 workflows:
   ios-store:

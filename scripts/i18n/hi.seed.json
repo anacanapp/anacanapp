@@ -12534,5 +12534,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "वर्तमान BMI {bmi} ({category})",
   "weighttracker_height_for_bmi": "BMI निकालने के लिए अपनी लंबाई लिखें।",
-  "weighttracker_postpartum_note": "प्रसव के बाद वज़न आमतौर पर कुछ महीनों में धीरे-धीरे कम होता है। स्तनपान के दौरान सख्त डाइट से बचें और कोई सवाल हो तो अपने डॉक्टर से बात करें।"
+  "weighttracker_postpartum_note": "प्रसव के बाद वज़न आमतौर पर कुछ महीनों में धीरे-धीरे कम होता है। स्तनपान के दौरान सख्त डाइट से बचें और कोई सवाल हो तो अपने डॉक्टर से बात करें।",
+  "netsync_timeout_retry": "कनेक्शन कमज़ोर है, जवाब समय पर नहीं आया। फिर से कोशिश करें।",
+  "netsync_offline_indicator": "ऑफ़लाइन · इंटरनेट आने पर सिंक होगा",
+  "pushperm_reason": "टीकाकरण और अन्य रिमाइंडर तथा नए संदेश समय पर पाने के लिए सूचनाओं की अनुमति दें।",
+  "pushperm_allow": "अनुमति दें",
+  "socialauth_google_network": "इंटरनेट कनेक्शन जाँचकर फिर से कोशिश करें।",
+  "socialauth_google_failed": "Google से साइन इन पूरा नहीं हुआ। फिर से कोशिश करें या ईमेल से साइन इन करें।",
+  "socialauth_apple_unknown": "Apple से साइन इन नहीं हो सका। सेटिंग्स में देखें कि आप अपने Apple ID (iCloud) में साइन इन हैं, फिर से कोशिश करें।",
+  "socialauth_apple_failed": "Apple से साइन इन पूरा नहीं हुआ। फिर से कोशिश करें।"
 }

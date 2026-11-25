@@ -6,6 +6,7 @@ import { brokeredPreviewStorage } from './authStorage';
 import { resolveAuthStorage } from './auth-storage-key';
 import { LEGACY_AUTH_STORAGE_KEY, SOURCE_AUTH_REALM } from './auth-storage-key';
 import { getBackendConfig } from './backend-config';
+import { createSupabaseFetch } from '@/lib/network-timeout';
 
 const backend = getBackendConfig();
 
@@ -35,5 +36,7 @@ export const supabase = createClient<Database>(backend.url, backend.publishableK
     persistSession: true,
     autoRefreshToken: true,
   },
-  ...(Object.keys(versionHeaders).length ? { global: { headers: versionHeaders } } : {}),
+  // Bounded requests (REST/Auth/Functions/Storage) and refresh-failure classification:
+  // a weak network ends in a retryable error, and only a real Auth rejection signs out.
+  global: { fetch: createSupabaseFetch(), ...(Object.keys(versionHeaders).length ? { headers: versionHeaders } : {}) },
 });

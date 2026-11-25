@@ -55,14 +55,9 @@ export function planNapAlerts(o: {
 /** Replace this feature's pending notifications with the planned ones (native only, never throws). */
 export async function syncNapAlerts(planned: PlannedAlert[]): Promise<void> {
   try {
-    const { Capacitor } = await import('@capacitor/core');
-    if (!Capacitor.isNativePlatform()) return;
-    const { LocalNotifications } = await import('@capacitor/local-notifications');
-    await LocalNotifications.cancel({ notifications: Object.values(NAP_ALERT_IDS).map((id) => ({ id })) });
-    if (!planned.length) return;
-    const perm = await LocalNotifications.checkPermissions();
-    if (perm.display !== 'granted') return;
-    await LocalNotifications.schedule({ notifications: planned.map((p) => ({ id: p.id, title: p.title, body: p.body, schedule: { at: p.at, allowWhileIdle: true } })) });
+    const { setLocalNotifications } = await import('./local-notification-scheduler');
+    await setLocalNotifications('nap', planned.map((p) => ({ id: p.id, title: p.title, body: p.body, at: p.at })),
+      { cancelIds: Object.values(NAP_ALERT_IDS) });
   } catch { /* best effort */ }
 }
 

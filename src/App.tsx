@@ -25,6 +25,7 @@ import PartnerVerifyPage from "./pages/PartnerVerifyPage";
 import MiniGamesPage from "./pages/MiniGamesPage";
 import { initRevenueCat } from "@/lib/revenuecat";
 import { loadTranslations } from "@/lib/i18n";
+import { installContentTranslationRefresh, useContentTranslationsVersion } from "@/lib/content-pack-refresh";
 import { DirectionProvider } from "@radix-ui/react-direction";
 import { applyDocumentDirection, isRtlLang } from "@/lib/rtl";
 import { useUserStore } from "@/store/userStore";
@@ -44,6 +45,7 @@ import CustomerIoSession from '@/components/CustomerIoSession';
 import TikTokSession from '@/components/TikTokSession';
 import ThemeStatusBarSync from '@/components/ThemeStatusBarSync';
 import StartupScreen from '@/components/StartupScreen';
+import OfflineSyncIndicator from '@/components/OfflineSyncIndicator';
 const AdmobAdminPage = lazy(() => import('./pages/AdmobAdminPage'));
 const AdminPage = lazy(() => import('./pages/AdminPage'));
 const ModeratorPage = lazy(() => import('./pages/ModeratorPage'));
@@ -77,6 +79,9 @@ const persister = createDeferredStoragePersister({
   storage: safeStorage('localStorage') ?? undefined,
   key: 'anacan-rq-cache',
 });
+
+// Content-pack shards arrive after the first render: re-map cached rows that used the en/ru fallback.
+installContentTranslationRefresh(queryClient);
 
 const persistOptions = {
   persister,
@@ -130,6 +135,8 @@ const App = () => {
   // language. tr() reads language synchronously from the store, but without a
   // subscription nothing would re-render and translations would appear "stuck".
   const language = useUserStore((s) => s.language);
+  // Re-render rows translated during render once their content-pack shard is ready.
+  useContentTranslationsVersion();
 
   useEffect(() => {
     if (language) {
@@ -161,6 +168,7 @@ const App = () => {
               {/* Təhlükəsizlik kilidi — bütün ekranların üstündə (z-400) */}
               <AppLockGate />
               <ScreenCaptureGuard />
+              <OfflineSyncIndicator />
               <BrowserRouter>
                 <AdExperienceProvider>
                 <ModeratorEnforcement>

@@ -12534,5 +12534,13 @@
   "weighttracker_bmi_label": "BMI",
   "weighttracker_bmi_now": "BMI saat ini {bmi} ({category})",
   "weighttracker_height_for_bmi": "Masukkan tinggi badan untuk menghitung BMI.",
-  "weighttracker_postpartum_note": "Setelah melahirkan, berat badan biasanya turun perlahan dalam beberapa bulan. Hindari diet ketat saat menyusui dan bicarakan dengan dokter jika ada pertanyaan."
+  "weighttracker_postpartum_note": "Setelah melahirkan, berat badan biasanya turun perlahan dalam beberapa bulan. Hindari diet ketat saat menyusui dan bicarakan dengan dokter jika ada pertanyaan.",
+  "netsync_timeout_retry": "Koneksi lemah, respons tidak tiba tepat waktu. Silakan coba lagi.",
+  "netsync_offline_indicator": "Offline · akan disinkronkan saat internet kembali",
+  "pushperm_reason": "Izinkan notifikasi agar pengingat vaksin dan lainnya serta pesan baru sampai tepat waktu.",
+  "pushperm_allow": "Izinkan",
+  "socialauth_google_network": "Periksa koneksi internet lalu coba lagi.",
+  "socialauth_google_failed": "Masuk dengan Google tidak selesai. Coba lagi atau masuk dengan email.",
+  "socialauth_apple_unknown": "Tidak dapat masuk dengan Apple. Pastikan Anda sudah masuk ke Apple ID (iCloud) di Pengaturan, lalu coba lagi.",
+  "socialauth_apple_failed": "Masuk dengan Apple tidak selesai. Silakan coba lagi."
 }

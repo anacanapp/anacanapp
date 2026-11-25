@@ -175,26 +175,15 @@ export function reminderId(episodeId: string, medName: string): number {
  */
 export async function syncDoseReminders(episode: IllnessEpisode, entries: IllnessEntry[], text: { title: (med: string) => string; body: string }): Promise<void> {
   try {
-    const { Capacitor } = await import('@capacitor/core');
-    if (!Capacitor.isNativePlatform()) return;
-    const { LocalNotifications } = await import('@capacitor/local-notifications');
     const statuses = medStatuses(entries);
     const now = Date.now();
-    const cancel = statuses.map((m) => ({ id: reminderId(episode.id, m.name) }));
-    if (cancel.length) await LocalNotifications.cancel({ notifications: cancel });
-    if (episode.ended_at) return;
-    const due = statuses.filter((m) => m.remind && m.nextAt.getTime() > now + 60_000);
-    if (!due.length) return;
-    const permission = await LocalNotifications.checkPermissions();
-    if (permission.display !== 'granted') return;
-    await LocalNotifications.schedule({
-      notifications: due.map((m) => ({
-        id: reminderId(episode.id, m.name),
-        title: text.title(m.name),
-        body: text.body,
-        schedule: { at: m.nextAt, allowWhileIdle: true }
-      }))
-    });
+    const cancel = statuses.map((m) => reminderId(episode.id, m.name));
+    const due = episode.ended_at ? [] : statuses.filter((m) => m.remind && m.nextAt.getTime() > now + 60_000);
+    // One namespace per episode, so both an open and a past episode keep their own reminders.
+    const { setLocalNotifications } = await import('./local-notification-scheduler');
+    await setLocalNotifications(`illness:${episode.id}`, due.map((m) => ({
+      id: reminderId(episode.id, m.name), title: text.title(m.name), body: text.body, at: m.nextAt,
+    })), { cancelIds: cancel });
   } catch {/* reminders are a convenience; the screen still shows the next time */}
 }
 
