@@ -89,3 +89,18 @@ it.each(['expiry','refund'])('stops global background white noise on %s even whe
  if(reason==='expiry'){expect(pause).toHaveBeenCalledOnce();expect(audio.src).toBe('');}
  else{expect(stop).toHaveBeenCalledOnce();expect(close).toHaveBeenCalledOnce();}
 });
+it('does not poll the lease: the monitor re-reads on resume, explicit invalidation and every 10 minutes', async () => {
+ renderHook(()=>usePremiumEntitlement(true),{wrapper});await settle();expect(mocks.rpc).toHaveBeenCalledTimes(1);
+ // Mounting more consumers within the 60s freshness window shares the answer.
+ renderHook(()=>usePremiumEntitlement(),{wrapper});await settle(30_000);expect(mocks.rpc).toHaveBeenCalledTimes(1);
+ await settle(5*60_000);expect(mocks.rpc).toHaveBeenCalledTimes(1);
+ await settle(5*60_000);expect(mocks.rpc).toHaveBeenCalledTimes(2);
+ // A purchase/restore/promo invalidates immediately.
+ await act(async()=>{await client.invalidateQueries({queryKey:['premium-access-v1']});});await settle();expect(mocks.rpc).toHaveBeenCalledTimes(3);
+ // App resume (visibility) re-reads at once.
+ await settle(3000);await act(async()=>{document.dispatchEvent(new Event('visibilitychange'));});await settle();expect(mocks.rpc).toHaveBeenCalledTimes(4);
+});
+it('turns a hung entitlement request into an error instead of an endless loading state', async () => {
+ mocks.rpc.mockReturnValue(new Promise(()=>{}));const {result}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();
+ expect(result.current.loading).toBe(true);await settle(15_001);expect(result.current.loading).toBe(false);expect(result.current.error).toBe(true);
+});

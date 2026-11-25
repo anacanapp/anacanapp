@@ -24,6 +24,8 @@ export const CONSENT_COPY = {
   consent_sign_out: 'Çıxış et',
   consent_saving: 'Yadda saxlanılır…',
   consent_saved_offline: 'Seçiminiz cihazda saxlanıldı, internet olanda göndəriləcək.',
+  consent_save_failed: 'Seçiminizi indi qeydə almaq alınmadı. Bir az sonra yenidən cəhd edin.',
+  consent_retry: 'Yenidən cəhd et',
   consent_section_title: 'Razılıqlar',
   consent_section_desc: 'Sağlamlıq məlumatı və marketinq razılıqlarınızı burada idarə edin. Hər dəyişiklik tarix və sənəd versiyası ilə qeydə alınır.',
   consent_health_toggle: 'Sağlamlıq məlumatlarının emalı',

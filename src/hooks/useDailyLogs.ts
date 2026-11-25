@@ -129,7 +129,7 @@ export const useDailyLogs = () => {
 
   useEffect(() => {
     fetchLogs();
-  }, [user]);
+  }, [user?.id]);
 
   return {
     logs,

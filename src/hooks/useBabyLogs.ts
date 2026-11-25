@@ -3,6 +3,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { localDateKey, daysAgoKey } from '@/lib/local-date';
 import { useChildren } from './useChildren';
+import { pendingOutboxRows, retainOutboxUser, saveWithOutbox, subscribeOutbox } from '@/lib/offline-outbox';
 
 export interface BabyLog {
   id: string;
@@ -15,6 +16,8 @@ export interface BabyLog {
   diaper_type: string | null;
   notes: string | null;
   created_at: string;
+  /** True while the row only exists in the offline outbox (not yet confirmed by the server). */
+  pending?: boolean;
 }
 
 export interface FeedingHistoryItem {
@@ -25,6 +28,7 @@ export interface FeedingHistoryItem {
   durationSeconds: number;
   date: string;
   notes: string | null;
+  pending?: boolean;
 }
 
 // Modul-səviyyəli PAYLAŞILAN realtime kanal — bir neçə komponent (MommyDashboard,
@@ -65,12 +69,68 @@ function loadRecentBabyLogs(userId: string, childId: string | null) {
   return request;
 }
 
+const RECENT_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
+const localDayOf = (iso: string) => {
+  const d = new Date(iso);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+
+/**
+ * Server rows plus rows still waiting in the offline outbox (marked `pending`),
+ * limited like the server query (same user, selected child, last 7 days), newest first.
+ * A server row always wins over a queued row with the same id.
+ */
+export function mergePendingBabyLogs(
+  serverLogs: BabyLog[],
+  pendingRows: Record<string, unknown>[],
+  userId: string,
+  childId: string | null,
+  now: number = Date.now(),
+): BabyLog[] {
+  const known = new Set(serverLogs.map((l) => l.id));
+  const since = now - RECENT_WINDOW_MS;
+  const pending = pendingRows
+    .filter((row) => typeof row.id === 'string' && !known.has(row.id) && row.user_id === userId)
+    .filter((row) => !childId || row.child_id === childId)
+    .filter((row) => typeof row.start_time === 'string' && new Date(row.start_time).getTime() >= since)
+    .map((row) => ({
+      end_time: null, feed_type: null, diaper_type: null, notes: null, child_id: null,
+      ...row,
+      created_at: (row.created_at as string | undefined) ?? (row.start_time as string),
+      pending: true,
+    }) as BabyLog);
+  if (pending.length === 0) return serverLogs;
+  return [...pending, ...serverLogs].sort((a, b) => b.start_time.localeCompare(a.start_time));
+}
+
+// One module listener: when a background flush delivered baby logs, later
+// reads must not share a request that started before the write.
+let babyOutboxListenerInstalled = false;
+function installBabyOutboxListener() {
+  if (babyOutboxListenerInstalled) return;
+  babyOutboxListenerInstalled = true;
+  subscribeOutbox(({ sentTables }) => { if (sentTables.includes('baby_logs')) babyLogsGeneration++; });
+}
+
 export const useBabyLogs = () => {
   const { user } = useAuth();
   const { selectedChild } = useChildren();
-  const [logs, setLogs] = useState<BabyLog[]>([]);
-  const [todayLogs, setTodayLogs] = useState<BabyLog[]>([]);
+  const [serverLogs, setServerLogs] = useState<BabyLog[]>([]);
+  const [outboxVersion, setOutboxVersion] = useState(0);
   const [loading, setLoading] = useState(true);
+  const userId = user?.id ?? null;
+  const selectedChildId = selectedChild?.id ?? null;
+
+  const logs = useMemo(
+    () => (userId ? mergePendingBabyLogs(serverLogs, pendingOutboxRows(userId, 'baby_logs'), userId, selectedChildId) : serverLogs),
+    // outboxVersion: re-read the persisted queue whenever it changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [serverLogs, userId, selectedChildId, outboxVersion],
+  );
+  const todayLogs = useMemo(() => {
+    const today = localDayOf(new Date().toISOString());
+    return logs.filter((log) => localDayOf(log.start_time) === today);
+  }, [logs]);
 
   const fetchLogs = useCallback(async () => {
     if (!user) {
@@ -83,18 +143,10 @@ export const useBabyLogs = () => {
       const { data, error } = await loadRecentBabyLogs(user.id, selectedChild?.id ?? null);
 
       if (error) throw error;
-      
-      setLogs((data || []) as BabyLog[]);
-      
-      // Filter today's logs using local timezone
-      const now = new Date();
-      const localToday = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-      const todayData = (data || []).filter(log => {
-        const logDate = new Date(log.start_time);
-        const logLocal = `${logDate.getFullYear()}-${String(logDate.getMonth() + 1).padStart(2, '0')}-${String(logDate.getDate()).padStart(2, '0')}`;
-        return logLocal === localToday;
-      }) as BabyLog[];
-      setTodayLogs(todayData);
+
+      // Today's logs (local timezone) are derived from this list, together with
+      // rows still waiting in the offline outbox.
+      setServerLogs((data || []) as BabyLog[]);
     } catch (error) {
       console.error('Error fetching baby logs:', error);
     } finally {
@@ -115,30 +167,31 @@ export const useBabyLogs = () => {
      *  child_id filtri onu heç vaxt göstərmirdi ("qeyd yoxa çıxır" bug-ı). */
     child_id?: string | null;
   }) => {
-    if (!user) return { error: 'No user logged in' };
+    if (!user) return { data: null, error: 'No user logged in' as unknown, queued: false };
 
-    try {
-      const { child_id: explicitChildId, ...rest } = log;
-      const { data, error } = await supabase
-        .from('baby_logs')
-        .insert({
-          ...rest,
-          user_id: user.id,
-          child_id: explicitChildId !== undefined ? explicitChildId : (selectedChild?.id || null),
-          start_time: log.start_time || new Date().toISOString()
-        })
-        .select()
-        .single();
-
-      if (error) throw error;
-      
-      babyLogsGeneration++;
-      await fetchLogs();
-      return { data, error: null };
-    } catch (error) {
-      console.error('Error adding baby log:', error);
-      return { data: null, error };
+    const { child_id: explicitChildId, ...rest } = log;
+    const row: Record<string, unknown> = {
+      ...rest,
+      user_id: user.id,
+      child_id: explicitChildId !== undefined ? explicitChildId : (selectedChild?.id || null),
+      start_time: log.start_time || new Date().toISOString(),
+    };
+    // Persisted in the outbox first with a client UUID as the row id: a lost
+    // connection or a timeout keeps it queued (idempotent retry), only a real
+    // server rejection is returned as an error.
+    const outcome = await saveWithOutbox(user.id, 'baby_logs', row);
+    if (outcome.status === 'error') {
+      console.error('Error adding baby log:', outcome.error);
+      return { data: null, error: outcome.error, queued: false };
     }
+    if (outcome.status === 'queued') {
+      return { data: outcome.data as unknown as BabyLog, error: null, queued: true };
+    }
+    const saved = outcome.data as unknown as BabyLog;
+    setServerLogs((prev) => [saved, ...prev.filter((l) => l.id !== saved.id)]);
+    babyLogsGeneration++;
+    await fetchLogs();
+    return { data: saved, error: null, queued: false };
   };
 
   const updateLog = async (id: string, updates: {
@@ -228,6 +281,7 @@ export const useBabyLogs = () => {
         durationSeconds,
         date: dateStr,
         notes: log.notes,
+        ...(log.pending ? { pending: true } : {}),
       });
       historyMap.set(dateStr, existingItems);
     });
@@ -329,6 +383,21 @@ export const useBabyLogs = () => {
   useEffect(() => {
     fetchLogs();
   }, [fetchLogs]);
+
+  // Offline outbox: flush on mount/login (and on online/app resume, see
+  // retainOutboxUser), re-render when the queue changes, refetch after a
+  // background flush delivered baby logs.
+  useEffect(() => {
+    if (!userId) return;
+    installBabyOutboxListener();
+    const unsubscribe = subscribeOutbox((event) => {
+      if (event.userId !== userId) return;
+      setOutboxVersion((v) => v + 1);
+      if (event.sentTables.includes('baby_logs')) void fetchLogs();
+    });
+    const release = retainOutboxUser(userId);
+    return () => { unsubscribe(); release(); };
+  }, [userId, fetchLogs]);
 
   // Realtime abunəliyi — REF-SAYĞACLI PAYLAŞILAN kanal (bax fayl sonundakı modul-səviyyəli
   // dəyişənlər). Bu hook eyni zamanda bir neçə komponentdə mount olunur (MommyDashboard,

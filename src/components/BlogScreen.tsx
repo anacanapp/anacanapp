@@ -18,6 +18,7 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import BlogPostDetail from '@/components/blog/BlogPostDetail';
 import { tr } from "@/lib/tr";
+import { formatCount } from '@/lib/count-plural';
 import { AdInlineAnchor, AdSurface } from '@/components/ads/AdExperienceProvider';
 import { followupText } from '@/lib/followup-i18n';
 import { blogMatchesStage } from '@/lib/blog-editorial';
@@ -165,7 +166,7 @@ const BlogScreen = ({ onBack, initialSlug, lifeStage }: BlogScreenProps) => {
               <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
-              <p className="a-eyebrow">{posts.length} {tr("blogscreen_meqale_63f1b2", "m\u0259qal\u0259")}</p>
+              <p className="a-eyebrow">{formatCount('count_articles', posts.length)}</p>
               <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("blogscreen_ana_bloqu_28124b", "Qadın Bloqları")}</p>
             </div>
           </div>
@@ -301,7 +302,7 @@ const BlogScreen = ({ onBack, initialSlug, lifeStage }: BlogScreenProps) => {
               }
             </h2>
             <span className="a-section-link">
-              {filteredPosts.length} {tr("blogscreen_meqale_63f1b2", "m\u0259qal\u0259")}
+              {formatCount('count_articles', filteredPosts.length)}
             </span>
           </div>
 

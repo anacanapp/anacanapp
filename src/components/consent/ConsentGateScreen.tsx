@@ -5,6 +5,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { useUserStore } from '@/store/userStore';
 import { acceptConsentGate, canContinue, MARKETING_CHANNELS, type GateChoices } from '@/lib/consentGate';
+import { showConsentSaveFailure } from './consentSaveFeedback';
 import { ct, KVKK_TEXTS } from '@/lib/consent-copy';
 
 const LegalScreen = lazy(() => import('@/components/LegalScreen'));
@@ -45,8 +46,8 @@ const ConsentGateScreen = ({ userId, backend, version, kvkk = false, onAccepted,
     if (!ready || saving) return;
     setSaving(true);
     try {
-      const { synced } = await acceptConsentGate(backend, userId, choices, version, kvkk);
-      if (!synced) toast({ title: ct('consent_saved_offline') });
+      const { synced, offline } = await acceptConsentGate(backend, userId, choices, version, kvkk);
+      if (!synced) showConsentSaveFailure(toast, { offline, backend, userId });
       onAccepted();
     } finally {
       setSaving(false);

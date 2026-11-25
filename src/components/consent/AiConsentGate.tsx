@@ -7,6 +7,7 @@ import {
   decideAiConsent, fetchConsentState, readLocalAiConsent, setAiConsent, syncLocalAiConsent, type ConsentState,
 } from '@/lib/consentGate';
 import { ct, KVKK_TEXTS } from '@/lib/consent-copy';
+import { showConsentSaveFailure } from './consentSaveFeedback';
 
 interface AiConsentGateProps {
   userId: string | null | undefined;
@@ -58,7 +59,7 @@ const AiConsentGate = ({ userId, backend, kvkk = false, onDecline, children }: A
       const result = await setAiConsent(backend, userId, granted, state?.gate.version ?? null, kvkk);
       if (granted) setPhase('open');
       else { toast({ title: ct('ai_consent_declined') }); onDecline(); }
-      if (granted && !result.synced) toast({ title: ct('consent_saved_offline') });
+      if (granted && !result.synced) showConsentSaveFailure(toast, { offline: result.offline, backend, userId });
     } finally {
       setSaving(false);
     }

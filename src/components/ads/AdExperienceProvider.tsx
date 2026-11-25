@@ -41,6 +41,12 @@ const AdContext = createContext<AdExperience>({ configuration: null, preview: no
 export const useAdExperience = () => useContext(AdContext);
 
 const LAYOUT_THROTTLE_MS = 150;
+/** Ad config: slow foreground poll (30 min) plus a re-read on focus/resume/reconnect once 60s stale.
+ * The fail-closed freshness guard follows the poll (poll + 5 min margin): a config that has not
+ * been confirmed for longer than that (or an errored read) still stops new ads. */
+const ADMOB_CONFIG_POLL_MS = 30 * 60_000;
+const ADMOB_CONFIG_STALE_MS = 60_000;
+const ADMOB_CONFIG_FRESH_MS = ADMOB_CONFIG_POLL_MS + 5 * 60_000;
 
 function layoutState() {
   const input = document.activeElement;
@@ -105,13 +111,15 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
   const actualPlatform = Capacitor.getPlatform();
   const nativeAvailable = hasNativeAdmob();
   const backend = getBackendConfig(), azure = backend.azure;
+  // Foreground poll is slow; focus/resume (refetchOnWindowFocus) and reconnect re-read it once stale.
   const configQuery = useQuery({ queryKey: ['admob-configuration', backend.url], queryFn: fetchAdmobConfiguration,
-    enabled: !!userId, staleTime: 15_000, gcTime: 60_000, refetchInterval: 30_000, retry: false });
+    enabled: !!userId, staleTime: ADMOB_CONFIG_STALE_MS, gcTime: ADMOB_CONFIG_FRESH_MS, refetchInterval: ADMOB_CONFIG_POLL_MS,
+    refetchOnWindowFocus: true, refetchOnReconnect: true, retry: false });
   const previewProof = useQuery({ queryKey: ['admin-admob-preview', backend.url, userId], queryFn: fetchAdmobOverview,
     enabled: !!userId && isAdmin && previewRequested && azure, staleTime: 0, refetchInterval: 30_000, retry: false });
   const demoAllowed = !!userId && isAdmin && previewRequested && previewProof.isSuccess && !previewProof.isError;
   const effectivePreview = { ...preview, enabled: preview.enabled && demoAllowed };
-  const configuration = !configQuery.isError && tick - configQuery.dataUpdatedAt < 75_000 ? configQuery.data ?? null : null;
+  const configuration = !configQuery.isError && tick - configQuery.dataUpdatedAt < ADMOB_CONFIG_FRESH_MS ? configQuery.data ?? null : null;
   const protectedLayout = { ...layout, blocked: layout.blocked || hasActiveTimer || hasActiveAudio || forcedBlocks.length > 0,
     allowed: hasActiveTimer || hasActiveAudio || forcedBlocks.length > 0 ? [] : layout.allowed };
   const current = useRef({ configuration, effectivePreview, userId, subscription, layout: protectedLayout, nativeVersion, nativeAvailable, surfaces, tick });

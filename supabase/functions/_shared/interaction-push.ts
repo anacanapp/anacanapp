@@ -9,6 +9,8 @@ const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  // Lets the web client tell this function's answers apart from a gateway/router answer in crash reports.
+  'Access-Control-Expose-Headers': 'X-Anacan-Push-Runtime',
   'Content-Type': 'application/json',
   'X-Anacan-Push-Runtime': 'communications-v2',
 };
@@ -169,6 +171,20 @@ const contracts: Record<string, { context: string; title: keyof typeof messages;
 };
 
 const GROUP_WINDOW_MS = 900_000;
+/**
+ * FCM answers that concern one device token, not the sender, the payload or the provider: the app was
+ * uninstalled or the token is stale/malformed. When every token of a recipient fails this way, the push
+ * is an expected recipient-side outcome (200, skipped 'device_tokens_rejected'), not a server failure.
+ * UNREGISTERED must come from FCM's own FcmError detail; a bare 404 NOT_FOUND (e.g. wrong project id) is not
+ * trusted. Provider/config problems (THIRD_PARTY_AUTH_ERROR, SENDER_ID_MISMATCH, QUOTA, UNAVAILABLE, INTERNAL,
+ * PERMISSION_DENIED, NOT_FOUND, network) stay 502 so a real outage is still visible.
+ */
+const RECIPIENT_TOKEN_ERRORS = ['UNREGISTERED', 'INVALID_TOKEN'];
+/** Skip reasons that describe the recipient, never a failure of the request. */
+export const EXPECTED_SKIPS = ['no_device_tokens', 'preferences_disabled', 'duplicate', 'not_member',
+  'device_tokens_rejected', 'interaction_gone'];
+/** Fan-out skip reasons that mean the server could not do its part. */
+const FANOUT_FAILURES = ['error', 'deadline', 'fcm_failed', 'fcm_not_configured'];
 const GROUP_MESSAGE_TYPES = ['text', 'image', 'video', 'audio'];
 /** Parallel per-recipient deliveries in one fan-out. */
 export const FANOUT_CONCURRENCY = 8;
@@ -336,6 +352,7 @@ async function deliver(d: Delivery): Promise<Outcome> {
   const send = d.deps.fetch ?? fetch;
   let sent = 0;
   let failed = 0;
+  let rejected = 0;
   for (const { token } of tokens as { token: string }[]) {
     let success = false;
     let dead = false;
@@ -360,6 +377,10 @@ async function deliver(d: Delivery): Promise<Outcome> {
         code = ['UNREGISTERED', 'NOT_FOUND', 'INVALID_ARGUMENT', 'QUOTA_EXCEEDED', 'UNAVAILABLE', 'INTERNAL',
           'SENDER_ID_MISMATCH', 'THIRD_PARTY_AUTH_ERROR', 'PERMISSION_DENIED', 'UNAUTHENTICATED'].includes(errorCode) ? errorCode : 'FCM_REJECTED';
         dead = fcm?.errorCode === 'UNREGISTERED';
+        // INVALID_ARGUMENT is token-level only when FCM names the token field; a payload bug stays a failure.
+        const badToken = code === 'INVALID_ARGUMENT' && Array.isArray(details) && details.some((detail) =>
+          Array.isArray(detail?.fieldViolations) && detail.fieldViolations.some((violation: { field?: unknown } | null) => violation?.field === 'message.token'));
+        if (RECIPIENT_TOKEN_ERRORS.includes(badToken ? 'INVALID_TOKEN' : code)) rejected++;
       }
     } catch { /* Delivery may be uncertain; retain the claim and token. */ }
     if (success) sent++; else failed++;
@@ -371,7 +392,10 @@ async function deliver(d: Delivery): Promise<Outcome> {
     if (!log?.id) throw new Error('send_log_write_failed');
     if (dead) await checked(db.from('device_tokens').delete().eq('user_id', targetId).eq('token', token));
   }
-  return { status: sent ? 200 : 502, body: { success: failed === 0, sent, failed } };
+  if (!sent && failed && rejected === failed) {
+    return { status: 200, body: { success: true, sent: 0, skipped: 'device_tokens_rejected' } };
+  }
+  return { status: sent ? 200 : 502, body: sent ? { success: failed === 0, sent, failed } : { success: false, sent, failed, error: 'fcm_failed' } };
 }
 
 function fcmLoader(deps: InteractionPushDeps) {
@@ -443,7 +467,7 @@ async function fanOutGroupMessage(db: Db, deps: InteractionPushDeps, callerId: s
     }
   };
   await Promise.all(Array.from({ length: Math.min(FANOUT_CONCURRENCY, recipients.length) }, worker));
-  const ok = !['error', 'deadline', 'fcm_failed', 'fcm_not_configured'].some((reason) => skipped[reason]);
+  const ok = !FANOUT_FAILURES.some((reason) => skipped[reason]);
   return { status: 200, body: { ok, success: ok, sent, recipients: members.length, delivered, skipped } };
 }
 
@@ -616,7 +640,16 @@ export async function handleInteractionPush(req: Request, deps: InteractionPushD
       if (ids.interactionId) query = query.eq('id', ids.interactionId);
       if (ids.messageId) query = query.eq('id', ids.messageId);
       interaction = await checked(query.maybeSingle()) as Interaction | null;
-      if (!interaction || !uuid.test(interaction.id)) return forbidden();
+      if (!interaction || !uuid.test(interaction.id)) {
+        // Community contexts verified the recipient above (owner of the post/story/comment). A missing
+        // like/comment row there is the caller's own race (unlike or delete before the background push
+        // ran, or a push sent after the 2-minute window): nothing to send, not a failure.
+        if (context === 'community_post' || context === 'community_story' || context === 'post_comment') {
+          console.warn('[send-push-notification] interaction_gone', kind);
+          return json(200, { success: true, sent: 0, skipped: 'interaction_gone' });
+        }
+        return forbidden();
+      }
       action.interactionId = interaction.id;
       // PartnerCareCard can persist a plain text fallback. It proves a message,
       // not a thank-you event; canonicalize copy, preferences, claims and logging.

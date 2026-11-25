@@ -8,6 +8,7 @@ import { QueryClient } from "@tanstack/react-query";
 import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import { createDeferredStoragePersister } from "@/lib/deferred-persister";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { safeStorage } from "@/lib/safe-storage";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "next-themes";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -72,7 +73,8 @@ const queryClient = new QueryClient({
 // Cache is written when the app goes to the background (and at most every 2 min when idle), never while the user
 // scrolls or navigates: serialising a multi-MB cache every 10 s froze mid-range Android phones.
 const persister = createDeferredStoragePersister({
-  storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+  // Blocked storage (private mode) must not crash module init: no storage = no offline cache.
+  storage: safeStorage('localStorage') ?? undefined,
   key: 'anacan-rq-cache',
 });
 

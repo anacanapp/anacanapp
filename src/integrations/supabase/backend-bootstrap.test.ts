@@ -261,3 +261,50 @@ it('requests one full restart on a published change without rebinding or pinning
     expect(restart).toHaveBeenCalledTimes(1);
   } finally { stop(); }
 });
+
+const htmlPortal = () => ({ status: 200, headers: new Headers({ 'content-type': 'text/html; charset=utf-8' }),
+  text: async () => '<html><body>Sign in to the hotel Wi-Fi</body></html>' });
+it.each([
+  ['a captive portal HTML page', htmlPortal],
+  ['JSON without no-store', () => response(SOURCE, 200, { 'content-type': 'application/json', 'cache-control': 'public' })],
+  ['an unparseable JSON body', () => ({ ...response(), text: async () => '{"schema":' })],
+  ['a truncated read', () => ({ ...response(), text: async () => { throw new TypeError('network'); } })],
+  ['an outage status', () => response(null, 503)],
+])('keeps the running app on %s and retries later instead of restarting', async (_label, reply) => {
+  await boot();
+  vi.useFakeTimers();
+  vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('visible');
+  const restart = vi.fn();
+  const stop = (await import('./backend-bootstrap')).watchBackendAdmission(restart);
+  try {
+    mocks.fetch.mockResolvedValue(reply());
+    await vi.advanceTimersByTimeAsync(60_000 * 3);
+    expect(restart).not.toHaveBeenCalled();
+    // The same unchanged validated policy later: still no restart.
+    mocks.fetch.mockResolvedValue(response());
+    await vi.advanceTimersByTimeAsync(60_000);
+    expect(restart).not.toHaveBeenCalled();
+    expect(mocks.fetch.mock.calls.length).toBeGreaterThanOrEqual(5);
+  } finally { stop(); }
+});
+
+it('restarts once a JSON no-store control document fails validation on two consecutive reads', async () => {
+  await boot();
+  vi.useFakeTimers();
+  vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('visible');
+  const restart = vi.fn();
+  const stop = (await import('./backend-bootstrap')).watchBackendAdmission(restart);
+  try {
+    mocks.fetch.mockResolvedValue(response({ ...azure, handoffSha256: null }));
+    await vi.advanceTimersByTimeAsync(60_000);
+    expect(restart).not.toHaveBeenCalled();
+    await vi.advanceTimersByTimeAsync(60_000);
+    expect(restart).toHaveBeenCalledTimes(1);
+  } finally { stop(); }
+});
+
+it('startup still refuses a captive portal page as an unverifiable decision', async () => {
+  mocks.fetch.mockResolvedValue(htmlPortal());
+  await expect(boot()).rejects.toThrow('ADMISSION_INVALID');
+  expect(mocks.createClient).not.toHaveBeenCalled();
+});

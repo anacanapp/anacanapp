@@ -37,6 +37,7 @@ import { tr } from "@/lib/tr";
 import { fillEmergencyNumber } from '@/lib/emergency';
 import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { storedDateKey } from '@/lib/stored-date-key';
+import { useOnlineStatus } from '@/hooks/useOnlineStatus';
 
 interface Message {
   id: string;
@@ -281,6 +282,7 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
   const cycleLength = partner ? partner.cycleLength ?? 28 : storeCycleLength;
   const { user, profile } = useAuth();
   const emergencyNumber = useEmergencyNumber();
+  const online = useOnlineStatus();
   // Əkiz/üçüz və s. — qarşılama mesajı və AI-a göndərilən kontekst buna görə uyğunlaşır
   const isMultiplePregnancy = !!(profile as any)?.multiples_type && (profile as any).multiples_type !== 'single';
   const { messages: savedMessages, addMessage, clearHistory, loading: historyLoading } = useAIChatHistory(partner ? 'partner' : 'woman');
@@ -772,8 +774,8 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
           <div style={{ flex: 1, minWidth: 0 }}>
             <h1 className="a-chat-header-name a-heading">{partner ? feature37Text('pm_ata_ai') : tr("bottomnav_anacan_ai", 'Anacan.AI')}</h1>
             <div className="a-chat-header-status">
-              <span className="a-chat-status-dot" />
-              {tr("untranslated_onlayn_xfaffi", "Onlayn")} · {tr("aichatscreen_hekim_mesleheti_evezi_deyil_a1808c", "⚕️ Həkim məsləhəti əvəzi deyil").replace('⚕️ ', '')}
+              <span className="a-chat-status-dot" style={online ? undefined : { background: 'var(--a-ink-soft)', boxShadow: 'none' }} />
+              {online ? tr("untranslated_onlayn_xfaffi", "Onlayn") : tr("aichat_status_offline", "Oflayn")} · {tr("aichatscreen_hekim_mesleheti_evezi_deyil_a1808c", "⚕️ Həkim məsləhəti əvəzi deyil").replace('⚕️ ', '')}
             </div>
           </div>
           <button type="button" className="a-icon-btn" onClick={clearChat} aria-label="Reset">

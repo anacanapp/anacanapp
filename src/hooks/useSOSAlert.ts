@@ -278,7 +278,7 @@ export const useSOSAlert = () => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [user]);
+  }, [user?.id]);
 
   return {
     alerts,

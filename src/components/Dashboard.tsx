@@ -18,6 +18,7 @@ import { useTimerStore } from '@/store/timerStore';
 import { FRUIT_SIZES } from '@/types/anacan';
 import { hapticFeedback } from '@/lib/native';
 import { useToast } from '@/hooks/use-toast';
+import { outboxCopy, queuedToast, saveFailedToast } from '@/lib/offline-outbox-copy';
 import { useDailyLogs } from '@/hooks/useDailyLogs';
 import { useBabyLogs } from '@/hooks/useBabyLogs';
 
@@ -346,8 +347,10 @@ const BumpDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (to
 
   const addKick = async () => {
     await hapticFeedback.medium();
-    // Add a quick single-kick session for tracking
-    await addSession(1, 0);
+    // Add a quick single-kick session for tracking. Success is shown only for a
+    // confirmed write; the hook already shows the queued/error toasts.
+    const result = await addSession(1, 0, null, undefined, { quiet: true });
+    if (result?.status !== 'saved') return;
     toast({
       title: tr("dashboard_tepik_qeyd_edildi_284f06", "Təpik qeyd edildi! 👶"),
       description: `${tr("dashboard_today", "Bu gün")} ${kickCount + 1} ${tr("dashboard_kick", "təpik")}`
@@ -823,8 +826,10 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
   const { activeTimers, startTimer, stopTimer, getActiveTimer } = useTimerStore();
   const { todayLogs, addLog, getTodayStats, refetch } = useBabyLogs();
   const { isToolDisabled } = useDisabledTools();
+  // Timers whose stop is being saved: a second tap must not save the session twice.
+  const savingTimerIdsRef = useRef(new Set<string>());
 
-  const { children, selectedChild, hasChildren, hasMultipleChildren, getChildAge, refetch: refetchChildren } = useChildren();
+  const { children, selectedChild, hasChildren, hasMultipleChildren, getChildAge, loadError: childrenLoadError, refetch: refetchChildren } = useChildren();
 
   // Derive baby data from selectedChild for multi-child support
   const childAge = selectedChild ? getChildAge(selectedChild) : null;
@@ -948,6 +953,22 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
   }, []);
 
   // Show setup prompt if baby data is missing
+  if (!babyData && childrenLoadError) {
+    // Offline/failed load and nothing cached: a retry state, never the empty "add child" state.
+    return (
+      <div className="flex flex-col items-center justify-center gap-3 p-8 min-h-[200px] text-center">
+        <p className="text-sm font-medium text-foreground">{outboxCopy('children_load_failed_title')}</p>
+        <p className="text-xs text-muted-foreground">{outboxCopy('children_load_failed_desc')}</p>
+        <button
+          type="button"
+          onClick={() => { void refetchChildren(); }}
+          className="px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm">
+          {outboxCopy('children_load_retry')}
+        </button>
+      </div>);
+
+  }
+
   if (!babyData) {
     return (
       <div className="flex items-center justify-center p-8 min-h-[200px]">
@@ -967,17 +988,45 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
+  /**
+   * Saves a running sleep/feeding timer as a log. The timer is cleared only when
+   * the write is confirmed or safely queued offline; on a real error it keeps
+   * running so the user can tap stop again.
+   */
+  const saveAndStopTimer = async (
+    timer: { id: string; startTime: number; childId?: string },
+    log: { log_type: 'sleep' | 'feeding'; feed_type?: string }
+  ): Promise<{ durationSeconds: number; queued: boolean } | null> => {
+    if (savingTimerIdsRef.current.has(timer.id)) return null;
+    savingTimerIdsRef.current.add(timer.id);
+    try {
+      const end = Date.now();
+      const result = await addLog({
+        ...log,
+        start_time: new Date(timer.startTime).toISOString(),
+        end_time: new Date(end).toISOString(),
+        // The timer belongs to the child it was started for (twins)
+        ...(timer.childId ? { child_id: timer.childId } : {})
+      });
+      if (result.error) {
+        toast(saveFailedToast());
+        return null;
+      }
+      stopTimer(timer.id);
+      const durationSeconds = Math.max(0, Math.floor((end - timer.startTime) / 1000));
+      if (result.queued) toast(queuedToast());
+      return { durationSeconds, queued: !!result.queued };
+    } finally {
+      savingTimerIdsRef.current.delete(timer.id);
+    }
+  };
+
   const toggleSleep = async () => {
     await hapticFeedback.medium();
     if (sleepTimer) {
-      // End sleep - save to database
-      const result = stopTimer(sleepTimer.id);
-      if (result) {
-        await addLog({
-          log_type: 'sleep',
-          start_time: new Date(Date.now() - result.durationSeconds * 1000).toISOString(),
-          end_time: new Date().toISOString()
-        });
+      // End sleep - save to database (timer stays until the save is confirmed or queued)
+      const result = await saveAndStopTimer(sleepTimer, { log_type: 'sleep' });
+      if (result && !result.queued) {
         toast({ title: tr("dashboard_sleep_ended", "Yuxu bitdi! ☀️"), description: `${formatDuration(result.durationSeconds)} ${tr("dashboard_slept", "yatdı")}` });
       }
     } else {
@@ -992,19 +1041,18 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
     const activeTimer = type === 'left' ? leftFeedTimer : rightFeedTimer;
 
     if (activeTimer) {
-      // Stop feeding - save to database
-      const result = stopTimer(activeTimer.id);
+      // Stop feeding - save to database (timer stays until the save is confirmed or queued)
+      const result = await saveAndStopTimer(activeTimer, {
+        log_type: 'feeding',
+        feed_type: type === 'left' ? 'breast_left' : 'breast_right'
+      });
       if (result) {
-        await addLog({
-          log_type: 'feeding',
-          feed_type: type === 'left' ? 'breast_left' : 'breast_right',
-          start_time: new Date(Date.now() - result.durationSeconds * 1000).toISOString(),
-          end_time: new Date().toISOString()
-        });
-        toast({
-          title: type === 'left' ? tr("dashboard_left_breast_done", "Sol sinə bitti!") : tr("dashboard_right_breast_done", "Sağ sinə bitti!"),
-          description: `${tr("dashboard_duration", "Müddət:")} ${formatDuration(result.durationSeconds)}`
-        });
+        if (!result.queued) {
+          toast({
+            title: type === 'left' ? tr("dashboard_left_breast_done", "Sol sinə bitti!") : tr("dashboard_right_breast_done", "Sağ sinə bitti!"),
+            description: `${tr("dashboard_duration", "Müddət:")} ${formatDuration(result.durationSeconds)}`
+          });
+        }
 
         // Check for achievement
         if (todayStats.feedingCount >= 9) {
@@ -1024,17 +1072,26 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
     if (type === 'formula' && amountMl) notes = `${amountMl} ml`;
     if (type === 'solid' && foodName) notes = foodName;
 
-    await addLog({
+    const result = await addLog({
       log_type: 'feeding',
       feed_type: type,
       notes
     });
+    if (result.error) {
+      // Keep the modal and the typed amount/food so the user can retry
+      toast(saveFailedToast());
+      return;
+    }
     setShowFeedingModal(false);
     setShowFormulaMLInput(false);
     setFormulaML('');
     setShowSolidFoodInput(false);
     setSolidFoodName('');
 
+    if (result.queued) {
+      toast(queuedToast());
+      return;
+    }
     const typeLabels = {
       formula: amountMl ? `${tr("dashboard_sud_evezedicisi", "Süd əvəzedicisi")} ${amountMl} ml 🍼` : tr("dashboard_sud_evezedicisi_057b37", "S\xFCd \u0259v\u0259zedicisi \uD83C\uDF7C"),
       solid: foodName ? `${foodName} 🥣` : tr("dashboard_elave_qida_0e11a2", "\u018Flav\u0259 qida \uD83E\uDD63")
@@ -1053,11 +1110,19 @@ const MommyDashboard = ({ onNavigateToTool, onNavigate }: {onNavigateToTool?: (t
 
   const addDiaper = async (type: 'wet' | 'dirty' | 'both') => {
     await hapticFeedback.medium();
-    await addLog({
+    const result = await addLog({
       log_type: 'diaper',
       diaper_type: type === 'both' ? 'mixed' : type
     });
+    if (result.error) {
+      toast(saveFailedToast());
+      return;
+    }
     setShowDiaperModal(false);
+    if (result.queued) {
+      toast(queuedToast());
+      return;
+    }
 
     const typeEmojis = {
       wet: '💧',

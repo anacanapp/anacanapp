@@ -4,6 +4,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 type Cfg = Record<string, unknown>;
 const mocks = vi.hoisted(() => ({
   premium: false,
+  toast: vi.fn(),
   query: { data: undefined as Cfg[] | undefined, isPending: false, isError: false, fetchStatus: 'idle', refetch: vi.fn() },
 }));
 
@@ -26,7 +27,7 @@ vi.mock('@/store/userStore', () => {
 });
 vi.mock('@/hooks/useAuth', () => ({ useAuth: () => ({ profile: null, isAdmin: false }) }));
 vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => ({ isPremium: mocks.premium }) }));
-vi.mock('@/hooks/use-toast', () => ({ useToast: () => ({ toast: vi.fn() }) }));
+vi.mock('@/hooks/use-toast', () => ({ useToast: () => ({ toast: mocks.toast }) }));
 vi.mock('@/hooks/useDynamicTools', () => ({ useToolConfigs: () => mocks.query }));
 vi.mock('@/components/banners/BannerSlot', () => ({ default: () => null }));
 vi.mock('@/components/ads/AdExperienceProvider', () => ({ AdInlineAnchor: () => null, AdSurface: () => null }));
@@ -120,5 +121,20 @@ describe('ToolsHub free vs Premium gating', () => {
     fireEvent.click(screen.getByText('Bürc'));
     expect(screen.queryByTestId('paywall')).toBeNull();
     expect(screen.queryByText('Ödənişsiz alətlər')).toBeNull();
+  });
+});
+
+describe('ToolsHub tools for another stage', () => {
+  it('shows an unavailable tile as disabled and explains with a neutral (non-error) message', () => {
+    Object.assign(mocks.query, { data: [cfg('kick-counter', 'Təpik sayğacı', { life_stages: ['bump'], is_premium: false })] });
+    render(<ToolsHub />);
+    const tile = screen.getByText('Təpik sayğacı').closest('button')!;
+    expect(tile.getAttribute('aria-disabled')).toBe('true');
+    expect(screen.getByText('Başqa mərhələ üçün')).toBeTruthy();
+    fireEvent.click(tile);
+    expect(mocks.toast).toHaveBeenCalledTimes(1);
+    const arg = mocks.toast.mock.calls[0][0] as { variant?: string; description: string };
+    expect(arg.variant).toBeUndefined();
+    expect(arg.description).toBe('Bu alət hazırkı mərhələ üçün nəzərdə tutulmayıb');
   });
 });

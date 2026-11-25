@@ -19,6 +19,52 @@ const replaceFirebasePushListeners = (next: Array<Promise<PushListenerHandle>>) 
   }
 };
 
+// The token this device last committed for an account. Logout runs outside this hook
+// (AuthContext.signOut), so the row/token are tracked at module level.
+let committedDeviceToken: { token: string; userId: string } | null = null;
+
+const settleWithin = <T,>(work: Promise<T>, ms: number): Promise<T | undefined> =>
+  Promise.race([work.catch(() => undefined), new Promise<undefined>((resolve) => setTimeout(() => resolve(undefined), ms))]);
+
+/**
+ * Logout privacy cleanup. Runs BEFORE the session is cleared (RLS needs it): removes this
+ * device's push row for this account, drops the FCM token and the push listeners so a
+ * later token refresh cannot re-attach the device to the signed-out account. Every step is
+ * bounded and best-effort; it never throws and never blocks logout for long.
+ */
+export async function unregisterDeviceForLogout(userId: string, timeoutMs = 2500): Promise<void> {
+  if (!userId) return;
+  // Stop tokenReceived from re-saving a refreshed token for the old account.
+  replaceFirebasePushListeners([]);
+  const known = committedDeviceToken?.userId === userId ? committedDeviceToken.token : null;
+  committedDeviceToken = null;
+  if (!isNative) return;
+  let token = known;
+  if (!token) {
+    // Registered in an earlier app run: read the current token only when push is already
+    // allowed (never prompts the user during logout).
+    token = (await settleWithin((async () => {
+      const { FirebaseMessaging } = await import('@capacitor-firebase/messaging');
+      const permission = await FirebaseMessaging.checkPermissions();
+      if (permission.receive !== 'granted') return null;
+      return (await FirebaseMessaging.getToken()).token || null;
+    })(), timeoutMs)) ?? null;
+  }
+  if (token) {
+    await settleWithin(Promise.resolve(supabase.from('device_tokens').delete().eq('user_id', userId).eq('token', token))
+      .then(({ error }) => { if (error) console.warn('[DeviceToken] Logout unregister failed'); }), timeoutMs);
+  }
+  await settleWithin((async () => {
+    try {
+      const { FirebaseMessaging } = await import('@capacitor-firebase/messaging');
+      await FirebaseMessaging.deleteToken();
+    } catch {
+      const { PushNotifications } = await import('@capacitor/push-notifications');
+      await PushNotifications.unregister();
+    }
+  })(), timeoutMs);
+}
+
 export const useDeviceToken = () => {
   const { user } = useAuth();
   const [token, setToken] = useState<string | null>(null);
@@ -74,6 +120,7 @@ export const useDeviceToken = () => {
         console.warn('[DeviceToken] Stale-token cleanup warning:', cleanupError);
       }
 
+      committedDeviceToken = { token: deviceToken, userId };
       console.log('[DeviceToken] Token saved successfully');
       return true;
     } catch (err) {
@@ -261,36 +308,13 @@ export const useDeviceToken = () => {
     }
   }, [user, token, saveTokenToDatabase]);
 
-  // Remove device token on logout
+  // Remove device token on logout (AuthContext.signOut calls unregisterDeviceForLogout directly)
   const unregisterDevice = useCallback(async () => {
-    if (!user || !token) return;
-
-    console.log('[DeviceToken] Unregistering device...');
-    try {
-      const { error } = await supabase.
-      from('device_tokens').
-      delete().
-      eq('user_id', user.id).
-      eq('token', token);
-
-      if (error) {
-        console.error('[DeviceToken] Unregister error:', error);
-      } else {
-        console.log('[DeviceToken] Device unregistered');
-      }
-
-      try {
-        const { FirebaseMessaging } = await import('@capacitor-firebase/messaging');
-        await FirebaseMessaging.deleteToken();
-      } catch {
-
-        // Ignore if Firebase Messaging not available
-      }
-      setToken(null);
-      registrationAttempted.current = false;
-    } catch (err) {
-      console.error('[DeviceToken] Unregister exception:', err);
-    }
+    if (!user) return;
+    if (token && committedDeviceToken?.token !== token) committedDeviceToken = { token, userId: user.id };
+    await unregisterDeviceForLogout(user.id);
+    setToken(null);
+    registrationAttempted.current = false;
   }, [user, token]);
 
   // The in-app tour asked for push and the user allowed it: register this device now.

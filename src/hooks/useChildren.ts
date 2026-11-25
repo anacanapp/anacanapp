@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { useChildStore } from '@/store/childStore';
+import { readCache, writeCache } from '@/lib/offlineCache';
 import { getRealCalendarAge, getPrematurityInfo, type PrematurityInfo } from '@/lib/pregnancy-utils';
 
 export interface Child {
@@ -43,10 +44,33 @@ function loadActiveChildren(userId: string) {
   return request;
 }
 
+// Last successful children list per user (offline cache, cleared on logout).
+// Offline or on a failed fetch the app keeps showing these instead of an empty
+// "add child" state.
+const CHILDREN_CACHE_KEY = 'children_v1';
+export function readCachedChildren(userId: string): Child[] {
+  const cached = readCache<Child[]>(CHILDREN_CACHE_KEY, userId);
+  return Array.isArray(cached) ? cached : [];
+}
+function writeCachedChildren(userId: string, rows: Child[]) {
+  writeCache(CHILDREN_CACHE_KEY, userId, rows);
+}
+
 export const useChildren = () => {
   const { user } = useAuth();
-  const [children, setChildren] = useState<Child[]>([]);
+  const userId = user?.id ?? null;
+  // Rows are tagged with their user so an account switch never shows the previous user's children.
+  const [state, setState] = useState<{ userId: string | null; rows: Child[] }>(() => ({
+    userId,
+    rows: userId ? readCachedChildren(userId) : [],
+  }));
+  const children = useMemo(
+    () => (state.userId === userId ? state.rows : (userId ? readCachedChildren(userId) : [])),
+    [state, userId],
+  );
   const [loading, setLoading] = useState(true);
+  /** Last fetch failed (offline/server error). Cached children, if any, are still shown. */
+  const [loadError, setLoadError] = useState(false);
   
   // Use Zustand store for global selectedChildId
   const { selectedChildId, setSelectedChildId } = useChildStore();
@@ -133,7 +157,9 @@ export const useChildren = () => {
               .order('sort_order');
             const seededRows = (reread || []) as Child[];
             if (seededRows.length > 0) {
-              setChildren(seededRows);
+              setState({ userId: user.id, rows: seededRows });
+              writeCachedChildren(user.id, seededRows);
+              setLoadError(false);
               if (!seededRows.some(c => c.id === selectedChildId)) {
                 setSelectedChildId(seededRows[0].id);
               }
@@ -146,7 +172,9 @@ export const useChildren = () => {
         }
       }
 
-      setChildren(rows);
+      setState({ userId: user.id, rows });
+      writeCachedChildren(user.id, rows);
+      setLoadError(false);
 
       // Auto-select first child if none selected or selected child is not in the list
       if (rows.length > 0) {
@@ -157,6 +185,11 @@ export const useChildren = () => {
       }
     } catch (error) {
       console.error('Error fetching children:', error);
+      // Keep what is on screen; fall back to the last successful list for this user.
+      setState((prev) => (prev.userId === user.id && prev.rows.length > 0
+        ? prev
+        : { userId: user.id, rows: readCachedChildren(user.id) }));
+      setLoadError(true);
     } finally {
       setLoading(false);
     }
@@ -172,6 +205,14 @@ export const useChildren = () => {
     window.addEventListener('anacan:children-updated', handler);
     return () => window.removeEventListener('anacan:children-updated', handler);
   }, [fetchChildren]);
+
+  // After a failed (offline) load, retry as soon as the connection is back.
+  useEffect(() => {
+    if (!loadError) return;
+    const handler = () => { void fetchChildren(); };
+    window.addEventListener('online', handler);
+    return () => window.removeEventListener('online', handler);
+  }, [loadError, fetchChildren]);
 
   const addChild = useCallback(async (childData: {
     name: string;
@@ -297,6 +338,7 @@ export const useChildren = () => {
     selectedChild,
     setSelectedChild,
     loading,
+    loadError,
     addChild,
     updateChild,
     deleteChild,

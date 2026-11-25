@@ -4,6 +4,7 @@ import { AlertTriangle, ChevronRight, Calendar, Clock, Sparkles, X, Check, Light
 import { useBabyCrisisPeriods, BabyCrisisPeriod, useCurrentBabyCrisis, useUpcomingBabyCrises } from '@/hooks/useBabyCrisisPeriods';
 import { hapticFeedback } from '@/lib/native';
 import { tr } from "@/lib/tr";
+import { weekOrdinal } from '@/lib/count-plural';
 
 interface BabyCrisisWidgetProps {
   babyAgeWeeks: number;
@@ -232,7 +233,7 @@ const BabyCrisisWidget = ({ babyAgeWeeks, babyName }: BabyCrisisWidgetProps) => 
                   <div>
                     <h2 className="text-xl font-bold text-foreground">{tr("babycrisiswidget_kriz_teqvimi_aa2ea5", "Kriz Təqvimi")}</h2>
                     <p className="text-xs text-muted-foreground mt-0.5">
-                      {babyName} • {babyAgeWeeks}. {tr('babycrisiswidget_week_header','həftə')}
+                      {babyName} • {weekOrdinal(babyAgeWeeks)}
                     </p>
                   </div>
                   <motion.button

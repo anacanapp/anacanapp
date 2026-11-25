@@ -95,7 +95,7 @@ export const useFavoriteNames = () => {
     if (user) {
       fetchFavorites();
     }
-  }, [user]);
+  }, [user?.id]);
 
   return {
     favorites,

@@ -188,4 +188,29 @@ describe('community push interaction binding', () => {
       }
     }));
   });
+  it('sends a non-empty body for an image-only reply (empty text)', async () => {
+    const replyInsert = query({ id: interactionId, post_id: postId, parent_comment_id: commentId });
+    const parentLookup = query({ user_id: authorId, post_id: postId });
+    mocks.from.mockImplementation((table) => table === 'post_comments'
+      ? mocks.from.mock.calls.filter(([name]) => name === 'post_comments').length === 1
+        ? replyInsert
+        : parentLookup
+      : undefined);
+
+    const { result } = renderHook(useCreateComment, { wrapper });
+    await act(async () => {
+      await result.current.mutateAsync({
+        postId,
+        content: '',
+        imageUrl: 'https://example.test/photo.jpg',
+        parentCommentId: commentId,
+        commenterName: 'Actor'
+      });
+    });
+
+    const payload = mocks.invokePush.mock.calls[0][0];
+    expect(payload.kind).toBe('community_reply');
+    expect(payload.title.trim()).not.toBe('');
+    expect(payload.body.trim()).not.toBe('');
+  });
 });

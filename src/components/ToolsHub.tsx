@@ -151,7 +151,7 @@ import { feature37Text } from '@/lib/feature37-i18n';
 import { sleepTrainingEligible } from '@/lib/sleep-training';
 import { useChildren } from '@/hooks/useChildren';
 import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
-import { tr } from "@/lib/tr";
+import { tr, formatTr } from "@/lib/tr";
 import { useDisabledTools } from '@/hooks/useDisabledTools';
 import { followupText } from '@/lib/followup-i18n';
 import { localizedCountryName } from '@/lib/app-languages';
@@ -409,20 +409,25 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
     return true;
   };
 
+  // Short tile hint for a tool that does not apply yet (week gate) or at all (other life stage).
+  const unavailableHint = (tool: Tool) =>
+    tool.minWeek && lifeStage === 'bump' && (!tool.stages || tool.stages.includes('bump')) ?
+      formatTr("toolshub_tile_from_week", "{week}. həftədən", { week: tool.minWeek }) :
+      tr("toolshub_tile_other_stage", "Başqa mərhələ üçün");
+
   const handleToolClick = (tool: Tool) => {
     // Admins bypass all restrictions
     if (!isToolAvailable(tool)) {
-      if (tool.minWeek && lifeStage === 'bump') {
+      // Neutral info (not an error): the tile is already shown as disabled, this only says why.
+      if (tool.stages && !tool.stages.includes(lifeStage || '')) {
         toast({
-          title: `${tool.name} ${tr("toolshub_not_active_yet", "hələ aktiv deyil")}`,
-          description: `${tr("toolshub_activate_after_week_prefix", "Bu alət")} ${tool.minWeek}${tr("toolshub_activate_after_week_suffix", ". həftədən sonra aktivləşəcək")}`,
-          variant: 'destructive'
+          title: tool.name,
+          description: tr("toolshub_not_for_stage", "Bu alət hazırkı mərhələ üçün nəzərdə tutulmayıb")
         });
-      } else if (tool.stages) {
+      } else if (tool.minWeek && lifeStage === 'bump') {
         toast({
-          title: `${tool.name} ${tr("toolshub_not_available", "mövcud deyil")}`,
-          description: tr("toolshub_not_for_stage", "Bu alət hazırkı mərhələ üçün nəzərdə tutulmayıb"),
-          variant: 'destructive'
+          title: tool.name,
+          description: formatTr("toolshub_tool_opens_from_week", "Bu alət {week}. həftədən açılacaq", { week: tool.minWeek })
         });
       }
       return;
@@ -677,18 +682,27 @@ const ToolsHub = ({ initialTool = null, onBack }: ToolsHubProps = {}) => {
                     key={tool.id}
                     data-tour={`tool-${tool.id}`}
                     initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    // The animated opacity is the tile's final opacity, so a disabled tile must animate to its dimmed value
+                    // (a static style opacity is overwritten by framer-motion).
+                    animate={{ opacity: available ? 1 : 0.45, scale: 1 }}
                     transition={{ delay: Math.min(index * 0.012, 0.15) }}
                     onClick={() => tool.id === 'cakes' ? openTool('cakes') : tool.id === 'mini-games' ? gatedOpenTool('mini-games') : handleToolClick(tool)}
-                    className={`a-tool-tile${needsPremium ? ' is-locked' : ''}`}
-                    aria-label={needsPremium ? `${tool.name} · Premium` : limitedHint ? `${tool.name} · ${tr('hub_tools_free_limited', 'Pulsuz · limitli')}` : tool.name}
-                    style={!available ? { opacity: 0.4 } : undefined}>
-                    {needsPremium && <span className="a-crown-chip"><Lock size={9} strokeWidth={2.8} /></span>}
+                    className={`a-tool-tile${needsPremium && available ? ' is-locked' : ''}`}
+                    aria-disabled={!available || undefined}
+                    data-unavailable={!available || undefined}
+                    aria-label={!available ? `${tool.name} · ${unavailableHint(tool)}` : needsPremium ? `${tool.name} · Premium` : limitedHint ? `${tool.name} · ${tr('hub_tools_free_limited', 'Pulsuz · limitli')}` : tool.name}
+                    style={!available ? { filter: 'grayscale(1)' } : undefined}>
+                    {needsPremium && available && <span className="a-crown-chip"><Lock size={9} strokeWidth={2.8} /></span>}
                     <span className="a-tool-icon" style={{ background: TILE_GRADIENTS[index % TILE_GRADIENTS.length], color: TILE_INKS[index % TILE_INKS.length] }}>
                       <Icon size={17} strokeWidth={2} />
                     </span>
                     <p className="a-tool-title">{tool.name}</p>
-                    {limitedHint &&
+                    {!available &&
+                    <span aria-hidden="true" style={{ marginTop: 3, fontSize: 9.5, fontWeight: 700, lineHeight: 1.2, color: 'var(--a-ink-soft)' }}>
+                        {unavailableHint(tool)}
+                      </span>
+                    }
+                    {limitedHint && available &&
                     <span aria-hidden="true" style={{ marginTop: 3, fontSize: 9.5, fontWeight: 700, lineHeight: 1.2, color: 'var(--a-green-ink)' }}>
                         {tr('hub_tools_free_limited', 'Pulsuz · limitli')}
                       </span>

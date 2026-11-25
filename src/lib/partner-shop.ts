@@ -96,6 +96,23 @@ export function productFromRow(r: Record<string, unknown>, partner?: ShopPartner
   };
 }
 
+/**
+ * Partner lookup that survives any cached shape: a Map, an array of partners or [id, partner] entries, or a
+ * plain { id: partner } object (what a JSON-restored Map or an older cache leaves behind). Never throws.
+ */
+export function asPartnerMap(value: unknown): Map<string, ShopPartner> {
+  if (value instanceof Map) return value as Map<string, ShopPartner>;
+  const map = new Map<string, ShopPartner>();
+  const add = (key: unknown, partner: unknown) => {
+    if (!partner || typeof partner !== 'object') return;
+    const id = (partner as { id?: unknown }).id ?? key;
+    if (id != null && id !== '') map.set(String(id), partner as ShopPartner);
+  };
+  if (Array.isArray(value)) value.forEach((item) => (Array.isArray(item) ? add(item[0], item[1]) : add(undefined, item)));
+  else if (value && typeof value === 'object') Object.entries(value as Record<string, unknown>).forEach(([key, partner]) => add(key, partner));
+  return map;
+}
+
 export function storefrontFromRpc(data: unknown): Storefront {
   const d = (data && typeof data === 'object' ? data : {}) as { partners?: unknown; products?: unknown };
   const partners = new Map<string, ShopPartner>();

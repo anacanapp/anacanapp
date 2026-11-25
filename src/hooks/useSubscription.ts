@@ -334,6 +334,8 @@ export function useSubscription() {
     ownPremium,
     householdPremium,
     entitlementReady: access.ready,
+    /** The latest entitlement check failed (offline/timeout) and no confirmed grant covers it. */
+    entitlementError: access.error,
     isCancelled,
     cancelledButActive,
     loading: loading || access.loading,

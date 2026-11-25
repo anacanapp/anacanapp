@@ -123,16 +123,27 @@ const KickCounter = forwardRef<HTMLDivElement, KickCounterProps>(({ onBack }, re
     if (!session || savingRef.current) return;
     const finished = session;
     const duration = kickElapsedSeconds(finished, Date.now());
-    // Clear first: the next start can never continue from (and re-save) this count.
-    setSession(null);
-    setSelectedPosition(null);
-    if (finished.kicks > 0) {
-      savingRef.current = true;
-      try {
-        await addSession(finished.kicks, duration, trackPosition ? finished.position ?? null : null, finished.startedAt);
-      } finally {
-        savingRef.current = false;
+    if (finished.kicks === 0) {
+      setSession(null);
+      setSelectedPosition(null);
+      return;
+    }
+    savingRef.current = true;
+    try {
+      // The persisted session is cleared only after the write is confirmed or
+      // safely queued offline. On a real error it stays so the user can retry.
+      const result = await addSession(finished.kicks, duration, trackPosition ? finished.position ?? null : null, finished.startedAt);
+      if (result && result.status !== 'error') {
+        // Clear only this session: the next start can never continue from (and re-save) this count.
+        setSessionState((current) => {
+          if (current && current.startedAt !== finished.startedAt) return current;
+          saveActiveKickSession(userId, null);
+          return null;
+        });
+        setSelectedPosition(null);
       }
+    } finally {
+      savingRef.current = false;
     }
   };
 

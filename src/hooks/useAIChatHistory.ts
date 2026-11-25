@@ -48,7 +48,7 @@ export const useAIChatHistory = (chatType: 'woman' | 'partner') => {
 
   useEffect(() => {
     fetchMessages();
-  }, [user, chatType]);
+  }, [user?.id, chatType]);
 
   const addMessage = async (role: 'user' | 'assistant', content: string, imageUrl?: string | null) => {
     if (!user || (!content.trim() && !imageUrl)) return null;

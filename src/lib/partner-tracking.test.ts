@@ -111,3 +111,15 @@ describe('storefront cache safety', () => {
     expect(s.products).toEqual([]);
   });
 });
+
+describe('asPartnerMap (cached storefront shapes)', () => {
+  it('accepts a Map, an array, entries or a plain object and never throws', async () => {
+    const { asPartnerMap } = await import('./partner-shop');
+    const p = { id: 'p1', name: 'Olivia' };
+    expect(asPartnerMap(new Map([['p1', p]])).get('p1')).toBe(p);
+    expect(asPartnerMap([p]).get('p1')).toBe(p);
+    expect(asPartnerMap([['p1', p]]).get('p1')).toBe(p);
+    expect(asPartnerMap({ p1: p }).get('p1')).toBe(p);
+    for (const bad of [undefined, null, {}, 'x', 3]) expect(asPartnerMap(bad).size).toBe(0);
+  });
+});

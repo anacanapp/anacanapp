@@ -25,6 +25,7 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale, formatDateAz } from '@/lib/date-utils';
 import { useScreenAnalytics, trackEvent } from '@/hooks/useScreenAnalytics';
 import { tr } from "@/lib/tr";
+import { formatCount } from '@/lib/count-plural';
 import { todayKey } from '@/lib/local-date';
 import { SafetyStrip } from './anacan/SafetyStrip';
 
@@ -482,7 +483,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
           
           <div className="a-section-head">
             <h2 className="a-section-title a-heading">{tr("babygrowthtracker_olcu_tarixcesi_249279", "Ölçü Tarixçəsi")}</h2>
-            <span className="a-section-link">{entries.length} {tr("common_qeyd", "qeyd")}</span>
+            <span className="a-section-link">{formatCount('count_records', entries.length)}</span>
           </div>
 
           {isLoading ?

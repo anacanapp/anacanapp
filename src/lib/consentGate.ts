@@ -182,20 +182,32 @@ export async function recordConsents(items: ConsentItem[]): Promise<ConsentState
 }
 
 /**
+ * True only for a real connectivity failure (device offline, fetch/network error, request timeout), the one
+ * case where "saved on this device, will be sent when online" is honest. Server rejections are not offline.
+ */
+export function isNetworkFailure(error: unknown): boolean {
+  try { if (typeof navigator !== 'undefined' && navigator.onLine === false) return true; } catch { /* unknown */ }
+  if (!error) return false;
+  const value = error as { name?: unknown; message?: unknown; details?: unknown; code?: unknown };
+  const text = [value.name, value.message, value.details].filter((part) => typeof part === 'string').join(' ');
+  return /CONSENT_TIMEOUT|Failed to fetch|NetworkError|Network request failed|Load failed|fetch failed|network connection was lost|ERR_INTERNET_DISCONNECTED|ERR_NETWORK|ETIMEDOUT|ECONNRESET|AbortError|timed? ?out/i.test(text);
+}
+
+/**
  * Gate acceptance: record on the server; if that fails, keep the decision locally so the user is not asked
  * again and retry with flushPendingConsents(). Either way the accepted version is cached for this user.
  */
 export async function acceptConsentGate(backend: string, userId: string, choices: Partial<GateChoices>, version: string, kvkk = false):
-  Promise<{ synced: boolean; state: ConsentState | null }> {
+  Promise<{ synced: boolean; offline: boolean; state: ConsentState | null }> {
   const items = gateItems(choices, version, kvkk);
   rememberAcceptedVersion(backend, userId, version);
   try {
     const state = await recordConsents(items);
     clearPending(backend, userId);
-    return { synced: true, state };
-  } catch {
+    return { synced: true, offline: false, state };
+  } catch (error) {
     savePending(backend, userId, { items, source: consentSource(), appVersion: await consentAppVersion() });
-    return { synced: false, state: null };
+    return { synced: false, offline: isNetworkFailure(error), state: null };
   }
 }
 
@@ -245,15 +257,15 @@ export function decideAiConsent(state: ConsentState | null, local: boolean | nul
 
 /** Records the AI consent (granted or withdrawn); kept locally and retried when the server is unreachable. */
 export async function setAiConsent(backend: string, userId: string, granted: boolean, version: string | null, kvkk = false):
-  Promise<{ synced: boolean; state: ConsentState | null }> {
+  Promise<{ synced: boolean; offline: boolean; state: ConsentState | null }> {
   const item: ConsentItem = { kind: 'ai_assistant', granted, version: version || FALLBACK_CONSENT_VERSION, ...(kvkk ? { variant: 'kvkk_tr' as const } : {}) };
   rememberAiConsent(backend, userId, granted);
   try {
     const state = await recordConsents([item]);
-    return { synced: true, state };
-  } catch {
+    return { synced: true, offline: false, state };
+  } catch (error) {
     savePending(backend, userId, { items: [item], source: consentSource(), appVersion: await consentAppVersion() });
-    return { synced: false, state: null };
+    return { synced: false, offline: isNetworkFailure(error), state: null };
   }
 }
 

@@ -796,7 +796,9 @@ export const useCreateComment = () => {
 
       if (error) throw error;
 
-      const preview = content.length > 50 ? `${content.slice(0, 50)}...` : content;
+      // Image-only comments have empty text. The push contract needs a non-empty body (the server
+      // writes the recipient's localized title/body itself), so fall back to a placeholder.
+      const preview = content.trim() ? content.length > 50 ? `${content.slice(0, 50)}...` : content : '📷';
       const senderName = Array.from(isAnonymous ? tr("usecommunity_anonim", "Anonim") : commenterName?.trim() || tr("usecommunity_i_stifadeci_b6bdd6", "\u0130stifad\u0259\xE7i")).slice(0, 30).join('');
 
       // Resolve the recipient from persisted rows instead of trusting author

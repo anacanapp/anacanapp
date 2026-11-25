@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import PartnerAIPremiumGate from './PartnerAIPremiumGate';
 
@@ -62,4 +62,27 @@ it('woman\'s Anacan.AI: a Premium user goes straight to the chat', () => {
   render(<PartnerAIPremiumGate self><div>Own chat</div></PartnerAIPremiumGate>);
   expect(screen.getByText('Own chat')).toBeInTheDocument();
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+});
+
+it('shows a retry state instead of a spinner or paywall when the Premium check failed', async () => {
+  const refetch = vi.fn().mockResolvedValue(undefined);
+  Object.assign(state, { entitlementReady: false, entitlementError: true, refetch });
+  try {
+    render(<PartnerAIPremiumGate self />);
+    expect(screen.getByRole('alert')).toHaveTextContent('Premium statusu yoxlanmadı');
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Yenidən cəhd et' }));
+    expect(refetch).toHaveBeenCalledOnce();
+  } finally { Object.assign(state, { entitlementReady: undefined, entitlementError: undefined, refetch: undefined }); }
+});
+
+it('stops spinning after a bounded wait and offers a retry', async () => {
+  vi.useFakeTimers();
+  state.loading = true;
+  try {
+    render(<PartnerAIPremiumGate self />);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    await act(async () => { await vi.advanceTimersByTimeAsync(15_001); });
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+  } finally { vi.useRealTimers(); }
 });

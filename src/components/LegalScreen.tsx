@@ -10,6 +10,7 @@ import { useLegalDocuments, LegalDocument } from '@/hooks/useLegalDocuments';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import MarkdownContent from '@/components/MarkdownContent';
 import HtmlContent from '@/components/ui/HtmlContent';
+import { LEGAL_PROSE_CLASS, wrapLegalTables } from '@/lib/legalProse';
 
 interface LegalScreenProps {
   onBack: () => void;
@@ -102,16 +103,18 @@ const LegalScreen = ({ onBack, initialDocument }: LegalScreenProps) => {
           <h1 className="truncate" style={{ fontSize: 15, fontWeight: 800, color: 'var(--a-ink)' }}>{pickTitle(selectedDoc)}</h1>
         </div>
 
-        <ScrollArea className="flex-1 p-4">
-          <div className="max-w-3xl mx-auto">
+        {/* Radix ScrollArea wraps content in a display:table div that grows to the widest child
+            (a wide legal table pushed every paragraph past 390px). Force it to block so prose wraps to the viewport. */}
+        <ScrollArea className="flex-1 min-h-0 p-4 [&>[data-radix-scroll-area-viewport]>div]:!block [&>[data-radix-scroll-area-viewport]>div]:!min-w-0">
+          <div className="max-w-3xl mx-auto min-w-0 w-full">
             <div className="mb-4" style={{ fontSize: 12.5, color: 'var(--a-ink-soft)' }}>
               Versiya: {selectedDoc.version} {tr("legalscreen_son_yenilenme_8a61f0", "| Son yenil\u0259nm\u0259:")} {new Date(selectedDoc.updated_at).toLocaleDateString(getLocaleTag())}
             </div>
-            <div className="a-card prose prose-xs dark:prose-invert max-w-none text-sm [&_h1]:text-lg [&_h2]:text-base [&_h3]:text-sm [&_p]:text-sm [&_li]:text-sm" style={{ color: 'var(--a-body-text)' }}>
+            <div className={LEGAL_PROSE_CLASS} style={{ color: 'var(--a-body-text)', overflowWrap: 'anywhere' }}>
               {(() => {
                 const c = pickContent(selectedDoc);
                 const isHtml = c.trim().startsWith('<') || /<[a-z][\s\S]*>/i.test(c);
-                return isHtml ? <HtmlContent content={c} /> : <MarkdownContent content={c} />;
+                return isHtml ? <HtmlContent content={wrapLegalTables(c)} /> : <MarkdownContent content={c} />;
               })()}
             </div>
           </div>

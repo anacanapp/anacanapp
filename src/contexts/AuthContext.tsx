@@ -1,4 +1,6 @@
-import { tr } from "@/lib/tr";import React, { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react';
+import { tr } from "@/lib/tr";import React, { createContext, useContext, useEffect, useState, useCallback, useMemo, useRef } from 'react';
+import { QueryClientContext } from '@tanstack/react-query';
+import { runLogoutCleanup } from '@/lib/logout-cleanup';
 import { supabase } from '@/integrations/supabase/client';
 import { isAzureBackend } from '@/integrations/supabase/backend-config';
 import { readCache, writeCache, clearAllCaches } from '@/lib/offlineCache';
@@ -13,6 +15,28 @@ import type { Json } from '@/integrations/supabase/types';
 
 const PROFILE_CACHE_KEY = 'profile';
 const ROLE_CACHE_KEY = 'role';
+/** auth-js emits SIGNED_IN on every visibility return; the same account is re-read at most this often. */
+export const SAME_USER_REHYDRATE_MS = 10 * 60 * 1000;
+
+const json = (value: unknown) => { try { return JSON.stringify(value ?? null); } catch { return ''; } };
+/** Same account and no field the app reads changed: keep the previous object reference. */
+function sameAuthUser(a: User | null, b: User | null): boolean {
+  if (a === b) return true;
+  if (!a || !b) return false;
+  return a.id === b.id && a.email === b.email && a.phone === b.phone && a.role === b.role && a.aud === b.aud
+    && a.created_at === b.created_at && a.updated_at === b.updated_at && a.last_sign_in_at === b.last_sign_in_at
+    && a.email_confirmed_at === b.email_confirmed_at && a.phone_confirmed_at === b.phone_confirmed_at
+    && json(a.user_metadata) === json(b.user_metadata) && json(a.app_metadata) === json(b.app_metadata)
+    && json(a.identities?.map((i) => [i.id, i.provider])) === json(b.identities?.map((i) => [i.id, i.provider]));
+}
+const sameSession = (a: Session | null, b: Session | null) => a === b || !!a && !!b
+  && a.access_token === b.access_token && a.refresh_token === b.refresh_token && a.expires_at === b.expires_at;
+const dateMs = (value: unknown): number | null => {
+  if (value === null || value === undefined || value === '') return null;
+  const ms = value instanceof Date ? value.getTime() : new Date(value as string).getTime();
+  return Number.isFinite(ms) ? ms : null;
+};
+const sameDate = (a: unknown, b: unknown) => dateMs(a) === dateMs(b);
 
 // ─────────────────────────────────────────
 // Types
@@ -91,6 +115,31 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
   const [userRole, setUserRole] = useState<UserRole | null>(null);
   const [loading, setLoading] = useState(true);
   const [profileLoaded, setProfileLoaded] = useState(false);
+  // Optional so AuthProvider also works outside a QueryClientProvider (tests, widgets).
+  const queryClient = useContext(QueryClientContext);
+  const queryClientRef = useRef(queryClient);
+  queryClientRef.current = queryClient;
+  /** Account whose profile/roles/prefs were last hydrated, and when. */
+  const hydratedRef = useRef<{ userId: string; at: number } | null>(null);
+  const userRef = useRef<User | null>(null);
+  userRef.current = user;
+  const profileRef = useRef<Profile | null>(null);
+  profileRef.current = profile;
+
+  // Stable references: ~40 hooks depend on [user]/[profile]; a resume must not replace
+  // equal objects and re-run every effect/query in the tree.
+  const applyUser = useCallback((next: User | null) => {
+    setUser((prev) => sameAuthUser(prev, next) ? prev : next);
+  }, []);
+  const applySession = useCallback((next: Session | null) => {
+    setSession((prev) => sameSession(prev, next) ? prev : next);
+  }, []);
+  const applyProfile = useCallback((next: Profile | null) => {
+    setProfile((prev) => prev === next || (prev && next && json(prev) === json(next)) ? prev : next);
+  }, []);
+  const applyRole = useCallback((next: UserRole | null) => {
+    setUserRole((prev) => (prev?.role ?? null) === (next?.role ?? null) ? prev : next);
+  }, []);
 
   // useShallow: bu 12 sahə userStore-un action funksiyalarıdır (referansları
   // stabildir), amma seçicisiz useUserStore() BÜTÜN store obyektinə abunə
@@ -195,8 +244,14 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       // yalnız truthy dəyər yazılırdı: DB-də təmizlənmiş LMP store-da köhnə
       // dəyəri saxlayır, ProfileEdit formu ona əsaslanıb köhnə tarixi
       // YENİDƏN DB-yə yazırdı ("silinmiş LMP öz-özünə qayıdır" bug-ı)
-      setLastPeriodDate(profileData.last_period_date ? new Date(profileData.last_period_date) : null);
-      setDueDate(profileData.due_date ? new Date(profileData.due_date) : null);
+      // New Date objects only when the value changed: an equal re-sync (resume/refresh)
+      // must not notify every store subscriber that compares dates by reference.
+      const current = useUserStore.getState() as Partial<{ lastPeriodDate: unknown; dueDate: unknown; babyBirthDate: unknown;
+        babyName: unknown; babyGender: unknown; babyCount: unknown; multiplesType: unknown }>;
+      if (!sameDate(current.lastPeriodDate, profileData.last_period_date)) {
+        setLastPeriodDate(profileData.last_period_date ? new Date(profileData.last_period_date) : null);
+      }
+      if (!sameDate(current.dueDate, profileData.due_date)) setDueDate(profileData.due_date ? new Date(profileData.due_date) : null);
       if (profileData.cycle_length) setCycleLength(profileData.cycle_length);
       if (profileData.period_length) setPeriodLength(profileData.period_length);
 
@@ -207,9 +262,11 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       // store has reset to one child. Keep the count/type pair coherent.
       const babyCount = [1, 2, 3, 4].includes(profileData.baby_count ?? 0) ? profileData.baby_count! : 1;
       const multipleType = (['single', 'twins', 'triplets', 'quadruplets'] as const)[babyCount - 1];
-      setMultiplesData(babyCount, multipleType);
+      if (current.babyCount !== babyCount || current.multiplesType !== multipleType) setMultiplesData(babyCount, multipleType);
 
-      if (profileData.baby_birth_date && profileData.baby_name && profileData.baby_gender) {
+      if (profileData.baby_birth_date && profileData.baby_name && profileData.baby_gender && (
+        !sameDate(current.babyBirthDate, profileData.baby_birth_date) || current.babyName !== profileData.baby_name
+        || current.babyGender !== profileData.baby_gender || current.babyCount !== babyCount || current.multiplesType !== multipleType)) {
         setBabyData(new Date(profileData.baby_birth_date), profileData.baby_name, profileData.baby_gender,
           babyCount, multipleType);
       }
@@ -359,6 +416,9 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
   }, []);
 
   const signOut = useCallback(async () => {
+    // Privacy cleanup while the session still exists (device_tokens delete is RLS-scoped):
+    // push row + FCM token, pending/delivered local reminders. Bounded; never blocks logout.
+    try { await runLogoutCleanup(userRef.current?.id ?? useUserStore.getState().userId ?? null); } catch { /* best effort */ }
     try {
       const { error } = await supabase.auth.signOut();
       // Ignore AuthSessionMissingError - session already gone
@@ -372,11 +432,13 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       }
     } finally {
       // Always clear local state regardless of server response
+      hydratedRef.current = null;
       setUser(null);
       setSession(null);
       setProfile(null);
       setUserRole(null);
       storeLogout();
+      try { queryClientRef.current?.clear(); } catch { /* in-memory only */ }
       clearAllCaches(); // offline "son vəziyyət" cache-ləri də getsin
       if (isAzureBackend()) {
         import('@/lib/revenuecat').then(({ logOutRevenueCat }) => logOutRevenueCat()).catch(() => {});
@@ -450,11 +512,11 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
     // Offline-da fetchProfile cache qaytarır; null yalnız cache də yoxdursa gəlir —
     // o halda mövcud vəziyyəti pozmuruq (onboarding-ə atmamaq üçün).
     if (profileData) {
-      setProfile(profileData);
+      applyProfile(profileData);
       syncProfileToStore(profileData, user.id);
     }
-    if (roleData) setUserRole(roleData);
-  }, [user, fetchProfile, fetchUserRole, syncProfileToStore]);
+    if (roleData) applyRole(roleData);
+  }, [user, fetchProfile, fetchUserRole, syncProfileToStore, applyProfile, applyRole]);
 
   // ─────────────────────────────────────────
   // Init & listener
@@ -532,8 +594,8 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
         }
         // Device time zone for server reminders (once per session, only when changed, quiet if the column is missing).
         void syncUserTimeZone(u.id);
-        setProfile(profileData);
-        setUserRole(roleData);
+        applyProfile(profileData);
+        applyRole(roleData);
 
         setAuth(
           true,
@@ -559,6 +621,28 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       }
     };
 
+    /** Same account came back (resume): re-read profile/role only, no prefs upsert. */
+    const refreshSameUser = async (u: User) => {
+      try {
+        const [profileRes, roleRes] = await Promise.allSettled([fetchProfileStrict(u.id), fetchUserRole(u.id)]);
+        if (!mounted || userRef.current?.id !== u.id) return;
+        // A failed read keeps the current state (offline-first); only a server answer updates.
+        if (profileRes.status === 'fulfilled' && profileRes.value) {
+          const next = profileRes.value;
+          if (json(profileRef.current) !== json(next)) {
+            applyProfile(next);
+            syncProfileToStore(next, u.id);
+          }
+        }
+        if (roleRes.status === 'fulfilled' && roleRes.value) applyRole(roleRes.value);
+      } catch { /* keep current state */ }
+    };
+
+    const beginHydration = (u: User) => {
+      hydratedRef.current = { userId: u.id, at: Date.now() };
+      void hydrateUser(u);
+    };
+
     // Single source of truth: only onAuthStateChange handles auth state.
     // No separate initializeAuth / getSession call to avoid race conditions.
     const {
@@ -568,12 +652,14 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       if (!mounted) return;
 
       if (event === 'SIGNED_OUT') {
+        hydratedRef.current = null;
         setSession(null);
         setUser(null);
         setProfile(null);
         setUserRole(null);
         setProfileLoaded(false);
         storeLogout();
+        try { queryClientRef.current?.clear(); } catch { /* in-memory only */ }
         clearAllCaches();
         finishLoading();
         import('@/lib/revenuecat').then((m) => m.logOutRevenueCat()).catch(() => {});
@@ -582,8 +668,8 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
 
       if (event === 'INITIAL_SESSION') {
         if (currentSession?.user) {
-          setSession(currentSession);
-          setUser(currentSession.user);
+          applySession(currentSession);
+          applyUser(currentSession.user);
           setAuth(
             true,
             currentSession.user.id,
@@ -597,7 +683,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
             m.analytics.setUserProperties({ life_stage: '' });
           }).catch(() => {});
           import('@/lib/revenuecat').then((m) => m.identifyUser(currentSession.user.id)).catch(() => {});
-          void hydrateUser(currentSession.user);
+          beginHydration(currentSession.user);
         } else {
           // No session on initial load - user is truly not logged in
           storeLogout();
@@ -608,8 +694,22 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
 
       if (event === 'SIGNED_IN') {
         if (currentSession?.user) {
-          setSession(currentSession);
-          setUser(currentSession.user);
+          const u = currentSession.user;
+          const hydrated = hydratedRef.current;
+          if (hydrated?.userId === u.id) {
+            // Same account (visibility return / duplicate after INITIAL_SESSION): keep the
+            // user/session references when nothing changed and skip the full hydration.
+            applySession(currentSession);
+            applyUser(u);
+            finishLoading();
+            if (Date.now() - hydrated.at >= SAME_USER_REHYDRATE_MS) {
+              hydratedRef.current = { userId: u.id, at: Date.now() };
+              void refreshSameUser(u);
+            }
+            return;
+          }
+          applySession(currentSession);
+          applyUser(u);
           setAuth(
             true,
             currentSession.user.id,
@@ -617,16 +717,17 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
             currentSession.user.user_metadata?.name || tr("authcontext_i_stifadeci_b6bdd6", "\u0130stifad\u0259\xE7i")
           );
           finishLoading();
-          void hydrateUser(currentSession.user);
+          beginHydration(currentSession.user);
         }
         return;
       }
 
       if (event === 'TOKEN_REFRESHED') {
         if (currentSession?.user) {
-          // Silently update session - don't re-hydrate to avoid flickering
-          setSession(currentSession);
-          setUser(currentSession.user);
+          // Silently update session - don't re-hydrate to avoid flickering. The user
+          // object keeps its reference unless a field actually changed.
+          applySession(currentSession);
+          applyUser(currentSession.user);
         }
         // Do NOT call storeLogout if token refresh comes back without a session
         // The session might still be recoverable
@@ -635,10 +736,10 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
 
       // USER_UPDATED and other events
       if (currentSession?.user) {
-        setSession(currentSession);
-        setUser(currentSession.user);
+        applySession(currentSession);
+        applyUser(currentSession.user);
         finishLoading();
-        void hydrateUser(currentSession.user);
+        beginHydration(currentSession.user);
       }
     });
 

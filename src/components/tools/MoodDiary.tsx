@@ -10,6 +10,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { tr } from "@/lib/tr";
+import { formatCount } from '@/lib/count-plural';
 import { useIsRtl, rtlX } from '@/lib/rtl';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
@@ -144,7 +145,7 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
     <ToolPage>
       <ToolHeader
         onBack={onBack}
-        eyebrow={<>{tr("mooddiary_bu_hefte_a5f60b", "Bu həftə")}: {logs.length} {tr("common_qeyd", "qeyd")}</>}
+        eyebrow={<>{tr("mooddiary_bu_hefte_a5f60b", "Bu həftə")}: {formatCount('count_records', logs.length)}</>}
         title={tr("mooddiary_ehval_gundeliyi_831844", "\u018Fhval G\xFCnd\u0259liyi")} />
 
       <MedicalDisclaimer variant="compact" className="mb-3" />
@@ -169,7 +170,7 @@ const MoodDiary = forwardRef<HTMLDivElement, MoodDiaryProps>(({ onBack }, ref) =
           </span>
           <div>
             <p className="a-stat-tile-label">{tr("mooddiary_bu_hefte_a5f60b", "Bu həftə")}</p>
-            <p className="a-stat-tile-value" style={{ fontSize: 17 }}>{logs.length} {tr("common_qeyd", "qeyd")}</p>
+            <p className="a-stat-tile-value" style={{ fontSize: 17 }}>{formatCount('count_records', logs.length)}</p>
           </div>
         </div>
       </motion.div>

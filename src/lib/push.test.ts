@@ -159,3 +159,48 @@ describe('invokeSendPush group fan-out contract', () => {
     expect(mocks.invoke).not.toHaveBeenCalled();
   });
 });
+
+describe('invokeSendPush expected outcomes and diagnostics', () => {
+  const postId = '66666666-6666-4666-8666-666666666666';
+  const likeId = '77777777-7777-4777-8777-777777777777';
+  const like = { userId: targetId, title: 'T', body: 'B', kind: 'community_like', data: {
+    type: 'community_like', context: 'community_post', postId, groupId: null, interactionId: likeId,
+  } satisfies PushEventData };
+
+  it('matches the server list of expected skips', async () => {
+    const { EXPECTED_PUSH_SKIPS } = await import('./push');
+    const { EXPECTED_SKIPS } = await import('../../supabase/functions/_shared/interaction-push');
+    expect([...EXPECTED_PUSH_SKIPS].sort()).toEqual([...EXPECTED_SKIPS].sort());
+  });
+
+  it.each(['no_device_tokens', 'preferences_disabled', 'duplicate', 'device_tokens_rejected', 'interaction_gone'])(
+    'does not report %s', async (skipped) => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      mocks.invoke.mockResolvedValue({ data: { success: true, sent: 0, skipped }, error: null });
+      await expect(invokeSendPush(like)).resolves.toMatchObject({ ok: false, sent: 0, skipped });
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      expect(mocks.reportPushFailure).not.toHaveBeenCalled();
+    });
+
+  it('reports status and whether the push function answered a non-2xx', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const headers = new Headers();
+    mocks.invoke.mockResolvedValue({ data: null, error: Object.assign(new Error('Edge Function returned a non-2xx status code'), {
+      context: { status: 403, headers, json: async () => ({ error: 'forbidden' }) },
+    }) });
+    await invokeSendPush(like);
+    await vi.waitFor(() => expect(mocks.reportPushFailure).toHaveBeenCalledWith('community_like',
+      'invoke error: Edge Function returned a non-2xx status code', { error: 'forbidden', status: 403, runtime: 'none' }));
+  });
+
+  it('names the function runtime when the push function itself answered', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const headers = new Headers({ 'X-Anacan-Push-Runtime': 'communications-v2' });
+    mocks.invoke.mockResolvedValue({ data: null, error: Object.assign(new Error('Edge Function returned a non-2xx status code'), {
+      context: { status: 502, headers, json: async () => ({ error: 'fcm_failed' }) },
+    }) });
+    await invokeSendPush(like);
+    await vi.waitFor(() => expect(mocks.reportPushFailure).toHaveBeenCalledWith('community_like',
+      'invoke error: Edge Function returned a non-2xx status code', { error: 'fcm_failed', status: 502, runtime: 'communications-v2' }));
+  });
+});

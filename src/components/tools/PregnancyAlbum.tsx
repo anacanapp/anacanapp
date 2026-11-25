@@ -17,6 +17,7 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 import { tr } from "@/lib/tr";
+import { weekOrdinal } from '@/lib/count-plural';
 import { compressImageForUpload } from '@/lib/image-compress';
 import { replaceRecordPhoto, storagePathFromUrl, type AlbumDbClient } from '@/lib/album-photo-replace';
 
@@ -68,6 +69,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
 
   const { user } = useAuth();
   const getPregnancyData = useUserStore((s) => s.getPregnancyData);
+  const lifeStage = useUserStore((s) => s.lifeStage);
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -81,9 +83,11 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
   const [showActionSheet, setShowActionSheet] = useState<AlbumPhoto | null>(null);
   const [replacingPhotoId, setReplacingPhotoId] = useState<string | null>(null);
 
-  const pregData = getPregnancyData();
-  const currentWeek = pregData?.currentWeek || 1;
-  const currentMonth = getMonthFromWeek(currentWeek);
+  // Week only for a known pregnancy (never "|| 1"). After birth every month of the album is in the past;
+  // with no known week the album opens on month 1 without a "current week" card.
+  const pregData = lifeStage === 'bump' ? getPregnancyData() : null;
+  const currentWeek = pregData?.currentWeek && pregData.currentWeek > 0 ? pregData.currentWeek : null;
+  const currentMonth = currentWeek ? getMonthFromWeek(currentWeek) : lifeStage === 'mommy' ? 9 : 1;
 
   const { data: photos = [], isLoading } = useQuery({
     queryKey: ['pregnancy-album-photos', user?.id],
@@ -283,7 +287,8 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
         eyebrow={tr("pregnancyalbum_her_ay_xatire_c5bdee", "Hər ay xatirə")}
         title={tr("pregnancyalbum_hamilelik_albomu_6f1559", "Hamiləlik Albomu")} />
 
-      {/* Current Progress */}
+      {/* Current Progress: only while pregnant with a known week */}
+      {currentWeek != null &&
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -294,7 +299,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
           <div>
             <p className="text-xs font-semibold" style={{ margin: 0, color: 'var(--a-alert-ink)', opacity: 0.75 }}>{tr("pregnancyalbum_hal_hazirda_b78349", "Hal-hazırda")}</p>
             <p className="a-heading" style={{ margin: 0, fontSize: 20, color: 'var(--a-alert-ink)' }}>{monthLabels[currentMonth - 1]?.label || `${currentMonth}-ci ay`}</p>
-            <p className="text-xs font-semibold" style={{ margin: 0, color: 'var(--a-alert-ink)', opacity: 0.75 }}>{currentWeek}{tr("pregnancyalbum_hefte_459cfe", ". h\u0259ft\u0259")}</p>
+            <p className="text-xs font-semibold" style={{ margin: 0, color: 'var(--a-alert-ink)', opacity: 0.75 }}>{weekOrdinal(currentWeek)}</p>
           </div>
           <div className="text-4xl">{monthLabels[currentMonth - 1]?.emoji}</div>
         </div>
@@ -310,6 +315,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
           <span className="text-xs font-bold" style={{ color: 'var(--a-alert-ink)' }}>{Math.round(currentMonth / 9 * 100)}%</span>
         </div>
       </motion.div>
+      }
 
       {/* Album Grid */}
       <div className="a-section-head">

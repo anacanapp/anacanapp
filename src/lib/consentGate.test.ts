@@ -153,3 +153,24 @@ describe('Anacan.AI consent', () => {
     expect(readPendingConsents(B, U)?.items).toEqual([{ kind: 'ai_assistant', granted: false, version: FALLBACK_CONSENT_VERSION }]);
   });
 });
+
+describe('offline vs server failure (no misleading "saved offline" message)', () => {
+  it('flags only connectivity failures as offline', async () => {
+    mocks.rpc.mockRejectedValueOnce(new TypeError('Failed to fetch'));
+    expect(await acceptConsentGate(B, U, { terms: true, health_data: true, age_16: true }, '2.0')).toMatchObject({ synced: false, offline: true });
+    mocks.rpc.mockResolvedValueOnce({ data: null, error: { message: 'CONSENT_VERSION_MISMATCH', code: 'P0001' } });
+    expect(await acceptConsentGate(B, U, { terms: true, health_data: true, age_16: true }, '2.0')).toMatchObject({ synced: false, offline: false });
+    mocks.rpc.mockResolvedValueOnce({ data: null, error: { message: 'permission denied for function record_consents_v1', code: '42501' } });
+    expect(await setAiConsent(B, U, true, '2.0')).toMatchObject({ synced: false, offline: false });
+  });
+  it('isNetworkFailure recognises fetch/timeouts and the offline flag, not server errors', async () => {
+    const { isNetworkFailure } = await import('./consentGate');
+    expect(isNetworkFailure(new TypeError('Failed to fetch'))).toBe(true);
+    expect(isNetworkFailure({ message: 'TypeError: Load failed' })).toBe(true);
+    expect(isNetworkFailure(new Error('CONSENT_TIMEOUT'))).toBe(true);
+    expect(isNetworkFailure({ message: 'CONSENT_ITEMS_INVALID', code: 'P0001' })).toBe(false);
+    const online = vi.spyOn(navigator, 'onLine', 'get').mockReturnValue(false);
+    expect(isNetworkFailure({ message: 'anything' })).toBe(true);
+    online.mockRestore();
+  });
+});

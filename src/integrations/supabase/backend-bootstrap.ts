@@ -8,8 +8,16 @@ import { writeStorageItem } from '@/lib/local-storage';
 
 let booting: Promise<void> | undefined;
 
+/** Outcome of one control read.
+ * - `unavailable`: offline, timeout, outage status; nothing was decided.
+ * - `malformed`: not the control document at all (non-200, non-JSON such as a captive portal
+ *   or proxy HTML page, missing no-store, oversized or unparseable body).
+ * - `invalid`: a JSON no-store document from the control URL that is not an acceptable policy. */
+export type AdmissionProbe = { kind: 'policy'; policy: BackendAdmission } | { kind: 'unavailable' }
+  | { kind: 'malformed' } | { kind: 'invalid' };
+
 /** Public control request only. Never send an API key, session or device/user ID. */
-export async function fetchBackendAdmission(): Promise<BackendAdmission | null> {
+export async function probeBackendAdmission(): Promise<AdmissionProbe> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 4000);
   try {
@@ -17,21 +25,31 @@ export async function fetchBackendAdmission(): Promise<BackendAdmission | null> 
     try {
       response = await fetch(ADMISSION_URL, { method: 'GET', cache: 'no-store', credentials: 'omit',
         redirect: 'error', referrerPolicy: 'no-referrer', signal: controller.signal });
-    } catch { return null; } // Offline: retain the last authority; never invent Azure readiness.
+    } catch { return { kind: 'unavailable' }; } // Offline: retain the last authority; never invent Azure readiness.
     // A disabled/blocked Azure subscription may return 401/403 rather than 5xx.
     // The control document is public: these are availability failures, not new
     // authority decisions. Existing Azure/maintenance pins remain latched below.
-    if ([401, 403, 404, 408, 429].includes(response.status) || response.status >= 500) return null;
+    if ([401, 403, 404, 408, 429].includes(response.status) || response.status >= 500) return { kind: 'unavailable' };
     if (response.status !== 200 || !response.headers.get('content-type')?.includes('application/json')
       || !response.headers.get('cache-control')?.split(',').some(value => value.trim() === 'no-store')) {
-      throw new BackendAdmissionError('ADMISSION_INVALID');
+      return { kind: 'malformed' };
     }
     let text: string;
-    try { text = await response.text(); } catch { return null; }
-    if (text.length > 2048) throw new BackendAdmissionError('ADMISSION_INVALID');
-    try { return parseBackendAdmission(JSON.parse(text)); }
-    catch { throw new BackendAdmissionError('ADMISSION_INVALID'); }
+    try { text = await response.text(); } catch { return { kind: 'unavailable' }; }
+    if (text.length > 2048) return { kind: 'malformed' };
+    let parsed: unknown;
+    try { parsed = JSON.parse(text); } catch { return { kind: 'malformed' }; }
+    try { return { kind: 'policy', policy: parseBackendAdmission(parsed) }; }
+    catch { return { kind: 'invalid' }; }
   } finally { clearTimeout(timeout); }
+}
+
+/** Startup read: an unverifiable answer blocks startup (ADMISSION_INVALID), unchanged. */
+export async function fetchBackendAdmission(): Promise<BackendAdmission | null> {
+  const probe = await probeBackendAdmission();
+  if (probe.kind === 'policy') return probe.policy;
+  if (probe.kind === 'unavailable') return null;
+  throw new BackendAdmissionError('ADMISSION_INVALID');
 }
 
 /** Must finish before importing client, App, i18n, crashReporter or native.ts. */
@@ -87,17 +105,29 @@ export function bootstrapBackend(): Promise<void> {
 export function watchBackendAdmission(onChange: () => void | Promise<void>): () => void {
   if (!usesSourceFirstBootstrap()) return () => {};
   const current = getBackendConfig().admission!;
-  let stopped = false, checking = false;
+  let stopped = false, checking = false, invalidStreak = 0;
   const check = async () => {
     if (stopped || checking || document.visibilityState === 'hidden') return;
     checking = true;
     let changed = false;
     try {
-      const remote = await fetchBackendAdmission();
-      changed = !!remote && !sameAdmission(current.policy, remote);
+      const probe = await probeBackendAdmission();
+      if (probe.kind === 'policy') {
+        invalidStreak = 0;
+        changed = !sameAdmission(current.policy, probe.policy);
+      } else if (probe.kind === 'invalid') {
+        // A JSON control document that fails validation must not leave a live writer
+        // running forever; require it on two consecutive reads so one odd answer
+        // (a JSON-speaking proxy) cannot restart the app. Startup then blocks on it.
+        invalidStreak += 1;
+        changed = invalidStreak >= 2;
+      } else {
+        // Offline/outage, captive portal or proxy HTML, truncated body: no decision.
+        // Keep running on the admitted authority and check again later.
+        invalidStreak = 0;
+      }
     } catch {
-      // An invalid published policy must not leave a live writer running forever.
-      changed = true;
+      invalidStreak = 0;
     } finally { checking = false; }
     if (changed && !stopped) {
       stopped = true;

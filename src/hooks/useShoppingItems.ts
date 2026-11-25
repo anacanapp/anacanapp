@@ -185,7 +185,7 @@ export const useShoppingItems = () => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [user]);
+  }, [user?.id]);
 
   const uncheckedCount = items.filter(i => !i.is_checked).length;
   const checkedCount = items.filter(i => i.is_checked).length;

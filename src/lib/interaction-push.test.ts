@@ -113,6 +113,7 @@ const call = async (req: Request, d: InteractionPushDeps) => {
 
 beforeEach(() => {
   vi.spyOn(console, 'error').mockImplementation(() => {});
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
   // jsdom's AbortSignal has no timeout(); Deno does.
   if (typeof (AbortSignal as any).timeout !== 'function') (AbortSignal as any).timeout = () => new AbortController().signal;
 });
@@ -261,5 +262,167 @@ describe('group_message_fanout', () => {
     const d = deps(fakeDb(tables)).value;
     expect((await call(fanout({ sender_id: SENDER }), d)).body).toEqual({ error: 'unsupported_data_field' });
     expect((await call(fanout({ context: 'group_message' }), d)).body).toEqual({ error: 'unsupported_context_or_type' });
+  });
+});
+
+const POST = uid(700);
+const LIKE = uid(701);
+const OWNER = uid(20);
+const LIKER = uid(21);
+const fcmError = (status: number, error: Row) => new Response(JSON.stringify({ error }), { status });
+const UNREGISTERED = { status: 'NOT_FOUND', details: [{ '@type': 'type.googleapis.com/google.firebase.fcm.v1.FcmError', errorCode: 'UNREGISTERED' }] };
+
+function likeWorld(language?: string) {
+  const tables: Record<string, Row[]> = {
+    community_posts: [{ id: POST, user_id: OWNER, group_id: null, is_active: true }],
+    post_likes: [{ id: LIKE, post_id: POST, user_id: LIKER, created_at: iso(-5_000) }],
+    profiles: [{ user_id: LIKER, name: 'Aysel' }],
+    user_preferences: language ? [{ user_id: OWNER, language }] : [],
+    device_tokens: [{ id: 't1', user_id: OWNER, token: 'owner-token', created_at: iso(-1) }],
+    notification_send_log: [],
+  };
+  return tables;
+}
+const likeRequest = (overrides: Row = {}, userId = OWNER) => request({ userId, title: 'Yeni bəyənmə', body: 'x', data: {
+  type: 'community_like', context: 'community_post', postId: POST, groupId: null, interactionId: LIKE, ...overrides,
+} });
+
+describe('community_like', () => {
+  it('pushes the post owner with server-written copy', async () => {
+    const tables = likeWorld('en');
+    const { value, fcm } = deps(fakeDb(tables), LIKER);
+    expect(await call(likeRequest(), value)).toEqual({ status: 200, body: { success: true, sent: 1, failed: 0 } });
+    expect(JSON.parse(String(fcm.mock.calls[0][1].body)).message.notification).toEqual({ title: 'New like', body: 'Aysel liked your post.' });
+  });
+
+  it('answers 200 interaction_gone (no claim, no send) when the like was removed before the push', async () => {
+    const tables = likeWorld();
+    tables.post_likes = [];
+    const db = fakeDb(tables);
+    const { value, fcm } = deps(db, LIKER);
+    expect(await call(likeRequest(), value)).toEqual({ status: 200, body: { success: true, sent: 0, skipped: 'interaction_gone' } });
+    expect(db.calls.claims).toHaveLength(0);
+    expect(fcm).not.toHaveBeenCalled();
+  });
+
+  it('keeps 403 when the target does not own the post, even if the like exists', async () => {
+    const tables = likeWorld();
+    const db = fakeDb(tables);
+    expect(await call(likeRequest({}, uid(99)), deps(db, LIKER).value)).toEqual({ status: 403, body: { error: 'no_verified_interaction' } });
+    expect(db.calls.claims).toHaveLength(0);
+  });
+
+  it('never pushes for a like the caller did not make (only another user liked)', async () => {
+    const tables = likeWorld();
+    tables.post_likes[0].user_id = uid(55);
+    // The relationship (owner) is verified, the caller has no like: nothing to send, still no push.
+    expect((await call(likeRequest(), deps(fakeDb(tables), LIKER).value)).body).toEqual({ success: true, sent: 0, skipped: 'interaction_gone' });
+  });
+
+  it('keeps 403 for a direct message that cannot be verified', async () => {
+    const tables = likeWorld();
+    const body = request({ userId: OWNER, title: 'T', body: 'B', data: {
+      type: 'direct_message', context: 'direct_message', sender_id: LIKER, messageId: uid(702), interactionId: uid(702),
+    } });
+    expect(await call(body, deps(fakeDb({ ...tables, direct_messages: [] }), LIKER).value)).toEqual({ status: 403, body: { error: 'no_verified_interaction' } });
+  });
+});
+
+describe('FCM token-level rejections', () => {
+  it('answers 200 device_tokens_rejected and prunes an UNREGISTERED token', async () => {
+    const tables = likeWorld();
+    const fetch = vi.fn(async () => fcmError(404, UNREGISTERED));
+    const db = fakeDb(tables);
+    expect(await call(likeRequest(), deps(db, LIKER, { fetch: fetch as unknown as typeof fetch }).value))
+      .toEqual({ status: 200, body: { success: true, sent: 0, skipped: 'device_tokens_rejected' } });
+    expect(tables.device_tokens).toHaveLength(0);
+    expect(db.calls.inserts).toEqual([expect.objectContaining({ status: 'failed', error_code: 'UNREGISTERED' })]);
+  });
+
+  it('treats INVALID_ARGUMENT naming message.token as token-level, but keeps the token', async () => {
+    const tables = likeWorld();
+    const fetch = vi.fn(async () => fcmError(400, { status: 'INVALID_ARGUMENT', details: [
+      { '@type': 'type.googleapis.com/google.rpc.BadRequest', fieldViolations: [{ field: 'message.token', description: 'Invalid registration token' }] },
+    ] }));
+    expect((await call(likeRequest(), deps(fakeDb(tables), LIKER, { fetch: fetch as unknown as typeof fetch }).value)).body)
+      .toEqual({ success: true, sent: 0, skipped: 'device_tokens_rejected' });
+    expect(tables.device_tokens).toHaveLength(1);
+  });
+
+  it.each([
+    ['INVALID_ARGUMENT without a token field (payload problem)', 400, { status: 'INVALID_ARGUMENT' }],
+    ['THIRD_PARTY_AUTH_ERROR (APNs config)', 401, { status: 'UNAUTHENTICATED', details: [{ '@type': 'type.googleapis.com/google.firebase.fcm.v1.FcmError', errorCode: 'THIRD_PARTY_AUTH_ERROR' }] }],
+    ['SENDER_ID_MISMATCH (wrong Firebase project)', 403, { status: 'PERMISSION_DENIED', details: [{ '@type': 'type.googleapis.com/google.firebase.fcm.v1.FcmError', errorCode: 'SENDER_ID_MISMATCH' }] }],
+    ['UNAVAILABLE', 503, { status: 'UNAVAILABLE' }],
+    ['a bare 404 NOT_FOUND without FcmError (wrong project)', 404, { status: 'NOT_FOUND' }],
+  ])('keeps 502 fcm_failed for %s', async (_label, status, error) => {
+    const tables = likeWorld();
+    const fetch = vi.fn(async () => fcmError(status, error));
+    expect(await call(likeRequest(), deps(fakeDb(tables), LIKER, { fetch: fetch as unknown as typeof fetch }).value))
+      .toEqual({ status: 502, body: { success: false, sent: 0, failed: 1, error: 'fcm_failed' } });
+    expect(tables.device_tokens).toHaveLength(1);
+  });
+
+  it('a mix of one rejected and one provider failure stays 502', async () => {
+    const tables = likeWorld();
+    tables.device_tokens.push({ id: 't2', user_id: OWNER, token: 'second', created_at: iso(-2) });
+    const fetch = vi.fn()
+      .mockResolvedValueOnce(fcmError(404, UNREGISTERED))
+      .mockResolvedValueOnce(fcmError(503, { status: 'UNAVAILABLE' }));
+    expect((await call(likeRequest(), deps(fakeDb(tables), LIKER, { fetch: fetch as unknown as typeof fetch }).value)).status).toBe(502);
+  });
+
+  it('does not mark a group fan-out incomplete for members whose tokens are stale', async () => {
+    const { members, tables } = world(2);
+    const fetch = vi.fn(async (_url: string, init: RequestInit) =>
+      JSON.parse(String(init.body)).message.token === `token-${members[0]}` ? fcmError(404, UNREGISTERED) : new Response('{}', { status: 200 }));
+    expect(await call(fanout(), deps(fakeDb(tables), SENDER, { fetch: fetch as unknown as typeof fetch }).value)).toEqual({ status: 200, body: {
+      ok: true, success: true, sent: 1, recipients: 2, delivered: 1, skipped: { device_tokens_rejected: 1 },
+    } });
+  });
+});
+
+describe('recipient-language copy for social pushes', () => {
+  const LANGUAGES = ['az', 'en', 'tr', 'ru', 'de', 'ar', 'ka', 'kk', 'uz', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja',
+    'ko', 'pl', 'nl', 'sv', 'ky', 'et', 'tk', 'uk'];
+
+  it('covers all 25 app languages', async () => {
+    const { LANGUAGE_CODES } = await import('../../supabase/functions/_shared/languages');
+    expect([...LANGUAGE_CODES].sort()).toEqual([...LANGUAGES].sort());
+  });
+
+  it.each(LANGUAGES)('%s recipient gets a like, comment and reply push in their language', async (language) => {
+    const COMMENT = uid(703);
+    const REPLY = uid(704);
+    const tables = likeWorld(language);
+    tables.post_comments = [
+      { id: COMMENT, post_id: POST, user_id: LIKER, parent_comment_id: null, content: 'Salam', is_active: true, is_anonymous: false, created_at: iso(-3_000) },
+      { id: uid(705), post_id: POST, user_id: OWNER, parent_comment_id: null, content: 'Mine', is_active: true, is_anonymous: false, created_at: iso(-60_000) },
+      { id: REPLY, post_id: POST, user_id: LIKER, parent_comment_id: uid(705), content: '', is_active: true, is_anonymous: false, created_at: iso(-1_000) },
+    ];
+    const notifications: Row[] = [];
+    const send = async (req: Request) => {
+      const { value, fcm } = deps(fakeDb(tables), LIKER);
+      const result = await call(req, value);
+      expect(result.status).toBe(200);
+      notifications.push(JSON.parse(String(fcm.mock.calls[0][1].body)).message.notification);
+    };
+    await send(likeRequest());
+    await send(request({ userId: OWNER, title: 'T', body: 'B', data: { type: 'community_comment', context: 'community_post', postId: POST, interactionId: COMMENT } }));
+    await send(request({ userId: OWNER, title: 'T', body: 'B', data: { type: 'community_reply', context: 'post_comment', commentId: uid(705), postId: POST, interactionId: REPLY } }));
+    for (const { title, body } of notifications) {
+      expect(title.trim()).not.toBe('');
+      expect(body.trim()).not.toBe('');
+      expect(`${title}${body}`).not.toMatch(/\{sender\}|\{item\}/);
+    }
+    const [like, comment, reply] = notifications;
+    expect(comment.body).toBe('Aysel: Salam');
+    expect(reply.title).toContain('Aysel');
+    if (language !== 'az') {
+      // Every language has its own wording (no Azerbaijani fallback) for the like body and reply title.
+      expect(like.body).not.toBe('Aysel paylaşımınızı bəyəndi.');
+      expect(reply.title).not.toBe('Aysel rəyinizə cavab yazdı');
+      expect(reply.body).not.toBe('Aysel: Mesajı görmək üçün Anacan-ı açın.');
+    }
   });
 });

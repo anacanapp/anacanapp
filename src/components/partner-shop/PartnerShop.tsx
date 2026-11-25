@@ -17,7 +17,7 @@ import {
   partnerVisitLink, usePartnerBasket, usePartnerStorefront, requestShopCollection, takeShopCollection, trackShopEvent, trackShopImpressions,
 } from '@/hooks/usePartnerShop';
 import {
-  SHOP_COLLECTIONS, SHOP_COLLECTION_LABEL, formatManat, shopDiscount, shopPlan,
+  asPartnerMap, SHOP_COLLECTIONS, SHOP_COLLECTION_LABEL, formatManat, shopDiscount, shopPlan,
   type PartnerProduct, type ShopCollection, type ShopPartner, type ShopStageInput,
 } from '@/lib/partner-shop';
 import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
@@ -241,7 +241,8 @@ export function PartnerShopSection() {
   const stage = useShopStage();
   const { data, isLoading } = usePartnerStorefront();
   const products = data?.products || [];
-  const partners = data?.partners || new Map<string, ShopPartner>();
+  // Normalized: a cached storefront can carry partners as {} or an array instead of a Map.
+  const partners = useMemo(() => asPartnerMap(data?.partners), [data?.partners]);
   const basket = usePartnerBasket();
   const plan = shopPlan(stage);
   const [col, setCol] = useState<ShopCollection | 'for'>(() => takeShopCollection() || 'for');
@@ -349,7 +350,8 @@ export function PartnerHomeCard(props: Omit<ShopStageInput, 'recovering'> & { re
   const placement = `home_${props.lifeStage || 'x'}`;
   useImpressions(thumbs.map((p) => p.id), placement);
   if (!plan || !items.length || !data) return null;
-  const owners = [...new Set(items.map((p) => p.partnerId))].map((id) => data.partners.get(id)).filter((p): p is ShopPartner => !!p);
+  const partnerById = asPartnerMap(data.partners);
+  const owners = [...new Set(items.map((p) => p.partnerId))].map((id) => partnerById.get(id)).filter((p): p is ShopPartner => !!p);
   const preview = owners.some((p) => p.status !== 'live');
   const go = () => {
     trackShopEvent(thumbs.map((p) => p.id), 'open', placement);
@@ -372,7 +374,7 @@ export function PartnerHomeCard(props: Omit<ShopStageInput, 'recovering'> & { re
           <span className="block text-xs text-muted-foreground mt-0.5">{plan.hero.text}</span>
         </span>
         <span className="flex items-center gap-1.5">
-          {thumbs.map((p) => <span key={p.id} className="relative w-11 h-11 rounded-xl bg-white border border-border/50 p-0.5 flex items-center justify-center">{p.image && <img src={p.image} alt="" className="max-w-full max-h-full object-contain" />}<PartnerMark partner={data.partners.get(p.partnerId)} size={14} /></span>)}
+          {thumbs.map((p) => <span key={p.id} className="relative w-11 h-11 rounded-xl bg-white border border-border/50 p-0.5 flex items-center justify-center">{p.image && <img src={p.image} alt="" className="max-w-full max-h-full object-contain" />}<PartnerMark partner={partnerById.get(p.partnerId)} size={14} /></span>)}
           <span className="ms-auto inline-flex items-center gap-1 rounded-xl bg-primary/10 px-3 py-2 text-xs font-black text-primary">
             {formatManat(Math.min(...items.map((p) => p.price)))}-dan <ChevronRight className="w-3.5 h-3.5 rtl:rotate-180" />
           </span>

@@ -12,15 +12,32 @@ const entitlementRoots = new Set(['premium-access-v1','subscription','household-
 const roots = new Set([...entitlementRoots,'community-feed','community-profile-card','stories','chat-authors-v2','banners']);
 const contentRoots = new Set([...roots].filter(root => !entitlementRoots.has(root)));
 const RESUME_COALESCE_MS = 2000;
+export const PREMIUM_ACCESS_POLL_MS = 10 * 60_000;
+/** A hung request (captive portal, stalled token refresh) becomes an error instead of an endless spinner. */
+const PREMIUM_ACCESS_TIMEOUT_MS = 15_000;
+export const PREMIUM_ACCESS_QUERY_OPTIONS = {
+  staleTime: 60_000, gcTime: 5 * 60_000, retry: false,
+  refetchOnMount: true, refetchOnWindowFocus: true, refetchOnReconnect: true,
+} as const;
+function withTimeout<T>(work: PromiseLike<T>, ms: number): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  return Promise.race([Promise.resolve(work), new Promise<never>((_, reject) => {
+    timer = setTimeout(() => reject(new Error('PREMIUM_ACCESS_TIMEOUT')), ms);
+  })]).finally(() => clearTimeout(timer));
+}
 export function usePremiumEntitlement(monitor = false) {
   const { user, profile } = useAuth(), backend = getBackendConfig().url, client = useQueryClient();
   const actor = user?.id ?? null;
   const partner = profile?.user_id === actor ? profile?.linked_partner_id ?? null : null;
   const query = useQuery({
-    queryKey: ['premium-access-v1', backend, actor, partner], enabled: !!actor, staleTime: 0, gcTime: 0, retry: false,
-    refetchOnMount: 'always', refetchOnWindowFocus: 'always', refetchOnReconnect: 'always', refetchInterval: monitor ? 15000 : false,
+    // Many components mount this hook: one shared answer is reused for 60s. Fresh reads come from
+    // resume/focus/online (the monitor below), realtime subscription/profile changes, explicit
+    // invalidation after purchase/restore/promo, and a slow 10 min foreground poll. Between reads
+    // the confirmed grant (premium-grant-cache) carries Premium, so the 31s lease is not polled.
+    queryKey: ['premium-access-v1', backend, actor, partner], enabled: !!actor, ...PREMIUM_ACCESS_QUERY_OPTIONS,
+    refetchInterval: monitor ? PREMIUM_ACCESS_POLL_MS : false,
     queryFn: async () => {
-      const { data, error } = await (supabase as any).rpc('get_premium_access_v1', { p_user_id: actor });
+      const { data, error } = await withTimeout<{ data: unknown; error: unknown }>((supabase as any).rpc('get_premium_access_v1', { p_user_id: actor }), PREMIUM_ACCESS_TIMEOUT_MS);
       if (error) throw error;
       const access = data as Access;
       if (access?.protocol !== 'anacan-premium-access-v1' || access.userId !== actor || typeof access.own?.active !== 'boolean' || typeof access.household?.active !== 'boolean') throw new Error('PREMIUM_ACCESS_INVALID');

@@ -12,6 +12,8 @@ import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { supabase } from '@/integrations/supabase/client';
 import { formatDateAz, formatTimeAz } from '@/lib/date-utils';
 import { tr, formatTr, getPersistedLanguage } from "@/lib/tr";
+import { trimesterOrdinal, weekOrdinal } from '@/lib/count-plural';
+import { buildWeightAiPrompt, resolveWeightTrackerStage, weightTrend } from '@/lib/weightTrackerStage';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 import { SafetyStrip } from './anacan/SafetyStrip';
 // IOM (Institute of Medicine, 2009) hamiləlik çəki artımı ankerləri + xətti
@@ -40,6 +42,7 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
   const { profile, user } = useAuth();
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const getPregnancyData = useUserStore((s) => s.getPregnancyData);
+  const lifeStage = useUserStore((s) => s.lifeStage);
   const [newWeight, setNewWeight] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
   const [aiAdvice, setAiAdvice] = useState<string | null>(null);
@@ -67,24 +70,30 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
   // kimi SƏHV xəbərdarlıq görər (bax MULTIPLE_GAIN_ANCHORS yuxarıda).
   const isMultiple = !!profile?.multiples_type && profile.multiples_type !== 'single';
 
-  const pregData = getPregnancyData();
-  const currentWeek = pregData?.currentWeek || 20;
+  // Stage-aware: only a pregnancy (lifeStage 'bump') with a KNOWN week gets week ranges, the IOM chart and
+  // the pre-eclampsia strip. Cycle users get plain weight/BMI tracking, mothers postpartum tracking.
+  // getPregnancyData() reads lastPeriodDate, which cycle users also have, so it is only used for 'bump'.
+  const pregData = lifeStage === 'bump' ? getPregnancyData() : null;
+  const stage = resolveWeightTrackerStage(lifeStage, pregData?.currentWeek);
+  const isPregnancy = stage.mode === 'pregnancy';
+  const currentWeek = stage.week;
+  const trimester = stage.trimester;
   const stats = getStats();
 
   const startWeight = stats?.startWeight || 60;
   const currentWeight = stats?.currentWeight || startWeight;
   const totalGain = stats?.totalGain || 0;
 
-  const trimester = currentWeek <= 12 ? 1 : currentWeek <= 26 ? 2 : 3;
-
   // Pre-pregnancy weight: the profile start weight, otherwise the oldest entry (entries are DESC).
   const prePregnancyWeight = profile?.start_weight || (entries.length ? entries[entries.length - 1].weight : null);
-  const bmi = computeBmi(prePregnancyWeight, heightCm);
+  // Pregnancy ranges use the PRE-pregnancy BMI; outside pregnancy the BMI of the latest weight is shown.
+  const bmi = computeBmi(isPregnancy ? prePregnancyWeight : (stats ? currentWeight : null), heightCm);
   const bmiCat = bmiCategory(bmi);
   // Twins keep the IOM multiple anchors; single pregnancy uses the BMI range (normal when BMI is unknown).
   const gainAnchors = useMemo(() => isMultiple ? MULTIPLE_GAIN_ANCHORS : singleGainAnchors(bmiCat ?? 'normal'), [isMultiple, bmiCat]);
 
   const recommended = useMemo(() => {
+    if (currentWeek == null) return { min: 0, max: 0 };
     const [min, max] = interpolateGain(currentWeek, gainAnchors);
     return { min: Math.round(min * 10) / 10, max: Math.round(max * 10) / 10 };
   }, [gainAnchors, currentWeek]);
@@ -111,6 +120,13 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
 
   // Status → anacan design palette (bg gradient + ink color)
   const getStatus = () => {
+    if (!stage.showGainRange) {
+      // No week range (cycle, postpartum, unknown pregnancy week): describe the trend, never "too much/too little".
+      const trend = weightTrend(totalGain);
+      if (trend === 'up') return { status: 'high', text: tr("weighttracker_trend_up", "Artır"), grad: 'var(--a-grad-peach)', ink: 'var(--a-accent-ink)' };
+      if (trend === 'down') return { status: 'low', text: tr("weighttracker_trend_down", "Azalır"), grad: 'var(--a-grad-blue)', ink: 'var(--a-blue-ink)' };
+      return { status: 'normal', text: tr("weighttracker_trend_stable", "Sabit"), grad: 'var(--a-grad-green)', ink: 'var(--a-green-ink)' };
+    }
     if (totalGain < recommended.min) return { status: 'low', text: tr("weighttracker_status_low", "Az"), grad: 'var(--a-grad-yellow)', ink: 'var(--a-warn-ink)' };
     if (totalGain > recommended.max) return { status: 'high', text: tr("weighttracker_cox_72c890", "Çox"), grad: 'var(--a-grad-pink)', ink: 'var(--a-berry-ink)' };
     return { status: 'normal', text: tr("weighttracker_status_normal", "Normal"), grad: 'var(--a-grad-green)', ink: 'var(--a-green-ink)' };
@@ -125,7 +141,7 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
   const lmpDate = pregData?.lastPeriodDate ? new Date(pregData.lastPeriodDate) : null;
 
   const pregnancyChartData = useMemo(() => {
-    if (!lmpDate || entries.length < 2) return null;
+    if (!stage.showGainRange || !lmpDate || entries.length < 2) return null;
 
     const gainAt = (week: number): [number, number] => interpolateGain(week, gainAnchors);
 
@@ -147,7 +163,7 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
       });
     }
     return data;
-  }, [entries, lmpDate, startWeight, gainAnchors]);
+  }, [entries, lmpDate, startWeight, gainAnchors, stage.showGainRange]);
 
   useEffect(() => {
     const fetchAIAdvice = async () => {
@@ -159,7 +175,21 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
           body: {
             messages: [{
               role: 'user',
-              content: `${tr("weighttracker_ai_prompt_prefix", "Çəki analizi:")} ${currentWeek} ${tr("weighttracker_ai_prompt_week", "həftə")}, ${tr("weighttracker_ai_prompt_start", "başlanğıc:")} ${startWeight}kg, ${tr("weighttracker_ai_prompt_now", "indi:")} ${currentWeight}kg, ${tr("weighttracker_ai_prompt_gain", "artım:")} ${totalGain}kg (${tr("weighttracker_ai_prompt_rec", "tövsiyə:")} ${recommended.min}-${recommended.max}kg). ${tr("weighttracker_ai_prompt_status", "Status:")} ${status.text}. ${tr("safety_weight_ai_rules", "QAYDALAR: 1) Salamlama yoxdur, birbaşa məsələyə keç. 2) Maksimum 1-2 cümlə. 3) Yalnız praktik qısa məsləhət.")}`
+              // The prompt states the real stage: no invented week, no pregnancy range for cycle/postpartum users.
+              content: buildWeightAiPrompt({ stage, startWeight, currentWeight, change: totalGain, statusText: status.text, recommended, bmi }, {
+                prefix: tr("weighttracker_ai_prompt_prefix", "Çəki analizi:"),
+                week: tr("weighttracker_ai_prompt_week", "həftə"),
+                start: tr("weighttracker_ai_prompt_start", "başlanğıc:"),
+                now: tr("weighttracker_ai_prompt_now", "indi:"),
+                gain: tr("weighttracker_ai_prompt_gain", "artım:"),
+                change: tr("weighttracker_ai_prompt_change", "dəyişiklik:"),
+                rec: tr("weighttracker_ai_prompt_rec", "tövsiyə:"),
+                status: tr("weighttracker_ai_prompt_status", "Status:"),
+                rules: tr("safety_weight_ai_rules", "QAYDALAR: 1) Salamlama yoxdur, birbaşa məsələyə keç. 2) Maksimum 1-2 cümlə. 3) Yalnız praktik qısa məsləhət."),
+                contextPregnancyUnknownWeek: tr("weighttracker_ai_context_pregnant_unknown", "İstifadəçi hamilədir, hamiləlik həftəsi məlum deyil."),
+                contextCycle: tr("weighttracker_ai_context_cycle", "İstifadəçi hamilə deyil, menstrual tsiklini izləyir."),
+                contextPostpartum: tr("weighttracker_ai_context_postpartum", "İstifadəçi doğuşdan sonrakı dövrdədir, hamilə deyil.")
+              })
             }],
             isWeightAnalysis: true,
             language: getPersistedLanguage()
@@ -177,7 +207,8 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
     };
 
     fetchAIAdvice();
-  }, [entries.length, currentWeek, totalGain, recommended.min, recommended.max]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [entries.length, stage.mode, currentWeek, totalGain, recommended.min, recommended.max]);
 
   const handleAddWeight = async () => {
     // Accept "65,5" as well as "65.5"; say why instead of silently not saving.
@@ -199,7 +230,9 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
     <ToolPage>
       <ToolHeader
         onBack={onBack}
-        eyebrow={<>{currentWeek}. {tr("weighttracker_ai_prompt_week", "həftə")} · {trimester}. {tr("weighttracker_trimestr_soz", "trimestr")}</>}
+        eyebrow={currentWeek != null && trimester != null ?
+        <>{weekOrdinal(currentWeek)} · {trimesterOrdinal(trimester)}</> :
+        stage.mode === 'postpartum' ? tr("weighttracker_eyebrow_postpartum", "Doğuşdan sonra") : undefined}
         title={tr("weighttracker_ceki_i_zleyici_9dfe43", "\xC7\u0259ki \u0130zl\u0259yici")}
         actions={
         <motion.button
@@ -248,8 +281,13 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
           <span className="a-trio-icon" style={{ background: 'var(--a-grad-lav)', color: 'var(--a-lav-ink)' }}>
             <Target size={17} strokeWidth={2} />
           </span>
-          <p className="a-trio-value" style={{ fontSize: 17 }}>{recommended.min}-{recommended.max}</p>
-          <p className="a-trio-label">{isMultiple ? tr("weighttracker_tovsiye_kg_ekiz", "Tövsiyə (kg) · əkiz üçün") : tr("weighttracker_tovsiye_kg_6a77a1", "Tövsiyə (kg)")}</p>
+          {stage.showGainRange ? <>
+            <p className="a-trio-value" style={{ fontSize: 17 }}>{recommended.min}-{recommended.max}</p>
+            <p className="a-trio-label">{isMultiple ? tr("weighttracker_tovsiye_kg_ekiz", "Tövsiyə (kg) · əkiz üçün") : tr("weighttracker_tovsiye_kg_6a77a1", "Tövsiyə (kg)")}</p>
+          </> : <>
+            <p className="a-trio-value" style={{ fontSize: 17 }}>{!isPregnancy && bmi != null ? bmi.toFixed(1) : '–'}</p>
+            <p className="a-trio-label">{isPregnancy ? tr("weighttracker_tovsiye_kg_6a77a1", "Tövsiyə (kg)") : tr("weighttracker_bmi_label", "BMI")}</p>
+          </>}
         </motion.div>
       </div>
 
@@ -276,7 +314,40 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
         </div>
 
         {/* Range basis: pre-pregnancy BMI (IOM 2009), or a one-time height prompt with a normal-BMI fallback note */}
-        {!isMultiple && (bmi != null ?
+        {isPregnancy && !stage.showGainRange &&
+        <p className="a-list-sub" style={{ marginTop: 10, whiteSpace: 'normal' }}>
+            {tr("weighttracker_week_unknown", "Hamiləlik həftəniz məlum deyil. Tövsiyə olunan artım aralığını görmək üçün profildə son aybaşı tarixini yazın.")}
+          </p>
+        }
+        {!isPregnancy && (bmi != null ?
+        <p className="a-list-sub" style={{ marginTop: 10, whiteSpace: 'normal' }}>
+            {formatTr('weighttracker_bmi_now', 'Hazırkı BMI {bmi} ({category})', { bmi: bmi.toFixed(1), category: bmiLabel })}
+          </p> : stats ?
+        <div style={{ marginTop: 10 }}>
+            <p className="a-list-sub" style={{ whiteSpace: 'normal' }}>{tr("weighttracker_height_for_bmi", "BMI hesablamaq üçün boyunuzu yazın.")}</p>
+            <div className="flex items-center gap-2" style={{ marginTop: 8 }}>
+              <input
+              type="text"
+              inputMode="decimal"
+              placeholder={tr('safety_weight_height_placeholder', 'Boy, sm')}
+              aria-label={tr('safety_weight_height_placeholder', 'Boy, sm')}
+              value={heightInput}
+              onChange={(e) => { setHeightInput(e.target.value); setHeightError(null); }}
+              className="a-input"
+              style={{ flex: 1, minWidth: 0, height: 44 }} />
+              <button type="button" className="a-btn-soft" style={{ minHeight: 44 }} onClick={saveHeight}>
+                {tr('weighttracker_yadda_saxla', 'Yadda saxla')}
+              </button>
+            </div>
+            {heightError && <p role="alert" className="a-list-sub" style={{ marginTop: 6, color: 'var(--a-coral-text)', whiteSpace: 'normal' }}>{heightError}</p>}
+          </div> : null)
+        }
+        {stage.mode === 'postpartum' &&
+        <p className="a-list-sub" style={{ marginTop: 10, whiteSpace: 'normal' }}>
+            {tr("weighttracker_postpartum_note", "Doğuşdan sonra çəki adətən tədricən, bir neçə ay ərzində azalır. Əmizdirərkən sərt pəhrizdən çəkinin, sualınız olarsa həkiminizlə danışın.")}
+          </p>
+        }
+        {stage.showGainRange && !isMultiple && (bmi != null ?
         <p className="a-list-sub" style={{ marginTop: 10, whiteSpace: 'normal' }}>
             {formatTr('safety_weight_bmi_basis', 'Hamiləlikdən əvvəlki BMI {bmi} ({category}) üzrə tövsiyə', { bmi: bmi.toFixed(1), category: bmiLabel })}
           </p> :
@@ -306,7 +377,8 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
           </div>)
         }
 
-        {/* Progress Bar */}
+        {/* Progress Bar: the recommended pregnancy gain range, only for a known week */}
+        {stage.showGainRange &&
         <div style={{ marginTop: 14 }}>
           <div className="flex justify-between" style={{ marginBottom: 5 }}>
             <span className="a-list-time" style={{ margin: 0 }}>{recommended.min} kg</span>
@@ -324,6 +396,7 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
             
           </div>
         </div>
+        }
       </motion.div>
 
       {/* AI Analysis */}
@@ -388,7 +461,7 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
                   if (name === 'band') return [`${value[0]}–${value[1]} ${tr('unit_kg', 'kq')}`, tr("weighttracker_tovsiye_araligi", "Tövsiyə aralığı")];
                   return [`${value} ${tr('unit_kg', 'kq')}`, tr("weighttracker_cekiniz", "Çəkiniz")];
                 }}
-                labelFormatter={(w) => `${w}. ${tr("weighttracker_ai_prompt_week", "həftə")}`}
+                labelFormatter={(w) => weekOrdinal(Number(w))}
                 contentStyle={{ borderRadius: 12, border: '1px solid var(--a-line)', fontSize: 12, background: 'var(--a-surface)' }} />
               
                 <Area
@@ -399,7 +472,7 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
                 isAnimationActive={false} />
               
                 <ReferenceLine
-                x={currentWeek}
+                x={currentWeek ?? undefined}
                 stroke="var(--a-ink-faint)"
                 strokeDasharray="4 4"
                 label={{ value: tr("weighttracker_indi_ref", "indi"), position: 'top', fontSize: 10, fill: 'var(--a-ink-soft)' }} />
@@ -547,7 +620,10 @@ const WeightTracker = forwardRef<HTMLDivElement, WeightTrackerProps>(({ onBack }
         </motion.section>
       }
 
+      {/* Pre-eclampsia danger signs belong to pregnancy only */}
+      {stage.showPregnancySafety &&
       <SafetyStrip signs={tr('safety_weight_signs', 'Dərhal zəng edin: üz və əllərdə qəfil şişkinlik, güclü baş ağrısı, görmə dəyişikliyi')} />
+      }
 
       {/* Reset Confirmation Modal */}
       <AnimatePresence>

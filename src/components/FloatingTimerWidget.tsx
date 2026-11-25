@@ -1,9 +1,11 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Baby, Volume2, Square, Clock, X, VolumeX } from 'lucide-react';
 import { useTimerStore, type TimerType } from '@/store/timerStore';
 import { useWhiteNoiseStore } from '@/store/whiteNoiseStore';
 import { useBabyLogs } from '@/hooks/useBabyLogs';
+import { useToast } from '@/hooks/use-toast';
+import { queuedToast, saveFailedToast } from '@/lib/offline-outbox-copy';
 import { tr } from "@/lib/tr";
 import { useIsRtl, rtlX } from '@/lib/rtl';
 
@@ -45,14 +47,18 @@ const FloatingTimerWidget = () => {
   const hasWhiteNoise = whiteNoise.isPlaying;
   const hasAnything = hasTimers || hasWhiteNoise;
 
-  // Dayandırılan yuxu/əmizdirmə sessiyasını baby_logs-a yaz
+  const { toast } = useToast();
+  const savingRef = useRef(new Set<string>());
+
+  // Dayandırılan yuxu/əmizdirmə sessiyasını baby_logs-a yaz.
+  // 'saved' = server confirmed, 'queued' = kept in the offline outbox, 'error' = rejected.
   const saveTimerLog = useCallback(async (opts: {
     type: string; feedType?: 'left' | 'right' | null; startTime: number; endTime: number;
     childId?: string;
-  }) => {
-    if (opts.type !== 'sleep' && opts.type !== 'feeding') return;
-    if (opts.endTime - opts.startTime < 3000) return; // <3s — təsadüfi toxunuş
-    await addLog({
+  }): Promise<'saved' | 'queued' | 'error' | 'skipped'> => {
+    if (opts.type !== 'sleep' && opts.type !== 'feeding') return 'skipped';
+    if (opts.endTime - opts.startTime < 3000) return 'skipped'; // <3s — təsadüfi toxunuş
+    const result = await addLog({
       log_type: opts.type as 'sleep' | 'feeding',
       feed_type: opts.type === 'feeding' && opts.feedType
         ? (opts.feedType === 'left' ? 'breast_left' : 'breast_right')
@@ -61,23 +67,37 @@ const FloatingTimerWidget = () => {
       end_time: new Date(opts.endTime).toISOString(),
       // Taymer hansı uşaq üçün başladılıbsa, qeyd də ona yazılsın (əkizlər)
       ...(opts.childId ? { child_id: opts.childId } : {}),
-    } as any);
+    });
+    if (result.error) return 'error';
+    return result.queued ? 'queued' : 'saved';
   }, [addLog]);
 
-  // Panel düyməsindən dayandırma — artıq sessiyanı da saxlayır (əvvəl itirdi!)
+  // Panel düyməsindən dayandırma — sessiyanı saxlayır. Taymer YALNIZ yazı
+  // təsdiqlənəndə və ya offline növbəyə düşəndə dayandırılır; real xətada
+  // taymer işləməyə davam edir ki, istifadəçi yenidən cəhd edə bilsin.
   const handleStop = useCallback(async (timerId: string) => {
     const timer = activeTimers.find((t) => t.id === timerId);
-    const result = stopTimer(timerId);
-    if (timer && result) {
-      await saveTimerLog({
+    if (!timer) return;
+    if (savingRef.current.has(timerId)) return;
+    savingRef.current.add(timerId);
+    try {
+      const outcome = await saveTimerLog({
         type: timer.type,
         feedType: timer.feedType,
-        startTime: Date.now() - result.durationSeconds * 1000,
+        startTime: timer.startTime,
         endTime: Date.now(),
         childId: timer.childId,
       });
+      if (outcome === 'error') {
+        toast(saveFailedToast());
+        return;
+      }
+      stopTimer(timerId);
+      if (outcome === 'queued') toast(queuedToast());
+    } finally {
+      savingRef.current.delete(timerId);
     }
-  }, [activeTimers, stopTimer, saveTimerLog]);
+  }, [activeTimers, stopTimer, saveTimerLog, toast]);
 
   // QEYD: kilid ekranı widget-indən / bildirişdən dayandırılanların emalı
   // buradan usePendingTimerStops hook-una (Index səviyyəsi, HƏMİŞƏ mounted)

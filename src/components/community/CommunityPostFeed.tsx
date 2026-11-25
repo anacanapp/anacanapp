@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { ArrowUp, Bookmark, MessageCircle, Plus, RefreshCw, Users } from 'lucide-react';
+import { ArrowUp, Bookmark, MessageCircle, Plus, RefreshCw, Users, WifiOff } from 'lucide-react';
 import { useCommunityFeed, type CommunityFeedView } from '@/hooks/useCommunitySocial';
 import { tr } from '@/lib/tr';
+import { useOnlineStatus } from '@/hooks/useOnlineStatus';
 import { Skeleton } from '@/components/ui/skeleton';
 import PostCard from './PostCard';
 import PostSeenObserver from './PostSeenObserver';
@@ -27,6 +28,10 @@ interface Props {
 export default function CommunityPostFeed({ view, groupId = null, authorId = null, search = '', onUserClick, onCreatePost, onExplore }: Props) {
   const feed = useCommunityFeed(view, groupId, authorId, search);
   const [hasModeratedPosts, setHasModeratedPosts] = useState(false);
+  const online = useOnlineStatus();
+  // react-query pauses (not fails) a fetch while offline: without cached posts the
+  // skeletons would stay forever. Cached posts (persisted feed) still render below.
+  const offlineWithoutPosts = feed.isPending && (feed.fetchStatus === 'paused' || !online);
   const EmptyIcon = view === 'saved' ? Bookmark : view === 'following' ? Users : MessageCircle;
   const emptyTitle = search ? tr('groupfeed_netice_tapilmadi_4b1b52', 'Nəticə tapılmadı')
     : view === 'saved' ? tr('community_saved_empty', 'Hələ saxlanmış paylaşım yoxdur')
@@ -44,7 +49,12 @@ export default function CommunityPostFeed({ view, groupId = null, authorId = nul
       <p className="text-sm">{tr('community_load_failed', 'Məlumat yüklənmədi. Yenidən cəhd edin.')}</p>
       <button type="button" onClick={() => void feed.refetch()} className="a-btn-soft mt-3"><RefreshCw size={15} />{tr('community_retry', 'Yenidən yoxla')}</button>
     </div>}
-    {feed.isPending ? <div className="space-y-4" role="status" aria-label={tr('community_loading', 'Yüklənir')}>
+    {offlineWithoutPosts ? <div className="a-card text-center py-8" role="status">
+      <WifiOff size={28} className="mx-auto mb-3" style={{ color: 'var(--a-ink-soft)' }} />
+      <h3 className="font-bold text-base">{tr('community_offline_title', 'İnternet bağlantısı yoxdur')}</h3>
+      <p className="text-sm mt-2 leading-relaxed" style={{ color: 'var(--a-ink-soft)' }}>{tr('community_offline_hint', 'Bağlantı bərpa olunanda paylaşımlar yüklənəcək.')}</p>
+      <button type="button" onClick={() => void feed.refetch()} className="a-btn-soft mt-4"><RefreshCw size={15} />{tr('community_retry', 'Yenidən yoxla')}</button>
+    </div> : feed.isPending ? <div className="space-y-4" role="status" aria-label={tr('community_loading', 'Yüklənir')}>
       {[1, 2, 3].map((n) => <Skeleton key={n} className="h-40 rounded-2xl" />)}
     </div> : !feed.isError && feed.posts.length === 0 && !(view === 'mine' && hasModeratedPosts) ? <div className="a-card text-center py-8">
       <EmptyIcon size={32} className="mx-auto mb-4" style={{ color: 'var(--a-accent-ink)' }} />

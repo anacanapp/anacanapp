@@ -47,17 +47,35 @@ export interface SendPushResult {
   error?: unknown;
 }
 
-/** Recipient-side outcomes that are not failures: no device, notifications off, already sent, left the group. */
-export const EXPECTED_PUSH_SKIPS = ['no_device_tokens', 'preferences_disabled', 'duplicate', 'not_member'];
+/**
+ * Recipient-side outcomes that are not failures: no device, notifications off, already sent, left the
+ * group, every device token rejected by FCM (app uninstalled / stale token), or the like/comment was
+ * removed before the background push ran. Same list as EXPECTED_SKIPS in
+ * supabase/functions/_shared/interaction-push.ts and the crash_reports insert filter.
+ */
+export const EXPECTED_PUSH_SKIPS = ['no_device_tokens', 'preferences_disabled', 'duplicate', 'not_member',
+  'device_tokens_rejected', 'interaction_gone'];
 
-async function serverErrorCode(error: unknown): Promise<string | undefined> {
+type HttpErrorContext = { status?: unknown; headers?: { get?: (name: string) => string | null }; json?: () => Promise<unknown> };
+
+/** Error code, HTTP status and whether the push function itself answered (vs. the gateway/router). */
+async function serverErrorDetails(error: unknown): Promise<{ code?: string; status?: number; runtime?: string }> {
+  const context = (error as { context?: HttpErrorContext })?.context;
+  const details: { code?: string; status?: number; runtime?: string } = {};
+  if (typeof context?.status === 'number') details.status = context.status;
   try {
-    const body = await (error as { context?: { json?: () => Promise<unknown> } })?.context?.json?.();
+    if (typeof context?.headers?.get === 'function') {
+      const runtime = context.headers.get('X-Anacan-Push-Runtime');
+      // Only send-push-notification sets this header; 'none' on a 403/429 points at the gateway/router.
+      details.runtime = typeof runtime === 'string' && runtime && runtime.length <= 40 ? runtime : 'none';
+    }
+  } catch { /* headers unreadable */ }
+  try {
+    const body = await context?.json?.();
     const code = isRecord(body) ? body.error : undefined;
-    return typeof code === 'string' && code.length <= 100 ? code : undefined;
-  } catch {
-    return undefined;
-  }
+    if (typeof code === 'string' && code.length <= 100) details.code = code;
+  } catch { /* non-JSON body */ }
+  return details;
 }
 
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -165,14 +183,19 @@ export async function invokeSendPush(payload: SendPushPayload): Promise<SendPush
     });
 
     if (error) {
-      const serverError = await serverErrorCode(error);
+      const details = await serverErrorDetails(error);
+      const serverError = details.code;
       // An older server without the fan-out contract answers 400 unsupported_context_or_type;
       // the caller falls back to per-member pushes, so that is not a failure to report.
       if (kind === 'group_message_fanout' && serverError === 'unsupported_context_or_type') {
         return { ok: false, sent: 0, error, serverError };
       }
       console.error('[Push] invoke error:', error);
-      report(`invoke error: ${(error as any)?.message || String(error)}`, serverError ? { error: serverError } : undefined);
+      report(`invoke error: ${(error as any)?.message || String(error)}`, {
+        ...(serverError ? { error: serverError } : {}),
+        ...(details.status ? { status: details.status } : {}),
+        ...(details.runtime ? { runtime: details.runtime } : {}),
+      });
       return { ok: false, sent: 0, error, serverError };
     }
 
