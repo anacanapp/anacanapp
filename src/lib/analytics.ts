@@ -194,6 +194,9 @@ export const logEvent = async (eventName: AnalyticsEvent, params?: AnalyticsPara
     import('@/lib/facebook-events').then(({ logFacebookEvent }) => {
       logFacebookEvent(eventName, params as Record<string, any>);
     }).catch(() => {});
+    import('@/lib/tiktok-events').then(({ logTikTokEvent }) => {
+      void logTikTokEvent(eventName, params as Record<string, unknown>);
+    }).catch(() => {});
   }
   if (!analytics) return;
   // Internal usage reporting is independent of optional third-party SDK errors.

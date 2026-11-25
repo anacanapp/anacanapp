@@ -40,6 +40,7 @@ import { Capacitor } from '@capacitor/core';
 import ModeratorEnforcement from '@/components/moderation/ModeratorEnforcement';
 import PrivacyConsentSheet from '@/components/privacy/PrivacyConsentSheet';
 import CustomerIoSession from '@/components/CustomerIoSession';
+import TikTokSession from '@/components/TikTokSession';
 import ThemeStatusBarSync from '@/components/ThemeStatusBarSync';
 import StartupScreen from '@/components/StartupScreen';
 const AdmobAdminPage = lazy(() => import('./pages/AdmobAdminPage'));
@@ -148,6 +149,7 @@ const App = () => {
           <DirectionProvider dir={isRtlLang(language) ? 'rtl' : 'ltr'}>
           <AuthProvider>
             <CustomerIoSession />
+            <TikTokSession />
             <PrivacyConsentSheet />
             <PremiumEntitlementMonitor />
             <PromoRedeemer />

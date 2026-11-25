@@ -36,3 +36,8 @@
 # Anacan's own native plugins, widget, service and the local Customer.io plugin (small; kept whole).
 -keep class com.atlasoon.anacan.** { *; }
 -keep class az.anacan.customerio.** { *; }
+
+# TikTok Business SDK (packages/tiktok-events)
+-keep class com.tiktok.** { *; }
+-keep class com.android.billingclient.api.** { *; }
+-keep class androidx.lifecycle.** { *; }

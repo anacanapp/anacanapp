@@ -31,7 +31,8 @@ let package = Package(
         .package(name: "RevenuecatPurchasesCapacitor", path: "../../../node_modules/@revenuecat/purchases-capacitor"),
         .package(name: "RevenuecatPurchasesCapacitorUi", path: "../../../node_modules/@revenuecat/purchases-capacitor-ui"),
         .package(name: "CapacitorHealth", path: "../../../node_modules/capacitor-health"),
-        .package(name: "CapacitorPluginAppTrackingTransparency", path: "../../../node_modules/capacitor-plugin-app-tracking-transparency")
+        .package(name: "CapacitorPluginAppTrackingTransparency", path: "../../../node_modules/capacitor-plugin-app-tracking-transparency"),
+        .package(name: "AnacanTiktokEvents", path: "../../../packages/tiktok-events")
     ],
     targets: [
         .target(
@@ -58,7 +59,8 @@ let package = Package(
                 .product(name: "RevenuecatPurchasesCapacitor", package: "RevenuecatPurchasesCapacitor"),
                 .product(name: "RevenuecatPurchasesCapacitorUi", package: "RevenuecatPurchasesCapacitorUi"),
                 .product(name: "CapacitorHealth", package: "CapacitorHealth"),
-                .product(name: "CapacitorPluginAppTrackingTransparency", package: "CapacitorPluginAppTrackingTransparency")
+                .product(name: "CapacitorPluginAppTrackingTransparency", package: "CapacitorPluginAppTrackingTransparency"),
+                .product(name: "AnacanTiktokEvents", package: "AnacanTiktokEvents")
             ]
         )
     ]

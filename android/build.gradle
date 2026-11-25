@@ -23,6 +23,11 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        // TikTok Business SDK (packages/tiktok-events) is published only on JitPack; restricted to its group.
+        maven {
+            url 'https://jitpack.io'
+            content { includeGroup 'com.github.tiktok' }
+        }
     }
 
     // Fix duplicate Kotlin stdlib classes (jdk7/jdk8 1.6.21 vs stdlib 1.8.22): one stdlib version for all.

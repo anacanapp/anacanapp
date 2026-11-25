@@ -5,6 +5,9 @@ project(':capacitor-android').projectDir = new File('../node_modules/@capacitor/
 include ':anacan-customerio-data-in'
 project(':anacan-customerio-data-in').projectDir = new File('../packages/customerio-data-in/android')
 
+include ':anacan-tiktok-events'
+project(':anacan-tiktok-events').projectDir = new File('../packages/tiktok-events/android')
+
 include ':capacitor-community-admob'
 project(':capacitor-community-admob').projectDir = new File('../node_modules/@capacitor-community/admob/android')
 

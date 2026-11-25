@@ -68,7 +68,7 @@ export async function setPrivacyConsent(choice: Pick<PrivacyConsent, 'analytics'
   return state;
 }
 
-/** Push the decision into Firebase (collection + Consent Mode v2) and the Meta SDK. */
+/** Push the decision into Firebase (collection + Consent Mode v2), the Meta SDK and the TikTok SDK. */
 export async function applyPrivacyConsent(consent: PrivacyConsent, fromUser = false): Promise<void> {
   if (!Capacitor.isNativePlatform()) return;
   try {
@@ -86,6 +86,11 @@ export async function applyPrivacyConsent(consent: PrivacyConsent, fromUser = fa
     const { applyFacebookConsent } = await import('./facebook-events');
     await applyFacebookConsent(consent.attribution, fromUser);
   } catch { /* Meta SDK unavailable */ }
+  try {
+    // After the Meta step, so the ATT answer (asked once, by the app) is already known.
+    const { applyTikTokConsent } = await import('./tiktok-events');
+    await applyTikTokConsent(consent.attribution);
+  } catch { /* TikTok SDK unavailable */ }
 }
 
 /** Test hook. */
