@@ -1,4 +1,5 @@
 import { createClient } from 'npm:@supabase/supabase-js@2';
+import { recordPremiumPurchase, storePurchaseFact, type PurchaseFact } from './premium-purchases.ts';
 
 export const ENTITLEMENT_ID = 'Anacan LLC Pro';
 
@@ -25,6 +26,10 @@ export interface SyncResult {
 interface RCSubscription {
   refunded_at?: string | null;
   purchase_date?: string | null;
+  original_purchase_date?: string | null;
+  store?: string | null;
+  store_transaction_id?: string | null;
+  price?: { amount?: number; currency?: string } | null;
   period_type?: 'normal' | 'trial' | 'intro';
   unsubscribe_detected_at?: string | null;
   is_sandbox?: boolean;
@@ -136,7 +141,7 @@ function productConfiguration(productId: string): { plan: 'premium' | 'premium_p
   } catch { return null; }
 }
 
-async function stateForUser(userId: string, storeEvent?: RevenueCatStoreEvent): Promise<{ result: SyncResult; state?: EntitlementState }> {
+async function stateForUser(userId: string, storeEvent?: RevenueCatStoreEvent): Promise<{ result: SyncResult; state?: EntitlementState; purchase?: PurchaseFact | null }> {
   let eventId: string | null = null;
   let reason: string | null = null;
   if (storeEvent?.type === 'CANCELLATION' || storeEvent?.type === 'EXPIRATION') {
@@ -221,8 +226,10 @@ async function stateForUser(userId: string, storeEvent?: RevenueCatStoreEvent): 
       productId: state.product_id, willRenew: !web!.cancel_at_period_end, periodType: 'normal', isTrial: false, sandbox: false,
       cancellationRecorded: eventId !== null }, state };
   }
+  // Funnel attribution (premium_purchases): the store purchase / renewal behind an active entitlement, when recent.
+  const purchase = isPro && !sandbox ? storePurchaseFact(productId, sub, product?.kind ?? null) : null;
   return { result: { ok: true, isPro, planType, status, expiresAt, productId, willRenew, periodType, isTrial, sandbox,
-    cancellationRecorded: eventId !== null }, state };
+    cancellationRecorded: eventId !== null }, state, purchase };
 }
 
 async function commitStates(states: EntitlementState[], event?: RevenueCatStoreEvent): Promise<boolean> {
@@ -247,7 +254,17 @@ export async function syncEntitlementForUser(userId: string, storeEvent?: Revenu
   const outcome = await stateForUser(userId, storeEvent);
   if (!outcome.result.ok || !outcome.state) return outcome.result;
   if (!await commitStates([outcome.state], storeEvent)) return { ok: false, reason: 'db_write_failed' };
+  if (outcome.purchase) await logPurchase(userId, outcome.purchase);
   return outcome.result;
+}
+
+/** Idempotent (provider_ref) and never fails the sync: premium_purchases is reporting only. */
+async function logPurchase(userId: string, purchase: PurchaseFact): Promise<void> {
+  const backendUrl = Deno.env.get('SUPABASE_URL');
+  const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+  if (!backendUrl || !serviceKey) return;
+  const admin = createClient(backendUrl, serviceKey, { auth: { persistSession: false, autoRefreshToken: false } });
+  await recordPremiumPurchase(admin, userId, purchase);
 }
 
 export async function syncRevenueCatTransfer(event: RevenueCatStoreEvent): Promise<SyncResult> {

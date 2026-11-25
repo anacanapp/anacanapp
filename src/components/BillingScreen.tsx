@@ -17,7 +17,9 @@ import { PremiumModal } from '@/components/PremiumModal';
 import { CancellationReasonDialog } from '@/components/CancellationReasonDialog';
 import { useBillingConfig } from '@/hooks/usePaywallConfig';
 import { usePremiumConfig } from '@/hooks/usePremiumConfig';
-import { getPlatform, isNativePlatform, REVENUECAT_CONFIG } from '@/lib/revenuecat';
+import { getPlatform, isNativePlatform, openStoreSubscriptions, REVENUECAT_CONFIG } from '@/lib/revenuecat';
+import { premiumSourceKind, purchaseErrorMessage, storePurchaseBlock } from '@/lib/purchase-errors';
+import { fetchWebPremiumState, openWebPremiumCabinet, setWebPremiumRenewal, type WebPremiumState } from '@/lib/web-premium-client';
 import { getDynamicIcon } from '@/lib/dynamicIcon';
 import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
@@ -38,11 +40,11 @@ const BillingScreen = ({ onBack }: BillingScreenProps) => {
   useScrollToTop();
 
   const { profile } = useAuth();
-  const { isPremium, subscription, isCancelled, cancelledButActive, loading: isLoading } = useSubscription();
+  const { isPremium, ownPremium, householdPremium, subscription, isCancelled: rowCancelled, loading: isLoading, refetch: refetchSubscription } = useSubscription();
   const { toast } = useToast();
   const config = useBillingConfig();
   const { features: dbFeatures } = usePremiumConfig();
-  const { showCustomerCenter, isSupported: isIAPSupported, restorePurchases } = useInAppPurchase();
+  const { showCustomerCenter, isSupported: isIAPSupported, restorePurchasesDetailed } = useInAppPurchase();
   const [showPremiumModal, setShowPremiumModal] = useState(false);
   const [showCancelReasonDialog, setShowCancelReasonDialog] = useState(false);
   const [isCanceling, setIsCanceling] = useState(false);
@@ -57,7 +59,26 @@ const BillingScreen = ({ onBack }: BillingScreenProps) => {
   // Aktiv məhsulun RC identifikatoru — Android-də Play Store-un abunəlik
   // idarəetmə səhifəsinə düzgün SKU ilə yönləndirmək üçün (bax handleCancelSubscription).
   const [activeProductId, setActiveProductId] = useState<string | null>(null);
-  const isAndroidNative = isNativePlatform() && getPlatform() === 'android';
+  // RevenueCat entitlement store of the active Premium (APP_STORE / PLAY_STORE / PROMOTIONAL ...):
+  // cancel, resume and upgrade go to the place that actually bills the user.
+  const [activeStore, setActiveStore] = useState<string | null | undefined>(undefined);
+  const [webState, setWebState] = useState<WebPremiumState | null>(null);
+  const [webBusy, setWebBusy] = useState(false);
+  const platform = getPlatform();
+  const isAndroidNative = isNativePlatform() && platform === 'android';
+
+  const loadWebState = async () => { setWebState(await fetchWebPremiumState()); };
+  useEffect(() => {
+    // Premium bought on anacan.az (Epoint) is not visible to the store SDK.
+    if (ownPremium) void loadWebState();
+  }, [ownPremium]);
+  const isWebSubscription = webState?.active === true && webState.source === 'web_subscription';
+  const householdOnly = householdPremium && !ownPremium;
+  const isCancelled = rowCancelled || (isWebSubscription && !webState?.renews);
+  // Promotional / one-time web passes have nothing that renews: no cancel button.
+  const nothingRenews = !isWebSubscription && (activeStore === 'PROMOTIONAL' || webState?.source === 'promotional' || webState?.source === 'web_pass');
+  const storeKind: 'ios' | 'android' | null = activeStore === 'APP_STORE' || activeStore === 'MAC_APP_STORE' ? 'ios'
+    : activeStore === 'PLAY_STORE' ? 'android' : null;
 
   const fetchPaymentHistory = async () => {
     if (!isNativePlatform()) return;
@@ -73,6 +94,7 @@ const BillingScreen = ({ onBack }: BillingScreenProps) => {
       // Aktiv Pro entitlement-in real product-undan DƏQİQ qiyməti çək (istifadəçinin
       // real ödədiyi valyuta/məbləğ — country/promo-ya görə fərqli ola bilər).
       const proEntitlement = activeEntitlements[REVENUECAT_CONFIG.ENTITLEMENT_ID];
+      setActiveStore((proEntitlement as { store?: string } | undefined)?.store ?? null);
       if (proEntitlement?.productIdentifier) {
         setActiveProductId(proEntitlement.productIdentifier);
         try {
@@ -138,58 +160,95 @@ const BillingScreen = ({ onBack }: BillingScreenProps) => {
     setShowCancelReasonDialog(true);
   };
 
+  const openStoreManagement = async (store: 'ios' | 'android') => {
+    // iOS: RevenueCat Customer Center when available, otherwise Apple's subscriptions page.
+    if (store === 'ios' && isIAPSupported && platform === 'ios' && await showCustomerCenter()) return;
+    openStoreSubscriptions(store, activeProductId);
+  };
+
+  const changeWebRenewal = async (action: 'cancel' | 'resume') => {
+    if (action === 'cancel' && !window.confirm(tr('billing_web_cancel_confirm', 'Avtomatik yenilənmə dayandırılsın? Premium ödənilmiş dövrün sonuna qədər aktiv qalacaq.'))) return;
+    setWebBusy(true);
+    try {
+      const result = await setWebPremiumRenewal(action);
+      if (result === 'ok') {
+        toast({ title: action === 'cancel'
+          ? tr('billing_web_cancel_done', 'Avtomatik yenilənmə dayandırıldı. Premium ödənilmiş dövrün sonuna qədər aktivdir.')
+          : tr('billing_web_resume_done', 'Avtomatik yenilənmə yenidən aktivdir.') });
+        await Promise.all([loadWebState(), refetchSubscription()]);
+      } else if (result === 'refused') {
+        // The server keeps subscription management on anacan.az: open the cabinet there.
+        openWebPremiumCabinet();
+      } else {
+        toast({ title: tr('billingscreen_error', 'Error'), description: tr('billing_action_failed', 'Əməliyyat alınmadı. İnternet bağlantısını yoxlayıb yenidən cəhd edin.'), variant: 'destructive' });
+      }
+    } finally { setWebBusy(false); }
+  };
+
   const proceedWithPlatformCancel = async () => {
-    if (isIAPSupported && !isAndroidNative) {
+    // Cancel where the subscription is billed. The app itself never marks a store
+    // subscription cancelled (Duzelis33): the store/anacan.az decides, sync follows.
+    if (isWebSubscription) { await changeWebRenewal('cancel'); return; }
+    const store = storeKind ?? (platform === 'ios' ? 'ios' : platform === 'android' ? 'android' : null);
+    if (store) {
       setIsCanceling(true);
-      await showCustomerCenter();
-      setIsCanceling(false);
+      try { await openStoreManagement(store); } finally { setIsCanceling(false); }
       return;
     }
-    // Android: TƏTBİQ ÖZÜ abunəliyi ləğv edə bilməz (yalnız Google Play).
-    // Əvvəllər bura sadəcə DB sətrini "cancelled" edirdi — Play Store-da real
-    // abunəlik davam edir, istifadəçi ödənişi almağa davam edirdi, tətbiq isə
-    // "ləğv edilib" göstərirdi. İndi birbaşa Play Store-un öz abunəlik idarəetmə
-    // səhifəsinə yönləndirir (Google-ın da tələb etdiyi düzgün üsul).
-    if (isAndroidNative) {
-      const pkg = 'com.atlasoon.anacan';
-      const url = activeProductId ?
-      `https://play.google.com/store/account/subscriptions?sku=${encodeURIComponent(activeProductId)}&package=${pkg}` :
-      `https://play.google.com/store/account/subscriptions?package=${pkg}`;
-      window.open(url, '_system');
-      return;
-    }
-    // Native olmayan (web) — real store yoxdur, sadəcə dəstək ünvanına yönləndir.
-    toast({ title: tr("billingscreen_error", "Error"), description: tr("billingscreen_cancel_error", "Failed to cancel subscription."), variant: 'destructive' });
+    // Web app without a store: subscriptions bought on anacan.az are managed in its cabinet.
+    openWebPremiumCabinet();
   };
 
   const handleRestoreSubscription = async () => {
     setIsRestoring(true);
-    // Real RevenueCat restore (Store-dan) + server-side sync-revenuecat-entitlement
-    // (əvvəllər useSubscription().restoreSubscription() heç bir yoxlama olmadan
-    // sadəcə DB status-unu "active" edirdi — real yoxlama YOX idi).
-    const success = await restorePurchases();
-    toast(success ?
-      { title: tr("billingscreen_restore_success", "Subscription Restored"), description: tr("billingscreen_restore_success_desc", "Your Premium subscription is active again.") } :
-      { title: tr("billingscreen_error", "Error"), description: tr("billingscreen_restore_error", "Failed to restore subscription."), variant: 'destructive' }
-    );
-    setIsRestoring(false);
+    try {
+      // Cancelled anacan.az subscription: undo the cancellation before the period ends.
+      if (isWebSubscription) { await changeWebRenewal('resume'); return; }
+      // Cancelled store subscription: only the store can turn renewal back on.
+      // Never claim it was re-enabled from here; open the store's management page.
+      if (storeKind) {
+        await openStoreManagement(storeKind);
+        toast({ title: tr('billing_store_resume_hint', 'Avtomatik yenilənməni mağazanın abunəlik səhifəsində yenidən aktiv edin.') });
+        return;
+      }
+      // Unknown source: real store restore + server-side sync (never a local status flip).
+      const outcome = await restorePurchasesDetailed();
+      toast(outcome.ok ?
+        { title: tr("billingscreen_restore_success", "Subscription Restored"), description: tr("billingscreen_restore_success_desc", "Your Premium subscription is active again.") } :
+        { title: tr("billingscreen_error", "Error"), variant: 'destructive', description: outcome.failure === 'network'
+          ? tr('restore_err_network', 'Bərpa alınmadı: mağaza ilə əlaqə yoxdur. İnternet bağlantısını yoxlayıb yenidən cəhd edin.')
+          : outcome.failure === 'pending' ? purchaseErrorMessage('PURCHASE_PENDING')
+          : tr('pw_restore_none_desc', 'Bu hesabla bağlı əvvəlki abunəlik yoxdur') }
+      );
+    } finally { setIsRestoring(false); }
+  };
+
+  // Upgrade: a store purchase must not duplicate Premium billed elsewhere (anacan.az, promo,
+  // household, the other platform's store). Android plan changes replace the old Play plan.
+  const handleUpgrade = () => {
+    const block = storePurchaseBlock(premiumSourceKind({ platform, ownPremium, householdPremium,
+      storeEntitlement: isWebSubscription ? null : activeStore === undefined ? undefined : activeStore ? { store: activeStore, productIdentifier: activeProductId } : null }));
+    if (block) { toast({ title: purchaseErrorMessage(block) }); return; }
+    setShowPremiumModal(true);
   };
 
   const hasPremiumSub = subscription && (subscription.plan_type === 'premium' || subscription.plan_type === 'premium_plus');
   const isPremiumPlus = subscription?.plan_type === 'premium_plus';
-  const planName = !hasPremiumSub && !isPremium ? config.free_plan_name : isPremiumPlus ? config.premium_yearly_name : config.premium_monthly_name;
-  // Mümkünsə RevenueCat-dan çəkilən REAL qiymət (real valyuta/məbləğ) göstərilir;
-  // yalnız hələ yüklənməyibsə (native olmayan platforma, ya da fetch uğursuz olub)
-  // fallback olaraq "rəsmi" pricing_2026 dəyərləri göstərilir.
-  const planPrice = !hasPremiumSub && !isPremium ? '$0' : realPriceString || (isPremiumPlus ? '$29.99' : '$3.99');
-  const planPeriod = !hasPremiumSub && !isPremium ? '' : isPremiumPlus ? tr("common_per_year", "/year") : tr("common_per_month", "/month");
+  const planName = householdOnly ? tr('billing_household_active', 'Ailə Premium-u (partnyorunuzun abunəliyi)')
+    : !hasPremiumSub && !isPremium ? config.free_plan_name : isPremiumPlus ? config.premium_yearly_name : config.premium_monthly_name;
+  // Only the real store price (RevenueCat, the user's currency) is shown. No hardcoded
+  // USD fallback: an unknown price is left out rather than shown wrong.
+  const planPrice = householdOnly || (!hasPremiumSub && !isPremium) ? '' : realPriceString || '';
+  const planPeriod = !planPrice ? '' : isPremiumPlus ? tr("common_per_year", "/year") : tr("common_per_month", "/month");
+  // Wait for the entitlement before presenting the account as Free.
+  const statusLoading = isLoading && !isPremium;
 
   const renderIcon = (iconName: string, className: string) => {
     const IconComp = getDynamicIcon(iconName, Sparkles);
     return <IconComp className={className} />;
   };
 
-  const isFreeUser = !hasPremiumSub && !isPremium;
+  const isFreeUser = !statusLoading && !hasPremiumSub && !isPremium;
   const allFeaturesList = dbFeatures.filter((f) => f.is_included_premium);
 
   return (
@@ -243,6 +302,8 @@ const BillingScreen = ({ onBack }: BillingScreenProps) => {
                       <AlertTriangle className="w-2.5 h-2.5" />
                       {config.cancelled_badge}
                     </span>
+                  ) : statusLoading ? (
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" style={{ color: 'var(--a-ink-soft)' }} aria-hidden />
                   ) : (
                     <span style={{ fontSize: 11.5, fontWeight: 500, color: 'var(--a-ink-soft)' }}>{tr("billingscreen_status_free", "Current Status: Free")}</span>
                   )}
@@ -251,10 +312,10 @@ const BillingScreen = ({ onBack }: BillingScreenProps) => {
             </div>
           </div>
 
-          <div className="flex items-end gap-1 mb-1">
-            <span style={{ fontSize: 30, fontWeight: 900, letterSpacing: '-0.03em', color: 'var(--a-ink)' }}>{planPrice}</span>
+          {planPrice && <div className="flex items-end gap-1 mb-1">
+            <span style={{ fontSize: 30, fontWeight: 900, letterSpacing: '-0.03em', color: 'var(--a-ink)' }}><bdi>{planPrice}</bdi></span>
             <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--a-ink-soft)', marginBottom: 6 }}>{planPeriod}</span>
-          </div>
+          </div>}
 
           {isFreeUser && (
             <Button
@@ -269,7 +330,7 @@ const BillingScreen = ({ onBack }: BillingScreenProps) => {
         </div>
 
         {/* Subscription Details (Compact Grid) */}
-        {isPremium && subscription && (
+        {ownPremium && subscription && (
           <div className="grid grid-cols-2 gap-3">
             <div className="flex flex-col justify-center" style={{ background: 'var(--a-surface)', borderRadius: 18, padding: 14, boxShadow: 'var(--a-card-shadow)' }}>
               <p className="flex items-center gap-1 mb-1" style={{ fontSize: 10, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--a-ink-soft)' }}>
@@ -294,21 +355,21 @@ const BillingScreen = ({ onBack }: BillingScreenProps) => {
 
             <div className="col-span-2 flex gap-2" style={{ background: 'var(--a-surface)', borderRadius: 18, padding: 8, boxShadow: 'var(--a-card-shadow)' }}>
               {isCancelled ? (
-                <Button onClick={handleRestoreSubscription} disabled={isRestoring} className="w-full h-11 rounded-full text-white font-bold text-sm border-0 hover:opacity-95" style={{ background: '#63bd8b' }}>
-                  {isRestoring ? <Loader2 className="w-4 h-4 me-2 animate-spin" /> : <RotateCcw className="w-4 h-4 me-2" />}
-                  {config.restore_cta}
+                <Button onClick={handleRestoreSubscription} disabled={isRestoring || webBusy} className="w-full h-11 rounded-full text-white font-bold text-sm border-0 hover:opacity-95" style={{ background: '#63bd8b' }}>
+                  {isRestoring || webBusy ? <Loader2 className="w-4 h-4 me-2 animate-spin" /> : <RotateCcw className="w-4 h-4 me-2" />}
+                  {storeKind && !isWebSubscription ? tr('billing_manage_in_store', 'Mağazada idarə et') : config.restore_cta}
                 </Button>
               ) : subscription?.plan_type === 'premium' ? (
                 <>
-                  <Button onClick={() => setShowPremiumModal(true)} className="flex-1 h-11 rounded-full font-bold text-sm border-0 hover:opacity-90" style={{ background: 'var(--a-peach-1)', color: 'var(--a-accent-ink)' }}>
+                  <Button onClick={handleUpgrade} className="flex-1 h-11 rounded-full font-bold text-sm border-0 hover:opacity-90" style={{ background: 'var(--a-peach-1)', color: 'var(--a-accent-ink)' }}>
                     <Crown className="w-4 h-4 me-1.5" /> {tr("billingscreen_upgrade", "Upgrade")}
                   </Button>
-                  <Button onClick={handleCancelSubscription} disabled={isCanceling} variant="ghost" className="flex-1 h-11 rounded-full font-bold text-sm" style={{ color: 'var(--a-ink-soft)' }}>
+                  {!nothingRenews && <Button onClick={handleCancelSubscription} disabled={isCanceling || webBusy} variant="ghost" className="flex-1 h-11 rounded-full font-bold text-sm" style={{ color: 'var(--a-ink-soft)' }}>
                     {isCanceling ? <Loader2 className="w-4 h-4 me-1.5 animate-spin" /> : <XCircle className="w-4 h-4 me-1.5" />} {config.cancel_cta}
-                  </Button>
+                  </Button>}
                 </>
-              ) : (
-                <Button onClick={handleCancelSubscription} disabled={isCanceling} variant="ghost" className="w-full h-11 rounded-full font-bold text-sm" style={{ color: 'var(--a-ink-soft)' }}>
+              ) : nothingRenews ? null : (
+                <Button onClick={handleCancelSubscription} disabled={isCanceling || webBusy} variant="ghost" className="w-full h-11 rounded-full font-bold text-sm" style={{ color: 'var(--a-ink-soft)' }}>
                   {isCanceling ? <Loader2 className="w-4 h-4 me-2 animate-spin" /> : <XCircle className="w-4 h-4 me-2" />} {config.cancel_cta}
                 </Button>
               )}
@@ -351,7 +412,7 @@ const BillingScreen = ({ onBack }: BillingScreenProps) => {
         </div>
 
         {/* Compact Payment History */}
-        {isPremium && subscription && payments.length > 0 && (
+        {ownPremium && subscription && payments.length > 0 && (
           <div style={{ background: 'var(--a-surface)', borderRadius: 'var(--a-radius-md)', padding: 16, boxShadow: 'var(--a-card-shadow)' }}>
             <div className="flex items-center justify-between mb-4">
               <h3 className="flex items-center gap-1.5" style={{ fontSize: 13, fontWeight: 800, color: 'var(--a-ink)' }}>

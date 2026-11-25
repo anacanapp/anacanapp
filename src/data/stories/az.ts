@@ -413,8 +413,8 @@ export const STORIES_AZ: Story[] = [
    audience:{ stage:['bump','mommy','flow'], premium:false }, schedule:{ refresh:'weekly' }, source:'',
    slides:[
      { t:'cover', kicker:'Anacan Premium', title:'Hər şey ==bir yerdə==', illus:'blob' },
-     { t:'list', items:['Limitsiz Anacan AI','Körpə izləyicisi və həftəlik analiz','Həkim üçün PDF hesabat','Reklamsız'] },
-     { t:'cta', title:'3 gün pulsuz sına', body:'İstədiyin vaxt ləğv et.', cta:{ label:'Premium', nav:{ screen:'billing' }, premium:true }, illus:'blob' } ] },
+     { t:'list', items:['Gündəlik limitsiz Anacan AI','Körpə izləyicisi və həftəlik analiz','Həkim üçün PDF hesabat','Reklamsız'] },
+     { t:'cta', title:'Premium-u kəşf et', body:'Planını seç, istədiyin vaxt ləğv et.', cta:{ label:'Premium', nav:{ screen:'billing' }, premium:true }, illus:'blob' } ] },
 
  // ================= +20 (2026-11-09, app launch set) =================
  { id:'bump-heartburn', module:'bump', title:'Ürək yanması', theme:'peach', illus:'drop',

@@ -3,6 +3,7 @@
 // Payments are trusted only from a signed Epoint callback or Epoint get-status; redirect URLs never count.
 // The Epoint card_id stays on the server: it is stored in epoint_saved_cards and sent only to Epoint.
 import { EPOINT_CARD_ID, epointAmount, epointRequest, type EpointConfig } from './epoint.ts';
+import { recordPremiumPurchase } from './premium-purchases.ts';
 
 const ORDER_ID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -11,6 +12,14 @@ export const CAMPAIGN_PAGE = `${SITE}/website/premium/kampaniya/index.html`;
 export const CABINET_PAGE = `${SITE}/website/premium/hesab/index.html`;
 /** Subscription at the normal price (outside campaigns). */
 export const STANDARD_PAGE = `${SITE}/website/premium/abune/index.html`;
+/** Return page of a checkout started inside the app (page 'app'): "payment received, go back to the app". */
+export const APP_RETURN_PAGE = `${SITE}/website/premium/app-return/index.html`;
+/**
+ * Origins of the Anacan app itself (capacitor.config.json server.hostname app.anacan.az): Android and the web app use
+ * https://app.anacan.az, iOS uses the default capacitor:// scheme. Only the in-app checkout actions accept them.
+ */
+export const APP_ORIGINS = ['https://app.anacan.az', 'capacitor://app.anacan.az'];
+export const APP_ACTIONS = ['status', 'subscribe', 'cancel', 'resume'];
 export const MAX_RENEWAL_ATTEMPTS = 3;
 
 export type Plan = 'monthly' | 'yearly';
@@ -98,6 +107,41 @@ export function offerView(offer: (Campaign & { kind?: string }) | null | undefin
   return { ...campaignView(value), kind: value.active ? (value.kind === 'standard' ? 'standard' : 'campaign') : null };
 }
 
+// ── In-app Epoint (app_settings.in_app_epoint, migration 20261125150000) ─────────────────
+
+export type AppPlatform = 'ios' | 'android' | 'web';
+export interface InAppEpointSetting { enabled: boolean; countries: string[]; platforms: Record<AppPlatform, boolean> }
+
+/** The stored setting (object, or the JSON string the admin settings writer stores); anything unreadable is off. */
+export function parseInAppEpoint(raw: unknown): InAppEpointSetting {
+  let value: unknown = raw;
+  for (let i = 0; i < 2 && typeof value === 'string'; i++) { try { value = JSON.parse(value); } catch { value = null; } }
+  const v = value && typeof value === 'object' && !Array.isArray(value) ? value as Record<string, unknown> : {};
+  const platforms = v.platforms && typeof v.platforms === 'object' ? v.platforms as Record<string, unknown> : {};
+  const countries = Array.isArray(v.countries)
+    ? [...new Set(v.countries.filter((c): c is string => typeof c === 'string').map(c => c.trim().toUpperCase()).filter(c => /^[A-Z]{2}$/.test(c)))]
+    : [];
+  return { enabled: v.enabled === true, countries,
+    platforms: { android: platforms.android === true, ios: platforms.ios === true, web: platforms.web === true } };
+}
+
+/** Whether a user in `country` on `platform` may start an Epoint checkout from the app paywall. */
+export function inAppEpointAllowed(setting: InAppEpointSetting, country: string | null | undefined, platform: unknown): boolean {
+  const code = typeof country === 'string' ? country.trim().toUpperCase() : '';
+  return setting.enabled && (platform === 'ios' || platform === 'android' || platform === 'web')
+    && setting.platforms[platform] === true && /^[A-Z]{2}$/.test(code) && setting.countries.includes(code);
+}
+
+/** Success / error return URLs of a subscribe checkout, by the page that started it. */
+export function subscribeRedirects(page: unknown, test: boolean, platform?: unknown): { success: string; error: string } {
+  if (page === 'app' && !test) {
+    const from = platform === 'web' ? 'web' : 'app';
+    return { success: `${APP_RETURN_PAGE}?odenis=ugurlu&from=${from}`, error: `${APP_RETURN_PAGE}?odenis=xeta&from=${from}` };
+  }
+  const base = page === 'standard' && !test ? STANDARD_PAGE : CAMPAIGN_PAGE;
+  return { success: `${base}?odenis=ugurlu`, error: `${base}?odenis=xeta` };
+}
+
 /** Maps a database exception (RAISE 'WEB_PREMIUM_…') to a stable error code for the page. */
 export function rpcErrorCode(error: { message?: string } | null | undefined): string | null {
   const match = /WEB_PREMIUM_[A-Z_]+/.exec(error?.message ?? '');
@@ -150,7 +194,7 @@ export async function confirmCharge(config: EpointConfig, chargeId: string, expe
 
 /** Applies a charge result: payload is the signed callback or an execute-pay answer (status only hints; get-status decides). */
 export async function applyChargeResult(admin: Admin, config: EpointConfig, chargeId: string, payload: Record<string, unknown>): Promise<ChargeApplied> {
-  const { data: charge } = await admin.from('web_premium_charges').select('id,amount,status,user_id,kind').eq('id', chargeId).maybeSingle();
+  const { data: charge } = await admin.from('web_premium_charges').select('id,amount,status,user_id,kind,plan').eq('id', chargeId).maybeSingle();
   if (!charge) return { result: 'not_found' };
   if (charge.status === 'paid') return { result: 'duplicate', userId: charge.user_id };
   const confirmed = await confirmCharge(config, chargeId, charge.amount);
@@ -164,6 +208,14 @@ export async function applyChargeResult(admin: Admin, config: EpointConfig, char
     if (error) {
       console.error('[web-premium] charge_paid failed:', rpcErrorCode(error) ?? 'database');
       return { result: 'not_confirmed', userId: charge.user_id };
+    }
+    if (data?.changed !== false) {
+      // Funnel attribution (premium_purchases): idempotent on the charge id, never blocks the payment result.
+      await recordPremiumPurchase(admin, charge.user_id, {
+        provider: 'epoint', productId: `epoint:${charge.plan}`, plan: charge.plan === 'yearly' ? 'yearly' : 'monthly',
+        amount: Number(charge.amount), currency: 'AZN', providerRef: `epoint:${chargeId}`,
+        kind: charge.kind === 'renewal' ? 'renewal' : 'initial',
+      });
     }
     return { result: data?.changed === false ? 'duplicate' : 'paid', userId: charge.user_id, detail: data };
   }

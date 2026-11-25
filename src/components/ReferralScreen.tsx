@@ -14,9 +14,9 @@ interface Props {
 
 /**
  * Dostunu dəvət et — referral proqramı.
- * Kod paylaş → hər iki tərəfə +7 gün Premium.
+ * Kod paylaş → dostun ödənişli Premium alanda (server təsdiqi) dəvət edənə +7 gün Premium.
  */
-/** Status çipi: qeydiyyat / trial / premium */
+/** Status çipi: qeydiyyat / ödəniş gözlənilir (köhnə trial statusu) / premium */
 const StatusChip = ({ r }: {r: ReferredUser;}) => {
   if (r.status === 'converted') {
     return (
@@ -27,7 +27,7 @@ const StatusChip = ({ r }: {r: ReferredUser;}) => {
   if (r.status === 'trial') {
     return (
       <span className="a-rank-tag inline-flex items-center gap-1" style={{ background: 'var(--a-yellow-1)', color: 'var(--a-warn-ink)' }}>
-        <Hourglass size={10} strokeWidth={2.4} /> {tr('ref_st_trial', 'Free trial')}
+        <Hourglass size={10} strokeWidth={2.4} /> {tr('ref_st_pending_v2', 'Ödəniş gözlənilir')}
       </span>);
   }
   return (
@@ -93,7 +93,7 @@ const ReferralScreen = ({ onBack }: Props) => {
   const steps = [
   { emoji: '📤', text: tr('ref_step1', 'Kodunu dostlarına göndər') },
   { emoji: '📲', text: tr('ref_step2_v3', 'Dostun tətbiqi yükləyib kodunu daxil edir') },
-  { emoji: '👑', text: tr('ref_step3_v2', 'Dostun Premium olanda (birbaşa və ya trial-dan sonra) SƏN +7 gün qazanırsan') }];
+  { emoji: '👑', text: tr('ref_step3_v3', 'Dostun ödənişli Premium alanda sən +7 gün Premium qazanırsan') }];
 
 
   return (
@@ -131,7 +131,7 @@ const ReferralScreen = ({ onBack }: Props) => {
               <Gift size={24} strokeWidth={2} style={{ color: 'var(--a-accent-ink)' }} />
             </div>
             <p className="a-list-sub" style={{ whiteSpace: 'normal', marginBottom: 10 }}>
-              {tr('ref_code_sub', 'Sənin dəvət kodun — paylaş, ikiniz də qazanın')}
+              {tr('ref_code_sub_v2', 'Sənin dəvət kodun. Paylaş, Premium günləri qazan')}
             </p>
 
             {codeLoading ?
@@ -271,7 +271,7 @@ const ReferralScreen = ({ onBack }: Props) => {
         }
 
         <p className="a-teaser text-center" style={{ marginTop: 14 }}>
-          {tr('ref_terms_v2', 'Hər hesab yalnız 1 dəvət kodu istifadə edə bilər. Sənin +7 günün dostun real Premium olanda (trial-dan keçid daxil) avtomatik verilir və mövcud müddətin üstünə əlavə olunur.')}
+          {tr('ref_terms_v3', 'Hər hesab yalnız 1 dəvət kodu istifadə edə bilər. +7 gün dostunun ilk ödənişi təsdiqlənəndə avtomatik verilir və mövcud müddətinin üstünə əlavə olunur.')}
         </p>
       </div>
     </div>);

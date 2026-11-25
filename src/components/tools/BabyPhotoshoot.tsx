@@ -565,7 +565,7 @@ const BabyPhotoshoot = forwardRef<HTMLDivElement, BabyPhotoshootProps>(({ onBack
                     {tr('premiumgate_default_title', 'Bu bölmə Premium-dadır')}
                   </p>
                   <p className="text-xs mt-1" style={{ margin: 0, color: 'var(--a-warn-ink)', opacity: 0.85 }}>
-                    {tr('pgate_default_desc', 'Premium ilə açılır — 3 gün pulsuz sınayın')}
+                    {tr('pgate_default_desc_v2', 'Premium ilə açılır')}
                   </p>
                 </div>
               </div>

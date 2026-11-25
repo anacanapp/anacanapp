@@ -1,0 +1,21 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261125160000_in_app_epoint_usd_pricing.sql",
+  "runtime": "google-premium-funnel",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate after 20261125150000; refuses unless public.app_settings is guarded and web_premium_subscribe_start_v1 exists; verifies rounding and that the pricing keys stay out of get_public_app_setting",
+  "preserve": ["cron0", "8 enabled business timers", "Source sealed", "web_premium_subscribe_start_v1 and the anacan.az campaign / Mərcan / standard pricing unchanged", "get_public_app_setting unchanged"],
+  "relations": [
+    { "relation": "public.app_settings", "change": "row inserted (in_app_epoint_pricing); row fx_usd_azn written later by web_premium_fx_store_v1", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "already guarded; admin-only USD prices, per-country overrides, fallback rate; cached CBAR USD/AZN rate" },
+    { "relation": "public.web_premium_subscriptions", "change": "new writer function (web_premium_app_subscribe_start_v1); no schema change", "cdc": true, "writer_guard": true, "pii": true, "primary_key": ["id"], "note": "already guarded" },
+    { "relation": "public.web_premium_charges", "change": "new writer function (web_premium_app_subscribe_start_v1); no schema change", "cdc": true, "writer_guard": true, "pii": true, "primary_key": ["id"], "note": "already guarded" }
+  ],
+  "functions": [
+    { "name": "public._app_setting_object(text)", "security": "definer", "grant": "service_role" },
+    { "name": "public._web_premium_round_azn(numeric,text)", "security": "invoker", "grant": "service_role" },
+    { "name": "public.web_premium_usd_azn_rate_v1()", "security": "definer", "grant": "service_role" },
+    { "name": "public.web_premium_fx_store_v1(numeric,date)", "security": "definer", "grant": "service_role" },
+    { "name": "public.web_premium_app_offer_v1(uuid)", "security": "definer", "grant": "service_role" },
+    { "name": "public.web_premium_app_subscribe_start_v1(uuid,text)", "security": "definer", "grant": "service_role" }
+  ]
+}

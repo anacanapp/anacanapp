@@ -91,11 +91,12 @@ export interface BillingConfig {
  */
 export const getDefaultPaywallConfig = (): PaywallConfig => ({
   title: 'Anacan Premium',
-  subtitle: tr("usepaywallconfig_tam_tecrube_sinirsiz_imkanlar_ce3376", "Tam təcrübə · Sınırsız imkanlar"),
+  subtitle: tr("usepaywallconfig_subtitle_v2", "Sizə uyğun tam Anacan təcrübəsi"),
+  // Yalnız real Premium imkanları: AI-da gündəlik limit yoxdur (pulsuz: gündə 10 sual), reklamsızlıq sonda.
   pills: [
-  { icon: 'Zap', text: tr("common_limitsiz", 'Limitsiz') },
-  { icon: 'Shield', text: tr("usepaywallconfig_reklamsiz_cc4ba5", "Reklamsız") },
-  { icon: 'Sparkles', text: tr("usepaywallconfig_ai_desteyi_934e62", "AI dəstəyi") }],
+  { icon: 'Sparkles', text: tr("paywall_pill_ai_daily", "Gündəlik limitsiz AI") },
+  { icon: 'Users', text: tr("pw_feat_household", "Partnyorla ortaq Premium") },
+  { icon: 'Shield', text: tr("usepaywallconfig_reklamsiz_cc4ba5", "Reklamsız") }],
 
   cta_new_user: tr("usepaywallconfig_premium_a_kec_2e8b0e", "Premium-a Ke\xE7"),
   cta_upgrade: tr("usepaywallconfig_plani_yenile_3ad3f4", "Plan\u0131 Yenil\u0259"),

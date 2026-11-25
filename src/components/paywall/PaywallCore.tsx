@@ -1,19 +1,22 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Crown, Loader2, RefreshCw, Shield, Sparkles, Star, Infinity as InfinityIcon } from 'lucide-react';
+import { Check, Crown, Loader2, RefreshCw, Shield, Sparkles, Infinity as InfinityIcon } from 'lucide-react';
 import SponsorEntry from '@/components/premium/SponsorEntry';
 import { useInAppPurchase, type RCPackage } from '@/hooks/useInAppPurchase';
 import { usePaywallConfig } from '@/hooks/usePaywallConfig';
-import { usePremiumConfig } from '@/hooks/usePremiumConfig';
 import { getPlatform, isNativePlatform } from '@/lib/revenuecat';
 import { annualStorePlan, standardStorePlan } from '@/lib/onboarding-billing';
+import { appLanguageLocale } from '@/lib/app-languages';
+import { usePremiumEntitlement } from '@/hooks/usePremiumEntitlement';
+import { purchaseErrorMessage } from '@/lib/purchase-errors';
 import { onboardingText } from '@/lib/onboarding-i18n';
 import { useUserStore } from '@/store/userStore';
 import { useToast } from '@/hooks/use-toast';
 import { tr } from '@/lib/tr';
-import { followupText } from '@/lib/followup-i18n';
-import { appLanguageLocale } from '@/lib/app-languages';
+import { paywallFeatures, paywallHeadline, paywallSocialProof, paywallStage } from '@/lib/paywall-stage-copy';
 import { QaygiCashPremiumOption, QcPremiumEarnLine } from '@/components/qaygicash/QaygiCashPremium';
+import EpointPayOption from '@/components/paywall/EpointPayOption';
+import { funnelHit, purchaseIntent } from '@/lib/premium-funnel';
 
 /**
  * Anacan Paywall Core — sıfırdan qurulmuş custom paywall (RevenueCat native UI YOX).
@@ -39,23 +42,31 @@ interface PaywallCoreProps {
   compact?: boolean;
 }
 
-const currencySign = (code?: string) =>
-code === 'AZN' ? '₼' : code === 'USD' ? '$' : code === 'EUR' ? '€' : code ? `${code} ` : '$';
+/** Store-currency price in the app language's number format (same approach as OnboardingPaywall). */
+const formatMoney = (language: string, amount: number, currency?: string) => {
+  try {
+    return new Intl.NumberFormat(appLanguageLocale(language), { style: 'currency', currency: currency && /^[A-Z]{3}$/.test(currency) ? currency : 'USD' }).format(amount);
+  } catch { return amount.toFixed(2); }
+};
 
 const PaywallCore = ({ feature, analyticsSource, onPurchased, onNonNativeCta, compact = false }: PaywallCoreProps) => {
   const { toast } = useToast();
   const cfg = usePaywallConfig();
   const language = useUserStore(state => state.language);
   const text = (key: Parameters<typeof onboardingText>[1], values?: Record<string, string | number>) => onboardingText(language, key, values);
-  const { features: dbFeatures } = usePremiumConfig();
+  const stage = paywallStage(useUserStore(state => state.lifeStage));
   const {
     packages, isLoading, isPurchasing, error, isSupported,
-    purchaseByIdentifier, purchaseExact, introEligibility, restorePurchases
+    purchaseByIdentifier, purchaseExact, introEligibility, restorePurchasesDetailed,
+    offeringsFailed, reloadOfferings, purchaseStatus, retryActivation
   } = useInAppPurchase();
+  // Current server grant: a store purchase must not duplicate web/promo/household Premium.
+  const { ownPremium, householdPremium } = usePremiumEntitlement();
 
   const isNative = isNativePlatform();
   const [selected, setSelected] = useState<PlanKey>('yearly');
   const [restoring, setRestoring] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
   // ── 1) Offerings → paketlər ──
   const findPkg = useCallback((type: string, idPart: string): RCPackage | undefined =>
@@ -74,33 +85,42 @@ const PaywallCore = ({ feature, analyticsSource, onPurchased, onNonNativeCta, co
 
   // ── Qiymət hesablamaları (RC → fallback) ──
   // Web display reference only; native charges always use the actual store price.
-  const sign = currencySign(yearlyPkg?.product.currencyCode || monthlyPkg?.product.currencyCode);
+  const currency = yearlyPlan?.currency || monthlyPlan?.currency || yearlyPkg?.product.currencyCode || monthlyPkg?.product.currencyCode;
   const monthlyPrice = monthlyPlan?.price ?? monthlyPkg?.product.price ?? 3.99;
   const yearlyPrice = yearlyPlan?.price ?? yearlyPkg?.product.price ?? 29.99;
-  const monthlyStr = isNative && !monthlyPlan ? '—' : monthlyPlan?.priceString || monthlyPkg?.product.priceString || `${sign}${monthlyPrice.toFixed(2)}`;
-  const yearlyStr = isNative && !yearlyPlan ? '—' : yearlyPlan?.priceString || yearlyPkg?.product.priceString || `${sign}${yearlyPrice.toFixed(2)}`;
+  const monthlyStr = isNative && !monthlyPlan ? '–' : monthlyPlan?.priceString || monthlyPkg?.product.priceString || formatMoney(language, monthlyPrice, currency);
+  const yearlyStr = isNative && !yearlyPlan ? '–' : yearlyPlan?.priceString || yearlyPkg?.product.priceString || formatMoney(language, yearlyPrice, currency);
   const annualDiscount = !!yearlyPlan && yearlyPlan.price < yearlyPlan.renewalPrice;
   const lifetimeStr = lifetimePkg?.product.priceString || '';
-  const yearlyPerMonth = `${sign}${(yearlyPrice / 12).toFixed(2)}`;
+  const yearlyPerMonth = formatMoney(language, yearlyPrice / 12, yearlyPlan?.currency || currency);
+  // iOS with unknown intro eligibility: StoreKit charges the first-year price when eligible, otherwise the regular one.
+  const introUncertainText = yearlyPlan?.introUncertain ? tr('pw_intro_uncertain_year', 'İlk il {intro}; bu təklifə uyğun deyilsinizsə {regular}')
+    .replace('{intro}', yearlyPlan.priceString).replace('{regular}', yearlyPlan.renewalPriceString) : null;
+  const pricesMissing = isNative && !isLoading && !yearlyPlan && !monthlyPlan && !lifetimePkg;
+
+  // Server-side funnel (anonymous daily counters, see premium-funnel.ts).
+  useEffect(() => { funnelHit('paywall_shown', analyticsSource || feature || 'general'); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    const map = { cancelled: 'purchase_cancelled', failed: 'purchase_failed', pending: 'purchase_pending' } as const;
+    const ev = map[purchaseStatus as keyof typeof map];
+    if (ev) funnelHit(ev, analyticsSource || feature || 'general');
+  }, [purchaseStatus]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Never leave the selected plan disabled: fall back to a plan the store can sell.
+  useEffect(() => {
+    if (!isNative || isLoading) return;
+    const available: Record<PlanKey, boolean> = { yearly: !!yearlyPlan, monthly: !!monthlyPlan, lifetime: !!lifetimePkg };
+    if (available[selected]) return;
+    const next = (['yearly', 'monthly', 'lifetime'] as PlanKey[]).find(key => available[key]);
+    if (next) setSelected(next);
+  }, [isNative, isLoading, selected, !!yearlyPlan, !!monthlyPlan, !!lifetimePkg]);
   const savings = annualDiscount ? Math.round((1 - yearlyPlan!.price / yearlyPlan!.renewalPrice) * 100)
     : monthlyPrice > 0 ? Math.max(0, Math.round((1 - yearlyPrice / 12 / monthlyPrice) * 100)) : 0;
 
-  // ── Xüsusiyyət siyahısı (DB → kurasiya olunmuş fallback) ──
-  const FALLBACK_FEATURES = [
-  { icon: '🤖', title: tr('pw_feat_ai', 'Limitsiz Dr. Anacan AI') },
-  { icon: '🛠️', title: tr('pw_feat_tools', 'Bütün alətlərə tam giriş') },
-  { icon: '📄', title: tr('pw_feat_reports', 'Həkim üçün PDF hesabatlar') },
-  { icon: '💑', title: tr('pw_feat_household', 'Partnyorla ortaq Premium') },
-  { icon: '🎵', title: tr('pw_feat_sounds', 'Yuxu səsləri və meditasiya') },
-  { icon: '🚫', title: tr('pw_feat_noads', 'Tam reklamsız təcrübə') }];
-
-  const featureList = useMemo(() => {
-    const db = dbFeatures.
-    filter((f) => f.is_included_premium).
-    slice(0, 6).
-    map((f) => ({ icon: f.icon || '✨', title: f.title }));
-    return db.length >= 4 ? db : FALLBACK_FEATURES;
-  }, [dbFeatures, language]);
+  // ── Xüsusiyyət siyahısı: mərhələyə uyğun, yalnız kodda real Premium olanlar (paywall-stage-copy) ──
+  const featureList = useMemo(() => paywallFeatures(stage), [stage, language]);
+  const proof = paywallSocialProof();
 
   const FEATURE_TINTS = [
   { bg: 'var(--a-peach-1)', ink: 'var(--a-accent-ink)' },
@@ -130,8 +150,11 @@ const PaywallCore = ({ feature, analyticsSource, onPurchased, onNonNativeCta, co
       return;
     }
 
-    import('@/lib/analytics').then((m) => m.analytics.logPaywallClicked(analyticsSource || feature || 'general', selected)).catch(() => {});
-    const ok = plan ? await purchaseExact(plan.pkg, plan.request) : await purchaseByIdentifier(pkg.identifier);
+    const src = analyticsSource || feature || 'general';
+    import('@/lib/analytics').then((m) => m.analytics.logPaywallClicked(src, selected)).catch(() => {});
+    funnelHit('paywall_clicked', src); purchaseIntent(src, selected); funnelHit('purchase_started', src);
+    const premium = { ownPremium, householdPremium };
+    const ok = plan ? await purchaseExact(plan.pkg, plan.request, premium) : await purchaseByIdentifier(pkg.identifier, premium);
     if (ok) {
       toast({
         title: tr('pw_success_title', 'Premium aktivləşdirildi! 🎉'),
@@ -139,19 +162,37 @@ const PaywallCore = ({ feature, analyticsSource, onPurchased, onNonNativeCta, co
       });
       onPurchased(selected);
     }
-  }, [isNative, isSupported, selected, yearlyPkg, monthlyPkg, lifetimePkg, yearlyPlan, monthlyPlan, purchaseExact, purchaseByIdentifier, onPurchased, onNonNativeCta, toast, cfg.non_native_notice, feature]);
+  }, [isNative, isSupported, selected, yearlyPkg, monthlyPkg, lifetimePkg, yearlyPlan, monthlyPlan, purchaseExact, purchaseByIdentifier, onPurchased, onNonNativeCta, toast, cfg.non_native_notice, feature, ownPremium, householdPremium]);
 
   const handleRestore = useCallback(async () => {
+    funnelHit('restore_clicked', analyticsSource || feature || 'general');
     setRestoring(true);
-    const ok = await restorePurchases();
+    const outcome = await restorePurchasesDetailed();
     setRestoring(false);
-    if (ok) {
+    if (outcome.ok) {
       toast({ title: tr('pw_restored', 'Alışlar bərpa edildi ✓'), description: tr('pw_restored_desc', 'Premium abunəliyiniz aktivdir') });
       onPurchased('restore');
+    } else if (outcome.failure === 'pending') {
+      // Store restore succeeded, server confirmation pending: the alert + "refresh status" button cover it.
+    } else if (outcome.failure === 'network' || outcome.failure === 'error' || outcome.failure === 'account') {
+      toast({ title: tr('useinapppurchase_alislar_berpa_edile_bilmedi_33b266', 'Alışlar bərpa edilə bilmədi'), variant: 'destructive', description: outcome.failure === 'network'
+        ? tr('restore_err_network', 'Bərpa alınmadı: mağaza ilə əlaqə yoxdur. İnternet bağlantısını yoxlayıb yenidən cəhd edin.')
+        : outcome.failure === 'account' ? purchaseErrorMessage('REVENUECAT_ACCOUNT_MISMATCH') : purchaseErrorMessage('STORE_PROBLEM') });
     } else {
       toast({ title: tr('pw_restore_none', 'Alış tapılmadı'), description: tr('pw_restore_none_desc', 'Bu hesabla bağlı əvvəlki abunəlik yoxdur'), variant: 'destructive' });
     }
-  }, [restorePurchases, onPurchased, toast]);
+  }, [restorePurchasesDetailed, onPurchased, toast]);
+
+  // Store payment done but the server has not confirmed yet: re-check instead of paying again.
+  const handleRefreshStatus = useCallback(async () => {
+    setRefreshing(true);
+    const ok = await retryActivation();
+    setRefreshing(false);
+    if (ok) {
+      toast({ title: tr('pw_success_title', 'Premium aktivləşdirildi! 🎉') });
+      onPurchased('restore');
+    }
+  }, [retryActivation, onPurchased, toast]);
 
   const ctaText = text('premium_cta');
 
@@ -228,13 +269,21 @@ const PaywallCore = ({ feature, analyticsSource, onPurchased, onNonNativeCta, co
   return (
     <div>
       <p className="mb-4 rounded-xl px-4 py-3 text-center text-sm font-bold" style={{ background: 'var(--a-surface)', color: 'var(--a-ink)' }}>
-        {text('remove_ads_premium')}
+        {paywallHeadline(stage)}
       </p>
       {/* Xəta */}
       {error &&
       <div role="alert" className="text-center mb-3"
       style={{ background: 'var(--a-alert-bg)', color: 'var(--a-alert-ink)', borderRadius: 14, padding: '9px 12px', fontSize: 12, fontWeight: 600 }}>
           {error}
+          {purchaseStatus === 'pending' && isNative &&
+          <button type="button" onClick={() => void handleRefreshStatus()} disabled={refreshing || busy}
+          className="mt-2 mx-auto flex items-center justify-center gap-1.5 disabled:opacity-60"
+          style={{ borderRadius: 999, padding: '7px 14px', background: 'var(--a-surface)', color: 'var(--a-ink)', fontSize: 12, fontWeight: 800, border: '1px solid var(--a-line-strong)' }}>
+              <RefreshCw size={12} className={refreshing ? 'animate-spin' : ''} />
+              {text('refresh_status')}
+            </button>
+          }
         </div>
       }
 
@@ -257,15 +306,13 @@ const PaywallCore = ({ feature, analyticsSource, onPurchased, onNonNativeCta, co
         )}
       </div>
 
-      {/* ── Sosial sübut ── */}
-      <div className={`flex items-center justify-center gap-1 ${compact ? 'mb-3' : 'mb-4'}`}>
-        {[1, 2, 3, 4, 5].map((i) =>
-        <Star key={i} size={13} style={{ fill: '#ffc94d', color: '#ffc94d' }} />
-        )}
-        <span className="ms-1.5" style={{ fontSize: 11.5, fontWeight: 700, color: 'var(--a-ink-soft)' }}>
-          {followupText('social_proof', language, { count: new Intl.NumberFormat(appLanguageLocale(language)).format(10000) })}
-        </span>
-      </div>
+      {/* ── Sosial sübut: yalnız real göstəricilər (App Store reytinqi və yükləmə sayı) ── */}
+      <p data-testid="paywall-social-proof" className={`flex flex-wrap items-center justify-center gap-x-1.5 text-center ${compact ? 'mb-3' : 'mb-4'}`}
+      style={{ fontSize: 11.5, fontWeight: 700, color: 'var(--a-ink-soft)' }}>
+        <span>{proof.rating}</span>
+        <span aria-hidden>·</span>
+        <span>{proof.downloads}</span>
+      </p>
 
       {/* ── Plan kartları ── */}
       {isLoading && isNative ?
@@ -281,7 +328,7 @@ const PaywallCore = ({ feature, analyticsSource, onPurchased, onNonNativeCta, co
           priceMain={yearlyStr}
           priceMainSuffix={cfg.yearly_total_suffix}
           oldPrice={annualDiscount ? yearlyPlan!.renewalPriceString : undefined}
-          sub={isNative && !yearlyPlan ? text('store_unavailable') : annualDiscount ? text('first_year', { price: yearlyStr }) : `${yearlyPerMonth}${cfg.yearly_suffix} · ${tr('pw_billed_yearly', 'ildə bir dəfə ödənilir')}`}
+          sub={isNative && !yearlyPlan ? text('store_unavailable') : introUncertainText ? introUncertainText : annualDiscount ? text('first_year', { price: yearlyStr }) : `${yearlyPerMonth}${cfg.yearly_suffix} · ${tr('pw_billed_yearly', 'ildə bir dəfə ödənilir')}`}
           badge={isNative && !yearlyPlan ? undefined : cfg.savings_badge.replace('{percent}', String(savings))}
           extra={<QcPremiumEarnLine plan="yearly" />} />
 
@@ -304,10 +351,23 @@ const PaywallCore = ({ feature, analyticsSource, onPurchased, onNonNativeCta, co
         </div>
       }
 
+      {/* Offerings did not load (store/network): retry instead of a dead paywall */}
+      {isNative && !isLoading && (offeringsFailed || pricesMissing) &&
+      <div className={`flex flex-col items-center gap-2 ${compact ? 'mb-3' : 'mb-4'}`}>
+          <span className="text-center" style={{ fontSize: 11.5, fontWeight: 600, color: 'var(--a-ink-soft)' }}>{tr('pw_prices_failed', 'Qiymətləri yükləmək alınmadı. Bağlantını yoxlayıb yenidən cəhd edin.')}</span>
+          <button type="button" onClick={() => void reloadOfferings()} disabled={busy}
+          className="flex items-center gap-1.5 disabled:opacity-60"
+          style={{ borderRadius: 999, padding: '8px 16px', background: 'var(--a-surface)', color: 'var(--a-ink)', fontSize: 12.5, fontWeight: 800, border: '1px solid var(--a-line-strong)' }}>
+            <RefreshCw size={13} />
+            {tr('paymenterror_yeniden_cehd_et_d273ac', 'Yenidən cəhd et')}
+          </button>
+        </div>
+      }
+
       {/* ── CTA (shine effektli) ── */}
       <motion.button
         onClick={handlePurchase}
-        disabled={busy || isLoading && isNative || isNative && selected !== 'lifetime' && !(selected === 'yearly' ? yearlyPlan : monthlyPlan)}
+        disabled={busy || isLoading && isNative || isNative && purchaseStatus === 'pending' || isNative && selected !== 'lifetime' && !(selected === 'yearly' ? yearlyPlan : monthlyPlan)}
         whileTap={{ scale: busy ? 1 : 0.98 }}
         className="relative w-full overflow-hidden"
         style={{
@@ -340,8 +400,14 @@ const PaywallCore = ({ feature, analyticsSource, onPurchased, onNonNativeCta, co
       {/* QayğıCash: pay the selected plan with bonus — off by default, shown only when the server enables it for this plan and platform */}
       {selected !== 'lifetime' && <QaygiCashPremiumOption plan={selected} onDone={() => onPurchased('qaygicash')} style={{ marginTop: 10 }} />}
 
+      {/* In-app Epoint card payment (admin switch in_app_epoint: country + platform) */}
+      {selected !== 'lifetime' && <EpointPayOption plan={selected} source={analyticsSource || feature || 'general'} onPremium={() => onPurchased('epoint')} style={{ marginTop: 10 }} />}
+
       {selected === 'yearly' && yearlyPlan && <p className="text-center mt-2 text-xs" style={{ color: 'var(--a-ink-soft)' }}>
-        {text('charged_today', { price: yearlyPlan.priceString })} {text('renewal_year', { price: yearlyPlan.renewalPriceString })}
+        {introUncertainText ?? text('charged_today', { price: yearlyPlan.priceString })} {text('renewal_year', { price: yearlyPlan.renewalPriceString })}
+      </p>}
+      {selected === 'monthly' && monthlyPlan && <p className="text-center mt-2 text-xs" style={{ color: 'var(--a-ink-soft)' }}>
+        {text('charged_today', { price: monthlyPlan.priceString })} {text('renewal_month', { price: monthlyPlan.renewalPriceString })}
       </p>}
 
       {/* ── Başqası ödəsin? (həyat yoldaşı / ailə üzvü linklə ödəyir) — native + flag ── */}

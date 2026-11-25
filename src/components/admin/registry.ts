@@ -3,7 +3,7 @@ import {
   Activity, AlertTriangle, Baby, Eye, BadgeCheck, Ban, BarChart3, Bell, BookOpen, Cake, Camera, CreditCard, Crown, Database, FileText, Flag,
   Gift, Globe, Globe2, HeartHandshake, HeartPulse, Image, Images, KeyRound, Languages, LayoutDashboard, LifeBuoy, Link2, Map, Megaphone, MessageCircle,
   MessagesSquare, Package, Palette, PiggyBank, Pill, Rocket, Scale, Settings, ShieldCheck, ShoppingBag, ShoppingCart, Smartphone, Sparkles,
-  Stethoscope, Store, Syringe, Tag, Ticket, QrCode, Users, Utensils, Wallet, Wrench, Zap, LayoutGrid,
+  Stethoscope, Store, Syringe, Tag, Ticket, TrendingUp, QrCode, Users, Utensils, Wallet, Wrench, Zap, LayoutGrid,
 } from 'lucide-react';
 
 /**
@@ -44,6 +44,7 @@ export const ADMIN_SECTIONS: AdminSection[] = [
   s('dashboard', 'İcmal', 'overview', 'AdminDashboard', LayoutDashboard, 'dashboard ana səhifə statistika kpi'),
   s('analytics', 'İstifadə analitikası', 'overview', 'AdminAnalytics', BarChart3, 'analytics aktivlik insights hesabat'),
   s('premium-analytics', 'Premium mərkəzi', 'overview', 'AdminPremiumAnalytics', Crown, 'premium abunə trial gəlir revenuecat'),
+  s('premium-funnel', 'Premium funnel', 'overview', 'AdminPremiumFunnel', TrendingUp, 'premium funnel paywall konversiya mənbə alış attribution source satış'),
   s('push-notifications', 'Bildiriş kampaniyaları', 'overview', 'AdminPushNotifications', Bell, 'push notification bildiriş kampaniya göndər fcm'),
   s('country-stats', 'Ölkələr', 'overview', 'AdminCountryStats', Globe2, 'country ölkə statistika'),
   s('quick-actions', 'Sürətli keçidlər', 'overview', 'AdminQuickActions', Zap, 'quick actions qısayol'),
@@ -157,7 +158,7 @@ export const componentFor = (id: string) => getSection(id)?.component ?? null;
 
 /** Mobile bottom tabs. `section` navigates; `group` opens the section list filtered to that group; `all` opens everything. */
 export const MOBILE_TABS: Array<{ key: string; label: string; icon: LucideIcon; section?: string; group?: AdminGroupId; all?: boolean; match: string[] }> = [
-  { key: 'home', label: 'İcmal', icon: LayoutDashboard, section: 'dashboard', match: ['dashboard', 'analytics', 'premium-analytics', 'country-stats'] },
+  { key: 'home', label: 'İcmal', icon: LayoutDashboard, section: 'dashboard', match: ['dashboard', 'analytics', 'premium-analytics', 'premium-funnel', 'country-stats'] },
   { key: 'orders', label: 'Sifarişlər', icon: Package, section: 'orders', match: ['orders', 'cakes', 'books', 'epoint', 'qaygicash', 'coupons', 'album-orders'] },
   { key: 'users', label: 'İstifadəçilər', icon: Users, section: 'users', match: ['users', 'subscriptions', 'support', 'moderation', 'ad-moderation', 'verified-badges'] },
   { key: 'content', label: 'Məzmun', icon: FileText, group: 'content', match: ADMIN_SECTIONS.filter(item => item.group === 'content').map(item => item.id) },

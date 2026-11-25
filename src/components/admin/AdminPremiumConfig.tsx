@@ -19,6 +19,7 @@ import UnsavedChangesDialog from './UnsavedChangesDialog';
 import PaywallDesignerTab from './PaywallDesignerTab';
 import BabyChatAiSetting from './BabyChatAiSetting';
 import BillingDesignerTab from './BillingDesignerTab';
+import InAppEpointSetting from './InAppEpointSetting';
 import { LocalizedInput } from "./ui/LocalizedInput";
 import { LocalizedTextarea } from "./ui/LocalizedTextarea";
 import { useAdminLocalize } from "@/contexts/AdminLanguageContext";
@@ -500,6 +501,7 @@ const AdminPremiumConfig = () => {
           <TabsList className="inline-flex w-auto min-w-full">
             <TabsTrigger value="designer" className="text-xs px-3">Paywall</TabsTrigger>
             <TabsTrigger value="billing" className="text-xs px-3">{tr("adminpremiumconfig_abunelik_ce9af7", "Abunəlik")}</TabsTrigger>
+            <TabsTrigger value="epoint" className="text-xs px-3">Epoint</TabsTrigger>
             <TabsTrigger value="features" className="text-xs px-3">Funksiyalar</TabsTrigger>
             <TabsTrigger value="plans" className="text-xs px-3">Planlar</TabsTrigger>
             <TabsTrigger value="limits" className="text-xs px-3">{tr("adminpremiumconfig_limitler_caa8fa", "Limitlər")}</TabsTrigger>
@@ -516,6 +518,11 @@ const AdminPremiumConfig = () => {
         {/* Billing Designer Tab */}
         <TabsContent value="billing">
           <BillingDesignerTab />
+        </TabsContent>
+
+        {/* In-app Epoint card payment (app_settings.in_app_epoint) */}
+        <TabsContent value="epoint">
+          <InAppEpointSetting />
         </TabsContent>
 
         {/* Features Tab */}

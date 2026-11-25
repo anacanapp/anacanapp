@@ -22,9 +22,11 @@ interface PremiumModalProps {
   feature?: string;
   /** What opened the paywall for analytics (e.g. the tool id); `feature` only picks the label. */
   analyticsSource?: string;
+  /** After a successful purchase/restore. Defaults to onClose; a tool's gate passes its own so the user stays in the tool. */
+  onPurchased?: () => void;
 }
 
-export function PremiumModal({ isOpen, onClose, feature, analyticsSource }: PremiumModalProps) {
+export function PremiumModal({ isOpen, onClose, feature, analyticsSource, onPurchased }: PremiumModalProps) {
   useAdSafetyBlock(isOpen);
   const cfg = usePaywallConfig();
   const language = useUserStore(state => state.language);
@@ -192,7 +194,7 @@ export function PremiumModal({ isOpen, onClose, feature, analyticsSource }: Prem
             <div
             className="flex-1 overflow-y-auto overscroll-contain px-5 min-h-0 relative"
             style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)' }}>
-              <PaywallCore feature={feature} analyticsSource={analyticsSource} onPurchased={() => onClose()} />
+              <PaywallCore feature={feature} analyticsSource={analyticsSource} onPurchased={() => (onPurchased ?? onClose)()} />
             </div>
           </motion.div>
         </motion.div>

@@ -44,6 +44,15 @@ Native qiymətin/offer-in mağazadan yenilənməsi və varsa RevenueCat paywall 
 visibility-si yoxlanmalıdır. Veb təqdimat üçün `premium_paywall_config` daxilində
 `free_trial_enabled=false` qoyulur.
 
+### Tətbiq mətnləri (2026-11-25)
+
+Trial vədi verən bütün UI açarları (`pgate_default_desc`, `winback_*`, `dps_*`, `pw_trial_chip`,
+`ref_step3_v2` və s.) 25 dil seed-indən çıxarılıb; dəyişən mətnlər yeni açarlarla gəlir
+(`pgate_default_desc_v2`, `ref_*_v3`, `pw_head_*`, `pw_feat_*`, `pw_social_*`), çünki canlı DB
+`translations` overlay-i köhnə açarların seed dəyərini əvəz edir. Referral mükafatı: dəvət olunan
+dostun ilk ödənişi server tərəfindən təsdiqlənəndə dəvət edənə +7 gün Premium (dəvət olunana bonus yoxdur).
+Paywall sosial sübutu yalnız real göstəricilərdir: 46 000+ yükləmə, App Store reytinqi 4,84★.
+
 ## Artıq trial almış istifadəçilərə nə olur?
 
 **Təklifi yeni alışlar üçün bağlamaq mövcud trial-ı geriyə dönük silmir.**

@@ -71,6 +71,12 @@ for (const p of files) {
   }
 }
 
+// Native store bundles must keep RevenueCat enabled on the managed (azure-named) Google backend;
+// otherwise purchases, restore and entitlement sync are silently off in the shipped app.
+if (process.env.VITE_NATIVE_BUILD === 'true' && process.env.VITE_AZURE_REVENUECAT_ENABLED !== 'true') {
+  problems.push('native build without VITE_AZURE_REVENUECAT_ENABLED=true (store purchases would be disabled)');
+}
+
 if (problems.length) {
   console.error('\n✗ verify-bundle: the web bundle contains material that must not ship:\n');
   for (const p of problems) console.error('  - ' + p);

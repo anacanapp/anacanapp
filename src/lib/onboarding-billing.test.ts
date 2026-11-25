@@ -35,7 +35,9 @@ describe('paid annual store contract', () => {
   it('does not invent prices or eligibility and never advertises an automatic free trial', () => {
     const { normal, offer } = iosPackages();
     const standard = standardStorePlan(normal, 'ios', 'yearly');
-    for (const eligibility of [undefined, 0, 3]) expect(annualStorePlan(offer, 'ios', eligibility)).toBeNull();
+    // Unknown eligibility keeps the yearly plan buyable with both prices (StoreKit decides at purchase time).
+    for (const eligibility of [undefined, 0, 3]) expect(annualStorePlan(offer, 'ios', eligibility)).toMatchObject({ price: 19.99, renewalPrice: 29.99,
+      introUncertain: true, request: { price: 29.99, introUncertain: true } });
     expect(annualStorePlan(offer, 'ios', 1)?.price).toBe(29.99);
     expect(standardStorePlan(undefined, 'ios', 'yearly')).toBeNull();
     expect(standardStorePlan(normal, 'web', 'yearly')).toBeNull();
@@ -86,5 +88,30 @@ describe('paid annual store contract', () => {
     const intro = offer.product.subscriptionOptions[1].pricingPhases[0];
     intro.recurrenceMode = 3; intro.billingCycleCount = null;
     expect(annualStorePlan(offer, 'android')).toMatchObject({ price: 19.99, renewalPrice: 29.99 });
+  });
+});
+
+describe('unknown iOS intro eligibility', () => {
+  it('keeps the default yearly plan available and its request valid at the regular price', () => {
+    const { offer } = iosPackages();
+    const plan = annualStorePlan(offer, 'ios', undefined)!;
+    expect(plan).toMatchObject({ kind: 'yearly', priceString: '$19.99', renewalPriceString: '$29.99', introUncertain: true });
+    expect(plan.request.paidIntro).toBeUndefined();
+    expect(() => validatePaidPurchase(offer, plan.request, 'ios')).not.toThrow();
+  });
+  it('known eligibility keeps the exact contract', () => {
+    const { offer } = iosPackages();
+    expect(annualStorePlan(offer, 'ios', 2)?.introUncertain).toBeUndefined();
+    expect(annualStorePlan(offer, 'ios', 1)).toMatchObject({ price: 29.99, renewalPrice: 29.99 });
+    expect(annualStorePlan(offer, 'ios', 1)?.introUncertain).toBeUndefined();
+  });
+  it('never makes an unknown free trial or a non-annual intro buyable', () => {
+    const { normal } = iosPackages();
+    const trial = { ...normal, product: { ...normal.product, introPrice: { price: 0, priceString: '$0.00', period: 'P1Y', cycles: 1 } } };
+    for (const eligibility of [undefined, 0, 3]) expect(standardStorePlan(trial, 'ios', 'yearly', eligibility)).toBeNull();
+    const monthly = { ...normal, product: { ...normal.product, subscriptionPeriod: 'P1M', introPrice: { price: 1.99, priceString: '$1.99', period: 'P1M', cycles: 1 } } };
+    expect(standardStorePlan(monthly, 'ios', 'monthly', undefined)).toBeNull();
+    const higher = { ...normal, product: { ...normal.product, introPrice: { price: 39.99, priceString: '$39.99', period: 'P1Y', cycles: 1 } } };
+    expect(standardStorePlan(higher, 'ios', 'yearly', 0)).toBeNull();
   });
 });

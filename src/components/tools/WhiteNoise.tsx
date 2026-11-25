@@ -294,7 +294,7 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
                   {tr('premiumgate_default_title', 'Bu bölmə Premium-dadır')}
                 </p>
                 <p className="a-list-sub" style={{ margin: 0 }}>
-                  {tr('pgate_default_desc', 'Premium ilə açılır — 3 gün pulsuz sınayın')}
+                  {tr('pgate_default_desc_v2', 'Premium ilə açılır')}
                 </p>
               </div>
               <motion.button

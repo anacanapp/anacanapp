@@ -9,6 +9,9 @@ import type { OnboardingStage, OnboardingOutcome } from '@/lib/onboarding-model'
 import { OnboardingCompanion } from './OnboardingCompanion';
 import { OnboardingButton } from './OnboardingFrame';
 import { OnboardingBenefits } from './OnboardingBenefits';
+import { tr } from '@/lib/tr';
+import { funnelHit, purchaseIntent } from '@/lib/premium-funnel';
+import EpointPayOption from '@/components/paywall/EpointPayOption';
 
 export default function OnboardingPaywall({ stage, language, mode, initialPlan, onPlanChange, offerSeen, pending, onPending, onOffer, onSkip, onSuccess, onLegal }: {
   stage: OnboardingStage; language: string; mode: 'paywall' | 'offer'; initialPlan: 'yearly' | 'monthly'; offerSeen: boolean; pending: boolean;
@@ -17,10 +20,11 @@ export default function OnboardingPaywall({ stage, language, mode, initialPlan, 
   onPlanChange: (plan: 'yearly' | 'monthly') => void;
 }) {
   const iap = useInAppPurchase();
-  const { isPremium, loading: entitlementLoading } = useSubscription();
+  const { isPremium, ownPremium, householdPremium, loading: entitlementLoading } = useSubscription();
   const platform = getPlatform();
   const [plan, setPlan] = useState(initialPlan), [working, setWorking] = useState(false);
   const [message, setMessage] = useState<OnboardingCopyKey | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const finished = useRef(false), actionLock = useRef(false), handledCancellation = useRef(false);
   const t = (key: OnboardingCopyKey, values?: Record<string, string | number>) => onboardingText(language, key, values);
   const find = (type: string) => iap.packages.find(pkg => pkg.packageType === type && pkg.product.identifier.split(':')[0] !== ONBOARDING_OFFER_PRODUCT);
@@ -33,25 +37,37 @@ export default function OnboardingPaywall({ stage, language, mode, initialPlan, 
   useEffect(() => {
     if (iap.purchaseStatus === 'pending') onPending();
   }, [iap.purchaseStatus]);
+  // Never leave the selected plan disabled: fall back to the plan the store can sell.
+  useEffect(() => {
+    if (iap.isLoading || mode !== 'paywall') return;
+    const fallback = plan === 'yearly' ? (!yearly && monthly ? 'monthly' : null) : (!monthly && yearly ? 'yearly' : null);
+    if (fallback) { setPlan(fallback); onPlanChange(fallback); }
+  }, [iap.isLoading, mode, plan, !!yearly, !!monthly]);
   useEffect(() => {
     if (isPremium && !entitlementLoading && !waiting && !finished.current) { finished.current = true; onSuccess('existing'); }
   }, [isPremium, entitlementLoading, waiting]);
 
   const run = async (operation: () => Promise<void>) => {
     if (actionLock.current || busy) return;
-    actionLock.current = true; setWorking(true); setMessage(null);
+    actionLock.current = true; setWorking(true); setMessage(null); setNotice(null);
     try { await operation(); } catch { setMessage('purchase_failed'); }
     finally { actionLock.current = false; setWorking(false); }
   };
+  useEffect(() => { funnelHit('paywall_shown', mode === 'offer' ? 'onboarding_offer' : 'onboarding'); }, [mode]);
   const purchase = () => run(async () => {
     if (!choice || !iap.isSupported || waiting) return;
     handledCancellation.current = false;
-    if (await iap.purchaseExact(choice.pkg, choice.request)) { finished.current = true; onSuccess('purchased', choice.kind); }
+    const src = mode === 'offer' ? 'onboarding_offer' : 'onboarding';
+    funnelHit('paywall_clicked', src); purchaseIntent(src, mode === 'offer' ? 'offer' : choice.kind); funnelHit('purchase_started', src);
+    if (await iap.purchaseExact(choice.pkg, choice.request, { ownPremium, householdPremium })) { finished.current = true; onSuccess('purchased', choice.kind); }
   });
   const restore = () => run(async () => {
     if (!iap.isSupported) return;
-    if (await iap.restorePurchases()) { finished.current = true; onSuccess('restored'); }
-    else setMessage('restore_none');
+    funnelHit('restore_clicked', 'onboarding');
+    const outcome = await iap.restorePurchasesDetailed();
+    if (outcome.ok) { finished.current = true; onSuccess('restored'); }
+    else if (outcome.failure === 'network') setNotice(tr('restore_err_network', 'Bərpa alınmadı: mağaza ilə əlaqə yoxdur. İnternet bağlantısını yoxlayıb yenidən cəhd edin.'));
+    else if (outcome.failure !== 'pending') setMessage('restore_none');
   });
   const close = () => run(async () => {
     if (mode === 'paywall' && plan === 'yearly' && monthly && !offerSeen && !waiting) await onOffer();
@@ -66,8 +82,10 @@ export default function OnboardingPaywall({ stage, language, mode, initialPlan, 
   const refresh = () => run(async () => {
     if (await iap.retryActivation()) { finished.current = true; onSuccess('restored'); }
   });
+  const uncertain = (value: StorePlan) => tr('pw_intro_uncertain_year', 'İlk il {intro}; bu təklifə uyğun deyilsinizsə {regular}')
+    .replace('{intro}', value.priceString).replace('{regular}', value.renewalPriceString);
   const prices = (value: StorePlan) => <>
-    <p className="onb-note">{t('charged_today', { price: value.priceString })}</p>
+    <p className="onb-note">{value.introUncertain ? uncertain(value) : t('charged_today', { price: value.priceString })}</p>
     <p className="onb-note">{t(value.kind === 'yearly' ? 'renewal_year' : 'renewal_month', { price: value.renewalPriceString })}</p>
   </>;
   const card = (kind: 'yearly' | 'monthly', value: StorePlan | null) => <button type="button" className="onb-plan" data-plan={kind}
@@ -77,7 +95,7 @@ export default function OnboardingPaywall({ stage, language, mode, initialPlan, 
       {value && value.price < value.renewalPrice && <del className="block text-xs font-normal opacity-70"><bdi>{t('per_year', { price: value.renewalPriceString })}</bdi></del>}
       <bdi>{value ? t(kind === 'yearly' ? 'per_year' : 'per_month', { price: value.priceString }) : t('price_unavailable')}</bdi>
     </span></div>
-    {value && value.price < value.renewalPrice && <small>{t('first_year', { price: value.priceString })}</small>}
+    {value && value.price < value.renewalPrice && <small>{value.introUncertain ? uncertain(value) : t('first_year', { price: value.priceString })}</small>}
     {value && <small>{kind === 'yearly' ? t('equivalent_month', { price: new Intl.NumberFormat(onboardingLocale(language), { style: 'currency', currency: value.currency }).format(value.price / 12) }) : t('flexible_plan')}</small>}
   </button>;
 
@@ -98,7 +116,7 @@ export default function OnboardingPaywall({ stage, language, mode, initialPlan, 
       : mode === 'paywall' ? <div className="onb-plans">{card('yearly', yearly)}{card('monthly', monthly)}</div>
       : <p className="onb-feedback">{t('store_unavailable')}</p>}
     {mode === 'offer' && !waiting && <p className="onb-note">{t('once_only')}</p>}
-    {(message || iap.purchaseStatus === 'failed') && !waiting && <p className="onb-error" role="alert">{t(message || 'purchase_failed')}</p>}
+    {(message || notice || iap.purchaseStatus === 'failed') && !waiting && <p className="onb-error" role="alert">{notice ?? (message ? t(message) : iap.error || t('purchase_failed'))}</p>}
     <div className="onb-payment-actions">
       {waiting ? <OnboardingButton onClick={() => void refresh()} busy={busy}>{t('refresh_status')}</OnboardingButton>
         : platform !== 'web' && <OnboardingButton onClick={() => void purchase()} busy={busy} disabled={iap.isLoading || !iap.isSupported || !choice}>
@@ -107,6 +125,7 @@ export default function OnboardingPaywall({ stage, language, mode, initialPlan, 
       {platform !== 'web' && !choice && !iap.isLoading && !waiting && <OnboardingButton secondary busy={busy} onClick={() => void run(iap.reloadOfferings)}>{t('retry')}</OnboardingButton>}
       <OnboardingButton data-testid="onb-skip-premium" secondary busy={busy} onClick={() => void close()}>{t(mode === 'offer' ? 'decline' : 'continue_free')}</OnboardingButton>
     </div>
+    {mode === 'paywall' && !waiting && <EpointPayOption plan={plan === 'yearly' ? 'yearly' : 'monthly'} source="onboarding" onPremium={() => { finished.current = true; onSuccess('purchased', plan === 'yearly' ? 'yearly' : 'monthly'); }} style={{ marginTop: 10 }} />}
     <div className="onb-payment-disclosure">{choice && !waiting && prices(choice)}
       <p className="onb-note">{t('manage_store')}</p></div>
     <div className="onb-legal"><button type="button" disabled={busy} onClick={() => onLegal('terms_of_service')}>{t('terms')}</button>

@@ -11,22 +11,29 @@
 // Payments become effective only through the signed Epoint callback (epoint-payment) or get-status, never via the
 // redirect back to the site. The Epoint card_id is never returned to the browser.
 // The functions router replaces non-2xx bodies, so outcomes the page must show are answered 200 {ok:false, error}.
+// In-app checkout (owner 2026-11-25): the app paywall calls status / subscribe {plan, page:'app', platform, language}
+// from the app origins (APP_ORIGINS). The server re-checks app_settings.in_app_epoint for the caller's profile country and
+// platform, and the payment returns to /website/premium/app-return/ (it is still settled only by the signed callback).
 import { createClient } from 'npm:@supabase/supabase-js@2';
 import { requireUser } from '../_shared/auth.ts';
 import { WEBSITE_ORIGINS } from '../_shared/dodo.ts';
-import { EPOINT_CARD_ID, epointAmount, epointConfig, epointRequest, isCheckoutUrl } from '../_shared/epoint.ts';
+import { EPOINT_CARD_ID, epointAmount, epointConfig, epointLanguage, epointRequest, isCheckoutUrl } from '../_shared/epoint.ts';
 import { ENTITLEMENT_ID, fetchRevenueCatSubscriber, syncEntitlementForUser } from '../_shared/revenuecat-sync.ts';
 import { sendWebPremiumEmail } from '../_shared/web-premium-email.ts';
-import { CABINET_PAGE, CAMPAIGN_PAGE, STANDARD_PAGE, campaignView, isPlan, offerView, rpcErrorCode, type Campaign } from '../_shared/web-premium-subscription.ts';
+import { ensureUsdAznRate } from '../_shared/cbar.ts';
+import { APP_ACTIONS, APP_ORIGINS, CABINET_PAGE, campaignView, inAppEpointAllowed, isPlan, offerView, parseInAppEpoint, rpcErrorCode,
+  subscribeRedirects, type Campaign } from '../_shared/web-premium-subscription.ts';
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const ACTIONS = ['status', 'subscribe', 'add_card', 'remove_card', 'set_default_card', 'cancel', 'resume', 'change_plan', 'charges'] as const;
 type Action = typeof ACTIONS[number];
 const LIVE = ['active', 'past_due', 'cancelled'];
 
+const knownOrigin = (origin: string | null) => !!origin && (WEBSITE_ORIGINS.includes(origin) || APP_ORIGINS.includes(origin));
+
 function corsFor(origin: string | null): Record<string, string> {
   return {
-    'Access-Control-Allow-Origin': origin && WEBSITE_ORIGINS.includes(origin) ? origin : WEBSITE_ORIGINS[0],
+    'Access-Control-Allow-Origin': origin && knownOrigin(origin) ? origin : WEBSITE_ORIGINS[0],
     'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Max-Age': '600',
@@ -78,6 +85,16 @@ async function premiumState(admin: any, userId: string, subscription: Record<str
     expires_at: stored.expires_at, renews: stored.status === 'active' && store !== 'promotional' };
 }
 
+/** web_premium_app_offer_v1 → the status answer: AZN prices (campaign shape) plus the USD prices and the rate used. */
+function appOfferView(offer: unknown) {
+  const value = (offer && typeof offer === 'object' ? offer : { active: false }) as Campaign & Record<string, unknown>;
+  const usd = value.usd && typeof value.usd === 'object' ? value.usd as Record<string, unknown> : null;
+  return { ...campaignView(value), kind: value.active ? 'app' : null,
+    usd: usd ? { monthly: Number(usd.monthly), yearly: Number(usd.yearly) } : null,
+    rate: value.rate == null ? null : Number(value.rate), rate_date: typeof value.rate_date === 'string' ? value.rate_date : null,
+    rate_source: typeof value.rate_source === 'string' ? value.rate_source : null };
+}
+
 Deno.serve(async (req) => {
   const origin = req.headers.get('origin');
   const headers = corsFor(origin);
@@ -85,7 +102,7 @@ Deno.serve(async (req) => {
   const ok = (body: Record<string, unknown> = {}) => reply(200, { ok: true, ...body });
   const fail = (error: string, extra: Record<string, unknown> = {}) => reply(200, { ok: false, error, ...extra });
   if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers });
-  if (origin && !WEBSITE_ORIGINS.includes(origin)) return reply(403, { error: 'origin_not_allowed' });
+  if (origin && !knownOrigin(origin)) return reply(403, { error: 'origin_not_allowed' });
   if (req.method !== 'POST') return reply(405, { error: 'method_not_allowed' });
 
   const auth = await requireUser(req);
@@ -101,6 +118,8 @@ Deno.serve(async (req) => {
   } catch { return reply(400, { error: 'invalid_payload' }); }
   const action = (ACTIONS as readonly string[]).includes(body.action as string) ? body.action as Action : null;
   if (!action) return reply(400, { error: 'invalid_action' });
+  // The app itself only reads the offer and starts a checkout; card and subscription management stay on anacan.az.
+  if (origin && APP_ORIGINS.includes(origin) && !APP_ACTIONS.includes(action)) return reply(403, { error: 'origin_not_allowed' });
   if (!allow(userId)) return fail('rate_limited');
 
   const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
@@ -112,15 +131,20 @@ Deno.serve(async (req) => {
 
   try {
     if (action === 'status') {
+      // The app paywall (page 'app') sells the in-app offer: admin USD prices converted to AZN on the server.
+      const app = body.page === 'app';
+      if (app) await ensureUsdAznRate(admin);
       const [{ data: campaign }, { data: offer }, { data: account, error }, { data: testOffer }] = await Promise.all([
-        admin.rpc('web_premium_campaign_v1'), admin.rpc('web_premium_offer_v1'), admin.rpc('web_premium_account_v1', { p_user: userId }),
+        admin.rpc('web_premium_campaign_v1'),
+        app ? admin.rpc('web_premium_app_offer_v1', { p_user: userId }) : admin.rpc('web_premium_offer_v1'),
+        admin.rpc('web_premium_account_v1', { p_user: userId }),
         admin.rpc('web_premium_test_offer_v1', { p_user: userId })]);
       if (error || !account) return reply(503, { error: 'database_unavailable' });
       const config = await epointConfig(admin);
       return ok({
         campaign: campaignView((campaign ?? { active: false }) as Campaign), payments_ready: config.merchantLive,
         // What subscribing buys right now: the campaign while it runs, otherwise the standard price (kind 'standard').
-        offer: offerView(offer as (Campaign & { kind?: string }) | null),
+        offer: app ? appOfferView(offer) : offerView(offer as (Campaign & { kind?: string }) | null),
         // Admin-only tiny-price offer for end-to-end card tests (null for everyone else).
         test_offer: testOffer && typeof testOffer === 'object' ? testOffer : null,
         premium: await premiumState(admin, userId, account.subscription), subscription: account.subscription,
@@ -147,13 +171,25 @@ Deno.serve(async (req) => {
       let chargeId: string | null = null;
       let payload: Record<string, unknown>;
       if (action === 'subscribe') {
+        if (body.page === 'app' && !test) {
+          // Admin switch per country and platform (app_settings.in_app_epoint); the country is the profile's.
+          const [{ data: setting }, { data: profile }] = await Promise.all([
+            admin.from('app_settings').select('value').eq('key', 'in_app_epoint').maybeSingle(),
+            admin.from('profiles').select('country_code').eq('user_id', userId).maybeSingle()]);
+          if (!inAppEpointAllowed(parseInAppEpoint(setting?.value), profile?.country_code, body.platform)) return fail('app_checkout_disabled');
+        }
         const { data: account } = await admin.rpc('web_premium_account_v1', { p_user: userId });
         const premium = await premiumState(admin, userId, account?.subscription ?? null);
         // The admin test may run on an account that already has store Premium; a live web subscription still blocks it (RPC).
         if (premium.active && !(test && premium.source !== 'web_subscription')) return fail('premium_active', { premium });
+        // In-app checkouts are priced from the in-app offer (USD → AZN at the CBAR rate) and locked into the subscription
+        // exactly like the website price; the anacan.az pages keep web_premium_subscribe_start_v1.
+        if (body.page === 'app' && !test) await ensureUsdAznRate(admin);
         const { data: start, error } = test
           ? await admin.rpc('web_premium_subscribe_test_start_v1', { p_user: userId })
-          : await admin.rpc('web_premium_subscribe_start_v1', { p_user: userId, p_plan: plan });
+          : body.page === 'app'
+            ? await admin.rpc('web_premium_app_subscribe_start_v1', { p_user: userId, p_plan: plan })
+            : await admin.rpc('web_premium_subscribe_start_v1', { p_user: userId, p_plan: plan });
         if (error || !start?.charge_id) return fail(rpcErrorCode(error) ?? 'database_unavailable');
         chargeId = start.charge_id as string;
         // Compliance evidence: the page sends the consent it showed (auto-renew + saved card + terms) next to the button.
@@ -162,12 +198,14 @@ Deno.serve(async (req) => {
           if (ch?.subscription_id) await admin.from('web_premium_subscriptions')
             .update({ consent_at: new Date().toISOString(), consent_version: 'premium-autorenew-v1' }).eq('id', ch.subscription_id).is('consent_at', null);
         }
+        // Standard-price signups come back to the standard page, campaign signups to the campaign page, app checkouts
+        // to the app return page.
+        const redirects = subscribeRedirects(body.page, test, body.platform);
         payload = {
-          language: 'az', amount: epointAmount(Number(start.amount)), currency: 'AZN', order_id: chargeId,
+          language: body.page === 'app' && typeof body.language === 'string' ? epointLanguage(body.language) : 'az',
+          amount: epointAmount(Number(start.amount)), currency: 'AZN', order_id: chargeId,
           description: `Anacan Premium — ${start.plan === 'monthly' ? 'aylıq' : 'illik'} abunəlik${test ? ' (test)' : ''}`,
-          // Standard-price signups come back to the standard page, campaign signups to the campaign page.
-          success_redirect_url: `${body.page === 'standard' && !test ? STANDARD_PAGE : CAMPAIGN_PAGE}?odenis=ugurlu`,
-          error_redirect_url: `${body.page === 'standard' && !test ? STANDARD_PAGE : CAMPAIGN_PAGE}?odenis=xeta`,
+          success_redirect_url: redirects.success, error_redirect_url: redirects.error,
         };
       } else {
         payload = { language: 'az', description: 'Anacan Premium — kartın yadda saxlanması',

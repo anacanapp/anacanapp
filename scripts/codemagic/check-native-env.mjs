@@ -8,6 +8,10 @@ const errors = [];
 if (env.VITE_NATIVE_BUILD !== 'true') errors.push('VITE_NATIVE_BUILD must be "true"');
 if (env.VITE_SUPABASE_URL !== 'https://api.anacan.az') errors.push('VITE_SUPABASE_URL must be https://api.anacan.az');
 if (!/^\d+\.\d+$/.test(env.VITE_APP_VERSION ?? '')) errors.push('VITE_APP_VERSION must look like 48.0');
+// Google/managed builds run the azure-named backend path, where RevenueCat (store purchases,
+// restore, entitlement sync) stays off unless explicitly enabled: a missing flag ships an app
+// whose paywall can never sell.
+if (env.VITE_AZURE_REVENUECAT_ENABLED !== 'true') errors.push('VITE_AZURE_REVENUECAT_ENABLED must be "true"');
 
 const key = env.VITE_SUPABASE_PUBLISHABLE_KEY ?? '';
 if (!key) errors.push('VITE_SUPABASE_PUBLISHABLE_KEY is missing');
