@@ -1,0 +1,132 @@
+{
+ "lang": "ko",
+ "badge": "무료 · 25개 언어",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "생리 · 임신 · 육아",
+   "title": [
+    "생리부터",
+    "아기까지"
+   ],
+   "hl": "하나의 앱",
+   "sub": "생리 달력, 주차별 임신 정보, 엄마와 아기 기록을 한곳에",
+   "cta": "무료 다운로드",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "생리",
+   "title": [
+    "내 주기를"
+   ],
+   "hl": "정확하게",
+   "sub": "다음 생리, 배란일, 가임기를 미리 예측"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "임신",
+   "title": [
+    "오늘 우리 아기는"
+   ],
+   "hl": "토마토만 해요",
+   "sub": "임신을 주차별로 기록: 크기, 몸무게, 출산까지 남은 날",
+   "chips": [
+    [
+     "142",
+     "일 남음"
+    ],
+    [
+     "19",
+     "주 4일"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "육아",
+   "title": [
+    "아기의 하루하루"
+   ],
+   "hl": "한곳에",
+   "sub": "매일의 정보, 엄마에게 보내는 메시지, 발달 기록과 병원 알림",
+   "chips": [
+    [
+     "245",
+     "일째 함께"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "궁금한 게 있나요?"
+   ],
+   "hl": "답은 여기에",
+   "sub": "생리, 임신, 아기 질문에 24시간 답하는 도우미",
+   "chips": [
+    [
+     "24/7",
+     "무엇이든"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "커뮤니티",
+   "title": [
+    "46,000명+ 여성이"
+   ],
+   "hl": "함께해요",
+   "sub": "질문을 나누고 같은 길을 걷는 엄마들에게 응원받으세요",
+   "chips": [
+    [
+     "46,000+",
+     "명의 여성"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "엄마들의 후기",
+   "title": [
+    "엄마들이"
+   ],
+   "hl": "사랑하는 Anacan",
+   "sub": "실제 사용자 리뷰, 편집 없이",
+   "cta": "무료 다운로드",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4.84",
+    "ratingSub": "App Store 평점",
+    "stats": [
+     [
+      "46,000+",
+      "다운로드"
+     ],
+     [
+      "560+",
+      "개의 별 5개 리뷰"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "App Store 리뷰"
+     ]
+    ]
+   }
+  }
+ ]
+}

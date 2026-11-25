@@ -1,0 +1,132 @@
+{
+ "lang": "de",
+ "badge": "Gratis · 25 Sprachen",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Periode · Schwangerschaft · Mutterschaft",
+   "title": [
+    "von der Periode",
+    "bis zum Baby"
+   ],
+   "hl": "eine App",
+   "sub": "Periodenkalender, Schwangerschaft Woche für Woche und Mama-Baby-Tracker an einem Ort",
+   "cta": "Gratis laden",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Periode",
+   "title": [
+    "deinen Zyklus"
+   ],
+   "hl": "genau kennen",
+   "sub": "Nächste Periode, Eisprung und fruchtbare Tage im Voraus"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Schwangerschaft",
+   "title": [
+    "dein Baby ist heute"
+   ],
+   "hl": "so groß wie eine Tomate",
+   "sub": "Verfolge deine Schwangerschaft Woche für Woche: Größe, Gewicht und Tage bis zur Geburt",
+   "chips": [
+    [
+     "142",
+     "Tage noch"
+    ],
+    [
+     "19",
+     "Wochen, 4 Tage"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Mutterschaft",
+   "title": [
+    "jeder Tag mit Baby"
+   ],
+   "hl": "an einem Ort",
+   "sub": "Tägliche Infos, eine Nachricht für Mama, Entwicklung und Arzt-Erinnerungen",
+   "chips": [
+    [
+     "245",
+     "Tage zusammen"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "eine Frage?"
+   ],
+   "hl": "hier ist die Antwort",
+   "sub": "Deine 24/7-Hilfe bei Fragen zu Periode, Schwangerschaft und Baby",
+   "chips": [
+    [
+     "24/7",
+     "jede Frage"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Community",
+   "title": [
+    "46.000+ Frauen"
+   ],
+   "hl": "sind hier",
+   "sub": "Teile deine Frage und hol dir Rückhalt von Mamas auf demselben Weg",
+   "chips": [
+    [
+     "46.000+",
+     "Frauen"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Das sagen Mamas",
+   "title": [
+    "Mamas"
+   ],
+   "hl": "lieben Anacan",
+   "sub": "Echte Bewertungen, unbearbeitet",
+   "cta": "Gratis laden",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "App-Store-Bewertung",
+    "stats": [
+     [
+      "46.000+",
+      "Downloads"
+     ],
+     [
+      "560+",
+      "5-Sterne-Bewertungen"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "App-Store-Rezension"
+     ]
+    ]
+   }
+  }
+ ]
+}

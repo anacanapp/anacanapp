@@ -1,0 +1,20 @@
+{
+  "country": "EE",
+  "locale": "et-EE",
+  "names": {"mother": "Liis", "baby": "Mia", "cycle": "Kertu", "partner": "Martin"},
+  "appointments": ["Ultraheliuuring", "Linna sünnitusmaja", "Vereanalüüs", "Lastearsti läbivaatus"],
+  "authors": ["Kadri Tamm", "Triin Saar", "Mari Kask"],
+  "posts": [
+    "Tundsin täna esimesi lööke! 🥹 Seda tunnet ei oska sõnadesse panna. Millal teil see juhtus? #rasedus",
+    "Anacan.AI-ga rääkimine kell 3 öösel, kui beebi ei maganud, aitas mind väga. Soovitan kõigile uutele emadele 💛",
+    "Oleme 24. nädalal ja hakkasin haiglakotti pakkima. Mis teie nimekirjas on? 🧳"
+  ],
+  "ai_question": "Mis aitab iivelduse vastu?",
+  "ai_answer": [
+    "Kolm lihtsat viisi iiveldust leevendada:\n\n",
+    "1. **Ingveritee** — tass hommikul esimese asjana.\n",
+    "2. **Väikesed ja sagedased toidukorrad** — ära lase kõhul tühjaks jääda.\n",
+    "3. **Lihtsad kreekerid** — enne voodist tõusmist.\n\n",
+    "Joo päeva jooksul vett 💧 Kui oksendamine süveneb, võta ühendust arstiga."
+  ]
+}

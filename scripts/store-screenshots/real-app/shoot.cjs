@@ -74,7 +74,7 @@ const seen = new Map();
   await p.waitForTimeout(2500);
   for (const step of JSON.parse(stepsJson || '[]')) {
     if (step.click) await p.getByText(step.click, { exact: step.exact ?? false }).first().click({ timeout: step.optional ? 4000 : 15000 }).catch((e) => { if (!step.optional) throw e; });
-    if (step.css) await p.locator(step.css).first().click({ timeout: 15000 });
+    if (step.css) await p.locator(step.css).first().click({ timeout: step.optional ? 4000 : 15000 }).catch((e) => { if (!step.optional) throw e; });
     if (step.eval) await p.evaluate(step.eval);
     if (step.fill) await p.locator(step.fill).first().fill(step.text);
     if (step.press) await p.keyboard.press(step.press);

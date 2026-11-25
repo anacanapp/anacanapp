@@ -1,0 +1,132 @@
+{
+ "lang": "tk",
+ "badge": "Mugt · 25 dil",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Aýbaşy · Göwrelilik · Enelik",
+   "title": [
+    "aýbaşydan",
+    "çagaňa"
+   ],
+   "hl": "bir programma",
+   "sub": "Aýbaşy senenamasy, hepde-hepde göwrelilik we ene-çaga yzarlaýjysy bir ýerde",
+   "cta": "Mugt ýükle",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Aýbaşy",
+   "title": [
+    "sikliňi"
+   ],
+   "hl": "takyk bil",
+   "sub": "Indiki aýbaşy, owulýasiýa we göwreli bolmaga amatly günleriň çaklamasy"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Göwrelilik",
+   "title": [
+    "çagaň şu gün"
+   ],
+   "hl": "pomidor ýaly",
+   "sub": "Göwreliligiňi hepde-hepde yzarla: ölçegi, agramy we galan günler",
+   "chips": [
+    [
+     "142",
+     "gün galdy"
+    ],
+    [
+     "19",
+     "hepde, 4 gün"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Enelik",
+   "title": [
+    "çagaňyň her güni"
+   ],
+   "hl": "bir ýerde",
+   "sub": "Gündelik maglumat, Ejä hat, ösüş we lukman ýatlatmalary",
+   "chips": [
+    [
+     "245",
+     "gün bile"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "soragyň barmy?"
+   ],
+   "hl": "jogaby şu ýerde",
+   "sub": "Aýbaşy, göwrelilik we çaga soraglaryň üçin 24/7 kömekçi",
+   "chips": [
+    [
+     "24/7",
+     "her bir sorag"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Jemgyýet",
+   "title": [
+    "46 000+ aýal"
+   ],
+   "hl": "şu ýerde",
+   "sub": "Soragyňy paýlaş, seniň ýaly ýoldan geçýän enelerden goldaw al",
+   "chips": [
+    [
+     "46 000+",
+     "aýal"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Eneler näme diýýär",
+   "title": [
+    "eneler"
+   ],
+   "hl": "Anacany söýýär",
+   "sub": "Hakyky ulanyjy synlary, üýtgedilmezden",
+   "cta": "Mugt ýükle",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "App Store reýtingi",
+    "stats": [
+     [
+      "46 000+",
+      "ýükleme"
+     ],
+     [
+      "560+",
+      "bäş ýyldyzly syn"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "App Store syny"
+     ]
+    ]
+   }
+  }
+ ]
+}

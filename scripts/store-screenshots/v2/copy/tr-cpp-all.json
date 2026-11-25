@@ -1,0 +1,136 @@
+{
+ "lang": "tr",
+ "badge": "Ücretsiz · 25 dil",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Regl · Hamilelik · Annelik",
+   "title": [
+    "reglden",
+    "bebeğine"
+   ],
+   "hl": "tek uygulama",
+   "sub": "Regl takvimi, hafta hafta hamilelik ve anne-bebek takibi bir arada",
+   "cta": "Ücretsiz indir",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Regl",
+   "title": [
+    "döngünü"
+   ],
+   "hl": "tam olarak bil",
+   "sub": "Sonraki regl, yumurtlama ve doğurgan günlerin tahmini"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Hamilelik",
+   "title": [
+    "bebeğin bugün"
+   ],
+   "hl": "domates boyunda",
+   "sub": "Hamileliğini hafta hafta takip et: boy, kilo ve doğuma kalan günler",
+   "chips": [
+    [
+     "142",
+     "gün kaldı"
+    ],
+    [
+     "19",
+     "hafta, 4 gün"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Annelik",
+   "title": [
+    "bebeğinin her günü"
+   ],
+   "hl": "tek yerde",
+   "sub": "Günlük bilgiler, Anneye Mesaj, gelişim ve doktor hatırlatmaları",
+   "chips": [
+    [
+     "245",
+     "gün birlikte"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "merak mı ettin?"
+   ],
+   "hl": "cevabı burada",
+   "sub": "Regl, hamilelik ve bebek soruların için 7/24 asistan",
+   "chips": [
+    [
+     "7/24",
+     "her soru"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Topluluk",
+   "title": [
+    "46.000+ kadın"
+   ],
+   "hl": "burada",
+   "sub": "Soru sor, aynı yoldan geçen annelerden destek al",
+   "chips": [
+    [
+     "46.000+",
+     "kadın"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Anneler ne diyor",
+   "title": [
+    "anneler"
+   ],
+   "hl": "Anacan’ı seviyor",
+   "sub": "Gerçek kullanıcı yorumları, düzenlenmeden",
+   "cta": "Ücretsiz indir",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "App Store puanı",
+    "stats": [
+     [
+      "46.000+",
+      "indirme"
+     ],
+     [
+      "560+",
+      "beş yıldızlı yorum"
+     ]
+    ],
+    "reviews": [
+     [
+      "bilgili",
+      "Deniz U."
+     ],
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "App Store yorumu"
+     ]
+    ]
+   }
+  }
+ ]
+}

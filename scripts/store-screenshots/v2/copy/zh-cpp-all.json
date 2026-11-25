@@ -1,0 +1,132 @@
+{
+ "lang": "zh",
+ "badge": "免费 · 25种语言",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "经期 · 孕期 · 育儿",
+   "title": [
+    "从经期",
+    "到宝宝"
+   ],
+   "hl": "一个应用",
+   "sub": "经期日历、孕期周周看和母婴记录，尽在一处",
+   "cta": "免费下载",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "经期",
+   "title": [
+    "精准掌握"
+   ],
+   "hl": "你的周期",
+   "sub": "预测下次经期、排卵日和易孕期"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "孕期",
+   "title": [
+    "今天宝宝"
+   ],
+   "hl": "有番茄那么大",
+   "sub": "每周追踪孕期：宝宝大小、体重和距预产期天数",
+   "chips": [
+    [
+     "142",
+     "天后见面"
+    ],
+    [
+     "19",
+     "周+4天"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "育儿",
+   "title": [
+    "宝宝的每一天"
+   ],
+   "hl": "尽在一处",
+   "sub": "每日资讯、写给妈妈的话、发育追踪和就医提醒",
+   "chips": [
+    [
+     "245",
+     "天相伴"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "有疑问？"
+   ],
+   "hl": "这里有答案",
+   "sub": "经期、孕期和宝宝问题，24/7 随时解答",
+   "chips": [
+    [
+     "24/7",
+     "有问必答"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "社区",
+   "title": [
+    "46,000+ 位女性"
+   ],
+   "hl": "都在这里",
+   "sub": "分享你的问题，获得同路妈妈们的支持",
+   "chips": [
+    [
+     "46,000+",
+     "位女性"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "妈妈们怎么说",
+   "title": [
+    "妈妈们"
+   ],
+   "hl": "爱上 Anacan",
+   "sub": "真实用户评价，未经修改",
+   "cta": "免费下载",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4.84",
+    "ratingSub": "App Store 评分",
+    "stats": [
+     [
+      "46,000+",
+      "次下载"
+     ],
+     [
+      "560+",
+      "条五星好评"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "App Store 评价"
+     ]
+    ]
+   }
+  }
+ ]
+}

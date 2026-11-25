@@ -1,0 +1,132 @@
+{
+ "lang": "ja",
+ "badge": "無料 · 25言語",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "生理 · 妊娠 · 子育て",
+   "title": [
+    "生理から",
+    "赤ちゃんまで"
+   ],
+   "hl": "ひとつのアプリ",
+   "sub": "生理カレンダー、週ごとの妊娠情報、ママと赤ちゃんの記録がひとつに",
+   "cta": "無料ダウンロード",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "生理",
+   "title": [
+    "自分の周期を"
+   ],
+   "hl": "正確に知る",
+   "sub": "次の生理、排卵日、妊娠しやすい日を予測"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "妊娠",
+   "title": [
+    "今日の赤ちゃんは"
+   ],
+   "hl": "トマトくらい",
+   "sub": "妊娠を週ごとに記録：大きさ、体重、出産までの日数",
+   "chips": [
+    [
+     "142",
+     "日後に会える"
+    ],
+    [
+     "19",
+     "週4日"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "子育て",
+   "title": [
+    "赤ちゃんの毎日を"
+   ],
+   "hl": "ひとつの場所に",
+   "sub": "毎日の情報、ママへのメッセージ、成長記録、健診リマインダー",
+   "chips": [
+    [
+     "245",
+     "日いっしょに"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "気になることは？"
+   ],
+   "hl": "ここで答えが",
+   "sub": "生理、妊娠、赤ちゃんの疑問に24時間対応のアシスタント",
+   "chips": [
+    [
+     "24/7",
+     "どんな質問も"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "コミュニティ",
+   "title": [
+    "46,000人以上の女性が"
+   ],
+   "hl": "ここに",
+   "sub": "質問をシェアして、同じ道を歩むママたちから応援をもらおう",
+   "chips": [
+    [
+     "46,000+",
+     "人の女性"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "ママたちの声",
+   "title": [
+    "ママたちに"
+   ],
+   "hl": "愛されるAnacan",
+   "sub": "実際のユーザーレビュー、編集なし",
+   "cta": "無料ダウンロード",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4.84",
+    "ratingSub": "App Storeの評価",
+    "stats": [
+     [
+      "46,000+",
+      "ダウンロード"
+     ],
+     [
+      "560+",
+      "件の星5レビュー"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "App Storeレビュー"
+     ]
+    ]
+   }
+  }
+ ]
+}

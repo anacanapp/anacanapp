@@ -39,11 +39,11 @@ function slide(s, i) {
   const tilt = theme === 'cream' ? 0 : [0, -4, 3, -3, 4, -3, 3, -4, 0][i] || 0;
   const title = `${s.title.map(t => `<span>${esc(t)}</span>`).join('')}<span class="hl">${esc(s.hl)}</span>`;
   const chips = (s.chips || []).map((c, j) => `<div class="chip chip${j}"><b>${esc(c[0])}</b><span>${esc(c[1])}</span></div>`).join('');
-  const cta = s.cta ? `<div class="cta"><div class="cta-btn">${esc(s.cta)}</div><span>${esc(s.ctaSub)}</span></div>` : '';
+  const cta = s.cta ? `<div class="cta"><div class="cta-btn">${esc(s.cta)}</div>${s.ctaSub ? `<span>${esc(s.ctaSub)}</span>` : ''}</div>` : '';
   if (s.proof) {
     const p = s.proof;
     const stats = p.stats.map(([n, l]) => `<div class="pstat"><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join('');
-    const reviews = p.reviews.map(([t, who], j) => `<div class="review r${j}"><div class="stars">★★★★★</div><p>${esc(t)}</p><span>${esc(who)}</span></div>`).join('');
+    const reviews = p.reviews.map(([t, who], j) => `<div class="review r${j}"><div class="stars">★★★★★</div><p dir="auto">${esc(t)}</p><span>${esc(who)}</span></div>`).join('');
     return `<section class="slide proof" style="left:${i * W}px"><p class="eyebrow">${esc(s.eyebrow)}</p><h1>${title}</h1><p class="sub">${esc(s.sub)}</p>
       <div class="rating"><b>${esc(p.rating)}</b><div><div class="stars big">★★★★★</div><span>${esc(p.ratingSub)}</span></div></div>
       <div class="pstats">${stats}</div><div class="reviews">${reviews}</div>${cta}</section>`;
@@ -55,7 +55,7 @@ function slide(s, i) {
   return `<section class="slide" style="left:${i * W}px"><p class="eyebrow">${esc(s.eyebrow)}</p><h1>${title}</h1><p class="sub">${esc(s.sub)}</p>
     <div class="stage">${phone(s.shot, tilt)}${chips}</div>${cta}</section>`;
 }
-const html = `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><style>
+const html = `<!doctype html><html lang="${lang}"${copy.dir === 'rtl' ? ' dir="rtl"' : ''}><head><meta charset="utf-8"><style>
 @font-face{font-family:J;font-weight:500;src:url(${font('jakarta-n500.ttf')})}
 @font-face{font-family:J;font-weight:700;src:url(${font('jakarta-n700.ttf')})}
 @font-face{font-family:J;font-weight:800;src:url(${font('jakarta-n800.ttf')})}
@@ -105,6 +105,9 @@ h1 .hl{color:var(--butter);font-style:italic}
 .review.r0{transform:rotate(-1.2deg)}.review.r1{transform:rotate(1deg);margin-left:14px}
 .review p{font-weight:600;font-size:${android ? 12.5 : 14}px;line-height:1.35;margin-top:4px}
 .review span{display:block;margin-top:6px;font-weight:700;font-size:11.5px;color:#9a7f79}
+[dir=rtl] .badge{right:auto;left:30px}
+[dir=rtl] .brand{direction:ltr;justify-content:flex-end}
+[dir=rtl] .review span{text-align:right}
 .hero h1{font-size:${android ? (copy.heroH1Android || 46) : (copy.heroH1 || 56)}px;margin-top:16px}
 .hero .mother{position:absolute;left:${android ? 40 : 18}px;right:0;bottom:${android ? 90 : 110}px;width:${android ? 330 : 400}px;
   -webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 58%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 70% at 50% 58%,#000 62%,transparent 100%);z-index:-1}

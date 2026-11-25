@@ -1,0 +1,132 @@
+{
+ "lang": "vi",
+ "badge": "Miễn phí · 25 ngôn ngữ",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Kinh nguyệt · Mang thai · Làm mẹ",
+   "title": [
+    "từ kỳ kinh",
+    "đến em bé"
+   ],
+   "hl": "một ứng dụng",
+   "sub": "Lịch kinh nguyệt, thai kỳ từng tuần và theo dõi mẹ & bé ở cùng một nơi",
+   "cta": "Tải miễn phí",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Kinh nguyệt",
+   "title": [
+    "hiểu chu kỳ"
+   ],
+   "hl": "thật chính xác",
+   "sub": "Dự đoán kỳ kinh tới, ngày rụng trứng và ngày dễ thụ thai"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Mang thai",
+   "title": [
+    "hôm nay bé lớn"
+   ],
+   "hl": "bằng quả cà chua",
+   "sub": "Theo dõi thai kỳ từng tuần: kích thước, cân nặng và số ngày đến lúc sinh",
+   "chips": [
+    [
+     "142",
+     "ngày nữa"
+    ],
+    [
+     "19",
+     "tuần 4 ngày"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Làm mẹ",
+   "title": [
+    "mỗi ngày của bé"
+   ],
+   "hl": "ở cùng một nơi",
+   "sub": "Thông tin hằng ngày, Lời nhắn cho mẹ, sự phát triển và nhắc lịch khám",
+   "chips": [
+    [
+     "245",
+     "ngày bên nhau"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "bạn có thắc mắc?"
+   ],
+   "hl": "câu trả lời đây",
+   "sub": "Trợ lý 24/7 cho mọi câu hỏi về kinh nguyệt, thai kỳ và em bé",
+   "chips": [
+    [
+     "24/7",
+     "mọi câu hỏi"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Cộng đồng",
+   "title": [
+    "46.000+ phụ nữ"
+   ],
+   "hl": "đang ở đây",
+   "sub": "Chia sẻ câu hỏi và nhận sẻ chia từ những người mẹ cùng hành trình",
+   "chips": [
+    [
+     "46.000+",
+     "phụ nữ"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Các mẹ nói gì",
+   "title": [
+    "các mẹ"
+   ],
+   "hl": "yêu Anacan",
+   "sub": "Đánh giá thật từ người dùng, không chỉnh sửa",
+   "cta": "Tải miễn phí",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "Xếp hạng App Store",
+    "stats": [
+     [
+      "46.000+",
+      "lượt tải"
+     ],
+     [
+      "560+",
+      "đánh giá năm sao"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "Đánh giá App Store"
+     ]
+    ]
+   }
+  }
+ ]
+}

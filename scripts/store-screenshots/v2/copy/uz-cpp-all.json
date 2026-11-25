@@ -1,0 +1,133 @@
+{
+ "lang": "uz",
+ "badge": "Bepul · 25 til",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Hayz · Homiladorlik · Onalik",
+   "title": [
+    "hayzdan",
+    "chaqaloqqacha"
+   ],
+   "hl": "bitta ilova",
+   "sub": "Hayz taqvimi, haftama-hafta homiladorlik va ona-bola kuzatuvi bir joyda",
+   "cta": "Bepul yuklab ol",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Hayz",
+   "title": [
+    "siklingni"
+   ],
+   "hl": "aniq bil",
+   "sub": "Keyingi hayz, ovulyatsiya va unumdor kunlar prognozi"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Homiladorlik",
+   "title": [
+    "chaqalogʻing bugun"
+   ],
+   "hl": "pomidordek",
+   "sub": "Homiladorlikni haftama-hafta kuzat: boʻy, vazn va tugʻruqqacha qolgan kunlar",
+   "chips": [
+    [
+     "142",
+     "kun qoldi"
+    ],
+    [
+     "19",
+     "hafta, 4 kun"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Onalik",
+   "title": [
+    "chaqalogʻingning",
+    "har kuni"
+   ],
+   "hl": "bir joyda",
+   "sub": "Kundalik maʼlumot, Onaga xat, rivojlanish va shifokor eslatmalari",
+   "chips": [
+    [
+     "245",
+     "kun birga"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "savoling bormi?"
+   ],
+   "hl": "javob shu yerda",
+   "sub": "Hayz, homiladorlik va chaqaloq savollari uchun 24/7 yordamchi",
+   "chips": [
+    [
+     "24/7",
+     "har qanday savol"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Hamjamiyat",
+   "title": [
+    "46 000+ ayol"
+   ],
+   "hl": "shu yerda",
+   "sub": "Savolingni yoz, sen bilan bir yoʻldan oʻtayotgan onalardan madad ol",
+   "chips": [
+    [
+     "46 000+",
+     "ayol"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Onalar nima deydi",
+   "title": [
+    "onalar"
+   ],
+   "hl": "Anacan’ni sevadi",
+   "sub": "Haqiqiy foydalanuvchi sharhlari, tahrirsiz",
+   "cta": "Bepul yuklab ol",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "App Store reytingi",
+    "stats": [
+     [
+      "46 000+",
+      "yuklab olish"
+     ],
+     [
+      "560+",
+      "besh yulduzli sharh"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "App Store sharhi"
+     ]
+    ]
+   }
+  }
+ ]
+}

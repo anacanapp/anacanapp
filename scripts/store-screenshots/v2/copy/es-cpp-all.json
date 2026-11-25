@@ -1,0 +1,132 @@
+{
+ "lang": "es",
+ "badge": "Gratis · 25 idiomas",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Regla · Embarazo · Maternidad",
+   "title": [
+    "de tu regla",
+    "a tu bebé"
+   ],
+   "hl": "una sola app",
+   "sub": "Calendario menstrual, embarazo semana a semana y seguimiento de mamá y bebé en un solo lugar",
+   "cta": "Descarga gratis",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Regla",
+   "title": [
+    "conoce tu ciclo"
+   ],
+   "hl": "con precisión",
+   "sub": "Tu próxima regla, ovulación y días fértiles, previstos"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Embarazo",
+   "title": [
+    "hoy tu bebé es"
+   ],
+   "hl": "como un tomate",
+   "sub": "Sigue tu embarazo semana a semana: tamaño, peso y días que faltan",
+   "chips": [
+    [
+     "142",
+     "días que faltan"
+    ],
+    [
+     "19",
+     "semanas y 4 días"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Maternidad",
+   "title": [
+    "cada día de tu bebé"
+   ],
+   "hl": "en un solo lugar",
+   "sub": "Info diaria, un mensaje para mamá, desarrollo y recordatorios médicos",
+   "chips": [
+    [
+     "245",
+     "días juntos"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "¿tienes dudas?"
+   ],
+   "hl": "aquí la respuesta",
+   "sub": "Tu asistente 24/7 para dudas sobre la regla, el embarazo y tu bebé",
+   "chips": [
+    [
+     "24/7",
+     "cualquier duda"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Comunidad",
+   "title": [
+    "46.000+ mujeres"
+   ],
+   "hl": "están aquí",
+   "sub": "Comparte tu duda y recibe apoyo de mamás que viven lo mismo que tú",
+   "chips": [
+    [
+     "46.000+",
+     "mujeres"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Lo que dicen las mamás",
+   "title": [
+    "las mamás"
+   ],
+   "hl": "aman Anacan",
+   "sub": "Reseñas reales, sin editar",
+   "cta": "Descarga gratis",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "Valoración en App Store",
+    "stats": [
+     [
+      "46.000+",
+      "descargas"
+     ],
+     [
+      "560+",
+      "reseñas de 5 estrellas"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "Reseña en App Store"
+     ]
+    ]
+   }
+  }
+ ]
+}

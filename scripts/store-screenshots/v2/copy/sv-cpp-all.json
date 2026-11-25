@@ -1,0 +1,132 @@
+{
+ "lang": "sv",
+ "badge": "Gratis · 25 språk",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Mens · Graviditet · Moderskap",
+   "title": [
+    "från mens",
+    "till bebis"
+   ],
+   "hl": "en app",
+   "sub": "Menskalender, graviditet vecka för vecka och mamma- och bebisdagbok på ett ställe",
+   "cta": "Ladda ner gratis",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Mens",
+   "title": [
+    "känn din cykel"
+   ],
+   "hl": "exakt",
+   "sub": "Nästa mens, ägglossning och fertila dagar, förutsagda"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Graviditet",
+   "title": [
+    "i dag är bebisen"
+   ],
+   "hl": "stor som en tomat",
+   "sub": "Följ graviditeten vecka för vecka: storlek, vikt och dagar kvar",
+   "chips": [
+    [
+     "142",
+     "dagar kvar"
+    ],
+    [
+     "19",
+     "veckor, 4 dagar"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Moderskap",
+   "title": [
+    "varje bebisdag"
+   ],
+   "hl": "på ett ställe",
+   "sub": "Daglig info, Meddelande till mamma, utveckling och läkarpåminnelser",
+   "chips": [
+    [
+     "245",
+     "dagar tillsammans"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "har du en fråga?"
+   ],
+   "hl": "här är svaret",
+   "sub": "En assistent dygnet runt för frågor om mens, graviditet och bebis",
+   "chips": [
+    [
+     "24/7",
+     "alla frågor"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Community",
+   "title": [
+    "46 000+ kvinnor"
+   ],
+   "hl": "finns här",
+   "sub": "Ställ din fråga och få stöd av mammor på samma resa",
+   "chips": [
+    [
+     "46 000+",
+     "kvinnor"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Mammor berättar",
+   "title": [
+    "mammor"
+   ],
+   "hl": "älskar Anacan",
+   "sub": "Riktiga användarrecensioner, oredigerade",
+   "cta": "Ladda ner gratis",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "Betyg i App Store",
+    "stats": [
+     [
+      "46 000+",
+      "nedladdningar"
+     ],
+     [
+      "560+",
+      "femstjärniga recensioner"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "Recension i App Store"
+     ]
+    ]
+   }
+  }
+ ]
+}
