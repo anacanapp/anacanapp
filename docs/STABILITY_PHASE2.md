@@ -19,10 +19,12 @@
 
 ## Yayımdan əvvəl lazım olanlar
 
-1. **Veb deploy:** gateway image-i `dist/content-packs/`-ı da kopyalamalıdır (`manifest.json` no-cache,
-   shard-lar immutable, gzip). Bu olmadan 16 paket dilində (veb və native) kataloq məzmunu en/ru görünür.
-2. **Google brauzer ehtiyat yolu:** auth serverinin icazəli redirect siyahısına
-   `com.atlasoon.anacan://auth-callback` əlavə olunmalıdır. O olmadan ehtiyat yol tətbiqə qayıda bilmir.
+1. **Veb deploy (edildi 2026-11-25):** gateway `c29d7a97fa9b…` (plan `p2-web-plan.json`, rollback
+   `rollback-p2-web-plan.json`) `dist/content-packs/`-ı da daşıyır; `/content-packs/<lang>/manifest.json` gzip ilə 200.
+   Gələcək gateway build-ləri `content-packs/`-ı kopyalamağa davam etməlidir.
+2. **Google brauzer ehtiyat yolu (yoxlandı):** auth-da `GOTRUE_URI_ALLOW_LIST` artıq `com.atlasoon.anacan://**`
+   daxildir, Google provider aktivdir; `/auth/v1/authorize?provider=google&redirect_to=com.atlasoon.anacan://auth-callback`
+   Google-a 302 verir. Server dəyişikliyi lazım olmadı.
 3. **Cihazda yoxlama (TestFlight / internal testing):** məzmun paketlərinin CapacitorHttp ilə yüklənməsi,
    iOS AI axını (`capacitor://app.anacan.az` CORS), push toxunuşu soyuq açılışda, ağ səs kilid ekranında və
    səssiz düymə ilə, Android geri düyməsi dialoqlarda, internetsiz açılış vaxtı keçmiş sessiya ilə.
