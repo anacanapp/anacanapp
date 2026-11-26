@@ -11,6 +11,7 @@ import type {
 import { hasParentingContent, PARENTING_CONTENT_LANGUAGES } from '@/data/parenting';
 import { ageInMonths, isoDay } from './weaning';
 import { CORRECTION_MAX_MONTHS, PREMATURE_GESTATION_LIMIT_DAYS } from './pregnancy-utils';
+import { writeStorageItem } from './local-storage';
 
 export { ageInMonths, isoDay };
 
@@ -607,7 +608,9 @@ export function readingMinutes(parts: (string | undefined)[]): number {
 
 export function writeParenting(uid: string | null, state: ParentingLocal): void {
   try {
-    localStorage.setItem(storageKey(uid), JSON.stringify(state));
+    // Durable write: evict disposable caches under quota pressure rather than drop progress,
+    // quiz results and bookmarks (merged to public.parenting_state in the background).
+    writeStorageItem(localStorage, storageKey(uid), JSON.stringify(state));
   } catch {
     /* private mode or full storage: progress stays in memory for this session */
   }

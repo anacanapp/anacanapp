@@ -4,151 +4,176 @@
    "stickers": "Stikerlər",
    "sticker": "Stiker",
    "all": "Hamısı",
-   "send": "Stiker göndər"
+   "send": "Stiker göndər",
+   "close": "Bağla"
   },
   "en": {
    "stickers": "Stickers",
    "sticker": "Sticker",
    "all": "All",
-   "send": "Send sticker"
+   "send": "Send sticker",
+   "close": "Close"
   },
   "tr": {
    "stickers": "Çıkartmalar",
    "sticker": "Çıkartma",
    "all": "Tümü",
-   "send": "Çıkartma gönder"
+   "send": "Çıkartma gönder",
+   "close": "Kapat"
   },
   "ru": {
    "stickers": "Стикеры",
    "sticker": "Стикер",
    "all": "Все",
-   "send": "Отправить стикер"
+   "send": "Отправить стикер",
+   "close": "Закрыть"
   },
   "de": {
    "stickers": "Sticker",
    "sticker": "Sticker",
    "all": "Alle",
-   "send": "Sticker senden"
+   "send": "Sticker senden",
+   "close": "Schließen"
   },
   "ar": {
    "stickers": "الملصقات",
    "sticker": "ملصق",
    "all": "الكل",
-   "send": "إرسال ملصق"
+   "send": "إرسال ملصق",
+   "close": "إغلاق"
   },
   "ka": {
    "stickers": "სტიკერები",
    "sticker": "სტიკერი",
    "all": "ყველა",
-   "send": "სტიკერის გაგზავნა"
+   "send": "სტიკერის გაგზავნა",
+   "close": "დახურვა"
   },
   "kk": {
    "stickers": "Стикерлер",
    "sticker": "Стикер",
    "all": "Барлығы",
-   "send": "Стикер жіберу"
+   "send": "Стикер жіберу",
+   "close": "Жабу"
   },
   "uz": {
    "stickers": "Stikerlar",
    "sticker": "Stiker",
    "all": "Hammasi",
-   "send": "Stiker yuborish"
+   "send": "Stiker yuborish",
+   "close": "Yopish"
   },
   "zh": {
    "stickers": "贴纸",
    "sticker": "贴纸",
    "all": "全部",
-   "send": "发送贴纸"
+   "send": "发送贴纸",
+   "close": "关闭"
   },
   "id": {
    "stickers": "Stiker",
    "sticker": "Stiker",
    "all": "Semua",
-   "send": "Kirim stiker"
+   "send": "Kirim stiker",
+   "close": "Tutup"
   },
   "fr": {
    "stickers": "Autocollants",
    "sticker": "Autocollant",
    "all": "Tous",
-   "send": "Envoyer un autocollant"
+   "send": "Envoyer un autocollant",
+   "close": "Fermer"
   },
   "es": {
    "stickers": "Stickers",
    "sticker": "Sticker",
    "all": "Todos",
-   "send": "Enviar sticker"
+   "send": "Enviar sticker",
+   "close": "Cerrar"
   },
   "pt": {
    "stickers": "Figurinhas",
    "sticker": "Figurinha",
    "all": "Todas",
-   "send": "Enviar figurinha"
+   "send": "Enviar figurinha",
+   "close": "Fechar"
   },
   "vi": {
    "stickers": "Nhãn dán",
    "sticker": "Nhãn dán",
    "all": "Tất cả",
-   "send": "Gửi nhãn dán"
+   "send": "Gửi nhãn dán",
+   "close": "Đóng"
   },
   "hi": {
    "stickers": "स्टिकर",
    "sticker": "स्टिकर",
    "all": "सभी",
-   "send": "स्टिकर भेजें"
+   "send": "स्टिकर भेजें",
+   "close": "बंद करें"
   },
   "ja": {
    "stickers": "ステッカー",
    "sticker": "ステッカー",
    "all": "すべて",
-   "send": "ステッカーを送信"
+   "send": "ステッカーを送信",
+   "close": "閉じる"
   },
   "ko": {
    "stickers": "스티커",
    "sticker": "스티커",
    "all": "전체",
-   "send": "스티커 보내기"
+   "send": "스티커 보내기",
+   "close": "닫기"
   },
   "pl": {
    "stickers": "Naklejki",
    "sticker": "Naklejka",
    "all": "Wszystkie",
-   "send": "Wyślij naklejkę"
+   "send": "Wyślij naklejkę",
+   "close": "Zamknij"
   },
   "nl": {
    "stickers": "Stickers",
    "sticker": "Sticker",
    "all": "Alle",
-   "send": "Sticker sturen"
+   "send": "Sticker sturen",
+   "close": "Sluiten"
   },
   "sv": {
    "stickers": "Klistermärken",
    "sticker": "Klistermärke",
    "all": "Alla",
-   "send": "Skicka klistermärke"
+   "send": "Skicka klistermärke",
+   "close": "Stäng"
   },
   "ky": {
    "stickers": "Стикерлер",
    "sticker": "Стикер",
    "all": "Баары",
-   "send": "Стикер жөнөтүү"
+   "send": "Стикер жөнөтүү",
+   "close": "Жабуу"
   },
   "et": {
    "stickers": "Kleebised",
    "sticker": "Kleebis",
    "all": "Kõik",
-   "send": "Saada kleebis"
+   "send": "Saada kleebis",
+   "close": "Sulge"
   },
   "tk": {
    "stickers": "Stikerler",
    "sticker": "Stiker",
    "all": "Hemmesi",
-   "send": "Stiker ibermek"
+   "send": "Stiker ibermek",
+   "close": "Ýap"
   },
   "uk": {
    "stickers": "Стікери",
    "sticker": "Стікер",
    "all": "Усі",
-   "send": "Надіслати стікер"
+   "send": "Надіслати стікер",
+   "close": "Закрити"
   }
  }
 }

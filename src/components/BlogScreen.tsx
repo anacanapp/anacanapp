@@ -128,7 +128,7 @@ const BlogScreen = ({ onBack, initialSlug, lifeStage }: BlogScreenProps) => {
 
   }
 
-  if (linkMissing) return <div className="a-scope a-shell py-8"><button className="a-icon-btn" onClick={onBack}><ArrowLeft className="rtl:rotate-180" size={18} /></button>
+  if (linkMissing) return <div className="a-scope a-shell py-8"><button className="a-icon-btn" aria-label={tr('common_geri', 'Geri')} onClick={onBack}><ArrowLeft className="rtl:rotate-180" size={18} /></button>
     <p role="status" className="a-list-title mt-4">{followupText('blog_unavailable')}</p></div>;
 
   if (selectedPost) {

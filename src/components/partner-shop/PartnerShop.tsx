@@ -21,6 +21,7 @@ import {
   type PartnerProduct, type ShopCollection, type ShopPartner, type ShopStageInput,
 } from '@/lib/partner-shop';
 import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
+import { tr, formatTr } from '@/lib/tr';
 
 function openExternal(url: string) {
   window.open(url, '_blank', 'noopener,noreferrer');
@@ -87,17 +88,17 @@ function QtyControl({ id, placement, compact }: { id: string; placement: string;
   const size = compact ? 'w-7 h-7' : 'w-8 h-8';
   if (!q) {
     return (
-      <button type="button" aria-label="Səbətə at" className={`${size} rounded-lg gradient-primary text-white flex items-center justify-center shrink-0`}
-        onClick={(e) => { e.stopPropagation(); basket.set(id, 1); trackShopEvent(id, 'add', placement); toast.success('Səbətə əlavə olundu', { duration: 1200 }); }}>
+      <button type="button" aria-label={tr('partnershop_add_to_basket', 'Səbətə at')} className={`${size} rounded-lg gradient-primary text-white flex items-center justify-center shrink-0`}
+        onClick={(e) => { e.stopPropagation(); basket.set(id, 1); trackShopEvent(id, 'add', placement); toast.success(tr('partnershop_added_to_basket', 'Səbətə əlavə olundu'), { duration: 1200 }); }}>
         <Plus className="w-4 h-4" />
       </button>
     );
   }
   return (
     <div className="flex items-center rounded-lg bg-primary/10 shrink-0" onClick={(e) => e.stopPropagation()}>
-      <button type="button" aria-label="Azalt" className={`${size} flex items-center justify-center text-primary`} onClick={() => basket.set(id, q - 1)}><Minus className="w-3.5 h-3.5" /></button>
+      <button type="button" aria-label={tr('partnershop_decrease', 'Azalt')} className={`${size} flex items-center justify-center text-primary`} onClick={() => basket.set(id, q - 1)}><Minus className="w-3.5 h-3.5" /></button>
       <span className="min-w-[14px] text-center text-xs font-black tabular-nums">{q}</span>
-      <button type="button" aria-label="Artır" className={`${size} flex items-center justify-center text-primary`} onClick={() => basket.set(id, q + 1)}><Plus className="w-3.5 h-3.5" /></button>
+      <button type="button" aria-label={tr('partnershop_increase', 'Artır')} className={`${size} flex items-center justify-center text-primary`} onClick={() => basket.set(id, q + 1)}><Plus className="w-3.5 h-3.5" /></button>
     </div>
   );
 }
@@ -138,7 +139,7 @@ function Sheet({ onClose, label, children }: { onClose: () => void; label: strin
         className="relative w-full max-h-[88vh] overflow-y-auto rounded-t-3xl bg-background px-4 pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+20px)]">
         <div className="flex items-center justify-center mb-2">
           <span className="w-10 h-1.5 rounded-full bg-border" />
-          <button type="button" onClick={onClose} aria-label="Bağla" className="absolute top-2.5 end-4 w-8 h-8 rounded-full bg-muted flex items-center justify-center"><X className="w-4 h-4" /></button>
+          <button type="button" onClick={onClose} aria-label={tr('partnershop_close', 'Bağla')} className="absolute top-2.5 end-4 w-8 h-8 rounded-full bg-muted flex items-center justify-center"><X className="w-4 h-4" /></button>
         </div>
         {children}
       </div>
@@ -166,21 +167,21 @@ function ProductSheet({ p, partner, col, placement, onClose }: { p: PartnerProdu
       {p.campaign && (
         <div className="rounded-xl border border-primary/30 px-3 py-2 text-[12.5px] mb-2 flex items-center gap-2">
           <Tag className="w-4 h-4 text-primary shrink-0" />
-          <span><b>{p.campaign.title}</b> · {fmtDay(p.campaign.endsAt)} tarixinə qədər</span>
+          <span><b>{p.campaign.title}</b> · {formatTr('partnershop_until', '{date} tarixinə qədər', { date: fmtDay(p.campaign.endsAt) })}</span>
         </div>
       )}
-      {why && <div className="rounded-xl bg-primary/10 px-3 py-2.5 text-[13px] mb-3"><b className="text-primary">Niyə sənə: </b>{why}</div>}
+      {why && <div className="rounded-xl bg-primary/10 px-3 py-2.5 text-[13px] mb-3"><b className="text-primary">{tr('partnershop_why_for_you', 'Niyə sənə:')} </b>{why}</div>}
       <div className="grid gap-2">
         <button type="button" className="w-full rounded-2xl gradient-primary py-3 text-sm font-black text-white"
-          onClick={() => { basket.set(p.id, q + 1); trackShopEvent(p.id, 'add', placement); toast.success('Səbətə əlavə olundu', { duration: 1200 }); onClose(); }}>
-          {q ? `Səbətdə ${q} ədəd · bir dənə də at` : 'Səbətə at'}
+          onClick={() => { basket.set(p.id, q + 1); trackShopEvent(p.id, 'add', placement); toast.success(tr('partnershop_added_to_basket', 'Səbətə əlavə olundu'), { duration: 1200 }); onClose(); }}>
+          {q ? formatTr('partnershop_in_basket_add_one', 'Səbətdə {count} ədəd · bir dənə də at', { count: q }) : tr('partnershop_add_to_basket', 'Səbətə at')}
         </button>
         <button type="button" className="w-full rounded-2xl border border-border bg-card py-3 text-sm font-bold flex items-center justify-center gap-2"
           onClick={() => openExternal(partnerVisitLink(p.id, p.url, placement, `${placement}_${col || 'product'}`))}>
-          {partner ? `${partner.name} saytında bax` : 'Saytda bax'} <ExternalLink className="w-4 h-4" />
+          {partner ? formatTr('partnershop_view_on_partner_site', '{partner} saytında bax', { partner: partner.name }) : tr('partnershop_view_on_site', 'Saytda bax')} <ExternalLink className="w-4 h-4" />
         </button>
       </div>
-      <p className="text-[11px] text-muted-foreground text-center mt-3">Məhsul, qiymət və çatdırılma {partner?.name || 'partnyor'} tərəfindəndir.</p>
+      <p className="text-[11px] text-muted-foreground text-center mt-3">{formatTr('partnershop_fulfilled_by', 'Məhsul, qiymət və çatdırılma {partner} tərəfindəndir.', { partner: partner?.name || tr('partnershop_partner_lower', 'partnyor') })}</p>
     </Sheet>
   );
 }
@@ -192,10 +193,10 @@ function BasketSheet({ products, partners, onClose }: { products: PartnerProduct
   const total = lines.reduce((a, l) => a + l.p.price * l.q, 0);
   const old = lines.reduce((a, l) => a + (l.p.originalPrice || l.p.price) * l.q, 0);
   return (
-    <Sheet onClose={onClose} label="Partnyor səbəti">
-      <h3 className="text-lg font-black mb-3">Səbət</h3>
+    <Sheet onClose={onClose} label={tr('partnershop_partner_basket', 'Partnyor səbəti')}>
+      <h3 className="text-lg font-black mb-3">{tr('partnershop_basket', 'Səbət')}</h3>
       {!lines.length ?
-        <p className="text-sm text-muted-foreground text-center py-8">Səbət boşdur. Məhsul əlavə et.</p> :
+        <p className="text-sm text-muted-foreground text-center py-8">{tr('partnershop_basket_empty', 'Səbət boşdur. Məhsul əlavə et.')}</p> :
         <div className="grid gap-4">
           {groups.map(({ partner, lines: ls }) => (
             <div key={partner?.id || 'x'} className="grid gap-3">
@@ -207,7 +208,7 @@ function BasketSheet({ products, partners, onClose }: { products: PartnerProduct
                     <span className="block text-xs font-bold leading-tight line-clamp-2">{p.name}</span>
                     <button type="button" className="mt-0.5 text-[11px] font-bold text-primary inline-flex items-center gap-1"
                       onClick={() => openExternal(partnerVisitLink(p.id, p.url, 'basket', 'basket'))}>
-                      {formatManat(p.price)} · {partner?.name || 'Partnyor'} saytında al <ExternalLink className="w-3 h-3" />
+                      {formatManat(p.price)} · {formatTr('partnershop_buy_on_partner_site', '{partner} saytında al', { partner: partner?.name || tr('partnershop_partner_cap', 'Partnyor') })} <ExternalLink className="w-3 h-3" />
                     </button>
                   </span>
                   <QtyControl id={p.id} placement="basket" compact />
@@ -216,11 +217,11 @@ function BasketSheet({ products, partners, onClose }: { products: PartnerProduct
             </div>
           ))}
           <div className="border-t border-dashed border-border pt-3 grid gap-1 text-sm tabular-nums">
-            {old > total && <div className="flex justify-between text-emerald-700 dark:text-emerald-300"><span>Endirim</span><span>−{formatManat(old - total)}</span></div>}
-            <div className="flex justify-between text-base font-black"><span>Cəmi</span><span>{formatManat(total)}</span></div>
+            {old > total && <div className="flex justify-between text-emerald-700 dark:text-emerald-300"><span>{tr('partnershop_discount', 'Endirim')}</span><span>−{formatManat(old - total)}</span></div>}
+            <div className="flex justify-between text-base font-black"><span>{tr('partnershop_total', 'Cəmi')}</span><span>{formatManat(total)}</span></div>
           </div>
-          <p className="text-[11px] text-muted-foreground">Birinci mərhələ: sifariş partnyorun saytında tamamlanır. Hər məhsulun yanındakı düymə onun səhifəsini açır.</p>
-          <button type="button" className="w-full rounded-2xl border border-border bg-card py-2.5 text-xs font-bold" onClick={() => basket.clear()}>Səbəti boşalt</button>
+          <p className="text-[11px] text-muted-foreground">{tr('partnershop_phase_one_note', 'Birinci mərhələ: sifariş partnyorun saytında tamamlanır. Hər məhsulun yanındakı düymə onun səhifəsini açır.')}</p>
+          <button type="button" className="w-full rounded-2xl border border-border bg-card py-2.5 text-xs font-bold" onClick={() => basket.clear()}>{tr('partnershop_clear_basket', 'Səbəti boşalt')}</button>
         </div>}
     </Sheet>
   );
@@ -270,28 +271,28 @@ export function PartnerShopSection() {
   const openProduct = (p: PartnerProduct, c?: ShopCollection) => { setOpen({ p, col: c }); trackShopEvent(p.id, 'open', 'shop'); };
 
   return (
-    <section className="mb-5" aria-label="Partnyor mağazaları">
+    <section className="mb-5" aria-label={tr('partnershop_partner_shops', 'Partnyor mağazaları')}>
       <div className="flex items-center justify-between mb-2 gap-2">
         <div className="flex items-center gap-2 flex-wrap min-w-0">
           <span className="rounded-full bg-card border border-border/60 px-2.5 py-1 text-[11px] font-bold inline-flex items-center gap-1.5">
             {partnerList.slice(0, 3).map((p) => p.iconUrl ? <img key={p.id} src={p.iconUrl} alt="" className="w-4 h-4 rounded-[4px]" /> : null)}
-            {partnerList.length === 1 ? `${partnerList[0].name} ilə` : 'Partnyor mağazaları'}
+            {partnerList.length === 1 ? formatTr('partnershop_with_partner', '{partner} ilə', { partner: partnerList[0].name }) : tr('partnershop_partner_shops', 'Partnyor mağazaları')}
           </span>
-          {preview && <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-bold text-amber-700 dark:text-amber-300">Önizləmə · yalnız admin</span>}
+          {preview && <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-bold text-amber-700 dark:text-amber-300">{tr('partnershop_preview_admin', 'Önizləmə · yalnız admin')}</span>}
         </div>
-        <button type="button" onClick={() => setShowBasket(true)} className="relative w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0" aria-label={`Partnyor səbəti, ${basket.count} məhsul`}>
+        <button type="button" onClick={() => setShowBasket(true)} className="relative w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0" aria-label={formatTr('partnershop_basket_count', 'Partnyor səbəti, {count} məhsul', { count: basket.count })}>
           <ShoppingBag className="w-4.5 h-4.5 text-primary" />
           {basket.count > 0 && <span className="absolute -top-1 -end-1 min-w-4 h-4 px-1 rounded-full bg-primary text-[9px] font-black text-white flex items-center justify-center">{basket.count}</span>}
         </button>
       </div>
 
-      <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Axtar: salfet, krem, bez..." aria-label="Partnyor məhsullarında axtar"
+      <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={tr('partnershop_search_placeholder', 'Axtar: salfet, krem, bez...')} aria-label={tr('partnershop_search_aria', 'Partnyor məhsullarında axtar')}
         className="w-full h-10 px-3 mb-3 rounded-xl bg-muted/50 border border-transparent focus:border-primary/30 text-sm outline-none" />
 
       {query.trim() ?
         (hits.length ?
           <ProductGrid items={hits} partners={partners} placement="search" onOpen={openProduct} /> :
-          <p className="text-sm text-muted-foreground text-center py-6">"{query}" tapılmadı.</p>) :
+          <p className="text-sm text-muted-foreground text-center py-6">{formatTr('partnershop_not_found', '"{query}" tapılmadı.', { query: query.trim() })}</p>) :
         <>
           <div className="rounded-2xl gradient-primary p-4 text-white mb-3">
             <p className="text-[10.5px] font-black uppercase tracking-wider opacity-90">{plan.hero.eyebrow}</p>
@@ -301,21 +302,21 @@ export function PartnerShopSection() {
               {thumbs.map((p) => <span key={p.id} className="w-10 h-10 rounded-lg bg-white p-0.5 flex items-center justify-center">{p.image && <img src={p.image} alt="" className="max-w-full max-h-full object-contain" />}</span>)}
             </div>
             <div className="flex items-center justify-between gap-2 mt-3">
-              <span className="text-xs font-bold">{heroItems.length} məhsul</span>
+              <span className="text-xs font-bold">{formatTr('partnershop_product_count', '{count} məhsul', { count: heroItems.length })}</span>
               {plan.hero.collection === 'bag' ?
                 <button type="button" disabled={!heroMissing.length} className="rounded-full bg-white px-3.5 py-2 text-xs font-black text-primary disabled:opacity-80"
-                  onClick={() => { basket.addMany(heroMissing.map((p) => p.id)); trackShopEvent(heroMissing.map((p) => p.id), 'bundle', 'shop_hero'); toast.success('Dəst səbətə əlavə olundu', { duration: 1400 }); }}>
-                  {heroMissing.length ? 'Hamısını səbətə at' : 'Səbətdədir ✓'}
+                  onClick={() => { basket.addMany(heroMissing.map((p) => p.id)); trackShopEvent(heroMissing.map((p) => p.id), 'bundle', 'shop_hero'); toast.success(tr('partnershop_bundle_added', 'Dəst səbətə əlavə olundu'), { duration: 1400 }); }}>
+                  {heroMissing.length ? tr('partnershop_add_all', 'Hamısını səbətə at') : tr('partnershop_in_basket_check', 'Səbətdədir ✓')}
                 </button> :
-                <button type="button" className="rounded-full bg-white px-3.5 py-2 text-xs font-black text-primary" onClick={() => setCol(plan.hero.collection)}>Bax</button>}
+                <button type="button" className="rounded-full bg-white px-3.5 py-2 text-xs font-black text-primary" onClick={() => setCol(plan.hero.collection)}>{tr('partnershop_view', 'Bax')}</button>}
             </div>
           </div>
 
-          <div className="flex gap-1.5 mb-3 overflow-x-auto hide-scrollbar pb-1" role="group" aria-label="Kateqoriyalar">
+          <div className="flex gap-1.5 mb-3 overflow-x-auto hide-scrollbar pb-1" role="group" aria-label={tr('partnershop_categories', 'Kateqoriyalar')}>
             {(['for', ...order] as Array<ShopCollection | 'for'>).map((c) =>
               <button key={c} type="button" aria-pressed={col === c} onClick={() => setCol(c)}
                 className={`px-3 py-1.5 rounded-lg text-[11px] font-bold whitespace-nowrap ${col === c ? 'gradient-primary text-white' : 'bg-card border border-border/50 text-muted-foreground'}`}>
-                {c === 'for' ? 'Sənin üçün' : SHOP_COLLECTION_LABEL[c]}
+                {c === 'for' ? tr('partnershop_for_you', 'Sənin üçün') : SHOP_COLLECTION_LABEL[c]}
               </button>)}
           </div>
 
@@ -324,14 +325,14 @@ export function PartnerShopSection() {
               <div key={c} className="mb-4">
                 <div className="flex items-baseline justify-between mb-2">
                   <h4 className="text-sm font-black">{SHOP_COLLECTION_LABEL[c]}</h4>
-                  <button type="button" className="text-[11px] font-bold text-primary inline-flex items-center" onClick={() => setCol(c)}>Hamısı <ChevronRight className="w-3 h-3 rtl:rotate-180" /></button>
+                  <button type="button" className="text-[11px] font-bold text-primary inline-flex items-center" onClick={() => setCol(c)}>{tr('partnershop_all', 'Hamısı')} <ChevronRight className="w-3 h-3 rtl:rotate-180" /></button>
                 </div>
                 <ProductGrid items={(byCol.get(c) || []).slice(0, 4)} partners={partners} col={c} placement="shop_for" onOpen={openProduct} />
               </div>) :
             <ProductGrid items={byCol.get(col) || []} partners={partners} col={col} placement={`shop_${col}`} onOpen={openProduct} />}
         </>}
 
-      <p className="text-[10.5px] text-muted-foreground mt-3">Qiymətləri partnyorlar idarə edir və dəyişə bilər. Sifariş partnyorun saytında tamamlanır.</p>
+      <p className="text-[10.5px] text-muted-foreground mt-3">{tr('partnershop_prices_note', 'Qiymətləri partnyorlar idarə edir və dəyişə bilər. Sifariş partnyorun saytında tamamlanır.')}</p>
 
       {open && <ProductSheet p={open.p} partner={partners.get(open.p.partnerId)} col={open.col} placement="shop" onClose={() => setOpen(null)} />}
       {showBasket && <BasketSheet products={products} partners={partners} onClose={() => setShowBasket(false)} />}
@@ -365,9 +366,9 @@ export function PartnerHomeCard(props: Omit<ShopStageInput, 'recovering'> & { re
         <span className="flex items-center justify-between gap-2">
           <span className="text-[10.5px] font-black uppercase tracking-wider text-primary inline-flex items-center gap-1.5">
             {owners.length === 1 && owners[0].iconUrl && <img src={owners[0].iconUrl} alt="" className="w-4 h-4 rounded-[4px]" />}
-            {owners.length === 1 ? `${owners[0].name} ilə` : 'Partnyorlar'} · {plan.hero.eyebrow}
+            {owners.length === 1 ? formatTr('partnershop_with_partner', '{partner} ilə', { partner: owners[0].name }) : tr('partnershop_partners', 'Partnyorlar')} · {plan.hero.eyebrow}
           </span>
-          {preview && <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-[9.5px] font-bold text-amber-700 dark:text-amber-300">Önizləmə</span>}
+          {preview && <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-[9.5px] font-bold text-amber-700 dark:text-amber-300">{tr('partnershop_preview', 'Önizləmə')}</span>}
         </span>
         <span className="block">
           <b className="block text-[15px] leading-snug">{plan.hero.title}</b>
@@ -376,7 +377,7 @@ export function PartnerHomeCard(props: Omit<ShopStageInput, 'recovering'> & { re
         <span className="flex items-center gap-1.5">
           {thumbs.map((p) => <span key={p.id} className="relative w-11 h-11 rounded-xl bg-white border border-border/50 p-0.5 flex items-center justify-center">{p.image && <img src={p.image} alt="" className="max-w-full max-h-full object-contain" />}<PartnerMark partner={partnerById.get(p.partnerId)} size={14} /></span>)}
           <span className="ms-auto inline-flex items-center gap-1 rounded-xl bg-primary/10 px-3 py-2 text-xs font-black text-primary">
-            {formatManat(Math.min(...items.map((p) => p.price)))}-dan <ChevronRight className="w-3.5 h-3.5 rtl:rotate-180" />
+            {formatTr('partnershop_from_price', '{price}-dan', { price: formatManat(Math.min(...items.map((p) => p.price))) })} <ChevronRight className="w-3.5 h-3.5 rtl:rotate-180" />
           </span>
         </span>
       </button>

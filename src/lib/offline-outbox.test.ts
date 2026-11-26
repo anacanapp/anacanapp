@@ -14,6 +14,7 @@ import {
   saveWithOutbox,
   subscribeOutbox,
   type OutboxSender,
+  type OutboxTable,
 } from './offline-outbox';
 
 const networkError = { message: 'TypeError: Failed to fetch', details: '', hint: '', code: '' };
@@ -101,6 +102,38 @@ describe('offline outbox', () => {
     await flushOutbox('u1', server.send);
     expect(server.rows.size).toBe(1);
     expect(readOutbox('u1')).toEqual([]);
+  });
+
+  it('queues offline, flushes once online and replays idempotently for each new log table', async () => {
+    const tables: OutboxTable[] = [
+      'weight_entries', 'meal_logs', 'exercise_logs', 'cycle_history', 'vitamin_intake_logs', 'appointments',
+    ];
+    for (const table of tables) {
+      const server = fakeServer();
+      const uid = `u-${table}`;
+
+      // Offline: the write is queued, not lost, with the client UUID as the row id.
+      server.setMode('offline');
+      const queued = await saveWithOutbox(uid, table, { user_id: uid }, server.send);
+      expect(queued.status).toBe('queued');
+      const [entry] = readOutbox(uid);
+      expect(entry.table).toBe(table);
+      expect(entry.payload.id).toBe(entry.id);
+      expect(pendingOutboxRows(uid, table)).toEqual([expect.objectContaining({ id: entry.id })]);
+
+      // Online: flushed once, nothing left queued, exactly one server row.
+      server.setMode('ok');
+      const flushed = await flushOutbox(uid, server.send);
+      expect(flushed).toMatchObject({ sent: 1, tables: [table] });
+      expect([...server.rows.keys()]).toEqual([entry.id]);
+      expect(readOutbox(uid)).toEqual([]);
+
+      // Replay the same id (lost-response retry): no duplicate row.
+      enqueueOutbox(uid, { id: entry.id, table, payload: entry.payload });
+      await flushOutbox(uid, server.send);
+      expect(server.rows.size).toBe(1);
+      expect(readOutbox(uid)).toEqual([]);
+    }
   });
 
   it('returns a real server error without queueing', async () => {

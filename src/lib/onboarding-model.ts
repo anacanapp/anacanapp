@@ -91,7 +91,10 @@ export function onboardingSteps(stage: OnboardingStage | null, native: boolean):
   const base: OnboardingStep[] = ['welcome', 'stage', 'name', 'data'];
   if (!stage) return base;
   const branch = BRANCH_QUESTIONS[stage];
-  return [...base, branch[0], 'support', branch[1], branch[2], 'privacy', 'concern', 'sleep', 'supportLevel', 'duration', 'budget',
+  // 'duration'/'budget' were purchase-intent questions that only fed the plan
+  // recommendation/paywall; they are dropped from setup to shorten onboarding.
+  // recommendedOnboardingPlan still returns a valid plan without their answers.
+  return [...base, branch[0], 'support', branch[1], branch[2], 'privacy', 'concern', 'sleep', 'supportLevel',
     'value', ...(native ? ['notifications' as const] : []), 'analysis', 'results', 'features', 'paywall'];
 }
 export function newOnboardingChild(): OnboardingChild {

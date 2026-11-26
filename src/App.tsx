@@ -13,7 +13,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "next-themes";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import AppLockGate from "@/components/security/AppLockGate";
-import Index from "./pages/Index";
+const Index = lazy(() => import("./pages/Index"));
 import BlogLink from './pages/BlogLink';
 import ResetPassword from "./pages/ResetPassword";
 import LegalPage from "./pages/LegalPage";
@@ -39,7 +39,10 @@ import { installKeyboardViewport } from '@/lib/keyboard-viewport';
 import { PremiumEntitlementMonitor } from '@/hooks/usePremiumEntitlement';
 import ScreenCaptureGuard from '@/components/security/ScreenCaptureGuard';
 import { Capacitor } from '@capacitor/core';
-import ModeratorEnforcement from '@/components/moderation/ModeratorEnforcement';
+// ModeratorEnforcement statically imports the 25-language moderator copy (~350KB via
+// useModerator/moderator-i18n). Lazy-loading it keeps that copy out of the startup/App
+// chunk; the routed app renders immediately as the Suspense fallback while it loads.
+const ModeratorEnforcement = lazy(() => import('@/components/moderation/ModeratorEnforcement'));
 import PrivacyConsentSheet from '@/components/privacy/PrivacyConsentSheet';
 import CustomerIoSession from '@/components/CustomerIoSession';
 import TikTokSession from '@/components/TikTokSession';
@@ -148,6 +151,37 @@ const App = () => {
     }
   }, [language]);
 
+  // Routed app content. Rendered as the Suspense fallback while the lazy
+  // ModeratorEnforcement chunk loads, and again as its children once loaded, so the
+  // app is visible immediately and the moderator copy never blocks first paint.
+  const routedContent = (
+    <>
+      <PendingAppLink />
+      <Routes>
+        <Route path="/" element={<Suspense fallback={<StartupScreen />}><Index /></Suspense>} />
+        <Route path="/blog/:slug" element={<BlogLink />} />
+        <Route path="/blog" element={<Suspense fallback={<StartupScreen />}><PublicBlogPage /></Suspense>} />
+        <Route path="/blog/:language/:slug" element={<BlogLink />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/legal/:docType" element={<LegalPage />} />
+        <Route path="/payment/success" element={<PaymentSuccess />} />
+        <Route path="/payment/error" element={<PaymentError />} />
+        <Route path="/debug/revenuecat" element={<RevenueCatDebug />} />
+        <Route path="/revenuecat-debug" element={<RevenueCatDebug />} />
+        <Route path="/p/v/:token" element={<PartnerVerifyPage />} />
+        <Route path="/mini-games" element={<MiniGamesPage />} />
+        <Route path="/admin/ads" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdmobAdminPage /></Suspense>} />
+        <Route path="/admin" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdminPage /></Suspense>} />
+        <Route path="/admin/:section" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdminPage /></Suspense>} />
+        <Route path="/h/:code" element={<Suspense fallback={<StartupScreen />}><PromoLanding /></Suspense>} />
+        <Route path="/partner" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><PartnerPage /></Suspense>} />
+        <Route path="/moderator" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><ModeratorPage /></Suspense>} />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<AppPathLink />} />
+      </Routes>
+    </>
+  );
+
   return (
     <ErrorBoundary>
       <MotionConfig reducedMotion={LITE_DEVICE ? 'always' : 'user'}>
@@ -171,31 +205,11 @@ const App = () => {
               <OfflineSyncIndicator />
               <BrowserRouter>
                 <AdExperienceProvider>
+                <Suspense fallback={routedContent}>
                 <ModeratorEnforcement>
-                <PendingAppLink />
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/blog/:slug" element={<BlogLink />} />
-                  <Route path="/blog" element={<Suspense fallback={<StartupScreen />}><PublicBlogPage /></Suspense>} />
-                  <Route path="/blog/:language/:slug" element={<BlogLink />} />
-                  <Route path="/reset-password" element={<ResetPassword />} />
-                  <Route path="/legal/:docType" element={<LegalPage />} />
-                  <Route path="/payment/success" element={<PaymentSuccess />} />
-                  <Route path="/payment/error" element={<PaymentError />} />
-                  <Route path="/debug/revenuecat" element={<RevenueCatDebug />} />
-                  <Route path="/revenuecat-debug" element={<RevenueCatDebug />} />
-                  <Route path="/p/v/:token" element={<PartnerVerifyPage />} />
-                  <Route path="/mini-games" element={<MiniGamesPage />} />
-                  <Route path="/admin/ads" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdmobAdminPage /></Suspense>} />
-                  <Route path="/admin" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdminPage /></Suspense>} />
-                  <Route path="/admin/:section" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdminPage /></Suspense>} />
-                  <Route path="/h/:code" element={<Suspense fallback={<StartupScreen />}><PromoLanding /></Suspense>} />
-                  <Route path="/partner" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><PartnerPage /></Suspense>} />
-                  <Route path="/moderator" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><ModeratorPage /></Suspense>} />
-                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                  <Route path="*" element={<AppPathLink />} />
-                </Routes>
+                {routedContent}
                 </ModeratorEnforcement>
+                </Suspense>
                 </AdExperienceProvider>
               </BrowserRouter>
             </TooltipProvider>

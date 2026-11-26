@@ -39,6 +39,7 @@ import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { storedDateKey } from '@/lib/stored-date-key';
 import { useOnlineStatus } from '@/hooks/useOnlineStatus';
 import { AI_STREAM_IDLE_TIMEOUT_MS, fetchStreaming, isRequestTimeoutError } from '@/lib/network-timeout';
+import { useChatMediaSrc } from '@/lib/chat-media';
 
 interface Message {
   id: string;
@@ -46,7 +47,8 @@ interface Message {
   content: string;
   timestamp: Date;
   isStreaming?: boolean;
-  /** İstifadəçinin mesaja qoşduğu şəkil (chat-media URL) — Gemini vision */
+  /** İstifadəçinin mesaja qoşduğu şəkil: chat-media obyekt yolu (köhnə sətirlərdə
+   *  tam public URL) və ya blob: preview. Render anında signed URL-ə çevrilir. */
   imageUrl?: string | null;
 }
 
@@ -97,7 +99,11 @@ const ChatMessageRow = memo(({ message, copied, onCopy }: {
   message: Message;
   copied: boolean;
   onCopy: (id: string, content: string) => void;
-}) => (
+}) => {
+  // chat-media is private: resolve the stored path/legacy public URL to a signed
+  // URL at render time (blob: previews of a just-sent image pass through as-is).
+  const mediaSrc = useChatMediaSrc(message.imageUrl);
+  return (
   <motion.div
     initial={{ opacity: 0, y: 8 }}
     animate={{ opacity: 1, y: 0 }}
@@ -113,9 +119,9 @@ const ChatMessageRow = memo(({ message, copied, onCopy }: {
     <div className="a-chat-bubble-wrap">
       <div className={`a-chat-bubble ${message.role === 'user' ? 'user' : 'ai'}`}>
         {/* Mesaja qoşulmuş şəkil */}
-        {message.imageUrl &&
+        {mediaSrc &&
         <img
-          src={message.imageUrl}
+          src={mediaSrc}
           alt=""
           style={{ maxWidth: 220, maxHeight: 260, borderRadius: 12, display: 'block', marginBottom: message.content ? 6 : 0, objectFit: 'cover' }} />
         }
@@ -154,7 +160,8 @@ const ChatMessageRow = memo(({ message, copied, onCopy }: {
         </span>}
     </div>
   </motion.div>
-));
+  );
+});
 ChatMessageRow.displayName = 'ChatMessageRow';
 
 /** Woman's context for the partner persona (Ata AI): stage and shared profile fields. */
@@ -433,8 +440,8 @@ const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext
           from('chat-media').
           upload(path, blob, { contentType: 'image/jpeg' });
           if (!upErr) {
-            const { data: urlData } = supabase.storage.from('chat-media').getPublicUrl(path);
-            imageUrl = urlData.publicUrl;
+            // Store the object path (private bucket); signed at render time.
+            imageUrl = path;
           }
         }
       } catch (e) {

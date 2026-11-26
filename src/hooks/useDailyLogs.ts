@@ -3,7 +3,8 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { usePartnerNotifications } from './usePartnerNotifications';
 import { todayKey } from '@/lib/local-date';
-import { retainOutboxUser, subscribeOutbox } from '@/lib/offline-outbox';
+import { retainOutboxUser, saveWithOutbox, subscribeOutbox } from '@/lib/offline-outbox';
+import { DAILY_LOG_OUTBOX_TABLE } from '@/lib/daily-log-rpc';
 import { WATER_OUTBOX_TABLE, addWater, displayedWater } from '@/lib/water-intake';
 
 export interface DailyLog {
@@ -82,27 +83,46 @@ export const useDailyLogs = () => {
     }
   };
 
-  /** Saves only the given fields for the day (see dailyLogUpsertRow); other columns of an existing row are kept. */
+  /** Reflect a queued patch in today's row until the outbox syncs it (water is never touched here). */
+  const applyLocalPatch = (row: DailyLogPatch & { user_id: string; log_date: string }) => {
+    const today = todayKey();
+    if (row.log_date !== today) return;
+    const { user_id: _uid, ...fields } = row;
+    setTodayLog((previous) => {
+      const base: DailyLog = previous?.log_date === today ? previous
+        : { id: '', user_id: row.user_id, log_date: today, mood: null, symptoms: null, water_intake: null,
+            temperature: null, bleeding: null, notes: null, created_at: new Date().toISOString() };
+      return { ...base, ...fields };
+    });
+    setLogs((previous) => {
+      const index = previous.findIndex((l) => l.log_date === today);
+      if (index === -1) return previous;
+      const next = [...previous];
+      next[index] = { ...next[index], ...fields };
+      return next;
+    });
+  };
+
+  /**
+   * Saves only the given fields for the day (see dailyLogUpsertRow); other columns of an existing row
+   * are kept. Queued in the offline outbox first (merge-upsert on user_id,log_date, idempotent
+   * replay), so offline or a timeout keeps the mood/symptoms/sleep/notes instead of losing them.
+   */
   const addLog = async (log: DailyLogPatch) => {
     if (!user) return { error: 'No user logged in' };
 
-    try {
-      const { data, error } = await supabase
-        .from('daily_logs')
-        .upsert(dailyLogUpsertRow(user.id, log), {
-          onConflict: 'user_id,log_date'
-        })
-        .select()
-        .single();
-
-      if (error) throw error;
-      
-      await fetchLogs();
-      return { data, error: null };
-    } catch (error) {
-      console.error('Error adding daily log:', error);
-      return { data: null, error };
+    const row = dailyLogUpsertRow(user.id, log);
+    const outcome = await saveWithOutbox(user.id, DAILY_LOG_OUTBOX_TABLE, row as unknown as Record<string, unknown>);
+    if (outcome.status === 'error') {
+      console.error('Error adding daily log:', outcome.error);
+      return { data: null, error: outcome.error };
     }
+    if (outcome.status === 'queued') {
+      applyLocalPatch(row);
+      return { data: outcome.data, error: null };
+    }
+    await fetchLogs();
+    return { data: outcome.data, error: null };
   };
 
   /**
@@ -163,7 +183,7 @@ export const useDailyLogs = () => {
     const unsubscribe = subscribeOutbox((event) => {
       if (event.userId !== userId) return;
       setOutboxVersion((v) => v + 1);
-      if (event.sentTables.includes(WATER_OUTBOX_TABLE)) void fetchLogs();
+      if (event.sentTables.includes(WATER_OUTBOX_TABLE) || event.sentTables.includes(DAILY_LOG_OUTBOX_TABLE)) void fetchLogs();
     });
     const release = retainOutboxUser(userId);
     return () => { unsubscribe(); release(); };

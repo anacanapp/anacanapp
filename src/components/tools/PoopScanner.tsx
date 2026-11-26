@@ -7,7 +7,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 import { useSubscription } from '@/hooks/useSubscription';
 import PremiumModal from '@/components/PremiumModal';
-import { takePhoto, pickFromGallery, readImageFileAsDataUrl } from '@/lib/permissions';
+import { takePhoto, pickFromGallery, readImageFileAsDataUrl, isCameraPermissionError } from '@/lib/permissions';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { tr, getPersistedLanguage } from "@/lib/tr";
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
@@ -116,7 +116,7 @@ const PoopScanner = ({ onBack }: PoopScannerProps) => {
       console.error('Camera capture error:', error);
       const errorMsg = error.message?.toLowerCase() || '';
 
-      if (errorMsg.includes('permission') || errorMsg.includes('denied')) {
+      if (isCameraPermissionError(error) || errorMsg.includes('permission') || errorMsg.includes('denied')) {
         toast({
           title: tr("poopscanner_kamera_icazesi_lazimdir_a300cc", 'Kamera icazəsi lazımdır'),
           description: tr("poopscanner_tetbiq_parametrlerinden_kamera_icazesini_7a6f09", 'Tətbiq parametrlərindən kamera icazəsini aktivləşdirin'),
@@ -143,7 +143,7 @@ const PoopScanner = ({ onBack }: PoopScannerProps) => {
       console.error('Gallery pick error:', error);
       const errorMsg = error.message?.toLowerCase() || '';
 
-      if (errorMsg.includes('permission') || errorMsg.includes('denied')) {
+      if (isCameraPermissionError(error) || errorMsg.includes('permission') || errorMsg.includes('denied')) {
         toast({
           title: tr("poopscanner_sekil_icazesi_lazimdir_ce5b8c", 'Şəkil icazəsi lazımdır'),
           description: tr("poopscanner_tetbiq_parametrlerinden_foto_kitabxanasi_f9ffae", 'Tətbiq parametrlərindən foto kitabxanası icazəsini aktivləşdirin'),

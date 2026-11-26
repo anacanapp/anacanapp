@@ -127,8 +127,9 @@ describe('legacy chat completed audio uploads', () => {
     });
 
     expect(storage.remove).not.toHaveBeenCalled();
-    expect(storage.getPublicUrl).toHaveBeenCalledExactlyOnceWith(uploadedPath);
-    expect(onUpload).toHaveBeenCalledExactlyOnceWith('audio', publicUrl);
+    // chat-media is private now: no public URL; the object path is handed back.
+    expect(storage.getPublicUrl).not.toHaveBeenCalled();
+    expect(onUpload).toHaveBeenCalledExactlyOnceWith('audio', uploadedPath);
   });
 
   it('checks upload failure before considering deletion after cancellation', async () => {
@@ -180,7 +181,7 @@ it('preserves existing uploadMedia callers that do not pass a signal', async () 
   await act(async () => {
     const upload = result.current.uploadMedia(new Blob(['audio'], { type: 'audio/webm' }), 'audio');
     completeUpload({ data: { path: uploadedPath }, error: null });
-    expect(await upload).toBe(publicUrl);
+    expect(await upload).toBe(uploadedPath);
   });
   expect(storage.upload).toHaveBeenCalledOnce();
   expect(storage.remove).not.toHaveBeenCalled();

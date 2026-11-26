@@ -141,26 +141,33 @@ function parseBakuTimeToMinutes(value: string | null | undefined): number | null
   return hour * 60 + minute;
 }
 
-function getCycleInfo(lastPeriodDate: string, cycleLength: number, periodLength: number) {
-  const today = new Date();
-  const lmp = new Date(lastPeriodDate);
-  today.setHours(0, 0, 0, 0);
-  lmp.setHours(0, 0, 0, 0);
+/** Local calendar day (YYYY-MM-DD) in the user's stored IANA zone, fallback Asia/Baku (as public._anacan_local_day). */
+function localCalendarDay(timeZone: string | null | undefined): string {
+  const fmt = (tz: string) => new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  const tz = (typeof timeZone === 'string' && timeZone.length > 0 && timeZone.length <= 64) ? timeZone : 'Asia/Baku';
+  try { return fmt(tz); } catch { return fmt('Asia/Baku'); }
+}
 
-  const daysSincePeriod = Math.floor((today.getTime() - lmp.getTime()) / (1000 * 60 * 60 * 24));
+/** Whole-day difference between two YYYY-MM-DD calendar days (exact: both anchored at UTC midnight). */
+function calendarDayDiff(fromYmd: string, toYmd: string): number {
+  const a = fromYmd.slice(0, 10).split('-').map(Number);
+  const b = toYmd.slice(0, 10).split('-').map(Number);
+  return Math.round((Date.UTC(b[0], b[1] - 1, b[2]) - Date.UTC(a[0], a[1] - 1, a[2])) / 86_400_000);
+}
+
+function getCycleInfo(lastPeriodDate: string, cycleLength: number, periodLength: number, timeZone: string) {
+  // "Days since the period" anchored to the user's LOCAL calendar day, not the server's (UTC) day, so a
+  // reminder keyed on "days until period / ovulation / PMS" fires on the right local date near midnight.
+  // Same integer cycle math as before (next period = LMP + (cyclesPassed + 1) * cycleLength), just a tz-correct
+  // "today": every daysUntil* is a plain day offset from daysSincePeriod, so no Date/ms arithmetic is needed.
+  const daysSincePeriod = calendarDayDiff(lastPeriodDate, localCalendarDay(timeZone));
   const currentCycleDay = (daysSincePeriod % cycleLength) + 1;
   const cyclesPassed = Math.floor(daysSincePeriod / cycleLength);
-  const nextPeriodDate = new Date(lmp);
-  nextPeriodDate.setDate(nextPeriodDate.getDate() + (cyclesPassed + 1) * cycleLength);
-  const daysUntilPeriod = Math.floor((nextPeriodDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  const ovulationDate = new Date(nextPeriodDate);
-  ovulationDate.setDate(ovulationDate.getDate() - 14);
-  const daysUntilOvulation = Math.floor((ovulationDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  const fertileStart = new Date(ovulationDate);
-  fertileStart.setDate(fertileStart.getDate() - 5);
-  const daysUntilFertile = Math.floor((fertileStart.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  const isPeriodDay = currentCycleDay <= periodLength;
+  const daysUntilPeriod = (cyclesPassed + 1) * cycleLength - daysSincePeriod;
+  const daysUntilOvulation = daysUntilPeriod - 14;
+  const daysUntilFertile = daysUntilPeriod - 19;
   const daysUntilPMS = daysUntilPeriod - 7;
+  const isPeriodDay = currentCycleDay <= periodLength;
 
   return { currentCycleDay, daysUntilPeriod, daysUntilOvulation, daysUntilFertile, daysUntilPMS, isPeriodDay, cycleLength };
 }
@@ -266,13 +273,17 @@ Deno.serve(async (req) => {
 
     // Fetch user language preferences
     const prefs = await fetchAllPaged<any>(() => {
-      let q = supabase.from('user_preferences').select('user_id, language').order('user_id');
+      let q = supabase.from('user_preferences').select('user_id, language, timezone').order('user_id');
       if (body.userId) q = q.eq('user_id', body.userId);
       return q;
     });
     console.log(`[send-flow-reminders] reminders=${reminders.length} profiles=${profiles.length} tokens=${tokens.length}`);
     const langByUser = new Map<string, string>();
-    prefs?.forEach((p: any) => { langByUser.set(p.user_id, p.language || 'az'); });
+    const tzByUser = new Map<string, string>();
+    prefs?.forEach((p: any) => {
+      langByUser.set(p.user_id, p.language || 'az');
+      if (p.timezone) tzByUser.set(p.user_id, p.timezone);
+    });
 
     const profileMap = new Map<string, UserProfile>();
     profiles?.forEach((p: UserProfile) => { if (p.last_period_date) profileMap.set(p.user_id, p); });
@@ -292,7 +303,7 @@ Deno.serve(async (req) => {
 
       const cycleLength = profile.cycle_length || 28;
       const periodLength = profile.period_length || 5;
-      const cycleInfo = getCycleInfo(profile.last_period_date, cycleLength, periodLength);
+      const cycleInfo = getCycleInfo(profile.last_period_date, cycleLength, periodLength, tzByUser.get(reminder.user_id) || 'Asia/Baku');
 
       const userLang = langByUser.get(reminder.user_id) || 'az';
       let shouldSend = false;

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
+import { writeStorageItem } from '@/lib/local-storage';
 
 export interface SilentHoursSettings {
   enabled: boolean;
@@ -97,9 +98,13 @@ export const useSilentHours = () => {
       setSettings(settings);
     }
 
-    // Also save to localStorage for chat-notifications lib
+    // Also save to localStorage for chat-notifications lib. Durable write (evict disposable
+    // caches under quota pressure); wrapped so a quota/blocked-storage failure never rejects
+    // the settings update.
     if (user) {
-      localStorage.setItem(`silent_hours_${user.id}`, JSON.stringify(newSettings));
+      try {
+        writeStorageItem(localStorage, `silent_hours_${user.id}`, JSON.stringify(newSettings));
+      } catch { /* storage full or blocked: the DB row above is the source of truth */ }
     }
   }, [user, settings]);
 

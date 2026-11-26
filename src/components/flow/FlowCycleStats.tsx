@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { tr } from '@/lib/tr';
 import { Calendar, TrendingUp, Clock, Activity, BarChart3 } from 'lucide-react';
-import { format, parseISO, differenceInDays } from 'date-fns';
+import { format, differenceInDays } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
+import { storedCalendarDate } from '@/lib/stored-date-key';
 import { useCycleHistory, useCycleStats, CycleHistory } from '@/hooks/useCycleHistory';
 import { isAnomalousCycleLength } from '@/lib/cycle-predictions';
 import { feature37Text } from '@/lib/feature37-i18n';
@@ -88,18 +89,22 @@ const FlowCycleStats = () => {
       <div style={{ marginTop: 14 }}>
           <p className="a-today-info-eyebrow" style={{ marginBottom: 4 }}>{tr("flowcyclestats_son_tsikller_7e7eb6", "Son Tsikllər")}</p>
           <div>
-            {cycles.slice(0, 3).map((cycle) =>
+            {cycles.slice(0, 3).map((cycle) => {
+          // Guard: a null/invalid stored date must not throw and break the whole dashboard.
+          const startDate = storedCalendarDate(cycle.start_date);
+          const endDate = storedCalendarDate(cycle.end_date);
+          return (
           <div key={cycle.id} className="a-rank-row">
                 <span className="a-rank-avatar" style={{ background: 'var(--a-surface-soft)', fontSize: 11.5, fontWeight: 800, color: 'var(--a-ink-soft)' }}>
                   #{cycle.cycle_number}
                 </span>
                 <div style={{ minWidth: 0 }}>
                   <p className="a-rank-title">
-                    {format(parseISO(cycle.start_date), 'd MMM', { locale: getCurrentDateLocale() })}
-                    {cycle.end_date &&
+                    {startDate ? format(startDate, 'd MMM', { locale: getCurrentDateLocale() }) : '—'}
+                    {endDate &&
                 <span style={{ color: 'var(--a-ink-soft)' }}>
                         {' – '}
-                        {format(parseISO(cycle.end_date), 'd MMM', { locale: getCurrentDateLocale() })}
+                        {format(endDate, 'd MMM', { locale: getCurrentDateLocale() })}
                       </span>
                 }
                   </p>
@@ -118,7 +123,7 @@ const FlowCycleStats = () => {
                   </span>
             }
               </div>
-          )}
+          );})}
           </div>
         </div>
       }

@@ -21,9 +21,23 @@ import { App as CapApp } from '@capacitor/app';
 import { supabase } from '@/integrations/supabase/client';
 import { writeStorageItem } from './local-storage';
 import { WATER_OUTBOX_TABLE, sendWaterDelta } from './water-intake-rpc';
+import { DAILY_LOG_OUTBOX_TABLE, sendDailyLogPatch } from './daily-log-rpc';
 
-/** Row tables, plus `water_intake`: a water delta sent through increment_water_intake_v1 (entry id = op id). */
-export type OutboxTable = 'baby_logs' | 'kick_sessions' | typeof WATER_OUTBOX_TABLE;
+/**
+ * Append-only row tables: each entry is one INSERT with a client UUID primary key, sent with
+ * `upsert(..., { onConflict: 'id', ignoreDuplicates: true })` so a replay is a no-op.
+ */
+export type OutboxRowTable =
+  | 'baby_logs' | 'kick_sessions' | 'weight_entries' | 'meal_logs' | 'exercise_logs'
+  | 'cycle_history' | 'vitamin_intake_logs' | 'appointments';
+
+/**
+ * Row tables, plus two merge/RPC backed day records on `daily_logs`:
+ * - `water_intake`: a water delta sent through increment_water_intake_v1 (entry id = op id).
+ * - `daily_logs`: a mood/symptoms/sleep/notes patch merge-upserted on (user_id, log_date), so a
+ *   replay re-writes the same fields (idempotent) and never makes a second row for the day.
+ */
+export type OutboxTable = OutboxRowTable | typeof WATER_OUTBOX_TABLE | typeof DAILY_LOG_OUTBOX_TABLE;
 
 export interface OutboxEntry {
   /** Client generated UUID, also the row's primary key. */
@@ -67,7 +81,10 @@ export const OUTBOX_SEND_TIMEOUT_MS = 15_000;
 
 const KEY_PREFIX = 'anacan_outbox_v1:';
 const keyFor = (userId: string) => `${KEY_PREFIX}${userId}`;
-const TABLES: OutboxTable[] = ['baby_logs', 'kick_sessions', WATER_OUTBOX_TABLE];
+const TABLES: OutboxTable[] = [
+  'baby_logs', 'kick_sessions', 'weight_entries', 'meal_logs', 'exercise_logs',
+  'cycle_history', 'vitamin_intake_logs', 'appointments', WATER_OUTBOX_TABLE, DAILY_LOG_OUTBOX_TABLE,
+];
 
 export function newClientId(): string {
   try {
@@ -172,6 +189,7 @@ export function isTransientError(error: unknown, status?: number): boolean {
 /** Idempotent insert: an already stored id is ignored rather than duplicated. */
 export const sendRow: OutboxSender = async (table, row) => {
   if (table === WATER_OUTBOX_TABLE) return sendWaterDelta(row);
+  if (table === DAILY_LOG_OUTBOX_TABLE) return sendDailyLogPatch(row);
   const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
   const timer = controller ? setTimeout(() => controller.abort(), OUTBOX_SEND_TIMEOUT_MS) : null;
   try {

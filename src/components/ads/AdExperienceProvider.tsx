@@ -12,6 +12,7 @@ import { hasNativeAdmob, NativeAdmobAdapter, removeNativeAdmobBanner, type Nativ
 import { readAdLedger, writeAdLedger } from '@/lib/ads/storage';
 import { DemoBanner, DemoFullscreen } from './DemoAd';
 import { toast } from 'sonner';
+import { tr } from '@/lib/tr';
 import { useTimerStore } from '@/store/timerStore';
 import { useWhiteNoiseStore } from '@/store/whiteNoiseStore';
 import { advanceAdCadence, consumeAdCadence, type AdCadence } from '@/lib/ads/cadence';
@@ -410,7 +411,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
     try {
       const result = await adapter.privacyOptions();
       if (mounted.current && epoch.current === ownEpoch) { consentRef.current = result; setConsent(result); }
-    } catch { toast.error('Reklam məxfilik seçimləri hazırda açılmır. Yenidən cəhd edin.'); }
+    } catch { toast.error(tr('adexp_privacy_unavailable', 'Reklam məxfilik seçimləri hazırda açılmır. Yenidən cəhd edin.')); }
     finally { if (ownEpoch === epoch.current) setBusyState(false); }
   }, [adapter, nativeAvailable, setBusyState]);
   const mode = effectivePreview.enabled ? 'demo' : configuration?.settings.mode ?? 'demo';
@@ -430,7 +431,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
     <span id="admob-safe-area-probe" aria-hidden style={{ position: 'fixed', visibility: 'hidden', pointerEvents: 'none', paddingBottom: 'env(safe-area-inset-bottom)', paddingTop: 'env(safe-area-inset-top)' }} />
     {banner?.loaded && <div className="admob-banner-dock" style={{ top: bannerTop, height: banner.height, visibility: bannerVisible ? 'visible' : 'hidden', ...(bannerPosition === 'middle' ? { width: 'min(320px, calc(100% - 16px))' } : {}) }} data-testid="ad-banner-dock" data-placement={banner.id} data-position={bannerPosition}>
       {banner.mode === 'demo' && <DemoBanner placementId={banner.id} onClick={() => {
-        emit(banner.id, 'demo_clicked', 'demo'); toast.info('Bu demo reklamdır. Real reklamın məzmununu AdMob təqdim edir.');
+        emit(banner.id, 'demo_clicked', 'demo'); toast.info(tr('adexp_demo_banner_info', 'Bu demo reklamdır. Real reklamın məzmununu AdMob təqdim edir.'));
       }} />}
     </div>}
     {effectivePreview.enabled && <div className="admob-preview-toolbar" data-testid="ad-preview-toolbar">

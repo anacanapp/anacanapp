@@ -80,12 +80,27 @@ Deno.serve(async (req) => {
   }
 
   // After a grant the bonus must be committed, or the stale-reservation release would hand it back.
+  let finished = false;
   for (let attempt = 0; attempt < 3; attempt++) {
     const { error: finishError } = await admin.rpc('qc_premium_finish_v1',
       { p_order_id: orderId, p_success: granted, p_note: granted ? `rc promo ${plan}` : 'revenuecat grant failed' });
-    if (!finishError) break;
+    if (!finishError) { finished = true; break; }
     console.error(`[qaygicash-premium] finish failed (attempt ${attempt + 1}, order ${orderId}):`, finishError.message.slice(0, 120));
     await new Promise((r) => setTimeout(r, 500 * (attempt + 1)));
+  }
+
+  // Money-leak guard: the RevenueCat grant succeeded but the bonus could not be committed. Left alone, the
+  // 15-minute stale sweep (qc_release_stale) would release the reserved bonus while Premium stays granted —
+  // free Premium + bonus kept. Pin the reservation so it can NOT be released, and flag it for reconciliation.
+  // A refused grant (granted=false) is the opposite case: letting the reservation lapse back is correct.
+  if (granted && !finished) {
+    const { error: markError } = await admin.rpc('qc_premium_mark_pending',
+      { p_order_id: orderId, p_note: `reconcile: rc promo ${plan} granted, finish failed` });
+    if (markError) {
+      console.error(`[qaygicash-premium] RECONCILE mark_pending failed (order ${orderId}; bonus may be released, Premium granted):`, markError.message.slice(0, 120));
+    } else {
+      console.error(`[qaygicash-premium] RECONCILE needed: Premium granted but bonus commit failed; reservation pinned (order ${orderId})`);
+    }
   }
   if (!granted) return json(502, { error: 'grant_failed' });
 

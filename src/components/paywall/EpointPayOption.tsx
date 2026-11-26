@@ -81,7 +81,7 @@ function EpointStatusLine({ status, messageKey, onRetry }: {
       style={{ marginTop: 8, fontSize: 11.5, fontWeight: 700, color: tone, textAlign: 'center' }}>
       {status === 'checking' && <Loader2 size={13} className="animate-spin" />}
       <span>{text}</span>
-      {status === 'timeout' && (
+      {(status === 'timeout' || status === 'error') && (
         <button type="button" onClick={onRetry} className="flex items-center gap-1 underline"
           style={{ background: 'none', border: 'none', color: 'var(--a-ink)', fontSize: 11.5, fontWeight: 800, cursor: 'pointer' }}>
           <RefreshCw size={11} /> {iepText('iep_check_again')}

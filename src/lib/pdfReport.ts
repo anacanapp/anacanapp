@@ -42,6 +42,14 @@ const clean = (value: unknown) => String(value ?? '—').replace(/\r\n?/g, '\n')
 const mirror = (text: string) => text.replace(/[()[\]{}<>«»]/g, char => ({ '(': ')', ')': '(', '[': ']', ']': '[', '{': '}', '}': '{', '<': '>', '>': '<', '«': '»', '»': '«' })[char]!);
 type Weight = 'normal' | 'bold';
 
+/** Hand the main thread back a frame so an existing "generating…" spinner can paint
+ * and the WebView stays responsive while a long report (AR/UZ text is rasterised per
+ * run) is built. Output is unchanged; only the work is spread across frames. */
+const yieldToUI = (): Promise<void> => new Promise<void>(resolve => {
+  if (typeof requestAnimationFrame === 'function') requestAnimationFrame(() => setTimeout(resolve, 0));
+  else setTimeout(resolve, 0);
+});
+
 function fontData(path: string): Promise<string> {
   let pending = fontCache.get(path);
   if (!pending) {
@@ -296,25 +304,30 @@ export async function generateDoctorReportPdf(data: DoctorReportData): Promise<j
   }
   if (data.stageRows.length) { section(tr('pdf_section_basics', 'Cari məlumatlar')); cards(data.stageRows); }
   if (data.trends.length) {
+    await yieldToUI();
     section(tr('pdf_section_trends', 'Sağlamlıq göstəriciləri'));
     table([tr('pdf_metric', 'Göstərici'), tr('pdf_value', 'Nəticə'), tr('pdf_coverage_change', 'Əhatə / dəyişiklik')], data.trends.map(row => [row.label, row.value, row.trend]), [1.1, 1, 1.2]);
   }
   if (data.weightSeries && data.weightSeries.length > 0) {
+    await yieldToUI();
     section(tr('pdf_weight_history', 'Çəki qeydləri'));
     table([tr('pdf_date', 'Tarix'), tr('pdf_weight_kg', 'Çəki (kq)')], data.weightSeries.map(row => [row.date, row.weight.toLocaleString(getLocaleTag(), { minimumFractionDigits: 1, maximumFractionDigits: 1 })]), [1,1]);
   }
   if (data.babyCareRows?.length) {
+    await yieldToUI();
     section(tr('pdf_section_babycare', 'Körpə qulluğu'));
     paragraph(tr('pdf_logged_days_note', 'Ortalamalar yalnız müvafiq qeydin olduğu günlərə əsaslanır. Davam edən yuxu intervalları yuxu müddətinə daxil edilmir.'), 8.5, MUTED);
     y += 4; cards(data.babyCareRows);
   }
-  if (data.fetalGrowthRows?.length) { section(tr('pdf_section_fetalgrowth', 'Fetal böyümə')); cards(data.fetalGrowthRows); }
+  if (data.fetalGrowthRows?.length) { await yieldToUI(); section(tr('pdf_section_fetalgrowth', 'Fetal böyümə')); cards(data.fetalGrowthRows); }
   if (data.bpRows?.length) {
+    await yieldToUI();
     section(tr('pdf_section_bp_period', 'Dövr üzrə qan təzyiqi'));
     table([tr('pdf_date_time', 'Tarix / saat'), tr('pdf_bp_mmhg', 'Təzyiq (mmHg)'), tr('pdf_pulse', 'Nəbz'), tr('pdf_reading_range', 'Ölçmə aralığı')], data.bpRows.map(row => [row.date, row.reading, row.pulse || '—', row.category]), [1.15, 1, 0.55, 1.5]);
   }
   for (const item of data.sections || []) {
     if (!item.flag && !item.rows?.length && !item.table?.rows.length) continue;
+    await yieldToUI();
     section(item.title);
     if (item.flag) alertBox(item.flag);
     if (item.rows?.length) cards(item.rows);
@@ -322,7 +335,7 @@ export async function generateDoctorReportPdf(data: DoctorReportData): Promise<j
     if (item.table?.rows.length) table(item.table.headers, item.table.rows, item.table.widths);
   }
   for (const history of data.historyTables || []) {
-    if (history.rows.length) { section(history.title); table(history.headers, history.rows, history.widths); }
+    if (history.rows.length) { await yieldToUI(); section(history.title); table(history.headers, history.rows, history.widths); }
   }
   if (data.notes?.trim()) { section(tr('pdf_section_notes', 'Həkim üçün qeydlər')); paragraph(data.notes.trim(), 10); y += 5; }
   if (data.coverage?.records === 0 && !data.sections?.length) { section(tr('pdf_no_observations', 'Müşahidələr')); paragraph(tr('pdf_no_records_period', 'Seçilmiş dövr üçün sağlamlıq qeydi yoxdur.'), 10, MUTED); }

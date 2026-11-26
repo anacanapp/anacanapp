@@ -244,6 +244,7 @@ const BlogPostDetail = ({ post, categories, allPosts, onBack, onSelectPost }: Bl
             <img
             src={post.cover_image_url}
             alt={locale?.coverAlt || post.title}
+            decoding="async"
             className="w-full h-full object-cover" />
           
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--a-bg), transparent 60%)' }} />

@@ -95,6 +95,13 @@ export const useBanners = (placement?: BannerPlacement) => {
 
   return useQuery({
     queryKey: ['banners', getBackendConfig().url, placement, language, lifeStage, countryCode, user?.id],
+    // Banner inventory barely changes within a session; without this the 30s global
+    // default re-fired get_banner_inventory_v3 on every screen mount/focus, once per
+    // placement. 5 min staleTime + no focus refetch dedupes those; same-key requests are
+    // already shared by react-query, and admin mutations invalidate ['banners'].
+    staleTime: 5 * 60 * 1000,
+    gcTime: 30 * 60 * 1000,
+    refetchOnWindowFocus: false,
     queryFn: async ({ signal }) => {
       if (user && placement) {
         // v3 evaluates tier/pregnancy-week/child-age targeting server-side; v2 is the

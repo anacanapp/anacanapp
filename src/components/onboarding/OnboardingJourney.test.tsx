@@ -93,7 +93,7 @@ describe('complete localized journeys', () => {
     await travel(stage);
     expect(mocks.save).toHaveBeenCalledTimes(1);
     expect(mocks.save.mock.calls[0][0]).toMatchObject({ actor: mocks.actor, backend: mocks.backend, stage,
-      answers: { sleep: 'rested', supportLevel: 'supported', duration: 'months', budget: 'value' } });
+      answers: { sleep: 'rested', supportLevel: 'supported' } });
     expect(mocks.save.mock.calls[0][1]).toBe(language);
     expect(document.querySelector('.onboarding')).toHaveAttribute('dir', language === 'ar' ? 'rtl' : 'ltr');
     expect(screen.getByText(onboardingText(language, 'mobile_purchase'))).toBeInTheDocument();

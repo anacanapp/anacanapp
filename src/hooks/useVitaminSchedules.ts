@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
+import { retainOutboxUser, saveWithOutbox, subscribeOutbox } from '@/lib/offline-outbox';
 // "Taken today" uses the phone's local day. The reminder job (scripts/notification-jobs/send-vitamin-reminders.mjs
 // with vitamin-window.mjs) checks vitamin_intake_logs.log_date against the Baku (UTC+4) day, which is the same
 // day for users in Azerbaijan; the old UTC key logged 00:00-04:00 intakes on yesterday.
@@ -119,20 +120,24 @@ export const useVitaminSchedules = () => {
   const logIntake = useMutation({
     mutationFn: async (schedule: VitaminSchedule) => {
       if (!user) throw new Error('Not authenticated');
-      const { data, error } = await supabase
-        .from('vitamin_intake_logs')
-        .insert({
-          user_id: user.id,
-          schedule_id: schedule.id,
-          vitamin_name: schedule.vitamin_name,
-          log_date: todayKey(),
-        })
-        .select()
-        .single();
-      if (error) throw error;
-      return data;
+      // Queued in the offline outbox first (client UUID id, idempotent replay): offline or a
+      // timeout keeps the intake and syncs later instead of losing it.
+      const outcome = await saveWithOutbox(user.id, 'vitamin_intake_logs', {
+        user_id: user.id,
+        schedule_id: schedule.id,
+        vitamin_name: schedule.vitamin_name,
+        log_date: todayKey(),
+        taken_at: new Date().toISOString(),
+      });
+      if (outcome.status === 'error') throw outcome.error;
+      return outcome.data as unknown as VitaminIntakeLog;
     },
-    onSuccess: () => {
+    onSuccess: (row) => {
+      // Optimistic insert so a queued (offline) intake shows "taken" at once; replaced on refetch.
+      queryClient.setQueryData<VitaminIntakeLog[]>(['vitamin-logs-today', user?.id, todayKey()], (old) => {
+        const list = old ?? [];
+        return list.some((l) => l.id === row.id) ? list : [...list, row];
+      });
       queryClient.invalidateQueries({ queryKey: ['vitamin-logs-today'] });
     },
   });
@@ -149,6 +154,20 @@ export const useVitaminSchedules = () => {
       queryClient.invalidateQueries({ queryKey: ['vitamin-logs-today'] });
     },
   });
+
+  // Offline outbox: flush queued vitamin intakes (mount, online, app resume) and
+  // refresh once a background flush delivered them.
+  useEffect(() => {
+    if (!user?.id) return;
+    const uid = user.id;
+    const unsubscribe = subscribeOutbox((event) => {
+      if (event.userId === uid && event.sentTables.includes('vitamin_intake_logs')) {
+        void queryClient.invalidateQueries({ queryKey: ['vitamin-logs-today'] });
+      }
+    });
+    const release = retainOutboxUser(uid);
+    return () => { unsubscribe(); release(); };
+  }, [user?.id, queryClient]);
 
   const isVitaminTakenToday = (scheduleId: string) => {
     return todayLogsQuery.data?.some(log => log.schedule_id === scheduleId) ?? false;

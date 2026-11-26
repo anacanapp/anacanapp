@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserStore } from '@/store/userStore';
 import { effectiveCycleLength, isAnomalousCycleLength } from '@/lib/cycle-predictions';
+import { retainOutboxUser, saveWithOutbox, subscribeOutbox } from '@/lib/offline-outbox';
 
 export interface CycleHistory {
   id: string;
@@ -30,8 +32,9 @@ export interface CycleStats {
 
 export const useCycleHistory = () => {
   const { user } = useAuth();
+  const queryClient = useQueryClient();
 
-  return useQuery({
+  const query = useQuery({
     queryKey: ['cycle-history', user?.id],
     queryFn: async () => {
       if (!user?.id) return [];
@@ -47,6 +50,22 @@ export const useCycleHistory = () => {
     },
     enabled: !!user?.id,
   });
+
+  // Offline outbox: flush queued cycle entries (mount, online, app resume) and
+  // refresh once a background flush delivered them.
+  useEffect(() => {
+    if (!user?.id) return;
+    const uid = user.id;
+    const unsubscribe = subscribeOutbox((event) => {
+      if (event.userId === uid && event.sentTables.includes('cycle_history')) {
+        void queryClient.invalidateQueries({ queryKey: ['cycle-history'] });
+      }
+    });
+    const release = retainOutboxUser(uid);
+    return () => { unsubscribe(); release(); };
+  }, [user?.id, queryClient]);
+
+  return query;
 };
 
 /** Proqnozlar üçün tsikl uzunluğu; anomal tsikllər (məs. 53 gün) normanı dəyişmir. */
@@ -108,19 +127,18 @@ export const useAddCycle = () => {
     mutationFn: async (cycle: Omit<CycleHistory, 'id' | 'user_id' | 'created_at'>) => {
       if (!user?.id) throw new Error('Not authenticated');
 
-      const { data, error } = await supabase
-        .from('cycle_history')
-        .insert({
-          ...cycle,
-          user_id: user.id,
-        })
-        .select()
-        .single();
-
-      if (error) throw error;
-      return data;
+      // Queued in the offline outbox first (client UUID id, idempotent replay): offline or a
+      // timeout keeps the cycle entry and syncs later instead of losing it.
+      const outcome = await saveWithOutbox(user.id, 'cycle_history', { ...cycle, user_id: user.id });
+      if (outcome.status === 'error') throw outcome.error;
+      return outcome.data as unknown as CycleHistory;
     },
-    onSuccess: () => {
+    onSuccess: (row) => {
+      // Optimistic insert so a queued (offline) entry shows at once; replaced on the next refetch.
+      queryClient.setQueryData<CycleHistory[]>(['cycle-history', user?.id], (old) => {
+        const list = old ?? [];
+        return list.some((c) => c.id === row.id) ? list : [row, ...list];
+      });
       queryClient.invalidateQueries({ queryKey: ['cycle-history'] });
     },
   });

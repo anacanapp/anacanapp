@@ -19,6 +19,8 @@ import {
   RC_OFFERING_ID,
   REVENUECAT_ENABLED,
   REVENUECAT_CONFIG,
+  RC_NATIVE_TIMEOUT_MS,
+  withNativeTimeout,
   type PremiumPurchaseContext,
   type RestoreFailure } from
 '@/lib/revenuecat';
@@ -132,8 +134,10 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
       // Retry after a failed start: bind the SDK to this account before reading offerings.
       if (initializedFor.current !== owner) {
         try {
-          await initRevenueCat(owner);
-          await identifyUser(owner);
+          // Native-bridge calls have no built-in timeout; race them so a hung store
+          // SDK surfaces as "offerings failed" (paywall retry) instead of a dead spinner.
+          await withNativeTimeout(initRevenueCat(owner), RC_NATIVE_TIMEOUT_MS);
+          await withNativeTimeout(identifyUser(owner), RC_NATIVE_TIMEOUT_MS);
         } catch (err) {
           console.error('RevenueCat init retry error:', err);
           if (ownerRef.current === owner) { setOfferingsFailed(true); setError(tr("useinapppurchase_odenis_sistemi_yuklene_bilmedi_90af92", "\xD6d\u0259ni\u015F sistemi y\xFCkl\u0259n\u0259 bilm\u0259di")); }
@@ -142,7 +146,7 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
         if (ownerRef.current !== owner) return;
         initializedFor.current = owner; setIsSupported(true); setError(null);
       }
-      const loaded = await getOfferings();
+      const loaded = await withNativeTimeout(getOfferings(), RC_NATIVE_TIMEOUT_MS);
       if (ownerRef.current !== owner) return;
       const mapPackage = (pkg: any): RCPackage => {
         const defaultOption = pkg.product?.defaultOption;
@@ -192,8 +196,10 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
       }
 
       try {
-        await initRevenueCat(user?.id);
-        if (user?.id) await identifyUser(user.id);
+        // Race the native-bridge setup so a hung store SDK cannot keep isLoading
+        // (and the paywall spinner) up forever; a timeout falls into catch below.
+        await withNativeTimeout(initRevenueCat(user?.id), RC_NATIVE_TIMEOUT_MS);
+        if (user?.id) await withNativeTimeout(identifyUser(user.id), RC_NATIVE_TIMEOUT_MS);
         if (ownerRef.current !== owner) return;
 
         initializedFor.current = owner ?? null;

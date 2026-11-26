@@ -140,8 +140,10 @@ export const usePartnerData = () => {
 
     // daily_logs is no longer readable row-by-row for the partner (Duzelis68), so realtime
     // cannot deliver it; refresh while the app is open and when it returns to the foreground.
+    // The foreground/visibility refetch keeps partner updates live; the background poll is
+    // gentle (5 min instead of 60s) so an open-but-idle app does not hit the RPC every minute.
     if (profile?.linked_partner_id && partnerProfile?.user_id) {
-      const timer = window.setInterval(fetchPartnerData, 60_000);
+      const timer = window.setInterval(fetchPartnerData, 300_000);
       const onVisible = () => { if (document.visibilityState === 'visible') fetchPartnerData(); };
       document.addEventListener('visibilitychange', onVisible);
       return () => { window.clearInterval(timer); document.removeEventListener('visibilitychange', onVisible); };

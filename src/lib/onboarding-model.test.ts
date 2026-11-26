@@ -38,6 +38,20 @@ it('switches branches without carrying incompatible health data or answer IDs', 
   expect(onboardingSteps('flow', false)).not.toContain('feeding');
   expect(onboardingSteps('mommy', true)).toContain('notifications');
 });
+it('drops the purchase-intent questions from setup yet still recommends a valid plan', () => {
+  for (const stage of ONBOARDING_STAGES) {
+    const steps = onboardingSteps(stage, true);
+    expect(steps).not.toContain('duration');
+    expect(steps).not.toContain('budget');
+    // Branch/stage/data/privacy/notifications steps are kept.
+    expect(steps.slice(0, 4)).toEqual(['welcome', 'stage', 'name', 'data']);
+    expect(steps).toContain('privacy');
+    expect(steps).toContain('notifications');
+  }
+  // Without duration/budget answers the recommendation is still a valid plan.
+  expect(recommendedOnboardingPlan({})).toBe('yearly');
+  expect(['yearly', 'monthly']).toContain(recommendedOnboardingPlan({ budget: 'flexible' }));
+});
 it('keeps none exclusive, stores stable IDs and does not invent skipped answers', () => {
   expect(toggleOnboardingAnswer(['none'], 'nausea')).toEqual(['nausea']);
   expect(toggleOnboardingAnswer(['nausea'], 'none')).toEqual(['none']);

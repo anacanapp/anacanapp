@@ -38,6 +38,20 @@ const DEFAULT_LIMITS: Record<DailyFeature, number> = {
   baby_insight: 2,
 };
 
+/** Default IANA zone when a caller sends none; the RPC validates and also falls back to this. */
+const DEFAULT_TIME_ZONE = 'Asia/Baku';
+
+/**
+ * Local calendar day (YYYY-MM-DD) in the given IANA zone, mirroring public._anacan_local_day: the free
+ * daily limits reset at the user's local midnight, not UTC midnight (04:00 in Baku). An unknown / empty
+ * zone falls back to Asia/Baku. Only used by the legacy table fallback below; the RPC computes its own day.
+ */
+function localDayKey(timeZone: string = DEFAULT_TIME_ZONE): string {
+  const fmt = (tz: string) =>
+    new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  try { return fmt(timeZone || DEFAULT_TIME_ZONE); } catch { return fmt(DEFAULT_TIME_ZONE); }
+}
+
 type SupabaseAdmin = ReturnType<typeof createClient>;
 
 function adminClient(): SupabaseAdmin {
@@ -82,7 +96,8 @@ async function isPremiumUser(admin: SupabaseAdmin, userId: string): Promise<bool
  */
 export async function checkAndConsumeServerSide(
   userId: string,
-  feature: DailyFeature
+  feature: DailyFeature,
+  timeZone: string = DEFAULT_TIME_ZONE
 ): Promise<{ allowed: boolean; remaining: number; limit: number }> {
   const admin = adminClient();
 
@@ -91,24 +106,23 @@ export async function checkAndConsumeServerSide(
       return { allowed: true, remaining: Infinity, limit: Infinity };
     }
 
-    // Konfiqurasiya edilə bilən limit (admin panelindən) — tapılmasa fallback.
-    let limit = DEFAULT_LIMITS[feature];
-    try {
-      const { data: setting } = await admin
-        .from('app_settings')
-        .select('value')
-        .eq('key', 'free_limits')
-        .maybeSingle();
-      const configured = (settingObject(setting?.value) as any)?.[DAILY_LIMIT_KEYS[feature]];
-      if (typeof configured === 'number' && configured >= 0) limit = configured;
-    } catch { /* fallback dəyəri istifadə olunur */ }
+    // Atomic, local-day gate (public.usage_consume_srv_v1 -> usage_consume_v1 logic): one
+    // INSERT .. ON CONFLICT .. WHERE usage_count < limit, so parallel calls never overshoot and the
+    // day is the user's local calendar day, not UTC (Baku reset at local midnight, not 04:00).
+    const viaRpc = await consumeViaRpc(admin, userId, feature, timeZone);
+    if (viaRpc) {
+      return { allowed: viaRpc.allowed, remaining: Math.max(0, viaRpc.limit - viaRpc.used), limit: viaRpc.limit };
+    }
 
-    const today = new Date().toISOString().split('T')[0];
+    // Fallback for an old DB without the RPC (or a feature it does not know yet): the legacy
+    // read-then-update, now on the local-day row, so deploy order never breaks the gate.
+    const limit = await resolveDailyLimit(admin, feature);
+    const today = localDayKey(timeZone);
     const { data: row } = await admin
       .from('usage_tracking')
       .select('id, usage_count')
       .eq('user_id', userId)
-      .eq('feature_type', feature)
+      .eq('feature_type', counterKey(feature))
       .eq('usage_date', today)
       .maybeSingle();
 
@@ -120,7 +134,7 @@ export async function checkAndConsumeServerSide(
     } else {
       await admin.from('usage_tracking').upsert({
         user_id: userId,
-        feature_type: feature,
+        feature_type: counterKey(feature),
         usage_date: today,
         usage_count: 1,
       }, { onConflict: 'user_id,feature_type,usage_date' });
@@ -169,12 +183,48 @@ const SERVER_COUNTER: Partial<Record<DailyFeature, string>> = {
 };
 const counterKey = (feature: DailyFeature): string => SERVER_COUNTER[feature] ?? feature;
 
+/**
+ * Atomic, local-day consume via public.usage_consume_srv_v1 (round-3 migration 20261125190000, feature keys
+ * extended + service-role entrypoint added in 20261126130000). The server calls with the service-role key, so
+ * it cannot use auth.uid(); the _srv variant takes the user id explicitly. Returns null when the RPC is missing
+ * or rejects the feature (DB not migrated yet) so the caller falls back to the legacy table path and deploy
+ * order never breaks the gate. The feature key is counterKey(feature): the server's own `<feature>_srv` row for
+ * the four features the app also counts, the plain row for fairy_tale / baby_insight (see SERVER_COUNTER).
+ */
+async function consumeViaRpc(
+  admin: SupabaseAdmin,
+  userId: string,
+  feature: DailyFeature,
+  timeZone: string
+): Promise<{ allowed: boolean; used: number; limit: number } | null> {
+  try {
+    const { data, error } = await admin.rpc('usage_consume_srv_v1', {
+      p_user_id: userId,
+      p_feature: counterKey(feature),
+      p_time_zone: timeZone || DEFAULT_TIME_ZONE,
+    });
+    if (error || !data || typeof data !== 'object') {
+      if (error) console.error('[usage-limit] usage_consume_srv_v1 fallback:', error.message || error);
+      return null;
+    }
+    const d = data as { allowed?: unknown; used?: unknown; limit?: unknown };
+    if (typeof d.allowed !== 'boolean') return null;
+    const limit = Number.isFinite(Number(d.limit)) ? Number(d.limit) : DEFAULT_LIMITS[feature];
+    const used = Number(d.used) || 0;
+    return { allowed: d.allowed, used, limit };
+  } catch (e) {
+    console.error('[usage-limit] usage_consume_srv_v1 fallback (threw):', e);
+    return null;
+  }
+}
+
 async function readDailyUsage(
   admin: SupabaseAdmin,
   userId: string,
-  feature: DailyFeature
+  feature: DailyFeature,
+  timeZone: string = DEFAULT_TIME_ZONE
 ): Promise<{ id: string | null; used: number }> {
-  const today = new Date().toISOString().split('T')[0];
+  const today = localDayKey(timeZone);
   const { data: row } = await admin
     .from('usage_tracking')
     .select('id, usage_count')
@@ -192,7 +242,8 @@ async function readDailyUsage(
  */
 export async function checkDailyLimit(
   userId: string,
-  feature: DailyFeature
+  feature: DailyFeature,
+  timeZone: string = DEFAULT_TIME_ZONE
 ): Promise<{ allowed: boolean; remaining: number; limit: number }> {
   const admin = adminClient();
   try {
@@ -200,7 +251,7 @@ export async function checkDailyLimit(
       return { allowed: true, remaining: Infinity, limit: Infinity };
     }
     const limit = await resolveDailyLimit(admin, feature);
-    const { used } = await readDailyUsage(admin, userId, feature);
+    const { used } = await readDailyUsage(admin, userId, feature, timeZone);
     return { allowed: used < limit, remaining: Math.max(0, limit - used), limit };
   } catch (e) {
     console.error('[usage-limit] checkDailyLimit failed (allowing by default):', e);
@@ -209,10 +260,14 @@ export async function checkDailyLimit(
 }
 
 /** Records one successful use for today. Call only for free users (limit is finite). */
-export async function recordDailyUsage(userId: string, feature: DailyFeature): Promise<void> {
+export async function recordDailyUsage(userId: string, feature: DailyFeature, timeZone: string = DEFAULT_TIME_ZONE): Promise<void> {
   const admin = adminClient();
-  const today = new Date().toISOString().split('T')[0];
-  const { id, used } = await readDailyUsage(admin, userId, feature);
+  // Atomic, local-day increment, bounded by the limit so parallel answers never overshoot the counter.
+  const viaRpc = await consumeViaRpc(admin, userId, feature, timeZone);
+  if (viaRpc) return;
+  // Fallback for an old DB without the RPC: the legacy read-then-update, now on the local-day row.
+  const today = localDayKey(timeZone);
+  const { id, used } = await readDailyUsage(admin, userId, feature, timeZone);
   if (id) {
     await admin.from('usage_tracking').update({ usage_count: used + 1 }).eq('id', id);
   } else {

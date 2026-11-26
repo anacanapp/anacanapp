@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { todayKey, localDateKey } from '@/lib/local-date';
+import { retainOutboxUser, saveWithOutbox, subscribeOutbox } from '@/lib/offline-outbox';
 
 export interface ExerciseLog {
   id: string;
@@ -52,28 +53,24 @@ export const useExerciseLogs = () => {
   const addLog = async (exerciseId: string, exerciseName: string, durationMinutes: number, caloriesBurned: number) => {
     if (!user) return;
 
-    try {
-      const { data, error } = await supabase
-        .from('exercise_logs')
-        .insert({
-          user_id: user.id,
-          exercise_id: exerciseId,
-          exercise_name: exerciseName,
-          duration_minutes: durationMinutes,
-          calories_burned: caloriesBurned,
-        })
-        .select()
-        .single();
-
-      if (error) throw error;
-      
-      if (data) {
-        setLogs(prev => [data, ...prev]);
-        setTodayLogs(prev => [data, ...prev]);
-      }
-    } catch (error) {
-      console.error('Error adding exercise log:', error);
+    // Queued in the offline outbox first (client UUID id, idempotent replay): offline or a
+    // timeout keeps it and syncs later instead of losing the completed exercise.
+    const outcome = await saveWithOutbox(user.id, 'exercise_logs', {
+      user_id: user.id,
+      exercise_id: exerciseId,
+      exercise_name: exerciseName,
+      duration_minutes: durationMinutes,
+      calories_burned: caloriesBurned,
+      completed_at: new Date().toISOString(),
+    });
+    if (outcome.status === 'error') {
+      console.error('Error adding exercise log:', outcome.error);
+      return;
     }
+    const saved = outcome.data as unknown as ExerciseLog;
+    setLogs(prev => [saved, ...prev.filter(l => l.id !== saved.id)]);
+    setTodayLogs(prev => [saved, ...prev.filter(l => l.id !== saved.id)]);
+    if (outcome.status === 'saved') void fetchLogs();
   };
 
   const isCompletedToday = (exerciseId: string) => {
@@ -135,6 +132,19 @@ export const useExerciseLogs = () => {
       fetchLogs();
     }
   }, [user]);
+
+  // Offline outbox: flush queued exercise logs (mount, online, app resume) and
+  // refetch once a background flush delivered them.
+  useEffect(() => {
+    if (!user?.id) return;
+    const uid = user.id;
+    const unsubscribe = subscribeOutbox((event) => {
+      if (event.userId === uid && event.sentTables.includes('exercise_logs')) void fetchLogs();
+    });
+    const release = retainOutboxUser(uid);
+    return () => { unsubscribe(); release(); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id]);
 
   return {
     logs,

@@ -5,6 +5,7 @@
  */
 import type az from '@/data/baby-chat/az.json';
 import { localDateKey } from '@/lib/local-date';
+import { writeStorageItem } from '@/lib/local-storage';
 
 export type BabyChatText = typeof az;
 export type BabyIntent = keyof BabyChatText['keywords'];
@@ -120,6 +121,7 @@ export function saveThread(userId: string, day: string, messages: BabyChatMessag
   try {
     const all = { ...loadThreads(userId), [day]: messages.slice(-60) };
     const kept = Object.keys(all).sort().slice(-14);
-    localStorage.setItem(storeKey(userId), JSON.stringify(Object.fromEntries(kept.map((k) => [k, all[k]]))));
+    // Durable write: evict disposable caches under quota pressure rather than drop the thread.
+    writeStorageItem(localStorage, storeKey(userId), JSON.stringify(Object.fromEntries(kept.map((k) => [k, all[k]]))));
   } catch { /* storage full or blocked: the thread stays in memory */ }
 }

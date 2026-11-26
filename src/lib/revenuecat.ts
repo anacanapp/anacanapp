@@ -71,6 +71,16 @@ export const RC_PRODUCTS = {
   LIFETIME: 'lifetime',
 } as const;
 
+/** Native-bridge calls (RevenueCat SDK) are not covered by the supabase fetch timeout.
+ * A hung store/plugin call must never keep the paywall spinner up forever, so every
+ * bridge call that the paywall waits on is raced against this budget. */
+export const RC_NATIVE_TIMEOUT_MS = 15_000;
+export function withNativeTimeout<T>(promise: Promise<T>, ms = RC_NATIVE_TIMEOUT_MS, label = 'RC_NATIVE_TIMEOUT'): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  return Promise.race([promise, new Promise<T>((_, reject) => { timer = setTimeout(() => reject(new Error(label)), ms); })])
+    .finally(() => { if (timer !== undefined) clearTimeout(timer); });
+}
+
 export const isNativePlatform = (): boolean => Capacitor.isNativePlatform();
 
 export const hasRevenueCatPlugin = (): boolean =>
@@ -227,7 +237,8 @@ export async function getOfferings() {
 
   try {
     const { Purchases } = await import('@revenuecat/purchases-capacitor');
-    const result = await Purchases.getOfferings();
+    // A hung bridge call returns null (treated as "offerings failed") instead of spinning forever.
+    const result = await withNativeTimeout(Purchases.getOfferings(), RC_NATIVE_TIMEOUT_MS, 'RC_OFFERINGS_TIMEOUT');
     // Workaround: TS types say PurchasesOfferings directly, but runtime wraps in { offerings }
     const offerings = ('offerings' in result) ? (result as any).offerings : result;
     return offerings;

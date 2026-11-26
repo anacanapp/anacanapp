@@ -8,7 +8,8 @@ import { createAudioRecorder, getAudioErrorToast, openMicrophone, releaseAudioRe
 import { compressImageForUpload } from '@/lib/image-compress';
 
 interface ChatMediaUploadProps {
-  onUpload: (type: 'image' | 'audio', url: string) => void;
+  /** Receives the chat-media storage object path (private bucket; sign at render). */
+  onUpload: (type: 'image' | 'audio', path: string) => void;
   disabled?: boolean;
 }
 
@@ -106,11 +107,9 @@ const ChatMediaUpload = ({ onUpload, disabled }: ChatMediaUploadProps) => {
         return;
       }
 
-      const { data: { publicUrl } } = supabase.storage
-        .from('chat-media')
-        .getPublicUrl(data.path);
-
-      onUpload(type, publicUrl);
+      // chat-media is private: hand back the storage object path. The receiver
+      // signs it at render time (see src/lib/chat-media.ts). No public URL.
+      onUpload(type, data.path);
     } catch (error) {
       console.error('Upload error:', error);
     } finally {

@@ -28,6 +28,16 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { DateField } from '@/components/ui/date-field';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle } from
+'@/components/ui/alert-dialog';
 
 import countriesData from '../../countries.json';
 import { tr } from "@/lib/tr";
@@ -99,6 +109,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   const [showPremiumModal, setShowPremiumModal] = useState(false);
   const [showPartnerInfo, setShowPartnerInfo] = useState(false);
   const [showChildModal, setShowChildModal] = useState(false);
+  const [showLogoutDialog, setShowLogoutDialog] = useState(false);
   const [editingChild, setEditingChild] = useState<Child | null>(null);
   const [childForm, setChildForm] = useState<ChildForm>(emptyChildForm);
   // Həftə seçilməyibsə (null) due_date göndərilmir — mövcud dəyər qorunur.
@@ -258,6 +269,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   };
 
   const handleLogout = async () => {
+    setShowLogoutDialog(false);
     await signOut();
     toast({
       title: tr("profilescreen_cixis_edildi_fb4a43", 'Çıxış edildi'),
@@ -794,17 +806,40 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   const block_logout = <>
       {/* Logout */}
       <motion.button
-        onClick={handleLogout}
+        onClick={() => setShowLogoutDialog(true)}
         className="a-cta-btn"
         style={{ width: '100%', justifyContent: 'center', marginTop: 12, background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
         whileTap={{ scale: 0.98 }}>
-        
+
         <LogOut size={16} strokeWidth={2.2} />
         {tr("profilescreen_cixis_c2de5c", "\xC7\u0131x\u0131\u015F")}
       </motion.button>
+
+      <AlertDialog open={showLogoutDialog} onOpenChange={setShowLogoutDialog}>
+        <AlertDialogContent className="a-scope max-w-sm mx-4 rounded-[22px]">
+          <AlertDialogHeader>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-12 h-12 flex items-center justify-center" style={{ borderRadius: 16, background: 'var(--a-pink-1)' }}>
+                <LogOut className="w-6 h-6" style={{ color: 'var(--a-pink-ink)' }} />
+              </div>
+              <AlertDialogTitle className="text-lg" style={{ color: 'var(--a-ink)' }}>{tr("profilescreen_logout_confirm_title", "\xC7\u0131x\u0131\u015F edilsin?")}</AlertDialogTitle>
+            </div>
+            <AlertDialogDescription className="text-sm">
+              {tr("profilescreen_logout_confirm_body", "Hesab\u0131n\u0131zdan \xE7\u0131x\u0131\u015F etm\u0259k ist\u0259diyiniz\u0259 \u0259minsiniz?")}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="gap-2">
+            <AlertDialogCancel className="rounded-full">{tr("profilescreen_logout_cancel", "L\u0259\u011Fv et")}</AlertDialogCancel>
+            <AlertDialogAction onClick={handleLogout} className="rounded-full">
+              <LogOut className="w-4 h-4 me-2" />
+              {tr("profilescreen_cixis_c2de5c", "\xC7\u0131x\u0131\u015F")}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
 </>;
   const block_legal = <>

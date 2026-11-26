@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { writeStorageItem } from '@/lib/local-storage';
 
 // Device-local progress tracking for mini-games (level unlocks, stars, best scores).
 // This works fully offline/without login so gameplay + progression is never blocked
@@ -40,7 +41,9 @@ function readProgress(gameId: string): GameProgress {
 
 function writeProgress(gameId: string, progress: GameProgress) {
   try {
-    localStorage.setItem(STORAGE_PREFIX + gameId, JSON.stringify(progress));
+    // Durable write: evicts disposable caches (translations, server caches) under quota pressure
+    // rather than silently dropping the player's progress.
+    writeStorageItem(localStorage, STORAGE_PREFIX + gameId, JSON.stringify(progress));
   } catch {
     // ignore quota / private-mode errors
   }

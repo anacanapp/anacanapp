@@ -6,6 +6,7 @@ import { useAuth } from './useAuth';
 import { localDateKey, todayKey, daysAgoKey } from '@/lib/local-date';
 import { useToast } from './use-toast';
 import { clearLegacyAppointmentNotifications } from '@/lib/native';
+import { retainOutboxUser, saveWithOutbox, subscribeOutbox } from '@/lib/offline-outbox';
 
 export interface Appointment {
   id: string;
@@ -63,6 +64,20 @@ export const useAppointments = () => {
 
   useEffect(() => { if (user) void clearLegacyAppointmentNotifications(); }, [user]);
 
+  // Offline outbox: flush queued appointments (mount, online, app resume) and
+  // refresh once a background flush delivered them.
+  useEffect(() => {
+    if (!user?.id) return;
+    const uid = user.id;
+    const unsubscribe = subscribeOutbox((event) => {
+      if (event.userId === uid && event.sentTables.includes('appointments')) {
+        void queryClient.invalidateQueries({ queryKey: appointmentsKey(uid) });
+      }
+    });
+    const release = retainOutboxUser(uid);
+    return () => { unsubscribe(); release(); };
+  }, [user?.id, queryClient]);
+
   const setList = (fn: (list: Appointment[]) => Appointment[]) =>
     queryClient.setQueryData<Appointment[]>(key, (old) => sortAppointments(fn(old || [])));
 
@@ -77,13 +92,13 @@ export const useAppointments = () => {
 
   const addMutation = useMutation({
     mutationFn: async (input: AppointmentInput) => {
-      const { data, error } = await supabase
-        .from('appointments')
-        .insert({ user_id: user!.id, reminder_enabled: true, event_type: 'appointment', ...input })
-        .select(COLUMNS)
-        .single();
-      if (error) throw error;
-      return data as Appointment;
+      // Queued in the offline outbox first (client UUID id, idempotent replay): offline or a
+      // timeout keeps the appointment and syncs later instead of losing it.
+      const outcome = await saveWithOutbox(user!.id, 'appointments', {
+        user_id: user!.id, reminder_enabled: true, event_type: 'appointment', ...input,
+      });
+      if (outcome.status === 'error') throw outcome.error;
+      return outcome.data as unknown as Appointment;
     },
     onSuccess: (row) => {
       setList((list) => [...list.filter((a) => a.id !== row.id), row]);

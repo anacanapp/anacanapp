@@ -227,8 +227,9 @@ export const useDirectMessages = (otherUserId?: string) => {
       }
       return null;
     }
-    const { data: { publicUrl } } = supabase.storage.from('chat-media').getPublicUrl(data.path);
-    return publicUrl;
+    // chat-media is private: return the storage object path, not a public URL.
+    // The message row stores this path; display signs it (see src/lib/chat-media.ts).
+    return data.path;
   };
 
   // Initial fetch

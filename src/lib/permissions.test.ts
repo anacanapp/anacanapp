@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Capacitor } from '@capacitor/core';
 import { Camera, CameraSource } from '@capacitor/camera';
 import { Geolocation } from '@capacitor/geolocation';
-import { getCurrentPosition, pickFromGallery, requestCameraPermission, requestLocationPermission } from './permissions';
+import { CAMERA_PERMISSION_DENIED, getCurrentPosition, isCameraPermissionError, pickFromGallery, requestCameraPermission, requestLocationPermission, takePhoto } from './permissions';
 
 vi.mock('@capacitor/core', () => ({ Capacitor: { isNativePlatform: vi.fn(), getPlatform: vi.fn() } }));
 vi.mock('@capacitor/camera', () => ({
@@ -98,5 +98,20 @@ describe('camera and selected photos', () => {
     expect(Camera.getPhoto).toHaveBeenCalledWith(expect.objectContaining({ source: CameraSource.Photos }));
     expect(Camera.checkPermissions).not.toHaveBeenCalled();
     expect(Camera.requestPermissions).not.toHaveBeenCalled();
+  });
+
+  it('throws a typed, recognisable error when camera permission is denied', async () => {
+    vi.mocked(Camera.checkPermissions).mockResolvedValue({ camera: 'denied', photos: 'denied' });
+    vi.mocked(Camera.requestPermissions).mockResolvedValue({ camera: 'denied', photos: 'denied' });
+    await expect(takePhoto()).rejects.toThrow(CAMERA_PERMISSION_DENIED);
+    const thrown = await takePhoto().catch((e) => e);
+    expect(isCameraPermissionError(thrown)).toBe(true);
+  });
+
+  it('classifies only permission-denied errors as camera permission errors', () => {
+    expect(isCameraPermissionError(new Error(CAMERA_PERMISSION_DENIED))).toBe(true);
+    expect(isCameraPermissionError(new Error('Camera permission denied'))).toBe(true);
+    expect(isCameraPermissionError(new Error('User cancelled photos app'))).toBe(false);
+    expect(isCameraPermissionError(null)).toBe(false);
   });
 });

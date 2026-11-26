@@ -10,6 +10,7 @@ vi.mock('@/lib/analytics', () => ({ analytics: { logPremiumSubscribed: vi.fn(), 
 vi.mock('@/lib/revenuecat', () => ({
   REVENUECAT_ENABLED: true, isNativePlatform: () => true, hasRevenueCatPlugin: () => true,
   initRevenueCat: mocks.initialize, identifyUser: mocks.identify,
+  withNativeTimeout: (p: Promise<unknown>) => p, RC_NATIVE_TIMEOUT_MS: 15000,
   checkEntitlement: async () => ({ isPro: true }),
   getOfferings: async () => ({ all: { pricing_2026: { availablePackages: [{ identifier: '$rc_monthly', packageType: 'MONTHLY',
     product: { identifier: 'com.atlasoon.anacan.premium.monthly', price: 3.99, currencyCode: 'USD' } }] } } }),

@@ -8,6 +8,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { usePhaseTips, PHASE_INFO, CATEGORY_INFO, MenstrualPhase, TipCategory } from '@/hooks/usePhaseTips';
 import { format, differenceInDays, differenceInCalendarDays, eachDayOfInterval, parseISO, startOfDay, subDays } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
+import { storedCalendarDate } from '@/lib/stored-date-key';
 import { Calendar } from '@/components/ui/calendar';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
@@ -150,10 +151,10 @@ const FlowDashboard = () => {
   const labelFertileWindow = getDynamicLabel(upcomingLabels?.flow_label_fertile_window, "Reproduktiv Dövr", "flowdashboard_reproduktiv_dovr_80642c", "Fertile Window");
   const labelOvulationDay = getDynamicLabel(upcomingLabels?.flow_label_ovulation_day, "Ovulyasiya Günü", "flowdashboard_ovulyasiya_gunu_811e84", "Ovulation Day");
 
-  // Get last period date
-  const lastPeriodDate = cycleData?.lastPeriodDate ?
-  (typeof cycleData.lastPeriodDate === 'string' ? parseISO(cycleData.lastPeriodDate) : new Date(cycleData.lastPeriodDate)) :
-  new Date();
+  // Get last period date. Guard: a null/invalid stored date must not yield an
+  // Invalid Date that then throws in every downstream format()/date calc and
+  // crashes the whole period dashboard. Fall back to today.
+  const lastPeriodDate = storedCalendarDate(cycleData?.lastPeriodDate) ?? new Date();
 
   // Calculate current phase using accurate utility
   const today = new Date();

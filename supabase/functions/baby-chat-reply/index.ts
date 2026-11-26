@@ -189,13 +189,28 @@ Deno.serve(async (req) => {
     // 2. Input pre-filter
     if (hasStem(message, language, CARE_STEMS[language])) return outcome('care', { care: true });
 
-    const today = new Date().toISOString().slice(0, 10);
-    const { data: usage } = await admin.from('usage_tracking').select('id, usage_count')
-      .eq('user_id', auth.user.id).eq('feature_type', 'baby_chat_ai').eq('usage_date', today).maybeSingle();
-    if ((usage?.usage_count ?? 0) >= limit) return outcome('limit');
-    if (usage) await admin.from('usage_tracking').update({ usage_count: usage.usage_count + 1 }).eq('id', usage.id);
-    else await admin.from('usage_tracking').upsert({ user_id: auth.user.id, feature_type: 'baby_chat_ai', usage_date: today, usage_count: 1 },
-      { onConflict: 'user_id,feature_type,usage_date' });
+    const tz = typeof body.timeZone === 'string' && body.timeZone.length > 0 && body.timeZone.length <= 64 ? body.timeZone : 'Asia/Baku';
+    // Atomic, local-day gate (public.usage_consume_srv_v1): a single INSERT .. ON CONFLICT .. WHERE
+    // usage_count < limit, so parallel calls can't pass the daily limit and the day is the user's local
+    // calendar day, not UTC (Baku reset at local midnight, not 04:00). The RPC resolves the same limit
+    // (app_settings.baby_chat_ai.daily_limit, default 20).
+    const { data: gate, error: gateErr } = await admin.rpc('usage_consume_srv_v1',
+      { p_user_id: auth.user.id, p_feature: 'baby_chat_ai', p_time_zone: tz });
+    if (!gateErr && gate && typeof gate === 'object' && typeof (gate as { allowed?: unknown }).allowed === 'boolean') {
+      if ((gate as { allowed: boolean }).allowed !== true) return outcome('limit');
+    } else {
+      // Fallback for an old DB without the RPC: the legacy read-then-update, now on the local-day row.
+      if (gateErr) console.error('[baby-chat-reply] usage_consume_srv_v1 fallback:', gateErr.message?.slice(0, 120));
+      const dayFmt = (zone: string) => new Intl.DateTimeFormat('en-CA', { timeZone: zone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+      let today: string;
+      try { today = dayFmt(tz); } catch { today = dayFmt('Asia/Baku'); }
+      const { data: usage } = await admin.from('usage_tracking').select('id, usage_count')
+        .eq('user_id', auth.user.id).eq('feature_type', 'baby_chat_ai').eq('usage_date', today).maybeSingle();
+      if ((usage?.usage_count ?? 0) >= limit) return outcome('limit');
+      if (usage) await admin.from('usage_tracking').update({ usage_count: usage.usage_count + 1 }).eq('id', usage.id);
+      else await admin.from('usage_tracking').upsert({ user_id: auth.user.id, feature_type: 'baby_chat_ai', usage_date: today, usage_count: 1 },
+        { onConflict: 'user_id,feature_type,usage_date' });
+    }
 
     const result = await generateSafeReply({ message, language, week, fruit, cm, weeksLeft });
     console.log(JSON.stringify({ event: 'baby_chat_reply', outcome: result.outcome }));

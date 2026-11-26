@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
+import { retainOutboxUser, saveWithOutbox, subscribeOutbox } from '@/lib/offline-outbox';
 
 export interface MealLog {
   id: string;
@@ -63,25 +64,25 @@ export const useMealLogs = () => {
   }) => {
     if (!user) return { error: 'No user logged in' };
 
-    try {
-      const { data, error } = await supabase
-        .from('meal_logs')
-        .insert({
-          ...log,
-          user_id: user.id,
-          logged_at: new Date().toISOString()
-        })
-        .select()
-        .single();
-
-      if (error) throw error;
-      
-      await fetchLogs();
-      return { data: data as MealLog, error: null };
-    } catch (error) {
-      console.error('Error adding meal log:', error);
-      return { data: null, error };
+    // Queued in the offline outbox first (client UUID id, idempotent replay): offline or a
+    // timeout keeps it and syncs later instead of losing the meal.
+    const outcome = await saveWithOutbox(user.id, 'meal_logs', {
+      ...log,
+      user_id: user.id,
+      logged_at: new Date().toISOString(),
+    });
+    if (outcome.status === 'error') {
+      console.error('Error adding meal log:', outcome.error);
+      return { data: null, error: outcome.error };
     }
+    const saved = outcome.data as unknown as MealLog;
+    if (outcome.status === 'saved') await fetchLogs();
+    else {
+      // Optimistic while queued offline.
+      setLogs((prev) => [saved, ...prev.filter((l) => l.id !== saved.id)]);
+      setTodayLogs((prev) => [saved, ...prev.filter((l) => l.id !== saved.id)]);
+    }
+    return { data: saved, error: null };
   };
 
   const deleteMealLog = async (id: string) => {
@@ -134,6 +135,18 @@ export const useMealLogs = () => {
   useEffect(() => {
     fetchLogs();
   }, [fetchLogs]);
+
+  // Offline outbox: flush queued meal logs (mount, online, app resume) and refetch
+  // once a background flush delivered them.
+  useEffect(() => {
+    if (!user?.id) return;
+    const uid = user.id;
+    const unsubscribe = subscribeOutbox((event) => {
+      if (event.userId === uid && event.sentTables.includes('meal_logs')) void fetchLogs();
+    });
+    const release = retainOutboxUser(uid);
+    return () => { unsubscribe(); release(); };
+  }, [user?.id, fetchLogs]);
 
   // Setup realtime subscription
   useEffect(() => {

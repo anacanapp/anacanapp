@@ -5,6 +5,7 @@ import { useAuth } from './useAuth';
 import { useToast } from './use-toast';
 import { usePartnerNotifications } from './usePartnerNotifications';
 import { showToolLiveTimer, hideToolLiveTimer } from '@/lib/tool-live-timer';
+import { writeStorageItem } from '@/lib/local-storage';
 import {
   contractionLivePhase,
   computeContractionStats,
@@ -38,7 +39,9 @@ const readQueue = (uid: string) => {
 };
 const writeQueue = (uid: string, queue: QueuedContraction[]) => {
   try {
-    if (queue.length) localStorage.setItem(`${QUEUE_PREFIX}:${uid}`, JSON.stringify(queue));
+    // Durable write: the offline contraction queue must survive quota pressure (evict disposable
+    // caches) rather than be dropped and lose unsynced timings.
+    if (queue.length) writeStorageItem(localStorage, `${QUEUE_PREFIX}:${uid}`, JSON.stringify(queue));
     else localStorage.removeItem(`${QUEUE_PREFIX}:${uid}`);
   } catch { /* storage blocked */ }
 };
