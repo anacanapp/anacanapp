@@ -1,0 +1,10 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261126150000_mercan_banners_inapp_paywall.sql",
+  "runtime": "google-mercan-banners-inapp-paywall",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; data only, checks the banners guard",
+  "relations": [
+    { "relation": "public.banners", "change": "Mərcan Cümə image banners switched from external campaign URL to internal link_url='/premium' (in-app paywall)", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "promo creative link target only; already guarded" }
+  ]
+}
