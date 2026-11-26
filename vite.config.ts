@@ -27,22 +27,12 @@ export default defineConfig(({ mode }) => ({
       // @lovable.dev/cloud-auth-js is provided by Lovable Cloud at runtime
       // and is not available on npm for native/local builds
       external: ['@lovable.dev/cloud-auth-js'],
-      output: {
-        // Split the large, rarely-changing vendors into their own long-cache chunks
-        // so an app-code deploy does not re-download React/Supabase/etc. Content-pack
-        // shards are emitted by contentPacksPlugin as separate assets (web only) and
-        // are not JS modules, so this chunking never pulls them into the bundle.
-        manualChunks(id) {
-          if (!id.includes('node_modules')) return undefined;
-          const module = id.replace(/\\/g, '/');
-          if (/\/node_modules\/(react|react-dom|react-router|react-router-dom|scheduler)\//.test(module)) return 'vendor-react';
-          if (module.includes('/node_modules/@tanstack/')) return 'vendor-query';
-          if (module.includes('/node_modules/@supabase/')) return 'vendor-supabase';
-          if (module.includes('/node_modules/framer-motion/') || module.includes('/node_modules/motion-dom/') || module.includes('/node_modules/motion-utils/')) return 'vendor-motion';
-          if (module.includes('/node_modules/@radix-ui/')) return 'vendor-radix';
-          return undefined;
-        },
-      },
+      // No manual vendor chunks. Splitting React and its dependents (Radix, framer-motion,
+      // react-query) into separate vendor chunks created a chunk cycle, so a dependent
+      // chunk evaluated before React and startup failed with "reading 'useLayoutEffect'"
+      // (52.0.0 TestFlight + web, 2026-11-26). Rollup's default chunking is used; the
+      // lazy Index/ModeratorEnforcement split in App.tsx stays. Guarded by
+      // src/lib/startup-chunks.test.ts.
     },
   },
   resolve: {
