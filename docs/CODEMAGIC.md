@@ -1,11 +1,16 @@
 # Codemagic ilə iOS və Android Store build-ləri
 
-`codemagic.yaml` iki əl ilə başladılan workflow verir:
+`codemagic.yaml` dörd əl ilə başladılan workflow verir:
 
 | Workflow | Nəticə |
 |---|---|
-| `ios-store` | İmzalı App Store IPA, App Store Connect-ə yüklənir (TestFlight-a avtomatik təqdim edilmir) |
-| `android-store` | İmzalı Google Play AAB və APK (artifact kimi endirilir, Play-ə əl ilə yüklənir) |
+| `ios-store` | Capacitor: imzalı App Store IPA, App Store Connect-ə yüklənir (TestFlight-a avtomatik təqdim edilmir) |
+| `android-store` | Capacitor: imzalı Google Play AAB və APK (artifact kimi endirilir, Play-ə əl ilə yüklənir) |
+| `ios-flutter-store` | Flutter (`app/`, 60.0+): eyni IPA və App Store Connect yükləməsi |
+| `android-flutter-store` | Flutter (`app/`, 60.0+): eyni AAB və APK |
+
+Capacitor workflow-ları 53.0 körpü buraxılışı və geri qayıtma üçün qalır; Flutter workflow-ları aşağıda,
+[Flutter workflow-ları](#flutter-workflow-ları-60) bölməsindədir.
 
 Trigger yoxdur: build yalnız **Start new build** ilə başlayır. Personal hesabın ayda
 500 pulsuz macOS M2 dəqiqəsi push-larla xərclənmir. Team hesabında pulsuz dəqiqə yoxdur.
@@ -89,10 +94,62 @@ Bu dəyərlər heç vaxt Git-ə, loglara və ya chat-ə yazılmır.
 
 ## Build başlatmaq
 
-**Start new build** → branch → workflow. Versiya `codemagic.yaml`-dadır (`APP_VERSION`
-`51.0`, Android `versionCode` = 5100 + `ANDROID_BUILD_SEQ`; buraxılış: `docs/RELEASE_51_CODEMAGIC.md`). Eyni versiyanı Play-ə ikinci dəfə yükləmək
+**Start new build** → branch → workflow. Versiya `codemagic.yaml`-dadır (Capacitor: `APP_VERSION`
+`53.0`, Android `versionCode` = 5300 + `ANDROID_BUILD_SEQ`; əvvəlki buraxılış: `docs/RELEASE_52_CODEMAGIC.md`). Eyni versiyanı Play-ə ikinci dəfə yükləmək
 üçün build başlatarkən `ANDROID_BUILD_SEQ`-i bir artırın (Play eyni versionCode-u rədd edir).
-iOS build nömrəsi App Store Connect-dən avtomatik hesablanır (51.0.0-dan).
+iOS build nömrəsi App Store Connect-dən avtomatik hesablanır (53.0.0-dan).
+
+## Flutter workflow-ları (60)
+
+`ios-flutter-store` və `android-flutter-store` `app/` qovluğundakı Flutter tətbiqini yığır. Eyni `mac_mini_m2`,
+eyni əl ilə başlatma, eyni artifact/yükləmə qaydası, eyni üç qrup (`anacan_native`, `anacan_ios_signing`,
+`anacan_android_signing`). **Yeni sirr və ya yeni qrup lazım deyil**: Flutter build-i mövcud `VITE_*` dəyərlərini
+özü çevirir. Texniki təfərrüat (ingiliscə): `docs/flutter/BUILD.md`.
+
+Addımlar:
+
+1. `app/tool/codemagic/check_env.mjs`: `check-native-env.mjs` ilə eyni yoxlamalar (canonical `https://api.anacan.az`,
+   Source olmayan anon key, ayrıca Source key, `source-first-v1`, `VITE_AUTH_CUTOVER=false`, RevenueCat açıq,
+   admission canlı `/.well-known/anacan-backend.json` ilə sahə-sahə eyni) + platformanın canlı AdMob ID-si və
+   Customer.io ayarları. Uyğunsuzluqda build dayanır.
+2. Flutter **3.50.1** (başqa versiya gəlsə build dayanır), `flutter pub get`, dizayn token-ları və i18n ixracının
+   `--check` yoxlaması (alət repoda varsa; lazım olsa əvvəlcə `npm ci`), `flutter analyze`, `flutter test`.
+3. `write_dart_defines.mjs`: `VITE_*` → `--dart-define-from-file` JSON-u (`ANACAN_API_URL`, `ANACAN_ANON_KEY`,
+   `ANACAN_SOURCE_ANON_KEY`, `ANACAN_APP_VERSION`, `ANACAN_INITIAL_MANAGED_ADMISSION`, `ANACAN_BACKEND_BOOTSTRAP`,
+   `ANACAN_AUTH_CUTOVER`, `ANACAN_BUILD_MODE` (`google`), `ANACAN_AZURE_*` bayraqları, Customer.io-nun gizli olmayan ID-ləri). Customer.io write key və
+   AdMob ID-ləri buraya **düşmür**.
+4. `apply_native_config.mjs`: canlı AdMob ID-si və Customer.io write key yalnız Git-ə düşməyən native fayla yazılır
+   (Android `app/android/anacan-native.properties`, iOS `app/ios/Flutter/AnacanNative.xcconfig`).
+5. iOS: `ios-store` kimi sertifikat və App Store profili API ilə gətirilir (`keychain`, `fetch-signing-files --create`,
+   `xcode-project use-profiles`), sonra `flutter build ipa`. Hələlik yalnız `Runner` (`com.atlasoon.anacan`) imzalanır;
+   widget və bildiriş xidməti target-ləri Flutter layihəsinə köçürüləndə `IOS_SIGNED_TARGETS` siyahısına bir sətir
+   əlavə olunur. Android: `keystore.properties` `ios-store`/`android-store`-dakı eyni upload keystore-dan yazılır,
+   `flutter build appbundle` və `flutter build apk`.
+6. Yoxlama: write key Dart/Flutter çıxışında (snapshot, `flutter_assets`, IPA/AAB/APK içində) tapılsa build dayanır.
+   Android-də imza sertifikatının SHA-256-sı loga yazılır (debug açarı ilə imzalanıbsa build dayanır) və APK 16 KB
+   səhifə uyğunluğu üçün `zipalign -P 16` ilə yoxlanır.
+
+**Versiya (60.0).** `APP_VERSION: "60.0"`. iOS: `CFBundleShortVersionString` 60.0, build nömrəsi App Store Connect-dəki
+son 60.0 TestFlight build-i + 1 (`60.0.0`, `60.0.1`, …). Android: `versionName` = `60.0.ANDROID_BUILD_SEQ`,
+`versionCode` = 6000 + `ANDROID_BUILD_SEQ` (bütün 53.0.x kodlarından, 5300+, yuxarı). Hər yeni Play yükləməsindən
+əvvəl `ANDROID_BUILD_SEQ`-i bir artırın. Eyni `applicationId`/bundle ID və eyni imza açarı ilə 60.0 mövcud tətbiqin
+yerində yeniləməsi kimi quraşdırılır.
+
+**Capacitor workflow-ları qalır.** `ios-store` / `android-store` 53.0 körpü buraxılışı və geri qayıtma üçündür.
+60.0 Store-a çıxandan sonra geri qayıtmaq lazım olsa, Capacitor build-i 60.0-dan **yuxarı** versiya ilə yığılmalıdır
+(məs. `APP_VERSION` 60.1 və Android `versionCode` 6100+); Store-lar aşağı versiyanı yeniləmə kimi qəbul etmir.
+
+**Layihə tipi (Ionic).** Konfiqurasiya `codemagic.yaml`-dan oxunduqda workflow-lar faylda tam təsvir olunur və
+paneldəki layihə tipi (Ionic / Flutter) Workflow Editor üçündür; yaml build-lərində istifadə olunmadığını bilirik,
+amma bunu bu mühitdən yoxlaya bilmədik (**yoxlanmayıb**). Ehtiyat üçün: app → **Settings**-də konfiqurasiya mənbəyi
+`codemagic.yaml` olaraq qalsın; **Start new build** pəncərəsində `ios-flutter-store` / `android-flutter-store`
+görünmürsə, layihə tipini dəyişməyin, əvvəlcə branch-də `codemagic.yaml`-ın yeni versiyasının olduğunu yoxlayın.
+
+**İlk Flutter build-də yoxlanmalı olanlar** (burada heç bir build işlədilməyib: Android SDK və Xcode yoxdur):
+Codemagic-in Flutter 3.50.1-i quraşdırması; Gradle (AGP 9.3.1) və R8-in keçməsi; loga yazılan Android imza SHA-256-sının
+Play Console → App integrity → Upload key certificate ilə eyni olması; App Store profilinin `Runner`-ə tətbiq olunması;
+TestFlight / Play internal testing-də 53.0-ın üzərinə yeniləmə kimi quraşdırma. Siyahının tam variantı:
+`docs/flutter/BUILD.md` → "First Codemagic run".
 
 ## Məhdudiyyətlər
 
