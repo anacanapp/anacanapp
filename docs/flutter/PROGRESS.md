@@ -7,16 +7,18 @@ Heç nə cihazda işlədilməyib və heç bir Codemagic yığımı aparılmayıb
 |---|---|---|
 | Plan, uyğunluq cədvəli, servis spesifikasiyaları | hazır | `docs/flutter/*.md` |
 | Körpü buraxılışı 53.0 (localStorage ixracı) | kod hazır, yığılmayıb | 12 vitest, tsc, `npm run build` |
-| Codemagic: 53.0 versiyası, Flutter 60.0 workflow-ları | yazılıb, işə salınmayıb | YAML və skriptlər lokal yoxlanıb |
-| Dizayn sistemi (tokenlər, şriftlər, ikonlar, vidcetlər) | hazır | 65 test |
-| Dil qatı və məzmun paketləri | hazır | 160 test |
-| Qəbul protokolu, sessiya, köhnə anbar | hazır; native kanal kompilyasiya olunmayıb | 210 test |
-| Naviqasiya qabığı | hazır; tətbiq kökünə qoşulmayıb | 451 test |
-| Oyun mühərrikləri (8 oyun) | hazır; UI yoxdur | 108 test |
-| Hesablama məntiqi (`app/lib/domain`) | davam edir | |
-| Məlumat qatı, giriş vəziyyəti, store-lar | davam edir | |
-| İstinad ekran şəkilləri | davam edir | |
-| Tətbiq kökü (`main.dart`), giriş axını, ekranlar, alətlər | başlanmayıb | |
+| Codemagic: 53.0 versiyası, Flutter 60.0 workflow-ları | yazılıb, işə salınmayıb; RevenueCat və Google ID-ləri repodakı fayllardan oxunur | YAML və skriptlər lokal yoxlanıb |
+| Dizayn sistemi (tokenlər, şriftlər, ikonlar, vidcetlər) | hazır | 65 test (`test/design`) |
+| Nüvə: dil, məzmun paketləri, qəbul, sessiya, auth, keş, məlumat, saat qurşağı, app settings | hazır; native kanal kompilyasiya olunmayıb | 543 test (`test/core`) + 18 (`test/state`) |
+| Hesablama məntiqi (`app/lib/domain`) | hazır | 375 test |
+| Naviqasiya qabığı (sliver əsaslı scroll konteyneri) | hazır, tətbiq kökünə qoşulub | 453 test (`test/shell`) |
+| Tətbiq kökü, bağlantılar (`app/lib/app`), deeplink, OAuth callback | hazır; cihazda yoxlanmayıb | 83 test (`test/app`) + 1 smoke |
+| Giriş axını, onboarding, paywall/RevenueCat, ana ekranlar (flow, bump, mommy), stories, təqvim, profil, ayarlar, kilid, dəstək, hüquqi sənədlər | hazır, qeydiyyatdan keçib | 678 test (`test/features`) + 128 (`test/native`) |
+| Oyun mühərrikləri (8 oyun) | hazır; UI yoxdur | `test/features/games` daxilində |
+| Alətlər, icma, çat/AI, partnyor, ticarət, bloq, oyun UI, native tamamlama | başlanmayıb | qalan interfeyslər: `docs/flutter/WIRING.md` |
+| İstinad ekran şəkilləri | hazır | `docs/flutter/REFERENCE_SHOTS.md` |
+
+Cəmi: `flutter test` 2344 keçdi, 18 skip, 0 uğursuz; `flutter analyze` (lib + test) 0 problem.
 
 ## Açıq qərarlar (cavab gələnə qədər mötərizədəki variant)
 
@@ -26,6 +28,6 @@ Heç nə cihazda işlədilməyib və heç bir Codemagic yığımı aparılmayıb
 
 ## Texniki borc (düzəldilməlidir)
 
-- Qabığın scroll konteyneri `SingleChildScrollView`-dur, ona görə şaquli siyahılar tənbəl qurulmur. Uzun siyahılar (icma lenti) üçün qabıq sliver əsaslı olmalıdır.
-- Ana ekranın girişləri (`home_inputs.dart`, `HomeSlots`) hələ neytral dəyərlərlə işləyir: premium, oxunmamış sayı, stories ayarı, bloq, banner.
+- Ana ekranın qalan slotları (oxunmamış sayı, bloq, banner, reklam, partnyor, kitab, Aptek) öz feature-ləri gələnə qədər boşdur (`docs/flutter/WIRING.md`).
+- Native hissələr (manifest, Info.plist, `MainActivity` = `FlutterFragmentActivity`) heç vaxt kompilyasiya olunmayıb.
 - Golden testlərdə emoji şrifti yoxdur (qutu kimi görünür).
