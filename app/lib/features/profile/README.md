@@ -8,7 +8,7 @@
 | components/PartnerProfileScreen.tsx, hooks/usePartnerConfig.ts (fallbacks) | partner_profile_screen.dart |
 | components/ProfileEditScreen.tsx | profile_edit_screen.dart |
 | components/ReferralScreen.tsx, hooks/useReferral.ts | referral_screen.dart, data/referral.dart |
-| hooks/useChildren.ts (subset used here: list/add/update/delete, seeding, offline cache) | data/children.dart |
+| hooks/useChildren.ts | data/children.dart (adapter over the one port, features/baby/hooks/use_children.dart) |
 
 Registered: tab `profile` (woman + partner variant), screens `edit-profile`, `referral`, `moderator` (opens the web
 moderator console and returns). Admin row → `shell.openAdminWeb()`.
@@ -22,8 +22,8 @@ moderator console and returns). Admin row → `shell.openAdminWeb()`.
 - `partnerProfileDataProvider` (usePartnerData/Stats/Missions/Surprises/config rows).
 - `accountActionsProvider` (defaults to AuthController), `shareServiceProvider` (share_plus), `partnerPairingEnabledProvider`,
   `appOriginProvider`, `avatarPickerProvider` (image_picker), `profileEditRepositoryProvider`, `moderatorWebOpenerProvider`.
-- `childrenRepositoryProvider`/`childrenQuery` duplicate a part of useChildren with the same query key
-  (`['user-children', uid]`); another agent is writing features/baby/hooks/use_children.dart — re-export it here once stable.
+- Children: `data/children.dart` adapts features/baby's useChildren port (one query, `['user-children', uid]`;
+  override `babyRepositoryProvider` in tests). The earlier local copy shared the key with a different model type.
 
 ## Not ported / deviations
 - Moderation history screen (`moderation-history`, MyModerationDecisions + useModerator) — not ported.

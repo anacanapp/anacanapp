@@ -21,7 +21,7 @@ void main() {
     final startup = Completer<StartupResult>();
     await tester.pumpWidget(AnacanApp(
       createContainer: () => testAppContainer(),
-      runStartup: (_) => startup.future,
+      runStartup: FakeStartup([startup.future]).call,
       prepare: noPrepare,
       watchAdmission: false,
     ));

@@ -1,46 +1,38 @@
 // Ported from: src/pages/Index.tsx (lazy screen imports), src/App.tsx (route elements)
 //
 // The one place that lists every feature's `registerX(FeatureRegistry r)` (docs/flutter/SHELL.md §11). A feature
-// lands by adding its import and uncommenting / adding its line in its alphabetical slot. Anything not
-// registered renders the shell's placeholder.
+// lands by adding its import and its line in alphabetical order. Anything not registered renders the shell's
+// placeholder.
 import '../features/entry/entry_feature.dart';
 import '../features/home/register_home.dart';
 import '../features/home_flow/home_flow.dart';
 import '../features/home_mommy/register_home_mommy.dart';
+import '../features/legal/register.dart';
 import '../features/onboarding/register.dart';
 import '../features/premium/register.dart';
+import '../features/profile/register.dart';
+import '../features/security/register.dart';
+import '../features/settings/register.dart';
 import '../features/startup/startup.dart';
+import '../features/support/register.dart';
 import '../shell/feature_registry.dart';
 
-// Slots (alphabetical). Uncomment the import with the call when the feature lands:
-// import '../features/blog/blog.dart';
-// import '../features/chat/chat.dart';
-// import '../features/commerce/commerce.dart';
-// import '../features/community/community.dart';
-// import '../features/games/games.dart';
-// import '../features/partner/partner.dart';
-// import '../features/profile/profile.dart';
-// import '../features/settings/settings.dart';
-// import '../features/tools/tools.dart';
+// Not landed yet (add in order when they exist): blog, chat, commerce, community, games (UI), partner, tools.
 
 /// Registers every landed feature on [r].
 void registerAllFeatures(FeatureRegistry r) {
-  // registerBlogFeature(r);
-  // registerChatFeature(r);
-  // registerCommerceFeature(r);
-  // registerCommunityFeature(r);
   registerEntryFeature(r);
-  // registerGamesFeature(r);
   registerHomeFeature(r);
   registerHomeFlowFeature(r);
   registerHomeMommyFeature(r);
+  registerLegalFeature(r);
   registerOnboardingFeature(r);
-  // registerPartnerFeature(r);
   registerPremiumFeature(r);
-  // registerProfileFeature(r);
-  // registerSettingsFeature(r);
+  registerProfileFeature(r);
+  registerSecurityFeature(r);
+  registerSettingsFeature(r);
   registerStartupFeature(r);
-  // registerToolsFeature(r);
+  registerSupportFeature(r);
 }
 
 /// The registry the app root installs (`featureRegistryProvider`).

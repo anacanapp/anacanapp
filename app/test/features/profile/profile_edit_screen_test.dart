@@ -118,7 +118,7 @@ void main() {
         ...baseOverrides(store: seededStore(user: {'lifeStage': 'flow'}), profile: testProfile({'life_stage': 'flow'})),
         profileEditRepositoryProvider.overrideWithValue(repo),
         accountActionsProvider.overrideWithValue(actions),
-        childrenRepositoryProvider.overrideWithValue(FakeChildren()),
+        babyRepositoryProvider.overrideWithValue(FakeChildren()),
         profileAvatarBuilderProvider.overrideWithValue((_) => const SizedBox()),
       ],
     );
@@ -143,7 +143,7 @@ void main() {
           overrides: [
             ...baseOverrides(store: seededStore(user: {'lifeStage': 'bump', 'lastPeriodDate': '2026-05-01T00:00:00.000Z'}), profile: testProfile({'life_stage': 'bump'})),
             profileEditRepositoryProvider.overrideWithValue(FakeEditRepo()),
-            childrenRepositoryProvider.overrideWithValue(FakeChildren()),
+            babyRepositoryProvider.overrideWithValue(FakeChildren()),
             profileAvatarBuilderProvider.overrideWithValue((_) => const SizedBox()),
           ],
         );

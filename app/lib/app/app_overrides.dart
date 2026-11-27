@@ -1,15 +1,13 @@
 // Ported from: src/App.tsx (provider tree: AuthProvider, Theme, Direction, MotionConfig …) — the Riverpod
 //              overrides that wire the shell, the design layer and the startup feature together.
-import '../features/onboarding/onboarding_ports.dart';
-import '../state/shell_bindings.dart';
-import '../features/entry/entry_feature.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 
 import '../core/auth/auth_controller.dart'
     show AuthSideEffects, authSideEffectsProvider;
 import '../design/device_tier.dart' show liteModeProvider;
+import '../features/entry/entry_feature.dart';
+import '../features/onboarding/onboarding_ports.dart' show onboardingPendingProvider;
 import '../features/startup/app_update/app_update.dart'
     show legacyForceUpdateGateProvider, updateCentreForceGateProvider;
 import '../shell/feature_registry.dart';
@@ -40,6 +38,8 @@ List<Override> appRootOverrides({
   legacyForceUpdateProvider.overrideWith(
     (ref) => ref.watch(legacyForceUpdateGateProvider),
   ),
+  // Index `hasPendingOnboarding(user.id, backendUrl, profile.onboarding_answers)`.
+  hasPendingOnboardingProvider.overrideWith((ref) => ref.watch(onboardingPendingProvider)),
   // AuthContext → reportAuthError (crash reports for sign-in failures).
   authSideEffectsProvider.overrideWithValue(
     AuthSideEffects(

@@ -64,6 +64,8 @@ dependencies:
   fl_chart: ^1.3.1
   video_player: ^2.14.1
   flutter_timezone: ^5.1.1
+  app_links: ^7.2.2
+  local_auth_android: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -104,6 +106,8 @@ flutter:
     - assets/images/entry/
     - assets/images/entry/flags/
     - assets/images/entry/onboarding/
+    - assets/images/profile/
+    - assets/images/profile/flags/
 
   # Bundled fonts (app/tool/design/fetch_fonts.sh). Weights = the ones the web app loads
   # (src/index.css Google Fonts @import, src/lib/rtl.ts @fontsource imports).

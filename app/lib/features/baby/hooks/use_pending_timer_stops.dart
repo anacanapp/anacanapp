@@ -10,18 +10,16 @@
 // Triggers: on mount and whenever user / children readiness changes, on the Android `timerStopped` event and on
 // app resume. Mount [PendingTimerStopsHost] (or watch [pendingTimerStopsHostProvider]) once at the app level, as
 // Index.tsx did.
-import 'package:anacan/core/net/backend_client.dart';
-import 'package:anacan/core/net/backend_providers.dart';
-import 'package:anacan/shell/shell_inputs.dart';
-
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/auth/auth_providers.dart';
+import '../../../core/net/backend_providers.dart' show backendOpenProvider;
 import '../../../core/offline/offline_providers.dart';
 import '../../../domain/js_compat.dart';
+import '../../../shell/shell_inputs.dart';
 import '../../../state/timer_store.dart';
 import '../data/baby_repository.dart';
 import '../live_timer/live_timer.dart';
@@ -71,8 +69,9 @@ class PendingTimerStops {
     try {
       if (await _ref
           .read(babyRepositoryProvider)
-          .babyLogExists(userId, stop.type, startIso))
+          .babyLogExists(userId, stop.type, startIso)) {
         return true;
+      }
     } catch (_) {
       // the check failed: continue with the insert
     }
@@ -152,9 +151,7 @@ class PendingTimerStopsHost extends ConsumerWidget {
     final signedIn = ref.watch(
       shellUserProvider.select((u) => u.isAuthenticated),
     );
-    final backendOpen = ref.watch(
-      backendBootstrapProvider.select((b) => b.value is BootstrapOpened),
-    );
+    final backendOpen = ref.watch(backendOpenProvider);
     if (signedIn && backendOpen) {
       ref.watch(pendingTimerStopsHostProvider);
     }

@@ -44,3 +44,10 @@ final currentSessionProvider = Provider<Session?>((ref) {
   ref.watch(authStateProvider);
   return ref.watch(supabaseClientProvider).auth.currentSession;
 });
+
+/// True once startup opened the backend with an SDK client. App-wide hosts that must not touch the SDK before
+/// that (frame overlays during tests, the root link handler) guard on it instead of catching provider errors.
+final backendOpenProvider = Provider<bool>((ref) {
+  final result = ref.watch(backendBootstrapProvider).value;
+  return result is BootstrapOpened && result.client != null;
+});

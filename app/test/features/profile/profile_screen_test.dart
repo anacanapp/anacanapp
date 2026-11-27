@@ -9,18 +9,20 @@ import 'package:flutter_test/flutter_test.dart';
 
 import '../settings/support/harness.dart';
 
-class FakeChildren implements ChildrenRepository {
+/// The children part of the shared useChildren port (features/baby) over in-memory rows; every other
+/// BabyRepository call is unused by the profile.
+class FakeChildren implements BabyRepository {
   FakeChildren([List<Map<String, dynamic>>? rows]) : rows = rows ?? [];
   final List<Map<String, dynamic>> rows;
   final inserted = <Map<String, dynamic>>[];
   @override
-  Future<List<Map<String, dynamic>>> loadActive(String userId) async => rows.where((r) => r['is_active'] != false).toList();
+  Future<List<Map<String, dynamic>>> loadActiveChildren(String userId) async => rows.where((r) => r['is_active'] != false).toList();
   @override
-  Future<Map<String, dynamic>?> profileBabyFields(String userId) async => null;
+  Future<Map<String, dynamic>?> loadProfileBabyFields(String userId) async => null;
   @override
-  Future<bool> insert(Map<String, dynamic> row) async => true;
+  Future<void> insertChildRow(Map<String, dynamic> row) async {}
   @override
-  Future<Map<String, dynamic>?> insertReturning(Map<String, dynamic> row) async {
+  Future<Map<String, dynamic>?> insertChild(Map<String, dynamic> row) async {
     final r = {'id': 'c${rows.length + 1}', ...row};
     inserted.add(r);
     rows.add(r);
@@ -28,11 +30,13 @@ class FakeChildren implements ChildrenRepository {
   }
 
   @override
-  Future<bool> update(String userId, String childId, Map<String, dynamic> updates) async {
+  Future<void> updateChild(String childId, String userId, Map<String, dynamic> patch) async {
     final r = rows.firstWhere((x) => x['id'] == childId);
-    r.addAll(updates);
-    return true;
+    r.addAll(patch);
   }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => throw UnimplementedError('${invocation.memberName}');
 }
 
 class RecordingPremium implements PremiumPrompt {
@@ -43,7 +47,7 @@ class RecordingPremium implements PremiumPrompt {
 
 List<Override> profileOverrides({String stage = 'bump', String role = 'woman', bool admin = false, bool moderator = false, bool premium = false, FakeChildren? children, String? layout, PremiumPrompt? prompt}) => [
       ...baseOverrides(store: seededStore(user: {'lifeStage': stage, 'role': role}), isAdmin: admin, isModerator: moderator),
-      childrenRepositoryProvider.overrideWithValue(children ?? FakeChildren()),
+      babyRepositoryProvider.overrideWithValue(children ?? FakeChildren()),
       subscriptionIsPremiumProvider.overrideWithValue(premium),
       profileLayoutSettingProvider.overrideWithValue(layout),
       profileAvatarBuilderProvider.overrideWithValue((_) => const SizedBox()),
