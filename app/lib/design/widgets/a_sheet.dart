@@ -250,6 +250,10 @@ class _ASheetFrameState extends State<_ASheetFrame> with SingleTickerProviderSta
   final GlobalKey _sheetKey = GlobalKey();
   double _drag = 0; // px, + = down
   DateTime? _dragStart;
+  // Pointer event times of the drag (vaul: pointerdown → pointerup). The wall clock is only the fallback when the
+  // platform sends no timestamps; it also made the velocity depend on how fast a test machine runs.
+  Duration? _dragStartStamp;
+  Duration? _dragLastStamp;
   bool _closing = false;
 
   @override
@@ -288,11 +292,14 @@ class _ASheetFrameState extends State<_ASheetFrame> with SingleTickerProviderSta
 
   void _onDragStart(DragStartDetails d) {
     _dragStart = DateTime.now();
+    _dragStartStamp = d.sourceTimeStamp;
+    _dragLastStamp = d.sourceTimeStamp;
     _drag = 0;
     _pos.stop();
   }
 
   void _onDragUpdate(DragUpdateDetails d) {
+    if (d.sourceTimeStamp != null) _dragLastStamp = d.sourceTimeStamp;
     setState(() {
       _drag += d.delta.dy;
       if (_drag > 0) _pos.value = (1 - _drag / _height).clamp(0.0, 1.0);
@@ -300,7 +307,9 @@ class _ASheetFrameState extends State<_ASheetFrame> with SingleTickerProviderSta
   }
 
   void _onDragEnd(DragEndDetails d) {
-    final ms = math.max(1, DateTime.now().difference(_dragStart ?? DateTime.now()).inMilliseconds);
+    final start = _dragStartStamp, last = _dragLastStamp;
+    final elapsed = start != null && last != null && last > start ? last - start : DateTime.now().difference(_dragStart ?? DateTime.now());
+    final ms = math.max(1, elapsed.inMilliseconds);
     final dist = _drag;
     final velocity = dist.abs() / ms; // vaul: px/ms over the whole drag
     setState(() => _drag = math.min(_drag, 0));

@@ -85,6 +85,20 @@ void main() {
       expect(find.text('Body'), findsNothing);
     });
 
+    testWidgets('a fast short flick (> 0.4 px/ms by the pointer timestamps) dismisses', (tester) async {
+      await tester.pumpWidget(_app(Builder(builder: (c) => Center(
+            child: GestureDetector(
+              onTap: () => showASheet<void>(c, title: const Text('Title'), full: false, builder: (_) => <Widget>[const SizedBox(height: 300, child: Text('Body'))]),
+              child: const Text('open'),
+            ),
+          ))));
+      await tester.tap(find.text('open'));
+      await tester.pumpAndSettle();
+      await tester.timedDrag(find.text('Title'), const Offset(0, 60), const Duration(milliseconds: 50));
+      await tester.pumpAndSettle();
+      expect(find.text('Body'), findsNothing);
+    });
+
     testWidgets('Android back closes, or steps back when onBack is set', (tester) async {
       var backs = 0;
       await tester.pumpWidget(_app(Builder(builder: (c) => Center(
