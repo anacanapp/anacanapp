@@ -136,7 +136,7 @@ Future<http.StreamedResponse> sendWithTimeout(
   Duration timeout, {
   TimerFactory timerFactory = Timer.new,
 }) {
-  final callerAbort = request is http.Abortable ? (request as http.Abortable).abortTrigger : null;
+  final callerAbort = request is http.Abortable ? request.abortTrigger : null;
   final abort = Completer<void>();
   final result = Completer<http.StreamedResponse>();
   var callerAborted = false;

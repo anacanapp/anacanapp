@@ -1,0 +1,5 @@
+[
+  {"id":"74000000-0000-4000-8000-000000000001","slug":"pregnancy","name":"Hamiləlik","name_en":"Pregnancy","name_ru":"Беременность","name_ar":"الحمل","icon":"Baby","color":"pink","is_active":true,"sort_order":1,"description":null,"created_at":"2026-01-01T00:00:00Z"},
+  {"id":"74000000-0000-4000-8000-000000000002","slug":"nutrition","name":"Qidalanma","name_en":"Nutrition","name_ru":"Питание","name_ar":"التغذية","icon":"Utensils","color":"orange","is_active":true,"sort_order":2,"description":null,"created_at":"2026-01-01T00:00:00Z"},
+  {"id":"74000000-0000-4000-8000-000000000003","slug":"baby-care","name":"Körpə baxımı","name_en":"Baby care","name_ru":"Уход за малышом","name_ar":"رعاية الطفل","icon":"Heart","color":"teal","is_active":true,"sort_order":3,"description":null,"created_at":"2026-01-01T00:00:00Z"}
+]

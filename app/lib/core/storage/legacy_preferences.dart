@@ -24,7 +24,7 @@ abstract class LegacyPreferences implements KeyValueStore {
 /// Platform implementation over the `az.anacan/legacy_prefs` method channel.
 ///
 /// Methods: `get {key}` → String?, `set {key, value}`, `remove {key}`,
-/// `keys` → List<String>. Errors surface as [PlatformException].
+/// `keys` → `List<String>`. Errors surface as [PlatformException].
 class MethodChannelLegacyPreferences extends LegacyPreferences {
   const MethodChannelLegacyPreferences([this.channel = defaultChannel]);
 
