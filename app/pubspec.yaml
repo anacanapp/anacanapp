@@ -69,6 +69,8 @@ flutter:
     - assets/fonts/
     - assets/icons/
     - assets/icons/lucide/
+    - assets/icons/remix/
+    - assets/icons/sonner/
     - assets/i18n/
     - assets/images/
 

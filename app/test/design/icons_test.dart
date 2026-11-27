@@ -15,6 +15,14 @@ void main() {
     expect(AIcons.byImportName.length, greaterThan(250));
   });
 
+  test('every icon directory is declared as an asset directory in pubspec.yaml', () {
+    final pubspec = File('pubspec.yaml').readAsStringSync();
+    for (final d in Directory('assets/icons').listSync().whereType<Directory>()) {
+      final rel = '${d.path.replaceAll(r'\\', '/')}/';
+      expect(pubspec, contains('- $rel'), reason: '$rel is not bundled (asset directories are not recursive)');
+    }
+  });
+
   test('lucide aliases resolve to the canonical file', () {
     expect(AIcons.byImportName['Heart'], AIcons.heart);
     expect(AIcons.heart.asset, 'assets/icons/lucide/heart.svg');

@@ -109,8 +109,7 @@ function reactIconSvg(pkg, name) {
   const m = new RegExp(`export function ${name} \\(props\\) \\{\\s*return GenIcon\\((\\{.*\\})\\)\\(props\\);`).exec(js);
   const tree = JSON.parse(m[1]);
   const render = (n) => `<${n.tag} ${Object.entries(n.attr).map(([k, v]) => `${ATTR(k)}="${esc(v)}"`).join(' ')}${n.child?.length ? `>${n.child.map(render).join('')}</${n.tag}>` : ' />'}`;
-  // flutter_svg does not inherit a root-level fill="currentColor" through SvgTheme, so the fill
-  // is moved onto each child shape.
+  // The root fill is written onto each shape (explicit, no reliance on SVG inheritance).
   const { fill, ...rootAttr } = tree.attr;
   const withFill = (n) => ({ ...n, attr: { ...n.attr, fill: n.attr.fill ?? fill }, child: (n.child ?? []).map(withFill) });
   const svg = render({ ...tree, attr: { xmlns: 'http://www.w3.org/2000/svg', ...rootAttr }, child: tree.child.map(withFill) });

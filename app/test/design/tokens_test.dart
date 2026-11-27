@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:anacan/design/design.dart';
 import 'package:anacan/design/tokens/token_manifest.g.dart';
 import 'package:flutter/animation.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Independent count of `--name:` declarations (comments stripped), not using postcss.
