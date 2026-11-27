@@ -53,7 +53,7 @@ export const MIGRATION_EXPORT_RULES: readonly MigrationKeyRule[] = [
     'anacan.play-together.v1.', 'anacan:weight-tracker:height-cm'),
   ...prefix('drafts', 'anacan-onboarding-v3:', 'anacan_loss_letter_v1:', 'anacan_loss_todo_v1:', 'anacan_baby_chat_v1:'),
   ...exact('drafts', 'anacan_pending_funnel', 'anacan_iep_pending_v1', 'anacan:promo-code', 'anacan_books_cart_v1',
-    'anacan_books_pending_v1', 'anacan_partner_basket_v1', 'anacan_olivia_basket_v1', 'anacan-aptek-checkout', 'anacan-aptek-recent'),
+    'anacan_books_pending_v1', 'anacan_partner_basket_v1', 'anacan_olivia_basket_v1', 'anacan-aptek-checkout', 'anacan-aptek-recent', 'cake-cart'),
   ...exact('games', 'anacan_colorsort_round_v1', 'anacan_colorsort_level_count_v1', 'anacan_colorsort_markers_v1',
     'anacan:qabarciq:best:v1', 'anacan:qabarciq:sound:v1', 'anacan_two_friends_preferences_v1', 'anacan_word_garden_preferences_v1'),
   ...prefix('games', 'anacan_word_garden_v1:', 'anacan_two_friends_v1:', 'anacan_casual_v1:', 'anacan_minigame_progress_'),

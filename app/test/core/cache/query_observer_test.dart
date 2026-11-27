@@ -179,7 +179,7 @@ void main() {
           onSettled: (data, error, v, ctx) => order.add('onSettled'),
         ),
       );
-      observer.mutate(2, onSuccess: (data, _, __) => order.add('call:onSuccess'));
+      observer.mutate(2, onSuccess: (data, _, _) => order.add('call:onSuccess'));
       expect(observer.state.isPending, isTrue);
       await pump();
       expect(order, ['onMutate', 'fn', 'onSuccess:4:ctx', 'onSettled', 'call:onSuccess']);
@@ -198,7 +198,7 @@ void main() {
           },
           onMutate: (content) =>
               client.optimisticUpdate<List<String>>(const ['story-replies', 's'], (old) => [...?old, content]),
-          onError: (_, __, ctx) => ctx?.rollback(),
+          onError: (_, _, ctx) => ctx?.rollback(),
         ),
       );
       await expectLater(observer.mutateAsync('hi'), throwsStateError);

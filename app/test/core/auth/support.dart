@@ -12,6 +12,7 @@ import 'package:anacan/core/session/logout_cleanup.dart';
 import 'package:anacan/core/session/offline_session.dart';
 import 'package:anacan/state/state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -137,7 +138,9 @@ class FakeSocial implements SocialAuthProvider {
 }
 
 class AuthHarness {
-  AuthHarness({this.social, this.pairing = true});
+  AuthHarness({this.social, this.pairing = true, this.extraOverrides = const []});
+
+  final List<Override> extraOverrides;
 
   final FakeSocial? social;
   final bool pairing;
@@ -182,6 +185,7 @@ class AuthHarness {
         partnerPairingEnabled: pairing,
         now: () => now,
       )),
+      ...extraOverrides,
     ]);
     container.listen(authControllerProvider, (_, _) {});
   }

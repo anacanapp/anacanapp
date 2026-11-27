@@ -8,3 +8,4 @@ export 'persisted_store.dart';
 export 'timer_store.dart';
 export 'user_store.dart';
 export 'white_noise_store.dart';
+export 'shell_bindings.dart';

@@ -53,16 +53,13 @@ void main() {
 
   test('Aptek totals (rounding, bundles, coupons, shipping)', () {
     final config = parseAptekConfig(loadFixture('aptekConfig', zoned: false));
-    for (final c in (loadFixture('aptek', zoned: false)! as List).cast<Map>()) {
+    final cases = (loadFixture('aptek', zoned: false)! as List).cast<Map>();
+    for (var i = 0; i < cases.length; i++) {
+      final c = cases[i];
       final lines = [for (final l in (c['lines'] as List).cast<Map>()) PriceLine(sku: l['sku'] as String?, price: l['price'] as num, quantity: l['quantity'] as num)];
-      final i = (c['lines'] as List).isEmpty ? 0 : null;
-      final coupon = AptekCoupon.fromJson((c['coupon'] as Map).cast<String, Object?>());
-      // gen_fixtures uses the coupon for every case whose index is not a multiple of 4; the fixture keeps order.
-      final out = c['out'] as Map;
-      final a = computeAptekTotals(lines, config, coupon, DateTime.fromMillisecondsSinceEpoch(0)).toJson();
-      final b = computeAptekTotals(lines, config, null, DateTime.fromMillisecondsSinceEpoch(0)).toJson();
-      expect(i, isNull);
-      expect(a.toString() == out.toString() || b.toString() == out.toString() || _close(a, out) || _close(b, out), isTrue, reason: '$c\n$a\n$b');
+      // gen_fixtures applies the coupon to every case whose index is not a multiple of 4.
+      final coupon = i % 4 != 0 ? AptekCoupon.fromJson((c['coupon'] as Map).cast<String, Object?>()) : null;
+      expectJsonClose(computeAptekTotals(lines, config, coupon, DateTime.fromMillisecondsSinceEpoch(0)).toJson(), c['out'], path: 'case $i', tol: 0);
     }
   }, skip: fixtureSkip('aptek', zoned: false));
 
@@ -134,11 +131,3 @@ void main() {
   }, skip: fixtureSkip('vitamin_slices', zoned: false));
 }
 
-bool _close(Map<String, Object?> a, Map b) {
-  try {
-    expectJsonClose(a, b);
-    return true;
-  } catch (_) {
-    return false;
-  }
-}
