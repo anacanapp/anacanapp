@@ -12,6 +12,7 @@ import '../core/i18n/app_languages.dart' show appLanguage;
 import '../core/i18n/language_controller.dart' show appLanguageProvider;
 import '../design/theme.dart';
 import '../design/widgets/a_toast.dart';
+import '../features/community/moderation/moderator_enforcement.dart' show ModeratorEnforcement;
 import '../features/security/app_lock_screen.dart' show AppLockGate;
 import '../features/security/screen_capture_guard.dart' show ScreenCaptureGuard;
 import '../features/startup/error_boundary.dart';
@@ -109,7 +110,8 @@ class AppChrome extends StatelessWidget {
                   fit: StackFit.expand,
                   children: [
                     const Positioned(left: 0, top: 0, width: 0, height: 0, child: AppSessionHosts()),
-                    child,
+                    // <BrowserRouter><ModeratorEnforcement><Routes/></ModeratorEnforcement></BrowserRouter>
+                    ModeratorEnforcement(child: child),
                     const OfflineSyncIndicator(),
                     const AppLockGate(),
                   ],

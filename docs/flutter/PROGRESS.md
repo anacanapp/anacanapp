@@ -23,6 +23,7 @@ Heç nə cihazda işlədilməyib və heç bir Codemagic yığımı aparılmayıb
 | AI/media alətləri: fotosessiya, ağlama tərcüməçisi, nəcis skaneri, nağıl, ulduz falı, hava/geyim, ağ səs, səs-küy ölçən | hazır; səs/mikrofon/yer 9-cu mərhələdə | 103 test (`test/features/tools/*`) |
 | Hamiləlik alətləri: təhlükəsizlik, təpik, sancı (5-1-1), çəki, xəstəxana çantası, adlar, dekret, döl inkişafı, təhlükə əlamətləri, albom | hazır; partnyor bildirişləri və SOS 6-cı, Health 9-cu mərhələdə | 78 test (`test/features/tools/*`) |
 | Körpə alətləri: izləyici (+ böyümə, diş bölmələri, nailiyyətlər), peyvənd təqvimi, əlavə qida, vaxtından əvvəl doğulanlar, körpə albomu | hazır; peyvənd xatırlatmaları 9-cu mərhələdə | 108 test (`test/features/tools/*`) |
+| İcma: tab, lent (filtr, axtarış, görülmə), post kartı, şərhlər, tək post, post yaratma (bloq əlavəsi), istifadəçi profili (izləmə), moderator menyusu, bloklama, moderator nəzarəti (tam blok, xəbərdarlıq) | hazır; stories və qruplar ayrıca gedir | 122 test (`test/features/community`) |
 | Mesajlar, partnyor söhbəti, söhbət ekranı (media, səsli mesaj oxuma), stikerlər, DM | hazır; səs yazma 9-cu mərhələdə (`record`) | 88 test (`test/features/chat`) |
 | AI tabı (qadın + partnyor, `dr-anacan-chat` axını, Dayandır), AI razılıq qapısı, körpə söhbəti + ana ekran kartı | hazır; canlı axın yalnız saxta HTTP ilə yoxlanıb | 93 test (`test/features/ai_chat`, `baby_chat`) |
 | İlk açılış pəncərələri (kilid təklifi, kilid quraşdırma, avtomatik rəy) turu gözlədir | hazır | 1 test (`test/state`) |

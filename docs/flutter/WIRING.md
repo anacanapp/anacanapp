@@ -10,11 +10,9 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 
 | Provider / slot | File (under `app/lib/`) | Default | Implemented by | Phase |
 |---|---|---|---|---|
-| `unreadCommunityPostsCountProvider` | `shell/shell_inputs.dart` (set in `state/shell_bindings.dart`) | 0 | community `useUnreadCommunityPosts` | 5 |
 | `homeNotificationCountProvider` | `features/home/home_inputs.dart` | 0 | bell is disabled in React; settings' notifications query when re-enabled | 3 |
-| `ShellOverlayId.userProfile` / `blogArticle` registrations | `shell/feature_registry.dart` | placeholder | community, blog features | 5 / 7 |
-| `chatGroupScreenProvider`, `chatGroupsProvider` (own group list query) | `features/chat/` | placeholder / chat-owned query | community groups (`social.groups`) | 5 |
-| `chatTextBuilderProvider`, `chatPhotoViewerProvider` | `features/chat/` | link-aware text / basic viewer | community `CommentText`, `PhotoGalleryViewer` | 5 |
+| `ShellOverlayId.blogArticle` registration | `shell/feature_registry.dart` | placeholder | blog feature | 7 |
+| `chatGroupScreenProvider`, `chatGroupsProvider` (own group list query), `communityGroupsPanelProvider` | `features/chat/`, `features/community/community_slots.dart` | placeholder / chat-owned query | community groups (`social.groups`) | 5 |
 | `chatAudioRecorderProvider` | `features/chat/` | unsupported (voice recording off; playback via video_player) | `record` package + mic permissions | 9 |
 | `chatIncomingNotifierProvider`, `chatPushSenderProvider` | `features/chat/` | no-op / direct `send-push-notification` | foreground notifications service, `svc.push` | 9 |
 | `aiAnswerCardProvider` | `features/ai_chat/ai_chat_inputs.dart` | null (no card under answers) | weaning / parenting tools | 4 |
@@ -36,6 +34,10 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `photoGalleryViewerProvider` | `features/tools/photoshoot/photo_gallery_viewer.dart` | stand-in viewer | `overlay.photo-gallery` port | 3 |
 | `healthMoodPartnerNotifierProvider` | `features/tools/health_common/health_common.dart` | no-op | partner `notifyMoodUpdate` | 6 |
 | `healthAdSlotsProvider` (`recipes_banner`, inline anchor, `recipe_exit_interstitial`) | `features/tools/health_common/health_common.dart` | nothing; leaving a recipe goes back at once | ads | 9 |
+| `communityStoriesBarProvider`, `communityProfileStoriesProvider` (+ read `moderationOverlayOpenProvider` to pause) | `features/community/community_slots.dart` | nothing / empty "Aktiv hekayə yoxdur" card | community stories (`social.stories-*`) | 5 |
+| `communityBannerProvider` | `features/community/community_slots.dart` | nothing | banners | 9 |
+| `communityPostCreatedTrackerProvider` | `features/community/` | no-op | Customer.io post-created event | 9 |
+| `communityImageCodecProvider` | `features/community/data/community_media.dart` | uploads the picker-scaled original | JPEG/WebP encoder | 9 |
 | Individual tools (`registerTool`) | `features/tools/<tool>/` | shell placeholder | tool batches | 4 |
 | `ShellPlatform.logScreenView` | `shell/shell_inputs.dart` (`DefaultShellPlatform`) | no-op | analytics (Firebase, consent-gated) | 9 |
 | `notificationTapQueueProvider.deliver` / `clearQueued` callers | `shell/links/notification_taps.dart` | nothing delivers | FCM + local-notification tap listeners at boot | 9 |

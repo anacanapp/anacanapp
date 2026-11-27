@@ -18,6 +18,7 @@ import '../core/data/app_settings.dart' show appSettingProvider;
 import '../core/net/backend_client.dart' show BootstrapOpened;
 import '../core/net/backend_providers.dart';
 import '../features/chat/data/unread.dart' show chatUnreadCountProvider;
+import '../features/community/data/unread_community_posts.dart' show communityUnreadCountProvider;
 import '../shell/gates/gate_sequence.dart';
 import '../shell/shell_inputs.dart';
 import 'persisted_store.dart';
@@ -167,13 +168,14 @@ final bottomNavStyleFromSettingsProvider = Provider<BottomNavStyle>(
 );
 
 /// Overrides for the root ProviderScope: shell user, gate inputs, gate actions and the bottom-nav style from this
-/// state layer; unread messages from the chat feature, unread community posts 0 until community is ported.
+/// state layer; unread messages (chat feature) and unread community posts (community feature).
 List<Override> shellStateOverrides() => [
       shellUserProvider.overrideWith((ref) => ref.watch(shellUserFromStateProvider)),
       gateInputsProvider.overrideWith((ref) => ref.watch(gateInputsFromStateProvider)),
       gateActionsProvider.overrideWith((ref) => UserStoreGateActions(ref.read(userStoreProvider.notifier))),
       // useUnreadMessages (chat feature).
       unreadMessagesCountProvider.overrideWith((ref) => ref.watch(chatUnreadCountProvider)),
-      unreadCommunityPostsCountProvider.overrideWithValue(0),
+      // useUnreadCommunityPosts (community feature).
+      unreadCommunityPostsCountProvider.overrideWith((ref) => ref.watch(communityUnreadCountProvider)),
       bottomNavStyleProvider.overrideWith((ref) => ref.watch(bottomNavStyleFromSettingsProvider)),
     ];

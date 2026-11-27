@@ -28,6 +28,7 @@ import '../features/tools/nutrition/meal_logs.dart' show mealLogsProvider;
 import '../features/ai_chat/register.dart' show aiChatFlowOpener;
 import '../features/baby_chat/register.dart' show babyChatCardSlot;
 import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
+import '../features/community/register.dart' show communityWiringOverrides;
 import '../features/home/dashboard/medical_disclaimer.dart' show homeEmergencyNumberProvider;
 import '../features/home/dashboard/recap_home_card.dart' show recapHomeYearQuery;
 import '../features/home/dashboard/water_widget.dart';
@@ -106,6 +107,9 @@ List<Override> featureWiringOverrides() => [
             onPromptStart: () => ref.read(screenshotGuardPlatformProvider).setCurtainSuspended(true),
             onPromptEnd: () => ref.read(screenshotGuardPlatformProvider).setCurtainSuspended(false),
           )),
+
+      // ── community: chat text / photo viewer / restriction note ─────────────────────────────────────────────
+      ...communityWiringOverrides(),
 
       // ── recap: one `useRecap` for the home card and the profile row ─────────────────────────────────────
       recapProfileRowProvider.overrideWith((ref) => ref.watch(recapProfileRowFromRecapProvider)),

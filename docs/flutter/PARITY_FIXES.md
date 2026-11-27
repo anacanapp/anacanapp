@@ -32,6 +32,10 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| İcma lenti: əl ilə pəncərələnmiş DOM əvəzinə tənbəl native siyahı; son kart qurulanda növbəti səhifə yüklənir | `CommunityPostFeed.tsx` | qəsdən (performans) |
+| Karuseldə videolar yalnız oynadılanda dekod olunur (ilk kadr önizləməsi yoxdur) | `MediaCarousel.tsx` | görünmə aşkarlama paketi olmadığı üçün |
+| Emoji seçici: emoji-picker-react əvəzinə tez-tez işlənən emojilərin kiçik şəbəkəsi | `CreatePostScreen.tsx` | Flutter portu yoxdur |
+| Qalereyadan "Endir" qalereya saxlama paketi olmadığı üçün xəta toastı göstərir | `PhotoGalleryViewer.tsx` | 9-cu mərhələ (`gal`) |
 | Söhbət siyahısında oxunmayan `last_message_at` tarixi `RangeError` atırdı | `ConversationListScreen.tsx` | Flutter-də boş vaxt göstərilir |
 | Mesajlar və partnyor söhbətində status bar boşluğu itir (`.a-topbar` `.safe-area-top`-u ləğv edir) | `MessagesScreen.tsx` | Flutter-də yuxarı boşluq var |
 | Oxunmamış mesaj sayına yalnız `discovery_language`-i tətbiq dilinə uyğun qruplar daxil olurdu (inbox isə hamısını göstərir) | `useUnreadMessages.ts` | Flutter-də inbox-dakı bütün qruplar sayılır (sahibin qərarı 2026-11-27) |
