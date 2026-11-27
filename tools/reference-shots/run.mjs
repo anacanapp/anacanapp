@@ -54,7 +54,7 @@ function loadPlaywright() {
     try {
       const req = createRequire(base.startsWith('file:') || base.startsWith('/') ? base : pathToFileURL(base).href);
       const pw = req('playwright');
-      if (existsSync(pw.chromium.executablePath())) return pw;
+      if (process.env.REFSHOTS_CHROME || existsSync(pw.chromium.executablePath())) return pw;
     } catch { /* next */ }
   }
   throw new Error('playwright with an installed Chromium not found (set PLAYWRIGHT_MODULE)');
@@ -164,7 +164,12 @@ async function main() {
   const server = await startDevServer({ log, port: args.port });
   const { chromium } = loadPlaywright();
   // sRGB output always; `--chrome-flags det` adds the raster-determinism flags (measured: no improvement, see docs).
-  const browser = await chromium.launch({ args: args.chromeFlags === 'det' ? DETERMINISM_FLAGS : ['--force-color-profile=srgb'] });
+  // REFSHOTS_CHROME: an installed Chrome / Edge when Playwright's own Chromium cannot be downloaded (renders are
+  // then not byte-comparable with runs made with Playwright's build).
+  const browser = await chromium.launch({
+    ...(process.env.REFSHOTS_CHROME ? { executablePath: process.env.REFSHOTS_CHROME } : {}),
+    args: args.chromeFlags === 'det' ? DETERMINISM_FLAGS : ['--force-color-profile=srgb'],
+  });
   const ctx = { args, outDir, recorder, results, log, browserVersion: browser.version() };
   log(`${jobs.length} cells (${scenarios.length} scenarios) -> ${outDir}`);
 

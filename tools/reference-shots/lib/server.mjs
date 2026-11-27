@@ -48,7 +48,8 @@ export function freePort() {
 
 export async function startDevServer({ log = console.log, port } = {}) {
   port = port || await freePort();
-  const child = spawn(`${REPO_ROOT}/node_modules/.bin/vite`, ['--mode', 'google', '--port', String(port), '--strictPort', '--host', '127.0.0.1'], {
+  // Vite's JS entry through this Node (node_modules/.bin/vite is a shell script, not runnable on Windows).
+  const child = spawn(process.execPath, [`${REPO_ROOT}/node_modules/vite/bin/vite.js`, '--mode', 'google', '--port', String(port), '--strictPort', '--host', '127.0.0.1'], {
     cwd: REPO_ROOT, env: { ...process.env, ...harnessEnv() }, stdio: ['ignore', 'pipe', 'pipe'], detached: false,
   });
   let output = '';

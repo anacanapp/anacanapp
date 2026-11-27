@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan 需要访问相机，用于头像、孕期相册和大便扫描功能。";
+"NSPhotoLibraryUsageDescription" = "Anacan 会访问您的照片，用于头像和孕期相册。";
+"NSPhotoLibraryAddUsageDescription" = "需要您的许可，才能将生成的宝宝照片和相册回忆保存到您的图库。";
+"NSMicrophoneUsageDescription" = "麦克风用于宝宝哭声分析和语音笔记。";
+"NSLocationWhenInUseUsageDescription" = "需要您的位置信息，以便提供适合天气的穿衣建议，并显示附近的母婴友好场所。";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "需要您的位置信息，以便提供适合天气的穿衣建议，并显示附近的母婴友好场所。";
+"NSFaceIDUsageDescription" = "Face ID 用于安全登录本应用。";
+"NSContactsUsageDescription" = "访问通讯录以邀请您的伴侣。";
+"NSCalendarsUsageDescription" = "需要您的许可，才能将就诊预约和提醒添加到您的日历。";
+"NSMotionUsageDescription" = "运动传感器用于记录每日活动和步数。";
+"NSBluetoothAlwaysUsageDescription" = "Anacan 可能会使用蓝牙连接智能设备（例如婴儿监视器）。";
+"NSLocalNetworkUsageDescription" = "本应用需要您的许可，才能连接您本地网络中的设备。";
+"NSUserTrackingUsageDescription" = "您的许可有助于我们衡量广告效果，并为您展示更相关的内容。您的个人数据不会与第三方共享。";

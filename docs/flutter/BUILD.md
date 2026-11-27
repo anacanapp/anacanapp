@@ -157,6 +157,13 @@ Version: `flutter build ipa --build-name=60.0 --build-number=60.0.N` (Flutter ke
 
 ### Info.plist / entitlements parity backlog
 
+**Done 2026-11-27** by `node app/tool/ios/apply_ios_parity.mjs` (idempotent), after the first Codemagic upload was not
+processed by App Store Connect: `CFBundleDevelopmentRegion` `az`, `CFBundleLocalizations`, the 15 usage strings
+(incl. Health and ATT) with the 25 `InfoPlist.strings`, `LSApplicationQueriesSchemes` (non-Meta), `PrivacyInfo.xcprivacy`,
+`Runner.entitlements` / `Runner.Debug.entitlements` (= Capacitor `App*.entitlements`: push, Sign in with Apple,
+HealthKit, App Group) on the Runner configurations. Still open below: background modes, Live Activities, AdMob,
+Meta, Firebase consent keys, status-bar keys, the extension targets.
+
 From `ios/App/App/Info.plist`, `App.entitlements`, the 25 `*.lproj/InfoPlist.strings` and the extension targets.
 
 | Item | Feature | Plan |

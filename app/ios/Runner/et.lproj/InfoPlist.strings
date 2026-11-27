@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan vajab kaamerale ligipääsu profiilipiltide, rasedusalbumi ja mähkmesisu skanneri jaoks.";
+"NSPhotoLibraryUsageDescription" = "Anacan kasutab sinu fotosid profiilipiltide ja rasedusalbumi jaoks.";
+"NSPhotoLibraryAddUsageDescription" = "Luba on vajalik loodud beebipiltide ja albumimälestuste salvestamiseks sinu galeriisse.";
+"NSMicrophoneUsageDescription" = "Mikrofoni kasutatakse beebi nutu analüüsiks ja häälmärkmete jaoks.";
+"NSLocationWhenInUseUsageDescription" = "Sinu asukohta on vaja ilmaga sobivate riietusnõuannete ja lähedal asuvate emasõbralike kohtade näitamiseks.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Sinu asukohta on vaja ilmaga sobivate riietusnõuannete ja lähedal asuvate emasõbralike kohtade näitamiseks.";
+"NSFaceIDUsageDescription" = "Face ID-d kasutatakse rakendusse turvaliseks sisselogimiseks.";
+"NSContactsUsageDescription" = "Kasutab sinu kontakte partneri kutsumiseks.";
+"NSCalendarsUsageDescription" = "Luba on vajalik arstivisiitide ja meeldetuletuste lisamiseks sinu kalendrisse.";
+"NSMotionUsageDescription" = "Liikumisandurit kasutatakse igapäevase aktiivsuse ja sammude jälgimiseks.";
+"NSBluetoothAlwaysUsageDescription" = "Anacan võib kasutada Bluetoothi nutiseadmetega (nt beebimonitoridega) ühendamiseks.";
+"NSLocalNetworkUsageDescription" = "Rakendus vajab luba sinu kohtvõrgus olevate seadmetega ühendamiseks.";
+"NSUserTrackingUsageDescription" = "Sinu luba aitab meil mõõta reklaamide tõhusust ja näidata sulle asjakohasemat sisu. Sinu isikuandmeid ei jagata kolmandate osapooltega.";

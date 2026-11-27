@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan potrzebuje dostępu do aparatu, aby obsługiwać zdjęcia profilowe, albumy ciążowe i skaner stolca.";
+"NSPhotoLibraryUsageDescription" = "Anacan uzyskuje dostęp do Twoich zdjęć na potrzeby zdjęć profilowych i albumów ciążowych.";
+"NSPhotoLibraryAddUsageDescription" = "Potrzebne jest Twoje pozwolenie, aby zapisać wygenerowane zdjęcia dziecka i wspomnienia z albumu w galerii.";
+"NSMicrophoneUsageDescription" = "Mikrofon jest używany do analizy płaczu dziecka i notatek głosowych.";
+"NSLocationWhenInUseUsageDescription" = "Twoja lokalizacja jest potrzebna, aby wyświetlać rekomendacje ubioru dopasowane do pogody oraz pobliskie miejsca przyjazne mamom.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Twoja lokalizacja jest potrzebna, aby wyświetlać rekomendacje ubioru dopasowane do pogody oraz pobliskie miejsca przyjazne mamom.";
+"NSFaceIDUsageDescription" = "Face ID jest używany do bezpiecznego logowania w aplikacji.";
+"NSContactsUsageDescription" = "Uzyskuje dostęp do kontaktów, aby zaprosić Twojego partnera.";
+"NSCalendarsUsageDescription" = "Potrzebne jest Twoje pozwolenie, aby dodawać wizyty lekarskie i przypomnienia do kalendarza.";
+"NSMotionUsageDescription" = "Czujnik ruchu jest używany do śledzenia codziennej aktywności i liczby kroków.";
+"NSBluetoothAlwaysUsageDescription" = "Anacan może używać Bluetooth do łączenia się z inteligentnymi urządzeniami (np. nianiami elektronicznymi).";
+"NSLocalNetworkUsageDescription" = "Aplikacja potrzebuje pozwolenia na łączenie się z urządzeniami w Twojej sieci lokalnej.";
+"NSUserTrackingUsageDescription" = "Twoja zgoda pomaga nam mierzyć skuteczność naszych reklam i wyświetlać Ci bardziej trafne treści. Twoje dane osobowe nie są udostępniane podmiotom trzecim.";

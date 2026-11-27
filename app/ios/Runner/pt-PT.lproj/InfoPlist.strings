@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "A Anacan precisa de acesso à câmara para as fotografias de perfil, os álbuns da gravidez e o scanner de fezes.";
+"NSPhotoLibraryUsageDescription" = "A Anacan acede às suas fotografias para as fotografias de perfil e os álbuns da gravidez.";
+"NSPhotoLibraryAddUsageDescription" = "É necessária a sua permissão para guardar na sua galeria as fotografias de bebé geradas e as memórias do álbum.";
+"NSMicrophoneUsageDescription" = "O microfone é utilizado para a análise do choro do bebé e para notas de voz.";
+"NSLocationWhenInUseUsageDescription" = "A sua localização é necessária para mostrar recomendações de vestuário adequadas ao tempo e locais próximos adequados a mães.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "A sua localização é necessária para mostrar recomendações de vestuário adequadas ao tempo e locais próximos adequados a mães.";
+"NSFaceIDUsageDescription" = "O Face ID é utilizado para iniciar sessão na app em segurança.";
+"NSContactsUsageDescription" = "Acede aos contactos para convidar o seu parceiro.";
+"NSCalendarsUsageDescription" = "É necessária a sua permissão para adicionar consultas médicas e lembretes ao seu calendário.";
+"NSMotionUsageDescription" = "O sensor de movimento é utilizado para acompanhar a atividade diária e o número de passos.";
+"NSBluetoothAlwaysUsageDescription" = "A Anacan pode utilizar o Bluetooth para se ligar a dispositivos inteligentes (por ex., intercomunicadores para bebé).";
+"NSLocalNetworkUsageDescription" = "A app precisa da sua permissão para se ligar a dispositivos na sua rede local.";
+"NSUserTrackingUsageDescription" = "A sua permissão ajuda-nos a medir a eficácia dos nossos anúncios e a mostrar-lhe conteúdos mais relevantes. Os seus dados pessoais não são partilhados com terceiros.";
