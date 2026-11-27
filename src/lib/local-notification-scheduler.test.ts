@@ -12,14 +12,25 @@ const os = vi.hoisted(() => ({
   removeDelivered: vi.fn(),
 }));
 vi.mock('@capacitor/core', () => ({ Capacitor: { isNativePlatform: () => os.native, isPluginAvailable: () => os.native } }));
-vi.mock('@capacitor/local-notifications', () => ({ LocalNotifications: {
-  schedule: async (arg: { notifications: any[] }) => { os.schedule(arg); for (const n of arg.notifications) os.pending.set(n.id, n); },
-  cancel: async (arg: { notifications: { id: number }[] }) => { os.cancel(arg); for (const n of arg.notifications) os.pending.delete(n.id); },
-  getPending: async () => ({ notifications: [...os.pending.values()].map((n) => ({ id: n.id, title: n.title, body: n.body })) }),
-  checkPermissions: async () => ({ display: os.display }),
-  requestPermissions: async () => { os.request(); os.display = 'granted'; return { display: 'granted' }; },
-  removeAllDeliveredNotifications: async () => { os.removeDelivered(); },
-} }));
+// Like the real Capacitor plugin proxy: every unknown property, including `then`, is a native
+// method stub that fails with "not implemented". Returning the plugin from an async function
+// therefore breaks promise resolution (52.0.0/52.0.1: no reminder was ever scheduled on iOS).
+vi.mock('@capacitor/local-notifications', () => {
+  const impl: Record<string, unknown> = {
+    schedule: async (arg: { notifications: any[] }) => { os.schedule(arg); for (const n of arg.notifications) os.pending.set(n.id, n); },
+    cancel: async (arg: { notifications: { id: number }[] }) => { os.cancel(arg); for (const n of arg.notifications) os.pending.delete(n.id); },
+    getPending: async () => ({ notifications: [...os.pending.values()].map((n) => ({ id: n.id, title: n.title, body: n.body })) }),
+    checkPermissions: async () => ({ display: os.display }),
+    requestPermissions: async () => { os.request(); os.display = 'granted'; return { display: 'granted' }; },
+    removeAllDeliveredNotifications: async () => { os.removeDelivered(); },
+  };
+  const LocalNotifications = new Proxy(impl, {
+    get: (target, prop) => (prop in target ? target[prop as string] : () => {
+      throw new Error(`"LocalNotifications.${String(prop)}()" is not implemented on ios`);
+    }),
+  });
+  return { LocalNotifications };
+});
 
 import {
   PENDING_BUDGET, bindLocalNotificationOwner, clearLocalNotificationNamespaces, desiredLocalNotifications, nextFireAt,

@@ -143,13 +143,19 @@ export function desiredLocalNotifications(namespace?: string): StoredNotificatio
 
 type LocalNotificationsPlugin = typeof import('@capacitor/local-notifications')['LocalNotifications'];
 
-async function plugin(): Promise<LocalNotificationsPlugin | null> {
+/**
+ * The plugin is a Capacitor proxy: any property read, including `then`, becomes a native
+ * call. Returning it from an async function makes promise resolution call
+ * `LocalNotifications.then()`, which rejects ("not implemented on ios") and silently broke
+ * every reminder in 52.0.0/52.0.1. Hand it back inside a plain holder object instead.
+ */
+async function loadPlugin(): Promise<{ ln: LocalNotificationsPlugin } | null> {
   try {
     const { Capacitor } = await import('@capacitor/core');
     if (!Capacitor.isNativePlatform()) return null;
     if (typeof Capacitor.isPluginAvailable === 'function' && !Capacitor.isPluginAvailable('LocalNotifications')) return null;
     const { LocalNotifications } = await import('@capacitor/local-notifications');
-    return LocalNotifications;
+    return { ln: LocalNotifications };
   } catch { return null; }
 }
 
@@ -250,7 +256,7 @@ export interface SetOptions {
  */
 export function setLocalNotifications(namespace: string, items: DesiredNotification[], opts: SetOptions = {}): Promise<ScheduleResult> {
   return serial(async () => {
-    const ln = await plugin();
+    const ln = (await loadPlugin())?.ln ?? null;
     if (!ln) return 'unavailable';
     const store = readStore();
     const stored = items.map(toStored);
@@ -271,7 +277,7 @@ export function setLocalNotifications(namespace: string, items: DesiredNotificat
 /** Remove every namespace starting with `prefix` (e.g. 'vaccine:'), cancelling their reminders. */
 export function clearLocalNotificationNamespaces(prefix: string, cancelIds: number[] = []): Promise<void> {
   return serial(async () => {
-    const ln = await plugin();
+    const ln = (await loadPlugin())?.ln ?? null;
     if (!ln) return;
     const store = readStore();
     const removed: number[] = [];
@@ -287,7 +293,7 @@ export function clearLocalNotificationNamespaces(prefix: string, cancelIds: numb
 /** Re-plan from the durable set (app open / resume). Never prompts, never throws. */
 export function replanLocalNotifications(): Promise<void> {
   return serial(async () => {
-    const ln = await plugin();
+    const ln = (await loadPlugin())?.ln ?? null;
     if (!ln) return;
     await reconcile(ln, readStore(), [], false);
   });
@@ -297,7 +303,7 @@ export function replanLocalNotifications(): Promise<void> {
 export function cancelLocalNotificationIds(ids: number[]): Promise<void> {
   return serial(async () => {
     if (!ids.length) return;
-    const ln = await plugin();
+    const ln = (await loadPlugin())?.ln ?? null;
     if (!ln) return;
     try { await ln.cancel({ notifications: ids.map((id) => ({ id })) }); } catch { /* best effort */ }
   });
@@ -309,7 +315,7 @@ export function cancelLocalNotificationIds(ids: number[]): Promise<void> {
  */
 export function notifyNow(item: { id: number; title: string; body: string; extra?: Record<string, unknown>; ongoing?: boolean; autoCancel?: boolean; smallIcon?: string }, opts: { ask?: boolean } = {}): Promise<boolean> {
   return serial(async () => {
-    const ln = await plugin();
+    const ln = (await loadPlugin())?.ln ?? null;
     if (!ln) return false;
     if (await permission(ln, !!opts.ask) !== 'granted') return false;
     try { await ln.schedule({ notifications: [item] as never }); return true; } catch { return false; }
@@ -323,7 +329,7 @@ export function notifyNow(item: { id: number; title: string; body: string; extra
 export function resetLocalNotifications(): Promise<void> {
   return serial(async () => {
     writeStore(emptyStore());
-    const ln = await plugin();
+    const ln = (await loadPlugin())?.ln ?? null;
     if (!ln) return;
     const pending = await ln.getPending();
     const ids = (pending?.notifications ?? []).map((n) => ({ id: n.id }));
@@ -350,7 +356,7 @@ export function bindLocalNotificationOwner(userId: string): Promise<void> {
       removed.push(...store.namespaces[ns].map((n) => n.id));
       delete store.namespaces[ns];
     }
-    const ln = await plugin();
+    const ln = (await loadPlugin())?.ln ?? null;
     if (!ln) { writeStore(store); return; }
     await reconcile(ln, store, removed, false);
   });
