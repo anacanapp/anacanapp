@@ -113,7 +113,9 @@ Addımlar:
    admission canlı `/.well-known/anacan-backend.json` ilə sahə-sahə eyni) + platformanın canlı AdMob ID-si və
    Customer.io ayarları. Uyğunsuzluqda build dayanır.
 2. Flutter **3.50.1** (başqa versiya gəlsə build dayanır), `flutter pub get`, dizayn token-ları və i18n ixracının
-   `--check` yoxlaması (alət repoda varsa; lazım olsa əvvəlcə `npm ci`), `flutter analyze`, `flutter test`.
+   `--check` yoxlaması (alət repoda varsa; lazım olsa əvvəlcə `npm ci`). `flutter analyze` + `flutter test`
+   susmaya görə ötürülür (~5–6 dəqiqə; budağa hər push-dan əvvəl lokal işlədilir); Codemagic-də işlətmək üçün
+   **Start new build → Environment variables**-ə `RUN_FLUTTER_TESTS=true` əlavə edin.
 3. `write_dart_defines.mjs`: `VITE_*` → `--dart-define-from-file` JSON-u (`ANACAN_API_URL`, `ANACAN_ANON_KEY`,
    `ANACAN_SOURCE_ANON_KEY`, `ANACAN_APP_VERSION`, `ANACAN_INITIAL_MANAGED_ADMISSION`, `ANACAN_BACKEND_BOOTSTRAP`,
    `ANACAN_AUTH_CUTOVER`, `ANACAN_BUILD_MODE` (`google`), `ANACAN_AZURE_*` bayraqları, Customer.io-nun gizli olmayan ID-ləri). Customer.io write key və

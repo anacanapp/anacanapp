@@ -39,8 +39,14 @@ definitions:
         # Design tokens / i18n export --check, each only once its generator exists (npm ci first if it needs node_modules)
         node app/tool/codemagic/check_generated.mjs
     - &flutter_quality
-      name: Flutter analyze and test
+      name: Flutter analyze and test (only with RUN_FLUTTER_TESTS=true)
       script: |
+        # Skipped by default (~5-6 build minutes): analyze + test run before every push of the port branch.
+        # To run them here, add RUN_FLUTTER_TESTS=true under "Environment variables" in Start new build.
+        if [ "${RUN_FLUTTER_TESTS:-false}" != "true" ]; then
+          echo "Skipped (RUN_FLUTTER_TESTS is not true)."
+          exit 0
+        fi
         cd app
         flutter analyze
         flutter test
