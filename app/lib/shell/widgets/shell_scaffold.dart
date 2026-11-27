@@ -5,6 +5,7 @@
 //              src/styles/startup.css (.a-subscreen), src/components/blog/BlogLinkHost.tsx (full-screen
 //              article over everything), src/hooks/useSwipeNavigation.ts (document touch listeners)
 import 'package:flutter/physics.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -172,28 +173,64 @@ class _ShellFrameState extends ConsumerState<ShellFrame> {
     final spacerBg = redesign ? t.a.bg : t.shadcn.card;
     final pbNav = kPbNav + pad.bottom;
 
-    Widget content;
+    final tabKey = ValueKey('${partnerVariant ? 'partner-' : ''}${tab.id}');
+    Widget content = const SizedBox.shrink();
+    ShellSliverBody? sliverBody;
     var fills = false;
-    if (!tabHasContent(tab, user.guard)) {
-      content = const SizedBox.shrink();
-    } else {
+    if (tabHasContent(tab, user.guard)) {
       final reg = registry.tab(tab, partner: partnerVariant);
       fills = reg?.fillsViewport ?? false;
       final args = ShellTabArgs(tab: tab, partner: partnerVariant, state: state);
-      content = reg != null ? reg.builder(context, args) : ShellPlaceholder(kind: 'tab', id: '${partnerVariant ? 'partner-' : ''}${tab.id}', fill: false);
+      final slivers = reg?.slivers;
+      if (slivers != null) {
+        sliverBody = slivers(context, args);
+      } else {
+        content = reg != null ? reg.builder(context, args) : ShellPlaceholder(kind: 'tab', id: '${partnerVariant ? 'partner-' : ''}${tab.id}', fill: false);
+      }
       // ToolsHub is keyed by toolsResetKey (it reads initialTool on mount only).
-      if (tab == ShellTab.tools) content = KeyedSubtree(key: ValueKey('tools:${state.toolsResetKey}'), child: content);
-      content = TabEnter(key: ValueKey('${partnerVariant ? 'partner-' : ''}${tab.id}'), child: content);
+      if (tab == ShellTab.tools) {
+        final key = ValueKey('tools:${state.toolsResetKey}');
+        if (sliverBody != null) {
+          sliverBody = ShellSliverBody(sliver: KeyedSubtree(key: key, child: sliverBody.sliver), background: sliverBody.background);
+        } else {
+          content = KeyedSubtree(key: key, child: content);
+        }
+      }
+      if (sliverBody == null) content = TabEnter(key: tabKey, child: content);
     }
 
+    // One scroll container for every tab ([data-scroll-container]): a CustomScrollView whose identity never
+    // changes, so the scroll memory's controller stays attached across tabs. Sliver bodies go in as they are
+    // (lazy lists); box bodies are one SliverToBoxAdapter. The last sliver is the `pb-nav` clearance.
+    final body = sliverBody;
     final scrollView = LayoutBuilder(builder: (context, c) {
-      final child = fills ? SizedBox(height: (c.maxHeight - pbNav).clamp(0.0, double.infinity), child: content) : content;
-      return SingleChildScrollView(
-        key: const ValueKey('shell-scroll'),
-        controller: _scroll,
-        physics: const ClampingScrollPhysics(),
-        padding: EdgeInsets.only(bottom: pbNav),
-        child: ConstrainedBox(constraints: BoxConstraints(minWidth: c.maxWidth), child: child),
+      final Widget main;
+      if (body != null) {
+        main = SliverTabEnter(key: tabKey, sliver: body.sliver);
+      } else {
+        final child = fills ? SizedBox(height: (c.maxHeight - pbNav).clamp(0.0, double.infinity), child: content) : content;
+        main = SliverToBoxAdapter(child: ConstrainedBox(constraints: BoxConstraints(minWidth: c.maxWidth), child: child));
+      }
+      final background = body?.background;
+      return Stack(
+        fit: StackFit.expand,
+        children: [
+          // Page-top decoration of a sliver body, behind the content, moving with the scroll offset.
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: background == null
+                ? const SizedBox.shrink()
+                : TabEnter(key: tabKey, child: ScrollLinkedBackground(controller: _scroll, child: background)),
+          ),
+          CustomScrollView(
+            key: const ValueKey('shell-scroll'),
+            controller: _scroll,
+            physics: const ClampingScrollPhysics(),
+            slivers: [main, SliverToBoxAdapter(child: SizedBox(height: pbNav))],
+          ),
+        ],
       );
     });
 
@@ -288,6 +325,118 @@ class _TabEnterState extends State<TabEnter> with TickerProviderStateMixin {
       builder: (context, child) => Opacity(
         opacity: ACurves.framerDefault.transform(_opacity.value),
         child: Transform.translate(offset: Offset(0, _y.value), child: child),
+      ),
+    );
+  }
+}
+
+/// [TabEnter] for a sliver body: the same opacity tween and y spring, applied with [SliverOpacity] and a paint
+/// translation of the sliver (no layout change, like a CSS transform).
+class SliverTabEnter extends StatefulWidget {
+  const SliverTabEnter({super.key, required this.sliver});
+  final Widget sliver;
+
+  @override
+  State<SliverTabEnter> createState() => _SliverTabEnterState();
+}
+
+class _SliverTabEnterState extends State<SliverTabEnter> with TickerProviderStateMixin {
+  late final AnimationController _opacity = AnimationController(vsync: this, duration: TabEnter.opacityDuration);
+  late final AnimationController _y = AnimationController.unbounded(vsync: this, value: 10);
+  bool _started = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_started) return;
+    _started = true;
+    final reduce = animationsDisabled(context) || AnacanTokens.of(context).lite;
+    _opacity.forward();
+    if (reduce) {
+      _y.value = 0;
+    } else {
+      _y.animateWith(SpringSimulation(ASprings.transform, 10, 0, 0));
+    }
+  }
+
+  @override
+  void dispose() {
+    _opacity.dispose();
+    _y.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: Listenable.merge([_opacity, _y]),
+      child: widget.sliver,
+      builder: (context, child) => SliverOpacity(
+        opacity: ACurves.framerDefault.transform(_opacity.value),
+        sliver: _SliverTranslateY(dy: _y.value, sliver: child!),
+      ),
+    );
+  }
+}
+
+class _SliverTranslateY extends SingleChildRenderObjectWidget {
+  const _SliverTranslateY({required this.dy, required Widget sliver}) : super(child: sliver);
+  final double dy;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) => _RenderSliverTranslateY(dy);
+
+  @override
+  void updateRenderObject(BuildContext context, _RenderSliverTranslateY renderObject) => renderObject.dy = dy;
+}
+
+class _RenderSliverTranslateY extends RenderProxySliver {
+  _RenderSliverTranslateY(this._dy);
+  double _dy;
+
+  set dy(double value) {
+    if (value == _dy) return;
+    _dy = value;
+    markNeedsPaint();
+  }
+
+  @override
+  void paint(PaintingContext context, Offset offset) {
+    final c = child;
+    if (c != null && c.geometry!.visible) context.paintChild(c, offset + Offset(0, _dy));
+  }
+
+  @override
+  void applyPaintTransform(RenderObject child, Matrix4 transform) {
+    super.applyPaintTransform(child, transform);
+    transform.multiply(Matrix4.translationValues(0, _dy, 0));
+  }
+
+  @override
+  bool hitTestChildren(SliverHitTestResult result, {required double mainAxisPosition, required double crossAxisPosition}) {
+    final c = child;
+    return c != null &&
+        c.geometry!.hitTestExtent > 0 &&
+        c.hitTest(result, mainAxisPosition: mainAxisPosition - _dy, crossAxisPosition: crossAxisPosition);
+  }
+}
+
+/// Paints [child] shifted up by the scroll offset of [controller] (content-anchored, behind the scroll view).
+class ScrollLinkedBackground extends StatelessWidget {
+  const ScrollLinkedBackground({super.key, required this.controller, required this.child});
+  final ScrollController controller;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return IgnorePointer(
+      child: AnimatedBuilder(
+        animation: controller,
+        child: child,
+        builder: (context, child) {
+          final offset = controller.hasClients && controller.positions.length == 1 ? controller.offset : 0.0;
+          return Transform.translate(offset: Offset(0, -offset), child: child);
+        },
       ),
     );
   }

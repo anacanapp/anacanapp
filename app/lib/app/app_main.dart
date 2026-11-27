@@ -16,6 +16,7 @@ import '../features/startup/error_boundary.dart'
     show ConnectedErrorBoundaryFallback;
 import 'anacan_app.dart';
 import 'crash_reporter.dart';
+import 'deep_links.dart';
 import 'system_chrome.dart';
 
 /// Installs the global error hooks (idempotent). Errors before the backend opened are only logged, like the
@@ -41,8 +42,9 @@ void installErrorHooks() {
     return true;
   };
   // Release builds replace a failing widget with the ErrorBoundary fallback instead of a grey box.
-  if (kReleaseMode)
+  if (kReleaseMode) {
     ErrorWidget.builder = (details) => AppErrorWidget(details: details);
+  }
 }
 
 /// `ErrorWidget.builder` output: the ErrorBoundary fallback inside the app, RootErrorBoundary's fallback when
@@ -58,10 +60,11 @@ class AppErrorWidget extends StatelessWidget {
       ProviderScope.containerOf(context, listen: false);
       inScope = true;
     } catch (_) {}
-    if (inScope)
+    if (inScope) {
       return ConnectedErrorBoundaryFallback(
         message: details.exceptionAsString(),
       );
+    }
     return RootErrorFallback(
       language: I18nRuntime.instance.language,
       onRetry: () => AnacanApp.current?.restart(),
@@ -76,6 +79,8 @@ void runAnacanApp() {
       WidgetsFlutterBinding.ensureInitialized();
       installErrorHooks();
       unawaited(configureSystemChrome());
+      // Before the first frame, so the launch link (cold start) is captured; delivered once the app is ready.
+      startIncomingLinks();
       runApp(const AnacanApp());
     },
     (error, stack) {

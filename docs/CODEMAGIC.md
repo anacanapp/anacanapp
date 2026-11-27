@@ -117,9 +117,16 @@ Addımlar:
 3. `write_dart_defines.mjs`: `VITE_*` → `--dart-define-from-file` JSON-u (`ANACAN_API_URL`, `ANACAN_ANON_KEY`,
    `ANACAN_SOURCE_ANON_KEY`, `ANACAN_APP_VERSION`, `ANACAN_INITIAL_MANAGED_ADMISSION`, `ANACAN_BACKEND_BOOTSTRAP`,
    `ANACAN_AUTH_CUTOVER`, `ANACAN_BUILD_MODE` (`google`), `ANACAN_AZURE_*` bayraqları, Customer.io-nun gizli olmayan ID-ləri). Customer.io write key və
-   AdMob ID-ləri buraya **düşmür**.
+   AdMob ID-ləri buraya **düşmür**. RevenueCat-in açıq SDK açarları və Google OAuth client ID-ləri Codemagic dəyişəni
+   **deyil**: Capacitor build-inin istifadə etdiyi, artıq repoda olan fayllardan oxunur (`app/tool/codemagic/public_ids.mjs`):
+   `ANACAN_RC_ANDROID_API_KEY` / `ANACAN_RC_IOS_API_KEY` / `ANACAN_RC_FALLBACK_API_KEY` ← `src/lib/revenuecat.ts`
+   (`REVENUECAT_CONFIG.ANDROID_API_KEY` / `IOS_API_KEY` / `API_KEY`), `ANACAN_GOOGLE_SERVER_CLIENT_ID` ←
+   `android/app/google-services.json` (`client_type: 3` olan web client), `ANACAN_GOOGLE_IOS_CLIENT_ID` ←
+   `ios/App/App/GoogleService-Info.plist` (`CLIENT_ID`). Eyni adlı mühit dəyişəni verilsə, o üstün tutulur (məs. test layihəsi).
 4. `apply_native_config.mjs`: canlı AdMob ID-si və Customer.io write key yalnız Git-ə düşməyən native fayla yazılır
-   (Android `app/android/anacan-native.properties`, iOS `app/ios/Flutter/AnacanNative.xcconfig`).
+   (Android `app/android/anacan-native.properties`, iOS `app/ios/Flutter/AnacanNative.xcconfig`). iOS faylına Google
+   girişi üçün `ANACAN_GOOGLE_IOS_CLIENT_ID`, `ANACAN_GOOGLE_REVERSED_CLIENT_ID`, `ANACAN_GOOGLE_SERVER_CLIENT_ID` də
+   yazılır (Info.plist `GIDClientID`, `GIDServerClientID`, URL sxemi; eyni repodakı fayllardan).
 5. iOS: `ios-store` kimi sertifikat və App Store profili API ilə gətirilir (`keychain`, `fetch-signing-files --create`,
    `xcode-project use-profiles`), sonra `flutter build ipa`. Hələlik yalnız `Runner` (`com.atlasoon.anacan`) imzalanır;
    widget və bildiriş xidməti target-ləri Flutter layihəsinə köçürüləndə `IOS_SIGNED_TARGETS` siyahısına bir sətir

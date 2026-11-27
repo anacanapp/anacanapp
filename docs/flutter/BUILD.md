@@ -43,6 +43,13 @@ Read in Dart with `String.fromEnvironment` / `bool.fromEnvironment` (flags are `
 | `ANACAN_BUILD_MODE` | constant `google` (as `vite build --mode google`) |
 | `ANACAN_AZURE_PARTNER_PAIRING`, `ANACAN_AZURE_GOOGLE_OAUTH_ENABLED`, `ANACAN_AZURE_APPLE_OAUTH_ENABLED`, `ANACAN_AZURE_REVENUECAT_ENABLED` | the `VITE_AZURE_*` flags of the same name |
 | `ANACAN_CUSTOMERIO_ENABLED`, `_ENVIRONMENT`, `_REGION`, `_WORKSPACE_ID`, `_SOURCE_ID` | `VITE_CUSTOMERIO_*` (non-secret ids only) |
+| `ANACAN_RC_ANDROID_API_KEY`, `ANACAN_RC_IOS_API_KEY`, `ANACAN_RC_FALLBACK_API_KEY` | committed `src/lib/revenuecat.ts` `REVENUECAT_CONFIG.ANDROID_API_KEY` / `IOS_API_KEY` / `API_KEY` (public SDK keys the Capacitor bundle ships) |
+| `ANACAN_GOOGLE_SERVER_CLIENT_ID` | committed `android/app/google-services.json`, `oauth_client` with `client_type: 3` (Web client = ID-token audience) |
+| `ANACAN_GOOGLE_IOS_CLIENT_ID` | committed `ios/App/App/GoogleService-Info.plist` `CLIENT_ID` |
+
+The last five are public identifiers already in the repository, so they are **not** Codemagic variables:
+`app/tool/codemagic/public_ids.mjs` reads them from those files at build time (format-checked; an environment
+variable of the same name overrides one, e.g. for a test project).
 
 Never emitted: `VITE_CUSTOMERIO_CDP_WRITE_KEY`, `VITE_ADMOB_IOS_APP_ID`, `VITE_ADMOB_ANDROID_APP_ID` (the script fails if
 any define contains one of them), Firebase web values.
@@ -56,7 +63,7 @@ from `app/`.
 | Platform | File (gitignored, written by `apply_native_config.mjs`) | Consumed as | Local default |
 |---|---|---|---|
 | Android | `app/android/anacan-native.properties` | `manifestPlaceholders["anacanAdmobAppId"]`; resValue strings `anacan_customerio_enabled/_environment/_region/_cdp_write_key` | Google test AdMob id, Customer.io off |
-| iOS | `app/ios/Flutter/AnacanNative.xcconfig` (`#include?` from `Debug.xcconfig`/`Release.xcconfig`) | `$(ANACAN_ADMOB_APP_ID)`; Info.plist `AnacanCustomerIoEnabled/Environment/Region/CdpWriteKey` from `$(ANACAN_CUSTOMERIO_*)` | same |
+| iOS | `app/ios/Flutter/AnacanNative.xcconfig` (`#include?` from `Debug.xcconfig`/`Release.xcconfig`) | `$(ANACAN_ADMOB_APP_ID)`; Info.plist `AnacanCustomerIoEnabled/Environment/Region/CdpWriteKey` from `$(ANACAN_CUSTOMERIO_*)`; Info.plist `GIDClientID` / `GIDServerClientID` / Google URL scheme from `$(ANACAN_GOOGLE_IOS_CLIENT_ID)` / `$(ANACAN_GOOGLE_SERVER_CLIENT_ID)` / `$(ANACAN_GOOGLE_REVERSED_CLIENT_ID)` (from the committed Firebase files) | same; Google ids empty (Google sign-in on iOS needs the script run once locally) |
 
 The script refuses to write either file when Git does not ignore it.
 
@@ -122,8 +129,9 @@ Play Console declarations (Advertising ID, Health Connect, foreground service, d
 | meta-data `com.google.firebase.messaging.default_notification_channel_id=high_importance_channel` | push | keep channel id; also timer channel `anacan_timer_channel` (user channel settings persist across the update) |
 | meta-data `com.facebook.sdk.ApplicationId`, `ClientToken` (strings `facebook_app_id`, `facebook_client_token`, `fb_login_protocol_scheme`), `AutoInitEnabled=true`, `AutoLogAppEventsEnabled=false`, `AdvertiserIDCollectionEnabled=false` | Meta SDK events (consent-gated) | |
 | meta-data `firebase_analytics_collection_enabled=false`, `google_analytics_default_allow_analytics_storage`, `_ad_storage`, `_ad_user_data`, `_ad_personalization_signals` = false | Firebase Analytics consent (`src/lib/privacyConsent.ts`) | must ship with the first Firebase plugin |
-| MainActivity `intent-filter` VIEW/DEFAULT/BROWSABLE, schemes `anacan` and `com.atlasoon.anacan` | deep links, OAuth redirects (Google/Apple sign-in), notification links | MainActivity is owned by another task; manifest edit goes here |
-| MainActivity attributes: `launchMode="singleTask"` (Flutter template: `singleTop`), `windowOptOutEdgeToEdgeEnforcement="true"`, `configChanges` incl. `navigation` | deep-link / notification-tap routing, edge-to-edge | decide with the deep-link feature |
+| MainActivity `intent-filter` VIEW/DEFAULT/BROWSABLE, schemes `anacan` and `com.atlasoon.anacan` | deep links, OAuth redirects (Google/Apple sign-in), notification links | **done** (+ meta-data `flutter_deeplinking_enabled=false`: app_links delivers links, go_router must not) |
+| MainActivity attributes: `launchMode="singleTask"` (Flutter template: `singleTop`), `windowOptOutEdgeToEdgeEnforcement="true"`, `configChanges` incl. `navigation` | deep-link / notification-tap routing, edge-to-edge | `singleTask` **done**, template `taskAffinity=""` removed (Capacitor used the default affinity); the edge-to-edge opt-out was a WebView workaround and is not copied; `navigation` not needed |
+| MainActivity base class | purchases_ui_flutter (RevenueCat paywall / Customer Center) | **done**: `FlutterFragmentActivity`, Preferences channel registration kept |
 | `activity .HealthPermissionsActivity` (`androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE`) + `activity-alias ViewPermissionUsageActivity` (`VIEW_PERMISSION_USAGE`, category `HEALTH_PERMISSIONS`, permission `START_VIEW_PERMISSION_USAGE`) | Health Connect rationale (Play requirement) | strings `health_permissions_title/_rationale`, `privacy_policy_url` |
 | `provider androidx.core.content.FileProvider` `${applicationId}.fileprovider`, `@xml/file_paths` | share/save images, camera capture | Flutter plugins (share_plus, image_picker) bring their own providers; add only if Anacan code needs it |
 | `service .TimerForegroundService` (`foregroundServiceType="specialUse"`, property `PROPERTY_SPECIAL_USE_FGS_SUBTYPE`) | timer lock-screen notification | same class name; Play FGS declaration text |
@@ -158,7 +166,7 @@ From `ios/App/App/Info.plist`, `App.entitlements`, the 25 `*.lproj/InfoPlist.str
 | `NSHealthShareUsageDescription`, `NSHealthUpdateUsageDescription` (base Info.plist only, not localized) | HealthKit | with HealthKit |
 | `UIBackgroundModes`: `remote-notification`, `audio`, `fetch` | push, white noise, background refresh | each with its feature |
 | `NSSupportsLiveActivities` true, `NSSupportsLiveActivitiesFrequentUpdates` false | timer Live Activities | with the widget extension |
-| `CFBundleURLTypes`: `anacan` + `com.atlasoon.anacan` (name `com.atlasoon.anacan`), `fb927014948766655`, `com.googleusercontent.apps.296566533432-m57putge5tnil0t0kgh5sdqnp9r0oatc` | deep links/OAuth, Facebook, Google sign-in | deep links first |
+| `CFBundleURLTypes`: `anacan` + `com.atlasoon.anacan` (name `com.atlasoon.anacan`), `fb927014948766655`, `com.googleusercontent.apps.296566533432-m57putge5tnil0t0kgh5sdqnp9r0oatc` | deep links/OAuth, Facebook, Google sign-in | **done** for `anacan`/`com.atlasoon.anacan` and Google (`$(ANACAN_GOOGLE_REVERSED_CLIENT_ID)`), plus `GIDClientID`/`GIDServerClientID` and `FlutterDeepLinkingEnabled=false`; `fb…` waits for the Meta SDK feature |
 | `GADApplicationIdentifier` (= `$(ANACAN_ADMOB_APP_ID)`), `GADDelayAppMeasurementInit` true, `SKAdNetworkItems` (`cstr6suwn9.skadnetwork`) | AdMob | build setting already provided |
 | `FacebookAppID`, `FacebookClientToken`, `FacebookDisplayName`, `FacebookAutoLogAppEventsEnabled` false, `FacebookAdvertiserIDCollectionEnabled` true | Meta SDK | |
 | `FIREBASE_ANALYTICS_COLLECTION_ENABLED` false, `GOOGLE_ANALYTICS_DEFAULT_ALLOW_ANALYTICS_STORAGE` / `_AD_STORAGE` / `_AD_USER_DATA` / `_AD_PERSONALIZATION_SIGNALS` false | Firebase consent | with the first Firebase plugin; `GoogleService-Info.plist` (committed in `ios/App/App/`) too |

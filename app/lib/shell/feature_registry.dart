@@ -94,13 +94,36 @@ typedef ShellOverlayBuilder = Widget Function(BuildContext context, ShellOverlay
 typedef GateBuilder = Widget Function(BuildContext context, GateArgs args);
 typedef OuterRouteBuilder = Widget Function(BuildContext context, OuterRouteArgs args);
 
+/// A sliver tab body: [sliver] goes straight into the shell's scroll view (lists inside it are built lazily),
+/// [background] is painted behind the scroll view at the top of the content and scrolls with it (the page-top
+/// `position: absolute` decorations of the web pages, e.g. the home sky).
+class ShellSliverBody {
+  const ShellSliverBody({required this.sliver, this.background});
+  final Widget sliver;
+  final Widget? background;
+}
+
+typedef ShellTabSliversBuilder = ShellSliverBody Function(BuildContext context, ShellTabArgs args);
+
 class TabRegistration {
-  const TabRegistration(this.builder, {this.fillsViewport = false});
+  const TabRegistration(this.builder, {this.fillsViewport = false, this.slivers});
   final ShellTabBuilder builder;
 
   /// `className="h-full"` tabs (AI chat, partner chat): sized to the scroll viewport minus `pb-nav`
   /// and expected to scroll internally.
   final bool fillsViewport;
+
+  /// Sliver body ([FeatureRegistry.registerTabSlivers]); the shell prefers it over [builder].
+  final ShellTabSliversBuilder? slivers;
+}
+
+/// Box rendering of a sliver body (previews, tests): a shrink-wrapped, non-scrolling CustomScrollView.
+Widget _sliverBodyAsBox(ShellTabSliversBuilder slivers, BuildContext context, ShellTabArgs args) {
+  final body = slivers(context, args);
+  return Stack(children: [
+    if (body.background != null) Positioned(top: 0, left: 0, right: 0, child: body.background!),
+    CustomScrollView(shrinkWrap: true, primary: false, physics: const NeverScrollableScrollPhysics(), slivers: [body.sliver]),
+  ]);
 }
 
 /// Maps of tab / screen / tool / overlay / gate / route ids → builders.
@@ -128,6 +151,14 @@ class FeatureRegistry {
   /// A tab body. [partner] registers the partner-role variant (partner tabs other than `community`).
   void registerTab(ShellTab tab, ShellTabBuilder builder, {bool partner = false, bool fillsViewport = false}) =>
       _put(_tabs, (tab, partner), TabRegistration(builder, fillsViewport: fillsViewport), 'tab');
+
+  /// A tab body built from slivers (lazy vertical lists). The shell places [ShellSliverBody.sliver] directly in
+  /// its single scroll container; scroll memory, scroll-to-top and the `pb-nav` clearance work as for box tabs.
+  void registerTabSlivers(ShellTab tab, ShellTabSliversBuilder builder, {bool partner = false}) => _put(
+      _tabs,
+      (tab, partner),
+      TabRegistration((context, args) => _sliverBodyAsBox(builder, context, args), slivers: builder),
+      'tab');
 
   void registerScreen(ScreenId id, ShellScreenBuilder builder) => _put(_screens, id, builder, 'screen');
 

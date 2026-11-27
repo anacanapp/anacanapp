@@ -12,6 +12,9 @@ Tests: `app/test/app/`, `app/test/features/startup/`, `app/test/widget_test.dart
 | `app/anacan_app.dart` | `AnacanApp`: owns the `ProviderContainer`, runs `runAppStartup`, switches on `StartupResult`, restart (= `location.reload()`), admission watcher, lifecycle hooks |
 | `app/routed_app.dart` | `RoutedApp` (`MaterialApp.router` + `buildShellRouter()`), `AppChrome` (text scale, `dir`, status bar, `AToastHost`, offline pill) |
 | `app/app_overrides.dart` | `appRootOverrides()`, `createAppContainer()` |
+| `app/app_wiring.dart` | `featureWiringOverrides()`: every cross-feature interface with a real implementation (§2) |
+| `app/session_hosts.dart` | `AppSessionHosts`: link handler, entitlement monitor, pending timer stops, usage-RPC time zone |
+| `app/deep_links.dart` | `IncomingLinks` (app_links stream from `main()`, queued until attached), `routeIncomingLink` (OAuth callback → promo `/h/<code>` → `shell.openUrl`), `IncomingLinkHost`, `promoCodeFromUrl` |
 | `app/feature_registrations.dart` | `registerAllFeatures(r)` with alphabetical slots; `buildFeatureRegistry()` |
 | `app/theme_mode.dart` | `themeModeProvider` (next-themes key `theme`) |
 | `app/device_tier.dart` | `deviceTierProvider` (lite / noBlur), `DeviceInfoHardwareProbe` |
@@ -60,26 +63,85 @@ hand-off native splash → Flutter has one look. Query-cache focus/online wiring
 
 ## 2. Provider overrides (`appRootOverrides`)
 
+Order of the list (later entries win nothing: every provider is overridden once).
+
 | Provider | Value |
 |---|---|
-| `shellStateOverrides()` (state/shell_bindings.dart) | `shellUserProvider`, `gateInputsProvider`, `gateActionsProvider`, unread counters 0, nav style classic |
+| `shellStateOverrides()` (state/shell_bindings.dart) | `shellUserProvider`, `gateInputsProvider`, `gateActionsProvider`, unread counters 0, `bottomNavStyleProvider` ← `useAppSetting('bottom_nav_style') === 'capsule'` |
+| `entryOverrides()` (features/entry) | `consentGateInputProvider` ← `consentGateInputFromStateProvider`; `socialAuthProviderProvider` ← `NativeSocialAuthProvider()` |
 | `featureRegistryProvider` | `buildFeatureRegistry()` |
 | `liteModeProvider` (design) | `deviceTierProvider.lite` (`html.a-lite`; also the MotionConfig equivalent, below) |
 | `updateCentreForceProvider` | `updateCentreForceGateProvider` (`useAppUpdate().forceRequired && decision`) |
 | `legacyForceUpdateProvider` | `legacyForceUpdateGateProvider` (`!loading && updateRequired && forceUpdate`) |
 | `authSideEffectsProvider` | `AuthSideEffects(reportAuthError: CrashReporting.reportAuthError)` |
-| `extra` | appended last (tests: fixtures instead of `shellStateOverrides`, `includeShellState: false`) |
+| `featureWiringOverrides()` (app/app_wiring.dart) | the cross-feature interfaces below |
+| `extra` | appended last (tests: fixtures instead of `shellStateOverrides`/`entryOverrides`, `includeShellState: false`) |
+
+`featureWiringOverrides()`:
+
+| Area | Provider (feature) | Value |
+|---|---|---|
+| onboarding | `hasPendingOnboardingProvider` (state) | `onboardingPendingProvider` |
+| | `tourConsentDecidedProvider` | `privacyConsentProvider.decided` (core/data/privacy_consent.dart, LocalStore `anacan_privacy_consent_v1`) |
+| | `tourBlockedProvider` | blog article overlay open (lock / feedback sheets: WIRING.md) |
+| security | `onboardingTourActiveProvider` | onboarding `tourRunningProvider` |
+| | `biometricAuthProvider` | `LocalAuthBiometricAuth` (native/biometric; curtain suspension around the prompt) |
+| premium | `homeIsPremiumProvider`, `flowIsPremiumProvider`, `subscriptionIsPremiumProvider` (profile) | `appIsPremiumProvider` = `subscriptionProvider.isPremium` |
+| | `flowPremiumGateProvider` | `PremiumGate` |
+| | `premiumPromptProvider` (profile) | `showPremiumModal` |
+| | `mommyHomeSlotsProvider.premiumGate` / `.showPremiumModal` | `PremiumBlurGate` / `showPremiumModal` |
+| | `babyCareServicesProvider` | Flutter haptics + `subscriptionUsageProvider.peekRemainingDaily` |
+| app settings | `homeAppSettingProvider(key)`, `profileLayoutSettingProvider` | `appSettingProvider(key)` (core/data/app_settings.dart, the one `useAppSetting`) |
+| theme | `themeModeSettingProvider` (settings) | adapter over the root `themeModeProvider` (one state, LocalStore `theme`) |
+| home | `homeSelectedChildProvider` | baby `childrenProvider.selectedChild` |
+| | `homeEffectiveCycleLengthProvider` | home_flow `effectiveCycleLengthProvider` |
+| | `homeToolDisabledProvider(id)` | core `disabledToolsProvider` |
+| | `homeEmergencyNumberProvider` | legal `emergencyNumberProvider` |
+| | `homeSlotsProvider` | `adFreeOffer` ← `AdFreePremiumOffer`, `childSelectorCompact` ← `buildMommyTopBarAction`, `showBirthOnboarding` ← `showBirthOnboardingModal` |
+| flow | `flowHomeSlotsProvider` | `waterWidget` ← `WaterWidget(anacan)`, `upcomingAppointments` ← `UpcomingAppointments` |
+| | `flowAddAppointmentProvider` | home `appointmentsApiProvider.add` |
+| | `flowHapticsProvider` | `HapticFeedback.lightImpact` / `mediumImpact` |
+| | `flowTimeZoneProvider` | `ianaTimeZoneProvider ?? 'UTC'` |
+| mommy | `mommyHomeSlotsProvider.slots` | `upcomingAppointments`, `waterWidget` (home widgets) |
+| | `mommyTimeZoneProvider` | `ianaTimeZoneProvider ?? 'UTC'` |
+| | `mommyPeriodSourceProvider` | home_flow `flowRepositoryProvider` (one port of `usePeriodDayLogs` / `record_period_days`) |
+| | `timerNativeHooksProvider` (state) | `liveTimerNativeHooksProvider` |
+
+Outside the override list: purchases' `deviceTimeZone` (usage RPCs) is pointed at `ianaTimeZoneProvider ?? 'Asia/Baku'` by
+`AppSessionHosts`; `bootstrapRevenueCat(container)` runs unawaited in `AnacanApp._onOpened` (App.tsx `initRevenueCat()`);
+`startIncomingLinks()` runs in `main()` before `runApp`.
 
 Not overridden (defaults are real): `localStoreProvider` (file), `backendClientProvider`, `connectivitySourceProvider`
 (connectivity_plus), `i18nRuntimeProvider` (`I18nRuntime.instance`), `deviceHardwareProbeProvider`
-(device_info_plus), `shellPlatformProvider`. Tests override them (`test/app/app_test_support.dart`).
+(device_info_plus), `shellPlatformProvider`, `timeZoneLookupProvider` (flutter_timezone), `incomingLinksProvider`.
+Tests override them (`test/app/app_test_support.dart`: in-memory store, a `FakeBackendClient` that admits the startup
+result's backend through `backendBootstrapProvider` like `runAppStartup`, and a signed-out `SupabaseClient` over an
+in-process fake server, so the real registry and wiring run against an opened backend).
+Every interface still on its no-op default: `docs/flutter/WIRING.md`.
+
+### Root widget tree (App.tsx order)
+
+```
+AnacanApp ── UncontrolledProviderScope(container)
+└─ RoutedApp: MaterialApp.router(theme ← themeModeProvider, locale, delegates)
+   └─ builder: AppChrome
+      WebViewTextScale > Directionality(language) > ThemeStatusBarSync > Material(transparency)
+      └─ ScreenCaptureGuard            (<ScreenCaptureGuard/>: curtain z 2147483647, above the toasts)
+         └─ AToastHost                 (<Toaster/><Sonner/>)
+            └─ Stack
+               ├─ AppSessionHosts      (0×0; once the backend is open: IncomingLinkHost, PremiumEntitlementMonitor
+               │                        while signed in, PendingTimerStopsHost; device time zone for usage RPCs)
+               ├─ router child         (<BrowserRouter> → GateHost → ShellScaffold …)
+               ├─ OfflineSyncIndicator (z-60)
+               └─ AppLockGate          (<AppLockGate/>: z-400 lock screen)
+```
 
 ## 3. Registering a feature
 
 A feature exports `void registerXFeature(FeatureRegistry r)` (SHELL.md §11 for the `register*` methods). To land it,
-edit `app/lib/app/feature_registrations.dart`: uncomment its import and its call in the alphabetical slot (blog, chat,
-commerce, community, entry, games, home, onboarding, partner, premium, profile, settings, startup, tools); add a new
-line in order for anything else. Registering an id twice throws at startup. The startup feature registers
+edit `app/lib/app/feature_registrations.dart`: add its import and its call in alphabetical order (registered today:
+entry, home, home_flow, home_mommy, legal, onboarding, premium, profile, security, settings, startup, support; not
+landed: blog, chat, commerce, community, games UI, partner, tools). Registering an id twice throws at startup. The startup feature registers
 `GateId.splash`, `GateId.startup`, `GateId.forceUpdate` and the frame overlay `app-update-sheet`; the Home feature
 should place `AppUpdateBannerSlot()` above the Dashboard (Index's `px-4 pt-2` banner).
 
@@ -136,5 +198,6 @@ should place `AppUpdateBannerSlot()` above the Dashboard (Index's `px-4 pt-2` ba
 - Lifecycle hooks (pause flush, resume wakes, connectivity), the admission watcher restart, the device probe values
   (device_info_plus `physicalRamSize`), PackageInfo version, crash-report inserts against the live table.
 - The update-centre RPCs (`get_app_update_v1`, `get_public_app_setting`) were not called; only parsing and UI tested.
-- Not wired here: notification-tap listeners at boot (native plugins not ported), `appUrlOpen` / launch URL → shell,
-  analytics `logScreenView`, RevenueCat / Facebook / privacy consent init, app lock, screen-capture guard.
+- Deep links (`app_links`), the RevenueCat start, the biometric prompt (local_auth), the app lock and the capture
+  guard are wired but never ran on a device. Still not wired: notification-tap listeners at boot (native plugins not
+  ported), analytics `logScreenView`, Facebook / privacy-consent SDK init, the screenshot-guard platform (WIRING.md).

@@ -6,8 +6,10 @@
 //     settings (including the CDP write key) into gitignored native configuration only:
 //       android: app/android/anacan-native.properties -> build.gradle.kts manifest
 //                placeholder ${anacanAdmobAppId} and resValue strings anacan_customerio_*
-//       ios:     app/ios/Flutter/AnacanNative.xcconfig -> $(ANACAN_ADMOB_APP_ID) and
-//                $(ANACAN_CUSTOMERIO_*) build settings (Info.plist AnacanCustomerIo* keys)
+//       ios:     app/ios/Flutter/AnacanNative.xcconfig -> $(ANACAN_ADMOB_APP_ID),
+//                $(ANACAN_CUSTOMERIO_*) build settings (Info.plist AnacanCustomerIo* keys) and the public Google
+//                sign-in ids $(ANACAN_GOOGLE_IOS_CLIENT_ID|_REVERSED_CLIENT_ID|_SERVER_CLIENT_ID) (Info.plist
+//                GIDClientID, GIDServerClientID, URL scheme), read from the committed Firebase files (public_ids.mjs)
 //
 //   node app/tool/codemagic/apply_native_config.mjs verify ios|android
 //     After `flutter build`: fails when the write key appears in any Dart / Flutter asset
@@ -19,6 +21,8 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, lstatSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+import { readPublicIds } from './public_ids.mjs';
 
 const appDir = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const env = process.env;
@@ -67,6 +71,12 @@ function applyConfig() {
       `customerIoCdpWriteKey=${customerIo.writeKey}`,
     ];
   } else {
+    let google;
+    try {
+      google = readPublicIds(resolve(appDir, '..'), env);
+    } catch (error) {
+      fail(error.message);
+    }
     // In .xcconfig "//" starts a comment; "/$()/" expands to "//" at build time.
     const xc = value => value.replaceAll('//', '/$()/');
     content = [
@@ -76,6 +86,9 @@ function applyConfig() {
       `ANACAN_CUSTOMERIO_ENVIRONMENT = ${customerIo.environment}`,
       `ANACAN_CUSTOMERIO_REGION = ${customerIo.region}`,
       `ANACAN_CUSTOMERIO_CDP_WRITE_KEY = ${xc(customerIo.writeKey)}`,
+      `ANACAN_GOOGLE_IOS_CLIENT_ID = ${google.ANACAN_GOOGLE_IOS_CLIENT_ID}`,
+      `ANACAN_GOOGLE_REVERSED_CLIENT_ID = ${google.ANACAN_GOOGLE_REVERSED_CLIENT_ID}`,
+      `ANACAN_GOOGLE_SERVER_CLIENT_ID = ${google.ANACAN_GOOGLE_SERVER_CLIENT_ID}`,
     ];
   }
   assertIgnored(target);

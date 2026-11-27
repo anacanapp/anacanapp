@@ -28,8 +28,9 @@ class LegacyLanguagePreferenceStore implements LanguagePreferenceStore {
 /// (it is the value `userStore.language` would hold after `restorePreferences`).
 String storedStartupLanguage({LocalStore? store, I18nRuntime? runtime}) {
   final r = runtime;
-  if (r != null && r.language.isNotEmpty && r.language != 'az')
+  if (r != null && r.language.isNotEmpty && r.language != 'az') {
     return r.language;
+  }
   if (store == null) return normalizeAppLanguage(r?.language ?? 'az');
   try {
     return languageFromWebStorage(

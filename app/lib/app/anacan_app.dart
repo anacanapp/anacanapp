@@ -20,6 +20,7 @@ import '../core/offline/connectivity.dart';
 import '../core/offline/offline_providers.dart' show appResumeEventsProvider;
 import '../features/startup/admission_screens.dart';
 import '../features/startup/startup_screen.dart';
+import '../native/purchases/purchases_providers.dart' show bootstrapRevenueCat;
 import '../shell/gates/gate_host.dart';
 import '../state/persisted_store.dart' show localStoreProvider;
 import 'app_overrides.dart';
@@ -145,6 +146,8 @@ class AnacanAppState extends State<AnacanApp> {
 
   void _onOpened(ProviderContainer container, StartupOpened result) {
     _installCrashReporter(result.backend);
+    // App.tsx: `initRevenueCat().catch(console.error)` at start, not awaited.
+    unawaited(bootstrapRevenueCat(container));
     final store = container.read(localStoreProvider);
     final runtime = container.read(i18nRuntimeProvider);
 

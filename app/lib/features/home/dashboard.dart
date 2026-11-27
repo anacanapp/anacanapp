@@ -5,9 +5,10 @@
 //              .a-topbar, .a-eyebrow, .a-wordmark, .a-topbar-actions), src/styles/startup.css (.a-topbar)
 //
 // The home is one scroll container: the shell's (tab `home`, scroll-memory key `tab:home`). The body is built
-// from slivers (stage bodies may register slivers, see home_stage_registry.dart); inside the shell's
-// SingleChildScrollView they lay out through a shrink-wrapped CustomScrollView. Horizontal rails (stories,
-// blog cards) are lazily built ListViews.
+// from slivers (stage bodies may register slivers, see home_stage_registry.dart). The shell registration uses
+// [DashboardSliver] + [DashboardSky] (slivers straight in the shell's CustomScrollView, so stage lists are lazy);
+// [Dashboard] is the same content as one box (shrink-wrapped CustomScrollView) for previews and tests.
+// Horizontal rails (stories, blog cards) are lazily built ListViews.
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -37,53 +38,59 @@ String dashboardGreeting(DateTime now) {
 /// Registers the `bump` body (BumpDashboard). Called by `registerHomeFeature`.
 void registerBumpHomeBody() => registerHomeStageBody(LifeStages.bump, (context) => const BumpDashboard());
 
+/// The dashboard slivers (`.a-dash` content) for the current stage; empty for other stages.
+List<Widget> _dashboardSlivers(BuildContext context, WidgetRef ref, DateTime Function()? now) {
+  final lifeStage = ref.watch(userStoreProvider.select((s) => s.lifeStage));
+  final name = ref.watch(userStoreProvider.select((s) => s.name));
+  if (lifeStage != 'mommy' && lifeStage != 'bump' && lifeStage != 'flow') return const [];
+  final profile = ref.watch(homeProfileRowProvider);
+  final slots = ref.watch(homeSlotsProvider);
+  final nav = ref.watch(homeNavigationProvider);
+  final linkedPartner = profile?['linked_partner_id'];
+  final hasPartner = linkedPartner is String && linkedPartner.isNotEmpty;
+  // Pregnancy loss recovery: a calm home without pregnancy, fertility, ads or shop content.
+  final recovering = lifeStage == 'flow' && profile?['loss_recovery_active'] == true;
+
+  Widget box(Widget w) => SliverToBoxAdapter(child: w);
+  return <Widget>[
+    box(_TopBar(lifeStage: lifeStage!, name: name, recovering: recovering, now: now)),
+    if (recovering)
+      box(homeSlot(context, slots.recoveryHome))
+    else ...[
+      // Story row (az; app_settings.dashboard_stories off / admin / on).
+      box(DashboardStories(stage: lifeStage)),
+      if (slots.bannerSlot != null) box(Padding(padding: const EdgeInsets.only(bottom: 8), child: slots.bannerSlot!(context, 'home_top'))),
+      if (slots.adFreeOffer != null) box(slots.adFreeOffer!(context, 'top')),
+      // Anacan Recap 2026: only while anacan_recap_v1 says available.
+      box(RecapHomeCard(onOpen: () => nav.navigate('recap'))),
+      ...buildHomeStageSlivers(context, lifeStage),
+      if (slots.adInlineAnchor != null) box(slots.adInlineAnchor!(context, 'home_banner')),
+    ],
+    // Daily summary auto-syncs to the partner in the background.
+    if (lifeStage == 'bump' && hasPartner && slots.dailySummaryAutoSync != null) box(slots.dailySummaryAutoSync!(context)),
+    if (hasPartner && slots.partnerCareCard != null)
+      box(Padding(padding: const EdgeInsets.only(top: 14), child: slots.partnerCareCard!(context, lifeStage))),
+    if (!recovering) ...[
+      box(RecentBlogPosts(onNavigate: nav.navigate, lifeStage: lifeStage)),
+      if (slots.bannerSlot != null) box(Padding(padding: const EdgeInsets.only(top: 8), child: slots.bannerSlot!(context, 'home_bottom'))),
+      // Small medical disclaimer (Google Play Health Content policy).
+      box(const MedicalDisclaimer()),
+      if (slots.adFreeOffer != null) box(slots.adFreeOffer!(context, 'bottom')),
+    ],
+    // `.a-dash pb-6`.
+    box(const SizedBox(height: 24)),
+  ];
+}
+
+/// The dashboard as one box (previews, tests): sky behind a shrink-wrapped sliver list.
 class Dashboard extends ConsumerWidget {
   const Dashboard({super.key, this.now});
   final DateTime Function()? now;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final lifeStage = ref.watch(userStoreProvider.select((s) => s.lifeStage));
-    final name = ref.watch(userStoreProvider.select((s) => s.name));
-    if (lifeStage != 'mommy' && lifeStage != 'bump' && lifeStage != 'flow') return const SizedBox.shrink();
-    final profile = ref.watch(homeProfileRowProvider);
-    final slots = ref.watch(homeSlotsProvider);
-    final nav = ref.watch(homeNavigationProvider);
-    final linkedPartner = profile?['linked_partner_id'];
-    final hasPartner = linkedPartner is String && linkedPartner.isNotEmpty;
-    // Pregnancy loss recovery: a calm home without pregnancy, fertility, ads or shop content.
-    final recovering = lifeStage == 'flow' && profile?['loss_recovery_active'] == true;
-
-    Widget box(Widget w) => SliverToBoxAdapter(child: w);
-    final slivers = <Widget>[
-      box(_TopBar(lifeStage: lifeStage!, name: name, recovering: recovering, now: now)),
-      if (recovering)
-        box(homeSlot(context, slots.recoveryHome))
-      else ...[
-        // Story row (az; app_settings.dashboard_stories off / admin / on).
-        box(DashboardStories(stage: lifeStage)),
-        if (slots.bannerSlot != null) box(Padding(padding: const EdgeInsets.only(bottom: 8), child: slots.bannerSlot!(context, 'home_top'))),
-        if (slots.adFreeOffer != null) box(slots.adFreeOffer!(context, 'top')),
-        // Anacan Recap 2026: only while anacan_recap_v1 says available.
-        box(RecapHomeCard(onOpen: () => nav.navigate('recap'))),
-        ...buildHomeStageSlivers(context, lifeStage),
-        if (slots.adInlineAnchor != null) box(slots.adInlineAnchor!(context, 'home_banner')),
-      ],
-      // Daily summary auto-syncs to the partner in the background.
-      if (lifeStage == 'bump' && hasPartner && slots.dailySummaryAutoSync != null) box(slots.dailySummaryAutoSync!(context)),
-      if (hasPartner && slots.partnerCareCard != null)
-        box(Padding(padding: const EdgeInsets.only(top: 14), child: slots.partnerCareCard!(context, lifeStage))),
-      if (!recovering) ...[
-        box(RecentBlogPosts(onNavigate: nav.navigate, lifeStage: lifeStage)),
-        if (slots.bannerSlot != null) box(Padding(padding: const EdgeInsets.only(top: 8), child: slots.bannerSlot!(context, 'home_bottom'))),
-        // Small medical disclaimer (Google Play Health Content policy).
-        box(const MedicalDisclaimer()),
-        if (slots.adFreeOffer != null) box(slots.adFreeOffer!(context, 'bottom')),
-      ],
-      // `.a-dash pb-6`.
-      box(const SizedBox(height: 24)),
-    ];
-
+    final slivers = _dashboardSlivers(context, ref, now);
+    if (slivers.isEmpty) return const SizedBox.shrink();
     return AScope(
       child: Stack(
         key: const ValueKey('dashboard'),
@@ -107,6 +114,37 @@ class Dashboard extends ConsumerWidget {
         ],
       ),
     );
+  }
+}
+
+/// The dashboard as one sliver for the shell's scroll view (`.a-scope`, `.a-shell` padding-inline 20).
+class DashboardSliver extends ConsumerWidget {
+  const DashboardSliver({super.key, this.now});
+  final DateTime Function()? now;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final slivers = _dashboardSlivers(context, ref, now);
+    if (slivers.isEmpty) return const SliverToBoxAdapter(child: SizedBox.shrink());
+    return AScope(
+      child: SliverPadding(
+        key: const ValueKey('dashboard'),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        sliver: SliverMainAxisGroup(slivers: slivers),
+      ),
+    );
+  }
+}
+
+/// The watercolor sky behind the top bar + hero (shell background of the home tab).
+class DashboardSky extends ConsumerWidget {
+  const DashboardSky({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final lifeStage = ref.watch(userStoreProvider.select((s) => s.lifeStage));
+    if (lifeStage != 'mommy' && lifeStage != 'bump' && lifeStage != 'flow') return const SizedBox.shrink();
+    return const ASky();
   }
 }
 

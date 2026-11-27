@@ -7,11 +7,11 @@ import '../core/auth/auth_controller.dart'
     show AuthSideEffects, authSideEffectsProvider;
 import '../design/device_tier.dart' show liteModeProvider;
 import '../features/entry/entry_feature.dart';
-import '../features/onboarding/onboarding_ports.dart' show onboardingPendingProvider;
 import '../features/startup/app_update/app_update.dart'
     show legacyForceUpdateGateProvider, updateCentreForceGateProvider;
 import '../shell/feature_registry.dart';
 import '../state/shell_bindings.dart';
+import 'app_wiring.dart';
 import 'crash_reporter.dart';
 import 'device_tier.dart';
 import 'feature_registrations.dart';
@@ -38,8 +38,6 @@ List<Override> appRootOverrides({
   legacyForceUpdateProvider.overrideWith(
     (ref) => ref.watch(legacyForceUpdateGateProvider),
   ),
-  // Index `hasPendingOnboarding(user.id, backendUrl, profile.onboarding_answers)`.
-  hasPendingOnboardingProvider.overrideWith((ref) => ref.watch(onboardingPendingProvider)),
   // AuthContext → reportAuthError (crash reports for sign-in failures).
   authSideEffectsProvider.overrideWithValue(
     AuthSideEffects(
@@ -47,6 +45,8 @@ List<Override> appRootOverrides({
           CrashReporting.reportAuthError(provider, error),
     ),
   ),
+  // Cross-feature interfaces with a real implementation (app_wiring.dart; the rest: docs/flutter/WIRING.md).
+  ...featureWiringOverrides(),
   ...extra,
 ];
 

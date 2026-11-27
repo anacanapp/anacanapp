@@ -177,6 +177,78 @@ void main() {
     await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 
+  testWidgets('sliver tabs: lazy lists in the shell scroll view, scroll memory, pb-nav clearance, background', (tester) async {
+    final built = <int>{};
+    final app = App(register: (r) {
+      r.registerTabSlivers(
+          ShellTab.home,
+          (c, a) => ShellSliverBody(
+                sliver: SliverList.builder(
+                  itemCount: 400,
+                  itemBuilder: (context, i) {
+                    built.add(i);
+                    return SizedBox(height: 50, child: Text('ROW $i'));
+                  },
+                ),
+                background: const SizedBox(key: ValueKey('home-bg'), height: 300),
+              ));
+      r.registerTab(ShellTab.community, (c, a) => const SizedBox(height: 3000, child: Text('COMMUNITY')));
+    });
+    await app.pump(tester);
+    expect(find.text('ROW 0'), findsOneWidget);
+    expect(built.contains(300), isFalse, reason: 'rows far below the viewport are not built');
+    expect(find.byKey(const ValueKey('home-bg')), findsOneWidget);
+    ScrollPosition pos() => tester.state<ScrollableState>(find.descendant(
+        of: find.byKey(const ValueKey('shell-scroll')), matching: find.byType(Scrollable))).position;
+    // The background scrolls with the content.
+    pos().jumpTo(120);
+    await tester.pump();
+    expect(tester.getTopLeft(find.byKey(const ValueKey('home-bg'))).dy, lessThan(0));
+    // Scroll memory across a sub-screen and another tab.
+    pos().jumpTo(5000);
+    await tester.pump();
+    app.shell.openScreen('help');
+    await tester.pump();
+    app.shell.closeScreen();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(pos().pixels, 5000);
+    await tester.tap(find.byKey(BottomNavBar.itemKey(ShellTab.community)));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(pos().pixels, 0);
+    expect(find.byKey(const ValueKey('home-bg')), findsNothing);
+    await tester.tap(find.byKey(BottomNavBar.itemKey(ShellTab.home)));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(pos().pixels, 5000);
+    // The last row clears the nav: max extent = rows + pb-nav (108 + safe area 0).
+    pos().jumpTo(pos().maxScrollExtent);
+    await tester.pump();
+    expect(pos().maxScrollExtent, 400 * 50 + kPbNav - pos().viewportDimension);
+    // Scroll-to-top through the memory's container handle.
+    app.container.read(scrollMemoryProvider).scrollToTop();
+    await tester.pump();
+    expect(pos().pixels, 0);
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
+  });
+
+  testWidgets('sliver tab enter animates opacity and y like box tabs', (tester) async {
+    final app = App(register: (r) {
+      r.registerTabSlivers(ShellTab.profile, (c, a) => const ShellSliverBody(sliver: SliverToBoxAdapter(child: Text('PROFILE'))));
+    });
+    await app.pump(tester);
+    await tester.tap(find.byKey(BottomNavBar.itemKey(ShellTab.profile)));
+    await tester.pump();
+    SliverOpacity opacity() => tester.widget<SliverOpacity>(find.ancestor(of: find.text('PROFILE'), matching: find.byType(SliverOpacity)).first);
+    expect(opacity().opacity, lessThan(0.1));
+    final y0 = tester.getTopLeft(find.text('PROFILE')).dy;
+    await tester.pump(const Duration(milliseconds: 600));
+    expect(opacity().opacity, 1);
+    expect(y0 - tester.getTopLeft(find.text('PROFILE')).dy, closeTo(10, 0.6));
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
+  });
+
   testWidgets('tab enter: opacity 0 → 1 over 300 ms and y 10 → 0; no exit animation', (tester) async {
     final app = App(register: (r) => r.registerTab(ShellTab.home, (c, a) => const Text('HOME')));
     await app.pump(tester);

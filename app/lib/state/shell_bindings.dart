@@ -14,6 +14,7 @@ import 'package:flutter_riverpod/misc.dart' show Override;
 import '../core/auth/auth_controller.dart';
 import '../core/auth/auth_providers.dart';
 import '../core/auth/email_verification.dart';
+import '../core/data/app_settings.dart' show appSettingProvider;
 import '../core/net/backend_client.dart' show BootstrapOpened;
 import '../core/net/backend_providers.dart';
 import '../shell/gates/gate_sequence.dart';
@@ -159,13 +160,18 @@ final gateInputsFromStateProvider = Provider<GateInputs>((ref) {
   );
 });
 
-/// Overrides for the root ProviderScope: shell user, gate inputs and gate actions from this state layer,
-/// neutral values for unread counters and the bottom-nav style until their features are ported.
+/// `useAppSetting('bottom_nav_style') === 'capsule'` (classic otherwise, also while loading).
+final bottomNavStyleFromSettingsProvider = Provider<BottomNavStyle>(
+  (ref) => ref.watch(appSettingProvider('bottom_nav_style')) == 'capsule' ? BottomNavStyle.capsule : BottomNavStyle.classic,
+);
+
+/// Overrides for the root ProviderScope: shell user, gate inputs, gate actions and the bottom-nav style from this
+/// state layer; unread counters stay 0 until the chat / community features are ported.
 List<Override> shellStateOverrides() => [
       shellUserProvider.overrideWith((ref) => ref.watch(shellUserFromStateProvider)),
       gateInputsProvider.overrideWith((ref) => ref.watch(gateInputsFromStateProvider)),
       gateActionsProvider.overrideWith((ref) => UserStoreGateActions(ref.read(userStoreProvider.notifier))),
       unreadMessagesCountProvider.overrideWithValue(0),
       unreadCommunityPostsCountProvider.overrideWithValue(0),
-      bottomNavStyleProvider.overrideWithValue(BottomNavStyle.classic),
+      bottomNavStyleProvider.overrideWith((ref) => ref.watch(bottomNavStyleFromSettingsProvider)),
     ];

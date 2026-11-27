@@ -6,6 +6,9 @@
 // only into native configuration (apply_native_config.mjs), because every Dart define is
 // compiled into the Dart snapshot as a constant. Firebase web values are not needed.
 //
+// Public client identifiers (RevenueCat SDK keys, Google OAuth client ids) are read from the committed files the
+// Capacitor build already uses (public_ids.mjs), not from Codemagic variables.
+//
 // Usage: node app/tool/codemagic/write_dart_defines.mjs [output.json]
 //        (default app/build/codemagic/dart_defines.json, inside Flutter's ignored build/)
 // Prints define names only, never values.
@@ -13,11 +16,19 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { readPublicIds } from './public_ids.mjs';
+
 const appDir = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const output = resolve(process.argv[2] ?? `${appDir}/build/codemagic/dart_defines.json`);
 const env = process.env;
 const fail = message => { console.error(`Dart defines failed: ${message}`); process.exit(1); };
 const flag = name => (env[name] === 'true' ? 'true' : 'false');
+let publicIds;
+try {
+  publicIds = readPublicIds(resolve(appDir, '..'), env);
+} catch (error) {
+  fail(error.message);
+}
 const text = name => env[name] ?? '';
 
 // Dart define name <- value. Keep names in sync with app/lib (String/bool.fromEnvironment) and docs/CODEMAGIC.md.
@@ -41,6 +52,12 @@ const defines = {
   ANACAN_CUSTOMERIO_REGION: text('VITE_CUSTOMERIO_REGION'),
   ANACAN_CUSTOMERIO_WORKSPACE_ID: text('VITE_CUSTOMERIO_WORKSPACE_ID'),
   ANACAN_CUSTOMERIO_SOURCE_ID: text('VITE_CUSTOMERIO_SOURCE_ID'),
+  // RevenueCat public SDK keys and Google OAuth client ids (committed sources, see public_ids.mjs)
+  ANACAN_RC_ANDROID_API_KEY: publicIds.ANACAN_RC_ANDROID_API_KEY,
+  ANACAN_RC_IOS_API_KEY: publicIds.ANACAN_RC_IOS_API_KEY,
+  ANACAN_RC_FALLBACK_API_KEY: publicIds.ANACAN_RC_FALLBACK_API_KEY,
+  ANACAN_GOOGLE_SERVER_CLIENT_ID: publicIds.ANACAN_GOOGLE_SERVER_CLIENT_ID,
+  ANACAN_GOOGLE_IOS_CLIENT_ID: publicIds.ANACAN_GOOGLE_IOS_CLIENT_ID,
 };
 
 for (const name of ['ANACAN_API_URL', 'ANACAN_ANON_KEY', 'ANACAN_SOURCE_ANON_KEY', 'ANACAN_APP_VERSION',

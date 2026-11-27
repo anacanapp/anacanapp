@@ -8,4 +8,10 @@ ANACAN_CUSTOMERIO_ENABLED = false
 ANACAN_CUSTOMERIO_ENVIRONMENT =
 ANACAN_CUSTOMERIO_REGION =
 ANACAN_CUSTOMERIO_CDP_WRITE_KEY =
+// Google sign-in (public OAuth client ids; Info.plist GIDClientID / GIDServerClientID / reversed-client URL scheme).
+// Written by apply_native_config.mjs from the committed ios/App/App/GoogleService-Info.plist and
+// android/app/google-services.json; empty locally until it runs.
+ANACAN_GOOGLE_IOS_CLIENT_ID =
+ANACAN_GOOGLE_REVERSED_CLIENT_ID =
+ANACAN_GOOGLE_SERVER_CLIENT_ID =
 #include? "AnacanNative.xcconfig"

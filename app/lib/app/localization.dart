@@ -18,8 +18,9 @@ final List<Locale> kAppSupportedLocales = List.unmodifiable(
 
 /// The locale a framework table is loaded for when [locale] has none.
 Locale fallbackLocaleFor(Locale locale) {
-  if (!kAppLanguageCodes.contains(locale.languageCode))
+  if (!kAppLanguageCodes.contains(locale.languageCode)) {
     return const Locale('en', 'US');
+  }
   final mapped = materialLocaleFor(locale.languageCode);
   return mapped.languageCode == locale.languageCode
       ? const Locale('en', 'US')

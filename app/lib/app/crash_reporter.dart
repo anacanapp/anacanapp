@@ -79,8 +79,9 @@ bool shouldIgnoreCrash(String message) =>
 /// `isAuthCancellation(message)`: the user closed the sign-in sheet / has no account on the device.
 bool isAuthCancellation(String message) {
   if (message.contains('AuthorizationError') &&
-      RegExp(r'(^|\D)1001(\D|$)').hasMatch(message))
+      RegExp(r'(^|\D)1001(\D|$)').hasMatch(message)) {
     return true;
+  }
   return RegExp(
     r'(user canceled|user cancelled|cancelled by (the )?user|canceled by (the )?user|popup_closed|12501|no credentials available|user disabled the feature)',
     caseSensitive: false,
@@ -144,8 +145,9 @@ class DefaultCrashReporter implements CrashReporter {
   void send(CrashReport report) {
     if (shouldIgnoreCrash(report.errorMessage)) return;
     final now = _now();
-    if (report.errorMessage == _lastMessage && now - _lastTime < dedupeMs)
+    if (report.errorMessage == _lastMessage && now - _lastTime < dedupeMs) {
       return;
+    }
     _lastMessage = report.errorMessage;
     _lastTime = now;
     final String url;

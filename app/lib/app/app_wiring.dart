@@ -1,0 +1,199 @@
+// Ported from: src/App.tsx / src/pages/Index.tsx / src/components/Dashboard.tsx (the cross-feature hook calls the
+//              ported features expose as overridable seams: useSubscription().isPremium, PremiumGate /
+//              PremiumBlurGate / PremiumModal, useAppSetting, useChildren().selectedChild,
+//              useEffectiveCycleLength, useDisabledTools, useAppointments, WaterWidget, UpcomingAppointments,
+//              ChildSelector, BirthOnboardingModal, usePrivacyConsent, next-themes, the device time zone)
+//
+// Every cross-feature interface that has a real implementation today, in one list (docs/flutter/APP_ROOT.md §2).
+// Interfaces whose implementation does not exist yet keep their feature default and are listed in
+// docs/flutter/WIRING.md.
+import 'package:flutter/services.dart' show HapticFeedback;
+import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
+
+import '../core/data/app_settings.dart';
+import '../core/data/privacy_consent.dart';
+import '../core/device/time_zone.dart';
+import '../core/i18n/language_controller.dart' show disabledToolsProvider;
+import '../domain/cycle/period_flow.dart' show validatePeriodDates;
+import '../features/baby/hooks/baby_services.dart';
+import '../features/baby/hooks/use_children.dart' show childrenProvider;
+import '../features/baby/live_timer/live_timer.dart' show liveTimerNativeHooksProvider;
+import '../features/home/appointments/upcoming_appointments.dart';
+import '../features/home/dashboard/medical_disclaimer.dart' show homeEmergencyNumberProvider;
+import '../features/home/dashboard/water_widget.dart';
+import '../features/home/data/appointments.dart' show appointmentsApiProvider;
+import '../features/home/home_inputs.dart';
+import '../features/home/home_slots.dart';
+import '../features/home_flow/data/flow_hooks.dart' show effectiveCycleLengthProvider;
+import '../features/home_flow/data/flow_repository.dart' show flowRepositoryProvider;
+import '../features/home_flow/flow_platform.dart';
+import '../features/home_mommy/mommy_home_slots.dart';
+import '../features/home_mommy/period/mommy_period.dart';
+import '../features/home_mommy/register_home_mommy.dart' show buildMommyTopBarAction;
+import '../features/legal/medical_disclaimer.dart' show emergencyNumberProvider;
+import '../features/onboarding/birth_onboarding_modal.dart' show showBirthOnboardingModal;
+import '../features/onboarding/onboarding_ports.dart' show onboardingPendingProvider;
+import '../features/onboarding/onboarding_tour_host.dart' show tourBlockedProvider, tourConsentDecidedProvider, tourRunningProvider;
+import '../features/premium/ad_free_premium_offer.dart' show AdFreePremiumOffer;
+import '../features/premium/premium_gates.dart' show PremiumBlurGate, PremiumGate;
+import '../features/premium/premium_modal.dart' show showPremiumModal;
+import '../features/profile/profile_interfaces.dart';
+import '../features/security/app_lock.dart' show biometricAuthProvider;
+import '../features/security/register.dart' show onboardingTourActiveProvider;
+import '../features/security/screen_capture_guard.dart' show screenshotGuardPlatformProvider;
+import '../features/settings/theme_mode_setting.dart' show ThemeModeSetting, themeModeSettingProvider;
+import '../native/biometric/local_auth_biometric.dart';
+import '../native/purchases/subscription.dart' show subscriptionProvider, subscriptionUsageProvider;
+import '../shell/nav/shell_controller.dart' show shellProvider;
+import '../state/shell_bindings.dart' show hasPendingOnboardingProvider;
+import '../state/timer_store.dart' show timerNativeHooksProvider;
+import 'theme_mode.dart';
+
+/// `useSubscription().isPremium` (the premium entitlement: `get_premium_access_v1` + grant cache + realtime).
+final appIsPremiumProvider = Provider<bool>((ref) => ref.watch(subscriptionProvider.select((s) => s.isPremium)));
+
+/// Overrides that connect the ported features to each other.
+List<Override> featureWiringOverrides() => [
+      // ── onboarding ────────────────────────────────────────────────────────────────────────────────────────
+      hasPendingOnboardingProvider.overrideWith((ref) => ref.watch(onboardingPendingProvider)),
+      // usePrivacyConsent().decidedAt !== null
+      tourConsentDecidedProvider.overrideWith((ref) => ref.watch(privacyConsentProvider.select((c) => c.decided))),
+      // Index: lockOffer || lockSetup || feedback || articleSlug — only the article overlay is observable today
+      // (the security / support sheets are pushed routes without a shared flag; WIRING.md).
+      tourBlockedProvider.overrideWith((ref) => ref.watch(shellProvider.select((s) => s.blogOverlay != null))),
+      // OnboardingTourHost onRunningChange → Index `tourActive` (first-run lock offer waits for the tour).
+      onboardingTourActiveProvider.overrideWith((ref) => ref.watch(tourRunningProvider)),
+
+      // ── premium / purchases ───────────────────────────────────────────────────────────────────────────────
+      homeIsPremiumProvider.overrideWith((ref) => ref.watch(appIsPremiumProvider)),
+      flowIsPremiumProvider.overrideWith((ref) => ref.watch(appIsPremiumProvider)),
+      subscriptionIsPremiumProvider.overrideWith((ref) => ref.watch(appIsPremiumProvider)),
+      flowPremiumGateProvider.overrideWithValue(_flowPremiumGate),
+      premiumPromptProvider.overrideWithValue(const _PremiumModalPrompt()),
+      babyCareServicesProvider.overrideWith((ref) => _BabyCareServices(ref)),
+
+      // ── app settings (one `useAppSetting` source: core/data/app_settings.dart) ────────────────────────────
+      homeAppSettingProvider.overrideWith((ref, key) => ref.watch(appSettingProvider(key))),
+      profileLayoutSettingProvider.overrideWith((ref) {
+        final v = ref.watch(appSettingProvider('profile_layout'));
+        return v is String ? v : null;
+      }),
+
+      // ── theme: next-themes has one state (LocalStore `theme`) ─────────────────────────────────────────────
+      themeModeSettingProvider.overrideWith(_RootThemeModeSetting.new),
+
+      // ── security ──────────────────────────────────────────────────────────────────────────────────────────
+      biometricAuthProvider.overrideWith((ref) => LocalAuthBiometricAuth(
+            onPromptStart: () => ref.read(screenshotGuardPlatformProvider).setCurtainSuspended(true),
+            onPromptEnd: () => ref.read(screenshotGuardPlatformProvider).setCurtainSuspended(false),
+          )),
+
+      // ── home (shared dashboard) ───────────────────────────────────────────────────────────────────────────
+      homeSelectedChildProvider.overrideWith((ref) => ref.watch(childrenProvider.select((v) => v.selectedChild))?.toRow()),
+      homeEffectiveCycleLengthProvider.overrideWith((ref) => ref.watch(effectiveCycleLengthProvider)),
+      homeToolDisabledProvider.overrideWith((ref, toolId) => ref.watch(disabledToolsProvider).contains(toolId)),
+      homeEmergencyNumberProvider.overrideWith((ref) => ref.watch(emergencyNumberProvider)),
+      homeSlotsProvider.overrideWithValue(HomeSlots(
+        adFreeOffer: (context, position) => AdFreePremiumOffer(position: position),
+        childSelectorCompact: buildMommyTopBarAction,
+        showBirthOnboarding: (context) async {
+          var done = false;
+          await showBirthOnboardingModal(context, onComplete: () => done = true);
+          return done;
+        },
+      )),
+
+      // ── flow home ─────────────────────────────────────────────────────────────────────────────────────────
+      flowHomeSlotsProvider.overrideWithValue(FlowHomeSlots(
+        waterWidget: (context) => const WaterWidget(variant: WaterWidgetVariant.anacan),
+        upcomingAppointments: (context) => const UpcomingAppointments(),
+      )),
+      flowAddAppointmentProvider.overrideWith((ref) => (row) async {
+            await ref.read(appointmentsApiProvider).add(row);
+          }),
+      flowHapticsProvider.overrideWithValue(FlowHaptics(light: HapticFeedback.lightImpact, medium: HapticFeedback.mediumImpact)),
+      flowTimeZoneProvider.overrideWith((ref) => ref.watch(ianaTimeZoneProvider) ?? 'UTC'),
+
+      // ── mommy home ────────────────────────────────────────────────────────────────────────────────────────
+      mommyHomeSlotsProvider.overrideWithValue(MommyHomeSlots(
+        slots: {
+          MommySlot.upcomingAppointments: (context, _) => const UpcomingAppointments(),
+          MommySlot.waterWidget: (context, _) => const WaterWidget(variant: WaterWidgetVariant.anacan),
+        },
+        premiumGate: (context, a) => PremiumBlurGate(feature: a.feature, title: a.title, subtitle: a.subtitle, blur: a.blur ?? 'md', child: a.child),
+        showPremiumModal: (context, feature) => showPremiumModal(context, feature: feature),
+      )),
+      mommyTimeZoneProvider.overrideWith((ref) => ref.watch(ianaTimeZoneProvider) ?? 'UTC'),
+      // usePeriodDayLogs / useRecordPeriodDays have one port (home_flow); the mommy banner reads through it.
+      mommyPeriodSourceProvider.overrideWith((ref) => _FlowMommyPeriodSource(ref)),
+      timerNativeHooksProvider.overrideWith((ref) => ref.watch(liveTimerNativeHooksProvider)),
+    ];
+
+/// `<PremiumGate title description emoji feature>` for the flow home.
+Widget _flowPremiumGate(BuildContext context,
+        {required String title, required String description, required String emoji, required String feature, required Widget child}) =>
+    PremiumGate(title: title, description: description, emoji: emoji, feature: feature, child: child);
+
+/// `<PremiumModal isOpen feature />` for the profile.
+class _PremiumModalPrompt implements PremiumPrompt {
+  const _PremiumModalPrompt();
+  @override
+  Future<void> show(BuildContext context, {String? feature}) => showPremiumModal(context, feature: feature);
+}
+
+/// Baby care: Flutter haptics (lib/native.ts hapticFeedback), `useSubscription().peekRemainingDaily`; achievements
+/// are not ported (no-op, as the default).
+class _BabyCareServices extends DefaultBabyCareServices {
+  _BabyCareServices(this._ref);
+  final Ref _ref;
+
+  @override
+  Future<({num remaining, num limit})> peekRemainingDaily(String feature) async {
+    final peek = await _ref.read(subscriptionUsageProvider).peekRemainingDaily(feature);
+    return (remaining: peek.remaining, limit: peek.limit);
+  }
+}
+
+/// The Appearance screen's `useTheme()` on the app root's [themeModeProvider] (one state, one LocalStore key).
+class _RootThemeModeSetting extends ThemeModeSetting {
+  @override
+  String build() {
+    ref.watch(themeModeProvider);
+    return ref.read(themeModeProvider.notifier).theme;
+  }
+
+  @override
+  void set(String theme) {
+    ref.read(themeModeProvider.notifier).setTheme(theme);
+    state = theme;
+  }
+}
+
+/// The mommy period banner's data through the flow feature's repository (same table, same RPC and parameters;
+/// the banner keeps its own query key `['period-day-logs', uid, null, null]`, shared with the flow calendar).
+class _FlowMommyPeriodSource implements MommyPeriodSource {
+  _FlowMommyPeriodSource(this._ref);
+  final Ref _ref;
+
+  @override
+  Future<List<Map<String, dynamic>>> loadPeriodDayLogs(String userId) async =>
+      [for (final r in await _ref.read(flowRepositoryProvider).periodDayLogs(userId)) Map<String, dynamic>.from(r)];
+
+  @override
+  Future<void> record(String userId, MommyPeriodWrite input) async {
+    if (userId.isEmpty) throw StateError('NOT_AUTHENTICATED');
+    final dates = validatePeriodDates(input.dates);
+    final data = await _ref.read(flowRepositoryProvider).recordPeriodDays({
+      'p_expected_user_id': userId,
+      'p_dates': dates,
+      'p_flow': input.flow,
+      'p_complete': input.complete ?? false,
+      'p_preserve_existing': input.preserveExisting ?? false,
+      'p_daily_log': null,
+      'p_timezone': _ref.read(mommyTimeZoneProvider),
+    });
+    if (data is! Map || data['ok'] != true || data['userId'] != userId) throw StateError('PERIOD_WRITE_FAILED');
+  }
+}
