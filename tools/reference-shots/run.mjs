@@ -22,6 +22,9 @@ export const VIEWPORTS = {
     userAgent: 'Mozilla/5.0 (Linux; Android 14; SM-A546B Build/UP1A.231005.007; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0.0.0 Mobile Safari/537.36' },
 };
 export const THEMES = ['light', 'dark'];
+export const DETERMINISM_FLAGS = ['--force-color-profile=srgb', '--disable-lcd-text', '--font-render-hinting=none', '--disable-partial-raster',
+  '--disable-gpu-rasterization', '--disable-checker-imaging', '--disable-threaded-animation', '--disable-threaded-scrolling',
+  '--disable-image-animation-resync', '--num-raster-threads=1'];
 export const LANGS = ['az', 'en', 'ru', 'ar'];
 const LOCALES = { az: 'az-AZ', en: 'en-US', ru: 'ru-RU', ar: 'ar' };
 
@@ -40,7 +43,7 @@ function parseArgs(argv) {
     theme: list(args.theme) || THEMES, viewport: list(args.viewport) || Object.keys(VIEWPORTS),
     run: args.run, workers: Number(args.workers), dpr: Number(args.dpr), fonts: args.fonts,
     listOnly: args.list === 'true', retries: Number(args.retries ?? 1), verbose: args.verbose === 'true',
-    port: args.port ? Number(args.port) : undefined, platform: args.platform,
+    port: args.port ? Number(args.port) : undefined, platform: args.platform, chromeFlags: args['chrome-flags'] || 'deterministic',
   };
 }
 
@@ -160,7 +163,8 @@ async function main() {
   const t0 = Date.now();
   const server = await startDevServer({ log, port: args.port });
   const { chromium } = loadPlaywright();
-  const browser = await chromium.launch();
+  // Flags that remove known sources of raster nondeterminism (partial/threaded raster, checker-imaging, LCD text, colour profile).
+  const browser = await chromium.launch({ args: args.chromeFlags === 'default' ? [] : DETERMINISM_FLAGS });
   const ctx = { args, outDir, recorder, results, log, browserVersion: browser.version() };
   log(`${jobs.length} cells (${scenarios.length} scenarios) -> ${outDir}`);
 

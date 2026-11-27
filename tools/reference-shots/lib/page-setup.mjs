@@ -80,8 +80,18 @@ export function buildLocalStorage(persona, { lang, theme, session, nowMs }) {
   return ls;
 }
 
+const GRANTED = { receive: 'granted' };
+export const NATIVE_STUBS = {
+  FirebaseMessaging: { checkPermissions: GRANTED, requestPermissions: GRANTED, getToken: { token: 'refshots-fcm-token' }, deleteToken: {},
+    removeAllDeliveredNotifications: {} },
+  FirebaseAnalytics: { logEvent: {}, setConsent: {}, setCurrentScreen: {}, setEnabled: {}, setUserId: {}, setUserProperty: {} },
+  PushNotifications: { checkPermissions: GRANTED, requestPermissions: GRANTED, register: {} },
+  LocalNotifications: { checkPermissions: { display: 'granted' }, requestPermissions: { display: 'granted' }, schedule: { notifications: [] },
+    getPending: { notifications: [] }, cancel: {}, areEnabled: { value: true } },
+};
+
 /** Runs in the page before any app script, on every navigation of the context. */
-function initScript({ storage, seed, platform }) {
+function initScript({ storage, seed, platform, nativeStubs }) {
   // Seed storage once per tab; reloads triggered by the app (language switch) keep in-app writes.
   try {
     if (!sessionStorage.getItem('__refshots_seeded')) {
@@ -93,7 +103,17 @@ function initScript({ storage, seed, platform }) {
   // Present the page to @capacitor/core as the native app (Capacitor.isNativePlatform() === true, getPlatform()
   // === 'ios' | 'android'). Plugin calls then fall back to each plugin's web implementation, or reject with
   // "not implemented" for native-only plugins (AdMob, RevenueCat, push), which the app already tolerates.
-  if (platform && platform !== 'web') window.CapacitorCustomPlatform = { name: platform, plugins: {} };
+  if (platform && platform !== 'web') {
+    window.CapacitorCustomPlatform = { name: platform, plugins: {} };
+    // A few native-only plugin methods get fixed answers through Capacitor's own plugin-header path
+    // (cap.PluginHeaders + cap.nativePromise): notification permission granted, no pending reminders.
+    const headers = Object.entries(nativeStubs).map(([name, methods]) => ({ name, methods: [...Object.keys(methods).map((m) => ({ name: m, rtype: 'promise' })),
+      { name: 'addListener', rtype: 'callback' }, { name: 'removeListener', rtype: 'promise' }, { name: 'removeAllListeners', rtype: 'promise' }] }));
+    let callbackId = 0;
+    window.Capacitor = { PluginHeaders: headers,
+      nativePromise: (plugin, method) => Promise.resolve(JSON.parse(JSON.stringify(nativeStubs[plugin]?.[method] ?? {}))),
+      nativeCallback: () => String(++callbackId) };
+  }
   // Deterministic Math.random (mulberry32).
   let s = seed >>> 0;
   Math.random = function random() {
@@ -131,5 +151,5 @@ function initScript({ storage, seed, platform }) {
 export async function setupContext(context, { persona, lang, theme, nowMs, session, platform }) {
   await context.clock.setFixedTime(new Date(nowMs));
   const storage = buildLocalStorage(persona, { lang, theme, session, nowMs });
-  await context.addInitScript(initScript, { storage, seed: 20261120, platform });
+  await context.addInitScript(initScript, { storage, seed: 20261120, platform, nativeStubs: NATIVE_STUBS });
 }

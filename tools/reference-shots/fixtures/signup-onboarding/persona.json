@@ -1,0 +1,8 @@
+{
+  "extends": "new-signup",
+  "description": "Signed up, consents accepted, country set: onboarding journey (PremiumOnboarding).",
+  "consents": "accepted",
+  "profile": {
+    "country_code": "AZ"
+  }
+}

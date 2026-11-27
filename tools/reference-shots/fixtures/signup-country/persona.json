@@ -1,0 +1,8 @@
+{
+  "extends": "new-signup",
+  "description": "Signed up, consents accepted, profile has no country: mandatory country gate.",
+  "consents": "accepted",
+  "profile": {
+    "country_code": null
+  }
+}

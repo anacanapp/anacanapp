@@ -129,15 +129,23 @@ export function createHelpers(page, { outDir, cell, scenario, persona, recorder,
       await h.ready();
     },
 
-    /** Scroll the app's main scroll container (or the window) to y px. */
+    /** Scroll the app's main scroll container (or the window) to y px. Content that arrives after the first
+     *  scroll can grow the page (the first scrollTop was clamped) or shift it, so the scroll is re-applied until
+     *  the position and the scroll height are both stable. */
     async scroll(y) {
-      await page.evaluate((top) => {
-        const el = document.querySelector('[data-subscreen] [data-scroll-container]') || document.querySelector('[data-scroll-container]');
-        if (el && el.scrollHeight > el.clientHeight) el.scrollTo({ top, behavior: 'instant' });
-        else window.scrollTo({ top, behavior: 'instant' });
-      }, y);
-      await sleep(100);
-      await h.ready();
+      let last = null;
+      for (let i = 0; i < 6; i++) {
+        const now = await page.evaluate((top) => {
+          const el = document.querySelector('[data-subscreen] [data-scroll-container]') || document.querySelector('[data-scroll-container]');
+          const target = el && el.scrollHeight > el.clientHeight ? el : document.scrollingElement;
+          target.scrollTo({ top, behavior: 'instant' });
+          return `${Math.round(target.scrollTop)}:${target.scrollHeight}`;
+        }, y);
+        await sleep(150);
+        await h.ready();
+        if (now === last) break;
+        last = now;
+      }
     },
 
     sleep,
