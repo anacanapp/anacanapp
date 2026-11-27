@@ -10,6 +10,10 @@
 // Triggers: on mount and whenever user / children readiness changes, on the Android `timerStopped` event and on
 // app resume. Mount [PendingTimerStopsHost] (or watch [pendingTimerStopsHostProvider]) once at the app level, as
 // Index.tsx did.
+import 'package:anacan/core/net/backend_client.dart';
+import 'package:anacan/core/net/backend_providers.dart';
+import 'package:anacan/shell/shell_inputs.dart';
+
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
@@ -26,7 +30,11 @@ import 'use_children.dart';
 
 /// Readiness inputs of `saveStop` (the useCallback deps).
 class PendingStopDeps {
-  const PendingStopDeps({this.userId, this.childrenLoading = true, this.selectedChildId});
+  const PendingStopDeps({
+    this.userId,
+    this.childrenLoading = true,
+    this.selectedChildId,
+  });
   final String? userId;
   final bool childrenLoading;
   final String? selectedChildId;
@@ -57,20 +65,29 @@ class PendingTimerStops {
     final childId = storeTimer?.childId ?? deps.selectedChildId;
     if (storeTimer != null) store.stopTimer(stop.id);
 
-    final startIso = jsToIsoString(DateTime.fromMillisecondsSinceEpoch(stop.startTime));
+    final startIso = jsToIsoString(
+      DateTime.fromMillisecondsSinceEpoch(stop.startTime),
+    );
     try {
-      if (await _ref.read(babyRepositoryProvider).babyLogExists(userId, stop.type, startIso)) return true;
+      if (await _ref
+          .read(babyRepositoryProvider)
+          .babyLogExists(userId, stop.type, startIso))
+        return true;
     } catch (_) {
       // the check failed: continue with the insert
     }
 
-    final result = await _ref.read(babyLogsActionsProvider).addLog(
+    final result = await _ref
+        .read(babyLogsActionsProvider)
+        .addLog(
           logType: stop.type,
           feedType: stop.type == 'feeding' && stop.feedType != null
               ? (stop.feedType == 'left' ? 'breast_left' : 'breast_right')
               : null,
           startTime: startIso,
-          endTime: jsToIsoString(DateTime.fromMillisecondsSinceEpoch(stop.stoppedAt)),
+          endTime: jsToIsoString(
+            DateTime.fromMillisecondsSinceEpoch(stop.stoppedAt),
+          ),
           childId: childId,
         );
     return result.error == null;
@@ -88,14 +105,20 @@ class PendingTimerStops {
   }
 }
 
-final pendingTimerStopsProvider = Provider<PendingTimerStops>(PendingTimerStops.new);
+final pendingTimerStopsProvider = Provider<PendingTimerStops>(
+  PendingTimerStops.new,
+);
 
 /// Listeners subscribed once (`timerStopped` + app resume) calling the latest handler.
 final _pendingStopListeners = Provider.autoDispose<void>((ref) {
   final processor = ref.read(pendingTimerStopsProvider);
   if (!processor.isNative) return;
-  final offEvent = ref.read(liveTimerProvider).onNativeTimerStopped(() => unawaited(processor.handlePending()));
-  final sub = ref.read(appResumeEventsProvider).listen((_) => unawaited(processor.handlePending()));
+  final offEvent = ref
+      .read(liveTimerProvider)
+      .onNativeTimerStopped(() => unawaited(processor.handlePending()));
+  final sub = ref
+      .read(appResumeEventsProvider)
+      .listen((_) => unawaited(processor.handlePending()));
   ref.onDispose(() {
     offEvent();
     unawaited(sub.cancel());
@@ -125,7 +148,16 @@ class PendingTimerStopsHost extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(pendingTimerStopsHostProvider);
+    // usePendingTimerStops runs for signed-in users only; before sign-in the backend may not be open yet.
+    final signedIn = ref.watch(
+      shellUserProvider.select((u) => u.isAuthenticated),
+    );
+    final backendOpen = ref.watch(
+      backendBootstrapProvider.select((b) => b.value is BootstrapOpened),
+    );
+    if (signedIn && backendOpen) {
+      ref.watch(pendingTimerStopsHostProvider);
+    }
     return child ?? const SizedBox.shrink();
   }
 }

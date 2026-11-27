@@ -1,7 +1,8 @@
 // Ported from: src/lib/startup-i18n.ts (storedStartupLanguage → readAppLanguage), src/lib/app-languages.ts
 //              (readAppLanguage cold fallback), src/bootstrap-app.tsx (restorePreferences reads Capacitor
 //              Preferences)
-import '../core/i18n/app_languages.dart' show languageFromWebStorage, normalizeAppLanguage;
+import '../core/i18n/app_languages.dart'
+    show languageFromWebStorage, normalizeAppLanguage;
 import '../core/i18n/language_preferences.dart';
 import '../core/i18n/tr.dart' show I18nRuntime;
 import '../core/storage/legacy_preferences.dart';
@@ -27,7 +28,8 @@ class LegacyLanguagePreferenceStore implements LanguagePreferenceStore {
 /// (it is the value `userStore.language` would hold after `restorePreferences`).
 String storedStartupLanguage({LocalStore? store, I18nRuntime? runtime}) {
   final r = runtime;
-  if (r != null && r.language.isNotEmpty && r.language != 'az') return r.language;
+  if (r != null && r.language.isNotEmpty && r.language != 'az')
+    return r.language;
   if (store == null) return normalizeAppLanguage(r?.language ?? 'az');
   try {
     return languageFromWebStorage(

@@ -1,5 +1,7 @@
 // Ported from: src/App.tsx (provider tree: AuthProvider, Theme, Direction, MotionConfig …) — the Riverpod
 //              overrides that wire the shell, the design layer and the startup feature together.
+import '../features/onboarding/onboarding_ports.dart';
+import '../state/shell_bindings.dart';
 import '../features/entry/entry_feature.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';

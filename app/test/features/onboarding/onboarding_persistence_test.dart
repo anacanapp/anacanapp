@@ -25,7 +25,7 @@ class FakeDb implements OnboardingDataPort {
   /// (table, body, after) → fail the write before (false) or lose its response after (true).
   bool Function(String table, Map<String, Object?> body, bool after)? fail;
 
-  DbOutcome _write(String table, Map<String, Object?> body, List<Map<String, Object?>> Function() apply, {bool single = true}) {
+  DbOutcome _write(String table, Map<String, Object?> body, List<Map<String, Object?>> Function() apply) {
     if (fail?.call(table, body, false) ?? false) return const DbOutcome(error: {'code': 'TEST_FAILURE'});
     final rows = apply();
     writes.add((table: table, body: body));

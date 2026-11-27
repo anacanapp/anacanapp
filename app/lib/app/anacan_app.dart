@@ -29,7 +29,9 @@ import 'routed_app.dart';
 import 'startup_language.dart';
 import 'system_chrome.dart';
 
-typedef StartupRunner = Future<StartupResult> Function(ProviderContainer container);
+typedef StartupRunner = Future<StartupResult> Function(
+  ProviderContainer container,
+);
 
 /// Wiring done on a fresh container before `runAppStartup` (overridable in tests).
 typedef ContainerPreparer = Future<void> Function(ProviderContainer container);
@@ -37,7 +39,9 @@ typedef ContainerPreparer = Future<void> Function(ProviderContainer container);
 /// Default [ContainerPreparer]: Preferences for the i18n runtime, the content-pack service.
 Future<void> prepareAppContainer(ProviderContainer container) async {
   final runtime = container.read(i18nRuntimeProvider);
-  runtime.preferences ??= LegacyLanguagePreferenceStore(container.read(backendClientProvider).legacyPreferences);
+  runtime.preferences ??= LegacyLanguagePreferenceStore(
+    container.read(backendClientProvider).legacyPreferences,
+  );
   if (ContentTranslations.instance == null) {
     try {
       ContentTranslations.instance = await ContentTranslations.create();
@@ -107,7 +111,9 @@ class AnacanAppState extends State<AnacanApp> {
     try {
       await widget.prepare(container);
       // The device probe runs alongside startup (React computes the tier at App module load).
-      final tier = container.read(deviceTierProvider.notifier).probe(container.read(deviceHardwareProbeProvider));
+      final tier = container
+          .read(deviceTierProvider.notifier)
+          .probe(container.read(deviceHardwareProbeProvider));
       result = await widget.runStartup(container);
       await tier;
     } catch (error, stack) {
@@ -128,7 +134,10 @@ class AnacanAppState extends State<AnacanApp> {
     try {
       final store = container.read(localStoreProvider);
       await store.load().timeout(const Duration(seconds: 1));
-      return storedStartupLanguage(store: store, runtime: container.read(i18nRuntimeProvider));
+      return storedStartupLanguage(
+        store: store,
+        runtime: container.read(i18nRuntimeProvider),
+      );
     } catch (_) {
       return 'az';
     }
@@ -167,19 +176,31 @@ class AnacanAppState extends State<AnacanApp> {
     // App.tsx: a shard arrival re-renders rows and invalidates queries keyed by the current language (300 ms).
     final packs = ContentTranslations.instance;
     if (packs != null) {
-      _teardown.add(installContentTranslationRefresh(
-        packs,
-        language: () => runtime.language,
-        onRefresh: (lang) {
-          try {
-            unawaited(container.read(queryClientProvider).invalidateQueries(predicate: (q) => q.queryKey.contains(lang)));
-          } catch (_) {}
-        },
-      ));
+      _teardown.add(
+        installContentTranslationRefresh(
+          packs,
+          language: () => runtime.language,
+          onRefresh: (lang) {
+            try {
+              unawaited(
+                container
+                    .read(queryClientProvider)
+                    .invalidateQueries(
+                      predicate: (q) => q.queryKey.contains(lang),
+                    ),
+              );
+            } catch (_) {}
+          },
+        ),
+      );
     }
 
     if (widget.watchAdmission) {
-      _teardown.add(container.read(backendClientProvider).watchAdmission(restart, wakes: wakes.stream));
+      _teardown.add(
+        container
+            .read(backendClientProvider)
+            .watchAdmission(restart, wakes: wakes.stream),
+      );
     }
   }
 
@@ -215,7 +236,10 @@ class AnacanAppState extends State<AnacanApp> {
     }
     if (old != null) {
       try {
-        await old.read(localStoreProvider).flush().timeout(const Duration(seconds: 2));
+        await old
+            .read(localStoreProvider)
+            .flush()
+            .timeout(const Duration(seconds: 2));
       } catch (_) {}
       try {
         await old.read(backendClientProvider).restart();
@@ -242,9 +266,18 @@ class AnacanAppState extends State<AnacanApp> {
     }
     final Widget screen = switch (result) {
       null => const StartupScreen(dark: false),
-      StartupUpdateRequired() => AdmissionScreen(kind: AdmissionScreenKind.updateRequired, language: _language, onRetry: restart),
-      StartupMaintenance() || StartupRetry() || StartupOpened() =>
-        AdmissionScreen(kind: AdmissionScreenKind.connectionPending, language: _language, onRetry: restart),
+      StartupUpdateRequired() => AdmissionScreen(
+        kind: AdmissionScreenKind.updateRequired,
+        language: _language,
+        onRetry: restart,
+      ),
+      StartupMaintenance() ||
+      StartupRetry() ||
+      StartupOpened() => AdmissionScreen(
+        kind: AdmissionScreenKind.connectionPending,
+        language: _language,
+        onRetry: restart,
+      ),
     };
     return BootstrapFrame(child: screen);
   }

@@ -12,13 +12,18 @@ import 'package:material_ui/material_ui.dart' show GlobalMaterialLocalizations;
 import '../core/i18n/app_languages.dart';
 
 /// `Locale` of every bundled language, bundle order (`az-AZ`, `en-US`, …, `ar`, `zh-CN`, …).
-final List<Locale> kAppSupportedLocales = List.unmodifiable(kAppLanguages.map((l) => l.locale));
+final List<Locale> kAppSupportedLocales = List.unmodifiable(
+  kAppLanguages.map((l) => l.locale),
+);
 
 /// The locale a framework table is loaded for when [locale] has none.
 Locale fallbackLocaleFor(Locale locale) {
-  if (!kAppLanguageCodes.contains(locale.languageCode)) return const Locale('en', 'US');
+  if (!kAppLanguageCodes.contains(locale.languageCode))
+    return const Locale('en', 'US');
   final mapped = materialLocaleFor(locale.languageCode);
-  return mapped.languageCode == locale.languageCode ? const Locale('en', 'US') : mapped;
+  return mapped.languageCode == locale.languageCode
+      ? const Locale('en', 'US')
+      : mapped;
 }
 
 /// Loads [inner]'s resources for [fallbackLocaleFor] when [inner] has no table for the requested locale.
@@ -36,7 +41,8 @@ class FallbackLocalizationsDelegate<T> extends LocalizationsDelegate<T> {
   }
 
   @override
-  bool isSupported(Locale locale) => !inner.isSupported(locale) && inner.isSupported(_target(locale));
+  bool isSupported(Locale locale) =>
+      !inner.isSupported(locale) && inner.isSupported(_target(locale));
 
   @override
   Future<T> load(Locale locale) => inner.load(_target(locale));
@@ -51,8 +57,10 @@ class FallbackLocalizationsDelegate<T> extends LocalizationsDelegate<T> {
 /// Global Material / Cupertino / Widgets tables, then the fallbacks for languages they lack.
 final List<LocalizationsDelegate<dynamic>> kAppLocalizationsDelegates = [
   ...GlobalMaterialLocalizations.delegates,
-  for (final d in GlobalMaterialLocalizations.delegates) FallbackLocalizationsDelegate<dynamic>(d),
+  for (final d in GlobalMaterialLocalizations.delegates)
+    FallbackLocalizationsDelegate<dynamic>(d),
 ];
 
 /// The direction the app renders with (`dir` on `<html>`).
-TextDirection appDirectionFor(String language) => textDirectionFor(normalizeAppLanguage(language));
+TextDirection appDirectionFor(String language) =>
+    textDirectionFor(normalizeAppLanguage(language));

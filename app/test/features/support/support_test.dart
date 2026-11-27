@@ -6,7 +6,6 @@ import 'package:anacan/features/support/data/app_feedback.dart';
 import 'package:anacan/features/support/data/support_tickets.dart';
 import 'package:anacan/features/support/feedback_sheet.dart';
 import 'package:anacan/features/support/help_screen.dart';
-import 'package:anacan/state/state.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

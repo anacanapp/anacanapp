@@ -21,13 +21,15 @@ const String kThemeSystem = 'system';
 
 /// `ThemeMode` for a stored next-themes value.
 ThemeMode themeModeFor(String? theme) => switch (theme) {
-      null || '' || kThemeSystem => ThemeMode.system,
-      kThemeDark => ThemeMode.dark,
-      _ => ThemeMode.light,
-    };
+  null || '' || kThemeSystem => ThemeMode.system,
+  kThemeDark => ThemeMode.dark,
+  _ => ThemeMode.light,
+};
 
 /// The persisted theme choice. State = the [ThemeMode] the app renders with; [theme] = next-themes' `theme`.
-final themeModeProvider = NotifierProvider<ThemeModeController, ThemeMode>(ThemeModeController.new);
+final themeModeProvider = NotifierProvider<ThemeModeController, ThemeMode>(
+  ThemeModeController.new,
+);
 
 class ThemeModeController extends Notifier<ThemeMode> {
   String _theme = kThemeSystem;
@@ -39,7 +41,9 @@ class ThemeModeController extends Notifier<ThemeMode> {
   ThemeMode build() {
     final store = ref.watch(localStoreProvider);
     // next-themes listens to `storage` events for its key (another writer of the same store).
-    final sub = store.changes.where((c) => c.key == kThemeStorageKey).listen((c) {
+    final sub = store.changes.where((c) => c.key == kThemeStorageKey).listen((
+      c,
+    ) {
       _theme = _read(c.newValue);
       state = themeModeFor(_theme);
     });
@@ -48,7 +52,8 @@ class ThemeModeController extends Notifier<ThemeMode> {
     return themeModeFor(_theme);
   }
 
-  static String _read(String? stored) => (stored == null || stored.isEmpty) ? kThemeSystem : stored;
+  static String _read(String? stored) =>
+      (stored == null || stored.isEmpty) ? kThemeSystem : stored;
 
   /// `setTheme(value)`: `localStorage.setItem('theme', value)` + apply.
   void setTheme(String value) {

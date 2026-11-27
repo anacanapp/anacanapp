@@ -13,7 +13,6 @@ import 'package:anacan/features/onboarding/onboarding_model.dart';
 import 'package:anacan/features/onboarding/onboarding_ports.dart';
 import 'package:anacan/native/purchases/purchases.dart';
 import 'package:anacan/state/state.dart';
-import 'package:anacan/state/shell_bindings.dart' show backendUrlProvider;
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;

@@ -4,7 +4,6 @@ import 'package:anacan/features/profile/data/children.dart';
 import 'package:anacan/features/profile/profile_interfaces.dart';
 import 'package:anacan/features/profile/profile_screen.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 

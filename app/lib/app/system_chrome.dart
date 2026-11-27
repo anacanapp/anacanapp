@@ -16,12 +16,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 /// The text scaler the WebView would have applied on [platform].
-TextScaler webViewTextScaler(TargetPlatform platform, {required double systemFontScale, required TextScaler fallback}) =>
-    switch (platform) {
-      TargetPlatform.iOS => TextScaler.noScaling,
-      TargetPlatform.android => TextScaler.linear(systemFontScale),
-      _ => fallback,
-    };
+TextScaler webViewTextScaler(
+  TargetPlatform platform, {
+  required double systemFontScale,
+  required TextScaler fallback,
+}) => switch (platform) {
+  TargetPlatform.iOS => TextScaler.noScaling,
+  TargetPlatform.android => TextScaler.linear(systemFontScale),
+  _ => fallback,
+};
 
 /// Replaces the platform text scaling with [webViewTextScaler].
 class WebViewTextScale extends StatelessWidget {
@@ -36,10 +39,15 @@ class WebViewTextScale extends StatelessWidget {
     final mq = MediaQuery.of(context);
     final p = platform ?? defaultTargetPlatform;
     if (p != TargetPlatform.iOS && p != TargetPlatform.android) return child;
-    final scale = View.maybeOf(context)?.platformDispatcher.textScaleFactor ?? 1.0;
+    final scale =
+        View.maybeOf(context)?.platformDispatcher.textScaleFactor ?? 1.0;
     return MediaQuery(
       data: mq.copyWith(
-        textScaler: webViewTextScaler(p, systemFontScale: scale, fallback: mq.textScaler),
+        textScaler: webViewTextScaler(
+          p,
+          systemFontScale: scale,
+          fallback: mq.textScaler,
+        ),
         boldText: false,
       ),
       child: child,
@@ -49,7 +57,8 @@ class WebViewTextScale extends StatelessWidget {
 
 /// Status bar style for the resolved theme: `StatusBar.setStyle(dark ? Style.Dark : Style.Light)` — light icons
 /// on the dark theme, dark icons otherwise. Bars are transparent (edge-to-edge, `contentInset: never`).
-SystemUiOverlayStyle statusBarStyleFor({required bool dark}) => SystemUiOverlayStyle(
+SystemUiOverlayStyle statusBarStyleFor({required bool dark}) =>
+    SystemUiOverlayStyle(
       statusBarColor: const Color(0x00000000),
       systemNavigationBarColor: const Color(0x00000000),
       systemNavigationBarDividerColor: const Color(0x00000000),
@@ -57,17 +66,26 @@ SystemUiOverlayStyle statusBarStyleFor({required bool dark}) => SystemUiOverlayS
       statusBarIconBrightness: dark ? Brightness.light : Brightness.dark,
       // iOS: brightness of the *bar* (dark bar → light content).
       statusBarBrightness: dark ? Brightness.dark : Brightness.light,
-      systemNavigationBarIconBrightness: dark ? Brightness.light : Brightness.dark,
+      systemNavigationBarIconBrightness: dark
+          ? Brightness.light
+          : Brightness.dark,
     );
 
 /// `<ThemeStatusBarSync />`: keeps the status bar icons readable on the in-app theme.
 class ThemeStatusBarSync extends StatelessWidget {
-  const ThemeStatusBarSync({super.key, required this.dark, required this.child});
+  const ThemeStatusBarSync({
+    super.key,
+    required this.dark,
+    required this.child,
+  });
   final bool dark;
   final Widget child;
 
   @override
-  Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(value: statusBarStyleFor(dark: dark), child: child);
+  Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
+    value: statusBarStyleFor(dark: dark),
+    child: child,
+  );
 }
 
 /// Edge-to-edge drawing under the status and navigation bars (the WebView's `viewport-fit=cover`; insets come

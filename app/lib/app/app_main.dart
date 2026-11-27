@@ -12,7 +12,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/i18n/tr.dart' show I18nRuntime;
 import '../features/startup/admission_screens.dart' show RootErrorFallback;
-import '../features/startup/error_boundary.dart' show ConnectedErrorBoundaryFallback;
+import '../features/startup/error_boundary.dart'
+    show ConnectedErrorBoundaryFallback;
 import 'anacan_app.dart';
 import 'crash_reporter.dart';
 import 'system_chrome.dart';
@@ -40,7 +41,8 @@ void installErrorHooks() {
     return true;
   };
   // Release builds replace a failing widget with the ErrorBoundary fallback instead of a grey box.
-  if (kReleaseMode) ErrorWidget.builder = (details) => AppErrorWidget(details: details);
+  if (kReleaseMode)
+    ErrorWidget.builder = (details) => AppErrorWidget(details: details);
 }
 
 /// `ErrorWidget.builder` output: the ErrorBoundary fallback inside the app, RootErrorBoundary's fallback when
@@ -56,7 +58,10 @@ class AppErrorWidget extends StatelessWidget {
       ProviderScope.containerOf(context, listen: false);
       inScope = true;
     } catch (_) {}
-    if (inScope) return ConnectedErrorBoundaryFallback(message: details.exceptionAsString());
+    if (inScope)
+      return ConnectedErrorBoundaryFallback(
+        message: details.exceptionAsString(),
+      );
     return RootErrorFallback(
       language: I18nRuntime.instance.language,
       onRetry: () => AnacanApp.current?.restart(),
@@ -66,13 +71,16 @@ class AppErrorWidget extends StatelessWidget {
 
 /// `main()`.
 void runAnacanApp() {
-  runZonedGuarded<void>(() {
-    WidgetsFlutterBinding.ensureInitialized();
-    installErrorHooks();
-    unawaited(configureSystemChrome());
-    runApp(const AnacanApp());
-  }, (error, stack) {
-    CrashReporting.reportUncaught(error, stack);
-    debugPrint('Uncaught (zone): $error');
-  });
+  runZonedGuarded<void>(
+    () {
+      WidgetsFlutterBinding.ensureInitialized();
+      installErrorHooks();
+      unawaited(configureSystemChrome());
+      runApp(const AnacanApp());
+    },
+    (error, stack) {
+      CrashReporting.reportUncaught(error, stack);
+      debugPrint('Uncaught (zone): $error');
+    },
+  );
 }

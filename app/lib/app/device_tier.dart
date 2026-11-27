@@ -26,14 +26,18 @@ class DeviceTier {
   final bool noBlur;
 
   /// Before the probe: Android is known synchronously, iOS starts as not-lite.
-  static DeviceTier initial({required bool android}) => DeviceTier(lite: android, noBlur: android);
+  static DeviceTier initial({required bool android}) =>
+      DeviceTier(lite: android, noBlur: android);
 
   /// `LITE_DEVICE = isLowEndDevice() || IS_ANDROID`; `a-noblur` = IS_ANDROID.
-  static DeviceTier resolve({required bool android, required DeviceHardware hardware}) =>
-      DeviceTier(lite: android || isLowEndDevice(hardware), noBlur: android);
+  static DeviceTier resolve({
+    required bool android,
+    required DeviceHardware hardware,
+  }) => DeviceTier(lite: android || isLowEndDevice(hardware), noBlur: android);
 
   @override
-  bool operator ==(Object other) => other is DeviceTier && other.lite == lite && other.noBlur == noBlur;
+  bool operator ==(Object other) =>
+      other is DeviceTier && other.lite == lite && other.noBlur == noBlur;
   @override
   int get hashCode => Object.hash(lite, noBlur);
   @override
@@ -52,7 +56,8 @@ double approximateDeviceMemoryGb(int physicalMb) {
 
 /// Real probe: dart:io cores + device_info_plus RAM.
 class DeviceInfoHardwareProbe implements DeviceHardwareProbe {
-  DeviceInfoHardwareProbe({DeviceInfoPlugin? plugin}) : _plugin = plugin ?? DeviceInfoPlugin();
+  DeviceInfoHardwareProbe({DeviceInfoPlugin? plugin})
+    : _plugin = plugin ?? DeviceInfoPlugin();
   final DeviceInfoPlugin _plugin;
 
   @override
@@ -72,10 +77,15 @@ class DeviceInfoHardwareProbe implements DeviceHardwareProbe {
   }
 }
 
-bool get _isAndroid => !kIsWeb && defaultTargetPlatform == TargetPlatform.android && Platform.isAndroid;
+bool get _isAndroid =>
+    !kIsWeb &&
+    defaultTargetPlatform == TargetPlatform.android &&
+    Platform.isAndroid;
 
 /// The device tier; the app root resolves it once at startup ([DeviceTierController.probe]).
-final deviceTierProvider = NotifierProvider<DeviceTierController, DeviceTier>(DeviceTierController.new);
+final deviceTierProvider = NotifierProvider<DeviceTierController, DeviceTier>(
+  DeviceTierController.new,
+);
 
 class DeviceTierController extends Notifier<DeviceTier> {
   @override
@@ -98,7 +108,11 @@ class DeviceTierController extends Notifier<DeviceTier> {
 }
 
 /// The probe the root uses (override in tests).
-final deviceHardwareProbeProvider = Provider<DeviceHardwareProbe>((ref) => DeviceInfoHardwareProbe());
+final deviceHardwareProbeProvider = Provider<DeviceHardwareProbe>(
+  (ref) => DeviceInfoHardwareProbe(),
+);
 
 /// `liteModeProvider` override: the design layer reads lite from here.
-final appLiteModeProvider = Provider<bool>((ref) => ref.watch(deviceTierProvider).lite);
+final appLiteModeProvider = Provider<bool>(
+  (ref) => ref.watch(deviceTierProvider).lite,
+);

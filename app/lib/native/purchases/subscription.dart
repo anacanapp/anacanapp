@@ -26,7 +26,7 @@ const String householdPremiumCacheKey = 'household_premium';
 typedef UsageFeatureType = String;
 
 /// The phone's IANA zone. Flutter has no IANA name without a plugin (flutter_timezone is not a dependency):
-/// the app root may override [deviceTimeZoneProvider]; the server validates it and falls back to Asia/Baku.
+/// the app root may replace [deviceTimeZone] (e.g. with flutter_timezone); the server validates it and falls back to Asia/Baku.
 String Function() deviceTimeZone = () => 'Asia/Baku';
 
 /// Data access of the hook (supabase calls), replaceable in tests.

@@ -3,7 +3,6 @@
 import 'package:anacan/features/legal/content/content_typography.dart';
 import 'package:anacan/features/legal/content/html_content.dart';
 import 'package:anacan/features/legal/content/markdown_content.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 

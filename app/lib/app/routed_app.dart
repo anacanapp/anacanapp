@@ -29,7 +29,9 @@ class RoutedApp extends ConsumerStatefulWidget {
 }
 
 class _RoutedAppState extends ConsumerState<RoutedApp> {
-  late final GoRouter _router = buildShellRouter(initialLocation: widget.initialLocation);
+  late final GoRouter _router = buildShellRouter(
+    initialLocation: widget.initialLocation,
+  );
 
   @override
   void dispose() {
@@ -40,7 +42,10 @@ class _RoutedAppState extends ConsumerState<RoutedApp> {
   @override
   Widget build(BuildContext context) {
     // ErrorBoundary "Yenidən cəhd et": render the failing subtrees again (React resets the boundary state).
-    ref.listen(errorBoundaryResetProvider, (_, _) => WidgetsBinding.instance.reassembleApplication());
+    ref.listen(
+      errorBoundaryResetProvider,
+      (_, _) => WidgetsBinding.instance.reassembleApplication(),
+    );
     final language = ref.watch(appLanguageProvider);
     final themeMode = ref.watch(themeModeProvider);
     final tier = ref.watch(deviceTierProvider);
@@ -49,15 +54,28 @@ class _RoutedAppState extends ConsumerState<RoutedApp> {
       title: 'Anacan',
       debugShowCheckedModeBanner: false,
       routerConfig: _router,
-      theme: buildAnacanTheme(Brightness.light, locale: locale, lite: tier.lite, noBlur: tier.noBlur),
-      darkTheme: buildAnacanTheme(Brightness.dark, locale: locale, lite: tier.lite, noBlur: tier.noBlur),
+      theme: buildAnacanTheme(
+        Brightness.light,
+        locale: locale,
+        lite: tier.lite,
+        noBlur: tier.noBlur,
+      ),
+      darkTheme: buildAnacanTheme(
+        Brightness.dark,
+        locale: locale,
+        lite: tier.lite,
+        noBlur: tier.noBlur,
+      ),
       themeMode: themeMode,
       // next-themes swaps the `dark` class at once (no cross-fade of the whole palette).
       themeAnimationDuration: Duration.zero,
       locale: locale,
       supportedLocales: kAppSupportedLocales,
       localizationsDelegates: kAppLocalizationsDelegates,
-      builder: (context, child) => AppChrome(language: language, child: child ?? const SizedBox.shrink()),
+      builder: (context, child) => AppChrome(
+        language: language,
+        child: child ?? const SizedBox.shrink(),
+      ),
     );
   }
 }
@@ -82,10 +100,7 @@ class AppChrome extends StatelessWidget {
             child: AToastHost(
               child: Stack(
                 fit: StackFit.expand,
-                children: [
-                  child,
-                  const OfflineSyncIndicator(),
-                ],
+                children: [child, const OfflineSyncIndicator()],
               ),
             ),
           ),
