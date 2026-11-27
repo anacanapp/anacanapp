@@ -110,6 +110,7 @@ flutter:
     - assets/images/profile/flags/
     - assets/images/recap/
     - assets/recap/
+    - assets/stickers/
 
   # Bundled fonts (app/tool/design/fetch_fonts.sh). Weights = the ones the web app loads
   # (src/index.css Google Fonts @import, src/lib/rtl.ts @fontsource imports).

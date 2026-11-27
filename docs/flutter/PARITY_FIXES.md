@@ -19,6 +19,9 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | İlk veb açılış ekranında ağ loqo krem fonda görünmür | `index.html` bootstrap splash | Flutter-də 96 px loqo ekranı göstərilir |
 | Ödəniş tarixçəsində yenilənmələr heç vaxt görünmür: kod plaqinin CustomerInfo-da olmayan `allPurchaseDatesByProduct` açarını oxuyur | `BillingScreen.tsx` `fetchPaymentHistory` | Flutter-də SDK-nın `allPurchaseDates` sahəsi oxunur |
 | Ödəniş tarixçəsinin xətti `borderLeft` ilə çəkilir, RTL-də (ərəb) nöqtələrin əks tərəfində qalır | `BillingScreen.tsx` | Flutter-də xətt başlanğıc tərəfdədir |
+| Söhbət siyahısında oxunmayan `last_message_at` tarixi `RangeError` atırdı | `ConversationListScreen.tsx` | Flutter-də boş vaxt göstərilir |
+| Mesajlar və partnyor söhbətində status bar boşluğu itir (`.a-topbar` `.safe-area-top`-u ləğv edir) | `MessagesScreen.tsx` | Flutter-də yuxarı boşluq var |
+| Oxunmamış mesaj sayına yalnız `discovery_language`-i tətbiq dilinə uyğun qruplar daxil olur | `useUnreadMessages.ts` | saxlanıb; sahibin qərarı gözlənilir |
 | Paneldən açılmayan alətdə (`initialTool`, `fromDashboard` yox) geri çıxmaq üçün iki dəfə basmaq lazımdır | `ToolsHub.tsx` `handleBack` | saxlanıb |
 | Pulsuz istifadəçiyə ilkin Premium alət açılanda modal siyahı budağında qalır, alətdən çıxana qədər görünmür (o vaxta qədər `PremiumToolBoundary` paywall-u göstərir) | `ToolsHub.tsx` | saxlanıb |
 | `PremiumToolBoundary` paywall-u Flutter-də sətir içində çəkilirdi (alətlər tabında layout çökürdü); React-dakı kimi tam ekran qat olur | `premium_gates.dart` | Flutter düzəlişi |

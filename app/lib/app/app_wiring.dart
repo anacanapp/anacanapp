@@ -21,6 +21,7 @@ import '../features/baby/hooks/baby_services.dart';
 import '../features/baby/hooks/use_children.dart' show childrenProvider;
 import '../features/baby/live_timer/live_timer.dart' show liveTimerNativeHooksProvider;
 import '../features/home/appointments/upcoming_appointments.dart';
+import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
 import '../features/home/dashboard/medical_disclaimer.dart' show homeEmergencyNumberProvider;
 import '../features/home/dashboard/recap_home_card.dart' show recapHomeYearQuery;
 import '../features/home/dashboard/water_widget.dart';
@@ -102,6 +103,7 @@ List<Override> featureWiringOverrides() => [
       recapHomeYearQuery.overrideWith(RecapHomeYearNotifier.new),
 
       // ── home (shared dashboard) ───────────────────────────────────────────────────────────────────────────
+      homeTotalUnreadProvider.overrideWith((ref) => ref.watch(chatHomeTotalUnreadProvider)),
       homeSelectedChildProvider.overrideWith((ref) => ref.watch(childrenProvider.select((v) => v.selectedChild))?.toRow()),
       homeEffectiveCycleLengthProvider.overrideWith((ref) => ref.watch(effectiveCycleLengthProvider)),
       homeToolDisabledProvider.overrideWith((ref, toolId) => ref.watch(disabledToolsProvider).contains(toolId)),

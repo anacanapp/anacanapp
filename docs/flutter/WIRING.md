@@ -10,10 +10,13 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 
 | Provider / slot | File (under `app/lib/`) | Default | Implemented by | Phase |
 |---|---|---|---|---|
-| `unreadMessagesCountProvider`, `unreadCommunityPostsCountProvider` | `shell/shell_inputs.dart` (set in `state/shell_bindings.dart`) | 0 | chat `useUnreadMessages`, community `useUnreadCommunityPosts` | 5 |
-| `homeTotalUnreadProvider` | `features/home/home_inputs.dart` | 0 | chat (unread partner + DM count) | 5 |
+| `unreadCommunityPostsCountProvider` | `shell/shell_inputs.dart` (set in `state/shell_bindings.dart`) | 0 | community `useUnreadCommunityPosts` | 5 |
 | `homeNotificationCountProvider` | `features/home/home_inputs.dart` | 0 | bell is disabled in React; settings' notifications query when re-enabled | 3 |
-| `ShellOverlayId.motherChat` / `userProfile` / `blogArticle` registrations | `shell/feature_registry.dart` | placeholder | chat, community, blog features | 5 / 7 |
+| `ShellOverlayId.userProfile` / `blogArticle` registrations | `shell/feature_registry.dart` | placeholder | community, blog features | 5 / 7 |
+| `chatGroupScreenProvider`, `chatGroupsProvider` (own group list query) | `features/chat/` | placeholder / chat-owned query | community groups (`social.groups`) | 5 |
+| `chatTextBuilderProvider`, `chatPhotoViewerProvider` | `features/chat/` | link-aware text / basic viewer | community `CommentText`, `PhotoGalleryViewer` | 5 |
+| `chatAudioRecorderProvider` | `features/chat/` | unsupported (voice recording off; playback via video_player) | `record` package + mic permissions | 9 |
+| `chatIncomingNotifierProvider`, `chatPushSenderProvider` | `features/chat/` | no-op / direct `send-push-notification` | foreground notifications service, `svc.push` | 9 |
 | `ShellPlatform.logScreenView` | `shell/shell_inputs.dart` (`DefaultShellPlatform`) | no-op | analytics (Firebase, consent-gated) | 9 |
 | `notificationTapQueueProvider.deliver` / `clearQueued` callers | `shell/links/notification_taps.dart` | nothing delivers | FCM + local-notification tap listeners at boot | 9 |
 | `analyticsSinkProvider` | `native/purchases/purchases_providers.dart` | `NoopAnalyticsSink` | analytics | 9 |

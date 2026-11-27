@@ -4,6 +4,7 @@
 // lands by adding its import and its line in alphabetical order. Anything not registered renders the shell's
 // placeholder.
 import '../features/billing/register.dart';
+import '../features/chat/register.dart';
 import '../features/entry/entry_feature.dart';
 import '../features/home/register_home.dart';
 import '../features/home_flow/home_flow.dart';
@@ -26,6 +27,7 @@ import '../shell/feature_registry.dart';
 /// Registers every landed feature on [r].
 void registerAllFeatures(FeatureRegistry r) {
   registerBillingFeature(r);
+  registerChatFeature(r);
   registerEntryFeature(r);
   registerHomeFeature(r);
   registerHomeFlowFeature(r);
