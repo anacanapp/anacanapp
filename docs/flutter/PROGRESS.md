@@ -19,6 +19,7 @@ Heç nə cihazda işlədilməyib və heç bir Codemagic yığımı aparılmayıb
 | Moderasiya tarixçəsi + şikayət, 25 dilli moderator mətnləri (generator `app/tool/moderation`) | hazır, qeydiyyatdan keçib | 7 test (`test/features/moderation`) |
 | Recap (kətan renderi React-ın çəkmə əmrləri ilə ±0.002 eyni, şəkil paylaşımı, fontlar və musiqi faylı paketdə) | hazır; musiqi səsi və video ixracı 9-cu mərhələdə | 65 test (`test/features/recap`) |
 | Alətlər mərkəzi (ToolsHub), alət dəsti (ToolKit), dinamik alət/konfiq/məzmun məlumatları | hazır; ayrı-ayrı alətlər dəstələrlə gedir | 52 test (`test/features/tools`) |
+| AI/media alətləri: fotosessiya, ağlama tərcüməçisi, nəcis skaneri, nağıl, ulduz falı, hava/geyim, ağ səs, səs-küy ölçən | hazır; səs/mikrofon/yer 9-cu mərhələdə | 103 test (`test/features/tools/*`) |
 | Hamiləlik alətləri: təhlükəsizlik, təpik, sancı (5-1-1), çəki, xəstəxana çantası, adlar, dekret, döl inkişafı, təhlükə əlamətləri, albom | hazır; partnyor bildirişləri və SOS 6-cı, Health 9-cu mərhələdə | 78 test (`test/features/tools/*`) |
 | Körpə alətləri: izləyici (+ böyümə, diş bölmələri, nailiyyətlər), peyvənd təqvimi, əlavə qida, vaxtından əvvəl doğulanlar, körpə albomu | hazır; peyvənd xatırlatmaları 9-cu mərhələdə | 108 test (`test/features/tools/*`) |
 | Mesajlar, partnyor söhbəti, söhbət ekranı (media, səsli mesaj oxuma), stikerlər, DM | hazır; səs yazma 9-cu mərhələdə (`record`) | 88 test (`test/features/chat`) |
@@ -40,9 +41,19 @@ və sonrakı alt-agentlərinkilər) Linux-da `--update-goldens` ilə yenidən ç
 1. İcma postlarında moderator menyusu tətbiqdə qalsın? (qalır)
 2. Yalnız adminə görünən Mağaza ekranı köçürülsün? (yox, vebə keçir)
 3. `/h/:kod` və `/p/v/:token` səhifələri tətbiqdə olsun? (vebdə qalır)
+4. `analyze-cry` funksiyası yalnız WebM qəbul edir; iOS yazıcısı WebM vermir. Funksiya m4a/ogg qəbul etsin (backend
+   dəyişikliyi) və ya iOS-da ağlama tərcüməçisi "yazı dəstəklənmir" göstərsin? (sonuncu — backend-ə toxunulmur)
+5. Oxunmamış mesaj sayına yalnız `discovery_language`-i tətbiq dilinə uyğun qruplar daxildir (React). Düzəldilsin?
+   (React kimi qalır)
 
 ## Texniki borc (düzəldilməlidir)
 
 - Ana ekranın qalan slotları (oxunmamış sayı, bloq, banner, reklam, partnyor, kitab, Aptek) öz feature-ləri gələnə qədər boşdur (`docs/flutter/WIRING.md`).
-- Native hissələr (manifest, Info.plist, `MainActivity` = `FlutterFragmentActivity`) heç vaxt kompilyasiya olunmayıb.
+- iOS: Codemagic-də ilk dəfə kompilyasiya olunub, imzalanıb və App Store Connect-ə yüklənib (2026-11-27), Apple emalda
+  qəbul etməyib; icazə mətnləri, privacy manifest və entitlements əlavə edilib (`app/tool/ios/apply_ios_parity.mjs`),
+  yenidən yığım gözlənilir. Android heç vaxt kompilyasiya olunmayıb.
+- Səs/mikrofon/yer paketləri (`just_audio`, `record`, `geolocator`, `gal`) hələ yoxdur: ağ səs, ağlama tərcüməçisi,
+  səs-küy ölçən, hava, səsli mesaj yazma "dəstəklənmir" yolu ilə işləyir (WIRING.md, 9-cu mərhələ).
+- Billing istinad müqayisəsi: başlıqdakı geri düyməsinin kölgəsi Flutter golden-də görünmür (React-da var);
+  `BackdropFilter` altında test renderi ilə bağlı ola bilər, cihazda yoxlanmalıdır.
 - Golden testlərdə emoji şrifti yoxdur (qutu kimi görünür).

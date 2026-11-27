@@ -30,6 +30,11 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `sosAlertPortProvider` (danger signs `sendSOS`) | `features/tools/pregnancy_common/pregnancy_ports.dart` | no partner (button hidden) | partner `useSOSAlert` | 6 |
 | `healthVitalsBackgroundSyncProvider` | `features/tools/pregnancy_common/pregnancy_ports.dart` | no-op | Health | 9 |
 | `pregnancyToolSlotsProvider` (`aptekBagCard`, `hospitalBagArticles`, `albumOrderScreen`, `babyNamesAd`) | `features/tools/pregnancy_common/pregnancy_ports.dart` | not shown | commerce / blog (7), ads (9) | 7 / 9 |
+| `audioPlatformProvider` (microphone, recorder, level) | `features/tools/media_common/audio_recording.dart` | no microphone ("recording not supported" toast, React's no-API branch) | `record` + `RECORD_AUDIO` / mic permission; cry translator needs the WebM decision (PROGRESS.md) | 9 |
+| `whiteNoiseAudioProvider` | `features/tools/whitenoise/white_noise_audio.dart` | silent engine | `just_audio` (+ background audio / lock-screen controls, `UIBackgroundModes audio`, Android media FGS) | 9 |
+| `geolocationProvider` | `features/tools/media_common/media_ports.dart` | fails → weather shows Baku "location unavailable" | `geolocator` (coarse, 10 s) | 9 |
+| `photoSaverProvider` | `features/tools/media_common/media_ports.dart` | save fails (React error toast) | `gal` (save to gallery) | 9 |
+| `photoGalleryViewerProvider` | `features/tools/photoshoot/photo_gallery_viewer.dart` | stand-in viewer | `overlay.photo-gallery` port | 3 |
 | Individual tools (`registerTool`) | `features/tools/<tool>/` | shell placeholder | tool batches | 4 |
 | `ShellPlatform.logScreenView` | `shell/shell_inputs.dart` (`DefaultShellPlatform`) | no-op | analytics (Firebase, consent-gated) | 9 |
 | `notificationTapQueueProvider.deliver` / `clearQueued` callers | `shell/links/notification_taps.dart` | nothing delivers | FCM + local-notification tap listeners at boot | 9 |

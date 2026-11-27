@@ -22,6 +22,7 @@ import '../features/settings/register.dart';
 import '../features/startup/startup.dart';
 import '../features/support/register.dart';
 import '../features/tools/baby_tools.dart';
+import '../features/tools/media_tools.dart';
 import '../features/tools/pregnancy_tools.dart';
 import '../features/tools/register.dart';
 import '../shell/feature_registry.dart';
@@ -50,6 +51,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerSupportFeature(r);
   registerToolsFeature(r);
   registerBabyTools(r);
+  registerMediaTools(r);
   registerPregnancyTools(r);
 }
 
