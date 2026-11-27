@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ported from: android/app/src/main/res/values/styles.xml (Capacitor AppTheme.NoActionBarLaunch:
+     windowSplashScreenBackground = splashBackground, windowSplashScreenAnimatedIcon = splash_icon).
+     Android 12+ system splash with the platform attributes (no androidx core-splashscreen dependency). -->
+<resources>
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+        <item name="android:windowSplashScreenBackground">@color/splashBackground</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">@color/appBackground</item>
+    </style>
+</resources>

@@ -40,6 +40,12 @@ for (const s of A.shots) {
   diffs.push({ file: s.file, ...(await pixelDiff(s.file)) });
 }
 const compared = same + diffs.length;
+// Scrolled states (shot.scrolled, or the "-<n>" naming convention for older runs) are reported separately.
+const isScrolled = (file) => { const s = A.shots.find((x) => x.file === file); return s?.scrolled ?? /-\d+\.png$/.test(file); };
+const scrolledTotal = A.shots.filter((s) => mapB.has(s.file) && isScrolled(s.file)).length;
+const scrolledDiff = diffs.filter((d) => isScrolled(d.file)).length;
+const big = diffs.filter((d) => (d.ratio ?? 1) > 0.001).length;
 console.log(`${compared} shots compared: ${same} identical, ${diffs.length} different (${(100 * diffs.length / Math.max(1, compared)).toFixed(2)}% flake), ${missing.length} missing in ${b}`);
+console.log(`  unscrolled: ${compared - scrolledTotal - (diffs.length - scrolledDiff)}/${compared - scrolledTotal} identical; scrolled: ${scrolledTotal - scrolledDiff}/${scrolledTotal} identical; diffs > 0.1 % of pixels: ${big}`);
 for (const d of diffs) console.log(`  ${d.file}  ${d.changed ?? '?'} px (${((d.ratio ?? 0) * 100).toFixed(3)}%) bbox=${JSON.stringify(d.bbox)}`);
 if (jsonOut) writeFileSync(jsonOut, JSON.stringify({ a, b, compared, same, diffs, missing }, null, 2));

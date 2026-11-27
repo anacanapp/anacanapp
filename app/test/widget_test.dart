@@ -1,30 +1,44 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+// Ported from: src/main.tsx (smoke test of the native consumer entry; replaces the template counter test)
+import 'dart:async';
 
+import 'package:anacan/app/anacan_app.dart';
+import 'package:anacan/core/app_bootstrap.dart';
+import 'package:anacan/features/startup/startup.dart';
+import 'package:anacan/shell/shell.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 
-import 'package:anacan/main.dart';
+import 'app/app_test_support.dart';
+import 'support/i18n_fakes.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  setUp(() {
+    installTestI18n();
+    GateHost.brandSplashShown = false;
+  });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  testWidgets('cold start: splash first, then the routed app with the shell', (tester) async {
+    final startup = Completer<StartupResult>();
+    await tester.pumpWidget(AnacanApp(
+      createContainer: () => testAppContainer(),
+      runStartup: (_) => startup.future,
+      prepare: noPrepare,
+      watchAdmission: false,
+    ));
+    expect(find.byType(StartupScreen), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    startup.complete(fakeReady());
     await tester.pump();
+    await tester.pump();
+    expect(find.byType(MaterialApp), findsOneWidget);
+    expect(find.byType(SplashScreen), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump();
+    expect(find.byType(ShellScaffold), findsOneWidget);
+
+    await tester.pump(const Duration(seconds: 2));
+    await tester.pumpWidget(const SizedBox());
+    await tester.pump(const Duration(seconds: 2));
   });
 }

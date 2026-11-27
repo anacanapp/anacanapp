@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ported from: android/app/src/main/res/values/colors.xml (Capacitor app), capacitor.config.json backgroundColor -->
+<resources>
+    <!-- Launch screen background (Capacitor splashBackground). -->
+    <color name="splashBackground">#FAF7F4</color>
+    <!-- Window background behind the first Flutter frame (Capacitor appBackground). -->
+    <color name="appBackground">#FAF7F4</color>
+</resources>

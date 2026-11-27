@@ -23,7 +23,7 @@ export function trackRequests(page) {
 export function createHelpers(page, { outDir, cell, scenario, persona, recorder, results, log, net }) {
   const h = {
     page, persona, scenario, cell,
-    lang: cell.lang, theme: cell.theme, viewport: cell.viewport,
+    lang: cell.lang, theme: cell.theme, viewport: cell.viewport, scrolledTo: 0,
 
     /** Wait until the app is quiet: no fetch in flight for `quietMs`, fonts loaded, images decoded, no startup screen. */
     async ready({ timeout = 20000, quietMs = 700, allowStartup = false } = {}) {
@@ -70,7 +70,7 @@ export function createHelpers(page, { outDir, cell, scenario, persona, recorder,
       writeFileSync(file, buf);
       const sha256 = createHash('sha256').update(buf).digest('hex');
       results.push({ scenario: scenario.id, shot: name, persona: persona.name, viewport: cell.viewport, theme: cell.theme,
-        lang: cell.lang, file: rel, sha256, stable, unmocked: recorder.countFor(scenario.id, persona.name) });
+        lang: cell.lang, file: rel, sha256, stable, scrolled: h.scrolledTo > 0, unmocked: recorder.countFor(scenario.id, persona.name) });
       log(`  ✓ ${rel}${stable ? '' : ' (unstable frames)'}`);
       return rel;
     },
@@ -78,7 +78,13 @@ export function createHelpers(page, { outDir, cell, scenario, persona, recorder,
     /** Bottom tab bar (src/components/BottomNav.tsx: data-tour="tab-<id>"). */
     async tab(id) {
       await h.ready();
-      await page.locator(`[data-tour="tab-${id}"]`).first().click();
+      const tab = page.locator(`[data-tour="tab-${id}"]`).first();
+      // A tap during a screen change can be dropped: retry until the tab reports aria-current="page".
+      for (let i = 0; i < 5; i++) {
+        await tab.click();
+        try { await page.locator(`[data-tour="tab-${id}"][aria-current="page"]`).first().waitFor({ timeout: 3000 }); break; }
+        catch { if (i === 4) throw new ShotError(`tab ${id} did not activate`); }
+      }
       await h.ready();
     },
 
@@ -133,6 +139,7 @@ export function createHelpers(page, { outDir, cell, scenario, persona, recorder,
      *  scroll can grow the page (the first scrollTop was clamped) or shift it, so the scroll is re-applied until
      *  the position and the scroll height are both stable. */
     async scroll(y) {
+      h.scrolledTo = y;
       let last = null;
       for (let i = 0; i < 6; i++) {
         const now = await page.evaluate((top) => {

@@ -19,7 +19,7 @@ node tools/reference-shots/compare.mjs <runA> <runB>            # determinism / 
 
 Flags: `--scenario a,b,prefix*` `--persona p` `--lang az,ar` `--theme dark` `--viewport 360x800` `--run <name>`
 (default: timestamp) `--workers 4` `--dpr 3` `--retries 1` `--fonts auto|cached|fallback` `--platform native|web`
-`--chrome-flags default` (drop the determinism flags) `--verbose` (page errors).
+`--chrome-flags det` (extra raster flags, see Determinism) `--verbose` (page errors).
 
 Requirements: Node 22, the repo's `node_modules` (Vite), and a Playwright with installed Chromium. The harness
 prefers the globally provisioned Playwright (`require('playwright')` from `/`), falls back to the repo copy, or
@@ -82,8 +82,10 @@ shaper. Exact pixel equality is not achievable even for a perfect port:
 * **Determinism:** clock fixed with `context.clock.setFixedTime(2026-11-20T09:00:00+04:00)` (timers still run),
   timezone `Asia/Baku`, locale per language, seeded `Math.random`, `prefers-reduced-motion: reduce`, injected CSS
   zeroing animation/transition durations (end state, single iteration), hidden carets/scrollbars, Playwright
-  `animations:'disabled'`, service workers blocked, Chromium flags (`DETERMINISM_FLAGS` in `run.mjs`: sRGB, no LCD
-  text, no partial/threaded raster). A shot waits for: no request in flight for 700 ms (browser-level, includes lazy
+  `animations:'disabled'`, framer-motion's `MotionGlobalConfig.skipAnimations/instantAnimations` switched on by
+  appending one line to Vite's pre-bundled `framer-motion.js` as it is served (route interception, no source change),
+  `overflow-anchor:none`, service workers blocked, `--force-color-profile=srgb`. A tab tap is retried until the tab
+  reports `aria-current="page"`. A shot waits for: no request in flight for 700 ms (browser-level, includes lazy
   chunks), no startup screen, no visible spinner, fonts loaded, images decoded, then takes screenshots until two
   consecutive frames are identical.
 * **Seeded state** (`lib/page-setup.mjs`): the GoTrue session under `sb-api-auth-token`
@@ -201,8 +203,27 @@ stable), `sleep(ms)`. Scenario ids must be unique; keep `<persona short>.<area>.
 
 ## Determinism
 
-`compare.mjs` compares two runs by sha256 and counts changed pixels. Results on a subset (11 scenarios × 2 viewports
-× light/dark × az/ar, DPR 3): see the latest numbers in the report that introduced this harness and re-measure with
-`compare.mjs` after changes. Remaining differences are sub-pixel anti-aliasing on a few rounded controls/icons
-(≤ 120 px, < 0.01 % of a frame) and, before the scroll fix, 1 px shifts of scrolled states when content arrived
-after the first scroll. Treat a reference that differs between two clean runs as "noisy" and compare it loosely.
+`compare.mjs <runA> <runB>` compares two runs by sha256 and counts changed pixels (via `sharp`), split into
+unscrolled and scrolled shots (`index.json` marks shots taken after `h.scroll(y>0)` with `scrolled: true`).
+
+Measured (two clean runs each, DPR 3, same machine):
+
+| Subset | Unscrolled identical | Scrolled identical | Overall flake |
+|---|---|---|---|
+| 11 scenarios × 2 viewports × light/dark × az/ar (352 shots) | 279/288 | 60/64 | 3.7 % |
+| bump/mommy/flow tabs + settings + baby tracker, 2 vp × 2 themes × az/ar (240 shots) | 180/184 | 34/56 | 10.8 % |
+| bump/flow/mommy tabs, 2 vp × light × az/ar (108 shots) | 81/84 | 15/24 | 11.1 % |
+
+What still differs, and how to treat it:
+
+* **Unscrolled shots:** byte-identical except ≤ 0.01 % of pixels (≤ ~250 px at DPR 3) of anti-aliasing on a few
+  rounded controls, switch thumbs, gradient icons and small dots; visually identical. Ignore diffs below 0.1 %.
+* **Scrolled shots (`home-2`, `home-3`, `settings-2`):** cards in part of the frame are rendered with a sub-pixel
+  (≤ 1 px) vertical offset in some runs (0.1–3 % of pixels). The scroll is re-applied until position and scroll height
+  are stable and scroll anchoring is off; the remaining offset comes from fractional layout heights settling in a
+  different order. Compare scrolled references with layout tolerance (±1 px), or prefer the unscrolled shots and
+  element-level comparisons for the gate.
+* One real flake class was found and fixed: a tab tap during a screen change was dropped (63 % different frame);
+  `h.tab()` now retries until the tab is active.
+* Chromium raster flags (`--chrome-flags det`: no partial/threaded raster, no LCD text, single raster thread) were
+  measured and did **not** reduce the noise (93/108 vs 96/108 identical), so they are opt-in only.

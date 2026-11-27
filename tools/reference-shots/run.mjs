@@ -43,7 +43,7 @@ function parseArgs(argv) {
     theme: list(args.theme) || THEMES, viewport: list(args.viewport) || Object.keys(VIEWPORTS),
     run: args.run, workers: Number(args.workers), dpr: Number(args.dpr), fonts: args.fonts,
     listOnly: args.list === 'true', retries: Number(args.retries ?? 1), verbose: args.verbose === 'true',
-    port: args.port ? Number(args.port) : undefined, platform: args.platform, chromeFlags: args['chrome-flags'] || 'deterministic',
+    port: args.port ? Number(args.port) : undefined, platform: args.platform, chromeFlags: args['chrome-flags'] || 'default',
   };
 }
 
@@ -163,8 +163,8 @@ async function main() {
   const t0 = Date.now();
   const server = await startDevServer({ log, port: args.port });
   const { chromium } = loadPlaywright();
-  // Flags that remove known sources of raster nondeterminism (partial/threaded raster, checker-imaging, LCD text, colour profile).
-  const browser = await chromium.launch({ args: args.chromeFlags === 'default' ? [] : DETERMINISM_FLAGS });
+  // sRGB output always; `--chrome-flags det` adds the raster-determinism flags (measured: no improvement, see docs).
+  const browser = await chromium.launch({ args: args.chromeFlags === 'det' ? DETERMINISM_FLAGS : ['--force-color-profile=srgb'] });
   const ctx = { args, outDir, recorder, results, log, browserVersion: browser.version() };
   log(`${jobs.length} cells (${scenarios.length} scenarios) -> ${outDir}`);
 
