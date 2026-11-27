@@ -25,9 +25,10 @@ naviqasiya qabığı, tətbiq kökü, giriş axını, onboarding, paywall və al
 ana ekran (ortaq + hamiləlik + dövr + körpə), stories, təqvim, hesablama məntiqi (`app/lib/domain`), oyun mühərrikləri,
 körpü buraxılışı 53.0-ın ixrac kodu, Codemagic workflow-ları, istinad şəkilləri infrastrukturu (`tools/reference-shots`).
 
-Yarımçıq ola bilər: inteqrasiya keçidi (bütün funksiyaların `app/lib/app`-da qoşulması, qabığın sliver əsaslı scroll-u,
-deeplink çatdırılması). Davam etməzdən əvvəl `app/` içində `flutter analyze` və `flutter test` işə sal; uğursuz test varsa,
-ilk iş onları düzəltməkdir.
+İnteqrasiya tamamlanıb (2026-11-27): bütün hazır funksiyalar `app/lib/app`-da qoşulub, qabıq sliver əsaslıdır, deeplink
+çatdırılır. Son yoxlama: `flutter analyze` 0 problem, `flutter test` 2 344 keçdi, 18 ötürüldü, 0 uğursuz.
+Qoşulmamış interfeyslər: `docs/flutter/WIRING.md` (46 sətir). Native dəyişikliklər (manifest, Info.plist, MainActivity)
+heç vaxt kompilyasiya olunmayıb.
 
 Başlanmayıb (sıra ilə):
 1. Billing ekranı, moderasiya tarixçəsi, Recap ekranı, bildirişlər siyahısının qalan hissələri.
