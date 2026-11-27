@@ -336,7 +336,9 @@ class OfflineOutbox {
       _notify(userId, result.tables);
       return result;
     }();
-    final tracked = run.whenComplete(() => _inflight.remove(userId));
+    final tracked = run.whenComplete(() {
+      _inflight.remove(userId);
+    });
     _inflight[userId] = tracked;
     return tracked;
   }

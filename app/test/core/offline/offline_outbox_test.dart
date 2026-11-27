@@ -230,7 +230,7 @@ void main() {
       final client = SupabaseClient('https://backend.test', 'anon',
           httpClient: MockClient((request) async {
             seen = request;
-            return http.Response('{"id":"row"}', 201, headers: {'content-type': 'application/json'});
+            return http.Response('{"id":"row"}', 201, headers: {'content-type': 'application/json'}, request: request);
           }),
           authOptions: const AuthClientOptions(autoRefreshToken: false));
       final result = await SupabaseOutboxSender(client)('daily_logs', {'id': 'e', 'user_id': 'u1', 'log_date': '2026-11-26', 'mood': 2});
@@ -247,12 +247,12 @@ void main() {
             paths.add('${request.method} ${request.url.path}');
             if (request.url.path.endsWith('/rpc/increment_water_intake_v1')) {
               return http.Response('{"code":"PGRST202","message":"Could not find the function"}', 404,
-                  headers: {'content-type': 'application/json'});
+                  headers: {'content-type': 'application/json'}, request: request);
             }
             if (request.method == 'GET') {
-              return http.Response('[{"water_intake":19900}]', 200, headers: {'content-type': 'application/json'});
+              return http.Response('[{"water_intake":19900}]', 200, headers: {'content-type': 'application/json'}, request: request);
             }
-            return http.Response(jsonEncode(jsonDecode(request.body)), 201, headers: {'content-type': 'application/json'});
+            return http.Response(jsonEncode(jsonDecode(request.body)), 201, headers: {'content-type': 'application/json'}, request: request);
           }),
           authOptions: const AuthClientOptions(autoRefreshToken: false));
       final result = await SupabaseOutboxSender(client)
