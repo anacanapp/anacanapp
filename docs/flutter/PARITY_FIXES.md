@@ -16,3 +16,4 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Alış yoxlaması NaN qiyməti keçirir | `onboarding-billing.ts` `validatePaidPurchase` | saxlanıb, düzəldilməlidir |
 | Vitamin günləri mətn kimi sıralanır | `VitaminTracker` | saxlanıb, düzəldilməlidir |
 | Partnyora "su hədəfi" bildirişi praktiki olaraq heç vaxt getmir (stəkan sayı 2000 ilə müqayisə olunur) | `useDailyLogs` | saxlanıb, düzəldilməlidir |
+| İlk veb açılış ekranında ağ loqo krem fonda görünmür | `index.html` bootstrap splash | Flutter-də 96 px loqo ekranı göstərilir |
