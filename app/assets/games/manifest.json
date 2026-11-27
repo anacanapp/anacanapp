@@ -1,0 +1,54 @@
+{
+  "word_garden/az.json": {
+    "bytes": 394855,
+    "sha256": "15e90509468082bf179917d855d9e3efa7c973d274b31368e98f5a322439f044"
+  },
+  "word_garden/az-v2.json": {
+    "bytes": 344360,
+    "sha256": "4ee1a4ccd2dd8bc7753fe92096905a225605f56a599919d5b21e5e331da1cefb"
+  },
+  "word_garden/az-v1.json": {
+    "bytes": 341552,
+    "sha256": "acdab0987fb4dde5bf009746a69ba55fd465cc5f560cb0fdfb871508bf57d4ac"
+  },
+  "iki_dost/catalog.json": {
+    "bytes": 16414,
+    "sha256": "6ffc8074382e6947d81d963662fea8845206af7e4c34b1eea03e4029c31d76f8"
+  },
+  "parking/catalog.json": {
+    "bytes": 29995,
+    "sha256": "926ccdf5006e864a5e09a4d5ed2243f34ed75c35e9d901a6daabb2a48f19f1a6"
+  },
+  "color_sort/catalog.json": {
+    "bytes": 6624,
+    "sha256": "b598b0004563919418bc26d950b7e24b357ce2996ac85f182c524067a3adb222"
+  },
+  "word_garden/messages.json": {
+    "bytes": 6804,
+    "sha256": "a9a5fefc198701ec4f752f9f0d731df6f4dd06a07f7663e2dd1b509da0266c54"
+  },
+  "iki_dost/messages.json": {
+    "bytes": 65256,
+    "sha256": "b85b3c785b722d21cab457dd41b919da666dd8287dd903b9ca9c9c2d56c7c6d6"
+  },
+  "casual/messages.json": {
+    "bytes": 27996,
+    "sha256": "6aa403be59d5751f67fd1b540eb5fb7cd9d2261c9abba2dac9aaf280492ef688"
+  },
+  "color_sort/messages.json": {
+    "bytes": 43989,
+    "sha256": "e2faf09e44fdaae9c1a3a8bbef36d52667b63ab8f682a4a7fd1d5f855ad031bc"
+  },
+  "qabarciq/messages.json": {
+    "bytes": 37086,
+    "sha256": "4a3bd2eeafed53627b4508690d188012d7331520c617b69f7a00a00dd24043ac"
+  },
+  "birlesdir/tiles.json": {
+    "bytes": 713,
+    "sha256": "d6b774b25948c3e03bbfcf75c8783c5118d9a44f90f9b69627e17dfb94f4511b"
+  },
+  "saglam_sebet/items.json": {
+    "bytes": 879,
+    "sha256": "d29d30f1d53b09339eeca082d4837201eb6f1aea4799dc3a584f45513dd003a1"
+  }
+}

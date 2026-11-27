@@ -77,6 +77,14 @@ flutter:
     - assets/icons/remix/
     - assets/icons/sonner/
     - assets/i18n/
+    - assets/games/word_garden/
+    - assets/games/iki_dost/
+    - assets/games/parking/
+    - assets/games/casual/
+    - assets/games/color_sort/
+    - assets/games/qabarciq/
+    - assets/games/birlesdir/
+    - assets/games/saglam_sebet/
     - assets/images/
 
   # Bundled fonts (app/tool/design/fetch_fonts.sh). Weights = the ones the web app loads
