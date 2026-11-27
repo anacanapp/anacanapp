@@ -17,11 +17,19 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `chatTextBuilderProvider`, `chatPhotoViewerProvider` | `features/chat/` | link-aware text / basic viewer | community `CommentText`, `PhotoGalleryViewer` | 5 |
 | `chatAudioRecorderProvider` | `features/chat/` | unsupported (voice recording off; playback via video_player) | `record` package + mic permissions | 9 |
 | `chatIncomingNotifierProvider`, `chatPushSenderProvider` | `features/chat/` | no-op / direct `send-push-notification` | foreground notifications service, `svc.push` | 9 |
-| `aiMotherMealsProvider`, `aiWeightEntriesProvider`, `aiKickSessionsProvider` | `features/ai_chat/ai_chat_inputs.dart` | empty (AI context without meals / weight / kicks) | nutrition, weight, kick tools | 4 |
+| `aiMotherMealsProvider` | `features/ai_chat/ai_chat_inputs.dart` | empty (AI context without meals) | nutrition tool (`useMealLogs`) | 4 |
 | `aiAnswerCardProvider` | `features/ai_chat/ai_chat_inputs.dart` | null (no card under answers) | weaning / parenting tools | 4 |
 | `aiPartnerSourceProvider` | `features/ai_chat/ai_chat_inputs.dart` | no partner profile (Ata AI assumes pregnancy, nothing shared) | partner `usePartnerData` | 6 |
 | `babyChatNotificationPlannerProvider` | `features/baby_chat/baby_chat_notifications.dart` | no-op | central local-notification scheduler | 9 |
 | `toolsHubSlotsProvider` (bannerSlot, adSurface / adInlineAnchor `tools_banner`, aptekSearchResults, prefetchFirstAid) | `features/tools/hub/hub_inputs.dart` | nothing | banners / ads (9), Aptek (7), first-aid tool (4) | 4–9 |
+| `vaccineNotificationSchedulerProvider` | `features/tools/vaccines/vaccine_reminders.dart` | not native (no reminder switch) | central local-notification scheduler; app-start `useVaccineRemindersAtStart` (`VaccineReminders.refreshAll`) | 9 |
+| `solidFoodRecipesSlotProvider` | `features/tools/solid_food/solid_food_guide.dart` | opens Recipes without preselection | recipes tool (baby_food category / recipe) | 4 |
+| `babyAlbumOrderSlotProvider` | `features/tools/baby_album/baby_monthly_album.dart` | placeholder | shop (album order) | 7 |
+| Image compression (`compressImageForUpload`) | `features/tools/baby_album/image_compress.dart` | uploads the picker output (1600 px, q 82) | JPEG/WebP encoder package | 9 |
+| `pregnancyPartnerNotificationsProvider` (kick session, contraction started, 5-1-1) | `features/tools/pregnancy_common/pregnancy_ports.dart` | no-op | partner `usePartnerNotifications` | 6 |
+| `sosAlertPortProvider` (danger signs `sendSOS`) | `features/tools/pregnancy_common/pregnancy_ports.dart` | no partner (button hidden) | partner `useSOSAlert` | 6 |
+| `healthVitalsBackgroundSyncProvider` | `features/tools/pregnancy_common/pregnancy_ports.dart` | no-op | Health | 9 |
+| `pregnancyToolSlotsProvider` (`aptekBagCard`, `hospitalBagArticles`, `albumOrderScreen`, `babyNamesAd`) | `features/tools/pregnancy_common/pregnancy_ports.dart` | not shown | commerce / blog (7), ads (9) | 7 / 9 |
 | Individual tools (`registerTool`) | `features/tools/<tool>/` | shell placeholder | tool batches | 4 |
 | `ShellPlatform.logScreenView` | `shell/shell_inputs.dart` (`DefaultShellPlatform`) | no-op | analytics (Firebase, consent-gated) | 9 |
 | `notificationTapQueueProvider.deliver` / `clearQueued` callers | `shell/links/notification_taps.dart` | nothing delivers | FCM + local-notification tap listeners at boot | 9 |
@@ -50,7 +58,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `partnerFlowSnapshotProvider` | `features/home_flow/flow_platform.dart` | null | partner `usePartnerData` | 6 |
 | `liveTimerBridgeProvider` | `features/baby/live_timer/live_timer.dart` | no-op (web behaviour) | LiveActivity / timer FGS method channel | 9 |
 | `liveTimerIosFailureToastProvider` | `features/baby/live_timer/live_timer.dart` | null | a root toast handle (only fires once the bridge exists) | 9 |
-| `BabyCareServices.unlockAchievement` | `features/baby/hooks/baby_services.dart` | no-op | achievements | 4 |
 | `MommySlot.illnessActive`, `illnessEntry`, `weaningHome`, `weaningFeedingLink`, `parentingHome` | `features/home_mommy/mommy_home_slots.dart` | none | illness, weaning, parenting tools | 4 |
 | `MommySlot.booksCarousel`, `aptekHome`, `partnerHome` | `features/home_mommy/mommy_home_slots.dart` | none | books, Aptek, partner shop | 7 |
 | `profileSlotsProvider` (`bannerSlot`, `qaygiCashCard`, `pregnancyCard`, `partnerLinkForm`, `promoDialog`) | `features/profile/profile_interfaces.dart` | not shown | banners (9), QayğıCash (7), ProfilePregnancyCard (4), partner link (6), PromoCodeDialog (7) | 4–9 |

@@ -21,6 +21,12 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Ödəniş tarixçəsinin xətti `borderLeft` ilə çəkilir, RTL-də (ərəb) nöqtələrin əks tərəfində qalır | `BillingScreen.tsx` | Flutter-də xətt başlanğıc tərəfdədir |
 | Gecikmə banneri `/ai-chat?prompt=` ünvanına keçir, belə marşrut yoxdur (404) | `PeriodDelayBanner.tsx` | Flutter-də AI tabı sualla doldurulmuş açılır (göndərilmir) |
 | Körpə söhbətində 30 s saat çatdırılma ortasında yenidən başladırdı, açılış mesajı iki dəfə düşə bilirdi | `useBabyChat.ts` | Flutter-də bir dəfə çatdırılır |
+| Dekret kalkulyatoru: ata + atalıq qaydaları seçiləndə `benefitResult.dailySalary` oxunur, ekran çökür | `MaternityCalculator.tsx` | Flutter-də "Ödəniş Qaydaları" kartı göstərilir |
+| Döl inkişafı: yanlış skan tarixində həftə NaN olur, ekran çökür | `FetalGrowthTracker.tsx` | Flutter-də həftə və persentil "bilinmir" |
+| Təpik seanslarının vaxtı həmişə 24 saat formatındadır (React `toLocaleTimeString`) | `KickCounter` | fərq qalır (12 saatlıq dillərdə) |
+| Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
+| Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
+| Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
 | Söhbət siyahısında oxunmayan `last_message_at` tarixi `RangeError` atırdı | `ConversationListScreen.tsx` | Flutter-də boş vaxt göstərilir |
 | Mesajlar və partnyor söhbətində status bar boşluğu itir (`.a-topbar` `.safe-area-top`-u ləğv edir) | `MessagesScreen.tsx` | Flutter-də yuxarı boşluq var |
 | Oxunmamış mesaj sayına yalnız `discovery_language`-i tətbiq dilinə uyğun qruplar daxil olur | `useUnreadMessages.ts` | saxlanıb; sahibin qərarı gözlənilir |

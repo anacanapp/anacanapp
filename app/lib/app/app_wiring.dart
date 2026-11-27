@@ -21,6 +21,7 @@ import '../features/baby/hooks/baby_services.dart';
 import '../features/baby/hooks/use_children.dart' show childrenProvider;
 import '../features/baby/live_timer/live_timer.dart' show liveTimerNativeHooksProvider;
 import '../features/home/appointments/upcoming_appointments.dart';
+import '../features/ai_chat/ai_chat_inputs.dart' show aiKickSessionsProvider, aiWeightEntriesProvider;
 import '../features/ai_chat/register.dart' show aiChatFlowOpener;
 import '../features/baby_chat/register.dart' show babyChatCardSlot;
 import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
@@ -41,6 +42,9 @@ import '../features/onboarding/birth_onboarding_modal.dart' show showBirthOnboar
 import '../features/onboarding/onboarding_ports.dart' show onboardingPendingProvider;
 import '../features/onboarding/onboarding_tour_host.dart'
     show tourBlockedProvider, tourConsentDecidedProvider, tourRunningProvider, tourToolConfigsProvider;
+import '../features/tools/baby_tracker/achievements.dart' show achievementsActionsProvider;
+import '../features/tools/kick/kick_sessions.dart' show kickSessionsProvider;
+import '../features/tools/weight/weight_entries.dart' show weightEntriesProvider;
 import '../features/tools/tour_configs.dart' show toolsTourConfigsProvider;
 import '../features/premium/ad_free_premium_offer.dart' show AdFreePremiumOffer;
 import '../features/premium/premium_gates.dart' show PremiumBlurGate, PremiumGate;
@@ -126,6 +130,11 @@ List<Override> featureWiringOverrides() => [
         waterWidget: (context) => const WaterWidget(variant: WaterWidgetVariant.anacan),
         upcomingAppointments: (context) => const UpcomingAppointments(),
       )),
+      // AI request context: useWeightEntries().entries (newest first), useKickSessions().todaySessions.
+      aiWeightEntriesProvider.overrideWith((ref) => [
+            for (final e in ref.watch(weightEntriesProvider).entries) {'weight': e.weight, 'entry_date': e.entryDate},
+          ]),
+      aiKickSessionsProvider.overrideWith((ref) => [for (final s in ref.watch(kickSessionsProvider).todaySessions) s.toRow()]),
       // Period-delay banner → AI tab with the prompt in the input.
       flowOpenAiChatProvider.overrideWith(aiChatFlowOpener),
       flowAddAppointmentProvider.overrideWith((ref) => (row) async {
@@ -161,8 +170,8 @@ class _PremiumModalPrompt implements PremiumPrompt {
   Future<void> show(BuildContext context, {String? feature}) => showPremiumModal(context, feature: feature);
 }
 
-/// Baby care: Flutter haptics (lib/native.ts hapticFeedback), `useSubscription().peekRemainingDaily`; achievements
-/// are not ported (no-op, as the default).
+/// Baby care: Flutter haptics (lib/native.ts hapticFeedback), `useSubscription().peekRemainingDaily`,
+/// `useAchievements().unlockAchievement` (tools/baby_tracker/achievements.dart).
 class _BabyCareServices extends DefaultBabyCareServices {
   _BabyCareServices(this._ref);
   final Ref _ref;
@@ -171,6 +180,11 @@ class _BabyCareServices extends DefaultBabyCareServices {
   Future<({num remaining, num limit})> peekRemainingDaily(String feature) async {
     final peek = await _ref.read(subscriptionUsageProvider).peekRemainingDaily(feature);
     return (remaining: peek.remaining, limit: peek.limit);
+  }
+
+  @override
+  Future<void> unlockAchievement(String key, String stage) async {
+    await _ref.read(achievementsActionsProvider).unlockAchievement(key, stage);
   }
 }
 

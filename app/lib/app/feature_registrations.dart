@@ -21,6 +21,8 @@ import '../features/security/register.dart';
 import '../features/settings/register.dart';
 import '../features/startup/startup.dart';
 import '../features/support/register.dart';
+import '../features/tools/baby_tools.dart';
+import '../features/tools/pregnancy_tools.dart';
 import '../features/tools/register.dart';
 import '../shell/feature_registry.dart';
 
@@ -47,6 +49,8 @@ void registerAllFeatures(FeatureRegistry r) {
   registerStartupFeature(r);
   registerSupportFeature(r);
   registerToolsFeature(r);
+  registerBabyTools(r);
+  registerPregnancyTools(r);
 }
 
 /// The registry the app root installs (`featureRegistryProvider`).
