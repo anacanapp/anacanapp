@@ -22,6 +22,7 @@ import '../features/baby/hooks/use_children.dart' show childrenProvider;
 import '../features/baby/live_timer/live_timer.dart' show liveTimerNativeHooksProvider;
 import '../features/home/appointments/upcoming_appointments.dart';
 import '../features/home/dashboard/medical_disclaimer.dart' show homeEmergencyNumberProvider;
+import '../features/home/dashboard/recap_home_card.dart' show recapHomeYearQuery;
 import '../features/home/dashboard/water_widget.dart';
 import '../features/home/data/appointments.dart' show appointmentsApiProvider;
 import '../features/home/home_inputs.dart';
@@ -40,6 +41,7 @@ import '../features/premium/ad_free_premium_offer.dart' show AdFreePremiumOffer;
 import '../features/premium/premium_gates.dart' show PremiumBlurGate, PremiumGate;
 import '../features/premium/premium_modal.dart' show showPremiumModal;
 import '../features/profile/profile_interfaces.dart';
+import '../features/recap/use_recap.dart' show RecapHomeYearNotifier, recapProfileRowFromRecapProvider;
 import '../features/security/app_lock.dart' show biometricAuthProvider;
 import '../features/security/register.dart' show onboardingTourActiveProvider;
 import '../features/security/screen_capture_guard.dart' show screenshotGuardPlatformProvider;
@@ -90,6 +92,10 @@ List<Override> featureWiringOverrides() => [
             onPromptStart: () => ref.read(screenshotGuardPlatformProvider).setCurtainSuspended(true),
             onPromptEnd: () => ref.read(screenshotGuardPlatformProvider).setCurtainSuspended(false),
           )),
+
+      // ── recap: one `useRecap` for the home card and the profile row ─────────────────────────────────────
+      recapProfileRowProvider.overrideWith((ref) => ref.watch(recapProfileRowFromRecapProvider)),
+      recapHomeYearQuery.overrideWith(RecapHomeYearNotifier.new),
 
       // ── home (shared dashboard) ───────────────────────────────────────────────────────────────────────────
       homeSelectedChildProvider.overrideWith((ref) => ref.watch(childrenProvider.select((v) => v.selectedChild))?.toRow()),

@@ -108,6 +108,8 @@ flutter:
     - assets/images/entry/onboarding/
     - assets/images/profile/
     - assets/images/profile/flags/
+    - assets/images/recap/
+    - assets/recap/
 
   # Bundled fonts (app/tool/design/fetch_fonts.sh). Weights = the ones the web app loads
   # (src/index.css Google Fonts @import, src/lib/rtl.ts @fontsource imports).
@@ -159,3 +161,34 @@ flutter:
           weight: 700
         - asset: assets/fonts/noto_sans_arabic/NotoSansArabic-ExtraBold.ttf
           weight: 800
+    # Anacan Recap canvas fonts (src/lib/recap/fonts.ts). Plus Jakarta Sans: static instances of the OFL variable
+    # font (google/fonts); Switzer: the woff2 files the app already ships (public/recap/fonts) converted to TTF;
+    # Noto Sans / Noto Naskh Arabic: public/fonts.
+    - family: Plus Jakarta Sans
+      fonts:
+        - asset: assets/fonts/recap/PlusJakartaSans-400.ttf
+          weight: 400
+        - asset: assets/fonts/recap/PlusJakartaSans-600.ttf
+          weight: 600
+        - asset: assets/fonts/recap/PlusJakartaSans-800.ttf
+          weight: 800
+    - family: Switzer
+      fonts:
+        - asset: assets/fonts/recap/Switzer-400.ttf
+          weight: 400
+        - asset: assets/fonts/recap/Switzer-500.ttf
+          weight: 500
+        - asset: assets/fonts/recap/Switzer-700.ttf
+          weight: 700
+    - family: Recap Noto Sans
+      fonts:
+        - asset: assets/fonts/recap/NotoSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/recap/NotoSans-Bold.ttf
+          weight: 700
+    - family: Recap Noto Naskh Arabic
+      fonts:
+        - asset: assets/fonts/recap/NotoNaskhArabic-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/recap/NotoNaskhArabic-Bold.ttf
+          weight: 700

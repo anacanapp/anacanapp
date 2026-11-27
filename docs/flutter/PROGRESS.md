@@ -17,6 +17,7 @@ Heç nə cihazda işlədilməyib və heç bir Codemagic yığımı aparılmayıb
 | Oyun mühərrikləri (8 oyun) | hazır; UI yoxdur | `test/features/games` daxilində |
 | Abunəliyim (Billing) + ləğv səbəbi dialoqu, anacan.az abunəliyi (`web-premium`) | hazır, qeydiyyatdan keçib; React istinad şəkli ilə hələ tutuşdurulmayıb | 20 test (`test/features/billing`) |
 | Moderasiya tarixçəsi + şikayət, 25 dilli moderator mətnləri (generator `app/tool/moderation`) | hazır, qeydiyyatdan keçib | 7 test (`test/features/moderation`) |
+| Recap (kətan renderi React-ın çəkmə əmrləri ilə ±0.002 eyni, şəkil paylaşımı, fontlar və musiqi faylı paketdə) | hazır; musiqi səsi və video ixracı 9-cu mərhələdə | 65 test (`test/features/recap`) |
 | İlk açılış pəncərələri (kilid təklifi, kilid quraşdırma, avtomatik rəy) turu gözlədir | hazır | 1 test (`test/state`) |
 | Alətlər, icma, çat/AI, partnyor, ticarət, bloq, oyun UI, native tamamlama | başlanmayıb | qalan interfeyslər: `docs/flutter/WIRING.md` |
 | İstinad ekran şəkilləri | hazır | `docs/flutter/REFERENCE_SHOTS.md` |

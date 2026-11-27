@@ -19,4 +19,6 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | İlk veb açılış ekranında ağ loqo krem fonda görünmür | `index.html` bootstrap splash | Flutter-də 96 px loqo ekranı göstərilir |
 | Ödəniş tarixçəsində yenilənmələr heç vaxt görünmür: kod plaqinin CustomerInfo-da olmayan `allPurchaseDatesByProduct` açarını oxuyur | `BillingScreen.tsx` `fetchPaymentHistory` | Flutter-də SDK-nın `allPurchaseDates` sahəsi oxunur |
 | Ödəniş tarixçəsinin xətti `borderLeft` ilə çəkilir, RTL-də (ərəb) nöqtələrin əks tərəfində qalır | `BillingScreen.tsx` | Flutter-də xətt başlanğıc tərəfdədir |
+| Recap kətanı en `max-width: 100%`-ə çatanda uzanır (hündürlük 100% qalır), 9:16 nisbəti pozulur | `RecapScreen.tsx` | Flutter-də nisbət saxlanır |
+| Recap böyümə səhnəsində barlardan sonra `globalAlpha = 1` səhnədən çıxış solmasını ləğv edir | `lib/recap/render.ts` `drawGrowth` | saxlanıb |
 | Qeydiyyatda moderator şəbəkə məhdudiyyəti xətası moderator mətni ilə göstərilmirdi (Flutter-də qarmaq qoşulmamışdı) | `AuthScreen.tsx` → `moderatorError` | Flutter-də `registerModerationFeature` qoşur |

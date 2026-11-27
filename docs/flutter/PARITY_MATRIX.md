@@ -55,7 +55,7 @@ Static content that becomes assets (not in the LOC above): ≈ 532 000 lines of 
 |---|---|---|
 | `core.index-machine` | 1 091 | Gate order, swipe/back stacks, push/deeplink intents, scroll memory: everything routes through it (`SERVICES.md` §1, §6). |
 | `core.auth-context` + `core.session` + `core.admission` | 1 488 | Byte-compatible session backup, tombstone, adoption receipt, admission pin; offline open. A mistake logs users out or splits realms. |
-| `screen.recap` | 3 324 | Canvas renderer (`lib/recap/render.ts` 1 447), fonts, audio, video/image export → `CustomPainter` + encoder. |
+| `screen.recap` | 3 324 | ported (tests; no device; video export + music: phase 9) |
 | `tool.parenting` | 3 303 | 23-language content registry + overrides, programmes, reminders, partner share links, deeplinks. |
 | `home.dashboard` | 2 791 | One 2 127-line component for bump + mommy with timers, outbox toasts, ~40 child blocks. |
 | `screen.blog` | 2 117 | HTML/markdown rendering, editorial sections, share, SEO, link host overlay. |

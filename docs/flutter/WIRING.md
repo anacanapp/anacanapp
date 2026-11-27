@@ -32,7 +32,8 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `HomeSlots.booksHomeCard`, `aptekHomeCard`, `partnerHomeCard` | `features/home/home_slots.dart` | none | books, Aptek, partner shop | 7 |
 | `homeWidgetBridgeProvider`, `homeWidgetsSyncProvider` | `features/home/home_slots.dart`, `features/settings/widget_settings_screen.dart` | no-op | AnacanWidgets native bridge (home-screen widgets) | 9 |
 | `homeBlogPostsProvider` | `features/home/dashboard/recent_blog_posts.dart` | stand-in query | blog `useBlog` (country filter, editorial localisation) | 7 |
-| `recapHomeYearQuery` (own key), `recapProfileRowProvider` | `features/home/dashboard/recap_home_card.dart`, `features/profile/profile_interfaces.dart` | own query / null | recap feature `useRecap` / `useRecapProfileRow` | 4 |
+| `recapAudioFactoryProvider` | `features/recap/recap_audio.dart` | silent | `just_audio` playing `assets/recap/recap-2026.mp3` (package not in pubspec yet) | 9 |
+| `recapVideoEncoderProvider` | `features/recap/recap_export.dart` | "not supported" (image share only, React's no-MediaRecorder branch) | native H.264 encoder (AVAssetWriter / MediaCodec + MediaMuxer) with the mp3 | 9 |
 | `homeWaterGoalNotifierProvider` | `features/home/data/daily_logs.dart` | no-op | partner notification | 6 |
 | `storyExporterProvider` | `features/stories/story_viewer.dart` | fails ("Alınmadı") | story image export / share | 5 |
 | `cycleHealthWriterProvider` | `features/home_flow/flow_platform.dart` | no-op | HealthKit / Health Connect cycle bridge | 9 |

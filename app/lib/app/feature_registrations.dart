@@ -13,6 +13,7 @@ import '../features/moderation/register.dart';
 import '../features/onboarding/register.dart';
 import '../features/premium/register.dart';
 import '../features/profile/register.dart';
+import '../features/recap/register.dart';
 import '../features/security/register.dart';
 import '../features/settings/register.dart';
 import '../features/startup/startup.dart';
@@ -33,6 +34,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerOnboardingFeature(r);
   registerPremiumFeature(r);
   registerProfileFeature(r);
+  registerRecapFeature(r);
   registerSecurityFeature(r);
   registerSettingsFeature(r);
   registerStartupFeature(r);
