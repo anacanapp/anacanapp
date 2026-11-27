@@ -20,6 +20,7 @@ Heç nə cihazda işlədilməyib və heç bir Codemagic yığımı aparılmayıb
 | Recap (kətan renderi React-ın çəkmə əmrləri ilə ±0.002 eyni, şəkil paylaşımı, fontlar və musiqi faylı paketdə) | hazır; musiqi səsi və video ixracı 9-cu mərhələdə | 65 test (`test/features/recap`) |
 | Alətlər mərkəzi (ToolsHub), alət dəsti (ToolKit), dinamik alət/konfiq/məzmun məlumatları | hazır; ayrı-ayrı alətlər dəstələrlə gedir | 52 test (`test/features/tools`) |
 | Mesajlar, partnyor söhbəti, söhbət ekranı (media, səsli mesaj oxuma), stikerlər, DM | hazır; səs yazma 9-cu mərhələdə (`record`) | 88 test (`test/features/chat`) |
+| AI tabı (qadın + partnyor, `dr-anacan-chat` axını, Dayandır), AI razılıq qapısı, körpə söhbəti + ana ekran kartı | hazır; canlı axın yalnız saxta HTTP ilə yoxlanıb | 93 test (`test/features/ai_chat`, `baby_chat`) |
 | İlk açılış pəncərələri (kilid təklifi, kilid quraşdırma, avtomatik rəy) turu gözlədir | hazır | 1 test (`test/state`) |
 | Alətlər, icma, çat/AI, partnyor, ticarət, bloq, oyun UI, native tamamlama | başlanmayıb | qalan interfeyslər: `docs/flutter/WIRING.md` |
 | İstinad ekran şəkilləri | hazır | `docs/flutter/REFERENCE_SHOTS.md` |
@@ -29,6 +30,8 @@ Cəmi (2026-11-27, Windows, Recap qovluğu xaric): `flutter test` 2 372 keçdi, 
 Golden-lər Linux-da çəkilib. `app/test/flutter_test_config.dart` Linux-dan başqa hostlarda (Codemagic `mac_mini_m2`, Windows)
 piksel fərqini xəbərdarlıq kimi çap edir, testi yıxmır; render xətaları yenə yıxır. Ciddi yoxlama: Linux və ya
 `ANACAN_STRICT_GOLDENS=1`. Bu olmasaydı, Codemagic-də `flutter test` 138 golden-də düşəcəkdi.
+Bu sessiyada Windows-da yaradılan yeni golden-lər (`test/features/ai_chat/goldens`, `test/features/baby_chat/goldens`
+və sonrakı alt-agentlərinkilər) Linux-da `--update-goldens` ilə yenidən çəkilməlidir.
 
 ## Açıq qərarlar (cavab gələnə qədər mötərizədəki variant)
 

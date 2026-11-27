@@ -17,12 +17,17 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `chatTextBuilderProvider`, `chatPhotoViewerProvider` | `features/chat/` | link-aware text / basic viewer | community `CommentText`, `PhotoGalleryViewer` | 5 |
 | `chatAudioRecorderProvider` | `features/chat/` | unsupported (voice recording off; playback via video_player) | `record` package + mic permissions | 9 |
 | `chatIncomingNotifierProvider`, `chatPushSenderProvider` | `features/chat/` | no-op / direct `send-push-notification` | foreground notifications service, `svc.push` | 9 |
+| `aiMotherMealsProvider`, `aiWeightEntriesProvider`, `aiKickSessionsProvider` | `features/ai_chat/ai_chat_inputs.dart` | empty (AI context without meals / weight / kicks) | nutrition, weight, kick tools | 4 |
+| `aiAnswerCardProvider` | `features/ai_chat/ai_chat_inputs.dart` | null (no card under answers) | weaning / parenting tools | 4 |
+| `aiPartnerSourceProvider` | `features/ai_chat/ai_chat_inputs.dart` | no partner profile (Ata AI assumes pregnancy, nothing shared) | partner `usePartnerData` | 6 |
+| `babyChatNotificationPlannerProvider` | `features/baby_chat/baby_chat_notifications.dart` | no-op | central local-notification scheduler | 9 |
+| `toolsHubSlotsProvider` (bannerSlot, adSurface / adInlineAnchor `tools_banner`, aptekSearchResults, prefetchFirstAid) | `features/tools/hub/hub_inputs.dart` | nothing | banners / ads (9), Aptek (7), first-aid tool (4) | 4–9 |
+| Individual tools (`registerTool`) | `features/tools/<tool>/` | shell placeholder | tool batches | 4 |
 | `ShellPlatform.logScreenView` | `shell/shell_inputs.dart` (`DefaultShellPlatform`) | no-op | analytics (Firebase, consent-gated) | 9 |
 | `notificationTapQueueProvider.deliver` / `clearQueued` callers | `shell/links/notification_taps.dart` | nothing delivers | FCM + local-notification tap listeners at boot | 9 |
 | `analyticsSinkProvider` | `native/purchases/purchases_providers.dart` | `NoopAnalyticsSink` | analytics | 9 |
 | `storyEventLoggerProvider` | `features/stories/story_viewer.dart` | no-op | analytics | 9 |
 | `notificationPermissionProvider`, `pushGrantedCallbackProvider` | `features/onboarding/onboarding_ports.dart` | unsupported / no-op | Firebase Messaging permission + device-token registration | 9 |
-| `tourToolConfigsProvider(stage)` | `features/onboarding/onboarding_tour_host.dart` | null (tour waits) | Tools hub configs minus disabled tools | 4 |
 | `tourBlockedProvider` (lock offer / lock setup / feedback sheet parts) | `features/onboarding/onboarding_tour_host.dart` | wired to the article overlay only | a shared "first-run sheet open" flag from security / support | 3 |
 | Privacy consent writer (`PrivacyConsentSheet`, `setPrivacyConsent`, `applyPrivacyConsent`, Preferences copy of the key) | `core/data/privacy_consent.dart` is read-only | undecided unless migrated | consent feature (sheet + Firebase/Meta/TikTok consent) | 9 |
 | `privacySlotsProvider` (ConsentSettings, ConsentControls) | `features/settings/privacy_screen.dart` | not shown | consent feature | 9 |
@@ -31,7 +36,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `HomeSlots.bannerSlot`, `adInlineAnchor` | `features/home/home_slots.dart` | none | banners / ads (`BannerSlot`, `AdInlineAnchor`, Index `AdSurface home_banner`) | 9 |
 | `HomeSlots.partnerCareCard`, `dailySummaryAutoSync` | `features/home/home_slots.dart` | none | partner | 6 |
 | `HomeSlots.recoveryHome` | `features/home/home_slots.dart` | none | pregnancy-loss `RecoveryHome` | 4 |
-| `HomeSlots.babyChatCard` | `features/home/home_slots.dart` | none | baby chat (AI) | 5 |
 | `HomeSlots.booksHomeCard`, `aptekHomeCard`, `partnerHomeCard` | `features/home/home_slots.dart` | none | books, Aptek, partner shop | 7 |
 | `homeWidgetBridgeProvider`, `homeWidgetsSyncProvider` | `features/home/home_slots.dart`, `features/settings/widget_settings_screen.dart` | no-op | AnacanWidgets native bridge (home-screen widgets) | 9 |
 | `homeBlogPostsProvider` | `features/home/dashboard/recent_blog_posts.dart` | stand-in query | blog `useBlog` (country filter, editorial localisation) | 7 |
@@ -43,7 +47,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `healthPluginBridgeProvider`, `healthCyclePluginProvider`, `healthVitalsPluginProvider` | `features/settings/data/health_service.dart` | unavailable | native Health plugins | 9 |
 | `flowNotificationPlannerProvider`, `timerNotificationSchedulerProvider`, `reminderSchedulerProvider` | `features/home_flow/flow_platform.dart`, `features/baby/live_timer/live_timer.dart`, `features/settings/data/preferences.dart` | not native / no-op | central local-notification scheduler | 9 |
 | `FlowHomeSlots.partnerHomeCard` | `features/home_flow/flow_platform.dart` | none | partner shop | 7 |
-| `flowOpenAiChatProvider` | `features/home_flow/flow_platform.dart` | no-op | AI tab with a prompt | 5 |
 | `partnerFlowSnapshotProvider` | `features/home_flow/flow_platform.dart` | null | partner `usePartnerData` | 6 |
 | `liveTimerBridgeProvider` | `features/baby/live_timer/live_timer.dart` | no-op (web behaviour) | LiveActivity / timer FGS method channel | 9 |
 | `liveTimerIosFailureToastProvider` | `features/baby/live_timer/live_timer.dart` | null | a root toast handle (only fires once the bridge exists) | 9 |
@@ -58,7 +61,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `screenshotGuardPlatformProvider` | `features/security/screen_capture_guard.dart` | no-op | ScreenshotGuard native plugin (FLAG_SECURE / secure surface, capture events) | 9 |
 | `dashboardCaptureAllowedProvider` | `features/security/screen_capture_guard.dart` | false (protected everywhere) | shell: main dashboard visible and no dialog route open (needs a navigator observer); meaningful only with the platform above | 9 |
 | Games UI (hub, 8 games) | `features/games/` (engines only) | not registered | games feature | 8 |
-| Tools hub and tools (`registerTool`) | — | placeholder | tools feature | 4 |
 
 Count by phase: 3 → 3, 4 → 7, 5 → 6, 6 → 5, 7 → 9, 8 → 1, 9 → 19 (rows spanning several phases counted under
 each phase they name in the last column; the profile slots row once, as "4–9").
@@ -67,6 +69,7 @@ each phase they name in the last column; the profile slots row once, as "4–9")
 
 | What | Where | Why it stays |
 |---|---|---|
+| `chat-media` helpers | `features/chat/data/chat_media.dart` and `features/ai_chat/chat_media.dart` (different APIs) | ported in parallel; to merge into the chat one |
 | `MedicalDisclaimer` widget | `features/home/dashboard/medical_disclaimer.dart` and `features/legal/medical_disclaimer.dart` | the emergency-number source is one (`homeEmergencyNumberProvider` ← legal's `emergencyNumberProvider`); the two widgets render different variants (home: `anacan` / `inline`, legal: banner / compact / inline / anacan) with their own goldens — merging changes markup |
 | `usePeriodDayLogs` query providers | `features/home_flow/data/flow_hooks.dart` (`periodDayLogsQuery`) and `features/home_mommy/period/mommy_period.dart` (`mommyPeriodDayLogsQuery`) | same key `['period-day-logs', uid, null, null]` and the same row type, so they share one cache entry; the data access is now one (`mommyPeriodSourceProvider` ← flow's repository) |
 | Flow labels read `app_settings` directly | `features/home_flow/data/flow_repository.dart` `upcomingLabels()` | ported as React's FlowPeriodCalendar does it (table read, not `useAppSetting`) |

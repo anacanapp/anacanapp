@@ -21,6 +21,8 @@ import '../features/baby/hooks/baby_services.dart';
 import '../features/baby/hooks/use_children.dart' show childrenProvider;
 import '../features/baby/live_timer/live_timer.dart' show liveTimerNativeHooksProvider;
 import '../features/home/appointments/upcoming_appointments.dart';
+import '../features/ai_chat/register.dart' show aiChatFlowOpener;
+import '../features/baby_chat/register.dart' show babyChatCardSlot;
 import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
 import '../features/home/dashboard/medical_disclaimer.dart' show homeEmergencyNumberProvider;
 import '../features/home/dashboard/recap_home_card.dart' show recapHomeYearQuery;
@@ -111,6 +113,7 @@ List<Override> featureWiringOverrides() => [
       homeSlotsProvider.overrideWithValue(HomeSlots(
         adFreeOffer: (context, position) => AdFreePremiumOffer(position: position),
         childSelectorCompact: buildMommyTopBarAction,
+        babyChatCard: babyChatCardSlot,
         showBirthOnboarding: (context) async {
           var done = false;
           await showBirthOnboardingModal(context, onComplete: () => done = true);
@@ -123,6 +126,8 @@ List<Override> featureWiringOverrides() => [
         waterWidget: (context) => const WaterWidget(variant: WaterWidgetVariant.anacan),
         upcomingAppointments: (context) => const UpcomingAppointments(),
       )),
+      // Period-delay banner → AI tab with the prompt in the input.
+      flowOpenAiChatProvider.overrideWith(aiChatFlowOpener),
       flowAddAppointmentProvider.overrideWith((ref) => (row) async {
             await ref.read(appointmentsApiProvider).add(row);
           }),
