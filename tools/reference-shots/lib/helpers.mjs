@@ -94,12 +94,17 @@ export function createHelpers(page, { outDir, cell, scenario, persona, recorder,
           return;
         }
         log(`  · tile tool-${id} not visible, using deeplink`);
+        // ToolsHub reads initialTool only when it mounts: leave the Tools tab first.
+        await h.tab('home');
       }
       await h.deeplink('tool', { tool_id: id });
     },
 
     /** In-app deeplink (src/pages/Index.tsx handleDeeplink): action tab|tool|screen|messages|user-profile|community-post. */
     async deeplink(action, params) {
+      // The listener lives in the shell (src/pages/Index.tsx); wait until the tab bar is mounted.
+      await page.locator('[data-tour^="tab-"]').first().waitFor({ timeout: 30000 });
+      await h.ready();
       await page.evaluate(([a, p]) => window.dispatchEvent(new CustomEvent('anacan:deeplink', { detail: { action: a, params: p } })), [action, params]);
       await sleep(50);
       await h.ready();

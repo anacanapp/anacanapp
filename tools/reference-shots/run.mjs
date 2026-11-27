@@ -26,7 +26,7 @@ export const LANGS = ['az', 'en', 'ru', 'ar'];
 const LOCALES = { az: 'az-AZ', en: 'en-US', ru: 'ru-RU', ar: 'ar' };
 
 function parseArgs(argv) {
-  const args = { workers: 4, dpr: 3, fonts: 'auto' };
+  const args = { workers: 4, dpr: 3, fonts: 'auto', platform: 'native' };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (!a.startsWith('--')) continue;
@@ -40,7 +40,7 @@ function parseArgs(argv) {
     theme: list(args.theme) || THEMES, viewport: list(args.viewport) || Object.keys(VIEWPORTS),
     run: args.run, workers: Number(args.workers), dpr: Number(args.dpr), fonts: args.fonts,
     listOnly: args.list === 'true', retries: Number(args.retries ?? 1), verbose: args.verbose === 'true',
-    port: args.port ? Number(args.port) : undefined,
+    port: args.port ? Number(args.port) : undefined, platform: args.platform,
   };
 }
 
@@ -97,10 +97,12 @@ async function runCell(browser, origin, { scenario, persona, cell }, ctx) {
     viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: ctx.args.dpr, isMobile: true, hasTouch: true,
     userAgent: vp.userAgent, colorScheme: cell.theme, reducedMotion: 'reduce', locale: LOCALES[cell.lang],
     timezoneId: 'Asia/Baku', serviceWorkers: 'block',
+    // An established user has allowed notifications; otherwise the web fallback shows a permission toast.
+    permissions: persona.signedIn ? ['notifications'] : [],
   });
   const fixtureCtx = makeContext(persona, nowMs);
   const mock = new MockBackend({ persona, ctx: fixtureCtx, session, user, recorder: ctx.recorder, scenarioId: scenario.id });
-  await setupContext(context, { persona, lang: cell.lang, theme: cell.theme, nowMs, session });
+  await setupContext(context, { persona, lang: cell.lang, theme: cell.theme, nowMs, session, platform: ctx.args.platform === 'web' ? 'web' : vp.platform });
   await installNetwork(context, mock, { appOrigin: origin, fontMode: ctx.args.fonts });
   const page = await context.newPage();
   const consoleErrors = [];

@@ -26,7 +26,11 @@ export function harnessEnv() {
     // Third-party SDKs stay unconfigured (they no-op without keys).
     VITE_FIREBASE_API_KEY: '', VITE_FIREBASE_APP_ID: '', VITE_FIREBASE_MEASUREMENT_ID: '', VITE_FIREBASE_AUTH_DOMAIN: '',
     VITE_FIREBASE_PROJECT_ID: '', VITE_FIREBASE_STORAGE_BUCKET: '', VITE_FIREBASE_MESSAGING_SENDER_ID: '',
-    VITE_CUSTOMERIO_ENABLED: 'false', VITE_AZURE_REVENUECAT_ENABLED: 'false',
+    VITE_CUSTOMERIO_ENABLED: 'false',
+    // Feature flags as in the store build's Codemagic group (docs/CODEMAGIC.md), so the auth screen offers
+    // Google/Apple sign-in and partner pairing exactly like the shipped app.
+    VITE_AZURE_PARTNER_PAIRING: 'true', VITE_AZURE_GOOGLE_OAUTH_ENABLED: 'true', VITE_AZURE_APPLE_OAUTH_ENABLED: 'true',
+    VITE_AZURE_REVENUECAT_ENABLED: 'true',
     VITE_ADMOB_IOS_APP_ID: '', VITE_ADMOB_ANDROID_APP_ID: '',
     BROWSER: 'none',
   };

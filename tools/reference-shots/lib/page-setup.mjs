@@ -81,7 +81,7 @@ export function buildLocalStorage(persona, { lang, theme, session, nowMs }) {
 }
 
 /** Runs in the page before any app script, on every navigation of the context. */
-function initScript({ storage, seed }) {
+function initScript({ storage, seed, platform }) {
   // Seed storage once per tab; reloads triggered by the app (language switch) keep in-app writes.
   try {
     if (!sessionStorage.getItem('__refshots_seeded')) {
@@ -90,6 +90,10 @@ function initScript({ storage, seed }) {
       sessionStorage.setItem('__refshots_seeded', '1');
     }
   } catch { /* storage blocked */ }
+  // Present the page to @capacitor/core as the native app (Capacitor.isNativePlatform() === true, getPlatform()
+  // === 'ios' | 'android'). Plugin calls then fall back to each plugin's web implementation, or reject with
+  // "not implemented" for native-only plugins (AdMob, RevenueCat, push), which the app already tolerates.
+  if (platform && platform !== 'web') window.CapacitorCustomPlatform = { name: platform, plugins: {} };
   // Deterministic Math.random (mulberry32).
   let s = seed >>> 0;
   Math.random = function random() {
@@ -124,8 +128,8 @@ function initScript({ storage, seed }) {
   };
 }
 
-export async function setupContext(context, { persona, lang, theme, nowMs, session }) {
+export async function setupContext(context, { persona, lang, theme, nowMs, session, platform }) {
   await context.clock.setFixedTime(new Date(nowMs));
   const storage = buildLocalStorage(persona, { lang, theme, session, nowMs });
-  await context.addInitScript(initScript, { storage, seed: 20261120 });
+  await context.addInitScript(initScript, { storage, seed: 20261120, platform });
 }
