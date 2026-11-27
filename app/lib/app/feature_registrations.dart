@@ -5,6 +5,7 @@
 // registered renders the shell's placeholder.
 import '../features/entry/entry_feature.dart';
 import '../features/home/register_home.dart';
+import '../features/home_flow/home_flow.dart';
 import '../features/startup/startup.dart';
 import '../shell/feature_registry.dart';
 
@@ -30,6 +31,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerEntryFeature(r);
   // registerGamesFeature(r);
   registerHomeFeature(r);
+  registerHomeFlowFeature(r);
   // registerOnboardingFeature(r);
   // registerPartnerFeature(r);
   // registerPremiumFeature(r);

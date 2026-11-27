@@ -5,7 +5,7 @@
 // delete from the edit dialog (window.confirm → a confirm dialog). Without children: an "add child" pill.
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:material_ui/material_ui.dart' show showDatePicker, Material, MaterialType, TextField, InputDecoration;
+import 'package:material_ui/material_ui.dart' show showDatePicker, Material, MaterialType;
 
 import '../../../core/i18n/language_controller.dart';
 import '../../../core/i18n/tr.dart';
@@ -293,8 +293,10 @@ class _Dropdown extends StatelessWidget {
                     child: Row(children: [
                       AIcon(AIcons.plus, size: 16, color: s.primary),
                       const SizedBox(width: 8),
-                      Text(tr('childselector_yeni_usaq_elave_et_bb2a07', 'Yeni uşaq əlavə et'),
-                          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14, height: 1.43, color: s.primary)),
+                      Flexible(
+                        child: Text(tr('childselector_yeni_usaq_elave_et_bb2a07', 'Yeni uşaq əlavə et'),
+                            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14, height: 1.43, color: s.primary)),
+                      ),
                     ]),
                   ),
                 ),
@@ -456,11 +458,13 @@ class _ChildFormDialog extends StatefulWidget {
 
 class _ChildFormDialogState extends State<_ChildFormDialog> {
   late final _name = TextEditingController(text: widget.initial.name);
+  final _nameFocus = FocusNode();
   late String _birth = widget.initial.birthDate;
   late String _gender = widget.initial.gender;
 
   @override
   void dispose() {
+    _nameFocus.dispose();
     _name.dispose();
     super.dispose();
   }
@@ -499,16 +503,19 @@ class _ChildFormDialogState extends State<_ChildFormDialog> {
           const SizedBox(height: 16),
           Text(tr('childselector_label_name', 'Ad'), style: label),
           const SizedBox(height: 0),
-          field(TextField(
-            key: const ValueKey('child-form-name'),
-            controller: _name,
-            style: TextStyle(fontSize: 16, color: s.foreground),
-            cursorColor: s.primary,
-            decoration: InputDecoration.collapsed(
-              hintText: widget.namePlaceholder,
-              hintStyle: TextStyle(fontSize: 16, color: s.mutedForeground),
+          field(Stack(children: [
+            if (_name.text.isEmpty && widget.namePlaceholder != null)
+              Text(widget.namePlaceholder!, style: TextStyle(fontSize: 16, color: s.mutedForeground)),
+            EditableText(
+              key: const ValueKey('child-form-name'),
+              controller: _name,
+              focusNode: _nameFocus,
+              onChanged: (_) => setState(() {}),
+              style: TextStyle(fontSize: 16, color: s.foreground),
+              cursorColor: s.primary,
+              backgroundCursorColor: s.muted,
             ),
-          )),
+          ])),
           const SizedBox(height: 16),
           Text(tr('childselector_dogum_tarixi_d96907', 'Doğum tarixi'), style: label),
           GestureDetector(

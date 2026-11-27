@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/auth/auth_providers.dart';
 import '../../core/i18n/language_controller.dart';
 import '../../design/design.dart';
+import '../home_mommy/widgets/mommy_ui.dart' show upper;
 import 'recovery.dart';
 
 class RecoveryHomeCard extends ConsumerWidget {
@@ -55,7 +56,7 @@ class RecoveryHomeCard extends ConsumerWidget {
               const SizedBox(width: 12),
               Expanded(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text((text['title'] as String).toUpperCase(),
+                  Text(upper(text['title'] as String, language),
                       style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800, letterSpacing: em(0.07, 11), color: t.inkSoft, height: 1.5)),
                   Text(title, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: t.ink, height: 1.5)),
                   Text(desc, style: TextStyle(fontSize: 13, height: 1.45, color: t.inkSoft)),

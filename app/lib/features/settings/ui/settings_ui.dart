@@ -81,7 +81,7 @@ class AEyebrow extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.only(bottom: 2),
-        child: Text(text.toUpperCase(), style: px(11, weight: FontWeight.w700, color: context.a.onBgSoft, ls: 0.1)),
+        child: Text(cssUpper(text), style: px(11, weight: FontWeight.w700, color: context.a.onBgSoft, ls: 0.1)),
       );
 }
 
@@ -853,3 +853,10 @@ class _AInputState extends State<AInput> {
 
 /// `.a-today-info-eyebrow` (10.5/800, 0.1em, upper-case, `--a-ink-soft`).
 TextStyle todayInfoEyebrow(BuildContext context) => px(10.5, weight: FontWeight.w800, color: context.a.inkSoft, ls: 0.1);
+
+/// CSS `text-transform: uppercase` under `<html lang>`: Azerbaijani / Turkish dotted i → İ, dotless ı → I.
+String cssUpper(String text, [String? language]) {
+  final lang = language ?? currentLanguage();
+  if (lang == 'az' || lang == 'tr') return text.replaceAll('i', 'İ').replaceAll('ı', 'I').toUpperCase();
+  return text.toUpperCase();
+}

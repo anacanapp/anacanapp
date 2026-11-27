@@ -9,7 +9,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
-import '../../core/auth/auth.dart';
 import '../../design/design.dart';
 import '../../native/purchases/purchases.dart';
 import '../../state/persisted_store.dart';
@@ -43,7 +42,7 @@ class AdFreePremiumOffer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userId = ref.watch(authUserProvider.select((u) => u?.id));
+    final userId = ref.watch(purchasesUserIdProvider);
     final backend = ref.watch(backendUrlProvider);
     final lifeStage = ref.watch(userStoreProvider.select((s) => s.lifeStage));
     final scope = userId != null ? adFreeOfferScope(backend, userId) : null;

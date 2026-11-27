@@ -240,7 +240,7 @@ class _FlowDailyLoggerState extends ConsumerState<FlowDailyLogger> {
                 child: Column(children: [
                   top,
                   const SizedBox(height: 4),
-                  Text(text, textAlign: TextAlign.center, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w500, color: selected ? selFg : null)),
+                  Text(text, textAlign: TextAlign.center, style: TextStyle(fontSize: 10, height: 1.5, fontWeight: FontWeight.w500, color: selected ? selFg : null)),
                 ]),
               ),
             ),

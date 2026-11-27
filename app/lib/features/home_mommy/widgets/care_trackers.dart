@@ -323,7 +323,7 @@ class MommyCareTrackersState extends ConsumerState<MommyCareTrackers> {
               child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Padding(padding: const EdgeInsets.only(top: 3), child: APulseDot(color: t.peach2)),
                 const SizedBox(width: 9),
-                Text('${tr('dashboard_sleep_ongoing', 'Yuxu davam edir')}: '),
+                Flexible(child: Text('${tr('dashboard_sleep_ongoing', 'Yuxu davam edir')}: ')),
                 ElapsedTime(id: sleepTimer.id),
               ]),
             ),
@@ -483,7 +483,7 @@ class MommyCareTrackersState extends ConsumerState<MommyCareTrackers> {
                 child: DefaultTextStyle.merge(
                   style: x.aListTitle,
                   child: Row(children: [
-                    Text('${leftTimer != null ? tr('dashboard_left_breast', 'Sol sinə') : tr('dashboard_right_breast', 'Sağ sinə')}: '),
+                    Flexible(child: Text('${leftTimer != null ? tr('dashboard_left_breast', 'Sol sinə') : tr('dashboard_right_breast', 'Sağ sinə')}: ')),
                     ElapsedTime(id: (leftTimer ?? rightTimer)!.id),
                   ]),
                 ),

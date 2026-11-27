@@ -5,11 +5,11 @@
 //
 // Small CSS-class widgets shared by the mommy home sections. Only classes that the design package does not
 // already provide live here (ACard / AListRow / AListIcon / AButton / ASection come from design/).
-import 'package:material_ui/material_ui.dart' show TextField, InputDecoration, InputBorder, OutlineInputBorder, TextInputType;
 import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
+import '../../../core/i18n/tr.dart' show currentLanguage;
 import '../../../design/design.dart';
 
 /// `.a-fade-in`: 460 ms `ease`, opacity 0 → 1 and translateY(10px) → 0 (`animation-fill-mode: both`).
@@ -226,6 +226,7 @@ class AInsetPanel extends StatelessWidget {
 }
 
 /// `.a-input` (flex 1; padding 10/14; radius 12; 1px line-strong; focus border peach-2; 13px).
+/// Built on [EditableText] (no Material dependency).
 class AInput extends StatefulWidget {
   const AInput({super.key, required this.controller, this.placeholder, this.number = false, this.onChanged, this.decimal = false});
   final TextEditingController controller;
@@ -239,28 +240,53 @@ class AInput extends StatefulWidget {
 }
 
 class _AInputState extends State<AInput> {
+  final _focus = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _focus.addListener(_changed);
+    widget.controller.addListener(_changed);
+  }
+
+  void _changed() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_changed);
+    _focus.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = context.a;
-    OutlineInputBorder border(Color c) => OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide(color: c));
-    return TextField(
-      controller: widget.controller,
-      onChanged: widget.onChanged,
-      keyboardType: widget.number ? TextInputType.numberWithOptions(decimal: widget.decimal) : TextInputType.text,
-      inputFormatters: widget.number ? [FilteringTextInputFormatter.allow(RegExp(widget.decimal ? r'[0-9.,]' : r'[0-9]'))] : null,
-      style: TextStyle(fontSize: 13, color: t.ink, height: 1.2),
-      cursorColor: t.peach2,
-      decoration: InputDecoration(
-        isDense: true,
-        filled: true,
-        fillColor: t.surface,
-        hintText: widget.placeholder,
-        hintStyle: TextStyle(fontSize: 13, color: t.inkFaint),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-        border: border(t.lineStrong),
-        enabledBorder: border(t.lineStrong),
-        focusedBorder: border(t.peach2),
-        disabledBorder: InputBorder.none,
+    final style = TextStyle(fontSize: 13, color: t.ink, height: 1.5);
+    return GestureDetector(
+      onTap: _focus.requestFocus,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        decoration: BoxDecoration(
+          color: t.surface,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: _focus.hasFocus ? t.peach2 : t.lineStrong),
+        ),
+        child: Stack(children: [
+          if (widget.controller.text.isEmpty && widget.placeholder != null)
+            Text(widget.placeholder!, maxLines: 1, overflow: TextOverflow.clip, style: style.copyWith(color: t.inkFaint)),
+          EditableText(
+            controller: widget.controller,
+            focusNode: _focus,
+            style: style,
+            cursorColor: t.peach2,
+            backgroundCursorColor: t.inkFaint,
+            onChanged: widget.onChanged,
+            keyboardType: widget.number ? TextInputType.numberWithOptions(decimal: widget.decimal) : TextInputType.text,
+            inputFormatters: widget.number ? [FilteringTextInputFormatter.allow(RegExp(widget.decimal ? r'[0-9.,]' : r'[0-9]'))] : null,
+          ),
+        ]),
       ),
     );
   }
@@ -618,5 +644,10 @@ class _APulseDotState extends State<APulseDot> with SingleTickerProviderStateMix
       );
 }
 
-/// Uppercase helper for `text-transform: uppercase`.
-String upper(String s) => s.toUpperCase();
+/// `text-transform: uppercase` with the document language (`<html lang>`): Azerbaijani / Turkish dotted
+/// i → İ (the web renders "AYLİN", "GÜNDƏLİK").
+String upper(String s, [String? language]) {
+  final lang = language ?? currentLanguage();
+  final src = lang == 'az' || lang == 'tr' ? s.replaceAll('i', 'İ') : s;
+  return src.toUpperCase();
+}

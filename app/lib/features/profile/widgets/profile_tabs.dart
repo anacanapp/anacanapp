@@ -40,7 +40,7 @@ class ProfileRows extends StatelessWidget {
         if (title != null)
           Padding(
             padding: const EdgeInsets.fromLTRB(4, 4, 4, 8),
-            child: Text(title!.toUpperCase(), style: px(12, weight: FontWeight.w800, color: a.inkSoft, ls: 0.06)),
+            child: Text(cssUpper(title!), style: px(12, weight: FontWeight.w800, color: a.inkSoft, ls: 0.06)),
           ),
         ACard(
           variant: ACardVariant.list,

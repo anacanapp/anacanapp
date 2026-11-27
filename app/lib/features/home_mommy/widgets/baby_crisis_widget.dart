@@ -408,7 +408,7 @@ class _TimelineItem extends StatelessWidget {
                     ),
                     DefaultTextStyle.merge(
                       style: TextStyle(fontSize: 12, height: 1.33, color: s.mutedForeground),
-                      child: Row(children: [
+                      child: Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
                         AIcon(AIcons.clock, size: 12, color: s.mutedForeground),
                         const SizedBox(width: 8),
                         Text(_weeksRange(crisis)),

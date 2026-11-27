@@ -507,8 +507,18 @@ final healthAvailabilityQuery = queryProvider<bool>((ref) {
   return QueryOptions<bool>(queryKey: const ['health-available'], enabled: s.readsSupported(), staleTime: const Duration(seconds: 60), queryFn: (_) => s.isHealthAvailable());
 });
 
-final healthReadAccessQuery = queryProviderFamily<HealthReadAccess?, bool>((ref, connected) {
+/// The screen's `connected` state (`useState(isHealthConnected())`), shared with the read queries.
+class HealthConnected extends Notifier<bool> {
+  @override
+  bool build() => ref.watch(healthServiceProvider).isHealthConnected();
+  void set(bool v) => state = v;
+}
+
+final healthConnectedProvider = NotifierProvider<HealthConnected, bool>(HealthConnected.new);
+
+final healthReadAccessQuery = queryProvider<HealthReadAccess?>((ref) {
   final s = ref.watch(healthServiceProvider);
+  final connected = ref.watch(healthConnectedProvider);
   return QueryOptions<HealthReadAccess?>(
     queryKey: const ['health-read-access'],
     enabled: s.readsSupported() && connected,
@@ -521,8 +531,9 @@ final healthReadAccessQuery = queryProviderFamily<HealthReadAccess?, bool>((ref,
 
 typedef HealthDaily = ({List<DailyHealthSample> steps, List<DailyHealthSample> mindfulness});
 
-final healthDailyQuery = queryProviderFamily<HealthDaily, ({int days, bool connected})>((ref, arg) {
+final healthDailyQuery = queryProviderFamily<HealthDaily, int>((ref, days) {
   final s = ref.watch(healthServiceProvider);
+  final arg = (days: days, connected: ref.watch(healthConnectedProvider));
   return QueryOptions<HealthDaily>(
     queryKey: ['health-daily', arg.days],
     enabled: s.readsSupported() && arg.connected,
@@ -537,8 +548,9 @@ final healthDailyQuery = queryProviderFamily<HealthDaily, ({int days, bool conne
   );
 });
 
-final healthWorkoutsQuery = queryProviderFamily<List<HealthWorkout>, ({int days, bool connected})>((ref, arg) {
+final healthWorkoutsQuery = queryProviderFamily<List<HealthWorkout>, int>((ref, days) {
   final s = ref.watch(healthServiceProvider);
+  final arg = (days: days, connected: ref.watch(healthConnectedProvider));
   return QueryOptions<List<HealthWorkout>>(
     queryKey: ['health-workouts', arg.days],
     enabled: s.readsSupported() && arg.connected,

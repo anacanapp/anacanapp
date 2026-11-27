@@ -155,7 +155,7 @@ class _WidgetSettingsScreenState extends ConsumerState<WidgetSettingsScreen> {
                         const SizedBox(width: 12),
                         Expanded(
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-                            Text(t('settings_eyebrow').toUpperCase(), style: px(11, weight: FontWeight.w800, color: a.inkSoft, ls: 0.07)),
+                            Text(cssUpper(t('settings_eyebrow')), style: px(11, weight: FontWeight.w800, color: a.inkSoft, ls: 0.07)),
                             Text(t('settings_title'), style: px(21, weight: FontWeight.w800, color: a.ink, ls: -0.02, height: 1.2)),
                           ]),
                         ),
@@ -166,7 +166,7 @@ class _WidgetSettingsScreenState extends ConsumerState<WidgetSettingsScreen> {
                       padding: const EdgeInsets.all(16),
                       decoration: cxCard(grad: LinearGradient(begin: const Alignment(-0.34, -0.94), end: const Alignment(0.34, 0.94), colors: <Color>[a.surface, a.surfaceSoft])),
                       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: <Widget>[
-                        Padding(padding: const EdgeInsets.only(bottom: 10), child: Text(t('preview').toUpperCase(), style: px(11, weight: FontWeight.w800, color: a.inkSoft, ls: 0.07))),
+                        Padding(padding: const EdgeInsets.only(bottom: 10), child: Text(cssUpper(t('preview')), style: px(11, weight: FontWeight.w800, color: a.inkSoft, ls: 0.07))),
                         FadeRise(
                           key: ValueKey<String>(_size),
                           dy: 0,
@@ -204,7 +204,7 @@ class _WidgetSettingsScreenState extends ConsumerState<WidgetSettingsScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(4, 22, 4, 8),
-                      child: Text(t('show_title').toUpperCase(), style: px(12, weight: FontWeight.w800, color: a.inkSoft, ls: 0.05)),
+                      child: Text(cssUpper(t('show_title')), style: px(12, weight: FontWeight.w800, color: a.inkSoft, ls: 0.05)),
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),

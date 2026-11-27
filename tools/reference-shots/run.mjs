@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Reference screenshots of the React/Capacitor consumer app for the Flutter parity port.
 // Usage: node tools/reference-shots/run.mjs [--scenario a,b] [--persona p] [--lang az,en] [--theme light]
-//        [--viewport 390x844] [--run name] [--workers 4] [--dpr 3] [--fonts auto|cached|fallback] [--list]
+//        [--viewport 390x844] [--run name] [--resume] [--workers 4] [--dpr 3] [--fonts auto|cached|fallback] [--list]
 // See docs/flutter/REFERENCE_SHOTS.md.
 import { createRequire } from 'node:module';
 import { existsSync, mkdirSync, readdirSync, writeFileSync, readFileSync } from 'node:fs';
@@ -42,7 +42,7 @@ function parseArgs(argv) {
     scenario: list(args.scenario), persona: list(args.persona), lang: list(args.lang) || LANGS,
     theme: list(args.theme) || THEMES, viewport: list(args.viewport) || Object.keys(VIEWPORTS),
     run: args.run, workers: Number(args.workers), dpr: Number(args.dpr), fonts: args.fonts,
-    listOnly: args.list === 'true', retries: Number(args.retries ?? 1), verbose: args.verbose === 'true',
+    listOnly: args.list === 'true', resume: args.resume === 'true', retries: Number(args.retries ?? 1), verbose: args.verbose === 'true',
     port: args.port ? Number(args.port) : undefined, platform: args.platform, chromeFlags: args['chrome-flags'] || 'default',
   };
 }
@@ -168,6 +168,17 @@ async function main() {
   const ctx = { args, outDir, recorder, results, log, browserVersion: browser.version() };
   log(`${jobs.length} cells (${scenarios.length} scenarios) -> ${outDir}`);
 
+  const cellsDir = join(outDir, '.cells');
+  mkdirSync(cellsDir, { recursive: true });
+  const cellKey = (job) => `${job.scenario.id}@${job.cell.viewport}.${job.cell.theme}.${job.cell.lang}`;
+  if (args.resume) {
+    const before = jobs.length;
+    for (let i = jobs.length - 1; i >= 0; i--) {
+      const file = join(cellsDir, cellKey(jobs[i]) + '.json');
+      if (existsSync(file)) { results.push(...JSON.parse(readFileSync(file, 'utf8'))); jobs.splice(i, 1); }
+    }
+    log(`resume: ${before - jobs.length} cells already captured, ${jobs.length} to go`);
+  }
   let next = 0, done = 0;
   const worker = async () => {
     while (next < jobs.length) {
@@ -177,7 +188,12 @@ async function main() {
       for (let attempt = 0; attempt <= args.retries; attempt++) {
         const local = []; // shots of this attempt only; kept when the cell succeeds
         res = await runCell(browser, server.origin, { ...job, persona: persona(job.scenario.persona) }, { ...ctx, results: local });
-        if (res.ok) { results.push(...local); break; }
+        if (res.ok) {
+          results.push(...local);
+          // Per-cell record so an interrupted run can continue with --resume (same --run name).
+          writeFileSync(join(cellsDir, cellKey(job) + '.json'), JSON.stringify(local));
+          break;
+        }
         log(`  ✗ ${label}: ${res.error}${attempt < args.retries ? ' (retrying)' : ''}`);
       }
       done++;

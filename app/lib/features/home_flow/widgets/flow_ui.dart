@@ -51,7 +51,7 @@ class _AFadeInState extends State<AFadeIn> with SingleTickerProviderStateMixin {
         child: widget.child,
         builder: (context, child) {
           final t = _ease.transform(_c.value);
-          if (t >= 1) return child!;
+          // Same tree shape at every frame (a swap would remount the subtree and restart nested entries).
           return Opacity(opacity: t, child: Transform.translate(offset: Offset(0, 10 * (1 - t)), child: child));
         },
       );
@@ -106,7 +106,6 @@ class _FramerEnterState extends State<FramerEnter> with TickerProviderStateMixin
         builder: (context, child) {
           final o = ACurves.framerDefault.transform(_o.value.clamp(0.0, 1.0));
           final k = widget.fadeOnly ? 0.0 : _y.value;
-          if (o >= 1 && k.abs() < 1e-3) return child!;
           return Opacity(
               opacity: o, child: Transform.translate(offset: Offset(rtlXOf(context, widget.dx) * k, widget.dy * k), child: child));
         },

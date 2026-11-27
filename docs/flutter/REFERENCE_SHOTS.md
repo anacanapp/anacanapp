@@ -7,8 +7,9 @@ Flutter golden/integration screenshots are compared against these files. Harness
 ## Run it
 
 ```bash
-# whole matrix: 45 scenarios × 2 viewports × 2 themes × 4 languages (720 cells, ~3,100 PNGs; ~100 min on 4 cores)
+# whole matrix: 45 scenarios × 2 viewports × 2 themes × 4 languages (720 cells, 1,248 PNGs; ~65 min on 4 cores)
 node tools/reference-shots/run.mjs --run full
+node tools/reference-shots/run.mjs --run full --resume   # continue an interrupted run (per-cell records in out/<run>/.cells/)
 
 # one screen, quickly (≈20 s including dev-server start)
 node tools/reference-shots/run.mjs --scenario bump.tool.kick --viewport 390x844 --theme light --lang az --dpr 1

@@ -326,7 +326,7 @@ class SettingsSectionCard extends StatelessWidget {
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 14, 16, 4),
-          child: Text(title.toUpperCase(), style: px(10.5, weight: FontWeight.w800, color: a.inkSoft, ls: 0.08)),
+          child: Text(cssUpper(title), style: px(10.5, weight: FontWeight.w800, color: a.inkSoft, ls: 0.08)),
         ),
         ...children,
       ]),

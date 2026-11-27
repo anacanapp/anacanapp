@@ -216,7 +216,7 @@ class PartnerProfileScreen extends ConsumerWidget {
                       const SizedBox(width: 12),
                       Expanded(
                         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-                          Text(feature37Text('pp_connected_with').toUpperCase(), style: px(10.5, weight: FontWeight.w800, color: a.inkFaint, ls: 0.06)),
+                          Text(cssUpper(feature37Text('pp_connected_with')), style: px(10.5, weight: FontWeight.w800, color: a.inkFaint, ls: 0.06)),
                           Text(d.partnerName!, maxLines: 1, overflow: TextOverflow.ellipsis, style: px(15, weight: FontWeight.w900, color: a.ink)),
                           Text(stageLine, maxLines: 1, overflow: TextOverflow.ellipsis, style: px(11.5, color: a.inkSoft)),
                         ]),

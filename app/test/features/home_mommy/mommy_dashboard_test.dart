@@ -12,11 +12,15 @@ import 'package:flutter/widgets.dart' hide FocusManager;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../design/harness.dart';
 import 'support/mommy_fixture.dart';
 import 'support/mommy_harness.dart';
 
 void main() {
-  setUpAll(ensureDateLocales);
+  setUpAll(() async {
+    await ensureDateLocales();
+    await loadAnacanFonts();
+  });
   late MommyHarness h;
   setUp(() {
     resetChildrenSeedGuard();
@@ -39,6 +43,8 @@ void main() {
   }
 
   Future<void> tap(WidgetTester tester, Finder f) async {
+    // Let earlier toasts (5 s, top of the screen) go so they do not cover the target.
+    await tester.pump(const Duration(seconds: 6));
     await tester.ensureVisible(f);
     await tester.pump();
     await tester.tap(f);
@@ -85,8 +91,6 @@ void main() {
     expect(running.single.childName, 'Aylin', reason: 'two children: the name goes to the lock screen');
     expect(find.text('Yuxu başladı! 😴'), findsOneWidget);
     expect(find.textContaining('Yuxu davam edir'), findsOneWidget);
-    h.nowMs -= 25 * 60 * 1000; // pretend it started 25 minutes earlier
-    container.read(timerStoreProvider.notifier).rehydrate();
     await tap(tester, find.byKey(const ValueKey('sleep-toggle')));
     await tester.pump(const Duration(milliseconds: 200));
     expect(container.read(timerStoreProvider).activeTimers, isEmpty);
@@ -152,7 +156,7 @@ void main() {
 
   testWidgets('crisis widget: active crisis at 27 weeks, hidden after week 75', (tester) async {
     await pumpHome(tester);
-    expect(find.text('AKTIV KRIZ DÖVRÜ'), findsOneWidget);
+    expect(find.text('AKTİV KRİZ DÖVRÜ'), findsOneWidget);
     expect(find.text('Məsafələr'), findsOneWidget);
     expect(find.text('+1'), findsOneWidget);
     await h.finish(tester);
@@ -225,7 +229,7 @@ void main() {
   testWidgets('premature child: corrected age line and the Preemie entry', (tester) async {
     h.repo.children = [childRow('c1', name: 'Aylin', birth: '2026-08-01', due: '2026-09-26')];
     await pumpHome(tester);
-    expect(find.text('KORREKSIYA OLUNMUŞ YAŞ:'), findsOneWidget);
+    expect(find.text('KORREKSİYA OLUNMUŞ YAŞ:'), findsOneWidget);
     expect(find.text('Preemie Bələdçisi'), findsOneWidget);
     await h.finish(tester);
   });

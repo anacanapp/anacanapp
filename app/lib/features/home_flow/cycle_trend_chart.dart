@@ -72,7 +72,7 @@ class CycleTrendChart extends ConsumerWidget {
                           reservedSize: 28,
                           interval: 7.5,
                           getTitlesWidget: (v, meta) => _yTicks.contains(v)
-                              ? SideTitleWidget(meta: meta, space: 8, child: Text(num(v), style: tick))
+                              ? SideTitleWidget(meta: meta, space: 8, child: Text(num(v), maxLines: 1, softWrap: false, overflow: TextOverflow.visible, style: tick))
                               : const SizedBox.shrink(),
                         ),
                       ),

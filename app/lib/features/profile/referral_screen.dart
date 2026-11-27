@@ -132,7 +132,7 @@ class _ReferralScreenState extends ConsumerState<ReferralScreen> {
                         const SizedBox(width: 12),
                         Expanded(
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-                            Text(tr('ref_eyebrow', 'Referral proqramı').toUpperCase(), style: todayInfoEyebrow(context)),
+                            Text(cssUpper(tr('ref_eyebrow', 'Referral proqramı')), style: todayInfoEyebrow(context)),
                             Text(tr('ref_title', 'Dostunu dəvət et'), style: px(20, weight: FontWeight.w700, color: a.ink, ls: -0.02)),
                           ]),
                         ),
@@ -240,7 +240,7 @@ class _ReferralScreenState extends ConsumerState<ReferralScreen> {
                                   decoration: BoxDecoration(color: a.peach1, shape: BoxShape.circle),
                                   child: referred[i].avatarUrl != null
                                       ? SizedBox.expand(child: avatar(referred[i].avatarUrl!))
-                                      : Text(referred[i].name.isEmpty ? '' : referred[i].name.characters.first.toUpperCase(), style: px(12, weight: FontWeight.w800, color: a.accentInk)),
+                                      : Text(cssUpper(referred[i].name.isEmpty ? '' : referred[i].name.characters.first), style: px(12, weight: FontWeight.w800, color: a.accentInk)),
                                 ),
                                 const SizedBox(width: 13),
                                 Expanded(
@@ -293,7 +293,7 @@ class _ReferralScreenState extends ConsumerState<ReferralScreen> {
                               child: Row(children: <Widget>[
                                 AIcon(AIcons.ticket, size: 12, color: a.inkSoft),
                                 const SizedBox(width: 6),
-                                Text(tr('ref_have_code', 'Dəvət kodun var?').toUpperCase(), style: todayInfoEyebrow(context)),
+                                Text(cssUpper(tr('ref_have_code', 'Dəvət kodun var?')), style: todayInfoEyebrow(context)),
                               ]),
                             ),
                             Row(children: <Widget>[

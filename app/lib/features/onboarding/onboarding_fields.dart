@@ -357,6 +357,10 @@ class OnbDateField extends StatelessWidget {
   final String? max;
   final bool disabled;
 
+  /// Test seam replacing the platform date picker.
+  @visibleForTesting
+  static Future<DateTime?> Function(BuildContext context, DateTime initial, DateTime first, DateTime last)? debugPick;
+
   static DateTime? _parse(String? v) {
     final day = v == null ? null : calendarDay(v);
     if (day == null) return null;
@@ -370,7 +374,9 @@ class OnbDateField extends StatelessWidget {
     var initial = _parse(value) ?? last;
     if (initial.isBefore(first)) initial = first;
     if (initial.isAfter(last)) initial = last;
-    final picked = await showDatePicker(context: context, initialDate: initial, firstDate: first, lastDate: last);
+    final picked = debugPick != null
+        ? await debugPick!(context, initial, first, last)
+        : await showDatePicker(context: context, initialDate: initial, firstDate: first, lastDate: last);
     if (picked != null) onChange(todayCalendarDate(picked));
   }
 

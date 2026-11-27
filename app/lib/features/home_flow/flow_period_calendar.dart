@@ -149,11 +149,12 @@ class _FlowPeriodCalendarState extends ConsumerState<FlowPeriodCalendar> {
       Widget cell = Container(
         decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(12)),
         alignment: Alignment.center,
-        child: Stack(clipBehavior: Clip.none, alignment: Alignment.center, children: [
-          Text('${day.day}', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, height: 16 / 12, color: fg)),
-          if (isLogged) Positioned(bottom: 2, child: _dot(6, dotColor)),
-          if (spotting) Positioned(bottom: 2, child: _dot(6, TwColors.blue400)),
-          if (predicted && !isLogged) Positioned(bottom: 2, child: _dot(4, dk(context, TwColors.red300, TwColors.red600))),
+        child: Stack(clipBehavior: Clip.none, fit: StackFit.expand, children: [
+          Center(child: Text('${day.day}', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, height: 16 / 12, color: fg))),
+          if (isLogged) Positioned(left: 0, right: 0, bottom: 2, child: Center(child: _dot(6, dotColor))),
+          if (spotting) Positioned(left: 0, right: 0, bottom: 2, child: Center(child: _dot(6, TwColors.blue400))),
+          if (predicted && !isLogged)
+            Positioned(left: 0, right: 0, bottom: 2, child: Center(child: _dot(4, dk(context, TwColors.red300, TwColors.red600)))),
         ]),
       );
       if (predicted) cell = DashedRRectBorder(color: dk(context, TwColors.red300, TwColors.red700), radius: 12, child: cell);

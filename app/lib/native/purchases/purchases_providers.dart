@@ -90,6 +90,9 @@ Future<void> bootstrapRevenueCat(ProviderContainer container) async {
   } catch (_) {}
 }
 
+/// `useAuth().user?.id` as the purchases layer sees it (overridable in tests).
+final purchasesUserIdProvider = Provider<String?>((ref) => ref.watch(authUserProvider.select((u) => u?.id)));
+
 /// `useInAppPurchase()` for a [ConsumerStatefulWidget]: creates the controller, binds the signed-in user (and
 /// re-binds when it changes), disposes it with the widget. Rebuild on [purchases] changes with a
 /// [ListenableBuilder].
@@ -99,8 +102,8 @@ mixin InAppPurchaseHost<T extends ConsumerStatefulWidget> on ConsumerState<T> {
   @override
   void initState() {
     super.initState();
-    unawaited(purchases.bindUser(ref.read(authUserProvider)?.id));
-    ref.listenManual(authUserProvider.select((u) => u?.id), (_, next) => unawaited(purchases.bindUser(next)));
+    unawaited(purchases.bindUser(ref.read(purchasesUserIdProvider)));
+    ref.listenManual(purchasesUserIdProvider, (_, next) => unawaited(purchases.bindUser(next)));
   }
 
   @override

@@ -28,7 +28,8 @@ class HealthSyncScreen extends ConsumerStatefulWidget {
 
 class _HealthSyncScreenState extends ConsumerState<HealthSyncScreen> {
   HealthService get _s => ref.read(healthServiceProvider);
-  late bool _connected = _s.isHealthConnected();
+  bool get _connected => ref.read(healthConnectedProvider);
+  set _connected(bool v) => ref.read(healthConnectedProvider.notifier).set(v);
   bool _connecting = false;
   late bool _vitalsWrite = _s.isVitalsWriteEnabled();
   bool _vitalsBusy = false;
@@ -185,9 +186,10 @@ class _HealthSyncScreenState extends ConsumerState<HealthSyncScreen> {
 
     final availability = ref.watch(healthAvailabilityQuery);
     final hcMissing = android && availability.data == false && !availability.isLoading;
-    final access = ref.watch(healthReadAccessQuery(_connected));
-    final daily = ref.watch(healthDailyQuery((days: 7, connected: _connected)));
-    final workoutsQ = ref.watch(healthWorkoutsQuery((days: 7, connected: _connected)));
+    ref.watch(healthConnectedProvider);
+    final access = ref.watch(healthReadAccessQuery);
+    final daily = ref.watch(healthDailyQuery(7));
+    final workoutsQ = ref.watch(healthWorkoutsQuery(7));
     final cycleAvailable = ref.watch(healthCycleWriteAvailableQuery).data;
     final workouts = workoutsQ.data ?? const <HealthWorkout>[];
     final noAccess = android && access.data != null && !access.data!.steps && !access.data!.workouts;
@@ -249,7 +251,7 @@ class _HealthSyncScreenState extends ConsumerState<HealthSyncScreen> {
         );
     Widget sectionTitle(String text) => Padding(
           padding: const EdgeInsets.fromLTRB(4, 22, 4, 8),
-          child: Text(text.toUpperCase(), style: px(12, weight: FontWeight.w800, color: a.inkSoft, ls: 0.05)),
+          child: Text(cssUpper(text), style: px(12, weight: FontWeight.w800, color: a.inkSoft, ls: 0.05)),
         );
     Widget listIcon(AIconData icon, Color bg, Color ink, {double size = 17}) => AListIcon(background: bg, foreground: ink, child: AIcon(icon, size: size));
     Widget cta(String text, AIconData icon, VoidCallback? onTap, {double height = 48, Key? key}) => Opacity(
@@ -332,7 +334,7 @@ class _HealthSyncScreenState extends ConsumerState<HealthSyncScreen> {
               const SizedBox(width: 18),
               Expanded(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-                  Text(t('today').toUpperCase(), style: px(12, weight: FontWeight.w700, color: a.inkFaint, ls: 0.04)),
+                  Text(cssUpper(t('today')), style: px(12, weight: FontWeight.w700, color: a.inkFaint, ls: 0.04)),
                   Padding(
                     padding: const EdgeInsets.only(top: 4),
                     child: todaySteps >= kStepGoal
@@ -524,7 +526,7 @@ class _HealthSyncScreenState extends ConsumerState<HealthSyncScreen> {
                         const SizedBox(width: 12),
                         Expanded(
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-                            Text(t('eyebrow').toUpperCase(), style: todayInfoEyebrow(context)),
+                            Text(cssUpper(t('eyebrow')), style: todayInfoEyebrow(context)),
                             Text(_platformName, style: px(20, weight: FontWeight.w700, color: a.ink, ls: -0.02)),
                           ]),
                         ),
