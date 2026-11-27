@@ -1,4 +1,6 @@
-# Codemagic CI: signed Anacan store packages (Capacitor 8).
+# Codemagic CI: signed Anacan store packages.
+# ios-store / android-store: Capacitor 8 (src/, 53.0 bridge release and rollback).
+# ios-flutter-store / android-flutter-store: Flutter rewrite in app/ (60.0+), same environment groups.
 # No triggers: builds start only from "Start new build", so the free 500 macOS
 # minutes are not spent on every push. Setup and private values: docs/CODEMAGIC.md
 
@@ -20,6 +22,41 @@ definitions:
         rm -rf dist/website dist/anacan-pitch-deck.html dist/anacan-pitch-deck.md
         # Content packs are downloaded from https://app.anacan.az/content-packs/ (never shipped natively)
         rm -rf dist/content-packs
+    # Flutter (app/) steps, shared by ios-flutter-store and android-flutter-store.
+    # FLUTTER_PLATFORM (ios|android) comes from each workflow's vars.
+    - &flutter_check_env
+      name: Check native environment (Flutter)
+      script: |
+        # Same anacan_native variables and live admission comparison as check-native-env.mjs,
+        # plus the live AdMob app ID and Customer.io settings for this platform.
+        node app/tool/codemagic/check_env.mjs "$FLUTTER_PLATFORM"
+    - &flutter_prepare
+      name: Flutter 3.50.1, pub get and generated-file checks
+      script: |
+        FLUTTER_LINE=$(flutter --version 2>/dev/null | head -n 1)
+        echo "$FLUTTER_LINE"
+        case "$FLUTTER_LINE" in
+          "Flutter 3.50.1 "*) ;;
+          *) echo "Flutter 3.50.1 expected (environment.flutter)"; exit 1 ;;
+        esac
+        (cd app && flutter pub get)
+        # Design tokens / i18n export --check, each only once its generator exists (npm ci first if it needs node_modules)
+        node app/tool/codemagic/check_generated.mjs
+    - &flutter_quality
+      name: Flutter analyze and test
+      script: |
+        cd app
+        flutter analyze
+        flutter test
+    - &flutter_native_config
+      name: Dart defines and live native config
+      script: |
+        # VITE_* -> --dart-define-from-file JSON (no Customer.io write key, no AdMob IDs)
+        DEFINES="$CM_BUILD_DIR/app/build/codemagic/dart_defines.json"
+        node app/tool/codemagic/write_dart_defines.mjs "$DEFINES"
+        echo "DART_DEFINES_FILE=$DEFINES" >> "$CM_ENV"
+        # Live AdMob app ID + Customer.io into gitignored native config only
+        node app/tool/codemagic/apply_native_config.mjs "$FLUTTER_PLATFORM"
 
 workflows:
   ios-store:
@@ -33,7 +70,7 @@ workflows:
         - anacan_native
         - anacan_ios_signing
       vars:
-        APP_VERSION: "52.0"
+        APP_VERSION: "53.0"
     scripts:
       - *install
       - *web_build
@@ -124,12 +161,14 @@ workflows:
         - anacan_native
         - anacan_android_signing
       vars:
-        APP_VERSION: "52.0"
-        # Build sequence inside 52.0: 0 -> versionName 52.0.0 / versionCode 5200, 1 -> 52.0.1 / 5201, …
+        APP_VERSION: "53.0"
+        # Build sequence inside 53.0: 0 -> versionName 53.0.0 / versionCode 5300, 1 -> 53.0.1 / 5301, …
         # Raise it by one before every new Play upload (Play rejects a versionCode it has seen).
         # 51.0 (2026-11-13): iOS 50.0 is released on the App Store, so the next submission needs a new version;
         # 5100+ is above every 50.0.x code (5000+).
         # 52.0 (2026-11-25): stability phase 2 (docs/STABILITY_PHASE2.md); 5200+ is above every 51.0.x code.
+        # 53.0 (2026-11-27): last Capacitor ("bridge") release before the Flutter 60.0 (android-flutter-store,
+        # 6000+); 5300+ is above every 52.0.x code and below every Flutter 60.0.x code.
         ANDROID_BUILD_SEQ: "0"
     scripts:
       - *install
@@ -154,8 +193,170 @@ workflows:
           cd android
           chmod +x gradlew
           ./gradlew bundleRelease assembleRelease \
-            -PanacanVersionCode="$(( 5200 + ANDROID_BUILD_SEQ ))" \
+            -PanacanVersionCode="$(( 5300 + ANDROID_BUILD_SEQ ))" \
             -PanacanVersionName="$APP_VERSION.$ANDROID_BUILD_SEQ"
     artifacts:
       - android/app/build/outputs/bundle/release/*.aab
       - android/app/build/outputs/apk/release/*.apk
+
+  ios-flutter-store:
+    name: iOS App Store, Flutter (TestFlight upload)
+    instance_type: mac_mini_m2
+    max_build_duration: 90
+    environment:
+      flutter: 3.50.1
+      xcode: latest
+      node: 22
+      groups:
+        - anacan_native
+        - anacan_ios_signing
+      vars:
+        # 60.0: first Flutter release (docs/FLUTTER_MIGRATION_PLAN.md §7); above every Capacitor 53.0.x build.
+        APP_VERSION: "60.0"
+        FLUTTER_PLATFORM: ios
+        # Signed targets as "<bundle id>=<Xcode target in app/ios>", space separated. Only Runner exists today.
+        # When the widget / notification service targets are ported, append e.g.
+        #   com.atlasoon.anacan.AnacanTimerWidgetExt=<widget target> com.atlasoon.anacan.AnacanNotificationService=<service target>
+        IOS_SIGNED_TARGETS: "com.atlasoon.anacan=Runner"
+    scripts:
+      - *flutter_check_env
+      - *flutter_prepare
+      - *flutter_quality
+      - name: Resolve iOS build number (60.0.0, 60.0.1, …)
+        script: |
+          # Next build number = last TestFlight build of this version + 1; the first build of 60.0 is 60.0.0.
+          if OUT=$(app-store-connect get-latest-testflight-build-number 6758301924 --pre-release-version "$APP_VERSION" 2>/dev/null); then
+            LATEST=$(echo "$OUT" | tail -n 1 | tr -d '[:space:]')
+          else
+            LATEST="lookup-failed"
+          fi
+          if echo "$LATEST" | grep -Eq "^${APP_VERSION//./\\.}\.[0-9]+$"; then
+            NEXT="$APP_VERSION.$(( ${LATEST##*.} + 1 ))"
+          elif [ "$LATEST" = "lookup-failed" ]; then
+            # Could not ask App Store Connect: fall back to Codemagic's own counter so the upload never clashes.
+            NEXT="$APP_VERSION.$BUILD_NUMBER"
+          else
+            NEXT="$APP_VERSION.0"
+          fi
+          echo "Latest TestFlight build for $APP_VERSION: ${LATEST:-none} -> building $NEXT"
+          echo "IOS_BUILD_VERSION=$NEXT" >> "$CM_ENV"
+      - *flutter_native_config
+      - name: Generate Flutter Xcode configuration
+        script: |
+          # Writes Generated.xcconfig and the Swift package wrappers so xcodebuild can read the project below
+          cd app
+          flutter build ios --release --config-only \
+            --build-name="$APP_VERSION" --build-number="$IOS_BUILD_VERSION" \
+            --dart-define-from-file="$DART_DEFINES_FILE"
+      - name: Fetch App Store certificate and profiles (IOS_SIGNED_TARGETS)
+        script: |
+          # Uses APP_STORE_CONNECT_* and CERTIFICATE_PRIVATE_KEY from anacan_ios_signing (same as ios-store)
+          keychain initialize
+          for PAIR in $IOS_SIGNED_TARGETS; do
+            app-store-connect fetch-signing-files "${PAIR%%=*}" --type IOS_APP_STORE --create
+          done
+          keychain add-certificates
+          echo "Signing identities in the build keychain:"; security find-identity -v -p codesigning || true
+          # Also writes $HOME/export_options.plist, used by flutter build ipa below
+          xcode-project use-profiles --project app/ios/Runner.xcodeproj
+          # Fail here (not later in archive) when a target got no App Store profile (see ios-store for the causes).
+          if ! SETTINGS=$(xcodebuild -project app/ios/Runner.xcodeproj -alltargets -configuration Release -showBuildSettings 2>/tmp/anacan-showbuildsettings.log); then
+            echo "xcodebuild could not read app/ios/Runner.xcodeproj:"; tail -n 40 /tmp/anacan-showbuildsettings.log
+            exit 1
+          fi
+          MISSING=0
+          for PAIR in $IOS_SIGNED_TARGETS; do
+            T="${PAIR#*=}"
+            SPEC=$(echo "$SETTINGS" | awk -v t="$T" '/^Build settings for action build and target /{cur=$NF; sub(/:$/,"",cur)} cur==t && $1=="PROVISIONING_PROFILE_SPECIFIER"{print $3; exit}')
+            echo "$T (${PAIR%%=*}) -> profile: ${SPEC:-<none>}"
+            [ -n "$SPEC" ] || MISSING=1
+          done
+          if [ "$MISSING" = 1 ]; then
+            echo "No App Store provisioning profile was applied. Check that CERTIFICATE_PRIVATE_KEY in anacan_ios_signing"
+            echo "belongs to an active Apple Distribution certificate (App Store Connect > Certificates) for team 8B6976J8H7."
+            exit 1
+          fi
+      - name: Build IPA (Flutter)
+        script: |
+          cd app
+          flutter build ipa --release \
+            --build-name="$APP_VERSION" --build-number="$IOS_BUILD_VERSION" \
+            --dart-define-from-file="$DART_DEFINES_FILE" \
+            --export-options-plist="$HOME/export_options.plist"
+      - name: Verify IPA (Customer.io write key not in Dart output)
+        script: node app/tool/codemagic/apply_native_config.mjs verify ios
+    artifacts:
+      - app/build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        submit_to_testflight: false
+
+  android-flutter-store:
+    name: Android Google Play, Flutter (AAB)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      flutter: 3.50.1
+      node: 22
+      java: 21
+      groups:
+        - anacan_native
+        - anacan_android_signing
+      vars:
+        APP_VERSION: "60.0"
+        FLUTTER_PLATFORM: android
+        # Build sequence inside 60.0: 0 -> versionName 60.0.0 / versionCode 6000, 1 -> 60.0.1 / 6001, …
+        # Raise it by one before every new Play upload (Play rejects a versionCode it has seen).
+        # 60.0: first Flutter release; 6000+ is above every Capacitor 53.0.x code (5300+), so it installs as an
+        # in-place update (same applicationId com.atlasoon.anacan and the same upload key).
+        ANDROID_BUILD_SEQ: "0"
+        # app/android/app/build.gradle.kts refuses to fall back to debug signing when this is set
+        ANACAN_REQUIRE_RELEASE_SIGNING: "true"
+    scripts:
+      - *flutter_check_env
+      - *flutter_prepare
+      - *flutter_quality
+      - *flutter_native_config
+      - name: Write upload keystore and keystore.properties
+        script: |
+          # CM_KEYSTORE (base64) and passwords come from anacan_android_signing (same as android-store)
+          KEYSTORE_PATH="$CM_BUILD_DIR/anacan-upload.jks"
+          echo "$CM_KEYSTORE" | base64 --decode > "$KEYSTORE_PATH"
+          cat > app/android/keystore.properties <<EOF
+          storeFile=$KEYSTORE_PATH
+          storePassword=$CM_KEYSTORE_PASSWORD
+          keyAlias=$CM_KEY_ALIAS
+          keyPassword=$CM_KEY_PASSWORD
+          EOF
+      - name: Build signed AAB and APK (Flutter)
+        script: |
+          cd app
+          VERSION_ARGS="--build-name=$APP_VERSION.$ANDROID_BUILD_SEQ --build-number=$(( 6000 + ANDROID_BUILD_SEQ ))"
+          flutter build appbundle --release $VERSION_ARGS --dart-define-from-file="$DART_DEFINES_FILE"
+          flutter build apk --release $VERSION_ARGS --dart-define-from-file="$DART_DEFINES_FILE"
+      - name: Verify packages (write key, upload signer, 16 KB alignment)
+        script: |
+          node app/tool/codemagic/apply_native_config.mjs verify android
+          AAB=$(ls app/build/app/outputs/bundle/release/*.aab | head -n 1)
+          APK=app/build/app/outputs/flutter-apk/app-release.apk
+          BT=$(ls -d "${ANDROID_SDK_ROOT:-$ANDROID_HOME}"/build-tools/* | sort -V | tail -n 1)
+          # Signer fingerprints only (public); must equal the Play upload certificate, never the debug key
+          AAB_CERT=$(keytool -printcert -jarfile "$AAB")
+          APK_CERT=$("$BT/apksigner" verify --print-certs "$APK")
+          echo "$AAB_CERT" | grep -E "Owner:|SHA256:"
+          echo "$APK_CERT" | grep -E "certificate DN|SHA-256 digest"
+          if echo "$AAB_CERT$APK_CERT" | grep -q "CN=Android Debug"; then echo "Release package is debug-signed"; exit 1; fi
+          # Google Play requires 16 KB page-size compatible native libraries (zip alignment of uncompressed .so)
+          if "$BT/zipalign" 2>&1 | grep -q -- "-P"; then
+            "$BT/zipalign" -c -P 16 -v 4 "$APK" > /tmp/anacan-zipalign.log || { grep -v "(OK" /tmp/anacan-zipalign.log | tail -n 20; exit 1; }
+            echo "16 KB zip alignment OK ($(basename "$BT"))"
+          else
+            echo "zipalign in $(basename "$BT") has no -P; 16 KB alignment not checked"
+          fi
+    artifacts:
+      - app/build/app/outputs/bundle/release/*.aab
+      - app/build/app/outputs/flutter-apk/app-release.apk

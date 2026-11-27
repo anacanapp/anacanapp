@@ -1,1 +1,11 @@
 #include "Generated.xcconfig"
+
+// Native-only values (Info.plist AnacanCustomerIo* keys; AdMob when ported). Local defaults: Google's test
+// AdMob app ID, Customer.io off. Codemagic overrides them through the gitignored AnacanNative.xcconfig
+// written by app/tool/codemagic/apply_native_config.mjs. Never put real values in this file.
+ANACAN_ADMOB_APP_ID = ca-app-pub-3940256099942544~1458002511
+ANACAN_CUSTOMERIO_ENABLED = false
+ANACAN_CUSTOMERIO_ENVIRONMENT =
+ANACAN_CUSTOMERIO_REGION =
+ANACAN_CUSTOMERIO_CDP_WRITE_KEY =
+#include? "AnacanNative.xcconfig"

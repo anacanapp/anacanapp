@@ -12,3 +12,7 @@ GeneratedPluginRegistrant.java
 key.properties
 **/*.keystore
 **/*.jks
+
+# Anacan: release signing and live native values (written by Codemagic, never committed)
+keystore.properties
+anacan-native.properties

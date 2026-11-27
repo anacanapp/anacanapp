@@ -1,7 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- In-place update of the Capacitor app (android/app/src/main/AndroidManifest.xml): same applicationId and
+         upload key; like Capacitor, no android:sharedUserId (adding or changing it breaks updates) and no
+         android:installLocation (internal only). allowBackup / supportsRtl copied from Capacitor; it declares no
+         fullBackupContent / dataExtractionRules, so neither does this. Permissions, services, receivers, providers
+         and deep links arrive with their features: docs/flutter/BUILD.md "Manifest parity backlog". -->
     <application
-        android:label="anacan"
+        android:label="Anacan"
         android:name="${applicationName}"
+        android:allowBackup="true"
+        android:supportsRtl="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -31,6 +38,8 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    <!-- Core networking (backend, admission). Flutter's template only adds it to debug/profile manifests. -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
          https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.

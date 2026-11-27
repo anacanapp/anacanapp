@@ -32,3 +32,6 @@ Runner/GeneratedPluginRegistrant.*
 !default.mode2v3
 !default.pbxuser
 !default.perspectivev3
+
+# Anacan: live native values written by Codemagic (app/tool/codemagic/apply_native_config.mjs)
+Flutter/AnacanNative.xcconfig

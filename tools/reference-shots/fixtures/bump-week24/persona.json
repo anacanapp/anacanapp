@@ -1,0 +1,22 @@
+{
+  "description": "Pregnant, week 24 (LMP 163 days before the frozen date), Premium, Azerbaijan, no partner linked.",
+  "signedIn": true,
+  "vars": {
+    "user_id": "b0000000-0000-4000-8000-000000000024",
+    "profile_id": "b0000000-0000-4000-8000-0000000000a1",
+    "user_name": "Leyla",
+    "email": "leyla.bump@example.test"
+  },
+  "user": {
+    "id": "b0000000-0000-4000-8000-000000000024",
+    "email": "leyla.bump@example.test",
+    "name": "Leyla",
+    "created_at": "2026-06-20T10:00:00Z"
+  },
+  "store": {
+    "lifeStage": "bump",
+    "role": "woman",
+    "countryCode": "AZ"
+  },
+  "premium": true
+}

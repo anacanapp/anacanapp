@@ -1,39 +1,96 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+// Release signing: app/android/keystore.properties (gitignored), same property names as the
+// Capacitor project's android/keystore.properties.example (see keystore.properties.example here).
+// storeFile is resolved relative to app/android/app/ unless absolute; Codemagic writes an absolute path.
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+val hasKeystoreProperties = keystorePropertiesFile.exists()
+if (hasKeystoreProperties) {
+    keystorePropertiesFile.inputStream().use { keystoreProperties.load(it) }
+}
+// Codemagic sets this so a missing keystore can never silently produce a debug-signed store package.
+if (System.getenv("ANACAN_REQUIRE_RELEASE_SIGNING") == "true" && !hasKeystoreProperties) {
+    throw GradleException("ANACAN_REQUIRE_RELEASE_SIGNING=true but app/android/keystore.properties is missing")
+}
+
+// Live native values written by app/tool/codemagic/apply_native_config.mjs (gitignored
+// app/android/anacan-native.properties). Without it (local builds) AdMob uses Google's test
+// app ID and Customer.io stays off. The Customer.io write key is native-only, never a Dart define.
+val nativeConfigFile = rootProject.file("anacan-native.properties")
+val nativeConfig = Properties()
+if (nativeConfigFile.exists()) {
+    nativeConfigFile.inputStream().use { nativeConfig.load(it) }
+}
+fun nativeValue(name: String, fallback: String = ""): String =
+    nativeConfig.getProperty(name)?.takeIf { it.isNotEmpty() } ?: fallback
+
 android {
     namespace = "com.atlasoon.anacan"
-    compileSdk = flutter.compileSdkVersion
+    // 36 = Capacitor android/variables.gradle; Flutter 3.50.1 defaults are also 36. Never go below 36.
+    compileSdk = maxOf(36, flutter.compileSdkVersion)
+    // Flutter 3.50.1: NDK 28.2.13676358 (r28 links 16 KB-aligned ELF segments by default) with AGP 9.3.1
+    // (16 KB zip alignment of uncompressed native libraries). Codemagic checks the APK with zipalign -P 16.
     ndkVersion = flutter.ndkVersion
 
+    // Java 17 bytecode: Flutter template default, compiled fine by Codemagic's JDK 21 (java: 21).
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    buildFeatures {
+        // AGP 9 turns resValues off by default; the anacan_customerio_* strings below need it.
+        resValues = true
+    }
+
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        // Same applicationId as the Capacitor app: 60.0 must install as an in-place update.
         applicationId = "com.atlasoon.anacan"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        // Uses the version code from pubspec.yaml. When using split APKs, 1000 * ABI_VERSION
-        // is added automatically by Flutter. (https://developer.android.com/studio/build/configure-apk-splits#configure-APK-versions)
-        // You can force using the value of versionCode by specifying the `-P force-version-code-ignoring-abi=true`
-        // flag during build.
+        // 26 = Capacitor android/variables.gradle (Health Connect, java.time without desugaring).
+        minSdk = 26
+        targetSdk = maxOf(36, flutter.targetSdkVersion)
+        // From `flutter build … --build-name/--build-number` (codemagic.yaml: 60.0.<SEQ> / 6000+SEQ).
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        // Native-only configuration (see nativeConfig above). Referenced by the manifest / native code
+        // when AdMob and Customer.io are ported (docs/flutter/BUILD.md, Manifest parity backlog).
+        manifestPlaceholders["anacanAdmobAppId"] =
+            nativeValue("admobAppId", "ca-app-pub-3940256099942544~3347511713")
+        resValue("string", "anacan_customerio_enabled", nativeValue("customerIoEnabled", "false"))
+        resValue("string", "anacan_customerio_environment", nativeValue("customerIoEnvironment"))
+        resValue("string", "anacan_customerio_region", nativeValue("customerIoRegion"))
+        resValue("string", "anacan_customerio_cdp_write_key", nativeValue("customerIoCdpWriteKey"))
+    }
+
+    signingConfigs {
+        create("release") {
+            if (hasKeystoreProperties) {
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
+        }
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            // Upload key from keystore.properties; local release runs without it fall back to the debug key.
+            signingConfig =
+                if (hasKeystoreProperties) signingConfigs.getByName("release") else signingConfigs.getByName("debug")
+            // R8 + resource shrinking. The Flutter Gradle plugin adds proguard-android-optimize.txt,
+            // Flutter's own rules and this module's proguard-rules.pro. Resources looked up by name
+            // (notification icons) must be listed in res/raw/keep.xml.
+            isMinifyEnabled = true
+            isShrinkResources = true
         }
     }
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Resource shrinking (isShrinkResources = true) removes resources that code does not reference
+     directly. List here every resource a plugin or native code looks up by NAME, e.g. notification
+     small icons passed as strings ("ic_stat_anacan"), widget layouts, raw sounds:
+       tools:keep="@drawable/ic_stat_*,@raw/anacan_*"
+     Add the entries together with the feature that needs them (docs/flutter/BUILD.md). -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@mipmap/ic_launcher*" />

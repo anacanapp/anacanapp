@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>anacan</string>
+	<string>Anacan</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -56,8 +56,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -66,5 +64,15 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>AnacanCustomerIoEnabled</key>
+	<string>$(ANACAN_CUSTOMERIO_ENABLED)</string>
+	<key>AnacanCustomerIoEnvironment</key>
+	<string>$(ANACAN_CUSTOMERIO_ENVIRONMENT)</string>
+	<key>AnacanCustomerIoRegion</key>
+	<string>$(ANACAN_CUSTOMERIO_REGION)</string>
+	<key>AnacanCustomerIoCdpWriteKey</key>
+	<string>$(ANACAN_CUSTOMERIO_CDP_WRITE_KEY)</string>
 </dict>
 </plist>

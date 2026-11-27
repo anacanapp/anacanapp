@@ -1,0 +1,234 @@
+{
+ "schema": "anacan-flutter-i18n-v1",
+ "copyPrefix": "@copy.",
+ "inlineKeys": 2343,
+ "inlineKeysAdminOnly": 1944,
+ "languages": {
+  "az": {
+   "keys": 11823,
+   "missingVsAz": 0,
+   "extraVsAz": 0,
+   "inlineTranslated": 2343,
+   "bytes": 748065,
+   "sha256": "953ace505096958c276c3f4e343f53af2a0758dfff3bc5dae7c30fd615042676",
+   "source": "src/locales/az.json"
+  },
+  "en": {
+   "keys": 10971,
+   "missingVsAz": 2343,
+   "extraVsAz": 1491,
+   "inlineTranslated": 0,
+   "bytes": 647001,
+   "sha256": "886116a5c825e8f0b67dca82793ae33db28516aad7c461baef9ecfaf042bad3b",
+   "source": "src/locales/en.json"
+  },
+  "tr": {
+   "keys": 10978,
+   "missingVsAz": 2347,
+   "extraVsAz": 1502,
+   "inlineTranslated": 0,
+   "bytes": 667253,
+   "sha256": "3146d2144d4591fbf106a2c1eb67550272b7b594d514c392daabce5c3a9adbf2",
+   "source": "scripts/i18n/tr.seed.json"
+  },
+  "ru": {
+   "keys": 10978,
+   "missingVsAz": 2347,
+   "extraVsAz": 1502,
+   "inlineTranslated": 0,
+   "bytes": 866332,
+   "sha256": "1d7eb7978095cddbbd822a569a8523479881237425a123535dde3c6d2efabb8a",
+   "source": "scripts/i18n/ru.seed.json"
+  },
+  "de": {
+   "keys": 10978,
+   "missingVsAz": 2347,
+   "extraVsAz": 1502,
+   "inlineTranslated": 0,
+   "bytes": 689470,
+   "sha256": "dca4b1ae9227967714d4cc5a31163c193459847abc2f625366c041175a028a8a",
+   "source": "scripts/i18n/de.seed.json"
+  },
+  "ar": {
+   "keys": 10978,
+   "missingVsAz": 2347,
+   "extraVsAz": 1502,
+   "inlineTranslated": 0,
+   "bytes": 792623,
+   "sha256": "28df7614699a66725a1b5a567ffe06a270fa77fde39042f369f28c394f36a986",
+   "source": "scripts/i18n/ar.seed.json"
+  },
+  "ka": {
+   "keys": 10978,
+   "missingVsAz": 2347,
+   "extraVsAz": 1502,
+   "inlineTranslated": 0,
+   "bytes": 1076107,
+   "sha256": "b4988025d28e085a7183789f687ed13cd25c750d5916b6922581e270b3210256",
+   "source": "scripts/i18n/ka.seed.json"
+  },
+  "kk": {
+   "keys": 10978,
+   "missingVsAz": 2347,
+   "extraVsAz": 1502,
+   "inlineTranslated": 0,
+   "bytes": 854900,
+   "sha256": "bf7077bde788d48168ca1a304f441b2b2c9939d3ef7fd5370aef64a5828203af",
+   "source": "scripts/i18n/kk.seed.json"
+  },
+  "uz": {
+   "keys": 10978,
+   "missingVsAz": 2347,
+   "extraVsAz": 1502,
+   "inlineTranslated": 0,
+   "bytes": 678049,
+   "sha256": "f7300573f47b258a5c020fa5f9f03546aa2f38ed65a6234c1f0ffa4cac95f95f",
+   "source": "scripts/i18n/uz.seed.json"
+  },
+  "zh": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 764241,
+   "sha256": "e2fc535502e459f06e81a22640ffc0fb0174d0df6eb9eb6c4f278d5e3b6729b4",
+   "source": "scripts/i18n/zh.seed.json"
+  },
+  "id": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 802513,
+   "sha256": "6a651e837bbc240dc7bd09a1fd19927c10e27b5e133b8b1ced7ab6b1fa5a007a",
+   "source": "scripts/i18n/id.seed.json"
+  },
+  "fr": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 856576,
+   "sha256": "4f112cb7b8890ad47a9065a16cd6361dc78835164ca1b3ef2e7881af2bc7ee0c",
+   "source": "scripts/i18n/fr.seed.json"
+  },
+  "es": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 831746,
+   "sha256": "5476ddeaad636591e0db4762f823ce3ab23d6e10f97affbe93201d52abde78e5",
+   "source": "scripts/i18n/es.seed.json"
+  },
+  "pt": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 832144,
+   "sha256": "112463ac7979c2edd984d48a6c36b88c1c8f2032cd8272b12e848ef3e8f90e1f",
+   "source": "scripts/i18n/pt.seed.json"
+  },
+  "vi": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 892240,
+   "sha256": "2306d626390f024723c3733a9f3ef3e0d0d459d28218540cc5d898a95ddea83a",
+   "source": "scripts/i18n/vi.seed.json"
+  },
+  "hi": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 1211353,
+   "sha256": "179a37367ecb0a8a40c48e2b34b5a59dcabc8bcbe6f6e44ab18193ccdee8301d",
+   "source": "scripts/i18n/hi.seed.json"
+  },
+  "ja": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 886568,
+   "sha256": "e8adf080d0a815830bcb0a2746410120e01737031a3d06953d39aca494b84a64",
+   "source": "scripts/i18n/ja.seed.json"
+  },
+  "ko": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 837037,
+   "sha256": "031f1f2acdd80e729ba3d5d005f13821e4b54f00610882b0a2148ce80bfcab5a",
+   "source": "scripts/i18n/ko.seed.json"
+  },
+  "pl": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 827780,
+   "sha256": "ce8689325d6e724df65c7d8ce38d3dc1da9bc7e059f774dbf31b11fa680bf408",
+   "source": "scripts/i18n/pl.seed.json"
+  },
+  "nl": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 814915,
+   "sha256": "709b2fc8ea7124be3225e3cff4c4285db52273637c635329ca3c5a1f7cb95675",
+   "source": "scripts/i18n/nl.seed.json"
+  },
+  "sv": {
+   "keys": 13128,
+   "missingVsAz": 1068,
+   "extraVsAz": 2373,
+   "inlineTranslated": 1276,
+   "bytes": 802278,
+   "sha256": "d5f876b74f8f6a7e252cd54198420dfa86567db508890c467c83f5c717078294",
+   "source": "scripts/i18n/sv.seed.json"
+  },
+  "ky": {
+   "keys": 13206,
+   "missingVsAz": 1036,
+   "extraVsAz": 2419,
+   "inlineTranslated": 1308,
+   "bytes": 1058246,
+   "sha256": "ed18ba95dd1c36db2facaf0522bad5cbf23e043af5c500c1ab67d457c973a2fb",
+   "source": "scripts/i18n/ky.seed.json"
+  },
+  "et": {
+   "keys": 13206,
+   "missingVsAz": 1036,
+   "extraVsAz": 2419,
+   "inlineTranslated": 1308,
+   "bytes": 795331,
+   "sha256": "b50205a5de07bff502bbf8f0e68c5ad4ec73f1b44b22614f412b071b448933aa",
+   "source": "scripts/i18n/et.seed.json"
+  },
+  "tk": {
+   "keys": 13206,
+   "missingVsAz": 1036,
+   "extraVsAz": 2419,
+   "inlineTranslated": 1308,
+   "bytes": 825652,
+   "sha256": "5b5f6b7ee67e6aa1f535da5309eb0be67804a3ea6fe16207b4439ac63665c368",
+   "source": "scripts/i18n/tk.seed.json"
+  },
+  "uk": {
+   "keys": 13206,
+   "missingVsAz": 1036,
+   "extraVsAz": 2419,
+   "inlineTranslated": 1308,
+   "bytes": 1044023,
+   "sha256": "c243850e71a73c39ba897876b4622b95e8f79f424981272a648d480c6dd2ded7",
+   "source": "scripts/i18n/uk.seed.json"
+  }
+ },
+ "inlineIndexBytes": 363371
+}
