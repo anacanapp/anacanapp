@@ -32,6 +32,9 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| Endirim QR-ı: serverin xəta cavabları (`premium_required`, `cooldown`) ümumi xəta kimi göstərilirdi | `RedemptionQRSheet.tsx` | Flutter-də öz mesajı |
+| Dar ekranlarda partnyor mağaza qiyməti, partnyorlar CTA-sı, tort sifarişi sətirləri daşırdı | partner-shop, partners, cakes | Flutter-də sıxılır |
+| Epoint: Capacitor Browser "bağlandı" hadisəsi yoxdur; Android Custom Tabs + tətbiqə qayıdanda yoxlama, iOS Safari | `in-app-epoint.ts` | cihazda yoxlanmalıdır |
 | Bloq məqaləsi: hero və geri düyməsi status bar altına düşürdü | `BlogPostDetail.tsx` | Flutter-də yuxarı boşluq var |
 | Albom sifarişi Alətlər tabında: göndər çubuğu ekranın altına sabitlənib nav altında qalırdı | `AlbumOrderScreen.tsx` | Flutter-də səhifənin sonunda |
 | Qabıq: məqalə açılanda swipe söndürülür və alt qat sıfırdan qurulurdu (yazılmamış mesaj itirdi) | `shell_scaffold.dart` (Flutter qüsuru) | düzəldilib |

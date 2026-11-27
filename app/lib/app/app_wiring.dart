@@ -11,6 +11,7 @@ import 'package:flutter/services.dart' show HapticFeedback;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
+import 'package:qr_flutter/qr_flutter.dart' show QrErrorCorrectLevel, QrImageView;
 
 import '../core/data/app_settings.dart';
 import '../core/data/privacy_consent.dart';
@@ -31,6 +32,18 @@ import '../features/album_order/register.dart' show albumOrderWiringOverrides, p
 import '../features/blog/register.dart' show blogHospitalBagArticles, blogWiringOverrides;
 import '../features/books/register.dart' show booksCarouselSlot, booksHomeCardSlot;
 import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
+import '../features/commerce/partners/qr_code.dart' show qrCodeBuilderProvider;
+import '../features/commerce/register.dart'
+    show
+        commerceAptekBagCard,
+        commerceAptekHomeCard,
+        commerceAptekSearchResults,
+        commerceFlowPartnerHomeCard,
+        commerceMommySlots,
+        commercePartnerHomeCard,
+        commercePromoDialog,
+        commerceQaygiCashProfileCard,
+        commerceWiringOverrides;
 import '../features/tools/pregnancy_common/pregnancy_ports.dart' show PregnancyToolSlots, pregnancyToolSlotsProvider;
 import '../features/community/register.dart' show communityWiringOverrides;
 import '../features/community_stories/register.dart' show communityStoriesWiringOverrides;
@@ -120,13 +133,25 @@ List<Override> featureWiringOverrides() => [
       // ── partner: data feeds and notifications for the woman's features ──────────────────────────────────────
       ...partnerWiringOverrides(),
       // Profile slots (one ProfileSlots; commerce / health screens add theirs here).
-      profileSlotsProvider.overrideWithValue(const ProfileSlots(partnerLinkForm: partnerLinkFormSlot)),
+      profileSlotsProvider.overrideWithValue(const ProfileSlots(
+        partnerLinkForm: partnerLinkFormSlot,
+        qaygiCashCard: commerceQaygiCashProfileCard,
+        promoDialog: commercePromoDialog,
+      )),
 
       // ── blog / album order / pregnancy tool slots (one PregnancyToolSlots; Aptek and ads add their fields) ────────
       ...blogWiringOverrides(),
       ...albumOrderWiringOverrides(),
       pregnancyToolSlotsProvider.overrideWithValue(
-          const PregnancyToolSlots(hospitalBagArticles: blogHospitalBagArticles, albumOrderScreen: pregnancyAlbumOrderSlot)),
+          const PregnancyToolSlots(
+        hospitalBagArticles: blogHospitalBagArticles,
+        albumOrderScreen: pregnancyAlbumOrderSlot,
+        aptekBagCard: commerceAptekBagCard,
+      )),
+      // ── commerce: paywall extensions, QayğıCash row, books wallet, partner QR ─────────────────────────────────
+      ...commerceWiringOverrides(),
+      qrCodeBuilderProvider.overrideWithValue(
+          (context, value, size) => QrImageView(data: value, size: size, padding: EdgeInsets.zero, errorCorrectionLevel: QrErrorCorrectLevel.M)),
 
       ...communityWiringOverrides(),
       ...communityStoriesWiringOverrides(),
@@ -147,6 +172,8 @@ List<Override> featureWiringOverrides() => [
         childSelectorCompact: buildMommyTopBarAction,
         babyChatCard: babyChatCardSlot,
         booksHomeCard: booksHomeCardSlot,
+        aptekHomeCard: commerceAptekHomeCard,
+        partnerHomeCard: commercePartnerHomeCard,
         partnerCareCard: partnerCareCardSlot,
         dailySummaryAutoSync: dailySummaryAutoSyncSlot,
         showBirthOnboarding: (context) async {
@@ -160,6 +187,7 @@ List<Override> featureWiringOverrides() => [
       flowHomeSlotsProvider.overrideWithValue(FlowHomeSlots(
         waterWidget: (context) => const WaterWidget(variant: WaterWidgetVariant.anacan),
         upcomingAppointments: (context) => const UpcomingAppointments(),
+        partnerHomeCard: commerceFlowPartnerHomeCard,
       )),
       // AI request context: useWeightEntries().entries (newest first), useKickSessions().todaySessions.
       aiWeightEntriesProvider.overrideWith((ref) => [
@@ -167,7 +195,8 @@ List<Override> featureWiringOverrides() => [
           ]),
       aiMotherMealsProvider.overrideWith((ref) => ref.watch(mealLogsProvider).todayLogs),
       // Tools hub: first aid must work offline (usePrefetchFirstAid).
-      toolsHubSlotsProvider.overrideWithValue(const ToolsHubSlots(prefetchFirstAid: healthToolsPrefetchFirstAid)),
+      toolsHubSlotsProvider.overrideWithValue(
+          const ToolsHubSlots(prefetchFirstAid: healthToolsPrefetchFirstAid, aptekSearchResults: commerceAptekSearchResults)),
       aiKickSessionsProvider.overrideWith((ref) => [for (final s in ref.watch(kickSessionsProvider).todaySessions) s.toRow()]),
       // Period-delay banner → AI tab with the prompt in the input.
       flowOpenAiChatProvider.overrideWith(aiChatFlowOpener),
@@ -183,6 +212,7 @@ List<Override> featureWiringOverrides() => [
           MommySlot.upcomingAppointments: (context, _) => const UpcomingAppointments(),
           MommySlot.waterWidget: (context, _) => const WaterWidget(variant: WaterWidgetVariant.anacan),
           MommySlot.booksCarousel: booksCarouselSlot,
+          ...commerceMommySlots,
         },
         premiumGate: (context, a) => PremiumBlurGate(feature: a.feature, title: a.title, subtitle: a.subtitle, blur: a.blur ?? 'md', child: a.child),
         showPremiumModal: (context, feature) => showPremiumModal(context, feature: feature),

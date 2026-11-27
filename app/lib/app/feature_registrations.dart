@@ -10,6 +10,7 @@ import '../features/billing/register.dart';
 import '../features/blog/register.dart';
 import '../features/books/register.dart';
 import '../features/chat/register.dart';
+import '../features/commerce/register.dart';
 import '../features/community/register.dart';
 import '../features/community_stories/register.dart';
 import '../features/entry/entry_feature.dart';
@@ -47,6 +48,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerBlogFeature(r);
   registerBooksFeature(r);
   registerChatFeature(r);
+  registerCommerceFeature(r);
   registerCommunityFeature(r);
   registerCommunityStoriesFeature(r);
   registerEntryFeature(r);
